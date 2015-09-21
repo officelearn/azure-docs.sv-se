@@ -1,0 +1,671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1181840d-20ad-4dba-ac52-0c90ef9a1852" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1181840d-20ad-4dba-ac52-0c90ef9a1852" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3a04749a-d317-4027-8d5a-2ffc4fd8194c">
+        <trans-unit id="4e9b2b6a-51f7-41bd-8615-55da91c4d41b" xml:space="preserve">
+          <source>Evaluate model performance in Machine Learning | Microsoft Azure</source>
+          <target state="new">Evaluate model performance in Machine Learning | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f897c22a-1bd3-4b74-9c38-b567c820f5ef" xml:space="preserve">
+          <source>Explains how to evaluate model performance in Azure Machine Learning.</source>
+          <target state="new">Explains how to evaluate model performance in Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="e79c30a1-c415-4079-9602-19ca4db86182" xml:space="preserve">
+          <source>This topic demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task.</source>
+          <target state="new">This topic demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task.</target>
+        </trans-unit>
+        <trans-unit id="c9588cf8-d4a3-4819-9eb5-298bf4a8d717" xml:space="preserve">
+          <source>Three common supervised learning scenarios are presented:</source>
+          <target state="new">Three common supervised learning scenarios are presented:</target>
+        </trans-unit>
+        <trans-unit id="1f7db072-ac23-4781-995c-f6f461710e26" xml:space="preserve">
+          <source>regression</source>
+          <target state="new">regression</target>
+        </trans-unit>
+        <trans-unit id="9fab322b-3879-44c5-870c-925e5559014e" xml:space="preserve">
+          <source>binary classification </source>
+          <target state="new">binary classification </target>
+        </trans-unit>
+        <trans-unit id="e9c92ce9-0e4b-47a3-9043-640720f60d4c" xml:space="preserve">
+          <source>multiclass classification</source>
+          <target state="new">multiclass classification</target>
+        </trans-unit>
+        <trans-unit id="02c00ac0-908c-4371-9274-227b0cd69732" xml:space="preserve">
+          <source><bpt id="d2c7bf7d-9ab0-4201-8272-8d8a933b02d2">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="d2c7bf7d-9ab0-4201-8272-8d8a933b02d2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d2c7bf7d-9ab0-4201-8272-8d8a933b02d2">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="d2c7bf7d-9ab0-4201-8272-8d8a933b02d2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd0c9f68-ed9c-404c-89df-2b988b7b3106" xml:space="preserve">
+          <source>Evaluating the performance of a model is one of the core stages in the data science process.</source>
+          <target state="new">Evaluating the performance of a model is one of the core stages in the data science process.</target>
+        </trans-unit>
+        <trans-unit id="cda5e682-e1cd-41c6-bed3-8c0041c81031" xml:space="preserve">
+          <source>It indicates how successful the scoring (predictions) of a dataset has been by a trained model.</source>
+          <target state="new">It indicates how successful the scoring (predictions) of a dataset has been by a trained model.</target>
+        </trans-unit>
+        <trans-unit id="5c8d8731-5179-40b4-88dd-d8d6b042df26" xml:space="preserve">
+          <source>Azure Machine Learning supports model evaluation through two of its main machine learning modules: <bpt id="edd36f19-2a16-4573-9b74-0fb2da1fb2f0">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="edd36f19-2a16-4573-9b74-0fb2da1fb2f0">&lt;/linkText&gt;</ept><bpt id="edd36f19-2a16-4573-9b74-0fb2da1fb2f0">&lt;title&gt;</bpt><ept id="edd36f19-2a16-4573-9b74-0fb2da1fb2f0">&lt;/title&gt;</ept> and <bpt id="cd9d4b13-b8ce-493a-a0b8-0db25f5bed4a">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="cd9d4b13-b8ce-493a-a0b8-0db25f5bed4a">&lt;/linkText&gt;</ept><bpt id="cd9d4b13-b8ce-493a-a0b8-0db25f5bed4a">&lt;title&gt;</bpt><ept id="cd9d4b13-b8ce-493a-a0b8-0db25f5bed4a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure Machine Learning supports model evaluation through two of its main machine learning modules: <bpt id="edd36f19-2a16-4573-9b74-0fb2da1fb2f0">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="edd36f19-2a16-4573-9b74-0fb2da1fb2f0">&lt;/linkText&gt;</ept><bpt id="edd36f19-2a16-4573-9b74-0fb2da1fb2f0">&lt;title&gt;</bpt><ept id="edd36f19-2a16-4573-9b74-0fb2da1fb2f0">&lt;/title&gt;</ept> and <bpt id="cd9d4b13-b8ce-493a-a0b8-0db25f5bed4a">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="cd9d4b13-b8ce-493a-a0b8-0db25f5bed4a">&lt;/linkText&gt;</ept><bpt id="cd9d4b13-b8ce-493a-a0b8-0db25f5bed4a">&lt;title&gt;</bpt><ept id="cd9d4b13-b8ce-493a-a0b8-0db25f5bed4a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db33d7bc-9db8-41fc-a1fc-8fbc5275e4c6" xml:space="preserve">
+          <source>These modules allow you to see how your model performs in terms of a number of metrics that are commonly used in machine learning and statistics.</source>
+          <target state="new">These modules allow you to see how your model performs in terms of a number of metrics that are commonly used in machine learning and statistics.</target>
+        </trans-unit>
+        <trans-unit id="18c339b0-4328-4a1d-ab90-cdc303d360b2" xml:space="preserve">
+          <source>Evaluation and cross validation are standard ways to measure the performance of your model.</source>
+          <target state="new">Evaluation and cross validation are standard ways to measure the performance of your model.</target>
+        </trans-unit>
+        <trans-unit id="c2a9e08a-f489-4809-b08d-47f9af9bc5cb" xml:space="preserve">
+          <source>They both generate evaluation metrics that you can inspect or compare against those of other models.</source>
+          <target state="new">They both generate evaluation metrics that you can inspect or compare against those of other models.</target>
+        </trans-unit>
+        <trans-unit id="807afdd1-35b8-45fb-b445-1b46565418d9" xml:space="preserve">
+          <source><bpt id="007625ef-e9c1-49a5-82da-fba02dbb73f4">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="007625ef-e9c1-49a5-82da-fba02dbb73f4">&lt;/linkText&gt;</ept><bpt id="007625ef-e9c1-49a5-82da-fba02dbb73f4">&lt;title&gt;</bpt><ept id="007625ef-e9c1-49a5-82da-fba02dbb73f4">&lt;/title&gt;</ept> expects a scored dataset as input (or 2 in case you would like to compare the performance of 2 different models).</source>
+          <target state="new"><bpt id="007625ef-e9c1-49a5-82da-fba02dbb73f4">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="007625ef-e9c1-49a5-82da-fba02dbb73f4">&lt;/linkText&gt;</ept><bpt id="007625ef-e9c1-49a5-82da-fba02dbb73f4">&lt;title&gt;</bpt><ept id="007625ef-e9c1-49a5-82da-fba02dbb73f4">&lt;/title&gt;</ept> expects a scored dataset as input (or 2 in case you would like to compare the performance of 2 different models).</target>
+        </trans-unit>
+        <trans-unit id="185f9af8-62ed-4fa0-96ab-257be95023ef" xml:space="preserve">
+          <source>This means that you need to train your model using the <bpt id="da9ef042-3082-4ea8-b5b6-ce05fcbb5698">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="da9ef042-3082-4ea8-b5b6-ce05fcbb5698">&lt;/linkText&gt;</ept><bpt id="da9ef042-3082-4ea8-b5b6-ce05fcbb5698">&lt;title&gt;</bpt><ept id="da9ef042-3082-4ea8-b5b6-ce05fcbb5698">&lt;/title&gt;</ept> module and make predictions on some dataset using the <bpt id="2c676126-d70d-40a7-90bf-7ede9d77bf29">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="2c676126-d70d-40a7-90bf-7ede9d77bf29">&lt;/linkText&gt;</ept><bpt id="2c676126-d70d-40a7-90bf-7ede9d77bf29">&lt;title&gt;</bpt><ept id="2c676126-d70d-40a7-90bf-7ede9d77bf29">&lt;/title&gt;</ept> module, before you can evaluate the results.</source>
+          <target state="new">This means that you need to train your model using the <bpt id="da9ef042-3082-4ea8-b5b6-ce05fcbb5698">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="da9ef042-3082-4ea8-b5b6-ce05fcbb5698">&lt;/linkText&gt;</ept><bpt id="da9ef042-3082-4ea8-b5b6-ce05fcbb5698">&lt;title&gt;</bpt><ept id="da9ef042-3082-4ea8-b5b6-ce05fcbb5698">&lt;/title&gt;</ept> module and make predictions on some dataset using the <bpt id="2c676126-d70d-40a7-90bf-7ede9d77bf29">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="2c676126-d70d-40a7-90bf-7ede9d77bf29">&lt;/linkText&gt;</ept><bpt id="2c676126-d70d-40a7-90bf-7ede9d77bf29">&lt;title&gt;</bpt><ept id="2c676126-d70d-40a7-90bf-7ede9d77bf29">&lt;/title&gt;</ept> module, before you can evaluate the results.</target>
+        </trans-unit>
+        <trans-unit id="a3b87e01-493e-4fc7-879c-fa234e878343" xml:space="preserve">
+          <source>The evaluation is the based on the scored labels/probabilities along with the true labels, all of which are output by the <bpt id="29c0ba0f-c745-4ba4-9889-771639a9bc29">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="29c0ba0f-c745-4ba4-9889-771639a9bc29">&lt;/linkText&gt;</ept><bpt id="29c0ba0f-c745-4ba4-9889-771639a9bc29">&lt;title&gt;</bpt><ept id="29c0ba0f-c745-4ba4-9889-771639a9bc29">&lt;/title&gt;</ept> module.</source>
+          <target state="new">The evaluation is the based on the scored labels/probabilities along with the true labels, all of which are output by the <bpt id="29c0ba0f-c745-4ba4-9889-771639a9bc29">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="29c0ba0f-c745-4ba4-9889-771639a9bc29">&lt;/linkText&gt;</ept><bpt id="29c0ba0f-c745-4ba4-9889-771639a9bc29">&lt;title&gt;</bpt><ept id="29c0ba0f-c745-4ba4-9889-771639a9bc29">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="e384f313-0740-4461-8f94-0de5ef21a14c" xml:space="preserve">
+          <source>Alternatively, you can use cross validation to perform a number of train-score-evaluate operations (10 folds) automatically on different subsets of the input data.</source>
+          <target state="new">Alternatively, you can use cross validation to perform a number of train-score-evaluate operations (10 folds) automatically on different subsets of the input data.</target>
+        </trans-unit>
+        <trans-unit id="d6abf00b-fbd4-425d-9293-6ba89b6f44e0" xml:space="preserve">
+          <source>The input data is split into 10 parts, where one is reserved for testing, and the other 9 for training.</source>
+          <target state="new">The input data is split into 10 parts, where one is reserved for testing, and the other 9 for training.</target>
+        </trans-unit>
+        <trans-unit id="8d2fe20c-bb43-40ab-be04-ed41bb6b574c" xml:space="preserve">
+          <source>This process is repeated 10 times and the evaluation metrics are averaged.</source>
+          <target state="new">This process is repeated 10 times and the evaluation metrics are averaged.</target>
+        </trans-unit>
+        <trans-unit id="26aa4442-30c1-48af-8d67-231e9c55b0bf" xml:space="preserve">
+          <source>This helps in determining how well a model would generalize to new datasets.</source>
+          <target state="new">This helps in determining how well a model would generalize to new datasets.</target>
+        </trans-unit>
+        <trans-unit id="f2717e09-4951-48b5-9f63-15ba5de55fdb" xml:space="preserve">
+          <source>The <bpt id="3537cb16-5e24-4e01-a593-2a35cfab6654">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="3537cb16-5e24-4e01-a593-2a35cfab6654">&lt;/linkText&gt;</ept><bpt id="3537cb16-5e24-4e01-a593-2a35cfab6654">&lt;title&gt;</bpt><ept id="3537cb16-5e24-4e01-a593-2a35cfab6654">&lt;/title&gt;</ept> module takes in an untrained model and some labeled dataset and outputs the evaluation results of each of the 10 folds, in addition to the averaged results.</source>
+          <target state="new">The <bpt id="3537cb16-5e24-4e01-a593-2a35cfab6654">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="3537cb16-5e24-4e01-a593-2a35cfab6654">&lt;/linkText&gt;</ept><bpt id="3537cb16-5e24-4e01-a593-2a35cfab6654">&lt;title&gt;</bpt><ept id="3537cb16-5e24-4e01-a593-2a35cfab6654">&lt;/title&gt;</ept> module takes in an untrained model and some labeled dataset and outputs the evaluation results of each of the 10 folds, in addition to the averaged results.</target>
+        </trans-unit>
+        <trans-unit id="fb7469f2-8087-4171-b949-83795f8e5aaf" xml:space="preserve">
+          <source>In the following sections, we will build simple regression and classification models and evaluate their performance, using both the <bpt id="a56964a1-9d35-487f-a056-aee145bf47d6">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="a56964a1-9d35-487f-a056-aee145bf47d6">&lt;/linkText&gt;</ept><bpt id="a56964a1-9d35-487f-a056-aee145bf47d6">&lt;title&gt;</bpt><ept id="a56964a1-9d35-487f-a056-aee145bf47d6">&lt;/title&gt;</ept> and the <bpt id="ecef0259-51a6-4d40-8f62-674903a273a5">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="ecef0259-51a6-4d40-8f62-674903a273a5">&lt;/linkText&gt;</ept><bpt id="ecef0259-51a6-4d40-8f62-674903a273a5">&lt;title&gt;</bpt><ept id="ecef0259-51a6-4d40-8f62-674903a273a5">&lt;/title&gt;</ept> modules.</source>
+          <target state="new">In the following sections, we will build simple regression and classification models and evaluate their performance, using both the <bpt id="a56964a1-9d35-487f-a056-aee145bf47d6">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="a56964a1-9d35-487f-a056-aee145bf47d6">&lt;/linkText&gt;</ept><bpt id="a56964a1-9d35-487f-a056-aee145bf47d6">&lt;title&gt;</bpt><ept id="a56964a1-9d35-487f-a056-aee145bf47d6">&lt;/title&gt;</ept> and the <bpt id="ecef0259-51a6-4d40-8f62-674903a273a5">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="ecef0259-51a6-4d40-8f62-674903a273a5">&lt;/linkText&gt;</ept><bpt id="ecef0259-51a6-4d40-8f62-674903a273a5">&lt;title&gt;</bpt><ept id="ecef0259-51a6-4d40-8f62-674903a273a5">&lt;/title&gt;</ept> modules.</target>
+        </trans-unit>
+        <trans-unit id="475e8add-616b-47a3-9274-6ad54cbc3d74" xml:space="preserve">
+          <source>Assume we want to predict a car’s price using some features such as dimensions, horsepower, engine specs, and so on.</source>
+          <target state="new">Assume we want to predict a car’s price using some features such as dimensions, horsepower, engine specs, and so on.</target>
+        </trans-unit>
+        <trans-unit id="47610b5b-5b19-4d83-928c-a3e40907ee6d" xml:space="preserve">
+          <source>This is a typical regression problem, where the target variable (<bpt id="ea60a710-ecc0-48b3-8fdd-69acad16319b">&lt;em&gt;</bpt>price<ept id="ea60a710-ecc0-48b3-8fdd-69acad16319b">&lt;/em&gt;</ept>) is a continuous numeric value.</source>
+          <target state="new">This is a typical regression problem, where the target variable (<bpt id="ea60a710-ecc0-48b3-8fdd-69acad16319b">&lt;em&gt;</bpt>price<ept id="ea60a710-ecc0-48b3-8fdd-69acad16319b">&lt;/em&gt;</ept>) is a continuous numeric value.</target>
+        </trans-unit>
+        <trans-unit id="9fd8db4d-0cb8-43e6-ad1d-2b97d357d3de" xml:space="preserve">
+          <source>We can fit a simple linear regression model that, given the feature values of a certain car, can predict the price of that car.</source>
+          <target state="new">We can fit a simple linear regression model that, given the feature values of a certain car, can predict the price of that car.</target>
+        </trans-unit>
+        <trans-unit id="c58cc50b-4785-4641-a956-cff2cc2b679f" xml:space="preserve">
+          <source>This regression model can be used to score the same dataset we trained on.</source>
+          <target state="new">This regression model can be used to score the same dataset we trained on.</target>
+        </trans-unit>
+        <trans-unit id="148d462b-8923-498b-a237-f629ddd4d8fd" xml:space="preserve">
+          <source>Once we have the predicted prices for all of the cars, we can evaluate the performance of the model by looking at how much the predictions deviate from the actual prices on average.</source>
+          <target state="new">Once we have the predicted prices for all of the cars, we can evaluate the performance of the model by looking at how much the predictions deviate from the actual prices on average.</target>
+        </trans-unit>
+        <trans-unit id="10cf6968-d6dd-478c-ba65-92ccbea90bca" xml:space="preserve">
+          <source>To illustrate this, we use the <bpt id="bf8568ae-260c-4886-9b09-58be89b19dc3">&lt;em&gt;</bpt>Automobile price data (Raw) dataset<ept id="bf8568ae-260c-4886-9b09-58be89b19dc3">&lt;/em&gt;</ept> available in the <bpt id="b926335d-d959-4f47-bb47-de83200f052e">&lt;strong&gt;</bpt>Saved Datasets<ept id="b926335d-d959-4f47-bb47-de83200f052e">&lt;/strong&gt;</ept> section in Azure Machine Learning Studio.</source>
+          <target state="new">To illustrate this, we use the <bpt id="bf8568ae-260c-4886-9b09-58be89b19dc3">&lt;em&gt;</bpt>Automobile price data (Raw) dataset<ept id="bf8568ae-260c-4886-9b09-58be89b19dc3">&lt;/em&gt;</ept> available in the <bpt id="b926335d-d959-4f47-bb47-de83200f052e">&lt;strong&gt;</bpt>Saved Datasets<ept id="b926335d-d959-4f47-bb47-de83200f052e">&lt;/strong&gt;</ept> section in Azure Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="cab3f1cf-218f-44a7-807b-23f2093fab1d" xml:space="preserve">
+          <source>Add the following modules to your workspace in Azure Machine Learning Studio:</source>
+          <target state="new">Add the following modules to your workspace in Azure Machine Learning Studio:</target>
+        </trans-unit>
+        <trans-unit id="1e292c69-2d90-421e-81d5-7bf2eb6ad496" xml:space="preserve">
+          <source>Automobile price data (Raw)</source>
+          <target state="new">Automobile price data (Raw)</target>
+        </trans-unit>
+        <trans-unit id="eb939aea-753c-478e-a781-f9de9a5e6377" xml:space="preserve">
+          <source><bpt id="3aa3eb85-3847-473e-9cdd-10017bbbae89">&lt;linkText&gt;</bpt>Linear Regression[linear-regression]<ept id="3aa3eb85-3847-473e-9cdd-10017bbbae89">&lt;/linkText&gt;</ept><bpt id="3aa3eb85-3847-473e-9cdd-10017bbbae89">&lt;title&gt;</bpt><ept id="3aa3eb85-3847-473e-9cdd-10017bbbae89">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3aa3eb85-3847-473e-9cdd-10017bbbae89">&lt;linkText&gt;</bpt>Linear Regression[linear-regression]<ept id="3aa3eb85-3847-473e-9cdd-10017bbbae89">&lt;/linkText&gt;</ept><bpt id="3aa3eb85-3847-473e-9cdd-10017bbbae89">&lt;title&gt;</bpt><ept id="3aa3eb85-3847-473e-9cdd-10017bbbae89">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c022ce18-0607-4d2e-bcb9-3517a642ea18" xml:space="preserve">
+          <source><bpt id="df81ece6-e39b-48cf-844c-544c828f9af1">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="df81ece6-e39b-48cf-844c-544c828f9af1">&lt;/linkText&gt;</ept><bpt id="df81ece6-e39b-48cf-844c-544c828f9af1">&lt;title&gt;</bpt><ept id="df81ece6-e39b-48cf-844c-544c828f9af1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="df81ece6-e39b-48cf-844c-544c828f9af1">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="df81ece6-e39b-48cf-844c-544c828f9af1">&lt;/linkText&gt;</ept><bpt id="df81ece6-e39b-48cf-844c-544c828f9af1">&lt;title&gt;</bpt><ept id="df81ece6-e39b-48cf-844c-544c828f9af1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8794775-a275-473f-8656-e6b98deead4c" xml:space="preserve">
+          <source><bpt id="1909653f-1d83-423e-91fa-88e8be5c207e">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="1909653f-1d83-423e-91fa-88e8be5c207e">&lt;/linkText&gt;</ept><bpt id="1909653f-1d83-423e-91fa-88e8be5c207e">&lt;title&gt;</bpt><ept id="1909653f-1d83-423e-91fa-88e8be5c207e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1909653f-1d83-423e-91fa-88e8be5c207e">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="1909653f-1d83-423e-91fa-88e8be5c207e">&lt;/linkText&gt;</ept><bpt id="1909653f-1d83-423e-91fa-88e8be5c207e">&lt;title&gt;</bpt><ept id="1909653f-1d83-423e-91fa-88e8be5c207e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29554edb-2671-4744-8fec-c2b9e1780bab" xml:space="preserve">
+          <source><bpt id="079abff3-e405-4b3e-ad6a-ced144a0f3b7">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="079abff3-e405-4b3e-ad6a-ced144a0f3b7">&lt;/linkText&gt;</ept><bpt id="079abff3-e405-4b3e-ad6a-ced144a0f3b7">&lt;title&gt;</bpt><ept id="079abff3-e405-4b3e-ad6a-ced144a0f3b7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="079abff3-e405-4b3e-ad6a-ced144a0f3b7">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="079abff3-e405-4b3e-ad6a-ced144a0f3b7">&lt;/linkText&gt;</ept><bpt id="079abff3-e405-4b3e-ad6a-ced144a0f3b7">&lt;title&gt;</bpt><ept id="079abff3-e405-4b3e-ad6a-ced144a0f3b7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bad8e8d0-9d5b-462b-bc98-e027273c19a1" xml:space="preserve">
+          <source>Connect the ports as shown below in Figure 1 and set the Label column of the <bpt id="2843b8a8-c1f6-45f3-92fc-4111861a0a8a">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="2843b8a8-c1f6-45f3-92fc-4111861a0a8a">&lt;/linkText&gt;</ept><bpt id="2843b8a8-c1f6-45f3-92fc-4111861a0a8a">&lt;title&gt;</bpt><ept id="2843b8a8-c1f6-45f3-92fc-4111861a0a8a">&lt;/title&gt;</ept> module to <bpt id="0b3d7f4a-4ada-4eee-8aed-6dca9e5c41e7">&lt;em&gt;</bpt>price<ept id="0b3d7f4a-4ada-4eee-8aed-6dca9e5c41e7">&lt;/em&gt;</ept>.</source>
+          <target state="new">Connect the ports as shown below in Figure 1 and set the Label column of the <bpt id="2843b8a8-c1f6-45f3-92fc-4111861a0a8a">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="2843b8a8-c1f6-45f3-92fc-4111861a0a8a">&lt;/linkText&gt;</ept><bpt id="2843b8a8-c1f6-45f3-92fc-4111861a0a8a">&lt;title&gt;</bpt><ept id="2843b8a8-c1f6-45f3-92fc-4111861a0a8a">&lt;/title&gt;</ept> module to <bpt id="0b3d7f4a-4ada-4eee-8aed-6dca9e5c41e7">&lt;em&gt;</bpt>price<ept id="0b3d7f4a-4ada-4eee-8aed-6dca9e5c41e7">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48a1b882-6b42-4f95-93b7-e1b2921cfb53" xml:space="preserve">
+          <source><bpt id="8142677b-8ee6-4ca9-906e-08b2a0f53d93">&lt;linkText&gt;</bpt>Evaluating a Regression Model<ept id="8142677b-8ee6-4ca9-906e-08b2a0f53d93">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8142677b-8ee6-4ca9-906e-08b2a0f53d93">&lt;linkText&gt;</bpt>Evaluating a Regression Model<ept id="8142677b-8ee6-4ca9-906e-08b2a0f53d93">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="295712bb-1f4f-4152-9612-b77bd3c078e7" xml:space="preserve">
+          <source>Figure 1.</source>
+          <target state="new">Figure 1.</target>
+        </trans-unit>
+        <trans-unit id="4defa509-9e8a-4338-b401-cf17799802fd" xml:space="preserve">
+          <source>Evaluating a Regression Model.</source>
+          <target state="new">Evaluating a Regression Model.</target>
+        </trans-unit>
+        <trans-unit id="d428c61f-6d88-44c4-b687-4920b7870479" xml:space="preserve">
+          <source>After running the experiment, you can click on the output port of the <bpt id="c43825df-6362-4dbf-a1ee-af7cb8111617">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="c43825df-6362-4dbf-a1ee-af7cb8111617">&lt;/linkText&gt;</ept><bpt id="c43825df-6362-4dbf-a1ee-af7cb8111617">&lt;title&gt;</bpt><ept id="c43825df-6362-4dbf-a1ee-af7cb8111617">&lt;/title&gt;</ept> module and select <bpt id="32d3a75a-b012-41cf-88c5-3afb4d10846f">&lt;em&gt;</bpt>Visualize<ept id="32d3a75a-b012-41cf-88c5-3afb4d10846f">&lt;/em&gt;</ept> to see the evaluation results.</source>
+          <target state="new">After running the experiment, you can click on the output port of the <bpt id="c43825df-6362-4dbf-a1ee-af7cb8111617">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="c43825df-6362-4dbf-a1ee-af7cb8111617">&lt;/linkText&gt;</ept><bpt id="c43825df-6362-4dbf-a1ee-af7cb8111617">&lt;title&gt;</bpt><ept id="c43825df-6362-4dbf-a1ee-af7cb8111617">&lt;/title&gt;</ept> module and select <bpt id="32d3a75a-b012-41cf-88c5-3afb4d10846f">&lt;em&gt;</bpt>Visualize<ept id="32d3a75a-b012-41cf-88c5-3afb4d10846f">&lt;/em&gt;</ept> to see the evaluation results.</target>
+        </trans-unit>
+        <trans-unit id="ab09f514-42da-4fbd-9a38-9996a5ca884d" xml:space="preserve">
+          <source>The evaluation metrics available for regression models are: <bpt id="5c577725-9948-44b6-b7b9-e8a3a844b12f">&lt;em&gt;</bpt>Mean Absolute Error<ept id="5c577725-9948-44b6-b7b9-e8a3a844b12f">&lt;/em&gt;</ept>, <bpt id="1dce35b6-528d-4fc1-9c36-9c7c56ade267">&lt;em&gt;</bpt>Root Mean Absolute Error<ept id="1dce35b6-528d-4fc1-9c36-9c7c56ade267">&lt;/em&gt;</ept>, <bpt id="cea8b357-9e58-442d-a77f-b8ae7ae311aa">&lt;em&gt;</bpt>Relative Absolute Error<ept id="cea8b357-9e58-442d-a77f-b8ae7ae311aa">&lt;/em&gt;</ept>, <bpt id="fad3f95d-64cf-4876-b3c6-f868246179c9">&lt;em&gt;</bpt>Relative Squared Error<ept id="fad3f95d-64cf-4876-b3c6-f868246179c9">&lt;/em&gt;</ept>, and the <bpt id="fe2401e4-0ad5-403f-aa9b-5079d03af24a">&lt;em&gt;</bpt>Coefficient of Determination<ept id="fe2401e4-0ad5-403f-aa9b-5079d03af24a">&lt;/em&gt;</ept>.</source>
+          <target state="new">The evaluation metrics available for regression models are: <bpt id="5c577725-9948-44b6-b7b9-e8a3a844b12f">&lt;em&gt;</bpt>Mean Absolute Error<ept id="5c577725-9948-44b6-b7b9-e8a3a844b12f">&lt;/em&gt;</ept>, <bpt id="1dce35b6-528d-4fc1-9c36-9c7c56ade267">&lt;em&gt;</bpt>Root Mean Absolute Error<ept id="1dce35b6-528d-4fc1-9c36-9c7c56ade267">&lt;/em&gt;</ept>, <bpt id="cea8b357-9e58-442d-a77f-b8ae7ae311aa">&lt;em&gt;</bpt>Relative Absolute Error<ept id="cea8b357-9e58-442d-a77f-b8ae7ae311aa">&lt;/em&gt;</ept>, <bpt id="fad3f95d-64cf-4876-b3c6-f868246179c9">&lt;em&gt;</bpt>Relative Squared Error<ept id="fad3f95d-64cf-4876-b3c6-f868246179c9">&lt;/em&gt;</ept>, and the <bpt id="fe2401e4-0ad5-403f-aa9b-5079d03af24a">&lt;em&gt;</bpt>Coefficient of Determination<ept id="fe2401e4-0ad5-403f-aa9b-5079d03af24a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aefc96c2-1754-4997-ac72-b129d9182958" xml:space="preserve">
+          <source>The term "error" here represents the difference between the predicted value and the true value.</source>
+          <target state="new">The term "error" here represents the difference between the predicted value and the true value.</target>
+        </trans-unit>
+        <trans-unit id="36e18f6a-d28e-41ae-8ecb-247ba4bd89f1" xml:space="preserve">
+          <source>The absolute value or the square of this difference are usually computed to capture the total magnitude of error across all instances, as the difference between the predicted and true value could be negative in some cases.</source>
+          <target state="new">The absolute value or the square of this difference are usually computed to capture the total magnitude of error across all instances, as the difference between the predicted and true value could be negative in some cases.</target>
+        </trans-unit>
+        <trans-unit id="13e550e0-5506-44d2-a25c-0bd922681544" xml:space="preserve">
+          <source>The error metrics measure the predictive performance of a regression model in terms of the mean deviation of its predictions from the true values.</source>
+          <target state="new">The error metrics measure the predictive performance of a regression model in terms of the mean deviation of its predictions from the true values.</target>
+        </trans-unit>
+        <trans-unit id="2d6c2594-f620-4322-89a9-86adc993abd1" xml:space="preserve">
+          <source>Lower error values mean the model is more accurate in making predictions.</source>
+          <target state="new">Lower error values mean the model is more accurate in making predictions.</target>
+        </trans-unit>
+        <trans-unit id="380338a9-57e5-4ef1-952c-e11b0816de64" xml:space="preserve">
+          <source>An overall error metric of 0 means that the model fits the data perfectly.</source>
+          <target state="new">An overall error metric of 0 means that the model fits the data perfectly.</target>
+        </trans-unit>
+        <trans-unit id="fb0a6537-8629-4296-b512-c57081ca60ab" xml:space="preserve">
+          <source>The coefficient of determination, which is also known as R squared, is also a standard way of measuring how well the model fits the data.</source>
+          <target state="new">The coefficient of determination, which is also known as R squared, is also a standard way of measuring how well the model fits the data.</target>
+        </trans-unit>
+        <trans-unit id="e73e60cd-3287-4331-9224-c036c94cfc86" xml:space="preserve">
+          <source>It can be interpreted as the proportion of variation explained by the model.</source>
+          <target state="new">It can be interpreted as the proportion of variation explained by the model.</target>
+        </trans-unit>
+        <trans-unit id="dd14aee7-7f9d-4d40-8ee5-404a4716328b" xml:space="preserve">
+          <source>A higher proportion is better in this case, where 1 indicates a perfect fit.</source>
+          <target state="new">A higher proportion is better in this case, where 1 indicates a perfect fit.</target>
+        </trans-unit>
+        <trans-unit id="8068f896-5604-4e8a-8594-c673ef66f1dc" xml:space="preserve">
+          <source><bpt id="168311ad-7a99-4c72-9076-d1e39d109288">&lt;linkText&gt;</bpt>Linear Regression Evaluation Metrics<ept id="168311ad-7a99-4c72-9076-d1e39d109288">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="168311ad-7a99-4c72-9076-d1e39d109288">&lt;linkText&gt;</bpt>Linear Regression Evaluation Metrics<ept id="168311ad-7a99-4c72-9076-d1e39d109288">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b74a6d6-0d6f-4c99-98f3-30738120da7e" xml:space="preserve">
+          <source>Figure 2.</source>
+          <target state="new">Figure 2.</target>
+        </trans-unit>
+        <trans-unit id="51333394-564a-4f31-a823-864c8b70cca3" xml:space="preserve">
+          <source>Linear Regression Evaluation Metrics.</source>
+          <target state="new">Linear Regression Evaluation Metrics.</target>
+        </trans-unit>
+        <trans-unit id="ea102c8f-ac41-4495-868f-1b0f933a8e54" xml:space="preserve">
+          <source>As mentioned earlier, you can perform repeated training, scoring and evaluations automatically using the <bpt id="6272cfe6-344b-470d-914c-7c03f02e4a48">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="6272cfe6-344b-470d-914c-7c03f02e4a48">&lt;/linkText&gt;</ept><bpt id="6272cfe6-344b-470d-914c-7c03f02e4a48">&lt;title&gt;</bpt><ept id="6272cfe6-344b-470d-914c-7c03f02e4a48">&lt;/title&gt;</ept> module.</source>
+          <target state="new">As mentioned earlier, you can perform repeated training, scoring and evaluations automatically using the <bpt id="6272cfe6-344b-470d-914c-7c03f02e4a48">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="6272cfe6-344b-470d-914c-7c03f02e4a48">&lt;/linkText&gt;</ept><bpt id="6272cfe6-344b-470d-914c-7c03f02e4a48">&lt;title&gt;</bpt><ept id="6272cfe6-344b-470d-914c-7c03f02e4a48">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="692ed5ec-5fef-4a89-8743-02f9b512347b" xml:space="preserve">
+          <source>All you need in this case is a dataset, an untrained model, and a <bpt id="ffae04c4-1b29-4987-b3a0-770b07887180">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="ffae04c4-1b29-4987-b3a0-770b07887180">&lt;/linkText&gt;</ept><bpt id="ffae04c4-1b29-4987-b3a0-770b07887180">&lt;title&gt;</bpt><ept id="ffae04c4-1b29-4987-b3a0-770b07887180">&lt;/title&gt;</ept> module (see figure below).</source>
+          <target state="new">All you need in this case is a dataset, an untrained model, and a <bpt id="ffae04c4-1b29-4987-b3a0-770b07887180">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="ffae04c4-1b29-4987-b3a0-770b07887180">&lt;/linkText&gt;</ept><bpt id="ffae04c4-1b29-4987-b3a0-770b07887180">&lt;title&gt;</bpt><ept id="ffae04c4-1b29-4987-b3a0-770b07887180">&lt;/title&gt;</ept> module (see figure below).</target>
+        </trans-unit>
+        <trans-unit id="b6dbb857-a221-48aa-80f7-78906b671c5b" xml:space="preserve">
+          <source>Note that you need to set the label column to <bpt id="c2bda63a-5321-4b21-8ed7-8e3ad0d0ce4f">&lt;em&gt;</bpt>price<ept id="c2bda63a-5321-4b21-8ed7-8e3ad0d0ce4f">&lt;/em&gt;</ept> in the <bpt id="ce5cf583-e21f-4158-98d3-ca566428b7c0">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="ce5cf583-e21f-4158-98d3-ca566428b7c0">&lt;/linkText&gt;</ept><bpt id="ce5cf583-e21f-4158-98d3-ca566428b7c0">&lt;title&gt;</bpt><ept id="ce5cf583-e21f-4158-98d3-ca566428b7c0">&lt;/title&gt;</ept> module’s properties.</source>
+          <target state="new">Note that you need to set the label column to <bpt id="c2bda63a-5321-4b21-8ed7-8e3ad0d0ce4f">&lt;em&gt;</bpt>price<ept id="c2bda63a-5321-4b21-8ed7-8e3ad0d0ce4f">&lt;/em&gt;</ept> in the <bpt id="ce5cf583-e21f-4158-98d3-ca566428b7c0">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="ce5cf583-e21f-4158-98d3-ca566428b7c0">&lt;/linkText&gt;</ept><bpt id="ce5cf583-e21f-4158-98d3-ca566428b7c0">&lt;title&gt;</bpt><ept id="ce5cf583-e21f-4158-98d3-ca566428b7c0">&lt;/title&gt;</ept> module’s properties.</target>
+        </trans-unit>
+        <trans-unit id="c03d24c8-ed1d-4e8b-ab48-fae99527f27a" xml:space="preserve">
+          <source><bpt id="942dd377-962f-4180-bcfd-03a565569959">&lt;linkText&gt;</bpt>Cross-Validating a Regression Model<ept id="942dd377-962f-4180-bcfd-03a565569959">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="942dd377-962f-4180-bcfd-03a565569959">&lt;linkText&gt;</bpt>Cross-Validating a Regression Model<ept id="942dd377-962f-4180-bcfd-03a565569959">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed778a70-1530-4408-b024-ad6c5e012a03" xml:space="preserve">
+          <source>Figure 3.</source>
+          <target state="new">Figure 3.</target>
+        </trans-unit>
+        <trans-unit id="0c034207-fe98-449e-af5d-a717738177e3" xml:space="preserve">
+          <source>Cross-Validating a Regression Model.</source>
+          <target state="new">Cross-Validating a Regression Model.</target>
+        </trans-unit>
+        <trans-unit id="9e84e3e3-50b9-4bb3-bacc-05f24cefa138" xml:space="preserve">
+          <source>After running the experiment, you can inspect the evaluation results by clicking on the right output port of the <bpt id="b6623908-6bc0-498f-ad21-8275be85de5c">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="b6623908-6bc0-498f-ad21-8275be85de5c">&lt;/linkText&gt;</ept><bpt id="b6623908-6bc0-498f-ad21-8275be85de5c">&lt;title&gt;</bpt><ept id="b6623908-6bc0-498f-ad21-8275be85de5c">&lt;/title&gt;</ept> module.</source>
+          <target state="new">After running the experiment, you can inspect the evaluation results by clicking on the right output port of the <bpt id="b6623908-6bc0-498f-ad21-8275be85de5c">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="b6623908-6bc0-498f-ad21-8275be85de5c">&lt;/linkText&gt;</ept><bpt id="b6623908-6bc0-498f-ad21-8275be85de5c">&lt;title&gt;</bpt><ept id="b6623908-6bc0-498f-ad21-8275be85de5c">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="3a52bed7-efa2-453c-aeff-1b2e9d017a6d" xml:space="preserve">
+          <source>This will provide a detailed view of the metrics for each iteration (fold), and the averaged results of each of the metrics (Figure 4).</source>
+          <target state="new">This will provide a detailed view of the metrics for each iteration (fold), and the averaged results of each of the metrics (Figure 4).</target>
+        </trans-unit>
+        <trans-unit id="371f3c61-8725-484d-ba29-e9b47c50fdcf" xml:space="preserve">
+          <source><bpt id="de238561-36ef-4e8b-aeec-89827c146d54">&lt;linkText&gt;</bpt>Cross-Validation Results of a Regression Model<ept id="de238561-36ef-4e8b-aeec-89827c146d54">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="de238561-36ef-4e8b-aeec-89827c146d54">&lt;linkText&gt;</bpt>Cross-Validation Results of a Regression Model<ept id="de238561-36ef-4e8b-aeec-89827c146d54">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31ac99c0-4292-45b4-9251-722052901987" xml:space="preserve">
+          <source>Figure 4.</source>
+          <target state="new">Figure 4.</target>
+        </trans-unit>
+        <trans-unit id="358c77d1-2239-4a92-b85d-845de1c7eac2" xml:space="preserve">
+          <source>Cross-Validation Results of a Regression Model.</source>
+          <target state="new">Cross-Validation Results of a Regression Model.</target>
+        </trans-unit>
+        <trans-unit id="f00501e2-9eb5-4a76-af42-2f174e9c0b3a" xml:space="preserve">
+          <source>In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“&lt;=50K”, “&gt;50K”}. In other words, the negative class represents the employees who make less than or equal to 50K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Azure Machine Learning computes and outputs. To illustrate the income level prediction scenario, we will use the <bpt id="417a15c0-3ae4-41f0-8379-58318ceeae47">&lt;linkText&gt;</bpt>Adult<ept id="417a15c0-3ae4-41f0-8379-58318ceeae47">&lt;/linkText&gt;</ept><bpt id="417a15c0-3ae4-41f0-8379-58318ceeae47">&lt;title&gt;</bpt><ept id="417a15c0-3ae4-41f0-8379-58318ceeae47">&lt;/title&gt;</ept> dataset to create an Azure Machine Learning experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.</source>
+          <target state="new">In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“&lt;=50K”, “&gt;50K”}. In other words, the negative class represents the employees who make less than or equal to 50K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Azure Machine Learning computes and outputs. To illustrate the income level prediction scenario, we will use the <bpt id="417a15c0-3ae4-41f0-8379-58318ceeae47">&lt;linkText&gt;</bpt>Adult<ept id="417a15c0-3ae4-41f0-8379-58318ceeae47">&lt;/linkText&gt;</ept><bpt id="417a15c0-3ae4-41f0-8379-58318ceeae47">&lt;title&gt;</bpt><ept id="417a15c0-3ae4-41f0-8379-58318ceeae47">&lt;/title&gt;</ept> dataset to create an Azure Machine Learning experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.</target>
+        </trans-unit>
+        <trans-unit id="af935167-4218-468e-9bc3-642dc220caff" xml:space="preserve">
+          <source>Add the following modules to your workspace in Azure Machine Learning Studio:</source>
+          <target state="new">Add the following modules to your workspace in Azure Machine Learning Studio:</target>
+        </trans-unit>
+        <trans-unit id="ee9cd87a-bca3-42f2-9a62-cf6d55c413b0" xml:space="preserve">
+          <source>Adult Census Income Binary Classification dataset</source>
+          <target state="new">Adult Census Income Binary Classification dataset</target>
+        </trans-unit>
+        <trans-unit id="5f332548-85c7-42e1-954b-bc586f4d236d" xml:space="preserve">
+          <source><bpt id="e043ee1c-2876-4b4c-87f4-a43d5310773b">&lt;linkText&gt;</bpt>Two-Class Logistic Regression[two-class-logistic-regression]<ept id="e043ee1c-2876-4b4c-87f4-a43d5310773b">&lt;/linkText&gt;</ept><bpt id="e043ee1c-2876-4b4c-87f4-a43d5310773b">&lt;title&gt;</bpt><ept id="e043ee1c-2876-4b4c-87f4-a43d5310773b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e043ee1c-2876-4b4c-87f4-a43d5310773b">&lt;linkText&gt;</bpt>Two-Class Logistic Regression[two-class-logistic-regression]<ept id="e043ee1c-2876-4b4c-87f4-a43d5310773b">&lt;/linkText&gt;</ept><bpt id="e043ee1c-2876-4b4c-87f4-a43d5310773b">&lt;title&gt;</bpt><ept id="e043ee1c-2876-4b4c-87f4-a43d5310773b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cb5381a-e0db-48d8-b65e-dc515ee3ba53" xml:space="preserve">
+          <source><bpt id="13b0590c-9cac-400a-9e7e-1e592f520a82">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="13b0590c-9cac-400a-9e7e-1e592f520a82">&lt;/linkText&gt;</ept><bpt id="13b0590c-9cac-400a-9e7e-1e592f520a82">&lt;title&gt;</bpt><ept id="13b0590c-9cac-400a-9e7e-1e592f520a82">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="13b0590c-9cac-400a-9e7e-1e592f520a82">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="13b0590c-9cac-400a-9e7e-1e592f520a82">&lt;/linkText&gt;</ept><bpt id="13b0590c-9cac-400a-9e7e-1e592f520a82">&lt;title&gt;</bpt><ept id="13b0590c-9cac-400a-9e7e-1e592f520a82">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de47ec68-9862-4209-b0cb-80242943590a" xml:space="preserve">
+          <source><bpt id="45128998-23d7-4307-a5bf-3a123d85b1a8">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="45128998-23d7-4307-a5bf-3a123d85b1a8">&lt;/linkText&gt;</ept><bpt id="45128998-23d7-4307-a5bf-3a123d85b1a8">&lt;title&gt;</bpt><ept id="45128998-23d7-4307-a5bf-3a123d85b1a8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="45128998-23d7-4307-a5bf-3a123d85b1a8">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="45128998-23d7-4307-a5bf-3a123d85b1a8">&lt;/linkText&gt;</ept><bpt id="45128998-23d7-4307-a5bf-3a123d85b1a8">&lt;title&gt;</bpt><ept id="45128998-23d7-4307-a5bf-3a123d85b1a8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0430ee10-da4e-4d07-bb85-2fa8e2e39264" xml:space="preserve">
+          <source><bpt id="fb831b7b-d572-4866-8426-fa95a6459fee">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="fb831b7b-d572-4866-8426-fa95a6459fee">&lt;/linkText&gt;</ept><bpt id="fb831b7b-d572-4866-8426-fa95a6459fee">&lt;title&gt;</bpt><ept id="fb831b7b-d572-4866-8426-fa95a6459fee">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fb831b7b-d572-4866-8426-fa95a6459fee">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="fb831b7b-d572-4866-8426-fa95a6459fee">&lt;/linkText&gt;</ept><bpt id="fb831b7b-d572-4866-8426-fa95a6459fee">&lt;title&gt;</bpt><ept id="fb831b7b-d572-4866-8426-fa95a6459fee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f24e833-7617-4494-a46f-41ab57dc89a7" xml:space="preserve">
+          <source>Connect the ports as shown below in Figure 5 and set the Label column of the <bpt id="4dc7ce46-c1bf-458b-a3d7-4f0ded1b5a52">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="4dc7ce46-c1bf-458b-a3d7-4f0ded1b5a52">&lt;/linkText&gt;</ept><bpt id="4dc7ce46-c1bf-458b-a3d7-4f0ded1b5a52">&lt;title&gt;</bpt><ept id="4dc7ce46-c1bf-458b-a3d7-4f0ded1b5a52">&lt;/title&gt;</ept> module to <bpt id="8cc1db4d-369b-4859-9a3e-6633c80a6372">&lt;em&gt;</bpt>income<ept id="8cc1db4d-369b-4859-9a3e-6633c80a6372">&lt;/em&gt;</ept>.</source>
+          <target state="new">Connect the ports as shown below in Figure 5 and set the Label column of the <bpt id="4dc7ce46-c1bf-458b-a3d7-4f0ded1b5a52">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="4dc7ce46-c1bf-458b-a3d7-4f0ded1b5a52">&lt;/linkText&gt;</ept><bpt id="4dc7ce46-c1bf-458b-a3d7-4f0ded1b5a52">&lt;title&gt;</bpt><ept id="4dc7ce46-c1bf-458b-a3d7-4f0ded1b5a52">&lt;/title&gt;</ept> module to <bpt id="8cc1db4d-369b-4859-9a3e-6633c80a6372">&lt;em&gt;</bpt>income<ept id="8cc1db4d-369b-4859-9a3e-6633c80a6372">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35a9f7e4-8c36-40a8-bd4c-97037aa39028" xml:space="preserve">
+          <source><bpt id="769428fa-d897-443b-97f1-ee7da95f2703">&lt;linkText&gt;</bpt>Evaluating a Binary Classification Model<ept id="769428fa-d897-443b-97f1-ee7da95f2703">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="769428fa-d897-443b-97f1-ee7da95f2703">&lt;linkText&gt;</bpt>Evaluating a Binary Classification Model<ept id="769428fa-d897-443b-97f1-ee7da95f2703">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6913820f-b42e-4c22-8efa-cde5e47eea91" xml:space="preserve">
+          <source>Figure 5.</source>
+          <target state="new">Figure 5.</target>
+        </trans-unit>
+        <trans-unit id="2f5d26b1-b64c-4446-8cfe-5fb1cff57cbc" xml:space="preserve">
+          <source>Evaluating a Binary Classification Model.</source>
+          <target state="new">Evaluating a Binary Classification Model.</target>
+        </trans-unit>
+        <trans-unit id="cd57029b-6166-4f48-83b8-f40864f1ee87" xml:space="preserve">
+          <source>After running the experiment, you can click on the output port of the <bpt id="b4059452-13c6-4082-997c-bd624a502366">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="b4059452-13c6-4082-997c-bd624a502366">&lt;/linkText&gt;</ept><bpt id="b4059452-13c6-4082-997c-bd624a502366">&lt;title&gt;</bpt><ept id="b4059452-13c6-4082-997c-bd624a502366">&lt;/title&gt;</ept> module and select <bpt id="99543263-dca6-49bc-8fc6-271fb3513207">&lt;em&gt;</bpt>Visualize<ept id="99543263-dca6-49bc-8fc6-271fb3513207">&lt;/em&gt;</ept> to see the evaluation results (Figure 7).</source>
+          <target state="new">After running the experiment, you can click on the output port of the <bpt id="b4059452-13c6-4082-997c-bd624a502366">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="b4059452-13c6-4082-997c-bd624a502366">&lt;/linkText&gt;</ept><bpt id="b4059452-13c6-4082-997c-bd624a502366">&lt;title&gt;</bpt><ept id="b4059452-13c6-4082-997c-bd624a502366">&lt;/title&gt;</ept> module and select <bpt id="99543263-dca6-49bc-8fc6-271fb3513207">&lt;em&gt;</bpt>Visualize<ept id="99543263-dca6-49bc-8fc6-271fb3513207">&lt;/em&gt;</ept> to see the evaluation results (Figure 7).</target>
+        </trans-unit>
+        <trans-unit id="68f5dcb1-29fe-4a62-986a-8244676fff6e" xml:space="preserve">
+          <source>The evaluation metrics available for binary classification models are: <bpt id="37a715ca-c80d-4b26-82d7-268bad344df6">&lt;em&gt;</bpt>Accuracy<ept id="37a715ca-c80d-4b26-82d7-268bad344df6">&lt;/em&gt;</ept>, <bpt id="bef0b83c-be63-4f5c-b5c4-64e62ab71557">&lt;em&gt;</bpt>Precision<ept id="bef0b83c-be63-4f5c-b5c4-64e62ab71557">&lt;/em&gt;</ept>, <bpt id="a00c4d0c-4922-437d-a649-2fc31cff201c">&lt;em&gt;</bpt>Recall<ept id="a00c4d0c-4922-437d-a649-2fc31cff201c">&lt;/em&gt;</ept>, <bpt id="492bebfd-e126-4430-b2e2-9582afba06f4">&lt;em&gt;</bpt>F1 Score<ept id="492bebfd-e126-4430-b2e2-9582afba06f4">&lt;/em&gt;</ept>, and <bpt id="13fd69ed-be72-41ac-9b1a-f178e8af15d9">&lt;em&gt;</bpt>AUC<ept id="13fd69ed-be72-41ac-9b1a-f178e8af15d9">&lt;/em&gt;</ept>.</source>
+          <target state="new">The evaluation metrics available for binary classification models are: <bpt id="37a715ca-c80d-4b26-82d7-268bad344df6">&lt;em&gt;</bpt>Accuracy<ept id="37a715ca-c80d-4b26-82d7-268bad344df6">&lt;/em&gt;</ept>, <bpt id="bef0b83c-be63-4f5c-b5c4-64e62ab71557">&lt;em&gt;</bpt>Precision<ept id="bef0b83c-be63-4f5c-b5c4-64e62ab71557">&lt;/em&gt;</ept>, <bpt id="a00c4d0c-4922-437d-a649-2fc31cff201c">&lt;em&gt;</bpt>Recall<ept id="a00c4d0c-4922-437d-a649-2fc31cff201c">&lt;/em&gt;</ept>, <bpt id="492bebfd-e126-4430-b2e2-9582afba06f4">&lt;em&gt;</bpt>F1 Score<ept id="492bebfd-e126-4430-b2e2-9582afba06f4">&lt;/em&gt;</ept>, and <bpt id="13fd69ed-be72-41ac-9b1a-f178e8af15d9">&lt;em&gt;</bpt>AUC<ept id="13fd69ed-be72-41ac-9b1a-f178e8af15d9">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f97ee884-153d-4071-9c99-f261a12f43bc" xml:space="preserve">
+          <source>In addition, the module outputs a confusion matrix showing the number of true positives, false negatives, false positives, and true negatives, as well as <bpt id="9f8ac07c-7259-45d9-888c-e7953a232257">&lt;em&gt;</bpt>ROC<ept id="9f8ac07c-7259-45d9-888c-e7953a232257">&lt;/em&gt;</ept>, <bpt id="b6ba6a33-a1f5-4fb9-912d-9f01de89d271">&lt;em&gt;</bpt>Precision/Recall<ept id="b6ba6a33-a1f5-4fb9-912d-9f01de89d271">&lt;/em&gt;</ept>, and <bpt id="b2d8d060-306b-4772-8791-d0c9594b0597">&lt;em&gt;</bpt>Lift<ept id="b2d8d060-306b-4772-8791-d0c9594b0597">&lt;/em&gt;</ept> curves.</source>
+          <target state="new">In addition, the module outputs a confusion matrix showing the number of true positives, false negatives, false positives, and true negatives, as well as <bpt id="9f8ac07c-7259-45d9-888c-e7953a232257">&lt;em&gt;</bpt>ROC<ept id="9f8ac07c-7259-45d9-888c-e7953a232257">&lt;/em&gt;</ept>, <bpt id="b6ba6a33-a1f5-4fb9-912d-9f01de89d271">&lt;em&gt;</bpt>Precision/Recall<ept id="b6ba6a33-a1f5-4fb9-912d-9f01de89d271">&lt;/em&gt;</ept>, and <bpt id="b2d8d060-306b-4772-8791-d0c9594b0597">&lt;em&gt;</bpt>Lift<ept id="b2d8d060-306b-4772-8791-d0c9594b0597">&lt;/em&gt;</ept> curves.</target>
+        </trans-unit>
+        <trans-unit id="e19d16b2-2359-47c0-a8d0-781172cbdb19" xml:space="preserve">
+          <source>Accuracy is simply the proportion of correctly classified instances. It is usually the first metric you look at when evaluating a classifier. However, when the test data is unbalanced (where most of the instances belong to one of the classes), or you are more interested in the performance on either one of the classes, accuracy doesn’t really capture the effectiveness of a classifier. In the income level classification scenario, assume you are testing on some data where 99% of the instances represent people who earn less than or equal to 50K per year. It is possible to achieve a 0.99 accuracy by predicting the class “&lt;=50K” for all instances. The classifier in this case appears to be doing a good job overall, but in reality, it fails to classify any of the high-income individuals (the 1%) correctly.</source>
+          <target state="new">Accuracy is simply the proportion of correctly classified instances. It is usually the first metric you look at when evaluating a classifier. However, when the test data is unbalanced (where most of the instances belong to one of the classes), or you are more interested in the performance on either one of the classes, accuracy doesn’t really capture the effectiveness of a classifier. In the income level classification scenario, assume you are testing on some data where 99% of the instances represent people who earn less than or equal to 50K per year. It is possible to achieve a 0.99 accuracy by predicting the class “&lt;=50K” for all instances. The classifier in this case appears to be doing a good job overall, but in reality, it fails to classify any of the high-income individuals (the 1%) correctly.</target>
+        </trans-unit>
+        <trans-unit id="8e9d7bf6-330d-432f-b9fe-0b64a1c980fc" xml:space="preserve">
+          <source>For that reason, it is helpful to compute additional metrics that capture more specific aspects of the evaluation.</source>
+          <target state="new">For that reason, it is helpful to compute additional metrics that capture more specific aspects of the evaluation.</target>
+        </trans-unit>
+        <trans-unit id="1ef03e50-8759-4bee-afe7-441f5fa440d8" xml:space="preserve">
+          <source>Before going into the details of such metrics, it is important to understand the confusion matrix of a binary classification evaluation.</source>
+          <target state="new">Before going into the details of such metrics, it is important to understand the confusion matrix of a binary classification evaluation.</target>
+        </trans-unit>
+        <trans-unit id="5d10fae0-7b7b-4a86-8880-702c03b0378b" xml:space="preserve">
+          <source>The class labels in the training set can take on only 2 possible values, which we usually refer to as positive or negative.</source>
+          <target state="new">The class labels in the training set can take on only 2 possible values, which we usually refer to as positive or negative.</target>
+        </trans-unit>
+        <trans-unit id="b35ac431-7fd6-43db-9c89-fbaa9a4c75fd" xml:space="preserve">
+          <source>The positive and negative instances that a classifier predicts correctly are called true positives (TP) and true negatives (TN), respectively.</source>
+          <target state="new">The positive and negative instances that a classifier predicts correctly are called true positives (TP) and true negatives (TN), respectively.</target>
+        </trans-unit>
+        <trans-unit id="386288d6-9be7-4cf1-afcc-04dcfae05c66" xml:space="preserve">
+          <source>Similarly, the incorrectly classified instances are called false positives (FP) and false negatives (FN).</source>
+          <target state="new">Similarly, the incorrectly classified instances are called false positives (FP) and false negatives (FN).</target>
+        </trans-unit>
+        <trans-unit id="50b6a76c-9c8c-47ce-9e67-d3b1297b63b1" xml:space="preserve">
+          <source>The confusion matrix is simply a table showing the number of instances that fall under each of these 4 categories.</source>
+          <target state="new">The confusion matrix is simply a table showing the number of instances that fall under each of these 4 categories.</target>
+        </trans-unit>
+        <trans-unit id="757b7249-a970-42f8-8548-c86812f9e83d" xml:space="preserve">
+          <source>Azure Machine Learning automatically decides which of the two classes in the dataset is the positive class.</source>
+          <target state="new">Azure Machine Learning automatically decides which of the two classes in the dataset is the positive class.</target>
+        </trans-unit>
+        <trans-unit id="0b2b0daa-3d1c-4db7-bfd5-215aed60158c" xml:space="preserve">
+          <source>If the class labels are Boolean or integers, then the ‘true’ or ‘1’ labeled instances are assigned the positive class.</source>
+          <target state="new">If the class labels are Boolean or integers, then the ‘true’ or ‘1’ labeled instances are assigned the positive class.</target>
+        </trans-unit>
+        <trans-unit id="623f656b-0530-4bca-80cd-6bc71cf2742f" xml:space="preserve">
+          <source>If the labels are strings, as in the case of the income dataset, the labels are sorted alphabetically and the first level is chosen to be the negative class while the second level is the positive class.</source>
+          <target state="new">If the labels are strings, as in the case of the income dataset, the labels are sorted alphabetically and the first level is chosen to be the negative class while the second level is the positive class.</target>
+        </trans-unit>
+        <trans-unit id="23e3d520-b167-47bc-9ffc-e9d9b34f3f42" xml:space="preserve">
+          <source><bpt id="bc830f42-c854-4571-bb5e-a5c7a691bb21">&lt;linkText&gt;</bpt>Binary Classification Confusion Matrix<ept id="bc830f42-c854-4571-bb5e-a5c7a691bb21">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bc830f42-c854-4571-bb5e-a5c7a691bb21">&lt;linkText&gt;</bpt>Binary Classification Confusion Matrix<ept id="bc830f42-c854-4571-bb5e-a5c7a691bb21">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e622af14-5989-4ac3-97c9-11589bc255c3" xml:space="preserve">
+          <source>Figure 6.</source>
+          <target state="new">Figure 6.</target>
+        </trans-unit>
+        <trans-unit id="edce8c0b-fcef-4d39-82e8-ddcb1c99cc7d" xml:space="preserve">
+          <source>Binary Classification Confusion Matrix.</source>
+          <target state="new">Binary Classification Confusion Matrix.</target>
+        </trans-unit>
+        <trans-unit id="5c141e1f-cb74-4354-a52b-6336507b7113" xml:space="preserve">
+          <source>Going back to the income classification problem, we would want to ask several evaluation questions that help us understand the performance of the classifier used.</source>
+          <target state="new">Going back to the income classification problem, we would want to ask several evaluation questions that help us understand the performance of the classifier used.</target>
+        </trans-unit>
+        <trans-unit id="c80da5ae-0c0b-40d6-b187-b96bfd671381" xml:space="preserve">
+          <source>A very natural question is: ‘Out of the individuals whom the model predicted to be earning &gt;50K (TP+FP), how many were classified correctly (TP)?’</source>
+          <target state="new">A very natural question is: ‘Out of the individuals whom the model predicted to be earning &gt;50K (TP+FP), how many were classified correctly (TP)?’</target>
+        </trans-unit>
+        <trans-unit id="f68cb273-c5c8-40f1-b46b-26ff7e6ce9fb" xml:space="preserve">
+          <source>This question can be answered by looking at the <bpt id="d11df2f9-196d-4100-b81c-231150b4ab00">&lt;strong&gt;</bpt>Precision<ept id="d11df2f9-196d-4100-b81c-231150b4ab00">&lt;/strong&gt;</ept> of the model, which is the proportion of positives that are classified correctly: TP/(TP+FP).</source>
+          <target state="new">This question can be answered by looking at the <bpt id="d11df2f9-196d-4100-b81c-231150b4ab00">&lt;strong&gt;</bpt>Precision<ept id="d11df2f9-196d-4100-b81c-231150b4ab00">&lt;/strong&gt;</ept> of the model, which is the proportion of positives that are classified correctly: TP/(TP+FP).</target>
+        </trans-unit>
+        <trans-unit id="8834f3fe-f1ae-4fbf-8708-1155151b277a" xml:space="preserve">
+          <source>Another common question is “Out of all the high earning employees with income &gt;50k (TP+FN), how many did the classifier classify correctly (TP)”.</source>
+          <target state="new">Another common question is “Out of all the high earning employees with income &gt;50k (TP+FN), how many did the classifier classify correctly (TP)”.</target>
+        </trans-unit>
+        <trans-unit id="4d583f5e-92d8-4a0a-9711-480852654e34" xml:space="preserve">
+          <source>This is actually the <bpt id="7ee6766d-943e-4503-964b-b7aebc37d6e2">&lt;strong&gt;</bpt>Recall<ept id="7ee6766d-943e-4503-964b-b7aebc37d6e2">&lt;/strong&gt;</ept>, or the true positive rate: TP/(TP+FN) of the classifier.</source>
+          <target state="new">This is actually the <bpt id="7ee6766d-943e-4503-964b-b7aebc37d6e2">&lt;strong&gt;</bpt>Recall<ept id="7ee6766d-943e-4503-964b-b7aebc37d6e2">&lt;/strong&gt;</ept>, or the true positive rate: TP/(TP+FN) of the classifier.</target>
+        </trans-unit>
+        <trans-unit id="239d68f7-6d6a-48df-8d20-4515b041fe75" xml:space="preserve">
+          <source>You might notice that there is an obvious trade-off between precision and recall.</source>
+          <target state="new">You might notice that there is an obvious trade-off between precision and recall.</target>
+        </trans-unit>
+        <trans-unit id="fbed9c5a-10c2-4ddb-8782-c13627dba6ea" xml:space="preserve">
+          <source>For example, given a relatively balanced dataset, a classifier that predicts mostly positive instances, would have a high recall, but a rather low precision as many of the negative instances would be misclassified resulting in a large number of false positives.</source>
+          <target state="new">For example, given a relatively balanced dataset, a classifier that predicts mostly positive instances, would have a high recall, but a rather low precision as many of the negative instances would be misclassified resulting in a large number of false positives.</target>
+        </trans-unit>
+        <trans-unit id="8d37593c-ba3f-4880-bc81-7b683f804b23" xml:space="preserve">
+          <source>To see a plot of how these two metrics vary, you can click on the ‘PRECISION/RECALL’ curve in the evaluation result output page (top left part of Figure 7).</source>
+          <target state="new">To see a plot of how these two metrics vary, you can click on the ‘PRECISION/RECALL’ curve in the evaluation result output page (top left part of Figure 7).</target>
+        </trans-unit>
+        <trans-unit id="3bf26244-8d42-4c59-a699-5fe923ca441e" xml:space="preserve">
+          <source><bpt id="b3046190-37e5-405a-9bc8-80fc3f5537d8">&lt;linkText&gt;</bpt>Binary Classification Evaluation Results<ept id="b3046190-37e5-405a-9bc8-80fc3f5537d8">&lt;/linkText&gt;</ept>
+Figure 7.</source>
+          <target state="new"><bpt id="b3046190-37e5-405a-9bc8-80fc3f5537d8">&lt;linkText&gt;</bpt>Binary Classification Evaluation Results<ept id="b3046190-37e5-405a-9bc8-80fc3f5537d8">&lt;/linkText&gt;</ept>
+Figure 7.</target>
+        </trans-unit>
+        <trans-unit id="2bb210a6-6f91-4239-852d-57835c58f39c" xml:space="preserve">
+          <source>Binary Classification Evaluation Results.</source>
+          <target state="new">Binary Classification Evaluation Results.</target>
+        </trans-unit>
+        <trans-unit id="20ffdedb-96a9-43f7-8423-f026f2cc26e3" xml:space="preserve">
+          <source>Another related metric that is often used is the <bpt id="d0578289-2562-4f17-b69f-b93f94447edb">&lt;strong&gt;</bpt>F1 Score<ept id="d0578289-2562-4f17-b69f-b93f94447edb">&lt;/strong&gt;</ept>, which takes both precision and recall into consideration.</source>
+          <target state="new">Another related metric that is often used is the <bpt id="d0578289-2562-4f17-b69f-b93f94447edb">&lt;strong&gt;</bpt>F1 Score<ept id="d0578289-2562-4f17-b69f-b93f94447edb">&lt;/strong&gt;</ept>, which takes both precision and recall into consideration.</target>
+        </trans-unit>
+        <trans-unit id="e4ccbc3c-f1d6-4cb8-8e1a-a144bd819ce6" xml:space="preserve">
+          <source>It is the harmonic mean of these 2 metrics and is computed as such: F1 = 2 (precision x recall) / (precision + recall).</source>
+          <target state="new">It is the harmonic mean of these 2 metrics and is computed as such: F1 = 2 (precision x recall) / (precision + recall).</target>
+        </trans-unit>
+        <trans-unit id="6c0425b3-6804-452a-b71f-17e701c80360" xml:space="preserve">
+          <source>The F1 score is a good way to summarize the evaluation in a single number, but it’s always a good practice to look at both precision and recall together to better understand how a classifier behaves.</source>
+          <target state="new">The F1 score is a good way to summarize the evaluation in a single number, but it’s always a good practice to look at both precision and recall together to better understand how a classifier behaves.</target>
+        </trans-unit>
+        <trans-unit id="ddf1ba19-e6fe-4e23-9069-f0f41fdc0c5f" xml:space="preserve">
+          <source>In addition, one can inspect the true positive rate vs. the false positive rate in the <bpt id="9cb97f21-8274-4033-b4ca-f64f0c00cd2a">&lt;strong&gt;</bpt>Receiver Operating Characteristic (ROC)<ept id="9cb97f21-8274-4033-b4ca-f64f0c00cd2a">&lt;/strong&gt;</ept> curve and the corresponding <bpt id="ea39a153-27f7-42d3-9e16-2e30ae220f11">&lt;strong&gt;</bpt>Area Under the Curve (AUC)<ept id="ea39a153-27f7-42d3-9e16-2e30ae220f11">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">In addition, one can inspect the true positive rate vs. the false positive rate in the <bpt id="9cb97f21-8274-4033-b4ca-f64f0c00cd2a">&lt;strong&gt;</bpt>Receiver Operating Characteristic (ROC)<ept id="9cb97f21-8274-4033-b4ca-f64f0c00cd2a">&lt;/strong&gt;</ept> curve and the corresponding <bpt id="ea39a153-27f7-42d3-9e16-2e30ae220f11">&lt;strong&gt;</bpt>Area Under the Curve (AUC)<ept id="ea39a153-27f7-42d3-9e16-2e30ae220f11">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="44db951e-9d78-4afa-aa7e-0f2970d54c0e" xml:space="preserve">
+          <source>The closer this curve is to the upper left corner, the better the classifier’s performance is (that is maximizing the true positive rate while minimizing the false positive rate).</source>
+          <target state="new">The closer this curve is to the upper left corner, the better the classifier’s performance is (that is maximizing the true positive rate while minimizing the false positive rate).</target>
+        </trans-unit>
+        <trans-unit id="a80163c7-57c0-44fc-902b-a1c2ac053998" xml:space="preserve">
+          <source>Curves that are close to the diagonal of the plot, result from classifiers that tend to make predictions that are close to random guessing.</source>
+          <target state="new">Curves that are close to the diagonal of the plot, result from classifiers that tend to make predictions that are close to random guessing.</target>
+        </trans-unit>
+        <trans-unit id="84cd8997-ae32-4aca-b4ff-5901698e0bd5" xml:space="preserve">
+          <source>As in the regression example, we can perform cross validation to repeatedly train, score and evaluate different subsets of the data automatically.</source>
+          <target state="new">As in the regression example, we can perform cross validation to repeatedly train, score and evaluate different subsets of the data automatically.</target>
+        </trans-unit>
+        <trans-unit id="2a46b6f0-5d46-4e44-ac26-d766c657baac" xml:space="preserve">
+          <source>Similarly, we can use the <bpt id="ef3d1721-76c9-48e6-ad7e-0484b80bd2dc">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="ef3d1721-76c9-48e6-ad7e-0484b80bd2dc">&lt;/linkText&gt;</ept><bpt id="ef3d1721-76c9-48e6-ad7e-0484b80bd2dc">&lt;title&gt;</bpt><ept id="ef3d1721-76c9-48e6-ad7e-0484b80bd2dc">&lt;/title&gt;</ept> module, an untrained logistic regression model, and a dataset.</source>
+          <target state="new">Similarly, we can use the <bpt id="ef3d1721-76c9-48e6-ad7e-0484b80bd2dc">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="ef3d1721-76c9-48e6-ad7e-0484b80bd2dc">&lt;/linkText&gt;</ept><bpt id="ef3d1721-76c9-48e6-ad7e-0484b80bd2dc">&lt;title&gt;</bpt><ept id="ef3d1721-76c9-48e6-ad7e-0484b80bd2dc">&lt;/title&gt;</ept> module, an untrained logistic regression model, and a dataset.</target>
+        </trans-unit>
+        <trans-unit id="d9721881-9070-412a-86ef-992b4b661710" xml:space="preserve">
+          <source>The label column must be set to <bpt id="0c9dcc49-f460-47c4-856e-5e499c72ecaf">&lt;em&gt;</bpt>income<ept id="0c9dcc49-f460-47c4-856e-5e499c72ecaf">&lt;/em&gt;</ept> in the <bpt id="2ec7f36c-4773-4d84-9ce0-bfa82d83d693">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="2ec7f36c-4773-4d84-9ce0-bfa82d83d693">&lt;/linkText&gt;</ept><bpt id="2ec7f36c-4773-4d84-9ce0-bfa82d83d693">&lt;title&gt;</bpt><ept id="2ec7f36c-4773-4d84-9ce0-bfa82d83d693">&lt;/title&gt;</ept> module’s properties.</source>
+          <target state="new">The label column must be set to <bpt id="0c9dcc49-f460-47c4-856e-5e499c72ecaf">&lt;em&gt;</bpt>income<ept id="0c9dcc49-f460-47c4-856e-5e499c72ecaf">&lt;/em&gt;</ept> in the <bpt id="2ec7f36c-4773-4d84-9ce0-bfa82d83d693">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="2ec7f36c-4773-4d84-9ce0-bfa82d83d693">&lt;/linkText&gt;</ept><bpt id="2ec7f36c-4773-4d84-9ce0-bfa82d83d693">&lt;title&gt;</bpt><ept id="2ec7f36c-4773-4d84-9ce0-bfa82d83d693">&lt;/title&gt;</ept> module’s properties.</target>
+        </trans-unit>
+        <trans-unit id="8dc2217c-e34d-4125-8bea-1821f1670af7" xml:space="preserve">
+          <source>After running the experiment and clicking on the right output port of the <bpt id="6ae2ace2-2554-46ef-985c-8c6edeab6f3a">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="6ae2ace2-2554-46ef-985c-8c6edeab6f3a">&lt;/linkText&gt;</ept><bpt id="6ae2ace2-2554-46ef-985c-8c6edeab6f3a">&lt;title&gt;</bpt><ept id="6ae2ace2-2554-46ef-985c-8c6edeab6f3a">&lt;/title&gt;</ept> module, we can see the binary classification metric values for each fold, in addition to the mean and standard deviation of each.</source>
+          <target state="new">After running the experiment and clicking on the right output port of the <bpt id="6ae2ace2-2554-46ef-985c-8c6edeab6f3a">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="6ae2ace2-2554-46ef-985c-8c6edeab6f3a">&lt;/linkText&gt;</ept><bpt id="6ae2ace2-2554-46ef-985c-8c6edeab6f3a">&lt;title&gt;</bpt><ept id="6ae2ace2-2554-46ef-985c-8c6edeab6f3a">&lt;/title&gt;</ept> module, we can see the binary classification metric values for each fold, in addition to the mean and standard deviation of each.</target>
+        </trans-unit>
+        <trans-unit id="7e3da51b-de50-4699-a2e3-4b931e38c9d8" xml:space="preserve">
+          <source><bpt id="54743f32-46d3-4cd1-9805-92c6f0322c62">&lt;linkText&gt;</bpt>Cross-Validating a Binary Classification Model<ept id="54743f32-46d3-4cd1-9805-92c6f0322c62">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54743f32-46d3-4cd1-9805-92c6f0322c62">&lt;linkText&gt;</bpt>Cross-Validating a Binary Classification Model<ept id="54743f32-46d3-4cd1-9805-92c6f0322c62">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6e2423b-1533-4f88-8ee4-de52172b25b1" xml:space="preserve">
+          <source>Figure 8.</source>
+          <target state="new">Figure 8.</target>
+        </trans-unit>
+        <trans-unit id="fefc95fa-c6fc-4ede-858c-f05a23c6da6d" xml:space="preserve">
+          <source>Cross-Validating a Binary Classification Model.</source>
+          <target state="new">Cross-Validating a Binary Classification Model.</target>
+        </trans-unit>
+        <trans-unit id="84605b24-6942-46cd-bfbc-f5843620ad78" xml:space="preserve">
+          <source><bpt id="cbab95c7-357a-4154-b740-066fed86e52a">&lt;linkText&gt;</bpt>Cross-Validation Results of a Binary Classifier<ept id="cbab95c7-357a-4154-b740-066fed86e52a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cbab95c7-357a-4154-b740-066fed86e52a">&lt;linkText&gt;</bpt>Cross-Validation Results of a Binary Classifier<ept id="cbab95c7-357a-4154-b740-066fed86e52a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bdd72e1-549a-4c36-bdab-b62d5b5888eb" xml:space="preserve">
+          <source>Figure 9.</source>
+          <target state="new">Figure 9.</target>
+        </trans-unit>
+        <trans-unit id="25fddd89-0ae1-4c2d-b299-52bb36688aa9" xml:space="preserve">
+          <source>Cross-Validation Results of a Binary Classifier.</source>
+          <target state="new">Cross-Validation Results of a Binary Classifier.</target>
+        </trans-unit>
+        <trans-unit id="22c342ca-457d-4f1b-bccc-6cfd957e0294" xml:space="preserve">
+          <source>In this experiment we will use the popular <bpt id="3fc42087-351d-48af-979b-a9cd4b0d8a65">&lt;linkText&gt;</bpt>Iris<ept id="3fc42087-351d-48af-979b-a9cd4b0d8a65">&lt;/linkText&gt;</ept><bpt id="3fc42087-351d-48af-979b-a9cd4b0d8a65">&lt;title&gt;</bpt>Iris<ept id="3fc42087-351d-48af-979b-a9cd4b0d8a65">&lt;/title&gt;</ept> dataset which contains instances of 3 different types (classes) of the iris plant.</source>
+          <target state="new">In this experiment we will use the popular <bpt id="3fc42087-351d-48af-979b-a9cd4b0d8a65">&lt;linkText&gt;</bpt>Iris<ept id="3fc42087-351d-48af-979b-a9cd4b0d8a65">&lt;/linkText&gt;</ept><bpt id="3fc42087-351d-48af-979b-a9cd4b0d8a65">&lt;title&gt;</bpt>Iris<ept id="3fc42087-351d-48af-979b-a9cd4b0d8a65">&lt;/title&gt;</ept> dataset which contains instances of 3 different types (classes) of the iris plant.</target>
+        </trans-unit>
+        <trans-unit id="cd67b45b-3660-4ecd-bfba-cd36f2bc68fe" xml:space="preserve">
+          <source>There are 4 feature values (sepal length/width and petal length/width) for each instance.</source>
+          <target state="new">There are 4 feature values (sepal length/width and petal length/width) for each instance.</target>
+        </trans-unit>
+        <trans-unit id="24264aaa-8d3b-4d58-b71e-7440dbd2151f" xml:space="preserve">
+          <source>In the previous experiments we trained and tested the models using the same datasets.</source>
+          <target state="new">In the previous experiments we trained and tested the models using the same datasets.</target>
+        </trans-unit>
+        <trans-unit id="72c5de79-4562-46a1-8ee4-44f011af9c2c" xml:space="preserve">
+          <source>Here, we will use the <bpt id="0e645886-c482-4e10-a93c-7c6275e40eb8">&lt;linkText&gt;</bpt>Split[split]<ept id="0e645886-c482-4e10-a93c-7c6275e40eb8">&lt;/linkText&gt;</ept><bpt id="0e645886-c482-4e10-a93c-7c6275e40eb8">&lt;title&gt;</bpt><ept id="0e645886-c482-4e10-a93c-7c6275e40eb8">&lt;/title&gt;</ept> module to create 2 subsets of the data, train on the first, and score and evaluate on the second.</source>
+          <target state="new">Here, we will use the <bpt id="0e645886-c482-4e10-a93c-7c6275e40eb8">&lt;linkText&gt;</bpt>Split[split]<ept id="0e645886-c482-4e10-a93c-7c6275e40eb8">&lt;/linkText&gt;</ept><bpt id="0e645886-c482-4e10-a93c-7c6275e40eb8">&lt;title&gt;</bpt><ept id="0e645886-c482-4e10-a93c-7c6275e40eb8">&lt;/title&gt;</ept> module to create 2 subsets of the data, train on the first, and score and evaluate on the second.</target>
+        </trans-unit>
+        <trans-unit id="197245eb-c7a6-4e81-919f-3fa535b517e3" xml:space="preserve">
+          <source>The Iris dataset is publicly available on the <bpt id="3bcd53a9-c27c-4f39-8e7d-fb0868138ce9">&lt;linkText&gt;</bpt>UCI Machine Learning Repository<ept id="3bcd53a9-c27c-4f39-8e7d-fb0868138ce9">&lt;/linkText&gt;</ept><bpt id="3bcd53a9-c27c-4f39-8e7d-fb0868138ce9">&lt;title&gt;</bpt><ept id="3bcd53a9-c27c-4f39-8e7d-fb0868138ce9">&lt;/title&gt;</ept>, and can be downloaded using a <bpt id="051e14f9-9962-440d-bba7-b787d4a2dd30">&lt;linkText&gt;</bpt>Reader[reader]<ept id="051e14f9-9962-440d-bba7-b787d4a2dd30">&lt;/linkText&gt;</ept><bpt id="051e14f9-9962-440d-bba7-b787d4a2dd30">&lt;title&gt;</bpt><ept id="051e14f9-9962-440d-bba7-b787d4a2dd30">&lt;/title&gt;</ept> module.</source>
+          <target state="new">The Iris dataset is publicly available on the <bpt id="3bcd53a9-c27c-4f39-8e7d-fb0868138ce9">&lt;linkText&gt;</bpt>UCI Machine Learning Repository<ept id="3bcd53a9-c27c-4f39-8e7d-fb0868138ce9">&lt;/linkText&gt;</ept><bpt id="3bcd53a9-c27c-4f39-8e7d-fb0868138ce9">&lt;title&gt;</bpt><ept id="3bcd53a9-c27c-4f39-8e7d-fb0868138ce9">&lt;/title&gt;</ept>, and can be downloaded using a <bpt id="051e14f9-9962-440d-bba7-b787d4a2dd30">&lt;linkText&gt;</bpt>Reader[reader]<ept id="051e14f9-9962-440d-bba7-b787d4a2dd30">&lt;/linkText&gt;</ept><bpt id="051e14f9-9962-440d-bba7-b787d4a2dd30">&lt;title&gt;</bpt><ept id="051e14f9-9962-440d-bba7-b787d4a2dd30">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="8d8da4d5-517b-4cda-a02d-9aff04acad61" xml:space="preserve">
+          <source>Add the following modules to your workspace in Azure Machine Learning Studio:</source>
+          <target state="new">Add the following modules to your workspace in Azure Machine Learning Studio:</target>
+        </trans-unit>
+        <trans-unit id="d1b01f44-3c1a-4b89-97da-a8058d0ffc48" xml:space="preserve">
+          <source><bpt id="34903edb-36ed-4d2f-bbe1-2d2417738f4d">&lt;linkText&gt;</bpt>Reader[reader]<ept id="34903edb-36ed-4d2f-bbe1-2d2417738f4d">&lt;/linkText&gt;</ept><bpt id="34903edb-36ed-4d2f-bbe1-2d2417738f4d">&lt;title&gt;</bpt><ept id="34903edb-36ed-4d2f-bbe1-2d2417738f4d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="34903edb-36ed-4d2f-bbe1-2d2417738f4d">&lt;linkText&gt;</bpt>Reader[reader]<ept id="34903edb-36ed-4d2f-bbe1-2d2417738f4d">&lt;/linkText&gt;</ept><bpt id="34903edb-36ed-4d2f-bbe1-2d2417738f4d">&lt;title&gt;</bpt><ept id="34903edb-36ed-4d2f-bbe1-2d2417738f4d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="106721bb-e572-4c35-83d1-b32f348a74d9" xml:space="preserve">
+          <source><bpt id="34fe02a8-bbfa-4d3f-babf-d7e8fe211cdc">&lt;linkText&gt;</bpt>Multiclass Decision Forest[multiclass-decision-forest]<ept id="34fe02a8-bbfa-4d3f-babf-d7e8fe211cdc">&lt;/linkText&gt;</ept><bpt id="34fe02a8-bbfa-4d3f-babf-d7e8fe211cdc">&lt;title&gt;</bpt><ept id="34fe02a8-bbfa-4d3f-babf-d7e8fe211cdc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="34fe02a8-bbfa-4d3f-babf-d7e8fe211cdc">&lt;linkText&gt;</bpt>Multiclass Decision Forest[multiclass-decision-forest]<ept id="34fe02a8-bbfa-4d3f-babf-d7e8fe211cdc">&lt;/linkText&gt;</ept><bpt id="34fe02a8-bbfa-4d3f-babf-d7e8fe211cdc">&lt;title&gt;</bpt><ept id="34fe02a8-bbfa-4d3f-babf-d7e8fe211cdc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1128d56d-f7e6-4d96-8a7f-405329505191" xml:space="preserve">
+          <source><bpt id="92b95038-5b7e-4aca-b12d-e3b3ec783869">&lt;linkText&gt;</bpt>Split[split]<ept id="92b95038-5b7e-4aca-b12d-e3b3ec783869">&lt;/linkText&gt;</ept><bpt id="92b95038-5b7e-4aca-b12d-e3b3ec783869">&lt;title&gt;</bpt><ept id="92b95038-5b7e-4aca-b12d-e3b3ec783869">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="92b95038-5b7e-4aca-b12d-e3b3ec783869">&lt;linkText&gt;</bpt>Split[split]<ept id="92b95038-5b7e-4aca-b12d-e3b3ec783869">&lt;/linkText&gt;</ept><bpt id="92b95038-5b7e-4aca-b12d-e3b3ec783869">&lt;title&gt;</bpt><ept id="92b95038-5b7e-4aca-b12d-e3b3ec783869">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d347ebb-efbc-4909-b2cf-395ea6e7414c" xml:space="preserve">
+          <source><bpt id="3e1161a1-ad2b-4832-876d-5a8533f8fed6">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="3e1161a1-ad2b-4832-876d-5a8533f8fed6">&lt;/linkText&gt;</ept><bpt id="3e1161a1-ad2b-4832-876d-5a8533f8fed6">&lt;title&gt;</bpt><ept id="3e1161a1-ad2b-4832-876d-5a8533f8fed6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3e1161a1-ad2b-4832-876d-5a8533f8fed6">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="3e1161a1-ad2b-4832-876d-5a8533f8fed6">&lt;/linkText&gt;</ept><bpt id="3e1161a1-ad2b-4832-876d-5a8533f8fed6">&lt;title&gt;</bpt><ept id="3e1161a1-ad2b-4832-876d-5a8533f8fed6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0075403-67a8-484e-8384-a0b3d99a5910" xml:space="preserve">
+          <source><bpt id="2c5613be-b7b3-4096-845c-a8f8fad3f6df">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="2c5613be-b7b3-4096-845c-a8f8fad3f6df">&lt;/linkText&gt;</ept><bpt id="2c5613be-b7b3-4096-845c-a8f8fad3f6df">&lt;title&gt;</bpt><ept id="2c5613be-b7b3-4096-845c-a8f8fad3f6df">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c5613be-b7b3-4096-845c-a8f8fad3f6df">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="2c5613be-b7b3-4096-845c-a8f8fad3f6df">&lt;/linkText&gt;</ept><bpt id="2c5613be-b7b3-4096-845c-a8f8fad3f6df">&lt;title&gt;</bpt><ept id="2c5613be-b7b3-4096-845c-a8f8fad3f6df">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="074172ae-c3da-4c4f-9ae5-50eb0cbe097b" xml:space="preserve">
+          <source><bpt id="63db648d-6ce3-4347-a4c6-c2002063e938">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="63db648d-6ce3-4347-a4c6-c2002063e938">&lt;/linkText&gt;</ept><bpt id="63db648d-6ce3-4347-a4c6-c2002063e938">&lt;title&gt;</bpt><ept id="63db648d-6ce3-4347-a4c6-c2002063e938">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="63db648d-6ce3-4347-a4c6-c2002063e938">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="63db648d-6ce3-4347-a4c6-c2002063e938">&lt;/linkText&gt;</ept><bpt id="63db648d-6ce3-4347-a4c6-c2002063e938">&lt;title&gt;</bpt><ept id="63db648d-6ce3-4347-a4c6-c2002063e938">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="739786f5-a9b1-427e-994f-517a82b5d5f0" xml:space="preserve">
+          <source>Connect the ports as shown below in Figure 10.</source>
+          <target state="new">Connect the ports as shown below in Figure 10.</target>
+        </trans-unit>
+        <trans-unit id="4240cc25-32c5-4be0-96ef-7b11c8719e53" xml:space="preserve">
+          <source>Set the Label column index of the <bpt id="c36fde92-84ea-47b2-a89c-54c8afc93c90">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="c36fde92-84ea-47b2-a89c-54c8afc93c90">&lt;/linkText&gt;</ept><bpt id="c36fde92-84ea-47b2-a89c-54c8afc93c90">&lt;title&gt;</bpt><ept id="c36fde92-84ea-47b2-a89c-54c8afc93c90">&lt;/title&gt;</ept> module to 5.</source>
+          <target state="new">Set the Label column index of the <bpt id="c36fde92-84ea-47b2-a89c-54c8afc93c90">&lt;linkText&gt;</bpt>Train Model[train-model]<ept id="c36fde92-84ea-47b2-a89c-54c8afc93c90">&lt;/linkText&gt;</ept><bpt id="c36fde92-84ea-47b2-a89c-54c8afc93c90">&lt;title&gt;</bpt><ept id="c36fde92-84ea-47b2-a89c-54c8afc93c90">&lt;/title&gt;</ept> module to 5.</target>
+        </trans-unit>
+        <trans-unit id="6a857a0f-27cc-456e-998f-9c5a5bf4d149" xml:space="preserve">
+          <source>The dataset has no header row but we know that the class labels are in the fifth column.</source>
+          <target state="new">The dataset has no header row but we know that the class labels are in the fifth column.</target>
+        </trans-unit>
+        <trans-unit id="401a71c4-bb35-4ea5-a492-71dc8472df11" xml:space="preserve">
+          <source>Click on the <bpt id="a2e2a86c-8a18-4d58-89ab-035cefc031e9">&lt;linkText&gt;</bpt>Reader[reader]<ept id="a2e2a86c-8a18-4d58-89ab-035cefc031e9">&lt;/linkText&gt;</ept><bpt id="a2e2a86c-8a18-4d58-89ab-035cefc031e9">&lt;title&gt;</bpt><ept id="a2e2a86c-8a18-4d58-89ab-035cefc031e9">&lt;/title&gt;</ept> module and set the <bpt id="762b2665-7898-440f-a67b-18b07a9efc41">&lt;em&gt;</bpt>Data source<ept id="762b2665-7898-440f-a67b-18b07a9efc41">&lt;/em&gt;</ept> property to <bpt id="161041cf-aabd-4654-88e4-9e51ee45a8aa">&lt;em&gt;</bpt>Web URL via HTTP<ept id="161041cf-aabd-4654-88e4-9e51ee45a8aa">&lt;/em&gt;</ept>, and the <bpt id="59697673-12ce-4859-b083-8e9f42726f5d">&lt;em&gt;</bpt>URL<ept id="59697673-12ce-4859-b083-8e9f42726f5d">&lt;/em&gt;</ept> to http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.</source>
+          <target state="new">Click on the <bpt id="a2e2a86c-8a18-4d58-89ab-035cefc031e9">&lt;linkText&gt;</bpt>Reader[reader]<ept id="a2e2a86c-8a18-4d58-89ab-035cefc031e9">&lt;/linkText&gt;</ept><bpt id="a2e2a86c-8a18-4d58-89ab-035cefc031e9">&lt;title&gt;</bpt><ept id="a2e2a86c-8a18-4d58-89ab-035cefc031e9">&lt;/title&gt;</ept> module and set the <bpt id="762b2665-7898-440f-a67b-18b07a9efc41">&lt;em&gt;</bpt>Data source<ept id="762b2665-7898-440f-a67b-18b07a9efc41">&lt;/em&gt;</ept> property to <bpt id="161041cf-aabd-4654-88e4-9e51ee45a8aa">&lt;em&gt;</bpt>Web URL via HTTP<ept id="161041cf-aabd-4654-88e4-9e51ee45a8aa">&lt;/em&gt;</ept>, and the <bpt id="59697673-12ce-4859-b083-8e9f42726f5d">&lt;em&gt;</bpt>URL<ept id="59697673-12ce-4859-b083-8e9f42726f5d">&lt;/em&gt;</ept> to http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.</target>
+        </trans-unit>
+        <trans-unit id="bb37e436-3893-42c3-951e-cf3a6180311f" xml:space="preserve">
+          <source>Set the fraction of instances to be used for training in the <bpt id="4639a0bb-f63a-437e-ab7f-3f7b4cc584ee">&lt;linkText&gt;</bpt>Split[split]<ept id="4639a0bb-f63a-437e-ab7f-3f7b4cc584ee">&lt;/linkText&gt;</ept><bpt id="4639a0bb-f63a-437e-ab7f-3f7b4cc584ee">&lt;title&gt;</bpt><ept id="4639a0bb-f63a-437e-ab7f-3f7b4cc584ee">&lt;/title&gt;</ept> module (0.7 for example).</source>
+          <target state="new">Set the fraction of instances to be used for training in the <bpt id="4639a0bb-f63a-437e-ab7f-3f7b4cc584ee">&lt;linkText&gt;</bpt>Split[split]<ept id="4639a0bb-f63a-437e-ab7f-3f7b4cc584ee">&lt;/linkText&gt;</ept><bpt id="4639a0bb-f63a-437e-ab7f-3f7b4cc584ee">&lt;title&gt;</bpt><ept id="4639a0bb-f63a-437e-ab7f-3f7b4cc584ee">&lt;/title&gt;</ept> module (0.7 for example).</target>
+        </trans-unit>
+        <trans-unit id="48a72787-5265-46ba-88f7-83eaaae7a1b4" xml:space="preserve">
+          <source><bpt id="3bd2cb8a-5d78-4c26-bb6e-4e22e5c330ba">&lt;linkText&gt;</bpt>Evaluating a Multiclass Classifier<ept id="3bd2cb8a-5d78-4c26-bb6e-4e22e5c330ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3bd2cb8a-5d78-4c26-bb6e-4e22e5c330ba">&lt;linkText&gt;</bpt>Evaluating a Multiclass Classifier<ept id="3bd2cb8a-5d78-4c26-bb6e-4e22e5c330ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e88a2815-5401-4a0e-9ebe-75ec0b7b582f" xml:space="preserve">
+          <source>Figure 10.</source>
+          <target state="new">Figure 10.</target>
+        </trans-unit>
+        <trans-unit id="07661adc-6071-4115-b3d6-7cb9b16df7ac" xml:space="preserve">
+          <source>Evaluating a Multiclass Classifier</source>
+          <target state="new">Evaluating a Multiclass Classifier</target>
+        </trans-unit>
+        <trans-unit id="db87da61-094d-44a6-a42e-6fd62eaf47eb" xml:space="preserve">
+          <source>Run the experiment and click on the output port of <bpt id="b57483c5-9ace-468d-8cac-8363e3737519">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="b57483c5-9ace-468d-8cac-8363e3737519">&lt;/linkText&gt;</ept><bpt id="b57483c5-9ace-468d-8cac-8363e3737519">&lt;title&gt;</bpt><ept id="b57483c5-9ace-468d-8cac-8363e3737519">&lt;/title&gt;</ept>.</source>
+          <target state="new">Run the experiment and click on the output port of <bpt id="b57483c5-9ace-468d-8cac-8363e3737519">&lt;linkText&gt;</bpt>Evaluate Model[evaluate-model]<ept id="b57483c5-9ace-468d-8cac-8363e3737519">&lt;/linkText&gt;</ept><bpt id="b57483c5-9ace-468d-8cac-8363e3737519">&lt;title&gt;</bpt><ept id="b57483c5-9ace-468d-8cac-8363e3737519">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1089c1c9-b709-402d-bd39-e7060b544703" xml:space="preserve">
+          <source>The evaluation results are presented in the form of a confusion matrix, in this case.</source>
+          <target state="new">The evaluation results are presented in the form of a confusion matrix, in this case.</target>
+        </trans-unit>
+        <trans-unit id="b9a79bcf-4f2c-4cce-8ebf-6d5e4f5df61e" xml:space="preserve">
+          <source>The matrix shows the actual vs. predicted instances for all 3 classes.</source>
+          <target state="new">The matrix shows the actual vs. predicted instances for all 3 classes.</target>
+        </trans-unit>
+        <trans-unit id="ea03ba1d-3d58-42c5-9bc8-9ffac0826be1" xml:space="preserve">
+          <source><bpt id="f7e3256d-38bc-434b-9ab4-c9ce59d3c953">&lt;linkText&gt;</bpt>Multiclass Classification Evaluation Results<ept id="f7e3256d-38bc-434b-9ab4-c9ce59d3c953">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f7e3256d-38bc-434b-9ab4-c9ce59d3c953">&lt;linkText&gt;</bpt>Multiclass Classification Evaluation Results<ept id="f7e3256d-38bc-434b-9ab4-c9ce59d3c953">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ed8ae81-44e5-4b13-ac2d-d8092205f276" xml:space="preserve">
+          <source>Figure 11.</source>
+          <target state="new">Figure 11.</target>
+        </trans-unit>
+        <trans-unit id="ea03334d-a81c-414e-9306-2b45b82114b2" xml:space="preserve">
+          <source>Multiclass Classification Evaluation Results.</source>
+          <target state="new">Multiclass Classification Evaluation Results.</target>
+        </trans-unit>
+        <trans-unit id="b4bb8518-9d91-4d5a-8029-8cf324c105e1" xml:space="preserve">
+          <source>As mentioned earlier, you can perform repeated training, scoring and evaluations automatically using the <bpt id="eb0a8137-4654-4bd6-958a-acae268b240b">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="eb0a8137-4654-4bd6-958a-acae268b240b">&lt;/linkText&gt;</ept><bpt id="eb0a8137-4654-4bd6-958a-acae268b240b">&lt;title&gt;</bpt><ept id="eb0a8137-4654-4bd6-958a-acae268b240b">&lt;/title&gt;</ept> module.</source>
+          <target state="new">As mentioned earlier, you can perform repeated training, scoring and evaluations automatically using the <bpt id="eb0a8137-4654-4bd6-958a-acae268b240b">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="eb0a8137-4654-4bd6-958a-acae268b240b">&lt;/linkText&gt;</ept><bpt id="eb0a8137-4654-4bd6-958a-acae268b240b">&lt;title&gt;</bpt><ept id="eb0a8137-4654-4bd6-958a-acae268b240b">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="a085b8e5-c166-4ccd-9acb-a08be25cb62a" xml:space="preserve">
+          <source>You would need a dataset, an untrained model, and a <bpt id="c5a555ea-a08d-4328-959d-58a4cfa43ad4">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="c5a555ea-a08d-4328-959d-58a4cfa43ad4">&lt;/linkText&gt;</ept><bpt id="c5a555ea-a08d-4328-959d-58a4cfa43ad4">&lt;title&gt;</bpt><ept id="c5a555ea-a08d-4328-959d-58a4cfa43ad4">&lt;/title&gt;</ept> module (see figure below).</source>
+          <target state="new">You would need a dataset, an untrained model, and a <bpt id="c5a555ea-a08d-4328-959d-58a4cfa43ad4">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="c5a555ea-a08d-4328-959d-58a4cfa43ad4">&lt;/linkText&gt;</ept><bpt id="c5a555ea-a08d-4328-959d-58a4cfa43ad4">&lt;title&gt;</bpt><ept id="c5a555ea-a08d-4328-959d-58a4cfa43ad4">&lt;/title&gt;</ept> module (see figure below).</target>
+        </trans-unit>
+        <trans-unit id="6fe2f7ec-645b-484b-9833-833201adbf58" xml:space="preserve">
+          <source>Again you need to set the label column of the <bpt id="1068f8cd-bc57-4f3b-b3ff-b069ea7fbb35">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="1068f8cd-bc57-4f3b-b3ff-b069ea7fbb35">&lt;/linkText&gt;</ept><bpt id="1068f8cd-bc57-4f3b-b3ff-b069ea7fbb35">&lt;title&gt;</bpt><ept id="1068f8cd-bc57-4f3b-b3ff-b069ea7fbb35">&lt;/title&gt;</ept> module (column index 5 in this case).</source>
+          <target state="new">Again you need to set the label column of the <bpt id="1068f8cd-bc57-4f3b-b3ff-b069ea7fbb35">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="1068f8cd-bc57-4f3b-b3ff-b069ea7fbb35">&lt;/linkText&gt;</ept><bpt id="1068f8cd-bc57-4f3b-b3ff-b069ea7fbb35">&lt;title&gt;</bpt><ept id="1068f8cd-bc57-4f3b-b3ff-b069ea7fbb35">&lt;/title&gt;</ept> module (column index 5 in this case).</target>
+        </trans-unit>
+        <trans-unit id="bff07aca-5730-4ed5-b462-45213f92f7cc" xml:space="preserve">
+          <source>After running the experiment and clicking the right output port of the <bpt id="7bbda718-4691-4ca9-9667-c3910970c955">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="7bbda718-4691-4ca9-9667-c3910970c955">&lt;/linkText&gt;</ept><bpt id="7bbda718-4691-4ca9-9667-c3910970c955">&lt;title&gt;</bpt><ept id="7bbda718-4691-4ca9-9667-c3910970c955">&lt;/title&gt;</ept>, you can inspect the metric values for each fold as well as the mean and standard deviation.</source>
+          <target state="new">After running the experiment and clicking the right output port of the <bpt id="7bbda718-4691-4ca9-9667-c3910970c955">&lt;linkText&gt;</bpt>Cross-Validate Model[cross-validate-model]<ept id="7bbda718-4691-4ca9-9667-c3910970c955">&lt;/linkText&gt;</ept><bpt id="7bbda718-4691-4ca9-9667-c3910970c955">&lt;title&gt;</bpt><ept id="7bbda718-4691-4ca9-9667-c3910970c955">&lt;/title&gt;</ept>, you can inspect the metric values for each fold as well as the mean and standard deviation.</target>
+        </trans-unit>
+        <trans-unit id="e4a69d49-4fa0-475f-9020-64ffe4504daf" xml:space="preserve">
+          <source>The metrics displayed here are the similar to the ones discussed in the binary classification case.</source>
+          <target state="new">The metrics displayed here are the similar to the ones discussed in the binary classification case.</target>
+        </trans-unit>
+        <trans-unit id="5e3483e6-dc97-4776-bfca-033995196a9a" xml:space="preserve">
+          <source>However, note that in multiclass classification, computing the true positives/negatives and false positives/negatives is done by counting on a per-class basis, as there is no overall positive or negative class.</source>
+          <target state="new">However, note that in multiclass classification, computing the true positives/negatives and false positives/negatives is done by counting on a per-class basis, as there is no overall positive or negative class.</target>
+        </trans-unit>
+        <trans-unit id="c687bd93-53c0-4bb2-8d41-6fa719c36334" xml:space="preserve">
+          <source>For example, when computing the precision or recall of the ‘Iris-setosa’ class, it is assumed that this is the positive class and all others as negative.</source>
+          <target state="new">For example, when computing the precision or recall of the ‘Iris-setosa’ class, it is assumed that this is the positive class and all others as negative.</target>
+        </trans-unit>
+        <trans-unit id="4e6e83cc-b22d-40f6-ac68-33ed35b0fa85" xml:space="preserve">
+          <source><bpt id="251fe21a-4aa2-4801-840c-8fcede072171">&lt;linkText&gt;</bpt>Cross-Validating a Multiclass Classification Model<ept id="251fe21a-4aa2-4801-840c-8fcede072171">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="251fe21a-4aa2-4801-840c-8fcede072171">&lt;linkText&gt;</bpt>Cross-Validating a Multiclass Classification Model<ept id="251fe21a-4aa2-4801-840c-8fcede072171">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fac7bb36-b714-463e-a019-3b5001f5bb1c" xml:space="preserve">
+          <source>Figure 12.</source>
+          <target state="new">Figure 12.</target>
+        </trans-unit>
+        <trans-unit id="ae4d7004-130d-41ae-9c29-5fb595fea3d9" xml:space="preserve">
+          <source>Cross-Validating a Multiclass Classification Model.</source>
+          <target state="new">Cross-Validating a Multiclass Classification Model.</target>
+        </trans-unit>
+        <trans-unit id="d9034e99-bef7-40e3-9ff3-b9219117064e" xml:space="preserve">
+          <source><bpt id="45d03f6d-8808-4be4-8c42-7885fc3f175f">&lt;linkText&gt;</bpt>Cross-Validation Results of a Multiclass Classification Model<ept id="45d03f6d-8808-4be4-8c42-7885fc3f175f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="45d03f6d-8808-4be4-8c42-7885fc3f175f">&lt;linkText&gt;</bpt>Cross-Validation Results of a Multiclass Classification Model<ept id="45d03f6d-8808-4be4-8c42-7885fc3f175f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="558cc8ba-70cb-48d2-bf4b-753cf149eb22" xml:space="preserve">
+          <source>Figure 13.</source>
+          <target state="new">Figure 13.</target>
+        </trans-unit>
+        <trans-unit id="f1723008-2a0a-439f-a0b1-a9136bd1c8d9" xml:space="preserve">
+          <source>Cross-Validation Results of a Multiclass Classification Model.</source>
+          <target state="new">Cross-Validation Results of a Multiclass Classification Model.</target>
+        </trans-unit>
+        <trans-unit id="3d8f6917-7826-4d24-988c-69539a5b7b3d" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/</target>
+        </trans-unit>
+        <trans-unit id="b65f162d-c913-4f9d-b137-948b59fa7219" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/</target>
+        </trans-unit>
+        <trans-unit id="702662cb-9ebc-4786-8836-db1fe0bfa704" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/</target>
+        </trans-unit>
+        <trans-unit id="1d106f8d-eabd-467e-a4df-825ae2a79ec8" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/</target>
+        </trans-unit>
+        <trans-unit id="d4ea2a80-3e78-415e-a16b-56939274392e" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/</target>
+        </trans-unit>
+        <trans-unit id="0c81c899-e015-4e3a-818a-d6ebb6123cae" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/</target>
+        </trans-unit>
+        <trans-unit id="a94add17-08f4-4121-ae88-57f092335af1" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/</target>
+        </trans-unit>
+        <trans-unit id="3f19ea3f-8ccb-4e9d-9117-a4df167b9241" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/</target>
+        </trans-unit>
+        <trans-unit id="5f61771a-be40-4454-b0a1-24018ba505f1" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/</target>
+        </trans-unit>
+      </group>
+      <group id="c6167962-e9f9-4aa2-a5cc-23d9d674d803" />
+    </body>
+  </file>
+</xliff>

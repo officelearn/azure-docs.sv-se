@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0f0c3cc9-87fa-48ba-be1a-a853b8676bcb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0f0c3cc9-87fa-48ba-be1a-a853b8676bcb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="addc4f18-ed5f-4ead-8d09-93bd60b9f9a7">
+        <trans-unit id="a923a59d-ea82-40a6-a459-dc22709aec08" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Dropbox for Business | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Dropbox for Business | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="347c5d17-7524-4f66-97c0-c891105c45cb" xml:space="preserve">
+          <source>Learn how to use Dropbox for Business with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Dropbox for Business with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="d8327a80-ceab-46cd-a30e-fd89c4fc516f" xml:space="preserve">
+          <source>For feedback, click <bpt id="95901bb8-f44c-473f-9a35-637517d66cc2">&lt;linkText&gt;</bpt>here<ept id="95901bb8-f44c-473f-9a35-637517d66cc2">&lt;/linkText&gt;</ept><bpt id="95901bb8-f44c-473f-9a35-637517d66cc2">&lt;title&gt;</bpt><ept id="95901bb8-f44c-473f-9a35-637517d66cc2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="95901bb8-f44c-473f-9a35-637517d66cc2">&lt;linkText&gt;</bpt>here<ept id="95901bb8-f44c-473f-9a35-637517d66cc2">&lt;/linkText&gt;</ept><bpt id="95901bb8-f44c-473f-9a35-637517d66cc2">&lt;title&gt;</bpt><ept id="95901bb8-f44c-473f-9a35-637517d66cc2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff43a092-89ac-4c87-a388-dcedd33b9194" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Dropbox for Business.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Dropbox for Business.</target>
+        </trans-unit>
+        <trans-unit id="d6d4f176-b99b-485b-8d32-9c8f1f38730f" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="52b73a10-06f4-4c74-809f-62bee5395199" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="34b156d3-a6a4-4866-9108-185d18adaecc" xml:space="preserve">
+          <source>A test tenant in Dropbox for Business</source>
+          <target state="new">A test tenant in Dropbox for Business</target>
+        </trans-unit>
+        <trans-unit id="59275b38-4812-48be-a428-f78bb46c024b" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Dropbox for Business will be able to single sign into the application at your Dropbox for Business company site (service provider initiated sign on), or using the <bpt id="5f641e57-d470-4852-ac9e-66b218b86e0e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="5f641e57-d470-4852-ac9e-66b218b86e0e">&lt;/linkText&gt;</ept><bpt id="5f641e57-d470-4852-ac9e-66b218b86e0e">&lt;title&gt;</bpt><ept id="5f641e57-d470-4852-ac9e-66b218b86e0e">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Dropbox for Business will be able to single sign into the application at your Dropbox for Business company site (service provider initiated sign on), or using the <bpt id="5f641e57-d470-4852-ac9e-66b218b86e0e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="5f641e57-d470-4852-ac9e-66b218b86e0e">&lt;/linkText&gt;</ept><bpt id="5f641e57-d470-4852-ac9e-66b218b86e0e">&lt;title&gt;</bpt><ept id="5f641e57-d470-4852-ac9e-66b218b86e0e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f53e889e-ce3d-4773-8b8a-6c03726faa9e" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="f89fa07c-7b05-4f52-903a-89caa0a59146" xml:space="preserve">
+          <source>Enabling the application integration for Dropbox for Business</source>
+          <target state="new">Enabling the application integration for Dropbox for Business</target>
+        </trans-unit>
+        <trans-unit id="3cbfb616-0808-4ee1-924f-31fb3c15fbd9" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="b05aae38-5ea9-4772-9582-12d7293fe756" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="ac3bd4c1-b84e-4073-ae77-18447b9e9a18" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="b5956142-1939-4a19-aedc-bc418b6c0f9d" xml:space="preserve">
+          <source><bpt id="32199cbe-cfaf-447d-b9c9-3e17b4fdd413">&lt;linkText&gt;</bpt>Scenario<ept id="32199cbe-cfaf-447d-b9c9-3e17b4fdd413">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="32199cbe-cfaf-447d-b9c9-3e17b4fdd413">&lt;linkText&gt;</bpt>Scenario<ept id="32199cbe-cfaf-447d-b9c9-3e17b4fdd413">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7dfda384-ffa6-449e-b464-0caf4dd9f47e" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Dropbox for Business.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Dropbox for Business.</target>
+        </trans-unit>
+        <trans-unit id="ed0dd2b7-db89-47a6-9990-3c0e79a8a6a1" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="736e45a0-30cf-44ad-be92-fc17af013378">&lt;strong&gt;</bpt>Active Directory<ept id="736e45a0-30cf-44ad-be92-fc17af013378">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="736e45a0-30cf-44ad-be92-fc17af013378">&lt;strong&gt;</bpt>Active Directory<ept id="736e45a0-30cf-44ad-be92-fc17af013378">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bf739d7-9ac2-4398-bb98-75d4e349d98b" xml:space="preserve">
+          <source><bpt id="1282cff3-2754-44a2-8ebc-7b09af7efbe8">&lt;linkText&gt;</bpt>Active Directory<ept id="1282cff3-2754-44a2-8ebc-7b09af7efbe8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1282cff3-2754-44a2-8ebc-7b09af7efbe8">&lt;linkText&gt;</bpt>Active Directory<ept id="1282cff3-2754-44a2-8ebc-7b09af7efbe8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d8119ca-c498-4a7d-974c-9a92c7fa2a8b" xml:space="preserve">
+          <source>From the <bpt id="3f12beea-a67c-45e2-82f1-f15ab1c8c60f">&lt;strong&gt;</bpt>Directory<ept id="3f12beea-a67c-45e2-82f1-f15ab1c8c60f">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="3f12beea-a67c-45e2-82f1-f15ab1c8c60f">&lt;strong&gt;</bpt>Directory<ept id="3f12beea-a67c-45e2-82f1-f15ab1c8c60f">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="d25f14c0-4b20-41ae-88fe-d9984ba35796" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="110dd2b9-b059-4263-a227-abbbc866fc07">&lt;strong&gt;</bpt>Applications<ept id="110dd2b9-b059-4263-a227-abbbc866fc07">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="110dd2b9-b059-4263-a227-abbbc866fc07">&lt;strong&gt;</bpt>Applications<ept id="110dd2b9-b059-4263-a227-abbbc866fc07">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="ebaef1b0-4a8d-4b61-a782-181fe57af56d" xml:space="preserve">
+          <source><bpt id="dd8461b7-c350-4710-b8bf-265188fbd0e0">&lt;linkText&gt;</bpt>Applications<ept id="dd8461b7-c350-4710-b8bf-265188fbd0e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dd8461b7-c350-4710-b8bf-265188fbd0e0">&lt;linkText&gt;</bpt>Applications<ept id="dd8461b7-c350-4710-b8bf-265188fbd0e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b61c1392-2efb-4825-a2ca-e08d0ac76df7" xml:space="preserve">
+          <source>Click <bpt id="a7e3c7d9-25b7-4940-9919-3140dc983661">&lt;strong&gt;</bpt>Add<ept id="a7e3c7d9-25b7-4940-9919-3140dc983661">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="a7e3c7d9-25b7-4940-9919-3140dc983661">&lt;strong&gt;</bpt>Add<ept id="a7e3c7d9-25b7-4940-9919-3140dc983661">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="68f7eeda-6a78-4ee2-bffe-53af0abf59be" xml:space="preserve">
+          <source><bpt id="8995d360-a3b1-49f4-9d16-fca412e53bf7">&lt;linkText&gt;</bpt>Add application<ept id="8995d360-a3b1-49f4-9d16-fca412e53bf7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8995d360-a3b1-49f4-9d16-fca412e53bf7">&lt;linkText&gt;</bpt>Add application<ept id="8995d360-a3b1-49f4-9d16-fca412e53bf7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fde69c63-5b47-4f50-bf2c-10c9d062b57a" xml:space="preserve">
+          <source>On the <bpt id="fc289fa4-4776-419a-950d-503fb05cf384">&lt;strong&gt;</bpt>What do you want to do<ept id="fc289fa4-4776-419a-950d-503fb05cf384">&lt;/strong&gt;</ept> dialog, click <bpt id="e5969c1d-30df-47e2-827f-dce8accbd5a9">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="e5969c1d-30df-47e2-827f-dce8accbd5a9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="fc289fa4-4776-419a-950d-503fb05cf384">&lt;strong&gt;</bpt>What do you want to do<ept id="fc289fa4-4776-419a-950d-503fb05cf384">&lt;/strong&gt;</ept> dialog, click <bpt id="e5969c1d-30df-47e2-827f-dce8accbd5a9">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="e5969c1d-30df-47e2-827f-dce8accbd5a9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="660af54f-1953-4a83-a5ff-d8d07e71ee94" xml:space="preserve">
+          <source><bpt id="517b8c98-4d64-44da-9a20-1359f2512e94">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="517b8c98-4d64-44da-9a20-1359f2512e94">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="517b8c98-4d64-44da-9a20-1359f2512e94">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="517b8c98-4d64-44da-9a20-1359f2512e94">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b32c0f82-f04f-4d2f-b54f-ea7d7331d2e9" xml:space="preserve">
+          <source>In the <bpt id="3eaf952c-96a5-42d2-bfff-7b4f14c6bbb3">&lt;strong&gt;</bpt>search box<ept id="3eaf952c-96a5-42d2-bfff-7b4f14c6bbb3">&lt;/strong&gt;</ept>, type <bpt id="9ebd101e-ccb7-4940-8044-407557e0ec30">&lt;strong&gt;</bpt>Dropbox for Business<ept id="9ebd101e-ccb7-4940-8044-407557e0ec30">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="3eaf952c-96a5-42d2-bfff-7b4f14c6bbb3">&lt;strong&gt;</bpt>search box<ept id="3eaf952c-96a5-42d2-bfff-7b4f14c6bbb3">&lt;/strong&gt;</ept>, type <bpt id="9ebd101e-ccb7-4940-8044-407557e0ec30">&lt;strong&gt;</bpt>Dropbox for Business<ept id="9ebd101e-ccb7-4940-8044-407557e0ec30">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0bed006-d8f6-4077-8625-9912c6b4434b" xml:space="preserve">
+          <source><bpt id="70c2a0c1-9348-4f68-9084-ccd098b2543c">&lt;linkText&gt;</bpt>Application gallery<ept id="70c2a0c1-9348-4f68-9084-ccd098b2543c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="70c2a0c1-9348-4f68-9084-ccd098b2543c">&lt;linkText&gt;</bpt>Application gallery<ept id="70c2a0c1-9348-4f68-9084-ccd098b2543c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07645a27-cda5-49e6-bc6f-74ce1dd33d8c" xml:space="preserve">
+          <source>In the results pane, select <bpt id="971d0ac8-0635-4bf7-8e35-6c4e9b54c696">&lt;strong&gt;</bpt>Dropbox for Business<ept id="971d0ac8-0635-4bf7-8e35-6c4e9b54c696">&lt;/strong&gt;</ept>, and then click <bpt id="fe367b5b-4613-4f43-9c72-7329337d9e46">&lt;strong&gt;</bpt>Complete<ept id="fe367b5b-4613-4f43-9c72-7329337d9e46">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="971d0ac8-0635-4bf7-8e35-6c4e9b54c696">&lt;strong&gt;</bpt>Dropbox for Business<ept id="971d0ac8-0635-4bf7-8e35-6c4e9b54c696">&lt;/strong&gt;</ept>, and then click <bpt id="fe367b5b-4613-4f43-9c72-7329337d9e46">&lt;strong&gt;</bpt>Complete<ept id="fe367b5b-4613-4f43-9c72-7329337d9e46">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="d14aae63-c512-4fa6-b4c6-1ecd6f59b008" xml:space="preserve">
+          <source><bpt id="b29e766c-8731-44d1-8109-204249cc3cb0">&lt;linkText&gt;</bpt>Dropbox for Business<ept id="b29e766c-8731-44d1-8109-204249cc3cb0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b29e766c-8731-44d1-8109-204249cc3cb0">&lt;linkText&gt;</bpt>Dropbox for Business<ept id="b29e766c-8731-44d1-8109-204249cc3cb0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ac4d8c6-d150-4cc3-8658-d236db81f50f" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Dropbox for Business with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Dropbox for Business with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="cde8c9d3-439c-4e18-9f03-1b4841c9966c" xml:space="preserve">
+          <source>As part of this procedure, you are required to upload a base-64 encoded certificate to your Dropbox for Business tenant.</source>
+          <target state="new">As part of this procedure, you are required to upload a base-64 encoded certificate to your Dropbox for Business tenant.</target>
+        </trans-unit>
+        <trans-unit id="782d7285-7f17-46fd-b329-a2a2002a7705" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="dfc35cac-bcf2-4c0a-9a6d-89dff38695f8">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="dfc35cac-bcf2-4c0a-9a6d-89dff38695f8">&lt;/linkText&gt;</ept><bpt id="dfc35cac-bcf2-4c0a-9a6d-89dff38695f8">&lt;title&gt;</bpt><ept id="dfc35cac-bcf2-4c0a-9a6d-89dff38695f8">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="dfc35cac-bcf2-4c0a-9a6d-89dff38695f8">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="dfc35cac-bcf2-4c0a-9a6d-89dff38695f8">&lt;/linkText&gt;</ept><bpt id="dfc35cac-bcf2-4c0a-9a6d-89dff38695f8">&lt;title&gt;</bpt><ept id="dfc35cac-bcf2-4c0a-9a6d-89dff38695f8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a33682c-7371-4a44-bc4f-a17c48d4a477" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="e40fc9ab-4ff6-42e2-9ca5-c014c5ba1432">&lt;strong&gt;</bpt>Dropbox for Business<ept id="e40fc9ab-4ff6-42e2-9ca5-c014c5ba1432">&lt;/strong&gt;</ept> application integration page, click <bpt id="c8a942ee-0f34-486e-a20a-35dc5e24df9d">&lt;strong&gt;</bpt>Configure single sign-on<ept id="c8a942ee-0f34-486e-a20a-35dc5e24df9d">&lt;/strong&gt;</ept> to open the <bpt id="c8ff5b59-cd90-4229-99a2-cc951cba5ee2">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="c8ff5b59-cd90-4229-99a2-cc951cba5ee2">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="e40fc9ab-4ff6-42e2-9ca5-c014c5ba1432">&lt;strong&gt;</bpt>Dropbox for Business<ept id="e40fc9ab-4ff6-42e2-9ca5-c014c5ba1432">&lt;/strong&gt;</ept> application integration page, click <bpt id="c8a942ee-0f34-486e-a20a-35dc5e24df9d">&lt;strong&gt;</bpt>Configure single sign-on<ept id="c8a942ee-0f34-486e-a20a-35dc5e24df9d">&lt;/strong&gt;</ept> to open the <bpt id="c8ff5b59-cd90-4229-99a2-cc951cba5ee2">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="c8ff5b59-cd90-4229-99a2-cc951cba5ee2">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="775292ac-aea6-4aa5-b1da-b264cf04bb9d" xml:space="preserve">
+          <source><bpt id="f9d00c16-dacc-430f-a69b-44dcb54c5f70">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="f9d00c16-dacc-430f-a69b-44dcb54c5f70">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f9d00c16-dacc-430f-a69b-44dcb54c5f70">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="f9d00c16-dacc-430f-a69b-44dcb54c5f70">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe850ec2-612b-488b-8214-a3bec5a563bb" xml:space="preserve">
+          <source>On the <bpt id="f6127e0e-54d4-4bdf-b288-e003b57c0dd1">&lt;strong&gt;</bpt>How would you like users to sign on to Dropbox for Business<ept id="f6127e0e-54d4-4bdf-b288-e003b57c0dd1">&lt;/strong&gt;</ept> page, select <bpt id="7dc28e00-ac0f-4973-8fb8-4c757b0f1f60">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="7dc28e00-ac0f-4973-8fb8-4c757b0f1f60">&lt;/strong&gt;</ept>, and then click <bpt id="7b9c1da3-dfca-418a-805f-511f4289a6ab">&lt;strong&gt;</bpt>Next<ept id="7b9c1da3-dfca-418a-805f-511f4289a6ab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f6127e0e-54d4-4bdf-b288-e003b57c0dd1">&lt;strong&gt;</bpt>How would you like users to sign on to Dropbox for Business<ept id="f6127e0e-54d4-4bdf-b288-e003b57c0dd1">&lt;/strong&gt;</ept> page, select <bpt id="7dc28e00-ac0f-4973-8fb8-4c757b0f1f60">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="7dc28e00-ac0f-4973-8fb8-4c757b0f1f60">&lt;/strong&gt;</ept>, and then click <bpt id="7b9c1da3-dfca-418a-805f-511f4289a6ab">&lt;strong&gt;</bpt>Next<ept id="7b9c1da3-dfca-418a-805f-511f4289a6ab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a32da53-d7d5-4f15-8cb2-0d784169c647" xml:space="preserve">
+          <source><bpt id="cc007e30-2dc9-4bea-9a3d-fa744931b380">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="cc007e30-2dc9-4bea-9a3d-fa744931b380">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cc007e30-2dc9-4bea-9a3d-fa744931b380">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="cc007e30-2dc9-4bea-9a3d-fa744931b380">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc5b76af-7976-4fd0-86cb-f2b85df295ef" xml:space="preserve">
+          <source>On the <bpt id="41ab1506-da9e-4518-80a4-544b93d8e698">&lt;strong&gt;</bpt>Configure App URL<ept id="41ab1506-da9e-4518-80a4-544b93d8e698">&lt;/strong&gt;</ept> page, perform the following steps:</source>
+          <target state="new">On the <bpt id="41ab1506-da9e-4518-80a4-544b93d8e698">&lt;strong&gt;</bpt>Configure App URL<ept id="41ab1506-da9e-4518-80a4-544b93d8e698">&lt;/strong&gt;</ept> page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="ed4e07bc-622b-4876-ad98-71faeda1b1de" xml:space="preserve">
+          <source> 3.1. Sign-on to your Dropbox for business tenant. &lt;br&gt;&lt;br&gt;  <bpt id="879ab0ec-e817-4eb8-ad08-a6f314d7e4a1">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="879ab0ec-e817-4eb8-ad08-a6f314d7e4a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"> 3.1. Sign-on to your Dropbox for business tenant. &lt;br&gt;&lt;br&gt;  <bpt id="879ab0ec-e817-4eb8-ad08-a6f314d7e4a1">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="879ab0ec-e817-4eb8-ad08-a6f314d7e4a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0bc526e-576c-44fa-b201-096003c67d35" xml:space="preserve">
+          <source> 3.2. In the navigation pane on the left side, click <bpt id="0b998ee7-d010-4fa7-ba66-0708f716156f">&lt;strong&gt;</bpt>Admin Console<ept id="0b998ee7-d010-4fa7-ba66-0708f716156f">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;  <bpt id="2b12c951-3456-4b19-92e9-bed231ce08c8">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="2b12c951-3456-4b19-92e9-bed231ce08c8">&lt;/linkText&gt;</ept></source>
+          <target state="new"> 3.2. In the navigation pane on the left side, click <bpt id="0b998ee7-d010-4fa7-ba66-0708f716156f">&lt;strong&gt;</bpt>Admin Console<ept id="0b998ee7-d010-4fa7-ba66-0708f716156f">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;  <bpt id="2b12c951-3456-4b19-92e9-bed231ce08c8">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="2b12c951-3456-4b19-92e9-bed231ce08c8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c28165a-67c8-4ce6-9584-c6928deef1c1" xml:space="preserve">
+          <source> 3.3. On the <bpt id="9f9f7deb-c865-44eb-b05b-999858a8bc04">&lt;strong&gt;</bpt>Admin Console<ept id="9f9f7deb-c865-44eb-b05b-999858a8bc04">&lt;/strong&gt;</ept>, click <bpt id="ecbb38bf-6f90-49b5-bad7-00cd863e1420">&lt;strong&gt;</bpt>Authentication<ept id="ecbb38bf-6f90-49b5-bad7-00cd863e1420">&lt;/strong&gt;</ept> in the left navigation pane. &lt;br&gt;&lt;br&gt;  <bpt id="98168188-0614-4a64-bb60-2892c60a7ef9">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="98168188-0614-4a64-bb60-2892c60a7ef9">&lt;/linkText&gt;</ept></source>
+          <target state="new"> 3.3. On the <bpt id="9f9f7deb-c865-44eb-b05b-999858a8bc04">&lt;strong&gt;</bpt>Admin Console<ept id="9f9f7deb-c865-44eb-b05b-999858a8bc04">&lt;/strong&gt;</ept>, click <bpt id="ecbb38bf-6f90-49b5-bad7-00cd863e1420">&lt;strong&gt;</bpt>Authentication<ept id="ecbb38bf-6f90-49b5-bad7-00cd863e1420">&lt;/strong&gt;</ept> in the left navigation pane. &lt;br&gt;&lt;br&gt;  <bpt id="98168188-0614-4a64-bb60-2892c60a7ef9">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="98168188-0614-4a64-bb60-2892c60a7ef9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfc1aa3b-64e8-4c9e-8e73-af1db3f750fd" xml:space="preserve">
+          <source> 3.4. In the <bpt id="2e7a1dee-534b-4118-8b84-deb80ad1c3d1">&lt;strong&gt;</bpt>Single sign-on<ept id="2e7a1dee-534b-4118-8b84-deb80ad1c3d1">&lt;/strong&gt;</ept> section, select <bpt id="ed470d27-9899-4bdb-ae6d-c48fd99b6735">&lt;strong&gt;</bpt>Enable single sign-on<ept id="ed470d27-9899-4bdb-ae6d-c48fd99b6735">&lt;/strong&gt;</ept>, and then click <bpt id="c8980d98-9c2a-4795-8b22-42cbfc9967d4">&lt;strong&gt;</bpt>More<ept id="c8980d98-9c2a-4795-8b22-42cbfc9967d4">&lt;/strong&gt;</ept> to expand this section.  &lt;br&gt;&lt;br&gt;  <bpt id="509722af-7151-4cda-9929-fa71b0c192e6">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="509722af-7151-4cda-9929-fa71b0c192e6">&lt;/linkText&gt;</ept></source>
+          <target state="new"> 3.4. In the <bpt id="2e7a1dee-534b-4118-8b84-deb80ad1c3d1">&lt;strong&gt;</bpt>Single sign-on<ept id="2e7a1dee-534b-4118-8b84-deb80ad1c3d1">&lt;/strong&gt;</ept> section, select <bpt id="ed470d27-9899-4bdb-ae6d-c48fd99b6735">&lt;strong&gt;</bpt>Enable single sign-on<ept id="ed470d27-9899-4bdb-ae6d-c48fd99b6735">&lt;/strong&gt;</ept>, and then click <bpt id="c8980d98-9c2a-4795-8b22-42cbfc9967d4">&lt;strong&gt;</bpt>More<ept id="c8980d98-9c2a-4795-8b22-42cbfc9967d4">&lt;/strong&gt;</ept> to expand this section.  &lt;br&gt;&lt;br&gt;  <bpt id="509722af-7151-4cda-9929-fa71b0c192e6">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="509722af-7151-4cda-9929-fa71b0c192e6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3ba9784-a1b8-44af-b118-7cb512b6cd74" xml:space="preserve">
+          <source> 3.5. Copy the URL next to <bpt id="586b93e3-5ffc-4502-af4f-af4f7ee740ac">&lt;strong&gt;</bpt>Users can sign in by entering their email address or they can go directly to<ept id="586b93e3-5ffc-4502-af4f-af4f7ee740ac">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;  <bpt id="02232c65-3ac4-4d44-8315-9c01a7fbb94a">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="02232c65-3ac4-4d44-8315-9c01a7fbb94a">&lt;/linkText&gt;</ept></source>
+          <target state="new"> 3.5. Copy the URL next to <bpt id="586b93e3-5ffc-4502-af4f-af4f7ee740ac">&lt;strong&gt;</bpt>Users can sign in by entering their email address or they can go directly to<ept id="586b93e3-5ffc-4502-af4f-af4f7ee740ac">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;  <bpt id="02232c65-3ac4-4d44-8315-9c01a7fbb94a">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="02232c65-3ac4-4d44-8315-9c01a7fbb94a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a012864-91d7-494d-a738-174f058b2ee3" xml:space="preserve">
+          <source> 3.6. On the Azure portal, in the <bpt id="3997523a-672b-4d01-8658-00402f8e9756">&lt;strong&gt;</bpt>DropBox for business sign in<ept id="3997523a-672b-4d01-8658-00402f8e9756">&lt;/strong&gt;</ept> URL textbox, paste the URL. &lt;br&gt;&lt;br&gt;  <bpt id="7f5cb3c1-d56c-4148-a050-20da60d3718f">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="7f5cb3c1-d56c-4148-a050-20da60d3718f">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"> 3.6. On the Azure portal, in the <bpt id="3997523a-672b-4d01-8658-00402f8e9756">&lt;strong&gt;</bpt>DropBox for business sign in<ept id="3997523a-672b-4d01-8658-00402f8e9756">&lt;/strong&gt;</ept> URL textbox, paste the URL. &lt;br&gt;&lt;br&gt;  <bpt id="7f5cb3c1-d56c-4148-a050-20da60d3718f">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="7f5cb3c1-d56c-4148-a050-20da60d3718f">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="e129dc0b-9bb4-435f-a4fd-a2d20685913e" xml:space="preserve">
+          <source>On the <bpt id="2bf16dd2-0e0c-41ac-a7cd-7542abddc607">&lt;strong&gt;</bpt>Configure single sign-on at Dropbox for Business<ept id="2bf16dd2-0e0c-41ac-a7cd-7542abddc607">&lt;/strong&gt;</ept> page, click <bpt id="a04b6861-c3e7-4dac-9f5a-aff66a2a411b">&lt;strong&gt;</bpt>Download certificate<ept id="a04b6861-c3e7-4dac-9f5a-aff66a2a411b">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.  &lt;br&gt;&lt;br&gt;  <bpt id="9ccc65da-cb0b-4ace-8c31-6bd64e1027f2">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="9ccc65da-cb0b-4ace-8c31-6bd64e1027f2">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="2bf16dd2-0e0c-41ac-a7cd-7542abddc607">&lt;strong&gt;</bpt>Configure single sign-on at Dropbox for Business<ept id="2bf16dd2-0e0c-41ac-a7cd-7542abddc607">&lt;/strong&gt;</ept> page, click <bpt id="a04b6861-c3e7-4dac-9f5a-aff66a2a411b">&lt;strong&gt;</bpt>Download certificate<ept id="a04b6861-c3e7-4dac-9f5a-aff66a2a411b">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.  &lt;br&gt;&lt;br&gt;  <bpt id="9ccc65da-cb0b-4ace-8c31-6bd64e1027f2">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="9ccc65da-cb0b-4ace-8c31-6bd64e1027f2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc65f7c1-ac91-4a8c-b8f6-b398e8274f5c" xml:space="preserve">
+          <source>On your Dropbox for Business tenant, in the <bpt id="46e63c54-5d43-4729-9802-25bcbd3b0c04">&lt;strong&gt;</bpt>Single sign-on<ept id="46e63c54-5d43-4729-9802-25bcbd3b0c04">&lt;/strong&gt;</ept> section of the <bpt id="89a00b2c-fb7b-41a9-a390-48b1c9a0dc20">&lt;strong&gt;</bpt>Authentication<ept id="89a00b2c-fb7b-41a9-a390-48b1c9a0dc20">&lt;/strong&gt;</ept> page, perform the following steps: &lt;br&gt;&lt;br&gt;  <bpt id="e7171cdb-744e-4400-9cc7-7110a315dc06">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="e7171cdb-744e-4400-9cc7-7110a315dc06">&lt;/linkText&gt;</ept></source>
+          <target state="new">On your Dropbox for Business tenant, in the <bpt id="46e63c54-5d43-4729-9802-25bcbd3b0c04">&lt;strong&gt;</bpt>Single sign-on<ept id="46e63c54-5d43-4729-9802-25bcbd3b0c04">&lt;/strong&gt;</ept> section of the <bpt id="89a00b2c-fb7b-41a9-a390-48b1c9a0dc20">&lt;strong&gt;</bpt>Authentication<ept id="89a00b2c-fb7b-41a9-a390-48b1c9a0dc20">&lt;/strong&gt;</ept> page, perform the following steps: &lt;br&gt;&lt;br&gt;  <bpt id="e7171cdb-744e-4400-9cc7-7110a315dc06">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="e7171cdb-744e-4400-9cc7-7110a315dc06">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26672ac6-950c-49c8-b4f2-c78c8889704e" xml:space="preserve">
+          <source>5.1.</source>
+          <target state="new">5.1.</target>
+        </trans-unit>
+        <trans-unit id="87927035-eddb-4aba-8349-3a7da46fc2c2" xml:space="preserve">
+          <source>Click <bpt id="32837969-0fee-4fb6-8765-dc6ec7ca2ed0">&lt;strong&gt;</bpt>Required<ept id="32837969-0fee-4fb6-8765-dc6ec7ca2ed0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="32837969-0fee-4fb6-8765-dc6ec7ca2ed0">&lt;strong&gt;</bpt>Required<ept id="32837969-0fee-4fb6-8765-dc6ec7ca2ed0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5715a76-5a4c-409d-9bd5-14f238ac404b" xml:space="preserve">
+          <source>5.2.</source>
+          <target state="new">5.2.</target>
+        </trans-unit>
+        <trans-unit id="714dea4f-1dde-4d1c-ac90-5e7477e1be6b" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="48b6e0db-8729-45f7-bf32-1b6b34b4aad6">&lt;strong&gt;</bpt>Configure single sign-on at Dropbox for Business<ept id="48b6e0db-8729-45f7-bf32-1b6b34b4aad6">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="756fa503-807c-458e-8ac5-5b09575191b7">&lt;strong&gt;</bpt>Sign-in page URL<ept id="756fa503-807c-458e-8ac5-5b09575191b7">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="bb60c94a-4ea4-4018-a779-7d87b8d9087d">&lt;strong&gt;</bpt>Sign in URL<ept id="bb60c94a-4ea4-4018-a779-7d87b8d9087d">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="48b6e0db-8729-45f7-bf32-1b6b34b4aad6">&lt;strong&gt;</bpt>Configure single sign-on at Dropbox for Business<ept id="48b6e0db-8729-45f7-bf32-1b6b34b4aad6">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="756fa503-807c-458e-8ac5-5b09575191b7">&lt;strong&gt;</bpt>Sign-in page URL<ept id="756fa503-807c-458e-8ac5-5b09575191b7">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="bb60c94a-4ea4-4018-a779-7d87b8d9087d">&lt;strong&gt;</bpt>Sign in URL<ept id="bb60c94a-4ea4-4018-a779-7d87b8d9087d">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="7b42c62e-b04e-423f-a1b9-2470ddd217f3" xml:space="preserve">
+          <source>5.3.</source>
+          <target state="new">5.3.</target>
+        </trans-unit>
+        <trans-unit id="cb4a4058-a05e-460a-9549-b5908977d725" xml:space="preserve">
+          <source>Create a <bpt id="9f3c842f-449f-4166-8a2d-e88fe7962768">&lt;strong&gt;</bpt>Base-64 encoded<ept id="9f3c842f-449f-4166-8a2d-e88fe7962768">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="9f3c842f-449f-4166-8a2d-e88fe7962768">&lt;strong&gt;</bpt>Base-64 encoded<ept id="9f3c842f-449f-4166-8a2d-e88fe7962768">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="14af621e-dc79-4a5a-a694-01a0d56031fc" xml:space="preserve">
+          <source>&gt; [AZURE.TIP] For more details, see <bpt id="e7d08f05-746f-4db3-a27e-ff57d226d5b1">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="e7d08f05-746f-4db3-a27e-ff57d226d5b1">&lt;/linkText&gt;</ept><bpt id="e7d08f05-746f-4db3-a27e-ff57d226d5b1">&lt;title&gt;</bpt><ept id="e7d08f05-746f-4db3-a27e-ff57d226d5b1">&lt;/title&gt;</ept>.</source>
+          <target state="new">&gt; [AZURE.TIP] For more details, see <bpt id="e7d08f05-746f-4db3-a27e-ff57d226d5b1">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="e7d08f05-746f-4db3-a27e-ff57d226d5b1">&lt;/linkText&gt;</ept><bpt id="e7d08f05-746f-4db3-a27e-ff57d226d5b1">&lt;title&gt;</bpt><ept id="e7d08f05-746f-4db3-a27e-ff57d226d5b1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="338d8184-e9fb-4a86-89ec-25cb1e12f2cb" xml:space="preserve">
+          <source>5.4.</source>
+          <target state="new">5.4.</target>
+        </trans-unit>
+        <trans-unit id="be91c7b7-9e80-4495-9ffb-749d23b0fa31" xml:space="preserve">
+          <source>Click <bpt id="90001dda-3527-41c2-895c-d02efa88e627">&lt;strong&gt;</bpt>Choose certificate<ept id="90001dda-3527-41c2-895c-d02efa88e627">&lt;/strong&gt;</ept>, and then browse to your <bpt id="8dbbcf76-0ac2-4770-9bd2-f6c3a31091c0">&lt;strong&gt;</bpt>base-64 encoded certificate file<ept id="8dbbcf76-0ac2-4770-9bd2-f6c3a31091c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="90001dda-3527-41c2-895c-d02efa88e627">&lt;strong&gt;</bpt>Choose certificate<ept id="90001dda-3527-41c2-895c-d02efa88e627">&lt;/strong&gt;</ept>, and then browse to your <bpt id="8dbbcf76-0ac2-4770-9bd2-f6c3a31091c0">&lt;strong&gt;</bpt>base-64 encoded certificate file<ept id="8dbbcf76-0ac2-4770-9bd2-f6c3a31091c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07e61fad-7128-4d8c-9ac3-4db708535b57" xml:space="preserve">
+          <source>5.5.</source>
+          <target state="new">5.5.</target>
+        </trans-unit>
+        <trans-unit id="ba773b82-66c0-4589-bab3-bb3e480eb70f" xml:space="preserve">
+          <source>Click <bpt id="86bf2c23-b50c-447b-9ebf-c0deae992db6">&lt;strong&gt;</bpt>Save changes<ept id="86bf2c23-b50c-447b-9ebf-c0deae992db6">&lt;/strong&gt;</ept> to complete the configuration on your DropBox for Business tenant.</source>
+          <target state="new">Click <bpt id="86bf2c23-b50c-447b-9ebf-c0deae992db6">&lt;strong&gt;</bpt>Save changes<ept id="86bf2c23-b50c-447b-9ebf-c0deae992db6">&lt;/strong&gt;</ept> to complete the configuration on your DropBox for Business tenant.</target>
+        </trans-unit>
+        <trans-unit id="db5e7e5d-c704-44b5-aa3e-b5d14cc16e53" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="683a14d2-230f-41f4-a7aa-8148b63646ed">&lt;strong&gt;</bpt>Complete<ept id="683a14d2-230f-41f4-a7aa-8148b63646ed">&lt;/strong&gt;</ept> to close the <bpt id="ea400c83-1d66-4c1c-aa96-36b83792a7e0">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="ea400c83-1d66-4c1c-aa96-36b83792a7e0">&lt;/strong&gt;</ept> dialog. &lt;br&gt;&lt;br&gt;  <bpt id="11ab8e54-8300-4bcd-9b11-7c94c182cce3">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="11ab8e54-8300-4bcd-9b11-7c94c182cce3">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="683a14d2-230f-41f4-a7aa-8148b63646ed">&lt;strong&gt;</bpt>Complete<ept id="683a14d2-230f-41f4-a7aa-8148b63646ed">&lt;/strong&gt;</ept> to close the <bpt id="ea400c83-1d66-4c1c-aa96-36b83792a7e0">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="ea400c83-1d66-4c1c-aa96-36b83792a7e0">&lt;/strong&gt;</ept> dialog. &lt;br&gt;&lt;br&gt;  <bpt id="11ab8e54-8300-4bcd-9b11-7c94c182cce3">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="11ab8e54-8300-4bcd-9b11-7c94c182cce3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9eb7f576-3a8f-4e29-8c3c-333e4aa4d30e" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Dropbox for Business.</source>
+          <target state="new">The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Dropbox for Business.</target>
+        </trans-unit>
+        <trans-unit id="736fd4f8-b8ca-4ee5-949b-db4eb143d0d2" xml:space="preserve">
+          <source>In the Azure Management Portal, on the <bpt id="c1c30adc-2c7c-476f-a620-1fe210921837">&lt;strong&gt;</bpt>Dropbox for Business<ept id="c1c30adc-2c7c-476f-a620-1fe210921837">&lt;/strong&gt;</ept> application integration page, click <bpt id="cf465006-b3a9-4fcf-bc04-f39ad86aa422">&lt;strong&gt;</bpt>Configure user provisioning<ept id="cf465006-b3a9-4fcf-bc04-f39ad86aa422">&lt;/strong&gt;</ept> to open the <bpt id="40df4d64-7d5a-46b4-9501-2703ab6a99fa">&lt;strong&gt;</bpt>Configure User Provisioning<ept id="40df4d64-7d5a-46b4-9501-2703ab6a99fa">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">In the Azure Management Portal, on the <bpt id="c1c30adc-2c7c-476f-a620-1fe210921837">&lt;strong&gt;</bpt>Dropbox for Business<ept id="c1c30adc-2c7c-476f-a620-1fe210921837">&lt;/strong&gt;</ept> application integration page, click <bpt id="cf465006-b3a9-4fcf-bc04-f39ad86aa422">&lt;strong&gt;</bpt>Configure user provisioning<ept id="cf465006-b3a9-4fcf-bc04-f39ad86aa422">&lt;/strong&gt;</ept> to open the <bpt id="40df4d64-7d5a-46b4-9501-2703ab6a99fa">&lt;strong&gt;</bpt>Configure User Provisioning<ept id="40df4d64-7d5a-46b4-9501-2703ab6a99fa">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="36ec5c13-6e68-40a4-8e57-cac2afd3310b" xml:space="preserve">
+          <source>On the Enable user provisioning to DropBox for Business page, click Enable user provisioning to open the Sign in to Dropbox to link with Azure AD dialog.  &lt;br&gt;&lt;br&gt; <bpt id="d142f7ae-cab7-4aff-adeb-8cb0081c526a">&lt;linkText&gt;</bpt>User provisioning<ept id="d142f7ae-cab7-4aff-adeb-8cb0081c526a">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the Enable user provisioning to DropBox for Business page, click Enable user provisioning to open the Sign in to Dropbox to link with Azure AD dialog.  &lt;br&gt;&lt;br&gt; <bpt id="d142f7ae-cab7-4aff-adeb-8cb0081c526a">&lt;linkText&gt;</bpt>User provisioning<ept id="d142f7ae-cab7-4aff-adeb-8cb0081c526a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ee42cbc-3f1c-4aad-9291-58b17ea433ef" xml:space="preserve">
+          <source>On the <bpt id="6648e5cb-c8d8-4900-abb4-e8d294a7d42f">&lt;strong&gt;</bpt>Sign in to Dropbox to link with Azure AD<ept id="6648e5cb-c8d8-4900-abb4-e8d294a7d42f">&lt;/strong&gt;</ept> dialog, sign in to your Dropbox for Business tenant. &lt;br&gt;&lt;br&gt; <bpt id="90fcb895-d33c-4a56-afcb-29a0e4f80341">&lt;linkText&gt;</bpt>User provisioning<ept id="90fcb895-d33c-4a56-afcb-29a0e4f80341">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="6648e5cb-c8d8-4900-abb4-e8d294a7d42f">&lt;strong&gt;</bpt>Sign in to Dropbox to link with Azure AD<ept id="6648e5cb-c8d8-4900-abb4-e8d294a7d42f">&lt;/strong&gt;</ept> dialog, sign in to your Dropbox for Business tenant. &lt;br&gt;&lt;br&gt; <bpt id="90fcb895-d33c-4a56-afcb-29a0e4f80341">&lt;linkText&gt;</bpt>User provisioning<ept id="90fcb895-d33c-4a56-afcb-29a0e4f80341">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2200c675-14c7-4eeb-825b-a5031f95b58f" xml:space="preserve">
+          <source>Click <bpt id="e065c6f9-cba9-44f1-b87e-9ab996a923c5">&lt;strong&gt;</bpt>Allow<ept id="e065c6f9-cba9-44f1-b87e-9ab996a923c5">&lt;/strong&gt;</ept> to grant Azure AD to access to Dropbox. &lt;br&gt;&lt;br&gt; <bpt id="204899e1-b852-466c-b648-8257dfbdbc10">&lt;linkText&gt;</bpt>User provisioning<ept id="204899e1-b852-466c-b648-8257dfbdbc10">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click <bpt id="e065c6f9-cba9-44f1-b87e-9ab996a923c5">&lt;strong&gt;</bpt>Allow<ept id="e065c6f9-cba9-44f1-b87e-9ab996a923c5">&lt;/strong&gt;</ept> to grant Azure AD to access to Dropbox. &lt;br&gt;&lt;br&gt; <bpt id="204899e1-b852-466c-b648-8257dfbdbc10">&lt;linkText&gt;</bpt>User provisioning<ept id="204899e1-b852-466c-b648-8257dfbdbc10">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="633424e8-ddcd-47c9-906e-be48ed84d7cc" xml:space="preserve">
+          <source>To finish the configuration, click the <bpt id="63e71015-929a-4b09-9b6b-41d1d81bb8b0">&lt;strong&gt;</bpt>Complete<ept id="63e71015-929a-4b09-9b6b-41d1d81bb8b0">&lt;/strong&gt;</ept> button.  &lt;br&gt;&lt;br&gt; <bpt id="c64ce949-241b-48c2-a005-a8ec1ba90547">&lt;linkText&gt;</bpt>User provisioning<ept id="c64ce949-241b-48c2-a005-a8ec1ba90547">&lt;/linkText&gt;</ept></source>
+          <target state="new">To finish the configuration, click the <bpt id="63e71015-929a-4b09-9b6b-41d1d81bb8b0">&lt;strong&gt;</bpt>Complete<ept id="63e71015-929a-4b09-9b6b-41d1d81bb8b0">&lt;/strong&gt;</ept> button.  &lt;br&gt;&lt;br&gt; <bpt id="c64ce949-241b-48c2-a005-a8ec1ba90547">&lt;linkText&gt;</bpt>User provisioning<ept id="c64ce949-241b-48c2-a005-a8ec1ba90547">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="416219c9-8e55-4d49-a1f7-b77a2604725c" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="ea709a17-0aaa-4886-8c1b-b2fa0a07c85c" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="26fc13eb-a7c8-4566-bd58-b18efdcc5d79" xml:space="preserve">
+          <source>On the <bpt id="0262d6d0-91f7-4b77-930c-58af98075d3d">&lt;strong&gt;</bpt>Dropbox for Business **application integration page, click **Assign users<ept id="0262d6d0-91f7-4b77-930c-58af98075d3d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="0262d6d0-91f7-4b77-930c-58af98075d3d">&lt;strong&gt;</bpt>Dropbox for Business **application integration page, click **Assign users<ept id="0262d6d0-91f7-4b77-930c-58af98075d3d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="06d98023-f312-44a4-b5fe-ce6038e891e7" xml:space="preserve">
+          <source><bpt id="f4c2f661-9c46-49dc-8312-c681ae8c9949">&lt;linkText&gt;</bpt>Assign users<ept id="f4c2f661-9c46-49dc-8312-c681ae8c9949">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f4c2f661-9c46-49dc-8312-c681ae8c9949">&lt;linkText&gt;</bpt>Assign users<ept id="f4c2f661-9c46-49dc-8312-c681ae8c9949">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34f53b11-27d5-4fe3-9811-c14ea79118d4" xml:space="preserve">
+          <source>Select your test user, click <bpt id="1f4f2daf-f45d-45d6-b492-831b5236ce8a">&lt;strong&gt;</bpt>Assign<ept id="1f4f2daf-f45d-45d6-b492-831b5236ce8a">&lt;/strong&gt;</ept>, and then click <bpt id="83fa1078-b9de-4573-9b69-75d27a74226b">&lt;strong&gt;</bpt>Yes<ept id="83fa1078-b9de-4573-9b69-75d27a74226b">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="1f4f2daf-f45d-45d6-b492-831b5236ce8a">&lt;strong&gt;</bpt>Assign<ept id="1f4f2daf-f45d-45d6-b492-831b5236ce8a">&lt;/strong&gt;</ept>, and then click <bpt id="83fa1078-b9de-4573-9b69-75d27a74226b">&lt;strong&gt;</bpt>Yes<ept id="83fa1078-b9de-4573-9b69-75d27a74226b">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="825b5dd9-44b6-4c50-9d63-cd1c84cd8a0e" xml:space="preserve">
+          <source><bpt id="82b22254-c56e-49e5-9e06-be1a736bcb57">&lt;linkText&gt;</bpt>Yes<ept id="82b22254-c56e-49e5-9e06-be1a736bcb57">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="82b22254-c56e-49e5-9e06-be1a736bcb57">&lt;linkText&gt;</bpt>Yes<ept id="82b22254-c56e-49e5-9e06-be1a736bcb57">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="398f7bf6-9065-4678-a895-70ea9348b428" xml:space="preserve">
+          <source>You should now wait for 10 minutes and verify that the account has been synchronized to Dropbox for Business.</source>
+          <target state="new">You should now wait for 10 minutes and verify that the account has been synchronized to Dropbox for Business.</target>
+        </trans-unit>
+        <trans-unit id="ac3a61e1-a3ca-4969-8309-9aee35a20a2a" xml:space="preserve">
+          <source>As a first verification step, you can check the provisioning status, by clicking <bpt id="78a0934e-336e-43b2-ba2d-7f28c681a3de">&lt;strong&gt;</bpt>Dashboard<ept id="78a0934e-336e-43b2-ba2d-7f28c681a3de">&lt;/strong&gt;</ept> in the <bpt id="303606a3-aa3b-4732-97bd-61620ff12db0">&lt;strong&gt;</bpt>Dropbox for Business<ept id="303606a3-aa3b-4732-97bd-61620ff12db0">&lt;/strong&gt;</ept> application integration page on the Azure Management Portal</source>
+          <target state="new">As a first verification step, you can check the provisioning status, by clicking <bpt id="78a0934e-336e-43b2-ba2d-7f28c681a3de">&lt;strong&gt;</bpt>Dashboard<ept id="78a0934e-336e-43b2-ba2d-7f28c681a3de">&lt;/strong&gt;</ept> in the <bpt id="303606a3-aa3b-4732-97bd-61620ff12db0">&lt;strong&gt;</bpt>Dropbox for Business<ept id="303606a3-aa3b-4732-97bd-61620ff12db0">&lt;/strong&gt;</ept> application integration page on the Azure Management Portal</target>
+        </trans-unit>
+        <trans-unit id="7c96ba9c-3971-4847-bacd-987213e66f52" xml:space="preserve">
+          <source>&lt;br&gt;&lt;br&gt;  <bpt id="860e9264-6a3f-492e-b145-7a2dd803e965">&lt;linkText&gt;</bpt>Assign users<ept id="860e9264-6a3f-492e-b145-7a2dd803e965">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;br&gt;&lt;br&gt;  <bpt id="860e9264-6a3f-492e-b145-7a2dd803e965">&lt;linkText&gt;</bpt>Assign users<ept id="860e9264-6a3f-492e-b145-7a2dd803e965">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e29fba89-e864-4e85-9026-0e0a1258d6f1" xml:space="preserve">
+          <source>A successfully completed user provisioning cycle is indicated by a related status.</source>
+          <target state="new">A successfully completed user provisioning cycle is indicated by a related status.</target>
+        </trans-unit>
+        <trans-unit id="b01a4504-cecc-46d6-9cc1-b76e1aa11ab1" xml:space="preserve">
+          <source>&lt;br&gt;&lt;br&gt;  <bpt id="fb5d73a4-3090-4b75-976f-7e37217ad805">&lt;linkText&gt;</bpt>Assign users<ept id="fb5d73a4-3090-4b75-976f-7e37217ad805">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;br&gt;&lt;br&gt;  <bpt id="fb5d73a4-3090-4b75-976f-7e37217ad805">&lt;linkText&gt;</bpt>Assign users<ept id="fb5d73a4-3090-4b75-976f-7e37217ad805">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2957b4f9-e278-4a99-a221-4a9de62f5ed6" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="16eefe40-83ff-4adb-b482-8d4295635097" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="cac8e30e-0d83-4fa3-ac42-3f74b4ec804c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="cac8e30e-0d83-4fa3-ac42-3f74b4ec804c">&lt;/linkText&gt;</ept><bpt id="cac8e30e-0d83-4fa3-ac42-3f74b4ec804c">&lt;title&gt;</bpt><ept id="cac8e30e-0d83-4fa3-ac42-3f74b4ec804c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="cac8e30e-0d83-4fa3-ac42-3f74b4ec804c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="cac8e30e-0d83-4fa3-ac42-3f74b4ec804c">&lt;/linkText&gt;</ept><bpt id="cac8e30e-0d83-4fa3-ac42-3f74b4ec804c">&lt;title&gt;</bpt><ept id="cac8e30e-0d83-4fa3-ac42-3f74b4ec804c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9c770d2-8d1f-4b49-8794-a45888f361a1" xml:space="preserve">
+          <source><bpt id="16bedb67-b9d6-41c3-8ba2-5dd86b4cd874">&lt;linkText&gt;</bpt>List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory<ept id="16bedb67-b9d6-41c3-8ba2-5dd86b4cd874">&lt;/linkText&gt;</ept><bpt id="16bedb67-b9d6-41c3-8ba2-5dd86b4cd874">&lt;title&gt;</bpt><ept id="16bedb67-b9d6-41c3-8ba2-5dd86b4cd874">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="16bedb67-b9d6-41c3-8ba2-5dd86b4cd874">&lt;linkText&gt;</bpt>List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory<ept id="16bedb67-b9d6-41c3-8ba2-5dd86b4cd874">&lt;/linkText&gt;</ept><bpt id="16bedb67-b9d6-41c3-8ba2-5dd86b4cd874">&lt;title&gt;</bpt><ept id="16bedb67-b9d6-41c3-8ba2-5dd86b4cd874">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b4ead14-31c6-4f0e-85f4-6b43b8a7ef2d" xml:space="preserve">
+          <source><bpt id="a775047d-7089-4c19-8e76-70f02583ce70">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="a775047d-7089-4c19-8e76-70f02583ce70">&lt;/linkText&gt;</ept><bpt id="a775047d-7089-4c19-8e76-70f02583ce70">&lt;title&gt;</bpt><ept id="a775047d-7089-4c19-8e76-70f02583ce70">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a775047d-7089-4c19-8e76-70f02583ce70">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="a775047d-7089-4c19-8e76-70f02583ce70">&lt;/linkText&gt;</ept><bpt id="a775047d-7089-4c19-8e76-70f02583ce70">&lt;title&gt;</bpt><ept id="a775047d-7089-4c19-8e76-70f02583ce70">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

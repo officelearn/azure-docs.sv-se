@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="22b337d9-57db-4efe-a0b2-ce0789fed3f8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="22b337d9-57db-4efe-a0b2-ce0789fed3f8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9dc4322f-2913-4edb-b2f3-d8b172e2019b">
+        <trans-unit id="2e3c6d04-4dff-4ec3-b9e5-c273b0784ea6" xml:space="preserve">
+          <source>How Azure AD Connect Works</source>
+          <target state="new">How Azure AD Connect Works</target>
+        </trans-unit>
+        <trans-unit id="da1b7e42-6844-4269-8cc1-6e6792cbbb65" xml:space="preserve">
+          <source>Learn about how Azure AD Connect Works.</source>
+          <target state="new">Learn about how Azure AD Connect Works.</target>
+        </trans-unit>
+        <trans-unit id="1046c4d3-71fb-4c68-91b4-dd1161235c34" xml:space="preserve">
+          <source>Azure Active Directory Connect is made up of three primary parts.</source>
+          <target state="new">Azure Active Directory Connect is made up of three primary parts.</target>
+        </trans-unit>
+        <trans-unit id="cbddfb2c-eb03-484c-a1c5-8373281949c6" xml:space="preserve">
+          <source>They are the synchronization services, the optional Active Directory Federation Services piece, and the monitoring piece which is done using <bpt id="092f5655-24b7-47d9-9500-dd27f7e3661c">&lt;linkText&gt;</bpt>Azure AD Connect Health<ept id="092f5655-24b7-47d9-9500-dd27f7e3661c">&lt;/linkText&gt;</ept><bpt id="092f5655-24b7-47d9-9500-dd27f7e3661c">&lt;title&gt;</bpt><ept id="092f5655-24b7-47d9-9500-dd27f7e3661c">&lt;/title&gt;</ept>.</source>
+          <target state="new">They are the synchronization services, the optional Active Directory Federation Services piece, and the monitoring piece which is done using <bpt id="092f5655-24b7-47d9-9500-dd27f7e3661c">&lt;linkText&gt;</bpt>Azure AD Connect Health<ept id="092f5655-24b7-47d9-9500-dd27f7e3661c">&lt;/linkText&gt;</ept><bpt id="092f5655-24b7-47d9-9500-dd27f7e3661c">&lt;title&gt;</bpt><ept id="092f5655-24b7-47d9-9500-dd27f7e3661c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69b358a1-4e8d-4a2d-9159-3cf630aca3d7" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="661d95c3-3832-4a9d-9d5f-5120eeda652e">&lt;linkText&gt;</bpt>Azure AD Connect Stack<ept id="661d95c3-3832-4a9d-9d5f-5120eeda652e">&lt;/linkText&gt;</ept>
+&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="661d95c3-3832-4a9d-9d5f-5120eeda652e">&lt;linkText&gt;</bpt>Azure AD Connect Stack<ept id="661d95c3-3832-4a9d-9d5f-5120eeda652e">&lt;/linkText&gt;</ept>
+&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="47bfcd7d-6853-42ac-8719-02995dc4926e" xml:space="preserve">
+          <source>Synchronization - This part is made up of the the components and functionality previously released as Dirsync and AAD Sync.</source>
+          <target state="new">Synchronization - This part is made up of the the components and functionality previously released as Dirsync and AAD Sync.</target>
+        </trans-unit>
+        <trans-unit id="ab3627c1-a520-4f7b-ac6f-391a2246e57a" xml:space="preserve">
+          <source>This is the part that is responsible for creating users and groups.</source>
+          <target state="new">This is the part that is responsible for creating users and groups.</target>
+        </trans-unit>
+        <trans-unit id="3763f782-7189-4faa-b943-4003cc17fbe4" xml:space="preserve">
+          <source>It is also responsible for making sure that the information on users and groups in your on-premises environment, matches the cloud.</source>
+          <target state="new">It is also responsible for making sure that the information on users and groups in your on-premises environment, matches the cloud.</target>
+        </trans-unit>
+        <trans-unit id="a579cb35-d79f-4847-9d75-6047e3eda40f" xml:space="preserve">
+          <source>AD FS - This is an optional part of Azure AD Connect and can be used to setup a hybrid environment using an on-premises AD FS infrastructure.</source>
+          <target state="new">AD FS - This is an optional part of Azure AD Connect and can be used to setup a hybrid environment using an on-premises AD FS infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="2a133973-2c01-46a5-95ed-59e58e34956e" xml:space="preserve">
+          <source>This part can be used by organizations to address complex deployments that include such things as domain join SSO, enforcement of AD login policy and smart card or 3rd party MFA.</source>
+          <target state="new">This part can be used by organizations to address complex deployments that include such things as domain join SSO, enforcement of AD login policy and smart card or 3rd party MFA.</target>
+        </trans-unit>
+        <trans-unit id="dd0d44a6-5049-46e6-806a-0b043fc3d5f9" xml:space="preserve">
+          <source>For additional information on configuring SSO see <bpt id="12ddab5c-8943-4f8d-ad4b-af9c39ef6406">&lt;linkText&gt;</bpt>DirSync with Single-Sign On<ept id="12ddab5c-8943-4f8d-ad4b-af9c39ef6406">&lt;/linkText&gt;</ept><bpt id="12ddab5c-8943-4f8d-ad4b-af9c39ef6406">&lt;title&gt;</bpt><ept id="12ddab5c-8943-4f8d-ad4b-af9c39ef6406">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information on configuring SSO see <bpt id="12ddab5c-8943-4f8d-ad4b-af9c39ef6406">&lt;linkText&gt;</bpt>DirSync with Single-Sign On<ept id="12ddab5c-8943-4f8d-ad4b-af9c39ef6406">&lt;/linkText&gt;</ept><bpt id="12ddab5c-8943-4f8d-ad4b-af9c39ef6406">&lt;title&gt;</bpt><ept id="12ddab5c-8943-4f8d-ad4b-af9c39ef6406">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="612e050a-8ad9-4de5-b258-1acb4dc4163f" xml:space="preserve">
+          <source>Health Monitoring - For complex deployments using AD FS, Azure AD Connect Health can provide robust monitoring of your federation servers and provide a central location in the Azure portal to view this activity.</source>
+          <target state="new">Health Monitoring - For complex deployments using AD FS, Azure AD Connect Health can provide robust monitoring of your federation servers and provide a central location in the Azure portal to view this activity.</target>
+        </trans-unit>
+        <trans-unit id="ba1b3f43-d9cb-40c9-a614-52dc3cf2ab8e" xml:space="preserve">
+          <source>For additional information see <bpt id="1928f0c9-4571-4ce8-97bd-8463c1de6e61">&lt;linkText&gt;</bpt>Azure Active Directory Connect Health<ept id="1928f0c9-4571-4ce8-97bd-8463c1de6e61">&lt;/linkText&gt;</ept><bpt id="1928f0c9-4571-4ce8-97bd-8463c1de6e61">&lt;title&gt;</bpt><ept id="1928f0c9-4571-4ce8-97bd-8463c1de6e61">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information see <bpt id="1928f0c9-4571-4ce8-97bd-8463c1de6e61">&lt;linkText&gt;</bpt>Azure Active Directory Connect Health<ept id="1928f0c9-4571-4ce8-97bd-8463c1de6e61">&lt;/linkText&gt;</ept><bpt id="1928f0c9-4571-4ce8-97bd-8463c1de6e61">&lt;title&gt;</bpt><ept id="1928f0c9-4571-4ce8-97bd-8463c1de6e61">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bdfabb8-ca1b-4fcf-b661-7cf69bb6edce" xml:space="preserve">
+          <source>The following is a list of per-requisites and supporting components that Azure AD Connect will install on the server that you set Azure AD Connect up on.</source>
+          <target state="new">The following is a list of per-requisites and supporting components that Azure AD Connect will install on the server that you set Azure AD Connect up on.</target>
+        </trans-unit>
+        <trans-unit id="6b6f98f7-6134-469c-bd38-b4f4f8d3db97" xml:space="preserve">
+          <source>This list is for a basic Express installation.</source>
+          <target state="new">This list is for a basic Express installation.</target>
+        </trans-unit>
+        <trans-unit id="9686e480-39f9-46c4-9493-b2f2ec61405a" xml:space="preserve">
+          <source>If you choose to use a different SQL Server on the Install synchronization services page then, the SQL Server 2012 components listed below are not installed.</source>
+          <target state="new">If you choose to use a different SQL Server on the Install synchronization services page then, the SQL Server 2012 components listed below are not installed.</target>
+        </trans-unit>
+        <trans-unit id="fe2c9642-0409-4f71-b699-e0b5a3c42558" xml:space="preserve">
+          <source>Azure AD Connect Azure AD Connector</source>
+          <target state="new">Azure AD Connect Azure AD Connector</target>
+        </trans-unit>
+        <trans-unit id="ed20a44b-87de-4134-8ddc-0f2ec8bce24a" xml:space="preserve">
+          <source>Microsoft SQL Server 2012 Command Line Utilities</source>
+          <target state="new">Microsoft SQL Server 2012 Command Line Utilities</target>
+        </trans-unit>
+        <trans-unit id="352a1bdf-ebe2-440b-ba98-87ee1cec0729" xml:space="preserve">
+          <source>Microsoft SQL Server 2012 Native Client</source>
+          <target state="new">Microsoft SQL Server 2012 Native Client</target>
+        </trans-unit>
+        <trans-unit id="c9626844-1134-4bc5-999d-bd4cd14c7a6b" xml:space="preserve">
+          <source>Microsoft SQL Server 2012 Express LocalDB</source>
+          <target state="new">Microsoft SQL Server 2012 Express LocalDB</target>
+        </trans-unit>
+        <trans-unit id="3d7084d3-2653-4644-a30b-1334f82882c1" xml:space="preserve">
+          <source>Azure Active Directory Module for Windows PowerShell</source>
+          <target state="new">Azure Active Directory Module for Windows PowerShell</target>
+        </trans-unit>
+        <trans-unit id="a6e4c45e-a579-432b-ae1b-560834cbcc01" xml:space="preserve">
+          <source>Microsoft Online Services Sign-In Assistant for IT Professionals</source>
+          <target state="new">Microsoft Online Services Sign-In Assistant for IT Professionals</target>
+        </trans-unit>
+        <trans-unit id="aa32264a-0596-43f0-a259-81a1e0ed9c72" xml:space="preserve">
+          <source>Microsoft Visual C++ 2013 Redistribution Package</source>
+          <target state="new">Microsoft Visual C++ 2013 Redistribution Package</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

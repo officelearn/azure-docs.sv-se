@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2232efc3-0ba1-44c2-ace8-bc4a6ef74256" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2232efc3-0ba1-44c2-ace8-bc4a6ef74256" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3715cc56-7af7-4968-93d7-3d6f36e4a34d">
+        <trans-unit id="a63676a3-b1eb-4329-95db-66317f579f78" xml:space="preserve">
+          <source>Get started with Azure DNS | Microsoft Azure</source>
+          <target state="new">Get started with Azure DNS | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="61e9311c-2330-4e4f-94e5-d0b1ad7e9f01" xml:space="preserve">
+          <source>Learn how to create DNS zones for Azure DNS step-by-step to start hosting your DNS domain using PowerShell or CLI</source>
+          <target state="new">Learn how to create DNS zones for Azure DNS step-by-step to start hosting your DNS domain using PowerShell or CLI</target>
+        </trans-unit>
+        <trans-unit id="96338b04-e5ac-47f8-bb0c-e0d44c0ca63d" xml:space="preserve">
+          <source>The domain ‘contoso.com’ can contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website).</source>
+          <target state="new">The domain ‘contoso.com’ can contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website).</target>
+        </trans-unit>
+        <trans-unit id="ee76b1c1-dcce-4852-99d4-c32fc97ef375" xml:space="preserve">
+          <source>A DNS zone is used to host the DNS records for a particular domain.</source>
+          <target state="new">A DNS zone is used to host the DNS records for a particular domain.</target>
+        </trans-unit>
+        <trans-unit id="f190612c-d29a-409f-b927-66d8ce3a5760" xml:space="preserve">
+          <source>To start hosting your domain, you first need to create a DNS zone.</source>
+          <target state="new">To start hosting your domain, you first need to create a DNS zone.</target>
+        </trans-unit>
+        <trans-unit id="82793965-a50a-4312-976e-edf35ce49948" xml:space="preserve">
+          <source>Any DNS record created for a particular domain will be inside a DNS zone for the domain.</source>
+          <target state="new">Any DNS record created for a particular domain will be inside a DNS zone for the domain.</target>
+        </trans-unit>
+        <trans-unit id="0af7385b-80f6-4826-a373-50a882c83ba8" xml:space="preserve">
+          <source>These instructions use Microsoft Azure CLI.</source>
+          <target state="new">These instructions use Microsoft Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="25d462d4-e4b9-47da-bc8c-c48c90db4823" xml:space="preserve">
+          <source>Be sure to update to the latest Azure CLI to use the Azure DNS commands.</source>
+          <target state="new">Be sure to update to the latest Azure CLI to use the Azure DNS commands.</target>
+        </trans-unit>
+        <trans-unit id="8b88deea-6e6e-444a-b091-027d2a034a4c" xml:space="preserve">
+          <source>Install Azure CLI.</source>
+          <target state="new">Install Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="3e8d938b-2ffb-4499-b0b3-ac5797c8e7a8" xml:space="preserve">
+          <source>You can install Azure CLI for Windows, Linux, or MAC.</source>
+          <target state="new">You can install Azure CLI for Windows, Linux, or MAC.</target>
+        </trans-unit>
+        <trans-unit id="47f344c2-30ba-4c39-85ed-ee45b758f811" xml:space="preserve">
+          <source>The following steps need to be completed before you can manage Azure DNS using Azure CLI.</source>
+          <target state="new">The following steps need to be completed before you can manage Azure DNS using Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="a0c421af-db3d-4cdc-b6a0-09fcc88fbb89" xml:space="preserve">
+          <source>More information is available at <bpt id="7aa3fafc-71ea-44c5-9378-8b7556e29713">&lt;linkText&gt;</bpt>Install the Azure CLI<ept id="7aa3fafc-71ea-44c5-9378-8b7556e29713">&lt;/linkText&gt;</ept><bpt id="7aa3fafc-71ea-44c5-9378-8b7556e29713">&lt;title&gt;</bpt><ept id="7aa3fafc-71ea-44c5-9378-8b7556e29713">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information is available at <bpt id="7aa3fafc-71ea-44c5-9378-8b7556e29713">&lt;linkText&gt;</bpt>Install the Azure CLI<ept id="7aa3fafc-71ea-44c5-9378-8b7556e29713">&lt;/linkText&gt;</ept><bpt id="7aa3fafc-71ea-44c5-9378-8b7556e29713">&lt;title&gt;</bpt><ept id="7aa3fafc-71ea-44c5-9378-8b7556e29713">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7411283f-4219-4d21-9ca6-03d3e9136abf" xml:space="preserve">
+          <source>All the network provider commands on CLI can be found using the following command:</source>
+          <target state="new">All the network provider commands on CLI can be found using the following command:</target>
+        </trans-unit>
+        <trans-unit id="193bb568-2162-4b8d-90a9-37eb54dfdb1a" xml:space="preserve">
+          <source>The DNS commands require Azure CLI version 0.9.8 or above.</source>
+          <target state="new">The DNS commands require Azure CLI version 0.9.8 or above.</target>
+        </trans-unit>
+        <trans-unit id="9b6da6bb-2fa5-45ec-95d1-66b13c5b1ca9" xml:space="preserve">
+          <source>Type <bpt id="88a49839-c250-497a-a9f6-04eedcc5f00b">&lt;code&gt;</bpt>azure -v<ept id="88a49839-c250-497a-a9f6-04eedcc5f00b">&lt;/code&gt;</ept>to check which Azure CLI version is currently installed in your machine.</source>
+          <target state="new">Type <bpt id="88a49839-c250-497a-a9f6-04eedcc5f00b">&lt;code&gt;</bpt>azure -v<ept id="88a49839-c250-497a-a9f6-04eedcc5f00b">&lt;/code&gt;</ept>to check which Azure CLI version is currently installed in your machine.</target>
+        </trans-unit>
+        <trans-unit id="6d7f167e-534f-4248-967f-bce36209fff1" xml:space="preserve">
+          <source>Azure DNS uses Azure Resource Manager.</source>
+          <target state="new">Azure DNS uses Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="656724fb-f30b-4c37-b909-39ef2f1f68ea" xml:space="preserve">
+          <source>Make sure you switch CLI to use arm commands and DNS.</source>
+          <target state="new">Make sure you switch CLI to use arm commands and DNS.</target>
+        </trans-unit>
+        <trans-unit id="dde383fd-0b65-4fb2-b25d-ef182b2ecffc" xml:space="preserve">
+          <source>Sign in to your Azure account.</source>
+          <target state="new">Sign in to your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="580e7b49-3fa6-4d31-a890-b8315f047ed4" xml:space="preserve">
+          <source>You will be prompted to authenticate with your credentials.</source>
+          <target state="new">You will be prompted to authenticate with your credentials.</target>
+        </trans-unit>
+        <trans-unit id="59f9edd8-9c93-4d27-bfd3-db4648b03001" xml:space="preserve">
+          <source>Keep in mind that you can only use ORGID accounts.</source>
+          <target state="new">Keep in mind that you can only use ORGID accounts.</target>
+        </trans-unit>
+        <trans-unit id="68147b14-13b1-4f92-bd05-d4e2a235dbc8" xml:space="preserve">
+          <source>Choose which of your Azure subscriptions to use.</source>
+          <target state="new">Choose which of your Azure subscriptions to use.</target>
+        </trans-unit>
+        <trans-unit id="e01d2f57-628a-475c-8ffd-8ef5371e0ee7" xml:space="preserve">
+          <source>To see a list of available subscriptions, use the "azure account list" command.</source>
+          <target state="new">To see a list of available subscriptions, use the "azure account list" command.</target>
+        </trans-unit>
+        <trans-unit id="3ce5419a-bdee-49b0-b027-8eefd1ffd6e6" xml:space="preserve">
+          <source>Create a new resource group (skip this step if using an existing resource group)</source>
+          <target state="new">Create a new resource group (skip this step if using an existing resource group)</target>
+        </trans-unit>
+        <trans-unit id="b4795ecf-1170-4136-b834-d64705c068ea" xml:space="preserve">
+          <source>Azure Resource Manager requires that all resource groups specify a location.</source>
+          <target state="new">Azure Resource Manager requires that all resource groups specify a location.</target>
+        </trans-unit>
+        <trans-unit id="4887e11d-fde2-49f8-adc8-a80892db8c43" xml:space="preserve">
+          <source>This is used as the default location for resources in that resource group.</source>
+          <target state="new">This is used as the default location for resources in that resource group.</target>
+        </trans-unit>
+        <trans-unit id="c2419cdf-788a-4108-812b-94ab49069590" xml:space="preserve">
+          <source>However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.</source>
+          <target state="new">However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="7d1d2159-0691-4022-9532-b68dcc82da40" xml:space="preserve">
+          <source>The Azure DNS service is managed by the Microsoft.Network resource provider.</source>
+          <target state="new">The Azure DNS service is managed by the Microsoft.Network resource provider.</target>
+        </trans-unit>
+        <trans-unit id="c25ffe7f-ba11-4694-99e4-6a66bd4eac05" xml:space="preserve">
+          <source>Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS.</source>
+          <target state="new">Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="d51c42d5-8c81-4d49-85d0-5d68ff5dbf11" xml:space="preserve">
+          <source>This is a one-time operation for each subscription.</source>
+          <target state="new">This is a one-time operation for each subscription.</target>
+        </trans-unit>
+        <trans-unit id="940f3729-1308-49b7-9ccf-444fe13c206c" xml:space="preserve">
+          <source>Tags are different from Etags.</source>
+          <target state="new">Tags are different from Etags.</target>
+        </trans-unit>
+        <trans-unit id="2cdec769-eb74-4050-b7f6-a7f6ef8fd746" xml:space="preserve">
+          <source>Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes.</source>
+          <target state="new">Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes.</target>
+        </trans-unit>
+        <trans-unit id="52c5dea6-4cb6-425a-96eb-15abf0122ea9" xml:space="preserve">
+          <source>For more information about tags, see <bpt id="3c939e77-6707-412c-b2ff-512e6c69b3cf">&lt;linkText&gt;</bpt>Using tags to organize your Azure resources<ept id="3c939e77-6707-412c-b2ff-512e6c69b3cf">&lt;/linkText&gt;</ept><bpt id="3c939e77-6707-412c-b2ff-512e6c69b3cf">&lt;title&gt;</bpt><ept id="3c939e77-6707-412c-b2ff-512e6c69b3cf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about tags, see <bpt id="3c939e77-6707-412c-b2ff-512e6c69b3cf">&lt;linkText&gt;</bpt>Using tags to organize your Azure resources<ept id="3c939e77-6707-412c-b2ff-512e6c69b3cf">&lt;/linkText&gt;</ept><bpt id="3c939e77-6707-412c-b2ff-512e6c69b3cf">&lt;title&gt;</bpt><ept id="3c939e77-6707-412c-b2ff-512e6c69b3cf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38740e8b-aa1b-4195-80b1-83477ae2b9a4" xml:space="preserve">
+          <source>Azure DNS CLI supports tags on both zones and record sets specified by using the options ‘-Tag’ parameter.</source>
+          <target state="new">Azure DNS CLI supports tags on both zones and record sets specified by using the options ‘-Tag’ parameter.</target>
+        </trans-unit>
+        <trans-unit id="b572540f-e2ea-4c01-90c0-c92ecaefd0de" xml:space="preserve">
+          <source>The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:</source>
+          <target state="new">The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:</target>
+        </trans-unit>
+        <trans-unit id="5970a073-d380-499a-ac4d-1e98833f9d60" xml:space="preserve">
+          <source>A DNS zone is created using the <bpt id="60c91d92-a7eb-43ff-a6a7-ff4c744d53b9">&lt;code&gt;</bpt>azure network dns zone create<ept id="60c91d92-a7eb-43ff-a6a7-ff4c744d53b9">&lt;/code&gt;</ept> command.</source>
+          <target state="new">A DNS zone is created using the <bpt id="60c91d92-a7eb-43ff-a6a7-ff4c744d53b9">&lt;code&gt;</bpt>azure network dns zone create<ept id="60c91d92-a7eb-43ff-a6a7-ff4c744d53b9">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="34b9f358-5376-4845-b443-16f5f367a74c" xml:space="preserve">
+          <source>In the example below, you create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':</source>
+          <target state="new">In the example below, you create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':</target>
+        </trans-unit>
+        <trans-unit id="64557075-7ccb-4a11-abc0-e44983697e97" xml:space="preserve">
+          <source>In Azure DNS, zone names should be specified without a terminating ‘.’, for example, as ‘contoso.com’ rather than ‘contoso.com.’.</source>
+          <target state="new">In Azure DNS, zone names should be specified without a terminating ‘.’, for example, as ‘contoso.com’ rather than ‘contoso.com.’.</target>
+        </trans-unit>
+        <trans-unit id="40edd0cc-f498-4056-8379-3b208b3a2093" xml:space="preserve">
+          <source>Your DNS zone has now been created in Azure DNS.</source>
+          <target state="new">Your DNS zone has now been created in Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="b42476f5-fcfe-44b2-8918-e0c42e290906" xml:space="preserve">
+          <source>Creating a DNS zone also creates the following DNS records:</source>
+          <target state="new">Creating a DNS zone also creates the following DNS records:</target>
+        </trans-unit>
+        <trans-unit id="58bc3c2c-c4e9-4606-bdcc-1425a1a8cb62" xml:space="preserve">
+          <source>The ‘Start of Authority’ (SOA) record.</source>
+          <target state="new">The ‘Start of Authority’ (SOA) record.</target>
+        </trans-unit>
+        <trans-unit id="a39bde81-367a-44dc-9a5b-15261810d695" xml:space="preserve">
+          <source>This is present at the root of every DNS zone.</source>
+          <target state="new">This is present at the root of every DNS zone.</target>
+        </trans-unit>
+        <trans-unit id="0e965239-c7b7-4f37-919e-dd3c865fb6f9" xml:space="preserve">
+          <source>The authoritative name server (NS) records.</source>
+          <target state="new">The authoritative name server (NS) records.</target>
+        </trans-unit>
+        <trans-unit id="068d01eb-747c-4be7-8f84-1d246db564dd" xml:space="preserve">
+          <source>These show which name servers are hosting the zone.</source>
+          <target state="new">These show which name servers are hosting the zone.</target>
+        </trans-unit>
+        <trans-unit id="482525a8-022e-4a00-a46a-34649babb346" xml:space="preserve">
+          <source>Azure DNS uses a pool of name servers, and so different name servers can be assigned to different zones in Azure DNS.</source>
+          <target state="new">Azure DNS uses a pool of name servers, and so different name servers can be assigned to different zones in Azure DNS.</target>
+        </trans-unit>
+        <trans-unit id="732741da-1a98-4440-9746-35f57c39b03c" xml:space="preserve">
+          <source>See <bpt id="8aaa5f74-eaa6-427a-9da3-b0cc727dfd08">&lt;linkText&gt;</bpt>Delegate a domain to Azure DNS<ept id="8aaa5f74-eaa6-427a-9da3-b0cc727dfd08">&lt;/linkText&gt;</ept><bpt id="8aaa5f74-eaa6-427a-9da3-b0cc727dfd08">&lt;title&gt;</bpt><ept id="8aaa5f74-eaa6-427a-9da3-b0cc727dfd08">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="8aaa5f74-eaa6-427a-9da3-b0cc727dfd08">&lt;linkText&gt;</bpt>Delegate a domain to Azure DNS<ept id="8aaa5f74-eaa6-427a-9da3-b0cc727dfd08">&lt;/linkText&gt;</ept><bpt id="8aaa5f74-eaa6-427a-9da3-b0cc727dfd08">&lt;title&gt;</bpt><ept id="8aaa5f74-eaa6-427a-9da3-b0cc727dfd08">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="5078a0a5-05d1-4d95-8d82-8907c64393a1" xml:space="preserve">
+          <source>To view these records, use "azure network dns-record-set show":</source>
+          <target state="new">To view these records, use "azure network dns-record-set show":</target>
+        </trans-unit>
+        <trans-unit id="089321ca-435b-4276-87eb-f13e54bdc111" xml:space="preserve">
+          <source>In the example below, running the command with resource group "myresourcegroup", record set name "@" (for a root record) and type "SOA" will yield the following output:</source>
+          <target state="new">In the example below, running the command with resource group "myresourcegroup", record set name "@" (for a root record) and type "SOA" will yield the following output:</target>
+        </trans-unit>
+        <trans-unit id="25c9c5ef-bb50-4575-a4d0-f18fdab16161" xml:space="preserve">
+          <source>Record sets at the root (or ‘apex’) of a DNS zone use "@" as the record set name.</source>
+          <target state="new">Record sets at the root (or ‘apex’) of a DNS zone use "@" as the record set name.</target>
+        </trans-unit>
+        <trans-unit id="5fe297a8-eea8-479d-acba-e2d33be4a48b" xml:space="preserve">
+          <source>Having created your first DNS zone, you can test it by using DNS tools such as nslookup, DIG, or the <bpt id="f1236f00-3826-44fa-bbec-d0306e248c18">&lt;strong&gt;</bpt>Resolve-DnsName<ept id="f1236f00-3826-44fa-bbec-d0306e248c18">&lt;/strong&gt;</ept> PowerShell cmdlet.</source>
+          <target state="new">Having created your first DNS zone, you can test it by using DNS tools such as nslookup, DIG, or the <bpt id="f1236f00-3826-44fa-bbec-d0306e248c18">&lt;strong&gt;</bpt>Resolve-DnsName<ept id="f1236f00-3826-44fa-bbec-d0306e248c18">&lt;/strong&gt;</ept> PowerShell cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="605cc16b-69ec-4bec-a109-10b020b935bb" xml:space="preserve">
+          <source>If you haven’t yet delegated your domain to use the new zone in Azure DNS, you need to direct the DNS query directly to one of the name servers for your zone.</source>
+          <target state="new">If you haven’t yet delegated your domain to use the new zone in Azure DNS, you need to direct the DNS query directly to one of the name servers for your zone.</target>
+        </trans-unit>
+        <trans-unit id="63a8857c-3f71-4085-bb20-4ccb9a1d0717" xml:space="preserve">
+          <source>The name servers for your zone are given in the NS records, as listed by "azure network dns-record-set show" above.</source>
+          <target state="new">The name servers for your zone are given in the NS records, as listed by "azure network dns-record-set show" above.</target>
+        </trans-unit>
+        <trans-unit id="1f585aa7-9f82-4dc6-814e-4288bef0664d" xml:space="preserve">
+          <source>Be sure the substitute the correct values for your zone in the command below.</source>
+          <target state="new">Be sure the substitute the correct values for your zone in the command below.</target>
+        </trans-unit>
+        <trans-unit id="ef479fe6-9338-4b8b-841f-59c29ea8c008" xml:space="preserve">
+          <source>The following example uses DIG to query the domain contoso.com using the name servers assigned for the DNS zone. The query has to point to a name server for which we used <bpt id="2c4bf98f-f9dd-4625-8007-fddf18ce3411">&lt;code&gt;</bpt>@&lt;name server for the zone&gt;<ept id="2c4bf98f-f9dd-4625-8007-fddf18ce3411">&lt;/code&gt;</ept> and zone name using DIG.</source>
+          <target state="new">The following example uses DIG to query the domain contoso.com using the name servers assigned for the DNS zone. The query has to point to a name server for which we used <bpt id="2c4bf98f-f9dd-4625-8007-fddf18ce3411">&lt;code&gt;</bpt>@&lt;name server for the zone&gt;<ept id="2c4bf98f-f9dd-4625-8007-fddf18ce3411">&lt;/code&gt;</ept> and zone name using DIG.</target>
+        </trans-unit>
+        <trans-unit id="c7d5b976-a9e0-4579-b7fb-819fcb77ca25" xml:space="preserve">
+          <source><bpt id="1a9c4cce-f606-45d9-b8b4-4b7ad9ca54bb">&lt;linkText&gt;</bpt>Get started creating record sets and records<ept id="1a9c4cce-f606-45d9-b8b4-4b7ad9ca54bb">&lt;/linkText&gt;</ept><bpt id="1a9c4cce-f606-45d9-b8b4-4b7ad9ca54bb">&lt;title&gt;</bpt><ept id="1a9c4cce-f606-45d9-b8b4-4b7ad9ca54bb">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="286dc554-4345-44d8-b67d-de147994053c">&lt;linkText&gt;</bpt>How to manage DNS zones<ept id="286dc554-4345-44d8-b67d-de147994053c">&lt;/linkText&gt;</ept><bpt id="286dc554-4345-44d8-b67d-de147994053c">&lt;title&gt;</bpt><ept id="286dc554-4345-44d8-b67d-de147994053c">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="7977a3b6-9408-461a-8be2-6719680c1109">&lt;linkText&gt;</bpt>How to manage DNS records<ept id="7977a3b6-9408-461a-8be2-6719680c1109">&lt;/linkText&gt;</ept><bpt id="7977a3b6-9408-461a-8be2-6719680c1109">&lt;title&gt;</bpt><ept id="7977a3b6-9408-461a-8be2-6719680c1109">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="46c72b5e-4eea-44ab-98db-3f86b9ae2837">&lt;linkText&gt;</bpt>Automate Azure operations with .NET SDK<ept id="46c72b5e-4eea-44ab-98db-3f86b9ae2837">&lt;/linkText&gt;</ept><bpt id="46c72b5e-4eea-44ab-98db-3f86b9ae2837">&lt;title&gt;</bpt><ept id="46c72b5e-4eea-44ab-98db-3f86b9ae2837">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="3317cfad-d22e-4bc6-b027-23e325f39f53">&lt;linkText&gt;</bpt>Azure DNS REST API Reference<ept id="3317cfad-d22e-4bc6-b027-23e325f39f53">&lt;/linkText&gt;</ept><bpt id="3317cfad-d22e-4bc6-b027-23e325f39f53">&lt;title&gt;</bpt><ept id="3317cfad-d22e-4bc6-b027-23e325f39f53">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1a9c4cce-f606-45d9-b8b4-4b7ad9ca54bb">&lt;linkText&gt;</bpt>Get started creating record sets and records<ept id="1a9c4cce-f606-45d9-b8b4-4b7ad9ca54bb">&lt;/linkText&gt;</ept><bpt id="1a9c4cce-f606-45d9-b8b4-4b7ad9ca54bb">&lt;title&gt;</bpt><ept id="1a9c4cce-f606-45d9-b8b4-4b7ad9ca54bb">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="286dc554-4345-44d8-b67d-de147994053c">&lt;linkText&gt;</bpt>How to manage DNS zones<ept id="286dc554-4345-44d8-b67d-de147994053c">&lt;/linkText&gt;</ept><bpt id="286dc554-4345-44d8-b67d-de147994053c">&lt;title&gt;</bpt><ept id="286dc554-4345-44d8-b67d-de147994053c">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="7977a3b6-9408-461a-8be2-6719680c1109">&lt;linkText&gt;</bpt>How to manage DNS records<ept id="7977a3b6-9408-461a-8be2-6719680c1109">&lt;/linkText&gt;</ept><bpt id="7977a3b6-9408-461a-8be2-6719680c1109">&lt;title&gt;</bpt><ept id="7977a3b6-9408-461a-8be2-6719680c1109">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="46c72b5e-4eea-44ab-98db-3f86b9ae2837">&lt;linkText&gt;</bpt>Automate Azure operations with .NET SDK<ept id="46c72b5e-4eea-44ab-98db-3f86b9ae2837">&lt;/linkText&gt;</ept><bpt id="46c72b5e-4eea-44ab-98db-3f86b9ae2837">&lt;title&gt;</bpt><ept id="46c72b5e-4eea-44ab-98db-3f86b9ae2837">&lt;/title&gt;</ept>&lt;BR&gt;
+<bpt id="3317cfad-d22e-4bc6-b027-23e325f39f53">&lt;linkText&gt;</bpt>Azure DNS REST API Reference<ept id="3317cfad-d22e-4bc6-b027-23e325f39f53">&lt;/linkText&gt;</ept><bpt id="3317cfad-d22e-4bc6-b027-23e325f39f53">&lt;title&gt;</bpt><ept id="3317cfad-d22e-4bc6-b027-23e325f39f53">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

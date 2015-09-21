@@ -1,0 +1,797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bd1630da-30bc-49ae-825d-8c60dbee5853" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bd1630da-30bc-49ae-825d-8c60dbee5853" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="676a5b71-01e6-415f-8e50-e09a3ed5c7dd">
+        <trans-unit id="0e425f09-b468-4b9f-8ff5-25aacfd6520f" xml:space="preserve">
+          <source>When you create a website, Azure provides a friendly subdomain on the azurewebsites.net domain so your users can access your website using a URL like http://&amp;lt;mysite&gt;.azurewebsites.net.</source>
+          <target state="new">When you create a website, Azure provides a friendly subdomain on the azurewebsites.net domain so your users can access your website using a URL like http://&amp;lt;mysite&gt;.azurewebsites.net.</target>
+        </trans-unit>
+        <trans-unit id="1eede3b3-53d1-4fc1-b5d9-d39c588d8cdd" xml:space="preserve">
+          <source>However, if you configure your websites for Shared or Standard mode, you can map your website to your own domain name.</source>
+          <target state="new">However, if you configure your websites for Shared or Standard mode, you can map your website to your own domain name.</target>
+        </trans-unit>
+        <trans-unit id="eebbd0b5-1ca3-482b-89ee-0ef54233a103" xml:space="preserve">
+          <source>Optionally, you can use Azure Traffic Manager to load balance incoming traffic to your website.</source>
+          <target state="new">Optionally, you can use Azure Traffic Manager to load balance incoming traffic to your website.</target>
+        </trans-unit>
+        <trans-unit id="f308fdf8-d6c5-4fb4-8e37-89bc9de01949" xml:space="preserve">
+          <source>For more information on how Traffic Manager works with Websites, see <bpt id="5b1cd092-4c6a-44f9-a2cc-cad02f7602a2">&lt;linkText&gt;</bpt>Controlling Azure Web Sites Traffic with Azure Traffic Manager[trafficmanager]<ept id="5b1cd092-4c6a-44f9-a2cc-cad02f7602a2">&lt;/linkText&gt;</ept><bpt id="5b1cd092-4c6a-44f9-a2cc-cad02f7602a2">&lt;title&gt;</bpt><ept id="5b1cd092-4c6a-44f9-a2cc-cad02f7602a2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on how Traffic Manager works with Websites, see <bpt id="5b1cd092-4c6a-44f9-a2cc-cad02f7602a2">&lt;linkText&gt;</bpt>Controlling Azure Web Sites Traffic with Azure Traffic Manager[trafficmanager]<ept id="5b1cd092-4c6a-44f9-a2cc-cad02f7602a2">&lt;/linkText&gt;</ept><bpt id="5b1cd092-4c6a-44f9-a2cc-cad02f7602a2">&lt;title&gt;</bpt><ept id="5b1cd092-4c6a-44f9-a2cc-cad02f7602a2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ad36086-8163-43cd-ba25-fa38d079c492" xml:space="preserve">
+          <source>The procedures in this task apply to Azure Websites; for Cloud Services, see &lt;a href="/develop/net/common-tasks/custom-dns/"&gt;Configuring a Custom Domain Name in Azure&lt;/a&gt;.</source>
+          <target state="new">The procedures in this task apply to Azure Websites; for Cloud Services, see &lt;a href="/develop/net/common-tasks/custom-dns/"&gt;Configuring a Custom Domain Name in Azure&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="ae0ead66-f335-4f84-aeb2-4918e5e11e5f" xml:space="preserve">
+          <source>The steps in this task require you to configure your websites for Shared or Standard mode, which may change how much you are billed for your subscription.</source>
+          <target state="new">The steps in this task require you to configure your websites for Shared or Standard mode, which may change how much you are billed for your subscription.</target>
+        </trans-unit>
+        <trans-unit id="ef98057f-4719-4ff9-af2c-cc0a1c5a35b9" xml:space="preserve">
+          <source>See &lt;a href="/pricing/details/web-sites/"&gt;Websites Pricing Details&lt;/a&gt; for more information.</source>
+          <target state="new">See &lt;a href="/pricing/details/web-sites/"&gt;Websites Pricing Details&lt;/a&gt; for more information.</target>
+        </trans-unit>
+        <trans-unit id="23dffeaa-5a4d-4e61-ace5-497e858e2b46" xml:space="preserve">
+          <source>In this article:</source>
+          <target state="new">In this article:</target>
+        </trans-unit>
+        <trans-unit id="7a899bff-2338-4009-b521-5297853b345a" xml:space="preserve">
+          <source><bpt id="a42e5ff4-a04c-43f5-9a6d-13e257b43d78">&lt;linkText&gt;</bpt>Understanding CNAME and A records<ept id="a42e5ff4-a04c-43f5-9a6d-13e257b43d78">&lt;/linkText&gt;</ept><bpt id="a42e5ff4-a04c-43f5-9a6d-13e257b43d78">&lt;title&gt;</bpt><ept id="a42e5ff4-a04c-43f5-9a6d-13e257b43d78">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a42e5ff4-a04c-43f5-9a6d-13e257b43d78">&lt;linkText&gt;</bpt>Understanding CNAME and A records<ept id="a42e5ff4-a04c-43f5-9a6d-13e257b43d78">&lt;/linkText&gt;</ept><bpt id="a42e5ff4-a04c-43f5-9a6d-13e257b43d78">&lt;title&gt;</bpt><ept id="a42e5ff4-a04c-43f5-9a6d-13e257b43d78">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e229ebe-a2bd-4fa8-8b4c-02a0eef8a662" xml:space="preserve">
+          <source><bpt id="f64b5373-78a9-4f3e-90d2-69420e8bd9f3">&lt;linkText&gt;</bpt>Configure your web sites for shared or standard mode<ept id="f64b5373-78a9-4f3e-90d2-69420e8bd9f3">&lt;/linkText&gt;</ept><bpt id="f64b5373-78a9-4f3e-90d2-69420e8bd9f3">&lt;title&gt;</bpt><ept id="f64b5373-78a9-4f3e-90d2-69420e8bd9f3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f64b5373-78a9-4f3e-90d2-69420e8bd9f3">&lt;linkText&gt;</bpt>Configure your web sites for shared or standard mode<ept id="f64b5373-78a9-4f3e-90d2-69420e8bd9f3">&lt;/linkText&gt;</ept><bpt id="f64b5373-78a9-4f3e-90d2-69420e8bd9f3">&lt;title&gt;</bpt><ept id="f64b5373-78a9-4f3e-90d2-69420e8bd9f3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb149683-0c60-4017-af92-a50963e695ec" xml:space="preserve">
+          <source><bpt id="cbe9e86c-f3a8-4cbc-9616-c7748e7c79b5">&lt;linkText&gt;</bpt>Add your web sites to Traffic Manager<ept id="cbe9e86c-f3a8-4cbc-9616-c7748e7c79b5">&lt;/linkText&gt;</ept><bpt id="cbe9e86c-f3a8-4cbc-9616-c7748e7c79b5">&lt;title&gt;</bpt><ept id="cbe9e86c-f3a8-4cbc-9616-c7748e7c79b5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cbe9e86c-f3a8-4cbc-9616-c7748e7c79b5">&lt;linkText&gt;</bpt>Add your web sites to Traffic Manager<ept id="cbe9e86c-f3a8-4cbc-9616-c7748e7c79b5">&lt;/linkText&gt;</ept><bpt id="cbe9e86c-f3a8-4cbc-9616-c7748e7c79b5">&lt;title&gt;</bpt><ept id="cbe9e86c-f3a8-4cbc-9616-c7748e7c79b5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87b33e4e-3302-4a3c-abfc-3b5ebc168c35" xml:space="preserve">
+          <source><bpt id="30155f29-9d64-4989-97c8-ec9fb43eb7a4">&lt;linkText&gt;</bpt>Add a CNAME for your custom domain<ept id="30155f29-9d64-4989-97c8-ec9fb43eb7a4">&lt;/linkText&gt;</ept><bpt id="30155f29-9d64-4989-97c8-ec9fb43eb7a4">&lt;title&gt;</bpt><ept id="30155f29-9d64-4989-97c8-ec9fb43eb7a4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="30155f29-9d64-4989-97c8-ec9fb43eb7a4">&lt;linkText&gt;</bpt>Add a CNAME for your custom domain<ept id="30155f29-9d64-4989-97c8-ec9fb43eb7a4">&lt;/linkText&gt;</ept><bpt id="30155f29-9d64-4989-97c8-ec9fb43eb7a4">&lt;title&gt;</bpt><ept id="30155f29-9d64-4989-97c8-ec9fb43eb7a4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b96cfe30-0942-436a-88c9-04fda4591c29" xml:space="preserve">
+          <source><bpt id="cd48d409-9b0d-4a03-aa6d-484f0a7ee00b">&lt;linkText&gt;</bpt>Add an A record for your custom domain<ept id="cd48d409-9b0d-4a03-aa6d-484f0a7ee00b">&lt;/linkText&gt;</ept><bpt id="cd48d409-9b0d-4a03-aa6d-484f0a7ee00b">&lt;title&gt;</bpt><ept id="cd48d409-9b0d-4a03-aa6d-484f0a7ee00b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cd48d409-9b0d-4a03-aa6d-484f0a7ee00b">&lt;linkText&gt;</bpt>Add an A record for your custom domain<ept id="cd48d409-9b0d-4a03-aa6d-484f0a7ee00b">&lt;/linkText&gt;</ept><bpt id="cd48d409-9b0d-4a03-aa6d-484f0a7ee00b">&lt;title&gt;</bpt><ept id="cd48d409-9b0d-4a03-aa6d-484f0a7ee00b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd87ff0c-6a82-4f78-8e56-97f69b12e99d" xml:space="preserve">
+          <source>Understand CNAME and A records</source>
+          <target state="new">Understand CNAME and A records</target>
+        </trans-unit>
+        <trans-unit id="31c99fc8-1ff8-4fe6-a340-7b0ac9b4d2a4" xml:space="preserve">
+          <source>CNAME (or alias records) and A records both allow you to associate a domain name with a website, however they each work differently.</source>
+          <target state="new">CNAME (or alias records) and A records both allow you to associate a domain name with a website, however they each work differently.</target>
+        </trans-unit>
+        <trans-unit id="e2cbce75-0b75-4009-9235-68dd61e6d632" xml:space="preserve">
+          <source>A CNAME record maps a <bpt id="acecb1d5-bc48-4d72-88c5-59623856efd3">&lt;em&gt;</bpt>specific<ept id="acecb1d5-bc48-4d72-88c5-59623856efd3">&lt;/em&gt;</ept> domain, such as <bpt id="e078a764-f5b6-4ca9-80d5-126312558887">&lt;strong&gt;</bpt>contoso.com<ept id="e078a764-f5b6-4ca9-80d5-126312558887">&lt;/strong&gt;</ept> or <bpt id="b19c36e7-756b-4c56-9ea3-25a640119167">&lt;strong&gt;</bpt>www.contoso.com<ept id="b19c36e7-756b-4c56-9ea3-25a640119167">&lt;/strong&gt;</ept>, to a canonical domain name.</source>
+          <target state="new">A CNAME record maps a <bpt id="acecb1d5-bc48-4d72-88c5-59623856efd3">&lt;em&gt;</bpt>specific<ept id="acecb1d5-bc48-4d72-88c5-59623856efd3">&lt;/em&gt;</ept> domain, such as <bpt id="e078a764-f5b6-4ca9-80d5-126312558887">&lt;strong&gt;</bpt>contoso.com<ept id="e078a764-f5b6-4ca9-80d5-126312558887">&lt;/strong&gt;</ept> or <bpt id="b19c36e7-756b-4c56-9ea3-25a640119167">&lt;strong&gt;</bpt>www.contoso.com<ept id="b19c36e7-756b-4c56-9ea3-25a640119167">&lt;/strong&gt;</ept>, to a canonical domain name.</target>
+        </trans-unit>
+        <trans-unit id="b8bd2c6d-3d22-49db-ab0f-df81829ea288" xml:space="preserve">
+          <source>In this case, the canonical domain name is the either the <bpt id="980b543a-dd7a-45db-8191-f324ba31a963">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.azurewebsites.net<ept id="980b543a-dd7a-45db-8191-f324ba31a963">&lt;/strong&gt;</ept> domain name of your Azure website or the <bpt id="4b88454b-3f93-4ac3-8846-126dc847a8e2">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmgr.com<ept id="4b88454b-3f93-4ac3-8846-126dc847a8e2">&lt;/strong&gt;</ept> domain name of your Traffic Manager profile.</source>
+          <target state="new">In this case, the canonical domain name is the either the <bpt id="980b543a-dd7a-45db-8191-f324ba31a963">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.azurewebsites.net<ept id="980b543a-dd7a-45db-8191-f324ba31a963">&lt;/strong&gt;</ept> domain name of your Azure website or the <bpt id="4b88454b-3f93-4ac3-8846-126dc847a8e2">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmgr.com<ept id="4b88454b-3f93-4ac3-8846-126dc847a8e2">&lt;/strong&gt;</ept> domain name of your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="d3aa6381-6c4c-44b3-99ad-99fabbe479bc" xml:space="preserve">
+          <source>Once created, the CNAME creates an alias for the <bpt id="486264fc-e6ce-4f9e-b29d-4e479269cae3">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.azurewebsites.net<ept id="486264fc-e6ce-4f9e-b29d-4e479269cae3">&lt;/strong&gt;</ept> or <bpt id="2592f2b3-fab0-4abf-9c87-f47ef684d56c">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmgr.com<ept id="2592f2b3-fab0-4abf-9c87-f47ef684d56c">&lt;/strong&gt;</ept> domain name.</source>
+          <target state="new">Once created, the CNAME creates an alias for the <bpt id="486264fc-e6ce-4f9e-b29d-4e479269cae3">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.azurewebsites.net<ept id="486264fc-e6ce-4f9e-b29d-4e479269cae3">&lt;/strong&gt;</ept> or <bpt id="2592f2b3-fab0-4abf-9c87-f47ef684d56c">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmgr.com<ept id="2592f2b3-fab0-4abf-9c87-f47ef684d56c">&lt;/strong&gt;</ept> domain name.</target>
+        </trans-unit>
+        <trans-unit id="94cad8d5-1079-4109-9adb-a60123b8f69a" xml:space="preserve">
+          <source>The CNAME entry will resolve to the IP address of your <bpt id="3d410f3e-a647-45a4-85d8-e3b8c2ba7f88">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.azurewebsites.net<ept id="3d410f3e-a647-45a4-85d8-e3b8c2ba7f88">&lt;/strong&gt;</ept> or <bpt id="dd0d604c-31c7-4326-95e8-14e593e480b8">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmgr.com<ept id="dd0d604c-31c7-4326-95e8-14e593e480b8">&lt;/strong&gt;</ept> domain name automatically, so if the IP address of the website changes, you do not have to take any action.</source>
+          <target state="new">The CNAME entry will resolve to the IP address of your <bpt id="3d410f3e-a647-45a4-85d8-e3b8c2ba7f88">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.azurewebsites.net<ept id="3d410f3e-a647-45a4-85d8-e3b8c2ba7f88">&lt;/strong&gt;</ept> or <bpt id="dd0d604c-31c7-4326-95e8-14e593e480b8">&lt;strong&gt;</bpt>&amp;lt;myapp&gt;.trafficmgr.com<ept id="dd0d604c-31c7-4326-95e8-14e593e480b8">&lt;/strong&gt;</ept> domain name automatically, so if the IP address of the website changes, you do not have to take any action.</target>
+        </trans-unit>
+        <trans-unit id="dc39f19f-aaf8-4fcd-a847-f43c424b9131" xml:space="preserve">
+          <source>Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com.</source>
+          <target state="new">Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="a899d786-abbb-47be-b141-da16499661aa" xml:space="preserve">
+          <source>For more information on CNAME records, see the documentation provided by your registrar, &lt;a href="http://en.wikipedia.org/wiki/CNAME_record"&gt;the Wikipedia entry on CNAME record&lt;/a&gt;, or the &lt;a href="http://tools.ietf.org/html/rfc1035"&gt;IETF Domain Names - Implementation and Specification&lt;/a&gt; document.</source>
+          <target state="new">For more information on CNAME records, see the documentation provided by your registrar, &lt;a href="http://en.wikipedia.org/wiki/CNAME_record"&gt;the Wikipedia entry on CNAME record&lt;/a&gt;, or the &lt;a href="http://tools.ietf.org/html/rfc1035"&gt;IETF Domain Names - Implementation and Specification&lt;/a&gt; document.</target>
+        </trans-unit>
+        <trans-unit id="f0666bcf-fe49-47f1-ba0c-b42a8bd52e82" xml:space="preserve">
+          <source>An A record maps a domain, such as <bpt id="662bc3aa-8023-45b1-a66e-d037f4c8d6a2">&lt;strong&gt;</bpt>contoso.com<ept id="662bc3aa-8023-45b1-a66e-d037f4c8d6a2">&lt;/strong&gt;</ept> or <bpt id="e2cd07bd-ea8e-4890-a96d-1d3e309ff3e7">&lt;strong&gt;</bpt>www.contoso.com<ept id="e2cd07bd-ea8e-4890-a96d-1d3e309ff3e7">&lt;/strong&gt;</ept>, <bpt id="4cb3aaac-f4f1-43d8-a7c3-7bdabeaac66d">&lt;em&gt;</bpt>or a wildcard domain<ept id="4cb3aaac-f4f1-43d8-a7c3-7bdabeaac66d">&lt;/em&gt;</ept> such as <bpt id="818fad50-74f9-47e2-8005-579d8b9c5b96">&lt;strong&gt;</bpt>\*.contoso.com<ept id="818fad50-74f9-47e2-8005-579d8b9c5b96">&lt;/strong&gt;</ept>, to an IP address.</source>
+          <target state="new">An A record maps a domain, such as <bpt id="662bc3aa-8023-45b1-a66e-d037f4c8d6a2">&lt;strong&gt;</bpt>contoso.com<ept id="662bc3aa-8023-45b1-a66e-d037f4c8d6a2">&lt;/strong&gt;</ept> or <bpt id="e2cd07bd-ea8e-4890-a96d-1d3e309ff3e7">&lt;strong&gt;</bpt>www.contoso.com<ept id="e2cd07bd-ea8e-4890-a96d-1d3e309ff3e7">&lt;/strong&gt;</ept>, <bpt id="4cb3aaac-f4f1-43d8-a7c3-7bdabeaac66d">&lt;em&gt;</bpt>or a wildcard domain<ept id="4cb3aaac-f4f1-43d8-a7c3-7bdabeaac66d">&lt;/em&gt;</ept> such as <bpt id="818fad50-74f9-47e2-8005-579d8b9c5b96">&lt;strong&gt;</bpt>\*.contoso.com<ept id="818fad50-74f9-47e2-8005-579d8b9c5b96">&lt;/strong&gt;</ept>, to an IP address.</target>
+        </trans-unit>
+        <trans-unit id="446c7ee1-62e7-4378-a47a-7a4e74a1641f" xml:space="preserve">
+          <source>In the case of an Azure Website, either the virtual IP of the service or a specific IP address that you purchased for your website.</source>
+          <target state="new">In the case of an Azure Website, either the virtual IP of the service or a specific IP address that you purchased for your website.</target>
+        </trans-unit>
+        <trans-unit id="2fc7e01b-c11b-4494-a058-a686c35918bd" xml:space="preserve">
+          <source>So the main benefit of an A record over a CNAME record is that you can have one entry that uses a wildcard, such as <bpt id="27a5c460-82c8-4212-b752-a19aa44e4e61">&lt;strong&gt;</bpt>*.contoso.com<ept id="27a5c460-82c8-4212-b752-a19aa44e4e61">&lt;/strong&gt;</ept>, which would handle requests for multiple sub-domains such as <bpt id="0b5266d3-23ce-466b-a215-3246997d9e87">&lt;strong&gt;</bpt>mail.contoso.com<ept id="0b5266d3-23ce-466b-a215-3246997d9e87">&lt;/strong&gt;</ept>, <bpt id="5fa2b9f3-7f15-4dc7-8a4c-5f07120bb97d">&lt;strong&gt;</bpt>login.contoso.com<ept id="5fa2b9f3-7f15-4dc7-8a4c-5f07120bb97d">&lt;/strong&gt;</ept>, or <bpt id="672886c3-8421-4ff7-adde-651eb4fb539c">&lt;strong&gt;</bpt>www.contso.com<ept id="672886c3-8421-4ff7-adde-651eb4fb539c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">So the main benefit of an A record over a CNAME record is that you can have one entry that uses a wildcard, such as <bpt id="27a5c460-82c8-4212-b752-a19aa44e4e61">&lt;strong&gt;</bpt>*.contoso.com<ept id="27a5c460-82c8-4212-b752-a19aa44e4e61">&lt;/strong&gt;</ept>, which would handle requests for multiple sub-domains such as <bpt id="0b5266d3-23ce-466b-a215-3246997d9e87">&lt;strong&gt;</bpt>mail.contoso.com<ept id="0b5266d3-23ce-466b-a215-3246997d9e87">&lt;/strong&gt;</ept>, <bpt id="5fa2b9f3-7f15-4dc7-8a4c-5f07120bb97d">&lt;strong&gt;</bpt>login.contoso.com<ept id="5fa2b9f3-7f15-4dc7-8a4c-5f07120bb97d">&lt;/strong&gt;</ept>, or <bpt id="672886c3-8421-4ff7-adde-651eb4fb539c">&lt;strong&gt;</bpt>www.contso.com<ept id="672886c3-8421-4ff7-adde-651eb4fb539c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d1f16a5-2d35-4202-bb5c-c429b4f83646" xml:space="preserve">
+          <source>Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your website.</source>
+          <target state="new">Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your website.</target>
+        </trans-unit>
+        <trans-unit id="802367a7-e212-4ddc-a35c-c481047906a7" xml:space="preserve">
+          <source>An IP address for use with A records is provided when you configure custom domain name settings for your website; however, this value may change if you delete and recreate your website, or change the website mode to back to free.</source>
+          <target state="new">An IP address for use with A records is provided when you configure custom domain name settings for your website; however, this value may change if you delete and recreate your website, or change the website mode to back to free.</target>
+        </trans-unit>
+        <trans-unit id="f24678a8-c0e8-4d7e-846b-5f131c09cb9d" xml:space="preserve">
+          <source>A records cannot be used for load balancing with Traffic Manager.</source>
+          <target state="new">A records cannot be used for load balancing with Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="830af147-003d-424d-af16-9d274d19b067" xml:space="preserve">
+          <source>For more information, see <bpt id="e42d40a1-70c6-450d-864f-5f55d6ff98b4">&lt;linkText&gt;</bpt>Controlling Azure Web Sites Traffic with Azure Traffic Manager[trafficmanager]<ept id="e42d40a1-70c6-450d-864f-5f55d6ff98b4">&lt;/linkText&gt;</ept><bpt id="e42d40a1-70c6-450d-864f-5f55d6ff98b4">&lt;title&gt;</bpt><ept id="e42d40a1-70c6-450d-864f-5f55d6ff98b4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="e42d40a1-70c6-450d-864f-5f55d6ff98b4">&lt;linkText&gt;</bpt>Controlling Azure Web Sites Traffic with Azure Traffic Manager[trafficmanager]<ept id="e42d40a1-70c6-450d-864f-5f55d6ff98b4">&lt;/linkText&gt;</ept><bpt id="e42d40a1-70c6-450d-864f-5f55d6ff98b4">&lt;title&gt;</bpt><ept id="e42d40a1-70c6-450d-864f-5f55d6ff98b4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96f07d23-bc41-4f39-9c46-f60ffd9f0466" xml:space="preserve">
+          <source><bpt id="096f026f-82f6-4f74-a991-1c2e64d68de9">&lt;bookmark&gt;</bpt><ept id="096f026f-82f6-4f74-a991-1c2e64d68de9">&lt;/bookmark&gt;</ept>&lt;h2&gt;Configure your websites for shared or standard mode&lt;/h2&gt;</source>
+          <target state="new"><bpt id="096f026f-82f6-4f74-a991-1c2e64d68de9">&lt;bookmark&gt;</bpt><ept id="096f026f-82f6-4f74-a991-1c2e64d68de9">&lt;/bookmark&gt;</ept>&lt;h2&gt;Configure your websites for shared or standard mode&lt;/h2&gt;</target>
+        </trans-unit>
+        <trans-unit id="c0a96dde-e770-411b-9351-1ce50a9e2849" xml:space="preserve">
+          <source>Setting a custom domain name on a website is only available for the Shared and Standard modes for Azure websites.</source>
+          <target state="new">Setting a custom domain name on a website is only available for the Shared and Standard modes for Azure websites.</target>
+        </trans-unit>
+        <trans-unit id="5871a407-6f03-477e-ba62-b7dc6032ae4b" xml:space="preserve">
+          <source>Before switching a website from the Free website mode to the Shared or Standard website mode, you must first remove spending caps in place for your Website subscription.</source>
+          <target state="new">Before switching a website from the Free website mode to the Shared or Standard website mode, you must first remove spending caps in place for your Website subscription.</target>
+        </trans-unit>
+        <trans-unit id="a4c5eb47-7d21-4c3f-ade3-bd43ddab26f4" xml:space="preserve">
+          <source>For more information on Shared and Standard mode pricing, see <bpt id="f9411be0-f8c5-46a2-932b-a3ed786c2dc7">&lt;linkText&gt;</bpt>Pricing Details[pricingdetails]<ept id="f9411be0-f8c5-46a2-932b-a3ed786c2dc7">&lt;/linkText&gt;</ept><bpt id="f9411be0-f8c5-46a2-932b-a3ed786c2dc7">&lt;title&gt;</bpt><ept id="f9411be0-f8c5-46a2-932b-a3ed786c2dc7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on Shared and Standard mode pricing, see <bpt id="f9411be0-f8c5-46a2-932b-a3ed786c2dc7">&lt;linkText&gt;</bpt>Pricing Details[pricingdetails]<ept id="f9411be0-f8c5-46a2-932b-a3ed786c2dc7">&lt;/linkText&gt;</ept><bpt id="f9411be0-f8c5-46a2-932b-a3ed786c2dc7">&lt;title&gt;</bpt><ept id="f9411be0-f8c5-46a2-932b-a3ed786c2dc7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a689241f-ddb7-4939-a720-3e584c429728" xml:space="preserve">
+          <source>In your browser, open the <bpt id="5a0cddee-b7c8-4ec5-85cd-1155224b47e0">&lt;linkText&gt;</bpt>Management Portal[portal]<ept id="5a0cddee-b7c8-4ec5-85cd-1155224b47e0">&lt;/linkText&gt;</ept><bpt id="5a0cddee-b7c8-4ec5-85cd-1155224b47e0">&lt;title&gt;</bpt><ept id="5a0cddee-b7c8-4ec5-85cd-1155224b47e0">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, open the <bpt id="5a0cddee-b7c8-4ec5-85cd-1155224b47e0">&lt;linkText&gt;</bpt>Management Portal[portal]<ept id="5a0cddee-b7c8-4ec5-85cd-1155224b47e0">&lt;/linkText&gt;</ept><bpt id="5a0cddee-b7c8-4ec5-85cd-1155224b47e0">&lt;title&gt;</bpt><ept id="5a0cddee-b7c8-4ec5-85cd-1155224b47e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0cdc2eb-2b64-46f2-aba3-1e0e2621d6f3" xml:space="preserve">
+          <source>In the <bpt id="e22b6f83-f255-4e1d-b61f-0bf3628e2aee">&lt;strong&gt;</bpt>Websites<ept id="e22b6f83-f255-4e1d-b61f-0bf3628e2aee">&lt;/strong&gt;</ept> tab, click the name of your site.</source>
+          <target state="new">In the <bpt id="e22b6f83-f255-4e1d-b61f-0bf3628e2aee">&lt;strong&gt;</bpt>Websites<ept id="e22b6f83-f255-4e1d-b61f-0bf3628e2aee">&lt;/strong&gt;</ept> tab, click the name of your site.</target>
+        </trans-unit>
+        <trans-unit id="619fd7b2-d31c-4b27-9d11-c07c307d233e" xml:space="preserve">
+          <source><bpt id="17eb1ec3-68e2-485d-bbf7-d00ac7271b8a">&lt;linkText&gt;</bpt><ept id="17eb1ec3-68e2-485d-bbf7-d00ac7271b8a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="17eb1ec3-68e2-485d-bbf7-d00ac7271b8a">&lt;linkText&gt;</bpt><ept id="17eb1ec3-68e2-485d-bbf7-d00ac7271b8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2c44f7d-42fd-4853-913a-d335f92e01c2" xml:space="preserve">
+          <source>Click the <bpt id="ec8de5a1-26af-47b5-b934-0e6d44e09531">&lt;strong&gt;</bpt>SCALE<ept id="ec8de5a1-26af-47b5-b934-0e6d44e09531">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="ec8de5a1-26af-47b5-b934-0e6d44e09531">&lt;strong&gt;</bpt>SCALE<ept id="ec8de5a1-26af-47b5-b934-0e6d44e09531">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="7b868a2b-3c77-40fe-9c1d-b381dd94999c" xml:space="preserve">
+          <source><bpt id="c39192bd-72d9-465a-b91a-c17fe84f5f31">&lt;linkText&gt;</bpt><ept id="c39192bd-72d9-465a-b91a-c17fe84f5f31">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c39192bd-72d9-465a-b91a-c17fe84f5f31">&lt;linkText&gt;</bpt><ept id="c39192bd-72d9-465a-b91a-c17fe84f5f31">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d7fd74d-02e3-4a55-a537-b0119a334997" xml:space="preserve">
+          <source>In the <bpt id="adf5a254-e812-4d5e-86b4-069887ff6a6d">&lt;strong&gt;</bpt>general<ept id="adf5a254-e812-4d5e-86b4-069887ff6a6d">&lt;/strong&gt;</ept> section, set the website mode by clicking <bpt id="ccf5b000-5423-4a31-90b9-37b5cfd9862a">&lt;strong&gt;</bpt>SHARED<ept id="ccf5b000-5423-4a31-90b9-37b5cfd9862a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="adf5a254-e812-4d5e-86b4-069887ff6a6d">&lt;strong&gt;</bpt>general<ept id="adf5a254-e812-4d5e-86b4-069887ff6a6d">&lt;/strong&gt;</ept> section, set the website mode by clicking <bpt id="ccf5b000-5423-4a31-90b9-37b5cfd9862a">&lt;strong&gt;</bpt>SHARED<ept id="ccf5b000-5423-4a31-90b9-37b5cfd9862a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39ddb262-1bfc-4bd4-a112-55758803b7e3" xml:space="preserve">
+          <source><bpt id="2c99fc50-b986-41de-ad86-703c8ddc5eb9">&lt;linkText&gt;</bpt><ept id="2c99fc50-b986-41de-ad86-703c8ddc5eb9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c99fc50-b986-41de-ad86-703c8ddc5eb9">&lt;linkText&gt;</bpt><ept id="2c99fc50-b986-41de-ad86-703c8ddc5eb9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="84d816de-dbaa-490f-b972-dfbe1c1c6d83" xml:space="preserve">
+          <source>If you will be using Traffic Manager with this website, you must use select Standard mode instead of Shared.</source>
+          <target state="new">If you will be using Traffic Manager with this website, you must use select Standard mode instead of Shared.</target>
+        </trans-unit>
+        <trans-unit id="8e2be052-f1c9-4c10-9499-43739298ab1d" xml:space="preserve">
+          <source>Click <bpt id="c5e6088e-6e43-4679-94c6-d6fc374684c2">&lt;strong&gt;</bpt>Save<ept id="c5e6088e-6e43-4679-94c6-d6fc374684c2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c5e6088e-6e43-4679-94c6-d6fc374684c2">&lt;strong&gt;</bpt>Save<ept id="c5e6088e-6e43-4679-94c6-d6fc374684c2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ebf9ccde-cb11-4fa6-a7ab-2cb9ff2305ad" xml:space="preserve">
+          <source>When prompted about the increase in cost for Shared mode (or for Standard mode if you choose Standard), click <bpt id="bbd19816-84e8-4ed0-be89-ff8928ba6c8d">&lt;strong&gt;</bpt>Yes<ept id="bbd19816-84e8-4ed0-be89-ff8928ba6c8d">&lt;/strong&gt;</ept> if you agree.</source>
+          <target state="new">When prompted about the increase in cost for Shared mode (or for Standard mode if you choose Standard), click <bpt id="bbd19816-84e8-4ed0-be89-ff8928ba6c8d">&lt;strong&gt;</bpt>Yes<ept id="bbd19816-84e8-4ed0-be89-ff8928ba6c8d">&lt;/strong&gt;</ept> if you agree.</target>
+        </trans-unit>
+        <trans-unit id="6bceac0d-2661-4b0d-9596-55fdf7aea79f" xml:space="preserve">
+          <source><bpt id="201fd81f-4e88-4ccf-8c18-02f947178016">&lt;strong&gt;</bpt>Note<ept id="201fd81f-4e88-4ccf-8c18-02f947178016">&lt;/strong&gt;</ept>&lt;br /&gt;
+If you receive a "Configuring scale for website 'website name' failed" error, you can use the details button to get more information.</source>
+          <target state="new"><bpt id="201fd81f-4e88-4ccf-8c18-02f947178016">&lt;strong&gt;</bpt>Note<ept id="201fd81f-4e88-4ccf-8c18-02f947178016">&lt;/strong&gt;</ept>&lt;br /&gt;
+If you receive a "Configuring scale for website 'website name' failed" error, you can use the details button to get more information.</target>
+        </trans-unit>
+        <trans-unit id="d5f8f589-dfc2-4b4d-9a8a-ecc2f12e30fe" xml:space="preserve">
+          <source><bpt id="544a7615-f76a-4786-b637-aa36d3f6407e">&lt;bookmark&gt;</bpt><ept id="544a7615-f76a-4786-b637-aa36d3f6407e">&lt;/bookmark&gt;</ept>&lt;h2&gt;(Optional) Add your websites to Traffic Manager&lt;/h2&gt;</source>
+          <target state="new"><bpt id="544a7615-f76a-4786-b637-aa36d3f6407e">&lt;bookmark&gt;</bpt><ept id="544a7615-f76a-4786-b637-aa36d3f6407e">&lt;/bookmark&gt;</ept>&lt;h2&gt;(Optional) Add your websites to Traffic Manager&lt;/h2&gt;</target>
+        </trans-unit>
+        <trans-unit id="276e45c5-0e35-42aa-9085-492d7ff81a62" xml:space="preserve">
+          <source>If you want to use your website with Traffic Manager, perform the following steps.</source>
+          <target state="new">If you want to use your website with Traffic Manager, perform the following steps.</target>
+        </trans-unit>
+        <trans-unit id="b0b53fcb-c59c-4c1e-8baa-ef8f5dd7fb74" xml:space="preserve">
+          <source>If you do not already have a Traffic Manager profile, use the information in <bpt id="18bf7bb5-5a33-4dd0-a1d8-d2631365568c">&lt;linkText&gt;</bpt>Create a Traffic Manager profile using Quick Create[createprofile]<ept id="18bf7bb5-5a33-4dd0-a1d8-d2631365568c">&lt;/linkText&gt;</ept><bpt id="18bf7bb5-5a33-4dd0-a1d8-d2631365568c">&lt;title&gt;</bpt><ept id="18bf7bb5-5a33-4dd0-a1d8-d2631365568c">&lt;/title&gt;</ept> to create one.</source>
+          <target state="new">If you do not already have a Traffic Manager profile, use the information in <bpt id="18bf7bb5-5a33-4dd0-a1d8-d2631365568c">&lt;linkText&gt;</bpt>Create a Traffic Manager profile using Quick Create[createprofile]<ept id="18bf7bb5-5a33-4dd0-a1d8-d2631365568c">&lt;/linkText&gt;</ept><bpt id="18bf7bb5-5a33-4dd0-a1d8-d2631365568c">&lt;title&gt;</bpt><ept id="18bf7bb5-5a33-4dd0-a1d8-d2631365568c">&lt;/title&gt;</ept> to create one.</target>
+        </trans-unit>
+        <trans-unit id="c68117d1-586b-413c-bf8a-53a937863257" xml:space="preserve">
+          <source>Note the <bpt id="017d546b-38c4-4708-b397-73a18a9d1a03">&lt;strong&gt;</bpt>.trafficmgr.com<ept id="017d546b-38c4-4708-b397-73a18a9d1a03">&lt;/strong&gt;</ept> domain name associated with your Traffic Manager profile.</source>
+          <target state="new">Note the <bpt id="017d546b-38c4-4708-b397-73a18a9d1a03">&lt;strong&gt;</bpt>.trafficmgr.com<ept id="017d546b-38c4-4708-b397-73a18a9d1a03">&lt;/strong&gt;</ept> domain name associated with your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="63484191-b955-4378-af0a-74b196a610f4" xml:space="preserve">
+          <source>This will be used in a later step.</source>
+          <target state="new">This will be used in a later step.</target>
+        </trans-unit>
+        <trans-unit id="3d43ac5b-0506-4023-a4ec-33efe2e1f34c" xml:space="preserve">
+          <source>Use the information in <bpt id="942553cf-7dbe-4583-8e75-ac078adc3c3f">&lt;linkText&gt;</bpt>Add or Delete Endpoints[addendpoint]<ept id="942553cf-7dbe-4583-8e75-ac078adc3c3f">&lt;/linkText&gt;</ept><bpt id="942553cf-7dbe-4583-8e75-ac078adc3c3f">&lt;title&gt;</bpt><ept id="942553cf-7dbe-4583-8e75-ac078adc3c3f">&lt;/title&gt;</ept> to add your website as an endpoint in your Traffic Manager profile.</source>
+          <target state="new">Use the information in <bpt id="942553cf-7dbe-4583-8e75-ac078adc3c3f">&lt;linkText&gt;</bpt>Add or Delete Endpoints[addendpoint]<ept id="942553cf-7dbe-4583-8e75-ac078adc3c3f">&lt;/linkText&gt;</ept><bpt id="942553cf-7dbe-4583-8e75-ac078adc3c3f">&lt;title&gt;</bpt><ept id="942553cf-7dbe-4583-8e75-ac078adc3c3f">&lt;/title&gt;</ept> to add your website as an endpoint in your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="cc4b4c08-c73b-4218-9770-85e66569b470" xml:space="preserve">
+          <source>If your website is not listed when adding an endpoint, verify that it is configured for Standard mode.</source>
+          <target state="new">If your website is not listed when adding an endpoint, verify that it is configured for Standard mode.</target>
+        </trans-unit>
+        <trans-unit id="c77716a3-902d-4d7d-badf-dda76b25701b" xml:space="preserve">
+          <source>You must use Standard mode for your website in order to work with Traffic Manager.</source>
+          <target state="new">You must use Standard mode for your website in order to work with Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="6d94b4ac-9877-4a15-aa70-3f7a7e3905be" xml:space="preserve">
+          <source>Log on to your DNS registrar's website, and go to the page for managing DNS.</source>
+          <target state="new">Log on to your DNS registrar's website, and go to the page for managing DNS.</target>
+        </trans-unit>
+        <trans-unit id="5c5dad03-07cd-4695-ab8e-8eb1a02d28b4" xml:space="preserve">
+          <source>Look for links or areas of the site labeled as <bpt id="e1df5eca-029b-4d59-9bd1-9c3082b7f35e">&lt;strong&gt;</bpt>Domain Name<ept id="e1df5eca-029b-4d59-9bd1-9c3082b7f35e">&lt;/strong&gt;</ept>, <bpt id="065033d0-e8b6-431f-b0d0-18457ae29eb1">&lt;strong&gt;</bpt>DNS<ept id="065033d0-e8b6-431f-b0d0-18457ae29eb1">&lt;/strong&gt;</ept>, or <bpt id="3d35c6de-0884-4aec-a1a9-75f611165e40">&lt;strong&gt;</bpt>Name Server Management<ept id="3d35c6de-0884-4aec-a1a9-75f611165e40">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Look for links or areas of the site labeled as <bpt id="e1df5eca-029b-4d59-9bd1-9c3082b7f35e">&lt;strong&gt;</bpt>Domain Name<ept id="e1df5eca-029b-4d59-9bd1-9c3082b7f35e">&lt;/strong&gt;</ept>, <bpt id="065033d0-e8b6-431f-b0d0-18457ae29eb1">&lt;strong&gt;</bpt>DNS<ept id="065033d0-e8b6-431f-b0d0-18457ae29eb1">&lt;/strong&gt;</ept>, or <bpt id="3d35c6de-0884-4aec-a1a9-75f611165e40">&lt;strong&gt;</bpt>Name Server Management<ept id="3d35c6de-0884-4aec-a1a9-75f611165e40">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b64d238-530e-4eb3-9557-90b1a6aa9f26" xml:space="preserve">
+          <source>Now find where you can select or enter CNAME records.</source>
+          <target state="new">Now find where you can select or enter CNAME records.</target>
+        </trans-unit>
+        <trans-unit id="97dc88e6-a696-44a7-a881-088e2afb82de" xml:space="preserve">
+          <source>You may have to select the record type from a drop down, or go to an advanced settings page.</source>
+          <target state="new">You may have to select the record type from a drop down, or go to an advanced settings page.</target>
+        </trans-unit>
+        <trans-unit id="425b29d2-dbbb-4f43-8f82-b547501630b6" xml:space="preserve">
+          <source>You should look for the words <bpt id="33406b46-01c8-47e3-a023-3b0db53c459b">&lt;strong&gt;</bpt>CNAME<ept id="33406b46-01c8-47e3-a023-3b0db53c459b">&lt;/strong&gt;</ept>, <bpt id="8b5216c1-ed1f-42eb-9ff7-1faf5d2c9626">&lt;strong&gt;</bpt>Alias<ept id="8b5216c1-ed1f-42eb-9ff7-1faf5d2c9626">&lt;/strong&gt;</ept>, or <bpt id="222ab541-e7ee-4baa-95ab-df03e0d1bc20">&lt;strong&gt;</bpt>Subdomains<ept id="222ab541-e7ee-4baa-95ab-df03e0d1bc20">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You should look for the words <bpt id="33406b46-01c8-47e3-a023-3b0db53c459b">&lt;strong&gt;</bpt>CNAME<ept id="33406b46-01c8-47e3-a023-3b0db53c459b">&lt;/strong&gt;</ept>, <bpt id="8b5216c1-ed1f-42eb-9ff7-1faf5d2c9626">&lt;strong&gt;</bpt>Alias<ept id="8b5216c1-ed1f-42eb-9ff7-1faf5d2c9626">&lt;/strong&gt;</ept>, or <bpt id="222ab541-e7ee-4baa-95ab-df03e0d1bc20">&lt;strong&gt;</bpt>Subdomains<ept id="222ab541-e7ee-4baa-95ab-df03e0d1bc20">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d32e59b-5fac-4b3d-8277-435bc89d1079" xml:space="preserve">
+          <source>You must also provide the domain or subdomain alias for the CNAME.</source>
+          <target state="new">You must also provide the domain or subdomain alias for the CNAME.</target>
+        </trans-unit>
+        <trans-unit id="2bea32fb-9605-4d68-ade3-e03305a6bb62" xml:space="preserve">
+          <source>For example, <bpt id="706afe2b-4445-4d5d-b694-9aca4f44aa89">&lt;strong&gt;</bpt>www<ept id="706afe2b-4445-4d5d-b694-9aca4f44aa89">&lt;/strong&gt;</ept> if you want to create an alias for <bpt id="f25aa0b7-ffa4-4d35-a945-749da88c97b5">&lt;strong&gt;</bpt>www.customdomain.com<ept id="f25aa0b7-ffa4-4d35-a945-749da88c97b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="706afe2b-4445-4d5d-b694-9aca4f44aa89">&lt;strong&gt;</bpt>www<ept id="706afe2b-4445-4d5d-b694-9aca4f44aa89">&lt;/strong&gt;</ept> if you want to create an alias for <bpt id="f25aa0b7-ffa4-4d35-a945-749da88c97b5">&lt;strong&gt;</bpt>www.customdomain.com<ept id="f25aa0b7-ffa4-4d35-a945-749da88c97b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9688ff80-5fc1-43a7-84d6-741391444188" xml:space="preserve">
+          <source>You must also provide a host name that is the canonical domain name for this CNAME alias.</source>
+          <target state="new">You must also provide a host name that is the canonical domain name for this CNAME alias.</target>
+        </trans-unit>
+        <trans-unit id="f23bc6fd-3a28-4f9f-a7a0-d7ced171a574" xml:space="preserve">
+          <source>This is the <bpt id="9fa46faf-ad21-4765-9b25-64091533c115">&lt;strong&gt;</bpt>.trafficmgr.com<ept id="9fa46faf-ad21-4765-9b25-64091533c115">&lt;/strong&gt;</ept> name for your website.</source>
+          <target state="new">This is the <bpt id="9fa46faf-ad21-4765-9b25-64091533c115">&lt;strong&gt;</bpt>.trafficmgr.com<ept id="9fa46faf-ad21-4765-9b25-64091533c115">&lt;/strong&gt;</ept> name for your website.</target>
+        </trans-unit>
+        <trans-unit id="e84efaa6-030c-4313-b2e5-c9790796e6c2" xml:space="preserve">
+          <source>For example, the following CNAME record forwards all traffic from <bpt id="11cf679a-5d31-49c4-9ccd-fb9ec097a290">&lt;strong&gt;</bpt>www.contoso.com<ept id="11cf679a-5d31-49c4-9ccd-fb9ec097a290">&lt;/strong&gt;</ept> to <bpt id="aef5096e-6fb9-462c-877f-d72cc72d4fdf">&lt;strong&gt;</bpt>contoso.trafficmgr.com<ept id="aef5096e-6fb9-462c-877f-d72cc72d4fdf">&lt;/strong&gt;</ept>, the domain name of a website:</source>
+          <target state="new">For example, the following CNAME record forwards all traffic from <bpt id="11cf679a-5d31-49c4-9ccd-fb9ec097a290">&lt;strong&gt;</bpt>www.contoso.com<ept id="11cf679a-5d31-49c4-9ccd-fb9ec097a290">&lt;/strong&gt;</ept> to <bpt id="aef5096e-6fb9-462c-877f-d72cc72d4fdf">&lt;strong&gt;</bpt>contoso.trafficmgr.com<ept id="aef5096e-6fb9-462c-877f-d72cc72d4fdf">&lt;/strong&gt;</ept>, the domain name of a website:</target>
+        </trans-unit>
+        <trans-unit id="9d935b49-4596-4bcc-9990-972f7fd4804a" xml:space="preserve">
+          <source>Alias/Host name/Subdomain</source>
+          <target state="new">Alias/Host name/Subdomain</target>
+        </trans-unit>
+        <trans-unit id="3183c7a9-d193-4edd-bf27-d7d79955fe5c" xml:space="preserve">
+          <source>Canonical domain</source>
+          <target state="new">Canonical domain</target>
+        </trans-unit>
+        <trans-unit id="674a5e25-a0bb-4fc5-b420-913e7d5de1ed" xml:space="preserve">
+          <source>www</source>
+          <target state="new">www</target>
+        </trans-unit>
+        <trans-unit id="81fad560-a299-4b45-bc54-9702868b7b6e" xml:space="preserve">
+          <source>contoso.trafficmgr.com</source>
+          <target state="new">contoso.trafficmgr.com</target>
+        </trans-unit>
+        <trans-unit id="40ca468e-ebd2-4f53-b4d3-6b5a6b753c03" xml:space="preserve">
+          <source>A visitor of <bpt id="8b9720bf-2aab-4a31-90ce-bdc3546af849">&lt;strong&gt;</bpt>www.contoso.com<ept id="8b9720bf-2aab-4a31-90ce-bdc3546af849">&lt;/strong&gt;</ept> will never see the true host
+(contoso.azurewebsite.net), so the forwarding process is invisible to the end user.</source>
+          <target state="new">A visitor of <bpt id="8b9720bf-2aab-4a31-90ce-bdc3546af849">&lt;strong&gt;</bpt>www.contoso.com<ept id="8b9720bf-2aab-4a31-90ce-bdc3546af849">&lt;/strong&gt;</ept> will never see the true host
+(contoso.azurewebsite.net), so the forwarding process is invisible to the end user.</target>
+        </trans-unit>
+        <trans-unit id="f0198c73-2723-4e07-9213-39d4090b9e97" xml:space="preserve">
+          <source>If you are using Traffic Manager with a website, you do not need to follow the steps in the following sections, '<bpt id="aeb179ca-59c3-428c-afdc-ee829491af23">&lt;strong&gt;</bpt>Add a CNAME for your custom domain<ept id="aeb179ca-59c3-428c-afdc-ee829491af23">&lt;/strong&gt;</ept>' and '<bpt id="8812d982-2cb1-4c1d-8c91-a5af3dc46e52">&lt;strong&gt;</bpt>Add an A record for your custom domain<ept id="8812d982-2cb1-4c1d-8c91-a5af3dc46e52">&lt;/strong&gt;</ept>'.</source>
+          <target state="new">If you are using Traffic Manager with a website, you do not need to follow the steps in the following sections, '<bpt id="aeb179ca-59c3-428c-afdc-ee829491af23">&lt;strong&gt;</bpt>Add a CNAME for your custom domain<ept id="aeb179ca-59c3-428c-afdc-ee829491af23">&lt;/strong&gt;</ept>' and '<bpt id="8812d982-2cb1-4c1d-8c91-a5af3dc46e52">&lt;strong&gt;</bpt>Add an A record for your custom domain<ept id="8812d982-2cb1-4c1d-8c91-a5af3dc46e52">&lt;/strong&gt;</ept>'.</target>
+        </trans-unit>
+        <trans-unit id="073c4374-48c4-4a37-9c3b-a1b9412f7691" xml:space="preserve">
+          <source>The CNAME record created in the previous steps will route incoming traffic to Traffic Manager, which then routes the traffic to the website endpoint(s).</source>
+          <target state="new">The CNAME record created in the previous steps will route incoming traffic to Traffic Manager, which then routes the traffic to the website endpoint(s).</target>
+        </trans-unit>
+        <trans-unit id="6e148257-46c1-4778-839e-c5301f35f77f" xml:space="preserve">
+          <source><bpt id="6daa12b8-2b95-4e4e-8e8c-603d30d2b4aa">&lt;bookmark&gt;</bpt><ept id="6daa12b8-2b95-4e4e-8e8c-603d30d2b4aa">&lt;/bookmark&gt;</ept>&lt;h2&gt;Add a CNAME for your custom domain&lt;/h2&gt;</source>
+          <target state="new"><bpt id="6daa12b8-2b95-4e4e-8e8c-603d30d2b4aa">&lt;bookmark&gt;</bpt><ept id="6daa12b8-2b95-4e4e-8e8c-603d30d2b4aa">&lt;/bookmark&gt;</ept>&lt;h2&gt;Add a CNAME for your custom domain&lt;/h2&gt;</target>
+        </trans-unit>
+        <trans-unit id="4dbfe43b-c7bf-4218-ba53-c21cac92fc43" xml:space="preserve">
+          <source>To create a CNAME record, you must add a new entry in the DNS table for your custom domain by using tools provided by your registrar.</source>
+          <target state="new">To create a CNAME record, you must add a new entry in the DNS table for your custom domain by using tools provided by your registrar.</target>
+        </trans-unit>
+        <trans-unit id="62806614-b95b-4b1c-a3b1-3dc3b63bd60d" xml:space="preserve">
+          <source>Each registrar has a similar but slightly different method of specifying a CNAME record, but the concepts are the same.</source>
+          <target state="new">Each registrar has a similar but slightly different method of specifying a CNAME record, but the concepts are the same.</target>
+        </trans-unit>
+        <trans-unit id="b907d74b-a2da-4e68-b544-46d6450c2a8f" xml:space="preserve">
+          <source>Use one of these methods to find the <bpt id="f46f607a-7060-4944-987b-21fb210c16ec">&lt;strong&gt;</bpt>.azurewebsite.net<ept id="f46f607a-7060-4944-987b-21fb210c16ec">&lt;/strong&gt;</ept> domain name assigned to your website.</source>
+          <target state="new">Use one of these methods to find the <bpt id="f46f607a-7060-4944-987b-21fb210c16ec">&lt;strong&gt;</bpt>.azurewebsite.net<ept id="f46f607a-7060-4944-987b-21fb210c16ec">&lt;/strong&gt;</ept> domain name assigned to your website.</target>
+        </trans-unit>
+        <trans-unit id="7689d298-1955-4c75-9f2f-d7c87e566986" xml:space="preserve">
+          <source>Login to the <bpt id="a906efa2-66b5-4dc8-92bf-f29196e091d2">&lt;linkText&gt;</bpt>Azure Management Portal[portal]<ept id="a906efa2-66b5-4dc8-92bf-f29196e091d2">&lt;/linkText&gt;</ept><bpt id="a906efa2-66b5-4dc8-92bf-f29196e091d2">&lt;title&gt;</bpt><ept id="a906efa2-66b5-4dc8-92bf-f29196e091d2">&lt;/title&gt;</ept>, select your website, select <bpt id="dcf19c75-1bff-4cd7-9b81-cb41926aae60">&lt;strong&gt;</bpt>Dashboard<ept id="dcf19c75-1bff-4cd7-9b81-cb41926aae60">&lt;/strong&gt;</ept>, and then find the <bpt id="980eb120-c8d7-4dc1-b98c-63c6297e36b1">&lt;strong&gt;</bpt>Site URL<ept id="980eb120-c8d7-4dc1-b98c-63c6297e36b1">&lt;/strong&gt;</ept> entry in the <bpt id="2df38107-eca1-4f4e-a66e-070ab33c60dd">&lt;strong&gt;</bpt>quick glance<ept id="2df38107-eca1-4f4e-a66e-070ab33c60dd">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Login to the <bpt id="a906efa2-66b5-4dc8-92bf-f29196e091d2">&lt;linkText&gt;</bpt>Azure Management Portal[portal]<ept id="a906efa2-66b5-4dc8-92bf-f29196e091d2">&lt;/linkText&gt;</ept><bpt id="a906efa2-66b5-4dc8-92bf-f29196e091d2">&lt;title&gt;</bpt><ept id="a906efa2-66b5-4dc8-92bf-f29196e091d2">&lt;/title&gt;</ept>, select your website, select <bpt id="dcf19c75-1bff-4cd7-9b81-cb41926aae60">&lt;strong&gt;</bpt>Dashboard<ept id="dcf19c75-1bff-4cd7-9b81-cb41926aae60">&lt;/strong&gt;</ept>, and then find the <bpt id="980eb120-c8d7-4dc1-b98c-63c6297e36b1">&lt;strong&gt;</bpt>Site URL<ept id="980eb120-c8d7-4dc1-b98c-63c6297e36b1">&lt;/strong&gt;</ept> entry in the <bpt id="2df38107-eca1-4f4e-a66e-070ab33c60dd">&lt;strong&gt;</bpt>quick glance<ept id="2df38107-eca1-4f4e-a66e-070ab33c60dd">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="3a25aec0-e3af-4507-bb29-d24341a0b647" xml:space="preserve">
+          <source>Install and configure <bpt id="e6a62bdc-f24f-4235-9a47-a401cb37ab81">&lt;linkText&gt;</bpt>Azure Powershell<ept id="e6a62bdc-f24f-4235-9a47-a401cb37ab81">&lt;/linkText&gt;</ept><bpt id="e6a62bdc-f24f-4235-9a47-a401cb37ab81">&lt;title&gt;</bpt><ept id="e6a62bdc-f24f-4235-9a47-a401cb37ab81">&lt;/title&gt;</ept>, and then use the following command:</source>
+          <target state="new">Install and configure <bpt id="e6a62bdc-f24f-4235-9a47-a401cb37ab81">&lt;linkText&gt;</bpt>Azure Powershell<ept id="e6a62bdc-f24f-4235-9a47-a401cb37ab81">&lt;/linkText&gt;</ept><bpt id="e6a62bdc-f24f-4235-9a47-a401cb37ab81">&lt;title&gt;</bpt><ept id="e6a62bdc-f24f-4235-9a47-a401cb37ab81">&lt;/title&gt;</ept>, and then use the following command:</target>
+        </trans-unit>
+        <trans-unit id="c308228d-8ebe-4eb6-87f3-8f2b1432ccea" xml:space="preserve">
+          <source>Install and configure the <bpt id="901a5aec-ac53-4abf-80bc-b6ca71d8f86e">&lt;linkText&gt;</bpt>Azure Command Line Interface<ept id="901a5aec-ac53-4abf-80bc-b6ca71d8f86e">&lt;/linkText&gt;</ept><bpt id="901a5aec-ac53-4abf-80bc-b6ca71d8f86e">&lt;title&gt;</bpt><ept id="901a5aec-ac53-4abf-80bc-b6ca71d8f86e">&lt;/title&gt;</ept>, and then use the following command:</source>
+          <target state="new">Install and configure the <bpt id="901a5aec-ac53-4abf-80bc-b6ca71d8f86e">&lt;linkText&gt;</bpt>Azure Command Line Interface<ept id="901a5aec-ac53-4abf-80bc-b6ca71d8f86e">&lt;/linkText&gt;</ept><bpt id="901a5aec-ac53-4abf-80bc-b6ca71d8f86e">&lt;title&gt;</bpt><ept id="901a5aec-ac53-4abf-80bc-b6ca71d8f86e">&lt;/title&gt;</ept>, and then use the following command:</target>
+        </trans-unit>
+        <trans-unit id="c4f7f39a-e89e-4eac-b63b-1c793f9168f3" xml:space="preserve">
+          <source>Save this <bpt id="cad9ab49-6028-4fcc-8c58-4d848d6a7bc1">&lt;strong&gt;</bpt>.azurewebsite.net<ept id="cad9ab49-6028-4fcc-8c58-4d848d6a7bc1">&lt;/strong&gt;</ept> name, as it will be used in the following steps.</source>
+          <target state="new">Save this <bpt id="cad9ab49-6028-4fcc-8c58-4d848d6a7bc1">&lt;strong&gt;</bpt>.azurewebsite.net<ept id="cad9ab49-6028-4fcc-8c58-4d848d6a7bc1">&lt;/strong&gt;</ept> name, as it will be used in the following steps.</target>
+        </trans-unit>
+        <trans-unit id="e3c016d0-8dac-4d7d-8001-25afdc7b698c" xml:space="preserve">
+          <source>Log on to your DNS registrar's website, and go to the page for managing DNS.</source>
+          <target state="new">Log on to your DNS registrar's website, and go to the page for managing DNS.</target>
+        </trans-unit>
+        <trans-unit id="70c6fa83-1c80-4fa2-927d-731787378778" xml:space="preserve">
+          <source>Look for links or areas of the site labeled as <bpt id="5696a635-fa38-4515-b5e5-2daf3df21219">&lt;strong&gt;</bpt>Domain Name<ept id="5696a635-fa38-4515-b5e5-2daf3df21219">&lt;/strong&gt;</ept>, <bpt id="aa15144f-718d-43dc-90a5-c35890590535">&lt;strong&gt;</bpt>DNS<ept id="aa15144f-718d-43dc-90a5-c35890590535">&lt;/strong&gt;</ept>, or <bpt id="3814d882-1999-40d3-ad6c-2f81a375a254">&lt;strong&gt;</bpt>Name Server Management<ept id="3814d882-1999-40d3-ad6c-2f81a375a254">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Look for links or areas of the site labeled as <bpt id="5696a635-fa38-4515-b5e5-2daf3df21219">&lt;strong&gt;</bpt>Domain Name<ept id="5696a635-fa38-4515-b5e5-2daf3df21219">&lt;/strong&gt;</ept>, <bpt id="aa15144f-718d-43dc-90a5-c35890590535">&lt;strong&gt;</bpt>DNS<ept id="aa15144f-718d-43dc-90a5-c35890590535">&lt;/strong&gt;</ept>, or <bpt id="3814d882-1999-40d3-ad6c-2f81a375a254">&lt;strong&gt;</bpt>Name Server Management<ept id="3814d882-1999-40d3-ad6c-2f81a375a254">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4e6b464-50ca-4178-ab44-643d04f87a1f" xml:space="preserve">
+          <source>Now find where you can select or enter CNAME records.</source>
+          <target state="new">Now find where you can select or enter CNAME records.</target>
+        </trans-unit>
+        <trans-unit id="7d7752a1-d2b7-4d55-a900-575f723a024f" xml:space="preserve">
+          <source>You may have to select the record type from a drop down, or go to an advanced settings page.</source>
+          <target state="new">You may have to select the record type from a drop down, or go to an advanced settings page.</target>
+        </trans-unit>
+        <trans-unit id="8cf38ac2-ac30-4be4-a976-27aeff494490" xml:space="preserve">
+          <source>You should look for the words <bpt id="c613bfd3-dd55-4ccb-89de-cc37a249e743">&lt;strong&gt;</bpt>CNAME<ept id="c613bfd3-dd55-4ccb-89de-cc37a249e743">&lt;/strong&gt;</ept>, <bpt id="99d9a1e2-e5af-4e02-8765-5b0df770974c">&lt;strong&gt;</bpt>Alias<ept id="99d9a1e2-e5af-4e02-8765-5b0df770974c">&lt;/strong&gt;</ept>, or <bpt id="4637e8d5-5942-4706-8d0a-b5705785a4cf">&lt;strong&gt;</bpt>Subdomains<ept id="4637e8d5-5942-4706-8d0a-b5705785a4cf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You should look for the words <bpt id="c613bfd3-dd55-4ccb-89de-cc37a249e743">&lt;strong&gt;</bpt>CNAME<ept id="c613bfd3-dd55-4ccb-89de-cc37a249e743">&lt;/strong&gt;</ept>, <bpt id="99d9a1e2-e5af-4e02-8765-5b0df770974c">&lt;strong&gt;</bpt>Alias<ept id="99d9a1e2-e5af-4e02-8765-5b0df770974c">&lt;/strong&gt;</ept>, or <bpt id="4637e8d5-5942-4706-8d0a-b5705785a4cf">&lt;strong&gt;</bpt>Subdomains<ept id="4637e8d5-5942-4706-8d0a-b5705785a4cf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d6a8c2d-fa4f-42fe-995a-e9749bd96fc2" xml:space="preserve">
+          <source>You must also provide the domain or subdomain alias for the CNAME.</source>
+          <target state="new">You must also provide the domain or subdomain alias for the CNAME.</target>
+        </trans-unit>
+        <trans-unit id="e1c411dc-0fc7-4415-92a1-b7e0dd5cb21f" xml:space="preserve">
+          <source>For example, <bpt id="1e25745e-9d00-489c-b614-ad7649548759">&lt;strong&gt;</bpt>www<ept id="1e25745e-9d00-489c-b614-ad7649548759">&lt;/strong&gt;</ept> if you want to create an alias for <bpt id="62a6f24f-3129-4679-929a-779895cba932">&lt;strong&gt;</bpt>www.customdomain.com<ept id="62a6f24f-3129-4679-929a-779895cba932">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="1e25745e-9d00-489c-b614-ad7649548759">&lt;strong&gt;</bpt>www<ept id="1e25745e-9d00-489c-b614-ad7649548759">&lt;/strong&gt;</ept> if you want to create an alias for <bpt id="62a6f24f-3129-4679-929a-779895cba932">&lt;strong&gt;</bpt>www.customdomain.com<ept id="62a6f24f-3129-4679-929a-779895cba932">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="afe9bc4f-4a15-4fc3-9dbd-6380acf15f68" xml:space="preserve">
+          <source>If you want to create an alias for the root domain, it may be listed as the '<bpt id="4bfc6ff7-7db7-44f2-adc5-e6523a664e8d">&lt;strong&gt;</bpt>@<ept id="4bfc6ff7-7db7-44f2-adc5-e6523a664e8d">&lt;/strong&gt;</ept>' symbol in your registrar's DNS tools.</source>
+          <target state="new">If you want to create an alias for the root domain, it may be listed as the '<bpt id="4bfc6ff7-7db7-44f2-adc5-e6523a664e8d">&lt;strong&gt;</bpt>@<ept id="4bfc6ff7-7db7-44f2-adc5-e6523a664e8d">&lt;/strong&gt;</ept>' symbol in your registrar's DNS tools.</target>
+        </trans-unit>
+        <trans-unit id="b55bc232-80c8-4e36-afa5-8fbfd18ac3a7" xml:space="preserve">
+          <source>You must also provide a host name that is the canonical domain name for this CNAME alias.</source>
+          <target state="new">You must also provide a host name that is the canonical domain name for this CNAME alias.</target>
+        </trans-unit>
+        <trans-unit id="5e3fd2de-3fa0-413b-b458-9a6317a5df0b" xml:space="preserve">
+          <source>This is the <bpt id="46447191-a984-467a-a38f-b7f6359e1052">&lt;strong&gt;</bpt>.azurewebsite.net<ept id="46447191-a984-467a-a38f-b7f6359e1052">&lt;/strong&gt;</ept> name for your website.</source>
+          <target state="new">This is the <bpt id="46447191-a984-467a-a38f-b7f6359e1052">&lt;strong&gt;</bpt>.azurewebsite.net<ept id="46447191-a984-467a-a38f-b7f6359e1052">&lt;/strong&gt;</ept> name for your website.</target>
+        </trans-unit>
+        <trans-unit id="3fb0c121-eab9-467d-9f30-ffe91746126d" xml:space="preserve">
+          <source>For example, the following CNAME record forwards all traffic from <bpt id="febba435-795b-4db2-9c73-b84e017a538a">&lt;strong&gt;</bpt>www.contoso.com<ept id="febba435-795b-4db2-9c73-b84e017a538a">&lt;/strong&gt;</ept> to <bpt id="6a335bca-ad4d-4d0c-91bc-d0158b478073">&lt;strong&gt;</bpt>contoso.azurewebsite.net<ept id="6a335bca-ad4d-4d0c-91bc-d0158b478073">&lt;/strong&gt;</ept>, the domain name of a website:</source>
+          <target state="new">For example, the following CNAME record forwards all traffic from <bpt id="febba435-795b-4db2-9c73-b84e017a538a">&lt;strong&gt;</bpt>www.contoso.com<ept id="febba435-795b-4db2-9c73-b84e017a538a">&lt;/strong&gt;</ept> to <bpt id="6a335bca-ad4d-4d0c-91bc-d0158b478073">&lt;strong&gt;</bpt>contoso.azurewebsite.net<ept id="6a335bca-ad4d-4d0c-91bc-d0158b478073">&lt;/strong&gt;</ept>, the domain name of a website:</target>
+        </trans-unit>
+        <trans-unit id="9edab621-4d43-4498-a367-7db29160230a" xml:space="preserve">
+          <source>Alias/Host name/Subdomain</source>
+          <target state="new">Alias/Host name/Subdomain</target>
+        </trans-unit>
+        <trans-unit id="e9e0649e-9bdc-457c-8551-ef18216b8044" xml:space="preserve">
+          <source>Canonical domain</source>
+          <target state="new">Canonical domain</target>
+        </trans-unit>
+        <trans-unit id="e72025c9-f2b1-4c09-b114-bca0a7f1f14f" xml:space="preserve">
+          <source>www</source>
+          <target state="new">www</target>
+        </trans-unit>
+        <trans-unit id="118c5c87-5ef5-4fa0-86ea-c7c4c256811b" xml:space="preserve">
+          <source>contoso.azurewebsite.net</source>
+          <target state="new">contoso.azurewebsite.net</target>
+        </trans-unit>
+        <trans-unit id="db27c22c-cb67-441c-a31e-756c55fdf7c1" xml:space="preserve">
+          <source>A visitor of <bpt id="e71774bc-5471-4e21-b150-8b623aed00a8">&lt;strong&gt;</bpt>www.contoso.com<ept id="e71774bc-5471-4e21-b150-8b623aed00a8">&lt;/strong&gt;</ept> will never see the true host
+(contoso.azurewebsite.net), so the forwarding process is invisible to the
+end user.</source>
+          <target state="new">A visitor of <bpt id="e71774bc-5471-4e21-b150-8b623aed00a8">&lt;strong&gt;</bpt>www.contoso.com<ept id="e71774bc-5471-4e21-b150-8b623aed00a8">&lt;/strong&gt;</ept> will never see the true host
+(contoso.azurewebsite.net), so the forwarding process is invisible to the
+end user.</target>
+        </trans-unit>
+        <trans-unit id="54730270-4c48-45fa-8f5c-c16b8312e495" xml:space="preserve">
+          <source>The example above only applies to traffic at the <bpt id="c123d089-2165-4d09-99a2-f78cd7dda35d">&lt;strong&gt;</bpt>www<ept id="c123d089-2165-4d09-99a2-f78cd7dda35d">&lt;/strong&gt;</ept> subdomain.</source>
+          <target state="new">The example above only applies to traffic at the <bpt id="c123d089-2165-4d09-99a2-f78cd7dda35d">&lt;strong&gt;</bpt>www<ept id="c123d089-2165-4d09-99a2-f78cd7dda35d">&lt;/strong&gt;</ept> subdomain.</target>
+        </trans-unit>
+        <trans-unit id="bc23a7fe-fe5d-4454-8623-5a816179be23" xml:space="preserve">
+          <source>Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain.</source>
+          <target state="new">Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain.</target>
+        </trans-unit>
+        <trans-unit id="b0ab8ed7-9640-40aa-a51f-30df24331542" xml:space="preserve">
+          <source>If you want to direct  traffic from subdomains, such as *.contoso.com, to your azurewebsite.net address, you can configure a <bpt id="e35b1463-84cc-471b-bca8-93d053ba6ed1">&lt;strong&gt;</bpt>URL Redirect<ept id="e35b1463-84cc-471b-bca8-93d053ba6ed1">&lt;/strong&gt;</ept> or <bpt id="b401d00c-a6e6-4a22-9ca6-208d95aeff45">&lt;strong&gt;</bpt>URL Forward<ept id="b401d00c-a6e6-4a22-9ca6-208d95aeff45">&lt;/strong&gt;</ept> entry in your DNS settings, or create an A record.</source>
+          <target state="new">If you want to direct  traffic from subdomains, such as *.contoso.com, to your azurewebsite.net address, you can configure a <bpt id="e35b1463-84cc-471b-bca8-93d053ba6ed1">&lt;strong&gt;</bpt>URL Redirect<ept id="e35b1463-84cc-471b-bca8-93d053ba6ed1">&lt;/strong&gt;</ept> or <bpt id="b401d00c-a6e6-4a22-9ca6-208d95aeff45">&lt;strong&gt;</bpt>URL Forward<ept id="b401d00c-a6e6-4a22-9ca6-208d95aeff45">&lt;/strong&gt;</ept> entry in your DNS settings, or create an A record.</target>
+        </trans-unit>
+        <trans-unit id="e3e5456d-0300-4560-bac5-530451203288" xml:space="preserve">
+          <source>It can take some time for your CNAME to propagate through the DNS system.</source>
+          <target state="new">It can take some time for your CNAME to propagate through the DNS system.</target>
+        </trans-unit>
+        <trans-unit id="14d74a4c-604f-445d-99b8-cb632c7278cd" xml:space="preserve">
+          <source>You cannot set the CNAME for the website until the CNAME has propagated.</source>
+          <target state="new">You cannot set the CNAME for the website until the CNAME has propagated.</target>
+        </trans-unit>
+        <trans-unit id="67af499b-72fc-43b4-8325-50a8e8ae890a" xml:space="preserve">
+          <source>You can use a service such as &lt;a href="http://www.digwebinterface.com/"&gt;http://www.digwebinterface.com/&lt;/a&gt; to verify that the CNAME is available.</source>
+          <target state="new">You can use a service such as &lt;a href="http://www.digwebinterface.com/"&gt;http://www.digwebinterface.com/&lt;/a&gt; to verify that the CNAME is available.</target>
+        </trans-unit>
+        <trans-unit id="7623f742-de33-404b-8041-8c2caad14018" xml:space="preserve">
+          <source>After the CNAME record for domain name has propagated, you must associate it with your website.</source>
+          <target state="new">After the CNAME record for domain name has propagated, you must associate it with your website.</target>
+        </trans-unit>
+        <trans-unit id="76d921f8-0d57-4675-bc61-145e826e1d32" xml:space="preserve">
+          <source>You can add the custom domain name defined by the CNAME record to your website by using either the Azure Command-Line Interface (Azure CLI) or by using the Azure Management Portal.</source>
+          <target state="new">You can add the custom domain name defined by the CNAME record to your website by using either the Azure Command-Line Interface (Azure CLI) or by using the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="6fde3cc4-bd84-4fb2-ab06-05fdebca930b" xml:space="preserve">
+          <source><bpt id="2790efc3-19ba-4156-8386-28edfbe05cab">&lt;strong&gt;</bpt>To add a domain name using the command-line tools<ept id="2790efc3-19ba-4156-8386-28edfbe05cab">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2790efc3-19ba-4156-8386-28edfbe05cab">&lt;strong&gt;</bpt>To add a domain name using the command-line tools<ept id="2790efc3-19ba-4156-8386-28edfbe05cab">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b5887567-f301-4ee0-80ce-3f2122defdef" xml:space="preserve">
+          <source>Install and configure the <bpt id="f540519d-67ce-4239-a6ac-a449c2d66831">&lt;linkText&gt;</bpt>Azure Command-Line Interface<ept id="f540519d-67ce-4239-a6ac-a449c2d66831">&lt;/linkText&gt;</ept><bpt id="f540519d-67ce-4239-a6ac-a449c2d66831">&lt;title&gt;</bpt><ept id="f540519d-67ce-4239-a6ac-a449c2d66831">&lt;/title&gt;</ept>, and then use the following command:</source>
+          <target state="new">Install and configure the <bpt id="f540519d-67ce-4239-a6ac-a449c2d66831">&lt;linkText&gt;</bpt>Azure Command-Line Interface<ept id="f540519d-67ce-4239-a6ac-a449c2d66831">&lt;/linkText&gt;</ept><bpt id="f540519d-67ce-4239-a6ac-a449c2d66831">&lt;title&gt;</bpt><ept id="f540519d-67ce-4239-a6ac-a449c2d66831">&lt;/title&gt;</ept>, and then use the following command:</target>
+        </trans-unit>
+        <trans-unit id="40403703-2caa-48ac-80be-ed2fd06af0fd" xml:space="preserve">
+          <source>For example, the following will add a custom domain name of <bpt id="c6f3f70d-7310-45a0-98d4-59fffd475899">&lt;strong&gt;</bpt>www.contoso.com<ept id="c6f3f70d-7310-45a0-98d4-59fffd475899">&lt;/strong&gt;</ept> to the <bpt id="1d54c6f7-e24c-4720-a83e-fc2759731af7">&lt;strong&gt;</bpt>contoso.azurewebsite.net<ept id="1d54c6f7-e24c-4720-a83e-fc2759731af7">&lt;/strong&gt;</ept> website:</source>
+          <target state="new">For example, the following will add a custom domain name of <bpt id="c6f3f70d-7310-45a0-98d4-59fffd475899">&lt;strong&gt;</bpt>www.contoso.com<ept id="c6f3f70d-7310-45a0-98d4-59fffd475899">&lt;/strong&gt;</ept> to the <bpt id="1d54c6f7-e24c-4720-a83e-fc2759731af7">&lt;strong&gt;</bpt>contoso.azurewebsite.net<ept id="1d54c6f7-e24c-4720-a83e-fc2759731af7">&lt;/strong&gt;</ept> website:</target>
+        </trans-unit>
+        <trans-unit id="ac7cd6fb-1755-4087-af57-2bb1763ac0d2" xml:space="preserve">
+          <source>You can confirm that the custom domain name was added to the website by using the following command:</source>
+          <target state="new">You can confirm that the custom domain name was added to the website by using the following command:</target>
+        </trans-unit>
+        <trans-unit id="79f13cbb-4c9d-4364-b6c9-93f02de8242f" xml:space="preserve">
+          <source>The list returned by this command should contain the custom domain name, as well as the default <bpt id="98511a62-2e21-41ab-a77b-4fb74043015f">&lt;strong&gt;</bpt>.azurewebsite.net<ept id="98511a62-2e21-41ab-a77b-4fb74043015f">&lt;/strong&gt;</ept> entry.</source>
+          <target state="new">The list returned by this command should contain the custom domain name, as well as the default <bpt id="98511a62-2e21-41ab-a77b-4fb74043015f">&lt;strong&gt;</bpt>.azurewebsite.net<ept id="98511a62-2e21-41ab-a77b-4fb74043015f">&lt;/strong&gt;</ept> entry.</target>
+        </trans-unit>
+        <trans-unit id="2c590305-77d1-4154-8eb5-b9978cad7375" xml:space="preserve">
+          <source><bpt id="d295924a-6e5a-46a3-9738-51d8697b84ef">&lt;strong&gt;</bpt>To add a domain name using the Azure Management Portal<ept id="d295924a-6e5a-46a3-9738-51d8697b84ef">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d295924a-6e5a-46a3-9738-51d8697b84ef">&lt;strong&gt;</bpt>To add a domain name using the Azure Management Portal<ept id="d295924a-6e5a-46a3-9738-51d8697b84ef">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f27427d-95e1-41f7-b3e8-58f04588170f" xml:space="preserve">
+          <source>In your browser, open the <bpt id="64743f0f-cda6-4dcc-a9cf-e1316346690e">&lt;linkText&gt;</bpt>Azure Management Portal[portal]<ept id="64743f0f-cda6-4dcc-a9cf-e1316346690e">&lt;/linkText&gt;</ept><bpt id="64743f0f-cda6-4dcc-a9cf-e1316346690e">&lt;title&gt;</bpt><ept id="64743f0f-cda6-4dcc-a9cf-e1316346690e">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, open the <bpt id="64743f0f-cda6-4dcc-a9cf-e1316346690e">&lt;linkText&gt;</bpt>Azure Management Portal[portal]<ept id="64743f0f-cda6-4dcc-a9cf-e1316346690e">&lt;/linkText&gt;</ept><bpt id="64743f0f-cda6-4dcc-a9cf-e1316346690e">&lt;title&gt;</bpt><ept id="64743f0f-cda6-4dcc-a9cf-e1316346690e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e58c5fef-a5e0-40ae-935d-ad1ccb71aa35" xml:space="preserve">
+          <source>In the <bpt id="566e8525-810d-4085-af55-635ab9bd531a">&lt;strong&gt;</bpt>Websites<ept id="566e8525-810d-4085-af55-635ab9bd531a">&lt;/strong&gt;</ept> tab, click the name of your site, select <bpt id="790a756d-0dac-4821-a73b-e4d1aaff02e5">&lt;strong&gt;</bpt>Dashboard<ept id="790a756d-0dac-4821-a73b-e4d1aaff02e5">&lt;/strong&gt;</ept>, and then select <bpt id="e2fd0f3c-5a6d-4bca-9d96-29405d55fa38">&lt;strong&gt;</bpt>Manage Domains<ept id="e2fd0f3c-5a6d-4bca-9d96-29405d55fa38">&lt;/strong&gt;</ept> from the bottom of the page.</source>
+          <target state="new">In the <bpt id="566e8525-810d-4085-af55-635ab9bd531a">&lt;strong&gt;</bpt>Websites<ept id="566e8525-810d-4085-af55-635ab9bd531a">&lt;/strong&gt;</ept> tab, click the name of your site, select <bpt id="790a756d-0dac-4821-a73b-e4d1aaff02e5">&lt;strong&gt;</bpt>Dashboard<ept id="790a756d-0dac-4821-a73b-e4d1aaff02e5">&lt;/strong&gt;</ept>, and then select <bpt id="e2fd0f3c-5a6d-4bca-9d96-29405d55fa38">&lt;strong&gt;</bpt>Manage Domains<ept id="e2fd0f3c-5a6d-4bca-9d96-29405d55fa38">&lt;/strong&gt;</ept> from the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="b7c9ffc4-a8a4-4fed-a111-71e3041ee2c8" xml:space="preserve">
+          <source><bpt id="58a6e32e-b4ba-49b6-8859-0a20b1792092">&lt;linkText&gt;</bpt><ept id="58a6e32e-b4ba-49b6-8859-0a20b1792092">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="58a6e32e-b4ba-49b6-8859-0a20b1792092">&lt;linkText&gt;</bpt><ept id="58a6e32e-b4ba-49b6-8859-0a20b1792092">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60b72893-e878-4136-8d0d-127cf37af51a" xml:space="preserve">
+          <source>In the <bpt id="ef4d290e-0f68-4e6b-a4d3-5a21a8a4d286">&lt;strong&gt;</bpt>DOMAIN NAMES<ept id="ef4d290e-0f68-4e6b-a4d3-5a21a8a4d286">&lt;/strong&gt;</ept> text box, type the domain name that you have configured.</source>
+          <target state="new">In the <bpt id="ef4d290e-0f68-4e6b-a4d3-5a21a8a4d286">&lt;strong&gt;</bpt>DOMAIN NAMES<ept id="ef4d290e-0f68-4e6b-a4d3-5a21a8a4d286">&lt;/strong&gt;</ept> text box, type the domain name that you have configured.</target>
+        </trans-unit>
+        <trans-unit id="eeb74e88-ea42-40b8-ae29-7f0135df9b7e" xml:space="preserve">
+          <source><bpt id="b94f143b-a25d-478b-be53-9d1ab1f0bc22">&lt;linkText&gt;</bpt><ept id="b94f143b-a25d-478b-be53-9d1ab1f0bc22">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b94f143b-a25d-478b-be53-9d1ab1f0bc22">&lt;linkText&gt;</bpt><ept id="b94f143b-a25d-478b-be53-9d1ab1f0bc22">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b5663d1-f360-4b4c-9dee-fa5b03009559" xml:space="preserve">
+          <source>Click the check mark to accept the domain name.</source>
+          <target state="new">Click the check mark to accept the domain name.</target>
+        </trans-unit>
+        <trans-unit id="3e4beeef-c198-4607-bc14-754ee48c0015" xml:space="preserve">
+          <source>Once configuration has completed, the custom domain name will be listed in the <bpt id="d200058f-0bfb-49d3-ae71-70e6b9c2286b">&lt;strong&gt;</bpt>domain names<ept id="d200058f-0bfb-49d3-ae71-70e6b9c2286b">&lt;/strong&gt;</ept> section of the <bpt id="8d1119af-2e9a-4d09-9f9a-94f88eeff33d">&lt;strong&gt;</bpt>Configure<ept id="8d1119af-2e9a-4d09-9f9a-94f88eeff33d">&lt;/strong&gt;</ept> page of your website.</source>
+          <target state="new">Once configuration has completed, the custom domain name will be listed in the <bpt id="d200058f-0bfb-49d3-ae71-70e6b9c2286b">&lt;strong&gt;</bpt>domain names<ept id="d200058f-0bfb-49d3-ae71-70e6b9c2286b">&lt;/strong&gt;</ept> section of the <bpt id="8d1119af-2e9a-4d09-9f9a-94f88eeff33d">&lt;strong&gt;</bpt>Configure<ept id="8d1119af-2e9a-4d09-9f9a-94f88eeff33d">&lt;/strong&gt;</ept> page of your website.</target>
+        </trans-unit>
+        <trans-unit id="d66430bd-d6f8-40e6-9973-971b4dcafe51" xml:space="preserve">
+          <source><bpt id="bb430289-967a-492d-a3ba-f8a2e5ed09e1">&lt;bookmark&gt;</bpt><ept id="bb430289-967a-492d-a3ba-f8a2e5ed09e1">&lt;/bookmark&gt;</ept>&lt;h2&gt;Add an A Record for your custom domain&lt;/h2&gt;</source>
+          <target state="new"><bpt id="bb430289-967a-492d-a3ba-f8a2e5ed09e1">&lt;bookmark&gt;</bpt><ept id="bb430289-967a-492d-a3ba-f8a2e5ed09e1">&lt;/bookmark&gt;</ept>&lt;h2&gt;Add an A Record for your custom domain&lt;/h2&gt;</target>
+        </trans-unit>
+        <trans-unit id="7579e7c3-c052-4b43-8738-709d6ce57ce8" xml:space="preserve">
+          <source>To create an A record, you must first find the IP address of your website.</source>
+          <target state="new">To create an A record, you must first find the IP address of your website.</target>
+        </trans-unit>
+        <trans-unit id="6a98902b-8316-4fbb-8ac3-8d578925e5db" xml:space="preserve">
+          <source>Then add an entry in the DNS table for your custom domain by using the tools provided by your registrar.</source>
+          <target state="new">Then add an entry in the DNS table for your custom domain by using the tools provided by your registrar.</target>
+        </trans-unit>
+        <trans-unit id="d233c88c-7562-4a80-8ab6-a07ff9ae03ed" xml:space="preserve">
+          <source>Each registrar has a similar but slightly different method of specifying an A record, but the concepts are the same.</source>
+          <target state="new">Each registrar has a similar but slightly different method of specifying an A record, but the concepts are the same.</target>
+        </trans-unit>
+        <trans-unit id="9e388082-949d-41fa-83f8-92017994d540" xml:space="preserve">
+          <source>In addition to creating an A record, you must also create a CNAME record that Azure uses to verify the A record.</source>
+          <target state="new">In addition to creating an A record, you must also create a CNAME record that Azure uses to verify the A record.</target>
+        </trans-unit>
+        <trans-unit id="468f3965-6b81-4ee0-bfe7-d7c2a2c061af" xml:space="preserve">
+          <source>In your browser, open the <bpt id="b1d75aaf-1f5a-45aa-bf7e-ff09c28c0777">&lt;linkText&gt;</bpt>Azure Management Portal[portal]<ept id="b1d75aaf-1f5a-45aa-bf7e-ff09c28c0777">&lt;/linkText&gt;</ept><bpt id="b1d75aaf-1f5a-45aa-bf7e-ff09c28c0777">&lt;title&gt;</bpt><ept id="b1d75aaf-1f5a-45aa-bf7e-ff09c28c0777">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, open the <bpt id="b1d75aaf-1f5a-45aa-bf7e-ff09c28c0777">&lt;linkText&gt;</bpt>Azure Management Portal[portal]<ept id="b1d75aaf-1f5a-45aa-bf7e-ff09c28c0777">&lt;/linkText&gt;</ept><bpt id="b1d75aaf-1f5a-45aa-bf7e-ff09c28c0777">&lt;title&gt;</bpt><ept id="b1d75aaf-1f5a-45aa-bf7e-ff09c28c0777">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6dd6147c-ad51-4317-adfc-383fad698321" xml:space="preserve">
+          <source>In the <bpt id="a168a4bd-2cd9-4f97-825a-56eba41f218d">&lt;strong&gt;</bpt>Websites<ept id="a168a4bd-2cd9-4f97-825a-56eba41f218d">&lt;/strong&gt;</ept> tab, click the name of your site, select <bpt id="7ffcf2c2-6734-4196-b688-475058387dc2">&lt;strong&gt;</bpt>Dashboard<ept id="7ffcf2c2-6734-4196-b688-475058387dc2">&lt;/strong&gt;</ept>, and then select <bpt id="f9f76399-044b-423d-93c6-386c37dcb18c">&lt;strong&gt;</bpt>Manage Domains<ept id="f9f76399-044b-423d-93c6-386c37dcb18c">&lt;/strong&gt;</ept> from the bottom of the screen.</source>
+          <target state="new">In the <bpt id="a168a4bd-2cd9-4f97-825a-56eba41f218d">&lt;strong&gt;</bpt>Websites<ept id="a168a4bd-2cd9-4f97-825a-56eba41f218d">&lt;/strong&gt;</ept> tab, click the name of your site, select <bpt id="7ffcf2c2-6734-4196-b688-475058387dc2">&lt;strong&gt;</bpt>Dashboard<ept id="7ffcf2c2-6734-4196-b688-475058387dc2">&lt;/strong&gt;</ept>, and then select <bpt id="f9f76399-044b-423d-93c6-386c37dcb18c">&lt;strong&gt;</bpt>Manage Domains<ept id="f9f76399-044b-423d-93c6-386c37dcb18c">&lt;/strong&gt;</ept> from the bottom of the screen.</target>
+        </trans-unit>
+        <trans-unit id="15f0eedb-afa8-40e3-bb92-842c15b14283" xml:space="preserve">
+          <source><bpt id="319dcece-2303-4f31-ab58-91fb777bb688">&lt;linkText&gt;</bpt><ept id="319dcece-2303-4f31-ab58-91fb777bb688">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="319dcece-2303-4f31-ab58-91fb777bb688">&lt;linkText&gt;</bpt><ept id="319dcece-2303-4f31-ab58-91fb777bb688">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3333da6-afd2-412e-8a0b-21ad12214d09" xml:space="preserve">
+          <source>On the <bpt id="ff17cdb6-0ef8-4890-8ad6-94348154e925">&lt;strong&gt;</bpt>Manage custom domains<ept id="ff17cdb6-0ef8-4890-8ad6-94348154e925">&lt;/strong&gt;</ept> dialog, locate <bpt id="21f0acda-d953-4ad9-b921-f8aa3a5d385f">&lt;strong&gt;</bpt>The IP Address to use when configuring A records<ept id="21f0acda-d953-4ad9-b921-f8aa3a5d385f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ff17cdb6-0ef8-4890-8ad6-94348154e925">&lt;strong&gt;</bpt>Manage custom domains<ept id="ff17cdb6-0ef8-4890-8ad6-94348154e925">&lt;/strong&gt;</ept> dialog, locate <bpt id="21f0acda-d953-4ad9-b921-f8aa3a5d385f">&lt;strong&gt;</bpt>The IP Address to use when configuring A records<ept id="21f0acda-d953-4ad9-b921-f8aa3a5d385f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13974dbc-eac0-4774-9fe0-5a971c0a16f4" xml:space="preserve">
+          <source>Copy the IP address.</source>
+          <target state="new">Copy the IP address.</target>
+        </trans-unit>
+        <trans-unit id="058954bf-4e78-4fa7-a568-05b0b154605c" xml:space="preserve">
+          <source>This will be used when creating the A record.</source>
+          <target state="new">This will be used when creating the A record.</target>
+        </trans-unit>
+        <trans-unit id="9d5d870d-75b1-40d5-878f-16ff8a4aec86" xml:space="preserve">
+          <source>On the <bpt id="f9bf3007-1c64-4ba8-8993-f107200b5a67">&lt;strong&gt;</bpt>Manage custom domains<ept id="f9bf3007-1c64-4ba8-8993-f107200b5a67">&lt;/strong&gt;</ept> dialog, note awverify domain name at the end of the text at the top of the dialog.</source>
+          <target state="new">On the <bpt id="f9bf3007-1c64-4ba8-8993-f107200b5a67">&lt;strong&gt;</bpt>Manage custom domains<ept id="f9bf3007-1c64-4ba8-8993-f107200b5a67">&lt;/strong&gt;</ept> dialog, note awverify domain name at the end of the text at the top of the dialog.</target>
+        </trans-unit>
+        <trans-unit id="c9fa7a42-d78a-4db8-8ac7-a4381caf306c" xml:space="preserve">
+          <source>It should be <bpt id="754b5fb0-be0d-408e-affa-b70ccf1d55fa">&lt;strong&gt;</bpt>awverify.mysite.azurewebsites.net<ept id="754b5fb0-be0d-408e-affa-b70ccf1d55fa">&lt;/strong&gt;</ept> where <bpt id="efb994e1-dad7-4745-9345-3e14387e5738">&lt;strong&gt;</bpt>mysite<ept id="efb994e1-dad7-4745-9345-3e14387e5738">&lt;/strong&gt;</ept> is the name of your website.</source>
+          <target state="new">It should be <bpt id="754b5fb0-be0d-408e-affa-b70ccf1d55fa">&lt;strong&gt;</bpt>awverify.mysite.azurewebsites.net<ept id="754b5fb0-be0d-408e-affa-b70ccf1d55fa">&lt;/strong&gt;</ept> where <bpt id="efb994e1-dad7-4745-9345-3e14387e5738">&lt;strong&gt;</bpt>mysite<ept id="efb994e1-dad7-4745-9345-3e14387e5738">&lt;/strong&gt;</ept> is the name of your website.</target>
+        </trans-unit>
+        <trans-unit id="7054f4bd-b8b6-47f8-87f6-1a197b67b6ae" xml:space="preserve">
+          <source>Copy this, as it is the domain name used when creating the verification CNAME record.</source>
+          <target state="new">Copy this, as it is the domain name used when creating the verification CNAME record.</target>
+        </trans-unit>
+        <trans-unit id="e680e831-01bd-4805-b4a7-b3b4739007d2" xml:space="preserve">
+          <source>Log on to your DNS registrar's website, and go to the page for managing DNS.</source>
+          <target state="new">Log on to your DNS registrar's website, and go to the page for managing DNS.</target>
+        </trans-unit>
+        <trans-unit id="4ab3ee66-b690-4a57-a14b-a62963e5b5d0" xml:space="preserve">
+          <source>Look for links or areas of the site labeled as <bpt id="f88c4107-0a20-4e14-8c46-4407294d8f98">&lt;strong&gt;</bpt>Domain Name<ept id="f88c4107-0a20-4e14-8c46-4407294d8f98">&lt;/strong&gt;</ept>, <bpt id="92b56b88-f9ba-4e80-8990-5e73ea7a36c8">&lt;strong&gt;</bpt>DNS<ept id="92b56b88-f9ba-4e80-8990-5e73ea7a36c8">&lt;/strong&gt;</ept>, or <bpt id="62bd5855-e8df-4c49-b504-50a9f122c46b">&lt;strong&gt;</bpt>Name Server Management<ept id="62bd5855-e8df-4c49-b504-50a9f122c46b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Look for links or areas of the site labeled as <bpt id="f88c4107-0a20-4e14-8c46-4407294d8f98">&lt;strong&gt;</bpt>Domain Name<ept id="f88c4107-0a20-4e14-8c46-4407294d8f98">&lt;/strong&gt;</ept>, <bpt id="92b56b88-f9ba-4e80-8990-5e73ea7a36c8">&lt;strong&gt;</bpt>DNS<ept id="92b56b88-f9ba-4e80-8990-5e73ea7a36c8">&lt;/strong&gt;</ept>, or <bpt id="62bd5855-e8df-4c49-b504-50a9f122c46b">&lt;strong&gt;</bpt>Name Server Management<ept id="62bd5855-e8df-4c49-b504-50a9f122c46b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8cfa2ed3-7889-4ce3-b758-14a5f6b43d68" xml:space="preserve">
+          <source>Find where you can select or enter A and CNAME records.</source>
+          <target state="new">Find where you can select or enter A and CNAME records.</target>
+        </trans-unit>
+        <trans-unit id="0c7014f1-111b-440b-ade8-b33a8f9bdade" xml:space="preserve">
+          <source>You may have to select the record type from a drop down, or go to an advanced settings page.</source>
+          <target state="new">You may have to select the record type from a drop down, or go to an advanced settings page.</target>
+        </trans-unit>
+        <trans-unit id="6625b738-abf7-46af-a338-9d1ca9636075" xml:space="preserve">
+          <source>Perform the following steps to create the A record:</source>
+          <target state="new">Perform the following steps to create the A record:</target>
+        </trans-unit>
+        <trans-unit id="13c1cf66-aa4d-4267-8060-d9c082e4d299" xml:space="preserve">
+          <source>Select or enter the domain or subdomain that will use the A record.</source>
+          <target state="new">Select or enter the domain or subdomain that will use the A record.</target>
+        </trans-unit>
+        <trans-unit id="001457e5-81e7-488d-aec6-3017738fa6fc" xml:space="preserve">
+          <source>For example, select <bpt id="857aa618-08ae-48ab-b417-921db66fd02f">&lt;strong&gt;</bpt>www<ept id="857aa618-08ae-48ab-b417-921db66fd02f">&lt;/strong&gt;</ept> if you want to create an alias for <bpt id="775267c7-a626-4253-91fd-84de6133e134">&lt;strong&gt;</bpt>www.customdomain.com<ept id="775267c7-a626-4253-91fd-84de6133e134">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, select <bpt id="857aa618-08ae-48ab-b417-921db66fd02f">&lt;strong&gt;</bpt>www<ept id="857aa618-08ae-48ab-b417-921db66fd02f">&lt;/strong&gt;</ept> if you want to create an alias for <bpt id="775267c7-a626-4253-91fd-84de6133e134">&lt;strong&gt;</bpt>www.customdomain.com<ept id="775267c7-a626-4253-91fd-84de6133e134">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f4409e6-98cf-4064-b620-5715a784022c" xml:space="preserve">
+          <source>If you want to create a wildcard entry for all subdomains, enter '<bpt id="d269a1f4-ba2b-4505-afdd-c9be5826a5df">&lt;strong&gt;</bpt>*<ept id="d269a1f4-ba2b-4505-afdd-c9be5826a5df">&lt;/strong&gt;</ept>'.</source>
+          <target state="new">If you want to create a wildcard entry for all subdomains, enter '<bpt id="d269a1f4-ba2b-4505-afdd-c9be5826a5df">&lt;strong&gt;</bpt>*<ept id="d269a1f4-ba2b-4505-afdd-c9be5826a5df">&lt;/strong&gt;</ept>'.</target>
+        </trans-unit>
+        <trans-unit id="636f1ca8-a189-44c5-affd-ac79969135a4" xml:space="preserve">
+          <source>This will cover all sub-domains such as <bpt id="6bf02ed9-ca5b-4815-989a-5d928fee9023">&lt;strong&gt;</bpt>mail.customdomain.com<ept id="6bf02ed9-ca5b-4815-989a-5d928fee9023">&lt;/strong&gt;</ept>, <bpt id="eaad12fc-cadc-4476-816a-7b3832938022">&lt;strong&gt;</bpt>login.customdomain.com<ept id="eaad12fc-cadc-4476-816a-7b3832938022">&lt;/strong&gt;</ept>, and <bpt id="7610375d-4ed3-45c4-ba00-8252ccce64da">&lt;strong&gt;</bpt>www.customdomain.com<ept id="7610375d-4ed3-45c4-ba00-8252ccce64da">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This will cover all sub-domains such as <bpt id="6bf02ed9-ca5b-4815-989a-5d928fee9023">&lt;strong&gt;</bpt>mail.customdomain.com<ept id="6bf02ed9-ca5b-4815-989a-5d928fee9023">&lt;/strong&gt;</ept>, <bpt id="eaad12fc-cadc-4476-816a-7b3832938022">&lt;strong&gt;</bpt>login.customdomain.com<ept id="eaad12fc-cadc-4476-816a-7b3832938022">&lt;/strong&gt;</ept>, and <bpt id="7610375d-4ed3-45c4-ba00-8252ccce64da">&lt;strong&gt;</bpt>www.customdomain.com<ept id="7610375d-4ed3-45c4-ba00-8252ccce64da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbf6f51e-b257-4bbe-8d83-31089a815526" xml:space="preserve">
+          <source>If you want to create an A record for the root domain, it may be listed as the '<bpt id="5fe3ddb9-a072-4dbb-a761-38858bf0256c">&lt;strong&gt;</bpt>@<ept id="5fe3ddb9-a072-4dbb-a761-38858bf0256c">&lt;/strong&gt;</ept>' symbol in your registrar's DNS tools.</source>
+          <target state="new">If you want to create an A record for the root domain, it may be listed as the '<bpt id="5fe3ddb9-a072-4dbb-a761-38858bf0256c">&lt;strong&gt;</bpt>@<ept id="5fe3ddb9-a072-4dbb-a761-38858bf0256c">&lt;/strong&gt;</ept>' symbol in your registrar's DNS tools.</target>
+        </trans-unit>
+        <trans-unit id="45b04617-571d-4406-823b-c4e7a1f46201" xml:space="preserve">
+          <source>Enter the IP address of your cloud service in the provided field.</source>
+          <target state="new">Enter the IP address of your cloud service in the provided field.</target>
+        </trans-unit>
+        <trans-unit id="73e9e7da-021d-46fa-820c-54fb18484553" xml:space="preserve">
+          <source>This associates the domain entry used in the A record with the IP address of your cloud service deployment.</source>
+          <target state="new">This associates the domain entry used in the A record with the IP address of your cloud service deployment.</target>
+        </trans-unit>
+        <trans-unit id="c0d1b063-1a5b-42e4-8dee-52d3100041b5" xml:space="preserve">
+          <source>For example, the following A record forwards all traffic from <bpt id="944c55da-47e4-426a-82cc-9f3d9f22f6a0">&lt;strong&gt;</bpt>contoso.com<ept id="944c55da-47e4-426a-82cc-9f3d9f22f6a0">&lt;/strong&gt;</ept> to <bpt id="fdd90fa9-9123-44b8-b595-78e674f172de">&lt;strong&gt;</bpt>137.135.70.239<ept id="fdd90fa9-9123-44b8-b595-78e674f172de">&lt;/strong&gt;</ept>, the IP address of our deployed application:</source>
+          <target state="new">For example, the following A record forwards all traffic from <bpt id="944c55da-47e4-426a-82cc-9f3d9f22f6a0">&lt;strong&gt;</bpt>contoso.com<ept id="944c55da-47e4-426a-82cc-9f3d9f22f6a0">&lt;/strong&gt;</ept> to <bpt id="fdd90fa9-9123-44b8-b595-78e674f172de">&lt;strong&gt;</bpt>137.135.70.239<ept id="fdd90fa9-9123-44b8-b595-78e674f172de">&lt;/strong&gt;</ept>, the IP address of our deployed application:</target>
+        </trans-unit>
+        <trans-unit id="98ea1d61-bbe7-4dd9-a401-3f50b4430ccb" xml:space="preserve">
+          <source>Host name/Subdomain</source>
+          <target state="new">Host name/Subdomain</target>
+        </trans-unit>
+        <trans-unit id="fc7e5ef9-d3f6-48fa-815b-9b3fa2c4ae2a" xml:space="preserve">
+          <source>IP address</source>
+          <target state="new">IP address</target>
+        </trans-unit>
+        <trans-unit id="92f8ab86-720f-44d2-aacc-6b5388f4be79" xml:space="preserve">
+          <source>@</source>
+          <target state="new">@</target>
+        </trans-unit>
+        <trans-unit id="48d8ed10-d328-4388-9974-4d567cd98297" xml:space="preserve">
+          <source>137.135.70.239</source>
+          <target state="new">137.135.70.239</target>
+        </trans-unit>
+        <trans-unit id="0c15407d-698b-4d0b-bc52-c1575cf52485" xml:space="preserve">
+          <source>This example demonstrates creating an A record for the root domain.</source>
+          <target state="new">This example demonstrates creating an A record for the root domain.</target>
+        </trans-unit>
+        <trans-unit id="d6c6a790-6354-4659-b32a-b6fd82169254" xml:space="preserve">
+          <source>If you wish to create a wildcard entry to cover all subdomains, you would enter '<bpt id="477146c8-ec86-4450-bfcf-ba981d1f9439">&lt;strong&gt;</bpt>*<ept id="477146c8-ec86-4450-bfcf-ba981d1f9439">&lt;/strong&gt;</ept>' as the subdomain.</source>
+          <target state="new">If you wish to create a wildcard entry to cover all subdomains, you would enter '<bpt id="477146c8-ec86-4450-bfcf-ba981d1f9439">&lt;strong&gt;</bpt>*<ept id="477146c8-ec86-4450-bfcf-ba981d1f9439">&lt;/strong&gt;</ept>' as the subdomain.</target>
+        </trans-unit>
+        <trans-unit id="9b356a5a-6816-4b15-960b-63c20995ba59" xml:space="preserve">
+          <source>Next, create a CNAME record that has an alias of <bpt id="085adb86-9231-4a5e-9168-ef62c7d1b89c">&lt;strong&gt;</bpt>awverify<ept id="085adb86-9231-4a5e-9168-ef62c7d1b89c">&lt;/strong&gt;</ept>, and a canonical domain of <bpt id="0f5b7e39-98e5-47d4-b0f0-80c000d1aee4">&lt;strong&gt;</bpt>awverify.mysite.azurewebsites.net<ept id="0f5b7e39-98e5-47d4-b0f0-80c000d1aee4">&lt;/strong&gt;</ept> that you obtained earlier.</source>
+          <target state="new">Next, create a CNAME record that has an alias of <bpt id="085adb86-9231-4a5e-9168-ef62c7d1b89c">&lt;strong&gt;</bpt>awverify<ept id="085adb86-9231-4a5e-9168-ef62c7d1b89c">&lt;/strong&gt;</ept>, and a canonical domain of <bpt id="0f5b7e39-98e5-47d4-b0f0-80c000d1aee4">&lt;strong&gt;</bpt>awverify.mysite.azurewebsites.net<ept id="0f5b7e39-98e5-47d4-b0f0-80c000d1aee4">&lt;/strong&gt;</ept> that you obtained earlier.</target>
+        </trans-unit>
+        <trans-unit id="55c43b05-0acb-4660-a513-fccd887f7cd3" xml:space="preserve">
+          <source>While an alias of awverify may work for some registrars, others may require the full alias domain name of awverify.www.customdomainname.com or awverify.customdomainname.com.</source>
+          <target state="new">While an alias of awverify may work for some registrars, others may require the full alias domain name of awverify.www.customdomainname.com or awverify.customdomainname.com.</target>
+        </trans-unit>
+        <trans-unit id="97365167-c08f-4725-ad5b-94d32fab97c3" xml:space="preserve">
+          <source>For example, the following will create an CNAME record that Azure can use to verify the A record configuration.</source>
+          <target state="new">For example, the following will create an CNAME record that Azure can use to verify the A record configuration.</target>
+        </trans-unit>
+        <trans-unit id="57a6377b-0598-4c41-a39b-64cf019dc1c6" xml:space="preserve">
+          <source>Alias/Host name/Subdomain</source>
+          <target state="new">Alias/Host name/Subdomain</target>
+        </trans-unit>
+        <trans-unit id="3f4b9beb-f3a7-4409-9950-f1485940cd23" xml:space="preserve">
+          <source>Canonical domain</source>
+          <target state="new">Canonical domain</target>
+        </trans-unit>
+        <trans-unit id="14a64c24-5187-41ec-b33a-47a7bfb67d3c" xml:space="preserve">
+          <source>awverify</source>
+          <target state="new">awverify</target>
+        </trans-unit>
+        <trans-unit id="f98c9153-06d1-456a-82a2-c71c17fd1b01" xml:space="preserve">
+          <source>awverify.contoso.azurewebsites.net</source>
+          <target state="new">awverify.contoso.azurewebsites.net</target>
+        </trans-unit>
+        <trans-unit id="0204b8ae-1965-40ae-96bd-92f1090b77ca" xml:space="preserve">
+          <source>It can take some time for the awverify CNAME to propagate through the DNS system.</source>
+          <target state="new">It can take some time for the awverify CNAME to propagate through the DNS system.</target>
+        </trans-unit>
+        <trans-unit id="ec42c728-8af0-4c90-9df1-a489cb86b903" xml:space="preserve">
+          <source>You cannot set the custom domain name defined by the A record for the website until the awverify CNAME has propagated.</source>
+          <target state="new">You cannot set the custom domain name defined by the A record for the website until the awverify CNAME has propagated.</target>
+        </trans-unit>
+        <trans-unit id="e6078ad8-aa87-4b12-b96c-cc3bc5dbe479" xml:space="preserve">
+          <source>You can use a service such as &lt;a href="http://www.digwebinterface.com/"&gt;http://www.digwebinterface.com/&lt;/a&gt; to verify that the CNAME is available.</source>
+          <target state="new">You can use a service such as &lt;a href="http://www.digwebinterface.com/"&gt;http://www.digwebinterface.com/&lt;/a&gt; to verify that the CNAME is available.</target>
+        </trans-unit>
+        <trans-unit id="d6214a13-c843-4273-b237-3507cb2fb9ec" xml:space="preserve">
+          <source>After the <bpt id="6c8ed5d4-18b3-4ee7-a00c-470899774c8a">&lt;strong&gt;</bpt>awverify<ept id="6c8ed5d4-18b3-4ee7-a00c-470899774c8a">&lt;/strong&gt;</ept> CNAME record for domain name has propagated, you can then associate the custom domain defined by the A record with your website.</source>
+          <target state="new">After the <bpt id="6c8ed5d4-18b3-4ee7-a00c-470899774c8a">&lt;strong&gt;</bpt>awverify<ept id="6c8ed5d4-18b3-4ee7-a00c-470899774c8a">&lt;/strong&gt;</ept> CNAME record for domain name has propagated, you can then associate the custom domain defined by the A record with your website.</target>
+        </trans-unit>
+        <trans-unit id="1a535153-1b9d-4605-b399-906016dd1f5c" xml:space="preserve">
+          <source>You can add the custom domain name defined by the A record to your website by using either the Azure CLI or by using the Azure Management Portal.</source>
+          <target state="new">You can add the custom domain name defined by the A record to your website by using either the Azure CLI or by using the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="a16e6698-76e8-49bd-80fd-b90fce3e0404" xml:space="preserve">
+          <source><bpt id="b215521d-ee74-4a1f-8a55-3e07705cb89a">&lt;strong&gt;</bpt>To add a domain name using the Azure Command-Line Interface (Azure CLI)<ept id="b215521d-ee74-4a1f-8a55-3e07705cb89a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b215521d-ee74-4a1f-8a55-3e07705cb89a">&lt;strong&gt;</bpt>To add a domain name using the Azure Command-Line Interface (Azure CLI)<ept id="b215521d-ee74-4a1f-8a55-3e07705cb89a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65e99f67-42e3-4c96-b5d5-f4a888cb25e2" xml:space="preserve">
+          <source>Install and configure the <bpt id="e999222a-405c-4733-814b-eb3aca280543">&lt;linkText&gt;</bpt>Azure CLI<ept id="e999222a-405c-4733-814b-eb3aca280543">&lt;/linkText&gt;</ept><bpt id="e999222a-405c-4733-814b-eb3aca280543">&lt;title&gt;</bpt><ept id="e999222a-405c-4733-814b-eb3aca280543">&lt;/title&gt;</ept>, and then use the following command:</source>
+          <target state="new">Install and configure the <bpt id="e999222a-405c-4733-814b-eb3aca280543">&lt;linkText&gt;</bpt>Azure CLI<ept id="e999222a-405c-4733-814b-eb3aca280543">&lt;/linkText&gt;</ept><bpt id="e999222a-405c-4733-814b-eb3aca280543">&lt;title&gt;</bpt><ept id="e999222a-405c-4733-814b-eb3aca280543">&lt;/title&gt;</ept>, and then use the following command:</target>
+        </trans-unit>
+        <trans-unit id="276d9206-399c-40a6-8521-ac1ad818d130" xml:space="preserve">
+          <source>For example, the following will add a custom domain name of <bpt id="c730d3f9-05cb-4eda-b62d-996d31323c1a">&lt;strong&gt;</bpt>contoso.com<ept id="c730d3f9-05cb-4eda-b62d-996d31323c1a">&lt;/strong&gt;</ept> to the <bpt id="a875f016-5028-47b2-986d-cdd2272135af">&lt;strong&gt;</bpt>contoso.azurewebsite.net<ept id="a875f016-5028-47b2-986d-cdd2272135af">&lt;/strong&gt;</ept> website:</source>
+          <target state="new">For example, the following will add a custom domain name of <bpt id="c730d3f9-05cb-4eda-b62d-996d31323c1a">&lt;strong&gt;</bpt>contoso.com<ept id="c730d3f9-05cb-4eda-b62d-996d31323c1a">&lt;/strong&gt;</ept> to the <bpt id="a875f016-5028-47b2-986d-cdd2272135af">&lt;strong&gt;</bpt>contoso.azurewebsite.net<ept id="a875f016-5028-47b2-986d-cdd2272135af">&lt;/strong&gt;</ept> website:</target>
+        </trans-unit>
+        <trans-unit id="4cd02bf1-d86a-400f-8792-a036962619ae" xml:space="preserve">
+          <source>You can confirm that the custom domain name was added to the website by using the following command:</source>
+          <target state="new">You can confirm that the custom domain name was added to the website by using the following command:</target>
+        </trans-unit>
+        <trans-unit id="b7d1fae0-3ec7-4b39-949a-44395d7d7a6b" xml:space="preserve">
+          <source>The list returned by this command should contain the custom domain name, as well as the default <bpt id="673cfed5-4de8-4c64-90a7-58d99c857dbc">&lt;strong&gt;</bpt>.azurewebsite.net<ept id="673cfed5-4de8-4c64-90a7-58d99c857dbc">&lt;/strong&gt;</ept> entry.</source>
+          <target state="new">The list returned by this command should contain the custom domain name, as well as the default <bpt id="673cfed5-4de8-4c64-90a7-58d99c857dbc">&lt;strong&gt;</bpt>.azurewebsite.net<ept id="673cfed5-4de8-4c64-90a7-58d99c857dbc">&lt;/strong&gt;</ept> entry.</target>
+        </trans-unit>
+        <trans-unit id="78cac360-243a-4aa7-b265-bc5ceab6503c" xml:space="preserve">
+          <source><bpt id="ce276c5d-d2b8-41ec-b0b2-61143fc9cb35">&lt;strong&gt;</bpt>To add a domain name using the Azure Management Portal<ept id="ce276c5d-d2b8-41ec-b0b2-61143fc9cb35">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ce276c5d-d2b8-41ec-b0b2-61143fc9cb35">&lt;strong&gt;</bpt>To add a domain name using the Azure Management Portal<ept id="ce276c5d-d2b8-41ec-b0b2-61143fc9cb35">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c57fcbd8-12c3-4714-972e-ebd41d3ce69b" xml:space="preserve">
+          <source>In your browser, open the <bpt id="cf9777ea-f895-42e1-bed0-9e4d21db5882">&lt;linkText&gt;</bpt>Azure Management Portal[portal]<ept id="cf9777ea-f895-42e1-bed0-9e4d21db5882">&lt;/linkText&gt;</ept><bpt id="cf9777ea-f895-42e1-bed0-9e4d21db5882">&lt;title&gt;</bpt><ept id="cf9777ea-f895-42e1-bed0-9e4d21db5882">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, open the <bpt id="cf9777ea-f895-42e1-bed0-9e4d21db5882">&lt;linkText&gt;</bpt>Azure Management Portal[portal]<ept id="cf9777ea-f895-42e1-bed0-9e4d21db5882">&lt;/linkText&gt;</ept><bpt id="cf9777ea-f895-42e1-bed0-9e4d21db5882">&lt;title&gt;</bpt><ept id="cf9777ea-f895-42e1-bed0-9e4d21db5882">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1498dea1-bc62-482a-8681-7087ca724197" xml:space="preserve">
+          <source>In the <bpt id="7afcd963-69b2-41ab-b801-9558711f2f81">&lt;strong&gt;</bpt>Websites<ept id="7afcd963-69b2-41ab-b801-9558711f2f81">&lt;/strong&gt;</ept> tab, click the name of your site, select <bpt id="417431b5-f773-446e-90a1-1354708c7256">&lt;strong&gt;</bpt>Dashboard<ept id="417431b5-f773-446e-90a1-1354708c7256">&lt;/strong&gt;</ept>, and then select <bpt id="eeaf0a81-5dbb-4a4e-8f00-e994de53e5c7">&lt;strong&gt;</bpt>Manage Domains<ept id="eeaf0a81-5dbb-4a4e-8f00-e994de53e5c7">&lt;/strong&gt;</ept> from the bottom of the page.</source>
+          <target state="new">In the <bpt id="7afcd963-69b2-41ab-b801-9558711f2f81">&lt;strong&gt;</bpt>Websites<ept id="7afcd963-69b2-41ab-b801-9558711f2f81">&lt;/strong&gt;</ept> tab, click the name of your site, select <bpt id="417431b5-f773-446e-90a1-1354708c7256">&lt;strong&gt;</bpt>Dashboard<ept id="417431b5-f773-446e-90a1-1354708c7256">&lt;/strong&gt;</ept>, and then select <bpt id="eeaf0a81-5dbb-4a4e-8f00-e994de53e5c7">&lt;strong&gt;</bpt>Manage Domains<ept id="eeaf0a81-5dbb-4a4e-8f00-e994de53e5c7">&lt;/strong&gt;</ept> from the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="94edfe55-2235-4309-b459-e0343ff16e1c" xml:space="preserve">
+          <source><bpt id="35cdc9bc-6f48-47c9-9832-0e3e043d4606">&lt;linkText&gt;</bpt><ept id="35cdc9bc-6f48-47c9-9832-0e3e043d4606">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35cdc9bc-6f48-47c9-9832-0e3e043d4606">&lt;linkText&gt;</bpt><ept id="35cdc9bc-6f48-47c9-9832-0e3e043d4606">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c82f30e-e21d-4ee7-9f28-ef49868878ef" xml:space="preserve">
+          <source>In the <bpt id="3e6d671a-6fff-43af-a83b-0032d512e107">&lt;strong&gt;</bpt>DOMAIN NAMES<ept id="3e6d671a-6fff-43af-a83b-0032d512e107">&lt;/strong&gt;</ept> text box, type the domain name that you have configured.</source>
+          <target state="new">In the <bpt id="3e6d671a-6fff-43af-a83b-0032d512e107">&lt;strong&gt;</bpt>DOMAIN NAMES<ept id="3e6d671a-6fff-43af-a83b-0032d512e107">&lt;/strong&gt;</ept> text box, type the domain name that you have configured.</target>
+        </trans-unit>
+        <trans-unit id="4ec12f77-de41-48b2-ad79-9f197c8096f4" xml:space="preserve">
+          <source><bpt id="28ebed1f-c0dc-486b-aa19-822030ef5eee">&lt;linkText&gt;</bpt><ept id="28ebed1f-c0dc-486b-aa19-822030ef5eee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="28ebed1f-c0dc-486b-aa19-822030ef5eee">&lt;linkText&gt;</bpt><ept id="28ebed1f-c0dc-486b-aa19-822030ef5eee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99bfd237-7522-4f76-9b04-88d747145198" xml:space="preserve">
+          <source>Click the check mark to accept the domain name.</source>
+          <target state="new">Click the check mark to accept the domain name.</target>
+        </trans-unit>
+        <trans-unit id="109142e0-a910-4692-a681-9d198b561486" xml:space="preserve">
+          <source>Once configuration has completed, the custom domain name will be listed in the <bpt id="9636d637-fe1f-4480-bbb2-ffe5b3106039">&lt;strong&gt;</bpt>domain names<ept id="9636d637-fe1f-4480-bbb2-ffe5b3106039">&lt;/strong&gt;</ept> section of the <bpt id="ede49143-59d3-45b1-b12e-5df72459aa31">&lt;strong&gt;</bpt>Configure<ept id="ede49143-59d3-45b1-b12e-5df72459aa31">&lt;/strong&gt;</ept> page of your website.</source>
+          <target state="new">Once configuration has completed, the custom domain name will be listed in the <bpt id="9636d637-fe1f-4480-bbb2-ffe5b3106039">&lt;strong&gt;</bpt>domain names<ept id="9636d637-fe1f-4480-bbb2-ffe5b3106039">&lt;/strong&gt;</ept> section of the <bpt id="ede49143-59d3-45b1-b12e-5df72459aa31">&lt;strong&gt;</bpt>Configure<ept id="ede49143-59d3-45b1-b12e-5df72459aa31">&lt;/strong&gt;</ept> page of your website.</target>
+        </trans-unit>
+        <trans-unit id="3defbf84-74bf-4604-9066-64e1138538dd" xml:space="preserve">
+          <source>After you have added the custom domain name defined by the A record to your website, you can remove the awverify CNAME record using the tools provided by your registrar.</source>
+          <target state="new">After you have added the custom domain name defined by the A record to your website, you can remove the awverify CNAME record using the tools provided by your registrar.</target>
+        </trans-unit>
+        <trans-unit id="295fd45a-5320-4c8f-987d-d4b7b11ad9ab" xml:space="preserve">
+          <source>However, if you wish to add another A record in the future, you will have to recreate the awverify record before you can associate the new domain name defined by the new A record with the website.</source>
+          <target state="new">However, if you wish to add another A record in the future, you will have to recreate the awverify record before you can associate the new domain name defined by the new A record with the website.</target>
+        </trans-unit>
+        <trans-unit id="bb635e85-b2dd-43de-a99a-4fac1a14ef04" xml:space="preserve">
+          <source><bpt id="eb174723-216e-4cc6-ac1a-75c3d88d228a">&lt;linkText&gt;</bpt>How to manage web sites<ept id="eb174723-216e-4cc6-ac1a-75c3d88d228a">&lt;/linkText&gt;</ept><bpt id="eb174723-216e-4cc6-ac1a-75c3d88d228a">&lt;title&gt;</bpt><ept id="eb174723-216e-4cc6-ac1a-75c3d88d228a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eb174723-216e-4cc6-ac1a-75c3d88d228a">&lt;linkText&gt;</bpt>How to manage web sites<ept id="eb174723-216e-4cc6-ac1a-75c3d88d228a">&lt;/linkText&gt;</ept><bpt id="eb174723-216e-4cc6-ac1a-75c3d88d228a">&lt;title&gt;</bpt><ept id="eb174723-216e-4cc6-ac1a-75c3d88d228a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ec19abf-08f2-4d43-9270-600b300c59e6" xml:space="preserve">
+          <source><bpt id="4cc80d1a-cb09-4aad-b527-ec2a82cf3c86">&lt;linkText&gt;</bpt>Configure an SSL certificate for Web Sites<ept id="4cc80d1a-cb09-4aad-b527-ec2a82cf3c86">&lt;/linkText&gt;</ept><bpt id="4cc80d1a-cb09-4aad-b527-ec2a82cf3c86">&lt;title&gt;</bpt><ept id="4cc80d1a-cb09-4aad-b527-ec2a82cf3c86">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4cc80d1a-cb09-4aad-b527-ec2a82cf3c86">&lt;linkText&gt;</bpt>Configure an SSL certificate for Web Sites<ept id="4cc80d1a-cb09-4aad-b527-ec2a82cf3c86">&lt;/linkText&gt;</ept><bpt id="4cc80d1a-cb09-4aad-b527-ec2a82cf3c86">&lt;title&gt;</bpt><ept id="4cc80d1a-cb09-4aad-b527-ec2a82cf3c86">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aecd17a4-018f-4b28-a855-98f542a6e3c5" xml:space="preserve">
+          <source>#bkmk_configsharedmode</source>
+          <target state="new">#bkmk_configsharedmode</target>
+        </trans-unit>
+        <trans-unit id="4224685d-dae6-45ae-a80a-07e1f4a0a8d0" xml:space="preserve">
+          <source>#bkmk_configurecname</source>
+          <target state="new">#bkmk_configurecname</target>
+        </trans-unit>
+        <trans-unit id="2353e490-37a3-42b4-9293-ffacdbea9ca5" xml:space="preserve">
+          <source>#bkmk_configurecname</source>
+          <target state="new">#bkmk_configurecname</target>
+        </trans-unit>
+        <trans-unit id="61c3884f-277a-4143-840a-fd9236dab076" xml:space="preserve">
+          <source>#bkmk_configurearecord</source>
+          <target state="new">#bkmk_configurearecord</target>
+        </trans-unit>
+        <trans-unit id="9e32a6b9-4d28-44df-a2c7-1f9de4db5ea7" xml:space="preserve">
+          <source>#bkmk_setcname</source>
+          <target state="new">#bkmk_setcname</target>
+        </trans-unit>
+        <trans-unit id="8528f6de-fbda-47d5-a809-7b98721a511d" xml:space="preserve">
+          <source>/pricing/details/</source>
+          <target state="new">/pricing/details/</target>
+        </trans-unit>
+        <trans-unit id="2add53e2-8e99-4d7f-93fa-f2f33d479d6e" xml:space="preserve">
+          <source>http://manage.windowsazure.com</source>
+          <target state="new">http://manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="aa78c53c-d9ef-4099-b168-d2d3c5cf85c3" xml:space="preserve">
+          <source>http://www.digwebinterface.com/</source>
+          <target state="new">http://www.digwebinterface.com/</target>
+        </trans-unit>
+        <trans-unit id="797b0261-f47c-47e8-ae85-477cfbe567ad" xml:space="preserve">
+          <source>../articles/custom-dns.md</source>
+          <target state="new">../articles/custom-dns.md</target>
+        </trans-unit>
+        <trans-unit id="5b1fb408-9689-4fc7-9e1f-87162a60c16d" xml:space="preserve">
+          <source>../articles/app-service-web/web-sites-traffic-manager.md</source>
+          <target state="new">../articles/app-service-web/web-sites-traffic-manager.md</target>
+        </trans-unit>
+        <trans-unit id="c72e6c15-9738-4c4e-961e-428f19686764" xml:space="preserve">
+          <source>../articles/traffic-manager/traffic-manager-endpoints.md</source>
+          <target state="new">../articles/traffic-manager/traffic-manager-endpoints.md</target>
+        </trans-unit>
+        <trans-unit id="4fdd13ef-1c55-4b9d-860d-6ab176a51d24" xml:space="preserve">
+          <source>../articles/traffic-manager/traffic-manager-manage-profiles.md</source>
+          <target state="new">../articles/traffic-manager/traffic-manager-manage-profiles.md</target>
+        </trans-unit>
+        <trans-unit id="6063e2a9-5335-49d4-bf4c-5dfc882adf62" xml:space="preserve">
+          <source>../media/dncmntask-cname-5.png</source>
+          <target state="new">../media/dncmntask-cname-5.png</target>
+        </trans-unit>
+        <trans-unit id="53475439-3147-4d45-ae29-a5c07e1399de" xml:space="preserve">
+          <source>./media/custom-dns-web-site/dncmntask-cname-1.png</source>
+          <target state="new">./media/custom-dns-web-site/dncmntask-cname-1.png</target>
+        </trans-unit>
+        <trans-unit id="bc63ea4e-a64b-4a8d-90e5-2f6a277c8996" xml:space="preserve">
+          <source>./media/custom-dns-web-site/dncmntask-cname-2.png</source>
+          <target state="new">./media/custom-dns-web-site/dncmntask-cname-2.png</target>
+        </trans-unit>
+        <trans-unit id="b00e6a23-d686-48b8-bbf4-009ec7dad536" xml:space="preserve">
+          <source>./media/custom-dns-web-site/dncmntask-cname-3.png</source>
+          <target state="new">./media/custom-dns-web-site/dncmntask-cname-3.png</target>
+        </trans-unit>
+        <trans-unit id="4cc94287-2faf-4c78-9aaf-5a92490948e6" xml:space="preserve">
+          <source>./media/custom-dns-web-site/dncmntask-cname-4.png</source>
+          <target state="new">./media/custom-dns-web-site/dncmntask-cname-4.png</target>
+        </trans-unit>
+        <trans-unit id="2f2f62a2-8e71-4c4d-80cf-85d0b097a5ee" xml:space="preserve">
+          <source>./media/custom-dns-web-site/dncmntask-cname-6.png</source>
+          <target state="new">./media/custom-dns-web-site/dncmntask-cname-6.png</target>
+        </trans-unit>
+        <trans-unit id="c9f00bd5-93cd-4a82-bfb1-eaeeb416d4c5" xml:space="preserve">
+          <source>./media/custom-dns-web-site/dncmntask-cname-7.png</source>
+          <target state="new">./media/custom-dns-web-site/dncmntask-cname-7.png</target>
+        </trans-unit>
+      </group>
+      <group id="a0cb8c47-2514-41b1-be9c-755c45c3b251" />
+    </body>
+  </file>
+</xliff>

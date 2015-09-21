@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="207672aa-0bc7-497f-9c4f-6e36b7337e88" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="207672aa-0bc7-497f-9c4f-6e36b7337e88" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a20a631b-8d2e-49da-a31a-53a6251009c7">
+        <trans-unit id="864745bd-653a-4918-9020-a59d21c718a0" xml:space="preserve">
+          <source>Move data to and from Azure Table | Azure Data Factory</source>
+          <target state="new">Move data to and from Azure Table | Azure Data Factory</target>
+        </trans-unit>
+        <trans-unit id="a9631df8-1646-4320-82bd-f7d51cda6c1a" xml:space="preserve">
+          <source>Learn how to move data to/from Azure Table Storage using Azure Data Factory.</source>
+          <target state="new">Learn how to move data to/from Azure Table Storage using Azure Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="0e73432a-40b8-4bb6-958a-36cddb978454" xml:space="preserve">
+          <source>This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Table from another data store and move data from another data store to Azure Table.</source>
+          <target state="new">This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Table from another data store and move data from another data store to Azure Table.</target>
+        </trans-unit>
+        <trans-unit id="9f6ec821-eddd-40f4-a6e2-609ca193a093" xml:space="preserve">
+          <source>This article builds on the <bpt id="08566c11-4938-4a82-93aa-684af132f31e">&lt;linkText&gt;</bpt>data movement activities<ept id="08566c11-4938-4a82-93aa-684af132f31e">&lt;/linkText&gt;</ept><bpt id="08566c11-4938-4a82-93aa-684af132f31e">&lt;title&gt;</bpt><ept id="08566c11-4938-4a82-93aa-684af132f31e">&lt;/title&gt;</ept> article which presents a general overview of data movement with copy activity and supported data store combinations.</source>
+          <target state="new">This article builds on the <bpt id="08566c11-4938-4a82-93aa-684af132f31e">&lt;linkText&gt;</bpt>data movement activities<ept id="08566c11-4938-4a82-93aa-684af132f31e">&lt;/linkText&gt;</ept><bpt id="08566c11-4938-4a82-93aa-684af132f31e">&lt;title&gt;</bpt><ept id="08566c11-4938-4a82-93aa-684af132f31e">&lt;/title&gt;</ept> article which presents a general overview of data movement with copy activity and supported data store combinations.</target>
+        </trans-unit>
+        <trans-unit id="5c7228e5-474f-423d-918d-4aee65d19f97" xml:space="preserve">
+          <source>The sample below shows:</source>
+          <target state="new">The sample below shows:</target>
+        </trans-unit>
+        <trans-unit id="789e792b-ae06-4151-b2c0-a3c5116487df" xml:space="preserve">
+          <source>A linked service of type <bpt id="50395a61-2ff7-438c-ae75-2739331db91a">&lt;linkText&gt;</bpt>AzureStorage<ept id="50395a61-2ff7-438c-ae75-2739331db91a">&lt;/linkText&gt;</ept><bpt id="50395a61-2ff7-438c-ae75-2739331db91a">&lt;title&gt;</bpt><ept id="50395a61-2ff7-438c-ae75-2739331db91a">&lt;/title&gt;</ept> (used for both table &amp; blob).</source>
+          <target state="new">A linked service of type <bpt id="50395a61-2ff7-438c-ae75-2739331db91a">&lt;linkText&gt;</bpt>AzureStorage<ept id="50395a61-2ff7-438c-ae75-2739331db91a">&lt;/linkText&gt;</ept><bpt id="50395a61-2ff7-438c-ae75-2739331db91a">&lt;title&gt;</bpt><ept id="50395a61-2ff7-438c-ae75-2739331db91a">&lt;/title&gt;</ept> (used for both table &amp; blob).</target>
+        </trans-unit>
+        <trans-unit id="c6972283-fe3f-4e07-b4db-5b41261fbcae" xml:space="preserve">
+          <source>An input <bpt id="ebcc8cbd-372f-41ef-9ed9-2c4b1e21b1ee">&lt;linkText&gt;</bpt>dataset<ept id="ebcc8cbd-372f-41ef-9ed9-2c4b1e21b1ee">&lt;/linkText&gt;</ept><bpt id="ebcc8cbd-372f-41ef-9ed9-2c4b1e21b1ee">&lt;title&gt;</bpt><ept id="ebcc8cbd-372f-41ef-9ed9-2c4b1e21b1ee">&lt;/title&gt;</ept> of type <bpt id="17aee2c4-e7d5-4c0c-845c-68aecdbbfed1">&lt;linkText&gt;</bpt>AzureTable<ept id="17aee2c4-e7d5-4c0c-845c-68aecdbbfed1">&lt;/linkText&gt;</ept><bpt id="17aee2c4-e7d5-4c0c-845c-68aecdbbfed1">&lt;title&gt;</bpt><ept id="17aee2c4-e7d5-4c0c-845c-68aecdbbfed1">&lt;/title&gt;</ept>.</source>
+          <target state="new">An input <bpt id="ebcc8cbd-372f-41ef-9ed9-2c4b1e21b1ee">&lt;linkText&gt;</bpt>dataset<ept id="ebcc8cbd-372f-41ef-9ed9-2c4b1e21b1ee">&lt;/linkText&gt;</ept><bpt id="ebcc8cbd-372f-41ef-9ed9-2c4b1e21b1ee">&lt;title&gt;</bpt><ept id="ebcc8cbd-372f-41ef-9ed9-2c4b1e21b1ee">&lt;/title&gt;</ept> of type <bpt id="17aee2c4-e7d5-4c0c-845c-68aecdbbfed1">&lt;linkText&gt;</bpt>AzureTable<ept id="17aee2c4-e7d5-4c0c-845c-68aecdbbfed1">&lt;/linkText&gt;</ept><bpt id="17aee2c4-e7d5-4c0c-845c-68aecdbbfed1">&lt;title&gt;</bpt><ept id="17aee2c4-e7d5-4c0c-845c-68aecdbbfed1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24d1608d-7e20-4702-ab9e-05c071eee13c" xml:space="preserve">
+          <source>An output <bpt id="d6915b05-d320-4687-ab65-db04fd4a3e6e">&lt;linkText&gt;</bpt>dataset<ept id="d6915b05-d320-4687-ab65-db04fd4a3e6e">&lt;/linkText&gt;</ept><bpt id="d6915b05-d320-4687-ab65-db04fd4a3e6e">&lt;title&gt;</bpt><ept id="d6915b05-d320-4687-ab65-db04fd4a3e6e">&lt;/title&gt;</ept> of type <bpt id="cacd92b7-262a-4378-a0c1-d9a6b99f30d3">&lt;linkText&gt;</bpt>AzureBlob<ept id="cacd92b7-262a-4378-a0c1-d9a6b99f30d3">&lt;/linkText&gt;</ept><bpt id="cacd92b7-262a-4378-a0c1-d9a6b99f30d3">&lt;title&gt;</bpt><ept id="cacd92b7-262a-4378-a0c1-d9a6b99f30d3">&lt;/title&gt;</ept>.</source>
+          <target state="new">An output <bpt id="d6915b05-d320-4687-ab65-db04fd4a3e6e">&lt;linkText&gt;</bpt>dataset<ept id="d6915b05-d320-4687-ab65-db04fd4a3e6e">&lt;/linkText&gt;</ept><bpt id="d6915b05-d320-4687-ab65-db04fd4a3e6e">&lt;title&gt;</bpt><ept id="d6915b05-d320-4687-ab65-db04fd4a3e6e">&lt;/title&gt;</ept> of type <bpt id="cacd92b7-262a-4378-a0c1-d9a6b99f30d3">&lt;linkText&gt;</bpt>AzureBlob<ept id="cacd92b7-262a-4378-a0c1-d9a6b99f30d3">&lt;/linkText&gt;</ept><bpt id="cacd92b7-262a-4378-a0c1-d9a6b99f30d3">&lt;title&gt;</bpt><ept id="cacd92b7-262a-4378-a0c1-d9a6b99f30d3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="543a3802-6e3d-4628-af10-e6df497347e3" xml:space="preserve">
+          <source>The <bpt id="8073de76-dbd5-40fb-adec-5d73eb9c951c">&lt;linkText&gt;</bpt>pipeline<ept id="8073de76-dbd5-40fb-adec-5d73eb9c951c">&lt;/linkText&gt;</ept><bpt id="8073de76-dbd5-40fb-adec-5d73eb9c951c">&lt;title&gt;</bpt><ept id="8073de76-dbd5-40fb-adec-5d73eb9c951c">&lt;/title&gt;</ept> with Copy activity that uses <bpt id="9a1c0172-b857-469f-aa2e-6250ee4837b5">&lt;linkText&gt;</bpt>AzureTableSource<ept id="9a1c0172-b857-469f-aa2e-6250ee4837b5">&lt;/linkText&gt;</ept><bpt id="9a1c0172-b857-469f-aa2e-6250ee4837b5">&lt;title&gt;</bpt><ept id="9a1c0172-b857-469f-aa2e-6250ee4837b5">&lt;/title&gt;</ept> and <bpt id="a890fcdc-4ef6-450c-aff8-a60e925468c3">&lt;linkText&gt;</bpt>BlobSink<ept id="a890fcdc-4ef6-450c-aff8-a60e925468c3">&lt;/linkText&gt;</ept><bpt id="a890fcdc-4ef6-450c-aff8-a60e925468c3">&lt;title&gt;</bpt><ept id="a890fcdc-4ef6-450c-aff8-a60e925468c3">&lt;/title&gt;</ept>.</source>
+          <target state="new">The <bpt id="8073de76-dbd5-40fb-adec-5d73eb9c951c">&lt;linkText&gt;</bpt>pipeline<ept id="8073de76-dbd5-40fb-adec-5d73eb9c951c">&lt;/linkText&gt;</ept><bpt id="8073de76-dbd5-40fb-adec-5d73eb9c951c">&lt;title&gt;</bpt><ept id="8073de76-dbd5-40fb-adec-5d73eb9c951c">&lt;/title&gt;</ept> with Copy activity that uses <bpt id="9a1c0172-b857-469f-aa2e-6250ee4837b5">&lt;linkText&gt;</bpt>AzureTableSource<ept id="9a1c0172-b857-469f-aa2e-6250ee4837b5">&lt;/linkText&gt;</ept><bpt id="9a1c0172-b857-469f-aa2e-6250ee4837b5">&lt;title&gt;</bpt><ept id="9a1c0172-b857-469f-aa2e-6250ee4837b5">&lt;/title&gt;</ept> and <bpt id="a890fcdc-4ef6-450c-aff8-a60e925468c3">&lt;linkText&gt;</bpt>BlobSink<ept id="a890fcdc-4ef6-450c-aff8-a60e925468c3">&lt;/linkText&gt;</ept><bpt id="a890fcdc-4ef6-450c-aff8-a60e925468c3">&lt;title&gt;</bpt><ept id="a890fcdc-4ef6-450c-aff8-a60e925468c3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db768c5d-5b43-41be-8c30-943c7d57536e" xml:space="preserve">
+          <source>The sample copies data belonging to the default partition in an Azure Table to a blob every hour.</source>
+          <target state="new">The sample copies data belonging to the default partition in an Azure Table to a blob every hour.</target>
+        </trans-unit>
+        <trans-unit id="fa5af605-3460-4d77-bed9-a03a8d58e065" xml:space="preserve">
+          <source>The JSON properties used in these samples are described in sections following the samples.</source>
+          <target state="new">The JSON properties used in these samples are described in sections following the samples.</target>
+        </trans-unit>
+        <trans-unit id="cd5e4bf0-e8a6-4e9c-9e31-a8f7925c40f0" xml:space="preserve">
+          <source><bpt id="7ef61ee3-33ef-4ce8-9827-390f8936b592">&lt;strong&gt;</bpt>Azure storage linked service:<ept id="7ef61ee3-33ef-4ce8-9827-390f8936b592">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7ef61ee3-33ef-4ce8-9827-390f8936b592">&lt;strong&gt;</bpt>Azure storage linked service:<ept id="7ef61ee3-33ef-4ce8-9827-390f8936b592">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da5c1d09-4d19-498a-becc-3fec4c6b9e2d" xml:space="preserve">
+          <source><bpt id="cf9b0ebb-42ca-4fb8-87f0-2ffccd28b96c">&lt;strong&gt;</bpt>Azure Table input dataset:<ept id="cf9b0ebb-42ca-4fb8-87f0-2ffccd28b96c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cf9b0ebb-42ca-4fb8-87f0-2ffccd28b96c">&lt;strong&gt;</bpt>Azure Table input dataset:<ept id="cf9b0ebb-42ca-4fb8-87f0-2ffccd28b96c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0bef2cfa-3270-414a-a7d4-b0ec266c6f1c" xml:space="preserve">
+          <source>The sample assumes you have created a table “MyTable” in Azure Table.</source>
+          <target state="new">The sample assumes you have created a table “MyTable” in Azure Table.</target>
+        </trans-unit>
+        <trans-unit id="891f658f-7091-48a6-ac34-f109e94ac389" xml:space="preserve">
+          <source>Setting “external”: ”true” and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.</source>
+          <target state="new">Setting “external”: ”true” and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.</target>
+        </trans-unit>
+        <trans-unit id="600d8906-06c5-499f-92da-a3b7aade8cde" xml:space="preserve">
+          <source><bpt id="56452949-b1e6-4c6b-9dfc-af1918476448">&lt;strong&gt;</bpt>Azure Blob output dataset:<ept id="56452949-b1e6-4c6b-9dfc-af1918476448">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="56452949-b1e6-4c6b-9dfc-af1918476448">&lt;strong&gt;</bpt>Azure Blob output dataset:<ept id="56452949-b1e6-4c6b-9dfc-af1918476448">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="132334ec-4ff1-425f-a962-84013473f49f" xml:space="preserve">
+          <source>Data is written to a new blob every hour (frequency: hour, interval: 1).</source>
+          <target state="new">Data is written to a new blob every hour (frequency: hour, interval: 1).</target>
+        </trans-unit>
+        <trans-unit id="2f208a1a-682f-4bac-a2a9-57f400f8ebe4" xml:space="preserve">
+          <source>The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed.</source>
+          <target state="new">The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed.</target>
+        </trans-unit>
+        <trans-unit id="5e0427ba-f630-457a-8ea2-783d09039548" xml:space="preserve">
+          <source>The folder path uses year, month, day, and hours parts of the start time.</source>
+          <target state="new">The folder path uses year, month, day, and hours parts of the start time.</target>
+        </trans-unit>
+        <trans-unit id="c4854060-6902-4b44-b777-fd79497e297e" xml:space="preserve">
+          <source><bpt id="e2a7c3ca-0e38-4788-92f9-b2f97131498a">&lt;strong&gt;</bpt>Pipeline with the Copy activity:<ept id="e2a7c3ca-0e38-4788-92f9-b2f97131498a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e2a7c3ca-0e38-4788-92f9-b2f97131498a">&lt;strong&gt;</bpt>Pipeline with the Copy activity:<ept id="e2a7c3ca-0e38-4788-92f9-b2f97131498a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="753b81fb-fdf4-4a3c-ac15-b0b88f5ed82f" xml:space="preserve">
+          <source>The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour.</source>
+          <target state="new">The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour.</target>
+        </trans-unit>
+        <trans-unit id="1c37aa4b-b277-4c9e-8e54-de0ec59546e5" xml:space="preserve">
+          <source>In the pipeline JSON definition, the <bpt id="0454175f-d8aa-42ea-9f29-a3dd5f35e187">&lt;strong&gt;</bpt>source<ept id="0454175f-d8aa-42ea-9f29-a3dd5f35e187">&lt;/strong&gt;</ept> type is set to <bpt id="ea4579c2-0c23-49ac-a991-4e8fdf1db579">&lt;strong&gt;</bpt>AzureTableSource<ept id="ea4579c2-0c23-49ac-a991-4e8fdf1db579">&lt;/strong&gt;</ept> and <bpt id="f649b6e0-2419-48a6-9796-c9b363985296">&lt;strong&gt;</bpt>sink<ept id="f649b6e0-2419-48a6-9796-c9b363985296">&lt;/strong&gt;</ept> type is set to <bpt id="73a16ced-b526-4fb2-b629-7b01493b27bf">&lt;strong&gt;</bpt>BlobSink<ept id="73a16ced-b526-4fb2-b629-7b01493b27bf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the pipeline JSON definition, the <bpt id="0454175f-d8aa-42ea-9f29-a3dd5f35e187">&lt;strong&gt;</bpt>source<ept id="0454175f-d8aa-42ea-9f29-a3dd5f35e187">&lt;/strong&gt;</ept> type is set to <bpt id="ea4579c2-0c23-49ac-a991-4e8fdf1db579">&lt;strong&gt;</bpt>AzureTableSource<ept id="ea4579c2-0c23-49ac-a991-4e8fdf1db579">&lt;/strong&gt;</ept> and <bpt id="f649b6e0-2419-48a6-9796-c9b363985296">&lt;strong&gt;</bpt>sink<ept id="f649b6e0-2419-48a6-9796-c9b363985296">&lt;/strong&gt;</ept> type is set to <bpt id="73a16ced-b526-4fb2-b629-7b01493b27bf">&lt;strong&gt;</bpt>BlobSink<ept id="73a16ced-b526-4fb2-b629-7b01493b27bf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed49ed1f-3cbc-4411-9aa8-35fed19fa49e" xml:space="preserve">
+          <source>The SQL query specified with <bpt id="9d8b297b-2e20-47d5-8f51-72ca1f56199f">&lt;strong&gt;</bpt>AzureTableSourceQuery<ept id="9d8b297b-2e20-47d5-8f51-72ca1f56199f">&lt;/strong&gt;</ept> property selects the data from the default partition every hour to copy.</source>
+          <target state="new">The SQL query specified with <bpt id="9d8b297b-2e20-47d5-8f51-72ca1f56199f">&lt;strong&gt;</bpt>AzureTableSourceQuery<ept id="9d8b297b-2e20-47d5-8f51-72ca1f56199f">&lt;/strong&gt;</ept> property selects the data from the default partition every hour to copy.</target>
+        </trans-unit>
+        <trans-unit id="df3bc6c6-6f4c-43c4-a165-9b29196537b6" xml:space="preserve">
+          <source>The sample below shows:</source>
+          <target state="new">The sample below shows:</target>
+        </trans-unit>
+        <trans-unit id="ed576248-9823-4fff-a8ee-944a3cc2bb7b" xml:space="preserve">
+          <source>A linked service of type <bpt id="dcbf8372-2247-4986-9981-5f3dacf1fb98">&lt;linkText&gt;</bpt>AzureStorage<ept id="dcbf8372-2247-4986-9981-5f3dacf1fb98">&lt;/linkText&gt;</ept><bpt id="dcbf8372-2247-4986-9981-5f3dacf1fb98">&lt;title&gt;</bpt><ept id="dcbf8372-2247-4986-9981-5f3dacf1fb98">&lt;/title&gt;</ept> (used for both table &amp; blob)</source>
+          <target state="new">A linked service of type <bpt id="dcbf8372-2247-4986-9981-5f3dacf1fb98">&lt;linkText&gt;</bpt>AzureStorage<ept id="dcbf8372-2247-4986-9981-5f3dacf1fb98">&lt;/linkText&gt;</ept><bpt id="dcbf8372-2247-4986-9981-5f3dacf1fb98">&lt;title&gt;</bpt><ept id="dcbf8372-2247-4986-9981-5f3dacf1fb98">&lt;/title&gt;</ept> (used for both table &amp; blob)</target>
+        </trans-unit>
+        <trans-unit id="5ff373b4-d810-45f7-9e26-78007b8b9f64" xml:space="preserve">
+          <source>An input <bpt id="31bd7ee0-e011-4cef-9bde-7fee906cfecd">&lt;linkText&gt;</bpt>dataset<ept id="31bd7ee0-e011-4cef-9bde-7fee906cfecd">&lt;/linkText&gt;</ept><bpt id="31bd7ee0-e011-4cef-9bde-7fee906cfecd">&lt;title&gt;</bpt><ept id="31bd7ee0-e011-4cef-9bde-7fee906cfecd">&lt;/title&gt;</ept> of type <bpt id="9c38a8d0-192f-4a02-8e03-542114fc3911">&lt;linkText&gt;</bpt>AzureBlob<ept id="9c38a8d0-192f-4a02-8e03-542114fc3911">&lt;/linkText&gt;</ept><bpt id="9c38a8d0-192f-4a02-8e03-542114fc3911">&lt;title&gt;</bpt><ept id="9c38a8d0-192f-4a02-8e03-542114fc3911">&lt;/title&gt;</ept>.</source>
+          <target state="new">An input <bpt id="31bd7ee0-e011-4cef-9bde-7fee906cfecd">&lt;linkText&gt;</bpt>dataset<ept id="31bd7ee0-e011-4cef-9bde-7fee906cfecd">&lt;/linkText&gt;</ept><bpt id="31bd7ee0-e011-4cef-9bde-7fee906cfecd">&lt;title&gt;</bpt><ept id="31bd7ee0-e011-4cef-9bde-7fee906cfecd">&lt;/title&gt;</ept> of type <bpt id="9c38a8d0-192f-4a02-8e03-542114fc3911">&lt;linkText&gt;</bpt>AzureBlob<ept id="9c38a8d0-192f-4a02-8e03-542114fc3911">&lt;/linkText&gt;</ept><bpt id="9c38a8d0-192f-4a02-8e03-542114fc3911">&lt;title&gt;</bpt><ept id="9c38a8d0-192f-4a02-8e03-542114fc3911">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8379ef7-1fb8-4511-a64f-1d066a70cdb0" xml:space="preserve">
+          <source>An output <bpt id="faf8a3f4-ef79-41bd-958f-5e2ccd986048">&lt;linkText&gt;</bpt>dataset<ept id="faf8a3f4-ef79-41bd-958f-5e2ccd986048">&lt;/linkText&gt;</ept><bpt id="faf8a3f4-ef79-41bd-958f-5e2ccd986048">&lt;title&gt;</bpt><ept id="faf8a3f4-ef79-41bd-958f-5e2ccd986048">&lt;/title&gt;</ept> of type <bpt id="aa17efe8-7afa-4e32-aea4-c555961d8627">&lt;linkText&gt;</bpt>AzureTable<ept id="aa17efe8-7afa-4e32-aea4-c555961d8627">&lt;/linkText&gt;</ept><bpt id="aa17efe8-7afa-4e32-aea4-c555961d8627">&lt;title&gt;</bpt><ept id="aa17efe8-7afa-4e32-aea4-c555961d8627">&lt;/title&gt;</ept>.</source>
+          <target state="new">An output <bpt id="faf8a3f4-ef79-41bd-958f-5e2ccd986048">&lt;linkText&gt;</bpt>dataset<ept id="faf8a3f4-ef79-41bd-958f-5e2ccd986048">&lt;/linkText&gt;</ept><bpt id="faf8a3f4-ef79-41bd-958f-5e2ccd986048">&lt;title&gt;</bpt><ept id="faf8a3f4-ef79-41bd-958f-5e2ccd986048">&lt;/title&gt;</ept> of type <bpt id="aa17efe8-7afa-4e32-aea4-c555961d8627">&lt;linkText&gt;</bpt>AzureTable<ept id="aa17efe8-7afa-4e32-aea4-c555961d8627">&lt;/linkText&gt;</ept><bpt id="aa17efe8-7afa-4e32-aea4-c555961d8627">&lt;title&gt;</bpt><ept id="aa17efe8-7afa-4e32-aea4-c555961d8627">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8ce5d2f-d3f9-4cf6-9cfb-88ab312f33c4" xml:space="preserve">
+          <source>The <bpt id="a1e8ea4b-4492-472a-99ad-a9a15762f118">&lt;linkText&gt;</bpt>pipeline<ept id="a1e8ea4b-4492-472a-99ad-a9a15762f118">&lt;/linkText&gt;</ept><bpt id="a1e8ea4b-4492-472a-99ad-a9a15762f118">&lt;title&gt;</bpt><ept id="a1e8ea4b-4492-472a-99ad-a9a15762f118">&lt;/title&gt;</ept> with Copy activity that uses <bpt id="4b455db1-5d08-4e9a-9706-8045b5f4ff70">&lt;linkText&gt;</bpt>BlobSource<ept id="4b455db1-5d08-4e9a-9706-8045b5f4ff70">&lt;/linkText&gt;</ept><bpt id="4b455db1-5d08-4e9a-9706-8045b5f4ff70">&lt;title&gt;</bpt><ept id="4b455db1-5d08-4e9a-9706-8045b5f4ff70">&lt;/title&gt;</ept> and <bpt id="15daaf23-7855-4d76-b490-db6fb5f63c54">&lt;linkText&gt;</bpt>AzureTableSink<ept id="15daaf23-7855-4d76-b490-db6fb5f63c54">&lt;/linkText&gt;</ept><bpt id="15daaf23-7855-4d76-b490-db6fb5f63c54">&lt;title&gt;</bpt><ept id="15daaf23-7855-4d76-b490-db6fb5f63c54">&lt;/title&gt;</ept>.</source>
+          <target state="new">The <bpt id="a1e8ea4b-4492-472a-99ad-a9a15762f118">&lt;linkText&gt;</bpt>pipeline<ept id="a1e8ea4b-4492-472a-99ad-a9a15762f118">&lt;/linkText&gt;</ept><bpt id="a1e8ea4b-4492-472a-99ad-a9a15762f118">&lt;title&gt;</bpt><ept id="a1e8ea4b-4492-472a-99ad-a9a15762f118">&lt;/title&gt;</ept> with Copy activity that uses <bpt id="4b455db1-5d08-4e9a-9706-8045b5f4ff70">&lt;linkText&gt;</bpt>BlobSource<ept id="4b455db1-5d08-4e9a-9706-8045b5f4ff70">&lt;/linkText&gt;</ept><bpt id="4b455db1-5d08-4e9a-9706-8045b5f4ff70">&lt;title&gt;</bpt><ept id="4b455db1-5d08-4e9a-9706-8045b5f4ff70">&lt;/title&gt;</ept> and <bpt id="15daaf23-7855-4d76-b490-db6fb5f63c54">&lt;linkText&gt;</bpt>AzureTableSink<ept id="15daaf23-7855-4d76-b490-db6fb5f63c54">&lt;/linkText&gt;</ept><bpt id="15daaf23-7855-4d76-b490-db6fb5f63c54">&lt;title&gt;</bpt><ept id="15daaf23-7855-4d76-b490-db6fb5f63c54">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7cea148-8b4e-4230-ae06-2c7615df06af" xml:space="preserve">
+          <source>The sample copies data belonging to a time series from Azure blob to a table in Azure Table database every hour.</source>
+          <target state="new">The sample copies data belonging to a time series from Azure blob to a table in Azure Table database every hour.</target>
+        </trans-unit>
+        <trans-unit id="d75d72e3-c56c-434e-a979-d922ec1b45e1" xml:space="preserve">
+          <source>The JSON properties used in these samples are described in sections following the samples.</source>
+          <target state="new">The JSON properties used in these samples are described in sections following the samples.</target>
+        </trans-unit>
+        <trans-unit id="05e31881-0bd8-413f-bbeb-f833b0961430" xml:space="preserve">
+          <source><bpt id="0d092d70-7645-4bd3-bf36-878f8475032a">&lt;strong&gt;</bpt>Azure storage (for both Azure Table &amp; Blob) linked service:<ept id="0d092d70-7645-4bd3-bf36-878f8475032a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0d092d70-7645-4bd3-bf36-878f8475032a">&lt;strong&gt;</bpt>Azure storage (for both Azure Table &amp; Blob) linked service:<ept id="0d092d70-7645-4bd3-bf36-878f8475032a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe423118-3a64-4648-8b93-8f1db42f656a" xml:space="preserve">
+          <source><bpt id="deb476a3-3c3b-490b-a2ad-e0709ee5bac7">&lt;strong&gt;</bpt>Azure Blob input dataset:<ept id="deb476a3-3c3b-490b-a2ad-e0709ee5bac7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="deb476a3-3c3b-490b-a2ad-e0709ee5bac7">&lt;strong&gt;</bpt>Azure Blob input dataset:<ept id="deb476a3-3c3b-490b-a2ad-e0709ee5bac7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63ae9a7b-8a05-46fb-9db0-fe97d20ac01d" xml:space="preserve">
+          <source>Data is picked up from a new blob every hour (frequency: hour, interval: 1).</source>
+          <target state="new">Data is picked up from a new blob every hour (frequency: hour, interval: 1).</target>
+        </trans-unit>
+        <trans-unit id="f4a37e14-374b-4e44-b84f-89a102b6fd0c" xml:space="preserve">
+          <source>The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed.</source>
+          <target state="new">The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed.</target>
+        </trans-unit>
+        <trans-unit id="70b4ca31-1856-4427-8a87-4ca3cc3ebe1c" xml:space="preserve">
+          <source>The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time.</source>
+          <target state="new">The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time.</target>
+        </trans-unit>
+        <trans-unit id="278a4cac-a2a0-45c1-b380-20e907058294" xml:space="preserve">
+          <source>“external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.</source>
+          <target state="new">“external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.</target>
+        </trans-unit>
+        <trans-unit id="3c29e197-63a4-444d-b9cc-6babcb348c42" xml:space="preserve">
+          <source><bpt id="a1bf9fc8-ccda-4a03-bd40-56b632ce8a7d">&lt;strong&gt;</bpt>Azure Table output dataset:<ept id="a1bf9fc8-ccda-4a03-bd40-56b632ce8a7d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a1bf9fc8-ccda-4a03-bd40-56b632ce8a7d">&lt;strong&gt;</bpt>Azure Table output dataset:<ept id="a1bf9fc8-ccda-4a03-bd40-56b632ce8a7d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff530dce-2ce5-485b-8ca2-97451735ad73" xml:space="preserve">
+          <source>The sample copies data to a table named “MyTable” in Azure Table.</source>
+          <target state="new">The sample copies data to a table named “MyTable” in Azure Table.</target>
+        </trans-unit>
+        <trans-unit id="b2fefd91-7a08-4632-9d64-e4c6ef7947ef" xml:space="preserve">
+          <source>You should create the table in Azure Table with the same number of columns as you expect the Blob CSV file to contain.</source>
+          <target state="new">You should create the table in Azure Table with the same number of columns as you expect the Blob CSV file to contain.</target>
+        </trans-unit>
+        <trans-unit id="2e2a8587-98ca-42c1-a2ac-2e8465a4ba48" xml:space="preserve">
+          <source>New rows are added to the table every hour.</source>
+          <target state="new">New rows are added to the table every hour.</target>
+        </trans-unit>
+        <trans-unit id="9d354a18-cde3-4894-8479-a1b371349963" xml:space="preserve">
+          <source><bpt id="a32cf7eb-df3c-4879-9452-fc769e6a5fa6">&lt;strong&gt;</bpt>Pipeline with the Copy activity:<ept id="a32cf7eb-df3c-4879-9452-fc769e6a5fa6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a32cf7eb-df3c-4879-9452-fc769e6a5fa6">&lt;strong&gt;</bpt>Pipeline with the Copy activity:<ept id="a32cf7eb-df3c-4879-9452-fc769e6a5fa6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="191633f8-1465-4fe1-a08b-8a68129658d4" xml:space="preserve">
+          <source>The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour.</source>
+          <target state="new">The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour.</target>
+        </trans-unit>
+        <trans-unit id="b519f1ca-62d7-4d4a-89ca-68d885b18fae" xml:space="preserve">
+          <source>In the pipeline JSON definition, the <bpt id="2531fda4-4d1b-4f5c-99c6-397f946c85a8">&lt;strong&gt;</bpt>source<ept id="2531fda4-4d1b-4f5c-99c6-397f946c85a8">&lt;/strong&gt;</ept> type is set to <bpt id="39425156-ca60-46a3-bc9d-e8d7db5d559c">&lt;strong&gt;</bpt>BlobSource<ept id="39425156-ca60-46a3-bc9d-e8d7db5d559c">&lt;/strong&gt;</ept> and <bpt id="a5d0877b-f381-4a1d-81ce-910b19cb7b46">&lt;strong&gt;</bpt>sink<ept id="a5d0877b-f381-4a1d-81ce-910b19cb7b46">&lt;/strong&gt;</ept> type is set to <bpt id="f74342ba-55b7-41fd-8667-422d776d1ad3">&lt;strong&gt;</bpt>AzureTableSink<ept id="f74342ba-55b7-41fd-8667-422d776d1ad3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the pipeline JSON definition, the <bpt id="2531fda4-4d1b-4f5c-99c6-397f946c85a8">&lt;strong&gt;</bpt>source<ept id="2531fda4-4d1b-4f5c-99c6-397f946c85a8">&lt;/strong&gt;</ept> type is set to <bpt id="39425156-ca60-46a3-bc9d-e8d7db5d559c">&lt;strong&gt;</bpt>BlobSource<ept id="39425156-ca60-46a3-bc9d-e8d7db5d559c">&lt;/strong&gt;</ept> and <bpt id="a5d0877b-f381-4a1d-81ce-910b19cb7b46">&lt;strong&gt;</bpt>sink<ept id="a5d0877b-f381-4a1d-81ce-910b19cb7b46">&lt;/strong&gt;</ept> type is set to <bpt id="f74342ba-55b7-41fd-8667-422d776d1ad3">&lt;strong&gt;</bpt>AzureTableSink<ept id="f74342ba-55b7-41fd-8667-422d776d1ad3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25c9ee2b-dce1-4afa-a773-1f1ae31110f3" xml:space="preserve">
+          <source>You can link an Azure storage account to an Azure data factory with Azure Storage linked service.</source>
+          <target state="new">You can link an Azure storage account to an Azure data factory with Azure Storage linked service.</target>
+        </trans-unit>
+        <trans-unit id="d3d9ec55-47d2-43ed-a1e4-b6e40083c32a" xml:space="preserve">
+          <source>The following table provides descriptions for JSON elements specific to Azure Storage linked service.</source>
+          <target state="new">The following table provides descriptions for JSON elements specific to Azure Storage linked service.</target>
+        </trans-unit>
+        <trans-unit id="e58ff1ed-2243-49bc-a5d6-1b66d1a9ffb2" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="31c72939-ed7e-42f1-a0fb-7eebabf92a41" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="4232bc9b-254c-4829-b47f-643c529ab6e0" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="eeb35185-3283-48c0-9261-c1e3d55aef39" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="4a971430-9ca0-4df9-9354-6a7cdb90cb6a" xml:space="preserve">
+          <source>The type property must be set to: AzureStorage</source>
+          <target state="new">The type property must be set to: AzureStorage</target>
+        </trans-unit>
+        <trans-unit id="bb304200-edcf-4b75-a202-bea8ced6eaae" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="8cf7d6bc-c457-4fdf-8ce6-eb0971752215" xml:space="preserve">
+          <source>connectionString</source>
+          <target state="new">connectionString</target>
+        </trans-unit>
+        <trans-unit id="58ebcd68-c1c6-48ba-a77a-09227d436dc3" xml:space="preserve">
+          <source>Specify information needed to connect to Azure storage for the connectionString property.</source>
+          <target state="new">Specify information needed to connect to Azure storage for the connectionString property.</target>
+        </trans-unit>
+        <trans-unit id="2d898702-076d-480c-a8ca-2ef6f824bf03" xml:space="preserve">
+          <source>You can get the connectionString for the Azure storage from the Azure Portal.</source>
+          <target state="new">You can get the connectionString for the Azure storage from the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="1d8b5f05-6ac1-4790-bdfc-c2f2c68c27c3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="7bcd6083-656e-43af-a2bf-1637b3198670" xml:space="preserve">
+          <source>For a full list of sections &amp; properties available for defining datasets, see the <bpt id="15642f9e-d02e-45e6-9ad6-d5172a759cb8">&lt;linkText&gt;</bpt>Creating datasets<ept id="15642f9e-d02e-45e6-9ad6-d5172a759cb8">&lt;/linkText&gt;</ept><bpt id="15642f9e-d02e-45e6-9ad6-d5172a759cb8">&lt;title&gt;</bpt><ept id="15642f9e-d02e-45e6-9ad6-d5172a759cb8">&lt;/title&gt;</ept> article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).  </source>
+          <target state="new">For a full list of sections &amp; properties available for defining datasets, see the <bpt id="15642f9e-d02e-45e6-9ad6-d5172a759cb8">&lt;linkText&gt;</bpt>Creating datasets<ept id="15642f9e-d02e-45e6-9ad6-d5172a759cb8">&lt;/linkText&gt;</ept><bpt id="15642f9e-d02e-45e6-9ad6-d5172a759cb8">&lt;title&gt;</bpt><ept id="15642f9e-d02e-45e6-9ad6-d5172a759cb8">&lt;/title&gt;</ept> article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).  </target>
+        </trans-unit>
+        <trans-unit id="c3596aaa-de61-4f47-b8a5-71fe2c686855" xml:space="preserve">
+          <source>The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store.</source>
+          <target state="new">The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store.</target>
+        </trans-unit>
+        <trans-unit id="b4f56b24-6a8b-4286-ae0e-bef71a6a2e98" xml:space="preserve">
+          <source>The <bpt id="dedbdd7d-e2c7-424c-bb07-97b6322b6163">&lt;strong&gt;</bpt>typeProperties<ept id="dedbdd7d-e2c7-424c-bb07-97b6322b6163">&lt;/strong&gt;</ept> section for the dataset of type <bpt id="c1220d73-5582-4f82-b127-4b3e32e8b74c">&lt;strong&gt;</bpt>AzureTable<ept id="c1220d73-5582-4f82-b127-4b3e32e8b74c">&lt;/strong&gt;</ept> has the following properties.</source>
+          <target state="new">The <bpt id="dedbdd7d-e2c7-424c-bb07-97b6322b6163">&lt;strong&gt;</bpt>typeProperties<ept id="dedbdd7d-e2c7-424c-bb07-97b6322b6163">&lt;/strong&gt;</ept> section for the dataset of type <bpt id="c1220d73-5582-4f82-b127-4b3e32e8b74c">&lt;strong&gt;</bpt>AzureTable<ept id="c1220d73-5582-4f82-b127-4b3e32e8b74c">&lt;/strong&gt;</ept> has the following properties.</target>
+        </trans-unit>
+        <trans-unit id="c77dba26-5966-4a35-88ee-154fe9848a21" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="17f0e3a5-7be7-49fe-923f-168caa3500fe" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="1f43fb4c-2ff9-4299-ae0c-8de362e13042" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="aeaf8f2e-095f-4f59-bb4d-c34d395bcc20" xml:space="preserve">
+          <source>tableName</source>
+          <target state="new">tableName</target>
+        </trans-unit>
+        <trans-unit id="5ac1831c-4c76-4603-915e-80b92ef8447f" xml:space="preserve">
+          <source>Name of the table in the Azure Table Database instance that linked service refers to.</source>
+          <target state="new">Name of the table in the Azure Table Database instance that linked service refers to.</target>
+        </trans-unit>
+        <trans-unit id="f91b8fa2-4eee-4188-b390-89d8a96760da" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="6685d960-b8ac-4353-a023-1ba8137018c7" xml:space="preserve">
+          <source>For a full list of sections &amp; properties available for defining activities, see the <bpt id="24181084-4665-4928-ac1b-16de6b9057ba">&lt;linkText&gt;</bpt>Creating Pipelines<ept id="24181084-4665-4928-ac1b-16de6b9057ba">&lt;/linkText&gt;</ept><bpt id="24181084-4665-4928-ac1b-16de6b9057ba">&lt;title&gt;</bpt><ept id="24181084-4665-4928-ac1b-16de6b9057ba">&lt;/title&gt;</ept> article. Properties like name, description, input and output tables, various policies etc are available for all types of activities. </source>
+          <target state="new">For a full list of sections &amp; properties available for defining activities, see the <bpt id="24181084-4665-4928-ac1b-16de6b9057ba">&lt;linkText&gt;</bpt>Creating Pipelines<ept id="24181084-4665-4928-ac1b-16de6b9057ba">&lt;/linkText&gt;</ept><bpt id="24181084-4665-4928-ac1b-16de6b9057ba">&lt;title&gt;</bpt><ept id="24181084-4665-4928-ac1b-16de6b9057ba">&lt;/title&gt;</ept> article. Properties like name, description, input and output tables, various policies etc are available for all types of activities. </target>
+        </trans-unit>
+        <trans-unit id="f2c9731f-adcb-4cf8-93cc-55b0dd4aee93" xml:space="preserve">
+          <source>Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.</source>
+          <target state="new">Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.</target>
+        </trans-unit>
+        <trans-unit id="a28daf4b-e345-43eb-bee4-56707576f7aa" xml:space="preserve">
+          <source><bpt id="871b1754-5709-4bfc-81be-027f0e6f5144">&lt;strong&gt;</bpt>AzureTableSource<ept id="871b1754-5709-4bfc-81be-027f0e6f5144">&lt;/strong&gt;</ept> supports the following properties in typeProperties section:</source>
+          <target state="new"><bpt id="871b1754-5709-4bfc-81be-027f0e6f5144">&lt;strong&gt;</bpt>AzureTableSource<ept id="871b1754-5709-4bfc-81be-027f0e6f5144">&lt;/strong&gt;</ept> supports the following properties in typeProperties section:</target>
+        </trans-unit>
+        <trans-unit id="7e368f6d-ae01-452c-a378-54d2838045cd" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="cc404b2a-8e02-41c1-913a-127f7fbaef44" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="828cc562-1cbb-4a9b-b82d-72b17430d6f9" xml:space="preserve">
+          <source>Allowed values</source>
+          <target state="new">Allowed values</target>
+        </trans-unit>
+        <trans-unit id="13f0dde6-6666-48ac-947b-f7477719085d" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="5f19a950-6bcc-459e-a87a-1b96f92ee15c" xml:space="preserve">
+          <source>azureTableSourceQuery</source>
+          <target state="new">azureTableSourceQuery</target>
+        </trans-unit>
+        <trans-unit id="d6c43769-500d-4a73-b354-c535c5092098" xml:space="preserve">
+          <source>Use the custom query to read data.</source>
+          <target state="new">Use the custom query to read data.</target>
+        </trans-unit>
+        <trans-unit id="5b5167e2-a30a-459f-9125-8536a0419458" xml:space="preserve">
+          <source>Azure table query string.</source>
+          <target state="new">Azure table query string.</target>
+        </trans-unit>
+        <trans-unit id="d897e523-f176-48f6-9d74-db2c5455ee69" xml:space="preserve">
+          <source>Sample: <bpt id="0642bb4f-6e3f-4653-8927-00664c6ab255">&lt;strong&gt;</bpt>ColumnA eq ValueA<ept id="0642bb4f-6e3f-4653-8927-00664c6ab255">&lt;/strong&gt;</ept></source>
+          <target state="new">Sample: <bpt id="0642bb4f-6e3f-4653-8927-00664c6ab255">&lt;strong&gt;</bpt>ColumnA eq ValueA<ept id="0642bb4f-6e3f-4653-8927-00664c6ab255">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="955b217f-d83a-4a53-bfa6-209eafea44a1" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="23e52e8c-3286-4bf8-90c5-88fd0af7aaac" xml:space="preserve">
+          <source>azureTableSourceIgnoreTableNotFound</source>
+          <target state="new">azureTableSourceIgnoreTableNotFound</target>
+        </trans-unit>
+        <trans-unit id="8e112b5e-fbf6-43c0-8852-f8a8c3ae83d6" xml:space="preserve">
+          <source>Indicate whether swallow the exception of table not exist.</source>
+          <target state="new">Indicate whether swallow the exception of table not exist.</target>
+        </trans-unit>
+        <trans-unit id="ed7a9ff1-51fa-495d-ba2a-683c8351aa12" xml:space="preserve">
+          <source>TRUE&lt;br/&gt;FALSE</source>
+          <target state="new">TRUE&lt;br/&gt;FALSE</target>
+        </trans-unit>
+        <trans-unit id="79caeda6-c5ca-4bbb-8718-ebf597474408" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="0904c73e-4811-4cd4-adc5-ff03eaa1a4c8" xml:space="preserve">
+          <source><bpt id="21e506f7-d224-493a-ab3e-8017a43dc1f8">&lt;strong&gt;</bpt>AzureTableSink<ept id="21e506f7-d224-493a-ab3e-8017a43dc1f8">&lt;/strong&gt;</ept> supports the following properties in typeProperties section:</source>
+          <target state="new"><bpt id="21e506f7-d224-493a-ab3e-8017a43dc1f8">&lt;strong&gt;</bpt>AzureTableSink<ept id="21e506f7-d224-493a-ab3e-8017a43dc1f8">&lt;/strong&gt;</ept> supports the following properties in typeProperties section:</target>
+        </trans-unit>
+        <trans-unit id="7572c29a-9dfb-4b52-a299-925442e3d7e3" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="d68b430b-9443-4157-b5c9-3f10a4968e41" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="dde891f9-a3ae-40f9-8084-7b9f68cd072b" xml:space="preserve">
+          <source>Allowed values</source>
+          <target state="new">Allowed values</target>
+        </trans-unit>
+        <trans-unit id="30e4f953-4b5b-4048-b88d-e4888bb04356" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="98dce6c4-28ae-4ea5-b105-0746dbdc6915" xml:space="preserve">
+          <source>azureTableDefaultPartitionKeyValue</source>
+          <target state="new">azureTableDefaultPartitionKeyValue</target>
+        </trans-unit>
+        <trans-unit id="dce15a95-6b31-4248-b3f6-4e03f6f2ab24" xml:space="preserve">
+          <source>Default partition key value that can be used by the sink.</source>
+          <target state="new">Default partition key value that can be used by the sink.</target>
+        </trans-unit>
+        <trans-unit id="b21d1edc-1b31-4d25-94c2-01dc69f9cb50" xml:space="preserve">
+          <source>A string value.</source>
+          <target state="new">A string value.</target>
+        </trans-unit>
+        <trans-unit id="677ebd64-6348-4fd8-a081-a5c630e8033e" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="14510fa6-e96b-413e-9e30-466e629579e7" xml:space="preserve">
+          <source>azureTablePartitionKeyName</source>
+          <target state="new">azureTablePartitionKeyName</target>
+        </trans-unit>
+        <trans-unit id="08e57987-bae2-4cdc-aa50-da79f3418dda" xml:space="preserve">
+          <source>User specified column name, whose column values are used as partition key.</source>
+          <target state="new">User specified column name, whose column values are used as partition key.</target>
+        </trans-unit>
+        <trans-unit id="e9216303-c706-4397-89f4-376d3b4b76e5" xml:space="preserve">
+          <source>If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key.</source>
+          <target state="new">If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key.</target>
+        </trans-unit>
+        <trans-unit id="146bbc52-ee17-424f-8b72-04daa21fe7f4" xml:space="preserve">
+          <source>A column name.</source>
+          <target state="new">A column name.</target>
+        </trans-unit>
+        <trans-unit id="00cd70e6-3fb1-4226-a383-2687ec074dc3" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="ada75c8b-c775-4b1c-8198-dce0bef97602" xml:space="preserve">
+          <source>azureTableRowKeyName</source>
+          <target state="new">azureTableRowKeyName</target>
+        </trans-unit>
+        <trans-unit id="d9509108-08be-4257-9084-95033f21ca9a" xml:space="preserve">
+          <source>User specified column name, whose column values are used as row key.</source>
+          <target state="new">User specified column name, whose column values are used as row key.</target>
+        </trans-unit>
+        <trans-unit id="3eee9141-c44f-4427-9944-1b4ebb981914" xml:space="preserve">
+          <source>If not specified, use a GUID for each row.</source>
+          <target state="new">If not specified, use a GUID for each row.</target>
+        </trans-unit>
+        <trans-unit id="2c37088d-eeeb-43c2-bac9-d829d031a84f" xml:space="preserve">
+          <source>A column name.</source>
+          <target state="new">A column name.</target>
+        </trans-unit>
+        <trans-unit id="36d746a3-de81-43bf-92af-d77856691517" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="4321641b-d7cb-4bda-a192-a32dae07d53d" xml:space="preserve">
+          <source>azureTableInsertType</source>
+          <target state="new">azureTableInsertType</target>
+        </trans-unit>
+        <trans-unit id="fea7473d-6bb7-4c10-8ab1-4dd7c232cc5a" xml:space="preserve">
+          <source>The mode to insert data into Azure table.</source>
+          <target state="new">The mode to insert data into Azure table.</target>
+        </trans-unit>
+        <trans-unit id="f8dce3e7-1d1d-4776-a43e-110314a9de99" xml:space="preserve">
+          <source>merge&lt;br/&gt;replace</source>
+          <target state="new">merge&lt;br/&gt;replace</target>
+        </trans-unit>
+        <trans-unit id="9a1aff99-3597-4ebd-9988-9e024b0dd644" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="fd8c13c5-313c-46dd-98dc-b7eea0bf4139" xml:space="preserve">
+          <source>writeBatchSize</source>
+          <target state="new">writeBatchSize</target>
+        </trans-unit>
+        <trans-unit id="8ec695de-783f-47aa-958f-4c53e32de604" xml:space="preserve">
+          <source>Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit.</source>
+          <target state="new">Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit.</target>
+        </trans-unit>
+        <trans-unit id="7f7cc5b1-d4c0-42e2-8eb5-32a5c2e03607" xml:space="preserve">
+          <source>Integer from 1 to 100 (unit = Row Count)</source>
+          <target state="new">Integer from 1 to 100 (unit = Row Count)</target>
+        </trans-unit>
+        <trans-unit id="59cc2c89-2a50-46ba-b18a-a714dd97aceb" xml:space="preserve">
+          <source>No (Default = 100)</source>
+          <target state="new">No (Default = 100)</target>
+        </trans-unit>
+        <trans-unit id="dc85c205-74d2-45b2-958c-9566b4050eec" xml:space="preserve">
+          <source>writeBatchTimeout</source>
+          <target state="new">writeBatchTimeout</target>
+        </trans-unit>
+        <trans-unit id="b4ec28ae-024d-41fc-a860-c7af95c6aa6c" xml:space="preserve">
+          <source>Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit</source>
+          <target state="new">Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit</target>
+        </trans-unit>
+        <trans-unit id="8175d35d-2aac-472c-821c-018fc4f3f0eb" xml:space="preserve">
+          <source>(Unit = timespan)Sample: “00:20:00” (20 minutes)</source>
+          <target state="new">(Unit = timespan)Sample: “00:20:00” (20 minutes)</target>
+        </trans-unit>
+        <trans-unit id="cb833f36-b841-4b08-9427-3b66ff7a2742" xml:space="preserve">
+          <source>No (Default to storage client default timeout value 90 sec)</source>
+          <target state="new">No (Default to storage client default timeout value 90 sec)</target>
+        </trans-unit>
+        <trans-unit id="1adc466d-e055-472c-930f-da0db35a14ef" xml:space="preserve">
+          <source><bpt id="00118be9-4ae1-4e12-afc8-920501d800b6">&lt;token href="../../includes/data-factory-structure-for-rectangualr-datasets.md"&gt;</bpt><ept id="00118be9-4ae1-4e12-afc8-920501d800b6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="00118be9-4ae1-4e12-afc8-920501d800b6">&lt;token href="../../includes/data-factory-structure-for-rectangualr-datasets.md"&gt;</bpt><ept id="00118be9-4ae1-4e12-afc8-920501d800b6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0b417be-fa53-44d6-a933-0e18aace0df7" xml:space="preserve">
+          <source>As mentioned in the <bpt id="ed980210-a1dd-47fa-92c2-d94c46146dde">&lt;linkText&gt;</bpt>data movement activities<ept id="ed980210-a1dd-47fa-92c2-d94c46146dde">&lt;/linkText&gt;</ept><bpt id="ed980210-a1dd-47fa-92c2-d94c46146dde">&lt;title&gt;</bpt><ept id="ed980210-a1dd-47fa-92c2-d94c46146dde">&lt;/title&gt;</ept> article, Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach.</source>
+          <target state="new">As mentioned in the <bpt id="ed980210-a1dd-47fa-92c2-d94c46146dde">&lt;linkText&gt;</bpt>data movement activities<ept id="ed980210-a1dd-47fa-92c2-d94c46146dde">&lt;/linkText&gt;</ept><bpt id="ed980210-a1dd-47fa-92c2-d94c46146dde">&lt;title&gt;</bpt><ept id="ed980210-a1dd-47fa-92c2-d94c46146dde">&lt;/title&gt;</ept> article, Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach.</target>
+        </trans-unit>
+        <trans-unit id="1cd0a933-919c-4b03-a8ea-499ec097d848" xml:space="preserve">
+          <source>Convert from native source types to .NET type</source>
+          <target state="new">Convert from native source types to .NET type</target>
+        </trans-unit>
+        <trans-unit id="c7770c8c-6426-417b-8cb0-281f60c596ab" xml:space="preserve">
+          <source>Convert from .NET type to native sink type</source>
+          <target state="new">Convert from .NET type to native sink type</target>
+        </trans-unit>
+        <trans-unit id="cc3bfe50-a561-470e-b432-e3713b350824" xml:space="preserve">
+          <source>When moving data to &amp; from Azure Table, the following <bpt id="1adc29d8-7b47-456e-9e7d-20385150d3b0">&lt;linkText&gt;</bpt>mappings defined by Azure Table service<ept id="1adc29d8-7b47-456e-9e7d-20385150d3b0">&lt;/linkText&gt;</ept><bpt id="1adc29d8-7b47-456e-9e7d-20385150d3b0">&lt;title&gt;</bpt><ept id="1adc29d8-7b47-456e-9e7d-20385150d3b0">&lt;/title&gt;</ept> will be used from Azure Table OData types to .NET type and vice versa. </source>
+          <target state="new">When moving data to &amp; from Azure Table, the following <bpt id="1adc29d8-7b47-456e-9e7d-20385150d3b0">&lt;linkText&gt;</bpt>mappings defined by Azure Table service<ept id="1adc29d8-7b47-456e-9e7d-20385150d3b0">&lt;/linkText&gt;</ept><bpt id="1adc29d8-7b47-456e-9e7d-20385150d3b0">&lt;title&gt;</bpt><ept id="1adc29d8-7b47-456e-9e7d-20385150d3b0">&lt;/title&gt;</ept> will be used from Azure Table OData types to .NET type and vice versa. </target>
+        </trans-unit>
+        <trans-unit id="be258039-95a8-4ce0-a667-7efaf65f09ec" xml:space="preserve">
+          <source>OData Data Type</source>
+          <target state="new">OData Data Type</target>
+        </trans-unit>
+        <trans-unit id="61e4407f-aa50-492e-80d1-aaf8ec047364" xml:space="preserve">
+          <source>.NET Type</source>
+          <target state="new">.NET Type</target>
+        </trans-unit>
+        <trans-unit id="48b26c19-24ab-4d20-bc9a-570f3bf6c0d8" xml:space="preserve">
+          <source>Details</source>
+          <target state="new">Details</target>
+        </trans-unit>
+        <trans-unit id="c1edf645-a1c4-4c13-87a9-817b0c11975a" xml:space="preserve">
+          <source>Edm.Binary</source>
+          <target state="new">Edm.Binary</target>
+        </trans-unit>
+        <trans-unit id="804857cf-4347-4b51-8e34-17137ab290f7" xml:space="preserve">
+          <source>byte[]</source>
+          <target state="new">byte[]</target>
+        </trans-unit>
+        <trans-unit id="5fae13f9-8ec5-42a6-aaad-caf12e2e6ccf" xml:space="preserve">
+          <source>An array of bytes up to 64 KB in size.</source>
+          <target state="new">An array of bytes up to 64 KB in size.</target>
+        </trans-unit>
+        <trans-unit id="3eeea845-1cda-4918-b062-857f94397b68" xml:space="preserve">
+          <source>Edm.Boolean</source>
+          <target state="new">Edm.Boolean</target>
+        </trans-unit>
+        <trans-unit id="c2ba17c0-7a0d-4d1b-a69c-8e09b5f44141" xml:space="preserve">
+          <source>bool</source>
+          <target state="new">bool</target>
+        </trans-unit>
+        <trans-unit id="88994a03-a9ea-4145-a84f-09feccf74c85" xml:space="preserve">
+          <source>A Boolean value.</source>
+          <target state="new">A Boolean value.</target>
+        </trans-unit>
+        <trans-unit id="ec0e2d83-7a65-49d3-aced-44a199d88705" xml:space="preserve">
+          <source>Edm.DateTime</source>
+          <target state="new">Edm.DateTime</target>
+        </trans-unit>
+        <trans-unit id="ef1fbbf8-8e56-4cee-8fd9-9b410d80f428" xml:space="preserve">
+          <source>DateTime</source>
+          <target state="new">DateTime</target>
+        </trans-unit>
+        <trans-unit id="164f98e9-0b12-46e4-b984-2d2a85b8a9ea" xml:space="preserve">
+          <source>A 64-bit value expressed as Coordinated Universal Time (UTC).</source>
+          <target state="new">A 64-bit value expressed as Coordinated Universal Time (UTC).</target>
+        </trans-unit>
+        <trans-unit id="d4e6a069-01b4-4a88-ae65-7a57c243ba9d" xml:space="preserve">
+          <source>The supported DateTime range begins from 12:00 midnight, January 1, 1601 A.D. (C.E.), UTC.</source>
+          <target state="new">The supported DateTime range begins from 12:00 midnight, January 1, 1601 A.D. (C.E.), UTC.</target>
+        </trans-unit>
+        <trans-unit id="bbfbd0c0-16dd-4dea-991d-297017a0c06c" xml:space="preserve">
+          <source>The range ends at December 31, 9999.</source>
+          <target state="new">The range ends at December 31, 9999.</target>
+        </trans-unit>
+        <trans-unit id="d3e8f41d-ea5f-41ba-8916-68a3272b0bc0" xml:space="preserve">
+          <source>Edm.Double</source>
+          <target state="new">Edm.Double</target>
+        </trans-unit>
+        <trans-unit id="f4cc9470-2289-4cc1-a375-7add3de35c42" xml:space="preserve">
+          <source>double</source>
+          <target state="new">double</target>
+        </trans-unit>
+        <trans-unit id="7ff8fec3-65cf-4aa8-8562-221ddcd83017" xml:space="preserve">
+          <source>A 64-bit floating point value.</source>
+          <target state="new">A 64-bit floating point value.</target>
+        </trans-unit>
+        <trans-unit id="4062681c-81ae-45a8-b464-2ae01357844f" xml:space="preserve">
+          <source>Edm.Guid</source>
+          <target state="new">Edm.Guid</target>
+        </trans-unit>
+        <trans-unit id="d73fc07a-d084-4608-973d-97e1527f30db" xml:space="preserve">
+          <source>Guid</source>
+          <target state="new">Guid</target>
+        </trans-unit>
+        <trans-unit id="8b78d8d6-af36-4f6f-90fa-bcb54871a7fa" xml:space="preserve">
+          <source>A 128-bit globally unique identifier.</source>
+          <target state="new">A 128-bit globally unique identifier.</target>
+        </trans-unit>
+        <trans-unit id="eb22c984-ecfb-4727-ab88-739148d5ec25" xml:space="preserve">
+          <source>Edm.Int32</source>
+          <target state="new">Edm.Int32</target>
+        </trans-unit>
+        <trans-unit id="6375d53a-e0e9-4c24-8d05-197f8325adea" xml:space="preserve">
+          <source>Int32 or int</source>
+          <target state="new">Int32 or int</target>
+        </trans-unit>
+        <trans-unit id="955e2e29-2948-47d5-9c25-3536c949ccce" xml:space="preserve">
+          <source>A 32-bit integer.</source>
+          <target state="new">A 32-bit integer.</target>
+        </trans-unit>
+        <trans-unit id="8614a98a-ee8b-4a90-96f1-5f31523a2d54" xml:space="preserve">
+          <source>Edm.Int64</source>
+          <target state="new">Edm.Int64</target>
+        </trans-unit>
+        <trans-unit id="f1e5ce9e-3adb-45f5-807e-2fd5e2fd9b79" xml:space="preserve">
+          <source>Int64 or long</source>
+          <target state="new">Int64 or long</target>
+        </trans-unit>
+        <trans-unit id="0337c31c-7634-49ff-8f2d-de1387ca2693" xml:space="preserve">
+          <source>A 64-bit integer.</source>
+          <target state="new">A 64-bit integer.</target>
+        </trans-unit>
+        <trans-unit id="800dcd4c-adb8-455c-bc32-ea92c7877941" xml:space="preserve">
+          <source>Edm.String</source>
+          <target state="new">Edm.String</target>
+        </trans-unit>
+        <trans-unit id="8f58bb8c-020f-411e-a42c-67d03fe2ba5b" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="85d418a4-7301-4158-aae7-f6b76cb9bb7e" xml:space="preserve">
+          <source>A UTF-16-encoded value.</source>
+          <target state="new">A UTF-16-encoded value.</target>
+        </trans-unit>
+        <trans-unit id="86459735-96fd-44a1-9399-0fd89df1de06" xml:space="preserve">
+          <source>String values may be up to 64 KB in size.</source>
+          <target state="new">String values may be up to 64 KB in size.</target>
+        </trans-unit>
+        <trans-unit id="65826505-e925-4c1c-ba2d-d0f9579a1ef9" xml:space="preserve">
+          <source>The following sample is for copying data from an Azure Blob to Azure Table with type conversions.</source>
+          <target state="new">The following sample is for copying data from an Azure Blob to Azure Table with type conversions.</target>
+        </trans-unit>
+        <trans-unit id="91b61cd5-0db7-4345-9e25-d79925981890" xml:space="preserve">
+          <source>Suppose the Blob dataset is in CSV format and contains 3 columns.</source>
+          <target state="new">Suppose the Blob dataset is in CSV format and contains 3 columns.</target>
+        </trans-unit>
+        <trans-unit id="92588d18-12ea-445a-af4e-900522ab815f" xml:space="preserve">
+          <source>One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week.</source>
+          <target state="new">One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week.</target>
+        </trans-unit>
+        <trans-unit id="8b1810d0-9c76-4ef6-8a3c-2e98019b6d77" xml:space="preserve">
+          <source>You will define the Blob Source dataset as follows along with type definitions for the columns.</source>
+          <target state="new">You will define the Blob Source dataset as follows along with type definitions for the columns.</target>
+        </trans-unit>
+        <trans-unit id="dae770e7-4a14-4e8e-995e-419ba0d335e2" xml:space="preserve">
+          <source>Given the type mapping from Azure Table OData type to .NET type above you would define the table in Azure Table with the following schema.</source>
+          <target state="new">Given the type mapping from Azure Table OData type to .NET type above you would define the table in Azure Table with the following schema.</target>
+        </trans-unit>
+        <trans-unit id="066ecada-94a2-4d75-bc03-43eb07e86422" xml:space="preserve">
+          <source><bpt id="d4fcc92b-f8c2-4dc7-9a51-e087cc4afb3c">&lt;strong&gt;</bpt>Azure Table schema:<ept id="d4fcc92b-f8c2-4dc7-9a51-e087cc4afb3c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d4fcc92b-f8c2-4dc7-9a51-e087cc4afb3c">&lt;strong&gt;</bpt>Azure Table schema:<ept id="d4fcc92b-f8c2-4dc7-9a51-e087cc4afb3c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38a469ca-dfcd-4288-9411-f084f616a601" xml:space="preserve">
+          <source>Column name</source>
+          <target state="new">Column name</target>
+        </trans-unit>
+        <trans-unit id="5cb89d9f-53ee-4d07-9b65-358f222d3713" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="fa6a4bdc-3783-48d0-a82b-24b9023f7172" xml:space="preserve">
+          <source>userid</source>
+          <target state="new">userid</target>
+        </trans-unit>
+        <trans-unit id="0e0817f4-7a11-4685-aae8-b302e9e1ed59" xml:space="preserve">
+          <source>Edm.Int64</source>
+          <target state="new">Edm.Int64</target>
+        </trans-unit>
+        <trans-unit id="582110a2-cec5-4899-bde0-f7d7881093ba" xml:space="preserve">
+          <source>name</source>
+          <target state="new">name</target>
+        </trans-unit>
+        <trans-unit id="114b3dce-dd44-4d96-9dde-dba702d7a123" xml:space="preserve">
+          <source>Edm.String</source>
+          <target state="new">Edm.String</target>
+        </trans-unit>
+        <trans-unit id="414c8558-1c16-490b-a508-418754aa9e1e" xml:space="preserve">
+          <source>lastlogindate</source>
+          <target state="new">lastlogindate</target>
+        </trans-unit>
+        <trans-unit id="c3bf3363-c586-4924-a616-ebd1af3213cd" xml:space="preserve">
+          <source>Edm.DateTime</source>
+          <target state="new">Edm.DateTime</target>
+        </trans-unit>
+        <trans-unit id="42f1495c-73fe-43f9-ab81-230991f1e21e" xml:space="preserve">
+          <source>Next, you will define the Azure Table dataset as follows.</source>
+          <target state="new">Next, you will define the Azure Table dataset as follows.</target>
+        </trans-unit>
+        <trans-unit id="2a4dcd94-7bfc-468c-90f4-f80ceb6d6627" xml:space="preserve">
+          <source>You do not need to specify “structure” section with the type information since the type information is already specified in the underlying data store.</source>
+          <target state="new">You do not need to specify “structure” section with the type information since the type information is already specified in the underlying data store.</target>
+        </trans-unit>
+        <trans-unit id="513304fa-78b2-4f1d-8c46-5acca1b41fa1" xml:space="preserve">
+          <source>In this case data factory will automatically do the type conversions including the Datetime field with the custom datetime format using the fr-fr culture when moving data from Blob to Azure Table.</source>
+          <target state="new">In this case data factory will automatically do the type conversions including the Datetime field with the custom datetime format using the fr-fr culture when moving data from Blob to Azure Table.</target>
+        </trans-unit>
+        <trans-unit id="e5468cf8-0f75-4029-a059-8da8bd6464f5" xml:space="preserve">
+          <source><bpt id="d33bbfb9-351e-4a05-8e58-1b8655cf24a0">&lt;token href="../../includes/data-factory-column-mapping.md"&gt;</bpt><ept id="d33bbfb9-351e-4a05-8e58-1b8655cf24a0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d33bbfb9-351e-4a05-8e58-1b8655cf24a0">&lt;token href="../../includes/data-factory-column-mapping.md"&gt;</bpt><ept id="d33bbfb9-351e-4a05-8e58-1b8655cf24a0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

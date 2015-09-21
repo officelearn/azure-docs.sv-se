@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7eb6fe6e-e2d8-4c64-81d0-c93092545e8e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7eb6fe6e-e2d8-4c64-81d0-c93092545e8e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f2996947-bd14-4390-a104-5e12a4a8dfd2">
+        <trans-unit id="6f1ee051-f20a-4621-a734-afe96a0cc737" xml:space="preserve">
+          <source>Reliable Actors Events</source>
+          <target state="new">Reliable Actors Events</target>
+        </trans-unit>
+        <trans-unit id="525a9429-89aa-4074-96a9-39d01abc6a4d" xml:space="preserve">
+          <source>Introduction to Events for Service Fabric Reliable Actors.</source>
+          <target state="new">Introduction to Events for Service Fabric Reliable Actors.</target>
+        </trans-unit>
+        <trans-unit id="e199b1f5-1255-473c-afc2-6860fc30d0a6" xml:space="preserve">
+          <source>Actor events provide a way to send best effort notifications from the Actor to the clients.</source>
+          <target state="new">Actor events provide a way to send best effort notifications from the Actor to the clients.</target>
+        </trans-unit>
+        <trans-unit id="4d7e4241-af6d-45f7-b979-ee5764738bd5" xml:space="preserve">
+          <source>Actor events are designed for Actor-Client communication and should NOT be used for Actor-to-Actor communication.</source>
+          <target state="new">Actor events are designed for Actor-Client communication and should NOT be used for Actor-to-Actor communication.</target>
+        </trans-unit>
+        <trans-unit id="d1ab695b-1991-45bc-adbf-c99bd5cb3420" xml:space="preserve">
+          <source>Following code snippets shows how to use actor events in your application.</source>
+          <target state="new">Following code snippets shows how to use actor events in your application.</target>
+        </trans-unit>
+        <trans-unit id="4a1714a8-4f92-4a3c-95c2-624157eeb12e" xml:space="preserve">
+          <source>Define an interface that describes the events published by the actor.</source>
+          <target state="new">Define an interface that describes the events published by the actor.</target>
+        </trans-unit>
+        <trans-unit id="99ad3fbd-0ec2-44d3-a159-5e0c6caa0548" xml:space="preserve">
+          <source>This interface must be derived from the <bpt id="d280ab7c-19dd-40bf-b6ef-2126a413c707">&lt;code&gt;</bpt>IActorEvents<ept id="d280ab7c-19dd-40bf-b6ef-2126a413c707">&lt;/code&gt;</ept> interface.</source>
+          <target state="new">This interface must be derived from the <bpt id="d280ab7c-19dd-40bf-b6ef-2126a413c707">&lt;code&gt;</bpt>IActorEvents<ept id="d280ab7c-19dd-40bf-b6ef-2126a413c707">&lt;/code&gt;</ept> interface.</target>
+        </trans-unit>
+        <trans-unit id="7dcffb1c-6809-4baa-988b-30486d895932" xml:space="preserve">
+          <source>The arguments of the methods must be <bpt id="5f612a93-d380-4f7d-a0ba-2402de573f0b">&lt;linkText&gt;</bpt>data contract serializable<ept id="5f612a93-d380-4f7d-a0ba-2402de573f0b">&lt;/linkText&gt;</ept><bpt id="5f612a93-d380-4f7d-a0ba-2402de573f0b">&lt;title&gt;</bpt><ept id="5f612a93-d380-4f7d-a0ba-2402de573f0b">&lt;/title&gt;</ept>.</source>
+          <target state="new">The arguments of the methods must be <bpt id="5f612a93-d380-4f7d-a0ba-2402de573f0b">&lt;linkText&gt;</bpt>data contract serializable<ept id="5f612a93-d380-4f7d-a0ba-2402de573f0b">&lt;/linkText&gt;</ept><bpt id="5f612a93-d380-4f7d-a0ba-2402de573f0b">&lt;title&gt;</bpt><ept id="5f612a93-d380-4f7d-a0ba-2402de573f0b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="884fbd87-357c-4885-ac41-ccce662f8ed5" xml:space="preserve">
+          <source>The methods must return void as event notifications are one-way and best effort.</source>
+          <target state="new">The methods must return void as event notifications are one-way and best effort.</target>
+        </trans-unit>
+        <trans-unit id="7bfa34d6-c0a9-4897-9384-a30e3e813bd0" xml:space="preserve">
+          <source>Declare the events published by the actor in the actor interface.</source>
+          <target state="new">Declare the events published by the actor in the actor interface.</target>
+        </trans-unit>
+        <trans-unit id="da301b20-4fd7-47ac-9de9-e739ce9322f8" xml:space="preserve">
+          <source>On the client side, implement the event handler.</source>
+          <target state="new">On the client side, implement the event handler.</target>
+        </trans-unit>
+        <trans-unit id="2eacd718-8d97-407b-a860-0adb0075d1fa" xml:space="preserve">
+          <source>On the client, create a proxy to the actor that publishes the event and subscribe to its events.</source>
+          <target state="new">On the client, create a proxy to the actor that publishes the event and subscribe to its events.</target>
+        </trans-unit>
+        <trans-unit id="7530b70d-4837-46e3-8950-617c869434b3" xml:space="preserve">
+          <source>In the event of failovers the actor may failover to a different process or node. The actor proxy manages the active subscriptions and automatically re-subscribes them. You can control the re-subscription interval through the <bpt id="cd319f10-a9a3-4223-91ed-f8f610866765">&lt;code&gt;</bpt>ActorProxyEventExtensions.SubscribeAsync&lt;TEvent&gt;<ept id="cd319f10-a9a3-4223-91ed-f8f610866765">&lt;/code&gt;</ept> API. To unsubscribe use the <bpt id="f5fd8d0b-42fb-4e06-aa68-fee6f94efbe5">&lt;code&gt;</bpt>ActorProxyEventExtensions.UnsubscribeAsync&lt;TEvent&gt;<ept id="f5fd8d0b-42fb-4e06-aa68-fee6f94efbe5">&lt;/code&gt;</ept> API.</source>
+          <target state="new">In the event of failovers the actor may failover to a different process or node. The actor proxy manages the active subscriptions and automatically re-subscribes them. You can control the re-subscription interval through the <bpt id="cd319f10-a9a3-4223-91ed-f8f610866765">&lt;code&gt;</bpt>ActorProxyEventExtensions.SubscribeAsync&lt;TEvent&gt;<ept id="cd319f10-a9a3-4223-91ed-f8f610866765">&lt;/code&gt;</ept> API. To unsubscribe use the <bpt id="f5fd8d0b-42fb-4e06-aa68-fee6f94efbe5">&lt;code&gt;</bpt>ActorProxyEventExtensions.UnsubscribeAsync&lt;TEvent&gt;<ept id="f5fd8d0b-42fb-4e06-aa68-fee6f94efbe5">&lt;/code&gt;</ept> API.</target>
+        </trans-unit>
+        <trans-unit id="5abc535b-3eff-420d-a7e1-80ab67bb65e1" xml:space="preserve">
+          <source>On the actor, simply publish the events as they happen.</source>
+          <target state="new">On the actor, simply publish the events as they happen.</target>
+        </trans-unit>
+        <trans-unit id="9089c36c-1750-421d-874a-4fa813a0f191" xml:space="preserve">
+          <source>If there are subscribers subscribed to the event, the Actors runtime will send them the notification.</source>
+          <target state="new">If there are subscribers subscribed to the event, the Actors runtime will send them the notification.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

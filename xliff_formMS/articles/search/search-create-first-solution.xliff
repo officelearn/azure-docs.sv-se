@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3ade09e1-7a1d-45a5-b479-7c03b77a4931" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3ade09e1-7a1d-45a5-b479-7c03b77a4931" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bd39df35-f2c7-44f7-bddf-e8627eb876b9">
+        <trans-unit id="90e6a485-0683-4808-8ff9-4568c71cf83d" xml:space="preserve">
+          <source>Create your first search solution using Azure Search</source>
+          <target state="new">Create your first search solution using Azure Search</target>
+        </trans-unit>
+        <trans-unit id="67d06035-ab3e-4771-98b6-ffed2454df1a" xml:space="preserve">
+          <source>Create your first search solution using Azure Search</source>
+          <target state="new">Create your first search solution using Azure Search</target>
+        </trans-unit>
+        <trans-unit id="e6717825-5e61-467f-96e9-d231999b9510" xml:space="preserve">
+          <source>This sample demonstrates a search application for the Adventure Works bicycle company.</source>
+          <target state="new">This sample demonstrates a search application for the Adventure Works bicycle company.</target>
+        </trans-unit>
+        <trans-unit id="5f894e1a-7a4d-4cca-be38-c18dc0258e6e" xml:space="preserve">
+          <source>After completing this tutorial, you’ll have an online product catalog with a rich search experience that includes faceted navigation, multiple sort options for your search results, and type-ahead query suggestions.</source>
+          <target state="new">After completing this tutorial, you’ll have an online product catalog with a rich search experience that includes faceted navigation, multiple sort options for your search results, and type-ahead query suggestions.</target>
+        </trans-unit>
+        <trans-unit id="96df55e3-ab09-4ac9-abeb-66764bac35a0" xml:space="preserve">
+          <source>   <bpt id="9d8a0039-97c1-4da0-86d7-ed9233dc5962">&lt;linkText&gt;</bpt><ept id="9d8a0039-97c1-4da0-86d7-ed9233dc5962">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="9d8a0039-97c1-4da0-86d7-ed9233dc5962">&lt;linkText&gt;</bpt><ept id="9d8a0039-97c1-4da0-86d7-ed9233dc5962">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fa225ef-a5ce-411c-8e9f-d474a8fc75d4" xml:space="preserve">
+          <source>The demo gets you started with Azure Search by walking you through these exercises:</source>
+          <target state="new">The demo gets you started with Azure Search by walking you through these exercises:</target>
+        </trans-unit>
+        <trans-unit id="6f474578-585c-448f-8377-9e262f2176f2" xml:space="preserve">
+          <source>Create an Azure Search index.</source>
+          <target state="new">Create an Azure Search index.</target>
+        </trans-unit>
+        <trans-unit id="ac1ed494-081f-41e9-a01e-20c34368f179" xml:space="preserve">
+          <source>Load documents (data) into the Azure Search index from a SQL Server database.</source>
+          <target state="new">Load documents (data) into the Azure Search index from a SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="9fd756d6-64ee-4d37-af03-ff428fb9465c" xml:space="preserve">
+          <source>Build an ASP.NET MVC4 Application that utilizes Azure Search to:</source>
+          <target state="new">Build an ASP.NET MVC4 Application that utilizes Azure Search to:</target>
+        </trans-unit>
+        <trans-unit id="5c9ddb58-7b0a-4d41-90e4-7f7af0f554ec" xml:space="preserve">
+          <source>Search and display results from an Azure Search index</source>
+          <target state="new">Search and display results from an Azure Search index</target>
+        </trans-unit>
+        <trans-unit id="1913f21e-6d2a-4043-af02-97bc973d7f66" xml:space="preserve">
+          <source>Show type-ahead suggestions in a Search box while entering a search term</source>
+          <target state="new">Show type-ahead suggestions in a Search box while entering a search term</target>
+        </trans-unit>
+        <trans-unit id="71947c8f-e044-4406-a70b-a5b7a29fea1e" xml:space="preserve">
+          <source>Filter search results using faceting</source>
+          <target state="new">Filter search results using faceting</target>
+        </trans-unit>
+        <trans-unit id="72fb7aa4-d2bf-492e-ab44-214cb5855fc0" xml:space="preserve">
+          <source><bpt id="420d8976-5a2e-4c72-8745-f48a142456b3">&lt;bookmark&gt;</bpt><ept id="420d8976-5a2e-4c72-8745-f48a142456b3">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="420d8976-5a2e-4c72-8745-f48a142456b3">&lt;bookmark&gt;</bpt><ept id="420d8976-5a2e-4c72-8745-f48a142456b3">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02a2d6be-a891-42d2-b091-f7fd9e463ad6" xml:space="preserve">
+          <source>An <bpt id="823b313f-20dd-44c7-9cf3-acb26c2d6b47">&lt;linkText&gt;</bpt>Azure subscription<ept id="823b313f-20dd-44c7-9cf3-acb26c2d6b47">&lt;/linkText&gt;</ept><bpt id="823b313f-20dd-44c7-9cf3-acb26c2d6b47">&lt;title&gt;</bpt><ept id="823b313f-20dd-44c7-9cf3-acb26c2d6b47">&lt;/title&gt;</ept>.</source>
+          <target state="new">An <bpt id="823b313f-20dd-44c7-9cf3-acb26c2d6b47">&lt;linkText&gt;</bpt>Azure subscription<ept id="823b313f-20dd-44c7-9cf3-acb26c2d6b47">&lt;/linkText&gt;</ept><bpt id="823b313f-20dd-44c7-9cf3-acb26c2d6b47">&lt;title&gt;</bpt><ept id="823b313f-20dd-44c7-9cf3-acb26c2d6b47">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50db0414-bad6-4e89-a002-820ef54964e3" xml:space="preserve">
+          <source>If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for <bpt id="c7660e95-c8a5-45db-bae2-5e5b74b74c89">&lt;linkText&gt;</bpt>Try Azure App Service<ept id="c7660e95-c8a5-45db-bae2-5e5b74b74c89">&lt;/linkText&gt;</ept><bpt id="c7660e95-c8a5-45db-bae2-5e5b74b74c89">&lt;title&gt;</bpt><ept id="c7660e95-c8a5-45db-bae2-5e5b74b74c89">&lt;/title&gt;</ept> instead.</source>
+          <target state="new">If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for <bpt id="c7660e95-c8a5-45db-bae2-5e5b74b74c89">&lt;linkText&gt;</bpt>Try Azure App Service<ept id="c7660e95-c8a5-45db-bae2-5e5b74b74c89">&lt;/linkText&gt;</ept><bpt id="c7660e95-c8a5-45db-bae2-5e5b74b74c89">&lt;title&gt;</bpt><ept id="c7660e95-c8a5-45db-bae2-5e5b74b74c89">&lt;/title&gt;</ept> instead.</target>
+        </trans-unit>
+        <trans-unit id="51da47e4-c836-4d0c-9f16-35823c7be37c" xml:space="preserve">
+          <source>This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.</source>
+          <target state="new">This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.</target>
+        </trans-unit>
+        <trans-unit id="981ba84e-9d85-40f9-b991-66ebf4b7eae7" xml:space="preserve">
+          <source>Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed.</source>
+          <target state="new">Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed.</target>
+        </trans-unit>
+        <trans-unit id="58d7d98a-4d78-4288-b377-6bcad09651f9" xml:space="preserve">
+          <source>You can download the free Express editions if you don't already have the software installed: <bpt id="5c8ef93d-036c-4f2b-bcbf-ddae64e1f2a9">&lt;linkText&gt;</bpt>Visual Studio 2013 Express<ept id="5c8ef93d-036c-4f2b-bcbf-ddae64e1f2a9">&lt;/linkText&gt;</ept><bpt id="5c8ef93d-036c-4f2b-bcbf-ddae64e1f2a9">&lt;title&gt;</bpt><ept id="5c8ef93d-036c-4f2b-bcbf-ddae64e1f2a9">&lt;/title&gt;</ept> and <bpt id="2c185253-44eb-4006-8b43-3354617d317d">&lt;linkText&gt;</bpt>Microsoft SQL Server 2014 Express<ept id="2c185253-44eb-4006-8b43-3354617d317d">&lt;/linkText&gt;</ept><bpt id="2c185253-44eb-4006-8b43-3354617d317d">&lt;title&gt;</bpt><ept id="2c185253-44eb-4006-8b43-3354617d317d">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can download the free Express editions if you don't already have the software installed: <bpt id="5c8ef93d-036c-4f2b-bcbf-ddae64e1f2a9">&lt;linkText&gt;</bpt>Visual Studio 2013 Express<ept id="5c8ef93d-036c-4f2b-bcbf-ddae64e1f2a9">&lt;/linkText&gt;</ept><bpt id="5c8ef93d-036c-4f2b-bcbf-ddae64e1f2a9">&lt;title&gt;</bpt><ept id="5c8ef93d-036c-4f2b-bcbf-ddae64e1f2a9">&lt;/title&gt;</ept> and <bpt id="2c185253-44eb-4006-8b43-3354617d317d">&lt;linkText&gt;</bpt>Microsoft SQL Server 2014 Express<ept id="2c185253-44eb-4006-8b43-3354617d317d">&lt;/linkText&gt;</ept><bpt id="2c185253-44eb-4006-8b43-3354617d317d">&lt;title&gt;</bpt><ept id="2c185253-44eb-4006-8b43-3354617d317d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a57cb5c-1f6f-4b1c-882b-74044e7eed70" xml:space="preserve">
+          <source>An Azure Search service.</source>
+          <target state="new">An Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="ccabea7b-6b0c-4354-abcc-615e4fc73402" xml:space="preserve">
+          <source>You'll need the Search service name, plus the admin key.</source>
+          <target state="new">You'll need the Search service name, plus the admin key.</target>
+        </trans-unit>
+        <trans-unit id="0cfeff14-fc92-4e2f-b51a-bea8e6134287" xml:space="preserve">
+          <source>See <bpt id="b3b7fb47-ccd4-4801-a685-02acfb791a34">&lt;linkText&gt;</bpt>Create an Azure Search service in the portal<ept id="b3b7fb47-ccd4-4801-a685-02acfb791a34">&lt;/linkText&gt;</ept><bpt id="b3b7fb47-ccd4-4801-a685-02acfb791a34">&lt;title&gt;</bpt><ept id="b3b7fb47-ccd4-4801-a685-02acfb791a34">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="b3b7fb47-ccd4-4801-a685-02acfb791a34">&lt;linkText&gt;</bpt>Create an Azure Search service in the portal<ept id="b3b7fb47-ccd4-4801-a685-02acfb791a34">&lt;/linkText&gt;</ept><bpt id="b3b7fb47-ccd4-4801-a685-02acfb791a34">&lt;title&gt;</bpt><ept id="b3b7fb47-ccd4-4801-a685-02acfb791a34">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="810bada6-4f55-4dea-9146-8103fd44b13d" xml:space="preserve">
+          <source><bpt id="82757a77-e962-4fc2-85ef-d1c5f59e3f75">&lt;linkText&gt;</bpt>Adventure Works Azure Search Demo project on CodePlex<ept id="82757a77-e962-4fc2-85ef-d1c5f59e3f75">&lt;/linkText&gt;</ept><bpt id="82757a77-e962-4fc2-85ef-d1c5f59e3f75">&lt;title&gt;</bpt><ept id="82757a77-e962-4fc2-85ef-d1c5f59e3f75">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="82757a77-e962-4fc2-85ef-d1c5f59e3f75">&lt;linkText&gt;</bpt>Adventure Works Azure Search Demo project on CodePlex<ept id="82757a77-e962-4fc2-85ef-d1c5f59e3f75">&lt;/linkText&gt;</ept><bpt id="82757a77-e962-4fc2-85ef-d1c5f59e3f75">&lt;title&gt;</bpt><ept id="82757a77-e962-4fc2-85ef-d1c5f59e3f75">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9f39414-94f6-4e0b-a142-c384ce83aed9" xml:space="preserve">
+          <source>On the Source tab, click <bpt id="85f8a508-84b7-41ad-88cf-67c2819cca7d">&lt;strong&gt;</bpt>Download<ept id="85f8a508-84b7-41ad-88cf-67c2819cca7d">&lt;/strong&gt;</ept> to get a zip file of the solution.</source>
+          <target state="new">On the Source tab, click <bpt id="85f8a508-84b7-41ad-88cf-67c2819cca7d">&lt;strong&gt;</bpt>Download<ept id="85f8a508-84b7-41ad-88cf-67c2819cca7d">&lt;/strong&gt;</ept> to get a zip file of the solution.</target>
+        </trans-unit>
+        <trans-unit id="f0f78547-88e9-4bb2-9822-a039fde86de0" xml:space="preserve">
+          <source><bpt id="8401718e-9a5f-4824-897c-fbd600d79f70">&lt;linkText&gt;</bpt><ept id="8401718e-9a5f-4824-897c-fbd600d79f70">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8401718e-9a5f-4824-897c-fbd600d79f70">&lt;linkText&gt;</bpt><ept id="8401718e-9a5f-4824-897c-fbd600d79f70">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d3ec2be-c0a2-4b3a-ade8-c0eeaff00640" xml:space="preserve">
+          <source>This solution contains two projects:</source>
+          <target state="new">This solution contains two projects:</target>
+        </trans-unit>
+        <trans-unit id="ab8b26c2-8226-4a5e-95f3-e6ba55d0420c" xml:space="preserve">
+          <source><bpt id="13300260-d254-4327-b16b-0cfd8501e977">&lt;strong&gt;</bpt>CatalogIndex<ept id="13300260-d254-4327-b16b-0cfd8501e977">&lt;/strong&gt;</ept> creates an Azure Search index and loads data from a SQL Server database included with the project.</source>
+          <target state="new"><bpt id="13300260-d254-4327-b16b-0cfd8501e977">&lt;strong&gt;</bpt>CatalogIndex<ept id="13300260-d254-4327-b16b-0cfd8501e977">&lt;/strong&gt;</ept> creates an Azure Search index and loads data from a SQL Server database included with the project.</target>
+        </trans-unit>
+        <trans-unit id="ed1f2384-895e-4cc1-a0ba-bc50d3c52f65" xml:space="preserve">
+          <source><bpt id="ebe487e7-7596-4bdb-ba1e-aae56b40d30f">&lt;strong&gt;</bpt>AdventureWorksWeb<ept id="ebe487e7-7596-4bdb-ba1e-aae56b40d30f">&lt;/strong&gt;</ept> is an MVC4-based application that queries the Azure Search index.</source>
+          <target state="new"><bpt id="ebe487e7-7596-4bdb-ba1e-aae56b40d30f">&lt;strong&gt;</bpt>AdventureWorksWeb<ept id="ebe487e7-7596-4bdb-ba1e-aae56b40d30f">&lt;/strong&gt;</ept> is an MVC4-based application that queries the Azure Search index.</target>
+        </trans-unit>
+        <trans-unit id="fac4e29e-1abe-4a6c-a6ae-73939c64f47a" xml:space="preserve">
+          <source>This tutorial assumes that you have a working knowledge of ASP.NET MVC.</source>
+          <target state="new">This tutorial assumes that you have a working knowledge of ASP.NET MVC.</target>
+        </trans-unit>
+        <trans-unit id="b13ad98e-1101-4d0f-97da-d11bd7c8477d" xml:space="preserve">
+          <source><bpt id="ebe5237a-dbc4-44ec-80f4-47d05a0b946d">&lt;bookmark&gt;</bpt><ept id="ebe5237a-dbc4-44ec-80f4-47d05a0b946d">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="ebe5237a-dbc4-44ec-80f4-47d05a0b946d">&lt;bookmark&gt;</bpt><ept id="ebe5237a-dbc4-44ec-80f4-47d05a0b946d">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9161cb7-c8da-40c7-99f1-8c4ba6e53a02" xml:space="preserve">
+          <source>In this step, you will use <bpt id="a5b9ce7a-18c5-4f11-9c8a-251d081bd2bd">&lt;strong&gt;</bpt>CatalogIndex<ept id="a5b9ce7a-18c5-4f11-9c8a-251d081bd2bd">&lt;/strong&gt;</ept> to create a new Azure Search index called "catalog" based on data in an AdventureWorks SQL Server database.</source>
+          <target state="new">In this step, you will use <bpt id="a5b9ce7a-18c5-4f11-9c8a-251d081bd2bd">&lt;strong&gt;</bpt>CatalogIndex<ept id="a5b9ce7a-18c5-4f11-9c8a-251d081bd2bd">&lt;/strong&gt;</ept> to create a new Azure Search index called "catalog" based on data in an AdventureWorks SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="c0af9ce7-36de-419a-95a8-7cf200dfcfc8" xml:space="preserve">
+          <source>In Visual Studio, open up the Azure Search Demo solution named <bpt id="6b810dce-820e-48f3-989b-07469ab90fbc">&lt;strong&gt;</bpt>AdventureWorksCatalog.sln<ept id="6b810dce-820e-48f3-989b-07469ab90fbc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, open up the Azure Search Demo solution named <bpt id="6b810dce-820e-48f3-989b-07469ab90fbc">&lt;strong&gt;</bpt>AdventureWorksCatalog.sln<ept id="6b810dce-820e-48f3-989b-07469ab90fbc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8277315-82ff-4853-8c05-b293dcea1397" xml:space="preserve">
+          <source>Right-click <bpt id="02b3e687-8954-4b8a-9b5b-1a14e633194e">&lt;strong&gt;</bpt>CatalogIndexer<ept id="02b3e687-8954-4b8a-9b5b-1a14e633194e">&lt;/strong&gt;</ept> in Solution Explorer and select <bpt id="978c15ea-d008-4c3a-a9d0-35b8632c5c54">&lt;strong&gt;</bpt>Set as startup project<ept id="978c15ea-d008-4c3a-a9d0-35b8632c5c54">&lt;/strong&gt;</ept> so that this application runs, rather than the <bpt id="11a69d42-4668-4d3a-824f-44fab3062f4b">&lt;strong&gt;</bpt>AdventureWorksWeb<ept id="11a69d42-4668-4d3a-824f-44fab3062f4b">&lt;/strong&gt;</ept> project, when you press <bpt id="b0787391-c493-4317-8d16-521830389f99">&lt;strong&gt;</bpt>F5<ept id="b0787391-c493-4317-8d16-521830389f99">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="02b3e687-8954-4b8a-9b5b-1a14e633194e">&lt;strong&gt;</bpt>CatalogIndexer<ept id="02b3e687-8954-4b8a-9b5b-1a14e633194e">&lt;/strong&gt;</ept> in Solution Explorer and select <bpt id="978c15ea-d008-4c3a-a9d0-35b8632c5c54">&lt;strong&gt;</bpt>Set as startup project<ept id="978c15ea-d008-4c3a-a9d0-35b8632c5c54">&lt;/strong&gt;</ept> so that this application runs, rather than the <bpt id="11a69d42-4668-4d3a-824f-44fab3062f4b">&lt;strong&gt;</bpt>AdventureWorksWeb<ept id="11a69d42-4668-4d3a-824f-44fab3062f4b">&lt;/strong&gt;</ept> project, when you press <bpt id="b0787391-c493-4317-8d16-521830389f99">&lt;strong&gt;</bpt>F5<ept id="b0787391-c493-4317-8d16-521830389f99">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c176c9b-45f4-43bb-ac1c-a56e08ab94dd" xml:space="preserve">
+          <source>Open <bpt id="3f4da2ac-847e-4733-a2de-49c4eaecfb17">&lt;strong&gt;</bpt>App.config<ept id="3f4da2ac-847e-4733-a2de-49c4eaecfb17">&lt;/strong&gt;</ept> in this project and update the values for "SearchServiceName" and "SearchServiceApiKey" to those of your Azure Search service.</source>
+          <target state="new">Open <bpt id="3f4da2ac-847e-4733-a2de-49c4eaecfb17">&lt;strong&gt;</bpt>App.config<ept id="3f4da2ac-847e-4733-a2de-49c4eaecfb17">&lt;/strong&gt;</ept> in this project and update the values for "SearchServiceName" and "SearchServiceApiKey" to those of your Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="1b8bcbb4-6bed-4058-8804-cfe06d96edfc" xml:space="preserve">
+          <source>For Search service name, if your service is "mysearch.search.windows.net", you would enter "mysearch".</source>
+          <target state="new">For Search service name, if your service is "mysearch.search.windows.net", you would enter "mysearch".</target>
+        </trans-unit>
+        <trans-unit id="11552246-0395-4464-9f3b-9048f78f56be" xml:space="preserve">
+          <source>Optionally, App.config includes an entry for "SourceSqlConnectionString" that assumes SQL Server 2014 Express LocalDB (Server=(LocalDB)\v11.0).</source>
+          <target state="new">Optionally, App.config includes an entry for "SourceSqlConnectionString" that assumes SQL Server 2014 Express LocalDB (Server=(LocalDB)\v11.0).</target>
+        </trans-unit>
+        <trans-unit id="204a337c-b507-4ad9-b0e4-ee3a2f1e9271" xml:space="preserve">
+          <source>If you’re using a different edition of SQL Server, update the server name accordingly.</source>
+          <target state="new">If you’re using a different edition of SQL Server, update the server name accordingly.</target>
+        </trans-unit>
+        <trans-unit id="d4ca4036-ea78-4189-ac75-858f0b59c3a5" xml:space="preserve">
+          <source>For example, if you have a local default instance, you can use (local) or localhost.</source>
+          <target state="new">For example, if you have a local default instance, you can use (local) or localhost.</target>
+        </trans-unit>
+        <trans-unit id="4707e1f4-80cd-4917-8af7-7768bef80423" xml:space="preserve">
+          <source>Save <bpt id="99e3f0db-e231-482a-8429-1924b34788d9">&lt;strong&gt;</bpt>App.config<ept id="99e3f0db-e231-482a-8429-1924b34788d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Save <bpt id="99e3f0db-e231-482a-8429-1924b34788d9">&lt;strong&gt;</bpt>App.config<ept id="99e3f0db-e231-482a-8429-1924b34788d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="caa62713-650e-4cad-8094-3abf700a0758" xml:space="preserve">
+          <source>Press <bpt id="5c57867b-b30d-48ce-96bd-2aec4dc467ed">&lt;strong&gt;</bpt>F5<ept id="5c57867b-b30d-48ce-96bd-2aec4dc467ed">&lt;/strong&gt;</ept> to launch the project.</source>
+          <target state="new">Press <bpt id="5c57867b-b30d-48ce-96bd-2aec4dc467ed">&lt;strong&gt;</bpt>F5<ept id="5c57867b-b30d-48ce-96bd-2aec4dc467ed">&lt;/strong&gt;</ept> to launch the project.</target>
+        </trans-unit>
+        <trans-unit id="657b1dcb-0890-4ad1-8d93-0289b577d091" xml:space="preserve">
+          <source>A command prompt should open with the following text: "Creating index..."</source>
+          <target state="new">A command prompt should open with the following text: "Creating index..."</target>
+        </trans-unit>
+        <trans-unit id="209e8697-bd23-4d2f-ac7d-fdaa63e08f95" xml:space="preserve">
+          <source>After a few moments, it should complete with the text: "Complete.  Press &lt;enter&gt; to continue:"</source>
+          <target state="new">After a few moments, it should complete with the text: "Complete.  Press &lt;enter&gt; to continue:"</target>
+        </trans-unit>
+        <trans-unit id="522d19aa-bb05-4af0-884c-affcffdd95c7" xml:space="preserve">
+          <source>   <bpt id="8f2e78da-4371-4471-822a-9b373d82d1a1">&lt;linkText&gt;</bpt><ept id="8f2e78da-4371-4471-822a-9b373d82d1a1">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="8f2e78da-4371-4471-822a-9b373d82d1a1">&lt;linkText&gt;</bpt><ept id="8f2e78da-4371-4471-822a-9b373d82d1a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f529163e-6c15-44d0-8e85-2bbbc42e80c2" xml:space="preserve">
+          <source>Press <bpt id="038a559d-9c07-41a2-be58-85ecf2f321a5">&lt;strong&gt;</bpt>Enter<ept id="038a559d-9c07-41a2-be58-85ecf2f321a5">&lt;/strong&gt;</ept> to close the application.</source>
+          <target state="new">Press <bpt id="038a559d-9c07-41a2-be58-85ecf2f321a5">&lt;strong&gt;</bpt>Enter<ept id="038a559d-9c07-41a2-be58-85ecf2f321a5">&lt;/strong&gt;</ept> to close the application.</target>
+        </trans-unit>
+        <trans-unit id="97889523-f360-4187-9f84-610dc2903e87" xml:space="preserve">
+          <source>At this point, you have successfully created the Azure Search index.</source>
+          <target state="new">At this point, you have successfully created the Azure Search index.</target>
+        </trans-unit>
+        <trans-unit id="b66ecb95-5fa9-4bed-acb4-b66a55c8b56a" xml:space="preserve">
+          <source>If you get errors that include "invalid value for key 'attachdbfilename'" or some other database attachment error, you might be running into UAC conflicts.</source>
+          <target state="new">If you get errors that include "invalid value for key 'attachdbfilename'" or some other database attachment error, you might be running into UAC conflicts.</target>
+        </trans-unit>
+        <trans-unit id="bfbaba3b-a7f2-4bff-97cd-43d6f862b425" xml:space="preserve">
+          <source>For the purposes of this demo, work around these errors by doing the following: 
+Copy the solution to a new or existing folder (such as Temp) that provides access to authenticated users.</source>
+          <target state="new">For the purposes of this demo, work around these errors by doing the following: 
+Copy the solution to a new or existing folder (such as Temp) that provides access to authenticated users.</target>
+        </trans-unit>
+        <trans-unit id="a05f1250-5c7f-46e4-8910-32b832f25c55" xml:space="preserve">
+          <source>Use <bpt id="be96b558-2eb4-4908-9567-3131ddee49f4">&lt;strong&gt;</bpt>Run as Administrator<ept id="be96b558-2eb4-4908-9567-3131ddee49f4">&lt;/strong&gt;</ept> to start Visual Studio.</source>
+          <target state="new">Use <bpt id="be96b558-2eb4-4908-9567-3131ddee49f4">&lt;strong&gt;</bpt>Run as Administrator<ept id="be96b558-2eb4-4908-9567-3131ddee49f4">&lt;/strong&gt;</ept> to start Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="26a25496-0e57-4739-ae99-b4841ca0409a" xml:space="preserve">
+          <source>Open the solution, build it, and then press <bpt id="6c502e5d-b744-418e-b0ef-1e8f83c23c22">&lt;strong&gt;</bpt>F5<ept id="6c502e5d-b744-418e-b0ef-1e8f83c23c22">&lt;/strong&gt;</ept> to create the index.</source>
+          <target state="new">Open the solution, build it, and then press <bpt id="6c502e5d-b744-418e-b0ef-1e8f83c23c22">&lt;strong&gt;</bpt>F5<ept id="6c502e5d-b744-418e-b0ef-1e8f83c23c22">&lt;/strong&gt;</ept> to create the index.</target>
+        </trans-unit>
+        <trans-unit id="af412617-7a8d-4265-acd5-005b7cc63f11" xml:space="preserve">
+          <source>To verify index creation and document upload, go to your Search service dashboard in the <bpt id="dac5e933-1a04-4646-a23b-39cb432c9363">&lt;linkText&gt;</bpt>Azure management portal<ept id="dac5e933-1a04-4646-a23b-39cb432c9363">&lt;/linkText&gt;</ept><bpt id="dac5e933-1a04-4646-a23b-39cb432c9363">&lt;title&gt;</bpt><ept id="dac5e933-1a04-4646-a23b-39cb432c9363">&lt;/title&gt;</ept>.</source>
+          <target state="new">To verify index creation and document upload, go to your Search service dashboard in the <bpt id="dac5e933-1a04-4646-a23b-39cb432c9363">&lt;linkText&gt;</bpt>Azure management portal<ept id="dac5e933-1a04-4646-a23b-39cb432c9363">&lt;/linkText&gt;</ept><bpt id="dac5e933-1a04-4646-a23b-39cb432c9363">&lt;title&gt;</bpt><ept id="dac5e933-1a04-4646-a23b-39cb432c9363">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cec7a1ad-ecd9-4f66-b06f-3562d19387fc" xml:space="preserve">
+          <source>In Usage, the index count should be up by one, and you should have 294 documents, one for each product in the database.</source>
+          <target state="new">In Usage, the index count should be up by one, and you should have 294 documents, one for each product in the database.</target>
+        </trans-unit>
+        <trans-unit id="89f4704f-77d6-40e1-8c3a-228e4b268a31" xml:space="preserve">
+          <source>Click the <bpt id="00e98572-5bc9-4329-b4b0-5197814e6fe0">&lt;strong&gt;</bpt>Indexes<ept id="00e98572-5bc9-4329-b4b0-5197814e6fe0">&lt;/strong&gt;</ept> tile to show the index list.</source>
+          <target state="new">Click the <bpt id="00e98572-5bc9-4329-b4b0-5197814e6fe0">&lt;strong&gt;</bpt>Indexes<ept id="00e98572-5bc9-4329-b4b0-5197814e6fe0">&lt;/strong&gt;</ept> tile to show the index list.</target>
+        </trans-unit>
+        <trans-unit id="aa5eeb8f-5001-4042-b3dd-a1209d89df57" xml:space="preserve">
+          <source>The indexes list slides out to show the new index and document count.</source>
+          <target state="new">The indexes list slides out to show the new index and document count.</target>
+        </trans-unit>
+        <trans-unit id="ec8e1d31-baf7-44d3-bec7-82ac96df5195" xml:space="preserve">
+          <source>Note that you can have up to three indexes at the Free pricing tier.</source>
+          <target state="new">Note that you can have up to three indexes at the Free pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="45718597-9085-4285-afaf-4b74c1f8a4b4" xml:space="preserve">
+          <source>If you already had three indexes, you would need to delete one to free up space for any new ones.</source>
+          <target state="new">If you already had three indexes, you would need to delete one to free up space for any new ones.</target>
+        </trans-unit>
+        <trans-unit id="b4ec75b0-0820-42e8-825f-6eb5dd717cc7" xml:space="preserve">
+          <source>   <bpt id="0d28891f-799e-486e-9143-2a666eb748e1">&lt;linkText&gt;</bpt><ept id="0d28891f-799e-486e-9143-2a666eb748e1">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="0d28891f-799e-486e-9143-2a666eb748e1">&lt;linkText&gt;</bpt><ept id="0d28891f-799e-486e-9143-2a666eb748e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02383334-9fb1-429c-b083-c96e74799ebb" xml:space="preserve">
+          <source><bpt id="1e29c7e2-83c4-4054-86f9-935d8cf4180c">&lt;bookmark&gt;</bpt><ept id="1e29c7e2-83c4-4054-86f9-935d8cf4180c">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="1e29c7e2-83c4-4054-86f9-935d8cf4180c">&lt;bookmark&gt;</bpt><ept id="1e29c7e2-83c4-4054-86f9-935d8cf4180c">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="314edb47-f814-45be-96c6-11804adab136" xml:space="preserve">
+          <source>Let’s take a closer look at the <bpt id="8ddd1088-9a5d-496c-a6cc-2a428805463f">&lt;strong&gt;</bpt>CatalogIndexer<ept id="8ddd1088-9a5d-496c-a6cc-2a428805463f">&lt;/strong&gt;</ept> project to understand how it works.</source>
+          <target state="new">Let’s take a closer look at the <bpt id="8ddd1088-9a5d-496c-a6cc-2a428805463f">&lt;strong&gt;</bpt>CatalogIndexer<ept id="8ddd1088-9a5d-496c-a6cc-2a428805463f">&lt;/strong&gt;</ept> project to understand how it works.</target>
+        </trans-unit>
+        <trans-unit id="3e867bfe-2507-4b92-8ee0-c71812952a04" xml:space="preserve">
+          <source>Open <bpt id="f015e051-2a52-4d1d-9906-114d14038805">&lt;strong&gt;</bpt>Program.cs<ept id="f015e051-2a52-4d1d-9906-114d14038805">&lt;/strong&gt;</ept> from the Solution Explorer and go to the <bpt id="4e741b54-1be8-4918-8fcb-536857a8e578">&lt;code&gt;</bpt>Main(string[] args)<ept id="4e741b54-1be8-4918-8fcb-536857a8e578">&lt;/code&gt;</ept> function.</source>
+          <target state="new">Open <bpt id="f015e051-2a52-4d1d-9906-114d14038805">&lt;strong&gt;</bpt>Program.cs<ept id="f015e051-2a52-4d1d-9906-114d14038805">&lt;/strong&gt;</ept> from the Solution Explorer and go to the <bpt id="4e741b54-1be8-4918-8fcb-536857a8e578">&lt;code&gt;</bpt>Main(string[] args)<ept id="4e741b54-1be8-4918-8fcb-536857a8e578">&lt;/code&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="e90a7e12-2f64-4eba-b6ac-dade56edb699" xml:space="preserve">
+          <source>Notice how this function builds up a Uri called <bpt id="d04bfb6f-8f22-4fbe-a496-5db8d0cf78e1">&lt;code&gt;</bpt>_serviceURI<ept id="d04bfb6f-8f22-4fbe-a496-5db8d0cf78e1">&lt;/code&gt;</ept> based on your specific Azure Search service and then creates an HttpClient called <bpt id="80a1ef77-43e0-4209-b906-4695bef251d3">&lt;code&gt;</bpt>_httpClient<ept id="80a1ef77-43e0-4209-b906-4695bef251d3">&lt;/code&gt;</ept> that makes use of your API Key to authenticate to this Search service.</source>
+          <target state="new">Notice how this function builds up a Uri called <bpt id="d04bfb6f-8f22-4fbe-a496-5db8d0cf78e1">&lt;code&gt;</bpt>_serviceURI<ept id="d04bfb6f-8f22-4fbe-a496-5db8d0cf78e1">&lt;/code&gt;</ept> based on your specific Azure Search service and then creates an HttpClient called <bpt id="80a1ef77-43e0-4209-b906-4695bef251d3">&lt;code&gt;</bpt>_httpClient<ept id="80a1ef77-43e0-4209-b906-4695bef251d3">&lt;/code&gt;</ept> that makes use of your API Key to authenticate to this Search service.</target>
+        </trans-unit>
+        <trans-unit id="734c3f46-ffb5-4aff-be7b-87201787ef7f" xml:space="preserve">
+          <source><bpt id="e67a59c9-ad58-4403-b4ca-5034c00711d1">&lt;code&gt;</bpt>ChangeEnumeratorSql<ept id="e67a59c9-ad58-4403-b4ca-5034c00711d1">&lt;/code&gt;</ept> and <bpt id="7fd5c354-301c-46c0-a981-2d75414fc62a">&lt;code&gt;</bpt>ChangeSet<ept id="7fd5c354-301c-46c0-a981-2d75414fc62a">&lt;/code&gt;</ept> are used to enumerate the data from the Products table in your SQL Server AdventureWorks database.</source>
+          <target state="new"><bpt id="e67a59c9-ad58-4403-b4ca-5034c00711d1">&lt;code&gt;</bpt>ChangeEnumeratorSql<ept id="e67a59c9-ad58-4403-b4ca-5034c00711d1">&lt;/code&gt;</ept> and <bpt id="7fd5c354-301c-46c0-a981-2d75414fc62a">&lt;code&gt;</bpt>ChangeSet<ept id="7fd5c354-301c-46c0-a981-2d75414fc62a">&lt;/code&gt;</ept> are used to enumerate the data from the Products table in your SQL Server AdventureWorks database.</target>
+        </trans-unit>
+        <trans-unit id="9cfe18f9-2432-4f79-a835-31f3a8beed63" xml:space="preserve">
+          <source>Based on the data that is collected from this table, <bpt id="2b14618b-9b6e-4b7b-bd06-b1b456e84e6c">&lt;code&gt;</bpt>ApplyChanges<ept id="2b14618b-9b6e-4b7b-bd06-b1b456e84e6c">&lt;/code&gt;</ept> is then called to apply this data to your Azure Search index.</source>
+          <target state="new">Based on the data that is collected from this table, <bpt id="2b14618b-9b6e-4b7b-bd06-b1b456e84e6c">&lt;code&gt;</bpt>ApplyChanges<ept id="2b14618b-9b6e-4b7b-bd06-b1b456e84e6c">&lt;/code&gt;</ept> is then called to apply this data to your Azure Search index.</target>
+        </trans-unit>
+        <trans-unit id="b43318e6-5248-45a0-bc29-786d4d98ad1c" xml:space="preserve">
+          <source>Move to <bpt id="ba07188e-7f0f-402b-b724-5e2db95cfda0">&lt;code&gt;</bpt>ApplyChanges<ept id="ba07188e-7f0f-402b-b724-5e2db95cfda0">&lt;/code&gt;</ept> in the same file.</source>
+          <target state="new">Move to <bpt id="ba07188e-7f0f-402b-b724-5e2db95cfda0">&lt;code&gt;</bpt>ApplyChanges<ept id="ba07188e-7f0f-402b-b724-5e2db95cfda0">&lt;/code&gt;</ept> in the same file.</target>
+        </trans-unit>
+        <trans-unit id="53d3bd4c-2773-471e-9858-4282213d8270" xml:space="preserve">
+          <source>Notice how this function deletes the index if it already exists (<bpt id="f62ad087-1b47-46e4-9c34-9de8b6c3494f">&lt;code&gt;</bpt>DeleteCatalogIndex<ept id="f62ad087-1b47-46e4-9c34-9de8b6c3494f">&lt;/code&gt;</ept>) and then creates a new index called "catalog" (<bpt id="a10b2ad7-f3ba-4a6a-a79d-0dbef328d05e">&lt;code&gt;</bpt>CreateCatalogIndex<ept id="a10b2ad7-f3ba-4a6a-a79d-0dbef328d05e">&lt;/code&gt;</ept>).</source>
+          <target state="new">Notice how this function deletes the index if it already exists (<bpt id="f62ad087-1b47-46e4-9c34-9de8b6c3494f">&lt;code&gt;</bpt>DeleteCatalogIndex<ept id="f62ad087-1b47-46e4-9c34-9de8b6c3494f">&lt;/code&gt;</ept>) and then creates a new index called "catalog" (<bpt id="a10b2ad7-f3ba-4a6a-a79d-0dbef328d05e">&lt;code&gt;</bpt>CreateCatalogIndex<ept id="a10b2ad7-f3ba-4a6a-a79d-0dbef328d05e">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="d1a52ff3-7ef5-4dde-a8aa-fa020e2720c1" xml:space="preserve">
+          <source>Move to the <bpt id="b6a47322-dbda-4937-aa91-99b86240fd48">&lt;code&gt;</bpt>CreateCatalogIndex<ept id="b6a47322-dbda-4937-aa91-99b86240fd48">&lt;/code&gt;</ept> function, and notice how the index is created with a schema that matches the columns from the Products table in SQL Server.</source>
+          <target state="new">Move to the <bpt id="b6a47322-dbda-4937-aa91-99b86240fd48">&lt;code&gt;</bpt>CreateCatalogIndex<ept id="b6a47322-dbda-4937-aa91-99b86240fd48">&lt;/code&gt;</ept> function, and notice how the index is created with a schema that matches the columns from the Products table in SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="50ffc65c-9bc5-4847-890e-c183c740c3b6" xml:space="preserve">
+          <source>Each field has a Type (i.e., <bpt id="293fcd25-4bc5-44f4-a0c4-dac31747b479">&lt;code&gt;</bpt>Edm.String<ept id="293fcd25-4bc5-44f4-a0c4-dac31747b479">&lt;/code&gt;</ept> or <bpt id="dc0a6f0b-291a-4562-836b-cea7a08d0f1a">&lt;code&gt;</bpt>Edm.Double<ept id="dc0a6f0b-291a-4562-836b-cea7a08d0f1a">&lt;/code&gt;</ept>) as well as attributes that define what these fields are used for.</source>
+          <target state="new">Each field has a Type (i.e., <bpt id="293fcd25-4bc5-44f4-a0c4-dac31747b479">&lt;code&gt;</bpt>Edm.String<ept id="293fcd25-4bc5-44f4-a0c4-dac31747b479">&lt;/code&gt;</ept> or <bpt id="dc0a6f0b-291a-4562-836b-cea7a08d0f1a">&lt;code&gt;</bpt>Edm.Double<ept id="dc0a6f0b-291a-4562-836b-cea7a08d0f1a">&lt;/code&gt;</ept>) as well as attributes that define what these fields are used for.</target>
+        </trans-unit>
+        <trans-unit id="e5fc2c20-b478-4f80-a128-6bc4db64fef9" xml:space="preserve">
+          <source>Refer to the <bpt id="d0b977ba-9543-471d-b128-44a4ab953115">&lt;linkText&gt;</bpt>Azure Search REST API documentation<ept id="d0b977ba-9543-471d-b128-44a4ab953115">&lt;/linkText&gt;</ept><bpt id="d0b977ba-9543-471d-b128-44a4ab953115">&lt;title&gt;</bpt><ept id="d0b977ba-9543-471d-b128-44a4ab953115">&lt;/title&gt;</ept> for more details on these attributes.</source>
+          <target state="new">Refer to the <bpt id="d0b977ba-9543-471d-b128-44a4ab953115">&lt;linkText&gt;</bpt>Azure Search REST API documentation<ept id="d0b977ba-9543-471d-b128-44a4ab953115">&lt;/linkText&gt;</ept><bpt id="d0b977ba-9543-471d-b128-44a4ab953115">&lt;title&gt;</bpt><ept id="d0b977ba-9543-471d-b128-44a4ab953115">&lt;/title&gt;</ept> for more details on these attributes.</target>
+        </trans-unit>
+        <trans-unit id="c13835b4-7c2f-4b79-8d20-69b39548e5a0" xml:space="preserve">
+          <source>Go back to the <bpt id="a7be7927-00f6-4b2c-acef-767d6ea877ea">&lt;code&gt;</bpt>ApplyChanges<ept id="a7be7927-00f6-4b2c-acef-767d6ea877ea">&lt;/code&gt;</ept> function.</source>
+          <target state="new">Go back to the <bpt id="a7be7927-00f6-4b2c-acef-767d6ea877ea">&lt;code&gt;</bpt>ApplyChanges<ept id="a7be7927-00f6-4b2c-acef-767d6ea877ea">&lt;/code&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="12d8ae5b-e721-4da1-ae36-e84e5328aacd" xml:space="preserve">
+          <source>Notice how this function loops through all of the data in the enumerated changes <bpt id="4cefa4a4-cc09-43f2-b61a-2a9dfb92ec31">&lt;code&gt;</bpt>ChangeSet<ept id="4cefa4a4-cc09-43f2-b61a-2a9dfb92ec31">&lt;/code&gt;</ept>.</source>
+          <target state="new">Notice how this function loops through all of the data in the enumerated changes <bpt id="4cefa4a4-cc09-43f2-b61a-2a9dfb92ec31">&lt;code&gt;</bpt>ChangeSet<ept id="4cefa4a4-cc09-43f2-b61a-2a9dfb92ec31">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f6caec4-8d1b-49c5-af1c-eaf1897e6b9e" xml:space="preserve">
+          <source>Rather than applying the changes one by one, they are batched into groups of 1000 and then applied to the Search service.</source>
+          <target state="new">Rather than applying the changes one by one, they are batched into groups of 1000 and then applied to the Search service.</target>
+        </trans-unit>
+        <trans-unit id="f89aa78a-8940-4f63-afd6-ac7f0e164c5d" xml:space="preserve">
+          <source>This is much more efficient than applying the documents one by one.</source>
+          <target state="new">This is much more efficient than applying the documents one by one.</target>
+        </trans-unit>
+        <trans-unit id="4250de49-23ba-4bd3-a8c9-48ad231b2d50" xml:space="preserve">
+          <source>Now that you've seen how to create and populate an index using relational data from SQL Server, let’s take a look at how to build a product catalog that uses our search data.</source>
+          <target state="new">Now that you've seen how to create and populate an index using relational data from SQL Server, let’s take a look at how to build a product catalog that uses our search data.</target>
+        </trans-unit>
+        <trans-unit id="fc4fd7ed-c7dd-4d5d-aeb9-c824438bfcf5" xml:space="preserve">
+          <source><bpt id="33fd7b75-39ea-4719-aee0-d350f1f37d8d">&lt;bookmark&gt;</bpt><ept id="33fd7b75-39ea-4719-aee0-d350f1f37d8d">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="33fd7b75-39ea-4719-aee0-d350f1f37d8d">&lt;bookmark&gt;</bpt><ept id="33fd7b75-39ea-4719-aee0-d350f1f37d8d">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52b6448e-52e8-422a-b70a-dfe3cd00401f" xml:space="preserve">
+          <source>In this step, you’ll build and run the search application in a web browser.</source>
+          <target state="new">In this step, you’ll build and run the search application in a web browser.</target>
+        </trans-unit>
+        <trans-unit id="92c24eaf-9dd3-40b8-937a-5e6c673bfbce" xml:space="preserve">
+          <source>In Visual Studio, open up the Azure Search Demo Solution named <bpt id="96b62c31-dbb2-43ff-ab97-7083ef0da0b7">&lt;strong&gt;</bpt>AdventureWorksCatalog.sln<ept id="96b62c31-dbb2-43ff-ab97-7083ef0da0b7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, open up the Azure Search Demo Solution named <bpt id="96b62c31-dbb2-43ff-ab97-7083ef0da0b7">&lt;strong&gt;</bpt>AdventureWorksCatalog.sln<ept id="96b62c31-dbb2-43ff-ab97-7083ef0da0b7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5414857-a4f0-4c84-9ccb-bfdfb01df948" xml:space="preserve">
+          <source>Right-click <bpt id="d2745072-8d32-4a6e-a265-ffe8f2604dee">&lt;strong&gt;</bpt>AdventureWorksWeb<ept id="d2745072-8d32-4a6e-a265-ffe8f2604dee">&lt;/strong&gt;</ept> in the Solution Explorer and select <bpt id="8c7d7776-90d3-4921-81ce-f87807f32229">&lt;strong&gt;</bpt>Set as startup project<ept id="8c7d7776-90d3-4921-81ce-f87807f32229">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="d2745072-8d32-4a6e-a265-ffe8f2604dee">&lt;strong&gt;</bpt>AdventureWorksWeb<ept id="d2745072-8d32-4a6e-a265-ffe8f2604dee">&lt;/strong&gt;</ept> in the Solution Explorer and select <bpt id="8c7d7776-90d3-4921-81ce-f87807f32229">&lt;strong&gt;</bpt>Set as startup project<ept id="8c7d7776-90d3-4921-81ce-f87807f32229">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a57aa5e-cabc-412b-837f-93694e627479" xml:space="preserve">
+          <source>Open <bpt id="ba05c810-a177-4f47-bb3b-30e0a8a20e04">&lt;strong&gt;</bpt>Web.config<ept id="ba05c810-a177-4f47-bb3b-30e0a8a20e04">&lt;/strong&gt;</ept> in this project and update the values for "SearchServiceName" and "SearchServiceApiKey" to those of your Azure Search service.</source>
+          <target state="new">Open <bpt id="ba05c810-a177-4f47-bb3b-30e0a8a20e04">&lt;strong&gt;</bpt>Web.config<ept id="ba05c810-a177-4f47-bb3b-30e0a8a20e04">&lt;/strong&gt;</ept> in this project and update the values for "SearchServiceName" and "SearchServiceApiKey" to those of your Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="fce45fc1-3316-423d-b01d-64a5487dcb89" xml:space="preserve">
+          <source>For Search service name, if your service is "mysearch.search.windows.net", you would enter "mysearch".</source>
+          <target state="new">For Search service name, if your service is "mysearch.search.windows.net", you would enter "mysearch".</target>
+        </trans-unit>
+        <trans-unit id="bca66690-f70e-4515-ab65-06ae2f4c89e0" xml:space="preserve">
+          <source>Save <bpt id="6283d6ad-a920-4fe0-9e3c-023ca7f9c45f">&lt;strong&gt;</bpt>Web.config<ept id="6283d6ad-a920-4fe0-9e3c-023ca7f9c45f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Save <bpt id="6283d6ad-a920-4fe0-9e3c-023ca7f9c45f">&lt;strong&gt;</bpt>Web.config<ept id="6283d6ad-a920-4fe0-9e3c-023ca7f9c45f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fec27ca6-3adc-4ffe-9d4b-7334f994851d" xml:space="preserve">
+          <source>Press <bpt id="072acccb-6c8a-4fe5-b2fe-d18eb1056bd7">&lt;strong&gt;</bpt>F5<ept id="072acccb-6c8a-4fe5-b2fe-d18eb1056bd7">&lt;/strong&gt;</ept> to launch the project.</source>
+          <target state="new">Press <bpt id="072acccb-6c8a-4fe5-b2fe-d18eb1056bd7">&lt;strong&gt;</bpt>F5<ept id="072acccb-6c8a-4fe5-b2fe-d18eb1056bd7">&lt;/strong&gt;</ept> to launch the project.</target>
+        </trans-unit>
+        <trans-unit id="c8c7ec9d-7387-4a3d-b07b-af496101b801" xml:space="preserve">
+          <source>Follow these <bpt id="4fa742db-ad4f-4c8e-8cb9-79c338bc3fb1">&lt;linkText&gt;</bpt>Troubleshooting<ept id="4fa742db-ad4f-4c8e-8cb9-79c338bc3fb1">&lt;/linkText&gt;</ept><bpt id="4fa742db-ad4f-4c8e-8cb9-79c338bc3fb1">&lt;title&gt;</bpt><ept id="4fa742db-ad4f-4c8e-8cb9-79c338bc3fb1">&lt;/title&gt;</ept> steps if you get a build error.</source>
+          <target state="new">Follow these <bpt id="4fa742db-ad4f-4c8e-8cb9-79c338bc3fb1">&lt;linkText&gt;</bpt>Troubleshooting<ept id="4fa742db-ad4f-4c8e-8cb9-79c338bc3fb1">&lt;/linkText&gt;</ept><bpt id="4fa742db-ad4f-4c8e-8cb9-79c338bc3fb1">&lt;title&gt;</bpt><ept id="4fa742db-ad4f-4c8e-8cb9-79c338bc3fb1">&lt;/title&gt;</ept> steps if you get a build error.</target>
+        </trans-unit>
+        <trans-unit id="fae45069-6337-4837-be3d-886fe15178a6" xml:space="preserve">
+          <source><bpt id="4419c16a-2aad-4c73-8907-2419249544d9">&lt;linkText&gt;</bpt><ept id="4419c16a-2aad-4c73-8907-2419249544d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4419c16a-2aad-4c73-8907-2419249544d9">&lt;linkText&gt;</bpt><ept id="4419c16a-2aad-4c73-8907-2419249544d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc984aac-4388-4745-ba5c-d158b48e719f" xml:space="preserve">
+          <source>Leave the search box empty, and click <bpt id="dabe340a-d600-4c8c-8fd2-62e119a79aa8">&lt;strong&gt;</bpt>Search<ept id="dabe340a-d600-4c8c-8fd2-62e119a79aa8">&lt;/strong&gt;</ept> to return all 294 products.</source>
+          <target state="new">Leave the search box empty, and click <bpt id="dabe340a-d600-4c8c-8fd2-62e119a79aa8">&lt;strong&gt;</bpt>Search<ept id="dabe340a-d600-4c8c-8fd2-62e119a79aa8">&lt;/strong&gt;</ept> to return all 294 products.</target>
+        </trans-unit>
+        <trans-unit id="0c7ed6ba-1f0e-40a0-a0ab-b0dd16dba0a4" xml:space="preserve">
+          <source>Notice the list of facets along on the left side.</source>
+          <target state="new">Notice the list of facets along on the left side.</target>
+        </trans-unit>
+        <trans-unit id="cfa86559-217d-48bf-a394-9b5cd337c3a9" xml:space="preserve">
+          <source>Try clicking one of the facets.</source>
+          <target state="new">Try clicking one of the facets.</target>
+        </trans-unit>
+        <trans-unit id="1a5e14f7-5382-4b9b-8c22-bfd36647f352" xml:space="preserve">
+          <source>Search is re-executed, but this time it adds the facet you chose to filter the results.</source>
+          <target state="new">Search is re-executed, but this time it adds the facet you chose to filter the results.</target>
+        </trans-unit>
+        <trans-unit id="8fafceb4-be02-4c8f-8ddb-3ca6ac1cf410" xml:space="preserve">
+          <source>You may want to add a breakpoint to the first line in the <bpt id="acaa4087-d569-4a95-82b6-f856601807cf">&lt;strong&gt;</bpt>HomeController.cs<ept id="acaa4087-d569-4a95-82b6-f856601807cf">&lt;/strong&gt;</ept> <bpt id="35d728ba-b33e-4419-851c-30dfcf59bc06">&lt;code&gt;</bpt>Search<ept id="35d728ba-b33e-4419-851c-30dfcf59bc06">&lt;/code&gt;</ept> function to step through (F11) each line.</source>
+          <target state="new">You may want to add a breakpoint to the first line in the <bpt id="acaa4087-d569-4a95-82b6-f856601807cf">&lt;strong&gt;</bpt>HomeController.cs<ept id="acaa4087-d569-4a95-82b6-f856601807cf">&lt;/strong&gt;</ept> <bpt id="35d728ba-b33e-4419-851c-30dfcf59bc06">&lt;code&gt;</bpt>Search<ept id="35d728ba-b33e-4419-851c-30dfcf59bc06">&lt;/code&gt;</ept> function to step through (F11) each line.</target>
+        </trans-unit>
+        <trans-unit id="6f633674-77f0-492c-b48d-1ac03a541e4c" xml:space="preserve">
+          <source>Enter a search term, such as "mountain bikes".</source>
+          <target state="new">Enter a search term, such as "mountain bikes".</target>
+        </trans-unit>
+        <trans-unit id="68dda887-8893-47ab-acce-adbb8f37bd2b" xml:space="preserve">
+          <source>As you type, notice the drop-down list of suggested queries.</source>
+          <target state="new">As you type, notice the drop-down list of suggested queries.</target>
+        </trans-unit>
+        <trans-unit id="7d69dca7-c742-4daa-a6be-68ee2947b2b6" xml:space="preserve">
+          <source><bpt id="4fb8d9ea-ae47-4401-acaa-f22a2b49a2b2">&lt;linkText&gt;</bpt><ept id="4fb8d9ea-ae47-4401-acaa-f22a2b49a2b2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4fb8d9ea-ae47-4401-acaa-f22a2b49a2b2">&lt;linkText&gt;</bpt><ept id="4fb8d9ea-ae47-4401-acaa-f22a2b49a2b2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e6da94b-b7dd-488d-90cf-e97a28a384de" xml:space="preserve">
+          <source>The screenshot from the start of this demo appears again below, as a reminder of what was covered.</source>
+          <target state="new">The screenshot from the start of this demo appears again below, as a reminder of what was covered.</target>
+        </trans-unit>
+        <trans-unit id="12a04c79-08c3-42c5-8772-5c60f0046051" xml:space="preserve">
+          <source>In the previous sections, we discussed faceted navigation (on the left), the document count at the top of the page, suggestions, and the sort options for sorting by relevance, list, or price.</source>
+          <target state="new">In the previous sections, we discussed faceted navigation (on the left), the document count at the top of the page, suggestions, and the sort options for sorting by relevance, list, or price.</target>
+        </trans-unit>
+        <trans-unit id="3fcfc39a-3197-454d-a4fc-7f9ad2b40899" xml:space="preserve">
+          <source>   <bpt id="ede591ae-364c-4a04-aaa2-60a613a5bb2f">&lt;linkText&gt;</bpt><ept id="ede591ae-364c-4a04-aaa2-60a613a5bb2f">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="ede591ae-364c-4a04-aaa2-60a613a5bb2f">&lt;linkText&gt;</bpt><ept id="ede591ae-364c-4a04-aaa2-60a613a5bb2f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c08ba80b-ff7b-4980-9010-f948a53766c1" xml:space="preserve">
+          <source><bpt id="ee766b17-5a1f-48a1-996c-a3aa77883349">&lt;bookmark&gt;</bpt><ept id="ee766b17-5a1f-48a1-996c-a3aa77883349">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="ee766b17-5a1f-48a1-996c-a3aa77883349">&lt;bookmark&gt;</bpt><ept id="ee766b17-5a1f-48a1-996c-a3aa77883349">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e9fbaea-26d2-41bd-a42b-4d2b1ca5ba05" xml:space="preserve">
+          <source>The project AdventureWorksWeb shows us how ASP.NET MVC 4 can be used to interact with Azure Search from a web application.</source>
+          <target state="new">The project AdventureWorksWeb shows us how ASP.NET MVC 4 can be used to interact with Azure Search from a web application.</target>
+        </trans-unit>
+        <trans-unit id="9776d055-362b-40f3-b361-348a71c8f92e" xml:space="preserve">
+          <source>In this section, we’ll review individual parts of the application code to see what they do.</source>
+          <target state="new">In this section, we’ll review individual parts of the application code to see what they do.</target>
+        </trans-unit>
+        <trans-unit id="d4ddefb2-29a9-4d79-bef1-1e7bd5e6f2f4" xml:space="preserve">
+          <source>In Solution Explorer, expand <bpt id="0772ea3c-3f45-4449-8a6f-cbf02f8c4eda">&lt;strong&gt;</bpt>AdventureWorksWeb<ept id="0772ea3c-3f45-4449-8a6f-cbf02f8c4eda">&lt;/strong&gt;</ept> | <bpt id="df3defa7-51bb-4463-8af6-5e1d4c5b6143">&lt;strong&gt;</bpt>Controller<ept id="df3defa7-51bb-4463-8af6-5e1d4c5b6143">&lt;/strong&gt;</ept> and open <bpt id="90fbfa93-9e39-4886-b322-8779af204cc5">&lt;strong&gt;</bpt>HomeController.cs<ept id="90fbfa93-9e39-4886-b322-8779af204cc5">&lt;/strong&gt;</ept></source>
+          <target state="new">In Solution Explorer, expand <bpt id="0772ea3c-3f45-4449-8a6f-cbf02f8c4eda">&lt;strong&gt;</bpt>AdventureWorksWeb<ept id="0772ea3c-3f45-4449-8a6f-cbf02f8c4eda">&lt;/strong&gt;</ept> | <bpt id="df3defa7-51bb-4463-8af6-5e1d4c5b6143">&lt;strong&gt;</bpt>Controller<ept id="df3defa7-51bb-4463-8af6-5e1d4c5b6143">&lt;/strong&gt;</ept> and open <bpt id="90fbfa93-9e39-4886-b322-8779af204cc5">&lt;strong&gt;</bpt>HomeController.cs<ept id="90fbfa93-9e39-4886-b322-8779af204cc5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="310b305f-4167-4f81-b7b8-4e3123cede06" xml:space="preserve">
+          <source>This is the MVC controller that manages the interaction from the Index view.</source>
+          <target state="new">This is the MVC controller that manages the interaction from the Index view.</target>
+        </trans-unit>
+        <trans-unit id="7c5eabc0-ecfc-42c5-ba89-1c208665c48c" xml:space="preserve">
+          <source>At the top of the controller, you will notice a reference to <bpt id="b24a0607-4e36-44b8-aabd-9aef7ef7595e">&lt;code&gt;</bpt>CatalogSearch _catalogSearch<ept id="b24a0607-4e36-44b8-aabd-9aef7ef7595e">&lt;/code&gt;</ept> which creates a HttpClient connection object to your Azure Search service.</source>
+          <target state="new">At the top of the controller, you will notice a reference to <bpt id="b24a0607-4e36-44b8-aabd-9aef7ef7595e">&lt;code&gt;</bpt>CatalogSearch _catalogSearch<ept id="b24a0607-4e36-44b8-aabd-9aef7ef7595e">&lt;/code&gt;</ept> which creates a HttpClient connection object to your Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="71341431-f31d-4960-bc1f-664104ba37c5" xml:space="preserve">
+          <source>The code for this <bpt id="a347022b-4741-4a10-bd26-bf1d190aeaa6">&lt;code&gt;</bpt>CatalogSearch<ept id="a347022b-4741-4a10-bd26-bf1d190aeaa6">&lt;/code&gt;</ept> is located in <bpt id="ea6f83ff-f991-4b8f-876d-509264af8f3c">&lt;strong&gt;</bpt>CatalogSeach.cs<ept id="ea6f83ff-f991-4b8f-876d-509264af8f3c">&lt;/strong&gt;</ept></source>
+          <target state="new">The code for this <bpt id="a347022b-4741-4a10-bd26-bf1d190aeaa6">&lt;code&gt;</bpt>CatalogSearch<ept id="a347022b-4741-4a10-bd26-bf1d190aeaa6">&lt;/code&gt;</ept> is located in <bpt id="ea6f83ff-f991-4b8f-876d-509264af8f3c">&lt;strong&gt;</bpt>CatalogSeach.cs<ept id="ea6f83ff-f991-4b8f-876d-509264af8f3c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f736eec9-70cd-405a-b9ee-6a853ce3b181" xml:space="preserve">
+          <source>Within <bpt id="51acb7b4-e8de-4aea-ac7f-dd6ebe16d23b">&lt;strong&gt;</bpt>HomeController.cs<ept id="51acb7b4-e8de-4aea-ac7f-dd6ebe16d23b">&lt;/strong&gt;</ept>, there are two main functions:</source>
+          <target state="new">Within <bpt id="51acb7b4-e8de-4aea-ac7f-dd6ebe16d23b">&lt;strong&gt;</bpt>HomeController.cs<ept id="51acb7b4-e8de-4aea-ac7f-dd6ebe16d23b">&lt;/strong&gt;</ept>, there are two main functions:</target>
+        </trans-unit>
+        <trans-unit id="bca5efa3-4849-4b91-a8f3-7e77b5b70d1f" xml:space="preserve">
+          <source><bpt id="71e009da-e5be-4781-8783-11aef9e7bcf1">&lt;strong&gt;</bpt>Search<ept id="71e009da-e5be-4781-8783-11aef9e7bcf1">&lt;/strong&gt;</ept>: When the user clicks on the search button or chooses a facet, this function is called to retrieve the results and send them back to the Index view to be displayed.</source>
+          <target state="new"><bpt id="71e009da-e5be-4781-8783-11aef9e7bcf1">&lt;strong&gt;</bpt>Search<ept id="71e009da-e5be-4781-8783-11aef9e7bcf1">&lt;/strong&gt;</ept>: When the user clicks on the search button or chooses a facet, this function is called to retrieve the results and send them back to the Index view to be displayed.</target>
+        </trans-unit>
+        <trans-unit id="5e3e543c-0b69-4493-8630-64e6ad2fde83" xml:space="preserve">
+          <source><bpt id="82c1dd77-9b0a-4b58-93e0-a4e50c120adf">&lt;strong&gt;</bpt>Suggest<ept id="82c1dd77-9b0a-4b58-93e0-a4e50c120adf">&lt;/strong&gt;</ept>: As the user is typing in the Search box, this function is called to return a list of suggestions based on the content in your Azure Search index.</source>
+          <target state="new"><bpt id="82c1dd77-9b0a-4b58-93e0-a4e50c120adf">&lt;strong&gt;</bpt>Suggest<ept id="82c1dd77-9b0a-4b58-93e0-a4e50c120adf">&lt;/strong&gt;</ept>: As the user is typing in the Search box, this function is called to return a list of suggestions based on the content in your Azure Search index.</target>
+        </trans-unit>
+        <trans-unit id="a8c320c8-3313-4dc4-a168-f1660eef74d4" xml:space="preserve">
+          <source>Let’s drill into these two functions in more detail.</source>
+          <target state="new">Let’s drill into these two functions in more detail.</target>
+        </trans-unit>
+        <trans-unit id="523ea956-a82e-4016-be5a-6d3d1e17a01b" xml:space="preserve">
+          <source>In <bpt id="4a9fc045-7d83-4b73-a38b-7e048a9e1df6">&lt;strong&gt;</bpt>HomeController.cs<ept id="4a9fc045-7d83-4b73-a38b-7e048a9e1df6">&lt;/strong&gt;</ept> <bpt id="8750830f-881d-43dc-b024-42f7b4c2190c">&lt;code&gt;</bpt>Search<ept id="8750830f-881d-43dc-b024-42f7b4c2190c">&lt;/code&gt;</ept> function, you will notice a call to <bpt id="2499d63a-f21a-468a-95b7-6c5be4d48872">&lt;code&gt;</bpt>_catalogSearch.Search<ept id="2499d63a-f21a-468a-95b7-6c5be4d48872">&lt;/code&gt;</ept>, which includes the connection object to your Azure Search service.</source>
+          <target state="new">In <bpt id="4a9fc045-7d83-4b73-a38b-7e048a9e1df6">&lt;strong&gt;</bpt>HomeController.cs<ept id="4a9fc045-7d83-4b73-a38b-7e048a9e1df6">&lt;/strong&gt;</ept> <bpt id="8750830f-881d-43dc-b024-42f7b4c2190c">&lt;code&gt;</bpt>Search<ept id="8750830f-881d-43dc-b024-42f7b4c2190c">&lt;/code&gt;</ept> function, you will notice a call to <bpt id="2499d63a-f21a-468a-95b7-6c5be4d48872">&lt;code&gt;</bpt>_catalogSearch.Search<ept id="2499d63a-f21a-468a-95b7-6c5be4d48872">&lt;/code&gt;</ept>, which includes the connection object to your Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="7cea5763-5927-49d2-ae47-4cd19b0f865b" xml:space="preserve">
+          <source>When you call the Search function located in <bpt id="1c6a90cd-81bc-4ad1-86da-3e3be5ce1656">&lt;strong&gt;</bpt>CatalogSearch.cs<ept id="1c6a90cd-81bc-4ad1-86da-3e3be5ce1656">&lt;/strong&gt;</ept>, you can see that it utilizes these parameters to build out an Azure Search query.</source>
+          <target state="new">When you call the Search function located in <bpt id="1c6a90cd-81bc-4ad1-86da-3e3be5ce1656">&lt;strong&gt;</bpt>CatalogSearch.cs<ept id="1c6a90cd-81bc-4ad1-86da-3e3be5ce1656">&lt;/strong&gt;</ept>, you can see that it utilizes these parameters to build out an Azure Search query.</target>
+        </trans-unit>
+        <trans-unit id="a5dbab9f-04af-4ba3-be8b-7ce1dc121adb" xml:space="preserve">
+          <source>The results of the query are stored in a JSON object called <bpt id="cd41a07e-1334-4126-8a6d-a6979cfcb685">&lt;code&gt;</bpt>result<ept id="cd41a07e-1334-4126-8a6d-a6979cfcb685">&lt;/code&gt;</ept> and then passed back to the <bpt id="91ae86d4-52d6-49a4-9769-6a3d78bab59f">&lt;code&gt;</bpt>Index<ept id="91ae86d4-52d6-49a4-9769-6a3d78bab59f">&lt;/code&gt;</ept> view where the results are parsed and displayed in the web page.</source>
+          <target state="new">The results of the query are stored in a JSON object called <bpt id="cd41a07e-1334-4126-8a6d-a6979cfcb685">&lt;code&gt;</bpt>result<ept id="cd41a07e-1334-4126-8a6d-a6979cfcb685">&lt;/code&gt;</ept> and then passed back to the <bpt id="91ae86d4-52d6-49a4-9769-6a3d78bab59f">&lt;code&gt;</bpt>Index<ept id="91ae86d4-52d6-49a4-9769-6a3d78bab59f">&lt;/code&gt;</ept> view where the results are parsed and displayed in the web page.</target>
+        </trans-unit>
+        <trans-unit id="9ea29c70-13f9-485c-a5e6-00e2afd09d92" xml:space="preserve">
+          <source>Open <bpt id="46c31bc7-32b4-4b51-8bed-616999676753">&lt;strong&gt;</bpt>Index.cshtml<ept id="46c31bc7-32b4-4b51-8bed-616999676753">&lt;/strong&gt;</ept> under Views | Home, you will notice the code that is used to parse these results.</source>
+          <target state="new">Open <bpt id="46c31bc7-32b4-4b51-8bed-616999676753">&lt;strong&gt;</bpt>Index.cshtml<ept id="46c31bc7-32b4-4b51-8bed-616999676753">&lt;/strong&gt;</ept> under Views | Home, you will notice the code that is used to parse these results.</target>
+        </trans-unit>
+        <trans-unit id="0c0e06e3-11cd-48d4-a118-7926415e872f" xml:space="preserve">
+          <source>Stop the application if it’s still running, and open <bpt id="151ee003-f4a9-47c8-a1e1-ab3155d6bf82">&lt;strong&gt;</bpt>Index.cshtml<ept id="151ee003-f4a9-47c8-a1e1-ab3155d6bf82">&lt;/strong&gt;</ept> file under Views | Home.</source>
+          <target state="new">Stop the application if it’s still running, and open <bpt id="151ee003-f4a9-47c8-a1e1-ab3155d6bf82">&lt;strong&gt;</bpt>Index.cshtml<ept id="151ee003-f4a9-47c8-a1e1-ab3155d6bf82">&lt;/strong&gt;</ept> file under Views | Home.</target>
+        </trans-unit>
+        <trans-unit id="e1aa25bb-6f38-42f9-b45e-a3b3cc8208fc" xml:space="preserve">
+          <source>At the end of this file, you will see a JavaScript function that uses <bpt id="215f3ce3-8a68-47ce-908b-0b9542b14b18">&lt;code&gt;</bpt>JQuery $(function ())<ept id="215f3ce3-8a68-47ce-908b-0b9542b14b18">&lt;/code&gt;</ept>.</source>
+          <target state="new">At the end of this file, you will see a JavaScript function that uses <bpt id="215f3ce3-8a68-47ce-908b-0b9542b14b18">&lt;code&gt;</bpt>JQuery $(function ())<ept id="215f3ce3-8a68-47ce-908b-0b9542b14b18">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc49fe07-a56f-40d8-b7a7-ff6c3c5ccfba" xml:space="preserve">
+          <source>This function is called when the page loads.</source>
+          <target state="new">This function is called when the page loads.</target>
+        </trans-unit>
+        <trans-unit id="da4227bc-c17c-48c8-b603-aed3c349ecff" xml:space="preserve">
+          <source>It uses the JQuery autocomplete function and links this function as a callback from the search text box, identified as "q".</source>
+          <target state="new">It uses the JQuery autocomplete function and links this function as a callback from the search text box, identified as "q".</target>
+        </trans-unit>
+        <trans-unit id="740f0074-136a-45d3-9a06-eb8a92bf21f9" xml:space="preserve">
+          <source>Whenever someone types into the text box, this autosuggest function is called which in turn calls /home/suggest with what is entered.</source>
+          <target state="new">Whenever someone types into the text box, this autosuggest function is called which in turn calls /home/suggest with what is entered.</target>
+        </trans-unit>
+        <trans-unit id="e26c191f-4c79-48de-93b5-294987059dd9" xml:space="preserve">
+          <source><bpt id="22d2210d-3874-4220-a370-3ebebecfaaed">&lt;code&gt;</bpt>/home/suggest<ept id="22d2210d-3874-4220-a370-3ebebecfaaed">&lt;/code&gt;</ept> is a reference to the function in <bpt id="e9e2d9e3-dcdc-40aa-8f76-4331fe7c3701">&lt;strong&gt;</bpt>HomeController.cs<ept id="e9e2d9e3-dcdc-40aa-8f76-4331fe7c3701">&lt;/strong&gt;</ept> called <bpt id="1a93b19e-c524-41b2-bd74-b6399dc80b03">&lt;code&gt;</bpt>Suggest<ept id="1a93b19e-c524-41b2-bd74-b6399dc80b03">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="22d2210d-3874-4220-a370-3ebebecfaaed">&lt;code&gt;</bpt>/home/suggest<ept id="22d2210d-3874-4220-a370-3ebebecfaaed">&lt;/code&gt;</ept> is a reference to the function in <bpt id="e9e2d9e3-dcdc-40aa-8f76-4331fe7c3701">&lt;strong&gt;</bpt>HomeController.cs<ept id="e9e2d9e3-dcdc-40aa-8f76-4331fe7c3701">&lt;/strong&gt;</ept> called <bpt id="1a93b19e-c524-41b2-bd74-b6399dc80b03">&lt;code&gt;</bpt>Suggest<ept id="1a93b19e-c524-41b2-bd74-b6399dc80b03">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba79565d-c9c0-4a09-8eeb-a942f87a8010" xml:space="preserve">
+          <source>Open <bpt id="c28390be-0d7c-4345-91c6-5a3c604857a8">&lt;strong&gt;</bpt>HomeController.cs<ept id="c28390be-0d7c-4345-91c6-5a3c604857a8">&lt;/strong&gt;</ept> and move to the Suggest function.</source>
+          <target state="new">Open <bpt id="c28390be-0d7c-4345-91c6-5a3c604857a8">&lt;strong&gt;</bpt>HomeController.cs<ept id="c28390be-0d7c-4345-91c6-5a3c604857a8">&lt;/strong&gt;</ept> and move to the Suggest function.</target>
+        </trans-unit>
+        <trans-unit id="921a9634-856d-44a3-90c2-366798a36fdb" xml:space="preserve">
+          <source>This code is very similar to the Search function that uses the <bpt id="f967858f-1517-4046-8cf3-160aac892d11">&lt;code&gt;</bpt>_catalogSearch<ept id="f967858f-1517-4046-8cf3-160aac892d11">&lt;/code&gt;</ept> object to call a function in <bpt id="e900580d-3aea-4c2c-bff6-25a2146ca024">&lt;strong&gt;</bpt>CatalogSearch.cs<ept id="e900580d-3aea-4c2c-bff6-25a2146ca024">&lt;/strong&gt;</ept> called <bpt id="f66854f0-f646-4dbb-8a2e-ab4d5d5d44ad">&lt;code&gt;</bpt>Suggest<ept id="f66854f0-f646-4dbb-8a2e-ab4d5d5d44ad">&lt;/code&gt;</ept>.</source>
+          <target state="new">This code is very similar to the Search function that uses the <bpt id="f967858f-1517-4046-8cf3-160aac892d11">&lt;code&gt;</bpt>_catalogSearch<ept id="f967858f-1517-4046-8cf3-160aac892d11">&lt;/code&gt;</ept> object to call a function in <bpt id="e900580d-3aea-4c2c-bff6-25a2146ca024">&lt;strong&gt;</bpt>CatalogSearch.cs<ept id="e900580d-3aea-4c2c-bff6-25a2146ca024">&lt;/strong&gt;</ept> called <bpt id="f66854f0-f646-4dbb-8a2e-ab4d5d5d44ad">&lt;code&gt;</bpt>Suggest<ept id="f66854f0-f646-4dbb-8a2e-ab4d5d5d44ad">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1378096e-2f5a-483a-bf54-b29aeb8e49e0" xml:space="preserve">
+          <source>Rather than making a search query, the <bpt id="34819637-4fd0-4fe9-aceb-3f123a9c7271">&lt;code&gt;</bpt>Suggest<ept id="34819637-4fd0-4fe9-aceb-3f123a9c7271">&lt;/code&gt;</ept> function makes a call to the <bpt id="af2ad4da-7763-47a8-9800-27c5b110c27e">&lt;linkText&gt;</bpt>Suggestions API<ept id="af2ad4da-7763-47a8-9800-27c5b110c27e">&lt;/linkText&gt;</ept><bpt id="af2ad4da-7763-47a8-9800-27c5b110c27e">&lt;title&gt;</bpt><ept id="af2ad4da-7763-47a8-9800-27c5b110c27e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Rather than making a search query, the <bpt id="34819637-4fd0-4fe9-aceb-3f123a9c7271">&lt;code&gt;</bpt>Suggest<ept id="34819637-4fd0-4fe9-aceb-3f123a9c7271">&lt;/code&gt;</ept> function makes a call to the <bpt id="af2ad4da-7763-47a8-9800-27c5b110c27e">&lt;linkText&gt;</bpt>Suggestions API<ept id="af2ad4da-7763-47a8-9800-27c5b110c27e">&lt;/linkText&gt;</ept><bpt id="af2ad4da-7763-47a8-9800-27c5b110c27e">&lt;title&gt;</bpt><ept id="af2ad4da-7763-47a8-9800-27c5b110c27e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9910088e-7476-4c65-a853-8e93813bf158" xml:space="preserve">
+          <source>This uses the terms entered in the text box and build out a list of potential suggestions.</source>
+          <target state="new">This uses the terms entered in the text box and build out a list of potential suggestions.</target>
+        </trans-unit>
+        <trans-unit id="676ad6ae-1387-421a-a8b6-25ea62960f5a" xml:space="preserve">
+          <source>The values are returned to the <bpt id="f67d574c-274d-4b54-9af1-ffb0a9baee53">&lt;strong&gt;</bpt>Index.cshtml<ept id="f67d574c-274d-4b54-9af1-ffb0a9baee53">&lt;/strong&gt;</ept> file that are automatically listed in the Search box as type-ahead options.</source>
+          <target state="new">The values are returned to the <bpt id="f67d574c-274d-4b54-9af1-ffb0a9baee53">&lt;strong&gt;</bpt>Index.cshtml<ept id="f67d574c-274d-4b54-9af1-ffb0a9baee53">&lt;/strong&gt;</ept> file that are automatically listed in the Search box as type-ahead options.</target>
+        </trans-unit>
+        <trans-unit id="3041b150-5185-4f92-a43e-befcc4887856" xml:space="preserve">
+          <source>You might be asking yourself at this point how Azure Search knows what fields to build suggestions over.</source>
+          <target state="new">You might be asking yourself at this point how Azure Search knows what fields to build suggestions over.</target>
+        </trans-unit>
+        <trans-unit id="898d44b8-125a-4941-82ea-e5a778285e50" xml:space="preserve">
+          <source>The answer to this is back when you created the Index.</source>
+          <target state="new">The answer to this is back when you created the Index.</target>
+        </trans-unit>
+        <trans-unit id="ef5cf234-2fbc-49c3-8f74-6b03e7fedf21" xml:space="preserve">
+          <source>In the <bpt id="08581116-dd6a-41d7-8297-1b91fe280186">&lt;code&gt;</bpt>CreateCatalogIndex<ept id="08581116-dd6a-41d7-8297-1b91fe280186">&lt;/code&gt;</ept>  function within the file Program.cs of the <bpt id="6f5a9552-ba60-41ee-bcf3-2653a8b2389d">&lt;strong&gt;</bpt>CatalogIndexer<ept id="6f5a9552-ba60-41ee-bcf3-2653a8b2389d">&lt;/strong&gt;</ept> project, there is an attribute called <bpt id="56232b2e-2f50-4aaa-b99b-0f201c8763d3">&lt;code&gt;</bpt>Suggestions<ept id="56232b2e-2f50-4aaa-b99b-0f201c8763d3">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the <bpt id="08581116-dd6a-41d7-8297-1b91fe280186">&lt;code&gt;</bpt>CreateCatalogIndex<ept id="08581116-dd6a-41d7-8297-1b91fe280186">&lt;/code&gt;</ept>  function within the file Program.cs of the <bpt id="6f5a9552-ba60-41ee-bcf3-2653a8b2389d">&lt;strong&gt;</bpt>CatalogIndexer<ept id="6f5a9552-ba60-41ee-bcf3-2653a8b2389d">&lt;/strong&gt;</ept> project, there is an attribute called <bpt id="56232b2e-2f50-4aaa-b99b-0f201c8763d3">&lt;code&gt;</bpt>Suggestions<ept id="56232b2e-2f50-4aaa-b99b-0f201c8763d3">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac4a6ee0-b20b-462e-b947-7412f887cad6" xml:space="preserve">
+          <source>Whenever this attribute is set to <bpt id="30332498-9c0b-4bb6-b059-73f9aeef84dd">&lt;code&gt;</bpt>True<ept id="30332498-9c0b-4bb6-b059-73f9aeef84dd">&lt;/code&gt;</ept>, it means that Azure Search can use it as a field for retrieving suggestions</source>
+          <target state="new">Whenever this attribute is set to <bpt id="30332498-9c0b-4bb6-b059-73f9aeef84dd">&lt;code&gt;</bpt>True<ept id="30332498-9c0b-4bb6-b059-73f9aeef84dd">&lt;/code&gt;</ept>, it means that Azure Search can use it as a field for retrieving suggestions</target>
+        </trans-unit>
+        <trans-unit id="2741c926-3d56-4309-8d08-ab9aadb712c8" xml:space="preserve">
+          <source>Let’s give this a try.</source>
+          <target state="new">Let’s give this a try.</target>
+        </trans-unit>
+        <trans-unit id="9223ae47-807c-40a9-9a9d-6d84f9f8e635" xml:space="preserve">
+          <source>Once again, build the application and then press <bpt id="7ec0d1c2-f71d-49aa-aaf6-96d3f81895b0">&lt;strong&gt;</bpt>F5<ept id="7ec0d1c2-f71d-49aa-aaf6-96d3f81895b0">&lt;/strong&gt;</ept> to run the application.</source>
+          <target state="new">Once again, build the application and then press <bpt id="7ec0d1c2-f71d-49aa-aaf6-96d3f81895b0">&lt;strong&gt;</bpt>F5<ept id="7ec0d1c2-f71d-49aa-aaf6-96d3f81895b0">&lt;/strong&gt;</ept> to run the application.</target>
+        </trans-unit>
+        <trans-unit id="12e15a9b-02d3-43a8-a231-58ebe6332e73" xml:space="preserve">
+          <source>In the search box type in the word "Road".</source>
+          <target state="new">In the search box type in the word "Road".</target>
+        </trans-unit>
+        <trans-unit id="ccb147ba-96f5-439e-9297-5537317aad8e" xml:space="preserve">
+          <source>After a second, you should see a list of items display below the text box with Suggestions that a user could potentially choose.</source>
+          <target state="new">After a second, you should see a list of items display below the text box with Suggestions that a user could potentially choose.</target>
+        </trans-unit>
+        <trans-unit id="8f55e67e-85c8-4e9c-b8be-0fd8c93c11b3" xml:space="preserve">
+          <source>You might want to add a breakpoint to the <bpt id="d1d1bbc8-d80b-4d4f-b136-5f2a9412e730">&lt;code&gt;</bpt>Suggest<ept id="d1d1bbc8-d80b-4d4f-b136-5f2a9412e730">&lt;/code&gt;</ept> function within <bpt id="01196c59-f6cc-43a1-b0d0-0aa8443c8e4b">&lt;strong&gt;</bpt>HomeController.cs<ept id="01196c59-f6cc-43a1-b0d0-0aa8443c8e4b">&lt;/strong&gt;</ept> and step through (F11) each call that is made to build out the Suggestion list.</source>
+          <target state="new">You might want to add a breakpoint to the <bpt id="d1d1bbc8-d80b-4d4f-b136-5f2a9412e730">&lt;code&gt;</bpt>Suggest<ept id="d1d1bbc8-d80b-4d4f-b136-5f2a9412e730">&lt;/code&gt;</ept> function within <bpt id="01196c59-f6cc-43a1-b0d0-0aa8443c8e4b">&lt;strong&gt;</bpt>HomeController.cs<ept id="01196c59-f6cc-43a1-b0d0-0aa8443c8e4b">&lt;/strong&gt;</ept> and step through (F11) each call that is made to build out the Suggestion list.</target>
+        </trans-unit>
+        <trans-unit id="12381826-078a-46a0-98df-3f85748b3b9a" xml:space="preserve">
+          <source>This concludes the demo.</source>
+          <target state="new">This concludes the demo.</target>
+        </trans-unit>
+        <trans-unit id="21318b0f-ec20-4a24-86f0-ad2b88c98750" xml:space="preserve">
+          <source>You have now walked through all of the main operations that you'll need to know before building out an ASP.NET MVC4 application using Azure Search.</source>
+          <target state="new">You have now walked through all of the main operations that you'll need to know before building out an ASP.NET MVC4 application using Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="8f79e0de-ace8-4c25-884b-8485534ec8c5" xml:space="preserve">
+          <source><bpt id="63e4739b-3a94-4246-a6e1-4c529e6b8fa3">&lt;bookmark&gt;</bpt><ept id="63e4739b-3a94-4246-a6e1-4c529e6b8fa3">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="63e4739b-3a94-4246-a6e1-4c529e6b8fa3">&lt;bookmark&gt;</bpt><ept id="63e4739b-3a94-4246-a6e1-4c529e6b8fa3">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a726901-7195-4788-ad3b-773f48edb718" xml:space="preserve">
+          <source>When building AdventureWorksWeb, if you get "Could not load file or assembly 'System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies", try these steps to resolve the error.</source>
+          <target state="new">When building AdventureWorksWeb, if you get "Could not load file or assembly 'System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies", try these steps to resolve the error.</target>
+        </trans-unit>
+        <trans-unit id="8ef6f243-83e3-4cdf-b57c-c89aaaafa27b" xml:space="preserve">
+          <source>Open the Package Manager Console: <bpt id="8e3b50f3-8fd5-49ed-9e75-6e2bb0af1aad">&lt;strong&gt;</bpt>Tools<ept id="8e3b50f3-8fd5-49ed-9e75-6e2bb0af1aad">&lt;/strong&gt;</ept> | <bpt id="b683fe76-c0f4-48c3-9091-7a6898093700">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="b683fe76-c0f4-48c3-9091-7a6898093700">&lt;/strong&gt;</ept> | <bpt id="c323e96a-2a6f-4fc7-9d78-e37eeb2e666b">&lt;strong&gt;</bpt>Package Manager Console<ept id="c323e96a-2a6f-4fc7-9d78-e37eeb2e666b">&lt;/strong&gt;</ept></source>
+          <target state="new">Open the Package Manager Console: <bpt id="8e3b50f3-8fd5-49ed-9e75-6e2bb0af1aad">&lt;strong&gt;</bpt>Tools<ept id="8e3b50f3-8fd5-49ed-9e75-6e2bb0af1aad">&lt;/strong&gt;</ept> | <bpt id="b683fe76-c0f4-48c3-9091-7a6898093700">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="b683fe76-c0f4-48c3-9091-7a6898093700">&lt;/strong&gt;</ept> | <bpt id="c323e96a-2a6f-4fc7-9d78-e37eeb2e666b">&lt;strong&gt;</bpt>Package Manager Console<ept id="c323e96a-2a6f-4fc7-9d78-e37eeb2e666b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="feb9a55d-6b2d-4973-9222-a6fdd7afadc3" xml:space="preserve">
+          <source>At the PM&gt; prompt, enter "Update-package -reinstall Microsoft.AspNet.Mvc"</source>
+          <target state="new">At the PM&gt; prompt, enter "Update-package -reinstall Microsoft.AspNet.Mvc"</target>
+        </trans-unit>
+        <trans-unit id="7fefe022-485e-40e8-81a8-fb4199ce25c4" xml:space="preserve">
+          <source>When asked to reload the file, choose <bpt id="c3fcfdcb-db1d-409c-86b3-b38aab37941d">&lt;strong&gt;</bpt>Yes to All<ept id="c3fcfdcb-db1d-409c-86b3-b38aab37941d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When asked to reload the file, choose <bpt id="c3fcfdcb-db1d-409c-86b3-b38aab37941d">&lt;strong&gt;</bpt>Yes to All<ept id="c3fcfdcb-db1d-409c-86b3-b38aab37941d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47da5e95-ade4-4e4c-ba37-746483133411" xml:space="preserve">
+          <source>Rebuild the solution and try <bpt id="a82cee9f-5b0a-4f36-b942-38517fbe4aa3">&lt;strong&gt;</bpt>F5<ept id="a82cee9f-5b0a-4f36-b942-38517fbe4aa3">&lt;/strong&gt;</ept> again.</source>
+          <target state="new">Rebuild the solution and try <bpt id="a82cee9f-5b0a-4f36-b942-38517fbe4aa3">&lt;strong&gt;</bpt>F5<ept id="a82cee9f-5b0a-4f36-b942-38517fbe4aa3">&lt;/strong&gt;</ept> again.</target>
+        </trans-unit>
+        <trans-unit id="92f7357c-5bd8-4a7f-b3c4-e2bca6f7521b" xml:space="preserve">
+          <source><bpt id="4d2fee67-753c-4141-9aa6-ed07109ef626">&lt;bookmark&gt;</bpt><ept id="4d2fee67-753c-4141-9aa6-ed07109ef626">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="4d2fee67-753c-4141-9aa6-ed07109ef626">&lt;bookmark&gt;</bpt><ept id="4d2fee67-753c-4141-9aa6-ed07109ef626">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae192545-9e88-4da6-9f35-78131d1b4082" xml:space="preserve">
+          <source>For additional self-study, consider adding a Details page that opens when a user clicks one of the Search results.</source>
+          <target state="new">For additional self-study, consider adding a Details page that opens when a user clicks one of the Search results.</target>
+        </trans-unit>
+        <trans-unit id="b79dbb0c-003f-44e6-8dcf-9996f2e01329" xml:space="preserve">
+          <source>To prepare, you could do the following:</source>
+          <target state="new">To prepare, you could do the following:</target>
+        </trans-unit>
+        <trans-unit id="8c971d49-56bf-45b2-b7cd-e5b0ef5c7b85" xml:space="preserve">
+          <source>Read up on the <bpt id="591dd25a-ff92-4a8f-871f-804c3a3f0852">&lt;linkText&gt;</bpt>Lookup API<ept id="591dd25a-ff92-4a8f-871f-804c3a3f0852">&lt;/linkText&gt;</ept><bpt id="591dd25a-ff92-4a8f-871f-804c3a3f0852">&lt;title&gt;</bpt><ept id="591dd25a-ff92-4a8f-871f-804c3a3f0852">&lt;/title&gt;</ept> that allows you to make a query to Azure Search to bring back a specific document (for example you could pass the productID).</source>
+          <target state="new">Read up on the <bpt id="591dd25a-ff92-4a8f-871f-804c3a3f0852">&lt;linkText&gt;</bpt>Lookup API<ept id="591dd25a-ff92-4a8f-871f-804c3a3f0852">&lt;/linkText&gt;</ept><bpt id="591dd25a-ff92-4a8f-871f-804c3a3f0852">&lt;title&gt;</bpt><ept id="591dd25a-ff92-4a8f-871f-804c3a3f0852">&lt;/title&gt;</ept> that allows you to make a query to Azure Search to bring back a specific document (for example you could pass the productID).</target>
+        </trans-unit>
+        <trans-unit id="4b3b4b58-f5f9-4e23-aa57-e37453191d52" xml:space="preserve">
+          <source>Try adding a new function in the <bpt id="28658fe6-17aa-42f3-8082-1a239c7084fd">&lt;strong&gt;</bpt>HomeController.cs<ept id="28658fe6-17aa-42f3-8082-1a239c7084fd">&lt;/strong&gt;</ept> file called Details.</source>
+          <target state="new">Try adding a new function in the <bpt id="28658fe6-17aa-42f3-8082-1a239c7084fd">&lt;strong&gt;</bpt>HomeController.cs<ept id="28658fe6-17aa-42f3-8082-1a239c7084fd">&lt;/strong&gt;</ept> file called Details.</target>
+        </trans-unit>
+        <trans-unit id="94e9b21e-7d82-473f-8add-09f24fb21bd0" xml:space="preserve">
+          <source>Add a corresponding <bpt id="20c6c209-74a9-4437-bd02-0e5d5cfdf3bb">&lt;strong&gt;</bpt>Details.cshtml<ept id="20c6c209-74a9-4437-bd02-0e5d5cfdf3bb">&lt;/strong&gt;</ept> view that receives the results of this Lookup and displays the results.</source>
+          <target state="new">Add a corresponding <bpt id="20c6c209-74a9-4437-bd02-0e5d5cfdf3bb">&lt;strong&gt;</bpt>Details.cshtml<ept id="20c6c209-74a9-4437-bd02-0e5d5cfdf3bb">&lt;/strong&gt;</ept> view that receives the results of this Lookup and displays the results.</target>
+        </trans-unit>
+        <trans-unit id="fa5188b0-0dea-42cb-9086-730ee04bbb2f" xml:space="preserve">
+          <source>Check out this additional code sample and video on geospatial search: <bpt id="cc58bf42-c60a-4a3e-8897-8f9ea91db4b7">&lt;linkText&gt;</bpt>Channel 9 - Azure Search and Geospatial Data<ept id="cc58bf42-c60a-4a3e-8897-8f9ea91db4b7">&lt;/linkText&gt;</ept><bpt id="cc58bf42-c60a-4a3e-8897-8f9ea91db4b7">&lt;title&gt;</bpt><ept id="cc58bf42-c60a-4a3e-8897-8f9ea91db4b7">&lt;/title&gt;</ept> and <bpt id="daa20601-787e-46d8-91e8-d82627f30275">&lt;linkText&gt;</bpt>CodePlex: Azure Search GeoSearch Sample<ept id="daa20601-787e-46d8-91e8-d82627f30275">&lt;/linkText&gt;</ept><bpt id="daa20601-787e-46d8-91e8-d82627f30275">&lt;title&gt;</bpt><ept id="daa20601-787e-46d8-91e8-d82627f30275">&lt;/title&gt;</ept></source>
+          <target state="new">Check out this additional code sample and video on geospatial search: <bpt id="cc58bf42-c60a-4a3e-8897-8f9ea91db4b7">&lt;linkText&gt;</bpt>Channel 9 - Azure Search and Geospatial Data<ept id="cc58bf42-c60a-4a3e-8897-8f9ea91db4b7">&lt;/linkText&gt;</ept><bpt id="cc58bf42-c60a-4a3e-8897-8f9ea91db4b7">&lt;title&gt;</bpt><ept id="cc58bf42-c60a-4a3e-8897-8f9ea91db4b7">&lt;/title&gt;</ept> and <bpt id="daa20601-787e-46d8-91e8-d82627f30275">&lt;linkText&gt;</bpt>CodePlex: Azure Search GeoSearch Sample<ept id="daa20601-787e-46d8-91e8-d82627f30275">&lt;/linkText&gt;</ept><bpt id="daa20601-787e-46d8-91e8-d82627f30275">&lt;title&gt;</bpt><ept id="daa20601-787e-46d8-91e8-d82627f30275">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e80c89ee-ebd8-43a2-9f7b-70fa3adc5763" xml:space="preserve">
+          <source>You can also review the <bpt id="31d07168-26a7-419e-b54f-ba79de296880">&lt;linkText&gt;</bpt>Azure Search REST API<ept id="31d07168-26a7-419e-b54f-ba79de296880">&lt;/linkText&gt;</ept><bpt id="31d07168-26a7-419e-b54f-ba79de296880">&lt;title&gt;</bpt><ept id="31d07168-26a7-419e-b54f-ba79de296880">&lt;/title&gt;</ept> on MSDN.</source>
+          <target state="new">You can also review the <bpt id="31d07168-26a7-419e-b54f-ba79de296880">&lt;linkText&gt;</bpt>Azure Search REST API<ept id="31d07168-26a7-419e-b54f-ba79de296880">&lt;/linkText&gt;</ept><bpt id="31d07168-26a7-419e-b54f-ba79de296880">&lt;title&gt;</bpt><ept id="31d07168-26a7-419e-b54f-ba79de296880">&lt;/title&gt;</ept> on MSDN.</target>
+        </trans-unit>
+        <trans-unit id="41cba5c6-6e72-44e1-9d5e-35cbfcc41c36" xml:space="preserve">
+          <source>#sub-1</source>
+          <target state="new">#sub-1</target>
+        </trans-unit>
+        <trans-unit id="a6a6053f-6eff-42f7-924f-b19c5cb67140" xml:space="preserve">
+          <source>#sub-2</source>
+          <target state="new">#sub-2</target>
+        </trans-unit>
+        <trans-unit id="45d41b6f-7618-4707-8998-9479294e71ab" xml:space="preserve">
+          <source>#sub-3</source>
+          <target state="new">#sub-3</target>
+        </trans-unit>
+        <trans-unit id="4883a3c7-74ef-471a-b09a-352e58e620b5" xml:space="preserve">
+          <source>#sub-4</source>
+          <target state="new">#sub-4</target>
+        </trans-unit>
+        <trans-unit id="3f7318cf-1ca0-421e-b869-d86ed1fbc941" xml:space="preserve">
+          <source>#sub-5</source>
+          <target state="new">#sub-5</target>
+        </trans-unit>
+        <trans-unit id="c172243b-7a2c-44f9-818a-f489dfb5d54f" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="ce197e3d-4972-4099-90c4-366ad754606a" xml:space="preserve">
+          <source>./media/search-create-first-solution/AzureSearch_Create1_WebApp.PNG</source>
+          <target state="new">./media/search-create-first-solution/AzureSearch_Create1_WebApp.PNG</target>
+        </trans-unit>
+        <trans-unit id="9348051d-9c1b-4b74-b694-f2d02271133d" xml:space="preserve">
+          <source>./media/search-create-first-solution/AzureSearch_Create1_ConsoleMsg.PNG</source>
+          <target state="new">./media/search-create-first-solution/AzureSearch_Create1_ConsoleMsg.PNG</target>
+        </trans-unit>
+        <trans-unit id="c7933a69-811e-41fd-ba7e-dae17146d42d" xml:space="preserve">
+          <source>./media/search-create-first-solution/AzureSearch_Create1_DashboardIndexes.PNG</source>
+          <target state="new">./media/search-create-first-solution/AzureSearch_Create1_DashboardIndexes.PNG</target>
+        </trans-unit>
+        <trans-unit id="5475375c-b2b1-4bd3-92e6-43b4d4af9348" xml:space="preserve">
+          <source>./media/search-create-first-solution/AzureSearch_Create1_WebAppEmpty.PNG</source>
+          <target state="new">./media/search-create-first-solution/AzureSearch_Create1_WebAppEmpty.PNG</target>
+        </trans-unit>
+        <trans-unit id="6030fc79-82dd-46c1-86c8-4f7d7aa9b489" xml:space="preserve">
+          <source>./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG</source>
+          <target state="new">./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG</target>
+        </trans-unit>
+        <trans-unit id="4edc7558-4891-469d-b0ab-3151a9f9be1a" xml:space="preserve">
+          <source>./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG</source>
+          <target state="new">./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="155bd5b1-b4a0-4c49-9816-14146a7fefa7" />
+    </body>
+  </file>
+</xliff>

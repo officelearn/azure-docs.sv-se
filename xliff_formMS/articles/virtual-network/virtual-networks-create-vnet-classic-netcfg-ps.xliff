@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3b9b3810-854c-422f-a18a-81acb55d592d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3b9b3810-854c-422f-a18a-81acb55d592d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c386c6bb-e210-43b3-b03d-8dcb56826160">
+        <trans-unit id="067de73c-7007-45b7-8df1-68a8ee9928ae" xml:space="preserve">
+          <source>Create a virtual network using a network configuration file in the Azure portal | Microsoft Azure</source>
+          <target state="new">Create a virtual network using a network configuration file in the Azure portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="792927a0-9a6a-4881-b781-3427f9966c55" xml:space="preserve">
+          <source>Learn how to create a virtual network using a network configuration file in the Azure portal.</source>
+          <target state="new">Learn how to create a virtual network using a network configuration file in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="de29b590-3517-48b7-ad39-ee8d9bdad49e" xml:space="preserve">
+          <source><bpt id="6db59242-8eab-429f-a1b6-9863ddcbbd85">&lt;token href="../../includes/virtual-networks-create-vnet-selectors-classic-include.md"&gt;</bpt><ept id="6db59242-8eab-429f-a1b6-9863ddcbbd85">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6db59242-8eab-429f-a1b6-9863ddcbbd85">&lt;token href="../../includes/virtual-networks-create-vnet-selectors-classic-include.md"&gt;</bpt><ept id="6db59242-8eab-429f-a1b6-9863ddcbbd85">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40ae5b13-7eea-4b14-803a-b9989ef8c7b7" xml:space="preserve">
+          <source><bpt id="67d85fb4-0247-4ea5-95a5-4a141f9164f9">&lt;token href="../../includes/virtual-networks-create-vnet-intro-include.md"&gt;</bpt><ept id="67d85fb4-0247-4ea5-95a5-4a141f9164f9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="67d85fb4-0247-4ea5-95a5-4a141f9164f9">&lt;token href="../../includes/virtual-networks-create-vnet-intro-include.md"&gt;</bpt><ept id="67d85fb4-0247-4ea5-95a5-4a141f9164f9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2816056f-f5c7-456b-af8c-b6736bdfdffd" xml:space="preserve">
+          <source>This document covers creating a VNet by using the classic deployment model.</source>
+          <target state="new">This document covers creating a VNet by using the classic deployment model.</target>
+        </trans-unit>
+        <trans-unit id="1c3af479-657b-4344-bf3f-42811f2ab093" xml:space="preserve">
+          <source>You can also <bpt id="2f11429a-26e0-45c0-8a24-ae812f1b323c">&lt;linkText&gt;</bpt>create a virtual network in the Resource Manager deployment model<ept id="2f11429a-26e0-45c0-8a24-ae812f1b323c">&lt;/linkText&gt;</ept><bpt id="2f11429a-26e0-45c0-8a24-ae812f1b323c">&lt;title&gt;</bpt><ept id="2f11429a-26e0-45c0-8a24-ae812f1b323c">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also <bpt id="2f11429a-26e0-45c0-8a24-ae812f1b323c">&lt;linkText&gt;</bpt>create a virtual network in the Resource Manager deployment model<ept id="2f11429a-26e0-45c0-8a24-ae812f1b323c">&lt;/linkText&gt;</ept><bpt id="2f11429a-26e0-45c0-8a24-ae812f1b323c">&lt;title&gt;</bpt><ept id="2f11429a-26e0-45c0-8a24-ae812f1b323c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffdcb2a6-7db5-4743-94d7-93f8fe9e8b46" xml:space="preserve">
+          <source><bpt id="20dbf405-3b6d-4e6c-8b71-d335f6707ef7">&lt;token href="../../includes/virtual-networks-create-vnet-scenario-include.md"&gt;</bpt><ept id="20dbf405-3b6d-4e6c-8b71-d335f6707ef7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="20dbf405-3b6d-4e6c-8b71-d335f6707ef7">&lt;token href="../../includes/virtual-networks-create-vnet-scenario-include.md"&gt;</bpt><ept id="20dbf405-3b6d-4e6c-8b71-d335f6707ef7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b6dda7e-d4a0-4ff1-bd32-de7d768b3143" xml:space="preserve">
+          <source><bpt id="b8fb8651-6884-4ff7-a2e0-0e1a0ca00199">&lt;token href="../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md"&gt;</bpt><ept id="b8fb8651-6884-4ff7-a2e0-0e1a0ca00199">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b8fb8651-6884-4ff7-a2e0-0e1a0ca00199">&lt;token href="../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md"&gt;</bpt><ept id="b8fb8651-6884-4ff7-a2e0-0e1a0ca00199">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

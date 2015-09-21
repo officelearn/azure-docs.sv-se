@@ -1,0 +1,644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a521fd12-481d-483b-bae0-fe0bc79fdc70" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a521fd12-481d-483b-bae0-fe0bc79fdc70" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3e176c20-4d97-4850-a753-a0e9cce4e499">
+        <trans-unit id="5b3607a5-21fc-417e-8b11-84ef57ef8787" xml:space="preserve">
+          <source>Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Azure</source>
+          <target state="new">Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="22baed8c-2089-4283-9ff9-f45c7bd0c1bf" xml:space="preserve">
+          <source>Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell</source>
+          <target state="new">Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell</target>
+        </trans-unit>
+        <trans-unit id="0fe5d905-26ca-4056-b894-0aa287c2ed0f" xml:space="preserve">
+          <source>This article shows you how to use PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.</source>
+          <target state="new">This article shows you how to use PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.</target>
+        </trans-unit>
+        <trans-unit id="b7332efb-73c7-4547-885a-c24d28d76098" xml:space="preserve">
+          <source>Before you can use PowerShell to manage backups from Data Protection Manager to Azure, you will need to have the right environment in PowerShell.</source>
+          <target state="new">Before you can use PowerShell to manage backups from Data Protection Manager to Azure, you will need to have the right environment in PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="fa9be00a-7804-428c-a955-7d230cfee2aa" xml:space="preserve">
+          <source>At the start of the PowerShell session, ensure that you run the following command to import the right modules and allow you to correctly reference the DPM cmdlets:</source>
+          <target state="new">At the start of the PowerShell session, ensure that you run the following command to import the right modules and allow you to correctly reference the DPM cmdlets:</target>
+        </trans-unit>
+        <trans-unit id="f590e705-036e-4332-be2b-050b291bce44" xml:space="preserve">
+          <source>You can create a new backup vault using the <bpt id="650d1e4e-fdd6-4f1d-9383-519ff8916d53">&lt;strong&gt;</bpt>New-AzureBackupVault<ept id="650d1e4e-fdd6-4f1d-9383-519ff8916d53">&lt;/strong&gt;</ept> commandlet.</source>
+          <target state="new">You can create a new backup vault using the <bpt id="650d1e4e-fdd6-4f1d-9383-519ff8916d53">&lt;strong&gt;</bpt>New-AzureBackupVault<ept id="650d1e4e-fdd6-4f1d-9383-519ff8916d53">&lt;/strong&gt;</ept> commandlet.</target>
+        </trans-unit>
+        <trans-unit id="7926f60a-e5ba-4d32-9a4a-9ec2538a3e1a" xml:space="preserve">
+          <source>The backup vault is an ARM resource, so you need to place it within a Resource Group.</source>
+          <target state="new">The backup vault is an ARM resource, so you need to place it within a Resource Group.</target>
+        </trans-unit>
+        <trans-unit id="375445d6-3537-4192-87da-aab17870a208" xml:space="preserve">
+          <source>In an elevated Azure PowerShell console, run the following commands:</source>
+          <target state="new">In an elevated Azure PowerShell console, run the following commands:</target>
+        </trans-unit>
+        <trans-unit id="12a4d070-edea-45b7-af31-8586b623d169" xml:space="preserve">
+          <source>You can get a list of all the backup vaults in a given subscription using the <bpt id="fa9ead87-9013-4939-977c-76ee6d921edc">&lt;strong&gt;</bpt>Get-AzureBackupVault<ept id="fa9ead87-9013-4939-977c-76ee6d921edc">&lt;/strong&gt;</ept> commandlet.</source>
+          <target state="new">You can get a list of all the backup vaults in a given subscription using the <bpt id="fa9ead87-9013-4939-977c-76ee6d921edc">&lt;strong&gt;</bpt>Get-AzureBackupVault<ept id="fa9ead87-9013-4939-977c-76ee6d921edc">&lt;/strong&gt;</ept> commandlet.</target>
+        </trans-unit>
+        <trans-unit id="d8687580-5a6d-498f-80ef-b292cc00b5c7" xml:space="preserve">
+          <source>Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server.</source>
+          <target state="new">Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="efa9fb1b-0ca4-43af-873e-8919550f27c5" xml:space="preserve">
+          <source>You can get the latest version of the installer from the <bpt id="47083d4a-fc6e-43b4-ab90-6d4af9ff8c2a">&lt;linkText&gt;</bpt>Microsoft Download Center<ept id="47083d4a-fc6e-43b4-ab90-6d4af9ff8c2a">&lt;/linkText&gt;</ept><bpt id="47083d4a-fc6e-43b4-ab90-6d4af9ff8c2a">&lt;title&gt;</bpt><ept id="47083d4a-fc6e-43b4-ab90-6d4af9ff8c2a">&lt;/title&gt;</ept> or from the backup vault's Dashboard page.</source>
+          <target state="new">You can get the latest version of the installer from the <bpt id="47083d4a-fc6e-43b4-ab90-6d4af9ff8c2a">&lt;linkText&gt;</bpt>Microsoft Download Center<ept id="47083d4a-fc6e-43b4-ab90-6d4af9ff8c2a">&lt;/linkText&gt;</ept><bpt id="47083d4a-fc6e-43b4-ab90-6d4af9ff8c2a">&lt;title&gt;</bpt><ept id="47083d4a-fc6e-43b4-ab90-6d4af9ff8c2a">&lt;/title&gt;</ept> or from the backup vault's Dashboard page.</target>
+        </trans-unit>
+        <trans-unit id="48288692-b6b8-4905-8553-1ea7e130bdf6" xml:space="preserve">
+          <source>Save the installer to an easily accessible location like <bpt id="1fa8fb24-26c7-4ce3-9a84-a834223255ee">&lt;em&gt;</bpt>C:\Downloads\<ept id="1fa8fb24-26c7-4ce3-9a84-a834223255ee">&lt;/em&gt;</ept>.</source>
+          <target state="new">Save the installer to an easily accessible location like <bpt id="1fa8fb24-26c7-4ce3-9a84-a834223255ee">&lt;em&gt;</bpt>C:\Downloads\<ept id="1fa8fb24-26c7-4ce3-9a84-a834223255ee">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1abd2d2f-14f9-41fc-8691-1eb712615d90" xml:space="preserve">
+          <source>To install the agent, run the following command in an elevated PowerShell console <bpt id="e07935a7-bbd5-4389-8555-2bfc6a8c40b0">&lt;strong&gt;</bpt>on the DPM server<ept id="e07935a7-bbd5-4389-8555-2bfc6a8c40b0">&lt;/strong&gt;</ept>:</source>
+          <target state="new">To install the agent, run the following command in an elevated PowerShell console <bpt id="e07935a7-bbd5-4389-8555-2bfc6a8c40b0">&lt;strong&gt;</bpt>on the DPM server<ept id="e07935a7-bbd5-4389-8555-2bfc6a8c40b0">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="09913371-0296-42f0-9518-50b6a44c4ef3" xml:space="preserve">
+          <source>This installs the agent with all the default options.</source>
+          <target state="new">This installs the agent with all the default options.</target>
+        </trans-unit>
+        <trans-unit id="b56f2ac5-d148-49f8-abb2-c54e8ade0561" xml:space="preserve">
+          <source>The installation takes a few minutes in the background.</source>
+          <target state="new">The installation takes a few minutes in the background.</target>
+        </trans-unit>
+        <trans-unit id="51b79553-cf3c-49c0-816b-b158d7462b84" xml:space="preserve">
+          <source>If you do not specify the <bpt id="42ef8c4c-485c-4c31-a4ca-2f58bcf71ebe">&lt;em&gt;</bpt>/nu<ept id="42ef8c4c-485c-4c31-a4ca-2f58bcf71ebe">&lt;/em&gt;</ept> option the <bpt id="75ef931e-dfba-473a-8499-8a4c77e8fc21">&lt;strong&gt;</bpt>Windows Update<ept id="75ef931e-dfba-473a-8499-8a4c77e8fc21">&lt;/strong&gt;</ept> window will open at the end of the installation to check for any updates.</source>
+          <target state="new">If you do not specify the <bpt id="42ef8c4c-485c-4c31-a4ca-2f58bcf71ebe">&lt;em&gt;</bpt>/nu<ept id="42ef8c4c-485c-4c31-a4ca-2f58bcf71ebe">&lt;/em&gt;</ept> option the <bpt id="75ef931e-dfba-473a-8499-8a4c77e8fc21">&lt;strong&gt;</bpt>Windows Update<ept id="75ef931e-dfba-473a-8499-8a4c77e8fc21">&lt;/strong&gt;</ept> window will open at the end of the installation to check for any updates.</target>
+        </trans-unit>
+        <trans-unit id="8852bf6b-c02f-425f-819e-7495b3ed0445" xml:space="preserve">
+          <source>The agent will show in the list of installed programs.</source>
+          <target state="new">The agent will show in the list of installed programs.</target>
+        </trans-unit>
+        <trans-unit id="348e7190-868d-40e0-853a-e2ee8e669e28" xml:space="preserve">
+          <source>To see the list of installed programs, go to <bpt id="4f14c3c6-d010-4eff-b49c-da3072bc1634">&lt;strong&gt;</bpt>Control Panel<ept id="4f14c3c6-d010-4eff-b49c-da3072bc1634">&lt;/strong&gt;</ept> &gt; <bpt id="0780a408-9322-4ad5-9874-11e4f390d26b">&lt;strong&gt;</bpt>Programs<ept id="0780a408-9322-4ad5-9874-11e4f390d26b">&lt;/strong&gt;</ept> &gt; <bpt id="bbdfca71-8bf5-4b18-b868-92871d3bbf69">&lt;strong&gt;</bpt>Programs and Features<ept id="bbdfca71-8bf5-4b18-b868-92871d3bbf69">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To see the list of installed programs, go to <bpt id="4f14c3c6-d010-4eff-b49c-da3072bc1634">&lt;strong&gt;</bpt>Control Panel<ept id="4f14c3c6-d010-4eff-b49c-da3072bc1634">&lt;/strong&gt;</ept> &gt; <bpt id="0780a408-9322-4ad5-9874-11e4f390d26b">&lt;strong&gt;</bpt>Programs<ept id="0780a408-9322-4ad5-9874-11e4f390d26b">&lt;/strong&gt;</ept> &gt; <bpt id="bbdfca71-8bf5-4b18-b868-92871d3bbf69">&lt;strong&gt;</bpt>Programs and Features<ept id="bbdfca71-8bf5-4b18-b868-92871d3bbf69">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce5de8b1-3b37-47e9-8962-7f4511f8c73c" xml:space="preserve">
+          <source><bpt id="a300786f-40cb-4017-8658-fa05660f322a">&lt;linkText&gt;</bpt>Agent installed<ept id="a300786f-40cb-4017-8658-fa05660f322a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a300786f-40cb-4017-8658-fa05660f322a">&lt;linkText&gt;</bpt>Agent installed<ept id="a300786f-40cb-4017-8658-fa05660f322a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac2f31ad-bbc2-41e1-8d63-5fcfc3a1423f" xml:space="preserve">
+          <source>To see all the options available via the command-line, use the following command:</source>
+          <target state="new">To see all the options available via the command-line, use the following command:</target>
+        </trans-unit>
+        <trans-unit id="480ba975-feb0-43d8-b058-dd4daadaa2e2" xml:space="preserve">
+          <source>The available options include:</source>
+          <target state="new">The available options include:</target>
+        </trans-unit>
+        <trans-unit id="14ecaa66-4d59-4747-a9c6-c97b07ef520c" xml:space="preserve">
+          <source>Option</source>
+          <target state="new">Option</target>
+        </trans-unit>
+        <trans-unit id="beb6a811-2516-4f67-9398-c256537a14be" xml:space="preserve">
+          <source>Details</source>
+          <target state="new">Details</target>
+        </trans-unit>
+        <trans-unit id="eab72de2-7e81-4d64-a0ac-3c137efbb1c9" xml:space="preserve">
+          <source>Default</source>
+          <target state="new">Default</target>
+        </trans-unit>
+        <trans-unit id="6d3d2103-a37f-4f14-87c4-07b58d6fca4a" xml:space="preserve">
+          <source>/q</source>
+          <target state="new">/q</target>
+        </trans-unit>
+        <trans-unit id="2b615c23-9019-4b6a-88db-a3f95041577f" xml:space="preserve">
+          <source>Quiet installation</source>
+          <target state="new">Quiet installation</target>
+        </trans-unit>
+        <trans-unit id="d8da361e-9919-4a34-b237-ff53f770fd0c" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="ced85534-f013-432d-93f9-0eb5a0a3d4b2" xml:space="preserve">
+          <source>/p:"location"</source>
+          <target state="new">/p:"location"</target>
+        </trans-unit>
+        <trans-unit id="94af50ac-0dc9-4c14-8569-060d699382ba" xml:space="preserve">
+          <source>Path to the installation folder for the Azure Backup agent.</source>
+          <target state="new">Path to the installation folder for the Azure Backup agent.</target>
+        </trans-unit>
+        <trans-unit id="b7ad4209-b379-4c73-865b-35735c74c64c" xml:space="preserve">
+          <source>C:\Program Files\Microsoft Azure Recovery Services Agent</source>
+          <target state="new">C:\Program Files\Microsoft Azure Recovery Services Agent</target>
+        </trans-unit>
+        <trans-unit id="ada483c2-5d34-4db3-b3fe-0503d54c5fa4" xml:space="preserve">
+          <source>/s:"location"</source>
+          <target state="new">/s:"location"</target>
+        </trans-unit>
+        <trans-unit id="8b8c9c1b-8c18-4233-a006-b1f2833070d6" xml:space="preserve">
+          <source>Path to the cache folder for the Azure Backup agent.</source>
+          <target state="new">Path to the cache folder for the Azure Backup agent.</target>
+        </trans-unit>
+        <trans-unit id="7eedf2bd-6fdb-48a5-be3f-56ff3bbdf31a" xml:space="preserve">
+          <source>C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch</source>
+          <target state="new">C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch</target>
+        </trans-unit>
+        <trans-unit id="384284bf-2e1b-42bc-915c-ccdfb2573810" xml:space="preserve">
+          <source>/m</source>
+          <target state="new">/m</target>
+        </trans-unit>
+        <trans-unit id="27cf7bea-b418-419a-9a4f-eece5212d3a3" xml:space="preserve">
+          <source>Opt-in to Microsoft Update</source>
+          <target state="new">Opt-in to Microsoft Update</target>
+        </trans-unit>
+        <trans-unit id="16927746-4daf-4f89-b21c-e06483035950" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="3501e2e2-3e2d-4c0c-b025-8d8036317a4e" xml:space="preserve">
+          <source>/nu</source>
+          <target state="new">/nu</target>
+        </trans-unit>
+        <trans-unit id="3983b5f5-0967-449e-b76c-a746dd39b0cf" xml:space="preserve">
+          <source>Do not Check for updates after installation is complete</source>
+          <target state="new">Do not Check for updates after installation is complete</target>
+        </trans-unit>
+        <trans-unit id="3e26f141-5d1f-42e4-bc1c-d0ebbe716b07" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="3b01ed20-d7b1-4a30-b797-ba2588868fa4" xml:space="preserve">
+          <source>/d</source>
+          <target state="new">/d</target>
+        </trans-unit>
+        <trans-unit id="c92de02c-b250-4e7b-93fa-27c26ff74d9d" xml:space="preserve">
+          <source>Uninstalls Microsoft Azure Recovery Services Agent</source>
+          <target state="new">Uninstalls Microsoft Azure Recovery Services Agent</target>
+        </trans-unit>
+        <trans-unit id="182fbf22-68bc-488d-82a7-7973cc4d93ba" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="4339414d-a260-44ba-964c-b0cd6889fd15" xml:space="preserve">
+          <source>/ph</source>
+          <target state="new">/ph</target>
+        </trans-unit>
+        <trans-unit id="551487b7-672f-4edd-a07c-4afe406dea14" xml:space="preserve">
+          <source>Proxy Host Address</source>
+          <target state="new">Proxy Host Address</target>
+        </trans-unit>
+        <trans-unit id="777f5bbc-6464-4985-af6d-7dbd9a63f95c" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="965b041e-db3d-4411-9e46-a10c603f257e" xml:space="preserve">
+          <source>/po</source>
+          <target state="new">/po</target>
+        </trans-unit>
+        <trans-unit id="3d302557-687e-49fc-b666-49f35573538a" xml:space="preserve">
+          <source>Proxy Host Port Number</source>
+          <target state="new">Proxy Host Port Number</target>
+        </trans-unit>
+        <trans-unit id="f8f9562c-159c-45cf-868d-5c85470bd8c4" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="c8cc3f8b-3aaa-4c89-bc73-c781b1e84c10" xml:space="preserve">
+          <source>/pu</source>
+          <target state="new">/pu</target>
+        </trans-unit>
+        <trans-unit id="56bbe1fa-1b19-4538-8743-8a7399c88701" xml:space="preserve">
+          <source>Proxy Host UserName</source>
+          <target state="new">Proxy Host UserName</target>
+        </trans-unit>
+        <trans-unit id="3b4a28f4-a470-4d6f-ab9c-72798eb4d870" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="7366063d-ebfa-4181-9cad-2abc58928334" xml:space="preserve">
+          <source>/pw</source>
+          <target state="new">/pw</target>
+        </trans-unit>
+        <trans-unit id="c319b91e-d762-4c4c-b36d-fbf448c929f6" xml:space="preserve">
+          <source>Proxy Password</source>
+          <target state="new">Proxy Password</target>
+        </trans-unit>
+        <trans-unit id="3fd4de8a-b74d-4e41-a68f-6fc8d65515c3" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="db1cc707-5ff4-4bb8-af69-7be0b3554bd5" xml:space="preserve">
+          <source>Before you can register with the Azure Backup service, you need to ensure that the <bpt id="b23fe925-37f9-4eb5-9394-00c9b7e6463b">&lt;linkText&gt;</bpt>prerequisites<ept id="b23fe925-37f9-4eb5-9394-00c9b7e6463b">&lt;/linkText&gt;</ept><bpt id="b23fe925-37f9-4eb5-9394-00c9b7e6463b">&lt;title&gt;</bpt><ept id="b23fe925-37f9-4eb5-9394-00c9b7e6463b">&lt;/title&gt;</ept> are met.</source>
+          <target state="new">Before you can register with the Azure Backup service, you need to ensure that the <bpt id="b23fe925-37f9-4eb5-9394-00c9b7e6463b">&lt;linkText&gt;</bpt>prerequisites<ept id="b23fe925-37f9-4eb5-9394-00c9b7e6463b">&lt;/linkText&gt;</ept><bpt id="b23fe925-37f9-4eb5-9394-00c9b7e6463b">&lt;title&gt;</bpt><ept id="b23fe925-37f9-4eb5-9394-00c9b7e6463b">&lt;/title&gt;</ept> are met.</target>
+        </trans-unit>
+        <trans-unit id="6edd9d71-d399-412d-8843-6bd15853bf7b" xml:space="preserve">
+          <source>You must:</source>
+          <target state="new">You must:</target>
+        </trans-unit>
+        <trans-unit id="21094165-ed3c-4ee8-b182-f5c433c9252f" xml:space="preserve">
+          <source>Have a valid Azure subscription</source>
+          <target state="new">Have a valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="906204c2-2caf-401e-8c12-82c4d2331c69" xml:space="preserve">
+          <source>Have a backup vault</source>
+          <target state="new">Have a backup vault</target>
+        </trans-unit>
+        <trans-unit id="56e23b6e-8031-4715-a488-7ab3db76a79e" xml:space="preserve">
+          <source>To download the vault credentials, run the <bpt id="c9296e9e-6fff-4447-83d3-e756cfe4ae2c">&lt;strong&gt;</bpt>Get-AzureBackupVaultCredentials<ept id="c9296e9e-6fff-4447-83d3-e756cfe4ae2c">&lt;/strong&gt;</ept> commandlet in an Azure PowerShell console and store it in a convenient location like <bpt id="af393b60-d99b-4ea1-b72d-82c91a3ae73f">&lt;em&gt;</bpt>C:\Downloads\<ept id="af393b60-d99b-4ea1-b72d-82c91a3ae73f">&lt;/em&gt;</ept>.</source>
+          <target state="new">To download the vault credentials, run the <bpt id="c9296e9e-6fff-4447-83d3-e756cfe4ae2c">&lt;strong&gt;</bpt>Get-AzureBackupVaultCredentials<ept id="c9296e9e-6fff-4447-83d3-e756cfe4ae2c">&lt;/strong&gt;</ept> commandlet in an Azure PowerShell console and store it in a convenient location like <bpt id="af393b60-d99b-4ea1-b72d-82c91a3ae73f">&lt;em&gt;</bpt>C:\Downloads\<ept id="af393b60-d99b-4ea1-b72d-82c91a3ae73f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c9002bf-d0b7-4345-b2e8-ad5fc0c3b864" xml:space="preserve">
+          <source>Registering the machine with the vault is done using the <bpt id="6ca74a42-b0be-4957-a7d1-e2a53cb18ec1">&lt;linkText&gt;</bpt>Start-DPMCloudRegistration<ept id="6ca74a42-b0be-4957-a7d1-e2a53cb18ec1">&lt;/linkText&gt;</ept><bpt id="6ca74a42-b0be-4957-a7d1-e2a53cb18ec1">&lt;title&gt;</bpt><ept id="6ca74a42-b0be-4957-a7d1-e2a53cb18ec1">&lt;/title&gt;</ept> cmdlet:</source>
+          <target state="new">Registering the machine with the vault is done using the <bpt id="6ca74a42-b0be-4957-a7d1-e2a53cb18ec1">&lt;linkText&gt;</bpt>Start-DPMCloudRegistration<ept id="6ca74a42-b0be-4957-a7d1-e2a53cb18ec1">&lt;/linkText&gt;</ept><bpt id="6ca74a42-b0be-4957-a7d1-e2a53cb18ec1">&lt;title&gt;</bpt><ept id="6ca74a42-b0be-4957-a7d1-e2a53cb18ec1">&lt;/title&gt;</ept> cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="7adafd90-515e-42ed-a664-0763aa76f094" xml:space="preserve">
+          <source>This will register the DPM Server named “TestingServer” with Microsoft Azure Vault using the specified vault credentials.</source>
+          <target state="new">This will register the DPM Server named “TestingServer” with Microsoft Azure Vault using the specified vault credentials.</target>
+        </trans-unit>
+        <trans-unit id="c6903faf-d07d-468e-8073-15886684ae57" xml:space="preserve">
+          <source>Do not use relative paths to specify the vault credentials file.</source>
+          <target state="new">Do not use relative paths to specify the vault credentials file.</target>
+        </trans-unit>
+        <trans-unit id="c947e0df-ac34-4e9f-b336-5c704822a749" xml:space="preserve">
+          <source>You must provide an absolute path as an input to the cmdlet.</source>
+          <target state="new">You must provide an absolute path as an input to the cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="8abd3103-842b-45ca-ae98-ac973d88802f" xml:space="preserve">
+          <source>Once the DPM Server is registered with the Azure Backup vault, it will start with default subscription settings.</source>
+          <target state="new">Once the DPM Server is registered with the Azure Backup vault, it will start with default subscription settings.</target>
+        </trans-unit>
+        <trans-unit id="b5c4f8e8-12a3-42b1-bc7f-8dc15f38c28d" xml:space="preserve">
+          <source>These subscription settings include Networking, Encryption and the Staging area.</source>
+          <target state="new">These subscription settings include Networking, Encryption and the Staging area.</target>
+        </trans-unit>
+        <trans-unit id="26e866d4-8616-4201-864e-e4ebf3d2cb42" xml:space="preserve">
+          <source>To begin changing the subscription settings you need to first get a handle on the existing (default) settings using the <bpt id="f0ba8e2c-9213-4a23-a15b-7d3a2f553cb0">&lt;linkText&gt;</bpt>Get-DPMCloudSubscriptionSetting<ept id="f0ba8e2c-9213-4a23-a15b-7d3a2f553cb0">&lt;/linkText&gt;</ept><bpt id="f0ba8e2c-9213-4a23-a15b-7d3a2f553cb0">&lt;title&gt;</bpt><ept id="f0ba8e2c-9213-4a23-a15b-7d3a2f553cb0">&lt;/title&gt;</ept> cmdlet:</source>
+          <target state="new">To begin changing the subscription settings you need to first get a handle on the existing (default) settings using the <bpt id="f0ba8e2c-9213-4a23-a15b-7d3a2f553cb0">&lt;linkText&gt;</bpt>Get-DPMCloudSubscriptionSetting<ept id="f0ba8e2c-9213-4a23-a15b-7d3a2f553cb0">&lt;/linkText&gt;</ept><bpt id="f0ba8e2c-9213-4a23-a15b-7d3a2f553cb0">&lt;title&gt;</bpt><ept id="f0ba8e2c-9213-4a23-a15b-7d3a2f553cb0">&lt;/title&gt;</ept> cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="5c801c71-6643-419e-9319-29aa2e1078ef" xml:space="preserve">
+          <source>All modifications are made to this local PowerShell object <bpt id="bc798b1e-2002-459c-9598-e5d8e78c96bf">&lt;code&gt;</bpt>$setting<ept id="bc798b1e-2002-459c-9598-e5d8e78c96bf">&lt;/code&gt;</ept>  and then the full object is committed to DPM and Azure Backup to save them using the <bpt id="0809f358-0847-4a51-b48b-51b99effe502">&lt;linkText&gt;</bpt>Set-DPMCloudSubscriptionSetting<ept id="0809f358-0847-4a51-b48b-51b99effe502">&lt;/linkText&gt;</ept><bpt id="0809f358-0847-4a51-b48b-51b99effe502">&lt;title&gt;</bpt><ept id="0809f358-0847-4a51-b48b-51b99effe502">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">All modifications are made to this local PowerShell object <bpt id="bc798b1e-2002-459c-9598-e5d8e78c96bf">&lt;code&gt;</bpt>$setting<ept id="bc798b1e-2002-459c-9598-e5d8e78c96bf">&lt;/code&gt;</ept>  and then the full object is committed to DPM and Azure Backup to save them using the <bpt id="0809f358-0847-4a51-b48b-51b99effe502">&lt;linkText&gt;</bpt>Set-DPMCloudSubscriptionSetting<ept id="0809f358-0847-4a51-b48b-51b99effe502">&lt;/linkText&gt;</ept><bpt id="0809f358-0847-4a51-b48b-51b99effe502">&lt;title&gt;</bpt><ept id="0809f358-0847-4a51-b48b-51b99effe502">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="b8ddd56a-613b-461c-a0a1-7e60d86cd65d" xml:space="preserve">
+          <source>You need to use the <bpt id="98c0f4ee-1bd2-44aa-b9fb-759153e5e122">&lt;code&gt;</bpt>–Commit<ept id="98c0f4ee-1bd2-44aa-b9fb-759153e5e122">&lt;/code&gt;</ept> flag to ensure that the changes are persisted.</source>
+          <target state="new">You need to use the <bpt id="98c0f4ee-1bd2-44aa-b9fb-759153e5e122">&lt;code&gt;</bpt>–Commit<ept id="98c0f4ee-1bd2-44aa-b9fb-759153e5e122">&lt;/code&gt;</ept> flag to ensure that the changes are persisted.</target>
+        </trans-unit>
+        <trans-unit id="500c27ea-7c88-4424-bc19-7292afec0bb7" xml:space="preserve">
+          <source>The settings will not be applied and used by Azure Backup unless committed.</source>
+          <target state="new">The settings will not be applied and used by Azure Backup unless committed.</target>
+        </trans-unit>
+        <trans-unit id="31532975-9212-4aa9-816c-d75f7a777484" xml:space="preserve">
+          <source>If the connectivity of the DPM machine to the Azure Backup service on the internet is through a proxy server, then the proxy server settings should be provided for backups to succeed.</source>
+          <target state="new">If the connectivity of the DPM machine to the Azure Backup service on the internet is through a proxy server, then the proxy server settings should be provided for backups to succeed.</target>
+        </trans-unit>
+        <trans-unit id="f197cf08-487a-4900-b028-c10d6ca446a2" xml:space="preserve">
+          <source>This is done by using the <bpt id="fa1ef06d-2b15-4ded-bebd-3add05dbb6ed">&lt;code&gt;</bpt>-ProxyServer<ept id="fa1ef06d-2b15-4ded-bebd-3add05dbb6ed">&lt;/code&gt;</ept>, <bpt id="a4bf3404-5049-436f-8e40-796518950c58">&lt;code&gt;</bpt>-ProxyPort<ept id="a4bf3404-5049-436f-8e40-796518950c58">&lt;/code&gt;</ept>, <bpt id="a88d646c-9239-4e7a-90d2-4c85a868d707">&lt;code&gt;</bpt>-ProxyUsername<ept id="a88d646c-9239-4e7a-90d2-4c85a868d707">&lt;/code&gt;</ept> and the <bpt id="bfd00409-baf0-4646-8b11-03d97d49d7d6">&lt;code&gt;</bpt>ProxyPassword<ept id="bfd00409-baf0-4646-8b11-03d97d49d7d6">&lt;/code&gt;</ept> parameters with the <bpt id="a8fb450f-b403-400d-9bce-7973dabbf074">&lt;linkText&gt;</bpt>Set-DPMCloudSubscriptionSetting<ept id="a8fb450f-b403-400d-9bce-7973dabbf074">&lt;/linkText&gt;</ept><bpt id="a8fb450f-b403-400d-9bce-7973dabbf074">&lt;title&gt;</bpt><ept id="a8fb450f-b403-400d-9bce-7973dabbf074">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">This is done by using the <bpt id="fa1ef06d-2b15-4ded-bebd-3add05dbb6ed">&lt;code&gt;</bpt>-ProxyServer<ept id="fa1ef06d-2b15-4ded-bebd-3add05dbb6ed">&lt;/code&gt;</ept>, <bpt id="a4bf3404-5049-436f-8e40-796518950c58">&lt;code&gt;</bpt>-ProxyPort<ept id="a4bf3404-5049-436f-8e40-796518950c58">&lt;/code&gt;</ept>, <bpt id="a88d646c-9239-4e7a-90d2-4c85a868d707">&lt;code&gt;</bpt>-ProxyUsername<ept id="a88d646c-9239-4e7a-90d2-4c85a868d707">&lt;/code&gt;</ept> and the <bpt id="bfd00409-baf0-4646-8b11-03d97d49d7d6">&lt;code&gt;</bpt>ProxyPassword<ept id="bfd00409-baf0-4646-8b11-03d97d49d7d6">&lt;/code&gt;</ept> parameters with the <bpt id="a8fb450f-b403-400d-9bce-7973dabbf074">&lt;linkText&gt;</bpt>Set-DPMCloudSubscriptionSetting<ept id="a8fb450f-b403-400d-9bce-7973dabbf074">&lt;/linkText&gt;</ept><bpt id="a8fb450f-b403-400d-9bce-7973dabbf074">&lt;title&gt;</bpt><ept id="a8fb450f-b403-400d-9bce-7973dabbf074">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="301c01cb-005f-4f6f-a207-cb0fb3e360b3" xml:space="preserve">
+          <source>In this example, there is no proxy server so we are explicitly clearing any proxy-related information.</source>
+          <target state="new">In this example, there is no proxy server so we are explicitly clearing any proxy-related information.</target>
+        </trans-unit>
+        <trans-unit id="cf54fe58-7f2d-4445-afc8-15c11569fe12" xml:space="preserve">
+          <source>Bandwidth usage can also be controlled with options of <bpt id="aa9fffa5-d346-4430-9e12-17bbd0dd22b2">&lt;code&gt;</bpt>-WorkHourBandwidth<ept id="aa9fffa5-d346-4430-9e12-17bbd0dd22b2">&lt;/code&gt;</ept> and <bpt id="f9caafb3-8fae-4e4d-a0e4-8763987ab6a9">&lt;code&gt;</bpt>-NonWorkHourBandwidth<ept id="f9caafb3-8fae-4e4d-a0e4-8763987ab6a9">&lt;/code&gt;</ept> for a given set of days of the week.</source>
+          <target state="new">Bandwidth usage can also be controlled with options of <bpt id="aa9fffa5-d346-4430-9e12-17bbd0dd22b2">&lt;code&gt;</bpt>-WorkHourBandwidth<ept id="aa9fffa5-d346-4430-9e12-17bbd0dd22b2">&lt;/code&gt;</ept> and <bpt id="f9caafb3-8fae-4e4d-a0e4-8763987ab6a9">&lt;code&gt;</bpt>-NonWorkHourBandwidth<ept id="f9caafb3-8fae-4e4d-a0e4-8763987ab6a9">&lt;/code&gt;</ept> for a given set of days of the week.</target>
+        </trans-unit>
+        <trans-unit id="a10db55d-4502-4800-9251-6afa3d2056e3" xml:space="preserve">
+          <source>In this example we are not setting any throttling.</source>
+          <target state="new">In this example we are not setting any throttling.</target>
+        </trans-unit>
+        <trans-unit id="5d60b8c0-511f-4cf1-8438-7ec63dc9f952" xml:space="preserve">
+          <source>The Azure Backup agent running on the DPM server needs temporary storage for data restored from the cloud (local staging area).</source>
+          <target state="new">The Azure Backup agent running on the DPM server needs temporary storage for data restored from the cloud (local staging area).</target>
+        </trans-unit>
+        <trans-unit id="8040e290-f7c5-4140-a72c-ae39c0d69963" xml:space="preserve">
+          <source>Configure the staging area using the <bpt id="3f18c26b-b8f5-498b-8b3d-5ab412003aa4">&lt;linkText&gt;</bpt>Set-DPMCloudSubscriptionSetting<ept id="3f18c26b-b8f5-498b-8b3d-5ab412003aa4">&lt;/linkText&gt;</ept><bpt id="3f18c26b-b8f5-498b-8b3d-5ab412003aa4">&lt;title&gt;</bpt><ept id="3f18c26b-b8f5-498b-8b3d-5ab412003aa4">&lt;/title&gt;</ept> cmdlet and the <bpt id="3d04aebb-e679-409a-9067-21f192de8063">&lt;code&gt;</bpt>-StagingAreaPath<ept id="3d04aebb-e679-409a-9067-21f192de8063">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">Configure the staging area using the <bpt id="3f18c26b-b8f5-498b-8b3d-5ab412003aa4">&lt;linkText&gt;</bpt>Set-DPMCloudSubscriptionSetting<ept id="3f18c26b-b8f5-498b-8b3d-5ab412003aa4">&lt;/linkText&gt;</ept><bpt id="3f18c26b-b8f5-498b-8b3d-5ab412003aa4">&lt;title&gt;</bpt><ept id="3f18c26b-b8f5-498b-8b3d-5ab412003aa4">&lt;/title&gt;</ept> cmdlet and the <bpt id="3d04aebb-e679-409a-9067-21f192de8063">&lt;code&gt;</bpt>-StagingAreaPath<ept id="3d04aebb-e679-409a-9067-21f192de8063">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="58b5d544-989c-49f1-a065-42149b321b01" xml:space="preserve">
+          <source>In the example above, the staging area will be set to <bpt id="837fdba9-3aab-4cfd-b0d2-74c6251d1e9a">&lt;em&gt;</bpt>C:\StagingArea<ept id="837fdba9-3aab-4cfd-b0d2-74c6251d1e9a">&lt;/em&gt;</ept> in the PowerShell object <bpt id="63d16808-f221-44a3-8ba5-0fbdfdfeb5e4">&lt;code&gt;</bpt>$setting<ept id="63d16808-f221-44a3-8ba5-0fbdfdfeb5e4">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the example above, the staging area will be set to <bpt id="837fdba9-3aab-4cfd-b0d2-74c6251d1e9a">&lt;em&gt;</bpt>C:\StagingArea<ept id="837fdba9-3aab-4cfd-b0d2-74c6251d1e9a">&lt;/em&gt;</ept> in the PowerShell object <bpt id="63d16808-f221-44a3-8ba5-0fbdfdfeb5e4">&lt;code&gt;</bpt>$setting<ept id="63d16808-f221-44a3-8ba5-0fbdfdfeb5e4">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5194c077-a86f-4383-bb38-4e3f841901e7" xml:space="preserve">
+          <source>Ensure that the specified folder already exists, or else the final commit of the subscription settings will fail.</source>
+          <target state="new">Ensure that the specified folder already exists, or else the final commit of the subscription settings will fail.</target>
+        </trans-unit>
+        <trans-unit id="a435ab1c-3854-4422-88fc-ae6ca6e7f34e" xml:space="preserve">
+          <source>The backup data sent to Azure Backup is encrypted to protect the confidentiality of the data.</source>
+          <target state="new">The backup data sent to Azure Backup is encrypted to protect the confidentiality of the data.</target>
+        </trans-unit>
+        <trans-unit id="77b62bcc-b3c0-4649-8c88-911e6b2def21" xml:space="preserve">
+          <source>The encryption passphrase is the "password" to decrypt the data at the time of restore.</source>
+          <target state="new">The encryption passphrase is the "password" to decrypt the data at the time of restore.</target>
+        </trans-unit>
+        <trans-unit id="42b8224b-80a6-47f4-a9e0-d2cef4f9ab55" xml:space="preserve">
+          <source>It is important to keep this information safe and secure once it is set.</source>
+          <target state="new">It is important to keep this information safe and secure once it is set.</target>
+        </trans-unit>
+        <trans-unit id="9e60146c-5bdb-4019-8fbd-9cdb101b80de" xml:space="preserve">
+          <source>In the example below, the first command converts the string <bpt id="488da1a2-9844-499f-818d-b1d7a448ad76">&lt;code&gt;</bpt>passphrase123456789<ept id="488da1a2-9844-499f-818d-b1d7a448ad76">&lt;/code&gt;</ept> to a secure string and assigns the secure string to the variable named <bpt id="d1c30523-4918-4f76-a3c2-3c2917947ad6">&lt;code&gt;</bpt>$Passphrase<ept id="d1c30523-4918-4f76-a3c2-3c2917947ad6">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the example below, the first command converts the string <bpt id="488da1a2-9844-499f-818d-b1d7a448ad76">&lt;code&gt;</bpt>passphrase123456789<ept id="488da1a2-9844-499f-818d-b1d7a448ad76">&lt;/code&gt;</ept> to a secure string and assigns the secure string to the variable named <bpt id="d1c30523-4918-4f76-a3c2-3c2917947ad6">&lt;code&gt;</bpt>$Passphrase<ept id="d1c30523-4918-4f76-a3c2-3c2917947ad6">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7dbdef1-0cc6-43b0-b665-88f870d10633" xml:space="preserve">
+          <source>the second command sets the secure string in <bpt id="5fd78351-0204-4e89-9980-3970fd027402">&lt;code&gt;</bpt>$Passphrase<ept id="5fd78351-0204-4e89-9980-3970fd027402">&lt;/code&gt;</ept> as the password for encrypting backups.</source>
+          <target state="new">the second command sets the secure string in <bpt id="5fd78351-0204-4e89-9980-3970fd027402">&lt;code&gt;</bpt>$Passphrase<ept id="5fd78351-0204-4e89-9980-3970fd027402">&lt;/code&gt;</ept> as the password for encrypting backups.</target>
+        </trans-unit>
+        <trans-unit id="cdf28823-0af1-458b-aaae-902042fc6fd1" xml:space="preserve">
+          <source>Keep the passphrase information safe and secure once it is set.</source>
+          <target state="new">Keep the passphrase information safe and secure once it is set.</target>
+        </trans-unit>
+        <trans-unit id="414855ce-26b5-4850-a14d-ee626c16436a" xml:space="preserve">
+          <source>You will not be able to restore data from Azure without this passphrase.</source>
+          <target state="new">You will not be able to restore data from Azure without this passphrase.</target>
+        </trans-unit>
+        <trans-unit id="34d0842d-8034-4ee5-b1f0-460c9827b233" xml:space="preserve">
+          <source>At this point, you should have made all the required changes to the <bpt id="dfefca72-5db6-4d3c-aeb7-20517f7af272">&lt;code&gt;</bpt>$setting<ept id="dfefca72-5db6-4d3c-aeb7-20517f7af272">&lt;/code&gt;</ept> object.</source>
+          <target state="new">At this point, you should have made all the required changes to the <bpt id="dfefca72-5db6-4d3c-aeb7-20517f7af272">&lt;code&gt;</bpt>$setting<ept id="dfefca72-5db6-4d3c-aeb7-20517f7af272">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="04a3a407-a5e7-48b5-a067-2f1ae09c7bfd" xml:space="preserve">
+          <source>Remember to commit the changes.</source>
+          <target state="new">Remember to commit the changes.</target>
+        </trans-unit>
+        <trans-unit id="2ae1f308-e0be-46eb-9423-019dc40ae185" xml:space="preserve">
+          <source>In this section, you will add a production server to DPM and then protect the data to local DPM storage and then to Azure Backup.</source>
+          <target state="new">In this section, you will add a production server to DPM and then protect the data to local DPM storage and then to Azure Backup.</target>
+        </trans-unit>
+        <trans-unit id="fff9764a-c148-4cf1-a53f-8d42fb35ac96" xml:space="preserve">
+          <source>In the examples we will demonstrate how to back up files and folders.</source>
+          <target state="new">In the examples we will demonstrate how to back up files and folders.</target>
+        </trans-unit>
+        <trans-unit id="e30de0e9-0eb6-441b-8688-2c54f0dc5161" xml:space="preserve">
+          <source>The logic can easily be extended to backup any DPM-supported data source.</source>
+          <target state="new">The logic can easily be extended to backup any DPM-supported data source.</target>
+        </trans-unit>
+        <trans-unit id="300bd79e-3bb0-4091-97f4-ab5943098c26" xml:space="preserve">
+          <source>All your DPM backups are governed by a Protection Group (PG) with four parts:</source>
+          <target state="new">All your DPM backups are governed by a Protection Group (PG) with four parts:</target>
+        </trans-unit>
+        <trans-unit id="e5c337a8-1237-48e1-bfcb-20aa8e75d33b" xml:space="preserve">
+          <source><bpt id="4957a348-ef81-4580-a495-82900386348c">&lt;strong&gt;</bpt>Group members<ept id="4957a348-ef81-4580-a495-82900386348c">&lt;/strong&gt;</ept> is a list of all the protectable objects (also known as <bpt id="2d57c75e-b118-40de-9f4e-9f349f442835">&lt;em&gt;</bpt>Datasources<ept id="2d57c75e-b118-40de-9f4e-9f349f442835">&lt;/em&gt;</ept> in DPM) that you want to protect in the same protection group.</source>
+          <target state="new"><bpt id="4957a348-ef81-4580-a495-82900386348c">&lt;strong&gt;</bpt>Group members<ept id="4957a348-ef81-4580-a495-82900386348c">&lt;/strong&gt;</ept> is a list of all the protectable objects (also known as <bpt id="2d57c75e-b118-40de-9f4e-9f349f442835">&lt;em&gt;</bpt>Datasources<ept id="2d57c75e-b118-40de-9f4e-9f349f442835">&lt;/em&gt;</ept> in DPM) that you want to protect in the same protection group.</target>
+        </trans-unit>
+        <trans-unit id="34f273e7-c64a-46f4-8bfa-790b6972d359" xml:space="preserve">
+          <source>For example, you may want to protect production VMs in one protection group and SQL Server databases in another protection group as they may have different backup requirements.</source>
+          <target state="new">For example, you may want to protect production VMs in one protection group and SQL Server databases in another protection group as they may have different backup requirements.</target>
+        </trans-unit>
+        <trans-unit id="6d3e7505-4b5a-4718-841f-b4ef927716cf" xml:space="preserve">
+          <source>Before you can back up any datasource on a production server you need to make sure the DPM Agent is installed on the server and is managed by DPM.</source>
+          <target state="new">Before you can back up any datasource on a production server you need to make sure the DPM Agent is installed on the server and is managed by DPM.</target>
+        </trans-unit>
+        <trans-unit id="61734374-f78b-4dc7-b9c6-1effae4dee81" xml:space="preserve">
+          <source>Follow the steps for <bpt id="a895a806-c137-4cff-a4a1-9c7cb995c745">&lt;linkText&gt;</bpt>installing the DPM Agent<ept id="a895a806-c137-4cff-a4a1-9c7cb995c745">&lt;/linkText&gt;</ept><bpt id="a895a806-c137-4cff-a4a1-9c7cb995c745">&lt;title&gt;</bpt><ept id="a895a806-c137-4cff-a4a1-9c7cb995c745">&lt;/title&gt;</ept> and linking it to the appropriate DPM Server.</source>
+          <target state="new">Follow the steps for <bpt id="a895a806-c137-4cff-a4a1-9c7cb995c745">&lt;linkText&gt;</bpt>installing the DPM Agent<ept id="a895a806-c137-4cff-a4a1-9c7cb995c745">&lt;/linkText&gt;</ept><bpt id="a895a806-c137-4cff-a4a1-9c7cb995c745">&lt;title&gt;</bpt><ept id="a895a806-c137-4cff-a4a1-9c7cb995c745">&lt;/title&gt;</ept> and linking it to the appropriate DPM Server.</target>
+        </trans-unit>
+        <trans-unit id="36d95917-5118-4ed7-9cd7-9a9f6bece71f" xml:space="preserve">
+          <source><bpt id="14684fac-9a8e-474e-b477-ba61cb2083cb">&lt;strong&gt;</bpt>Data protection method<ept id="14684fac-9a8e-474e-b477-ba61cb2083cb">&lt;/strong&gt;</ept> specifies the target backup locations - tape, disk, and cloud.</source>
+          <target state="new"><bpt id="14684fac-9a8e-474e-b477-ba61cb2083cb">&lt;strong&gt;</bpt>Data protection method<ept id="14684fac-9a8e-474e-b477-ba61cb2083cb">&lt;/strong&gt;</ept> specifies the target backup locations - tape, disk, and cloud.</target>
+        </trans-unit>
+        <trans-unit id="9d978d9e-867c-4db5-85cc-e063eb32f890" xml:space="preserve">
+          <source>In our example we will protect data to the local disk and to the cloud.</source>
+          <target state="new">In our example we will protect data to the local disk and to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="b561982d-cc16-4a80-a9a6-382ed5b62e57" xml:space="preserve">
+          <source>A <bpt id="c4255898-91e4-4efd-bff6-1a8c9b75839d">&lt;strong&gt;</bpt>backup schedule<ept id="c4255898-91e4-4efd-bff6-1a8c9b75839d">&lt;/strong&gt;</ept> that specifies when backups need to be taken and how often the data should be synchronized between the DPM Server and the production server.</source>
+          <target state="new">A <bpt id="c4255898-91e4-4efd-bff6-1a8c9b75839d">&lt;strong&gt;</bpt>backup schedule<ept id="c4255898-91e4-4efd-bff6-1a8c9b75839d">&lt;/strong&gt;</ept> that specifies when backups need to be taken and how often the data should be synchronized between the DPM Server and the production server.</target>
+        </trans-unit>
+        <trans-unit id="23d0ad31-15f1-4477-8831-3ab762ab3d21" xml:space="preserve">
+          <source>A <bpt id="0d936cdc-b246-478e-ab2c-7c3e8ce93ba8">&lt;strong&gt;</bpt>retention schedule<ept id="0d936cdc-b246-478e-ab2c-7c3e8ce93ba8">&lt;/strong&gt;</ept> that specifies how long to retain the recovery points in Azure.</source>
+          <target state="new">A <bpt id="0d936cdc-b246-478e-ab2c-7c3e8ce93ba8">&lt;strong&gt;</bpt>retention schedule<ept id="0d936cdc-b246-478e-ab2c-7c3e8ce93ba8">&lt;/strong&gt;</ept> that specifies how long to retain the recovery points in Azure.</target>
+        </trans-unit>
+        <trans-unit id="174cff55-da56-4eff-88c8-77bf16f93fbc" xml:space="preserve">
+          <source>Start by creating a new Protection Group using the <bpt id="ef01ab2d-fc3c-4d34-a800-6cb889b6c3fb">&lt;linkText&gt;</bpt>New-DPMProtectionGroup<ept id="ef01ab2d-fc3c-4d34-a800-6cb889b6c3fb">&lt;/linkText&gt;</ept><bpt id="ef01ab2d-fc3c-4d34-a800-6cb889b6c3fb">&lt;title&gt;</bpt><ept id="ef01ab2d-fc3c-4d34-a800-6cb889b6c3fb">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">Start by creating a new Protection Group using the <bpt id="ef01ab2d-fc3c-4d34-a800-6cb889b6c3fb">&lt;linkText&gt;</bpt>New-DPMProtectionGroup<ept id="ef01ab2d-fc3c-4d34-a800-6cb889b6c3fb">&lt;/linkText&gt;</ept><bpt id="ef01ab2d-fc3c-4d34-a800-6cb889b6c3fb">&lt;title&gt;</bpt><ept id="ef01ab2d-fc3c-4d34-a800-6cb889b6c3fb">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="5f32803a-7786-45f7-a15e-9b40bce1f4f3" xml:space="preserve">
+          <source>The above cmdlet will create a Protection Group named <bpt id="56f7f646-e4f6-4213-99c5-a694402b4684">&lt;em&gt;</bpt>ProtectGroup01<ept id="56f7f646-e4f6-4213-99c5-a694402b4684">&lt;/em&gt;</ept>.</source>
+          <target state="new">The above cmdlet will create a Protection Group named <bpt id="56f7f646-e4f6-4213-99c5-a694402b4684">&lt;em&gt;</bpt>ProtectGroup01<ept id="56f7f646-e4f6-4213-99c5-a694402b4684">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3210ee57-ef20-497a-8b52-1db8e284c500" xml:space="preserve">
+          <source>An existing protection group can also be modified later to add backup to the Azure cloud.</source>
+          <target state="new">An existing protection group can also be modified later to add backup to the Azure cloud.</target>
+        </trans-unit>
+        <trans-unit id="4d82373f-e62f-4d95-a456-e80a9a5283f3" xml:space="preserve">
+          <source>However, to make any changes to the Protection Group - new or existing - we need to get a handle on a <bpt id="83acf3f8-2e8f-4d0a-8e10-e2936ab72022">&lt;em&gt;</bpt>modifiable<ept id="83acf3f8-2e8f-4d0a-8e10-e2936ab72022">&lt;/em&gt;</ept> object using the <bpt id="d8c60498-6f98-465a-9fd6-a5af13d32f38">&lt;linkText&gt;</bpt>Get-DPMModifiableProtectionGroup<ept id="d8c60498-6f98-465a-9fd6-a5af13d32f38">&lt;/linkText&gt;</ept><bpt id="d8c60498-6f98-465a-9fd6-a5af13d32f38">&lt;title&gt;</bpt><ept id="d8c60498-6f98-465a-9fd6-a5af13d32f38">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">However, to make any changes to the Protection Group - new or existing - we need to get a handle on a <bpt id="83acf3f8-2e8f-4d0a-8e10-e2936ab72022">&lt;em&gt;</bpt>modifiable<ept id="83acf3f8-2e8f-4d0a-8e10-e2936ab72022">&lt;/em&gt;</ept> object using the <bpt id="d8c60498-6f98-465a-9fd6-a5af13d32f38">&lt;linkText&gt;</bpt>Get-DPMModifiableProtectionGroup<ept id="d8c60498-6f98-465a-9fd6-a5af13d32f38">&lt;/linkText&gt;</ept><bpt id="d8c60498-6f98-465a-9fd6-a5af13d32f38">&lt;title&gt;</bpt><ept id="d8c60498-6f98-465a-9fd6-a5af13d32f38">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="c21779cf-c376-43e8-8604-501745582b25" xml:space="preserve">
+          <source>Each DPM Agent knows the list of datasources on the server that it is installed on.</source>
+          <target state="new">Each DPM Agent knows the list of datasources on the server that it is installed on.</target>
+        </trans-unit>
+        <trans-unit id="e7810d0f-1c68-4fb3-9e9d-169111dbb3df" xml:space="preserve">
+          <source>To add a datasource to the Protection Group, the DPM Agent needs to first send a list of the datasources back to the DPM server.</source>
+          <target state="new">To add a datasource to the Protection Group, the DPM Agent needs to first send a list of the datasources back to the DPM server.</target>
+        </trans-unit>
+        <trans-unit id="faa49fde-8362-4989-a3b5-a144107b10cd" xml:space="preserve">
+          <source>One or more datasources are then selected and added to the Protection Group.</source>
+          <target state="new">One or more datasources are then selected and added to the Protection Group.</target>
+        </trans-unit>
+        <trans-unit id="43cfe884-da27-41ff-8ef6-395a3556d243" xml:space="preserve">
+          <source>The PowerShell steps needed to get achieve this are:</source>
+          <target state="new">The PowerShell steps needed to get achieve this are:</target>
+        </trans-unit>
+        <trans-unit id="a45352a0-ba8b-43c9-8511-c4c497c089c8" xml:space="preserve">
+          <source>Fetch a list of all servers managed by DPM through the DPM Agent.</source>
+          <target state="new">Fetch a list of all servers managed by DPM through the DPM Agent.</target>
+        </trans-unit>
+        <trans-unit id="70965b8c-1579-4a16-b548-00cf78ae4be2" xml:space="preserve">
+          <source>Choose a specific server.</source>
+          <target state="new">Choose a specific server.</target>
+        </trans-unit>
+        <trans-unit id="c308c4d9-eeed-4262-80ca-4a76f84a8b42" xml:space="preserve">
+          <source>Fetch a list of all datasources on the server.</source>
+          <target state="new">Fetch a list of all datasources on the server.</target>
+        </trans-unit>
+        <trans-unit id="f6f125ad-1f8e-4e50-b5a6-2de9be50a00c" xml:space="preserve">
+          <source>Choose one or more datasources and add them to the Protection Group</source>
+          <target state="new">Choose one or more datasources and add them to the Protection Group</target>
+        </trans-unit>
+        <trans-unit id="bf3ea84a-25d5-4d18-a9e1-48f1bc78931a" xml:space="preserve">
+          <source>The list of servers on which the DPM Agent is installed and is being managed by the DPM Server is acquired with the <bpt id="a1e8a5fb-a6a9-429f-a0d3-f41f0b47c8ff">&lt;linkText&gt;</bpt>Get-DPMProductionServer<ept id="a1e8a5fb-a6a9-429f-a0d3-f41f0b47c8ff">&lt;/linkText&gt;</ept><bpt id="a1e8a5fb-a6a9-429f-a0d3-f41f0b47c8ff">&lt;title&gt;</bpt><ept id="a1e8a5fb-a6a9-429f-a0d3-f41f0b47c8ff">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">The list of servers on which the DPM Agent is installed and is being managed by the DPM Server is acquired with the <bpt id="a1e8a5fb-a6a9-429f-a0d3-f41f0b47c8ff">&lt;linkText&gt;</bpt>Get-DPMProductionServer<ept id="a1e8a5fb-a6a9-429f-a0d3-f41f0b47c8ff">&lt;/linkText&gt;</ept><bpt id="a1e8a5fb-a6a9-429f-a0d3-f41f0b47c8ff">&lt;title&gt;</bpt><ept id="a1e8a5fb-a6a9-429f-a0d3-f41f0b47c8ff">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="307dbd80-5703-4acc-b854-2efd0592171d" xml:space="preserve">
+          <source>In this example we will filter and only configure PS with name <bpt id="b35db308-cfae-4cef-8679-add2a0d475e2">&lt;em&gt;</bpt>productionserver01<ept id="b35db308-cfae-4cef-8679-add2a0d475e2">&lt;/em&gt;</ept> for backup.</source>
+          <target state="new">In this example we will filter and only configure PS with name <bpt id="b35db308-cfae-4cef-8679-add2a0d475e2">&lt;em&gt;</bpt>productionserver01<ept id="b35db308-cfae-4cef-8679-add2a0d475e2">&lt;/em&gt;</ept> for backup.</target>
+        </trans-unit>
+        <trans-unit id="4b1fe977-a651-4f86-8ef1-03e98fe4987a" xml:space="preserve">
+          <source>Now fetch the list of datasources on <bpt id="65e9fb46-9ece-4dd8-bdd8-3c9243b7144b">&lt;code&gt;</bpt>$server<ept id="65e9fb46-9ece-4dd8-bdd8-3c9243b7144b">&lt;/code&gt;</ept> using the <bpt id="fe76c2a9-d8e7-47b2-b761-6f2b1824cc38">&lt;linkText&gt;</bpt>Get-DPMDatasource<ept id="fe76c2a9-d8e7-47b2-b761-6f2b1824cc38">&lt;/linkText&gt;</ept><bpt id="fe76c2a9-d8e7-47b2-b761-6f2b1824cc38">&lt;title&gt;</bpt><ept id="fe76c2a9-d8e7-47b2-b761-6f2b1824cc38">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">Now fetch the list of datasources on <bpt id="65e9fb46-9ece-4dd8-bdd8-3c9243b7144b">&lt;code&gt;</bpt>$server<ept id="65e9fb46-9ece-4dd8-bdd8-3c9243b7144b">&lt;/code&gt;</ept> using the <bpt id="fe76c2a9-d8e7-47b2-b761-6f2b1824cc38">&lt;linkText&gt;</bpt>Get-DPMDatasource<ept id="fe76c2a9-d8e7-47b2-b761-6f2b1824cc38">&lt;/linkText&gt;</ept><bpt id="fe76c2a9-d8e7-47b2-b761-6f2b1824cc38">&lt;title&gt;</bpt><ept id="fe76c2a9-d8e7-47b2-b761-6f2b1824cc38">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="4786b205-a2b9-4c5d-a945-88fcb217bc39" xml:space="preserve">
+          <source>In this example we are filtering for the volume <bpt id="df7c9bf1-8a91-407f-80e2-5b4a6ef76cd7">&lt;em&gt;</bpt>D:\<ept id="df7c9bf1-8a91-407f-80e2-5b4a6ef76cd7">&lt;/em&gt;</ept> which we want to configure for backup.</source>
+          <target state="new">In this example we are filtering for the volume <bpt id="df7c9bf1-8a91-407f-80e2-5b4a6ef76cd7">&lt;em&gt;</bpt>D:\<ept id="df7c9bf1-8a91-407f-80e2-5b4a6ef76cd7">&lt;/em&gt;</ept> which we want to configure for backup.</target>
+        </trans-unit>
+        <trans-unit id="2ec97a31-6a83-4252-b27e-b9a5a7f78174" xml:space="preserve">
+          <source>This datasource is then added to the Protection Group using the <bpt id="937a3274-d1b4-4029-a463-c80fda4b62ff">&lt;linkText&gt;</bpt>Add-DPMChildDatasource<ept id="937a3274-d1b4-4029-a463-c80fda4b62ff">&lt;/linkText&gt;</ept><bpt id="937a3274-d1b4-4029-a463-c80fda4b62ff">&lt;title&gt;</bpt><ept id="937a3274-d1b4-4029-a463-c80fda4b62ff">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">This datasource is then added to the Protection Group using the <bpt id="937a3274-d1b4-4029-a463-c80fda4b62ff">&lt;linkText&gt;</bpt>Add-DPMChildDatasource<ept id="937a3274-d1b4-4029-a463-c80fda4b62ff">&lt;/linkText&gt;</ept><bpt id="937a3274-d1b4-4029-a463-c80fda4b62ff">&lt;title&gt;</bpt><ept id="937a3274-d1b4-4029-a463-c80fda4b62ff">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="509b0e66-e001-40a0-b861-022a02a986f5" xml:space="preserve">
+          <source>Remember to use the <bpt id="ea55acd5-f788-498f-8aa9-be8eda1acc95">&lt;em&gt;</bpt>modifable<ept id="ea55acd5-f788-498f-8aa9-be8eda1acc95">&lt;/em&gt;</ept> protection group object <bpt id="0a186460-fa3b-49b5-b815-b0cb9d603a8b">&lt;code&gt;</bpt>$MPG<ept id="0a186460-fa3b-49b5-b815-b0cb9d603a8b">&lt;/code&gt;</ept> to make the additions.</source>
+          <target state="new">Remember to use the <bpt id="ea55acd5-f788-498f-8aa9-be8eda1acc95">&lt;em&gt;</bpt>modifable<ept id="ea55acd5-f788-498f-8aa9-be8eda1acc95">&lt;/em&gt;</ept> protection group object <bpt id="0a186460-fa3b-49b5-b815-b0cb9d603a8b">&lt;code&gt;</bpt>$MPG<ept id="0a186460-fa3b-49b5-b815-b0cb9d603a8b">&lt;/code&gt;</ept> to make the additions.</target>
+        </trans-unit>
+        <trans-unit id="c632a1c2-b47e-4dfa-b06e-e69993ae5533" xml:space="preserve">
+          <source>Repeat this step as many times as required, until you have added all the chosen datasources to the protection group.</source>
+          <target state="new">Repeat this step as many times as required, until you have added all the chosen datasources to the protection group.</target>
+        </trans-unit>
+        <trans-unit id="ded1994c-120b-40d0-ad6c-5ec5d226f0d8" xml:space="preserve">
+          <source>You can also start with just one datasource, and complete the workflow for creating the Protection Group, and at a later point add more datasources to the Protection Group.</source>
+          <target state="new">You can also start with just one datasource, and complete the workflow for creating the Protection Group, and at a later point add more datasources to the Protection Group.</target>
+        </trans-unit>
+        <trans-unit id="f5a40395-2189-4fc3-bafe-8a2bd4f592f7" xml:space="preserve">
+          <source>Once the datasources have been added to the Protection Group, the next step is to specify the protection method using the <bpt id="37f4c4c9-c4ff-4469-a5dc-f6df93483135">&lt;linkText&gt;</bpt>Set-DPMProtectionType<ept id="37f4c4c9-c4ff-4469-a5dc-f6df93483135">&lt;/linkText&gt;</ept><bpt id="37f4c4c9-c4ff-4469-a5dc-f6df93483135">&lt;title&gt;</bpt><ept id="37f4c4c9-c4ff-4469-a5dc-f6df93483135">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">Once the datasources have been added to the Protection Group, the next step is to specify the protection method using the <bpt id="37f4c4c9-c4ff-4469-a5dc-f6df93483135">&lt;linkText&gt;</bpt>Set-DPMProtectionType<ept id="37f4c4c9-c4ff-4469-a5dc-f6df93483135">&lt;/linkText&gt;</ept><bpt id="37f4c4c9-c4ff-4469-a5dc-f6df93483135">&lt;title&gt;</bpt><ept id="37f4c4c9-c4ff-4469-a5dc-f6df93483135">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="9d8812cf-d0ba-4fc2-a948-bade8aae0bba" xml:space="preserve">
+          <source>In this example, the Protection Group will be setup for local disk and cloud backup.</source>
+          <target state="new">In this example, the Protection Group will be setup for local disk and cloud backup.</target>
+        </trans-unit>
+        <trans-unit id="eb40e559-41c7-4db7-bfef-c0d0805a7935" xml:space="preserve">
+          <source>Set the retention for the backup points using the <bpt id="16bf2067-f760-43fb-a564-022e4aa24680">&lt;linkText&gt;</bpt>Set-DPMPolicyObjective<ept id="16bf2067-f760-43fb-a564-022e4aa24680">&lt;/linkText&gt;</ept><bpt id="16bf2067-f760-43fb-a564-022e4aa24680">&lt;title&gt;</bpt><ept id="16bf2067-f760-43fb-a564-022e4aa24680">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">Set the retention for the backup points using the <bpt id="16bf2067-f760-43fb-a564-022e4aa24680">&lt;linkText&gt;</bpt>Set-DPMPolicyObjective<ept id="16bf2067-f760-43fb-a564-022e4aa24680">&lt;/linkText&gt;</ept><bpt id="16bf2067-f760-43fb-a564-022e4aa24680">&lt;title&gt;</bpt><ept id="16bf2067-f760-43fb-a564-022e4aa24680">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="36695515-3fe0-409c-9539-475d238a2d14" xml:space="preserve">
+          <source>While it might seem odd to set the retention before the backup schedule has been defined, using the <bpt id="19ebf3e9-4d97-4aec-a7f2-04197f2402c4">&lt;code&gt;</bpt>Set-DPMPolicyObjective<ept id="19ebf3e9-4d97-4aec-a7f2-04197f2402c4">&lt;/code&gt;</ept> cmdlet automatically sets a default backup schedule that can then be modified.</source>
+          <target state="new">While it might seem odd to set the retention before the backup schedule has been defined, using the <bpt id="19ebf3e9-4d97-4aec-a7f2-04197f2402c4">&lt;code&gt;</bpt>Set-DPMPolicyObjective<ept id="19ebf3e9-4d97-4aec-a7f2-04197f2402c4">&lt;/code&gt;</ept> cmdlet automatically sets a default backup schedule that can then be modified.</target>
+        </trans-unit>
+        <trans-unit id="7fc1264d-8ea4-47db-a4ba-9fbf5dc35fb0" xml:space="preserve">
+          <source>It is always possible to set the backup schedule first and the retention policy after.</source>
+          <target state="new">It is always possible to set the backup schedule first and the retention policy after.</target>
+        </trans-unit>
+        <trans-unit id="796d1953-e531-4505-a1d9-947a5006db77" xml:space="preserve">
+          <source>In the example below, the cmdlet sets the retention parameters for disk backups.</source>
+          <target state="new">In the example below, the cmdlet sets the retention parameters for disk backups.</target>
+        </trans-unit>
+        <trans-unit id="16aa4b14-c7ab-47c0-856b-2789327fdfc0" xml:space="preserve">
+          <source>This will retain backups for 10 days, and sync data every 6 hours between the production server and the DPM server.</source>
+          <target state="new">This will retain backups for 10 days, and sync data every 6 hours between the production server and the DPM server.</target>
+        </trans-unit>
+        <trans-unit id="0411de70-e082-4449-9009-d0375f77e8a9" xml:space="preserve">
+          <source>The <bpt id="d4059497-089a-49f9-89f3-ede6c7b72adc">&lt;code&gt;</bpt>SynchronizationFrequencyMinutes<ept id="d4059497-089a-49f9-89f3-ede6c7b72adc">&lt;/code&gt;</ept> doesn't define how often a backup point is created, but how often data is copied to the DPM server; this prevents backups from becoming too large.</source>
+          <target state="new">The <bpt id="d4059497-089a-49f9-89f3-ede6c7b72adc">&lt;code&gt;</bpt>SynchronizationFrequencyMinutes<ept id="d4059497-089a-49f9-89f3-ede6c7b72adc">&lt;/code&gt;</ept> doesn't define how often a backup point is created, but how often data is copied to the DPM server; this prevents backups from becoming too large.</target>
+        </trans-unit>
+        <trans-unit id="81e035c7-2630-47a9-819d-381e9c552bed" xml:space="preserve">
+          <source>For backups going to Azure (DPM refers to these as Online backups) the retention ranges can be configured for <bpt id="a7e91222-c6f3-405f-8042-de99ad57a6f0">&lt;linkText&gt;</bpt>long term retention using a Grandfather-Father-Son scheme (GFS)<ept id="a7e91222-c6f3-405f-8042-de99ad57a6f0">&lt;/linkText&gt;</ept><bpt id="a7e91222-c6f3-405f-8042-de99ad57a6f0">&lt;title&gt;</bpt><ept id="a7e91222-c6f3-405f-8042-de99ad57a6f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For backups going to Azure (DPM refers to these as Online backups) the retention ranges can be configured for <bpt id="a7e91222-c6f3-405f-8042-de99ad57a6f0">&lt;linkText&gt;</bpt>long term retention using a Grandfather-Father-Son scheme (GFS)<ept id="a7e91222-c6f3-405f-8042-de99ad57a6f0">&lt;/linkText&gt;</ept><bpt id="a7e91222-c6f3-405f-8042-de99ad57a6f0">&lt;title&gt;</bpt><ept id="a7e91222-c6f3-405f-8042-de99ad57a6f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ac0a718-8f60-476f-b8e9-5f1283e4f39a" xml:space="preserve">
+          <source>That is, you can define a combined retention policy involving daily, weekly, monthly and yearly retention policies.</source>
+          <target state="new">That is, you can define a combined retention policy involving daily, weekly, monthly and yearly retention policies.</target>
+        </trans-unit>
+        <trans-unit id="3cfae50e-ce90-4806-b932-999384671d84" xml:space="preserve">
+          <source>In this example, we create an array representing the complex retention scheme that we want, and then configure the retention range using the <bpt id="4c53a7c1-74ae-4a0d-80d1-e263c1fdf68c">&lt;linkText&gt;</bpt>Set-DPMPolicyObjective<ept id="4c53a7c1-74ae-4a0d-80d1-e263c1fdf68c">&lt;/linkText&gt;</ept><bpt id="4c53a7c1-74ae-4a0d-80d1-e263c1fdf68c">&lt;title&gt;</bpt><ept id="4c53a7c1-74ae-4a0d-80d1-e263c1fdf68c">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">In this example, we create an array representing the complex retention scheme that we want, and then configure the retention range using the <bpt id="4c53a7c1-74ae-4a0d-80d1-e263c1fdf68c">&lt;linkText&gt;</bpt>Set-DPMPolicyObjective<ept id="4c53a7c1-74ae-4a0d-80d1-e263c1fdf68c">&lt;/linkText&gt;</ept><bpt id="4c53a7c1-74ae-4a0d-80d1-e263c1fdf68c">&lt;title&gt;</bpt><ept id="4c53a7c1-74ae-4a0d-80d1-e263c1fdf68c">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="5b2e7898-46e1-462d-823e-a5410135cacc" xml:space="preserve">
+          <source>DPM sets a default backup schedule automatically if you specify the protection objective using the <bpt id="084a29dd-b76d-4fa2-bbfa-f0581437baba">&lt;code&gt;</bpt>Set-DPMPolicyObjective<ept id="084a29dd-b76d-4fa2-bbfa-f0581437baba">&lt;/code&gt;</ept> cmdlet.</source>
+          <target state="new">DPM sets a default backup schedule automatically if you specify the protection objective using the <bpt id="084a29dd-b76d-4fa2-bbfa-f0581437baba">&lt;code&gt;</bpt>Set-DPMPolicyObjective<ept id="084a29dd-b76d-4fa2-bbfa-f0581437baba">&lt;/code&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="7c659328-71e0-43a0-a3a7-8bbc98a1dfa3" xml:space="preserve">
+          <source>To change the default schedules, use the <bpt id="623625f0-4426-44ba-9600-d98e6838a117">&lt;linkText&gt;</bpt>Get-DPMPolicySchedule<ept id="623625f0-4426-44ba-9600-d98e6838a117">&lt;/linkText&gt;</ept><bpt id="623625f0-4426-44ba-9600-d98e6838a117">&lt;title&gt;</bpt><ept id="623625f0-4426-44ba-9600-d98e6838a117">&lt;/title&gt;</ept> cmdlet followed by the <bpt id="25a9e198-c9aa-4a9c-94e0-b19c992276a8">&lt;linkText&gt;</bpt>Set-DPMPolicySchedule<ept id="25a9e198-c9aa-4a9c-94e0-b19c992276a8">&lt;/linkText&gt;</ept><bpt id="25a9e198-c9aa-4a9c-94e0-b19c992276a8">&lt;title&gt;</bpt><ept id="25a9e198-c9aa-4a9c-94e0-b19c992276a8">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">To change the default schedules, use the <bpt id="623625f0-4426-44ba-9600-d98e6838a117">&lt;linkText&gt;</bpt>Get-DPMPolicySchedule<ept id="623625f0-4426-44ba-9600-d98e6838a117">&lt;/linkText&gt;</ept><bpt id="623625f0-4426-44ba-9600-d98e6838a117">&lt;title&gt;</bpt><ept id="623625f0-4426-44ba-9600-d98e6838a117">&lt;/title&gt;</ept> cmdlet followed by the <bpt id="25a9e198-c9aa-4a9c-94e0-b19c992276a8">&lt;linkText&gt;</bpt>Set-DPMPolicySchedule<ept id="25a9e198-c9aa-4a9c-94e0-b19c992276a8">&lt;/linkText&gt;</ept><bpt id="25a9e198-c9aa-4a9c-94e0-b19c992276a8">&lt;title&gt;</bpt><ept id="25a9e198-c9aa-4a9c-94e0-b19c992276a8">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="6daadb39-7f0c-4cf9-a66f-cefff019fc3e" xml:space="preserve">
+          <source>In the example above, <bpt id="06d18ea0-3f0e-4ce6-aa24-7b873b7b4350">&lt;code&gt;</bpt>$onlineSch<ept id="06d18ea0-3f0e-4ce6-aa24-7b873b7b4350">&lt;/code&gt;</ept> is an array with four elements that contains the existing online protection schedule for the Protection Group in the GFS scheme:</source>
+          <target state="new">In the example above, <bpt id="06d18ea0-3f0e-4ce6-aa24-7b873b7b4350">&lt;code&gt;</bpt>$onlineSch<ept id="06d18ea0-3f0e-4ce6-aa24-7b873b7b4350">&lt;/code&gt;</ept> is an array with four elements that contains the existing online protection schedule for the Protection Group in the GFS scheme:</target>
+        </trans-unit>
+        <trans-unit id="0d995545-497f-4806-93d3-39d3ca494f26" xml:space="preserve">
+          <source><bpt id="53b28920-d7d8-40b7-9498-c02756cf9196">&lt;code&gt;</bpt>$onlineSch[0]<ept id="53b28920-d7d8-40b7-9498-c02756cf9196">&lt;/code&gt;</ept> will contain the daily schedule</source>
+          <target state="new"><bpt id="53b28920-d7d8-40b7-9498-c02756cf9196">&lt;code&gt;</bpt>$onlineSch[0]<ept id="53b28920-d7d8-40b7-9498-c02756cf9196">&lt;/code&gt;</ept> will contain the daily schedule</target>
+        </trans-unit>
+        <trans-unit id="9bf29ff4-64be-49a4-826e-a2ecce5c238e" xml:space="preserve">
+          <source><bpt id="8dee68f7-fd8a-4165-b615-b0a970f0ab7c">&lt;code&gt;</bpt>$onlineSch[1]<ept id="8dee68f7-fd8a-4165-b615-b0a970f0ab7c">&lt;/code&gt;</ept> will contain the weekly schedule</source>
+          <target state="new"><bpt id="8dee68f7-fd8a-4165-b615-b0a970f0ab7c">&lt;code&gt;</bpt>$onlineSch[1]<ept id="8dee68f7-fd8a-4165-b615-b0a970f0ab7c">&lt;/code&gt;</ept> will contain the weekly schedule</target>
+        </trans-unit>
+        <trans-unit id="d64927a2-98f8-41ba-977a-fd3fbe804cb5" xml:space="preserve">
+          <source><bpt id="7f1a6d9f-d086-4509-93ce-22a82858b334">&lt;code&gt;</bpt>$onlineSch[2]<ept id="7f1a6d9f-d086-4509-93ce-22a82858b334">&lt;/code&gt;</ept> will contain the monthly schedule</source>
+          <target state="new"><bpt id="7f1a6d9f-d086-4509-93ce-22a82858b334">&lt;code&gt;</bpt>$onlineSch[2]<ept id="7f1a6d9f-d086-4509-93ce-22a82858b334">&lt;/code&gt;</ept> will contain the monthly schedule</target>
+        </trans-unit>
+        <trans-unit id="138441f1-2121-479e-8020-ad48f7c4c1df" xml:space="preserve">
+          <source><bpt id="20722f20-6445-44b2-a436-c5ee6e50687f">&lt;code&gt;</bpt>$onlineSch[3]<ept id="20722f20-6445-44b2-a436-c5ee6e50687f">&lt;/code&gt;</ept> will contain the yearly schedule</source>
+          <target state="new"><bpt id="20722f20-6445-44b2-a436-c5ee6e50687f">&lt;code&gt;</bpt>$onlineSch[3]<ept id="20722f20-6445-44b2-a436-c5ee6e50687f">&lt;/code&gt;</ept> will contain the yearly schedule</target>
+        </trans-unit>
+        <trans-unit id="d2f829fe-fab5-4ffa-be5b-5900e58bf542" xml:space="preserve">
+          <source>So if you need to modify the weekly schedule, you need to refer to the <bpt id="7d9f2945-667c-4738-b870-e8c57c87c196">&lt;code&gt;</bpt>$onlineSch[1]<ept id="7d9f2945-667c-4738-b870-e8c57c87c196">&lt;/code&gt;</ept>.</source>
+          <target state="new">So if you need to modify the weekly schedule, you need to refer to the <bpt id="7d9f2945-667c-4738-b870-e8c57c87c196">&lt;code&gt;</bpt>$onlineSch[1]<ept id="7d9f2945-667c-4738-b870-e8c57c87c196">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="773cecd7-e422-4cf4-81c4-1367fb95c2c4" xml:space="preserve">
+          <source>When backing up a datasource for the first time, DPM needs to create an initial replica which will create a copy of the datasource to be protected on DPM replica volume.</source>
+          <target state="new">When backing up a datasource for the first time, DPM needs to create an initial replica which will create a copy of the datasource to be protected on DPM replica volume.</target>
+        </trans-unit>
+        <trans-unit id="75325377-e8d2-4af0-a5fa-f148bf0b09d3" xml:space="preserve">
+          <source>This activity can either be scheduled for a specific time, or can be triggered manually, using the <bpt id="58a23b44-1efb-44ac-8c15-757d9492abc4">&lt;linkText&gt;</bpt>Set-DPMReplicaCreationMethod<ept id="58a23b44-1efb-44ac-8c15-757d9492abc4">&lt;/linkText&gt;</ept><bpt id="58a23b44-1efb-44ac-8c15-757d9492abc4">&lt;title&gt;</bpt><ept id="58a23b44-1efb-44ac-8c15-757d9492abc4">&lt;/title&gt;</ept> cmdlet with the parameter <bpt id="e7e74d6f-ee91-4f04-a219-2fd931cfda31">&lt;code&gt;</bpt>-NOW<ept id="e7e74d6f-ee91-4f04-a219-2fd931cfda31">&lt;/code&gt;</ept>.</source>
+          <target state="new">This activity can either be scheduled for a specific time, or can be triggered manually, using the <bpt id="58a23b44-1efb-44ac-8c15-757d9492abc4">&lt;linkText&gt;</bpt>Set-DPMReplicaCreationMethod<ept id="58a23b44-1efb-44ac-8c15-757d9492abc4">&lt;/linkText&gt;</ept><bpt id="58a23b44-1efb-44ac-8c15-757d9492abc4">&lt;title&gt;</bpt><ept id="58a23b44-1efb-44ac-8c15-757d9492abc4">&lt;/title&gt;</ept> cmdlet with the parameter <bpt id="e7e74d6f-ee91-4f04-a219-2fd931cfda31">&lt;code&gt;</bpt>-NOW<ept id="e7e74d6f-ee91-4f04-a219-2fd931cfda31">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8def1b1c-be04-4626-8698-3c8ebafb4933" xml:space="preserve">
+          <source>You can also change the size of DPM Replica volume as well as Shadow Copy volume using [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/en-us/library/hh881618(v=sc.20).aspx) cmdlet as in the below example:
+Get-DatasourceDiskAllocation -Datasource $DS
+Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)</source>
+          <target state="new">You can also change the size of DPM Replica volume as well as Shadow Copy volume using [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/en-us/library/hh881618(v=sc.20).aspx) cmdlet as in the below example:
+Get-DatasourceDiskAllocation -Datasource $DS
+Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)</target>
+        </trans-unit>
+        <trans-unit id="e142e143-485f-4f40-bc2d-367ea3e52460" xml:space="preserve">
+          <source>Finally, the changes need to be committed before DPM can take the backup per the new Protection Group configuration.</source>
+          <target state="new">Finally, the changes need to be committed before DPM can take the backup per the new Protection Group configuration.</target>
+        </trans-unit>
+        <trans-unit id="750c32ed-16a7-41b5-b18a-3138f1aafa48" xml:space="preserve">
+          <source>This is done using the <bpt id="dc9a7c0d-0f5e-4902-aa93-110cfe7c661a">&lt;linkText&gt;</bpt>Set-DPMProtectionGroup<ept id="dc9a7c0d-0f5e-4902-aa93-110cfe7c661a">&lt;/linkText&gt;</ept><bpt id="dc9a7c0d-0f5e-4902-aa93-110cfe7c661a">&lt;title&gt;</bpt><ept id="dc9a7c0d-0f5e-4902-aa93-110cfe7c661a">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">This is done using the <bpt id="dc9a7c0d-0f5e-4902-aa93-110cfe7c661a">&lt;linkText&gt;</bpt>Set-DPMProtectionGroup<ept id="dc9a7c0d-0f5e-4902-aa93-110cfe7c661a">&lt;/linkText&gt;</ept><bpt id="dc9a7c0d-0f5e-4902-aa93-110cfe7c661a">&lt;title&gt;</bpt><ept id="dc9a7c0d-0f5e-4902-aa93-110cfe7c661a">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="7108f392-c3dd-4102-8a25-e4922fafbfde" xml:space="preserve">
+          <source>You can use the <bpt id="dbb634b7-55ea-48df-a2a6-a897c2379664">&lt;linkText&gt;</bpt>Get-DPMRecoveryPoint<ept id="dbb634b7-55ea-48df-a2a6-a897c2379664">&lt;/linkText&gt;</ept><bpt id="dbb634b7-55ea-48df-a2a6-a897c2379664">&lt;title&gt;</bpt><ept id="dbb634b7-55ea-48df-a2a6-a897c2379664">&lt;/title&gt;</ept> cmdlet to get a list of all recovery points for a datasource.</source>
+          <target state="new">You can use the <bpt id="dbb634b7-55ea-48df-a2a6-a897c2379664">&lt;linkText&gt;</bpt>Get-DPMRecoveryPoint<ept id="dbb634b7-55ea-48df-a2a6-a897c2379664">&lt;/linkText&gt;</ept><bpt id="dbb634b7-55ea-48df-a2a6-a897c2379664">&lt;title&gt;</bpt><ept id="dbb634b7-55ea-48df-a2a6-a897c2379664">&lt;/title&gt;</ept> cmdlet to get a list of all recovery points for a datasource.</target>
+        </trans-unit>
+        <trans-unit id="03f78d9a-94d8-4d6a-80cd-078871c56ade" xml:space="preserve">
+          <source>In this example, we will:</source>
+          <target state="new">In this example, we will:</target>
+        </trans-unit>
+        <trans-unit id="fd0b4221-cfb1-4787-924c-7969230e2379" xml:space="preserve">
+          <source>fetch all the PGs on the DPM server which will be stored in an array <bpt id="30f4ba28-f0af-49bf-9fbf-d68fe2a95e30">&lt;code&gt;</bpt>$PG<ept id="30f4ba28-f0af-49bf-9fbf-d68fe2a95e30">&lt;/code&gt;</ept></source>
+          <target state="new">fetch all the PGs on the DPM server which will be stored in an array <bpt id="30f4ba28-f0af-49bf-9fbf-d68fe2a95e30">&lt;code&gt;</bpt>$PG<ept id="30f4ba28-f0af-49bf-9fbf-d68fe2a95e30">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48975276-e454-4695-8a6d-d27eeb6a83d0" xml:space="preserve">
+          <source>get the datasources corresponding to the <bpt id="35271a30-9e62-479e-a1aa-a415cc376827">&lt;code&gt;</bpt>$PG[0]<ept id="35271a30-9e62-479e-a1aa-a415cc376827">&lt;/code&gt;</ept></source>
+          <target state="new">get the datasources corresponding to the <bpt id="35271a30-9e62-479e-a1aa-a415cc376827">&lt;code&gt;</bpt>$PG[0]<ept id="35271a30-9e62-479e-a1aa-a415cc376827">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5e581e3-ee7c-4732-b57f-5d47ff2b3636" xml:space="preserve">
+          <source>get all the recovery points for a datasource.</source>
+          <target state="new">get all the recovery points for a datasource.</target>
+        </trans-unit>
+        <trans-unit id="039a4c51-6ecc-4f35-82d7-f84ecd63e93f" xml:space="preserve">
+          <source>Restoring data is a combination of a <bpt id="6355cfae-1abe-4965-8c2c-08f8e45ed8b3">&lt;code&gt;</bpt>RecoverableItem<ept id="6355cfae-1abe-4965-8c2c-08f8e45ed8b3">&lt;/code&gt;</ept> object and a <bpt id="2a4126a0-c5c0-4ddb-a441-fc6c2cddaf05">&lt;code&gt;</bpt>RecoveryOption<ept id="2a4126a0-c5c0-4ddb-a441-fc6c2cddaf05">&lt;/code&gt;</ept> object.</source>
+          <target state="new">Restoring data is a combination of a <bpt id="6355cfae-1abe-4965-8c2c-08f8e45ed8b3">&lt;code&gt;</bpt>RecoverableItem<ept id="6355cfae-1abe-4965-8c2c-08f8e45ed8b3">&lt;/code&gt;</ept> object and a <bpt id="2a4126a0-c5c0-4ddb-a441-fc6c2cddaf05">&lt;code&gt;</bpt>RecoveryOption<ept id="2a4126a0-c5c0-4ddb-a441-fc6c2cddaf05">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="3bfcd29c-c35e-495c-bda8-564d646c5376" xml:space="preserve">
+          <source>In the previous section, we got a list of the backup points for a datasource.</source>
+          <target state="new">In the previous section, we got a list of the backup points for a datasource.</target>
+        </trans-unit>
+        <trans-unit id="436a70ae-b824-4ad3-8f6a-ae581162d4b6" xml:space="preserve">
+          <source>In the example below, we demonstrate how to restore a Hyper-V virtual machine from Azure Backup by combining backup points with the target for recovery.</source>
+          <target state="new">In the example below, we demonstrate how to restore a Hyper-V virtual machine from Azure Backup by combining backup points with the target for recovery.</target>
+        </trans-unit>
+        <trans-unit id="528eb68e-852c-4a96-b38b-1c61a4f37047" xml:space="preserve">
+          <source>This includes:</source>
+          <target state="new">This includes:</target>
+        </trans-unit>
+        <trans-unit id="32173a65-408a-42ce-8084-2f1c32338c43" xml:space="preserve">
+          <source>Creating a recovery option using the  <bpt id="4fbca78e-9c8f-41dd-beff-a16f25a0b482">&lt;linkText&gt;</bpt>New-DPMRecoveryOption<ept id="4fbca78e-9c8f-41dd-beff-a16f25a0b482">&lt;/linkText&gt;</ept><bpt id="4fbca78e-9c8f-41dd-beff-a16f25a0b482">&lt;title&gt;</bpt><ept id="4fbca78e-9c8f-41dd-beff-a16f25a0b482">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">Creating a recovery option using the  <bpt id="4fbca78e-9c8f-41dd-beff-a16f25a0b482">&lt;linkText&gt;</bpt>New-DPMRecoveryOption<ept id="4fbca78e-9c8f-41dd-beff-a16f25a0b482">&lt;/linkText&gt;</ept><bpt id="4fbca78e-9c8f-41dd-beff-a16f25a0b482">&lt;title&gt;</bpt><ept id="4fbca78e-9c8f-41dd-beff-a16f25a0b482">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="80e9aba1-26ca-4695-a523-7e4515b6782d" xml:space="preserve">
+          <source>Fetching the array of backup points using the <bpt id="5944f9e3-5ec0-449a-b0df-002e617b4955">&lt;code&gt;</bpt>Get-DPMRecoveryPoint<ept id="5944f9e3-5ec0-449a-b0df-002e617b4955">&lt;/code&gt;</ept> cmdlet.</source>
+          <target state="new">Fetching the array of backup points using the <bpt id="5944f9e3-5ec0-449a-b0df-002e617b4955">&lt;code&gt;</bpt>Get-DPMRecoveryPoint<ept id="5944f9e3-5ec0-449a-b0df-002e617b4955">&lt;/code&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="298535e0-4ea4-4fd4-95c4-9c7a46daf335" xml:space="preserve">
+          <source>Choosing a backup point to restore from.</source>
+          <target state="new">Choosing a backup point to restore from.</target>
+        </trans-unit>
+        <trans-unit id="9ef7bb98-313f-4f6f-871e-bfaf79ae878c" xml:space="preserve">
+          <source>The commands can easily be extended for any datasource type.</source>
+          <target state="new">The commands can easily be extended for any datasource type.</target>
+        </trans-unit>
+        <trans-unit id="9e11cc68-e11e-47a5-98ff-92257e7861fa" xml:space="preserve">
+          <source>For more information about Azure Backup for DPM see <bpt id="b8e4452c-b822-4dab-8409-3dde90da27c3">&lt;linkText&gt;</bpt>Introduction to Azure DPM Backup<ept id="b8e4452c-b822-4dab-8409-3dde90da27c3">&lt;/linkText&gt;</ept><bpt id="b8e4452c-b822-4dab-8409-3dde90da27c3">&lt;title&gt;</bpt><ept id="b8e4452c-b822-4dab-8409-3dde90da27c3">&lt;/title&gt;</ept></source>
+          <target state="new">For more information about Azure Backup for DPM see <bpt id="b8e4452c-b822-4dab-8409-3dde90da27c3">&lt;linkText&gt;</bpt>Introduction to Azure DPM Backup<ept id="b8e4452c-b822-4dab-8409-3dde90da27c3">&lt;/linkText&gt;</ept><bpt id="b8e4452c-b822-4dab-8409-3dde90da27c3">&lt;title&gt;</bpt><ept id="b8e4452c-b822-4dab-8409-3dde90da27c3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

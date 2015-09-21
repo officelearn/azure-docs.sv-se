@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d645e3c7-19bc-4135-b9e8-15a475179470" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d645e3c7-19bc-4135-b9e8-15a475179470" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a8e95dfe-b84e-49c3-98ae-64a8e4fc0249">
+        <trans-unit id="0dcdc4da-9bf6-42a7-856c-3a990e3cdcd6" xml:space="preserve">
+          <source>About VPN Gateways for Virtual Network | Microsoft Azure</source>
+          <target state="new">About VPN Gateways for Virtual Network | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="882deab7-8a7d-4253-99ca-7907241ea2f6" xml:space="preserve">
+          <source>Learn about Basic, Standard, and High Performance VPN Gateway SKUs, VPN Gateway and ExpressRoute coexist, Static and Dynamic gateway routing types, and gateway requirements for virtual network connectivity.</source>
+          <target state="new">Learn about Basic, Standard, and High Performance VPN Gateway SKUs, VPN Gateway and ExpressRoute coexist, Static and Dynamic gateway routing types, and gateway requirements for virtual network connectivity.</target>
+        </trans-unit>
+        <trans-unit id="41da73e3-4657-463a-8da3-99ff8904aa65" xml:space="preserve">
+          <source>VPN Gateways are used to send network traffic between virtual networks and on-premises locations, or between multiple virtual networks (VNet-to-VNet).</source>
+          <target state="new">VPN Gateways are used to send network traffic between virtual networks and on-premises locations, or between multiple virtual networks (VNet-to-VNet).</target>
+        </trans-unit>
+        <trans-unit id="2f933cb3-ed40-4d86-b31d-5aa55a7fd980" xml:space="preserve">
+          <source>When creating a gateway, there are a number of factors to take into consideration.</source>
+          <target state="new">When creating a gateway, there are a number of factors to take into consideration.</target>
+        </trans-unit>
+        <trans-unit id="8698574b-811e-41b6-a791-b76290073e0a" xml:space="preserve">
+          <source>You'll need to know which Gateway SKU that you want to use, the routing type that is needed for your configuration (dynamic or static) and the VPN device that you plan to use if a VPN device is needed for your configuration.</source>
+          <target state="new">You'll need to know which Gateway SKU that you want to use, the routing type that is needed for your configuration (dynamic or static) and the VPN device that you plan to use if a VPN device is needed for your configuration.</target>
+        </trans-unit>
+        <trans-unit id="161b4c05-e750-4fa7-96f5-80e84531fc23" xml:space="preserve">
+          <source>There are 3 VPN Gateway SKUs; Basic, Standard, and High Performance.</source>
+          <target state="new">There are 3 VPN Gateway SKUs; Basic, Standard, and High Performance.</target>
+        </trans-unit>
+        <trans-unit id="1debf4fa-670b-46b9-b24a-b92ec6e63df6" xml:space="preserve">
+          <source>The table below shows the gateway types and the estimated aggregate throughput.</source>
+          <target state="new">The table below shows the gateway types and the estimated aggregate throughput.</target>
+        </trans-unit>
+        <trans-unit id="1f18ab94-3068-439c-aef4-a72d0a0991a9" xml:space="preserve">
+          <source>Pricing does differ between gateway SKUs.</source>
+          <target state="new">Pricing does differ between gateway SKUs.</target>
+        </trans-unit>
+        <trans-unit id="5ece3ff5-befd-4edd-8a72-e5451bce2d62" xml:space="preserve">
+          <source>For information about pricing, see <bpt id="4f5fea96-8de3-4372-89d3-7dd4f6bb9c3d">&lt;linkText&gt;</bpt>VPN Gateway Pricing<ept id="4f5fea96-8de3-4372-89d3-7dd4f6bb9c3d">&lt;/linkText&gt;</ept><bpt id="4f5fea96-8de3-4372-89d3-7dd4f6bb9c3d">&lt;title&gt;</bpt><ept id="4f5fea96-8de3-4372-89d3-7dd4f6bb9c3d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about pricing, see <bpt id="4f5fea96-8de3-4372-89d3-7dd4f6bb9c3d">&lt;linkText&gt;</bpt>VPN Gateway Pricing<ept id="4f5fea96-8de3-4372-89d3-7dd4f6bb9c3d">&lt;/linkText&gt;</ept><bpt id="4f5fea96-8de3-4372-89d3-7dd4f6bb9c3d">&lt;title&gt;</bpt><ept id="4f5fea96-8de3-4372-89d3-7dd4f6bb9c3d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6576064d-f3b1-4dda-afe1-e959d8f62b49" xml:space="preserve">
+          <source>SKU</source>
+          <target state="new">SKU</target>
+        </trans-unit>
+        <trans-unit id="9b6e9718-052f-43cb-9e4e-1d4eeb51a36c" xml:space="preserve">
+          <source>VPN Gateway and ExpressRoute coexist</source>
+          <target state="new">VPN Gateway and ExpressRoute coexist</target>
+        </trans-unit>
+        <trans-unit id="90252c9d-fb2d-47e7-9397-dd09f4cc2244" xml:space="preserve">
+          <source>ExpressRoute Gateway throughput</source>
+          <target state="new">ExpressRoute Gateway throughput</target>
+        </trans-unit>
+        <trans-unit id="34052483-ae66-4a4e-8e33-e376d18c214b" xml:space="preserve">
+          <source>VPN Gateway throughput</source>
+          <target state="new">VPN Gateway throughput</target>
+        </trans-unit>
+        <trans-unit id="06a1a5c5-6fad-4048-8c77-dd2946563a1c" xml:space="preserve">
+          <source>VPN Gateway max IPsec tunnels</source>
+          <target state="new">VPN Gateway max IPsec tunnels</target>
+        </trans-unit>
+        <trans-unit id="b0a5c3a0-fd07-4328-9c38-23038b3ba899" xml:space="preserve">
+          <source>Basic</source>
+          <target state="new">Basic</target>
+        </trans-unit>
+        <trans-unit id="14aa5073-ef8d-499e-95dc-37db0b9b3239" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="6dc913e3-c82a-4bef-91bc-a37e2d474619" xml:space="preserve">
+          <source>500 Mbps</source>
+          <target state="new">500 Mbps</target>
+        </trans-unit>
+        <trans-unit id="afbed1c5-3518-4f77-b183-c6db78607aff" xml:space="preserve">
+          <source>100 Mbps</source>
+          <target state="new">100 Mbps</target>
+        </trans-unit>
+        <trans-unit id="dd10ae6b-61dc-473d-a2c5-c2b7182f17cf" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="5bd68bb8-42d6-4e61-905c-071abc8acc09" xml:space="preserve">
+          <source>Standard</source>
+          <target state="new">Standard</target>
+        </trans-unit>
+        <trans-unit id="a841c74b-b9e9-4435-a631-8a9351785ceb" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="5d256a3c-a256-45bb-bda0-453bb9bb4b5b" xml:space="preserve">
+          <source>1000 Mbps</source>
+          <target state="new">1000 Mbps</target>
+        </trans-unit>
+        <trans-unit id="63bafb80-e07a-4303-bfa2-a1642ded68db" xml:space="preserve">
+          <source>100 Mbps</source>
+          <target state="new">100 Mbps</target>
+        </trans-unit>
+        <trans-unit id="7342b041-6330-4542-9bd8-ccabd17a97a8" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="aaa77266-4d7c-41a0-890b-fbefb724a446" xml:space="preserve">
+          <source>High Performance</source>
+          <target state="new">High Performance</target>
+        </trans-unit>
+        <trans-unit id="96919b03-bdea-4a2f-89be-79a3600c31e1" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="192cdc39-8f29-44e5-9972-d2297a773072" xml:space="preserve">
+          <source>2000 Mbps</source>
+          <target state="new">2000 Mbps</target>
+        </trans-unit>
+        <trans-unit id="f788ced4-773d-4e65-9e2f-b2c925e36f63" xml:space="preserve">
+          <source>200 Mbps</source>
+          <target state="new">200 Mbps</target>
+        </trans-unit>
+        <trans-unit id="19492f1a-7c3c-459e-8e8a-7fc25e94be9c" xml:space="preserve">
+          <source>30</source>
+          <target state="new">30</target>
+        </trans-unit>
+        <trans-unit id="459d6062-b1cf-42ff-aad0-505e8d755e9a" xml:space="preserve">
+          <source><bpt id="9deabd41-5d5c-458b-a372-09ad087d21e3">&lt;strong&gt;</bpt>Note:<ept id="9deabd41-5d5c-458b-a372-09ad087d21e3">&lt;/strong&gt;</ept> The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region.</source>
+          <target state="new"><bpt id="9deabd41-5d5c-458b-a372-09ad087d21e3">&lt;strong&gt;</bpt>Note:<ept id="9deabd41-5d5c-458b-a372-09ad087d21e3">&lt;/strong&gt;</ept> The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region.</target>
+        </trans-unit>
+        <trans-unit id="2f15b34a-038e-4dc2-a1b6-69defa0629d6" xml:space="preserve">
+          <source>It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.</source>
+          <target state="new">It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.</target>
+        </trans-unit>
+        <trans-unit id="1ed74dfa-d329-49df-9f55-73da0ab5b7e3" xml:space="preserve">
+          <source>There are two gateway types, <bpt id="fcdd11f8-92b6-4a13-b858-1db7cfb4f147">&lt;em&gt;</bpt>static routing<ept id="fcdd11f8-92b6-4a13-b858-1db7cfb4f147">&lt;/em&gt;</ept> (also known as a policy-based VPN), and <bpt id="b846e096-6fae-46e2-8c1b-d8a5c4ffc396">&lt;em&gt;</bpt>dynamic routing<ept id="b846e096-6fae-46e2-8c1b-d8a5c4ffc396">&lt;/em&gt;</ept> (also known as a route-based VPN).</source>
+          <target state="new">There are two gateway types, <bpt id="fcdd11f8-92b6-4a13-b858-1db7cfb4f147">&lt;em&gt;</bpt>static routing<ept id="fcdd11f8-92b6-4a13-b858-1db7cfb4f147">&lt;/em&gt;</ept> (also known as a policy-based VPN), and <bpt id="b846e096-6fae-46e2-8c1b-d8a5c4ffc396">&lt;em&gt;</bpt>dynamic routing<ept id="b846e096-6fae-46e2-8c1b-d8a5c4ffc396">&lt;/em&gt;</ept> (also known as a route-based VPN).</target>
+        </trans-unit>
+        <trans-unit id="68ea1688-9370-494c-bbb8-5d9f0822a9c0" xml:space="preserve">
+          <source>Some configurations will only work with a specific routing type, while some VPN devices only work with a certain routing type.</source>
+          <target state="new">Some configurations will only work with a specific routing type, while some VPN devices only work with a certain routing type.</target>
+        </trans-unit>
+        <trans-unit id="f4fcb3f7-8493-4250-a8f7-9a1261526bf5" xml:space="preserve">
+          <source>When you create a VPN gateway, you'll select the gateway type that is required for your configuration, making sure that the VPN device you select also supports that routing type.</source>
+          <target state="new">When you create a VPN gateway, you'll select the gateway type that is required for your configuration, making sure that the VPN device you select also supports that routing type.</target>
+        </trans-unit>
+        <trans-unit id="04da2dbe-9d9e-42d6-bb98-f5b19a18d7d8" xml:space="preserve">
+          <source>For example, if you plan to use a site-to-site configuration concurrently with a point-to-site configuration, you’ll need to configure a dynamic routing VPN gateway.</source>
+          <target state="new">For example, if you plan to use a site-to-site configuration concurrently with a point-to-site configuration, you’ll need to configure a dynamic routing VPN gateway.</target>
+        </trans-unit>
+        <trans-unit id="a7760860-f59d-4db0-b851-46a5a02c4127" xml:space="preserve">
+          <source>While it's true that site-to-site configurations will work with static routing gateways, point-to-site configurations require a dynamic routing gateway.</source>
+          <target state="new">While it's true that site-to-site configurations will work with static routing gateways, point-to-site configurations require a dynamic routing gateway.</target>
+        </trans-unit>
+        <trans-unit id="ca3ecd3d-f39f-4cdb-aaa2-819473fbc301" xml:space="preserve">
+          <source>Because both connections will go over the same gateway, you'll have to select the gateway type that supports both configurations.</source>
+          <target state="new">Because both connections will go over the same gateway, you'll have to select the gateway type that supports both configurations.</target>
+        </trans-unit>
+        <trans-unit id="081a677e-16ce-47f1-9ef9-93394643a4e0" xml:space="preserve">
+          <source>Additionally, you'll want to verify that your VPN device supports the type of gateway and the IPsec/IKE parameters and configuration that you require.</source>
+          <target state="new">Additionally, you'll want to verify that your VPN device supports the type of gateway and the IPsec/IKE parameters and configuration that you require.</target>
+        </trans-unit>
+        <trans-unit id="76a333ac-c920-4e2a-9d4f-c0b18253ffe4" xml:space="preserve">
+          <source>For example, if you want to create a dynamic gateway and your VPN device doesn't support route-based VPNs, you will have to reconsider your plans.</source>
+          <target state="new">For example, if you want to create a dynamic gateway and your VPN device doesn't support route-based VPNs, you will have to reconsider your plans.</target>
+        </trans-unit>
+        <trans-unit id="149709fe-b002-43f0-adf9-7a9f6a15ca84" xml:space="preserve">
+          <source>You can decide to either acquire a different VPN device that supports dynamic gateways, or create a VPN gateway connection that supports a static routing gateway.</source>
+          <target state="new">You can decide to either acquire a different VPN device that supports dynamic gateways, or create a VPN gateway connection that supports a static routing gateway.</target>
+        </trans-unit>
+        <trans-unit id="5d13c5cf-f4f6-4a25-839d-39679efaa02e" xml:space="preserve">
+          <source>If you later acquire a VPN device that is capable of supporting a dynamic routing gateway, you can always recreate the gateway as dynamic to use the device.</source>
+          <target state="new">If you later acquire a VPN device that is capable of supporting a dynamic routing gateway, you can always recreate the gateway as dynamic to use the device.</target>
+        </trans-unit>
+        <trans-unit id="52d9b6e7-96c3-40f6-b6f4-12bab86c2200" xml:space="preserve">
+          <source>In that case, you'll need to only recreate the gateway.</source>
+          <target state="new">In that case, you'll need to only recreate the gateway.</target>
+        </trans-unit>
+        <trans-unit id="fefa3882-0a2b-4ea5-9801-989b726236a0" xml:space="preserve">
+          <source>You won't need to recreate the virtual network.</source>
+          <target state="new">You won't need to recreate the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="1105791c-93e4-4d5e-b17c-96a18bc3f92a" xml:space="preserve">
+          <source>Below are the two types of gateways:</source>
+          <target state="new">Below are the two types of gateways:</target>
+        </trans-unit>
+        <trans-unit id="cc93318f-7702-4c63-92ec-a8f92220ec25" xml:space="preserve">
+          <source><bpt id="01b81e45-bd1e-42a5-b139-edf92a686feb">&lt;strong&gt;</bpt>Static routing –<ept id="01b81e45-bd1e-42a5-b139-edf92a686feb">&lt;/strong&gt;</ept> Static routing gateways support <bpt id="7394cd45-4abb-4077-8c42-aac98fe7f3d7">&lt;strong&gt;</bpt>policy-based VPNs<ept id="7394cd45-4abb-4077-8c42-aac98fe7f3d7">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="01b81e45-bd1e-42a5-b139-edf92a686feb">&lt;strong&gt;</bpt>Static routing –<ept id="01b81e45-bd1e-42a5-b139-edf92a686feb">&lt;/strong&gt;</ept> Static routing gateways support <bpt id="7394cd45-4abb-4077-8c42-aac98fe7f3d7">&lt;strong&gt;</bpt>policy-based VPNs<ept id="7394cd45-4abb-4077-8c42-aac98fe7f3d7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e10373a-837d-4516-9371-50f6a1cc5c5e" xml:space="preserve">
+          <source>Policy-based VPNs direct packets through IPsec tunnels with traffic selectors based on the combinations of address prefixes between your on premises network and your Azure VNet.</source>
+          <target state="new">Policy-based VPNs direct packets through IPsec tunnels with traffic selectors based on the combinations of address prefixes between your on premises network and your Azure VNet.</target>
+        </trans-unit>
+        <trans-unit id="5d33c586-2ad8-4428-8418-d08cefbd246e" xml:space="preserve">
+          <source>The traffic selectors or policies are usually defined as an access list in your VPN configurations.</source>
+          <target state="new">The traffic selectors or policies are usually defined as an access list in your VPN configurations.</target>
+        </trans-unit>
+        <trans-unit id="ea5490f1-ff28-4a00-ab49-acfb00d89221" xml:space="preserve">
+          <source>Not all configurations are compatible with static routing VPN gateways.</source>
+          <target state="new">Not all configurations are compatible with static routing VPN gateways.</target>
+        </trans-unit>
+        <trans-unit id="f481c5f2-e373-49fe-ac3d-a104ae5da462" xml:space="preserve">
+          <source>For example, multi-site configurations, VNet-to-VNet configurations, and point-to-site connections all require dynamic routing gateways.</source>
+          <target state="new">For example, multi-site configurations, VNet-to-VNet configurations, and point-to-site connections all require dynamic routing gateways.</target>
+        </trans-unit>
+        <trans-unit id="c13c89ce-92f6-49f4-a9bb-73e6fec5af70" xml:space="preserve">
+          <source>You'll see the gateway requirements in the articles for each configuration.</source>
+          <target state="new">You'll see the gateway requirements in the articles for each configuration.</target>
+        </trans-unit>
+        <trans-unit id="91c1340b-e10d-4c40-8c88-05a8674e4c0c" xml:space="preserve">
+          <source><bpt id="64102fcd-f272-43d8-adc4-554a6f817584">&lt;strong&gt;</bpt>Dynamic routing –<ept id="64102fcd-f272-43d8-adc4-554a6f817584">&lt;/strong&gt;</ept> Dynamic routing gateways implement <bpt id="ad2c875e-ebf1-4549-8c1e-7031675941e5">&lt;strong&gt;</bpt>route-based VPNs<ept id="ad2c875e-ebf1-4549-8c1e-7031675941e5">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="64102fcd-f272-43d8-adc4-554a6f817584">&lt;strong&gt;</bpt>Dynamic routing –<ept id="64102fcd-f272-43d8-adc4-554a6f817584">&lt;/strong&gt;</ept> Dynamic routing gateways implement <bpt id="ad2c875e-ebf1-4549-8c1e-7031675941e5">&lt;strong&gt;</bpt>route-based VPNs<ept id="ad2c875e-ebf1-4549-8c1e-7031675941e5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f7a224d-2843-4efd-b449-eb1e294208c9" xml:space="preserve">
+          <source>Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding VPN tunnel interfaces.</source>
+          <target state="new">Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding VPN tunnel interfaces.</target>
+        </trans-unit>
+        <trans-unit id="8511b036-7b01-404c-a9e5-cfa02cf0babe" xml:space="preserve">
+          <source>The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels.</source>
+          <target state="new">The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels.</target>
+        </trans-unit>
+        <trans-unit id="f7be9814-a53a-4ef3-8426-2cd5c7816310" xml:space="preserve">
+          <source>The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).</source>
+          <target state="new">The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).</target>
+        </trans-unit>
+        <trans-unit id="8d2aca8e-6afe-418c-9929-689e45b258f9" xml:space="preserve">
+          <source>The table below lists the requirements for both static and dynamic VPN gateways.</source>
+          <target state="new">The table below lists the requirements for both static and dynamic VPN gateways.</target>
+        </trans-unit>
+        <trans-unit id="4a7c0a2d-3ee3-4cfb-bc93-296d68b80787" xml:space="preserve">
+          <source><bpt id="c57f4c84-f40a-4f07-9256-1460a590351a">&lt;strong&gt;</bpt>Property<ept id="c57f4c84-f40a-4f07-9256-1460a590351a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c57f4c84-f40a-4f07-9256-1460a590351a">&lt;strong&gt;</bpt>Property<ept id="c57f4c84-f40a-4f07-9256-1460a590351a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2dfd69cf-ba14-446e-ac91-04d25c63e16c" xml:space="preserve">
+          <source><bpt id="7155ccb9-15de-4661-bec7-c0b721e7f55d">&lt;strong&gt;</bpt>Static Routing VPN Gateway<ept id="7155ccb9-15de-4661-bec7-c0b721e7f55d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7155ccb9-15de-4661-bec7-c0b721e7f55d">&lt;strong&gt;</bpt>Static Routing VPN Gateway<ept id="7155ccb9-15de-4661-bec7-c0b721e7f55d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56f45cb1-12bb-4282-a2d0-fb9f70a6c478" xml:space="preserve">
+          <source><bpt id="1b26e771-2bc0-453d-ba5d-4094dc675f43">&lt;strong&gt;</bpt>Dynamic Routing VPN Gateway<ept id="1b26e771-2bc0-453d-ba5d-4094dc675f43">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1b26e771-2bc0-453d-ba5d-4094dc675f43">&lt;strong&gt;</bpt>Dynamic Routing VPN Gateway<ept id="1b26e771-2bc0-453d-ba5d-4094dc675f43">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a1fce69-f781-4e06-adbd-08de3f6004d6" xml:space="preserve">
+          <source><bpt id="f391ba46-e709-47b0-8ea7-58d7b3be6713">&lt;strong&gt;</bpt>Standard VPN Gateway<ept id="f391ba46-e709-47b0-8ea7-58d7b3be6713">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f391ba46-e709-47b0-8ea7-58d7b3be6713">&lt;strong&gt;</bpt>Standard VPN Gateway<ept id="f391ba46-e709-47b0-8ea7-58d7b3be6713">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc0ed5ef-fe50-43dc-8d34-ef7890e4127e" xml:space="preserve">
+          <source><bpt id="46134958-9ee7-41f8-9f48-abe51504b6d8">&lt;strong&gt;</bpt>High Performance VPN Gateway<ept id="46134958-9ee7-41f8-9f48-abe51504b6d8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="46134958-9ee7-41f8-9f48-abe51504b6d8">&lt;strong&gt;</bpt>High Performance VPN Gateway<ept id="46134958-9ee7-41f8-9f48-abe51504b6d8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f6a0226-2b10-496e-a335-022835a1f8be" xml:space="preserve">
+          <source>Site-to-Site connectivity   (S2S)</source>
+          <target state="new">Site-to-Site connectivity   (S2S)</target>
+        </trans-unit>
+        <trans-unit id="58469a36-4593-4b21-83cb-d10a35fc9532" xml:space="preserve">
+          <source>Policy-based VPN configuration</source>
+          <target state="new">Policy-based VPN configuration</target>
+        </trans-unit>
+        <trans-unit id="6c916fef-adf7-430c-8e71-19ff459e3dcd" xml:space="preserve">
+          <source>Route-based VPN configuration</source>
+          <target state="new">Route-based VPN configuration</target>
+        </trans-unit>
+        <trans-unit id="63e9a555-ef79-4bff-9ed5-9390ba49c6ea" xml:space="preserve">
+          <source>Route-based VPN configuration</source>
+          <target state="new">Route-based VPN configuration</target>
+        </trans-unit>
+        <trans-unit id="0617eaed-f6bc-4ddb-b59f-f431672791c8" xml:space="preserve">
+          <source>Route-based VPN configuration</source>
+          <target state="new">Route-based VPN configuration</target>
+        </trans-unit>
+        <trans-unit id="a5ea3c23-9967-476f-9a28-6bcf56dbf31d" xml:space="preserve">
+          <source>Point-to-Site connectivity (P2S)</source>
+          <target state="new">Point-to-Site connectivity (P2S)</target>
+        </trans-unit>
+        <trans-unit id="3cb921a7-9422-47b0-b47d-5a40f1334c2a" xml:space="preserve">
+          <source>Not supported</source>
+          <target state="new">Not supported</target>
+        </trans-unit>
+        <trans-unit id="4c116f5e-cc7d-4a80-9f6d-efb2afb0c1ee" xml:space="preserve">
+          <source>Supported (Can coexist with S2S)</source>
+          <target state="new">Supported (Can coexist with S2S)</target>
+        </trans-unit>
+        <trans-unit id="9a3a30d4-088a-47c8-9297-08a01e04f2ba" xml:space="preserve">
+          <source>Supported (Can coexist with S2S)</source>
+          <target state="new">Supported (Can coexist with S2S)</target>
+        </trans-unit>
+        <trans-unit id="f3ba642f-3c1c-4440-8063-2d64e7c5abda" xml:space="preserve">
+          <source>Supported (Can coexist with S2S)</source>
+          <target state="new">Supported (Can coexist with S2S)</target>
+        </trans-unit>
+        <trans-unit id="1e1d8511-cb59-4ad9-880a-15198b952906" xml:space="preserve">
+          <source>Authentication method</source>
+          <target state="new">Authentication method</target>
+        </trans-unit>
+        <trans-unit id="df9c3338-cbd4-4330-891d-605e627cfd07" xml:space="preserve">
+          <source>Pre-shared key</source>
+          <target state="new">Pre-shared key</target>
+        </trans-unit>
+        <trans-unit id="57fd7f87-0447-4e21-b970-8102435426be" xml:space="preserve">
+          <source>-Pre-shared key for S2S connectivity -Certificates for P2S connectivity</source>
+          <target state="new">-Pre-shared key for S2S connectivity -Certificates for P2S connectivity</target>
+        </trans-unit>
+        <trans-unit id="67b2c7cd-c3d9-435b-9f84-f736bfcf783e" xml:space="preserve">
+          <source>-Pre-shared key for S2S connectivity -Certificates for P2S connectivity</source>
+          <target state="new">-Pre-shared key for S2S connectivity -Certificates for P2S connectivity</target>
+        </trans-unit>
+        <trans-unit id="d1badcce-7001-4ba4-84f3-cd934963305f" xml:space="preserve">
+          <source>-Pre-shared key for S2S connectivity -Certificates for P2S connectivity</source>
+          <target state="new">-Pre-shared key for S2S connectivity -Certificates for P2S connectivity</target>
+        </trans-unit>
+        <trans-unit id="102760c4-a64f-4c9b-bf8c-051c9cad2491" xml:space="preserve">
+          <source>Maximum number of S2S connections</source>
+          <target state="new">Maximum number of S2S connections</target>
+        </trans-unit>
+        <trans-unit id="c08de8b2-87a6-459d-9efd-895a0bd69bbe" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="ce1e93d3-1bec-4bc8-aa40-2d0ad6dbc3bd" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="286ac257-4e1a-4301-9d3e-f59a4034e299" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="86d0c8c5-9578-47d4-88fe-50604d403cbc" xml:space="preserve">
+          <source>30</source>
+          <target state="new">30</target>
+        </trans-unit>
+        <trans-unit id="e55b6f6b-f733-4149-94fe-104c4fb1ce2c" xml:space="preserve">
+          <source>Maximum number of P2S connections</source>
+          <target state="new">Maximum number of P2S connections</target>
+        </trans-unit>
+        <trans-unit id="9a7216da-5a51-4a43-8154-a0cae339b2b6" xml:space="preserve">
+          <source>Not supported</source>
+          <target state="new">Not supported</target>
+        </trans-unit>
+        <trans-unit id="da312951-7211-41ea-bc21-af6933c775d5" xml:space="preserve">
+          <source>128</source>
+          <target state="new">128</target>
+        </trans-unit>
+        <trans-unit id="c44bd986-c05b-481b-a888-0924ab51bc3e" xml:space="preserve">
+          <source>128</source>
+          <target state="new">128</target>
+        </trans-unit>
+        <trans-unit id="1576574a-9b38-4532-b48e-c633446ebd2b" xml:space="preserve">
+          <source>128</source>
+          <target state="new">128</target>
+        </trans-unit>
+        <trans-unit id="295d0142-a432-4940-a9f0-de937f5c0935" xml:space="preserve">
+          <source>Active routing support (BGP)</source>
+          <target state="new">Active routing support (BGP)</target>
+        </trans-unit>
+        <trans-unit id="6194b085-0994-40b6-b952-fb37e72066ed" xml:space="preserve">
+          <source>Not supported</source>
+          <target state="new">Not supported</target>
+        </trans-unit>
+        <trans-unit id="93224c42-4d1d-4781-8723-77a337d457f0" xml:space="preserve">
+          <source>Not supported</source>
+          <target state="new">Not supported</target>
+        </trans-unit>
+        <trans-unit id="968ee1c1-9031-4aba-b7a4-d34f56ab349d" xml:space="preserve">
+          <source>Not supported</source>
+          <target state="new">Not supported</target>
+        </trans-unit>
+        <trans-unit id="93d2e731-688f-4b8b-ba23-1d5af5382ed2" xml:space="preserve">
+          <source>Not supported</source>
+          <target state="new">Not supported</target>
+        </trans-unit>
+        <trans-unit id="3c281f69-f7d1-465e-96a7-1632c2667a95" xml:space="preserve">
+          <source>Select the VPN device for your configuration.</source>
+          <target state="new">Select the VPN device for your configuration.</target>
+        </trans-unit>
+        <trans-unit id="faea54dd-bb76-4556-a228-960833933fd9" xml:space="preserve">
+          <source>See <bpt id="59220f50-e0a2-469c-acd1-680148f1e406">&lt;linkText&gt;</bpt>About VPN devices<ept id="59220f50-e0a2-469c-acd1-680148f1e406">&lt;/linkText&gt;</ept><bpt id="59220f50-e0a2-469c-acd1-680148f1e406">&lt;title&gt;</bpt><ept id="59220f50-e0a2-469c-acd1-680148f1e406">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="59220f50-e0a2-469c-acd1-680148f1e406">&lt;linkText&gt;</bpt>About VPN devices<ept id="59220f50-e0a2-469c-acd1-680148f1e406">&lt;/linkText&gt;</ept><bpt id="59220f50-e0a2-469c-acd1-680148f1e406">&lt;title&gt;</bpt><ept id="59220f50-e0a2-469c-acd1-680148f1e406">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7db020bd-5aa8-42ae-9283-4b578c1c93f8" xml:space="preserve">
+          <source>Configure your virtual network.</source>
+          <target state="new">Configure your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="804643ae-fdef-4b81-bcaf-eea126ada411" xml:space="preserve">
+          <source>For cross-premises connections, see the following articles:</source>
+          <target state="new">For cross-premises connections, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="cca55ca9-bfce-4157-9bbd-40b8395416e7" xml:space="preserve">
+          <source><bpt id="9e110433-6201-49d2-a8e0-327751065047">&lt;linkText&gt;</bpt>Configure a cross-premises site-to-site connection to an Azure Virtual Network<ept id="9e110433-6201-49d2-a8e0-327751065047">&lt;/linkText&gt;</ept><bpt id="9e110433-6201-49d2-a8e0-327751065047">&lt;title&gt;</bpt><ept id="9e110433-6201-49d2-a8e0-327751065047">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9e110433-6201-49d2-a8e0-327751065047">&lt;linkText&gt;</bpt>Configure a cross-premises site-to-site connection to an Azure Virtual Network<ept id="9e110433-6201-49d2-a8e0-327751065047">&lt;/linkText&gt;</ept><bpt id="9e110433-6201-49d2-a8e0-327751065047">&lt;title&gt;</bpt><ept id="9e110433-6201-49d2-a8e0-327751065047">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aaf3c8e7-0b0d-446e-934f-cc836091bb90" xml:space="preserve">
+          <source><bpt id="cac21953-75a4-4b65-8e4c-bb7439def0f6">&lt;linkText&gt;</bpt>Configure a point-to-site VPN connection to an Azure Virtual Network<ept id="cac21953-75a4-4b65-8e4c-bb7439def0f6">&lt;/linkText&gt;</ept><bpt id="cac21953-75a4-4b65-8e4c-bb7439def0f6">&lt;title&gt;</bpt><ept id="cac21953-75a4-4b65-8e4c-bb7439def0f6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cac21953-75a4-4b65-8e4c-bb7439def0f6">&lt;linkText&gt;</bpt>Configure a point-to-site VPN connection to an Azure Virtual Network<ept id="cac21953-75a4-4b65-8e4c-bb7439def0f6">&lt;/linkText&gt;</ept><bpt id="cac21953-75a4-4b65-8e4c-bb7439def0f6">&lt;title&gt;</bpt><ept id="cac21953-75a4-4b65-8e4c-bb7439def0f6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb254684-e1ad-4819-9855-6ffe7b5f8fc1" xml:space="preserve">
+          <source><bpt id="50abe087-ef0b-4639-a58d-5376e6a782e9">&lt;linkText&gt;</bpt>Configure a site-to-site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)<ept id="50abe087-ef0b-4639-a58d-5376e6a782e9">&lt;/linkText&gt;</ept><bpt id="50abe087-ef0b-4639-a58d-5376e6a782e9">&lt;title&gt;</bpt><ept id="50abe087-ef0b-4639-a58d-5376e6a782e9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="50abe087-ef0b-4639-a58d-5376e6a782e9">&lt;linkText&gt;</bpt>Configure a site-to-site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)<ept id="50abe087-ef0b-4639-a58d-5376e6a782e9">&lt;/linkText&gt;</ept><bpt id="50abe087-ef0b-4639-a58d-5376e6a782e9">&lt;title&gt;</bpt><ept id="50abe087-ef0b-4639-a58d-5376e6a782e9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e574c116-eeda-4d4a-8b65-cdc3ddab2bde" xml:space="preserve">
+          <source>If you want to configure a VPN gateway, see <bpt id="ae253936-7c3d-428a-a65e-69b1d69ac7ce">&lt;linkText&gt;</bpt>Configure a VPN gateway<ept id="ae253936-7c3d-428a-a65e-69b1d69ac7ce">&lt;/linkText&gt;</ept><bpt id="ae253936-7c3d-428a-a65e-69b1d69ac7ce">&lt;title&gt;</bpt><ept id="ae253936-7c3d-428a-a65e-69b1d69ac7ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to configure a VPN gateway, see <bpt id="ae253936-7c3d-428a-a65e-69b1d69ac7ce">&lt;linkText&gt;</bpt>Configure a VPN gateway<ept id="ae253936-7c3d-428a-a65e-69b1d69ac7ce">&lt;/linkText&gt;</ept><bpt id="ae253936-7c3d-428a-a65e-69b1d69ac7ce">&lt;title&gt;</bpt><ept id="ae253936-7c3d-428a-a65e-69b1d69ac7ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f2c60182-5bc9-4f9c-93c1-432716be70d9" xml:space="preserve">
+          <source>If you want to change your VPN gateway type, see <bpt id="c0017926-1c95-4e05-8bae-4affb7d2967f">&lt;linkText&gt;</bpt>Change a virtual network VPN gateway routing type<ept id="c0017926-1c95-4e05-8bae-4affb7d2967f">&lt;/linkText&gt;</ept><bpt id="c0017926-1c95-4e05-8bae-4affb7d2967f">&lt;title&gt;</bpt><ept id="c0017926-1c95-4e05-8bae-4affb7d2967f">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to change your VPN gateway type, see <bpt id="c0017926-1c95-4e05-8bae-4affb7d2967f">&lt;linkText&gt;</bpt>Change a virtual network VPN gateway routing type<ept id="c0017926-1c95-4e05-8bae-4affb7d2967f">&lt;/linkText&gt;</ept><bpt id="c0017926-1c95-4e05-8bae-4affb7d2967f">&lt;title&gt;</bpt><ept id="c0017926-1c95-4e05-8bae-4affb7d2967f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c9a9b0b6-c5b2-46c2-964a-04220f2ae6fa" xml:space="preserve">
+          <source>If you want to connect multiple sites to a virtual network, see <bpt id="ac920819-0ac3-4f0e-b0b2-8030453c18aa">&lt;linkText&gt;</bpt>Connect multiple on-premises sites to a virtual network<ept id="ac920819-0ac3-4f0e-b0b2-8030453c18aa">&lt;/linkText&gt;</ept><bpt id="ac920819-0ac3-4f0e-b0b2-8030453c18aa">&lt;title&gt;</bpt><ept id="ac920819-0ac3-4f0e-b0b2-8030453c18aa">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to connect multiple sites to a virtual network, see <bpt id="ac920819-0ac3-4f0e-b0b2-8030453c18aa">&lt;linkText&gt;</bpt>Connect multiple on-premises sites to a virtual network<ept id="ac920819-0ac3-4f0e-b0b2-8030453c18aa">&lt;/linkText&gt;</ept><bpt id="ac920819-0ac3-4f0e-b0b2-8030453c18aa">&lt;title&gt;</bpt><ept id="ac920819-0ac3-4f0e-b0b2-8030453c18aa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

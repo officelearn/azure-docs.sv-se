@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9a590006-55b8-46c6-888a-d17acdb78959" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9a590006-55b8-46c6-888a-d17acdb78959" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9d88edcc-8a3a-4abc-9420-d53c4936ea5a">
+        <trans-unit id="44b03d22-6474-43bf-aabd-11fc273ab66a" xml:space="preserve">
+          <source>Tutorial: Integrating NetSuite with Azure Active Directory | Microsoft Azure</source>
+          <target state="new">Tutorial: Integrating NetSuite with Azure Active Directory | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="87144784-43ee-4ed7-ac13-53f96879789f" xml:space="preserve">
+          <source>Learn how to use NetSuite with Azure Active Directory to enable single sign-on, automated provisioning, and more!</source>
+          <target state="new">Learn how to use NetSuite with Azure Active Directory to enable single sign-on, automated provisioning, and more!</target>
+        </trans-unit>
+        <trans-unit id="7f48a820-e5d2-4256-bfe1-12e18db684a7" xml:space="preserve">
+          <source>This tutorial will show you how to connect your NetSuite environment to your Azure Active Directory (Azure AD).</source>
+          <target state="new">This tutorial will show you how to connect your NetSuite environment to your Azure Active Directory (Azure AD).</target>
+        </trans-unit>
+        <trans-unit id="d5b7ab5a-10ce-4530-9272-f3ac6d950b83" xml:space="preserve">
+          <source>You will learn how to configure single sign-on to NetSuite, how to enable automated user provisioning, and how to assign users to have access to NetSuite.</source>
+          <target state="new">You will learn how to configure single sign-on to NetSuite, how to enable automated user provisioning, and how to assign users to have access to NetSuite.</target>
+        </trans-unit>
+        <trans-unit id="ebed4dee-7574-4ece-b4e6-c2b3187d69d5" xml:space="preserve">
+          <source>To access Azure Active Directory through the <bpt id="82005a82-bf85-4903-94ec-70258c8c0757">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="82005a82-bf85-4903-94ec-70258c8c0757">&lt;/linkText&gt;</ept><bpt id="82005a82-bf85-4903-94ec-70258c8c0757">&lt;title&gt;</bpt><ept id="82005a82-bf85-4903-94ec-70258c8c0757">&lt;/title&gt;</ept>, you must first have a valid Azure subscription.</source>
+          <target state="new">To access Azure Active Directory through the <bpt id="82005a82-bf85-4903-94ec-70258c8c0757">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="82005a82-bf85-4903-94ec-70258c8c0757">&lt;/linkText&gt;</ept><bpt id="82005a82-bf85-4903-94ec-70258c8c0757">&lt;title&gt;</bpt><ept id="82005a82-bf85-4903-94ec-70258c8c0757">&lt;/title&gt;</ept>, you must first have a valid Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="b56925a1-6b7e-4b12-9078-88d368c5b237" xml:space="preserve">
+          <source>You must have admin access to a <bpt id="5b8147fe-6b55-46de-9711-16bcd0a3563f">&lt;linkText&gt;</bpt>NetSuite<ept id="5b8147fe-6b55-46de-9711-16bcd0a3563f">&lt;/linkText&gt;</ept><bpt id="5b8147fe-6b55-46de-9711-16bcd0a3563f">&lt;title&gt;</bpt><ept id="5b8147fe-6b55-46de-9711-16bcd0a3563f">&lt;/title&gt;</ept> subscription.</source>
+          <target state="new">You must have admin access to a <bpt id="5b8147fe-6b55-46de-9711-16bcd0a3563f">&lt;linkText&gt;</bpt>NetSuite<ept id="5b8147fe-6b55-46de-9711-16bcd0a3563f">&lt;/linkText&gt;</ept><bpt id="5b8147fe-6b55-46de-9711-16bcd0a3563f">&lt;title&gt;</bpt><ept id="5b8147fe-6b55-46de-9711-16bcd0a3563f">&lt;/title&gt;</ept> subscription.</target>
+        </trans-unit>
+        <trans-unit id="5bf518c2-327a-4cca-bcf9-304d27386ae4" xml:space="preserve">
+          <source>You may use a free trial account for either service.</source>
+          <target state="new">You may use a free trial account for either service.</target>
+        </trans-unit>
+        <trans-unit id="30627c1a-0ec2-4b07-848e-c7eaed79e2ff" xml:space="preserve">
+          <source>In the <bpt id="a35cfc46-95bc-47b4-b077-28313bf15b7d">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="a35cfc46-95bc-47b4-b077-28313bf15b7d">&lt;/linkText&gt;</ept><bpt id="a35cfc46-95bc-47b4-b077-28313bf15b7d">&lt;title&gt;</bpt><ept id="a35cfc46-95bc-47b4-b077-28313bf15b7d">&lt;/title&gt;</ept>, on the left navigation pane, click <bpt id="50f95449-304e-434b-8788-c6c31b251125">&lt;strong&gt;</bpt>Active Directory<ept id="50f95449-304e-434b-8788-c6c31b251125">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a35cfc46-95bc-47b4-b077-28313bf15b7d">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="a35cfc46-95bc-47b4-b077-28313bf15b7d">&lt;/linkText&gt;</ept><bpt id="a35cfc46-95bc-47b4-b077-28313bf15b7d">&lt;title&gt;</bpt><ept id="a35cfc46-95bc-47b4-b077-28313bf15b7d">&lt;/title&gt;</ept>, on the left navigation pane, click <bpt id="50f95449-304e-434b-8788-c6c31b251125">&lt;strong&gt;</bpt>Active Directory<ept id="50f95449-304e-434b-8788-c6c31b251125">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1300ef4-4b69-4fdf-8ec5-6fbdf8a2f04d" xml:space="preserve">
+          <source><bpt id="320fc019-f2a3-4e35-a283-481214cd5fcb">&lt;linkText&gt;</bpt>Select Active Directory from the left navigation pane.<ept id="320fc019-f2a3-4e35-a283-481214cd5fcb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="320fc019-f2a3-4e35-a283-481214cd5fcb">&lt;linkText&gt;</bpt>Select Active Directory from the left navigation pane.<ept id="320fc019-f2a3-4e35-a283-481214cd5fcb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d47569c5-31eb-4c6c-9bd4-4b264d8050b4" xml:space="preserve">
+          <source>From the <bpt id="32566c76-669e-41cf-92a3-43993803366a">&lt;strong&gt;</bpt>Directory<ept id="32566c76-669e-41cf-92a3-43993803366a">&lt;/strong&gt;</ept> list, select the directory that you would like to add NetSuite to.</source>
+          <target state="new">From the <bpt id="32566c76-669e-41cf-92a3-43993803366a">&lt;strong&gt;</bpt>Directory<ept id="32566c76-669e-41cf-92a3-43993803366a">&lt;/strong&gt;</ept> list, select the directory that you would like to add NetSuite to.</target>
+        </trans-unit>
+        <trans-unit id="b72d1bec-decd-4412-b9f5-ba2d06e9d681" xml:space="preserve">
+          <source>Click on <bpt id="c5a6d7ee-c1a6-4cfb-a1e5-4480466b2694">&lt;strong&gt;</bpt>Applications<ept id="c5a6d7ee-c1a6-4cfb-a1e5-4480466b2694">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">Click on <bpt id="c5a6d7ee-c1a6-4cfb-a1e5-4480466b2694">&lt;strong&gt;</bpt>Applications<ept id="c5a6d7ee-c1a6-4cfb-a1e5-4480466b2694">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="fb30e7ae-9292-48c8-999e-088bfb1cf3ca" xml:space="preserve">
+          <source><bpt id="293d4b67-2575-4619-acb9-b9bbf354b136">&lt;linkText&gt;</bpt>Click on Applications.<ept id="293d4b67-2575-4619-acb9-b9bbf354b136">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="293d4b67-2575-4619-acb9-b9bbf354b136">&lt;linkText&gt;</bpt>Click on Applications.<ept id="293d4b67-2575-4619-acb9-b9bbf354b136">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa177843-6766-4b84-95f1-5276a4b7c32f" xml:space="preserve">
+          <source>Click <bpt id="274dfdd4-9af1-4855-b1e5-3353e1f1aa50">&lt;strong&gt;</bpt>Add<ept id="274dfdd4-9af1-4855-b1e5-3353e1f1aa50">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="274dfdd4-9af1-4855-b1e5-3353e1f1aa50">&lt;strong&gt;</bpt>Add<ept id="274dfdd4-9af1-4855-b1e5-3353e1f1aa50">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="fba1e6c9-8d99-427f-9edb-0081bff8113e" xml:space="preserve">
+          <source><bpt id="9da06e2c-ba7d-4b68-a5fe-a81cf32be957">&lt;linkText&gt;</bpt>Click Add to add a new application.<ept id="9da06e2c-ba7d-4b68-a5fe-a81cf32be957">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9da06e2c-ba7d-4b68-a5fe-a81cf32be957">&lt;linkText&gt;</bpt>Click Add to add a new application.<ept id="9da06e2c-ba7d-4b68-a5fe-a81cf32be957">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0632b0d8-3ce3-4816-9383-7f9898f1a0e5" xml:space="preserve">
+          <source>On the <bpt id="57de04b4-565d-4e3e-b32b-3ec312574a8a">&lt;strong&gt;</bpt>What do you want to do<ept id="57de04b4-565d-4e3e-b32b-3ec312574a8a">&lt;/strong&gt;</ept> dialog, click <bpt id="f68d982d-ed35-4a45-a022-0b8819b08d8a">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="f68d982d-ed35-4a45-a022-0b8819b08d8a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="57de04b4-565d-4e3e-b32b-3ec312574a8a">&lt;strong&gt;</bpt>What do you want to do<ept id="57de04b4-565d-4e3e-b32b-3ec312574a8a">&lt;/strong&gt;</ept> dialog, click <bpt id="f68d982d-ed35-4a45-a022-0b8819b08d8a">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="f68d982d-ed35-4a45-a022-0b8819b08d8a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7336d2fd-a818-4c39-ba05-821255d751be" xml:space="preserve">
+          <source><bpt id="8c49ab44-36c8-4b4f-8a3e-2b9606aff911">&lt;linkText&gt;</bpt>Click Add an application from the gallery.<ept id="8c49ab44-36c8-4b4f-8a3e-2b9606aff911">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8c49ab44-36c8-4b4f-8a3e-2b9606aff911">&lt;linkText&gt;</bpt>Click Add an application from the gallery.<ept id="8c49ab44-36c8-4b4f-8a3e-2b9606aff911">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fcdb352-35d3-443b-9dcc-3a3eab19fe57" xml:space="preserve">
+          <source>In the <bpt id="bfbad630-7241-4c37-bc2f-9060620860ab">&lt;strong&gt;</bpt>search box<ept id="bfbad630-7241-4c37-bc2f-9060620860ab">&lt;/strong&gt;</ept>, type <bpt id="32992a2c-de8e-4208-9949-9be1bd0ee77b">&lt;strong&gt;</bpt>NetSuite<ept id="32992a2c-de8e-4208-9949-9be1bd0ee77b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="bfbad630-7241-4c37-bc2f-9060620860ab">&lt;strong&gt;</bpt>search box<ept id="bfbad630-7241-4c37-bc2f-9060620860ab">&lt;/strong&gt;</ept>, type <bpt id="32992a2c-de8e-4208-9949-9be1bd0ee77b">&lt;strong&gt;</bpt>NetSuite<ept id="32992a2c-de8e-4208-9949-9be1bd0ee77b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4be64135-ec84-45bd-a8d9-73be2b8e8ab9" xml:space="preserve">
+          <source>Then select <bpt id="80f56276-561d-48e4-8d27-0737abe4bcf9">&lt;strong&gt;</bpt>NetSuite<ept id="80f56276-561d-48e4-8d27-0737abe4bcf9">&lt;/strong&gt;</ept> from the results, and click <bpt id="ec951c17-e0cc-4868-98c7-7d883aa8da69">&lt;strong&gt;</bpt>Complete<ept id="ec951c17-e0cc-4868-98c7-7d883aa8da69">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">Then select <bpt id="80f56276-561d-48e4-8d27-0737abe4bcf9">&lt;strong&gt;</bpt>NetSuite<ept id="80f56276-561d-48e4-8d27-0737abe4bcf9">&lt;/strong&gt;</ept> from the results, and click <bpt id="ec951c17-e0cc-4868-98c7-7d883aa8da69">&lt;strong&gt;</bpt>Complete<ept id="ec951c17-e0cc-4868-98c7-7d883aa8da69">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="8c69a037-19de-4d0d-98ba-7f0cb525527c" xml:space="preserve">
+          <source><bpt id="343ac215-602f-446a-891c-7f3fe6a5e0fd">&lt;linkText&gt;</bpt>Add NetSuite.<ept id="343ac215-602f-446a-891c-7f3fe6a5e0fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="343ac215-602f-446a-891c-7f3fe6a5e0fd">&lt;linkText&gt;</bpt>Add NetSuite.<ept id="343ac215-602f-446a-891c-7f3fe6a5e0fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="529413b8-2263-4a7d-b810-6fc0ee165f91" xml:space="preserve">
+          <source>You should now see the Quick Start page for NetSuite:</source>
+          <target state="new">You should now see the Quick Start page for NetSuite:</target>
+        </trans-unit>
+        <trans-unit id="ff38c75f-98d4-4156-9859-a4f900979ea7" xml:space="preserve">
+          <source><bpt id="3bc741b5-307a-4fcd-8d92-36f9cdcca74d">&lt;linkText&gt;</bpt>NetSuite's Quick Start page in Azure AD<ept id="3bc741b5-307a-4fcd-8d92-36f9cdcca74d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3bc741b5-307a-4fcd-8d92-36f9cdcca74d">&lt;linkText&gt;</bpt>NetSuite's Quick Start page in Azure AD<ept id="3bc741b5-307a-4fcd-8d92-36f9cdcca74d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b36aa0b-270e-4cbe-a11e-52c7883a49e6" xml:space="preserve">
+          <source>In Azure AD, on the Quick Start page for NetSuite, click the <bpt id="043110ad-bcc0-460e-b2ea-2c1133f9d112">&lt;strong&gt;</bpt>Configure single sign-on<ept id="043110ad-bcc0-460e-b2ea-2c1133f9d112">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In Azure AD, on the Quick Start page for NetSuite, click the <bpt id="043110ad-bcc0-460e-b2ea-2c1133f9d112">&lt;strong&gt;</bpt>Configure single sign-on<ept id="043110ad-bcc0-460e-b2ea-2c1133f9d112">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="607f8a03-d7f5-4b7e-8a8b-385e56cac774" xml:space="preserve">
+          <source><bpt id="eac62b5d-06aa-44ee-8953-4328917f98c2">&lt;linkText&gt;</bpt>The configure single sign-on button<ept id="eac62b5d-06aa-44ee-8953-4328917f98c2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eac62b5d-06aa-44ee-8953-4328917f98c2">&lt;linkText&gt;</bpt>The configure single sign-on button<ept id="eac62b5d-06aa-44ee-8953-4328917f98c2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bec9f936-0a87-4f2c-8a79-223c880d797b" xml:space="preserve">
+          <source>A dialog will open and you'll see a screen that asks "How would you like users to sign on to NetSuite?"</source>
+          <target state="new">A dialog will open and you'll see a screen that asks "How would you like users to sign on to NetSuite?"</target>
+        </trans-unit>
+        <trans-unit id="5ce8de1c-072a-4713-840a-e097205c13be" xml:space="preserve">
+          <source>Select <bpt id="211fa254-c0d8-4d9e-91b6-c563ab4ccb03">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="211fa254-c0d8-4d9e-91b6-c563ab4ccb03">&lt;/strong&gt;</ept>, and then click <bpt id="55650192-dbaa-4431-a5bb-d6bdbed43847">&lt;strong&gt;</bpt>Next<ept id="55650192-dbaa-4431-a5bb-d6bdbed43847">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="211fa254-c0d8-4d9e-91b6-c563ab4ccb03">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="211fa254-c0d8-4d9e-91b6-c563ab4ccb03">&lt;/strong&gt;</ept>, and then click <bpt id="55650192-dbaa-4431-a5bb-d6bdbed43847">&lt;strong&gt;</bpt>Next<ept id="55650192-dbaa-4431-a5bb-d6bdbed43847">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f28dcc2d-b6af-430e-8f9f-ae3d2ac84da9" xml:space="preserve">
+          <source><bpt id="1e8b8f66-71f1-47ba-aa81-4296620974ac">&lt;linkText&gt;</bpt>Select Azure AD Single Sign-On<ept id="1e8b8f66-71f1-47ba-aa81-4296620974ac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e8b8f66-71f1-47ba-aa81-4296620974ac">&lt;linkText&gt;</bpt>Select Azure AD Single Sign-On<ept id="1e8b8f66-71f1-47ba-aa81-4296620974ac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf84e3d7-54d3-4210-b216-b7e8da509dfc" xml:space="preserve">
+          <source>To learn more about about the different single sign-on options, <bpt id="c008572b-da78-4684-82fa-b555690880ab">&lt;linkText&gt;</bpt>click here<ept id="c008572b-da78-4684-82fa-b555690880ab">&lt;/linkText&gt;</ept><bpt id="c008572b-da78-4684-82fa-b555690880ab">&lt;title&gt;</bpt><ept id="c008572b-da78-4684-82fa-b555690880ab">&lt;/title&gt;</ept></source>
+          <target state="new">To learn more about about the different single sign-on options, <bpt id="c008572b-da78-4684-82fa-b555690880ab">&lt;linkText&gt;</bpt>click here<ept id="c008572b-da78-4684-82fa-b555690880ab">&lt;/linkText&gt;</ept><bpt id="c008572b-da78-4684-82fa-b555690880ab">&lt;title&gt;</bpt><ept id="c008572b-da78-4684-82fa-b555690880ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76d03988-3403-457e-ad3b-1e6572a8547e" xml:space="preserve">
+          <source>On the <bpt id="07f80fe1-5d76-4cf9-8a30-19eee4a10162">&lt;strong&gt;</bpt>Configure App Settings<ept id="07f80fe1-5d76-4cf9-8a30-19eee4a10162">&lt;/strong&gt;</ept> page, for the <bpt id="8c948f09-a18e-4ad8-9153-9f318f806354">&lt;strong&gt;</bpt>Sign On URL<ept id="8c948f09-a18e-4ad8-9153-9f318f806354">&lt;/strong&gt;</ept> field, type in your NetSuite tenant URL using one of the following formats:</source>
+          <target state="new">On the <bpt id="07f80fe1-5d76-4cf9-8a30-19eee4a10162">&lt;strong&gt;</bpt>Configure App Settings<ept id="07f80fe1-5d76-4cf9-8a30-19eee4a10162">&lt;/strong&gt;</ept> page, for the <bpt id="8c948f09-a18e-4ad8-9153-9f318f806354">&lt;strong&gt;</bpt>Sign On URL<ept id="8c948f09-a18e-4ad8-9153-9f318f806354">&lt;/strong&gt;</ept> field, type in your NetSuite tenant URL using one of the following formats:</target>
+        </trans-unit>
+        <trans-unit id="02d51a5d-cc6c-45c0-89e9-be56753d56a5" xml:space="preserve">
+          <source><bpt id="6e08a719-8ca5-4480-84e4-cdf7c54652d3">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.netsuite.com<ept id="6e08a719-8ca5-4480-84e4-cdf7c54652d3">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="6e08a719-8ca5-4480-84e4-cdf7c54652d3">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.netsuite.com<ept id="6e08a719-8ca5-4480-84e4-cdf7c54652d3">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3700f9e-b8c7-4e35-8ca7-c2ff89e57ea5" xml:space="preserve">
+          <source><bpt id="50c22fca-247e-4b5c-995f-69f94b0705b9">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.na1.netsuite.com<ept id="50c22fca-247e-4b5c-995f-69f94b0705b9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="50c22fca-247e-4b5c-995f-69f94b0705b9">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.na1.netsuite.com<ept id="50c22fca-247e-4b5c-995f-69f94b0705b9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4971486-f80b-4aff-a87b-2b23ef69459c" xml:space="preserve">
+          <source><bpt id="2e1eb1b5-2136-4111-9eb7-06c12e9cfc45">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.na2.netsuite.com<ept id="2e1eb1b5-2136-4111-9eb7-06c12e9cfc45">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="2e1eb1b5-2136-4111-9eb7-06c12e9cfc45">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.na2.netsuite.com<ept id="2e1eb1b5-2136-4111-9eb7-06c12e9cfc45">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a23a16d-4374-4e49-bb35-83dcd2552294" xml:space="preserve">
+          <source><bpt id="61aa76c7-5edf-4fff-9eee-585868ec470f">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.sandbox.netsuite.com<ept id="61aa76c7-5edf-4fff-9eee-585868ec470f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="61aa76c7-5edf-4fff-9eee-585868ec470f">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.sandbox.netsuite.com<ept id="61aa76c7-5edf-4fff-9eee-585868ec470f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1c88a8b-9f56-49ea-9bd4-8350e9929ce6" xml:space="preserve">
+          <source><bpt id="6d34d1c6-589b-495d-941a-0e523206e3f2">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.na1.sandbox.netsuite.com<ept id="6d34d1c6-589b-495d-941a-0e523206e3f2">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="6d34d1c6-589b-495d-941a-0e523206e3f2">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.na1.sandbox.netsuite.com<ept id="6d34d1c6-589b-495d-941a-0e523206e3f2">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14ef2e72-add0-477d-9900-41180d7e25b9" xml:space="preserve">
+          <source><bpt id="689d8cb4-1b64-4a7e-ad0f-6baddfa74cc8">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.na2.sandbox.netsuite.com<ept id="689d8cb4-1b64-4a7e-ad0f-6baddfa74cc8">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="689d8cb4-1b64-4a7e-ad0f-6baddfa74cc8">&lt;code&gt;</bpt>https://&lt;tenant-name&gt;.na2.sandbox.netsuite.com<ept id="689d8cb4-1b64-4a7e-ad0f-6baddfa74cc8">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10cc2ded-d166-41fd-9c22-c3cb9761b248" xml:space="preserve">
+          <source><bpt id="a2fa7485-2f48-45c3-95d8-9f54b487ac49">&lt;linkText&gt;</bpt>Type in your tenant URL<ept id="a2fa7485-2f48-45c3-95d8-9f54b487ac49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2fa7485-2f48-45c3-95d8-9f54b487ac49">&lt;linkText&gt;</bpt>Type in your tenant URL<ept id="a2fa7485-2f48-45c3-95d8-9f54b487ac49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="069d3103-1c5d-4744-96ed-cb62faea28ed" xml:space="preserve">
+          <source>On the <bpt id="aed33169-2989-4a36-8df9-305afca9b9eb">&lt;strong&gt;</bpt>Configure single sign-on at NetSuite<ept id="aed33169-2989-4a36-8df9-305afca9b9eb">&lt;/strong&gt;</ept> page, click on <bpt id="7b93bb8b-f7da-484d-9857-015ba8416d89">&lt;strong&gt;</bpt>Download metadata<ept id="7b93bb8b-f7da-484d-9857-015ba8416d89">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</source>
+          <target state="new">On the <bpt id="aed33169-2989-4a36-8df9-305afca9b9eb">&lt;strong&gt;</bpt>Configure single sign-on at NetSuite<ept id="aed33169-2989-4a36-8df9-305afca9b9eb">&lt;/strong&gt;</ept> page, click on <bpt id="7b93bb8b-f7da-484d-9857-015ba8416d89">&lt;strong&gt;</bpt>Download metadata<ept id="7b93bb8b-f7da-484d-9857-015ba8416d89">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="2717a924-2a6a-4dc9-b4d4-d7438cc08b27" xml:space="preserve">
+          <source><bpt id="c8535070-48a5-4278-8bbb-3742371f7dda">&lt;linkText&gt;</bpt>Download the metadata.<ept id="c8535070-48a5-4278-8bbb-3742371f7dda">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c8535070-48a5-4278-8bbb-3742371f7dda">&lt;linkText&gt;</bpt>Download the metadata.<ept id="c8535070-48a5-4278-8bbb-3742371f7dda">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31f03788-2ba3-44d4-86e4-d992e18de481" xml:space="preserve">
+          <source>Open a new tab in your browser, and sign into your Netsuite company site as an administrator.</source>
+          <target state="new">Open a new tab in your browser, and sign into your Netsuite company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="d20f1e42-de45-400a-bd6f-8dad6d7f2fde" xml:space="preserve">
+          <source>In the toolbar at the top of the page, click <bpt id="11d42e27-9fb0-4cba-8c3d-c2c391a4e778">&lt;strong&gt;</bpt>Setup<ept id="11d42e27-9fb0-4cba-8c3d-c2c391a4e778">&lt;/strong&gt;</ept>, then click <bpt id="62b0d944-8101-4e86-adc4-0e4731f81f59">&lt;strong&gt;</bpt>Setup Manager<ept id="62b0d944-8101-4e86-adc4-0e4731f81f59">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar at the top of the page, click <bpt id="11d42e27-9fb0-4cba-8c3d-c2c391a4e778">&lt;strong&gt;</bpt>Setup<ept id="11d42e27-9fb0-4cba-8c3d-c2c391a4e778">&lt;/strong&gt;</ept>, then click <bpt id="62b0d944-8101-4e86-adc4-0e4731f81f59">&lt;strong&gt;</bpt>Setup Manager<ept id="62b0d944-8101-4e86-adc4-0e4731f81f59">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7bb4e9d5-ed53-4ab4-a63e-e7104f68c02c" xml:space="preserve">
+          <source><bpt id="d9cae1d6-c3a5-42e3-a70e-e03d39c12c56">&lt;linkText&gt;</bpt>Go to Setup Manager<ept id="d9cae1d6-c3a5-42e3-a70e-e03d39c12c56">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d9cae1d6-c3a5-42e3-a70e-e03d39c12c56">&lt;linkText&gt;</bpt>Go to Setup Manager<ept id="d9cae1d6-c3a5-42e3-a70e-e03d39c12c56">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9c883d6-a677-4f3a-925a-cef3c363c413" xml:space="preserve">
+          <source>From the <bpt id="91b5502a-3cf8-4524-a83e-cf18ee3a0e38">&lt;strong&gt;</bpt>Setup Tasks<ept id="91b5502a-3cf8-4524-a83e-cf18ee3a0e38">&lt;/strong&gt;</ept> list, select <bpt id="0a922a8e-3c46-4098-9b70-c61c626b8732">&lt;strong&gt;</bpt>Integration<ept id="0a922a8e-3c46-4098-9b70-c61c626b8732">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="91b5502a-3cf8-4524-a83e-cf18ee3a0e38">&lt;strong&gt;</bpt>Setup Tasks<ept id="91b5502a-3cf8-4524-a83e-cf18ee3a0e38">&lt;/strong&gt;</ept> list, select <bpt id="0a922a8e-3c46-4098-9b70-c61c626b8732">&lt;strong&gt;</bpt>Integration<ept id="0a922a8e-3c46-4098-9b70-c61c626b8732">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="451f3e65-988e-4b55-bec2-1c463d4cf68c" xml:space="preserve">
+          <source><bpt id="817673df-da22-4b27-b2f6-4b0cd2be1c57">&lt;linkText&gt;</bpt>Go to Integration<ept id="817673df-da22-4b27-b2f6-4b0cd2be1c57">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="817673df-da22-4b27-b2f6-4b0cd2be1c57">&lt;linkText&gt;</bpt>Go to Integration<ept id="817673df-da22-4b27-b2f6-4b0cd2be1c57">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08c797c4-85f3-4369-9fe9-7ca6873f2d35" xml:space="preserve">
+          <source>In the <bpt id="815e771d-07c4-4cab-9b47-07c31b7d8672">&lt;strong&gt;</bpt>Manage Authentication<ept id="815e771d-07c4-4cab-9b47-07c31b7d8672">&lt;/strong&gt;</ept> section, click <bpt id="b81fbf1e-9867-40b5-b3b5-3adbc72ba26f">&lt;strong&gt;</bpt>SAML Single Sign-on<ept id="b81fbf1e-9867-40b5-b3b5-3adbc72ba26f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="815e771d-07c4-4cab-9b47-07c31b7d8672">&lt;strong&gt;</bpt>Manage Authentication<ept id="815e771d-07c4-4cab-9b47-07c31b7d8672">&lt;/strong&gt;</ept> section, click <bpt id="b81fbf1e-9867-40b5-b3b5-3adbc72ba26f">&lt;strong&gt;</bpt>SAML Single Sign-on<ept id="b81fbf1e-9867-40b5-b3b5-3adbc72ba26f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85516fa3-ca6c-49e5-86e4-b2ae3a067ce3" xml:space="preserve">
+          <source><bpt id="4def07c6-531e-4ebe-bf21-5e6032a0da78">&lt;linkText&gt;</bpt>Go to SAML Single Sign-on<ept id="4def07c6-531e-4ebe-bf21-5e6032a0da78">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4def07c6-531e-4ebe-bf21-5e6032a0da78">&lt;linkText&gt;</bpt>Go to SAML Single Sign-on<ept id="4def07c6-531e-4ebe-bf21-5e6032a0da78">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35bea9e5-84a0-4616-8311-e4d966c8f08b" xml:space="preserve">
+          <source>On the <bpt id="e820928c-3dbb-479a-83dd-05e6180f6678">&lt;strong&gt;</bpt>SAML Setup<ept id="e820928c-3dbb-479a-83dd-05e6180f6678">&lt;/strong&gt;</ept> page, perform the following steps:</source>
+          <target state="new">On the <bpt id="e820928c-3dbb-479a-83dd-05e6180f6678">&lt;strong&gt;</bpt>SAML Setup<ept id="e820928c-3dbb-479a-83dd-05e6180f6678">&lt;/strong&gt;</ept> page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="b1bdd0a9-239b-436c-96e0-05cfef1524c8" xml:space="preserve">
+          <source>In Azure Active Directory, copy the <bpt id="15ec10ff-f99f-488d-9cfe-38a9d05b1009">&lt;strong&gt;</bpt>Remote Login URL<ept id="15ec10ff-f99f-488d-9cfe-38a9d05b1009">&lt;/strong&gt;</ept> value and paste it into the <bpt id="64608d43-922d-4915-ac23-d0ff76e02056">&lt;strong&gt;</bpt>Identity Provider Login Page<ept id="64608d43-922d-4915-ac23-d0ff76e02056">&lt;/strong&gt;</ept> field in NetSuite.</source>
+          <target state="new">In Azure Active Directory, copy the <bpt id="15ec10ff-f99f-488d-9cfe-38a9d05b1009">&lt;strong&gt;</bpt>Remote Login URL<ept id="15ec10ff-f99f-488d-9cfe-38a9d05b1009">&lt;/strong&gt;</ept> value and paste it into the <bpt id="64608d43-922d-4915-ac23-d0ff76e02056">&lt;strong&gt;</bpt>Identity Provider Login Page<ept id="64608d43-922d-4915-ac23-d0ff76e02056">&lt;/strong&gt;</ept> field in NetSuite.</target>
+        </trans-unit>
+        <trans-unit id="bf00a152-9c3e-4eb2-a7f6-76f23a5767fc" xml:space="preserve">
+          <source><bpt id="d3a78f72-0b41-4aed-ba03-88e5139c8a93">&lt;linkText&gt;</bpt>The SAML Setup page.<ept id="d3a78f72-0b41-4aed-ba03-88e5139c8a93">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d3a78f72-0b41-4aed-ba03-88e5139c8a93">&lt;linkText&gt;</bpt>The SAML Setup page.<ept id="d3a78f72-0b41-4aed-ba03-88e5139c8a93">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c895ef5-e22c-431a-bf2d-65d7a3949815" xml:space="preserve">
+          <source>In NetSuite, select <bpt id="4df23b4f-abe9-4a41-8b39-fa3f04bab135">&lt;strong&gt;</bpt>Primary Authentication Method<ept id="4df23b4f-abe9-4a41-8b39-fa3f04bab135">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In NetSuite, select <bpt id="4df23b4f-abe9-4a41-8b39-fa3f04bab135">&lt;strong&gt;</bpt>Primary Authentication Method<ept id="4df23b4f-abe9-4a41-8b39-fa3f04bab135">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca4b56e8-8d95-4f71-8940-b6566b72cb14" xml:space="preserve">
+          <source>For the field labeled <bpt id="c4bc4395-e814-4480-a04b-cc983bf69462">&lt;strong&gt;</bpt>SAMLV2 Identity Provider Metadata<ept id="c4bc4395-e814-4480-a04b-cc983bf69462">&lt;/strong&gt;</ept>, select <bpt id="3b76c48d-123c-4622-ab15-cd0c4747c196">&lt;strong&gt;</bpt>Upload IDP Metadata File<ept id="3b76c48d-123c-4622-ab15-cd0c4747c196">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the field labeled <bpt id="c4bc4395-e814-4480-a04b-cc983bf69462">&lt;strong&gt;</bpt>SAMLV2 Identity Provider Metadata<ept id="c4bc4395-e814-4480-a04b-cc983bf69462">&lt;/strong&gt;</ept>, select <bpt id="3b76c48d-123c-4622-ab15-cd0c4747c196">&lt;strong&gt;</bpt>Upload IDP Metadata File<ept id="3b76c48d-123c-4622-ab15-cd0c4747c196">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="640fff82-a380-4ee7-82c5-9d6554b32a8c" xml:space="preserve">
+          <source>Then click <bpt id="0fc25906-e463-48c0-8bd4-31493bb6b028">&lt;strong&gt;</bpt>Browse<ept id="0fc25906-e463-48c0-8bd4-31493bb6b028">&lt;/strong&gt;</ept> to upload the metadata file that you downloaded in step #4.</source>
+          <target state="new">Then click <bpt id="0fc25906-e463-48c0-8bd4-31493bb6b028">&lt;strong&gt;</bpt>Browse<ept id="0fc25906-e463-48c0-8bd4-31493bb6b028">&lt;/strong&gt;</ept> to upload the metadata file that you downloaded in step #4.</target>
+        </trans-unit>
+        <trans-unit id="669f483b-c5aa-467c-a7a6-4b63be5b0e04" xml:space="preserve">
+          <source><bpt id="4dcb4f2a-6532-4d6b-ab9f-60a5e668ec5b">&lt;linkText&gt;</bpt>Upload the metadata<ept id="4dcb4f2a-6532-4d6b-ab9f-60a5e668ec5b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4dcb4f2a-6532-4d6b-ab9f-60a5e668ec5b">&lt;linkText&gt;</bpt>Upload the metadata<ept id="4dcb4f2a-6532-4d6b-ab9f-60a5e668ec5b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2579b924-45f3-42d4-8a01-88a8b178237a" xml:space="preserve">
+          <source>Click <bpt id="de0a6506-93c8-44c1-8581-0a0b78e8c36e">&lt;strong&gt;</bpt>Submit<ept id="de0a6506-93c8-44c1-8581-0a0b78e8c36e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="de0a6506-93c8-44c1-8581-0a0b78e8c36e">&lt;strong&gt;</bpt>Submit<ept id="de0a6506-93c8-44c1-8581-0a0b78e8c36e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e773560-1e88-4e49-9e24-659391ce5811" xml:space="preserve">
+          <source>In Azure AD, select the single sign-on configuration confirmation checkbox to enable the certificate that you uploaded to NetSuite.</source>
+          <target state="new">In Azure AD, select the single sign-on configuration confirmation checkbox to enable the certificate that you uploaded to NetSuite.</target>
+        </trans-unit>
+        <trans-unit id="d054475c-4604-4784-b254-b4a1e7c658c3" xml:space="preserve">
+          <source>Then click <bpt id="d3cc1f6b-a4fe-4738-905f-641f15bff2c0">&lt;strong&gt;</bpt>Next<ept id="d3cc1f6b-a4fe-4738-905f-641f15bff2c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="d3cc1f6b-a4fe-4738-905f-641f15bff2c0">&lt;strong&gt;</bpt>Next<ept id="d3cc1f6b-a4fe-4738-905f-641f15bff2c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89f14527-1c4b-45b4-9118-8b97538f4c89" xml:space="preserve">
+          <source><bpt id="b2b6c9c7-9504-44d0-85cf-e1327bbe3967">&lt;linkText&gt;</bpt>Check the confirmation checkbox<ept id="b2b6c9c7-9504-44d0-85cf-e1327bbe3967">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b2b6c9c7-9504-44d0-85cf-e1327bbe3967">&lt;linkText&gt;</bpt>Check the confirmation checkbox<ept id="b2b6c9c7-9504-44d0-85cf-e1327bbe3967">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48941dbe-eec1-4c15-ba6c-9ef06fd7c986" xml:space="preserve">
+          <source>On the final page of the dialog, type in an email address if you would like to receive email notifications for errors and warnings related to the maintenance of this single sign-on configuration.</source>
+          <target state="new">On the final page of the dialog, type in an email address if you would like to receive email notifications for errors and warnings related to the maintenance of this single sign-on configuration.</target>
+        </trans-unit>
+        <trans-unit id="e3f53a17-3a96-4479-a132-d69c9c6d43cf" xml:space="preserve">
+          <source><bpt id="7fdc4ace-4b9e-4fda-b582-ce529a0e1a7b">&lt;linkText&gt;</bpt>Type in your email address.<ept id="7fdc4ace-4b9e-4fda-b582-ce529a0e1a7b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7fdc4ace-4b9e-4fda-b582-ce529a0e1a7b">&lt;linkText&gt;</bpt>Type in your email address.<ept id="7fdc4ace-4b9e-4fda-b582-ce529a0e1a7b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34275453-f0c8-478d-b7c2-948d57b203aa" xml:space="preserve">
+          <source>Click <bpt id="5c7a2805-9739-48b2-bc42-9738c875e740">&lt;strong&gt;</bpt>Complete<ept id="5c7a2805-9739-48b2-bc42-9738c875e740">&lt;/strong&gt;</ept> to close the dialog.</source>
+          <target state="new">Click <bpt id="5c7a2805-9739-48b2-bc42-9738c875e740">&lt;strong&gt;</bpt>Complete<ept id="5c7a2805-9739-48b2-bc42-9738c875e740">&lt;/strong&gt;</ept> to close the dialog.</target>
+        </trans-unit>
+        <trans-unit id="7d5da186-0530-4199-8644-ef5e8f5d861e" xml:space="preserve">
+          <source>Next, click on <bpt id="05557035-c391-475c-b929-9d9b28407bf6">&lt;strong&gt;</bpt>Attributes<ept id="05557035-c391-475c-b929-9d9b28407bf6">&lt;/strong&gt;</ept> at the top of the page.</source>
+          <target state="new">Next, click on <bpt id="05557035-c391-475c-b929-9d9b28407bf6">&lt;strong&gt;</bpt>Attributes<ept id="05557035-c391-475c-b929-9d9b28407bf6">&lt;/strong&gt;</ept> at the top of the page.</target>
+        </trans-unit>
+        <trans-unit id="798513ee-a4eb-4bf3-a2d8-1aa033df87f5" xml:space="preserve">
+          <source><bpt id="4b8692c3-c1d7-433d-b4e6-1ec7ee31eda8">&lt;linkText&gt;</bpt>Click on Attributes.<ept id="4b8692c3-c1d7-433d-b4e6-1ec7ee31eda8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b8692c3-c1d7-433d-b4e6-1ec7ee31eda8">&lt;linkText&gt;</bpt>Click on Attributes.<ept id="4b8692c3-c1d7-433d-b4e6-1ec7ee31eda8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a504171d-bf07-4024-afc7-b457851bf6ce" xml:space="preserve">
+          <source>Click on <bpt id="2a4058f2-ba5c-4d27-ba5a-dc48a41ecc26">&lt;strong&gt;</bpt>Add User Attribute<ept id="2a4058f2-ba5c-4d27-ba5a-dc48a41ecc26">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click on <bpt id="2a4058f2-ba5c-4d27-ba5a-dc48a41ecc26">&lt;strong&gt;</bpt>Add User Attribute<ept id="2a4058f2-ba5c-4d27-ba5a-dc48a41ecc26">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c0cb1df-c4fc-4ced-ae7b-1812eba5c9b2" xml:space="preserve">
+          <source><bpt id="ae656b5e-a67b-4f9c-aac5-8bd7e1cb51a8">&lt;linkText&gt;</bpt>Click on Add User Attribute.<ept id="ae656b5e-a67b-4f9c-aac5-8bd7e1cb51a8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae656b5e-a67b-4f9c-aac5-8bd7e1cb51a8">&lt;linkText&gt;</bpt>Click on Add User Attribute.<ept id="ae656b5e-a67b-4f9c-aac5-8bd7e1cb51a8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="368d1bfd-3aaa-4cf0-9d0d-d26f2c321236" xml:space="preserve">
+          <source>For the <bpt id="16d6f8ce-35b1-42b9-8a12-c9c5792b5f7b">&lt;strong&gt;</bpt>Attribute Name<ept id="16d6f8ce-35b1-42b9-8a12-c9c5792b5f7b">&lt;/strong&gt;</ept> field, type in <bpt id="a3dfdfea-aad7-4cbc-82bc-f70e7c05f846">&lt;code&gt;</bpt>account<ept id="a3dfdfea-aad7-4cbc-82bc-f70e7c05f846">&lt;/code&gt;</ept>.</source>
+          <target state="new">For the <bpt id="16d6f8ce-35b1-42b9-8a12-c9c5792b5f7b">&lt;strong&gt;</bpt>Attribute Name<ept id="16d6f8ce-35b1-42b9-8a12-c9c5792b5f7b">&lt;/strong&gt;</ept> field, type in <bpt id="a3dfdfea-aad7-4cbc-82bc-f70e7c05f846">&lt;code&gt;</bpt>account<ept id="a3dfdfea-aad7-4cbc-82bc-f70e7c05f846">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a138322-86f7-45b6-a435-5febf0c18101" xml:space="preserve">
+          <source>For the <bpt id="2df147c2-a6ca-4a4a-a8f4-b06eea4616f4">&lt;strong&gt;</bpt>Attribute Value<ept id="2df147c2-a6ca-4a4a-a8f4-b06eea4616f4">&lt;/strong&gt;</ept> field, type in your NetSuite account ID.</source>
+          <target state="new">For the <bpt id="2df147c2-a6ca-4a4a-a8f4-b06eea4616f4">&lt;strong&gt;</bpt>Attribute Value<ept id="2df147c2-a6ca-4a4a-a8f4-b06eea4616f4">&lt;/strong&gt;</ept> field, type in your NetSuite account ID.</target>
+        </trans-unit>
+        <trans-unit id="81606169-0768-462d-af69-bfab782fb484" xml:space="preserve">
+          <source>Instructions on how to find your account ID are included below:</source>
+          <target state="new">Instructions on how to find your account ID are included below:</target>
+        </trans-unit>
+        <trans-unit id="af199dd0-44bf-4643-be62-ba64d2978bdf" xml:space="preserve">
+          <source><bpt id="64f2cb8e-4320-4b98-b711-4ac8fbb11ea9">&lt;linkText&gt;</bpt>Add your NetSuite Account ID.<ept id="64f2cb8e-4320-4b98-b711-4ac8fbb11ea9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="64f2cb8e-4320-4b98-b711-4ac8fbb11ea9">&lt;linkText&gt;</bpt>Add your NetSuite Account ID.<ept id="64f2cb8e-4320-4b98-b711-4ac8fbb11ea9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c550f751-e024-4220-889c-38b3a83fe2c9" xml:space="preserve">
+          <source>In NetSuite, click on <bpt id="ce62a17e-4653-4c0c-b2d6-40f339a42fa9">&lt;strong&gt;</bpt>Setup<ept id="ce62a17e-4653-4c0c-b2d6-40f339a42fa9">&lt;/strong&gt;</ept> from the top navigation menu.</source>
+          <target state="new">In NetSuite, click on <bpt id="ce62a17e-4653-4c0c-b2d6-40f339a42fa9">&lt;strong&gt;</bpt>Setup<ept id="ce62a17e-4653-4c0c-b2d6-40f339a42fa9">&lt;/strong&gt;</ept> from the top navigation menu.</target>
+        </trans-unit>
+        <trans-unit id="22380fcb-8b70-4636-a284-be5eadb6ad84" xml:space="preserve">
+          <source>Then click under the <bpt id="6031acd0-fd5a-428b-82e4-91b4f99dc745">&lt;strong&gt;</bpt>Setup Tasks<ept id="6031acd0-fd5a-428b-82e4-91b4f99dc745">&lt;/strong&gt;</ept> section of the left navigation menu, select the <bpt id="a0777f33-5c9b-49f1-8c5e-ece02144f206">&lt;strong&gt;</bpt>Integration<ept id="a0777f33-5c9b-49f1-8c5e-ece02144f206">&lt;/strong&gt;</ept> section, and click on <bpt id="9e99a0a4-bf4b-4598-8e44-c9f1b77a8f8e">&lt;strong&gt;</bpt>Web Services Preferences<ept id="9e99a0a4-bf4b-4598-8e44-c9f1b77a8f8e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click under the <bpt id="6031acd0-fd5a-428b-82e4-91b4f99dc745">&lt;strong&gt;</bpt>Setup Tasks<ept id="6031acd0-fd5a-428b-82e4-91b4f99dc745">&lt;/strong&gt;</ept> section of the left navigation menu, select the <bpt id="a0777f33-5c9b-49f1-8c5e-ece02144f206">&lt;strong&gt;</bpt>Integration<ept id="a0777f33-5c9b-49f1-8c5e-ece02144f206">&lt;/strong&gt;</ept> section, and click on <bpt id="9e99a0a4-bf4b-4598-8e44-c9f1b77a8f8e">&lt;strong&gt;</bpt>Web Services Preferences<ept id="9e99a0a4-bf4b-4598-8e44-c9f1b77a8f8e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a2d3a18-0294-4517-8cfd-34620c5fdd68" xml:space="preserve">
+          <source>Copy your NetSuite Account ID and paste it into the <bpt id="5d549c05-e0fd-4ad9-a7f0-796452d58116">&lt;strong&gt;</bpt>Attribute Value<ept id="5d549c05-e0fd-4ad9-a7f0-796452d58116">&lt;/strong&gt;</ept> field in Azure AD.</source>
+          <target state="new">Copy your NetSuite Account ID and paste it into the <bpt id="5d549c05-e0fd-4ad9-a7f0-796452d58116">&lt;strong&gt;</bpt>Attribute Value<ept id="5d549c05-e0fd-4ad9-a7f0-796452d58116">&lt;/strong&gt;</ept> field in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="f550f7cf-a653-469f-9a24-80dd65be40c8" xml:space="preserve">
+          <source><bpt id="23e6b48e-5a9d-4afc-9ffd-7f729928937a">&lt;linkText&gt;</bpt>Get your account ID<ept id="23e6b48e-5a9d-4afc-9ffd-7f729928937a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23e6b48e-5a9d-4afc-9ffd-7f729928937a">&lt;linkText&gt;</bpt>Get your account ID<ept id="23e6b48e-5a9d-4afc-9ffd-7f729928937a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5ce9933-175a-43c4-9bf5-fa3a59a5bfd8" xml:space="preserve">
+          <source>In Azure AD, click <bpt id="7f5a2dc6-7aa9-4ad7-a506-1a01b167bd20">&lt;strong&gt;</bpt>Complete<ept id="7f5a2dc6-7aa9-4ad7-a506-1a01b167bd20">&lt;/strong&gt;</ept> to finish adding the SAML attribute.</source>
+          <target state="new">In Azure AD, click <bpt id="7f5a2dc6-7aa9-4ad7-a506-1a01b167bd20">&lt;strong&gt;</bpt>Complete<ept id="7f5a2dc6-7aa9-4ad7-a506-1a01b167bd20">&lt;/strong&gt;</ept> to finish adding the SAML attribute.</target>
+        </trans-unit>
+        <trans-unit id="f81573c6-b171-4eb6-837f-c7d198482c23" xml:space="preserve">
+          <source>Then click <bpt id="f4f5d138-9344-460f-883a-60a2aa5228ff">&lt;strong&gt;</bpt>Apply Changes<ept id="f4f5d138-9344-460f-883a-60a2aa5228ff">&lt;/strong&gt;</ept> on the bottom menu.</source>
+          <target state="new">Then click <bpt id="f4f5d138-9344-460f-883a-60a2aa5228ff">&lt;strong&gt;</bpt>Apply Changes<ept id="f4f5d138-9344-460f-883a-60a2aa5228ff">&lt;/strong&gt;</ept> on the bottom menu.</target>
+        </trans-unit>
+        <trans-unit id="1371c01e-75f0-40d7-8d85-b9d5ad0f730f" xml:space="preserve">
+          <source><bpt id="30eaa9b9-9840-4269-8c87-d82738a8c166">&lt;linkText&gt;</bpt>Save your changes.<ept id="30eaa9b9-9840-4269-8c87-d82738a8c166">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="30eaa9b9-9840-4269-8c87-d82738a8c166">&lt;linkText&gt;</bpt>Save your changes.<ept id="30eaa9b9-9840-4269-8c87-d82738a8c166">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53cd0170-f156-48c6-8b75-6aac0321ef56" xml:space="preserve">
+          <source>Before users can perform single sign-on into NetSuite, they must first be assigned the appropriate permissions in NetSuite.</source>
+          <target state="new">Before users can perform single sign-on into NetSuite, they must first be assigned the appropriate permissions in NetSuite.</target>
+        </trans-unit>
+        <trans-unit id="8df6fdf4-40e0-4be7-b16e-70712a81a474" xml:space="preserve">
+          <source>Follow the instructions below to assign these permissions.</source>
+          <target state="new">Follow the instructions below to assign these permissions.</target>
+        </trans-unit>
+        <trans-unit id="2eb86ba5-4b43-4d18-975b-327b6b973d30" xml:space="preserve">
+          <source>On the top navigation menu, click <bpt id="f42831f4-3790-4f39-9a03-550bf5278b1c">&lt;strong&gt;</bpt>Setup<ept id="f42831f4-3790-4f39-9a03-550bf5278b1c">&lt;/strong&gt;</ept>, then click <bpt id="77fe843b-fa71-401d-be33-d86bf81b1a1d">&lt;strong&gt;</bpt>Setup Manager<ept id="77fe843b-fa71-401d-be33-d86bf81b1a1d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the top navigation menu, click <bpt id="f42831f4-3790-4f39-9a03-550bf5278b1c">&lt;strong&gt;</bpt>Setup<ept id="f42831f4-3790-4f39-9a03-550bf5278b1c">&lt;/strong&gt;</ept>, then click <bpt id="77fe843b-fa71-401d-be33-d86bf81b1a1d">&lt;strong&gt;</bpt>Setup Manager<ept id="77fe843b-fa71-401d-be33-d86bf81b1a1d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5350a38a-86f6-4ad1-913c-fa13ab8fe0ec" xml:space="preserve">
+          <source><bpt id="5761b5dd-ed4e-495c-b21f-6d8e96426068">&lt;linkText&gt;</bpt>Go to Setup Manager<ept id="5761b5dd-ed4e-495c-b21f-6d8e96426068">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5761b5dd-ed4e-495c-b21f-6d8e96426068">&lt;linkText&gt;</bpt>Go to Setup Manager<ept id="5761b5dd-ed4e-495c-b21f-6d8e96426068">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81074885-ba88-4004-ad3a-0a29fac35a39" xml:space="preserve">
+          <source>On the left navigation menu, select <bpt id="ff0609eb-bb70-4e99-8ccc-2ac63baab350">&lt;strong&gt;</bpt>Users/Roles<ept id="ff0609eb-bb70-4e99-8ccc-2ac63baab350">&lt;/strong&gt;</ept>, then click <bpt id="a98f2e6c-8070-4c40-add0-47c94a53fb33">&lt;strong&gt;</bpt>Manage Roles<ept id="a98f2e6c-8070-4c40-add0-47c94a53fb33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left navigation menu, select <bpt id="ff0609eb-bb70-4e99-8ccc-2ac63baab350">&lt;strong&gt;</bpt>Users/Roles<ept id="ff0609eb-bb70-4e99-8ccc-2ac63baab350">&lt;/strong&gt;</ept>, then click <bpt id="a98f2e6c-8070-4c40-add0-47c94a53fb33">&lt;strong&gt;</bpt>Manage Roles<ept id="a98f2e6c-8070-4c40-add0-47c94a53fb33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be6ded27-b691-4c57-ac5c-75a14d77da30" xml:space="preserve">
+          <source><bpt id="8521ba82-a657-4518-81e8-ed311eafa521">&lt;linkText&gt;</bpt>Go to Manage Roles<ept id="8521ba82-a657-4518-81e8-ed311eafa521">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8521ba82-a657-4518-81e8-ed311eafa521">&lt;linkText&gt;</bpt>Go to Manage Roles<ept id="8521ba82-a657-4518-81e8-ed311eafa521">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c225e66-b3ba-4325-bf3d-22d806ae8c6a" xml:space="preserve">
+          <source>Click <bpt id="3ea1affe-5e42-4289-a60f-0ced40e19d15">&lt;strong&gt;</bpt>New Role<ept id="3ea1affe-5e42-4289-a60f-0ced40e19d15">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3ea1affe-5e42-4289-a60f-0ced40e19d15">&lt;strong&gt;</bpt>New Role<ept id="3ea1affe-5e42-4289-a60f-0ced40e19d15">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f17bb68f-2b38-4af1-8dda-428d036ee0bc" xml:space="preserve">
+          <source>Type in a <bpt id="15516a62-8c30-42e8-8844-eca8ced89a96">&lt;strong&gt;</bpt>Name<ept id="15516a62-8c30-42e8-8844-eca8ced89a96">&lt;/strong&gt;</ept> for you new role, and select the <bpt id="deafe426-1173-47c2-8dfa-f0e797b6f9ec">&lt;strong&gt;</bpt>Single Sign-On Only<ept id="deafe426-1173-47c2-8dfa-f0e797b6f9ec">&lt;/strong&gt;</ept> checkbox.</source>
+          <target state="new">Type in a <bpt id="15516a62-8c30-42e8-8844-eca8ced89a96">&lt;strong&gt;</bpt>Name<ept id="15516a62-8c30-42e8-8844-eca8ced89a96">&lt;/strong&gt;</ept> for you new role, and select the <bpt id="deafe426-1173-47c2-8dfa-f0e797b6f9ec">&lt;strong&gt;</bpt>Single Sign-On Only<ept id="deafe426-1173-47c2-8dfa-f0e797b6f9ec">&lt;/strong&gt;</ept> checkbox.</target>
+        </trans-unit>
+        <trans-unit id="3e7ec693-6cb6-49a7-985a-345f8900d833" xml:space="preserve">
+          <source><bpt id="116ff003-b8ba-4285-862d-00decd555a08">&lt;linkText&gt;</bpt>Name the new role.<ept id="116ff003-b8ba-4285-862d-00decd555a08">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="116ff003-b8ba-4285-862d-00decd555a08">&lt;linkText&gt;</bpt>Name the new role.<ept id="116ff003-b8ba-4285-862d-00decd555a08">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c48f1d9f-3afc-45bd-98cc-5f985a0fc00e" xml:space="preserve">
+          <source>Click <bpt id="d3a15317-049e-4194-95d8-e2c1683014be">&lt;strong&gt;</bpt>Save<ept id="d3a15317-049e-4194-95d8-e2c1683014be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d3a15317-049e-4194-95d8-e2c1683014be">&lt;strong&gt;</bpt>Save<ept id="d3a15317-049e-4194-95d8-e2c1683014be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca51cb05-546b-4b8e-81f5-4a9e6823ef27" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="079656a9-c17e-4eb2-a6c6-6c59540d9fe7">&lt;strong&gt;</bpt>Permissions<ept id="079656a9-c17e-4eb2-a6c6-6c59540d9fe7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="079656a9-c17e-4eb2-a6c6-6c59540d9fe7">&lt;strong&gt;</bpt>Permissions<ept id="079656a9-c17e-4eb2-a6c6-6c59540d9fe7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="893a035f-42d1-406d-bb46-7459a43f26b6" xml:space="preserve">
+          <source>Then click <bpt id="a66f6564-346e-47a5-8f27-073339f3d376">&lt;strong&gt;</bpt>Setup<ept id="a66f6564-346e-47a5-8f27-073339f3d376">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="a66f6564-346e-47a5-8f27-073339f3d376">&lt;strong&gt;</bpt>Setup<ept id="a66f6564-346e-47a5-8f27-073339f3d376">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51bb312b-ad0e-4b16-8f7c-e269eaf810e0" xml:space="preserve">
+          <source><bpt id="d0413a51-3c61-4c04-8aba-79b262eec764">&lt;linkText&gt;</bpt>Go to Permissions<ept id="d0413a51-3c61-4c04-8aba-79b262eec764">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d0413a51-3c61-4c04-8aba-79b262eec764">&lt;linkText&gt;</bpt>Go to Permissions<ept id="d0413a51-3c61-4c04-8aba-79b262eec764">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a0b10c7-e187-42d4-92f1-ba1bb49520bf" xml:space="preserve">
+          <source>Select <bpt id="300d8797-b162-4c81-aff6-886c3ea55664">&lt;strong&gt;</bpt>Set Up SAM Single Sign-on<ept id="300d8797-b162-4c81-aff6-886c3ea55664">&lt;/strong&gt;</ept>, and then click <bpt id="23b62014-6609-45c3-93b9-b875bfa67cce">&lt;strong&gt;</bpt>Add<ept id="23b62014-6609-45c3-93b9-b875bfa67cce">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="300d8797-b162-4c81-aff6-886c3ea55664">&lt;strong&gt;</bpt>Set Up SAM Single Sign-on<ept id="300d8797-b162-4c81-aff6-886c3ea55664">&lt;/strong&gt;</ept>, and then click <bpt id="23b62014-6609-45c3-93b9-b875bfa67cce">&lt;strong&gt;</bpt>Add<ept id="23b62014-6609-45c3-93b9-b875bfa67cce">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5bbeb9e7-ad94-44f1-a1c6-6ed263599aa3" xml:space="preserve">
+          <source>Click <bpt id="c9f1b3db-879d-4f3d-8ba1-b195bfb0deee">&lt;strong&gt;</bpt>Save<ept id="c9f1b3db-879d-4f3d-8ba1-b195bfb0deee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c9f1b3db-879d-4f3d-8ba1-b195bfb0deee">&lt;strong&gt;</bpt>Save<ept id="c9f1b3db-879d-4f3d-8ba1-b195bfb0deee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8bd32470-dc06-4657-8e1e-c6e6c4dd95fa" xml:space="preserve">
+          <source>On the top navigation menu, click <bpt id="9c70b566-9e33-4927-bca3-e5f64ad1eb0d">&lt;strong&gt;</bpt>Setup<ept id="9c70b566-9e33-4927-bca3-e5f64ad1eb0d">&lt;/strong&gt;</ept>, then click <bpt id="86fd0c5b-8702-4070-8c12-7d8e88fe082d">&lt;strong&gt;</bpt>Setup Manager<ept id="86fd0c5b-8702-4070-8c12-7d8e88fe082d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the top navigation menu, click <bpt id="9c70b566-9e33-4927-bca3-e5f64ad1eb0d">&lt;strong&gt;</bpt>Setup<ept id="9c70b566-9e33-4927-bca3-e5f64ad1eb0d">&lt;/strong&gt;</ept>, then click <bpt id="86fd0c5b-8702-4070-8c12-7d8e88fe082d">&lt;strong&gt;</bpt>Setup Manager<ept id="86fd0c5b-8702-4070-8c12-7d8e88fe082d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08bdbdfe-949e-4f4f-a8e7-394d95f2d106" xml:space="preserve">
+          <source><bpt id="ae77260a-d8d4-49af-b588-ccfb0b7e746e">&lt;linkText&gt;</bpt>Go to Setup Manager<ept id="ae77260a-d8d4-49af-b588-ccfb0b7e746e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae77260a-d8d4-49af-b588-ccfb0b7e746e">&lt;linkText&gt;</bpt>Go to Setup Manager<ept id="ae77260a-d8d4-49af-b588-ccfb0b7e746e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3db311b9-432a-43f3-9b22-bb9bd0fe70f3" xml:space="preserve">
+          <source>On the left navigation menu, select <bpt id="3af5b4da-1ad7-4288-8d81-dcaf88bba182">&lt;strong&gt;</bpt>Users/Roles<ept id="3af5b4da-1ad7-4288-8d81-dcaf88bba182">&lt;/strong&gt;</ept>, then click <bpt id="a8750a1a-671e-44c7-a793-c0a2a21577d1">&lt;strong&gt;</bpt>Manage Users<ept id="a8750a1a-671e-44c7-a793-c0a2a21577d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left navigation menu, select <bpt id="3af5b4da-1ad7-4288-8d81-dcaf88bba182">&lt;strong&gt;</bpt>Users/Roles<ept id="3af5b4da-1ad7-4288-8d81-dcaf88bba182">&lt;/strong&gt;</ept>, then click <bpt id="a8750a1a-671e-44c7-a793-c0a2a21577d1">&lt;strong&gt;</bpt>Manage Users<ept id="a8750a1a-671e-44c7-a793-c0a2a21577d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6a772ff-ba15-41ba-a0e1-3e5a0f98369f" xml:space="preserve">
+          <source><bpt id="3440003d-f895-497f-aa76-2a4fbf1670db">&lt;linkText&gt;</bpt>Go to Manage Users<ept id="3440003d-f895-497f-aa76-2a4fbf1670db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3440003d-f895-497f-aa76-2a4fbf1670db">&lt;linkText&gt;</bpt>Go to Manage Users<ept id="3440003d-f895-497f-aa76-2a4fbf1670db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09d64f7d-1e09-4bdf-b20d-5494357f41b5" xml:space="preserve">
+          <source>Select a test user.</source>
+          <target state="new">Select a test user.</target>
+        </trans-unit>
+        <trans-unit id="ecf82e77-2192-4296-81b3-f620b29f2cd3" xml:space="preserve">
+          <source>Then click <bpt id="ee5533c3-0ee9-4480-b05a-65009218e7a2">&lt;strong&gt;</bpt>Edit<ept id="ee5533c3-0ee9-4480-b05a-65009218e7a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="ee5533c3-0ee9-4480-b05a-65009218e7a2">&lt;strong&gt;</bpt>Edit<ept id="ee5533c3-0ee9-4480-b05a-65009218e7a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21d7c0de-7e1d-498c-8813-befa784d258d" xml:space="preserve">
+          <source><bpt id="4b73a989-491c-4d0d-9c08-7c41a2b7dea0">&lt;linkText&gt;</bpt>Go to Manage Users<ept id="4b73a989-491c-4d0d-9c08-7c41a2b7dea0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b73a989-491c-4d0d-9c08-7c41a2b7dea0">&lt;linkText&gt;</bpt>Go to Manage Users<ept id="4b73a989-491c-4d0d-9c08-7c41a2b7dea0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2fe850c-e0da-42cf-ad84-598dd0d14261" xml:space="preserve">
+          <source>On the Roles dialog, select the role that you have created and click <bpt id="61437826-986c-408a-a0af-b935fa018e24">&lt;strong&gt;</bpt>Add<ept id="61437826-986c-408a-a0af-b935fa018e24">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Roles dialog, select the role that you have created and click <bpt id="61437826-986c-408a-a0af-b935fa018e24">&lt;strong&gt;</bpt>Add<ept id="61437826-986c-408a-a0af-b935fa018e24">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13348d5c-9d57-46dd-9b33-74a5c0a7324c" xml:space="preserve">
+          <source><bpt id="82d85de7-6757-4b54-a9b2-bcc6e3fad4a0">&lt;linkText&gt;</bpt>Go to Manage Users<ept id="82d85de7-6757-4b54-a9b2-bcc6e3fad4a0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="82d85de7-6757-4b54-a9b2-bcc6e3fad4a0">&lt;linkText&gt;</bpt>Go to Manage Users<ept id="82d85de7-6757-4b54-a9b2-bcc6e3fad4a0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d616eb2-84dc-4496-a298-0f64c41b18dc" xml:space="preserve">
+          <source>Click <bpt id="6218901a-b8b8-43d0-ade5-ee1066915600">&lt;strong&gt;</bpt>Save<ept id="6218901a-b8b8-43d0-ade5-ee1066915600">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6218901a-b8b8-43d0-ade5-ee1066915600">&lt;strong&gt;</bpt>Save<ept id="6218901a-b8b8-43d0-ade5-ee1066915600">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="869eeb08-8a19-4063-b0f7-33dc687715b1" xml:space="preserve">
+          <source>To test your configuration, see the section below titled <bpt id="56880b06-d76d-4f67-9b33-60f0ef36ad6c">&lt;linkText&gt;</bpt>Assign Users to NetSuite<ept id="56880b06-d76d-4f67-9b33-60f0ef36ad6c">&lt;/linkText&gt;</ept><bpt id="56880b06-d76d-4f67-9b33-60f0ef36ad6c">&lt;title&gt;</bpt><ept id="56880b06-d76d-4f67-9b33-60f0ef36ad6c">&lt;/title&gt;</ept>.</source>
+          <target state="new">To test your configuration, see the section below titled <bpt id="56880b06-d76d-4f67-9b33-60f0ef36ad6c">&lt;linkText&gt;</bpt>Assign Users to NetSuite<ept id="56880b06-d76d-4f67-9b33-60f0ef36ad6c">&lt;/linkText&gt;</ept><bpt id="56880b06-d76d-4f67-9b33-60f0ef36ad6c">&lt;title&gt;</bpt><ept id="56880b06-d76d-4f67-9b33-60f0ef36ad6c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6446c441-2188-4446-b079-5f37ee092940" xml:space="preserve">
+          <source>In Azure Active Directory, on the Quick Start page for NetSuite, click on <bpt id="c5217733-cc6a-4c35-8822-2a1352123f01">&lt;strong&gt;</bpt>Configure user provisioning<ept id="c5217733-cc6a-4c35-8822-2a1352123f01">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Azure Active Directory, on the Quick Start page for NetSuite, click on <bpt id="c5217733-cc6a-4c35-8822-2a1352123f01">&lt;strong&gt;</bpt>Configure user provisioning<ept id="c5217733-cc6a-4c35-8822-2a1352123f01">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4490600-400f-4cfd-a653-9211051679fd" xml:space="preserve">
+          <source><bpt id="e7cd5fff-7336-4bbc-b142-1a6b1e27be03">&lt;linkText&gt;</bpt>Configure user provisioning<ept id="e7cd5fff-7336-4bbc-b142-1a6b1e27be03">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7cd5fff-7336-4bbc-b142-1a6b1e27be03">&lt;linkText&gt;</bpt>Configure user provisioning<ept id="e7cd5fff-7336-4bbc-b142-1a6b1e27be03">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34b168b2-b57c-4c01-8395-92f85813e7c2" xml:space="preserve">
+          <source>In the dialog that opens, type in your admin credentials for NetSuite, then click <bpt id="69745b53-8225-467f-8a3a-f007923aacd0">&lt;strong&gt;</bpt>Next<ept id="69745b53-8225-467f-8a3a-f007923aacd0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the dialog that opens, type in your admin credentials for NetSuite, then click <bpt id="69745b53-8225-467f-8a3a-f007923aacd0">&lt;strong&gt;</bpt>Next<ept id="69745b53-8225-467f-8a3a-f007923aacd0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="71d5d1c5-b73f-4fee-8b8f-f1d6d512c99b" xml:space="preserve">
+          <source><bpt id="04c85567-41eb-4d2e-a5d7-4d0ca1e51ad9">&lt;linkText&gt;</bpt>Type in your NetSuite admin credentials.<ept id="04c85567-41eb-4d2e-a5d7-4d0ca1e51ad9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="04c85567-41eb-4d2e-a5d7-4d0ca1e51ad9">&lt;linkText&gt;</bpt>Type in your NetSuite admin credentials.<ept id="04c85567-41eb-4d2e-a5d7-4d0ca1e51ad9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e18b6b1e-c772-4a84-9cfd-5e50ae5d514e" xml:space="preserve">
+          <source>On the confirmation page, type in your email address to receive notifications of provisioning failures.</source>
+          <target state="new">On the confirmation page, type in your email address to receive notifications of provisioning failures.</target>
+        </trans-unit>
+        <trans-unit id="a446eca5-a86e-4af3-b9c8-6568c5d3af50" xml:space="preserve">
+          <source><bpt id="5c6922f9-15a8-473d-9eb4-b5838448a305">&lt;linkText&gt;</bpt>Confirm.<ept id="5c6922f9-15a8-473d-9eb4-b5838448a305">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5c6922f9-15a8-473d-9eb4-b5838448a305">&lt;linkText&gt;</bpt>Confirm.<ept id="5c6922f9-15a8-473d-9eb4-b5838448a305">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6119d23-c93f-4ec2-8f36-cf05fe7e293a" xml:space="preserve">
+          <source>Click <bpt id="47bc9e85-4d1c-46f9-9d62-20a58a8f154f">&lt;strong&gt;</bpt>Complete<ept id="47bc9e85-4d1c-46f9-9d62-20a58a8f154f">&lt;/strong&gt;</ept> to close the dialog.</source>
+          <target state="new">Click <bpt id="47bc9e85-4d1c-46f9-9d62-20a58a8f154f">&lt;strong&gt;</bpt>Complete<ept id="47bc9e85-4d1c-46f9-9d62-20a58a8f154f">&lt;/strong&gt;</ept> to close the dialog.</target>
+        </trans-unit>
+        <trans-unit id="ce4b0f71-9a9b-428d-91d3-c7f530c85e3a" xml:space="preserve">
+          <source>To test your configuration, start creating a new test account in the directory.</source>
+          <target state="new">To test your configuration, start creating a new test account in the directory.</target>
+        </trans-unit>
+        <trans-unit id="ad59d587-7d27-4586-b8c3-7b6af278cda3" xml:space="preserve">
+          <source>On the NetSuite Quick Start page, click on the <bpt id="e200bff3-0e45-4d12-8167-4264d69763e1">&lt;strong&gt;</bpt>Assign Users<ept id="e200bff3-0e45-4d12-8167-4264d69763e1">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">On the NetSuite Quick Start page, click on the <bpt id="e200bff3-0e45-4d12-8167-4264d69763e1">&lt;strong&gt;</bpt>Assign Users<ept id="e200bff3-0e45-4d12-8167-4264d69763e1">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="e828fc21-07ca-4207-b124-e77ac391f64d" xml:space="preserve">
+          <source><bpt id="fcd0c938-239d-427c-ae9c-ce358e766d46">&lt;linkText&gt;</bpt>Click on Assign Users<ept id="fcd0c938-239d-427c-ae9c-ce358e766d46">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fcd0c938-239d-427c-ae9c-ce358e766d46">&lt;linkText&gt;</bpt>Click on Assign Users<ept id="fcd0c938-239d-427c-ae9c-ce358e766d46">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7cc304a-8a2e-43fb-905e-df71ff14f50a" xml:space="preserve">
+          <source>Select your test user, and click the <bpt id="5b779507-e1d4-4657-9704-f19f9e65deb5">&lt;strong&gt;</bpt>Assign<ept id="5b779507-e1d4-4657-9704-f19f9e65deb5">&lt;/strong&gt;</ept> button at the bottom of the screen:</source>
+          <target state="new">Select your test user, and click the <bpt id="5b779507-e1d4-4657-9704-f19f9e65deb5">&lt;strong&gt;</bpt>Assign<ept id="5b779507-e1d4-4657-9704-f19f9e65deb5">&lt;/strong&gt;</ept> button at the bottom of the screen:</target>
+        </trans-unit>
+        <trans-unit id="c74fde7d-f696-4a61-a713-11f2f70a4d59" xml:space="preserve">
+          <source>If you haven't enable automated user provisioning, then you'll see the following prompt to confirm:</source>
+          <target state="new">If you haven't enable automated user provisioning, then you'll see the following prompt to confirm:</target>
+        </trans-unit>
+        <trans-unit id="02724acf-0c34-4944-bcae-373447f98284" xml:space="preserve">
+          <source><bpt id="0fac1b4a-38e9-4d2c-a997-c9c64079b39e">&lt;linkText&gt;</bpt>Confirm the assignment.<ept id="0fac1b4a-38e9-4d2c-a997-c9c64079b39e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0fac1b4a-38e9-4d2c-a997-c9c64079b39e">&lt;linkText&gt;</bpt>Confirm the assignment.<ept id="0fac1b4a-38e9-4d2c-a997-c9c64079b39e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24c29b9c-724c-43bf-a269-febfdb088e0b" xml:space="preserve">
+          <source>If you have enabled automated user provisioning, then you'll see a prompt to define what type of role the user should have in NetSuite.</source>
+          <target state="new">If you have enabled automated user provisioning, then you'll see a prompt to define what type of role the user should have in NetSuite.</target>
+        </trans-unit>
+        <trans-unit id="be8257f1-fbb3-403e-bdb7-2ac92a76184d" xml:space="preserve">
+          <source>Newly provisioned users should appear in your NetSuite environment after a few minutes.</source>
+          <target state="new">Newly provisioned users should appear in your NetSuite environment after a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="4733f594-5240-4c9a-93d9-ee5947ea8fea" xml:space="preserve">
+          <source>To test your single sign-on settings, open the Access Panel at <bpt id="b37559a6-1240-4be3-951c-78a55c02deb8">&lt;linkText&gt;</bpt>https://myapps.microsoft.com<ept id="b37559a6-1240-4be3-951c-78a55c02deb8">&lt;/linkText&gt;</ept><bpt id="b37559a6-1240-4be3-951c-78a55c02deb8">&lt;title&gt;</bpt><ept id="b37559a6-1240-4be3-951c-78a55c02deb8">&lt;/title&gt;</ept>, sign into the test account, and click on <bpt id="9bb9a0f9-9150-4a74-af64-7137a7f0307f">&lt;strong&gt;</bpt>NetSuite<ept id="9bb9a0f9-9150-4a74-af64-7137a7f0307f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To test your single sign-on settings, open the Access Panel at <bpt id="b37559a6-1240-4be3-951c-78a55c02deb8">&lt;linkText&gt;</bpt>https://myapps.microsoft.com<ept id="b37559a6-1240-4be3-951c-78a55c02deb8">&lt;/linkText&gt;</ept><bpt id="b37559a6-1240-4be3-951c-78a55c02deb8">&lt;title&gt;</bpt><ept id="b37559a6-1240-4be3-951c-78a55c02deb8">&lt;/title&gt;</ept>, sign into the test account, and click on <bpt id="9bb9a0f9-9150-4a74-af64-7137a7f0307f">&lt;strong&gt;</bpt>NetSuite<ept id="9bb9a0f9-9150-4a74-af64-7137a7f0307f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="867df583-1670-4ced-9e3b-f617d90426ef" xml:space="preserve">
+          <source><bpt id="ef5dd40d-263f-4f42-be6e-f872e0f219e4">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="ef5dd40d-263f-4f42-be6e-f872e0f219e4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ef5dd40d-263f-4f42-be6e-f872e0f219e4">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="ef5dd40d-263f-4f42-be6e-f872e0f219e4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39d1e51c-43c7-4441-b5f3-c69e5a5133f6" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/azure-active-directory.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/azure-active-directory.png</target>
+        </trans-unit>
+        <trans-unit id="a90e6373-8a99-4046-a99b-2842260bc725" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/applications-tab.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/applications-tab.png</target>
+        </trans-unit>
+        <trans-unit id="eb412411-0087-486e-82e0-e8724e10dbee" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/add-app.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/add-app.png</target>
+        </trans-unit>
+        <trans-unit id="35b8f970-dcc8-45fa-8e11-dc431feb8692" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/add-app-gallery.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/add-app-gallery.png</target>
+        </trans-unit>
+        <trans-unit id="b001cf19-d5b8-4d9c-81c5-0985c27d9c1d" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/add-netsuite.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/add-netsuite.png</target>
+        </trans-unit>
+        <trans-unit id="034dfab1-30cc-4aeb-af8e-4218b3f51f32" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/quick-start-netsuite.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/quick-start-netsuite.png</target>
+        </trans-unit>
+        <trans-unit id="e998a4cb-f745-42c8-917c-872342a33409" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/config-sso.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/config-sso.png</target>
+        </trans-unit>
+        <trans-unit id="83bb0afb-1063-4777-8387-47da48956b50" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/sso-netsuite.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/sso-netsuite.png</target>
+        </trans-unit>
+        <trans-unit id="a181083f-98a8-4ad2-8c02-96949de35f7a" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/sso-config-netsuite.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/sso-config-netsuite.png</target>
+        </trans-unit>
+        <trans-unit id="1850d4df-f06c-40bd-b2a0-b150cc7ed0a0" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/config-sso-netsuite.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/config-sso-netsuite.png</target>
+        </trans-unit>
+        <trans-unit id="d915a0d5-38df-4b4c-9555-2c211d9329e9" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-setup.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-setup.png</target>
+        </trans-unit>
+        <trans-unit id="985e851c-666b-4288-8568-2373e9929439" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-integration.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-integration.png</target>
+        </trans-unit>
+        <trans-unit id="c387f480-c244-4fb9-91c8-110a2b42a402" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-saml.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-saml.png</target>
+        </trans-unit>
+        <trans-unit id="5fde7d70-65aa-4078-852d-3047355fe6fa" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-saml-setup.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-saml-setup.png</target>
+        </trans-unit>
+        <trans-unit id="177b33d5-f11c-49c2-af2b-650ada450081" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-sso-confirm.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-sso-confirm.png</target>
+        </trans-unit>
+        <trans-unit id="38da1ffb-dde3-491d-893b-4d64ab0cd6fe" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/sso-email.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/sso-email.png</target>
+        </trans-unit>
+        <trans-unit id="9f7108bf-fd1b-4b1c-bcfd-6c9cc72eafbb" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-sso-setup.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-sso-setup.png</target>
+        </trans-unit>
+        <trans-unit id="0cd85e1f-3b27-4194-b319-76d568a3f9a7" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-attributes.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-attributes.png</target>
+        </trans-unit>
+        <trans-unit id="5636d102-7cf9-4194-b73d-add9b930d9d4" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-add-attribute.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-add-attribute.png</target>
+        </trans-unit>
+        <trans-unit id="6ab5d685-9fd3-404c-9382-5d631dfa135d" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-add-account.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-add-account.png</target>
+        </trans-unit>
+        <trans-unit id="17669e0c-a2a6-4120-8355-02788109c66f" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-account-id.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-account-id.png</target>
+        </trans-unit>
+        <trans-unit id="bb004d01-2351-4cb9-afb1-957d08f2e795" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-save-saml.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-save-saml.png</target>
+        </trans-unit>
+        <trans-unit id="a4b3e7cc-b016-4eb4-b029-d31f1677930a" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-manage-roles.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-manage-roles.png</target>
+        </trans-unit>
+        <trans-unit id="79ae68b0-d237-4940-94c0-bea83f79e161" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-new-role.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-new-role.png</target>
+        </trans-unit>
+        <trans-unit id="a9cdb091-b2ff-48c7-aa14-4559d2c3c6e2" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-sso.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-sso.png</target>
+        </trans-unit>
+        <trans-unit id="c7821289-c90e-4d86-9a0f-734c48a16c59" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-manage-users.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-manage-users.png</target>
+        </trans-unit>
+        <trans-unit id="eba59358-25c3-4e74-b35b-f8ebd0408bde" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-edit-user.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-edit-user.png</target>
+        </trans-unit>
+        <trans-unit id="d96daa27-8d77-4d78-a321-85ae8da6a96e" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-add-role.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-add-role.png</target>
+        </trans-unit>
+        <trans-unit id="8d8c0e38-7fd3-4496-8733-1f5506191678" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/netsuite-provisioning.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/netsuite-provisioning.png</target>
+        </trans-unit>
+        <trans-unit id="0e99201f-d693-484f-a8ec-c4bd5397c48f" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-creds.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-creds.png</target>
+        </trans-unit>
+        <trans-unit id="b18c0024-faac-4563-a5d6-75213dbb96cc" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/ns-confirm.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/ns-confirm.png</target>
+        </trans-unit>
+        <trans-unit id="1d1687dc-84a6-40dd-9257-d42ba86116fe" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/assign-users.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/assign-users.png</target>
+        </trans-unit>
+        <trans-unit id="dcbbceca-164a-400e-89c6-564553c3fc93" xml:space="preserve">
+          <source>./media/active-directory-saas-netsuite-tutorial/assign-confirm.png</source>
+          <target state="new">./media/active-directory-saas-netsuite-tutorial/assign-confirm.png</target>
+        </trans-unit>
+      </group>
+      <group id="5444bb84-e57b-4b68-bda5-293a6c3a050d" />
+    </body>
+  </file>
+</xliff>

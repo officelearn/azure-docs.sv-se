@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="85f44068-523e-4e8a-9115-716f83c4c32c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="85f44068-523e-4e8a-9115-716f83c4c32c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="79634c54-74ed-43d4-a18c-cb52d779825b">
+        <trans-unit id="d7cfb599-87ca-4df0-a3ab-420837bcc215" xml:space="preserve">
+          <source>What is Azure RemoteApp?</source>
+          <target state="new">What is Azure RemoteApp?</target>
+        </trans-unit>
+        <trans-unit id="4e823619-d2f7-478a-868e-cb4d3a3ea0dd" xml:space="preserve">
+          <source>Learn about Azure RemoteApp.</source>
+          <target state="new">Learn about Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="c4f78b58-a940-4ee8-8cd6-37234a2cc107" xml:space="preserve">
+          <source>Azure RemoteApp brings the functionality of the on-premises Microsoft RemoteApp program, backed by Remote Desktop Services, to Azure.</source>
+          <target state="new">Azure RemoteApp brings the functionality of the on-premises Microsoft RemoteApp program, backed by Remote Desktop Services, to Azure.</target>
+        </trans-unit>
+        <trans-unit id="e7b2129c-b44e-43b6-9961-d11137157e12" xml:space="preserve">
+          <source>Azure RemoteApp helps you provide secure, remote access to applications from many different user devices.</source>
+          <target state="new">Azure RemoteApp helps you provide secure, remote access to applications from many different user devices.</target>
+        </trans-unit>
+        <trans-unit id="c8f8880d-7b5b-4e12-af4c-94d0ab16524c" xml:space="preserve">
+          <source>When you move RemoteApp to Azure, you get to take advantage of the storage, scalability, and global reach of Azure without having to worry about a complex on-premises configuration.</source>
+          <target state="new">When you move RemoteApp to Azure, you get to take advantage of the storage, scalability, and global reach of Azure without having to worry about a complex on-premises configuration.</target>
+        </trans-unit>
+        <trans-unit id="08a310ac-7914-4aef-82af-7ddeec33041e" xml:space="preserve">
+          <source>Microsoft provides maintenance of Azure, ensuring its reliability, freeing you up to focus on more important issues, like creating the best apps for your business to use.</source>
+          <target state="new">Microsoft provides maintenance of Azure, ensuring its reliability, freeing you up to focus on more important issues, like creating the best apps for your business to use.</target>
+        </trans-unit>
+        <trans-unit id="8b80b783-6a3d-4c51-8fcd-a9f45a81e6b1" xml:space="preserve">
+          <source>Another advantage of Azure RemoteApp is the accessibility - your users can access RemoteApp programs from Windows, iOS, Mac OS X, and Android devices.</source>
+          <target state="new">Another advantage of Azure RemoteApp is the accessibility - your users can access RemoteApp programs from Windows, iOS, Mac OS X, and Android devices.</target>
+        </trans-unit>
+        <trans-unit id="51523c47-a5b2-4e47-b390-0e7d4c355aa4" xml:space="preserve">
+          <source>They can use your apps in the environment they prefer, while you use the Azure management portal to manage those apps.</source>
+          <target state="new">They can use your apps in the environment they prefer, while you use the Azure management portal to manage those apps.</target>
+        </trans-unit>
+        <trans-unit id="e63943b3-2496-4496-b4e1-200c817d444c" xml:space="preserve">
+          <source>Read on for more information about RemoteApp, or, if we have already convinced you, <bpt id="a9c97ef0-bb69-43fc-a718-b7d23e8860e5">&lt;linkText&gt;</bpt>try it out now<ept id="a9c97ef0-bb69-43fc-a718-b7d23e8860e5">&lt;/linkText&gt;</ept><bpt id="a9c97ef0-bb69-43fc-a718-b7d23e8860e5">&lt;title&gt;</bpt><ept id="a9c97ef0-bb69-43fc-a718-b7d23e8860e5">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read on for more information about RemoteApp, or, if we have already convinced you, <bpt id="a9c97ef0-bb69-43fc-a718-b7d23e8860e5">&lt;linkText&gt;</bpt>try it out now<ept id="a9c97ef0-bb69-43fc-a718-b7d23e8860e5">&lt;/linkText&gt;</ept><bpt id="a9c97ef0-bb69-43fc-a718-b7d23e8860e5">&lt;title&gt;</bpt><ept id="a9c97ef0-bb69-43fc-a718-b7d23e8860e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ccb00bd0-97b6-44ca-b5d9-7314b41dabb0" xml:space="preserve">
+          <source>Have questions about Azure RemoteApp?</source>
+          <target state="new">Have questions about Azure RemoteApp?</target>
+        </trans-unit>
+        <trans-unit id="400ba824-9564-4762-9d0f-594651672b6b" xml:space="preserve">
+          <source>Check out our <bpt id="73fc088b-65c9-442c-9b89-5b70d54ebb6c">&lt;linkText&gt;</bpt>FAQ<ept id="73fc088b-65c9-442c-9b89-5b70d54ebb6c">&lt;/linkText&gt;</ept><bpt id="73fc088b-65c9-442c-9b89-5b70d54ebb6c">&lt;title&gt;</bpt><ept id="73fc088b-65c9-442c-9b89-5b70d54ebb6c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Check out our <bpt id="73fc088b-65c9-442c-9b89-5b70d54ebb6c">&lt;linkText&gt;</bpt>FAQ<ept id="73fc088b-65c9-442c-9b89-5b70d54ebb6c">&lt;/linkText&gt;</ept><bpt id="73fc088b-65c9-442c-9b89-5b70d54ebb6c">&lt;title&gt;</bpt><ept id="73fc088b-65c9-442c-9b89-5b70d54ebb6c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c53ba68c-e90f-4d52-b7bb-7d61cab239cf" xml:space="preserve">
+          <source>Azure RemoteApp is part of the <bpt id="9f2afbff-acd2-4efe-b6e0-5e433093504e">&lt;linkText&gt;</bpt>Microsoft Virtual Desktop Infrastructure<ept id="9f2afbff-acd2-4efe-b6e0-5e433093504e">&lt;/linkText&gt;</ept><bpt id="9f2afbff-acd2-4efe-b6e0-5e433093504e">&lt;title&gt;</bpt><ept id="9f2afbff-acd2-4efe-b6e0-5e433093504e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure RemoteApp is part of the <bpt id="9f2afbff-acd2-4efe-b6e0-5e433093504e">&lt;linkText&gt;</bpt>Microsoft Virtual Desktop Infrastructure<ept id="9f2afbff-acd2-4efe-b6e0-5e433093504e">&lt;/linkText&gt;</ept><bpt id="9f2afbff-acd2-4efe-b6e0-5e433093504e">&lt;title&gt;</bpt><ept id="9f2afbff-acd2-4efe-b6e0-5e433093504e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="abb6e14c-c998-46d1-ba6a-b10030942c7c" xml:space="preserve">
+          <source><bpt id="a6b3de21-7716-416e-831a-2939649e8f30">&lt;strong&gt;</bpt>New!<ept id="a6b3de21-7716-416e-831a-2939649e8f30">&lt;/strong&gt;</ept> Want to learn more about Azure RemoteApp?</source>
+          <target state="new"><bpt id="a6b3de21-7716-416e-831a-2939649e8f30">&lt;strong&gt;</bpt>New!<ept id="a6b3de21-7716-416e-831a-2939649e8f30">&lt;/strong&gt;</ept> Want to learn more about Azure RemoteApp?</target>
+        </trans-unit>
+        <trans-unit id="f2eca352-a93e-4452-9839-6b7b6a9bf4f3" xml:space="preserve">
+          <source>Or ready to validate RemoteApp at scale?</source>
+          <target state="new">Or ready to validate RemoteApp at scale?</target>
+        </trans-unit>
+        <trans-unit id="4d6349f5-cbd7-40a1-bad3-77f91c50f6ce" xml:space="preserve">
+          <source>Join our weekly <bpt id="789ddef0-e775-431e-8994-f1e01d440dce">&lt;linkText&gt;</bpt>ask the experts webinar<ept id="789ddef0-e775-431e-8994-f1e01d440dce">&lt;/linkText&gt;</ept><bpt id="789ddef0-e775-431e-8994-f1e01d440dce">&lt;title&gt;</bpt><ept id="789ddef0-e775-431e-8994-f1e01d440dce">&lt;/title&gt;</ept>.</source>
+          <target state="new">Join our weekly <bpt id="789ddef0-e775-431e-8994-f1e01d440dce">&lt;linkText&gt;</bpt>ask the experts webinar<ept id="789ddef0-e775-431e-8994-f1e01d440dce">&lt;/linkText&gt;</ept><bpt id="789ddef0-e775-431e-8994-f1e01d440dce">&lt;title&gt;</bpt><ept id="789ddef0-e775-431e-8994-f1e01d440dce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b6ecadb-97ea-448d-9040-1de7d29d9485" xml:space="preserve">
+          <source>There are two kinds of RemoteApp collections:</source>
+          <target state="new">There are two kinds of RemoteApp collections:</target>
+        </trans-unit>
+        <trans-unit id="9ba962d1-ab3c-4475-b8f8-9b26e7bdb760" xml:space="preserve">
+          <source>A <bpt id="4d962b7e-5525-4aee-b34e-6206eb6a5aae">&lt;strong&gt;</bpt>cloud collection<ept id="4d962b7e-5525-4aee-b34e-6206eb6a5aae">&lt;/strong&gt;</ept> is hosted in and stores all data for programs in the Azure cloud.</source>
+          <target state="new">A <bpt id="4d962b7e-5525-4aee-b34e-6206eb6a5aae">&lt;strong&gt;</bpt>cloud collection<ept id="4d962b7e-5525-4aee-b34e-6206eb6a5aae">&lt;/strong&gt;</ept> is hosted in and stores all data for programs in the Azure cloud.</target>
+        </trans-unit>
+        <trans-unit id="aa717311-8b41-44ff-96f9-d913bcadfd17" xml:space="preserve">
+          <source>Users can access apps by logging in with their Microsoft account or corporate credentials synchronized or federated with Azure Active Directory.</source>
+          <target state="new">Users can access apps by logging in with their Microsoft account or corporate credentials synchronized or federated with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="b1b98a0e-46ae-41c4-91fc-3ceba21eab58" xml:space="preserve">
+          <source>A <bpt id="0f489209-f917-44fa-9281-3c28d6c7914f">&lt;strong&gt;</bpt>hybrid collection<ept id="0f489209-f917-44fa-9281-3c28d6c7914f">&lt;/strong&gt;</ept> is hosted in and stores data in the Azure cloud but also lets users access data and resources stored on your local network.</source>
+          <target state="new">A <bpt id="0f489209-f917-44fa-9281-3c28d6c7914f">&lt;strong&gt;</bpt>hybrid collection<ept id="0f489209-f917-44fa-9281-3c28d6c7914f">&lt;/strong&gt;</ept> is hosted in and stores data in the Azure cloud but also lets users access data and resources stored on your local network.</target>
+        </trans-unit>
+        <trans-unit id="eaf3fff7-caac-4aae-b010-e5dbd848cd2f" xml:space="preserve">
+          <source>Users can access apps by logging in with their corporate credentials synchronized or federated with Azure Active Directory.</source>
+          <target state="new">Users can access apps by logging in with their corporate credentials synchronized or federated with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="25c067ce-7ee2-4ce4-bc31-75a8d9282902" xml:space="preserve">
+          <source>The <bpt id="846f8b72-ed00-43bc-ac3c-ff6b0cbc266d">&lt;linkText&gt;</bpt>cloud RemoteApp collection<ept id="846f8b72-ed00-43bc-ac3c-ff6b0cbc266d">&lt;/linkText&gt;</ept><bpt id="846f8b72-ed00-43bc-ac3c-ff6b0cbc266d">&lt;title&gt;</bpt><ept id="846f8b72-ed00-43bc-ac3c-ff6b0cbc266d">&lt;/title&gt;</ept> offers a standalone way to host applications in the cloud.</source>
+          <target state="new">The <bpt id="846f8b72-ed00-43bc-ac3c-ff6b0cbc266d">&lt;linkText&gt;</bpt>cloud RemoteApp collection<ept id="846f8b72-ed00-43bc-ac3c-ff6b0cbc266d">&lt;/linkText&gt;</ept><bpt id="846f8b72-ed00-43bc-ac3c-ff6b0cbc266d">&lt;title&gt;</bpt><ept id="846f8b72-ed00-43bc-ac3c-ff6b0cbc266d">&lt;/title&gt;</ept> offers a standalone way to host applications in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="2195aabb-3ac0-4c36-8b19-b69789b9bc4b" xml:space="preserve">
+          <source>A cloud collection exists only in the Azure cloud, as opposed to connecting to your local network.</source>
+          <target state="new">A cloud collection exists only in the Azure cloud, as opposed to connecting to your local network.</target>
+        </trans-unit>
+        <trans-unit id="6e967c42-56f6-4815-9f2d-b3c223a70020" xml:space="preserve">
+          <source>As part of the RemoteApp trial, we provide you with the Office 365 ProPlus or Office 2013 apps preinstalled and ready to share with your users.</source>
+          <target state="new">As part of the RemoteApp trial, we provide you with the Office 365 ProPlus or Office 2013 apps preinstalled and ready to share with your users.</target>
+        </trans-unit>
+        <trans-unit id="8c5e6e9f-8f14-4535-bbe3-734a851709c3" xml:space="preserve">
+          <source>If you choose to leverage the available software, you can provision your service quickly.</source>
+          <target state="new">If you choose to leverage the available software, you can provision your service quickly.</target>
+        </trans-unit>
+        <trans-unit id="df9c3ff2-e068-40ed-83a6-54353ee4c73d" xml:space="preserve">
+          <source>An additional advantage of using the cloud collection with the Office apps is that the apps and operating system (upon which your service is built) are always kept up to date through regular updates, and Microsoft Anti-Malware endpoint protection provides continuous defense.</source>
+          <target state="new">An additional advantage of using the cloud collection with the Office apps is that the apps and operating system (upon which your service is built) are always kept up to date through regular updates, and Microsoft Anti-Malware endpoint protection provides continuous defense.</target>
+        </trans-unit>
+        <trans-unit id="d90839c7-30d4-4d31-abd4-2a31d4d388e6" xml:space="preserve">
+          <source>Your end users use their Microsoft accounts or corporate credentials to access the apps.</source>
+          <target state="new">Your end users use their Microsoft accounts or corporate credentials to access the apps.</target>
+        </trans-unit>
+        <trans-unit id="50944f24-3c58-4252-a925-5797afb5c1ff" xml:space="preserve">
+          <source>All that you, the administrator, need to worry about is figuring out who should have access to which apps.</source>
+          <target state="new">All that you, the administrator, need to worry about is figuring out who should have access to which apps.</target>
+        </trans-unit>
+        <trans-unit id="23d1b668-7c28-4d00-99bf-ddedacee169c" xml:space="preserve">
+          <source>You can also create a cloud collection to share a custom application or set of applications for your users.</source>
+          <target state="new">You can also create a cloud collection to share a custom application or set of applications for your users.</target>
+        </trans-unit>
+        <trans-unit id="411a8c0f-aa3d-4ccc-b5a8-6d339207e9d7" xml:space="preserve">
+          <source>To do this, you need to <bpt id="ecc72ebf-12b8-4113-a41c-ca6d4219c654">&lt;linkText&gt;</bpt>create a custom image<ept id="ecc72ebf-12b8-4113-a41c-ca6d4219c654">&lt;/linkText&gt;</ept><bpt id="ecc72ebf-12b8-4113-a41c-ca6d4219c654">&lt;title&gt;</bpt><ept id="ecc72ebf-12b8-4113-a41c-ca6d4219c654">&lt;/title&gt;</ept> (which is how we publish apps to RemoteApp) and simply choose that image (instead of the Office 2013 image) when you create your collection.</source>
+          <target state="new">To do this, you need to <bpt id="ecc72ebf-12b8-4113-a41c-ca6d4219c654">&lt;linkText&gt;</bpt>create a custom image<ept id="ecc72ebf-12b8-4113-a41c-ca6d4219c654">&lt;/linkText&gt;</ept><bpt id="ecc72ebf-12b8-4113-a41c-ca6d4219c654">&lt;title&gt;</bpt><ept id="ecc72ebf-12b8-4113-a41c-ca6d4219c654">&lt;/title&gt;</ept> (which is how we publish apps to RemoteApp) and simply choose that image (instead of the Office 2013 image) when you create your collection.</target>
+        </trans-unit>
+        <trans-unit id="a58e149b-44f9-4ffe-9d3b-3fe8008649c7" xml:space="preserve">
+          <source>Choose a cloud collection when the application you want to share does not require a connection to any resource your company's private network (for example, through a VPN device).</source>
+          <target state="new">Choose a cloud collection when the application you want to share does not require a connection to any resource your company's private network (for example, through a VPN device).</target>
+        </trans-unit>
+        <trans-unit id="a180daa5-baf3-44a6-a3b5-1538cf672469" xml:space="preserve">
+          <source>If the application uses resources on the Internet, OneDrive, or Azure, a cloud collection will work for you.</source>
+          <target state="new">If the application uses resources on the Internet, OneDrive, or Azure, a cloud collection will work for you.</target>
+        </trans-unit>
+        <trans-unit id="b4667f89-c2d5-4341-9d93-c0817e4a4ec7" xml:space="preserve">
+          <source>It's also the quickest to create.</source>
+          <target state="new">It's also the quickest to create.</target>
+        </trans-unit>
+        <trans-unit id="55c03484-db67-49b5-a195-b5ac3444cc04" xml:space="preserve">
+          <source>The <bpt id="1e92baef-e590-4273-ac60-627c04985f66">&lt;linkText&gt;</bpt>hybrid RemoteApp collection<ept id="1e92baef-e590-4273-ac60-627c04985f66">&lt;/linkText&gt;</ept><bpt id="1e92baef-e590-4273-ac60-627c04985f66">&lt;title&gt;</bpt><ept id="1e92baef-e590-4273-ac60-627c04985f66">&lt;/title&gt;</ept> lets you provide both a custom set of applications to your users and access to the data and resources in your local network.</source>
+          <target state="new">The <bpt id="1e92baef-e590-4273-ac60-627c04985f66">&lt;linkText&gt;</bpt>hybrid RemoteApp collection<ept id="1e92baef-e590-4273-ac60-627c04985f66">&lt;/linkText&gt;</ept><bpt id="1e92baef-e590-4273-ac60-627c04985f66">&lt;title&gt;</bpt><ept id="1e92baef-e590-4273-ac60-627c04985f66">&lt;/title&gt;</ept> lets you provide both a custom set of applications to your users and access to the data and resources in your local network.</target>
+        </trans-unit>
+        <trans-unit id="6d2b3ef4-72e2-4e17-9c68-3a8a5b0f11dd" xml:space="preserve">
+          <source>Unlike a custom image used with the cloud collection, the image you create for a hybrid collection runs apps in a domain-joined environment, granting full access to your local network and data.</source>
+          <target state="new">Unlike a custom image used with the cloud collection, the image you create for a hybrid collection runs apps in a domain-joined environment, granting full access to your local network and data.</target>
+        </trans-unit>
+        <trans-unit id="83a34d48-b053-4a54-a20f-1453b61274d1" xml:space="preserve">
+          <source>By integrating Active Directory with Azure Active Directory (using DirSync), your users can use their corporate credentials to access apps and data.</source>
+          <target state="new">By integrating Active Directory with Azure Active Directory (using DirSync), your users can use their corporate credentials to access apps and data.</target>
+        </trans-unit>
+        <trans-unit id="83350486-155e-4804-98b3-a15eb04f316f" xml:space="preserve">
+          <source>When you use a work account in Active Directory, you can take your corporate policies into the cloud to control the apps you offer through RemoteApp.</source>
+          <target state="new">When you use a work account in Active Directory, you can take your corporate policies into the cloud to control the apps you offer through RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="2d60869f-ded2-4fd8-b241-c8e39dcac7e7" xml:space="preserve">
+          <source>As long as you build your template image on Windows Server 2012 R2 with the RD Session Host role service, there are few limits on the apps you can publish for your users.</source>
+          <target state="new">As long as you build your template image on Windows Server 2012 R2 with the RD Session Host role service, there are few limits on the apps you can publish for your users.</target>
+        </trans-unit>
+        <trans-unit id="a73697f5-478e-48b2-864e-621a5b06a8dd" xml:space="preserve">
+          <source>If the apps function properly in that template image environment, your end users can access them through RemoteApp.</source>
+          <target state="new">If the apps function properly in that template image environment, your end users can access them through RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="a07b5824-93f4-4f4c-aef6-42681a4a14f7" xml:space="preserve">
+          <source>Choose a hybrid collection if you require a connection to resources on your company's private network.</source>
+          <target state="new">Choose a hybrid collection if you require a connection to resources on your company's private network.</target>
+        </trans-unit>
+        <trans-unit id="1063e3a0-bd89-431b-a398-7a692f5c0f58" xml:space="preserve">
+          <source>For example, if the application needs access to one of the following:</source>
+          <target state="new">For example, if the application needs access to one of the following:</target>
+        </trans-unit>
+        <trans-unit id="c6a1bd3b-e442-4996-bee7-5f33ef7c0d81" xml:space="preserve">
+          <source>File servers located on your intranet</source>
+          <target state="new">File servers located on your intranet</target>
+        </trans-unit>
+        <trans-unit id="a6383cdf-d73e-46c7-adec-b5472710b33d" xml:space="preserve">
+          <source>Quicken</source>
+          <target state="new">Quicken</target>
+        </trans-unit>
+        <trans-unit id="d418a032-4929-40b7-8771-f625471b4e59" xml:space="preserve">
+          <source>Databases behind a firewall</source>
+          <target state="new">Databases behind a firewall</target>
+        </trans-unit>
+        <trans-unit id="d7e5c384-6655-4fa7-a5ee-84b1d32fef56" xml:space="preserve">
+          <source>This is generally more useful for large companies with lots of resources on their private networks that can't be moved to the cloud.</source>
+          <target state="new">This is generally more useful for large companies with lots of resources on their private networks that can't be moved to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="ba13c573-213d-4047-b21b-f2c57ce9f651" xml:space="preserve">
+          <source>One of the key differences between the hybrid and cloud collections is how software updates are handled.</source>
+          <target state="new">One of the key differences between the hybrid and cloud collections is how software updates are handled.</target>
+        </trans-unit>
+        <trans-unit id="4ce9ca22-da50-4ddf-9032-f58b3e04de0d" xml:space="preserve">
+          <source>With a cloud collection that uses the preinstalled Office 365 ProPlus or Office 2013 image, you do not have to worry about any updates.</source>
+          <target state="new">With a cloud collection that uses the preinstalled Office 365 ProPlus or Office 2013 image, you do not have to worry about any updates.</target>
+        </trans-unit>
+        <trans-unit id="0daed52d-8df5-4038-93c7-7a5c8898db60" xml:space="preserve">
+          <source>The service maintains itself and rolls out updates on an ongoing basis, to both apps and the operating system.</source>
+          <target state="new">The service maintains itself and rolls out updates on an ongoing basis, to both apps and the operating system.</target>
+        </trans-unit>
+        <trans-unit id="1b7f1355-26fa-456e-9cfc-797c40148e06" xml:space="preserve">
+          <source>For hybrid collections, as well as cloud collections that use a custom template image, you are in charge of maintaining the image and apps.</source>
+          <target state="new">For hybrid collections, as well as cloud collections that use a custom template image, you are in charge of maintaining the image and apps.</target>
+        </trans-unit>
+        <trans-unit id="229186b3-cf6a-4d1f-b079-1a229ca3709e" xml:space="preserve">
+          <source>For domain-joined images, you can control updates by using tools such as Windows Update, Group Policy, or System Center.</source>
+          <target state="new">For domain-joined images, you can control updates by using tools such as Windows Update, Group Policy, or System Center.</target>
+        </trans-unit>
+        <trans-unit id="df4e6d3d-ce0e-4062-99f9-96053f02aa3e" xml:space="preserve">
+          <source>After you update your custom template image, you upload the new image to the Azure cloud and then update the collection to use the new image.</source>
+          <target state="new">After you update your custom template image, you upload the new image to the Azure cloud and then update the collection to use the new image.</target>
+        </trans-unit>
+        <trans-unit id="025dfa0b-462d-4c2f-a508-1913623ba529" xml:space="preserve">
+          <source>(You can do this from the RemoteApp <bpt id="24189fc1-891e-49d3-803b-ed247e5b5cb8">&lt;strong&gt;</bpt>Quick Start<ept id="24189fc1-891e-49d3-803b-ed247e5b5cb8">&lt;/strong&gt;</ept> page or the Dashboard.)</source>
+          <target state="new">(You can do this from the RemoteApp <bpt id="24189fc1-891e-49d3-803b-ed247e5b5cb8">&lt;strong&gt;</bpt>Quick Start<ept id="24189fc1-891e-49d3-803b-ed247e5b5cb8">&lt;/strong&gt;</ept> page or the Dashboard.)</target>
+        </trans-unit>
+        <trans-unit id="a2aa7ad8-fb7f-4a50-a379-295a2371b3c6" xml:space="preserve">
+          <source>See <bpt id="4fa2cbf6-f8ee-4075-b4ef-44847e7ab78b">&lt;linkText&gt;</bpt>Update your collection<ept id="4fa2cbf6-f8ee-4075-b4ef-44847e7ab78b">&lt;/linkText&gt;</ept><bpt id="4fa2cbf6-f8ee-4075-b4ef-44847e7ab78b">&lt;title&gt;</bpt><ept id="4fa2cbf6-f8ee-4075-b4ef-44847e7ab78b">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="4fa2cbf6-f8ee-4075-b4ef-44847e7ab78b">&lt;linkText&gt;</bpt>Update your collection<ept id="4fa2cbf6-f8ee-4075-b4ef-44847e7ab78b">&lt;/linkText&gt;</ept><bpt id="4fa2cbf6-f8ee-4075-b4ef-44847e7ab78b">&lt;title&gt;</bpt><ept id="4fa2cbf6-f8ee-4075-b4ef-44847e7ab78b">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="76aae465-4601-49c0-bf12-1ee8acc2bd15" xml:space="preserve">
+          <source>Azure RemoteApp is supported on the RemoteApp client apps for Windows and Windows RT, as well as the Microsoft Remote Desktop apps for Mac, iOS and Android.</source>
+          <target state="new">Azure RemoteApp is supported on the RemoteApp client apps for Windows and Windows RT, as well as the Microsoft Remote Desktop apps for Mac, iOS and Android.</target>
+        </trans-unit>
+        <trans-unit id="118e9914-f2bc-4d6d-92c3-a0e1e6ba027f" xml:space="preserve">
+          <source>Your users can use these apps on their mobile or compute devices to access the new RemoteApp programs.</source>
+          <target state="new">Your users can use these apps on their mobile or compute devices to access the new RemoteApp programs.</target>
+        </trans-unit>
+        <trans-unit id="07fefa45-75ba-41d1-9e30-87bc8e1a28e2" xml:space="preserve">
+          <source>See <bpt id="af2e5f93-70f0-462e-836a-69cc84eebf53">&lt;linkText&gt;</bpt>Accessing your apps in Azure RemoteApp<ept id="af2e5f93-70f0-462e-836a-69cc84eebf53">&lt;/linkText&gt;</ept><bpt id="af2e5f93-70f0-462e-836a-69cc84eebf53">&lt;title&gt;</bpt><ept id="af2e5f93-70f0-462e-836a-69cc84eebf53">&lt;/title&gt;</ept> for more information about the clients.</source>
+          <target state="new">See <bpt id="af2e5f93-70f0-462e-836a-69cc84eebf53">&lt;linkText&gt;</bpt>Accessing your apps in Azure RemoteApp<ept id="af2e5f93-70f0-462e-836a-69cc84eebf53">&lt;/linkText&gt;</ept><bpt id="af2e5f93-70f0-462e-836a-69cc84eebf53">&lt;title&gt;</bpt><ept id="af2e5f93-70f0-462e-836a-69cc84eebf53">&lt;/title&gt;</ept> for more information about the clients.</target>
+        </trans-unit>
+        <trans-unit id="0bb18b10-1df2-4721-b358-814546304a00" xml:space="preserve">
+          <source>Go!</source>
+          <target state="new">Go!</target>
+        </trans-unit>
+        <trans-unit id="28782dd7-3488-4cd0-8d08-3fd343f96154" xml:space="preserve">
+          <source>Try it out!</source>
+          <target state="new">Try it out!</target>
+        </trans-unit>
+        <trans-unit id="1bf0385d-a258-431d-a035-ef1d6873ed8e" xml:space="preserve">
+          <source>These articles help get you started with RemoteApp:</source>
+          <target state="new">These articles help get you started with RemoteApp:</target>
+        </trans-unit>
+        <trans-unit id="50a6a699-da4a-41a5-8631-365c1d55e1a8" xml:space="preserve">
+          <source><bpt id="dbce1684-8515-4de0-a67e-14912e677910">&lt;linkText&gt;</bpt>Create a RemoteApp image<ept id="dbce1684-8515-4de0-a67e-14912e677910">&lt;/linkText&gt;</ept><bpt id="dbce1684-8515-4de0-a67e-14912e677910">&lt;title&gt;</bpt><ept id="dbce1684-8515-4de0-a67e-14912e677910">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dbce1684-8515-4de0-a67e-14912e677910">&lt;linkText&gt;</bpt>Create a RemoteApp image<ept id="dbce1684-8515-4de0-a67e-14912e677910">&lt;/linkText&gt;</ept><bpt id="dbce1684-8515-4de0-a67e-14912e677910">&lt;title&gt;</bpt><ept id="dbce1684-8515-4de0-a67e-14912e677910">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a50ccfe-2c4b-4e5c-be9f-49c489e35875" xml:space="preserve">
+          <source><bpt id="af0414bd-1315-42cb-ad48-14024ae266b1">&lt;linkText&gt;</bpt>How to create a cloud collection of RemoteApp<ept id="af0414bd-1315-42cb-ad48-14024ae266b1">&lt;/linkText&gt;</ept><bpt id="af0414bd-1315-42cb-ad48-14024ae266b1">&lt;title&gt;</bpt><ept id="af0414bd-1315-42cb-ad48-14024ae266b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="af0414bd-1315-42cb-ad48-14024ae266b1">&lt;linkText&gt;</bpt>How to create a cloud collection of RemoteApp<ept id="af0414bd-1315-42cb-ad48-14024ae266b1">&lt;/linkText&gt;</ept><bpt id="af0414bd-1315-42cb-ad48-14024ae266b1">&lt;title&gt;</bpt><ept id="af0414bd-1315-42cb-ad48-14024ae266b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5176d1e-59c4-4aea-b8b5-738f8dcc3de0" xml:space="preserve">
+          <source><bpt id="c09a4a8e-f7fc-4895-a834-05c52ed32b5d">&lt;linkText&gt;</bpt>How to create a hybrid collection of RemoteApp<ept id="c09a4a8e-f7fc-4895-a834-05c52ed32b5d">&lt;/linkText&gt;</ept><bpt id="c09a4a8e-f7fc-4895-a834-05c52ed32b5d">&lt;title&gt;</bpt><ept id="c09a4a8e-f7fc-4895-a834-05c52ed32b5d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c09a4a8e-f7fc-4895-a834-05c52ed32b5d">&lt;linkText&gt;</bpt>How to create a hybrid collection of RemoteApp<ept id="c09a4a8e-f7fc-4895-a834-05c52ed32b5d">&lt;/linkText&gt;</ept><bpt id="c09a4a8e-f7fc-4895-a834-05c52ed32b5d">&lt;title&gt;</bpt><ept id="c09a4a8e-f7fc-4895-a834-05c52ed32b5d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b177b825-6a15-4304-9602-c64302c8135d" xml:space="preserve">
+          <source><bpt id="390fe0b1-c897-4750-bc2d-3dbe7bc3ca95">&lt;linkText&gt;</bpt>How does licensing work in RemoteApp?<ept id="390fe0b1-c897-4750-bc2d-3dbe7bc3ca95">&lt;/linkText&gt;</ept><bpt id="390fe0b1-c897-4750-bc2d-3dbe7bc3ca95">&lt;title&gt;</bpt><ept id="390fe0b1-c897-4750-bc2d-3dbe7bc3ca95">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="390fe0b1-c897-4750-bc2d-3dbe7bc3ca95">&lt;linkText&gt;</bpt>How does licensing work in RemoteApp?<ept id="390fe0b1-c897-4750-bc2d-3dbe7bc3ca95">&lt;/linkText&gt;</ept><bpt id="390fe0b1-c897-4750-bc2d-3dbe7bc3ca95">&lt;title&gt;</bpt><ept id="390fe0b1-c897-4750-bc2d-3dbe7bc3ca95">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc29c24d-4e0e-4fb7-a25e-4970038aeed1" xml:space="preserve">
+          <source><bpt id="9bb59dfe-6d28-4feb-a7d4-c798e7a77096">&lt;linkText&gt;</bpt>Best practices for using Azure RemoteApp<ept id="9bb59dfe-6d28-4feb-a7d4-c798e7a77096">&lt;/linkText&gt;</ept><bpt id="9bb59dfe-6d28-4feb-a7d4-c798e7a77096">&lt;title&gt;</bpt><ept id="9bb59dfe-6d28-4feb-a7d4-c798e7a77096">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9bb59dfe-6d28-4feb-a7d4-c798e7a77096">&lt;linkText&gt;</bpt>Best practices for using Azure RemoteApp<ept id="9bb59dfe-6d28-4feb-a7d4-c798e7a77096">&lt;/linkText&gt;</ept><bpt id="9bb59dfe-6d28-4feb-a7d4-c798e7a77096">&lt;title&gt;</bpt><ept id="9bb59dfe-6d28-4feb-a7d4-c798e7a77096">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd096b19-56a0-4d2d-a925-bcfdb7016f63" xml:space="preserve">
+          <source><bpt id="05d09fa0-4aa3-4bb9-a74e-5009da379b0c">&lt;linkText&gt;</bpt>Azure RemoteApp FAQ<ept id="05d09fa0-4aa3-4bb9-a74e-5009da379b0c">&lt;/linkText&gt;</ept><bpt id="05d09fa0-4aa3-4bb9-a74e-5009da379b0c">&lt;title&gt;</bpt><ept id="05d09fa0-4aa3-4bb9-a74e-5009da379b0c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="05d09fa0-4aa3-4bb9-a74e-5009da379b0c">&lt;linkText&gt;</bpt>Azure RemoteApp FAQ<ept id="05d09fa0-4aa3-4bb9-a74e-5009da379b0c">&lt;/linkText&gt;</ept><bpt id="05d09fa0-4aa3-4bb9-a74e-5009da379b0c">&lt;title&gt;</bpt><ept id="05d09fa0-4aa3-4bb9-a74e-5009da379b0c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

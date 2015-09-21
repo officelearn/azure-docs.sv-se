@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="01834fe9-f82b-4ddc-9b2c-c9d742802ee0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="01834fe9-f82b-4ddc-9b2c-c9d742802ee0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ab2fe1b8-b77a-4e46-b952-95586e27f0d4">
+        <trans-unit id="cbef31e3-86e1-41eb-92fb-1e54f96f67cf" xml:space="preserve">
+          <source>Deploy and Manage Notification Hubs using PowerShell</source>
+          <target state="new">Deploy and Manage Notification Hubs using PowerShell</target>
+        </trans-unit>
+        <trans-unit id="4dc30a96-c693-4828-9423-5a5a42c5847d" xml:space="preserve">
+          <source>How to Create and Manage Notification Hubs Using PowerShell for Automation</source>
+          <target state="new">How to Create and Manage Notification Hubs Using PowerShell for Automation</target>
+        </trans-unit>
+        <trans-unit id="6cd16dc3-b55a-468c-87c7-d0d980ee58f7" xml:space="preserve">
+          <source>This article shows you how to use Create and Manage Azure Notification Hubs using PowerShell.</source>
+          <target state="new">This article shows you how to use Create and Manage Azure Notification Hubs using PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="cc53fb5a-d213-489b-8c88-123384ffac51" xml:space="preserve">
+          <source>The following common automation tasks are shown in this topic.</source>
+          <target state="new">The following common automation tasks are shown in this topic.</target>
+        </trans-unit>
+        <trans-unit id="401be233-a17b-4959-a322-f5e1b63b4ab6" xml:space="preserve">
+          <source>Create a Notification Hub</source>
+          <target state="new">Create a Notification Hub</target>
+        </trans-unit>
+        <trans-unit id="8c22cf28-b4b8-4571-9c62-b1e30d914211" xml:space="preserve">
+          <source>Set Credentials</source>
+          <target state="new">Set Credentials</target>
+        </trans-unit>
+        <trans-unit id="f46fdf8e-4480-4816-ae63-aaf9736f695a" xml:space="preserve">
+          <source>If you also need to create a new service bus namespace for your notification hubs, see <bpt id="974b4d43-e534-4820-90bc-e1a640fecef8">&lt;linkText&gt;</bpt>Manage Service Bus with PowerShell<ept id="974b4d43-e534-4820-90bc-e1a640fecef8">&lt;/linkText&gt;</ept><bpt id="974b4d43-e534-4820-90bc-e1a640fecef8">&lt;title&gt;</bpt><ept id="974b4d43-e534-4820-90bc-e1a640fecef8">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you also need to create a new service bus namespace for your notification hubs, see <bpt id="974b4d43-e534-4820-90bc-e1a640fecef8">&lt;linkText&gt;</bpt>Manage Service Bus with PowerShell<ept id="974b4d43-e534-4820-90bc-e1a640fecef8">&lt;/linkText&gt;</ept><bpt id="974b4d43-e534-4820-90bc-e1a640fecef8">&lt;title&gt;</bpt><ept id="974b4d43-e534-4820-90bc-e1a640fecef8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d26d1a4-6b92-4f31-8e0b-7cc73226de7b" xml:space="preserve">
+          <source>Managing Notifications Hubs is not supported directly by the cmdlets included with Azure PowerShell.</source>
+          <target state="new">Managing Notifications Hubs is not supported directly by the cmdlets included with Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="8008ef03-85ec-43f0-bb50-ad2b4cb099e9" xml:space="preserve">
+          <source>The best approach from PowerShell is to reference the Microsoft.ServiceBus.dll assembly.</source>
+          <target state="new">The best approach from PowerShell is to reference the Microsoft.ServiceBus.dll assembly.</target>
+        </trans-unit>
+        <trans-unit id="758c1569-83d5-4e3b-b641-554ed0cc5625" xml:space="preserve">
+          <source>The assembly is distributed with the <bpt id="60712334-e7a7-4c56-adc0-a94669ccb96c">&lt;linkText&gt;</bpt>Service Bus NuGet package<ept id="60712334-e7a7-4c56-adc0-a94669ccb96c">&lt;/linkText&gt;</ept><bpt id="60712334-e7a7-4c56-adc0-a94669ccb96c">&lt;title&gt;</bpt><ept id="60712334-e7a7-4c56-adc0-a94669ccb96c">&lt;/title&gt;</ept>.</source>
+          <target state="new">The assembly is distributed with the <bpt id="60712334-e7a7-4c56-adc0-a94669ccb96c">&lt;linkText&gt;</bpt>Service Bus NuGet package<ept id="60712334-e7a7-4c56-adc0-a94669ccb96c">&lt;/linkText&gt;</ept><bpt id="60712334-e7a7-4c56-adc0-a94669ccb96c">&lt;title&gt;</bpt><ept id="60712334-e7a7-4c56-adc0-a94669ccb96c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38af80d4-ee66-41f0-a6c2-5a5e65a3fa08" xml:space="preserve">
+          <source>Before you begin this article, you must have the following:</source>
+          <target state="new">Before you begin this article, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="fdf07473-6e4e-4c46-866a-e824303c4bd0" xml:space="preserve">
+          <source>An Azure subscription.</source>
+          <target state="new">An Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="66b60276-b808-416d-ad19-7e6be3bf9631" xml:space="preserve">
+          <source>Azure is a subscription-based platform.</source>
+          <target state="new">Azure is a subscription-based platform.</target>
+        </trans-unit>
+        <trans-unit id="4fc8762a-7c26-4e10-8e7b-9d707549fe94" xml:space="preserve">
+          <source>For more
+information about obtaining a subscription, see [Purchase Options],
+[Member Offers], or [Free Trial].</source>
+          <target state="new">For more
+information about obtaining a subscription, see [Purchase Options],
+[Member Offers], or [Free Trial].</target>
+        </trans-unit>
+        <trans-unit id="a77c80a3-5b04-4d20-b586-5548f48a0404" xml:space="preserve">
+          <source>A computer with Azure PowerShell.</source>
+          <target state="new">A computer with Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="81e7782c-be0b-4e6b-8a72-b40c918751cc" xml:space="preserve">
+          <source>For instructions, see [Install and configure Azure PowerShell].</source>
+          <target state="new">For instructions, see [Install and configure Azure PowerShell].</target>
+        </trans-unit>
+        <trans-unit id="5ba1b1a2-f0b3-4bfa-b32a-9593552d19f8" xml:space="preserve">
+          <source>A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.</source>
+          <target state="new">A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.</target>
+        </trans-unit>
+        <trans-unit id="1ec48792-a7d0-4d31-8efd-e973352661c2" xml:space="preserve">
+          <source>Managing Azure Notification Hubs is not yet included with the PowerShell cmdlets in Azure PowerShell.</source>
+          <target state="new">Managing Azure Notification Hubs is not yet included with the PowerShell cmdlets in Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="dbb78104-2f32-46ae-8cdd-49cad256d480" xml:space="preserve">
+          <source>To provision notification hubs and other service bus entities that are not exposed through the existing cmdlets, you can use the .NET client for
+Service Bus in the <bpt id="2068359c-d740-4fbd-b76b-b5fc25756d53">&lt;linkText&gt;</bpt>Service Bus NuGet package<ept id="2068359c-d740-4fbd-b76b-b5fc25756d53">&lt;/linkText&gt;</ept><bpt id="2068359c-d740-4fbd-b76b-b5fc25756d53">&lt;title&gt;</bpt><ept id="2068359c-d740-4fbd-b76b-b5fc25756d53">&lt;/title&gt;</ept>.</source>
+          <target state="new">To provision notification hubs and other service bus entities that are not exposed through the existing cmdlets, you can use the .NET client for
+Service Bus in the <bpt id="2068359c-d740-4fbd-b76b-b5fc25756d53">&lt;linkText&gt;</bpt>Service Bus NuGet package<ept id="2068359c-d740-4fbd-b76b-b5fc25756d53">&lt;/linkText&gt;</ept><bpt id="2068359c-d740-4fbd-b76b-b5fc25756d53">&lt;title&gt;</bpt><ept id="2068359c-d740-4fbd-b76b-b5fc25756d53">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19e7a31d-640f-48c1-8f83-29a84cab09bd" xml:space="preserve">
+          <source>First, make sure your script can locate the <bpt id="ca363a72-2a79-4091-b753-b0bf4833bd57">&lt;strong&gt;</bpt>Microsoft.ServiceBus.dll<ept id="ca363a72-2a79-4091-b753-b0bf4833bd57">&lt;/strong&gt;</ept> assembly, which is installed as a NuGet package in a Visual Studio project.</source>
+          <target state="new">First, make sure your script can locate the <bpt id="ca363a72-2a79-4091-b753-b0bf4833bd57">&lt;strong&gt;</bpt>Microsoft.ServiceBus.dll<ept id="ca363a72-2a79-4091-b753-b0bf4833bd57">&lt;/strong&gt;</ept> assembly, which is installed as a NuGet package in a Visual Studio project.</target>
+        </trans-unit>
+        <trans-unit id="ac09db89-8d4b-4d91-a5a5-bb5e45b16228" xml:space="preserve">
+          <source>In order to be flexible, the script performs these steps:</source>
+          <target state="new">In order to be flexible, the script performs these steps:</target>
+        </trans-unit>
+        <trans-unit id="3484b25c-9fc7-40d3-8d6c-86c9b7c3133b" xml:space="preserve">
+          <source>Determines the path at which it was invoked.</source>
+          <target state="new">Determines the path at which it was invoked.</target>
+        </trans-unit>
+        <trans-unit id="5be3541a-a9de-42bf-b2be-c0058c29f43e" xml:space="preserve">
+          <source>Traverses the path until it finds a folder named <bpt id="f24b3482-c49f-4666-821f-8db27ff9f455">&lt;code&gt;</bpt>packages<ept id="f24b3482-c49f-4666-821f-8db27ff9f455">&lt;/code&gt;</ept>.</source>
+          <target state="new">Traverses the path until it finds a folder named <bpt id="f24b3482-c49f-4666-821f-8db27ff9f455">&lt;code&gt;</bpt>packages<ept id="f24b3482-c49f-4666-821f-8db27ff9f455">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94919c4f-7c6b-42ca-ab90-d0a299ee09ca" xml:space="preserve">
+          <source>This folder is created when you install NuGet packages for Visual Studio projects.</source>
+          <target state="new">This folder is created when you install NuGet packages for Visual Studio projects.</target>
+        </trans-unit>
+        <trans-unit id="7fb7ba75-4b5b-4b00-aef1-d68c01bcb47c" xml:space="preserve">
+          <source>Recursively searches the <bpt id="007524a2-c4d7-40b6-b479-cf70602e9dca">&lt;code&gt;</bpt>packages<ept id="007524a2-c4d7-40b6-b479-cf70602e9dca">&lt;/code&gt;</ept> folder for an assembly named <bpt id="e86d4553-2f7d-4a10-83c1-ff7a7d984b36">&lt;strong&gt;</bpt>Microsoft.ServiceBus.dll<ept id="e86d4553-2f7d-4a10-83c1-ff7a7d984b36">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Recursively searches the <bpt id="007524a2-c4d7-40b6-b479-cf70602e9dca">&lt;code&gt;</bpt>packages<ept id="007524a2-c4d7-40b6-b479-cf70602e9dca">&lt;/code&gt;</ept> folder for an assembly named <bpt id="e86d4553-2f7d-4a10-83c1-ff7a7d984b36">&lt;strong&gt;</bpt>Microsoft.ServiceBus.dll<ept id="e86d4553-2f7d-4a10-83c1-ff7a7d984b36">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5db734a3-3fa9-44ca-a3ab-e38971940169" xml:space="preserve">
+          <source>References the assembly so that the types are available for later use.</source>
+          <target state="new">References the assembly so that the types are available for later use.</target>
+        </trans-unit>
+        <trans-unit id="e2b3c392-19f7-4e5a-8824-524835b44487" xml:space="preserve">
+          <source>Here's how these steps are implemented in a PowerShell script:</source>
+          <target state="new">Here's how these steps are implemented in a PowerShell script:</target>
+        </trans-unit>
+        <trans-unit id="af68d356-1a53-4c63-9154-620b406af861" xml:space="preserve">
+          <source>To provision Notification Hubs and other Service Bus entities, create an instance of the <bpt id="74481596-aea9-4907-880e-ba4022f80977">&lt;linkText&gt;</bpt>NamespaceManager<ept id="74481596-aea9-4907-880e-ba4022f80977">&lt;/linkText&gt;</ept><bpt id="74481596-aea9-4907-880e-ba4022f80977">&lt;title&gt;</bpt><ept id="74481596-aea9-4907-880e-ba4022f80977">&lt;/title&gt;</ept> class from the SDK.</source>
+          <target state="new">To provision Notification Hubs and other Service Bus entities, create an instance of the <bpt id="74481596-aea9-4907-880e-ba4022f80977">&lt;linkText&gt;</bpt>NamespaceManager<ept id="74481596-aea9-4907-880e-ba4022f80977">&lt;/linkText&gt;</ept><bpt id="74481596-aea9-4907-880e-ba4022f80977">&lt;title&gt;</bpt><ept id="74481596-aea9-4907-880e-ba4022f80977">&lt;/title&gt;</ept> class from the SDK.</target>
+        </trans-unit>
+        <trans-unit id="f4acf39c-ff58-44f6-aae1-e5b9099d5dff" xml:space="preserve">
+          <source>You can use the [Get-AzureSBAuthorizationRule] cmdlet included with Azure PowerShell to retrieve an authorization rule that's used to provide a connection string.</source>
+          <target state="new">You can use the [Get-AzureSBAuthorizationRule] cmdlet included with Azure PowerShell to retrieve an authorization rule that's used to provide a connection string.</target>
+        </trans-unit>
+        <trans-unit id="b1009e7a-31ea-4e28-a2ec-f168635079e0" xml:space="preserve">
+          <source>We'll store a reference to the <bpt id="54531200-b464-4a93-8e17-e2f814f9bcbb">&lt;code&gt;</bpt>NamespaceManager<ept id="54531200-b464-4a93-8e17-e2f814f9bcbb">&lt;/code&gt;</ept> instance in the <bpt id="4ead05d0-8ed4-4559-9c1e-b08d1001ad2f">&lt;code&gt;</bpt>$NamespaceManager<ept id="4ead05d0-8ed4-4559-9c1e-b08d1001ad2f">&lt;/code&gt;</ept> variable.</source>
+          <target state="new">We'll store a reference to the <bpt id="54531200-b464-4a93-8e17-e2f814f9bcbb">&lt;code&gt;</bpt>NamespaceManager<ept id="54531200-b464-4a93-8e17-e2f814f9bcbb">&lt;/code&gt;</ept> instance in the <bpt id="4ead05d0-8ed4-4559-9c1e-b08d1001ad2f">&lt;code&gt;</bpt>$NamespaceManager<ept id="4ead05d0-8ed4-4559-9c1e-b08d1001ad2f">&lt;/code&gt;</ept> variable.</target>
+        </trans-unit>
+        <trans-unit id="32f23d60-0308-442a-afa2-f83b2666cdbe" xml:space="preserve">
+          <source>We will use <bpt id="6ffa8e5e-f30b-47a7-ab77-1bfefa23f002">&lt;code&gt;</bpt>$NamespaceManager<ept id="6ffa8e5e-f30b-47a7-ab77-1bfefa23f002">&lt;/code&gt;</ept> to provision a notification hub.</source>
+          <target state="new">We will use <bpt id="6ffa8e5e-f30b-47a7-ab77-1bfefa23f002">&lt;code&gt;</bpt>$NamespaceManager<ept id="6ffa8e5e-f30b-47a7-ab77-1bfefa23f002">&lt;/code&gt;</ept> to provision a notification hub.</target>
+        </trans-unit>
+        <trans-unit id="08101e0c-b2f8-446c-9610-9e24b26972b5" xml:space="preserve">
+          <source>To provision a new notification hub, use the [.NET API for Service Bus].</source>
+          <target state="new">To provision a new notification hub, use the [.NET API for Service Bus].</target>
+        </trans-unit>
+        <trans-unit id="169bafe5-70d8-481d-a0aa-2f28ed744d02" xml:space="preserve">
+          <source>This article focuses only on notification hubs.</source>
+          <target state="new">This article focuses only on notification hubs.</target>
+        </trans-unit>
+        <trans-unit id="0027a023-31c4-4d9a-81c8-b9b3bacefc11" xml:space="preserve">
+          <source>To work with other service bus entities, see <bpt id="65083576-e8c2-4ba6-ae80-45f398f0a4dc">&lt;linkText&gt;</bpt>Manage Service Bus with PowerShell<ept id="65083576-e8c2-4ba6-ae80-45f398f0a4dc">&lt;/linkText&gt;</ept><bpt id="65083576-e8c2-4ba6-ae80-45f398f0a4dc">&lt;title&gt;</bpt><ept id="65083576-e8c2-4ba6-ae80-45f398f0a4dc">&lt;/title&gt;</ept>.</source>
+          <target state="new">To work with other service bus entities, see <bpt id="65083576-e8c2-4ba6-ae80-45f398f0a4dc">&lt;linkText&gt;</bpt>Manage Service Bus with PowerShell<ept id="65083576-e8c2-4ba6-ae80-45f398f0a4dc">&lt;/linkText&gt;</ept><bpt id="65083576-e8c2-4ba6-ae80-45f398f0a4dc">&lt;title&gt;</bpt><ept id="65083576-e8c2-4ba6-ae80-45f398f0a4dc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="260a335f-38a4-4a64-9dbd-0402f2b18014" xml:space="preserve">
+          <source>In this part of the script you set up four local variables.</source>
+          <target state="new">In this part of the script you set up four local variables.</target>
+        </trans-unit>
+        <trans-unit id="d1442176-a7ff-4b6b-bec5-05da8125ae95" xml:space="preserve">
+          <source><bpt id="3d4a3768-2347-47e6-bb40-cd11e2a14177">&lt;code&gt;</bpt>$Namespace<ept id="3d4a3768-2347-47e6-bb40-cd11e2a14177">&lt;/code&gt;</ept> : Set this to the name of the namespace where you want to create a notification hub.</source>
+          <target state="new"><bpt id="3d4a3768-2347-47e6-bb40-cd11e2a14177">&lt;code&gt;</bpt>$Namespace<ept id="3d4a3768-2347-47e6-bb40-cd11e2a14177">&lt;/code&gt;</ept> : Set this to the name of the namespace where you want to create a notification hub.</target>
+        </trans-unit>
+        <trans-unit id="4f68c8bd-7fa9-4760-8484-7905ac300755" xml:space="preserve">
+          <source><bpt id="ec7c6e27-6dd9-48d5-a171-cbedd6d8950b">&lt;code&gt;</bpt>$Path<ept id="ec7c6e27-6dd9-48d5-a171-cbedd6d8950b">&lt;/code&gt;</ept> : Set this path to the name of the new notification hub.</source>
+          <target state="new"><bpt id="ec7c6e27-6dd9-48d5-a171-cbedd6d8950b">&lt;code&gt;</bpt>$Path<ept id="ec7c6e27-6dd9-48d5-a171-cbedd6d8950b">&lt;/code&gt;</ept> : Set this path to the name of the new notification hub.</target>
+        </trans-unit>
+        <trans-unit id="36bd5ad8-22ed-4ae9-bddb-a2a23efb3b30" xml:space="preserve">
+          <source>For example, "MyHub".</source>
+          <target state="new">For example, "MyHub".</target>
+        </trans-unit>
+        <trans-unit id="85ffc2f0-c09d-4f01-b4bf-53858d6bfa8d" xml:space="preserve">
+          <source><bpt id="61ec2b40-e0be-4bc4-a54d-4200baeb2802">&lt;code&gt;</bpt>$WnsPackageSid<ept id="61ec2b40-e0be-4bc4-a54d-4200baeb2802">&lt;/code&gt;</ept> : Set this to the package SID for you Windows App from the <bpt id="ebed4aef-5b16-4b4f-add6-640c1edfe87b">&lt;linkText&gt;</bpt>Windows Dev Center<ept id="ebed4aef-5b16-4b4f-add6-640c1edfe87b">&lt;/linkText&gt;</ept><bpt id="ebed4aef-5b16-4b4f-add6-640c1edfe87b">&lt;title&gt;</bpt><ept id="ebed4aef-5b16-4b4f-add6-640c1edfe87b">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="61ec2b40-e0be-4bc4-a54d-4200baeb2802">&lt;code&gt;</bpt>$WnsPackageSid<ept id="61ec2b40-e0be-4bc4-a54d-4200baeb2802">&lt;/code&gt;</ept> : Set this to the package SID for you Windows App from the <bpt id="ebed4aef-5b16-4b4f-add6-640c1edfe87b">&lt;linkText&gt;</bpt>Windows Dev Center<ept id="ebed4aef-5b16-4b4f-add6-640c1edfe87b">&lt;/linkText&gt;</ept><bpt id="ebed4aef-5b16-4b4f-add6-640c1edfe87b">&lt;title&gt;</bpt><ept id="ebed4aef-5b16-4b4f-add6-640c1edfe87b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1ab0ab3-8f0a-41fc-9dfd-6d0e6178fc09" xml:space="preserve">
+          <source><bpt id="340e37bc-44dd-4d8c-91d4-d6db452aeaeb">&lt;code&gt;</bpt>$WnsSecretkey<ept id="340e37bc-44dd-4d8c-91d4-d6db452aeaeb">&lt;/code&gt;</ept>: Set this to the secret key for you Windows App from the <bpt id="37c90253-f4ef-4f69-825a-b44fa094c00a">&lt;linkText&gt;</bpt>Windows Dev Center<ept id="37c90253-f4ef-4f69-825a-b44fa094c00a">&lt;/linkText&gt;</ept><bpt id="37c90253-f4ef-4f69-825a-b44fa094c00a">&lt;title&gt;</bpt><ept id="37c90253-f4ef-4f69-825a-b44fa094c00a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="340e37bc-44dd-4d8c-91d4-d6db452aeaeb">&lt;code&gt;</bpt>$WnsSecretkey<ept id="340e37bc-44dd-4d8c-91d4-d6db452aeaeb">&lt;/code&gt;</ept>: Set this to the secret key for you Windows App from the <bpt id="37c90253-f4ef-4f69-825a-b44fa094c00a">&lt;linkText&gt;</bpt>Windows Dev Center<ept id="37c90253-f4ef-4f69-825a-b44fa094c00a">&lt;/linkText&gt;</ept><bpt id="37c90253-f4ef-4f69-825a-b44fa094c00a">&lt;title&gt;</bpt><ept id="37c90253-f4ef-4f69-825a-b44fa094c00a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="575fa1d4-19c8-47f8-86a5-14cb8ad2f7f9" xml:space="preserve">
+          <source>These variables are used to connect to your Service Bus namespace and create a new Notification Hub configured to handle Windows Notification Services (WNS) notifications with WNS credentials for a Windows App.</source>
+          <target state="new">These variables are used to connect to your Service Bus namespace and create a new Notification Hub configured to handle Windows Notification Services (WNS) notifications with WNS credentials for a Windows App.</target>
+        </trans-unit>
+        <trans-unit id="a7916fc5-30f9-436e-ae22-4b76c2491169" xml:space="preserve">
+          <source>For information on obtaining the package SID and secret key see, the <bpt id="dee77bbf-0b31-474a-b83c-6174df1f7c69">&lt;linkText&gt;</bpt>Getting Started with Notification Hubs<ept id="dee77bbf-0b31-474a-b83c-6174df1f7c69">&lt;/linkText&gt;</ept><bpt id="dee77bbf-0b31-474a-b83c-6174df1f7c69">&lt;title&gt;</bpt><ept id="dee77bbf-0b31-474a-b83c-6174df1f7c69">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">For information on obtaining the package SID and secret key see, the <bpt id="dee77bbf-0b31-474a-b83c-6174df1f7c69">&lt;linkText&gt;</bpt>Getting Started with Notification Hubs<ept id="dee77bbf-0b31-474a-b83c-6174df1f7c69">&lt;/linkText&gt;</ept><bpt id="dee77bbf-0b31-474a-b83c-6174df1f7c69">&lt;title&gt;</bpt><ept id="dee77bbf-0b31-474a-b83c-6174df1f7c69">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="99e0ae37-171f-4316-887a-80cb0090ea0c" xml:space="preserve">
+          <source>The script snippet uses the <bpt id="29868d14-d785-4668-a1fc-588efc100fbb">&lt;code&gt;</bpt>NamespaceManager<ept id="29868d14-d785-4668-a1fc-588efc100fbb">&lt;/code&gt;</ept> object to check to see if the Notification Hub identified by <bpt id="c3608d6f-ea08-41e5-ad05-ebe7a5099437">&lt;code&gt;</bpt>$Path<ept id="c3608d6f-ea08-41e5-ad05-ebe7a5099437">&lt;/code&gt;</ept> exists.</source>
+          <target state="new">The script snippet uses the <bpt id="29868d14-d785-4668-a1fc-588efc100fbb">&lt;code&gt;</bpt>NamespaceManager<ept id="29868d14-d785-4668-a1fc-588efc100fbb">&lt;/code&gt;</ept> object to check to see if the Notification Hub identified by <bpt id="c3608d6f-ea08-41e5-ad05-ebe7a5099437">&lt;code&gt;</bpt>$Path<ept id="c3608d6f-ea08-41e5-ad05-ebe7a5099437">&lt;/code&gt;</ept> exists.</target>
+        </trans-unit>
+        <trans-unit id="f26a6b09-2a31-421a-805a-c838c8f3057a" xml:space="preserve">
+          <source>If it does not exist, the script will create an <bpt id="057f7473-0326-4779-8192-23616386467d">&lt;code&gt;</bpt>NotificationHubDescription<ept id="057f7473-0326-4779-8192-23616386467d">&lt;/code&gt;</ept> with WNS credentials and pass that to the <bpt id="ee6c2e2a-db53-4763-aece-5d682dcb471d">&lt;code&gt;</bpt>NamespaceManager<ept id="ee6c2e2a-db53-4763-aece-5d682dcb471d">&lt;/code&gt;</ept> class <bpt id="816458e4-1209-494c-b661-b9e6d88979c1">&lt;code&gt;</bpt>CreateNotificationHub<ept id="816458e4-1209-494c-b661-b9e6d88979c1">&lt;/code&gt;</ept> method.</source>
+          <target state="new">If it does not exist, the script will create an <bpt id="057f7473-0326-4779-8192-23616386467d">&lt;code&gt;</bpt>NotificationHubDescription<ept id="057f7473-0326-4779-8192-23616386467d">&lt;/code&gt;</ept> with WNS credentials and pass that to the <bpt id="ee6c2e2a-db53-4763-aece-5d682dcb471d">&lt;code&gt;</bpt>NamespaceManager<ept id="ee6c2e2a-db53-4763-aece-5d682dcb471d">&lt;/code&gt;</ept> class <bpt id="816458e4-1209-494c-b661-b9e6d88979c1">&lt;code&gt;</bpt>CreateNotificationHub<ept id="816458e4-1209-494c-b661-b9e6d88979c1">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="9dbb8eb2-9fe0-46c5-8fc8-650674d636c1" xml:space="preserve">
+          <source><bpt id="dfa7c733-7544-4f84-a1fd-2c05ae868ebb">&lt;linkText&gt;</bpt>Manage Service Bus with PowerShell<ept id="dfa7c733-7544-4f84-a1fd-2c05ae868ebb">&lt;/linkText&gt;</ept><bpt id="dfa7c733-7544-4f84-a1fd-2c05ae868ebb">&lt;title&gt;</bpt><ept id="dfa7c733-7544-4f84-a1fd-2c05ae868ebb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dfa7c733-7544-4f84-a1fd-2c05ae868ebb">&lt;linkText&gt;</bpt>Manage Service Bus with PowerShell<ept id="dfa7c733-7544-4f84-a1fd-2c05ae868ebb">&lt;/linkText&gt;</ept><bpt id="dfa7c733-7544-4f84-a1fd-2c05ae868ebb">&lt;title&gt;</bpt><ept id="dfa7c733-7544-4f84-a1fd-2c05ae868ebb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="827e5943-5709-4afd-9e6b-d1d73f4d546d" xml:space="preserve">
+          <source><bpt id="47851b15-f5bf-4061-8668-9bf09aec9db2">&lt;linkText&gt;</bpt>How to create Service Bus queues, topics and subscriptions using a PowerShell script<ept id="47851b15-f5bf-4061-8668-9bf09aec9db2">&lt;/linkText&gt;</ept><bpt id="47851b15-f5bf-4061-8668-9bf09aec9db2">&lt;title&gt;</bpt><ept id="47851b15-f5bf-4061-8668-9bf09aec9db2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="47851b15-f5bf-4061-8668-9bf09aec9db2">&lt;linkText&gt;</bpt>How to create Service Bus queues, topics and subscriptions using a PowerShell script<ept id="47851b15-f5bf-4061-8668-9bf09aec9db2">&lt;/linkText&gt;</ept><bpt id="47851b15-f5bf-4061-8668-9bf09aec9db2">&lt;title&gt;</bpt><ept id="47851b15-f5bf-4061-8668-9bf09aec9db2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="887ec360-03e2-4a08-ae0f-9c1fff76a5da" xml:space="preserve">
+          <source><bpt id="637f0b64-18a9-4e79-b57e-e579ece61bc4">&lt;linkText&gt;</bpt>How to create a Service Bus Namespace and an Event Hub using a PowerShell script<ept id="637f0b64-18a9-4e79-b57e-e579ece61bc4">&lt;/linkText&gt;</ept><bpt id="637f0b64-18a9-4e79-b57e-e579ece61bc4">&lt;title&gt;</bpt><ept id="637f0b64-18a9-4e79-b57e-e579ece61bc4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="637f0b64-18a9-4e79-b57e-e579ece61bc4">&lt;linkText&gt;</bpt>How to create a Service Bus Namespace and an Event Hub using a PowerShell script<ept id="637f0b64-18a9-4e79-b57e-e579ece61bc4">&lt;/linkText&gt;</ept><bpt id="637f0b64-18a9-4e79-b57e-e579ece61bc4">&lt;title&gt;</bpt><ept id="637f0b64-18a9-4e79-b57e-e579ece61bc4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aaf78a17-a730-4682-9bfc-d04466994215" xml:space="preserve">
+          <source>Some ready-made scripts are also available for download:</source>
+          <target state="new">Some ready-made scripts are also available for download:</target>
+        </trans-unit>
+        <trans-unit id="f73b5b2b-9f67-445c-a17b-23bf2f49257d" xml:space="preserve">
+          <source><bpt id="49540a28-c851-40f6-bea7-0720d12d3ff5">&lt;linkText&gt;</bpt>Service Bus PowerShell Scripts<ept id="49540a28-c851-40f6-bea7-0720d12d3ff5">&lt;/linkText&gt;</ept><bpt id="49540a28-c851-40f6-bea7-0720d12d3ff5">&lt;title&gt;</bpt><ept id="49540a28-c851-40f6-bea7-0720d12d3ff5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="49540a28-c851-40f6-bea7-0720d12d3ff5">&lt;linkText&gt;</bpt>Service Bus PowerShell Scripts<ept id="49540a28-c851-40f6-bea7-0720d12d3ff5">&lt;/linkText&gt;</ept><bpt id="49540a28-c851-40f6-bea7-0720d12d3ff5">&lt;title&gt;</bpt><ept id="49540a28-c851-40f6-bea7-0720d12d3ff5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ea2da00-cfe3-439e-85d5-03c196d31abe" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="3dc09e86-0b29-421d-89b1-c8864c1d93c4" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="551e71e5-3b43-47cb-89d3-1848447fdd3d" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="7362a5a4-16ac-4f67-bb43-041f1b8cd9dd" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="22e6e405-b921-46bf-a932-99122f2bcf1a" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/microsoft.servicebus.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/microsoft.servicebus.aspx</target>
+        </trans-unit>
+        <trans-unit id="2393b758-53d9-4a1b-a609-e6a18feea146" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn495122.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn495122.aspx</target>
+        </trans-unit>
+        <trans-unit id="98f1f264-89cb-489b-969d-1724a7d0d618" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn495165.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn495165.aspx</target>
+        </trans-unit>
+        <trans-unit id="087497aa-ac82-4085-ab3b-60953c0de035" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn495113.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn495113.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="7d042056-bd2e-4e63-8904-4689f90aed66" />
+    </body>
+  </file>
+</xliff>

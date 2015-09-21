@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f12f5dbe-cc25-4cbc-981f-486f59b20502" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f12f5dbe-cc25-4cbc-981f-486f59b20502" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="13341654-43cf-4288-a66f-948f487092c3">
+        <trans-unit id="f9947f7f-65c6-472b-9a7f-a1ba111df4aa" xml:space="preserve">
+          <source>Azure Mobile Engagement Android SDK Integration</source>
+          <target state="new">Azure Mobile Engagement Android SDK Integration</target>
+        </trans-unit>
+        <trans-unit id="68c922cd-545e-43ab-9267-c17d22b70d4b" xml:space="preserve">
+          <source>Latest updates and procedures for Android SDK for Azure Mobile Engagement</source>
+          <target state="new">Latest updates and procedures for Android SDK for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="976ef35d-daf8-498b-b378-3f5c3e7a4dab" xml:space="preserve">
+          <source>Handle new permission model for Android M.</source>
+          <target state="new">Handle new permission model for Android M.</target>
+        </trans-unit>
+        <trans-unit id="d7be02c2-60d3-4118-a5b8-2cb002d8e0e6" xml:space="preserve">
+          <source>Can now configure location features at runtime instead of using  <bpt id="c323c68f-d2de-4bbb-b185-7a270c3df37f">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="c323c68f-d2de-4bbb-b185-7a270c3df37f">&lt;/code&gt;</ept>.</source>
+          <target state="new">Can now configure location features at runtime instead of using  <bpt id="c323c68f-d2de-4bbb-b185-7a270c3df37f">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="c323c68f-d2de-4bbb-b185-7a270c3df37f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d283cf57-03ab-4684-9c4b-df3f4c740bff" xml:space="preserve">
+          <source>Fix a permission bug: if you use <bpt id="adc6d74a-a7db-4f2f-a6a6-ec429d3999be">&lt;code&gt;</bpt>ACCESS_FINE_LOCATION<ept id="adc6d74a-a7db-4f2f-a6a6-ec429d3999be">&lt;/code&gt;</ept>, then <bpt id="9dc697b5-9b71-494b-b223-df73675360d2">&lt;code&gt;</bpt>ACCESS_COARSE_LOCATION<ept id="9dc697b5-9b71-494b-b223-df73675360d2">&lt;/code&gt;</ept> is not needed anymore.</source>
+          <target state="new">Fix a permission bug: if you use <bpt id="adc6d74a-a7db-4f2f-a6a6-ec429d3999be">&lt;code&gt;</bpt>ACCESS_FINE_LOCATION<ept id="adc6d74a-a7db-4f2f-a6a6-ec429d3999be">&lt;/code&gt;</ept>, then <bpt id="9dc697b5-9b71-494b-b223-df73675360d2">&lt;code&gt;</bpt>ACCESS_COARSE_LOCATION<ept id="9dc697b5-9b71-494b-b223-df73675360d2">&lt;/code&gt;</ept> is not needed anymore.</target>
+        </trans-unit>
+        <trans-unit id="96e6189e-6209-427b-847b-c9823f024321" xml:space="preserve">
+          <source>Stability improvements.</source>
+          <target state="new">Stability improvements.</target>
+        </trans-unit>
+        <trans-unit id="cfc0f6a1-134c-4a58-9a4d-17b30508e8f2" xml:space="preserve">
+          <source>Internal protocol changes to make analytics and push more reliable.</source>
+          <target state="new">Internal protocol changes to make analytics and push more reliable.</target>
+        </trans-unit>
+        <trans-unit id="69afb603-dd77-4950-b494-053ae94bf4a9" xml:space="preserve">
+          <source>Native push (GCM/ADM) is now also used for in app notifications so you must configure the native push credentials for any type of push campaign.</source>
+          <target state="new">Native push (GCM/ADM) is now also used for in app notifications so you must configure the native push credentials for any type of push campaign.</target>
+        </trans-unit>
+        <trans-unit id="965fe619-4962-474e-b356-c5fb5327d9c4" xml:space="preserve">
+          <source>Fix big picture notification: they were displayed only 10s after being pushed.</source>
+          <target state="new">Fix big picture notification: they were displayed only 10s after being pushed.</target>
+        </trans-unit>
+        <trans-unit id="9ecad9c1-9e5a-4a86-b896-2e33358c6122" xml:space="preserve">
+          <source>Fix a bug in web view: clicking on a link was also executing the default action URL.</source>
+          <target state="new">Fix a bug in web view: clicking on a link was also executing the default action URL.</target>
+        </trans-unit>
+        <trans-unit id="8d672e9c-4ad7-4503-984d-9c5070ed265f" xml:space="preserve">
+          <source>Fix a rare crash related to local storage management.</source>
+          <target state="new">Fix a rare crash related to local storage management.</target>
+        </trans-unit>
+        <trans-unit id="b1d02afd-67a8-411e-9977-18e152b084f9" xml:space="preserve">
+          <source>Fix dynamic configuration string management.</source>
+          <target state="new">Fix dynamic configuration string management.</target>
+        </trans-unit>
+        <trans-unit id="626668eb-eaee-4449-8b2b-060db1319ffb" xml:space="preserve">
+          <source>Update EULA.</source>
+          <target state="new">Update EULA.</target>
+        </trans-unit>
+        <trans-unit id="0c529ca1-665c-49d4-bbd4-0cb0d5fd7f82" xml:space="preserve">
+          <source>Initial Release of Azure Mobile Engagement</source>
+          <target state="new">Initial Release of Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="e4d1306e-df74-4ddc-9d30-bdad00402e25" xml:space="preserve">
+          <source>appId configuration is replaced by a connection string configuration.</source>
+          <target state="new">appId configuration is replaced by a connection string configuration.</target>
+        </trans-unit>
+        <trans-unit id="026ac07d-6e4b-4623-bb4b-a12d25fa1031" xml:space="preserve">
+          <source>Removed API to send and receive arbitrary XMPP messages from arbitrary XMPP entities.</source>
+          <target state="new">Removed API to send and receive arbitrary XMPP messages from arbitrary XMPP entities.</target>
+        </trans-unit>
+        <trans-unit id="13a3f137-1823-4467-8f67-5e349f008063" xml:space="preserve">
+          <source>Removed API to send and receive messages between devices.</source>
+          <target state="new">Removed API to send and receive messages between devices.</target>
+        </trans-unit>
+        <trans-unit id="de81f35d-1b46-4964-abb1-5d31782edaa8" xml:space="preserve">
+          <source>Security improvements.</source>
+          <target state="new">Security improvements.</target>
+        </trans-unit>
+        <trans-unit id="7ed8bb1a-1c2a-4bd0-af12-4e9c59abc2c6" xml:space="preserve">
+          <source>Google Play and SmartAd tracking removed.</source>
+          <target state="new">Google Play and SmartAd tracking removed.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

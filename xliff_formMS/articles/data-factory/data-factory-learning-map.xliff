@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5bac7aad-0d89-4712-b47c-fd3db0cc2616" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5bac7aad-0d89-4712-b47c-fd3db0cc2616" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d0996502-8d59-4777-bda7-10366b39421c">
+        <trans-unit id="a8780bce-5b61-4db3-9a0e-feae0aaafc97" xml:space="preserve">
+          <source>Learning Map for Azure Data Factory | Microsoft Azure</source>
+          <target state="new">Learning Map for Azure Data Factory | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7cfaaa11-ca7a-4ec8-aa6d-ca8e1f720ec4" xml:space="preserve">
+          <source>Get a visual map of the resources available to go from 0 to 60 on Azure Data Factory.</source>
+          <target state="new">Get a visual map of the resources available to go from 0 to 60 on Azure Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="efd7e192-2d02-498c-b895-dead619c4307" xml:space="preserve">
+          <source>Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.</source>
+          <target state="new">Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.</target>
+        </trans-unit>
+        <trans-unit id="587d9242-845f-44a9-ab9e-16684e351753" xml:space="preserve">
+          <source>Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information.</source>
+          <target state="new">Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information.</target>
+        </trans-unit>
+        <trans-unit id="360e056c-4856-43c8-975e-c617ac2444d2" xml:space="preserve">
+          <source>&lt;object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/adf-learning-map.svg" width="100%" height="100%"&gt;
+&lt;/object&gt;</source>
+          <target state="new">&lt;object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/adf-learning-map.svg" width="100%" height="100%"&gt;
+&lt;/object&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b564ffb9-1c5d-4bb6-b286-0b17ff45143a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b564ffb9-1c5d-4bb6-b286-0b17ff45143a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="52164516-bfe5-47d9-89c4-a6bf83dffea0">
+        <trans-unit id="b37dfbcd-1478-4cf1-b5f7-9910a4ca7f30" xml:space="preserve">
+          <source>These steps create a new custom <bpt id="7be56941-3274-4c80-87d9-d938a1e2ad9d">&lt;linkText&gt;</bpt>ApiController<ept id="7be56941-3274-4c80-87d9-d938a1e2ad9d">&lt;/linkText&gt;</ept><bpt id="7be56941-3274-4c80-87d9-d938a1e2ad9d">&lt;title&gt;</bpt><ept id="7be56941-3274-4c80-87d9-d938a1e2ad9d">&lt;/title&gt;</ept> that sends push notifications to the app.</source>
+          <target state="new">These steps create a new custom <bpt id="7be56941-3274-4c80-87d9-d938a1e2ad9d">&lt;linkText&gt;</bpt>ApiController<ept id="7be56941-3274-4c80-87d9-d938a1e2ad9d">&lt;/linkText&gt;</ept><bpt id="7be56941-3274-4c80-87d9-d938a1e2ad9d">&lt;title&gt;</bpt><ept id="7be56941-3274-4c80-87d9-d938a1e2ad9d">&lt;/title&gt;</ept> that sends push notifications to the app.</target>
+        </trans-unit>
+        <trans-unit id="2dd193b0-1cde-4ab6-8a21-f9f86e2e8a9c" xml:space="preserve">
+          <source>You could implement this same code in a <bpt id="ea342c0d-79fe-4e58-b6eb-5b87319eba78">&lt;linkText&gt;</bpt>TableController<ept id="ea342c0d-79fe-4e58-b6eb-5b87319eba78">&lt;/linkText&gt;</ept><bpt id="ea342c0d-79fe-4e58-b6eb-5b87319eba78">&lt;title&gt;</bpt><ept id="ea342c0d-79fe-4e58-b6eb-5b87319eba78">&lt;/title&gt;</ept> or anywhere else in your backend services.</source>
+          <target state="new">You could implement this same code in a <bpt id="ea342c0d-79fe-4e58-b6eb-5b87319eba78">&lt;linkText&gt;</bpt>TableController<ept id="ea342c0d-79fe-4e58-b6eb-5b87319eba78">&lt;/linkText&gt;</ept><bpt id="ea342c0d-79fe-4e58-b6eb-5b87319eba78">&lt;title&gt;</bpt><ept id="ea342c0d-79fe-4e58-b6eb-5b87319eba78">&lt;/title&gt;</ept> or anywhere else in your backend services.</target>
+        </trans-unit>
+        <trans-unit id="68f74b6c-72ae-4c75-a5bc-e6349a6c8889" xml:space="preserve">
+          <source>In Visual Studio Solution Explorer, right-click the Controllers folder for the mobile service project, expand <bpt id="a6dd4ff2-7a09-43d0-b88b-56c63f613aae">&lt;strong&gt;</bpt>Add<ept id="a6dd4ff2-7a09-43d0-b88b-56c63f613aae">&lt;/strong&gt;</ept>, then click <bpt id="ac5579a2-d06b-4072-af1c-b272b2e6979b">&lt;strong&gt;</bpt>New Scaffolded Item<ept id="ac5579a2-d06b-4072-af1c-b272b2e6979b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio Solution Explorer, right-click the Controllers folder for the mobile service project, expand <bpt id="a6dd4ff2-7a09-43d0-b88b-56c63f613aae">&lt;strong&gt;</bpt>Add<ept id="a6dd4ff2-7a09-43d0-b88b-56c63f613aae">&lt;/strong&gt;</ept>, then click <bpt id="ac5579a2-d06b-4072-af1c-b272b2e6979b">&lt;strong&gt;</bpt>New Scaffolded Item<ept id="ac5579a2-d06b-4072-af1c-b272b2e6979b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2986f31-d0c4-4b0c-92e6-990a55dd5f40" xml:space="preserve">
+          <source>This displays the Add Scaffold dialog.</source>
+          <target state="new">This displays the Add Scaffold dialog.</target>
+        </trans-unit>
+        <trans-unit id="efcc7a82-82b6-4da2-ac4b-649e434afcb3" xml:space="preserve">
+          <source>Expand <bpt id="fd5b4242-d306-4ceb-bb80-f87c005b48f0">&lt;strong&gt;</bpt>Azure Mobile Services<ept id="fd5b4242-d306-4ceb-bb80-f87c005b48f0">&lt;/strong&gt;</ept> and click <bpt id="62657a11-24b9-4605-b2ee-aec1d9963edb">&lt;strong&gt;</bpt>Azure Mobile Services Custom Controller<ept id="62657a11-24b9-4605-b2ee-aec1d9963edb">&lt;/strong&gt;</ept>, then click <bpt id="840ce5d3-c748-44ae-9020-50785692f0b5">&lt;strong&gt;</bpt>Add<ept id="840ce5d3-c748-44ae-9020-50785692f0b5">&lt;/strong&gt;</ept>, supply a <bpt id="2255220d-571d-4ea4-b4f6-8cab7af69b56">&lt;strong&gt;</bpt>Controller name<ept id="2255220d-571d-4ea4-b4f6-8cab7af69b56">&lt;/strong&gt;</ept> of <bpt id="6725c9e3-a1fb-4141-8165-5d17dd040a81">&lt;code&gt;</bpt>NotifyAllUsersController<ept id="6725c9e3-a1fb-4141-8165-5d17dd040a81">&lt;/code&gt;</ept>, then click <bpt id="12dbea63-e7b8-4805-aae9-d139d95fc384">&lt;strong&gt;</bpt>Add<ept id="12dbea63-e7b8-4805-aae9-d139d95fc384">&lt;/strong&gt;</ept> again.</source>
+          <target state="new">Expand <bpt id="fd5b4242-d306-4ceb-bb80-f87c005b48f0">&lt;strong&gt;</bpt>Azure Mobile Services<ept id="fd5b4242-d306-4ceb-bb80-f87c005b48f0">&lt;/strong&gt;</ept> and click <bpt id="62657a11-24b9-4605-b2ee-aec1d9963edb">&lt;strong&gt;</bpt>Azure Mobile Services Custom Controller<ept id="62657a11-24b9-4605-b2ee-aec1d9963edb">&lt;/strong&gt;</ept>, then click <bpt id="840ce5d3-c748-44ae-9020-50785692f0b5">&lt;strong&gt;</bpt>Add<ept id="840ce5d3-c748-44ae-9020-50785692f0b5">&lt;/strong&gt;</ept>, supply a <bpt id="2255220d-571d-4ea4-b4f6-8cab7af69b56">&lt;strong&gt;</bpt>Controller name<ept id="2255220d-571d-4ea4-b4f6-8cab7af69b56">&lt;/strong&gt;</ept> of <bpt id="6725c9e3-a1fb-4141-8165-5d17dd040a81">&lt;code&gt;</bpt>NotifyAllUsersController<ept id="6725c9e3-a1fb-4141-8165-5d17dd040a81">&lt;/code&gt;</ept>, then click <bpt id="12dbea63-e7b8-4805-aae9-d139d95fc384">&lt;strong&gt;</bpt>Add<ept id="12dbea63-e7b8-4805-aae9-d139d95fc384">&lt;/strong&gt;</ept> again.</target>
+        </trans-unit>
+        <trans-unit id="269c49a0-bce1-4f7e-9ee3-edb6916b4f8d" xml:space="preserve">
+          <source><bpt id="736ff5af-ce51-4350-a82c-05ec155382a8">&lt;linkText&gt;</bpt>Web API Add Scaffold dialog<ept id="736ff5af-ce51-4350-a82c-05ec155382a8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="736ff5af-ce51-4350-a82c-05ec155382a8">&lt;linkText&gt;</bpt>Web API Add Scaffold dialog<ept id="736ff5af-ce51-4350-a82c-05ec155382a8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6a2b40e-8cf6-40cb-8c91-e1cfd93972c8" xml:space="preserve">
+          <source>This creates a new empty controller class named <bpt id="b660d941-6500-4ed3-8d58-6355e9e88b75">&lt;strong&gt;</bpt>NotifyAllUsersController<ept id="b660d941-6500-4ed3-8d58-6355e9e88b75">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This creates a new empty controller class named <bpt id="b660d941-6500-4ed3-8d58-6355e9e88b75">&lt;strong&gt;</bpt>NotifyAllUsersController<ept id="b660d941-6500-4ed3-8d58-6355e9e88b75">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad1141f0-f4e3-446d-86dc-609fa96fc7eb" xml:space="preserve">
+          <source>In the new NotifyAllUsersController.cs project file, add the following <bpt id="ada27ec0-8954-453b-82ce-7eca3f90b565">&lt;strong&gt;</bpt>using<ept id="ada27ec0-8954-453b-82ce-7eca3f90b565">&lt;/strong&gt;</ept> statements:</source>
+          <target state="new">In the new NotifyAllUsersController.cs project file, add the following <bpt id="ada27ec0-8954-453b-82ce-7eca3f90b565">&lt;strong&gt;</bpt>using<ept id="ada27ec0-8954-453b-82ce-7eca3f90b565">&lt;/strong&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="e47f76c8-cbbb-421a-be69-85bbd355720c" xml:space="preserve">
+          <source>Add the following code that implements the POST method on the controller:</source>
+          <target state="new">Add the following code that implements the POST method on the controller:</target>
+        </trans-unit>
+        <trans-unit id="35778848-c945-4134-9646-6d93cc073963" xml:space="preserve">
+          <source>This POST method can be called by any client that has the application key, which is not secure.</source>
+          <target state="new">This POST method can be called by any client that has the application key, which is not secure.</target>
+        </trans-unit>
+        <trans-unit id="a6f6572a-bb30-4d8b-a92c-89517ee863c8" xml:space="preserve">
+          <source>To secure the endpoint, apply the attribute <bpt id="1186d5ee-e309-449a-88bb-3ca3ec889108">&lt;code&gt;</bpt>[AuthorizeLevel(AuthorizationLevel.User)]<ept id="1186d5ee-e309-449a-88bb-3ca3ec889108">&lt;/code&gt;</ept> to the method or class to require authentication.</source>
+          <target state="new">To secure the endpoint, apply the attribute <bpt id="1186d5ee-e309-449a-88bb-3ca3ec889108">&lt;code&gt;</bpt>[AuthorizeLevel(AuthorizationLevel.User)]<ept id="1186d5ee-e309-449a-88bb-3ca3ec889108">&lt;/code&gt;</ept> to the method or class to require authentication.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

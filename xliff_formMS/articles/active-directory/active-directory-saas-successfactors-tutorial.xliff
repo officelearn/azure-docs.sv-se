@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="619a8dd2-ab8c-416b-9220-4a3ebfa8335e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="619a8dd2-ab8c-416b-9220-4a3ebfa8335e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="10c04010-90b7-4638-bd1d-053cc213bbd0">
+        <trans-unit id="d728c844-d21d-4030-b705-cdf150532a40" xml:space="preserve">
+          <source>Tutorial: Azure ActiveDirectory integration with SuccessFactors | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure ActiveDirectory integration with SuccessFactors | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a5021e95-27d3-4b71-9b43-5c3ad1def30d" xml:space="preserve">
+          <source>Learn how to use SuccessFactors with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use SuccessFactors with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="4f778599-bb9e-4bb2-b314-c734c6437343" xml:space="preserve">
+          <source>For feedback, click <bpt id="888f82b3-6e01-4c81-85cb-be15ce4a9824">&lt;linkText&gt;</bpt>here<ept id="888f82b3-6e01-4c81-85cb-be15ce4a9824">&lt;/linkText&gt;</ept><bpt id="888f82b3-6e01-4c81-85cb-be15ce4a9824">&lt;title&gt;</bpt><ept id="888f82b3-6e01-4c81-85cb-be15ce4a9824">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="888f82b3-6e01-4c81-85cb-be15ce4a9824">&lt;linkText&gt;</bpt>here<ept id="888f82b3-6e01-4c81-85cb-be15ce4a9824">&lt;/linkText&gt;</ept><bpt id="888f82b3-6e01-4c81-85cb-be15ce4a9824">&lt;title&gt;</bpt><ept id="888f82b3-6e01-4c81-85cb-be15ce4a9824">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="150a80a4-2cad-4e25-84e6-acc359d1d5b6" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and SuccessFactors in <bpt id="05283791-0b79-488b-86ed-0f10fac8a161">&lt;strong&gt;</bpt>SP initiated single sign-on mode<ept id="05283791-0b79-488b-86ed-0f10fac8a161">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and SuccessFactors in <bpt id="05283791-0b79-488b-86ed-0f10fac8a161">&lt;strong&gt;</bpt>SP initiated single sign-on mode<ept id="05283791-0b79-488b-86ed-0f10fac8a161">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86b7e4f9-5ed7-4539-baea-f174ac6e76a1" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="cc8633a2-eb8b-445b-a846-532c3e34ecba" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="a7078d58-2350-4d38-96c4-17d2f087553d" xml:space="preserve">
+          <source>A SuccessFactors single sign-on enabled subscription in SP initiated mode</source>
+          <target state="new">A SuccessFactors single sign-on enabled subscription in SP initiated mode</target>
+        </trans-unit>
+        <trans-unit id="2525cba7-1e8f-47e6-8026-656a5e4099ad" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to SuccessFactors will be able to single sign into the application at your SuccessFactors company site (service provider initiated sign on), or using the <bpt id="baec7e9c-dfef-4447-8aa5-ce2eaf447e4d">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="baec7e9c-dfef-4447-8aa5-ce2eaf447e4d">&lt;/linkText&gt;</ept><bpt id="baec7e9c-dfef-4447-8aa5-ce2eaf447e4d">&lt;title&gt;</bpt><ept id="baec7e9c-dfef-4447-8aa5-ce2eaf447e4d">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to SuccessFactors will be able to single sign into the application at your SuccessFactors company site (service provider initiated sign on), or using the <bpt id="baec7e9c-dfef-4447-8aa5-ce2eaf447e4d">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="baec7e9c-dfef-4447-8aa5-ce2eaf447e4d">&lt;/linkText&gt;</ept><bpt id="baec7e9c-dfef-4447-8aa5-ce2eaf447e4d">&lt;title&gt;</bpt><ept id="baec7e9c-dfef-4447-8aa5-ce2eaf447e4d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5965b10e-a070-4cbe-b2b0-3a4935b4a137" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="b0b78ddb-1582-4fb5-bdea-3450b082615a" xml:space="preserve">
+          <source>Enabling the application integration for SuccessFactors</source>
+          <target state="new">Enabling the application integration for SuccessFactors</target>
+        </trans-unit>
+        <trans-unit id="cf5f3d3e-ce92-4fae-9c31-8f84c753a626" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="1f7cb806-ca0d-4667-8eb5-5e949dcc49dc" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="2f878737-2281-4c64-bf84-dfecf65d96d9" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="668ef222-9277-4cb2-a791-c0df7d52b4aa" xml:space="preserve">
+          <source><bpt id="b34b7150-3792-450a-a15d-8f278f47cc64">&lt;linkText&gt;</bpt>Scenario<ept id="b34b7150-3792-450a-a15d-8f278f47cc64">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b34b7150-3792-450a-a15d-8f278f47cc64">&lt;linkText&gt;</bpt>Scenario<ept id="b34b7150-3792-450a-a15d-8f278f47cc64">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b013b9e-5410-4133-9c59-316ab06ff175" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for SuccessFactors.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for SuccessFactors.</target>
+        </trans-unit>
+        <trans-unit id="47a12139-557a-4e2e-b532-96467a510cb6" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="7d9e231c-9fc4-4ed1-8fd2-fb4b1df8cddc">&lt;strong&gt;</bpt>Active Directory<ept id="7d9e231c-9fc4-4ed1-8fd2-fb4b1df8cddc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="7d9e231c-9fc4-4ed1-8fd2-fb4b1df8cddc">&lt;strong&gt;</bpt>Active Directory<ept id="7d9e231c-9fc4-4ed1-8fd2-fb4b1df8cddc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f22cbf8f-0751-45b5-b05c-f227e14d3856" xml:space="preserve">
+          <source><bpt id="892201c3-83c1-4cb6-a4a5-fbae6a62106a">&lt;linkText&gt;</bpt>Active Directory<ept id="892201c3-83c1-4cb6-a4a5-fbae6a62106a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="892201c3-83c1-4cb6-a4a5-fbae6a62106a">&lt;linkText&gt;</bpt>Active Directory<ept id="892201c3-83c1-4cb6-a4a5-fbae6a62106a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59d97995-977f-4259-860d-3ef93f3136ab" xml:space="preserve">
+          <source>From the <bpt id="77f584b6-193c-4e86-86f7-c4a49c2fcf72">&lt;strong&gt;</bpt>Directory<ept id="77f584b6-193c-4e86-86f7-c4a49c2fcf72">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="77f584b6-193c-4e86-86f7-c4a49c2fcf72">&lt;strong&gt;</bpt>Directory<ept id="77f584b6-193c-4e86-86f7-c4a49c2fcf72">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="5e936417-3f49-421f-bfa8-74b1df1059c4" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="e713a981-e310-4f04-bebc-f1979d751649">&lt;strong&gt;</bpt>Applications<ept id="e713a981-e310-4f04-bebc-f1979d751649">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="e713a981-e310-4f04-bebc-f1979d751649">&lt;strong&gt;</bpt>Applications<ept id="e713a981-e310-4f04-bebc-f1979d751649">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="681155cd-b644-4303-80f6-1b7f395a0be5" xml:space="preserve">
+          <source><bpt id="0f2c5588-606c-4f31-af34-be8f4393ca97">&lt;linkText&gt;</bpt>Applications<ept id="0f2c5588-606c-4f31-af34-be8f4393ca97">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f2c5588-606c-4f31-af34-be8f4393ca97">&lt;linkText&gt;</bpt>Applications<ept id="0f2c5588-606c-4f31-af34-be8f4393ca97">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8b0b931-aa15-4508-9f6f-bf6d8453d8b2" xml:space="preserve">
+          <source>Click <bpt id="ed4c973e-87b3-40ed-9cbb-68351f87e9d9">&lt;strong&gt;</bpt>Add<ept id="ed4c973e-87b3-40ed-9cbb-68351f87e9d9">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="ed4c973e-87b3-40ed-9cbb-68351f87e9d9">&lt;strong&gt;</bpt>Add<ept id="ed4c973e-87b3-40ed-9cbb-68351f87e9d9">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="0294b7cb-9aea-4561-9a40-0323bc49f28a" xml:space="preserve">
+          <source><bpt id="a0a56cd3-770f-4d64-b9df-e2827116dbf7">&lt;linkText&gt;</bpt>Add application<ept id="a0a56cd3-770f-4d64-b9df-e2827116dbf7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a0a56cd3-770f-4d64-b9df-e2827116dbf7">&lt;linkText&gt;</bpt>Add application<ept id="a0a56cd3-770f-4d64-b9df-e2827116dbf7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f6b8125-afb5-4bf6-ab2d-629bb656e076" xml:space="preserve">
+          <source>On the <bpt id="c302f04c-83ab-465c-8bf3-232aa1f695aa">&lt;strong&gt;</bpt>What do you want to do<ept id="c302f04c-83ab-465c-8bf3-232aa1f695aa">&lt;/strong&gt;</ept> dialog, click <bpt id="691cca47-90b4-485c-bfcf-83e6c019aaa5">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="691cca47-90b4-485c-bfcf-83e6c019aaa5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c302f04c-83ab-465c-8bf3-232aa1f695aa">&lt;strong&gt;</bpt>What do you want to do<ept id="c302f04c-83ab-465c-8bf3-232aa1f695aa">&lt;/strong&gt;</ept> dialog, click <bpt id="691cca47-90b4-485c-bfcf-83e6c019aaa5">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="691cca47-90b4-485c-bfcf-83e6c019aaa5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c7ddbe5-7fbc-4e9b-9b8f-7f21788920f3" xml:space="preserve">
+          <source><bpt id="a0b57b56-d4f2-46ae-b4d1-31db7c7ef608">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="a0b57b56-d4f2-46ae-b4d1-31db7c7ef608">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a0b57b56-d4f2-46ae-b4d1-31db7c7ef608">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="a0b57b56-d4f2-46ae-b4d1-31db7c7ef608">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ffa52a3-c5ba-4ff8-b700-19a3d9603f7c" xml:space="preserve">
+          <source>In the <bpt id="72e6aa06-51f8-4c08-b448-3a4d62646c33">&lt;strong&gt;</bpt>search box<ept id="72e6aa06-51f8-4c08-b448-3a4d62646c33">&lt;/strong&gt;</ept>, type <bpt id="b6d10c93-9b6d-4097-958b-57336b3d4442">&lt;strong&gt;</bpt>SuccessFactors<ept id="b6d10c93-9b6d-4097-958b-57336b3d4442">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="72e6aa06-51f8-4c08-b448-3a4d62646c33">&lt;strong&gt;</bpt>search box<ept id="72e6aa06-51f8-4c08-b448-3a4d62646c33">&lt;/strong&gt;</ept>, type <bpt id="b6d10c93-9b6d-4097-958b-57336b3d4442">&lt;strong&gt;</bpt>SuccessFactors<ept id="b6d10c93-9b6d-4097-958b-57336b3d4442">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5086e48c-02dd-4a1e-9e6e-89a27ef962d3" xml:space="preserve">
+          <source><bpt id="3c37c460-95b9-48f9-9995-d27ce86dbee6">&lt;linkText&gt;</bpt>Appliation Gallery<ept id="3c37c460-95b9-48f9-9995-d27ce86dbee6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3c37c460-95b9-48f9-9995-d27ce86dbee6">&lt;linkText&gt;</bpt>Appliation Gallery<ept id="3c37c460-95b9-48f9-9995-d27ce86dbee6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34751fe4-7cb7-4b14-b7ad-5fb9e081d2c8" xml:space="preserve">
+          <source>In the results pane, select <bpt id="f2ff489d-8523-44a4-ad6a-eb2909947096">&lt;strong&gt;</bpt>SuccessFactors<ept id="f2ff489d-8523-44a4-ad6a-eb2909947096">&lt;/strong&gt;</ept>, and then click <bpt id="a25be226-fe9c-468b-93cd-7db42136e67a">&lt;strong&gt;</bpt>Complete<ept id="a25be226-fe9c-468b-93cd-7db42136e67a">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="f2ff489d-8523-44a4-ad6a-eb2909947096">&lt;strong&gt;</bpt>SuccessFactors<ept id="f2ff489d-8523-44a4-ad6a-eb2909947096">&lt;/strong&gt;</ept>, and then click <bpt id="a25be226-fe9c-468b-93cd-7db42136e67a">&lt;strong&gt;</bpt>Complete<ept id="a25be226-fe9c-468b-93cd-7db42136e67a">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="04e4874c-832a-4651-9c39-f1acb565687b" xml:space="preserve">
+          <source><bpt id="ed5a3dd2-31fb-437d-a323-6adc6d07ac19">&lt;linkText&gt;</bpt>SuccessFactors<ept id="ed5a3dd2-31fb-437d-a323-6adc6d07ac19">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ed5a3dd2-31fb-437d-a323-6adc6d07ac19">&lt;linkText&gt;</bpt>SuccessFactors<ept id="ed5a3dd2-31fb-437d-a323-6adc6d07ac19">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd45c291-90b6-4c9a-90fe-b123e50657b2" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to SuccessFactors with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to SuccessFactors with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="3ac48b12-919a-4fc9-8ecf-38c5c004e55c" xml:space="preserve">
+          <source>To get single sign-on configured, you will have to contact your SuccessFactors support team.</source>
+          <target state="new">To get single sign-on configured, you will have to contact your SuccessFactors support team.</target>
+        </trans-unit>
+        <trans-unit id="c2d9cc13-6a06-4c4e-b2c0-4140eef3453c" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="1f2fe9be-597f-4ee7-adb9-3d768a020218">&lt;strong&gt;</bpt>SuccessFactors<ept id="1f2fe9be-597f-4ee7-adb9-3d768a020218">&lt;/strong&gt;</ept> application integration page, click <bpt id="6f00236b-d726-436c-9ebe-6ca21b1d0c13">&lt;strong&gt;</bpt>Configure single sign-on<ept id="6f00236b-d726-436c-9ebe-6ca21b1d0c13">&lt;/strong&gt;</ept> to open the <bpt id="4a87e824-1325-4e90-a240-55226c4473cb">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="4a87e824-1325-4e90-a240-55226c4473cb">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="1f2fe9be-597f-4ee7-adb9-3d768a020218">&lt;strong&gt;</bpt>SuccessFactors<ept id="1f2fe9be-597f-4ee7-adb9-3d768a020218">&lt;/strong&gt;</ept> application integration page, click <bpt id="6f00236b-d726-436c-9ebe-6ca21b1d0c13">&lt;strong&gt;</bpt>Configure single sign-on<ept id="6f00236b-d726-436c-9ebe-6ca21b1d0c13">&lt;/strong&gt;</ept> to open the <bpt id="4a87e824-1325-4e90-a240-55226c4473cb">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="4a87e824-1325-4e90-a240-55226c4473cb">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="36bfa757-c490-42cd-bb8c-279550f19884" xml:space="preserve">
+          <source><bpt id="6e2d139d-13b2-4560-b078-93c3453f4c30">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="6e2d139d-13b2-4560-b078-93c3453f4c30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e2d139d-13b2-4560-b078-93c3453f4c30">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="6e2d139d-13b2-4560-b078-93c3453f4c30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0bc61262-eaaa-4078-a6bb-920874fa6a69" xml:space="preserve">
+          <source>On the <bpt id="d547e291-a773-47ae-94ff-b4d3262729b9">&lt;strong&gt;</bpt>How would you like users to sign on to SuccessFactors<ept id="d547e291-a773-47ae-94ff-b4d3262729b9">&lt;/strong&gt;</ept> page, select <bpt id="c3e380d3-7b1c-419b-849f-b03893cfc639">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="c3e380d3-7b1c-419b-849f-b03893cfc639">&lt;/strong&gt;</ept>, and then click <bpt id="4ce49668-83c1-465b-9d89-a61649ca17bd">&lt;strong&gt;</bpt>Next<ept id="4ce49668-83c1-465b-9d89-a61649ca17bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d547e291-a773-47ae-94ff-b4d3262729b9">&lt;strong&gt;</bpt>How would you like users to sign on to SuccessFactors<ept id="d547e291-a773-47ae-94ff-b4d3262729b9">&lt;/strong&gt;</ept> page, select <bpt id="c3e380d3-7b1c-419b-849f-b03893cfc639">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="c3e380d3-7b1c-419b-849f-b03893cfc639">&lt;/strong&gt;</ept>, and then click <bpt id="4ce49668-83c1-465b-9d89-a61649ca17bd">&lt;strong&gt;</bpt>Next<ept id="4ce49668-83c1-465b-9d89-a61649ca17bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="812813ba-138e-4e4f-adf3-93b9f597c5fa" xml:space="preserve">
+          <source><bpt id="2e8a30da-62e2-4ac2-99f5-7ee929dde1b1">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2e8a30da-62e2-4ac2-99f5-7ee929dde1b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e8a30da-62e2-4ac2-99f5-7ee929dde1b1">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2e8a30da-62e2-4ac2-99f5-7ee929dde1b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ed994c1-2f99-4ff3-b303-091f11ec8c81" xml:space="preserve">
+          <source>On the <bpt id="4958e00c-8dbf-43ea-abfb-2cebc4433586">&lt;strong&gt;</bpt>Configure App URL<ept id="4958e00c-8dbf-43ea-abfb-2cebc4433586">&lt;/strong&gt;</ept> page, perform the following steps, and then click <bpt id="5fc39849-faab-4f64-b72c-572f2b752991">&lt;strong&gt;</bpt>Next<ept id="5fc39849-faab-4f64-b72c-572f2b752991">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="4958e00c-8dbf-43ea-abfb-2cebc4433586">&lt;strong&gt;</bpt>Configure App URL<ept id="4958e00c-8dbf-43ea-abfb-2cebc4433586">&lt;/strong&gt;</ept> page, perform the following steps, and then click <bpt id="5fc39849-faab-4f64-b72c-572f2b752991">&lt;strong&gt;</bpt>Next<ept id="5fc39849-faab-4f64-b72c-572f2b752991">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f2c1ddc-875d-4c1b-a513-f32a83e01c70" xml:space="preserve">
+          <source><bpt id="73d16fe3-02ca-498e-9abb-562227acf3df">&lt;linkText&gt;</bpt>Configure App URL<ept id="73d16fe3-02ca-498e-9abb-562227acf3df">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73d16fe3-02ca-498e-9abb-562227acf3df">&lt;linkText&gt;</bpt>Configure App URL<ept id="73d16fe3-02ca-498e-9abb-562227acf3df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc24a26e-b7a3-444b-a547-e0c35bd43dad" xml:space="preserve">
+          <source>In the <bpt id="a33bd166-fbd2-4b4d-a6ea-cc5bdf81b62f">&lt;strong&gt;</bpt>SuccessFactors Sign On URL<ept id="a33bd166-fbd2-4b4d-a6ea-cc5bdf81b62f">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign on to your SuccessFactors application (e.g.: "<bpt id="bc2cbf2d-6403-4e9f-9c5e-a712b6f23386">&lt;em&gt;</bpt>https://performancemanager4.successfactors.com/sf/home?company=CompanyName&amp;loginMethod=SSO<ept id="bc2cbf2d-6403-4e9f-9c5e-a712b6f23386">&lt;/em&gt;</ept>").</source>
+          <target state="new">In the <bpt id="a33bd166-fbd2-4b4d-a6ea-cc5bdf81b62f">&lt;strong&gt;</bpt>SuccessFactors Sign On URL<ept id="a33bd166-fbd2-4b4d-a6ea-cc5bdf81b62f">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign on to your SuccessFactors application (e.g.: "<bpt id="bc2cbf2d-6403-4e9f-9c5e-a712b6f23386">&lt;em&gt;</bpt>https://performancemanager4.successfactors.com/sf/home?company=CompanyName&amp;loginMethod=SSO<ept id="bc2cbf2d-6403-4e9f-9c5e-a712b6f23386">&lt;/em&gt;</ept>").</target>
+        </trans-unit>
+        <trans-unit id="c115f1be-7b3b-457d-baac-c984cfe1376e" xml:space="preserve">
+          <source>In the <bpt id="d9696bad-fd6f-4e26-ab78-6e6e17bc7550">&lt;strong&gt;</bpt>SuccessFactors Reply URL<ept id="d9696bad-fd6f-4e26-ab78-6e6e17bc7550">&lt;/strong&gt;</ept> textbox, type <bpt id="e785c9cf-f6e9-4388-b8b6-9c0935ed3a8f">&lt;strong&gt;</bpt>https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName<ept id="e785c9cf-f6e9-4388-b8b6-9c0935ed3a8f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d9696bad-fd6f-4e26-ab78-6e6e17bc7550">&lt;strong&gt;</bpt>SuccessFactors Reply URL<ept id="d9696bad-fd6f-4e26-ab78-6e6e17bc7550">&lt;/strong&gt;</ept> textbox, type <bpt id="e785c9cf-f6e9-4388-b8b6-9c0935ed3a8f">&lt;strong&gt;</bpt>https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName<ept id="e785c9cf-f6e9-4388-b8b6-9c0935ed3a8f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="022e6ecc-e06d-460b-9d84-a14a4b8b8009" xml:space="preserve">
+          <source>This value is only a temporary placeholder.</source>
+          <target state="new">This value is only a temporary placeholder.</target>
+        </trans-unit>
+        <trans-unit id="c45ba3a8-00cb-48f3-9921-a27cee6cd95c" xml:space="preserve">
+          <source>You get the actual value from your SuccessFactors support team.</source>
+          <target state="new">You get the actual value from your SuccessFactors support team.</target>
+        </trans-unit>
+        <trans-unit id="a68be535-fcd2-4e04-a94e-7d8505b234ce" xml:space="preserve">
+          <source>Later in this tutorial, you find instructions for contacting your SuccessFactors support team.</source>
+          <target state="new">Later in this tutorial, you find instructions for contacting your SuccessFactors support team.</target>
+        </trans-unit>
+        <trans-unit id="76ea6cca-02cb-4b84-9064-996ac95171df" xml:space="preserve">
+          <source>In the context of this conversation, you will receive your actual SuccessFactors Reply URL.</source>
+          <target state="new">In the context of this conversation, you will receive your actual SuccessFactors Reply URL.</target>
+        </trans-unit>
+        <trans-unit id="d782c9af-a3d5-433f-9736-0620d286be73" xml:space="preserve">
+          <source>On the <bpt id="6fbb2c7b-5feb-4ac3-bd3e-88d0b1bc998a">&lt;strong&gt;</bpt>Configure single sign-on at SuccessFactors<ept id="6fbb2c7b-5feb-4ac3-bd3e-88d0b1bc998a">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="46283d2f-6694-48d5-bb89-28c88ab792bf">&lt;strong&gt;</bpt>Download certificate<ept id="46283d2f-6694-48d5-bb89-28c88ab792bf">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="6fbb2c7b-5feb-4ac3-bd3e-88d0b1bc998a">&lt;strong&gt;</bpt>Configure single sign-on at SuccessFactors<ept id="6fbb2c7b-5feb-4ac3-bd3e-88d0b1bc998a">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="46283d2f-6694-48d5-bb89-28c88ab792bf">&lt;strong&gt;</bpt>Download certificate<ept id="46283d2f-6694-48d5-bb89-28c88ab792bf">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="1862df45-206c-45b9-a5c7-c1b23593475b" xml:space="preserve">
+          <source><bpt id="48bc3a09-d0df-4a44-96b5-5784f56ec1c5">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="48bc3a09-d0df-4a44-96b5-5784f56ec1c5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48bc3a09-d0df-4a44-96b5-5784f56ec1c5">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="48bc3a09-d0df-4a44-96b5-5784f56ec1c5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a578d926-b02d-4b1c-9519-f505b06217d8" xml:space="preserve">
+          <source>To get SAML based single sign-on configured, contact your SuccessFactors support team and provide them with the following items:</source>
+          <target state="new">To get SAML based single sign-on configured, contact your SuccessFactors support team and provide them with the following items:</target>
+        </trans-unit>
+        <trans-unit id="0ed744b4-5c31-41c8-891a-c7ad5ee347bb" xml:space="preserve">
+          <source>The downloaded certificate</source>
+          <target state="new">The downloaded certificate</target>
+        </trans-unit>
+        <trans-unit id="d66219f1-06f3-4968-bba9-b33a3fe32641" xml:space="preserve">
+          <source>The Remote Login URL</source>
+          <target state="new">The Remote Login URL</target>
+        </trans-unit>
+        <trans-unit id="17efa15d-6b7c-452a-b542-46f805bac071" xml:space="preserve">
+          <source>The Remote Logout URL</source>
+          <target state="new">The Remote Logout URL</target>
+        </trans-unit>
+        <trans-unit id="dd225ac5-6893-422d-a962-6d4528c04b7f" xml:space="preserve">
+          <source>Please ask your SuccessFactors support team to set the NameId Format parameter to "<bpt id="7742fb52-78dc-4b0c-83a4-0ec943286e35">&lt;em&gt;</bpt>Unspecified<ept id="7742fb52-78dc-4b0c-83a4-0ec943286e35">&lt;/em&gt;</ept>".</source>
+          <target state="new">Please ask your SuccessFactors support team to set the NameId Format parameter to "<bpt id="7742fb52-78dc-4b0c-83a4-0ec943286e35">&lt;em&gt;</bpt>Unspecified<ept id="7742fb52-78dc-4b0c-83a4-0ec943286e35">&lt;/em&gt;</ept>".</target>
+        </trans-unit>
+        <trans-unit id="452e1d53-9571-419b-b88d-f37a63605f8a" xml:space="preserve">
+          <source>Your Successfactors support team will send you the correct <bpt id="c2fbd685-dfb9-4b1c-9abc-500acfb368f8">&lt;strong&gt;</bpt>Successfactors Reply URL<ept id="c2fbd685-dfb9-4b1c-9abc-500acfb368f8">&lt;/strong&gt;</ept> you need for the <bpt id="429ab8bc-839a-4e3b-81d3-8c76ef860695">&lt;strong&gt;</bpt>Configure App URL<ept id="429ab8bc-839a-4e3b-81d3-8c76ef860695">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Your Successfactors support team will send you the correct <bpt id="c2fbd685-dfb9-4b1c-9abc-500acfb368f8">&lt;strong&gt;</bpt>Successfactors Reply URL<ept id="c2fbd685-dfb9-4b1c-9abc-500acfb368f8">&lt;/strong&gt;</ept> you need for the <bpt id="429ab8bc-839a-4e3b-81d3-8c76ef860695">&lt;strong&gt;</bpt>Configure App URL<ept id="429ab8bc-839a-4e3b-81d3-8c76ef860695">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="c7c4afb1-8a9f-4894-b688-5c8fc3a2b818" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="9c764b6a-607a-4130-8a83-c7e9020a7106">&lt;strong&gt;</bpt>Complete<ept id="9c764b6a-607a-4130-8a83-c7e9020a7106">&lt;/strong&gt;</ept> to close the <bpt id="116f1ec3-5a3b-48a9-8af4-060d09f45077">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="116f1ec3-5a3b-48a9-8af4-060d09f45077">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="9c764b6a-607a-4130-8a83-c7e9020a7106">&lt;strong&gt;</bpt>Complete<ept id="9c764b6a-607a-4130-8a83-c7e9020a7106">&lt;/strong&gt;</ept> to close the <bpt id="116f1ec3-5a3b-48a9-8af4-060d09f45077">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="116f1ec3-5a3b-48a9-8af4-060d09f45077">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="9cca50d8-ffd5-4a32-957d-2c3020e4c81f" xml:space="preserve">
+          <source><bpt id="f5e9601a-387c-4dbf-9ae0-ba819b76e2ee">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f5e9601a-387c-4dbf-9ae0-ba819b76e2ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f5e9601a-387c-4dbf-9ae0-ba819b76e2ee">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f5e9601a-387c-4dbf-9ae0-ba819b76e2ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb94e294-0b4b-41e5-9031-2b8cd30afca1" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into SuccessFactors, they must be provisioned into SuccessFactors.</source>
+          <target state="new">In order to enable Azure AD users to log into SuccessFactors, they must be provisioned into SuccessFactors.</target>
+        </trans-unit>
+        <trans-unit id="d66d8ce8-c86b-4ec2-b418-0cbdbd5f61f2" xml:space="preserve">
+          <source>In the case of SuccessFactors, provisioning is a manual task.</source>
+          <target state="new">In the case of SuccessFactors, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="a7dee760-3c0d-4e67-9d5f-4f17706bcf21" xml:space="preserve">
+          <source>To get users created in SuccessFactors, you need to contact the SuccessFactors’ support team.</source>
+          <target state="new">To get users created in SuccessFactors, you need to contact the SuccessFactors’ support team.</target>
+        </trans-unit>
+        <trans-unit id="81586624-f703-48cb-8c25-9675128117aa" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="c8edda8b-59fc-4fbc-ad17-dbee08026266" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="bf889b9c-ef6e-4fb3-adb6-91fc641b11bc" xml:space="preserve">
+          <source>On the <bpt id="d794dd8b-a133-4288-b5b6-a13af1ddc9af">&lt;strong&gt;</bpt>SuccessFactors **application integration page, click **Assign users<ept id="d794dd8b-a133-4288-b5b6-a13af1ddc9af">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d794dd8b-a133-4288-b5b6-a13af1ddc9af">&lt;strong&gt;</bpt>SuccessFactors **application integration page, click **Assign users<ept id="d794dd8b-a133-4288-b5b6-a13af1ddc9af">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a843148-9e54-4525-9602-288de9a2ac96" xml:space="preserve">
+          <source><bpt id="1b3132c8-f169-4071-a1d7-fdacadb34b66">&lt;linkText&gt;</bpt>Assign Users<ept id="1b3132c8-f169-4071-a1d7-fdacadb34b66">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b3132c8-f169-4071-a1d7-fdacadb34b66">&lt;linkText&gt;</bpt>Assign Users<ept id="1b3132c8-f169-4071-a1d7-fdacadb34b66">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60d24757-27cd-4929-bca9-636b24920964" xml:space="preserve">
+          <source>Select your test user, click <bpt id="503763f0-b7a9-41fc-8133-cad377f621d4">&lt;strong&gt;</bpt>Assign<ept id="503763f0-b7a9-41fc-8133-cad377f621d4">&lt;/strong&gt;</ept>, and then click <bpt id="a9a3b25f-1fa8-4f06-b7a8-7434e9ff0872">&lt;strong&gt;</bpt>Yes<ept id="a9a3b25f-1fa8-4f06-b7a8-7434e9ff0872">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="503763f0-b7a9-41fc-8133-cad377f621d4">&lt;strong&gt;</bpt>Assign<ept id="503763f0-b7a9-41fc-8133-cad377f621d4">&lt;/strong&gt;</ept>, and then click <bpt id="a9a3b25f-1fa8-4f06-b7a8-7434e9ff0872">&lt;strong&gt;</bpt>Yes<ept id="a9a3b25f-1fa8-4f06-b7a8-7434e9ff0872">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="d5b82be8-7513-47f7-b242-8fd1d5f43dcd" xml:space="preserve">
+          <source><bpt id="9a4adae7-e420-4439-8258-eec9673ffce2">&lt;linkText&gt;</bpt>Yes<ept id="9a4adae7-e420-4439-8258-eec9673ffce2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9a4adae7-e420-4439-8258-eec9673ffce2">&lt;linkText&gt;</bpt>Yes<ept id="9a4adae7-e420-4439-8258-eec9673ffce2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ce0393d-433b-4335-995c-4b48c0396157" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="62a6065d-a4b1-4fbc-a72c-09f50c437536" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="6f9e1b9f-38a1-47e9-b5e4-1eebfc35ceec">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="6f9e1b9f-38a1-47e9-b5e4-1eebfc35ceec">&lt;/linkText&gt;</ept><bpt id="6f9e1b9f-38a1-47e9-b5e4-1eebfc35ceec">&lt;title&gt;</bpt><ept id="6f9e1b9f-38a1-47e9-b5e4-1eebfc35ceec">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="6f9e1b9f-38a1-47e9-b5e4-1eebfc35ceec">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="6f9e1b9f-38a1-47e9-b5e4-1eebfc35ceec">&lt;/linkText&gt;</ept><bpt id="6f9e1b9f-38a1-47e9-b5e4-1eebfc35ceec">&lt;title&gt;</bpt><ept id="6f9e1b9f-38a1-47e9-b5e4-1eebfc35ceec">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

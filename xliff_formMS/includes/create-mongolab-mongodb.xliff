@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2dafa40f-b83f-49fd-a50f-02bcdc16a11c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2dafa40f-b83f-49fd-a50f-02bcdc16a11c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4fd72c64-11b9-4d81-8e7f-03a1d3987eed">
+        <trans-unit id="2e0bb889-415e-4649-bcfa-107f3fe2b20d" xml:space="preserve">
+          <source>This article will show you how to use [MongoLab] to create a MongoDB database from the [Azure Store].</source>
+          <target state="new">This article will show you how to use [MongoLab] to create a MongoDB database from the [Azure Store].</target>
+        </trans-unit>
+        <trans-unit id="73bb0557-8499-4055-bafc-40ce423c9fa6" xml:space="preserve">
+          <source>[MongoLab] is a MongoDB-as-a-service provider that allows you to run and manage MongoDB databases in Azure datacenters and connect to them from any application.</source>
+          <target state="new">[MongoLab] is a MongoDB-as-a-service provider that allows you to run and manage MongoDB databases in Azure datacenters and connect to them from any application.</target>
+        </trans-unit>
+        <trans-unit id="58b03e0a-d565-4363-9bbb-7b4201e559b4" xml:space="preserve">
+          <source>To create a MongoDB database from the [Azure Store], do the following:</source>
+          <target state="new">To create a MongoDB database from the [Azure Store], do the following:</target>
+        </trans-unit>
+        <trans-unit id="256a4837-d058-416e-bac3-d67f99f282c2" xml:space="preserve">
+          <source>Log in to the <bpt id="032f9eba-5ee9-4468-973f-46dffb148893">&lt;linkText&gt;</bpt>Azure Management Portal[portal]<ept id="032f9eba-5ee9-4468-973f-46dffb148893">&lt;/linkText&gt;</ept><bpt id="032f9eba-5ee9-4468-973f-46dffb148893">&lt;title&gt;</bpt><ept id="032f9eba-5ee9-4468-973f-46dffb148893">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="032f9eba-5ee9-4468-973f-46dffb148893">&lt;linkText&gt;</bpt>Azure Management Portal[portal]<ept id="032f9eba-5ee9-4468-973f-46dffb148893">&lt;/linkText&gt;</ept><bpt id="032f9eba-5ee9-4468-973f-46dffb148893">&lt;title&gt;</bpt><ept id="032f9eba-5ee9-4468-973f-46dffb148893">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a196212-b599-4245-a74a-4d2b4d9c493b" xml:space="preserve">
+          <source>Click <bpt id="230ca7fa-2d3e-4451-a5ce-3e86a6344a3e">&lt;strong&gt;</bpt>+NEW<ept id="230ca7fa-2d3e-4451-a5ce-3e86a6344a3e">&lt;/strong&gt;</ept> at the bottom of the page, then select <bpt id="0460c7f5-e415-491c-a159-f1c2aec2e8ac">&lt;strong&gt;</bpt>STORE<ept id="0460c7f5-e415-491c-a159-f1c2aec2e8ac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="230ca7fa-2d3e-4451-a5ce-3e86a6344a3e">&lt;strong&gt;</bpt>+NEW<ept id="230ca7fa-2d3e-4451-a5ce-3e86a6344a3e">&lt;/strong&gt;</ept> at the bottom of the page, then select <bpt id="0460c7f5-e415-491c-a159-f1c2aec2e8ac">&lt;strong&gt;</bpt>STORE<ept id="0460c7f5-e415-491c-a159-f1c2aec2e8ac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4c88759-91e4-4ec9-aa01-80d3f7093a1e" xml:space="preserve">
+          <source><bpt id="8327a715-c74e-47e1-906d-4ecc4b11f292">&lt;linkText&gt;</bpt>Select add-on from store<ept id="8327a715-c74e-47e1-906d-4ecc4b11f292">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8327a715-c74e-47e1-906d-4ecc4b11f292">&lt;linkText&gt;</bpt>Select add-on from store<ept id="8327a715-c74e-47e1-906d-4ecc4b11f292">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a583d4d0-d494-454e-9d46-f6af1a791d7b" xml:space="preserve">
+          <source>Select <bpt id="5a312f15-9caf-43d2-88d6-aeafa6a41180">&lt;strong&gt;</bpt>MongoLab<ept id="5a312f15-9caf-43d2-88d6-aeafa6a41180">&lt;/strong&gt;</ept>, then click the arrow at the bottom of the frame.</source>
+          <target state="new">Select <bpt id="5a312f15-9caf-43d2-88d6-aeafa6a41180">&lt;strong&gt;</bpt>MongoLab<ept id="5a312f15-9caf-43d2-88d6-aeafa6a41180">&lt;/strong&gt;</ept>, then click the arrow at the bottom of the frame.</target>
+        </trans-unit>
+        <trans-unit id="bf130895-786a-44d9-b711-5f45b90ec788" xml:space="preserve">
+          <source><bpt id="ffdc3c8e-c90a-4a95-ab70-9272b2559db2">&lt;linkText&gt;</bpt>Select MongoLab<ept id="ffdc3c8e-c90a-4a95-ab70-9272b2559db2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ffdc3c8e-c90a-4a95-ab70-9272b2559db2">&lt;linkText&gt;</bpt>Select MongoLab<ept id="ffdc3c8e-c90a-4a95-ab70-9272b2559db2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d12246f-7254-4c09-b1bf-74f57441dd0d" xml:space="preserve">
+          <source>Enter a database name, and select a region, then click the arrow at the bottom of the frame.</source>
+          <target state="new">Enter a database name, and select a region, then click the arrow at the bottom of the frame.</target>
+        </trans-unit>
+        <trans-unit id="13df80ac-e40e-45fb-90b2-8092626bb819" xml:space="preserve">
+          <source><bpt id="fd545e1d-3bd6-48d4-8a97-d2905fa92cc2">&lt;linkText&gt;</bpt>Purchase MongoLab database from store<ept id="fd545e1d-3bd6-48d4-8a97-d2905fa92cc2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd545e1d-3bd6-48d4-8a97-d2905fa92cc2">&lt;linkText&gt;</bpt>Purchase MongoLab database from store<ept id="fd545e1d-3bd6-48d4-8a97-d2905fa92cc2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="986b5d4e-d8dd-4a6f-9505-7cd7f4f9a65c" xml:space="preserve">
+          <source>Click the checkmark to complete your purchase.</source>
+          <target state="new">Click the checkmark to complete your purchase.</target>
+        </trans-unit>
+        <trans-unit id="71b581b9-ad78-40ac-b3c7-2e78bb51d040" xml:space="preserve">
+          <source><bpt id="53d743e5-5fec-4f59-8207-5df819fd019c">&lt;linkText&gt;</bpt>Review and complete your purchase<ept id="53d743e5-5fec-4f59-8207-5df819fd019c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="53d743e5-5fec-4f59-8207-5df819fd019c">&lt;linkText&gt;</bpt>Review and complete your purchase<ept id="53d743e5-5fec-4f59-8207-5df819fd019c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="306bc6fc-7e04-4de4-87ec-5ac35fdc31ad" xml:space="preserve">
+          <source>After your database has been created, you can manage it from the <bpt id="d528190b-a522-483d-964e-e816c3f2195a">&lt;strong&gt;</bpt>ADD-ONS<ept id="d528190b-a522-483d-964e-e816c3f2195a">&lt;/strong&gt;</ept> tab in the management portal.</source>
+          <target state="new">After your database has been created, you can manage it from the <bpt id="d528190b-a522-483d-964e-e816c3f2195a">&lt;strong&gt;</bpt>ADD-ONS<ept id="d528190b-a522-483d-964e-e816c3f2195a">&lt;/strong&gt;</ept> tab in the management portal.</target>
+        </trans-unit>
+        <trans-unit id="d24920cb-6b75-49a9-b787-34133cb92dfc" xml:space="preserve">
+          <source><bpt id="1271d272-70c4-4feb-b167-5e19e4391cb5">&lt;linkText&gt;</bpt>Manage MongoLab database in Azure portal<ept id="1271d272-70c4-4feb-b167-5e19e4391cb5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1271d272-70c4-4feb-b167-5e19e4391cb5">&lt;linkText&gt;</bpt>Manage MongoLab database in Azure portal<ept id="1271d272-70c4-4feb-b167-5e19e4391cb5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e34fb3a-d727-477a-9193-b5af2200beeb" xml:space="preserve">
+          <source>You can get the database connection information by clicking on <bpt id="b2a8e982-dc44-4425-a78a-de44b3b77604">&lt;strong&gt;</bpt>CONNECTION INFO<ept id="b2a8e982-dc44-4425-a78a-de44b3b77604">&lt;/strong&gt;</ept> at the bottom of the page (shown above).</source>
+          <target state="new">You can get the database connection information by clicking on <bpt id="b2a8e982-dc44-4425-a78a-de44b3b77604">&lt;strong&gt;</bpt>CONNECTION INFO<ept id="b2a8e982-dc44-4425-a78a-de44b3b77604">&lt;/strong&gt;</ept> at the bottom of the page (shown above).</target>
+        </trans-unit>
+        <trans-unit id="31a4cee4-bcf9-4a96-8a54-17a7f4f70826" xml:space="preserve">
+          <source><bpt id="54084159-0b1e-4c94-87ab-a43e16d51021">&lt;linkText&gt;</bpt>MongoLab connection information<ept id="54084159-0b1e-4c94-87ab-a43e16d51021">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="54084159-0b1e-4c94-87ab-a43e16d51021">&lt;linkText&gt;</bpt>MongoLab connection information<ept id="54084159-0b1e-4c94-87ab-a43e16d51021">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="aa84d364-a796-4104-beee-488b12380510" xml:space="preserve">
+          <source>https://mongolab.com/home</source>
+          <target state="new">https://mongolab.com/home</target>
+        </trans-unit>
+        <trans-unit id="8b5f845a-4ed1-4c69-8fcb-a790a8b67927" xml:space="preserve">
+          <source>/manage/services/web-sites/</source>
+          <target state="new">/manage/services/web-sites/</target>
+        </trans-unit>
+        <trans-unit id="bf51c6fc-92f9-4538-b372-f38a921b9da0" xml:space="preserve">
+          <source>../articles/overview.md</source>
+          <target state="new">../articles/overview.md</target>
+        </trans-unit>
+        <trans-unit id="15e57834-59a5-41dc-9100-e17b3fa6ddb1" xml:space="preserve">
+          <source>http://windows.azure.com/</source>
+          <target state="new">http://windows.azure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="305fbe25-58f6-43e4-a8d7-2423f18bc2a8" />
+    </body>
+  </file>
+</xliff>

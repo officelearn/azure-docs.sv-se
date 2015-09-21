@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2258d581-6b83-4da2-b1e2-7bc893068c1a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2258d581-6b83-4da2-b1e2-7bc893068c1a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7cd60dc6-a46d-4ea1-b395-172f1cdb74b0">
+        <trans-unit id="f5206add-e912-46d9-887c-73ae6bdcc86f" xml:space="preserve">
+          <source>Attach a disk to a virtual machine | Microsoft Azure</source>
+          <target state="new">Attach a disk to a virtual machine | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d9b575ff-56f5-4aba-936a-0f8d915f3cb6" xml:space="preserve">
+          <source>Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use.</source>
+          <target state="new">Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use.</target>
+        </trans-unit>
+        <trans-unit id="49acc682-a266-43ca-bdb3-be83bda85b6e" xml:space="preserve">
+          <source>You can attach empty disks and disks with data.</source>
+          <target state="new">You can attach empty disks and disks with data.</target>
+        </trans-unit>
+        <trans-unit id="27da327b-60e3-4181-a1bf-2682be323b2d" xml:space="preserve">
+          <source>In both cases, the disks are actually .vhd files that reside in an Azure storage account.</source>
+          <target state="new">In both cases, the disks are actually .vhd files that reside in an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="076b919d-9658-4262-95c1-6200a375c395" xml:space="preserve">
+          <source>Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.</source>
+          <target state="new">Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.</target>
+        </trans-unit>
+        <trans-unit id="3a24cc19-bc3e-42c6-8d4f-2ce21f31b58a" xml:space="preserve">
+          <source>It's a best practice to use one or more separate disks to store a virtual machine's data.</source>
+          <target state="new">It's a best practice to use one or more separate disks to store a virtual machine's data.</target>
+        </trans-unit>
+        <trans-unit id="ddb12041-ed23-470a-b2c5-c3d20bd1cd22" xml:space="preserve">
+          <source>When you create an Azure virtual machine, it has a disk for the operating system mapped to drive C and a temporary disk mapped to drive D. <bpt id="53f4b733-9bb6-4b6e-be58-a0387ccfe0a6">&lt;strong&gt;</bpt>Do not use drive D to store data.<ept id="53f4b733-9bb6-4b6e-be58-a0387ccfe0a6">&lt;/strong&gt;</ept> As the name implies, drive D provides temporary storage only.</source>
+          <target state="new">When you create an Azure virtual machine, it has a disk for the operating system mapped to drive C and a temporary disk mapped to drive D. <bpt id="53f4b733-9bb6-4b6e-be58-a0387ccfe0a6">&lt;strong&gt;</bpt>Do not use drive D to store data.<ept id="53f4b733-9bb6-4b6e-be58-a0387ccfe0a6">&lt;/strong&gt;</ept> As the name implies, drive D provides temporary storage only.</target>
+        </trans-unit>
+        <trans-unit id="62df3774-76d3-436b-ab6c-5f4e27fbc7fe" xml:space="preserve">
+          <source>It offers no redundancy or backup because it doesn't reside in Azure Storage.</source>
+          <target state="new">It offers no redundancy or backup because it doesn't reside in Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="e34ee9f1-a6b0-4791-8650-38674c80a813" xml:space="preserve">
+          <source>Here's a walkthrough of the steps in this tutorial.</source>
+          <target state="new">Here's a walkthrough of the steps in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="ed96da32-b7b0-4d35-9332-58732732b136" xml:space="preserve">
+          <source>[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm] </source>
+          <target state="new">[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm] </target>
+        </trans-unit>
+        <trans-unit id="093ec0cc-d7bc-45db-99bc-e8e8647906b7" xml:space="preserve">
+          <source><bpt id="c7aff6e0-cfab-46b7-8817-65640e448046">&lt;token href="../../includes/howto-attach-disk-windows-linux.md"&gt;</bpt><ept id="c7aff6e0-cfab-46b7-8817-65640e448046">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c7aff6e0-cfab-46b7-8817-65640e448046">&lt;token href="../../includes/howto-attach-disk-windows-linux.md"&gt;</bpt><ept id="c7aff6e0-cfab-46b7-8817-65640e448046">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e778fb8-d19b-45bf-ae52-35896c3a1b0f" xml:space="preserve">
+          <source>Connect to the virtual machine.</source>
+          <target state="new">Connect to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e7160443-f738-4fca-979f-70918b0f916b" xml:space="preserve">
+          <source>For instructions, see <bpt id="470b6e3e-89ac-4b84-8c4b-c3b878e1eea6">&lt;linkText&gt;</bpt>How to log on to a virtual machine running Windows Server[logon]<ept id="470b6e3e-89ac-4b84-8c4b-c3b878e1eea6">&lt;/linkText&gt;</ept><bpt id="470b6e3e-89ac-4b84-8c4b-c3b878e1eea6">&lt;title&gt;</bpt><ept id="470b6e3e-89ac-4b84-8c4b-c3b878e1eea6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="470b6e3e-89ac-4b84-8c4b-c3b878e1eea6">&lt;linkText&gt;</bpt>How to log on to a virtual machine running Windows Server[logon]<ept id="470b6e3e-89ac-4b84-8c4b-c3b878e1eea6">&lt;/linkText&gt;</ept><bpt id="470b6e3e-89ac-4b84-8c4b-c3b878e1eea6">&lt;title&gt;</bpt><ept id="470b6e3e-89ac-4b84-8c4b-c3b878e1eea6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1a41718-0950-4967-8b3f-e8654d51a056" xml:space="preserve">
+          <source>After you log on to the virtual machine, open <bpt id="19cb5e20-0eb8-4f18-b51f-fa3f3757f3b6">&lt;strong&gt;</bpt>Server Manager<ept id="19cb5e20-0eb8-4f18-b51f-fa3f3757f3b6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After you log on to the virtual machine, open <bpt id="19cb5e20-0eb8-4f18-b51f-fa3f3757f3b6">&lt;strong&gt;</bpt>Server Manager<ept id="19cb5e20-0eb8-4f18-b51f-fa3f3757f3b6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63506ed3-d9ec-46c4-a086-a6ca082b140d" xml:space="preserve">
+          <source>In the left pane, select <bpt id="70e0554b-0e89-4709-b035-95f96afafbc3">&lt;strong&gt;</bpt>File and Storage Services<ept id="70e0554b-0e89-4709-b035-95f96afafbc3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, select <bpt id="70e0554b-0e89-4709-b035-95f96afafbc3">&lt;strong&gt;</bpt>File and Storage Services<ept id="70e0554b-0e89-4709-b035-95f96afafbc3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4946345f-f7f4-4000-8b87-eefdd00a7ceb" xml:space="preserve">
+          <source><bpt id="8e712e39-09a7-442f-ab9d-53865cb61e9e">&lt;linkText&gt;</bpt>Open Server Manager<ept id="8e712e39-09a7-442f-ab9d-53865cb61e9e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8e712e39-09a7-442f-ab9d-53865cb61e9e">&lt;linkText&gt;</bpt>Open Server Manager<ept id="8e712e39-09a7-442f-ab9d-53865cb61e9e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="904aff2c-7960-4917-839b-da3e4d5ad746" xml:space="preserve">
+          <source>Expand the menu and select <bpt id="421e4c99-ce55-44e9-90ae-c29961d146e8">&lt;strong&gt;</bpt>Disks<ept id="421e4c99-ce55-44e9-90ae-c29961d146e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand the menu and select <bpt id="421e4c99-ce55-44e9-90ae-c29961d146e8">&lt;strong&gt;</bpt>Disks<ept id="421e4c99-ce55-44e9-90ae-c29961d146e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb431146-5842-471b-8312-347a0c56099d" xml:space="preserve">
+          <source>The <bpt id="63d0c011-4ec5-4656-9757-d6b6070f4779">&lt;strong&gt;</bpt>Disks<ept id="63d0c011-4ec5-4656-9757-d6b6070f4779">&lt;/strong&gt;</ept> section lists disk 0, disk 1, and disk 2.</source>
+          <target state="new">The <bpt id="63d0c011-4ec5-4656-9757-d6b6070f4779">&lt;strong&gt;</bpt>Disks<ept id="63d0c011-4ec5-4656-9757-d6b6070f4779">&lt;/strong&gt;</ept> section lists disk 0, disk 1, and disk 2.</target>
+        </trans-unit>
+        <trans-unit id="240eba85-78de-48e0-8edd-b9651684be1d" xml:space="preserve">
+          <source>Disk 0 is the operating system disk, disk 1 is the temporary disk (which should not be used for data storage), and disk 2 is the data disk you attached to the virtual machine.</source>
+          <target state="new">Disk 0 is the operating system disk, disk 1 is the temporary disk (which should not be used for data storage), and disk 2 is the data disk you attached to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="86ad523c-30ff-46d2-a6fd-4561b78db32a" xml:space="preserve">
+          <source>The data disk has a capacity of 5 GB, based on what you specified when you attached the disk.</source>
+          <target state="new">The data disk has a capacity of 5 GB, based on what you specified when you attached the disk.</target>
+        </trans-unit>
+        <trans-unit id="c7c488de-0c0b-497f-a4cf-c2d814f41225" xml:space="preserve">
+          <source>Right-click disk 2 and  select <bpt id="bd600237-aed5-41ae-a4b0-c3476034785b">&lt;strong&gt;</bpt>Initialize<ept id="bd600237-aed5-41ae-a4b0-c3476034785b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click disk 2 and  select <bpt id="bd600237-aed5-41ae-a4b0-c3476034785b">&lt;strong&gt;</bpt>Initialize<ept id="bd600237-aed5-41ae-a4b0-c3476034785b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17a6628b-1eda-4772-99bc-38040cef3b5a" xml:space="preserve">
+          <source>You're notified that all data will be erased when the disk is initialized.</source>
+          <target state="new">You're notified that all data will be erased when the disk is initialized.</target>
+        </trans-unit>
+        <trans-unit id="621262b4-d96d-45da-8b1f-faceceed9748" xml:space="preserve">
+          <source>Click <bpt id="ef5ade96-ada3-4102-a47a-61f760829a75">&lt;strong&gt;</bpt>Yes<ept id="ef5ade96-ada3-4102-a47a-61f760829a75">&lt;/strong&gt;</ept> to acknowledge the warning and initialize the disk.</source>
+          <target state="new">Click <bpt id="ef5ade96-ada3-4102-a47a-61f760829a75">&lt;strong&gt;</bpt>Yes<ept id="ef5ade96-ada3-4102-a47a-61f760829a75">&lt;/strong&gt;</ept> to acknowledge the warning and initialize the disk.</target>
+        </trans-unit>
+        <trans-unit id="98e8064c-3b29-46fe-bbf4-8be87e39c0e8" xml:space="preserve">
+          <source>Then, right-click disk 2 again and select <bpt id="3e43ad10-36c6-4f76-9150-305b8ff7caad">&lt;strong&gt;</bpt>New Volume<ept id="3e43ad10-36c6-4f76-9150-305b8ff7caad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, right-click disk 2 again and select <bpt id="3e43ad10-36c6-4f76-9150-305b8ff7caad">&lt;strong&gt;</bpt>New Volume<ept id="3e43ad10-36c6-4f76-9150-305b8ff7caad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aea14402-2f4b-46a7-a546-1927d3af2368" xml:space="preserve">
+          <source>Complete the wizard using the default values.</source>
+          <target state="new">Complete the wizard using the default values.</target>
+        </trans-unit>
+        <trans-unit id="d1824605-bea8-4bc0-9a1a-04d4c18d65c6" xml:space="preserve">
+          <source>When the wizard is done, the <bpt id="2c09a94c-0089-43e5-8e06-d2480b26cf78">&lt;strong&gt;</bpt>Volumes<ept id="2c09a94c-0089-43e5-8e06-d2480b26cf78">&lt;/strong&gt;</ept> section lists the new volume.</source>
+          <target state="new">When the wizard is done, the <bpt id="2c09a94c-0089-43e5-8e06-d2480b26cf78">&lt;strong&gt;</bpt>Volumes<ept id="2c09a94c-0089-43e5-8e06-d2480b26cf78">&lt;/strong&gt;</ept> section lists the new volume.</target>
+        </trans-unit>
+        <trans-unit id="9d882f0d-c6e7-4c3b-a262-1ec28048e149" xml:space="preserve">
+          <source>The disk is now online and ready to store data.</source>
+          <target state="new">The disk is now online and ready to store data.</target>
+        </trans-unit>
+        <trans-unit id="ef9cef66-4e18-48ac-b11f-ad20cd1f0664" xml:space="preserve">
+          <source><bpt id="8376ddfe-b87a-46c1-b4f1-0d0e4f38addd">&lt;linkText&gt;</bpt>Volume successfully initialized<ept id="8376ddfe-b87a-46c1-b4f1-0d0e4f38addd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8376ddfe-b87a-46c1-b4f1-0d0e4f38addd">&lt;linkText&gt;</bpt>Volume successfully initialized<ept id="8376ddfe-b87a-46c1-b4f1-0d0e4f38addd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3ead877-a9d5-491b-88ac-9c8410a17720" xml:space="preserve">
+          <source>The size of the virtual machine determines how many disks you can attach to it.</source>
+          <target state="new">The size of the virtual machine determines how many disks you can attach to it.</target>
+        </trans-unit>
+        <trans-unit id="20c69aa4-e796-4c99-a798-cad1f3b32ed8" xml:space="preserve">
+          <source>For details, see <bpt id="7571723e-499e-4458-9f6e-f2d11dc9e7df">&lt;linkText&gt;</bpt>Sizes for virtual machines<ept id="7571723e-499e-4458-9f6e-f2d11dc9e7df">&lt;/linkText&gt;</ept><bpt id="7571723e-499e-4458-9f6e-f2d11dc9e7df">&lt;title&gt;</bpt><ept id="7571723e-499e-4458-9f6e-f2d11dc9e7df">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="7571723e-499e-4458-9f6e-f2d11dc9e7df">&lt;linkText&gt;</bpt>Sizes for virtual machines<ept id="7571723e-499e-4458-9f6e-f2d11dc9e7df">&lt;/linkText&gt;</ept><bpt id="7571723e-499e-4458-9f6e-f2d11dc9e7df">&lt;title&gt;</bpt><ept id="7571723e-499e-4458-9f6e-f2d11dc9e7df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee721239-fd88-482b-a747-54757fcd1655" xml:space="preserve">
+          <source><bpt id="e0ecb3cd-69e7-45c7-818d-5cd262483610">&lt;linkText&gt;</bpt>How to detach a disk from a Windows virtual machine<ept id="e0ecb3cd-69e7-45c7-818d-5cd262483610">&lt;/linkText&gt;</ept><bpt id="e0ecb3cd-69e7-45c7-818d-5cd262483610">&lt;title&gt;</bpt><ept id="e0ecb3cd-69e7-45c7-818d-5cd262483610">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e0ecb3cd-69e7-45c7-818d-5cd262483610">&lt;linkText&gt;</bpt>How to detach a disk from a Windows virtual machine<ept id="e0ecb3cd-69e7-45c7-818d-5cd262483610">&lt;/linkText&gt;</ept><bpt id="e0ecb3cd-69e7-45c7-818d-5cd262483610">&lt;title&gt;</bpt><ept id="e0ecb3cd-69e7-45c7-818d-5cd262483610">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3497fb9-da8a-405a-8a29-aa653105884e" xml:space="preserve">
+          <source><bpt id="44c413d1-61c3-4084-8837-9ce6740fcba2">&lt;linkText&gt;</bpt>About disks and VHDs for virtual machines<ept id="44c413d1-61c3-4084-8837-9ce6740fcba2">&lt;/linkText&gt;</ept><bpt id="44c413d1-61c3-4084-8837-9ce6740fcba2">&lt;title&gt;</bpt><ept id="44c413d1-61c3-4084-8837-9ce6740fcba2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="44c413d1-61c3-4084-8837-9ce6740fcba2">&lt;linkText&gt;</bpt>About disks and VHDs for virtual machines<ept id="44c413d1-61c3-4084-8837-9ce6740fcba2">&lt;/linkText&gt;</ept><bpt id="44c413d1-61c3-4084-8837-9ce6740fcba2">&lt;title&gt;</bpt><ept id="44c413d1-61c3-4084-8837-9ce6740fcba2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9490c99e-ba8b-437d-a6ab-c6b4010e501a" xml:space="preserve">
+          <source>virtual-machines-log-on-windows-server.md</source>
+          <target state="new">virtual-machines-log-on-windows-server.md</target>
+        </trans-unit>
+      </group>
+      <group id="d709d640-a045-4008-b96b-8ad5edca6013" />
+    </body>
+  </file>
+</xliff>

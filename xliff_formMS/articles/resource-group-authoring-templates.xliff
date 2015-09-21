@@ -1,0 +1,670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9b550e49-8d50-49a6-a4cb-7362d1f2a6b9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9b550e49-8d50-49a6-a4cb-7362d1f2a6b9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="704dbae8-f45e-4599-9c9f-3c1fc98ddbdb">
+        <trans-unit id="5f53f3c0-9123-435d-a631-6ca270c92036" xml:space="preserve">
+          <source>Authoring Azure Resource Manager Templates</source>
+          <target state="new">Authoring Azure Resource Manager Templates</target>
+        </trans-unit>
+        <trans-unit id="e8bfe7e2-356f-4298-9459-82a607627d35" xml:space="preserve">
+          <source>Create Azure Resource Manager templates using declarative JSON syntax to deploy applications to Azure.</source>
+          <target state="new">Create Azure Resource Manager templates using declarative JSON syntax to deploy applications to Azure.</target>
+        </trans-unit>
+        <trans-unit id="bf15c29b-1a93-4a50-aa05-90eda7818a91" xml:space="preserve">
+          <source>Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals.</source>
+          <target state="new">Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals.</target>
+        </trans-unit>
+        <trans-unit id="ce7f30dc-5929-4d21-b290-c09bc31caa5b" xml:space="preserve">
+          <source>Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation.</source>
+          <target state="new">Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation.</target>
+        </trans-unit>
+        <trans-unit id="1d56d476-6eb1-403a-8d96-00ca77ecf368" xml:space="preserve">
+          <source>In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments.</source>
+          <target state="new">In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments.</target>
+        </trans-unit>
+        <trans-unit id="66cd7111-216c-460e-a623-ea4a67c13ad7" xml:space="preserve">
+          <source>The template consists of JSON and expressions which you can use to construct values for your deployment.</source>
+          <target state="new">The template consists of JSON and expressions which you can use to construct values for your deployment.</target>
+        </trans-unit>
+        <trans-unit id="7c1851df-5155-4c40-ac3b-fa53d5e04f83" xml:space="preserve">
+          <source>This topic describes the sections of the template.</source>
+          <target state="new">This topic describes the sections of the template.</target>
+        </trans-unit>
+        <trans-unit id="d848ff63-0824-475d-b342-515fdc18c3ca" xml:space="preserve">
+          <source>For the actual schemas, see <bpt id="c51cdaa5-4f06-4ee7-a117-7a832b07bdc5">&lt;linkText&gt;</bpt>Azure Resource Manager Schemas<ept id="c51cdaa5-4f06-4ee7-a117-7a832b07bdc5">&lt;/linkText&gt;</ept><bpt id="c51cdaa5-4f06-4ee7-a117-7a832b07bdc5">&lt;title&gt;</bpt><ept id="c51cdaa5-4f06-4ee7-a117-7a832b07bdc5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the actual schemas, see <bpt id="c51cdaa5-4f06-4ee7-a117-7a832b07bdc5">&lt;linkText&gt;</bpt>Azure Resource Manager Schemas<ept id="c51cdaa5-4f06-4ee7-a117-7a832b07bdc5">&lt;/linkText&gt;</ept><bpt id="c51cdaa5-4f06-4ee7-a117-7a832b07bdc5">&lt;title&gt;</bpt><ept id="c51cdaa5-4f06-4ee7-a117-7a832b07bdc5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="654c2741-c781-4361-9575-e3b6870625e4" xml:space="preserve">
+          <source>You must limit the size your template to 1 MB, and each parameter file to 64 KB.</source>
+          <target state="new">You must limit the size your template to 1 MB, and each parameter file to 64 KB.</target>
+        </trans-unit>
+        <trans-unit id="0b4c0265-8559-4010-a0cf-f8d0d669d099" xml:space="preserve">
+          <source>The 1 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters.</source>
+          <target state="new">The 1 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters.</target>
+        </trans-unit>
+        <trans-unit id="49949fd3-4a19-4ce7-880f-10615aba102d" xml:space="preserve">
+          <source>The following example shows the sections that make up the basic structure of a template.</source>
+          <target state="new">The following example shows the sections that make up the basic structure of a template.</target>
+        </trans-unit>
+        <trans-unit id="742e522a-59ca-435c-983a-c1ce1a893467" xml:space="preserve">
+          <source>Element name</source>
+          <target state="new">Element name</target>
+        </trans-unit>
+        <trans-unit id="f705fcbe-046c-41e5-aafd-15d3b54bde16" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="bf62fe61-7b22-4e3c-84b1-9ad8c65e7f91" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="05414cf8-0a03-480d-bd17-020f07b9cba1" xml:space="preserve">
+          <source>$schema</source>
+          <target state="new">$schema</target>
+        </trans-unit>
+        <trans-unit id="205cb958-196c-497c-9ba4-c3fe084571eb" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="8d668e30-a632-4fb3-9095-8d80ab00aab5" xml:space="preserve">
+          <source>Location of the JSON schema file that describes the version of the template language.</source>
+          <target state="new">Location of the JSON schema file that describes the version of the template language.</target>
+        </trans-unit>
+        <trans-unit id="7c90f393-e3a8-48e9-8293-a063dc14a134" xml:space="preserve">
+          <source>contentVersion</source>
+          <target state="new">contentVersion</target>
+        </trans-unit>
+        <trans-unit id="cc0f5b45-631b-4881-8617-6d3877ae0f01" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ce737f75-481c-4a41-9c61-3fa06295444a" xml:space="preserve">
+          <source>Version of the template (such as 1.0.0.0).</source>
+          <target state="new">Version of the template (such as 1.0.0.0).</target>
+        </trans-unit>
+        <trans-unit id="9e4885fc-08bb-417b-9515-85d2b0a070c7" xml:space="preserve">
+          <source>When deploying resources using the template, this value can be used to make sure that the right template is being used.</source>
+          <target state="new">When deploying resources using the template, this value can be used to make sure that the right template is being used.</target>
+        </trans-unit>
+        <trans-unit id="44d3d520-609d-4253-b3b6-e7ca21f582b9" xml:space="preserve">
+          <source>parameters</source>
+          <target state="new">parameters</target>
+        </trans-unit>
+        <trans-unit id="cbf2eb86-78d3-401f-8e10-e01161a3c284" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="78a82ab6-f812-41e9-be97-78e80d917984" xml:space="preserve">
+          <source>Values that are provided when deployment is executed to customize resource deployment.</source>
+          <target state="new">Values that are provided when deployment is executed to customize resource deployment.</target>
+        </trans-unit>
+        <trans-unit id="459c1fb9-3d0d-44be-a6e5-b3d865c190c9" xml:space="preserve">
+          <source>variables</source>
+          <target state="new">variables</target>
+        </trans-unit>
+        <trans-unit id="dd9d8cb9-e9be-482b-b977-9e5b4ee9b68f" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="ef9a20b1-8985-4447-be54-d66b4e7f3b5f" xml:space="preserve">
+          <source>Values that are used as JSON fragments in the template to simplify template language expressions.</source>
+          <target state="new">Values that are used as JSON fragments in the template to simplify template language expressions.</target>
+        </trans-unit>
+        <trans-unit id="0df927a2-4e6f-403f-b7bc-fdda4bcb3be8" xml:space="preserve">
+          <source>resources</source>
+          <target state="new">resources</target>
+        </trans-unit>
+        <trans-unit id="257ea637-416e-40b8-a25a-f40699841270" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e8a51c81-d0fc-46ec-9b1f-327f7f474ca5" xml:space="preserve">
+          <source>Types of services that are deployed or updated in a resource group.</source>
+          <target state="new">Types of services that are deployed or updated in a resource group.</target>
+        </trans-unit>
+        <trans-unit id="d5c2bb19-b49c-4e0f-b1dd-fb5bb2873c05" xml:space="preserve">
+          <source>outputs</source>
+          <target state="new">outputs</target>
+        </trans-unit>
+        <trans-unit id="b689432b-2f1f-44b3-afac-7159d73c1bbd" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="15fe247d-995c-4809-98b3-6ebf1c6fecc4" xml:space="preserve">
+          <source>Values that are returned after deployment.</source>
+          <target state="new">Values that are returned after deployment.</target>
+        </trans-unit>
+        <trans-unit id="fbcf5924-4442-4185-b245-7a228148bdf6" xml:space="preserve">
+          <source>We will examine the sections of the template in greater detail later in this topic.</source>
+          <target state="new">We will examine the sections of the template in greater detail later in this topic.</target>
+        </trans-unit>
+        <trans-unit id="0a707fd4-e3f8-46d6-82f1-bb0915202bfb" xml:space="preserve">
+          <source>For now, we will review some of the syntax that makes up the template.</source>
+          <target state="new">For now, we will review some of the syntax that makes up the template.</target>
+        </trans-unit>
+        <trans-unit id="fd3ed2d5-9f47-4280-a628-b06f5ab43f6c" xml:space="preserve">
+          <source>The basic syntax of the template is JSON; however, expressions and functions extend the JSON that is available in the template and enable you to create values that are not strict literal values.</source>
+          <target state="new">The basic syntax of the template is JSON; however, expressions and functions extend the JSON that is available in the template and enable you to create values that are not strict literal values.</target>
+        </trans-unit>
+        <trans-unit id="6c34037a-9f1d-40ee-936a-52bfad101296" xml:space="preserve">
+          <source>Expressions are enclosed with brackets ([ and ]), and are evaluated when the template is deployed.</source>
+          <target state="new">Expressions are enclosed with brackets ([ and ]), and are evaluated when the template is deployed.</target>
+        </trans-unit>
+        <trans-unit id="e5cf799b-8aa9-4e2d-beb5-1636b142cad1" xml:space="preserve">
+          <source>Expressions can appear anywhere in a JSON string value and always return another JSON value.</source>
+          <target state="new">Expressions can appear anywhere in a JSON string value and always return another JSON value.</target>
+        </trans-unit>
+        <trans-unit id="5861b6bd-a627-418e-9d12-8f19d0981e60" xml:space="preserve">
+          <source>If you need to use a literal string that starts with a bracket [, you must use two brackets [[.</source>
+          <target state="new">If you need to use a literal string that starts with a bracket [, you must use two brackets [[.</target>
+        </trans-unit>
+        <trans-unit id="a7a0ac20-d3fa-48ba-b42d-e34e4a0e46fb" xml:space="preserve">
+          <source>Typically, you use expressions with functions to perform operations for configuring the deployment.</source>
+          <target state="new">Typically, you use expressions with functions to perform operations for configuring the deployment.</target>
+        </trans-unit>
+        <trans-unit id="cc7484b6-c67d-42fa-b49f-85eeccf93a70" xml:space="preserve">
+          <source>Just like in JavaScript, function calls are formatted as <bpt id="cf5f384c-3325-4860-8e12-aecdead541fd">&lt;strong&gt;</bpt>functionName(arg1,arg2,arg3)<ept id="cf5f384c-3325-4860-8e12-aecdead541fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Just like in JavaScript, function calls are formatted as <bpt id="cf5f384c-3325-4860-8e12-aecdead541fd">&lt;strong&gt;</bpt>functionName(arg1,arg2,arg3)<ept id="cf5f384c-3325-4860-8e12-aecdead541fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad20d9b7-a072-4c58-bd23-6deea261fb26" xml:space="preserve">
+          <source>You reference properties by using the dot and [index] operators.</source>
+          <target state="new">You reference properties by using the dot and [index] operators.</target>
+        </trans-unit>
+        <trans-unit id="4e405f55-eb48-48c5-ade0-f0f405551cec" xml:space="preserve">
+          <source>The following list shows common functions.</source>
+          <target state="new">The following list shows common functions.</target>
+        </trans-unit>
+        <trans-unit id="060e86a4-14f4-4b56-8bc2-19c55e9477f0" xml:space="preserve">
+          <source><bpt id="c931767d-bd02-4f5c-bd00-037b4602169f">&lt;strong&gt;</bpt>parameters(parameterName)<ept id="c931767d-bd02-4f5c-bd00-037b4602169f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c931767d-bd02-4f5c-bd00-037b4602169f">&lt;strong&gt;</bpt>parameters(parameterName)<ept id="c931767d-bd02-4f5c-bd00-037b4602169f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce233d09-96c2-404a-b1b2-5ef5fd645a0f" xml:space="preserve">
+          <source>Returns a parameter value that is provided when the deployment is executed.</source>
+          <target state="new">Returns a parameter value that is provided when the deployment is executed.</target>
+        </trans-unit>
+        <trans-unit id="701ec1d5-320f-47d8-b37b-45125a036b2c" xml:space="preserve">
+          <source><bpt id="b63416c7-011a-4906-a859-b4fafb767d2b">&lt;strong&gt;</bpt>variables(variableName)<ept id="b63416c7-011a-4906-a859-b4fafb767d2b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b63416c7-011a-4906-a859-b4fafb767d2b">&lt;strong&gt;</bpt>variables(variableName)<ept id="b63416c7-011a-4906-a859-b4fafb767d2b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e24cd771-3ccb-446e-9358-0b96637dc6f0" xml:space="preserve">
+          <source>Returns a variable that is defined in the template.</source>
+          <target state="new">Returns a variable that is defined in the template.</target>
+        </trans-unit>
+        <trans-unit id="292af1da-72ca-4d94-9d4a-bc01a6abe82b" xml:space="preserve">
+          <source><bpt id="62511a52-5944-4677-b1fd-e4d38aec85ba">&lt;strong&gt;</bpt>concat(arg1,arg2,arg3,...)<ept id="62511a52-5944-4677-b1fd-e4d38aec85ba">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="62511a52-5944-4677-b1fd-e4d38aec85ba">&lt;strong&gt;</bpt>concat(arg1,arg2,arg3,...)<ept id="62511a52-5944-4677-b1fd-e4d38aec85ba">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22ccea08-0ce4-45e4-8ace-42f503b523dd" xml:space="preserve">
+          <source>Combines multiple string values.</source>
+          <target state="new">Combines multiple string values.</target>
+        </trans-unit>
+        <trans-unit id="016fe05a-a41b-4227-9705-68b8db3d7696" xml:space="preserve">
+          <source>This function can take any number of arguments.</source>
+          <target state="new">This function can take any number of arguments.</target>
+        </trans-unit>
+        <trans-unit id="49f62de9-3dfd-4e35-a8c2-4683b0cff4fc" xml:space="preserve">
+          <source><bpt id="acbb0030-8927-4bbd-9b68-b8f1dc29d1a8">&lt;strong&gt;</bpt>base64(inputString)<ept id="acbb0030-8927-4bbd-9b68-b8f1dc29d1a8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="acbb0030-8927-4bbd-9b68-b8f1dc29d1a8">&lt;strong&gt;</bpt>base64(inputString)<ept id="acbb0030-8927-4bbd-9b68-b8f1dc29d1a8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97d45e35-8e8e-4fa8-8da3-5d65af5da50b" xml:space="preserve">
+          <source>Returns the base64 representation of the input string.</source>
+          <target state="new">Returns the base64 representation of the input string.</target>
+        </trans-unit>
+        <trans-unit id="6690d183-54ee-47ec-9891-ce42dcd02167" xml:space="preserve">
+          <source><bpt id="4de7646c-c1db-443f-8ec8-23b0e6489a22">&lt;strong&gt;</bpt>resourceGroup()<ept id="4de7646c-c1db-443f-8ec8-23b0e6489a22">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4de7646c-c1db-443f-8ec8-23b0e6489a22">&lt;strong&gt;</bpt>resourceGroup()<ept id="4de7646c-c1db-443f-8ec8-23b0e6489a22">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3a9147d-e919-4c83-8d89-aa64db0d2a59" xml:space="preserve">
+          <source>Returns a structured object (with id, name, and location properties) that represents the current resource group.</source>
+          <target state="new">Returns a structured object (with id, name, and location properties) that represents the current resource group.</target>
+        </trans-unit>
+        <trans-unit id="45c5a6a3-1a58-4fda-ba94-77e6ee5dc7b4" xml:space="preserve">
+          <source><bpt id="156ba823-e962-464f-8428-155f8b293ccb">&lt;strong&gt;</bpt>resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)<ept id="156ba823-e962-464f-8428-155f8b293ccb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="156ba823-e962-464f-8428-155f8b293ccb">&lt;strong&gt;</bpt>resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)<ept id="156ba823-e962-464f-8428-155f8b293ccb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aaac4fb9-f279-43f7-a5fc-00fd6f0d726e" xml:space="preserve">
+          <source>Returns the unique identifier of a resource.</source>
+          <target state="new">Returns the unique identifier of a resource.</target>
+        </trans-unit>
+        <trans-unit id="29010a8e-4b41-43f1-9204-93302c130420" xml:space="preserve">
+          <source>Can be used to retrieve resource from another resource group.</source>
+          <target state="new">Can be used to retrieve resource from another resource group.</target>
+        </trans-unit>
+        <trans-unit id="d995c9c0-37a4-4cc4-9dd3-b933405da180" xml:space="preserve">
+          <source>The following example shows how to use several of the functions when constructing values:</source>
+          <target state="new">The following example shows how to use several of the functions when constructing values:</target>
+        </trans-unit>
+        <trans-unit id="983e4408-fe5d-44e0-8644-bf8f4e02ee34" xml:space="preserve">
+          <source>For now, you know enough about expressions and functions to understand the sections of the template.</source>
+          <target state="new">For now, you know enough about expressions and functions to understand the sections of the template.</target>
+        </trans-unit>
+        <trans-unit id="cb636080-a6df-4f2b-9586-d8c8a904c528" xml:space="preserve">
+          <source>For more detailed information about all of the template functions, including parameters and the format of returned values, 
+see <bpt id="d29d9817-36e5-47de-b35e-7b32ca95b69a">&lt;linkText&gt;</bpt>Azure Resource Manager template functions<ept id="d29d9817-36e5-47de-b35e-7b32ca95b69a">&lt;/linkText&gt;</ept><bpt id="d29d9817-36e5-47de-b35e-7b32ca95b69a">&lt;title&gt;</bpt><ept id="d29d9817-36e5-47de-b35e-7b32ca95b69a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more detailed information about all of the template functions, including parameters and the format of returned values, 
+see <bpt id="d29d9817-36e5-47de-b35e-7b32ca95b69a">&lt;linkText&gt;</bpt>Azure Resource Manager template functions<ept id="d29d9817-36e5-47de-b35e-7b32ca95b69a">&lt;/linkText&gt;</ept><bpt id="d29d9817-36e5-47de-b35e-7b32ca95b69a">&lt;title&gt;</bpt><ept id="d29d9817-36e5-47de-b35e-7b32ca95b69a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="951d4898-0070-47f9-87d7-c55be2dba74a" xml:space="preserve">
+          <source>In the parameters section of the template, you specify which values a user can input when deploying the resources.</source>
+          <target state="new">In the parameters section of the template, you specify which values a user can input when deploying the resources.</target>
+        </trans-unit>
+        <trans-unit id="a662e707-e612-4da8-bfc5-6cb5270a632c" xml:space="preserve">
+          <source>You can use these parameter values throughout the template to set values for the deployed resources.</source>
+          <target state="new">You can use these parameter values throughout the template to set values for the deployed resources.</target>
+        </trans-unit>
+        <trans-unit id="b1e1d66a-c620-436d-b794-3437c3abadcc" xml:space="preserve">
+          <source>Only parameters that are declared in the parameters section can be used in other sections of the template.</source>
+          <target state="new">Only parameters that are declared in the parameters section can be used in other sections of the template.</target>
+        </trans-unit>
+        <trans-unit id="ea5bd7f9-d7c1-4625-80f5-9edc55243c53" xml:space="preserve">
+          <source>Within parameters section, you cannot use a parameter value to construct another parameter value.</source>
+          <target state="new">Within parameters section, you cannot use a parameter value to construct another parameter value.</target>
+        </trans-unit>
+        <trans-unit id="7a9b297d-2f90-403b-9b7d-1195c84979ad" xml:space="preserve">
+          <source>That type of operation typically happens in the variables section.</source>
+          <target state="new">That type of operation typically happens in the variables section.</target>
+        </trans-unit>
+        <trans-unit id="11f594e2-19e0-4456-a93b-4b3f5988abe0" xml:space="preserve">
+          <source>You define parameters with the following structure:</source>
+          <target state="new">You define parameters with the following structure:</target>
+        </trans-unit>
+        <trans-unit id="1b6ca1f3-89ca-4852-80ae-f380c85b38f7" xml:space="preserve">
+          <source>Element name</source>
+          <target state="new">Element name</target>
+        </trans-unit>
+        <trans-unit id="8ec46ba2-0752-48a3-9ea4-3f611dfea109" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="2d9e44bc-794a-4746-8d6d-72e69c90b99d" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="64ddd87e-ce5f-4cfa-9917-bc0d80133490" xml:space="preserve">
+          <source>parameterName</source>
+          <target state="new">parameterName</target>
+        </trans-unit>
+        <trans-unit id="770c7fdf-6270-45ed-b1ff-1eed8d102d93" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="07a7878f-adea-49d1-9ceb-f24c2885c448" xml:space="preserve">
+          <source>Name of the parameter.</source>
+          <target state="new">Name of the parameter.</target>
+        </trans-unit>
+        <trans-unit id="e97d9ac8-c6fb-4b8a-91c1-361ea1179d77" xml:space="preserve">
+          <source>Must be a valid JavaScript identifier.</source>
+          <target state="new">Must be a valid JavaScript identifier.</target>
+        </trans-unit>
+        <trans-unit id="710838fb-4a82-49ac-8a30-944ce318f88d" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="1d60f296-0dc9-4791-819a-7ce0eec7976f" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="34fd90a8-30d0-444d-85bc-9ec05a0a796b" xml:space="preserve">
+          <source>Type of the parameter value.</source>
+          <target state="new">Type of the parameter value.</target>
+        </trans-unit>
+        <trans-unit id="84a609cb-ebe1-4491-8981-025984ef5f9f" xml:space="preserve">
+          <source>See the list below of allowed types.</source>
+          <target state="new">See the list below of allowed types.</target>
+        </trans-unit>
+        <trans-unit id="d271fd60-64e9-4878-8d18-7d374ac94f21" xml:space="preserve">
+          <source>defaultValue</source>
+          <target state="new">defaultValue</target>
+        </trans-unit>
+        <trans-unit id="c1edde0f-b1f0-4b14-aec3-9543bf5ef746" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="8387c078-f564-4492-aefc-a1c730d645a2" xml:space="preserve">
+          <source>Default value for the parameter, if no value is provided for the parameter.</source>
+          <target state="new">Default value for the parameter, if no value is provided for the parameter.</target>
+        </trans-unit>
+        <trans-unit id="0fa706cd-bb4e-45d5-b61f-ebf11c995708" xml:space="preserve">
+          <source>allowedValues</source>
+          <target state="new">allowedValues</target>
+        </trans-unit>
+        <trans-unit id="765e8243-70a1-4360-a97f-645c8eba1eee" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="02f3888b-6ccb-448f-b5cb-d674a64ce34e" xml:space="preserve">
+          <source>Array of allowed values for the parameter to make sure that the right value is provided.</source>
+          <target state="new">Array of allowed values for the parameter to make sure that the right value is provided.</target>
+        </trans-unit>
+        <trans-unit id="65fd883d-e3ee-40da-8f03-cdbb7afb1cf3" xml:space="preserve">
+          <source>The allowed types and values are:</source>
+          <target state="new">The allowed types and values are:</target>
+        </trans-unit>
+        <trans-unit id="fed9c62c-2f54-4116-ad2c-4736a33f2f71" xml:space="preserve">
+          <source>string or secureString - any valid JSON string</source>
+          <target state="new">string or secureString - any valid JSON string</target>
+        </trans-unit>
+        <trans-unit id="ccef1fcf-33e6-4a71-8431-aaea81594a08" xml:space="preserve">
+          <source>int - any valid JSON integer</source>
+          <target state="new">int - any valid JSON integer</target>
+        </trans-unit>
+        <trans-unit id="7881f22c-0581-42d6-97a5-dbd82b3ec89f" xml:space="preserve">
+          <source>bool - any valid JSON boolean</source>
+          <target state="new">bool - any valid JSON boolean</target>
+        </trans-unit>
+        <trans-unit id="45b44fa6-9f89-41fa-84b3-ac3a7efef258" xml:space="preserve">
+          <source>object or secureObject - any valid JSON object</source>
+          <target state="new">object or secureObject - any valid JSON object</target>
+        </trans-unit>
+        <trans-unit id="6242932d-c8f0-4103-8e96-582620eed7c2" xml:space="preserve">
+          <source>array - any valid JSON array</source>
+          <target state="new">array - any valid JSON array</target>
+        </trans-unit>
+        <trans-unit id="a4fb8dac-68bd-4f6a-834f-2a0c787d34df" xml:space="preserve">
+          <source>All passwords, keys, and other secrets should use the <bpt id="953c6265-99f3-4af5-80b3-43e7675ab186">&lt;strong&gt;</bpt>secureString<ept id="953c6265-99f3-4af5-80b3-43e7675ab186">&lt;/strong&gt;</ept> type.</source>
+          <target state="new">All passwords, keys, and other secrets should use the <bpt id="953c6265-99f3-4af5-80b3-43e7675ab186">&lt;strong&gt;</bpt>secureString<ept id="953c6265-99f3-4af5-80b3-43e7675ab186">&lt;/strong&gt;</ept> type.</target>
+        </trans-unit>
+        <trans-unit id="c9eacca8-43d8-428c-9c65-0291d1e0584f" xml:space="preserve">
+          <source>Template parameters with the secureString type cannot be read after resource deployment.</source>
+          <target state="new">Template parameters with the secureString type cannot be read after resource deployment.</target>
+        </trans-unit>
+        <trans-unit id="52a7f4e6-7331-4a68-846e-7042c2cdbb66" xml:space="preserve">
+          <source>The following example shows how to define parameters:</source>
+          <target state="new">The following example shows how to define parameters:</target>
+        </trans-unit>
+        <trans-unit id="03b42576-424b-45cd-9410-b8e705c4d974" xml:space="preserve">
+          <source>In the variables section, you construct values that can be used to simplify template language expressions.</source>
+          <target state="new">In the variables section, you construct values that can be used to simplify template language expressions.</target>
+        </trans-unit>
+        <trans-unit id="c8d7bcce-1ab0-4d01-9481-8442afff6fb7" xml:space="preserve">
+          <source>Typically, these variables will be based on values provided from the parameters.</source>
+          <target state="new">Typically, these variables will be based on values provided from the parameters.</target>
+        </trans-unit>
+        <trans-unit id="fb21043d-856d-46d8-8613-678a9352334f" xml:space="preserve">
+          <source>The following example shows how to define a variable that is constructed from two parameter values:</source>
+          <target state="new">The following example shows how to define a variable that is constructed from two parameter values:</target>
+        </trans-unit>
+        <trans-unit id="60363496-4253-467d-869d-98f319818a6e" xml:space="preserve">
+          <source>The next example shows a variable that is a complex JSON type, and variables that are constructed from other variables:</source>
+          <target state="new">The next example shows a variable that is a complex JSON type, and variables that are constructed from other variables:</target>
+        </trans-unit>
+        <trans-unit id="8fa6387b-cabb-4a46-9b12-152c30ad407c" xml:space="preserve">
+          <source>In the resources section, you define the resources are deployed or updated.</source>
+          <target state="new">In the resources section, you define the resources are deployed or updated.</target>
+        </trans-unit>
+        <trans-unit id="a4b5069c-f797-429b-a99d-e6318812fe13" xml:space="preserve">
+          <source>You define resources with the following structure:</source>
+          <target state="new">You define resources with the following structure:</target>
+        </trans-unit>
+        <trans-unit id="5e48ede4-e1ed-45d8-abe9-ce4e73c9eb7d" xml:space="preserve">
+          <source>Element name</source>
+          <target state="new">Element name</target>
+        </trans-unit>
+        <trans-unit id="300165f0-0dd8-488d-a1db-74741bff16d3" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="0fd98f9d-f374-458b-9bd1-b80e0b9367e5" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="31a1079d-37a4-4d79-9452-e5a3f21e4325" xml:space="preserve">
+          <source>apiVersion</source>
+          <target state="new">apiVersion</target>
+        </trans-unit>
+        <trans-unit id="95b6d4ff-8fff-47ef-a65e-bb7f6e4eb7bf" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="a00456e5-b0b0-4d53-8e6b-40bc08b7fe1c" xml:space="preserve">
+          <source>Version of the API that supports the resource.</source>
+          <target state="new">Version of the API that supports the resource.</target>
+        </trans-unit>
+        <trans-unit id="8203b702-d6c9-4d22-85b8-6959d6e0d6d4" xml:space="preserve">
+          <source>For the available versions and schemas for resources, see <bpt id="a5d829cf-7c42-4c65-89d2-143dd2ac25f3">&lt;linkText&gt;</bpt>Azure Resource Manager Schemas<ept id="a5d829cf-7c42-4c65-89d2-143dd2ac25f3">&lt;/linkText&gt;</ept><bpt id="a5d829cf-7c42-4c65-89d2-143dd2ac25f3">&lt;title&gt;</bpt><ept id="a5d829cf-7c42-4c65-89d2-143dd2ac25f3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the available versions and schemas for resources, see <bpt id="a5d829cf-7c42-4c65-89d2-143dd2ac25f3">&lt;linkText&gt;</bpt>Azure Resource Manager Schemas<ept id="a5d829cf-7c42-4c65-89d2-143dd2ac25f3">&lt;/linkText&gt;</ept><bpt id="a5d829cf-7c42-4c65-89d2-143dd2ac25f3">&lt;title&gt;</bpt><ept id="a5d829cf-7c42-4c65-89d2-143dd2ac25f3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5c55c13-31f6-4eeb-9104-0df960359500" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="3893962b-a3ef-4456-b978-a515b453f963" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="fc49f405-65bb-4b14-901c-6545b3d04bdc" xml:space="preserve">
+          <source>Type of the resource.</source>
+          <target state="new">Type of the resource.</target>
+        </trans-unit>
+        <trans-unit id="42947156-a1e1-4fa9-8ab8-d31eb9a56990" xml:space="preserve">
+          <source>This value is a combination of the namespace of the resource provider and the resource type that the resource provider supports.</source>
+          <target state="new">This value is a combination of the namespace of the resource provider and the resource type that the resource provider supports.</target>
+        </trans-unit>
+        <trans-unit id="81b188a3-3f09-4c99-8e52-1c5b563d7284" xml:space="preserve">
+          <source>name</source>
+          <target state="new">name</target>
+        </trans-unit>
+        <trans-unit id="5d93f042-a3a5-4272-90ae-2ade99544bbc" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="1fe88cd8-3c76-41a9-b680-2c3e46dd4d7b" xml:space="preserve">
+          <source>Name of the resource.</source>
+          <target state="new">Name of the resource.</target>
+        </trans-unit>
+        <trans-unit id="05efaffd-88ef-4a51-adad-155177e943c6" xml:space="preserve">
+          <source>The name must follow URI component restrictions defined in RFC3986.</source>
+          <target state="new">The name must follow URI component restrictions defined in RFC3986.</target>
+        </trans-unit>
+        <trans-unit id="cec307c0-ae6e-40fa-bba1-b97d741f6dd9" xml:space="preserve">
+          <source>location</source>
+          <target state="new">location</target>
+        </trans-unit>
+        <trans-unit id="e3d3a574-fbd4-47eb-9f73-0062fc4d8ff4" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="d0ac94a9-a77b-4679-9b3a-e88874c7aeb6" xml:space="preserve">
+          <source>Supported geo-locations of the provided resource.</source>
+          <target state="new">Supported geo-locations of the provided resource.</target>
+        </trans-unit>
+        <trans-unit id="2e60e15a-150d-4de5-8d49-ab1ed970d24c" xml:space="preserve">
+          <source>tags</source>
+          <target state="new">tags</target>
+        </trans-unit>
+        <trans-unit id="5ddadc9d-7003-48ab-9f81-c8372ad2ad76" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="9652a154-a46e-4dda-b930-cd4e75a5cf3b" xml:space="preserve">
+          <source>Tags that are associated with the resource.</source>
+          <target state="new">Tags that are associated with the resource.</target>
+        </trans-unit>
+        <trans-unit id="b1cf7243-a43d-4d5a-af94-99ae657fc1f1" xml:space="preserve">
+          <source>dependsOn</source>
+          <target state="new">dependsOn</target>
+        </trans-unit>
+        <trans-unit id="509678a3-23f0-4391-ad70-12fd4c76aeff" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="7f5ae8db-0992-4fa5-ab78-06f7b91fbfb8" xml:space="preserve">
+          <source>Resources that the resource being defined depends on.</source>
+          <target state="new">Resources that the resource being defined depends on.</target>
+        </trans-unit>
+        <trans-unit id="67d7398e-6049-4012-a191-ff32b225e21b" xml:space="preserve">
+          <source>The dependencies between resources are evaluated and resources are deployed in their dependent order.</source>
+          <target state="new">The dependencies between resources are evaluated and resources are deployed in their dependent order.</target>
+        </trans-unit>
+        <trans-unit id="545210e3-118e-44a2-91f7-e0aba33ffc45" xml:space="preserve">
+          <source>When resources are not dependent on each other, they are attempted to be deployed in parallel.</source>
+          <target state="new">When resources are not dependent on each other, they are attempted to be deployed in parallel.</target>
+        </trans-unit>
+        <trans-unit id="0f9fb70e-9068-486e-9ed0-1170157a4c1a" xml:space="preserve">
+          <source>The value can be a comma separated list of a resource names or resource unique identifiers.</source>
+          <target state="new">The value can be a comma separated list of a resource names or resource unique identifiers.</target>
+        </trans-unit>
+        <trans-unit id="36f525ef-aae0-4386-9e11-d959dffee96e" xml:space="preserve">
+          <source>properties</source>
+          <target state="new">properties</target>
+        </trans-unit>
+        <trans-unit id="18f6a199-8c2c-421a-b3d4-bf2d679c9033" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="0428a3d2-7466-41b3-a265-2a147c90e6e1" xml:space="preserve">
+          <source>Resource specific configuration settings.</source>
+          <target state="new">Resource specific configuration settings.</target>
+        </trans-unit>
+        <trans-unit id="b3291e5d-fb02-40da-9e59-3b71bb426ed0" xml:space="preserve">
+          <source>resources</source>
+          <target state="new">resources</target>
+        </trans-unit>
+        <trans-unit id="cdcbc371-7998-437e-b75e-c09ba6386bc6" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="eed6b42d-9756-4dd1-a544-8d1f8a12647b" xml:space="preserve">
+          <source>Child resources that depend on the resource being defined.</source>
+          <target state="new">Child resources that depend on the resource being defined.</target>
+        </trans-unit>
+        <trans-unit id="04d15314-ef14-4d12-bfb7-79c01c23f885" xml:space="preserve">
+          <source>If the resource name is not unique, you can use the <bpt id="75e3a9d2-48ea-482d-977d-017de3fd67f4">&lt;strong&gt;</bpt>resourceId<ept id="75e3a9d2-48ea-482d-977d-017de3fd67f4">&lt;/strong&gt;</ept> helper function (described below) to get the unique identifier for any resource.</source>
+          <target state="new">If the resource name is not unique, you can use the <bpt id="75e3a9d2-48ea-482d-977d-017de3fd67f4">&lt;strong&gt;</bpt>resourceId<ept id="75e3a9d2-48ea-482d-977d-017de3fd67f4">&lt;/strong&gt;</ept> helper function (described below) to get the unique identifier for any resource.</target>
+        </trans-unit>
+        <trans-unit id="90e029bd-b073-443f-9db6-063fc68de6ef" xml:space="preserve">
+          <source>The following example shows a <bpt id="fca06a58-6fdb-476c-b486-87ab043a18b4">&lt;strong&gt;</bpt>Microsoft.Web/serverfarms<ept id="fca06a58-6fdb-476c-b486-87ab043a18b4">&lt;/strong&gt;</ept> resource and a <bpt id="98015140-ef0e-450b-a481-e7c115690df2">&lt;strong&gt;</bpt>Microsoft.Web/sites<ept id="98015140-ef0e-450b-a481-e7c115690df2">&lt;/strong&gt;</ept> resource with a nested <bpt id="c1c19c1c-1ac3-4124-b9b1-fe3bd693d053">&lt;strong&gt;</bpt>Extensions<ept id="c1c19c1c-1ac3-4124-b9b1-fe3bd693d053">&lt;/strong&gt;</ept> resource:</source>
+          <target state="new">The following example shows a <bpt id="fca06a58-6fdb-476c-b486-87ab043a18b4">&lt;strong&gt;</bpt>Microsoft.Web/serverfarms<ept id="fca06a58-6fdb-476c-b486-87ab043a18b4">&lt;/strong&gt;</ept> resource and a <bpt id="98015140-ef0e-450b-a481-e7c115690df2">&lt;strong&gt;</bpt>Microsoft.Web/sites<ept id="98015140-ef0e-450b-a481-e7c115690df2">&lt;/strong&gt;</ept> resource with a nested <bpt id="c1c19c1c-1ac3-4124-b9b1-fe3bd693d053">&lt;strong&gt;</bpt>Extensions<ept id="c1c19c1c-1ac3-4124-b9b1-fe3bd693d053">&lt;/strong&gt;</ept> resource:</target>
+        </trans-unit>
+        <trans-unit id="a67eddea-5104-4682-b91a-eade535a0ebe" xml:space="preserve">
+          <source>In the Outputs section, you specify values that are returned from deployment.</source>
+          <target state="new">In the Outputs section, you specify values that are returned from deployment.</target>
+        </trans-unit>
+        <trans-unit id="8e09d88c-d61c-4a74-9f4d-0ab03c59a219" xml:space="preserve">
+          <source>For example, you could return the URI to access a deployed resource.</source>
+          <target state="new">For example, you could return the URI to access a deployed resource.</target>
+        </trans-unit>
+        <trans-unit id="fb5e22e5-8e1c-4b25-87da-3bfd94dcf4c7" xml:space="preserve">
+          <source>The following example shows the structure of an output definition:</source>
+          <target state="new">The following example shows the structure of an output definition:</target>
+        </trans-unit>
+        <trans-unit id="f35f9869-f5c8-4f5c-b885-0938ea1d451d" xml:space="preserve">
+          <source>Element name</source>
+          <target state="new">Element name</target>
+        </trans-unit>
+        <trans-unit id="0691a19b-5bf3-40d9-9829-727536cacf89" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="2b812a8b-19a6-46a2-97a9-ea1b8a0723f9" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="e6087d59-3a88-4aa0-800d-d3d78fedc282" xml:space="preserve">
+          <source>outputName</source>
+          <target state="new">outputName</target>
+        </trans-unit>
+        <trans-unit id="90f13669-2d4a-440a-af5a-9e54eb470f2d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="3b5602f4-8e49-4ad1-95ad-7e2558c51ee5" xml:space="preserve">
+          <source>Name of the output value.</source>
+          <target state="new">Name of the output value.</target>
+        </trans-unit>
+        <trans-unit id="66836be1-3eaa-439b-ba6d-8f6997d0aef9" xml:space="preserve">
+          <source>Must be a valid JavaScript identifier.</source>
+          <target state="new">Must be a valid JavaScript identifier.</target>
+        </trans-unit>
+        <trans-unit id="24edbe17-8338-4ad4-addb-5d62999041e6" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="16eed12c-92c9-4ee2-9d73-20251e6809e3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="bc7471e3-0e71-4763-bd5f-f2151528e0f6" xml:space="preserve">
+          <source>Type of the output value.</source>
+          <target state="new">Type of the output value.</target>
+        </trans-unit>
+        <trans-unit id="a771272f-9a3d-4b16-97bf-97bdc757d0d8" xml:space="preserve">
+          <source>Output values support the same types as template input parameters.</source>
+          <target state="new">Output values support the same types as template input parameters.</target>
+        </trans-unit>
+        <trans-unit id="46614db9-d133-4173-b878-c3c76f76dd3e" xml:space="preserve">
+          <source>value</source>
+          <target state="new">value</target>
+        </trans-unit>
+        <trans-unit id="2c2b8977-fcbc-4303-a09f-215cf936d7e2" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="cac750ff-e54b-4da4-8b8b-5bfcf3cadb30" xml:space="preserve">
+          <source>Template language expression which will be evaluated and returned as output value.</source>
+          <target state="new">Template language expression which will be evaluated and returned as output value.</target>
+        </trans-unit>
+        <trans-unit id="b726a277-243b-448d-8277-841fc2f2eccc" xml:space="preserve">
+          <source>The following example shows a value that is returned in the Outputs section.</source>
+          <target state="new">The following example shows a value that is returned in the Outputs section.</target>
+        </trans-unit>
+        <trans-unit id="ccc691d2-d36e-48e0-af71-0db3d9e134b7" xml:space="preserve">
+          <source>This topic provides an introductory look at the template.</source>
+          <target state="new">This topic provides an introductory look at the template.</target>
+        </trans-unit>
+        <trans-unit id="694e9e78-97b1-4608-ba01-d33b78f8bedb" xml:space="preserve">
+          <source>However, your scenario may require more advanced tasks.</source>
+          <target state="new">However, your scenario may require more advanced tasks.</target>
+        </trans-unit>
+        <trans-unit id="fa7dbb24-743e-46e9-a3d4-c6f6a90c70e1" xml:space="preserve">
+          <source>You may need to merge two templates together or use a child template within a parent template.</source>
+          <target state="new">You may need to merge two templates together or use a child template within a parent template.</target>
+        </trans-unit>
+        <trans-unit id="bdf19d32-666d-442b-ac85-b4cfbf38cfea" xml:space="preserve">
+          <source>For more information, see <bpt id="17d8e9b9-5f19-4672-9ad5-62920c7a4ea8">&lt;linkText&gt;</bpt>Using linked templates with Azure Resource Manager<ept id="17d8e9b9-5f19-4672-9ad5-62920c7a4ea8">&lt;/linkText&gt;</ept><bpt id="17d8e9b9-5f19-4672-9ad5-62920c7a4ea8">&lt;title&gt;</bpt><ept id="17d8e9b9-5f19-4672-9ad5-62920c7a4ea8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="17d8e9b9-5f19-4672-9ad5-62920c7a4ea8">&lt;linkText&gt;</bpt>Using linked templates with Azure Resource Manager<ept id="17d8e9b9-5f19-4672-9ad5-62920c7a4ea8">&lt;/linkText&gt;</ept><bpt id="17d8e9b9-5f19-4672-9ad5-62920c7a4ea8">&lt;title&gt;</bpt><ept id="17d8e9b9-5f19-4672-9ad5-62920c7a4ea8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca384723-e2fa-48a9-9b56-7a584b80d282" xml:space="preserve">
+          <source>To iterate a specified number of times when creating a type of resource, see <bpt id="fccb9e6c-0347-49bf-a285-e1df078afc96">&lt;linkText&gt;</bpt>Create multiple instances of resources in Azure Resource Manager<ept id="fccb9e6c-0347-49bf-a285-e1df078afc96">&lt;/linkText&gt;</ept><bpt id="fccb9e6c-0347-49bf-a285-e1df078afc96">&lt;title&gt;</bpt><ept id="fccb9e6c-0347-49bf-a285-e1df078afc96">&lt;/title&gt;</ept>.</source>
+          <target state="new">To iterate a specified number of times when creating a type of resource, see <bpt id="fccb9e6c-0347-49bf-a285-e1df078afc96">&lt;linkText&gt;</bpt>Create multiple instances of resources in Azure Resource Manager<ept id="fccb9e6c-0347-49bf-a285-e1df078afc96">&lt;/linkText&gt;</ept><bpt id="fccb9e6c-0347-49bf-a285-e1df078afc96">&lt;title&gt;</bpt><ept id="fccb9e6c-0347-49bf-a285-e1df078afc96">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6ed9714-51d2-41c9-9581-fb689fdc36be" xml:space="preserve">
+          <source>You may need to use resources that exist within a different resource group.</source>
+          <target state="new">You may need to use resources that exist within a different resource group.</target>
+        </trans-unit>
+        <trans-unit id="c632ca99-ef8e-433e-bd5e-aabcbf0c7419" xml:space="preserve">
+          <source>This is common when working with storage accounts or virtual networks that are shared across multiple resource groups.</source>
+          <target state="new">This is common when working with storage accounts or virtual networks that are shared across multiple resource groups.</target>
+        </trans-unit>
+        <trans-unit id="924fe734-03df-4bf2-866d-e60d6a857128" xml:space="preserve">
+          <source>For more information, see the <bpt id="82dc1a5b-fd17-4103-9fbd-6474be930ef4">&lt;linkText&gt;</bpt>resourceId function<ept id="82dc1a5b-fd17-4103-9fbd-6474be930ef4">&lt;/linkText&gt;</ept><bpt id="82dc1a5b-fd17-4103-9fbd-6474be930ef4">&lt;title&gt;</bpt><ept id="82dc1a5b-fd17-4103-9fbd-6474be930ef4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="82dc1a5b-fd17-4103-9fbd-6474be930ef4">&lt;linkText&gt;</bpt>resourceId function<ept id="82dc1a5b-fd17-4103-9fbd-6474be930ef4">&lt;/linkText&gt;</ept><bpt id="82dc1a5b-fd17-4103-9fbd-6474be930ef4">&lt;title&gt;</bpt><ept id="82dc1a5b-fd17-4103-9fbd-6474be930ef4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df7f1f52-c8e9-46fc-a88c-9e9e57ee21c8" xml:space="preserve">
+          <source>The following template deploys a web app and provisions it with code from a .zip file.</source>
+          <target state="new">The following template deploys a web app and provisions it with code from a .zip file.</target>
+        </trans-unit>
+        <trans-unit id="1a479555-9258-46bb-80a6-fd40fc296af8" xml:space="preserve">
+          <source>For details about the functions you can use from within a template, see <bpt id="69916615-ee0c-40de-a4aa-1bc807182880">&lt;linkText&gt;</bpt>Azure Resource Manager Template Functions<ept id="69916615-ee0c-40de-a4aa-1bc807182880">&lt;/linkText&gt;</ept><bpt id="69916615-ee0c-40de-a4aa-1bc807182880">&lt;title&gt;</bpt><ept id="69916615-ee0c-40de-a4aa-1bc807182880">&lt;/title&gt;</ept></source>
+          <target state="new">For details about the functions you can use from within a template, see <bpt id="69916615-ee0c-40de-a4aa-1bc807182880">&lt;linkText&gt;</bpt>Azure Resource Manager Template Functions<ept id="69916615-ee0c-40de-a4aa-1bc807182880">&lt;/linkText&gt;</ept><bpt id="69916615-ee0c-40de-a4aa-1bc807182880">&lt;title&gt;</bpt><ept id="69916615-ee0c-40de-a4aa-1bc807182880">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0585998-907d-4117-bac7-18a9f6aba4a1" xml:space="preserve">
+          <source>To see how to deploy the template you have created, see <bpt id="fc72047a-1062-4d7c-aa2f-dd3e47e9fc90">&lt;linkText&gt;</bpt>Deploy an application with Azure Resource Manager Template<ept id="fc72047a-1062-4d7c-aa2f-dd3e47e9fc90">&lt;/linkText&gt;</ept><bpt id="fc72047a-1062-4d7c-aa2f-dd3e47e9fc90">&lt;title&gt;</bpt><ept id="fc72047a-1062-4d7c-aa2f-dd3e47e9fc90">&lt;/title&gt;</ept></source>
+          <target state="new">To see how to deploy the template you have created, see <bpt id="fc72047a-1062-4d7c-aa2f-dd3e47e9fc90">&lt;linkText&gt;</bpt>Deploy an application with Azure Resource Manager Template<ept id="fc72047a-1062-4d7c-aa2f-dd3e47e9fc90">&lt;/linkText&gt;</ept><bpt id="fc72047a-1062-4d7c-aa2f-dd3e47e9fc90">&lt;title&gt;</bpt><ept id="fc72047a-1062-4d7c-aa2f-dd3e47e9fc90">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae12affd-276c-41be-80d4-74e0d46a961a" xml:space="preserve">
+          <source>For an in-depth example of deploying an application, see <bpt id="9ac4b08a-2bfe-47f3-8184-5ff8daa96b90">&lt;linkText&gt;</bpt>Provision and deploy microservices predictably in Azure<ept id="9ac4b08a-2bfe-47f3-8184-5ff8daa96b90">&lt;/linkText&gt;</ept><bpt id="9ac4b08a-2bfe-47f3-8184-5ff8daa96b90">&lt;title&gt;</bpt><ept id="9ac4b08a-2bfe-47f3-8184-5ff8daa96b90">&lt;/title&gt;</ept></source>
+          <target state="new">For an in-depth example of deploying an application, see <bpt id="9ac4b08a-2bfe-47f3-8184-5ff8daa96b90">&lt;linkText&gt;</bpt>Provision and deploy microservices predictably in Azure<ept id="9ac4b08a-2bfe-47f3-8184-5ff8daa96b90">&lt;/linkText&gt;</ept><bpt id="9ac4b08a-2bfe-47f3-8184-5ff8daa96b90">&lt;title&gt;</bpt><ept id="9ac4b08a-2bfe-47f3-8184-5ff8daa96b90">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0850975f-dc26-4fb7-adea-43d805144c4a" xml:space="preserve">
+          <source>To see the available schemas, see <bpt id="8b93a881-8ec6-4500-91bd-7c881d75b79c">&lt;linkText&gt;</bpt>Azure Resource Manager Schemas<ept id="8b93a881-8ec6-4500-91bd-7c881d75b79c">&lt;/linkText&gt;</ept><bpt id="8b93a881-8ec6-4500-91bd-7c881d75b79c">&lt;title&gt;</bpt><ept id="8b93a881-8ec6-4500-91bd-7c881d75b79c">&lt;/title&gt;</ept></source>
+          <target state="new">To see the available schemas, see <bpt id="8b93a881-8ec6-4500-91bd-7c881d75b79c">&lt;linkText&gt;</bpt>Azure Resource Manager Schemas<ept id="8b93a881-8ec6-4500-91bd-7c881d75b79c">&lt;/linkText&gt;</ept><bpt id="8b93a881-8ec6-4500-91bd-7c881d75b79c">&lt;title&gt;</bpt><ept id="8b93a881-8ec6-4500-91bd-7c881d75b79c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

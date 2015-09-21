@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d4ab5d51-b78f-414a-b7cc-9969e232dcbc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d4ab5d51-b78f-414a-b7cc-9969e232dcbc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="652ef127-0feb-4d40-8849-6dbd89f7d036">
+        <trans-unit id="013f1c18-0e20-453b-af6c-6393c6b870ee" xml:space="preserve">
+          <source>Monitor availability and responsiveness of any web site</source>
+          <target state="new">Monitor availability and responsiveness of any web site</target>
+        </trans-unit>
+        <trans-unit id="3b374748-9b6c-4a27-ae65-9bbe6eaf8517" xml:space="preserve">
+          <source>Create web tests to verify the responsiveness and availability of Azure web apps.</source>
+          <target state="new">Create web tests to verify the responsiveness and availability of Azure web apps.</target>
+        </trans-unit>
+        <trans-unit id="d3adb9e8-05ac-45ff-b04b-93bfcbe8b26e" xml:space="preserve">
+          <source>This article has moved.</source>
+          <target state="new">This article has moved.</target>
+        </trans-unit>
+        <trans-unit id="2711ad11-d588-40c1-b280-23b0d513a34b" xml:space="preserve">
+          <source>Please see: <bpt id="a3bf05db-c58d-4709-a1b1-e62107d3eaa0">&lt;linkText&gt;</bpt>Monitor availability and responsiveness of any web site<ept id="a3bf05db-c58d-4709-a1b1-e62107d3eaa0">&lt;/linkText&gt;</ept><bpt id="a3bf05db-c58d-4709-a1b1-e62107d3eaa0">&lt;title&gt;</bpt><ept id="a3bf05db-c58d-4709-a1b1-e62107d3eaa0">&lt;/title&gt;</ept></source>
+          <target state="new">Please see: <bpt id="a3bf05db-c58d-4709-a1b1-e62107d3eaa0">&lt;linkText&gt;</bpt>Monitor availability and responsiveness of any web site<ept id="a3bf05db-c58d-4709-a1b1-e62107d3eaa0">&lt;/linkText&gt;</ept><bpt id="a3bf05db-c58d-4709-a1b1-e62107d3eaa0">&lt;title&gt;</bpt><ept id="a3bf05db-c58d-4709-a1b1-e62107d3eaa0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

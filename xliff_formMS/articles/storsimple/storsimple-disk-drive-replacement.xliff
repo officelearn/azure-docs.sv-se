@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7ee73d85-a603-4a70-93ce-f202438dd319" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7ee73d85-a603-4a70-93ce-f202438dd319" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4fa20389-1d58-4fc8-90d1-025986a3da15">
+        <trans-unit id="1de5b424-97b4-43a0-b6a4-e8a421e1a2c6" xml:space="preserve">
+          <source>Replace a disk drive on a StorSimple device | Microsoft Azure</source>
+          <target state="new">Replace a disk drive on a StorSimple device | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="44a8dbeb-c0a9-4dfd-84db-956fb8fe86c4" xml:space="preserve">
+          <source>Explains how to replace a disk drive on a StorSimple primary device or an EBOD enclosure.</source>
+          <target state="new">Explains how to replace a disk drive on a StorSimple primary device or an EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="438c7a10-0def-4438-8aef-32294bff2620" xml:space="preserve">
+          <source>This tutorial explains how you can remove and replace a malfunctioning or failed hard disk drive on a Microsoft Azure StorSimple device.</source>
+          <target state="new">This tutorial explains how you can remove and replace a malfunctioning or failed hard disk drive on a Microsoft Azure StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="dfdb29a7-7ef4-4f0c-9920-229ee8eca190" xml:space="preserve">
+          <source>To replace a disk drive, you need to:</source>
+          <target state="new">To replace a disk drive, you need to:</target>
+        </trans-unit>
+        <trans-unit id="15c0e285-e95f-44a7-82de-7b92a18bfe6a" xml:space="preserve">
+          <source>Disengage the antitamper lock</source>
+          <target state="new">Disengage the antitamper lock</target>
+        </trans-unit>
+        <trans-unit id="908e2e6a-c086-4354-81b5-43e917a8d17e" xml:space="preserve">
+          <source>Remove the disk drive</source>
+          <target state="new">Remove the disk drive</target>
+        </trans-unit>
+        <trans-unit id="2dbe9267-6c3c-43b7-9e4e-fc33039e394d" xml:space="preserve">
+          <source>Install the replacement disk drive</source>
+          <target state="new">Install the replacement disk drive</target>
+        </trans-unit>
+        <trans-unit id="e338f3a6-deaf-4d8d-ad6e-37dbdbbad54e" xml:space="preserve">
+          <source>Before removing and replacing a disk drive, review the safety information in <bpt id="6f73a151-5b07-4773-ab4f-6e0227089d9d">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="6f73a151-5b07-4773-ab4f-6e0227089d9d">&lt;/linkText&gt;</ept><bpt id="6f73a151-5b07-4773-ab4f-6e0227089d9d">&lt;title&gt;</bpt><ept id="6f73a151-5b07-4773-ab4f-6e0227089d9d">&lt;/title&gt;</ept>.</source>
+          <target state="new">Before removing and replacing a disk drive, review the safety information in <bpt id="6f73a151-5b07-4773-ab4f-6e0227089d9d">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="6f73a151-5b07-4773-ab4f-6e0227089d9d">&lt;/linkText&gt;</ept><bpt id="6f73a151-5b07-4773-ab4f-6e0227089d9d">&lt;title&gt;</bpt><ept id="6f73a151-5b07-4773-ab4f-6e0227089d9d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1185b77-cd51-460b-a2c6-eca29e703048" xml:space="preserve">
+          <source>This procedure explains how the antitamper locks on your StorSimple device can be engaged or disengaged when you replace the disk drives.</source>
+          <target state="new">This procedure explains how the antitamper locks on your StorSimple device can be engaged or disengaged when you replace the disk drives.</target>
+        </trans-unit>
+        <trans-unit id="ea4130f2-f486-41d0-9d84-b2e14aff0d8a" xml:space="preserve">
+          <source>The antitamper locks are fitted in the drive carrier handles, and they are accessed through a small aperture in the latch section of the handle.</source>
+          <target state="new">The antitamper locks are fitted in the drive carrier handles, and they are accessed through a small aperture in the latch section of the handle.</target>
+        </trans-unit>
+        <trans-unit id="667f7cd8-6ca4-4413-9068-52bc748e3899" xml:space="preserve">
+          <source>Drives are supplied with the locks set to the locked position.</source>
+          <target state="new">Drives are supplied with the locks set to the locked position.</target>
+        </trans-unit>
+        <trans-unit id="2c0f71c1-3862-4e94-bdfc-cf4cc92a6f35" xml:space="preserve">
+          <source>Carefully insert the lock key (a "tamperproof" T10 screwdriver that Microsoft provided) into the aperture in the handle and into its socket.</source>
+          <target state="new">Carefully insert the lock key (a "tamperproof" T10 screwdriver that Microsoft provided) into the aperture in the handle and into its socket.</target>
+        </trans-unit>
+        <trans-unit id="c603bf9a-7e37-45fa-a9d9-057b477f8bce" xml:space="preserve">
+          <source>If the antitamper lock is activated, the red indicator is visible in the aperture.</source>
+          <target state="new">If the antitamper lock is activated, the red indicator is visible in the aperture.</target>
+        </trans-unit>
+        <trans-unit id="e8882eef-11c8-4de4-81be-e18282fffdf6" xml:space="preserve">
+          <source><bpt id="0b9c6688-3446-4855-a354-0c023cdc556b">&lt;linkText&gt;</bpt>Locked disk drive<ept id="0b9c6688-3446-4855-a354-0c023cdc556b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0b9c6688-3446-4855-a354-0c023cdc556b">&lt;linkText&gt;</bpt>Locked disk drive<ept id="0b9c6688-3446-4855-a354-0c023cdc556b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eaf70765-0357-4001-9c89-8d60e7d39d24" xml:space="preserve">
+          <source><bpt id="4f3974a7-307d-40b0-81d2-2ca32e53a254">&lt;strong&gt;</bpt>Figure 1<ept id="4f3974a7-307d-40b0-81d2-2ca32e53a254">&lt;/strong&gt;</ept> Anti-tamper lock engaged</source>
+          <target state="new"><bpt id="4f3974a7-307d-40b0-81d2-2ca32e53a254">&lt;strong&gt;</bpt>Figure 1<ept id="4f3974a7-307d-40b0-81d2-2ca32e53a254">&lt;/strong&gt;</ept> Anti-tamper lock engaged</target>
+        </trans-unit>
+        <trans-unit id="6afd0d6f-3446-485d-9bd1-cb351ca8f508" xml:space="preserve">
+          <source>|Label|Description|
+|:----|:----------|
+|1|Indicator aperture|
+|2|Antitamper lock|</source>
+          <target state="new">|Label|Description|
+|:----|:----------|
+|1|Indicator aperture|
+|2|Antitamper lock|</target>
+        </trans-unit>
+        <trans-unit id="ef59d761-f7ae-4897-84e4-1dff5b6905b6" xml:space="preserve">
+          <source>Rotate the key in an anticlockwise direction until the red indicator is not visible in the aperture above the key.</source>
+          <target state="new">Rotate the key in an anticlockwise direction until the red indicator is not visible in the aperture above the key.</target>
+        </trans-unit>
+        <trans-unit id="87cd26ae-1e42-431c-afc9-5e716842aadc" xml:space="preserve">
+          <source>Remove the key.</source>
+          <target state="new">Remove the key.</target>
+        </trans-unit>
+        <trans-unit id="2eea405f-f7c2-4d16-a563-7af4a3412acb" xml:space="preserve">
+          <source><bpt id="fd7e5bc7-e8d9-4c63-ae9c-587bba6e0e53">&lt;linkText&gt;</bpt>Unlocked disk drive<ept id="fd7e5bc7-e8d9-4c63-ae9c-587bba6e0e53">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd7e5bc7-e8d9-4c63-ae9c-587bba6e0e53">&lt;linkText&gt;</bpt>Unlocked disk drive<ept id="fd7e5bc7-e8d9-4c63-ae9c-587bba6e0e53">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a901296b-d479-4f7d-8ab0-ae1eaa363ff3" xml:space="preserve">
+          <source><bpt id="8544aedd-a5b0-4425-97bf-7e111864756e">&lt;strong&gt;</bpt>Figure 2<ept id="8544aedd-a5b0-4425-97bf-7e111864756e">&lt;/strong&gt;</ept> Unlocked disk drive</source>
+          <target state="new"><bpt id="8544aedd-a5b0-4425-97bf-7e111864756e">&lt;strong&gt;</bpt>Figure 2<ept id="8544aedd-a5b0-4425-97bf-7e111864756e">&lt;/strong&gt;</ept> Unlocked disk drive</target>
+        </trans-unit>
+        <trans-unit id="35ad26fe-ede0-46b6-adaa-4bc81f26d73a" xml:space="preserve">
+          <source>The disk drive can now be removed.</source>
+          <target state="new">The disk drive can now be removed.</target>
+        </trans-unit>
+        <trans-unit id="6c390727-bb47-4170-bfde-b166aa4095de" xml:space="preserve">
+          <source>Follow the steps in reverse to engage the lock.</source>
+          <target state="new">Follow the steps in reverse to engage the lock.</target>
+        </trans-unit>
+        <trans-unit id="7ca9e01d-0c03-48f3-b8a6-3435432a4c80" xml:space="preserve">
+          <source>Your StorSimple device supports a RAID 10–like storage spaces configuration.</source>
+          <target state="new">Your StorSimple device supports a RAID 10–like storage spaces configuration.</target>
+        </trans-unit>
+        <trans-unit id="be99517f-aa5d-40ff-ba0a-4a1760191cc5" xml:space="preserve">
+          <source>This implies that it can operate normally with one failed disk, solid-state drive (SSD), or hard disk drive (HDD).</source>
+          <target state="new">This implies that it can operate normally with one failed disk, solid-state drive (SSD), or hard disk drive (HDD).</target>
+        </trans-unit>
+        <trans-unit id="dab55871-3497-4219-9254-e62c62cf5174" xml:space="preserve">
+          <source>If your system has more than one failed disk, do not remove more than one SSD or HDD from the system at any point in time.</source>
+          <target state="new">If your system has more than one failed disk, do not remove more than one SSD or HDD from the system at any point in time.</target>
+        </trans-unit>
+        <trans-unit id="0bed21bc-ffa6-4785-b773-5859747d6c02" xml:space="preserve">
+          <source>Doing so could result in loss of data.</source>
+          <target state="new">Doing so could result in loss of data.</target>
+        </trans-unit>
+        <trans-unit id="609b1bc8-b878-433a-8b4a-86fb24cfb1fd" xml:space="preserve">
+          <source>Make sure that you place a replacement SSD in a slot that previously contained an SSD.</source>
+          <target state="new">Make sure that you place a replacement SSD in a slot that previously contained an SSD.</target>
+        </trans-unit>
+        <trans-unit id="94e135f3-498e-4597-aedd-2841908f44d4" xml:space="preserve">
+          <source>Similarly, place a replacement HDD in a slot that previously contained an HDD.</source>
+          <target state="new">Similarly, place a replacement HDD in a slot that previously contained an HDD.</target>
+        </trans-unit>
+        <trans-unit id="c23bd971-85db-4200-95b1-55c7f3f29385" xml:space="preserve">
+          <source>In the Management Portal, slots are numbered from 0 – 11.</source>
+          <target state="new">In the Management Portal, slots are numbered from 0 – 11.</target>
+        </trans-unit>
+        <trans-unit id="0d894994-4acd-45a3-9c52-e2244aa7bb55" xml:space="preserve">
+          <source>Therefore, if the portal shows that a disk in slot 2 has failed, on the device, look for the failed disk in the third slot from the top left.</source>
+          <target state="new">Therefore, if the portal shows that a disk in slot 2 has failed, on the device, look for the failed disk in the third slot from the top left.</target>
+        </trans-unit>
+        <trans-unit id="6e408fae-057c-496b-8dca-fd881481bffe" xml:space="preserve">
+          <source>Drives can be removed and replaced while the system is operating.</source>
+          <target state="new">Drives can be removed and replaced while the system is operating.</target>
+        </trans-unit>
+        <trans-unit id="36c0717d-b9d3-4bef-8764-cac362879d7d" xml:space="preserve">
+          <source>To identify the failed disk, in the Management Portal, navigate to <bpt id="c30dd480-5744-479f-ab81-9bf6253b8220">&lt;strong&gt;</bpt>Devices<ept id="c30dd480-5744-479f-ab81-9bf6253b8220">&lt;/strong&gt;</ept> &gt; <bpt id="6ac5ce5a-b55c-4390-a184-087ab5651581">&lt;strong&gt;</bpt>Maintenance<ept id="6ac5ce5a-b55c-4390-a184-087ab5651581">&lt;/strong&gt;</ept> &gt; <bpt id="5a52f92a-f40b-4618-8a3e-5de6c041fca4">&lt;strong&gt;</bpt>Hardware Status<ept id="5a52f92a-f40b-4618-8a3e-5de6c041fca4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To identify the failed disk, in the Management Portal, navigate to <bpt id="c30dd480-5744-479f-ab81-9bf6253b8220">&lt;strong&gt;</bpt>Devices<ept id="c30dd480-5744-479f-ab81-9bf6253b8220">&lt;/strong&gt;</ept> &gt; <bpt id="6ac5ce5a-b55c-4390-a184-087ab5651581">&lt;strong&gt;</bpt>Maintenance<ept id="6ac5ce5a-b55c-4390-a184-087ab5651581">&lt;/strong&gt;</ept> &gt; <bpt id="5a52f92a-f40b-4618-8a3e-5de6c041fca4">&lt;strong&gt;</bpt>Hardware Status<ept id="5a52f92a-f40b-4618-8a3e-5de6c041fca4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d50ba404-d2ca-4266-b1dd-9cc691324496" xml:space="preserve">
+          <source>Because a disk can fail in the primary enclosure and/or in an EBOD enclosure (if you are using a 8600 model), look at the status of the disks under <bpt id="4df3c26d-3d72-4530-b56f-c9f099595933">&lt;strong&gt;</bpt>Shared Components<ept id="4df3c26d-3d72-4530-b56f-c9f099595933">&lt;/strong&gt;</ept> and under <bpt id="98d6c38f-639c-442f-8f96-99616999da6a">&lt;strong&gt;</bpt>EBOD enclosure Shared Components<ept id="98d6c38f-639c-442f-8f96-99616999da6a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Because a disk can fail in the primary enclosure and/or in an EBOD enclosure (if you are using a 8600 model), look at the status of the disks under <bpt id="4df3c26d-3d72-4530-b56f-c9f099595933">&lt;strong&gt;</bpt>Shared Components<ept id="4df3c26d-3d72-4530-b56f-c9f099595933">&lt;/strong&gt;</ept> and under <bpt id="98d6c38f-639c-442f-8f96-99616999da6a">&lt;strong&gt;</bpt>EBOD enclosure Shared Components<ept id="98d6c38f-639c-442f-8f96-99616999da6a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f04a9f1-b8c4-4b4c-a33e-4cc6bb3bf828" xml:space="preserve">
+          <source>A failed disk in either enclosure will be shown with a red status.</source>
+          <target state="new">A failed disk in either enclosure will be shown with a red status.</target>
+        </trans-unit>
+        <trans-unit id="4884db2c-964a-499f-a3d0-3bc223da0cc5" xml:space="preserve">
+          <source>Locate the drives in the front of the primary enclosure or the EBOD enclosure.</source>
+          <target state="new">Locate the drives in the front of the primary enclosure or the EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="192ea523-d1ba-436e-90dd-cf78a59121b6" xml:space="preserve">
+          <source>For the failed disk, the amber LED will be lit.</source>
+          <target state="new">For the failed disk, the amber LED will be lit.</target>
+        </trans-unit>
+        <trans-unit id="3bc98cc1-6cb4-4cdd-aafa-fb8e9e553ffd" xml:space="preserve">
+          <source>If the disk is unlocked, proceed to the next step.</source>
+          <target state="new">If the disk is unlocked, proceed to the next step.</target>
+        </trans-unit>
+        <trans-unit id="5a27f52f-bdbc-4ec0-8f60-3ef0442ed09c" xml:space="preserve">
+          <source>If the disk is locked, unlock it by following the procedure in <bpt id="fd64529b-9620-4e12-86a7-a307012b47d3">&lt;linkText&gt;</bpt>Disengage the antitamper lock<ept id="fd64529b-9620-4e12-86a7-a307012b47d3">&lt;/linkText&gt;</ept><bpt id="fd64529b-9620-4e12-86a7-a307012b47d3">&lt;title&gt;</bpt><ept id="fd64529b-9620-4e12-86a7-a307012b47d3">&lt;/title&gt;</ept>.</source>
+          <target state="new">If the disk is locked, unlock it by following the procedure in <bpt id="fd64529b-9620-4e12-86a7-a307012b47d3">&lt;linkText&gt;</bpt>Disengage the antitamper lock<ept id="fd64529b-9620-4e12-86a7-a307012b47d3">&lt;/linkText&gt;</ept><bpt id="fd64529b-9620-4e12-86a7-a307012b47d3">&lt;title&gt;</bpt><ept id="fd64529b-9620-4e12-86a7-a307012b47d3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="323fc6da-ab4f-4e62-bd99-119cec990ec2" xml:space="preserve">
+          <source>Press the black latch on the drive carrier module and pull the drive carrier handle out and away from the front of the chassis.</source>
+          <target state="new">Press the black latch on the drive carrier module and pull the drive carrier handle out and away from the front of the chassis.</target>
+        </trans-unit>
+        <trans-unit id="6456d802-b48f-431e-87e0-e1c51f78626a" xml:space="preserve">
+          <source><bpt id="597c44c1-37da-4227-8ca2-c623edac8f7d">&lt;linkText&gt;</bpt>Releasing disk drive handle<ept id="597c44c1-37da-4227-8ca2-c623edac8f7d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="597c44c1-37da-4227-8ca2-c623edac8f7d">&lt;linkText&gt;</bpt>Releasing disk drive handle<ept id="597c44c1-37da-4227-8ca2-c623edac8f7d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc070917-d84f-44b1-8d84-eb9a715d1513" xml:space="preserve">
+          <source><bpt id="45d6a69d-0bed-4761-bcc6-5938f3b1d9d3">&lt;strong&gt;</bpt>Figure 3<ept id="45d6a69d-0bed-4761-bcc6-5938f3b1d9d3">&lt;/strong&gt;</ept> Releasing the drive handle</source>
+          <target state="new"><bpt id="45d6a69d-0bed-4761-bcc6-5938f3b1d9d3">&lt;strong&gt;</bpt>Figure 3<ept id="45d6a69d-0bed-4761-bcc6-5938f3b1d9d3">&lt;/strong&gt;</ept> Releasing the drive handle</target>
+        </trans-unit>
+        <trans-unit id="5e6534f9-17c3-4bd7-accb-f39c76710a3f" xml:space="preserve">
+          <source>When the drive carrier handle is fully extended, slide the drive carrier out of the chassis.</source>
+          <target state="new">When the drive carrier handle is fully extended, slide the drive carrier out of the chassis.</target>
+        </trans-unit>
+        <trans-unit id="54625d77-9ae6-414c-8e1e-2995c6239175" xml:space="preserve">
+          <source><bpt id="1bf9bce6-5da5-4024-aed1-a9970c5f1e6f">&lt;linkText&gt;</bpt>Sliding disk out of disk drive<ept id="1bf9bce6-5da5-4024-aed1-a9970c5f1e6f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1bf9bce6-5da5-4024-aed1-a9970c5f1e6f">&lt;linkText&gt;</bpt>Sliding disk out of disk drive<ept id="1bf9bce6-5da5-4024-aed1-a9970c5f1e6f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0588217d-66b9-4876-bfe6-fb1ceb737372" xml:space="preserve">
+          <source><bpt id="d082ad28-5d65-4190-b470-2fdbabc96f2d">&lt;strong&gt;</bpt>Figure 4<ept id="d082ad28-5d65-4190-b470-2fdbabc96f2d">&lt;/strong&gt;</ept> Sliding the disk drive out of the carrier</source>
+          <target state="new"><bpt id="d082ad28-5d65-4190-b470-2fdbabc96f2d">&lt;strong&gt;</bpt>Figure 4<ept id="d082ad28-5d65-4190-b470-2fdbabc96f2d">&lt;/strong&gt;</ept> Sliding the disk drive out of the carrier</target>
+        </trans-unit>
+        <trans-unit id="f273834e-5ff8-4162-bad5-2894f43a0b59" xml:space="preserve">
+          <source>After a drive has failed in your Microsoft Azure StorSimple device and you have removed it, follow this procedure to replace it with a new drive.</source>
+          <target state="new">After a drive has failed in your Microsoft Azure StorSimple device and you have removed it, follow this procedure to replace it with a new drive.</target>
+        </trans-unit>
+        <trans-unit id="493f66b8-6231-474c-9b6a-ef1dceceae98" xml:space="preserve">
+          <source>Ensure the drive carrier handle is fully extended, as shown in the following image.</source>
+          <target state="new">Ensure the drive carrier handle is fully extended, as shown in the following image.</target>
+        </trans-unit>
+        <trans-unit id="f7227c02-6943-4b78-b7db-a73c67a150ad" xml:space="preserve">
+          <source><bpt id="56b7ba42-52df-4c06-bf4c-c722a2f82291">&lt;linkText&gt;</bpt>Disk drive with handle extended<ept id="56b7ba42-52df-4c06-bf4c-c722a2f82291">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="56b7ba42-52df-4c06-bf4c-c722a2f82291">&lt;linkText&gt;</bpt>Disk drive with handle extended<ept id="56b7ba42-52df-4c06-bf4c-c722a2f82291">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11fd8e18-bcec-40d1-bfe1-3655984f494f" xml:space="preserve">
+          <source><bpt id="ee2529b6-777b-48c5-8530-bd45974d2f0d">&lt;strong&gt;</bpt>Figure 5<ept id="ee2529b6-777b-48c5-8530-bd45974d2f0d">&lt;/strong&gt;</ept> Drive with handle extended</source>
+          <target state="new"><bpt id="ee2529b6-777b-48c5-8530-bd45974d2f0d">&lt;strong&gt;</bpt>Figure 5<ept id="ee2529b6-777b-48c5-8530-bd45974d2f0d">&lt;/strong&gt;</ept> Drive with handle extended</target>
+        </trans-unit>
+        <trans-unit id="562a3169-3927-4942-ba50-ea49e66e1fe6" xml:space="preserve">
+          <source>Slide the drive carrier all the way into the chassis.</source>
+          <target state="new">Slide the drive carrier all the way into the chassis.</target>
+        </trans-unit>
+        <trans-unit id="23004178-50d8-4f37-ad82-d4883f63d21f" xml:space="preserve">
+          <source><bpt id="2b95338c-4c97-4eda-960b-c52cf3029618">&lt;linkText&gt;</bpt>Sliding disk into disk drive carrier<ept id="2b95338c-4c97-4eda-960b-c52cf3029618">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2b95338c-4c97-4eda-960b-c52cf3029618">&lt;linkText&gt;</bpt>Sliding disk into disk drive carrier<ept id="2b95338c-4c97-4eda-960b-c52cf3029618">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29ab93db-e343-4b6f-8ab7-3d6f4a7361fa" xml:space="preserve">
+          <source><bpt id="4bab4d58-57e5-4ac1-88c8-097acdd5af9a">&lt;strong&gt;</bpt>Figure 6<ept id="4bab4d58-57e5-4ac1-88c8-097acdd5af9a">&lt;/strong&gt;</ept>  Sliding the drive carrier into the chassis</source>
+          <target state="new"><bpt id="4bab4d58-57e5-4ac1-88c8-097acdd5af9a">&lt;strong&gt;</bpt>Figure 6<ept id="4bab4d58-57e5-4ac1-88c8-097acdd5af9a">&lt;/strong&gt;</ept>  Sliding the drive carrier into the chassis</target>
+        </trans-unit>
+        <trans-unit id="537e07de-c270-4457-91d3-dc4956b5914c" xml:space="preserve">
+          <source>With the drive carrier inserted, close the drive carrier handle while continuing to push the drive carrier into the chassis, until the drive carrier handle snaps into a locked position.</source>
+          <target state="new">With the drive carrier inserted, close the drive carrier handle while continuing to push the drive carrier into the chassis, until the drive carrier handle snaps into a locked position.</target>
+        </trans-unit>
+        <trans-unit id="7226f55b-89ea-46e5-88b3-e8c4c614440c" xml:space="preserve">
+          <source>Use the lock key that was provided by Microsoft (tamperproof Torx screwdriver) to secure the carrier handle into place by turning the lock screw a quarter turn clockwise.</source>
+          <target state="new">Use the lock key that was provided by Microsoft (tamperproof Torx screwdriver) to secure the carrier handle into place by turning the lock screw a quarter turn clockwise.</target>
+        </trans-unit>
+        <trans-unit id="8a4e6061-97ef-4bd9-bfaa-72fb52bb012c" xml:space="preserve">
+          <source>Verify that the replacement was successful and the drive is operational by accessing the Management Portal and navigating to <bpt id="28a7d53a-7c2a-4047-ba4c-84fcfd94b582">&lt;strong&gt;</bpt>Maintenance<ept id="28a7d53a-7c2a-4047-ba4c-84fcfd94b582">&lt;/strong&gt;</ept> &gt; <bpt id="05544d65-4b89-44e8-a6b1-153395e3f685">&lt;strong&gt;</bpt>Hardware Status<ept id="05544d65-4b89-44e8-a6b1-153395e3f685">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Verify that the replacement was successful and the drive is operational by accessing the Management Portal and navigating to <bpt id="28a7d53a-7c2a-4047-ba4c-84fcfd94b582">&lt;strong&gt;</bpt>Maintenance<ept id="28a7d53a-7c2a-4047-ba4c-84fcfd94b582">&lt;/strong&gt;</ept> &gt; <bpt id="05544d65-4b89-44e8-a6b1-153395e3f685">&lt;strong&gt;</bpt>Hardware Status<ept id="05544d65-4b89-44e8-a6b1-153395e3f685">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bac0f007-3e8a-4530-8d46-3b7aa4016415" xml:space="preserve">
+          <source>Under <bpt id="f8cb1948-99f8-485c-a228-764d20e91620">&lt;strong&gt;</bpt>Shared Components<ept id="f8cb1948-99f8-485c-a228-764d20e91620">&lt;/strong&gt;</ept> or <bpt id="4055ea4c-2409-4b05-aabf-184ab624f804">&lt;strong&gt;</bpt>EBOD enclosure Shared Components<ept id="4055ea4c-2409-4b05-aabf-184ab624f804">&lt;/strong&gt;</ept>, the drive status should be green, indicating that it is healthy.</source>
+          <target state="new">Under <bpt id="f8cb1948-99f8-485c-a228-764d20e91620">&lt;strong&gt;</bpt>Shared Components<ept id="f8cb1948-99f8-485c-a228-764d20e91620">&lt;/strong&gt;</ept> or <bpt id="4055ea4c-2409-4b05-aabf-184ab624f804">&lt;strong&gt;</bpt>EBOD enclosure Shared Components<ept id="4055ea4c-2409-4b05-aabf-184ab624f804">&lt;/strong&gt;</ept>, the drive status should be green, indicating that it is healthy.</target>
+        </trans-unit>
+        <trans-unit id="f0ca186b-6a49-4bc0-9768-87018681ef54" xml:space="preserve">
+          <source>It may take several hours for the disk status to turn green after the replacement.</source>
+          <target state="new">It may take several hours for the disk status to turn green after the replacement.</target>
+        </trans-unit>
+        <trans-unit id="39882f3c-54ea-421a-b9bc-f1b4bdc4a6f5" xml:space="preserve">
+          <source>Learn more about <bpt id="a9d40441-fe2d-42df-b997-7a8b358fcead">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="a9d40441-fe2d-42df-b997-7a8b358fcead">&lt;/linkText&gt;</ept><bpt id="a9d40441-fe2d-42df-b997-7a8b358fcead">&lt;title&gt;</bpt><ept id="a9d40441-fe2d-42df-b997-7a8b358fcead">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about <bpt id="a9d40441-fe2d-42df-b997-7a8b358fcead">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="a9d40441-fe2d-42df-b997-7a8b358fcead">&lt;/linkText&gt;</ept><bpt id="a9d40441-fe2d-42df-b997-7a8b358fcead">&lt;title&gt;</bpt><ept id="a9d40441-fe2d-42df-b997-7a8b358fcead">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

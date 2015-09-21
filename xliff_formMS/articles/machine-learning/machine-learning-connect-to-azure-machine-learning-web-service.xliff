@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c60c684f-fa7d-4e0e-9c6a-d455b6e115b6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c60c684f-fa7d-4e0e-9c6a-d455b6e115b6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a80b7a23-1607-4c50-a079-6ab1d1dfa355">
+        <trans-unit id="c3114ea9-acc0-4793-a885-54043e8414b8" xml:space="preserve">
+          <source>Connect to a Machine Learning Web Service | Microsoft Azure</source>
+          <target state="new">Connect to a Machine Learning Web Service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1e6cc1f0-1aab-4040-9129-d6a1a702d732" xml:space="preserve">
+          <source>With C# or Python, connect to an Azure Machine Learning web service using an authorization key.</source>
+          <target state="new">With C# or Python, connect to an Azure Machine Learning web service using an authorization key.</target>
+        </trans-unit>
+        <trans-unit id="15a22a53-5682-4808-a1c1-ff4b92d13dce" xml:space="preserve">
+          <source>The Azure Machine Learning developer experience is a web service API to make predictions from input data in real time or in batch mode.</source>
+          <target state="new">The Azure Machine Learning developer experience is a web service API to make predictions from input data in real time or in batch mode.</target>
+        </trans-unit>
+        <trans-unit id="ddf56633-ac4c-4658-9b83-96a152eacd5f" xml:space="preserve">
+          <source>You use the Azure Machine Learning Studio to create predictions and publish an Azure Machine Learning web service.</source>
+          <target state="new">You use the Azure Machine Learning Studio to create predictions and publish an Azure Machine Learning web service.</target>
+        </trans-unit>
+        <trans-unit id="14eebd5f-19f6-4088-ab35-7dcf68550dbb" xml:space="preserve">
+          <source><bpt id="a6656dd0-2bb3-4e1c-a236-5a05aec50216">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="a6656dd0-2bb3-4e1c-a236-5a05aec50216">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a6656dd0-2bb3-4e1c-a236-5a05aec50216">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="a6656dd0-2bb3-4e1c-a236-5a05aec50216">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c572be5-f5ed-42ef-ab1e-e9352b66c611" xml:space="preserve">
+          <source>To learn about how to create and publish an Azure Machine Learning web service using Studio:</source>
+          <target state="new">To learn about how to create and publish an Azure Machine Learning web service using Studio:</target>
+        </trans-unit>
+        <trans-unit id="dc19ee51-6c5c-495e-9274-fc24788d1a3b" xml:space="preserve">
+          <source><bpt id="ba757f84-d207-44aa-9d9c-8522f02a0b03">&lt;linkText&gt;</bpt>Publish a Machine Learning web service<ept id="ba757f84-d207-44aa-9d9c-8522f02a0b03">&lt;/linkText&gt;</ept><bpt id="ba757f84-d207-44aa-9d9c-8522f02a0b03">&lt;title&gt;</bpt><ept id="ba757f84-d207-44aa-9d9c-8522f02a0b03">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba757f84-d207-44aa-9d9c-8522f02a0b03">&lt;linkText&gt;</bpt>Publish a Machine Learning web service<ept id="ba757f84-d207-44aa-9d9c-8522f02a0b03">&lt;/linkText&gt;</ept><bpt id="ba757f84-d207-44aa-9d9c-8522f02a0b03">&lt;title&gt;</bpt><ept id="ba757f84-d207-44aa-9d9c-8522f02a0b03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c927062-66f3-4bb8-8979-0c646184c89b" xml:space="preserve">
+          <source><bpt id="2e5a4e53-528a-4095-a922-bcbf95ac2dab">&lt;linkText&gt;</bpt>Getting Started with ML Studio<ept id="2e5a4e53-528a-4095-a922-bcbf95ac2dab">&lt;/linkText&gt;</ept><bpt id="2e5a4e53-528a-4095-a922-bcbf95ac2dab">&lt;title&gt;</bpt><ept id="2e5a4e53-528a-4095-a922-bcbf95ac2dab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2e5a4e53-528a-4095-a922-bcbf95ac2dab">&lt;linkText&gt;</bpt>Getting Started with ML Studio<ept id="2e5a4e53-528a-4095-a922-bcbf95ac2dab">&lt;/linkText&gt;</ept><bpt id="2e5a4e53-528a-4095-a922-bcbf95ac2dab">&lt;title&gt;</bpt><ept id="2e5a4e53-528a-4095-a922-bcbf95ac2dab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b90a4a3-4b9a-45b6-8ef4-030423f1dd75" xml:space="preserve">
+          <source><bpt id="e9a214c2-b033-4efc-877d-3930fb95bdc2">&lt;linkText&gt;</bpt>Azure Machine Learning Preview<ept id="e9a214c2-b033-4efc-877d-3930fb95bdc2">&lt;/linkText&gt;</ept><bpt id="e9a214c2-b033-4efc-877d-3930fb95bdc2">&lt;title&gt;</bpt><ept id="e9a214c2-b033-4efc-877d-3930fb95bdc2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e9a214c2-b033-4efc-877d-3930fb95bdc2">&lt;linkText&gt;</bpt>Azure Machine Learning Preview<ept id="e9a214c2-b033-4efc-877d-3930fb95bdc2">&lt;/linkText&gt;</ept><bpt id="e9a214c2-b033-4efc-877d-3930fb95bdc2">&lt;title&gt;</bpt><ept id="e9a214c2-b033-4efc-877d-3930fb95bdc2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0988379-8f9d-4413-aec2-a483e33a29e0" xml:space="preserve">
+          <source><bpt id="52767d92-bb08-4566-acf0-a040bf7ba027">&lt;linkText&gt;</bpt>Machine Learning Documentation Center<ept id="52767d92-bb08-4566-acf0-a040bf7ba027">&lt;/linkText&gt;</ept><bpt id="52767d92-bb08-4566-acf0-a040bf7ba027">&lt;title&gt;</bpt><ept id="52767d92-bb08-4566-acf0-a040bf7ba027">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="52767d92-bb08-4566-acf0-a040bf7ba027">&lt;linkText&gt;</bpt>Machine Learning Documentation Center<ept id="52767d92-bb08-4566-acf0-a040bf7ba027">&lt;/linkText&gt;</ept><bpt id="52767d92-bb08-4566-acf0-a040bf7ba027">&lt;title&gt;</bpt><ept id="52767d92-bb08-4566-acf0-a040bf7ba027">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d4b6bd0-7a43-48c8-9b61-def850c8800b" xml:space="preserve">
+          <source>With the Azure Machine Learning (ML) web service, an external application communicates with an ML workflow scoring model in real time.</source>
+          <target state="new">With the Azure Machine Learning (ML) web service, an external application communicates with an ML workflow scoring model in real time.</target>
+        </trans-unit>
+        <trans-unit id="a684418f-db9c-43e5-9ecd-a5ce80e491b5" xml:space="preserve">
+          <source>An ML web service call returns prediction results to an external application.</source>
+          <target state="new">An ML web service call returns prediction results to an external application.</target>
+        </trans-unit>
+        <trans-unit id="dee34dde-b9b4-425b-b7f5-a76d33a406f8" xml:space="preserve">
+          <source>To make an ML web service call, you pass an API key which is created when you publish a prediction.</source>
+          <target state="new">To make an ML web service call, you pass an API key which is created when you publish a prediction.</target>
+        </trans-unit>
+        <trans-unit id="b67ba566-88f7-4ec1-80b1-4bd41696af78" xml:space="preserve">
+          <source>The ML web service is based on REST, a popular architecture choice for web programming projects.</source>
+          <target state="new">The ML web service is based on REST, a popular architecture choice for web programming projects.</target>
+        </trans-unit>
+        <trans-unit id="e4af2f4b-16be-4afb-9324-bdbfea99f8fd" xml:space="preserve">
+          <source>Azure Machine Learning has two types of services:</source>
+          <target state="new">Azure Machine Learning has two types of services:</target>
+        </trans-unit>
+        <trans-unit id="59408ec6-5d2d-4449-8e7b-ab771f86f72c" xml:space="preserve">
+          <source>Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and published from the ML Studio.</source>
+          <target state="new">Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and published from the ML Studio.</target>
+        </trans-unit>
+        <trans-unit id="2fbda72d-1c2a-486f-a5c7-27d792674c7a" xml:space="preserve">
+          <source>Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.</source>
+          <target state="new">Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.</target>
+        </trans-unit>
+        <trans-unit id="7fb9d910-0f5c-40ee-9930-5e238bdc86cf" xml:space="preserve">
+          <source>For more information about Azure Machine Learning web services, see <bpt id="061f2b7d-2825-4892-a1d7-2d74d2941050">&lt;linkText&gt;</bpt>Publish a Machine Learning web service<ept id="061f2b7d-2825-4892-a1d7-2d74d2941050">&lt;/linkText&gt;</ept><bpt id="061f2b7d-2825-4892-a1d7-2d74d2941050">&lt;title&gt;</bpt><ept id="061f2b7d-2825-4892-a1d7-2d74d2941050">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Azure Machine Learning web services, see <bpt id="061f2b7d-2825-4892-a1d7-2d74d2941050">&lt;linkText&gt;</bpt>Publish a Machine Learning web service<ept id="061f2b7d-2825-4892-a1d7-2d74d2941050">&lt;/linkText&gt;</ept><bpt id="061f2b7d-2825-4892-a1d7-2d74d2941050">&lt;title&gt;</bpt><ept id="061f2b7d-2825-4892-a1d7-2d74d2941050">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fcf2f577-ad72-4ba5-8367-da58c6c2da5f" xml:space="preserve">
+          <source>You get a web service API key from an ML web service.</source>
+          <target state="new">You get a web service API key from an ML web service.</target>
+        </trans-unit>
+        <trans-unit id="b130dad2-6b53-4b43-b5b5-228d1148e84e" xml:space="preserve">
+          <source>You can get it from Microsoft Azure Machine Learning studio or the Azure Management Portal.</source>
+          <target state="new">You can get it from Microsoft Azure Machine Learning studio or the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="082bfd15-6785-41e8-aa84-52be35af686d" xml:space="preserve">
+          <source>In Microsoft Azure Machine Learning studio, click <bpt id="abeb1d25-8f15-4ca4-ae84-ccb6e47dbbd2">&lt;strong&gt;</bpt>WEB SERVICES<ept id="abeb1d25-8f15-4ca4-ae84-ccb6e47dbbd2">&lt;/strong&gt;</ept> on the left.</source>
+          <target state="new">In Microsoft Azure Machine Learning studio, click <bpt id="abeb1d25-8f15-4ca4-ae84-ccb6e47dbbd2">&lt;strong&gt;</bpt>WEB SERVICES<ept id="abeb1d25-8f15-4ca4-ae84-ccb6e47dbbd2">&lt;/strong&gt;</ept> on the left.</target>
+        </trans-unit>
+        <trans-unit id="1dec7a31-25e2-48f2-9845-077eddf37474" xml:space="preserve">
+          <source>Click a web service.</source>
+          <target state="new">Click a web service.</target>
+        </trans-unit>
+        <trans-unit id="4336ccbe-4693-41c7-942a-47e66088d134" xml:space="preserve">
+          <source>The “API key” is on the <bpt id="3166fefd-a8b8-482a-afb0-bbbb71f44c99">&lt;strong&gt;</bpt>DASHBOARD<ept id="3166fefd-a8b8-482a-afb0-bbbb71f44c99">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">The “API key” is on the <bpt id="3166fefd-a8b8-482a-afb0-bbbb71f44c99">&lt;strong&gt;</bpt>DASHBOARD<ept id="3166fefd-a8b8-482a-afb0-bbbb71f44c99">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="9e9a240d-38f0-411a-b9a9-977f373e9a72" xml:space="preserve">
+          <source>Click <bpt id="c234c2cc-69e1-4a11-b847-656f8fee4de9">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="c234c2cc-69e1-4a11-b847-656f8fee4de9">&lt;/strong&gt;</ept> on the left.</source>
+          <target state="new">Click <bpt id="c234c2cc-69e1-4a11-b847-656f8fee4de9">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="c234c2cc-69e1-4a11-b847-656f8fee4de9">&lt;/strong&gt;</ept> on the left.</target>
+        </trans-unit>
+        <trans-unit id="8e4c5e20-6135-44ab-85e1-f3d9365fa498" xml:space="preserve">
+          <source>Click a workspace.</source>
+          <target state="new">Click a workspace.</target>
+        </trans-unit>
+        <trans-unit id="a3c58fc6-112a-40a6-af57-576dc58a66a5" xml:space="preserve">
+          <source>Click <bpt id="02e41d1d-5fab-4c2c-8286-ea7cb0177b69">&lt;strong&gt;</bpt>WEB SERVICES<ept id="02e41d1d-5fab-4c2c-8286-ea7cb0177b69">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="02e41d1d-5fab-4c2c-8286-ea7cb0177b69">&lt;strong&gt;</bpt>WEB SERVICES<ept id="02e41d1d-5fab-4c2c-8286-ea7cb0177b69">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd71358f-bf50-4372-a78a-e097e2fdce58" xml:space="preserve">
+          <source>Click a web service.</source>
+          <target state="new">Click a web service.</target>
+        </trans-unit>
+        <trans-unit id="deee6a9a-3ded-448d-a9b5-e0fb4d55cb70" xml:space="preserve">
+          <source>Click an endpoint.</source>
+          <target state="new">Click an endpoint.</target>
+        </trans-unit>
+        <trans-unit id="685bd58d-b05b-4e3b-bec4-888328bd7de1" xml:space="preserve">
+          <source>The “API KEY” is down at the lower-right.</source>
+          <target state="new">The “API KEY” is down at the lower-right.</target>
+        </trans-unit>
+        <trans-unit id="3cc05e86-2272-4547-b1e8-041008d91e2f" xml:space="preserve">
+          <source>You can connect to an Azure Machine Learning web service using any programming language that supports HTTP request and response.</source>
+          <target state="new">You can connect to an Azure Machine Learning web service using any programming language that supports HTTP request and response.</target>
+        </trans-unit>
+        <trans-unit id="31a4410f-5d3c-41f4-8079-444122d017fe" xml:space="preserve">
+          <source>You can view examples in C#, Python, and R from an Azure ML web service help page.</source>
+          <target state="new">You can view examples in C#, Python, and R from an Azure ML web service help page.</target>
+        </trans-unit>
+        <trans-unit id="1406f07b-bd86-4bc7-b050-104cea093689" xml:space="preserve">
+          <source>An Azure ML API help page is created when you publish a web service.</source>
+          <target state="new">An Azure ML API help page is created when you publish a web service.</target>
+        </trans-unit>
+        <trans-unit id="167c8718-7f40-41d5-a545-5e6fe0f3cc21" xml:space="preserve">
+          <source>See <bpt id="572f4c7a-6394-4ecf-8708-454ddb7f4a6b">&lt;linkText&gt;</bpt>Azure Machine Learning Walkthrough- Publish Web Service<ept id="572f4c7a-6394-4ecf-8708-454ddb7f4a6b">&lt;/linkText&gt;</ept><bpt id="572f4c7a-6394-4ecf-8708-454ddb7f4a6b">&lt;title&gt;</bpt><ept id="572f4c7a-6394-4ecf-8708-454ddb7f4a6b">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="572f4c7a-6394-4ecf-8708-454ddb7f4a6b">&lt;linkText&gt;</bpt>Azure Machine Learning Walkthrough- Publish Web Service<ept id="572f4c7a-6394-4ecf-8708-454ddb7f4a6b">&lt;/linkText&gt;</ept><bpt id="572f4c7a-6394-4ecf-8708-454ddb7f4a6b">&lt;title&gt;</bpt><ept id="572f4c7a-6394-4ecf-8708-454ddb7f4a6b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee1c332e-87ae-4934-ac53-c6bd82a2dd62" xml:space="preserve">
+          <source><bpt id="27de9685-3850-4c92-9639-f0e294f7bf7b">&lt;strong&gt;</bpt>To view an Azure ML API help page<ept id="27de9685-3850-4c92-9639-f0e294f7bf7b">&lt;/strong&gt;</ept>
+In Microsoft Azure Machine Learning Studio:</source>
+          <target state="new"><bpt id="27de9685-3850-4c92-9639-f0e294f7bf7b">&lt;strong&gt;</bpt>To view an Azure ML API help page<ept id="27de9685-3850-4c92-9639-f0e294f7bf7b">&lt;/strong&gt;</ept>
+In Microsoft Azure Machine Learning Studio:</target>
+        </trans-unit>
+        <trans-unit id="4b016aaf-4429-4341-960d-7ff67230d89b" xml:space="preserve">
+          <source>Choose <bpt id="1f9983d2-b8da-48f0-9760-bee6e844a6b5">&lt;strong&gt;</bpt>WEB SERVICES<ept id="1f9983d2-b8da-48f0-9760-bee6e844a6b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose <bpt id="1f9983d2-b8da-48f0-9760-bee6e844a6b5">&lt;strong&gt;</bpt>WEB SERVICES<ept id="1f9983d2-b8da-48f0-9760-bee6e844a6b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c388f8c-35d2-4a6d-b4b8-f7b096cb5e67" xml:space="preserve">
+          <source>Choose a web service.</source>
+          <target state="new">Choose a web service.</target>
+        </trans-unit>
+        <trans-unit id="91a42df9-c972-4397-9ebd-d22ef706d711" xml:space="preserve">
+          <source>Choose <bpt id="a2350090-ebc6-4191-97d7-89d630cb762a">&lt;strong&gt;</bpt>API help page<ept id="a2350090-ebc6-4191-97d7-89d630cb762a">&lt;/strong&gt;</ept> - <bpt id="5979a035-8c01-4461-864f-5dbc4ef796ae">&lt;strong&gt;</bpt>REQUEST/RESPONSE<ept id="5979a035-8c01-4461-864f-5dbc4ef796ae">&lt;/strong&gt;</ept> or <bpt id="cd216dce-2de9-4206-9c17-36bda1d1bde9">&lt;strong&gt;</bpt>BATCH EXECUTION<ept id="cd216dce-2de9-4206-9c17-36bda1d1bde9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose <bpt id="a2350090-ebc6-4191-97d7-89d630cb762a">&lt;strong&gt;</bpt>API help page<ept id="a2350090-ebc6-4191-97d7-89d630cb762a">&lt;/strong&gt;</ept> - <bpt id="5979a035-8c01-4461-864f-5dbc4ef796ae">&lt;strong&gt;</bpt>REQUEST/RESPONSE<ept id="5979a035-8c01-4461-864f-5dbc4ef796ae">&lt;/strong&gt;</ept> or <bpt id="cd216dce-2de9-4206-9c17-36bda1d1bde9">&lt;strong&gt;</bpt>BATCH EXECUTION<ept id="cd216dce-2de9-4206-9c17-36bda1d1bde9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03c41cff-d32e-4e45-ad7b-2a8fcb7fc285" xml:space="preserve">
+          <source><bpt id="9d3509b6-5ff4-4a64-b45d-48ec80d4de6b">&lt;strong&gt;</bpt>Azure ML API help page<ept id="9d3509b6-5ff4-4a64-b45d-48ec80d4de6b">&lt;/strong&gt;</ept>
+The Azure ML API help page contains details about a prediction web service.</source>
+          <target state="new"><bpt id="9d3509b6-5ff4-4a64-b45d-48ec80d4de6b">&lt;strong&gt;</bpt>Azure ML API help page<ept id="9d3509b6-5ff4-4a64-b45d-48ec80d4de6b">&lt;/strong&gt;</ept>
+The Azure ML API help page contains details about a prediction web service.</target>
+        </trans-unit>
+        <trans-unit id="d294c69a-efed-4d83-b749-4b875d6d6fd1" xml:space="preserve">
+          <source>To connect to an Azure ML web service, use an <bpt id="6899f7af-11f1-4de3-a5da-633dd0947db8">&lt;strong&gt;</bpt>HttpClient<ept id="6899f7af-11f1-4de3-a5da-633dd0947db8">&lt;/strong&gt;</ept> passing ScoreData.</source>
+          <target state="new">To connect to an Azure ML web service, use an <bpt id="6899f7af-11f1-4de3-a5da-633dd0947db8">&lt;strong&gt;</bpt>HttpClient<ept id="6899f7af-11f1-4de3-a5da-633dd0947db8">&lt;/strong&gt;</ept> passing ScoreData.</target>
+        </trans-unit>
+        <trans-unit id="f7a9b87a-465c-4385-b6e6-448dbecb3fd5" xml:space="preserve">
+          <source>ScoreData contains a FeatureVector, an n-dimensional  vector of numerical features that represents the ScoreData.</source>
+          <target state="new">ScoreData contains a FeatureVector, an n-dimensional  vector of numerical features that represents the ScoreData.</target>
+        </trans-unit>
+        <trans-unit id="fdb3fd9f-f930-479d-bd6e-493c47296e2e" xml:space="preserve">
+          <source>You authenticate to the Azure ML service with an API key.</source>
+          <target state="new">You authenticate to the Azure ML service with an API key.</target>
+        </trans-unit>
+        <trans-unit id="37876c5c-7681-4521-a0c2-c15297ac4bc2" xml:space="preserve">
+          <source>To connect to an ML web service, the <bpt id="717aee8d-5f42-40e5-9822-b0eb4fea0506">&lt;strong&gt;</bpt>Microsoft.AspNet.WebApi.Client<ept id="717aee8d-5f42-40e5-9822-b0eb4fea0506">&lt;/strong&gt;</ept> Nuget package must be installed.</source>
+          <target state="new">To connect to an ML web service, the <bpt id="717aee8d-5f42-40e5-9822-b0eb4fea0506">&lt;strong&gt;</bpt>Microsoft.AspNet.WebApi.Client<ept id="717aee8d-5f42-40e5-9822-b0eb4fea0506">&lt;/strong&gt;</ept> Nuget package must be installed.</target>
+        </trans-unit>
+        <trans-unit id="401f4c7b-1cea-4872-8d3c-b5e3c3aa593c" xml:space="preserve">
+          <source><bpt id="4b60459f-4790-4a6c-83e6-2d55fe115b4a">&lt;strong&gt;</bpt>Install Microsoft.AspNet.WebApi.Client Nuget in Visual Studio<ept id="4b60459f-4790-4a6c-83e6-2d55fe115b4a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4b60459f-4790-4a6c-83e6-2d55fe115b4a">&lt;strong&gt;</bpt>Install Microsoft.AspNet.WebApi.Client Nuget in Visual Studio<ept id="4b60459f-4790-4a6c-83e6-2d55fe115b4a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ead1d6c-c9e4-404c-8bef-feba10406a72" xml:space="preserve">
+          <source>Publish the Download dataset from UCI: Adult 2 class dataset Web Service.</source>
+          <target state="new">Publish the Download dataset from UCI: Adult 2 class dataset Web Service.</target>
+        </trans-unit>
+        <trans-unit id="d0fefea1-c4ff-4c06-a869-ca9f7d5881f4" xml:space="preserve">
+          <source>Click <bpt id="d18dd087-8318-4dfb-a4ee-c984a499fd98">&lt;strong&gt;</bpt>Tools<ept id="d18dd087-8318-4dfb-a4ee-c984a499fd98">&lt;/strong&gt;</ept> &gt; <bpt id="860ff14f-1b67-48e4-bfa3-1ea447132e8c">&lt;strong&gt;</bpt>Nuget Package Manager<ept id="860ff14f-1b67-48e4-bfa3-1ea447132e8c">&lt;/strong&gt;</ept> &gt; <bpt id="f1497d78-7e13-44ae-aadc-77dfb56caf3a">&lt;strong&gt;</bpt>Package Manager Console<ept id="f1497d78-7e13-44ae-aadc-77dfb56caf3a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d18dd087-8318-4dfb-a4ee-c984a499fd98">&lt;strong&gt;</bpt>Tools<ept id="d18dd087-8318-4dfb-a4ee-c984a499fd98">&lt;/strong&gt;</ept> &gt; <bpt id="860ff14f-1b67-48e4-bfa3-1ea447132e8c">&lt;strong&gt;</bpt>Nuget Package Manager<ept id="860ff14f-1b67-48e4-bfa3-1ea447132e8c">&lt;/strong&gt;</ept> &gt; <bpt id="f1497d78-7e13-44ae-aadc-77dfb56caf3a">&lt;strong&gt;</bpt>Package Manager Console<ept id="f1497d78-7e13-44ae-aadc-77dfb56caf3a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2183bbfb-a025-4d8a-9fc2-f29516fe053e" xml:space="preserve">
+          <source>Choose <bpt id="d731f3b2-8b94-4408-982a-f19be8516150">&lt;strong&gt;</bpt>Install-Package Microsoft.AspNet.WebApi.Client<ept id="d731f3b2-8b94-4408-982a-f19be8516150">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose <bpt id="d731f3b2-8b94-4408-982a-f19be8516150">&lt;strong&gt;</bpt>Install-Package Microsoft.AspNet.WebApi.Client<ept id="d731f3b2-8b94-4408-982a-f19be8516150">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="944a4aa6-8f78-4e0e-9e4b-2152d6bada41" xml:space="preserve">
+          <source><bpt id="57c371b8-4ef0-4bab-91e5-0bc5379d4144">&lt;strong&gt;</bpt>To run the code sample<ept id="57c371b8-4ef0-4bab-91e5-0bc5379d4144">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="57c371b8-4ef0-4bab-91e5-0bc5379d4144">&lt;strong&gt;</bpt>To run the code sample<ept id="57c371b8-4ef0-4bab-91e5-0bc5379d4144">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af21c764-b1ba-4bb4-9a85-47cfc16d86a8" xml:space="preserve">
+          <source>Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Azure ML sample collection.</source>
+          <target state="new">Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Azure ML sample collection.</target>
+        </trans-unit>
+        <trans-unit id="f8d50d8b-1cd1-4cc6-b7a0-a56686436513" xml:space="preserve">
+          <source>Assign apiKey with the key from a web service.</source>
+          <target state="new">Assign apiKey with the key from a web service.</target>
+        </trans-unit>
+        <trans-unit id="f87367a9-cee1-4b29-b985-f83c1f8327d4" xml:space="preserve">
+          <source>See How to get an Azure ML authorization key.</source>
+          <target state="new">See How to get an Azure ML authorization key.</target>
+        </trans-unit>
+        <trans-unit id="7baaafb9-19bd-48fc-87a9-db2fd450eb99" xml:space="preserve">
+          <source>Assign serviceUri with the Request URI.</source>
+          <target state="new">Assign serviceUri with the Request URI.</target>
+        </trans-unit>
+        <trans-unit id="9b9cca6a-93e6-4b0c-a04e-2658a1fa732d" xml:space="preserve">
+          <source>To connect to an Azure ML web service, use the <bpt id="e7aeb172-f4db-4cab-95e5-3ebbdca27e5a">&lt;strong&gt;</bpt>urllib2<ept id="e7aeb172-f4db-4cab-95e5-3ebbdca27e5a">&lt;/strong&gt;</ept> library passing ScoreData.</source>
+          <target state="new">To connect to an Azure ML web service, use the <bpt id="e7aeb172-f4db-4cab-95e5-3ebbdca27e5a">&lt;strong&gt;</bpt>urllib2<ept id="e7aeb172-f4db-4cab-95e5-3ebbdca27e5a">&lt;/strong&gt;</ept> library passing ScoreData.</target>
+        </trans-unit>
+        <trans-unit id="71942f52-9e93-48d1-8ab4-0bf069c85ea9" xml:space="preserve">
+          <source>ScoreData contains a FeatureVector, an n-dimensional  vector of numerical features that represents the ScoreData.</source>
+          <target state="new">ScoreData contains a FeatureVector, an n-dimensional  vector of numerical features that represents the ScoreData.</target>
+        </trans-unit>
+        <trans-unit id="10da5420-438d-4bd3-9c60-18dcd7844d22" xml:space="preserve">
+          <source>You authenticate to the Azure ML service with an API key.</source>
+          <target state="new">You authenticate to the Azure ML service with an API key.</target>
+        </trans-unit>
+        <trans-unit id="e0e734c3-bcc0-4812-a004-f894c381add4" xml:space="preserve">
+          <source><bpt id="439de486-47bb-414e-8542-ad28e5c8c3e2">&lt;strong&gt;</bpt>To run the code sample<ept id="439de486-47bb-414e-8542-ad28e5c8c3e2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="439de486-47bb-414e-8542-ad28e5c8c3e2">&lt;strong&gt;</bpt>To run the code sample<ept id="439de486-47bb-414e-8542-ad28e5c8c3e2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34eb5f6b-a208-4b72-9b56-128f660411ad" xml:space="preserve">
+          <source>Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Azure ML sample collection.</source>
+          <target state="new">Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Azure ML sample collection.</target>
+        </trans-unit>
+        <trans-unit id="d01d84ce-5a84-4984-a510-b54ca493a301" xml:space="preserve">
+          <source>Assign apiKey with the key from a web service.</source>
+          <target state="new">Assign apiKey with the key from a web service.</target>
+        </trans-unit>
+        <trans-unit id="b59d38f1-9697-4982-a4b4-b167a13644e0" xml:space="preserve">
+          <source>See How to get an Azure ML authorization key.</source>
+          <target state="new">See How to get an Azure ML authorization key.</target>
+        </trans-unit>
+        <trans-unit id="56921a1f-4489-45e4-8ab9-cf2ea9462fa3" xml:space="preserve">
+          <source>Assign serviceUri with the Request URI.</source>
+          <target state="new">Assign serviceUri with the Request URI.</target>
+        </trans-unit>
+        <trans-unit id="e2b633f0-03c7-43cf-9704-627319b79e03" xml:space="preserve">
+          <source>See How to get a Request URI.</source>
+          <target state="new">See How to get a Request URI.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

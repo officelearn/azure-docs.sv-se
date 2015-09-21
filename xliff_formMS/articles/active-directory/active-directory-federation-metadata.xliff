@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="05817856-b4e0-4ff6-b510-0db6283c4343" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="05817856-b4e0-4ff6-b510-0db6283c4343" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e12283ba-2a4e-4f8b-ade2-e9beb804f64a">
+        <trans-unit id="f1680caf-a279-4b5a-a4cb-125025578482" xml:space="preserve">
+          <source>Federation Metadata</source>
+          <target state="new">Federation Metadata</target>
+        </trans-unit>
+        <trans-unit id="35356725-da65-4509-a3ee-d93175e84fb1" xml:space="preserve">
+          <source>A description of metadata endpoints and the content in the metadata document that services that accept Azure AD tokens must use.</source>
+          <target state="new">A description of metadata endpoints and the content in the metadata document that services that accept Azure AD tokens must use.</target>
+        </trans-unit>
+        <trans-unit id="f68ddf3a-baa6-4697-b027-f90f474bd500" xml:space="preserve">
+          <source>Azure Active Directory (Azure AD) publishes a federation metadata document for services that are configured to accept the security tokens that Azure Active Directory issues.</source>
+          <target state="new">Azure Active Directory (Azure AD) publishes a federation metadata document for services that are configured to accept the security tokens that Azure Active Directory issues.</target>
+        </trans-unit>
+        <trans-unit id="8f75f94b-d635-46c4-87dc-1364808fcea6" xml:space="preserve">
+          <source>The federation metadata document format is described in the <bpt id="aa241b0d-a130-4dd4-a51f-057097fa83f8">&lt;linkText&gt;</bpt>Web Services Federation Language (WS-Federation) Version 1.2<ept id="aa241b0d-a130-4dd4-a51f-057097fa83f8">&lt;/linkText&gt;</ept><bpt id="aa241b0d-a130-4dd4-a51f-057097fa83f8">&lt;title&gt;</bpt><ept id="aa241b0d-a130-4dd4-a51f-057097fa83f8">&lt;/title&gt;</ept>, which extends <bpt id="fc4a741d-9344-4e3a-9fe6-6087dd9ba67e">&lt;linkText&gt;</bpt>Metadata for the OASIS Security Assertion Markup Language (SAML) V2.0<ept id="fc4a741d-9344-4e3a-9fe6-6087dd9ba67e">&lt;/linkText&gt;</ept><bpt id="fc4a741d-9344-4e3a-9fe6-6087dd9ba67e">&lt;title&gt;</bpt><ept id="fc4a741d-9344-4e3a-9fe6-6087dd9ba67e">&lt;/title&gt;</ept>.</source>
+          <target state="new">The federation metadata document format is described in the <bpt id="aa241b0d-a130-4dd4-a51f-057097fa83f8">&lt;linkText&gt;</bpt>Web Services Federation Language (WS-Federation) Version 1.2<ept id="aa241b0d-a130-4dd4-a51f-057097fa83f8">&lt;/linkText&gt;</ept><bpt id="aa241b0d-a130-4dd4-a51f-057097fa83f8">&lt;title&gt;</bpt><ept id="aa241b0d-a130-4dd4-a51f-057097fa83f8">&lt;/title&gt;</ept>, which extends <bpt id="fc4a741d-9344-4e3a-9fe6-6087dd9ba67e">&lt;linkText&gt;</bpt>Metadata for the OASIS Security Assertion Markup Language (SAML) V2.0<ept id="fc4a741d-9344-4e3a-9fe6-6087dd9ba67e">&lt;/linkText&gt;</ept><bpt id="fc4a741d-9344-4e3a-9fe6-6087dd9ba67e">&lt;title&gt;</bpt><ept id="fc4a741d-9344-4e3a-9fe6-6087dd9ba67e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b17fb2a-2882-41a6-af1d-fd13b68489c5" xml:space="preserve">
+          <source>This topic lists the metadata endpoints and explains the content in the metadata document that services that accept Azure AD tokens need to use.</source>
+          <target state="new">This topic lists the metadata endpoints and explains the content in the metadata document that services that accept Azure AD tokens need to use.</target>
+        </trans-unit>
+        <trans-unit id="4a3dcebc-6025-41cb-a974-6aa7a3481199" xml:space="preserve">
+          <source>Azure AD publishes tenant-specific and tenant-independent endpoints.</source>
+          <target state="new">Azure AD publishes tenant-specific and tenant-independent endpoints.</target>
+        </trans-unit>
+        <trans-unit id="ba7ce08d-25c6-4351-b3b2-c1dc9cfd2634" xml:space="preserve">
+          <source>Tenant-specific endpoints are designed for a particular tenant.</source>
+          <target state="new">Tenant-specific endpoints are designed for a particular tenant.</target>
+        </trans-unit>
+        <trans-unit id="2011e6e1-e298-4d65-a9fb-a25e87242f55" xml:space="preserve">
+          <source>The tenant-specific federation metadata includes information about the tenant, including tenant-specific issuer and endpoint information.</source>
+          <target state="new">The tenant-specific federation metadata includes information about the tenant, including tenant-specific issuer and endpoint information.</target>
+        </trans-unit>
+        <trans-unit id="4aa9d631-6265-4a40-8ea7-1a11a918c7fe" xml:space="preserve">
+          <source>Applications that restrict access to a single tenant use tenant-specific endpoints.</source>
+          <target state="new">Applications that restrict access to a single tenant use tenant-specific endpoints.</target>
+        </trans-unit>
+        <trans-unit id="4aa0fe04-7e2b-4dc7-a26e-d00a055e1341" xml:space="preserve">
+          <source>Tenant-independent endpoints provide information that is common to all Azure AD tenants.</source>
+          <target state="new">Tenant-independent endpoints provide information that is common to all Azure AD tenants.</target>
+        </trans-unit>
+        <trans-unit id="efc7a125-13af-49c6-be86-ad58c982e393" xml:space="preserve">
+          <source>This information applies to tenants hosted at <bpt id="65429d0b-54cf-47da-a04a-d10abfbb5ce9">&lt;em&gt;</bpt>login.windows.net<ept id="65429d0b-54cf-47da-a04a-d10abfbb5ce9">&lt;/em&gt;</ept> and is shared across tenants.</source>
+          <target state="new">This information applies to tenants hosted at <bpt id="65429d0b-54cf-47da-a04a-d10abfbb5ce9">&lt;em&gt;</bpt>login.windows.net<ept id="65429d0b-54cf-47da-a04a-d10abfbb5ce9">&lt;/em&gt;</ept> and is shared across tenants.</target>
+        </trans-unit>
+        <trans-unit id="7425036f-341c-41f0-a2c1-c3c8dd5669bb" xml:space="preserve">
+          <source>Tenant-independent endpoints are recommended for multi-tenant applications, since they are not associated with any particular tenant.</source>
+          <target state="new">Tenant-independent endpoints are recommended for multi-tenant applications, since they are not associated with any particular tenant.</target>
+        </trans-unit>
+        <trans-unit id="ebe8239f-2cf9-4843-8d0b-9616ae1bbd6c" xml:space="preserve">
+          <source>Azure AD publishes federation metadata at <bpt id="feb70459-0534-447a-a7a1-41b4e2c45bf6">&lt;em&gt;</bpt>https://login.windows.net/&lt;TenantDomainName&gt;/FederationMetadata/2007-06/FederationMetadata.xml<ept id="feb70459-0534-447a-a7a1-41b4e2c45bf6">&lt;/em&gt;</ept>,where the value of &lt;TenantDomainName&gt; can be "common" or a tenant-specific value.
+The endpoints are addressable, so you can go to the address site to view the federation metadata for a tenant.</source>
+          <target state="new">Azure AD publishes federation metadata at <bpt id="feb70459-0534-447a-a7a1-41b4e2c45bf6">&lt;em&gt;</bpt>https://login.windows.net/&lt;TenantDomainName&gt;/FederationMetadata/2007-06/FederationMetadata.xml<ept id="feb70459-0534-447a-a7a1-41b4e2c45bf6">&lt;/em&gt;</ept>,where the value of &lt;TenantDomainName&gt; can be "common" or a tenant-specific value.
+The endpoints are addressable, so you can go to the address site to view the federation metadata for a tenant.</target>
+        </trans-unit>
+        <trans-unit id="c0595dfc-a4cf-449e-b457-51196de25d0f" xml:space="preserve">
+          <source>For <bpt id="e8d958e2-1ffc-4e45-8d79-dd50002615d5">&lt;strong&gt;</bpt>tenant-specific endpoints<ept id="e8d958e2-1ffc-4e45-8d79-dd50002615d5">&lt;/strong&gt;</ept>, the &lt;TenantDomainName&gt; can be one of the following types:</source>
+          <target state="new">For <bpt id="e8d958e2-1ffc-4e45-8d79-dd50002615d5">&lt;strong&gt;</bpt>tenant-specific endpoints<ept id="e8d958e2-1ffc-4e45-8d79-dd50002615d5">&lt;/strong&gt;</ept>, the &lt;TenantDomainName&gt; can be one of the following types:</target>
+        </trans-unit>
+        <trans-unit id="01202b71-d07f-401f-b98f-ec18418ed69d" xml:space="preserve">
+          <source>A registered domain name of an Azure AD tenant, such as: contoso.onmicrosoft.com.</source>
+          <target state="new">A registered domain name of an Azure AD tenant, such as: contoso.onmicrosoft.com.</target>
+        </trans-unit>
+        <trans-unit id="ab1f12b5-38cb-4931-ba6e-f0c83d914be0" xml:space="preserve">
+          <source>The immutable tenant id of the domain, such as 72f988bf-86f1-41af-91ab-2d7cd011db45.</source>
+          <target state="new">The immutable tenant id of the domain, such as 72f988bf-86f1-41af-91ab-2d7cd011db45.</target>
+        </trans-unit>
+        <trans-unit id="114cdad9-b596-42a4-b8d3-e502716d9370" xml:space="preserve">
+          <source>For <bpt id="1f7177dd-b30b-4928-9e03-d5eae4c57904">&lt;strong&gt;</bpt>tenant-independent endpoints<ept id="1f7177dd-b30b-4928-9e03-d5eae4c57904">&lt;/strong&gt;</ept>, the &lt;TenantDomainName&gt; is <bpt id="d0bf2a9f-8be4-4791-a3a7-baeac8e28ea4">&lt;strong&gt;</bpt>common<ept id="d0bf2a9f-8be4-4791-a3a7-baeac8e28ea4">&lt;/strong&gt;</ept>. This name indicates that only the Federation Metadata elements that are common to all Azure AD tenants that are hosted at login.windows.net.</source>
+          <target state="new">For <bpt id="1f7177dd-b30b-4928-9e03-d5eae4c57904">&lt;strong&gt;</bpt>tenant-independent endpoints<ept id="1f7177dd-b30b-4928-9e03-d5eae4c57904">&lt;/strong&gt;</ept>, the &lt;TenantDomainName&gt; is <bpt id="d0bf2a9f-8be4-4791-a3a7-baeac8e28ea4">&lt;strong&gt;</bpt>common<ept id="d0bf2a9f-8be4-4791-a3a7-baeac8e28ea4">&lt;/strong&gt;</ept>. This name indicates that only the Federation Metadata elements that are common to all Azure AD tenants that are hosted at login.windows.net.</target>
+        </trans-unit>
+        <trans-unit id="909a6f7b-8c2c-4d7e-8d72-600dd3df345c" xml:space="preserve">
+          <source>For example, a tenant-specific endpoint might be <bpt id="c6438076-783c-457e-a9e8-0e8bae0935f3">&lt;em&gt;</bpt>https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml<ept id="c6438076-783c-457e-a9e8-0e8bae0935f3">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, a tenant-specific endpoint might be <bpt id="c6438076-783c-457e-a9e8-0e8bae0935f3">&lt;em&gt;</bpt>https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml<ept id="c6438076-783c-457e-a9e8-0e8bae0935f3">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3a1d79e-5e99-492b-b27f-43e59fcf6af0" xml:space="preserve">
+          <source>The tenant-independent endpoint is <bpt id="00f19a0b-9875-4d3b-9f20-230e0a0fcdc4">&lt;em&gt;</bpt>https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml<ept id="00f19a0b-9875-4d3b-9f20-230e0a0fcdc4">&lt;/em&gt;</ept>.</source>
+          <target state="new">The tenant-independent endpoint is <bpt id="00f19a0b-9875-4d3b-9f20-230e0a0fcdc4">&lt;em&gt;</bpt>https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml<ept id="00f19a0b-9875-4d3b-9f20-230e0a0fcdc4">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ae9e931-3d91-4444-81cd-fc9e8666b15f" xml:space="preserve">
+          <source>The following section provides information needed by services that consume the tokens issued by Azure AD.</source>
+          <target state="new">The following section provides information needed by services that consume the tokens issued by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="af9e473f-ffbe-4a9b-87e2-1fc6b336e1e5" xml:space="preserve">
+          <source>The <bpt id="c3106ac1-fde0-4284-9a7e-4d34f14c3155">&lt;strong&gt;</bpt>EntityDescriptor<ept id="c3106ac1-fde0-4284-9a7e-4d34f14c3155">&lt;/strong&gt;</ept> element contains an <bpt id="eefd31bf-60fc-4f58-8425-4038e4c861e2">&lt;strong&gt;</bpt>EntityID<ept id="eefd31bf-60fc-4f58-8425-4038e4c861e2">&lt;/strong&gt;</ept> attribute.</source>
+          <target state="new">The <bpt id="c3106ac1-fde0-4284-9a7e-4d34f14c3155">&lt;strong&gt;</bpt>EntityDescriptor<ept id="c3106ac1-fde0-4284-9a7e-4d34f14c3155">&lt;/strong&gt;</ept> element contains an <bpt id="eefd31bf-60fc-4f58-8425-4038e4c861e2">&lt;strong&gt;</bpt>EntityID<ept id="eefd31bf-60fc-4f58-8425-4038e4c861e2">&lt;/strong&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="98446cd3-b5f2-41d3-8ece-2ee382876431" xml:space="preserve">
+          <source>The value of the <bpt id="0e34d245-02e4-4a4a-9b83-0b4306950ee3">&lt;strong&gt;</bpt>EntityID<ept id="0e34d245-02e4-4a4a-9b83-0b4306950ee3">&lt;/strong&gt;</ept> attribute represents the issuer, that is, the security token service (STS) that issued the token.</source>
+          <target state="new">The value of the <bpt id="0e34d245-02e4-4a4a-9b83-0b4306950ee3">&lt;strong&gt;</bpt>EntityID<ept id="0e34d245-02e4-4a4a-9b83-0b4306950ee3">&lt;/strong&gt;</ept> attribute represents the issuer, that is, the security token service (STS) that issued the token.</target>
+        </trans-unit>
+        <trans-unit id="13c59b5d-a779-4f05-a370-461953ba190d" xml:space="preserve">
+          <source>It is important to validate the issuer so you can confirm which tenant issued a token.</source>
+          <target state="new">It is important to validate the issuer so you can confirm which tenant issued a token.</target>
+        </trans-unit>
+        <trans-unit id="79a2dd88-66d6-4a1c-8113-745bd1eec13a" xml:space="preserve">
+          <source>The following metadata shows a sample tenant-specific <bpt id="d5ac7da7-a823-46ef-8dab-49d5a47bc5bc">&lt;strong&gt;</bpt>EntityDescriptor<ept id="d5ac7da7-a823-46ef-8dab-49d5a47bc5bc">&lt;/strong&gt;</ept> element with an <bpt id="583b4a46-af42-46da-a81d-cc06190a9050">&lt;strong&gt;</bpt>EntityID<ept id="583b4a46-af42-46da-a81d-cc06190a9050">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">The following metadata shows a sample tenant-specific <bpt id="d5ac7da7-a823-46ef-8dab-49d5a47bc5bc">&lt;strong&gt;</bpt>EntityDescriptor<ept id="d5ac7da7-a823-46ef-8dab-49d5a47bc5bc">&lt;/strong&gt;</ept> element with an <bpt id="583b4a46-af42-46da-a81d-cc06190a9050">&lt;strong&gt;</bpt>EntityID<ept id="583b4a46-af42-46da-a81d-cc06190a9050">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="8cc28a74-6266-4bd4-a511-65c7b4a7fa94" xml:space="preserve">
+          <source>The <bpt id="a5afa38c-f637-456f-87a5-b08ae80ef771">&lt;strong&gt;</bpt>EntityID<ept id="a5afa38c-f637-456f-87a5-b08ae80ef771">&lt;/strong&gt;</ept> in the tenant-independent endpoint provides a template that can be used to generate a tenant-specific <bpt id="3eb426d9-6207-415d-8497-554f0921d174">&lt;strong&gt;</bpt>EntityID<ept id="3eb426d9-6207-415d-8497-554f0921d174">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">The <bpt id="a5afa38c-f637-456f-87a5-b08ae80ef771">&lt;strong&gt;</bpt>EntityID<ept id="a5afa38c-f637-456f-87a5-b08ae80ef771">&lt;/strong&gt;</ept> in the tenant-independent endpoint provides a template that can be used to generate a tenant-specific <bpt id="3eb426d9-6207-415d-8497-554f0921d174">&lt;strong&gt;</bpt>EntityID<ept id="3eb426d9-6207-415d-8497-554f0921d174">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="9e1837cb-16ed-4fa7-b8e8-bd0dc3a98004" xml:space="preserve">
+          <source>Replace the "{tenant}" literal in the tenant-independent endpoint with the value of the <bpt id="b8144b15-99bf-4c42-a781-599757a1e8bd">&lt;strong&gt;</bpt>TenantID<ept id="b8144b15-99bf-4c42-a781-599757a1e8bd">&lt;/strong&gt;</ept> claim from a token.</source>
+          <target state="new">Replace the "{tenant}" literal in the tenant-independent endpoint with the value of the <bpt id="b8144b15-99bf-4c42-a781-599757a1e8bd">&lt;strong&gt;</bpt>TenantID<ept id="b8144b15-99bf-4c42-a781-599757a1e8bd">&lt;/strong&gt;</ept> claim from a token.</target>
+        </trans-unit>
+        <trans-unit id="c7715add-03d1-4d47-91f9-1d435b690569" xml:space="preserve">
+          <source>The resulting value will be the same as the token issuer.</source>
+          <target state="new">The resulting value will be the same as the token issuer.</target>
+        </trans-unit>
+        <trans-unit id="c22b49c6-432a-41d2-a808-adb5ba977b0f" xml:space="preserve">
+          <source>This strategy allows a multi-tenant application to validate the issuer for a given tenant.</source>
+          <target state="new">This strategy allows a multi-tenant application to validate the issuer for a given tenant.</target>
+        </trans-unit>
+        <trans-unit id="0b4fcbc9-e363-459b-a066-b7b46d50e11c" xml:space="preserve">
+          <source>The following metadata shows a sample tenant-independent <bpt id="6c77970d-8bb6-491b-b2aa-60218602313f">&lt;strong&gt;</bpt>EntityID<ept id="6c77970d-8bb6-491b-b2aa-60218602313f">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">The following metadata shows a sample tenant-independent <bpt id="6c77970d-8bb6-491b-b2aa-60218602313f">&lt;strong&gt;</bpt>EntityID<ept id="6c77970d-8bb6-491b-b2aa-60218602313f">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="130bb291-fcb7-459d-9097-8e1c8a4db34a" xml:space="preserve">
+          <source>In this element, {tenant} is a literal, not a placeholder.</source>
+          <target state="new">In this element, {tenant} is a literal, not a placeholder.</target>
+        </trans-unit>
+        <trans-unit id="b9e41b17-64b1-45cb-8f00-c0c7114db452" xml:space="preserve">
+          <source>When a service receives a token that is issued by a Azure AD tenant, the signature of the token must be validated with a signing key that is published in the federation metadata document.</source>
+          <target state="new">When a service receives a token that is issued by a Azure AD tenant, the signature of the token must be validated with a signing key that is published in the federation metadata document.</target>
+        </trans-unit>
+        <trans-unit id="85341829-6a48-40f9-ab7b-d8c658d1a260" xml:space="preserve">
+          <source>The federation metadata includes the public portion of the certificates that the tenants use for token signing.</source>
+          <target state="new">The federation metadata includes the public portion of the certificates that the tenants use for token signing.</target>
+        </trans-unit>
+        <trans-unit id="df3f74d9-f8cf-4653-ba69-51a94d0f1827" xml:space="preserve">
+          <source>The certificate raw bytes appear in the <bpt id="f94fbed6-e9ae-4712-8dd6-a0295fc0e560">&lt;strong&gt;</bpt>KeyDescriptor<ept id="f94fbed6-e9ae-4712-8dd6-a0295fc0e560">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">The certificate raw bytes appear in the <bpt id="f94fbed6-e9ae-4712-8dd6-a0295fc0e560">&lt;strong&gt;</bpt>KeyDescriptor<ept id="f94fbed6-e9ae-4712-8dd6-a0295fc0e560">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="e1706b47-34fe-433d-a2be-36529dee22e9" xml:space="preserve">
+          <source>The token signing certificate is valid for signing only when the value of the <bpt id="1a3bfae2-c218-4155-8347-d319b835fe89">&lt;strong&gt;</bpt>use<ept id="1a3bfae2-c218-4155-8347-d319b835fe89">&lt;/strong&gt;</ept> attribute is <bpt id="53059b60-027e-437f-ab3f-42a5290df63b">&lt;strong&gt;</bpt>signing<ept id="53059b60-027e-437f-ab3f-42a5290df63b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The token signing certificate is valid for signing only when the value of the <bpt id="1a3bfae2-c218-4155-8347-d319b835fe89">&lt;strong&gt;</bpt>use<ept id="1a3bfae2-c218-4155-8347-d319b835fe89">&lt;/strong&gt;</ept> attribute is <bpt id="53059b60-027e-437f-ab3f-42a5290df63b">&lt;strong&gt;</bpt>signing<ept id="53059b60-027e-437f-ab3f-42a5290df63b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb30ee51-db7c-4228-afbc-189a8f6b4d12" xml:space="preserve">
+          <source>A federation metadata document published by Azure AD can have multiple signing keys , such as when Azure AD is preparing to update the signing certificate.</source>
+          <target state="new">A federation metadata document published by Azure AD can have multiple signing keys , such as when Azure AD is preparing to update the signing certificate.</target>
+        </trans-unit>
+        <trans-unit id="9c2f3ebf-8ccf-4ccb-9ee0-f7bc3cfb0625" xml:space="preserve">
+          <source>When a federation metadata document includes more than one certificate, a service that is validating the tokens should support all certificates in the document.</source>
+          <target state="new">When a federation metadata document includes more than one certificate, a service that is validating the tokens should support all certificates in the document.</target>
+        </trans-unit>
+        <trans-unit id="84a814e9-8bf9-44ab-b616-924f7544ecc0" xml:space="preserve">
+          <source>The following metadata shows a sample <bpt id="5c7bd0df-ab1a-4d0b-9237-50a51229f1a4">&lt;strong&gt;</bpt>KeyDescriptor<ept id="5c7bd0df-ab1a-4d0b-9237-50a51229f1a4">&lt;/strong&gt;</ept> element with a signing key.</source>
+          <target state="new">The following metadata shows a sample <bpt id="5c7bd0df-ab1a-4d0b-9237-50a51229f1a4">&lt;strong&gt;</bpt>KeyDescriptor<ept id="5c7bd0df-ab1a-4d0b-9237-50a51229f1a4">&lt;/strong&gt;</ept> element with a signing key.</target>
+        </trans-unit>
+        <trans-unit id="cd1ea225-633d-474b-a20a-ea608cbcd670" xml:space="preserve">
+          <source>The <bpt id="0391c3bd-ceea-4bf7-9c2c-bd054e903b51">&lt;strong&gt;</bpt>KeyDescriptor<ept id="0391c3bd-ceea-4bf7-9c2c-bd054e903b51">&lt;/strong&gt;</ept> element appears in two places in the federation metadata document; in the WS-Federation-specific section and the SAML-specific section.</source>
+          <target state="new">The <bpt id="0391c3bd-ceea-4bf7-9c2c-bd054e903b51">&lt;strong&gt;</bpt>KeyDescriptor<ept id="0391c3bd-ceea-4bf7-9c2c-bd054e903b51">&lt;/strong&gt;</ept> element appears in two places in the federation metadata document; in the WS-Federation-specific section and the SAML-specific section.</target>
+        </trans-unit>
+        <trans-unit id="5dd36784-3a52-459b-a86b-1fb646b27cbf" xml:space="preserve">
+          <source>The certificates published in both sections will be the same.</source>
+          <target state="new">The certificates published in both sections will be the same.</target>
+        </trans-unit>
+        <trans-unit id="98a991b0-a80f-4d68-a86a-8eaee5464b2f" xml:space="preserve">
+          <source>In the WS-Federation-specific section, a WS-Federation metadata reader would read the certificates from a <bpt id="ec64b0d0-eae5-45cc-b6d7-d743d2f30b6f">&lt;strong&gt;</bpt>RoleDescriptor<ept id="ec64b0d0-eae5-45cc-b6d7-d743d2f30b6f">&lt;/strong&gt;</ept> element with the <bpt id="91f9d2fc-a207-4c04-b50d-7a6c528ded20">&lt;strong&gt;</bpt>SecurityTokenServiceType<ept id="91f9d2fc-a207-4c04-b50d-7a6c528ded20">&lt;/strong&gt;</ept> type.</source>
+          <target state="new">In the WS-Federation-specific section, a WS-Federation metadata reader would read the certificates from a <bpt id="ec64b0d0-eae5-45cc-b6d7-d743d2f30b6f">&lt;strong&gt;</bpt>RoleDescriptor<ept id="ec64b0d0-eae5-45cc-b6d7-d743d2f30b6f">&lt;/strong&gt;</ept> element with the <bpt id="91f9d2fc-a207-4c04-b50d-7a6c528ded20">&lt;strong&gt;</bpt>SecurityTokenServiceType<ept id="91f9d2fc-a207-4c04-b50d-7a6c528ded20">&lt;/strong&gt;</ept> type.</target>
+        </trans-unit>
+        <trans-unit id="c4ed8377-323c-4a74-b3e0-53a7fc95228b" xml:space="preserve">
+          <source>The following metadata shows a sample <bpt id="415d48e7-1bdc-4c99-bedd-302c1d1046b3">&lt;strong&gt;</bpt>RoleDescriptor<ept id="415d48e7-1bdc-4c99-bedd-302c1d1046b3">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">The following metadata shows a sample <bpt id="415d48e7-1bdc-4c99-bedd-302c1d1046b3">&lt;strong&gt;</bpt>RoleDescriptor<ept id="415d48e7-1bdc-4c99-bedd-302c1d1046b3">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="4c56c859-dfa7-48bd-80e8-205ba2a2df9b" xml:space="preserve">
+          <source>In the SAML-specific section, a WS-Federation metadata reader would read the certificates from a <bpt id="705d5bca-2c56-46ea-a1e5-0742fc343dd1">&lt;strong&gt;</bpt>IDPSSODescriptor<ept id="705d5bca-2c56-46ea-a1e5-0742fc343dd1">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">In the SAML-specific section, a WS-Federation metadata reader would read the certificates from a <bpt id="705d5bca-2c56-46ea-a1e5-0742fc343dd1">&lt;strong&gt;</bpt>IDPSSODescriptor<ept id="705d5bca-2c56-46ea-a1e5-0742fc343dd1">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="a4631a25-f826-4ea6-a88a-a1093a6ee222" xml:space="preserve">
+          <source>The following metadata shows a sample <bpt id="ca6cdeca-69c0-4d87-8e79-bd0d54eeefc1">&lt;strong&gt;</bpt>IDPSSODescriptor<ept id="ca6cdeca-69c0-4d87-8e79-bd0d54eeefc1">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">The following metadata shows a sample <bpt id="ca6cdeca-69c0-4d87-8e79-bd0d54eeefc1">&lt;strong&gt;</bpt>IDPSSODescriptor<ept id="ca6cdeca-69c0-4d87-8e79-bd0d54eeefc1">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="faf10459-419b-4bbf-82c2-29909c944303" xml:space="preserve">
+          <source>There are no differences in the format of tenant-specific and tenant-independent certificates.</source>
+          <target state="new">There are no differences in the format of tenant-specific and tenant-independent certificates.</target>
+        </trans-unit>
+        <trans-unit id="b71aaf2f-87af-4920-97a3-36e60f9fc65b" xml:space="preserve">
+          <source>The federation metadata includes the URL that is Azure AD uses for single sign-in and single sign-out in WS-Federation protocol.</source>
+          <target state="new">The federation metadata includes the URL that is Azure AD uses for single sign-in and single sign-out in WS-Federation protocol.</target>
+        </trans-unit>
+        <trans-unit id="0acea812-50f2-4216-a124-82431a7c0a18" xml:space="preserve">
+          <source>This endpoint appears in the <bpt id="b45417e2-2f14-402e-b1c3-184e8c2d9088">&lt;strong&gt;</bpt>PassiveRequestorEndpoint<ept id="b45417e2-2f14-402e-b1c3-184e8c2d9088">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">This endpoint appears in the <bpt id="b45417e2-2f14-402e-b1c3-184e8c2d9088">&lt;strong&gt;</bpt>PassiveRequestorEndpoint<ept id="b45417e2-2f14-402e-b1c3-184e8c2d9088">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="4b5c5a04-ad9a-4696-b6ae-67b940eb1da2" xml:space="preserve">
+          <source>The following metadata shows a sample <bpt id="1bb5e7a6-b374-4d8b-a0de-136ff364d932">&lt;strong&gt;</bpt>PassiveRequestorEndpoint<ept id="1bb5e7a6-b374-4d8b-a0de-136ff364d932">&lt;/strong&gt;</ept> element for a tenant-specific endpoint.</source>
+          <target state="new">The following metadata shows a sample <bpt id="1bb5e7a6-b374-4d8b-a0de-136ff364d932">&lt;strong&gt;</bpt>PassiveRequestorEndpoint<ept id="1bb5e7a6-b374-4d8b-a0de-136ff364d932">&lt;/strong&gt;</ept> element for a tenant-specific endpoint.</target>
+        </trans-unit>
+        <trans-unit id="01421e66-d229-4079-a20c-f48f205903b2" xml:space="preserve">
+          <source>For the tenant-independent endpoint, the WS-Federation URL appears in the WS-Federation endpoint, as shown in the following sample.</source>
+          <target state="new">For the tenant-independent endpoint, the WS-Federation URL appears in the WS-Federation endpoint, as shown in the following sample.</target>
+        </trans-unit>
+        <trans-unit id="b08c7237-57db-410c-8326-7c089d242175" xml:space="preserve">
+          <source>The federation metadata includes the URL that Azure AD uses for single sign-in and single sign-out in SAML 2.0 protocol.</source>
+          <target state="new">The federation metadata includes the URL that Azure AD uses for single sign-in and single sign-out in SAML 2.0 protocol.</target>
+        </trans-unit>
+        <trans-unit id="8e1f072b-57e5-4493-9372-2d4b4ac5d0af" xml:space="preserve">
+          <source>These endpoints appear in the <bpt id="943ee36f-60d1-4456-a8c1-05519d6ac4db">&lt;strong&gt;</bpt>IDPSSODescriptor<ept id="943ee36f-60d1-4456-a8c1-05519d6ac4db">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">These endpoints appear in the <bpt id="943ee36f-60d1-4456-a8c1-05519d6ac4db">&lt;strong&gt;</bpt>IDPSSODescriptor<ept id="943ee36f-60d1-4456-a8c1-05519d6ac4db">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="e533325f-c2c8-4467-8067-25d6f2e6491b" xml:space="preserve">
+          <source>The sign-in and sign-out URLs appear in the <bpt id="43cf15b6-3c96-4730-b74c-fcb5dcdbe783">&lt;strong&gt;</bpt>SingleSignOnService<ept id="43cf15b6-3c96-4730-b74c-fcb5dcdbe783">&lt;/strong&gt;</ept> and <bpt id="c198afb3-3df9-4de0-b87a-01c1aeb3aabe">&lt;strong&gt;</bpt>SingleLogoutService<ept id="c198afb3-3df9-4de0-b87a-01c1aeb3aabe">&lt;/strong&gt;</ept> elements.</source>
+          <target state="new">The sign-in and sign-out URLs appear in the <bpt id="43cf15b6-3c96-4730-b74c-fcb5dcdbe783">&lt;strong&gt;</bpt>SingleSignOnService<ept id="43cf15b6-3c96-4730-b74c-fcb5dcdbe783">&lt;/strong&gt;</ept> and <bpt id="c198afb3-3df9-4de0-b87a-01c1aeb3aabe">&lt;strong&gt;</bpt>SingleLogoutService<ept id="c198afb3-3df9-4de0-b87a-01c1aeb3aabe">&lt;/strong&gt;</ept> elements.</target>
+        </trans-unit>
+        <trans-unit id="e408a89a-0a73-4bd9-8e53-212f869955c9" xml:space="preserve">
+          <source>The following metadata shows a sample <bpt id="c5f9dcab-1dea-4f6e-97cd-1caa7a59e0f6">&lt;strong&gt;</bpt>PassiveResistorEndpoint<ept id="c5f9dcab-1dea-4f6e-97cd-1caa7a59e0f6">&lt;/strong&gt;</ept> for a tenant-specific endpoint.</source>
+          <target state="new">The following metadata shows a sample <bpt id="c5f9dcab-1dea-4f6e-97cd-1caa7a59e0f6">&lt;strong&gt;</bpt>PassiveResistorEndpoint<ept id="c5f9dcab-1dea-4f6e-97cd-1caa7a59e0f6">&lt;/strong&gt;</ept> for a tenant-specific endpoint.</target>
+        </trans-unit>
+        <trans-unit id="25f14790-a686-4cae-bc34-6174a45ca3ab" xml:space="preserve">
+          <source>Similarly the endpoints for the common SAML 2.0 protocol endpoints are published in the tenant-independent federation metadata, as shown in the following sample.</source>
+          <target state="new">Similarly the endpoints for the common SAML 2.0 protocol endpoints are published in the tenant-independent federation metadata, as shown in the following sample.</target>
+        </trans-unit>
+        <trans-unit id="2ac3ef34-325d-4ea8-bc00-6ab72c63101c" xml:space="preserve">
+          <source><bpt id="0ad47297-d451-4314-8dbb-9adaa6dc03aa">&lt;linkText&gt;</bpt>Azure Active Directory Authentication Protocols<ept id="0ad47297-d451-4314-8dbb-9adaa6dc03aa">&lt;/linkText&gt;</ept><bpt id="0ad47297-d451-4314-8dbb-9adaa6dc03aa">&lt;title&gt;</bpt><ept id="0ad47297-d451-4314-8dbb-9adaa6dc03aa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0ad47297-d451-4314-8dbb-9adaa6dc03aa">&lt;linkText&gt;</bpt>Azure Active Directory Authentication Protocols<ept id="0ad47297-d451-4314-8dbb-9adaa6dc03aa">&lt;/linkText&gt;</ept><bpt id="0ad47297-d451-4314-8dbb-9adaa6dc03aa">&lt;title&gt;</bpt><ept id="0ad47297-d451-4314-8dbb-9adaa6dc03aa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5785591-cad1-4ed2-90a9-7f790326000f" xml:space="preserve">
+          <source><bpt id="4b7d624b-c91c-4276-a0c5-b0692fe7d377">&lt;linkText&gt;</bpt>Azure Active Directory Developer's Guide<ept id="4b7d624b-c91c-4276-a0c5-b0692fe7d377">&lt;/linkText&gt;</ept><bpt id="4b7d624b-c91c-4276-a0c5-b0692fe7d377">&lt;title&gt;</bpt><ept id="4b7d624b-c91c-4276-a0c5-b0692fe7d377">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="4b7d624b-c91c-4276-a0c5-b0692fe7d377">&lt;linkText&gt;</bpt>Azure Active Directory Developer's Guide<ept id="4b7d624b-c91c-4276-a0c5-b0692fe7d377">&lt;/linkText&gt;</ept><bpt id="4b7d624b-c91c-4276-a0c5-b0692fe7d377">&lt;title&gt;</bpt><ept id="4b7d624b-c91c-4276-a0c5-b0692fe7d377">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="91e8e2e9-59c8-4bd7-ba1b-f97770e31d4d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="91e8e2e9-59c8-4bd7-ba1b-f97770e31d4d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1d4c454a-c1d1-4d51-9e25-50e999d6f318">
+        <trans-unit id="712ae35f-67a8-48ef-91d6-73fc7f82eb0d" xml:space="preserve">
+          <source>Azure AD .NET Getting Started | Microsoft Azure</source>
+          <target state="new">Azure AD .NET Getting Started | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f88f1df3-bf2d-4f88-841e-35faece828ee" xml:space="preserve">
+          <source>How to build a .NET MVC Web App that integrates with Azure AD for sign in.</source>
+          <target state="new">How to build a .NET MVC Web App that integrates with Azure AD for sign in.</target>
+        </trans-unit>
+        <trans-unit id="97c89ccc-68f0-4074-b2ff-4afc9520f2c3" xml:space="preserve">
+          <source><bpt id="1288f378-417c-49a6-a66f-6bfe63525eba">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="1288f378-417c-49a6-a66f-6bfe63525eba">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1288f378-417c-49a6-a66f-6bfe63525eba">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="1288f378-417c-49a6-a66f-6bfe63525eba">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3cb26af2-49d0-483d-85dd-d19f126c06ec" xml:space="preserve">
+          <source>Azure AD makes it simple and straightforward to outsource your web app's identity management, providing single sign-in and sign-out with only a few lines of code.</source>
+          <target state="new">Azure AD makes it simple and straightforward to outsource your web app's identity management, providing single sign-in and sign-out with only a few lines of code.</target>
+        </trans-unit>
+        <trans-unit id="7077b9c1-deea-44ea-9ff9-d5952a0b0ec2" xml:space="preserve">
+          <source>In Asp.NET web apps, you can accomplish this using Microsoft's implementation of the community-driven OWIN middleware included in .NET Framework 4.5.</source>
+          <target state="new">In Asp.NET web apps, you can accomplish this using Microsoft's implementation of the community-driven OWIN middleware included in .NET Framework 4.5.</target>
+        </trans-unit>
+        <trans-unit id="51695bb6-d70f-4b0f-a05b-bd89210b2d6b" xml:space="preserve">
+          <source>Here we'll use OWIN to:</source>
+          <target state="new">Here we'll use OWIN to:</target>
+        </trans-unit>
+        <trans-unit id="6b430780-d704-4ef9-a87a-468ef9a01e37" xml:space="preserve">
+          <source>Sign the user into the app using Azure AD as the identity provider.</source>
+          <target state="new">Sign the user into the app using Azure AD as the identity provider.</target>
+        </trans-unit>
+        <trans-unit id="939c4cfa-a6ae-4ae9-9a5e-4fbf69906852" xml:space="preserve">
+          <source>Display some information about the user.</source>
+          <target state="new">Display some information about the user.</target>
+        </trans-unit>
+        <trans-unit id="803a1d97-e19b-4aa0-a2c0-fd9f74ffef65" xml:space="preserve">
+          <source>Sign the user out of the app.</source>
+          <target state="new">Sign the user out of the app.</target>
+        </trans-unit>
+        <trans-unit id="13f0294d-2f96-4ab5-b5d8-73fd439b0aee" xml:space="preserve">
+          <source>In order to do this, you'll need to:</source>
+          <target state="new">In order to do this, you'll need to:</target>
+        </trans-unit>
+        <trans-unit id="b19060b2-452d-459b-b48d-0e91a4c716d1" xml:space="preserve">
+          <source>Register an application with Azure AD</source>
+          <target state="new">Register an application with Azure AD</target>
+        </trans-unit>
+        <trans-unit id="55c47041-cb5f-4950-99c0-a97be9aa511e" xml:space="preserve">
+          <source>Set up your app to use the OWIN authentication pipeline.</source>
+          <target state="new">Set up your app to use the OWIN authentication pipeline.</target>
+        </trans-unit>
+        <trans-unit id="6666d441-20a7-4594-85f6-69483787c2fa" xml:space="preserve">
+          <source>Use OWIN to issue sign-in and sign-out requests to Azure AD.</source>
+          <target state="new">Use OWIN to issue sign-in and sign-out requests to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="8a02f165-b5f0-4fd4-8729-54225da5a031" xml:space="preserve">
+          <source>Print out data about the user.</source>
+          <target state="new">Print out data about the user.</target>
+        </trans-unit>
+        <trans-unit id="7c59e7a5-79be-4f67-a48a-1950eff942fc" xml:space="preserve">
+          <source>To get started, <bpt id="568590d4-a1ee-4bf2-8a41-b797562b687e">&lt;linkText&gt;</bpt>download the app skeleton<ept id="568590d4-a1ee-4bf2-8a41-b797562b687e">&lt;/linkText&gt;</ept><bpt id="568590d4-a1ee-4bf2-8a41-b797562b687e">&lt;title&gt;</bpt><ept id="568590d4-a1ee-4bf2-8a41-b797562b687e">&lt;/title&gt;</ept> or <bpt id="8dcc92e1-5851-477a-8d28-8869cf2aaa5d">&lt;linkText&gt;</bpt>download the completed sample<ept id="8dcc92e1-5851-477a-8d28-8869cf2aaa5d">&lt;/linkText&gt;</ept><bpt id="8dcc92e1-5851-477a-8d28-8869cf2aaa5d">&lt;title&gt;</bpt><ept id="8dcc92e1-5851-477a-8d28-8869cf2aaa5d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started, <bpt id="568590d4-a1ee-4bf2-8a41-b797562b687e">&lt;linkText&gt;</bpt>download the app skeleton<ept id="568590d4-a1ee-4bf2-8a41-b797562b687e">&lt;/linkText&gt;</ept><bpt id="568590d4-a1ee-4bf2-8a41-b797562b687e">&lt;title&gt;</bpt><ept id="568590d4-a1ee-4bf2-8a41-b797562b687e">&lt;/title&gt;</ept> or <bpt id="8dcc92e1-5851-477a-8d28-8869cf2aaa5d">&lt;linkText&gt;</bpt>download the completed sample<ept id="8dcc92e1-5851-477a-8d28-8869cf2aaa5d">&lt;/linkText&gt;</ept><bpt id="8dcc92e1-5851-477a-8d28-8869cf2aaa5d">&lt;title&gt;</bpt><ept id="8dcc92e1-5851-477a-8d28-8869cf2aaa5d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4208d626-f304-4d97-96d0-b13355e4c39b" xml:space="preserve">
+          <source>You'll also need an Azure AD tenant in which to register your application.</source>
+          <target state="new">You'll also need an Azure AD tenant in which to register your application.</target>
+        </trans-unit>
+        <trans-unit id="ad389cd0-04fb-43d9-812b-58a7bd7821f5" xml:space="preserve">
+          <source>If you don't have one already, <bpt id="b56c845d-7359-4ae6-8b87-e9406c1fdbe0">&lt;linkText&gt;</bpt>learn how to get one<ept id="b56c845d-7359-4ae6-8b87-e9406c1fdbe0">&lt;/linkText&gt;</ept><bpt id="b56c845d-7359-4ae6-8b87-e9406c1fdbe0">&lt;title&gt;</bpt><ept id="b56c845d-7359-4ae6-8b87-e9406c1fdbe0">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have one already, <bpt id="b56c845d-7359-4ae6-8b87-e9406c1fdbe0">&lt;linkText&gt;</bpt>learn how to get one<ept id="b56c845d-7359-4ae6-8b87-e9406c1fdbe0">&lt;/linkText&gt;</ept><bpt id="b56c845d-7359-4ae6-8b87-e9406c1fdbe0">&lt;title&gt;</bpt><ept id="b56c845d-7359-4ae6-8b87-e9406c1fdbe0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18f774d4-7b81-41c4-92c0-21a2e00af5ad" xml:space="preserve">
+          <source>To enable your app to authenticate users, you'll first need to register a new application in your tenant.</source>
+          <target state="new">To enable your app to authenticate users, you'll first need to register a new application in your tenant.</target>
+        </trans-unit>
+        <trans-unit id="2186069e-70c8-4d27-997c-706ea5927061" xml:space="preserve">
+          <source>Sign into the Azure Management Portal.</source>
+          <target state="new">Sign into the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="a2978889-a599-4900-addc-966a3a8f7714" xml:space="preserve">
+          <source>In the left hand nav, click on <bpt id="a054974f-a3d2-4533-890e-be50758b1ffb">&lt;strong&gt;</bpt>Active Directory<ept id="a054974f-a3d2-4533-890e-be50758b1ffb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left hand nav, click on <bpt id="a054974f-a3d2-4533-890e-be50758b1ffb">&lt;strong&gt;</bpt>Active Directory<ept id="a054974f-a3d2-4533-890e-be50758b1ffb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57b6066c-17f5-4d82-bd4e-bd584965f23f" xml:space="preserve">
+          <source>Select the tenant where you wish to register the application.</source>
+          <target state="new">Select the tenant where you wish to register the application.</target>
+        </trans-unit>
+        <trans-unit id="7f4a192e-b708-4c08-aa72-da78e6e5868b" xml:space="preserve">
+          <source>Click the <bpt id="22e1324f-4c1a-42db-8701-3e46ca97537c">&lt;strong&gt;</bpt>Applications<ept id="22e1324f-4c1a-42db-8701-3e46ca97537c">&lt;/strong&gt;</ept> tab, and click add in the bottom drawer.</source>
+          <target state="new">Click the <bpt id="22e1324f-4c1a-42db-8701-3e46ca97537c">&lt;strong&gt;</bpt>Applications<ept id="22e1324f-4c1a-42db-8701-3e46ca97537c">&lt;/strong&gt;</ept> tab, and click add in the bottom drawer.</target>
+        </trans-unit>
+        <trans-unit id="0ccc72e7-0177-4646-a58f-0cff00824cad" xml:space="preserve">
+          <source>Follow the prompts and create a new <bpt id="5777c52a-7d77-44b4-8188-1fc6d914c79a">&lt;strong&gt;</bpt>Web Application and/or WebAPI<ept id="5777c52a-7d77-44b4-8188-1fc6d914c79a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Follow the prompts and create a new <bpt id="5777c52a-7d77-44b4-8188-1fc6d914c79a">&lt;strong&gt;</bpt>Web Application and/or WebAPI<ept id="5777c52a-7d77-44b4-8188-1fc6d914c79a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="182fe9e6-a10d-48f4-99ce-68108be0d21e" xml:space="preserve">
+          <source>The <bpt id="1ca09b48-958d-4b31-8ac4-27d504ab4b0d">&lt;strong&gt;</bpt>name<ept id="1ca09b48-958d-4b31-8ac4-27d504ab4b0d">&lt;/strong&gt;</ept> of the application will describe your application to end-users</source>
+          <target state="new">The <bpt id="1ca09b48-958d-4b31-8ac4-27d504ab4b0d">&lt;strong&gt;</bpt>name<ept id="1ca09b48-958d-4b31-8ac4-27d504ab4b0d">&lt;/strong&gt;</ept> of the application will describe your application to end-users</target>
+        </trans-unit>
+        <trans-unit id="8350ddb3-41d3-443d-91d9-dac0ab65744d" xml:space="preserve">
+          <source>The <bpt id="813614cd-a783-4e51-a138-705362f3ac2f">&lt;strong&gt;</bpt>Sign-On URL<ept id="813614cd-a783-4e51-a138-705362f3ac2f">&lt;/strong&gt;</ept> is the base URL of your app.</source>
+          <target state="new">The <bpt id="813614cd-a783-4e51-a138-705362f3ac2f">&lt;strong&gt;</bpt>Sign-On URL<ept id="813614cd-a783-4e51-a138-705362f3ac2f">&lt;/strong&gt;</ept> is the base URL of your app.</target>
+        </trans-unit>
+        <trans-unit id="3c297f01-8225-40a7-8471-b3ad6d1f4df4" xml:space="preserve">
+          <source>The skeleton's default is <bpt id="2304c57f-fff4-4bc9-82da-4b2991f58b91">&lt;code&gt;</bpt>https://localhost:44320/<ept id="2304c57f-fff4-4bc9-82da-4b2991f58b91">&lt;/code&gt;</ept>.</source>
+          <target state="new">The skeleton's default is <bpt id="2304c57f-fff4-4bc9-82da-4b2991f58b91">&lt;code&gt;</bpt>https://localhost:44320/<ept id="2304c57f-fff4-4bc9-82da-4b2991f58b91">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0f090d2-b800-4602-968e-1d364b445fff" xml:space="preserve">
+          <source>The <bpt id="60a9b93f-ec70-4409-a54b-075eab01990c">&lt;strong&gt;</bpt>App ID URI<ept id="60a9b93f-ec70-4409-a54b-075eab01990c">&lt;/strong&gt;</ept> is a unique identifier for your application.  The convention is to use <bpt id="6b1bb2f1-9075-48da-a545-c0817b50b5ec">&lt;code&gt;</bpt>https://&lt;tenant-domain&gt;/&lt;app-name&gt;<ept id="6b1bb2f1-9075-48da-a545-c0817b50b5ec">&lt;/code&gt;</ept>, e.g. <bpt id="b1e9632b-917b-4142-9cbe-44742538220b">&lt;code&gt;</bpt>https://contoso.onmicrosoft.com/my-first-aad-app<ept id="b1e9632b-917b-4142-9cbe-44742538220b">&lt;/code&gt;</ept></source>
+          <target state="new">The <bpt id="60a9b93f-ec70-4409-a54b-075eab01990c">&lt;strong&gt;</bpt>App ID URI<ept id="60a9b93f-ec70-4409-a54b-075eab01990c">&lt;/strong&gt;</ept> is a unique identifier for your application.  The convention is to use <bpt id="6b1bb2f1-9075-48da-a545-c0817b50b5ec">&lt;code&gt;</bpt>https://&lt;tenant-domain&gt;/&lt;app-name&gt;<ept id="6b1bb2f1-9075-48da-a545-c0817b50b5ec">&lt;/code&gt;</ept>, e.g. <bpt id="b1e9632b-917b-4142-9cbe-44742538220b">&lt;code&gt;</bpt>https://contoso.onmicrosoft.com/my-first-aad-app<ept id="b1e9632b-917b-4142-9cbe-44742538220b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b62c9461-1b53-4e76-bf69-e9a4da808831" xml:space="preserve">
+          <source>Once you've completed registration, AAD will assign your app a unique client identifier.</source>
+          <target state="new">Once you've completed registration, AAD will assign your app a unique client identifier.</target>
+        </trans-unit>
+        <trans-unit id="26f29dda-11b9-4936-a583-06da81c5b139" xml:space="preserve">
+          <source>You'll need this value in the next sections, so copy it from the Configure tab.</source>
+          <target state="new">You'll need this value in the next sections, so copy it from the Configure tab.</target>
+        </trans-unit>
+        <trans-unit id="7f4e7a30-98b3-4607-8bd9-f3859c676b3a" xml:space="preserve">
+          <source>Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.</source>
+          <target state="new">Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.</target>
+        </trans-unit>
+        <trans-unit id="b1e1de03-6e4c-4948-98a8-23d11b2b7547" xml:space="preserve">
+          <source>OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.</source>
+          <target state="new">OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.</target>
+        </trans-unit>
+        <trans-unit id="f18a6356-9572-485d-83b3-5542718f4f9a" xml:space="preserve">
+          <source>To begin, add the OWIN middleware NuGet packages to the project using the Package Manager Console.</source>
+          <target state="new">To begin, add the OWIN middleware NuGet packages to the project using the Package Manager Console.</target>
+        </trans-unit>
+        <trans-unit id="bd822d75-dc6d-4322-8a3d-275b913ac4ed" xml:space="preserve">
+          <source>Add an OWIN Startup class to the project called <bpt id="609e3ac4-5e6e-4e71-a816-b618814a7703">&lt;code&gt;</bpt>Startup.cs<ept id="609e3ac4-5e6e-4e71-a816-b618814a7703">&lt;/code&gt;</ept>  Right click on the project --&gt; <bpt id="6b5e97b1-df86-41ac-bfe7-8634890c67d3">&lt;strong&gt;</bpt>Add<ept id="6b5e97b1-df86-41ac-bfe7-8634890c67d3">&lt;/strong&gt;</ept> --&gt; <bpt id="57f9192f-d71e-4f40-813f-c9e3a6bdf7cd">&lt;strong&gt;</bpt>New Item<ept id="57f9192f-d71e-4f40-813f-c9e3a6bdf7cd">&lt;/strong&gt;</ept> --&gt; Search for "OWIN".</source>
+          <target state="new">Add an OWIN Startup class to the project called <bpt id="609e3ac4-5e6e-4e71-a816-b618814a7703">&lt;code&gt;</bpt>Startup.cs<ept id="609e3ac4-5e6e-4e71-a816-b618814a7703">&lt;/code&gt;</ept>  Right click on the project --&gt; <bpt id="6b5e97b1-df86-41ac-bfe7-8634890c67d3">&lt;strong&gt;</bpt>Add<ept id="6b5e97b1-df86-41ac-bfe7-8634890c67d3">&lt;/strong&gt;</ept> --&gt; <bpt id="57f9192f-d71e-4f40-813f-c9e3a6bdf7cd">&lt;strong&gt;</bpt>New Item<ept id="57f9192f-d71e-4f40-813f-c9e3a6bdf7cd">&lt;/strong&gt;</ept> --&gt; Search for "OWIN".</target>
+        </trans-unit>
+        <trans-unit id="b6ba3c03-93f2-46b9-b3ce-889d3e580f09" xml:space="preserve">
+          <source>The OWIN middleware will invoke the <bpt id="17f30c86-0fda-4ebc-b92a-a081299438bb">&lt;code&gt;</bpt>Configuration(...)<ept id="17f30c86-0fda-4ebc-b92a-a081299438bb">&lt;/code&gt;</ept> method when your app starts.</source>
+          <target state="new">The OWIN middleware will invoke the <bpt id="17f30c86-0fda-4ebc-b92a-a081299438bb">&lt;code&gt;</bpt>Configuration(...)<ept id="17f30c86-0fda-4ebc-b92a-a081299438bb">&lt;/code&gt;</ept> method when your app starts.</target>
+        </trans-unit>
+        <trans-unit id="2e16eb31-34af-48bf-93cf-a1f95596b9da" xml:space="preserve">
+          <source>Change the class declaration to <bpt id="27812b3b-d18d-4b64-9eb7-9f87c4dfe965">&lt;code&gt;</bpt>public partial class Startup<ept id="27812b3b-d18d-4b64-9eb7-9f87c4dfe965">&lt;/code&gt;</ept> - we've already implemented part of this class for you in another file.</source>
+          <target state="new">Change the class declaration to <bpt id="27812b3b-d18d-4b64-9eb7-9f87c4dfe965">&lt;code&gt;</bpt>public partial class Startup<ept id="27812b3b-d18d-4b64-9eb7-9f87c4dfe965">&lt;/code&gt;</ept> - we've already implemented part of this class for you in another file.</target>
+        </trans-unit>
+        <trans-unit id="d9266ced-7e09-4eb2-9d67-6d51fd757b40" xml:space="preserve">
+          <source>In the <bpt id="c0153204-c4a8-427d-bae7-40f3cfc7a96c">&lt;code&gt;</bpt>Configuration(...)<ept id="c0153204-c4a8-427d-bae7-40f3cfc7a96c">&lt;/code&gt;</ept> method, make a call to ConfgureAuth(...) to set up authentication for your web app</source>
+          <target state="new">In the <bpt id="c0153204-c4a8-427d-bae7-40f3cfc7a96c">&lt;code&gt;</bpt>Configuration(...)<ept id="c0153204-c4a8-427d-bae7-40f3cfc7a96c">&lt;/code&gt;</ept> method, make a call to ConfgureAuth(...) to set up authentication for your web app</target>
+        </trans-unit>
+        <trans-unit id="99794fb8-71e2-4797-8db7-244dea935ba5" xml:space="preserve">
+          <source>Open the file <bpt id="869811ec-0737-4cb3-9e4c-f1e0e452cdf2">&lt;code&gt;</bpt>App_Start\Startup.Auth.cs<ept id="869811ec-0737-4cb3-9e4c-f1e0e452cdf2">&lt;/code&gt;</ept> and implement the <bpt id="e521d1f3-d989-46bf-8b50-0dc9fcfd10ae">&lt;code&gt;</bpt>ConfigureAuth(...)<ept id="e521d1f3-d989-46bf-8b50-0dc9fcfd10ae">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Open the file <bpt id="869811ec-0737-4cb3-9e4c-f1e0e452cdf2">&lt;code&gt;</bpt>App_Start\Startup.Auth.cs<ept id="869811ec-0737-4cb3-9e4c-f1e0e452cdf2">&lt;/code&gt;</ept> and implement the <bpt id="e521d1f3-d989-46bf-8b50-0dc9fcfd10ae">&lt;code&gt;</bpt>ConfigureAuth(...)<ept id="e521d1f3-d989-46bf-8b50-0dc9fcfd10ae">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="d8bb10fd-24f6-43d7-90cc-c6fa3a1746e9" xml:space="preserve">
+          <source>The parameters you provide in <bpt id="c6b41cfb-7265-4b86-930f-fd9fb2508292">&lt;code&gt;</bpt>OpenIDConnectAuthenticationOptions<ept id="c6b41cfb-7265-4b86-930f-fd9fb2508292">&lt;/code&gt;</ept> will serve as coordinates for your app to communicate with Azure AD.</source>
+          <target state="new">The parameters you provide in <bpt id="c6b41cfb-7265-4b86-930f-fd9fb2508292">&lt;code&gt;</bpt>OpenIDConnectAuthenticationOptions<ept id="c6b41cfb-7265-4b86-930f-fd9fb2508292">&lt;/code&gt;</ept> will serve as coordinates for your app to communicate with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="84fc0ed1-ab1c-422f-817f-066a74fd94f8" xml:space="preserve">
+          <source>You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.</source>
+          <target state="new">You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.</target>
+        </trans-unit>
+        <trans-unit id="212d127b-7451-43aa-9450-58dfd4a13ffd" xml:space="preserve">
+          <source>Finally, open the <bpt id="65861aac-f0dd-4a21-a321-0946198204c7">&lt;code&gt;</bpt>web.config<ept id="65861aac-f0dd-4a21-a321-0946198204c7">&lt;/code&gt;</ept> file in the root of the project, and enter your configuration values in the <bpt id="ab5f8e0f-6689-47f4-b6ec-c95799bd3e8c">&lt;code&gt;</bpt>&lt;appSettings&gt;<ept id="ab5f8e0f-6689-47f4-b6ec-c95799bd3e8c">&lt;/code&gt;</ept> section.</source>
+          <target state="new">Finally, open the <bpt id="65861aac-f0dd-4a21-a321-0946198204c7">&lt;code&gt;</bpt>web.config<ept id="65861aac-f0dd-4a21-a321-0946198204c7">&lt;/code&gt;</ept> file in the root of the project, and enter your configuration values in the <bpt id="ab5f8e0f-6689-47f4-b6ec-c95799bd3e8c">&lt;code&gt;</bpt>&lt;appSettings&gt;<ept id="ab5f8e0f-6689-47f4-b6ec-c95799bd3e8c">&lt;/code&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="e00b3d24-2c3e-4529-80a2-906824c4e258" xml:space="preserve">
+          <source>Your app's <bpt id="0e0c4331-a7ba-4f09-9d96-aaae2f7d3e55">&lt;code&gt;</bpt>ida:ClientId<ept id="0e0c4331-a7ba-4f09-9d96-aaae2f7d3e55">&lt;/code&gt;</ept> is the Guid you copied from the Azure Portal in Step 1.</source>
+          <target state="new">Your app's <bpt id="0e0c4331-a7ba-4f09-9d96-aaae2f7d3e55">&lt;code&gt;</bpt>ida:ClientId<ept id="0e0c4331-a7ba-4f09-9d96-aaae2f7d3e55">&lt;/code&gt;</ept> is the Guid you copied from the Azure Portal in Step 1.</target>
+        </trans-unit>
+        <trans-unit id="9e5b47f3-b919-4bb1-8f97-b9574a43ca1a" xml:space="preserve">
+          <source>The <bpt id="f3293cd6-c912-4f7c-bdc4-1362e74ecdc3">&lt;code&gt;</bpt>ida:Tenant<ept id="f3293cd6-c912-4f7c-bdc4-1362e74ecdc3">&lt;/code&gt;</ept> is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".</source>
+          <target state="new">The <bpt id="f3293cd6-c912-4f7c-bdc4-1362e74ecdc3">&lt;code&gt;</bpt>ida:Tenant<ept id="f3293cd6-c912-4f7c-bdc4-1362e74ecdc3">&lt;/code&gt;</ept> is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".</target>
+        </trans-unit>
+        <trans-unit id="dd452e99-2cc6-4abf-9df1-9248ea9cd1a9" xml:space="preserve">
+          <source>Your <bpt id="60bb1564-aac3-4079-a788-be07e2e89e34">&lt;code&gt;</bpt>ida:PostLogoutRedirectUri<ept id="60bb1564-aac3-4079-a788-be07e2e89e34">&lt;/code&gt;</ept> indicates to Azure AD where a user should be redirected after a sign-out request successfully completes.</source>
+          <target state="new">Your <bpt id="60bb1564-aac3-4079-a788-be07e2e89e34">&lt;code&gt;</bpt>ida:PostLogoutRedirectUri<ept id="60bb1564-aac3-4079-a788-be07e2e89e34">&lt;/code&gt;</ept> indicates to Azure AD where a user should be redirected after a sign-out request successfully completes.</target>
+        </trans-unit>
+        <trans-unit id="a0593d19-cc8d-400d-ac30-11eab2e4ce05" xml:space="preserve">
+          <source>Your app is now properly configured to communicate with Azure AD using the OpenID Connect authentication protocol.</source>
+          <target state="new">Your app is now properly configured to communicate with Azure AD using the OpenID Connect authentication protocol.</target>
+        </trans-unit>
+        <trans-unit id="43125ebb-890f-4783-8601-d151bd993d9c" xml:space="preserve">
+          <source>OWIN has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.</source>
+          <target state="new">OWIN has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.</target>
+        </trans-unit>
+        <trans-unit id="ada388ae-f617-418e-b2c0-788eb70c64a5" xml:space="preserve">
+          <source>All that remains is to give your users a way to sign in and sign out.</source>
+          <target state="new">All that remains is to give your users a way to sign in and sign out.</target>
+        </trans-unit>
+        <trans-unit id="622b8c6f-fef4-4196-b5f3-baf7a7b5c82b" xml:space="preserve">
+          <source>You can use authorize tags in your controllers to require that user signs in before accessing a certain page.</source>
+          <target state="new">You can use authorize tags in your controllers to require that user signs in before accessing a certain page.</target>
+        </trans-unit>
+        <trans-unit id="c7f887da-6f3e-404f-b661-f858473f63ec" xml:space="preserve">
+          <source>Open <bpt id="c781695c-220b-4a49-9397-f95bf3f372c1">&lt;code&gt;</bpt>Controllers\HomeController.cs<ept id="c781695c-220b-4a49-9397-f95bf3f372c1">&lt;/code&gt;</ept>, and add the <bpt id="8222ebe0-11d9-4700-ae37-3b397c256ecf">&lt;code&gt;</bpt>[Authorize]<ept id="8222ebe0-11d9-4700-ae37-3b397c256ecf">&lt;/code&gt;</ept> tag to the About controller.</source>
+          <target state="new">Open <bpt id="c781695c-220b-4a49-9397-f95bf3f372c1">&lt;code&gt;</bpt>Controllers\HomeController.cs<ept id="c781695c-220b-4a49-9397-f95bf3f372c1">&lt;/code&gt;</ept>, and add the <bpt id="8222ebe0-11d9-4700-ae37-3b397c256ecf">&lt;code&gt;</bpt>[Authorize]<ept id="8222ebe0-11d9-4700-ae37-3b397c256ecf">&lt;/code&gt;</ept> tag to the About controller.</target>
+        </trans-unit>
+        <trans-unit id="c5de3207-9326-448f-9449-6730a6e21f6c" xml:space="preserve">
+          <source>You can also use OWIN to directly issue authentication requests from within your code.</source>
+          <target state="new">You can also use OWIN to directly issue authentication requests from within your code.</target>
+        </trans-unit>
+        <trans-unit id="cfd6bf20-5414-4d4b-91dc-5db666d2e5ad" xml:space="preserve">
+          <source>Open <bpt id="9b95ebf3-afe9-4c53-9071-66aa6580480d">&lt;code&gt;</bpt>Controllers\AccountController.cs<ept id="9b95ebf3-afe9-4c53-9071-66aa6580480d">&lt;/code&gt;</ept>.</source>
+          <target state="new">Open <bpt id="9b95ebf3-afe9-4c53-9071-66aa6580480d">&lt;code&gt;</bpt>Controllers\AccountController.cs<ept id="9b95ebf3-afe9-4c53-9071-66aa6580480d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9796113-8743-4bc5-832f-27148cb4b614" xml:space="preserve">
+          <source>In the SignIn() and SignOut() actions, issue OpenID Connect challenge and sign-out requests, respectively.</source>
+          <target state="new">In the SignIn() and SignOut() actions, issue OpenID Connect challenge and sign-out requests, respectively.</target>
+        </trans-unit>
+        <trans-unit id="2d76e1e0-6d2f-41d5-bb48-0f0260b8a95c" xml:space="preserve">
+          <source>Now, open <bpt id="eb9ab9e2-5450-48ed-9d55-790ff65f4c14">&lt;code&gt;</bpt>Views\Shared\_LoginPartial.cshtml<ept id="eb9ab9e2-5450-48ed-9d55-790ff65f4c14">&lt;/code&gt;</ept>.</source>
+          <target state="new">Now, open <bpt id="eb9ab9e2-5450-48ed-9d55-790ff65f4c14">&lt;code&gt;</bpt>Views\Shared\_LoginPartial.cshtml<ept id="eb9ab9e2-5450-48ed-9d55-790ff65f4c14">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bff7acea-013c-4c32-8471-314116704aa3" xml:space="preserve">
+          <source>This is where you'll show the user your app's sign-in and sign-out links, and print out the user's name in a view.</source>
+          <target state="new">This is where you'll show the user your app's sign-in and sign-out links, and print out the user's name in a view.</target>
+        </trans-unit>
+        <trans-unit id="fba582ac-5137-4a3d-a30a-4757f082ac66" xml:space="preserve">
+          <source>When authenticating users with OpenID Connect, Azure AD returns an id_token to the application that contains "claims," or assertions about the user.</source>
+          <target state="new">When authenticating users with OpenID Connect, Azure AD returns an id_token to the application that contains "claims," or assertions about the user.</target>
+        </trans-unit>
+        <trans-unit id="0c0999dc-d59e-428b-9341-7eadc8e08abf" xml:space="preserve">
+          <source>You can use these claims to personalize your app:</source>
+          <target state="new">You can use these claims to personalize your app:</target>
+        </trans-unit>
+        <trans-unit id="6c8aee5c-5b8d-4895-a5c1-4b50025756bf" xml:space="preserve">
+          <source>Open the <bpt id="b3ea5f24-8540-4ed0-8afd-134dee7fdb42">&lt;code&gt;</bpt>Controllers\HomeController.cs<ept id="b3ea5f24-8540-4ed0-8afd-134dee7fdb42">&lt;/code&gt;</ept> file.</source>
+          <target state="new">Open the <bpt id="b3ea5f24-8540-4ed0-8afd-134dee7fdb42">&lt;code&gt;</bpt>Controllers\HomeController.cs<ept id="b3ea5f24-8540-4ed0-8afd-134dee7fdb42">&lt;/code&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="eb658387-2af7-42e8-a21a-7553c4bc040d" xml:space="preserve">
+          <source>You can access the user's claims in your controllers via the <bpt id="6520b166-bac0-4ad1-8ec7-73027014b803">&lt;code&gt;</bpt>ClaimsPrincipal.Current<ept id="6520b166-bac0-4ad1-8ec7-73027014b803">&lt;/code&gt;</ept> security principal object.</source>
+          <target state="new">You can access the user's claims in your controllers via the <bpt id="6520b166-bac0-4ad1-8ec7-73027014b803">&lt;code&gt;</bpt>ClaimsPrincipal.Current<ept id="6520b166-bac0-4ad1-8ec7-73027014b803">&lt;/code&gt;</ept> security principal object.</target>
+        </trans-unit>
+        <trans-unit id="8d37ef22-4f0b-4dea-8193-21eddd623f63" xml:space="preserve">
+          <source>Finally, build and run your app!</source>
+          <target state="new">Finally, build and run your app!</target>
+        </trans-unit>
+        <trans-unit id="5c84a4f8-dbbc-43c1-ab45-59d392ffee58" xml:space="preserve">
+          <source>If you haven't already, now is the time to create a new user in your tenant with a *.onmicrosoft.com domain.</source>
+          <target state="new">If you haven't already, now is the time to create a new user in your tenant with a *.onmicrosoft.com domain.</target>
+        </trans-unit>
+        <trans-unit id="ee6831cd-d630-4303-b9e7-1d3a974008e5" xml:space="preserve">
+          <source>Sign in with that user, and notice how the user's identity is reflected in the top navigation bar.</source>
+          <target state="new">Sign in with that user, and notice how the user's identity is reflected in the top navigation bar.</target>
+        </trans-unit>
+        <trans-unit id="97f9dd2a-c2fc-48ed-9274-199f41f32eb4" xml:space="preserve">
+          <source>Sign out, and sign back in as another user in your tenant.</source>
+          <target state="new">Sign out, and sign back in as another user in your tenant.</target>
+        </trans-unit>
+        <trans-unit id="d01fe359-1d01-4c44-adf7-7e3bf4a54e33" xml:space="preserve">
+          <source>If you're feeling particularly ambitious, register and run another instance of this application (with its own clientId), and watch see single-sign on in action.</source>
+          <target state="new">If you're feeling particularly ambitious, register and run another instance of this application (with its own clientId), and watch see single-sign on in action.</target>
+        </trans-unit>
+        <trans-unit id="b6472157-50a7-4fe3-8424-6c1dc835fc69" xml:space="preserve">
+          <source>For reference, the completed sample (without your configuration values) <bpt id="77c5cc61-f1cb-4822-b488-2c1ab86e93e7">&lt;linkText&gt;</bpt>is provided here<ept id="77c5cc61-f1cb-4822-b488-2c1ab86e93e7">&lt;/linkText&gt;</ept><bpt id="77c5cc61-f1cb-4822-b488-2c1ab86e93e7">&lt;title&gt;</bpt><ept id="77c5cc61-f1cb-4822-b488-2c1ab86e93e7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For reference, the completed sample (without your configuration values) <bpt id="77c5cc61-f1cb-4822-b488-2c1ab86e93e7">&lt;linkText&gt;</bpt>is provided here<ept id="77c5cc61-f1cb-4822-b488-2c1ab86e93e7">&lt;/linkText&gt;</ept><bpt id="77c5cc61-f1cb-4822-b488-2c1ab86e93e7">&lt;title&gt;</bpt><ept id="77c5cc61-f1cb-4822-b488-2c1ab86e93e7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="289320b3-9a6d-4199-a9dc-b3e429187db7" xml:space="preserve">
+          <source>You can now move onto more advanced topics.</source>
+          <target state="new">You can now move onto more advanced topics.</target>
+        </trans-unit>
+        <trans-unit id="597526f5-e732-44b0-bc0d-7fc691dc0446" xml:space="preserve">
+          <source>You may want to try:</source>
+          <target state="new">You may want to try:</target>
+        </trans-unit>
+        <trans-unit id="9a553e52-4a32-4f27-bf45-7af4aa881295" xml:space="preserve">
+          <source><bpt id="1e6d980f-9107-4b5c-9963-118f5a3e7df9">&lt;linkText&gt;</bpt>Secure a Web API with Azure AD &gt;&gt;<ept id="1e6d980f-9107-4b5c-9963-118f5a3e7df9">&lt;/linkText&gt;</ept><bpt id="1e6d980f-9107-4b5c-9963-118f5a3e7df9">&lt;title&gt;</bpt><ept id="1e6d980f-9107-4b5c-9963-118f5a3e7df9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e6d980f-9107-4b5c-9963-118f5a3e7df9">&lt;linkText&gt;</bpt>Secure a Web API with Azure AD &gt;&gt;<ept id="1e6d980f-9107-4b5c-9963-118f5a3e7df9">&lt;/linkText&gt;</ept><bpt id="1e6d980f-9107-4b5c-9963-118f5a3e7df9">&lt;title&gt;</bpt><ept id="1e6d980f-9107-4b5c-9963-118f5a3e7df9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e640030-d210-496f-a516-10a9e155fe95" xml:space="preserve">
+          <source><bpt id="53a46a06-b2ad-45ac-b2be-f9e7fef2ff87">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="53a46a06-b2ad-45ac-b2be-f9e7fef2ff87">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="53a46a06-b2ad-45ac-b2be-f9e7fef2ff87">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="53a46a06-b2ad-45ac-b2be-f9e7fef2ff87">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

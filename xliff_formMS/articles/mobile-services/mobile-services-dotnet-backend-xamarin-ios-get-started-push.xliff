@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1806b3f5-939f-4043-82b3-f1cfb2a9ab51" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1806b3f5-939f-4043-82b3-f1cfb2a9ab51" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3f83ff35-9dc2-42c4-90d4-9248f0d2caea">
+        <trans-unit id="41854ed6-2eec-4972-9c5f-3c91dd4ab89c" xml:space="preserve">
+          <source>Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure</source>
+          <target state="new">Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c3504151-a194-4850-82d3-1cc648b6f388" xml:space="preserve">
+          <source>Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Xamarin iOS app</source>
+          <target state="new">Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Xamarin iOS app</target>
+        </trans-unit>
+        <trans-unit id="a1a0997b-b450-447c-8d17-4ca14a4f7acc" xml:space="preserve">
+          <source><bpt id="fdf43e33-757a-4a4a-83ae-5ca82a100888">&lt;token href="../../includes/mobile-services-selector-get-started-push-xamarin.md"&gt;</bpt><ept id="fdf43e33-757a-4a4a-83ae-5ca82a100888">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="fdf43e33-757a-4a4a-83ae-5ca82a100888">&lt;token href="../../includes/mobile-services-selector-get-started-push-xamarin.md"&gt;</bpt><ept id="fdf43e33-757a-4a4a-83ae-5ca82a100888">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c800cf16-8647-4799-bee0-e61a757e4e3d" xml:space="preserve">
+          <source><bpt id="82dcbb10-f8a1-4ad5-a1b7-be89abf19112">&lt;token href="../../includes/mobile-services-content-not-ready.md"&gt;</bpt><ept id="82dcbb10-f8a1-4ad5-a1b7-be89abf19112">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="82dcbb10-f8a1-4ad5-a1b7-be89abf19112">&lt;token href="../../includes/mobile-services-content-not-ready.md"&gt;</bpt><ept id="82dcbb10-f8a1-4ad5-a1b7-be89abf19112">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

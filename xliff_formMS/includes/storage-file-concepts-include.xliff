@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a4c6c0f3-f462-47f4-970f-2f20645471b5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a4c6c0f3-f462-47f4-970f-2f20645471b5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1effc195-2175-4059-9469-a96a0fb797c0">
+        <trans-unit id="b3474091-e70a-4abf-9e3e-ef6d88103214" xml:space="preserve">
+          <source>File storage offers shared storage for applications using the standard SMB 2.1 protocol.</source>
+          <target state="new">File storage offers shared storage for applications using the standard SMB 2.1 protocol.</target>
+        </trans-unit>
+        <trans-unit id="600a2c93-b766-4492-92f5-4c6392603e6e" xml:space="preserve">
+          <source>Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.</source>
+          <target state="new">Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.</target>
+        </trans-unit>
+        <trans-unit id="ee8af92d-47dc-4a0d-bbb6-f95a9893889c" xml:space="preserve">
+          <source>Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share.</source>
+          <target state="new">Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share.</target>
+        </trans-unit>
+        <trans-unit id="ed3663b7-2b2c-4e88-9b8e-d4df40b7faaa" xml:space="preserve">
+          <source>Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.</source>
+          <target state="new">Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.</target>
+        </trans-unit>
+        <trans-unit id="5fb50586-3036-4bcb-8c05-77efa5dad3c2" xml:space="preserve">
+          <source>Since a File storage share is a standard SMB 2.1 file share, applications running in Azure can access data in the share via file I/O APIs.</source>
+          <target state="new">Since a File storage share is a standard SMB 2.1 file share, applications running in Azure can access data in the share via file I/O APIs.</target>
+        </trans-unit>
+        <trans-unit id="8a852eca-2abe-42b9-a16a-954f5864d4cc" xml:space="preserve">
+          <source>Developers can therefore leverage their existing code and skills to migrate existing applications.</source>
+          <target state="new">Developers can therefore leverage their existing code and skills to migrate existing applications.</target>
+        </trans-unit>
+        <trans-unit id="9fe438ec-0535-4099-8009-6c8225fa7658" xml:space="preserve">
+          <source>IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.</source>
+          <target state="new">IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.</target>
+        </trans-unit>
+        <trans-unit id="c9aff767-5dbf-4792-afac-419b65327f5f" xml:space="preserve">
+          <source>This guide will show examples of both.</source>
+          <target state="new">This guide will show examples of both.</target>
+        </trans-unit>
+        <trans-unit id="895aa826-4369-42ae-82e6-ea4ee4f16512" xml:space="preserve">
+          <source>Common uses of File storage include:</source>
+          <target state="new">Common uses of File storage include:</target>
+        </trans-unit>
+        <trans-unit id="f9047660-a425-4a95-9f4b-1669281e69f1" xml:space="preserve">
+          <source>Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites</source>
+          <target state="new">Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites</target>
+        </trans-unit>
+        <trans-unit id="bb50b26f-c052-4103-a463-2b356a71219f" xml:space="preserve">
+          <source>Storing shared application settings, for example in configuration files</source>
+          <target state="new">Storing shared application settings, for example in configuration files</target>
+        </trans-unit>
+        <trans-unit id="104ab6c2-c256-4289-bac2-3699f8dd1481" xml:space="preserve">
+          <source>Storing diagnostic data such as logs, metrics, and crash dumps in a shared location </source>
+          <target state="new">Storing diagnostic data such as logs, metrics, and crash dumps in a shared location </target>
+        </trans-unit>
+        <trans-unit id="8625c14d-28ec-4c26-b62a-9a07699797ed" xml:space="preserve">
+          <source>Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services</source>
+          <target state="new">Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services</target>
+        </trans-unit>
+        <trans-unit id="1676b848-959c-4387-82d6-84176a71d9e8" xml:space="preserve">
+          <source>File storage contains the following components:</source>
+          <target state="new">File storage contains the following components:</target>
+        </trans-unit>
+        <trans-unit id="c070e0a3-f322-4f3a-87db-9a1c8bb692c7" xml:space="preserve">
+          <source><bpt id="01168450-f5c7-4fa8-9edf-ef7bc42fd328">&lt;linkText&gt;</bpt>files-concepts<ept id="01168450-f5c7-4fa8-9edf-ef7bc42fd328">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="01168450-f5c7-4fa8-9edf-ef7bc42fd328">&lt;linkText&gt;</bpt>files-concepts<ept id="01168450-f5c7-4fa8-9edf-ef7bc42fd328">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ced8fd5-5193-4ae5-8a82-70e2d7c78ec1" xml:space="preserve">
+          <source><bpt id="d60d317b-ceee-428d-b587-346de15fdb4c">&lt;strong&gt;</bpt>Storage Account:<ept id="d60d317b-ceee-428d-b587-346de15fdb4c">&lt;/strong&gt;</ept> All access to Azure Storage is done
+through a storage account.</source>
+          <target state="new"><bpt id="d60d317b-ceee-428d-b587-346de15fdb4c">&lt;strong&gt;</bpt>Storage Account:<ept id="d60d317b-ceee-428d-b587-346de15fdb4c">&lt;/strong&gt;</ept> All access to Azure Storage is done
+through a storage account.</target>
+        </trans-unit>
+        <trans-unit id="ba50b218-4d30-44ce-8c54-23b50a43bb7d" xml:space="preserve">
+          <source>See <bpt id="8b6fbde1-f06e-47fd-952f-047a76dce2f8">&lt;linkText&gt;</bpt>Azure Storage Scalability and Performance Targets<ept id="8b6fbde1-f06e-47fd-952f-047a76dce2f8">&lt;/linkText&gt;</ept><bpt id="8b6fbde1-f06e-47fd-952f-047a76dce2f8">&lt;title&gt;</bpt><ept id="8b6fbde1-f06e-47fd-952f-047a76dce2f8">&lt;/title&gt;</ept> for details about storage account capacity.</source>
+          <target state="new">See <bpt id="8b6fbde1-f06e-47fd-952f-047a76dce2f8">&lt;linkText&gt;</bpt>Azure Storage Scalability and Performance Targets<ept id="8b6fbde1-f06e-47fd-952f-047a76dce2f8">&lt;/linkText&gt;</ept><bpt id="8b6fbde1-f06e-47fd-952f-047a76dce2f8">&lt;title&gt;</bpt><ept id="8b6fbde1-f06e-47fd-952f-047a76dce2f8">&lt;/title&gt;</ept> for details about storage account capacity.</target>
+        </trans-unit>
+        <trans-unit id="0ea131bf-c253-4a7f-9c28-352835aec6af" xml:space="preserve">
+          <source><bpt id="6d46fecd-c356-4893-a3e7-e3ae7cc6f6b0">&lt;strong&gt;</bpt>Share:<ept id="6d46fecd-c356-4893-a3e7-e3ae7cc6f6b0">&lt;/strong&gt;</ept> A File storage share is an SMB 2.1 file share in Azure.</source>
+          <target state="new"><bpt id="6d46fecd-c356-4893-a3e7-e3ae7cc6f6b0">&lt;strong&gt;</bpt>Share:<ept id="6d46fecd-c356-4893-a3e7-e3ae7cc6f6b0">&lt;/strong&gt;</ept> A File storage share is an SMB 2.1 file share in Azure.</target>
+        </trans-unit>
+        <trans-unit id="4c96dd1f-5951-4331-9954-a5982581e5df" xml:space="preserve">
+          <source>All directories and files must be created in a parent share.</source>
+          <target state="new">All directories and files must be created in a parent share.</target>
+        </trans-unit>
+        <trans-unit id="dcab7624-e087-4d62-b095-8463fa1a4289" xml:space="preserve">
+          <source>An account can contain an
+unlimited number of shares, and a share can store an unlimited
+number of files, up to the capacity limits of the storage account.</source>
+          <target state="new">An account can contain an
+unlimited number of shares, and a share can store an unlimited
+number of files, up to the capacity limits of the storage account.</target>
+        </trans-unit>
+        <trans-unit id="65fad5f2-ee63-4323-81a3-f7ecfca63692" xml:space="preserve">
+          <source><bpt id="339f07c8-793a-4fc9-b615-47a7feaed41f">&lt;strong&gt;</bpt>Directory:<ept id="339f07c8-793a-4fc9-b615-47a7feaed41f">&lt;/strong&gt;</ept> An optional hierarchy of directories.</source>
+          <target state="new"><bpt id="339f07c8-793a-4fc9-b615-47a7feaed41f">&lt;strong&gt;</bpt>Directory:<ept id="339f07c8-793a-4fc9-b615-47a7feaed41f">&lt;/strong&gt;</ept> An optional hierarchy of directories.</target>
+        </trans-unit>
+        <trans-unit id="576d91a8-8fb5-4457-b6d6-c26d2bea27fd" xml:space="preserve">
+          <source><bpt id="6c0ab679-6e9b-4ad9-bed5-40d060e46dfc">&lt;strong&gt;</bpt>File:<ept id="6c0ab679-6e9b-4ad9-bed5-40d060e46dfc">&lt;/strong&gt;</ept> A file in the share.</source>
+          <target state="new"><bpt id="6c0ab679-6e9b-4ad9-bed5-40d060e46dfc">&lt;strong&gt;</bpt>File:<ept id="6c0ab679-6e9b-4ad9-bed5-40d060e46dfc">&lt;/strong&gt;</ept> A file in the share.</target>
+        </trans-unit>
+        <trans-unit id="2b189a8a-b327-4a97-aa86-4064155b2717" xml:space="preserve">
+          <source>A file may be up to 1 TB in size.</source>
+          <target state="new">A file may be up to 1 TB in size.</target>
+        </trans-unit>
+        <trans-unit id="831d83b7-7c5f-4312-b30f-16e82b7da38e" xml:space="preserve">
+          <source><bpt id="5b78417c-d24a-4ae3-83b6-a9f75c099271">&lt;strong&gt;</bpt>URL format:<ept id="5b78417c-d24a-4ae3-83b6-a9f75c099271">&lt;/strong&gt;</ept> Files are addressable using the following URL
+format:   
+https://<bpt id="fe11e8ff-5b11-4df9-84e3-eecb77e6a6ca">&lt;code&gt;</bpt>&lt;storage
+account&gt;<ept id="fe11e8ff-5b11-4df9-84e3-eecb77e6a6ca">&lt;/code&gt;</ept>.file.core.windows.net/<bpt id="4ae7243d-fbcd-47c8-8f63-1015ff46d9be">&lt;code&gt;</bpt>&lt;share&gt;<ept id="4ae7243d-fbcd-47c8-8f63-1015ff46d9be">&lt;/code&gt;</ept>/<bpt id="faeb08f4-fb7c-4bc0-9d4f-b81e5134ace6">&lt;code&gt;</bpt>&lt;directory/directories&gt;<ept id="faeb08f4-fb7c-4bc0-9d4f-b81e5134ace6">&lt;/code&gt;</ept>/<bpt id="9159db0f-1bb6-44a4-8d4f-8639f6450dd2">&lt;code&gt;</bpt>&lt;file&gt;<ept id="9159db0f-1bb6-44a4-8d4f-8639f6450dd2">&lt;/code&gt;</ept>  </source>
+          <target state="new"><bpt id="5b78417c-d24a-4ae3-83b6-a9f75c099271">&lt;strong&gt;</bpt>URL format:<ept id="5b78417c-d24a-4ae3-83b6-a9f75c099271">&lt;/strong&gt;</ept> Files are addressable using the following URL
+format:   
+https://<bpt id="fe11e8ff-5b11-4df9-84e3-eecb77e6a6ca">&lt;code&gt;</bpt>&lt;storage
+account&gt;<ept id="fe11e8ff-5b11-4df9-84e3-eecb77e6a6ca">&lt;/code&gt;</ept>.file.core.windows.net/<bpt id="4ae7243d-fbcd-47c8-8f63-1015ff46d9be">&lt;code&gt;</bpt>&lt;share&gt;<ept id="4ae7243d-fbcd-47c8-8f63-1015ff46d9be">&lt;/code&gt;</ept>/<bpt id="faeb08f4-fb7c-4bc0-9d4f-b81e5134ace6">&lt;code&gt;</bpt>&lt;directory/directories&gt;<ept id="faeb08f4-fb7c-4bc0-9d4f-b81e5134ace6">&lt;/code&gt;</ept>/<bpt id="9159db0f-1bb6-44a4-8d4f-8639f6450dd2">&lt;code&gt;</bpt>&lt;file&gt;<ept id="9159db0f-1bb6-44a4-8d4f-8639f6450dd2">&lt;/code&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="5429d297-2a80-4a83-822c-d3ef313ded64" xml:space="preserve">
+          <source>The following example URL could be used to address one of the files in the
+diagram above:  
+<bpt id="50bd3012-7851-482b-9ac9-2bf3d0cf5698">&lt;code&gt;</bpt>http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt<ept id="50bd3012-7851-482b-9ac9-2bf3d0cf5698">&lt;/code&gt;</ept></source>
+          <target state="new">The following example URL could be used to address one of the files in the
+diagram above:  
+<bpt id="50bd3012-7851-482b-9ac9-2bf3d0cf5698">&lt;code&gt;</bpt>http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt<ept id="50bd3012-7851-482b-9ac9-2bf3d0cf5698">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0c51a73-7942-4d7f-9d8d-592bd73b63a8" xml:space="preserve">
+          <source>For details about how to name shares, directories, and files, see <bpt id="4cd5395b-7877-4a43-b0a6-dfa2a96447bb">&lt;linkText&gt;</bpt>Naming and Referencing Shares, Directories, Files, and Metadata<ept id="4cd5395b-7877-4a43-b0a6-dfa2a96447bb">&lt;/linkText&gt;</ept><bpt id="4cd5395b-7877-4a43-b0a6-dfa2a96447bb">&lt;title&gt;</bpt><ept id="4cd5395b-7877-4a43-b0a6-dfa2a96447bb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about how to name shares, directories, and files, see <bpt id="4cd5395b-7877-4a43-b0a6-dfa2a96447bb">&lt;linkText&gt;</bpt>Naming and Referencing Shares, Directories, Files, and Metadata<ept id="4cd5395b-7877-4a43-b0a6-dfa2a96447bb">&lt;/linkText&gt;</ept><bpt id="4cd5395b-7877-4a43-b0a6-dfa2a96447bb">&lt;title&gt;</bpt><ept id="4cd5395b-7877-4a43-b0a6-dfa2a96447bb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb526759-134e-4472-9611-e783a18c9d7b" xml:space="preserve">
+          <source>./media/storage-file-concepts-include/files-concepts.png</source>
+          <target state="new">./media/storage-file-concepts-include/files-concepts.png</target>
+        </trans-unit>
+      </group>
+      <group id="f4c9d2f9-f134-40ce-adc0-21b22b73e6fb" />
+    </body>
+  </file>
+</xliff>

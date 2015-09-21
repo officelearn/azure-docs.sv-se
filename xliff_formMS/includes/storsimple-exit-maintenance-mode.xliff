@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e36b1982-af91-4bfb-8276-5d2bee3b1a73" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e36b1982-af91-4bfb-8276-5d2bee3b1a73" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="19ad4e12-455e-4531-bb5e-96b7974147ba">
+        <trans-unit id="7016d6e4-2f6c-437a-a4e3-f2a99a6f399b" xml:space="preserve">
+          <source>Exit maintenance mode</source>
+          <target state="new">Exit maintenance mode</target>
+        </trans-unit>
+        <trans-unit id="23d96c98-97ce-4d5a-9bc5-a2f0801b39ae" xml:space="preserve">
+          <source>Explains how to exit StorSimple Maintenance mode, which returns your device to Normal mode.</source>
+          <target state="new">Explains how to exit StorSimple Maintenance mode, which returns your device to Normal mode.</target>
+        </trans-unit>
+        <trans-unit id="d91ba4ef-9ad8-45d2-b1b9-a043427a9725" xml:space="preserve">
+          <source>At the command prompt type:</source>
+          <target state="new">At the command prompt type:</target>
+        </trans-unit>
+        <trans-unit id="87512f97-2d9c-4356-a171-99b12acae7e3" xml:space="preserve">
+          <source> <bpt id="6a22b70a-990f-4794-a675-561c318ad2b4">&lt;code&gt;</bpt>Exit-HcsMaintenanceMode<ept id="6a22b70a-990f-4794-a675-561c318ad2b4">&lt;/code&gt;</ept></source>
+          <target state="new"> <bpt id="6a22b70a-990f-4794-a675-561c318ad2b4">&lt;code&gt;</bpt>Exit-HcsMaintenanceMode<ept id="6a22b70a-990f-4794-a675-561c318ad2b4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99a69ddf-515b-4956-ab7f-51611e12c84e" xml:space="preserve">
+          <source>A warning message and a confirmation message will appear.</source>
+          <target state="new">A warning message and a confirmation message will appear.</target>
+        </trans-unit>
+        <trans-unit id="993392e4-d940-4539-8efd-6e31b4737865" xml:space="preserve">
+          <source>Type <bpt id="75e3872c-a81a-4325-891a-f8ef4dafa28b">&lt;strong&gt;</bpt>Y<ept id="75e3872c-a81a-4325-891a-f8ef4dafa28b">&lt;/strong&gt;</ept> to exit Maintenance mode.</source>
+          <target state="new">Type <bpt id="75e3872c-a81a-4325-891a-f8ef4dafa28b">&lt;strong&gt;</bpt>Y<ept id="75e3872c-a81a-4325-891a-f8ef4dafa28b">&lt;/strong&gt;</ept> to exit Maintenance mode.</target>
+        </trans-unit>
+        <trans-unit id="2aa4ca5a-b527-4ae1-ab33-55c564e63a72" xml:space="preserve">
+          <source>Both controllers will restart.</source>
+          <target state="new">Both controllers will restart.</target>
+        </trans-unit>
+        <trans-unit id="98a0949d-44b1-4dca-acc9-a28a38abb3d2" xml:space="preserve">
+          <source>When the restart is complete, another message will appear indicating that the device is in Normal mode.</source>
+          <target state="new">When the restart is complete, another message will appear indicating that the device is in Normal mode.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

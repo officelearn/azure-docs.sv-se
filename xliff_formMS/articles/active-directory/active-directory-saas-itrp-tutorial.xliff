@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c288dce3-f5ac-49de-8f62-a22900e1c807" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c288dce3-f5ac-49de-8f62-a22900e1c807" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6352b99e-6001-4350-89b2-f9cc67c8feca">
+        <trans-unit id="a6fc0592-6fe9-4c7a-bf59-09fd7627db03" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with ITRP | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with ITRP | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="862248e0-2eff-4eba-b8ab-c81e254627e0" xml:space="preserve">
+          <source>Learn how to use ITRP with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use ITRP with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="bedea623-b0be-4741-9115-030d1007f9f9" xml:space="preserve">
+          <source>For feedback, click <bpt id="9820d860-f76d-419a-a3b1-edcf7b45a168">&lt;linkText&gt;</bpt>here<ept id="9820d860-f76d-419a-a3b1-edcf7b45a168">&lt;/linkText&gt;</ept><bpt id="9820d860-f76d-419a-a3b1-edcf7b45a168">&lt;title&gt;</bpt><ept id="9820d860-f76d-419a-a3b1-edcf7b45a168">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="9820d860-f76d-419a-a3b1-edcf7b45a168">&lt;linkText&gt;</bpt>here<ept id="9820d860-f76d-419a-a3b1-edcf7b45a168">&lt;/linkText&gt;</ept><bpt id="9820d860-f76d-419a-a3b1-edcf7b45a168">&lt;title&gt;</bpt><ept id="9820d860-f76d-419a-a3b1-edcf7b45a168">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca2136a4-d33a-4ce1-bf53-93368e094fb4" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and ITRP.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and ITRP.</target>
+        </trans-unit>
+        <trans-unit id="4ec7e6d9-e4f2-4343-9c74-ef758986531c" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="a47b2ec1-38ba-4fc6-9fba-c158818af353" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="38570c30-e0e3-4614-90bb-f62e21f58a60" xml:space="preserve">
+          <source>A ITRP tenant</source>
+          <target state="new">A ITRP tenant</target>
+        </trans-unit>
+        <trans-unit id="f7ba3a2f-87a0-4005-9c5d-6beba59d977c" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to ITRP will be able to single sign into the application at your ITRP company site (service provider initiated sign on), or using the <bpt id="2513d5b6-132f-4d82-93d4-278d5df7e04f">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="2513d5b6-132f-4d82-93d4-278d5df7e04f">&lt;/linkText&gt;</ept><bpt id="2513d5b6-132f-4d82-93d4-278d5df7e04f">&lt;title&gt;</bpt><ept id="2513d5b6-132f-4d82-93d4-278d5df7e04f">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to ITRP will be able to single sign into the application at your ITRP company site (service provider initiated sign on), or using the <bpt id="2513d5b6-132f-4d82-93d4-278d5df7e04f">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="2513d5b6-132f-4d82-93d4-278d5df7e04f">&lt;/linkText&gt;</ept><bpt id="2513d5b6-132f-4d82-93d4-278d5df7e04f">&lt;title&gt;</bpt><ept id="2513d5b6-132f-4d82-93d4-278d5df7e04f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48c9914b-f231-42bf-aa94-97a946d8e90b" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="80da06fb-4bb7-4327-afee-9ded1dd32922" xml:space="preserve">
+          <source>Enabling the application integration for ITRP</source>
+          <target state="new">Enabling the application integration for ITRP</target>
+        </trans-unit>
+        <trans-unit id="cf9f32bf-9dc0-44cf-b1f2-1bedf9f1ada0" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="646e0d46-c269-4956-9c95-cb5dbdaf197b" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="5522c44b-cb6d-4735-a587-e75149685202" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="16614900-f51a-405b-a7ac-0e430704f3a5" xml:space="preserve">
+          <source><bpt id="066a2205-c330-4f66-bbf6-0f91f0f28ec4">&lt;linkText&gt;</bpt>Scenario<ept id="066a2205-c330-4f66-bbf6-0f91f0f28ec4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="066a2205-c330-4f66-bbf6-0f91f0f28ec4">&lt;linkText&gt;</bpt>Scenario<ept id="066a2205-c330-4f66-bbf6-0f91f0f28ec4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f37857f-f7a9-4f8a-81d9-bcca7a769a4a" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for ITRP.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for ITRP.</target>
+        </trans-unit>
+        <trans-unit id="a4c21412-2a70-48bb-9b75-4233032342db" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="a9fb6862-4756-48eb-bff0-c96f2a98aedc">&lt;strong&gt;</bpt>Active Directory<ept id="a9fb6862-4756-48eb-bff0-c96f2a98aedc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="a9fb6862-4756-48eb-bff0-c96f2a98aedc">&lt;strong&gt;</bpt>Active Directory<ept id="a9fb6862-4756-48eb-bff0-c96f2a98aedc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7095fa8a-f6f5-4110-a51b-ce409f26a6cf" xml:space="preserve">
+          <source><bpt id="7ca6e27d-75ec-44ed-8476-04473569fab3">&lt;linkText&gt;</bpt>Active Directory<ept id="7ca6e27d-75ec-44ed-8476-04473569fab3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ca6e27d-75ec-44ed-8476-04473569fab3">&lt;linkText&gt;</bpt>Active Directory<ept id="7ca6e27d-75ec-44ed-8476-04473569fab3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="091c9077-cbb6-48af-87bf-716de0daec34" xml:space="preserve">
+          <source>From the <bpt id="6f53f2c4-1564-4cb7-8b51-6fffad3690ff">&lt;strong&gt;</bpt>Directory<ept id="6f53f2c4-1564-4cb7-8b51-6fffad3690ff">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="6f53f2c4-1564-4cb7-8b51-6fffad3690ff">&lt;strong&gt;</bpt>Directory<ept id="6f53f2c4-1564-4cb7-8b51-6fffad3690ff">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="b1eb1c83-e14c-446c-b54c-7f6e0efbf27d" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="d1a9e820-3e28-41a8-aafb-aaebf3f1ce6d">&lt;strong&gt;</bpt>Applications<ept id="d1a9e820-3e28-41a8-aafb-aaebf3f1ce6d">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="d1a9e820-3e28-41a8-aafb-aaebf3f1ce6d">&lt;strong&gt;</bpt>Applications<ept id="d1a9e820-3e28-41a8-aafb-aaebf3f1ce6d">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="8e496e7e-fcbf-4746-8e0a-61396266d8e5" xml:space="preserve">
+          <source><bpt id="cae3adde-3cb1-4f11-9afa-2c015a3c8111">&lt;linkText&gt;</bpt>Applications<ept id="cae3adde-3cb1-4f11-9afa-2c015a3c8111">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cae3adde-3cb1-4f11-9afa-2c015a3c8111">&lt;linkText&gt;</bpt>Applications<ept id="cae3adde-3cb1-4f11-9afa-2c015a3c8111">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb831b80-ad3e-493c-812c-5a5442308899" xml:space="preserve">
+          <source>Click <bpt id="ae64ea6b-84cc-4be4-a101-391bd4b31d2b">&lt;strong&gt;</bpt>Add<ept id="ae64ea6b-84cc-4be4-a101-391bd4b31d2b">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="ae64ea6b-84cc-4be4-a101-391bd4b31d2b">&lt;strong&gt;</bpt>Add<ept id="ae64ea6b-84cc-4be4-a101-391bd4b31d2b">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="f23c8c95-45eb-41ac-9766-148f5e746e52" xml:space="preserve">
+          <source><bpt id="be1270c8-933b-49ae-9880-2a7a753acc01">&lt;linkText&gt;</bpt>Add application<ept id="be1270c8-933b-49ae-9880-2a7a753acc01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be1270c8-933b-49ae-9880-2a7a753acc01">&lt;linkText&gt;</bpt>Add application<ept id="be1270c8-933b-49ae-9880-2a7a753acc01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3b4f5f9-75e3-4556-86f3-4d39a6c0425b" xml:space="preserve">
+          <source>On the <bpt id="b3a2465d-99fc-4b15-9c4e-072334de6020">&lt;strong&gt;</bpt>What do you want to do<ept id="b3a2465d-99fc-4b15-9c4e-072334de6020">&lt;/strong&gt;</ept> dialog, click <bpt id="ca28707c-d2f8-4b04-9af9-a6a8cb196a68">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="ca28707c-d2f8-4b04-9af9-a6a8cb196a68">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b3a2465d-99fc-4b15-9c4e-072334de6020">&lt;strong&gt;</bpt>What do you want to do<ept id="b3a2465d-99fc-4b15-9c4e-072334de6020">&lt;/strong&gt;</ept> dialog, click <bpt id="ca28707c-d2f8-4b04-9af9-a6a8cb196a68">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="ca28707c-d2f8-4b04-9af9-a6a8cb196a68">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="42ccd09d-ed9d-40ff-ab2a-5404b16fea35" xml:space="preserve">
+          <source><bpt id="bab1bed5-5046-4a2e-9a2b-0a3955f377dc">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="bab1bed5-5046-4a2e-9a2b-0a3955f377dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bab1bed5-5046-4a2e-9a2b-0a3955f377dc">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="bab1bed5-5046-4a2e-9a2b-0a3955f377dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c381d0d7-f733-485e-9ca9-4d426729038d" xml:space="preserve">
+          <source>In the <bpt id="bf9967b5-de99-48f9-a771-b2ecbebd7fa9">&lt;strong&gt;</bpt>search box<ept id="bf9967b5-de99-48f9-a771-b2ecbebd7fa9">&lt;/strong&gt;</ept>, type <bpt id="d512c669-b518-4642-bb93-1deae5f6ed60">&lt;strong&gt;</bpt>ITRP<ept id="d512c669-b518-4642-bb93-1deae5f6ed60">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="bf9967b5-de99-48f9-a771-b2ecbebd7fa9">&lt;strong&gt;</bpt>search box<ept id="bf9967b5-de99-48f9-a771-b2ecbebd7fa9">&lt;/strong&gt;</ept>, type <bpt id="d512c669-b518-4642-bb93-1deae5f6ed60">&lt;strong&gt;</bpt>ITRP<ept id="d512c669-b518-4642-bb93-1deae5f6ed60">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e33ce5f3-5715-48a6-9f7e-25a07851f328" xml:space="preserve">
+          <source><bpt id="7593acc0-1ab3-480e-a865-b101777c9763">&lt;linkText&gt;</bpt>Application Gallery<ept id="7593acc0-1ab3-480e-a865-b101777c9763">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7593acc0-1ab3-480e-a865-b101777c9763">&lt;linkText&gt;</bpt>Application Gallery<ept id="7593acc0-1ab3-480e-a865-b101777c9763">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81e337d4-9bfa-4856-a532-41e6c0bf84a0" xml:space="preserve">
+          <source>In the results pane, select <bpt id="9fc36cab-e485-4d58-9a5b-4971392a988f">&lt;strong&gt;</bpt>ITRP<ept id="9fc36cab-e485-4d58-9a5b-4971392a988f">&lt;/strong&gt;</ept>, and then click <bpt id="48c59189-d0ab-4b72-b78f-6601c47dcf7c">&lt;strong&gt;</bpt>Complete<ept id="48c59189-d0ab-4b72-b78f-6601c47dcf7c">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="9fc36cab-e485-4d58-9a5b-4971392a988f">&lt;strong&gt;</bpt>ITRP<ept id="9fc36cab-e485-4d58-9a5b-4971392a988f">&lt;/strong&gt;</ept>, and then click <bpt id="48c59189-d0ab-4b72-b78f-6601c47dcf7c">&lt;strong&gt;</bpt>Complete<ept id="48c59189-d0ab-4b72-b78f-6601c47dcf7c">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="520b1b3f-4d36-4212-be0f-d033ca38e214" xml:space="preserve">
+          <source><bpt id="d9e9e55a-7855-4991-bcdb-5751e76e92d4">&lt;linkText&gt;</bpt>ITRP<ept id="d9e9e55a-7855-4991-bcdb-5751e76e92d4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d9e9e55a-7855-4991-bcdb-5751e76e92d4">&lt;linkText&gt;</bpt>ITRP<ept id="d9e9e55a-7855-4991-bcdb-5751e76e92d4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95147cdc-e93b-4546-b957-cc18a6add483" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to ITRP with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to ITRP with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="0b7b5bab-e04f-4e81-a881-dedf98891a8d" xml:space="preserve">
+          <source>Configuring single sign-on for ITRP requires you to retrieve a thumbprint value from a certificate.</source>
+          <target state="new">Configuring single sign-on for ITRP requires you to retrieve a thumbprint value from a certificate.</target>
+        </trans-unit>
+        <trans-unit id="f8b00197-0b4a-45af-8d9e-7ade980de9b0" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="d11072e3-92ba-4693-aeb1-33e3e25f6530">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="d11072e3-92ba-4693-aeb1-33e3e25f6530">&lt;/linkText&gt;</ept><bpt id="d11072e3-92ba-4693-aeb1-33e3e25f6530">&lt;title&gt;</bpt><ept id="d11072e3-92ba-4693-aeb1-33e3e25f6530">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="d11072e3-92ba-4693-aeb1-33e3e25f6530">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="d11072e3-92ba-4693-aeb1-33e3e25f6530">&lt;/linkText&gt;</ept><bpt id="d11072e3-92ba-4693-aeb1-33e3e25f6530">&lt;title&gt;</bpt><ept id="d11072e3-92ba-4693-aeb1-33e3e25f6530">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbfc6aee-af6d-4e52-b0ac-de60d88bc41e" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="2af49f85-427e-4f75-86e7-b3070bc2b2e8">&lt;strong&gt;</bpt>ITRP<ept id="2af49f85-427e-4f75-86e7-b3070bc2b2e8">&lt;/strong&gt;</ept> application integration page, click <bpt id="6f8a2e69-9d75-4834-a7a9-96c22bc4484f">&lt;strong&gt;</bpt>Configure single sign-on<ept id="6f8a2e69-9d75-4834-a7a9-96c22bc4484f">&lt;/strong&gt;</ept> to open the <bpt id="e4a396f0-3c2b-4c56-abac-5cd7310d4929">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="e4a396f0-3c2b-4c56-abac-5cd7310d4929">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="2af49f85-427e-4f75-86e7-b3070bc2b2e8">&lt;strong&gt;</bpt>ITRP<ept id="2af49f85-427e-4f75-86e7-b3070bc2b2e8">&lt;/strong&gt;</ept> application integration page, click <bpt id="6f8a2e69-9d75-4834-a7a9-96c22bc4484f">&lt;strong&gt;</bpt>Configure single sign-on<ept id="6f8a2e69-9d75-4834-a7a9-96c22bc4484f">&lt;/strong&gt;</ept> to open the <bpt id="e4a396f0-3c2b-4c56-abac-5cd7310d4929">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="e4a396f0-3c2b-4c56-abac-5cd7310d4929">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="92635a3d-426a-43e1-848f-292d9e0bcc8c" xml:space="preserve">
+          <source><bpt id="5a19541e-07d2-459a-ab07-7f3c929c7deb">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="5a19541e-07d2-459a-ab07-7f3c929c7deb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a19541e-07d2-459a-ab07-7f3c929c7deb">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="5a19541e-07d2-459a-ab07-7f3c929c7deb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="58d6b2cf-d2f7-4b97-bd07-5159d4e59bb2" xml:space="preserve">
+          <source>On the <bpt id="6f13b178-a87d-475a-a87a-eee3bf0f3867">&lt;strong&gt;</bpt>How would you like users to sign on to ITRP<ept id="6f13b178-a87d-475a-a87a-eee3bf0f3867">&lt;/strong&gt;</ept> page, select <bpt id="f9722c42-aeed-4e14-9150-a336796e8c9b">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="f9722c42-aeed-4e14-9150-a336796e8c9b">&lt;/strong&gt;</ept>, and then click <bpt id="5bea059f-9315-4a49-82f7-b2bb6bf56393">&lt;strong&gt;</bpt>Next<ept id="5bea059f-9315-4a49-82f7-b2bb6bf56393">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6f13b178-a87d-475a-a87a-eee3bf0f3867">&lt;strong&gt;</bpt>How would you like users to sign on to ITRP<ept id="6f13b178-a87d-475a-a87a-eee3bf0f3867">&lt;/strong&gt;</ept> page, select <bpt id="f9722c42-aeed-4e14-9150-a336796e8c9b">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="f9722c42-aeed-4e14-9150-a336796e8c9b">&lt;/strong&gt;</ept>, and then click <bpt id="5bea059f-9315-4a49-82f7-b2bb6bf56393">&lt;strong&gt;</bpt>Next<ept id="5bea059f-9315-4a49-82f7-b2bb6bf56393">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2465dfb-b7f3-4d53-bdce-f516f0897ace" xml:space="preserve">
+          <source><bpt id="5e50ffeb-ae22-4772-8dee-eac6e7c92fe2">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="5e50ffeb-ae22-4772-8dee-eac6e7c92fe2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5e50ffeb-ae22-4772-8dee-eac6e7c92fe2">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="5e50ffeb-ae22-4772-8dee-eac6e7c92fe2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93e53059-f588-4113-bcdc-2185a2ff31d5" xml:space="preserve">
+          <source>On the <bpt id="99e525fa-ecf1-4f2a-b550-36f2545f39dc">&lt;strong&gt;</bpt>Configure App URL<ept id="99e525fa-ecf1-4f2a-b550-36f2545f39dc">&lt;/strong&gt;</ept> page, in the <bpt id="01f543dc-cd33-4321-aa3c-ebf0532cb3d7">&lt;strong&gt;</bpt>ITRP Sign In URL<ept id="01f543dc-cd33-4321-aa3c-ebf0532cb3d7">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="c61e91ea-7bf3-4ee4-aa1d-e796c060ba2a">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.ITRP.com<ept id="c61e91ea-7bf3-4ee4-aa1d-e796c060ba2a">&lt;/em&gt;</ept>", and then click <bpt id="9a6d67ed-3d5f-407d-bf6f-0a36bc23cc32">&lt;strong&gt;</bpt>Next<ept id="9a6d67ed-3d5f-407d-bf6f-0a36bc23cc32">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="99e525fa-ecf1-4f2a-b550-36f2545f39dc">&lt;strong&gt;</bpt>Configure App URL<ept id="99e525fa-ecf1-4f2a-b550-36f2545f39dc">&lt;/strong&gt;</ept> page, in the <bpt id="01f543dc-cd33-4321-aa3c-ebf0532cb3d7">&lt;strong&gt;</bpt>ITRP Sign In URL<ept id="01f543dc-cd33-4321-aa3c-ebf0532cb3d7">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="c61e91ea-7bf3-4ee4-aa1d-e796c060ba2a">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.ITRP.com<ept id="c61e91ea-7bf3-4ee4-aa1d-e796c060ba2a">&lt;/em&gt;</ept>", and then click <bpt id="9a6d67ed-3d5f-407d-bf6f-0a36bc23cc32">&lt;strong&gt;</bpt>Next<ept id="9a6d67ed-3d5f-407d-bf6f-0a36bc23cc32">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="025d2ac7-15c3-4369-a2bb-e08ece684efb" xml:space="preserve">
+          <source><bpt id="f00c5024-5454-4bf5-9471-7e68f0eeca53">&lt;linkText&gt;</bpt>Configure App URL<ept id="f00c5024-5454-4bf5-9471-7e68f0eeca53">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f00c5024-5454-4bf5-9471-7e68f0eeca53">&lt;linkText&gt;</bpt>Configure App URL<ept id="f00c5024-5454-4bf5-9471-7e68f0eeca53">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d43fe3b-9228-4c91-96ab-dc31dc7f8ca1" xml:space="preserve">
+          <source>On the <bpt id="9f95d37c-e049-4db4-adf9-558fe685951b">&lt;strong&gt;</bpt>Configure single sign-on at ITRP<ept id="9f95d37c-e049-4db4-adf9-558fe685951b">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="2bbcd77e-f37a-4b76-a872-2b2a4f531afc">&lt;strong&gt;</bpt>Download certificate<ept id="2bbcd77e-f37a-4b76-a872-2b2a4f531afc">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="95b2922d-5fd8-4e72-a5b7-420d2872fb17">&lt;strong&gt;</bpt>c:\\ITRP.cer<ept id="95b2922d-5fd8-4e72-a5b7-420d2872fb17">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="9f95d37c-e049-4db4-adf9-558fe685951b">&lt;strong&gt;</bpt>Configure single sign-on at ITRP<ept id="9f95d37c-e049-4db4-adf9-558fe685951b">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="2bbcd77e-f37a-4b76-a872-2b2a4f531afc">&lt;strong&gt;</bpt>Download certificate<ept id="2bbcd77e-f37a-4b76-a872-2b2a4f531afc">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="95b2922d-5fd8-4e72-a5b7-420d2872fb17">&lt;strong&gt;</bpt>c:\\ITRP.cer<ept id="95b2922d-5fd8-4e72-a5b7-420d2872fb17">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="621fc0b4-68e2-43ec-9a45-84b5e9facdad" xml:space="preserve">
+          <source><bpt id="0a80722b-3b42-42a3-a99e-dababb8c1d5a">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="0a80722b-3b42-42a3-a99e-dababb8c1d5a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0a80722b-3b42-42a3-a99e-dababb8c1d5a">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="0a80722b-3b42-42a3-a99e-dababb8c1d5a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd7869df-f063-4343-b54e-73bd6fb52509" xml:space="preserve">
+          <source>In a different web browser window, log into your ITRP company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your ITRP company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="9549cabf-f042-4246-8656-34969df04570" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="c57ee553-acf5-4cfc-b880-bcfc804ceae8">&lt;strong&gt;</bpt>Settings<ept id="c57ee553-acf5-4cfc-b880-bcfc804ceae8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="c57ee553-acf5-4cfc-b880-bcfc804ceae8">&lt;strong&gt;</bpt>Settings<ept id="c57ee553-acf5-4cfc-b880-bcfc804ceae8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8143421-70ff-4544-9304-d687da0d1692" xml:space="preserve">
+          <source><bpt id="1d75e084-3b3f-45ad-9a63-2ab8cfcd17d9">&lt;linkText&gt;</bpt>ITRP<ept id="1d75e084-3b3f-45ad-9a63-2ab8cfcd17d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1d75e084-3b3f-45ad-9a63-2ab8cfcd17d9">&lt;linkText&gt;</bpt>ITRP<ept id="1d75e084-3b3f-45ad-9a63-2ab8cfcd17d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e6728af-5951-4488-b328-afd613621ee8" xml:space="preserve">
+          <source>In the left navigation pane, select <bpt id="685fd3ce-64c8-4bb4-82d5-df8fd29f4896">&lt;strong&gt;</bpt>Single Sign-On<ept id="685fd3ce-64c8-4bb4-82d5-df8fd29f4896">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left navigation pane, select <bpt id="685fd3ce-64c8-4bb4-82d5-df8fd29f4896">&lt;strong&gt;</bpt>Single Sign-On<ept id="685fd3ce-64c8-4bb4-82d5-df8fd29f4896">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b5b435e-4298-4514-91c6-90f7b2ef1722" xml:space="preserve">
+          <source><bpt id="428c28d6-e324-46ee-9bb3-1404f014a966">&lt;linkText&gt;</bpt>Single Sign-On<ept id="428c28d6-e324-46ee-9bb3-1404f014a966">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="428c28d6-e324-46ee-9bb3-1404f014a966">&lt;linkText&gt;</bpt>Single Sign-On<ept id="428c28d6-e324-46ee-9bb3-1404f014a966">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1faae8e-daf5-4914-a5dd-23881b87e331" xml:space="preserve">
+          <source>In the Single Sign-On configuration section, perform the following steps:</source>
+          <target state="new">In the Single Sign-On configuration section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="41f569c3-5324-46c9-a3e5-cdb4d088e7c7" xml:space="preserve">
+          <source><bpt id="5ef88547-9823-4d49-88a4-ba8e4b73afce">&lt;linkText&gt;</bpt>Single Sign-On<ept id="5ef88547-9823-4d49-88a4-ba8e4b73afce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5ef88547-9823-4d49-88a4-ba8e4b73afce">&lt;linkText&gt;</bpt>Single Sign-On<ept id="5ef88547-9823-4d49-88a4-ba8e4b73afce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36a22afa-b12a-4afb-9638-ede25ea91ad9" xml:space="preserve">
+          <source><bpt id="478ec693-fb59-464f-834d-42c5f7c0aacd">&lt;linkText&gt;</bpt>Single Sign-On<ept id="478ec693-fb59-464f-834d-42c5f7c0aacd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="478ec693-fb59-464f-834d-42c5f7c0aacd">&lt;linkText&gt;</bpt>Single Sign-On<ept id="478ec693-fb59-464f-834d-42c5f7c0aacd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b4e1543-7582-4c61-b3df-766850630e47" xml:space="preserve">
+          <source>Click <bpt id="e8d7c269-3410-4f0c-bb6c-b4309a56eee1">&lt;strong&gt;</bpt>Enable<ept id="e8d7c269-3410-4f0c-bb6c-b4309a56eee1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e8d7c269-3410-4f0c-bb6c-b4309a56eee1">&lt;strong&gt;</bpt>Enable<ept id="e8d7c269-3410-4f0c-bb6c-b4309a56eee1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69c0e3d1-02a5-4694-8749-75067ced7d0f" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="3707fe7b-e421-4cdc-be34-526ebd74727b">&lt;strong&gt;</bpt>Configure single sign-on at ITRP<ept id="3707fe7b-e421-4cdc-be34-526ebd74727b">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="3578fc04-2fa5-45bd-a50c-bcee79468229">&lt;strong&gt;</bpt>Remote Logout URL<ept id="3578fc04-2fa5-45bd-a50c-bcee79468229">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="b28a15de-ec1b-480a-9ae8-5e005dc66d57">&lt;strong&gt;</bpt>Remote Logout URL<ept id="b28a15de-ec1b-480a-9ae8-5e005dc66d57">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="3707fe7b-e421-4cdc-be34-526ebd74727b">&lt;strong&gt;</bpt>Configure single sign-on at ITRP<ept id="3707fe7b-e421-4cdc-be34-526ebd74727b">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="3578fc04-2fa5-45bd-a50c-bcee79468229">&lt;strong&gt;</bpt>Remote Logout URL<ept id="3578fc04-2fa5-45bd-a50c-bcee79468229">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="b28a15de-ec1b-480a-9ae8-5e005dc66d57">&lt;strong&gt;</bpt>Remote Logout URL<ept id="b28a15de-ec1b-480a-9ae8-5e005dc66d57">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="3fb56fe3-7f6f-44e4-91cc-82869ff4850b" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="6e054fb7-bb06-414b-89d2-d14a511fcb0f">&lt;strong&gt;</bpt>Configure single sign-on at ITRP<ept id="6e054fb7-bb06-414b-89d2-d14a511fcb0f">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="e0c79365-3bf5-4a9d-b08d-f55059fd006f">&lt;strong&gt;</bpt>SAML SSO URL<ept id="e0c79365-3bf5-4a9d-b08d-f55059fd006f">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="9cbc2cff-980f-42d2-9f75-e4e3d04fcb49">&lt;strong&gt;</bpt>SAML SSO URL<ept id="9cbc2cff-980f-42d2-9f75-e4e3d04fcb49">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="6e054fb7-bb06-414b-89d2-d14a511fcb0f">&lt;strong&gt;</bpt>Configure single sign-on at ITRP<ept id="6e054fb7-bb06-414b-89d2-d14a511fcb0f">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="e0c79365-3bf5-4a9d-b08d-f55059fd006f">&lt;strong&gt;</bpt>SAML SSO URL<ept id="e0c79365-3bf5-4a9d-b08d-f55059fd006f">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="9cbc2cff-980f-42d2-9f75-e4e3d04fcb49">&lt;strong&gt;</bpt>SAML SSO URL<ept id="9cbc2cff-980f-42d2-9f75-e4e3d04fcb49">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="6b3b82f0-f257-498c-9e6b-dfbbe521ea88" xml:space="preserve">
+          <source>Copy the <bpt id="4863fe9c-b588-4e66-94f3-2d6d78dd6eae">&lt;strong&gt;</bpt>Thumbprint<ept id="4863fe9c-b588-4e66-94f3-2d6d78dd6eae">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="f96dd871-38a0-45ad-bdd9-8dfa8af41aaa">&lt;strong&gt;</bpt>Certificate Fingerprint<ept id="f96dd871-38a0-45ad-bdd9-8dfa8af41aaa">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Copy the <bpt id="4863fe9c-b588-4e66-94f3-2d6d78dd6eae">&lt;strong&gt;</bpt>Thumbprint<ept id="4863fe9c-b588-4e66-94f3-2d6d78dd6eae">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="f96dd871-38a0-45ad-bdd9-8dfa8af41aaa">&lt;strong&gt;</bpt>Certificate Fingerprint<ept id="f96dd871-38a0-45ad-bdd9-8dfa8af41aaa">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="59418935-b85c-464d-89dc-795e66a96d41" xml:space="preserve">
+          <source>For more details, see <bpt id="f166e7d0-f056-4ccc-83a5-752a78faea88">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="f166e7d0-f056-4ccc-83a5-752a78faea88">&lt;/linkText&gt;</ept><bpt id="f166e7d0-f056-4ccc-83a5-752a78faea88">&lt;title&gt;</bpt><ept id="f166e7d0-f056-4ccc-83a5-752a78faea88">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="f166e7d0-f056-4ccc-83a5-752a78faea88">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="f166e7d0-f056-4ccc-83a5-752a78faea88">&lt;/linkText&gt;</ept><bpt id="f166e7d0-f056-4ccc-83a5-752a78faea88">&lt;title&gt;</bpt><ept id="f166e7d0-f056-4ccc-83a5-752a78faea88">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8098025-5853-46ac-b820-3179ed5a6eb5" xml:space="preserve">
+          <source>Click <bpt id="eabad358-3bab-4173-a4fb-c1cb4606dc59">&lt;strong&gt;</bpt>Save<ept id="eabad358-3bab-4173-a4fb-c1cb4606dc59">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="eabad358-3bab-4173-a4fb-c1cb4606dc59">&lt;strong&gt;</bpt>Save<ept id="eabad358-3bab-4173-a4fb-c1cb4606dc59">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02f03004-33b1-4159-8b89-149ad8f2e483" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="a7c67b3c-0d16-4ddb-a24d-1229f7385d4a">&lt;strong&gt;</bpt>Complete<ept id="a7c67b3c-0d16-4ddb-a24d-1229f7385d4a">&lt;/strong&gt;</ept> to close the <bpt id="d6a17d6f-b842-4af5-a0d2-b6284696d8c1">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="d6a17d6f-b842-4af5-a0d2-b6284696d8c1">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="a7c67b3c-0d16-4ddb-a24d-1229f7385d4a">&lt;strong&gt;</bpt>Complete<ept id="a7c67b3c-0d16-4ddb-a24d-1229f7385d4a">&lt;/strong&gt;</ept> to close the <bpt id="d6a17d6f-b842-4af5-a0d2-b6284696d8c1">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="d6a17d6f-b842-4af5-a0d2-b6284696d8c1">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="ab4ed735-0354-410e-b1a5-7c812d11fec3" xml:space="preserve">
+          <source><bpt id="804cd96e-a407-4908-a8cc-6e0eaf2d6810">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="804cd96e-a407-4908-a8cc-6e0eaf2d6810">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="804cd96e-a407-4908-a8cc-6e0eaf2d6810">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="804cd96e-a407-4908-a8cc-6e0eaf2d6810">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e1f684a-521d-4663-96cd-66fa3247f1e3" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into ITRP, they must be provisioned into ITRP.</source>
+          <target state="new">In order to enable Azure AD users to log into ITRP, they must be provisioned into ITRP.</target>
+        </trans-unit>
+        <trans-unit id="64cbf4f6-1ed4-4e55-8ddd-7cad317a5f0d" xml:space="preserve">
+          <source>In the case of ITRP, provisioning is a manual task.</source>
+          <target state="new">In the case of ITRP, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="776278b7-427d-4984-b0d2-cb6263cea71c" xml:space="preserve">
+          <source>Log in to your <bpt id="0818c725-75c4-4452-beb8-83808043d178">&lt;strong&gt;</bpt>ITRP<ept id="0818c725-75c4-4452-beb8-83808043d178">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="0818c725-75c4-4452-beb8-83808043d178">&lt;strong&gt;</bpt>ITRP<ept id="0818c725-75c4-4452-beb8-83808043d178">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="8ed85425-0881-4163-893f-4c3c51c5af1f" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="10dd883c-d621-4cfd-a5e4-b21c76455224">&lt;strong&gt;</bpt>Records<ept id="10dd883c-d621-4cfd-a5e4-b21c76455224">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="10dd883c-d621-4cfd-a5e4-b21c76455224">&lt;strong&gt;</bpt>Records<ept id="10dd883c-d621-4cfd-a5e4-b21c76455224">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f834251c-15b0-42b2-806d-505cf1eab51f" xml:space="preserve">
+          <source><bpt id="fba32810-e412-4226-9ab9-9d47565b25ee">&lt;linkText&gt;</bpt>Admin<ept id="fba32810-e412-4226-9ab9-9d47565b25ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fba32810-e412-4226-9ab9-9d47565b25ee">&lt;linkText&gt;</bpt>Admin<ept id="fba32810-e412-4226-9ab9-9d47565b25ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8cc958f5-7a6b-4251-b3d5-271969fd5647" xml:space="preserve">
+          <source>From the popup menu, select <bpt id="6603305e-58e7-4ad9-953e-9074bf70b873">&lt;strong&gt;</bpt>People<ept id="6603305e-58e7-4ad9-953e-9074bf70b873">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the popup menu, select <bpt id="6603305e-58e7-4ad9-953e-9074bf70b873">&lt;strong&gt;</bpt>People<ept id="6603305e-58e7-4ad9-953e-9074bf70b873">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="418cfcab-0f74-4ff6-b23a-a449ab3bf4c8" xml:space="preserve">
+          <source><bpt id="05231da4-e9e1-4919-a0e6-c67231a391a3">&lt;linkText&gt;</bpt>People<ept id="05231da4-e9e1-4919-a0e6-c67231a391a3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="05231da4-e9e1-4919-a0e6-c67231a391a3">&lt;linkText&gt;</bpt>People<ept id="05231da4-e9e1-4919-a0e6-c67231a391a3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26a5c31d-6d5b-44dc-b1d6-b80883e22def" xml:space="preserve">
+          <source>Click <bpt id="45309520-6951-4be2-a89a-7f3db22d21a2">&lt;strong&gt;</bpt>Add New Person<ept id="45309520-6951-4be2-a89a-7f3db22d21a2">&lt;/strong&gt;</ept> (“+”).</source>
+          <target state="new">Click <bpt id="45309520-6951-4be2-a89a-7f3db22d21a2">&lt;strong&gt;</bpt>Add New Person<ept id="45309520-6951-4be2-a89a-7f3db22d21a2">&lt;/strong&gt;</ept> (“+”).</target>
+        </trans-unit>
+        <trans-unit id="f21d592c-fefe-49ea-9af7-f6784f34e523" xml:space="preserve">
+          <source><bpt id="6c273b00-fcaf-4675-8754-d0ed9cca83f8">&lt;linkText&gt;</bpt>Admin<ept id="6c273b00-fcaf-4675-8754-d0ed9cca83f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6c273b00-fcaf-4675-8754-d0ed9cca83f8">&lt;linkText&gt;</bpt>Admin<ept id="6c273b00-fcaf-4675-8754-d0ed9cca83f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea12b1de-e240-47f5-97f0-9da4de653873" xml:space="preserve">
+          <source>On the Add New Person dialog, perform the following steps:</source>
+          <target state="new">On the Add New Person dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="c1c60cb7-9584-4aea-b9fb-a57201458b91" xml:space="preserve">
+          <source><bpt id="f6785e24-e96f-410f-b50e-d0ccc0214aa9">&lt;linkText&gt;</bpt>User<ept id="f6785e24-e96f-410f-b50e-d0ccc0214aa9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f6785e24-e96f-410f-b50e-d0ccc0214aa9">&lt;linkText&gt;</bpt>User<ept id="f6785e24-e96f-410f-b50e-d0ccc0214aa9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ccb83e4-c483-4173-871e-7a217968e53a" xml:space="preserve">
+          <source>Type the <bpt id="7b28cdce-c89b-4a36-a6f7-818cc6d8a1c0">&lt;strong&gt;</bpt>Name<ept id="7b28cdce-c89b-4a36-a6f7-818cc6d8a1c0">&lt;/strong&gt;</ept>, <bpt id="6df95723-e328-4604-8c73-e92f7a38032a">&lt;strong&gt;</bpt>Email<ept id="6df95723-e328-4604-8c73-e92f7a38032a">&lt;/strong&gt;</ept> of a valid AAD account you want to provision.</source>
+          <target state="new">Type the <bpt id="7b28cdce-c89b-4a36-a6f7-818cc6d8a1c0">&lt;strong&gt;</bpt>Name<ept id="7b28cdce-c89b-4a36-a6f7-818cc6d8a1c0">&lt;/strong&gt;</ept>, <bpt id="6df95723-e328-4604-8c73-e92f7a38032a">&lt;strong&gt;</bpt>Email<ept id="6df95723-e328-4604-8c73-e92f7a38032a">&lt;/strong&gt;</ept> of a valid AAD account you want to provision.</target>
+        </trans-unit>
+        <trans-unit id="e6dc60f9-aa56-4ea9-bff8-f97d683cf2f0" xml:space="preserve">
+          <source>Click <bpt id="dc7e5564-d76d-4fa6-b856-031fedef05e7">&lt;strong&gt;</bpt>Save<ept id="dc7e5564-d76d-4fa6-b856-031fedef05e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="dc7e5564-d76d-4fa6-b856-031fedef05e7">&lt;strong&gt;</bpt>Save<ept id="dc7e5564-d76d-4fa6-b856-031fedef05e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53fbb03b-7218-42a5-9fe1-730c99929320" xml:space="preserve">
+          <source>You can use any other ITRP user account creation tools or APIs provided by ITRP to provision AAD user accounts.</source>
+          <target state="new">You can use any other ITRP user account creation tools or APIs provided by ITRP to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="c4564483-69b5-47ee-b7fc-3e02190887df" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="2140b988-5954-4430-9565-a57e480ec488" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="19a17580-da20-4558-b221-09e031493d76" xml:space="preserve">
+          <source>On the <bpt id="310e2f47-b2c3-47b6-afbf-59ddd255cf09">&lt;strong&gt;</bpt>ITRP **application integration page, click **Assign users<ept id="310e2f47-b2c3-47b6-afbf-59ddd255cf09">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="310e2f47-b2c3-47b6-afbf-59ddd255cf09">&lt;strong&gt;</bpt>ITRP **application integration page, click **Assign users<ept id="310e2f47-b2c3-47b6-afbf-59ddd255cf09">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8316803a-bfa5-412a-abe5-b98af1fbc9d4" xml:space="preserve">
+          <source><bpt id="c828b5e5-c282-491a-a219-f3f2c49fc9c7">&lt;linkText&gt;</bpt>Assign Users<ept id="c828b5e5-c282-491a-a219-f3f2c49fc9c7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c828b5e5-c282-491a-a219-f3f2c49fc9c7">&lt;linkText&gt;</bpt>Assign Users<ept id="c828b5e5-c282-491a-a219-f3f2c49fc9c7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="819bb073-5c2c-4dc1-bbea-25453847c52d" xml:space="preserve">
+          <source>Select your test user, click <bpt id="8d7952cc-b830-44e2-86fa-a5ad1a29df4c">&lt;strong&gt;</bpt>Assign<ept id="8d7952cc-b830-44e2-86fa-a5ad1a29df4c">&lt;/strong&gt;</ept>, and then click <bpt id="de816d5a-eb50-4ed8-a8da-5db31d987de4">&lt;strong&gt;</bpt>Yes<ept id="de816d5a-eb50-4ed8-a8da-5db31d987de4">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="8d7952cc-b830-44e2-86fa-a5ad1a29df4c">&lt;strong&gt;</bpt>Assign<ept id="8d7952cc-b830-44e2-86fa-a5ad1a29df4c">&lt;/strong&gt;</ept>, and then click <bpt id="de816d5a-eb50-4ed8-a8da-5db31d987de4">&lt;strong&gt;</bpt>Yes<ept id="de816d5a-eb50-4ed8-a8da-5db31d987de4">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="f8086317-1996-4817-b201-0f7202313999" xml:space="preserve">
+          <source><bpt id="a902ab59-c8e8-4d03-bc5a-e54ada7d18a3">&lt;linkText&gt;</bpt>Yes<ept id="a902ab59-c8e8-4d03-bc5a-e54ada7d18a3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a902ab59-c8e8-4d03-bc5a-e54ada7d18a3">&lt;linkText&gt;</bpt>Yes<ept id="a902ab59-c8e8-4d03-bc5a-e54ada7d18a3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c1a3724-1303-4355-9a35-357d671b1f6f" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="aed79841-4644-4012-b637-165c4471a61c" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="2c765e9f-0be9-4b3f-ba5f-cb4b7f53e1d1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="2c765e9f-0be9-4b3f-ba5f-cb4b7f53e1d1">&lt;/linkText&gt;</ept><bpt id="2c765e9f-0be9-4b3f-ba5f-cb4b7f53e1d1">&lt;title&gt;</bpt><ept id="2c765e9f-0be9-4b3f-ba5f-cb4b7f53e1d1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="2c765e9f-0be9-4b3f-ba5f-cb4b7f53e1d1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="2c765e9f-0be9-4b3f-ba5f-cb4b7f53e1d1">&lt;/linkText&gt;</ept><bpt id="2c765e9f-0be9-4b3f-ba5f-cb4b7f53e1d1">&lt;title&gt;</bpt><ept id="2c765e9f-0be9-4b3f-ba5f-cb4b7f53e1d1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

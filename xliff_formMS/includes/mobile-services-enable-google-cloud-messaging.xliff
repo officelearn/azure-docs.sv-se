@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f4f8b919-563c-4521-a7e8-64d3523397d0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f4f8b919-563c-4521-a7e8-64d3523397d0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="144c3bd6-04a6-4b8c-b415-89d2f8a85b27">
+        <trans-unit id="614b3788-1256-43b4-a067-e68a01ab41a8" xml:space="preserve">
+          <source>To complete this procedure, you must have a Google account that has a verified email address.</source>
+          <target state="new">To complete this procedure, you must have a Google account that has a verified email address.</target>
+        </trans-unit>
+        <trans-unit id="a4c7fc50-7c1d-4892-857c-58ee8589b18d" xml:space="preserve">
+          <source>To create a new Google account, go to &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank"&gt;accounts.google.com&lt;/a&gt;.</source>
+          <target state="new">To create a new Google account, go to &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank"&gt;accounts.google.com&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="2ab23d29-a918-459e-8a13-5a9d285ddfa8" xml:space="preserve">
+          <source>Navigate to the &lt;a href="http://cloud.google.com/console" target="_blank"&gt;Google Cloud Console&lt;/a&gt; website, sign-in with your Google account credentials, and then click <bpt id="743e3a54-84e2-4d36-b67e-b3324aa7a38c">&lt;strong&gt;</bpt>Create Project<ept id="743e3a54-84e2-4d36-b67e-b3324aa7a38c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to the &lt;a href="http://cloud.google.com/console" target="_blank"&gt;Google Cloud Console&lt;/a&gt; website, sign-in with your Google account credentials, and then click <bpt id="743e3a54-84e2-4d36-b67e-b3324aa7a38c">&lt;strong&gt;</bpt>Create Project<ept id="743e3a54-84e2-4d36-b67e-b3324aa7a38c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec1b9a3d-f489-4813-8429-190f996a3c9d" xml:space="preserve">
+          <source><bpt id="8b6f4f39-53f7-40d0-ae41-872c5c4a53c2">&lt;linkText&gt;</bpt><ept id="8b6f4f39-53f7-40d0-ae41-872c5c4a53c2">&lt;/linkText&gt;</ept>   </source>
+          <target state="new"><bpt id="8b6f4f39-53f7-40d0-ae41-872c5c4a53c2">&lt;linkText&gt;</bpt><ept id="8b6f4f39-53f7-40d0-ae41-872c5c4a53c2">&lt;/linkText&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="37cb5057-2b99-4bd0-8195-612cc999ff07" xml:space="preserve">
+          <source>When you already have an existing project, you are directed to the &lt;strong&gt;Projects&lt;/strong&gt; page after login.</source>
+          <target state="new">When you already have an existing project, you are directed to the &lt;strong&gt;Projects&lt;/strong&gt; page after login.</target>
+        </trans-unit>
+        <trans-unit id="812b1373-d7b6-42bc-bfa0-2ec845302967" xml:space="preserve">
+          <source>To create a new project from the Dashboard, expand &lt;strong&gt;API Project&lt;/strong&gt;, click &lt;strong&gt;Create...&lt;/strong&gt; under &lt;strong&gt;Other projects&lt;/strong&gt;, then enter a project name and click &lt;strong&gt;Create project&lt;/strong&gt;.</source>
+          <target state="new">To create a new project from the Dashboard, expand &lt;strong&gt;API Project&lt;/strong&gt;, click &lt;strong&gt;Create...&lt;/strong&gt; under &lt;strong&gt;Other projects&lt;/strong&gt;, then enter a project name and click &lt;strong&gt;Create project&lt;/strong&gt;.</target>
+        </trans-unit>
+        <trans-unit id="253cd834-c4d5-47d5-8a09-84ecf64f27c6" xml:space="preserve">
+          <source>Enter a project name, accept the terms of service, and click <bpt id="cbbbd4e5-cc31-49af-b895-b5dc1ce50e9d">&lt;strong&gt;</bpt>Create<ept id="cbbbd4e5-cc31-49af-b895-b5dc1ce50e9d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a project name, accept the terms of service, and click <bpt id="cbbbd4e5-cc31-49af-b895-b5dc1ce50e9d">&lt;strong&gt;</bpt>Create<ept id="cbbbd4e5-cc31-49af-b895-b5dc1ce50e9d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="503dd52f-35cc-4c5a-b020-2435861b5046" xml:space="preserve">
+          <source>If requested, carry out the SMS Verification, and click <bpt id="a34c910f-c68b-474c-8155-562311219427">&lt;strong&gt;</bpt>Create<ept id="a34c910f-c68b-474c-8155-562311219427">&lt;/strong&gt;</ept> again.</source>
+          <target state="new">If requested, carry out the SMS Verification, and click <bpt id="a34c910f-c68b-474c-8155-562311219427">&lt;strong&gt;</bpt>Create<ept id="a34c910f-c68b-474c-8155-562311219427">&lt;/strong&gt;</ept> again.</target>
+        </trans-unit>
+        <trans-unit id="83bed545-bd27-4027-aec7-f33480ca8b14" xml:space="preserve">
+          <source>Make a note of the project number in the <bpt id="ac395210-cca4-4d62-8d8f-a99a9f305a6d">&lt;strong&gt;</bpt>Projects<ept id="ac395210-cca4-4d62-8d8f-a99a9f305a6d">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Make a note of the project number in the <bpt id="ac395210-cca4-4d62-8d8f-a99a9f305a6d">&lt;strong&gt;</bpt>Projects<ept id="ac395210-cca4-4d62-8d8f-a99a9f305a6d">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="167ae56b-7fc4-4f65-b057-2c5cbb04b877" xml:space="preserve">
+          <source>Later in the tutorial you set this value as the PROJECT_ID variable in the client.</source>
+          <target state="new">Later in the tutorial you set this value as the PROJECT_ID variable in the client.</target>
+        </trans-unit>
+        <trans-unit id="e3179841-0af3-4f36-907c-4ab7aa2f3dab" xml:space="preserve">
+          <source>In the left column, expand <bpt id="6bec780e-c7e4-47fc-a337-fc11a8d31c94">&lt;strong&gt;</bpt>APIs &amp; auth<ept id="6bec780e-c7e4-47fc-a337-fc11a8d31c94">&lt;/strong&gt;</ept>, click <bpt id="3ef8e811-5239-42ec-bdb1-bd5c6eb8a43f">&lt;strong&gt;</bpt>APIs<ept id="3ef8e811-5239-42ec-bdb1-bd5c6eb8a43f">&lt;/strong&gt;</ept> then scroll down and click <bpt id="33c59bb5-bb96-456d-9ece-ed74835f451a">&lt;strong&gt;</bpt>Cloud Messaging for Android<ept id="33c59bb5-bb96-456d-9ece-ed74835f451a">&lt;/strong&gt;</ept>. Then on the next page click <bpt id="89c4ec86-d660-4685-8c04-4eb6bc5f3884">&lt;strong&gt;</bpt>Enable API<ept id="89c4ec86-d660-4685-8c04-4eb6bc5f3884">&lt;/strong&gt;</ept> and accept the terms of service. </source>
+          <target state="new">In the left column, expand <bpt id="6bec780e-c7e4-47fc-a337-fc11a8d31c94">&lt;strong&gt;</bpt>APIs &amp; auth<ept id="6bec780e-c7e4-47fc-a337-fc11a8d31c94">&lt;/strong&gt;</ept>, click <bpt id="3ef8e811-5239-42ec-bdb1-bd5c6eb8a43f">&lt;strong&gt;</bpt>APIs<ept id="3ef8e811-5239-42ec-bdb1-bd5c6eb8a43f">&lt;/strong&gt;</ept> then scroll down and click <bpt id="33c59bb5-bb96-456d-9ece-ed74835f451a">&lt;strong&gt;</bpt>Cloud Messaging for Android<ept id="33c59bb5-bb96-456d-9ece-ed74835f451a">&lt;/strong&gt;</ept>. Then on the next page click <bpt id="89c4ec86-d660-4685-8c04-4eb6bc5f3884">&lt;strong&gt;</bpt>Enable API<ept id="89c4ec86-d660-4685-8c04-4eb6bc5f3884">&lt;/strong&gt;</ept> and accept the terms of service. </target>
+        </trans-unit>
+        <trans-unit id="1c5e6dc1-ac1b-4f04-97ce-a017a829ca78" xml:space="preserve">
+          <source><bpt id="35b36dae-b3f4-4bc9-a6d7-50dfa2320c02">&lt;linkText&gt;</bpt><ept id="35b36dae-b3f4-4bc9-a6d7-50dfa2320c02">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35b36dae-b3f4-4bc9-a6d7-50dfa2320c02">&lt;linkText&gt;</bpt><ept id="35b36dae-b3f4-4bc9-a6d7-50dfa2320c02">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="162a1534-628c-4079-8851-16dd3706c74b" xml:space="preserve">
+          <source>Click <bpt id="3716bad3-98a3-4220-a0c1-1480a8e16fcb">&lt;strong&gt;</bpt>Credentials<ept id="3716bad3-98a3-4220-a0c1-1480a8e16fcb">&lt;/strong&gt;</ept>, and then click <bpt id="ad732aae-5c9d-4a7f-adb7-d4c1ebf8e192">&lt;strong&gt;</bpt>Create new Key<ept id="ad732aae-5c9d-4a7f-adb7-d4c1ebf8e192">&lt;/strong&gt;</ept> </source>
+          <target state="new">Click <bpt id="3716bad3-98a3-4220-a0c1-1480a8e16fcb">&lt;strong&gt;</bpt>Credentials<ept id="3716bad3-98a3-4220-a0c1-1480a8e16fcb">&lt;/strong&gt;</ept>, and then click <bpt id="ad732aae-5c9d-4a7f-adb7-d4c1ebf8e192">&lt;strong&gt;</bpt>Create new Key<ept id="ad732aae-5c9d-4a7f-adb7-d4c1ebf8e192">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="74125093-cf52-4261-aab7-b7a9ced61028" xml:space="preserve">
+          <source><bpt id="1e044659-396f-478a-812f-c3ebf59f46d4">&lt;linkText&gt;</bpt><ept id="1e044659-396f-478a-812f-c3ebf59f46d4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e044659-396f-478a-812f-c3ebf59f46d4">&lt;linkText&gt;</bpt><ept id="1e044659-396f-478a-812f-c3ebf59f46d4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d36e285b-a8a1-43c3-ae43-e02f321cad6c" xml:space="preserve">
+          <source>In <bpt id="54f938bd-1640-477c-9359-afe96111373e">&lt;strong&gt;</bpt>Create a new key<ept id="54f938bd-1640-477c-9359-afe96111373e">&lt;/strong&gt;</ept>, click <bpt id="a9d9d24d-1433-499b-b4d7-5160d931f9bd">&lt;strong&gt;</bpt>Server key<ept id="a9d9d24d-1433-499b-b4d7-5160d931f9bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="54f938bd-1640-477c-9359-afe96111373e">&lt;strong&gt;</bpt>Create a new key<ept id="54f938bd-1640-477c-9359-afe96111373e">&lt;/strong&gt;</ept>, click <bpt id="a9d9d24d-1433-499b-b4d7-5160d931f9bd">&lt;strong&gt;</bpt>Server key<ept id="a9d9d24d-1433-499b-b4d7-5160d931f9bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95dc891b-5ec6-4996-bfb5-acc4ee18018c" xml:space="preserve">
+          <source>In the next window click <bpt id="7bc026a2-a5ce-4e76-8dc7-c3427b407309">&lt;strong&gt;</bpt>Create<ept id="7bc026a2-a5ce-4e76-8dc7-c3427b407309">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the next window click <bpt id="7bc026a2-a5ce-4e76-8dc7-c3427b407309">&lt;strong&gt;</bpt>Create<ept id="7bc026a2-a5ce-4e76-8dc7-c3427b407309">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19ada80a-b621-47c9-9aeb-97d052632535" xml:space="preserve">
+          <source><bpt id="0eeeba7e-e23b-4fb0-bc4c-69ec4d52419f">&lt;linkText&gt;</bpt><ept id="0eeeba7e-e23b-4fb0-bc4c-69ec4d52419f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0eeeba7e-e23b-4fb0-bc4c-69ec4d52419f">&lt;linkText&gt;</bpt><ept id="0eeeba7e-e23b-4fb0-bc4c-69ec4d52419f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a615371f-06b0-4bd4-9b05-31eac1927413" xml:space="preserve">
+          <source>Make a note of the <bpt id="67fddffc-ff32-47f2-a104-860043abc244">&lt;strong&gt;</bpt>API KEY<ept id="67fddffc-ff32-47f2-a104-860043abc244">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">Make a note of the <bpt id="67fddffc-ff32-47f2-a104-860043abc244">&lt;strong&gt;</bpt>API KEY<ept id="67fddffc-ff32-47f2-a104-860043abc244">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="c068794e-50f8-48c2-a433-3ca3667d4601" xml:space="preserve">
+          <source><bpt id="75f8f80a-bc37-4921-8994-b7f924f75751">&lt;linkText&gt;</bpt><ept id="75f8f80a-bc37-4921-8994-b7f924f75751">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="75f8f80a-bc37-4921-8994-b7f924f75751">&lt;linkText&gt;</bpt><ept id="75f8f80a-bc37-4921-8994-b7f924f75751">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="42af0b3b-8a44-446e-b1e4-c27cb8be10a5" xml:space="preserve">
+          <source>You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.</source>
+          <target state="new">You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

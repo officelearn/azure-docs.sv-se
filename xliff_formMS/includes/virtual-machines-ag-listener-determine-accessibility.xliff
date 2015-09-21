@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="78cc21c9-9390-46ee-8578-30685e20bf62" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="78cc21c9-9390-46ee-8578-30685e20bf62" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="98022314-2df7-4dd9-9514-7f050db8a2fb">
+        <trans-unit id="5c014aee-44d4-46c4-94b2-964cdae25883" xml:space="preserve">
+          <source>It is important to realize that there are two ways to configure an Availability Group listener in Azure.</source>
+          <target state="new">It is important to realize that there are two ways to configure an Availability Group listener in Azure.</target>
+        </trans-unit>
+        <trans-unit id="371bc622-e73f-4bd4-9c5e-080f8b525bbb" xml:space="preserve">
+          <source>These methods differ in the type of Azure load balancer you use when you create the listener.</source>
+          <target state="new">These methods differ in the type of Azure load balancer you use when you create the listener.</target>
+        </trans-unit>
+        <trans-unit id="20fd63ef-049c-498d-8aaf-a4bd82f63c84" xml:space="preserve">
+          <source>The following table describes the differences:</source>
+          <target state="new">The following table describes the differences:</target>
+        </trans-unit>
+        <trans-unit id="bd68cbd9-7eb4-4893-b39b-cbcfbfa9a659" xml:space="preserve">
+          <source>Load Balancer</source>
+          <target state="new">Load Balancer</target>
+        </trans-unit>
+        <trans-unit id="f23d6b86-f19d-4d89-adb8-40ca7a0c72cc" xml:space="preserve">
+          <source>Implementation</source>
+          <target state="new">Implementation</target>
+        </trans-unit>
+        <trans-unit id="e9bd0e5a-3003-4e7a-87a3-370e987b35e4" xml:space="preserve">
+          <source>Use When:</source>
+          <target state="new">Use When:</target>
+        </trans-unit>
+        <trans-unit id="ca35a2ed-109f-4f92-9ca7-c45ca5979648" xml:space="preserve">
+          <source><bpt id="74a7eb8a-72b4-423d-a796-d4e78fe0ed42">&lt;strong&gt;</bpt>External<ept id="74a7eb8a-72b4-423d-a796-d4e78fe0ed42">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="74a7eb8a-72b4-423d-a796-d4e78fe0ed42">&lt;strong&gt;</bpt>External<ept id="74a7eb8a-72b4-423d-a796-d4e78fe0ed42">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="267745a1-8ada-4367-a7e3-2565627719b4" xml:space="preserve">
+          <source>Uses the <bpt id="0227ef78-12f2-42f9-a9b8-8747f5059eda">&lt;strong&gt;</bpt>public Virtual IP address<ept id="0227ef78-12f2-42f9-a9b8-8747f5059eda">&lt;/strong&gt;</ept> of the cloud service that hosts the Virtual Machines.</source>
+          <target state="new">Uses the <bpt id="0227ef78-12f2-42f9-a9b8-8747f5059eda">&lt;strong&gt;</bpt>public Virtual IP address<ept id="0227ef78-12f2-42f9-a9b8-8747f5059eda">&lt;/strong&gt;</ept> of the cloud service that hosts the Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="b1e06930-8c44-4361-91b7-8e770dd45067" xml:space="preserve">
+          <source>You need to access the listener from outside the virtual network, including from the internet.</source>
+          <target state="new">You need to access the listener from outside the virtual network, including from the internet.</target>
+        </trans-unit>
+        <trans-unit id="e8c1c715-c588-4a1b-98f0-0e1586ae32b1" xml:space="preserve">
+          <source><bpt id="e1b14e64-e0ce-4e46-b019-0176a66079dd">&lt;strong&gt;</bpt>Internal<ept id="e1b14e64-e0ce-4e46-b019-0176a66079dd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e1b14e64-e0ce-4e46-b019-0176a66079dd">&lt;strong&gt;</bpt>Internal<ept id="e1b14e64-e0ce-4e46-b019-0176a66079dd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5379c6e3-7520-42e0-8472-75350a9d5c5f" xml:space="preserve">
+          <source>Uses <bpt id="fa3feb75-cd5e-452d-b1ec-b742af97413a">&lt;strong&gt;</bpt>Internal Load Balancing (ILB)<ept id="fa3feb75-cd5e-452d-b1ec-b742af97413a">&lt;/strong&gt;</ept> with a private address for the listener.</source>
+          <target state="new">Uses <bpt id="fa3feb75-cd5e-452d-b1ec-b742af97413a">&lt;strong&gt;</bpt>Internal Load Balancing (ILB)<ept id="fa3feb75-cd5e-452d-b1ec-b742af97413a">&lt;/strong&gt;</ept> with a private address for the listener.</target>
+        </trans-unit>
+        <trans-unit id="2fc8d5eb-9989-4a74-8827-f38e33f82f76" xml:space="preserve">
+          <source>You only access the listener from within the same virtual network.</source>
+          <target state="new">You only access the listener from within the same virtual network.</target>
+        </trans-unit>
+        <trans-unit id="a7b96326-ccab-48b9-a92f-2ec50e5301c0" xml:space="preserve">
+          <source>This includes site-to-site VPN in hybrid scenarios.</source>
+          <target state="new">This includes site-to-site VPN in hybrid scenarios.</target>
+        </trans-unit>
+        <trans-unit id="4f5a2119-daa9-42eb-a116-0e4739b38bec" xml:space="preserve">
+          <source>For a listener using the cloud service's public VIP (external load balancer), any data returned through the listener is considered egress and charged at normal data transfer rates in Azure.</source>
+          <target state="new">For a listener using the cloud service's public VIP (external load balancer), any data returned through the listener is considered egress and charged at normal data transfer rates in Azure.</target>
+        </trans-unit>
+        <trans-unit id="786eac51-6123-4cdb-be69-927ef8fd56ef" xml:space="preserve">
+          <source>This is true even if the client is located in the same virtual network and datacenter as the listener and databases.</source>
+          <target state="new">This is true even if the client is located in the same virtual network and datacenter as the listener and databases.</target>
+        </trans-unit>
+        <trans-unit id="5107e945-9166-4d3e-81b5-da39e66acaa4" xml:space="preserve">
+          <source>This is not the case with a listener using ILB.</source>
+          <target state="new">This is not the case with a listener using ILB.</target>
+        </trans-unit>
+        <trans-unit id="a7b935b7-cd24-428e-9fcd-9938435f933e" xml:space="preserve">
+          <source>ILB can only be configured on virtual networks with a regional scope.</source>
+          <target state="new">ILB can only be configured on virtual networks with a regional scope.</target>
+        </trans-unit>
+        <trans-unit id="b29a9977-190c-4022-8152-b7fa0004d86e" xml:space="preserve">
+          <source>Existing virtual networks that have been configured for an affinity group cannot use ILB.</source>
+          <target state="new">Existing virtual networks that have been configured for an affinity group cannot use ILB.</target>
+        </trans-unit>
+        <trans-unit id="0406c411-8193-407f-813c-f1a602eb2734" xml:space="preserve">
+          <source>For more information, see <bpt id="d8bacec3-1f3c-4074-88b8-f78d86bac385">&lt;linkText&gt;</bpt>Internal Load Balancer<ept id="d8bacec3-1f3c-4074-88b8-f78d86bac385">&lt;/linkText&gt;</ept><bpt id="d8bacec3-1f3c-4074-88b8-f78d86bac385">&lt;title&gt;</bpt><ept id="d8bacec3-1f3c-4074-88b8-f78d86bac385">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d8bacec3-1f3c-4074-88b8-f78d86bac385">&lt;linkText&gt;</bpt>Internal Load Balancer<ept id="d8bacec3-1f3c-4074-88b8-f78d86bac385">&lt;/linkText&gt;</ept><bpt id="d8bacec3-1f3c-4074-88b8-f78d86bac385">&lt;title&gt;</bpt><ept id="d8bacec3-1f3c-4074-88b8-f78d86bac385">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

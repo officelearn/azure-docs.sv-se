@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e279d8e8-aa9e-48dc-be9f-ad37aa6cbf7d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e279d8e8-aa9e-48dc-be9f-ad37aa6cbf7d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="52b71458-4c39-440f-9cbe-6ace7aec5d2e">
+        <trans-unit id="b971c423-5149-45c5-9c73-ddf840945947" xml:space="preserve">
+          <source>Sorting DocumentDB data using Order By | Microsoft Azure</source>
+          <target state="new">Sorting DocumentDB data using Order By | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a278759a-d753-477e-a350-e76197852076" xml:space="preserve">
+          <source>Learn how to use ORDER BY in DocumentDB queries in LINQ and SQL, and how to specify an indexing policy for ORDER BY queries.</source>
+          <target state="new">Learn how to use ORDER BY in DocumentDB queries in LINQ and SQL, and how to specify an indexing policy for ORDER BY queries.</target>
+        </trans-unit>
+        <trans-unit id="6343fc56-9c47-4d86-a400-c74d816d63c0" xml:space="preserve">
+          <source>Microsoft Azure DocumentDB supports querying documents using SQL over JSON documents.</source>
+          <target state="new">Microsoft Azure DocumentDB supports querying documents using SQL over JSON documents.</target>
+        </trans-unit>
+        <trans-unit id="c92dc8ef-0c81-43fe-9e8c-933809042632" xml:space="preserve">
+          <source>Query results can be ordered using the ORDER BY clause in SQL query statements.</source>
+          <target state="new">Query results can be ordered using the ORDER BY clause in SQL query statements.</target>
+        </trans-unit>
+        <trans-unit id="80e59b6c-6638-4bd3-829c-aa13b6d78789" xml:space="preserve">
+          <source>After reading this article, you'll be able to answer the following questions: </source>
+          <target state="new">After reading this article, you'll be able to answer the following questions: </target>
+        </trans-unit>
+        <trans-unit id="dceae2a4-798b-484d-8e69-061ac6f544c9" xml:space="preserve">
+          <source>How do I query with Order By?</source>
+          <target state="new">How do I query with Order By?</target>
+        </trans-unit>
+        <trans-unit id="bf897488-b512-44fd-af57-ada626732b1c" xml:space="preserve">
+          <source>How do I configure an indexing policy for Order By?</source>
+          <target state="new">How do I configure an indexing policy for Order By?</target>
+        </trans-unit>
+        <trans-unit id="79d703a4-35e2-40be-ad98-5c948e18b830" xml:space="preserve">
+          <source>What's coming next?</source>
+          <target state="new">What's coming next?</target>
+        </trans-unit>
+        <trans-unit id="76334814-7c65-4b81-acbf-9892a701435f" xml:space="preserve">
+          <source><bpt id="094ea8b5-e71c-4e17-8b94-9e3a5f885193">&lt;linkText&gt;</bpt>Samples<ept id="094ea8b5-e71c-4e17-8b94-9e3a5f885193">&lt;/linkText&gt;</ept><bpt id="094ea8b5-e71c-4e17-8b94-9e3a5f885193">&lt;title&gt;</bpt><ept id="094ea8b5-e71c-4e17-8b94-9e3a5f885193">&lt;/title&gt;</ept> and an <bpt id="52124147-d753-4191-8fcb-d4889543dbc2">&lt;linkText&gt;</bpt>FAQ<ept id="52124147-d753-4191-8fcb-d4889543dbc2">&lt;/linkText&gt;</ept><bpt id="52124147-d753-4191-8fcb-d4889543dbc2">&lt;title&gt;</bpt><ept id="52124147-d753-4191-8fcb-d4889543dbc2">&lt;/title&gt;</ept> are also provided.</source>
+          <target state="new"><bpt id="094ea8b5-e71c-4e17-8b94-9e3a5f885193">&lt;linkText&gt;</bpt>Samples<ept id="094ea8b5-e71c-4e17-8b94-9e3a5f885193">&lt;/linkText&gt;</ept><bpt id="094ea8b5-e71c-4e17-8b94-9e3a5f885193">&lt;title&gt;</bpt><ept id="094ea8b5-e71c-4e17-8b94-9e3a5f885193">&lt;/title&gt;</ept> and an <bpt id="52124147-d753-4191-8fcb-d4889543dbc2">&lt;linkText&gt;</bpt>FAQ<ept id="52124147-d753-4191-8fcb-d4889543dbc2">&lt;/linkText&gt;</ept><bpt id="52124147-d753-4191-8fcb-d4889543dbc2">&lt;title&gt;</bpt><ept id="52124147-d753-4191-8fcb-d4889543dbc2">&lt;/title&gt;</ept> are also provided.</target>
+        </trans-unit>
+        <trans-unit id="090d7024-d2ed-4a23-a80c-a064a268882c" xml:space="preserve">
+          <source>For a complete reference on SQL querying, see the <bpt id="07551b53-b15d-4418-9f43-0ba6d68633dc">&lt;linkText&gt;</bpt>DocumentDB Query tutorial<ept id="07551b53-b15d-4418-9f43-0ba6d68633dc">&lt;/linkText&gt;</ept><bpt id="07551b53-b15d-4418-9f43-0ba6d68633dc">&lt;title&gt;</bpt><ept id="07551b53-b15d-4418-9f43-0ba6d68633dc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a complete reference on SQL querying, see the <bpt id="07551b53-b15d-4418-9f43-0ba6d68633dc">&lt;linkText&gt;</bpt>DocumentDB Query tutorial<ept id="07551b53-b15d-4418-9f43-0ba6d68633dc">&lt;/linkText&gt;</ept><bpt id="07551b53-b15d-4418-9f43-0ba6d68633dc">&lt;title&gt;</bpt><ept id="07551b53-b15d-4418-9f43-0ba6d68633dc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d331cdbe-f766-4bea-97e6-8b1192d8e86b" xml:space="preserve">
+          <source>Like in ANSI-SQL, you can now include an optional Order By clause in SQL statements when querying DocumentDB.</source>
+          <target state="new">Like in ANSI-SQL, you can now include an optional Order By clause in SQL statements when querying DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="41f46c89-fb04-4ef2-9712-a7774be7f71d" xml:space="preserve">
+          <source>The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved.</source>
+          <target state="new">The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved.</target>
+        </trans-unit>
+        <trans-unit id="576529c5-1932-40f5-8e5a-23498f899be1" xml:space="preserve">
+          <source>For example here's a query to retrieve books in descending order of their titles.</source>
+          <target state="new">For example here's a query to retrieve books in descending order of their titles.</target>
+        </trans-unit>
+        <trans-unit id="5e4eefad-c691-48b9-806a-e102b7601eec" xml:space="preserve">
+          <source>You can order using any nested property within documents like Books.ShippingDetails.Weight, and you can specify additional filters in the WHERE clause in combination with Order By like in this example:</source>
+          <target state="new">You can order using any nested property within documents like Books.ShippingDetails.Weight, and you can specify additional filters in the WHERE clause in combination with Order By like in this example:</target>
+        </trans-unit>
+        <trans-unit id="5cfd3ee8-4e02-4d04-85ae-3035975d1d0f" xml:space="preserve">
+          <source>Using the .NET SDK version 1.2.0 and higher, you can also use the OrderBy() or OrderByDescending() clause within LINQ queries like in this example:</source>
+          <target state="new">Using the .NET SDK version 1.2.0 and higher, you can also use the OrderBy() or OrderByDescending() clause within LINQ queries like in this example:</target>
+        </trans-unit>
+        <trans-unit id="fda7d1c4-ec38-488e-8a51-99609c3ad865" xml:space="preserve">
+          <source>Using the native paging support within the DocumentDB SDKs, you can retrieve results one page at a time like in the following .NET code snippet.</source>
+          <target state="new">Using the native paging support within the DocumentDB SDKs, you can retrieve results one page at a time like in the following .NET code snippet.</target>
+        </trans-unit>
+        <trans-unit id="c6ff64fd-c8f5-4b45-9cb4-5abbd033dd70" xml:space="preserve">
+          <source>Here we fetch results up to 10 at a time using the FeedOptions.MaxItemCount and the IDocumentQuery interface.</source>
+          <target state="new">Here we fetch results up to 10 at a time using the FeedOptions.MaxItemCount and the IDocumentQuery interface.</target>
+        </trans-unit>
+        <trans-unit id="cbb3e5ed-383f-4099-aec1-cba776d1bda4" xml:space="preserve">
+          <source>DocumentDB supports ordering with a single numeric, string or Boolean property per query, with additional query types coming soon.</source>
+          <target state="new">DocumentDB supports ordering with a single numeric, string or Boolean property per query, with additional query types coming soon.</target>
+        </trans-unit>
+        <trans-unit id="7e5af46c-9dac-4e41-97ec-a28eff4a5cd6" xml:space="preserve">
+          <source>Please see [What's coming next](#Whats<bpt id="f4a52b3b-1d6d-40e5-b179-ceb11ebeb3f4">&lt;em&gt;</bpt>coming<ept id="f4a52b3b-1d6d-40e5-b179-ceb11ebeb3f4">&lt;/em&gt;</ept>next) for more details.</source>
+          <target state="new">Please see [What's coming next](#Whats<bpt id="f4a52b3b-1d6d-40e5-b179-ceb11ebeb3f4">&lt;em&gt;</bpt>coming<ept id="f4a52b3b-1d6d-40e5-b179-ceb11ebeb3f4">&lt;/em&gt;</ept>next) for more details.</target>
+        </trans-unit>
+        <trans-unit id="9bd45c36-53a0-4499-8699-c553c9f6fb0d" xml:space="preserve">
+          <source>Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value).</source>
+          <target state="new">Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value).</target>
+        </trans-unit>
+        <trans-unit id="8f47ff13-ee03-48be-bdc3-211828ebb62d" xml:space="preserve">
+          <source>Since DocumentDB uses Hash indexing as default, you must create a new collection with a custom indexing policy with Range on numbers, strings or both, in order to use Order By.</source>
+          <target state="new">Since DocumentDB uses Hash indexing as default, you must create a new collection with a custom indexing policy with Range on numbers, strings or both, in order to use Order By.</target>
+        </trans-unit>
+        <trans-unit id="4753a7d3-9e46-489f-988f-1b06b5b72caf" xml:space="preserve">
+          <source>String range indexes were introduced on July 7, 2015 with REST API version 2015-06-03.</source>
+          <target state="new">String range indexes were introduced on July 7, 2015 with REST API version 2015-06-03.</target>
+        </trans-unit>
+        <trans-unit id="f51c0b47-7a2d-4173-9ce4-7b240e6a246e" xml:space="preserve">
+          <source>In order to create policies for Order By against strings, you must use SDK version 1.2.0 of the .NET SDK, or version 1.1.0 of the Python, Node.js or Java SDK.</source>
+          <target state="new">In order to create policies for Order By against strings, you must use SDK version 1.2.0 of the .NET SDK, or version 1.1.0 of the Python, Node.js or Java SDK.</target>
+        </trans-unit>
+        <trans-unit id="d87304b5-0420-496d-9364-737d61bdeaca" xml:space="preserve">
+          <source>Prior to REST API version 2015-06-03, the default collection indexing policy was Hash for both strings and numbers.</source>
+          <target state="new">Prior to REST API version 2015-06-03, the default collection indexing policy was Hash for both strings and numbers.</target>
+        </trans-unit>
+        <trans-unit id="492dd6a2-991c-4635-b846-e1283d86e198" xml:space="preserve">
+          <source>This has been changed to Hash for strings, and Range for numbers.</source>
+          <target state="new">This has been changed to Hash for strings, and Range for numbers.</target>
+        </trans-unit>
+        <trans-unit id="adfafcca-292e-48c7-9542-9e309112e37e" xml:space="preserve">
+          <source>For more details see <bpt id="3629ee42-7951-4732-abb3-105e4aac4f2f">&lt;linkText&gt;</bpt>DocumentDB indexing policies<ept id="3629ee42-7951-4732-abb3-105e4aac4f2f">&lt;/linkText&gt;</ept><bpt id="3629ee42-7951-4732-abb3-105e4aac4f2f">&lt;title&gt;</bpt><ept id="3629ee42-7951-4732-abb3-105e4aac4f2f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details see <bpt id="3629ee42-7951-4732-abb3-105e4aac4f2f">&lt;linkText&gt;</bpt>DocumentDB indexing policies<ept id="3629ee42-7951-4732-abb3-105e4aac4f2f">&lt;/linkText&gt;</ept><bpt id="3629ee42-7951-4732-abb3-105e4aac4f2f">&lt;title&gt;</bpt><ept id="3629ee42-7951-4732-abb3-105e4aac4f2f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c40cf511-ef32-4e2b-abd2-bf9830b99824" xml:space="preserve">
+          <source>Here's how you can create a collection with "All Range" indexing for Order By against any/all numeric or string properties that appear within JSON documents within it.</source>
+          <target state="new">Here's how you can create a collection with "All Range" indexing for Order By against any/all numeric or string properties that appear within JSON documents within it.</target>
+        </trans-unit>
+        <trans-unit id="bc2d4775-102a-470f-9150-266e3b5afa86" xml:space="preserve">
+          <source>Here, "/*" represents all JSON properties/paths within the collection, and -1 represents the maximum precision.</source>
+          <target state="new">Here, "/*" represents all JSON properties/paths within the collection, and -1 represents the maximum precision.</target>
+        </trans-unit>
+        <trans-unit id="b750aa33-78b3-46be-bae3-aa4c032c1f4d" xml:space="preserve">
+          <source>Note that Order By only will return results of the data types (String and Number) that are indexed with a RangeIndex.</source>
+          <target state="new">Note that Order By only will return results of the data types (String and Number) that are indexed with a RangeIndex.</target>
+        </trans-unit>
+        <trans-unit id="bf6ff514-5775-4268-9951-2e987eb8c71b" xml:space="preserve">
+          <source>For example, if you have the default indexing policy which only has RangeIndex on numbers, an Order By against a path with string values will return no documents.</source>
+          <target state="new">For example, if you have the default indexing policy which only has RangeIndex on numbers, an Order By against a path with string values will return no documents.</target>
+        </trans-unit>
+        <trans-unit id="ae9c65ca-c57d-43e4-8da7-957e2e4c738b" xml:space="preserve">
+          <source>Here's how you can create a collection with indexing for Order By against just the Title property, which is a string.</source>
+          <target state="new">Here's how you can create a collection with indexing for Order By against just the Title property, which is a string.</target>
+        </trans-unit>
+        <trans-unit id="02e57d75-cd88-4cd3-802f-75b247056abf" xml:space="preserve">
+          <source>There are two paths, one for the Title property ("/Title/?")</source>
+          <target state="new">There are two paths, one for the Title property ("/Title/?")</target>
+        </trans-unit>
+        <trans-unit id="654a29fb-915b-4fab-ac29-551c9516c261" xml:space="preserve">
+          <source>with Range indexing, and the other for every other property with the default indexing scheme, which is Hash for strings and Range for numbers.</source>
+          <target state="new">with Range indexing, and the other for every other property with the default indexing scheme, which is Hash for strings and Range for numbers.</target>
+        </trans-unit>
+        <trans-unit id="fc7cc0c7-b822-448e-8f39-a1661e9158b1" xml:space="preserve">
+          <source>Take a look at this <bpt id="97f9adb2-e238-4f62-ad9c-8a61218cbe09">&lt;linkText&gt;</bpt>Github samples project<ept id="97f9adb2-e238-4f62-ad9c-8a61218cbe09">&lt;/linkText&gt;</ept><bpt id="97f9adb2-e238-4f62-ad9c-8a61218cbe09">&lt;title&gt;</bpt><ept id="97f9adb2-e238-4f62-ad9c-8a61218cbe09">&lt;/title&gt;</ept> that demonstrates how to use Order By, including creating indexing policies and paging using Order By.</source>
+          <target state="new">Take a look at this <bpt id="97f9adb2-e238-4f62-ad9c-8a61218cbe09">&lt;linkText&gt;</bpt>Github samples project<ept id="97f9adb2-e238-4f62-ad9c-8a61218cbe09">&lt;/linkText&gt;</ept><bpt id="97f9adb2-e238-4f62-ad9c-8a61218cbe09">&lt;title&gt;</bpt><ept id="97f9adb2-e238-4f62-ad9c-8a61218cbe09">&lt;/title&gt;</ept> that demonstrates how to use Order By, including creating indexing policies and paging using Order By.</target>
+        </trans-unit>
+        <trans-unit id="4b5b12a5-c7a9-4a35-96cf-74d7a915c194" xml:space="preserve">
+          <source>The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers.</source>
+          <target state="new">The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers.</target>
+        </trans-unit>
+        <trans-unit id="57f28500-b08c-4f80-833e-7081332d5444" xml:space="preserve">
+          <source>Please refer to the <bpt id="1a2ec3b3-675a-4dd5-9a3e-b1f8fe135699">&lt;linkText&gt;</bpt>Contribution guidelines<ept id="1a2ec3b3-675a-4dd5-9a3e-b1f8fe135699">&lt;/linkText&gt;</ept><bpt id="1a2ec3b3-675a-4dd5-9a3e-b1f8fe135699">&lt;title&gt;</bpt><ept id="1a2ec3b3-675a-4dd5-9a3e-b1f8fe135699">&lt;/title&gt;</ept> for guidance on how to contribute.</source>
+          <target state="new">Please refer to the <bpt id="1a2ec3b3-675a-4dd5-9a3e-b1f8fe135699">&lt;linkText&gt;</bpt>Contribution guidelines<ept id="1a2ec3b3-675a-4dd5-9a3e-b1f8fe135699">&lt;/linkText&gt;</ept><bpt id="1a2ec3b3-675a-4dd5-9a3e-b1f8fe135699">&lt;title&gt;</bpt><ept id="1a2ec3b3-675a-4dd5-9a3e-b1f8fe135699">&lt;/title&gt;</ept> for guidance on how to contribute.</target>
+        </trans-unit>
+        <trans-unit id="b229cda3-562c-42d9-9faa-a5815d401c6b" xml:space="preserve">
+          <source>Future service updates will expand on the Order By support introduced here.</source>
+          <target state="new">Future service updates will expand on the Order By support introduced here.</target>
+        </trans-unit>
+        <trans-unit id="8a361b1c-cc3d-4b1a-972b-50c238ea20e2" xml:space="preserve">
+          <source>We are working on the following additions and will prioritize the release of these improvements based on your feedback:</source>
+          <target state="new">We are working on the following additions and will prioritize the release of these improvements based on your feedback:</target>
+        </trans-unit>
+        <trans-unit id="a3a86747-de5b-4622-a8d2-726829e0ff94" xml:space="preserve">
+          <source>Dynamic Indexing Policies: Support to modify indexing policy after collection creation and in the Azure Portal</source>
+          <target state="new">Dynamic Indexing Policies: Support to modify indexing policy after collection creation and in the Azure Portal</target>
+        </trans-unit>
+        <trans-unit id="7db509ec-9849-4b6e-aefb-4b0b9560a93a" xml:space="preserve">
+          <source>Support for Compound Indexes for more efficient Order By and Order By on multiple properties.</source>
+          <target state="new">Support for Compound Indexes for more efficient Order By and Order By on multiple properties.</target>
+        </trans-unit>
+        <trans-unit id="74440817-d6cc-4c3d-b67e-ca5a42f5a892" xml:space="preserve">
+          <source><bpt id="f3e9075b-a1b9-4a01-9dae-1e87e49c5d77">&lt;strong&gt;</bpt>Which platforms/versions of the SDK support ordering?<ept id="f3e9075b-a1b9-4a01-9dae-1e87e49c5d77">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f3e9075b-a1b9-4a01-9dae-1e87e49c5d77">&lt;strong&gt;</bpt>Which platforms/versions of the SDK support ordering?<ept id="f3e9075b-a1b9-4a01-9dae-1e87e49c5d77">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac345b16-b5d2-46ba-8e42-c9291ada0b0c" xml:space="preserve">
+          <source>In order to create collections with the indexing policy required for Order By, you must download the latest drop of the SDK (1.2.0 for .NET and 1.1.0 for Node.js, JavaScript, Python and Java).</source>
+          <target state="new">In order to create collections with the indexing policy required for Order By, you must download the latest drop of the SDK (1.2.0 for .NET and 1.1.0 for Node.js, JavaScript, Python and Java).</target>
+        </trans-unit>
+        <trans-unit id="a384f4cd-217d-4ab7-9436-22d56b50e9ae" xml:space="preserve">
+          <source>The .NET SDK 1.2.0 is also required to use OrderBy() and OrderByDescending() within LINQ expressions.</source>
+          <target state="new">The .NET SDK 1.2.0 is also required to use OrderBy() and OrderByDescending() within LINQ expressions.</target>
+        </trans-unit>
+        <trans-unit id="758e9a81-b7f9-4f4e-bb53-4be7dd66a8d6" xml:space="preserve">
+          <source><bpt id="7fb41c34-c392-4631-adc6-92e7ad1e1df1">&lt;strong&gt;</bpt>What is the expected Request Unit (RU) consumption of Order By queries?<ept id="7fb41c34-c392-4631-adc6-92e7ad1e1df1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7fb41c34-c392-4631-adc6-92e7ad1e1df1">&lt;strong&gt;</bpt>What is the expected Request Unit (RU) consumption of Order By queries?<ept id="7fb41c34-c392-4631-adc6-92e7ad1e1df1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0e5d5cb-fa61-401f-8c56-0ef14423268a" xml:space="preserve">
+          <source>Since Order By utilizes the DocumentDB index for lookups, the number of request units consumed by Order By queries will be similar to the equivalent queries without Order By.</source>
+          <target state="new">Since Order By utilizes the DocumentDB index for lookups, the number of request units consumed by Order By queries will be similar to the equivalent queries without Order By.</target>
+        </trans-unit>
+        <trans-unit id="523e7498-f06e-4f51-82d1-c3a315745bc8" xml:space="preserve">
+          <source>Like any other operation on DocumentDB, the number of request units depends on the sizes/shapes of documents as well as the complexity of the query.</source>
+          <target state="new">Like any other operation on DocumentDB, the number of request units depends on the sizes/shapes of documents as well as the complexity of the query.</target>
+        </trans-unit>
+        <trans-unit id="bd8d9f03-be62-458b-8202-292f37d9ff51" xml:space="preserve">
+          <source><bpt id="0838a695-62e7-4ea9-a2b7-63a6b0094ef9">&lt;strong&gt;</bpt>What is the expected indexing overhead for Order By?<ept id="0838a695-62e7-4ea9-a2b7-63a6b0094ef9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0838a695-62e7-4ea9-a2b7-63a6b0094ef9">&lt;strong&gt;</bpt>What is the expected indexing overhead for Order By?<ept id="0838a695-62e7-4ea9-a2b7-63a6b0094ef9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89dcd5f3-e2c4-48dc-88ef-140b2577cf09" xml:space="preserve">
+          <source>The indexing storage overhead will be proportionate to the number of properties.</source>
+          <target state="new">The indexing storage overhead will be proportionate to the number of properties.</target>
+        </trans-unit>
+        <trans-unit id="62e75694-421b-436c-abba-96b11b7499a5" xml:space="preserve">
+          <source>In the worst case scenario, the index overhead will be 100% of the data.</source>
+          <target state="new">In the worst case scenario, the index overhead will be 100% of the data.</target>
+        </trans-unit>
+        <trans-unit id="24f58af1-a468-46c4-b52d-8336a810b3ba" xml:space="preserve">
+          <source>There is no difference in throughput (Request Units) overhead between Range/Order By indexing and the default Hash indexing.</source>
+          <target state="new">There is no difference in throughput (Request Units) overhead between Range/Order By indexing and the default Hash indexing.</target>
+        </trans-unit>
+        <trans-unit id="8e93671a-2e83-4a53-b928-8740b3177473" xml:space="preserve">
+          <source><bpt id="eea0155e-7b68-44bc-8641-7865b7a7ce0e">&lt;strong&gt;</bpt>How do I query my existing data in DocumentDB using Order By?<ept id="eea0155e-7b68-44bc-8641-7865b7a7ce0e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="eea0155e-7b68-44bc-8641-7865b7a7ce0e">&lt;strong&gt;</bpt>How do I query my existing data in DocumentDB using Order By?<ept id="eea0155e-7b68-44bc-8641-7865b7a7ce0e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70912d2e-b0f7-46e0-9f0a-450a64891768" xml:space="preserve">
+          <source>This will be supported with the availability of the  Dynamic Indexing Policies improvement mentioned in the <bpt id="72bfebe4-2076-4e24-91bc-3e0cf7939bf4">&lt;linkText&gt;</bpt>What's Coming Next<ept id="72bfebe4-2076-4e24-91bc-3e0cf7939bf4">&lt;/linkText&gt;</ept><bpt id="72bfebe4-2076-4e24-91bc-3e0cf7939bf4">&lt;title&gt;</bpt><ept id="72bfebe4-2076-4e24-91bc-3e0cf7939bf4">&lt;/title&gt;</ept> section.</source>
+          <target state="new">This will be supported with the availability of the  Dynamic Indexing Policies improvement mentioned in the <bpt id="72bfebe4-2076-4e24-91bc-3e0cf7939bf4">&lt;linkText&gt;</bpt>What's Coming Next<ept id="72bfebe4-2076-4e24-91bc-3e0cf7939bf4">&lt;/linkText&gt;</ept><bpt id="72bfebe4-2076-4e24-91bc-3e0cf7939bf4">&lt;title&gt;</bpt><ept id="72bfebe4-2076-4e24-91bc-3e0cf7939bf4">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="883b70d4-bb84-4298-b50e-ec8de10193da" xml:space="preserve">
+          <source>In order to do this today, you have to export your data and re-import into a new DocumentDB collection created with a Range/Order By Index.</source>
+          <target state="new">In order to do this today, you have to export your data and re-import into a new DocumentDB collection created with a Range/Order By Index.</target>
+        </trans-unit>
+        <trans-unit id="d717056e-f922-4c32-a3c6-528952034c38" xml:space="preserve">
+          <source>The DocumentDB Import Tool can be used to migrate your data between collections.</source>
+          <target state="new">The DocumentDB Import Tool can be used to migrate your data between collections.</target>
+        </trans-unit>
+        <trans-unit id="9b48f94a-c433-4da1-86c6-6c394035e249" xml:space="preserve">
+          <source><bpt id="26c6b148-ffd0-4a50-8caf-17cc460c258a">&lt;strong&gt;</bpt>What are the current limitations of Order By?<ept id="26c6b148-ffd0-4a50-8caf-17cc460c258a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="26c6b148-ffd0-4a50-8caf-17cc460c258a">&lt;strong&gt;</bpt>What are the current limitations of Order By?<ept id="26c6b148-ffd0-4a50-8caf-17cc460c258a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="318ec5cf-719c-4335-99fe-2a3d6d40f918" xml:space="preserve">
+          <source>Order By can be specified only against a property, either numeric or String when it is range indexed with the Maximum Precision (-1).</source>
+          <target state="new">Order By can be specified only against a property, either numeric or String when it is range indexed with the Maximum Precision (-1).</target>
+        </trans-unit>
+        <trans-unit id="e2c1fd97-d8f1-4135-84fc-7f96871df48e" xml:space="preserve">
+          <source>You cannot perform the following:</source>
+          <target state="new">You cannot perform the following:</target>
+        </trans-unit>
+        <trans-unit id="1611d097-f610-4a3e-98c5-341122b01ba3" xml:space="preserve">
+          <source>Order By with internal string properties like id, _rid, and _self (coming soon).</source>
+          <target state="new">Order By with internal string properties like id, _rid, and _self (coming soon).</target>
+        </trans-unit>
+        <trans-unit id="cdd97691-f0e8-4d07-a2b4-b75fd54818c5" xml:space="preserve">
+          <source>Order By with properties derived from the result of an intra-document join (coming soon).</source>
+          <target state="new">Order By with properties derived from the result of an intra-document join (coming soon).</target>
+        </trans-unit>
+        <trans-unit id="ab533019-7c21-46f6-9439-cbbcd929e1db" xml:space="preserve">
+          <source>Order By multiple properties (coming soon).</source>
+          <target state="new">Order By multiple properties (coming soon).</target>
+        </trans-unit>
+        <trans-unit id="f06668a9-39fe-4f3a-be95-69e9c58e750a" xml:space="preserve">
+          <source>Order By with queries on databases, collections, users, permissions or attachments (coming soon).</source>
+          <target state="new">Order By with queries on databases, collections, users, permissions or attachments (coming soon).</target>
+        </trans-unit>
+        <trans-unit id="7a0bf7c8-0c92-4202-b847-6e5411927bcd" xml:space="preserve">
+          <source>Order By with computed properties e.g. the result of an expression or a UDF/built-in function.</source>
+          <target state="new">Order By with computed properties e.g. the result of an expression or a UDF/built-in function.</target>
+        </trans-unit>
+        <trans-unit id="f16011c5-6b56-4782-9b44-b72e1174b2fa" xml:space="preserve">
+          <source>Fork the <bpt id="ffaa946c-8b86-411d-a5bf-74d4d11c7bea">&lt;linkText&gt;</bpt>Github samples project<ept id="ffaa946c-8b86-411d-a5bf-74d4d11c7bea">&lt;/linkText&gt;</ept><bpt id="ffaa946c-8b86-411d-a5bf-74d4d11c7bea">&lt;title&gt;</bpt><ept id="ffaa946c-8b86-411d-a5bf-74d4d11c7bea">&lt;/title&gt;</ept> and start ordering your data!</source>
+          <target state="new">Fork the <bpt id="ffaa946c-8b86-411d-a5bf-74d4d11c7bea">&lt;linkText&gt;</bpt>Github samples project<ept id="ffaa946c-8b86-411d-a5bf-74d4d11c7bea">&lt;/linkText&gt;</ept><bpt id="ffaa946c-8b86-411d-a5bf-74d4d11c7bea">&lt;title&gt;</bpt><ept id="ffaa946c-8b86-411d-a5bf-74d4d11c7bea">&lt;/title&gt;</ept> and start ordering your data!</target>
+        </trans-unit>
+        <trans-unit id="ff1e6cba-fd5a-4e60-bb62-901916ade417" xml:space="preserve">
+          <source><bpt id="41d25877-f20f-4839-aff2-43a3965398de">&lt;linkText&gt;</bpt>DocumentDB Query Reference<ept id="41d25877-f20f-4839-aff2-43a3965398de">&lt;/linkText&gt;</ept><bpt id="41d25877-f20f-4839-aff2-43a3965398de">&lt;title&gt;</bpt><ept id="41d25877-f20f-4839-aff2-43a3965398de">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="41d25877-f20f-4839-aff2-43a3965398de">&lt;linkText&gt;</bpt>DocumentDB Query Reference<ept id="41d25877-f20f-4839-aff2-43a3965398de">&lt;/linkText&gt;</ept><bpt id="41d25877-f20f-4839-aff2-43a3965398de">&lt;title&gt;</bpt><ept id="41d25877-f20f-4839-aff2-43a3965398de">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="647046cf-7449-4852-81dc-5639c9e3fc56" xml:space="preserve">
+          <source><bpt id="c41d3d3a-35ab-4f79-9d1b-134c266b5217">&lt;linkText&gt;</bpt>DocumentDB Indexing Policy Reference<ept id="c41d3d3a-35ab-4f79-9d1b-134c266b5217">&lt;/linkText&gt;</ept><bpt id="c41d3d3a-35ab-4f79-9d1b-134c266b5217">&lt;title&gt;</bpt><ept id="c41d3d3a-35ab-4f79-9d1b-134c266b5217">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c41d3d3a-35ab-4f79-9d1b-134c266b5217">&lt;linkText&gt;</bpt>DocumentDB Indexing Policy Reference<ept id="c41d3d3a-35ab-4f79-9d1b-134c266b5217">&lt;/linkText&gt;</ept><bpt id="c41d3d3a-35ab-4f79-9d1b-134c266b5217">&lt;title&gt;</bpt><ept id="c41d3d3a-35ab-4f79-9d1b-134c266b5217">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c95e39e1-299e-420a-8770-49c31758e7f6" xml:space="preserve">
+          <source><bpt id="8a2307aa-5b77-4112-a782-b43a94dccdc2">&lt;linkText&gt;</bpt>DocumentDB SQL Reference<ept id="8a2307aa-5b77-4112-a782-b43a94dccdc2">&lt;/linkText&gt;</ept><bpt id="8a2307aa-5b77-4112-a782-b43a94dccdc2">&lt;title&gt;</bpt><ept id="8a2307aa-5b77-4112-a782-b43a94dccdc2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8a2307aa-5b77-4112-a782-b43a94dccdc2">&lt;linkText&gt;</bpt>DocumentDB SQL Reference<ept id="8a2307aa-5b77-4112-a782-b43a94dccdc2">&lt;/linkText&gt;</ept><bpt id="8a2307aa-5b77-4112-a782-b43a94dccdc2">&lt;title&gt;</bpt><ept id="8a2307aa-5b77-4112-a782-b43a94dccdc2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ddb605b-1056-487e-84b8-b354a6f538a1" xml:space="preserve">
+          <source><bpt id="b01d708f-4ee3-4e1d-b703-1ca7630cb162">&lt;linkText&gt;</bpt>DocumentDB Order By Samples<ept id="b01d708f-4ee3-4e1d-b703-1ca7630cb162">&lt;/linkText&gt;</ept><bpt id="b01d708f-4ee3-4e1d-b703-1ca7630cb162">&lt;title&gt;</bpt><ept id="b01d708f-4ee3-4e1d-b703-1ca7630cb162">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b01d708f-4ee3-4e1d-b703-1ca7630cb162">&lt;linkText&gt;</bpt>DocumentDB Order By Samples<ept id="b01d708f-4ee3-4e1d-b703-1ca7630cb162">&lt;/linkText&gt;</ept><bpt id="b01d708f-4ee3-4e1d-b703-1ca7630cb162">&lt;title&gt;</bpt><ept id="b01d708f-4ee3-4e1d-b703-1ca7630cb162">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

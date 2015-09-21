@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="df7a450a-959c-42b2-bd4f-d2ba2d6a6741" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="df7a450a-959c-42b2-bd4f-d2ba2d6a6741" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b05e1097-49f6-46e5-8dd4-1dad6aec0832">
+        <trans-unit id="1957c026-fd45-4125-8238-8927bb47db4f" xml:space="preserve">
+          <source>Parallel Bulk Data Import Using SQL Partition Tables | Microsoft Azure</source>
+          <target state="new">Parallel Bulk Data Import Using SQL Partition Tables | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="75b8b7b6-7435-4ce1-b77e-fa73f3458c9b" xml:space="preserve">
+          <source>Parallel Bulk Data Import Using SQL Partition Tables</source>
+          <target state="new">Parallel Bulk Data Import Using SQL Partition Tables</target>
+        </trans-unit>
+        <trans-unit id="23dcb0be-8d7f-4fb3-aee4-6996b37febe9" xml:space="preserve">
+          <source>For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using <bpt id="6d07bb94-92a1-4bbb-82f8-5efb2505046f">&lt;em&gt;</bpt>Partitioned Tables and Views<ept id="6d07bb94-92a1-4bbb-82f8-5efb2505046f">&lt;/em&gt;</ept>.</source>
+          <target state="new">For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using <bpt id="6d07bb94-92a1-4bbb-82f8-5efb2505046f">&lt;em&gt;</bpt>Partitioned Tables and Views<ept id="6d07bb94-92a1-4bbb-82f8-5efb2505046f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4293222d-f22f-4e0c-a97b-578d6e229110" xml:space="preserve">
+          <source>This document describes how to build partitioned table(s) for fast parallel bluk importing of data to a SQL Server database.</source>
+          <target state="new">This document describes how to build partitioned table(s) for fast parallel bluk importing of data to a SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="aee02fb1-e026-4e2c-9364-28c9a1cbb193" xml:space="preserve">
+          <source><bpt id="ce133adb-43a5-4439-b20c-fc3f5a8321d6">&lt;linkText&gt;</bpt>Create a new database<ept id="ce133adb-43a5-4439-b20c-fc3f5a8321d6">&lt;/linkText&gt;</ept><bpt id="ce133adb-43a5-4439-b20c-fc3f5a8321d6">&lt;title&gt;</bpt><ept id="ce133adb-43a5-4439-b20c-fc3f5a8321d6">&lt;/title&gt;</ept> (if not exists)</source>
+          <target state="new"><bpt id="ce133adb-43a5-4439-b20c-fc3f5a8321d6">&lt;linkText&gt;</bpt>Create a new database<ept id="ce133adb-43a5-4439-b20c-fc3f5a8321d6">&lt;/linkText&gt;</ept><bpt id="ce133adb-43a5-4439-b20c-fc3f5a8321d6">&lt;title&gt;</bpt><ept id="ce133adb-43a5-4439-b20c-fc3f5a8321d6">&lt;/title&gt;</ept> (if not exists)</target>
+        </trans-unit>
+        <trans-unit id="92926f4d-ec38-4e59-a2fa-9cb284831bd3" xml:space="preserve">
+          <source>Add database filegroups to the database which will hold the partitioned physical files</source>
+          <target state="new">Add database filegroups to the database which will hold the partitioned physical files</target>
+        </trans-unit>
+        <trans-unit id="cac40795-0ebf-4da8-9ef7-d193d99484fd" xml:space="preserve">
+          <source>Note: This can be done with <bpt id="1b057f85-0177-438e-bf12-329c53c49927">&lt;linkText&gt;</bpt>CREATE DATABASE<ept id="1b057f85-0177-438e-bf12-329c53c49927">&lt;/linkText&gt;</ept><bpt id="1b057f85-0177-438e-bf12-329c53c49927">&lt;title&gt;</bpt><ept id="1b057f85-0177-438e-bf12-329c53c49927">&lt;/title&gt;</ept> if new or <bpt id="1766fab5-bce1-46b8-9723-256087bfaf12">&lt;linkText&gt;</bpt>ALTER DATABASE<ept id="1766fab5-bce1-46b8-9723-256087bfaf12">&lt;/linkText&gt;</ept><bpt id="1766fab5-bce1-46b8-9723-256087bfaf12">&lt;title&gt;</bpt><ept id="1766fab5-bce1-46b8-9723-256087bfaf12">&lt;/title&gt;</ept> if database exists already</source>
+          <target state="new">Note: This can be done with <bpt id="1b057f85-0177-438e-bf12-329c53c49927">&lt;linkText&gt;</bpt>CREATE DATABASE<ept id="1b057f85-0177-438e-bf12-329c53c49927">&lt;/linkText&gt;</ept><bpt id="1b057f85-0177-438e-bf12-329c53c49927">&lt;title&gt;</bpt><ept id="1b057f85-0177-438e-bf12-329c53c49927">&lt;/title&gt;</ept> if new or <bpt id="1766fab5-bce1-46b8-9723-256087bfaf12">&lt;linkText&gt;</bpt>ALTER DATABASE<ept id="1766fab5-bce1-46b8-9723-256087bfaf12">&lt;/linkText&gt;</ept><bpt id="1766fab5-bce1-46b8-9723-256087bfaf12">&lt;title&gt;</bpt><ept id="1766fab5-bce1-46b8-9723-256087bfaf12">&lt;/title&gt;</ept> if database exists already</target>
+        </trans-unit>
+        <trans-unit id="a84eb6b3-6bf5-4709-b917-4f8f9044e522" xml:space="preserve">
+          <source>Add one or more files (as needed) to each database filegroup</source>
+          <target state="new">Add one or more files (as needed) to each database filegroup</target>
+        </trans-unit>
+        <trans-unit id="c3503bf7-4b24-4412-9d31-8a2e1a2fe059" xml:space="preserve">
+          <source>Specify the target filegroup which will hold data for this partition and the physical database file name(s) where the filegroup data will be stored.</source>
+          <target state="new">Specify the target filegroup which will hold data for this partition and the physical database file name(s) where the filegroup data will be stored.</target>
+        </trans-unit>
+        <trans-unit id="0e868138-612f-49e3-a6e2-a2d7dfdd41b4" xml:space="preserve">
+          <source>The following example creates a new database with three filegroups other than the primary and log groups, containing one physical file in each.</source>
+          <target state="new">The following example creates a new database with three filegroups other than the primary and log groups, containing one physical file in each.</target>
+        </trans-unit>
+        <trans-unit id="99880c9c-5a3e-4286-be59-f7be0d88da0f" xml:space="preserve">
+          <source>The database files are created in the default SQL Server Data folder, as configured in the SQL Server instance.</source>
+          <target state="new">The database files are created in the default SQL Server Data folder, as configured in the SQL Server instance.</target>
+        </trans-unit>
+        <trans-unit id="7f8c3c65-8442-4994-a496-33b0d4247c4b" xml:space="preserve">
+          <source>For more information about the default file locations, see <bpt id="ada76a46-fb14-4a10-90ef-f133e1870d7c">&lt;linkText&gt;</bpt>File Locations for Default and Named Instances of SQL Server<ept id="ada76a46-fb14-4a10-90ef-f133e1870d7c">&lt;/linkText&gt;</ept><bpt id="ada76a46-fb14-4a10-90ef-f133e1870d7c">&lt;title&gt;</bpt><ept id="ada76a46-fb14-4a10-90ef-f133e1870d7c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the default file locations, see <bpt id="ada76a46-fb14-4a10-90ef-f133e1870d7c">&lt;linkText&gt;</bpt>File Locations for Default and Named Instances of SQL Server<ept id="ada76a46-fb14-4a10-90ef-f133e1870d7c">&lt;/linkText&gt;</ept><bpt id="ada76a46-fb14-4a10-90ef-f133e1870d7c">&lt;title&gt;</bpt><ept id="ada76a46-fb14-4a10-90ef-f133e1870d7c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad7ef69f-8f6e-4cb9-8d9b-1dc1c1c61ce8" xml:space="preserve">
+          <source>Create partitioned table(s) according to the data schema, mapped to the database filegroups created in the previous step.</source>
+          <target state="new">Create partitioned table(s) according to the data schema, mapped to the database filegroups created in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="600a6f18-368a-4138-ad07-160193e80fa3" xml:space="preserve">
+          <source>When data is bulk imported to the partitioned table(s), records will be distributed among the filegroups according to a partition scheme, as described below.</source>
+          <target state="new">When data is bulk imported to the partitioned table(s), records will be distributed among the filegroups according to a partition scheme, as described below.</target>
+        </trans-unit>
+        <trans-unit id="54510dba-2090-4741-acd7-f56e32d7d29c" xml:space="preserve">
+          <source><bpt id="6bd16e0a-5225-4285-afa7-d9acd13ccb16">&lt;strong&gt;</bpt>To create a partition table, you need to:<ept id="6bd16e0a-5225-4285-afa7-d9acd13ccb16">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6bd16e0a-5225-4285-afa7-d9acd13ccb16">&lt;strong&gt;</bpt>To create a partition table, you need to:<ept id="6bd16e0a-5225-4285-afa7-d9acd13ccb16">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37adba74-3666-48ee-bd72-b82e7b8f117a" xml:space="preserve">
+          <source><bpt id="e8882115-9bbf-4514-adbe-035b33fef131">&lt;linkText&gt;</bpt>Create a partition function<ept id="e8882115-9bbf-4514-adbe-035b33fef131">&lt;/linkText&gt;</ept><bpt id="e8882115-9bbf-4514-adbe-035b33fef131">&lt;title&gt;</bpt><ept id="e8882115-9bbf-4514-adbe-035b33fef131">&lt;/title&gt;</ept> which defines the range of values/boundaries to be included in each individual partition table, e.g., to limit partitions by month(some\<bpt id="679be71b-c7ca-4e44-9ae4-cba5ba54d3f4">&lt;em&gt;</bpt>datetime\<ept id="679be71b-c7ca-4e44-9ae4-cba5ba54d3f4">&lt;/em&gt;</ept>field) in the year 2013:</source>
+          <target state="new"><bpt id="e8882115-9bbf-4514-adbe-035b33fef131">&lt;linkText&gt;</bpt>Create a partition function<ept id="e8882115-9bbf-4514-adbe-035b33fef131">&lt;/linkText&gt;</ept><bpt id="e8882115-9bbf-4514-adbe-035b33fef131">&lt;title&gt;</bpt><ept id="e8882115-9bbf-4514-adbe-035b33fef131">&lt;/title&gt;</ept> which defines the range of values/boundaries to be included in each individual partition table, e.g., to limit partitions by month(some\<bpt id="679be71b-c7ca-4e44-9ae4-cba5ba54d3f4">&lt;em&gt;</bpt>datetime\<ept id="679be71b-c7ca-4e44-9ae4-cba5ba54d3f4">&lt;/em&gt;</ept>field) in the year 2013:</target>
+        </trans-unit>
+        <trans-unit id="701fd739-6c48-4e9d-a3dc-e65d605548fc" xml:space="preserve">
+          <source><bpt id="c2fbc78f-eab9-40f7-a113-951165ae9956">&lt;linkText&gt;</bpt>Create a partition scheme<ept id="c2fbc78f-eab9-40f7-a113-951165ae9956">&lt;/linkText&gt;</ept><bpt id="c2fbc78f-eab9-40f7-a113-951165ae9956">&lt;title&gt;</bpt><ept id="c2fbc78f-eab9-40f7-a113-951165ae9956">&lt;/title&gt;</ept> which maps each partition range in the partition function to a physical filegroup, e.g.:</source>
+          <target state="new"><bpt id="c2fbc78f-eab9-40f7-a113-951165ae9956">&lt;linkText&gt;</bpt>Create a partition scheme<ept id="c2fbc78f-eab9-40f7-a113-951165ae9956">&lt;/linkText&gt;</ept><bpt id="c2fbc78f-eab9-40f7-a113-951165ae9956">&lt;title&gt;</bpt><ept id="c2fbc78f-eab9-40f7-a113-951165ae9956">&lt;/title&gt;</ept> which maps each partition range in the partition function to a physical filegroup, e.g.:</target>
+        </trans-unit>
+        <trans-unit id="79f53415-1188-4a45-9784-f5a376e6e329" xml:space="preserve">
+          <source>Tip: To verify the ranges in effect in each partition according to the function/scheme, run the following query:</source>
+          <target state="new">Tip: To verify the ranges in effect in each partition according to the function/scheme, run the following query:</target>
+        </trans-unit>
+        <trans-unit id="29968135-8e1f-460c-a787-bbfe20bb0932" xml:space="preserve">
+          <source><bpt id="2fd604a3-21ce-43c8-bd60-b9e9df812e55">&lt;linkText&gt;</bpt>Create partitioned table<ept id="2fd604a3-21ce-43c8-bd60-b9e9df812e55">&lt;/linkText&gt;</ept><bpt id="2fd604a3-21ce-43c8-bd60-b9e9df812e55">&lt;title&gt;</bpt><ept id="2fd604a3-21ce-43c8-bd60-b9e9df812e55">&lt;/title&gt;</ept>(s) according to your data schema, and specify the partition scheme and constraint field used to partition the table, e.g.:</source>
+          <target state="new"><bpt id="2fd604a3-21ce-43c8-bd60-b9e9df812e55">&lt;linkText&gt;</bpt>Create partitioned table<ept id="2fd604a3-21ce-43c8-bd60-b9e9df812e55">&lt;/linkText&gt;</ept><bpt id="2fd604a3-21ce-43c8-bd60-b9e9df812e55">&lt;title&gt;</bpt><ept id="2fd604a3-21ce-43c8-bd60-b9e9df812e55">&lt;/title&gt;</ept>(s) according to your data schema, and specify the partition scheme and constraint field used to partition the table, e.g.:</target>
+        </trans-unit>
+        <trans-unit id="a39c0fd7-d996-4ac9-a8f0-895d673df263" xml:space="preserve">
+          <source>For more information, see <bpt id="82bf7757-cc88-49d7-a1b2-fbc3f6ccb35a">&lt;linkText&gt;</bpt>Create Partitioned Tables and Indexes<ept id="82bf7757-cc88-49d7-a1b2-fbc3f6ccb35a">&lt;/linkText&gt;</ept><bpt id="82bf7757-cc88-49d7-a1b2-fbc3f6ccb35a">&lt;title&gt;</bpt><ept id="82bf7757-cc88-49d7-a1b2-fbc3f6ccb35a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="82bf7757-cc88-49d7-a1b2-fbc3f6ccb35a">&lt;linkText&gt;</bpt>Create Partitioned Tables and Indexes<ept id="82bf7757-cc88-49d7-a1b2-fbc3f6ccb35a">&lt;/linkText&gt;</ept><bpt id="82bf7757-cc88-49d7-a1b2-fbc3f6ccb35a">&lt;title&gt;</bpt><ept id="82bf7757-cc88-49d7-a1b2-fbc3f6ccb35a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="064c4253-b404-4358-a7e9-8d001cbc22ea" xml:space="preserve">
+          <source>You may use BCP, BULK INSERT, or other methods such as <bpt id="8d1a7c99-3e9d-4b79-9aec-755d8a171b9e">&lt;linkText&gt;</bpt>SQL Server Migration Wizard<ept id="8d1a7c99-3e9d-4b79-9aec-755d8a171b9e">&lt;/linkText&gt;</ept><bpt id="8d1a7c99-3e9d-4b79-9aec-755d8a171b9e">&lt;title&gt;</bpt><ept id="8d1a7c99-3e9d-4b79-9aec-755d8a171b9e">&lt;/title&gt;</ept>.</source>
+          <target state="new">You may use BCP, BULK INSERT, or other methods such as <bpt id="8d1a7c99-3e9d-4b79-9aec-755d8a171b9e">&lt;linkText&gt;</bpt>SQL Server Migration Wizard<ept id="8d1a7c99-3e9d-4b79-9aec-755d8a171b9e">&lt;/linkText&gt;</ept><bpt id="8d1a7c99-3e9d-4b79-9aec-755d8a171b9e">&lt;title&gt;</bpt><ept id="8d1a7c99-3e9d-4b79-9aec-755d8a171b9e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8aee0457-78b8-47a4-89fc-31b403fab18a" xml:space="preserve">
+          <source>The example provided uses the BCP method.</source>
+          <target state="new">The example provided uses the BCP method.</target>
+        </trans-unit>
+        <trans-unit id="5d40727b-0ba9-4421-b6f5-f936e5082f04" xml:space="preserve">
+          <source><bpt id="bd7605ae-8b40-4fcb-a2c7-b7478d994ec9">&lt;linkText&gt;</bpt>Alter the database<ept id="bd7605ae-8b40-4fcb-a2c7-b7478d994ec9">&lt;/linkText&gt;</ept><bpt id="bd7605ae-8b40-4fcb-a2c7-b7478d994ec9">&lt;title&gt;</bpt><ept id="bd7605ae-8b40-4fcb-a2c7-b7478d994ec9">&lt;/title&gt;</ept> to change transaction logging scheme to BULK_LOGGED to minimize overhead of logging, e.g.:</source>
+          <target state="new"><bpt id="bd7605ae-8b40-4fcb-a2c7-b7478d994ec9">&lt;linkText&gt;</bpt>Alter the database<ept id="bd7605ae-8b40-4fcb-a2c7-b7478d994ec9">&lt;/linkText&gt;</ept><bpt id="bd7605ae-8b40-4fcb-a2c7-b7478d994ec9">&lt;title&gt;</bpt><ept id="bd7605ae-8b40-4fcb-a2c7-b7478d994ec9">&lt;/title&gt;</ept> to change transaction logging scheme to BULK_LOGGED to minimize overhead of logging, e.g.:</target>
+        </trans-unit>
+        <trans-unit id="a392ce32-a974-495d-a4a5-2333724c0b79" xml:space="preserve">
+          <source>To expedite data loading, launch the bulk import operations in parallel.</source>
+          <target state="new">To expedite data loading, launch the bulk import operations in parallel.</target>
+        </trans-unit>
+        <trans-unit id="acb4f52a-24e8-4cb6-8a32-c42e0dca8a29" xml:space="preserve">
+          <source>For tips on expediting bulk importing of big data into SQL Server databases, see <bpt id="59b32e7a-7760-404c-a31a-19bfb3f6177d">&lt;linkText&gt;</bpt>Load 1TB in less than 1 hour<ept id="59b32e7a-7760-404c-a31a-19bfb3f6177d">&lt;/linkText&gt;</ept><bpt id="59b32e7a-7760-404c-a31a-19bfb3f6177d">&lt;title&gt;</bpt><ept id="59b32e7a-7760-404c-a31a-19bfb3f6177d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For tips on expediting bulk importing of big data into SQL Server databases, see <bpt id="59b32e7a-7760-404c-a31a-19bfb3f6177d">&lt;linkText&gt;</bpt>Load 1TB in less than 1 hour<ept id="59b32e7a-7760-404c-a31a-19bfb3f6177d">&lt;/linkText&gt;</ept><bpt id="59b32e7a-7760-404c-a31a-19bfb3f6177d">&lt;title&gt;</bpt><ept id="59b32e7a-7760-404c-a31a-19bfb3f6177d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6bbb9ec7-b078-4778-a8b4-eacd7339f00b" xml:space="preserve">
+          <source>The following PowerShell script is an example of parallel data loading using BCP.</source>
+          <target state="new">The following PowerShell script is an example of parallel data loading using BCP.</target>
+        </trans-unit>
+        <trans-unit id="a6c6c9db-885c-40f7-9480-23297ebbe022" xml:space="preserve">
+          <source>If you will extract data for modeling from multiple tables, create indexes on the join keys to improve the join performance.</source>
+          <target state="new">If you will extract data for modeling from multiple tables, create indexes on the join keys to improve the join performance.</target>
+        </trans-unit>
+        <trans-unit id="b192b3bb-5b2d-4fe1-9520-5dbb9fd63a1c" xml:space="preserve">
+          <source><bpt id="e81ed8ad-b6fe-4b7c-bed1-ba7fc61992dc">&lt;linkText&gt;</bpt>Create indexes<ept id="e81ed8ad-b6fe-4b7c-bed1-ba7fc61992dc">&lt;/linkText&gt;</ept><bpt id="e81ed8ad-b6fe-4b7c-bed1-ba7fc61992dc">&lt;title&gt;</bpt><ept id="e81ed8ad-b6fe-4b7c-bed1-ba7fc61992dc">&lt;/title&gt;</ept> (clustered or non-clustered) targeting the same filegroup for each partition, for e.g.:</source>
+          <target state="new"><bpt id="e81ed8ad-b6fe-4b7c-bed1-ba7fc61992dc">&lt;linkText&gt;</bpt>Create indexes<ept id="e81ed8ad-b6fe-4b7c-bed1-ba7fc61992dc">&lt;/linkText&gt;</ept><bpt id="e81ed8ad-b6fe-4b7c-bed1-ba7fc61992dc">&lt;title&gt;</bpt><ept id="e81ed8ad-b6fe-4b7c-bed1-ba7fc61992dc">&lt;/title&gt;</ept> (clustered or non-clustered) targeting the same filegroup for each partition, for e.g.:</target>
+        </trans-unit>
+        <trans-unit id="a873db9b-6f9a-4f72-a0c9-60aa9eb5548c" xml:space="preserve">
+          <source>You may choose to create the indexes before bulk importing the data.</source>
+          <target state="new">You may choose to create the indexes before bulk importing the data.</target>
+        </trans-unit>
+        <trans-unit id="5c5ea445-cd8f-41b9-b5c4-0985237f264d" xml:space="preserve">
+          <source>Index creation before bulk importing will slow down the data loading.</source>
+          <target state="new">Index creation before bulk importing will slow down the data loading.</target>
+        </trans-unit>
+        <trans-unit id="9a304aae-84b6-466f-9df6-3bbd6abe0826" xml:space="preserve">
+          <source>For an end-to-end walkthrough example using the Advanced Analytics Process and Technology (ADAPT) with a public dataset, see <bpt id="b856ce0d-cbf6-4024-b2a3-d063b519ff6e">&lt;linkText&gt;</bpt>Advanced Analytics Process and Technology in Action: using SQL Server<ept id="b856ce0d-cbf6-4024-b2a3-d063b519ff6e">&lt;/linkText&gt;</ept><bpt id="b856ce0d-cbf6-4024-b2a3-d063b519ff6e">&lt;title&gt;</bpt><ept id="b856ce0d-cbf6-4024-b2a3-d063b519ff6e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an end-to-end walkthrough example using the Advanced Analytics Process and Technology (ADAPT) with a public dataset, see <bpt id="b856ce0d-cbf6-4024-b2a3-d063b519ff6e">&lt;linkText&gt;</bpt>Advanced Analytics Process and Technology in Action: using SQL Server<ept id="b856ce0d-cbf6-4024-b2a3-d063b519ff6e">&lt;/linkText&gt;</ept><bpt id="b856ce0d-cbf6-4024-b2a3-d063b519ff6e">&lt;title&gt;</bpt><ept id="b856ce0d-cbf6-4024-b2a3-d063b519ff6e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

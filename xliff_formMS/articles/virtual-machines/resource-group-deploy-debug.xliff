@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5d8a6385-3537-414b-a03b-5b53665196ae" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5d8a6385-3537-414b-a03b-5b53665196ae" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f24417a2-ed61-448e-ae74-4c82824e5d8d">
+        <trans-unit id="70bc1fb2-55c2-4069-95aa-d1442b76de7e" xml:space="preserve">
+          <source>Troubleshooting resource group deployments in Azure</source>
+          <target state="new">Troubleshooting resource group deployments in Azure</target>
+        </trans-unit>
+        <trans-unit id="a739588a-ca0d-49b4-8447-797476e507ed" xml:space="preserve">
+          <source>Describes common problems deploying resources in Azure, and shows how to use the Azure portal, the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI), and PowerShell to examine deployments and detect issues.</source>
+          <target state="new">Describes common problems deploying resources in Azure, and shows how to use the Azure portal, the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI), and PowerShell to examine deployments and detect issues.</target>
+        </trans-unit>
+        <trans-unit id="85858507-7a2d-4274-a6cf-d8dd322c8a7b" xml:space="preserve">
+          <source>Deployments can fail for any number of reasons.</source>
+          <target state="new">Deployments can fail for any number of reasons.</target>
+        </trans-unit>
+        <trans-unit id="1299968c-2279-42b1-9e44-3815b05d82e8" xml:space="preserve">
+          <source>It is far better to prevent deployment errors by checking a few things in advance.</source>
+          <target state="new">It is far better to prevent deployment errors by checking a few things in advance.</target>
+        </trans-unit>
+        <trans-unit id="51d0a75c-49d9-430c-afd4-8b858cc7257a" xml:space="preserve">
+          <source>This document describes tools and operations to prevent simple mistakes, to download template files, and to examine deployment logs.</source>
+          <target state="new">This document describes tools and operations to prevent simple mistakes, to download template files, and to examine deployment logs.</target>
+        </trans-unit>
+        <trans-unit id="9e48a9ed-ac8e-4d1d-9d1c-6d113f8a5014" xml:space="preserve">
+          <source>It also discusses the main areas to think about when examining deployment logs for failures.</source>
+          <target state="new">It also discusses the main areas to think about when examining deployment logs for failures.</target>
+        </trans-unit>
+        <trans-unit id="21ee5ac6-b52c-4f23-94bd-cbeae2cbe35d" xml:space="preserve">
+          <source>When you work with your Azure resources from the command-line, you will collect tools that help you do your work.</source>
+          <target state="new">When you work with your Azure resources from the command-line, you will collect tools that help you do your work.</target>
+        </trans-unit>
+        <trans-unit id="3d439cf2-8e0c-4851-a122-2fee45644329" xml:space="preserve">
+          <source>Azure resource group templates are JSON documents, and the Azure Resource Manager API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.</source>
+          <target state="new">Azure resource group templates are JSON documents, and the Azure Resource Manager API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.</target>
+        </trans-unit>
+        <trans-unit id="536966d6-f21f-4cc8-a91c-e56788670d27" xml:space="preserve">
+          <source>If you use the Azure Command-Line Interface for Mac, Linux, and Windows, you are probably familiar with standard download tools such as <bpt id="b8cff7ef-700b-4c42-836f-c8ec2afa07ee">&lt;strong&gt;</bpt>[curl](http://curl.haxx.se/)<ept id="b8cff7ef-700b-4c42-836f-c8ec2afa07ee">&lt;/strong&gt;</ept> and <bpt id="39b27704-85e6-4720-b779-735083027d78">&lt;strong&gt;</bpt>[wget](https://www.gnu.org/software/wget/)<ept id="39b27704-85e6-4720-b779-735083027d78">&lt;/strong&gt;</ept>, or <bpt id="3c93cff3-e8f4-4c24-8b56-7a19e7cbf11d">&lt;strong&gt;</bpt>[Resty](https://github.com/beders/Resty)<ept id="3c93cff3-e8f4-4c24-8b56-7a19e7cbf11d">&lt;/strong&gt;</ept>, and JSON utilities such as <bpt id="b3da4c03-d5ab-41d5-aabb-000ced83c62a">&lt;strong&gt;</bpt>[jq](http://stedolan.github.io/jq/download/)<ept id="b3da4c03-d5ab-41d5-aabb-000ced83c62a">&lt;/strong&gt;</ept>, <bpt id="10b067ca-8133-4310-bfb6-00344868f4d8">&lt;strong&gt;</bpt>[jsawk](https://github.com/micha/jsawk)<ept id="10b067ca-8133-4310-bfb6-00344868f4d8">&lt;/strong&gt;</ept>, and language libraries that handle JSON well.</source>
+          <target state="new">If you use the Azure Command-Line Interface for Mac, Linux, and Windows, you are probably familiar with standard download tools such as <bpt id="b8cff7ef-700b-4c42-836f-c8ec2afa07ee">&lt;strong&gt;</bpt>[curl](http://curl.haxx.se/)<ept id="b8cff7ef-700b-4c42-836f-c8ec2afa07ee">&lt;/strong&gt;</ept> and <bpt id="39b27704-85e6-4720-b779-735083027d78">&lt;strong&gt;</bpt>[wget](https://www.gnu.org/software/wget/)<ept id="39b27704-85e6-4720-b779-735083027d78">&lt;/strong&gt;</ept>, or <bpt id="3c93cff3-e8f4-4c24-8b56-7a19e7cbf11d">&lt;strong&gt;</bpt>[Resty](https://github.com/beders/Resty)<ept id="3c93cff3-e8f4-4c24-8b56-7a19e7cbf11d">&lt;/strong&gt;</ept>, and JSON utilities such as <bpt id="b3da4c03-d5ab-41d5-aabb-000ced83c62a">&lt;strong&gt;</bpt>[jq](http://stedolan.github.io/jq/download/)<ept id="b3da4c03-d5ab-41d5-aabb-000ced83c62a">&lt;/strong&gt;</ept>, <bpt id="10b067ca-8133-4310-bfb6-00344868f4d8">&lt;strong&gt;</bpt>[jsawk](https://github.com/micha/jsawk)<ept id="10b067ca-8133-4310-bfb6-00344868f4d8">&lt;/strong&gt;</ept>, and language libraries that handle JSON well.</target>
+        </trans-unit>
+        <trans-unit id="bd3506e7-e14d-4e16-b535-382f1bbb46a0" xml:space="preserve">
+          <source>(Many of these tools also have ports for Windows, such as <bpt id="cd7143a3-8682-4e3c-bda4-ec653e754788">&lt;linkText&gt;</bpt>wget<ept id="cd7143a3-8682-4e3c-bda4-ec653e754788">&lt;/linkText&gt;</ept><bpt id="cd7143a3-8682-4e3c-bda4-ec653e754788">&lt;title&gt;</bpt><ept id="cd7143a3-8682-4e3c-bda4-ec653e754788">&lt;/title&gt;</ept>; in fact, there are several ways to get Linux and other open-source software tools running on Windows as well.)</source>
+          <target state="new">(Many of these tools also have ports for Windows, such as <bpt id="cd7143a3-8682-4e3c-bda4-ec653e754788">&lt;linkText&gt;</bpt>wget<ept id="cd7143a3-8682-4e3c-bda4-ec653e754788">&lt;/linkText&gt;</ept><bpt id="cd7143a3-8682-4e3c-bda4-ec653e754788">&lt;title&gt;</bpt><ept id="cd7143a3-8682-4e3c-bda4-ec653e754788">&lt;/title&gt;</ept>; in fact, there are several ways to get Linux and other open-source software tools running on Windows as well.)</target>
+        </trans-unit>
+        <trans-unit id="1690a0ba-9247-4e81-8295-664b5e3f88ae" xml:space="preserve">
+          <source>This topic includes some Azure CLI commands that you can use with <bpt id="f7d639ef-1bc8-4b9c-94ec-7d9dfb0370ca">&lt;strong&gt;</bpt>jq<ept id="f7d639ef-1bc8-4b9c-94ec-7d9dfb0370ca">&lt;/strong&gt;</ept> to obtain precisely the information that you want more efficiently.</source>
+          <target state="new">This topic includes some Azure CLI commands that you can use with <bpt id="f7d639ef-1bc8-4b9c-94ec-7d9dfb0370ca">&lt;strong&gt;</bpt>jq<ept id="f7d639ef-1bc8-4b9c-94ec-7d9dfb0370ca">&lt;/strong&gt;</ept> to obtain precisely the information that you want more efficiently.</target>
+        </trans-unit>
+        <trans-unit id="c454562b-e843-4d72-aeee-fadcf652e52a" xml:space="preserve">
+          <source>You should choose the toolset that you are comfortable with to help you understand your Azure resource usage.</source>
+          <target state="new">You should choose the toolset that you are comfortable with to help you understand your Azure resource usage.</target>
+        </trans-unit>
+        <trans-unit id="09e2e256-d68b-4bf9-91c6-7a8cea6cc9c5" xml:space="preserve">
+          <source>Windows PowerShell has several basic commands to perform the same procedures.</source>
+          <target state="new">Windows PowerShell has several basic commands to perform the same procedures.</target>
+        </trans-unit>
+        <trans-unit id="06cc30a9-02b0-45c4-837e-c1ae9dbaffe2" xml:space="preserve">
+          <source>Use the <bpt id="57c5a8cc-db26-4a23-924f-91cb6bd258c7">&lt;strong&gt;</bpt>[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)<ept id="57c5a8cc-db26-4a23-924f-91cb6bd258c7">&lt;/strong&gt;</ept> cmdlet to download files such as resource group templates or parameters JSON files.</source>
+          <target state="new">Use the <bpt id="57c5a8cc-db26-4a23-924f-91cb6bd258c7">&lt;strong&gt;</bpt>[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)<ept id="57c5a8cc-db26-4a23-924f-91cb6bd258c7">&lt;/strong&gt;</ept> cmdlet to download files such as resource group templates or parameters JSON files.</target>
+        </trans-unit>
+        <trans-unit id="24635adf-b408-483b-9292-e84203501ca3" xml:space="preserve">
+          <source>Use the <bpt id="a3284ace-4352-45c4-b2eb-2de2238f1f48">&lt;strong&gt;</bpt>[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)<ept id="a3284ace-4352-45c4-b2eb-2de2238f1f48">&lt;/strong&gt;</ept> cmdlet to convert a JSON string to a custom object (<bpt id="27807a27-42fd-41ae-8520-57585ea2ad3c">&lt;linkText&gt;</bpt>PSCustomObject<ept id="27807a27-42fd-41ae-8520-57585ea2ad3c">&lt;/linkText&gt;</ept><bpt id="27807a27-42fd-41ae-8520-57585ea2ad3c">&lt;title&gt;</bpt><ept id="27807a27-42fd-41ae-8520-57585ea2ad3c">&lt;/title&gt;</ept>) that has a property for each field in the JSON string.</source>
+          <target state="new">Use the <bpt id="a3284ace-4352-45c4-b2eb-2de2238f1f48">&lt;strong&gt;</bpt>[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)<ept id="a3284ace-4352-45c4-b2eb-2de2238f1f48">&lt;/strong&gt;</ept> cmdlet to convert a JSON string to a custom object (<bpt id="27807a27-42fd-41ae-8520-57585ea2ad3c">&lt;linkText&gt;</bpt>PSCustomObject<ept id="27807a27-42fd-41ae-8520-57585ea2ad3c">&lt;/linkText&gt;</ept><bpt id="27807a27-42fd-41ae-8520-57585ea2ad3c">&lt;title&gt;</bpt><ept id="27807a27-42fd-41ae-8520-57585ea2ad3c">&lt;/title&gt;</ept>) that has a property for each field in the JSON string.</target>
+        </trans-unit>
+        <trans-unit id="045fdcd4-8d8b-4d73-b3be-af96b5e03a42" xml:space="preserve">
+          <source>The Azure CLI has several commands to help prevent errors and detect what went wrong when errors occur.</source>
+          <target state="new">The Azure CLI has several commands to help prevent errors and detect what went wrong when errors occur.</target>
+        </trans-unit>
+        <trans-unit id="1332a68c-32a7-4621-806f-7b2de8ade4b6" xml:space="preserve">
+          <source><bpt id="3af97e82-1650-4cca-8fe5-3cfd085c98f0">&lt;strong&gt;</bpt>azure location list<ept id="3af97e82-1650-4cca-8fe5-3cfd085c98f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3af97e82-1650-4cca-8fe5-3cfd085c98f0">&lt;strong&gt;</bpt>azure location list<ept id="3af97e82-1650-4cca-8fe5-3cfd085c98f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8711981b-e334-44be-841c-df5f262b64ed" xml:space="preserve">
+          <source>This command gets the locations that support each type of resource, such as the provider for virtual machines.</source>
+          <target state="new">This command gets the locations that support each type of resource, such as the provider for virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="eed36cb4-560b-4182-bc08-eaf51cea32a1" xml:space="preserve">
+          <source>Before you enter a location for a resource, use this command to verify that the location supports the resource type.</source>
+          <target state="new">Before you enter a location for a resource, use this command to verify that the location supports the resource type.</target>
+        </trans-unit>
+        <trans-unit id="f00a521d-65ef-4a4d-875a-d9b89b1368da" xml:space="preserve">
+          <source>Because the list of locations can be long, and there are many providers, you can use tools to examine providers and locations before you use a location that isn't available yet.</source>
+          <target state="new">Because the list of locations can be long, and there are many providers, you can use tools to examine providers and locations before you use a location that isn't available yet.</target>
+        </trans-unit>
+        <trans-unit id="63fc385a-b3bb-4bfc-8245-ce52cfa10798" xml:space="preserve">
+          <source>The following script uses <bpt id="c08b52c5-98e7-414b-9177-66bf92e08b97">&lt;strong&gt;</bpt>jq<ept id="c08b52c5-98e7-414b-9177-66bf92e08b97">&lt;/strong&gt;</ept> to discover the locations where the resource provider for Azure virtual machines is available.</source>
+          <target state="new">The following script uses <bpt id="c08b52c5-98e7-414b-9177-66bf92e08b97">&lt;strong&gt;</bpt>jq<ept id="c08b52c5-98e7-414b-9177-66bf92e08b97">&lt;/strong&gt;</ept> to discover the locations where the resource provider for Azure virtual machines is available.</target>
+        </trans-unit>
+        <trans-unit id="5710e461-61b2-4809-8856-fef8e4238015" xml:space="preserve">
+          <source><bpt id="5c6ca3be-c3dd-4b88-902f-be70dd1fd49e">&lt;strong&gt;</bpt>azure group template validate &lt;resource group&gt;<ept id="5c6ca3be-c3dd-4b88-902f-be70dd1fd49e">&lt;/strong&gt;</ept>. This command validates your templates and template parameters before you use them. Enter a custom or gallery template and the template parameter values that  you plan to use.</source>
+          <target state="new"><bpt id="5c6ca3be-c3dd-4b88-902f-be70dd1fd49e">&lt;strong&gt;</bpt>azure group template validate &lt;resource group&gt;<ept id="5c6ca3be-c3dd-4b88-902f-be70dd1fd49e">&lt;/strong&gt;</ept>. This command validates your templates and template parameters before you use them. Enter a custom or gallery template and the template parameter values that  you plan to use.</target>
+        </trans-unit>
+        <trans-unit id="1a5af9ad-0e5e-4c5e-8756-140e68c04fc6" xml:space="preserve">
+          <source>The following example shows how to validate a template and any required parameters.</source>
+          <target state="new">The following example shows how to validate a template and any required parameters.</target>
+        </trans-unit>
+        <trans-unit id="348d4baf-20d5-4eda-96b2-734457909193" xml:space="preserve">
+          <source>The Azure CLI prompts you for parameter values that are required.</source>
+          <target state="new">The Azure CLI prompts you for parameter values that are required.</target>
+        </trans-unit>
+        <trans-unit id="77aad71b-8211-4b8c-b6dd-2d2694d019fc" xml:space="preserve">
+          <source>--template-uri "https://contoso.com/templates/azuredeploy.json" \
+resource-group
+    info:    Executing command group template validate
+    info:    Supply values for the following parameters
+    adminUserName: UserName
+    adminPassword: PassWord
+    + Initializing template configurations and parameters
+    + Validating the template
+    info:    group template validate command OK</source>
+          <target state="new">--template-uri "https://contoso.com/templates/azuredeploy.json" \
+resource-group
+    info:    Executing command group template validate
+    info:    Supply values for the following parameters
+    adminUserName: UserName
+    adminPassword: PassWord
+    + Initializing template configurations and parameters
+    + Validating the template
+    info:    group template validate command OK</target>
+        </trans-unit>
+        <trans-unit id="14c66351-90e0-4cec-ae8b-a3c24f119430" xml:space="preserve">
+          <source><bpt id="b702fdc0-1923-4c7b-87f8-61b653db1237">&lt;strong&gt;</bpt>azure group log show &lt;resource group&gt;<ept id="b702fdc0-1923-4c7b-87f8-61b653db1237">&lt;/strong&gt;</ept>: This command gets the entries in the log for each deployment of the resource group. If something goes wrong, begin by examining the deployment logs.</source>
+          <target state="new"><bpt id="b702fdc0-1923-4c7b-87f8-61b653db1237">&lt;strong&gt;</bpt>azure group log show &lt;resource group&gt;<ept id="b702fdc0-1923-4c7b-87f8-61b653db1237">&lt;/strong&gt;</ept>: This command gets the entries in the log for each deployment of the resource group. If something goes wrong, begin by examining the deployment logs.</target>
+        </trans-unit>
+        <trans-unit id="a4700508-8dd7-42a7-ad1f-e8d1d2199469" xml:space="preserve">
+          <source>Use the <bpt id="66c70c8d-40d2-4606-8b94-42ddc33edd7e">&lt;strong&gt;</bpt>--last-deployment<ept id="66c70c8d-40d2-4606-8b94-42ddc33edd7e">&lt;/strong&gt;</ept> option to retrieve only the log for the most recent deployment.</source>
+          <target state="new">Use the <bpt id="66c70c8d-40d2-4606-8b94-42ddc33edd7e">&lt;strong&gt;</bpt>--last-deployment<ept id="66c70c8d-40d2-4606-8b94-42ddc33edd7e">&lt;/strong&gt;</ept> option to retrieve only the log for the most recent deployment.</target>
+        </trans-unit>
+        <trans-unit id="cac8ee7c-8bb8-47c1-83da-5375b2d1fc70" xml:space="preserve">
+          <source>The following script uses the <bpt id="77e35137-0865-40a8-973c-dad20f139d33">&lt;strong&gt;</bpt>--json<ept id="77e35137-0865-40a8-973c-dad20f139d33">&lt;/strong&gt;</ept> option and <bpt id="b85741c9-d0c0-45e8-b991-a3713908951b">&lt;strong&gt;</bpt>jq<ept id="b85741c9-d0c0-45e8-b991-a3713908951b">&lt;/strong&gt;</ept> to search the log for deployment failures.</source>
+          <target state="new">The following script uses the <bpt id="77e35137-0865-40a8-973c-dad20f139d33">&lt;strong&gt;</bpt>--json<ept id="77e35137-0865-40a8-973c-dad20f139d33">&lt;/strong&gt;</ept> option and <bpt id="b85741c9-d0c0-45e8-b991-a3713908951b">&lt;strong&gt;</bpt>jq<ept id="b85741c9-d0c0-45e8-b991-a3713908951b">&lt;/strong&gt;</ept> to search the log for deployment failures.</target>
+        </trans-unit>
+        <trans-unit id="aff74e74-afc1-44f0-a756-826983f3e7e1" xml:space="preserve">
+          <source><bpt id="75496a34-dd5c-44e9-90e1-a0b0afc9eef3">&lt;strong&gt;</bpt>--verbose and -vv options<ept id="75496a34-dd5c-44e9-90e1-a0b0afc9eef3">&lt;/strong&gt;</ept>:  Use the <bpt id="d648eb8e-9062-4563-bc01-2c265657662a">&lt;strong&gt;</bpt>--verbose<ept id="d648eb8e-9062-4563-bc01-2c265657662a">&lt;/strong&gt;</ept> option to set the mode to verbose, to display the steps the operations go through on <bpt id="8b02d98c-b7dc-4eb9-b562-d46d3b88305a">&lt;code&gt;</bpt>stdout<ept id="8b02d98c-b7dc-4eb9-b562-d46d3b88305a">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="75496a34-dd5c-44e9-90e1-a0b0afc9eef3">&lt;strong&gt;</bpt>--verbose and -vv options<ept id="75496a34-dd5c-44e9-90e1-a0b0afc9eef3">&lt;/strong&gt;</ept>:  Use the <bpt id="d648eb8e-9062-4563-bc01-2c265657662a">&lt;strong&gt;</bpt>--verbose<ept id="d648eb8e-9062-4563-bc01-2c265657662a">&lt;/strong&gt;</ept> option to set the mode to verbose, to display the steps the operations go through on <bpt id="8b02d98c-b7dc-4eb9-b562-d46d3b88305a">&lt;code&gt;</bpt>stdout<ept id="8b02d98c-b7dc-4eb9-b562-d46d3b88305a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2630980f-878e-4c5e-a6c7-37e598b9aaf6" xml:space="preserve">
+          <source>For a complete request history, include the steps that <bpt id="3b6b31ae-3674-447e-b269-66b6e618ce5b">&lt;strong&gt;</bpt>--verbose<ept id="3b6b31ae-3674-447e-b269-66b6e618ce5b">&lt;/strong&gt;</ept> enables, use the <bpt id="89f09642-30b6-41a6-bf1e-96ff56967bf0">&lt;strong&gt;</bpt>-vv<ept id="89f09642-30b6-41a6-bf1e-96ff56967bf0">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">For a complete request history, include the steps that <bpt id="3b6b31ae-3674-447e-b269-66b6e618ce5b">&lt;strong&gt;</bpt>--verbose<ept id="3b6b31ae-3674-447e-b269-66b6e618ce5b">&lt;/strong&gt;</ept> enables, use the <bpt id="89f09642-30b6-41a6-bf1e-96ff56967bf0">&lt;strong&gt;</bpt>-vv<ept id="89f09642-30b6-41a6-bf1e-96ff56967bf0">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="56bab803-7c34-432a-8926-b18ab30ed735" xml:space="preserve">
+          <source>The messages often provide vital clues about the cause of any failures.</source>
+          <target state="new">The messages often provide vital clues about the cause of any failures.</target>
+        </trans-unit>
+        <trans-unit id="50834427-fb14-4698-beaf-0559876ee937" xml:space="preserve">
+          <source><bpt id="38a79a67-7f4a-4521-98c6-38c272cf75cc">&lt;strong&gt;</bpt>Your Azure credentials have not been set up or have expired<ept id="38a79a67-7f4a-4521-98c6-38c272cf75cc">&lt;/strong&gt;</ept>:  To refresh the credentials in your Azure CLI session, just type <bpt id="0cd91d39-7a7b-4cf5-8e7d-29ba14e421b2">&lt;code&gt;</bpt>azure login<ept id="0cd91d39-7a7b-4cf5-8e7d-29ba14e421b2">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="38a79a67-7f4a-4521-98c6-38c272cf75cc">&lt;strong&gt;</bpt>Your Azure credentials have not been set up or have expired<ept id="38a79a67-7f4a-4521-98c6-38c272cf75cc">&lt;/strong&gt;</ept>:  To refresh the credentials in your Azure CLI session, just type <bpt id="0cd91d39-7a7b-4cf5-8e7d-29ba14e421b2">&lt;code&gt;</bpt>azure login<ept id="0cd91d39-7a7b-4cf5-8e7d-29ba14e421b2">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73f4e866-6c0f-44f3-a142-454c550f4038" xml:space="preserve">
+          <source>For help with authentication errors, make sure that you have <bpt id="4e4a6dd4-e28b-4a53-8145-2b75e584c2ad">&lt;linkText&gt;</bpt>configured the Azure CLI correctly<ept id="4e4a6dd4-e28b-4a53-8145-2b75e584c2ad">&lt;/linkText&gt;</ept><bpt id="4e4a6dd4-e28b-4a53-8145-2b75e584c2ad">&lt;title&gt;</bpt><ept id="4e4a6dd4-e28b-4a53-8145-2b75e584c2ad">&lt;/title&gt;</ept>.</source>
+          <target state="new">For help with authentication errors, make sure that you have <bpt id="4e4a6dd4-e28b-4a53-8145-2b75e584c2ad">&lt;linkText&gt;</bpt>configured the Azure CLI correctly<ept id="4e4a6dd4-e28b-4a53-8145-2b75e584c2ad">&lt;/linkText&gt;</ept><bpt id="4e4a6dd4-e28b-4a53-8145-2b75e584c2ad">&lt;title&gt;</bpt><ept id="4e4a6dd4-e28b-4a53-8145-2b75e584c2ad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="066f2125-b9ea-4f29-8e5c-e54abf4a539c" xml:space="preserve">
+          <source>The AzureResourceManager module includes cmdlets that help you to prevent errors.</source>
+          <target state="new">The AzureResourceManager module includes cmdlets that help you to prevent errors.</target>
+        </trans-unit>
+        <trans-unit id="0be24c93-fe99-4f5c-9297-0eeea554f462" xml:space="preserve">
+          <source><bpt id="f6dfca30-b579-48a1-a918-4c177c51e3e9">&lt;strong&gt;</bpt>Get-AzureLocation<ept id="f6dfca30-b579-48a1-a918-4c177c51e3e9">&lt;/strong&gt;</ept>: This cmdlet gets the locations that support each type of resource.</source>
+          <target state="new"><bpt id="f6dfca30-b579-48a1-a918-4c177c51e3e9">&lt;strong&gt;</bpt>Get-AzureLocation<ept id="f6dfca30-b579-48a1-a918-4c177c51e3e9">&lt;/strong&gt;</ept>: This cmdlet gets the locations that support each type of resource.</target>
+        </trans-unit>
+        <trans-unit id="1ba574e1-849c-425e-b9af-a9568f0cd85b" xml:space="preserve">
+          <source>Before you enter a location for a resource, use this cmdlet to verify that the location supports the resource type.</source>
+          <target state="new">Before you enter a location for a resource, use this cmdlet to verify that the location supports the resource type.</target>
+        </trans-unit>
+        <trans-unit id="587fa1ea-4f16-4c2e-8dbc-fd7d0574e62b" xml:space="preserve">
+          <source><bpt id="ba80f0fa-d95a-4a16-90e0-3f021409c03c">&lt;strong&gt;</bpt>Test-AzureResourceGroupTemplate<ept id="ba80f0fa-d95a-4a16-90e0-3f021409c03c">&lt;/strong&gt;</ept>: Test your template and template parameter before you use them.</source>
+          <target state="new"><bpt id="ba80f0fa-d95a-4a16-90e0-3f021409c03c">&lt;strong&gt;</bpt>Test-AzureResourceGroupTemplate<ept id="ba80f0fa-d95a-4a16-90e0-3f021409c03c">&lt;/strong&gt;</ept>: Test your template and template parameter before you use them.</target>
+        </trans-unit>
+        <trans-unit id="66a02afa-5173-4dde-8b3f-783fa40fce1b" xml:space="preserve">
+          <source>Enter a custom or gallery template and the template parameter values that you plan to use.</source>
+          <target state="new">Enter a custom or gallery template and the template parameter values that you plan to use.</target>
+        </trans-unit>
+        <trans-unit id="c782e969-75fa-4fab-a79f-ad2e20345eee" xml:space="preserve">
+          <source>This cmdlet tests whether the template is internally consistent and whether your parameter value set matches the template.</source>
+          <target state="new">This cmdlet tests whether the template is internally consistent and whether your parameter value set matches the template.</target>
+        </trans-unit>
+        <trans-unit id="faaca755-707d-4d94-8239-beacc3bbc08d" xml:space="preserve">
+          <source><bpt id="c181bbe4-a1ab-4c0c-88dc-d733e110260b">&lt;strong&gt;</bpt>Get-AzureResourceGroupLog<ept id="c181bbe4-a1ab-4c0c-88dc-d733e110260b">&lt;/strong&gt;</ept>: This cmdlet gets the entries in the log for each  deployment of the resource group.</source>
+          <target state="new"><bpt id="c181bbe4-a1ab-4c0c-88dc-d733e110260b">&lt;strong&gt;</bpt>Get-AzureResourceGroupLog<ept id="c181bbe4-a1ab-4c0c-88dc-d733e110260b">&lt;/strong&gt;</ept>: This cmdlet gets the entries in the log for each  deployment of the resource group.</target>
+        </trans-unit>
+        <trans-unit id="b5a3c862-e6ec-4d86-b1fa-ca7cd3b08827" xml:space="preserve">
+          <source>If something goes wrong, begin by examining the deployment logs.</source>
+          <target state="new">If something goes wrong, begin by examining the deployment logs.</target>
+        </trans-unit>
+        <trans-unit id="c21f8ca2-051d-4b96-9813-4e10e55d32b5" xml:space="preserve">
+          <source><bpt id="ff17adb7-25c7-4fe2-a79d-194d69fe5afc">&lt;strong&gt;</bpt>Verbose and Debug<ept id="ff17adb7-25c7-4fe2-a79d-194d69fe5afc">&lt;/strong&gt;</ept>:  The cmdlets in the AzureResourceManager module call REST APIs that do the actual work.</source>
+          <target state="new"><bpt id="ff17adb7-25c7-4fe2-a79d-194d69fe5afc">&lt;strong&gt;</bpt>Verbose and Debug<ept id="ff17adb7-25c7-4fe2-a79d-194d69fe5afc">&lt;/strong&gt;</ept>:  The cmdlets in the AzureResourceManager module call REST APIs that do the actual work.</target>
+        </trans-unit>
+        <trans-unit id="74fa6dd1-41f0-47e8-aeae-5e408c9b38fd" xml:space="preserve">
+          <source>To see the messages that the APIs return, set the $DebugPreference variable to "Continue" and use the Verbose common parameter in your commands.</source>
+          <target state="new">To see the messages that the APIs return, set the $DebugPreference variable to "Continue" and use the Verbose common parameter in your commands.</target>
+        </trans-unit>
+        <trans-unit id="e456ee46-6bd5-4a26-a823-84373dd43e9f" xml:space="preserve">
+          <source>The messages often provide vital clues about the cause of any failures.</source>
+          <target state="new">The messages often provide vital clues about the cause of any failures.</target>
+        </trans-unit>
+        <trans-unit id="74c99131-1565-4a41-b401-f23c2d1a59ae" xml:space="preserve">
+          <source><bpt id="6037f2bc-d379-4a05-bcf0-6e9921eba806">&lt;strong&gt;</bpt>Your Azure credentials have not been set up or have expired<ept id="6037f2bc-d379-4a05-bcf0-6e9921eba806">&lt;/strong&gt;</ept>:  To refresh the credentials in your Windows PowerShell session, use the <bpt id="4870bb4c-f78f-43c6-89dd-fe28e5c7db27">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="4870bb4c-f78f-43c6-89dd-fe28e5c7db27">&lt;/strong&gt;</ept> cmdlet.</source>
+          <target state="new"><bpt id="6037f2bc-d379-4a05-bcf0-6e9921eba806">&lt;strong&gt;</bpt>Your Azure credentials have not been set up or have expired<ept id="6037f2bc-d379-4a05-bcf0-6e9921eba806">&lt;/strong&gt;</ept>:  To refresh the credentials in your Windows PowerShell session, use the <bpt id="4870bb4c-f78f-43c6-89dd-fe28e5c7db27">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="4870bb4c-f78f-43c6-89dd-fe28e5c7db27">&lt;/strong&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="70cf8d1e-d2ec-4b9b-b127-cc3bb54c60af" xml:space="preserve">
+          <source>The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.</source>
+          <target state="new">The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.</target>
+        </trans-unit>
+        <trans-unit id="b1e745c2-9274-4bc6-9eb2-7b2f2c1ba9c3" xml:space="preserve">
+          <source>There can be one or more of several issues preventing successful deployment involving authentication and authorization and Azure Active Directory.</source>
+          <target state="new">There can be one or more of several issues preventing successful deployment involving authentication and authorization and Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="6eafa83b-8c5d-40ba-afc6-6b97e34656e9" xml:space="preserve">
+          <source>Regardless how you manage your Azure resource groups, the identity you use to sign in to your account must be either Azure Active Directory objects or Service Principals, which are also called work or school accounts, or organizational Ids.</source>
+          <target state="new">Regardless how you manage your Azure resource groups, the identity you use to sign in to your account must be either Azure Active Directory objects or Service Principals, which are also called work or school accounts, or organizational Ids.</target>
+        </trans-unit>
+        <trans-unit id="90bd18fa-8b5d-404b-9308-8b4f729d46bf" xml:space="preserve">
+          <source>But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision.</source>
+          <target state="new">But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision.</target>
+        </trans-unit>
+        <trans-unit id="b4b99ae1-e149-428d-afff-34a3543b1bb3" xml:space="preserve">
+          <source>If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, and examine the deployment logs for your resource group.</source>
+          <target state="new">If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, and examine the deployment logs for your resource group.</target>
+        </trans-unit>
+        <trans-unit id="1bbbed1c-75f5-48f0-a53b-2979ee6f839b" xml:space="preserve">
+          <source>You might find that while you have permissions for some resources, you do not have permissions for others.</source>
+          <target state="new">You might find that while you have permissions for some resources, you do not have permissions for others.</target>
+        </trans-unit>
+        <trans-unit id="2237deb0-ffbb-4843-b071-85721ad8377a" xml:space="preserve">
+          <source>Using the Azure CLI, you can examine Azure Active Directory tenants and users using the <bpt id="e192615a-c542-4a40-bf72-1fc547d1d35b">&lt;code&gt;</bpt>azure ad<ept id="e192615a-c542-4a40-bf72-1fc547d1d35b">&lt;/code&gt;</ept> commands.</source>
+          <target state="new">Using the Azure CLI, you can examine Azure Active Directory tenants and users using the <bpt id="e192615a-c542-4a40-bf72-1fc547d1d35b">&lt;code&gt;</bpt>azure ad<ept id="e192615a-c542-4a40-bf72-1fc547d1d35b">&lt;/code&gt;</ept> commands.</target>
+        </trans-unit>
+        <trans-unit id="7b5e2e6c-fd53-46ab-b8ab-ff371aea141b" xml:space="preserve">
+          <source>(For a complete list of Azure CLI commands, see <bpt id="cf23c6ba-82e4-40a5-86d6-72aee8f3d30e">&lt;linkText&gt;</bpt>Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager<ept id="cf23c6ba-82e4-40a5-86d6-72aee8f3d30e">&lt;/linkText&gt;</ept><bpt id="cf23c6ba-82e4-40a5-86d6-72aee8f3d30e">&lt;title&gt;</bpt><ept id="cf23c6ba-82e4-40a5-86d6-72aee8f3d30e">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(For a complete list of Azure CLI commands, see <bpt id="cf23c6ba-82e4-40a5-86d6-72aee8f3d30e">&lt;linkText&gt;</bpt>Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager<ept id="cf23c6ba-82e4-40a5-86d6-72aee8f3d30e">&lt;/linkText&gt;</ept><bpt id="cf23c6ba-82e4-40a5-86d6-72aee8f3d30e">&lt;title&gt;</bpt><ept id="cf23c6ba-82e4-40a5-86d6-72aee8f3d30e">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="d6d2fd3f-1b31-4f6c-8535-ffaa9a1c6027" xml:space="preserve">
+          <source>You might also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, and other scopes.</source>
+          <target state="new">You might also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, and other scopes.</target>
+        </trans-unit>
+        <trans-unit id="02162493-829e-4169-9e2d-150e3bbd218c" xml:space="preserve">
+          <source>Confirm to your satisfaction that you have the resources available to deploy correctly.</source>
+          <target state="new">Confirm to your satisfaction that you have the resources available to deploy correctly.</target>
+        </trans-unit>
+        <trans-unit id="4e8db7ef-9cac-480f-bb91-c7eb9fbe7ae9" xml:space="preserve">
+          <source>For complete quota information, see <bpt id="51423d12-9b0a-4acb-89d5-d42862a8cc6c">&lt;linkText&gt;</bpt>Azure subscription and service limits, quotas, and constraints<ept id="51423d12-9b0a-4acb-89d5-d42862a8cc6c">&lt;/linkText&gt;</ept><bpt id="51423d12-9b0a-4acb-89d5-d42862a8cc6c">&lt;title&gt;</bpt><ept id="51423d12-9b0a-4acb-89d5-d42862a8cc6c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For complete quota information, see <bpt id="51423d12-9b0a-4acb-89d5-d42862a8cc6c">&lt;linkText&gt;</bpt>Azure subscription and service limits, quotas, and constraints<ept id="51423d12-9b0a-4acb-89d5-d42862a8cc6c">&lt;/linkText&gt;</ept><bpt id="51423d12-9b0a-4acb-89d5-d42862a8cc6c">&lt;title&gt;</bpt><ept id="51423d12-9b0a-4acb-89d5-d42862a8cc6c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16d77d97-b442-4799-8918-61306819c827" xml:space="preserve">
+          <source>To examine your own subscription's quotas for cores, you should use the <bpt id="6f8550c5-1fe8-4fb5-a96a-c34f4746cd1a">&lt;code&gt;</bpt>azure vm list-usage<ept id="6f8550c5-1fe8-4fb5-a96a-c34f4746cd1a">&lt;/code&gt;</ept> command in the Azure CLI and the <bpt id="ed6845df-c572-431a-95c9-d1cb3b419b77">&lt;strong&gt;</bpt>Get-AzureVMUsage<ept id="ed6845df-c572-431a-95c9-d1cb3b419b77">&lt;/strong&gt;</ept> cmdlet in PowerShell.</source>
+          <target state="new">To examine your own subscription's quotas for cores, you should use the <bpt id="6f8550c5-1fe8-4fb5-a96a-c34f4746cd1a">&lt;code&gt;</bpt>azure vm list-usage<ept id="6f8550c5-1fe8-4fb5-a96a-c34f4746cd1a">&lt;/code&gt;</ept> command in the Azure CLI and the <bpt id="ed6845df-c572-431a-95c9-d1cb3b419b77">&lt;strong&gt;</bpt>Get-AzureVMUsage<ept id="ed6845df-c572-431a-95c9-d1cb3b419b77">&lt;/strong&gt;</ept> cmdlet in PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="cd4c7e2f-b55b-4bf0-8301-8db57bb50bda" xml:space="preserve">
+          <source>The following shows the command in the Azure CLI, and illustrates that the core quota for a free trial account is 4:</source>
+          <target state="new">The following shows the command in the Azure CLI, and illustrates that the core quota for a free trial account is 4:</target>
+        </trans-unit>
+        <trans-unit id="619a3181-b81f-4747-b1b7-da31b408df12" xml:space="preserve">
+          <source>If you were to try to deploy a template that creates more than 4 cores into the West US region on the above subscription, you would get a deployment error that might look something like this (either in the portal or by investigating the deployment logs):</source>
+          <target state="new">If you were to try to deploy a template that creates more than 4 cores into the West US region on the above subscription, you would get a deployment error that might look something like this (either in the portal or by investigating the deployment logs):</target>
+        </trans-unit>
+        <trans-unit id="64fdde7b-f432-472f-b107-81d43e64632a" xml:space="preserve">
+          <source>In these cases, you should go to the portal and file a support issue to raise your quota for the region into which you want to deploy.</source>
+          <target state="new">In these cases, you should go to the portal and file a support issue to raise your quota for the region into which you want to deploy.</target>
+        </trans-unit>
+        <trans-unit id="c2451ae4-24e8-4b92-a002-8ab37fe73c3b" xml:space="preserve">
+          <source>Remember that for resource groups, the quota is for each individual region, not for the entire subscription.</source>
+          <target state="new">Remember that for resource groups, the quota is for each individual region, not for the entire subscription.</target>
+        </trans-unit>
+        <trans-unit id="b0d9f2b2-2a57-4e99-b5b5-f471c225e656" xml:space="preserve">
+          <source>If you need to deploy 30 cores in West US, you have to ask for 30 Resource Manager cores in West US.</source>
+          <target state="new">If you need to deploy 30 cores in West US, you have to ask for 30 Resource Manager cores in West US.</target>
+        </trans-unit>
+        <trans-unit id="30d941c4-255e-4293-b886-6291c688bbf4" xml:space="preserve">
+          <source>If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 resource Manager cores in all regions.</source>
+          <target state="new">If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 resource Manager cores in all regions.</target>
+        </trans-unit>
+        <trans-unit id="b3a74f0c-7dbd-4967-b213-221345dc95d1" xml:space="preserve">
+          <source>To be specific about cores, for example, you can check the regions for which you should request the appropriate quota amount by using the following command, which pipes out to <bpt id="06b50c51-7303-4a01-bbcb-1f4827f12437">&lt;strong&gt;</bpt>jq<ept id="06b50c51-7303-4a01-bbcb-1f4827f12437">&lt;/strong&gt;</ept> for json parsing.</source>
+          <target state="new">To be specific about cores, for example, you can check the regions for which you should request the appropriate quota amount by using the following command, which pipes out to <bpt id="06b50c51-7303-4a01-bbcb-1f4827f12437">&lt;strong&gt;</bpt>jq<ept id="06b50c51-7303-4a01-bbcb-1f4827f12437">&lt;/strong&gt;</ept> for json parsing.</target>
+        </trans-unit>
+        <trans-unit id="e7d2d517-ab48-4aab-bdc9-8ba85686be89" xml:space="preserve">
+          <source>You might have the experience that Azure resources deployed using the service management API or using the portal are not visible using the Resource Manager API or the Azure portal.</source>
+          <target state="new">You might have the experience that Azure resources deployed using the service management API or using the portal are not visible using the Resource Manager API or the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="652ebbbc-f7f4-41f3-b326-d948c3311833" xml:space="preserve">
+          <source>It is important to manage resources using the same Resource Manager API or portal that you used to create them.</source>
+          <target state="new">It is important to manage resources using the same Resource Manager API or portal that you used to create them.</target>
+        </trans-unit>
+        <trans-unit id="fd9c09e2-27f7-4c59-96bc-1fbac7d3e1ea" xml:space="preserve">
+          <source>If a resource has disappeared, check to see if it is available using the other management API or portal.</source>
+          <target state="new">If a resource has disappeared, check to see if it is available using the other management API or portal.</target>
+        </trans-unit>
+        <trans-unit id="f3507a88-a42e-4b93-9b78-0eac114fde83" xml:space="preserve">
+          <source>Resources are managed by resource providers, and an account or subscription might be enabled to use a particular provider.</source>
+          <target state="new">Resources are managed by resource providers, and an account or subscription might be enabled to use a particular provider.</target>
+        </trans-unit>
+        <trans-unit id="94d04cb3-12a4-4721-bc96-7a85a528a7b1" xml:space="preserve">
+          <source>If you are enabled to use a provider, it must also be registered for use.</source>
+          <target state="new">If you are enabled to use a provider, it must also be registered for use.</target>
+        </trans-unit>
+        <trans-unit id="3b504480-10c9-483e-b0e5-8f1467c97dae" xml:space="preserve">
+          <source>Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all.</source>
+          <target state="new">Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all.</target>
+        </trans-unit>
+        <trans-unit id="15b5eb28-e37b-47c1-a39e-d462dc0c28da" xml:space="preserve">
+          <source>To see whether the provider is registered for use using the Azure CLI, use the <bpt id="523657dc-b2bd-4189-9929-4b76ec9b4e40">&lt;code&gt;</bpt>azure provider list<ept id="523657dc-b2bd-4189-9929-4b76ec9b4e40">&lt;/code&gt;</ept> command (the following is a truncated example of the output).</source>
+          <target state="new">To see whether the provider is registered for use using the Azure CLI, use the <bpt id="523657dc-b2bd-4189-9929-4b76ec9b4e40">&lt;code&gt;</bpt>azure provider list<ept id="523657dc-b2bd-4189-9929-4b76ec9b4e40">&lt;/code&gt;</ept> command (the following is a truncated example of the output).</target>
+        </trans-unit>
+        <trans-unit id="f891217b-10cd-4f26-a6bb-689ca0aafaf2" xml:space="preserve">
+          <source>Again, if you want more information about providers, including their regional availability, type <bpt id="8a9b10e9-6d4d-4eb5-bca5-22d3417c77d3">&lt;code&gt;</bpt>azure provider list --json<ept id="8a9b10e9-6d4d-4eb5-bca5-22d3417c77d3">&lt;/code&gt;</ept>.</source>
+          <target state="new">Again, if you want more information about providers, including their regional availability, type <bpt id="8a9b10e9-6d4d-4eb5-bca5-22d3417c77d3">&lt;code&gt;</bpt>azure provider list --json<ept id="8a9b10e9-6d4d-4eb5-bca5-22d3417c77d3">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9741ebab-d9dd-445f-833b-e7824587c889" xml:space="preserve">
+          <source>The following selects only the first one in the list to view:</source>
+          <target state="new">The following selects only the first one in the list to view:</target>
+        </trans-unit>
+        <trans-unit id="d9e710e0-fbd0-49df-830f-f29c4f4bba68" xml:space="preserve">
+          <source>If a provider requires registration, use the <bpt id="2c323e13-2433-4405-99dd-eafed5903b30">&lt;code&gt;</bpt>azure provider register &lt;namespace&gt;<ept id="2c323e13-2433-4405-99dd-eafed5903b30">&lt;/code&gt;</ept> command, where the <bpt id="f1ed0cc8-3af0-495e-a023-fdd500663dd6">&lt;em&gt;</bpt>namespace<ept id="f1ed0cc8-3af0-495e-a023-fdd500663dd6">&lt;/em&gt;</ept> value comes from the preceding list.</source>
+          <target state="new">If a provider requires registration, use the <bpt id="2c323e13-2433-4405-99dd-eafed5903b30">&lt;code&gt;</bpt>azure provider register &lt;namespace&gt;<ept id="2c323e13-2433-4405-99dd-eafed5903b30">&lt;/code&gt;</ept> command, where the <bpt id="f1ed0cc8-3af0-495e-a023-fdd500663dd6">&lt;em&gt;</bpt>namespace<ept id="f1ed0cc8-3af0-495e-a023-fdd500663dd6">&lt;/em&gt;</ept> value comes from the preceding list.</target>
+        </trans-unit>
+        <trans-unit id="958d7cca-2b07-4126-a2a8-726c675e9e42" xml:space="preserve">
+          <source>If you are using templates that you created, it's important to understand that the Azure Resource Manager system reports success on a deployment when all providers return from deployment successfully.</source>
+          <target state="new">If you are using templates that you created, it's important to understand that the Azure Resource Manager system reports success on a deployment when all providers return from deployment successfully.</target>
+        </trans-unit>
+        <trans-unit id="d365a7d6-3955-4e92-9cba-e373c8187318" xml:space="preserve">
+          <source>This means that all of your template items were deployed for your usage.</source>
+          <target state="new">This means that all of your template items were deployed for your usage.</target>
+        </trans-unit>
+        <trans-unit id="d62c51ba-b05f-416c-9c16-d43c78e64e7d" xml:space="preserve">
+          <source>Note however, that this does not necessarily mean that your resource group is "active and ready for your users".</source>
+          <target state="new">Note however, that this does not necessarily mean that your resource group is "active and ready for your users".</target>
+        </trans-unit>
+        <trans-unit id="112e7470-1d6c-4b20-a89a-4045aa4feb00" xml:space="preserve">
+          <source>For example, most deployments request the deployment to download upgrades, wait on other, non-template resources, or to install complex scripts or some other executable activity that Azure does not know about because it is not an activity that a provider is tracking.</source>
+          <target state="new">For example, most deployments request the deployment to download upgrades, wait on other, non-template resources, or to install complex scripts or some other executable activity that Azure does not know about because it is not an activity that a provider is tracking.</target>
+        </trans-unit>
+        <trans-unit id="4548c61d-f67b-478b-8212-f508e598ce6c" xml:space="preserve">
+          <source>In these cases, it can be some time before your resources are ready for real-world use.</source>
+          <target state="new">In these cases, it can be some time before your resources are ready for real-world use.</target>
+        </trans-unit>
+        <trans-unit id="2f0067f7-e032-4f5a-ab30-db52db1e0a6e" xml:space="preserve">
+          <source>As a result, you should expect that the deployment status succeeds some time before your deployment can be used.</source>
+          <target state="new">As a result, you should expect that the deployment status succeeds some time before your deployment can be used.</target>
+        </trans-unit>
+        <trans-unit id="5818286f-a10a-40a2-861b-4a6c146c7b1a" xml:space="preserve">
+          <source>You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the <bpt id="479a6f71-2c93-4c85-a50e-3f08695b3da4">&lt;linkText&gt;</bpt>CustomScriptExtension<ept id="479a6f71-2c93-4c85-a50e-3f08695b3da4">&lt;/linkText&gt;</ept><bpt id="479a6f71-2c93-4c85-a50e-3f08695b3da4">&lt;title&gt;</bpt><ept id="479a6f71-2c93-4c85-a50e-3f08695b3da4">&lt;/title&gt;</ept> for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment.</source>
+          <target state="new">You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the <bpt id="479a6f71-2c93-4c85-a50e-3f08695b3da4">&lt;linkText&gt;</bpt>CustomScriptExtension<ept id="479a6f71-2c93-4c85-a50e-3f08695b3da4">&lt;/linkText&gt;</ept><bpt id="479a6f71-2c93-4c85-a50e-3f08695b3da4">&lt;title&gt;</bpt><ept id="479a6f71-2c93-4c85-a50e-3f08695b3da4">&lt;/title&gt;</ept> for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment.</target>
+        </trans-unit>
+        <trans-unit id="7c6166e5-cb6c-4dbb-8b97-e817c0e88fcd" xml:space="preserve">
+          <source>If you want to ensure that your extension is the last to run, use the <bpt id="37fdb724-6628-4751-9d7f-33b9155923a1">&lt;strong&gt;</bpt>dependsOn<ept id="37fdb724-6628-4751-9d7f-33b9155923a1">&lt;/strong&gt;</ept> property in your template.</source>
+          <target state="new">If you want to ensure that your extension is the last to run, use the <bpt id="37fdb724-6628-4751-9d7f-33b9155923a1">&lt;strong&gt;</bpt>dependsOn<ept id="37fdb724-6628-4751-9d7f-33b9155923a1">&lt;/strong&gt;</ept> property in your template.</target>
+        </trans-unit>
+        <trans-unit id="024514ac-96ef-4fe6-beae-be2d08cb179e" xml:space="preserve">
+          <source>An example can be seen <bpt id="c0c5f190-a514-4593-bdfe-571a435a1e58">&lt;linkText&gt;</bpt>here<ept id="c0c5f190-a514-4593-bdfe-571a435a1e58">&lt;/linkText&gt;</ept><bpt id="c0c5f190-a514-4593-bdfe-571a435a1e58">&lt;title&gt;</bpt><ept id="c0c5f190-a514-4593-bdfe-571a435a1e58">&lt;/title&gt;</ept>.</source>
+          <target state="new">An example can be seen <bpt id="c0c5f190-a514-4593-bdfe-571a435a1e58">&lt;linkText&gt;</bpt>here<ept id="c0c5f190-a514-4593-bdfe-571a435a1e58">&lt;/linkText&gt;</ept><bpt id="c0c5f190-a514-4593-bdfe-571a435a1e58">&lt;title&gt;</bpt><ept id="c0c5f190-a514-4593-bdfe-571a435a1e58">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f25f97a9-a935-47a5-8e43-43e75decaa2f" xml:space="preserve">
+          <source>At times you might need to merge two templates together, or you might need to launch a child template from a parent.</source>
+          <target state="new">At times you might need to merge two templates together, or you might need to launch a child template from a parent.</target>
+        </trans-unit>
+        <trans-unit id="9cfe6226-30e7-46d6-8c3c-b7747b141ec8" xml:space="preserve">
+          <source>This can be accomplished through the use of a deployment resource within the master template to deploy a child template.</source>
+          <target state="new">This can be accomplished through the use of a deployment resource within the master template to deploy a child template.</target>
+        </trans-unit>
+        <trans-unit id="727ff196-01b1-4b14-960e-67c87bd9504f" xml:space="preserve">
+          <source>Often you might want to use a resource from outside of the current resource group where a template is getting deployed.</source>
+          <target state="new">Often you might want to use a resource from outside of the current resource group where a template is getting deployed.</target>
+        </trans-unit>
+        <trans-unit id="064b40f9-be1c-4a02-b41f-29ccffe829ff" xml:space="preserve">
+          <source>The most common case for this behavior is using a Storage account or virtual network in an alternate resource group.</source>
+          <target state="new">The most common case for this behavior is using a Storage account or virtual network in an alternate resource group.</target>
+        </trans-unit>
+        <trans-unit id="493ba3b4-fe16-4ca2-8b5a-43699fa0611c" xml:space="preserve">
+          <source>This is often needed so that the deletion of the resource group which contains the virtual machines will not result in the deletion of the VHD blobs or a VNet that is used by multiple resource groups.</source>
+          <target state="new">This is often needed so that the deletion of the resource group which contains the virtual machines will not result in the deletion of the VHD blobs or a VNet that is used by multiple resource groups.</target>
+        </trans-unit>
+        <trans-unit id="2178da29-5669-4d8a-a5db-2f9c48901297" xml:space="preserve">
+          <source>The following example shows how a resource from an external resource group can be used:</source>
+          <target state="new">The following example shows how a resource from an external resource group can be used:</target>
+        </trans-unit>
+        <trans-unit id="76448ca3-eb21-4bbf-aac6-8eef49081b6c" xml:space="preserve">
+          <source>To master the creation of templates, read through the <bpt id="d570ac1e-6eb1-4979-b3db-b68a0ea7c2cd">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager templates<ept id="d570ac1e-6eb1-4979-b3db-b68a0ea7c2cd">&lt;/linkText&gt;</ept><bpt id="d570ac1e-6eb1-4979-b3db-b68a0ea7c2cd">&lt;title&gt;</bpt><ept id="d570ac1e-6eb1-4979-b3db-b68a0ea7c2cd">&lt;/title&gt;</ept>, and walk through the <bpt id="0d8a70bd-aac6-4af7-aed1-e3a89d506aa1">&lt;linkText&gt;</bpt>Azure quickstart templates repository<ept id="0d8a70bd-aac6-4af7-aed1-e3a89d506aa1">&lt;/linkText&gt;</ept><bpt id="0d8a70bd-aac6-4af7-aed1-e3a89d506aa1">&lt;title&gt;</bpt><ept id="0d8a70bd-aac6-4af7-aed1-e3a89d506aa1">&lt;/title&gt;</ept> for deployable examples.</source>
+          <target state="new">To master the creation of templates, read through the <bpt id="d570ac1e-6eb1-4979-b3db-b68a0ea7c2cd">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager templates<ept id="d570ac1e-6eb1-4979-b3db-b68a0ea7c2cd">&lt;/linkText&gt;</ept><bpt id="d570ac1e-6eb1-4979-b3db-b68a0ea7c2cd">&lt;title&gt;</bpt><ept id="d570ac1e-6eb1-4979-b3db-b68a0ea7c2cd">&lt;/title&gt;</ept>, and walk through the <bpt id="0d8a70bd-aac6-4af7-aed1-e3a89d506aa1">&lt;linkText&gt;</bpt>Azure quickstart templates repository<ept id="0d8a70bd-aac6-4af7-aed1-e3a89d506aa1">&lt;/linkText&gt;</ept><bpt id="0d8a70bd-aac6-4af7-aed1-e3a89d506aa1">&lt;title&gt;</bpt><ept id="0d8a70bd-aac6-4af7-aed1-e3a89d506aa1">&lt;/title&gt;</ept> for deployable examples.</target>
+        </trans-unit>
+        <trans-unit id="afa03541-10ef-461a-86be-37596ccfd9fd" xml:space="preserve">
+          <source>An examples of the <bpt id="2b0ecfa1-1389-40d1-a7b1-59b43a88bf53">&lt;strong&gt;</bpt>dependsOn<ept id="2b0ecfa1-1389-40d1-a7b1-59b43a88bf53">&lt;/strong&gt;</ept> property is the <bpt id="dbe701bb-7b90-47fa-a507-172abf42a361">&lt;linkText&gt;</bpt>Create a VM with multiple NICs and RDP accessible<ept id="dbe701bb-7b90-47fa-a507-172abf42a361">&lt;/linkText&gt;</ept><bpt id="dbe701bb-7b90-47fa-a507-172abf42a361">&lt;title&gt;</bpt><ept id="dbe701bb-7b90-47fa-a507-172abf42a361">&lt;/title&gt;</ept>.</source>
+          <target state="new">An examples of the <bpt id="2b0ecfa1-1389-40d1-a7b1-59b43a88bf53">&lt;strong&gt;</bpt>dependsOn<ept id="2b0ecfa1-1389-40d1-a7b1-59b43a88bf53">&lt;/strong&gt;</ept> property is the <bpt id="dbe701bb-7b90-47fa-a507-172abf42a361">&lt;linkText&gt;</bpt>Create a VM with multiple NICs and RDP accessible<ept id="dbe701bb-7b90-47fa-a507-172abf42a361">&lt;/linkText&gt;</ept><bpt id="dbe701bb-7b90-47fa-a507-172abf42a361">&lt;title&gt;</bpt><ept id="dbe701bb-7b90-47fa-a507-172abf42a361">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

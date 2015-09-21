@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="038f3f91-d577-4cc6-8cd7-138949bb552e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="038f3f91-d577-4cc6-8cd7-138949bb552e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e7a04fa6-8af8-447a-a8ab-2cce1143405a">
+        <trans-unit id="c6d67435-4f25-474a-8c89-3bf9ef3b7781" xml:space="preserve">
+          <source>Using Custom Script Extension Azure Resource Manager Templates</source>
+          <target state="new">Using Custom Script Extension Azure Resource Manager Templates</target>
+        </trans-unit>
+        <trans-unit id="884be743-de35-4c52-8ebe-1f363098c8ba" xml:space="preserve">
+          <source>Automating Azure Virtual Machine configuration tasks using Custom script with ARM Templates</source>
+          <target state="new">Automating Azure Virtual Machine configuration tasks using Custom script with ARM Templates</target>
+        </trans-unit>
+        <trans-unit id="21ea6906-b701-421d-99c0-9cfb284b89c7" xml:space="preserve">
+          <source>This article gives an overview of writing Azure Resource Manager Templates with Custom Script Extension for bootstrapping workloads on a Linux or a Windows VM.</source>
+          <target state="new">This article gives an overview of writing Azure Resource Manager Templates with Custom Script Extension for bootstrapping workloads on a Linux or a Windows VM.</target>
+        </trans-unit>
+        <trans-unit id="4dab4b65-4ab6-4a20-a7f5-c3f64c77854a" xml:space="preserve">
+          <source>For an overview of Custom Script Extension please refer to the article &lt;a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-extensions-customscript/" target="_blank"&gt;here&lt;/a&gt;.</source>
+          <target state="new">For an overview of Custom Script Extension please refer to the article &lt;a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-extensions-customscript/" target="_blank"&gt;here&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="be53cb00-1a85-4a8b-94cd-21ec9ad661a4" xml:space="preserve">
+          <source>Ever since its launch, Custom Script Extension has been used widely to configure workloads on both Windows and Linux VMs.</source>
+          <target state="new">Ever since its launch, Custom Script Extension has been used widely to configure workloads on both Windows and Linux VMs.</target>
+        </trans-unit>
+        <trans-unit id="4b7014a2-6822-4d7b-a595-345f5d03763c" xml:space="preserve">
+          <source>With the introduction of Azure Resource Manager Templates, users can now create a single template that not only provisions the VM but also configures the workloads on it.</source>
+          <target state="new">With the introduction of Azure Resource Manager Templates, users can now create a single template that not only provisions the VM but also configures the workloads on it.</target>
+        </trans-unit>
+        <trans-unit id="ff71453d-2ad6-4a72-ba87-6ba3188a9330" xml:space="preserve">
+          <source>Azure Resource Manager Template allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources.</source>
+          <target state="new">Azure Resource Manager Template allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources.</target>
+        </trans-unit>
+        <trans-unit id="60f71b46-f91b-47e4-bd2c-1828bda88aa0" xml:space="preserve">
+          <source>For a detailed overview of Azure Resource Manager Templates, please refer to the articles below:</source>
+          <target state="new">For a detailed overview of Azure Resource Manager Templates, please refer to the articles below:</target>
+        </trans-unit>
+        <trans-unit id="205e23bb-4f96-48dc-908e-5ac5e1620fa3" xml:space="preserve">
+          <source>&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/" target="_blank"&gt;Resource Group Overview&lt;/a&gt;.</source>
+          <target state="new">&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/" target="_blank"&gt;Resource Group Overview&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="6da9c625-40dc-48f5-bbb5-7e6f7760172f" xml:space="preserve">
+          <source>&lt;br/&gt;
+&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank"&gt;Deploying Templates with Azure CLI&lt;/a&gt;.</source>
+          <target state="new">&lt;br/&gt;
+&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank"&gt;Deploying Templates with Azure CLI&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="a2329f55-6592-4c5b-852d-ae19cbe26537" xml:space="preserve">
+          <source>&lt;br/&gt;
+&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank"&gt;Deploying Templates with Azure Powershell&lt;/a&gt;.</source>
+          <target state="new">&lt;br/&gt;
+&lt;a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank"&gt;Deploying Templates with Azure Powershell&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="2ccbf8d4-2df0-4cc3-af24-7a48e0024e47" xml:space="preserve">
+          <source>Install the latest Azure PowerShell Cmdlets or Azure CLI from &lt;a href="http://azure.microsoft.com/downloads" target="_blank"&gt;here&lt;/a&gt;.</source>
+          <target state="new">Install the latest Azure PowerShell Cmdlets or Azure CLI from &lt;a href="http://azure.microsoft.com/downloads" target="_blank"&gt;here&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="ef12b99d-3f48-441e-80d0-2b96bfd42baa" xml:space="preserve">
+          <source>If the scripts will be run on an existing VM, make sure VM Agent is enabled on the VM, if not follow this &lt;a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank"&gt;article&lt;/a&gt; to install one.</source>
+          <target state="new">If the scripts will be run on an existing VM, make sure VM Agent is enabled on the VM, if not follow this &lt;a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank"&gt;article&lt;/a&gt; to install one.</target>
+        </trans-unit>
+        <trans-unit id="c5f8e1fd-6e87-4dff-a98a-7d9629988632" xml:space="preserve">
+          <source>Upload the scripts that you want to run on the VM to Azure Storage.</source>
+          <target state="new">Upload the scripts that you want to run on the VM to Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="ff4b9bce-1cec-4e0a-8381-41f3275afb07" xml:space="preserve">
+          <source>The scripts can come from a single or multiple storage containers.</source>
+          <target state="new">The scripts can come from a single or multiple storage containers.</target>
+        </trans-unit>
+        <trans-unit id="70de3876-f3eb-4fcb-b210-99046dc3998b" xml:space="preserve">
+          <source>Alternatively the scripts can also be uploaded to a Github account.</source>
+          <target state="new">Alternatively the scripts can also be uploaded to a Github account.</target>
+        </trans-unit>
+        <trans-unit id="e98548ec-be1d-4c21-b74d-b868f14021f0" xml:space="preserve">
+          <source>The script should be authored in such a way that the entry script which is launched by the extension in turn launches other scripts.</source>
+          <target state="new">The script should be authored in such a way that the entry script which is launched by the extension in turn launches other scripts.</target>
+        </trans-unit>
+        <trans-unit id="2d849a89-e46c-4610-aba3-1f1a06e8e110" xml:space="preserve">
+          <source>For deploying with templates we use the same version of  Custom Script extension thats availale for Azure Service Management APIs.</source>
+          <target state="new">For deploying with templates we use the same version of  Custom Script extension thats availale for Azure Service Management APIs.</target>
+        </trans-unit>
+        <trans-unit id="e7c22894-cddc-47c4-b614-5a7ed50db17a" xml:space="preserve">
+          <source>The extension supports the same parameters and scenarios like uploading files to Azure Storage account or Github location.</source>
+          <target state="new">The extension supports the same parameters and scenarios like uploading files to Azure Storage account or Github location.</target>
+        </trans-unit>
+        <trans-unit id="3cc4c486-e3b4-493c-94b2-0bf1eaace552" xml:space="preserve">
+          <source>The key difference while using with templates is the exact version of the extension should be specified, as opposed to specifying the version in majorversion.* format.</source>
+          <target state="new">The key difference while using with templates is the exact version of the extension should be specified, as opposed to specifying the version in majorversion.* format.</target>
+        </trans-unit>
+        <trans-unit id="b7123896-d889-4a81-be13-9510c9c22c28" xml:space="preserve">
+          <source> ## Template Snippet for Custom Script Extension on a Linux VM</source>
+          <target state="new"> ## Template Snippet for Custom Script Extension on a Linux VM</target>
+        </trans-unit>
+        <trans-unit id="6f194eb4-b42e-4169-a51d-348ba5ebdc52" xml:space="preserve">
+          <source>Define the following extension resource in the Resource section of the template</source>
+          <target state="new">Define the following extension resource in the Resource section of the template</target>
+        </trans-unit>
+        <trans-unit id="18377937-1f45-42ac-9cd2-9db1478ac99b" xml:space="preserve">
+          <source>Define the following resource in the Resource section of the template</source>
+          <target state="new">Define the following resource in the Resource section of the template</target>
+        </trans-unit>
+        <trans-unit id="ead01d89-c3ef-4e15-9adf-6e37fda30b0a" xml:space="preserve">
+          <source>In the examples above, replace the file URL and the file name with your own settings.</source>
+          <target state="new">In the examples above, replace the file URL and the file name with your own settings.</target>
+        </trans-unit>
+        <trans-unit id="689ba481-2ae1-45ad-b461-aa094413ae59" xml:space="preserve">
+          <source>After authoring the template, you cna deploy them using Azure CLI or Azure Powershell.</source>
+          <target state="new">After authoring the template, you cna deploy them using Azure CLI or Azure Powershell.</target>
+        </trans-unit>
+        <trans-unit id="71438bc5-d1ba-49d9-b572-7f58d5a719d9" xml:space="preserve">
+          <source>Please refer to the examples below for complete samples of configuring applications on a VM using custom script extension.</source>
+          <target state="new">Please refer to the examples below for complete samples of configuring applications on a VM using custom script extension.</target>
+        </trans-unit>
+        <trans-unit id="95d7f726-1eff-435c-ac8b-eab2188d0bf1" xml:space="preserve">
+          <source>&lt;a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="<bpt id="e7c2c6c8-db57-4ccb-8ce9-ef046d6f6257">&lt;em&gt;</bpt>blank"&gt;Custom Script Extension on a Linux VM&lt;/a&gt;.
+&lt;/br&gt;
+&lt;a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="<ept id="e7c2c6c8-db57-4ccb-8ce9-ef046d6f6257">&lt;/em&gt;</ept>blank"&gt;Custom Script Extension on a Windows VM&lt;/a&gt;.</source>
+          <target state="new">&lt;a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="<bpt id="e7c2c6c8-db57-4ccb-8ce9-ef046d6f6257">&lt;em&gt;</bpt>blank"&gt;Custom Script Extension on a Linux VM&lt;/a&gt;.
+&lt;/br&gt;
+&lt;a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="<ept id="e7c2c6c8-db57-4ccb-8ce9-ef046d6f6257">&lt;/em&gt;</ept>blank"&gt;Custom Script Extension on a Windows VM&lt;/a&gt;.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

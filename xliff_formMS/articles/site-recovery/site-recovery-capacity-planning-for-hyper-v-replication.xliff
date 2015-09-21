@@ -1,0 +1,670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0421f835-3385-4aa9-a239-95724ec4aafb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0421f835-3385-4aa9-a239-95724ec4aafb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eb48551a-8bc2-4796-9c60-835bf88bf0d0">
+        <trans-unit id="d0b7d33f-6e01-46de-9141-3b8dae6f626a" xml:space="preserve">
+          <source>Capacity planning for Hyper-V replication</source>
+          <target state="new">Capacity planning for Hyper-V replication</target>
+        </trans-unit>
+        <trans-unit id="3b4f4d2e-f945-49ad-828a-a52ee98fd21f" xml:space="preserve">
+          <source>This article contains instructions on how to use the capacity planner tool for Azure Site Recovery, and includes resources for capacity planning for Hyper-V replication</source>
+          <target state="new">This article contains instructions on how to use the capacity planner tool for Azure Site Recovery, and includes resources for capacity planning for Hyper-V replication</target>
+        </trans-unit>
+        <trans-unit id="5b55d739-312a-4598-871f-a72ed4b787a9" xml:space="preserve">
+          <source>Azure Site Recovery uses Hyper-V Replica for replication between two on-premises VMM sites or between an on-premise VMM server and Azure storage.</source>
+          <target state="new">Azure Site Recovery uses Hyper-V Replica for replication between two on-premises VMM sites or between an on-premise VMM server and Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="1b832799-afcd-4ad4-b60f-afbdae39ef1e" xml:space="preserve">
+          <source>This article contains step-by-step instructions on using the Capacity planner for Azure Site Recovery (ASR) - Hyper-V Replica tool.</source>
+          <target state="new">This article contains step-by-step instructions on using the Capacity planner for Azure Site Recovery (ASR) - Hyper-V Replica tool.</target>
+        </trans-unit>
+        <trans-unit id="4c90f19c-7bb0-4167-8b08-ebeebccb736c" xml:space="preserve">
+          <source>The Capacity Planner for ASR - Hyper-V Replica tool guides an IT administrator in designing the server, storage, and network infrastructure that is required to successfully deploy Hyper-V Replica and to validate network connectivity between two sites.</source>
+          <target state="new">The Capacity Planner for ASR - Hyper-V Replica tool guides an IT administrator in designing the server, storage, and network infrastructure that is required to successfully deploy Hyper-V Replica and to validate network connectivity between two sites.</target>
+        </trans-unit>
+        <trans-unit id="6cce0cbf-32ec-4cb9-abc6-96a2657aace2" xml:space="preserve">
+          <source>Operating system: Windows Server® 2012 or Windows Server® 2012 R2</source>
+          <target state="new">Operating system: Windows Server® 2012 or Windows Server® 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="5da25a7d-fbf9-402f-8809-b83ad1c0afb5" xml:space="preserve">
+          <source>Memory: 20 MB (minimum)</source>
+          <target state="new">Memory: 20 MB (minimum)</target>
+        </trans-unit>
+        <trans-unit id="52c6107d-838e-44e4-98bd-59c60a89ae1f" xml:space="preserve">
+          <source>CPU: 5 percent overhead (minimum)</source>
+          <target state="new">CPU: 5 percent overhead (minimum)</target>
+        </trans-unit>
+        <trans-unit id="592d5156-291f-4023-ac85-de94a5d4e6c5" xml:space="preserve">
+          <source>Disk space: 5 MB (minimum)</source>
+          <target state="new">Disk space: 5 MB (minimum)</target>
+        </trans-unit>
+        <trans-unit id="b27c4c82-2bb1-495d-83b0-372cd7bcd90f" xml:space="preserve">
+          <source>Step 1: Prepare the primary site</source>
+          <target state="new">Step 1: Prepare the primary site</target>
+        </trans-unit>
+        <trans-unit id="66a77df2-0c2c-4f88-9083-34244fa8078d" xml:space="preserve">
+          <source>Step 2: Prepare the recovery site if your recovery site is on-premises</source>
+          <target state="new">Step 2: Prepare the recovery site if your recovery site is on-premises</target>
+        </trans-unit>
+        <trans-unit id="f654a017-8608-46e6-abee-75d7a41ffba3" xml:space="preserve">
+          <source>Step 3: Run the capacity planner tool</source>
+          <target state="new">Step 3: Run the capacity planner tool</target>
+        </trans-unit>
+        <trans-unit id="8859817b-04fa-4f75-859c-2387ecdb8536" xml:space="preserve">
+          <source>Step 4: Interpret the results</source>
+          <target state="new">Step 4: Interpret the results</target>
+        </trans-unit>
+        <trans-unit id="f4249d08-26b3-4bdb-b545-59033c97f695" xml:space="preserve">
+          <source>Make a list of all of the Hyper-V virtual machines that will need to be enabled for replication and the corresponding primary Hyper-V hosts/clusters.</source>
+          <target state="new">Make a list of all of the Hyper-V virtual machines that will need to be enabled for replication and the corresponding primary Hyper-V hosts/clusters.</target>
+        </trans-unit>
+        <trans-unit id="7fd4c0a5-671c-46e3-9833-d9295b3a9fcf" xml:space="preserve">
+          <source>Group primary Hyper-V hosts and clusters into one of the following:</source>
+          <target state="new">Group primary Hyper-V hosts and clusters into one of the following:</target>
+        </trans-unit>
+        <trans-unit id="295a55ef-76e8-4589-80a8-8ae350ca074c" xml:space="preserve">
+          <source>Windows Server® 2012 standalone servers</source>
+          <target state="new">Windows Server® 2012 standalone servers</target>
+        </trans-unit>
+        <trans-unit id="62b7ec3f-63b4-4bb9-8116-6dac251e0ac2" xml:space="preserve">
+          <source>Windows Server® 2012 clusters</source>
+          <target state="new">Windows Server® 2012 clusters</target>
+        </trans-unit>
+        <trans-unit id="1e7488c0-2ad9-4189-952d-839ccfc7706a" xml:space="preserve">
+          <source>Windows Server® 2012 R2 standalone servers</source>
+          <target state="new">Windows Server® 2012 R2 standalone servers</target>
+        </trans-unit>
+        <trans-unit id="5f617111-b77b-49a6-a694-909cd7274dec" xml:space="preserve">
+          <source>Windows Server® 2012 R2 clusters</source>
+          <target state="new">Windows Server® 2012 R2 clusters</target>
+        </trans-unit>
+        <trans-unit id="ef601722-7cf0-47d3-8446-b13fa271353c" xml:space="preserve">
+          <source>You will need to run the capacity planner tool once per standalone server group and once for each cluster.</source>
+          <target state="new">You will need to run the capacity planner tool once per standalone server group and once for each cluster.</target>
+        </trans-unit>
+        <trans-unit id="d49e35cc-d4db-4873-b9d0-0fe503a53ca6" xml:space="preserve">
+          <source>Enable remote access to WMI on all primary hosts and clusters.</source>
+          <target state="new">Enable remote access to WMI on all primary hosts and clusters.</target>
+        </trans-unit>
+        <trans-unit id="691275d9-dc82-4da6-a760-223654bd1ed1" xml:space="preserve">
+          <source>Ensure that the right set of firewall rules and user permissions are set.</source>
+          <target state="new">Ensure that the right set of firewall rules and user permissions are set.</target>
+        </trans-unit>
+        <trans-unit id="d0ffca74-a344-4e19-87d0-4ceb908be7d0" xml:space="preserve">
+          <source>Enable performance monitoring on the primary hosts.</source>
+          <target state="new">Enable performance monitoring on the primary hosts.</target>
+        </trans-unit>
+        <trans-unit id="4beaf7d6-e371-43c4-a8fc-266ef57dfff7" xml:space="preserve">
+          <source>Open the <bpt id="79f634a2-09ee-492b-bd09-0d408648f054">&lt;strong&gt;</bpt>Windows Firewall<ept id="79f634a2-09ee-492b-bd09-0d408648f054">&lt;/strong&gt;</ept> with the <bpt id="6885fabe-14ca-4e2f-bbeb-f69db2b5404e">&lt;strong&gt;</bpt>Advanced Security<ept id="6885fabe-14ca-4e2f-bbeb-f69db2b5404e">&lt;/strong&gt;</ept> snapin, and then enable the following inbound rules:</source>
+          <target state="new">Open the <bpt id="79f634a2-09ee-492b-bd09-0d408648f054">&lt;strong&gt;</bpt>Windows Firewall<ept id="79f634a2-09ee-492b-bd09-0d408648f054">&lt;/strong&gt;</ept> with the <bpt id="6885fabe-14ca-4e2f-bbeb-f69db2b5404e">&lt;strong&gt;</bpt>Advanced Security<ept id="6885fabe-14ca-4e2f-bbeb-f69db2b5404e">&lt;/strong&gt;</ept> snapin, and then enable the following inbound rules:</target>
+        </trans-unit>
+        <trans-unit id="3a3144e1-4d97-4643-8447-55c66c7367ce" xml:space="preserve">
+          <source>COM+ Network Access (DCOM-IN)</source>
+          <target state="new">COM+ Network Access (DCOM-IN)</target>
+        </trans-unit>
+        <trans-unit id="f4292f68-79c9-4baf-9efe-7db77daf4748" xml:space="preserve">
+          <source>All rules in the Remote Event Log Management group</source>
+          <target state="new">All rules in the Remote Event Log Management group</target>
+        </trans-unit>
+        <trans-unit id="301ba649-0852-4869-b701-14e549f1a0f0" xml:space="preserve">
+          <source>If you are using Azure as the recovery site, or your on-premises recovery site is not yet ready, then you can skip this section.</source>
+          <target state="new">If you are using Azure as the recovery site, or your on-premises recovery site is not yet ready, then you can skip this section.</target>
+        </trans-unit>
+        <trans-unit id="7e588f03-529c-407b-a81c-69e1cad81673" xml:space="preserve">
+          <source>But if you skip it, you won't be able to measure the available bandwidth between the two sites.</source>
+          <target state="new">But if you skip it, you won't be able to measure the available bandwidth between the two sites.</target>
+        </trans-unit>
+        <trans-unit id="a6cb5f94-f5ff-44a2-8aef-7a11a4f90fd9" xml:space="preserve">
+          <source>Identify the authentication method</source>
+          <target state="new">Identify the authentication method</target>
+        </trans-unit>
+        <trans-unit id="347f8c59-d18a-4112-b346-beceb5ac9e50" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="2a087e53-8b7d-4c24-91a1-2bf68ac8acf7" xml:space="preserve">
+          <source>Kerberos: To be used when both the primary and recovery Hyper-V hosts are in the same domain or are in mutually trusted domains.</source>
+          <target state="new">Kerberos: To be used when both the primary and recovery Hyper-V hosts are in the same domain or are in mutually trusted domains.</target>
+        </trans-unit>
+        <trans-unit id="77b23d45-97c6-4f31-9caf-3f407fbb5d07" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="10c86c19-8263-4788-94c6-b1ea204ae459" xml:space="preserve">
+          <source>Certificate: To be used when primary and recovery Hyper-V hosts are in different domains.</source>
+          <target state="new">Certificate: To be used when primary and recovery Hyper-V hosts are in different domains.</target>
+        </trans-unit>
+        <trans-unit id="eefbb9f4-2c9f-43ed-b287-b58c6958d233" xml:space="preserve">
+          <source>Certificates can be created using makecert.</source>
+          <target state="new">Certificates can be created using makecert.</target>
+        </trans-unit>
+        <trans-unit id="56ba653d-057b-4c6d-8753-dfe99d33299a" xml:space="preserve">
+          <source>For information about the steps required to deploy certificates using this technique, see the <bpt id="09b99ce8-fdd7-41e4-af1d-871c9738e8a2">&lt;linkText&gt;</bpt>Hyper-V Replica Certificate Based Authentication - makecert<ept id="09b99ce8-fdd7-41e4-af1d-871c9738e8a2">&lt;/linkText&gt;</ept><bpt id="09b99ce8-fdd7-41e4-af1d-871c9738e8a2">&lt;title&gt;</bpt><ept id="09b99ce8-fdd7-41e4-af1d-871c9738e8a2">&lt;/title&gt;</ept> blog post.</source>
+          <target state="new">For information about the steps required to deploy certificates using this technique, see the <bpt id="09b99ce8-fdd7-41e4-af1d-871c9738e8a2">&lt;linkText&gt;</bpt>Hyper-V Replica Certificate Based Authentication - makecert<ept id="09b99ce8-fdd7-41e4-af1d-871c9738e8a2">&lt;/linkText&gt;</ept><bpt id="09b99ce8-fdd7-41e4-af1d-871c9738e8a2">&lt;title&gt;</bpt><ept id="09b99ce8-fdd7-41e4-af1d-871c9738e8a2">&lt;/title&gt;</ept> blog post.</target>
+        </trans-unit>
+        <trans-unit id="a6bfa0cf-0b8b-4310-b6d0-25b136e49924" xml:space="preserve">
+          <source>Identify a <bpt id="a830adfe-778b-4a62-b7e8-327058f58b3f">&lt;strong&gt;</bpt>single<ept id="a830adfe-778b-4a62-b7e8-327058f58b3f">&lt;/strong&gt;</ept> Recovery Hyper-V host/cluster from the recovery site.</source>
+          <target state="new">Identify a <bpt id="a830adfe-778b-4a62-b7e8-327058f58b3f">&lt;strong&gt;</bpt>single<ept id="a830adfe-778b-4a62-b7e8-327058f58b3f">&lt;/strong&gt;</ept> Recovery Hyper-V host/cluster from the recovery site.</target>
+        </trans-unit>
+        <trans-unit id="dec9452b-8d13-438f-b614-2a69b63d2296" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="219faad9-d167-499c-a32d-ee19af0bed41" xml:space="preserve">
+          <source>This recovery host/cluster will be used to replicate a dummy virtual machine, and to estimate the available bandwidth between the primary and secondary sites.</source>
+          <target state="new">This recovery host/cluster will be used to replicate a dummy virtual machine, and to estimate the available bandwidth between the primary and secondary sites.</target>
+        </trans-unit>
+        <trans-unit id="d0abc7c5-eeec-4310-8c3a-9f0023295a05" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="5a2fa28f-3f43-4ef0-bb2e-a86458cf3afe" xml:space="preserve">
+          <source><bpt id="1fcb2f80-78cd-4b58-ba01-06d4b9dadb4a">&lt;strong&gt;</bpt>Recommended<ept id="1fcb2f80-78cd-4b58-ba01-06d4b9dadb4a">&lt;/strong&gt;</ept>: Use a single recovery Hyper-V host for running the tests.</source>
+          <target state="new"><bpt id="1fcb2f80-78cd-4b58-ba01-06d4b9dadb4a">&lt;strong&gt;</bpt>Recommended<ept id="1fcb2f80-78cd-4b58-ba01-06d4b9dadb4a">&lt;/strong&gt;</ept>: Use a single recovery Hyper-V host for running the tests.</target>
+        </trans-unit>
+        <trans-unit id="5fc96164-6212-4c98-bb5a-fb1eac8c814a" xml:space="preserve">
+          <source>In Hyper-V Manager, click <bpt id="a4facc7d-0c6f-42bf-87a9-1b0eb0741e58">&lt;strong&gt;</bpt>Hyper-V Settings<ept id="a4facc7d-0c6f-42bf-87a9-1b0eb0741e58">&lt;/strong&gt;</ept> in the <bpt id="0315b263-514b-45fb-aced-a6fe7b839c98">&lt;strong&gt;</bpt>Actions<ept id="0315b263-514b-45fb-aced-a6fe7b839c98">&lt;/strong&gt;</ept> pane.</source>
+          <target state="new">In Hyper-V Manager, click <bpt id="a4facc7d-0c6f-42bf-87a9-1b0eb0741e58">&lt;strong&gt;</bpt>Hyper-V Settings<ept id="a4facc7d-0c6f-42bf-87a9-1b0eb0741e58">&lt;/strong&gt;</ept> in the <bpt id="0315b263-514b-45fb-aced-a6fe7b839c98">&lt;strong&gt;</bpt>Actions<ept id="0315b263-514b-45fb-aced-a6fe7b839c98">&lt;/strong&gt;</ept> pane.</target>
+        </trans-unit>
+        <trans-unit id="b9a447c5-ea4e-4e79-b734-d0137ea049a6" xml:space="preserve">
+          <source>In the <bpt id="fe7c87cb-94e6-4675-81dd-ca9f1f506502">&lt;strong&gt;</bpt>Hyper-V Settings<ept id="fe7c87cb-94e6-4675-81dd-ca9f1f506502">&lt;/strong&gt;</ept> dialog, click <bpt id="00e87efe-8530-4149-9ffb-7f4ae61ade58">&lt;strong&gt;</bpt>Replication Configuration<ept id="00e87efe-8530-4149-9ffb-7f4ae61ade58">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="fe7c87cb-94e6-4675-81dd-ca9f1f506502">&lt;strong&gt;</bpt>Hyper-V Settings<ept id="fe7c87cb-94e6-4675-81dd-ca9f1f506502">&lt;/strong&gt;</ept> dialog, click <bpt id="00e87efe-8530-4149-9ffb-7f4ae61ade58">&lt;strong&gt;</bpt>Replication Configuration<ept id="00e87efe-8530-4149-9ffb-7f4ae61ade58">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b482d58-e415-4c28-b60f-647c0cad25ae" xml:space="preserve">
+          <source>In the Details pane, select <bpt id="7c142589-6522-436b-8798-5ed5314264ff">&lt;strong&gt;</bpt>Enable this computer as a Replica server<ept id="7c142589-6522-436b-8798-5ed5314264ff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Details pane, select <bpt id="7c142589-6522-436b-8798-5ed5314264ff">&lt;strong&gt;</bpt>Enable this computer as a Replica server<ept id="7c142589-6522-436b-8798-5ed5314264ff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3da288d7-16d5-43b2-91c3-79c1e23105d9" xml:space="preserve">
+          <source>In the <bpt id="79d985a2-b1f0-417b-a319-257e9e36c657">&lt;strong&gt;</bpt>Autentication and ports<ept id="79d985a2-b1f0-417b-a319-257e9e36c657">&lt;/strong&gt;</ept> section, select the authentication method you previously chose.</source>
+          <target state="new">In the <bpt id="79d985a2-b1f0-417b-a319-257e9e36c657">&lt;strong&gt;</bpt>Autentication and ports<ept id="79d985a2-b1f0-417b-a319-257e9e36c657">&lt;/strong&gt;</ept> section, select the authentication method you previously chose.</target>
+        </trans-unit>
+        <trans-unit id="4157ffdb-aad5-4bbd-889b-b76bd41fe111" xml:space="preserve">
+          <source>For either authentication method, specify the port to be used (the default ports are 80 for kerberos over HTTP and 443 for certificate-based authentication over HTTPS).</source>
+          <target state="new">For either authentication method, specify the port to be used (the default ports are 80 for kerberos over HTTP and 443 for certificate-based authentication over HTTPS).</target>
+        </trans-unit>
+        <trans-unit id="18b2365d-f071-4d62-af8c-dd8093d463c9" xml:space="preserve">
+          <source>If you are using certificate-based authentication, click <bpt id="ddf98fa7-8667-4be8-962f-d962eafd03cd">&lt;strong&gt;</bpt>Select Certificate<ept id="ddf98fa7-8667-4be8-962f-d962eafd03cd">&lt;/strong&gt;</ept>, and then provide the certificate information.</source>
+          <target state="new">If you are using certificate-based authentication, click <bpt id="ddf98fa7-8667-4be8-962f-d962eafd03cd">&lt;strong&gt;</bpt>Select Certificate<ept id="ddf98fa7-8667-4be8-962f-d962eafd03cd">&lt;/strong&gt;</ept>, and then provide the certificate information.</target>
+        </trans-unit>
+        <trans-unit id="344cc7a4-d306-4975-af2a-c7bf46fc8676" xml:space="preserve">
+          <source>In the <bpt id="198fd4f7-23fd-434f-af13-8a15a3a7d665">&lt;strong&gt;</bpt>Authorization and Storage<ept id="198fd4f7-23fd-434f-af13-8a15a3a7d665">&lt;/strong&gt;</ept> section, specify to allow <bpt id="8b82fdf0-11e4-444c-ac68-51a43c8f6452">&lt;strong&gt;</bpt>any<ept id="8b82fdf0-11e4-444c-ac68-51a43c8f6452">&lt;/strong&gt;</ept> authenticated (primary) server to send replication data to this replica server.</source>
+          <target state="new">In the <bpt id="198fd4f7-23fd-434f-af13-8a15a3a7d665">&lt;strong&gt;</bpt>Authorization and Storage<ept id="198fd4f7-23fd-434f-af13-8a15a3a7d665">&lt;/strong&gt;</ept> section, specify to allow <bpt id="8b82fdf0-11e4-444c-ac68-51a43c8f6452">&lt;strong&gt;</bpt>any<ept id="8b82fdf0-11e4-444c-ac68-51a43c8f6452">&lt;/strong&gt;</ept> authenticated (primary) server to send replication data to this replica server.</target>
+        </trans-unit>
+        <trans-unit id="08809268-2d83-48b2-8955-3d515dde49ad" xml:space="preserve">
+          <source>Click <bpt id="3bbe500c-de59-46dc-aeaa-0a0e2911c28c">&lt;strong&gt;</bpt>OK<ept id="3bbe500c-de59-46dc-aeaa-0a0e2911c28c">&lt;/strong&gt;</ept> or <bpt id="b66347c1-1531-4e9e-b36b-f3f230547e9d">&lt;strong&gt;</bpt>Apply<ept id="b66347c1-1531-4e9e-b36b-f3f230547e9d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3bbe500c-de59-46dc-aeaa-0a0e2911c28c">&lt;strong&gt;</bpt>OK<ept id="3bbe500c-de59-46dc-aeaa-0a0e2911c28c">&lt;/strong&gt;</ept> or <bpt id="b66347c1-1531-4e9e-b36b-f3f230547e9d">&lt;strong&gt;</bpt>Apply<ept id="b66347c1-1531-4e9e-b36b-f3f230547e9d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c0729bb-0ef2-477b-9a5e-7b64980a23be" xml:space="preserve">
+          <source><bpt id="8e7c1638-5df3-45da-bf79-b33cfb48404e">&lt;linkText&gt;</bpt><ept id="8e7c1638-5df3-45da-bf79-b33cfb48404e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8e7c1638-5df3-45da-bf79-b33cfb48404e">&lt;linkText&gt;</bpt><ept id="8e7c1638-5df3-45da-bf79-b33cfb48404e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f7c98a7-8f40-4f4a-b2e1-581f23242eed" xml:space="preserve">
+          <source>Validate that the https listener is running by executing the command:
+    netsh http show servicestate</source>
+          <target state="new">Validate that the https listener is running by executing the command:
+    netsh http show servicestate</target>
+        </trans-unit>
+        <trans-unit id="5e58bbde-0a98-4199-bb4a-919f9f0d0736" xml:space="preserve">
+          <source>Open firewall ports:</source>
+          <target state="new">Open firewall ports:</target>
+        </trans-unit>
+        <trans-unit id="445347b6-170b-4939-b5e4-c68cc3dd3aa5" xml:space="preserve">
+          <source>If you have already prepared a standalone Hyper-V host a recovery server, then you can skip this section.</source>
+          <target state="new">If you have already prepared a standalone Hyper-V host a recovery server, then you can skip this section.</target>
+        </trans-unit>
+        <trans-unit id="8dc27ab7-cf69-413f-825b-5fde84d9200f" xml:space="preserve">
+          <source>Configure Hyper-V Replica broker:</source>
+          <target state="new">Configure Hyper-V Replica broker:</target>
+        </trans-unit>
+        <trans-unit id="b69324b4-b7dd-4e21-8e5f-670a5ecf732a" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="262f9dbc-c402-48c8-9509-c9c482c3739b" xml:space="preserve">
+          <source>In <bpt id="b1a365dd-cff8-44be-8a19-77dc97fbcbb1">&lt;strong&gt;</bpt>Server Manager<ept id="b1a365dd-cff8-44be-8a19-77dc97fbcbb1">&lt;/strong&gt;</ept>, open <bpt id="da261a12-ad40-4c1a-815a-a572a00f695a">&lt;strong&gt;</bpt>Failover Cluster Manager<ept id="da261a12-ad40-4c1a-815a-a572a00f695a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="b1a365dd-cff8-44be-8a19-77dc97fbcbb1">&lt;strong&gt;</bpt>Server Manager<ept id="b1a365dd-cff8-44be-8a19-77dc97fbcbb1">&lt;/strong&gt;</ept>, open <bpt id="da261a12-ad40-4c1a-815a-a572a00f695a">&lt;strong&gt;</bpt>Failover Cluster Manager<ept id="da261a12-ad40-4c1a-815a-a572a00f695a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab0b740a-146d-4dcb-a2e7-88678f1455d6" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="baca0d44-288c-46e5-a4d8-8fabea1f07a2" xml:space="preserve">
+          <source>In the left pane, connect to the cluster, and while the cluster name is highlighted, click <bpt id="8be20907-dca9-42f3-8d8f-52168c4e637d">&lt;strong&gt;</bpt>Configure Role<ept id="8be20907-dca9-42f3-8d8f-52168c4e637d">&lt;/strong&gt;</ept> in the <bpt id="935b7558-3371-493a-96d2-e58f64305c05">&lt;strong&gt;</bpt>Actions<ept id="935b7558-3371-493a-96d2-e58f64305c05">&lt;/strong&gt;</ept> pane.</source>
+          <target state="new">In the left pane, connect to the cluster, and while the cluster name is highlighted, click <bpt id="8be20907-dca9-42f3-8d8f-52168c4e637d">&lt;strong&gt;</bpt>Configure Role<ept id="8be20907-dca9-42f3-8d8f-52168c4e637d">&lt;/strong&gt;</ept> in the <bpt id="935b7558-3371-493a-96d2-e58f64305c05">&lt;strong&gt;</bpt>Actions<ept id="935b7558-3371-493a-96d2-e58f64305c05">&lt;/strong&gt;</ept> pane.</target>
+        </trans-unit>
+        <trans-unit id="c4debdf7-0d25-4a9f-8504-fb469d5156bc" xml:space="preserve">
+          <source>This opens the <bpt id="84722c37-8e06-419d-9f4b-63ec7d3c128e">&lt;strong&gt;</bpt>High Availability wizard<ept id="84722c37-8e06-419d-9f4b-63ec7d3c128e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This opens the <bpt id="84722c37-8e06-419d-9f4b-63ec7d3c128e">&lt;strong&gt;</bpt>High Availability wizard<ept id="84722c37-8e06-419d-9f4b-63ec7d3c128e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2beb060c-5e5f-4adf-8a2d-66829127dda0" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="41988dad-881d-4171-ab70-39da62a0302f" xml:space="preserve">
+          <source>In the <bpt id="62e20064-07dd-4c64-8106-3f8e7e50661a">&lt;strong&gt;</bpt>Select Role<ept id="62e20064-07dd-4c64-8106-3f8e7e50661a">&lt;/strong&gt;</ept> screen, select <bpt id="287e693e-ee3e-4d98-8d5e-c8aa79644e8e">&lt;strong&gt;</bpt>Hyper-V Replica Broker<ept id="287e693e-ee3e-4d98-8d5e-c8aa79644e8e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="62e20064-07dd-4c64-8106-3f8e7e50661a">&lt;strong&gt;</bpt>Select Role<ept id="62e20064-07dd-4c64-8106-3f8e7e50661a">&lt;/strong&gt;</ept> screen, select <bpt id="287e693e-ee3e-4d98-8d5e-c8aa79644e8e">&lt;strong&gt;</bpt>Hyper-V Replica Broker<ept id="287e693e-ee3e-4d98-8d5e-c8aa79644e8e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e24a49c8-cc1e-4bc0-9e29-8ca284fb4daa" xml:space="preserve">
+          <source>d.</source>
+          <target state="new">d.</target>
+        </trans-unit>
+        <trans-unit id="7b629e4a-7639-4c79-9adc-7a8d624c46d7" xml:space="preserve">
+          <source>Complete the wizard, providing a <bpt id="85efb75f-e799-4d99-9248-f6f4d43ec273">&lt;strong&gt;</bpt>NetBIOS name<ept id="85efb75f-e799-4d99-9248-f6f4d43ec273">&lt;/strong&gt;</ept> and <bpt id="392e5c1b-1c7b-4096-9683-7478a257673b">&lt;strong&gt;</bpt>IP address<ept id="392e5c1b-1c7b-4096-9683-7478a257673b">&lt;/strong&gt;</ept> to be used as the connection point to the cluster (called a client access point).</source>
+          <target state="new">Complete the wizard, providing a <bpt id="85efb75f-e799-4d99-9248-f6f4d43ec273">&lt;strong&gt;</bpt>NetBIOS name<ept id="85efb75f-e799-4d99-9248-f6f4d43ec273">&lt;/strong&gt;</ept> and <bpt id="392e5c1b-1c7b-4096-9683-7478a257673b">&lt;strong&gt;</bpt>IP address<ept id="392e5c1b-1c7b-4096-9683-7478a257673b">&lt;/strong&gt;</ept> to be used as the connection point to the cluster (called a client access point).</target>
+        </trans-unit>
+        <trans-unit id="4c10d5a0-c460-485c-97cf-49e35f1620bf" xml:space="preserve">
+          <source>The <bpt id="b5d6f233-1b1b-43cb-95bd-89edfc711e0c">&lt;strong&gt;</bpt>Hyper-V Replica Broker<ept id="b5d6f233-1b1b-43cb-95bd-89edfc711e0c">&lt;/strong&gt;</ept> is configured, resulting in a client access point name.</source>
+          <target state="new">The <bpt id="b5d6f233-1b1b-43cb-95bd-89edfc711e0c">&lt;strong&gt;</bpt>Hyper-V Replica Broker<ept id="b5d6f233-1b1b-43cb-95bd-89edfc711e0c">&lt;/strong&gt;</ept> is configured, resulting in a client access point name.</target>
+        </trans-unit>
+        <trans-unit id="e7c50a4b-044e-4ed3-9b36-6e87d8b06fa0" xml:space="preserve">
+          <source>Make a note of the client access point name - you will use it to configure the replica later on.</source>
+          <target state="new">Make a note of the client access point name - you will use it to configure the replica later on.</target>
+        </trans-unit>
+        <trans-unit id="71c5dd83-7381-4308-8e52-e5824ddd7e82" xml:space="preserve">
+          <source>e.</source>
+          <target state="new">e.</target>
+        </trans-unit>
+        <trans-unit id="ae75193a-50ed-4915-95fd-a92d4e782198" xml:space="preserve">
+          <source>Verify that the Hyper-V Replica Broker role comes online successfully and can fail over between all nodes of the cluster.</source>
+          <target state="new">Verify that the Hyper-V Replica Broker role comes online successfully and can fail over between all nodes of the cluster.</target>
+        </trans-unit>
+        <trans-unit id="6f999491-85c9-4bdf-ac0e-ea0346a720f0" xml:space="preserve">
+          <source>To do this, right click the role, point to <bpt id="58eb2b27-6d3a-4cb3-8e5c-2251e712c1af">&lt;strong&gt;</bpt>Move<ept id="58eb2b27-6d3a-4cb3-8e5c-2251e712c1af">&lt;/strong&gt;</ept>, and then click <bpt id="d355f7af-b4fe-481a-a1ed-3fc76e39f018">&lt;strong&gt;</bpt>Select Node<ept id="d355f7af-b4fe-481a-a1ed-3fc76e39f018">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To do this, right click the role, point to <bpt id="58eb2b27-6d3a-4cb3-8e5c-2251e712c1af">&lt;strong&gt;</bpt>Move<ept id="58eb2b27-6d3a-4cb3-8e5c-2251e712c1af">&lt;/strong&gt;</ept>, and then click <bpt id="d355f7af-b4fe-481a-a1ed-3fc76e39f018">&lt;strong&gt;</bpt>Select Node<ept id="d355f7af-b4fe-481a-a1ed-3fc76e39f018">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ca47258-3c18-4028-bf37-5627f932b81b" xml:space="preserve">
+          <source>Select a node &gt; <bpt id="058697cd-8d02-431f-b2ff-7668b2c55c0c">&lt;strong&gt;</bpt>OK<ept id="058697cd-8d02-431f-b2ff-7668b2c55c0c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select a node &gt; <bpt id="058697cd-8d02-431f-b2ff-7668b2c55c0c">&lt;strong&gt;</bpt>OK<ept id="058697cd-8d02-431f-b2ff-7668b2c55c0c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d68abff-9dd8-4d35-99c4-a6522d71fcad" xml:space="preserve">
+          <source>f.</source>
+          <target state="new">f.</target>
+        </trans-unit>
+        <trans-unit id="c81853d5-fe7c-41ba-a834-b9720d42ab87" xml:space="preserve">
+          <source>If you use certificate-based authentication, ensure that each cluster node and the Hyper-V Replica Broker's client access point all have the certificate installed.</source>
+          <target state="new">If you use certificate-based authentication, ensure that each cluster node and the Hyper-V Replica Broker's client access point all have the certificate installed.</target>
+        </trans-unit>
+        <trans-unit id="315307f1-fe04-4fba-8cd5-7e0195645f63" xml:space="preserve">
+          <source>Configure replica settings:</source>
+          <target state="new">Configure replica settings:</target>
+        </trans-unit>
+        <trans-unit id="b55bc872-19d7-4218-9dbf-5525ba94c744" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="666aa82d-3883-431f-b4cd-c39e5f28799a" xml:space="preserve">
+          <source>In <bpt id="48cdfa07-6c29-49d6-b487-6b1067f95b78">&lt;strong&gt;</bpt>Server Manager<ept id="48cdfa07-6c29-49d6-b487-6b1067f95b78">&lt;/strong&gt;</ept>, open <bpt id="d983bc1c-61e2-491b-a096-c707e2fe66c5">&lt;strong&gt;</bpt>Failover Cluster Manager<ept id="d983bc1c-61e2-491b-a096-c707e2fe66c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="48cdfa07-6c29-49d6-b487-6b1067f95b78">&lt;strong&gt;</bpt>Server Manager<ept id="48cdfa07-6c29-49d6-b487-6b1067f95b78">&lt;/strong&gt;</ept>, open <bpt id="d983bc1c-61e2-491b-a096-c707e2fe66c5">&lt;strong&gt;</bpt>Failover Cluster Manager<ept id="d983bc1c-61e2-491b-a096-c707e2fe66c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="895469e5-f62a-45ca-a4de-93a508b1cf22" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="65a0565a-41fb-4bc0-8178-9dd393b2556a" xml:space="preserve">
+          <source>In the left pane, connect to the cluster, and while the cluster name is highlighted, click <bpt id="e5efa73d-e54d-41e0-8733-267bd9c894a4">&lt;strong&gt;</bpt>Roles<ept id="e5efa73d-e54d-41e0-8733-267bd9c894a4">&lt;/strong&gt;</ept> in the <bpt id="19e5536a-3cdf-44b9-9d10-b52542d47e44">&lt;strong&gt;</bpt>Navigate<ept id="19e5536a-3cdf-44b9-9d10-b52542d47e44">&lt;/strong&gt;</ept> category of the <bpt id="b9e7bb9e-e6af-4233-a9ee-1099891bb8b1">&lt;strong&gt;</bpt>Details<ept id="b9e7bb9e-e6af-4233-a9ee-1099891bb8b1">&lt;/strong&gt;</ept> pane.</source>
+          <target state="new">In the left pane, connect to the cluster, and while the cluster name is highlighted, click <bpt id="e5efa73d-e54d-41e0-8733-267bd9c894a4">&lt;strong&gt;</bpt>Roles<ept id="e5efa73d-e54d-41e0-8733-267bd9c894a4">&lt;/strong&gt;</ept> in the <bpt id="19e5536a-3cdf-44b9-9d10-b52542d47e44">&lt;strong&gt;</bpt>Navigate<ept id="19e5536a-3cdf-44b9-9d10-b52542d47e44">&lt;/strong&gt;</ept> category of the <bpt id="b9e7bb9e-e6af-4233-a9ee-1099891bb8b1">&lt;strong&gt;</bpt>Details<ept id="b9e7bb9e-e6af-4233-a9ee-1099891bb8b1">&lt;/strong&gt;</ept> pane.</target>
+        </trans-unit>
+        <trans-unit id="e07936a6-a371-4e27-86bc-b0b65728b48b" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="4384f875-055d-4286-9d79-4b7a051cfec0" xml:space="preserve">
+          <source>Right-click the role, and then choose <bpt id="db6fc686-5fc7-4903-a32d-5743165ef9e2">&lt;strong&gt;</bpt>Replication Settings<ept id="db6fc686-5fc7-4903-a32d-5743165ef9e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the role, and then choose <bpt id="db6fc686-5fc7-4903-a32d-5743165ef9e2">&lt;strong&gt;</bpt>Replication Settings<ept id="db6fc686-5fc7-4903-a32d-5743165ef9e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3e40d95-31ef-4814-9459-e5112d85b787" xml:space="preserve">
+          <source>d.</source>
+          <target state="new">d.</target>
+        </trans-unit>
+        <trans-unit id="2a9f839f-799a-49ad-b3af-fc89f1428bb4" xml:space="preserve">
+          <source>In the <bpt id="fd43e002-04fe-40ce-ad5e-f4fb7e352378">&lt;strong&gt;</bpt>Details<ept id="fd43e002-04fe-40ce-ad5e-f4fb7e352378">&lt;/strong&gt;</ept> pane, select <bpt id="5ce393a6-6b5a-49b8-a496-2ec5aecc4c06">&lt;strong&gt;</bpt>Enable this cluster as a Replica Server<ept id="5ce393a6-6b5a-49b8-a496-2ec5aecc4c06">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="fd43e002-04fe-40ce-ad5e-f4fb7e352378">&lt;strong&gt;</bpt>Details<ept id="fd43e002-04fe-40ce-ad5e-f4fb7e352378">&lt;/strong&gt;</ept> pane, select <bpt id="5ce393a6-6b5a-49b8-a496-2ec5aecc4c06">&lt;strong&gt;</bpt>Enable this cluster as a Replica Server<ept id="5ce393a6-6b5a-49b8-a496-2ec5aecc4c06">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30d89b3f-76ef-4496-8753-a79052b48dbb" xml:space="preserve">
+          <source>e.</source>
+          <target state="new">e.</target>
+        </trans-unit>
+        <trans-unit id="8536acf6-e54c-473f-be98-a09533320c67" xml:space="preserve">
+          <source>In the <bpt id="7a38fc87-dc17-482a-8a34-1fc38424a707">&lt;strong&gt;</bpt>Authentication and ports<ept id="7a38fc87-dc17-482a-8a34-1fc38424a707">&lt;/strong&gt;</ept> section, select the authentication method you chose earlier.</source>
+          <target state="new">In the <bpt id="7a38fc87-dc17-482a-8a34-1fc38424a707">&lt;strong&gt;</bpt>Authentication and ports<ept id="7a38fc87-dc17-482a-8a34-1fc38424a707">&lt;/strong&gt;</ept> section, select the authentication method you chose earlier.</target>
+        </trans-unit>
+        <trans-unit id="be045432-5473-47f1-8900-764f712cf46c" xml:space="preserve">
+          <source>For either authentication method, specify the port to be used (the default ports are 80 for Kerberos over HTTP, and 443 for certificate-based authentication over HTTPS).</source>
+          <target state="new">For either authentication method, specify the port to be used (the default ports are 80 for Kerberos over HTTP, and 443 for certificate-based authentication over HTTPS).</target>
+        </trans-unit>
+        <trans-unit id="4b1f626e-c6a8-4393-8a45-1354925b378c" xml:space="preserve">
+          <source>f.</source>
+          <target state="new">f.</target>
+        </trans-unit>
+        <trans-unit id="5594dd40-f810-410d-8178-659d75235923" xml:space="preserve">
+          <source>If you are using certificate-based authentication, click <bpt id="8f6badee-d6e3-4639-b506-4dbffc117830">&lt;strong&gt;</bpt>Select Certificate<ept id="8f6badee-d6e3-4639-b506-4dbffc117830">&lt;/strong&gt;</ept>, and then provide the reqeusted certificate information.</source>
+          <target state="new">If you are using certificate-based authentication, click <bpt id="8f6badee-d6e3-4639-b506-4dbffc117830">&lt;strong&gt;</bpt>Select Certificate<ept id="8f6badee-d6e3-4639-b506-4dbffc117830">&lt;/strong&gt;</ept>, and then provide the reqeusted certificate information.</target>
+        </trans-unit>
+        <trans-unit id="2c612e96-8393-4666-ab09-5830293631e3" xml:space="preserve">
+          <source>g.</source>
+          <target state="new">g.</target>
+        </trans-unit>
+        <trans-unit id="3ca9c049-6bd0-42b2-bbee-9f23990ea00c" xml:space="preserve">
+          <source>In the <bpt id="bb65ddb8-6eec-4c50-ba02-e88c9416cb5e">&lt;strong&gt;</bpt>Authorization and storage<ept id="bb65ddb8-6eec-4c50-ba02-e88c9416cb5e">&lt;/strong&gt;</ept> section, specify whether to allow <bpt id="0ba1a1e9-476b-40ba-966f-d4d8db5707b9">&lt;strong&gt;</bpt>any<ept id="0ba1a1e9-476b-40ba-966f-d4d8db5707b9">&lt;/strong&gt;</ept> authenticated (primary) server to send replication data to this replica server or to limit acceptance to data from specific primary servers.</source>
+          <target state="new">In the <bpt id="bb65ddb8-6eec-4c50-ba02-e88c9416cb5e">&lt;strong&gt;</bpt>Authorization and storage<ept id="bb65ddb8-6eec-4c50-ba02-e88c9416cb5e">&lt;/strong&gt;</ept> section, specify whether to allow <bpt id="0ba1a1e9-476b-40ba-966f-d4d8db5707b9">&lt;strong&gt;</bpt>any<ept id="0ba1a1e9-476b-40ba-966f-d4d8db5707b9">&lt;/strong&gt;</ept> authenticated (primary) server to send replication data to this replica server or to limit acceptance to data from specific primary servers.</target>
+        </trans-unit>
+        <trans-unit id="b166dc4a-cd96-4eec-b9b5-6022fa79931a" xml:space="preserve">
+          <source>You can use wildcard characters to limit acceptance to servers from a particular domain without having to specify them each individually (for example, *.contoso.com).</source>
+          <target state="new">You can use wildcard characters to limit acceptance to servers from a particular domain without having to specify them each individually (for example, *.contoso.com).</target>
+        </trans-unit>
+        <trans-unit id="85232852-95a1-410c-a800-58b65e391b2e" xml:space="preserve">
+          <source>h.</source>
+          <target state="new">h.</target>
+        </trans-unit>
+        <trans-unit id="6af11558-41fd-4dda-9074-523f4abb08a1" xml:space="preserve">
+          <source>Open firewall ports on all recovery Hyper-V hosts:
+      Port 443 (Certificate auth):
+         Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}</source>
+          <target state="new">Open firewall ports on all recovery Hyper-V hosts:
+      Port 443 (Certificate auth):
+         Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}</target>
+        </trans-unit>
+        <trans-unit id="0533d7c5-6f88-49d4-ade9-426d9493bb53" xml:space="preserve">
+          <source>Download the Capacity Planner tool.</source>
+          <target state="new">Download the Capacity Planner tool.</target>
+        </trans-unit>
+        <trans-unit id="1f3d1bb7-aee4-45f0-870c-d9597ba829d6" xml:space="preserve">
+          <source>Run the tool from one of the primary servers (or one of the nodes from the primary cluster).</source>
+          <target state="new">Run the tool from one of the primary servers (or one of the nodes from the primary cluster).</target>
+        </trans-unit>
+        <trans-unit id="73db31e3-23c2-44f5-a459-42c466b83923" xml:space="preserve">
+          <source>Right-click the .exe file, and then choose <bpt id="e7b0cb48-a43a-49ac-b2b7-6743c3966c51">&lt;strong&gt;</bpt>Run as administrator<ept id="e7b0cb48-a43a-49ac-b2b7-6743c3966c51">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the .exe file, and then choose <bpt id="e7b0cb48-a43a-49ac-b2b7-6743c3966c51">&lt;strong&gt;</bpt>Run as administrator<ept id="e7b0cb48-a43a-49ac-b2b7-6743c3966c51">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8def6966-c334-4bb1-821b-e07546888ba6" xml:space="preserve">
+          <source>If you choose, accept the <bpt id="5961ac56-db51-4948-90ac-3396e9ed8e85">&lt;strong&gt;</bpt>Terms of License<ept id="5961ac56-db51-4948-90ac-3396e9ed8e85">&lt;/strong&gt;</ept>, and then click <bpt id="5df7ecaa-787b-42d1-b9fd-8727b6d704c8">&lt;strong&gt;</bpt>Next<ept id="5df7ecaa-787b-42d1-b9fd-8727b6d704c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you choose, accept the <bpt id="5961ac56-db51-4948-90ac-3396e9ed8e85">&lt;strong&gt;</bpt>Terms of License<ept id="5961ac56-db51-4948-90ac-3396e9ed8e85">&lt;/strong&gt;</ept>, and then click <bpt id="5df7ecaa-787b-42d1-b9fd-8727b6d704c8">&lt;strong&gt;</bpt>Next<ept id="5df7ecaa-787b-42d1-b9fd-8727b6d704c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="758042c8-3ee9-4c9a-abca-c9de2116deab" xml:space="preserve">
+          <source>Select a <bpt id="d2b93ee8-4935-4950-8ffa-62fe2bb068e4">&lt;strong&gt;</bpt>Duration for metric collection<ept id="d2b93ee8-4935-4950-8ffa-62fe2bb068e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select a <bpt id="d2b93ee8-4935-4950-8ffa-62fe2bb068e4">&lt;strong&gt;</bpt>Duration for metric collection<ept id="d2b93ee8-4935-4950-8ffa-62fe2bb068e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84a24eae-4c73-4ad8-b7eb-58243eca24c9" xml:space="preserve">
+          <source>It is highly recommended that the tool runs during production hours to ensure that the most representative data is collected.</source>
+          <target state="new">It is highly recommended that the tool runs during production hours to ensure that the most representative data is collected.</target>
+        </trans-unit>
+        <trans-unit id="b20c6ade-5fd9-4987-9bb9-7e9ba0833bc5" xml:space="preserve">
+          <source>The suggested duration for metric collection is 30 minutes.</source>
+          <target state="new">The suggested duration for metric collection is 30 minutes.</target>
+        </trans-unit>
+        <trans-unit id="7a40dd95-0d35-410f-9606-da65d8a53964" xml:space="preserve">
+          <source>If you're only trying to validate network connectivity, you can choose one minute as the duration.</source>
+          <target state="new">If you're only trying to validate network connectivity, you can choose one minute as the duration.</target>
+        </trans-unit>
+        <trans-unit id="aa72891b-28d7-4acf-9acf-e187d040c1ff" xml:space="preserve">
+          <source><bpt id="b9880c43-2350-46db-8c85-18b0c796ccfe">&lt;linkText&gt;</bpt><ept id="b9880c43-2350-46db-8c85-18b0c796ccfe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b9880c43-2350-46db-8c85-18b0c796ccfe">&lt;linkText&gt;</bpt><ept id="b9880c43-2350-46db-8c85-18b0c796ccfe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ba79fe2-2cd0-4b42-b00d-e6c34a8da428" xml:space="preserve">
+          <source>Specify the <bpt id="c60e7830-45e0-47b0-85c3-b21673e7e0ba">&lt;strong&gt;</bpt>Primary site details<ept id="c60e7830-45e0-47b0-85c3-b21673e7e0ba">&lt;/strong&gt;</ept>, as shown, and then click <bpt id="184b31fb-573d-4a74-9044-f9dcb0842821">&lt;strong&gt;</bpt>Next<ept id="184b31fb-573d-4a74-9044-f9dcb0842821">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify the <bpt id="c60e7830-45e0-47b0-85c3-b21673e7e0ba">&lt;strong&gt;</bpt>Primary site details<ept id="c60e7830-45e0-47b0-85c3-b21673e7e0ba">&lt;/strong&gt;</ept>, as shown, and then click <bpt id="184b31fb-573d-4a74-9044-f9dcb0842821">&lt;strong&gt;</bpt>Next<ept id="184b31fb-573d-4a74-9044-f9dcb0842821">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc4e228b-3129-4cdd-a239-c54956731807" xml:space="preserve">
+          <source>For a standalone host, enter the server name or FQDN.</source>
+          <target state="new">For a standalone host, enter the server name or FQDN.</target>
+        </trans-unit>
+        <trans-unit id="ee90f3cd-3bf7-434f-ba1d-88b03b37f1b9" xml:space="preserve">
+          <source>If your Primary host is part of a cluster, you can enter FQDN of one of the following:</source>
+          <target state="new">If your Primary host is part of a cluster, you can enter FQDN of one of the following:</target>
+        </trans-unit>
+        <trans-unit id="947028c8-7722-453a-b878-3b7adcee78e9" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="41fe2454-2cb1-44c2-ab03-c00ab1b4a706" xml:space="preserve">
+          <source>The Hyper-V Replica Broker Client Access Point (CAP)</source>
+          <target state="new">The Hyper-V Replica Broker Client Access Point (CAP)</target>
+        </trans-unit>
+        <trans-unit id="fa064d09-65dc-41b5-9bf6-1d4980e275f0" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="03e233e0-a67b-4f8a-aa8f-454678097335" xml:space="preserve">
+          <source>The cluster name</source>
+          <target state="new">The cluster name</target>
+        </trans-unit>
+        <trans-unit id="510f1be8-31be-4282-804e-47dfd4ea6b85" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="bc93754e-e592-44c0-9aa9-42f2575cecf1" xml:space="preserve">
+          <source>Any node of the cluster</source>
+          <target state="new">Any node of the cluster</target>
+        </trans-unit>
+        <trans-unit id="ebf02df6-d8f9-451d-8ca5-aca3cff5c2bb" xml:space="preserve">
+          <source><bpt id="91a152d0-0999-4619-b06f-fe54d0c98fef">&lt;linkText&gt;</bpt><ept id="91a152d0-0999-4619-b06f-fe54d0c98fef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="91a152d0-0999-4619-b06f-fe54d0c98fef">&lt;linkText&gt;</bpt><ept id="91a152d0-0999-4619-b06f-fe54d0c98fef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2efb8dc2-ee25-46da-87ff-fbf08566ec94" xml:space="preserve">
+          <source>Enter the <bpt id="f5a4c567-a4ab-429d-9e3a-0a026956bf6d">&lt;strong&gt;</bpt>Replica site details<ept id="f5a4c567-a4ab-429d-9e3a-0a026956bf6d">&lt;/strong&gt;</ept> (on-premises site to on-premises site replication only)</source>
+          <target state="new">Enter the <bpt id="f5a4c567-a4ab-429d-9e3a-0a026956bf6d">&lt;strong&gt;</bpt>Replica site details<ept id="f5a4c567-a4ab-429d-9e3a-0a026956bf6d">&lt;/strong&gt;</ept> (on-premises site to on-premises site replication only)</target>
+        </trans-unit>
+        <trans-unit id="bec39ced-487b-453a-928a-227747a17e76" xml:space="preserve">
+          <source>If you want to enable replication to Azure or you didn't prepare a Hyper-V host or cluster as a recovery server (as explained in Step 2), you should skip test involving the replica site.</source>
+          <target state="new">If you want to enable replication to Azure or you didn't prepare a Hyper-V host or cluster as a recovery server (as explained in Step 2), you should skip test involving the replica site.</target>
+        </trans-unit>
+        <trans-unit id="6ef70d88-95ff-4e7b-a740-623dbc7f34ac" xml:space="preserve">
+          <source>Specify the <bpt id="7d1ddabe-6921-424f-bce9-a4ee63730cd3">&lt;strong&gt;</bpt>Replica site<ept id="7d1ddabe-6921-424f-bce9-a4ee63730cd3">&lt;/strong&gt;</ept> details, and then click <bpt id="0c161fe9-d8a5-492b-bc37-45d5d1cc35c6">&lt;strong&gt;</bpt>Next<ept id="0c161fe9-d8a5-492b-bc37-45d5d1cc35c6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify the <bpt id="7d1ddabe-6921-424f-bce9-a4ee63730cd3">&lt;strong&gt;</bpt>Replica site<ept id="7d1ddabe-6921-424f-bce9-a4ee63730cd3">&lt;/strong&gt;</ept> details, and then click <bpt id="0c161fe9-d8a5-492b-bc37-45d5d1cc35c6">&lt;strong&gt;</bpt>Next<ept id="0c161fe9-d8a5-492b-bc37-45d5d1cc35c6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b45c893-1a1b-44c1-918d-60af4204af45" xml:space="preserve">
+          <source>i.</source>
+          <target state="new">i.</target>
+        </trans-unit>
+        <trans-unit id="503c6f17-06a6-494e-9caa-42ac342c9bf5" xml:space="preserve">
+          <source>For a standalone host, enter the server name or FQDN</source>
+          <target state="new">For a standalone host, enter the server name or FQDN</target>
+        </trans-unit>
+        <trans-unit id="431e922b-13e9-46e2-a0f8-ffa5bcb655b4" xml:space="preserve">
+          <source>ii.</source>
+          <target state="new">ii.</target>
+        </trans-unit>
+        <trans-unit id="6a594dcc-d136-4661-9256-0cabec9cfea3" xml:space="preserve">
+          <source>If your Primary host is part of a cluster, you can enter FQDN of one of the following:</source>
+          <target state="new">If your Primary host is part of a cluster, you can enter FQDN of one of the following:</target>
+        </trans-unit>
+        <trans-unit id="512c3c44-36f3-45f3-9756-dada5bb0f02d" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="25ae6368-7bc7-4e72-ab16-2d738e7fe940" xml:space="preserve">
+          <source>The Hyper-V Replica Broker Client Access Point (CAP)</source>
+          <target state="new">The Hyper-V Replica Broker Client Access Point (CAP)</target>
+        </trans-unit>
+        <trans-unit id="ae76dc29-b682-4bdf-a7c6-0cff6eebe678" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="efb58a6a-39ae-4d5f-97ca-de7976c49406" xml:space="preserve">
+          <source>The cluster name</source>
+          <target state="new">The cluster name</target>
+        </trans-unit>
+        <trans-unit id="7f662af6-1ee8-4567-83f3-168a0995d187" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="ede757c2-c70f-4666-8c7c-e7614e6ff03a" xml:space="preserve">
+          <source>Any node of the cluster</source>
+          <target state="new">Any node of the cluster</target>
+        </trans-unit>
+        <trans-unit id="5bcd02b9-b113-494d-b54d-96be12b118cb" xml:space="preserve">
+          <source>   <bpt id="db9245c9-c1dc-4b6d-8790-87aee20f487c">&lt;linkText&gt;</bpt><ept id="db9245c9-c1dc-4b6d-8790-87aee20f487c">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="db9245c9-c1dc-4b6d-8790-87aee20f487c">&lt;linkText&gt;</bpt><ept id="db9245c9-c1dc-4b6d-8790-87aee20f487c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1c08aaa-9426-493c-80d3-ce0df42f49d7" xml:space="preserve">
+          <source>Skip the tests involving <bpt id="753eff3a-1ef2-4268-94c0-adeea8179ed8">&lt;strong&gt;</bpt>Extended Replica site<ept id="753eff3a-1ef2-4268-94c0-adeea8179ed8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Skip the tests involving <bpt id="753eff3a-1ef2-4268-94c0-adeea8179ed8">&lt;strong&gt;</bpt>Extended Replica site<ept id="753eff3a-1ef2-4268-94c0-adeea8179ed8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55b2adb0-a371-40e5-98ed-60bad7cc0d4b" xml:space="preserve">
+          <source>They are not supported by ASR.</source>
+          <target state="new">They are not supported by ASR.</target>
+        </trans-unit>
+        <trans-unit id="eed6744d-8d41-46cb-8034-cc00cafb9ea0" xml:space="preserve">
+          <source>Select the virtual machines to profile.</source>
+          <target state="new">Select the virtual machines to profile.</target>
+        </trans-unit>
+        <trans-unit id="1341ffa1-d8c6-4dfb-980c-7b4a624c5679" xml:space="preserve">
+          <source>The tool connects to the cluster or standalone servers specified in <bpt id="4a23127d-c385-4ce6-a88f-b0b8182cd1ae">&lt;strong&gt;</bpt>Primary Site Details<ept id="4a23127d-c385-4ce6-a88f-b0b8182cd1ae">&lt;/strong&gt;</ept>, and enumerates the virtual machines that are running.</source>
+          <target state="new">The tool connects to the cluster or standalone servers specified in <bpt id="4a23127d-c385-4ce6-a88f-b0b8182cd1ae">&lt;strong&gt;</bpt>Primary Site Details<ept id="4a23127d-c385-4ce6-a88f-b0b8182cd1ae">&lt;/strong&gt;</ept>, and enumerates the virtual machines that are running.</target>
+        </trans-unit>
+        <trans-unit id="7257b278-3003-4ff3-aca8-b2218c282ac4" xml:space="preserve">
+          <source>Select the virtual machines and virtual disks for which you want metrics to be collected.</source>
+          <target state="new">Select the virtual machines and virtual disks for which you want metrics to be collected.</target>
+        </trans-unit>
+        <trans-unit id="1d60f4ab-332e-4c91-8959-eeee6be58548" xml:space="preserve">
+          <source>The following virtual machines will not be enumerated or shown:</source>
+          <target state="new">The following virtual machines will not be enumerated or shown:</target>
+        </trans-unit>
+        <trans-unit id="ca08fb14-06f7-44ca-8213-3f01f5401e63" xml:space="preserve">
+          <source>Virtual machines that have already been enabled for replication</source>
+          <target state="new">Virtual machines that have already been enabled for replication</target>
+        </trans-unit>
+        <trans-unit id="617fbffc-0d15-46ee-83c1-2a4d2058f042" xml:space="preserve">
+          <source>Virtual machines that are not running</source>
+          <target state="new">Virtual machines that are not running</target>
+        </trans-unit>
+        <trans-unit id="779ce2d1-151d-46df-b548-686104711f3d" xml:space="preserve">
+          <source>Enter <bpt id="ebbbdca4-4dd9-4773-a66f-974ad59c0257">&lt;strong&gt;</bpt>Network information<ept id="ebbbdca4-4dd9-4773-a66f-974ad59c0257">&lt;/strong&gt;</ept> (this is applicable only to on-premises site to on-premises site replication and when replica site details are provided).</source>
+          <target state="new">Enter <bpt id="ebbbdca4-4dd9-4773-a66f-974ad59c0257">&lt;strong&gt;</bpt>Network information<ept id="ebbbdca4-4dd9-4773-a66f-974ad59c0257">&lt;/strong&gt;</ept> (this is applicable only to on-premises site to on-premises site replication and when replica site details are provided).</target>
+        </trans-unit>
+        <trans-unit id="8e1c5f37-46f0-46c7-a39c-fd12da2d4241" xml:space="preserve">
+          <source>Specify the requested network information, and then click <bpt id="49a6fe37-b7a6-475b-928b-e6519d0cb5b3">&lt;strong&gt;</bpt>Next<ept id="49a6fe37-b7a6-475b-928b-e6519d0cb5b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify the requested network information, and then click <bpt id="49a6fe37-b7a6-475b-928b-e6519d0cb5b3">&lt;strong&gt;</bpt>Next<ept id="49a6fe37-b7a6-475b-928b-e6519d0cb5b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0ab481b-a9a9-4446-a8d0-f7c943835ae0" xml:space="preserve">
+          <source>Estimated WAN bandwidth</source>
+          <target state="new">Estimated WAN bandwidth</target>
+        </trans-unit>
+        <trans-unit id="0abf1243-432c-48d6-a107-c660e43534a6" xml:space="preserve">
+          <source>The certificate to be used for authentication (optional): If you plan to use certificate-based authentication, you should provide the required certificates on this page.</source>
+          <target state="new">The certificate to be used for authentication (optional): If you plan to use certificate-based authentication, you should provide the required certificates on this page.</target>
+        </trans-unit>
+        <trans-unit id="aa8babe9-5e3e-40b3-b8b6-9d0e1697c471" xml:space="preserve">
+          <source><bpt id="1258e1df-1611-4931-8fc1-6d5f95775caf">&lt;linkText&gt;</bpt><ept id="1258e1df-1611-4931-8fc1-6d5f95775caf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1258e1df-1611-4931-8fc1-6d5f95775caf">&lt;linkText&gt;</bpt><ept id="1258e1df-1611-4931-8fc1-6d5f95775caf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07b3fb3c-80c8-43ea-a448-5ea6411329b4" xml:space="preserve">
+          <source>On the next set of screens, click <bpt id="64b0761d-511e-4c12-a5e4-cb314bb04a17">&lt;strong&gt;</bpt>Next<ept id="64b0761d-511e-4c12-a5e4-cb314bb04a17">&lt;/strong&gt;</ept> to start the tool.</source>
+          <target state="new">On the next set of screens, click <bpt id="64b0761d-511e-4c12-a5e4-cb314bb04a17">&lt;strong&gt;</bpt>Next<ept id="64b0761d-511e-4c12-a5e4-cb314bb04a17">&lt;/strong&gt;</ept> to start the tool.</target>
+        </trans-unit>
+        <trans-unit id="d01076c3-a227-47a2-a77c-c8191d5a2fd7" xml:space="preserve">
+          <source><bpt id="651fdf1f-6e4a-4a13-af1e-cd6585b7b1f7">&lt;linkText&gt;</bpt><ept id="651fdf1f-6e4a-4a13-af1e-cd6585b7b1f7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="651fdf1f-6e4a-4a13-af1e-cd6585b7b1f7">&lt;linkText&gt;</bpt><ept id="651fdf1f-6e4a-4a13-af1e-cd6585b7b1f7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd44937e-57b1-4623-bb53-e3d61c3c887b" xml:space="preserve">
+          <source>When the tool is done running, click <bpt id="9d0af621-d0a0-4904-9778-dbf104554c97">&lt;strong&gt;</bpt>View Report<ept id="9d0af621-d0a0-4904-9778-dbf104554c97">&lt;/strong&gt;</ept> to review the output.</source>
+          <target state="new">When the tool is done running, click <bpt id="9d0af621-d0a0-4904-9778-dbf104554c97">&lt;strong&gt;</bpt>View Report<ept id="9d0af621-d0a0-4904-9778-dbf104554c97">&lt;/strong&gt;</ept> to review the output.</target>
+        </trans-unit>
+        <trans-unit id="cf1bf212-805b-486d-9f7e-9e2841c90588" xml:space="preserve">
+          <source>Default report location:</source>
+          <target state="new">Default report location:</target>
+        </trans-unit>
+        <trans-unit id="22e7892c-4e2f-440a-b28f-b6b826a64b6c" xml:space="preserve">
+          <source>%systemdrive%\Users\Public\Documents\Capacity Planner</source>
+          <target state="new">%systemdrive%\Users\Public\Documents\Capacity Planner</target>
+        </trans-unit>
+        <trans-unit id="fe41d428-f0b7-4ea1-9f7c-c8c9144453ca" xml:space="preserve">
+          <source>Logs location:</source>
+          <target state="new">Logs location:</target>
+        </trans-unit>
+        <trans-unit id="a6238ce5-adf1-4a12-8e85-d048e162d97e" xml:space="preserve">
+          <source>%systemdrive%\Users\Public\Documents\CapacityPlanner</source>
+          <target state="new">%systemdrive%\Users\Public\Documents\CapacityPlanner</target>
+        </trans-unit>
+        <trans-unit id="ae519099-d01b-4fa6-ac58-10269643d8b3" xml:space="preserve">
+          <source>You can ignore metrics which are not listed under one of the following two scenarios, as they are not relevant for this scenario.</source>
+          <target state="new">You can ignore metrics which are not listed under one of the following two scenarios, as they are not relevant for this scenario.</target>
+        </trans-unit>
+        <trans-unit id="a59ce45c-c65c-4971-818b-dbda8f42aeb4" xml:space="preserve">
+          <source>Impact of replication on the primary host's compute, memory</source>
+          <target state="new">Impact of replication on the primary host's compute, memory</target>
+        </trans-unit>
+        <trans-unit id="b6c65807-e63f-4189-b105-9d2c1dffbab3" xml:space="preserve">
+          <source>Impact of replication on the primary, recovery hosts's storage disk space, IOPS</source>
+          <target state="new">Impact of replication on the primary, recovery hosts's storage disk space, IOPS</target>
+        </trans-unit>
+        <trans-unit id="40b08bbd-520b-4e26-9aca-f853d49fe8fe" xml:space="preserve">
+          <source>Total bandwidth required for delta replication (Mbps)</source>
+          <target state="new">Total bandwidth required for delta replication (Mbps)</target>
+        </trans-unit>
+        <trans-unit id="0199a830-edaa-4fd9-b701-e83f47766f1d" xml:space="preserve">
+          <source>Observed network bandwidth between the primary host and the recovery host (Mbps)</source>
+          <target state="new">Observed network bandwidth between the primary host and the recovery host (Mbps)</target>
+        </trans-unit>
+        <trans-unit id="f7bc9594-a0fa-4118-9f86-a4dbcafa9d75" xml:space="preserve">
+          <source>Suggestion for the ideal number of active parallel transfers between the two hosts/clusters</source>
+          <target state="new">Suggestion for the ideal number of active parallel transfers between the two hosts/clusters</target>
+        </trans-unit>
+        <trans-unit id="3461d672-7380-4f20-af44-ca78c8f0ad95" xml:space="preserve">
+          <source>Impact of replication on the primary host's compute, memory</source>
+          <target state="new">Impact of replication on the primary host's compute, memory</target>
+        </trans-unit>
+        <trans-unit id="28b070d6-f0da-4b73-b8ff-6156e5d09bdd" xml:space="preserve">
+          <source>Impact of replication on the primary host's storage disk space, IOPS</source>
+          <target state="new">Impact of replication on the primary host's storage disk space, IOPS</target>
+        </trans-unit>
+        <trans-unit id="7aa4648b-9916-40be-ac86-fd5fc0906992" xml:space="preserve">
+          <source>Total bandwidth required for delta replication (Mbps)</source>
+          <target state="new">Total bandwidth required for delta replication (Mbps)</target>
+        </trans-unit>
+        <trans-unit id="f71ce0d3-6e65-49fe-8679-7c55a84dea66" xml:space="preserve">
+          <source>More detailed guidance can be found on the <bpt id="f9802b70-da6f-4a9d-aaf7-f4c7bb2e9866">&lt;linkText&gt;</bpt>Capacity Planner for Hyper-V Replica download page<ept id="f9802b70-da6f-4a9d-aaf7-f4c7bb2e9866">&lt;/linkText&gt;</ept><bpt id="f9802b70-da6f-4a9d-aaf7-f4c7bb2e9866">&lt;title&gt;</bpt><ept id="f9802b70-da6f-4a9d-aaf7-f4c7bb2e9866">&lt;/title&gt;</ept>.</source>
+          <target state="new">More detailed guidance can be found on the <bpt id="f9802b70-da6f-4a9d-aaf7-f4c7bb2e9866">&lt;linkText&gt;</bpt>Capacity Planner for Hyper-V Replica download page<ept id="f9802b70-da6f-4a9d-aaf7-f4c7bb2e9866">&lt;/linkText&gt;</ept><bpt id="f9802b70-da6f-4a9d-aaf7-f4c7bb2e9866">&lt;title&gt;</bpt><ept id="f9802b70-da6f-4a9d-aaf7-f4c7bb2e9866">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c55144c-8d37-4280-a0b2-a61681cf423e" xml:space="preserve">
+          <source>The following resources can help you with capacity planning for Hyper-V replication:</source>
+          <target state="new">The following resources can help you with capacity planning for Hyper-V replication:</target>
+        </trans-unit>
+        <trans-unit id="9f1048b9-b586-42a8-85d2-236d94b85985" xml:space="preserve">
+          <source><bpt id="040c79ad-dc63-477d-9449-d0b20642dcca">&lt;linkText&gt;</bpt>Update: Capacity Planner for Hyper-V Replica<ept id="040c79ad-dc63-477d-9449-d0b20642dcca">&lt;/linkText&gt;</ept><bpt id="040c79ad-dc63-477d-9449-d0b20642dcca">&lt;title&gt;</bpt><ept id="040c79ad-dc63-477d-9449-d0b20642dcca">&lt;/title&gt;</ept>—Read this blog entry for an overview of this new tool.</source>
+          <target state="new"><bpt id="040c79ad-dc63-477d-9449-d0b20642dcca">&lt;linkText&gt;</bpt>Update: Capacity Planner for Hyper-V Replica<ept id="040c79ad-dc63-477d-9449-d0b20642dcca">&lt;/linkText&gt;</ept><bpt id="040c79ad-dc63-477d-9449-d0b20642dcca">&lt;title&gt;</bpt><ept id="040c79ad-dc63-477d-9449-d0b20642dcca">&lt;/title&gt;</ept>—Read this blog entry for an overview of this new tool.</target>
+        </trans-unit>
+        <trans-unit id="cf98d62b-5f94-4dfd-b4ab-945bcf73ec06" xml:space="preserve">
+          <source><bpt id="933d8c22-66c5-425e-b48a-07d069ba785e">&lt;linkText&gt;</bpt>Capacity Planner for Hyper-V Replica<ept id="933d8c22-66c5-425e-b48a-07d069ba785e">&lt;/linkText&gt;</ept><bpt id="933d8c22-66c5-425e-b48a-07d069ba785e">&lt;title&gt;</bpt><ept id="933d8c22-66c5-425e-b48a-07d069ba785e">&lt;/title&gt;</ept>—Download the latest version of this tool.</source>
+          <target state="new"><bpt id="933d8c22-66c5-425e-b48a-07d069ba785e">&lt;linkText&gt;</bpt>Capacity Planner for Hyper-V Replica<ept id="933d8c22-66c5-425e-b48a-07d069ba785e">&lt;/linkText&gt;</ept><bpt id="933d8c22-66c5-425e-b48a-07d069ba785e">&lt;title&gt;</bpt><ept id="933d8c22-66c5-425e-b48a-07d069ba785e">&lt;/title&gt;</ept>—Download the latest version of this tool.</target>
+        </trans-unit>
+        <trans-unit id="d152b7af-d2b4-45cf-acfc-59ae7fcfbb05" xml:space="preserve">
+          <source><bpt id="f688e3f1-4767-4589-9d75-4f83636c9569">&lt;linkText&gt;</bpt>Guided Hands-On Lab<ept id="f688e3f1-4767-4589-9d75-4f83636c9569">&lt;/linkText&gt;</ept><bpt id="f688e3f1-4767-4589-9d75-4f83636c9569">&lt;title&gt;</bpt><ept id="f688e3f1-4767-4589-9d75-4f83636c9569">&lt;/title&gt;</ept>—Get a great walkthrough of capacity planning with the tool on Keith Mayer’s TechNet blog.</source>
+          <target state="new"><bpt id="f688e3f1-4767-4589-9d75-4f83636c9569">&lt;linkText&gt;</bpt>Guided Hands-On Lab<ept id="f688e3f1-4767-4589-9d75-4f83636c9569">&lt;/linkText&gt;</ept><bpt id="f688e3f1-4767-4589-9d75-4f83636c9569">&lt;title&gt;</bpt><ept id="f688e3f1-4767-4589-9d75-4f83636c9569">&lt;/title&gt;</ept>—Get a great walkthrough of capacity planning with the tool on Keith Mayer’s TechNet blog.</target>
+        </trans-unit>
+        <trans-unit id="2cf6fe95-6089-444a-aecf-408e8d5dc414" xml:space="preserve">
+          <source><bpt id="9f0d2398-9196-4e8f-8b44-89fb7554836c">&lt;linkText&gt;</bpt>Performance and Scaling Testing - On-Premises to On-Premises<ept id="9f0d2398-9196-4e8f-8b44-89fb7554836c">&lt;/linkText&gt;</ept><bpt id="9f0d2398-9196-4e8f-8b44-89fb7554836c">&lt;title&gt;</bpt><ept id="9f0d2398-9196-4e8f-8b44-89fb7554836c">&lt;/title&gt;</ept>—Read the results of replication testing for an on-premises to on-premises deployment.</source>
+          <target state="new"><bpt id="9f0d2398-9196-4e8f-8b44-89fb7554836c">&lt;linkText&gt;</bpt>Performance and Scaling Testing - On-Premises to On-Premises<ept id="9f0d2398-9196-4e8f-8b44-89fb7554836c">&lt;/linkText&gt;</ept><bpt id="9f0d2398-9196-4e8f-8b44-89fb7554836c">&lt;title&gt;</bpt><ept id="9f0d2398-9196-4e8f-8b44-89fb7554836c">&lt;/title&gt;</ept>—Read the results of replication testing for an on-premises to on-premises deployment.</target>
+        </trans-unit>
+        <trans-unit id="36ff5314-ff87-4a07-8690-6a22a69ab209" xml:space="preserve">
+          <source>To start deploying ASR:</source>
+          <target state="new">To start deploying ASR:</target>
+        </trans-unit>
+        <trans-unit id="7712c23f-f314-4548-839b-b7ea60f552a7" xml:space="preserve">
+          <source><bpt id="88a89a2c-5fe8-48a3-9c74-413153898fe5">&lt;linkText&gt;</bpt>Set up protection between an on-premises VMM site and Azure<ept id="88a89a2c-5fe8-48a3-9c74-413153898fe5">&lt;/linkText&gt;</ept><bpt id="88a89a2c-5fe8-48a3-9c74-413153898fe5">&lt;title&gt;</bpt><ept id="88a89a2c-5fe8-48a3-9c74-413153898fe5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="88a89a2c-5fe8-48a3-9c74-413153898fe5">&lt;linkText&gt;</bpt>Set up protection between an on-premises VMM site and Azure<ept id="88a89a2c-5fe8-48a3-9c74-413153898fe5">&lt;/linkText&gt;</ept><bpt id="88a89a2c-5fe8-48a3-9c74-413153898fe5">&lt;title&gt;</bpt><ept id="88a89a2c-5fe8-48a3-9c74-413153898fe5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72a5d66b-5f2a-4687-96b6-bf619e167649" xml:space="preserve">
+          <source><bpt id="05f3b138-0ad4-4124-a3a4-d641df5d4012">&lt;linkText&gt;</bpt>Set up protection between an on-premises Hyper-V site and Azure<ept id="05f3b138-0ad4-4124-a3a4-d641df5d4012">&lt;/linkText&gt;</ept><bpt id="05f3b138-0ad4-4124-a3a4-d641df5d4012">&lt;title&gt;</bpt><ept id="05f3b138-0ad4-4124-a3a4-d641df5d4012">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="05f3b138-0ad4-4124-a3a4-d641df5d4012">&lt;linkText&gt;</bpt>Set up protection between an on-premises Hyper-V site and Azure<ept id="05f3b138-0ad4-4124-a3a4-d641df5d4012">&lt;/linkText&gt;</ept><bpt id="05f3b138-0ad4-4124-a3a4-d641df5d4012">&lt;title&gt;</bpt><ept id="05f3b138-0ad4-4124-a3a4-d641df5d4012">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82fed572-b0fc-42c4-a899-6580786d9459" xml:space="preserve">
+          <source><bpt id="22b1827b-34ae-41ab-a695-c44adc10f7fe">&lt;linkText&gt;</bpt>Set up protection between two on-premises VMM sites<ept id="22b1827b-34ae-41ab-a695-c44adc10f7fe">&lt;/linkText&gt;</ept><bpt id="22b1827b-34ae-41ab-a695-c44adc10f7fe">&lt;title&gt;</bpt><ept id="22b1827b-34ae-41ab-a695-c44adc10f7fe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="22b1827b-34ae-41ab-a695-c44adc10f7fe">&lt;linkText&gt;</bpt>Set up protection between two on-premises VMM sites<ept id="22b1827b-34ae-41ab-a695-c44adc10f7fe">&lt;/linkText&gt;</ept><bpt id="22b1827b-34ae-41ab-a695-c44adc10f7fe">&lt;title&gt;</bpt><ept id="22b1827b-34ae-41ab-a695-c44adc10f7fe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30aa742e-625e-4ed8-a7ab-b85af0047419" xml:space="preserve">
+          <source><bpt id="82c61c2a-fe07-426a-998e-950711da49f3">&lt;linkText&gt;</bpt>Set up protection between two on-premises VMM sites with SAN<ept id="82c61c2a-fe07-426a-998e-950711da49f3">&lt;/linkText&gt;</ept><bpt id="82c61c2a-fe07-426a-998e-950711da49f3">&lt;title&gt;</bpt><ept id="82c61c2a-fe07-426a-998e-950711da49f3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="82c61c2a-fe07-426a-998e-950711da49f3">&lt;linkText&gt;</bpt>Set up protection between two on-premises VMM sites with SAN<ept id="82c61c2a-fe07-426a-998e-950711da49f3">&lt;/linkText&gt;</ept><bpt id="82c61c2a-fe07-426a-998e-950711da49f3">&lt;title&gt;</bpt><ept id="82c61c2a-fe07-426a-998e-950711da49f3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc4bcccc-198f-4de2-9494-f0944ba7e344" xml:space="preserve">
+          <source><bpt id="4c5cda82-5806-411c-8329-27953f4ffcf4">&lt;linkText&gt;</bpt>Set up protection with a single VMM server<ept id="4c5cda82-5806-411c-8329-27953f4ffcf4">&lt;/linkText&gt;</ept><bpt id="4c5cda82-5806-411c-8329-27953f4ffcf4">&lt;title&gt;</bpt><ept id="4c5cda82-5806-411c-8329-27953f4ffcf4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4c5cda82-5806-411c-8329-27953f4ffcf4">&lt;linkText&gt;</bpt>Set up protection with a single VMM server<ept id="4c5cda82-5806-411c-8329-27953f4ffcf4">&lt;/linkText&gt;</ept><bpt id="4c5cda82-5806-411c-8329-27953f4ffcf4">&lt;title&gt;</bpt><ept id="4c5cda82-5806-411c-8329-27953f4ffcf4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

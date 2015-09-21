@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="87769bfe-cab3-4506-a10c-4b17b09f3dae" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="87769bfe-cab3-4506-a10c-4b17b09f3dae" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5221dcba-4578-47cc-8b48-583bd4c40638">
+        <trans-unit id="782c0006-f2f0-4c93-95ea-8080c771d59f" xml:space="preserve">
+          <source>Machine learning algorithm cheat sheet | Microsoft Azure</source>
+          <target state="new">Machine learning algorithm cheat sheet | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ebd964b1-d247-4e2e-90c0-98f6059460dd" xml:space="preserve">
+          <source>A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio.</source>
+          <target state="new">A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="42ca85ff-d524-461f-b96d-8ad582c1d789" xml:space="preserve">
+          <source>The <bpt id="d06de041-f67e-4455-9746-0076baf785f8">&lt;strong&gt;</bpt>Microsoft Azure Machine Learning Algorithm Cheat Sheet<ept id="d06de041-f67e-4455-9746-0076baf785f8">&lt;/strong&gt;</ept> helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.</source>
+          <target state="new">The <bpt id="d06de041-f67e-4455-9746-0076baf785f8">&lt;strong&gt;</bpt>Microsoft Azure Machine Learning Algorithm Cheat Sheet<ept id="d06de041-f67e-4455-9746-0076baf785f8">&lt;/strong&gt;</ept> helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.</target>
+        </trans-unit>
+        <trans-unit id="4d29e782-0688-4fe7-b540-50ba8a6d05f3" xml:space="preserve">
+          <source><bpt id="a6955475-3f70-4ab1-af0b-ee7ebfa38921">&lt;linkText&gt;</bpt>Azure Machine Learning Studio<ept id="a6955475-3f70-4ab1-af0b-ee7ebfa38921">&lt;/linkText&gt;</ept><bpt id="a6955475-3f70-4ab1-af0b-ee7ebfa38921">&lt;title&gt;</bpt><ept id="a6955475-3f70-4ab1-af0b-ee7ebfa38921">&lt;/title&gt;</ept> comes with a large number of machine learning algorithms for your predictive analytics solutions.</source>
+          <target state="new"><bpt id="a6955475-3f70-4ab1-af0b-ee7ebfa38921">&lt;linkText&gt;</bpt>Azure Machine Learning Studio<ept id="a6955475-3f70-4ab1-af0b-ee7ebfa38921">&lt;/linkText&gt;</ept><bpt id="a6955475-3f70-4ab1-af0b-ee7ebfa38921">&lt;title&gt;</bpt><ept id="a6955475-3f70-4ab1-af0b-ee7ebfa38921">&lt;/title&gt;</ept> comes with a large number of machine learning algorithms for your predictive analytics solutions.</target>
+        </trans-unit>
+        <trans-unit id="a02d526a-de66-4a58-8e5e-e9695e937431" xml:space="preserve">
+          <source>These algorithms fall into the general machine learning categories of <bpt id="64419ee9-4534-41af-85d0-7c7434d7c962">&lt;strong&gt;</bpt>*regression*<ept id="64419ee9-4534-41af-85d0-7c7434d7c962">&lt;/strong&gt;</ept>, <bpt id="e81bca03-4bce-42d4-868e-ea37c0f68855">&lt;strong&gt;</bpt>*classification*<ept id="e81bca03-4bce-42d4-868e-ea37c0f68855">&lt;/strong&gt;</ept>, <bpt id="8744cb9b-4cae-477f-8d55-05c7bcd4e423">&lt;strong&gt;</bpt>*clustering*<ept id="8744cb9b-4cae-477f-8d55-05c7bcd4e423">&lt;/strong&gt;</ept>, and <bpt id="c4e99ff4-7ff7-4dc7-bfed-71ce11fe18ba">&lt;strong&gt;</bpt>*anomaly detection*<ept id="c4e99ff4-7ff7-4dc7-bfed-71ce11fe18ba">&lt;/strong&gt;</ept>, and each one is designed to address a different type of machine learning problem.</source>
+          <target state="new">These algorithms fall into the general machine learning categories of <bpt id="64419ee9-4534-41af-85d0-7c7434d7c962">&lt;strong&gt;</bpt>*regression*<ept id="64419ee9-4534-41af-85d0-7c7434d7c962">&lt;/strong&gt;</ept>, <bpt id="e81bca03-4bce-42d4-868e-ea37c0f68855">&lt;strong&gt;</bpt>*classification*<ept id="e81bca03-4bce-42d4-868e-ea37c0f68855">&lt;/strong&gt;</ept>, <bpt id="8744cb9b-4cae-477f-8d55-05c7bcd4e423">&lt;strong&gt;</bpt>*clustering*<ept id="8744cb9b-4cae-477f-8d55-05c7bcd4e423">&lt;/strong&gt;</ept>, and <bpt id="c4e99ff4-7ff7-4dc7-bfed-71ce11fe18ba">&lt;strong&gt;</bpt>*anomaly detection*<ept id="c4e99ff4-7ff7-4dc7-bfed-71ce11fe18ba">&lt;/strong&gt;</ept>, and each one is designed to address a different type of machine learning problem.</target>
+        </trans-unit>
+        <trans-unit id="b3aa00b6-575e-4205-a36d-caab6cc0307d" xml:space="preserve">
+          <source>See the article <bpt id="12e62163-fbfb-40c6-b4fb-d00dae136a71">&lt;linkText&gt;</bpt>How to choose algorithms for Microsoft Azure Machine Learning<ept id="12e62163-fbfb-40c6-b4fb-d00dae136a71">&lt;/linkText&gt;</ept><bpt id="12e62163-fbfb-40c6-b4fb-d00dae136a71">&lt;title&gt;</bpt><ept id="12e62163-fbfb-40c6-b4fb-d00dae136a71">&lt;/title&gt;</ept> for a detailed guide to using this cheat sheet.</source>
+          <target state="new">See the article <bpt id="12e62163-fbfb-40c6-b4fb-d00dae136a71">&lt;linkText&gt;</bpt>How to choose algorithms for Microsoft Azure Machine Learning<ept id="12e62163-fbfb-40c6-b4fb-d00dae136a71">&lt;/linkText&gt;</ept><bpt id="12e62163-fbfb-40c6-b4fb-d00dae136a71">&lt;title&gt;</bpt><ept id="12e62163-fbfb-40c6-b4fb-d00dae136a71">&lt;/title&gt;</ept> for a detailed guide to using this cheat sheet.</target>
+        </trans-unit>
+        <trans-unit id="ad82a6cb-68ae-4df1-a450-3ec2d114cb1e" xml:space="preserve">
+          <source>Download the Machine Learning Algorithm Cheat Sheet and get help figuring out how to choose a machine learning algorithm for your solution.</source>
+          <target state="new">Download the Machine Learning Algorithm Cheat Sheet and get help figuring out how to choose a machine learning algorithm for your solution.</target>
+        </trans-unit>
+        <trans-unit id="ff20640a-728f-4be9-a386-8b2fa6e0327b" xml:space="preserve">
+          <source>To keep it nearby, you can print the cheat sheet in tabloid size (11 x 17 in.).</source>
+          <target state="new">To keep it nearby, you can print the cheat sheet in tabloid size (11 x 17 in.).</target>
+        </trans-unit>
+        <trans-unit id="d2dc8543-ac6f-4355-9a29-5a8c20005740" xml:space="preserve">
+          <source><bpt id="29beb083-07c4-4dee-a914-354200deaf53">&lt;strong&gt;</bpt>Download the cheat sheet here: [Microsoft Azure Machine Learning Algorithm Cheat Sheet](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)<ept id="29beb083-07c4-4dee-a914-354200deaf53">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="29beb083-07c4-4dee-a914-354200deaf53">&lt;strong&gt;</bpt>Download the cheat sheet here: [Microsoft Azure Machine Learning Algorithm Cheat Sheet](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)<ept id="29beb083-07c4-4dee-a914-354200deaf53">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c76b950c-9161-4f50-9ada-874103ae8653" xml:space="preserve">
+          <source><bpt id="97fea022-432c-48b6-a1e3-9cf2d079262c">&lt;linkText&gt;</bpt>Machine Learning Algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.<ept id="97fea022-432c-48b6-a1e3-9cf2d079262c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="97fea022-432c-48b6-a1e3-9cf2d079262c">&lt;linkText&gt;</bpt>Machine Learning Algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.<ept id="97fea022-432c-48b6-a1e3-9cf2d079262c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edb4c374-c2ef-4c3e-897a-a1ffca5ff089" xml:space="preserve">
+          <source>For a deeper discussion of the different types of machine learning algorithms, how they're used, and how to use this cheat sheet for choosing the right algorithm, see <bpt id="93891266-513b-4544-987a-7fd11d3f7d49">&lt;linkText&gt;</bpt>How to choose algorithms for Microsoft Azure Machine Learning<ept id="93891266-513b-4544-987a-7fd11d3f7d49">&lt;/linkText&gt;</ept><bpt id="93891266-513b-4544-987a-7fd11d3f7d49">&lt;title&gt;</bpt><ept id="93891266-513b-4544-987a-7fd11d3f7d49">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a deeper discussion of the different types of machine learning algorithms, how they're used, and how to use this cheat sheet for choosing the right algorithm, see <bpt id="93891266-513b-4544-987a-7fd11d3f7d49">&lt;linkText&gt;</bpt>How to choose algorithms for Microsoft Azure Machine Learning<ept id="93891266-513b-4544-987a-7fd11d3f7d49">&lt;/linkText&gt;</ept><bpt id="93891266-513b-4544-987a-7fd11d3f7d49">&lt;title&gt;</bpt><ept id="93891266-513b-4544-987a-7fd11d3f7d49">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eddba258-f9a2-4dff-877e-262e33494fc8" xml:space="preserve">
+          <source>For a list by category of all the machine learning algorithms available in Machine Learning Studio, see <bpt id="b9823b6c-77b8-4e34-8faa-ebd267990549">&lt;linkText&gt;</bpt>Initialize Model[initialize-model]<ept id="b9823b6c-77b8-4e34-8faa-ebd267990549">&lt;/linkText&gt;</ept><bpt id="b9823b6c-77b8-4e34-8faa-ebd267990549">&lt;title&gt;</bpt><ept id="b9823b6c-77b8-4e34-8faa-ebd267990549">&lt;/title&gt;</ept> in the Machine Learning Studio Algorithm and Module Help.</source>
+          <target state="new">For a list by category of all the machine learning algorithms available in Machine Learning Studio, see <bpt id="b9823b6c-77b8-4e34-8faa-ebd267990549">&lt;linkText&gt;</bpt>Initialize Model[initialize-model]<ept id="b9823b6c-77b8-4e34-8faa-ebd267990549">&lt;/linkText&gt;</ept><bpt id="b9823b6c-77b8-4e34-8faa-ebd267990549">&lt;title&gt;</bpt><ept id="b9823b6c-77b8-4e34-8faa-ebd267990549">&lt;/title&gt;</ept> in the Machine Learning Studio Algorithm and Module Help.</target>
+        </trans-unit>
+        <trans-unit id="b91ed60c-45c5-4c90-b6a5-ffc5ce836e9d" xml:space="preserve">
+          <source>For a complete list of algorithms and modules in Machine Learning Studio, see <bpt id="624870ae-a7d8-4901-a8b7-348538300c4d">&lt;linkText&gt;</bpt>A-Z list of Machine Learning Studio modules[a-z-list]<ept id="624870ae-a7d8-4901-a8b7-348538300c4d">&lt;/linkText&gt;</ept><bpt id="624870ae-a7d8-4901-a8b7-348538300c4d">&lt;title&gt;</bpt><ept id="624870ae-a7d8-4901-a8b7-348538300c4d">&lt;/title&gt;</ept> in Machine Learning Studio Algorithm and Module Help.</source>
+          <target state="new">For a complete list of algorithms and modules in Machine Learning Studio, see <bpt id="624870ae-a7d8-4901-a8b7-348538300c4d">&lt;linkText&gt;</bpt>A-Z list of Machine Learning Studio modules[a-z-list]<ept id="624870ae-a7d8-4901-a8b7-348538300c4d">&lt;/linkText&gt;</ept><bpt id="624870ae-a7d8-4901-a8b7-348538300c4d">&lt;title&gt;</bpt><ept id="624870ae-a7d8-4901-a8b7-348538300c4d">&lt;/title&gt;</ept> in Machine Learning Studio Algorithm and Module Help.</target>
+        </trans-unit>
+        <trans-unit id="91c34d42-3a05-4ddc-8be5-c36b5daacc47" xml:space="preserve">
+          <source><bpt id="b2ea2d7d-7c1b-4a15-a23b-52649fd6c206">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="b2ea2d7d-7c1b-4a15-a23b-52649fd6c206">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b2ea2d7d-7c1b-4a15-a23b-52649fd6c206">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="b2ea2d7d-7c1b-4a15-a23b-52649fd6c206">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4e1b1ba-9591-42e7-9644-dcd2381286ea" xml:space="preserve">
+          <source>./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png</source>
+          <target state="new">./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png</target>
+        </trans-unit>
+        <trans-unit id="35ccf6ce-2e8d-46f7-bc69-1f51bf5a2308" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn906033.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn906033.aspx</target>
+        </trans-unit>
+        <trans-unit id="7aaab6bf-4364-42ff-b93c-1495dc8efa77" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/</target>
+        </trans-unit>
+        <trans-unit id="7e8deec8-0bce-41ff-8898-a4b3cde5a641" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/</target>
+        </trans-unit>
+        <trans-unit id="c2294673-1175-420c-a068-ea4a2cb0c096" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/</target>
+        </trans-unit>
+      </group>
+      <group id="66cea65f-caa6-4a37-a444-0881b36a7a51" />
+    </body>
+  </file>
+</xliff>

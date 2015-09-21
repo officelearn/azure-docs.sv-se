@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e1513016-1a26-41b0-8cf5-75739de134d4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e1513016-1a26-41b0-8cf5-75739de134d4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7fe88018-1625-4be1-b843-277fcbb60c54">
+        <trans-unit id="5044d2b1-67cf-4503-8cb4-7f33dbb8e137" xml:space="preserve">
+          <source>Install your StorSimple 8100 device | Microsoft Azure</source>
+          <target state="new">Install your StorSimple 8100 device | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d6209806-93ce-40d0-999e-4824e130bf1f" xml:space="preserve">
+          <source>Describes how to unpack, rack mount, and cable your StorSimple 8100 device before you deploy and configure the software.</source>
+          <target state="new">Describes how to unpack, rack mount, and cable your StorSimple 8100 device before you deploy and configure the software.</target>
+        </trans-unit>
+        <trans-unit id="b010024f-9b48-485f-a180-814c9fa3c79c" xml:space="preserve">
+          <source>Your Microsoft Azure StorSimple 8100 is a single enclosure, rack-mounted device.</source>
+          <target state="new">Your Microsoft Azure StorSimple 8100 is a single enclosure, rack-mounted device.</target>
+        </trans-unit>
+        <trans-unit id="958bc6bc-2774-46d3-822e-cd415b8b481d" xml:space="preserve">
+          <source>This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8100 device hardware before you configure the StorSimple software.</source>
+          <target state="new">This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8100 device hardware before you configure the StorSimple software.</target>
+        </trans-unit>
+        <trans-unit id="57828a86-c657-4315-805a-751f40e04bda" xml:space="preserve">
+          <source>The following steps provide clear, detailed instructions about how to unpack your StorSimple 8100 storage device.</source>
+          <target state="new">The following steps provide clear, detailed instructions about how to unpack your StorSimple 8100 storage device.</target>
+        </trans-unit>
+        <trans-unit id="a6c5405d-efe1-485c-b015-86fac0dfbe54" xml:space="preserve">
+          <source>This device is shipped in a single box.</source>
+          <target state="new">This device is shipped in a single box.</target>
+        </trans-unit>
+        <trans-unit id="b7d204df-19c0-4a36-9a97-f00fdac95db5" xml:space="preserve">
+          <source>Before you unpack your device, review the following information.</source>
+          <target state="new">Before you unpack your device, review the following information.</target>
+        </trans-unit>
+        <trans-unit id="0e8c51cf-0bd2-48cc-80e6-2fb90db3b76e" xml:space="preserve">
+          <source><bpt id="1b6dc05a-efbf-4b1c-b687-fb5b3c90d63d">&lt;linkText&gt;</bpt>heavy weight icon<ept id="1b6dc05a-efbf-4b1c-b687-fb5b3c90d63d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b6dc05a-efbf-4b1c-b687-fb5b3c90d63d">&lt;linkText&gt;</bpt>heavy weight icon<ept id="1b6dc05a-efbf-4b1c-b687-fb5b3c90d63d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb9cee71-5c2a-4ffe-b378-e05dac0ee508" xml:space="preserve">
+          <source>Make sure that you have two people available to manage the weight of the device if you are handling it manually.</source>
+          <target state="new">Make sure that you have two people available to manage the weight of the device if you are handling it manually.</target>
+        </trans-unit>
+        <trans-unit id="9b7414dc-c3cc-4f46-9ebd-0c9572caeebd" xml:space="preserve">
+          <source>A fully configured device can weigh up to 32 kg (70 lbs.).</source>
+          <target state="new">A fully configured device can weigh up to 32 kg (70 lbs.).</target>
+        </trans-unit>
+        <trans-unit id="5abac62d-3af7-4e18-9ded-8849d7d356fe" xml:space="preserve">
+          <source>Place the box on a flat, level surface.</source>
+          <target state="new">Place the box on a flat, level surface.</target>
+        </trans-unit>
+        <trans-unit id="644f930a-bfd1-41f0-9faa-444e4703a8f0" xml:space="preserve">
+          <source>Next, complete the following steps to unpack your device.</source>
+          <target state="new">Next, complete the following steps to unpack your device.</target>
+        </trans-unit>
+        <trans-unit id="0626b9df-0ce4-4390-b567-e7725ab54bd1" xml:space="preserve">
+          <source>Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage.</source>
+          <target state="new">Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage.</target>
+        </trans-unit>
+        <trans-unit id="464c665e-e032-4db5-aa9a-5b19e3148f09" xml:space="preserve">
+          <source>If the box or packaging is severely damaged, do not open the box.</source>
+          <target state="new">If the box or packaging is severely damaged, do not open the box.</target>
+        </trans-unit>
+        <trans-unit id="d54451b4-f6ae-4dc4-ae96-a845e65469f7" xml:space="preserve">
+          <source>Please contact Microsoft Support to help you assess whether the device is in good working order.</source>
+          <target state="new">Please contact Microsoft Support to help you assess whether the device is in good working order.</target>
+        </trans-unit>
+        <trans-unit id="a94ed853-7bf0-4f53-a4a2-97913c998e76" xml:space="preserve">
+          <source>Unpack the box.</source>
+          <target state="new">Unpack the box.</target>
+        </trans-unit>
+        <trans-unit id="75a55b04-fe55-4911-87fc-f946d6a59719" xml:space="preserve">
+          <source>The following image shows the unpacked view of your Azure StorSimple device.</source>
+          <target state="new">The following image shows the unpacked view of your Azure StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="db34a013-5dfa-4698-9417-ff1c88a6f6cc" xml:space="preserve">
+          <source> <bpt id="8a62552b-d501-43e0-933f-55cf1aa38bff">&lt;linkText&gt;</bpt>Unpack your storage device<ept id="8a62552b-d501-43e0-933f-55cf1aa38bff">&lt;/linkText&gt;</ept> </source>
+          <target state="new"> <bpt id="8a62552b-d501-43e0-933f-55cf1aa38bff">&lt;linkText&gt;</bpt>Unpack your storage device<ept id="8a62552b-d501-43e0-933f-55cf1aa38bff">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="92d137ed-6f1b-4d11-8929-f8d3e91fe91e" xml:space="preserve">
+          <source><bpt id="9c3d6f03-8140-4144-ba4b-6f0ce52c7425">&lt;strong&gt;</bpt>Unpacked view of your storage device<ept id="9c3d6f03-8140-4144-ba4b-6f0ce52c7425">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9c3d6f03-8140-4144-ba4b-6f0ce52c7425">&lt;strong&gt;</bpt>Unpacked view of your storage device<ept id="9c3d6f03-8140-4144-ba4b-6f0ce52c7425">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37cff27d-fa04-4b9f-9523-6ad3c42e81f8" xml:space="preserve">
+          <source> Label | Description 
+ ----- | -------------
+ 1     | Packing box
+ 2     | Bottom foam
+ 3     | Device
+ 4     | Top foam
+ 5     | Accessory box</source>
+          <target state="new"> Label | Description 
+ ----- | -------------
+ 1     | Packing box
+ 2     | Bottom foam
+ 3     | Device
+ 4     | Top foam
+ 5     | Accessory box</target>
+        </trans-unit>
+        <trans-unit id="cd2f9a89-7f7e-4db8-9fce-a884a41ae5bb" xml:space="preserve">
+          <source>After unpacking the box, make sure that you have:</source>
+          <target state="new">After unpacking the box, make sure that you have:</target>
+        </trans-unit>
+        <trans-unit id="bc782bd9-9463-4343-ad23-85f3ab83f509" xml:space="preserve">
+          <source>1 single enclosure device</source>
+          <target state="new">1 single enclosure device</target>
+        </trans-unit>
+        <trans-unit id="561df17b-d371-4ec1-9056-d8f9fc3d39ea" xml:space="preserve">
+          <source>2 power cords</source>
+          <target state="new">2 power cords</target>
+        </trans-unit>
+        <trans-unit id="693bbcd4-513e-4126-9245-98b8e82c38dd" xml:space="preserve">
+          <source>1 crossover Ethernet cable</source>
+          <target state="new">1 crossover Ethernet cable</target>
+        </trans-unit>
+        <trans-unit id="dc575f11-d037-418d-aad1-58eaf21e3748" xml:space="preserve">
+          <source>2 serial console cables</source>
+          <target state="new">2 serial console cables</target>
+        </trans-unit>
+        <trans-unit id="80543d49-6582-43fa-b89c-d59cae7086f6" xml:space="preserve">
+          <source>1 serial-USB converter for serial access</source>
+          <target state="new">1 serial-USB converter for serial access</target>
+        </trans-unit>
+        <trans-unit id="46f4b63a-0489-43c2-8fcb-7f2f4922f7b9" xml:space="preserve">
+          <source>1 tamper-proof T10 screwdriver</source>
+          <target state="new">1 tamper-proof T10 screwdriver</target>
+        </trans-unit>
+        <trans-unit id="36a63e78-5a0c-4e8d-af6a-affc9c5a9794" xml:space="preserve">
+          <source>4 single QSFP-to-SFP+ adapters</source>
+          <target state="new">4 single QSFP-to-SFP+ adapters</target>
+        </trans-unit>
+        <trans-unit id="879d26d6-7513-4b2d-b51c-b0113ba7bf64" xml:space="preserve">
+          <source>1 rack-mount kit (2 side rails with mounting hardware)</source>
+          <target state="new">1 rack-mount kit (2 side rails with mounting hardware)</target>
+        </trans-unit>
+        <trans-unit id="95bfe03d-c057-40f1-9a6d-8dfee8dfc9d6" xml:space="preserve">
+          <source>Getting Started documentation</source>
+          <target state="new">Getting Started documentation</target>
+        </trans-unit>
+        <trans-unit id="89fdfa99-5b7e-49f6-920d-26a3912a9951" xml:space="preserve">
+          <source>If you did not receive any of the items listed above, contact Microsoft Support.</source>
+          <target state="new">If you did not receive any of the items listed above, contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="419ea499-f699-44aa-b682-ccf94c49e629" xml:space="preserve">
+          <source>The next step is to rack-mount your device.</source>
+          <target state="new">The next step is to rack-mount your device.</target>
+        </trans-unit>
+        <trans-unit id="98b6361d-001c-4789-911e-08e48ed6f06f" xml:space="preserve">
+          <source>Follow the next steps to install your StorSimple 8100 storage device in a standard 19-inch rack with front and rear posts.</source>
+          <target state="new">Follow the next steps to install your StorSimple 8100 storage device in a standard 19-inch rack with front and rear posts.</target>
+        </trans-unit>
+        <trans-unit id="eff7ac93-1cf4-44ee-b483-4e9a03aadd79" xml:space="preserve">
+          <source>The StorSimple 8100 device has a single primary enclosure.</source>
+          <target state="new">The StorSimple 8100 device has a single primary enclosure.</target>
+        </trans-unit>
+        <trans-unit id="9bb0a344-570c-487b-8ff6-ba6624eddfcb" xml:space="preserve">
+          <source>The installation consists of multiple steps, each of which is discussed in the following procedures.</source>
+          <target state="new">The installation consists of multiple steps, each of which is discussed in the following procedures.</target>
+        </trans-unit>
+        <trans-unit id="36ca6dad-2d6f-4ee7-9c39-3b7abe872dbc" xml:space="preserve">
+          <source>The device must be installed in a standard 19-inch rack that has both front and rear posts.</source>
+          <target state="new">The device must be installed in a standard 19-inch rack that has both front and rear posts.</target>
+        </trans-unit>
+        <trans-unit id="d21e9337-e37d-4bda-ba6c-d385be91e10b" xml:space="preserve">
+          <source>Use the following procedure to prepare for rack installation.</source>
+          <target state="new">Use the following procedure to prepare for rack installation.</target>
+        </trans-unit>
+        <trans-unit id="bd0f2c96-a0b7-45a1-a9f4-33b89eca821a" xml:space="preserve">
+          <source>Make sure that the device rests safely on a flat, stable, and level work surface (or similar).</source>
+          <target state="new">Make sure that the device rests safely on a flat, stable, and level work surface (or similar).</target>
+        </trans-unit>
+        <trans-unit id="bfc6604d-c4c2-42c3-b4a3-7d4bf1f0134e" xml:space="preserve">
+          <source>Verify that the site where you intend to set up has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).</source>
+          <target state="new">Verify that the site where you intend to set up has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).</target>
+        </trans-unit>
+        <trans-unit id="eefa3476-6a11-48d7-9410-9b8ffa6af346" xml:space="preserve">
+          <source>Make sure that one 2U slot is available on the rack in which you intend to mount the device.</source>
+          <target state="new">Make sure that one 2U slot is available on the rack in which you intend to mount the device.</target>
+        </trans-unit>
+        <trans-unit id="0a83c5b4-1bd9-466e-a214-32181f34e58c" xml:space="preserve">
+          <source><bpt id="a82a7402-134d-48e9-a9bc-905b6f047152">&lt;linkText&gt;</bpt>heavy weight icon<ept id="a82a7402-134d-48e9-a9bc-905b6f047152">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a82a7402-134d-48e9-a9bc-905b6f047152">&lt;linkText&gt;</bpt>heavy weight icon<ept id="a82a7402-134d-48e9-a9bc-905b6f047152">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80c46eac-d5d2-4463-a6e9-569fac94b9e0" xml:space="preserve">
+          <source>Make sure that you have two people available to manage the weight if you are handling the device setup manually.</source>
+          <target state="new">Make sure that you have two people available to manage the weight if you are handling the device setup manually.</target>
+        </trans-unit>
+        <trans-unit id="7910f667-09ef-4065-98e4-a157e0c654a9" xml:space="preserve">
+          <source>A fully configured enclosure can weigh up to 32 kg (70 lbs.).</source>
+          <target state="new">A fully configured enclosure can weigh up to 32 kg (70 lbs.).</target>
+        </trans-unit>
+        <trans-unit id="25525193-447d-4928-8adb-1e2ddf5c772b" xml:space="preserve">
+          <source>The 8100 enclosure is designed for installation in a standard 19-inch rack cabinet with: </source>
+          <target state="new">The 8100 enclosure is designed for installation in a standard 19-inch rack cabinet with: </target>
+        </trans-unit>
+        <trans-unit id="89cf8a39-2795-47ea-8e95-b55651cd3831" xml:space="preserve">
+          <source>Minimum depth of 27.84 inches from rack post to post.</source>
+          <target state="new">Minimum depth of 27.84 inches from rack post to post.</target>
+        </trans-unit>
+        <trans-unit id="80750176-42da-4a7e-b819-e316c43313e1" xml:space="preserve">
+          <source>Maximum weight of 32 kg for the device</source>
+          <target state="new">Maximum weight of 32 kg for the device</target>
+        </trans-unit>
+        <trans-unit id="89fbd25d-3521-4492-b07b-63866205debb" xml:space="preserve">
+          <source>Maximum back pressure of 5 Pascal (0.5 mm water gauge).</source>
+          <target state="new">Maximum back pressure of 5 Pascal (0.5 mm water gauge).</target>
+        </trans-unit>
+        <trans-unit id="1fcf0f43-ced2-4c43-8c97-e431828ab8b3" xml:space="preserve">
+          <source>A set of mounting rails is provided for use with the 19-inch rack cabinet.</source>
+          <target state="new">A set of mounting rails is provided for use with the 19-inch rack cabinet.</target>
+        </trans-unit>
+        <trans-unit id="c8c9849c-6e87-4dcc-b41f-fdba06537ea7" xml:space="preserve">
+          <source>The rails have been tested to handle the maximum enclosure weight.</source>
+          <target state="new">The rails have been tested to handle the maximum enclosure weight.</target>
+        </trans-unit>
+        <trans-unit id="7bca6751-d8fd-4adc-b358-a5ba8b083496" xml:space="preserve">
+          <source>These rails will also allow installation of multiple enclosures without any loss of space within the rack.</source>
+          <target state="new">These rails will also allow installation of multiple enclosures without any loss of space within the rack.</target>
+        </trans-unit>
+        <trans-unit id="4a52db38-5450-4733-870c-3487b019c378" xml:space="preserve">
+          <source>With the enclosure on the work surface, remove the left and right front flange caps by pulling the caps free.</source>
+          <target state="new">With the enclosure on the work surface, remove the left and right front flange caps by pulling the caps free.</target>
+        </trans-unit>
+        <trans-unit id="cf9b286f-1dc3-4f92-9210-fa16c7b0cbc0" xml:space="preserve">
+          <source>The flange caps simply snap onto the flanges.</source>
+          <target state="new">The flange caps simply snap onto the flanges.</target>
+        </trans-unit>
+        <trans-unit id="24bfb9e0-c43a-4eaf-af73-f2fb4e732737" xml:space="preserve">
+          <source>Typically, the rails are installed at the factory.</source>
+          <target state="new">Typically, the rails are installed at the factory.</target>
+        </trans-unit>
+        <trans-unit id="f02a0ef7-b1ab-4ec8-bbf2-26020d4ff6ca" xml:space="preserve">
+          <source>If they are not, then install the left-rail and right-rail slides to the sides of the enclosure chassis.</source>
+          <target state="new">If they are not, then install the left-rail and right-rail slides to the sides of the enclosure chassis.</target>
+        </trans-unit>
+        <trans-unit id="d9765168-30fe-4645-8443-f606f3f00137" xml:space="preserve">
+          <source>They attach using six metric screws on each side.</source>
+          <target state="new">They attach using six metric screws on each side.</target>
+        </trans-unit>
+        <trans-unit id="d146e7d8-19fc-4ec0-b9c3-e17671f84a3f" xml:space="preserve">
+          <source>To help with orientation, the rail slides are marked <bpt id="e544289b-6126-4ade-ba73-5ef1a6730546">&lt;strong&gt;</bpt>LH – Front<ept id="e544289b-6126-4ade-ba73-5ef1a6730546">&lt;/strong&gt;</ept> and <bpt id="c92de124-399e-43e1-a3b6-4a4809d1b55f">&lt;strong&gt;</bpt>RH – Front<ept id="c92de124-399e-43e1-a3b6-4a4809d1b55f">&lt;/strong&gt;</ept>, and the end that is affixed towards the rear of the enclosure has a tapered end.&lt;br/&gt;</source>
+          <target state="new">To help with orientation, the rail slides are marked <bpt id="e544289b-6126-4ade-ba73-5ef1a6730546">&lt;strong&gt;</bpt>LH – Front<ept id="e544289b-6126-4ade-ba73-5ef1a6730546">&lt;/strong&gt;</ept> and <bpt id="c92de124-399e-43e1-a3b6-4a4809d1b55f">&lt;strong&gt;</bpt>RH – Front<ept id="c92de124-399e-43e1-a3b6-4a4809d1b55f">&lt;/strong&gt;</ept>, and the end that is affixed towards the rear of the enclosure has a tapered end.&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="0c10f079-6104-4f53-b1bb-8e70175f59d9" xml:space="preserve">
+          <source><bpt id="6e8c520e-4283-4c29-969a-da840ca200b0">&lt;linkText&gt;</bpt>Attaching rail slides to enclosure chassis<ept id="6e8c520e-4283-4c29-969a-da840ca200b0">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="6e8c520e-4283-4c29-969a-da840ca200b0">&lt;linkText&gt;</bpt>Attaching rail slides to enclosure chassis<ept id="6e8c520e-4283-4c29-969a-da840ca200b0">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a03446c5-61fc-44f5-a057-bc4fd60b9de7" xml:space="preserve">
+          <source><bpt id="57ae98e3-85ca-45ef-a38d-dfe8f4958d9c">&lt;strong&gt;</bpt>Attaching rail slides to the sides of the enclosure<ept id="57ae98e3-85ca-45ef-a38d-dfe8f4958d9c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="57ae98e3-85ca-45ef-a38d-dfe8f4958d9c">&lt;strong&gt;</bpt>Attaching rail slides to the sides of the enclosure<ept id="57ae98e3-85ca-45ef-a38d-dfe8f4958d9c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f7d81cf-6b69-4fc8-91c3-2d25effe7fc1" xml:space="preserve">
+          <source>Label | Description
+----- | -----------
+1     | M 3x4 button-head screws
+2     | Chassis slides</source>
+          <target state="new">Label | Description
+----- | -----------
+1     | M 3x4 button-head screws
+2     | Chassis slides</target>
+        </trans-unit>
+        <trans-unit id="5712c1b1-df37-450f-8de0-3aa3e4547552" xml:space="preserve">
+          <source>Attach the left rail and right rail assemblies to the rack cabinet vertical members.</source>
+          <target state="new">Attach the left rail and right rail assemblies to the rack cabinet vertical members.</target>
+        </trans-unit>
+        <trans-unit id="aec35b63-92bd-4a95-8eef-4b338b8ff014" xml:space="preserve">
+          <source>The brackets are marked <bpt id="37bdcfb8-f328-46ea-91b1-c92ddeb0c399">&lt;strong&gt;</bpt>LH<ept id="37bdcfb8-f328-46ea-91b1-c92ddeb0c399">&lt;/strong&gt;</ept>, <bpt id="1c49b012-8cb5-4863-ad21-8cc1cbaae64b">&lt;strong&gt;</bpt>RH<ept id="1c49b012-8cb5-4863-ad21-8cc1cbaae64b">&lt;/strong&gt;</ept>, and <bpt id="de7141c4-e148-4ecf-affe-041e486406c8">&lt;strong&gt;</bpt>This side up<ept id="de7141c4-e148-4ecf-affe-041e486406c8">&lt;/strong&gt;</ept> to guide you through the correct orientation.</source>
+          <target state="new">The brackets are marked <bpt id="37bdcfb8-f328-46ea-91b1-c92ddeb0c399">&lt;strong&gt;</bpt>LH<ept id="37bdcfb8-f328-46ea-91b1-c92ddeb0c399">&lt;/strong&gt;</ept>, <bpt id="1c49b012-8cb5-4863-ad21-8cc1cbaae64b">&lt;strong&gt;</bpt>RH<ept id="1c49b012-8cb5-4863-ad21-8cc1cbaae64b">&lt;/strong&gt;</ept>, and <bpt id="de7141c4-e148-4ecf-affe-041e486406c8">&lt;strong&gt;</bpt>This side up<ept id="de7141c4-e148-4ecf-affe-041e486406c8">&lt;/strong&gt;</ept> to guide you through the correct orientation.</target>
+        </trans-unit>
+        <trans-unit id="8f1fe4b1-4329-45df-aae2-d9b2ea78e2df" xml:space="preserve">
+          <source>Locate the rail pins at the front and rear of the rail assembly.</source>
+          <target state="new">Locate the rail pins at the front and rear of the rail assembly.</target>
+        </trans-unit>
+        <trans-unit id="50a1f1aa-300a-4d62-befa-c76c9c46022b" xml:space="preserve">
+          <source>Extend the rail to fit between the rack posts and insert the pins into the front and rear rack post vertical member holes.</source>
+          <target state="new">Extend the rail to fit between the rack posts and insert the pins into the front and rear rack post vertical member holes.</target>
+        </trans-unit>
+        <trans-unit id="7ff183a2-8fdc-4403-80ad-8bd5467bd106" xml:space="preserve">
+          <source>Be sure that the rail assembly is level.</source>
+          <target state="new">Be sure that the rail assembly is level.</target>
+        </trans-unit>
+        <trans-unit id="4f4f16bc-a55c-4e3f-908d-a2c27bfa0606" xml:space="preserve">
+          <source>Use two of the provided metric screws to secure the rail assembly to the rack vertical members.</source>
+          <target state="new">Use two of the provided metric screws to secure the rail assembly to the rack vertical members.</target>
+        </trans-unit>
+        <trans-unit id="9f773d79-e338-4e49-bbed-68a50303e113" xml:space="preserve">
+          <source>Use one screw on the front and one on the rear.</source>
+          <target state="new">Use one screw on the front and one on the rear.</target>
+        </trans-unit>
+        <trans-unit id="9559d65e-1e43-4ac0-ab05-8b5a6c7b204e" xml:space="preserve">
+          <source>Repeat these steps for the other rail assembly.&lt;br/&gt;</source>
+          <target state="new">Repeat these steps for the other rail assembly.&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="3f3f0924-354c-4db5-abe9-8bbe04e58bc8" xml:space="preserve">
+          <source> <bpt id="f4cf71bf-5ada-4a78-8563-a3fc4a446d32">&lt;linkText&gt;</bpt>Attaching rail slides to rack cabinet<ept id="f4cf71bf-5ada-4a78-8563-a3fc4a446d32">&lt;/linkText&gt;</ept> </source>
+          <target state="new"> <bpt id="f4cf71bf-5ada-4a78-8563-a3fc4a446d32">&lt;linkText&gt;</bpt>Attaching rail slides to rack cabinet<ept id="f4cf71bf-5ada-4a78-8563-a3fc4a446d32">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="35aa2e5d-f132-4b13-9e19-016e181ad517" xml:space="preserve">
+          <source><bpt id="c19f00bd-e7a0-42fd-b7a1-04ac1ab46e24">&lt;strong&gt;</bpt>Attaching rail assemblies to the rack<ept id="c19f00bd-e7a0-42fd-b7a1-04ac1ab46e24">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c19f00bd-e7a0-42fd-b7a1-04ac1ab46e24">&lt;strong&gt;</bpt>Attaching rail assemblies to the rack<ept id="c19f00bd-e7a0-42fd-b7a1-04ac1ab46e24">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7409b91-6a63-4ad7-8f42-d3ae5fd221e9" xml:space="preserve">
+          <source> Label | Description
+ ----- | -----------
+ 1     | Clamping screw
+ 2     | Square-hole front rack post screw
+ 3     | Left front-rail location pins
+ 4     | Clamping screw
+ 5     | Right front-rail location pins</source>
+          <target state="new"> Label | Description
+ ----- | -----------
+ 1     | Clamping screw
+ 2     | Square-hole front rack post screw
+ 3     | Left front-rail location pins
+ 4     | Clamping screw
+ 5     | Right front-rail location pins</target>
+        </trans-unit>
+        <trans-unit id="205aa416-48a7-469c-9cff-a1363d553164" xml:space="preserve">
+          <source>Using the rack rails that were just installed, perform the following steps to mount the device in the rack.</source>
+          <target state="new">Using the rack rails that were just installed, perform the following steps to mount the device in the rack.</target>
+        </trans-unit>
+        <trans-unit id="29dc6c96-2bd1-4df1-ae84-ea36d9541a92" xml:space="preserve">
+          <source>With an assistant, lift the enclosure and align it with the rack rails.</source>
+          <target state="new">With an assistant, lift the enclosure and align it with the rack rails.</target>
+        </trans-unit>
+        <trans-unit id="8ff4e9e1-996a-4b39-b9a5-06f3aa4acbe3" xml:space="preserve">
+          <source>Carefully insert the device into the rails, and then push the device completely into the rack cabinet.&lt;br/&gt;</source>
+          <target state="new">Carefully insert the device into the rails, and then push the device completely into the rack cabinet.&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="21b24c76-b74a-4ecd-b0c3-1aadb4d26ae0" xml:space="preserve">
+          <source><bpt id="9c088949-395a-48a1-bcc7-0d67075c8d6d">&lt;linkText&gt;</bpt>Inserting device in the rack<ept id="9c088949-395a-48a1-bcc7-0d67075c8d6d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9c088949-395a-48a1-bcc7-0d67075c8d6d">&lt;linkText&gt;</bpt>Inserting device in the rack<ept id="9c088949-395a-48a1-bcc7-0d67075c8d6d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="320d57ed-b076-44fb-89b4-9a31f3f577d5" xml:space="preserve">
+          <source><bpt id="8d32e5ed-f527-41d2-88d4-071757b85787">&lt;strong&gt;</bpt>Mounting the device in the rack<ept id="8d32e5ed-f527-41d2-88d4-071757b85787">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8d32e5ed-f527-41d2-88d4-071757b85787">&lt;strong&gt;</bpt>Mounting the device in the rack<ept id="8d32e5ed-f527-41d2-88d4-071757b85787">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5808a109-3558-403f-b75e-41158e0efd12" xml:space="preserve">
+          <source>Secure the enclosure in the rack by installing one provided Phillips-head screw through each flange, left and right.</source>
+          <target state="new">Secure the enclosure in the rack by installing one provided Phillips-head screw through each flange, left and right.</target>
+        </trans-unit>
+        <trans-unit id="37aac841-49d1-412a-8f55-283897cdcec9" xml:space="preserve">
+          <source>Install the flange caps by pressing them into position and snapping them in place.&lt;br/&gt;</source>
+          <target state="new">Install the flange caps by pressing them into position and snapping them in place.&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="d25549e9-385f-4f5a-8c4a-b587ddf0e543" xml:space="preserve">
+          <source> <bpt id="1727bfe6-0820-4038-af9f-3d86e5fdfeb5">&lt;linkText&gt;</bpt>Installing flange caps<ept id="1727bfe6-0820-4038-af9f-3d86e5fdfeb5">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="1727bfe6-0820-4038-af9f-3d86e5fdfeb5">&lt;linkText&gt;</bpt>Installing flange caps<ept id="1727bfe6-0820-4038-af9f-3d86e5fdfeb5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9851cb4a-dea9-4045-9881-3239c3ae123b" xml:space="preserve">
+          <source><bpt id="6d5d19a8-c9d3-4e06-97a4-b838b461e48d">&lt;strong&gt;</bpt>Installing the flange caps<ept id="6d5d19a8-c9d3-4e06-97a4-b838b461e48d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6d5d19a8-c9d3-4e06-97a4-b838b461e48d">&lt;strong&gt;</bpt>Installing the flange caps<ept id="6d5d19a8-c9d3-4e06-97a4-b838b461e48d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be12dffe-570c-4156-ae08-23936f3b2b28" xml:space="preserve">
+          <source> Label | Description
+ ----- | -----------
+ 1     | Enclosure fastening screw</source>
+          <target state="new"> Label | Description
+ ----- | -----------
+ 1     | Enclosure fastening screw</target>
+        </trans-unit>
+        <trans-unit id="4078c5da-fb14-46fe-95a0-9e1282cd1edd" xml:space="preserve">
+          <source>The next step is to cable your device for power, network, and serial access.</source>
+          <target state="new">The next step is to cable your device for power, network, and serial access.</target>
+        </trans-unit>
+        <trans-unit id="3587ffd3-9e94-4327-a43e-9b8158ea64ea" xml:space="preserve">
+          <source>The following procedures explain how to cable your StorSimple 8100 device for power, network, and serial connections.</source>
+          <target state="new">The following procedures explain how to cable your StorSimple 8100 device for power, network, and serial connections.</target>
+        </trans-unit>
+        <trans-unit id="1c72cf02-af99-4fe5-97ce-64f9a6cf02e8" xml:space="preserve">
+          <source>Before you begin the cabling of your device, you will need:</source>
+          <target state="new">Before you begin the cabling of your device, you will need:</target>
+        </trans-unit>
+        <trans-unit id="819cba88-869e-4fc8-aeaa-d551eaa542d5" xml:space="preserve">
+          <source>Your storage device, completely unpacked</source>
+          <target state="new">Your storage device, completely unpacked</target>
+        </trans-unit>
+        <trans-unit id="05ee4ddf-1078-4993-8f46-41999e909285" xml:space="preserve">
+          <source>2 power cables that came with your device</source>
+          <target state="new">2 power cables that came with your device</target>
+        </trans-unit>
+        <trans-unit id="754b3180-db94-4af2-95ba-562b26469426" xml:space="preserve">
+          <source>Access to 2 Power Distribution Units (recommended).</source>
+          <target state="new">Access to 2 Power Distribution Units (recommended).</target>
+        </trans-unit>
+        <trans-unit id="5ba83de2-ed33-4b3e-bc15-475673abfd83" xml:space="preserve">
+          <source>Network cables</source>
+          <target state="new">Network cables</target>
+        </trans-unit>
+        <trans-unit id="b7929bd7-b5ee-4a96-bb8f-8a068d35e511" xml:space="preserve">
+          <source>Provided serial cables</source>
+          <target state="new">Provided serial cables</target>
+        </trans-unit>
+        <trans-unit id="559e962a-814c-49da-96b8-4cb14bdf8537" xml:space="preserve">
+          <source>Serial USB converter with the appropriate driver installed on your PC (if needed)</source>
+          <target state="new">Serial USB converter with the appropriate driver installed on your PC (if needed)</target>
+        </trans-unit>
+        <trans-unit id="a81adf85-53a7-472a-af1d-7657f7ecf016" xml:space="preserve">
+          <source>Provided single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces</source>
+          <target state="new">Provided single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces</target>
+        </trans-unit>
+        <trans-unit id="63775ba8-a78c-47bb-9497-89032af62a87" xml:space="preserve">
+          <source><bpt id="4b1cff60-22b8-43c0-a570-7a59b64aa2c5">&lt;linkText&gt;</bpt>Supported hardware for 10 GbE network interfaces on your StorSimple device<ept id="4b1cff60-22b8-43c0-a570-7a59b64aa2c5">&lt;/linkText&gt;</ept><bpt id="4b1cff60-22b8-43c0-a570-7a59b64aa2c5">&lt;title&gt;</bpt><ept id="4b1cff60-22b8-43c0-a570-7a59b64aa2c5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4b1cff60-22b8-43c0-a570-7a59b64aa2c5">&lt;linkText&gt;</bpt>Supported hardware for 10 GbE network interfaces on your StorSimple device<ept id="4b1cff60-22b8-43c0-a570-7a59b64aa2c5">&lt;/linkText&gt;</ept><bpt id="4b1cff60-22b8-43c0-a570-7a59b64aa2c5">&lt;title&gt;</bpt><ept id="4b1cff60-22b8-43c0-a570-7a59b64aa2c5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97295141-351e-42e0-a036-ca1953eb0535" xml:space="preserve">
+          <source>Your device includes redundant Power and Cooling Modules (PCMs).</source>
+          <target state="new">Your device includes redundant Power and Cooling Modules (PCMs).</target>
+        </trans-unit>
+        <trans-unit id="e5651d1d-63f4-4adb-b197-1f18067201d9" xml:space="preserve">
+          <source>Both PCMs must be installed and connected to different power sources to ensure high availability.</source>
+          <target state="new">Both PCMs must be installed and connected to different power sources to ensure high availability.</target>
+        </trans-unit>
+        <trans-unit id="1ae36e84-2fe5-4e7d-a3e8-d57e56bcd0f6" xml:space="preserve">
+          <source>Perform the following steps to cable your device for power.</source>
+          <target state="new">Perform the following steps to cable your device for power.</target>
+        </trans-unit>
+        <trans-unit id="5c96a468-f8af-41f9-b4df-e3e2cd6f98ee" xml:space="preserve">
+          <source><bpt id="f6891433-0b88-49c7-a969-63b8b269be1e">&lt;token href="../../includes/storsimple-cable-8100-for-power.md"&gt;</bpt><ept id="f6891433-0b88-49c7-a969-63b8b269be1e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f6891433-0b88-49c7-a969-63b8b269be1e">&lt;token href="../../includes/storsimple-cable-8100-for-power.md"&gt;</bpt><ept id="f6891433-0b88-49c7-a969-63b8b269be1e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59c82379-3b58-4f80-b857-94d848bb9ba1" xml:space="preserve">
+          <source>Your device is an active-standby configuration: at any given time, one controller module is active and processing all disk and network operations while the other controller module is on standby.</source>
+          <target state="new">Your device is an active-standby configuration: at any given time, one controller module is active and processing all disk and network operations while the other controller module is on standby.</target>
+        </trans-unit>
+        <trans-unit id="e6671e8b-24e5-4845-8971-1a9da0175014" xml:space="preserve">
+          <source>If a controller fails, the standby controller is activated immediately and continues all the disk and networking operations.</source>
+          <target state="new">If a controller fails, the standby controller is activated immediately and continues all the disk and networking operations.</target>
+        </trans-unit>
+        <trans-unit id="559975ab-60d6-40a6-9f7e-54486793b276" xml:space="preserve">
+          <source>To support this redundant controller failover, you need to cable your device network as described in the following steps.</source>
+          <target state="new">To support this redundant controller failover, you need to cable your device network as described in the following steps.</target>
+        </trans-unit>
+        <trans-unit id="8472c86c-8b78-4f8d-98b9-49ce2881fcf2" xml:space="preserve">
+          <source>Your device has six network interfaces on each controller: four 1 Gbps, and two 10 Gbps Ethernet ports.</source>
+          <target state="new">Your device has six network interfaces on each controller: four 1 Gbps, and two 10 Gbps Ethernet ports.</target>
+        </trans-unit>
+        <trans-unit id="abf56d0b-f6d8-41c6-a82c-bc91dfbdd8cf" xml:space="preserve">
+          <source>Identify the various data ports on the backplane of your device.</source>
+          <target state="new">Identify the various data ports on the backplane of your device.</target>
+        </trans-unit>
+        <trans-unit id="a59afe48-84da-4e4b-b4f5-bb2d2d166658" xml:space="preserve">
+          <source><bpt id="142bf15d-05fd-45c3-81c5-f67f2af98b8d">&lt;linkText&gt;</bpt>Backplane of 8100 device<ept id="142bf15d-05fd-45c3-81c5-f67f2af98b8d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="142bf15d-05fd-45c3-81c5-f67f2af98b8d">&lt;linkText&gt;</bpt>Backplane of 8100 device<ept id="142bf15d-05fd-45c3-81c5-f67f2af98b8d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62bc36e8-34e0-42fd-a0bc-7e7d8d0cbd3e" xml:space="preserve">
+          <source><bpt id="629a4cb3-1b3c-4d73-b17f-8fcadd72b13a">&lt;strong&gt;</bpt>Back of the device showing data ports<ept id="629a4cb3-1b3c-4d73-b17f-8fcadd72b13a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="629a4cb3-1b3c-4d73-b17f-8fcadd72b13a">&lt;strong&gt;</bpt>Back of the device showing data ports<ept id="629a4cb3-1b3c-4d73-b17f-8fcadd72b13a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3a32734-2dfb-4463-aa1f-5baa1907ce42" xml:space="preserve">
+          <source> Label   | Description
+ ------- | -----------
+ 0,1,4,5 |  1 GbE network interfaces
+ 2,3     | 10 GbE network interfaces
+ 6       | Serial ports</source>
+          <target state="new"> Label   | Description
+ ------- | -----------
+ 0,1,4,5 |  1 GbE network interfaces
+ 2,3     | 10 GbE network interfaces
+ 6       | Serial ports</target>
+        </trans-unit>
+        <trans-unit id="30770cc7-3657-41cc-b61f-f8f2245d1af4" xml:space="preserve">
+          <source>For high availability, the device requires a minimum of two connections for each controller.</source>
+          <target state="new">For high availability, the device requires a minimum of two connections for each controller.</target>
+        </trans-unit>
+        <trans-unit id="da3b1673-5fd2-44d0-abb0-4ed1559f852e" xml:space="preserve">
+          <source>The DATA 0 port is automatically enabled and configured via the serial console of the device.</source>
+          <target state="new">The DATA 0 port is automatically enabled and configured via the serial console of the device.</target>
+        </trans-unit>
+        <trans-unit id="05a9a037-c1a1-4c98-8634-2d36615f62a1" xml:space="preserve">
+          <source>Apart from DATA 0, another data port also needs to be configured through the Management Portal.</source>
+          <target state="new">Apart from DATA 0, another data port also needs to be configured through the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="5be0b9ba-4267-47b3-a270-af72182e556e" xml:space="preserve">
+          <source>Identify identical network interfaces on each controller.</source>
+          <target state="new">Identify identical network interfaces on each controller.</target>
+        </trans-unit>
+        <trans-unit id="b5e259c8-bc44-422d-a9f0-c4202f8630aa" xml:space="preserve">
+          <source>For instance, if you choose to connect DATA 0 and DATA 3 for one of the controllers, you need to connect the corresponding DATA 0 and DATA 3 on the other controller.</source>
+          <target state="new">For instance, if you choose to connect DATA 0 and DATA 3 for one of the controllers, you need to connect the corresponding DATA 0 and DATA 3 on the other controller.</target>
+        </trans-unit>
+        <trans-unit id="87ed8acd-3407-4858-ba5a-e0db17efbbf6" xml:space="preserve">
+          <source>For high availability, ensure that you connect:</source>
+          <target state="new">For high availability, ensure that you connect:</target>
+        </trans-unit>
+        <trans-unit id="054d4a75-60f6-4190-a61b-f00f3c36cd35" xml:space="preserve">
+          <source>Identical interfaces on each controller to the relevant network to ensure availability if a controller failure occurs.</source>
+          <target state="new">Identical interfaces on each controller to the relevant network to ensure availability if a controller failure occurs.</target>
+        </trans-unit>
+        <trans-unit id="223051fc-05a1-41fb-9d7b-6cbda539d769" xml:space="preserve">
+          <source>Interfaces from each controller to at least two different switches to ensure availability if a switch failure occurs.</source>
+          <target state="new">Interfaces from each controller to at least two different switches to ensure availability if a switch failure occurs.</target>
+        </trans-unit>
+        <trans-unit id="a9d4f029-6add-47cb-be21-5bb2779ae69b" xml:space="preserve">
+          <source>DATA 0 port to the primary LAN (network with Internet access).</source>
+          <target state="new">DATA 0 port to the primary LAN (network with Internet access).</target>
+        </trans-unit>
+        <trans-unit id="3118c020-7469-4bda-b0f3-d54d1e6e3093" xml:space="preserve">
+          <source>The other data ports can be connected to SAN/iSCSI LAN (VLAN) segment of the network, depending on the intended role.</source>
+          <target state="new">The other data ports can be connected to SAN/iSCSI LAN (VLAN) segment of the network, depending on the intended role.</target>
+        </trans-unit>
+        <trans-unit id="84460dfe-70d8-4765-b92b-e4084ca349f0" xml:space="preserve">
+          <source>At a minimum, configure one network interface for cloud access and one for iSCSI.</source>
+          <target state="new">At a minimum, configure one network interface for cloud access and one for iSCSI.</target>
+        </trans-unit>
+        <trans-unit id="419474b3-dce5-4ee2-927e-2f3e831e35c2" xml:space="preserve">
+          <source>For high availability and performance, configure two pairs of network interfaces on each controller.</source>
+          <target state="new">For high availability and performance, configure two pairs of network interfaces on each controller.</target>
+        </trans-unit>
+        <trans-unit id="71bbe366-80c1-4bc1-a223-50db1d2bb9a3" xml:space="preserve">
+          <source>See the following diagram for network cabling.</source>
+          <target state="new">See the following diagram for network cabling.</target>
+        </trans-unit>
+        <trans-unit id="8ac64e8e-0296-40ba-9bfe-d05a1dd6a698" xml:space="preserve">
+          <source>(The minimum network configuration is shown by solid blue lines.</source>
+          <target state="new">(The minimum network configuration is shown by solid blue lines.</target>
+        </trans-unit>
+        <trans-unit id="45a7e255-692d-4ea8-9e15-af6d7a4447f1" xml:space="preserve">
+          <source>For high availability and performance, additional configuration required is shown by dotted lines.)</source>
+          <target state="new">For high availability and performance, additional configuration required is shown by dotted lines.)</target>
+        </trans-unit>
+        <trans-unit id="5db1871a-4125-4782-9993-cadf2ff9b23c" xml:space="preserve">
+          <source><bpt id="7286c925-e508-4b2c-b7b7-a2c41569e868">&lt;linkText&gt;</bpt>Cable your 2U device for network<ept id="7286c925-e508-4b2c-b7b7-a2c41569e868">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7286c925-e508-4b2c-b7b7-a2c41569e868">&lt;linkText&gt;</bpt>Cable your 2U device for network<ept id="7286c925-e508-4b2c-b7b7-a2c41569e868">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0fe6de8d-f3f1-447f-80cc-6f17bf35263a" xml:space="preserve">
+          <source><bpt id="cc6969a2-74e5-4eb0-8fc8-11558bf96e75">&lt;strong&gt;</bpt>Network cabling for your device<ept id="cc6969a2-74e5-4eb0-8fc8-11558bf96e75">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cc6969a2-74e5-4eb0-8fc8-11558bf96e75">&lt;strong&gt;</bpt>Network cabling for your device<ept id="cc6969a2-74e5-4eb0-8fc8-11558bf96e75">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b13a9948-65e3-4ecc-a08d-34416e76d935" xml:space="preserve">
+          <source>Label | Description
+----- | -----------
+ A    | LAN with Internet access
+ B    | Controller 0
+ C    | PCM 0
+ D    | Controller 1
+ E    | PCM 1
+ F,G  | Hosts
+ 0-5  | Network interfaces</source>
+          <target state="new">Label | Description
+----- | -----------
+ A    | LAN with Internet access
+ B    | Controller 0
+ C    | PCM 0
+ D    | Controller 1
+ E    | PCM 1
+ F,G  | Hosts
+ 0-5  | Network interfaces</target>
+        </trans-unit>
+        <trans-unit id="e248184e-f076-4db1-aae5-c8b8e87fc884" xml:space="preserve">
+          <source>Perform the following steps to cable your serial port.</source>
+          <target state="new">Perform the following steps to cable your serial port.</target>
+        </trans-unit>
+        <trans-unit id="d7cf39b3-bbd4-4a52-8c1c-1f37e31e3635" xml:space="preserve">
+          <source>Your device has a serial port on each controller that is identified by a wrench icon.</source>
+          <target state="new">Your device has a serial port on each controller that is identified by a wrench icon.</target>
+        </trans-unit>
+        <trans-unit id="0c6ace75-7b8c-4d9c-a977-053ee1e364a4" xml:space="preserve">
+          <source>Refer to the illustration in the <bpt id="23a7b293-6e1a-4b38-8f42-744b341df7c2">&lt;linkText&gt;</bpt>Network cabling<ept id="23a7b293-6e1a-4b38-8f42-744b341df7c2">&lt;/linkText&gt;</ept><bpt id="23a7b293-6e1a-4b38-8f42-744b341df7c2">&lt;title&gt;</bpt><ept id="23a7b293-6e1a-4b38-8f42-744b341df7c2">&lt;/title&gt;</ept> section to locate the serial ports on the backplane of your device.</source>
+          <target state="new">Refer to the illustration in the <bpt id="23a7b293-6e1a-4b38-8f42-744b341df7c2">&lt;linkText&gt;</bpt>Network cabling<ept id="23a7b293-6e1a-4b38-8f42-744b341df7c2">&lt;/linkText&gt;</ept><bpt id="23a7b293-6e1a-4b38-8f42-744b341df7c2">&lt;title&gt;</bpt><ept id="23a7b293-6e1a-4b38-8f42-744b341df7c2">&lt;/title&gt;</ept> section to locate the serial ports on the backplane of your device.</target>
+        </trans-unit>
+        <trans-unit id="be0c6cde-b728-48ab-b127-bcf6ab50ff83" xml:space="preserve">
+          <source>Identify the active controller on your device backplane.</source>
+          <target state="new">Identify the active controller on your device backplane.</target>
+        </trans-unit>
+        <trans-unit id="847068de-2ee4-49fa-934e-76e3b401a631" xml:space="preserve">
+          <source>A blinking blue LED indicates that the controller is active.</source>
+          <target state="new">A blinking blue LED indicates that the controller is active.</target>
+        </trans-unit>
+        <trans-unit id="293902ff-1fae-4451-a349-1186bfe2f6e1" xml:space="preserve">
+          <source>Use the provided serial cables (if needed, the USB-serial converter for your laptop), and connect your console or computer (with terminal emulation to the device) to the serial port of the active controller.</source>
+          <target state="new">Use the provided serial cables (if needed, the USB-serial converter for your laptop), and connect your console or computer (with terminal emulation to the device) to the serial port of the active controller.</target>
+        </trans-unit>
+        <trans-unit id="b5dcaa1c-8f4a-413c-a4d4-96b9e465f50b" xml:space="preserve">
+          <source>Install the serial-USB drivers (shipped with the device) on your computer.</source>
+          <target state="new">Install the serial-USB drivers (shipped with the device) on your computer.</target>
+        </trans-unit>
+        <trans-unit id="e45124c9-c476-4fc0-9585-9f0206977fce" xml:space="preserve">
+          <source>Set up the serial connection as follows: 115,200 baud, 8 data bits, 1 stop bit, no parity, and flow control set to None.</source>
+          <target state="new">Set up the serial connection as follows: 115,200 baud, 8 data bits, 1 stop bit, no parity, and flow control set to None.</target>
+        </trans-unit>
+        <trans-unit id="46c229a9-25db-4c6a-ab8e-93bdbc8bea8b" xml:space="preserve">
+          <source>Verify that the connection is working by pressing Enter on the console.</source>
+          <target state="new">Verify that the connection is working by pressing Enter on the console.</target>
+        </trans-unit>
+        <trans-unit id="b70db62f-567f-443e-9bc9-3bc7a287f7f6" xml:space="preserve">
+          <source>A serial console menu should appear.</source>
+          <target state="new">A serial console menu should appear.</target>
+        </trans-unit>
+        <trans-unit id="6a70dec2-3288-42ca-b362-66698b23aa6d" xml:space="preserve">
+          <source><bpt id="5687ddf2-4dc1-4a9f-978c-b15fe9694069">&lt;strong&gt;</bpt>Lights-Out Management<ept id="5687ddf2-4dc1-4a9f-978c-b15fe9694069">&lt;/strong&gt;</ept>: When the device is installed in a remote datacenter or in a computer room with limited access, ensure that the serial connections to both controllers are always connected to a serial console switch or similar equipment.</source>
+          <target state="new"><bpt id="5687ddf2-4dc1-4a9f-978c-b15fe9694069">&lt;strong&gt;</bpt>Lights-Out Management<ept id="5687ddf2-4dc1-4a9f-978c-b15fe9694069">&lt;/strong&gt;</ept>: When the device is installed in a remote datacenter or in a computer room with limited access, ensure that the serial connections to both controllers are always connected to a serial console switch or similar equipment.</target>
+        </trans-unit>
+        <trans-unit id="c48b617f-1153-40bb-9b73-e3692a236cc4" xml:space="preserve">
+          <source>This allows out-of-band remote control and support operations if there are network disruptions or unexpected failures.</source>
+          <target state="new">This allows out-of-band remote control and support operations if there are network disruptions or unexpected failures.</target>
+        </trans-unit>
+        <trans-unit id="d932a09b-556b-4dd1-9676-c3923a4a4b09" xml:space="preserve">
+          <source>Your device is now cabled for power, network access, and serial connectivity.</source>
+          <target state="new">Your device is now cabled for power, network access, and serial connectivity.</target>
+        </trans-unit>
+        <trans-unit id="b2eb40d7-59bf-412a-8343-03c929199416" xml:space="preserve">
+          <source>The next step is to configure the software on your device.</source>
+          <target state="new">The next step is to configure the software on your device.</target>
+        </trans-unit>
+        <trans-unit id="34907a1b-c1df-403a-81e4-bc1701d3e67a" xml:space="preserve">
+          <source>You are now ready to <bpt id="9704dbb5-7587-4442-9292-866e603f83cd">&lt;linkText&gt;</bpt>deploy and configure your on-premises StorSimple device<ept id="9704dbb5-7587-4442-9292-866e603f83cd">&lt;/linkText&gt;</ept><bpt id="9704dbb5-7587-4442-9292-866e603f83cd">&lt;title&gt;</bpt><ept id="9704dbb5-7587-4442-9292-866e603f83cd">&lt;/title&gt;</ept> </source>
+          <target state="new">You are now ready to <bpt id="9704dbb5-7587-4442-9292-866e603f83cd">&lt;linkText&gt;</bpt>deploy and configure your on-premises StorSimple device<ept id="9704dbb5-7587-4442-9292-866e603f83cd">&lt;/linkText&gt;</ept><bpt id="9704dbb5-7587-4442-9292-866e603f83cd">&lt;title&gt;</bpt><ept id="9704dbb5-7587-4442-9292-866e603f83cd">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

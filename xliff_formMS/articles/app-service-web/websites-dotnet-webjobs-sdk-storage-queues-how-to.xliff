@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8eaf3049-aa06-461a-8244-e925f535ab8f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8eaf3049-aa06-461a-8244-e925f535ab8f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="962beffd-a03a-4ea5-92c0-aaebf7413005">
+        <trans-unit id="046c10e8-36f3-4d4b-8ac2-d34aa9fc68de" xml:space="preserve">
+          <source>How to use Azure queue storage with the WebJobs SDK</source>
+          <target state="new">How to use Azure queue storage with the WebJobs SDK</target>
+        </trans-unit>
+        <trans-unit id="506d1c66-25de-4cb0-91d0-3a1c645cf23f" xml:space="preserve">
+          <source>Learn how to use Azure queue storage with the WebJobs SDK. Create and delete queues; insert, peek, get, and delete queue messages, and more.</source>
+          <target state="new">Learn how to use Azure queue storage with the WebJobs SDK. Create and delete queues; insert, peek, get, and delete queue messages, and more.</target>
+        </trans-unit>
+        <trans-unit id="99765eef-1cae-49e2-b470-db5f044afea8" xml:space="preserve">
+          <source>This guide provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure queue storage service.</source>
+          <target state="new">This guide provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure queue storage service.</target>
+        </trans-unit>
+        <trans-unit id="3bcdb796-fde4-4acf-a5be-cf32ac5af0f6" xml:space="preserve">
+          <source>The guide assumes you know <bpt id="9986f5c1-f605-42e1-a016-d80e20101cec">&lt;linkText&gt;</bpt>how to create a WebJob project in Visual Studio with connection strings that point to your storage account<ept id="9986f5c1-f605-42e1-a016-d80e20101cec">&lt;/linkText&gt;</ept><bpt id="9986f5c1-f605-42e1-a016-d80e20101cec">&lt;title&gt;</bpt><ept id="9986f5c1-f605-42e1-a016-d80e20101cec">&lt;/title&gt;</ept>.</source>
+          <target state="new">The guide assumes you know <bpt id="9986f5c1-f605-42e1-a016-d80e20101cec">&lt;linkText&gt;</bpt>how to create a WebJob project in Visual Studio with connection strings that point to your storage account<ept id="9986f5c1-f605-42e1-a016-d80e20101cec">&lt;/linkText&gt;</ept><bpt id="9986f5c1-f605-42e1-a016-d80e20101cec">&lt;title&gt;</bpt><ept id="9986f5c1-f605-42e1-a016-d80e20101cec">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="089286b4-04f2-41a9-b68b-05f23a9811a5" xml:space="preserve">
+          <source>Most of the code snippets only show functions, not the code that creates the <bpt id="88e85991-7b0b-4510-9d1f-4a9cba3e8328">&lt;code&gt;</bpt>JobHost<ept id="88e85991-7b0b-4510-9d1f-4a9cba3e8328">&lt;/code&gt;</ept> object as in this example:</source>
+          <target state="new">Most of the code snippets only show functions, not the code that creates the <bpt id="88e85991-7b0b-4510-9d1f-4a9cba3e8328">&lt;code&gt;</bpt>JobHost<ept id="88e85991-7b0b-4510-9d1f-4a9cba3e8328">&lt;/code&gt;</ept> object as in this example:</target>
+        </trans-unit>
+        <trans-unit id="0d4cfd72-5c7d-4cb5-9a57-4c65622c5368" xml:space="preserve">
+          <source>The guide includes the following topics:</source>
+          <target state="new">The guide includes the following topics:</target>
+        </trans-unit>
+        <trans-unit id="f5c5b02e-61f4-4341-90a4-b5d198ef0471" xml:space="preserve">
+          <source><bpt id="6933f0cb-1cea-4b01-99dc-1b60e321ff89">&lt;linkText&gt;</bpt>How to trigger a function when a queue message is received<ept id="6933f0cb-1cea-4b01-99dc-1b60e321ff89">&lt;/linkText&gt;</ept><bpt id="6933f0cb-1cea-4b01-99dc-1b60e321ff89">&lt;title&gt;</bpt><ept id="6933f0cb-1cea-4b01-99dc-1b60e321ff89">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6933f0cb-1cea-4b01-99dc-1b60e321ff89">&lt;linkText&gt;</bpt>How to trigger a function when a queue message is received<ept id="6933f0cb-1cea-4b01-99dc-1b60e321ff89">&lt;/linkText&gt;</ept><bpt id="6933f0cb-1cea-4b01-99dc-1b60e321ff89">&lt;title&gt;</bpt><ept id="6933f0cb-1cea-4b01-99dc-1b60e321ff89">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79112da9-ab17-4bec-b93e-bdbb79f0d845" xml:space="preserve">
+          <source>String queue messages</source>
+          <target state="new">String queue messages</target>
+        </trans-unit>
+        <trans-unit id="0ebc7c3d-d3ba-427e-8410-df2e2b2147c4" xml:space="preserve">
+          <source>POCO queue messages</source>
+          <target state="new">POCO queue messages</target>
+        </trans-unit>
+        <trans-unit id="b816c431-0397-4b42-b06e-1fd0ceb737ff" xml:space="preserve">
+          <source>Async functions</source>
+          <target state="new">Async functions</target>
+        </trans-unit>
+        <trans-unit id="b57f6675-ae48-426a-8fcf-8ddd2cfe3e40" xml:space="preserve">
+          <source>Types the QueueTrigger attribute works with</source>
+          <target state="new">Types the QueueTrigger attribute works with</target>
+        </trans-unit>
+        <trans-unit id="378fac68-cc8b-4a3f-85c9-60295946662d" xml:space="preserve">
+          <source>Polling algorithm</source>
+          <target state="new">Polling algorithm</target>
+        </trans-unit>
+        <trans-unit id="46b06b75-8c6a-41ba-8032-b5b4a4d338b8" xml:space="preserve">
+          <source>Multiple instances</source>
+          <target state="new">Multiple instances</target>
+        </trans-unit>
+        <trans-unit id="9e09baa4-ce66-4a86-aa3a-1d04ceed025a" xml:space="preserve">
+          <source>Parallel execution</source>
+          <target state="new">Parallel execution</target>
+        </trans-unit>
+        <trans-unit id="796f0068-c047-4dbd-9662-3d554e6f8849" xml:space="preserve">
+          <source>Get queue or queue message metadata</source>
+          <target state="new">Get queue or queue message metadata</target>
+        </trans-unit>
+        <trans-unit id="283a4425-dfbf-4b9f-aa85-137526f1900d" xml:space="preserve">
+          <source>Graceful shutdown</source>
+          <target state="new">Graceful shutdown</target>
+        </trans-unit>
+        <trans-unit id="ad3fd89b-ccf5-4de6-9a9f-fa53637d2e9c" xml:space="preserve">
+          <source><bpt id="806962a0-f293-4353-a100-f30d091877d9">&lt;linkText&gt;</bpt>How to create a queue message while processing a queue message<ept id="806962a0-f293-4353-a100-f30d091877d9">&lt;/linkText&gt;</ept><bpt id="806962a0-f293-4353-a100-f30d091877d9">&lt;title&gt;</bpt><ept id="806962a0-f293-4353-a100-f30d091877d9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="806962a0-f293-4353-a100-f30d091877d9">&lt;linkText&gt;</bpt>How to create a queue message while processing a queue message<ept id="806962a0-f293-4353-a100-f30d091877d9">&lt;/linkText&gt;</ept><bpt id="806962a0-f293-4353-a100-f30d091877d9">&lt;title&gt;</bpt><ept id="806962a0-f293-4353-a100-f30d091877d9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="521c28d8-d900-4d78-b351-ab181da18c57" xml:space="preserve">
+          <source>String queue messages</source>
+          <target state="new">String queue messages</target>
+        </trans-unit>
+        <trans-unit id="2a2e7634-ad39-4195-bd8f-2253d1fa9300" xml:space="preserve">
+          <source>POCO queue messages</source>
+          <target state="new">POCO queue messages</target>
+        </trans-unit>
+        <trans-unit id="143660c5-3426-4c11-a0ac-bbca676cfd45" xml:space="preserve">
+          <source>Create multiple messages or in async functions</source>
+          <target state="new">Create multiple messages or in async functions</target>
+        </trans-unit>
+        <trans-unit id="0d645ee6-2f6a-45dd-9c91-19ab2aedc796" xml:space="preserve">
+          <source>Types the Queue attribute works with</source>
+          <target state="new">Types the Queue attribute works with</target>
+        </trans-unit>
+        <trans-unit id="887ec12b-a8d8-47d8-b11e-c2cf36df23f3" xml:space="preserve">
+          <source>Use WebJobs SDK attributes in the body of a function</source>
+          <target state="new">Use WebJobs SDK attributes in the body of a function</target>
+        </trans-unit>
+        <trans-unit id="ec4af2d0-c87c-4bb0-9040-a426d4d31a1c" xml:space="preserve">
+          <source><bpt id="6d3e57f6-1b84-4dfb-a661-cf0b1aa53a5c">&lt;linkText&gt;</bpt>How to read and write blobs while processing a queue message<ept id="6d3e57f6-1b84-4dfb-a661-cf0b1aa53a5c">&lt;/linkText&gt;</ept><bpt id="6d3e57f6-1b84-4dfb-a661-cf0b1aa53a5c">&lt;title&gt;</bpt><ept id="6d3e57f6-1b84-4dfb-a661-cf0b1aa53a5c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6d3e57f6-1b84-4dfb-a661-cf0b1aa53a5c">&lt;linkText&gt;</bpt>How to read and write blobs while processing a queue message<ept id="6d3e57f6-1b84-4dfb-a661-cf0b1aa53a5c">&lt;/linkText&gt;</ept><bpt id="6d3e57f6-1b84-4dfb-a661-cf0b1aa53a5c">&lt;title&gt;</bpt><ept id="6d3e57f6-1b84-4dfb-a661-cf0b1aa53a5c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4661a3cd-7378-436c-816f-7dbc310e8bcf" xml:space="preserve">
+          <source>String queue messages</source>
+          <target state="new">String queue messages</target>
+        </trans-unit>
+        <trans-unit id="b42dacaa-6683-4a38-9314-6a96e3c31d82" xml:space="preserve">
+          <source>POCO queue messages</source>
+          <target state="new">POCO queue messages</target>
+        </trans-unit>
+        <trans-unit id="17158b3a-ef28-44e8-9de8-d960cb865d99" xml:space="preserve">
+          <source>Types the Blob attribute works with</source>
+          <target state="new">Types the Blob attribute works with</target>
+        </trans-unit>
+        <trans-unit id="4d63db4f-ae16-459b-8bb0-c942d6a4ff9b" xml:space="preserve">
+          <source><bpt id="aaf450cd-f2a8-4999-ad11-192765855ba8">&lt;linkText&gt;</bpt>How to handle poison messages<ept id="aaf450cd-f2a8-4999-ad11-192765855ba8">&lt;/linkText&gt;</ept><bpt id="aaf450cd-f2a8-4999-ad11-192765855ba8">&lt;title&gt;</bpt><ept id="aaf450cd-f2a8-4999-ad11-192765855ba8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aaf450cd-f2a8-4999-ad11-192765855ba8">&lt;linkText&gt;</bpt>How to handle poison messages<ept id="aaf450cd-f2a8-4999-ad11-192765855ba8">&lt;/linkText&gt;</ept><bpt id="aaf450cd-f2a8-4999-ad11-192765855ba8">&lt;title&gt;</bpt><ept id="aaf450cd-f2a8-4999-ad11-192765855ba8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7463998-e9d2-4021-99cf-58b4f6e647dc" xml:space="preserve">
+          <source>Automatic poison message handling</source>
+          <target state="new">Automatic poison message handling</target>
+        </trans-unit>
+        <trans-unit id="b6632bf3-bcc6-4d75-a5cc-32e860f994c5" xml:space="preserve">
+          <source>Manual poison message handling</source>
+          <target state="new">Manual poison message handling</target>
+        </trans-unit>
+        <trans-unit id="8c23ef03-4443-4700-b2a5-bd57c8964b52" xml:space="preserve">
+          <source><bpt id="7875a98e-3dbd-4602-b8e5-9dde51f5cb48">&lt;linkText&gt;</bpt>How to set configuration options<ept id="7875a98e-3dbd-4602-b8e5-9dde51f5cb48">&lt;/linkText&gt;</ept><bpt id="7875a98e-3dbd-4602-b8e5-9dde51f5cb48">&lt;title&gt;</bpt><ept id="7875a98e-3dbd-4602-b8e5-9dde51f5cb48">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7875a98e-3dbd-4602-b8e5-9dde51f5cb48">&lt;linkText&gt;</bpt>How to set configuration options<ept id="7875a98e-3dbd-4602-b8e5-9dde51f5cb48">&lt;/linkText&gt;</ept><bpt id="7875a98e-3dbd-4602-b8e5-9dde51f5cb48">&lt;title&gt;</bpt><ept id="7875a98e-3dbd-4602-b8e5-9dde51f5cb48">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfb32bb5-5c91-4f3c-8325-1765f121c0cb" xml:space="preserve">
+          <source>Set SDK connection strings in code</source>
+          <target state="new">Set SDK connection strings in code</target>
+        </trans-unit>
+        <trans-unit id="e93a45fc-bd0b-4719-a010-8561f2732cc2" xml:space="preserve">
+          <source>Configure QueueTrigger settings</source>
+          <target state="new">Configure QueueTrigger settings</target>
+        </trans-unit>
+        <trans-unit id="6cb48f87-f73c-4c80-92c9-86cc414f0174" xml:space="preserve">
+          <source>Set values for WebJobs SDK constructor parameters in code</source>
+          <target state="new">Set values for WebJobs SDK constructor parameters in code</target>
+        </trans-unit>
+        <trans-unit id="b5d3485d-6aa5-4dbf-90ed-98d15cc9efae" xml:space="preserve">
+          <source><bpt id="0bf8d064-87c7-4ac2-bfca-8f6ef39993f1">&lt;linkText&gt;</bpt>How to trigger a function manually<ept id="0bf8d064-87c7-4ac2-bfca-8f6ef39993f1">&lt;/linkText&gt;</ept><bpt id="0bf8d064-87c7-4ac2-bfca-8f6ef39993f1">&lt;title&gt;</bpt><ept id="0bf8d064-87c7-4ac2-bfca-8f6ef39993f1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0bf8d064-87c7-4ac2-bfca-8f6ef39993f1">&lt;linkText&gt;</bpt>How to trigger a function manually<ept id="0bf8d064-87c7-4ac2-bfca-8f6ef39993f1">&lt;/linkText&gt;</ept><bpt id="0bf8d064-87c7-4ac2-bfca-8f6ef39993f1">&lt;title&gt;</bpt><ept id="0bf8d064-87c7-4ac2-bfca-8f6ef39993f1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3e7013e-097d-4faa-89ed-02584e6afe48" xml:space="preserve">
+          <source><bpt id="2ea60e0f-3cf2-4258-89da-761d879e75ec">&lt;linkText&gt;</bpt>How to write logs<ept id="2ea60e0f-3cf2-4258-89da-761d879e75ec">&lt;/linkText&gt;</ept><bpt id="2ea60e0f-3cf2-4258-89da-761d879e75ec">&lt;title&gt;</bpt><ept id="2ea60e0f-3cf2-4258-89da-761d879e75ec">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2ea60e0f-3cf2-4258-89da-761d879e75ec">&lt;linkText&gt;</bpt>How to write logs<ept id="2ea60e0f-3cf2-4258-89da-761d879e75ec">&lt;/linkText&gt;</ept><bpt id="2ea60e0f-3cf2-4258-89da-761d879e75ec">&lt;title&gt;</bpt><ept id="2ea60e0f-3cf2-4258-89da-761d879e75ec">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4337f978-4375-402f-8579-c58dfda0347c" xml:space="preserve">
+          <source><bpt id="979ac1e9-c58e-41fd-b456-8b8ed8c1f8e0">&lt;linkText&gt;</bpt>Next steps<ept id="979ac1e9-c58e-41fd-b456-8b8ed8c1f8e0">&lt;/linkText&gt;</ept><bpt id="979ac1e9-c58e-41fd-b456-8b8ed8c1f8e0">&lt;title&gt;</bpt><ept id="979ac1e9-c58e-41fd-b456-8b8ed8c1f8e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="979ac1e9-c58e-41fd-b456-8b8ed8c1f8e0">&lt;linkText&gt;</bpt>Next steps<ept id="979ac1e9-c58e-41fd-b456-8b8ed8c1f8e0">&lt;/linkText&gt;</ept><bpt id="979ac1e9-c58e-41fd-b456-8b8ed8c1f8e0">&lt;title&gt;</bpt><ept id="979ac1e9-c58e-41fd-b456-8b8ed8c1f8e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c793476-3e89-45aa-946a-eddd355c7590" xml:space="preserve">
+          <source>To write a function that the WebJobs SDK calls when a queue message is received, use the <bpt id="8bc34845-4e8f-4cad-9ec6-6a1429a73b0e">&lt;code&gt;</bpt>QueueTrigger<ept id="8bc34845-4e8f-4cad-9ec6-6a1429a73b0e">&lt;/code&gt;</ept> attribute.</source>
+          <target state="new">To write a function that the WebJobs SDK calls when a queue message is received, use the <bpt id="8bc34845-4e8f-4cad-9ec6-6a1429a73b0e">&lt;code&gt;</bpt>QueueTrigger<ept id="8bc34845-4e8f-4cad-9ec6-6a1429a73b0e">&lt;/code&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="ee122481-4d0f-4523-b16a-725052aafc2f" xml:space="preserve">
+          <source>The attribute constructor takes a string parameter that specifies the name of the queue to poll.</source>
+          <target state="new">The attribute constructor takes a string parameter that specifies the name of the queue to poll.</target>
+        </trans-unit>
+        <trans-unit id="c2ff3089-ea0c-41ee-85e1-07a40bde6ac2" xml:space="preserve">
+          <source>You can also <bpt id="4a946174-f791-410a-9e03-c0e35056c406">&lt;linkText&gt;</bpt>set the queue name dynamically<ept id="4a946174-f791-410a-9e03-c0e35056c406">&lt;/linkText&gt;</ept><bpt id="4a946174-f791-410a-9e03-c0e35056c406">&lt;title&gt;</bpt><ept id="4a946174-f791-410a-9e03-c0e35056c406">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also <bpt id="4a946174-f791-410a-9e03-c0e35056c406">&lt;linkText&gt;</bpt>set the queue name dynamically<ept id="4a946174-f791-410a-9e03-c0e35056c406">&lt;/linkText&gt;</ept><bpt id="4a946174-f791-410a-9e03-c0e35056c406">&lt;title&gt;</bpt><ept id="4a946174-f791-410a-9e03-c0e35056c406">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34cb4c39-63f6-4ae9-aafc-89e543b6a1ce" xml:space="preserve">
+          <source>In the following example, the queue contains a string message, so <bpt id="fa8ac26a-ac61-4f7d-aff5-94794e720604">&lt;code&gt;</bpt>QueueTrigger<ept id="fa8ac26a-ac61-4f7d-aff5-94794e720604">&lt;/code&gt;</ept> is applied to a string parameter named <bpt id="bda0cb64-8764-42ae-a079-ff465d04ee22">&lt;code&gt;</bpt>logMessage<ept id="bda0cb64-8764-42ae-a079-ff465d04ee22">&lt;/code&gt;</ept> which contains the content of the queue message.</source>
+          <target state="new">In the following example, the queue contains a string message, so <bpt id="fa8ac26a-ac61-4f7d-aff5-94794e720604">&lt;code&gt;</bpt>QueueTrigger<ept id="fa8ac26a-ac61-4f7d-aff5-94794e720604">&lt;/code&gt;</ept> is applied to a string parameter named <bpt id="bda0cb64-8764-42ae-a079-ff465d04ee22">&lt;code&gt;</bpt>logMessage<ept id="bda0cb64-8764-42ae-a079-ff465d04ee22">&lt;/code&gt;</ept> which contains the content of the queue message.</target>
+        </trans-unit>
+        <trans-unit id="c9bdbbe5-d394-44f8-8c7a-a594802b33be" xml:space="preserve">
+          <source>The function <bpt id="6248c74c-9c97-4705-b206-37f5886acf60">&lt;linkText&gt;</bpt>writes a log message to the Dashboard<ept id="6248c74c-9c97-4705-b206-37f5886acf60">&lt;/linkText&gt;</ept><bpt id="6248c74c-9c97-4705-b206-37f5886acf60">&lt;title&gt;</bpt><ept id="6248c74c-9c97-4705-b206-37f5886acf60">&lt;/title&gt;</ept>.</source>
+          <target state="new">The function <bpt id="6248c74c-9c97-4705-b206-37f5886acf60">&lt;linkText&gt;</bpt>writes a log message to the Dashboard<ept id="6248c74c-9c97-4705-b206-37f5886acf60">&lt;/linkText&gt;</ept><bpt id="6248c74c-9c97-4705-b206-37f5886acf60">&lt;title&gt;</bpt><ept id="6248c74c-9c97-4705-b206-37f5886acf60">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da868760-7fec-447d-80a5-3a42b12297d5" xml:space="preserve">
+          <source>Besides <bpt id="10fc209a-1766-4c42-acbf-b99071154ab0">&lt;code&gt;</bpt>string<ept id="10fc209a-1766-4c42-acbf-b99071154ab0">&lt;/code&gt;</ept>, the parameter may be a byte array, a <bpt id="686e8a48-5718-4150-9c3c-179bfabf3794">&lt;code&gt;</bpt>CloudQueueMessage<ept id="686e8a48-5718-4150-9c3c-179bfabf3794">&lt;/code&gt;</ept> object, or a POCO  that you define.</source>
+          <target state="new">Besides <bpt id="10fc209a-1766-4c42-acbf-b99071154ab0">&lt;code&gt;</bpt>string<ept id="10fc209a-1766-4c42-acbf-b99071154ab0">&lt;/code&gt;</ept>, the parameter may be a byte array, a <bpt id="686e8a48-5718-4150-9c3c-179bfabf3794">&lt;code&gt;</bpt>CloudQueueMessage<ept id="686e8a48-5718-4150-9c3c-179bfabf3794">&lt;/code&gt;</ept> object, or a POCO  that you define.</target>
+        </trans-unit>
+        <trans-unit id="b1029707-0779-4c16-852d-662246a5cc8d" xml:space="preserve">
+          <source>In the following example, the queue message contains JSON for a <bpt id="78b7f648-7d0e-4813-87b7-eb904018b325">&lt;code&gt;</bpt>BlobInformation<ept id="78b7f648-7d0e-4813-87b7-eb904018b325">&lt;/code&gt;</ept> object which includes a <bpt id="5724f7e6-c3e9-41c6-8cf9-9dae437ff40c">&lt;code&gt;</bpt>BlobName<ept id="5724f7e6-c3e9-41c6-8cf9-9dae437ff40c">&lt;/code&gt;</ept> property.</source>
+          <target state="new">In the following example, the queue message contains JSON for a <bpt id="78b7f648-7d0e-4813-87b7-eb904018b325">&lt;code&gt;</bpt>BlobInformation<ept id="78b7f648-7d0e-4813-87b7-eb904018b325">&lt;/code&gt;</ept> object which includes a <bpt id="5724f7e6-c3e9-41c6-8cf9-9dae437ff40c">&lt;code&gt;</bpt>BlobName<ept id="5724f7e6-c3e9-41c6-8cf9-9dae437ff40c">&lt;/code&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="d2f66f9a-371c-4dea-add1-67f37d5dead5" xml:space="preserve">
+          <source>The SDK automatically deserializes the object.</source>
+          <target state="new">The SDK automatically deserializes the object.</target>
+        </trans-unit>
+        <trans-unit id="761374db-8d5a-40b5-b6b2-581dd3cd957f" xml:space="preserve">
+          <source>The SDK uses the <bpt id="87339f40-86f2-4b30-b427-c5d99d2c626b">&lt;linkText&gt;</bpt>Newtonsoft.Json NuGet package<ept id="87339f40-86f2-4b30-b427-c5d99d2c626b">&lt;/linkText&gt;</ept><bpt id="87339f40-86f2-4b30-b427-c5d99d2c626b">&lt;title&gt;</bpt><ept id="87339f40-86f2-4b30-b427-c5d99d2c626b">&lt;/title&gt;</ept> to serialize and deserialize messages.</source>
+          <target state="new">The SDK uses the <bpt id="87339f40-86f2-4b30-b427-c5d99d2c626b">&lt;linkText&gt;</bpt>Newtonsoft.Json NuGet package<ept id="87339f40-86f2-4b30-b427-c5d99d2c626b">&lt;/linkText&gt;</ept><bpt id="87339f40-86f2-4b30-b427-c5d99d2c626b">&lt;title&gt;</bpt><ept id="87339f40-86f2-4b30-b427-c5d99d2c626b">&lt;/title&gt;</ept> to serialize and deserialize messages.</target>
+        </trans-unit>
+        <trans-unit id="214950fe-08ee-4a6f-bce1-4f54707108ba" xml:space="preserve">
+          <source>If you create queue messages in a program that doesn't use the WebJobs SDK, you can write code like the following example to create a POCO queue message that the SDK can parse.</source>
+          <target state="new">If you create queue messages in a program that doesn't use the WebJobs SDK, you can write code like the following example to create a POCO queue message that the SDK can parse.</target>
+        </trans-unit>
+        <trans-unit id="d3547591-73bb-4abb-a047-8284cf98d684" xml:space="preserve">
+          <source>The following async function <bpt id="e76f091d-f8ee-41a9-9180-9dbd761d5d37">&lt;linkText&gt;</bpt>writes a log to the Dashboard<ept id="e76f091d-f8ee-41a9-9180-9dbd761d5d37">&lt;/linkText&gt;</ept><bpt id="e76f091d-f8ee-41a9-9180-9dbd761d5d37">&lt;title&gt;</bpt><ept id="e76f091d-f8ee-41a9-9180-9dbd761d5d37">&lt;/title&gt;</ept>.</source>
+          <target state="new">The following async function <bpt id="e76f091d-f8ee-41a9-9180-9dbd761d5d37">&lt;linkText&gt;</bpt>writes a log to the Dashboard<ept id="e76f091d-f8ee-41a9-9180-9dbd761d5d37">&lt;/linkText&gt;</ept><bpt id="e76f091d-f8ee-41a9-9180-9dbd761d5d37">&lt;title&gt;</bpt><ept id="e76f091d-f8ee-41a9-9180-9dbd761d5d37">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9890c2f5-75b5-4803-ac09-d61d9561ef82" xml:space="preserve">
+          <source>Async functions may take a <bpt id="ca57bf7c-8b6d-4796-9332-0740f4c0817e">&lt;linkText&gt;</bpt>cancellation token<ept id="ca57bf7c-8b6d-4796-9332-0740f4c0817e">&lt;/linkText&gt;</ept><bpt id="ca57bf7c-8b6d-4796-9332-0740f4c0817e">&lt;title&gt;</bpt><ept id="ca57bf7c-8b6d-4796-9332-0740f4c0817e">&lt;/title&gt;</ept>, as shown in the following example which copies a blob.</source>
+          <target state="new">Async functions may take a <bpt id="ca57bf7c-8b6d-4796-9332-0740f4c0817e">&lt;linkText&gt;</bpt>cancellation token<ept id="ca57bf7c-8b6d-4796-9332-0740f4c0817e">&lt;/linkText&gt;</ept><bpt id="ca57bf7c-8b6d-4796-9332-0740f4c0817e">&lt;title&gt;</bpt><ept id="ca57bf7c-8b6d-4796-9332-0740f4c0817e">&lt;/title&gt;</ept>, as shown in the following example which copies a blob.</target>
+        </trans-unit>
+        <trans-unit id="edbeedfd-932c-4a98-b1a2-68e91d888a12" xml:space="preserve">
+          <source>(For an explanation of the <bpt id="725287ce-92f7-4fa3-9ebf-af88208c3ccc">&lt;code&gt;</bpt>queueTrigger<ept id="725287ce-92f7-4fa3-9ebf-af88208c3ccc">&lt;/code&gt;</ept> placeholder, see the <bpt id="fbca4c77-6673-4a90-9314-5593b56e202a">&lt;linkText&gt;</bpt>Blobs<ept id="fbca4c77-6673-4a90-9314-5593b56e202a">&lt;/linkText&gt;</ept><bpt id="fbca4c77-6673-4a90-9314-5593b56e202a">&lt;title&gt;</bpt><ept id="fbca4c77-6673-4a90-9314-5593b56e202a">&lt;/title&gt;</ept> section.)</source>
+          <target state="new">(For an explanation of the <bpt id="725287ce-92f7-4fa3-9ebf-af88208c3ccc">&lt;code&gt;</bpt>queueTrigger<ept id="725287ce-92f7-4fa3-9ebf-af88208c3ccc">&lt;/code&gt;</ept> placeholder, see the <bpt id="fbca4c77-6673-4a90-9314-5593b56e202a">&lt;linkText&gt;</bpt>Blobs<ept id="fbca4c77-6673-4a90-9314-5593b56e202a">&lt;/linkText&gt;</ept><bpt id="fbca4c77-6673-4a90-9314-5593b56e202a">&lt;title&gt;</bpt><ept id="fbca4c77-6673-4a90-9314-5593b56e202a">&lt;/title&gt;</ept> section.)</target>
+        </trans-unit>
+        <trans-unit id="1618db09-b7b1-4a48-9654-7b8ab22d1a69" xml:space="preserve">
+          <source>You can use <bpt id="7bfdc46a-d3f9-4b10-bbf9-d1d3c328c410">&lt;code&gt;</bpt>QueueTrigger<ept id="7bfdc46a-d3f9-4b10-bbf9-d1d3c328c410">&lt;/code&gt;</ept> with the following types:</source>
+          <target state="new">You can use <bpt id="7bfdc46a-d3f9-4b10-bbf9-d1d3c328c410">&lt;code&gt;</bpt>QueueTrigger<ept id="7bfdc46a-d3f9-4b10-bbf9-d1d3c328c410">&lt;/code&gt;</ept> with the following types:</target>
+        </trans-unit>
+        <trans-unit id="9830a3bb-2e30-47b3-858b-382a44e06c84" xml:space="preserve">
+          <source><bpt id="2b3ffc06-d3c1-4905-8813-e18bcab96d39">&lt;code&gt;</bpt>string<ept id="2b3ffc06-d3c1-4905-8813-e18bcab96d39">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="2b3ffc06-d3c1-4905-8813-e18bcab96d39">&lt;code&gt;</bpt>string<ept id="2b3ffc06-d3c1-4905-8813-e18bcab96d39">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="113bedab-ea07-4e21-b8e8-98453230152c" xml:space="preserve">
+          <source>A POCO type serialized as JSON</source>
+          <target state="new">A POCO type serialized as JSON</target>
+        </trans-unit>
+        <trans-unit id="1839c904-4124-4a59-a476-87d32ac93e93" xml:space="preserve">
+          <source><bpt id="c5d3115b-e1ae-4df0-a607-fc94ce015426">&lt;code&gt;</bpt>byte[]<ept id="c5d3115b-e1ae-4df0-a607-fc94ce015426">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c5d3115b-e1ae-4df0-a607-fc94ce015426">&lt;code&gt;</bpt>byte[]<ept id="c5d3115b-e1ae-4df0-a607-fc94ce015426">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e88ea4f8-2f86-48f8-8afe-fdc977774bfe" xml:space="preserve">
+          <source><bpt id="e91f3c5f-181a-49d2-acfb-b8f1a32a26c9">&lt;code&gt;</bpt>CloudQueueMessage<ept id="e91f3c5f-181a-49d2-acfb-b8f1a32a26c9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e91f3c5f-181a-49d2-acfb-b8f1a32a26c9">&lt;code&gt;</bpt>CloudQueueMessage<ept id="e91f3c5f-181a-49d2-acfb-b8f1a32a26c9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4476c4e8-dcba-42ec-9aeb-47c248f62715" xml:space="preserve">
+          <source>The SDK implements a random exponential back-off algorithm to reduce the effect of idle-queue polling on storage transaction costs.</source>
+          <target state="new">The SDK implements a random exponential back-off algorithm to reduce the effect of idle-queue polling on storage transaction costs.</target>
+        </trans-unit>
+        <trans-unit id="6b4df597-33c4-45c6-9667-adf26a8a5fea" xml:space="preserve">
+          <source>When a message is found, the SDK waits two seconds and then checks for another message; when no message is found it waits about four seconds before trying again.</source>
+          <target state="new">When a message is found, the SDK waits two seconds and then checks for another message; when no message is found it waits about four seconds before trying again.</target>
+        </trans-unit>
+        <trans-unit id="a2abcb02-6661-42c4-bd0a-7e7591aad86b" xml:space="preserve">
+          <source>After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute.</source>
+          <target state="new">After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute.</target>
+        </trans-unit>
+        <trans-unit id="68e314ea-bcd0-4cc1-9a94-3ce75c76c23c" xml:space="preserve">
+          <source><bpt id="770256d1-710b-401f-a400-332b39cf2af8">&lt;linkText&gt;</bpt>The maximum wait time is configurable<ept id="770256d1-710b-401f-a400-332b39cf2af8">&lt;/linkText&gt;</ept><bpt id="770256d1-710b-401f-a400-332b39cf2af8">&lt;title&gt;</bpt><ept id="770256d1-710b-401f-a400-332b39cf2af8">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="770256d1-710b-401f-a400-332b39cf2af8">&lt;linkText&gt;</bpt>The maximum wait time is configurable<ept id="770256d1-710b-401f-a400-332b39cf2af8">&lt;/linkText&gt;</ept><bpt id="770256d1-710b-401f-a400-332b39cf2af8">&lt;title&gt;</bpt><ept id="770256d1-710b-401f-a400-332b39cf2af8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5065c142-1ea5-4c0f-b5de-15b4c012fb9c" xml:space="preserve">
+          <source>If your web app runs on multiple instances, a continuous WebJobs runs on each machine, and each machine will wait for triggers and attempt to run functions.</source>
+          <target state="new">If your web app runs on multiple instances, a continuous WebJobs runs on each machine, and each machine will wait for triggers and attempt to run functions.</target>
+        </trans-unit>
+        <trans-unit id="4da3939b-2548-4598-b59d-de0db708fef8" xml:space="preserve">
+          <source>In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results).</source>
+          <target state="new">In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results).</target>
+        </trans-unit>
+        <trans-unit id="f28b3f8c-1923-4036-843e-7896355cf827" xml:space="preserve">
+          <source>If you have multiple functions listening on different queues, the SDK will call them in parallel when messages are received simultaneously.</source>
+          <target state="new">If you have multiple functions listening on different queues, the SDK will call them in parallel when messages are received simultaneously.</target>
+        </trans-unit>
+        <trans-unit id="6fe92321-9177-4ba5-9c25-4c5d8a73e680" xml:space="preserve">
+          <source>The same is true when multiple messages are received for a single queue.</source>
+          <target state="new">The same is true when multiple messages are received for a single queue.</target>
+        </trans-unit>
+        <trans-unit id="7bb20704-505c-4b7c-9dd6-074685ba19d0" xml:space="preserve">
+          <source>By default, the SDK gets a batch of 16 queue messages at a time and executes the function that processes them in parallel.</source>
+          <target state="new">By default, the SDK gets a batch of 16 queue messages at a time and executes the function that processes them in parallel.</target>
+        </trans-unit>
+        <trans-unit id="44e76e5f-beb3-477e-8f50-dd8b00bee793" xml:space="preserve">
+          <source><bpt id="91f27c85-353e-4bd4-b354-29c2e2a13a10">&lt;linkText&gt;</bpt>The batch size is configurable<ept id="91f27c85-353e-4bd4-b354-29c2e2a13a10">&lt;/linkText&gt;</ept><bpt id="91f27c85-353e-4bd4-b354-29c2e2a13a10">&lt;title&gt;</bpt><ept id="91f27c85-353e-4bd4-b354-29c2e2a13a10">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="91f27c85-353e-4bd4-b354-29c2e2a13a10">&lt;linkText&gt;</bpt>The batch size is configurable<ept id="91f27c85-353e-4bd4-b354-29c2e2a13a10">&lt;/linkText&gt;</ept><bpt id="91f27c85-353e-4bd4-b354-29c2e2a13a10">&lt;title&gt;</bpt><ept id="91f27c85-353e-4bd4-b354-29c2e2a13a10">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49bcb68d-1328-431b-a1a8-c4fa9b464926" xml:space="preserve">
+          <source>When the number being processed gets down to half of the batch size, the SDK gets another batch and starts processing those messages.</source>
+          <target state="new">When the number being processed gets down to half of the batch size, the SDK gets another batch and starts processing those messages.</target>
+        </trans-unit>
+        <trans-unit id="d14e225b-402e-4492-bc9b-6b0717893743" xml:space="preserve">
+          <source>Therefore the maximum number of concurrent messages being processed per function is one and a half times the batch size.</source>
+          <target state="new">Therefore the maximum number of concurrent messages being processed per function is one and a half times the batch size.</target>
+        </trans-unit>
+        <trans-unit id="9f095366-0cb4-4be2-b0c7-eafc89fffe14" xml:space="preserve">
+          <source>This limit applies separately to each function that has a <bpt id="bd921f3e-2c63-44ee-b416-7212127b7541">&lt;code&gt;</bpt>QueueTrigger<ept id="bd921f3e-2c63-44ee-b416-7212127b7541">&lt;/code&gt;</ept> attribute.</source>
+          <target state="new">This limit applies separately to each function that has a <bpt id="bd921f3e-2c63-44ee-b416-7212127b7541">&lt;code&gt;</bpt>QueueTrigger<ept id="bd921f3e-2c63-44ee-b416-7212127b7541">&lt;/code&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="7cba1357-7fe5-4848-bc00-5a5342b7899e" xml:space="preserve">
+          <source>If you don't want parallel execution for messages received on one queue, set the batch size to 1.</source>
+          <target state="new">If you don't want parallel execution for messages received on one queue, set the batch size to 1.</target>
+        </trans-unit>
+        <trans-unit id="f0220247-599c-4b1e-a839-ba502eed5398" xml:space="preserve">
+          <source>You can get the following message properties by adding parameters to the method signature:</source>
+          <target state="new">You can get the following message properties by adding parameters to the method signature:</target>
+        </trans-unit>
+        <trans-unit id="73ca5219-9054-494e-b802-ef87a6022aad" xml:space="preserve">
+          <source><bpt id="e6f323d0-db80-4b71-bbe8-6433214e53cd">&lt;code&gt;</bpt>DateTimeOffset<ept id="e6f323d0-db80-4b71-bbe8-6433214e53cd">&lt;/code&gt;</ept> expirationTime</source>
+          <target state="new"><bpt id="e6f323d0-db80-4b71-bbe8-6433214e53cd">&lt;code&gt;</bpt>DateTimeOffset<ept id="e6f323d0-db80-4b71-bbe8-6433214e53cd">&lt;/code&gt;</ept> expirationTime</target>
+        </trans-unit>
+        <trans-unit id="7a81be1a-117a-4dd7-ac5d-f2a41d1ab230" xml:space="preserve">
+          <source><bpt id="4f970987-3e2c-4142-9e6a-29fc82667be4">&lt;code&gt;</bpt>DateTimeOffset<ept id="4f970987-3e2c-4142-9e6a-29fc82667be4">&lt;/code&gt;</ept> insertionTime</source>
+          <target state="new"><bpt id="4f970987-3e2c-4142-9e6a-29fc82667be4">&lt;code&gt;</bpt>DateTimeOffset<ept id="4f970987-3e2c-4142-9e6a-29fc82667be4">&lt;/code&gt;</ept> insertionTime</target>
+        </trans-unit>
+        <trans-unit id="74a5a1f5-262d-4c54-84bb-f4ddb131c4aa" xml:space="preserve">
+          <source><bpt id="be8014a5-8977-4dda-99e4-2deb767e6abc">&lt;code&gt;</bpt>DateTimeOffset<ept id="be8014a5-8977-4dda-99e4-2deb767e6abc">&lt;/code&gt;</ept> nextVisibleTime</source>
+          <target state="new"><bpt id="be8014a5-8977-4dda-99e4-2deb767e6abc">&lt;code&gt;</bpt>DateTimeOffset<ept id="be8014a5-8977-4dda-99e4-2deb767e6abc">&lt;/code&gt;</ept> nextVisibleTime</target>
+        </trans-unit>
+        <trans-unit id="7e67d7eb-4643-424f-b9ba-be52befdfe1a" xml:space="preserve">
+          <source><bpt id="22448f20-db93-4431-92b6-aa181b806a6e">&lt;code&gt;</bpt>string<ept id="22448f20-db93-4431-92b6-aa181b806a6e">&lt;/code&gt;</ept> queueTrigger (contains message text)</source>
+          <target state="new"><bpt id="22448f20-db93-4431-92b6-aa181b806a6e">&lt;code&gt;</bpt>string<ept id="22448f20-db93-4431-92b6-aa181b806a6e">&lt;/code&gt;</ept> queueTrigger (contains message text)</target>
+        </trans-unit>
+        <trans-unit id="286f5954-948c-4009-a363-d3474613eaa2" xml:space="preserve">
+          <source><bpt id="ae750da0-e7d6-48ec-b201-784e776d7c9c">&lt;code&gt;</bpt>string<ept id="ae750da0-e7d6-48ec-b201-784e776d7c9c">&lt;/code&gt;</ept> id</source>
+          <target state="new"><bpt id="ae750da0-e7d6-48ec-b201-784e776d7c9c">&lt;code&gt;</bpt>string<ept id="ae750da0-e7d6-48ec-b201-784e776d7c9c">&lt;/code&gt;</ept> id</target>
+        </trans-unit>
+        <trans-unit id="cd4216b9-4595-49dd-90a7-132e5ac228f0" xml:space="preserve">
+          <source><bpt id="82a303f8-1b4a-4807-95fe-e56910c9b78e">&lt;code&gt;</bpt>string<ept id="82a303f8-1b4a-4807-95fe-e56910c9b78e">&lt;/code&gt;</ept> popReceipt</source>
+          <target state="new"><bpt id="82a303f8-1b4a-4807-95fe-e56910c9b78e">&lt;code&gt;</bpt>string<ept id="82a303f8-1b4a-4807-95fe-e56910c9b78e">&lt;/code&gt;</ept> popReceipt</target>
+        </trans-unit>
+        <trans-unit id="134361cf-e416-4bb9-b82e-1920a9e8db3e" xml:space="preserve">
+          <source><bpt id="2d7354ae-3942-4614-8ccd-1ae9d8614810">&lt;code&gt;</bpt>int<ept id="2d7354ae-3942-4614-8ccd-1ae9d8614810">&lt;/code&gt;</ept> dequeueCount</source>
+          <target state="new"><bpt id="2d7354ae-3942-4614-8ccd-1ae9d8614810">&lt;code&gt;</bpt>int<ept id="2d7354ae-3942-4614-8ccd-1ae9d8614810">&lt;/code&gt;</ept> dequeueCount</target>
+        </trans-unit>
+        <trans-unit id="fc375142-01bc-44ca-b748-ba6f5c70b118" xml:space="preserve">
+          <source>If you want to work directly with the Azure storage API, you can also add a <bpt id="fae47646-8822-4ae5-8b19-b9d7e158c953">&lt;code&gt;</bpt>CloudStorageAccount<ept id="fae47646-8822-4ae5-8b19-b9d7e158c953">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">If you want to work directly with the Azure storage API, you can also add a <bpt id="fae47646-8822-4ae5-8b19-b9d7e158c953">&lt;code&gt;</bpt>CloudStorageAccount<ept id="fae47646-8822-4ae5-8b19-b9d7e158c953">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="12db823e-92fb-448b-816d-aa38f1b26b7e" xml:space="preserve">
+          <source>The following example writes all of this metadata to an INFO application log.</source>
+          <target state="new">The following example writes all of this metadata to an INFO application log.</target>
+        </trans-unit>
+        <trans-unit id="e62e2a22-3251-4a92-88a6-ec288792e746" xml:space="preserve">
+          <source>In the example, both logMessage and queueTrigger contain the content of the queue message.</source>
+          <target state="new">In the example, both logMessage and queueTrigger contain the content of the queue message.</target>
+        </trans-unit>
+        <trans-unit id="b3c74851-a2fc-4d3b-8df1-0e4ffa052019" xml:space="preserve">
+          <source>Here is a sample log written by the sample code:</source>
+          <target state="new">Here is a sample log written by the sample code:</target>
+        </trans-unit>
+        <trans-unit id="d8e5fc06-404e-417e-9f3c-b395aff56082" xml:space="preserve">
+          <source>A function that runs in a continuous WebJob can accept a <bpt id="a4eb2c80-06c0-4fac-b580-5f19d62afe9f">&lt;code&gt;</bpt>CancellationToken<ept id="a4eb2c80-06c0-4fac-b580-5f19d62afe9f">&lt;/code&gt;</ept> parameter which enables the operating system to notify the function when the WebJob is about to be terminated.</source>
+          <target state="new">A function that runs in a continuous WebJob can accept a <bpt id="a4eb2c80-06c0-4fac-b580-5f19d62afe9f">&lt;code&gt;</bpt>CancellationToken<ept id="a4eb2c80-06c0-4fac-b580-5f19d62afe9f">&lt;/code&gt;</ept> parameter which enables the operating system to notify the function when the WebJob is about to be terminated.</target>
+        </trans-unit>
+        <trans-unit id="613b028b-482f-4475-a11e-522baa80232f" xml:space="preserve">
+          <source>You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.</source>
+          <target state="new">You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.</target>
+        </trans-unit>
+        <trans-unit id="cabeac4d-3037-478b-8dfd-71c1e2072d37" xml:space="preserve">
+          <source>The following example shows how to check for impending WebJob termination in a function.</source>
+          <target state="new">The following example shows how to check for impending WebJob termination in a function.</target>
+        </trans-unit>
+        <trans-unit id="84c0916c-6a05-43d0-bcb4-2be56348f2c3" xml:space="preserve">
+          <source><bpt id="afbbc1a0-971a-4fd6-afea-cf109d0a76db">&lt;strong&gt;</bpt>Note:<ept id="afbbc1a0-971a-4fd6-afea-cf109d0a76db">&lt;/strong&gt;</ept> The Dashboard might not correctly show the status and output of functions that have been shut down.</source>
+          <target state="new"><bpt id="afbbc1a0-971a-4fd6-afea-cf109d0a76db">&lt;strong&gt;</bpt>Note:<ept id="afbbc1a0-971a-4fd6-afea-cf109d0a76db">&lt;/strong&gt;</ept> The Dashboard might not correctly show the status and output of functions that have been shut down.</target>
+        </trans-unit>
+        <trans-unit id="3aacd798-86d5-4552-8a8b-4b0626376495" xml:space="preserve">
+          <source>For more information, see <bpt id="d961afd5-ff3b-4374-a5c8-c21470356c3f">&lt;linkText&gt;</bpt>WebJobs Graceful Shutdown<ept id="d961afd5-ff3b-4374-a5c8-c21470356c3f">&lt;/linkText&gt;</ept><bpt id="d961afd5-ff3b-4374-a5c8-c21470356c3f">&lt;title&gt;</bpt><ept id="d961afd5-ff3b-4374-a5c8-c21470356c3f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d961afd5-ff3b-4374-a5c8-c21470356c3f">&lt;linkText&gt;</bpt>WebJobs Graceful Shutdown<ept id="d961afd5-ff3b-4374-a5c8-c21470356c3f">&lt;/linkText&gt;</ept><bpt id="d961afd5-ff3b-4374-a5c8-c21470356c3f">&lt;title&gt;</bpt><ept id="d961afd5-ff3b-4374-a5c8-c21470356c3f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c661243-d88f-452f-a716-1d5530150502" xml:space="preserve">
+          <source>To write a function that creates a new queue message, use the <bpt id="106402e0-11a1-402d-b17e-6270358aee39">&lt;code&gt;</bpt>Queue<ept id="106402e0-11a1-402d-b17e-6270358aee39">&lt;/code&gt;</ept> attribute.</source>
+          <target state="new">To write a function that creates a new queue message, use the <bpt id="106402e0-11a1-402d-b17e-6270358aee39">&lt;code&gt;</bpt>Queue<ept id="106402e0-11a1-402d-b17e-6270358aee39">&lt;/code&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="f3957f93-5ac4-4d48-9aa2-0c3421229ff3" xml:space="preserve">
+          <source>Like <bpt id="90d33205-873b-4534-a98b-b979114af47e">&lt;code&gt;</bpt>QueueTrigger<ept id="90d33205-873b-4534-a98b-b979114af47e">&lt;/code&gt;</ept>, you pass in the queue name as a string or you can <bpt id="eaaec18f-557b-49a1-8ade-69787b553719">&lt;linkText&gt;</bpt>set the queue name dynamically<ept id="eaaec18f-557b-49a1-8ade-69787b553719">&lt;/linkText&gt;</ept><bpt id="eaaec18f-557b-49a1-8ade-69787b553719">&lt;title&gt;</bpt><ept id="eaaec18f-557b-49a1-8ade-69787b553719">&lt;/title&gt;</ept>.</source>
+          <target state="new">Like <bpt id="90d33205-873b-4534-a98b-b979114af47e">&lt;code&gt;</bpt>QueueTrigger<ept id="90d33205-873b-4534-a98b-b979114af47e">&lt;/code&gt;</ept>, you pass in the queue name as a string or you can <bpt id="eaaec18f-557b-49a1-8ade-69787b553719">&lt;linkText&gt;</bpt>set the queue name dynamically<ept id="eaaec18f-557b-49a1-8ade-69787b553719">&lt;/linkText&gt;</ept><bpt id="eaaec18f-557b-49a1-8ade-69787b553719">&lt;title&gt;</bpt><ept id="eaaec18f-557b-49a1-8ade-69787b553719">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c17524b-6758-4e12-a582-02e3d05298bc" xml:space="preserve">
+          <source>The following non-async code sample creates a new queue message in the queue named "outputqueue" with the same content as the queue message received in the queue named "inputqueue". (For async functions use <bpt id="5e7bc961-577c-45f1-9479-ef7b89199c8a">&lt;code&gt;</bpt>IAsyncCollector&lt;T&gt;<ept id="5e7bc961-577c-45f1-9479-ef7b89199c8a">&lt;/code&gt;</ept> as shown later in this section.)</source>
+          <target state="new">The following non-async code sample creates a new queue message in the queue named "outputqueue" with the same content as the queue message received in the queue named "inputqueue". (For async functions use <bpt id="5e7bc961-577c-45f1-9479-ef7b89199c8a">&lt;code&gt;</bpt>IAsyncCollector&lt;T&gt;<ept id="5e7bc961-577c-45f1-9479-ef7b89199c8a">&lt;/code&gt;</ept> as shown later in this section.)</target>
+        </trans-unit>
+        <trans-unit id="99a92b2b-fddf-4fe3-bf11-a88535f79e8b" xml:space="preserve">
+          <source>To create a queue message that contains a POCO rather than a string, pass the POCO type as an output parameter to the <bpt id="de905f29-5e2f-4161-8f74-0c9bd66be9d3">&lt;code&gt;</bpt>Queue<ept id="de905f29-5e2f-4161-8f74-0c9bd66be9d3">&lt;/code&gt;</ept> attribute constructor.</source>
+          <target state="new">To create a queue message that contains a POCO rather than a string, pass the POCO type as an output parameter to the <bpt id="de905f29-5e2f-4161-8f74-0c9bd66be9d3">&lt;code&gt;</bpt>Queue<ept id="de905f29-5e2f-4161-8f74-0c9bd66be9d3">&lt;/code&gt;</ept> attribute constructor.</target>
+        </trans-unit>
+        <trans-unit id="3f14a921-fc21-4466-87d0-b2b2033a40f3" xml:space="preserve">
+          <source>The SDK automatically serializes the object to JSON.</source>
+          <target state="new">The SDK automatically serializes the object to JSON.</target>
+        </trans-unit>
+        <trans-unit id="4fd87cf1-53c8-4131-a438-81a33628820f" xml:space="preserve">
+          <source>A queue message is always created, even if the object is null.</source>
+          <target state="new">A queue message is always created, even if the object is null.</target>
+        </trans-unit>
+        <trans-unit id="b7abc106-cf4d-48c9-a231-3188c682aa08" xml:space="preserve">
+          <source>To create multiple messages, make the parameter type for the output queue <bpt id="31ef285e-a551-4e1d-bc41-90c9e2dfcf52">&lt;code&gt;</bpt>ICollector&lt;T&gt;<ept id="31ef285e-a551-4e1d-bc41-90c9e2dfcf52">&lt;/code&gt;</ept> or <bpt id="a7858964-afcd-4638-9eb0-f85da6148c24">&lt;code&gt;</bpt>IAsyncCollector&lt;T&gt;<ept id="a7858964-afcd-4638-9eb0-f85da6148c24">&lt;/code&gt;</ept>, as shown in the following example.</source>
+          <target state="new">To create multiple messages, make the parameter type for the output queue <bpt id="31ef285e-a551-4e1d-bc41-90c9e2dfcf52">&lt;code&gt;</bpt>ICollector&lt;T&gt;<ept id="31ef285e-a551-4e1d-bc41-90c9e2dfcf52">&lt;/code&gt;</ept> or <bpt id="a7858964-afcd-4638-9eb0-f85da6148c24">&lt;code&gt;</bpt>IAsyncCollector&lt;T&gt;<ept id="a7858964-afcd-4638-9eb0-f85da6148c24">&lt;/code&gt;</ept>, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="19752b1b-4141-451b-8295-b199b79b3f20" xml:space="preserve">
+          <source>Each queue message is created immediately when the <bpt id="885871eb-7598-44bb-b8d2-2c60dc116ca6">&lt;code&gt;</bpt>Add<ept id="885871eb-7598-44bb-b8d2-2c60dc116ca6">&lt;/code&gt;</ept> method is called.</source>
+          <target state="new">Each queue message is created immediately when the <bpt id="885871eb-7598-44bb-b8d2-2c60dc116ca6">&lt;code&gt;</bpt>Add<ept id="885871eb-7598-44bb-b8d2-2c60dc116ca6">&lt;/code&gt;</ept> method is called.</target>
+        </trans-unit>
+        <trans-unit id="0b68dc09-33ec-4552-8810-3d1370ad7871" xml:space="preserve">
+          <source>You can use the <bpt id="9f3ebcb3-4cf4-436b-be7f-5208ad383ed8">&lt;code&gt;</bpt>Queue<ept id="9f3ebcb3-4cf4-436b-be7f-5208ad383ed8">&lt;/code&gt;</ept> attribute on the following parameter types:</source>
+          <target state="new">You can use the <bpt id="9f3ebcb3-4cf4-436b-be7f-5208ad383ed8">&lt;code&gt;</bpt>Queue<ept id="9f3ebcb3-4cf4-436b-be7f-5208ad383ed8">&lt;/code&gt;</ept> attribute on the following parameter types:</target>
+        </trans-unit>
+        <trans-unit id="e19bc4d4-18bc-4e9c-8afe-063edb92b11b" xml:space="preserve">
+          <source><bpt id="80904f52-fa49-4326-9078-3d3409ec2f4e">&lt;code&gt;</bpt>out string<ept id="80904f52-fa49-4326-9078-3d3409ec2f4e">&lt;/code&gt;</ept> (creates queue message if parameter value is non-null when the function ends)</source>
+          <target state="new"><bpt id="80904f52-fa49-4326-9078-3d3409ec2f4e">&lt;code&gt;</bpt>out string<ept id="80904f52-fa49-4326-9078-3d3409ec2f4e">&lt;/code&gt;</ept> (creates queue message if parameter value is non-null when the function ends)</target>
+        </trans-unit>
+        <trans-unit id="1a05c5fd-492e-4626-9f6a-880b88977c75" xml:space="preserve">
+          <source><bpt id="32bdc3be-8759-4fae-9c07-3d0988a9be36">&lt;code&gt;</bpt>out byte[]<ept id="32bdc3be-8759-4fae-9c07-3d0988a9be36">&lt;/code&gt;</ept> (works like <bpt id="3b47aad2-51d5-493e-ab51-bcb7c9867586">&lt;code&gt;</bpt>string<ept id="3b47aad2-51d5-493e-ab51-bcb7c9867586">&lt;/code&gt;</ept>) </source>
+          <target state="new"><bpt id="32bdc3be-8759-4fae-9c07-3d0988a9be36">&lt;code&gt;</bpt>out byte[]<ept id="32bdc3be-8759-4fae-9c07-3d0988a9be36">&lt;/code&gt;</ept> (works like <bpt id="3b47aad2-51d5-493e-ab51-bcb7c9867586">&lt;code&gt;</bpt>string<ept id="3b47aad2-51d5-493e-ab51-bcb7c9867586">&lt;/code&gt;</ept>) </target>
+        </trans-unit>
+        <trans-unit id="d2d945d8-5382-4705-93a9-9e933d51656a" xml:space="preserve">
+          <source><bpt id="093a73dc-ea13-41b8-a3a5-f4beda12ff94">&lt;code&gt;</bpt>out CloudQueueMessage<ept id="093a73dc-ea13-41b8-a3a5-f4beda12ff94">&lt;/code&gt;</ept> (works like <bpt id="4e18d100-b090-41f3-a4cb-d443f6249f77">&lt;code&gt;</bpt>string<ept id="4e18d100-b090-41f3-a4cb-d443f6249f77">&lt;/code&gt;</ept>) </source>
+          <target state="new"><bpt id="093a73dc-ea13-41b8-a3a5-f4beda12ff94">&lt;code&gt;</bpt>out CloudQueueMessage<ept id="093a73dc-ea13-41b8-a3a5-f4beda12ff94">&lt;/code&gt;</ept> (works like <bpt id="4e18d100-b090-41f3-a4cb-d443f6249f77">&lt;code&gt;</bpt>string<ept id="4e18d100-b090-41f3-a4cb-d443f6249f77">&lt;/code&gt;</ept>) </target>
+        </trans-unit>
+        <trans-unit id="b5b0303e-d4fe-44f3-a80c-509831216517" xml:space="preserve">
+          <source><bpt id="2a080e66-c6b5-4a40-a3eb-7af624e1098c">&lt;code&gt;</bpt>out POCO<ept id="2a080e66-c6b5-4a40-a3eb-7af624e1098c">&lt;/code&gt;</ept> (a serializable type, creates a message with a null object if the paramter is null when the function ends)</source>
+          <target state="new"><bpt id="2a080e66-c6b5-4a40-a3eb-7af624e1098c">&lt;code&gt;</bpt>out POCO<ept id="2a080e66-c6b5-4a40-a3eb-7af624e1098c">&lt;/code&gt;</ept> (a serializable type, creates a message with a null object if the paramter is null when the function ends)</target>
+        </trans-unit>
+        <trans-unit id="341e68f3-c6af-43f5-b828-0136150f8030" xml:space="preserve">
+          <source><bpt id="a707b998-9862-4457-920f-f0e713e33557">&lt;code&gt;</bpt>ICollector<ept id="a707b998-9862-4457-920f-f0e713e33557">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="a707b998-9862-4457-920f-f0e713e33557">&lt;code&gt;</bpt>ICollector<ept id="a707b998-9862-4457-920f-f0e713e33557">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="554d866b-d64c-4ceb-9434-c6988b76a2b2" xml:space="preserve">
+          <source><bpt id="a869156a-6022-4fad-ba59-754c3485d55c">&lt;code&gt;</bpt>IAsyncCollector<ept id="a869156a-6022-4fad-ba59-754c3485d55c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="a869156a-6022-4fad-ba59-754c3485d55c">&lt;code&gt;</bpt>IAsyncCollector<ept id="a869156a-6022-4fad-ba59-754c3485d55c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8c0c764-6f9e-4580-89a8-f65e540ec212" xml:space="preserve">
+          <source><bpt id="a879e06d-4b08-4f62-886b-33e3dd2f5c96">&lt;code&gt;</bpt>CloudQueue<ept id="a879e06d-4b08-4f62-886b-33e3dd2f5c96">&lt;/code&gt;</ept> (for creating messages manually using the Azure Storage API directly)</source>
+          <target state="new"><bpt id="a879e06d-4b08-4f62-886b-33e3dd2f5c96">&lt;code&gt;</bpt>CloudQueue<ept id="a879e06d-4b08-4f62-886b-33e3dd2f5c96">&lt;/code&gt;</ept> (for creating messages manually using the Azure Storage API directly)</target>
+        </trans-unit>
+        <trans-unit id="739cac01-9a13-4770-8d41-2cdb0cdcd45d" xml:space="preserve">
+          <source>If you need to do some work in your function before using a WebJobs SDK attribute such as <bpt id="09bc9537-dfaa-4ee4-a18f-b4b451fc5085">&lt;code&gt;</bpt>Queue<ept id="09bc9537-dfaa-4ee4-a18f-b4b451fc5085">&lt;/code&gt;</ept>, <bpt id="35d9742d-6724-4859-ac04-dc4016521f37">&lt;code&gt;</bpt>Blob<ept id="35d9742d-6724-4859-ac04-dc4016521f37">&lt;/code&gt;</ept>, or <bpt id="0a7036af-2007-41d2-b422-33977f12327d">&lt;code&gt;</bpt>Table<ept id="0a7036af-2007-41d2-b422-33977f12327d">&lt;/code&gt;</ept>, you can use the <bpt id="eeefff9e-4a3e-4520-b467-d3a2b0111440">&lt;code&gt;</bpt>IBinder<ept id="eeefff9e-4a3e-4520-b467-d3a2b0111440">&lt;/code&gt;</ept> interface.</source>
+          <target state="new">If you need to do some work in your function before using a WebJobs SDK attribute such as <bpt id="09bc9537-dfaa-4ee4-a18f-b4b451fc5085">&lt;code&gt;</bpt>Queue<ept id="09bc9537-dfaa-4ee4-a18f-b4b451fc5085">&lt;/code&gt;</ept>, <bpt id="35d9742d-6724-4859-ac04-dc4016521f37">&lt;code&gt;</bpt>Blob<ept id="35d9742d-6724-4859-ac04-dc4016521f37">&lt;/code&gt;</ept>, or <bpt id="0a7036af-2007-41d2-b422-33977f12327d">&lt;code&gt;</bpt>Table<ept id="0a7036af-2007-41d2-b422-33977f12327d">&lt;/code&gt;</ept>, you can use the <bpt id="eeefff9e-4a3e-4520-b467-d3a2b0111440">&lt;code&gt;</bpt>IBinder<ept id="eeefff9e-4a3e-4520-b467-d3a2b0111440">&lt;/code&gt;</ept> interface.</target>
+        </trans-unit>
+        <trans-unit id="4d26345a-5ed2-4de3-bdfd-948f96c93b83" xml:space="preserve">
+          <source>The following example takes an input queue message and creates a new message with the same content in an output queue.</source>
+          <target state="new">The following example takes an input queue message and creates a new message with the same content in an output queue.</target>
+        </trans-unit>
+        <trans-unit id="b7932099-0df1-4f14-a749-b9fe555009c7" xml:space="preserve">
+          <source>The output queue name is set by code in the body of the function.</source>
+          <target state="new">The output queue name is set by code in the body of the function.</target>
+        </trans-unit>
+        <trans-unit id="9ad618f9-5dc5-4ae1-a51d-f03fc6a9ed05" xml:space="preserve">
+          <source>The <bpt id="038b8df9-4c22-48f8-a727-04776d963a2e">&lt;code&gt;</bpt>IBinder<ept id="038b8df9-4c22-48f8-a727-04776d963a2e">&lt;/code&gt;</ept> interface can also be used with the <bpt id="6d0ab976-04d2-4bfa-b678-69a437efa175">&lt;code&gt;</bpt>Table<ept id="6d0ab976-04d2-4bfa-b678-69a437efa175">&lt;/code&gt;</ept> and <bpt id="fdd94d02-c2c1-41c1-b4eb-45cfba53e32b">&lt;code&gt;</bpt>Blob<ept id="fdd94d02-c2c1-41c1-b4eb-45cfba53e32b">&lt;/code&gt;</ept> attributes.</source>
+          <target state="new">The <bpt id="038b8df9-4c22-48f8-a727-04776d963a2e">&lt;code&gt;</bpt>IBinder<ept id="038b8df9-4c22-48f8-a727-04776d963a2e">&lt;/code&gt;</ept> interface can also be used with the <bpt id="6d0ab976-04d2-4bfa-b678-69a437efa175">&lt;code&gt;</bpt>Table<ept id="6d0ab976-04d2-4bfa-b678-69a437efa175">&lt;/code&gt;</ept> and <bpt id="fdd94d02-c2c1-41c1-b4eb-45cfba53e32b">&lt;code&gt;</bpt>Blob<ept id="fdd94d02-c2c1-41c1-b4eb-45cfba53e32b">&lt;/code&gt;</ept> attributes.</target>
+        </trans-unit>
+        <trans-unit id="83f807af-faf5-4bb1-bf2c-9a1c28e45770" xml:space="preserve">
+          <source>The <bpt id="5d98d63c-8b21-4cb4-ae46-c4fc4179c668">&lt;code&gt;</bpt>Blob<ept id="5d98d63c-8b21-4cb4-ae46-c4fc4179c668">&lt;/code&gt;</ept> and <bpt id="552b0965-211d-4cf0-958f-7ed5e01ff90e">&lt;code&gt;</bpt>Table<ept id="552b0965-211d-4cf0-958f-7ed5e01ff90e">&lt;/code&gt;</ept> attributes enable you to read and write blobs and tables.</source>
+          <target state="new">The <bpt id="5d98d63c-8b21-4cb4-ae46-c4fc4179c668">&lt;code&gt;</bpt>Blob<ept id="5d98d63c-8b21-4cb4-ae46-c4fc4179c668">&lt;/code&gt;</ept> and <bpt id="552b0965-211d-4cf0-958f-7ed5e01ff90e">&lt;code&gt;</bpt>Table<ept id="552b0965-211d-4cf0-958f-7ed5e01ff90e">&lt;/code&gt;</ept> attributes enable you to read and write blobs and tables.</target>
+        </trans-unit>
+        <trans-unit id="81c8f99f-ea1d-4e05-819e-0cb7f4e5232b" xml:space="preserve">
+          <source>The samples in this section apply to blobs.</source>
+          <target state="new">The samples in this section apply to blobs.</target>
+        </trans-unit>
+        <trans-unit id="026300a6-e4dd-42e9-97dd-cd4d925743d1" xml:space="preserve">
+          <source>For code samples that show how to trigger processes when blobs are created or updated, see <bpt id="afd76dab-0b72-4e16-b798-8a87bab7ef33">&lt;linkText&gt;</bpt>How to use Azure blob storage with the WebJobs SDK<ept id="afd76dab-0b72-4e16-b798-8a87bab7ef33">&lt;/linkText&gt;</ept><bpt id="afd76dab-0b72-4e16-b798-8a87bab7ef33">&lt;title&gt;</bpt><ept id="afd76dab-0b72-4e16-b798-8a87bab7ef33">&lt;/title&gt;</ept>, and for code samples that read and write tables, see <bpt id="1bc9cc55-f454-4667-ae6f-5040033061d2">&lt;linkText&gt;</bpt>How to use Azure table storage with the WebJobs SDK<ept id="1bc9cc55-f454-4667-ae6f-5040033061d2">&lt;/linkText&gt;</ept><bpt id="1bc9cc55-f454-4667-ae6f-5040033061d2">&lt;title&gt;</bpt><ept id="1bc9cc55-f454-4667-ae6f-5040033061d2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For code samples that show how to trigger processes when blobs are created or updated, see <bpt id="afd76dab-0b72-4e16-b798-8a87bab7ef33">&lt;linkText&gt;</bpt>How to use Azure blob storage with the WebJobs SDK<ept id="afd76dab-0b72-4e16-b798-8a87bab7ef33">&lt;/linkText&gt;</ept><bpt id="afd76dab-0b72-4e16-b798-8a87bab7ef33">&lt;title&gt;</bpt><ept id="afd76dab-0b72-4e16-b798-8a87bab7ef33">&lt;/title&gt;</ept>, and for code samples that read and write tables, see <bpt id="1bc9cc55-f454-4667-ae6f-5040033061d2">&lt;linkText&gt;</bpt>How to use Azure table storage with the WebJobs SDK<ept id="1bc9cc55-f454-4667-ae6f-5040033061d2">&lt;/linkText&gt;</ept><bpt id="1bc9cc55-f454-4667-ae6f-5040033061d2">&lt;title&gt;</bpt><ept id="1bc9cc55-f454-4667-ae6f-5040033061d2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29769725-f76c-4ced-8f70-06083ed71cfa" xml:space="preserve">
+          <source>For a queue message that contains a string, <bpt id="d74b6306-a070-4a14-b60d-6e7310cf09de">&lt;code&gt;</bpt>queueTrigger<ept id="d74b6306-a070-4a14-b60d-6e7310cf09de">&lt;/code&gt;</ept> is a placeholder you can use in the <bpt id="1c9f1083-1bc3-487e-8a9f-50d51ab39f9b">&lt;code&gt;</bpt>Blob<ept id="1c9f1083-1bc3-487e-8a9f-50d51ab39f9b">&lt;/code&gt;</ept> attribute's <bpt id="378748ca-c523-47cc-adfd-99fea1191a98">&lt;code&gt;</bpt>blobPath<ept id="378748ca-c523-47cc-adfd-99fea1191a98">&lt;/code&gt;</ept> parameter that contains the contents of the message.</source>
+          <target state="new">For a queue message that contains a string, <bpt id="d74b6306-a070-4a14-b60d-6e7310cf09de">&lt;code&gt;</bpt>queueTrigger<ept id="d74b6306-a070-4a14-b60d-6e7310cf09de">&lt;/code&gt;</ept> is a placeholder you can use in the <bpt id="1c9f1083-1bc3-487e-8a9f-50d51ab39f9b">&lt;code&gt;</bpt>Blob<ept id="1c9f1083-1bc3-487e-8a9f-50d51ab39f9b">&lt;/code&gt;</ept> attribute's <bpt id="378748ca-c523-47cc-adfd-99fea1191a98">&lt;code&gt;</bpt>blobPath<ept id="378748ca-c523-47cc-adfd-99fea1191a98">&lt;/code&gt;</ept> parameter that contains the contents of the message.</target>
+        </trans-unit>
+        <trans-unit id="3974c32a-331b-49fb-b3f9-8a405f06c57a" xml:space="preserve">
+          <source>The following example uses <bpt id="3a1b3e6c-d080-454c-a4de-fbe7d732af35">&lt;code&gt;</bpt>Stream<ept id="3a1b3e6c-d080-454c-a4de-fbe7d732af35">&lt;/code&gt;</ept> objects to read and write blobs.</source>
+          <target state="new">The following example uses <bpt id="3a1b3e6c-d080-454c-a4de-fbe7d732af35">&lt;code&gt;</bpt>Stream<ept id="3a1b3e6c-d080-454c-a4de-fbe7d732af35">&lt;/code&gt;</ept> objects to read and write blobs.</target>
+        </trans-unit>
+        <trans-unit id="37c7c2c6-5fe8-45ff-9486-0cc947351d6f" xml:space="preserve">
+          <source>The queue message is the name of a blob located in the textblobs container.</source>
+          <target state="new">The queue message is the name of a blob located in the textblobs container.</target>
+        </trans-unit>
+        <trans-unit id="794d29cc-a832-446a-9533-b5be4a6582bc" xml:space="preserve">
+          <source>A copy of the blob with "-new" appended to the name is created in the same container.</source>
+          <target state="new">A copy of the blob with "-new" appended to the name is created in the same container.</target>
+        </trans-unit>
+        <trans-unit id="5b166da2-e595-46d7-ac53-bb5cbca45249" xml:space="preserve">
+          <source>The <bpt id="12d4ad8d-a073-4c30-8c11-c23eb0e37ca6">&lt;code&gt;</bpt>Blob<ept id="12d4ad8d-a073-4c30-8c11-c23eb0e37ca6">&lt;/code&gt;</ept> attribute constructor takes a <bpt id="bf4a1d8a-37ff-439c-a47f-4c7a91293852">&lt;code&gt;</bpt>blobPath<ept id="bf4a1d8a-37ff-439c-a47f-4c7a91293852">&lt;/code&gt;</ept> parameter that specifies the container and blob name.</source>
+          <target state="new">The <bpt id="12d4ad8d-a073-4c30-8c11-c23eb0e37ca6">&lt;code&gt;</bpt>Blob<ept id="12d4ad8d-a073-4c30-8c11-c23eb0e37ca6">&lt;/code&gt;</ept> attribute constructor takes a <bpt id="bf4a1d8a-37ff-439c-a47f-4c7a91293852">&lt;code&gt;</bpt>blobPath<ept id="bf4a1d8a-37ff-439c-a47f-4c7a91293852">&lt;/code&gt;</ept> parameter that specifies the container and blob name.</target>
+        </trans-unit>
+        <trans-unit id="b28a852e-d3cd-40b4-8127-61488b335a10" xml:space="preserve">
+          <source>For more information about this placeholder, see <bpt id="8d6f01bc-3f7d-48df-8e03-49a6c59e06b5">&lt;linkText&gt;</bpt>How to use Azure blob storage with the WebJobs SDK<ept id="8d6f01bc-3f7d-48df-8e03-49a6c59e06b5">&lt;/linkText&gt;</ept><bpt id="8d6f01bc-3f7d-48df-8e03-49a6c59e06b5">&lt;title&gt;</bpt><ept id="8d6f01bc-3f7d-48df-8e03-49a6c59e06b5">&lt;/title&gt;</ept>,</source>
+          <target state="new">For more information about this placeholder, see <bpt id="8d6f01bc-3f7d-48df-8e03-49a6c59e06b5">&lt;linkText&gt;</bpt>How to use Azure blob storage with the WebJobs SDK<ept id="8d6f01bc-3f7d-48df-8e03-49a6c59e06b5">&lt;/linkText&gt;</ept><bpt id="8d6f01bc-3f7d-48df-8e03-49a6c59e06b5">&lt;title&gt;</bpt><ept id="8d6f01bc-3f7d-48df-8e03-49a6c59e06b5">&lt;/title&gt;</ept>,</target>
+        </trans-unit>
+        <trans-unit id="045b561c-8fb7-4600-9612-ca525c36e227" xml:space="preserve">
+          <source>When the attribute decorates a <bpt id="a7b0eb54-f3ac-4ce5-aacc-fbc1781fc80e">&lt;code&gt;</bpt>Stream<ept id="a7b0eb54-f3ac-4ce5-aacc-fbc1781fc80e">&lt;/code&gt;</ept> object, another constructor parameter specifies the <bpt id="c64cc5a7-4d64-43a8-8aee-141edf205604">&lt;code&gt;</bpt>FileAccess<ept id="c64cc5a7-4d64-43a8-8aee-141edf205604">&lt;/code&gt;</ept> mode as read, write, or read/write.</source>
+          <target state="new">When the attribute decorates a <bpt id="a7b0eb54-f3ac-4ce5-aacc-fbc1781fc80e">&lt;code&gt;</bpt>Stream<ept id="a7b0eb54-f3ac-4ce5-aacc-fbc1781fc80e">&lt;/code&gt;</ept> object, another constructor parameter specifies the <bpt id="c64cc5a7-4d64-43a8-8aee-141edf205604">&lt;code&gt;</bpt>FileAccess<ept id="c64cc5a7-4d64-43a8-8aee-141edf205604">&lt;/code&gt;</ept> mode as read, write, or read/write.</target>
+        </trans-unit>
+        <trans-unit id="37ac28bb-da6e-43a5-b850-140ee3395c62" xml:space="preserve">
+          <source>The following example uses a <bpt id="bb4c4b42-a584-4577-ba99-ed5439e4252d">&lt;code&gt;</bpt>CloudBlockBlob<ept id="bb4c4b42-a584-4577-ba99-ed5439e4252d">&lt;/code&gt;</ept> object to delete a blob.</source>
+          <target state="new">The following example uses a <bpt id="bb4c4b42-a584-4577-ba99-ed5439e4252d">&lt;code&gt;</bpt>CloudBlockBlob<ept id="bb4c4b42-a584-4577-ba99-ed5439e4252d">&lt;/code&gt;</ept> object to delete a blob.</target>
+        </trans-unit>
+        <trans-unit id="009f6a26-b04b-4f5c-9003-4f912a359077" xml:space="preserve">
+          <source>The queue message is the name of the blob.</source>
+          <target state="new">The queue message is the name of the blob.</target>
+        </trans-unit>
+        <trans-unit id="4af381b1-eb8e-40fe-a704-7c29bf781d09" xml:space="preserve">
+          <source>For a POCO stored as JSON in the queue message, you can use placeholders that name properties of the object in the <bpt id="f1d1a3d3-f9c9-479c-b810-bfb2a078f06a">&lt;code&gt;</bpt>Queue<ept id="f1d1a3d3-f9c9-479c-b810-bfb2a078f06a">&lt;/code&gt;</ept> attribute's <bpt id="b2597067-7428-41cb-a3a3-0128c6e1e6df">&lt;code&gt;</bpt>blobPath<ept id="b2597067-7428-41cb-a3a3-0128c6e1e6df">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">For a POCO stored as JSON in the queue message, you can use placeholders that name properties of the object in the <bpt id="f1d1a3d3-f9c9-479c-b810-bfb2a078f06a">&lt;code&gt;</bpt>Queue<ept id="f1d1a3d3-f9c9-479c-b810-bfb2a078f06a">&lt;/code&gt;</ept> attribute's <bpt id="b2597067-7428-41cb-a3a3-0128c6e1e6df">&lt;code&gt;</bpt>blobPath<ept id="b2597067-7428-41cb-a3a3-0128c6e1e6df">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="334e5be5-ed33-4809-b196-edf8eda234ee" xml:space="preserve">
+          <source>You can also use <bpt id="b9d0d6ec-71fc-4ab1-bd07-a81a5ed0b835">&lt;linkText&gt;</bpt>queue metadata property names<ept id="b9d0d6ec-71fc-4ab1-bd07-a81a5ed0b835">&lt;/linkText&gt;</ept><bpt id="b9d0d6ec-71fc-4ab1-bd07-a81a5ed0b835">&lt;title&gt;</bpt><ept id="b9d0d6ec-71fc-4ab1-bd07-a81a5ed0b835">&lt;/title&gt;</ept> as placeholders.</source>
+          <target state="new">You can also use <bpt id="b9d0d6ec-71fc-4ab1-bd07-a81a5ed0b835">&lt;linkText&gt;</bpt>queue metadata property names<ept id="b9d0d6ec-71fc-4ab1-bd07-a81a5ed0b835">&lt;/linkText&gt;</ept><bpt id="b9d0d6ec-71fc-4ab1-bd07-a81a5ed0b835">&lt;title&gt;</bpt><ept id="b9d0d6ec-71fc-4ab1-bd07-a81a5ed0b835">&lt;/title&gt;</ept> as placeholders.</target>
+        </trans-unit>
+        <trans-unit id="ee321cac-ef8f-45f0-9737-e93d605dc42b" xml:space="preserve">
+          <source>The following example copies a blob to a new blob with a different extension.</source>
+          <target state="new">The following example copies a blob to a new blob with a different extension.</target>
+        </trans-unit>
+        <trans-unit id="dd8d870d-df4a-49a2-ba05-de08148c972b" xml:space="preserve">
+          <source>The queue message is a <bpt id="846339f1-5b3b-4109-a8b4-f58868c4560f">&lt;code&gt;</bpt>BlobInformation<ept id="846339f1-5b3b-4109-a8b4-f58868c4560f">&lt;/code&gt;</ept> object that includes <bpt id="d0ce3875-1269-4273-83a8-94859aaed61d">&lt;code&gt;</bpt>BlobName<ept id="d0ce3875-1269-4273-83a8-94859aaed61d">&lt;/code&gt;</ept> and <bpt id="b1e94684-6099-4f08-9a6d-b067885e9359">&lt;code&gt;</bpt>BlobNameWithoutExtension<ept id="b1e94684-6099-4f08-9a6d-b067885e9359">&lt;/code&gt;</ept> properties.</source>
+          <target state="new">The queue message is a <bpt id="846339f1-5b3b-4109-a8b4-f58868c4560f">&lt;code&gt;</bpt>BlobInformation<ept id="846339f1-5b3b-4109-a8b4-f58868c4560f">&lt;/code&gt;</ept> object that includes <bpt id="d0ce3875-1269-4273-83a8-94859aaed61d">&lt;code&gt;</bpt>BlobName<ept id="d0ce3875-1269-4273-83a8-94859aaed61d">&lt;/code&gt;</ept> and <bpt id="b1e94684-6099-4f08-9a6d-b067885e9359">&lt;code&gt;</bpt>BlobNameWithoutExtension<ept id="b1e94684-6099-4f08-9a6d-b067885e9359">&lt;/code&gt;</ept> properties.</target>
+        </trans-unit>
+        <trans-unit id="bbf3d812-9472-4cd3-9bfc-9e47c8ed4017" xml:space="preserve">
+          <source>The property names are used as placeholders in the blob path for the <bpt id="7cbf1702-8631-46c5-b82a-04483829ab2b">&lt;code&gt;</bpt>Blob<ept id="7cbf1702-8631-46c5-b82a-04483829ab2b">&lt;/code&gt;</ept> attributes.</source>
+          <target state="new">The property names are used as placeholders in the blob path for the <bpt id="7cbf1702-8631-46c5-b82a-04483829ab2b">&lt;code&gt;</bpt>Blob<ept id="7cbf1702-8631-46c5-b82a-04483829ab2b">&lt;/code&gt;</ept> attributes.</target>
+        </trans-unit>
+        <trans-unit id="dcb6c582-9fbe-4e72-882a-54a5e60b7455" xml:space="preserve">
+          <source>The SDK uses the <bpt id="5ea0814d-1083-479f-8adc-db6c33df5e5e">&lt;linkText&gt;</bpt>Newtonsoft.Json NuGet package<ept id="5ea0814d-1083-479f-8adc-db6c33df5e5e">&lt;/linkText&gt;</ept><bpt id="5ea0814d-1083-479f-8adc-db6c33df5e5e">&lt;title&gt;</bpt><ept id="5ea0814d-1083-479f-8adc-db6c33df5e5e">&lt;/title&gt;</ept> to serialize and deserialize messages.</source>
+          <target state="new">The SDK uses the <bpt id="5ea0814d-1083-479f-8adc-db6c33df5e5e">&lt;linkText&gt;</bpt>Newtonsoft.Json NuGet package<ept id="5ea0814d-1083-479f-8adc-db6c33df5e5e">&lt;/linkText&gt;</ept><bpt id="5ea0814d-1083-479f-8adc-db6c33df5e5e">&lt;title&gt;</bpt><ept id="5ea0814d-1083-479f-8adc-db6c33df5e5e">&lt;/title&gt;</ept> to serialize and deserialize messages.</target>
+        </trans-unit>
+        <trans-unit id="6230311f-5b4f-4eba-81be-1329f945734b" xml:space="preserve">
+          <source>If you create queue messages in a program that doesn't use the WebJobs SDK, you can write code like the following example to create a POCO queue message that the SDK can parse.</source>
+          <target state="new">If you create queue messages in a program that doesn't use the WebJobs SDK, you can write code like the following example to create a POCO queue message that the SDK can parse.</target>
+        </trans-unit>
+        <trans-unit id="6068580d-4f22-471c-a82e-188c87b958b9" xml:space="preserve">
+          <source>If you need to do some work in your function before binding a blob to an object, you can use the attribute in the body of the function, <bpt id="469c9c2c-4ffe-4191-84a1-ff69ab1eb7e8">&lt;linkText&gt;</bpt>as shown earlier for the Queue attribute<ept id="469c9c2c-4ffe-4191-84a1-ff69ab1eb7e8">&lt;/linkText&gt;</ept><bpt id="469c9c2c-4ffe-4191-84a1-ff69ab1eb7e8">&lt;title&gt;</bpt><ept id="469c9c2c-4ffe-4191-84a1-ff69ab1eb7e8">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need to do some work in your function before binding a blob to an object, you can use the attribute in the body of the function, <bpt id="469c9c2c-4ffe-4191-84a1-ff69ab1eb7e8">&lt;linkText&gt;</bpt>as shown earlier for the Queue attribute<ept id="469c9c2c-4ffe-4191-84a1-ff69ab1eb7e8">&lt;/linkText&gt;</ept><bpt id="469c9c2c-4ffe-4191-84a1-ff69ab1eb7e8">&lt;title&gt;</bpt><ept id="469c9c2c-4ffe-4191-84a1-ff69ab1eb7e8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40994511-30a2-4816-b9ec-3d7574342a67" xml:space="preserve">
+          <source>The <bpt id="04753ed6-3f96-4d63-9b45-2a5e3569a18e">&lt;code&gt;</bpt>Blob<ept id="04753ed6-3f96-4d63-9b45-2a5e3569a18e">&lt;/code&gt;</ept> attribute can be used with the following types:</source>
+          <target state="new">The <bpt id="04753ed6-3f96-4d63-9b45-2a5e3569a18e">&lt;code&gt;</bpt>Blob<ept id="04753ed6-3f96-4d63-9b45-2a5e3569a18e">&lt;/code&gt;</ept> attribute can be used with the following types:</target>
+        </trans-unit>
+        <trans-unit id="ebdfdada-cf30-4ad0-b3f3-8adec29077fe" xml:space="preserve">
+          <source><bpt id="1b8b07c3-138c-4e4d-96af-552a33785921">&lt;code&gt;</bpt>Stream<ept id="1b8b07c3-138c-4e4d-96af-552a33785921">&lt;/code&gt;</ept> (read or write, specified by using the FileAccess constructor parameter)</source>
+          <target state="new"><bpt id="1b8b07c3-138c-4e4d-96af-552a33785921">&lt;code&gt;</bpt>Stream<ept id="1b8b07c3-138c-4e4d-96af-552a33785921">&lt;/code&gt;</ept> (read or write, specified by using the FileAccess constructor parameter)</target>
+        </trans-unit>
+        <trans-unit id="2f1f7ef9-49f4-4678-9227-0cc66a374c0f" xml:space="preserve">
+          <source><bpt id="3b0cd026-982f-4f53-a132-778bf28f4fec">&lt;code&gt;</bpt>TextReader<ept id="3b0cd026-982f-4f53-a132-778bf28f4fec">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3b0cd026-982f-4f53-a132-778bf28f4fec">&lt;code&gt;</bpt>TextReader<ept id="3b0cd026-982f-4f53-a132-778bf28f4fec">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2000524a-6f69-465c-bdfe-e9fb47c02268" xml:space="preserve">
+          <source><bpt id="ef5a3b36-8b5c-41a6-8dba-970c2a53d052">&lt;code&gt;</bpt>TextWriter<ept id="ef5a3b36-8b5c-41a6-8dba-970c2a53d052">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ef5a3b36-8b5c-41a6-8dba-970c2a53d052">&lt;code&gt;</bpt>TextWriter<ept id="ef5a3b36-8b5c-41a6-8dba-970c2a53d052">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e006722-320e-467b-851d-e3b86024a122" xml:space="preserve">
+          <source><bpt id="9282aa92-1dab-4686-9990-cef4f7f1b9a0">&lt;code&gt;</bpt>string<ept id="9282aa92-1dab-4686-9990-cef4f7f1b9a0">&lt;/code&gt;</ept> (read)</source>
+          <target state="new"><bpt id="9282aa92-1dab-4686-9990-cef4f7f1b9a0">&lt;code&gt;</bpt>string<ept id="9282aa92-1dab-4686-9990-cef4f7f1b9a0">&lt;/code&gt;</ept> (read)</target>
+        </trans-unit>
+        <trans-unit id="f96a4b7b-9413-42a1-9cbe-3ec122256853" xml:space="preserve">
+          <source><bpt id="832dd505-60bc-4ec1-8f63-f175fa2c32f7">&lt;code&gt;</bpt>out string<ept id="832dd505-60bc-4ec1-8f63-f175fa2c32f7">&lt;/code&gt;</ept> (write; creates a blob only if the string parameter is non-null when the function returns)</source>
+          <target state="new"><bpt id="832dd505-60bc-4ec1-8f63-f175fa2c32f7">&lt;code&gt;</bpt>out string<ept id="832dd505-60bc-4ec1-8f63-f175fa2c32f7">&lt;/code&gt;</ept> (write; creates a blob only if the string parameter is non-null when the function returns)</target>
+        </trans-unit>
+        <trans-unit id="8bee934c-c57c-4dd2-b48d-ad1616d37f6d" xml:space="preserve">
+          <source>POCO (read)</source>
+          <target state="new">POCO (read)</target>
+        </trans-unit>
+        <trans-unit id="6185e44c-b095-41b7-9f0d-2231e4082665" xml:space="preserve">
+          <source>out POCO (write; always creates a blob, creates as null object if POCO parameter is null when the function returns)</source>
+          <target state="new">out POCO (write; always creates a blob, creates as null object if POCO parameter is null when the function returns)</target>
+        </trans-unit>
+        <trans-unit id="3bd6053d-798b-42d6-8f96-8d2805959d07" xml:space="preserve">
+          <source><bpt id="a0012b23-44c0-4741-be54-db937e7e44a6">&lt;code&gt;</bpt>CloudBlobStream<ept id="a0012b23-44c0-4741-be54-db937e7e44a6">&lt;/code&gt;</ept> (write)</source>
+          <target state="new"><bpt id="a0012b23-44c0-4741-be54-db937e7e44a6">&lt;code&gt;</bpt>CloudBlobStream<ept id="a0012b23-44c0-4741-be54-db937e7e44a6">&lt;/code&gt;</ept> (write)</target>
+        </trans-unit>
+        <trans-unit id="38acd29d-47fa-4f46-8fd7-507861c04325" xml:space="preserve">
+          <source><bpt id="4d2a42df-a16b-4a43-808d-6c32f793c602">&lt;code&gt;</bpt>ICloudBlob<ept id="4d2a42df-a16b-4a43-808d-6c32f793c602">&lt;/code&gt;</ept> (read or write)</source>
+          <target state="new"><bpt id="4d2a42df-a16b-4a43-808d-6c32f793c602">&lt;code&gt;</bpt>ICloudBlob<ept id="4d2a42df-a16b-4a43-808d-6c32f793c602">&lt;/code&gt;</ept> (read or write)</target>
+        </trans-unit>
+        <trans-unit id="9344b462-d2ec-426a-8060-ca65ae1f69ba" xml:space="preserve">
+          <source><bpt id="bb7d0450-7363-47fc-a8e6-c893afc67218">&lt;code&gt;</bpt>CloudBlockBlob<ept id="bb7d0450-7363-47fc-a8e6-c893afc67218">&lt;/code&gt;</ept> (read or write) </source>
+          <target state="new"><bpt id="bb7d0450-7363-47fc-a8e6-c893afc67218">&lt;code&gt;</bpt>CloudBlockBlob<ept id="bb7d0450-7363-47fc-a8e6-c893afc67218">&lt;/code&gt;</ept> (read or write) </target>
+        </trans-unit>
+        <trans-unit id="a03109ef-c637-4784-b5d2-6de1ef098bca" xml:space="preserve">
+          <source><bpt id="efb3cac1-b71c-4aa7-bbaa-a87c034e5766">&lt;code&gt;</bpt>CloudPageBlob<ept id="efb3cac1-b71c-4aa7-bbaa-a87c034e5766">&lt;/code&gt;</ept> (read or write) </source>
+          <target state="new"><bpt id="efb3cac1-b71c-4aa7-bbaa-a87c034e5766">&lt;code&gt;</bpt>CloudPageBlob<ept id="efb3cac1-b71c-4aa7-bbaa-a87c034e5766">&lt;/code&gt;</ept> (read or write) </target>
+        </trans-unit>
+        <trans-unit id="af926b86-f9b9-42d6-8597-59403adcf3f8" xml:space="preserve">
+          <source>Messages whose content causes a function to fail are called <bpt id="e55b7776-da17-4edf-98d4-1118d867c3e7">&lt;em&gt;</bpt>poison messages<ept id="e55b7776-da17-4edf-98d4-1118d867c3e7">&lt;/em&gt;</ept>.</source>
+          <target state="new">Messages whose content causes a function to fail are called <bpt id="e55b7776-da17-4edf-98d4-1118d867c3e7">&lt;em&gt;</bpt>poison messages<ept id="e55b7776-da17-4edf-98d4-1118d867c3e7">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64a65daf-0e0e-4ea9-bd17-3368411c2824" xml:space="preserve">
+          <source>When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated.</source>
+          <target state="new">When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated.</target>
+        </trans-unit>
+        <trans-unit id="06c5e3ca-558a-4652-8c9f-c0591f29289f" xml:space="preserve">
+          <source>The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.</source>
+          <target state="new">The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.</target>
+        </trans-unit>
+        <trans-unit id="11b63ac4-06c4-4932-a9d6-d5cfbd722970" xml:space="preserve">
+          <source>The SDK will call a function up to 5 times to process a queue message.</source>
+          <target state="new">The SDK will call a function up to 5 times to process a queue message.</target>
+        </trans-unit>
+        <trans-unit id="f8510f6b-5609-4070-80be-5cb3a81d1060" xml:space="preserve">
+          <source>If the fifth try fails, the message is moved to a poison queue.</source>
+          <target state="new">If the fifth try fails, the message is moved to a poison queue.</target>
+        </trans-unit>
+        <trans-unit id="40d3de05-8f8a-46cf-80bb-3c304d5e6c76" xml:space="preserve">
+          <source><bpt id="e3b8d270-e022-441f-86ad-59b4827202b2">&lt;linkText&gt;</bpt>The maximum number of retries is configurable<ept id="e3b8d270-e022-441f-86ad-59b4827202b2">&lt;/linkText&gt;</ept><bpt id="e3b8d270-e022-441f-86ad-59b4827202b2">&lt;title&gt;</bpt><ept id="e3b8d270-e022-441f-86ad-59b4827202b2">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="e3b8d270-e022-441f-86ad-59b4827202b2">&lt;linkText&gt;</bpt>The maximum number of retries is configurable<ept id="e3b8d270-e022-441f-86ad-59b4827202b2">&lt;/linkText&gt;</ept><bpt id="e3b8d270-e022-441f-86ad-59b4827202b2">&lt;title&gt;</bpt><ept id="e3b8d270-e022-441f-86ad-59b4827202b2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9910413b-d1de-4866-b487-8ae6c5d6e10f" xml:space="preserve">
+          <source>The poison queue is named <bpt id="2d3ab877-0c8b-44de-9747-fafa7be99a5d">&lt;em&gt;</bpt>{originalqueuename}<ept id="2d3ab877-0c8b-44de-9747-fafa7be99a5d">&lt;/em&gt;</ept>-poison.</source>
+          <target state="new">The poison queue is named <bpt id="2d3ab877-0c8b-44de-9747-fafa7be99a5d">&lt;em&gt;</bpt>{originalqueuename}<ept id="2d3ab877-0c8b-44de-9747-fafa7be99a5d">&lt;/em&gt;</ept>-poison.</target>
+        </trans-unit>
+        <trans-unit id="ee34cd20-aa86-46fe-90fc-e4a980903500" xml:space="preserve">
+          <source>You can write a function to process messages from the poison queue by logging them or sending a notification that manual attention is needed.</source>
+          <target state="new">You can write a function to process messages from the poison queue by logging them or sending a notification that manual attention is needed.</target>
+        </trans-unit>
+        <trans-unit id="fe24df32-060d-4747-9b98-e832d4ef516f" xml:space="preserve">
+          <source>In the following example the <bpt id="843cff35-8a2b-4c12-888c-730d1a57d216">&lt;code&gt;</bpt>CopyBlob<ept id="843cff35-8a2b-4c12-888c-730d1a57d216">&lt;/code&gt;</ept> function will fail when a queue message contains the name of a blob that doesn't exist.</source>
+          <target state="new">In the following example the <bpt id="843cff35-8a2b-4c12-888c-730d1a57d216">&lt;code&gt;</bpt>CopyBlob<ept id="843cff35-8a2b-4c12-888c-730d1a57d216">&lt;/code&gt;</ept> function will fail when a queue message contains the name of a blob that doesn't exist.</target>
+        </trans-unit>
+        <trans-unit id="31e67d80-51f1-4a2b-b201-8bb2adb26922" xml:space="preserve">
+          <source>When that happens, the message is moved from the copyblobqueue queue to the copyblobqueue-poison queue.</source>
+          <target state="new">When that happens, the message is moved from the copyblobqueue queue to the copyblobqueue-poison queue.</target>
+        </trans-unit>
+        <trans-unit id="ec9c411c-6e92-46dd-acf9-9d1f9234cf3f" xml:space="preserve">
+          <source>The <bpt id="668fc605-33e1-44d3-9952-2345d63b8756">&lt;code&gt;</bpt>ProcessPoisonMessage<ept id="668fc605-33e1-44d3-9952-2345d63b8756">&lt;/code&gt;</ept> then logs the poison message.</source>
+          <target state="new">The <bpt id="668fc605-33e1-44d3-9952-2345d63b8756">&lt;code&gt;</bpt>ProcessPoisonMessage<ept id="668fc605-33e1-44d3-9952-2345d63b8756">&lt;/code&gt;</ept> then logs the poison message.</target>
+        </trans-unit>
+        <trans-unit id="3aec3962-5602-4696-9223-bedd1b1f0719" xml:space="preserve">
+          <source>The following illustration shows console output from these functions when a poison message is processed.</source>
+          <target state="new">The following illustration shows console output from these functions when a poison message is processed.</target>
+        </trans-unit>
+        <trans-unit id="b1dd728a-dc3e-4498-90c0-fb1aef603ed4" xml:space="preserve">
+          <source><bpt id="6e6bb7f8-fedf-4195-9ad8-7a7d2cca510d">&lt;linkText&gt;</bpt>Console output for poison message handling<ept id="6e6bb7f8-fedf-4195-9ad8-7a7d2cca510d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e6bb7f8-fedf-4195-9ad8-7a7d2cca510d">&lt;linkText&gt;</bpt>Console output for poison message handling<ept id="6e6bb7f8-fedf-4195-9ad8-7a7d2cca510d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c3c8b70-e819-4da6-99de-7ce88b6b8f74" xml:space="preserve">
+          <source>You can get the number of times a message has been picked up for processing by adding an <bpt id="9133da37-c88c-4357-93ad-391eadde1c7b">&lt;code&gt;</bpt>int<ept id="9133da37-c88c-4357-93ad-391eadde1c7b">&lt;/code&gt;</ept> parameter named <bpt id="cdfac28f-7ba0-4cc6-b8f3-354d4ba52667">&lt;code&gt;</bpt>dequeueCount<ept id="cdfac28f-7ba0-4cc6-b8f3-354d4ba52667">&lt;/code&gt;</ept> to your function.</source>
+          <target state="new">You can get the number of times a message has been picked up for processing by adding an <bpt id="9133da37-c88c-4357-93ad-391eadde1c7b">&lt;code&gt;</bpt>int<ept id="9133da37-c88c-4357-93ad-391eadde1c7b">&lt;/code&gt;</ept> parameter named <bpt id="cdfac28f-7ba0-4cc6-b8f3-354d4ba52667">&lt;code&gt;</bpt>dequeueCount<ept id="cdfac28f-7ba0-4cc6-b8f3-354d4ba52667">&lt;/code&gt;</ept> to your function.</target>
+        </trans-unit>
+        <trans-unit id="ae06d33a-88b8-41c4-b0b1-91c326472181" xml:space="preserve">
+          <source>You can then check the dequeue count in function code and perform your own poison message handling when the number exceeds a threshold, as shown in the following example.</source>
+          <target state="new">You can then check the dequeue count in function code and perform your own poison message handling when the number exceeds a threshold, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="5d31fd9e-df50-4b7a-a7cf-fde255135075" xml:space="preserve">
+          <source>You can use the <bpt id="e79387ec-93f7-4ba5-bff1-ff70c299866f">&lt;code&gt;</bpt>JobHostConfiguration<ept id="e79387ec-93f7-4ba5-bff1-ff70c299866f">&lt;/code&gt;</ept> type to set the following configuration options:</source>
+          <target state="new">You can use the <bpt id="e79387ec-93f7-4ba5-bff1-ff70c299866f">&lt;code&gt;</bpt>JobHostConfiguration<ept id="e79387ec-93f7-4ba5-bff1-ff70c299866f">&lt;/code&gt;</ept> type to set the following configuration options:</target>
+        </trans-unit>
+        <trans-unit id="2ac95bf8-8a66-4341-99e3-a0090b972f70" xml:space="preserve">
+          <source>Set the SDK connection strings in code.</source>
+          <target state="new">Set the SDK connection strings in code.</target>
+        </trans-unit>
+        <trans-unit id="28debeac-d070-4dfb-95e9-c0434c33bfb7" xml:space="preserve">
+          <source>Configure <bpt id="0aa0f5cd-87c1-44c0-a3dd-5581e51a8310">&lt;code&gt;</bpt>QueueTrigger<ept id="0aa0f5cd-87c1-44c0-a3dd-5581e51a8310">&lt;/code&gt;</ept> settings such as maximum dequeue count.</source>
+          <target state="new">Configure <bpt id="0aa0f5cd-87c1-44c0-a3dd-5581e51a8310">&lt;code&gt;</bpt>QueueTrigger<ept id="0aa0f5cd-87c1-44c0-a3dd-5581e51a8310">&lt;/code&gt;</ept> settings such as maximum dequeue count.</target>
+        </trans-unit>
+        <trans-unit id="af5d05cc-de25-49e9-a116-03d7116c93ea" xml:space="preserve">
+          <source>Get queue names from configuration.</source>
+          <target state="new">Get queue names from configuration.</target>
+        </trans-unit>
+        <trans-unit id="8503bc1d-d474-4d5d-bdf0-90fa1863d6b0" xml:space="preserve">
+          <source>Setting the SDK connection strings in code enables you to use your own connection string names in configuration files or environment variables, as shown in the following example.</source>
+          <target state="new">Setting the SDK connection strings in code enables you to use your own connection string names in configuration files or environment variables, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="c1a7c588-a41e-4278-b942-bebb5cc41a3a" xml:space="preserve">
+          <source>You can configure the following settings that apply to the queue message processing:</source>
+          <target state="new">You can configure the following settings that apply to the queue message processing:</target>
+        </trans-unit>
+        <trans-unit id="1a2ab93b-791a-4070-9752-8022355f95a8" xml:space="preserve">
+          <source>The maximum number of queue messages that are picked up simultaneously to be executed in parallel (default is 16).</source>
+          <target state="new">The maximum number of queue messages that are picked up simultaneously to be executed in parallel (default is 16).</target>
+        </trans-unit>
+        <trans-unit id="6a8bb6c2-a182-46a7-865c-e9f5e932c0d5" xml:space="preserve">
+          <source>The maximum number of retries before a queue message is sent to a poison queue (default is 5).</source>
+          <target state="new">The maximum number of retries before a queue message is sent to a poison queue (default is 5).</target>
+        </trans-unit>
+        <trans-unit id="e94cdc08-fa5f-4a9d-9c66-bcb59eac6658" xml:space="preserve">
+          <source>The maximum wait time before polling again when a queue is empty (default is 1 minute).</source>
+          <target state="new">The maximum wait time before polling again when a queue is empty (default is 1 minute).</target>
+        </trans-unit>
+        <trans-unit id="5798e398-984a-48c1-ba90-5f50ea4f8fe7" xml:space="preserve">
+          <source>The following example shows how to configure these settings:</source>
+          <target state="new">The following example shows how to configure these settings:</target>
+        </trans-unit>
+        <trans-unit id="71272219-59e7-44e9-9f94-685ed3b325d1" xml:space="preserve">
+          <source>Sometimes you want to specify a queue name, a blob name or container, or a table name in code rather than hard-code it.</source>
+          <target state="new">Sometimes you want to specify a queue name, a blob name or container, or a table name in code rather than hard-code it.</target>
+        </trans-unit>
+        <trans-unit id="86ab66d6-c2db-4e10-95f0-572d98547202" xml:space="preserve">
+          <source>For example, you might want to specify the queue name for <bpt id="d22f32c6-7871-4231-a5e6-96f8645a5860">&lt;code&gt;</bpt>QueueTrigger<ept id="d22f32c6-7871-4231-a5e6-96f8645a5860">&lt;/code&gt;</ept> in a configuration file or environment variable.</source>
+          <target state="new">For example, you might want to specify the queue name for <bpt id="d22f32c6-7871-4231-a5e6-96f8645a5860">&lt;code&gt;</bpt>QueueTrigger<ept id="d22f32c6-7871-4231-a5e6-96f8645a5860">&lt;/code&gt;</ept> in a configuration file or environment variable.</target>
+        </trans-unit>
+        <trans-unit id="144faa75-f3bb-452c-a942-22a1ecb2a273" xml:space="preserve">
+          <source>You can do that by passing in a <bpt id="5b21262b-d852-4f92-bc5b-786abc584f5e">&lt;code&gt;</bpt>NameResolver<ept id="5b21262b-d852-4f92-bc5b-786abc584f5e">&lt;/code&gt;</ept> object to the <bpt id="4f48db53-c8c4-422e-a5e2-88174751526a">&lt;code&gt;</bpt>JobHostConfiguration<ept id="4f48db53-c8c4-422e-a5e2-88174751526a">&lt;/code&gt;</ept> type.</source>
+          <target state="new">You can do that by passing in a <bpt id="5b21262b-d852-4f92-bc5b-786abc584f5e">&lt;code&gt;</bpt>NameResolver<ept id="5b21262b-d852-4f92-bc5b-786abc584f5e">&lt;/code&gt;</ept> object to the <bpt id="4f48db53-c8c4-422e-a5e2-88174751526a">&lt;code&gt;</bpt>JobHostConfiguration<ept id="4f48db53-c8c4-422e-a5e2-88174751526a">&lt;/code&gt;</ept> type.</target>
+        </trans-unit>
+        <trans-unit id="77642ac4-3a9b-4b81-9d35-cf628bf5ef63" xml:space="preserve">
+          <source>You include special placeholders surrounded by percent (%) signs in WebJobs SDK attribute constructor parameters, and your <bpt id="3281858f-6377-4466-b83c-a6e1f0a019b5">&lt;code&gt;</bpt>NameResolver<ept id="3281858f-6377-4466-b83c-a6e1f0a019b5">&lt;/code&gt;</ept> code specifies the actual values to be used in place of those placeholders.</source>
+          <target state="new">You include special placeholders surrounded by percent (%) signs in WebJobs SDK attribute constructor parameters, and your <bpt id="3281858f-6377-4466-b83c-a6e1f0a019b5">&lt;code&gt;</bpt>NameResolver<ept id="3281858f-6377-4466-b83c-a6e1f0a019b5">&lt;/code&gt;</ept> code specifies the actual values to be used in place of those placeholders.</target>
+        </trans-unit>
+        <trans-unit id="ae609330-b1c2-4b4b-b6b9-45b1396f2866" xml:space="preserve">
+          <source>For example, suppose you want to use a queue named logqueuetest in the test environment and one named logqueueprod in production.</source>
+          <target state="new">For example, suppose you want to use a queue named logqueuetest in the test environment and one named logqueueprod in production.</target>
+        </trans-unit>
+        <trans-unit id="daa96a1f-c366-4795-b3d2-3041525baddf" xml:space="preserve">
+          <source>Instead of a hard-coded queue name, you want to specify the name of an entry in the <bpt id="33e5ed74-1115-4b0a-b339-33f3ade1f9ad">&lt;code&gt;</bpt>appSettings<ept id="33e5ed74-1115-4b0a-b339-33f3ade1f9ad">&lt;/code&gt;</ept> collection that would have the actual queue name.</source>
+          <target state="new">Instead of a hard-coded queue name, you want to specify the name of an entry in the <bpt id="33e5ed74-1115-4b0a-b339-33f3ade1f9ad">&lt;code&gt;</bpt>appSettings<ept id="33e5ed74-1115-4b0a-b339-33f3ade1f9ad">&lt;/code&gt;</ept> collection that would have the actual queue name.</target>
+        </trans-unit>
+        <trans-unit id="b207775b-44fd-4605-b1b3-39eae048d8b3" xml:space="preserve">
+          <source>If the <bpt id="61f93d5d-e64e-492e-a5b4-2cb580c20f1a">&lt;code&gt;</bpt>appSettings<ept id="61f93d5d-e64e-492e-a5b4-2cb580c20f1a">&lt;/code&gt;</ept> key is logqueue, your function could look like the following example.</source>
+          <target state="new">If the <bpt id="61f93d5d-e64e-492e-a5b4-2cb580c20f1a">&lt;code&gt;</bpt>appSettings<ept id="61f93d5d-e64e-492e-a5b4-2cb580c20f1a">&lt;/code&gt;</ept> key is logqueue, your function could look like the following example.</target>
+        </trans-unit>
+        <trans-unit id="e2d6933e-b57e-47fa-b07b-471c3e8ab93d" xml:space="preserve">
+          <source>Your <bpt id="0a6d7a2e-855b-4be8-9ea1-ebef1440b83e">&lt;code&gt;</bpt>NameResolver<ept id="0a6d7a2e-855b-4be8-9ea1-ebef1440b83e">&lt;/code&gt;</ept> class could then get the queue name from <bpt id="07a142ce-9f8b-4a54-942a-d16ddbcc01ab">&lt;code&gt;</bpt>appSettings<ept id="07a142ce-9f8b-4a54-942a-d16ddbcc01ab">&lt;/code&gt;</ept> as shown in the following example:</source>
+          <target state="new">Your <bpt id="0a6d7a2e-855b-4be8-9ea1-ebef1440b83e">&lt;code&gt;</bpt>NameResolver<ept id="0a6d7a2e-855b-4be8-9ea1-ebef1440b83e">&lt;/code&gt;</ept> class could then get the queue name from <bpt id="07a142ce-9f8b-4a54-942a-d16ddbcc01ab">&lt;code&gt;</bpt>appSettings<ept id="07a142ce-9f8b-4a54-942a-d16ddbcc01ab">&lt;/code&gt;</ept> as shown in the following example:</target>
+        </trans-unit>
+        <trans-unit id="aeb06af2-cfa2-42f4-8d16-625ea50c4177" xml:space="preserve">
+          <source>You pass the <bpt id="ddbd6c9f-4c63-491a-a46d-e3f94e732eae">&lt;code&gt;</bpt>NameResolver<ept id="ddbd6c9f-4c63-491a-a46d-e3f94e732eae">&lt;/code&gt;</ept> class in to the <bpt id="62f54471-f233-49ef-8ec4-2750d6a94f01">&lt;code&gt;</bpt>JobHost<ept id="62f54471-f233-49ef-8ec4-2750d6a94f01">&lt;/code&gt;</ept> object as shown in the following example.</source>
+          <target state="new">You pass the <bpt id="ddbd6c9f-4c63-491a-a46d-e3f94e732eae">&lt;code&gt;</bpt>NameResolver<ept id="ddbd6c9f-4c63-491a-a46d-e3f94e732eae">&lt;/code&gt;</ept> class in to the <bpt id="62f54471-f233-49ef-8ec4-2750d6a94f01">&lt;code&gt;</bpt>JobHost<ept id="62f54471-f233-49ef-8ec4-2750d6a94f01">&lt;/code&gt;</ept> object as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="7886cdff-4349-4e19-be5b-f289c732aef2" xml:space="preserve">
+          <source><bpt id="0d53c08a-8dfb-4889-828e-7746e76e1c22">&lt;strong&gt;</bpt>Note:<ept id="0d53c08a-8dfb-4889-828e-7746e76e1c22">&lt;/strong&gt;</ept> Queue, table, and blob names are resolved each time a function is called, but blob container names are resolved only when the application starts.</source>
+          <target state="new"><bpt id="0d53c08a-8dfb-4889-828e-7746e76e1c22">&lt;strong&gt;</bpt>Note:<ept id="0d53c08a-8dfb-4889-828e-7746e76e1c22">&lt;/strong&gt;</ept> Queue, table, and blob names are resolved each time a function is called, but blob container names are resolved only when the application starts.</target>
+        </trans-unit>
+        <trans-unit id="249b7850-33e4-4c09-9359-5f25636560cc" xml:space="preserve">
+          <source>You can't change blob container name while the job is running.</source>
+          <target state="new">You can't change blob container name while the job is running.</target>
+        </trans-unit>
+        <trans-unit id="ee068330-dba0-4623-b1f2-7843644e4363" xml:space="preserve">
+          <source>To trigger a function manually, use the <bpt id="0f754685-b996-4dee-ab2c-7eec1531ed28">&lt;code&gt;</bpt>Call<ept id="0f754685-b996-4dee-ab2c-7eec1531ed28">&lt;/code&gt;</ept> or <bpt id="f5c0d73b-9a9d-46d3-bd48-60da5e0cf0a3">&lt;code&gt;</bpt>CallAsync<ept id="f5c0d73b-9a9d-46d3-bd48-60da5e0cf0a3">&lt;/code&gt;</ept> method on the <bpt id="b604b6f3-ed7d-400c-bd2b-2ad424de4b8b">&lt;code&gt;</bpt>JobHost<ept id="b604b6f3-ed7d-400c-bd2b-2ad424de4b8b">&lt;/code&gt;</ept> object and the <bpt id="568af8b7-f77d-44c1-a58d-2a3d4748e2f3">&lt;code&gt;</bpt>NoAutomaticTrigger<ept id="568af8b7-f77d-44c1-a58d-2a3d4748e2f3">&lt;/code&gt;</ept> attribute on the function, as shown in the following example.</source>
+          <target state="new">To trigger a function manually, use the <bpt id="0f754685-b996-4dee-ab2c-7eec1531ed28">&lt;code&gt;</bpt>Call<ept id="0f754685-b996-4dee-ab2c-7eec1531ed28">&lt;/code&gt;</ept> or <bpt id="f5c0d73b-9a9d-46d3-bd48-60da5e0cf0a3">&lt;code&gt;</bpt>CallAsync<ept id="f5c0d73b-9a9d-46d3-bd48-60da5e0cf0a3">&lt;/code&gt;</ept> method on the <bpt id="b604b6f3-ed7d-400c-bd2b-2ad424de4b8b">&lt;code&gt;</bpt>JobHost<ept id="b604b6f3-ed7d-400c-bd2b-2ad424de4b8b">&lt;/code&gt;</ept> object and the <bpt id="568af8b7-f77d-44c1-a58d-2a3d4748e2f3">&lt;code&gt;</bpt>NoAutomaticTrigger<ept id="568af8b7-f77d-44c1-a58d-2a3d4748e2f3">&lt;/code&gt;</ept> attribute on the function, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="3d58a204-195e-4350-8adf-19b4813553fe" xml:space="preserve">
+          <source>The Dashboard shows logs in two places: the page for the WebJob, and the page for a particular WebJob invocation.</source>
+          <target state="new">The Dashboard shows logs in two places: the page for the WebJob, and the page for a particular WebJob invocation.</target>
+        </trans-unit>
+        <trans-unit id="f3c252f3-e196-4a1e-a837-757ba38d86b9" xml:space="preserve">
+          <source><bpt id="1201a655-dcac-4440-a0ae-6935f4bbea4c">&lt;linkText&gt;</bpt>Logs in WebJob page<ept id="1201a655-dcac-4440-a0ae-6935f4bbea4c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1201a655-dcac-4440-a0ae-6935f4bbea4c">&lt;linkText&gt;</bpt>Logs in WebJob page<ept id="1201a655-dcac-4440-a0ae-6935f4bbea4c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6b1357c-673d-4651-bd85-7b91be5ea31f" xml:space="preserve">
+          <source><bpt id="4975f13e-ed30-4a02-925c-3e35de4be57d">&lt;linkText&gt;</bpt>Logs in function invocation page<ept id="4975f13e-ed30-4a02-925c-3e35de4be57d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4975f13e-ed30-4a02-925c-3e35de4be57d">&lt;linkText&gt;</bpt>Logs in function invocation page<ept id="4975f13e-ed30-4a02-925c-3e35de4be57d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09db59bb-7689-4333-bc61-792ade855420" xml:space="preserve">
+          <source>Output from Console methods that you call in a function or in the <bpt id="a7fc4933-9631-4e8b-8720-db30e348936b">&lt;code&gt;</bpt>Main()<ept id="a7fc4933-9631-4e8b-8720-db30e348936b">&lt;/code&gt;</ept> method appears in the Dashboard page for the WebJob, not in the page for a particular method invocation.</source>
+          <target state="new">Output from Console methods that you call in a function or in the <bpt id="a7fc4933-9631-4e8b-8720-db30e348936b">&lt;code&gt;</bpt>Main()<ept id="a7fc4933-9631-4e8b-8720-db30e348936b">&lt;/code&gt;</ept> method appears in the Dashboard page for the WebJob, not in the page for a particular method invocation.</target>
+        </trans-unit>
+        <trans-unit id="49fd67f1-498c-49d4-a9e0-ee41e404a14c" xml:space="preserve">
+          <source>Output from the TextWriter object that you get from a parameter in your method signature appears in the Dashboard page for a method invocation.</source>
+          <target state="new">Output from the TextWriter object that you get from a parameter in your method signature appears in the Dashboard page for a method invocation.</target>
+        </trans-unit>
+        <trans-unit id="f5284c31-24db-412e-b79b-3e6a1fad68d7" xml:space="preserve">
+          <source>Console output can't be linked to a particular method invocation because the Console is single-threaded, while many job functions may be running at the same time.</source>
+          <target state="new">Console output can't be linked to a particular method invocation because the Console is single-threaded, while many job functions may be running at the same time.</target>
+        </trans-unit>
+        <trans-unit id="647e7049-d12d-48ae-828d-73fd59440096" xml:space="preserve">
+          <source>That's why the  SDK provides each function invocation with its own unique log writer object.</source>
+          <target state="new">That's why the  SDK provides each function invocation with its own unique log writer object.</target>
+        </trans-unit>
+        <trans-unit id="68452aef-af12-44e2-86e0-58ad7135c0d7" xml:space="preserve">
+          <source>To write <bpt id="43ee873e-f902-42bd-a33b-3ef581e1d569">&lt;linkText&gt;</bpt>application tracing logs<ept id="43ee873e-f902-42bd-a33b-3ef581e1d569">&lt;/linkText&gt;</ept><bpt id="43ee873e-f902-42bd-a33b-3ef581e1d569">&lt;title&gt;</bpt><ept id="43ee873e-f902-42bd-a33b-3ef581e1d569">&lt;/title&gt;</ept>, use <bpt id="cde43ad4-e3ea-40ef-83ed-0f96e036fd6b">&lt;code&gt;</bpt>Console.Out<ept id="cde43ad4-e3ea-40ef-83ed-0f96e036fd6b">&lt;/code&gt;</ept> (creates logs marked as INFO) and <bpt id="57642757-c1e4-4ad5-baf1-94b4504c9b6b">&lt;code&gt;</bpt>Console.Error<ept id="57642757-c1e4-4ad5-baf1-94b4504c9b6b">&lt;/code&gt;</ept> (creates logs marked as ERROR).</source>
+          <target state="new">To write <bpt id="43ee873e-f902-42bd-a33b-3ef581e1d569">&lt;linkText&gt;</bpt>application tracing logs<ept id="43ee873e-f902-42bd-a33b-3ef581e1d569">&lt;/linkText&gt;</ept><bpt id="43ee873e-f902-42bd-a33b-3ef581e1d569">&lt;title&gt;</bpt><ept id="43ee873e-f902-42bd-a33b-3ef581e1d569">&lt;/title&gt;</ept>, use <bpt id="cde43ad4-e3ea-40ef-83ed-0f96e036fd6b">&lt;code&gt;</bpt>Console.Out<ept id="cde43ad4-e3ea-40ef-83ed-0f96e036fd6b">&lt;/code&gt;</ept> (creates logs marked as INFO) and <bpt id="57642757-c1e4-4ad5-baf1-94b4504c9b6b">&lt;code&gt;</bpt>Console.Error<ept id="57642757-c1e4-4ad5-baf1-94b4504c9b6b">&lt;/code&gt;</ept> (creates logs marked as ERROR).</target>
+        </trans-unit>
+        <trans-unit id="f3a21028-fc40-4a23-b1d7-b2af24388bf2" xml:space="preserve">
+          <source>An alternative is to use <bpt id="f23d8369-76b6-46c1-9f48-f48eacb375b6">&lt;linkText&gt;</bpt>Trace or TraceSource<ept id="f23d8369-76b6-46c1-9f48-f48eacb375b6">&lt;/linkText&gt;</ept><bpt id="f23d8369-76b6-46c1-9f48-f48eacb375b6">&lt;title&gt;</bpt><ept id="f23d8369-76b6-46c1-9f48-f48eacb375b6">&lt;/title&gt;</ept>, which provides Verbose, Warning, and Critical levels in addition to Info and Error.</source>
+          <target state="new">An alternative is to use <bpt id="f23d8369-76b6-46c1-9f48-f48eacb375b6">&lt;linkText&gt;</bpt>Trace or TraceSource<ept id="f23d8369-76b6-46c1-9f48-f48eacb375b6">&lt;/linkText&gt;</ept><bpt id="f23d8369-76b6-46c1-9f48-f48eacb375b6">&lt;title&gt;</bpt><ept id="f23d8369-76b6-46c1-9f48-f48eacb375b6">&lt;/title&gt;</ept>, which provides Verbose, Warning, and Critical levels in addition to Info and Error.</target>
+        </trans-unit>
+        <trans-unit id="5fd87ab4-804e-4a24-a0ca-d8add84180c9" xml:space="preserve">
+          <source>Application tracing logs appear in the web app log files, Azure tables, or Azure blobs depending on how you configure your Azure web app.</source>
+          <target state="new">Application tracing logs appear in the web app log files, Azure tables, or Azure blobs depending on how you configure your Azure web app.</target>
+        </trans-unit>
+        <trans-unit id="ee6e8074-fadc-481b-a85d-6a9dbe91966b" xml:space="preserve">
+          <source>As is true of all Console output, the most recent 100 application logs also appear in the Dashboard page for the WebJob, not the page for a function invocation.</source>
+          <target state="new">As is true of all Console output, the most recent 100 application logs also appear in the Dashboard page for the WebJob, not the page for a function invocation.</target>
+        </trans-unit>
+        <trans-unit id="ebb51cd8-5ff6-4406-b8bf-42308a0832f1" xml:space="preserve">
+          <source>Console output appears in the Dashboard only if the program is running in an Azure WebJob, not if the program is running locally or in some other environment.</source>
+          <target state="new">Console output appears in the Dashboard only if the program is running in an Azure WebJob, not if the program is running locally or in some other environment.</target>
+        </trans-unit>
+        <trans-unit id="422af0cd-9f1c-4d4d-825a-13656ff1d3eb" xml:space="preserve">
+          <source>Disable dashboard logging for high throughput scenarios.</source>
+          <target state="new">Disable dashboard logging for high throughput scenarios.</target>
+        </trans-unit>
+        <trans-unit id="cd856a8d-afdd-4759-8232-fd818e73baa2" xml:space="preserve">
+          <source>By default, the SDK writes logs to storage, and this activity could degrade performance when you are processing many messages.</source>
+          <target state="new">By default, the SDK writes logs to storage, and this activity could degrade performance when you are processing many messages.</target>
+        </trans-unit>
+        <trans-unit id="877200fb-4800-4d7a-8fcb-abc34cfd4d50" xml:space="preserve">
+          <source>To disable logging, set the dashboard connection string to null as shown in the following example.</source>
+          <target state="new">To disable logging, set the dashboard connection string to null as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="d391147a-672f-4905-8cfe-0132cf3518fb" xml:space="preserve">
+          <source>The following example shows several ways to write logs:</source>
+          <target state="new">The following example shows several ways to write logs:</target>
+        </trans-unit>
+        <trans-unit id="514a5e87-8c15-46f1-9bd7-cf3992a0cc7e" xml:space="preserve">
+          <source>In the WebJobs SDK Dashboard, the output from the <bpt id="5007499e-e9e8-4416-b06b-d29ff93a3a53">&lt;code&gt;</bpt>TextWriter<ept id="5007499e-e9e8-4416-b06b-d29ff93a3a53">&lt;/code&gt;</ept> object shows up when you go to the page for a particular function invocation and click <bpt id="8eef709a-618e-44ae-8b56-0aca15cf2626">&lt;strong&gt;</bpt>Toggle Output<ept id="8eef709a-618e-44ae-8b56-0aca15cf2626">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In the WebJobs SDK Dashboard, the output from the <bpt id="5007499e-e9e8-4416-b06b-d29ff93a3a53">&lt;code&gt;</bpt>TextWriter<ept id="5007499e-e9e8-4416-b06b-d29ff93a3a53">&lt;/code&gt;</ept> object shows up when you go to the page for a particular function invocation and click <bpt id="8eef709a-618e-44ae-8b56-0aca15cf2626">&lt;strong&gt;</bpt>Toggle Output<ept id="8eef709a-618e-44ae-8b56-0aca15cf2626">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="cf062010-d18b-41b7-8711-1094b92c688d" xml:space="preserve">
+          <source><bpt id="1522ca95-7f40-4f5b-a897-3a6dfb496dc4">&lt;linkText&gt;</bpt>Click function invocation link<ept id="1522ca95-7f40-4f5b-a897-3a6dfb496dc4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1522ca95-7f40-4f5b-a897-3a6dfb496dc4">&lt;linkText&gt;</bpt>Click function invocation link<ept id="1522ca95-7f40-4f5b-a897-3a6dfb496dc4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="717c791b-2355-4059-8ce8-5dd59d2853c8" xml:space="preserve">
+          <source><bpt id="cdee4a58-f800-4e4b-8e3f-6105fbca343a">&lt;linkText&gt;</bpt>Logs in function invocation page<ept id="cdee4a58-f800-4e4b-8e3f-6105fbca343a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cdee4a58-f800-4e4b-8e3f-6105fbca343a">&lt;linkText&gt;</bpt>Logs in function invocation page<ept id="cdee4a58-f800-4e4b-8e3f-6105fbca343a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b64c7c8a-b42d-49df-8555-cdde305c07fe" xml:space="preserve">
+          <source>In the WebJobs SDK Dashboard, the most recent 100 lines of Console output show up when you go to the page for the WebJob (not for the function invocation) and click <bpt id="094b380f-b600-40c9-8e1f-095f1f356d7b">&lt;strong&gt;</bpt>Toggle Output<ept id="094b380f-b600-40c9-8e1f-095f1f356d7b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the WebJobs SDK Dashboard, the most recent 100 lines of Console output show up when you go to the page for the WebJob (not for the function invocation) and click <bpt id="094b380f-b600-40c9-8e1f-095f1f356d7b">&lt;strong&gt;</bpt>Toggle Output<ept id="094b380f-b600-40c9-8e1f-095f1f356d7b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3864276b-b5fc-442d-8e4c-1b0b20ffaddf" xml:space="preserve">
+          <source><bpt id="6c6cc3d9-295e-49a8-aa70-a24c2a520301">&lt;linkText&gt;</bpt>Click Toggle Output<ept id="6c6cc3d9-295e-49a8-aa70-a24c2a520301">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6c6cc3d9-295e-49a8-aa70-a24c2a520301">&lt;linkText&gt;</bpt>Click Toggle Output<ept id="6c6cc3d9-295e-49a8-aa70-a24c2a520301">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b99b1fab-2ca3-4dbe-b040-645b17579a41" xml:space="preserve">
+          <source>In a continuous WebJob, application logs show up in /data/jobs/continuous/<bpt id="f0f78a83-5943-4569-b3b8-4af0d605ff5a">&lt;em&gt;</bpt>{webjobname}<ept id="f0f78a83-5943-4569-b3b8-4af0d605ff5a">&lt;/em&gt;</ept>/job_log.txt in the web app file system.</source>
+          <target state="new">In a continuous WebJob, application logs show up in /data/jobs/continuous/<bpt id="f0f78a83-5943-4569-b3b8-4af0d605ff5a">&lt;em&gt;</bpt>{webjobname}<ept id="f0f78a83-5943-4569-b3b8-4af0d605ff5a">&lt;/em&gt;</ept>/job_log.txt in the web app file system.</target>
+        </trans-unit>
+        <trans-unit id="9787004c-f33f-4be5-b4ca-6fbd5b4fac9d" xml:space="preserve">
+          <source>In an Azure blob the application logs look like this:
+        2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!,
+        2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!,
+        2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,</source>
+          <target state="new">In an Azure blob the application logs look like this:
+        2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!,
+        2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!,
+        2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,</target>
+        </trans-unit>
+        <trans-unit id="cb425e96-47c5-4a19-8281-e6f3ccd14165" xml:space="preserve">
+          <source>And in an Azure table the <bpt id="263d739e-84cb-4590-8a01-5d245679799b">&lt;code&gt;</bpt>Console.Out<ept id="263d739e-84cb-4590-8a01-5d245679799b">&lt;/code&gt;</ept> and <bpt id="7ef7effc-db2f-4150-b801-c5a271ba8872">&lt;code&gt;</bpt>Console.Error<ept id="7ef7effc-db2f-4150-b801-c5a271ba8872">&lt;/code&gt;</ept> logs look like this:</source>
+          <target state="new">And in an Azure table the <bpt id="263d739e-84cb-4590-8a01-5d245679799b">&lt;code&gt;</bpt>Console.Out<ept id="263d739e-84cb-4590-8a01-5d245679799b">&lt;/code&gt;</ept> and <bpt id="7ef7effc-db2f-4150-b801-c5a271ba8872">&lt;code&gt;</bpt>Console.Error<ept id="7ef7effc-db2f-4150-b801-c5a271ba8872">&lt;/code&gt;</ept> logs look like this:</target>
+        </trans-unit>
+        <trans-unit id="15cf624f-7b86-4738-81ff-c25167f67b98" xml:space="preserve">
+          <source><bpt id="765e7a8b-6bcb-480f-90b4-5a485a64301b">&lt;linkText&gt;</bpt>Info log in table<ept id="765e7a8b-6bcb-480f-90b4-5a485a64301b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="765e7a8b-6bcb-480f-90b4-5a485a64301b">&lt;linkText&gt;</bpt>Info log in table<ept id="765e7a8b-6bcb-480f-90b4-5a485a64301b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6f78686-614c-422b-991f-b32c2896b28c" xml:space="preserve">
+          <source><bpt id="1d9b1055-45f2-4ef5-825c-9d555d45bfa8">&lt;linkText&gt;</bpt>Error log in table<ept id="1d9b1055-45f2-4ef5-825c-9d555d45bfa8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1d9b1055-45f2-4ef5-825c-9d555d45bfa8">&lt;linkText&gt;</bpt>Error log in table<ept id="1d9b1055-45f2-4ef5-825c-9d555d45bfa8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07578df3-427e-424d-8227-a766c96efe8f" xml:space="preserve">
+          <source>This guide has provided code samples that show how to handle common scenarios for working with Azure queues.</source>
+          <target state="new">This guide has provided code samples that show how to handle common scenarios for working with Azure queues.</target>
+        </trans-unit>
+        <trans-unit id="1c3b665c-6195-4554-8968-db18566e75a4" xml:space="preserve">
+          <source>For more information about how to use Azure WebJobs and the WebJobs SDK, see <bpt id="1ef8355a-c193-4e03-80bc-a3560b4a246d">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources<ept id="1ef8355a-c193-4e03-80bc-a3560b4a246d">&lt;/linkText&gt;</ept><bpt id="1ef8355a-c193-4e03-80bc-a3560b4a246d">&lt;title&gt;</bpt><ept id="1ef8355a-c193-4e03-80bc-a3560b4a246d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to use Azure WebJobs and the WebJobs SDK, see <bpt id="1ef8355a-c193-4e03-80bc-a3560b4a246d">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources<ept id="1ef8355a-c193-4e03-80bc-a3560b4a246d">&lt;/linkText&gt;</ept><bpt id="1ef8355a-c193-4e03-80bc-a3560b4a246d">&lt;title&gt;</bpt><ept id="1ef8355a-c193-4e03-80bc-a3560b4a246d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

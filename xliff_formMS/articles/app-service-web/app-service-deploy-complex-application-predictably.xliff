@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bf2f1d92-cc63-4e1f-9bc5-b186c7da88ba" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bf2f1d92-cc63-4e1f-9bc5-b186c7da88ba" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1ea4a9df-b713-4b50-85a2-db2c3398b919">
+        <trans-unit id="5e371efb-1fd1-48e1-a1db-7b28445cee7e" xml:space="preserve">
+          <source>Provision and deploy microservices predictably in Azure</source>
+          <target state="new">Provision and deploy microservices predictably in Azure</target>
+        </trans-unit>
+        <trans-unit id="bb21d05b-1f34-4c88-93ea-0c712878b7dc" xml:space="preserve">
+          <source>Learn how to deploy an application composed of microservices in Azure App Service as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting.</source>
+          <target state="new">Learn how to deploy an application composed of microservices in Azure App Service as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting.</target>
+        </trans-unit>
+        <trans-unit id="ea2b64ad-b23c-4c2d-87ad-600658216f16" xml:space="preserve">
+          <source>This tutorial shows how to provision and deploy an application composed of <bpt id="927aeecb-a0e3-487c-b0a1-a1693aa74be2">&lt;linkText&gt;</bpt>microservices<ept id="927aeecb-a0e3-487c-b0a1-a1693aa74be2">&lt;/linkText&gt;</ept><bpt id="927aeecb-a0e3-487c-b0a1-a1693aa74be2">&lt;title&gt;</bpt><ept id="927aeecb-a0e3-487c-b0a1-a1693aa74be2">&lt;/title&gt;</ept> in <bpt id="962fbd4a-b37d-4d3e-a381-1da75bbb4e36">&lt;linkText&gt;</bpt>Azure App Service<ept id="962fbd4a-b37d-4d3e-a381-1da75bbb4e36">&lt;/linkText&gt;</ept><bpt id="962fbd4a-b37d-4d3e-a381-1da75bbb4e36">&lt;title&gt;</bpt><ept id="962fbd4a-b37d-4d3e-a381-1da75bbb4e36">&lt;/title&gt;</ept> as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting.</source>
+          <target state="new">This tutorial shows how to provision and deploy an application composed of <bpt id="927aeecb-a0e3-487c-b0a1-a1693aa74be2">&lt;linkText&gt;</bpt>microservices<ept id="927aeecb-a0e3-487c-b0a1-a1693aa74be2">&lt;/linkText&gt;</ept><bpt id="927aeecb-a0e3-487c-b0a1-a1693aa74be2">&lt;title&gt;</bpt><ept id="927aeecb-a0e3-487c-b0a1-a1693aa74be2">&lt;/title&gt;</ept> in <bpt id="962fbd4a-b37d-4d3e-a381-1da75bbb4e36">&lt;linkText&gt;</bpt>Azure App Service<ept id="962fbd4a-b37d-4d3e-a381-1da75bbb4e36">&lt;/linkText&gt;</ept><bpt id="962fbd4a-b37d-4d3e-a381-1da75bbb4e36">&lt;title&gt;</bpt><ept id="962fbd4a-b37d-4d3e-a381-1da75bbb4e36">&lt;/title&gt;</ept> as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting.</target>
+        </trans-unit>
+        <trans-unit id="4f6df643-52bc-491f-bc38-efbd91544432" xml:space="preserve">
+          <source>When provisioning and deploying high-scale applications that are composed of highly decoupled microservices, repeatability and predictability are crucial to success.</source>
+          <target state="new">When provisioning and deploying high-scale applications that are composed of highly decoupled microservices, repeatability and predictability are crucial to success.</target>
+        </trans-unit>
+        <trans-unit id="407dceb5-b429-4fee-9537-cfaab9cecb1c" xml:space="preserve">
+          <source><bpt id="d6edcabd-7d0c-4d5a-9410-c36f877d48ed">&lt;linkText&gt;</bpt>Azure App Service<ept id="d6edcabd-7d0c-4d5a-9410-c36f877d48ed">&lt;/linkText&gt;</ept><bpt id="d6edcabd-7d0c-4d5a-9410-c36f877d48ed">&lt;title&gt;</bpt><ept id="d6edcabd-7d0c-4d5a-9410-c36f877d48ed">&lt;/title&gt;</ept> enables you to create microservices that include web apps, mobile apps, API apps, and logic apps.</source>
+          <target state="new"><bpt id="d6edcabd-7d0c-4d5a-9410-c36f877d48ed">&lt;linkText&gt;</bpt>Azure App Service<ept id="d6edcabd-7d0c-4d5a-9410-c36f877d48ed">&lt;/linkText&gt;</ept><bpt id="d6edcabd-7d0c-4d5a-9410-c36f877d48ed">&lt;title&gt;</bpt><ept id="d6edcabd-7d0c-4d5a-9410-c36f877d48ed">&lt;/title&gt;</ept> enables you to create microservices that include web apps, mobile apps, API apps, and logic apps.</target>
+        </trans-unit>
+        <trans-unit id="11e19091-de19-425a-8786-dfb8041907d8" xml:space="preserve">
+          <source><bpt id="36ccb17b-12f9-40d7-850e-231757fcf7dc">&lt;linkText&gt;</bpt>Azure Resource Manager<ept id="36ccb17b-12f9-40d7-850e-231757fcf7dc">&lt;/linkText&gt;</ept><bpt id="36ccb17b-12f9-40d7-850e-231757fcf7dc">&lt;title&gt;</bpt><ept id="36ccb17b-12f9-40d7-850e-231757fcf7dc">&lt;/title&gt;</ept> enables you to manage all the microservices as a unit, together with resource dependencies such as database and source control settings.</source>
+          <target state="new"><bpt id="36ccb17b-12f9-40d7-850e-231757fcf7dc">&lt;linkText&gt;</bpt>Azure Resource Manager<ept id="36ccb17b-12f9-40d7-850e-231757fcf7dc">&lt;/linkText&gt;</ept><bpt id="36ccb17b-12f9-40d7-850e-231757fcf7dc">&lt;title&gt;</bpt><ept id="36ccb17b-12f9-40d7-850e-231757fcf7dc">&lt;/title&gt;</ept> enables you to manage all the microservices as a unit, together with resource dependencies such as database and source control settings.</target>
+        </trans-unit>
+        <trans-unit id="ac22f225-83bd-4f91-bc25-204fb3ca3611" xml:space="preserve">
+          <source>Now, you can also deploy such an application using JSON templates and simple PowerShell scripting.</source>
+          <target state="new">Now, you can also deploy such an application using JSON templates and simple PowerShell scripting.</target>
+        </trans-unit>
+        <trans-unit id="13566833-69b5-4f82-b8de-3996120498d2" xml:space="preserve">
+          <source>In the tutorial, you will deploy an application that includes:</source>
+          <target state="new">In the tutorial, you will deploy an application that includes:</target>
+        </trans-unit>
+        <trans-unit id="58b5244f-92c2-4b09-9245-79e36e2bd7b3" xml:space="preserve">
+          <source>Two web apps (i.e. two microservices)</source>
+          <target state="new">Two web apps (i.e. two microservices)</target>
+        </trans-unit>
+        <trans-unit id="17c9fba4-61ff-4d59-af9e-d1811bab884d" xml:space="preserve">
+          <source>A backend SQL Database</source>
+          <target state="new">A backend SQL Database</target>
+        </trans-unit>
+        <trans-unit id="ec962687-b413-409d-8ffb-16f8fd8df419" xml:space="preserve">
+          <source>App settings, connection strings, and source control</source>
+          <target state="new">App settings, connection strings, and source control</target>
+        </trans-unit>
+        <trans-unit id="ad3053c7-0cc3-408d-98b6-f643e9e2696c" xml:space="preserve">
+          <source>Application insights, alerts, autoscaling settings</source>
+          <target state="new">Application insights, alerts, autoscaling settings</target>
+        </trans-unit>
+        <trans-unit id="75cfbb09-ccaf-42b2-8a17-99d0cf60f4e1" xml:space="preserve">
+          <source>In this tutorial, you will use the following tools.</source>
+          <target state="new">In this tutorial, you will use the following tools.</target>
+        </trans-unit>
+        <trans-unit id="396fceb0-0a6f-4153-a339-545f7665eead" xml:space="preserve">
+          <source>Since it’s not comprehensive discussion on tools, I’m going to stick to the end-to-end scenario and just give you a brief intro to each, and where you can find more information on it.</source>
+          <target state="new">Since it’s not comprehensive discussion on tools, I’m going to stick to the end-to-end scenario and just give you a brief intro to each, and where you can find more information on it.</target>
+        </trans-unit>
+        <trans-unit id="90f1d83e-fd76-43c2-b2cf-799379d39320" xml:space="preserve">
+          <source>Every time you create a web app in Azure App Service, for example, Azure Resource Manager uses a JSON template to create the entire resource group with the component resources.</source>
+          <target state="new">Every time you create a web app in Azure App Service, for example, Azure Resource Manager uses a JSON template to create the entire resource group with the component resources.</target>
+        </trans-unit>
+        <trans-unit id="6fbc55d8-d914-465f-bfa2-cbcbb333944f" xml:space="preserve">
+          <source>A complex template from the <bpt id="85675f77-1b74-4d2e-abdc-35fa355f2b7d">&lt;linkText&gt;</bpt>Azure Marketplace<ept id="85675f77-1b74-4d2e-abdc-35fa355f2b7d">&lt;/linkText&gt;</ept><bpt id="85675f77-1b74-4d2e-abdc-35fa355f2b7d">&lt;title&gt;</bpt><ept id="85675f77-1b74-4d2e-abdc-35fa355f2b7d">&lt;/title&gt;</ept> like the <bpt id="8cdb30d1-f022-446f-ab64-5c8789191e55">&lt;linkText&gt;</bpt>Scalable WordPress<ept id="8cdb30d1-f022-446f-ab64-5c8789191e55">&lt;/linkText&gt;</ept><bpt id="8cdb30d1-f022-446f-ab64-5c8789191e55">&lt;title&gt;</bpt><ept id="8cdb30d1-f022-446f-ab64-5c8789191e55">&lt;/title&gt;</ept> app can include the MySQL database, storage accounts, the App Service plan, the web app itself, alert rules, app settings, autoscale settings, and more, and all these templates are available to you through PowerShell.</source>
+          <target state="new">A complex template from the <bpt id="85675f77-1b74-4d2e-abdc-35fa355f2b7d">&lt;linkText&gt;</bpt>Azure Marketplace<ept id="85675f77-1b74-4d2e-abdc-35fa355f2b7d">&lt;/linkText&gt;</ept><bpt id="85675f77-1b74-4d2e-abdc-35fa355f2b7d">&lt;title&gt;</bpt><ept id="85675f77-1b74-4d2e-abdc-35fa355f2b7d">&lt;/title&gt;</ept> like the <bpt id="8cdb30d1-f022-446f-ab64-5c8789191e55">&lt;linkText&gt;</bpt>Scalable WordPress<ept id="8cdb30d1-f022-446f-ab64-5c8789191e55">&lt;/linkText&gt;</ept><bpt id="8cdb30d1-f022-446f-ab64-5c8789191e55">&lt;title&gt;</bpt><ept id="8cdb30d1-f022-446f-ab64-5c8789191e55">&lt;/title&gt;</ept> app can include the MySQL database, storage accounts, the App Service plan, the web app itself, alert rules, app settings, autoscale settings, and more, and all these templates are available to you through PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="3bdde30e-3765-4591-91b1-4b2322148f23" xml:space="preserve">
+          <source>For information on how to download and use these templates, see <bpt id="194de100-1cd4-46e4-9257-2e1942c954fc">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="194de100-1cd4-46e4-9257-2e1942c954fc">&lt;/linkText&gt;</ept><bpt id="194de100-1cd4-46e4-9257-2e1942c954fc">&lt;title&gt;</bpt><ept id="194de100-1cd4-46e4-9257-2e1942c954fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on how to download and use these templates, see <bpt id="194de100-1cd4-46e4-9257-2e1942c954fc">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="194de100-1cd4-46e4-9257-2e1942c954fc">&lt;/linkText&gt;</ept><bpt id="194de100-1cd4-46e4-9257-2e1942c954fc">&lt;title&gt;</bpt><ept id="194de100-1cd4-46e4-9257-2e1942c954fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44c8c39b-2a64-4d9d-b18d-6dd960212681" xml:space="preserve">
+          <source>For more information on the Azure Resource Manager templates, see <bpt id="72046b58-6ab1-4933-9aa0-d8ab592513dd">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager Templates<ept id="72046b58-6ab1-4933-9aa0-d8ab592513dd">&lt;/linkText&gt;</ept><bpt id="72046b58-6ab1-4933-9aa0-d8ab592513dd">&lt;title&gt;</bpt><ept id="72046b58-6ab1-4933-9aa0-d8ab592513dd">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on the Azure Resource Manager templates, see <bpt id="72046b58-6ab1-4933-9aa0-d8ab592513dd">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager Templates<ept id="72046b58-6ab1-4933-9aa0-d8ab592513dd">&lt;/linkText&gt;</ept><bpt id="72046b58-6ab1-4933-9aa0-d8ab592513dd">&lt;title&gt;</bpt><ept id="72046b58-6ab1-4933-9aa0-d8ab592513dd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9867e7db-ac7f-4822-a8d8-b1517636eebe" xml:space="preserve">
+          <source>The newest SDK contains improvements to the Resource Manager template support in the JSON editor.</source>
+          <target state="new">The newest SDK contains improvements to the Resource Manager template support in the JSON editor.</target>
+        </trans-unit>
+        <trans-unit id="31af72b4-0ced-485e-93fa-f7d5a6a0df6a" xml:space="preserve">
+          <source>You can use this to quickly create a resource group template from scratch or open an existing JSON template (such as a downloaded gallery template) for modification, populate the parameters file, and even deploy the resource group directly from an Azure Resource Group solution.</source>
+          <target state="new">You can use this to quickly create a resource group template from scratch or open an existing JSON template (such as a downloaded gallery template) for modification, populate the parameters file, and even deploy the resource group directly from an Azure Resource Group solution.</target>
+        </trans-unit>
+        <trans-unit id="a8629319-b7ab-4f67-ae70-477e073fd002" xml:space="preserve">
+          <source>For more information, see <bpt id="4cee63c6-a628-46f1-9e6f-9d9f9aabf7e6">&lt;linkText&gt;</bpt>Azure SDK 2.6 for Visual Studio<ept id="4cee63c6-a628-46f1-9e6f-9d9f9aabf7e6">&lt;/linkText&gt;</ept><bpt id="4cee63c6-a628-46f1-9e6f-9d9f9aabf7e6">&lt;title&gt;</bpt><ept id="4cee63c6-a628-46f1-9e6f-9d9f9aabf7e6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4cee63c6-a628-46f1-9e6f-9d9f9aabf7e6">&lt;linkText&gt;</bpt>Azure SDK 2.6 for Visual Studio<ept id="4cee63c6-a628-46f1-9e6f-9d9f9aabf7e6">&lt;/linkText&gt;</ept><bpt id="4cee63c6-a628-46f1-9e6f-9d9f9aabf7e6">&lt;title&gt;</bpt><ept id="4cee63c6-a628-46f1-9e6f-9d9f9aabf7e6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9390dc8d-b4ac-40ef-8d15-a100b3465720" xml:space="preserve">
+          <source>Beginning in version 0.8.0, the Azure PowerShell installation includes the Azure Resource Manager module in addition to the Azure module.</source>
+          <target state="new">Beginning in version 0.8.0, the Azure PowerShell installation includes the Azure Resource Manager module in addition to the Azure module.</target>
+        </trans-unit>
+        <trans-unit id="ec4e8f07-1997-4d13-8626-631c7ce61da3" xml:space="preserve">
+          <source>This new module enables you to script the deployment of resource groups.</source>
+          <target state="new">This new module enables you to script the deployment of resource groups.</target>
+        </trans-unit>
+        <trans-unit id="3bbfb983-0eeb-459d-9483-aac1f311b858" xml:space="preserve">
+          <source>For more information, see <bpt id="7d53a28e-004a-4f2a-96da-a5b1e4415a5b">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="7d53a28e-004a-4f2a-96da-a5b1e4415a5b">&lt;/linkText&gt;</ept><bpt id="7d53a28e-004a-4f2a-96da-a5b1e4415a5b">&lt;title&gt;</bpt><ept id="7d53a28e-004a-4f2a-96da-a5b1e4415a5b">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="7d53a28e-004a-4f2a-96da-a5b1e4415a5b">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="7d53a28e-004a-4f2a-96da-a5b1e4415a5b">&lt;/linkText&gt;</ept><bpt id="7d53a28e-004a-4f2a-96da-a5b1e4415a5b">&lt;title&gt;</bpt><ept id="7d53a28e-004a-4f2a-96da-a5b1e4415a5b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c16f5cc-2232-4446-9710-4bfd02268721" xml:space="preserve">
+          <source>This <bpt id="e8792f94-7292-43d1-a5ca-d9a6a27df44f">&lt;linkText&gt;</bpt>preview tool<ept id="e8792f94-7292-43d1-a5ca-d9a6a27df44f">&lt;/linkText&gt;</ept><bpt id="e8792f94-7292-43d1-a5ca-d9a6a27df44f">&lt;title&gt;</bpt><ept id="e8792f94-7292-43d1-a5ca-d9a6a27df44f">&lt;/title&gt;</ept> enables you to explore the JSON definitions of all the resource groups in your subscription and the individual resources.</source>
+          <target state="new">This <bpt id="e8792f94-7292-43d1-a5ca-d9a6a27df44f">&lt;linkText&gt;</bpt>preview tool<ept id="e8792f94-7292-43d1-a5ca-d9a6a27df44f">&lt;/linkText&gt;</ept><bpt id="e8792f94-7292-43d1-a5ca-d9a6a27df44f">&lt;title&gt;</bpt><ept id="e8792f94-7292-43d1-a5ca-d9a6a27df44f">&lt;/title&gt;</ept> enables you to explore the JSON definitions of all the resource groups in your subscription and the individual resources.</target>
+        </trans-unit>
+        <trans-unit id="f0a0a902-2a58-4898-a646-701a38d58e5a" xml:space="preserve">
+          <source>In the tool, you can edit the JSON definitions of a resource, delete an entire hierarchy of resources, and create new resources.</source>
+          <target state="new">In the tool, you can edit the JSON definitions of a resource, delete an entire hierarchy of resources, and create new resources.</target>
+        </trans-unit>
+        <trans-unit id="7fbaa94f-09ab-4954-b277-4287c1c57dd5" xml:space="preserve">
+          <source>The information readily available in this tool is very helpful for template authoring because it shows you what properties you need to set for a particular type of resource, the correct values, etc. You can even create your resource group in the <bpt id="cd63b348-08cc-4ba8-a9e9-f2c88dd1b13e">&lt;linkText&gt;</bpt>Azure preview portal<ept id="cd63b348-08cc-4ba8-a9e9-f2c88dd1b13e">&lt;/linkText&gt;</ept><bpt id="cd63b348-08cc-4ba8-a9e9-f2c88dd1b13e">&lt;title&gt;</bpt><ept id="cd63b348-08cc-4ba8-a9e9-f2c88dd1b13e">&lt;/title&gt;</ept>, then inspect its JSON definitions in the explorer tool to help you templatize the resource group.</source>
+          <target state="new">The information readily available in this tool is very helpful for template authoring because it shows you what properties you need to set for a particular type of resource, the correct values, etc. You can even create your resource group in the <bpt id="cd63b348-08cc-4ba8-a9e9-f2c88dd1b13e">&lt;linkText&gt;</bpt>Azure preview portal<ept id="cd63b348-08cc-4ba8-a9e9-f2c88dd1b13e">&lt;/linkText&gt;</ept><bpt id="cd63b348-08cc-4ba8-a9e9-f2c88dd1b13e">&lt;title&gt;</bpt><ept id="cd63b348-08cc-4ba8-a9e9-f2c88dd1b13e">&lt;/title&gt;</ept>, then inspect its JSON definitions in the explorer tool to help you templatize the resource group.</target>
+        </trans-unit>
+        <trans-unit id="796edaea-4bfe-4dae-90a8-d64c1bc44e6b" xml:space="preserve">
+          <source>If you use GitHub for source control, you can put a <bpt id="a3500c4c-31a4-431a-95fa-e05ec62f7ee7">&lt;linkText&gt;</bpt>Deploy to Azure button<ept id="a3500c4c-31a4-431a-95fa-e05ec62f7ee7">&lt;/linkText&gt;</ept><bpt id="a3500c4c-31a4-431a-95fa-e05ec62f7ee7">&lt;title&gt;</bpt><ept id="a3500c4c-31a4-431a-95fa-e05ec62f7ee7">&lt;/title&gt;</ept> into your README.MD, which enables a turn-key deployment UI to Azure.</source>
+          <target state="new">If you use GitHub for source control, you can put a <bpt id="a3500c4c-31a4-431a-95fa-e05ec62f7ee7">&lt;linkText&gt;</bpt>Deploy to Azure button<ept id="a3500c4c-31a4-431a-95fa-e05ec62f7ee7">&lt;/linkText&gt;</ept><bpt id="a3500c4c-31a4-431a-95fa-e05ec62f7ee7">&lt;title&gt;</bpt><ept id="a3500c4c-31a4-431a-95fa-e05ec62f7ee7">&lt;/title&gt;</ept> into your README.MD, which enables a turn-key deployment UI to Azure.</target>
+        </trans-unit>
+        <trans-unit id="b8b67ae1-d663-45e2-a724-a0e50a648c1a" xml:space="preserve">
+          <source>While you can do this for any simple web app, you can extend this to enable deploying an entire resource group by putting an azuredeploy.json file in the repository root.</source>
+          <target state="new">While you can do this for any simple web app, you can extend this to enable deploying an entire resource group by putting an azuredeploy.json file in the repository root.</target>
+        </trans-unit>
+        <trans-unit id="3137e5cb-3c86-4e83-8168-8ac75a7de301" xml:space="preserve">
+          <source>This JSON file, which contains the resource group template, will be used by the Deploy to Azure button to create the resource group.</source>
+          <target state="new">This JSON file, which contains the resource group template, will be used by the Deploy to Azure button to create the resource group.</target>
+        </trans-unit>
+        <trans-unit id="fdd13018-fb17-41bb-abe4-004c70a39c71" xml:space="preserve">
+          <source>For an example, see the <bpt id="4f5614c7-8c39-4eea-9b91-1955c02f37d9">&lt;linkText&gt;</bpt>ToDoApp<ept id="4f5614c7-8c39-4eea-9b91-1955c02f37d9">&lt;/linkText&gt;</ept><bpt id="4f5614c7-8c39-4eea-9b91-1955c02f37d9">&lt;title&gt;</bpt><ept id="4f5614c7-8c39-4eea-9b91-1955c02f37d9">&lt;/title&gt;</ept> sample, which you will use in this tutorial.</source>
+          <target state="new">For an example, see the <bpt id="4f5614c7-8c39-4eea-9b91-1955c02f37d9">&lt;linkText&gt;</bpt>ToDoApp<ept id="4f5614c7-8c39-4eea-9b91-1955c02f37d9">&lt;/linkText&gt;</ept><bpt id="4f5614c7-8c39-4eea-9b91-1955c02f37d9">&lt;title&gt;</bpt><ept id="4f5614c7-8c39-4eea-9b91-1955c02f37d9">&lt;/title&gt;</ept> sample, which you will use in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="3bac7ae3-7be0-493a-a3ac-12f59acb6994" xml:space="preserve">
+          <source>So now let’s get right to it.</source>
+          <target state="new">So now let’s get right to it.</target>
+        </trans-unit>
+        <trans-unit id="1b672e7c-d773-417f-948d-671125c310ec" xml:space="preserve">
+          <source>Navigate to the <bpt id="2248d4e7-6eb2-4428-b2c1-ba5f0592efae">&lt;linkText&gt;</bpt>ToDoApp<ept id="2248d4e7-6eb2-4428-b2c1-ba5f0592efae">&lt;/linkText&gt;</ept><bpt id="2248d4e7-6eb2-4428-b2c1-ba5f0592efae">&lt;title&gt;</bpt><ept id="2248d4e7-6eb2-4428-b2c1-ba5f0592efae">&lt;/title&gt;</ept> App Service sample.</source>
+          <target state="new">Navigate to the <bpt id="2248d4e7-6eb2-4428-b2c1-ba5f0592efae">&lt;linkText&gt;</bpt>ToDoApp<ept id="2248d4e7-6eb2-4428-b2c1-ba5f0592efae">&lt;/linkText&gt;</ept><bpt id="2248d4e7-6eb2-4428-b2c1-ba5f0592efae">&lt;title&gt;</bpt><ept id="2248d4e7-6eb2-4428-b2c1-ba5f0592efae">&lt;/title&gt;</ept> App Service sample.</target>
+        </trans-unit>
+        <trans-unit id="1256075c-212a-403c-a0cd-c401c4e8118c" xml:space="preserve">
+          <source>In readme.md, click <bpt id="d19dc15a-91b0-41ec-a8e1-204680d920d5">&lt;strong&gt;</bpt>Deploy to Azure<ept id="d19dc15a-91b0-41ec-a8e1-204680d920d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In readme.md, click <bpt id="d19dc15a-91b0-41ec-a8e1-204680d920d5">&lt;strong&gt;</bpt>Deploy to Azure<ept id="d19dc15a-91b0-41ec-a8e1-204680d920d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="369fd31d-64c3-406a-bc8a-90965c7686c3" xml:space="preserve">
+          <source>You’re taken to the <bpt id="dfcebab6-a16c-4df7-9dda-1a59bcf4c8f8">&lt;linkText&gt;</bpt>deploy-to-azure<ept id="dfcebab6-a16c-4df7-9dda-1a59bcf4c8f8">&lt;/linkText&gt;</ept><bpt id="dfcebab6-a16c-4df7-9dda-1a59bcf4c8f8">&lt;title&gt;</bpt><ept id="dfcebab6-a16c-4df7-9dda-1a59bcf4c8f8">&lt;/title&gt;</ept> site and asked to input deployment parameters.</source>
+          <target state="new">You’re taken to the <bpt id="dfcebab6-a16c-4df7-9dda-1a59bcf4c8f8">&lt;linkText&gt;</bpt>deploy-to-azure<ept id="dfcebab6-a16c-4df7-9dda-1a59bcf4c8f8">&lt;/linkText&gt;</ept><bpt id="dfcebab6-a16c-4df7-9dda-1a59bcf4c8f8">&lt;title&gt;</bpt><ept id="dfcebab6-a16c-4df7-9dda-1a59bcf4c8f8">&lt;/title&gt;</ept> site and asked to input deployment parameters.</target>
+        </trans-unit>
+        <trans-unit id="d9e0586e-8ee7-4643-87b5-459ab020b1c7" xml:space="preserve">
+          <source>Notice that most of the fields are populated with the repository name and some random strings for you.</source>
+          <target state="new">Notice that most of the fields are populated with the repository name and some random strings for you.</target>
+        </trans-unit>
+        <trans-unit id="07b6fc99-0df7-4558-81ba-fab109f70b15" xml:space="preserve">
+          <source>You can change all the fields if you want, but the only things you have to enter are the SQL Server administrative login and the password, then click <bpt id="01242808-ba6c-457f-b026-499b8b87ffd6">&lt;strong&gt;</bpt>Next<ept id="01242808-ba6c-457f-b026-499b8b87ffd6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can change all the fields if you want, but the only things you have to enter are the SQL Server administrative login and the password, then click <bpt id="01242808-ba6c-457f-b026-499b8b87ffd6">&lt;strong&gt;</bpt>Next<ept id="01242808-ba6c-457f-b026-499b8b87ffd6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d4dda06-0b21-4bbe-aa75-c30adcb1a0ff" xml:space="preserve">
+          <source><bpt id="c17778be-6303-44ae-a5b9-d59083bc8aed">&lt;linkText&gt;</bpt><ept id="c17778be-6303-44ae-a5b9-d59083bc8aed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c17778be-6303-44ae-a5b9-d59083bc8aed">&lt;linkText&gt;</bpt><ept id="c17778be-6303-44ae-a5b9-d59083bc8aed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="697cee84-523f-4979-b721-74bb2e757735" xml:space="preserve">
+          <source>Next, click <bpt id="6cc1a645-a63b-4a08-b77d-04ff48b876f6">&lt;strong&gt;</bpt>Deploy<ept id="6cc1a645-a63b-4a08-b77d-04ff48b876f6">&lt;/strong&gt;</ept> to start the deployment process.</source>
+          <target state="new">Next, click <bpt id="6cc1a645-a63b-4a08-b77d-04ff48b876f6">&lt;strong&gt;</bpt>Deploy<ept id="6cc1a645-a63b-4a08-b77d-04ff48b876f6">&lt;/strong&gt;</ept> to start the deployment process.</target>
+        </trans-unit>
+        <trans-unit id="84c95adf-8d47-4ce2-bd7c-bfe18f5fe098" xml:space="preserve">
+          <source>Once the process runs to completion, click the http://todoapp<bpt id="4d8c0bfa-965b-46d5-9460-4c58b57c0f18">&lt;em&gt;</bpt>XXXX<ept id="4d8c0bfa-965b-46d5-9460-4c58b57c0f18">&lt;/em&gt;</ept>.azure.websites.net link to browse the deployed application.</source>
+          <target state="new">Once the process runs to completion, click the http://todoapp<bpt id="4d8c0bfa-965b-46d5-9460-4c58b57c0f18">&lt;em&gt;</bpt>XXXX<ept id="4d8c0bfa-965b-46d5-9460-4c58b57c0f18">&lt;/em&gt;</ept>.azure.websites.net link to browse the deployed application.</target>
+        </trans-unit>
+        <trans-unit id="1ca66d85-e102-40a1-8aa2-f98ea84a3e9f" xml:space="preserve">
+          <source><bpt id="52c10518-f9bf-4df0-b76f-861e4b08857f">&lt;linkText&gt;</bpt><ept id="52c10518-f9bf-4df0-b76f-861e4b08857f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="52c10518-f9bf-4df0-b76f-861e4b08857f">&lt;linkText&gt;</bpt><ept id="52c10518-f9bf-4df0-b76f-861e4b08857f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="84689569-1932-4bf5-be5b-680c5516d560" xml:space="preserve">
+          <source>The UI would be a little slow when you first browse to it because the apps are just starting up, but convince yourself that it’s a fully-functional application.</source>
+          <target state="new">The UI would be a little slow when you first browse to it because the apps are just starting up, but convince yourself that it’s a fully-functional application.</target>
+        </trans-unit>
+        <trans-unit id="dc678faa-6ac1-4e1e-b00e-282a331c230d" xml:space="preserve">
+          <source>Back in the Deploy page, click the <bpt id="9c138f9b-f50c-4964-b4a7-0057257dcabc">&lt;strong&gt;</bpt>Manage<ept id="9c138f9b-f50c-4964-b4a7-0057257dcabc">&lt;/strong&gt;</ept> link to see the new application in the Azure preview portal.</source>
+          <target state="new">Back in the Deploy page, click the <bpt id="9c138f9b-f50c-4964-b4a7-0057257dcabc">&lt;strong&gt;</bpt>Manage<ept id="9c138f9b-f50c-4964-b4a7-0057257dcabc">&lt;/strong&gt;</ept> link to see the new application in the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="24dfceda-bca2-4839-abcc-1ce038db0471" xml:space="preserve">
+          <source>In the <bpt id="9a0ee669-0b74-4f55-8f55-56b82a568a00">&lt;strong&gt;</bpt>Essentials<ept id="9a0ee669-0b74-4f55-8f55-56b82a568a00">&lt;/strong&gt;</ept> dropdown, click the resource group link.</source>
+          <target state="new">In the <bpt id="9a0ee669-0b74-4f55-8f55-56b82a568a00">&lt;strong&gt;</bpt>Essentials<ept id="9a0ee669-0b74-4f55-8f55-56b82a568a00">&lt;/strong&gt;</ept> dropdown, click the resource group link.</target>
+        </trans-unit>
+        <trans-unit id="196aea6d-6637-48f1-a16c-e24d7dd61a12" xml:space="preserve">
+          <source>Note also that the web app is already connected to the GitHub repository under <bpt id="85f3d201-4d8e-4c5c-9248-3935ed7cd031">&lt;strong&gt;</bpt>External Project<ept id="85f3d201-4d8e-4c5c-9248-3935ed7cd031">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Note also that the web app is already connected to the GitHub repository under <bpt id="85f3d201-4d8e-4c5c-9248-3935ed7cd031">&lt;strong&gt;</bpt>External Project<ept id="85f3d201-4d8e-4c5c-9248-3935ed7cd031">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c0c8926-f850-4b71-99a8-ee0a90f73b14" xml:space="preserve">
+          <source><bpt id="b77a1538-00ec-46a7-826c-bb7c5ca00d2e">&lt;linkText&gt;</bpt><ept id="b77a1538-00ec-46a7-826c-bb7c5ca00d2e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b77a1538-00ec-46a7-826c-bb7c5ca00d2e">&lt;linkText&gt;</bpt><ept id="b77a1538-00ec-46a7-826c-bb7c5ca00d2e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b29b5ae7-e11b-462d-b0e3-156e93fc09bc" xml:space="preserve">
+          <source>In the resource group blade, note that there are already two web apps and one SQL Database in the resource group.</source>
+          <target state="new">In the resource group blade, note that there are already two web apps and one SQL Database in the resource group.</target>
+        </trans-unit>
+        <trans-unit id="eb55cd5c-11c6-40c2-8e19-b8be72cc28bf" xml:space="preserve">
+          <source><bpt id="8c254af2-3cc0-4333-bf60-a2a8b49d7f20">&lt;linkText&gt;</bpt><ept id="8c254af2-3cc0-4333-bf60-a2a8b49d7f20">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8c254af2-3cc0-4333-bf60-a2a8b49d7f20">&lt;linkText&gt;</bpt><ept id="8c254af2-3cc0-4333-bf60-a2a8b49d7f20">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="219b0bcf-75e4-4d5c-9de6-84bb583c900f" xml:space="preserve">
+          <source>Everything that you just saw in a few short minutes is a fully deployed two-microservice application, with all the components, dependencies, settings, database, and continuous publishing, set up by an automated orchestration in Azure Resource Manager.</source>
+          <target state="new">Everything that you just saw in a few short minutes is a fully deployed two-microservice application, with all the components, dependencies, settings, database, and continuous publishing, set up by an automated orchestration in Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="aa7e125b-8737-4f54-9aa8-9d9abd0bad3b" xml:space="preserve">
+          <source>All this was done by two things:</source>
+          <target state="new">All this was done by two things:</target>
+        </trans-unit>
+        <trans-unit id="084cb0ec-02ef-4a4d-8149-d329aa67c98e" xml:space="preserve">
+          <source>The Deploy to Azure button</source>
+          <target state="new">The Deploy to Azure button</target>
+        </trans-unit>
+        <trans-unit id="89d3b013-a4b8-4579-aa6c-03ff8504b9db" xml:space="preserve">
+          <source>azuredeploy.json in the repo root</source>
+          <target state="new">azuredeploy.json in the repo root</target>
+        </trans-unit>
+        <trans-unit id="a86c8115-031e-40a9-b7ec-75f7813fa4a0" xml:space="preserve">
+          <source>You can deploy this same application tens, hundreds, or thousands of times and have the exact same configuration every time.</source>
+          <target state="new">You can deploy this same application tens, hundreds, or thousands of times and have the exact same configuration every time.</target>
+        </trans-unit>
+        <trans-unit id="dfc90fa2-3268-4fac-ae62-a6707df87048" xml:space="preserve">
+          <source>The repeatability and the predictability of this approach enables you to deploy high-scale applications with ease and confidence.</source>
+          <target state="new">The repeatability and the predictability of this approach enables you to deploy high-scale applications with ease and confidence.</target>
+        </trans-unit>
+        <trans-unit id="02fa6740-569d-4910-b291-ed5e7b7b2401" xml:space="preserve">
+          <source>Now let’s look at how the GitHub repository was set up.</source>
+          <target state="new">Now let’s look at how the GitHub repository was set up.</target>
+        </trans-unit>
+        <trans-unit id="90b3014b-9b24-4ad2-b921-b60fa6402893" xml:space="preserve">
+          <source>You will be using the JSON editor in the Azure .NET SDK, so if you haven’t already installed <bpt id="fc33eebb-75c6-48ae-a90a-90d60153022d">&lt;linkText&gt;</bpt>Azure .NET SDK 2.6<ept id="fc33eebb-75c6-48ae-a90a-90d60153022d">&lt;/linkText&gt;</ept><bpt id="fc33eebb-75c6-48ae-a90a-90d60153022d">&lt;title&gt;</bpt><ept id="fc33eebb-75c6-48ae-a90a-90d60153022d">&lt;/title&gt;</ept>, do it now.</source>
+          <target state="new">You will be using the JSON editor in the Azure .NET SDK, so if you haven’t already installed <bpt id="fc33eebb-75c6-48ae-a90a-90d60153022d">&lt;linkText&gt;</bpt>Azure .NET SDK 2.6<ept id="fc33eebb-75c6-48ae-a90a-90d60153022d">&lt;/linkText&gt;</ept><bpt id="fc33eebb-75c6-48ae-a90a-90d60153022d">&lt;title&gt;</bpt><ept id="fc33eebb-75c6-48ae-a90a-90d60153022d">&lt;/title&gt;</ept>, do it now.</target>
+        </trans-unit>
+        <trans-unit id="7c27c54d-ac57-460f-a3b1-d90ca4f0b02e" xml:space="preserve">
+          <source>Clone the <bpt id="fadedbec-0dab-4f83-af7b-1cfb53757997">&lt;linkText&gt;</bpt>ToDoApp<ept id="fadedbec-0dab-4f83-af7b-1cfb53757997">&lt;/linkText&gt;</ept><bpt id="fadedbec-0dab-4f83-af7b-1cfb53757997">&lt;title&gt;</bpt><ept id="fadedbec-0dab-4f83-af7b-1cfb53757997">&lt;/title&gt;</ept> repository using your favorite git tool.</source>
+          <target state="new">Clone the <bpt id="fadedbec-0dab-4f83-af7b-1cfb53757997">&lt;linkText&gt;</bpt>ToDoApp<ept id="fadedbec-0dab-4f83-af7b-1cfb53757997">&lt;/linkText&gt;</ept><bpt id="fadedbec-0dab-4f83-af7b-1cfb53757997">&lt;title&gt;</bpt><ept id="fadedbec-0dab-4f83-af7b-1cfb53757997">&lt;/title&gt;</ept> repository using your favorite git tool.</target>
+        </trans-unit>
+        <trans-unit id="3f800c06-130f-46fb-8ccd-25a56559a9cd" xml:space="preserve">
+          <source>In the screenshot below, I’m doing this in the Team Explorer in Visual Studio 2013.</source>
+          <target state="new">In the screenshot below, I’m doing this in the Team Explorer in Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="c217d0bf-95da-4307-853b-bb2347050394" xml:space="preserve">
+          <source><bpt id="cb3a365e-b9dd-4a70-89f9-0cd999041cc7">&lt;linkText&gt;</bpt><ept id="cb3a365e-b9dd-4a70-89f9-0cd999041cc7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb3a365e-b9dd-4a70-89f9-0cd999041cc7">&lt;linkText&gt;</bpt><ept id="cb3a365e-b9dd-4a70-89f9-0cd999041cc7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9eb2e1d-e897-4d06-aa9c-5f1de9eeb24e" xml:space="preserve">
+          <source>From the repository root, open azuredeploy.json in Visual Studio.</source>
+          <target state="new">From the repository root, open azuredeploy.json in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="70cea29a-c299-40df-949c-7212dfceb14f" xml:space="preserve">
+          <source>If you don’t see the JSON Outline pane, you need to install Azure .NET SDK.</source>
+          <target state="new">If you don’t see the JSON Outline pane, you need to install Azure .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="483ce6dd-7deb-460b-8079-d70af8eaa679" xml:space="preserve">
+          <source><bpt id="3765d197-d2c2-4be4-a3ab-be8ff72f4e4e">&lt;linkText&gt;</bpt><ept id="3765d197-d2c2-4be4-a3ab-be8ff72f4e4e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3765d197-d2c2-4be4-a3ab-be8ff72f4e4e">&lt;linkText&gt;</bpt><ept id="3765d197-d2c2-4be4-a3ab-be8ff72f4e4e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3915a1c1-4d79-4ada-83c7-6900dbdc7392" xml:space="preserve">
+          <source>I’m not going to describe every detail of the JSON format, but the <bpt id="5c3f490c-51d6-48e5-8373-514a6fce2f12">&lt;linkText&gt;</bpt>More Resources<ept id="5c3f490c-51d6-48e5-8373-514a6fce2f12">&lt;/linkText&gt;</ept><bpt id="5c3f490c-51d6-48e5-8373-514a6fce2f12">&lt;title&gt;</bpt><ept id="5c3f490c-51d6-48e5-8373-514a6fce2f12">&lt;/title&gt;</ept> section has links for learning the resource group template language.</source>
+          <target state="new">I’m not going to describe every detail of the JSON format, but the <bpt id="5c3f490c-51d6-48e5-8373-514a6fce2f12">&lt;linkText&gt;</bpt>More Resources<ept id="5c3f490c-51d6-48e5-8373-514a6fce2f12">&lt;/linkText&gt;</ept><bpt id="5c3f490c-51d6-48e5-8373-514a6fce2f12">&lt;title&gt;</bpt><ept id="5c3f490c-51d6-48e5-8373-514a6fce2f12">&lt;/title&gt;</ept> section has links for learning the resource group template language.</target>
+        </trans-unit>
+        <trans-unit id="3d1a2751-a727-4276-a1d5-a90a5c8a5995" xml:space="preserve">
+          <source>Here, I’m just going to show you the interesting features that can help you get started in making your own custom template for app deployment.</source>
+          <target state="new">Here, I’m just going to show you the interesting features that can help you get started in making your own custom template for app deployment.</target>
+        </trans-unit>
+        <trans-unit id="582c49a3-1281-4a13-ba4f-38cd5d266250" xml:space="preserve">
+          <source>Take a look at the parameters section to see that most of these parameters are what the <bpt id="19782262-1ea1-4d00-89c8-1bff2eaf61a2">&lt;strong&gt;</bpt>Deploy to Azure<ept id="19782262-1ea1-4d00-89c8-1bff2eaf61a2">&lt;/strong&gt;</ept> button prompts you to input.</source>
+          <target state="new">Take a look at the parameters section to see that most of these parameters are what the <bpt id="19782262-1ea1-4d00-89c8-1bff2eaf61a2">&lt;strong&gt;</bpt>Deploy to Azure<ept id="19782262-1ea1-4d00-89c8-1bff2eaf61a2">&lt;/strong&gt;</ept> button prompts you to input.</target>
+        </trans-unit>
+        <trans-unit id="5e7982b4-1020-41d1-b522-820ad194810f" xml:space="preserve">
+          <source>The site behind the <bpt id="000c7b36-808f-43ec-a249-671612631e99">&lt;strong&gt;</bpt>Deploy to Azure<ept id="000c7b36-808f-43ec-a249-671612631e99">&lt;/strong&gt;</ept> button populates the input UI using the parameters defined in azuredeploy.json.</source>
+          <target state="new">The site behind the <bpt id="000c7b36-808f-43ec-a249-671612631e99">&lt;strong&gt;</bpt>Deploy to Azure<ept id="000c7b36-808f-43ec-a249-671612631e99">&lt;/strong&gt;</ept> button populates the input UI using the parameters defined in azuredeploy.json.</target>
+        </trans-unit>
+        <trans-unit id="c4f4f978-1825-4a3e-bc3a-76f35f286f18" xml:space="preserve">
+          <source>These parameters are used throughout the resource definitions, such as resource names, property values, etc.</source>
+          <target state="new">These parameters are used throughout the resource definitions, such as resource names, property values, etc.</target>
+        </trans-unit>
+        <trans-unit id="4dfa0b85-7d63-4520-8da6-7acc6eda2332" xml:space="preserve">
+          <source>In the resources node, you can see that 4 top-level resources are defined, including a SQL Server instance, an App Service plan, and two web apps.</source>
+          <target state="new">In the resources node, you can see that 4 top-level resources are defined, including a SQL Server instance, an App Service plan, and two web apps.</target>
+        </trans-unit>
+        <trans-unit id="7e23a898-f668-4eae-9d5e-f18608c4f1d4" xml:space="preserve">
+          <source>Let’s start with a simple root-level resource in the JSON.</source>
+          <target state="new">Let’s start with a simple root-level resource in the JSON.</target>
+        </trans-unit>
+        <trans-unit id="4f42c119-950b-4aa5-8349-5147a37e76cd" xml:space="preserve">
+          <source>In the JSON Outline, click the App Service plan named <bpt id="cb5b51f0-d050-4d21-875b-87785a2e6c5f">&lt;strong&gt;</bpt>[hostingPlanName]<ept id="cb5b51f0-d050-4d21-875b-87785a2e6c5f">&lt;/strong&gt;</ept> to highlight the corresponding JSON code.</source>
+          <target state="new">In the JSON Outline, click the App Service plan named <bpt id="cb5b51f0-d050-4d21-875b-87785a2e6c5f">&lt;strong&gt;</bpt>[hostingPlanName]<ept id="cb5b51f0-d050-4d21-875b-87785a2e6c5f">&lt;/strong&gt;</ept> to highlight the corresponding JSON code.</target>
+        </trans-unit>
+        <trans-unit id="afe451ff-7407-4f95-88c6-120a177fe59c" xml:space="preserve">
+          <source><bpt id="fce168cb-6ae6-46f9-bfb2-675365076ef3">&lt;linkText&gt;</bpt><ept id="fce168cb-6ae6-46f9-bfb2-675365076ef3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fce168cb-6ae6-46f9-bfb2-675365076ef3">&lt;linkText&gt;</bpt><ept id="fce168cb-6ae6-46f9-bfb2-675365076ef3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86c0a6de-02e7-4142-957a-aefb8b98075f" xml:space="preserve">
+          <source>Note that the <bpt id="8b869cd7-b75b-4fe3-976a-a90c43f85186">&lt;code&gt;</bpt>type<ept id="8b869cd7-b75b-4fe3-976a-a90c43f85186">&lt;/code&gt;</ept> element specifies the string for an App Service plan (it was called a server farm a long, long time ago), and other elements and properties are filled in using the parameters defined in the JSON file, and this resource doesn’t have any nested resources.</source>
+          <target state="new">Note that the <bpt id="8b869cd7-b75b-4fe3-976a-a90c43f85186">&lt;code&gt;</bpt>type<ept id="8b869cd7-b75b-4fe3-976a-a90c43f85186">&lt;/code&gt;</ept> element specifies the string for an App Service plan (it was called a server farm a long, long time ago), and other elements and properties are filled in using the parameters defined in the JSON file, and this resource doesn’t have any nested resources.</target>
+        </trans-unit>
+        <trans-unit id="a7beac8c-0e3a-45a9-a7a3-623c60076014" xml:space="preserve">
+          <source>Note also that the value of <bpt id="b20aee91-a476-4916-be1f-6faf6efb644e">&lt;code&gt;</bpt>apiVersion<ept id="b20aee91-a476-4916-be1f-6faf6efb644e">&lt;/code&gt;</ept> tells Azure which version of the REST API to use the JSON resource definition with, and it can affect how the resource should be formatted inside the <bpt id="cae00ab2-f7c3-468a-92ad-c756dc636a0e">&lt;code&gt;</bpt>{}<ept id="cae00ab2-f7c3-468a-92ad-c756dc636a0e">&lt;/code&gt;</ept>.</source>
+          <target state="new">Note also that the value of <bpt id="b20aee91-a476-4916-be1f-6faf6efb644e">&lt;code&gt;</bpt>apiVersion<ept id="b20aee91-a476-4916-be1f-6faf6efb644e">&lt;/code&gt;</ept> tells Azure which version of the REST API to use the JSON resource definition with, and it can affect how the resource should be formatted inside the <bpt id="cae00ab2-f7c3-468a-92ad-c756dc636a0e">&lt;code&gt;</bpt>{}<ept id="cae00ab2-f7c3-468a-92ad-c756dc636a0e">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe161b2b-6863-4437-b9e3-cbea803d64cd" xml:space="preserve">
+          <source>Next, click on the SQL Server resource named <bpt id="df28545c-badb-4b46-9386-d2c2cf0dbc40">&lt;strong&gt;</bpt>SQLServer<ept id="df28545c-badb-4b46-9386-d2c2cf0dbc40">&lt;/strong&gt;</ept> in the JSON Outline.</source>
+          <target state="new">Next, click on the SQL Server resource named <bpt id="df28545c-badb-4b46-9386-d2c2cf0dbc40">&lt;strong&gt;</bpt>SQLServer<ept id="df28545c-badb-4b46-9386-d2c2cf0dbc40">&lt;/strong&gt;</ept> in the JSON Outline.</target>
+        </trans-unit>
+        <trans-unit id="37209989-9ba3-4d0e-91ed-f134daa166a4" xml:space="preserve">
+          <source><bpt id="3e75fb5a-d8e4-4bdd-a274-6680bbde65ab">&lt;linkText&gt;</bpt><ept id="3e75fb5a-d8e4-4bdd-a274-6680bbde65ab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e75fb5a-d8e4-4bdd-a274-6680bbde65ab">&lt;linkText&gt;</bpt><ept id="3e75fb5a-d8e4-4bdd-a274-6680bbde65ab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0820583-d6cf-4339-b973-7aa6539d60c0" xml:space="preserve">
+          <source>Note the following about the highlighted JSON code:</source>
+          <target state="new">Note the following about the highlighted JSON code:</target>
+        </trans-unit>
+        <trans-unit id="e23d8f4a-fd34-47c8-a156-0e3addc65034" xml:space="preserve">
+          <source>The use of parameters ensures that the created resources are named and configured in a way that makes them consistent with one another.</source>
+          <target state="new">The use of parameters ensures that the created resources are named and configured in a way that makes them consistent with one another.</target>
+        </trans-unit>
+        <trans-unit id="95dd072a-987f-4aa0-a095-209636135195" xml:space="preserve">
+          <source>The SQLServer resource has two nested resources, each has a different value for <bpt id="60aa754d-e1b7-4cae-8f23-7e24db168404">&lt;code&gt;</bpt>type<ept id="60aa754d-e1b7-4cae-8f23-7e24db168404">&lt;/code&gt;</ept>.</source>
+          <target state="new">The SQLServer resource has two nested resources, each has a different value for <bpt id="60aa754d-e1b7-4cae-8f23-7e24db168404">&lt;code&gt;</bpt>type<ept id="60aa754d-e1b7-4cae-8f23-7e24db168404">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08804e19-36a4-4411-bee0-6cf40d56b99e" xml:space="preserve">
+          <source>The nested resources inside <bpt id="b4e3ea67-3b81-4d3a-9295-aeb19748c35c">&lt;code&gt;</bpt>“resources”: […]<ept id="b4e3ea67-3b81-4d3a-9295-aeb19748c35c">&lt;/code&gt;</ept>, where the database and the firewall rules are defined, have a <bpt id="0fc72db3-a8fa-49cb-9577-e6b34349d0ed">&lt;code&gt;</bpt>dependsOn<ept id="0fc72db3-a8fa-49cb-9577-e6b34349d0ed">&lt;/code&gt;</ept> element that specifies the resource ID of the root-level SQLServer resource.</source>
+          <target state="new">The nested resources inside <bpt id="b4e3ea67-3b81-4d3a-9295-aeb19748c35c">&lt;code&gt;</bpt>“resources”: […]<ept id="b4e3ea67-3b81-4d3a-9295-aeb19748c35c">&lt;/code&gt;</ept>, where the database and the firewall rules are defined, have a <bpt id="0fc72db3-a8fa-49cb-9577-e6b34349d0ed">&lt;code&gt;</bpt>dependsOn<ept id="0fc72db3-a8fa-49cb-9577-e6b34349d0ed">&lt;/code&gt;</ept> element that specifies the resource ID of the root-level SQLServer resource.</target>
+        </trans-unit>
+        <trans-unit id="7bec95fb-cca1-4a77-942a-39d2740af936" xml:space="preserve">
+          <source>This tells Azure Resource Manager, “before you create this resource, that other resource must already exist; and if that other resource is defined in the template, then create that one first”.</source>
+          <target state="new">This tells Azure Resource Manager, “before you create this resource, that other resource must already exist; and if that other resource is defined in the template, then create that one first”.</target>
+        </trans-unit>
+        <trans-unit id="37900440-c26c-48ed-a387-697bcc6f22d4" xml:space="preserve">
+          <source>For detailed information on how to use the <bpt id="1bedce32-5556-461c-ba33-113f23472963">&lt;code&gt;</bpt>resourceId()<ept id="1bedce32-5556-461c-ba33-113f23472963">&lt;/code&gt;</ept> function, see <bpt id="2f595321-be3a-43fe-9cdb-aa62c21114ce">&lt;linkText&gt;</bpt>Azure Resource Manager Template Functions<ept id="2f595321-be3a-43fe-9cdb-aa62c21114ce">&lt;/linkText&gt;</ept><bpt id="2f595321-be3a-43fe-9cdb-aa62c21114ce">&lt;title&gt;</bpt><ept id="2f595321-be3a-43fe-9cdb-aa62c21114ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed information on how to use the <bpt id="1bedce32-5556-461c-ba33-113f23472963">&lt;code&gt;</bpt>resourceId()<ept id="1bedce32-5556-461c-ba33-113f23472963">&lt;/code&gt;</ept> function, see <bpt id="2f595321-be3a-43fe-9cdb-aa62c21114ce">&lt;linkText&gt;</bpt>Azure Resource Manager Template Functions<ept id="2f595321-be3a-43fe-9cdb-aa62c21114ce">&lt;/linkText&gt;</ept><bpt id="2f595321-be3a-43fe-9cdb-aa62c21114ce">&lt;title&gt;</bpt><ept id="2f595321-be3a-43fe-9cdb-aa62c21114ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd83cb8e-daa7-4f95-babc-e31cebff9a66" xml:space="preserve">
+          <source>The effect of the <bpt id="8cde6772-4053-48f3-b93b-84c4dfc7baa6">&lt;code&gt;</bpt>dependsOn<ept id="8cde6772-4053-48f3-b93b-84c4dfc7baa6">&lt;/code&gt;</ept> element is that Azure Resource Manager can know which resources can be created in parallel and which resources must be created sequentially.</source>
+          <target state="new">The effect of the <bpt id="8cde6772-4053-48f3-b93b-84c4dfc7baa6">&lt;code&gt;</bpt>dependsOn<ept id="8cde6772-4053-48f3-b93b-84c4dfc7baa6">&lt;/code&gt;</ept> element is that Azure Resource Manager can know which resources can be created in parallel and which resources must be created sequentially.</target>
+        </trans-unit>
+        <trans-unit id="e23423e7-959a-472b-a77a-8ddd1b00309f" xml:space="preserve">
+          <source>Now, let’s move on to the actual web apps themselves, which are more complicated.</source>
+          <target state="new">Now, let’s move on to the actual web apps themselves, which are more complicated.</target>
+        </trans-unit>
+        <trans-unit id="db2137ac-77af-4e73-aa52-acf422aab399" xml:space="preserve">
+          <source>Click the [variables(‘apiSiteName’)] web app in the JSON Outline to highlight its JSON code.</source>
+          <target state="new">Click the [variables(‘apiSiteName’)] web app in the JSON Outline to highlight its JSON code.</target>
+        </trans-unit>
+        <trans-unit id="565ee785-08b9-4328-b3b1-30b183606bdc" xml:space="preserve">
+          <source>You’ll notice that things are getting much more interesting.</source>
+          <target state="new">You’ll notice that things are getting much more interesting.</target>
+        </trans-unit>
+        <trans-unit id="8ac225f8-e5d1-4d9a-8386-ac3bdb9f876a" xml:space="preserve">
+          <source>For this purpose, I’ll talk about the features one by one:</source>
+          <target state="new">For this purpose, I’ll talk about the features one by one:</target>
+        </trans-unit>
+        <trans-unit id="922d4abf-7354-4ffb-adc5-9e997799a307" xml:space="preserve">
+          <source>The web app depends on two different resources.</source>
+          <target state="new">The web app depends on two different resources.</target>
+        </trans-unit>
+        <trans-unit id="7b7facdc-9e52-4456-ad08-8ddbc02319e2" xml:space="preserve">
+          <source>This means that Azure Resource Manager will create the web app only after both the App Service plan and the SQL Server instance are created.</source>
+          <target state="new">This means that Azure Resource Manager will create the web app only after both the App Service plan and the SQL Server instance are created.</target>
+        </trans-unit>
+        <trans-unit id="084a793b-fbb3-4904-a0f4-bbb9f49a228c" xml:space="preserve">
+          <source><bpt id="f273406d-1db9-4e8c-80ca-073dce1b84ca">&lt;linkText&gt;</bpt><ept id="f273406d-1db9-4e8c-80ca-073dce1b84ca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f273406d-1db9-4e8c-80ca-073dce1b84ca">&lt;linkText&gt;</bpt><ept id="f273406d-1db9-4e8c-80ca-073dce1b84ca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c2174b7-2d21-46a8-bbd5-39721c52f0da" xml:space="preserve">
+          <source>The app settings are also defined as a nested resource.</source>
+          <target state="new">The app settings are also defined as a nested resource.</target>
+        </trans-unit>
+        <trans-unit id="10d59e81-fe3a-47c9-ab8d-12471bd1719f" xml:space="preserve">
+          <source><bpt id="4c95be6b-36de-4744-b246-8db218285c90">&lt;linkText&gt;</bpt><ept id="4c95be6b-36de-4744-b246-8db218285c90">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4c95be6b-36de-4744-b246-8db218285c90">&lt;linkText&gt;</bpt><ept id="4c95be6b-36de-4744-b246-8db218285c90">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88e160bf-e742-43d2-af7b-677b7bc07a44" xml:space="preserve">
+          <source>In the <bpt id="9cebaaaf-b29e-4e1b-bc09-de825646fe39">&lt;code&gt;</bpt>properties<ept id="9cebaaaf-b29e-4e1b-bc09-de825646fe39">&lt;/code&gt;</ept> element for <bpt id="dfa9f02c-bfaf-4001-8c74-7b002657f126">&lt;code&gt;</bpt>config/appsettings<ept id="dfa9f02c-bfaf-4001-8c74-7b002657f126">&lt;/code&gt;</ept>, you have two app settings in the format <bpt id="60eaf604-b9d5-435a-8011-ea26d2e0b1e1">&lt;code&gt;</bpt>“&lt;name&gt;” : “&lt;value&gt;”<ept id="60eaf604-b9d5-435a-8011-ea26d2e0b1e1">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the <bpt id="9cebaaaf-b29e-4e1b-bc09-de825646fe39">&lt;code&gt;</bpt>properties<ept id="9cebaaaf-b29e-4e1b-bc09-de825646fe39">&lt;/code&gt;</ept> element for <bpt id="dfa9f02c-bfaf-4001-8c74-7b002657f126">&lt;code&gt;</bpt>config/appsettings<ept id="dfa9f02c-bfaf-4001-8c74-7b002657f126">&lt;/code&gt;</ept>, you have two app settings in the format <bpt id="60eaf604-b9d5-435a-8011-ea26d2e0b1e1">&lt;code&gt;</bpt>“&lt;name&gt;” : “&lt;value&gt;”<ept id="60eaf604-b9d5-435a-8011-ea26d2e0b1e1">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8788f7f8-643d-45e6-8518-05444f6b3f09" xml:space="preserve">
+          <source><bpt id="50416533-c58c-4f4f-a4a4-267dccdea6c7">&lt;code&gt;</bpt>PROJECT<ept id="50416533-c58c-4f4f-a4a4-267dccdea6c7">&lt;/code&gt;</ept> is a <bpt id="44fc9135-a74c-4cf8-808d-59eea1aba360">&lt;linkText&gt;</bpt>KUDU setting<ept id="44fc9135-a74c-4cf8-808d-59eea1aba360">&lt;/linkText&gt;</ept><bpt id="44fc9135-a74c-4cf8-808d-59eea1aba360">&lt;title&gt;</bpt><ept id="44fc9135-a74c-4cf8-808d-59eea1aba360">&lt;/title&gt;</ept> that tells Azure deployment which project to use in a multi-project Visual Studio solution.</source>
+          <target state="new"><bpt id="50416533-c58c-4f4f-a4a4-267dccdea6c7">&lt;code&gt;</bpt>PROJECT<ept id="50416533-c58c-4f4f-a4a4-267dccdea6c7">&lt;/code&gt;</ept> is a <bpt id="44fc9135-a74c-4cf8-808d-59eea1aba360">&lt;linkText&gt;</bpt>KUDU setting<ept id="44fc9135-a74c-4cf8-808d-59eea1aba360">&lt;/linkText&gt;</ept><bpt id="44fc9135-a74c-4cf8-808d-59eea1aba360">&lt;title&gt;</bpt><ept id="44fc9135-a74c-4cf8-808d-59eea1aba360">&lt;/title&gt;</ept> that tells Azure deployment which project to use in a multi-project Visual Studio solution.</target>
+        </trans-unit>
+        <trans-unit id="b7b5c4a4-2550-4747-9694-ea74d06c08dc" xml:space="preserve">
+          <source>I will show you later how source control is configured, but since the ToDoApp code is in a multi-project Visual Studio solution, we need this setting.</source>
+          <target state="new">I will show you later how source control is configured, but since the ToDoApp code is in a multi-project Visual Studio solution, we need this setting.</target>
+        </trans-unit>
+        <trans-unit id="0c536dda-e91b-41c3-bfe2-311a1bbb3f5e" xml:space="preserve">
+          <source><bpt id="b285f059-64ff-4c38-bebf-41349517c191">&lt;code&gt;</bpt>clientUrl<ept id="b285f059-64ff-4c38-bebf-41349517c191">&lt;/code&gt;</ept> is simply an app setting that the application code uses.</source>
+          <target state="new"><bpt id="b285f059-64ff-4c38-bebf-41349517c191">&lt;code&gt;</bpt>clientUrl<ept id="b285f059-64ff-4c38-bebf-41349517c191">&lt;/code&gt;</ept> is simply an app setting that the application code uses.</target>
+        </trans-unit>
+        <trans-unit id="622cc0c5-a491-4355-9614-1586b0f156f2" xml:space="preserve">
+          <source>The connection strings are also defined as a nested resource.</source>
+          <target state="new">The connection strings are also defined as a nested resource.</target>
+        </trans-unit>
+        <trans-unit id="4c40a789-35b8-49d1-a7df-60e83f3dc3a8" xml:space="preserve">
+          <source><bpt id="9d26af08-3ff3-43ba-8ef0-11c60f0f5d7f">&lt;linkText&gt;</bpt><ept id="9d26af08-3ff3-43ba-8ef0-11c60f0f5d7f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9d26af08-3ff3-43ba-8ef0-11c60f0f5d7f">&lt;linkText&gt;</bpt><ept id="9d26af08-3ff3-43ba-8ef0-11c60f0f5d7f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7fd70b6-b557-45f3-a7b5-70941fc1a5f7" xml:space="preserve">
+          <source>In the <bpt id="73b73e29-4b38-48c1-b798-20a04bfb57b7">&lt;code&gt;</bpt>properties<ept id="73b73e29-4b38-48c1-b798-20a04bfb57b7">&lt;/code&gt;</ept> element for <bpt id="dce9c30f-810b-4949-8b6c-831067c81dc4">&lt;code&gt;</bpt>config/connectionstrings<ept id="dce9c30f-810b-4949-8b6c-831067c81dc4">&lt;/code&gt;</ept>, each connection string is also defined as a name:value pair, with the specific format of <bpt id="fd991ced-df53-4b93-9a6f-993e7b8ea010">&lt;code&gt;</bpt>“&lt;name&gt;” : {“value”: “…”, “type”: “…”}<ept id="fd991ced-df53-4b93-9a6f-993e7b8ea010">&lt;/code&gt;</ept>. For the <bpt id="773b0166-f4ca-44d2-84cc-665d820b52da">&lt;code&gt;</bpt>type<ept id="773b0166-f4ca-44d2-84cc-665d820b52da">&lt;/code&gt;</ept> element, possible values are <bpt id="70e22f8c-699e-4639-b304-154f39983239">&lt;code&gt;</bpt>MySql<ept id="70e22f8c-699e-4639-b304-154f39983239">&lt;/code&gt;</ept>, <bpt id="395c47b3-4d19-40fe-b710-4b8fd2a4f2f2">&lt;code&gt;</bpt>SQLServer<ept id="395c47b3-4d19-40fe-b710-4b8fd2a4f2f2">&lt;/code&gt;</ept>, <bpt id="875f7721-63f3-43b1-b60e-878663fbcf18">&lt;code&gt;</bpt>SQLAzure<ept id="875f7721-63f3-43b1-b60e-878663fbcf18">&lt;/code&gt;</ept>, and <bpt id="e8a7ec15-fac6-470a-b961-cdfbfc82b904">&lt;code&gt;</bpt>Custom<ept id="e8a7ec15-fac6-470a-b961-cdfbfc82b904">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the <bpt id="73b73e29-4b38-48c1-b798-20a04bfb57b7">&lt;code&gt;</bpt>properties<ept id="73b73e29-4b38-48c1-b798-20a04bfb57b7">&lt;/code&gt;</ept> element for <bpt id="dce9c30f-810b-4949-8b6c-831067c81dc4">&lt;code&gt;</bpt>config/connectionstrings<ept id="dce9c30f-810b-4949-8b6c-831067c81dc4">&lt;/code&gt;</ept>, each connection string is also defined as a name:value pair, with the specific format of <bpt id="fd991ced-df53-4b93-9a6f-993e7b8ea010">&lt;code&gt;</bpt>“&lt;name&gt;” : {“value”: “…”, “type”: “…”}<ept id="fd991ced-df53-4b93-9a6f-993e7b8ea010">&lt;/code&gt;</ept>. For the <bpt id="773b0166-f4ca-44d2-84cc-665d820b52da">&lt;code&gt;</bpt>type<ept id="773b0166-f4ca-44d2-84cc-665d820b52da">&lt;/code&gt;</ept> element, possible values are <bpt id="70e22f8c-699e-4639-b304-154f39983239">&lt;code&gt;</bpt>MySql<ept id="70e22f8c-699e-4639-b304-154f39983239">&lt;/code&gt;</ept>, <bpt id="395c47b3-4d19-40fe-b710-4b8fd2a4f2f2">&lt;code&gt;</bpt>SQLServer<ept id="395c47b3-4d19-40fe-b710-4b8fd2a4f2f2">&lt;/code&gt;</ept>, <bpt id="875f7721-63f3-43b1-b60e-878663fbcf18">&lt;code&gt;</bpt>SQLAzure<ept id="875f7721-63f3-43b1-b60e-878663fbcf18">&lt;/code&gt;</ept>, and <bpt id="e8a7ec15-fac6-470a-b961-cdfbfc82b904">&lt;code&gt;</bpt>Custom<ept id="e8a7ec15-fac6-470a-b961-cdfbfc82b904">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a242ce2c-fe37-4a72-aed3-0a2c0de526c0" xml:space="preserve">
+          <source>For a definitive list of the connection string types, run the following command in Azure PowerShell:
+    \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")</source>
+          <target state="new">For a definitive list of the connection string types, run the following command in Azure PowerShell:
+    \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")</target>
+        </trans-unit>
+        <trans-unit id="465bc5df-95d1-48e3-8acf-d46c0372f57e" xml:space="preserve">
+          <source>The source control settings are also defined as a nested resource.</source>
+          <target state="new">The source control settings are also defined as a nested resource.</target>
+        </trans-unit>
+        <trans-unit id="cdce1121-ef27-4e13-9e70-8d0d1e2a11db" xml:space="preserve">
+          <source>Azure Resource Manager uses this resource to configure continuous publishing (see caveat on <bpt id="4b3cc176-7929-4c77-9520-e8f0ec3f235c">&lt;code&gt;</bpt>IsManualIntegration<ept id="4b3cc176-7929-4c77-9520-e8f0ec3f235c">&lt;/code&gt;</ept> later) and also to kick off the deployment of application code automatically during the processing of the JSON file.</source>
+          <target state="new">Azure Resource Manager uses this resource to configure continuous publishing (see caveat on <bpt id="4b3cc176-7929-4c77-9520-e8f0ec3f235c">&lt;code&gt;</bpt>IsManualIntegration<ept id="4b3cc176-7929-4c77-9520-e8f0ec3f235c">&lt;/code&gt;</ept> later) and also to kick off the deployment of application code automatically during the processing of the JSON file.</target>
+        </trans-unit>
+        <trans-unit id="1af0a4d3-3e36-43d5-b471-8b3d7708c2ac" xml:space="preserve">
+          <source><bpt id="3b40b4d3-fa60-4e46-a8b7-01505ed60459">&lt;linkText&gt;</bpt><ept id="3b40b4d3-fa60-4e46-a8b7-01505ed60459">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b40b4d3-fa60-4e46-a8b7-01505ed60459">&lt;linkText&gt;</bpt><ept id="3b40b4d3-fa60-4e46-a8b7-01505ed60459">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="962c192f-ecbe-45c9-85d5-900c61109030" xml:space="preserve">
+          <source><bpt id="c6acf291-852f-4f52-830b-6e75dfc589a8">&lt;code&gt;</bpt>RepoUrl<ept id="c6acf291-852f-4f52-830b-6e75dfc589a8">&lt;/code&gt;</ept> and <bpt id="4d0b4eae-f082-4235-92da-0b962179aea3">&lt;code&gt;</bpt>branch<ept id="4d0b4eae-f082-4235-92da-0b962179aea3">&lt;/code&gt;</ept> should be pretty intuitive and should point to the Git repository and the name of the branch to publish from.</source>
+          <target state="new"><bpt id="c6acf291-852f-4f52-830b-6e75dfc589a8">&lt;code&gt;</bpt>RepoUrl<ept id="c6acf291-852f-4f52-830b-6e75dfc589a8">&lt;/code&gt;</ept> and <bpt id="4d0b4eae-f082-4235-92da-0b962179aea3">&lt;code&gt;</bpt>branch<ept id="4d0b4eae-f082-4235-92da-0b962179aea3">&lt;/code&gt;</ept> should be pretty intuitive and should point to the Git repository and the name of the branch to publish from.</target>
+        </trans-unit>
+        <trans-unit id="7844e081-3ff8-4b08-86fb-97f94bd35478" xml:space="preserve">
+          <source>Again, these are defined by input parameters.</source>
+          <target state="new">Again, these are defined by input parameters.</target>
+        </trans-unit>
+        <trans-unit id="47cba519-e191-43bf-8cfa-7e59c0508073" xml:space="preserve">
+          <source>Note in the <bpt id="10623ac9-ba2e-4923-801d-9ac75b1871ee">&lt;code&gt;</bpt>dependsOn<ept id="10623ac9-ba2e-4923-801d-9ac75b1871ee">&lt;/code&gt;</ept> element that, in addition to the web app resource itself, <bpt id="d26fda0e-ae8d-425d-ab08-103961cf46c6">&lt;code&gt;</bpt>sourcecontrols/web<ept id="d26fda0e-ae8d-425d-ab08-103961cf46c6">&lt;/code&gt;</ept> also depends on <bpt id="5751c643-0c65-4d7c-ab12-b4a524ce65b5">&lt;code&gt;</bpt>config/appsettings<ept id="5751c643-0c65-4d7c-ab12-b4a524ce65b5">&lt;/code&gt;</ept> and <bpt id="c6953d8b-32ca-4229-a347-2e27159e6714">&lt;code&gt;</bpt>config/connectionstrings<ept id="c6953d8b-32ca-4229-a347-2e27159e6714">&lt;/code&gt;</ept>.</source>
+          <target state="new">Note in the <bpt id="10623ac9-ba2e-4923-801d-9ac75b1871ee">&lt;code&gt;</bpt>dependsOn<ept id="10623ac9-ba2e-4923-801d-9ac75b1871ee">&lt;/code&gt;</ept> element that, in addition to the web app resource itself, <bpt id="d26fda0e-ae8d-425d-ab08-103961cf46c6">&lt;code&gt;</bpt>sourcecontrols/web<ept id="d26fda0e-ae8d-425d-ab08-103961cf46c6">&lt;/code&gt;</ept> also depends on <bpt id="5751c643-0c65-4d7c-ab12-b4a524ce65b5">&lt;code&gt;</bpt>config/appsettings<ept id="5751c643-0c65-4d7c-ab12-b4a524ce65b5">&lt;/code&gt;</ept> and <bpt id="c6953d8b-32ca-4229-a347-2e27159e6714">&lt;code&gt;</bpt>config/connectionstrings<ept id="c6953d8b-32ca-4229-a347-2e27159e6714">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7c273d1-354f-4b54-a34a-f071421e1b53" xml:space="preserve">
+          <source>This is because once <bpt id="5fa21a68-5bdb-4284-896d-d5ba26d7f0ee">&lt;code&gt;</bpt>sourcecontrols/web<ept id="5fa21a68-5bdb-4284-896d-d5ba26d7f0ee">&lt;/code&gt;</ept> is configured, the Azure deployment process will automatically attempt to deploy, build, and start the application code.</source>
+          <target state="new">This is because once <bpt id="5fa21a68-5bdb-4284-896d-d5ba26d7f0ee">&lt;code&gt;</bpt>sourcecontrols/web<ept id="5fa21a68-5bdb-4284-896d-d5ba26d7f0ee">&lt;/code&gt;</ept> is configured, the Azure deployment process will automatically attempt to deploy, build, and start the application code.</target>
+        </trans-unit>
+        <trans-unit id="f26c9633-dc80-44e8-bfc3-93dca3e61fe8" xml:space="preserve">
+          <source>Therefore, inserting this dependency helps you make sure that the application has access to the required app settings and connection strings before the application code is run.</source>
+          <target state="new">Therefore, inserting this dependency helps you make sure that the application has access to the required app settings and connection strings before the application code is run.</target>
+        </trans-unit>
+        <trans-unit id="87c08925-e35a-432d-9e5b-c9e19a8efce0" xml:space="preserve">
+          <source>[TODO: need to verify if this is true.]</source>
+          <target state="new">[TODO: need to verify if this is true.]</target>
+        </trans-unit>
+        <trans-unit id="37349514-a678-4bb8-aa56-eb278b39203d" xml:space="preserve">
+          <source>Note also that <bpt id="81e9d55d-a995-44d7-9f16-a97b1adee965">&lt;code&gt;</bpt>IsManualIntegration<ept id="81e9d55d-a995-44d7-9f16-a97b1adee965">&lt;/code&gt;</ept> is set to <bpt id="48d76c14-8d55-4377-9de6-232171c3c580">&lt;code&gt;</bpt>true<ept id="48d76c14-8d55-4377-9de6-232171c3c580">&lt;/code&gt;</ept>.</source>
+          <target state="new">Note also that <bpt id="81e9d55d-a995-44d7-9f16-a97b1adee965">&lt;code&gt;</bpt>IsManualIntegration<ept id="81e9d55d-a995-44d7-9f16-a97b1adee965">&lt;/code&gt;</ept> is set to <bpt id="48d76c14-8d55-4377-9de6-232171c3c580">&lt;code&gt;</bpt>true<ept id="48d76c14-8d55-4377-9de6-232171c3c580">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3d7300f-ca2c-4c47-a847-35505f11c4e4" xml:space="preserve">
+          <source>This property is necessary in this tutorial because you do not actually own the GitHub repository, and thus cannot actually grant permission to Azure to configure continuous publishing from <bpt id="df5ec875-8ff8-4479-9453-6803b51a0caa">&lt;linkText&gt;</bpt>ToDoApp<ept id="df5ec875-8ff8-4479-9453-6803b51a0caa">&lt;/linkText&gt;</ept><bpt id="df5ec875-8ff8-4479-9453-6803b51a0caa">&lt;title&gt;</bpt><ept id="df5ec875-8ff8-4479-9453-6803b51a0caa">&lt;/title&gt;</ept> (i.e. push automatic repository updates to Azure).</source>
+          <target state="new">This property is necessary in this tutorial because you do not actually own the GitHub repository, and thus cannot actually grant permission to Azure to configure continuous publishing from <bpt id="df5ec875-8ff8-4479-9453-6803b51a0caa">&lt;linkText&gt;</bpt>ToDoApp<ept id="df5ec875-8ff8-4479-9453-6803b51a0caa">&lt;/linkText&gt;</ept><bpt id="df5ec875-8ff8-4479-9453-6803b51a0caa">&lt;title&gt;</bpt><ept id="df5ec875-8ff8-4479-9453-6803b51a0caa">&lt;/title&gt;</ept> (i.e. push automatic repository updates to Azure).</target>
+        </trans-unit>
+        <trans-unit id="af303e75-e2f6-4689-86e5-0097a3a5d363" xml:space="preserve">
+          <source>You can use the default value <bpt id="11f1b031-3ef6-4000-8d6c-51ef1445f801">&lt;code&gt;</bpt>false<ept id="11f1b031-3ef6-4000-8d6c-51ef1445f801">&lt;/code&gt;</ept> for the specified repository only if you have configured the owner’s GitHub credentials in the <bpt id="2900721d-9cbf-4157-b38e-0052dd633668">&lt;linkText&gt;</bpt>Azure preview portal<ept id="2900721d-9cbf-4157-b38e-0052dd633668">&lt;/linkText&gt;</ept><bpt id="2900721d-9cbf-4157-b38e-0052dd633668">&lt;title&gt;</bpt><ept id="2900721d-9cbf-4157-b38e-0052dd633668">&lt;/title&gt;</ept> before.</source>
+          <target state="new">You can use the default value <bpt id="11f1b031-3ef6-4000-8d6c-51ef1445f801">&lt;code&gt;</bpt>false<ept id="11f1b031-3ef6-4000-8d6c-51ef1445f801">&lt;/code&gt;</ept> for the specified repository only if you have configured the owner’s GitHub credentials in the <bpt id="2900721d-9cbf-4157-b38e-0052dd633668">&lt;linkText&gt;</bpt>Azure preview portal<ept id="2900721d-9cbf-4157-b38e-0052dd633668">&lt;/linkText&gt;</ept><bpt id="2900721d-9cbf-4157-b38e-0052dd633668">&lt;title&gt;</bpt><ept id="2900721d-9cbf-4157-b38e-0052dd633668">&lt;/title&gt;</ept> before.</target>
+        </trans-unit>
+        <trans-unit id="452e4424-eff2-4a46-95ab-2dc7d61a3149" xml:space="preserve">
+          <source>In other words, if you have set up source control to GitHub or BitBucket for any app in the <bpt id="00af6572-27be-47ad-9b4c-7213410e0a67">&lt;linkText&gt;</bpt>Azure preview portal<ept id="00af6572-27be-47ad-9b4c-7213410e0a67">&lt;/linkText&gt;</ept><bpt id="00af6572-27be-47ad-9b4c-7213410e0a67">&lt;title&gt;</bpt><ept id="00af6572-27be-47ad-9b4c-7213410e0a67">&lt;/title&gt;</ept> previously, using your user credentials, then Azure will remember the credentials and use them whenever you deploy any app from GitHub or BitBucket in the future.</source>
+          <target state="new">In other words, if you have set up source control to GitHub or BitBucket for any app in the <bpt id="00af6572-27be-47ad-9b4c-7213410e0a67">&lt;linkText&gt;</bpt>Azure preview portal<ept id="00af6572-27be-47ad-9b4c-7213410e0a67">&lt;/linkText&gt;</ept><bpt id="00af6572-27be-47ad-9b4c-7213410e0a67">&lt;title&gt;</bpt><ept id="00af6572-27be-47ad-9b4c-7213410e0a67">&lt;/title&gt;</ept> previously, using your user credentials, then Azure will remember the credentials and use them whenever you deploy any app from GitHub or BitBucket in the future.</target>
+        </trans-unit>
+        <trans-unit id="88ea9f1b-43f9-4f9a-8f67-dd380654b32d" xml:space="preserve">
+          <source>However, if you haven’t done this already, deployment of the JSON template will fail when Azure Resource Manager tries to configure the web app’s source control settings because it cannot log into GitHub or BitBucket with the repository owner’s credentials.</source>
+          <target state="new">However, if you haven’t done this already, deployment of the JSON template will fail when Azure Resource Manager tries to configure the web app’s source control settings because it cannot log into GitHub or BitBucket with the repository owner’s credentials.</target>
+        </trans-unit>
+        <trans-unit id="b9fca979-2440-4f5e-85ea-73b564ce5caf" xml:space="preserve">
+          <source>Here, you can go through all the web app’s blades in the <bpt id="0b70f4ae-166a-438a-b477-66c5f3ebabb2">&lt;linkText&gt;</bpt>preview portal<ept id="0b70f4ae-166a-438a-b477-66c5f3ebabb2">&lt;/linkText&gt;</ept><bpt id="0b70f4ae-166a-438a-b477-66c5f3ebabb2">&lt;title&gt;</bpt><ept id="0b70f4ae-166a-438a-b477-66c5f3ebabb2">&lt;/title&gt;</ept>, but there’s another tool that’s just as useful, if not more.</source>
+          <target state="new">Here, you can go through all the web app’s blades in the <bpt id="0b70f4ae-166a-438a-b477-66c5f3ebabb2">&lt;linkText&gt;</bpt>preview portal<ept id="0b70f4ae-166a-438a-b477-66c5f3ebabb2">&lt;/linkText&gt;</ept><bpt id="0b70f4ae-166a-438a-b477-66c5f3ebabb2">&lt;title&gt;</bpt><ept id="0b70f4ae-166a-438a-b477-66c5f3ebabb2">&lt;/title&gt;</ept>, but there’s another tool that’s just as useful, if not more.</target>
+        </trans-unit>
+        <trans-unit id="594e7f66-575d-4550-91dc-b76f4de53c4b" xml:space="preserve">
+          <source>Go to the <bpt id="9560120f-31d4-4d7a-ac70-8be16ee6e10f">&lt;linkText&gt;</bpt>Azure Resource Explorer<ept id="9560120f-31d4-4d7a-ac70-8be16ee6e10f">&lt;/linkText&gt;</ept><bpt id="9560120f-31d4-4d7a-ac70-8be16ee6e10f">&lt;title&gt;</bpt><ept id="9560120f-31d4-4d7a-ac70-8be16ee6e10f">&lt;/title&gt;</ept> preview tool, which gives you a JSON representation of all the resource groups in your subscriptions, as they actually exist in the Azure backend.</source>
+          <target state="new">Go to the <bpt id="9560120f-31d4-4d7a-ac70-8be16ee6e10f">&lt;linkText&gt;</bpt>Azure Resource Explorer<ept id="9560120f-31d4-4d7a-ac70-8be16ee6e10f">&lt;/linkText&gt;</ept><bpt id="9560120f-31d4-4d7a-ac70-8be16ee6e10f">&lt;title&gt;</bpt><ept id="9560120f-31d4-4d7a-ac70-8be16ee6e10f">&lt;/title&gt;</ept> preview tool, which gives you a JSON representation of all the resource groups in your subscriptions, as they actually exist in the Azure backend.</target>
+        </trans-unit>
+        <trans-unit id="6e3da202-c27e-442c-b67e-85c18720f8bc" xml:space="preserve">
+          <source>You can also see how the resource group’s JSON hierarchy in Azure corresponds with the hierarchy in the template file that’s used to create it.</source>
+          <target state="new">You can also see how the resource group’s JSON hierarchy in Azure corresponds with the hierarchy in the template file that’s used to create it.</target>
+        </trans-unit>
+        <trans-unit id="d21276fc-5762-4199-a661-b452b4a0ef6d" xml:space="preserve">
+          <source>For example, when I go to the <bpt id="01c5c1fb-8818-47d4-85fe-e225120de729">&lt;linkText&gt;</bpt>Azure Resource Explorer<ept id="01c5c1fb-8818-47d4-85fe-e225120de729">&lt;/linkText&gt;</ept><bpt id="01c5c1fb-8818-47d4-85fe-e225120de729">&lt;title&gt;</bpt><ept id="01c5c1fb-8818-47d4-85fe-e225120de729">&lt;/title&gt;</ept> tool and expand the nodes in the explorer, I can see the resource group and the root-level resources that are collected under their respective resource types.</source>
+          <target state="new">For example, when I go to the <bpt id="01c5c1fb-8818-47d4-85fe-e225120de729">&lt;linkText&gt;</bpt>Azure Resource Explorer<ept id="01c5c1fb-8818-47d4-85fe-e225120de729">&lt;/linkText&gt;</ept><bpt id="01c5c1fb-8818-47d4-85fe-e225120de729">&lt;title&gt;</bpt><ept id="01c5c1fb-8818-47d4-85fe-e225120de729">&lt;/title&gt;</ept> tool and expand the nodes in the explorer, I can see the resource group and the root-level resources that are collected under their respective resource types.</target>
+        </trans-unit>
+        <trans-unit id="cafbd724-651a-4bd3-8e72-51e542a568dd" xml:space="preserve">
+          <source><bpt id="6ff03756-06b2-4e3d-a223-811614ecc1c1">&lt;linkText&gt;</bpt><ept id="6ff03756-06b2-4e3d-a223-811614ecc1c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ff03756-06b2-4e3d-a223-811614ecc1c1">&lt;linkText&gt;</bpt><ept id="6ff03756-06b2-4e3d-a223-811614ecc1c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="944d2756-2dfe-4b66-a840-ebef72fddedd" xml:space="preserve">
+          <source>If you drill down to a web app, you should be able to see web app configuration details similar to the below screenshot:</source>
+          <target state="new">If you drill down to a web app, you should be able to see web app configuration details similar to the below screenshot:</target>
+        </trans-unit>
+        <trans-unit id="1e23eae5-3927-4e18-9b40-28c2d1850336" xml:space="preserve">
+          <source><bpt id="720d5db3-c958-41bd-b377-835ede8ded63">&lt;linkText&gt;</bpt><ept id="720d5db3-c958-41bd-b377-835ede8ded63">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="720d5db3-c958-41bd-b377-835ede8ded63">&lt;linkText&gt;</bpt><ept id="720d5db3-c958-41bd-b377-835ede8ded63">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f761931f-8b4d-49ff-ab98-c712654764c8" xml:space="preserve">
+          <source>Again, the nested resources should have a hierarchy very similar to those in your JSON template file, and you should see the app settings, connection strings, etc., properly reflected in the JSON pane.</source>
+          <target state="new">Again, the nested resources should have a hierarchy very similar to those in your JSON template file, and you should see the app settings, connection strings, etc., properly reflected in the JSON pane.</target>
+        </trans-unit>
+        <trans-unit id="72bc6dfc-403b-4093-b23f-54c65b3e3fee" xml:space="preserve">
+          <source>The absence of settings here may indicate an issue with your JSON file and can help you troubleshoot your JSON template file.</source>
+          <target state="new">The absence of settings here may indicate an issue with your JSON file and can help you troubleshoot your JSON template file.</target>
+        </trans-unit>
+        <trans-unit id="c3f3265a-04d7-4e32-8942-36754abd505e" xml:space="preserve">
+          <source>The <bpt id="59252511-a904-434f-8fb3-7a716410bf9f">&lt;strong&gt;</bpt>Deploy to Azure<ept id="59252511-a904-434f-8fb3-7a716410bf9f">&lt;/strong&gt;</ept> button is great, but it allows you to deploy the resource group template in azuredeploy.json only if you have already pushed azuredeploy.json to GitHub.</source>
+          <target state="new">The <bpt id="59252511-a904-434f-8fb3-7a716410bf9f">&lt;strong&gt;</bpt>Deploy to Azure<ept id="59252511-a904-434f-8fb3-7a716410bf9f">&lt;/strong&gt;</ept> button is great, but it allows you to deploy the resource group template in azuredeploy.json only if you have already pushed azuredeploy.json to GitHub.</target>
+        </trans-unit>
+        <trans-unit id="f7f69ab3-c185-4826-872f-1a2e6792667e" xml:space="preserve">
+          <source>The Azure .NET SDK also provides the tools for you to deploy any JSON template file directly from your local machine.</source>
+          <target state="new">The Azure .NET SDK also provides the tools for you to deploy any JSON template file directly from your local machine.</target>
+        </trans-unit>
+        <trans-unit id="457b66e0-c742-4da2-a464-07a48db1b0e6" xml:space="preserve">
+          <source>To do this, follow the steps below:</source>
+          <target state="new">To do this, follow the steps below:</target>
+        </trans-unit>
+        <trans-unit id="244477b2-dafd-4364-9190-d95b47e3c75e" xml:space="preserve">
+          <source>In Visual Studio, click <bpt id="77b0ecdf-9427-4fe4-b133-f319e1397bec">&lt;strong&gt;</bpt>File<ept id="77b0ecdf-9427-4fe4-b133-f319e1397bec">&lt;/strong&gt;</ept> &gt; <bpt id="88de88e7-4a43-47fc-83ed-dfecc181f7b8">&lt;strong&gt;</bpt>New<ept id="88de88e7-4a43-47fc-83ed-dfecc181f7b8">&lt;/strong&gt;</ept> &gt; <bpt id="67ef1caa-a950-45a2-8030-baf43e04a134">&lt;strong&gt;</bpt>Project<ept id="67ef1caa-a950-45a2-8030-baf43e04a134">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, click <bpt id="77b0ecdf-9427-4fe4-b133-f319e1397bec">&lt;strong&gt;</bpt>File<ept id="77b0ecdf-9427-4fe4-b133-f319e1397bec">&lt;/strong&gt;</ept> &gt; <bpt id="88de88e7-4a43-47fc-83ed-dfecc181f7b8">&lt;strong&gt;</bpt>New<ept id="88de88e7-4a43-47fc-83ed-dfecc181f7b8">&lt;/strong&gt;</ept> &gt; <bpt id="67ef1caa-a950-45a2-8030-baf43e04a134">&lt;strong&gt;</bpt>Project<ept id="67ef1caa-a950-45a2-8030-baf43e04a134">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b2f5879-021c-4cbc-8520-609daa37c544" xml:space="preserve">
+          <source>Click <bpt id="68f64b76-3f4c-4684-a776-99a6bc86426b">&lt;strong&gt;</bpt>Visual C#<ept id="68f64b76-3f4c-4684-a776-99a6bc86426b">&lt;/strong&gt;</ept> &gt; <bpt id="ac05a430-9782-43ef-9d90-79893518b89b">&lt;strong&gt;</bpt>Cloud<ept id="ac05a430-9782-43ef-9d90-79893518b89b">&lt;/strong&gt;</ept> &gt; <bpt id="a848600c-b0e8-4d93-b4e6-7ec4aaa7e223">&lt;strong&gt;</bpt>Azure Resource Group<ept id="a848600c-b0e8-4d93-b4e6-7ec4aaa7e223">&lt;/strong&gt;</ept>, then click <bpt id="03189ae0-550c-4747-ae76-201e1dc4c1d7">&lt;strong&gt;</bpt>OK<ept id="03189ae0-550c-4747-ae76-201e1dc4c1d7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="68f64b76-3f4c-4684-a776-99a6bc86426b">&lt;strong&gt;</bpt>Visual C#<ept id="68f64b76-3f4c-4684-a776-99a6bc86426b">&lt;/strong&gt;</ept> &gt; <bpt id="ac05a430-9782-43ef-9d90-79893518b89b">&lt;strong&gt;</bpt>Cloud<ept id="ac05a430-9782-43ef-9d90-79893518b89b">&lt;/strong&gt;</ept> &gt; <bpt id="a848600c-b0e8-4d93-b4e6-7ec4aaa7e223">&lt;strong&gt;</bpt>Azure Resource Group<ept id="a848600c-b0e8-4d93-b4e6-7ec4aaa7e223">&lt;/strong&gt;</ept>, then click <bpt id="03189ae0-550c-4747-ae76-201e1dc4c1d7">&lt;strong&gt;</bpt>OK<ept id="03189ae0-550c-4747-ae76-201e1dc4c1d7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0e501b9-948e-427d-9984-3e8fdb3ca03d" xml:space="preserve">
+          <source><bpt id="33e67edf-3a90-40a1-9881-acf9851eedff">&lt;linkText&gt;</bpt><ept id="33e67edf-3a90-40a1-9881-acf9851eedff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33e67edf-3a90-40a1-9881-acf9851eedff">&lt;linkText&gt;</bpt><ept id="33e67edf-3a90-40a1-9881-acf9851eedff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74c23e4d-3c45-47b1-93b0-16f60c0ec114" xml:space="preserve">
+          <source>In <bpt id="99432410-60ac-4b3c-b35c-a5583d07e6cf">&lt;strong&gt;</bpt>Select Azure Template<ept id="99432410-60ac-4b3c-b35c-a5583d07e6cf">&lt;/strong&gt;</ept>, select <bpt id="01a55d8b-312b-4c57-a53f-5037297ef06d">&lt;strong&gt;</bpt>Blank Template<ept id="01a55d8b-312b-4c57-a53f-5037297ef06d">&lt;/strong&gt;</ept> and click <bpt id="be300ee3-7c9f-4209-87ca-d717cffe2e34">&lt;strong&gt;</bpt>OK<ept id="be300ee3-7c9f-4209-87ca-d717cffe2e34">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="99432410-60ac-4b3c-b35c-a5583d07e6cf">&lt;strong&gt;</bpt>Select Azure Template<ept id="99432410-60ac-4b3c-b35c-a5583d07e6cf">&lt;/strong&gt;</ept>, select <bpt id="01a55d8b-312b-4c57-a53f-5037297ef06d">&lt;strong&gt;</bpt>Blank Template<ept id="01a55d8b-312b-4c57-a53f-5037297ef06d">&lt;/strong&gt;</ept> and click <bpt id="be300ee3-7c9f-4209-87ca-d717cffe2e34">&lt;strong&gt;</bpt>OK<ept id="be300ee3-7c9f-4209-87ca-d717cffe2e34">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d83fe12-ea3d-497d-a8df-7d86ce4f9c79" xml:space="preserve">
+          <source>Drag azuredeploy.json into the <bpt id="b613a9f6-3f35-4524-be44-6cb5fdc86897">&lt;strong&gt;</bpt>Template<ept id="b613a9f6-3f35-4524-be44-6cb5fdc86897">&lt;/strong&gt;</ept> folder of your new project.</source>
+          <target state="new">Drag azuredeploy.json into the <bpt id="b613a9f6-3f35-4524-be44-6cb5fdc86897">&lt;strong&gt;</bpt>Template<ept id="b613a9f6-3f35-4524-be44-6cb5fdc86897">&lt;/strong&gt;</ept> folder of your new project.</target>
+        </trans-unit>
+        <trans-unit id="b743567f-c93c-4548-ac26-4524f80c189e" xml:space="preserve">
+          <source><bpt id="f2782dc8-32ac-4e40-8a7d-15a42d8d7a42">&lt;linkText&gt;</bpt><ept id="f2782dc8-32ac-4e40-8a7d-15a42d8d7a42">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f2782dc8-32ac-4e40-8a7d-15a42d8d7a42">&lt;linkText&gt;</bpt><ept id="f2782dc8-32ac-4e40-8a7d-15a42d8d7a42">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f4b955b-0452-4719-a3be-ccd5b497a59b" xml:space="preserve">
+          <source>From Solution Explorer, open the copied azuredeploy.json.</source>
+          <target state="new">From Solution Explorer, open the copied azuredeploy.json.</target>
+        </trans-unit>
+        <trans-unit id="d6ca9c2f-bc2f-490a-9daa-ff940462936a" xml:space="preserve">
+          <source>Just for the sake of the demonstration, let’s add some standard Application Insight resources to our JSON file, by clicking <bpt id="a18eb351-a598-4fb1-bca4-6540553420a7">&lt;strong&gt;</bpt>Add Resource<ept id="a18eb351-a598-4fb1-bca4-6540553420a7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Just for the sake of the demonstration, let’s add some standard Application Insight resources to our JSON file, by clicking <bpt id="a18eb351-a598-4fb1-bca4-6540553420a7">&lt;strong&gt;</bpt>Add Resource<ept id="a18eb351-a598-4fb1-bca4-6540553420a7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f95b2a7d-58a3-43be-8309-f2775ef07032" xml:space="preserve">
+          <source>If you’re just interested in deploying the JSON file, skip to the deploy steps.</source>
+          <target state="new">If you’re just interested in deploying the JSON file, skip to the deploy steps.</target>
+        </trans-unit>
+        <trans-unit id="c9708177-4035-454a-bea6-d28475df9e47" xml:space="preserve">
+          <source><bpt id="a2f60d5b-359f-4f3e-a235-804015f777b6">&lt;linkText&gt;</bpt><ept id="a2f60d5b-359f-4f3e-a235-804015f777b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2f60d5b-359f-4f3e-a235-804015f777b6">&lt;linkText&gt;</bpt><ept id="a2f60d5b-359f-4f3e-a235-804015f777b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70b4f5c1-e1dc-4b73-a9c8-f0cbb154cc5f" xml:space="preserve">
+          <source>Select <bpt id="eec5d36d-82a7-4617-9f6c-9d63833c426e">&lt;strong&gt;</bpt>Application Insights for Web Apps<ept id="eec5d36d-82a7-4617-9f6c-9d63833c426e">&lt;/strong&gt;</ept>, then make sure an existing App Service plan and web app is selected, and then click <bpt id="1d9200ce-1a8f-4646-901b-27f80cf55c32">&lt;strong&gt;</bpt>Add<ept id="1d9200ce-1a8f-4646-901b-27f80cf55c32">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="eec5d36d-82a7-4617-9f6c-9d63833c426e">&lt;strong&gt;</bpt>Application Insights for Web Apps<ept id="eec5d36d-82a7-4617-9f6c-9d63833c426e">&lt;/strong&gt;</ept>, then make sure an existing App Service plan and web app is selected, and then click <bpt id="1d9200ce-1a8f-4646-901b-27f80cf55c32">&lt;strong&gt;</bpt>Add<ept id="1d9200ce-1a8f-4646-901b-27f80cf55c32">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bbfc51ea-7704-4aac-87ed-e0cfea31c6ed" xml:space="preserve">
+          <source><bpt id="f8b551f0-3b2f-4a05-8d2b-eb22da34fb3e">&lt;linkText&gt;</bpt><ept id="f8b551f0-3b2f-4a05-8d2b-eb22da34fb3e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8b551f0-3b2f-4a05-8d2b-eb22da34fb3e">&lt;linkText&gt;</bpt><ept id="f8b551f0-3b2f-4a05-8d2b-eb22da34fb3e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9d24e77-e1f9-4f0e-869c-da444ebb78a9" xml:space="preserve">
+          <source>You’ll now be able to see several new resources that, depending on the resource and what it does, have dependencies on either the App Service plan or the web app.</source>
+          <target state="new">You’ll now be able to see several new resources that, depending on the resource and what it does, have dependencies on either the App Service plan or the web app.</target>
+        </trans-unit>
+        <trans-unit id="de1bd23e-eaa2-4ea4-90dd-2657bf022a4c" xml:space="preserve">
+          <source>These resources are not enabled by their existing definition and you’re going to change that.</source>
+          <target state="new">These resources are not enabled by their existing definition and you’re going to change that.</target>
+        </trans-unit>
+        <trans-unit id="dff4b1ca-7b78-46b5-a2b1-af0717884425" xml:space="preserve">
+          <source><bpt id="9ce9f973-3cbd-483b-b067-d07b11bde245">&lt;linkText&gt;</bpt><ept id="9ce9f973-3cbd-483b-b067-d07b11bde245">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ce9f973-3cbd-483b-b067-d07b11bde245">&lt;linkText&gt;</bpt><ept id="9ce9f973-3cbd-483b-b067-d07b11bde245">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11f64b21-e7f3-4234-8c81-a68d784b5118" xml:space="preserve">
+          <source>In the JSON Outline, click <bpt id="184cf222-0de6-411c-a802-4dd3b77ae07b">&lt;strong&gt;</bpt>appInsights AutoScale<ept id="184cf222-0de6-411c-a802-4dd3b77ae07b">&lt;/strong&gt;</ept> to highlight its JSON code.</source>
+          <target state="new">In the JSON Outline, click <bpt id="184cf222-0de6-411c-a802-4dd3b77ae07b">&lt;strong&gt;</bpt>appInsights AutoScale<ept id="184cf222-0de6-411c-a802-4dd3b77ae07b">&lt;/strong&gt;</ept> to highlight its JSON code.</target>
+        </trans-unit>
+        <trans-unit id="58447b7b-1339-4e82-980d-624d324445d4" xml:space="preserve">
+          <source>This is the scaling setting for your App Service plan.</source>
+          <target state="new">This is the scaling setting for your App Service plan.</target>
+        </trans-unit>
+        <trans-unit id="05a65802-7be8-4820-af6c-a63bd486378c" xml:space="preserve">
+          <source>In the highlighted JSON code, locate the <bpt id="ac16cd9d-4b7d-435b-ac7d-2781a26969ad">&lt;code&gt;</bpt>location<ept id="ac16cd9d-4b7d-435b-ac7d-2781a26969ad">&lt;/code&gt;</ept> and <bpt id="cff0ac07-7e81-4ceb-ac10-2b13c8d9f360">&lt;code&gt;</bpt>enabled<ept id="cff0ac07-7e81-4ceb-ac10-2b13c8d9f360">&lt;/code&gt;</ept> properties and set them as shown below.</source>
+          <target state="new">In the highlighted JSON code, locate the <bpt id="ac16cd9d-4b7d-435b-ac7d-2781a26969ad">&lt;code&gt;</bpt>location<ept id="ac16cd9d-4b7d-435b-ac7d-2781a26969ad">&lt;/code&gt;</ept> and <bpt id="cff0ac07-7e81-4ceb-ac10-2b13c8d9f360">&lt;code&gt;</bpt>enabled<ept id="cff0ac07-7e81-4ceb-ac10-2b13c8d9f360">&lt;/code&gt;</ept> properties and set them as shown below.</target>
+        </trans-unit>
+        <trans-unit id="692c4d55-f3ff-4af5-8aa9-903648cb3d57" xml:space="preserve">
+          <source><bpt id="5777edc8-afc3-47f0-bf02-44579f79da4a">&lt;linkText&gt;</bpt><ept id="5777edc8-afc3-47f0-bf02-44579f79da4a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5777edc8-afc3-47f0-bf02-44579f79da4a">&lt;linkText&gt;</bpt><ept id="5777edc8-afc3-47f0-bf02-44579f79da4a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36c924d7-ce57-4c44-be57-b93853fb4388" xml:space="preserve">
+          <source>In the JSON Outline, click <bpt id="629ae6ab-e5a6-44df-b58c-f57c593336c6">&lt;strong&gt;</bpt>CPUHigh appInsights<ept id="629ae6ab-e5a6-44df-b58c-f57c593336c6">&lt;/strong&gt;</ept> to highlight its JSON code.</source>
+          <target state="new">In the JSON Outline, click <bpt id="629ae6ab-e5a6-44df-b58c-f57c593336c6">&lt;strong&gt;</bpt>CPUHigh appInsights<ept id="629ae6ab-e5a6-44df-b58c-f57c593336c6">&lt;/strong&gt;</ept> to highlight its JSON code.</target>
+        </trans-unit>
+        <trans-unit id="964949e5-2713-487b-9654-b47207cd56d7" xml:space="preserve">
+          <source>This is an alert.</source>
+          <target state="new">This is an alert.</target>
+        </trans-unit>
+        <trans-unit id="298fea6b-be4a-429a-8205-4ef1f6a2ab58" xml:space="preserve">
+          <source>Locate the <bpt id="532bfd15-71ac-4fcb-a386-8993d57bf8d4">&lt;code&gt;</bpt>location<ept id="532bfd15-71ac-4fcb-a386-8993d57bf8d4">&lt;/code&gt;</ept> and <bpt id="522f9cee-6a91-402d-b1df-ca4f04f25bfd">&lt;code&gt;</bpt>isEnabled<ept id="522f9cee-6a91-402d-b1df-ca4f04f25bfd">&lt;/code&gt;</ept> properties and set them as shown below.</source>
+          <target state="new">Locate the <bpt id="532bfd15-71ac-4fcb-a386-8993d57bf8d4">&lt;code&gt;</bpt>location<ept id="532bfd15-71ac-4fcb-a386-8993d57bf8d4">&lt;/code&gt;</ept> and <bpt id="522f9cee-6a91-402d-b1df-ca4f04f25bfd">&lt;code&gt;</bpt>isEnabled<ept id="522f9cee-6a91-402d-b1df-ca4f04f25bfd">&lt;/code&gt;</ept> properties and set them as shown below.</target>
+        </trans-unit>
+        <trans-unit id="72617929-0ed7-4955-8182-305b8c75e31c" xml:space="preserve">
+          <source>Do the same for the other three alerts (purple bulbs).</source>
+          <target state="new">Do the same for the other three alerts (purple bulbs).</target>
+        </trans-unit>
+        <trans-unit id="10c38743-faef-4488-a41c-7306cfaf770b" xml:space="preserve">
+          <source><bpt id="931c9aa1-a668-4ccc-be39-c5cac1d27ad5">&lt;linkText&gt;</bpt><ept id="931c9aa1-a668-4ccc-be39-c5cac1d27ad5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="931c9aa1-a668-4ccc-be39-c5cac1d27ad5">&lt;linkText&gt;</bpt><ept id="931c9aa1-a668-4ccc-be39-c5cac1d27ad5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d731f27e-d687-408b-98fd-5b189c95fb47" xml:space="preserve">
+          <source>You’re now ready to deploy.</source>
+          <target state="new">You’re now ready to deploy.</target>
+        </trans-unit>
+        <trans-unit id="94de7299-f8f9-40b2-80e3-27b939789dcd" xml:space="preserve">
+          <source>Right-click the project and select <bpt id="2f4203ce-51f9-4aa1-a380-a24b45f82457">&lt;strong&gt;</bpt>Deploy<ept id="2f4203ce-51f9-4aa1-a380-a24b45f82457">&lt;/strong&gt;</ept> &gt; <bpt id="edf458be-3302-45ed-9711-b709f6699cd7">&lt;strong&gt;</bpt>New Deployment<ept id="edf458be-3302-45ed-9711-b709f6699cd7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the project and select <bpt id="2f4203ce-51f9-4aa1-a380-a24b45f82457">&lt;strong&gt;</bpt>Deploy<ept id="2f4203ce-51f9-4aa1-a380-a24b45f82457">&lt;/strong&gt;</ept> &gt; <bpt id="edf458be-3302-45ed-9711-b709f6699cd7">&lt;strong&gt;</bpt>New Deployment<ept id="edf458be-3302-45ed-9711-b709f6699cd7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="654c15e6-4f39-4bf8-a570-4955fade35de" xml:space="preserve">
+          <source><bpt id="2cb19b21-a42f-4707-b753-c794186476fa">&lt;linkText&gt;</bpt><ept id="2cb19b21-a42f-4707-b753-c794186476fa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2cb19b21-a42f-4707-b753-c794186476fa">&lt;linkText&gt;</bpt><ept id="2cb19b21-a42f-4707-b753-c794186476fa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de79cde1-8ed9-405b-8796-67d943e4f9d3" xml:space="preserve">
+          <source>Log into your Azure account if you haven’t already done so.</source>
+          <target state="new">Log into your Azure account if you haven’t already done so.</target>
+        </trans-unit>
+        <trans-unit id="8966fee2-9ef3-47a0-9b35-66d0b1284d0e" xml:space="preserve">
+          <source>Select an existing resource group in your subscription or create a new one, select <bpt id="03338a25-31da-4249-81ce-f455660a0986">&lt;strong&gt;</bpt>azuredeploy.json<ept id="03338a25-31da-4249-81ce-f455660a0986">&lt;/strong&gt;</ept>, and then click <bpt id="e48c4efa-e7a7-448b-be77-7791d299c679">&lt;strong&gt;</bpt>Edit Parameters<ept id="e48c4efa-e7a7-448b-be77-7791d299c679">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select an existing resource group in your subscription or create a new one, select <bpt id="03338a25-31da-4249-81ce-f455660a0986">&lt;strong&gt;</bpt>azuredeploy.json<ept id="03338a25-31da-4249-81ce-f455660a0986">&lt;/strong&gt;</ept>, and then click <bpt id="e48c4efa-e7a7-448b-be77-7791d299c679">&lt;strong&gt;</bpt>Edit Parameters<ept id="e48c4efa-e7a7-448b-be77-7791d299c679">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1efc1be-a6fc-4983-a653-86a438f76417" xml:space="preserve">
+          <source><bpt id="f9ddacdf-f964-4d31-8f32-8e391fc979ac">&lt;linkText&gt;</bpt><ept id="f9ddacdf-f964-4d31-8f32-8e391fc979ac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f9ddacdf-f964-4d31-8f32-8e391fc979ac">&lt;linkText&gt;</bpt><ept id="f9ddacdf-f964-4d31-8f32-8e391fc979ac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4294aee-4d8e-4f3f-ad38-129e7f0f1054" xml:space="preserve">
+          <source>You’ll now be able to edit all the parameters defined in the template file in a nice table.</source>
+          <target state="new">You’ll now be able to edit all the parameters defined in the template file in a nice table.</target>
+        </trans-unit>
+        <trans-unit id="f0fe6d4d-782f-4b80-ae54-b2c3059db225" xml:space="preserve">
+          <source>Parameters that define defaults will already have their default values, and parameters that define a list of allowed values will be shown as dropdowns.</source>
+          <target state="new">Parameters that define defaults will already have their default values, and parameters that define a list of allowed values will be shown as dropdowns.</target>
+        </trans-unit>
+        <trans-unit id="6c9bdc76-af3f-4941-9858-302cc3f5824f" xml:space="preserve">
+          <source><bpt id="707d0003-c649-4e98-9bc0-f4bd66e190f0">&lt;linkText&gt;</bpt><ept id="707d0003-c649-4e98-9bc0-f4bd66e190f0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="707d0003-c649-4e98-9bc0-f4bd66e190f0">&lt;linkText&gt;</bpt><ept id="707d0003-c649-4e98-9bc0-f4bd66e190f0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfbfca83-70b7-4126-b188-b0ce2bb9715b" xml:space="preserve">
+          <source>Fill in all the empty parameters, and use the <bpt id="e8a50e2e-1c36-4cdf-b11e-6c010c2c5ec6">&lt;linkText&gt;</bpt>GitHub repo address for ToDoApp<ept id="e8a50e2e-1c36-4cdf-b11e-6c010c2c5ec6">&lt;/linkText&gt;</ept><bpt id="e8a50e2e-1c36-4cdf-b11e-6c010c2c5ec6">&lt;title&gt;</bpt><ept id="e8a50e2e-1c36-4cdf-b11e-6c010c2c5ec6">&lt;/title&gt;</ept> in <bpt id="aa6f1712-64a1-4152-b0f9-9e03e215e868">&lt;strong&gt;</bpt>repoUrl<ept id="aa6f1712-64a1-4152-b0f9-9e03e215e868">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Fill in all the empty parameters, and use the <bpt id="e8a50e2e-1c36-4cdf-b11e-6c010c2c5ec6">&lt;linkText&gt;</bpt>GitHub repo address for ToDoApp<ept id="e8a50e2e-1c36-4cdf-b11e-6c010c2c5ec6">&lt;/linkText&gt;</ept><bpt id="e8a50e2e-1c36-4cdf-b11e-6c010c2c5ec6">&lt;title&gt;</bpt><ept id="e8a50e2e-1c36-4cdf-b11e-6c010c2c5ec6">&lt;/title&gt;</ept> in <bpt id="aa6f1712-64a1-4152-b0f9-9e03e215e868">&lt;strong&gt;</bpt>repoUrl<ept id="aa6f1712-64a1-4152-b0f9-9e03e215e868">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb32daee-3f7e-4390-8bde-d05d29e3ff7e" xml:space="preserve">
+          <source>Then, click <bpt id="4f42513b-d0ce-4ddd-a13d-0d122092eaca">&lt;strong&gt;</bpt>Save<ept id="4f42513b-d0ce-4ddd-a13d-0d122092eaca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, click <bpt id="4f42513b-d0ce-4ddd-a13d-0d122092eaca">&lt;strong&gt;</bpt>Save<ept id="4f42513b-d0ce-4ddd-a13d-0d122092eaca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc19c795-1fe5-4999-9755-003ddf1653f8" xml:space="preserve">
+          <source><bpt id="a4df65fb-fdc4-4b4e-8e4d-06e8c71dfc59">&lt;linkText&gt;</bpt><ept id="a4df65fb-fdc4-4b4e-8e4d-06e8c71dfc59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a4df65fb-fdc4-4b4e-8e4d-06e8c71dfc59">&lt;linkText&gt;</bpt><ept id="a4df65fb-fdc4-4b4e-8e4d-06e8c71dfc59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d929b12-57b7-4a47-8d59-cbcf7e83a8c8" xml:space="preserve">
+          <source>Autoscaling is a feature offered in <bpt id="234e60b0-1872-4af3-a8f4-b008aee51c8b">&lt;strong&gt;</bpt>Standard<ept id="234e60b0-1872-4af3-a8f4-b008aee51c8b">&lt;/strong&gt;</ept> tier or higher, and plan-level alerts are features offered in <bpt id="ea5a6be0-1086-45dd-8633-988ba17d8808">&lt;strong&gt;</bpt>Basic<ept id="ea5a6be0-1086-45dd-8633-988ba17d8808">&lt;/strong&gt;</ept> tier or higher, you’ll need to set the <bpt id="38268e8c-aa6f-412f-b1cd-4f2fb41e14cf">&lt;strong&gt;</bpt>sku<ept id="38268e8c-aa6f-412f-b1cd-4f2fb41e14cf">&lt;/strong&gt;</ept> parameter to <bpt id="7746441a-52ea-4cc5-bb97-7a70e219de07">&lt;strong&gt;</bpt>Standard<ept id="7746441a-52ea-4cc5-bb97-7a70e219de07">&lt;/strong&gt;</ept> or <bpt id="f7d08fbd-dbc7-42f2-973d-8349e06dd4fd">&lt;strong&gt;</bpt>Premium<ept id="f7d08fbd-dbc7-42f2-973d-8349e06dd4fd">&lt;/strong&gt;</ept> in order to see all your new App Insights resources light up.</source>
+          <target state="new">Autoscaling is a feature offered in <bpt id="234e60b0-1872-4af3-a8f4-b008aee51c8b">&lt;strong&gt;</bpt>Standard<ept id="234e60b0-1872-4af3-a8f4-b008aee51c8b">&lt;/strong&gt;</ept> tier or higher, and plan-level alerts are features offered in <bpt id="ea5a6be0-1086-45dd-8633-988ba17d8808">&lt;strong&gt;</bpt>Basic<ept id="ea5a6be0-1086-45dd-8633-988ba17d8808">&lt;/strong&gt;</ept> tier or higher, you’ll need to set the <bpt id="38268e8c-aa6f-412f-b1cd-4f2fb41e14cf">&lt;strong&gt;</bpt>sku<ept id="38268e8c-aa6f-412f-b1cd-4f2fb41e14cf">&lt;/strong&gt;</ept> parameter to <bpt id="7746441a-52ea-4cc5-bb97-7a70e219de07">&lt;strong&gt;</bpt>Standard<ept id="7746441a-52ea-4cc5-bb97-7a70e219de07">&lt;/strong&gt;</ept> or <bpt id="f7d08fbd-dbc7-42f2-973d-8349e06dd4fd">&lt;strong&gt;</bpt>Premium<ept id="f7d08fbd-dbc7-42f2-973d-8349e06dd4fd">&lt;/strong&gt;</ept> in order to see all your new App Insights resources light up.</target>
+        </trans-unit>
+        <trans-unit id="3f6523fa-dfec-4e49-9784-63a98dbd328f" xml:space="preserve">
+          <source>Click <bpt id="aa058946-b4fc-4bff-a261-567602ce3e68">&lt;strong&gt;</bpt>Deploy<ept id="aa058946-b4fc-4bff-a261-567602ce3e68">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="aa058946-b4fc-4bff-a261-567602ce3e68">&lt;strong&gt;</bpt>Deploy<ept id="aa058946-b4fc-4bff-a261-567602ce3e68">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ce6c83d-5f8e-4eac-b11a-0e74a27eacd2" xml:space="preserve">
+          <source>If you selected <bpt id="a2e4d8bb-aa48-455d-89be-efd1b01d8ad8">&lt;strong&gt;</bpt>Save passwords<ept id="a2e4d8bb-aa48-455d-89be-efd1b01d8ad8">&lt;/strong&gt;</ept>, the password will be saved in the parameter file <bpt id="97ec3fde-25ce-48ae-aa8b-2b4d32a8eb91">&lt;strong&gt;</bpt>in plain text<ept id="97ec3fde-25ce-48ae-aa8b-2b4d32a8eb91">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you selected <bpt id="a2e4d8bb-aa48-455d-89be-efd1b01d8ad8">&lt;strong&gt;</bpt>Save passwords<ept id="a2e4d8bb-aa48-455d-89be-efd1b01d8ad8">&lt;/strong&gt;</ept>, the password will be saved in the parameter file <bpt id="97ec3fde-25ce-48ae-aa8b-2b4d32a8eb91">&lt;strong&gt;</bpt>in plain text<ept id="97ec3fde-25ce-48ae-aa8b-2b4d32a8eb91">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="469a36bc-af65-4bf2-a78b-d07951a695d1" xml:space="preserve">
+          <source>Otherwise, you’ll be asked to input the database password during the deployment process.</source>
+          <target state="new">Otherwise, you’ll be asked to input the database password during the deployment process.</target>
+        </trans-unit>
+        <trans-unit id="bc45db87-8df2-4707-9eff-2e7ea305680a" xml:space="preserve">
+          <source>That’s it!</source>
+          <target state="new">That’s it!</target>
+        </trans-unit>
+        <trans-unit id="b9b3e29a-2f1f-4df0-bd60-39e3d786c936" xml:space="preserve">
+          <source>Now you just need to go to the <bpt id="63cfdb5c-6a7c-4ff9-80e1-2de4187a32f9">&lt;linkText&gt;</bpt>preview portal<ept id="63cfdb5c-6a7c-4ff9-80e1-2de4187a32f9">&lt;/linkText&gt;</ept><bpt id="63cfdb5c-6a7c-4ff9-80e1-2de4187a32f9">&lt;title&gt;</bpt><ept id="63cfdb5c-6a7c-4ff9-80e1-2de4187a32f9">&lt;/title&gt;</ept> and the <bpt id="dc5b4322-49a2-4e1c-866a-4ebe8c3d7481">&lt;linkText&gt;</bpt>Azure Resource Explorer<ept id="dc5b4322-49a2-4e1c-866a-4ebe8c3d7481">&lt;/linkText&gt;</ept><bpt id="dc5b4322-49a2-4e1c-866a-4ebe8c3d7481">&lt;title&gt;</bpt><ept id="dc5b4322-49a2-4e1c-866a-4ebe8c3d7481">&lt;/title&gt;</ept> tool to see the new alerts and autoscale settings added to your JSON deployed application.</source>
+          <target state="new">Now you just need to go to the <bpt id="63cfdb5c-6a7c-4ff9-80e1-2de4187a32f9">&lt;linkText&gt;</bpt>preview portal<ept id="63cfdb5c-6a7c-4ff9-80e1-2de4187a32f9">&lt;/linkText&gt;</ept><bpt id="63cfdb5c-6a7c-4ff9-80e1-2de4187a32f9">&lt;title&gt;</bpt><ept id="63cfdb5c-6a7c-4ff9-80e1-2de4187a32f9">&lt;/title&gt;</ept> and the <bpt id="dc5b4322-49a2-4e1c-866a-4ebe8c3d7481">&lt;linkText&gt;</bpt>Azure Resource Explorer<ept id="dc5b4322-49a2-4e1c-866a-4ebe8c3d7481">&lt;/linkText&gt;</ept><bpt id="dc5b4322-49a2-4e1c-866a-4ebe8c3d7481">&lt;title&gt;</bpt><ept id="dc5b4322-49a2-4e1c-866a-4ebe8c3d7481">&lt;/title&gt;</ept> tool to see the new alerts and autoscale settings added to your JSON deployed application.</target>
+        </trans-unit>
+        <trans-unit id="520b4f12-79a8-4a48-82e8-6a38bc59f694" xml:space="preserve">
+          <source>Your steps in this section mainly accomplished the following:</source>
+          <target state="new">Your steps in this section mainly accomplished the following:</target>
+        </trans-unit>
+        <trans-unit id="1ea9b140-d7c2-4a69-83d0-ba0d9f8bb977" xml:space="preserve">
+          <source>Prepared the template file</source>
+          <target state="new">Prepared the template file</target>
+        </trans-unit>
+        <trans-unit id="48cd4553-ab95-460f-815e-90441915f8da" xml:space="preserve">
+          <source>Created a parameter file to go with the template file</source>
+          <target state="new">Created a parameter file to go with the template file</target>
+        </trans-unit>
+        <trans-unit id="a866f111-fb6c-4be3-bbfe-1df1d845ce40" xml:space="preserve">
+          <source>Deployed the template file with the parameter file</source>
+          <target state="new">Deployed the template file with the parameter file</target>
+        </trans-unit>
+        <trans-unit id="3a15c25d-89ee-45ef-b831-7e04ffb6f44b" xml:space="preserve">
+          <source>The last step is easily done by a PowerShell cmdlet.</source>
+          <target state="new">The last step is easily done by a PowerShell cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="2532fdd0-317b-4545-a971-0908f251837e" xml:space="preserve">
+          <source>To see what Visual Studio did when it deployed your application, open Scripts\Deploy-AzureResourceGroup.ps1.</source>
+          <target state="new">To see what Visual Studio did when it deployed your application, open Scripts\Deploy-AzureResourceGroup.ps1.</target>
+        </trans-unit>
+        <trans-unit id="69b35fd4-fd65-4e7f-8496-5ee875fb818a" xml:space="preserve">
+          <source>There’s a lot of code there, but I’m just going to highlight all the pertinent code you need to deploy the template file with the parameter file.</source>
+          <target state="new">There’s a lot of code there, but I’m just going to highlight all the pertinent code you need to deploy the template file with the parameter file.</target>
+        </trans-unit>
+        <trans-unit id="fa3b97b0-e5f6-4c7c-afe5-a8cadb4dce5c" xml:space="preserve">
+          <source><bpt id="e7acb274-ed12-447a-a87e-36c55f7cb3dd">&lt;linkText&gt;</bpt><ept id="e7acb274-ed12-447a-a87e-36c55f7cb3dd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7acb274-ed12-447a-a87e-36c55f7cb3dd">&lt;linkText&gt;</bpt><ept id="e7acb274-ed12-447a-a87e-36c55f7cb3dd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aea48baf-22f9-4093-8a5f-f1e3ae61281a" xml:space="preserve">
+          <source>The last cmdlet, <bpt id="8d1a4e0f-9947-4d19-9a2c-f3e6180737e9">&lt;code&gt;</bpt>New-AzureResourceGroup<ept id="8d1a4e0f-9947-4d19-9a2c-f3e6180737e9">&lt;/code&gt;</ept>, is the one that actually performs the action.</source>
+          <target state="new">The last cmdlet, <bpt id="8d1a4e0f-9947-4d19-9a2c-f3e6180737e9">&lt;code&gt;</bpt>New-AzureResourceGroup<ept id="8d1a4e0f-9947-4d19-9a2c-f3e6180737e9">&lt;/code&gt;</ept>, is the one that actually performs the action.</target>
+        </trans-unit>
+        <trans-unit id="1924accd-adc7-4349-b6c8-35ec2d62ba5c" xml:space="preserve">
+          <source>All this should demonstrate to you that, with the help of tooling, it is relatively straightforward to deploy your cloud application predictably.</source>
+          <target state="new">All this should demonstrate to you that, with the help of tooling, it is relatively straightforward to deploy your cloud application predictably.</target>
+        </trans-unit>
+        <trans-unit id="0c9cc3b5-fa0c-4eea-a8ec-804592bbcc83" xml:space="preserve">
+          <source>Every time you run the cmdlet on the same template with the same parameter file, you’re going to get the same result.</source>
+          <target state="new">Every time you run the cmdlet on the same template with the same parameter file, you’re going to get the same result.</target>
+        </trans-unit>
+        <trans-unit id="3e5cfd2b-4ffa-4fe5-aaad-be5554a218e8" xml:space="preserve">
+          <source>In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale application composed of microservices.</source>
+          <target state="new">In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale application composed of microservices.</target>
+        </trans-unit>
+        <trans-unit id="965bedb2-b3cd-401b-affe-43a46ee88174" xml:space="preserve">
+          <source>In this tutorial, you have deployed a two-microservice application to Azure as a single resource group using the Azure Resource Manager template.</source>
+          <target state="new">In this tutorial, you have deployed a two-microservice application to Azure as a single resource group using the Azure Resource Manager template.</target>
+        </trans-unit>
+        <trans-unit id="1a246ff5-c4a5-4ac1-aa34-6bae221664d8" xml:space="preserve">
+          <source>Hopefully, it has given you the knowledge you need in order to start converting your application in Azure into a template and can provision and deploy it predictably.</source>
+          <target state="new">Hopefully, it has given you the knowledge you need in order to start converting your application in Azure into a template and can provision and deploy it predictably.</target>
+        </trans-unit>
+        <trans-unit id="30efa478-a0b7-433d-9ed2-14ff853e4edc" xml:space="preserve">
+          <source>Find out how to <bpt id="c946caee-9a3a-4be6-9d4e-61d0f6106845">&lt;linkText&gt;</bpt>apply agile methodologies and continuously publish your microservices application with ease<ept id="c946caee-9a3a-4be6-9d4e-61d0f6106845">&lt;/linkText&gt;</ept><bpt id="c946caee-9a3a-4be6-9d4e-61d0f6106845">&lt;title&gt;</bpt><ept id="c946caee-9a3a-4be6-9d4e-61d0f6106845">&lt;/title&gt;</ept>.</source>
+          <target state="new">Find out how to <bpt id="c946caee-9a3a-4be6-9d4e-61d0f6106845">&lt;linkText&gt;</bpt>apply agile methodologies and continuously publish your microservices application with ease<ept id="c946caee-9a3a-4be6-9d4e-61d0f6106845">&lt;/linkText&gt;</ept><bpt id="c946caee-9a3a-4be6-9d4e-61d0f6106845">&lt;title&gt;</bpt><ept id="c946caee-9a3a-4be6-9d4e-61d0f6106845">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a64cb2bd-7946-47fc-a80a-c98b0ae9d7de" xml:space="preserve">
+          <source><bpt id="d28a32e4-fe74-45b4-a0e3-78b66c82d0b3">&lt;bookmark&gt;</bpt><ept id="d28a32e4-fe74-45b4-a0e3-78b66c82d0b3">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="d28a32e4-fe74-45b4-a0e3-78b66c82d0b3">&lt;bookmark&gt;</bpt><ept id="d28a32e4-fe74-45b4-a0e3-78b66c82d0b3">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71868920-c056-4985-b9d2-e72800056d8c" xml:space="preserve">
+          <source><bpt id="b4246e2c-d6e3-4a69-ae28-94b312d11191">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="b4246e2c-d6e3-4a69-ae28-94b312d11191">&lt;/linkText&gt;</ept><bpt id="b4246e2c-d6e3-4a69-ae28-94b312d11191">&lt;title&gt;</bpt><ept id="b4246e2c-d6e3-4a69-ae28-94b312d11191">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b4246e2c-d6e3-4a69-ae28-94b312d11191">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="b4246e2c-d6e3-4a69-ae28-94b312d11191">&lt;/linkText&gt;</ept><bpt id="b4246e2c-d6e3-4a69-ae28-94b312d11191">&lt;title&gt;</bpt><ept id="b4246e2c-d6e3-4a69-ae28-94b312d11191">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="759b23ca-e31d-4804-b95b-1c4e5d0d7b05" xml:space="preserve">
+          <source><bpt id="350eaf0c-1427-423e-bf63-eb114911ab08">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager Templates<ept id="350eaf0c-1427-423e-bf63-eb114911ab08">&lt;/linkText&gt;</ept><bpt id="350eaf0c-1427-423e-bf63-eb114911ab08">&lt;title&gt;</bpt><ept id="350eaf0c-1427-423e-bf63-eb114911ab08">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="350eaf0c-1427-423e-bf63-eb114911ab08">&lt;linkText&gt;</bpt>Authoring Azure Resource Manager Templates<ept id="350eaf0c-1427-423e-bf63-eb114911ab08">&lt;/linkText&gt;</ept><bpt id="350eaf0c-1427-423e-bf63-eb114911ab08">&lt;title&gt;</bpt><ept id="350eaf0c-1427-423e-bf63-eb114911ab08">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c76f126e-805f-4fda-8af1-2031c5facadd" xml:space="preserve">
+          <source><bpt id="f989795f-b254-45e3-b3ef-cb674f92043e">&lt;linkText&gt;</bpt>Azure Resource Manager Template Functions<ept id="f989795f-b254-45e3-b3ef-cb674f92043e">&lt;/linkText&gt;</ept><bpt id="f989795f-b254-45e3-b3ef-cb674f92043e">&lt;title&gt;</bpt><ept id="f989795f-b254-45e3-b3ef-cb674f92043e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f989795f-b254-45e3-b3ef-cb674f92043e">&lt;linkText&gt;</bpt>Azure Resource Manager Template Functions<ept id="f989795f-b254-45e3-b3ef-cb674f92043e">&lt;/linkText&gt;</ept><bpt id="f989795f-b254-45e3-b3ef-cb674f92043e">&lt;title&gt;</bpt><ept id="f989795f-b254-45e3-b3ef-cb674f92043e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8542437b-d5cb-4c7a-ba97-2d0016932940" xml:space="preserve">
+          <source><bpt id="84d4261f-dc56-4d9a-b125-3c920612b519">&lt;linkText&gt;</bpt>Deploy an application with Azure Resource Manager template<ept id="84d4261f-dc56-4d9a-b125-3c920612b519">&lt;/linkText&gt;</ept><bpt id="84d4261f-dc56-4d9a-b125-3c920612b519">&lt;title&gt;</bpt><ept id="84d4261f-dc56-4d9a-b125-3c920612b519">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="84d4261f-dc56-4d9a-b125-3c920612b519">&lt;linkText&gt;</bpt>Deploy an application with Azure Resource Manager template<ept id="84d4261f-dc56-4d9a-b125-3c920612b519">&lt;/linkText&gt;</ept><bpt id="84d4261f-dc56-4d9a-b125-3c920612b519">&lt;title&gt;</bpt><ept id="84d4261f-dc56-4d9a-b125-3c920612b519">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="122a5515-2240-4681-9278-20146468833a" xml:space="preserve">
+          <source><bpt id="890e80be-3832-4d05-8d3b-d36b69cbb3bd">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="890e80be-3832-4d05-8d3b-d36b69cbb3bd">&lt;/linkText&gt;</ept><bpt id="890e80be-3832-4d05-8d3b-d36b69cbb3bd">&lt;title&gt;</bpt><ept id="890e80be-3832-4d05-8d3b-d36b69cbb3bd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="890e80be-3832-4d05-8d3b-d36b69cbb3bd">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="890e80be-3832-4d05-8d3b-d36b69cbb3bd">&lt;/linkText&gt;</ept><bpt id="890e80be-3832-4d05-8d3b-d36b69cbb3bd">&lt;title&gt;</bpt><ept id="890e80be-3832-4d05-8d3b-d36b69cbb3bd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5c94c0f-7397-4e82-bbc0-93c829a29e3b" xml:space="preserve">
+          <source><bpt id="2b4908e7-6f9c-4526-8fd7-ebc9424e12c5">&lt;linkText&gt;</bpt>Troubleshooting Resource Group Deployments in Azure<ept id="2b4908e7-6f9c-4526-8fd7-ebc9424e12c5">&lt;/linkText&gt;</ept><bpt id="2b4908e7-6f9c-4526-8fd7-ebc9424e12c5">&lt;title&gt;</bpt><ept id="2b4908e7-6f9c-4526-8fd7-ebc9424e12c5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2b4908e7-6f9c-4526-8fd7-ebc9424e12c5">&lt;linkText&gt;</bpt>Troubleshooting Resource Group Deployments in Azure<ept id="2b4908e7-6f9c-4526-8fd7-ebc9424e12c5">&lt;/linkText&gt;</ept><bpt id="2b4908e7-6f9c-4526-8fd7-ebc9424e12c5">&lt;title&gt;</bpt><ept id="2b4908e7-6f9c-4526-8fd7-ebc9424e12c5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

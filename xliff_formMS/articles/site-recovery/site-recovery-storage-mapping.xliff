@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="837a4937-55b8-41ed-9aad-263d1d15da81" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="837a4937-55b8-41ed-9aad-263d1d15da81" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="27f26b42-3371-44c4-b74b-1e8e8f61e14d">
+        <trans-unit id="7696a26b-7030-4e2b-9351-142706e6045e" xml:space="preserve">
+          <source>Site Recovery storage mapping</source>
+          <target state="new">Site Recovery storage mapping</target>
+        </trans-unit>
+        <trans-unit id="02bd30e2-ae99-4159-834d-519661d5b3d8" xml:space="preserve">
+          <source>Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site.</source>
+          <target state="new">Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site.</target>
+        </trans-unit>
+        <trans-unit id="d0df1e18-e9f6-4365-b8e4-384aa7425b48" xml:space="preserve">
+          <source>Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers.</source>
+          <target state="new">Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers.</target>
+        </trans-unit>
+        <trans-unit id="7c207c59-c929-4bb2-a3de-08cfda35ffeb" xml:space="preserve">
+          <source>Read about possible deployment scenarios in the <bpt id="b6f38152-9c6f-42f5-9f36-552ad64ef13e">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="b6f38152-9c6f-42f5-9f36-552ad64ef13e">&lt;/linkText&gt;</ept><bpt id="b6f38152-9c6f-42f5-9f36-552ad64ef13e">&lt;title&gt;</bpt><ept id="b6f38152-9c6f-42f5-9f36-552ad64ef13e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read about possible deployment scenarios in the <bpt id="b6f38152-9c6f-42f5-9f36-552ad64ef13e">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="b6f38152-9c6f-42f5-9f36-552ad64ef13e">&lt;/linkText&gt;</ept><bpt id="b6f38152-9c6f-42f5-9f36-552ad64ef13e">&lt;title&gt;</bpt><ept id="b6f38152-9c6f-42f5-9f36-552ad64ef13e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c3a059c2-22e0-4c25-9083-3bce1696744b" xml:space="preserve">
+          <source>Storage mapping is an important element of your Site Recovery deployment.</source>
+          <target state="new">Storage mapping is an important element of your Site Recovery deployment.</target>
+        </trans-unit>
+        <trans-unit id="d6da12b6-71c8-4a27-b566-ecf0b14eafbb" xml:space="preserve">
+          <source>It ensures your making optimal use of storage.</source>
+          <target state="new">It ensures your making optimal use of storage.</target>
+        </trans-unit>
+        <trans-unit id="9a64f3a6-0c88-42f5-9850-dd10817b5312" xml:space="preserve">
+          <source>This article describes storage mapping and provides a couple of examples to help you understand how storage mapping works.</source>
+          <target state="new">This article describes storage mapping and provides a couple of examples to help you understand how storage mapping works.</target>
+        </trans-unit>
+        <trans-unit id="76abc325-47c2-4f5d-a47d-b02f81169991" xml:space="preserve">
+          <source>Post any questions on the <bpt id="030f9866-0677-4b45-8665-146ad62aa42a">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="030f9866-0677-4b45-8665-146ad62aa42a">&lt;/linkText&gt;</ept><bpt id="030f9866-0677-4b45-8665-146ad62aa42a">&lt;title&gt;</bpt><ept id="030f9866-0677-4b45-8665-146ad62aa42a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Post any questions on the <bpt id="030f9866-0677-4b45-8665-146ad62aa42a">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="030f9866-0677-4b45-8665-146ad62aa42a">&lt;/linkText&gt;</ept><bpt id="030f9866-0677-4b45-8665-146ad62aa42a">&lt;title&gt;</bpt><ept id="030f9866-0677-4b45-8665-146ad62aa42a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0e0c5d1-5bb2-4ccc-9e75-4b7eb3558193" xml:space="preserve">
+          <source>The way in which you set up storage mapping depends on your Site Recovery deployment scenario.</source>
+          <target state="new">The way in which you set up storage mapping depends on your Site Recovery deployment scenario.</target>
+        </trans-unit>
+        <trans-unit id="6b2e6837-8067-468d-9652-36fabc5fdeae" xml:space="preserve">
+          <source><bpt id="d3177d98-f6ff-45be-a650-f3eaf42c0dd3">&lt;strong&gt;</bpt>On-premises to on-premises (replicate with Hyper-V Replica)<ept id="d3177d98-f6ff-45be-a650-f3eaf42c0dd3">&lt;/strong&gt;</ept>—Map storage classifications on a source and target VMM servers to do the following:</source>
+          <target state="new"><bpt id="d3177d98-f6ff-45be-a650-f3eaf42c0dd3">&lt;strong&gt;</bpt>On-premises to on-premises (replicate with Hyper-V Replica)<ept id="d3177d98-f6ff-45be-a650-f3eaf42c0dd3">&lt;/strong&gt;</ept>—Map storage classifications on a source and target VMM servers to do the following:</target>
+        </trans-unit>
+        <trans-unit id="35ee8444-8274-4c2a-b2f0-87ba25b446a7" xml:space="preserve">
+          <source><bpt id="9a0c51d5-58d5-4824-a39c-85edd41f3cd0">&lt;strong&gt;</bpt>Identify target storage for replica virtual machines<ept id="9a0c51d5-58d5-4824-a39c-85edd41f3cd0">&lt;/strong&gt;</ept>—Virtual machines will be replicated to a storage target (SMB share or cluster shared volumes (CSVs)) that you choose.</source>
+          <target state="new"><bpt id="9a0c51d5-58d5-4824-a39c-85edd41f3cd0">&lt;strong&gt;</bpt>Identify target storage for replica virtual machines<ept id="9a0c51d5-58d5-4824-a39c-85edd41f3cd0">&lt;/strong&gt;</ept>—Virtual machines will be replicated to a storage target (SMB share or cluster shared volumes (CSVs)) that you choose.</target>
+        </trans-unit>
+        <trans-unit id="768edfe2-3d17-4088-9b29-240202bde081" xml:space="preserve">
+          <source><bpt id="8e71c70d-ad92-4b7a-9fc2-db836bcab321">&lt;strong&gt;</bpt>Replica virtual machine placement<ept id="8e71c70d-ad92-4b7a-9fc2-db836bcab321">&lt;/strong&gt;</ept>—Storage mapping is used to optimally place replica virtual machines on Hyper-V host servers.</source>
+          <target state="new"><bpt id="8e71c70d-ad92-4b7a-9fc2-db836bcab321">&lt;strong&gt;</bpt>Replica virtual machine placement<ept id="8e71c70d-ad92-4b7a-9fc2-db836bcab321">&lt;/strong&gt;</ept>—Storage mapping is used to optimally place replica virtual machines on Hyper-V host servers.</target>
+        </trans-unit>
+        <trans-unit id="33d1a2d0-c041-4627-ae27-c15d775638a9" xml:space="preserve">
+          <source>Replica virtual machines will be placed on hosts that can access the mapped storage classification.</source>
+          <target state="new">Replica virtual machines will be placed on hosts that can access the mapped storage classification.</target>
+        </trans-unit>
+        <trans-unit id="bd36cb4d-2712-4501-8321-fe382dd5f5e5" xml:space="preserve">
+          <source><bpt id="4c3bb61a-041e-4ba9-820f-ab85545a5681">&lt;strong&gt;</bpt>No storage mapping<ept id="4c3bb61a-041e-4ba9-820f-ab85545a5681">&lt;/strong&gt;</ept>—If you don’t configure storage mapping virtual machines will be replicated to the default storage location specified on the Hyper-V host server associated with the replica virtual machine.</source>
+          <target state="new"><bpt id="4c3bb61a-041e-4ba9-820f-ab85545a5681">&lt;strong&gt;</bpt>No storage mapping<ept id="4c3bb61a-041e-4ba9-820f-ab85545a5681">&lt;/strong&gt;</ept>—If you don’t configure storage mapping virtual machines will be replicated to the default storage location specified on the Hyper-V host server associated with the replica virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="637390bc-c40c-448d-b35a-46cf4926ac38" xml:space="preserve">
+          <source><bpt id="63465595-8025-4469-9ed8-81c3e9b41f13">&lt;strong&gt;</bpt>On-premises to on-premises (replicate with SAN)<ept id="63465595-8025-4469-9ed8-81c3e9b41f13">&lt;/strong&gt;</ept>—Maps storage arrays pools on a source and target VMM servers to do the following:</source>
+          <target state="new"><bpt id="63465595-8025-4469-9ed8-81c3e9b41f13">&lt;strong&gt;</bpt>On-premises to on-premises (replicate with SAN)<ept id="63465595-8025-4469-9ed8-81c3e9b41f13">&lt;/strong&gt;</ept>—Maps storage arrays pools on a source and target VMM servers to do the following:</target>
+        </trans-unit>
+        <trans-unit id="eca16285-b2ff-494a-86c7-9d94ff2e4b73" xml:space="preserve">
+          <source><bpt id="52f36313-b4e8-4642-b54c-786c1a241de4">&lt;strong&gt;</bpt>Identify target storage pools<ept id="52f36313-b4e8-4642-b54c-786c1a241de4">&lt;/strong&gt;</ept>—Storage mapping ensures that LUNs in a replication group are replicated the mapped target storage pool.</source>
+          <target state="new"><bpt id="52f36313-b4e8-4642-b54c-786c1a241de4">&lt;strong&gt;</bpt>Identify target storage pools<ept id="52f36313-b4e8-4642-b54c-786c1a241de4">&lt;/strong&gt;</ept>—Storage mapping ensures that LUNs in a replication group are replicated the mapped target storage pool.</target>
+        </trans-unit>
+        <trans-unit id="89bdd96b-22c8-4687-814c-d07c40296afa" xml:space="preserve">
+          <source>You map between storage classifications on source and target VMM servers, or on a single VMM server if two sites are managed by the same VMM server.</source>
+          <target state="new">You map between storage classifications on source and target VMM servers, or on a single VMM server if two sites are managed by the same VMM server.</target>
+        </trans-unit>
+        <trans-unit id="0b6da571-dc81-458f-94b0-ed7d1f293686" xml:space="preserve">
+          <source>When mapping is configured correctly and replication is enabled, a virtual machine’s virtual hard disk at the primary location will be replicated to storage in mapped target location.</source>
+          <target state="new">When mapping is configured correctly and replication is enabled, a virtual machine’s virtual hard disk at the primary location will be replicated to storage in mapped target location.</target>
+        </trans-unit>
+        <trans-unit id="58d0d555-adf8-4846-9150-0d3de0210606" xml:space="preserve">
+          <source>Note that:</source>
+          <target state="new">Note that:</target>
+        </trans-unit>
+        <trans-unit id="571c0e7e-9c19-49db-85f2-763874e8d7d3" xml:space="preserve">
+          <source>Storage classifications must be available to the host groups located in source and target clouds</source>
+          <target state="new">Storage classifications must be available to the host groups located in source and target clouds</target>
+        </trans-unit>
+        <trans-unit id="abf96654-a296-46bb-a5c6-793428d5d520" xml:space="preserve">
+          <source>Classifications don’t need to have the same type of storage.</source>
+          <target state="new">Classifications don’t need to have the same type of storage.</target>
+        </trans-unit>
+        <trans-unit id="eb2e2c54-133b-4d21-9ed3-a822b5e0235f" xml:space="preserve">
+          <source>For example you can map a source classification that contains SMB shares to a target classification that contains CSVs</source>
+          <target state="new">For example you can map a source classification that contains SMB shares to a target classification that contains CSVs</target>
+        </trans-unit>
+        <trans-unit id="c4a0d7c5-fe86-4de1-b23b-0c90944d8511" xml:space="preserve">
+          <source>Read more in <bpt id="106b49b4-d7e1-4ea0-a0ae-b412aea7933f">&lt;linkText&gt;</bpt>How to create storage classifications in VMM<ept id="106b49b4-d7e1-4ea0-a0ae-b412aea7933f">&lt;/linkText&gt;</ept><bpt id="106b49b4-d7e1-4ea0-a0ae-b412aea7933f">&lt;title&gt;</bpt><ept id="106b49b4-d7e1-4ea0-a0ae-b412aea7933f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more in <bpt id="106b49b4-d7e1-4ea0-a0ae-b412aea7933f">&lt;linkText&gt;</bpt>How to create storage classifications in VMM<ept id="106b49b4-d7e1-4ea0-a0ae-b412aea7933f">&lt;/linkText&gt;</ept><bpt id="106b49b4-d7e1-4ea0-a0ae-b412aea7933f">&lt;title&gt;</bpt><ept id="106b49b4-d7e1-4ea0-a0ae-b412aea7933f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba76da7b-8433-48ec-b6fd-4fd4aeac2550" xml:space="preserve">
+          <source>If classifications are configured correctly in VMM when you select the source and target VMM server during storage mapping, the source and target classifications will be displayed.</source>
+          <target state="new">If classifications are configured correctly in VMM when you select the source and target VMM server during storage mapping, the source and target classifications will be displayed.</target>
+        </trans-unit>
+        <trans-unit id="d91dc484-d7c1-4529-a59c-c5c6ae785539" xml:space="preserve">
+          <source>Here’s an example of storage files shares and classifications for an organization with two locations in New York and Chicago.</source>
+          <target state="new">Here’s an example of storage files shares and classifications for an organization with two locations in New York and Chicago.</target>
+        </trans-unit>
+        <trans-unit id="6fe2ee65-98cb-4d7b-ab4e-f1c6a44b0c03" xml:space="preserve">
+          <source><bpt id="eaaa72ee-fe03-49e5-b71d-588b5d985fe1">&lt;strong&gt;</bpt>Location<ept id="eaaa72ee-fe03-49e5-b71d-588b5d985fe1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="eaaa72ee-fe03-49e5-b71d-588b5d985fe1">&lt;strong&gt;</bpt>Location<ept id="eaaa72ee-fe03-49e5-b71d-588b5d985fe1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e817058-aece-41fa-a14f-bf870149d330" xml:space="preserve">
+          <source><bpt id="b59da745-5c2d-46f8-bb7b-e0f1f1878512">&lt;strong&gt;</bpt>VMM server<ept id="b59da745-5c2d-46f8-bb7b-e0f1f1878512">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b59da745-5c2d-46f8-bb7b-e0f1f1878512">&lt;strong&gt;</bpt>VMM server<ept id="b59da745-5c2d-46f8-bb7b-e0f1f1878512">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91610a62-f438-4683-bab5-a400833870d0" xml:space="preserve">
+          <source><bpt id="dbec7ba4-6e8d-4526-a0df-31f87418d82f">&lt;strong&gt;</bpt>File share (source)<ept id="dbec7ba4-6e8d-4526-a0df-31f87418d82f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dbec7ba4-6e8d-4526-a0df-31f87418d82f">&lt;strong&gt;</bpt>File share (source)<ept id="dbec7ba4-6e8d-4526-a0df-31f87418d82f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af31853e-6bed-430a-9f98-d5d999936d7e" xml:space="preserve">
+          <source><bpt id="49c870f4-1df4-4912-a2a6-1933ebc8e3a0">&lt;strong&gt;</bpt>Classification (source)<ept id="49c870f4-1df4-4912-a2a6-1933ebc8e3a0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="49c870f4-1df4-4912-a2a6-1933ebc8e3a0">&lt;strong&gt;</bpt>Classification (source)<ept id="49c870f4-1df4-4912-a2a6-1933ebc8e3a0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46b27fbe-e0c4-40eb-85cc-c670201cf7d1" xml:space="preserve">
+          <source><bpt id="59154ecb-eb5e-4e8c-9e37-3a023b6d58ae">&lt;strong&gt;</bpt>Mapped to<ept id="59154ecb-eb5e-4e8c-9e37-3a023b6d58ae">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="59154ecb-eb5e-4e8c-9e37-3a023b6d58ae">&lt;strong&gt;</bpt>Mapped to<ept id="59154ecb-eb5e-4e8c-9e37-3a023b6d58ae">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08b19c1e-7b43-4045-a6dc-f0e3c8be3f0e" xml:space="preserve">
+          <source><bpt id="4f8be057-92a5-4c6a-8168-0f7d8d167819">&lt;strong&gt;</bpt>File share (target)<ept id="4f8be057-92a5-4c6a-8168-0f7d8d167819">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4f8be057-92a5-4c6a-8168-0f7d8d167819">&lt;strong&gt;</bpt>File share (target)<ept id="4f8be057-92a5-4c6a-8168-0f7d8d167819">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3cdb849-9aec-4680-be21-80f3a92d5525" xml:space="preserve">
+          <source>New York</source>
+          <target state="new">New York</target>
+        </trans-unit>
+        <trans-unit id="0065b330-1955-4476-b61d-7ebc385dfc2b" xml:space="preserve">
+          <source>VMM_Source</source>
+          <target state="new">VMM_Source</target>
+        </trans-unit>
+        <trans-unit id="4c764782-97e9-4488-99af-ac002ed5ed3c" xml:space="preserve">
+          <source>SourceShare1</source>
+          <target state="new">SourceShare1</target>
+        </trans-unit>
+        <trans-unit id="cc1c8a35-7a7f-418a-a82f-b828773e6a8e" xml:space="preserve">
+          <source>GOLD</source>
+          <target state="new">GOLD</target>
+        </trans-unit>
+        <trans-unit id="13efec7e-f144-4b64-81e1-9db4e6a538b2" xml:space="preserve">
+          <source>GOLD_TARGET</source>
+          <target state="new">GOLD_TARGET</target>
+        </trans-unit>
+        <trans-unit id="e9f39883-e31d-4115-837b-9f57f8376e1c" xml:space="preserve">
+          <source>TargetShare1</source>
+          <target state="new">TargetShare1</target>
+        </trans-unit>
+        <trans-unit id="5326f95f-a0ac-4d8d-b4d9-502661a6d876" xml:space="preserve">
+          <source>SourceShare2</source>
+          <target state="new">SourceShare2</target>
+        </trans-unit>
+        <trans-unit id="8ede25c5-573a-4909-9583-fc21ffd2ea9a" xml:space="preserve">
+          <source>SILVER</source>
+          <target state="new">SILVER</target>
+        </trans-unit>
+        <trans-unit id="74551cf5-be7e-47bb-922d-9c43370f09b9" xml:space="preserve">
+          <source>SILVER_TARGET</source>
+          <target state="new">SILVER_TARGET</target>
+        </trans-unit>
+        <trans-unit id="01f83740-0aa3-4f1d-9a6b-02ba374df4f0" xml:space="preserve">
+          <source>TargetShare2</source>
+          <target state="new">TargetShare2</target>
+        </trans-unit>
+        <trans-unit id="059237df-516b-4ea7-a567-d1d495c8b4e2" xml:space="preserve">
+          <source>SourceShare3</source>
+          <target state="new">SourceShare3</target>
+        </trans-unit>
+        <trans-unit id="67336a45-739d-4f54-92e5-f89ff3143e8f" xml:space="preserve">
+          <source>BRONZE</source>
+          <target state="new">BRONZE</target>
+        </trans-unit>
+        <trans-unit id="1dae57b8-fa5b-455b-8a02-d5f00cdb0c09" xml:space="preserve">
+          <source>BRONZE_TARGET</source>
+          <target state="new">BRONZE_TARGET</target>
+        </trans-unit>
+        <trans-unit id="17f24dea-f174-423c-8c97-0f0ed3507e25" xml:space="preserve">
+          <source>TargetShare3</source>
+          <target state="new">TargetShare3</target>
+        </trans-unit>
+        <trans-unit id="6445d937-2612-483f-8362-68f43040bf9d" xml:space="preserve">
+          <source>Chicago</source>
+          <target state="new">Chicago</target>
+        </trans-unit>
+        <trans-unit id="ddd97249-2833-4d67-a7ff-e121aba088e0" xml:space="preserve">
+          <source>VMM_Target</source>
+          <target state="new">VMM_Target</target>
+        </trans-unit>
+        <trans-unit id="6db60909-271a-405a-8275-39969feba0e6" xml:space="preserve">
+          <source>GOLD_TARGET</source>
+          <target state="new">GOLD_TARGET</target>
+        </trans-unit>
+        <trans-unit id="c24a6dad-2f5e-4459-80e5-8da83a72c178" xml:space="preserve">
+          <source>Not mapped</source>
+          <target state="new">Not mapped</target>
+        </trans-unit>
+        <trans-unit id="f8ea6559-0902-40c7-81c1-c1f40bdcfd7f" xml:space="preserve">
+          <source>SILVER_TARGET</source>
+          <target state="new">SILVER_TARGET</target>
+        </trans-unit>
+        <trans-unit id="55deb86e-c121-4fce-b9a0-261a778f629c" xml:space="preserve">
+          <source>Not mapped</source>
+          <target state="new">Not mapped</target>
+        </trans-unit>
+        <trans-unit id="c7508b24-5b21-48d2-8a71-cea906bd3027" xml:space="preserve">
+          <source>BRONZE_TARGET</source>
+          <target state="new">BRONZE_TARGET</target>
+        </trans-unit>
+        <trans-unit id="7b5f1811-aafa-47d4-a929-e1d7d8cd84fa" xml:space="preserve">
+          <source>Not mapped</source>
+          <target state="new">Not mapped</target>
+        </trans-unit>
+        <trans-unit id="9692da33-663e-40df-9d1e-3a1fd76239df" xml:space="preserve">
+          <source>You'd configure these on the <bpt id="b58caef9-d4eb-4ca6-a31b-9bf95646214a">&lt;strong&gt;</bpt>Server Storage<ept id="b58caef9-d4eb-4ca6-a31b-9bf95646214a">&lt;/strong&gt;</ept> tab in the <bpt id="4086110d-bf10-433a-8337-a45b8f3bdac1">&lt;strong&gt;</bpt>Resources<ept id="4086110d-bf10-433a-8337-a45b8f3bdac1">&lt;/strong&gt;</ept> page of the Site Recovery portal.</source>
+          <target state="new">You'd configure these on the <bpt id="b58caef9-d4eb-4ca6-a31b-9bf95646214a">&lt;strong&gt;</bpt>Server Storage<ept id="b58caef9-d4eb-4ca6-a31b-9bf95646214a">&lt;/strong&gt;</ept> tab in the <bpt id="4086110d-bf10-433a-8337-a45b8f3bdac1">&lt;strong&gt;</bpt>Resources<ept id="4086110d-bf10-433a-8337-a45b8f3bdac1">&lt;/strong&gt;</ept> page of the Site Recovery portal.</target>
+        </trans-unit>
+        <trans-unit id="f3e42734-3af7-4ab7-8cfa-8612f2b20c90" xml:space="preserve">
+          <source><bpt id="4c7ffb1c-fa69-4137-a125-736c303504e6">&lt;linkText&gt;</bpt>Configure storage mapping<ept id="4c7ffb1c-fa69-4137-a125-736c303504e6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4c7ffb1c-fa69-4137-a125-736c303504e6">&lt;linkText&gt;</bpt>Configure storage mapping<ept id="4c7ffb1c-fa69-4137-a125-736c303504e6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="799b3e15-eabc-4dda-81de-d0943dc2688f" xml:space="preserve">
+          <source>With this example:</source>
+          <target state="new">With this example:</target>
+        </trans-unit>
+        <trans-unit id="ea95f6e8-e751-4446-94ee-c8245d28ff65" xml:space="preserve">
+          <source>When a a replica virtual machine is created for any virtual machine on GOLD storage (SourceShare1), it will be replicated to a GOLD_TARGET storage (TargetShare1).</source>
+          <target state="new">When a a replica virtual machine is created for any virtual machine on GOLD storage (SourceShare1), it will be replicated to a GOLD_TARGET storage (TargetShare1).</target>
+        </trans-unit>
+        <trans-unit id="8d6befad-acc8-4989-9dcd-d6b69ecd1379" xml:space="preserve">
+          <source>When a replica virtual machine is created for any virtual machine on SILVER storage (SourceShare2), it will be replicated to a SILVER_TARGET (TargetShare2) storage, and so on.</source>
+          <target state="new">When a replica virtual machine is created for any virtual machine on SILVER storage (SourceShare2), it will be replicated to a SILVER_TARGET (TargetShare2) storage, and so on.</target>
+        </trans-unit>
+        <trans-unit id="09c44724-e3d0-4836-821f-f4a358f2793a" xml:space="preserve">
+          <source>The actual file shares and their assigned classifications in VMM would be as shown below.</source>
+          <target state="new">The actual file shares and their assigned classifications in VMM would be as shown below.</target>
+        </trans-unit>
+        <trans-unit id="e6ccd89e-69e3-4035-a79d-0572b6ae39ce" xml:space="preserve">
+          <source><bpt id="8458c99b-555b-4da4-af98-8ef0fce3b8f2">&lt;linkText&gt;</bpt>Storage classifications in VMM<ept id="8458c99b-555b-4da4-af98-8ef0fce3b8f2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8458c99b-555b-4da4-af98-8ef0fce3b8f2">&lt;linkText&gt;</bpt>Storage classifications in VMM<ept id="8458c99b-555b-4da4-af98-8ef0fce3b8f2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51e91749-9d77-47a3-98de-53e7387305f9" xml:space="preserve">
+          <source>If the target classification is assigned to multiple SMB shares or CSVs the optimal storage location will be selected automatically when the virtual machine is protected.</source>
+          <target state="new">If the target classification is assigned to multiple SMB shares or CSVs the optimal storage location will be selected automatically when the virtual machine is protected.</target>
+        </trans-unit>
+        <trans-unit id="fc903a00-8d1e-4804-9124-75a3457d16fa" xml:space="preserve">
+          <source>If no suitable target storage is available with the specified classification, the default storage location specified on the Hyper-V host is used to place the replica virtual hard disks.</source>
+          <target state="new">If no suitable target storage is available with the specified classification, the default storage location specified on the Hyper-V host is used to place the replica virtual hard disks.</target>
+        </trans-unit>
+        <trans-unit id="416c64eb-f6fd-4cd7-9ca3-2bb23fe61bd4" xml:space="preserve">
+          <source>The following table show how storage classification and cluster shared volumes are set up in our example.</source>
+          <target state="new">The following table show how storage classification and cluster shared volumes are set up in our example.</target>
+        </trans-unit>
+        <trans-unit id="acee7791-907b-486c-a32b-ff662fd4f813" xml:space="preserve">
+          <source><bpt id="49a6d6b5-5e2a-4d59-b20d-f8652d9d8a8b">&lt;strong&gt;</bpt>Location<ept id="49a6d6b5-5e2a-4d59-b20d-f8652d9d8a8b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="49a6d6b5-5e2a-4d59-b20d-f8652d9d8a8b">&lt;strong&gt;</bpt>Location<ept id="49a6d6b5-5e2a-4d59-b20d-f8652d9d8a8b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5170fc79-efc8-4fd1-9670-960cd5795d0f" xml:space="preserve">
+          <source><bpt id="141339bf-4270-4570-b670-df81cc95af8c">&lt;strong&gt;</bpt>Classification<ept id="141339bf-4270-4570-b670-df81cc95af8c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="141339bf-4270-4570-b670-df81cc95af8c">&lt;strong&gt;</bpt>Classification<ept id="141339bf-4270-4570-b670-df81cc95af8c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05206509-a537-4094-a315-3cec620f797f" xml:space="preserve">
+          <source><bpt id="83311fe4-c1b0-4af1-88a9-13db5016ca04">&lt;strong&gt;</bpt>Associated storage<ept id="83311fe4-c1b0-4af1-88a9-13db5016ca04">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="83311fe4-c1b0-4af1-88a9-13db5016ca04">&lt;strong&gt;</bpt>Associated storage<ept id="83311fe4-c1b0-4af1-88a9-13db5016ca04">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="054c0282-a299-4cc7-aff3-4369524e928d" xml:space="preserve">
+          <source>New York</source>
+          <target state="new">New York</target>
+        </trans-unit>
+        <trans-unit id="6a508e74-d5ee-4260-befb-60cfdb69720a" xml:space="preserve">
+          <source>GOLD</source>
+          <target state="new">GOLD</target>
+        </trans-unit>
+        <trans-unit id="0528b5fd-98a5-4f06-b79e-a78255a7cc99" xml:space="preserve">
+          <source>&lt;p&gt;C:\ClusterStorage\SourceVolume1&lt;/p&gt;&lt;p&gt;\\FileServer\SourceShare1&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;C:\ClusterStorage\SourceVolume1&lt;/p&gt;&lt;p&gt;\\FileServer\SourceShare1&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="f2b7a696-c7bd-4fd6-98ce-20dbe6fadfc0" xml:space="preserve">
+          <source>SILVER</source>
+          <target state="new">SILVER</target>
+        </trans-unit>
+        <trans-unit id="36df2219-b3aa-4a6b-8c7f-f5558e61c273" xml:space="preserve">
+          <source>&lt;p&gt;C:\ClusterStorage\SourceVolume2&lt;/p&gt;&lt;p&gt;\\FileServer\SourceShare2&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;C:\ClusterStorage\SourceVolume2&lt;/p&gt;&lt;p&gt;\\FileServer\SourceShare2&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="d9dd5831-edae-4fb8-8157-5d3509873714" xml:space="preserve">
+          <source>Chicago</source>
+          <target state="new">Chicago</target>
+        </trans-unit>
+        <trans-unit id="e5487285-38de-4e6a-a929-dac62d4be7e5" xml:space="preserve">
+          <source>GOLD_TARGET</source>
+          <target state="new">GOLD_TARGET</target>
+        </trans-unit>
+        <trans-unit id="09a3d819-a8d0-4813-a750-a269fab54365" xml:space="preserve">
+          <source>&lt;p&gt;C:\ClusterStorage\TargetVolume1&lt;/p&gt;&lt;p&gt;\\FileServer\TargetShare1&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;C:\ClusterStorage\TargetVolume1&lt;/p&gt;&lt;p&gt;\\FileServer\TargetShare1&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="5abcea29-b312-4d6e-b919-75890b3161e1" xml:space="preserve">
+          <source>SILVER_TARGET</source>
+          <target state="new">SILVER_TARGET</target>
+        </trans-unit>
+        <trans-unit id="2d17c53d-d6e1-4c80-b9c3-28346ff29c7b" xml:space="preserve">
+          <source>&lt;p&gt;C:\ClusterStorage\TargetVolume2&lt;/p&gt;&lt;p&gt;\\FileServer\TargetShare2&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;C:\ClusterStorage\TargetVolume2&lt;/p&gt;&lt;p&gt;\\FileServer\TargetShare2&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="43d1cd73-58b9-4805-a3ea-d9338f16fba2" xml:space="preserve">
+          <source>This table summarizes the behavior when you enable protection for virtual machines (VM1 - VM5) in this example environment.</source>
+          <target state="new">This table summarizes the behavior when you enable protection for virtual machines (VM1 - VM5) in this example environment.</target>
+        </trans-unit>
+        <trans-unit id="e0affb10-2500-4b5f-964d-c2e4035109b4" xml:space="preserve">
+          <source><bpt id="5c53aedd-ff26-461d-b324-5362d7d07039">&lt;strong&gt;</bpt>Virtual machine<ept id="5c53aedd-ff26-461d-b324-5362d7d07039">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5c53aedd-ff26-461d-b324-5362d7d07039">&lt;strong&gt;</bpt>Virtual machine<ept id="5c53aedd-ff26-461d-b324-5362d7d07039">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bbda4eec-d84e-457a-8e8d-6e9a3e9f07d7" xml:space="preserve">
+          <source><bpt id="971fbe74-0d3c-45a1-a74b-60bc4fd54ed9">&lt;strong&gt;</bpt>Source storage<ept id="971fbe74-0d3c-45a1-a74b-60bc4fd54ed9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="971fbe74-0d3c-45a1-a74b-60bc4fd54ed9">&lt;strong&gt;</bpt>Source storage<ept id="971fbe74-0d3c-45a1-a74b-60bc4fd54ed9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aee4f566-ed14-4aaf-a5d0-744d97c7920e" xml:space="preserve">
+          <source><bpt id="c8c3f957-39b7-4a23-857e-b52b1f0950a0">&lt;strong&gt;</bpt>Source classification<ept id="c8c3f957-39b7-4a23-857e-b52b1f0950a0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c8c3f957-39b7-4a23-857e-b52b1f0950a0">&lt;strong&gt;</bpt>Source classification<ept id="c8c3f957-39b7-4a23-857e-b52b1f0950a0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04f30e58-81c9-4f55-b6c7-9b1c33f9c7cc" xml:space="preserve">
+          <source><bpt id="8b661951-90e3-42fb-a30a-3f3407d25821">&lt;strong&gt;</bpt>Mapped target storage<ept id="8b661951-90e3-42fb-a30a-3f3407d25821">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8b661951-90e3-42fb-a30a-3f3407d25821">&lt;strong&gt;</bpt>Mapped target storage<ept id="8b661951-90e3-42fb-a30a-3f3407d25821">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cebdf41c-47a3-4993-8933-e6a065f2573c" xml:space="preserve">
+          <source>VM1</source>
+          <target state="new">VM1</target>
+        </trans-unit>
+        <trans-unit id="0422e34f-155f-4729-b05b-52b46778080c" xml:space="preserve">
+          <source>C:\ClusterStorage\SourceVolume1</source>
+          <target state="new">C:\ClusterStorage\SourceVolume1</target>
+        </trans-unit>
+        <trans-unit id="87163b3b-7825-4d1f-9308-00d338bef7cc" xml:space="preserve">
+          <source>GOLD</source>
+          <target state="new">GOLD</target>
+        </trans-unit>
+        <trans-unit id="6bd3f3ec-554f-4db4-abf3-3ce3474008bc" xml:space="preserve">
+          <source>&lt;p&gt;C:\ClusterStorage\SourceVolume1&lt;/p&gt;&lt;p&gt;\\\FileServer\SourceShare1&lt;/p&gt;&lt;p&gt;Both GOLD_TARGET&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;C:\ClusterStorage\SourceVolume1&lt;/p&gt;&lt;p&gt;\\\FileServer\SourceShare1&lt;/p&gt;&lt;p&gt;Both GOLD_TARGET&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="db24d7c2-d862-484a-836b-8112d7bc07ce" xml:space="preserve">
+          <source>VM2</source>
+          <target state="new">VM2</target>
+        </trans-unit>
+        <trans-unit id="81de0fe4-bb2f-4588-a95b-1a010119d11c" xml:space="preserve">
+          <source>\\FileServer\SourceShare1</source>
+          <target state="new">\\FileServer\SourceShare1</target>
+        </trans-unit>
+        <trans-unit id="18e36042-78d0-426b-92b7-3ddfd371eb05" xml:space="preserve">
+          <source>GOLD</source>
+          <target state="new">GOLD</target>
+        </trans-unit>
+        <trans-unit id="74b028a5-eda3-442e-8eff-34345822937c" xml:space="preserve">
+          <source>&lt;p&gt;C:\ClusterStorage\SourceVolume1&lt;/p&gt;&lt;p&gt;\\FileServer\SourceShare1&lt;/p&gt; &lt;p&gt;Both GOLD_TARGET&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;C:\ClusterStorage\SourceVolume1&lt;/p&gt;&lt;p&gt;\\FileServer\SourceShare1&lt;/p&gt; &lt;p&gt;Both GOLD_TARGET&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="50787133-bfd0-4d45-ac24-b60eebd90a29" xml:space="preserve">
+          <source>VM3</source>
+          <target state="new">VM3</target>
+        </trans-unit>
+        <trans-unit id="52246abc-6de1-4073-94a9-30e77c0b9a34" xml:space="preserve">
+          <source>C:\ClusterStorage\SourceVolume2</source>
+          <target state="new">C:\ClusterStorage\SourceVolume2</target>
+        </trans-unit>
+        <trans-unit id="a82e1a1d-a616-4ee9-a2f9-b15e4c5bb73e" xml:space="preserve">
+          <source>SILVER</source>
+          <target state="new">SILVER</target>
+        </trans-unit>
+        <trans-unit id="8aa6aef5-d1c0-4db3-8211-e8d18a1b70c9" xml:space="preserve">
+          <source>&lt;p&gt;C:\ClusterStorage\SourceVolume2&lt;/p&gt;&lt;p&gt;\FileServer\SourceShare2&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;C:\ClusterStorage\SourceVolume2&lt;/p&gt;&lt;p&gt;\FileServer\SourceShare2&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="9c2387d7-72fa-498c-8709-1b41287061c1" xml:space="preserve">
+          <source>VM4</source>
+          <target state="new">VM4</target>
+        </trans-unit>
+        <trans-unit id="e81c417d-c3dd-4940-96ab-e84005a2b71f" xml:space="preserve">
+          <source>\FileServer\SourceShare2</source>
+          <target state="new">\FileServer\SourceShare2</target>
+        </trans-unit>
+        <trans-unit id="3fe029a4-668e-4066-a769-9b6509ac9d5a" xml:space="preserve">
+          <source>SILVER</source>
+          <target state="new">SILVER</target>
+        </trans-unit>
+        <trans-unit id="ba5da993-37b7-4f15-921d-584e58f9d95c" xml:space="preserve">
+          <source>&lt;p&gt;C:\ClusterStorage\SourceVolume2&lt;/p&gt;&lt;p&gt;\\FileServer\SourceShare2&lt;/p&gt;&lt;p&gt;Both SILVER_TARGET&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;C:\ClusterStorage\SourceVolume2&lt;/p&gt;&lt;p&gt;\\FileServer\SourceShare2&lt;/p&gt;&lt;p&gt;Both SILVER_TARGET&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="24854fa7-763c-4df9-87b2-44987dbb2819" xml:space="preserve">
+          <source>VM5</source>
+          <target state="new">VM5</target>
+        </trans-unit>
+        <trans-unit id="55657a0a-2881-428e-9939-5befd564f4cf" xml:space="preserve">
+          <source>C:\ClusterStorage\SourceVolume3</source>
+          <target state="new">C:\ClusterStorage\SourceVolume3</target>
+        </trans-unit>
+        <trans-unit id="06b5bb25-06fa-4554-93cb-469db46fe813" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="be0f4414-c65f-4a35-be1b-604d6aa191bd" xml:space="preserve">
+          <source>No mapping so default storage location of the Hyper-V host is used</source>
+          <target state="new">No mapping so default storage location of the Hyper-V host is used</target>
+        </trans-unit>
+        <trans-unit id="9cd01ad6-9968-4825-93f3-d9c8f099c0a0" xml:space="preserve">
+          <source>Now that you have a better understanding of storage mapping start reading the <bpt id="dde9cc2b-728d-42ab-b720-174dc698cf6f">&lt;linkText&gt;</bpt>best practices<ept id="dde9cc2b-728d-42ab-b720-174dc698cf6f">&lt;/linkText&gt;</ept><bpt id="dde9cc2b-728d-42ab-b720-174dc698cf6f">&lt;title&gt;</bpt><ept id="dde9cc2b-728d-42ab-b720-174dc698cf6f">&lt;/title&gt;</ept> to prepare for deployment.</source>
+          <target state="new">Now that you have a better understanding of storage mapping start reading the <bpt id="dde9cc2b-728d-42ab-b720-174dc698cf6f">&lt;linkText&gt;</bpt>best practices<ept id="dde9cc2b-728d-42ab-b720-174dc698cf6f">&lt;/linkText&gt;</ept><bpt id="dde9cc2b-728d-42ab-b720-174dc698cf6f">&lt;title&gt;</bpt><ept id="dde9cc2b-728d-42ab-b720-174dc698cf6f">&lt;/title&gt;</ept> to prepare for deployment.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

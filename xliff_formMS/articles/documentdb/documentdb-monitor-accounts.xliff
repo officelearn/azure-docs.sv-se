@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="17838b6a-ecb6-4426-a3cd-9c25f6fd7fdc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="17838b6a-ecb6-4426-a3cd-9c25f6fd7fdc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c11a87c0-8322-49d0-a940-c1995865a101">
+        <trans-unit id="846265ce-0dad-4e72-b75c-65342dfc7fe0" xml:space="preserve">
+          <source>Monitor a DocumentDB account by using the Azure preview portal | Microsoft Azure</source>
+          <target state="new">Monitor a DocumentDB account by using the Azure preview portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="79d4090d-3506-497d-99bf-54157e796983" xml:space="preserve">
+          <source>Learn how to monitor your DocumentDB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption.</source>
+          <target state="new">Learn how to monitor your DocumentDB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption.</target>
+        </trans-unit>
+        <trans-unit id="b2453ffe-1f37-4d15-8555-67e7902a01be" xml:space="preserve">
+          <source>You can monitor your DocumentDB accounts in the <bpt id="3a30573c-febd-429d-bfd6-022dedca8a99">&lt;linkText&gt;</bpt>Microsoft Azure preview portal<ept id="3a30573c-febd-429d-bfd6-022dedca8a99">&lt;/linkText&gt;</ept><bpt id="3a30573c-febd-429d-bfd6-022dedca8a99">&lt;title&gt;</bpt><ept id="3a30573c-febd-429d-bfd6-022dedca8a99">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can monitor your DocumentDB accounts in the <bpt id="3a30573c-febd-429d-bfd6-022dedca8a99">&lt;linkText&gt;</bpt>Microsoft Azure preview portal<ept id="3a30573c-febd-429d-bfd6-022dedca8a99">&lt;/linkText&gt;</ept><bpt id="3a30573c-febd-429d-bfd6-022dedca8a99">&lt;title&gt;</bpt><ept id="3a30573c-febd-429d-bfd6-022dedca8a99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edf22578-a4ea-4dd1-bd2f-7c44c55d5bb3" xml:space="preserve">
+          <source>For each DocumentDB account, both performance metrics, such as requests and server errors, and usage metrics, such as storage consumption, are available.</source>
+          <target state="new">For each DocumentDB account, both performance metrics, such as requests and server errors, and usage metrics, such as storage consumption, are available.</target>
+        </trans-unit>
+        <trans-unit id="8929fcac-d020-4a2c-b271-b5e37bd19c09" xml:space="preserve">
+          <source>In the <bpt id="ba3ace9a-f62f-425e-bc7a-9f43ac258340">&lt;linkText&gt;</bpt>Azure preview portal<ept id="ba3ace9a-f62f-425e-bc7a-9f43ac258340">&lt;/linkText&gt;</ept><bpt id="ba3ace9a-f62f-425e-bc7a-9f43ac258340">&lt;title&gt;</bpt><ept id="ba3ace9a-f62f-425e-bc7a-9f43ac258340">&lt;/title&gt;</ept>, click <bpt id="de063d84-2017-4372-aeff-c1135af1e2d1">&lt;strong&gt;</bpt>Browse All<ept id="de063d84-2017-4372-aeff-c1135af1e2d1">&lt;/strong&gt;</ept>, <bpt id="e29302c1-c3b9-41fd-993e-22ff68fc599f">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="e29302c1-c3b9-41fd-993e-22ff68fc599f">&lt;/strong&gt;</ept>, and then click the name of the DocumentDB account for which you would like to view performance metrics.</source>
+          <target state="new">In the <bpt id="ba3ace9a-f62f-425e-bc7a-9f43ac258340">&lt;linkText&gt;</bpt>Azure preview portal<ept id="ba3ace9a-f62f-425e-bc7a-9f43ac258340">&lt;/linkText&gt;</ept><bpt id="ba3ace9a-f62f-425e-bc7a-9f43ac258340">&lt;title&gt;</bpt><ept id="ba3ace9a-f62f-425e-bc7a-9f43ac258340">&lt;/title&gt;</ept>, click <bpt id="de063d84-2017-4372-aeff-c1135af1e2d1">&lt;strong&gt;</bpt>Browse All<ept id="de063d84-2017-4372-aeff-c1135af1e2d1">&lt;/strong&gt;</ept>, <bpt id="e29302c1-c3b9-41fd-993e-22ff68fc599f">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="e29302c1-c3b9-41fd-993e-22ff68fc599f">&lt;/strong&gt;</ept>, and then click the name of the DocumentDB account for which you would like to view performance metrics.</target>
+        </trans-unit>
+        <trans-unit id="e3753ad1-a67b-4346-b316-7945565124d9" xml:space="preserve">
+          <source>Within the <bpt id="878c5b83-5670-4162-b1a3-a3dfec9ff5a9">&lt;strong&gt;</bpt>Monitoring<ept id="878c5b83-5670-4162-b1a3-a3dfec9ff5a9">&lt;/strong&gt;</ept> lens you can, by default, see:</source>
+          <target state="new">Within the <bpt id="878c5b83-5670-4162-b1a3-a3dfec9ff5a9">&lt;strong&gt;</bpt>Monitoring<ept id="878c5b83-5670-4162-b1a3-a3dfec9ff5a9">&lt;/strong&gt;</ept> lens you can, by default, see:</target>
+        </trans-unit>
+        <trans-unit id="1c859347-0ec9-4bed-8ec9-890c50acb0dc" xml:space="preserve">
+          <source>Total requests for the current day.</source>
+          <target state="new">Total requests for the current day.</target>
+        </trans-unit>
+        <trans-unit id="6266b431-e9ae-4cc5-98e4-0f9443777202" xml:space="preserve">
+          <source>Average requests per second for the current day.</source>
+          <target state="new">Average requests per second for the current day.</target>
+        </trans-unit>
+        <trans-unit id="b92e8c64-7f7d-4727-8c93-2c29165e5875" xml:space="preserve">
+          <source><bpt id="ba45abe4-7f83-4eee-9d67-c6e5f7b993f8">&lt;linkText&gt;</bpt>Screen shot of the Monitoring lens<ept id="ba45abe4-7f83-4eee-9d67-c6e5f7b993f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ba45abe4-7f83-4eee-9d67-c6e5f7b993f8">&lt;linkText&gt;</bpt>Screen shot of the Monitoring lens<ept id="ba45abe4-7f83-4eee-9d67-c6e5f7b993f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2f90307-f200-48a4-8b0b-43fc46f718d6" xml:space="preserve">
+          <source>Clicking on the <bpt id="0a8c3189-a7d3-4810-9131-ef509a0254cd">&lt;strong&gt;</bpt>Total Requests<ept id="0a8c3189-a7d3-4810-9131-ef509a0254cd">&lt;/strong&gt;</ept> or <bpt id="0a6a04e3-8b75-4035-b607-8e6d2f5f04a7">&lt;strong&gt;</bpt>Average Requests per Second<ept id="0a6a04e3-8b75-4035-b607-8e6d2f5f04a7">&lt;/strong&gt;</ept> part opens a detailed <bpt id="dd4259e8-90de-4c0d-aabc-f1b7e13d4bd2">&lt;strong&gt;</bpt>Metric<ept id="dd4259e8-90de-4c0d-aabc-f1b7e13d4bd2">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Clicking on the <bpt id="0a8c3189-a7d3-4810-9131-ef509a0254cd">&lt;strong&gt;</bpt>Total Requests<ept id="0a8c3189-a7d3-4810-9131-ef509a0254cd">&lt;/strong&gt;</ept> or <bpt id="0a6a04e3-8b75-4035-b607-8e6d2f5f04a7">&lt;strong&gt;</bpt>Average Requests per Second<ept id="0a6a04e3-8b75-4035-b607-8e6d2f5f04a7">&lt;/strong&gt;</ept> part opens a detailed <bpt id="dd4259e8-90de-4c0d-aabc-f1b7e13d4bd2">&lt;strong&gt;</bpt>Metric<ept id="dd4259e8-90de-4c0d-aabc-f1b7e13d4bd2">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="0d2ba53d-801d-4eab-933e-294582767a42" xml:space="preserve">
+          <source>The <bpt id="1b53b3fe-2807-48a9-aea7-6b4b96658a1d">&lt;strong&gt;</bpt>Metric<ept id="1b53b3fe-2807-48a9-aea7-6b4b96658a1d">&lt;/strong&gt;</ept> blade shows you details about the metrics you have selected.</source>
+          <target state="new">The <bpt id="1b53b3fe-2807-48a9-aea7-6b4b96658a1d">&lt;strong&gt;</bpt>Metric<ept id="1b53b3fe-2807-48a9-aea7-6b4b96658a1d">&lt;/strong&gt;</ept> blade shows you details about the metrics you have selected.</target>
+        </trans-unit>
+        <trans-unit id="d6f7097c-0344-45c2-9ec6-6df203b6af1d" xml:space="preserve">
+          <source>At the top of the blade is a graph and below that a table which shows aggregation values of the selected metrics such as average, minimum, and maximum.</source>
+          <target state="new">At the top of the blade is a graph and below that a table which shows aggregation values of the selected metrics such as average, minimum, and maximum.</target>
+        </trans-unit>
+        <trans-unit id="98247795-2128-40ce-8f9e-d37e95b74de8" xml:space="preserve">
+          <source>The metric blade also shows the list of alerts which have been defined, filtered to the metrics that appear on the current metric blade (this way, if you have a number of alerts, you'll only see the relevant ones presented here).</source>
+          <target state="new">The metric blade also shows the list of alerts which have been defined, filtered to the metrics that appear on the current metric blade (this way, if you have a number of alerts, you'll only see the relevant ones presented here).</target>
+        </trans-unit>
+        <trans-unit id="51cc47cd-dc8f-4728-b6db-3210e81c8df6" xml:space="preserve">
+          <source><bpt id="87322744-ff01-419b-9327-70d5d527dab3">&lt;linkText&gt;</bpt>Screenshot of the Metric blade<ept id="87322744-ff01-419b-9327-70d5d527dab3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87322744-ff01-419b-9327-70d5d527dab3">&lt;linkText&gt;</bpt>Screenshot of the Metric blade<ept id="87322744-ff01-419b-9327-70d5d527dab3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6420452c-9306-4922-b0d3-c1ff24b3054c" xml:space="preserve">
+          <source>To customize the metrics that display in a particular part, right-click the metric chart, and then select <bpt id="5e8749d3-9ef4-4bbc-932a-6cabf7071461">&lt;strong&gt;</bpt>Edit Chart<ept id="5e8749d3-9ef4-4bbc-932a-6cabf7071461">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To customize the metrics that display in a particular part, right-click the metric chart, and then select <bpt id="5e8749d3-9ef4-4bbc-932a-6cabf7071461">&lt;strong&gt;</bpt>Edit Chart<ept id="5e8749d3-9ef4-4bbc-932a-6cabf7071461">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c01fe526-8219-4095-bc89-e68c08d0e5d5" xml:space="preserve">
+          <source><bpt id="d1be1086-b6e9-4a68-9a14-7800730c2380">&lt;linkText&gt;</bpt>Screen shot of the Total Requests chart with the Edit Chart button highlighted<ept id="d1be1086-b6e9-4a68-9a14-7800730c2380">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d1be1086-b6e9-4a68-9a14-7800730c2380">&lt;linkText&gt;</bpt>Screen shot of the Total Requests chart with the Edit Chart button highlighted<ept id="d1be1086-b6e9-4a68-9a14-7800730c2380">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78346542-6844-463d-828d-f3cb54ee6ff6" xml:space="preserve">
+          <source>On the <bpt id="4ceaff1b-e2b6-49a3-aaab-4cfafff8030e">&lt;strong&gt;</bpt>Edit Chart<ept id="4ceaff1b-e2b6-49a3-aaab-4cfafff8030e">&lt;/strong&gt;</ept> blade, there are options to modify the metrics that display in the part, as well as their time range.</source>
+          <target state="new">On the <bpt id="4ceaff1b-e2b6-49a3-aaab-4cfafff8030e">&lt;strong&gt;</bpt>Edit Chart<ept id="4ceaff1b-e2b6-49a3-aaab-4cfafff8030e">&lt;/strong&gt;</ept> blade, there are options to modify the metrics that display in the part, as well as their time range.</target>
+        </trans-unit>
+        <trans-unit id="e29d8ac5-7f05-4ad9-ac10-72aafd598758" xml:space="preserve">
+          <source><bpt id="eb7615f5-b34b-44f8-997d-c26a4aa4a7d5">&lt;linkText&gt;</bpt>Screen shot of the Edit Chart blade<ept id="eb7615f5-b34b-44f8-997d-c26a4aa4a7d5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb7615f5-b34b-44f8-997d-c26a4aa4a7d5">&lt;linkText&gt;</bpt>Screen shot of the Edit Chart blade<ept id="eb7615f5-b34b-44f8-997d-c26a4aa4a7d5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cad59e65-72d8-4d82-9377-b931b2093102" xml:space="preserve">
+          <source>To change the metrics displayed in the part, simply select or clear the available performance metrics, and then click <bpt id="694c9c67-7215-4b35-a7b9-50ebb1d81efb">&lt;strong&gt;</bpt>Save<ept id="694c9c67-7215-4b35-a7b9-50ebb1d81efb">&lt;/strong&gt;</ept> at the bottom of the blade.</source>
+          <target state="new">To change the metrics displayed in the part, simply select or clear the available performance metrics, and then click <bpt id="694c9c67-7215-4b35-a7b9-50ebb1d81efb">&lt;strong&gt;</bpt>Save<ept id="694c9c67-7215-4b35-a7b9-50ebb1d81efb">&lt;/strong&gt;</ept> at the bottom of the blade.</target>
+        </trans-unit>
+        <trans-unit id="bf759717-0617-419b-aee3-d61d8d0a471d" xml:space="preserve">
+          <source>To change the time range, choose a different range (for example, <bpt id="45fe0a79-f5fa-48f3-89d1-52a9c1f078db">&lt;strong&gt;</bpt>Custom<ept id="45fe0a79-f5fa-48f3-89d1-52a9c1f078db">&lt;/strong&gt;</ept>), and then click <bpt id="8c4e4fc8-c439-4cd6-b61a-9a36d25ba009">&lt;strong&gt;</bpt>Save<ept id="8c4e4fc8-c439-4cd6-b61a-9a36d25ba009">&lt;/strong&gt;</ept> at the bottom of the blade.</source>
+          <target state="new">To change the time range, choose a different range (for example, <bpt id="45fe0a79-f5fa-48f3-89d1-52a9c1f078db">&lt;strong&gt;</bpt>Custom<ept id="45fe0a79-f5fa-48f3-89d1-52a9c1f078db">&lt;/strong&gt;</ept>), and then click <bpt id="8c4e4fc8-c439-4cd6-b61a-9a36d25ba009">&lt;strong&gt;</bpt>Save<ept id="8c4e4fc8-c439-4cd6-b61a-9a36d25ba009">&lt;/strong&gt;</ept> at the bottom of the blade.</target>
+        </trans-unit>
+        <trans-unit id="543ca5fa-3584-4b6d-abd8-f6d839db8999" xml:space="preserve">
+          <source><bpt id="e5c174b9-5426-4040-b211-8cfcc238fd77">&lt;linkText&gt;</bpt>Screen shot of the Time Range part of the Edit Chart blade showing how to enter a custom time range<ept id="e5c174b9-5426-4040-b211-8cfcc238fd77">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="e5c174b9-5426-4040-b211-8cfcc238fd77">&lt;linkText&gt;</bpt>Screen shot of the Time Range part of the Edit Chart blade showing how to enter a custom time range<ept id="e5c174b9-5426-4040-b211-8cfcc238fd77">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="101e20fc-5529-412e-a6a5-6ae493f36890" xml:space="preserve">
+          <source>The Azure preview portal allows you to create side-by-side metric charts.</source>
+          <target state="new">The Azure preview portal allows you to create side-by-side metric charts.</target>
+        </trans-unit>
+        <trans-unit id="030f4d34-1476-4fa1-b418-eb57a616ab94" xml:space="preserve">
+          <source>First, right-click on the chart you want to clone and modify and select <bpt id="73d2548b-946c-4c49-b81b-b97cd6b4bfc2">&lt;strong&gt;</bpt>Customize<ept id="73d2548b-946c-4c49-b81b-b97cd6b4bfc2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">First, right-click on the chart you want to clone and modify and select <bpt id="73d2548b-946c-4c49-b81b-b97cd6b4bfc2">&lt;strong&gt;</bpt>Customize<ept id="73d2548b-946c-4c49-b81b-b97cd6b4bfc2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1bfb61c-7a70-4fba-8fe9-5c5a623f24f5" xml:space="preserve">
+          <source><bpt id="3027c360-9af9-41da-b30f-0f8069b51be8">&lt;linkText&gt;</bpt>Screen shot of the Total Requests chart with the Customize option highlighted<ept id="3027c360-9af9-41da-b30f-0f8069b51be8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3027c360-9af9-41da-b30f-0f8069b51be8">&lt;linkText&gt;</bpt>Screen shot of the Total Requests chart with the Customize option highlighted<ept id="3027c360-9af9-41da-b30f-0f8069b51be8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1c4dd11-45ed-42ae-a990-37ad2b7f43ff" xml:space="preserve">
+          <source>Click <bpt id="3d28a16c-3b19-4981-8c60-d377f7a7bf92">&lt;strong&gt;</bpt>Clone<ept id="3d28a16c-3b19-4981-8c60-d377f7a7bf92">&lt;/strong&gt;</ept> on the menu to copy the part and then click <bpt id="f1e31405-53df-4c6a-a33d-11d8a108991b">&lt;strong&gt;</bpt>Done customizing<ept id="f1e31405-53df-4c6a-a33d-11d8a108991b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3d28a16c-3b19-4981-8c60-d377f7a7bf92">&lt;strong&gt;</bpt>Clone<ept id="3d28a16c-3b19-4981-8c60-d377f7a7bf92">&lt;/strong&gt;</ept> on the menu to copy the part and then click <bpt id="f1e31405-53df-4c6a-a33d-11d8a108991b">&lt;strong&gt;</bpt>Done customizing<ept id="f1e31405-53df-4c6a-a33d-11d8a108991b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bab87d3f-d55e-4b1f-89fb-e15793de5abf" xml:space="preserve">
+          <source><bpt id="daf5820d-3106-4944-b1d9-4d28c16493a3">&lt;linkText&gt;</bpt>Screen shot of the Total Requests chart with the Clone and Done customizing options highlighted<ept id="daf5820d-3106-4944-b1d9-4d28c16493a3">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="daf5820d-3106-4944-b1d9-4d28c16493a3">&lt;linkText&gt;</bpt>Screen shot of the Total Requests chart with the Clone and Done customizing options highlighted<ept id="daf5820d-3106-4944-b1d9-4d28c16493a3">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="ac237ddc-8258-44c6-82a0-032261a1347e" xml:space="preserve">
+          <source>You may now treat this part as any other metric part, customizing the metrics and time range displayed in the part.</source>
+          <target state="new">You may now treat this part as any other metric part, customizing the metrics and time range displayed in the part.</target>
+        </trans-unit>
+        <trans-unit id="95b46cd4-06db-42e2-9e70-512a9b2674c8" xml:space="preserve">
+          <source>By doing this, you can see two different metrics chart side-by-side at the same time.</source>
+          <target state="new">By doing this, you can see two different metrics chart side-by-side at the same time.</target>
+        </trans-unit>
+        <trans-unit id="334a035f-e38d-49da-91ed-4d1ce4472727" xml:space="preserve">
+          <source><bpt id="92430e0e-5eec-4ed4-b67e-fafa1b51db9a">&lt;linkText&gt;</bpt>Screen shot of the Total Requests chart and the new Total Requests past hour chart<ept id="92430e0e-5eec-4ed4-b67e-fafa1b51db9a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="92430e0e-5eec-4ed4-b67e-fafa1b51db9a">&lt;linkText&gt;</bpt>Screen shot of the Total Requests chart and the new Total Requests past hour chart<ept id="92430e0e-5eec-4ed4-b67e-fafa1b51db9a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="febf20a6-6389-4bbe-9cda-7eec93c6d256" xml:space="preserve">
+          <source>In the <bpt id="166194ff-ebdd-4622-b28f-b0f76ece00d4">&lt;linkText&gt;</bpt>Azure preview portal<ept id="166194ff-ebdd-4622-b28f-b0f76ece00d4">&lt;/linkText&gt;</ept><bpt id="166194ff-ebdd-4622-b28f-b0f76ece00d4">&lt;title&gt;</bpt><ept id="166194ff-ebdd-4622-b28f-b0f76ece00d4">&lt;/title&gt;</ept>, click <bpt id="0437c9f6-a40c-4281-8fbf-14c3415f48b0">&lt;strong&gt;</bpt>Browse<ept id="0437c9f6-a40c-4281-8fbf-14c3415f48b0">&lt;/strong&gt;</ept>, <bpt id="5c3c2d89-1550-4071-bbf0-e1b3a756d93f">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="5c3c2d89-1550-4071-bbf0-e1b3a756d93f">&lt;/strong&gt;</ept>, and then click the name of the DocumentDB account for which you would like to see usage metrics.</source>
+          <target state="new">In the <bpt id="166194ff-ebdd-4622-b28f-b0f76ece00d4">&lt;linkText&gt;</bpt>Azure preview portal<ept id="166194ff-ebdd-4622-b28f-b0f76ece00d4">&lt;/linkText&gt;</ept><bpt id="166194ff-ebdd-4622-b28f-b0f76ece00d4">&lt;title&gt;</bpt><ept id="166194ff-ebdd-4622-b28f-b0f76ece00d4">&lt;/title&gt;</ept>, click <bpt id="0437c9f6-a40c-4281-8fbf-14c3415f48b0">&lt;strong&gt;</bpt>Browse<ept id="0437c9f6-a40c-4281-8fbf-14c3415f48b0">&lt;/strong&gt;</ept>, <bpt id="5c3c2d89-1550-4071-bbf0-e1b3a756d93f">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="5c3c2d89-1550-4071-bbf0-e1b3a756d93f">&lt;/strong&gt;</ept>, and then click the name of the DocumentDB account for which you would like to see usage metrics.</target>
+        </trans-unit>
+        <trans-unit id="32db5d84-463c-43f6-b6c5-0250ecdeaadb" xml:space="preserve">
+          <source>Within the <bpt id="035b4e42-dce1-440f-b15c-a51605b4569a">&lt;strong&gt;</bpt>Usage<ept id="035b4e42-dce1-440f-b15c-a51605b4569a">&lt;/strong&gt;</ept> lens you can view the following by default:</source>
+          <target state="new">Within the <bpt id="035b4e42-dce1-440f-b15c-a51605b4569a">&lt;strong&gt;</bpt>Usage<ept id="035b4e42-dce1-440f-b15c-a51605b4569a">&lt;/strong&gt;</ept> lens you can view the following by default:</target>
+        </trans-unit>
+        <trans-unit id="1eee156f-29b9-4e70-a22b-5b498788fb0e" xml:space="preserve">
+          <source>Estimated cost to date of the DocumentDB account for the current billing period.</source>
+          <target state="new">Estimated cost to date of the DocumentDB account for the current billing period.</target>
+        </trans-unit>
+        <trans-unit id="b160e7c0-e124-4f8e-83d9-d892b4791313" xml:space="preserve">
+          <source>Storage consumed within the account.</source>
+          <target state="new">Storage consumed within the account.</target>
+        </trans-unit>
+        <trans-unit id="d642376e-4451-495b-b7e8-275352dbb825" xml:space="preserve">
+          <source>Maximum available storage of the account (threshold).</source>
+          <target state="new">Maximum available storage of the account (threshold).</target>
+        </trans-unit>
+        <trans-unit id="73500c3e-1100-42fa-9adb-2da3c1e1799f" xml:space="preserve">
+          <source>User and permission usage.</source>
+          <target state="new">User and permission usage.</target>
+        </trans-unit>
+        <trans-unit id="03f49d6e-0802-45cb-871c-9fa88c553715" xml:space="preserve">
+          <source>Attachment usage.</source>
+          <target state="new">Attachment usage.</target>
+        </trans-unit>
+        <trans-unit id="25a9c200-a90f-4ec4-9277-d00c7014315a" xml:space="preserve">
+          <source><bpt id="80d69df4-f0ed-4f84-9bf8-07b5a2773f8e">&lt;linkText&gt;</bpt>Screen shot of the Usage lens<ept id="80d69df4-f0ed-4f84-9bf8-07b5a2773f8e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="80d69df4-f0ed-4f84-9bf8-07b5a2773f8e">&lt;linkText&gt;</bpt>Screen shot of the Usage lens<ept id="80d69df4-f0ed-4f84-9bf8-07b5a2773f8e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef2da1e5-aaf1-497b-ae3b-b85c618b0852" xml:space="preserve">
+          <source>In the <bpt id="3b8e12f8-fb33-4a99-81fb-329c87928dcf">&lt;linkText&gt;</bpt>Azure preview portal<ept id="3b8e12f8-fb33-4a99-81fb-329c87928dcf">&lt;/linkText&gt;</ept><bpt id="3b8e12f8-fb33-4a99-81fb-329c87928dcf">&lt;title&gt;</bpt><ept id="3b8e12f8-fb33-4a99-81fb-329c87928dcf">&lt;/title&gt;</ept>, click <bpt id="2f487eb2-4e2f-4984-bc96-d69b40faafdf">&lt;strong&gt;</bpt>Browse All<ept id="2f487eb2-4e2f-4984-bc96-d69b40faafdf">&lt;/strong&gt;</ept>, <bpt id="f6b1ab5f-88ce-4436-b5c2-c498d10ac484">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="f6b1ab5f-88ce-4436-b5c2-c498d10ac484">&lt;/strong&gt;</ept>, and then click the name of the DocumentDB account for which you would like to setup performance metric alerts.</source>
+          <target state="new">In the <bpt id="3b8e12f8-fb33-4a99-81fb-329c87928dcf">&lt;linkText&gt;</bpt>Azure preview portal<ept id="3b8e12f8-fb33-4a99-81fb-329c87928dcf">&lt;/linkText&gt;</ept><bpt id="3b8e12f8-fb33-4a99-81fb-329c87928dcf">&lt;title&gt;</bpt><ept id="3b8e12f8-fb33-4a99-81fb-329c87928dcf">&lt;/title&gt;</ept>, click <bpt id="2f487eb2-4e2f-4984-bc96-d69b40faafdf">&lt;strong&gt;</bpt>Browse All<ept id="2f487eb2-4e2f-4984-bc96-d69b40faafdf">&lt;/strong&gt;</ept>, <bpt id="f6b1ab5f-88ce-4436-b5c2-c498d10ac484">&lt;strong&gt;</bpt>DocumentDB Accounts<ept id="f6b1ab5f-88ce-4436-b5c2-c498d10ac484">&lt;/strong&gt;</ept>, and then click the name of the DocumentDB account for which you would like to setup performance metric alerts.</target>
+        </trans-unit>
+        <trans-unit id="c574c4ed-95b0-410e-809d-7c95a706caeb" xml:space="preserve">
+          <source>Within the <bpt id="d9a8ce16-fe5a-441d-a153-21e779eaa39b">&lt;strong&gt;</bpt>Operations<ept id="d9a8ce16-fe5a-441d-a153-21e779eaa39b">&lt;/strong&gt;</ept> lens, click the <bpt id="35e0df5a-f3a3-4182-86f3-784a646b538d">&lt;strong&gt;</bpt>Alert rules<ept id="35e0df5a-f3a3-4182-86f3-784a646b538d">&lt;/strong&gt;</ept> part.</source>
+          <target state="new">Within the <bpt id="d9a8ce16-fe5a-441d-a153-21e779eaa39b">&lt;strong&gt;</bpt>Operations<ept id="d9a8ce16-fe5a-441d-a153-21e779eaa39b">&lt;/strong&gt;</ept> lens, click the <bpt id="35e0df5a-f3a3-4182-86f3-784a646b538d">&lt;strong&gt;</bpt>Alert rules<ept id="35e0df5a-f3a3-4182-86f3-784a646b538d">&lt;/strong&gt;</ept> part.</target>
+        </trans-unit>
+        <trans-unit id="74df1986-9a69-4c9c-88db-719bfb54d029" xml:space="preserve">
+          <source><bpt id="1e9d5a2c-ddd3-420c-aa06-cd86f5f8ba5a">&lt;linkText&gt;</bpt>Screen shot of the Operations lens, with the Alert rules part selected<ept id="1e9d5a2c-ddd3-420c-aa06-cd86f5f8ba5a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e9d5a2c-ddd3-420c-aa06-cd86f5f8ba5a">&lt;linkText&gt;</bpt>Screen shot of the Operations lens, with the Alert rules part selected<ept id="1e9d5a2c-ddd3-420c-aa06-cd86f5f8ba5a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89011dd9-2343-4d9b-ac0c-94ca4d40702c" xml:space="preserve">
+          <source>In the Alert rules blade, click <bpt id="8a893972-c019-4f13-8c41-3cc650bc561a">&lt;strong&gt;</bpt>Add alert<ept id="8a893972-c019-4f13-8c41-3cc650bc561a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Alert rules blade, click <bpt id="8a893972-c019-4f13-8c41-3cc650bc561a">&lt;strong&gt;</bpt>Add alert<ept id="8a893972-c019-4f13-8c41-3cc650bc561a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01ce2323-c78a-4b0c-a5c6-a09b9de89995" xml:space="preserve">
+          <source><bpt id="0e3ecf67-db99-403b-aa5e-2ab30567cbeb">&lt;linkText&gt;</bpt>Screenshot of the Alert Rules blade, with the Add Alert button highlighted<ept id="0e3ecf67-db99-403b-aa5e-2ab30567cbeb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e3ecf67-db99-403b-aa5e-2ab30567cbeb">&lt;linkText&gt;</bpt>Screenshot of the Alert Rules blade, with the Add Alert button highlighted<ept id="0e3ecf67-db99-403b-aa5e-2ab30567cbeb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53e84bf8-b360-48b6-976f-9229d953c051" xml:space="preserve">
+          <source>In the <bpt id="0669b843-04e1-44d3-b332-b8b84190cf17">&lt;strong&gt;</bpt>Add an alert rule<ept id="0669b843-04e1-44d3-b332-b8b84190cf17">&lt;/strong&gt;</ept> blade, specify:</source>
+          <target state="new">In the <bpt id="0669b843-04e1-44d3-b332-b8b84190cf17">&lt;strong&gt;</bpt>Add an alert rule<ept id="0669b843-04e1-44d3-b332-b8b84190cf17">&lt;/strong&gt;</ept> blade, specify:</target>
+        </trans-unit>
+        <trans-unit id="f78fc5e8-4b87-4c1d-9583-5302fac41d0b" xml:space="preserve">
+          <source>The name of the alert rule you are setting up.</source>
+          <target state="new">The name of the alert rule you are setting up.</target>
+        </trans-unit>
+        <trans-unit id="b18412bf-0cdf-4e49-afa4-5d47d4562972" xml:space="preserve">
+          <source>A description of the new alert rule.</source>
+          <target state="new">A description of the new alert rule.</target>
+        </trans-unit>
+        <trans-unit id="46906957-efa8-4af1-b12e-156fb13bbcde" xml:space="preserve">
+          <source>The metric for the alert rule.</source>
+          <target state="new">The metric for the alert rule.</target>
+        </trans-unit>
+        <trans-unit id="641eed17-635c-4e3f-be53-ead0344f1e78" xml:space="preserve">
+          <source>The condition, threshold, and period that determine when the alert activates.</source>
+          <target state="new">The condition, threshold, and period that determine when the alert activates.</target>
+        </trans-unit>
+        <trans-unit id="466e46ab-ef61-4a18-adcf-cbbe1f9a5d36" xml:space="preserve">
+          <source>For example, a server error count greater than 5 over the last 15 minutes.</source>
+          <target state="new">For example, a server error count greater than 5 over the last 15 minutes.</target>
+        </trans-unit>
+        <trans-unit id="e91c70d0-757f-4588-836a-42eac4b8f71b" xml:space="preserve">
+          <source>Whether the service administrator and coadministrators are emailed when the alert fires.</source>
+          <target state="new">Whether the service administrator and coadministrators are emailed when the alert fires.</target>
+        </trans-unit>
+        <trans-unit id="bff6b16b-6ed6-4337-93ed-cbf549e52261" xml:space="preserve">
+          <source>Additional email addresses for alert notifications.</source>
+          <target state="new">Additional email addresses for alert notifications.</target>
+        </trans-unit>
+        <trans-unit id="7e63e092-3ad1-4804-b4c9-6449bab6393b" xml:space="preserve">
+          <source><bpt id="fa816797-6323-4dcd-8e13-551f2384aa92">&lt;linkText&gt;</bpt>Screen shot of the Add an alert rule blade<ept id="fa816797-6323-4dcd-8e13-551f2384aa92">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa816797-6323-4dcd-8e13-551f2384aa92">&lt;linkText&gt;</bpt>Screen shot of the Add an alert rule blade<ept id="fa816797-6323-4dcd-8e13-551f2384aa92">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a771931-7c35-4c89-8df1-10db1800f9f4" xml:space="preserve">
+          <source>To learn more about DocumentDB capacity, see <bpt id="c31ce448-b5b2-44d9-9fca-7c6e89da8f9c">&lt;linkText&gt;</bpt>Manage DocumentDB capacity<ept id="c31ce448-b5b2-44d9-9fca-7c6e89da8f9c">&lt;/linkText&gt;</ept><bpt id="c31ce448-b5b2-44d9-9fca-7c6e89da8f9c">&lt;title&gt;</bpt><ept id="c31ce448-b5b2-44d9-9fca-7c6e89da8f9c">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about DocumentDB capacity, see <bpt id="c31ce448-b5b2-44d9-9fca-7c6e89da8f9c">&lt;linkText&gt;</bpt>Manage DocumentDB capacity<ept id="c31ce448-b5b2-44d9-9fca-7c6e89da8f9c">&lt;/linkText&gt;</ept><bpt id="c31ce448-b5b2-44d9-9fca-7c6e89da8f9c">&lt;title&gt;</bpt><ept id="c31ce448-b5b2-44d9-9fca-7c6e89da8f9c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

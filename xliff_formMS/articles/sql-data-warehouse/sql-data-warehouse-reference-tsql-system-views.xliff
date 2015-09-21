@@ -1,0 +1,1105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6ab7fc27-7b99-4804-9542-b7c24b4f20c6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6ab7fc27-7b99-4804-9542-b7c24b4f20c6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6cdae32e-5a59-44d8-a365-a390fef2d305">
+        <trans-unit id="249d5576-f61a-45e9-9a93-e8946e8aa438" xml:space="preserve">
+          <source>SQL Data Warehouse system views | Microsoft Azure</source>
+          <target state="new">SQL Data Warehouse system views | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="416f8e4d-4404-4b50-b304-8e3aff8ae08f" xml:space="preserve">
+          <source>Links to system views content for SQL Data Warehouse.</source>
+          <target state="new">Links to system views content for SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="c09caa5f-4d8f-47cd-96f9-d5ea20071bfb" xml:space="preserve">
+          <source>[sys.pdw<bpt id="fa29c117-bc82-4474-857e-496a8597748e">&lt;em&gt;</bpt>column<ept id="fa29c117-bc82-4474-857e-496a8597748e">&lt;/em&gt;</ept>distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="fa29c117-bc82-4474-857e-496a8597748e">&lt;em&gt;</bpt>column<ept id="fa29c117-bc82-4474-857e-496a8597748e">&lt;/em&gt;</ept>distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)</target>
+        </trans-unit>
+        <trans-unit id="48fda912-d038-499d-8d4b-e2bd428c89fb" xml:space="preserve">
+          <source>[sys.pdw<bpt id="76bbef58-8782-46d8-a04c-72f4141f462d">&lt;em&gt;</bpt>database<ept id="76bbef58-8782-46d8-a04c-72f4141f462d">&lt;/em&gt;</ept>mappings](http://msdn.microsoft.com/library/mt203891.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="76bbef58-8782-46d8-a04c-72f4141f462d">&lt;em&gt;</bpt>database<ept id="76bbef58-8782-46d8-a04c-72f4141f462d">&lt;/em&gt;</ept>mappings](http://msdn.microsoft.com/library/mt203891.aspx)</target>
+        </trans-unit>
+        <trans-unit id="afff1d8f-364f-4181-8804-beb63e12a967" xml:space="preserve">
+          <source>[sys.pdw<bpt id="34f3a1c5-3d07-4058-a6f4-a2aa1e5cd1ef">&lt;em&gt;</bpt>diag<ept id="34f3a1c5-3d07-4058-a6f4-a2aa1e5cd1ef">&lt;/em&gt;</ept>event_properties](http://msdn.microsoft.com/library/mt203921.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="34f3a1c5-3d07-4058-a6f4-a2aa1e5cd1ef">&lt;em&gt;</bpt>diag<ept id="34f3a1c5-3d07-4058-a6f4-a2aa1e5cd1ef">&lt;/em&gt;</ept>event_properties](http://msdn.microsoft.com/library/mt203921.aspx)</target>
+        </trans-unit>
+        <trans-unit id="d92d6af5-157b-4a73-9f76-aba82757cdf6" xml:space="preserve">
+          <source>[sys.pdw<bpt id="285f7569-f575-4ce9-8d37-2869cb7230b7">&lt;em&gt;</bpt>diag<ept id="285f7569-f575-4ce9-8d37-2869cb7230b7">&lt;/em&gt;</ept>events](http://msdn.microsoft.com/library/mt203895.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="285f7569-f575-4ce9-8d37-2869cb7230b7">&lt;em&gt;</bpt>diag<ept id="285f7569-f575-4ce9-8d37-2869cb7230b7">&lt;/em&gt;</ept>events](http://msdn.microsoft.com/library/mt203895.aspx)</target>
+        </trans-unit>
+        <trans-unit id="7325184b-3e0d-40d1-b407-749c053c4be8" xml:space="preserve">
+          <source>[sys.pdw<bpt id="4af42578-226f-4319-88ff-ed438c8e37fd">&lt;em&gt;</bpt>diag<ept id="4af42578-226f-4319-88ff-ed438c8e37fd">&lt;/em&gt;</ept>sessions](http://msdn.microsoft.com/library/mt203890.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="4af42578-226f-4319-88ff-ed438c8e37fd">&lt;em&gt;</bpt>diag<ept id="4af42578-226f-4319-88ff-ed438c8e37fd">&lt;/em&gt;</ept>sessions](http://msdn.microsoft.com/library/mt203890.aspx)</target>
+        </trans-unit>
+        <trans-unit id="d60dc47a-bc52-449d-9a67-1d45f6c1e05d" xml:space="preserve">
+          <source><bpt id="372b1939-2629-4359-bd48-4691506410b7">&lt;linkText&gt;</bpt>sys.pdw_distributions<ept id="372b1939-2629-4359-bd48-4691506410b7">&lt;/linkText&gt;</ept><bpt id="372b1939-2629-4359-bd48-4691506410b7">&lt;title&gt;</bpt><ept id="372b1939-2629-4359-bd48-4691506410b7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="372b1939-2629-4359-bd48-4691506410b7">&lt;linkText&gt;</bpt>sys.pdw_distributions<ept id="372b1939-2629-4359-bd48-4691506410b7">&lt;/linkText&gt;</ept><bpt id="372b1939-2629-4359-bd48-4691506410b7">&lt;title&gt;</bpt><ept id="372b1939-2629-4359-bd48-4691506410b7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd17665f-c5f1-4283-8928-44fd771b557d" xml:space="preserve">
+          <source>[sys.pdw<bpt id="7cabc416-f290-4745-9a4c-d7e8571636d3">&lt;em&gt;</bpt>index<ept id="7cabc416-f290-4745-9a4c-d7e8571636d3">&lt;/em&gt;</ept>mappings](http://msdn.microsoft.com/library/mt203912.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="7cabc416-f290-4745-9a4c-d7e8571636d3">&lt;em&gt;</bpt>index<ept id="7cabc416-f290-4745-9a4c-d7e8571636d3">&lt;/em&gt;</ept>mappings](http://msdn.microsoft.com/library/mt203912.aspx)</target>
+        </trans-unit>
+        <trans-unit id="d98e5d1d-4960-44af-adc4-739cdd6f7d06" xml:space="preserve">
+          <source>[sys.pdw<bpt id="4d72cac5-eb9e-4bb2-9186-f4b480c43550">&lt;em&gt;</bpt>loader<ept id="4d72cac5-eb9e-4bb2-9186-f4b480c43550">&lt;/em&gt;</ept>backup<bpt id="09b2d1c0-ebf7-4251-b88c-aca266114002">&lt;em&gt;</bpt>run<ept id="09b2d1c0-ebf7-4251-b88c-aca266114002">&lt;/em&gt;</ept>details](http://msdn.microsoft.com/library/mt203877.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="4d72cac5-eb9e-4bb2-9186-f4b480c43550">&lt;em&gt;</bpt>loader<ept id="4d72cac5-eb9e-4bb2-9186-f4b480c43550">&lt;/em&gt;</ept>backup<bpt id="09b2d1c0-ebf7-4251-b88c-aca266114002">&lt;em&gt;</bpt>run<ept id="09b2d1c0-ebf7-4251-b88c-aca266114002">&lt;/em&gt;</ept>details](http://msdn.microsoft.com/library/mt203877.aspx)</target>
+        </trans-unit>
+        <trans-unit id="a5a98f7f-cef6-45c8-8cfc-f78016cab7ba" xml:space="preserve">
+          <source>[sys.pdw<bpt id="7c9429c0-55fc-43ad-ae9c-f6606839e29c">&lt;em&gt;</bpt>loader<ept id="7c9429c0-55fc-43ad-ae9c-f6606839e29c">&lt;/em&gt;</ept>backup_runs](http://msdn.microsoft.com/library/mt203884.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="7c9429c0-55fc-43ad-ae9c-f6606839e29c">&lt;em&gt;</bpt>loader<ept id="7c9429c0-55fc-43ad-ae9c-f6606839e29c">&lt;/em&gt;</ept>backup_runs](http://msdn.microsoft.com/library/mt203884.aspx)</target>
+        </trans-unit>
+        <trans-unit id="84ad0349-2fb3-40ed-ab80-0307289bde45" xml:space="preserve">
+          <source>[sys.pdw<bpt id="9c6363b0-1c01-4215-80dd-b166656c6e0e">&lt;em&gt;</bpt>loader<ept id="9c6363b0-1c01-4215-80dd-b166656c6e0e">&lt;/em&gt;</ept>run_stages](http://msdn.microsoft.com/library/mt203879.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="9c6363b0-1c01-4215-80dd-b166656c6e0e">&lt;em&gt;</bpt>loader<ept id="9c6363b0-1c01-4215-80dd-b166656c6e0e">&lt;/em&gt;</ept>run_stages](http://msdn.microsoft.com/library/mt203879.aspx)</target>
+        </trans-unit>
+        <trans-unit id="028dece6-7329-4109-8876-a7d835f64e96" xml:space="preserve">
+          <source>[sys.pdw<bpt id="5a6efac0-408a-45dd-9fc8-8d366927dcb5">&lt;em&gt;</bpt>nodes<ept id="5a6efac0-408a-45dd-9fc8-8d366927dcb5">&lt;/em&gt;</ept>column<bpt id="d25b031d-d8e6-4507-b805-45d4dd116da2">&lt;em&gt;</bpt>store<ept id="d25b031d-d8e6-4507-b805-45d4dd116da2">&lt;/em&gt;</ept>dictionaries](http://msdn.microsoft.com/library/mt203902.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="5a6efac0-408a-45dd-9fc8-8d366927dcb5">&lt;em&gt;</bpt>nodes<ept id="5a6efac0-408a-45dd-9fc8-8d366927dcb5">&lt;/em&gt;</ept>column<bpt id="d25b031d-d8e6-4507-b805-45d4dd116da2">&lt;em&gt;</bpt>store<ept id="d25b031d-d8e6-4507-b805-45d4dd116da2">&lt;/em&gt;</ept>dictionaries](http://msdn.microsoft.com/library/mt203902.aspx)</target>
+        </trans-unit>
+        <trans-unit id="b298c41a-ed87-43c1-ae09-54e0865265ff" xml:space="preserve">
+          <source>[sys.pdw<bpt id="e68cb55c-8a57-458b-ac57-d29cb1014f28">&lt;em&gt;</bpt>nodes<ept id="e68cb55c-8a57-458b-ac57-d29cb1014f28">&lt;/em&gt;</ept>column<bpt id="737c3391-88de-4a1e-b775-0c394ec3a546">&lt;em&gt;</bpt>store<ept id="737c3391-88de-4a1e-b775-0c394ec3a546">&lt;/em&gt;</ept>row_groups](http://msdn.microsoft.com/library/mt203880.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="e68cb55c-8a57-458b-ac57-d29cb1014f28">&lt;em&gt;</bpt>nodes<ept id="e68cb55c-8a57-458b-ac57-d29cb1014f28">&lt;/em&gt;</ept>column<bpt id="737c3391-88de-4a1e-b775-0c394ec3a546">&lt;em&gt;</bpt>store<ept id="737c3391-88de-4a1e-b775-0c394ec3a546">&lt;/em&gt;</ept>row_groups](http://msdn.microsoft.com/library/mt203880.aspx)</target>
+        </trans-unit>
+        <trans-unit id="01b6d1a9-9f73-4612-a656-efc93b5a7ef3" xml:space="preserve">
+          <source>[sys.pdw<bpt id="d14c26e3-7e78-488e-a364-5220a6361a2f">&lt;em&gt;</bpt>nodes<ept id="d14c26e3-7e78-488e-a364-5220a6361a2f">&lt;/em&gt;</ept>column<bpt id="21d052d8-2afc-4b1b-ba0a-ecb2a9afd3e5">&lt;em&gt;</bpt>store<ept id="21d052d8-2afc-4b1b-ba0a-ecb2a9afd3e5">&lt;/em&gt;</ept>segments](http://msdn.microsoft.com/library/mt203916.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="d14c26e3-7e78-488e-a364-5220a6361a2f">&lt;em&gt;</bpt>nodes<ept id="d14c26e3-7e78-488e-a364-5220a6361a2f">&lt;/em&gt;</ept>column<bpt id="21d052d8-2afc-4b1b-ba0a-ecb2a9afd3e5">&lt;em&gt;</bpt>store<ept id="21d052d8-2afc-4b1b-ba0a-ecb2a9afd3e5">&lt;/em&gt;</ept>segments](http://msdn.microsoft.com/library/mt203916.aspx)</target>
+        </trans-unit>
+        <trans-unit id="8aed7cfb-c06d-4ad7-a22d-4702fa1bc32b" xml:space="preserve">
+          <source>[sys.pdw<bpt id="a804aa24-21f5-48a4-b5bf-d6ed2647eb3d">&lt;em&gt;</bpt>nodes<ept id="a804aa24-21f5-48a4-b5bf-d6ed2647eb3d">&lt;/em&gt;</ept>columns](http://msdn.microsoft.com/library/mt203881.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="a804aa24-21f5-48a4-b5bf-d6ed2647eb3d">&lt;em&gt;</bpt>nodes<ept id="a804aa24-21f5-48a4-b5bf-d6ed2647eb3d">&lt;/em&gt;</ept>columns](http://msdn.microsoft.com/library/mt203881.aspx)</target>
+        </trans-unit>
+        <trans-unit id="75eaf5b0-5cbc-4889-ab0c-5848b3bc56a4" xml:space="preserve">
+          <source>[sys.pdw<bpt id="d2fc1db1-c8f3-4960-9d34-a1fa1bd9ef6e">&lt;em&gt;</bpt>nodes<ept id="d2fc1db1-c8f3-4960-9d34-a1fa1bd9ef6e">&lt;/em&gt;</ept>indexes](http://msdn.microsoft.com/library/mt203885.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="d2fc1db1-c8f3-4960-9d34-a1fa1bd9ef6e">&lt;em&gt;</bpt>nodes<ept id="d2fc1db1-c8f3-4960-9d34-a1fa1bd9ef6e">&lt;/em&gt;</ept>indexes](http://msdn.microsoft.com/library/mt203885.aspx)</target>
+        </trans-unit>
+        <trans-unit id="dfad51ff-04e8-44b4-b14c-a47186385af1" xml:space="preserve">
+          <source>[sys.pdw<bpt id="1cab3727-84fd-48cf-9a08-f12c516eac32">&lt;em&gt;</bpt>nodes<ept id="1cab3727-84fd-48cf-9a08-f12c516eac32">&lt;/em&gt;</ept>partitions](http://msdn.microsoft.com/library/mt203908.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="1cab3727-84fd-48cf-9a08-f12c516eac32">&lt;em&gt;</bpt>nodes<ept id="1cab3727-84fd-48cf-9a08-f12c516eac32">&lt;/em&gt;</ept>partitions](http://msdn.microsoft.com/library/mt203908.aspx)</target>
+        </trans-unit>
+        <trans-unit id="616aabbe-7094-45ea-91d8-8a90de829ef8" xml:space="preserve">
+          <source>[sys.pdw<bpt id="97fa4744-dea6-4823-8668-91681044de9c">&lt;em&gt;</bpt>nodes<ept id="97fa4744-dea6-4823-8668-91681044de9c">&lt;/em&gt;</ept>pdw<bpt id="04dcd5da-9abb-48ce-ba6c-9ab2166db9e1">&lt;em&gt;</bpt>physical<ept id="04dcd5da-9abb-48ce-ba6c-9ab2166db9e1">&lt;/em&gt;</ept>databases](http://msdn.microsoft.com/library/mt203897.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="97fa4744-dea6-4823-8668-91681044de9c">&lt;em&gt;</bpt>nodes<ept id="97fa4744-dea6-4823-8668-91681044de9c">&lt;/em&gt;</ept>pdw<bpt id="04dcd5da-9abb-48ce-ba6c-9ab2166db9e1">&lt;em&gt;</bpt>physical<ept id="04dcd5da-9abb-48ce-ba6c-9ab2166db9e1">&lt;/em&gt;</ept>databases](http://msdn.microsoft.com/library/mt203897.aspx)</target>
+        </trans-unit>
+        <trans-unit id="1215fee8-12cf-40e0-820b-aa212f689f6d" xml:space="preserve">
+          <source>[sys.pdw<bpt id="3c3c025d-f898-4fae-a6b0-d9a98a4c4f27">&lt;em&gt;</bpt>nodes<ept id="3c3c025d-f898-4fae-a6b0-d9a98a4c4f27">&lt;/em&gt;</ept>tables](http://msdn.microsoft.com/library/mt203886.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="3c3c025d-f898-4fae-a6b0-d9a98a4c4f27">&lt;em&gt;</bpt>nodes<ept id="3c3c025d-f898-4fae-a6b0-d9a98a4c4f27">&lt;/em&gt;</ept>tables](http://msdn.microsoft.com/library/mt203886.aspx)</target>
+        </trans-unit>
+        <trans-unit id="bc472622-d62c-40a9-a310-bd64ca9834f1" xml:space="preserve">
+          <source>[sys.pdw<bpt id="16019551-2621-4cc2-86c2-bae173d1dfc7">&lt;em&gt;</bpt>table<ept id="16019551-2621-4cc2-86c2-bae173d1dfc7">&lt;/em&gt;</ept>distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="16019551-2621-4cc2-86c2-bae173d1dfc7">&lt;em&gt;</bpt>table<ept id="16019551-2621-4cc2-86c2-bae173d1dfc7">&lt;/em&gt;</ept>distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)</target>
+        </trans-unit>
+        <trans-unit id="ae68d1d3-f620-4565-aa17-44202b973625" xml:space="preserve">
+          <source>[sys.pdw<bpt id="e2db7bae-79f5-40b9-a454-16b1bf292e56">&lt;em&gt;</bpt>table<ept id="e2db7bae-79f5-40b9-a454-16b1bf292e56">&lt;/em&gt;</ept>mappings](http://msdn.microsoft.com/library/mt203876.aspx)</source>
+          <target state="new">[sys.pdw<bpt id="e2db7bae-79f5-40b9-a454-16b1bf292e56">&lt;em&gt;</bpt>table<ept id="e2db7bae-79f5-40b9-a454-16b1bf292e56">&lt;/em&gt;</ept>mappings](http://msdn.microsoft.com/library/mt203876.aspx)</target>
+        </trans-unit>
+        <trans-unit id="634386f3-dc7c-48a1-ad65-d193203e83a8" xml:space="preserve">
+          <source><bpt id="74773ad2-28d9-4d4b-815e-dd00791febab">&lt;linkText&gt;</bpt>dbo.server_quotas (Azure SQL Database)<ept id="74773ad2-28d9-4d4b-815e-dd00791febab">&lt;/linkText&gt;</ept><bpt id="74773ad2-28d9-4d4b-815e-dd00791febab">&lt;title&gt;</bpt><ept id="74773ad2-28d9-4d4b-815e-dd00791febab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="74773ad2-28d9-4d4b-815e-dd00791febab">&lt;linkText&gt;</bpt>dbo.server_quotas (Azure SQL Database)<ept id="74773ad2-28d9-4d4b-815e-dd00791febab">&lt;/linkText&gt;</ept><bpt id="74773ad2-28d9-4d4b-815e-dd00791febab">&lt;title&gt;</bpt><ept id="74773ad2-28d9-4d4b-815e-dd00791febab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6cf52f73-71ec-40d8-98b3-bd30f32a2c6b" xml:space="preserve">
+          <source><bpt id="06b7b69d-aaa0-4cf3-bf89-b68d1a484984">&lt;linkText&gt;</bpt>sys.bandwidth_usage (Azure SQL Database)<ept id="06b7b69d-aaa0-4cf3-bf89-b68d1a484984">&lt;/linkText&gt;</ept><bpt id="06b7b69d-aaa0-4cf3-bf89-b68d1a484984">&lt;title&gt;</bpt><ept id="06b7b69d-aaa0-4cf3-bf89-b68d1a484984">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="06b7b69d-aaa0-4cf3-bf89-b68d1a484984">&lt;linkText&gt;</bpt>sys.bandwidth_usage (Azure SQL Database)<ept id="06b7b69d-aaa0-4cf3-bf89-b68d1a484984">&lt;/linkText&gt;</ept><bpt id="06b7b69d-aaa0-4cf3-bf89-b68d1a484984">&lt;title&gt;</bpt><ept id="06b7b69d-aaa0-4cf3-bf89-b68d1a484984">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e1bf5ee-5176-4dc1-8cd2-d523b413fd2e" xml:space="preserve">
+          <source>[sys.database<bpt id="371c2941-5308-4a2a-b9a7-731b906a71b3">&lt;em&gt;</bpt>connection<ept id="371c2941-5308-4a2a-b9a7-731b906a71b3">&lt;/em&gt;</ept>stats (Azure SQL Database)](http://msdn.microsoft.com/library/dn269986.aspx)</source>
+          <target state="new">[sys.database<bpt id="371c2941-5308-4a2a-b9a7-731b906a71b3">&lt;em&gt;</bpt>connection<ept id="371c2941-5308-4a2a-b9a7-731b906a71b3">&lt;/em&gt;</ept>stats (Azure SQL Database)](http://msdn.microsoft.com/library/dn269986.aspx)</target>
+        </trans-unit>
+        <trans-unit id="e4d0834e-5e3c-44f0-8315-c283c90ca248" xml:space="preserve">
+          <source>[sys.database<bpt id="0bdc12fe-5116-4e83-a792-121df80002c7">&lt;em&gt;</bpt>firewall<ept id="0bdc12fe-5116-4e83-a792-121df80002c7">&lt;/em&gt;</ept>rules (Azure SQL Database)](http://msdn.microsoft.com/library/dn269982.aspx)</source>
+          <target state="new">[sys.database<bpt id="0bdc12fe-5116-4e83-a792-121df80002c7">&lt;em&gt;</bpt>firewall<ept id="0bdc12fe-5116-4e83-a792-121df80002c7">&lt;/em&gt;</ept>rules (Azure SQL Database)](http://msdn.microsoft.com/library/dn269982.aspx)</target>
+        </trans-unit>
+        <trans-unit id="c7853bff-a228-44d7-ba51-438ca6eb8407" xml:space="preserve">
+          <source><bpt id="0e94d4ed-383b-4ec0-acf6-f58ba914664e">&lt;linkText&gt;</bpt>sys.database_usage (Azure SQL Database)<ept id="0e94d4ed-383b-4ec0-acf6-f58ba914664e">&lt;/linkText&gt;</ept><bpt id="0e94d4ed-383b-4ec0-acf6-f58ba914664e">&lt;title&gt;</bpt><ept id="0e94d4ed-383b-4ec0-acf6-f58ba914664e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0e94d4ed-383b-4ec0-acf6-f58ba914664e">&lt;linkText&gt;</bpt>sys.database_usage (Azure SQL Database)<ept id="0e94d4ed-383b-4ec0-acf6-f58ba914664e">&lt;/linkText&gt;</ept><bpt id="0e94d4ed-383b-4ec0-acf6-f58ba914664e">&lt;title&gt;</bpt><ept id="0e94d4ed-383b-4ec0-acf6-f58ba914664e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02550d9b-a600-47dd-b684-2c990c06308c" xml:space="preserve">
+          <source><bpt id="cb5a3056-be7c-4b0e-8b96-981839c100be">&lt;linkText&gt;</bpt>sys.event_log (Azure SQL Database)<ept id="cb5a3056-be7c-4b0e-8b96-981839c100be">&lt;/linkText&gt;</ept><bpt id="cb5a3056-be7c-4b0e-8b96-981839c100be">&lt;title&gt;</bpt><ept id="cb5a3056-be7c-4b0e-8b96-981839c100be">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cb5a3056-be7c-4b0e-8b96-981839c100be">&lt;linkText&gt;</bpt>sys.event_log (Azure SQL Database)<ept id="cb5a3056-be7c-4b0e-8b96-981839c100be">&lt;/linkText&gt;</ept><bpt id="cb5a3056-be7c-4b0e-8b96-981839c100be">&lt;title&gt;</bpt><ept id="cb5a3056-be7c-4b0e-8b96-981839c100be">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1deba56-c8c8-4618-9912-695b9ca6d0dc" xml:space="preserve">
+          <source>[sys.database<bpt id="7c1f80c9-1a04-4bac-85e6-74bb50125563">&lt;em&gt;</bpt>firewall<ept id="7c1f80c9-1a04-4bac-85e6-74bb50125563">&lt;/em&gt;</ept>rules (Azure SQL Database)](http://msdn.microsoft.com/library/dn269982.aspx)</source>
+          <target state="new">[sys.database<bpt id="7c1f80c9-1a04-4bac-85e6-74bb50125563">&lt;em&gt;</bpt>firewall<ept id="7c1f80c9-1a04-4bac-85e6-74bb50125563">&lt;/em&gt;</ept>rules (Azure SQL Database)](http://msdn.microsoft.com/library/dn269982.aspx)</target>
+        </trans-unit>
+        <trans-unit id="7cab657f-95f3-4178-a88e-762b5c37c224" xml:space="preserve">
+          <source><bpt id="9ab5e426-4d64-4fb8-abe2-48a18e8e97ca">&lt;linkText&gt;</bpt>sys.firewall_rules (Azure SQL Database)<ept id="9ab5e426-4d64-4fb8-abe2-48a18e8e97ca">&lt;/linkText&gt;</ept><bpt id="9ab5e426-4d64-4fb8-abe2-48a18e8e97ca">&lt;title&gt;</bpt><ept id="9ab5e426-4d64-4fb8-abe2-48a18e8e97ca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9ab5e426-4d64-4fb8-abe2-48a18e8e97ca">&lt;linkText&gt;</bpt>sys.firewall_rules (Azure SQL Database)<ept id="9ab5e426-4d64-4fb8-abe2-48a18e8e97ca">&lt;/linkText&gt;</ept><bpt id="9ab5e426-4d64-4fb8-abe2-48a18e8e97ca">&lt;title&gt;</bpt><ept id="9ab5e426-4d64-4fb8-abe2-48a18e8e97ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="697f7ccc-9e3e-4177-a553-68f0d864cd81" xml:space="preserve">
+          <source><bpt id="54f3f786-298a-4f3b-98d6-05e1653dcb35">&lt;linkText&gt;</bpt>sys.resource_stats (Azure SQL Database)<ept id="54f3f786-298a-4f3b-98d6-05e1653dcb35">&lt;/linkText&gt;</ept><bpt id="54f3f786-298a-4f3b-98d6-05e1653dcb35">&lt;title&gt;</bpt><ept id="54f3f786-298a-4f3b-98d6-05e1653dcb35">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="54f3f786-298a-4f3b-98d6-05e1653dcb35">&lt;linkText&gt;</bpt>sys.resource_stats (Azure SQL Database)<ept id="54f3f786-298a-4f3b-98d6-05e1653dcb35">&lt;/linkText&gt;</ept><bpt id="54f3f786-298a-4f3b-98d6-05e1653dcb35">&lt;title&gt;</bpt><ept id="54f3f786-298a-4f3b-98d6-05e1653dcb35">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89d54d36-c5e8-4935-b94b-b876309a561f" xml:space="preserve">
+          <source>sys.resource_usage (Azure SQL Database)</source>
+          <target state="new">sys.resource_usage (Azure SQL Database)</target>
+        </trans-unit>
+        <trans-unit id="09921c0d-ba69-4ba2-855c-6bb624d8caae" xml:space="preserve">
+          <source>[sys.dm<bpt id="8de6b752-6abc-401b-a3ce-e643fd77abe2">&lt;em&gt;</bpt>pdw<ept id="8de6b752-6abc-401b-a3ce-e643fd77abe2">&lt;/em&gt;</ept>diag<bpt id="6defe429-b04e-425a-8741-0a293b4b6c43">&lt;em&gt;</bpt>processing<ept id="6defe429-b04e-425a-8741-0a293b4b6c43">&lt;/em&gt;</ept>stats](http://msdn.microsoft.com/library/mt203914.aspx)</source>
+          <target state="new">[sys.dm<bpt id="8de6b752-6abc-401b-a3ce-e643fd77abe2">&lt;em&gt;</bpt>pdw<ept id="8de6b752-6abc-401b-a3ce-e643fd77abe2">&lt;/em&gt;</ept>diag<bpt id="6defe429-b04e-425a-8741-0a293b4b6c43">&lt;em&gt;</bpt>processing<ept id="6defe429-b04e-425a-8741-0a293b4b6c43">&lt;/em&gt;</ept>stats](http://msdn.microsoft.com/library/mt203914.aspx)</target>
+        </trans-unit>
+        <trans-unit id="1a680f66-7198-4445-8706-0bba29d9e5bd" xml:space="preserve">
+          <source>[sys.dm<bpt id="c3755e9b-61a7-4877-b670-8137a957cabf">&lt;em&gt;</bpt>pdw<ept id="c3755e9b-61a7-4877-b670-8137a957cabf">&lt;/em&gt;</ept>dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)</source>
+          <target state="new">[sys.dm<bpt id="c3755e9b-61a7-4877-b670-8137a957cabf">&lt;em&gt;</bpt>pdw<ept id="c3755e9b-61a7-4877-b670-8137a957cabf">&lt;/em&gt;</ept>dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)</target>
+        </trans-unit>
+        <trans-unit id="dfbc54f3-11b5-4197-9bf1-6c8bc89dc1f8" xml:space="preserve">
+          <source>[sys.dm<bpt id="c15f4fa6-9b9c-4aee-a7de-37fed29ea340">&lt;em&gt;</bpt>pdw<ept id="c15f4fa6-9b9c-4aee-a7de-37fed29ea340">&lt;/em&gt;</ept>dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)</source>
+          <target state="new">[sys.dm<bpt id="c15f4fa6-9b9c-4aee-a7de-37fed29ea340">&lt;em&gt;</bpt>pdw<ept id="c15f4fa6-9b9c-4aee-a7de-37fed29ea340">&lt;/em&gt;</ept>dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)</target>
+        </trans-unit>
+        <trans-unit id="c3a4a32d-5b5e-4ed2-b0f2-413cf82f1087" xml:space="preserve">
+          <source>[sys.dm<bpt id="77d9721d-c028-494f-a2a9-f57b598249e6">&lt;em&gt;</bpt>pdw<ept id="77d9721d-c028-494f-a2a9-f57b598249e6">&lt;/em&gt;</ept>errors](http://msdn.microsoft.com/library/mt203904.aspx)</source>
+          <target state="new">[sys.dm<bpt id="77d9721d-c028-494f-a2a9-f57b598249e6">&lt;em&gt;</bpt>pdw<ept id="77d9721d-c028-494f-a2a9-f57b598249e6">&lt;/em&gt;</ept>errors](http://msdn.microsoft.com/library/mt203904.aspx)</target>
+        </trans-unit>
+        <trans-unit id="ba1a6048-03fc-426a-959a-4b7bc3e3bebb" xml:space="preserve">
+          <source>[sys.dm<bpt id="419199af-cb05-4d2c-89f7-74158440dd9d">&lt;em&gt;</bpt>pdw<ept id="419199af-cb05-4d2c-89f7-74158440dd9d">&lt;/em&gt;</ept>exec_connections](http://msdn.microsoft.com/library/mt203882.aspx)</source>
+          <target state="new">[sys.dm<bpt id="419199af-cb05-4d2c-89f7-74158440dd9d">&lt;em&gt;</bpt>pdw<ept id="419199af-cb05-4d2c-89f7-74158440dd9d">&lt;/em&gt;</ept>exec_connections](http://msdn.microsoft.com/library/mt203882.aspx)</target>
+        </trans-unit>
+        <trans-unit id="84ff8fd7-f8fd-499b-a8fc-4c923ed4f7ff" xml:space="preserve">
+          <source>[sys.dm<bpt id="8872a5ec-390e-4e8f-b203-c1b3871f5cfa">&lt;em&gt;</bpt>pdw<ept id="8872a5ec-390e-4e8f-b203-c1b3871f5cfa">&lt;/em&gt;</ept>exec_requests](http://msdn.microsoft.com/library/mt203887.aspx)</source>
+          <target state="new">[sys.dm<bpt id="8872a5ec-390e-4e8f-b203-c1b3871f5cfa">&lt;em&gt;</bpt>pdw<ept id="8872a5ec-390e-4e8f-b203-c1b3871f5cfa">&lt;/em&gt;</ept>exec_requests](http://msdn.microsoft.com/library/mt203887.aspx)</target>
+        </trans-unit>
+        <trans-unit id="a48c6a4e-8838-4776-a6fb-3da99c56b9aa" xml:space="preserve">
+          <source>[sys.dm<bpt id="7614ef9c-ae5a-4957-8057-70b8a4c54897">&lt;em&gt;</bpt>pdw<ept id="7614ef9c-ae5a-4957-8057-70b8a4c54897">&lt;/em&gt;</ept>exec_sessions](http://msdn.microsoft.com/library/mt203883.aspx)</source>
+          <target state="new">[sys.dm<bpt id="7614ef9c-ae5a-4957-8057-70b8a4c54897">&lt;em&gt;</bpt>pdw<ept id="7614ef9c-ae5a-4957-8057-70b8a4c54897">&lt;/em&gt;</ept>exec_sessions](http://msdn.microsoft.com/library/mt203883.aspx)</target>
+        </trans-unit>
+        <trans-unit id="cca82932-faa9-47ed-9a6b-eaaea4fb0651" xml:space="preserve">
+          <source>[sys.dm<bpt id="1c0effea-a4cc-4395-a0cf-34753ab3204e">&lt;em&gt;</bpt>pdw<ept id="1c0effea-a4cc-4395-a0cf-34753ab3204e">&lt;/em&gt;</ept>network_credentials](http://msdn.microsoft.com/library/mt203915.aspx)</source>
+          <target state="new">[sys.dm<bpt id="1c0effea-a4cc-4395-a0cf-34753ab3204e">&lt;em&gt;</bpt>pdw<ept id="1c0effea-a4cc-4395-a0cf-34753ab3204e">&lt;/em&gt;</ept>network_credentials](http://msdn.microsoft.com/library/mt203915.aspx)</target>
+        </trans-unit>
+        <trans-unit id="a6ba5961-1956-4e60-99e6-3f21174dd0f7" xml:space="preserve">
+          <source>[sys.dm<bpt id="ee210470-d7c9-4bbb-a816-553e2f2bace5">&lt;em&gt;</bpt>pdw<ept id="ee210470-d7c9-4bbb-a816-553e2f2bace5">&lt;/em&gt;</ept>nodes](http://msdn.microsoft.com/library/mt203907.aspx)</source>
+          <target state="new">[sys.dm<bpt id="ee210470-d7c9-4bbb-a816-553e2f2bace5">&lt;em&gt;</bpt>pdw<ept id="ee210470-d7c9-4bbb-a816-553e2f2bace5">&lt;/em&gt;</ept>nodes](http://msdn.microsoft.com/library/mt203907.aspx)</target>
+        </trans-unit>
+        <trans-unit id="9b3bb696-1513-45fc-9283-cf9a050c5330" xml:space="preserve">
+          <source>[sys.dm<bpt id="409a1839-64b3-482d-866e-94f0f33e7586">&lt;em&gt;</bpt>pdw<ept id="409a1839-64b3-482d-866e-94f0f33e7586">&lt;/em&gt;</ept>nodes<bpt id="7cfd3d87-40a8-4b63-bf29-2a7b1b29b600">&lt;em&gt;</bpt>database<ept id="7cfd3d87-40a8-4b63-bf29-2a7b1b29b600">&lt;/em&gt;</ept>encryption_keys](http://msdn.microsoft.com/library/mt203922.aspx)</source>
+          <target state="new">[sys.dm<bpt id="409a1839-64b3-482d-866e-94f0f33e7586">&lt;em&gt;</bpt>pdw<ept id="409a1839-64b3-482d-866e-94f0f33e7586">&lt;/em&gt;</ept>nodes<bpt id="7cfd3d87-40a8-4b63-bf29-2a7b1b29b600">&lt;em&gt;</bpt>database<ept id="7cfd3d87-40a8-4b63-bf29-2a7b1b29b600">&lt;/em&gt;</ept>encryption_keys](http://msdn.microsoft.com/library/mt203922.aspx)</target>
+        </trans-unit>
+        <trans-unit id="06f05de4-be5c-4d78-87b8-2a5507c9b7b3" xml:space="preserve">
+          <source>[sys.dm<bpt id="bd3aa2ee-d61b-4bf5-8c68-35a8b1af0d27">&lt;em&gt;</bpt>pdw<ept id="bd3aa2ee-d61b-4bf5-8c68-35a8b1af0d27">&lt;/em&gt;</ept>node_status](http://msdn.microsoft.com/library/mt203905.aspx)</source>
+          <target state="new">[sys.dm<bpt id="bd3aa2ee-d61b-4bf5-8c68-35a8b1af0d27">&lt;em&gt;</bpt>pdw<ept id="bd3aa2ee-d61b-4bf5-8c68-35a8b1af0d27">&lt;/em&gt;</ept>node_status](http://msdn.microsoft.com/library/mt203905.aspx)</target>
+        </trans-unit>
+        <trans-unit id="29261e7f-8d9c-4a19-bdfe-0d7d73f80b29" xml:space="preserve">
+          <source>[sys.dm<bpt id="a9291727-2189-4c8b-8fd7-def96d779b93">&lt;em&gt;</bpt>pdw<ept id="a9291727-2189-4c8b-8fd7-def96d779b93">&lt;/em&gt;</ept>os<bpt id="9fe49046-05b0-41dd-a1a1-e37fd8e150c7">&lt;em&gt;</bpt>event<ept id="9fe49046-05b0-41dd-a1a1-e37fd8e150c7">&lt;/em&gt;</ept>logs](http://msdn.microsoft.com/library/mt203910.aspx)</source>
+          <target state="new">[sys.dm<bpt id="a9291727-2189-4c8b-8fd7-def96d779b93">&lt;em&gt;</bpt>pdw<ept id="a9291727-2189-4c8b-8fd7-def96d779b93">&lt;/em&gt;</ept>os<bpt id="9fe49046-05b0-41dd-a1a1-e37fd8e150c7">&lt;em&gt;</bpt>event<ept id="9fe49046-05b0-41dd-a1a1-e37fd8e150c7">&lt;/em&gt;</ept>logs](http://msdn.microsoft.com/library/mt203910.aspx)</target>
+        </trans-unit>
+        <trans-unit id="42f201ea-f458-4ff5-a0cf-f33571bab8f0" xml:space="preserve">
+          <source>[sys.dm<bpt id="31492515-a786-4ffb-a9e2-0d2ee8c31c82">&lt;em&gt;</bpt>pdw<ept id="31492515-a786-4ffb-a9e2-0d2ee8c31c82">&lt;/em&gt;</ept>or<bpt id="aa31cd69-880d-448e-b252-8442c51c6c3c">&lt;em&gt;</bpt>performance<ept id="aa31cd69-880d-448e-b252-8442c51c6c3c">&lt;/em&gt;</ept>counters](http://msdn.microsoft.com/library/mt203875.aspx)</source>
+          <target state="new">[sys.dm<bpt id="31492515-a786-4ffb-a9e2-0d2ee8c31c82">&lt;em&gt;</bpt>pdw<ept id="31492515-a786-4ffb-a9e2-0d2ee8c31c82">&lt;/em&gt;</ept>or<bpt id="aa31cd69-880d-448e-b252-8442c51c6c3c">&lt;em&gt;</bpt>performance<ept id="aa31cd69-880d-448e-b252-8442c51c6c3c">&lt;/em&gt;</ept>counters](http://msdn.microsoft.com/library/mt203875.aspx)</target>
+        </trans-unit>
+        <trans-unit id="0790058b-6045-4c4c-b451-0eec5599b282" xml:space="preserve">
+          <source>[sys.dm<bpt id="dff4ee65-316c-4668-8953-4a0e9dce8536">&lt;em&gt;</bpt>pdw<ept id="dff4ee65-316c-4668-8953-4a0e9dce8536">&lt;/em&gt;</ept>os_threads](http://msdn.microsoft.com/library/mt203917.aspx)</source>
+          <target state="new">[sys.dm<bpt id="dff4ee65-316c-4668-8953-4a0e9dce8536">&lt;em&gt;</bpt>pdw<ept id="dff4ee65-316c-4668-8953-4a0e9dce8536">&lt;/em&gt;</ept>os_threads](http://msdn.microsoft.com/library/mt203917.aspx)</target>
+        </trans-unit>
+        <trans-unit id="985b1d61-e1dc-4e00-a8db-888579fe8a39" xml:space="preserve">
+          <source>[sys.dm<bpt id="e4bf9983-769e-41b5-b8cb-3be6124ee661">&lt;em&gt;</bpt>pdw<ept id="e4bf9983-769e-41b5-b8cb-3be6124ee661">&lt;/em&gt;</ept>query<bpt id="1f34f131-087a-4939-996e-c6d0431c1cdb">&lt;em&gt;</bpt>stats<ept id="1f34f131-087a-4939-996e-c6d0431c1cdb">&lt;/em&gt;</ept>xe](http://msdn.microsoft.com/library/mt203898.aspx)</source>
+          <target state="new">[sys.dm<bpt id="e4bf9983-769e-41b5-b8cb-3be6124ee661">&lt;em&gt;</bpt>pdw<ept id="e4bf9983-769e-41b5-b8cb-3be6124ee661">&lt;/em&gt;</ept>query<bpt id="1f34f131-087a-4939-996e-c6d0431c1cdb">&lt;em&gt;</bpt>stats<ept id="1f34f131-087a-4939-996e-c6d0431c1cdb">&lt;/em&gt;</ept>xe](http://msdn.microsoft.com/library/mt203898.aspx)</target>
+        </trans-unit>
+        <trans-unit id="f18c7e46-0c4f-405d-b294-3c9b5efc3d4f" xml:space="preserve">
+          <source>[sys.dm<bpt id="32c02fb4-9f16-445f-bc6e-e9be9b771f02">&lt;em&gt;</bpt>pdw<ept id="32c02fb4-9f16-445f-bc6e-e9be9b771f02">&lt;/em&gt;</ept>query<bpt id="bf880e54-e17c-4082-9dd6-cf677686ab6c">&lt;em&gt;</bpt>stats<ept id="bf880e54-e17c-4082-9dd6-cf677686ab6c">&lt;/em&gt;</ept>xe_file](http://msdn.microsoft.com/library/mt203919.aspx)</source>
+          <target state="new">[sys.dm<bpt id="32c02fb4-9f16-445f-bc6e-e9be9b771f02">&lt;em&gt;</bpt>pdw<ept id="32c02fb4-9f16-445f-bc6e-e9be9b771f02">&lt;/em&gt;</ept>query<bpt id="bf880e54-e17c-4082-9dd6-cf677686ab6c">&lt;em&gt;</bpt>stats<ept id="bf880e54-e17c-4082-9dd6-cf677686ab6c">&lt;/em&gt;</ept>xe_file](http://msdn.microsoft.com/library/mt203919.aspx)</target>
+        </trans-unit>
+        <trans-unit id="2c1db07d-c25b-4cea-ac07-1395c9043fa7" xml:space="preserve">
+          <source>[sys.dm<bpt id="85db0f1f-28a7-4778-a5b5-e95966720d3c">&lt;em&gt;</bpt>pdw<ept id="85db0f1f-28a7-4778-a5b5-e95966720d3c">&lt;/em&gt;</ept>request_steps](http://msdn.microsoft.com/library/mt203913.aspx)</source>
+          <target state="new">[sys.dm<bpt id="85db0f1f-28a7-4778-a5b5-e95966720d3c">&lt;em&gt;</bpt>pdw<ept id="85db0f1f-28a7-4778-a5b5-e95966720d3c">&lt;/em&gt;</ept>request_steps](http://msdn.microsoft.com/library/mt203913.aspx)</target>
+        </trans-unit>
+        <trans-unit id="7e7b84c7-ef64-4bc1-b327-2b9c2a698c8b" xml:space="preserve">
+          <source>[sys.dm<bpt id="0778ce1f-8b7c-4fb0-8283-5f2aabe9c077">&lt;em&gt;</bpt>pdw<ept id="0778ce1f-8b7c-4fb0-8283-5f2aabe9c077">&lt;/em&gt;</ept>resource_waits](http://msdn.microsoft.com/library/mt203906.aspx)</source>
+          <target state="new">[sys.dm<bpt id="0778ce1f-8b7c-4fb0-8283-5f2aabe9c077">&lt;em&gt;</bpt>pdw<ept id="0778ce1f-8b7c-4fb0-8283-5f2aabe9c077">&lt;/em&gt;</ept>resource_waits](http://msdn.microsoft.com/library/mt203906.aspx)</target>
+        </trans-unit>
+        <trans-unit id="d70e0f61-de08-4e24-9f6d-5a398f155e98" xml:space="preserve">
+          <source>[sys.dm<bpt id="9ba4b7cd-9d61-46bc-ac2d-5fdff5f37811">&lt;em&gt;</bpt>pdw<ept id="9ba4b7cd-9d61-46bc-ac2d-5fdff5f37811">&lt;/em&gt;</ept>sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)</source>
+          <target state="new">[sys.dm<bpt id="9ba4b7cd-9d61-46bc-ac2d-5fdff5f37811">&lt;em&gt;</bpt>pdw<ept id="9ba4b7cd-9d61-46bc-ac2d-5fdff5f37811">&lt;/em&gt;</ept>sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)</target>
+        </trans-unit>
+        <trans-unit id="e2811d8e-ab03-4da7-9a0b-18b2f064222d" xml:space="preserve">
+          <source>[sys.dm<bpt id="1821c53e-8da7-4698-9061-ecd99b9e0530">&lt;em&gt;</bpt>pdw<ept id="1821c53e-8da7-4698-9061-ecd99b9e0530">&lt;/em&gt;</ept>sys_info](http://msdn.microsoft.com/library/mt203900.aspx)</source>
+          <target state="new">[sys.dm<bpt id="1821c53e-8da7-4698-9061-ecd99b9e0530">&lt;em&gt;</bpt>pdw<ept id="1821c53e-8da7-4698-9061-ecd99b9e0530">&lt;/em&gt;</ept>sys_info](http://msdn.microsoft.com/library/mt203900.aspx)</target>
+        </trans-unit>
+        <trans-unit id="beff559b-024e-418b-bf2e-291e9fa0c000" xml:space="preserve">
+          <source>[sys.dm<bpt id="6d9afa1c-2143-4f4d-a48d-0cf5ec5f2dbd">&lt;em&gt;</bpt>pdw<ept id="6d9afa1c-2143-4f4d-a48d-0cf5ec5f2dbd">&lt;/em&gt;</ept>wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)</source>
+          <target state="new">[sys.dm<bpt id="6d9afa1c-2143-4f4d-a48d-0cf5ec5f2dbd">&lt;em&gt;</bpt>pdw<ept id="6d9afa1c-2143-4f4d-a48d-0cf5ec5f2dbd">&lt;/em&gt;</ept>wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)</target>
+        </trans-unit>
+        <trans-unit id="7266be63-ee53-4be2-942e-34e5b5bc2c5c" xml:space="preserve">
+          <source>[sys.dm<bpt id="94c07a48-619c-4769-85f1-12249b68ac18">&lt;em&gt;</bpt>pdw<ept id="94c07a48-619c-4769-85f1-12249b68ac18">&lt;/em&gt;</ept>waits](http://msdn.microsoft.com/library/mt203909.aspx)</source>
+          <target state="new">[sys.dm<bpt id="94c07a48-619c-4769-85f1-12249b68ac18">&lt;em&gt;</bpt>pdw<ept id="94c07a48-619c-4769-85f1-12249b68ac18">&lt;/em&gt;</ept>waits](http://msdn.microsoft.com/library/mt203909.aspx)</target>
+        </trans-unit>
+        <trans-unit id="d5fc7c15-ecd8-41d8-9edb-e91c88fe22a3" xml:space="preserve">
+          <source>[sys.dm<bpt id="d005fe57-48ce-419b-8655-6909dec84dd9">&lt;em&gt;</bpt>pdw<ept id="d005fe57-48ce-419b-8655-6909dec84dd9">&lt;/em&gt;</ept>lock_waits](http://msdn.microsoft.com/library/mt203901.aspx)</source>
+          <target state="new">[sys.dm<bpt id="d005fe57-48ce-419b-8655-6909dec84dd9">&lt;em&gt;</bpt>pdw<ept id="d005fe57-48ce-419b-8655-6909dec84dd9">&lt;/em&gt;</ept>lock_waits](http://msdn.microsoft.com/library/mt203901.aspx)</target>
+        </trans-unit>
+        <trans-unit id="1b7c6342-01d8-48a7-adae-173806855faf" xml:space="preserve">
+          <source><bpt id="00c97d0b-2124-4b71-9a87-c4fb1a483871">&lt;linkText&gt;</bpt>sys.all_columns<ept id="00c97d0b-2124-4b71-9a87-c4fb1a483871">&lt;/linkText&gt;</ept><bpt id="00c97d0b-2124-4b71-9a87-c4fb1a483871">&lt;title&gt;</bpt><ept id="00c97d0b-2124-4b71-9a87-c4fb1a483871">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="00c97d0b-2124-4b71-9a87-c4fb1a483871">&lt;linkText&gt;</bpt>sys.all_columns<ept id="00c97d0b-2124-4b71-9a87-c4fb1a483871">&lt;/linkText&gt;</ept><bpt id="00c97d0b-2124-4b71-9a87-c4fb1a483871">&lt;title&gt;</bpt><ept id="00c97d0b-2124-4b71-9a87-c4fb1a483871">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d36e58b-67da-4368-a09b-ee7635032d9f" xml:space="preserve">
+          <source><bpt id="9adaf42e-c4e8-462f-9ccd-9766d987f11e">&lt;linkText&gt;</bpt>sys.all_objects<ept id="9adaf42e-c4e8-462f-9ccd-9766d987f11e">&lt;/linkText&gt;</ept><bpt id="9adaf42e-c4e8-462f-9ccd-9766d987f11e">&lt;title&gt;</bpt><ept id="9adaf42e-c4e8-462f-9ccd-9766d987f11e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9adaf42e-c4e8-462f-9ccd-9766d987f11e">&lt;linkText&gt;</bpt>sys.all_objects<ept id="9adaf42e-c4e8-462f-9ccd-9766d987f11e">&lt;/linkText&gt;</ept><bpt id="9adaf42e-c4e8-462f-9ccd-9766d987f11e">&lt;title&gt;</bpt><ept id="9adaf42e-c4e8-462f-9ccd-9766d987f11e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcb8f861-b5f0-437d-ab3f-aef492b884aa" xml:space="preserve">
+          <source>[sys.all<bpt id="deac73c8-e4f8-42c8-92a0-a9c8246ad503">&lt;em&gt;</bpt>sql<ept id="deac73c8-e4f8-42c8-92a0-a9c8246ad503">&lt;/em&gt;</ept>modules](http://msdn.microsoft.com/library/ms184389.aspx)</source>
+          <target state="new">[sys.all<bpt id="deac73c8-e4f8-42c8-92a0-a9c8246ad503">&lt;em&gt;</bpt>sql<ept id="deac73c8-e4f8-42c8-92a0-a9c8246ad503">&lt;/em&gt;</ept>modules](http://msdn.microsoft.com/library/ms184389.aspx)</target>
+        </trans-unit>
+        <trans-unit id="9f2777af-b6fa-45bd-8274-bcae04a7a8f3" xml:space="preserve">
+          <source><bpt id="154f837d-154d-47f3-a28e-88d2c055fbe4">&lt;linkText&gt;</bpt>sys.all_views<ept id="154f837d-154d-47f3-a28e-88d2c055fbe4">&lt;/linkText&gt;</ept><bpt id="154f837d-154d-47f3-a28e-88d2c055fbe4">&lt;title&gt;</bpt><ept id="154f837d-154d-47f3-a28e-88d2c055fbe4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="154f837d-154d-47f3-a28e-88d2c055fbe4">&lt;linkText&gt;</bpt>sys.all_views<ept id="154f837d-154d-47f3-a28e-88d2c055fbe4">&lt;/linkText&gt;</ept><bpt id="154f837d-154d-47f3-a28e-88d2c055fbe4">&lt;title&gt;</bpt><ept id="154f837d-154d-47f3-a28e-88d2c055fbe4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a262616a-cdc6-495f-b751-c1e6510ba907" xml:space="preserve">
+          <source><bpt id="deaf0d2f-36c5-40c2-aa08-0a45bfdd80af">&lt;linkText&gt;</bpt>sys.assemblies<ept id="deaf0d2f-36c5-40c2-aa08-0a45bfdd80af">&lt;/linkText&gt;</ept><bpt id="deaf0d2f-36c5-40c2-aa08-0a45bfdd80af">&lt;title&gt;</bpt><ept id="deaf0d2f-36c5-40c2-aa08-0a45bfdd80af">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="deaf0d2f-36c5-40c2-aa08-0a45bfdd80af">&lt;linkText&gt;</bpt>sys.assemblies<ept id="deaf0d2f-36c5-40c2-aa08-0a45bfdd80af">&lt;/linkText&gt;</ept><bpt id="deaf0d2f-36c5-40c2-aa08-0a45bfdd80af">&lt;title&gt;</bpt><ept id="deaf0d2f-36c5-40c2-aa08-0a45bfdd80af">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88c7ee91-6809-4a89-9321-941e6cafb266" xml:space="preserve">
+          <source><bpt id="bbf7c017-d646-416c-92b0-a4b5cbba2ba5">&lt;linkText&gt;</bpt>sys.assembly_modules<ept id="bbf7c017-d646-416c-92b0-a4b5cbba2ba5">&lt;/linkText&gt;</ept><bpt id="bbf7c017-d646-416c-92b0-a4b5cbba2ba5">&lt;title&gt;</bpt><ept id="bbf7c017-d646-416c-92b0-a4b5cbba2ba5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bbf7c017-d646-416c-92b0-a4b5cbba2ba5">&lt;linkText&gt;</bpt>sys.assembly_modules<ept id="bbf7c017-d646-416c-92b0-a4b5cbba2ba5">&lt;/linkText&gt;</ept><bpt id="bbf7c017-d646-416c-92b0-a4b5cbba2ba5">&lt;title&gt;</bpt><ept id="bbf7c017-d646-416c-92b0-a4b5cbba2ba5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94c25c91-470b-404f-93a1-0971a1633bee" xml:space="preserve">
+          <source><bpt id="ddf9ed2b-836b-4fb1-b934-0f540b6c2752">&lt;linkText&gt;</bpt>sys.assembly_types<ept id="ddf9ed2b-836b-4fb1-b934-0f540b6c2752">&lt;/linkText&gt;</ept><bpt id="ddf9ed2b-836b-4fb1-b934-0f540b6c2752">&lt;title&gt;</bpt><ept id="ddf9ed2b-836b-4fb1-b934-0f540b6c2752">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ddf9ed2b-836b-4fb1-b934-0f540b6c2752">&lt;linkText&gt;</bpt>sys.assembly_types<ept id="ddf9ed2b-836b-4fb1-b934-0f540b6c2752">&lt;/linkText&gt;</ept><bpt id="ddf9ed2b-836b-4fb1-b934-0f540b6c2752">&lt;title&gt;</bpt><ept id="ddf9ed2b-836b-4fb1-b934-0f540b6c2752">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54251076-2588-4aab-8c5b-498c0cca75a5" xml:space="preserve">
+          <source><bpt id="099a4e4c-0304-4c54-9426-ee1e1ec92c5e">&lt;linkText&gt;</bpt>sys.check_constraints<ept id="099a4e4c-0304-4c54-9426-ee1e1ec92c5e">&lt;/linkText&gt;</ept><bpt id="099a4e4c-0304-4c54-9426-ee1e1ec92c5e">&lt;title&gt;</bpt><ept id="099a4e4c-0304-4c54-9426-ee1e1ec92c5e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="099a4e4c-0304-4c54-9426-ee1e1ec92c5e">&lt;linkText&gt;</bpt>sys.check_constraints<ept id="099a4e4c-0304-4c54-9426-ee1e1ec92c5e">&lt;/linkText&gt;</ept><bpt id="099a4e4c-0304-4c54-9426-ee1e1ec92c5e">&lt;title&gt;</bpt><ept id="099a4e4c-0304-4c54-9426-ee1e1ec92c5e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b53d3c3c-a614-4620-a5ef-bd10555c807d" xml:space="preserve">
+          <source><bpt id="2c75415d-a2fa-4956-8b3c-1911424f7b83">&lt;linkText&gt;</bpt>sys.certificates<ept id="2c75415d-a2fa-4956-8b3c-1911424f7b83">&lt;/linkText&gt;</ept><bpt id="2c75415d-a2fa-4956-8b3c-1911424f7b83">&lt;title&gt;</bpt><ept id="2c75415d-a2fa-4956-8b3c-1911424f7b83">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c75415d-a2fa-4956-8b3c-1911424f7b83">&lt;linkText&gt;</bpt>sys.certificates<ept id="2c75415d-a2fa-4956-8b3c-1911424f7b83">&lt;/linkText&gt;</ept><bpt id="2c75415d-a2fa-4956-8b3c-1911424f7b83">&lt;title&gt;</bpt><ept id="2c75415d-a2fa-4956-8b3c-1911424f7b83">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ceaceaf-ecc8-4c16-9ba0-e220609b93ab" xml:space="preserve">
+          <source><bpt id="dfedc16e-7e47-484b-801a-e27f3324c340">&lt;linkText&gt;</bpt>sys.columns<ept id="dfedc16e-7e47-484b-801a-e27f3324c340">&lt;/linkText&gt;</ept><bpt id="dfedc16e-7e47-484b-801a-e27f3324c340">&lt;title&gt;</bpt><ept id="dfedc16e-7e47-484b-801a-e27f3324c340">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dfedc16e-7e47-484b-801a-e27f3324c340">&lt;linkText&gt;</bpt>sys.columns<ept id="dfedc16e-7e47-484b-801a-e27f3324c340">&lt;/linkText&gt;</ept><bpt id="dfedc16e-7e47-484b-801a-e27f3324c340">&lt;title&gt;</bpt><ept id="dfedc16e-7e47-484b-801a-e27f3324c340">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c4629cc-7f97-4f9c-a624-551440c9b060" xml:space="preserve">
+          <source><bpt id="a8e823b8-b142-44a0-babd-9a91e3402992">&lt;linkText&gt;</bpt>sys.computed_columns<ept id="a8e823b8-b142-44a0-babd-9a91e3402992">&lt;/linkText&gt;</ept><bpt id="a8e823b8-b142-44a0-babd-9a91e3402992">&lt;title&gt;</bpt><ept id="a8e823b8-b142-44a0-babd-9a91e3402992">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a8e823b8-b142-44a0-babd-9a91e3402992">&lt;linkText&gt;</bpt>sys.computed_columns<ept id="a8e823b8-b142-44a0-babd-9a91e3402992">&lt;/linkText&gt;</ept><bpt id="a8e823b8-b142-44a0-babd-9a91e3402992">&lt;title&gt;</bpt><ept id="a8e823b8-b142-44a0-babd-9a91e3402992">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cb320a7-cf9f-46cc-adb7-8fbd9b6b916f" xml:space="preserve">
+          <source><bpt id="559a8af4-cfe5-4f50-b4b6-cfde7ee70863">&lt;linkText&gt;</bpt>sys.data_spaces<ept id="559a8af4-cfe5-4f50-b4b6-cfde7ee70863">&lt;/linkText&gt;</ept><bpt id="559a8af4-cfe5-4f50-b4b6-cfde7ee70863">&lt;title&gt;</bpt><ept id="559a8af4-cfe5-4f50-b4b6-cfde7ee70863">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="559a8af4-cfe5-4f50-b4b6-cfde7ee70863">&lt;linkText&gt;</bpt>sys.data_spaces<ept id="559a8af4-cfe5-4f50-b4b6-cfde7ee70863">&lt;/linkText&gt;</ept><bpt id="559a8af4-cfe5-4f50-b4b6-cfde7ee70863">&lt;title&gt;</bpt><ept id="559a8af4-cfe5-4f50-b4b6-cfde7ee70863">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf2baaf0-5f8a-4015-8c69-bea2631856dc" xml:space="preserve">
+          <source><bpt id="6520f148-c4ee-463a-91aa-bd14ef1d201c">&lt;linkText&gt;</bpt>sys.database_files<ept id="6520f148-c4ee-463a-91aa-bd14ef1d201c">&lt;/linkText&gt;</ept><bpt id="6520f148-c4ee-463a-91aa-bd14ef1d201c">&lt;title&gt;</bpt><ept id="6520f148-c4ee-463a-91aa-bd14ef1d201c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6520f148-c4ee-463a-91aa-bd14ef1d201c">&lt;linkText&gt;</bpt>sys.database_files<ept id="6520f148-c4ee-463a-91aa-bd14ef1d201c">&lt;/linkText&gt;</ept><bpt id="6520f148-c4ee-463a-91aa-bd14ef1d201c">&lt;title&gt;</bpt><ept id="6520f148-c4ee-463a-91aa-bd14ef1d201c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c619eee-010f-4094-81ab-9fb06642ad8a" xml:space="preserve">
+          <source><bpt id="3bbf2689-5e78-4e54-8464-3fce742877f5">&lt;linkText&gt;</bpt>sys.database_permissions<ept id="3bbf2689-5e78-4e54-8464-3fce742877f5">&lt;/linkText&gt;</ept><bpt id="3bbf2689-5e78-4e54-8464-3fce742877f5">&lt;title&gt;</bpt><ept id="3bbf2689-5e78-4e54-8464-3fce742877f5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3bbf2689-5e78-4e54-8464-3fce742877f5">&lt;linkText&gt;</bpt>sys.database_permissions<ept id="3bbf2689-5e78-4e54-8464-3fce742877f5">&lt;/linkText&gt;</ept><bpt id="3bbf2689-5e78-4e54-8464-3fce742877f5">&lt;title&gt;</bpt><ept id="3bbf2689-5e78-4e54-8464-3fce742877f5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="493f2e37-4657-4573-ac03-42601214f662" xml:space="preserve">
+          <source><bpt id="9f1dad75-a99f-448b-b8ce-603aa9bfae49">&lt;linkText&gt;</bpt>sys.database_principals<ept id="9f1dad75-a99f-448b-b8ce-603aa9bfae49">&lt;/linkText&gt;</ept><bpt id="9f1dad75-a99f-448b-b8ce-603aa9bfae49">&lt;title&gt;</bpt><ept id="9f1dad75-a99f-448b-b8ce-603aa9bfae49">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9f1dad75-a99f-448b-b8ce-603aa9bfae49">&lt;linkText&gt;</bpt>sys.database_principals<ept id="9f1dad75-a99f-448b-b8ce-603aa9bfae49">&lt;/linkText&gt;</ept><bpt id="9f1dad75-a99f-448b-b8ce-603aa9bfae49">&lt;title&gt;</bpt><ept id="9f1dad75-a99f-448b-b8ce-603aa9bfae49">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="803f6d37-1bc8-41f0-aaa5-de305dd3e042" xml:space="preserve">
+          <source>[sys.database<bpt id="63f1f671-9772-4508-b0c1-ee4fd9fa16fe">&lt;em&gt;</bpt>role<ept id="63f1f671-9772-4508-b0c1-ee4fd9fa16fe">&lt;/em&gt;</ept>members](http://msdn.microsoft.com/library/ms189780.aspx)</source>
+          <target state="new">[sys.database<bpt id="63f1f671-9772-4508-b0c1-ee4fd9fa16fe">&lt;em&gt;</bpt>role<ept id="63f1f671-9772-4508-b0c1-ee4fd9fa16fe">&lt;/em&gt;</ept>members](http://msdn.microsoft.com/library/ms189780.aspx)</target>
+        </trans-unit>
+        <trans-unit id="4c77e0ad-7ca7-4806-882f-6fe7a1895493" xml:space="preserve">
+          <source><bpt id="f7b6b8fb-89dc-4cb4-9e8e-586755ee6abe">&lt;linkText&gt;</bpt>sys.databases<ept id="f7b6b8fb-89dc-4cb4-9e8e-586755ee6abe">&lt;/linkText&gt;</ept><bpt id="f7b6b8fb-89dc-4cb4-9e8e-586755ee6abe">&lt;title&gt;</bpt><ept id="f7b6b8fb-89dc-4cb4-9e8e-586755ee6abe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f7b6b8fb-89dc-4cb4-9e8e-586755ee6abe">&lt;linkText&gt;</bpt>sys.databases<ept id="f7b6b8fb-89dc-4cb4-9e8e-586755ee6abe">&lt;/linkText&gt;</ept><bpt id="f7b6b8fb-89dc-4cb4-9e8e-586755ee6abe">&lt;title&gt;</bpt><ept id="f7b6b8fb-89dc-4cb4-9e8e-586755ee6abe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="112d583e-c3cb-4056-8448-87765a5ae392" xml:space="preserve">
+          <source><bpt id="5465bd27-5257-44d5-a3ef-c15123c10ec7">&lt;linkText&gt;</bpt>sys.default_constraints<ept id="5465bd27-5257-44d5-a3ef-c15123c10ec7">&lt;/linkText&gt;</ept><bpt id="5465bd27-5257-44d5-a3ef-c15123c10ec7">&lt;title&gt;</bpt><ept id="5465bd27-5257-44d5-a3ef-c15123c10ec7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5465bd27-5257-44d5-a3ef-c15123c10ec7">&lt;linkText&gt;</bpt>sys.default_constraints<ept id="5465bd27-5257-44d5-a3ef-c15123c10ec7">&lt;/linkText&gt;</ept><bpt id="5465bd27-5257-44d5-a3ef-c15123c10ec7">&lt;title&gt;</bpt><ept id="5465bd27-5257-44d5-a3ef-c15123c10ec7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="365b078e-f304-4c71-ae03-406fbc206e60" xml:space="preserve">
+          <source><bpt id="9cb6a7a5-030a-47a2-9440-7f381a0ee379">&lt;linkText&gt;</bpt>sys.extended_properties<ept id="9cb6a7a5-030a-47a2-9440-7f381a0ee379">&lt;/linkText&gt;</ept><bpt id="9cb6a7a5-030a-47a2-9440-7f381a0ee379">&lt;title&gt;</bpt><ept id="9cb6a7a5-030a-47a2-9440-7f381a0ee379">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9cb6a7a5-030a-47a2-9440-7f381a0ee379">&lt;linkText&gt;</bpt>sys.extended_properties<ept id="9cb6a7a5-030a-47a2-9440-7f381a0ee379">&lt;/linkText&gt;</ept><bpt id="9cb6a7a5-030a-47a2-9440-7f381a0ee379">&lt;title&gt;</bpt><ept id="9cb6a7a5-030a-47a2-9440-7f381a0ee379">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c1ca9d1-326a-4bd8-938e-2f8693eb0192" xml:space="preserve">
+          <source><bpt id="b47dc81d-8968-4275-a40c-1303dd5c3427">&lt;linkText&gt;</bpt>sys.external_file formats<ept id="b47dc81d-8968-4275-a40c-1303dd5c3427">&lt;/linkText&gt;</ept><bpt id="b47dc81d-8968-4275-a40c-1303dd5c3427">&lt;title&gt;</bpt><ept id="b47dc81d-8968-4275-a40c-1303dd5c3427">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b47dc81d-8968-4275-a40c-1303dd5c3427">&lt;linkText&gt;</bpt>sys.external_file formats<ept id="b47dc81d-8968-4275-a40c-1303dd5c3427">&lt;/linkText&gt;</ept><bpt id="b47dc81d-8968-4275-a40c-1303dd5c3427">&lt;title&gt;</bpt><ept id="b47dc81d-8968-4275-a40c-1303dd5c3427">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b70731f5-f211-4c46-8414-79c35165716c" xml:space="preserve">
+          <source><bpt id="952cb5ac-87e4-41af-b6e4-b29e53cf5b18">&lt;linkText&gt;</bpt>sys.external_tables<ept id="952cb5ac-87e4-41af-b6e4-b29e53cf5b18">&lt;/linkText&gt;</ept><bpt id="952cb5ac-87e4-41af-b6e4-b29e53cf5b18">&lt;title&gt;</bpt><ept id="952cb5ac-87e4-41af-b6e4-b29e53cf5b18">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="952cb5ac-87e4-41af-b6e4-b29e53cf5b18">&lt;linkText&gt;</bpt>sys.external_tables<ept id="952cb5ac-87e4-41af-b6e4-b29e53cf5b18">&lt;/linkText&gt;</ept><bpt id="952cb5ac-87e4-41af-b6e4-b29e53cf5b18">&lt;title&gt;</bpt><ept id="952cb5ac-87e4-41af-b6e4-b29e53cf5b18">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ba4e1ee-678c-4c1d-a3d6-82ae71105975" xml:space="preserve">
+          <source>[sys.external<bpt id="92f20ee9-0fa2-46a7-9c35-090588606e61">&lt;em&gt;</bpt>data<ept id="92f20ee9-0fa2-46a7-9c35-090588606e61">&lt;/em&gt;</ept>sources](http://msdn.microsoft.com/library/dn935019.aspx)</source>
+          <target state="new">[sys.external<bpt id="92f20ee9-0fa2-46a7-9c35-090588606e61">&lt;em&gt;</bpt>data<ept id="92f20ee9-0fa2-46a7-9c35-090588606e61">&lt;/em&gt;</ept>sources](http://msdn.microsoft.com/library/dn935019.aspx)</target>
+        </trans-unit>
+        <trans-unit id="cda87d79-dffa-4db7-9a61-9bf718109a02" xml:space="preserve">
+          <source><bpt id="5097c3b7-5bfc-473c-97de-5b5daa15d35a">&lt;linkText&gt;</bpt>sys.filegroups<ept id="5097c3b7-5bfc-473c-97de-5b5daa15d35a">&lt;/linkText&gt;</ept><bpt id="5097c3b7-5bfc-473c-97de-5b5daa15d35a">&lt;title&gt;</bpt><ept id="5097c3b7-5bfc-473c-97de-5b5daa15d35a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5097c3b7-5bfc-473c-97de-5b5daa15d35a">&lt;linkText&gt;</bpt>sys.filegroups<ept id="5097c3b7-5bfc-473c-97de-5b5daa15d35a">&lt;/linkText&gt;</ept><bpt id="5097c3b7-5bfc-473c-97de-5b5daa15d35a">&lt;title&gt;</bpt><ept id="5097c3b7-5bfc-473c-97de-5b5daa15d35a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4344abd8-07a2-4454-b96f-ddde54f54f49" xml:space="preserve">
+          <source>[sys.foreign<bpt id="dd086ea6-194a-4fe5-a54b-cc17a278e2db">&lt;em&gt;</bpt>key<ept id="dd086ea6-194a-4fe5-a54b-cc17a278e2db">&lt;/em&gt;</ept>columns](http://msdn.microsoft.com/library/ms186306.aspx)</source>
+          <target state="new">[sys.foreign<bpt id="dd086ea6-194a-4fe5-a54b-cc17a278e2db">&lt;em&gt;</bpt>key<ept id="dd086ea6-194a-4fe5-a54b-cc17a278e2db">&lt;/em&gt;</ept>columns](http://msdn.microsoft.com/library/ms186306.aspx)</target>
+        </trans-unit>
+        <trans-unit id="cb2bea73-9810-47da-8bee-78dcf1e0a852" xml:space="preserve">
+          <source><bpt id="9f904de6-43e1-48bb-b78e-766a0c4c8d47">&lt;linkText&gt;</bpt>sys.identity_columns<ept id="9f904de6-43e1-48bb-b78e-766a0c4c8d47">&lt;/linkText&gt;</ept><bpt id="9f904de6-43e1-48bb-b78e-766a0c4c8d47">&lt;title&gt;</bpt><ept id="9f904de6-43e1-48bb-b78e-766a0c4c8d47">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9f904de6-43e1-48bb-b78e-766a0c4c8d47">&lt;linkText&gt;</bpt>sys.identity_columns<ept id="9f904de6-43e1-48bb-b78e-766a0c4c8d47">&lt;/linkText&gt;</ept><bpt id="9f904de6-43e1-48bb-b78e-766a0c4c8d47">&lt;title&gt;</bpt><ept id="9f904de6-43e1-48bb-b78e-766a0c4c8d47">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c32f2c6-6dc3-4e4b-a82f-afd035b71107" xml:space="preserve">
+          <source><bpt id="ad6b8111-b4d1-4b14-aae3-138f6057e041">&lt;linkText&gt;</bpt>sys.index_columns<ept id="ad6b8111-b4d1-4b14-aae3-138f6057e041">&lt;/linkText&gt;</ept><bpt id="ad6b8111-b4d1-4b14-aae3-138f6057e041">&lt;title&gt;</bpt><ept id="ad6b8111-b4d1-4b14-aae3-138f6057e041">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ad6b8111-b4d1-4b14-aae3-138f6057e041">&lt;linkText&gt;</bpt>sys.index_columns<ept id="ad6b8111-b4d1-4b14-aae3-138f6057e041">&lt;/linkText&gt;</ept><bpt id="ad6b8111-b4d1-4b14-aae3-138f6057e041">&lt;title&gt;</bpt><ept id="ad6b8111-b4d1-4b14-aae3-138f6057e041">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d68380b7-16a4-4f0d-8401-ac11973defc9" xml:space="preserve">
+          <source><bpt id="531a1af2-a849-4b32-b8c3-551f0e97af4c">&lt;linkText&gt;</bpt>sys.indexes<ept id="531a1af2-a849-4b32-b8c3-551f0e97af4c">&lt;/linkText&gt;</ept><bpt id="531a1af2-a849-4b32-b8c3-551f0e97af4c">&lt;title&gt;</bpt><ept id="531a1af2-a849-4b32-b8c3-551f0e97af4c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="531a1af2-a849-4b32-b8c3-551f0e97af4c">&lt;linkText&gt;</bpt>sys.indexes<ept id="531a1af2-a849-4b32-b8c3-551f0e97af4c">&lt;/linkText&gt;</ept><bpt id="531a1af2-a849-4b32-b8c3-551f0e97af4c">&lt;title&gt;</bpt><ept id="531a1af2-a849-4b32-b8c3-551f0e97af4c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46172f9f-ccd3-48ce-ab83-f1a474b512f8" xml:space="preserve">
+          <source><bpt id="78ae4243-65e2-40d3-9c33-181d0aa92f33">&lt;linkText&gt;</bpt>sys.key_constraints<ept id="78ae4243-65e2-40d3-9c33-181d0aa92f33">&lt;/linkText&gt;</ept><bpt id="78ae4243-65e2-40d3-9c33-181d0aa92f33">&lt;title&gt;</bpt><ept id="78ae4243-65e2-40d3-9c33-181d0aa92f33">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="78ae4243-65e2-40d3-9c33-181d0aa92f33">&lt;linkText&gt;</bpt>sys.key_constraints<ept id="78ae4243-65e2-40d3-9c33-181d0aa92f33">&lt;/linkText&gt;</ept><bpt id="78ae4243-65e2-40d3-9c33-181d0aa92f33">&lt;title&gt;</bpt><ept id="78ae4243-65e2-40d3-9c33-181d0aa92f33">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81ddf103-49db-4ba2-85d5-b80f81acf65a" xml:space="preserve">
+          <source><bpt id="0017409e-b62b-46cc-b850-05eff600a820">&lt;linkText&gt;</bpt>sys.master_files<ept id="0017409e-b62b-46cc-b850-05eff600a820">&lt;/linkText&gt;</ept><bpt id="0017409e-b62b-46cc-b850-05eff600a820">&lt;title&gt;</bpt><ept id="0017409e-b62b-46cc-b850-05eff600a820">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0017409e-b62b-46cc-b850-05eff600a820">&lt;linkText&gt;</bpt>sys.master_files<ept id="0017409e-b62b-46cc-b850-05eff600a820">&lt;/linkText&gt;</ept><bpt id="0017409e-b62b-46cc-b850-05eff600a820">&lt;title&gt;</bpt><ept id="0017409e-b62b-46cc-b850-05eff600a820">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="adbf9b79-a6ce-440a-8b30-73eb8adc2ef3" xml:space="preserve">
+          <source><bpt id="36dfa673-008d-4e5f-ab93-3d7c41e3ea62">&lt;linkText&gt;</bpt>sys.numbered_procedures<ept id="36dfa673-008d-4e5f-ab93-3d7c41e3ea62">&lt;/linkText&gt;</ept><bpt id="36dfa673-008d-4e5f-ab93-3d7c41e3ea62">&lt;title&gt;</bpt><ept id="36dfa673-008d-4e5f-ab93-3d7c41e3ea62">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="36dfa673-008d-4e5f-ab93-3d7c41e3ea62">&lt;linkText&gt;</bpt>sys.numbered_procedures<ept id="36dfa673-008d-4e5f-ab93-3d7c41e3ea62">&lt;/linkText&gt;</ept><bpt id="36dfa673-008d-4e5f-ab93-3d7c41e3ea62">&lt;title&gt;</bpt><ept id="36dfa673-008d-4e5f-ab93-3d7c41e3ea62">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88e8b695-0349-4a47-b322-7fec8d6ff28a" xml:space="preserve">
+          <source><bpt id="f445230e-7978-4fb9-b193-0aaf926c8cd9">&lt;linkText&gt;</bpt>sys.objects<ept id="f445230e-7978-4fb9-b193-0aaf926c8cd9">&lt;/linkText&gt;</ept><bpt id="f445230e-7978-4fb9-b193-0aaf926c8cd9">&lt;title&gt;</bpt><ept id="f445230e-7978-4fb9-b193-0aaf926c8cd9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f445230e-7978-4fb9-b193-0aaf926c8cd9">&lt;linkText&gt;</bpt>sys.objects<ept id="f445230e-7978-4fb9-b193-0aaf926c8cd9">&lt;/linkText&gt;</ept><bpt id="f445230e-7978-4fb9-b193-0aaf926c8cd9">&lt;title&gt;</bpt><ept id="f445230e-7978-4fb9-b193-0aaf926c8cd9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e676de0b-ed96-4c8c-83f9-731ec8534189" xml:space="preserve">
+          <source><bpt id="29b2e85c-fe39-41b4-b034-99ec581e6a72">&lt;linkText&gt;</bpt>sys.partition_functions<ept id="29b2e85c-fe39-41b4-b034-99ec581e6a72">&lt;/linkText&gt;</ept><bpt id="29b2e85c-fe39-41b4-b034-99ec581e6a72">&lt;title&gt;</bpt><ept id="29b2e85c-fe39-41b4-b034-99ec581e6a72">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="29b2e85c-fe39-41b4-b034-99ec581e6a72">&lt;linkText&gt;</bpt>sys.partition_functions<ept id="29b2e85c-fe39-41b4-b034-99ec581e6a72">&lt;/linkText&gt;</ept><bpt id="29b2e85c-fe39-41b4-b034-99ec581e6a72">&lt;title&gt;</bpt><ept id="29b2e85c-fe39-41b4-b034-99ec581e6a72">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5941e1dc-dd6a-4737-acdc-843d5d892938" xml:space="preserve">
+          <source><bpt id="9abd56b1-a466-4b1b-9b19-e1ea83a40db5">&lt;linkText&gt;</bpt>sys.partition_parameters<ept id="9abd56b1-a466-4b1b-9b19-e1ea83a40db5">&lt;/linkText&gt;</ept><bpt id="9abd56b1-a466-4b1b-9b19-e1ea83a40db5">&lt;title&gt;</bpt><ept id="9abd56b1-a466-4b1b-9b19-e1ea83a40db5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9abd56b1-a466-4b1b-9b19-e1ea83a40db5">&lt;linkText&gt;</bpt>sys.partition_parameters<ept id="9abd56b1-a466-4b1b-9b19-e1ea83a40db5">&lt;/linkText&gt;</ept><bpt id="9abd56b1-a466-4b1b-9b19-e1ea83a40db5">&lt;title&gt;</bpt><ept id="9abd56b1-a466-4b1b-9b19-e1ea83a40db5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1ae04bf-1a0e-42b5-a178-b29ac3e31168" xml:space="preserve">
+          <source>[sys.partition<bpt id="e999e560-8bf7-4425-b259-6fb1fd308650">&lt;em&gt;</bpt>range<ept id="e999e560-8bf7-4425-b259-6fb1fd308650">&lt;/em&gt;</ept>values](http://msdn.microsoft.com/library/ms187780.aspx)</source>
+          <target state="new">[sys.partition<bpt id="e999e560-8bf7-4425-b259-6fb1fd308650">&lt;em&gt;</bpt>range<ept id="e999e560-8bf7-4425-b259-6fb1fd308650">&lt;/em&gt;</ept>values](http://msdn.microsoft.com/library/ms187780.aspx)</target>
+        </trans-unit>
+        <trans-unit id="913a24b4-3d44-4428-bf8c-b566ab3ec474" xml:space="preserve">
+          <source><bpt id="1efe942c-2e5c-473e-b87c-6db65458fe9f">&lt;linkText&gt;</bpt>sys.partition_schemes<ept id="1efe942c-2e5c-473e-b87c-6db65458fe9f">&lt;/linkText&gt;</ept><bpt id="1efe942c-2e5c-473e-b87c-6db65458fe9f">&lt;title&gt;</bpt><ept id="1efe942c-2e5c-473e-b87c-6db65458fe9f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1efe942c-2e5c-473e-b87c-6db65458fe9f">&lt;linkText&gt;</bpt>sys.partition_schemes<ept id="1efe942c-2e5c-473e-b87c-6db65458fe9f">&lt;/linkText&gt;</ept><bpt id="1efe942c-2e5c-473e-b87c-6db65458fe9f">&lt;title&gt;</bpt><ept id="1efe942c-2e5c-473e-b87c-6db65458fe9f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44b4f429-3869-49fd-8e19-3460bcbaa008" xml:space="preserve">
+          <source><bpt id="5db68e57-6640-42eb-844f-0150b0025b7d">&lt;linkText&gt;</bpt>sys.partitions<ept id="5db68e57-6640-42eb-844f-0150b0025b7d">&lt;/linkText&gt;</ept><bpt id="5db68e57-6640-42eb-844f-0150b0025b7d">&lt;title&gt;</bpt><ept id="5db68e57-6640-42eb-844f-0150b0025b7d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5db68e57-6640-42eb-844f-0150b0025b7d">&lt;linkText&gt;</bpt>sys.partitions<ept id="5db68e57-6640-42eb-844f-0150b0025b7d">&lt;/linkText&gt;</ept><bpt id="5db68e57-6640-42eb-844f-0150b0025b7d">&lt;title&gt;</bpt><ept id="5db68e57-6640-42eb-844f-0150b0025b7d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="002909d2-d16b-4ed8-94c6-f4285df4b7fa" xml:space="preserve">
+          <source><bpt id="e071e0c8-2f8a-4993-bbcb-f510aeba24b0">&lt;linkText&gt;</bpt>sys.parameters<ept id="e071e0c8-2f8a-4993-bbcb-f510aeba24b0">&lt;/linkText&gt;</ept><bpt id="e071e0c8-2f8a-4993-bbcb-f510aeba24b0">&lt;title&gt;</bpt><ept id="e071e0c8-2f8a-4993-bbcb-f510aeba24b0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e071e0c8-2f8a-4993-bbcb-f510aeba24b0">&lt;linkText&gt;</bpt>sys.parameters<ept id="e071e0c8-2f8a-4993-bbcb-f510aeba24b0">&lt;/linkText&gt;</ept><bpt id="e071e0c8-2f8a-4993-bbcb-f510aeba24b0">&lt;title&gt;</bpt><ept id="e071e0c8-2f8a-4993-bbcb-f510aeba24b0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51b44171-a863-4417-ae5e-e723e257748a" xml:space="preserve">
+          <source><bpt id="9855b9c8-abd8-4e1c-af74-d3b2a7e4c371">&lt;linkText&gt;</bpt>sys.procedures<ept id="9855b9c8-abd8-4e1c-af74-d3b2a7e4c371">&lt;/linkText&gt;</ept><bpt id="9855b9c8-abd8-4e1c-af74-d3b2a7e4c371">&lt;title&gt;</bpt><ept id="9855b9c8-abd8-4e1c-af74-d3b2a7e4c371">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9855b9c8-abd8-4e1c-af74-d3b2a7e4c371">&lt;linkText&gt;</bpt>sys.procedures<ept id="9855b9c8-abd8-4e1c-af74-d3b2a7e4c371">&lt;/linkText&gt;</ept><bpt id="9855b9c8-abd8-4e1c-af74-d3b2a7e4c371">&lt;title&gt;</bpt><ept id="9855b9c8-abd8-4e1c-af74-d3b2a7e4c371">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13ded3a8-ea57-455d-bb9e-4a77a541ff35" xml:space="preserve">
+          <source><bpt id="d2c70948-d003-43e8-85ab-ee5f294005e3">&lt;linkText&gt;</bpt>sys.schemas<ept id="d2c70948-d003-43e8-85ab-ee5f294005e3">&lt;/linkText&gt;</ept><bpt id="d2c70948-d003-43e8-85ab-ee5f294005e3">&lt;title&gt;</bpt><ept id="d2c70948-d003-43e8-85ab-ee5f294005e3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d2c70948-d003-43e8-85ab-ee5f294005e3">&lt;linkText&gt;</bpt>sys.schemas<ept id="d2c70948-d003-43e8-85ab-ee5f294005e3">&lt;/linkText&gt;</ept><bpt id="d2c70948-d003-43e8-85ab-ee5f294005e3">&lt;title&gt;</bpt><ept id="d2c70948-d003-43e8-85ab-ee5f294005e3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0615dc1-d525-4dfe-a9fb-7f7e211561a4" xml:space="preserve">
+          <source><bpt id="679eb30d-0fa8-4f3d-8fb8-5a293c4ca84e">&lt;linkText&gt;</bpt>sys.securable_classes<ept id="679eb30d-0fa8-4f3d-8fb8-5a293c4ca84e">&lt;/linkText&gt;</ept><bpt id="679eb30d-0fa8-4f3d-8fb8-5a293c4ca84e">&lt;title&gt;</bpt><ept id="679eb30d-0fa8-4f3d-8fb8-5a293c4ca84e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="679eb30d-0fa8-4f3d-8fb8-5a293c4ca84e">&lt;linkText&gt;</bpt>sys.securable_classes<ept id="679eb30d-0fa8-4f3d-8fb8-5a293c4ca84e">&lt;/linkText&gt;</ept><bpt id="679eb30d-0fa8-4f3d-8fb8-5a293c4ca84e">&lt;title&gt;</bpt><ept id="679eb30d-0fa8-4f3d-8fb8-5a293c4ca84e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c20ea662-c695-4b5e-9848-f52b217883f2" xml:space="preserve">
+          <source>[sys.server<bpt id="d5eeba9f-3403-4bfe-83dd-eab1258573ea">&lt;em&gt;</bpt>role<ept id="d5eeba9f-3403-4bfe-83dd-eab1258573ea">&lt;/em&gt;</ept>members](http://msdn.microsoft.com/library/ms190331.aspx)</source>
+          <target state="new">[sys.server<bpt id="d5eeba9f-3403-4bfe-83dd-eab1258573ea">&lt;em&gt;</bpt>role<ept id="d5eeba9f-3403-4bfe-83dd-eab1258573ea">&lt;/em&gt;</ept>members](http://msdn.microsoft.com/library/ms190331.aspx)</target>
+        </trans-unit>
+        <trans-unit id="44231a6f-3bfb-4431-adc8-828c54c4ac27" xml:space="preserve">
+          <source><bpt id="ca06ba70-b843-4220-95cb-3b6250b42f22">&lt;linkText&gt;</bpt>sys.server_permissions<ept id="ca06ba70-b843-4220-95cb-3b6250b42f22">&lt;/linkText&gt;</ept><bpt id="ca06ba70-b843-4220-95cb-3b6250b42f22">&lt;title&gt;</bpt><ept id="ca06ba70-b843-4220-95cb-3b6250b42f22">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ca06ba70-b843-4220-95cb-3b6250b42f22">&lt;linkText&gt;</bpt>sys.server_permissions<ept id="ca06ba70-b843-4220-95cb-3b6250b42f22">&lt;/linkText&gt;</ept><bpt id="ca06ba70-b843-4220-95cb-3b6250b42f22">&lt;title&gt;</bpt><ept id="ca06ba70-b843-4220-95cb-3b6250b42f22">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ddf13fa-6022-4866-8cc7-7284e9185bf1" xml:space="preserve">
+          <source><bpt id="a981cb24-ffee-4758-8c6a-51bfc818ef13">&lt;linkText&gt;</bpt>sys.server_principals<ept id="a981cb24-ffee-4758-8c6a-51bfc818ef13">&lt;/linkText&gt;</ept><bpt id="a981cb24-ffee-4758-8c6a-51bfc818ef13">&lt;title&gt;</bpt><ept id="a981cb24-ffee-4758-8c6a-51bfc818ef13">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a981cb24-ffee-4758-8c6a-51bfc818ef13">&lt;linkText&gt;</bpt>sys.server_principals<ept id="a981cb24-ffee-4758-8c6a-51bfc818ef13">&lt;/linkText&gt;</ept><bpt id="a981cb24-ffee-4758-8c6a-51bfc818ef13">&lt;title&gt;</bpt><ept id="a981cb24-ffee-4758-8c6a-51bfc818ef13">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afa4f07d-619b-4acd-a54e-cd19af2a6add" xml:space="preserve">
+          <source>[sys.sql<bpt id="442ec0fe-e4a2-4c57-a72e-25ff657e915b">&lt;em&gt;</bpt>expression<ept id="442ec0fe-e4a2-4c57-a72e-25ff657e915b">&lt;/em&gt;</ept>dependencies](http://msdn.microsoft.com/library/bb677315.aspx)</source>
+          <target state="new">[sys.sql<bpt id="442ec0fe-e4a2-4c57-a72e-25ff657e915b">&lt;em&gt;</bpt>expression<ept id="442ec0fe-e4a2-4c57-a72e-25ff657e915b">&lt;/em&gt;</ept>dependencies](http://msdn.microsoft.com/library/bb677315.aspx)</target>
+        </trans-unit>
+        <trans-unit id="6d2b8151-edec-4c62-89ee-afd8ead360a8" xml:space="preserve">
+          <source><bpt id="de2489e0-b971-42d8-9206-61484529da04">&lt;linkText&gt;</bpt>sys.sql_logins<ept id="de2489e0-b971-42d8-9206-61484529da04">&lt;/linkText&gt;</ept><bpt id="de2489e0-b971-42d8-9206-61484529da04">&lt;title&gt;</bpt><ept id="de2489e0-b971-42d8-9206-61484529da04">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="de2489e0-b971-42d8-9206-61484529da04">&lt;linkText&gt;</bpt>sys.sql_logins<ept id="de2489e0-b971-42d8-9206-61484529da04">&lt;/linkText&gt;</ept><bpt id="de2489e0-b971-42d8-9206-61484529da04">&lt;title&gt;</bpt><ept id="de2489e0-b971-42d8-9206-61484529da04">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8e8e95d-bbca-48ac-9318-1515219db702" xml:space="preserve">
+          <source><bpt id="24e9e621-e802-4677-9b5c-9f679c550417">&lt;linkText&gt;</bpt>sys.sql_modules<ept id="24e9e621-e802-4677-9b5c-9f679c550417">&lt;/linkText&gt;</ept><bpt id="24e9e621-e802-4677-9b5c-9f679c550417">&lt;title&gt;</bpt><ept id="24e9e621-e802-4677-9b5c-9f679c550417">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="24e9e621-e802-4677-9b5c-9f679c550417">&lt;linkText&gt;</bpt>sys.sql_modules<ept id="24e9e621-e802-4677-9b5c-9f679c550417">&lt;/linkText&gt;</ept><bpt id="24e9e621-e802-4677-9b5c-9f679c550417">&lt;title&gt;</bpt><ept id="24e9e621-e802-4677-9b5c-9f679c550417">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cce8696-bcd7-4cdb-b8c7-96a94ed848ec" xml:space="preserve">
+          <source><bpt id="5e794d2a-3e51-4d22-9f9a-577537b74ea6">&lt;linkText&gt;</bpt>sys.stats<ept id="5e794d2a-3e51-4d22-9f9a-577537b74ea6">&lt;/linkText&gt;</ept><bpt id="5e794d2a-3e51-4d22-9f9a-577537b74ea6">&lt;title&gt;</bpt><ept id="5e794d2a-3e51-4d22-9f9a-577537b74ea6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5e794d2a-3e51-4d22-9f9a-577537b74ea6">&lt;linkText&gt;</bpt>sys.stats<ept id="5e794d2a-3e51-4d22-9f9a-577537b74ea6">&lt;/linkText&gt;</ept><bpt id="5e794d2a-3e51-4d22-9f9a-577537b74ea6">&lt;title&gt;</bpt><ept id="5e794d2a-3e51-4d22-9f9a-577537b74ea6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f9c55f5-7c74-46f5-9f7b-e3780654f3fd" xml:space="preserve">
+          <source><bpt id="31cd49d7-23ef-44b3-a602-580e7ab049ff">&lt;linkText&gt;</bpt>sys.stats_columns<ept id="31cd49d7-23ef-44b3-a602-580e7ab049ff">&lt;/linkText&gt;</ept><bpt id="31cd49d7-23ef-44b3-a602-580e7ab049ff">&lt;title&gt;</bpt><ept id="31cd49d7-23ef-44b3-a602-580e7ab049ff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="31cd49d7-23ef-44b3-a602-580e7ab049ff">&lt;linkText&gt;</bpt>sys.stats_columns<ept id="31cd49d7-23ef-44b3-a602-580e7ab049ff">&lt;/linkText&gt;</ept><bpt id="31cd49d7-23ef-44b3-a602-580e7ab049ff">&lt;title&gt;</bpt><ept id="31cd49d7-23ef-44b3-a602-580e7ab049ff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="423f10f5-82b3-4ad4-8a2c-436549ad9980" xml:space="preserve">
+          <source>[sys.system_columns](http://msdn.microsoft.com/library/ms178596.aspx<bpt id="ae176da9-b03c-4674-97aa-0bc758deff90">&lt;em&gt;</bpt>*<ept id="ae176da9-b03c-4674-97aa-0bc758deff90">&lt;/em&gt;</ept>*)</source>
+          <target state="new">[sys.system_columns](http://msdn.microsoft.com/library/ms178596.aspx<bpt id="ae176da9-b03c-4674-97aa-0bc758deff90">&lt;em&gt;</bpt>*<ept id="ae176da9-b03c-4674-97aa-0bc758deff90">&lt;/em&gt;</ept>*)</target>
+        </trans-unit>
+        <trans-unit id="4ef8d80a-8b3f-4a26-b4f4-648adec6bace" xml:space="preserve">
+          <source><bpt id="8aee7c4b-a3e3-43d6-babe-982a286b7351">&lt;linkText&gt;</bpt>sys.system_objects<ept id="8aee7c4b-a3e3-43d6-babe-982a286b7351">&lt;/linkText&gt;</ept><bpt id="8aee7c4b-a3e3-43d6-babe-982a286b7351">&lt;title&gt;</bpt><ept id="8aee7c4b-a3e3-43d6-babe-982a286b7351">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8aee7c4b-a3e3-43d6-babe-982a286b7351">&lt;linkText&gt;</bpt>sys.system_objects<ept id="8aee7c4b-a3e3-43d6-babe-982a286b7351">&lt;/linkText&gt;</ept><bpt id="8aee7c4b-a3e3-43d6-babe-982a286b7351">&lt;title&gt;</bpt><ept id="8aee7c4b-a3e3-43d6-babe-982a286b7351">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5caec384-e851-44bd-b4f9-bbe9ab812312" xml:space="preserve">
+          <source>[sys.system<bpt id="6bafdce2-0cb7-494b-950d-5b5560ea5e57">&lt;em&gt;</bpt>sql<ept id="6bafdce2-0cb7-494b-950d-5b5560ea5e57">&lt;/em&gt;</ept>modules](http://msdn.microsoft.com/library/ms188034.aspx)</source>
+          <target state="new">[sys.system<bpt id="6bafdce2-0cb7-494b-950d-5b5560ea5e57">&lt;em&gt;</bpt>sql<ept id="6bafdce2-0cb7-494b-950d-5b5560ea5e57">&lt;/em&gt;</ept>modules](http://msdn.microsoft.com/library/ms188034.aspx)</target>
+        </trans-unit>
+        <trans-unit id="28b26a95-c07b-42a9-aa92-e985095ca153" xml:space="preserve">
+          <source><bpt id="9053e3b5-175a-4a90-9dc2-21d4346e465e">&lt;linkText&gt;</bpt>sys.system_views<ept id="9053e3b5-175a-4a90-9dc2-21d4346e465e">&lt;/linkText&gt;</ept><bpt id="9053e3b5-175a-4a90-9dc2-21d4346e465e">&lt;title&gt;</bpt><ept id="9053e3b5-175a-4a90-9dc2-21d4346e465e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9053e3b5-175a-4a90-9dc2-21d4346e465e">&lt;linkText&gt;</bpt>sys.system_views<ept id="9053e3b5-175a-4a90-9dc2-21d4346e465e">&lt;/linkText&gt;</ept><bpt id="9053e3b5-175a-4a90-9dc2-21d4346e465e">&lt;title&gt;</bpt><ept id="9053e3b5-175a-4a90-9dc2-21d4346e465e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcf69a0c-ee84-4d78-ae45-213a5ef324b2" xml:space="preserve">
+          <source><bpt id="d5373daa-286b-495e-949a-9647806439ec">&lt;linkText&gt;</bpt>sys.tables<ept id="d5373daa-286b-495e-949a-9647806439ec">&lt;/linkText&gt;</ept><bpt id="d5373daa-286b-495e-949a-9647806439ec">&lt;title&gt;</bpt><ept id="d5373daa-286b-495e-949a-9647806439ec">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d5373daa-286b-495e-949a-9647806439ec">&lt;linkText&gt;</bpt>sys.tables<ept id="d5373daa-286b-495e-949a-9647806439ec">&lt;/linkText&gt;</ept><bpt id="d5373daa-286b-495e-949a-9647806439ec">&lt;title&gt;</bpt><ept id="d5373daa-286b-495e-949a-9647806439ec">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96ad20c6-5127-4d60-82aa-849b71fd8903" xml:space="preserve">
+          <source><bpt id="f32cac1a-fc3b-464d-af67-0b20f3e59559">&lt;linkText&gt;</bpt>sys.types<ept id="f32cac1a-fc3b-464d-af67-0b20f3e59559">&lt;/linkText&gt;</ept><bpt id="f32cac1a-fc3b-464d-af67-0b20f3e59559">&lt;title&gt;</bpt><ept id="f32cac1a-fc3b-464d-af67-0b20f3e59559">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f32cac1a-fc3b-464d-af67-0b20f3e59559">&lt;linkText&gt;</bpt>sys.types<ept id="f32cac1a-fc3b-464d-af67-0b20f3e59559">&lt;/linkText&gt;</ept><bpt id="f32cac1a-fc3b-464d-af67-0b20f3e59559">&lt;title&gt;</bpt><ept id="f32cac1a-fc3b-464d-af67-0b20f3e59559">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd342aa0-455e-4bcd-a77b-06746fda6e53" xml:space="preserve">
+          <source><bpt id="4854d0f5-46ea-4ff6-9650-a2c0b08d3831">&lt;linkText&gt;</bpt>sys.views<ept id="4854d0f5-46ea-4ff6-9650-a2c0b08d3831">&lt;/linkText&gt;</ept><bpt id="4854d0f5-46ea-4ff6-9650-a2c0b08d3831">&lt;title&gt;</bpt><ept id="4854d0f5-46ea-4ff6-9650-a2c0b08d3831">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4854d0f5-46ea-4ff6-9650-a2c0b08d3831">&lt;linkText&gt;</bpt>sys.views<ept id="4854d0f5-46ea-4ff6-9650-a2c0b08d3831">&lt;/linkText&gt;</ept><bpt id="4854d0f5-46ea-4ff6-9650-a2c0b08d3831">&lt;title&gt;</bpt><ept id="4854d0f5-46ea-4ff6-9650-a2c0b08d3831">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7958403-2870-4096-bab4-04b67bcbc58a" xml:space="preserve">
+          <source>SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs).</source>
+          <target state="new">SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs).</target>
+        </trans-unit>
+        <trans-unit id="e2eea759-6b06-49b0-80b8-6da6a569472f" xml:space="preserve">
+          <source>These views, when queried in SQL Data Warehouse, are reporting the state of SQL Database running on the distributions.</source>
+          <target state="new">These views, when queried in SQL Data Warehouse, are reporting the state of SQL Database running on the distributions.</target>
+        </trans-unit>
+        <trans-unit id="f7edd5d1-bc90-472b-b3fe-6ca8bc465787" xml:space="preserve">
+          <source>Since SQL Data Warehouse is built on Microsoft's MPP technology, both SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views.</source>
+          <target state="new">Since SQL Data Warehouse is built on Microsoft's MPP technology, both SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views.</target>
+        </trans-unit>
+        <trans-unit id="b677c06f-95a8-4998-8b6e-6bb7530dcf8c" xml:space="preserve">
+          <source>This is why each of these DMV's has a specific column called pdw<bpt id="c054b7b6-d202-45e0-9351-c864ef0a25ea">&lt;em&gt;</bpt>node<ept id="c054b7b6-d202-45e0-9351-c864ef0a25ea">&lt;/em&gt;</ept>id.</source>
+          <target state="new">This is why each of these DMV's has a specific column called pdw<bpt id="c054b7b6-d202-45e0-9351-c864ef0a25ea">&lt;em&gt;</bpt>node<ept id="c054b7b6-d202-45e0-9351-c864ef0a25ea">&lt;/em&gt;</ept>id.</target>
+        </trans-unit>
+        <trans-unit id="519f128e-bca5-4b05-b456-95c83ad481fa" xml:space="preserve">
+          <source>This is the the identifier for the Compute node.</source>
+          <target state="new">This is the the identifier for the Compute node.</target>
+        </trans-unit>
+        <trans-unit id="9f697012-3d26-4a83-99c4-95865f057b4a" xml:space="preserve">
+          <source>In PDW the Compute node is a stronger concept for the architecture.</source>
+          <target state="new">In PDW the Compute node is a stronger concept for the architecture.</target>
+        </trans-unit>
+        <trans-unit id="3fbb877f-def9-4b71-a01c-998d6f67f4e2" xml:space="preserve">
+          <source>In SQL Data Warehouse, the architecture relies more heavily on the distributions.</source>
+          <target state="new">In SQL Data Warehouse, the architecture relies more heavily on the distributions.</target>
+        </trans-unit>
+        <trans-unit id="a45e544f-d735-4daa-8127-a462eb9fbd79" xml:space="preserve">
+          <source>To use these view, insert ‘pdw<bpt id="51caa9bf-b555-443c-aaf7-85e98f8ed5e6">&lt;em&gt;</bpt>nodes<ept id="51caa9bf-b555-443c-aaf7-85e98f8ed5e6">&lt;/em&gt;</ept>’ into the name, as shown in the following table.</source>
+          <target state="new">To use these view, insert ‘pdw<bpt id="51caa9bf-b555-443c-aaf7-85e98f8ed5e6">&lt;em&gt;</bpt>nodes<ept id="51caa9bf-b555-443c-aaf7-85e98f8ed5e6">&lt;/em&gt;</ept>’ into the name, as shown in the following table.</target>
+        </trans-unit>
+        <trans-unit id="f0704cd9-1473-480a-b9e6-dc8312a78fbe" xml:space="preserve">
+          <source>DMV name in SQL Data Warehouse</source>
+          <target state="new">DMV name in SQL Data Warehouse</target>
+        </trans-unit>
+        <trans-unit id="83987a1f-83db-4ff0-a47d-7dac9ce94180" xml:space="preserve">
+          <source>Link to SQL Server Transact-SQL topic on MSDN</source>
+          <target state="new">Link to SQL Server Transact-SQL topic on MSDN</target>
+        </trans-unit>
+        <trans-unit id="85a8f0f5-8b93-4fc0-b35b-45941dc11612" xml:space="preserve">
+          <source>sys.dm<bpt id="718496b5-d5aa-42e1-b7ad-37263b33a5c3">&lt;em&gt;</bpt>pdw<ept id="718496b5-d5aa-42e1-b7ad-37263b33a5c3">&lt;/em&gt;</ept>nodes<bpt id="413bef82-37b9-4d8c-a721-d4a326e8a6c1">&lt;em&gt;</bpt>db<ept id="413bef82-37b9-4d8c-a721-d4a326e8a6c1">&lt;/em&gt;</ept>file<bpt id="cad0c3bd-fcb4-4db8-8b9d-34679d166cbb">&lt;em&gt;</bpt>space<ept id="cad0c3bd-fcb4-4db8-8b9d-34679d166cbb">&lt;/em&gt;</ept>usage</source>
+          <target state="new">sys.dm<bpt id="718496b5-d5aa-42e1-b7ad-37263b33a5c3">&lt;em&gt;</bpt>pdw<ept id="718496b5-d5aa-42e1-b7ad-37263b33a5c3">&lt;/em&gt;</ept>nodes<bpt id="413bef82-37b9-4d8c-a721-d4a326e8a6c1">&lt;em&gt;</bpt>db<ept id="413bef82-37b9-4d8c-a721-d4a326e8a6c1">&lt;/em&gt;</ept>file<bpt id="cad0c3bd-fcb4-4db8-8b9d-34679d166cbb">&lt;em&gt;</bpt>space<ept id="cad0c3bd-fcb4-4db8-8b9d-34679d166cbb">&lt;/em&gt;</ept>usage</target>
+        </trans-unit>
+        <trans-unit id="b0ca5d11-5f82-4f19-b9fd-0822954b899a" xml:space="preserve">
+          <source>[sys.dm<bpt id="ec71dab8-5400-4988-807c-c303fddd2a9b">&lt;em&gt;</bpt>db<ept id="ec71dab8-5400-4988-807c-c303fddd2a9b">&lt;/em&gt;</ept>file<bpt id="cd3b3134-8a05-476e-aed1-e4046b256f9b">&lt;em&gt;</bpt>space<ept id="cd3b3134-8a05-476e-aed1-e4046b256f9b">&lt;/em&gt;</ept>usage (Transact-SQL)](http://msdn.microsoft.com/library/ms174412.aspx)</source>
+          <target state="new">[sys.dm<bpt id="ec71dab8-5400-4988-807c-c303fddd2a9b">&lt;em&gt;</bpt>db<ept id="ec71dab8-5400-4988-807c-c303fddd2a9b">&lt;/em&gt;</ept>file<bpt id="cd3b3134-8a05-476e-aed1-e4046b256f9b">&lt;em&gt;</bpt>space<ept id="cd3b3134-8a05-476e-aed1-e4046b256f9b">&lt;/em&gt;</ept>usage (Transact-SQL)](http://msdn.microsoft.com/library/ms174412.aspx)</target>
+        </trans-unit>
+        <trans-unit id="c0c6314b-be43-450b-97d4-4bcc1bd297b3" xml:space="preserve">
+          <source>sys.dm<bpt id="9116906f-6e9f-48db-8fde-6efb81318f64">&lt;em&gt;</bpt>pdw<ept id="9116906f-6e9f-48db-8fde-6efb81318f64">&lt;/em&gt;</ept>nodes<bpt id="939fbc53-2fda-48b8-a905-88ea3c22f68a">&lt;em&gt;</bpt>db<ept id="939fbc53-2fda-48b8-a905-88ea3c22f68a">&lt;/em&gt;</ept>index<bpt id="638596f9-cde7-467e-9287-d9818feef53f">&lt;em&gt;</bpt>usage<ept id="638596f9-cde7-467e-9287-d9818feef53f">&lt;/em&gt;</ept>stats</source>
+          <target state="new">sys.dm<bpt id="9116906f-6e9f-48db-8fde-6efb81318f64">&lt;em&gt;</bpt>pdw<ept id="9116906f-6e9f-48db-8fde-6efb81318f64">&lt;/em&gt;</ept>nodes<bpt id="939fbc53-2fda-48b8-a905-88ea3c22f68a">&lt;em&gt;</bpt>db<ept id="939fbc53-2fda-48b8-a905-88ea3c22f68a">&lt;/em&gt;</ept>index<bpt id="638596f9-cde7-467e-9287-d9818feef53f">&lt;em&gt;</bpt>usage<ept id="638596f9-cde7-467e-9287-d9818feef53f">&lt;/em&gt;</ept>stats</target>
+        </trans-unit>
+        <trans-unit id="7d44221d-59eb-4630-8dac-e384713db269" xml:space="preserve">
+          <source>[sys.dm<bpt id="e6e03af0-a349-4406-b6f7-6d7e539fb0a9">&lt;em&gt;</bpt>db<ept id="e6e03af0-a349-4406-b6f7-6d7e539fb0a9">&lt;/em&gt;</ept>index<bpt id="acce1fad-7958-4515-be7d-9821a896b951">&lt;em&gt;</bpt>usage<ept id="acce1fad-7958-4515-be7d-9821a896b951">&lt;/em&gt;</ept>stats (Transact-SQL)](http://msdn.microsoft.com/library/ms188755.aspx)</source>
+          <target state="new">[sys.dm<bpt id="e6e03af0-a349-4406-b6f7-6d7e539fb0a9">&lt;em&gt;</bpt>db<ept id="e6e03af0-a349-4406-b6f7-6d7e539fb0a9">&lt;/em&gt;</ept>index<bpt id="acce1fad-7958-4515-be7d-9821a896b951">&lt;em&gt;</bpt>usage<ept id="acce1fad-7958-4515-be7d-9821a896b951">&lt;/em&gt;</ept>stats (Transact-SQL)](http://msdn.microsoft.com/library/ms188755.aspx)</target>
+        </trans-unit>
+        <trans-unit id="51750946-5059-4f02-bd9c-14449fb62ccc" xml:space="preserve">
+          <source>sys.dm<bpt id="57cd2fc5-41cf-4540-a64c-7084f0a7b029">&lt;em&gt;</bpt>pdw<ept id="57cd2fc5-41cf-4540-a64c-7084f0a7b029">&lt;/em&gt;</ept>nodes<bpt id="6a189d2d-226d-4f44-95c2-4b665ef6df9c">&lt;em&gt;</bpt>db<ept id="6a189d2d-226d-4f44-95c2-4b665ef6df9c">&lt;/em&gt;</ept>partition_stats</source>
+          <target state="new">sys.dm<bpt id="57cd2fc5-41cf-4540-a64c-7084f0a7b029">&lt;em&gt;</bpt>pdw<ept id="57cd2fc5-41cf-4540-a64c-7084f0a7b029">&lt;/em&gt;</ept>nodes<bpt id="6a189d2d-226d-4f44-95c2-4b665ef6df9c">&lt;em&gt;</bpt>db<ept id="6a189d2d-226d-4f44-95c2-4b665ef6df9c">&lt;/em&gt;</ept>partition_stats</target>
+        </trans-unit>
+        <trans-unit id="59f27f44-eaca-46ae-a323-bfafc2d88a9e" xml:space="preserve">
+          <source>[sys.dm<bpt id="ac2dae8d-895d-4d20-aa9c-fa2f7435eb45">&lt;em&gt;</bpt>db<ept id="ac2dae8d-895d-4d20-aa9c-fa2f7435eb45">&lt;/em&gt;</ept>partition_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms187737.aspx)</source>
+          <target state="new">[sys.dm<bpt id="ac2dae8d-895d-4d20-aa9c-fa2f7435eb45">&lt;em&gt;</bpt>db<ept id="ac2dae8d-895d-4d20-aa9c-fa2f7435eb45">&lt;/em&gt;</ept>partition_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms187737.aspx)</target>
+        </trans-unit>
+        <trans-unit id="c9b69997-0b4c-4796-8eee-91f0a7390a80" xml:space="preserve">
+          <source>sys.dm<bpt id="50545a64-7ecb-4263-b9d2-0525331eab5d">&lt;em&gt;</bpt>pdw<ept id="50545a64-7ecb-4263-b9d2-0525331eab5d">&lt;/em&gt;</ept>nodes<bpt id="848a5543-430a-441a-a43b-ff0744d2b721">&lt;em&gt;</bpt>db<ept id="848a5543-430a-441a-a43b-ff0744d2b721">&lt;/em&gt;</ept>session<bpt id="ea9eea56-3d06-4d96-a915-4251bf8436a2">&lt;em&gt;</bpt>space<ept id="ea9eea56-3d06-4d96-a915-4251bf8436a2">&lt;/em&gt;</ept>usage</source>
+          <target state="new">sys.dm<bpt id="50545a64-7ecb-4263-b9d2-0525331eab5d">&lt;em&gt;</bpt>pdw<ept id="50545a64-7ecb-4263-b9d2-0525331eab5d">&lt;/em&gt;</ept>nodes<bpt id="848a5543-430a-441a-a43b-ff0744d2b721">&lt;em&gt;</bpt>db<ept id="848a5543-430a-441a-a43b-ff0744d2b721">&lt;/em&gt;</ept>session<bpt id="ea9eea56-3d06-4d96-a915-4251bf8436a2">&lt;em&gt;</bpt>space<ept id="ea9eea56-3d06-4d96-a915-4251bf8436a2">&lt;/em&gt;</ept>usage</target>
+        </trans-unit>
+        <trans-unit id="a2fe44cc-131f-4162-8cc8-2c7cf5f49e02" xml:space="preserve">
+          <source>[sys.dm<bpt id="21a3ef7e-9682-4485-b752-aa39923018e2">&lt;em&gt;</bpt>db<ept id="21a3ef7e-9682-4485-b752-aa39923018e2">&lt;/em&gt;</ept>session<bpt id="433731fd-de4a-4825-9967-2e1f86127f49">&lt;em&gt;</bpt>space<ept id="433731fd-de4a-4825-9967-2e1f86127f49">&lt;/em&gt;</ept>usage (Transact-SQL)](http://msdn.microsoft.com/library/ms187938.aspx)</source>
+          <target state="new">[sys.dm<bpt id="21a3ef7e-9682-4485-b752-aa39923018e2">&lt;em&gt;</bpt>db<ept id="21a3ef7e-9682-4485-b752-aa39923018e2">&lt;/em&gt;</ept>session<bpt id="433731fd-de4a-4825-9967-2e1f86127f49">&lt;em&gt;</bpt>space<ept id="433731fd-de4a-4825-9967-2e1f86127f49">&lt;/em&gt;</ept>usage (Transact-SQL)](http://msdn.microsoft.com/library/ms187938.aspx)</target>
+        </trans-unit>
+        <trans-unit id="de28db90-66fd-4377-8f82-3d05fb7acee3" xml:space="preserve">
+          <source>sys.dm<bpt id="3843a68c-80cc-41a5-9c00-fb6f40414d42">&lt;em&gt;</bpt>pdw<ept id="3843a68c-80cc-41a5-9c00-fb6f40414d42">&lt;/em&gt;</ept>nodes<bpt id="4d637071-a939-4faf-a51a-32bb158803f2">&lt;em&gt;</bpt>db<ept id="4d637071-a939-4faf-a51a-32bb158803f2">&lt;/em&gt;</ept>task<bpt id="4ff45bc0-d6c9-4ac7-addc-1a40c8a87f4f">&lt;em&gt;</bpt>space<ept id="4ff45bc0-d6c9-4ac7-addc-1a40c8a87f4f">&lt;/em&gt;</ept>usage</source>
+          <target state="new">sys.dm<bpt id="3843a68c-80cc-41a5-9c00-fb6f40414d42">&lt;em&gt;</bpt>pdw<ept id="3843a68c-80cc-41a5-9c00-fb6f40414d42">&lt;/em&gt;</ept>nodes<bpt id="4d637071-a939-4faf-a51a-32bb158803f2">&lt;em&gt;</bpt>db<ept id="4d637071-a939-4faf-a51a-32bb158803f2">&lt;/em&gt;</ept>task<bpt id="4ff45bc0-d6c9-4ac7-addc-1a40c8a87f4f">&lt;em&gt;</bpt>space<ept id="4ff45bc0-d6c9-4ac7-addc-1a40c8a87f4f">&lt;/em&gt;</ept>usage</target>
+        </trans-unit>
+        <trans-unit id="1c0b6473-30c9-4c43-b34b-202a2e871fba" xml:space="preserve">
+          <source>[sys.dm<bpt id="aa098b66-e7f7-4abf-83a7-fab0503eff37">&lt;em&gt;</bpt>db<ept id="aa098b66-e7f7-4abf-83a7-fab0503eff37">&lt;/em&gt;</ept>task<bpt id="5de26cc3-2ffe-4544-b256-ca98394d535d">&lt;em&gt;</bpt>space<ept id="5de26cc3-2ffe-4544-b256-ca98394d535d">&lt;/em&gt;</ept>usage (Transact-SQL)](http://msdn.microsoft.com/library/ms190288.aspx)</source>
+          <target state="new">[sys.dm<bpt id="aa098b66-e7f7-4abf-83a7-fab0503eff37">&lt;em&gt;</bpt>db<ept id="aa098b66-e7f7-4abf-83a7-fab0503eff37">&lt;/em&gt;</ept>task<bpt id="5de26cc3-2ffe-4544-b256-ca98394d535d">&lt;em&gt;</bpt>space<ept id="5de26cc3-2ffe-4544-b256-ca98394d535d">&lt;/em&gt;</ept>usage (Transact-SQL)](http://msdn.microsoft.com/library/ms190288.aspx)</target>
+        </trans-unit>
+        <trans-unit id="51662546-cd07-4441-a56f-418b1d0f176c" xml:space="preserve">
+          <source>sys.dm<bpt id="9b81e48a-e40d-4f9d-b603-38d3fc4473e6">&lt;em&gt;</bpt>pdw<ept id="9b81e48a-e40d-4f9d-b603-38d3fc4473e6">&lt;/em&gt;</ept>nodes<bpt id="abb6b65f-c1c7-4299-bd92-dcbf1f782ffd">&lt;em&gt;</bpt>exec<ept id="abb6b65f-c1c7-4299-bd92-dcbf1f782ffd">&lt;/em&gt;</ept>background<bpt id="3de9c1d0-b6d7-40b7-a94f-adafc5d03cb4">&lt;em&gt;</bpt>job<ept id="3de9c1d0-b6d7-40b7-a94f-adafc5d03cb4">&lt;/em&gt;</ept>queue</source>
+          <target state="new">sys.dm<bpt id="9b81e48a-e40d-4f9d-b603-38d3fc4473e6">&lt;em&gt;</bpt>pdw<ept id="9b81e48a-e40d-4f9d-b603-38d3fc4473e6">&lt;/em&gt;</ept>nodes<bpt id="abb6b65f-c1c7-4299-bd92-dcbf1f782ffd">&lt;em&gt;</bpt>exec<ept id="abb6b65f-c1c7-4299-bd92-dcbf1f782ffd">&lt;/em&gt;</ept>background<bpt id="3de9c1d0-b6d7-40b7-a94f-adafc5d03cb4">&lt;em&gt;</bpt>job<ept id="3de9c1d0-b6d7-40b7-a94f-adafc5d03cb4">&lt;/em&gt;</ept>queue</target>
+        </trans-unit>
+        <trans-unit id="53fed629-34c0-45e4-8ea7-a50c9ba41612" xml:space="preserve">
+          <source>[sys.dm<bpt id="4a8b31a9-8ea2-4dd6-aafd-85beb959b183">&lt;em&gt;</bpt>exec<ept id="4a8b31a9-8ea2-4dd6-aafd-85beb959b183">&lt;/em&gt;</ept>background<bpt id="50c923f2-d9e1-44ef-a64d-c78af4289f67">&lt;em&gt;</bpt>job<ept id="50c923f2-d9e1-44ef-a64d-c78af4289f67">&lt;/em&gt;</ept>queue (Transact-SQL)](http://msdn.microsoft.com/library/ms173512.aspx)</source>
+          <target state="new">[sys.dm<bpt id="4a8b31a9-8ea2-4dd6-aafd-85beb959b183">&lt;em&gt;</bpt>exec<ept id="4a8b31a9-8ea2-4dd6-aafd-85beb959b183">&lt;/em&gt;</ept>background<bpt id="50c923f2-d9e1-44ef-a64d-c78af4289f67">&lt;em&gt;</bpt>job<ept id="50c923f2-d9e1-44ef-a64d-c78af4289f67">&lt;/em&gt;</ept>queue (Transact-SQL)](http://msdn.microsoft.com/library/ms173512.aspx)</target>
+        </trans-unit>
+        <trans-unit id="781ba11c-f22c-4a4b-bbe2-17a7c4d79db0" xml:space="preserve">
+          <source>sys.dm<bpt id="cce58377-f8ec-4b77-91c6-48768c711658">&lt;em&gt;</bpt>pdw<ept id="cce58377-f8ec-4b77-91c6-48768c711658">&lt;/em&gt;</ept>nodes<bpt id="2a7b3b3a-f05c-44ca-ad67-865b60c9fca5">&lt;em&gt;</bpt>exec<ept id="2a7b3b3a-f05c-44ca-ad67-865b60c9fca5">&lt;/em&gt;</ept>background<bpt id="d880d2a1-dfdd-4ecb-861e-ce8b7c7ff214">&lt;em&gt;</bpt>job<ept id="d880d2a1-dfdd-4ecb-861e-ce8b7c7ff214">&lt;/em&gt;</ept>queue_stats</source>
+          <target state="new">sys.dm<bpt id="cce58377-f8ec-4b77-91c6-48768c711658">&lt;em&gt;</bpt>pdw<ept id="cce58377-f8ec-4b77-91c6-48768c711658">&lt;/em&gt;</ept>nodes<bpt id="2a7b3b3a-f05c-44ca-ad67-865b60c9fca5">&lt;em&gt;</bpt>exec<ept id="2a7b3b3a-f05c-44ca-ad67-865b60c9fca5">&lt;/em&gt;</ept>background<bpt id="d880d2a1-dfdd-4ecb-861e-ce8b7c7ff214">&lt;em&gt;</bpt>job<ept id="d880d2a1-dfdd-4ecb-861e-ce8b7c7ff214">&lt;/em&gt;</ept>queue_stats</target>
+        </trans-unit>
+        <trans-unit id="1869aa0e-0468-4827-9e62-474b4177c988" xml:space="preserve">
+          <source>[sys.dm<bpt id="a3233b14-2672-4128-990c-c9db11043b7b">&lt;em&gt;</bpt>exec<ept id="a3233b14-2672-4128-990c-c9db11043b7b">&lt;/em&gt;</ept>background<bpt id="dc6207d0-250b-4a20-825b-11619924b8e7">&lt;em&gt;</bpt>job<ept id="dc6207d0-250b-4a20-825b-11619924b8e7">&lt;/em&gt;</ept>queue_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms176059.aspx)</source>
+          <target state="new">[sys.dm<bpt id="a3233b14-2672-4128-990c-c9db11043b7b">&lt;em&gt;</bpt>exec<ept id="a3233b14-2672-4128-990c-c9db11043b7b">&lt;/em&gt;</ept>background<bpt id="dc6207d0-250b-4a20-825b-11619924b8e7">&lt;em&gt;</bpt>job<ept id="dc6207d0-250b-4a20-825b-11619924b8e7">&lt;/em&gt;</ept>queue_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms176059.aspx)</target>
+        </trans-unit>
+        <trans-unit id="09919c2e-17ee-439b-87a8-d93abca6ddb9" xml:space="preserve">
+          <source>sys.dm<bpt id="e28d947b-ec77-41da-b63d-90868cb08e7e">&lt;em&gt;</bpt>pdw<ept id="e28d947b-ec77-41da-b63d-90868cb08e7e">&lt;/em&gt;</ept>nodes<bpt id="ad97df67-d4bd-4f38-8adf-a7225e0d64d5">&lt;em&gt;</bpt>exec<ept id="ad97df67-d4bd-4f38-8adf-a7225e0d64d5">&lt;/em&gt;</ept>cached_plans</source>
+          <target state="new">sys.dm<bpt id="e28d947b-ec77-41da-b63d-90868cb08e7e">&lt;em&gt;</bpt>pdw<ept id="e28d947b-ec77-41da-b63d-90868cb08e7e">&lt;/em&gt;</ept>nodes<bpt id="ad97df67-d4bd-4f38-8adf-a7225e0d64d5">&lt;em&gt;</bpt>exec<ept id="ad97df67-d4bd-4f38-8adf-a7225e0d64d5">&lt;/em&gt;</ept>cached_plans</target>
+        </trans-unit>
+        <trans-unit id="5e34f840-81fc-4b12-97ad-932cf833dc67" xml:space="preserve">
+          <source>[sys.dm<bpt id="fa649e76-e397-45bf-aa0f-d37dc4303e26">&lt;em&gt;</bpt>exec<ept id="fa649e76-e397-45bf-aa0f-d37dc4303e26">&lt;/em&gt;</ept>cached_plans (Transact-SQL)](http://msdn.microsoft.com/library/ms187404.aspx)</source>
+          <target state="new">[sys.dm<bpt id="fa649e76-e397-45bf-aa0f-d37dc4303e26">&lt;em&gt;</bpt>exec<ept id="fa649e76-e397-45bf-aa0f-d37dc4303e26">&lt;/em&gt;</ept>cached_plans (Transact-SQL)](http://msdn.microsoft.com/library/ms187404.aspx)</target>
+        </trans-unit>
+        <trans-unit id="d9f5d650-a098-4fb5-ad65-772fc9eb6036" xml:space="preserve">
+          <source>sys.dm<bpt id="ffdb90bb-644b-4c09-a35a-c6297e6c999c">&lt;em&gt;</bpt>pdw<ept id="ffdb90bb-644b-4c09-a35a-c6297e6c999c">&lt;/em&gt;</ept>nodes<bpt id="ba31d6f7-8e5a-4991-83d7-6afa9d95ba6a">&lt;em&gt;</bpt>exec<ept id="ba31d6f7-8e5a-4991-83d7-6afa9d95ba6a">&lt;/em&gt;</ept>connections</source>
+          <target state="new">sys.dm<bpt id="ffdb90bb-644b-4c09-a35a-c6297e6c999c">&lt;em&gt;</bpt>pdw<ept id="ffdb90bb-644b-4c09-a35a-c6297e6c999c">&lt;/em&gt;</ept>nodes<bpt id="ba31d6f7-8e5a-4991-83d7-6afa9d95ba6a">&lt;em&gt;</bpt>exec<ept id="ba31d6f7-8e5a-4991-83d7-6afa9d95ba6a">&lt;/em&gt;</ept>connections</target>
+        </trans-unit>
+        <trans-unit id="7d1d5295-4b82-4c6f-a563-d349d44ad230" xml:space="preserve">
+          <source>[sys.dm<bpt id="4c7ac3ff-2bae-4c21-972b-9c9b8d9536d0">&lt;em&gt;</bpt>exec<ept id="4c7ac3ff-2bae-4c21-972b-9c9b8d9536d0">&lt;/em&gt;</ept>connections (Transact-SQL)](http://msdn.microsoft.com/library/ms181509.aspx)</source>
+          <target state="new">[sys.dm<bpt id="4c7ac3ff-2bae-4c21-972b-9c9b8d9536d0">&lt;em&gt;</bpt>exec<ept id="4c7ac3ff-2bae-4c21-972b-9c9b8d9536d0">&lt;/em&gt;</ept>connections (Transact-SQL)](http://msdn.microsoft.com/library/ms181509.aspx)</target>
+        </trans-unit>
+        <trans-unit id="08732d56-6fb6-47eb-b778-761474467044" xml:space="preserve">
+          <source>sys.dm<bpt id="5a6c7e9e-0700-46ea-ac5b-e913fdb92bb1">&lt;em&gt;</bpt>pdw<ept id="5a6c7e9e-0700-46ea-ac5b-e913fdb92bb1">&lt;/em&gt;</ept>nodes<bpt id="3883d84c-cb54-4bff-96cc-576aba62b529">&lt;em&gt;</bpt>exec<ept id="3883d84c-cb54-4bff-96cc-576aba62b529">&lt;/em&gt;</ept>procedure_stats</source>
+          <target state="new">sys.dm<bpt id="5a6c7e9e-0700-46ea-ac5b-e913fdb92bb1">&lt;em&gt;</bpt>pdw<ept id="5a6c7e9e-0700-46ea-ac5b-e913fdb92bb1">&lt;/em&gt;</ept>nodes<bpt id="3883d84c-cb54-4bff-96cc-576aba62b529">&lt;em&gt;</bpt>exec<ept id="3883d84c-cb54-4bff-96cc-576aba62b529">&lt;/em&gt;</ept>procedure_stats</target>
+        </trans-unit>
+        <trans-unit id="60f51364-d99c-4c26-8c6a-5a9cb623a380" xml:space="preserve">
+          <source>[sys.dm<bpt id="a703d569-c819-4ca5-8a4a-85731e517047">&lt;em&gt;</bpt>exec<ept id="a703d569-c819-4ca5-8a4a-85731e517047">&lt;/em&gt;</ept>procedure_stats (Transact-SQL)](http://msdn.microsoft.com/library/cc280701.aspx)</source>
+          <target state="new">[sys.dm<bpt id="a703d569-c819-4ca5-8a4a-85731e517047">&lt;em&gt;</bpt>exec<ept id="a703d569-c819-4ca5-8a4a-85731e517047">&lt;/em&gt;</ept>procedure_stats (Transact-SQL)](http://msdn.microsoft.com/library/cc280701.aspx)</target>
+        </trans-unit>
+        <trans-unit id="25b20d40-946c-4888-9171-2c6860f323c2" xml:space="preserve">
+          <source>sys.dm<bpt id="e7d54f7d-d23f-4feb-9c13-d4175fad80d2">&lt;em&gt;</bpt>pdw<ept id="e7d54f7d-d23f-4feb-9c13-d4175fad80d2">&lt;/em&gt;</ept>nodes<bpt id="a6bde9da-05f8-4ff4-8e99-fdf2ded202ac">&lt;em&gt;</bpt>exec<ept id="a6bde9da-05f8-4ff4-8e99-fdf2ded202ac">&lt;/em&gt;</ept>query<bpt id="0d6c9b68-5445-479e-bac9-d4d675b29510">&lt;em&gt;</bpt>memory<ept id="0d6c9b68-5445-479e-bac9-d4d675b29510">&lt;/em&gt;</ept>grants</source>
+          <target state="new">sys.dm<bpt id="e7d54f7d-d23f-4feb-9c13-d4175fad80d2">&lt;em&gt;</bpt>pdw<ept id="e7d54f7d-d23f-4feb-9c13-d4175fad80d2">&lt;/em&gt;</ept>nodes<bpt id="a6bde9da-05f8-4ff4-8e99-fdf2ded202ac">&lt;em&gt;</bpt>exec<ept id="a6bde9da-05f8-4ff4-8e99-fdf2ded202ac">&lt;/em&gt;</ept>query<bpt id="0d6c9b68-5445-479e-bac9-d4d675b29510">&lt;em&gt;</bpt>memory<ept id="0d6c9b68-5445-479e-bac9-d4d675b29510">&lt;/em&gt;</ept>grants</target>
+        </trans-unit>
+        <trans-unit id="871ae18e-500e-4697-a0c3-30f38cc7efc6" xml:space="preserve">
+          <source>[sys.dm<bpt id="9018c89f-dbba-4144-aa41-bd1fc8cc1025">&lt;em&gt;</bpt>exec<ept id="9018c89f-dbba-4144-aa41-bd1fc8cc1025">&lt;/em&gt;</ept>query<bpt id="8f5697e1-230e-42ae-a733-e806f180a9ba">&lt;em&gt;</bpt>memory<ept id="8f5697e1-230e-42ae-a733-e806f180a9ba">&lt;/em&gt;</ept>grants (Transact-SQL)](http://msdn.microsoft.com/library/ms365393.aspx)</source>
+          <target state="new">[sys.dm<bpt id="9018c89f-dbba-4144-aa41-bd1fc8cc1025">&lt;em&gt;</bpt>exec<ept id="9018c89f-dbba-4144-aa41-bd1fc8cc1025">&lt;/em&gt;</ept>query<bpt id="8f5697e1-230e-42ae-a733-e806f180a9ba">&lt;em&gt;</bpt>memory<ept id="8f5697e1-230e-42ae-a733-e806f180a9ba">&lt;/em&gt;</ept>grants (Transact-SQL)](http://msdn.microsoft.com/library/ms365393.aspx)</target>
+        </trans-unit>
+        <trans-unit id="4450e9e1-b67e-4a32-93b9-40c27235491e" xml:space="preserve">
+          <source>sys.dm<bpt id="76aeff12-c73e-4c8b-80d4-a3fcaefda05e">&lt;em&gt;</bpt>pdw<ept id="76aeff12-c73e-4c8b-80d4-a3fcaefda05e">&lt;/em&gt;</ept>nodes<bpt id="89aeabb9-fe70-4a62-95ec-b437ad2dde3f">&lt;em&gt;</bpt>exec<ept id="89aeabb9-fe70-4a62-95ec-b437ad2dde3f">&lt;/em&gt;</ept>query<bpt id="984f1dc9-deb1-473c-9ed0-db1ff88be84b">&lt;em&gt;</bpt>optimizer<ept id="984f1dc9-deb1-473c-9ed0-db1ff88be84b">&lt;/em&gt;</ept>info</source>
+          <target state="new">sys.dm<bpt id="76aeff12-c73e-4c8b-80d4-a3fcaefda05e">&lt;em&gt;</bpt>pdw<ept id="76aeff12-c73e-4c8b-80d4-a3fcaefda05e">&lt;/em&gt;</ept>nodes<bpt id="89aeabb9-fe70-4a62-95ec-b437ad2dde3f">&lt;em&gt;</bpt>exec<ept id="89aeabb9-fe70-4a62-95ec-b437ad2dde3f">&lt;/em&gt;</ept>query<bpt id="984f1dc9-deb1-473c-9ed0-db1ff88be84b">&lt;em&gt;</bpt>optimizer<ept id="984f1dc9-deb1-473c-9ed0-db1ff88be84b">&lt;/em&gt;</ept>info</target>
+        </trans-unit>
+        <trans-unit id="f1402a6e-b669-47bc-a81e-9705958e988c" xml:space="preserve">
+          <source>[sys.dm<bpt id="0d1cd087-c707-4407-bd48-f960ea210ace">&lt;em&gt;</bpt>exec<ept id="0d1cd087-c707-4407-bd48-f960ea210ace">&lt;/em&gt;</ept>query<bpt id="422be281-00df-4b6d-8c4c-932431283418">&lt;em&gt;</bpt>optimizer<ept id="422be281-00df-4b6d-8c4c-932431283418">&lt;/em&gt;</ept>info (Transact-SQL)](http://msdn.microsoft.com/library/ms175002.aspx)</source>
+          <target state="new">[sys.dm<bpt id="0d1cd087-c707-4407-bd48-f960ea210ace">&lt;em&gt;</bpt>exec<ept id="0d1cd087-c707-4407-bd48-f960ea210ace">&lt;/em&gt;</ept>query<bpt id="422be281-00df-4b6d-8c4c-932431283418">&lt;em&gt;</bpt>optimizer<ept id="422be281-00df-4b6d-8c4c-932431283418">&lt;/em&gt;</ept>info (Transact-SQL)](http://msdn.microsoft.com/library/ms175002.aspx)</target>
+        </trans-unit>
+        <trans-unit id="e9aa7b1b-1c83-4e63-b0f2-35b41a211f84" xml:space="preserve">
+          <source>sys.dm<bpt id="2e48e0a0-60a8-4758-842b-82c97b92408c">&lt;em&gt;</bpt>pdw<ept id="2e48e0a0-60a8-4758-842b-82c97b92408c">&lt;/em&gt;</ept>nodes<bpt id="2e7b5d2f-1d6b-4123-beda-7f9cda458e2d">&lt;em&gt;</bpt>exec<ept id="2e7b5d2f-1d6b-4123-beda-7f9cda458e2d">&lt;/em&gt;</ept>query<bpt id="f8568020-d1a8-4c0c-a25b-1ee3e148c3c8">&lt;em&gt;</bpt>resource<ept id="f8568020-d1a8-4c0c-a25b-1ee3e148c3c8">&lt;/em&gt;</ept>semaphores</source>
+          <target state="new">sys.dm<bpt id="2e48e0a0-60a8-4758-842b-82c97b92408c">&lt;em&gt;</bpt>pdw<ept id="2e48e0a0-60a8-4758-842b-82c97b92408c">&lt;/em&gt;</ept>nodes<bpt id="2e7b5d2f-1d6b-4123-beda-7f9cda458e2d">&lt;em&gt;</bpt>exec<ept id="2e7b5d2f-1d6b-4123-beda-7f9cda458e2d">&lt;/em&gt;</ept>query<bpt id="f8568020-d1a8-4c0c-a25b-1ee3e148c3c8">&lt;em&gt;</bpt>resource<ept id="f8568020-d1a8-4c0c-a25b-1ee3e148c3c8">&lt;/em&gt;</ept>semaphores</target>
+        </trans-unit>
+        <trans-unit id="e660eb29-eb21-48e7-915c-21808d959e50" xml:space="preserve">
+          <source>[sys.dm<bpt id="5800b6df-24c2-47a3-ae26-efcda183ce0d">&lt;em&gt;</bpt>exec<ept id="5800b6df-24c2-47a3-ae26-efcda183ce0d">&lt;/em&gt;</ept>query<bpt id="c8a6abbc-40c8-4fe2-9991-5fe560a6a601">&lt;em&gt;</bpt>resource<ept id="c8a6abbc-40c8-4fe2-9991-5fe560a6a601">&lt;/em&gt;</ept>semaphores (Transact-SQL)](http://msdn.microsoft.com/library/ms366321.aspx)</source>
+          <target state="new">[sys.dm<bpt id="5800b6df-24c2-47a3-ae26-efcda183ce0d">&lt;em&gt;</bpt>exec<ept id="5800b6df-24c2-47a3-ae26-efcda183ce0d">&lt;/em&gt;</ept>query<bpt id="c8a6abbc-40c8-4fe2-9991-5fe560a6a601">&lt;em&gt;</bpt>resource<ept id="c8a6abbc-40c8-4fe2-9991-5fe560a6a601">&lt;/em&gt;</ept>semaphores (Transact-SQL)](http://msdn.microsoft.com/library/ms366321.aspx)</target>
+        </trans-unit>
+        <trans-unit id="0711b8a3-8225-4e2e-b7f9-cc1af656bbcc" xml:space="preserve">
+          <source>sys.dm<bpt id="39c3aa98-82d4-4d8d-8ab5-91832ab44aac">&lt;em&gt;</bpt>pdw<ept id="39c3aa98-82d4-4d8d-8ab5-91832ab44aac">&lt;/em&gt;</ept>nodes<bpt id="57ea211a-7a61-4190-9771-501b00ace0db">&lt;em&gt;</bpt>exec<ept id="57ea211a-7a61-4190-9771-501b00ace0db">&lt;/em&gt;</ept>query_stats</source>
+          <target state="new">sys.dm<bpt id="39c3aa98-82d4-4d8d-8ab5-91832ab44aac">&lt;em&gt;</bpt>pdw<ept id="39c3aa98-82d4-4d8d-8ab5-91832ab44aac">&lt;/em&gt;</ept>nodes<bpt id="57ea211a-7a61-4190-9771-501b00ace0db">&lt;em&gt;</bpt>exec<ept id="57ea211a-7a61-4190-9771-501b00ace0db">&lt;/em&gt;</ept>query_stats</target>
+        </trans-unit>
+        <trans-unit id="dce4f882-d8b0-42e3-803f-8a3a692d8aa5" xml:space="preserve">
+          <source>[sys.dm<bpt id="b6e18780-827b-4a86-9468-8b46a65407e8">&lt;em&gt;</bpt>exec<ept id="b6e18780-827b-4a86-9468-8b46a65407e8">&lt;/em&gt;</ept>query_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms189741.aspx)</source>
+          <target state="new">[sys.dm<bpt id="b6e18780-827b-4a86-9468-8b46a65407e8">&lt;em&gt;</bpt>exec<ept id="b6e18780-827b-4a86-9468-8b46a65407e8">&lt;/em&gt;</ept>query_stats (Transact-SQL)](http://msdn.microsoft.com/library/ms189741.aspx)</target>
+        </trans-unit>
+        <trans-unit id="6784006e-b325-4b59-a3eb-f5dacf85c3e6" xml:space="preserve">
+          <source>sys.dm<bpt id="3374a41c-6e36-4260-a5b2-8dec3944bf65">&lt;em&gt;</bpt>pdw<ept id="3374a41c-6e36-4260-a5b2-8dec3944bf65">&lt;/em&gt;</ept>nodes<bpt id="980a9807-905a-4e7d-81d1-742a995d1835">&lt;em&gt;</bpt>exec<ept id="980a9807-905a-4e7d-81d1-742a995d1835">&lt;/em&gt;</ept>requests</source>
+          <target state="new">sys.dm<bpt id="3374a41c-6e36-4260-a5b2-8dec3944bf65">&lt;em&gt;</bpt>pdw<ept id="3374a41c-6e36-4260-a5b2-8dec3944bf65">&lt;/em&gt;</ept>nodes<bpt id="980a9807-905a-4e7d-81d1-742a995d1835">&lt;em&gt;</bpt>exec<ept id="980a9807-905a-4e7d-81d1-742a995d1835">&lt;/em&gt;</ept>requests</target>
+        </trans-unit>
+        <trans-unit id="4e401a3d-f71e-44b2-b18b-2aca548a162a" xml:space="preserve">
+          <source>[sys.dm<bpt id="924e795f-670c-430b-9da4-90453145235d">&lt;em&gt;</bpt>exec<ept id="924e795f-670c-430b-9da4-90453145235d">&lt;/em&gt;</ept>requests (Transact-SQL)](http://msdn.microsoft.com/library/ms177648.aspx)</source>
+          <target state="new">[sys.dm<bpt id="924e795f-670c-430b-9da4-90453145235d">&lt;em&gt;</bpt>exec<ept id="924e795f-670c-430b-9da4-90453145235d">&lt;/em&gt;</ept>requests (Transact-SQL)](http://msdn.microsoft.com/library/ms177648.aspx)</target>
+        </trans-unit>
+        <trans-unit id="1b641fd3-7d48-48b1-802f-a273b2b552c1" xml:space="preserve">
+          <source>sys.dm<bpt id="e44f990c-835d-4574-95b2-78ff306fbb23">&lt;em&gt;</bpt>pdw<ept id="e44f990c-835d-4574-95b2-78ff306fbb23">&lt;/em&gt;</ept>nodes<bpt id="c4466a41-df1f-429f-8fc3-939abbdcbcfe">&lt;em&gt;</bpt>exec<ept id="c4466a41-df1f-429f-8fc3-939abbdcbcfe">&lt;/em&gt;</ept>sessions</source>
+          <target state="new">sys.dm<bpt id="e44f990c-835d-4574-95b2-78ff306fbb23">&lt;em&gt;</bpt>pdw<ept id="e44f990c-835d-4574-95b2-78ff306fbb23">&lt;/em&gt;</ept>nodes<bpt id="c4466a41-df1f-429f-8fc3-939abbdcbcfe">&lt;em&gt;</bpt>exec<ept id="c4466a41-df1f-429f-8fc3-939abbdcbcfe">&lt;/em&gt;</ept>sessions</target>
+        </trans-unit>
+        <trans-unit id="ad9cbdc7-065c-4a92-abd7-f03cbdc789c4" xml:space="preserve">
+          <source>sys.dm<bpt id="b8a6b024-49a1-4e4c-9b0e-d235851d9bee">&lt;em&gt;</bpt>pdw<ept id="b8a6b024-49a1-4e4c-9b0e-d235851d9bee">&lt;/em&gt;</ept>nodes<bpt id="0a87172b-bab1-4790-812e-0bdf77259e10">&lt;em&gt;</bpt>exec<ept id="0a87172b-bab1-4790-812e-0bdf77259e10">&lt;/em&gt;</ept>sessions (Transact-SQL)</source>
+          <target state="new">sys.dm<bpt id="b8a6b024-49a1-4e4c-9b0e-d235851d9bee">&lt;em&gt;</bpt>pdw<ept id="b8a6b024-49a1-4e4c-9b0e-d235851d9bee">&lt;/em&gt;</ept>nodes<bpt id="0a87172b-bab1-4790-812e-0bdf77259e10">&lt;em&gt;</bpt>exec<ept id="0a87172b-bab1-4790-812e-0bdf77259e10">&lt;/em&gt;</ept>sessions (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="5bd93820-e056-47b3-805f-e384402ec333" xml:space="preserve">
+          <source>sys.dm<bpt id="321fe800-f2f0-40df-83bf-3c9bfd975a47">&lt;em&gt;</bpt>pdw<ept id="321fe800-f2f0-40df-83bf-3c9bfd975a47">&lt;/em&gt;</ept>nodes<bpt id="cc13ce57-f041-4b54-a81f-1e92ba92cd5d">&lt;em&gt;</bpt>io<ept id="cc13ce57-f041-4b54-a81f-1e92ba92cd5d">&lt;/em&gt;</ept>cluster<bpt id="2d2ec8b8-3959-41d5-bbf2-df3caec6b237">&lt;em&gt;</bpt>shared<ept id="2d2ec8b8-3959-41d5-bbf2-df3caec6b237">&lt;/em&gt;</ept>drives</source>
+          <target state="new">sys.dm<bpt id="321fe800-f2f0-40df-83bf-3c9bfd975a47">&lt;em&gt;</bpt>pdw<ept id="321fe800-f2f0-40df-83bf-3c9bfd975a47">&lt;/em&gt;</ept>nodes<bpt id="cc13ce57-f041-4b54-a81f-1e92ba92cd5d">&lt;em&gt;</bpt>io<ept id="cc13ce57-f041-4b54-a81f-1e92ba92cd5d">&lt;/em&gt;</ept>cluster<bpt id="2d2ec8b8-3959-41d5-bbf2-df3caec6b237">&lt;em&gt;</bpt>shared<ept id="2d2ec8b8-3959-41d5-bbf2-df3caec6b237">&lt;/em&gt;</ept>drives</target>
+        </trans-unit>
+        <trans-unit id="a9dacd43-53dd-4f56-bb0e-50a95a8ac87a" xml:space="preserve">
+          <source>[sys.dm<bpt id="68ae1f90-f68b-4679-aeb0-4dca4d83a0e1">&lt;em&gt;</bpt>io<ept id="68ae1f90-f68b-4679-aeb0-4dca4d83a0e1">&lt;/em&gt;</ept>cluster<bpt id="d809be47-eb76-4c83-abb2-fb5c4c242755">&lt;em&gt;</bpt>shared<ept id="d809be47-eb76-4c83-abb2-fb5c4c242755">&lt;/em&gt;</ept>drives (Transact-SQL)](http://msdn.microsoft.com/library/ms188930.aspx)</source>
+          <target state="new">[sys.dm<bpt id="68ae1f90-f68b-4679-aeb0-4dca4d83a0e1">&lt;em&gt;</bpt>io<ept id="68ae1f90-f68b-4679-aeb0-4dca4d83a0e1">&lt;/em&gt;</ept>cluster<bpt id="d809be47-eb76-4c83-abb2-fb5c4c242755">&lt;em&gt;</bpt>shared<ept id="d809be47-eb76-4c83-abb2-fb5c4c242755">&lt;/em&gt;</ept>drives (Transact-SQL)](http://msdn.microsoft.com/library/ms188930.aspx)</target>
+        </trans-unit>
+        <trans-unit id="e6d4b065-6404-461a-a745-3020bec863a0" xml:space="preserve">
+          <source>sys.dm<bpt id="8c95acf3-481c-4b70-bac2-fca6f2476e60">&lt;em&gt;</bpt>pdw<ept id="8c95acf3-481c-4b70-bac2-fca6f2476e60">&lt;/em&gt;</ept>nodes<bpt id="9a6c6bbf-c36f-4934-bc1a-c5096358a69e">&lt;em&gt;</bpt>io<ept id="9a6c6bbf-c36f-4934-bc1a-c5096358a69e">&lt;/em&gt;</ept>pending<bpt id="fb0d4ec5-01f8-48e4-aa44-46212ab6e163">&lt;em&gt;</bpt>io<ept id="fb0d4ec5-01f8-48e4-aa44-46212ab6e163">&lt;/em&gt;</ept>requests</source>
+          <target state="new">sys.dm<bpt id="8c95acf3-481c-4b70-bac2-fca6f2476e60">&lt;em&gt;</bpt>pdw<ept id="8c95acf3-481c-4b70-bac2-fca6f2476e60">&lt;/em&gt;</ept>nodes<bpt id="9a6c6bbf-c36f-4934-bc1a-c5096358a69e">&lt;em&gt;</bpt>io<ept id="9a6c6bbf-c36f-4934-bc1a-c5096358a69e">&lt;/em&gt;</ept>pending<bpt id="fb0d4ec5-01f8-48e4-aa44-46212ab6e163">&lt;em&gt;</bpt>io<ept id="fb0d4ec5-01f8-48e4-aa44-46212ab6e163">&lt;/em&gt;</ept>requests</target>
+        </trans-unit>
+        <trans-unit id="899dca63-f97b-477c-83d7-0dde873f0d24" xml:space="preserve">
+          <source>[sys.dm<bpt id="f6264d30-3f07-4e87-9001-5a37c89fbf2e">&lt;em&gt;</bpt>io<ept id="f6264d30-3f07-4e87-9001-5a37c89fbf2e">&lt;/em&gt;</ept>pending<bpt id="63afe8dc-7473-466f-a347-ea414824402b">&lt;em&gt;</bpt>io<ept id="63afe8dc-7473-466f-a347-ea414824402b">&lt;/em&gt;</ept>requests (Transact-SQl)](http://msdn.microsoft.com/library/ms188762.aspx)</source>
+          <target state="new">[sys.dm<bpt id="f6264d30-3f07-4e87-9001-5a37c89fbf2e">&lt;em&gt;</bpt>io<ept id="f6264d30-3f07-4e87-9001-5a37c89fbf2e">&lt;/em&gt;</ept>pending<bpt id="63afe8dc-7473-466f-a347-ea414824402b">&lt;em&gt;</bpt>io<ept id="63afe8dc-7473-466f-a347-ea414824402b">&lt;/em&gt;</ept>requests (Transact-SQl)](http://msdn.microsoft.com/library/ms188762.aspx)</target>
+        </trans-unit>
+        <trans-unit id="f8278a56-863d-4587-92e7-3324ea0b318e" xml:space="preserve">
+          <source>sys.dm<bpt id="719c857e-4bf1-4e41-affa-0a271a39e9f9">&lt;em&gt;</bpt>pdw<ept id="719c857e-4bf1-4e41-affa-0a271a39e9f9">&lt;/em&gt;</ept>nodes<bpt id="372fbcc8-2905-4513-a39e-55c4682cf01c">&lt;em&gt;</bpt>os<ept id="372fbcc8-2905-4513-a39e-55c4682cf01c">&lt;/em&gt;</ept>buffer_descriptors</source>
+          <target state="new">sys.dm<bpt id="719c857e-4bf1-4e41-affa-0a271a39e9f9">&lt;em&gt;</bpt>pdw<ept id="719c857e-4bf1-4e41-affa-0a271a39e9f9">&lt;/em&gt;</ept>nodes<bpt id="372fbcc8-2905-4513-a39e-55c4682cf01c">&lt;em&gt;</bpt>os<ept id="372fbcc8-2905-4513-a39e-55c4682cf01c">&lt;/em&gt;</ept>buffer_descriptors</target>
+        </trans-unit>
+        <trans-unit id="f1b27082-e2ac-4522-b23b-cdbb61d447d2" xml:space="preserve">
+          <source>[sys.dm<bpt id="c265d592-adf0-4cad-985b-598a5b6e4ec3">&lt;em&gt;</bpt>os<ept id="c265d592-adf0-4cad-985b-598a5b6e4ec3">&lt;/em&gt;</ept>buffer_descriptors (Transact-SQL)](http://msdn.microsoft.com/library/ms173442.aspx)</source>
+          <target state="new">[sys.dm<bpt id="c265d592-adf0-4cad-985b-598a5b6e4ec3">&lt;em&gt;</bpt>os<ept id="c265d592-adf0-4cad-985b-598a5b6e4ec3">&lt;/em&gt;</ept>buffer_descriptors (Transact-SQL)](http://msdn.microsoft.com/library/ms173442.aspx)</target>
+        </trans-unit>
+        <trans-unit id="49ba59b6-0ba4-4b5d-a2e7-7146190c3458" xml:space="preserve">
+          <source>sys.dm<bpt id="420d8084-8853-4733-b6bf-d3b5896d999c">&lt;em&gt;</bpt>pdw<ept id="420d8084-8853-4733-b6bf-d3b5896d999c">&lt;/em&gt;</ept>nodes<bpt id="dd0591d2-e10f-429c-af03-148dfc8fd32b">&lt;em&gt;</bpt>os<ept id="dd0591d2-e10f-429c-af03-148dfc8fd32b">&lt;/em&gt;</ept>child_instances</source>
+          <target state="new">sys.dm<bpt id="420d8084-8853-4733-b6bf-d3b5896d999c">&lt;em&gt;</bpt>pdw<ept id="420d8084-8853-4733-b6bf-d3b5896d999c">&lt;/em&gt;</ept>nodes<bpt id="dd0591d2-e10f-429c-af03-148dfc8fd32b">&lt;em&gt;</bpt>os<ept id="dd0591d2-e10f-429c-af03-148dfc8fd32b">&lt;/em&gt;</ept>child_instances</target>
+        </trans-unit>
+        <trans-unit id="e539ff7f-27ff-48ef-bf68-3e3148a5ae99" xml:space="preserve">
+          <source>[sys.dm<bpt id="ac0253ba-d5b4-447c-99ef-cc0eef9a16a5">&lt;em&gt;</bpt>os<ept id="ac0253ba-d5b4-447c-99ef-cc0eef9a16a5">&lt;/em&gt;</ept>child_instances (Transact-SQL)](http://msdn.microsoft.com/library/ms165698.aspx)</source>
+          <target state="new">[sys.dm<bpt id="ac0253ba-d5b4-447c-99ef-cc0eef9a16a5">&lt;em&gt;</bpt>os<ept id="ac0253ba-d5b4-447c-99ef-cc0eef9a16a5">&lt;/em&gt;</ept>child_instances (Transact-SQL)](http://msdn.microsoft.com/library/ms165698.aspx)</target>
+        </trans-unit>
+        <trans-unit id="95082274-9384-4bb3-8c95-575a604c9105" xml:space="preserve">
+          <source>sys.dm<bpt id="7d98d91f-27ca-47c3-b15d-29e84b5b6131">&lt;em&gt;</bpt>pdw<ept id="7d98d91f-27ca-47c3-b15d-29e84b5b6131">&lt;/em&gt;</ept>nodes<bpt id="489d6dc9-4522-4579-bc6e-857703cead67">&lt;em&gt;</bpt>os<ept id="489d6dc9-4522-4579-bc6e-857703cead67">&lt;/em&gt;</ept>cluster_nodes</source>
+          <target state="new">sys.dm<bpt id="7d98d91f-27ca-47c3-b15d-29e84b5b6131">&lt;em&gt;</bpt>pdw<ept id="7d98d91f-27ca-47c3-b15d-29e84b5b6131">&lt;/em&gt;</ept>nodes<bpt id="489d6dc9-4522-4579-bc6e-857703cead67">&lt;em&gt;</bpt>os<ept id="489d6dc9-4522-4579-bc6e-857703cead67">&lt;/em&gt;</ept>cluster_nodes</target>
+        </trans-unit>
+        <trans-unit id="c38ab77b-753e-476a-ab24-fbc8ace5dcbc" xml:space="preserve">
+          <source>[sys.dm<bpt id="b4f591db-eb7a-4064-8d7d-4bb328098e2e">&lt;em&gt;</bpt>os<ept id="b4f591db-eb7a-4064-8d7d-4bb328098e2e">&lt;/em&gt;</ept>cluster_nodes (Transact-SQL)](http://msdn.microsoft.com/library/ms187341.aspx)</source>
+          <target state="new">[sys.dm<bpt id="b4f591db-eb7a-4064-8d7d-4bb328098e2e">&lt;em&gt;</bpt>os<ept id="b4f591db-eb7a-4064-8d7d-4bb328098e2e">&lt;/em&gt;</ept>cluster_nodes (Transact-SQL)](http://msdn.microsoft.com/library/ms187341.aspx)</target>
+        </trans-unit>
+        <trans-unit id="c4bf518f-d55f-4bcf-a760-97de7771d409" xml:space="preserve">
+          <source>sys.dm<bpt id="523dbc54-977a-465c-b3c7-1b66dca1b062">&lt;em&gt;</bpt>pdw<ept id="523dbc54-977a-465c-b3c7-1b66dca1b062">&lt;/em&gt;</ept>nodes<bpt id="11f84b91-895c-43a4-9fd0-358df9f7fb6e">&lt;em&gt;</bpt>os<ept id="11f84b91-895c-43a4-9fd0-358df9f7fb6e">&lt;/em&gt;</ept>dispatcher_pools</source>
+          <target state="new">sys.dm<bpt id="523dbc54-977a-465c-b3c7-1b66dca1b062">&lt;em&gt;</bpt>pdw<ept id="523dbc54-977a-465c-b3c7-1b66dca1b062">&lt;/em&gt;</ept>nodes<bpt id="11f84b91-895c-43a4-9fd0-358df9f7fb6e">&lt;em&gt;</bpt>os<ept id="11f84b91-895c-43a4-9fd0-358df9f7fb6e">&lt;/em&gt;</ept>dispatcher_pools</target>
+        </trans-unit>
+        <trans-unit id="75913931-4973-43c5-b1a0-261e7c709c8f" xml:space="preserve">
+          <source>[sys.dm<bpt id="a1204bf7-2787-4164-b28f-4f06e1228b0f">&lt;em&gt;</bpt>os<ept id="a1204bf7-2787-4164-b28f-4f06e1228b0f">&lt;/em&gt;</ept>dispatcher_pools (Transact-SQL)](http://msdn.microsoft.com/library/bb630336.aspx)</source>
+          <target state="new">[sys.dm<bpt id="a1204bf7-2787-4164-b28f-4f06e1228b0f">&lt;em&gt;</bpt>os<ept id="a1204bf7-2787-4164-b28f-4f06e1228b0f">&lt;/em&gt;</ept>dispatcher_pools (Transact-SQL)](http://msdn.microsoft.com/library/bb630336.aspx)</target>
+        </trans-unit>
+        <trans-unit id="084adb3e-c2ab-44a9-a217-6a8b8f119e3d" xml:space="preserve">
+          <source>sys.dm<bpt id="16dd8905-6686-40c3-ad35-084171506360">&lt;em&gt;</bpt>pdw<ept id="16dd8905-6686-40c3-ad35-084171506360">&lt;/em&gt;</ept>nodes<bpt id="34d5c7d4-2a17-448f-8227-9b713dca80b4">&lt;em&gt;</bpt>os<ept id="34d5c7d4-2a17-448f-8227-9b713dca80b4">&lt;/em&gt;</ept>dispatchers</source>
+          <target state="new">sys.dm<bpt id="16dd8905-6686-40c3-ad35-084171506360">&lt;em&gt;</bpt>pdw<ept id="16dd8905-6686-40c3-ad35-084171506360">&lt;/em&gt;</ept>nodes<bpt id="34d5c7d4-2a17-448f-8227-9b713dca80b4">&lt;em&gt;</bpt>os<ept id="34d5c7d4-2a17-448f-8227-9b713dca80b4">&lt;/em&gt;</ept>dispatchers</target>
+        </trans-unit>
+        <trans-unit id="3ef4ffb7-fa13-45b6-afbf-1c4c72f371c3" xml:space="preserve">
+          <source>Transact-SQl Documentation is not available.</source>
+          <target state="new">Transact-SQl Documentation is not available.</target>
+        </trans-unit>
+        <trans-unit id="97666471-baba-4f41-bc89-005a6935cedd" xml:space="preserve">
+          <source>sys.dm<bpt id="bd9515b1-d1cb-4515-a17c-ae8b654e6222">&lt;em&gt;</bpt>pdw<ept id="bd9515b1-d1cb-4515-a17c-ae8b654e6222">&lt;/em&gt;</ept>nodes<bpt id="15681a37-c316-42e3-ac82-8d2c4b4dbc9a">&lt;em&gt;</bpt>os<ept id="15681a37-c316-42e3-ac82-8d2c4b4dbc9a">&lt;/em&gt;</ept>hosts</source>
+          <target state="new">sys.dm<bpt id="bd9515b1-d1cb-4515-a17c-ae8b654e6222">&lt;em&gt;</bpt>pdw<ept id="bd9515b1-d1cb-4515-a17c-ae8b654e6222">&lt;/em&gt;</ept>nodes<bpt id="15681a37-c316-42e3-ac82-8d2c4b4dbc9a">&lt;em&gt;</bpt>os<ept id="15681a37-c316-42e3-ac82-8d2c4b4dbc9a">&lt;/em&gt;</ept>hosts</target>
+        </trans-unit>
+        <trans-unit id="d92f93a9-e7d1-4df8-94ca-a4826db7a12a" xml:space="preserve">
+          <source>[sys.dm<bpt id="32c0f20c-df9b-4687-bfc8-61fde53dff87">&lt;em&gt;</bpt>os<ept id="32c0f20c-df9b-4687-bfc8-61fde53dff87">&lt;/em&gt;</ept>hosts (Transact-SQL)](http://msdn.microsoft.com/library/ms187800.aspx)</source>
+          <target state="new">[sys.dm<bpt id="32c0f20c-df9b-4687-bfc8-61fde53dff87">&lt;em&gt;</bpt>os<ept id="32c0f20c-df9b-4687-bfc8-61fde53dff87">&lt;/em&gt;</ept>hosts (Transact-SQL)](http://msdn.microsoft.com/library/ms187800.aspx)</target>
+        </trans-unit>
+        <trans-unit id="edad15ac-f008-4e68-ae2a-5c54adc4f24d" xml:space="preserve">
+          <source>sys.dm<bpt id="b1bb8e49-191c-4aba-badc-6b3b766dc5fc">&lt;em&gt;</bpt>pdw<ept id="b1bb8e49-191c-4aba-badc-6b3b766dc5fc">&lt;/em&gt;</ept>nodes<bpt id="218bd870-8ee4-4bd1-88a4-196114c2889b">&lt;em&gt;</bpt>os<ept id="218bd870-8ee4-4bd1-88a4-196114c2889b">&lt;/em&gt;</ept>latch_stats</source>
+          <target state="new">sys.dm<bpt id="b1bb8e49-191c-4aba-badc-6b3b766dc5fc">&lt;em&gt;</bpt>pdw<ept id="b1bb8e49-191c-4aba-badc-6b3b766dc5fc">&lt;/em&gt;</ept>nodes<bpt id="218bd870-8ee4-4bd1-88a4-196114c2889b">&lt;em&gt;</bpt>os<ept id="218bd870-8ee4-4bd1-88a4-196114c2889b">&lt;/em&gt;</ept>latch_stats</target>
+        </trans-unit>
+        <trans-unit id="309f493f-0ac1-4c75-9931-27d14f80e1f2" xml:space="preserve">
+          <source>[sys.dm<bpt id="721f4950-309f-4b43-a3b0-f7904dcc9a10">&lt;em&gt;</bpt>os<ept id="721f4950-309f-4b43-a3b0-f7904dcc9a10">&lt;/em&gt;</ept>latch stats (Transact-SQL)](http://msdn.microsoft.com/library/ms175066.aspx)</source>
+          <target state="new">[sys.dm<bpt id="721f4950-309f-4b43-a3b0-f7904dcc9a10">&lt;em&gt;</bpt>os<ept id="721f4950-309f-4b43-a3b0-f7904dcc9a10">&lt;/em&gt;</ept>latch stats (Transact-SQL)](http://msdn.microsoft.com/library/ms175066.aspx)</target>
+        </trans-unit>
+        <trans-unit id="6d43c4f2-71f4-4c2d-bf9b-9d2f8d7c8fa8" xml:space="preserve">
+          <source>sys.dm<bpt id="0cb1d118-77e6-4f5d-9d6d-b08e04ac9500">&lt;em&gt;</bpt>pdw<ept id="0cb1d118-77e6-4f5d-9d6d-b08e04ac9500">&lt;/em&gt;</ept>nodes<bpt id="dc58aa4c-9e5b-45a8-b430-931d83590b1a">&lt;em&gt;</bpt>os<ept id="dc58aa4c-9e5b-45a8-b430-931d83590b1a">&lt;/em&gt;</ept>loaded_modules</source>
+          <target state="new">sys.dm<bpt id="0cb1d118-77e6-4f5d-9d6d-b08e04ac9500">&lt;em&gt;</bpt>pdw<ept id="0cb1d118-77e6-4f5d-9d6d-b08e04ac9500">&lt;/em&gt;</ept>nodes<bpt id="dc58aa4c-9e5b-45a8-b430-931d83590b1a">&lt;em&gt;</bpt>os<ept id="dc58aa4c-9e5b-45a8-b430-931d83590b1a">&lt;/em&gt;</ept>loaded_modules</target>
+        </trans-unit>
+        <trans-unit id="3903a79d-e907-46ea-8c04-e20388a2786b" xml:space="preserve">
+          <source>[sys.dm<bpt id="d60f36a2-ad88-4ea6-a44a-ba67b7861078">&lt;em&gt;</bpt>os<ept id="d60f36a2-ad88-4ea6-a44a-ba67b7861078">&lt;/em&gt;</ept>loaded_modules (Transact-SQL)](http://msdn.microsoft.com/library/ms179907.aspx)</source>
+          <target state="new">[sys.dm<bpt id="d60f36a2-ad88-4ea6-a44a-ba67b7861078">&lt;em&gt;</bpt>os<ept id="d60f36a2-ad88-4ea6-a44a-ba67b7861078">&lt;/em&gt;</ept>loaded_modules (Transact-SQL)](http://msdn.microsoft.com/library/ms179907.aspx)</target>
+        </trans-unit>
+        <trans-unit id="805b56a4-1e30-48fd-abc6-e72c6df02864" xml:space="preserve">
+          <source>sys.dm<bpt id="bf1395a2-ec06-42c8-88f4-2f3d8bfa4202">&lt;em&gt;</bpt>pdw<ept id="bf1395a2-ec06-42c8-88f4-2f3d8bfa4202">&lt;/em&gt;</ept>nodes<bpt id="7004a5fd-c53a-48cc-ad5e-ce4b5515d5ea">&lt;em&gt;</bpt>os<ept id="7004a5fd-c53a-48cc-ad5e-ce4b5515d5ea">&lt;/em&gt;</ept>memory_brokers</source>
+          <target state="new">sys.dm<bpt id="bf1395a2-ec06-42c8-88f4-2f3d8bfa4202">&lt;em&gt;</bpt>pdw<ept id="bf1395a2-ec06-42c8-88f4-2f3d8bfa4202">&lt;/em&gt;</ept>nodes<bpt id="7004a5fd-c53a-48cc-ad5e-ce4b5515d5ea">&lt;em&gt;</bpt>os<ept id="7004a5fd-c53a-48cc-ad5e-ce4b5515d5ea">&lt;/em&gt;</ept>memory_brokers</target>
+        </trans-unit>
+        <trans-unit id="783130a6-e348-4114-9498-122f6b8f6c09" xml:space="preserve">
+          <source>[sys.dm<bpt id="44f88d53-e717-48f4-b12d-5fe593281905">&lt;em&gt;</bpt>os<ept id="44f88d53-e717-48f4-b12d-5fe593281905">&lt;/em&gt;</ept>memory_brokers (Transact-SQL)](http://msdn.microsoft.com/library/bb522548.aspx)</source>
+          <target state="new">[sys.dm<bpt id="44f88d53-e717-48f4-b12d-5fe593281905">&lt;em&gt;</bpt>os<ept id="44f88d53-e717-48f4-b12d-5fe593281905">&lt;/em&gt;</ept>memory_brokers (Transact-SQL)](http://msdn.microsoft.com/library/bb522548.aspx)</target>
+        </trans-unit>
+        <trans-unit id="72378655-4612-42a5-9526-266684ae2bf1" xml:space="preserve">
+          <source>sys.dm<bpt id="5dd6c767-55ba-4415-ba1e-558f31ac543d">&lt;em&gt;</bpt>pdw<ept id="5dd6c767-55ba-4415-ba1e-558f31ac543d">&lt;/em&gt;</ept>nodes<bpt id="f2452463-2632-423f-9f52-2fa94b1520d6">&lt;em&gt;</bpt>os<ept id="f2452463-2632-423f-9f52-2fa94b1520d6">&lt;/em&gt;</ept>memory<bpt id="c49f51e9-d74a-4a22-a1ce-326099a20e8c">&lt;em&gt;</bpt>cache<ept id="c49f51e9-d74a-4a22-a1ce-326099a20e8c">&lt;/em&gt;</ept>clock_hands</source>
+          <target state="new">sys.dm<bpt id="5dd6c767-55ba-4415-ba1e-558f31ac543d">&lt;em&gt;</bpt>pdw<ept id="5dd6c767-55ba-4415-ba1e-558f31ac543d">&lt;/em&gt;</ept>nodes<bpt id="f2452463-2632-423f-9f52-2fa94b1520d6">&lt;em&gt;</bpt>os<ept id="f2452463-2632-423f-9f52-2fa94b1520d6">&lt;/em&gt;</ept>memory<bpt id="c49f51e9-d74a-4a22-a1ce-326099a20e8c">&lt;em&gt;</bpt>cache<ept id="c49f51e9-d74a-4a22-a1ce-326099a20e8c">&lt;/em&gt;</ept>clock_hands</target>
+        </trans-unit>
+        <trans-unit id="2657bad0-b2b4-4b54-99d4-c1cfc6b67ef4" xml:space="preserve">
+          <source>[sys.dm<bpt id="ebcfcd17-f9d0-4411-a6bd-814fbf1a2eff">&lt;em&gt;</bpt>os<ept id="ebcfcd17-f9d0-4411-a6bd-814fbf1a2eff">&lt;/em&gt;</ept>memory<bpt id="795ab223-38dd-419c-b839-559a715bcdfd">&lt;em&gt;</bpt>cache<ept id="795ab223-38dd-419c-b839-559a715bcdfd">&lt;/em&gt;</ept>clock_hands (Transact-SQL)](http://msdn.microsoft.com/library/ms173786.aspx)</source>
+          <target state="new">[sys.dm<bpt id="ebcfcd17-f9d0-4411-a6bd-814fbf1a2eff">&lt;em&gt;</bpt>os<ept id="ebcfcd17-f9d0-4411-a6bd-814fbf1a2eff">&lt;/em&gt;</ept>memory<bpt id="795ab223-38dd-419c-b839-559a715bcdfd">&lt;em&gt;</bpt>cache<ept id="795ab223-38dd-419c-b839-559a715bcdfd">&lt;/em&gt;</ept>clock_hands (Transact-SQL)](http://msdn.microsoft.com/library/ms173786.aspx)</target>
+        </trans-unit>
+        <trans-unit id="9595db8c-5bb1-4f8e-9ade-95bd2c88acd4" xml:space="preserve">
+          <source>sys.dm<bpt id="b44ea8ca-ca11-44a4-bcbe-eeec4c3d4dd7">&lt;em&gt;</bpt>pdw<ept id="b44ea8ca-ca11-44a4-bcbe-eeec4c3d4dd7">&lt;/em&gt;</ept>nodes<bpt id="7d8b5030-e7e4-43b0-8bcf-ea4465c7d01a">&lt;em&gt;</bpt>os<ept id="7d8b5030-e7e4-43b0-8bcf-ea4465c7d01a">&lt;/em&gt;</ept>memory<bpt id="0b24febe-7346-410e-a391-7440e6721c99">&lt;em&gt;</bpt>cache<ept id="0b24febe-7346-410e-a391-7440e6721c99">&lt;/em&gt;</ept>counters</source>
+          <target state="new">sys.dm<bpt id="b44ea8ca-ca11-44a4-bcbe-eeec4c3d4dd7">&lt;em&gt;</bpt>pdw<ept id="b44ea8ca-ca11-44a4-bcbe-eeec4c3d4dd7">&lt;/em&gt;</ept>nodes<bpt id="7d8b5030-e7e4-43b0-8bcf-ea4465c7d01a">&lt;em&gt;</bpt>os<ept id="7d8b5030-e7e4-43b0-8bcf-ea4465c7d01a">&lt;/em&gt;</ept>memory<bpt id="0b24febe-7346-410e-a391-7440e6721c99">&lt;em&gt;</bpt>cache<ept id="0b24febe-7346-410e-a391-7440e6721c99">&lt;/em&gt;</ept>counters</target>
+        </trans-unit>
+        <trans-unit id="def62170-b838-41b4-8534-4b6509416327" xml:space="preserve">
+          <source>[sys.dm<bpt id="96374d57-b31c-410a-acc1-264739221c00">&lt;em&gt;</bpt>os<ept id="96374d57-b31c-410a-acc1-264739221c00">&lt;/em&gt;</ept>memory<bpt id="092777e8-dde0-49d2-9dd9-89af2a35b5f2">&lt;em&gt;</bpt>cache<ept id="092777e8-dde0-49d2-9dd9-89af2a35b5f2">&lt;/em&gt;</ept>counters (Transact-SQL)](http://msdn.microsoft.com/library/ms188760.aspx)</source>
+          <target state="new">[sys.dm<bpt id="96374d57-b31c-410a-acc1-264739221c00">&lt;em&gt;</bpt>os<ept id="96374d57-b31c-410a-acc1-264739221c00">&lt;/em&gt;</ept>memory<bpt id="092777e8-dde0-49d2-9dd9-89af2a35b5f2">&lt;em&gt;</bpt>cache<ept id="092777e8-dde0-49d2-9dd9-89af2a35b5f2">&lt;/em&gt;</ept>counters (Transact-SQL)](http://msdn.microsoft.com/library/ms188760.aspx)</target>
+        </trans-unit>
+        <trans-unit id="fec78886-8a86-485f-99a7-89f669c775d3" xml:space="preserve">
+          <source>sys.dm<bpt id="52115c47-611a-4c2a-9b27-64df5bd15475">&lt;em&gt;</bpt>pdw<ept id="52115c47-611a-4c2a-9b27-64df5bd15475">&lt;/em&gt;</ept>nodes<bpt id="53e8d370-c18e-4350-9e81-99217bc2db9f">&lt;em&gt;</bpt>os<ept id="53e8d370-c18e-4350-9e81-99217bc2db9f">&lt;/em&gt;</ept>memory<bpt id="60d0ed1a-9314-489d-bdea-178a54e2f4be">&lt;em&gt;</bpt>cache<ept id="60d0ed1a-9314-489d-bdea-178a54e2f4be">&lt;/em&gt;</ept>entries</source>
+          <target state="new">sys.dm<bpt id="52115c47-611a-4c2a-9b27-64df5bd15475">&lt;em&gt;</bpt>pdw<ept id="52115c47-611a-4c2a-9b27-64df5bd15475">&lt;/em&gt;</ept>nodes<bpt id="53e8d370-c18e-4350-9e81-99217bc2db9f">&lt;em&gt;</bpt>os<ept id="53e8d370-c18e-4350-9e81-99217bc2db9f">&lt;/em&gt;</ept>memory<bpt id="60d0ed1a-9314-489d-bdea-178a54e2f4be">&lt;em&gt;</bpt>cache<ept id="60d0ed1a-9314-489d-bdea-178a54e2f4be">&lt;/em&gt;</ept>entries</target>
+        </trans-unit>
+        <trans-unit id="2ae5b35f-816f-4908-82a5-eec2a2df294a" xml:space="preserve">
+          <source>[sys.dm<bpt id="32b423ba-139b-402d-a942-a311e70283e7">&lt;em&gt;</bpt>os<ept id="32b423ba-139b-402d-a942-a311e70283e7">&lt;/em&gt;</ept>memory<bpt id="d3fc19b9-6a8a-4319-b427-f63f900afcd3">&lt;em&gt;</bpt>cache<ept id="d3fc19b9-6a8a-4319-b427-f63f900afcd3">&lt;/em&gt;</ept>entries (Transact-SQL)](http://msdn.microsoft.com/library/ms189488.aspx)</source>
+          <target state="new">[sys.dm<bpt id="32b423ba-139b-402d-a942-a311e70283e7">&lt;em&gt;</bpt>os<ept id="32b423ba-139b-402d-a942-a311e70283e7">&lt;/em&gt;</ept>memory<bpt id="d3fc19b9-6a8a-4319-b427-f63f900afcd3">&lt;em&gt;</bpt>cache<ept id="d3fc19b9-6a8a-4319-b427-f63f900afcd3">&lt;/em&gt;</ept>entries (Transact-SQL)](http://msdn.microsoft.com/library/ms189488.aspx)</target>
+        </trans-unit>
+        <trans-unit id="d1978add-9da2-4218-9c4b-577729c8fba0" xml:space="preserve">
+          <source>sys.dm<bpt id="272d6483-8e56-4c19-9d6b-30a2776c659c">&lt;em&gt;</bpt>pdw<ept id="272d6483-8e56-4c19-9d6b-30a2776c659c">&lt;/em&gt;</ept>nodes<bpt id="02524cc0-c218-4ecf-b6ab-b009197fbcfa">&lt;em&gt;</bpt>os<ept id="02524cc0-c218-4ecf-b6ab-b009197fbcfa">&lt;/em&gt;</ept>memory<bpt id="fe745866-16da-48fc-bb25-cb41a025ae61">&lt;em&gt;</bpt>cache<ept id="fe745866-16da-48fc-bb25-cb41a025ae61">&lt;/em&gt;</ept>hash_tables</source>
+          <target state="new">sys.dm<bpt id="272d6483-8e56-4c19-9d6b-30a2776c659c">&lt;em&gt;</bpt>pdw<ept id="272d6483-8e56-4c19-9d6b-30a2776c659c">&lt;/em&gt;</ept>nodes<bpt id="02524cc0-c218-4ecf-b6ab-b009197fbcfa">&lt;em&gt;</bpt>os<ept id="02524cc0-c218-4ecf-b6ab-b009197fbcfa">&lt;/em&gt;</ept>memory<bpt id="fe745866-16da-48fc-bb25-cb41a025ae61">&lt;em&gt;</bpt>cache<ept id="fe745866-16da-48fc-bb25-cb41a025ae61">&lt;/em&gt;</ept>hash_tables</target>
+        </trans-unit>
+        <trans-unit id="5c3b748a-1580-49e2-a7dd-0419e332880a" xml:space="preserve">
+          <source>[sys.dm<bpt id="e2458070-18bf-410b-b896-048ce79ad0d8">&lt;em&gt;</bpt>os<ept id="e2458070-18bf-410b-b896-048ce79ad0d8">&lt;/em&gt;</ept>memory<bpt id="bfa6b9ed-b3a6-477b-aa64-7c11e85770d0">&lt;em&gt;</bpt>cache<ept id="bfa6b9ed-b3a6-477b-aa64-7c11e85770d0">&lt;/em&gt;</ept>hash_tables (Transact-SQL)](http://msdn.microsoft.com/library/ms182388.aspx)</source>
+          <target state="new">[sys.dm<bpt id="e2458070-18bf-410b-b896-048ce79ad0d8">&lt;em&gt;</bpt>os<ept id="e2458070-18bf-410b-b896-048ce79ad0d8">&lt;/em&gt;</ept>memory<bpt id="bfa6b9ed-b3a6-477b-aa64-7c11e85770d0">&lt;em&gt;</bpt>cache<ept id="bfa6b9ed-b3a6-477b-aa64-7c11e85770d0">&lt;/em&gt;</ept>hash_tables (Transact-SQL)](http://msdn.microsoft.com/library/ms182388.aspx)</target>
+        </trans-unit>
+        <trans-unit id="6df1815e-d9eb-4ddf-ad4f-29196f41cede" xml:space="preserve">
+          <source>sys.dm<bpt id="0027c497-1fb2-4a09-a9d2-267056d29f8d">&lt;em&gt;</bpt>pdw<ept id="0027c497-1fb2-4a09-a9d2-267056d29f8d">&lt;/em&gt;</ept>nodes<bpt id="e70b8e7f-87d8-45d9-8ba4-60fa4bb5c938">&lt;em&gt;</bpt>os<ept id="e70b8e7f-87d8-45d9-8ba4-60fa4bb5c938">&lt;/em&gt;</ept>memory_clerks</source>
+          <target state="new">sys.dm<bpt id="0027c497-1fb2-4a09-a9d2-267056d29f8d">&lt;em&gt;</bpt>pdw<ept id="0027c497-1fb2-4a09-a9d2-267056d29f8d">&lt;/em&gt;</ept>nodes<bpt id="e70b8e7f-87d8-45d9-8ba4-60fa4bb5c938">&lt;em&gt;</bpt>os<ept id="e70b8e7f-87d8-45d9-8ba4-60fa4bb5c938">&lt;/em&gt;</ept>memory_clerks</target>
+        </trans-unit>
+        <trans-unit id="48aae107-5948-4d89-a210-5479130e9734" xml:space="preserve">
+          <source>[sys.dm<bpt id="beb9fce9-81be-488b-9b84-f136587e47cd">&lt;em&gt;</bpt>os<ept id="beb9fce9-81be-488b-9b84-f136587e47cd">&lt;/em&gt;</ept>memory_clerks (Transact-SQL)](http://msdn.microsoft.com/library/ms175019.aspx)</source>
+          <target state="new">[sys.dm<bpt id="beb9fce9-81be-488b-9b84-f136587e47cd">&lt;em&gt;</bpt>os<ept id="beb9fce9-81be-488b-9b84-f136587e47cd">&lt;/em&gt;</ept>memory_clerks (Transact-SQL)](http://msdn.microsoft.com/library/ms175019.aspx)</target>
+        </trans-unit>
+        <trans-unit id="02eb79aa-cdc4-4f0e-b6e5-29becd270df0" xml:space="preserve">
+          <source>sys.dm<bpt id="fa53242e-980b-457f-8cd8-f365b8f9b012">&lt;em&gt;</bpt>pdw<ept id="fa53242e-980b-457f-8cd8-f365b8f9b012">&lt;/em&gt;</ept>nodes<bpt id="603fe4eb-29df-4a12-bba1-08dee9330218">&lt;em&gt;</bpt>os<ept id="603fe4eb-29df-4a12-bba1-08dee9330218">&lt;/em&gt;</ept>memory<bpt id="b490a8fa-52b3-47d2-a5df-f435b48647aa">&lt;em&gt;</bpt>node<ept id="b490a8fa-52b3-47d2-a5df-f435b48647aa">&lt;/em&gt;</ept>access_stats</source>
+          <target state="new">sys.dm<bpt id="fa53242e-980b-457f-8cd8-f365b8f9b012">&lt;em&gt;</bpt>pdw<ept id="fa53242e-980b-457f-8cd8-f365b8f9b012">&lt;/em&gt;</ept>nodes<bpt id="603fe4eb-29df-4a12-bba1-08dee9330218">&lt;em&gt;</bpt>os<ept id="603fe4eb-29df-4a12-bba1-08dee9330218">&lt;/em&gt;</ept>memory<bpt id="b490a8fa-52b3-47d2-a5df-f435b48647aa">&lt;em&gt;</bpt>node<ept id="b490a8fa-52b3-47d2-a5df-f435b48647aa">&lt;/em&gt;</ept>access_stats</target>
+        </trans-unit>
+        <trans-unit id="de67ab65-535b-4480-ac2c-3cb98629fb71" xml:space="preserve">
+          <source>Transact-SQl Documentation is not available.</source>
+          <target state="new">Transact-SQl Documentation is not available.</target>
+        </trans-unit>
+        <trans-unit id="6a366f67-954a-45d8-a41e-c32017cbd3e4" xml:space="preserve">
+          <source>sys.dm<bpt id="897f4803-1d9b-45c0-88c8-da3eccf645e9">&lt;em&gt;</bpt>pdw<ept id="897f4803-1d9b-45c0-88c8-da3eccf645e9">&lt;/em&gt;</ept>nodes<bpt id="edc305c9-f911-4b6a-b585-6895e8d14f03">&lt;em&gt;</bpt>os<ept id="edc305c9-f911-4b6a-b585-6895e8d14f03">&lt;/em&gt;</ept>memory_nodes</source>
+          <target state="new">sys.dm<bpt id="897f4803-1d9b-45c0-88c8-da3eccf645e9">&lt;em&gt;</bpt>pdw<ept id="897f4803-1d9b-45c0-88c8-da3eccf645e9">&lt;/em&gt;</ept>nodes<bpt id="edc305c9-f911-4b6a-b585-6895e8d14f03">&lt;em&gt;</bpt>os<ept id="edc305c9-f911-4b6a-b585-6895e8d14f03">&lt;/em&gt;</ept>memory_nodes</target>
+        </trans-unit>
+        <trans-unit id="2229c2a3-b29f-427a-89e8-0e921d7fb8db" xml:space="preserve">
+          <source>[sys.dm<bpt id="6131a5fb-0561-498a-bde0-9c0a7bab1e49">&lt;em&gt;</bpt>os<ept id="6131a5fb-0561-498a-bde0-9c0a7bab1e49">&lt;/em&gt;</ept>memory_nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510622.aspx)</source>
+          <target state="new">[sys.dm<bpt id="6131a5fb-0561-498a-bde0-9c0a7bab1e49">&lt;em&gt;</bpt>os<ept id="6131a5fb-0561-498a-bde0-9c0a7bab1e49">&lt;/em&gt;</ept>memory_nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510622.aspx)</target>
+        </trans-unit>
+        <trans-unit id="59028778-ab24-4188-bd35-6f125b40a2bf" xml:space="preserve">
+          <source>sys.dm<bpt id="2c21c620-8d4e-4b6d-9104-a3a58dfc1d88">&lt;em&gt;</bpt>pdw<ept id="2c21c620-8d4e-4b6d-9104-a3a58dfc1d88">&lt;/em&gt;</ept>nodes<bpt id="d21c60bb-af72-4b06-a2b7-b3ce39eb8ba0">&lt;em&gt;</bpt>os<ept id="d21c60bb-af72-4b06-a2b7-b3ce39eb8ba0">&lt;/em&gt;</ept>memory_pools</source>
+          <target state="new">sys.dm<bpt id="2c21c620-8d4e-4b6d-9104-a3a58dfc1d88">&lt;em&gt;</bpt>pdw<ept id="2c21c620-8d4e-4b6d-9104-a3a58dfc1d88">&lt;/em&gt;</ept>nodes<bpt id="d21c60bb-af72-4b06-a2b7-b3ce39eb8ba0">&lt;em&gt;</bpt>os<ept id="d21c60bb-af72-4b06-a2b7-b3ce39eb8ba0">&lt;/em&gt;</ept>memory_pools</target>
+        </trans-unit>
+        <trans-unit id="329bd166-52b6-438e-9cde-c72fe27cb07c" xml:space="preserve">
+          <source>[sys.dm<bpt id="12dde1bd-d46d-4682-834d-3e9587fb3518">&lt;em&gt;</bpt>os<ept id="12dde1bd-d46d-4682-834d-3e9587fb3518">&lt;/em&gt;</ept>memory_pools (Transact-SQL)](http://msdn.microsoft.com/library/ms175022.aspx)</source>
+          <target state="new">[sys.dm<bpt id="12dde1bd-d46d-4682-834d-3e9587fb3518">&lt;em&gt;</bpt>os<ept id="12dde1bd-d46d-4682-834d-3e9587fb3518">&lt;/em&gt;</ept>memory_pools (Transact-SQL)](http://msdn.microsoft.com/library/ms175022.aspx)</target>
+        </trans-unit>
+        <trans-unit id="89098ab6-4a82-4cef-8162-404421560b41" xml:space="preserve">
+          <source>sys.dm<bpt id="8dfdf10b-fc7c-4860-ba55-46bcec7ee796">&lt;em&gt;</bpt>pdw<ept id="8dfdf10b-fc7c-4860-ba55-46bcec7ee796">&lt;/em&gt;</ept>nodes<bpt id="596ce266-901a-4c0b-9d60-33fe8383c804">&lt;em&gt;</bpt>os<ept id="596ce266-901a-4c0b-9d60-33fe8383c804">&lt;/em&gt;</ept>nodes</source>
+          <target state="new">sys.dm<bpt id="8dfdf10b-fc7c-4860-ba55-46bcec7ee796">&lt;em&gt;</bpt>pdw<ept id="8dfdf10b-fc7c-4860-ba55-46bcec7ee796">&lt;/em&gt;</ept>nodes<bpt id="596ce266-901a-4c0b-9d60-33fe8383c804">&lt;em&gt;</bpt>os<ept id="596ce266-901a-4c0b-9d60-33fe8383c804">&lt;/em&gt;</ept>nodes</target>
+        </trans-unit>
+        <trans-unit id="0f855e4d-a09b-4142-a25f-52bfc2f88cce" xml:space="preserve">
+          <source>[sys.dm<bpt id="834ac70d-a6b0-4265-a58a-fba4bf04c9c2">&lt;em&gt;</bpt>os<ept id="834ac70d-a6b0-4265-a58a-fba4bf04c9c2">&lt;/em&gt;</ept>nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510628.aspx)</source>
+          <target state="new">[sys.dm<bpt id="834ac70d-a6b0-4265-a58a-fba4bf04c9c2">&lt;em&gt;</bpt>os<ept id="834ac70d-a6b0-4265-a58a-fba4bf04c9c2">&lt;/em&gt;</ept>nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510628.aspx)</target>
+        </trans-unit>
+        <trans-unit id="827ac13a-0153-4537-aa2d-73b2c9de08e7" xml:space="preserve">
+          <source>sys.dm<bpt id="8d9865ea-5b46-480c-99dc-08cb21a8f67e">&lt;em&gt;</bpt>pdw<ept id="8d9865ea-5b46-480c-99dc-08cb21a8f67e">&lt;/em&gt;</ept>nodes<bpt id="8f18170d-8e28-400e-be79-59fb6abfec24">&lt;em&gt;</bpt>os<ept id="8f18170d-8e28-400e-be79-59fb6abfec24">&lt;/em&gt;</ept>performance_counters</source>
+          <target state="new">sys.dm<bpt id="8d9865ea-5b46-480c-99dc-08cb21a8f67e">&lt;em&gt;</bpt>pdw<ept id="8d9865ea-5b46-480c-99dc-08cb21a8f67e">&lt;/em&gt;</ept>nodes<bpt id="8f18170d-8e28-400e-be79-59fb6abfec24">&lt;em&gt;</bpt>os<ept id="8f18170d-8e28-400e-be79-59fb6abfec24">&lt;/em&gt;</ept>performance_counters</target>
+        </trans-unit>
+        <trans-unit id="770f647a-eef8-4ec6-a501-48e18e592f6c" xml:space="preserve">
+          <source>[sys.dm<bpt id="d004c2bc-146d-42ed-b38a-ea80ac0402cb">&lt;em&gt;</bpt>os<ept id="d004c2bc-146d-42ed-b38a-ea80ac0402cb">&lt;/em&gt;</ept>performance_counters (Transact-SQL)](http://msdn.microsoft.com/library/ms187743.aspx)</source>
+          <target state="new">[sys.dm<bpt id="d004c2bc-146d-42ed-b38a-ea80ac0402cb">&lt;em&gt;</bpt>os<ept id="d004c2bc-146d-42ed-b38a-ea80ac0402cb">&lt;/em&gt;</ept>performance_counters (Transact-SQL)](http://msdn.microsoft.com/library/ms187743.aspx)</target>
+        </trans-unit>
+        <trans-unit id="e762a47d-82f8-4f97-b661-858d5c5ab2b1" xml:space="preserve">
+          <source>sys.dm<bpt id="72a9a359-764f-4e67-8b1c-06d8279bee5d">&lt;em&gt;</bpt>pdw<ept id="72a9a359-764f-4e67-8b1c-06d8279bee5d">&lt;/em&gt;</ept>nodes<bpt id="df38046a-95cd-4538-b0f5-f36d75a3766a">&lt;em&gt;</bpt>os<ept id="df38046a-95cd-4538-b0f5-f36d75a3766a">&lt;/em&gt;</ept>process_memory</source>
+          <target state="new">sys.dm<bpt id="72a9a359-764f-4e67-8b1c-06d8279bee5d">&lt;em&gt;</bpt>pdw<ept id="72a9a359-764f-4e67-8b1c-06d8279bee5d">&lt;/em&gt;</ept>nodes<bpt id="df38046a-95cd-4538-b0f5-f36d75a3766a">&lt;em&gt;</bpt>os<ept id="df38046a-95cd-4538-b0f5-f36d75a3766a">&lt;/em&gt;</ept>process_memory</target>
+        </trans-unit>
+        <trans-unit id="423d41eb-88f7-4938-a508-3c31b171a6f7" xml:space="preserve">
+          <source>[sys.dm<bpt id="cb73fe42-505e-49d0-aa2e-83266bbd8fcb">&lt;em&gt;</bpt>os<ept id="cb73fe42-505e-49d0-aa2e-83266bbd8fcb">&lt;/em&gt;</ept>process_memory (Transact-SQL)](http://msdn.microsoft.com/library/bb510747.aspx)</source>
+          <target state="new">[sys.dm<bpt id="cb73fe42-505e-49d0-aa2e-83266bbd8fcb">&lt;em&gt;</bpt>os<ept id="cb73fe42-505e-49d0-aa2e-83266bbd8fcb">&lt;/em&gt;</ept>process_memory (Transact-SQL)](http://msdn.microsoft.com/library/bb510747.aspx)</target>
+        </trans-unit>
+        <trans-unit id="0edd6331-9171-4ef2-8aaa-088359290e89" xml:space="preserve">
+          <source>sys.dm<bpt id="e5240dc4-0961-4a9b-82ed-2fb2615e0c8c">&lt;em&gt;</bpt>pdw<ept id="e5240dc4-0961-4a9b-82ed-2fb2615e0c8c">&lt;/em&gt;</ept>nodes<bpt id="96dae047-da86-4b7b-b8ec-d1a4c5259878">&lt;em&gt;</bpt>os<ept id="96dae047-da86-4b7b-b8ec-d1a4c5259878">&lt;/em&gt;</ept>schedulers</source>
+          <target state="new">sys.dm<bpt id="e5240dc4-0961-4a9b-82ed-2fb2615e0c8c">&lt;em&gt;</bpt>pdw<ept id="e5240dc4-0961-4a9b-82ed-2fb2615e0c8c">&lt;/em&gt;</ept>nodes<bpt id="96dae047-da86-4b7b-b8ec-d1a4c5259878">&lt;em&gt;</bpt>os<ept id="96dae047-da86-4b7b-b8ec-d1a4c5259878">&lt;/em&gt;</ept>schedulers</target>
+        </trans-unit>
+        <trans-unit id="37fb3e96-f98b-4c0a-911b-10a35a308d12" xml:space="preserve">
+          <source>[sys.dm<bpt id="a365378a-2147-4243-9f1e-35acccec0014">&lt;em&gt;</bpt>os<ept id="a365378a-2147-4243-9f1e-35acccec0014">&lt;/em&gt;</ept>schedulers (Transact-SQL)](http://msdn.microsoft.com/library/ms177526.aspx)</source>
+          <target state="new">[sys.dm<bpt id="a365378a-2147-4243-9f1e-35acccec0014">&lt;em&gt;</bpt>os<ept id="a365378a-2147-4243-9f1e-35acccec0014">&lt;/em&gt;</ept>schedulers (Transact-SQL)](http://msdn.microsoft.com/library/ms177526.aspx)</target>
+        </trans-unit>
+        <trans-unit id="bc201f9e-9902-4f7c-bf5e-dc866f291c89" xml:space="preserve">
+          <source>sys.dm<bpt id="728441a0-4e56-4355-8d61-d99b40b90f85">&lt;em&gt;</bpt>pdw<ept id="728441a0-4e56-4355-8d61-d99b40b90f85">&lt;/em&gt;</ept>nodes<bpt id="750e7e5f-dd16-451e-9d56-5e8446586cea">&lt;em&gt;</bpt>os<ept id="750e7e5f-dd16-451e-9d56-5e8446586cea">&lt;/em&gt;</ept>spinlock_stats</source>
+          <target state="new">sys.dm<bpt id="728441a0-4e56-4355-8d61-d99b40b90f85">&lt;em&gt;</bpt>pdw<ept id="728441a0-4e56-4355-8d61-d99b40b90f85">&lt;/em&gt;</ept>nodes<bpt id="750e7e5f-dd16-451e-9d56-5e8446586cea">&lt;em&gt;</bpt>os<ept id="750e7e5f-dd16-451e-9d56-5e8446586cea">&lt;/em&gt;</ept>spinlock_stats</target>
+        </trans-unit>
+        <trans-unit id="78296bcf-adf4-4992-be0d-644bb1e66850" xml:space="preserve">
+          <source>sys.dm<bpt id="22526d98-e93e-417f-b396-601e9040c6a8">&lt;em&gt;</bpt>os<ept id="22526d98-e93e-417f-b396-601e9040c6a8">&lt;/em&gt;</ept>spinlock_stats (Transact-SQL)</source>
+          <target state="new">sys.dm<bpt id="22526d98-e93e-417f-b396-601e9040c6a8">&lt;em&gt;</bpt>os<ept id="22526d98-e93e-417f-b396-601e9040c6a8">&lt;/em&gt;</ept>spinlock_stats (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="74d2585c-0493-4556-a487-e6ec03030013" xml:space="preserve">
+          <source>sys.dm<bpt id="d2c9ac68-fe58-4899-a258-13801de07769">&lt;em&gt;</bpt>pdw<ept id="d2c9ac68-fe58-4899-a258-13801de07769">&lt;/em&gt;</ept>nodes<bpt id="b84e665a-195c-4397-bc58-9bb674d1844d">&lt;em&gt;</bpt>os<ept id="b84e665a-195c-4397-bc58-9bb674d1844d">&lt;/em&gt;</ept>sys_info</source>
+          <target state="new">sys.dm<bpt id="d2c9ac68-fe58-4899-a258-13801de07769">&lt;em&gt;</bpt>pdw<ept id="d2c9ac68-fe58-4899-a258-13801de07769">&lt;/em&gt;</ept>nodes<bpt id="b84e665a-195c-4397-bc58-9bb674d1844d">&lt;em&gt;</bpt>os<ept id="b84e665a-195c-4397-bc58-9bb674d1844d">&lt;/em&gt;</ept>sys_info</target>
+        </trans-unit>
+        <trans-unit id="e6661deb-8929-4371-afdc-54c0ff76455f" xml:space="preserve">
+          <source>[sys.dm<bpt id="d5dff78d-c369-4032-977b-945e289c4579">&lt;em&gt;</bpt>os<ept id="d5dff78d-c369-4032-977b-945e289c4579">&lt;/em&gt;</ept>sys_info (Transact-SQL)](http://msdn.microsoft.com/library/ms175048.aspx)</source>
+          <target state="new">[sys.dm<bpt id="d5dff78d-c369-4032-977b-945e289c4579">&lt;em&gt;</bpt>os<ept id="d5dff78d-c369-4032-977b-945e289c4579">&lt;/em&gt;</ept>sys_info (Transact-SQL)](http://msdn.microsoft.com/library/ms175048.aspx)</target>
+        </trans-unit>
+        <trans-unit id="14828e75-a1b6-42c8-b9cd-6b4db6193664" xml:space="preserve">
+          <source>sys.dm<bpt id="5ef826b6-1a58-4b20-9726-a84e05fe0a0d">&lt;em&gt;</bpt>pdw<ept id="5ef826b6-1a58-4b20-9726-a84e05fe0a0d">&lt;/em&gt;</ept>nodes<bpt id="f472d180-f668-47f9-a56e-cf37bc6a77f5">&lt;em&gt;</bpt>os<ept id="f472d180-f668-47f9-a56e-cf37bc6a77f5">&lt;/em&gt;</ept>sys_memory</source>
+          <target state="new">sys.dm<bpt id="5ef826b6-1a58-4b20-9726-a84e05fe0a0d">&lt;em&gt;</bpt>pdw<ept id="5ef826b6-1a58-4b20-9726-a84e05fe0a0d">&lt;/em&gt;</ept>nodes<bpt id="f472d180-f668-47f9-a56e-cf37bc6a77f5">&lt;em&gt;</bpt>os<ept id="f472d180-f668-47f9-a56e-cf37bc6a77f5">&lt;/em&gt;</ept>sys_memory</target>
+        </trans-unit>
+        <trans-unit id="3c8160e1-8c67-49b4-a336-c8714c0cf519" xml:space="preserve">
+          <source>[sys.dm<bpt id="ae597bf6-6be4-4540-977c-c7e80635d291">&lt;em&gt;</bpt>os<ept id="ae597bf6-6be4-4540-977c-c7e80635d291">&lt;/em&gt;</ept>memory_nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510622.aspx)</source>
+          <target state="new">[sys.dm<bpt id="ae597bf6-6be4-4540-977c-c7e80635d291">&lt;em&gt;</bpt>os<ept id="ae597bf6-6be4-4540-977c-c7e80635d291">&lt;/em&gt;</ept>memory_nodes (Transact-SQL)](http://msdn.microsoft.com/library/bb510622.aspx)</target>
+        </trans-unit>
+        <trans-unit id="490fc793-5952-4415-b80b-80c4dd3dca32" xml:space="preserve">
+          <source>sys.dm<bpt id="0be353f8-98a8-44a5-9269-3b0c0ad38ddb">&lt;em&gt;</bpt>pdw<ept id="0be353f8-98a8-44a5-9269-3b0c0ad38ddb">&lt;/em&gt;</ept>nodes<bpt id="1d0c87e5-a46d-4461-bf39-dfd8bde69ed7">&lt;em&gt;</bpt>os<ept id="1d0c87e5-a46d-4461-bf39-dfd8bde69ed7">&lt;/em&gt;</ept>tasks</source>
+          <target state="new">sys.dm<bpt id="0be353f8-98a8-44a5-9269-3b0c0ad38ddb">&lt;em&gt;</bpt>pdw<ept id="0be353f8-98a8-44a5-9269-3b0c0ad38ddb">&lt;/em&gt;</ept>nodes<bpt id="1d0c87e5-a46d-4461-bf39-dfd8bde69ed7">&lt;em&gt;</bpt>os<ept id="1d0c87e5-a46d-4461-bf39-dfd8bde69ed7">&lt;/em&gt;</ept>tasks</target>
+        </trans-unit>
+        <trans-unit id="46a8aff4-f373-4792-a21b-9f880a972b0b" xml:space="preserve">
+          <source>[sys.dm<bpt id="170816a5-d784-40c3-a00f-6730738871e8">&lt;em&gt;</bpt>os<ept id="170816a5-d784-40c3-a00f-6730738871e8">&lt;/em&gt;</ept>tasks (Transact-SQL)](http://msdn.microsoft.com/library/ms174963.aspx)</source>
+          <target state="new">[sys.dm<bpt id="170816a5-d784-40c3-a00f-6730738871e8">&lt;em&gt;</bpt>os<ept id="170816a5-d784-40c3-a00f-6730738871e8">&lt;/em&gt;</ept>tasks (Transact-SQL)](http://msdn.microsoft.com/library/ms174963.aspx)</target>
+        </trans-unit>
+        <trans-unit id="5b6c276d-72fe-43dd-afbf-7ce5f509df32" xml:space="preserve">
+          <source>sys.dm<bpt id="4a856a88-5d35-4c73-9e92-57f16aba8080">&lt;em&gt;</bpt>pdw<ept id="4a856a88-5d35-4c73-9e92-57f16aba8080">&lt;/em&gt;</ept>nodes<bpt id="8aab85eb-1348-4a91-a3af-e2dbb001d67d">&lt;em&gt;</bpt>os<ept id="8aab85eb-1348-4a91-a3af-e2dbb001d67d">&lt;/em&gt;</ept>threads</source>
+          <target state="new">sys.dm<bpt id="4a856a88-5d35-4c73-9e92-57f16aba8080">&lt;em&gt;</bpt>pdw<ept id="4a856a88-5d35-4c73-9e92-57f16aba8080">&lt;/em&gt;</ept>nodes<bpt id="8aab85eb-1348-4a91-a3af-e2dbb001d67d">&lt;em&gt;</bpt>os<ept id="8aab85eb-1348-4a91-a3af-e2dbb001d67d">&lt;/em&gt;</ept>threads</target>
+        </trans-unit>
+        <trans-unit id="4f567fab-7d0e-48cf-8890-9a49e5d626d9" xml:space="preserve">
+          <source>[sys.dm<bpt id="6040ba9c-c322-41dd-9c81-e18e484365c0">&lt;em&gt;</bpt>os<ept id="6040ba9c-c322-41dd-9c81-e18e484365c0">&lt;/em&gt;</ept>threads (Transact-SQL)](http://msdn.microsoft.com/library/ms187818.aspx)</source>
+          <target state="new">[sys.dm<bpt id="6040ba9c-c322-41dd-9c81-e18e484365c0">&lt;em&gt;</bpt>os<ept id="6040ba9c-c322-41dd-9c81-e18e484365c0">&lt;/em&gt;</ept>threads (Transact-SQL)](http://msdn.microsoft.com/library/ms187818.aspx)</target>
+        </trans-unit>
+        <trans-unit id="f5d6fec0-034a-4c2a-870f-a5057a55ae2a" xml:space="preserve">
+          <source>sys.dm<bpt id="2c6157ca-645c-4157-a5c9-33a4a36963ed">&lt;em&gt;</bpt>pdw<ept id="2c6157ca-645c-4157-a5c9-33a4a36963ed">&lt;/em&gt;</ept>nodes<bpt id="9f622084-57e0-4b48-8abe-2a468c42edfc">&lt;em&gt;</bpt>os<ept id="9f622084-57e0-4b48-8abe-2a468c42edfc">&lt;/em&gt;</ept>virtual<bpt id="25de91af-af2b-41a2-bb80-29b743026972">&lt;em&gt;</bpt>address<ept id="25de91af-af2b-41a2-bb80-29b743026972">&lt;/em&gt;</ept>dump</source>
+          <target state="new">sys.dm<bpt id="2c6157ca-645c-4157-a5c9-33a4a36963ed">&lt;em&gt;</bpt>pdw<ept id="2c6157ca-645c-4157-a5c9-33a4a36963ed">&lt;/em&gt;</ept>nodes<bpt id="9f622084-57e0-4b48-8abe-2a468c42edfc">&lt;em&gt;</bpt>os<ept id="9f622084-57e0-4b48-8abe-2a468c42edfc">&lt;/em&gt;</ept>virtual<bpt id="25de91af-af2b-41a2-bb80-29b743026972">&lt;em&gt;</bpt>address<ept id="25de91af-af2b-41a2-bb80-29b743026972">&lt;/em&gt;</ept>dump</target>
+        </trans-unit>
+        <trans-unit id="1f6a5b61-310c-4c8c-8635-0ddf15de364b" xml:space="preserve">
+          <source>sys.dm<bpt id="61da2f74-95ca-4d6d-a812-d75c7b9aed4f">&lt;em&gt;</bpt>virtual<ept id="61da2f74-95ca-4d6d-a812-d75c7b9aed4f">&lt;/em&gt;</ept>address_dump (Transact-SQL)</source>
+          <target state="new">sys.dm<bpt id="61da2f74-95ca-4d6d-a812-d75c7b9aed4f">&lt;em&gt;</bpt>virtual<ept id="61da2f74-95ca-4d6d-a812-d75c7b9aed4f">&lt;/em&gt;</ept>address_dump (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="12dd6f6f-9ec3-4cf1-9797-b7036345a81c" xml:space="preserve">
+          <source>sys.dm<bpt id="e174a0af-46b5-42a1-ab20-4a88e0244b3b">&lt;em&gt;</bpt>pdw<ept id="e174a0af-46b5-42a1-ab20-4a88e0244b3b">&lt;/em&gt;</ept>nodes<bpt id="15b4afe2-98ff-437c-aabe-acf3a76ecf5d">&lt;em&gt;</bpt>os<ept id="15b4afe2-98ff-437c-aabe-acf3a76ecf5d">&lt;/em&gt;</ept>wait_stats</source>
+          <target state="new">sys.dm<bpt id="e174a0af-46b5-42a1-ab20-4a88e0244b3b">&lt;em&gt;</bpt>pdw<ept id="e174a0af-46b5-42a1-ab20-4a88e0244b3b">&lt;/em&gt;</ept>nodes<bpt id="15b4afe2-98ff-437c-aabe-acf3a76ecf5d">&lt;em&gt;</bpt>os<ept id="15b4afe2-98ff-437c-aabe-acf3a76ecf5d">&lt;/em&gt;</ept>wait_stats</target>
+        </trans-unit>
+        <trans-unit id="3c530883-c828-4084-aa44-1027323d306a" xml:space="preserve">
+          <source>sys.ldm<bpt id="109aa33e-cfb1-460d-8f63-a0e67ab3ad77">&lt;em&gt;</bpt>pdw<ept id="109aa33e-cfb1-460d-8f63-a0e67ab3ad77">&lt;/em&gt;</ept>nodes<bpt id="f38abe57-64ba-43dd-ab94-5777cc9d2a67">&lt;em&gt;</bpt>os<ept id="f38abe57-64ba-43dd-ab94-5777cc9d2a67">&lt;/em&gt;</ept>wait_stats (Transact-SQL)</source>
+          <target state="new">sys.ldm<bpt id="109aa33e-cfb1-460d-8f63-a0e67ab3ad77">&lt;em&gt;</bpt>pdw<ept id="109aa33e-cfb1-460d-8f63-a0e67ab3ad77">&lt;/em&gt;</ept>nodes<bpt id="f38abe57-64ba-43dd-ab94-5777cc9d2a67">&lt;em&gt;</bpt>os<ept id="f38abe57-64ba-43dd-ab94-5777cc9d2a67">&lt;/em&gt;</ept>wait_stats (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="73b8bdba-bae0-4918-baa3-3d378f051f47" xml:space="preserve">
+          <source>sys.dm<bpt id="2c668209-77da-4825-b7cd-477f9da2e4c9">&lt;em&gt;</bpt>pdw<ept id="2c668209-77da-4825-b7cd-477f9da2e4c9">&lt;/em&gt;</ept>nodes<bpt id="0bbf77af-454b-475a-8536-7cfd9c6b126b">&lt;em&gt;</bpt>os<ept id="0bbf77af-454b-475a-8536-7cfd9c6b126b">&lt;/em&gt;</ept>waiting_tasks</source>
+          <target state="new">sys.dm<bpt id="2c668209-77da-4825-b7cd-477f9da2e4c9">&lt;em&gt;</bpt>pdw<ept id="2c668209-77da-4825-b7cd-477f9da2e4c9">&lt;/em&gt;</ept>nodes<bpt id="0bbf77af-454b-475a-8536-7cfd9c6b126b">&lt;em&gt;</bpt>os<ept id="0bbf77af-454b-475a-8536-7cfd9c6b126b">&lt;/em&gt;</ept>waiting_tasks</target>
+        </trans-unit>
+        <trans-unit id="9988e782-3311-4153-ba95-4c6d36fd9242" xml:space="preserve">
+          <source>sys.dm<bpt id="21fa966c-0822-4e84-8387-95326fe27202">&lt;em&gt;</bpt>waiting<ept id="21fa966c-0822-4e84-8387-95326fe27202">&lt;/em&gt;</ept>tasks (Transact-SQL)</source>
+          <target state="new">sys.dm<bpt id="21fa966c-0822-4e84-8387-95326fe27202">&lt;em&gt;</bpt>waiting<ept id="21fa966c-0822-4e84-8387-95326fe27202">&lt;/em&gt;</ept>tasks (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="f72a6e31-e32e-4b29-b630-5bfb235a4f48" xml:space="preserve">
+          <source>sys.dm<bpt id="73b59f00-9776-4e98-8d92-c7c17660770e">&lt;em&gt;</bpt>pdw<ept id="73b59f00-9776-4e98-8d92-c7c17660770e">&lt;/em&gt;</ept>nodes<bpt id="744b856b-f68d-4744-818b-cce5a5879d5f">&lt;em&gt;</bpt>os<ept id="744b856b-f68d-4744-818b-cce5a5879d5f">&lt;/em&gt;</ept>workers</source>
+          <target state="new">sys.dm<bpt id="73b59f00-9776-4e98-8d92-c7c17660770e">&lt;em&gt;</bpt>pdw<ept id="73b59f00-9776-4e98-8d92-c7c17660770e">&lt;/em&gt;</ept>nodes<bpt id="744b856b-f68d-4744-818b-cce5a5879d5f">&lt;em&gt;</bpt>os<ept id="744b856b-f68d-4744-818b-cce5a5879d5f">&lt;/em&gt;</ept>workers</target>
+        </trans-unit>
+        <trans-unit id="dc5bf114-548e-4ee9-bc92-16d61ffe11f9" xml:space="preserve">
+          <source>sys.dm_workers (Transact-SQL)</source>
+          <target state="new">sys.dm_workers (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="761b8466-1489-475a-bcf5-d03dbae8d6ec" xml:space="preserve">
+          <source>sys.dm<bpt id="9837ff91-d47b-4545-b74e-f597740438ab">&lt;em&gt;</bpt>pdw<ept id="9837ff91-d47b-4545-b74e-f597740438ab">&lt;/em&gt;</ept>nodes<bpt id="bb42a917-da76-4d47-b096-1e97d68abbc5">&lt;em&gt;</bpt>resource<ept id="bb42a917-da76-4d47-b096-1e97d68abbc5">&lt;/em&gt;</ept>governor<bpt id="9364c487-5909-4d09-93f3-29d8b799f6fc">&lt;em&gt;</bpt>resource<ept id="9364c487-5909-4d09-93f3-29d8b799f6fc">&lt;/em&gt;</ept>pools</source>
+          <target state="new">sys.dm<bpt id="9837ff91-d47b-4545-b74e-f597740438ab">&lt;em&gt;</bpt>pdw<ept id="9837ff91-d47b-4545-b74e-f597740438ab">&lt;/em&gt;</ept>nodes<bpt id="bb42a917-da76-4d47-b096-1e97d68abbc5">&lt;em&gt;</bpt>resource<ept id="bb42a917-da76-4d47-b096-1e97d68abbc5">&lt;/em&gt;</ept>governor<bpt id="9364c487-5909-4d09-93f3-29d8b799f6fc">&lt;em&gt;</bpt>resource<ept id="9364c487-5909-4d09-93f3-29d8b799f6fc">&lt;/em&gt;</ept>pools</target>
+        </trans-unit>
+        <trans-unit id="55437f6a-8faf-441c-9bbb-30a2f054d9a1" xml:space="preserve">
+          <source>[sys.dm<bpt id="7dc9bd72-bd82-45e1-9f98-c4fc90453306">&lt;em&gt;</bpt>resource<ept id="7dc9bd72-bd82-45e1-9f98-c4fc90453306">&lt;/em&gt;</ept>governor<bpt id="e9d04549-1095-4291-8356-b562ed99c08c">&lt;em&gt;</bpt>resource<ept id="e9d04549-1095-4291-8356-b562ed99c08c">&lt;/em&gt;</ept>pools (Transact-SQL)](http://msdn.microsoft.com/library/bb934023.aspx)</source>
+          <target state="new">[sys.dm<bpt id="7dc9bd72-bd82-45e1-9f98-c4fc90453306">&lt;em&gt;</bpt>resource<ept id="7dc9bd72-bd82-45e1-9f98-c4fc90453306">&lt;/em&gt;</ept>governor<bpt id="e9d04549-1095-4291-8356-b562ed99c08c">&lt;em&gt;</bpt>resource<ept id="e9d04549-1095-4291-8356-b562ed99c08c">&lt;/em&gt;</ept>pools (Transact-SQL)](http://msdn.microsoft.com/library/bb934023.aspx)</target>
+        </trans-unit>
+        <trans-unit id="325475d3-cb84-45c1-ba24-c7074493b058" xml:space="preserve">
+          <source>sys.dm<bpt id="85f79ad1-ec04-47cb-a415-574fafb6ac58">&lt;em&gt;</bpt>pdw<ept id="85f79ad1-ec04-47cb-a415-574fafb6ac58">&lt;/em&gt;</ept>nodes<bpt id="67d15f98-1e8f-407f-b5ab-ab47eab18ebb">&lt;em&gt;</bpt>resource<ept id="67d15f98-1e8f-407f-b5ab-ab47eab18ebb">&lt;/em&gt;</ept>governor<bpt id="86d125fb-ce4e-4667-bcae-51495d7a5517">&lt;em&gt;</bpt>workload<ept id="86d125fb-ce4e-4667-bcae-51495d7a5517">&lt;/em&gt;</ept>groups</source>
+          <target state="new">sys.dm<bpt id="85f79ad1-ec04-47cb-a415-574fafb6ac58">&lt;em&gt;</bpt>pdw<ept id="85f79ad1-ec04-47cb-a415-574fafb6ac58">&lt;/em&gt;</ept>nodes<bpt id="67d15f98-1e8f-407f-b5ab-ab47eab18ebb">&lt;em&gt;</bpt>resource<ept id="67d15f98-1e8f-407f-b5ab-ab47eab18ebb">&lt;/em&gt;</ept>governor<bpt id="86d125fb-ce4e-4667-bcae-51495d7a5517">&lt;em&gt;</bpt>workload<ept id="86d125fb-ce4e-4667-bcae-51495d7a5517">&lt;/em&gt;</ept>groups</target>
+        </trans-unit>
+        <trans-unit id="a4e642b9-fc18-48c8-913d-0c8561c834ef" xml:space="preserve">
+          <source>[sys.dm<bpt id="5050a2c6-5c99-47c0-aaea-5d173ed1636d">&lt;em&gt;</bpt>resource<ept id="5050a2c6-5c99-47c0-aaea-5d173ed1636d">&lt;/em&gt;</ept>governor<bpt id="daa2ea5c-1b08-4deb-83fa-7503a75f8e87">&lt;em&gt;</bpt>workload<ept id="daa2ea5c-1b08-4deb-83fa-7503a75f8e87">&lt;/em&gt;</ept>groups (Transact-SQL)](http://msdn.microsoft.com/library/bb934197.aspx)</source>
+          <target state="new">[sys.dm<bpt id="5050a2c6-5c99-47c0-aaea-5d173ed1636d">&lt;em&gt;</bpt>resource<ept id="5050a2c6-5c99-47c0-aaea-5d173ed1636d">&lt;/em&gt;</ept>governor<bpt id="daa2ea5c-1b08-4deb-83fa-7503a75f8e87">&lt;em&gt;</bpt>workload<ept id="daa2ea5c-1b08-4deb-83fa-7503a75f8e87">&lt;/em&gt;</ept>groups (Transact-SQL)](http://msdn.microsoft.com/library/bb934197.aspx)</target>
+        </trans-unit>
+        <trans-unit id="415bbbeb-f24c-4fc6-af33-ceeda5d98566" xml:space="preserve">
+          <source>sys.dm<bpt id="36d7643e-3770-4468-89c2-5b2e4744474e">&lt;em&gt;</bpt>pdw<ept id="36d7643e-3770-4468-89c2-5b2e4744474e">&lt;/em&gt;</ept>nodes<bpt id="4db9f3f3-073d-46e9-b3e1-d5f181d8e51f">&lt;em&gt;</bpt>tran<ept id="4db9f3f3-073d-46e9-b3e1-d5f181d8e51f">&lt;/em&gt;</ept>active<bpt id="f7eafddf-942b-4d4d-9d95-e2fe2d0eda22">&lt;em&gt;</bpt>snapshot<ept id="f7eafddf-942b-4d4d-9d95-e2fe2d0eda22">&lt;/em&gt;</ept>database_transactions</source>
+          <target state="new">sys.dm<bpt id="36d7643e-3770-4468-89c2-5b2e4744474e">&lt;em&gt;</bpt>pdw<ept id="36d7643e-3770-4468-89c2-5b2e4744474e">&lt;/em&gt;</ept>nodes<bpt id="4db9f3f3-073d-46e9-b3e1-d5f181d8e51f">&lt;em&gt;</bpt>tran<ept id="4db9f3f3-073d-46e9-b3e1-d5f181d8e51f">&lt;/em&gt;</ept>active<bpt id="f7eafddf-942b-4d4d-9d95-e2fe2d0eda22">&lt;em&gt;</bpt>snapshot<ept id="f7eafddf-942b-4d4d-9d95-e2fe2d0eda22">&lt;/em&gt;</ept>database_transactions</target>
+        </trans-unit>
+        <trans-unit id="b98bf11d-8c48-439f-8c63-671cf692e0de" xml:space="preserve">
+          <source>[sys.dm<bpt id="725333d3-10d5-463e-b5b3-9a7c67de4247">&lt;em&gt;</bpt>tran<ept id="725333d3-10d5-463e-b5b3-9a7c67de4247">&lt;/em&gt;</ept>active<bpt id="5feb8530-71db-4310-a4a4-1af834ad1472">&lt;em&gt;</bpt>snapshot<ept id="5feb8530-71db-4310-a4a4-1af834ad1472">&lt;/em&gt;</ept>database<bpt id="e82a3a4a-8044-4666-a778-08aec7a1dcc9">&lt;em&gt;</bpt>transactions (Transact<ept id="e82a3a4a-8044-4666-a778-08aec7a1dcc9">&lt;/em&gt;</ept>SQL)](http://msdn.microsoft.com/library/ms180023.aspx)</source>
+          <target state="new">[sys.dm<bpt id="725333d3-10d5-463e-b5b3-9a7c67de4247">&lt;em&gt;</bpt>tran<ept id="725333d3-10d5-463e-b5b3-9a7c67de4247">&lt;/em&gt;</ept>active<bpt id="5feb8530-71db-4310-a4a4-1af834ad1472">&lt;em&gt;</bpt>snapshot<ept id="5feb8530-71db-4310-a4a4-1af834ad1472">&lt;/em&gt;</ept>database<bpt id="e82a3a4a-8044-4666-a778-08aec7a1dcc9">&lt;em&gt;</bpt>transactions (Transact<ept id="e82a3a4a-8044-4666-a778-08aec7a1dcc9">&lt;/em&gt;</ept>SQL)](http://msdn.microsoft.com/library/ms180023.aspx)</target>
+        </trans-unit>
+        <trans-unit id="e57ac243-832a-45c7-bfa9-8a79cc7f28d6" xml:space="preserve">
+          <source>sys.dm<bpt id="db19e3c2-a168-4837-970b-bd21e5816df7">&lt;em&gt;</bpt>pdw<ept id="db19e3c2-a168-4837-970b-bd21e5816df7">&lt;/em&gt;</ept>nodes<bpt id="455f2acc-66c9-4719-b2d2-fe26da656c3e">&lt;em&gt;</bpt>tran<ept id="455f2acc-66c9-4719-b2d2-fe26da656c3e">&lt;/em&gt;</ept>active_transactions</source>
+          <target state="new">sys.dm<bpt id="db19e3c2-a168-4837-970b-bd21e5816df7">&lt;em&gt;</bpt>pdw<ept id="db19e3c2-a168-4837-970b-bd21e5816df7">&lt;/em&gt;</ept>nodes<bpt id="455f2acc-66c9-4719-b2d2-fe26da656c3e">&lt;em&gt;</bpt>tran<ept id="455f2acc-66c9-4719-b2d2-fe26da656c3e">&lt;/em&gt;</ept>active_transactions</target>
+        </trans-unit>
+        <trans-unit id="176c0118-8e60-41f7-b31a-f0e4f843b329" xml:space="preserve">
+          <source>[sys.dm<bpt id="70919e1d-0e78-496a-9e45-8360f33ad7ed">&lt;em&gt;</bpt>tran<ept id="70919e1d-0e78-496a-9e45-8360f33ad7ed">&lt;/em&gt;</ept>active_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms174302.aspx)</source>
+          <target state="new">[sys.dm<bpt id="70919e1d-0e78-496a-9e45-8360f33ad7ed">&lt;em&gt;</bpt>tran<ept id="70919e1d-0e78-496a-9e45-8360f33ad7ed">&lt;/em&gt;</ept>active_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms174302.aspx)</target>
+        </trans-unit>
+        <trans-unit id="228238cb-7c6c-480b-92ae-737188158d0f" xml:space="preserve">
+          <source>sys.dm<bpt id="6e09e71e-e267-47cc-9fb4-829d91241b64">&lt;em&gt;</bpt>pdw<ept id="6e09e71e-e267-47cc-9fb4-829d91241b64">&lt;/em&gt;</ept>nodes<bpt id="d57ee2cc-3d9c-4de7-96f9-bdae5387e9dc">&lt;em&gt;</bpt>tran<ept id="d57ee2cc-3d9c-4de7-96f9-bdae5387e9dc">&lt;/em&gt;</ept>commit_table</source>
+          <target state="new">sys.dm<bpt id="6e09e71e-e267-47cc-9fb4-829d91241b64">&lt;em&gt;</bpt>pdw<ept id="6e09e71e-e267-47cc-9fb4-829d91241b64">&lt;/em&gt;</ept>nodes<bpt id="d57ee2cc-3d9c-4de7-96f9-bdae5387e9dc">&lt;em&gt;</bpt>tran<ept id="d57ee2cc-3d9c-4de7-96f9-bdae5387e9dc">&lt;/em&gt;</ept>commit_table</target>
+        </trans-unit>
+        <trans-unit id="7d9d0e15-d126-49dd-b37a-db63aecbaff2" xml:space="preserve">
+          <source>Transact-SQL documentation is not available.</source>
+          <target state="new">Transact-SQL documentation is not available.</target>
+        </trans-unit>
+        <trans-unit id="8f63b45b-4f7f-4979-829f-22912841ae9f" xml:space="preserve">
+          <source>sys.dm<bpt id="dde01669-e486-4cba-918d-068485a9fbc0">&lt;em&gt;</bpt>pdw<ept id="dde01669-e486-4cba-918d-068485a9fbc0">&lt;/em&gt;</ept>nodes<bpt id="c3caeaf9-38ce-4ca6-a250-ebd3795d58ba">&lt;em&gt;</bpt>tran<ept id="c3caeaf9-38ce-4ca6-a250-ebd3795d58ba">&lt;/em&gt;</ept>current_snapshot</source>
+          <target state="new">sys.dm<bpt id="dde01669-e486-4cba-918d-068485a9fbc0">&lt;em&gt;</bpt>pdw<ept id="dde01669-e486-4cba-918d-068485a9fbc0">&lt;/em&gt;</ept>nodes<bpt id="c3caeaf9-38ce-4ca6-a250-ebd3795d58ba">&lt;em&gt;</bpt>tran<ept id="c3caeaf9-38ce-4ca6-a250-ebd3795d58ba">&lt;/em&gt;</ept>current_snapshot</target>
+        </trans-unit>
+        <trans-unit id="a6b42115-9670-4fd3-906a-d9b81fa17613" xml:space="preserve">
+          <source>[sys.dm<bpt id="f50b4d68-4c4b-44ce-ba21-2886b0b58137">&lt;em&gt;</bpt>tran<ept id="f50b4d68-4c4b-44ce-ba21-2886b0b58137">&lt;/em&gt;</ept>current_snapshot (Transact-SQL)](http://msdn.microsoft.com/library/ms184390.aspx)</source>
+          <target state="new">[sys.dm<bpt id="f50b4d68-4c4b-44ce-ba21-2886b0b58137">&lt;em&gt;</bpt>tran<ept id="f50b4d68-4c4b-44ce-ba21-2886b0b58137">&lt;/em&gt;</ept>current_snapshot (Transact-SQL)](http://msdn.microsoft.com/library/ms184390.aspx)</target>
+        </trans-unit>
+        <trans-unit id="fd42b076-8650-47f9-b817-f45df44674d1" xml:space="preserve">
+          <source>sys.dm<bpt id="c2b8f441-105a-4c76-9066-5dac27349a16">&lt;em&gt;</bpt>pdw<ept id="c2b8f441-105a-4c76-9066-5dac27349a16">&lt;/em&gt;</ept>nodes<bpt id="3f0cf5b1-e5f6-4011-b306-858e8e3bd0b9">&lt;em&gt;</bpt>tran<ept id="3f0cf5b1-e5f6-4011-b306-858e8e3bd0b9">&lt;/em&gt;</ept>locks</source>
+          <target state="new">sys.dm<bpt id="c2b8f441-105a-4c76-9066-5dac27349a16">&lt;em&gt;</bpt>pdw<ept id="c2b8f441-105a-4c76-9066-5dac27349a16">&lt;/em&gt;</ept>nodes<bpt id="3f0cf5b1-e5f6-4011-b306-858e8e3bd0b9">&lt;em&gt;</bpt>tran<ept id="3f0cf5b1-e5f6-4011-b306-858e8e3bd0b9">&lt;/em&gt;</ept>locks</target>
+        </trans-unit>
+        <trans-unit id="ec769146-1437-4b23-b53f-4583906c92c3" xml:space="preserve">
+          <source>[sys.dm<bpt id="8782e6eb-68f9-4398-8572-bcad5c2af6e1">&lt;em&gt;</bpt>tran<ept id="8782e6eb-68f9-4398-8572-bcad5c2af6e1">&lt;/em&gt;</ept>locks (Transact-SQL)](http://msdn.microsoft.com/library/ms190345.aspx)</source>
+          <target state="new">[sys.dm<bpt id="8782e6eb-68f9-4398-8572-bcad5c2af6e1">&lt;em&gt;</bpt>tran<ept id="8782e6eb-68f9-4398-8572-bcad5c2af6e1">&lt;/em&gt;</ept>locks (Transact-SQL)](http://msdn.microsoft.com/library/ms190345.aspx)</target>
+        </trans-unit>
+        <trans-unit id="543a4e50-b76e-46fa-afd2-02b5ad4e02e3" xml:space="preserve">
+          <source>sys.dm<bpt id="e7924e0c-72ed-4519-ae73-1a1fe39d8081">&lt;em&gt;</bpt>pdw<ept id="e7924e0c-72ed-4519-ae73-1a1fe39d8081">&lt;/em&gt;</ept>nodes<bpt id="913fc5a7-75eb-4416-bc95-f194b4051d77">&lt;em&gt;</bpt>tran<ept id="913fc5a7-75eb-4416-bc95-f194b4051d77">&lt;/em&gt;</ept>session_transactions</source>
+          <target state="new">sys.dm<bpt id="e7924e0c-72ed-4519-ae73-1a1fe39d8081">&lt;em&gt;</bpt>pdw<ept id="e7924e0c-72ed-4519-ae73-1a1fe39d8081">&lt;/em&gt;</ept>nodes<bpt id="913fc5a7-75eb-4416-bc95-f194b4051d77">&lt;em&gt;</bpt>tran<ept id="913fc5a7-75eb-4416-bc95-f194b4051d77">&lt;/em&gt;</ept>session_transactions</target>
+        </trans-unit>
+        <trans-unit id="37f70654-4bdd-4cbd-8930-a651f3fca74a" xml:space="preserve">
+          <source>[sys.dm<bpt id="fa6c7896-39e5-4697-841f-75ba21d38dcf">&lt;em&gt;</bpt>tran<ept id="fa6c7896-39e5-4697-841f-75ba21d38dcf">&lt;/em&gt;</ept>session_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms188739.aspx)</source>
+          <target state="new">[sys.dm<bpt id="fa6c7896-39e5-4697-841f-75ba21d38dcf">&lt;em&gt;</bpt>tran<ept id="fa6c7896-39e5-4697-841f-75ba21d38dcf">&lt;/em&gt;</ept>session_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms188739.aspx)</target>
+        </trans-unit>
+        <trans-unit id="fbd633d1-0699-4698-a5b1-1c79e14159d7" xml:space="preserve">
+          <source>sys.dm<bpt id="17975015-820c-47e9-8403-beb9f33cb4b4">&lt;em&gt;</bpt>pdw<ept id="17975015-820c-47e9-8403-beb9f33cb4b4">&lt;/em&gt;</ept>nodes<bpt id="cb07fea4-f4b2-4279-a9dd-6275baeb2486">&lt;em&gt;</bpt>tran<ept id="cb07fea4-f4b2-4279-a9dd-6275baeb2486">&lt;/em&gt;</ept>top<bpt id="eb577742-5a54-4fbf-9f3c-bb2e6f1864d1">&lt;em&gt;</bpt>version<ept id="eb577742-5a54-4fbf-9f3c-bb2e6f1864d1">&lt;/em&gt;</ept>generators</source>
+          <target state="new">sys.dm<bpt id="17975015-820c-47e9-8403-beb9f33cb4b4">&lt;em&gt;</bpt>pdw<ept id="17975015-820c-47e9-8403-beb9f33cb4b4">&lt;/em&gt;</ept>nodes<bpt id="cb07fea4-f4b2-4279-a9dd-6275baeb2486">&lt;em&gt;</bpt>tran<ept id="cb07fea4-f4b2-4279-a9dd-6275baeb2486">&lt;/em&gt;</ept>top<bpt id="eb577742-5a54-4fbf-9f3c-bb2e6f1864d1">&lt;em&gt;</bpt>version<ept id="eb577742-5a54-4fbf-9f3c-bb2e6f1864d1">&lt;/em&gt;</ept>generators</target>
+        </trans-unit>
+        <trans-unit id="de6a4e0c-b589-4d8a-9a35-10e5ac51a05e" xml:space="preserve">
+          <source>[sys.dm<bpt id="99065274-4770-4e43-8975-b22a83df056f">&lt;em&gt;</bpt>tran<ept id="99065274-4770-4e43-8975-b22a83df056f">&lt;/em&gt;</ept>top<bpt id="b67f2396-045b-4cbf-b6c0-514210d0ce9a">&lt;em&gt;</bpt>version<ept id="b67f2396-045b-4cbf-b6c0-514210d0ce9a">&lt;/em&gt;</ept>generators (Transact-SQL)](http://msdn.microsoft.com/library/ms188778.aspx)</source>
+          <target state="new">[sys.dm<bpt id="99065274-4770-4e43-8975-b22a83df056f">&lt;em&gt;</bpt>tran<ept id="99065274-4770-4e43-8975-b22a83df056f">&lt;/em&gt;</ept>top<bpt id="b67f2396-045b-4cbf-b6c0-514210d0ce9a">&lt;em&gt;</bpt>version<ept id="b67f2396-045b-4cbf-b6c0-514210d0ce9a">&lt;/em&gt;</ept>generators (Transact-SQL)](http://msdn.microsoft.com/library/ms188778.aspx)</target>
+        </trans-unit>
+        <trans-unit id="3e55edb7-663e-4293-bbec-d4a59465b03d" xml:space="preserve">
+          <source>[sys.dm<bpt id="7384caca-daec-4814-9f19-d711b5ea8235">&lt;em&gt;</bpt>exec<ept id="7384caca-daec-4814-9f19-d711b5ea8235">&lt;/em&gt;</ept>compute<bpt id="15aaa9c7-5c5d-4027-9874-007373562244">&lt;em&gt;</bpt>node<ept id="15aaa9c7-5c5d-4027-9874-007373562244">&lt;/em&gt;</ept>errors (Transact-SQL)](http://msdn.microsoft.com/library/mt146380.aspx)</source>
+          <target state="new">[sys.dm<bpt id="7384caca-daec-4814-9f19-d711b5ea8235">&lt;em&gt;</bpt>exec<ept id="7384caca-daec-4814-9f19-d711b5ea8235">&lt;/em&gt;</ept>compute<bpt id="15aaa9c7-5c5d-4027-9874-007373562244">&lt;em&gt;</bpt>node<ept id="15aaa9c7-5c5d-4027-9874-007373562244">&lt;/em&gt;</ept>errors (Transact-SQL)](http://msdn.microsoft.com/library/mt146380.aspx)</target>
+        </trans-unit>
+        <trans-unit id="5c1f0d90-9918-4699-b703-77e817012797" xml:space="preserve">
+          <source>[sys.dm<bpt id="3ba1fefc-7ff5-4e0c-b5e7-2d875090b0fc">&lt;em&gt;</bpt>exec<ept id="3ba1fefc-7ff5-4e0c-b5e7-2d875090b0fc">&lt;/em&gt;</ept>compute<bpt id="3ee71fbe-d813-451b-b7a0-48de5aeedc0c">&lt;em&gt;</bpt>node<ept id="3ee71fbe-d813-451b-b7a0-48de5aeedc0c">&lt;/em&gt;</ept>status (Transact-SQL)](http://msdn.microsoft.com/library/mt146382.aspx)</source>
+          <target state="new">[sys.dm<bpt id="3ba1fefc-7ff5-4e0c-b5e7-2d875090b0fc">&lt;em&gt;</bpt>exec<ept id="3ba1fefc-7ff5-4e0c-b5e7-2d875090b0fc">&lt;/em&gt;</ept>compute<bpt id="3ee71fbe-d813-451b-b7a0-48de5aeedc0c">&lt;em&gt;</bpt>node<ept id="3ee71fbe-d813-451b-b7a0-48de5aeedc0c">&lt;/em&gt;</ept>status (Transact-SQL)](http://msdn.microsoft.com/library/mt146382.aspx)</target>
+        </trans-unit>
+        <trans-unit id="1e7b5215-842f-4900-8c97-242ed6ffc34b" xml:space="preserve">
+          <source>sys.dm<bpt id="501b3105-cd2a-423c-a109-ecc36d5097f1">&lt;em&gt;</bpt>exec<ept id="501b3105-cd2a-423c-a109-ecc36d5097f1">&lt;/em&gt;</ept>compute_nodes (Transact-SQL)</source>
+          <target state="new">sys.dm<bpt id="501b3105-cd2a-423c-a109-ecc36d5097f1">&lt;em&gt;</bpt>exec<ept id="501b3105-cd2a-423c-a109-ecc36d5097f1">&lt;/em&gt;</ept>compute_nodes (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="30a25dc3-0117-4c66-9b16-39616ec0cc93" xml:space="preserve">
+          <source>sys.dm<bpt id="45ffe7b7-55c0-4ec1-9760-00b321e8cb1a">&lt;em&gt;</bpt>exec<ept id="45ffe7b7-55c0-4ec1-9760-00b321e8cb1a">&lt;/em&gt;</ept>distributed<bpt id="ff330d92-fd28-45f9-8f9c-73e9091a4dec">&lt;em&gt;</bpt>request<ept id="ff330d92-fd28-45f9-8f9c-73e9091a4dec">&lt;/em&gt;</ept>steps (Transact-SQL)</source>
+          <target state="new">sys.dm<bpt id="45ffe7b7-55c0-4ec1-9760-00b321e8cb1a">&lt;em&gt;</bpt>exec<ept id="45ffe7b7-55c0-4ec1-9760-00b321e8cb1a">&lt;/em&gt;</ept>distributed<bpt id="ff330d92-fd28-45f9-8f9c-73e9091a4dec">&lt;em&gt;</bpt>request<ept id="ff330d92-fd28-45f9-8f9c-73e9091a4dec">&lt;/em&gt;</ept>steps (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="f749e7f2-dea5-4371-9d45-24fbcf33b504" xml:space="preserve">
+          <source>[sys.dm<bpt id="b393e17c-9a89-43b2-81f1-c87296f1adb9">&lt;em&gt;</bpt>exec<ept id="b393e17c-9a89-43b2-81f1-c87296f1adb9">&lt;/em&gt;</ept>distributed_requests (Transact-SQL)](http://msdn.microsoft.com/library/mt146385.aspx)</source>
+          <target state="new">[sys.dm<bpt id="b393e17c-9a89-43b2-81f1-c87296f1adb9">&lt;em&gt;</bpt>exec<ept id="b393e17c-9a89-43b2-81f1-c87296f1adb9">&lt;/em&gt;</ept>distributed_requests (Transact-SQL)](http://msdn.microsoft.com/library/mt146385.aspx)</target>
+        </trans-unit>
+        <trans-unit id="603dae2a-036b-490f-a05d-4324d0231cd3" xml:space="preserve">
+          <source>[sys.dm<bpt id="e5aae9ac-1212-43e3-9df1-c6a012bef112">&lt;em&gt;</bpt>exec<ept id="e5aae9ac-1212-43e3-9df1-c6a012bef112">&lt;/em&gt;</ept>distributed<bpt id="217d94e4-c653-42da-a2ee-cb0429485ae1">&lt;em&gt;</bpt>sql<ept id="217d94e4-c653-42da-a2ee-cb0429485ae1">&lt;/em&gt;</ept>requests (Transact-SQL)](http://msdn.microsoft.com/library/mt146390.aspx) </source>
+          <target state="new">[sys.dm<bpt id="e5aae9ac-1212-43e3-9df1-c6a012bef112">&lt;em&gt;</bpt>exec<ept id="e5aae9ac-1212-43e3-9df1-c6a012bef112">&lt;/em&gt;</ept>distributed<bpt id="217d94e4-c653-42da-a2ee-cb0429485ae1">&lt;em&gt;</bpt>sql<ept id="217d94e4-c653-42da-a2ee-cb0429485ae1">&lt;/em&gt;</ept>requests (Transact-SQL)](http://msdn.microsoft.com/library/mt146390.aspx) </target>
+        </trans-unit>
+        <trans-unit id="f9617154-7d34-4900-8f4f-d9da206470c9" xml:space="preserve">
+          <source>sys.dm<bpt id="ccaff0ef-4f90-4e16-a49e-7633691cddef">&lt;em&gt;</bpt>exec<ept id="ccaff0ef-4f90-4e16-a49e-7633691cddef">&lt;/em&gt;</ept>dms_services (Transact-SQL)</source>
+          <target state="new">sys.dm<bpt id="ccaff0ef-4f90-4e16-a49e-7633691cddef">&lt;em&gt;</bpt>exec<ept id="ccaff0ef-4f90-4e16-a49e-7633691cddef">&lt;/em&gt;</ept>dms_services (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="ecd3ca3f-c958-406b-bf3d-22704c2fe512" xml:space="preserve">
+          <source>sys.dm<bpt id="c0aca637-680b-455b-ab04-18c174702bdd">&lt;em&gt;</bpt>exec<ept id="c0aca637-680b-455b-ab04-18c174702bdd">&lt;/em&gt;</ept>dms_workers (Transact-SQL)</source>
+          <target state="new">sys.dm<bpt id="c0aca637-680b-455b-ab04-18c174702bdd">&lt;em&gt;</bpt>exec<ept id="c0aca637-680b-455b-ab04-18c174702bdd">&lt;/em&gt;</ept>dms_workers (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="42e17c94-a3d5-4b4b-b2e1-4a33be611d2b" xml:space="preserve">
+          <source>sys.dm<bpt id="1bd4abc3-ee8d-4158-bd28-186431901042">&lt;em&gt;</bpt>exec<ept id="1bd4abc3-ee8d-4158-bd28-186431901042">&lt;/em&gt;</ept>external_operations (Transact-SQL)</source>
+          <target state="new">sys.dm<bpt id="1bd4abc3-ee8d-4158-bd28-186431901042">&lt;em&gt;</bpt>exec<ept id="1bd4abc3-ee8d-4158-bd28-186431901042">&lt;/em&gt;</ept>external_operations (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="9d2c24d5-1e1d-485b-8288-e676b23485b3" xml:space="preserve">
+          <source>sys.dm<bpt id="b351866a-45da-415b-96a7-43f8c9598384">&lt;em&gt;</bpt>exec<ept id="b351866a-45da-415b-96a7-43f8c9598384">&lt;/em&gt;</ept>external_work (Transact-SQL)</source>
+          <target state="new">sys.dm<bpt id="b351866a-45da-415b-96a7-43f8c9598384">&lt;em&gt;</bpt>exec<ept id="b351866a-45da-415b-96a7-43f8c9598384">&lt;/em&gt;</ept>external_work (Transact-SQL)</target>
+        </trans-unit>
+        <trans-unit id="24859cde-5eac-4253-90b6-3ad61b52f902" xml:space="preserve">
+          <source>sys.dm<bpt id="05414af8-08c2-484e-9a0f-4bbf1f33ec54">&lt;em&gt;</bpt>continuous<ept id="05414af8-08c2-484e-9a0f-4bbf1f33ec54">&lt;/em&gt;</ept>copy_status</source>
+          <target state="new">sys.dm<bpt id="05414af8-08c2-484e-9a0f-4bbf1f33ec54">&lt;em&gt;</bpt>continuous<ept id="05414af8-08c2-484e-9a0f-4bbf1f33ec54">&lt;/em&gt;</ept>copy_status</target>
+        </trans-unit>
+        <trans-unit id="608409ff-9b5a-4aa2-b409-c28da2381dd6" xml:space="preserve">
+          <source>[sys.dm<bpt id="86def928-ef90-45da-a300-dc5341e060d2">&lt;em&gt;</bpt>database<ept id="86def928-ef90-45da-a300-dc5341e060d2">&lt;/em&gt;</ept>copies](http://msdn.microsoft.com/library/azure/ff951634.aspx)</source>
+          <target state="new">[sys.dm<bpt id="86def928-ef90-45da-a300-dc5341e060d2">&lt;em&gt;</bpt>database<ept id="86def928-ef90-45da-a300-dc5341e060d2">&lt;/em&gt;</ept>copies](http://msdn.microsoft.com/library/azure/ff951634.aspx)</target>
+        </trans-unit>
+        <trans-unit id="1d6056b2-36d8-4521-b250-68ffc73d68e1" xml:space="preserve">
+          <source>sys.dm<bpt id="d97f87ab-0c20-4a6b-9042-1034d8a16f47">&lt;em&gt;</bpt>db<ept id="d97f87ab-0c20-4a6b-9042-1034d8a16f47">&lt;/em&gt;</ept>objects<bpt id="ea47dd15-5682-4458-969b-1100b3230918">&lt;em&gt;</bpt>impacted<ept id="ea47dd15-5682-4458-969b-1100b3230918">&lt;/em&gt;</ept>on<bpt id="86f1ffd6-75c7-40ae-bd6f-81dcc5ec3eaa">&lt;em&gt;</bpt>version<ept id="86f1ffd6-75c7-40ae-bd6f-81dcc5ec3eaa">&lt;/em&gt;</ept>change</source>
+          <target state="new">sys.dm<bpt id="d97f87ab-0c20-4a6b-9042-1034d8a16f47">&lt;em&gt;</bpt>db<ept id="d97f87ab-0c20-4a6b-9042-1034d8a16f47">&lt;/em&gt;</ept>objects<bpt id="ea47dd15-5682-4458-969b-1100b3230918">&lt;em&gt;</bpt>impacted<ept id="ea47dd15-5682-4458-969b-1100b3230918">&lt;/em&gt;</ept>on<bpt id="86f1ffd6-75c7-40ae-bd6f-81dcc5ec3eaa">&lt;em&gt;</bpt>version<ept id="86f1ffd6-75c7-40ae-bd6f-81dcc5ec3eaa">&lt;/em&gt;</ept>change</target>
+        </trans-unit>
+        <trans-unit id="149e7406-3288-49f9-b9a7-e863b252c233" xml:space="preserve">
+          <source>sys.dm<bpt id="1ece8e37-f586-4a8a-8836-3117d973e68b">&lt;em&gt;</bpt>db<ept id="1ece8e37-f586-4a8a-8836-3117d973e68b">&lt;/em&gt;</ept>resource_stats</source>
+          <target state="new">sys.dm<bpt id="1ece8e37-f586-4a8a-8836-3117d973e68b">&lt;em&gt;</bpt>db<ept id="1ece8e37-f586-4a8a-8836-3117d973e68b">&lt;/em&gt;</ept>resource_stats</target>
+        </trans-unit>
+        <trans-unit id="9d71987f-a410-474f-8cb2-f3939c609434" xml:space="preserve">
+          <source>sys.dm<bpt id="8265f31c-2124-45c3-9e5f-72ff91111c86">&lt;em&gt;</bpt>db<ept id="8265f31c-2124-45c3-9e5f-72ff91111c86">&lt;/em&gt;</ept>wait_stats</source>
+          <target state="new">sys.dm<bpt id="8265f31c-2124-45c3-9e5f-72ff91111c86">&lt;em&gt;</bpt>db<ept id="8265f31c-2124-45c3-9e5f-72ff91111c86">&lt;/em&gt;</ept>wait_stats</target>
+        </trans-unit>
+        <trans-unit id="6ec81fc6-7a1c-44cf-bc13-e845969b3ad4" xml:space="preserve">
+          <source>[sys.dm<bpt id="a4846c7f-641b-4bd4-a2bc-9d4dce960dca">&lt;em&gt;</bpt>operation<ept id="a4846c7f-641b-4bd4-a2bc-9d4dce960dca">&lt;/em&gt;</ept>status](http://msdn.microsoft.com/library/azure/jj126282.aspx)</source>
+          <target state="new">[sys.dm<bpt id="a4846c7f-641b-4bd4-a2bc-9d4dce960dca">&lt;em&gt;</bpt>operation<ept id="a4846c7f-641b-4bd4-a2bc-9d4dce960dca">&lt;/em&gt;</ept>status](http://msdn.microsoft.com/library/azure/jj126282.aspx)</target>
+        </trans-unit>
+        <trans-unit id="56d2cdb6-20c4-4224-8d8c-96516daf0b76" xml:space="preserve">
+          <source>These are links to the SQL Server Information Schema views available in SQL Server PDW.</source>
+          <target state="new">These are links to the SQL Server Information Schema views available in SQL Server PDW.</target>
+        </trans-unit>
+        <trans-unit id="13ccce9c-1864-4ed3-b763-e87a9a320ecb" xml:space="preserve">
+          <source>All of the INFORMATION_SCHEMA views that you would expect to see in SQL Server are available in SQL Server PDW.</source>
+          <target state="new">All of the INFORMATION_SCHEMA views that you would expect to see in SQL Server are available in SQL Server PDW.</target>
+        </trans-unit>
+        <trans-unit id="98433d0d-421e-4851-aa4e-bc878a979afb" xml:space="preserve">
+          <source><bpt id="b5908612-697e-4744-8eaa-bce1d60359ee">&lt;linkText&gt;</bpt>CHECK_CONSTRAINTS (Transact-SQL)<ept id="b5908612-697e-4744-8eaa-bce1d60359ee">&lt;/linkText&gt;</ept><bpt id="b5908612-697e-4744-8eaa-bce1d60359ee">&lt;title&gt;</bpt><ept id="b5908612-697e-4744-8eaa-bce1d60359ee">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b5908612-697e-4744-8eaa-bce1d60359ee">&lt;linkText&gt;</bpt>CHECK_CONSTRAINTS (Transact-SQL)<ept id="b5908612-697e-4744-8eaa-bce1d60359ee">&lt;/linkText&gt;</ept><bpt id="b5908612-697e-4744-8eaa-bce1d60359ee">&lt;title&gt;</bpt><ept id="b5908612-697e-4744-8eaa-bce1d60359ee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74637bbb-750f-4420-94f4-a7da4f1bb871" xml:space="preserve">
+          <source>[COLUMN<bpt id="5ebf01c6-20bb-448d-bf2f-f74fef93eddf">&lt;em&gt;</bpt>DOMAIN<ept id="5ebf01c6-20bb-448d-bf2f-f74fef93eddf">&lt;/em&gt;</ept>USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms189447.aspx)</source>
+          <target state="new">[COLUMN<bpt id="5ebf01c6-20bb-448d-bf2f-f74fef93eddf">&lt;em&gt;</bpt>DOMAIN<ept id="5ebf01c6-20bb-448d-bf2f-f74fef93eddf">&lt;/em&gt;</ept>USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms189447.aspx)</target>
+        </trans-unit>
+        <trans-unit id="5d4f900a-5819-4938-b6ea-c547a59d6d66" xml:space="preserve">
+          <source><bpt id="fc6ef1ac-df4c-4017-b58a-855e202a7a09">&lt;linkText&gt;</bpt>COLUMN_PRIVILEGES (Transact-SQL)<ept id="fc6ef1ac-df4c-4017-b58a-855e202a7a09">&lt;/linkText&gt;</ept><bpt id="fc6ef1ac-df4c-4017-b58a-855e202a7a09">&lt;title&gt;</bpt><ept id="fc6ef1ac-df4c-4017-b58a-855e202a7a09">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fc6ef1ac-df4c-4017-b58a-855e202a7a09">&lt;linkText&gt;</bpt>COLUMN_PRIVILEGES (Transact-SQL)<ept id="fc6ef1ac-df4c-4017-b58a-855e202a7a09">&lt;/linkText&gt;</ept><bpt id="fc6ef1ac-df4c-4017-b58a-855e202a7a09">&lt;title&gt;</bpt><ept id="fc6ef1ac-df4c-4017-b58a-855e202a7a09">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="358c9e5d-3ac3-4848-9829-8ab289938d5a" xml:space="preserve">
+          <source><bpt id="430eb177-29b2-4c7f-b709-53292623d889">&lt;linkText&gt;</bpt>COLUMNS (Transact-SQL)<ept id="430eb177-29b2-4c7f-b709-53292623d889">&lt;/linkText&gt;</ept><bpt id="430eb177-29b2-4c7f-b709-53292623d889">&lt;title&gt;</bpt><ept id="430eb177-29b2-4c7f-b709-53292623d889">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="430eb177-29b2-4c7f-b709-53292623d889">&lt;linkText&gt;</bpt>COLUMNS (Transact-SQL)<ept id="430eb177-29b2-4c7f-b709-53292623d889">&lt;/linkText&gt;</ept><bpt id="430eb177-29b2-4c7f-b709-53292623d889">&lt;title&gt;</bpt><ept id="430eb177-29b2-4c7f-b709-53292623d889">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27425ff1-d3b3-4a2c-869e-16109fca7310" xml:space="preserve">
+          <source><bpt id="e0192621-b6e7-48d4-9dd0-8b65df86b581">&lt;linkText&gt;</bpt>CONSTRAINT COLUMN USAGE (Transact-SQL)<ept id="e0192621-b6e7-48d4-9dd0-8b65df86b581">&lt;/linkText&gt;</ept><bpt id="e0192621-b6e7-48d4-9dd0-8b65df86b581">&lt;title&gt;</bpt><ept id="e0192621-b6e7-48d4-9dd0-8b65df86b581">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e0192621-b6e7-48d4-9dd0-8b65df86b581">&lt;linkText&gt;</bpt>CONSTRAINT COLUMN USAGE (Transact-SQL)<ept id="e0192621-b6e7-48d4-9dd0-8b65df86b581">&lt;/linkText&gt;</ept><bpt id="e0192621-b6e7-48d4-9dd0-8b65df86b581">&lt;title&gt;</bpt><ept id="e0192621-b6e7-48d4-9dd0-8b65df86b581">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82293a0b-e536-4327-8cc4-37c19504dc2b" xml:space="preserve">
+          <source>[CONSTRAINT<bpt id="de0a5ad8-f934-4f7c-aec6-0fb8f20a25a4">&lt;em&gt;</bpt>TABLE<ept id="de0a5ad8-f934-4f7c-aec6-0fb8f20a25a4">&lt;/em&gt;</ept>USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms179883.aspx)</source>
+          <target state="new">[CONSTRAINT<bpt id="de0a5ad8-f934-4f7c-aec6-0fb8f20a25a4">&lt;em&gt;</bpt>TABLE<ept id="de0a5ad8-f934-4f7c-aec6-0fb8f20a25a4">&lt;/em&gt;</ept>USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms179883.aspx)</target>
+        </trans-unit>
+        <trans-unit id="56ddb025-26b9-418e-9fb6-2f3633e621f5" xml:space="preserve">
+          <source><bpt id="78657a73-4430-4cbb-bf56-c18e0fc6f1a9">&lt;linkText&gt;</bpt>DOMAINS (Transact-SQL)<ept id="78657a73-4430-4cbb-bf56-c18e0fc6f1a9">&lt;/linkText&gt;</ept><bpt id="78657a73-4430-4cbb-bf56-c18e0fc6f1a9">&lt;title&gt;</bpt><ept id="78657a73-4430-4cbb-bf56-c18e0fc6f1a9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="78657a73-4430-4cbb-bf56-c18e0fc6f1a9">&lt;linkText&gt;</bpt>DOMAINS (Transact-SQL)<ept id="78657a73-4430-4cbb-bf56-c18e0fc6f1a9">&lt;/linkText&gt;</ept><bpt id="78657a73-4430-4cbb-bf56-c18e0fc6f1a9">&lt;title&gt;</bpt><ept id="78657a73-4430-4cbb-bf56-c18e0fc6f1a9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cebfb826-1a0b-44a4-b9af-ff1264aeaf8c" xml:space="preserve">
+          <source>[KEY<bpt id="493f8837-1321-453b-87c7-d1f392af89ff">&lt;em&gt;</bpt>COLUMN<ept id="493f8837-1321-453b-87c7-d1f392af89ff">&lt;/em&gt;</ept>USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms189789.aspx)</source>
+          <target state="new">[KEY<bpt id="493f8837-1321-453b-87c7-d1f392af89ff">&lt;em&gt;</bpt>COLUMN<ept id="493f8837-1321-453b-87c7-d1f392af89ff">&lt;/em&gt;</ept>USAGE (Transact-SQL)](http://msdn.microsoft.com/library/ms189789.aspx)</target>
+        </trans-unit>
+        <trans-unit id="c435e3a0-69ba-4d13-9bd6-8cf21b508141" xml:space="preserve">
+          <source><bpt id="1697f337-058a-49db-a20c-557f50487277">&lt;linkText&gt;</bpt>PARAMETERS (Transact-SQL)<ept id="1697f337-058a-49db-a20c-557f50487277">&lt;/linkText&gt;</ept><bpt id="1697f337-058a-49db-a20c-557f50487277">&lt;title&gt;</bpt><ept id="1697f337-058a-49db-a20c-557f50487277">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1697f337-058a-49db-a20c-557f50487277">&lt;linkText&gt;</bpt>PARAMETERS (Transact-SQL)<ept id="1697f337-058a-49db-a20c-557f50487277">&lt;/linkText&gt;</ept><bpt id="1697f337-058a-49db-a20c-557f50487277">&lt;title&gt;</bpt><ept id="1697f337-058a-49db-a20c-557f50487277">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5994ae33-ee3e-45d6-b93a-79c831f89c31" xml:space="preserve">
+          <source><bpt id="d8c4bc67-4267-4294-8851-a5d1c11ef2da">&lt;linkText&gt;</bpt>REFERENTIAL CONSTRAINTS (Transact-SQL)<ept id="d8c4bc67-4267-4294-8851-a5d1c11ef2da">&lt;/linkText&gt;</ept><bpt id="d8c4bc67-4267-4294-8851-a5d1c11ef2da">&lt;title&gt;</bpt><ept id="d8c4bc67-4267-4294-8851-a5d1c11ef2da">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d8c4bc67-4267-4294-8851-a5d1c11ef2da">&lt;linkText&gt;</bpt>REFERENTIAL CONSTRAINTS (Transact-SQL)<ept id="d8c4bc67-4267-4294-8851-a5d1c11ef2da">&lt;/linkText&gt;</ept><bpt id="d8c4bc67-4267-4294-8851-a5d1c11ef2da">&lt;title&gt;</bpt><ept id="d8c4bc67-4267-4294-8851-a5d1c11ef2da">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebd0bd80-3884-478d-a554-780fd322f62d" xml:space="preserve">
+          <source><bpt id="abc9b0e2-15d7-4cf2-adf2-acd7615fcb88">&lt;linkText&gt;</bpt>ROUTINE COLUMNS (Transact-SQL)<ept id="abc9b0e2-15d7-4cf2-adf2-acd7615fcb88">&lt;/linkText&gt;</ept><bpt id="abc9b0e2-15d7-4cf2-adf2-acd7615fcb88">&lt;title&gt;</bpt><ept id="abc9b0e2-15d7-4cf2-adf2-acd7615fcb88">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="abc9b0e2-15d7-4cf2-adf2-acd7615fcb88">&lt;linkText&gt;</bpt>ROUTINE COLUMNS (Transact-SQL)<ept id="abc9b0e2-15d7-4cf2-adf2-acd7615fcb88">&lt;/linkText&gt;</ept><bpt id="abc9b0e2-15d7-4cf2-adf2-acd7615fcb88">&lt;title&gt;</bpt><ept id="abc9b0e2-15d7-4cf2-adf2-acd7615fcb88">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc662278-bb46-48f6-ba12-827f552e6836" xml:space="preserve">
+          <source><bpt id="044e0bee-2034-4fdd-829a-8231867debb6">&lt;linkText&gt;</bpt>ROUTINES (Transact-SQL)<ept id="044e0bee-2034-4fdd-829a-8231867debb6">&lt;/linkText&gt;</ept><bpt id="044e0bee-2034-4fdd-829a-8231867debb6">&lt;title&gt;</bpt><ept id="044e0bee-2034-4fdd-829a-8231867debb6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="044e0bee-2034-4fdd-829a-8231867debb6">&lt;linkText&gt;</bpt>ROUTINES (Transact-SQL)<ept id="044e0bee-2034-4fdd-829a-8231867debb6">&lt;/linkText&gt;</ept><bpt id="044e0bee-2034-4fdd-829a-8231867debb6">&lt;title&gt;</bpt><ept id="044e0bee-2034-4fdd-829a-8231867debb6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71bb2dd2-69cc-41f1-b7b3-9c9e1a7bfa19" xml:space="preserve">
+          <source><bpt id="61397a39-a3f0-4733-94e3-41118886d4be">&lt;linkText&gt;</bpt>SCHEMATA (Transact-SQL)<ept id="61397a39-a3f0-4733-94e3-41118886d4be">&lt;/linkText&gt;</ept><bpt id="61397a39-a3f0-4733-94e3-41118886d4be">&lt;title&gt;</bpt><ept id="61397a39-a3f0-4733-94e3-41118886d4be">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="61397a39-a3f0-4733-94e3-41118886d4be">&lt;linkText&gt;</bpt>SCHEMATA (Transact-SQL)<ept id="61397a39-a3f0-4733-94e3-41118886d4be">&lt;/linkText&gt;</ept><bpt id="61397a39-a3f0-4733-94e3-41118886d4be">&lt;title&gt;</bpt><ept id="61397a39-a3f0-4733-94e3-41118886d4be">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a21bdd80-430b-4729-b3f6-7ed9824c420a" xml:space="preserve">
+          <source><bpt id="3584bd5a-d150-445e-a14c-9138b8f8123f">&lt;linkText&gt;</bpt>TABLE CONSTRAINTS (Transact-SQL)<ept id="3584bd5a-d150-445e-a14c-9138b8f8123f">&lt;/linkText&gt;</ept><bpt id="3584bd5a-d150-445e-a14c-9138b8f8123f">&lt;title&gt;</bpt><ept id="3584bd5a-d150-445e-a14c-9138b8f8123f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3584bd5a-d150-445e-a14c-9138b8f8123f">&lt;linkText&gt;</bpt>TABLE CONSTRAINTS (Transact-SQL)<ept id="3584bd5a-d150-445e-a14c-9138b8f8123f">&lt;/linkText&gt;</ept><bpt id="3584bd5a-d150-445e-a14c-9138b8f8123f">&lt;title&gt;</bpt><ept id="3584bd5a-d150-445e-a14c-9138b8f8123f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3433ce4-4759-4418-872b-4f315bba44b4" xml:space="preserve">
+          <source><bpt id="a656b2de-8eb3-4e32-aa43-eea30806c7ea">&lt;linkText&gt;</bpt>TABLE PRIVILEGES (Transact-SQL)<ept id="a656b2de-8eb3-4e32-aa43-eea30806c7ea">&lt;/linkText&gt;</ept><bpt id="a656b2de-8eb3-4e32-aa43-eea30806c7ea">&lt;title&gt;</bpt><ept id="a656b2de-8eb3-4e32-aa43-eea30806c7ea">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a656b2de-8eb3-4e32-aa43-eea30806c7ea">&lt;linkText&gt;</bpt>TABLE PRIVILEGES (Transact-SQL)<ept id="a656b2de-8eb3-4e32-aa43-eea30806c7ea">&lt;/linkText&gt;</ept><bpt id="a656b2de-8eb3-4e32-aa43-eea30806c7ea">&lt;title&gt;</bpt><ept id="a656b2de-8eb3-4e32-aa43-eea30806c7ea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba497349-35cd-4cd5-838e-1021dedd83ec" xml:space="preserve">
+          <source><bpt id="45796c88-4161-4cee-b76b-e7d35c13f9c5">&lt;linkText&gt;</bpt>TABLES (Transact-SQL)<ept id="45796c88-4161-4cee-b76b-e7d35c13f9c5">&lt;/linkText&gt;</ept><bpt id="45796c88-4161-4cee-b76b-e7d35c13f9c5">&lt;title&gt;</bpt><ept id="45796c88-4161-4cee-b76b-e7d35c13f9c5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="45796c88-4161-4cee-b76b-e7d35c13f9c5">&lt;linkText&gt;</bpt>TABLES (Transact-SQL)<ept id="45796c88-4161-4cee-b76b-e7d35c13f9c5">&lt;/linkText&gt;</ept><bpt id="45796c88-4161-4cee-b76b-e7d35c13f9c5">&lt;title&gt;</bpt><ept id="45796c88-4161-4cee-b76b-e7d35c13f9c5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93b45307-673c-4285-b6e5-aae14e140383" xml:space="preserve">
+          <source><bpt id="8cd0f48f-51a9-4b90-b349-b0b4ce898e5b">&lt;linkText&gt;</bpt>VIEW COLUMN USAGE (Transact-SQL)<ept id="8cd0f48f-51a9-4b90-b349-b0b4ce898e5b">&lt;/linkText&gt;</ept><bpt id="8cd0f48f-51a9-4b90-b349-b0b4ce898e5b">&lt;title&gt;</bpt><ept id="8cd0f48f-51a9-4b90-b349-b0b4ce898e5b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8cd0f48f-51a9-4b90-b349-b0b4ce898e5b">&lt;linkText&gt;</bpt>VIEW COLUMN USAGE (Transact-SQL)<ept id="8cd0f48f-51a9-4b90-b349-b0b4ce898e5b">&lt;/linkText&gt;</ept><bpt id="8cd0f48f-51a9-4b90-b349-b0b4ce898e5b">&lt;title&gt;</bpt><ept id="8cd0f48f-51a9-4b90-b349-b0b4ce898e5b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b559bd8-2ae0-4f60-b53f-e8212e9dc287" xml:space="preserve">
+          <source><bpt id="9e483b2f-265b-431e-925e-0a1f0af9998c">&lt;linkText&gt;</bpt>VIEW TABLE USAGE (Transact-SQL)<ept id="9e483b2f-265b-431e-925e-0a1f0af9998c">&lt;/linkText&gt;</ept><bpt id="9e483b2f-265b-431e-925e-0a1f0af9998c">&lt;title&gt;</bpt><ept id="9e483b2f-265b-431e-925e-0a1f0af9998c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9e483b2f-265b-431e-925e-0a1f0af9998c">&lt;linkText&gt;</bpt>VIEW TABLE USAGE (Transact-SQL)<ept id="9e483b2f-265b-431e-925e-0a1f0af9998c">&lt;/linkText&gt;</ept><bpt id="9e483b2f-265b-431e-925e-0a1f0af9998c">&lt;title&gt;</bpt><ept id="9e483b2f-265b-431e-925e-0a1f0af9998c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1f9022d-d1be-4f30-ae1c-47044b591623" xml:space="preserve">
+          <source><bpt id="322fc43e-ad9c-4fc5-988c-dd1608b974b8">&lt;linkText&gt;</bpt>VIEWS (Transact-SQL)<ept id="322fc43e-ad9c-4fc5-988c-dd1608b974b8">&lt;/linkText&gt;</ept><bpt id="322fc43e-ad9c-4fc5-988c-dd1608b974b8">&lt;title&gt;</bpt><ept id="322fc43e-ad9c-4fc5-988c-dd1608b974b8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="322fc43e-ad9c-4fc5-988c-dd1608b974b8">&lt;linkText&gt;</bpt>VIEWS (Transact-SQL)<ept id="322fc43e-ad9c-4fc5-988c-dd1608b974b8">&lt;/linkText&gt;</ept><bpt id="322fc43e-ad9c-4fc5-988c-dd1608b974b8">&lt;title&gt;</bpt><ept id="322fc43e-ad9c-4fc5-988c-dd1608b974b8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e192026-8436-40b5-b7be-6699d4495545" xml:space="preserve">
+          <source>For more reference information, see <bpt id="2851fc76-1426-48e2-af66-ae07934371d7">&lt;linkText&gt;</bpt>SQL Data Warehouse reference overview<ept id="2851fc76-1426-48e2-af66-ae07934371d7">&lt;/linkText&gt;</ept><bpt id="2851fc76-1426-48e2-af66-ae07934371d7">&lt;title&gt;</bpt><ept id="2851fc76-1426-48e2-af66-ae07934371d7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more reference information, see <bpt id="2851fc76-1426-48e2-af66-ae07934371d7">&lt;linkText&gt;</bpt>SQL Data Warehouse reference overview<ept id="2851fc76-1426-48e2-af66-ae07934371d7">&lt;/linkText&gt;</ept><bpt id="2851fc76-1426-48e2-af66-ae07934371d7">&lt;title&gt;</bpt><ept id="2851fc76-1426-48e2-af66-ae07934371d7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dbc9a7bd-4aa5-4fb3-ac29-882b34865dec" xml:space="preserve">
+          <source>sql-data-warehouse-overview-reference.md</source>
+          <target state="new">sql-data-warehouse-overview-reference.md</target>
+        </trans-unit>
+      </group>
+      <group id="84c04f8d-2ad4-49bc-bdee-42e8abac8e11" />
+    </body>
+  </file>
+</xliff>

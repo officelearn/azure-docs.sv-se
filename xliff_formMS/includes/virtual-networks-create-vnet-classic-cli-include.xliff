@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="befa47ad-3c17-48c6-ab1d-a1fb972df31b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="befa47ad-3c17-48c6-ab1d-a1fb972df31b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9b8f8f1a-c2a4-477a-84f5-78bdce7b4399">
+        <trans-unit id="3b7640c7-f4d0-451f-ae3f-74e217820021" xml:space="preserve">
+          <source>You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX.</source>
+          <target state="new">You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX.</target>
+        </trans-unit>
+        <trans-unit id="3f7f231b-5f58-4a0f-bdee-41642b46820e" xml:space="preserve">
+          <source>To create a VNet by using the Azure CLI, follow the steps below.</source>
+          <target state="new">To create a VNet by using the Azure CLI, follow the steps below.</target>
+        </trans-unit>
+        <trans-unit id="acc69179-d5b6-40ac-a6e1-30c0c16c482c" xml:space="preserve">
+          <source>If you have never used Azure CLI, see <bpt id="50e2f0c5-cc29-46db-a039-f2b0911a0906">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="50e2f0c5-cc29-46db-a039-f2b0911a0906">&lt;/linkText&gt;</ept><bpt id="50e2f0c5-cc29-46db-a039-f2b0911a0906">&lt;title&gt;</bpt><ept id="50e2f0c5-cc29-46db-a039-f2b0911a0906">&lt;/title&gt;</ept> and follow the instructions up to the point where you select your Azure account and subscription.</source>
+          <target state="new">If you have never used Azure CLI, see <bpt id="50e2f0c5-cc29-46db-a039-f2b0911a0906">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="50e2f0c5-cc29-46db-a039-f2b0911a0906">&lt;/linkText&gt;</ept><bpt id="50e2f0c5-cc29-46db-a039-f2b0911a0906">&lt;title&gt;</bpt><ept id="50e2f0c5-cc29-46db-a039-f2b0911a0906">&lt;/title&gt;</ept> and follow the instructions up to the point where you select your Azure account and subscription.</target>
+        </trans-unit>
+        <trans-unit id="e8b11b30-7495-45bc-9aef-54d1f67997cb" xml:space="preserve">
+          <source>Run the <bpt id="9f16dfc9-27fb-4dc7-9d32-abce37b2b747">&lt;strong&gt;</bpt>azure network vnet create<ept id="9f16dfc9-27fb-4dc7-9d32-abce37b2b747">&lt;/strong&gt;</ept> command to create a VNet and a subnet, as shown below.</source>
+          <target state="new">Run the <bpt id="9f16dfc9-27fb-4dc7-9d32-abce37b2b747">&lt;strong&gt;</bpt>azure network vnet create<ept id="9f16dfc9-27fb-4dc7-9d32-abce37b2b747">&lt;/strong&gt;</ept> command to create a VNet and a subnet, as shown below.</target>
+        </trans-unit>
+        <trans-unit id="785a3618-4544-4813-9a2c-8419a99675e9" xml:space="preserve">
+          <source>Notice the output from the CLI command.</source>
+          <target state="new">Notice the output from the CLI command.</target>
+        </trans-unit>
+        <trans-unit id="9c5ff4f0-6425-4fab-962e-96c673ced566" xml:space="preserve">
+          <source>The list shown after the output explains the parameters used.</source>
+          <target state="new">The list shown after the output explains the parameters used.</target>
+        </trans-unit>
+        <trans-unit id="1177c8ac-38ba-4540-84dc-7b676782c98e" xml:space="preserve">
+          <source><bpt id="00c5629b-11a5-49e7-acca-9954e294c078">&lt;strong&gt;</bpt>--vnet<ept id="00c5629b-11a5-49e7-acca-9954e294c078">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="00c5629b-11a5-49e7-acca-9954e294c078">&lt;strong&gt;</bpt>--vnet<ept id="00c5629b-11a5-49e7-acca-9954e294c078">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ebbdeb6-437a-4d42-b015-f34a0fb69046" xml:space="preserve">
+          <source>Name of the VNet to be created.</source>
+          <target state="new">Name of the VNet to be created.</target>
+        </trans-unit>
+        <trans-unit id="08b8b83b-3316-488a-9197-bfcae43a7055" xml:space="preserve">
+          <source>For our scenario, <bpt id="38530e14-a049-4282-a28f-f615837b2c66">&lt;em&gt;</bpt>TestVNet<ept id="38530e14-a049-4282-a28f-f615837b2c66">&lt;/em&gt;</ept></source>
+          <target state="new">For our scenario, <bpt id="38530e14-a049-4282-a28f-f615837b2c66">&lt;em&gt;</bpt>TestVNet<ept id="38530e14-a049-4282-a28f-f615837b2c66">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ec31e7b-5c6c-41bb-bc04-5500aa68abc8" xml:space="preserve">
+          <source><bpt id="25f98f7e-ccce-460a-b2ca-da2679447294">&lt;strong&gt;</bpt>-e (or --address-space)<ept id="25f98f7e-ccce-460a-b2ca-da2679447294">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="25f98f7e-ccce-460a-b2ca-da2679447294">&lt;strong&gt;</bpt>-e (or --address-space)<ept id="25f98f7e-ccce-460a-b2ca-da2679447294">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1d19635-489e-4e56-8743-648c83c9048a" xml:space="preserve">
+          <source>VNet address space.</source>
+          <target state="new">VNet address space.</target>
+        </trans-unit>
+        <trans-unit id="d6d5b9cf-a021-4e3c-a2c1-16996e1f040f" xml:space="preserve">
+          <source>For our scenario, <bpt id="ebe72695-5888-4966-a1ea-c39c3afb160a">&lt;em&gt;</bpt>192.168.0.0<ept id="ebe72695-5888-4966-a1ea-c39c3afb160a">&lt;/em&gt;</ept></source>
+          <target state="new">For our scenario, <bpt id="ebe72695-5888-4966-a1ea-c39c3afb160a">&lt;em&gt;</bpt>192.168.0.0<ept id="ebe72695-5888-4966-a1ea-c39c3afb160a">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7dd750c9-bd3e-45a7-ad4f-56d03a3e1c89" xml:space="preserve">
+          <source><bpt id="ebe7ac98-6737-44a7-909d-cd3d7a17f56e">&lt;strong&gt;</bpt>-i (or -cidr)<ept id="ebe7ac98-6737-44a7-909d-cd3d7a17f56e">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ebe7ac98-6737-44a7-909d-cd3d7a17f56e">&lt;strong&gt;</bpt>-i (or -cidr)<ept id="ebe7ac98-6737-44a7-909d-cd3d7a17f56e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b85a988f-17ab-4b7b-b718-08b5f29d9300" xml:space="preserve">
+          <source>Network mask in CIDR format.</source>
+          <target state="new">Network mask in CIDR format.</target>
+        </trans-unit>
+        <trans-unit id="fc116ccb-f31c-4c9c-ab89-c5a85c716d55" xml:space="preserve">
+          <source>For our scenario, <bpt id="187017d6-2ace-46af-b3c4-0b1e9300beac">&lt;em&gt;</bpt>16<ept id="187017d6-2ace-46af-b3c4-0b1e9300beac">&lt;/em&gt;</ept>.</source>
+          <target state="new">For our scenario, <bpt id="187017d6-2ace-46af-b3c4-0b1e9300beac">&lt;em&gt;</bpt>16<ept id="187017d6-2ace-46af-b3c4-0b1e9300beac">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2705362f-7f31-41cb-a3eb-ba2dafaeee21" xml:space="preserve">
+          <source><bpt id="215f41f2-48f4-4320-bc6f-84cd9dab6247">&lt;strong&gt;</bpt>-n (or --subnet-name<ept id="215f41f2-48f4-4320-bc6f-84cd9dab6247">&lt;/strong&gt;</ept>).</source>
+          <target state="new"><bpt id="215f41f2-48f4-4320-bc6f-84cd9dab6247">&lt;strong&gt;</bpt>-n (or --subnet-name<ept id="215f41f2-48f4-4320-bc6f-84cd9dab6247">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="d0d7b147-070e-4080-af47-2fc1fbac0086" xml:space="preserve">
+          <source>Name of the first subnet.</source>
+          <target state="new">Name of the first subnet.</target>
+        </trans-unit>
+        <trans-unit id="9db77a3a-c23a-46cb-96b0-c98b8984cb51" xml:space="preserve">
+          <source>For our scenario, <bpt id="72c7801f-2cde-41c0-b3c7-861f6d725bee">&lt;em&gt;</bpt>FrontEnd<ept id="72c7801f-2cde-41c0-b3c7-861f6d725bee">&lt;/em&gt;</ept>.</source>
+          <target state="new">For our scenario, <bpt id="72c7801f-2cde-41c0-b3c7-861f6d725bee">&lt;em&gt;</bpt>FrontEnd<ept id="72c7801f-2cde-41c0-b3c7-861f6d725bee">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c25a2ee-132f-45f6-b643-c81ffdebe0a2" xml:space="preserve">
+          <source><bpt id="132f5ec0-7ba1-4c5a-9bbd-0698f26e449b">&lt;strong&gt;</bpt>-p (or --subnet-start-ip)<ept id="132f5ec0-7ba1-4c5a-9bbd-0698f26e449b">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="132f5ec0-7ba1-4c5a-9bbd-0698f26e449b">&lt;strong&gt;</bpt>-p (or --subnet-start-ip)<ept id="132f5ec0-7ba1-4c5a-9bbd-0698f26e449b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51c3c3da-d63e-4c3e-b58b-1f9b673731e3" xml:space="preserve">
+          <source>Starting IP address for subnet, or subnet address space.</source>
+          <target state="new">Starting IP address for subnet, or subnet address space.</target>
+        </trans-unit>
+        <trans-unit id="3a23b0ed-9c58-4b26-bf57-f8cfcdc16494" xml:space="preserve">
+          <source>For our scenario, <bpt id="55b50fba-484a-49de-9466-6567c1a58c4f">&lt;em&gt;</bpt>192.168.1.0<ept id="55b50fba-484a-49de-9466-6567c1a58c4f">&lt;/em&gt;</ept>.</source>
+          <target state="new">For our scenario, <bpt id="55b50fba-484a-49de-9466-6567c1a58c4f">&lt;em&gt;</bpt>192.168.1.0<ept id="55b50fba-484a-49de-9466-6567c1a58c4f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c4f8048-0d26-440b-bd12-4ba2fdb4865a" xml:space="preserve">
+          <source><bpt id="3f13cc8a-47d4-4a39-a4c0-c1b29fa79da6">&lt;strong&gt;</bpt>-r (or --subnet-cidr)<ept id="3f13cc8a-47d4-4a39-a4c0-c1b29fa79da6">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3f13cc8a-47d4-4a39-a4c0-c1b29fa79da6">&lt;strong&gt;</bpt>-r (or --subnet-cidr)<ept id="3f13cc8a-47d4-4a39-a4c0-c1b29fa79da6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e25fb588-2d19-422d-a2ed-19fa71a17d4d" xml:space="preserve">
+          <source>Network mask in CIDR format for subnet.</source>
+          <target state="new">Network mask in CIDR format for subnet.</target>
+        </trans-unit>
+        <trans-unit id="e82f5f00-5483-4f84-8354-dedc9e577502" xml:space="preserve">
+          <source>For our scenario, <bpt id="25270657-1d9f-44bd-9e2b-f418a7418fec">&lt;em&gt;</bpt>24<ept id="25270657-1d9f-44bd-9e2b-f418a7418fec">&lt;/em&gt;</ept>.</source>
+          <target state="new">For our scenario, <bpt id="25270657-1d9f-44bd-9e2b-f418a7418fec">&lt;em&gt;</bpt>24<ept id="25270657-1d9f-44bd-9e2b-f418a7418fec">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6983922c-1504-4d05-8b3e-90d0dd0e94c5" xml:space="preserve">
+          <source><bpt id="b74af7ec-7a87-4488-b46c-fa2504a9e5bc">&lt;strong&gt;</bpt>-l (or --location)<ept id="b74af7ec-7a87-4488-b46c-fa2504a9e5bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="b74af7ec-7a87-4488-b46c-fa2504a9e5bc">&lt;strong&gt;</bpt>-l (or --location)<ept id="b74af7ec-7a87-4488-b46c-fa2504a9e5bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9d94fd6-079d-40d8-8c14-c95f8cde1945" xml:space="preserve">
+          <source>Azure region where the VNet will be created.</source>
+          <target state="new">Azure region where the VNet will be created.</target>
+        </trans-unit>
+        <trans-unit id="a4c22785-9d27-4143-a4c7-8600a2f9083a" xml:space="preserve">
+          <source>For our scenario, <bpt id="03e44ffb-ce7b-4d51-b049-96fdd366a855">&lt;em&gt;</bpt>Central US<ept id="03e44ffb-ce7b-4d51-b049-96fdd366a855">&lt;/em&gt;</ept>.</source>
+          <target state="new">For our scenario, <bpt id="03e44ffb-ce7b-4d51-b049-96fdd366a855">&lt;em&gt;</bpt>Central US<ept id="03e44ffb-ce7b-4d51-b049-96fdd366a855">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e806684-a9d8-43bd-9e8d-3764dbdd2767" xml:space="preserve">
+          <source>Run the <bpt id="72078531-d5a2-4f9f-bae1-bae636c5dc0e">&lt;strong&gt;</bpt>azure network vnet subnet create<ept id="72078531-d5a2-4f9f-bae1-bae636c5dc0e">&lt;/strong&gt;</ept> command to create a subnet as shown below.</source>
+          <target state="new">Run the <bpt id="72078531-d5a2-4f9f-bae1-bae636c5dc0e">&lt;strong&gt;</bpt>azure network vnet subnet create<ept id="72078531-d5a2-4f9f-bae1-bae636c5dc0e">&lt;/strong&gt;</ept> command to create a subnet as shown below.</target>
+        </trans-unit>
+        <trans-unit id="3a89ac30-b658-4033-8978-87142eaa28ec" xml:space="preserve">
+          <source>Notice the output of the command.</source>
+          <target state="new">Notice the output of the command.</target>
+        </trans-unit>
+        <trans-unit id="6b343ffe-e564-4686-99a5-91a7ae71d56a" xml:space="preserve">
+          <source>The list shown after the output explains the parameters used.</source>
+          <target state="new">The list shown after the output explains the parameters used.</target>
+        </trans-unit>
+        <trans-unit id="21944e6a-5010-47ba-8a82-a2f2c14cf3a1" xml:space="preserve">
+          <source><bpt id="a13bf91e-4d6c-4bbd-9dcc-67fa731ae389">&lt;strong&gt;</bpt>-t (or --vnet-name<ept id="a13bf91e-4d6c-4bbd-9dcc-67fa731ae389">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="a13bf91e-4d6c-4bbd-9dcc-67fa731ae389">&lt;strong&gt;</bpt>-t (or --vnet-name<ept id="a13bf91e-4d6c-4bbd-9dcc-67fa731ae389">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="45cb427a-8d56-4c31-aba3-8aecf5f24cef" xml:space="preserve">
+          <source>Name of the VNet where the subnet will be created.</source>
+          <target state="new">Name of the VNet where the subnet will be created.</target>
+        </trans-unit>
+        <trans-unit id="be3ae341-697d-430c-9177-2c69cb270978" xml:space="preserve">
+          <source>For our scenario, <bpt id="7d99f461-9f06-451e-9b7d-fc976227958e">&lt;em&gt;</bpt>TestVNet<ept id="7d99f461-9f06-451e-9b7d-fc976227958e">&lt;/em&gt;</ept>.</source>
+          <target state="new">For our scenario, <bpt id="7d99f461-9f06-451e-9b7d-fc976227958e">&lt;em&gt;</bpt>TestVNet<ept id="7d99f461-9f06-451e-9b7d-fc976227958e">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0066b869-630d-4a45-89d1-22be2956b2b0" xml:space="preserve">
+          <source><bpt id="c86b9925-e157-4545-9b52-580768783c66">&lt;strong&gt;</bpt>-n (or --name)<ept id="c86b9925-e157-4545-9b52-580768783c66">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="c86b9925-e157-4545-9b52-580768783c66">&lt;strong&gt;</bpt>-n (or --name)<ept id="c86b9925-e157-4545-9b52-580768783c66">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e67bae3-e501-49b1-9f19-b856be76b5ef" xml:space="preserve">
+          <source>Name of the new subnet.</source>
+          <target state="new">Name of the new subnet.</target>
+        </trans-unit>
+        <trans-unit id="a2d17da6-cd6a-44d6-b6ac-103d5e0e2306" xml:space="preserve">
+          <source>For our scenario, <bpt id="65c49e40-4033-4feb-a6ad-07bbf17cc38f">&lt;em&gt;</bpt>BackEnd<ept id="65c49e40-4033-4feb-a6ad-07bbf17cc38f">&lt;/em&gt;</ept>.</source>
+          <target state="new">For our scenario, <bpt id="65c49e40-4033-4feb-a6ad-07bbf17cc38f">&lt;em&gt;</bpt>BackEnd<ept id="65c49e40-4033-4feb-a6ad-07bbf17cc38f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65a10875-4819-4608-840b-6ea4277d5bd8" xml:space="preserve">
+          <source><bpt id="f567e8b1-aed2-4c3f-b572-04cc981a700f">&lt;strong&gt;</bpt>-a (or --address-prefix)<ept id="f567e8b1-aed2-4c3f-b572-04cc981a700f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f567e8b1-aed2-4c3f-b572-04cc981a700f">&lt;strong&gt;</bpt>-a (or --address-prefix)<ept id="f567e8b1-aed2-4c3f-b572-04cc981a700f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3aa2c099-cb18-4fac-8078-f07282dcd73d" xml:space="preserve">
+          <source>Subnet CIDR block.</source>
+          <target state="new">Subnet CIDR block.</target>
+        </trans-unit>
+        <trans-unit id="b1ccf91c-7ccd-4373-989c-18e183c93364" xml:space="preserve">
+          <source>Four our scenario, <bpt id="2ccf9a50-9202-4a04-83b4-cd00d98ca193">&lt;em&gt;</bpt>192.168.2.0/24<ept id="2ccf9a50-9202-4a04-83b4-cd00d98ca193">&lt;/em&gt;</ept>.</source>
+          <target state="new">Four our scenario, <bpt id="2ccf9a50-9202-4a04-83b4-cd00d98ca193">&lt;em&gt;</bpt>192.168.2.0/24<ept id="2ccf9a50-9202-4a04-83b4-cd00d98ca193">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff5713b8-ffad-4478-b8d7-0baaf2b0ee0c" xml:space="preserve">
+          <source>Run the <bpt id="2cd01e57-df29-49d0-987c-1a26c3a0587a">&lt;strong&gt;</bpt>azure network vnet show<ept id="2cd01e57-df29-49d0-987c-1a26c3a0587a">&lt;/strong&gt;</ept> command to view the properties of the new vnet, as shown below.</source>
+          <target state="new">Run the <bpt id="2cd01e57-df29-49d0-987c-1a26c3a0587a">&lt;strong&gt;</bpt>azure network vnet show<ept id="2cd01e57-df29-49d0-987c-1a26c3a0587a">&lt;/strong&gt;</ept> command to view the properties of the new vnet, as shown below.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

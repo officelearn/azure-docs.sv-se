@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5c76ac14-3090-4601-bfe4-cd6ce1f281dd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5c76ac14-3090-4601-bfe4-cd6ce1f281dd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e8940e3f-3e7a-4c21-9827-4447c447a20d">
+        <trans-unit id="443106ad-bedd-499d-91e8-57e38d410a43" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="02198e43-20c4-4b47-a46a-4531610370b5" xml:space="preserve">
+          <source>You can create a free trial account in just a couple of minutes.</source>
+          <target state="new">You can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="140f0936-f0bc-41bf-b724-baee9a1a41a6" xml:space="preserve">
+          <source>For details, see <bpt id="7274338c-d63c-414c-9261-770f7e14a44d">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="7274338c-d63c-414c-9261-770f7e14a44d">&lt;/linkText&gt;</ept><bpt id="7274338c-d63c-414c-9261-770f7e14a44d">&lt;title&gt;</bpt><ept id="7274338c-d63c-414c-9261-770f7e14a44d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="7274338c-d63c-414c-9261-770f7e14a44d">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="7274338c-d63c-414c-9261-770f7e14a44d">&lt;/linkText&gt;</ept><bpt id="7274338c-d63c-414c-9261-770f7e14a44d">&lt;title&gt;</bpt><ept id="7274338c-d63c-414c-9261-770f7e14a44d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

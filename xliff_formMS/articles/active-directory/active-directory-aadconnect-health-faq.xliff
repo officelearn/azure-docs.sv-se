@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="34e557d0-6609-498d-b38f-3159c9950ee7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="34e557d0-6609-498d-b38f-3159c9950ee7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9e7a67a7-6c76-4b43-b7ff-5a24d2ae64ec">
+        <trans-unit id="14da8b8a-b90e-4c7a-8c6d-85e18664e1d3" xml:space="preserve">
+          <source>Azure AD Connect Health FAQ</source>
+          <target state="new">Azure AD Connect Health FAQ</target>
+        </trans-unit>
+        <trans-unit id="c4c15452-67f7-40b4-a730-b08297fa03e4" xml:space="preserve">
+          <source>This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.</source>
+          <target state="new">This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.</target>
+        </trans-unit>
+        <trans-unit id="d5353002-9758-403c-b50f-4682debab730" xml:space="preserve">
+          <source>This FAQ answers questions about Azure AD Connect Health.</source>
+          <target state="new">This FAQ answers questions about Azure AD Connect Health.</target>
+        </trans-unit>
+        <trans-unit id="d12c571d-4a18-409e-9202-933c077b75cd" xml:space="preserve">
+          <source>This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.</source>
+          <target state="new">This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.</target>
+        </trans-unit>
+        <trans-unit id="e1dc20e0-6fff-4585-a5ba-fed23d5ae445" xml:space="preserve">
+          <source>**Q: I have several tenants in Azure Active Directory.</source>
+          <target state="new">**Q: I have several tenants in Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="8d3aec07-d109-4f6e-8fcb-7a142c56c139" xml:space="preserve">
+          <source>How do I switch to the one with Azure Active Directory Premium?**</source>
+          <target state="new">How do I switch to the one with Azure Active Directory Premium?**</target>
+        </trans-unit>
+        <trans-unit id="4a8bafa2-5825-422d-be27-b7a6c769a13f" xml:space="preserve">
+          <source>You can switch the Azure AD Tenant by selecting “Home” on the left navigation bar, followed by, selecting the currently logged in User Name on the top right corner and choosing the right tenant account.</source>
+          <target state="new">You can switch the Azure AD Tenant by selecting “Home” on the left navigation bar, followed by, selecting the currently logged in User Name on the top right corner and choosing the right tenant account.</target>
+        </trans-unit>
+        <trans-unit id="71a46dea-cd0c-405f-b020-6bc57339d275" xml:space="preserve">
+          <source>If the Tenant account is not listed here, select Sign out and then use the global tenant admin credentials of the Azure Active Directory Premium Tenant to log in.</source>
+          <target state="new">If the Tenant account is not listed here, select Sign out and then use the global tenant admin credentials of the Azure Active Directory Premium Tenant to log in.</target>
+        </trans-unit>
+        <trans-unit id="17e52e5a-b55b-41c4-8400-4cf648449d0b" xml:space="preserve">
+          <source><bpt id="b967baec-493f-46e2-9d90-ac023b1a08fc">&lt;strong&gt;</bpt>Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?<ept id="b967baec-493f-46e2-9d90-ac023b1a08fc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b967baec-493f-46e2-9d90-ac023b1a08fc">&lt;strong&gt;</bpt>Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?<ept id="b967baec-493f-46e2-9d90-ac023b1a08fc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43575ced-ea89-4e8b-a975-de02d0842c1b" xml:space="preserve">
+          <source>The impact of installing the Microsoft Identity Health Agent on the ADFS servers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.</source>
+          <target state="new">The impact of installing the Microsoft Identity Health Agent on the ADFS servers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.</target>
+        </trans-unit>
+        <trans-unit id="875198ee-b92b-4106-8402-bb58a85e31f3" xml:space="preserve">
+          <source>The numbers below are an approximation.</source>
+          <target state="new">The numbers below are an approximation.</target>
+        </trans-unit>
+        <trans-unit id="31eb85be-d801-4acd-a954-7f02b2fb7ed7" xml:space="preserve">
+          <source>CPU consumption: ~1% increase</source>
+          <target state="new">CPU consumption: ~1% increase</target>
+        </trans-unit>
+        <trans-unit id="e685f93d-ebd4-40e0-b746-a550894502d6" xml:space="preserve">
+          <source>Memory consumption: Up to 10 % of the total system memory</source>
+          <target state="new">Memory consumption: Up to 10 % of the total system memory</target>
+        </trans-unit>
+        <trans-unit id="e4072adc-3707-4534-9bd7-41a3d1c9e2f7" xml:space="preserve">
+          <source>Network Bandwidth Usage: ~1 MB / 1000 ADFS requests</source>
+          <target state="new">Network Bandwidth Usage: ~1 MB / 1000 ADFS requests</target>
+        </trans-unit>
+        <trans-unit id="322b6532-bdcc-4354-a1ed-0f942dbbd5a8" xml:space="preserve">
+          <source>In the event of the agent being unable to communicate to Azure, the agent will store the data locally, up to a maximum limit of 10 % of the total system memory.Once the agent reaches 10% of the total physical memory, if the agent has not been able to upload the data to the service, the new ADFS transactions will overwrite any “cached” transactions on a “least recently serviced” basis.</source>
+          <target state="new">In the event of the agent being unable to communicate to Azure, the agent will store the data locally, up to a maximum limit of 10 % of the total system memory.Once the agent reaches 10% of the total physical memory, if the agent has not been able to upload the data to the service, the new ADFS transactions will overwrite any “cached” transactions on a “least recently serviced” basis.</target>
+        </trans-unit>
+        <trans-unit id="52f3bae2-105c-4416-8bd3-5ee6ab9a2663" xml:space="preserve">
+          <source>Local buffer storage for AD Health Agent: ~20 MB</source>
+          <target state="new">Local buffer storage for AD Health Agent: ~20 MB</target>
+        </trans-unit>
+        <trans-unit id="176e765f-9539-433d-ad68-047089ab27c5" xml:space="preserve">
+          <source>Data Storage required for Audit Channel</source>
+          <target state="new">Data Storage required for Audit Channel</target>
+        </trans-unit>
+        <trans-unit id="0433c18e-a366-452b-b8cd-217cb5b295d7" xml:space="preserve">
+          <source>It is recommended that you provision a disk space of 1024 MB (1 GB) for the AD FS Audit Channel for AD Health Agents to process all the data.</source>
+          <target state="new">It is recommended that you provision a disk space of 1024 MB (1 GB) for the AD FS Audit Channel for AD Health Agents to process all the data.</target>
+        </trans-unit>
+        <trans-unit id="bcacf321-c8d0-484c-ae79-a37aa3f9e397" xml:space="preserve">
+          <source><bpt id="34e0c554-497f-49d7-9b71-e31bc2090909">&lt;strong&gt;</bpt>Q: Will I have to reboot my servers during the installation of the Azure AD Connect Health Agents?<ept id="34e0c554-497f-49d7-9b71-e31bc2090909">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="34e0c554-497f-49d7-9b71-e31bc2090909">&lt;strong&gt;</bpt>Q: Will I have to reboot my servers during the installation of the Azure AD Connect Health Agents?<ept id="34e0c554-497f-49d7-9b71-e31bc2090909">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53b64167-1c8c-485c-b0e9-34fe942f6a65" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="e2b206d1-283b-4b7b-814c-5c08c0cb960d" xml:space="preserve">
+          <source>The installation of the agents will not require you to reboot the server.</source>
+          <target state="new">The installation of the agents will not require you to reboot the server.</target>
+        </trans-unit>
+        <trans-unit id="bfa57e22-c4a4-4f31-ad1e-a17b4e8e3ddb" xml:space="preserve">
+          <source>However, installation of some of the prerequisite steps may require a reboot of the server.</source>
+          <target state="new">However, installation of some of the prerequisite steps may require a reboot of the server.</target>
+        </trans-unit>
+        <trans-unit id="148b2fb0-f29e-4bf1-af2f-702855897ec3" xml:space="preserve">
+          <source>For example, on Windows Server 2008 R2 the installation of .Net 4.5 Framework requires a server reboot.</source>
+          <target state="new">For example, on Windows Server 2008 R2 the installation of .Net 4.5 Framework requires a server reboot.</target>
+        </trans-unit>
+        <trans-unit id="f610699c-6596-4674-8c45-4d74f5f3a550" xml:space="preserve">
+          <source><bpt id="0887ea5f-4154-4828-af22-70c1a6323019">&lt;strong&gt;</bpt>Q: Does Azure AD Connect Health Services work through a pass-through http proxy?<ept id="0887ea5f-4154-4828-af22-70c1a6323019">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0887ea5f-4154-4828-af22-70c1a6323019">&lt;strong&gt;</bpt>Q: Does Azure AD Connect Health Services work through a pass-through http proxy?<ept id="0887ea5f-4154-4828-af22-70c1a6323019">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2d50c04-059a-404a-b459-0e1ad30f3354" xml:space="preserve">
+          <source>Yes, both the registration process and normal operation can function through an explicit proxy set up to forward outbound http requests.</source>
+          <target state="new">Yes, both the registration process and normal operation can function through an explicit proxy set up to forward outbound http requests.</target>
+        </trans-unit>
+        <trans-unit id="47781197-0dc0-445d-8854-840ba80475c1" xml:space="preserve">
+          <source>“Netsh WinHttp set Proxy” does not work in this case since the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services.</source>
+          <target state="new">“Netsh WinHttp set Proxy” does not work in this case since the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services.</target>
+        </trans-unit>
+        <trans-unit id="02dece6a-ff45-4d67-8080-00c4025e5b47" xml:space="preserve">
+          <source>Perform any time prior to running Register-AdHealthAgent (The final step of Installation)</source>
+          <target state="new">Perform any time prior to running Register-AdHealthAgent (The final step of Installation)</target>
+        </trans-unit>
+        <trans-unit id="3ae3d95b-06e6-4573-9a8a-49765b39b43c" xml:space="preserve">
+          <source>Step 1 – Add entry to the machine.config file</source>
+          <target state="new">Step 1 – Add entry to the machine.config file</target>
+        </trans-unit>
+        <trans-unit id="eced3420-f3b8-4f2c-a22c-4c3961d2b242" xml:space="preserve">
+          <source>Locate the machine.config file. The file is located in%windir%\Microsoft.NET\Framework64\[version]\config\machine.config&lt;/li&gt;</source>
+          <target state="new">Locate the machine.config file. The file is located in%windir%\Microsoft.NET\Framework64\[version]\config\machine.config&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="8a47823a-c7d5-4dde-89ef-027be185a5b7" xml:space="preserve">
+          <source>Add the following entry under the &lt;configuration&gt;&lt;/configuration&gt; element in your machine.config file.</source>
+          <target state="new">Add the following entry under the &lt;configuration&gt;&lt;/configuration&gt; element in your machine.config file.</target>
+        </trans-unit>
+        <trans-unit id="7d8d58f3-c9a7-4678-81cb-f3de0f3782d5" xml:space="preserve">
+          <source>Additional &lt;defaultProxy&gt; information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).</source>
+          <target state="new">Additional &lt;defaultProxy&gt; information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).</target>
+        </trans-unit>
+        <trans-unit id="b2d0da7d-25e4-483a-b55a-03202fa6f99c" xml:space="preserve">
+          <source>This settings configures .NET applications system-wide to use your explicitly defined proxy when makeing http .NET requests.</source>
+          <target state="new">This settings configures .NET applications system-wide to use your explicitly defined proxy when makeing http .NET requests.</target>
+        </trans-unit>
+        <trans-unit id="0bb7e16e-433a-4539-8108-5517e84b4fdd" xml:space="preserve">
+          <source>Modifying each individual app.config is not recommended because it will be undone during auto update.</source>
+          <target state="new">Modifying each individual app.config is not recommended because it will be undone during auto update.</target>
+        </trans-unit>
+        <trans-unit id="3734b428-eaad-44f1-8e3a-5b0708e8e9a7" xml:space="preserve">
+          <source>You only have to change one file and it will persist through updates if you only modify machine.config.</source>
+          <target state="new">You only have to change one file and it will persist through updates if you only modify machine.config.</target>
+        </trans-unit>
+        <trans-unit id="de84a0a9-1e8e-4366-8755-f719f479c4f9" xml:space="preserve">
+          <source>Step 2 - Configure Proxy in Internet Options</source>
+          <target state="new">Step 2 - Configure Proxy in Internet Options</target>
+        </trans-unit>
+        <trans-unit id="7181bdb5-d252-4b74-908a-4f8619ff830c" xml:space="preserve">
+          <source>Open Internet Explorer -&gt; Settings -&gt; Internet Options -&gt; Connections -&gt; LAN Settings.</source>
+          <target state="new">Open Internet Explorer -&gt; Settings -&gt; Internet Options -&gt; Connections -&gt; LAN Settings.</target>
+        </trans-unit>
+        <trans-unit id="231af44a-2f4a-4cf3-93b8-682661503b3a" xml:space="preserve">
+          <source>Select Use a Proxy Server for you LAN</source>
+          <target state="new">Select Use a Proxy Server for you LAN</target>
+        </trans-unit>
+        <trans-unit id="9834e6e3-45b9-4528-9978-4d9417c4a8f8" xml:space="preserve">
+          <source>Select Advanced IF you have different proxy ports for HTTP and HTTPS/Secure</source>
+          <target state="new">Select Advanced IF you have different proxy ports for HTTP and HTTPS/Secure</target>
+        </trans-unit>
+        <trans-unit id="7964f045-c120-4340-bf73-66a95da19772" xml:space="preserve">
+          <source><bpt id="c25665fa-3529-46ed-b54f-23919a19954b">&lt;strong&gt;</bpt>Q: Does Azure AD Connect Health Services support basic authentication when connecting to Http Proxies?<ept id="c25665fa-3529-46ed-b54f-23919a19954b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c25665fa-3529-46ed-b54f-23919a19954b">&lt;strong&gt;</bpt>Q: Does Azure AD Connect Health Services support basic authentication when connecting to Http Proxies?<ept id="c25665fa-3529-46ed-b54f-23919a19954b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2ba8f6c-2052-44b1-958f-b65a1c3a0d8d" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="7d02a3cf-6bfd-4e6c-9a03-6a9095881d89" xml:space="preserve">
+          <source>A mechanism for specifying arbitrary username/password for Basic Authentication is not currently supported.</source>
+          <target state="new">A mechanism for specifying arbitrary username/password for Basic Authentication is not currently supported.</target>
+        </trans-unit>
+        <trans-unit id="e5634849-206a-406b-b2ca-0e289d51cf77" xml:space="preserve">
+          <source><bpt id="855a7dfd-cdbf-4fd1-bc8b-6e90fc02e958">&lt;strong&gt;</bpt>Q: Do I need to enable auditing on my AD FS Application Proxy Servers or my Web Application Proxy Servers?<ept id="855a7dfd-cdbf-4fd1-bc8b-6e90fc02e958">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="855a7dfd-cdbf-4fd1-bc8b-6e90fc02e958">&lt;strong&gt;</bpt>Q: Do I need to enable auditing on my AD FS Application Proxy Servers or my Web Application Proxy Servers?<ept id="855a7dfd-cdbf-4fd1-bc8b-6e90fc02e958">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7389f80-bd1d-4052-80fb-f36e15b1a6eb" xml:space="preserve">
+          <source>No, auditing does not need to be enabled on AD FS Application Proxy Servers or Web Application Proxy Servers.</source>
+          <target state="new">No, auditing does not need to be enabled on AD FS Application Proxy Servers or Web Application Proxy Servers.</target>
+        </trans-unit>
+        <trans-unit id="1a1e54b2-3c37-43fd-b6c3-e91ef33e9e3f" xml:space="preserve">
+          <source>It only needs to be enabled on the AD FS federated servers.</source>
+          <target state="new">It only needs to be enabled on the AD FS federated servers.</target>
+        </trans-unit>
+        <trans-unit id="5ddb14a3-c781-4cc7-bdcd-14573984f03d" xml:space="preserve">
+          <source><bpt id="ff061e8e-f6d3-4232-9ba2-8b4ccd2911b1">&lt;strong&gt;</bpt>Q: How do Azure AD Connect Health Alerts get resolved?<ept id="ff061e8e-f6d3-4232-9ba2-8b4ccd2911b1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ff061e8e-f6d3-4232-9ba2-8b4ccd2911b1">&lt;strong&gt;</bpt>Q: How do Azure AD Connect Health Alerts get resolved?<ept id="ff061e8e-f6d3-4232-9ba2-8b4ccd2911b1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9266b19-6f1a-46a0-9b86-5bc2cfc790a8" xml:space="preserve">
+          <source>Azure AD Connect Health Alerts get resolved on a success condition.</source>
+          <target state="new">Azure AD Connect Health Alerts get resolved on a success condition.</target>
+        </trans-unit>
+        <trans-unit id="62d5f7a1-6297-44c5-ad69-8144cdb31b8d" xml:space="preserve">
+          <source>Azure AD Connect Health Agents detect and report the success conditions to the service on a periodic basis.</source>
+          <target state="new">Azure AD Connect Health Agents detect and report the success conditions to the service on a periodic basis.</target>
+        </trans-unit>
+        <trans-unit id="d96ac986-8fb5-47bb-844c-45883c754aab" xml:space="preserve">
+          <source>For a few alerts, the suppression is time based.</source>
+          <target state="new">For a few alerts, the suppression is time based.</target>
+        </trans-unit>
+        <trans-unit id="b615c1d4-e478-42a1-83da-f6f175f1b2b5" xml:space="preserve">
+          <source>That is if the same error condition is not observed within 48 hours from alert generation, the alert is automatically resolved.</source>
+          <target state="new">That is if the same error condition is not observed within 48 hours from alert generation, the alert is automatically resolved.</target>
+        </trans-unit>
+        <trans-unit id="aa099b2b-fc0c-4f9c-b1be-2c871edb89df" xml:space="preserve">
+          <source><bpt id="e183752e-ca8a-4fb9-86d3-7859b9dfadc9">&lt;strong&gt;</bpt>Q: What firewall ports do I need to open for the Azure AD Connect Health Agent to work?<ept id="e183752e-ca8a-4fb9-86d3-7859b9dfadc9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e183752e-ca8a-4fb9-86d3-7859b9dfadc9">&lt;strong&gt;</bpt>Q: What firewall ports do I need to open for the Azure AD Connect Health Agent to work?<ept id="e183752e-ca8a-4fb9-86d3-7859b9dfadc9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e891e1bf-b77e-4dbe-adb8-834d3d5730db" xml:space="preserve">
+          <source>You will need to have TCP/UDP ports 80 and 443 open for the Azure AD Connect Health Agent to be able to communicate with the Azure AD Health service endpoints.</source>
+          <target state="new">You will need to have TCP/UDP ports 80 and 443 open for the Azure AD Connect Health Agent to be able to communicate with the Azure AD Health service endpoints.</target>
+        </trans-unit>
+        <trans-unit id="6d259167-2aeb-4b70-a6d3-e0bc708e26a3" xml:space="preserve">
+          <source><bpt id="ef30deab-7498-4965-8360-3595d57e8006">&lt;linkText&gt;</bpt>Azure AD Connect Health<ept id="ef30deab-7498-4965-8360-3595d57e8006">&lt;/linkText&gt;</ept><bpt id="ef30deab-7498-4965-8360-3595d57e8006">&lt;title&gt;</bpt><ept id="ef30deab-7498-4965-8360-3595d57e8006">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ef30deab-7498-4965-8360-3595d57e8006">&lt;linkText&gt;</bpt>Azure AD Connect Health<ept id="ef30deab-7498-4965-8360-3595d57e8006">&lt;/linkText&gt;</ept><bpt id="ef30deab-7498-4965-8360-3595d57e8006">&lt;title&gt;</bpt><ept id="ef30deab-7498-4965-8360-3595d57e8006">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a7d8c86-1c67-494a-aa72-9971894539b9" xml:space="preserve">
+          <source><bpt id="ecc40a48-d898-4564-916a-e31ad0429eae">&lt;linkText&gt;</bpt>Azure AD Connect Health Agent Installation for AD FS<ept id="ecc40a48-d898-4564-916a-e31ad0429eae">&lt;/linkText&gt;</ept><bpt id="ecc40a48-d898-4564-916a-e31ad0429eae">&lt;title&gt;</bpt><ept id="ecc40a48-d898-4564-916a-e31ad0429eae">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ecc40a48-d898-4564-916a-e31ad0429eae">&lt;linkText&gt;</bpt>Azure AD Connect Health Agent Installation for AD FS<ept id="ecc40a48-d898-4564-916a-e31ad0429eae">&lt;/linkText&gt;</ept><bpt id="ecc40a48-d898-4564-916a-e31ad0429eae">&lt;title&gt;</bpt><ept id="ecc40a48-d898-4564-916a-e31ad0429eae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10432a0c-105e-45f8-ad19-9a660c8a07c4" xml:space="preserve">
+          <source><bpt id="24d0b354-b979-4cf3-8da3-810e3b8e24db">&lt;linkText&gt;</bpt>Using Azure AD Connect Health with AD FS<ept id="24d0b354-b979-4cf3-8da3-810e3b8e24db">&lt;/linkText&gt;</ept><bpt id="24d0b354-b979-4cf3-8da3-810e3b8e24db">&lt;title&gt;</bpt><ept id="24d0b354-b979-4cf3-8da3-810e3b8e24db">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="24d0b354-b979-4cf3-8da3-810e3b8e24db">&lt;linkText&gt;</bpt>Using Azure AD Connect Health with AD FS<ept id="24d0b354-b979-4cf3-8da3-810e3b8e24db">&lt;/linkText&gt;</ept><bpt id="24d0b354-b979-4cf3-8da3-810e3b8e24db">&lt;title&gt;</bpt><ept id="24d0b354-b979-4cf3-8da3-810e3b8e24db">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="732b272f-f216-4d28-a978-9e6816d54a52" xml:space="preserve">
+          <source><bpt id="08d21cdc-b585-4a6f-ac9a-431f6d0e0114">&lt;linkText&gt;</bpt>Azure AD Connect Health Operations<ept id="08d21cdc-b585-4a6f-ac9a-431f6d0e0114">&lt;/linkText&gt;</ept><bpt id="08d21cdc-b585-4a6f-ac9a-431f6d0e0114">&lt;title&gt;</bpt><ept id="08d21cdc-b585-4a6f-ac9a-431f6d0e0114">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="08d21cdc-b585-4a6f-ac9a-431f6d0e0114">&lt;linkText&gt;</bpt>Azure AD Connect Health Operations<ept id="08d21cdc-b585-4a6f-ac9a-431f6d0e0114">&lt;/linkText&gt;</ept><bpt id="08d21cdc-b585-4a6f-ac9a-431f6d0e0114">&lt;title&gt;</bpt><ept id="08d21cdc-b585-4a6f-ac9a-431f6d0e0114">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

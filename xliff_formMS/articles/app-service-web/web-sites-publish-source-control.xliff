@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b76fcce9-f69a-4663-88f2-b57bc695a2cc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b76fcce9-f69a-4663-88f2-b57bc695a2cc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="26cdd939-ebe9-4f1c-9e01-709bef088e0e">
+        <trans-unit id="45c701f4-405b-4e2c-8bdc-19756403a305" xml:space="preserve">
+          <source>Continuous deployment using GIT in Azure App Service</source>
+          <target state="new">Continuous deployment using GIT in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="2dc1b06a-5461-47e1-9cad-d2ef87892091" xml:space="preserve">
+          <source>Learn how to use Git to publish an Azure web app, and then enable continuous deployment from Bitbucket, CodePlex, Dropbox, GitHub, or Mercurial.</source>
+          <target state="new">Learn how to use Git to publish an Azure web app, and then enable continuous deployment from Bitbucket, CodePlex, Dropbox, GitHub, or Mercurial.</target>
+        </trans-unit>
+        <trans-unit id="90043c50-d4c2-49a5-987f-99879d48ce7f" xml:space="preserve">
+          <source><bpt id="d3bc115e-19e4-45a1-bd7a-508c16887471">&lt;token href="../../includes/publishing-with-git.md"&gt;</bpt><ept id="d3bc115e-19e4-45a1-bd7a-508c16887471">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d3bc115e-19e4-45a1-bd7a-508c16887471">&lt;token href="../../includes/publishing-with-git.md"&gt;</bpt><ept id="d3bc115e-19e4-45a1-bd7a-508c16887471">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="44d5609d-0a5a-4996-bcd1-b97a33d13aab" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="44d5609d-0a5a-4996-bcd1-b97a33d13aab" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7ccb31e7-0a3e-45ae-aa9d-fffd1caa1582">
+        <trans-unit id="d401f1a5-cf3c-435a-a709-ffdae8bf61de" xml:space="preserve">
+          <source>Configure a Connection String to Azure Storage | Microsoft Azure</source>
+          <target state="new">Configure a Connection String to Azure Storage | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5b78f973-5037-43f2-bc9b-237adc938b74" xml:space="preserve">
+          <source>Learn how to configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate programmatic access to resources in a storage account. The connection string may encapsulate your account access key for an account that you own, or it may include a shared access signature for accessing resources in an account without the access key.</source>
+          <target state="new">Learn how to configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate programmatic access to resources in a storage account. The connection string may encapsulate your account access key for an account that you own, or it may include a shared access signature for accessing resources in an account without the access key.</target>
+        </trans-unit>
+        <trans-unit id="ed9a4c6b-f6af-457f-a69c-53110942b81b" xml:space="preserve">
+          <source>A connection string includes the information necessary to access Azure Storage resources programmatically.</source>
+          <target state="new">A connection string includes the information necessary to access Azure Storage resources programmatically.</target>
+        </trans-unit>
+        <trans-unit id="4c19aacd-3240-439c-ba74-3cda93f51c0c" xml:space="preserve">
+          <source>Your application uses the connection string to provide to Azure Storage the information needed to authenticate access.</source>
+          <target state="new">Your application uses the connection string to provide to Azure Storage the information needed to authenticate access.</target>
+        </trans-unit>
+        <trans-unit id="f5aaadcc-b748-4b6d-a79f-215635001c41" xml:space="preserve">
+          <source>You can configure a connection string to:</source>
+          <target state="new">You can configure a connection string to:</target>
+        </trans-unit>
+        <trans-unit id="78a8c412-21e5-422d-9f10-d903fa156d4d" xml:space="preserve">
+          <source>Connect to the Azure storage emulator while you are locally testing your service or application.</source>
+          <target state="new">Connect to the Azure storage emulator while you are locally testing your service or application.</target>
+        </trans-unit>
+        <trans-unit id="c13b1480-4332-4915-9c82-8e45fb0eb4cc" xml:space="preserve">
+          <source>Connect to a storage account in Azure by using either the default endpoints for the storage services, or explicit endpoints that you have defined.</source>
+          <target state="new">Connect to a storage account in Azure by using either the default endpoints for the storage services, or explicit endpoints that you have defined.</target>
+        </trans-unit>
+        <trans-unit id="357e59d2-28a3-4a01-a676-5f3b321774eb" xml:space="preserve">
+          <source>Access resources in a storage account via a shared access signature (SAS).</source>
+          <target state="new">Access resources in a storage account via a shared access signature (SAS).</target>
+        </trans-unit>
+        <trans-unit id="8644662b-9894-4ae6-8f7f-c9fc51a7c832" xml:space="preserve">
+          <source>Your application will need to store the connection string in order to authenticate access to Azure Storage when it is running.</source>
+          <target state="new">Your application will need to store the connection string in order to authenticate access to Azure Storage when it is running.</target>
+        </trans-unit>
+        <trans-unit id="a4595af5-079c-4de8-a909-55daec6ed05e" xml:space="preserve">
+          <source>You have a few different options for storing your connection string:</source>
+          <target state="new">You have a few different options for storing your connection string:</target>
+        </trans-unit>
+        <trans-unit id="79941bcd-77ad-49c6-b0b8-02c7e011875e" xml:space="preserve">
+          <source>For an application running on the desktop or on a device, you can store the connection string in an app.config file or another configuration file.</source>
+          <target state="new">For an application running on the desktop or on a device, you can store the connection string in an app.config file or another configuration file.</target>
+        </trans-unit>
+        <trans-unit id="f70b3714-db0d-4e3c-ab0f-3d89110a1e04" xml:space="preserve">
+          <source>If you are using an app.config file, add the connection string to the <bpt id="e82a6ef8-c621-4105-a90b-98aa91f2992e">&lt;strong&gt;</bpt>AppSettings<ept id="e82a6ef8-c621-4105-a90b-98aa91f2992e">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">If you are using an app.config file, add the connection string to the <bpt id="e82a6ef8-c621-4105-a90b-98aa91f2992e">&lt;strong&gt;</bpt>AppSettings<ept id="e82a6ef8-c621-4105-a90b-98aa91f2992e">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="a73da147-dc68-4e21-9879-1419d445dde9" xml:space="preserve">
+          <source>For an application running in an Azure cloud service, you can store your connection string in the <bpt id="4ea8d2ec-f9a6-42c1-a8a5-0155abed2c8e">&lt;linkText&gt;</bpt>Azure service configuration schema (.cscfg) file<ept id="4ea8d2ec-f9a6-42c1-a8a5-0155abed2c8e">&lt;/linkText&gt;</ept><bpt id="4ea8d2ec-f9a6-42c1-a8a5-0155abed2c8e">&lt;title&gt;</bpt><ept id="4ea8d2ec-f9a6-42c1-a8a5-0155abed2c8e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an application running in an Azure cloud service, you can store your connection string in the <bpt id="4ea8d2ec-f9a6-42c1-a8a5-0155abed2c8e">&lt;linkText&gt;</bpt>Azure service configuration schema (.cscfg) file<ept id="4ea8d2ec-f9a6-42c1-a8a5-0155abed2c8e">&lt;/linkText&gt;</ept><bpt id="4ea8d2ec-f9a6-42c1-a8a5-0155abed2c8e">&lt;title&gt;</bpt><ept id="4ea8d2ec-f9a6-42c1-a8a5-0155abed2c8e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="411762c3-7322-4421-b437-c15034d3559b" xml:space="preserve">
+          <source>Add the connection string to the <bpt id="1208d14c-a4ad-409a-81dd-250974d1ae7f">&lt;strong&gt;</bpt>ConfigurationSettings<ept id="1208d14c-a4ad-409a-81dd-250974d1ae7f">&lt;/strong&gt;</ept> section of the service configuration file.</source>
+          <target state="new">Add the connection string to the <bpt id="1208d14c-a4ad-409a-81dd-250974d1ae7f">&lt;strong&gt;</bpt>ConfigurationSettings<ept id="1208d14c-a4ad-409a-81dd-250974d1ae7f">&lt;/strong&gt;</ept> section of the service configuration file.</target>
+        </trans-unit>
+        <trans-unit id="70fd2627-5bc5-4971-ab63-f26fc3ee1317" xml:space="preserve">
+          <source>Storing your connection string within a configuration file makes it easy to update the connection string to switch between the storage emulator and an Azure storage account in the cloud.</source>
+          <target state="new">Storing your connection string within a configuration file makes it easy to update the connection string to switch between the storage emulator and an Azure storage account in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="bd73dca6-2dfd-4902-a0aa-96f03e6675f2" xml:space="preserve">
+          <source>You only need to edit the connection string to point to your storage account.</source>
+          <target state="new">You only need to edit the connection string to point to your storage account.</target>
+        </trans-unit>
+        <trans-unit id="b90e8548-90da-4bb1-a379-89ebecdd9848" xml:space="preserve">
+          <source>You can use the Azure <bpt id="50776961-94ca-4e10-a9c5-1f7990b73808">&lt;linkText&gt;</bpt>CloudConfigurationManager<ept id="50776961-94ca-4e10-a9c5-1f7990b73808">&lt;/linkText&gt;</ept><bpt id="50776961-94ca-4e10-a9c5-1f7990b73808">&lt;title&gt;</bpt><ept id="50776961-94ca-4e10-a9c5-1f7990b73808">&lt;/title&gt;</ept> class to access your connection string at runtime regardless of where your application is running.</source>
+          <target state="new">You can use the Azure <bpt id="50776961-94ca-4e10-a9c5-1f7990b73808">&lt;linkText&gt;</bpt>CloudConfigurationManager<ept id="50776961-94ca-4e10-a9c5-1f7990b73808">&lt;/linkText&gt;</ept><bpt id="50776961-94ca-4e10-a9c5-1f7990b73808">&lt;title&gt;</bpt><ept id="50776961-94ca-4e10-a9c5-1f7990b73808">&lt;/title&gt;</ept> class to access your connection string at runtime regardless of where your application is running.</target>
+        </trans-unit>
+        <trans-unit id="2fdf1396-06a9-4e47-980c-b1e8c94a920e" xml:space="preserve">
+          <source><bpt id="58b4e681-7285-47a5-a292-986ebc86c656">&lt;token href="../../includes/storage-emulator-connection-string-include.md"&gt;</bpt><ept id="58b4e681-7285-47a5-a292-986ebc86c656">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="58b4e681-7285-47a5-a292-986ebc86c656">&lt;token href="../../includes/storage-emulator-connection-string-include.md"&gt;</bpt><ept id="58b4e681-7285-47a5-a292-986ebc86c656">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c2b8bbc-68ee-46e8-9c74-719863a60c8f" xml:space="preserve">
+          <source>See <bpt id="ec5357cd-a182-4ae6-9bdd-ea92be42418b">&lt;linkText&gt;</bpt>Use the Azure Storage Emulator for Development and Testing<ept id="ec5357cd-a182-4ae6-9bdd-ea92be42418b">&lt;/linkText&gt;</ept><bpt id="ec5357cd-a182-4ae6-9bdd-ea92be42418b">&lt;title&gt;</bpt><ept id="ec5357cd-a182-4ae6-9bdd-ea92be42418b">&lt;/title&gt;</ept> for more information about the storage emulator.</source>
+          <target state="new">See <bpt id="ec5357cd-a182-4ae6-9bdd-ea92be42418b">&lt;linkText&gt;</bpt>Use the Azure Storage Emulator for Development and Testing<ept id="ec5357cd-a182-4ae6-9bdd-ea92be42418b">&lt;/linkText&gt;</ept><bpt id="ec5357cd-a182-4ae6-9bdd-ea92be42418b">&lt;title&gt;</bpt><ept id="ec5357cd-a182-4ae6-9bdd-ea92be42418b">&lt;/title&gt;</ept> for more information about the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="4a58d977-9f41-4ad0-bb91-b23aacd30aef" xml:space="preserve">
+          <source>To create a connection string to your Azure storage account, use the connection string format below.</source>
+          <target state="new">To create a connection string to your Azure storage account, use the connection string format below.</target>
+        </trans-unit>
+        <trans-unit id="27e27cbd-dbf1-4556-80df-be58b4551189" xml:space="preserve">
+          <source>Indicate whether you want to connect to the storage account through HTTP or HTTPS (recommended), replace <bpt id="7bbad3f7-d2e2-41e3-89c0-3b0b703873b7">&lt;code&gt;</bpt>myAccountName<ept id="7bbad3f7-d2e2-41e3-89c0-3b0b703873b7">&lt;/code&gt;</ept> with the name of your storage account, and replace <bpt id="509b7400-099b-4d80-a4b4-72ddf6b3d728">&lt;code&gt;</bpt>myAccountKey<ept id="509b7400-099b-4d80-a4b4-72ddf6b3d728">&lt;/code&gt;</ept> with your account access key:</source>
+          <target state="new">Indicate whether you want to connect to the storage account through HTTP or HTTPS (recommended), replace <bpt id="7bbad3f7-d2e2-41e3-89c0-3b0b703873b7">&lt;code&gt;</bpt>myAccountName<ept id="7bbad3f7-d2e2-41e3-89c0-3b0b703873b7">&lt;/code&gt;</ept> with the name of your storage account, and replace <bpt id="509b7400-099b-4d80-a4b4-72ddf6b3d728">&lt;code&gt;</bpt>myAccountKey<ept id="509b7400-099b-4d80-a4b4-72ddf6b3d728">&lt;/code&gt;</ept> with your account access key:</target>
+        </trans-unit>
+        <trans-unit id="a689eeea-70fd-4d29-a70f-1601262a0717" xml:space="preserve">
+          <source>For example, your connection string will look similar to the following sample connection string:</source>
+          <target state="new">For example, your connection string will look similar to the following sample connection string:</target>
+        </trans-unit>
+        <trans-unit id="641b8018-f6d1-4117-995a-c25f57e33f28" xml:space="preserve">
+          <source>Azure Storage supports both HTTP and HTTPS in a connection string; however, using HTTPS is highly recommended.</source>
+          <target state="new">Azure Storage supports both HTTP and HTTPS in a connection string; however, using HTTPS is highly recommended.</target>
+        </trans-unit>
+        <trans-unit id="8e9fec38-7ad6-46cb-94be-a43634a7d21b" xml:space="preserve">
+          <source>You can to explicitly specify the service endpoints in your connection string if:</source>
+          <target state="new">You can to explicitly specify the service endpoints in your connection string if:</target>
+        </trans-unit>
+        <trans-unit id="4101455a-2af5-4a6c-a5a5-97a731e6ff3d" xml:space="preserve">
+          <source>You have mapped a custom domain name for your storage account with the Blob service.</source>
+          <target state="new">You have mapped a custom domain name for your storage account with the Blob service.</target>
+        </trans-unit>
+        <trans-unit id="7b5cd9fb-351c-4bf9-ac49-fb57be070216" xml:space="preserve">
+          <source>You possess a shared access signature for accessing storage resources in a storage account.</source>
+          <target state="new">You possess a shared access signature for accessing storage resources in a storage account.</target>
+        </trans-unit>
+        <trans-unit id="5f6770b1-f0a3-424a-bf40-2c2c0439186d" xml:space="preserve">
+          <source>To create a connection string that specifies an explicit Blob endpoint, specify the complete service endpoint for each service, including the protocol specification (HTTP or HTTPS), in the following format:</source>
+          <target state="new">To create a connection string that specifies an explicit Blob endpoint, specify the complete service endpoint for each service, including the protocol specification (HTTP or HTTPS), in the following format:</target>
+        </trans-unit>
+        <trans-unit id="d040ad1b-dc7e-48d9-bbd2-b3363bba7b17" xml:space="preserve">
+          <source>You must specify at least one service endpoint, but you do not need to specify all of them.</source>
+          <target state="new">You must specify at least one service endpoint, but you do not need to specify all of them.</target>
+        </trans-unit>
+        <trans-unit id="726652fd-5383-44dc-91e5-df740869a4a7" xml:space="preserve">
+          <source>For example, if you're creating a connection string for use with a custom blob endpoint, specifying the queue and table endpoints is optional.</source>
+          <target state="new">For example, if you're creating a connection string for use with a custom blob endpoint, specifying the queue and table endpoints is optional.</target>
+        </trans-unit>
+        <trans-unit id="336ee910-5992-4f16-85d7-744f98512967" xml:space="preserve">
+          <source>Note that if you choose to omit the queue and table endpoints from the connection string, then you will not be able to access the Queue and Table services from your code by using that connection string.</source>
+          <target state="new">Note that if you choose to omit the queue and table endpoints from the connection string, then you will not be able to access the Queue and Table services from your code by using that connection string.</target>
+        </trans-unit>
+        <trans-unit id="68013be5-1e6a-4a0e-bdce-09e7b59af00b" xml:space="preserve">
+          <source>When you explicitly specify service endpoints in the connection string, you have two options for specifying <bpt id="17c7e3c6-85e4-481a-829d-9a8f93706818">&lt;code&gt;</bpt>credentials<ept id="17c7e3c6-85e4-481a-829d-9a8f93706818">&lt;/code&gt;</ept> in the string above:</source>
+          <target state="new">When you explicitly specify service endpoints in the connection string, you have two options for specifying <bpt id="17c7e3c6-85e4-481a-829d-9a8f93706818">&lt;code&gt;</bpt>credentials<ept id="17c7e3c6-85e4-481a-829d-9a8f93706818">&lt;/code&gt;</ept> in the string above:</target>
+        </trans-unit>
+        <trans-unit id="d5a136fc-62ef-41f7-b8d4-196edf959c44" xml:space="preserve">
+          <source>You can specify the account name and key: <bpt id="b5e1abac-c7cf-4175-9dd0-b143afc811df">&lt;code&gt;</bpt>AccountName=myAccountName;AccountKey=myAccountKey<ept id="b5e1abac-c7cf-4175-9dd0-b143afc811df">&lt;/code&gt;</ept> </source>
+          <target state="new">You can specify the account name and key: <bpt id="b5e1abac-c7cf-4175-9dd0-b143afc811df">&lt;code&gt;</bpt>AccountName=myAccountName;AccountKey=myAccountKey<ept id="b5e1abac-c7cf-4175-9dd0-b143afc811df">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="82289500-44d1-42eb-a8ec-d51a1eceaddb" xml:space="preserve">
+          <source>You can specify a shared access signature: <bpt id="f25eec6c-d118-4ee5-929d-5f15a5ff4e96">&lt;code&gt;</bpt>SharedAccessSignature=base64Signature<ept id="f25eec6c-d118-4ee5-929d-5f15a5ff4e96">&lt;/code&gt;</ept></source>
+          <target state="new">You can specify a shared access signature: <bpt id="f25eec6c-d118-4ee5-929d-5f15a5ff4e96">&lt;code&gt;</bpt>SharedAccessSignature=base64Signature<ept id="f25eec6c-d118-4ee5-929d-5f15a5ff4e96">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f646bee9-8ade-4722-a9a9-7ff3bf6c383f" xml:space="preserve">
+          <source>If you have registered a custom domain name for use with the Blob service, you may want to explicitly configure the blob endpoint in your connection string.</source>
+          <target state="new">If you have registered a custom domain name for use with the Blob service, you may want to explicitly configure the blob endpoint in your connection string.</target>
+        </trans-unit>
+        <trans-unit id="f4792057-cda0-46ba-9c3c-124bf848a814" xml:space="preserve">
+          <source>The endpoint value that is listed in the connection string is used to construct the request URIs to the Blob service, and it dictates the form of any URIs that are returned to your code.</source>
+          <target state="new">The endpoint value that is listed in the connection string is used to construct the request URIs to the Blob service, and it dictates the form of any URIs that are returned to your code.</target>
+        </trans-unit>
+        <trans-unit id="a9e3d1fe-3456-4e07-a72e-d6a765202b27" xml:space="preserve">
+          <source>For example, a connection string to a Blob endpoint on a custom domain may be similar to:</source>
+          <target state="new">For example, a connection string to a Blob endpoint on a custom domain may be similar to:</target>
+        </trans-unit>
+        <trans-unit id="e3059251-340b-4e2e-a1d4-eed933904a91" xml:space="preserve">
+          <source>You can create a connection string with explicit endpoints to access storage resources via a shared access signature.</source>
+          <target state="new">You can create a connection string with explicit endpoints to access storage resources via a shared access signature.</target>
+        </trans-unit>
+        <trans-unit id="3206a79d-9437-4239-a592-13bcdf2028f7" xml:space="preserve">
+          <source>In this case, you can specify the shared access signature for as part of the connection string, rather than the account name and key credentials.</source>
+          <target state="new">In this case, you can specify the shared access signature for as part of the connection string, rather than the account name and key credentials.</target>
+        </trans-unit>
+        <trans-unit id="16339132-66e9-4078-8bc0-4a19854d94b2" xml:space="preserve">
+          <source>The shared access signature token encapsulates information about the resource to be accessed, the period of time for which it is available, and the permissions being granted.</source>
+          <target state="new">The shared access signature token encapsulates information about the resource to be accessed, the period of time for which it is available, and the permissions being granted.</target>
+        </trans-unit>
+        <trans-unit id="577a07c4-1716-40ca-8037-dfac5de40015" xml:space="preserve">
+          <source>For more information about shared access signatures, see <bpt id="421d4e23-ab8f-4fab-b663-592d5afaf3b2">&lt;linkText&gt;</bpt>Delegating Access with a Shared Access Signature<ept id="421d4e23-ab8f-4fab-b663-592d5afaf3b2">&lt;/linkText&gt;</ept><bpt id="421d4e23-ab8f-4fab-b663-592d5afaf3b2">&lt;title&gt;</bpt><ept id="421d4e23-ab8f-4fab-b663-592d5afaf3b2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about shared access signatures, see <bpt id="421d4e23-ab8f-4fab-b663-592d5afaf3b2">&lt;linkText&gt;</bpt>Delegating Access with a Shared Access Signature<ept id="421d4e23-ab8f-4fab-b663-592d5afaf3b2">&lt;/linkText&gt;</ept><bpt id="421d4e23-ab8f-4fab-b663-592d5afaf3b2">&lt;title&gt;</bpt><ept id="421d4e23-ab8f-4fab-b663-592d5afaf3b2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aba44e82-19d4-4107-895b-f263a6ed642a" xml:space="preserve">
+          <source>To create a connection string that includes a shared access signature, specify the string in the following format:</source>
+          <target state="new">To create a connection string that includes a shared access signature, specify the string in the following format:</target>
+        </trans-unit>
+        <trans-unit id="1aeded1d-b7b4-4d5c-b348-d3d5acc1639e" xml:space="preserve">
+          <source>The endpoint can be either the default service endpoint or a custom endpoint.</source>
+          <target state="new">The endpoint can be either the default service endpoint or a custom endpoint.</target>
+        </trans-unit>
+        <trans-unit id="3e47713b-dea7-4e0d-8fe1-69c39244687c" xml:space="preserve">
+          <source>The <bpt id="467ea877-085e-4c67-8e57-82294f721772">&lt;code&gt;</bpt>base64Signature<ept id="467ea877-085e-4c67-8e57-82294f721772">&lt;/code&gt;</ept> corresponds to the signature portion of a shared access signature.</source>
+          <target state="new">The <bpt id="467ea877-085e-4c67-8e57-82294f721772">&lt;code&gt;</bpt>base64Signature<ept id="467ea877-085e-4c67-8e57-82294f721772">&lt;/code&gt;</ept> corresponds to the signature portion of a shared access signature.</target>
+        </trans-unit>
+        <trans-unit id="38ef596a-a429-472a-a58d-131b5a57c678" xml:space="preserve">
+          <source>The signature is an HMAC computed over a valid string-to-sign and key using the SHA256 algorithm, that is then Base64-encoded.</source>
+          <target state="new">The signature is an HMAC computed over a valid string-to-sign and key using the SHA256 algorithm, that is then Base64-encoded.</target>
+        </trans-unit>
+        <trans-unit id="c5ebf97a-14c7-406f-b387-cd604b3f2da3" xml:space="preserve">
+          <source>To create a connection string for storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Governance, use the following connection string format.</source>
+          <target state="new">To create a connection string for storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Governance, use the following connection string format.</target>
+        </trans-unit>
+        <trans-unit id="899f909a-4881-449b-9cc3-8d7b2b9ff0eb" xml:space="preserve">
+          <source>Indicate whether you want to connect to the storage account through HTTP or HTTPS, replace <bpt id="d26aba90-feb7-415d-ae38-0d3a0e0746e2">&lt;code&gt;</bpt>myAccountName<ept id="d26aba90-feb7-415d-ae38-0d3a0e0746e2">&lt;/code&gt;</ept> with the name of your storage account, replace <bpt id="c7117f96-ccc2-452e-9589-17ff2edd3529">&lt;code&gt;</bpt>myAccountKey<ept id="c7117f96-ccc2-452e-9589-17ff2edd3529">&lt;/code&gt;</ept> with your account access key, and replace <bpt id="57f020a5-4df3-4074-9504-5dc37361d647">&lt;code&gt;</bpt>mySuffix<ept id="57f020a5-4df3-4074-9504-5dc37361d647">&lt;/code&gt;</ept> with the URI suffix:</source>
+          <target state="new">Indicate whether you want to connect to the storage account through HTTP or HTTPS, replace <bpt id="d26aba90-feb7-415d-ae38-0d3a0e0746e2">&lt;code&gt;</bpt>myAccountName<ept id="d26aba90-feb7-415d-ae38-0d3a0e0746e2">&lt;/code&gt;</ept> with the name of your storage account, replace <bpt id="c7117f96-ccc2-452e-9589-17ff2edd3529">&lt;code&gt;</bpt>myAccountKey<ept id="c7117f96-ccc2-452e-9589-17ff2edd3529">&lt;/code&gt;</ept> with your account access key, and replace <bpt id="57f020a5-4df3-4074-9504-5dc37361d647">&lt;code&gt;</bpt>mySuffix<ept id="57f020a5-4df3-4074-9504-5dc37361d647">&lt;/code&gt;</ept> with the URI suffix:</target>
+        </trans-unit>
+        <trans-unit id="4b3c3802-5854-4b3b-9244-205d161e2cf7" xml:space="preserve">
+          <source>For example, your connection string should look similar to the following sample connection string:</source>
+          <target state="new">For example, your connection string should look similar to the following sample connection string:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

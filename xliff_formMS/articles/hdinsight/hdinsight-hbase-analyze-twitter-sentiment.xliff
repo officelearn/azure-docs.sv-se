@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f8f147d2-ca06-49d4-9e55-7c2726345941" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f8f147d2-ca06-49d4-9e55-7c2726345941" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eb973493-c2e0-44e8-8b6b-c25d1fb4d257">
+        <trans-unit id="bb2a5a49-d5a5-4600-a6aa-bbe2fa8cf6b1" xml:space="preserve">
+          <source>Analyze real-time Twitter sentiment with HBase | Microsoft Azure</source>
+          <target state="new">Analyze real-time Twitter sentiment with HBase | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="58067f5d-935f-422d-bff9-20d3248cba38" xml:space="preserve">
+          <source>Learn how to do real-time sentiment analysis of big data from Twitter using HBase in an HDInsight (Hadoop) cluster.</source>
+          <target state="new">Learn how to do real-time sentiment analysis of big data from Twitter using HBase in an HDInsight (Hadoop) cluster.</target>
+        </trans-unit>
+        <trans-unit id="20e83e5b-e340-4b17-ab88-521d2a824930" xml:space="preserve">
+          <source>Learn how to do real-time <bpt id="aa1f2ebe-4644-4143-b286-01eaa550b55d">&lt;linkText&gt;</bpt>sentiment analysis<ept id="aa1f2ebe-4644-4143-b286-01eaa550b55d">&lt;/linkText&gt;</ept><bpt id="aa1f2ebe-4644-4143-b286-01eaa550b55d">&lt;title&gt;</bpt><ept id="aa1f2ebe-4644-4143-b286-01eaa550b55d">&lt;/title&gt;</ept> of big data from Twitter by using HBase in an HDInsight (Hadoop) cluster.</source>
+          <target state="new">Learn how to do real-time <bpt id="aa1f2ebe-4644-4143-b286-01eaa550b55d">&lt;linkText&gt;</bpt>sentiment analysis<ept id="aa1f2ebe-4644-4143-b286-01eaa550b55d">&lt;/linkText&gt;</ept><bpt id="aa1f2ebe-4644-4143-b286-01eaa550b55d">&lt;title&gt;</bpt><ept id="aa1f2ebe-4644-4143-b286-01eaa550b55d">&lt;/title&gt;</ept> of big data from Twitter by using HBase in an HDInsight (Hadoop) cluster.</target>
+        </trans-unit>
+        <trans-unit id="be94018d-4136-4079-aeb4-5b3a7e7dfd87" xml:space="preserve">
+          <source>Social websites are one of the major driving forces for big data adoption.</source>
+          <target state="new">Social websites are one of the major driving forces for big data adoption.</target>
+        </trans-unit>
+        <trans-unit id="7dd1d723-09d1-4ad3-9a01-2becfdcd913f" xml:space="preserve">
+          <source>Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends.</source>
+          <target state="new">Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends.</target>
+        </trans-unit>
+        <trans-unit id="5067eadc-1b42-40f5-8242-fe998e78c606" xml:space="preserve">
+          <source>In this tutorial, you will develop a console streaming service application and an ASP.NET web application to perform the following:</source>
+          <target state="new">In this tutorial, you will develop a console streaming service application and an ASP.NET web application to perform the following:</target>
+        </trans-unit>
+        <trans-unit id="437bf4ff-16aa-4225-b844-6f16f11755d1" xml:space="preserve">
+          <source><bpt id="6cfd3ef9-6428-4198-abc7-6e3d9bb07340">&lt;linkText&gt;</bpt><ept id="6cfd3ef9-6428-4198-abc7-6e3d9bb07340">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6cfd3ef9-6428-4198-abc7-6e3d9bb07340">&lt;linkText&gt;</bpt><ept id="6cfd3ef9-6428-4198-abc7-6e3d9bb07340">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59b15d54-101e-48cf-a6a6-9bb931d91a94" xml:space="preserve">
+          <source>The streaming application</source>
+          <target state="new">The streaming application</target>
+        </trans-unit>
+        <trans-unit id="5ba948a8-e764-4208-b768-450c620d3f00" xml:space="preserve">
+          <source>Get geo-tagged tweets in real time by using the Twitter streaming API</source>
+          <target state="new">Get geo-tagged tweets in real time by using the Twitter streaming API</target>
+        </trans-unit>
+        <trans-unit id="a5581d2e-e5da-443e-99bb-ba03ef53ec26" xml:space="preserve">
+          <source>Evaluate the sentiment of these tweets</source>
+          <target state="new">Evaluate the sentiment of these tweets</target>
+        </trans-unit>
+        <trans-unit id="f9339d1a-405d-4bb3-84b5-017aac318618" xml:space="preserve">
+          <source>Store the sentiment information in HBase by using the Microsoft HBase SDK</source>
+          <target state="new">Store the sentiment information in HBase by using the Microsoft HBase SDK</target>
+        </trans-unit>
+        <trans-unit id="193b6791-dc00-44a6-9ba1-09dcab752be0" xml:space="preserve">
+          <source>The Azure Websites application</source>
+          <target state="new">The Azure Websites application</target>
+        </trans-unit>
+        <trans-unit id="a634f374-aca6-4172-9a84-e55daec73961" xml:space="preserve">
+          <source>Plot the real-time statistical results on Bing maps by using an ASP.NET web application.</source>
+          <target state="new">Plot the real-time statistical results on Bing maps by using an ASP.NET web application.</target>
+        </trans-unit>
+        <trans-unit id="187c12f7-6a03-4b75-a05b-f0afc9e7fa6d" xml:space="preserve">
+          <source>A visualization of the tweets will look something like this:</source>
+          <target state="new">A visualization of the tweets will look something like this:</target>
+        </trans-unit>
+        <trans-unit id="d1e21860-eb3f-459a-b438-897c6dc19a3c" xml:space="preserve">
+          <source><bpt id="c189f51e-9363-4102-87bb-ebb3176d1297">&lt;linkText&gt;</bpt>hdinsight.hbase.twitter.sentiment.bing.map<ept id="c189f51e-9363-4102-87bb-ebb3176d1297">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c189f51e-9363-4102-87bb-ebb3176d1297">&lt;linkText&gt;</bpt>hdinsight.hbase.twitter.sentiment.bing.map<ept id="c189f51e-9363-4102-87bb-ebb3176d1297">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2881151-74f1-48db-932a-990c6a66ed50" xml:space="preserve">
+          <source>You will be able to query tweets with certain keywords to get a sense of if the expressed opinion in the tweets is positive, negative, or neutral.</source>
+          <target state="new">You will be able to query tweets with certain keywords to get a sense of if the expressed opinion in the tweets is positive, negative, or neutral.</target>
+        </trans-unit>
+        <trans-unit id="6338ceb6-20fc-4c48-951a-27d450c0ed50" xml:space="preserve">
+          <source>A complete Visual Studio solution sample can be found on GitHub: <bpt id="0b0181c7-02e4-43a2-b2cd-c953b2d4ec1a">&lt;linkText&gt;</bpt>Realtime social sentiment analysis app<ept id="0b0181c7-02e4-43a2-b2cd-c953b2d4ec1a">&lt;/linkText&gt;</ept><bpt id="0b0181c7-02e4-43a2-b2cd-c953b2d4ec1a">&lt;title&gt;</bpt><ept id="0b0181c7-02e4-43a2-b2cd-c953b2d4ec1a">&lt;/title&gt;</ept>.</source>
+          <target state="new">A complete Visual Studio solution sample can be found on GitHub: <bpt id="0b0181c7-02e4-43a2-b2cd-c953b2d4ec1a">&lt;linkText&gt;</bpt>Realtime social sentiment analysis app<ept id="0b0181c7-02e4-43a2-b2cd-c953b2d4ec1a">&lt;/linkText&gt;</ept><bpt id="0b0181c7-02e4-43a2-b2cd-c953b2d4ec1a">&lt;title&gt;</bpt><ept id="0b0181c7-02e4-43a2-b2cd-c953b2d4ec1a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a26bfc17-4a9e-46f3-a90f-e5189d0425bf" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have the following:</source>
+          <target state="new">Before you begin this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="acbbdace-c194-4ba6-ad36-84796e2b0ab6" xml:space="preserve">
+          <source><bpt id="0c3ee72a-50c5-4e48-8509-eeeeb5c04aae">&lt;strong&gt;</bpt>An HBase cluster in HDInsight<ept id="0c3ee72a-50c5-4e48-8509-eeeeb5c04aae">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="0c3ee72a-50c5-4e48-8509-eeeeb5c04aae">&lt;strong&gt;</bpt>An HBase cluster in HDInsight<ept id="0c3ee72a-50c5-4e48-8509-eeeeb5c04aae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7cb0848-b001-4aa9-bd5a-f41ea6d75ec9" xml:space="preserve">
+          <source>For instructions about cluster provision, see  <bpt id="6622db3e-5b0e-4dba-b437-f48862e5d324">&lt;linkText&gt;</bpt>Get started using HBase with Hadoop in HDInsight[hbase-get-started]<ept id="6622db3e-5b0e-4dba-b437-f48862e5d324">&lt;/linkText&gt;</ept><bpt id="6622db3e-5b0e-4dba-b437-f48862e5d324">&lt;title&gt;</bpt><ept id="6622db3e-5b0e-4dba-b437-f48862e5d324">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions about cluster provision, see  <bpt id="6622db3e-5b0e-4dba-b437-f48862e5d324">&lt;linkText&gt;</bpt>Get started using HBase with Hadoop in HDInsight[hbase-get-started]<ept id="6622db3e-5b0e-4dba-b437-f48862e5d324">&lt;/linkText&gt;</ept><bpt id="6622db3e-5b0e-4dba-b437-f48862e5d324">&lt;title&gt;</bpt><ept id="6622db3e-5b0e-4dba-b437-f48862e5d324">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="514d6349-c9da-4b67-b073-68e2d693ac4c" xml:space="preserve">
+          <source>You will need the following data to go through the tutorial:</source>
+          <target state="new">You will need the following data to go through the tutorial:</target>
+        </trans-unit>
+        <trans-unit id="37240ca2-0260-4dab-a925-51c3024c5f5c" xml:space="preserve">
+          <source>Cluster property</source>
+          <target state="new">Cluster property</target>
+        </trans-unit>
+        <trans-unit id="c98e4c0f-da55-4d70-a955-4fda494d9406" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="e364e42a-e375-40ca-be9a-7b203a054a18" xml:space="preserve">
+          <source>HBase cluster name</source>
+          <target state="new">HBase cluster name</target>
+        </trans-unit>
+        <trans-unit id="adf4565e-cd9c-4719-9da3-bc93e48edb92" xml:space="preserve">
+          <source>Your HDInsight HBase cluster name. For example: https://myhbase.azurehdinsight.net/</source>
+          <target state="new">Your HDInsight HBase cluster name. For example: https://myhbase.azurehdinsight.net/</target>
+        </trans-unit>
+        <trans-unit id="fec16260-8a9f-40c6-a5cc-daed506f2e41" xml:space="preserve">
+          <source>Cluster user name</source>
+          <target state="new">Cluster user name</target>
+        </trans-unit>
+        <trans-unit id="20495bfe-0479-45e8-bad7-60d771e3189f" xml:space="preserve">
+          <source>The Hadoop user account name. The default Hadoop user name is </source>
+          <target state="new">The Hadoop user account name. The default Hadoop user name is </target>
+        </trans-unit>
+        <trans-unit id="b71d5225-aa73-49f6-9d0e-fc12a22e8a98" xml:space="preserve">
+          <source>admin</source>
+          <target state="new">admin</target>
+        </trans-unit>
+        <trans-unit id="b27018b4-e6c2-4815-ba20-610595140e72" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="ec49c83c-03c3-4bb8-b06c-cc3b6b3742f5" xml:space="preserve">
+          <source>Cluster user password</source>
+          <target state="new">Cluster user password</target>
+        </trans-unit>
+        <trans-unit id="9a3356e3-0e0c-4488-89d9-d27b561290a7" xml:space="preserve">
+          <source>The Hadoop cluster user password.</source>
+          <target state="new">The Hadoop cluster user password.</target>
+        </trans-unit>
+        <trans-unit id="125eb47e-4868-4741-aab0-6328e4b0a28f" xml:space="preserve">
+          <source><bpt id="64576256-b3b7-4306-92c0-5e0ed36922c9">&lt;strong&gt;</bpt>A workstation<ept id="64576256-b3b7-4306-92c0-5e0ed36922c9">&lt;/strong&gt;</ept> with Visual Studio 2013 installed.</source>
+          <target state="new"><bpt id="64576256-b3b7-4306-92c0-5e0ed36922c9">&lt;strong&gt;</bpt>A workstation<ept id="64576256-b3b7-4306-92c0-5e0ed36922c9">&lt;/strong&gt;</ept> with Visual Studio 2013 installed.</target>
+        </trans-unit>
+        <trans-unit id="15c4f00b-ae76-439d-9ce9-24b007c7c83a" xml:space="preserve">
+          <source>For instructions, see <bpt id="4f81a17a-7d5c-4cf9-9440-fac29f97ed4f">&lt;linkText&gt;</bpt>Installing Visual Studio<ept id="4f81a17a-7d5c-4cf9-9440-fac29f97ed4f">&lt;/linkText&gt;</ept><bpt id="4f81a17a-7d5c-4cf9-9440-fac29f97ed4f">&lt;title&gt;</bpt><ept id="4f81a17a-7d5c-4cf9-9440-fac29f97ed4f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="4f81a17a-7d5c-4cf9-9440-fac29f97ed4f">&lt;linkText&gt;</bpt>Installing Visual Studio<ept id="4f81a17a-7d5c-4cf9-9440-fac29f97ed4f">&lt;/linkText&gt;</ept><bpt id="4f81a17a-7d5c-4cf9-9440-fac29f97ed4f">&lt;title&gt;</bpt><ept id="4f81a17a-7d5c-4cf9-9440-fac29f97ed4f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61984564-70b0-4c2e-9260-65d0969b094d" xml:space="preserve">
+          <source>The Twitter streaming APIs use <bpt id="11e33bae-f443-4f83-a455-5e4aea9fad6d">&lt;linkText&gt;</bpt>OAuth<ept id="11e33bae-f443-4f83-a455-5e4aea9fad6d">&lt;/linkText&gt;</ept><bpt id="11e33bae-f443-4f83-a455-5e4aea9fad6d">&lt;title&gt;</bpt><ept id="11e33bae-f443-4f83-a455-5e4aea9fad6d">&lt;/title&gt;</ept> to authorize requests.</source>
+          <target state="new">The Twitter streaming APIs use <bpt id="11e33bae-f443-4f83-a455-5e4aea9fad6d">&lt;linkText&gt;</bpt>OAuth<ept id="11e33bae-f443-4f83-a455-5e4aea9fad6d">&lt;/linkText&gt;</ept><bpt id="11e33bae-f443-4f83-a455-5e4aea9fad6d">&lt;title&gt;</bpt><ept id="11e33bae-f443-4f83-a455-5e4aea9fad6d">&lt;/title&gt;</ept> to authorize requests.</target>
+        </trans-unit>
+        <trans-unit id="31c8c1a2-07cc-44e4-b557-d3a62ccaf481" xml:space="preserve">
+          <source>The first step to use OAuth is to create a new application on the Twitter developer site.</source>
+          <target state="new">The first step to use OAuth is to create a new application on the Twitter developer site.</target>
+        </trans-unit>
+        <trans-unit id="cd495faa-e255-4eee-b38c-323a2f050190" xml:space="preserve">
+          <source><bpt id="4af614b3-0349-4e30-badc-7112ccbe3f37">&lt;strong&gt;</bpt>To create Twitter application ID and secrets<ept id="4af614b3-0349-4e30-badc-7112ccbe3f37">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4af614b3-0349-4e30-badc-7112ccbe3f37">&lt;strong&gt;</bpt>To create Twitter application ID and secrets<ept id="4af614b3-0349-4e30-badc-7112ccbe3f37">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e06edb0-da05-4130-8439-205b90ed6602" xml:space="preserve">
+          <source>Sign in to <bpt id="82c2ab47-730d-4d90-b5d4-e4bc673f467a">&lt;linkText&gt;</bpt>Twitter Apps<ept id="82c2ab47-730d-4d90-b5d4-e4bc673f467a">&lt;/linkText&gt;</ept><bpt id="82c2ab47-730d-4d90-b5d4-e4bc673f467a">&lt;title&gt;</bpt><ept id="82c2ab47-730d-4d90-b5d4-e4bc673f467a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to <bpt id="82c2ab47-730d-4d90-b5d4-e4bc673f467a">&lt;linkText&gt;</bpt>Twitter Apps<ept id="82c2ab47-730d-4d90-b5d4-e4bc673f467a">&lt;/linkText&gt;</ept><bpt id="82c2ab47-730d-4d90-b5d4-e4bc673f467a">&lt;title&gt;</bpt><ept id="82c2ab47-730d-4d90-b5d4-e4bc673f467a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c0fedc3-5710-4138-b9b3-ed2e66f7b9fb" xml:space="preserve">
+          <source>Click the <bpt id="176934fb-515e-4826-bffc-fbe42edbd55a">&lt;strong&gt;</bpt>Sign up now<ept id="176934fb-515e-4826-bffc-fbe42edbd55a">&lt;/strong&gt;</ept> link if you don't have a Twitter account.</source>
+          <target state="new">Click the <bpt id="176934fb-515e-4826-bffc-fbe42edbd55a">&lt;strong&gt;</bpt>Sign up now<ept id="176934fb-515e-4826-bffc-fbe42edbd55a">&lt;/strong&gt;</ept> link if you don't have a Twitter account.</target>
+        </trans-unit>
+        <trans-unit id="7f315eaf-793c-4226-b131-a00bd6adca0a" xml:space="preserve">
+          <source>Click <bpt id="9b91bef5-8552-4030-bd71-759def1310c7">&lt;strong&gt;</bpt>Create New App<ept id="9b91bef5-8552-4030-bd71-759def1310c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9b91bef5-8552-4030-bd71-759def1310c7">&lt;strong&gt;</bpt>Create New App<ept id="9b91bef5-8552-4030-bd71-759def1310c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc4c4dab-c5a3-4839-bcd5-4434b601f5c5" xml:space="preserve">
+          <source>Enter a <bpt id="335b1224-f2a9-48a1-90fa-6e0f4a8df081">&lt;strong&gt;</bpt>Name<ept id="335b1224-f2a9-48a1-90fa-6e0f4a8df081">&lt;/strong&gt;</ept>, <bpt id="e980e0f2-8546-4f92-8f99-54032f5fb539">&lt;strong&gt;</bpt>Description<ept id="e980e0f2-8546-4f92-8f99-54032f5fb539">&lt;/strong&gt;</ept>, and <bpt id="abbcce06-0eee-4282-aad3-08dd9656f5e4">&lt;strong&gt;</bpt>Website<ept id="abbcce06-0eee-4282-aad3-08dd9656f5e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a <bpt id="335b1224-f2a9-48a1-90fa-6e0f4a8df081">&lt;strong&gt;</bpt>Name<ept id="335b1224-f2a9-48a1-90fa-6e0f4a8df081">&lt;/strong&gt;</ept>, <bpt id="e980e0f2-8546-4f92-8f99-54032f5fb539">&lt;strong&gt;</bpt>Description<ept id="e980e0f2-8546-4f92-8f99-54032f5fb539">&lt;/strong&gt;</ept>, and <bpt id="abbcce06-0eee-4282-aad3-08dd9656f5e4">&lt;strong&gt;</bpt>Website<ept id="abbcce06-0eee-4282-aad3-08dd9656f5e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e48a5fc-f8a3-40b2-9331-beaf271d5c36" xml:space="preserve">
+          <source>The Website field is not really used.</source>
+          <target state="new">The Website field is not really used.</target>
+        </trans-unit>
+        <trans-unit id="adf810b2-f730-4b53-9876-cbfacd49d29e" xml:space="preserve">
+          <source>It doesn't have to be a valid URL.</source>
+          <target state="new">It doesn't have to be a valid URL.</target>
+        </trans-unit>
+        <trans-unit id="5acbceae-329e-43f3-a47c-622c5df58003" xml:space="preserve">
+          <source>The following table shows some sample values to use:</source>
+          <target state="new">The following table shows some sample values to use:</target>
+        </trans-unit>
+        <trans-unit id="62d4d5f7-9b88-40b3-a02d-8fef595c5ddb" xml:space="preserve">
+          <source>Field</source>
+          <target state="new">Field</target>
+        </trans-unit>
+        <trans-unit id="ceae8179-2727-4e30-b540-75b55e561695" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="cbce492f-5c03-44d7-8ea6-d5534fa203db" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="91e79593-2988-4526-8672-bd092d0a1f03" xml:space="preserve">
+          <source>MyHDInsightHBaseApp</source>
+          <target state="new">MyHDInsightHBaseApp</target>
+        </trans-unit>
+        <trans-unit id="26e8a03d-91bf-48c7-b8fc-4f621f01d0da" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="3c52a026-7769-4763-9f95-adc0b4982b93" xml:space="preserve">
+          <source>MyHDInsightHBaseApp</source>
+          <target state="new">MyHDInsightHBaseApp</target>
+        </trans-unit>
+        <trans-unit id="36f6b517-23aa-4f44-a0e5-fb32f5025e43" xml:space="preserve">
+          <source>Website</source>
+          <target state="new">Website</target>
+        </trans-unit>
+        <trans-unit id="1a5d8923-0266-4435-b4de-a9f1e1057564" xml:space="preserve">
+          <source>http://www.myhdinsighthbaseapp.com</source>
+          <target state="new">http://www.myhdinsighthbaseapp.com</target>
+        </trans-unit>
+        <trans-unit id="76567012-d9f9-481c-a643-a81d81f29275" xml:space="preserve">
+          <source>The Twitter application name must be an unique name.</source>
+          <target state="new">The Twitter application name must be an unique name.</target>
+        </trans-unit>
+        <trans-unit id="9c8cc2ac-b1d0-4b7d-b483-68d7c3c2d324" xml:space="preserve">
+          <source>Check <bpt id="83592a1f-5c15-441b-8e7f-9ea53bafe763">&lt;strong&gt;</bpt>Yes, I agree<ept id="83592a1f-5c15-441b-8e7f-9ea53bafe763">&lt;/strong&gt;</ept>, and then click <bpt id="9bdd49ca-90ba-4e44-a431-6e4c0715f558">&lt;strong&gt;</bpt>Create your Twitter application<ept id="9bdd49ca-90ba-4e44-a431-6e4c0715f558">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Check <bpt id="83592a1f-5c15-441b-8e7f-9ea53bafe763">&lt;strong&gt;</bpt>Yes, I agree<ept id="83592a1f-5c15-441b-8e7f-9ea53bafe763">&lt;/strong&gt;</ept>, and then click <bpt id="9bdd49ca-90ba-4e44-a431-6e4c0715f558">&lt;strong&gt;</bpt>Create your Twitter application<ept id="9bdd49ca-90ba-4e44-a431-6e4c0715f558">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7acb4883-4473-40e5-8a35-602d665fbbd4" xml:space="preserve">
+          <source>Click the <bpt id="48bbfbf6-f294-405c-b2d6-91e06a776d60">&lt;strong&gt;</bpt>Permissions<ept id="48bbfbf6-f294-405c-b2d6-91e06a776d60">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="48bbfbf6-f294-405c-b2d6-91e06a776d60">&lt;strong&gt;</bpt>Permissions<ept id="48bbfbf6-f294-405c-b2d6-91e06a776d60">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="d7d22163-b457-43fe-af8a-bbc502417a53" xml:space="preserve">
+          <source>The default permission is <bpt id="2faf1859-ed11-465b-90e5-0f6f46607c30">&lt;strong&gt;</bpt>Read only<ept id="2faf1859-ed11-465b-90e5-0f6f46607c30">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default permission is <bpt id="2faf1859-ed11-465b-90e5-0f6f46607c30">&lt;strong&gt;</bpt>Read only<ept id="2faf1859-ed11-465b-90e5-0f6f46607c30">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1e81aba-7c8c-49d4-b3b4-5e7042178d1e" xml:space="preserve">
+          <source>This is sufficient for this tutorial.</source>
+          <target state="new">This is sufficient for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="07eda321-45d5-4687-8352-95cda73bbb8f" xml:space="preserve">
+          <source>Click the <bpt id="668b2fac-fc1e-4188-8144-b75a41777acf">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="668b2fac-fc1e-4188-8144-b75a41777acf">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="668b2fac-fc1e-4188-8144-b75a41777acf">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="668b2fac-fc1e-4188-8144-b75a41777acf">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="3a71a95a-3d15-4f6a-becc-853dea7ca306" xml:space="preserve">
+          <source>Click <bpt id="0536cbfd-edd2-48e9-9b95-48d948ce3b46">&lt;strong&gt;</bpt>Create my access token<ept id="0536cbfd-edd2-48e9-9b95-48d948ce3b46">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0536cbfd-edd2-48e9-9b95-48d948ce3b46">&lt;strong&gt;</bpt>Create my access token<ept id="0536cbfd-edd2-48e9-9b95-48d948ce3b46">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94fb88ee-612a-4144-ab75-e8a010eb3bc2" xml:space="preserve">
+          <source>Click <bpt id="1d44c7a7-dd3c-4343-bddd-40f080572c79">&lt;strong&gt;</bpt>Test OAuth<ept id="1d44c7a7-dd3c-4343-bddd-40f080572c79">&lt;/strong&gt;</ept> in the upper-right corner of the page.</source>
+          <target state="new">Click <bpt id="1d44c7a7-dd3c-4343-bddd-40f080572c79">&lt;strong&gt;</bpt>Test OAuth<ept id="1d44c7a7-dd3c-4343-bddd-40f080572c79">&lt;/strong&gt;</ept> in the upper-right corner of the page.</target>
+        </trans-unit>
+        <trans-unit id="373cef0d-b62c-4341-9b63-946d39fd1abe" xml:space="preserve">
+          <source>Copy the <bpt id="ca1c0eea-2e4d-46b7-acf9-5612ed0a82d4">&lt;strong&gt;</bpt>Consumer key<ept id="ca1c0eea-2e4d-46b7-acf9-5612ed0a82d4">&lt;/strong&gt;</ept>, <bpt id="05ca60e4-f6c7-4734-9743-cabe82cd89c0">&lt;strong&gt;</bpt>Consumer secret<ept id="05ca60e4-f6c7-4734-9743-cabe82cd89c0">&lt;/strong&gt;</ept>, <bpt id="44503479-cf57-403a-8ba3-a55db65d1bf5">&lt;strong&gt;</bpt>Access token<ept id="44503479-cf57-403a-8ba3-a55db65d1bf5">&lt;/strong&gt;</ept>, and <bpt id="1f175b68-f797-452d-9f62-07881c7024b9">&lt;strong&gt;</bpt>Access token secret<ept id="1f175b68-f797-452d-9f62-07881c7024b9">&lt;/strong&gt;</ept> values.</source>
+          <target state="new">Copy the <bpt id="ca1c0eea-2e4d-46b7-acf9-5612ed0a82d4">&lt;strong&gt;</bpt>Consumer key<ept id="ca1c0eea-2e4d-46b7-acf9-5612ed0a82d4">&lt;/strong&gt;</ept>, <bpt id="05ca60e4-f6c7-4734-9743-cabe82cd89c0">&lt;strong&gt;</bpt>Consumer secret<ept id="05ca60e4-f6c7-4734-9743-cabe82cd89c0">&lt;/strong&gt;</ept>, <bpt id="44503479-cf57-403a-8ba3-a55db65d1bf5">&lt;strong&gt;</bpt>Access token<ept id="44503479-cf57-403a-8ba3-a55db65d1bf5">&lt;/strong&gt;</ept>, and <bpt id="1f175b68-f797-452d-9f62-07881c7024b9">&lt;strong&gt;</bpt>Access token secret<ept id="1f175b68-f797-452d-9f62-07881c7024b9">&lt;/strong&gt;</ept> values.</target>
+        </trans-unit>
+        <trans-unit id="4e155136-f59d-4e11-aed3-084199081bcb" xml:space="preserve">
+          <source>You will need these values later in the tutorial.</source>
+          <target state="new">You will need these values later in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="e7ce3ad4-d306-44ef-ac98-647bee1c04ca" xml:space="preserve">
+          <source><bpt id="cc8b6b9d-e2ea-4d4c-96d8-2a07cd3a1c0c">&lt;linkText&gt;</bpt>hdi.hbase.twitter.sentiment.twitter.app<ept id="cc8b6b9d-e2ea-4d4c-96d8-2a07cd3a1c0c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cc8b6b9d-e2ea-4d4c-96d8-2a07cd3a1c0c">&lt;linkText&gt;</bpt>hdi.hbase.twitter.sentiment.twitter.app<ept id="cc8b6b9d-e2ea-4d4c-96d8-2a07cd3a1c0c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e48d8261-a6ed-41aa-bc27-4656db8d00c3" xml:space="preserve">
+          <source>You need to create a console application to get tweets, calculate tweet sentiment score, and send the processed tweet words to HBase.</source>
+          <target state="new">You need to create a console application to get tweets, calculate tweet sentiment score, and send the processed tweet words to HBase.</target>
+        </trans-unit>
+        <trans-unit id="051027ea-8e91-404a-bee8-2c643f7ac3e0" xml:space="preserve">
+          <source><bpt id="723675ea-c470-45b8-84d7-ce2f390d5dbc">&lt;strong&gt;</bpt>To download the sentiment dictionary file<ept id="723675ea-c470-45b8-84d7-ce2f390d5dbc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="723675ea-c470-45b8-84d7-ce2f390d5dbc">&lt;strong&gt;</bpt>To download the sentiment dictionary file<ept id="723675ea-c470-45b8-84d7-ce2f390d5dbc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54754e99-867b-48fa-9b35-ea99a30ea904" xml:space="preserve">
+          <source>Browse to <bpt id="d6550245-210f-43f0-8e57-752f1914c838">&lt;linkText&gt;</bpt>Realtime social sentiment analysis app<ept id="d6550245-210f-43f0-8e57-752f1914c838">&lt;/linkText&gt;</ept><bpt id="d6550245-210f-43f0-8e57-752f1914c838">&lt;title&gt;</bpt><ept id="d6550245-210f-43f0-8e57-752f1914c838">&lt;/title&gt;</ept>.</source>
+          <target state="new">Browse to <bpt id="d6550245-210f-43f0-8e57-752f1914c838">&lt;linkText&gt;</bpt>Realtime social sentiment analysis app<ept id="d6550245-210f-43f0-8e57-752f1914c838">&lt;/linkText&gt;</ept><bpt id="d6550245-210f-43f0-8e57-752f1914c838">&lt;title&gt;</bpt><ept id="d6550245-210f-43f0-8e57-752f1914c838">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cae265f9-5555-4880-93ee-ed41c87cf40e" xml:space="preserve">
+          <source>Click <bpt id="b5f7ced9-02c7-44b9-9330-ce23c354a3d6">&lt;strong&gt;</bpt>Download ZIP<ept id="b5f7ced9-02c7-44b9-9330-ce23c354a3d6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b5f7ced9-02c7-44b9-9330-ce23c354a3d6">&lt;strong&gt;</bpt>Download ZIP<ept id="b5f7ced9-02c7-44b9-9330-ce23c354a3d6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cee75a1d-858a-4e10-873a-905c0bcba652" xml:space="preserve">
+          <source>Extract the file locally.</source>
+          <target state="new">Extract the file locally.</target>
+        </trans-unit>
+        <trans-unit id="7a2729dc-9ca6-48f0-af22-28b6beb72a3d" xml:space="preserve">
+          <source>Copy the path of the <bpt id="f8eff056-8819-44a1-a614-b0b7dcf25bf9">&lt;strong&gt;</bpt>../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv<ept id="f8eff056-8819-44a1-a614-b0b7dcf25bf9">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Copy the path of the <bpt id="f8eff056-8819-44a1-a614-b0b7dcf25bf9">&lt;strong&gt;</bpt>../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv<ept id="f8eff056-8819-44a1-a614-b0b7dcf25bf9">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="af5dfe22-f952-4e3e-8cd7-399d7f4f695f" xml:space="preserve">
+          <source>You will need it in the application.</source>
+          <target state="new">You will need it in the application.</target>
+        </trans-unit>
+        <trans-unit id="a405e399-6642-47da-b513-b26ca01fab3c" xml:space="preserve">
+          <source><bpt id="172c1462-5199-45bf-aab2-ea3ea40b5305">&lt;strong&gt;</bpt>To create the  Visual Studio solution<ept id="172c1462-5199-45bf-aab2-ea3ea40b5305">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="172c1462-5199-45bf-aab2-ea3ea40b5305">&lt;strong&gt;</bpt>To create the  Visual Studio solution<ept id="172c1462-5199-45bf-aab2-ea3ea40b5305">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0eef83a-140c-4b3c-9187-34aec102c281" xml:space="preserve">
+          <source>Open <bpt id="9cc431d7-36bf-4f85-9141-a246475747f2">&lt;strong&gt;</bpt>Visual Studio<ept id="9cc431d7-36bf-4f85-9141-a246475747f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="9cc431d7-36bf-4f85-9141-a246475747f2">&lt;strong&gt;</bpt>Visual Studio<ept id="9cc431d7-36bf-4f85-9141-a246475747f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e918423c-b1c8-4ac0-9fca-a39c8f502f32" xml:space="preserve">
+          <source>From the <bpt id="3ad648f6-3b86-493d-b86e-da4c53035e2c">&lt;strong&gt;</bpt>File<ept id="3ad648f6-3b86-493d-b86e-da4c53035e2c">&lt;/strong&gt;</ept> menu, point to <bpt id="d308cff2-ae2b-4822-9e13-59bc1e17a845">&lt;strong&gt;</bpt>New<ept id="d308cff2-ae2b-4822-9e13-59bc1e17a845">&lt;/strong&gt;</ept>, and then click <bpt id="9303aa87-6bc3-4308-9d0c-2ec7d4d3ae11">&lt;strong&gt;</bpt>Project<ept id="9303aa87-6bc3-4308-9d0c-2ec7d4d3ae11">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="3ad648f6-3b86-493d-b86e-da4c53035e2c">&lt;strong&gt;</bpt>File<ept id="3ad648f6-3b86-493d-b86e-da4c53035e2c">&lt;/strong&gt;</ept> menu, point to <bpt id="d308cff2-ae2b-4822-9e13-59bc1e17a845">&lt;strong&gt;</bpt>New<ept id="d308cff2-ae2b-4822-9e13-59bc1e17a845">&lt;/strong&gt;</ept>, and then click <bpt id="9303aa87-6bc3-4308-9d0c-2ec7d4d3ae11">&lt;strong&gt;</bpt>Project<ept id="9303aa87-6bc3-4308-9d0c-2ec7d4d3ae11">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c143c8b7-d7cd-4b40-81a0-33fd14d3472c" xml:space="preserve">
+          <source>Type or select the following values:</source>
+          <target state="new">Type or select the following values:</target>
+        </trans-unit>
+        <trans-unit id="9ffbe705-1c2c-452b-aa2e-243ee0ddd90c" xml:space="preserve">
+          <source>Template: <bpt id="9ce52243-669b-4eb2-b6b7-ad9a937d2cb7">&lt;strong&gt;</bpt>Visual C# / Windows Desktop / Console Application<ept id="9ce52243-669b-4eb2-b6b7-ad9a937d2cb7">&lt;/strong&gt;</ept></source>
+          <target state="new">Template: <bpt id="9ce52243-669b-4eb2-b6b7-ad9a937d2cb7">&lt;strong&gt;</bpt>Visual C# / Windows Desktop / Console Application<ept id="9ce52243-669b-4eb2-b6b7-ad9a937d2cb7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bfd7679-718b-4f19-8fe1-6cd314a4806e" xml:space="preserve">
+          <source>Name: <bpt id="dd0cd3e9-fff0-4d79-9db8-1ebf1f1fcfe3">&lt;strong&gt;</bpt>TweetSentimentStreaming<ept id="dd0cd3e9-fff0-4d79-9db8-1ebf1f1fcfe3">&lt;/strong&gt;</ept> </source>
+          <target state="new">Name: <bpt id="dd0cd3e9-fff0-4d79-9db8-1ebf1f1fcfe3">&lt;strong&gt;</bpt>TweetSentimentStreaming<ept id="dd0cd3e9-fff0-4d79-9db8-1ebf1f1fcfe3">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a64ec776-2a88-401c-a8ac-2a9547d63b48" xml:space="preserve">
+          <source>Location: <bpt id="46dcafb3-7ab0-4c0c-b191-8a2e9666b64f">&lt;strong&gt;</bpt>C:\Tutorials<ept id="46dcafb3-7ab0-4c0c-b191-8a2e9666b64f">&lt;/strong&gt;</ept></source>
+          <target state="new">Location: <bpt id="46dcafb3-7ab0-4c0c-b191-8a2e9666b64f">&lt;strong&gt;</bpt>C:\Tutorials<ept id="46dcafb3-7ab0-4c0c-b191-8a2e9666b64f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96288e06-5896-4e26-80d4-dae4473aacd2" xml:space="preserve">
+          <source>Solution name: <bpt id="ebf14268-05de-4853-b6c4-afbc1560d14d">&lt;strong&gt;</bpt>TweetSentimentStreaming<ept id="ebf14268-05de-4853-b6c4-afbc1560d14d">&lt;/strong&gt;</ept></source>
+          <target state="new">Solution name: <bpt id="ebf14268-05de-4853-b6c4-afbc1560d14d">&lt;strong&gt;</bpt>TweetSentimentStreaming<ept id="ebf14268-05de-4853-b6c4-afbc1560d14d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcc6ad93-41dc-4e28-9aca-9068ad39e9b9" xml:space="preserve">
+          <source>Click <bpt id="90a20ef1-f336-45ed-8814-4440f98fcfdb">&lt;strong&gt;</bpt>OK<ept id="90a20ef1-f336-45ed-8814-4440f98fcfdb">&lt;/strong&gt;</ept> to continue.</source>
+          <target state="new">Click <bpt id="90a20ef1-f336-45ed-8814-4440f98fcfdb">&lt;strong&gt;</bpt>OK<ept id="90a20ef1-f336-45ed-8814-4440f98fcfdb">&lt;/strong&gt;</ept> to continue.</target>
+        </trans-unit>
+        <trans-unit id="c31bcc30-4159-4798-845a-fbf5fa30e964" xml:space="preserve">
+          <source><bpt id="25d476bf-cd01-4bb1-a50a-227cfb19d733">&lt;strong&gt;</bpt>To install NuGet packages and add SDK references<ept id="25d476bf-cd01-4bb1-a50a-227cfb19d733">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="25d476bf-cd01-4bb1-a50a-227cfb19d733">&lt;strong&gt;</bpt>To install NuGet packages and add SDK references<ept id="25d476bf-cd01-4bb1-a50a-227cfb19d733">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04458fb9-bd50-49f9-96c1-79224d301832" xml:space="preserve">
+          <source>From the <bpt id="f566b235-e6c1-4291-b910-cade031a3256">&lt;strong&gt;</bpt>Tools<ept id="f566b235-e6c1-4291-b910-cade031a3256">&lt;/strong&gt;</ept> menu, click <bpt id="55d0b47e-ad89-4508-9985-9f773fdd94e1">&lt;strong&gt;</bpt>Nuget Package Manager<ept id="55d0b47e-ad89-4508-9985-9f773fdd94e1">&lt;/strong&gt;</ept>, and then click <bpt id="4590fdeb-4135-48f0-a8a1-f545b91cb33d">&lt;strong&gt;</bpt>Package Manager Console<ept id="4590fdeb-4135-48f0-a8a1-f545b91cb33d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="f566b235-e6c1-4291-b910-cade031a3256">&lt;strong&gt;</bpt>Tools<ept id="f566b235-e6c1-4291-b910-cade031a3256">&lt;/strong&gt;</ept> menu, click <bpt id="55d0b47e-ad89-4508-9985-9f773fdd94e1">&lt;strong&gt;</bpt>Nuget Package Manager<ept id="55d0b47e-ad89-4508-9985-9f773fdd94e1">&lt;/strong&gt;</ept>, and then click <bpt id="4590fdeb-4135-48f0-a8a1-f545b91cb33d">&lt;strong&gt;</bpt>Package Manager Console<ept id="4590fdeb-4135-48f0-a8a1-f545b91cb33d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc3633e4-037e-440b-b587-67df417179da" xml:space="preserve">
+          <source>The console panel will open at the bottom of the page.</source>
+          <target state="new">The console panel will open at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="a90a4c2e-2f29-4e27-bba9-cd59001e6b9d" xml:space="preserve">
+          <source>Use the following commands to install the <bpt id="03f87b8e-c01f-40f1-ad30-f2c2723036e1">&lt;linkText&gt;</bpt>HBase .NET SDK<ept id="03f87b8e-c01f-40f1-ad30-f2c2723036e1">&lt;/linkText&gt;</ept><bpt id="03f87b8e-c01f-40f1-ad30-f2c2723036e1">&lt;title&gt;</bpt><ept id="03f87b8e-c01f-40f1-ad30-f2c2723036e1">&lt;/title&gt;</ept> package, which is the client library to access the HBase cluster, and the <bpt id="31e49540-bdb1-4a63-815c-5843a97f0508">&lt;linkText&gt;</bpt>Tweetinvi API<ept id="31e49540-bdb1-4a63-815c-5843a97f0508">&lt;/linkText&gt;</ept><bpt id="31e49540-bdb1-4a63-815c-5843a97f0508">&lt;title&gt;</bpt><ept id="31e49540-bdb1-4a63-815c-5843a97f0508">&lt;/title&gt;</ept> package, which is used to access the Twitter API.</source>
+          <target state="new">Use the following commands to install the <bpt id="03f87b8e-c01f-40f1-ad30-f2c2723036e1">&lt;linkText&gt;</bpt>HBase .NET SDK<ept id="03f87b8e-c01f-40f1-ad30-f2c2723036e1">&lt;/linkText&gt;</ept><bpt id="03f87b8e-c01f-40f1-ad30-f2c2723036e1">&lt;title&gt;</bpt><ept id="03f87b8e-c01f-40f1-ad30-f2c2723036e1">&lt;/title&gt;</ept> package, which is the client library to access the HBase cluster, and the <bpt id="31e49540-bdb1-4a63-815c-5843a97f0508">&lt;linkText&gt;</bpt>Tweetinvi API<ept id="31e49540-bdb1-4a63-815c-5843a97f0508">&lt;/linkText&gt;</ept><bpt id="31e49540-bdb1-4a63-815c-5843a97f0508">&lt;title&gt;</bpt><ept id="31e49540-bdb1-4a63-815c-5843a97f0508">&lt;/title&gt;</ept> package, which is used to access the Twitter API.</target>
+        </trans-unit>
+        <trans-unit id="34c873a6-5570-4ff3-876c-ab03db359a73" xml:space="preserve">
+          <source>From <bpt id="df29acb7-6f5f-4dd6-9125-cff6fc3fc5f5">&lt;strong&gt;</bpt>Solution Explorer<ept id="df29acb7-6f5f-4dd6-9125-cff6fc3fc5f5">&lt;/strong&gt;</ept>, right-click <bpt id="91877961-bfda-4f8a-bf4c-ccbc16149b75">&lt;strong&gt;</bpt>References<ept id="91877961-bfda-4f8a-bf4c-ccbc16149b75">&lt;/strong&gt;</ept>, and then click <bpt id="8896991e-f42d-4ce6-8d8c-ea72488f5306">&lt;strong&gt;</bpt>Add Reference<ept id="8896991e-f42d-4ce6-8d8c-ea72488f5306">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="df29acb7-6f5f-4dd6-9125-cff6fc3fc5f5">&lt;strong&gt;</bpt>Solution Explorer<ept id="df29acb7-6f5f-4dd6-9125-cff6fc3fc5f5">&lt;/strong&gt;</ept>, right-click <bpt id="91877961-bfda-4f8a-bf4c-ccbc16149b75">&lt;strong&gt;</bpt>References<ept id="91877961-bfda-4f8a-bf4c-ccbc16149b75">&lt;/strong&gt;</ept>, and then click <bpt id="8896991e-f42d-4ce6-8d8c-ea72488f5306">&lt;strong&gt;</bpt>Add Reference<ept id="8896991e-f42d-4ce6-8d8c-ea72488f5306">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8ce8d68-f700-4b62-a1fa-a515c42570ff" xml:space="preserve">
+          <source>In the left pane, expand <bpt id="a08cb4b5-9562-4a25-b842-afdc1ffac51a">&lt;strong&gt;</bpt>Assemblies<ept id="a08cb4b5-9562-4a25-b842-afdc1ffac51a">&lt;/strong&gt;</ept>, and then click <bpt id="9bc5be1d-8144-4c1f-bf62-21900adb598e">&lt;strong&gt;</bpt>Framework<ept id="9bc5be1d-8144-4c1f-bf62-21900adb598e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, expand <bpt id="a08cb4b5-9562-4a25-b842-afdc1ffac51a">&lt;strong&gt;</bpt>Assemblies<ept id="a08cb4b5-9562-4a25-b842-afdc1ffac51a">&lt;/strong&gt;</ept>, and then click <bpt id="9bc5be1d-8144-4c1f-bf62-21900adb598e">&lt;strong&gt;</bpt>Framework<ept id="9bc5be1d-8144-4c1f-bf62-21900adb598e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="019539e9-b189-4869-bf46-705e288873d5" xml:space="preserve">
+          <source>In the right pane, select the check box in front of <bpt id="06e4e16a-6a3d-4577-90bf-ceb7c2165e10">&lt;strong&gt;</bpt>System.Configuration<ept id="06e4e16a-6a3d-4577-90bf-ceb7c2165e10">&lt;/strong&gt;</ept>, and then click <bpt id="03df0df2-66ec-4978-a8c5-5d122b69a9f5">&lt;strong&gt;</bpt>OK<ept id="03df0df2-66ec-4978-a8c5-5d122b69a9f5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the right pane, select the check box in front of <bpt id="06e4e16a-6a3d-4577-90bf-ceb7c2165e10">&lt;strong&gt;</bpt>System.Configuration<ept id="06e4e16a-6a3d-4577-90bf-ceb7c2165e10">&lt;/strong&gt;</ept>, and then click <bpt id="03df0df2-66ec-4978-a8c5-5d122b69a9f5">&lt;strong&gt;</bpt>OK<ept id="03df0df2-66ec-4978-a8c5-5d122b69a9f5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7da8afb-276a-46cb-a0e8-c2c83d3749e3" xml:space="preserve">
+          <source><bpt id="2adbce54-39f4-4be4-a774-49680c89a51a">&lt;strong&gt;</bpt>To define the Tweeter streaming service class<ept id="2adbce54-39f4-4be4-a774-49680c89a51a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2adbce54-39f4-4be4-a774-49680c89a51a">&lt;strong&gt;</bpt>To define the Tweeter streaming service class<ept id="2adbce54-39f4-4be4-a774-49680c89a51a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e5634ee-2c0f-41a4-a5d2-8afa216336a2" xml:space="preserve">
+          <source>From <bpt id="a6e7d813-9a65-471f-b16a-bcedaf719d27">&lt;strong&gt;</bpt>Solution Explorer<ept id="a6e7d813-9a65-471f-b16a-bcedaf719d27">&lt;/strong&gt;</ept>, right-click <bpt id="54396055-f27c-4eff-881b-ba363372cbf5">&lt;strong&gt;</bpt>TweetSentimentStreaming<ept id="54396055-f27c-4eff-881b-ba363372cbf5">&lt;/strong&gt;</ept>, point to <bpt id="4f2085a1-6044-4f59-a2fa-23402b41c42b">&lt;strong&gt;</bpt>Add<ept id="4f2085a1-6044-4f59-a2fa-23402b41c42b">&lt;/strong&gt;</ept>, and then click <bpt id="ffbf66bf-d935-466b-b55c-61d596fe3414">&lt;strong&gt;</bpt>Class<ept id="ffbf66bf-d935-466b-b55c-61d596fe3414">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="a6e7d813-9a65-471f-b16a-bcedaf719d27">&lt;strong&gt;</bpt>Solution Explorer<ept id="a6e7d813-9a65-471f-b16a-bcedaf719d27">&lt;/strong&gt;</ept>, right-click <bpt id="54396055-f27c-4eff-881b-ba363372cbf5">&lt;strong&gt;</bpt>TweetSentimentStreaming<ept id="54396055-f27c-4eff-881b-ba363372cbf5">&lt;/strong&gt;</ept>, point to <bpt id="4f2085a1-6044-4f59-a2fa-23402b41c42b">&lt;strong&gt;</bpt>Add<ept id="4f2085a1-6044-4f59-a2fa-23402b41c42b">&lt;/strong&gt;</ept>, and then click <bpt id="ffbf66bf-d935-466b-b55c-61d596fe3414">&lt;strong&gt;</bpt>Class<ept id="ffbf66bf-d935-466b-b55c-61d596fe3414">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c73c4be-5c3b-47ac-8de1-85a2fcf90be0" xml:space="preserve">
+          <source>In the <bpt id="d2847e5d-310c-45bf-a4a8-bf654c3edf67">&lt;strong&gt;</bpt>Name<ept id="d2847e5d-310c-45bf-a4a8-bf654c3edf67">&lt;/strong&gt;</ept> field, type <bpt id="f5b585c4-35dc-4e59-961b-ed8e987dbe2b">&lt;strong&gt;</bpt>HBaseWriter<ept id="f5b585c4-35dc-4e59-961b-ed8e987dbe2b">&lt;/strong&gt;</ept>, and then click <bpt id="1ac501e9-b62e-4eab-a1ab-d4b2b6e67ea1">&lt;strong&gt;</bpt>Add<ept id="1ac501e9-b62e-4eab-a1ab-d4b2b6e67ea1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d2847e5d-310c-45bf-a4a8-bf654c3edf67">&lt;strong&gt;</bpt>Name<ept id="d2847e5d-310c-45bf-a4a8-bf654c3edf67">&lt;/strong&gt;</ept> field, type <bpt id="f5b585c4-35dc-4e59-961b-ed8e987dbe2b">&lt;strong&gt;</bpt>HBaseWriter<ept id="f5b585c4-35dc-4e59-961b-ed8e987dbe2b">&lt;/strong&gt;</ept>, and then click <bpt id="1ac501e9-b62e-4eab-a1ab-d4b2b6e67ea1">&lt;strong&gt;</bpt>Add<ept id="1ac501e9-b62e-4eab-a1ab-d4b2b6e67ea1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6bb7d8ec-f20f-4ff2-b3bc-944a13e80879" xml:space="preserve">
+          <source>In <bpt id="d00ab2fe-680d-402a-b4db-f8cd67b09ab2">&lt;strong&gt;</bpt>HBaseWriter.cs<ept id="d00ab2fe-680d-402a-b4db-f8cd67b09ab2">&lt;/strong&gt;</ept>, add the following <bpt id="403bf23a-cc55-4ad1-83c3-7746effa79ef">&lt;strong&gt;</bpt>using<ept id="403bf23a-cc55-4ad1-83c3-7746effa79ef">&lt;/strong&gt;</ept> statements at the top of the file:</source>
+          <target state="new">In <bpt id="d00ab2fe-680d-402a-b4db-f8cd67b09ab2">&lt;strong&gt;</bpt>HBaseWriter.cs<ept id="d00ab2fe-680d-402a-b4db-f8cd67b09ab2">&lt;/strong&gt;</ept>, add the following <bpt id="403bf23a-cc55-4ad1-83c3-7746effa79ef">&lt;strong&gt;</bpt>using<ept id="403bf23a-cc55-4ad1-83c3-7746effa79ef">&lt;/strong&gt;</ept> statements at the top of the file:</target>
+        </trans-unit>
+        <trans-unit id="dd3d8305-4941-4882-911c-0ea12597cdf2" xml:space="preserve">
+          <source>Inside <bpt id="08fab608-29f9-4ddd-9279-67689e5b2278">&lt;strong&gt;</bpt>HbaseWriter.cs<ept id="08fab608-29f9-4ddd-9279-67689e5b2278">&lt;/strong&gt;</ept>, add a new class call <bpt id="75f347a9-a24d-4d91-bb01-382854f24872">&lt;strong&gt;</bpt>DictionaryItem<ept id="75f347a9-a24d-4d91-bb01-382854f24872">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Inside <bpt id="08fab608-29f9-4ddd-9279-67689e5b2278">&lt;strong&gt;</bpt>HbaseWriter.cs<ept id="08fab608-29f9-4ddd-9279-67689e5b2278">&lt;/strong&gt;</ept>, add a new class call <bpt id="75f347a9-a24d-4d91-bb01-382854f24872">&lt;strong&gt;</bpt>DictionaryItem<ept id="75f347a9-a24d-4d91-bb01-382854f24872">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="c4ea9527-a0c4-4d27-b292-d42f8599840f" xml:space="preserve">
+          <source>This class structure is used to parse the sentiment dictionary file.</source>
+          <target state="new">This class structure is used to parse the sentiment dictionary file.</target>
+        </trans-unit>
+        <trans-unit id="ba8a16c4-a428-405b-96a8-cb8c201f1e42" xml:space="preserve">
+          <source>The data is used to calculate sentiment score for each tweet.</source>
+          <target state="new">The data is used to calculate sentiment score for each tweet.</target>
+        </trans-unit>
+        <trans-unit id="480da507-e093-48e1-b07c-06fd2b549858" xml:space="preserve">
+          <source>Inside the <bpt id="55750c36-a829-40b9-95e5-5fad85684ffa">&lt;strong&gt;</bpt>HBaseWriter<ept id="55750c36-a829-40b9-95e5-5fad85684ffa">&lt;/strong&gt;</ept> class, define the following constants and variables:</source>
+          <target state="new">Inside the <bpt id="55750c36-a829-40b9-95e5-5fad85684ffa">&lt;strong&gt;</bpt>HBaseWriter<ept id="55750c36-a829-40b9-95e5-5fad85684ffa">&lt;/strong&gt;</ept> class, define the following constants and variables:</target>
+        </trans-unit>
+        <trans-unit id="a3e9e62b-69f1-41cb-bb76-7081896d7cf6" xml:space="preserve">
+          <source>Set the constant values, including <bpt id="1fb8e979-2606-4d35-b8b7-3a966976a67a">&lt;strong&gt;</bpt>&amp;lt;HBaseClusterName&gt;<ept id="1fb8e979-2606-4d35-b8b7-3a966976a67a">&lt;/strong&gt;</ept>, <bpt id="96d8a907-a513-4c7d-944c-a79ee49774ee">&lt;strong&gt;</bpt>&amp;lt;HadoopUserName&gt;<ept id="96d8a907-a513-4c7d-944c-a79ee49774ee">&lt;/strong&gt;</ept>, and <bpt id="ec52efef-a6aa-4138-bdfc-b1b6d0cdca0d">&lt;strong&gt;</bpt>&amp;lt;HaddopUserPassword&gt;<ept id="ec52efef-a6aa-4138-bdfc-b1b6d0cdca0d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Set the constant values, including <bpt id="1fb8e979-2606-4d35-b8b7-3a966976a67a">&lt;strong&gt;</bpt>&amp;lt;HBaseClusterName&gt;<ept id="1fb8e979-2606-4d35-b8b7-3a966976a67a">&lt;/strong&gt;</ept>, <bpt id="96d8a907-a513-4c7d-944c-a79ee49774ee">&lt;strong&gt;</bpt>&amp;lt;HadoopUserName&gt;<ept id="96d8a907-a513-4c7d-944c-a79ee49774ee">&lt;/strong&gt;</ept>, and <bpt id="ec52efef-a6aa-4138-bdfc-b1b6d0cdca0d">&lt;strong&gt;</bpt>&amp;lt;HaddopUserPassword&gt;<ept id="ec52efef-a6aa-4138-bdfc-b1b6d0cdca0d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99f6815a-c3ae-4566-b6ff-2165ecc8c977" xml:space="preserve">
+          <source>If you want to change the HBase table name, you must change the table name in the web application accordingly.</source>
+          <target state="new">If you want to change the HBase table name, you must change the table name in the web application accordingly.</target>
+        </trans-unit>
+        <trans-unit id="5c3db66e-6d48-45c0-8829-5442113a0ef2" xml:space="preserve">
+          <source>You will download and move the dictionary.tsv file to a specific folder later in the tutorial.</source>
+          <target state="new">You will download and move the dictionary.tsv file to a specific folder later in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="f71b4d5c-c223-4f6b-8a36-d1c7e9bda666" xml:space="preserve">
+          <source>Define the following functions inside the <bpt id="462af249-c37e-4711-9a32-ff711b118a65">&lt;strong&gt;</bpt>HBaseWriter<ept id="462af249-c37e-4711-9a32-ff711b118a65">&lt;/strong&gt;</ept> class:</source>
+          <target state="new">Define the following functions inside the <bpt id="462af249-c37e-4711-9a32-ff711b118a65">&lt;strong&gt;</bpt>HBaseWriter<ept id="462af249-c37e-4711-9a32-ff711b118a65">&lt;/strong&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="49720aba-05c9-4670-a506-4a3d18bc2e18" xml:space="preserve">
+          <source>This code provides the following functionality:</source>
+          <target state="new">This code provides the following functionality:</target>
+        </trans-unit>
+        <trans-unit id="cb2ccdb4-6ec1-4b35-b666-c540062303bc" xml:space="preserve">
+          <source><bpt id="947915a7-72a4-4997-a8e9-488679581fe3">&lt;strong&gt;</bpt>Connect to Hbase [ HBaseWriter() ]<ept id="947915a7-72a4-4997-a8e9-488679581fe3">&lt;/strong&gt;</ept>: Use the HBase SDK to create a <bpt id="ee4968cf-2e4e-4097-b626-fdf957cdb244">&lt;em&gt;</bpt>ClusterCredentials<ept id="ee4968cf-2e4e-4097-b626-fdf957cdb244">&lt;/em&gt;</ept> object with the cluster URL and the Hadoop user credential, and then create an <bpt id="ce669d87-99b8-44fa-98b0-5d166d4d164b">&lt;em&gt;</bpt>HBaseClient<ept id="ce669d87-99b8-44fa-98b0-5d166d4d164b">&lt;/em&gt;</ept> object by using the ClusterCredentials object.</source>
+          <target state="new"><bpt id="947915a7-72a4-4997-a8e9-488679581fe3">&lt;strong&gt;</bpt>Connect to Hbase [ HBaseWriter() ]<ept id="947915a7-72a4-4997-a8e9-488679581fe3">&lt;/strong&gt;</ept>: Use the HBase SDK to create a <bpt id="ee4968cf-2e4e-4097-b626-fdf957cdb244">&lt;em&gt;</bpt>ClusterCredentials<ept id="ee4968cf-2e4e-4097-b626-fdf957cdb244">&lt;/em&gt;</ept> object with the cluster URL and the Hadoop user credential, and then create an <bpt id="ce669d87-99b8-44fa-98b0-5d166d4d164b">&lt;em&gt;</bpt>HBaseClient<ept id="ce669d87-99b8-44fa-98b0-5d166d4d164b">&lt;/em&gt;</ept> object by using the ClusterCredentials object.</target>
+        </trans-unit>
+        <trans-unit id="75e8e18a-066c-404f-9fe6-a85e97ad9d40" xml:space="preserve">
+          <source><bpt id="0cdac36b-39ae-4dc0-8ed5-d487a451a19e">&lt;strong&gt;</bpt>Create HBase table [ HBaseWriter() ]<ept id="0cdac36b-39ae-4dc0-8ed5-d487a451a19e">&lt;/strong&gt;</ept>: The method call is <bpt id="6e1a10c7-6a35-44df-93f5-f94586084c3a">&lt;em&gt;</bpt>HBaseClient.CreateTable()<ept id="6e1a10c7-6a35-44df-93f5-f94586084c3a">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="0cdac36b-39ae-4dc0-8ed5-d487a451a19e">&lt;strong&gt;</bpt>Create HBase table [ HBaseWriter() ]<ept id="0cdac36b-39ae-4dc0-8ed5-d487a451a19e">&lt;/strong&gt;</ept>: The method call is <bpt id="6e1a10c7-6a35-44df-93f5-f94586084c3a">&lt;em&gt;</bpt>HBaseClient.CreateTable()<ept id="6e1a10c7-6a35-44df-93f5-f94586084c3a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9fadea5-f045-4f2f-a6d4-57f13b990c74" xml:space="preserve">
+          <source><bpt id="3462e7ac-8536-4bb4-b656-7bdd5fec63ab">&lt;strong&gt;</bpt>Write to HBase table [ WriterThreadFunction() ]<ept id="3462e7ac-8536-4bb4-b656-7bdd5fec63ab">&lt;/strong&gt;</ept>: The method call is <bpt id="80265a91-97ab-4cc6-87dc-ceb2f86102e1">&lt;em&gt;</bpt>HBaseClient.StoreCells()<ept id="80265a91-97ab-4cc6-87dc-ceb2f86102e1">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="3462e7ac-8536-4bb4-b656-7bdd5fec63ab">&lt;strong&gt;</bpt>Write to HBase table [ WriterThreadFunction() ]<ept id="3462e7ac-8536-4bb4-b656-7bdd5fec63ab">&lt;/strong&gt;</ept>: The method call is <bpt id="80265a91-97ab-4cc6-87dc-ceb2f86102e1">&lt;em&gt;</bpt>HBaseClient.StoreCells()<ept id="80265a91-97ab-4cc6-87dc-ceb2f86102e1">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57a006e7-28a4-44ad-9117-8b6cf1594b7b" xml:space="preserve">
+          <source><bpt id="2d6f2f5a-710e-437f-b93a-df4dda14ff1d">&lt;strong&gt;</bpt>To complete the Program.cs<ept id="2d6f2f5a-710e-437f-b93a-df4dda14ff1d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2d6f2f5a-710e-437f-b93a-df4dda14ff1d">&lt;strong&gt;</bpt>To complete the Program.cs<ept id="2d6f2f5a-710e-437f-b93a-df4dda14ff1d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ee039e0-5516-428c-ad93-ad24cc2bb40b" xml:space="preserve">
+          <source>From <bpt id="8224b75e-8a19-4db4-aaf6-b236467e06e2">&lt;strong&gt;</bpt>Solution Explorer<ept id="8224b75e-8a19-4db4-aaf6-b236467e06e2">&lt;/strong&gt;</ept>, double-click <bpt id="9699fb79-fd4c-4363-9763-e4603abe21a6">&lt;strong&gt;</bpt>Program.cs<ept id="9699fb79-fd4c-4363-9763-e4603abe21a6">&lt;/strong&gt;</ept> to open it.</source>
+          <target state="new">From <bpt id="8224b75e-8a19-4db4-aaf6-b236467e06e2">&lt;strong&gt;</bpt>Solution Explorer<ept id="8224b75e-8a19-4db4-aaf6-b236467e06e2">&lt;/strong&gt;</ept>, double-click <bpt id="9699fb79-fd4c-4363-9763-e4603abe21a6">&lt;strong&gt;</bpt>Program.cs<ept id="9699fb79-fd4c-4363-9763-e4603abe21a6">&lt;/strong&gt;</ept> to open it.</target>
+        </trans-unit>
+        <trans-unit id="5b5b1ffd-16f9-419a-b487-2aafd30dee8e" xml:space="preserve">
+          <source>At the beginning of the file, add the following <bpt id="6b9d2451-0eb8-4d11-b2e0-c8c261c0cf8a">&lt;strong&gt;</bpt>using<ept id="6b9d2451-0eb8-4d11-b2e0-c8c261c0cf8a">&lt;/strong&gt;</ept> statements:</source>
+          <target state="new">At the beginning of the file, add the following <bpt id="6b9d2451-0eb8-4d11-b2e0-c8c261c0cf8a">&lt;strong&gt;</bpt>using<ept id="6b9d2451-0eb8-4d11-b2e0-c8c261c0cf8a">&lt;/strong&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="a40ce904-334d-4c52-a3d8-cd30c117eba4" xml:space="preserve">
+          <source>Inside the <bpt id="44eded2d-8d0f-4eca-ae92-cf3eebfcfc15">&lt;strong&gt;</bpt>Program<ept id="44eded2d-8d0f-4eca-ae92-cf3eebfcfc15">&lt;/strong&gt;</ept> class, define the following constants:</source>
+          <target state="new">Inside the <bpt id="44eded2d-8d0f-4eca-ae92-cf3eebfcfc15">&lt;strong&gt;</bpt>Program<ept id="44eded2d-8d0f-4eca-ae92-cf3eebfcfc15">&lt;/strong&gt;</ept> class, define the following constants:</target>
+        </trans-unit>
+        <trans-unit id="78a8b1fe-4871-4fa2-911c-76313b2e7e49" xml:space="preserve">
+          <source>Set the constant values to match your Twitter application values.</source>
+          <target state="new">Set the constant values to match your Twitter application values.</target>
+        </trans-unit>
+        <trans-unit id="8045d89d-ca70-4ba6-85b9-9f725aa9279b" xml:space="preserve">
+          <source>Modify the <bpt id="7503e1b8-74b5-4b35-a7d6-43a083efd6dd">&lt;strong&gt;</bpt>Main()<ept id="7503e1b8-74b5-4b35-a7d6-43a083efd6dd">&lt;/strong&gt;</ept> function, so it looks like this:</source>
+          <target state="new">Modify the <bpt id="7503e1b8-74b5-4b35-a7d6-43a083efd6dd">&lt;strong&gt;</bpt>Main()<ept id="7503e1b8-74b5-4b35-a7d6-43a083efd6dd">&lt;/strong&gt;</ept> function, so it looks like this:</target>
+        </trans-unit>
+        <trans-unit id="0afbfb0f-4ed1-447a-affc-8214ba877490" xml:space="preserve">
+          <source>Add the following function to the class:</source>
+          <target state="new">Add the following function to the class:</target>
+        </trans-unit>
+        <trans-unit id="9d00881f-23ad-45f4-aa33-c55eb2dfd2a6" xml:space="preserve">
+          <source><bpt id="903e4c1f-8a49-462b-8539-a398745730f9">&lt;strong&gt;</bpt>To run the streaming service<ept id="903e4c1f-8a49-462b-8539-a398745730f9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="903e4c1f-8a49-462b-8539-a398745730f9">&lt;strong&gt;</bpt>To run the streaming service<ept id="903e4c1f-8a49-462b-8539-a398745730f9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4558d26a-b03b-4d61-af50-c84958328db0" xml:space="preserve">
+          <source>From Visual Studio, press <bpt id="dfac7833-da9f-4dba-aa10-cd56c955cd29">&lt;strong&gt;</bpt>F5<ept id="dfac7833-da9f-4dba-aa10-cd56c955cd29">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Visual Studio, press <bpt id="dfac7833-da9f-4dba-aa10-cd56c955cd29">&lt;strong&gt;</bpt>F5<ept id="dfac7833-da9f-4dba-aa10-cd56c955cd29">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="108e7ae3-eaeb-43da-9898-f24b5bf8f4dd" xml:space="preserve">
+          <source>The following is a screenshot of the console application:</source>
+          <target state="new">The following is a screenshot of the console application:</target>
+        </trans-unit>
+        <trans-unit id="1d3f123e-6ae5-4fa7-a6b7-1ea8970be94c" xml:space="preserve">
+          <source><bpt id="7a301662-d2b1-4568-a9c4-6ee39ce57363">&lt;linkText&gt;</bpt>hdinsight.hbase.twitter.sentiment.streaming.service<ept id="7a301662-d2b1-4568-a9c4-6ee39ce57363">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7a301662-d2b1-4568-a9c4-6ee39ce57363">&lt;linkText&gt;</bpt>hdinsight.hbase.twitter.sentiment.streaming.service<ept id="7a301662-d2b1-4568-a9c4-6ee39ce57363">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5fa38642-bf7b-480e-a2e0-ed4b54f41afb" xml:space="preserve">
+          <source>Keep the streaming console application running while you develop the web application, so you have more data to use.</source>
+          <target state="new">Keep the streaming console application running while you develop the web application, so you have more data to use.</target>
+        </trans-unit>
+        <trans-unit id="9c10cd9c-ec2a-424b-a93e-b576a00ff91a" xml:space="preserve">
+          <source>In this section, you will create an ASP.NET MVC web application to read the real-time sentiment data from HBase and plot the data on Bing maps.</source>
+          <target state="new">In this section, you will create an ASP.NET MVC web application to read the real-time sentiment data from HBase and plot the data on Bing maps.</target>
+        </trans-unit>
+        <trans-unit id="920f4155-7e75-4f08-a549-376bed9a6e29" xml:space="preserve">
+          <source><bpt id="35e23773-6b62-47c6-8e74-ada6dc53cc74">&lt;strong&gt;</bpt>To create an ASP.NET MVC Web application<ept id="35e23773-6b62-47c6-8e74-ada6dc53cc74">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="35e23773-6b62-47c6-8e74-ada6dc53cc74">&lt;strong&gt;</bpt>To create an ASP.NET MVC Web application<ept id="35e23773-6b62-47c6-8e74-ada6dc53cc74">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9961f82f-2694-4827-b586-ebe9c2d4e5d3" xml:space="preserve">
+          <source>Open Visual Studio.</source>
+          <target state="new">Open Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="615b1ff0-99c2-4374-932c-65a9f93140e6" xml:space="preserve">
+          <source>Click <bpt id="a8e9afa2-aca4-489e-987a-dc411c250b2c">&lt;strong&gt;</bpt>File<ept id="a8e9afa2-aca4-489e-987a-dc411c250b2c">&lt;/strong&gt;</ept>, click <bpt id="24435926-2dcf-4327-90ce-cd279e871463">&lt;strong&gt;</bpt>New<ept id="24435926-2dcf-4327-90ce-cd279e871463">&lt;/strong&gt;</ept>, and then click <bpt id="5adfb6af-44bf-4c75-ae62-a1d2ca2d9ef9">&lt;strong&gt;</bpt>Project<ept id="5adfb6af-44bf-4c75-ae62-a1d2ca2d9ef9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a8e9afa2-aca4-489e-987a-dc411c250b2c">&lt;strong&gt;</bpt>File<ept id="a8e9afa2-aca4-489e-987a-dc411c250b2c">&lt;/strong&gt;</ept>, click <bpt id="24435926-2dcf-4327-90ce-cd279e871463">&lt;strong&gt;</bpt>New<ept id="24435926-2dcf-4327-90ce-cd279e871463">&lt;/strong&gt;</ept>, and then click <bpt id="5adfb6af-44bf-4c75-ae62-a1d2ca2d9ef9">&lt;strong&gt;</bpt>Project<ept id="5adfb6af-44bf-4c75-ae62-a1d2ca2d9ef9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b91deee-e012-4709-80b7-d360c1dee8ed" xml:space="preserve">
+          <source>Enter the following information:</source>
+          <target state="new">Enter the following information:</target>
+        </trans-unit>
+        <trans-unit id="79003e2f-6cf5-4413-a4c2-5c7bbd9782f3" xml:space="preserve">
+          <source>Template category: <bpt id="3b656bb3-14ad-4418-a9d3-625b8551ee59">&lt;strong&gt;</bpt>Visual C#/Web<ept id="3b656bb3-14ad-4418-a9d3-625b8551ee59">&lt;/strong&gt;</ept></source>
+          <target state="new">Template category: <bpt id="3b656bb3-14ad-4418-a9d3-625b8551ee59">&lt;strong&gt;</bpt>Visual C#/Web<ept id="3b656bb3-14ad-4418-a9d3-625b8551ee59">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3917beb8-27a5-4c02-86c9-60abd5219fb1" xml:space="preserve">
+          <source>Template: <bpt id="6461d60e-8d1d-4061-bd43-8a233cb1b4ac">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="6461d60e-8d1d-4061-bd43-8a233cb1b4ac">&lt;/strong&gt;</ept></source>
+          <target state="new">Template: <bpt id="6461d60e-8d1d-4061-bd43-8a233cb1b4ac">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="6461d60e-8d1d-4061-bd43-8a233cb1b4ac">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b15f71d4-346e-4c61-a584-a64a545dcbab" xml:space="preserve">
+          <source>Name: <bpt id="d0fcec87-c6cd-4aa7-935b-5ea10d567ed2">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="d0fcec87-c6cd-4aa7-935b-5ea10d567ed2">&lt;/strong&gt;</ept></source>
+          <target state="new">Name: <bpt id="d0fcec87-c6cd-4aa7-935b-5ea10d567ed2">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="d0fcec87-c6cd-4aa7-935b-5ea10d567ed2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44ae0e10-7fcd-4470-be9a-52f6c7f5f1b3" xml:space="preserve">
+          <source>Location: <bpt id="27a792ee-de30-4db3-a36b-5e6151eff0a4">&lt;strong&gt;</bpt>C:\Tutorials<ept id="27a792ee-de30-4db3-a36b-5e6151eff0a4">&lt;/strong&gt;</ept> </source>
+          <target state="new">Location: <bpt id="27a792ee-de30-4db3-a36b-5e6151eff0a4">&lt;strong&gt;</bpt>C:\Tutorials<ept id="27a792ee-de30-4db3-a36b-5e6151eff0a4">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="4514acfa-6022-4ddd-a884-8ca7f302ca99" xml:space="preserve">
+          <source>Click <bpt id="30bfba2b-96d0-4b64-9a3d-133a98903acc">&lt;strong&gt;</bpt>OK<ept id="30bfba2b-96d0-4b64-9a3d-133a98903acc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="30bfba2b-96d0-4b64-9a3d-133a98903acc">&lt;strong&gt;</bpt>OK<ept id="30bfba2b-96d0-4b64-9a3d-133a98903acc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cad37ee5-d8f5-46ed-8ac0-ff3dc74689a8" xml:space="preserve">
+          <source>In <bpt id="399230f1-f34c-4d0b-b5df-0f1ae6325da6">&lt;strong&gt;</bpt>Select a template<ept id="399230f1-f34c-4d0b-b5df-0f1ae6325da6">&lt;/strong&gt;</ept>, click <bpt id="3df0d27e-4d5f-4deb-a760-b51a547082e0">&lt;strong&gt;</bpt>MVC<ept id="3df0d27e-4d5f-4deb-a760-b51a547082e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="399230f1-f34c-4d0b-b5df-0f1ae6325da6">&lt;strong&gt;</bpt>Select a template<ept id="399230f1-f34c-4d0b-b5df-0f1ae6325da6">&lt;/strong&gt;</ept>, click <bpt id="3df0d27e-4d5f-4deb-a760-b51a547082e0">&lt;strong&gt;</bpt>MVC<ept id="3df0d27e-4d5f-4deb-a760-b51a547082e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a24f2c3-f5a6-4769-ba00-9d259957874c" xml:space="preserve">
+          <source>In <bpt id="b2fa906c-c6d1-401b-97f5-8e9217b1fdde">&lt;strong&gt;</bpt>Microsoft Azure<ept id="b2fa906c-c6d1-401b-97f5-8e9217b1fdde">&lt;/strong&gt;</ept>, click <bpt id="e8a3884a-46a4-47ec-a486-f13217fb67cd">&lt;strong&gt;</bpt>Manage Subscriptions<ept id="e8a3884a-46a4-47ec-a486-f13217fb67cd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="b2fa906c-c6d1-401b-97f5-8e9217b1fdde">&lt;strong&gt;</bpt>Microsoft Azure<ept id="b2fa906c-c6d1-401b-97f5-8e9217b1fdde">&lt;/strong&gt;</ept>, click <bpt id="e8a3884a-46a4-47ec-a486-f13217fb67cd">&lt;strong&gt;</bpt>Manage Subscriptions<ept id="e8a3884a-46a4-47ec-a486-f13217fb67cd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="768c209b-edfc-4365-b6f7-2c7dfee9aebd" xml:space="preserve">
+          <source>From <bpt id="96944065-4992-4d5e-910d-6edd78f76573">&lt;strong&gt;</bpt>Manage Microsoft Azure Subscriptions<ept id="96944065-4992-4d5e-910d-6edd78f76573">&lt;/strong&gt;</ept>, click <bpt id="39949246-4a77-4e3e-932c-488a7cbe455b">&lt;strong&gt;</bpt>Sign in<ept id="39949246-4a77-4e3e-932c-488a7cbe455b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="96944065-4992-4d5e-910d-6edd78f76573">&lt;strong&gt;</bpt>Manage Microsoft Azure Subscriptions<ept id="96944065-4992-4d5e-910d-6edd78f76573">&lt;/strong&gt;</ept>, click <bpt id="39949246-4a77-4e3e-932c-488a7cbe455b">&lt;strong&gt;</bpt>Sign in<ept id="39949246-4a77-4e3e-932c-488a7cbe455b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fcdca6f0-fb4e-4bd9-bd33-c84bbd91c7b3" xml:space="preserve">
+          <source>Enter your Azure credentials.</source>
+          <target state="new">Enter your Azure credentials.</target>
+        </trans-unit>
+        <trans-unit id="34a31067-716c-4e27-b02d-237f02aaf1b1" xml:space="preserve">
+          <source>Your Azure subscription information will be shown on the <bpt id="4f2b3bc8-6918-404c-95f1-a195f93cbdb6">&lt;strong&gt;</bpt>Accounts<ept id="4f2b3bc8-6918-404c-95f1-a195f93cbdb6">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Your Azure subscription information will be shown on the <bpt id="4f2b3bc8-6918-404c-95f1-a195f93cbdb6">&lt;strong&gt;</bpt>Accounts<ept id="4f2b3bc8-6918-404c-95f1-a195f93cbdb6">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2cee4d5b-bfba-4b76-b26e-57255519d8e9" xml:space="preserve">
+          <source>Click <bpt id="5156be12-c764-4814-8f5c-ee71843ce6c8">&lt;strong&gt;</bpt>Close<ept id="5156be12-c764-4814-8f5c-ee71843ce6c8">&lt;/strong&gt;</ept> to close the <bpt id="403add45-aa85-4c59-80f9-aa070408ed19">&lt;strong&gt;</bpt>Manage Microsoft Azure Subscriptions<ept id="403add45-aa85-4c59-80f9-aa070408ed19">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">Click <bpt id="5156be12-c764-4814-8f5c-ee71843ce6c8">&lt;strong&gt;</bpt>Close<ept id="5156be12-c764-4814-8f5c-ee71843ce6c8">&lt;/strong&gt;</ept> to close the <bpt id="403add45-aa85-4c59-80f9-aa070408ed19">&lt;strong&gt;</bpt>Manage Microsoft Azure Subscriptions<ept id="403add45-aa85-4c59-80f9-aa070408ed19">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="df6a6fe3-0241-4e97-9461-54b3134438e9" xml:space="preserve">
+          <source>From <bpt id="9edcc9c4-7372-41e6-a676-1cb22c682238">&lt;strong&gt;</bpt>New ASP.NET Project - TweetSentimentWeb<ept id="9edcc9c4-7372-41e6-a676-1cb22c682238">&lt;/strong&gt;</ept>, click <bpt id="83dddc7d-729f-44cf-9fda-455ed5ef900d">&lt;strong&gt;</bpt>OK<ept id="83dddc7d-729f-44cf-9fda-455ed5ef900d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="9edcc9c4-7372-41e6-a676-1cb22c682238">&lt;strong&gt;</bpt>New ASP.NET Project - TweetSentimentWeb<ept id="9edcc9c4-7372-41e6-a676-1cb22c682238">&lt;/strong&gt;</ept>, click <bpt id="83dddc7d-729f-44cf-9fda-455ed5ef900d">&lt;strong&gt;</bpt>OK<ept id="83dddc7d-729f-44cf-9fda-455ed5ef900d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70423e19-285b-4496-8199-b686e61bb24f" xml:space="preserve">
+          <source>From <bpt id="8195e907-b7fa-4b0d-8ec1-a1a00249da51">&lt;strong&gt;</bpt>Configure Microsoft Azure Site Settings<ept id="8195e907-b7fa-4b0d-8ec1-a1a00249da51">&lt;/strong&gt;</ept>, select the <bpt id="f52a3b69-fe49-4aff-9742-d8c2b3dfe793">&lt;strong&gt;</bpt>Region<ept id="f52a3b69-fe49-4aff-9742-d8c2b3dfe793">&lt;/strong&gt;</ept> that is closest to you.</source>
+          <target state="new">From <bpt id="8195e907-b7fa-4b0d-8ec1-a1a00249da51">&lt;strong&gt;</bpt>Configure Microsoft Azure Site Settings<ept id="8195e907-b7fa-4b0d-8ec1-a1a00249da51">&lt;/strong&gt;</ept>, select the <bpt id="f52a3b69-fe49-4aff-9742-d8c2b3dfe793">&lt;strong&gt;</bpt>Region<ept id="f52a3b69-fe49-4aff-9742-d8c2b3dfe793">&lt;/strong&gt;</ept> that is closest to you.</target>
+        </trans-unit>
+        <trans-unit id="6f54404e-fc41-4186-86a7-0a1bfe4bc4c7" xml:space="preserve">
+          <source>You don't need to specify a database server.</source>
+          <target state="new">You don't need to specify a database server.</target>
+        </trans-unit>
+        <trans-unit id="78e5fc55-934f-49ff-a28d-cd09a2b45df9" xml:space="preserve">
+          <source>Click <bpt id="ddc482ac-f4ca-44da-9f07-265bf5b7e539">&lt;strong&gt;</bpt>OK<ept id="ddc482ac-f4ca-44da-9f07-265bf5b7e539">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ddc482ac-f4ca-44da-9f07-265bf5b7e539">&lt;strong&gt;</bpt>OK<ept id="ddc482ac-f4ca-44da-9f07-265bf5b7e539">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86c1e93d-adaa-4fc6-9f64-8718d682a495" xml:space="preserve">
+          <source><bpt id="d794694e-54ca-49ae-8f54-e6628614aa66">&lt;strong&gt;</bpt>To install NuGet packages<ept id="d794694e-54ca-49ae-8f54-e6628614aa66">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d794694e-54ca-49ae-8f54-e6628614aa66">&lt;strong&gt;</bpt>To install NuGet packages<ept id="d794694e-54ca-49ae-8f54-e6628614aa66">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca96cb20-6509-4812-bf0c-e2c1e1e05ad3" xml:space="preserve">
+          <source>From the <bpt id="9be77b9c-4d8f-4df3-a346-64e5d591efb9">&lt;strong&gt;</bpt>Tools<ept id="9be77b9c-4d8f-4df3-a346-64e5d591efb9">&lt;/strong&gt;</ept> menu, click <bpt id="9dfbf57d-b9c3-4ec1-935d-d896bf0b2876">&lt;strong&gt;</bpt>Nuget Package Manager<ept id="9dfbf57d-b9c3-4ec1-935d-d896bf0b2876">&lt;/strong&gt;</ept>, and then click <bpt id="ed7fa2ed-5fdf-4035-afdc-484b9a3e7df4">&lt;strong&gt;</bpt>Package Manager Console<ept id="ed7fa2ed-5fdf-4035-afdc-484b9a3e7df4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="9be77b9c-4d8f-4df3-a346-64e5d591efb9">&lt;strong&gt;</bpt>Tools<ept id="9be77b9c-4d8f-4df3-a346-64e5d591efb9">&lt;/strong&gt;</ept> menu, click <bpt id="9dfbf57d-b9c3-4ec1-935d-d896bf0b2876">&lt;strong&gt;</bpt>Nuget Package Manager<ept id="9dfbf57d-b9c3-4ec1-935d-d896bf0b2876">&lt;/strong&gt;</ept>, and then click <bpt id="ed7fa2ed-5fdf-4035-afdc-484b9a3e7df4">&lt;strong&gt;</bpt>Package Manager Console<ept id="ed7fa2ed-5fdf-4035-afdc-484b9a3e7df4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5747363-70d5-4cf0-bb7c-d06bac0e063f" xml:space="preserve">
+          <source>The console panel is opened at the bottom of the page.</source>
+          <target state="new">The console panel is opened at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="3c07f04a-2150-40f9-a803-061e5d9bf5d1" xml:space="preserve">
+          <source>Use the following command to install the <bpt id="9cde7e07-1862-4ef3-b141-e987d89c6195">&lt;linkText&gt;</bpt>HBase .NET SDK<ept id="9cde7e07-1862-4ef3-b141-e987d89c6195">&lt;/linkText&gt;</ept><bpt id="9cde7e07-1862-4ef3-b141-e987d89c6195">&lt;title&gt;</bpt><ept id="9cde7e07-1862-4ef3-b141-e987d89c6195">&lt;/title&gt;</ept> package, which is the client library to access HBase cluster:</source>
+          <target state="new">Use the following command to install the <bpt id="9cde7e07-1862-4ef3-b141-e987d89c6195">&lt;linkText&gt;</bpt>HBase .NET SDK<ept id="9cde7e07-1862-4ef3-b141-e987d89c6195">&lt;/linkText&gt;</ept><bpt id="9cde7e07-1862-4ef3-b141-e987d89c6195">&lt;title&gt;</bpt><ept id="9cde7e07-1862-4ef3-b141-e987d89c6195">&lt;/title&gt;</ept> package, which is the client library to access HBase cluster:</target>
+        </trans-unit>
+        <trans-unit id="2c99a43f-b5a4-4b43-ae26-54ecb7e4a4d2" xml:space="preserve">
+          <source><bpt id="cb2f4c63-7b15-4340-80b4-b175c00c463a">&lt;strong&gt;</bpt>To add HBaseReader class<ept id="cb2f4c63-7b15-4340-80b4-b175c00c463a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cb2f4c63-7b15-4340-80b4-b175c00c463a">&lt;strong&gt;</bpt>To add HBaseReader class<ept id="cb2f4c63-7b15-4340-80b4-b175c00c463a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3531a890-9c5b-4be9-9936-77a61ef602f0" xml:space="preserve">
+          <source>From <bpt id="615c5710-3d93-4028-a6e7-6a70c2566e4d">&lt;strong&gt;</bpt>Solution Explorer<ept id="615c5710-3d93-4028-a6e7-6a70c2566e4d">&lt;/strong&gt;</ept>, expand <bpt id="f5fa1b88-b34e-4955-8987-383860f6552b">&lt;strong&gt;</bpt>TweetSentiment<ept id="f5fa1b88-b34e-4955-8987-383860f6552b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="615c5710-3d93-4028-a6e7-6a70c2566e4d">&lt;strong&gt;</bpt>Solution Explorer<ept id="615c5710-3d93-4028-a6e7-6a70c2566e4d">&lt;/strong&gt;</ept>, expand <bpt id="f5fa1b88-b34e-4955-8987-383860f6552b">&lt;strong&gt;</bpt>TweetSentiment<ept id="f5fa1b88-b34e-4955-8987-383860f6552b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c616e420-587c-4da0-977a-830bf48c4e24" xml:space="preserve">
+          <source>Right-click <bpt id="94dc7803-0a41-4859-9f91-d9073eb8e6fe">&lt;strong&gt;</bpt>Models<ept id="94dc7803-0a41-4859-9f91-d9073eb8e6fe">&lt;/strong&gt;</ept>, click <bpt id="b061a611-8d12-417b-9079-5a08d782f777">&lt;strong&gt;</bpt>Add<ept id="b061a611-8d12-417b-9079-5a08d782f777">&lt;/strong&gt;</ept>, and then click <bpt id="13d55321-40fe-4780-ab3d-7567e07afc57">&lt;strong&gt;</bpt>Class<ept id="13d55321-40fe-4780-ab3d-7567e07afc57">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="94dc7803-0a41-4859-9f91-d9073eb8e6fe">&lt;strong&gt;</bpt>Models<ept id="94dc7803-0a41-4859-9f91-d9073eb8e6fe">&lt;/strong&gt;</ept>, click <bpt id="b061a611-8d12-417b-9079-5a08d782f777">&lt;strong&gt;</bpt>Add<ept id="b061a611-8d12-417b-9079-5a08d782f777">&lt;/strong&gt;</ept>, and then click <bpt id="13d55321-40fe-4780-ab3d-7567e07afc57">&lt;strong&gt;</bpt>Class<ept id="13d55321-40fe-4780-ab3d-7567e07afc57">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b06ae3b-fcd5-4b16-89b8-e159236ccb9e" xml:space="preserve">
+          <source>In the <bpt id="2ad98134-905c-4144-bfbd-c0de9d2f7cc2">&lt;strong&gt;</bpt>Name<ept id="2ad98134-905c-4144-bfbd-c0de9d2f7cc2">&lt;/strong&gt;</ept> field, type <bpt id="93108f84-ca68-4913-9b71-00c42994520c">&lt;strong&gt;</bpt>HBaseReader.cs<ept id="93108f84-ca68-4913-9b71-00c42994520c">&lt;/strong&gt;</ept>, and then click <bpt id="03043935-5b83-4972-a240-9af14dceab6d">&lt;strong&gt;</bpt>Add<ept id="03043935-5b83-4972-a240-9af14dceab6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2ad98134-905c-4144-bfbd-c0de9d2f7cc2">&lt;strong&gt;</bpt>Name<ept id="2ad98134-905c-4144-bfbd-c0de9d2f7cc2">&lt;/strong&gt;</ept> field, type <bpt id="93108f84-ca68-4913-9b71-00c42994520c">&lt;strong&gt;</bpt>HBaseReader.cs<ept id="93108f84-ca68-4913-9b71-00c42994520c">&lt;/strong&gt;</ept>, and then click <bpt id="03043935-5b83-4972-a240-9af14dceab6d">&lt;strong&gt;</bpt>Add<ept id="03043935-5b83-4972-a240-9af14dceab6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef058d2f-59d5-42f1-af74-1b409104ee7e" xml:space="preserve">
+          <source>Replace the code with the following:</source>
+          <target state="new">Replace the code with the following:</target>
+        </trans-unit>
+        <trans-unit id="6ca1f5c1-d5e6-4781-885a-b0bcd56fb6db" xml:space="preserve">
+          <source>Inside the <bpt id="41957a82-f4fb-4de8-bcf9-2796f7d73599">&lt;strong&gt;</bpt>HBaseReader<ept id="41957a82-f4fb-4de8-bcf9-2796f7d73599">&lt;/strong&gt;</ept> class, change the constant values as follows:</source>
+          <target state="new">Inside the <bpt id="41957a82-f4fb-4de8-bcf9-2796f7d73599">&lt;strong&gt;</bpt>HBaseReader<ept id="41957a82-f4fb-4de8-bcf9-2796f7d73599">&lt;/strong&gt;</ept> class, change the constant values as follows:</target>
+        </trans-unit>
+        <trans-unit id="4194adf8-e39e-4487-b9e1-62591c5d5ca0" xml:space="preserve">
+          <source><bpt id="c27ae62f-e1b1-4f86-b53d-b2a76a501ec3">&lt;strong&gt;</bpt>CLUSTERNAME<ept id="c27ae62f-e1b1-4f86-b53d-b2a76a501ec3">&lt;/strong&gt;</ept>: The HBase cluster name, for example, <bpt id="d4709bf5-6683-4543-b928-dfb58edef40b">&lt;em&gt;</bpt>https://&lt;HBaseClusterName&gt;.azurehdinsight.net/<ept id="d4709bf5-6683-4543-b928-dfb58edef40b">&lt;/em&gt;</ept>. </source>
+          <target state="new"><bpt id="c27ae62f-e1b1-4f86-b53d-b2a76a501ec3">&lt;strong&gt;</bpt>CLUSTERNAME<ept id="c27ae62f-e1b1-4f86-b53d-b2a76a501ec3">&lt;/strong&gt;</ept>: The HBase cluster name, for example, <bpt id="d4709bf5-6683-4543-b928-dfb58edef40b">&lt;em&gt;</bpt>https://&lt;HBaseClusterName&gt;.azurehdinsight.net/<ept id="d4709bf5-6683-4543-b928-dfb58edef40b">&lt;/em&gt;</ept>. </target>
+        </trans-unit>
+        <trans-unit id="a6a7e98e-ab64-4c8d-976b-eb00b6bbabe0" xml:space="preserve">
+          <source><bpt id="1fca268e-8bb3-4b2d-a5f3-2dfd4186ab8c">&lt;strong&gt;</bpt>HADOOPUSERNAME<ept id="1fca268e-8bb3-4b2d-a5f3-2dfd4186ab8c">&lt;/strong&gt;</ept>: The HBase cluster Hadoop user user name.</source>
+          <target state="new"><bpt id="1fca268e-8bb3-4b2d-a5f3-2dfd4186ab8c">&lt;strong&gt;</bpt>HADOOPUSERNAME<ept id="1fca268e-8bb3-4b2d-a5f3-2dfd4186ab8c">&lt;/strong&gt;</ept>: The HBase cluster Hadoop user user name.</target>
+        </trans-unit>
+        <trans-unit id="8cb8ba1e-6310-453a-942e-2682939e19b7" xml:space="preserve">
+          <source>The default name is <bpt id="e10631ba-c2df-4f84-ab22-bf773e8c5550">&lt;em&gt;</bpt>admin<ept id="e10631ba-c2df-4f84-ab22-bf773e8c5550">&lt;/em&gt;</ept>.</source>
+          <target state="new">The default name is <bpt id="e10631ba-c2df-4f84-ab22-bf773e8c5550">&lt;em&gt;</bpt>admin<ept id="e10631ba-c2df-4f84-ab22-bf773e8c5550">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfe1cbac-e592-42f0-8a9d-5ffcd3069e3a" xml:space="preserve">
+          <source><bpt id="2845f5d9-42c0-4c6c-ae06-78857cceca96">&lt;strong&gt;</bpt>HADOOPUSERPASSWORD<ept id="2845f5d9-42c0-4c6c-ae06-78857cceca96">&lt;/strong&gt;</ept>: The HBase cluster Hadoop user password.</source>
+          <target state="new"><bpt id="2845f5d9-42c0-4c6c-ae06-78857cceca96">&lt;strong&gt;</bpt>HADOOPUSERPASSWORD<ept id="2845f5d9-42c0-4c6c-ae06-78857cceca96">&lt;/strong&gt;</ept>: The HBase cluster Hadoop user password.</target>
+        </trans-unit>
+        <trans-unit id="602fc23e-2d4b-4931-af6d-60acb14e336b" xml:space="preserve">
+          <source><bpt id="bb1a9381-3ef4-4980-bd45-d2f6b45c63cf">&lt;strong&gt;</bpt>HBASETABLENAME<ept id="bb1a9381-3ef4-4980-bd45-d2f6b45c63cf">&lt;/strong&gt;</ept> = "tweets<bpt id="ae4da3e4-f3d3-4241-893d-878fb7337435">&lt;em&gt;</bpt>by<ept id="ae4da3e4-f3d3-4241-893d-878fb7337435">&lt;/em&gt;</ept>words";</source>
+          <target state="new"><bpt id="bb1a9381-3ef4-4980-bd45-d2f6b45c63cf">&lt;strong&gt;</bpt>HBASETABLENAME<ept id="bb1a9381-3ef4-4980-bd45-d2f6b45c63cf">&lt;/strong&gt;</ept> = "tweets<bpt id="ae4da3e4-f3d3-4241-893d-878fb7337435">&lt;em&gt;</bpt>by<ept id="ae4da3e4-f3d3-4241-893d-878fb7337435">&lt;/em&gt;</ept>words";</target>
+        </trans-unit>
+        <trans-unit id="f9a80993-b4c5-46a1-b553-e40d71bad044" xml:space="preserve">
+          <source>The HBase table name is <bpt id="a8334cfd-478a-46f9-ada4-c4c87e419457">&lt;strong&gt;</bpt>"tweets_by_words";<ept id="a8334cfd-478a-46f9-ada4-c4c87e419457">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The HBase table name is <bpt id="a8334cfd-478a-46f9-ada4-c4c87e419457">&lt;strong&gt;</bpt>"tweets_by_words";<ept id="a8334cfd-478a-46f9-ada4-c4c87e419457">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a9663a2-4567-4c0c-8a58-21d51698621e" xml:space="preserve">
+          <source>The values must match the values you sent in the streaming service, so that the web application reads the data from the same HBase table.</source>
+          <target state="new">The values must match the values you sent in the streaming service, so that the web application reads the data from the same HBase table.</target>
+        </trans-unit>
+        <trans-unit id="2f9bb8e1-998c-49dc-bf42-e1a35afe7cd6" xml:space="preserve">
+          <source><bpt id="735fa2c3-0455-4e69-ada0-9fa2f5186042">&lt;strong&gt;</bpt>To add TweetsController controller<ept id="735fa2c3-0455-4e69-ada0-9fa2f5186042">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="735fa2c3-0455-4e69-ada0-9fa2f5186042">&lt;strong&gt;</bpt>To add TweetsController controller<ept id="735fa2c3-0455-4e69-ada0-9fa2f5186042">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="876f2576-d144-442e-91d6-5ddc8ecbc423" xml:space="preserve">
+          <source>From <bpt id="aa21f614-1c8d-4cd0-acb6-4ac5bcf3a952">&lt;strong&gt;</bpt>Solution Explorer<ept id="aa21f614-1c8d-4cd0-acb6-4ac5bcf3a952">&lt;/strong&gt;</ept>, expand <bpt id="d19a6d86-dc81-4c0b-af58-743ef3c95442">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="d19a6d86-dc81-4c0b-af58-743ef3c95442">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="aa21f614-1c8d-4cd0-acb6-4ac5bcf3a952">&lt;strong&gt;</bpt>Solution Explorer<ept id="aa21f614-1c8d-4cd0-acb6-4ac5bcf3a952">&lt;/strong&gt;</ept>, expand <bpt id="d19a6d86-dc81-4c0b-af58-743ef3c95442">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="d19a6d86-dc81-4c0b-af58-743ef3c95442">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46525a8d-bbc7-4589-a770-e4fc5cd6d06b" xml:space="preserve">
+          <source>Right-click <bpt id="ab568388-c6a8-4ed2-8e75-9c147e1f1537">&lt;strong&gt;</bpt>Controllers<ept id="ab568388-c6a8-4ed2-8e75-9c147e1f1537">&lt;/strong&gt;</ept>, click <bpt id="76821812-24a3-4777-a16a-8b4d386d5fff">&lt;strong&gt;</bpt>Add<ept id="76821812-24a3-4777-a16a-8b4d386d5fff">&lt;/strong&gt;</ept>, and then click <bpt id="527f762e-768d-4694-9e36-453bbdca25c8">&lt;strong&gt;</bpt>Controller<ept id="527f762e-768d-4694-9e36-453bbdca25c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="ab568388-c6a8-4ed2-8e75-9c147e1f1537">&lt;strong&gt;</bpt>Controllers<ept id="ab568388-c6a8-4ed2-8e75-9c147e1f1537">&lt;/strong&gt;</ept>, click <bpt id="76821812-24a3-4777-a16a-8b4d386d5fff">&lt;strong&gt;</bpt>Add<ept id="76821812-24a3-4777-a16a-8b4d386d5fff">&lt;/strong&gt;</ept>, and then click <bpt id="527f762e-768d-4694-9e36-453bbdca25c8">&lt;strong&gt;</bpt>Controller<ept id="527f762e-768d-4694-9e36-453bbdca25c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdbfd250-2330-44de-a300-59a25d8c4b55" xml:space="preserve">
+          <source>Click <bpt id="ef8933c5-e74b-476c-b458-c467e98170da">&lt;strong&gt;</bpt>Web API 2 Controller - Empty<ept id="ef8933c5-e74b-476c-b458-c467e98170da">&lt;/strong&gt;</ept>, and then click <bpt id="ac14e674-c3d6-4cbe-9ecf-37c87b2160ed">&lt;strong&gt;</bpt>Add<ept id="ac14e674-c3d6-4cbe-9ecf-37c87b2160ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ef8933c5-e74b-476c-b458-c467e98170da">&lt;strong&gt;</bpt>Web API 2 Controller - Empty<ept id="ef8933c5-e74b-476c-b458-c467e98170da">&lt;/strong&gt;</ept>, and then click <bpt id="ac14e674-c3d6-4cbe-9ecf-37c87b2160ed">&lt;strong&gt;</bpt>Add<ept id="ac14e674-c3d6-4cbe-9ecf-37c87b2160ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6427c99-d08c-4836-928a-b3c5f3d6175e" xml:space="preserve">
+          <source>In the <bpt id="4f2253d0-4b53-4a10-9847-cb54af117c62">&lt;strong&gt;</bpt>Controller name<ept id="4f2253d0-4b53-4a10-9847-cb54af117c62">&lt;/strong&gt;</ept> field, type <bpt id="ffe5090f-27dc-4b56-b6a3-1e88a1a01b71">&lt;strong&gt;</bpt>TweetsController<ept id="ffe5090f-27dc-4b56-b6a3-1e88a1a01b71">&lt;/strong&gt;</ept>, and then click <bpt id="c2f9787d-7dff-4018-a86f-5cb71388850b">&lt;strong&gt;</bpt>Add<ept id="c2f9787d-7dff-4018-a86f-5cb71388850b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4f2253d0-4b53-4a10-9847-cb54af117c62">&lt;strong&gt;</bpt>Controller name<ept id="4f2253d0-4b53-4a10-9847-cb54af117c62">&lt;/strong&gt;</ept> field, type <bpt id="ffe5090f-27dc-4b56-b6a3-1e88a1a01b71">&lt;strong&gt;</bpt>TweetsController<ept id="ffe5090f-27dc-4b56-b6a3-1e88a1a01b71">&lt;/strong&gt;</ept>, and then click <bpt id="c2f9787d-7dff-4018-a86f-5cb71388850b">&lt;strong&gt;</bpt>Add<ept id="c2f9787d-7dff-4018-a86f-5cb71388850b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="581f72c2-7f80-4ff4-a2e3-5b9a34e300b8" xml:space="preserve">
+          <source>From <bpt id="11f6f2fa-c1cc-4e19-ba4c-0e32ad1012e5">&lt;strong&gt;</bpt>Solution Explorer<ept id="11f6f2fa-c1cc-4e19-ba4c-0e32ad1012e5">&lt;/strong&gt;</ept>, double-click TweetsController.cs to open the file.</source>
+          <target state="new">From <bpt id="11f6f2fa-c1cc-4e19-ba4c-0e32ad1012e5">&lt;strong&gt;</bpt>Solution Explorer<ept id="11f6f2fa-c1cc-4e19-ba4c-0e32ad1012e5">&lt;/strong&gt;</ept>, double-click TweetsController.cs to open the file.</target>
+        </trans-unit>
+        <trans-unit id="58e2c721-4d97-4969-b36d-32eaf9f2299a" xml:space="preserve">
+          <source>Modify the file, so it looks like the following:</source>
+          <target state="new">Modify the file, so it looks like the following:</target>
+        </trans-unit>
+        <trans-unit id="172f6b4f-1033-4932-be76-d498af076e1b" xml:space="preserve">
+          <source><bpt id="7258b1ef-b315-45cd-a3e4-ff049a1a1810">&lt;strong&gt;</bpt>To add heatmap.js<ept id="7258b1ef-b315-45cd-a3e4-ff049a1a1810">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7258b1ef-b315-45cd-a3e4-ff049a1a1810">&lt;strong&gt;</bpt>To add heatmap.js<ept id="7258b1ef-b315-45cd-a3e4-ff049a1a1810">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdffeed8-0841-444a-a2c4-3a6819378240" xml:space="preserve">
+          <source>From <bpt id="0083e48b-e488-4241-93ff-f3c31a95f792">&lt;strong&gt;</bpt>Solution Explorer<ept id="0083e48b-e488-4241-93ff-f3c31a95f792">&lt;/strong&gt;</ept>, expand <bpt id="a8d1ba60-cee7-48e4-91f8-6a446ef8eedd">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="a8d1ba60-cee7-48e4-91f8-6a446ef8eedd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="0083e48b-e488-4241-93ff-f3c31a95f792">&lt;strong&gt;</bpt>Solution Explorer<ept id="0083e48b-e488-4241-93ff-f3c31a95f792">&lt;/strong&gt;</ept>, expand <bpt id="a8d1ba60-cee7-48e4-91f8-6a446ef8eedd">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="a8d1ba60-cee7-48e4-91f8-6a446ef8eedd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd3c87a1-20be-48d6-9bba-193354061965" xml:space="preserve">
+          <source>Right-click <bpt id="d186bd3a-9a11-44dd-99d6-d6a24fc25a68">&lt;strong&gt;</bpt>Scripts<ept id="d186bd3a-9a11-44dd-99d6-d6a24fc25a68">&lt;/strong&gt;</ept>, click <bpt id="51d161a5-30f1-45cb-b54a-307c2359f117">&lt;strong&gt;</bpt>Add<ept id="51d161a5-30f1-45cb-b54a-307c2359f117">&lt;/strong&gt;</ept>, click <bpt id="ada9e5ca-c6a7-4b07-8b84-4f1b8f82a794">&lt;strong&gt;</bpt>JavaScript File<ept id="ada9e5ca-c6a7-4b07-8b84-4f1b8f82a794">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="d186bd3a-9a11-44dd-99d6-d6a24fc25a68">&lt;strong&gt;</bpt>Scripts<ept id="d186bd3a-9a11-44dd-99d6-d6a24fc25a68">&lt;/strong&gt;</ept>, click <bpt id="51d161a5-30f1-45cb-b54a-307c2359f117">&lt;strong&gt;</bpt>Add<ept id="51d161a5-30f1-45cb-b54a-307c2359f117">&lt;/strong&gt;</ept>, click <bpt id="ada9e5ca-c6a7-4b07-8b84-4f1b8f82a794">&lt;strong&gt;</bpt>JavaScript File<ept id="ada9e5ca-c6a7-4b07-8b84-4f1b8f82a794">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f3bc44e-f4e5-4424-b8ca-319cbcf8ce72" xml:space="preserve">
+          <source>In the <bpt id="010e54a3-dc8a-4a64-9d11-1c8c7a2478d7">&lt;strong&gt;</bpt>Item name<ept id="010e54a3-dc8a-4a64-9d11-1c8c7a2478d7">&lt;/strong&gt;</ept> field, type <bpt id="3b512d01-7869-4680-ae41-54f05f5117fe">&lt;strong&gt;</bpt>heatmap.js<ept id="3b512d01-7869-4680-ae41-54f05f5117fe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="010e54a3-dc8a-4a64-9d11-1c8c7a2478d7">&lt;strong&gt;</bpt>Item name<ept id="010e54a3-dc8a-4a64-9d11-1c8c7a2478d7">&lt;/strong&gt;</ept> field, type <bpt id="3b512d01-7869-4680-ae41-54f05f5117fe">&lt;strong&gt;</bpt>heatmap.js<ept id="3b512d01-7869-4680-ae41-54f05f5117fe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e26eefc-37d6-4fc5-85a1-b039f8c3a3ed" xml:space="preserve">
+          <source>Paste the following code into the file.</source>
+          <target state="new">Paste the following code into the file.</target>
+        </trans-unit>
+        <trans-unit id="f6aea852-b28b-4619-9368-bddaab445e9e" xml:space="preserve">
+          <source>The code was written by Alastair Aitchison.</source>
+          <target state="new">The code was written by Alastair Aitchison.</target>
+        </trans-unit>
+        <trans-unit id="33c4bee7-a5c7-4f52-aa40-4e44f314f9ff" xml:space="preserve">
+          <source>For more information, see <bpt id="bf23c314-68a2-4f59-af39-472603d28fb5">&lt;linkText&gt;</bpt>Bing Maps AJAX v7 HeatMap Library<ept id="bf23c314-68a2-4f59-af39-472603d28fb5">&lt;/linkText&gt;</ept><bpt id="bf23c314-68a2-4f59-af39-472603d28fb5">&lt;title&gt;</bpt><ept id="bf23c314-68a2-4f59-af39-472603d28fb5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="bf23c314-68a2-4f59-af39-472603d28fb5">&lt;linkText&gt;</bpt>Bing Maps AJAX v7 HeatMap Library<ept id="bf23c314-68a2-4f59-af39-472603d28fb5">&lt;/linkText&gt;</ept><bpt id="bf23c314-68a2-4f59-af39-472603d28fb5">&lt;title&gt;</bpt><ept id="bf23c314-68a2-4f59-af39-472603d28fb5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bcca9b71-29e0-4eba-8d9c-4d726466cdcf" xml:space="preserve">
+          <source><bpt id="ab05e062-dd41-4dc9-b1d5-0bb6fcdea463">&lt;strong&gt;</bpt>To add twitterStream.js<ept id="ab05e062-dd41-4dc9-b1d5-0bb6fcdea463">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ab05e062-dd41-4dc9-b1d5-0bb6fcdea463">&lt;strong&gt;</bpt>To add twitterStream.js<ept id="ab05e062-dd41-4dc9-b1d5-0bb6fcdea463">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="322698e7-0b81-463a-ac30-d7cc5f621b27" xml:space="preserve">
+          <source>From <bpt id="c579a7d8-76ee-45c2-9f84-573cedead182">&lt;strong&gt;</bpt>Solution Explorer<ept id="c579a7d8-76ee-45c2-9f84-573cedead182">&lt;/strong&gt;</ept>, expand <bpt id="cce4df5c-aeba-4a7f-930e-20fea8acb08e">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="cce4df5c-aeba-4a7f-930e-20fea8acb08e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="c579a7d8-76ee-45c2-9f84-573cedead182">&lt;strong&gt;</bpt>Solution Explorer<ept id="c579a7d8-76ee-45c2-9f84-573cedead182">&lt;/strong&gt;</ept>, expand <bpt id="cce4df5c-aeba-4a7f-930e-20fea8acb08e">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="cce4df5c-aeba-4a7f-930e-20fea8acb08e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec16b1e8-3f82-4d24-82f4-37543ab86436" xml:space="preserve">
+          <source>Right-click <bpt id="0d792dba-5d76-4bd6-9c89-3a6f7cf7c5e8">&lt;strong&gt;</bpt>Scripts<ept id="0d792dba-5d76-4bd6-9c89-3a6f7cf7c5e8">&lt;/strong&gt;</ept>, click <bpt id="44318eff-418d-454e-9d61-4fc6d29aaed2">&lt;strong&gt;</bpt>Add<ept id="44318eff-418d-454e-9d61-4fc6d29aaed2">&lt;/strong&gt;</ept>, click <bpt id="a8392c20-305c-48b8-83f7-e25d30283bdd">&lt;strong&gt;</bpt>JavaScript File<ept id="a8392c20-305c-48b8-83f7-e25d30283bdd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="0d792dba-5d76-4bd6-9c89-3a6f7cf7c5e8">&lt;strong&gt;</bpt>Scripts<ept id="0d792dba-5d76-4bd6-9c89-3a6f7cf7c5e8">&lt;/strong&gt;</ept>, click <bpt id="44318eff-418d-454e-9d61-4fc6d29aaed2">&lt;strong&gt;</bpt>Add<ept id="44318eff-418d-454e-9d61-4fc6d29aaed2">&lt;/strong&gt;</ept>, click <bpt id="a8392c20-305c-48b8-83f7-e25d30283bdd">&lt;strong&gt;</bpt>JavaScript File<ept id="a8392c20-305c-48b8-83f7-e25d30283bdd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91a36921-9979-4e83-9b77-9155c9426c01" xml:space="preserve">
+          <source>In the <bpt id="f602bb13-5d1a-462d-9d5c-ec34db0a149a">&lt;strong&gt;</bpt>Item name<ept id="f602bb13-5d1a-462d-9d5c-ec34db0a149a">&lt;/strong&gt;</ept> field, type<bpt id="c6352ffa-a38f-4911-99d5-5d87ac1c6fb5">&lt;strong&gt;</bpt>twitterStream.js<ept id="c6352ffa-a38f-4911-99d5-5d87ac1c6fb5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="f602bb13-5d1a-462d-9d5c-ec34db0a149a">&lt;strong&gt;</bpt>Item name<ept id="f602bb13-5d1a-462d-9d5c-ec34db0a149a">&lt;/strong&gt;</ept> field, type<bpt id="c6352ffa-a38f-4911-99d5-5d87ac1c6fb5">&lt;strong&gt;</bpt>twitterStream.js<ept id="c6352ffa-a38f-4911-99d5-5d87ac1c6fb5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5c0e470-b0ec-455b-a75c-c502dfc4435a" xml:space="preserve">
+          <source>Copy and paste the following code into the file:</source>
+          <target state="new">Copy and paste the following code into the file:</target>
+        </trans-unit>
+        <trans-unit id="7443a87b-9dc8-44cd-baf5-1e5bad446c68" xml:space="preserve">
+          <source><bpt id="f77e2510-c094-48ad-bd4f-9635607b708b">&lt;strong&gt;</bpt>To modify the layout.cshtml<ept id="f77e2510-c094-48ad-bd4f-9635607b708b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f77e2510-c094-48ad-bd4f-9635607b708b">&lt;strong&gt;</bpt>To modify the layout.cshtml<ept id="f77e2510-c094-48ad-bd4f-9635607b708b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3dad9e1-e8b5-4d09-8ec4-8d3f9c31c76a" xml:space="preserve">
+          <source>From <bpt id="f241197c-6c37-48df-ae15-bf860f865602">&lt;strong&gt;</bpt>Solution Explorer<ept id="f241197c-6c37-48df-ae15-bf860f865602">&lt;/strong&gt;</ept>, expand <bpt id="1fa23d36-a7b2-43c8-a8a3-2119d4b17b07">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="1fa23d36-a7b2-43c8-a8a3-2119d4b17b07">&lt;/strong&gt;</ept>, expand <bpt id="91883b6f-b004-4ab3-b692-87a144888ac9">&lt;strong&gt;</bpt>Views<ept id="91883b6f-b004-4ab3-b692-87a144888ac9">&lt;/strong&gt;</ept>, expand <bpt id="4a6a424a-fd61-4872-9fcd-48fe4e949284">&lt;strong&gt;</bpt>Shared<ept id="4a6a424a-fd61-4872-9fcd-48fe4e949284">&lt;/strong&gt;</ept>, and then double-click _<bpt id="3d9aa1b2-bf39-4feb-8a0e-ed29e6bfb4eb">&lt;strong&gt;</bpt>Layout.cshtml<ept id="3d9aa1b2-bf39-4feb-8a0e-ed29e6bfb4eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="f241197c-6c37-48df-ae15-bf860f865602">&lt;strong&gt;</bpt>Solution Explorer<ept id="f241197c-6c37-48df-ae15-bf860f865602">&lt;/strong&gt;</ept>, expand <bpt id="1fa23d36-a7b2-43c8-a8a3-2119d4b17b07">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="1fa23d36-a7b2-43c8-a8a3-2119d4b17b07">&lt;/strong&gt;</ept>, expand <bpt id="91883b6f-b004-4ab3-b692-87a144888ac9">&lt;strong&gt;</bpt>Views<ept id="91883b6f-b004-4ab3-b692-87a144888ac9">&lt;/strong&gt;</ept>, expand <bpt id="4a6a424a-fd61-4872-9fcd-48fe4e949284">&lt;strong&gt;</bpt>Shared<ept id="4a6a424a-fd61-4872-9fcd-48fe4e949284">&lt;/strong&gt;</ept>, and then double-click _<bpt id="3d9aa1b2-bf39-4feb-8a0e-ed29e6bfb4eb">&lt;strong&gt;</bpt>Layout.cshtml<ept id="3d9aa1b2-bf39-4feb-8a0e-ed29e6bfb4eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6679d1c2-15c9-49a9-b149-1d8a21d19027" xml:space="preserve">
+          <source>Replace the content with the following:</source>
+          <target state="new">Replace the content with the following:</target>
+        </trans-unit>
+        <trans-unit id="452ae7eb-6dad-45ab-9864-22186ef9789a" xml:space="preserve">
+          <source><bpt id="c6d4198d-dc7e-4f8c-a17a-f7fdb1413c90">&lt;strong&gt;</bpt>To modify the Index.cshtml<ept id="c6d4198d-dc7e-4f8c-a17a-f7fdb1413c90">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c6d4198d-dc7e-4f8c-a17a-f7fdb1413c90">&lt;strong&gt;</bpt>To modify the Index.cshtml<ept id="c6d4198d-dc7e-4f8c-a17a-f7fdb1413c90">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab4b14b8-20a4-406b-bd01-85b7870d55a0" xml:space="preserve">
+          <source>From <bpt id="0db27ce8-ebe1-4081-b7f0-e759873603f0">&lt;strong&gt;</bpt>Solution Explorer<ept id="0db27ce8-ebe1-4081-b7f0-e759873603f0">&lt;/strong&gt;</ept>, expand <bpt id="f1329b05-0f4d-4156-9c88-9647477f4572">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="f1329b05-0f4d-4156-9c88-9647477f4572">&lt;/strong&gt;</ept>, expand <bpt id="1eb86df8-a6aa-434a-b4f9-8b69f2c4e27f">&lt;strong&gt;</bpt>Views<ept id="1eb86df8-a6aa-434a-b4f9-8b69f2c4e27f">&lt;/strong&gt;</ept>, expand <bpt id="7d10b9dd-23e5-4cf4-aa94-d87d1a96f2b6">&lt;strong&gt;</bpt>Home<ept id="7d10b9dd-23e5-4cf4-aa94-d87d1a96f2b6">&lt;/strong&gt;</ept>, and then double-click <bpt id="cd2718c8-29c5-43ac-89d7-750aed164796">&lt;strong&gt;</bpt>Index.cshtml<ept id="cd2718c8-29c5-43ac-89d7-750aed164796">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="0db27ce8-ebe1-4081-b7f0-e759873603f0">&lt;strong&gt;</bpt>Solution Explorer<ept id="0db27ce8-ebe1-4081-b7f0-e759873603f0">&lt;/strong&gt;</ept>, expand <bpt id="f1329b05-0f4d-4156-9c88-9647477f4572">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="f1329b05-0f4d-4156-9c88-9647477f4572">&lt;/strong&gt;</ept>, expand <bpt id="1eb86df8-a6aa-434a-b4f9-8b69f2c4e27f">&lt;strong&gt;</bpt>Views<ept id="1eb86df8-a6aa-434a-b4f9-8b69f2c4e27f">&lt;/strong&gt;</ept>, expand <bpt id="7d10b9dd-23e5-4cf4-aa94-d87d1a96f2b6">&lt;strong&gt;</bpt>Home<ept id="7d10b9dd-23e5-4cf4-aa94-d87d1a96f2b6">&lt;/strong&gt;</ept>, and then double-click <bpt id="cd2718c8-29c5-43ac-89d7-750aed164796">&lt;strong&gt;</bpt>Index.cshtml<ept id="cd2718c8-29c5-43ac-89d7-750aed164796">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="054dae26-f543-46e9-a727-1f365d9af8ae" xml:space="preserve">
+          <source>Replace the content with the following:</source>
+          <target state="new">Replace the content with the following:</target>
+        </trans-unit>
+        <trans-unit id="dedaf2ac-1a13-4d41-95dd-18b0572a1c8c" xml:space="preserve">
+          <source><bpt id="3d4606cb-d456-4aff-b3bd-53ad6fd9bf68">&lt;strong&gt;</bpt>To modify the site.css file<ept id="3d4606cb-d456-4aff-b3bd-53ad6fd9bf68">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3d4606cb-d456-4aff-b3bd-53ad6fd9bf68">&lt;strong&gt;</bpt>To modify the site.css file<ept id="3d4606cb-d456-4aff-b3bd-53ad6fd9bf68">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebe50bf0-3a5d-4f93-8561-53ce0d603103" xml:space="preserve">
+          <source>From <bpt id="bd4729f5-75fd-4d5a-9ff9-55272d7aad07">&lt;strong&gt;</bpt>Solution Explorer<ept id="bd4729f5-75fd-4d5a-9ff9-55272d7aad07">&lt;/strong&gt;</ept>, expand <bpt id="03b0ce05-a79e-4516-8054-96ffd3e6f357">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="03b0ce05-a79e-4516-8054-96ffd3e6f357">&lt;/strong&gt;</ept>, expand <bpt id="294f2a84-3768-4b68-b9b9-25bac2999f9b">&lt;strong&gt;</bpt>Content<ept id="294f2a84-3768-4b68-b9b9-25bac2999f9b">&lt;/strong&gt;</ept>, and then double-click <bpt id="8c6d8ee3-cde0-4274-b0f9-27117c543e14">&lt;strong&gt;</bpt>Site.css<ept id="8c6d8ee3-cde0-4274-b0f9-27117c543e14">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="bd4729f5-75fd-4d5a-9ff9-55272d7aad07">&lt;strong&gt;</bpt>Solution Explorer<ept id="bd4729f5-75fd-4d5a-9ff9-55272d7aad07">&lt;/strong&gt;</ept>, expand <bpt id="03b0ce05-a79e-4516-8054-96ffd3e6f357">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="03b0ce05-a79e-4516-8054-96ffd3e6f357">&lt;/strong&gt;</ept>, expand <bpt id="294f2a84-3768-4b68-b9b9-25bac2999f9b">&lt;strong&gt;</bpt>Content<ept id="294f2a84-3768-4b68-b9b9-25bac2999f9b">&lt;/strong&gt;</ept>, and then double-click <bpt id="8c6d8ee3-cde0-4274-b0f9-27117c543e14">&lt;strong&gt;</bpt>Site.css<ept id="8c6d8ee3-cde0-4274-b0f9-27117c543e14">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96bab77a-90ff-4770-981e-51a1d2b48df1" xml:space="preserve">
+          <source>Append the following code to the file:</source>
+          <target state="new">Append the following code to the file:</target>
+        </trans-unit>
+        <trans-unit id="28a52dd3-e274-4cf1-8e7f-2836bddd92e0" xml:space="preserve">
+          <source><bpt id="ecd3c8db-d498-4d41-969c-254ec420e0a1">&lt;strong&gt;</bpt>To modify the global.asax file<ept id="ecd3c8db-d498-4d41-969c-254ec420e0a1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ecd3c8db-d498-4d41-969c-254ec420e0a1">&lt;strong&gt;</bpt>To modify the global.asax file<ept id="ecd3c8db-d498-4d41-969c-254ec420e0a1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c76bab4f-8c25-47b1-9547-eda497fbd232" xml:space="preserve">
+          <source>From <bpt id="37684cfa-0698-4adc-b08e-fee486312ada">&lt;strong&gt;</bpt>Solution Explorer<ept id="37684cfa-0698-4adc-b08e-fee486312ada">&lt;/strong&gt;</ept>, expand <bpt id="9d5b64f7-c83f-4b4e-b51e-0605d09ee6d8">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="9d5b64f7-c83f-4b4e-b51e-0605d09ee6d8">&lt;/strong&gt;</ept>, and then double-click <bpt id="99d0c842-69f0-4472-b8c3-5b71c8586509">&lt;strong&gt;</bpt>Global.asax<ept id="99d0c842-69f0-4472-b8c3-5b71c8586509">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="37684cfa-0698-4adc-b08e-fee486312ada">&lt;strong&gt;</bpt>Solution Explorer<ept id="37684cfa-0698-4adc-b08e-fee486312ada">&lt;/strong&gt;</ept>, expand <bpt id="9d5b64f7-c83f-4b4e-b51e-0605d09ee6d8">&lt;strong&gt;</bpt>TweetSentimentWeb<ept id="9d5b64f7-c83f-4b4e-b51e-0605d09ee6d8">&lt;/strong&gt;</ept>, and then double-click <bpt id="99d0c842-69f0-4472-b8c3-5b71c8586509">&lt;strong&gt;</bpt>Global.asax<ept id="99d0c842-69f0-4472-b8c3-5b71c8586509">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b965590-95f5-47c3-9b5a-bd26ed61723f" xml:space="preserve">
+          <source>Add the following <bpt id="c9e3612c-e335-4504-a916-2a6a4503bed6">&lt;strong&gt;</bpt>using<ept id="c9e3612c-e335-4504-a916-2a6a4503bed6">&lt;/strong&gt;</ept> statement:</source>
+          <target state="new">Add the following <bpt id="c9e3612c-e335-4504-a916-2a6a4503bed6">&lt;strong&gt;</bpt>using<ept id="c9e3612c-e335-4504-a916-2a6a4503bed6">&lt;/strong&gt;</ept> statement:</target>
+        </trans-unit>
+        <trans-unit id="a5d0500f-5458-4adb-bc8d-3978924d70e3" xml:space="preserve">
+          <source>Add the following lines inside the <bpt id="87cd7671-32bb-4852-bb2b-151a88fe6817">&lt;strong&gt;</bpt>Application_Start()<ept id="87cd7671-32bb-4852-bb2b-151a88fe6817">&lt;/strong&gt;</ept> function:</source>
+          <target state="new">Add the following lines inside the <bpt id="87cd7671-32bb-4852-bb2b-151a88fe6817">&lt;strong&gt;</bpt>Application_Start()<ept id="87cd7671-32bb-4852-bb2b-151a88fe6817">&lt;/strong&gt;</ept> function:</target>
+        </trans-unit>
+        <trans-unit id="55445b80-9707-49ec-82ad-f9fe6bc37469" xml:space="preserve">
+          <source>Modify the registration of the API routes to make the Web API controller work inside the MVC application.</source>
+          <target state="new">Modify the registration of the API routes to make the Web API controller work inside the MVC application.</target>
+        </trans-unit>
+        <trans-unit id="9f2eb177-2d61-4bad-a4e2-cce594a85eaf" xml:space="preserve">
+          <source><bpt id="549e293c-60a0-45a3-a401-4c9d8d21bb02">&lt;strong&gt;</bpt>To run the web application<ept id="549e293c-60a0-45a3-a401-4c9d8d21bb02">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="549e293c-60a0-45a3-a401-4c9d8d21bb02">&lt;strong&gt;</bpt>To run the web application<ept id="549e293c-60a0-45a3-a401-4c9d8d21bb02">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3474c39f-b0c7-47ce-b2bb-6be61531d101" xml:space="preserve">
+          <source>Verify that the streaming service console application is still running so you can see the real-time changes.</source>
+          <target state="new">Verify that the streaming service console application is still running so you can see the real-time changes.</target>
+        </trans-unit>
+        <trans-unit id="94c8ea67-4bf8-4daa-ba0a-a36538c83a5b" xml:space="preserve">
+          <source>Press <bpt id="f01493a7-0fd3-4535-881f-001432de8a90">&lt;strong&gt;</bpt>F5<ept id="f01493a7-0fd3-4535-881f-001432de8a90">&lt;/strong&gt;</ept> to run the web application:</source>
+          <target state="new">Press <bpt id="f01493a7-0fd3-4535-881f-001432de8a90">&lt;strong&gt;</bpt>F5<ept id="f01493a7-0fd3-4535-881f-001432de8a90">&lt;/strong&gt;</ept> to run the web application:</target>
+        </trans-unit>
+        <trans-unit id="e7cd10a6-520b-44ed-8952-fb1aa1f06a75" xml:space="preserve">
+          <source><bpt id="df6cff35-da89-4bfb-a297-db82d6047c4b">&lt;linkText&gt;</bpt>hdinsight.hbase.twitter.sentiment.bing.map<ept id="df6cff35-da89-4bfb-a297-db82d6047c4b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df6cff35-da89-4bfb-a297-db82d6047c4b">&lt;linkText&gt;</bpt>hdinsight.hbase.twitter.sentiment.bing.map<ept id="df6cff35-da89-4bfb-a297-db82d6047c4b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c323f57a-339e-485b-a017-358f41fe0df5" xml:space="preserve">
+          <source>In the text box, enter a keyword, and then click <bpt id="c6ad8165-4029-4a8e-a191-b75581e4d07a">&lt;strong&gt;</bpt>Go<ept id="c6ad8165-4029-4a8e-a191-b75581e4d07a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the text box, enter a keyword, and then click <bpt id="c6ad8165-4029-4a8e-a191-b75581e4d07a">&lt;strong&gt;</bpt>Go<ept id="c6ad8165-4029-4a8e-a191-b75581e4d07a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83083c72-b3ce-4cf7-89b9-cb58502cee11" xml:space="preserve">
+          <source>Depending on the data collected in the HBase table, some keywords might not be found.</source>
+          <target state="new">Depending on the data collected in the HBase table, some keywords might not be found.</target>
+        </trans-unit>
+        <trans-unit id="d680d9bb-a4c6-4399-826a-049cc11073df" xml:space="preserve">
+          <source>Try some common keywords, such as "love," "xbox," and "playstation."</source>
+          <target state="new">Try some common keywords, such as "love," "xbox," and "playstation."</target>
+        </trans-unit>
+        <trans-unit id="3f085de3-d440-45b9-b90a-fe6e9ed8ad0f" xml:space="preserve">
+          <source>Toggle among <bpt id="52bed7b2-715b-42fd-88b2-f7f20cc8ae81">&lt;strong&gt;</bpt>Positive<ept id="52bed7b2-715b-42fd-88b2-f7f20cc8ae81">&lt;/strong&gt;</ept>, <bpt id="27a78100-4944-4202-bdc7-75922bd25a27">&lt;strong&gt;</bpt>Neutral<ept id="27a78100-4944-4202-bdc7-75922bd25a27">&lt;/strong&gt;</ept>, and <bpt id="e8b562e0-426c-42f3-8ce5-c3c7dd88bc55">&lt;strong&gt;</bpt>Negative<ept id="e8b562e0-426c-42f3-8ce5-c3c7dd88bc55">&lt;/strong&gt;</ept> to compare sentiment on the subject.</source>
+          <target state="new">Toggle among <bpt id="52bed7b2-715b-42fd-88b2-f7f20cc8ae81">&lt;strong&gt;</bpt>Positive<ept id="52bed7b2-715b-42fd-88b2-f7f20cc8ae81">&lt;/strong&gt;</ept>, <bpt id="27a78100-4944-4202-bdc7-75922bd25a27">&lt;strong&gt;</bpt>Neutral<ept id="27a78100-4944-4202-bdc7-75922bd25a27">&lt;/strong&gt;</ept>, and <bpt id="e8b562e0-426c-42f3-8ce5-c3c7dd88bc55">&lt;strong&gt;</bpt>Negative<ept id="e8b562e0-426c-42f3-8ce5-c3c7dd88bc55">&lt;/strong&gt;</ept> to compare sentiment on the subject.</target>
+        </trans-unit>
+        <trans-unit id="68ea67f0-df8c-4053-a23a-530c0805e0b3" xml:space="preserve">
+          <source>Let the streaming service run for another hour, and then search the same keywords, and compare the results.</source>
+          <target state="new">Let the streaming service run for another hour, and then search the same keywords, and compare the results.</target>
+        </trans-unit>
+        <trans-unit id="9453caf8-3786-48eb-ab31-b551c85f5b78" xml:space="preserve">
+          <source>Optionally, you can deploy the application to Azure Websites.</source>
+          <target state="new">Optionally, you can deploy the application to Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="4c246009-1e6f-4a58-9ceb-48f7a2e62fb1" xml:space="preserve">
+          <source>For instructions, see <bpt id="182743e9-1c58-45b1-b680-29a1bdde2d46">&lt;linkText&gt;</bpt>Get started with Azure Websites and ASP.NET[website-get-started]<ept id="182743e9-1c58-45b1-b680-29a1bdde2d46">&lt;/linkText&gt;</ept><bpt id="182743e9-1c58-45b1-b680-29a1bdde2d46">&lt;title&gt;</bpt><ept id="182743e9-1c58-45b1-b680-29a1bdde2d46">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="182743e9-1c58-45b1-b680-29a1bdde2d46">&lt;linkText&gt;</bpt>Get started with Azure Websites and ASP.NET[website-get-started]<ept id="182743e9-1c58-45b1-b680-29a1bdde2d46">&lt;/linkText&gt;</ept><bpt id="182743e9-1c58-45b1-b680-29a1bdde2d46">&lt;title&gt;</bpt><ept id="182743e9-1c58-45b1-b680-29a1bdde2d46">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="717468e8-cb27-4858-a177-6e64143a9455" xml:space="preserve">
+          <source>In this tutorial, you learned how to get tweets, analyze the sentiment of tweets, save the sentiment data to HBase, and present the real-time Twitter sentiment data to Bing maps.</source>
+          <target state="new">In this tutorial, you learned how to get tweets, analyze the sentiment of tweets, save the sentiment data to HBase, and present the real-time Twitter sentiment data to Bing maps.</target>
+        </trans-unit>
+        <trans-unit id="2fd80320-716e-4dc4-a244-a84cd3c4ea4d" xml:space="preserve">
+          <source>To learn more, see:</source>
+          <target state="new">To learn more, see:</target>
+        </trans-unit>
+        <trans-unit id="b77fd111-03f4-418e-8b4d-da52fd964ce0" xml:space="preserve">
+          <source><bpt id="59fe1998-6a51-44b2-bf4d-fbfb82725965">&lt;linkText&gt;</bpt>Get started with HDInsight[hdinsight-get-started]<ept id="59fe1998-6a51-44b2-bf4d-fbfb82725965">&lt;/linkText&gt;</ept><bpt id="59fe1998-6a51-44b2-bf4d-fbfb82725965">&lt;title&gt;</bpt><ept id="59fe1998-6a51-44b2-bf4d-fbfb82725965">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="59fe1998-6a51-44b2-bf4d-fbfb82725965">&lt;linkText&gt;</bpt>Get started with HDInsight[hdinsight-get-started]<ept id="59fe1998-6a51-44b2-bf4d-fbfb82725965">&lt;/linkText&gt;</ept><bpt id="59fe1998-6a51-44b2-bf4d-fbfb82725965">&lt;title&gt;</bpt><ept id="59fe1998-6a51-44b2-bf4d-fbfb82725965">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f0ec6c5-0897-4014-9ac3-ef845d8c804a" xml:space="preserve">
+          <source><bpt id="4986cb1f-fb92-4d2c-b95a-214103ffe6a1">&lt;linkText&gt;</bpt>Configure HBase replication in HDInsight<ept id="4986cb1f-fb92-4d2c-b95a-214103ffe6a1">&lt;/linkText&gt;</ept><bpt id="4986cb1f-fb92-4d2c-b95a-214103ffe6a1">&lt;title&gt;</bpt><ept id="4986cb1f-fb92-4d2c-b95a-214103ffe6a1">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="4986cb1f-fb92-4d2c-b95a-214103ffe6a1">&lt;linkText&gt;</bpt>Configure HBase replication in HDInsight<ept id="4986cb1f-fb92-4d2c-b95a-214103ffe6a1">&lt;/linkText&gt;</ept><bpt id="4986cb1f-fb92-4d2c-b95a-214103ffe6a1">&lt;title&gt;</bpt><ept id="4986cb1f-fb92-4d2c-b95a-214103ffe6a1">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d4a8ca9d-68d7-4472-bb25-ee3dfa3d355a" xml:space="preserve">
+          <source><bpt id="27bbce18-b14e-40db-874a-7f3afe6b3e08">&lt;linkText&gt;</bpt>Analyze Twitter data with Hadoop in HDInsight[hdinsight-analyze-twitter-data]<ept id="27bbce18-b14e-40db-874a-7f3afe6b3e08">&lt;/linkText&gt;</ept><bpt id="27bbce18-b14e-40db-874a-7f3afe6b3e08">&lt;title&gt;</bpt><ept id="27bbce18-b14e-40db-874a-7f3afe6b3e08">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="27bbce18-b14e-40db-874a-7f3afe6b3e08">&lt;linkText&gt;</bpt>Analyze Twitter data with Hadoop in HDInsight[hdinsight-analyze-twitter-data]<ept id="27bbce18-b14e-40db-874a-7f3afe6b3e08">&lt;/linkText&gt;</ept><bpt id="27bbce18-b14e-40db-874a-7f3afe6b3e08">&lt;title&gt;</bpt><ept id="27bbce18-b14e-40db-874a-7f3afe6b3e08">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4d06514-b64f-45fd-b83b-d9ea67600a51" xml:space="preserve">
+          <source><bpt id="311f1eb7-f75f-471d-bf84-5531f1b7c926">&lt;linkText&gt;</bpt>Analyze flight delay data using HDInsight[hdinsight-analyze-flight-delay-data]<ept id="311f1eb7-f75f-471d-bf84-5531f1b7c926">&lt;/linkText&gt;</ept><bpt id="311f1eb7-f75f-471d-bf84-5531f1b7c926">&lt;title&gt;</bpt><ept id="311f1eb7-f75f-471d-bf84-5531f1b7c926">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="311f1eb7-f75f-471d-bf84-5531f1b7c926">&lt;linkText&gt;</bpt>Analyze flight delay data using HDInsight[hdinsight-analyze-flight-delay-data]<ept id="311f1eb7-f75f-471d-bf84-5531f1b7c926">&lt;/linkText&gt;</ept><bpt id="311f1eb7-f75f-471d-bf84-5531f1b7c926">&lt;title&gt;</bpt><ept id="311f1eb7-f75f-471d-bf84-5531f1b7c926">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2eb48b03-2ac6-44f7-8736-7a586f43c74f" xml:space="preserve">
+          <source><bpt id="2b608c87-045e-4c31-931e-0cb67f5ae906">&lt;linkText&gt;</bpt>Develop C# Hadoop streaming programs for HDInsight[hdinsight-develop-streaming]<ept id="2b608c87-045e-4c31-931e-0cb67f5ae906">&lt;/linkText&gt;</ept><bpt id="2b608c87-045e-4c31-931e-0cb67f5ae906">&lt;title&gt;</bpt><ept id="2b608c87-045e-4c31-931e-0cb67f5ae906">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2b608c87-045e-4c31-931e-0cb67f5ae906">&lt;linkText&gt;</bpt>Develop C# Hadoop streaming programs for HDInsight[hdinsight-develop-streaming]<ept id="2b608c87-045e-4c31-931e-0cb67f5ae906">&lt;/linkText&gt;</ept><bpt id="2b608c87-045e-4c31-931e-0cb67f5ae906">&lt;title&gt;</bpt><ept id="2b608c87-045e-4c31-931e-0cb67f5ae906">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79532f0d-b605-494c-b7a9-364ff42d4caa" xml:space="preserve">
+          <source><bpt id="9cf8dbb4-9f62-40bd-9071-7bd441f410e7">&lt;linkText&gt;</bpt>Develop Java MapReduce programs for HDInsight[hdinsight-develop-mapreduce]<ept id="9cf8dbb4-9f62-40bd-9071-7bd441f410e7">&lt;/linkText&gt;</ept><bpt id="9cf8dbb4-9f62-40bd-9071-7bd441f410e7">&lt;title&gt;</bpt><ept id="9cf8dbb4-9f62-40bd-9071-7bd441f410e7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9cf8dbb4-9f62-40bd-9071-7bd441f410e7">&lt;linkText&gt;</bpt>Develop Java MapReduce programs for HDInsight[hdinsight-develop-mapreduce]<ept id="9cf8dbb4-9f62-40bd-9071-7bd441f410e7">&lt;/linkText&gt;</ept><bpt id="9cf8dbb4-9f62-40bd-9071-7bd441f410e7">&lt;title&gt;</bpt><ept id="9cf8dbb4-9f62-40bd-9071-7bd441f410e7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfffd9f4-73fb-46aa-b877-8c4439856a3d" xml:space="preserve">
+          <source>../hdinsight-hbase-get-started.md</source>
+          <target state="new">../hdinsight-hbase-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="d256b069-2167-41f6-9be3-81ea6fa2a162" xml:space="preserve">
+          <source>../web-sites-dotnet-get-started.md</source>
+          <target state="new">../web-sites-dotnet-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="7a3b1f17-e7f5-4135-9430-9f22504136f7" xml:space="preserve">
+          <source>./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png</source>
+          <target state="new">./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png</target>
+        </trans-unit>
+        <trans-unit id="27f8898c-beb6-44d2-a2f3-97d81fa8d1c9" xml:space="preserve">
+          <source>./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png</source>
+          <target state="new">./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png</target>
+        </trans-unit>
+        <trans-unit id="0bc2d1fa-1e53-42af-a05a-406e6455bc46" xml:space="preserve">
+          <source>./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png</source>
+          <target state="new">./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png</target>
+        </trans-unit>
+        <trans-unit id="13be5dfe-2fb8-4c20-925b-999dda2f02e6" xml:space="preserve">
+          <source>./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png</source>
+          <target state="new">./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png</target>
+        </trans-unit>
+        <trans-unit id="0e014a40-549a-4740-8b5c-d712b7a72d98" xml:space="preserve">
+          <source>hdinsight-hadoop-develop-deploy-streaming-jobs.md</source>
+          <target state="new">hdinsight-hadoop-develop-deploy-streaming-jobs.md</target>
+        </trans-unit>
+        <trans-unit id="e8f3b180-b11d-436d-bf23-50cada9474fd" xml:space="preserve">
+          <source>hdinsight-develop-deploy-java-mapreduce.md</source>
+          <target state="new">hdinsight-develop-deploy-java-mapreduce.md</target>
+        </trans-unit>
+        <trans-unit id="98c67eb0-a3dc-4b75-8df7-f3855382d0ec" xml:space="preserve">
+          <source>hdinsight-analyze-twitter-data.md</source>
+          <target state="new">hdinsight-analyze-twitter-data.md</target>
+        </trans-unit>
+        <trans-unit id="2e339721-4de1-4fa5-8804-64657e8157ee" xml:space="preserve">
+          <source>../hdinsight-hbase-get-started.md</source>
+          <target state="new">../hdinsight-hbase-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="b7f82777-9f04-43c2-b6cb-458ae8597ef7" xml:space="preserve">
+          <source>http://curl.haxx.se</source>
+          <target state="new">http://curl.haxx.se</target>
+        </trans-unit>
+        <trans-unit id="c034c6a1-3fb3-4deb-afd2-ec5b7e89fd06" xml:space="preserve">
+          <source>http://curl.haxx.se/download.html</source>
+          <target state="new">http://curl.haxx.se/download.html</target>
+        </trans-unit>
+        <trans-unit id="5f57635a-7813-49ab-b76d-abd2bc65ef42" xml:space="preserve">
+          <source>https://cwiki.apache.org/confluence/display/Hive/Tutorial</source>
+          <target state="new">https://cwiki.apache.org/confluence/display/Hive/Tutorial</target>
+        </trans-unit>
+        <trans-unit id="5fd9cee7-2b7f-4d7f-8cfe-7e82bf4bc5d0" xml:space="preserve">
+          <source>https://dev.twitter.com/docs/streaming-apis</source>
+          <target state="new">https://dev.twitter.com/docs/streaming-apis</target>
+        </trans-unit>
+        <trans-unit id="e769ee14-83d5-4c71-aac7-56ad740bbc29" xml:space="preserve">
+          <source>https://dev.twitter.com/docs/api/1.1/post/statuses/filter</source>
+          <target state="new">https://dev.twitter.com/docs/api/1.1/post/statuses/filter</target>
+        </trans-unit>
+        <trans-unit id="23a3b40d-645d-492c-96c6-ab198490701c" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/hh847889.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/hh847889.aspx</target>
+        </trans-unit>
+        <trans-unit id="72fca70f-d518-47d1-be86-fd0cd704e8c0" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="0c3cadb3-f509-48ee-9416-0c80ad41bf1c" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/ee176949.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/ee176949.aspx</target>
+        </trans-unit>
+        <trans-unit id="dbd33e6d-74ae-4d79-8531-0c64d47c25b4" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="5fcc044e-5343-4d33-9637-b213aa4c2a5e" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="4108eb93-e69b-4f09-89c2-352055ae29ae" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md#powershell</source>
+          <target state="new">../hdinsight-use-blob-storage.md#powershell</target>
+        </trans-unit>
+        <trans-unit id="c802b312-6873-431f-864f-81f06bf2ca8e" xml:space="preserve">
+          <source>hdinsight-analyze-flight-delay-data.md</source>
+          <target state="new">hdinsight-analyze-flight-delay-data.md</target>
+        </trans-unit>
+        <trans-unit id="a02d2b69-ce79-4963-8a74-d0953cd97cae" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="1881447b-68fa-4a3e-a4df-d83aa4cbb797" xml:space="preserve">
+          <source>hdinsight-use-sqoop.md</source>
+          <target state="new">hdinsight-use-sqoop.md</target>
+        </trans-unit>
+        <trans-unit id="6b404606-9428-45c3-84b4-d29e939325e8" xml:space="preserve">
+          <source>hdinsight-connect-excel-power-query.md</source>
+          <target state="new">hdinsight-connect-excel-power-query.md</target>
+        </trans-unit>
+        <trans-unit id="3acd74a0-1e2f-4675-b30a-5d0dd144efb6" xml:space="preserve">
+          <source>hdinsight-connect-excel-hive-ODBC-driver.md</source>
+          <target state="new">hdinsight-connect-excel-hive-ODBC-driver.md</target>
+        </trans-unit>
+      </group>
+      <group id="1994422b-3cbd-47c3-95a1-3d62556ca245" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="53724032-5257-4643-a30e-7599a88d2123" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="53724032-5257-4643-a30e-7599a88d2123" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cfcad807-17c3-43ee-98f2-a51b40ad20c3">
+        <trans-unit id="dffdc730-39f9-4e39-ace1-a34d9188203b" xml:space="preserve">
+          <source>Troubleshoot Azure Data Factory issues</source>
+          <target state="new">Troubleshoot Azure Data Factory issues</target>
+        </trans-unit>
+        <trans-unit id="17d81fd8-4e61-4c23-b1a2-ea7275572edb" xml:space="preserve">
+          <source>Learn how to troubleshoot issues with using Azure Data Factory.</source>
+          <target state="new">Learn how to troubleshoot issues with using Azure Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="86216d31-620b-4d99-a19b-bc1b2dc2513d" xml:space="preserve">
+          <source>You can troubleshoot Azure Data Factory issues using Azure Portal (or) Azure PowerShell cmdlets.</source>
+          <target state="new">You can troubleshoot Azure Data Factory issues using Azure Portal (or) Azure PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="8cf59697-1b44-4b84-af06-32581b48957d" xml:space="preserve">
+          <source>This topic has walkthroughs that show you how to use the Azure Portal to quickly troubleshoot errors that you encounter with Data Factory.</source>
+          <target state="new">This topic has walkthroughs that show you how to use the Azure Portal to quickly troubleshoot errors that you encounter with Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="a0c1588b-752e-4692-bf97-6b11a5694309" xml:space="preserve">
+          <source>To resolve this issue, switch Azure mode to <bpt id="3f27eee4-31aa-4b67-ba7a-aed0fd4c91cf">&lt;strong&gt;</bpt>AzureResourceManager<ept id="3f27eee4-31aa-4b67-ba7a-aed0fd4c91cf">&lt;/strong&gt;</ept>: </source>
+          <target state="new">To resolve this issue, switch Azure mode to <bpt id="3f27eee4-31aa-4b67-ba7a-aed0fd4c91cf">&lt;strong&gt;</bpt>AzureResourceManager<ept id="3f27eee4-31aa-4b67-ba7a-aed0fd4c91cf">&lt;/strong&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="8afba151-f1aa-4567-a850-fffc819d1498" xml:space="preserve">
+          <source>Launch <bpt id="bc4f1656-5ced-4da7-add4-a1b198908905">&lt;strong&gt;</bpt>Azure PowerShell<ept id="bc4f1656-5ced-4da7-add4-a1b198908905">&lt;/strong&gt;</ept> and execute the following command to switch to the <bpt id="468c2521-3857-4395-9f33-d4e63c95e9d1">&lt;strong&gt;</bpt>AzureResourceManager<ept id="468c2521-3857-4395-9f33-d4e63c95e9d1">&lt;/strong&gt;</ept> mode.The Azure Data Factory cmdlets are available in the <bpt id="22ec6018-b69e-42cf-9109-35a642cccc8c">&lt;strong&gt;</bpt>AzureResourceManager<ept id="22ec6018-b69e-42cf-9109-35a642cccc8c">&lt;/strong&gt;</ept> mode.</source>
+          <target state="new">Launch <bpt id="bc4f1656-5ced-4da7-add4-a1b198908905">&lt;strong&gt;</bpt>Azure PowerShell<ept id="bc4f1656-5ced-4da7-add4-a1b198908905">&lt;/strong&gt;</ept> and execute the following command to switch to the <bpt id="468c2521-3857-4395-9f33-d4e63c95e9d1">&lt;strong&gt;</bpt>AzureResourceManager<ept id="468c2521-3857-4395-9f33-d4e63c95e9d1">&lt;/strong&gt;</ept> mode.The Azure Data Factory cmdlets are available in the <bpt id="22ec6018-b69e-42cf-9109-35a642cccc8c">&lt;strong&gt;</bpt>AzureResourceManager<ept id="22ec6018-b69e-42cf-9109-35a642cccc8c">&lt;/strong&gt;</ept> mode.</target>
+        </trans-unit>
+        <trans-unit id="85546e29-2f7f-42b1-867b-c4d816d6ec94" xml:space="preserve">
+          <source>You are probably not using the right Azure account or subscription with the Azure PowerShell.</source>
+          <target state="new">You are probably not using the right Azure account or subscription with the Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="76e17068-c98d-4b99-8374-573a9ba3faa9" xml:space="preserve">
+          <source>Use the following cmdlets to select the right Azure account and subscription to use with the Azure PowerShell.</source>
+          <target state="new">Use the following cmdlets to select the right Azure account and subscription to use with the Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="89c1183d-7d40-4b4f-8ac2-8926502a2607" xml:space="preserve">
+          <source>Add-AzureAccount - Use the right user ID and password</source>
+          <target state="new">Add-AzureAccount - Use the right user ID and password</target>
+        </trans-unit>
+        <trans-unit id="eb795b1c-b055-42d3-be0b-a00afd6508c7" xml:space="preserve">
+          <source>Get-AzureSubscription - View all the subscriptions for the account.</source>
+          <target state="new">Get-AzureSubscription - View all the subscriptions for the account.</target>
+        </trans-unit>
+        <trans-unit id="291c810c-cacc-4437-af19-9255687209e7" xml:space="preserve">
+          <source>Select-AzureSubscription &lt;subscription name&gt; - Select the right subscription. Use the same one you use to create a data factory on the Azure Preview Portal.</source>
+          <target state="new">Select-AzureSubscription &lt;subscription name&gt; - Select the right subscription. Use the same one you use to create a data factory on the Azure Preview Portal.</target>
+        </trans-unit>
+        <trans-unit id="932e2819-b82b-4919-b2a6-1ed3a1a7336c" xml:space="preserve">
+          <source>The Express Setup for the Data Gateway requires Internet Explorer or a Microsoft ClickOnce compatible web browser.</source>
+          <target state="new">The Express Setup for the Data Gateway requires Internet Explorer or a Microsoft ClickOnce compatible web browser.</target>
+        </trans-unit>
+        <trans-unit id="e734922e-71e3-496c-928f-4c7730728ad0" xml:space="preserve">
+          <source>If you fails to start the Express Setup, you can</source>
+          <target state="new">If you fails to start the Express Setup, you can</target>
+        </trans-unit>
+        <trans-unit id="61b3a3ec-7909-47e0-807a-1e10b6731db3" xml:space="preserve">
+          <source>Switch to Internet Explorer if you fails with other browsers.</source>
+          <target state="new">Switch to Internet Explorer if you fails with other browsers.</target>
+        </trans-unit>
+        <trans-unit id="e8a5cc60-6d29-4313-aec8-7928dc739f29" xml:space="preserve">
+          <source>Or</source>
+          <target state="new">Or</target>
+        </trans-unit>
+        <trans-unit id="c7813890-2ed1-4997-93cc-0804f8254d95" xml:space="preserve">
+          <source>Use the "Manual Setup" links shown on the same blade in the portal to do the installation, and then copy the Key that is provided on the screen, and paste when the Data Management Gateway configuration is ready.</source>
+          <target state="new">Use the "Manual Setup" links shown on the same blade in the portal to do the installation, and then copy the Key that is provided on the screen, and paste when the Data Management Gateway configuration is ready.</target>
+        </trans-unit>
+        <trans-unit id="47f5b0e5-5d70-4fd2-abfc-d619fcd203e2" xml:space="preserve">
+          <source>If it doesn't launch, check your start menu for "Microsoft Data Management Gateway" and paste in the key when it launches.</source>
+          <target state="new">If it doesn't launch, check your start menu for "Microsoft Data Management Gateway" and paste in the key when it launches.</target>
+        </trans-unit>
+        <trans-unit id="6f279300-2c7f-4565-a396-4aa53ce1cc25" xml:space="preserve">
+          <source>When set up or update a SQL Server Linked Service via Azure Portal, the Credentials Manager application will be launched to guarantee security.</source>
+          <target state="new">When set up or update a SQL Server Linked Service via Azure Portal, the Credentials Manager application will be launched to guarantee security.</target>
+        </trans-unit>
+        <trans-unit id="de6768c1-f9e4-4a18-88c4-e899f83b940e" xml:space="preserve">
+          <source>It requires Internet Explorer or a Microsoft ClickOnce compatible web browser.</source>
+          <target state="new">It requires Internet Explorer or a Microsoft ClickOnce compatible web browser.</target>
+        </trans-unit>
+        <trans-unit id="095e07a2-5208-408d-af14-66dfd3158978" xml:space="preserve">
+          <source>You can switch to Internet Explorer if you fails with other browsers.</source>
+          <target state="new">You can switch to Internet Explorer if you fails with other browsers.</target>
+        </trans-unit>
+        <trans-unit id="f1ae1ba6-3609-43f8-992f-c5f4257a4a4a" xml:space="preserve">
+          <source>Verify that the SQL Server is reachable from the machine where the gateway is installed.</source>
+          <target state="new">Verify that the SQL Server is reachable from the machine where the gateway is installed.</target>
+        </trans-unit>
+        <trans-unit id="ee1aee8f-8c72-4891-8297-364d639626c3" xml:space="preserve">
+          <source>On the machine on which the gateway is installed, you can</source>
+          <target state="new">On the machine on which the gateway is installed, you can</target>
+        </trans-unit>
+        <trans-unit id="f9bb47f5-e7ac-4fcf-9f7e-f5dbd67a804b" xml:space="preserve">
+          <source>Ping the machine where the SQL Server is installed.</source>
+          <target state="new">Ping the machine where the SQL Server is installed.</target>
+        </trans-unit>
+        <trans-unit id="0203de03-ceb8-408f-aa66-3c1c78da45d1" xml:space="preserve">
+          <source>Or</source>
+          <target state="new">Or</target>
+        </trans-unit>
+        <trans-unit id="935e9cfe-425e-49a4-987f-9b5ac4559c94" xml:space="preserve">
+          <source>Try connecting to the SQL Server instance using the credentials you specified on the Azure Portal using SQL Server Management Studio (SSMS).</source>
+          <target state="new">Try connecting to the SQL Server instance using the credentials you specified on the Azure Portal using SQL Server Management Studio (SSMS).</target>
+        </trans-unit>
+        <trans-unit id="59a0b7da-c50f-469b-8192-9e3b4489162c" xml:space="preserve">
+          <source>The slices could be in <bpt id="b760b5ba-9062-4f87-acc3-728a3bff602e">&lt;strong&gt;</bpt>PendingExecution<ept id="b760b5ba-9062-4f87-acc3-728a3bff602e">&lt;/strong&gt;</ept> or <bpt id="9456ef47-05e7-49b1-bb0f-cf533b346670">&lt;strong&gt;</bpt>PendingValidation<ept id="9456ef47-05e7-49b1-bb0f-cf533b346670">&lt;/strong&gt;</ept> state due to a number of reasons and one of the common reasons is that the <bpt id="b757af1c-ceef-42ac-8f16-4669011f5e30">&lt;strong&gt;</bpt>external<ept id="b757af1c-ceef-42ac-8f16-4669011f5e30">&lt;/strong&gt;</ept> property is not set to <bpt id="d68becbf-492b-44bd-a016-95f7f0df946f">&lt;strong&gt;</bpt>true<ept id="d68becbf-492b-44bd-a016-95f7f0df946f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The slices could be in <bpt id="b760b5ba-9062-4f87-acc3-728a3bff602e">&lt;strong&gt;</bpt>PendingExecution<ept id="b760b5ba-9062-4f87-acc3-728a3bff602e">&lt;/strong&gt;</ept> or <bpt id="9456ef47-05e7-49b1-bb0f-cf533b346670">&lt;strong&gt;</bpt>PendingValidation<ept id="9456ef47-05e7-49b1-bb0f-cf533b346670">&lt;/strong&gt;</ept> state due to a number of reasons and one of the common reasons is that the <bpt id="b757af1c-ceef-42ac-8f16-4669011f5e30">&lt;strong&gt;</bpt>external<ept id="b757af1c-ceef-42ac-8f16-4669011f5e30">&lt;/strong&gt;</ept> property is not set to <bpt id="d68becbf-492b-44bd-a016-95f7f0df946f">&lt;strong&gt;</bpt>true<ept id="d68becbf-492b-44bd-a016-95f7f0df946f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dcea81b1-2092-4fa9-aee9-5c6b649e425b" xml:space="preserve">
+          <source>Any dataset that is produced outside the scope of Azure Data Factory should be marked with <bpt id="2ecf3214-c6d6-4053-be68-4e9f9789825c">&lt;strong&gt;</bpt>external<ept id="2ecf3214-c6d6-4053-be68-4e9f9789825c">&lt;/strong&gt;</ept> property .</source>
+          <target state="new">Any dataset that is produced outside the scope of Azure Data Factory should be marked with <bpt id="2ecf3214-c6d6-4053-be68-4e9f9789825c">&lt;strong&gt;</bpt>external<ept id="2ecf3214-c6d6-4053-be68-4e9f9789825c">&lt;/strong&gt;</ept> property .</target>
+        </trans-unit>
+        <trans-unit id="28a856c7-c04f-487e-9a9b-ea1f848057c7" xml:space="preserve">
+          <source>This indicates that the data is external and not backed by any pipelines within the data factory.</source>
+          <target state="new">This indicates that the data is external and not backed by any pipelines within the data factory.</target>
+        </trans-unit>
+        <trans-unit id="c697069e-7385-483b-a5c1-595f3c6c3bdf" xml:space="preserve">
+          <source>The data slices are marked as <bpt id="6ec97785-5b3a-420a-83af-eb62a722c559">&lt;strong&gt;</bpt>Ready<ept id="6ec97785-5b3a-420a-83af-eb62a722c559">&lt;/strong&gt;</ept> once the data is available in the respective store.</source>
+          <target state="new">The data slices are marked as <bpt id="6ec97785-5b3a-420a-83af-eb62a722c559">&lt;strong&gt;</bpt>Ready<ept id="6ec97785-5b3a-420a-83af-eb62a722c559">&lt;/strong&gt;</ept> once the data is available in the respective store.</target>
+        </trans-unit>
+        <trans-unit id="126eb465-e848-4108-b2b0-6b838d301950" xml:space="preserve">
+          <source>See the following example for the usage of the <bpt id="f4671a32-e5e8-48bc-b180-1d289d714360">&lt;strong&gt;</bpt>external<ept id="f4671a32-e5e8-48bc-b180-1d289d714360">&lt;/strong&gt;</ept> property.</source>
+          <target state="new">See the following example for the usage of the <bpt id="f4671a32-e5e8-48bc-b180-1d289d714360">&lt;strong&gt;</bpt>external<ept id="f4671a32-e5e8-48bc-b180-1d289d714360">&lt;/strong&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="0cd2ffe8-9430-44ce-a7b7-8688fa639bd6" xml:space="preserve">
+          <source>You can optionally specify <bpt id="8ea724a1-a380-4186-95c1-e626e76b021b">&lt;strong&gt;</bpt>externalData*<ept id="8ea724a1-a380-4186-95c1-e626e76b021b">&lt;/strong&gt;</ept> when you set external to true..</source>
+          <target state="new">You can optionally specify <bpt id="8ea724a1-a380-4186-95c1-e626e76b021b">&lt;strong&gt;</bpt>externalData*<ept id="8ea724a1-a380-4186-95c1-e626e76b021b">&lt;/strong&gt;</ept> when you set external to true..</target>
+        </trans-unit>
+        <trans-unit id="66eb37bb-444c-4bb2-8a69-59cb8ef84e06" xml:space="preserve">
+          <source>See Tables topic in <bpt id="8ff4fc76-e339-4615-9504-230317d554de">&lt;linkText&gt;</bpt>JSON Scripting Reference[json-scripting-reference]<ept id="8ff4fc76-e339-4615-9504-230317d554de">&lt;/linkText&gt;</ept><bpt id="8ff4fc76-e339-4615-9504-230317d554de">&lt;title&gt;</bpt><ept id="8ff4fc76-e339-4615-9504-230317d554de">&lt;/title&gt;</ept> for more details about this property.</source>
+          <target state="new">See Tables topic in <bpt id="8ff4fc76-e339-4615-9504-230317d554de">&lt;linkText&gt;</bpt>JSON Scripting Reference[json-scripting-reference]<ept id="8ff4fc76-e339-4615-9504-230317d554de">&lt;/linkText&gt;</ept><bpt id="8ff4fc76-e339-4615-9504-230317d554de">&lt;title&gt;</bpt><ept id="8ff4fc76-e339-4615-9504-230317d554de">&lt;/title&gt;</ept> for more details about this property.</target>
+        </trans-unit>
+        <trans-unit id="aa789337-31ef-460e-bd02-7237691ac002" xml:space="preserve">
+          <source>To resolve the error, add the <bpt id="7e465089-ef3f-45cb-939c-c43455840b2d">&lt;strong&gt;</bpt>external<ept id="7e465089-ef3f-45cb-939c-c43455840b2d">&lt;/strong&gt;</ept> property and the optional <bpt id="022e0006-c644-4da1-b1c9-dd2bb2f27d42">&lt;strong&gt;</bpt>externalData<ept id="022e0006-c644-4da1-b1c9-dd2bb2f27d42">&lt;/strong&gt;</ept> section to the JSON definition of the input table and recreate the table.</source>
+          <target state="new">To resolve the error, add the <bpt id="7e465089-ef3f-45cb-939c-c43455840b2d">&lt;strong&gt;</bpt>external<ept id="7e465089-ef3f-45cb-939c-c43455840b2d">&lt;/strong&gt;</ept> property and the optional <bpt id="022e0006-c644-4da1-b1c9-dd2bb2f27d42">&lt;strong&gt;</bpt>externalData<ept id="022e0006-c644-4da1-b1c9-dd2bb2f27d42">&lt;/strong&gt;</ept> section to the JSON definition of the input table and recreate the table.</target>
+        </trans-unit>
+        <trans-unit id="96194bd7-e1c4-41ba-b402-e6ebce6e21de" xml:space="preserve">
+          <source>To learn more details:</source>
+          <target state="new">To learn more details:</target>
+        </trans-unit>
+        <trans-unit id="92778000-30b2-4d4e-a394-405c4a8306f6" xml:space="preserve">
+          <source>Launch Data Management Gateway Configuration Manager on the machine on which gateway was installed.</source>
+          <target state="new">Launch Data Management Gateway Configuration Manager on the machine on which gateway was installed.</target>
+        </trans-unit>
+        <trans-unit id="fa35d092-cf16-4ab5-9ae4-c9a04ce0ebe3" xml:space="preserve">
+          <source>Verify that the <bpt id="ba1e7439-4498-4817-b248-9a02bf90bf94">&lt;strong&gt;</bpt>Gateway name<ept id="ba1e7439-4498-4817-b248-9a02bf90bf94">&lt;/strong&gt;</ept> is set to the logical gateway name on the <bpt id="b5f15662-bccc-4d54-b984-e9129c9d9b43">&lt;strong&gt;</bpt>Azure Portal<ept id="b5f15662-bccc-4d54-b984-e9129c9d9b43">&lt;/strong&gt;</ept>, <bpt id="c4a00538-1393-432d-90d1-d8f662f8b5e1">&lt;strong&gt;</bpt>Gateway key status<ept id="c4a00538-1393-432d-90d1-d8f662f8b5e1">&lt;/strong&gt;</ept> is <bpt id="60a61fb4-e06d-450b-96e6-2d65c171c8f9">&lt;strong&gt;</bpt>registered<ept id="60a61fb4-e06d-450b-96e6-2d65c171c8f9">&lt;/strong&gt;</ept> and <bpt id="c80792c8-ace7-49f8-8c7b-0836d046f4f8">&lt;strong&gt;</bpt>Service status<ept id="c80792c8-ace7-49f8-8c7b-0836d046f4f8">&lt;/strong&gt;</ept> is <bpt id="df17fca3-26e2-4a46-990b-a9d8c21f21bf">&lt;strong&gt;</bpt>Started<ept id="df17fca3-26e2-4a46-990b-a9d8c21f21bf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Verify that the <bpt id="ba1e7439-4498-4817-b248-9a02bf90bf94">&lt;strong&gt;</bpt>Gateway name<ept id="ba1e7439-4498-4817-b248-9a02bf90bf94">&lt;/strong&gt;</ept> is set to the logical gateway name on the <bpt id="b5f15662-bccc-4d54-b984-e9129c9d9b43">&lt;strong&gt;</bpt>Azure Portal<ept id="b5f15662-bccc-4d54-b984-e9129c9d9b43">&lt;/strong&gt;</ept>, <bpt id="c4a00538-1393-432d-90d1-d8f662f8b5e1">&lt;strong&gt;</bpt>Gateway key status<ept id="c4a00538-1393-432d-90d1-d8f662f8b5e1">&lt;/strong&gt;</ept> is <bpt id="60a61fb4-e06d-450b-96e6-2d65c171c8f9">&lt;strong&gt;</bpt>registered<ept id="60a61fb4-e06d-450b-96e6-2d65c171c8f9">&lt;/strong&gt;</ept> and <bpt id="c80792c8-ace7-49f8-8c7b-0836d046f4f8">&lt;strong&gt;</bpt>Service status<ept id="c80792c8-ace7-49f8-8c7b-0836d046f4f8">&lt;/strong&gt;</ept> is <bpt id="df17fca3-26e2-4a46-990b-a9d8c21f21bf">&lt;strong&gt;</bpt>Started<ept id="df17fca3-26e2-4a46-990b-a9d8c21f21bf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa1f72b2-180a-4be2-b30c-4139c5af8606" xml:space="preserve">
+          <source>Launch <bpt id="2059daef-89c3-402b-a596-a24a9b5a77c3">&lt;strong&gt;</bpt>Event Viewer<ept id="2059daef-89c3-402b-a596-a24a9b5a77c3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Launch <bpt id="2059daef-89c3-402b-a596-a24a9b5a77c3">&lt;strong&gt;</bpt>Event Viewer<ept id="2059daef-89c3-402b-a596-a24a9b5a77c3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73c1b413-a018-44fd-a2e7-e1e338239a05" xml:space="preserve">
+          <source>Expand <bpt id="9af7a1c0-4eb3-4909-93b7-7492a09a9460">&lt;strong&gt;</bpt>Applications and Services Logs<ept id="9af7a1c0-4eb3-4909-93b7-7492a09a9460">&lt;/strong&gt;</ept> and click <bpt id="ed71b5e7-230e-497a-bdb3-bc051a4bc33c">&lt;strong&gt;</bpt>Data Management Gateway<ept id="ed71b5e7-230e-497a-bdb3-bc051a4bc33c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand <bpt id="9af7a1c0-4eb3-4909-93b7-7492a09a9460">&lt;strong&gt;</bpt>Applications and Services Logs<ept id="9af7a1c0-4eb3-4909-93b7-7492a09a9460">&lt;/strong&gt;</ept> and click <bpt id="ed71b5e7-230e-497a-bdb3-bc051a4bc33c">&lt;strong&gt;</bpt>Data Management Gateway<ept id="ed71b5e7-230e-497a-bdb3-bc051a4bc33c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5dd41c5-5a80-4dd8-96d9-cbf54108a20c" xml:space="preserve">
+          <source>See if there are any errors related to Data Management Gateway.</source>
+          <target state="new">See if there are any errors related to Data Management Gateway.</target>
+        </trans-unit>
+        <trans-unit id="059ddb56-9501-4d20-8acc-2e882240d29e" xml:space="preserve">
+          <source>When using a linked service of type HDInsightOnDemandLinkedService, you should specify a linkedServiceName that points to  Azure Blob Storage.</source>
+          <target state="new">When using a linked service of type HDInsightOnDemandLinkedService, you should specify a linkedServiceName that points to  Azure Blob Storage.</target>
+        </trans-unit>
+        <trans-unit id="f35bbdb1-895d-4346-bdb5-74835f325d99" xml:space="preserve">
+          <source>This storage account will be used to copy all the logs and supporting files for your on-demand HDInsight cluster.</source>
+          <target state="new">This storage account will be used to copy all the logs and supporting files for your on-demand HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="9af0751a-9c5e-4bec-8d43-e4d5e2c47aca" xml:space="preserve">
+          <source>Sometimes the activity that does the on-demand provisioning on HDInsight may fail with the following error:</source>
+          <target state="new">Sometimes the activity that does the on-demand provisioning on HDInsight may fail with the following error:</target>
+        </trans-unit>
+        <trans-unit id="7ea4f769-ff3c-4c7e-a2af-01b1382db2c3" xml:space="preserve">
+          <source>This error usually indicates that the Location of the storage account specified in the linkedServiceName is not in the same data center location as where the HDInsight provisioning is happening.</source>
+          <target state="new">This error usually indicates that the Location of the storage account specified in the linkedServiceName is not in the same data center location as where the HDInsight provisioning is happening.</target>
+        </trans-unit>
+        <trans-unit id="23a6857d-885a-41ca-8e4c-4970653b0707" xml:space="preserve">
+          <source>For example, if your Azure Data Factory location is West US, and the on-demand HDInsight provisioning happens in West US, but the Azure blob storage account location  is set to East US, the on-demand provisioning will fail.</source>
+          <target state="new">For example, if your Azure Data Factory location is West US, and the on-demand HDInsight provisioning happens in West US, but the Azure blob storage account location  is set to East US, the on-demand provisioning will fail.</target>
+        </trans-unit>
+        <trans-unit id="9aa45705-3848-49f2-8dbe-a8be7361b1b2" xml:space="preserve">
+          <source>Additionally, there is a second JSON property additionalLinkedServiceNames where additional storage accounts may be specified in on-demand HDInsight.</source>
+          <target state="new">Additionally, there is a second JSON property additionalLinkedServiceNames where additional storage accounts may be specified in on-demand HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="bfb33fe7-643e-4769-a030-5a3b107b2426" xml:space="preserve">
+          <source>Those additional linked storage accounts should be in the same location as the HDInsight cluster, or it will fail with the same error.</source>
+          <target state="new">Those additional linked storage accounts should be in the same location as the HDInsight cluster, or it will fail with the same error.</target>
+        </trans-unit>
+        <trans-unit id="b58d029a-2714-44ae-9a22-0c6d08cafa6d" xml:space="preserve">
+          <source>When using a Custom Activity in Azure Data Factory (pipeline activity type CustomActivity), the custom application runs in the specified linked service to HDInsight as a Map only streaming MapReduce job.</source>
+          <target state="new">When using a Custom Activity in Azure Data Factory (pipeline activity type CustomActivity), the custom application runs in the specified linked service to HDInsight as a Map only streaming MapReduce job.</target>
+        </trans-unit>
+        <trans-unit id="3047b93c-cc5f-47b7-80d8-bfbc0bf876c2" xml:space="preserve">
+          <source>When the custom activity runs, Azure Data Factory will be able to capture that output from the HDInsight cluster, and save it in the <bpt id="f7967102-07b7-44a2-beaa-cad829832721">&lt;em&gt;</bpt>adfjobs<ept id="f7967102-07b7-44a2-beaa-cad829832721">&lt;/em&gt;</ept> storage container in your Azure Blob Storage account.</source>
+          <target state="new">When the custom activity runs, Azure Data Factory will be able to capture that output from the HDInsight cluster, and save it in the <bpt id="f7967102-07b7-44a2-beaa-cad829832721">&lt;em&gt;</bpt>adfjobs<ept id="f7967102-07b7-44a2-beaa-cad829832721">&lt;/em&gt;</ept> storage container in your Azure Blob Storage account.</target>
+        </trans-unit>
+        <trans-unit id="5b310916-cb69-47bf-b144-e95bf8dc8975" xml:space="preserve">
+          <source>In case of an error, you can read the text from <bpt id="ca04c1a3-b718-4631-9137-bffb6f1f7cee">&lt;strong&gt;</bpt>stderr<ept id="ca04c1a3-b718-4631-9137-bffb6f1f7cee">&lt;/strong&gt;</ept> output text file after a failure has occurred.</source>
+          <target state="new">In case of an error, you can read the text from <bpt id="ca04c1a3-b718-4631-9137-bffb6f1f7cee">&lt;strong&gt;</bpt>stderr<ept id="ca04c1a3-b718-4631-9137-bffb6f1f7cee">&lt;/strong&gt;</ept> output text file after a failure has occurred.</target>
+        </trans-unit>
+        <trans-unit id="f3685259-206b-4dbd-9acb-bc2621f0a7ef" xml:space="preserve">
+          <source>The files are accessible and readable from the Azure portal itself in the web browser, or by using storage explorer tools to access the files kept in the storage container in Azure Blob Storage directly.</source>
+          <target state="new">The files are accessible and readable from the Azure portal itself in the web browser, or by using storage explorer tools to access the files kept in the storage container in Azure Blob Storage directly.</target>
+        </trans-unit>
+        <trans-unit id="f02b93a0-4b21-489f-91fe-742ae95bbac8" xml:space="preserve">
+          <source>To enumerate and read the logs for a particular Custom Activity, you may follow one of the illustrated walkthroughs later on this page.</source>
+          <target state="new">To enumerate and read the logs for a particular Custom Activity, you may follow one of the illustrated walkthroughs later on this page.</target>
+        </trans-unit>
+        <trans-unit id="10b170c3-9b80-41c5-9bfa-6e269866e5d2" xml:space="preserve">
+          <source>In summary:</source>
+          <target state="new">In summary:</target>
+        </trans-unit>
+        <trans-unit id="a79b5b4b-5eaa-4762-914d-3c01b6155701" xml:space="preserve">
+          <source>In the Azure portal <bpt id="aaec1cf2-1191-4248-9d87-67a881dba2b4">&lt;strong&gt;</bpt>Browse<ept id="aaec1cf2-1191-4248-9d87-67a881dba2b4">&lt;/strong&gt;</ept> to locate your Data Factory.</source>
+          <target state="new">In the Azure portal <bpt id="aaec1cf2-1191-4248-9d87-67a881dba2b4">&lt;strong&gt;</bpt>Browse<ept id="aaec1cf2-1191-4248-9d87-67a881dba2b4">&lt;/strong&gt;</ept> to locate your Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="ec0d4e45-b06f-430e-bda4-1d3d311f990c" xml:space="preserve">
+          <source>Use the <bpt id="251fe75b-b2c3-46da-9027-1da797816178">&lt;strong&gt;</bpt>Diagram<ept id="251fe75b-b2c3-46da-9027-1da797816178">&lt;/strong&gt;</ept> button to view the data factory diagram, and click on the <bpt id="3b6e9dc9-eba2-473b-932b-904aec531b06">&lt;strong&gt;</bpt>Dataset<ept id="3b6e9dc9-eba2-473b-932b-904aec531b06">&lt;/strong&gt;</ept> Table that follows the specific <bpt id="6958fdf7-a010-4122-ae42-49477b6e346a">&lt;strong&gt;</bpt>Pipeline<ept id="6958fdf7-a010-4122-ae42-49477b6e346a">&lt;/strong&gt;</ept> which has the Custom Activity.</source>
+          <target state="new">Use the <bpt id="251fe75b-b2c3-46da-9027-1da797816178">&lt;strong&gt;</bpt>Diagram<ept id="251fe75b-b2c3-46da-9027-1da797816178">&lt;/strong&gt;</ept> button to view the data factory diagram, and click on the <bpt id="3b6e9dc9-eba2-473b-932b-904aec531b06">&lt;strong&gt;</bpt>Dataset<ept id="3b6e9dc9-eba2-473b-932b-904aec531b06">&lt;/strong&gt;</ept> Table that follows the specific <bpt id="6958fdf7-a010-4122-ae42-49477b6e346a">&lt;strong&gt;</bpt>Pipeline<ept id="6958fdf7-a010-4122-ae42-49477b6e346a">&lt;/strong&gt;</ept> which has the Custom Activity.</target>
+        </trans-unit>
+        <trans-unit id="a030aa25-f164-4923-a8c1-6cd910f3da18" xml:space="preserve">
+          <source>In the <bpt id="dfd9ea75-250e-4d0d-bf41-9d7f9df4d079">&lt;strong&gt;</bpt>Table<ept id="dfd9ea75-250e-4d0d-bf41-9d7f9df4d079">&lt;/strong&gt;</ept> blade, Click on the slice of interest in the <bpt id="88406b8d-d540-4a4c-a22d-61a117b37eaa">&lt;strong&gt;</bpt>Problem slices<ept id="88406b8d-d540-4a4c-a22d-61a117b37eaa">&lt;/strong&gt;</ept> for the time frame to be investigated.</source>
+          <target state="new">In the <bpt id="dfd9ea75-250e-4d0d-bf41-9d7f9df4d079">&lt;strong&gt;</bpt>Table<ept id="dfd9ea75-250e-4d0d-bf41-9d7f9df4d079">&lt;/strong&gt;</ept> blade, Click on the slice of interest in the <bpt id="88406b8d-d540-4a4c-a22d-61a117b37eaa">&lt;strong&gt;</bpt>Problem slices<ept id="88406b8d-d540-4a4c-a22d-61a117b37eaa">&lt;/strong&gt;</ept> for the time frame to be investigated.</target>
+        </trans-unit>
+        <trans-unit id="10ec8c6c-ef2e-4ae8-8c5a-d671699558d1" xml:space="preserve">
+          <source>The detailed <bpt id="90293904-6051-4a0b-bd83-bb96abdf8381">&lt;strong&gt;</bpt>Data Slice<ept id="90293904-6051-4a0b-bd83-bb96abdf8381">&lt;/strong&gt;</ept> blade will appear and it can list multiple <bpt id="5bbb8750-ae29-4649-a3e2-7329bda64630">&lt;strong&gt;</bpt>Activity runs<ept id="5bbb8750-ae29-4649-a3e2-7329bda64630">&lt;/strong&gt;</ept> for the slice.</source>
+          <target state="new">The detailed <bpt id="90293904-6051-4a0b-bd83-bb96abdf8381">&lt;strong&gt;</bpt>Data Slice<ept id="90293904-6051-4a0b-bd83-bb96abdf8381">&lt;/strong&gt;</ept> blade will appear and it can list multiple <bpt id="5bbb8750-ae29-4649-a3e2-7329bda64630">&lt;strong&gt;</bpt>Activity runs<ept id="5bbb8750-ae29-4649-a3e2-7329bda64630">&lt;/strong&gt;</ept> for the slice.</target>
+        </trans-unit>
+        <trans-unit id="b9b6b1ad-9eb3-4c9f-b836-a0358ca6e7e4" xml:space="preserve">
+          <source>Click on an <bpt id="e6995d78-af70-4a2d-867f-0c9f79769d4a">&lt;strong&gt;</bpt>Activity<ept id="e6995d78-af70-4a2d-867f-0c9f79769d4a">&lt;/strong&gt;</ept> from the list.</source>
+          <target state="new">Click on an <bpt id="e6995d78-af70-4a2d-867f-0c9f79769d4a">&lt;strong&gt;</bpt>Activity<ept id="e6995d78-af70-4a2d-867f-0c9f79769d4a">&lt;/strong&gt;</ept> from the list.</target>
+        </trans-unit>
+        <trans-unit id="b0145105-89cd-4589-b97b-2f19127c9b9a" xml:space="preserve">
+          <source>The <bpt id="f661d5db-393c-4f12-bd30-478ea7242abb">&lt;strong&gt;</bpt>Activity Run Details<ept id="f661d5db-393c-4f12-bd30-478ea7242abb">&lt;/strong&gt;</ept> blade will appear.</source>
+          <target state="new">The <bpt id="f661d5db-393c-4f12-bd30-478ea7242abb">&lt;strong&gt;</bpt>Activity Run Details<ept id="f661d5db-393c-4f12-bd30-478ea7242abb">&lt;/strong&gt;</ept> blade will appear.</target>
+        </trans-unit>
+        <trans-unit id="79e248e6-6624-452e-a2c3-4705ba7efea1" xml:space="preserve">
+          <source>It will list the <bpt id="dd9a5c82-1b45-448b-ae56-3288935068e3">&lt;strong&gt;</bpt>Error Message<ept id="dd9a5c82-1b45-448b-ae56-3288935068e3">&lt;/strong&gt;</ept> in the middle of the blade, and several <bpt id="7bb7e0e4-a6e0-4f66-a8f5-f84c825dc64c">&lt;strong&gt;</bpt>Log files<ept id="7bb7e0e4-a6e0-4f66-a8f5-f84c825dc64c">&lt;/strong&gt;</ept> listed at the bottom of the blade affiliated with that activity run.</source>
+          <target state="new">It will list the <bpt id="dd9a5c82-1b45-448b-ae56-3288935068e3">&lt;strong&gt;</bpt>Error Message<ept id="dd9a5c82-1b45-448b-ae56-3288935068e3">&lt;/strong&gt;</ept> in the middle of the blade, and several <bpt id="7bb7e0e4-a6e0-4f66-a8f5-f84c825dc64c">&lt;strong&gt;</bpt>Log files<ept id="7bb7e0e4-a6e0-4f66-a8f5-f84c825dc64c">&lt;/strong&gt;</ept> listed at the bottom of the blade affiliated with that activity run.</target>
+        </trans-unit>
+        <trans-unit id="c319ef0c-84ec-49a7-9fae-63fee5ebeaad" xml:space="preserve">
+          <source>Logs/system-0.log</source>
+          <target state="new">Logs/system-0.log</target>
+        </trans-unit>
+        <trans-unit id="95cf5fe8-d7f2-4b2e-ad12-5607e93457f0" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="0e4f98e7-c25a-4afd-8b68-4c118db89023" xml:space="preserve">
+          <source>Status/exit</source>
+          <target state="new">Status/exit</target>
+        </trans-unit>
+        <trans-unit id="95f2d2f0-d7eb-4199-a7a9-9a82cede2499" xml:space="preserve">
+          <source>Status/stderr</source>
+          <target state="new">Status/stderr</target>
+        </trans-unit>
+        <trans-unit id="61c580bc-d913-42f5-845d-a29cdd180779" xml:space="preserve">
+          <source>Status/stdout</source>
+          <target state="new">Status/stdout</target>
+        </trans-unit>
+        <trans-unit id="febaaceb-0092-4d00-8b0c-e0305f0c6353" xml:space="preserve">
+          <source>Click on the first <bpt id="a3378694-2aab-4df0-b66f-33a39e584fe5">&lt;strong&gt;</bpt>Log file<ept id="a3378694-2aab-4df0-b66f-33a39e584fe5">&lt;/strong&gt;</ept> item in the list, and the log will open in a new blade with the full text displayed for you to read.</source>
+          <target state="new">Click on the first <bpt id="a3378694-2aab-4df0-b66f-33a39e584fe5">&lt;strong&gt;</bpt>Log file<ept id="a3378694-2aab-4df0-b66f-33a39e584fe5">&lt;/strong&gt;</ept> item in the list, and the log will open in a new blade with the full text displayed for you to read.</target>
+        </trans-unit>
+        <trans-unit id="a17bb47b-8319-4aac-8165-c269306c592e" xml:space="preserve">
+          <source>Review the text of each log by clicking on each one.</source>
+          <target state="new">Review the text of each log by clicking on each one.</target>
+        </trans-unit>
+        <trans-unit id="db7dc13c-71cd-49a2-91da-454f23498d1b" xml:space="preserve">
+          <source>The text viewer blade will open.</source>
+          <target state="new">The text viewer blade will open.</target>
+        </trans-unit>
+        <trans-unit id="fbe7472e-0c3f-4d30-bfe3-499956557959" xml:space="preserve">
+          <source>You can click the <bpt id="aea3f101-d236-4f2f-8439-f452b4205374">&lt;strong&gt;</bpt>Download<ept id="aea3f101-d236-4f2f-8439-f452b4205374">&lt;/strong&gt;</ept> button to download the text file for optional offline viewing.</source>
+          <target state="new">You can click the <bpt id="aea3f101-d236-4f2f-8439-f452b4205374">&lt;strong&gt;</bpt>Download<ept id="aea3f101-d236-4f2f-8439-f452b4205374">&lt;/strong&gt;</ept> button to download the text file for optional offline viewing.</target>
+        </trans-unit>
+        <trans-unit id="bf2b8780-cdb5-4989-9b22-39eabfd93b0e" xml:space="preserve">
+          <source>One <bpt id="317a8e35-230f-42df-822e-2a4011e68bb9">&lt;strong&gt;</bpt>common error<ept id="317a8e35-230f-42df-822e-2a4011e68bb9">&lt;/strong&gt;</ept> from a custom activity is 
+        Package execution failed with exit code '1'. See 'wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/&lt;guid&gt;/&lt;jobid&gt;/Status/stderr' for more details.</source>
+          <target state="new">One <bpt id="317a8e35-230f-42df-822e-2a4011e68bb9">&lt;strong&gt;</bpt>common error<ept id="317a8e35-230f-42df-822e-2a4011e68bb9">&lt;/strong&gt;</ept> from a custom activity is 
+        Package execution failed with exit code '1'. See 'wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/&lt;guid&gt;/&lt;jobid&gt;/Status/stderr' for more details.</target>
+        </trans-unit>
+        <trans-unit id="a7845795-b7b5-45cf-a1ad-73211db63869" xml:space="preserve">
+          <source>To see more details for this kind of error, open the <bpt id="3185a4ef-7e85-4957-a931-251f45a9e1a1">&lt;strong&gt;</bpt>stderr<ept id="3185a4ef-7e85-4957-a931-251f45a9e1a1">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">To see more details for this kind of error, open the <bpt id="3185a4ef-7e85-4957-a931-251f45a9e1a1">&lt;strong&gt;</bpt>stderr<ept id="3185a4ef-7e85-4957-a931-251f45a9e1a1">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="d217ef30-6c0a-4376-9a03-bd763e298e73" xml:space="preserve">
+          <source>One common error seen there is a timeout condition such as this:
+        INFO mapreduce.Job: Task Id : attempt<bpt id="b13a0cdc-7399-4e72-9261-2e62c3e2deff">&lt;em&gt;</bpt>1424212573646<ept id="b13a0cdc-7399-4e72-9261-2e62c3e2deff">&lt;/em&gt;</ept>0168<bpt id="1fc7c190-0f78-4e7a-8f9a-85e45774facf">&lt;em&gt;</bpt>m<ept id="1fc7c190-0f78-4e7a-8f9a-85e45774facf">&lt;/em&gt;</ept>000000<bpt id="b06a2583-09d3-497a-945e-d94369c2591f">&lt;em&gt;</bpt>0, Status : FAILED 
+        AttemptID:attempt<ept id="b06a2583-09d3-497a-945e-d94369c2591f">&lt;/em&gt;</ept>1424212573646<bpt id="7fef11e7-c61e-467c-ab42-fc97406f958a">&lt;em&gt;</bpt>0168<ept id="7fef11e7-c61e-467c-ab42-fc97406f958a">&lt;/em&gt;</ept>m<bpt id="76a088ac-e9b1-46a1-9ce2-94c3bb0e20f9">&lt;em&gt;</bpt>000000<ept id="76a088ac-e9b1-46a1-9ce2-94c3bb0e20f9">&lt;/em&gt;</ept>0 Timed out after 600 secs</source>
+          <target state="new">One common error seen there is a timeout condition such as this:
+        INFO mapreduce.Job: Task Id : attempt<bpt id="b13a0cdc-7399-4e72-9261-2e62c3e2deff">&lt;em&gt;</bpt>1424212573646<ept id="b13a0cdc-7399-4e72-9261-2e62c3e2deff">&lt;/em&gt;</ept>0168<bpt id="1fc7c190-0f78-4e7a-8f9a-85e45774facf">&lt;em&gt;</bpt>m<ept id="1fc7c190-0f78-4e7a-8f9a-85e45774facf">&lt;/em&gt;</ept>000000<bpt id="b06a2583-09d3-497a-945e-d94369c2591f">&lt;em&gt;</bpt>0, Status : FAILED 
+        AttemptID:attempt<ept id="b06a2583-09d3-497a-945e-d94369c2591f">&lt;/em&gt;</ept>1424212573646<bpt id="7fef11e7-c61e-467c-ab42-fc97406f958a">&lt;em&gt;</bpt>0168<ept id="7fef11e7-c61e-467c-ab42-fc97406f958a">&lt;/em&gt;</ept>m<bpt id="76a088ac-e9b1-46a1-9ce2-94c3bb0e20f9">&lt;em&gt;</bpt>000000<ept id="76a088ac-e9b1-46a1-9ce2-94c3bb0e20f9">&lt;/em&gt;</ept>0 Timed out after 600 secs</target>
+        </trans-unit>
+        <trans-unit id="944f872c-5e42-4c4d-b8b6-2c64a967db1a" xml:space="preserve">
+          <source>This same error may appear multiple times, if the job has retried 3 times for example, over the span of 30 or more minutes.</source>
+          <target state="new">This same error may appear multiple times, if the job has retried 3 times for example, over the span of 30 or more minutes.</target>
+        </trans-unit>
+        <trans-unit id="4ec81b82-a6df-4598-bdc1-b68fbe080d50" xml:space="preserve">
+          <source>This time out error indicates a 600 second (10 minute) timeout has happened.</source>
+          <target state="new">This time out error indicates a 600 second (10 minute) timeout has happened.</target>
+        </trans-unit>
+        <trans-unit id="e94e3b48-5dfe-4135-96ad-604265616a0c" xml:space="preserve">
+          <source>Typically this means the custom .Net application has not issued any status update for 10 minutes.</source>
+          <target state="new">Typically this means the custom .Net application has not issued any status update for 10 minutes.</target>
+        </trans-unit>
+        <trans-unit id="0d11d92d-9505-4dc6-8f06-82bf68beb0ce" xml:space="preserve">
+          <source>If the application is hanging or stalled waiting on something for too long, the 10 minute timeout is a safety mechanism to prevent it from waiting forever and delaying your Azure Data Factory pipeline.</source>
+          <target state="new">If the application is hanging or stalled waiting on something for too long, the 10 minute timeout is a safety mechanism to prevent it from waiting forever and delaying your Azure Data Factory pipeline.</target>
+        </trans-unit>
+        <trans-unit id="956c426c-db77-4e77-9fe6-bb22bd07aae0" xml:space="preserve">
+          <source>This time out originates in the configuration of HDInsight cluster that is linked in the custom activity.</source>
+          <target state="new">This time out originates in the configuration of HDInsight cluster that is linked in the custom activity.</target>
+        </trans-unit>
+        <trans-unit id="fb7e24e1-31c7-4618-9af9-22e925ad3ca8" xml:space="preserve">
+          <source>The setting is <bpt id="0df6f972-ca33-4a80-8f86-1c65750f703c">&lt;strong&gt;</bpt>mapred.task.timeout<ept id="0df6f972-ca33-4a80-8f86-1c65750f703c">&lt;/strong&gt;</ept>, which defaults to 600000 milliseconds, as documented in the Apache default settings here: http://hadoop.apache.org/docs/r2.4.0/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml</source>
+          <target state="new">The setting is <bpt id="0df6f972-ca33-4a80-8f86-1c65750f703c">&lt;strong&gt;</bpt>mapred.task.timeout<ept id="0df6f972-ca33-4a80-8f86-1c65750f703c">&lt;/strong&gt;</ept>, which defaults to 600000 milliseconds, as documented in the Apache default settings here: http://hadoop.apache.org/docs/r2.4.0/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml</target>
+        </trans-unit>
+        <trans-unit id="53e5a713-a114-4868-bdbd-8ddbf8e48c79" xml:space="preserve">
+          <source>You can overide this default by changing the defaults at the time of provisioning your HDInsight provisioning cluster.</source>
+          <target state="new">You can overide this default by changing the defaults at the time of provisioning your HDInsight provisioning cluster.</target>
+        </trans-unit>
+        <trans-unit id="3cdd19b0-c69e-4eaf-a72e-e8762d6f46c0" xml:space="preserve">
+          <source>When using Azure Data Factory and <bpt id="ac46fcde-eb7a-4a6a-ae32-1738d46d35eb">&lt;strong&gt;</bpt>HDInsight On-demand<ept id="ac46fcde-eb7a-4a6a-ae32-1738d46d35eb">&lt;/strong&gt;</ept> linked service, the JSON property can be added near your HDInsightOnDemandLinkedService JSON properties.</source>
+          <target state="new">When using Azure Data Factory and <bpt id="ac46fcde-eb7a-4a6a-ae32-1738d46d35eb">&lt;strong&gt;</bpt>HDInsight On-demand<ept id="ac46fcde-eb7a-4a6a-ae32-1738d46d35eb">&lt;/strong&gt;</ept> linked service, the JSON property can be added near your HDInsightOnDemandLinkedService JSON properties.</target>
+        </trans-unit>
+        <trans-unit id="fe4e959a-0747-4481-9d1e-98028b0b1b40" xml:space="preserve">
+          <source>For example, you can increase the value to 20 minutes using this JSON property.</source>
+          <target state="new">For example, you can increase the value to 20 minutes using this JSON property.</target>
+        </trans-unit>
+        <trans-unit id="591754d9-834a-4350-b8c4-8aa480402f6e" xml:space="preserve">
+          <source>For more context and a full example of the JSON to edit these map reduce Configuration properties see Example #3 in the MSDN documentation here https://msdn.microsoft.com/library/azure/dn893526.aspx</source>
+          <target state="new">For more context and a full example of the JSON to edit these map reduce Configuration properties see Example #3 in the MSDN documentation here https://msdn.microsoft.com/library/azure/dn893526.aspx</target>
+        </trans-unit>
+        <trans-unit id="d44a6ec9-b762-4fa1-b15b-fa49b29a191d" xml:space="preserve">
+          <source>As of March 10, 2015, the Azure Data Factory PowerShell early private preview versions 2014-05-01-preview, 2014-07-01-preview, and 2014-08-01-preview will be discontinued. We recommend that you use the latest version of the ADF cmdlets, which are now part of the Azure PowerShell Download, such as the download from this URL http://go.microsoft.com/?linkid=9811175&amp;clcid=0x409 </source>
+          <target state="new">As of March 10, 2015, the Azure Data Factory PowerShell early private preview versions 2014-05-01-preview, 2014-07-01-preview, and 2014-08-01-preview will be discontinued. We recommend that you use the latest version of the ADF cmdlets, which are now part of the Azure PowerShell Download, such as the download from this URL http://go.microsoft.com/?linkid=9811175&amp;clcid=0x409 </target>
+        </trans-unit>
+        <trans-unit id="ab1bd324-ce18-4366-9d10-cc7dc3afcdb6" xml:space="preserve">
+          <source>If you use the discontinued versions of the Azure PowerShell SDK you may receive the following errors:</source>
+          <target state="new">If you use the discontinued versions of the Azure PowerShell SDK you may receive the following errors:</target>
+        </trans-unit>
+        <trans-unit id="d5d5c5b3-0016-42ea-ad60-babde2fa53f7" xml:space="preserve">
+          <source>In this walkthrough, you will introduce an error in the tutorial from Get started with Data Factory article and learn how you can use Azure Portal to troubleshoot the error.</source>
+          <target state="new">In this walkthrough, you will introduce an error in the tutorial from Get started with Data Factory article and learn how you can use Azure Portal to troubleshoot the error.</target>
+        </trans-unit>
+        <trans-unit id="29a2680f-ec49-4e9c-a2ec-b9e08aefad5f" xml:space="preserve">
+          <source>Complete the Tutorial in the <bpt id="891c6ea8-d869-48e9-b527-d69029a3a31f">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="891c6ea8-d869-48e9-b527-d69029a3a31f">&lt;/linkText&gt;</ept><bpt id="891c6ea8-d869-48e9-b527-d69029a3a31f">&lt;title&gt;</bpt><ept id="891c6ea8-d869-48e9-b527-d69029a3a31f">&lt;/title&gt;</ept> article.</source>
+          <target state="new">Complete the Tutorial in the <bpt id="891c6ea8-d869-48e9-b527-d69029a3a31f">&lt;linkText&gt;</bpt>Get started with Azure Data Factory[adfgetstarted]<ept id="891c6ea8-d869-48e9-b527-d69029a3a31f">&lt;/linkText&gt;</ept><bpt id="891c6ea8-d869-48e9-b527-d69029a3a31f">&lt;title&gt;</bpt><ept id="891c6ea8-d869-48e9-b527-d69029a3a31f">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="3e55f266-2375-4eb6-a431-255c81c71994" xml:space="preserve">
+          <source>Confirm that the <bpt id="40c67473-9315-452e-aef8-1fa65d2a121c">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="40c67473-9315-452e-aef8-1fa65d2a121c">&lt;/strong&gt;</ept> produces data in the <bpt id="9ce8dd97-77de-4c8d-988f-c490c5d79045">&lt;strong&gt;</bpt>emp<ept id="9ce8dd97-77de-4c8d-988f-c490c5d79045">&lt;/strong&gt;</ept> table in the Azure SQL Database.</source>
+          <target state="new">Confirm that the <bpt id="40c67473-9315-452e-aef8-1fa65d2a121c">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="40c67473-9315-452e-aef8-1fa65d2a121c">&lt;/strong&gt;</ept> produces data in the <bpt id="9ce8dd97-77de-4c8d-988f-c490c5d79045">&lt;strong&gt;</bpt>emp<ept id="9ce8dd97-77de-4c8d-988f-c490c5d79045">&lt;/strong&gt;</ept> table in the Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="f244fed9-3f77-45ff-bb3d-66961328ac0d" xml:space="preserve">
+          <source>Now, delete the <bpt id="37f4f71b-d3b0-4d10-a982-b1c69b29d211">&lt;strong&gt;</bpt>emp<ept id="37f4f71b-d3b0-4d10-a982-b1c69b29d211">&lt;/strong&gt;</ept> table (<bpt id="e73f9aff-27d6-44a1-b0b8-fcc49f9991fa">&lt;strong&gt;</bpt>drop table emp<ept id="e73f9aff-27d6-44a1-b0b8-fcc49f9991fa">&lt;/strong&gt;</ept>) from the Azure SQL Database.</source>
+          <target state="new">Now, delete the <bpt id="37f4f71b-d3b0-4d10-a982-b1c69b29d211">&lt;strong&gt;</bpt>emp<ept id="37f4f71b-d3b0-4d10-a982-b1c69b29d211">&lt;/strong&gt;</ept> table (<bpt id="e73f9aff-27d6-44a1-b0b8-fcc49f9991fa">&lt;strong&gt;</bpt>drop table emp<ept id="e73f9aff-27d6-44a1-b0b8-fcc49f9991fa">&lt;/strong&gt;</ept>) from the Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="e4eeeb1a-de59-40bc-aa29-e446f24eadd1" xml:space="preserve">
+          <source>This will introduce an error.</source>
+          <target state="new">This will introduce an error.</target>
+        </trans-unit>
+        <trans-unit id="827588b2-3e67-41de-9508-83e90ee9e255" xml:space="preserve">
+          <source>Run the following command in the <bpt id="d427bf17-7be1-4f47-bde8-bd3214b64e8e">&lt;strong&gt;</bpt>Azure PowerShell<ept id="d427bf17-7be1-4f47-bde8-bd3214b64e8e">&lt;/strong&gt;</ept> to update the active period for the pipeline so that it tries to write data to the <bpt id="a2885632-43d1-4e05-b356-3cc23587000f">&lt;strong&gt;</bpt>emp<ept id="a2885632-43d1-4e05-b356-3cc23587000f">&lt;/strong&gt;</ept> table, which doesn’t exist anymore.</source>
+          <target state="new">Run the following command in the <bpt id="d427bf17-7be1-4f47-bde8-bd3214b64e8e">&lt;strong&gt;</bpt>Azure PowerShell<ept id="d427bf17-7be1-4f47-bde8-bd3214b64e8e">&lt;/strong&gt;</ept> to update the active period for the pipeline so that it tries to write data to the <bpt id="a2885632-43d1-4e05-b356-3cc23587000f">&lt;strong&gt;</bpt>emp<ept id="a2885632-43d1-4e05-b356-3cc23587000f">&lt;/strong&gt;</ept> table, which doesn’t exist anymore.</target>
+        </trans-unit>
+        <trans-unit id="8e034439-ad82-4acc-9398-8d8ba82c3141" xml:space="preserve">
+          <source>Replace <bpt id="c1cb9265-a9ad-446c-938f-aa30eae49acf">&lt;strong&gt;</bpt>StartDateTime<ept id="c1cb9265-a9ad-446c-938f-aa30eae49acf">&lt;/strong&gt;</ept> value with the current day and <bpt id="bf5a9bd9-7de4-4516-b315-94d288d90723">&lt;strong&gt;</bpt>EndDateTime<ept id="bf5a9bd9-7de4-4516-b315-94d288d90723">&lt;/strong&gt;</ept> value with the next day.</source>
+          <target state="new">Replace <bpt id="c1cb9265-a9ad-446c-938f-aa30eae49acf">&lt;strong&gt;</bpt>StartDateTime<ept id="c1cb9265-a9ad-446c-938f-aa30eae49acf">&lt;/strong&gt;</ept> value with the current day and <bpt id="bf5a9bd9-7de4-4516-b315-94d288d90723">&lt;strong&gt;</bpt>EndDateTime<ept id="bf5a9bd9-7de4-4516-b315-94d288d90723">&lt;/strong&gt;</ept> value with the next day.</target>
+        </trans-unit>
+        <trans-unit id="1bf304f7-4759-42cb-a39a-1c6894c0e700" xml:space="preserve">
+          <source>Login to <bpt id="685c5196-1fb1-4320-9884-f27919f24610">&lt;linkText&gt;</bpt>Azure Preview Portal[azure-preview-portal]<ept id="685c5196-1fb1-4320-9884-f27919f24610">&lt;/linkText&gt;</ept><bpt id="685c5196-1fb1-4320-9884-f27919f24610">&lt;title&gt;</bpt><ept id="685c5196-1fb1-4320-9884-f27919f24610">&lt;/title&gt;</ept>.</source>
+          <target state="new">Login to <bpt id="685c5196-1fb1-4320-9884-f27919f24610">&lt;linkText&gt;</bpt>Azure Preview Portal[azure-preview-portal]<ept id="685c5196-1fb1-4320-9884-f27919f24610">&lt;/linkText&gt;</ept><bpt id="685c5196-1fb1-4320-9884-f27919f24610">&lt;title&gt;</bpt><ept id="685c5196-1fb1-4320-9884-f27919f24610">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7350c069-25dc-45a6-ac53-68727067d8e2" xml:space="preserve">
+          <source>Click <bpt id="74ccbe5f-7c25-4f01-a90b-b43df1717d96">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="74ccbe5f-7c25-4f01-a90b-b43df1717d96">&lt;/strong&gt;</ept> from the <bpt id="28d7442c-5a6a-4c76-b4ee-b556bf737f1e">&lt;strong&gt;</bpt>Startboard<ept id="28d7442c-5a6a-4c76-b4ee-b556bf737f1e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="74ccbe5f-7c25-4f01-a90b-b43df1717d96">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="74ccbe5f-7c25-4f01-a90b-b43df1717d96">&lt;/strong&gt;</ept> from the <bpt id="28d7442c-5a6a-4c76-b4ee-b556bf737f1e">&lt;strong&gt;</bpt>Startboard<ept id="28d7442c-5a6a-4c76-b4ee-b556bf737f1e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8ee5f3b-55c1-474c-afd7-d2d5a4aa954e" xml:space="preserve">
+          <source>If you don’t see the data factory link on the <bpt id="a364b526-d701-46b3-b540-e45e24e194b1">&lt;strong&gt;</bpt>Startboard<ept id="a364b526-d701-46b3-b540-e45e24e194b1">&lt;/strong&gt;</ept>, click <bpt id="0d1533c0-7b03-4ba8-9783-2bc95557da1a">&lt;strong&gt;</bpt>BROWSE<ept id="0d1533c0-7b03-4ba8-9783-2bc95557da1a">&lt;/strong&gt;</ept> hub and click <bpt id="23c69401-0a71-40d0-87c2-abdc46e01f01">&lt;strong&gt;</bpt>Everything<ept id="23c69401-0a71-40d0-87c2-abdc46e01f01">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you don’t see the data factory link on the <bpt id="a364b526-d701-46b3-b540-e45e24e194b1">&lt;strong&gt;</bpt>Startboard<ept id="a364b526-d701-46b3-b540-e45e24e194b1">&lt;/strong&gt;</ept>, click <bpt id="0d1533c0-7b03-4ba8-9783-2bc95557da1a">&lt;strong&gt;</bpt>BROWSE<ept id="0d1533c0-7b03-4ba8-9783-2bc95557da1a">&lt;/strong&gt;</ept> hub and click <bpt id="23c69401-0a71-40d0-87c2-abdc46e01f01">&lt;strong&gt;</bpt>Everything<ept id="23c69401-0a71-40d0-87c2-abdc46e01f01">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4cb973de-3c75-450c-94a8-f7f6bc4835fb" xml:space="preserve">
+          <source>Click <bpt id="86861055-1f63-49d1-bdab-b4512207a7ea">&lt;strong&gt;</bpt>Data factories…<ept id="86861055-1f63-49d1-bdab-b4512207a7ea">&lt;/strong&gt;</ept> in the <bpt id="cacef5fe-1294-4a24-b55b-cbf6390c483c">&lt;strong&gt;</bpt>Browse<ept id="cacef5fe-1294-4a24-b55b-cbf6390c483c">&lt;/strong&gt;</ept> blade, and click <bpt id="e35b5498-0bfd-43e1-8674-5ca663bbc94b">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="e35b5498-0bfd-43e1-8674-5ca663bbc94b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="86861055-1f63-49d1-bdab-b4512207a7ea">&lt;strong&gt;</bpt>Data factories…<ept id="86861055-1f63-49d1-bdab-b4512207a7ea">&lt;/strong&gt;</ept> in the <bpt id="cacef5fe-1294-4a24-b55b-cbf6390c483c">&lt;strong&gt;</bpt>Browse<ept id="cacef5fe-1294-4a24-b55b-cbf6390c483c">&lt;/strong&gt;</ept> blade, and click <bpt id="e35b5498-0bfd-43e1-8674-5ca663bbc94b">&lt;strong&gt;</bpt>ADFTutorialDataFactory<ept id="e35b5498-0bfd-43e1-8674-5ca663bbc94b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a90c6424-bcfd-42e2-a197-f5de85a93f2a" xml:space="preserve">
+          <source>Notice that you see <bpt id="2ba07060-43ad-4b0b-a503-5464afcf595e">&lt;strong&gt;</bpt>With errors<ept id="2ba07060-43ad-4b0b-a503-5464afcf595e">&lt;/strong&gt;</ept> on the <bpt id="4d55c342-13f6-4923-bedb-75e42f9b89d8">&lt;strong&gt;</bpt>Datasets<ept id="4d55c342-13f6-4923-bedb-75e42f9b89d8">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new">Notice that you see <bpt id="2ba07060-43ad-4b0b-a503-5464afcf595e">&lt;strong&gt;</bpt>With errors<ept id="2ba07060-43ad-4b0b-a503-5464afcf595e">&lt;/strong&gt;</ept> on the <bpt id="4d55c342-13f6-4923-bedb-75e42f9b89d8">&lt;strong&gt;</bpt>Datasets<ept id="4d55c342-13f6-4923-bedb-75e42f9b89d8">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+        <trans-unit id="40e23ee0-0d4f-4cd0-994d-ab82f80f8da8" xml:space="preserve">
+          <source>Click <bpt id="3007c81c-cded-46c0-89a5-2c90f72cccef">&lt;strong&gt;</bpt>With errors<ept id="3007c81c-cded-46c0-89a5-2c90f72cccef">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3007c81c-cded-46c0-89a5-2c90f72cccef">&lt;strong&gt;</bpt>With errors<ept id="3007c81c-cded-46c0-89a5-2c90f72cccef">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4630f547-b6fa-4f16-abcd-d4c7d8bf5e02" xml:space="preserve">
+          <source>You should see <bpt id="2b9888be-fc31-4a53-8a96-db352cc8f4e6">&lt;strong&gt;</bpt>Datasets with errors<ept id="2b9888be-fc31-4a53-8a96-db352cc8f4e6">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">You should see <bpt id="2b9888be-fc31-4a53-8a96-db352cc8f4e6">&lt;strong&gt;</bpt>Datasets with errors<ept id="2b9888be-fc31-4a53-8a96-db352cc8f4e6">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="24f338e3-2376-467f-a399-046419a1169f" xml:space="preserve">
+          <source><bpt id="2b1246f6-5540-4503-a660-698252c8ca08">&lt;linkText&gt;</bpt>Data Factory with Errors link<ept id="2b1246f6-5540-4503-a660-698252c8ca08">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2b1246f6-5540-4503-a660-698252c8ca08">&lt;linkText&gt;</bpt>Data Factory with Errors link<ept id="2b1246f6-5540-4503-a660-698252c8ca08">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81b364e2-0138-44e5-92bd-03db80d238fd" xml:space="preserve">
+          <source>In the <bpt id="a064fe00-cf1b-407d-832b-ca60cc288a1a">&lt;strong&gt;</bpt>Datasets<ept id="a064fe00-cf1b-407d-832b-ca60cc288a1a">&lt;/strong&gt;</ept> with errors blade, click <bpt id="99b6ac9a-6545-4f3f-a953-a581f2462868">&lt;strong&gt;</bpt>EmpSQLTable<ept id="99b6ac9a-6545-4f3f-a953-a581f2462868">&lt;/strong&gt;</ept> to see the <bpt id="b7061988-5a67-43d3-99f9-8c0233c55fc6">&lt;strong&gt;</bpt>TABLE<ept id="b7061988-5a67-43d3-99f9-8c0233c55fc6">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">In the <bpt id="a064fe00-cf1b-407d-832b-ca60cc288a1a">&lt;strong&gt;</bpt>Datasets<ept id="a064fe00-cf1b-407d-832b-ca60cc288a1a">&lt;/strong&gt;</ept> with errors blade, click <bpt id="99b6ac9a-6545-4f3f-a953-a581f2462868">&lt;strong&gt;</bpt>EmpSQLTable<ept id="99b6ac9a-6545-4f3f-a953-a581f2462868">&lt;/strong&gt;</ept> to see the <bpt id="b7061988-5a67-43d3-99f9-8c0233c55fc6">&lt;strong&gt;</bpt>TABLE<ept id="b7061988-5a67-43d3-99f9-8c0233c55fc6">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="eaafa9a8-c157-4e03-a573-22309c4e96d6" xml:space="preserve">
+          <source><bpt id="01bb1da3-0c6e-48c6-bfa8-e4b632591118">&lt;linkText&gt;</bpt>Datasets with errors blade<ept id="01bb1da3-0c6e-48c6-bfa8-e4b632591118">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="01bb1da3-0c6e-48c6-bfa8-e4b632591118">&lt;linkText&gt;</bpt>Datasets with errors blade<ept id="01bb1da3-0c6e-48c6-bfa8-e4b632591118">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad4c183d-e45e-4481-b776-9451279dd503" xml:space="preserve">
+          <source>In the <bpt id="5b33e38e-7619-4a60-8285-c4858dc49485">&lt;strong&gt;</bpt>TABLE<ept id="5b33e38e-7619-4a60-8285-c4858dc49485">&lt;/strong&gt;</ept> blade, you should see the problem slices, i.e., slices with an error in the <bpt id="ff4902f0-5b5a-4fbb-be04-d6fa5afba567">&lt;strong&gt;</bpt>Problem slices<ept id="ff4902f0-5b5a-4fbb-be04-d6fa5afba567">&lt;/strong&gt;</ept> list at the bottom.</source>
+          <target state="new">In the <bpt id="5b33e38e-7619-4a60-8285-c4858dc49485">&lt;strong&gt;</bpt>TABLE<ept id="5b33e38e-7619-4a60-8285-c4858dc49485">&lt;/strong&gt;</ept> blade, you should see the problem slices, i.e., slices with an error in the <bpt id="ff4902f0-5b5a-4fbb-be04-d6fa5afba567">&lt;strong&gt;</bpt>Problem slices<ept id="ff4902f0-5b5a-4fbb-be04-d6fa5afba567">&lt;/strong&gt;</ept> list at the bottom.</target>
+        </trans-unit>
+        <trans-unit id="f477fc96-d06a-4cc5-89e4-a4070b1f68fb" xml:space="preserve">
+          <source>You can also see any recent slices with errors in the <bpt id="6b94e295-67a9-4264-98f8-36115857fa6a">&lt;strong&gt;</bpt>Recent slices<ept id="6b94e295-67a9-4264-98f8-36115857fa6a">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">You can also see any recent slices with errors in the <bpt id="6b94e295-67a9-4264-98f8-36115857fa6a">&lt;strong&gt;</bpt>Recent slices<ept id="6b94e295-67a9-4264-98f8-36115857fa6a">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="206426aa-9c0b-47b7-bc91-02c9de815bc3" xml:space="preserve">
+          <source>Click on a slice in the <bpt id="c03d4822-3f02-4d71-9c2f-f6a646c4aaed">&lt;strong&gt;</bpt>Problem slices<ept id="c03d4822-3f02-4d71-9c2f-f6a646c4aaed">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">Click on a slice in the <bpt id="c03d4822-3f02-4d71-9c2f-f6a646c4aaed">&lt;strong&gt;</bpt>Problem slices<ept id="c03d4822-3f02-4d71-9c2f-f6a646c4aaed">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="97adeb17-06d4-47c0-9c99-eb8ea3763a3b" xml:space="preserve">
+          <source><bpt id="78459158-f81d-4f3e-9543-b46ea8d200d3">&lt;linkText&gt;</bpt>Table blade with problem slices<ept id="78459158-f81d-4f3e-9543-b46ea8d200d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78459158-f81d-4f3e-9543-b46ea8d200d3">&lt;linkText&gt;</bpt>Table blade with problem slices<ept id="78459158-f81d-4f3e-9543-b46ea8d200d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5599d539-e2cc-4a74-8261-18d9bcd24f20" xml:space="preserve">
+          <source>If you click <bpt id="b1cb9f7c-ae2a-4818-a70e-8fccf3a1d54a">&lt;strong&gt;</bpt>Problem slices<ept id="b1cb9f7c-ae2a-4818-a70e-8fccf3a1d54a">&lt;/strong&gt;</ept> (not on a specific problem), you will see the <bpt id="d50a1eb5-09a1-421d-bf97-15bfa9bab26b">&lt;strong&gt;</bpt>DATA SLICES<ept id="d50a1eb5-09a1-421d-bf97-15bfa9bab26b">&lt;/strong&gt;</ept> blade and then click a <bpt id="822e4ba8-676d-4d15-bc90-db50580b34d9">&lt;strong&gt;</bpt>specific problem slice<ept id="822e4ba8-676d-4d15-bc90-db50580b34d9">&lt;/strong&gt;</ept> to see the <bpt id="e88525bf-5a80-424c-a40b-6147da7d235f">&lt;strong&gt;</bpt>DATA SLICE<ept id="e88525bf-5a80-424c-a40b-6147da7d235f">&lt;/strong&gt;</ept> slide for the selected data slice.</source>
+          <target state="new">If you click <bpt id="b1cb9f7c-ae2a-4818-a70e-8fccf3a1d54a">&lt;strong&gt;</bpt>Problem slices<ept id="b1cb9f7c-ae2a-4818-a70e-8fccf3a1d54a">&lt;/strong&gt;</ept> (not on a specific problem), you will see the <bpt id="d50a1eb5-09a1-421d-bf97-15bfa9bab26b">&lt;strong&gt;</bpt>DATA SLICES<ept id="d50a1eb5-09a1-421d-bf97-15bfa9bab26b">&lt;/strong&gt;</ept> blade and then click a <bpt id="822e4ba8-676d-4d15-bc90-db50580b34d9">&lt;strong&gt;</bpt>specific problem slice<ept id="822e4ba8-676d-4d15-bc90-db50580b34d9">&lt;/strong&gt;</ept> to see the <bpt id="e88525bf-5a80-424c-a40b-6147da7d235f">&lt;strong&gt;</bpt>DATA SLICE<ept id="e88525bf-5a80-424c-a40b-6147da7d235f">&lt;/strong&gt;</ept> slide for the selected data slice.</target>
+        </trans-unit>
+        <trans-unit id="a0e87e21-1041-4283-b4d4-c8086024f339" xml:space="preserve">
+          <source>In the <bpt id="8ad3a82e-0116-47e2-ad9f-48ce6c61ddb4">&lt;strong&gt;</bpt>DATA SLICE<ept id="8ad3a82e-0116-47e2-ad9f-48ce6c61ddb4">&lt;/strong&gt;</ept> blade for <bpt id="8488113f-1120-4244-830c-d77db10f4cc0">&lt;strong&gt;</bpt>EmpSQLTable<ept id="8488113f-1120-4244-830c-d77db10f4cc0">&lt;/strong&gt;</ept>, you see all <bpt id="afac14a0-9049-4cfe-a640-18e9f53be338">&lt;strong&gt;</bpt>activity runs<ept id="afac14a0-9049-4cfe-a640-18e9f53be338">&lt;/strong&gt;</ept> for the slice in the list at the bottom.</source>
+          <target state="new">In the <bpt id="8ad3a82e-0116-47e2-ad9f-48ce6c61ddb4">&lt;strong&gt;</bpt>DATA SLICE<ept id="8ad3a82e-0116-47e2-ad9f-48ce6c61ddb4">&lt;/strong&gt;</ept> blade for <bpt id="8488113f-1120-4244-830c-d77db10f4cc0">&lt;strong&gt;</bpt>EmpSQLTable<ept id="8488113f-1120-4244-830c-d77db10f4cc0">&lt;/strong&gt;</ept>, you see all <bpt id="afac14a0-9049-4cfe-a640-18e9f53be338">&lt;strong&gt;</bpt>activity runs<ept id="afac14a0-9049-4cfe-a640-18e9f53be338">&lt;/strong&gt;</ept> for the slice in the list at the bottom.</target>
+        </trans-unit>
+        <trans-unit id="5f415d11-a023-4437-9420-a9a33a643826" xml:space="preserve">
+          <source>Click on an <bpt id="ba2bc9cc-d815-4cf6-9b31-fee76a66a2a0">&lt;strong&gt;</bpt>activity run<ept id="ba2bc9cc-d815-4cf6-9b31-fee76a66a2a0">&lt;/strong&gt;</ept> from the list that failed.</source>
+          <target state="new">Click on an <bpt id="ba2bc9cc-d815-4cf6-9b31-fee76a66a2a0">&lt;strong&gt;</bpt>activity run<ept id="ba2bc9cc-d815-4cf6-9b31-fee76a66a2a0">&lt;/strong&gt;</ept> from the list that failed.</target>
+        </trans-unit>
+        <trans-unit id="bfd0d281-3919-4351-8661-faaa7c951757" xml:space="preserve">
+          <source><bpt id="2b69ad0e-e5de-4850-a7ed-a3f05470290d">&lt;linkText&gt;</bpt>Data Slice blade with active runs<ept id="2b69ad0e-e5de-4850-a7ed-a3f05470290d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2b69ad0e-e5de-4850-a7ed-a3f05470290d">&lt;linkText&gt;</bpt>Data Slice blade with active runs<ept id="2b69ad0e-e5de-4850-a7ed-a3f05470290d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dae452d0-a942-4676-8716-d7a9f80d195a" xml:space="preserve">
+          <source>In the <bpt id="30816096-3f40-4ee5-9d49-014792d4df24">&lt;strong&gt;</bpt>Activity Run Details<ept id="30816096-3f40-4ee5-9d49-014792d4df24">&lt;/strong&gt;</ept> blade for the activity run you selected, you should see details about the error.</source>
+          <target state="new">In the <bpt id="30816096-3f40-4ee5-9d49-014792d4df24">&lt;strong&gt;</bpt>Activity Run Details<ept id="30816096-3f40-4ee5-9d49-014792d4df24">&lt;/strong&gt;</ept> blade for the activity run you selected, you should see details about the error.</target>
+        </trans-unit>
+        <trans-unit id="bb19f3d6-9dfe-471c-b946-9a99cae860dc" xml:space="preserve">
+          <source>In this scenario, you see: <bpt id="eff25768-5e3c-46d3-94ce-99e998c2f2d2">&lt;strong&gt;</bpt>Invalid object name ‘emp’<ept id="eff25768-5e3c-46d3-94ce-99e998c2f2d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this scenario, you see: <bpt id="eff25768-5e3c-46d3-94ce-99e998c2f2d2">&lt;strong&gt;</bpt>Invalid object name ‘emp’<ept id="eff25768-5e3c-46d3-94ce-99e998c2f2d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="178a6144-2417-4be8-8795-f40766ef9c2b" xml:space="preserve">
+          <source><bpt id="7a7f5c1d-384a-4181-9084-e7a9a571ba7c">&lt;linkText&gt;</bpt>Activity run details with an error<ept id="7a7f5c1d-384a-4181-9084-e7a9a571ba7c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7a7f5c1d-384a-4181-9084-e7a9a571ba7c">&lt;linkText&gt;</bpt>Activity run details with an error<ept id="7a7f5c1d-384a-4181-9084-e7a9a571ba7c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57540657-27f0-4ce4-9656-22e25a6743b0" xml:space="preserve">
+          <source>To resolve this issue, create the <bpt id="cc992273-7462-46f6-9ade-8f86f71351fd">&lt;strong&gt;</bpt>emp<ept id="cc992273-7462-46f6-9ade-8f86f71351fd">&lt;/strong&gt;</ept> table using the SQL script from <bpt id="f1297e0d-0f76-4f05-a7d8-7e61210dd941">&lt;linkText&gt;</bpt>Get started with Data Factory[adfgetstarted]<ept id="f1297e0d-0f76-4f05-a7d8-7e61210dd941">&lt;/linkText&gt;</ept><bpt id="f1297e0d-0f76-4f05-a7d8-7e61210dd941">&lt;title&gt;</bpt><ept id="f1297e0d-0f76-4f05-a7d8-7e61210dd941">&lt;/title&gt;</ept> article.</source>
+          <target state="new">To resolve this issue, create the <bpt id="cc992273-7462-46f6-9ade-8f86f71351fd">&lt;strong&gt;</bpt>emp<ept id="cc992273-7462-46f6-9ade-8f86f71351fd">&lt;/strong&gt;</ept> table using the SQL script from <bpt id="f1297e0d-0f76-4f05-a7d8-7e61210dd941">&lt;linkText&gt;</bpt>Get started with Data Factory[adfgetstarted]<ept id="f1297e0d-0f76-4f05-a7d8-7e61210dd941">&lt;/linkText&gt;</ept><bpt id="f1297e0d-0f76-4f05-a7d8-7e61210dd941">&lt;title&gt;</bpt><ept id="f1297e0d-0f76-4f05-a7d8-7e61210dd941">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="db77dcee-57b1-4ee1-9a68-e6ff20d3c7ce" xml:space="preserve">
+          <source>Launch <bpt id="627a89fb-0c63-4863-9f5b-9284c964d58a">&lt;strong&gt;</bpt>Azure PowerShell<ept id="627a89fb-0c63-4863-9f5b-9284c964d58a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Launch <bpt id="627a89fb-0c63-4863-9f5b-9284c964d58a">&lt;strong&gt;</bpt>Azure PowerShell<ept id="627a89fb-0c63-4863-9f5b-9284c964d58a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="71404fc8-1a04-4440-9066-f118513aae0e" xml:space="preserve">
+          <source>Switch to <bpt id="29c0c554-009f-4542-937f-c14082bef9da">&lt;strong&gt;</bpt>AzureResourceManager<ept id="29c0c554-009f-4542-937f-c14082bef9da">&lt;/strong&gt;</ept> mode as the Data Factory cmdlets are available only in this mode.</source>
+          <target state="new">Switch to <bpt id="29c0c554-009f-4542-937f-c14082bef9da">&lt;strong&gt;</bpt>AzureResourceManager<ept id="29c0c554-009f-4542-937f-c14082bef9da">&lt;/strong&gt;</ept> mode as the Data Factory cmdlets are available only in this mode.</target>
+        </trans-unit>
+        <trans-unit id="91fdb39e-e66b-4f63-9ffb-0d6f984ce29b" xml:space="preserve">
+          <source>Run Get-AzureDataFactorySlice command to see the slices and their statuses.</source>
+          <target state="new">Run Get-AzureDataFactorySlice command to see the slices and their statuses.</target>
+        </trans-unit>
+        <trans-unit id="a8e95889-65ff-4338-b239-91e5b742769d" xml:space="preserve">
+          <source>You should see a slice with the status: Failed.</source>
+          <target state="new">You should see a slice with the status: Failed.</target>
+        </trans-unit>
+        <trans-unit id="fb110fb6-ffa4-4a96-b820-a6d826f7a3e2" xml:space="preserve">
+          <source>Replace <bpt id="3e50454e-6388-4b20-b91e-d431aba16386">&lt;strong&gt;</bpt>StartDateTime<ept id="3e50454e-6388-4b20-b91e-d431aba16386">&lt;/strong&gt;</ept> with the StartDateTime value you specified for the <bpt id="6a09dc36-d908-45e0-a876-f06ce5ca63ac">&lt;strong&gt;</bpt>Set-AzureDataFactoryPipelineActivePeriod<ept id="6a09dc36-d908-45e0-a876-f06ce5ca63ac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Replace <bpt id="3e50454e-6388-4b20-b91e-d431aba16386">&lt;strong&gt;</bpt>StartDateTime<ept id="3e50454e-6388-4b20-b91e-d431aba16386">&lt;/strong&gt;</ept> with the StartDateTime value you specified for the <bpt id="6a09dc36-d908-45e0-a876-f06ce5ca63ac">&lt;strong&gt;</bpt>Set-AzureDataFactoryPipelineActivePeriod<ept id="6a09dc36-d908-45e0-a876-f06ce5ca63ac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f43b847-7847-4c99-ac63-79b0eb8e9213" xml:space="preserve">
+          <source>Note the <bpt id="8dd0c77e-aadb-4954-bc85-cea363553182">&lt;strong&gt;</bpt>Start<ept id="8dd0c77e-aadb-4954-bc85-cea363553182">&lt;/strong&gt;</ept> time for the problem slice (the slice with <bpt id="8fd6eda3-5301-4144-a8c3-5bdea6de8d77">&lt;strong&gt;</bpt>Status<ept id="8fd6eda3-5301-4144-a8c3-5bdea6de8d77">&lt;/strong&gt;</ept> set to <bpt id="ce924d6c-0021-4ab2-ae73-75866435dc98">&lt;strong&gt;</bpt>Failed<ept id="ce924d6c-0021-4ab2-ae73-75866435dc98">&lt;/strong&gt;</ept>) in the output.</source>
+          <target state="new">Note the <bpt id="8dd0c77e-aadb-4954-bc85-cea363553182">&lt;strong&gt;</bpt>Start<ept id="8dd0c77e-aadb-4954-bc85-cea363553182">&lt;/strong&gt;</ept> time for the problem slice (the slice with <bpt id="8fd6eda3-5301-4144-a8c3-5bdea6de8d77">&lt;strong&gt;</bpt>Status<ept id="8fd6eda3-5301-4144-a8c3-5bdea6de8d77">&lt;/strong&gt;</ept> set to <bpt id="ce924d6c-0021-4ab2-ae73-75866435dc98">&lt;strong&gt;</bpt>Failed<ept id="ce924d6c-0021-4ab2-ae73-75866435dc98">&lt;/strong&gt;</ept>) in the output.</target>
+        </trans-unit>
+        <trans-unit id="391c9ffd-55f0-4ae1-8fce-cee74cdbb256" xml:space="preserve">
+          <source>Now, run the <bpt id="bea5d4f0-b61d-4f2d-b848-540c534f0ce9">&lt;strong&gt;</bpt>Get-AzureDataFactoryRun<ept id="bea5d4f0-b61d-4f2d-b848-540c534f0ce9">&lt;/strong&gt;</ept> cmdlet to get details about activity run for the slice.</source>
+          <target state="new">Now, run the <bpt id="bea5d4f0-b61d-4f2d-b848-540c534f0ce9">&lt;strong&gt;</bpt>Get-AzureDataFactoryRun<ept id="bea5d4f0-b61d-4f2d-b848-540c534f0ce9">&lt;/strong&gt;</ept> cmdlet to get details about activity run for the slice.</target>
+        </trans-unit>
+        <trans-unit id="2a97155d-04fe-4b86-8a57-10f03483b34a" xml:space="preserve">
+          <source>The value of <bpt id="f51fd46a-726e-43ca-ae20-4be667414173">&lt;strong&gt;</bpt>StartDateTime<ept id="f51fd46a-726e-43ca-ae20-4be667414173">&lt;/strong&gt;</ept> is the Start time for the error/problem slice you noted from the previous step.</source>
+          <target state="new">The value of <bpt id="f51fd46a-726e-43ca-ae20-4be667414173">&lt;strong&gt;</bpt>StartDateTime<ept id="f51fd46a-726e-43ca-ae20-4be667414173">&lt;/strong&gt;</ept> is the Start time for the error/problem slice you noted from the previous step.</target>
+        </trans-unit>
+        <trans-unit id="75f63c13-99b0-4815-953b-2b2d8f51103a" xml:space="preserve">
+          <source>The date-time should be enclosed in double quotes.</source>
+          <target state="new">The date-time should be enclosed in double quotes.</target>
+        </trans-unit>
+        <trans-unit id="e5e9002c-e17e-4359-a600-ede5e7078f69" xml:space="preserve">
+          <source>You should see the output with details about the error (similar to the following):</source>
+          <target state="new">You should see the output with details about the error (similar to the following):</target>
+        </trans-unit>
+        <trans-unit id="79995206-d484-4103-8dcc-958495a294e4" xml:space="preserve">
+          <source>This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Preview Portal and Azure PowerShell.</source>
+          <target state="new">This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Preview Portal and Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="e807574d-33af-4cf4-99bb-8baa0db51ad9" xml:space="preserve">
+          <source>In this scenario, data set is in an error state due to a failure in Hive processing on an HDInsight cluster.</source>
+          <target state="new">In this scenario, data set is in an error state due to a failure in Hive processing on an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="5a308265-d337-4635-bb8e-64c9e5126710" xml:space="preserve">
+          <source>Click <bpt id="36c2622b-98d0-44c1-bf42-5e0a615146ed">&lt;strong&gt;</bpt>With errors<ept id="36c2622b-98d0-44c1-bf42-5e0a615146ed">&lt;/strong&gt;</ept> on <bpt id="d3966e16-8017-446e-a856-25a1624e8b27">&lt;strong&gt;</bpt>Datasets<ept id="d3966e16-8017-446e-a856-25a1624e8b27">&lt;/strong&gt;</ept> tile on the <bpt id="cbf2b8ed-308f-47c7-a85f-37f94682f482">&lt;strong&gt;</bpt>DATA FACTORY<ept id="cbf2b8ed-308f-47c7-a85f-37f94682f482">&lt;/strong&gt;</ept> home page.</source>
+          <target state="new">Click <bpt id="36c2622b-98d0-44c1-bf42-5e0a615146ed">&lt;strong&gt;</bpt>With errors<ept id="36c2622b-98d0-44c1-bf42-5e0a615146ed">&lt;/strong&gt;</ept> on <bpt id="d3966e16-8017-446e-a856-25a1624e8b27">&lt;strong&gt;</bpt>Datasets<ept id="d3966e16-8017-446e-a856-25a1624e8b27">&lt;/strong&gt;</ept> tile on the <bpt id="cbf2b8ed-308f-47c7-a85f-37f94682f482">&lt;strong&gt;</bpt>DATA FACTORY<ept id="cbf2b8ed-308f-47c7-a85f-37f94682f482">&lt;/strong&gt;</ept> home page.</target>
+        </trans-unit>
+        <trans-unit id="ae5a373b-e713-4e36-962e-cd5054f4ec34" xml:space="preserve">
+          <source><bpt id="9913e1e1-cbad-4be3-8ec9-4e3f94ce38ea">&lt;linkText&gt;</bpt>With errors link on Datasets tile<ept id="9913e1e1-cbad-4be3-8ec9-4e3f94ce38ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9913e1e1-cbad-4be3-8ec9-4e3f94ce38ea">&lt;linkText&gt;</bpt>With errors link on Datasets tile<ept id="9913e1e1-cbad-4be3-8ec9-4e3f94ce38ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fa536b7-25ca-4e50-b01e-337eef96f44c" xml:space="preserve">
+          <source>In the <bpt id="78f18970-c31f-4881-b0a5-81487d332d49">&lt;strong&gt;</bpt>Datasets with errors<ept id="78f18970-c31f-4881-b0a5-81487d332d49">&lt;/strong&gt;</ept> blade, click the <bpt id="1c0bf9df-6f63-4c99-8dfd-11e65d2d76f8">&lt;strong&gt;</bpt>table<ept id="1c0bf9df-6f63-4c99-8dfd-11e65d2d76f8">&lt;/strong&gt;</ept> that you are interested in.</source>
+          <target state="new">In the <bpt id="78f18970-c31f-4881-b0a5-81487d332d49">&lt;strong&gt;</bpt>Datasets with errors<ept id="78f18970-c31f-4881-b0a5-81487d332d49">&lt;/strong&gt;</ept> blade, click the <bpt id="1c0bf9df-6f63-4c99-8dfd-11e65d2d76f8">&lt;strong&gt;</bpt>table<ept id="1c0bf9df-6f63-4c99-8dfd-11e65d2d76f8">&lt;/strong&gt;</ept> that you are interested in.</target>
+        </trans-unit>
+        <trans-unit id="a7dc1155-813c-4682-8ea5-bab7bbf42f57" xml:space="preserve">
+          <source><bpt id="bd4f1883-ed17-4e91-ac85-ea0b42c56a04">&lt;linkText&gt;</bpt>Datasets with errors blade<ept id="bd4f1883-ed17-4e91-ac85-ea0b42c56a04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bd4f1883-ed17-4e91-ac85-ea0b42c56a04">&lt;linkText&gt;</bpt>Datasets with errors blade<ept id="bd4f1883-ed17-4e91-ac85-ea0b42c56a04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb5035d1-6bb6-4f48-b7f6-0625038518af" xml:space="preserve">
+          <source>In the <bpt id="fc3e1a48-cb9f-42ab-a464-30800a78907b">&lt;strong&gt;</bpt>TABLE<ept id="fc3e1a48-cb9f-42ab-a464-30800a78907b">&lt;/strong&gt;</ept> blade, Click on the <bpt id="7601e146-4ca9-4704-b9e3-b10894e59cbb">&lt;strong&gt;</bpt>problem slice<ept id="7601e146-4ca9-4704-b9e3-b10894e59cbb">&lt;/strong&gt;</ept> with <bpt id="cf012285-794a-40d9-8bd2-5f9f4b313918">&lt;strong&gt;</bpt>STATUS<ept id="cf012285-794a-40d9-8bd2-5f9f4b313918">&lt;/strong&gt;</ept> set to <bpt id="02db4f06-bb62-4698-bfef-d713671f419d">&lt;strong&gt;</bpt>Failed<ept id="02db4f06-bb62-4698-bfef-d713671f419d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="fc3e1a48-cb9f-42ab-a464-30800a78907b">&lt;strong&gt;</bpt>TABLE<ept id="fc3e1a48-cb9f-42ab-a464-30800a78907b">&lt;/strong&gt;</ept> blade, Click on the <bpt id="7601e146-4ca9-4704-b9e3-b10894e59cbb">&lt;strong&gt;</bpt>problem slice<ept id="7601e146-4ca9-4704-b9e3-b10894e59cbb">&lt;/strong&gt;</ept> with <bpt id="cf012285-794a-40d9-8bd2-5f9f4b313918">&lt;strong&gt;</bpt>STATUS<ept id="cf012285-794a-40d9-8bd2-5f9f4b313918">&lt;/strong&gt;</ept> set to <bpt id="02db4f06-bb62-4698-bfef-d713671f419d">&lt;strong&gt;</bpt>Failed<ept id="02db4f06-bb62-4698-bfef-d713671f419d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7596c672-0126-4e32-b4b7-05d58b65fcfd" xml:space="preserve">
+          <source><bpt id="46085408-af8a-4083-a96f-eb589b63560f">&lt;linkText&gt;</bpt>Table with problem slices<ept id="46085408-af8a-4083-a96f-eb589b63560f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46085408-af8a-4083-a96f-eb589b63560f">&lt;linkText&gt;</bpt>Table with problem slices<ept id="46085408-af8a-4083-a96f-eb589b63560f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5c26a22-c1ac-4827-8a38-86ae2d56535a" xml:space="preserve">
+          <source>In the <bpt id="3e70d8b1-ae82-4ce4-8e01-c6dee3987d4b">&lt;strong&gt;</bpt>DATA SLICE<ept id="3e70d8b1-ae82-4ce4-8e01-c6dee3987d4b">&lt;/strong&gt;</ept> blade, click the <bpt id="b1c64e7b-31b1-452f-b7b0-9e442fb3dd1d">&lt;strong&gt;</bpt>Activity Run<ept id="b1c64e7b-31b1-452f-b7b0-9e442fb3dd1d">&lt;/strong&gt;</ept> that failed.</source>
+          <target state="new">In the <bpt id="3e70d8b1-ae82-4ce4-8e01-c6dee3987d4b">&lt;strong&gt;</bpt>DATA SLICE<ept id="3e70d8b1-ae82-4ce4-8e01-c6dee3987d4b">&lt;/strong&gt;</ept> blade, click the <bpt id="b1c64e7b-31b1-452f-b7b0-9e442fb3dd1d">&lt;strong&gt;</bpt>Activity Run<ept id="b1c64e7b-31b1-452f-b7b0-9e442fb3dd1d">&lt;/strong&gt;</ept> that failed.</target>
+        </trans-unit>
+        <trans-unit id="39aeb7ff-8494-4f60-8fcd-63603db0270a" xml:space="preserve">
+          <source><bpt id="8380ae2b-fc4e-44e4-8568-e5e5b359aae1">&lt;linkText&gt;</bpt>Data slice with failed runs<ept id="8380ae2b-fc4e-44e4-8568-e5e5b359aae1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8380ae2b-fc4e-44e4-8568-e5e5b359aae1">&lt;linkText&gt;</bpt>Data slice with failed runs<ept id="8380ae2b-fc4e-44e4-8568-e5e5b359aae1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c8597cc-081d-4efe-897c-fd1b12b9435c" xml:space="preserve">
+          <source>In the <bpt id="0051e6bb-50b3-4a1a-b895-1087657ffe3f">&lt;strong&gt;</bpt>ACTIVITY RUN DETAILS<ept id="0051e6bb-50b3-4a1a-b895-1087657ffe3f">&lt;/strong&gt;</ept> blade, you can download the files associated with the HDInsight processing.</source>
+          <target state="new">In the <bpt id="0051e6bb-50b3-4a1a-b895-1087657ffe3f">&lt;strong&gt;</bpt>ACTIVITY RUN DETAILS<ept id="0051e6bb-50b3-4a1a-b895-1087657ffe3f">&lt;/strong&gt;</ept> blade, you can download the files associated with the HDInsight processing.</target>
+        </trans-unit>
+        <trans-unit id="78c8c2e6-20a3-4483-ae76-e50aa8da76f5" xml:space="preserve">
+          <source>Click <bpt id="37e1602f-5116-4d9e-a9ec-4a5b08cb2ce8">&lt;strong&gt;</bpt>Download<ept id="37e1602f-5116-4d9e-a9ec-4a5b08cb2ce8">&lt;/strong&gt;</ept> for <bpt id="00a407de-0803-40b7-85d0-350a306e6c68">&lt;strong&gt;</bpt>Status/stderr<ept id="00a407de-0803-40b7-85d0-350a306e6c68">&lt;/strong&gt;</ept> to download the error log file that contains details about the error.</source>
+          <target state="new">Click <bpt id="37e1602f-5116-4d9e-a9ec-4a5b08cb2ce8">&lt;strong&gt;</bpt>Download<ept id="37e1602f-5116-4d9e-a9ec-4a5b08cb2ce8">&lt;/strong&gt;</ept> for <bpt id="00a407de-0803-40b7-85d0-350a306e6c68">&lt;strong&gt;</bpt>Status/stderr<ept id="00a407de-0803-40b7-85d0-350a306e6c68">&lt;/strong&gt;</ept> to download the error log file that contains details about the error.</target>
+        </trans-unit>
+        <trans-unit id="9faf3dde-19a1-4864-b064-8f33c707e836" xml:space="preserve">
+          <source><bpt id="c48cf302-5635-4040-bebd-f0f1046b3594">&lt;linkText&gt;</bpt>Activity run details with download link<ept id="c48cf302-5635-4040-bebd-f0f1046b3594">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c48cf302-5635-4040-bebd-f0f1046b3594">&lt;linkText&gt;</bpt>Activity run details with download link<ept id="c48cf302-5635-4040-bebd-f0f1046b3594">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d46dea7-28ed-421a-abac-ef60a5af2c0b" xml:space="preserve">
+          <source>Launch <bpt id="00597172-d94d-4369-91b6-4998bc54dda7">&lt;strong&gt;</bpt>Azure PowerShell<ept id="00597172-d94d-4369-91b6-4998bc54dda7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Launch <bpt id="00597172-d94d-4369-91b6-4998bc54dda7">&lt;strong&gt;</bpt>Azure PowerShell<ept id="00597172-d94d-4369-91b6-4998bc54dda7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cec3d404-1ebd-4bbc-8ba1-6cb516bf1932" xml:space="preserve">
+          <source>Switch to <bpt id="70629c1f-12ab-4413-87a1-407d4dab9c2f">&lt;strong&gt;</bpt>AzureResourceManager<ept id="70629c1f-12ab-4413-87a1-407d4dab9c2f">&lt;/strong&gt;</ept> mode as the Data Factory cmdlets are available only in this mode.</source>
+          <target state="new">Switch to <bpt id="70629c1f-12ab-4413-87a1-407d4dab9c2f">&lt;strong&gt;</bpt>AzureResourceManager<ept id="70629c1f-12ab-4413-87a1-407d4dab9c2f">&lt;/strong&gt;</ept> mode as the Data Factory cmdlets are available only in this mode.</target>
+        </trans-unit>
+        <trans-unit id="cf7e0bba-cf18-4d95-a01c-ed79837f4294" xml:space="preserve">
+          <source>Run Get-AzureDataFactorySlice command to see the slices and their statuses.</source>
+          <target state="new">Run Get-AzureDataFactorySlice command to see the slices and their statuses.</target>
+        </trans-unit>
+        <trans-unit id="5bbaa6fb-1e2d-4726-bfd4-93c92b1265a8" xml:space="preserve">
+          <source>You should see a slice with the status: Failed.</source>
+          <target state="new">You should see a slice with the status: Failed.</target>
+        </trans-unit>
+        <trans-unit id="177c175d-cd56-4245-9bf9-2345cef15dbd" xml:space="preserve">
+          <source>Replace <bpt id="742c89df-a056-4e0f-91e3-0852128e4c52">&lt;strong&gt;</bpt>StartDateTime<ept id="742c89df-a056-4e0f-91e3-0852128e4c52">&lt;/strong&gt;</ept> with the StartDateTime value you specified for the <bpt id="9e7f8f78-1125-469e-9110-553de3979246">&lt;strong&gt;</bpt>Set-AzureDataFactoryPipelineActivePeriod<ept id="9e7f8f78-1125-469e-9110-553de3979246">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Replace <bpt id="742c89df-a056-4e0f-91e3-0852128e4c52">&lt;strong&gt;</bpt>StartDateTime<ept id="742c89df-a056-4e0f-91e3-0852128e4c52">&lt;/strong&gt;</ept> with the StartDateTime value you specified for the <bpt id="9e7f8f78-1125-469e-9110-553de3979246">&lt;strong&gt;</bpt>Set-AzureDataFactoryPipelineActivePeriod<ept id="9e7f8f78-1125-469e-9110-553de3979246">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="348545bc-c927-4716-a1e9-206bb6eefeb9" xml:space="preserve">
+          <source>Note the <bpt id="0598523c-a732-4e84-95f6-3d3822b70d4f">&lt;strong&gt;</bpt>Start<ept id="0598523c-a732-4e84-95f6-3d3822b70d4f">&lt;/strong&gt;</ept> time for the problem slice (the slice with <bpt id="c4570a30-7b56-41c0-aaf8-3d9c3aa542f4">&lt;strong&gt;</bpt>Status<ept id="c4570a30-7b56-41c0-aaf8-3d9c3aa542f4">&lt;/strong&gt;</ept> set to <bpt id="848c5c0f-3e98-4e2d-bc46-ffb814a34f41">&lt;strong&gt;</bpt>Failed<ept id="848c5c0f-3e98-4e2d-bc46-ffb814a34f41">&lt;/strong&gt;</ept>) in the output.</source>
+          <target state="new">Note the <bpt id="0598523c-a732-4e84-95f6-3d3822b70d4f">&lt;strong&gt;</bpt>Start<ept id="0598523c-a732-4e84-95f6-3d3822b70d4f">&lt;/strong&gt;</ept> time for the problem slice (the slice with <bpt id="c4570a30-7b56-41c0-aaf8-3d9c3aa542f4">&lt;strong&gt;</bpt>Status<ept id="c4570a30-7b56-41c0-aaf8-3d9c3aa542f4">&lt;/strong&gt;</ept> set to <bpt id="848c5c0f-3e98-4e2d-bc46-ffb814a34f41">&lt;strong&gt;</bpt>Failed<ept id="848c5c0f-3e98-4e2d-bc46-ffb814a34f41">&lt;/strong&gt;</ept>) in the output.</target>
+        </trans-unit>
+        <trans-unit id="7d1ac094-c39b-4a64-9347-e778f859dc2e" xml:space="preserve">
+          <source>Now, run the <bpt id="b81be5a3-d7c6-40a4-bfb9-68b58ae9b371">&lt;strong&gt;</bpt>Get-AzureDataFactoryRun<ept id="b81be5a3-d7c6-40a4-bfb9-68b58ae9b371">&lt;/strong&gt;</ept> cmdlet to get details about activity run for the slice.</source>
+          <target state="new">Now, run the <bpt id="b81be5a3-d7c6-40a4-bfb9-68b58ae9b371">&lt;strong&gt;</bpt>Get-AzureDataFactoryRun<ept id="b81be5a3-d7c6-40a4-bfb9-68b58ae9b371">&lt;/strong&gt;</ept> cmdlet to get details about activity run for the slice.</target>
+        </trans-unit>
+        <trans-unit id="f8d9874a-2127-4f47-a783-d5c174f78bde" xml:space="preserve">
+          <source>The value of <bpt id="1b92876f-e709-4884-9047-7e56001d96aa">&lt;strong&gt;</bpt>StartDateTime<ept id="1b92876f-e709-4884-9047-7e56001d96aa">&lt;/strong&gt;</ept> is the Start time for the error/problem slice you noted from the previous step.</source>
+          <target state="new">The value of <bpt id="1b92876f-e709-4884-9047-7e56001d96aa">&lt;strong&gt;</bpt>StartDateTime<ept id="1b92876f-e709-4884-9047-7e56001d96aa">&lt;/strong&gt;</ept> is the Start time for the error/problem slice you noted from the previous step.</target>
+        </trans-unit>
+        <trans-unit id="a439b2e3-3c9f-4dfa-b6ed-dfeea2d8cd0a" xml:space="preserve">
+          <source>The date-time should be enclosed in double quotes.</source>
+          <target state="new">The date-time should be enclosed in double quotes.</target>
+        </trans-unit>
+        <trans-unit id="56eb3675-4a0d-4fc4-94e7-f8903b4ffb1c" xml:space="preserve">
+          <source>You should see the output with details about the error (similar to the following):</source>
+          <target state="new">You should see the output with details about the error (similar to the following):</target>
+        </trans-unit>
+        <trans-unit id="4b1bd6e8-490b-42cb-acff-b6802dc6d34e" xml:space="preserve">
+          <source>You can run <bpt id="ff4b9b0f-8722-4799-9ddd-5a3ab96dc23c">&lt;strong&gt;</bpt>Save-AzureDataFactoryLog<ept id="ff4b9b0f-8722-4799-9ddd-5a3ab96dc23c">&lt;/strong&gt;</ept> cmdlet with Id value you see from the above output and download the log files using the <bpt id="b5ef7010-2ef4-4b44-a8bc-816596cb5bab">&lt;strong&gt;</bpt>-DownloadLogs<ept id="b5ef7010-2ef4-4b44-a8bc-816596cb5bab">&lt;/strong&gt;</ept> option for the cmdlet.</source>
+          <target state="new">You can run <bpt id="ff4b9b0f-8722-4799-9ddd-5a3ab96dc23c">&lt;strong&gt;</bpt>Save-AzureDataFactoryLog<ept id="ff4b9b0f-8722-4799-9ddd-5a3ab96dc23c">&lt;/strong&gt;</ept> cmdlet with Id value you see from the above output and download the log files using the <bpt id="b5ef7010-2ef4-4b44-a8bc-816596cb5bab">&lt;strong&gt;</bpt>-DownloadLogs<ept id="b5ef7010-2ef4-4b44-a8bc-816596cb5bab">&lt;/strong&gt;</ept> option for the cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="dfe14337-5b2a-4adc-b7fa-6c534b6d2b79" xml:space="preserve">
+          <source>data-factory-get-started.md</source>
+          <target state="new">data-factory-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="3604cba5-e806-4c30-a123-fb8ae62ac7f3" xml:space="preserve">
+          <source>data-factory-tutorial.md</source>
+          <target state="new">data-factory-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="a2f526ea-9d62-4b04-9444-34a11bb9229d" xml:space="preserve">
+          <source>data-factory-use-custom-activities.md</source>
+          <target state="new">data-factory-use-custom-activities.md</target>
+        </trans-unit>
+        <trans-unit id="e121a883-9626-4aac-aeb1-31301b52ecec" xml:space="preserve">
+          <source>data-factory-monitor-manage-using-powershell.md</source>
+          <target state="new">data-factory-monitor-manage-using-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="68430c4d-de0e-42ff-8528-51faafe03362" xml:space="preserve">
+          <source>data-factory-troubleshoot.md</source>
+          <target state="new">data-factory-troubleshoot.md</target>
+        </trans-unit>
+        <trans-unit id="1c078e21-d345-44a9-be30-66621bf6ffc2" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=516908</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=516908</target>
+        </trans-unit>
+        <trans-unit id="5171f4d3-3d31-4049-b0e3-a89d02188465" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=517456</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=517456</target>
+        </trans-unit>
+        <trans-unit id="492af95a-51a2-45eb-b676-2f625f323f9e" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=516971</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=516971</target>
+        </trans-unit>
+        <trans-unit id="c0b8ab90-d0f3-49c7-a30e-a233b5e0882c" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="ca742496-5428-4755-8f50-2f2d00790928" xml:space="preserve">
+          <source>./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png</source>
+          <target state="new">./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png</target>
+        </trans-unit>
+        <trans-unit id="784b137d-ebb7-4a10-a7ac-2ac259079adb" xml:space="preserve">
+          <source>./media/data-factory-troubleshoot/DatasetsWithErrorsBlade.png</source>
+          <target state="new">./media/data-factory-troubleshoot/DatasetsWithErrorsBlade.png</target>
+        </trans-unit>
+        <trans-unit id="c961da75-996b-4dc5-a501-8f571f270dc4" xml:space="preserve">
+          <source>./media/data-factory-troubleshoot/TableBladeWithProblemSlices.png</source>
+          <target state="new">./media/data-factory-troubleshoot/TableBladeWithProblemSlices.png</target>
+        </trans-unit>
+        <trans-unit id="8849cb58-a8fa-4902-b5f9-15c4f37561c8" xml:space="preserve">
+          <source>./media/data-factory-troubleshoot/ActivityRunDetailsWithError.png</source>
+          <target state="new">./media/data-factory-troubleshoot/ActivityRunDetailsWithError.png</target>
+        </trans-unit>
+        <trans-unit id="3e0ec77e-1884-4aa1-ae64-ac4fc1b0c5a9" xml:space="preserve">
+          <source>./media/data-factory-troubleshoot/DataSliceBladeWithActivityRuns.png</source>
+          <target state="new">./media/data-factory-troubleshoot/DataSliceBladeWithActivityRuns.png</target>
+        </trans-unit>
+        <trans-unit id="3af8fde7-fee5-463f-b802-ecdc9c4fc251" xml:space="preserve">
+          <source>./media/data-factory-troubleshoot/Walkthrough2WithErrorsLink.png</source>
+          <target state="new">./media/data-factory-troubleshoot/Walkthrough2WithErrorsLink.png</target>
+        </trans-unit>
+        <trans-unit id="bef06ce0-df9e-4403-93a5-779c09bc5750" xml:space="preserve">
+          <source>./media/data-factory-troubleshoot/Walkthrough2DataSetsWithErrors.png</source>
+          <target state="new">./media/data-factory-troubleshoot/Walkthrough2DataSetsWithErrors.png</target>
+        </trans-unit>
+        <trans-unit id="8052fbb7-819b-4949-944f-e2730c9fd982" xml:space="preserve">
+          <source>./media/data-factory-troubleshoot/Walkthrough2TableProblemSlices.png</source>
+          <target state="new">./media/data-factory-troubleshoot/Walkthrough2TableProblemSlices.png</target>
+        </trans-unit>
+        <trans-unit id="f82271e3-0f75-48ff-9c84-4dc4640e324d" xml:space="preserve">
+          <source>./media/data-factory-troubleshoot/Walkthrough2DataSliceActivityRuns.png</source>
+          <target state="new">./media/data-factory-troubleshoot/Walkthrough2DataSliceActivityRuns.png</target>
+        </trans-unit>
+        <trans-unit id="e8aa4216-037d-43ce-b72d-708107240ced" xml:space="preserve">
+          <source>./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png</source>
+          <target state="new">./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png</target>
+        </trans-unit>
+      </group>
+      <group id="241a0980-d0d9-430e-8f21-8ad24fe07ea7" />
+    </body>
+  </file>
+</xliff>

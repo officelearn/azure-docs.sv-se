@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5c823a0f-6f0a-4cf1-97ce-e09f54a56269" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5c823a0f-6f0a-4cf1-97ce-e09f54a56269" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="064f15dd-1dc0-4088-8097-874338432203">
+        <trans-unit id="c97bcc64-16b4-4349-a625-4fe3285b4709" xml:space="preserve">
+          <source>Use mobile phone as your contact method with Azure MFA</source>
+          <target state="new">Use mobile phone as your contact method with Azure MFA</target>
+        </trans-unit>
+        <trans-unit id="e8545859-d687-4e0a-9d26-1563b5b3fecd" xml:space="preserve">
+          <source>This page will show users how to use their mobile phone as the primary contact method for Azure MFA.</source>
+          <target state="new">This page will show users how to use their mobile phone as the primary contact method for Azure MFA.</target>
+        </trans-unit>
+        <trans-unit id="db7fb193-97db-4ed4-ad26-f8ca842ce027" xml:space="preserve">
+          <source>If you want to use your mobile phone as your primary contact method you can use this article.</source>
+          <target state="new">If you want to use your mobile phone as your primary contact method you can use this article.</target>
+        </trans-unit>
+        <trans-unit id="dc8296b3-3a22-4945-b1ef-06b3c38e2825" xml:space="preserve">
+          <source>It will walk you through setting up multi-factor authentication to use your mobile phone for either a call or text as your contact method.</source>
+          <target state="new">It will walk you through setting up multi-factor authentication to use your mobile phone for either a call or text as your contact method.</target>
+        </trans-unit>
+        <trans-unit id="b4515bfb-6a16-40e6-8c93-5a59c2a4b3ad" xml:space="preserve">
+          <source>&lt;ol&gt;
+&lt;li&gt;Select Authentication Phone from the drop-down&lt;/li&gt;</source>
+          <target state="new">&lt;ol&gt;
+&lt;li&gt;Select Authentication Phone from the drop-down&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="b72ff7d0-6252-4f96-801e-b43527a0de83" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="7353f103-7a9b-45fe-82bf-6802b5a318fa">&lt;linkText&gt;</bpt>Setup<ept id="7353f103-7a9b-45fe-82bf-6802b5a318fa">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="7353f103-7a9b-45fe-82bf-6802b5a318fa">&lt;linkText&gt;</bpt>Setup<ept id="7353f103-7a9b-45fe-82bf-6802b5a318fa">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="eae66d6a-1697-4b55-b07f-c686c553298f" xml:space="preserve">
+          <source>&lt;li&gt;Specify your country from the drop-downn and enter your mobile phone number.&lt;/li&gt;
+&lt;li&gt;Select the mode you would prefer to use with your mobile phone - text or call.&lt;/li&gt;
+&lt;li&gt;Click Next.&lt;/li&gt;
+&lt;li&gt;Click the Verify Now button. This will initiate a call or text to your mobile phone. Be sure to have it with you. Depending on the mode you selected, Text or Call, your response will be different.
+        &lt;ul&gt;&lt;li&gt;If you selected the text mode, a 6 digit code will be texted to you. Enter this code in the box that is displayed in the browser&lt;/li&gt;
+        &lt;li&gt;If you selected the call mode, you will receive a phone call. Respond to the call using the # sign on your phone.&lt;/li&gt;&lt;/ul&gt;
+&lt;li&gt;Click Next&lt;/li&gt;
+&lt;li&gt;At this point, you have setup your contact method and now it is time to setup app passwords for non-browser apps such as Outlook 2010 or older. If you do not use these apps click <bpt id="14ab50e2-09e1-4c5b-b283-7a3a7bdf063c">&lt;strong&gt;</bpt>Done<ept id="14ab50e2-09e1-4c5b-b283-7a3a7bdf063c">&lt;/strong&gt;</ept>.  Otherwise continue to the next step.
+&lt;li&gt;If you are using these apps then copy the app password provided.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Specify your country from the drop-downn and enter your mobile phone number.&lt;/li&gt;
+&lt;li&gt;Select the mode you would prefer to use with your mobile phone - text or call.&lt;/li&gt;
+&lt;li&gt;Click Next.&lt;/li&gt;
+&lt;li&gt;Click the Verify Now button. This will initiate a call or text to your mobile phone. Be sure to have it with you. Depending on the mode you selected, Text or Call, your response will be different.
+        &lt;ul&gt;&lt;li&gt;If you selected the text mode, a 6 digit code will be texted to you. Enter this code in the box that is displayed in the browser&lt;/li&gt;
+        &lt;li&gt;If you selected the call mode, you will receive a phone call. Respond to the call using the # sign on your phone.&lt;/li&gt;&lt;/ul&gt;
+&lt;li&gt;Click Next&lt;/li&gt;
+&lt;li&gt;At this point, you have setup your contact method and now it is time to setup app passwords for non-browser apps such as Outlook 2010 or older. If you do not use these apps click <bpt id="14ab50e2-09e1-4c5b-b283-7a3a7bdf063c">&lt;strong&gt;</bpt>Done<ept id="14ab50e2-09e1-4c5b-b283-7a3a7bdf063c">&lt;/strong&gt;</ept>.  Otherwise continue to the next step.
+&lt;li&gt;If you are using these apps then copy the app password provided.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="c3cd2772-3531-4052-ba6b-b5bc28cba427" xml:space="preserve">
+          <source>&lt;li&gt;Paste the password that was copied to the clipboard into your non-browser application. For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.&lt;/li&gt;
+&lt;li&gt;Click Done.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Paste the password that was copied to the clipboard into your non-browser application. For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.&lt;/li&gt;
+&lt;li&gt;Click Done.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="3d8f8722-bb56-48a2-8a6a-8ee7095b383e" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="9f91e39c-eb56-4f41-96d2-e4f85625999e">&lt;linkText&gt;</bpt>Setup<ept id="9f91e39c-eb56-4f41-96d2-e4f85625999e">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="9f91e39c-eb56-4f41-96d2-e4f85625999e">&lt;linkText&gt;</bpt>Setup<ept id="9f91e39c-eb56-4f41-96d2-e4f85625999e">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

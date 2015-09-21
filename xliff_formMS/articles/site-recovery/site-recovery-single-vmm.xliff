@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="13e60ac9-9205-4ac2-94f1-c513174f3601" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="13e60ac9-9205-4ac2-94f1-c513174f3601" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e54f1458-6c10-4421-95f4-b9df4c53f7e2">
+        <trans-unit id="cc80007c-545e-4456-8404-b3f41b805ca7" xml:space="preserve">
+          <source>&lt;properties
+    pageTitle="Set up protection with a single VMM server"
+    description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located in on-premises VMM clouds to Azure or to a secondary VMM cloud."
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor=""/&gt;</source>
+          <target state="new">&lt;properties
+    pageTitle="Set up protection with a single VMM server"
+    description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located in on-premises VMM clouds to Azure or to a secondary VMM cloud."
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor=""/&gt;</target>
+        </trans-unit>
+        <trans-unit id="f00dcfde-48e3-40e9-a180-dae01c4f63fe" xml:space="preserve">
+          <source>&lt;tags
+    ms.service="site-recovery"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="backup-recovery"
+    ms.date="08/05/2015"
+    ms.author="raynew"/&gt;</source>
+          <target state="new">&lt;tags
+    ms.service="site-recovery"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="backup-recovery"
+    ms.date="08/05/2015"
+    ms.author="raynew"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="9be1ea6f-cc16-4ae7-9e72-410ae843de50" xml:space="preserve">
+          <source>Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.</source>
+          <target state="new">Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.</target>
+        </trans-unit>
+        <trans-unit id="c3894bdd-6d4f-4241-816e-8caa031b65d9" xml:space="preserve">
+          <source>For a full list of deployment scenarios see  <bpt id="d2d686e8-1cd6-402f-97e6-f1ff2bdd9f99">&lt;linkText&gt;</bpt>Azure Site Recovery overview<ept id="d2d686e8-1cd6-402f-97e6-f1ff2bdd9f99">&lt;/linkText&gt;</ept><bpt id="d2d686e8-1cd6-402f-97e6-f1ff2bdd9f99">&lt;title&gt;</bpt><ept id="d2d686e8-1cd6-402f-97e6-f1ff2bdd9f99">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a full list of deployment scenarios see  <bpt id="d2d686e8-1cd6-402f-97e6-f1ff2bdd9f99">&lt;linkText&gt;</bpt>Azure Site Recovery overview<ept id="d2d686e8-1cd6-402f-97e6-f1ff2bdd9f99">&lt;/linkText&gt;</ept><bpt id="d2d686e8-1cd6-402f-97e6-f1ff2bdd9f99">&lt;title&gt;</bpt><ept id="d2d686e8-1cd6-402f-97e6-f1ff2bdd9f99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94741610-4d80-49b1-a46c-fcc867f1fd6e" xml:space="preserve">
+          <source>If you only have a single VMM server in your infrastructure you can deploy Site Recovery to replicate virtual machines in VMM clouds to Azure, or you can replicate between clouds on a single VMM server.</source>
+          <target state="new">If you only have a single VMM server in your infrastructure you can deploy Site Recovery to replicate virtual machines in VMM clouds to Azure, or you can replicate between clouds on a single VMM server.</target>
+        </trans-unit>
+        <trans-unit id="9bb5d41d-9d14-4b84-8b00-db59b61e8ef2" xml:space="preserve">
+          <source>We recommend that you only do this if you're unable to deploy two VMM servers (one in each site) since failover and recovery isn't seamless in this deployment.</source>
+          <target state="new">We recommend that you only do this if you're unable to deploy two VMM servers (one in each site) since failover and recovery isn't seamless in this deployment.</target>
+        </trans-unit>
+        <trans-unit id="69fceeed-2aae-41bf-a36b-c3b3e6924a7d" xml:space="preserve">
+          <source>For recovery you'll need to manually fail over the VMM server from outside the Azure Site Recovery console (using Hyper-V Replica in the Hyper-V Manager console).</source>
+          <target state="new">For recovery you'll need to manually fail over the VMM server from outside the Azure Site Recovery console (using Hyper-V Replica in the Hyper-V Manager console).</target>
+        </trans-unit>
+        <trans-unit id="61617f1a-31ef-46e6-8008-942efdc12264" xml:space="preserve">
+          <source>You can set up replication using a single VMM server in a couple of ways:</source>
+          <target state="new">You can set up replication using a single VMM server in a couple of ways:</target>
+        </trans-unit>
+        <trans-unit id="a5d15076-5cf6-4945-aa7f-d79fbcafa21c" xml:space="preserve">
+          <source>Deploy a standalone VMM server as a virtual machine in a primary site, and replicate this virtual machine to a secondary site with Site Recovery and Hyper-V Replica.</source>
+          <target state="new">Deploy a standalone VMM server as a virtual machine in a primary site, and replicate this virtual machine to a secondary site with Site Recovery and Hyper-V Replica.</target>
+        </trans-unit>
+        <trans-unit id="20aa0e10-30a5-46c3-be4d-3581c4000624" xml:space="preserve">
+          <source>To reduce downtime the SQL Server can be installed on the VMM virtual machine.</source>
+          <target state="new">To reduce downtime the SQL Server can be installed on the VMM virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="2ccc05ce-529c-45f2-970d-fb7c92fa075e" xml:space="preserve">
+          <source>If VMM is using a remote SQL Server you'll need to recover that first before recovering the VMM server.</source>
+          <target state="new">If VMM is using a remote SQL Server you'll need to recover that first before recovering the VMM server.</target>
+        </trans-unit>
+        <trans-unit id="6503d878-6eaa-43cc-9a0c-4e99b822518c" xml:space="preserve">
+          <source><bpt id="34a06cc2-139e-44f4-a861-33d7ca7c2473">&lt;linkText&gt;</bpt>Standalone virtual VMM server<ept id="34a06cc2-139e-44f4-a861-33d7ca7c2473">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="34a06cc2-139e-44f4-a861-33d7ca7c2473">&lt;linkText&gt;</bpt>Standalone virtual VMM server<ept id="34a06cc2-139e-44f4-a861-33d7ca7c2473">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43eef2c3-a5a8-4ff1-8f30-84c040d885be" xml:space="preserve">
+          <source>To make VMM highly available it can be deployed as a virtual machine in a Windows failover cluster.</source>
+          <target state="new">To make VMM highly available it can be deployed as a virtual machine in a Windows failover cluster.</target>
+        </trans-unit>
+        <trans-unit id="d046d373-0605-4bb7-a97b-9fe373793b65" xml:space="preserve">
+          <source>This is useful if critical workloads are being managed by VMM because it ensures workload availability and protects against hardware failover of the host on which VMM is running.</source>
+          <target state="new">This is useful if critical workloads are being managed by VMM because it ensures workload availability and protects against hardware failover of the host on which VMM is running.</target>
+        </trans-unit>
+        <trans-unit id="eb0fa983-2d3e-403b-904b-de52a533b653" xml:space="preserve">
+          <source>To deploy a single VMM server with Site Recovery the VMM virtual machine should be deployed over a stretch cluster across geographically separate sites.</source>
+          <target state="new">To deploy a single VMM server with Site Recovery the VMM virtual machine should be deployed over a stretch cluster across geographically separate sites.</target>
+        </trans-unit>
+        <trans-unit id="d343cad0-d68b-4b1c-a124-170f80dafd62" xml:space="preserve">
+          <source>The SQL Server database used by VMM should be protected with SQL Server AlwaysOn availability groups with a replica on the secondary site.</source>
+          <target state="new">The SQL Server database used by VMM should be protected with SQL Server AlwaysOn availability groups with a replica on the secondary site.</target>
+        </trans-unit>
+        <trans-unit id="48805cdc-2360-45c9-9ec7-657ba04bd9b9" xml:space="preserve">
+          <source>If disaster occurs the VMM server and it's corresponding SQL Server database are failed over and accessed from the secondary site.</source>
+          <target state="new">If disaster occurs the VMM server and it's corresponding SQL Server database are failed over and accessed from the secondary site.</target>
+        </trans-unit>
+        <trans-unit id="924cbd4b-2de0-4914-a786-47b3ba244c58" xml:space="preserve">
+          <source><bpt id="4dbedabc-b234-444a-83c2-fc7c6deb6dfe">&lt;linkText&gt;</bpt>Clustered virtual VMM server<ept id="4dbedabc-b234-444a-83c2-fc7c6deb6dfe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4dbedabc-b234-444a-83c2-fc7c6deb6dfe">&lt;linkText&gt;</bpt>Clustered virtual VMM server<ept id="4dbedabc-b234-444a-83c2-fc7c6deb6dfe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad423ab2-b69a-4a85-b24f-a2f895bec912" xml:space="preserve">
+          <source>The walkthrough steps explain how to deploy Site Recovery with a single standalone VMM server.</source>
+          <target state="new">The walkthrough steps explain how to deploy Site Recovery with a single standalone VMM server.</target>
+        </trans-unit>
+        <trans-unit id="bb759c69-4f39-4860-bc4e-14cce93bd33e" xml:space="preserve">
+          <source>Make sure you have the <bpt id="4e834dac-aba5-489f-9478-3a3a67018229">&lt;linkText&gt;</bpt>prerequisites<ept id="4e834dac-aba5-489f-9478-3a3a67018229">&lt;/linkText&gt;</ept><bpt id="4e834dac-aba5-489f-9478-3a3a67018229">&lt;title&gt;</bpt><ept id="4e834dac-aba5-489f-9478-3a3a67018229">&lt;/title&gt;</ept> in place before you start deployment.</source>
+          <target state="new">Make sure you have the <bpt id="4e834dac-aba5-489f-9478-3a3a67018229">&lt;linkText&gt;</bpt>prerequisites<ept id="4e834dac-aba5-489f-9478-3a3a67018229">&lt;/linkText&gt;</ept><bpt id="4e834dac-aba5-489f-9478-3a3a67018229">&lt;title&gt;</bpt><ept id="4e834dac-aba5-489f-9478-3a3a67018229">&lt;/title&gt;</ept> in place before you start deployment.</target>
+        </trans-unit>
+        <trans-unit id="e50d4299-189d-4b2f-84b0-7871e94ffa95" xml:space="preserve">
+          <source>The single VMM server must have at least two clouds configured.</source>
+          <target state="new">The single VMM server must have at least two clouds configured.</target>
+        </trans-unit>
+        <trans-unit id="c1a4b492-e836-44cd-84ae-e196d8e80274" xml:space="preserve">
+          <source>One cloud will act as the protected cloud and the other is performing protection.</source>
+          <target state="new">One cloud will act as the protected cloud and the other is performing protection.</target>
+        </trans-unit>
+        <trans-unit id="f246b22f-0074-406c-85c5-638b250241a5" xml:space="preserve">
+          <source>The clouds that you want to protect must contain the following:</source>
+          <target state="new">The clouds that you want to protect must contain the following:</target>
+        </trans-unit>
+        <trans-unit id="d4b2b58a-721e-400c-9a6f-4424e73de8e1" xml:space="preserve">
+          <source>One or more VMM host groups</source>
+          <target state="new">One or more VMM host groups</target>
+        </trans-unit>
+        <trans-unit id="9d907de4-572b-40b1-9dd4-f4909198e214" xml:space="preserve">
+          <source>One or more Hyper-V host servers in each host group</source>
+          <target state="new">One or more Hyper-V host servers in each host group</target>
+        </trans-unit>
+        <trans-unit id="bd85f536-1aa3-4efb-85db-1da793318824" xml:space="preserve">
+          <source>One or more Hyper-V virtual machines on each host server</source>
+          <target state="new">One or more Hyper-V virtual machines on each host server</target>
+        </trans-unit>
+        <trans-unit id="b245efd1-86db-49c8-8db7-58cad740b28f" xml:space="preserve">
+          <source>If you run into problems setting up this scenario post your questions on the <bpt id="58601636-b65c-4ee2-9c3d-0aaccdfa6721">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="58601636-b65c-4ee2-9c3d-0aaccdfa6721">&lt;/linkText&gt;</ept><bpt id="58601636-b65c-4ee2-9c3d-0aaccdfa6721">&lt;title&gt;</bpt><ept id="58601636-b65c-4ee2-9c3d-0aaccdfa6721">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you run into problems setting up this scenario post your questions on the <bpt id="58601636-b65c-4ee2-9c3d-0aaccdfa6721">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="58601636-b65c-4ee2-9c3d-0aaccdfa6721">&lt;/linkText&gt;</ept><bpt id="58601636-b65c-4ee2-9c3d-0aaccdfa6721">&lt;title&gt;</bpt><ept id="58601636-b65c-4ee2-9c3d-0aaccdfa6721">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83535147-0799-446a-9b3a-fb257c43e490" xml:space="preserve">
+          <source>If VMM isn't deployed, set up VMM on a virtual machine with a SQL Server database installed.</source>
+          <target state="new">If VMM isn't deployed, set up VMM on a virtual machine with a SQL Server database installed.</target>
+        </trans-unit>
+        <trans-unit id="12a31db2-591d-473d-a765-459177af5051" xml:space="preserve">
+          <source>Read <bpt id="e1de071c-d11a-46e1-9394-c3a3acbff338">&lt;linkText&gt;</bpt>system requirements<ept id="e1de071c-d11a-46e1-9394-c3a3acbff338">&lt;/linkText&gt;</ept><bpt id="e1de071c-d11a-46e1-9394-c3a3acbff338">&lt;title&gt;</bpt><ept id="e1de071c-d11a-46e1-9394-c3a3acbff338">&lt;/title&gt;</ept></source>
+          <target state="new">Read <bpt id="e1de071c-d11a-46e1-9394-c3a3acbff338">&lt;linkText&gt;</bpt>system requirements<ept id="e1de071c-d11a-46e1-9394-c3a3acbff338">&lt;/linkText&gt;</ept><bpt id="e1de071c-d11a-46e1-9394-c3a3acbff338">&lt;title&gt;</bpt><ept id="e1de071c-d11a-46e1-9394-c3a3acbff338">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a93b8239-6b41-4c88-87bb-5879ff51d3ab" xml:space="preserve">
+          <source>Set up at least two clouds on the VMM server.</source>
+          <target state="new">Set up at least two clouds on the VMM server.</target>
+        </trans-unit>
+        <trans-unit id="3fa306b0-baab-4ba7-b869-de3bd7b619c8" xml:space="preserve">
+          <source>Learn more at:</source>
+          <target state="new">Learn more at:</target>
+        </trans-unit>
+        <trans-unit id="044d534d-92b2-4d97-8e31-a0e208d8c3bc" xml:space="preserve">
+          <source><bpt id="f3fc1b3d-3d39-45bd-9c05-1dc3b2cea269">&lt;linkText&gt;</bpt>What’s New in Private Cloud with System Center 2012 R2 VMM<ept id="f3fc1b3d-3d39-45bd-9c05-1dc3b2cea269">&lt;/linkText&gt;</ept><bpt id="f3fc1b3d-3d39-45bd-9c05-1dc3b2cea269">&lt;title&gt;</bpt><ept id="f3fc1b3d-3d39-45bd-9c05-1dc3b2cea269">&lt;/title&gt;</ept> and in <bpt id="bbe71f76-e124-46a9-8219-f8e2c08b2ae2">&lt;linkText&gt;</bpt>VMM 2012 and the clouds<ept id="bbe71f76-e124-46a9-8219-f8e2c08b2ae2">&lt;/linkText&gt;</ept><bpt id="bbe71f76-e124-46a9-8219-f8e2c08b2ae2">&lt;title&gt;</bpt><ept id="bbe71f76-e124-46a9-8219-f8e2c08b2ae2">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="f3fc1b3d-3d39-45bd-9c05-1dc3b2cea269">&lt;linkText&gt;</bpt>What’s New in Private Cloud with System Center 2012 R2 VMM<ept id="f3fc1b3d-3d39-45bd-9c05-1dc3b2cea269">&lt;/linkText&gt;</ept><bpt id="f3fc1b3d-3d39-45bd-9c05-1dc3b2cea269">&lt;title&gt;</bpt><ept id="f3fc1b3d-3d39-45bd-9c05-1dc3b2cea269">&lt;/title&gt;</ept> and in <bpt id="bbe71f76-e124-46a9-8219-f8e2c08b2ae2">&lt;linkText&gt;</bpt>VMM 2012 and the clouds<ept id="bbe71f76-e124-46a9-8219-f8e2c08b2ae2">&lt;/linkText&gt;</ept><bpt id="bbe71f76-e124-46a9-8219-f8e2c08b2ae2">&lt;title&gt;</bpt><ept id="bbe71f76-e124-46a9-8219-f8e2c08b2ae2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bea81f8-b381-4467-bb22-77597b31c15d" xml:space="preserve">
+          <source><bpt id="5c3819f4-6eb1-4194-b8e9-adcc3129341c">&lt;linkText&gt;</bpt>Configuring the VMM cloud fabric<ept id="5c3819f4-6eb1-4194-b8e9-adcc3129341c">&lt;/linkText&gt;</ept><bpt id="5c3819f4-6eb1-4194-b8e9-adcc3129341c">&lt;title&gt;</bpt><ept id="5c3819f4-6eb1-4194-b8e9-adcc3129341c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5c3819f4-6eb1-4194-b8e9-adcc3129341c">&lt;linkText&gt;</bpt>Configuring the VMM cloud fabric<ept id="5c3819f4-6eb1-4194-b8e9-adcc3129341c">&lt;/linkText&gt;</ept><bpt id="5c3819f4-6eb1-4194-b8e9-adcc3129341c">&lt;title&gt;</bpt><ept id="5c3819f4-6eb1-4194-b8e9-adcc3129341c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fe8a9c3-84b4-4655-98b7-af460aaa98c4" xml:space="preserve">
+          <source><bpt id="e9fec93e-fa8b-4f88-aae7-7f2f53d95d70">&lt;linkText&gt;</bpt>Creating a private cloud in VMM<ept id="e9fec93e-fa8b-4f88-aae7-7f2f53d95d70">&lt;/linkText&gt;</ept><bpt id="e9fec93e-fa8b-4f88-aae7-7f2f53d95d70">&lt;title&gt;</bpt><ept id="e9fec93e-fa8b-4f88-aae7-7f2f53d95d70">&lt;/title&gt;</ept> and <bpt id="1b169d9b-e208-4d24-8f4c-5ad83a487acf">&lt;linkText&gt;</bpt>Walkthrough: Creating private clouds with System Center 2012 SP1 VMM<ept id="1b169d9b-e208-4d24-8f4c-5ad83a487acf">&lt;/linkText&gt;</ept><bpt id="1b169d9b-e208-4d24-8f4c-5ad83a487acf">&lt;title&gt;</bpt><ept id="1b169d9b-e208-4d24-8f4c-5ad83a487acf">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="e9fec93e-fa8b-4f88-aae7-7f2f53d95d70">&lt;linkText&gt;</bpt>Creating a private cloud in VMM<ept id="e9fec93e-fa8b-4f88-aae7-7f2f53d95d70">&lt;/linkText&gt;</ept><bpt id="e9fec93e-fa8b-4f88-aae7-7f2f53d95d70">&lt;title&gt;</bpt><ept id="e9fec93e-fa8b-4f88-aae7-7f2f53d95d70">&lt;/title&gt;</ept> and <bpt id="1b169d9b-e208-4d24-8f4c-5ad83a487acf">&lt;linkText&gt;</bpt>Walkthrough: Creating private clouds with System Center 2012 SP1 VMM<ept id="1b169d9b-e208-4d24-8f4c-5ad83a487acf">&lt;/linkText&gt;</ept><bpt id="1b169d9b-e208-4d24-8f4c-5ad83a487acf">&lt;title&gt;</bpt><ept id="1b169d9b-e208-4d24-8f4c-5ad83a487acf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d00e002-bed7-47b6-be6b-8b8743491f9d" xml:space="preserve">
+          <source>Add the source Hyper-V host server on which the virtual machine you want to protect is located to the cloud you're going to protect (the source cloud).</source>
+          <target state="new">Add the source Hyper-V host server on which the virtual machine you want to protect is located to the cloud you're going to protect (the source cloud).</target>
+        </trans-unit>
+        <trans-unit id="4df5728b-9a98-43c1-9e13-8e329aa4c5b2" xml:space="preserve">
+          <source>Add the target Hyper-V host server to the cloud on the VMM server that will be providing the protection.</source>
+          <target state="new">Add the target Hyper-V host server to the cloud on the VMM server that will be providing the protection.</target>
+        </trans-unit>
+        <trans-unit id="62ac8e73-2fb9-4b70-8ed2-9cfea678d092" xml:space="preserve">
+          <source><bpt id="48940a23-b20c-45c3-b845-4f3081053cdd">&lt;linkText&gt;</bpt>Create<ept id="48940a23-b20c-45c3-b845-4f3081053cdd">&lt;/linkText&gt;</ept><bpt id="48940a23-b20c-45c3-b845-4f3081053cdd">&lt;title&gt;</bpt><ept id="48940a23-b20c-45c3-b845-4f3081053cdd">&lt;/title&gt;</ept> an Azure Site Recovery vault and generate a vault registration key.</source>
+          <target state="new"><bpt id="48940a23-b20c-45c3-b845-4f3081053cdd">&lt;linkText&gt;</bpt>Create<ept id="48940a23-b20c-45c3-b845-4f3081053cdd">&lt;/linkText&gt;</ept><bpt id="48940a23-b20c-45c3-b845-4f3081053cdd">&lt;title&gt;</bpt><ept id="48940a23-b20c-45c3-b845-4f3081053cdd">&lt;/title&gt;</ept> an Azure Site Recovery vault and generate a vault registration key.</target>
+        </trans-unit>
+        <trans-unit id="072d218e-8490-4ce2-a9dd-c4d96346f5f1" xml:space="preserve">
+          <source><bpt id="48654e38-5cf7-40f3-acb3-4610084434c1">&lt;linkText&gt;</bpt>Install<ept id="48654e38-5cf7-40f3-acb3-4610084434c1">&lt;/linkText&gt;</ept><bpt id="48654e38-5cf7-40f3-acb3-4610084434c1">&lt;title&gt;</bpt><ept id="48654e38-5cf7-40f3-acb3-4610084434c1">&lt;/title&gt;</ept> the Azure Site Recovery Provider on the VMM server and register the server in the vault.</source>
+          <target state="new"><bpt id="48654e38-5cf7-40f3-acb3-4610084434c1">&lt;linkText&gt;</bpt>Install<ept id="48654e38-5cf7-40f3-acb3-4610084434c1">&lt;/linkText&gt;</ept><bpt id="48654e38-5cf7-40f3-acb3-4610084434c1">&lt;title&gt;</bpt><ept id="48654e38-5cf7-40f3-acb3-4610084434c1">&lt;/title&gt;</ept> the Azure Site Recovery Provider on the VMM server and register the server in the vault.</target>
+        </trans-unit>
+        <trans-unit id="89e441d4-df9b-4310-8cae-8984fc9213cf" xml:space="preserve">
+          <source>Make sure that the clouds appear in the Site Recovery portal, and <bpt id="1eaeaa7a-1f45-4389-8643-56f3827665d2">&lt;linkText&gt;</bpt>configure cloud protection settings<ept id="1eaeaa7a-1f45-4389-8643-56f3827665d2">&lt;/linkText&gt;</ept><bpt id="1eaeaa7a-1f45-4389-8643-56f3827665d2">&lt;title&gt;</bpt><ept id="1eaeaa7a-1f45-4389-8643-56f3827665d2">&lt;/title&gt;</ept>.</source>
+          <target state="new">Make sure that the clouds appear in the Site Recovery portal, and <bpt id="1eaeaa7a-1f45-4389-8643-56f3827665d2">&lt;linkText&gt;</bpt>configure cloud protection settings<ept id="1eaeaa7a-1f45-4389-8643-56f3827665d2">&lt;/linkText&gt;</ept><bpt id="1eaeaa7a-1f45-4389-8643-56f3827665d2">&lt;title&gt;</bpt><ept id="1eaeaa7a-1f45-4389-8643-56f3827665d2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2b96579-e2cb-40a2-bd87-8bc31c6b0048" xml:space="preserve">
+          <source>In <bpt id="6b9fe0fb-5590-494d-aca5-796ea2489d43">&lt;strong&gt;</bpt>Source Location<ept id="6b9fe0fb-5590-494d-aca5-796ea2489d43">&lt;/strong&gt;</ept> and <bpt id="91f43d41-b289-4ba4-85e2-cbf8797e9cf8">&lt;strong&gt;</bpt>Target Location<ept id="91f43d41-b289-4ba4-85e2-cbf8797e9cf8">&lt;/strong&gt;</ept>, specify the name of the single VMM server.</source>
+          <target state="new">In <bpt id="6b9fe0fb-5590-494d-aca5-796ea2489d43">&lt;strong&gt;</bpt>Source Location<ept id="6b9fe0fb-5590-494d-aca5-796ea2489d43">&lt;/strong&gt;</ept> and <bpt id="91f43d41-b289-4ba4-85e2-cbf8797e9cf8">&lt;strong&gt;</bpt>Target Location<ept id="91f43d41-b289-4ba4-85e2-cbf8797e9cf8">&lt;/strong&gt;</ept>, specify the name of the single VMM server.</target>
+        </trans-unit>
+        <trans-unit id="dbe6cbb2-19c5-4324-bc7a-c955005f4775" xml:space="preserve">
+          <source>In <bpt id="231af718-3890-4599-b1d6-6a07fa5c4283">&lt;strong&gt;</bpt>Replication Method<ept id="231af718-3890-4599-b1d6-6a07fa5c4283">&lt;/strong&gt;</ept>, select <bpt id="18951abb-ad1b-4066-954f-7abc79057f25">&lt;strong&gt;</bpt>Over the network<ept id="18951abb-ad1b-4066-954f-7abc79057f25">&lt;/strong&gt;</ept> for the initial replication because the clouds are located on the same server.</source>
+          <target state="new">In <bpt id="231af718-3890-4599-b1d6-6a07fa5c4283">&lt;strong&gt;</bpt>Replication Method<ept id="231af718-3890-4599-b1d6-6a07fa5c4283">&lt;/strong&gt;</ept>, select <bpt id="18951abb-ad1b-4066-954f-7abc79057f25">&lt;strong&gt;</bpt>Over the network<ept id="18951abb-ad1b-4066-954f-7abc79057f25">&lt;/strong&gt;</ept> for the initial replication because the clouds are located on the same server.</target>
+        </trans-unit>
+        <trans-unit id="81e54c75-ba45-4e74-8f15-af4475344b8f" xml:space="preserve">
+          <source>Optionally <bpt id="f80f3e38-efa5-4d24-930e-626e264143fe">&lt;linkText&gt;</bpt>configure network mapping<ept id="f80f3e38-efa5-4d24-930e-626e264143fe">&lt;/linkText&gt;</ept><bpt id="f80f3e38-efa5-4d24-930e-626e264143fe">&lt;title&gt;</bpt><ept id="f80f3e38-efa5-4d24-930e-626e264143fe">&lt;/title&gt;</ept>:</source>
+          <target state="new">Optionally <bpt id="f80f3e38-efa5-4d24-930e-626e264143fe">&lt;linkText&gt;</bpt>configure network mapping<ept id="f80f3e38-efa5-4d24-930e-626e264143fe">&lt;/linkText&gt;</ept><bpt id="f80f3e38-efa5-4d24-930e-626e264143fe">&lt;title&gt;</bpt><ept id="f80f3e38-efa5-4d24-930e-626e264143fe">&lt;/title&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a677c006-8246-41e2-a161-4f6fb7291ea5" xml:space="preserve">
+          <source>In <bpt id="9c1f0abb-7171-494a-a4fa-ffc277989d97">&lt;strong&gt;</bpt>Source<ept id="9c1f0abb-7171-494a-a4fa-ffc277989d97">&lt;/strong&gt;</ept> and <bpt id="77cc26e9-68ee-4e56-934d-e2f7fc93b5a2">&lt;strong&gt;</bpt>Target<ept id="77cc26e9-68ee-4e56-934d-e2f7fc93b5a2">&lt;/strong&gt;</ept> specify the name of the single VMM server.</source>
+          <target state="new">In <bpt id="9c1f0abb-7171-494a-a4fa-ffc277989d97">&lt;strong&gt;</bpt>Source<ept id="9c1f0abb-7171-494a-a4fa-ffc277989d97">&lt;/strong&gt;</ept> and <bpt id="77cc26e9-68ee-4e56-934d-e2f7fc93b5a2">&lt;strong&gt;</bpt>Target<ept id="77cc26e9-68ee-4e56-934d-e2f7fc93b5a2">&lt;/strong&gt;</ept> specify the name of the single VMM server.</target>
+        </trans-unit>
+        <trans-unit id="6bd51985-ef89-487f-a624-6ce523cc1dbe" xml:space="preserve">
+          <source>In <bpt id="f0e95138-64aa-4a52-a89c-5b0747071b03">&lt;strong&gt;</bpt>Network on Source<ept id="f0e95138-64aa-4a52-a89c-5b0747071b03">&lt;/strong&gt;</ept> select the VM network that’s configured for the cloud you’re protecting.</source>
+          <target state="new">In <bpt id="f0e95138-64aa-4a52-a89c-5b0747071b03">&lt;strong&gt;</bpt>Network on Source<ept id="f0e95138-64aa-4a52-a89c-5b0747071b03">&lt;/strong&gt;</ept> select the VM network that’s configured for the cloud you’re protecting.</target>
+        </trans-unit>
+        <trans-unit id="15bab7b6-3688-429e-9efa-7c8dcb15c663" xml:space="preserve">
+          <source>In <bpt id="5bd585c0-f2a2-4218-b9b6-463c88949297">&lt;strong&gt;</bpt>Network on Target<ept id="5bd585c0-f2a2-4218-b9b6-463c88949297">&lt;/strong&gt;</ept> select the VM network that’s configured for the cloud you want to use for protection.</source>
+          <target state="new">In <bpt id="5bd585c0-f2a2-4218-b9b6-463c88949297">&lt;strong&gt;</bpt>Network on Target<ept id="5bd585c0-f2a2-4218-b9b6-463c88949297">&lt;/strong&gt;</ept> select the VM network that’s configured for the cloud you want to use for protection.</target>
+        </trans-unit>
+        <trans-unit id="f9d7bbce-957d-4a51-bec4-a75335326145" xml:space="preserve">
+          <source>Network mapping can be configured between two virtual machine (VM) networks on the same VMM server.</source>
+          <target state="new">Network mapping can be configured between two virtual machine (VM) networks on the same VMM server.</target>
+        </trans-unit>
+        <trans-unit id="c0eff63c-c19a-411a-8cd5-ac8bb3a8f9b4" xml:space="preserve">
+          <source>If the same VMM network exists in two different sites, you can map between the same networks.</source>
+          <target state="new">If the same VMM network exists in two different sites, you can map between the same networks.</target>
+        </trans-unit>
+        <trans-unit id="1d8b6c5b-66c2-4816-8c5e-b70c879f0cf1" xml:space="preserve">
+          <source><bpt id="5678e149-e4e8-4d06-93f7-8030f0c3d08e">&lt;linkText&gt;</bpt>Enable protection<ept id="5678e149-e4e8-4d06-93f7-8030f0c3d08e">&lt;/linkText&gt;</ept><bpt id="5678e149-e4e8-4d06-93f7-8030f0c3d08e">&lt;title&gt;</bpt><ept id="5678e149-e4e8-4d06-93f7-8030f0c3d08e">&lt;/title&gt;</ept> for virtual machines in the VMM cloud you want to protect.</source>
+          <target state="new"><bpt id="5678e149-e4e8-4d06-93f7-8030f0c3d08e">&lt;linkText&gt;</bpt>Enable protection<ept id="5678e149-e4e8-4d06-93f7-8030f0c3d08e">&lt;/linkText&gt;</ept><bpt id="5678e149-e4e8-4d06-93f7-8030f0c3d08e">&lt;title&gt;</bpt><ept id="5678e149-e4e8-4d06-93f7-8030f0c3d08e">&lt;/title&gt;</ept> for virtual machines in the VMM cloud you want to protect.</target>
+        </trans-unit>
+        <trans-unit id="54817df6-0e81-4b00-802e-99712ada40ba" xml:space="preserve">
+          <source>In the Hyper-V Manager console, set up replication for the VMM virtual machine with Hyper-V Replica.</source>
+          <target state="new">In the Hyper-V Manager console, set up replication for the VMM virtual machine with Hyper-V Replica.</target>
+        </trans-unit>
+        <trans-unit id="a7dd5d0b-9565-453d-9ac3-93d43d77b348" xml:space="preserve">
+          <source>The VMM virtual machine shouldn't be added to any VMM clouds.</source>
+          <target state="new">The VMM virtual machine shouldn't be added to any VMM clouds.</target>
+        </trans-unit>
+        <trans-unit id="4c453803-d70c-4e6e-99e9-ff94accc2915" xml:space="preserve">
+          <source>Recovery plans group together virtual machines that should be failed over and recovered together.</source>
+          <target state="new">Recovery plans group together virtual machines that should be failed over and recovered together.</target>
+        </trans-unit>
+        <trans-unit id="725c3828-9884-476c-bd90-307b5b70df9e" xml:space="preserve">
+          <source>When you create a recovery plan in <bpt id="80c3bdee-e76b-40c2-a0cd-a447a842795a">&lt;strong&gt;</bpt>Source<ept id="80c3bdee-e76b-40c2-a0cd-a447a842795a">&lt;/strong&gt;</ept> and <bpt id="8986ac43-9549-4f3e-986a-542af0f1d33b">&lt;strong&gt;</bpt>Target<ept id="8986ac43-9549-4f3e-986a-542af0f1d33b">&lt;/strong&gt;</ept> specify the name of the single VMM server.</source>
+          <target state="new">When you create a recovery plan in <bpt id="80c3bdee-e76b-40c2-a0cd-a447a842795a">&lt;strong&gt;</bpt>Source<ept id="80c3bdee-e76b-40c2-a0cd-a447a842795a">&lt;/strong&gt;</ept> and <bpt id="8986ac43-9549-4f3e-986a-542af0f1d33b">&lt;strong&gt;</bpt>Target<ept id="8986ac43-9549-4f3e-986a-542af0f1d33b">&lt;/strong&gt;</ept> specify the name of the single VMM server.</target>
+        </trans-unit>
+        <trans-unit id="62eb2b90-0ae6-4168-b73a-3f1e4267e659" xml:space="preserve">
+          <source>In <bpt id="3d71afdd-3a92-41da-af45-8e3b1aa8f24f">&lt;strong&gt;</bpt>Select Virtual Machines<ept id="3d71afdd-3a92-41da-af45-8e3b1aa8f24f">&lt;/strong&gt;</ept>, virtual machines that are associated with the primary cloud will be displayed.</source>
+          <target state="new">In <bpt id="3d71afdd-3a92-41da-af45-8e3b1aa8f24f">&lt;strong&gt;</bpt>Select Virtual Machines<ept id="3d71afdd-3a92-41da-af45-8e3b1aa8f24f">&lt;/strong&gt;</ept>, virtual machines that are associated with the primary cloud will be displayed.</target>
+        </trans-unit>
+        <trans-unit id="9cf423f0-b696-4b52-a9f0-b821ce5cbd1d" xml:space="preserve">
+          <source>Then <bpt id="8b0ad33f-fa42-497c-8233-eb5aa890d6e9">&lt;linkText&gt;</bpt>create and customize recovery plans<ept id="8b0ad33f-fa42-497c-8233-eb5aa890d6e9">&lt;/linkText&gt;</ept><bpt id="8b0ad33f-fa42-497c-8233-eb5aa890d6e9">&lt;title&gt;</bpt><ept id="8b0ad33f-fa42-497c-8233-eb5aa890d6e9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Then <bpt id="8b0ad33f-fa42-497c-8233-eb5aa890d6e9">&lt;linkText&gt;</bpt>create and customize recovery plans<ept id="8b0ad33f-fa42-497c-8233-eb5aa890d6e9">&lt;/linkText&gt;</ept><bpt id="8b0ad33f-fa42-497c-8233-eb5aa890d6e9">&lt;title&gt;</bpt><ept id="8b0ad33f-fa42-497c-8233-eb5aa890d6e9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f95a153c-118d-43ca-8cfe-4ba1e5ad1508" xml:space="preserve">
+          <source>In the event of a disaster workloads can be recovered using the following steps:</source>
+          <target state="new">In the event of a disaster workloads can be recovered using the following steps:</target>
+        </trans-unit>
+        <trans-unit id="96f616d1-8226-469b-9790-061b35a3e002" xml:space="preserve">
+          <source>Manually fail over the replica VMM virtual machine to the recovery site from the Hyper-V Manager console.</source>
+          <target state="new">Manually fail over the replica VMM virtual machine to the recovery site from the Hyper-V Manager console.</target>
+        </trans-unit>
+        <trans-unit id="8e0a09ca-d9a1-4684-b092-49a6c6dcbb16" xml:space="preserve">
+          <source>After the VMM virtual machine has been recovered, you can log into the Hyper-V Recovery Manager console from the portal and do an unplanned failover of the virtual machines from the primary to the recovery site.</source>
+          <target state="new">After the VMM virtual machine has been recovered, you can log into the Hyper-V Recovery Manager console from the portal and do an unplanned failover of the virtual machines from the primary to the recovery site.</target>
+        </trans-unit>
+        <trans-unit id="da3e89ca-a636-4da3-9322-53b9cd61e1f1" xml:space="preserve">
+          <source>After the unplanned failover finishes users can access all the resources at the primary site.</source>
+          <target state="new">After the unplanned failover finishes users can access all the resources at the primary site.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0bc200a4-34c7-4770-ab9d-1017d5595586" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0bc200a4-34c7-4770-ab9d-1017d5595586" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b2626bed-0c6e-4edc-aea0-209ea3951ba5">
+        <trans-unit id="4d8b0590-6d07-499d-a0d1-b537624a9d87" xml:space="preserve">
+          <source>Getting started with cmdlets in SQL Data Warehouse</source>
+          <target state="new">Getting started with cmdlets in SQL Data Warehouse</target>
+        </trans-unit>
+        <trans-unit id="05a21b0d-35c5-4b0d-ae7e-c7874e4db815" xml:space="preserve">
+          <source>Suspend and restart SQL Data Warehouse using PowerShell cmdlets</source>
+          <target state="new">Suspend and restart SQL Data Warehouse using PowerShell cmdlets</target>
+        </trans-unit>
+        <trans-unit id="81754700-b9db-493f-a442-05b46c501f7b" xml:space="preserve">
+          <source>SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs.</source>
+          <target state="new">SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs.</target>
+        </trans-unit>
+        <trans-unit id="f348f9ac-4682-4830-ad12-1f752bce1997" xml:space="preserve">
+          <source>The commands defined for <bpt id="84b5a844-8f54-4175-aae1-cce471fa2b5f">&lt;strong&gt;</bpt>Azure SQL Database<ept id="84b5a844-8f54-4175-aae1-cce471fa2b5f">&lt;/strong&gt;</ept> are also used for <bpt id="05fc6238-9802-492d-af52-60296bc2216b">&lt;strong&gt;</bpt>SQL Data Warehouse<ept id="05fc6238-9802-492d-af52-60296bc2216b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The commands defined for <bpt id="84b5a844-8f54-4175-aae1-cce471fa2b5f">&lt;strong&gt;</bpt>Azure SQL Database<ept id="84b5a844-8f54-4175-aae1-cce471fa2b5f">&lt;/strong&gt;</ept> are also used for <bpt id="05fc6238-9802-492d-af52-60296bc2216b">&lt;strong&gt;</bpt>SQL Data Warehouse<ept id="05fc6238-9802-492d-af52-60296bc2216b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91ea38a1-46d3-44a2-9676-f0e10217f17c" xml:space="preserve">
+          <source>For a current list, see <bpt id="d10f5cec-dc05-472e-a15d-30157806d024">&lt;linkText&gt;</bpt>Azure SQL Cmdlets<ept id="d10f5cec-dc05-472e-a15d-30157806d024">&lt;/linkText&gt;</ept><bpt id="d10f5cec-dc05-472e-a15d-30157806d024">&lt;title&gt;</bpt><ept id="d10f5cec-dc05-472e-a15d-30157806d024">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a current list, see <bpt id="d10f5cec-dc05-472e-a15d-30157806d024">&lt;linkText&gt;</bpt>Azure SQL Cmdlets<ept id="d10f5cec-dc05-472e-a15d-30157806d024">&lt;/linkText&gt;</ept><bpt id="d10f5cec-dc05-472e-a15d-30157806d024">&lt;title&gt;</bpt><ept id="d10f5cec-dc05-472e-a15d-30157806d024">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="768dfae5-3b9b-4267-a796-feaf215545b5" xml:space="preserve">
+          <source>The cmdlets <bpt id="a98d7776-b751-437b-ad9f-96e37fba49bf">&lt;strong&gt;</bpt>Suspend-AzureSqlDatabase<ept id="a98d7776-b751-437b-ad9f-96e37fba49bf">&lt;/strong&gt;</ept> and <bpt id="1096842f-40a8-4b21-bca0-2f348f65bed3">&lt;strong&gt;</bpt>Resume-AzureSqlDatabase<ept id="1096842f-40a8-4b21-bca0-2f348f65bed3">&lt;/strong&gt;</ept> (below) are additions designed for SQL Data Warehouse.</source>
+          <target state="new">The cmdlets <bpt id="a98d7776-b751-437b-ad9f-96e37fba49bf">&lt;strong&gt;</bpt>Suspend-AzureSqlDatabase<ept id="a98d7776-b751-437b-ad9f-96e37fba49bf">&lt;/strong&gt;</ept> and <bpt id="1096842f-40a8-4b21-bca0-2f348f65bed3">&lt;strong&gt;</bpt>Resume-AzureSqlDatabase<ept id="1096842f-40a8-4b21-bca0-2f348f65bed3">&lt;/strong&gt;</ept> (below) are additions designed for SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="66ab0b20-f722-4298-a5e1-20d7a49fbd65" xml:space="preserve">
+          <source>Similarly, the REST APIs for <bpt id="17820029-f645-47dc-9c80-266f28b1da9b">&lt;strong&gt;</bpt>SQL Azure Database<ept id="17820029-f645-47dc-9c80-266f28b1da9b">&lt;/strong&gt;</ept> can also be used for <bpt id="f7bda1af-1be6-4f0f-9bb7-e0dfc9d075ed">&lt;strong&gt;</bpt>SQL Data Warehouse<ept id="f7bda1af-1be6-4f0f-9bb7-e0dfc9d075ed">&lt;/strong&gt;</ept> instances.</source>
+          <target state="new">Similarly, the REST APIs for <bpt id="17820029-f645-47dc-9c80-266f28b1da9b">&lt;strong&gt;</bpt>SQL Azure Database<ept id="17820029-f645-47dc-9c80-266f28b1da9b">&lt;/strong&gt;</ept> can also be used for <bpt id="f7bda1af-1be6-4f0f-9bb7-e0dfc9d075ed">&lt;strong&gt;</bpt>SQL Data Warehouse<ept id="f7bda1af-1be6-4f0f-9bb7-e0dfc9d075ed">&lt;/strong&gt;</ept> instances.</target>
+        </trans-unit>
+        <trans-unit id="0b57cb61-a91f-445b-8840-04680dd1d565" xml:space="preserve">
+          <source>For the current list, see <bpt id="94f72060-56fb-448d-97af-5b4151c77754">&lt;linkText&gt;</bpt>Operations for Azure SQL Databases<ept id="94f72060-56fb-448d-97af-5b4151c77754">&lt;/linkText&gt;</ept><bpt id="94f72060-56fb-448d-97af-5b4151c77754">&lt;title&gt;</bpt><ept id="94f72060-56fb-448d-97af-5b4151c77754">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the current list, see <bpt id="94f72060-56fb-448d-97af-5b4151c77754">&lt;linkText&gt;</bpt>Operations for Azure SQL Databases<ept id="94f72060-56fb-448d-97af-5b4151c77754">&lt;/linkText&gt;</ept><bpt id="94f72060-56fb-448d-97af-5b4151c77754">&lt;title&gt;</bpt><ept id="94f72060-56fb-448d-97af-5b4151c77754">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6116e68-50ac-400c-9283-c3ee3e9e1d06" xml:space="preserve">
+          <source>To download the Azure PowerShell module, run <bpt id="b46b0966-1a66-417b-bc74-cc672c0c1b49">&lt;linkText&gt;</bpt>Microsoft Web Platform Installer<ept id="b46b0966-1a66-417b-bc74-cc672c0c1b49">&lt;/linkText&gt;</ept><bpt id="b46b0966-1a66-417b-bc74-cc672c0c1b49">&lt;title&gt;</bpt><ept id="b46b0966-1a66-417b-bc74-cc672c0c1b49">&lt;/title&gt;</ept>. </source>
+          <target state="new">To download the Azure PowerShell module, run <bpt id="b46b0966-1a66-417b-bc74-cc672c0c1b49">&lt;linkText&gt;</bpt>Microsoft Web Platform Installer<ept id="b46b0966-1a66-417b-bc74-cc672c0c1b49">&lt;/linkText&gt;</ept><bpt id="b46b0966-1a66-417b-bc74-cc672c0c1b49">&lt;title&gt;</bpt><ept id="b46b0966-1a66-417b-bc74-cc672c0c1b49">&lt;/title&gt;</ept>. </target>
+        </trans-unit>
+        <trans-unit id="65fb758c-c270-4649-aa6a-5999c9ea8614" xml:space="preserve">
+          <source>To run the module, at the start window type <bpt id="88919013-ae50-487a-baf7-a8ef504e88a6">&lt;strong&gt;</bpt>Microsoft Azure PowerShell<ept id="88919013-ae50-487a-baf7-a8ef504e88a6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To run the module, at the start window type <bpt id="88919013-ae50-487a-baf7-a8ef504e88a6">&lt;strong&gt;</bpt>Microsoft Azure PowerShell<ept id="88919013-ae50-487a-baf7-a8ef504e88a6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="79143366-0d01-47b5-97a4-e56594df44a7" xml:space="preserve">
+          <source>If you have not already added your account to the machine, run the following cmdlet.</source>
+          <target state="new">If you have not already added your account to the machine, run the following cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="4c91fdb8-60fc-49d7-b89b-8e870562d09b" xml:space="preserve">
+          <source>(For more information, see <bpt id="1f73dd55-f5d2-442a-a018-5169cb1b5c2b">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="1f73dd55-f5d2-442a-a018-5169cb1b5c2b">&lt;/linkText&gt;</ept><bpt id="1f73dd55-f5d2-442a-a018-5169cb1b5c2b">&lt;title&gt;</bpt><ept id="1f73dd55-f5d2-442a-a018-5169cb1b5c2b">&lt;/title&gt;</ept>:</source>
+          <target state="new">(For more information, see <bpt id="1f73dd55-f5d2-442a-a018-5169cb1b5c2b">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="1f73dd55-f5d2-442a-a018-5169cb1b5c2b">&lt;/linkText&gt;</ept><bpt id="1f73dd55-f5d2-442a-a018-5169cb1b5c2b">&lt;title&gt;</bpt><ept id="1f73dd55-f5d2-442a-a018-5169cb1b5c2b">&lt;/title&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="699a4b04-b55f-4d00-956b-f2b1000521c3" xml:space="preserve">
+          <source>Switch the mode with this cmdlet:</source>
+          <target state="new">Switch the mode with this cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="2d28999c-4074-44b5-9f0b-9fc45677203a" xml:space="preserve">
+          <source>This example pauses a database named "Database02" hosted on a server named "Server01."</source>
+          <target state="new">This example pauses a database named "Database02" hosted on a server named "Server01."</target>
+        </trans-unit>
+        <trans-unit id="b84365dd-7951-4a6f-ad49-ec32a7f27c7a" xml:space="preserve">
+          <source>The server is in an Azure resource group named "ResourceGroup1."</source>
+          <target state="new">The server is in an Azure resource group named "ResourceGroup1."</target>
+        </trans-unit>
+        <trans-unit id="e423863d-71c0-41a4-b3e8-209a578ed20b" xml:space="preserve">
+          <source>This example retrieves a database named "Database02" from a server named "Server01" contained in a resource group named "ResourceGroup1."</source>
+          <target state="new">This example retrieves a database named "Database02" from a server named "Server01" contained in a resource group named "ResourceGroup1."</target>
+        </trans-unit>
+        <trans-unit id="19261880-95e3-4823-8bfd-606296d9f6c2" xml:space="preserve">
+          <source>It pipes the retrieved object to <bpt id="be3a6e08-684b-4d6c-aebb-5e683edc831f">&lt;strong&gt;</bpt>Suspend-AzureSqlDatabase<ept id="be3a6e08-684b-4d6c-aebb-5e683edc831f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">It pipes the retrieved object to <bpt id="be3a6e08-684b-4d6c-aebb-5e683edc831f">&lt;strong&gt;</bpt>Suspend-AzureSqlDatabase<ept id="be3a6e08-684b-4d6c-aebb-5e683edc831f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3521348f-b631-4d2d-b6a5-0cf535075ac8" xml:space="preserve">
+          <source>As a result, the database is paused.</source>
+          <target state="new">As a result, the database is paused.</target>
+        </trans-unit>
+        <trans-unit id="68affb9d-b3f1-463c-8f07-b3a4b1000a4c" xml:space="preserve">
+          <source>This example resumes operation of a database named "Database02" hosted on a server named "Server01."</source>
+          <target state="new">This example resumes operation of a database named "Database02" hosted on a server named "Server01."</target>
+        </trans-unit>
+        <trans-unit id="5ec01dee-6c48-4ca9-934b-394030a40505" xml:space="preserve">
+          <source>The server is contained in a resource group named "ResourceGroup1."</source>
+          <target state="new">The server is contained in a resource group named "ResourceGroup1."</target>
+        </trans-unit>
+        <trans-unit id="d86c2b38-49cd-48a2-977d-bbd6f1e140fa" xml:space="preserve">
+          <source>This example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1."</source>
+          <target state="new">This example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1."</target>
+        </trans-unit>
+        <trans-unit id="a5afef8e-1bca-4bc5-8090-983897e38017" xml:space="preserve">
+          <source>The object is piped to <bpt id="b28c7b02-a7d2-4dca-95d1-97a0c11d2582">&lt;strong&gt;</bpt>Resume-AzureSqlDatabase<ept id="b28c7b02-a7d2-4dca-95d1-97a0c11d2582">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The object is piped to <bpt id="b28c7b02-a7d2-4dca-95d1-97a0c11d2582">&lt;strong&gt;</bpt>Resume-AzureSqlDatabase<ept id="b28c7b02-a7d2-4dca-95d1-97a0c11d2582">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="508d95f5-1125-484a-b13d-bef2ebf28a76" xml:space="preserve">
+          <source>This cmdlet lists the backup restore points for an Azure SQL database.</source>
+          <target state="new">This cmdlet lists the backup restore points for an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="2f016f53-b192-4c16-8722-da515b7e4b1a" xml:space="preserve">
+          <source>The restore points are used to restore the database.</source>
+          <target state="new">The restore points are used to restore the database.</target>
+        </trans-unit>
+        <trans-unit id="82a5478d-411d-440f-a542-a4a09deb1469" xml:space="preserve">
+          <source>The properties for the returned object are as follows.</source>
+          <target state="new">The properties for the returned object are as follows.</target>
+        </trans-unit>
+        <trans-unit id="836ee9bc-11e2-42bd-b8ea-fd209af0cafe" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="0d71d591-f062-42f7-b737-cb0c35abc25f" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="1dab7e86-c845-49da-901b-8d2081b00900" xml:space="preserve">
+          <source>RestorePointType</source>
+          <target state="new">RestorePointType</target>
+        </trans-unit>
+        <trans-unit id="11c63dc1-8cd4-4f8b-b903-c1e5335ac522" xml:space="preserve">
+          <source>DISCRETE / CONTINUOUS.</source>
+          <target state="new">DISCRETE / CONTINUOUS.</target>
+        </trans-unit>
+        <trans-unit id="38634939-b94f-4ab4-b72b-ec0777343369" xml:space="preserve">
+          <source>Discrete restore points describe the possible point-in-times that an Azure SQL database can be restored to.</source>
+          <target state="new">Discrete restore points describe the possible point-in-times that an Azure SQL database can be restored to.</target>
+        </trans-unit>
+        <trans-unit id="dbd25e39-6f8f-4e51-b5b1-702dab9e3134" xml:space="preserve">
+          <source>Continuous restore points describe the earliest possible point-in-times that an Azure SQL database can be restored to.</source>
+          <target state="new">Continuous restore points describe the earliest possible point-in-times that an Azure SQL database can be restored to.</target>
+        </trans-unit>
+        <trans-unit id="0f19cb8c-8d65-4012-ab87-b06ef3cb4eb5" xml:space="preserve">
+          <source>The database can be restored to any point-in-time after the earliest point.</source>
+          <target state="new">The database can be restored to any point-in-time after the earliest point.</target>
+        </trans-unit>
+        <trans-unit id="838841e6-35af-45ed-bbea-8a518f9420cf" xml:space="preserve">
+          <source>EarliestRestoreDate</source>
+          <target state="new">EarliestRestoreDate</target>
+        </trans-unit>
+        <trans-unit id="18bef448-b8c7-42dc-9ba6-c39a6076886d" xml:space="preserve">
+          <source>Earliest Restore Time (Populated when restorePointType = CONTINUOUS)</source>
+          <target state="new">Earliest Restore Time (Populated when restorePointType = CONTINUOUS)</target>
+        </trans-unit>
+        <trans-unit id="dbea5f46-fa13-45a8-ac6d-def6390c91f4" xml:space="preserve">
+          <source>RestorePointCreationDate</source>
+          <target state="new">RestorePointCreationDate</target>
+        </trans-unit>
+        <trans-unit id="9b98e214-e8e4-4f08-989d-b234c8ab8c8f" xml:space="preserve">
+          <source>Backup Snapshot Time (Populated when restorePointType = DISCRETE)</source>
+          <target state="new">Backup Snapshot Time (Populated when restorePointType = DISCRETE)</target>
+        </trans-unit>
+        <trans-unit id="c6c2f5b8-5637-490b-afbc-6ec7f8cd214c" xml:space="preserve">
+          <source>This example retrieves the restore points for a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1."</source>
+          <target state="new">This example retrieves the restore points for a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1."</target>
+        </trans-unit>
+        <trans-unit id="1418f81e-88c9-4e71-a16f-8cb6600f33a6" xml:space="preserve">
+          <source>This example retrieves a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1."</source>
+          <target state="new">This example retrieves a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1."</target>
+        </trans-unit>
+        <trans-unit id="05c8c3ca-8a1a-410d-9862-e182a7c23b31" xml:space="preserve">
+          <source>The database object is piped to <bpt id="6264e549-2487-489b-8c43-d2c9a8b4b14c">&lt;strong&gt;</bpt>Get-AzureSqlDatabase<ept id="6264e549-2487-489b-8c43-d2c9a8b4b14c">&lt;/strong&gt;</ept>, and the result is the database’s restore points.</source>
+          <target state="new">The database object is piped to <bpt id="6264e549-2487-489b-8c43-d2c9a8b4b14c">&lt;strong&gt;</bpt>Get-AzureSqlDatabase<ept id="6264e549-2487-489b-8c43-d2c9a8b4b14c">&lt;/strong&gt;</ept>, and the result is the database’s restore points.</target>
+        </trans-unit>
+        <trans-unit id="95cbb36b-07c1-4ab5-a1d8-d28ef85698ac" xml:space="preserve">
+          <source>Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the powershell cmdlets.</source>
+          <target state="new">Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the powershell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="2f4b9c57-1269-48d2-9bad-535448442fc8" xml:space="preserve">
+          <source>For more reference information, see <bpt id="89ab257e-ae69-445c-bd17-724566ab6c4a">&lt;linkText&gt;</bpt>SQL Data Warehouse reference overview<ept id="89ab257e-ae69-445c-bd17-724566ab6c4a">&lt;/linkText&gt;</ept><bpt id="89ab257e-ae69-445c-bd17-724566ab6c4a">&lt;title&gt;</bpt><ept id="89ab257e-ae69-445c-bd17-724566ab6c4a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more reference information, see <bpt id="89ab257e-ae69-445c-bd17-724566ab6c4a">&lt;linkText&gt;</bpt>SQL Data Warehouse reference overview<ept id="89ab257e-ae69-445c-bd17-724566ab6c4a">&lt;/linkText&gt;</ept><bpt id="89ab257e-ae69-445c-bd17-724566ab6c4a">&lt;title&gt;</bpt><ept id="89ab257e-ae69-445c-bd17-724566ab6c4a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc987f29-1916-4762-9d5c-39674151f69b" xml:space="preserve">
+          <source>sql-data-warehouse-overview-reference.md</source>
+          <target state="new">sql-data-warehouse-overview-reference.md</target>
+        </trans-unit>
+        <trans-unit id="ad1799ee-7e24-4de5-afcd-a7fcfc295d6a" xml:space="preserve">
+          <source>powershell-install-configure.md</source>
+          <target state="new">powershell-install-configure.md</target>
+        </trans-unit>
+        <trans-unit id="5353a297-6b4e-4e39-9d23-4f711e4720df" xml:space="preserve">
+          <source>http://google.com/</source>
+          <target state="new">http://google.com/</target>
+        </trans-unit>
+        <trans-unit id="110749ef-4d60-4b3c-b9da-d61a7d27f91d" xml:space="preserve">
+          <source>http://search.yahoo.com/</source>
+          <target state="new">http://search.yahoo.com/</target>
+        </trans-unit>
+        <trans-unit id="6a73d3e2-ed9d-40d6-aeb7-d65138e56416" xml:space="preserve">
+          <source>http://search.msn.com/</source>
+          <target state="new">http://search.msn.com/</target>
+        </trans-unit>
+      </group>
+      <group id="232c1296-04b7-4e65-beba-78081a45f15e" />
+    </body>
+  </file>
+</xliff>

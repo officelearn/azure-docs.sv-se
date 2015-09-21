@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1ceabcb2-d6bc-4600-9777-59d1063fe717" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1ceabcb2-d6bc-4600-9777-59d1063fe717" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8f2a965d-ba33-4ae3-844a-a31f154965f4">
+        <trans-unit id="ffb70c56-8e81-47af-aa51-fafd05560be5" xml:space="preserve">
+          <source>Azure Mobile Engagement Android SDK Integration</source>
+          <target state="new">Azure Mobile Engagement Android SDK Integration</target>
+        </trans-unit>
+        <trans-unit id="c7d01d4a-d58e-43ac-96d3-6b42eb0fe566" xml:space="preserve">
+          <source>Latest updates and procedures for Android SDK for Azure Mobile Engagement</source>
+          <target state="new">Latest updates and procedures for Android SDK for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="a1336990-d4b2-4b07-b529-c044eaccf9b0" xml:space="preserve">
+          <source>You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.</source>
+          <target state="new">You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.</target>
+        </trans-unit>
+        <trans-unit id="d2f02e8d-fbf0-4177-8600-048a2d56a930" xml:space="preserve">
+          <source>This document is useful only if you integrated either the Reach module for any time campaign support.</source>
+          <target state="new">This document is useful only if you integrated either the Reach module for any time campaign support.</target>
+        </trans-unit>
+        <trans-unit id="101cadf6-001a-46d3-886f-c59f7fe78682" xml:space="preserve">
+          <source>To integrate Reach campaigns in your application, please read first How to Integrate Engagement Reach on Android.</source>
+          <target state="new">To integrate Reach campaigns in your application, please read first How to Integrate Engagement Reach on Android.</target>
+        </trans-unit>
+        <trans-unit id="9ec5f7fd-1cdb-4980-86e3-3f4b212bbfa1" xml:space="preserve">
+          <source>Integrating GCM allows your application to be pushed even when it's not running.</source>
+          <target state="new">Integrating GCM allows your application to be pushed even when it's not running.</target>
+        </trans-unit>
+        <trans-unit id="6c880ef1-2d98-4670-9c27-651d34fd6d39" xml:space="preserve">
+          <source>No campaign data is actually sent via GCM, it's just a background signal telling the application to fetch the Engagement push.</source>
+          <target state="new">No campaign data is actually sent via GCM, it's just a background signal telling the application to fetch the Engagement push.</target>
+        </trans-unit>
+        <trans-unit id="5b310101-ce71-45a3-bc15-bd101bb95710" xml:space="preserve">
+          <source>If the application is not running while receiving a GCM push, it triggers a connection to the Engagement servers to fetch the push, the Engagement connection remains active for about a minute in case the user launches the application in the response to the push.</source>
+          <target state="new">If the application is not running while receiving a GCM push, it triggers a connection to the Engagement servers to fetch the push, the Engagement connection remains active for about a minute in case the user launches the application in the response to the push.</target>
+        </trans-unit>
+        <trans-unit id="0b54be76-9efe-4cf0-b645-b2d1ac044fa7" xml:space="preserve">
+          <source>For your information, Engagement uses only [Send-to-Sync] messages with the <bpt id="c05c8759-a960-4c44-8b81-c8f5eee351bb">&lt;code&gt;</bpt>engagement.tickle<ept id="c05c8759-a960-4c44-8b81-c8f5eee351bb">&lt;/code&gt;</ept> collapse key.</source>
+          <target state="new">For your information, Engagement uses only [Send-to-Sync] messages with the <bpt id="c05c8759-a960-4c44-8b81-c8f5eee351bb">&lt;code&gt;</bpt>engagement.tickle<ept id="c05c8759-a960-4c44-8b81-c8f5eee351bb">&lt;/code&gt;</ept> collapse key.</target>
+        </trans-unit>
+        <trans-unit id="a852e1dd-b75f-4dd6-b74f-be34d98ec6ef" xml:space="preserve">
+          <source>Only devices running Android 2.2 or above, having Google Play installed and having Google background connection enabled can be woken up by GCM; however, you can integrate this code safely on older versions of the Android SDK and on devices that can't support GCM (it just uses intents).</source>
+          <target state="new">Only devices running Android 2.2 or above, having Google Play installed and having Google background connection enabled can be woken up by GCM; however, you can integrate this code safely on older versions of the Android SDK and on devices that can't support GCM (it just uses intents).</target>
+        </trans-unit>
+        <trans-unit id="cdadf189-9b5e-423e-b509-1e8709e2a3ec" xml:space="preserve">
+          <source>If the application cannot be woken up by GCM, the Engagement notification will be received the next time the application is launched.</source>
+          <target state="new">If the application cannot be woken up by GCM, the Engagement notification will be received the next time the application is launched.</target>
+        </trans-unit>
+        <trans-unit id="696e155b-4944-4d30-876d-73b148e6412f" xml:space="preserve">
+          <source>If your own client code manages C2DM registration identifiers while the Engagement SDK is configured to use GCM, a conflict on the registration identifiers occurs, use GCM in Engagement only if your own code does not use C2DM.</source>
+          <target state="new">If your own client code manages C2DM registration identifiers while the Engagement SDK is configured to use GCM, a conflict on the registration identifiers occurs, use GCM in Engagement only if your own code does not use C2DM.</target>
+        </trans-unit>
+        <trans-unit id="7337f8d2-7197-45a0-87d7-27a1f4d22d44" xml:space="preserve">
+          <source>If not already done, you must enable the GCM Service on your Google account.</source>
+          <target state="new">If not already done, you must enable the GCM Service on your Google account.</target>
+        </trans-unit>
+        <trans-unit id="2c0fcf2d-23dd-47ac-bc89-9857e7e5998a" xml:space="preserve">
+          <source>At the time of writing this document (February 5th, 2014), you can follow the procedure at: [&lt;http://developer.android.com/guide/google/gcm/gs.html&gt;].</source>
+          <target state="new">At the time of writing this document (February 5th, 2014), you can follow the procedure at: [&lt;http://developer.android.com/guide/google/gcm/gs.html&gt;].</target>
+        </trans-unit>
+        <trans-unit id="556ee854-ba0e-465f-89f6-efaad8a5b791" xml:space="preserve">
+          <source>Follow that procedure just to enable GCM on your account.</source>
+          <target state="new">Follow that procedure just to enable GCM on your account.</target>
+        </trans-unit>
+        <trans-unit id="dcb6d6de-7c5c-4a05-8d2e-e7ee0ad42cec" xml:space="preserve">
+          <source>When you reach the <bpt id="e01bbcc0-427a-4c74-9c12-1086c6994d47">&lt;strong&gt;</bpt>Obtaining an API Key<ept id="e01bbcc0-427a-4c74-9c12-1086c6994d47">&lt;/strong&gt;</ept> section, don't read it and go back to this page instead of following the Google procedure any further.</source>
+          <target state="new">When you reach the <bpt id="e01bbcc0-427a-4c74-9c12-1086c6994d47">&lt;strong&gt;</bpt>Obtaining an API Key<ept id="e01bbcc0-427a-4c74-9c12-1086c6994d47">&lt;/strong&gt;</ept> section, don't read it and go back to this page instead of following the Google procedure any further.</target>
+        </trans-unit>
+        <trans-unit id="066bb2ae-ba8a-434a-bdc2-be6e56014f8b" xml:space="preserve">
+          <source>The procedure explains that the <bpt id="b6852a34-8357-4b93-8cac-8efd13743c8a">&lt;strong&gt;</bpt>Project Number<ept id="b6852a34-8357-4b93-8cac-8efd13743c8a">&lt;/strong&gt;</ept> is used as the <bpt id="634d0601-abab-445b-b738-8665c38f819a">&lt;strong&gt;</bpt>GCM sender ID<ept id="634d0601-abab-445b-b738-8665c38f819a">&lt;/strong&gt;</ept>, you need it later in this procedure.</source>
+          <target state="new">The procedure explains that the <bpt id="b6852a34-8357-4b93-8cac-8efd13743c8a">&lt;strong&gt;</bpt>Project Number<ept id="b6852a34-8357-4b93-8cac-8efd13743c8a">&lt;/strong&gt;</ept> is used as the <bpt id="634d0601-abab-445b-b738-8665c38f819a">&lt;strong&gt;</bpt>GCM sender ID<ept id="634d0601-abab-445b-b738-8665c38f819a">&lt;/strong&gt;</ept>, you need it later in this procedure.</target>
+        </trans-unit>
+        <trans-unit id="bd1030b2-3276-4ede-8ae5-0250fd8e4a75" xml:space="preserve">
+          <source><bpt id="90a70489-4d3e-404c-afd5-a81d276126be">&lt;strong&gt;</bpt>Project Number<ept id="90a70489-4d3e-404c-afd5-a81d276126be">&lt;/strong&gt;</ept> is not to be confused with <bpt id="e461a307-ca0b-45dc-baf9-6c2eea6c47d9">&lt;strong&gt;</bpt>Project ID<ept id="e461a307-ca0b-45dc-baf9-6c2eea6c47d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="90a70489-4d3e-404c-afd5-a81d276126be">&lt;strong&gt;</bpt>Project Number<ept id="90a70489-4d3e-404c-afd5-a81d276126be">&lt;/strong&gt;</ept> is not to be confused with <bpt id="e461a307-ca0b-45dc-baf9-6c2eea6c47d9">&lt;strong&gt;</bpt>Project ID<ept id="e461a307-ca0b-45dc-baf9-6c2eea6c47d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0b85c87-47d1-4f58-b133-1d1aa717cf4e" xml:space="preserve">
+          <source>Project ID can now be different (it's a name on new projects).</source>
+          <target state="new">Project ID can now be different (it's a name on new projects).</target>
+        </trans-unit>
+        <trans-unit id="05ddde58-65ea-4c43-95d1-e731a02b9a17" xml:space="preserve">
+          <source>What you need to integrate in the Engagement SDK is the <bpt id="575bb7b7-c0bb-4680-b2dd-a36c288edfb5">&lt;strong&gt;</bpt>Project Number<ept id="575bb7b7-c0bb-4680-b2dd-a36c288edfb5">&lt;/strong&gt;</ept> and is displayed in the <bpt id="211e6fb2-22ac-4f71-bbf9-e4746f0ec925">&lt;strong&gt;</bpt>Overview<ept id="211e6fb2-22ac-4f71-bbf9-e4746f0ec925">&lt;/strong&gt;</ept> menu in the [Google Developers Console].</source>
+          <target state="new">What you need to integrate in the Engagement SDK is the <bpt id="575bb7b7-c0bb-4680-b2dd-a36c288edfb5">&lt;strong&gt;</bpt>Project Number<ept id="575bb7b7-c0bb-4680-b2dd-a36c288edfb5">&lt;/strong&gt;</ept> and is displayed in the <bpt id="211e6fb2-22ac-4f71-bbf9-e4746f0ec925">&lt;strong&gt;</bpt>Overview<ept id="211e6fb2-22ac-4f71-bbf9-e4746f0ec925">&lt;/strong&gt;</ept> menu in the [Google Developers Console].</target>
+        </trans-unit>
+        <trans-unit id="5ca569b1-74d8-4526-ab17-65eedb70ed2c" xml:space="preserve">
+          <source>Each device must send a registration command to the Google servers, otherwise they can't be reached.</source>
+          <target state="new">Each device must send a registration command to the Google servers, otherwise they can't be reached.</target>
+        </trans-unit>
+        <trans-unit id="1bb2c3e9-b48d-44fb-8653-19098ad367d8" xml:space="preserve">
+          <source>A device can also unregister from GCM notifications (the device is automatically unregistered if the application is uninstalled).</source>
+          <target state="new">A device can also unregister from GCM notifications (the device is automatically unregistered if the application is uninstalled).</target>
+        </trans-unit>
+        <trans-unit id="46f50b8e-e139-4e7e-8ea9-28fbddacb0b6" xml:space="preserve">
+          <source>If you use the [GCM client library], you can directly read android-sdk-gcm-receive.</source>
+          <target state="new">If you use the [GCM client library], you can directly read android-sdk-gcm-receive.</target>
+        </trans-unit>
+        <trans-unit id="27088c1b-33b8-4bbf-8078-48dbf08c49e0" xml:space="preserve">
+          <source>If you don't already send the registration intent yourself, you can make Engagement register the device automatically for you.</source>
+          <target state="new">If you don't already send the registration intent yourself, you can make Engagement register the device automatically for you.</target>
+        </trans-unit>
+        <trans-unit id="b73f2c3f-e33d-4263-b239-f0454483d2a4" xml:space="preserve">
+          <source>To enable this, add the following to your <bpt id="ed10512b-4784-458a-85f7-c1b29eebaa2d">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="ed10512b-4784-458a-85f7-c1b29eebaa2d">&lt;/code&gt;</ept> file, inside the <bpt id="bf59e6f3-678c-40eb-9d95-f0c52910c0bc">&lt;code&gt;</bpt>&lt;application/&gt;<ept id="bf59e6f3-678c-40eb-9d95-f0c52910c0bc">&lt;/code&gt;</ept> tag:</source>
+          <target state="new">To enable this, add the following to your <bpt id="ed10512b-4784-458a-85f7-c1b29eebaa2d">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="ed10512b-4784-458a-85f7-c1b29eebaa2d">&lt;/code&gt;</ept> file, inside the <bpt id="bf59e6f3-678c-40eb-9d95-f0c52910c0bc">&lt;code&gt;</bpt>&lt;application/&gt;<ept id="bf59e6f3-678c-40eb-9d95-f0c52910c0bc">&lt;/code&gt;</ept> tag:</target>
+        </trans-unit>
+        <trans-unit id="062145a7-df87-4b22-b463-e5972064285b" xml:space="preserve">
+          <source>In order to communicate the registration id of the device to the Engagement Push service and receive its notifications, add the following to your <bpt id="61eb9f13-e8b3-4f46-879f-7db771d4c216">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="61eb9f13-e8b3-4f46-879f-7db771d4c216">&lt;/code&gt;</ept> file, inside the <bpt id="c808a0d3-bd6f-4af3-a7c4-9c23c6ff3c30">&lt;code&gt;</bpt>&lt;application/&gt;<ept id="c808a0d3-bd6f-4af3-a7c4-9c23c6ff3c30">&lt;/code&gt;</ept> tag (even if you manage device registrations yourself):</source>
+          <target state="new">In order to communicate the registration id of the device to the Engagement Push service and receive its notifications, add the following to your <bpt id="61eb9f13-e8b3-4f46-879f-7db771d4c216">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="61eb9f13-e8b3-4f46-879f-7db771d4c216">&lt;/code&gt;</ept> file, inside the <bpt id="c808a0d3-bd6f-4af3-a7c4-9c23c6ff3c30">&lt;code&gt;</bpt>&lt;application/&gt;<ept id="c808a0d3-bd6f-4af3-a7c4-9c23c6ff3c30">&lt;/code&gt;</ept> tag (even if you manage device registrations yourself):</target>
+        </trans-unit>
+        <trans-unit id="71f685fb-fa89-4f6b-a877-bac67bea2c96" xml:space="preserve">
+          <source>Ensure you have the following permissions in your <bpt id="7dd1b6ea-0cab-4e2d-b044-c2984fadc01b">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="7dd1b6ea-0cab-4e2d-b044-c2984fadc01b">&lt;/code&gt;</ept> (after the <bpt id="04bbfdce-8fe1-4a7d-b74e-d034923daec0">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="04bbfdce-8fe1-4a7d-b74e-d034923daec0">&lt;/code&gt;</ept> tag).</source>
+          <target state="new">Ensure you have the following permissions in your <bpt id="7dd1b6ea-0cab-4e2d-b044-c2984fadc01b">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="7dd1b6ea-0cab-4e2d-b044-c2984fadc01b">&lt;/code&gt;</ept> (after the <bpt id="04bbfdce-8fe1-4a7d-b74e-d034923daec0">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="04bbfdce-8fe1-4a7d-b74e-d034923daec0">&lt;/code&gt;</ept> tag).</target>
+        </trans-unit>
+        <trans-unit id="aa9d6efa-f127-45b1-b841-75bb9460f57a" xml:space="preserve">
+          <source>If not already done, create a <bpt id="23430140-44be-40b7-8000-917a3477bec6">&lt;strong&gt;</bpt>Server API Key<ept id="23430140-44be-40b7-8000-917a3477bec6">&lt;/strong&gt;</ept> on [Google Developers Console].</source>
+          <target state="new">If not already done, create a <bpt id="23430140-44be-40b7-8000-917a3477bec6">&lt;strong&gt;</bpt>Server API Key<ept id="23430140-44be-40b7-8000-917a3477bec6">&lt;/strong&gt;</ept> on [Google Developers Console].</target>
+        </trans-unit>
+        <trans-unit id="bbf819d5-bfc9-4b09-8473-2c2dc60e2583" xml:space="preserve">
+          <source>The Server Key <bpt id="2469b12a-d13e-44e1-9f2d-916165d5d244">&lt;strong&gt;</bpt>MUST NOT have IP restriction<ept id="2469b12a-d13e-44e1-9f2d-916165d5d244">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The Server Key <bpt id="2469b12a-d13e-44e1-9f2d-916165d5d244">&lt;strong&gt;</bpt>MUST NOT have IP restriction<ept id="2469b12a-d13e-44e1-9f2d-916165d5d244">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8080bfe-8068-4808-8f5d-81630bf04847" xml:space="preserve">
+          <source>At the time of writing this document (February 5th, 2014), the procedure is the following:</source>
+          <target state="new">At the time of writing this document (February 5th, 2014), the procedure is the following:</target>
+        </trans-unit>
+        <trans-unit id="1d8610d0-730d-4120-a279-16f56cf86ceb" xml:space="preserve">
+          <source>To do so, open [Google Developers Console].</source>
+          <target state="new">To do so, open [Google Developers Console].</target>
+        </trans-unit>
+        <trans-unit id="631829fd-0caf-443e-93e9-766ed6704f3a" xml:space="preserve">
+          <source>Select the same project as earlier in the procedure (the one with the <bpt id="d929ce56-51b7-44ed-90a9-3e141fb25347">&lt;strong&gt;</bpt>Project Number<ept id="d929ce56-51b7-44ed-90a9-3e141fb25347">&lt;/strong&gt;</ept> you integrated in <bpt id="46d2c6fe-5b02-4fe4-90ab-2ef67ec75417">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="46d2c6fe-5b02-4fe4-90ab-2ef67ec75417">&lt;/code&gt;</ept>).</source>
+          <target state="new">Select the same project as earlier in the procedure (the one with the <bpt id="d929ce56-51b7-44ed-90a9-3e141fb25347">&lt;strong&gt;</bpt>Project Number<ept id="d929ce56-51b7-44ed-90a9-3e141fb25347">&lt;/strong&gt;</ept> you integrated in <bpt id="46d2c6fe-5b02-4fe4-90ab-2ef67ec75417">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="46d2c6fe-5b02-4fe4-90ab-2ef67ec75417">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="5889764a-ef48-4565-9b8a-e27e4b9b188b" xml:space="preserve">
+          <source>Go to APIs &amp; auth -\&gt; Credentials, click on "CREATE NEW KEY" in the "Public API access" section.</source>
+          <target state="new">Go to APIs &amp; auth -\&gt; Credentials, click on "CREATE NEW KEY" in the "Public API access" section.</target>
+        </trans-unit>
+        <trans-unit id="1c819845-cde2-4d08-af51-50054f10e137" xml:space="preserve">
+          <source>Select "Server key".</source>
+          <target state="new">Select "Server key".</target>
+        </trans-unit>
+        <trans-unit id="44ba20ff-f2bb-485a-8552-c9c4c45f109f" xml:space="preserve">
+          <source>On next screen, leave it blank <bpt id="c7c4f0a7-1ce5-494e-b1e7-21054d7607bf">&lt;strong&gt;</bpt>(no IP restriction)<ept id="c7c4f0a7-1ce5-494e-b1e7-21054d7607bf">&lt;/strong&gt;</ept>, then click on Create.</source>
+          <target state="new">On next screen, leave it blank <bpt id="c7c4f0a7-1ce5-494e-b1e7-21054d7607bf">&lt;strong&gt;</bpt>(no IP restriction)<ept id="c7c4f0a7-1ce5-494e-b1e7-21054d7607bf">&lt;/strong&gt;</ept>, then click on Create.</target>
+        </trans-unit>
+        <trans-unit id="311a4c00-cfb4-4854-96db-d1de0f85b86c" xml:space="preserve">
+          <source>Copy the generated <bpt id="6dd74ca9-3f0a-4316-b3d7-f86073924a34">&lt;strong&gt;</bpt>API key<ept id="6dd74ca9-3f0a-4316-b3d7-f86073924a34">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy the generated <bpt id="6dd74ca9-3f0a-4316-b3d7-f86073924a34">&lt;strong&gt;</bpt>API key<ept id="6dd74ca9-3f0a-4316-b3d7-f86073924a34">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbe3cb5a-f350-4b87-a8d1-22db1a152953" xml:space="preserve">
+          <source>Go to $/\#application/YOUR\<bpt id="9242cc41-ab15-48a9-8eae-9c4c2d4271bf">&lt;em&gt;</bpt>ENGAGEMENT\<ept id="9242cc41-ab15-48a9-8eae-9c4c2d4271bf">&lt;/em&gt;</ept>APPID/native-push.</source>
+          <target state="new">Go to $/\#application/YOUR\<bpt id="9242cc41-ab15-48a9-8eae-9c4c2d4271bf">&lt;em&gt;</bpt>ENGAGEMENT\<ept id="9242cc41-ab15-48a9-8eae-9c4c2d4271bf">&lt;/em&gt;</ept>APPID/native-push.</target>
+        </trans-unit>
+        <trans-unit id="54e76dcd-887c-4665-8a76-abbaa53959f0" xml:space="preserve">
+          <source>In GCM section edit the API Key with the one you just generated and copied.</source>
+          <target state="new">In GCM section edit the API Key with the one you just generated and copied.</target>
+        </trans-unit>
+        <trans-unit id="1955ff0e-ce1d-4fb0-8e43-2c53439addc2" xml:space="preserve">
+          <source>You are now able to select "Any Time" when creating Reach announcements and polls.</source>
+          <target state="new">You are now able to select "Any Time" when creating Reach announcements and polls.</target>
+        </trans-unit>
+        <trans-unit id="31fc65f9-e900-4fbd-9e09-e3dde04bbd46" xml:space="preserve">
+          <source>Engagement actually needs a <bpt id="b38ffc6d-d190-4cea-9b90-e9d52aa94630">&lt;strong&gt;</bpt>Server Key<ept id="b38ffc6d-d190-4cea-9b90-e9d52aa94630">&lt;/strong&gt;</ept>, an Android Key cannot be used by Engagement servers.</source>
+          <target state="new">Engagement actually needs a <bpt id="b38ffc6d-d190-4cea-9b90-e9d52aa94630">&lt;strong&gt;</bpt>Server Key<ept id="b38ffc6d-d190-4cea-9b90-e9d52aa94630">&lt;/strong&gt;</ept>, an Android Key cannot be used by Engagement servers.</target>
+        </trans-unit>
+        <trans-unit id="c2749c53-9612-4a4f-897a-462682c32761" xml:space="preserve">
+          <source>Now please verify your integration by reading How to Test Engagement Integration on Android.</source>
+          <target state="new">Now please verify your integration by reading How to Test Engagement Integration on Android.</target>
+        </trans-unit>
+        <trans-unit id="dabc5acc-1c60-4ddf-bef2-2beb2ac9fddc" xml:space="preserve">
+          <source>http://developer.android.com/google/gcm/adv.html#collapsible</source>
+          <target state="new">http://developer.android.com/google/gcm/adv.html#collapsible</target>
+        </trans-unit>
+        <trans-unit id="ba5907bf-8bea-4762-ab0b-9228706c2f69" xml:space="preserve">
+          <source>http://developer.android.com/guide/google/gcm/gs.html</source>
+          <target state="new">http://developer.android.com/guide/google/gcm/gs.html</target>
+        </trans-unit>
+        <trans-unit id="a8f9a503-98ce-4f24-bfd3-fcdd26c361e4" xml:space="preserve">
+          <source>https://cloud.google.com/console</source>
+          <target state="new">https://cloud.google.com/console</target>
+        </trans-unit>
+        <trans-unit id="6ea8355a-a8e2-47a0-bf6c-d6f1e534b5c8" xml:space="preserve">
+          <source>http://developer.android.com/guide/google/gcm/gs.html#libs</source>
+          <target state="new">http://developer.android.com/guide/google/gcm/gs.html#libs</target>
+        </trans-unit>
+        <trans-unit id="7577a76f-0c7b-4aef-89a6-c45996ace265" xml:space="preserve">
+          <source>https://cloud.google.com/console</source>
+          <target state="new">https://cloud.google.com/console</target>
+        </trans-unit>
+      </group>
+      <group id="ebaed27f-87bc-4147-b0d9-3ec855c52331" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b23e030a-2412-41b9-aa07-ca62179ee5a1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b23e030a-2412-41b9-aa07-ca62179ee5a1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0e68a6ec-5ee7-4598-83d5-be92849c2d03">
+        <trans-unit id="6dd0cc38-0a5b-4159-b013-e063897f6d58" xml:space="preserve">
+          <source>Securely Connecting to BackEnd Resources from an App Service Environment</source>
+          <target state="new">Securely Connecting to BackEnd Resources from an App Service Environment</target>
+        </trans-unit>
+        <trans-unit id="5b51d6fd-dd79-4794-a5b1-efed6c9ecbb9" xml:space="preserve">
+          <source>Learn about how to securely connect to backend resources from an App Service Environment.</source>
+          <target state="new">Learn about how to securely connect to backend resources from an App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="1ca18957-1737-40a5-ba4d-9e09f901f96c" xml:space="preserve">
+          <source>Since an App Service Environment is always created in a subnet of a regional <bpt id="800ef8e3-0b01-4e50-b823-6ef73f67b7bd">&lt;linkText&gt;</bpt>virtual network[virtualnetwork]<ept id="800ef8e3-0b01-4e50-b823-6ef73f67b7bd">&lt;/linkText&gt;</ept><bpt id="800ef8e3-0b01-4e50-b823-6ef73f67b7bd">&lt;title&gt;</bpt><ept id="800ef8e3-0b01-4e50-b823-6ef73f67b7bd">&lt;/title&gt;</ept>, outbound connections from an App Service Environment to other backend resources can flow exclusively over the virtual network.</source>
+          <target state="new">Since an App Service Environment is always created in a subnet of a regional <bpt id="800ef8e3-0b01-4e50-b823-6ef73f67b7bd">&lt;linkText&gt;</bpt>virtual network[virtualnetwork]<ept id="800ef8e3-0b01-4e50-b823-6ef73f67b7bd">&lt;/linkText&gt;</ept><bpt id="800ef8e3-0b01-4e50-b823-6ef73f67b7bd">&lt;title&gt;</bpt><ept id="800ef8e3-0b01-4e50-b823-6ef73f67b7bd">&lt;/title&gt;</ept>, outbound connections from an App Service Environment to other backend resources can flow exclusively over the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="4a7f1360-15ad-41c4-9d93-c5332fe66972" xml:space="preserve">
+          <source>For example, there may be a SQL Server running on a cluster of virtual machines with port 1433 locked down.</source>
+          <target state="new">For example, there may be a SQL Server running on a cluster of virtual machines with port 1433 locked down.</target>
+        </trans-unit>
+        <trans-unit id="6f2a3fa7-2203-41a8-b044-988e51617373" xml:space="preserve">
+          <source>The endpoint may be ACLd to only allow access from other resources on the same virtual network.</source>
+          <target state="new">The endpoint may be ACLd to only allow access from other resources on the same virtual network.</target>
+        </trans-unit>
+        <trans-unit id="157bf174-d4ed-4384-8662-9840879eda3f" xml:space="preserve">
+          <source>As another example, sensitive endpoints may run on-premises and be connected to Azure via either <bpt id="08e8b4b5-1fbc-4971-902f-12722bcc495e">&lt;linkText&gt;</bpt>Site-to-Site[sitetosite]<ept id="08e8b4b5-1fbc-4971-902f-12722bcc495e">&lt;/linkText&gt;</ept><bpt id="08e8b4b5-1fbc-4971-902f-12722bcc495e">&lt;title&gt;</bpt><ept id="08e8b4b5-1fbc-4971-902f-12722bcc495e">&lt;/title&gt;</ept> or <bpt id="ccba592e-1b71-4ba9-9789-b0d1f835f130">&lt;linkText&gt;</bpt>Azure ExpressRoute[expressroute]<ept id="ccba592e-1b71-4ba9-9789-b0d1f835f130">&lt;/linkText&gt;</ept><bpt id="ccba592e-1b71-4ba9-9789-b0d1f835f130">&lt;title&gt;</bpt><ept id="ccba592e-1b71-4ba9-9789-b0d1f835f130">&lt;/title&gt;</ept> connections.</source>
+          <target state="new">As another example, sensitive endpoints may run on-premises and be connected to Azure via either <bpt id="08e8b4b5-1fbc-4971-902f-12722bcc495e">&lt;linkText&gt;</bpt>Site-to-Site[sitetosite]<ept id="08e8b4b5-1fbc-4971-902f-12722bcc495e">&lt;/linkText&gt;</ept><bpt id="08e8b4b5-1fbc-4971-902f-12722bcc495e">&lt;title&gt;</bpt><ept id="08e8b4b5-1fbc-4971-902f-12722bcc495e">&lt;/title&gt;</ept> or <bpt id="ccba592e-1b71-4ba9-9789-b0d1f835f130">&lt;linkText&gt;</bpt>Azure ExpressRoute[expressroute]<ept id="ccba592e-1b71-4ba9-9789-b0d1f835f130">&lt;/linkText&gt;</ept><bpt id="ccba592e-1b71-4ba9-9789-b0d1f835f130">&lt;title&gt;</bpt><ept id="ccba592e-1b71-4ba9-9789-b0d1f835f130">&lt;/title&gt;</ept> connections.</target>
+        </trans-unit>
+        <trans-unit id="2e42bde5-ad52-4109-98ac-99cb9fd3a019" xml:space="preserve">
+          <source>As a result, only resources in virtual networks connected to the Site-to-Site or ExpressRoute tunnels will be able to access on-premises endpoints.</source>
+          <target state="new">As a result, only resources in virtual networks connected to the Site-to-Site or ExpressRoute tunnels will be able to access on-premises endpoints.</target>
+        </trans-unit>
+        <trans-unit id="165dd891-8219-4717-895e-c84af47cf1d2" xml:space="preserve">
+          <source>For all of these scenarios, apps running on an App Service Environment will be able to securely connect to the various servers and resources.</source>
+          <target state="new">For all of these scenarios, apps running on an App Service Environment will be able to securely connect to the various servers and resources.</target>
+        </trans-unit>
+        <trans-unit id="34ee865e-2624-42c3-81d3-68cbe302138c" xml:space="preserve">
+          <source>Outbound traffic from apps running in an App Service Environment to private endpoints in the same virtual network (or connected to the same virtual network), will only flow over the virtual network.</source>
+          <target state="new">Outbound traffic from apps running in an App Service Environment to private endpoints in the same virtual network (or connected to the same virtual network), will only flow over the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="539a8ef8-150c-4679-9e08-54e0ae8a4258" xml:space="preserve">
+          <source>Outbound traffic to private endpoints will not flow over the public Internet.</source>
+          <target state="new">Outbound traffic to private endpoints will not flow over the public Internet.</target>
+        </trans-unit>
+        <trans-unit id="cdbc103d-407e-45e3-85ad-009187fedd61" xml:space="preserve">
+          <source>Note that for an App Service Environment to function properly, it requires outbound access to Azure Storage as well as Sql Database in the same Azure region.</source>
+          <target state="new">Note that for an App Service Environment to function properly, it requires outbound access to Azure Storage as well as Sql Database in the same Azure region.</target>
+        </trans-unit>
+        <trans-unit id="c623e60f-62f9-4e31-a30c-bd3b8352ddc9" xml:space="preserve">
+          <source>If outbound Internet access is blocked in the virtual network, App Service Environments will not be able to access these Azure endpoints.</source>
+          <target state="new">If outbound Internet access is blocked in the virtual network, App Service Environments will not be able to access these Azure endpoints.</target>
+        </trans-unit>
+        <trans-unit id="a8f75e5b-c222-4007-9909-3f1a74d6ea85" xml:space="preserve">
+          <source>Customer may also have custom DNS servers configured in the virtual network.</source>
+          <target state="new">Customer may also have custom DNS servers configured in the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="231823fd-6e68-4073-a77b-7f44f09e580a" xml:space="preserve">
+          <source>App Service Environments need to be able to resolve Azure endpoints under *.database.windows.net, *.file.core.windows.net and *.blob.core.windows.net.</source>
+          <target state="new">App Service Environments need to be able to resolve Azure endpoints under *.database.windows.net, *.file.core.windows.net and *.blob.core.windows.net.</target>
+        </trans-unit>
+        <trans-unit id="2a1d9d0a-df9f-4ca7-8eac-b46c7c9d2c3c" xml:space="preserve">
+          <source>It is also recommended that any custom DNS servers on the virtual network be setup ahead of time prior to creating an App Service Environment.</source>
+          <target state="new">It is also recommended that any custom DNS servers on the virtual network be setup ahead of time prior to creating an App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="c96dea9e-c001-4abf-aac1-9bceb96ab2b8" xml:space="preserve">
+          <source>If a virtual network's DNS configuration is changed while an App Service Environment is being created, that will result in the App Service Environment creation process failing.</source>
+          <target state="new">If a virtual network's DNS configuration is changed while an App Service Environment is being created, that will result in the App Service Environment creation process failing.</target>
+        </trans-unit>
+        <trans-unit id="be34eea7-9834-412d-9b0f-7704f2194964" xml:space="preserve">
+          <source>A common SQL Server configuration has an endpoint listening on port 1433:</source>
+          <target state="new">A common SQL Server configuration has an endpoint listening on port 1433:</target>
+        </trans-unit>
+        <trans-unit id="f0ae42f5-304a-4d8d-b415-c290c0e4d24d" xml:space="preserve">
+          <source><bpt id="a46300dd-ddc8-483e-8973-d791969f2f08">&lt;linkText&gt;</bpt>SQL Server Endpoint<ept id="a46300dd-ddc8-483e-8973-d791969f2f08">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a46300dd-ddc8-483e-8973-d791969f2f08">&lt;linkText&gt;</bpt>SQL Server Endpoint<ept id="a46300dd-ddc8-483e-8973-d791969f2f08">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea9b3129-9bcb-4e6d-a9c4-58ef93e23ca9" xml:space="preserve">
+          <source>There are two approaches for restricting traffic to this endpoint:</source>
+          <target state="new">There are two approaches for restricting traffic to this endpoint:</target>
+        </trans-unit>
+        <trans-unit id="cbd0cf0c-14c1-4a61-a615-ad8299eb028d" xml:space="preserve">
+          <source><bpt id="e66914ac-651e-479b-8530-5b39386665a8">&lt;linkText&gt;</bpt>Network Access Control Lists[networkaccesscontrollists]<ept id="e66914ac-651e-479b-8530-5b39386665a8">&lt;/linkText&gt;</ept><bpt id="e66914ac-651e-479b-8530-5b39386665a8">&lt;title&gt;</bpt><ept id="e66914ac-651e-479b-8530-5b39386665a8">&lt;/title&gt;</ept> (Network ACLs)</source>
+          <target state="new"><bpt id="e66914ac-651e-479b-8530-5b39386665a8">&lt;linkText&gt;</bpt>Network Access Control Lists[networkaccesscontrollists]<ept id="e66914ac-651e-479b-8530-5b39386665a8">&lt;/linkText&gt;</ept><bpt id="e66914ac-651e-479b-8530-5b39386665a8">&lt;title&gt;</bpt><ept id="e66914ac-651e-479b-8530-5b39386665a8">&lt;/title&gt;</ept> (Network ACLs)</target>
+        </trans-unit>
+        <trans-unit id="06fc3d9a-7eaa-426d-81ab-6f39ead4631a" xml:space="preserve">
+          <source><bpt id="6df1e3e2-1fc3-4ca2-8d53-d5595e61261c">&lt;linkText&gt;</bpt>Network Security Groups[networksecuritygroups]<ept id="6df1e3e2-1fc3-4ca2-8d53-d5595e61261c">&lt;/linkText&gt;</ept><bpt id="6df1e3e2-1fc3-4ca2-8d53-d5595e61261c">&lt;title&gt;</bpt><ept id="6df1e3e2-1fc3-4ca2-8d53-d5595e61261c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6df1e3e2-1fc3-4ca2-8d53-d5595e61261c">&lt;linkText&gt;</bpt>Network Security Groups[networksecuritygroups]<ept id="6df1e3e2-1fc3-4ca2-8d53-d5595e61261c">&lt;/linkText&gt;</ept><bpt id="6df1e3e2-1fc3-4ca2-8d53-d5595e61261c">&lt;title&gt;</bpt><ept id="6df1e3e2-1fc3-4ca2-8d53-d5595e61261c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a18cb6e2-6b8a-4c04-ae24-9a289d116816" xml:space="preserve">
+          <source>Port 1433 can be secured using a network access control list.</source>
+          <target state="new">Port 1433 can be secured using a network access control list.</target>
+        </trans-unit>
+        <trans-unit id="7513b973-d24e-465c-8557-7666612cf1f5" xml:space="preserve">
+          <source>The example below whitelists client addresses originating from inside of a virtual network, and blocks access to all other clients.</source>
+          <target state="new">The example below whitelists client addresses originating from inside of a virtual network, and blocks access to all other clients.</target>
+        </trans-unit>
+        <trans-unit id="e278ad90-ac7c-4449-a4bb-b2dee437444e" xml:space="preserve">
+          <source><bpt id="760bbeac-6c90-4feb-bf7a-ecb21f31a8eb">&lt;linkText&gt;</bpt>Network Access Control List Example<ept id="760bbeac-6c90-4feb-bf7a-ecb21f31a8eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="760bbeac-6c90-4feb-bf7a-ecb21f31a8eb">&lt;linkText&gt;</bpt>Network Access Control List Example<ept id="760bbeac-6c90-4feb-bf7a-ecb21f31a8eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b27b77aa-766b-42b7-a05c-20413ae43754" xml:space="preserve">
+          <source>Any applications running in App Service Environment in the same virtual network as the SQL Server will be able to connect to the SQL Server instance using the <bpt id="f7b04a37-cb00-4890-999d-193cd733845a">&lt;strong&gt;</bpt>VNet internal<ept id="f7b04a37-cb00-4890-999d-193cd733845a">&lt;/strong&gt;</ept> IP address for the SQL Server virtual machine.</source>
+          <target state="new">Any applications running in App Service Environment in the same virtual network as the SQL Server will be able to connect to the SQL Server instance using the <bpt id="f7b04a37-cb00-4890-999d-193cd733845a">&lt;strong&gt;</bpt>VNet internal<ept id="f7b04a37-cb00-4890-999d-193cd733845a">&lt;/strong&gt;</ept> IP address for the SQL Server virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="5607bd61-eb11-46b1-beb2-24c601028ee5" xml:space="preserve">
+          <source>The example connection string below references the SQL Server using its private IP address.</source>
+          <target state="new">The example connection string below references the SQL Server using its private IP address.</target>
+        </trans-unit>
+        <trans-unit id="653932ae-af42-4192-a66b-06d84e4c7769" xml:space="preserve">
+          <source>Although the virtual machine has a public endpoint as well, connection attempts using the public IP address will be rejected because of the network ACL.</source>
+          <target state="new">Although the virtual machine has a public endpoint as well, connection attempts using the public IP address will be rejected because of the network ACL.</target>
+        </trans-unit>
+        <trans-unit id="996835fa-1a3b-4e29-ae1f-0d8a1ddb79d5" xml:space="preserve">
+          <source>An alternative approach for securing access is with a network security group.</source>
+          <target state="new">An alternative approach for securing access is with a network security group.</target>
+        </trans-unit>
+        <trans-unit id="cdd3c3f8-c29c-4064-a001-25d03816dd15" xml:space="preserve">
+          <source>Network security groups can be applied to individual virtual machines, or to a subnet containing virtual machines.</source>
+          <target state="new">Network security groups can be applied to individual virtual machines, or to a subnet containing virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="a9a821f4-f0b6-429f-955f-41fa9c0d474e" xml:space="preserve">
+          <source>First a network security group needs to be created:</source>
+          <target state="new">First a network security group needs to be created:</target>
+        </trans-unit>
+        <trans-unit id="08cc63bb-41d5-4ee6-b7c8-99c382d13ca3" xml:space="preserve">
+          <source>Restricting access to only VNet internal traffic is very simple with a network security group.</source>
+          <target state="new">Restricting access to only VNet internal traffic is very simple with a network security group.</target>
+        </trans-unit>
+        <trans-unit id="e85d9572-a016-40dd-bee3-92054cebd516" xml:space="preserve">
+          <source>The default rules in a network security group only allow access from other network clients in the same virtual network.</source>
+          <target state="new">The default rules in a network security group only allow access from other network clients in the same virtual network.</target>
+        </trans-unit>
+        <trans-unit id="cf109492-076d-43bd-8c84-f4c034c8b36a" xml:space="preserve">
+          <source>As a result locking down access to SQL Server is as simple as applying a network security group with its default rules to either the virtual machines running SQL Server, or the subnet containing the virtual machines.</source>
+          <target state="new">As a result locking down access to SQL Server is as simple as applying a network security group with its default rules to either the virtual machines running SQL Server, or the subnet containing the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="709aba05-5511-4bbf-ac04-4662c0fee4b0" xml:space="preserve">
+          <source>The sample below applies a network security group to the containing subnet:</source>
+          <target state="new">The sample below applies a network security group to the containing subnet:</target>
+        </trans-unit>
+        <trans-unit id="13cec525-515c-4e9a-a785-54725465c23f" xml:space="preserve">
+          <source>The end result is a set of security rules that block external access, while allowing VNet internal access:</source>
+          <target state="new">The end result is a set of security rules that block external access, while allowing VNet internal access:</target>
+        </trans-unit>
+        <trans-unit id="a8f4738c-0328-4859-ac67-c15e990eb19f" xml:space="preserve">
+          <source><bpt id="c83ba2f8-eac9-41ce-b28d-a21c8280aefc">&lt;linkText&gt;</bpt>Default Network Security Rules<ept id="c83ba2f8-eac9-41ce-b28d-a21c8280aefc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c83ba2f8-eac9-41ce-b28d-a21c8280aefc">&lt;linkText&gt;</bpt>Default Network Security Rules<ept id="c83ba2f8-eac9-41ce-b28d-a21c8280aefc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a9fc91e-1168-4f8d-b03d-9652d1a07ea2" xml:space="preserve">
+          <source>To get started with App Service Environments, see <bpt id="87cf9818-8fee-4460-9a0b-d79cd4d300fe">&lt;linkText&gt;</bpt>Introduction to App Service Environment[introtoappserviceenvironment]<ept id="87cf9818-8fee-4460-9a0b-d79cd4d300fe">&lt;/linkText&gt;</ept><bpt id="87cf9818-8fee-4460-9a0b-d79cd4d300fe">&lt;title&gt;</bpt><ept id="87cf9818-8fee-4460-9a0b-d79cd4d300fe">&lt;/title&gt;</ept></source>
+          <target state="new">To get started with App Service Environments, see <bpt id="87cf9818-8fee-4460-9a0b-d79cd4d300fe">&lt;linkText&gt;</bpt>Introduction to App Service Environment[introtoappserviceenvironment]<ept id="87cf9818-8fee-4460-9a0b-d79cd4d300fe">&lt;/linkText&gt;</ept><bpt id="87cf9818-8fee-4460-9a0b-d79cd4d300fe">&lt;title&gt;</bpt><ept id="87cf9818-8fee-4460-9a0b-d79cd4d300fe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4193c4b3-09f1-458e-a3dd-89cf4ea46825" xml:space="preserve">
+          <source>For details around controlling inbound traffic to your App Service Environment, see <bpt id="0c4d6e88-2a02-471e-83ea-14f1ad096d77">&lt;linkText&gt;</bpt>Controlling inbound traffic to an App Service Environment[controlinboundase]<ept id="0c4d6e88-2a02-471e-83ea-14f1ad096d77">&lt;/linkText&gt;</ept><bpt id="0c4d6e88-2a02-471e-83ea-14f1ad096d77">&lt;title&gt;</bpt><ept id="0c4d6e88-2a02-471e-83ea-14f1ad096d77">&lt;/title&gt;</ept></source>
+          <target state="new">For details around controlling inbound traffic to your App Service Environment, see <bpt id="0c4d6e88-2a02-471e-83ea-14f1ad096d77">&lt;linkText&gt;</bpt>Controlling inbound traffic to an App Service Environment[controlinboundase]<ept id="0c4d6e88-2a02-471e-83ea-14f1ad096d77">&lt;/linkText&gt;</ept><bpt id="0c4d6e88-2a02-471e-83ea-14f1ad096d77">&lt;title&gt;</bpt><ept id="0c4d6e88-2a02-471e-83ea-14f1ad096d77">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24d64de6-eecd-448a-b4ce-2b9616369ed5" xml:space="preserve">
+          <source>For more information about the Azure App Service platform, see <bpt id="9c34de34-ea0a-4033-93ab-2f8724693a5f">&lt;linkText&gt;</bpt>Azure App Service[azureappservice]<ept id="9c34de34-ea0a-4033-93ab-2f8724693a5f">&lt;/linkText&gt;</ept><bpt id="9c34de34-ea0a-4033-93ab-2f8724693a5f">&lt;title&gt;</bpt><ept id="9c34de34-ea0a-4033-93ab-2f8724693a5f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the Azure App Service platform, see <bpt id="9c34de34-ea0a-4033-93ab-2f8724693a5f">&lt;linkText&gt;</bpt>Azure App Service[azureappservice]<ept id="9c34de34-ea0a-4033-93ab-2f8724693a5f">&lt;/linkText&gt;</ept><bpt id="9c34de34-ea0a-4033-93ab-2f8724693a5f">&lt;title&gt;</bpt><ept id="9c34de34-ea0a-4033-93ab-2f8724693a5f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c2b3d20d-2a08-43a0-99bc-134d1c106ab0" xml:space="preserve">
+          <source><bpt id="b6c4fd8d-4af7-46c2-a851-0b7ace34e18c">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="b6c4fd8d-4af7-46c2-a851-0b7ace34e18c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b6c4fd8d-4af7-46c2-a851-0b7ace34e18c">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="b6c4fd8d-4af7-46c2-a851-0b7ace34e18c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d8c6f45-4421-4876-9753-a0d1f0db9bc6" xml:space="preserve">
+          <source><bpt id="ff6e8833-67fb-4a03-bb0f-7adb2394dff4">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="ff6e8833-67fb-4a03-bb0f-7adb2394dff4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ff6e8833-67fb-4a03-bb0f-7adb2394dff4">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="ff6e8833-67fb-4a03-bb0f-7adb2394dff4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab9c3654-d646-4383-a161-3ed21c71cf2f" xml:space="preserve">
+          <source>https://azure.microsoft.com/documentation/articles/virtual-networks-faq/</source>
+          <target state="new">https://azure.microsoft.com/documentation/articles/virtual-networks-faq/</target>
+        </trans-unit>
+        <trans-unit id="b70b9d26-a70e-4618-85de-e6bd3e3fd0a8" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/</target>
+        </trans-unit>
+        <trans-unit id="704537b3-6a4a-4e80-bde9-d2721ab2819c" xml:space="preserve">
+          <source>https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/</source>
+          <target state="new">https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/</target>
+        </trans-unit>
+        <trans-unit id="4afc5d12-4c97-4d89-b779-72b47c667e4f" xml:space="preserve">
+          <source>http://azure.microsoft.com/services/expressroute/</source>
+          <target state="new">http://azure.microsoft.com/services/expressroute/</target>
+        </trans-unit>
+        <trans-unit id="e75ce11f-859d-4526-ba0f-6ce1b977b9c3" xml:space="preserve">
+          <source>https://azure.microsoft.com/documentation/articles/virtual-networks-acl/</source>
+          <target state="new">https://azure.microsoft.com/documentation/articles/virtual-networks-acl/</target>
+        </trans-unit>
+        <trans-unit id="57c9dd06-68af-483a-b7d1-0045e9e85226" xml:space="preserve">
+          <source>https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/</source>
+          <target state="new">https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/</target>
+        </trans-unit>
+        <trans-unit id="3bd67798-1b56-4c5a-94df-bed60997fca9" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/</target>
+        </trans-unit>
+        <trans-unit id="b90ffeb4-f07d-4d01-a001-a49da85fedf2" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/</target>
+        </trans-unit>
+        <trans-unit id="bfc31c85-dc61-4f5c-9e04-631dd4b469a8" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/</target>
+        </trans-unit>
+        <trans-unit id="02a21681-7d54-41db-82f7-a343568c26e5" xml:space="preserve">
+          <source>./media/app-service-app-service-environment-securely-connecting-to-backend-resources/SqlServerEndpoint01.png</source>
+          <target state="new">./media/app-service-app-service-environment-securely-connecting-to-backend-resources/SqlServerEndpoint01.png</target>
+        </trans-unit>
+        <trans-unit id="79c9d621-c12f-457a-be1f-1e4ea49a33ba" xml:space="preserve">
+          <source>./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png</source>
+          <target state="new">./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png</target>
+        </trans-unit>
+        <trans-unit id="a9fd9362-c01d-402f-b898-325a1884cb19" xml:space="preserve">
+          <source>./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png</source>
+          <target state="new">./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png</target>
+        </trans-unit>
+      </group>
+      <group id="04f04214-20f7-465c-8a1f-8ea6fb3b057c" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e9b3df7f-fd17-4fb3-a845-0bbc91eaa416" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e9b3df7f-fd17-4fb3-a845-0bbc91eaa416" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="59005ad7-0c65-4b19-add0-6f85310858c3">
+        <trans-unit id="49ac1fac-0db1-4daa-88ee-199573c03141" xml:space="preserve">
+          <source>Generate recommendations using Mahout and Hadoop | Microsoft Azure</source>
+          <target state="new">Generate recommendations using Mahout and Hadoop | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d2f47ce2-2119-4442-baab-e1a622ee5dbd" xml:space="preserve">
+          <source>Learn how to use the Apache Mahout machine learning library to generate movie recommendations with Linux-based HDInsight (Hadoop).</source>
+          <target state="new">Learn how to use the Apache Mahout machine learning library to generate movie recommendations with Linux-based HDInsight (Hadoop).</target>
+        </trans-unit>
+        <trans-unit id="035ea835-6a12-4711-b7d8-eee6dff31d38" xml:space="preserve">
+          <source><bpt id="cc935f85-df95-4dfa-957f-ea03bd4b684a">&lt;token href="../../includes/hdinsight-selector-mahout.md"&gt;</bpt><ept id="cc935f85-df95-4dfa-957f-ea03bd4b684a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="cc935f85-df95-4dfa-957f-ea03bd4b684a">&lt;token href="../../includes/hdinsight-selector-mahout.md"&gt;</bpt><ept id="cc935f85-df95-4dfa-957f-ea03bd4b684a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a7aec46-68a5-4dc7-972e-54d46e26f97b" xml:space="preserve">
+          <source>Learn how to use the <bpt id="822bdad2-1f78-445b-98fa-96071de2ab94">&lt;linkText&gt;</bpt>Apache Mahout<ept id="822bdad2-1f78-445b-98fa-96071de2ab94">&lt;/linkText&gt;</ept><bpt id="822bdad2-1f78-445b-98fa-96071de2ab94">&lt;title&gt;</bpt><ept id="822bdad2-1f78-445b-98fa-96071de2ab94">&lt;/title&gt;</ept> machine learning library with Azure HDInsight to generate movie recommendations.</source>
+          <target state="new">Learn how to use the <bpt id="822bdad2-1f78-445b-98fa-96071de2ab94">&lt;linkText&gt;</bpt>Apache Mahout<ept id="822bdad2-1f78-445b-98fa-96071de2ab94">&lt;/linkText&gt;</ept><bpt id="822bdad2-1f78-445b-98fa-96071de2ab94">&lt;title&gt;</bpt><ept id="822bdad2-1f78-445b-98fa-96071de2ab94">&lt;/title&gt;</ept> machine learning library with Azure HDInsight to generate movie recommendations.</target>
+        </trans-unit>
+        <trans-unit id="be0bdd03-064c-454f-b4c1-4d2ff18aaa9a" xml:space="preserve">
+          <source>Mahout is a <bpt id="3510b044-2e2f-4d25-ae2e-6ef17505a112">&lt;linkText&gt;</bpt>machine learning[ml]<ept id="3510b044-2e2f-4d25-ae2e-6ef17505a112">&lt;/linkText&gt;</ept><bpt id="3510b044-2e2f-4d25-ae2e-6ef17505a112">&lt;title&gt;</bpt><ept id="3510b044-2e2f-4d25-ae2e-6ef17505a112">&lt;/title&gt;</ept> library for Apache Hadoop.</source>
+          <target state="new">Mahout is a <bpt id="3510b044-2e2f-4d25-ae2e-6ef17505a112">&lt;linkText&gt;</bpt>machine learning[ml]<ept id="3510b044-2e2f-4d25-ae2e-6ef17505a112">&lt;/linkText&gt;</ept><bpt id="3510b044-2e2f-4d25-ae2e-6ef17505a112">&lt;title&gt;</bpt><ept id="3510b044-2e2f-4d25-ae2e-6ef17505a112">&lt;/title&gt;</ept> library for Apache Hadoop.</target>
+        </trans-unit>
+        <trans-unit id="848b74f7-205f-4ec8-b35e-1de4d47dd6b3" xml:space="preserve">
+          <source>Mahout contains algorithms for processing data, such as filtering, classification, and clustering.</source>
+          <target state="new">Mahout contains algorithms for processing data, such as filtering, classification, and clustering.</target>
+        </trans-unit>
+        <trans-unit id="07e984fd-b720-477c-8aa3-db650443b395" xml:space="preserve">
+          <source>In this article, you will use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.</source>
+          <target state="new">In this article, you will use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.</target>
+        </trans-unit>
+        <trans-unit id="4d5ffdf1-061d-479d-a0fc-038a169f9cad" xml:space="preserve">
+          <source>The steps in this document require a Linux-based Hadoop on HDInsight cluster (preview).</source>
+          <target state="new">The steps in this document require a Linux-based Hadoop on HDInsight cluster (preview).</target>
+        </trans-unit>
+        <trans-unit id="76a11c48-7f1c-41d9-8424-5e0d3e883aa9" xml:space="preserve">
+          <source>For information on using Mahout with a Windows-based cluster, see <bpt id="2f05aa2f-a509-48ba-98c9-d00dd4fb2942">&lt;linkText&gt;</bpt>Generate movie recommendations by using Apache Mahout with Windows-based Hadoop in HDInsight<ept id="2f05aa2f-a509-48ba-98c9-d00dd4fb2942">&lt;/linkText&gt;</ept><bpt id="2f05aa2f-a509-48ba-98c9-d00dd4fb2942">&lt;title&gt;</bpt><ept id="2f05aa2f-a509-48ba-98c9-d00dd4fb2942">&lt;/title&gt;</ept></source>
+          <target state="new">For information on using Mahout with a Windows-based cluster, see <bpt id="2f05aa2f-a509-48ba-98c9-d00dd4fb2942">&lt;linkText&gt;</bpt>Generate movie recommendations by using Apache Mahout with Windows-based Hadoop in HDInsight<ept id="2f05aa2f-a509-48ba-98c9-d00dd4fb2942">&lt;/linkText&gt;</ept><bpt id="2f05aa2f-a509-48ba-98c9-d00dd4fb2942">&lt;title&gt;</bpt><ept id="2f05aa2f-a509-48ba-98c9-d00dd4fb2942">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca4faa07-af8c-432a-8814-2e45f02a6dba" xml:space="preserve">
+          <source>A Linux-based Hadoop on HDInsight cluster.</source>
+          <target state="new">A Linux-based Hadoop on HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="66738dd9-7eee-4c83-b9a5-bebf6b54eee5" xml:space="preserve">
+          <source>For information about creating one, see <bpt id="50712c16-fc4e-42d3-810a-a10e5067c327">&lt;linkText&gt;</bpt>Get started using Linux-based Hadoop in HDInsight[getstarted]<ept id="50712c16-fc4e-42d3-810a-a10e5067c327">&lt;/linkText&gt;</ept><bpt id="50712c16-fc4e-42d3-810a-a10e5067c327">&lt;title&gt;</bpt><ept id="50712c16-fc4e-42d3-810a-a10e5067c327">&lt;/title&gt;</ept></source>
+          <target state="new">For information about creating one, see <bpt id="50712c16-fc4e-42d3-810a-a10e5067c327">&lt;linkText&gt;</bpt>Get started using Linux-based Hadoop in HDInsight[getstarted]<ept id="50712c16-fc4e-42d3-810a-a10e5067c327">&lt;/linkText&gt;</ept><bpt id="50712c16-fc4e-42d3-810a-a10e5067c327">&lt;title&gt;</bpt><ept id="50712c16-fc4e-42d3-810a-a10e5067c327">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ddd3e19-2a27-498d-90ce-60cf625bfdb5" xml:space="preserve">
+          <source>One of the functions that is provided by Mahout is a recommendation engine.</source>
+          <target state="new">One of the functions that is provided by Mahout is a recommendation engine.</target>
+        </trans-unit>
+        <trans-unit id="5073f0d3-f1cb-44e5-913b-f8ccd2c7d383" xml:space="preserve">
+          <source>This engine accepts data in the format of <bpt id="b6c18dda-0552-4089-9f45-623de732c08c">&lt;code&gt;</bpt>userID<ept id="b6c18dda-0552-4089-9f45-623de732c08c">&lt;/code&gt;</ept>, <bpt id="c520bf68-ae4e-4fb9-b307-202fa9fa16a0">&lt;code&gt;</bpt>itemId<ept id="c520bf68-ae4e-4fb9-b307-202fa9fa16a0">&lt;/code&gt;</ept>, and <bpt id="9f22ce19-7a9c-408b-a979-404ad0e0ae09">&lt;code&gt;</bpt>prefValue<ept id="9f22ce19-7a9c-408b-a979-404ad0e0ae09">&lt;/code&gt;</ept> (the users preference for the item).</source>
+          <target state="new">This engine accepts data in the format of <bpt id="b6c18dda-0552-4089-9f45-623de732c08c">&lt;code&gt;</bpt>userID<ept id="b6c18dda-0552-4089-9f45-623de732c08c">&lt;/code&gt;</ept>, <bpt id="c520bf68-ae4e-4fb9-b307-202fa9fa16a0">&lt;code&gt;</bpt>itemId<ept id="c520bf68-ae4e-4fb9-b307-202fa9fa16a0">&lt;/code&gt;</ept>, and <bpt id="9f22ce19-7a9c-408b-a979-404ad0e0ae09">&lt;code&gt;</bpt>prefValue<ept id="9f22ce19-7a9c-408b-a979-404ad0e0ae09">&lt;/code&gt;</ept> (the users preference for the item).</target>
+        </trans-unit>
+        <trans-unit id="3c8110d5-c5e0-45b9-b551-d2e28a24a686" xml:space="preserve">
+          <source>Mahout can then perform co-occurance analysis to determine: <bpt id="0e7b9503-d35e-41dc-a5a9-d73f0248c159">&lt;em&gt;</bpt>users who have a preference for an item also have a preference for these other items<ept id="0e7b9503-d35e-41dc-a5a9-d73f0248c159">&lt;/em&gt;</ept>.</source>
+          <target state="new">Mahout can then perform co-occurance analysis to determine: <bpt id="0e7b9503-d35e-41dc-a5a9-d73f0248c159">&lt;em&gt;</bpt>users who have a preference for an item also have a preference for these other items<ept id="0e7b9503-d35e-41dc-a5a9-d73f0248c159">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4a059cb-92e1-46c1-9ae4-78900703ea82" xml:space="preserve">
+          <source>Mahout then determines users with like-item preferences, which can be used to make recommendations.</source>
+          <target state="new">Mahout then determines users with like-item preferences, which can be used to make recommendations.</target>
+        </trans-unit>
+        <trans-unit id="38d0fb94-ae93-4e95-be12-905370476d9b" xml:space="preserve">
+          <source>The following is an extremely simple example that uses movies:</source>
+          <target state="new">The following is an extremely simple example that uses movies:</target>
+        </trans-unit>
+        <trans-unit id="9ee32c1f-fdbb-4c50-b7d8-544ecdadd7b0" xml:space="preserve">
+          <source><bpt id="67f6424a-97dc-4096-a144-e9e5b7c2bb51">&lt;strong&gt;</bpt>Co-occurance<ept id="67f6424a-97dc-4096-a144-e9e5b7c2bb51">&lt;/strong&gt;</ept>: Joe, Alice, and Bob all liked <bpt id="fa8c2237-cd9c-42dd-aa0f-4dfaa53e5a45">&lt;em&gt;</bpt>Star Wars<ept id="fa8c2237-cd9c-42dd-aa0f-4dfaa53e5a45">&lt;/em&gt;</ept>, <bpt id="a994b095-b200-463d-820c-185873e5bd30">&lt;em&gt;</bpt>The Empire Strikes Back<ept id="a994b095-b200-463d-820c-185873e5bd30">&lt;/em&gt;</ept>, and <bpt id="af7901fd-e3ef-4c2b-af7a-5b30a2ed3c0a">&lt;em&gt;</bpt>Return of the Jedi<ept id="af7901fd-e3ef-4c2b-af7a-5b30a2ed3c0a">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="67f6424a-97dc-4096-a144-e9e5b7c2bb51">&lt;strong&gt;</bpt>Co-occurance<ept id="67f6424a-97dc-4096-a144-e9e5b7c2bb51">&lt;/strong&gt;</ept>: Joe, Alice, and Bob all liked <bpt id="fa8c2237-cd9c-42dd-aa0f-4dfaa53e5a45">&lt;em&gt;</bpt>Star Wars<ept id="fa8c2237-cd9c-42dd-aa0f-4dfaa53e5a45">&lt;/em&gt;</ept>, <bpt id="a994b095-b200-463d-820c-185873e5bd30">&lt;em&gt;</bpt>The Empire Strikes Back<ept id="a994b095-b200-463d-820c-185873e5bd30">&lt;/em&gt;</ept>, and <bpt id="af7901fd-e3ef-4c2b-af7a-5b30a2ed3c0a">&lt;em&gt;</bpt>Return of the Jedi<ept id="af7901fd-e3ef-4c2b-af7a-5b30a2ed3c0a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="338b5073-1ab6-4a61-8303-5fdebb16474c" xml:space="preserve">
+          <source>Mahout determines that users who like any one of these movies also like the other two.</source>
+          <target state="new">Mahout determines that users who like any one of these movies also like the other two.</target>
+        </trans-unit>
+        <trans-unit id="9257047b-c413-4062-8ab2-215dc5d9d189" xml:space="preserve">
+          <source><bpt id="21c6234f-30fc-4614-8f66-a4aa93a7f821">&lt;strong&gt;</bpt>Co-occurance<ept id="21c6234f-30fc-4614-8f66-a4aa93a7f821">&lt;/strong&gt;</ept>: Bob and Alice also liked <bpt id="fff00c3d-34c7-4ee8-b5e8-c9f58bf331eb">&lt;em&gt;</bpt>The Phantom Menace<ept id="fff00c3d-34c7-4ee8-b5e8-c9f58bf331eb">&lt;/em&gt;</ept>, <bpt id="80d8c275-1dab-48dc-8640-828f4dc21ff5">&lt;em&gt;</bpt>Attack of the Clones<ept id="80d8c275-1dab-48dc-8640-828f4dc21ff5">&lt;/em&gt;</ept>, and <bpt id="d620ab99-3f86-482f-8a47-429dcf1ddcc4">&lt;em&gt;</bpt>Revenge of the Sith<ept id="d620ab99-3f86-482f-8a47-429dcf1ddcc4">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="21c6234f-30fc-4614-8f66-a4aa93a7f821">&lt;strong&gt;</bpt>Co-occurance<ept id="21c6234f-30fc-4614-8f66-a4aa93a7f821">&lt;/strong&gt;</ept>: Bob and Alice also liked <bpt id="fff00c3d-34c7-4ee8-b5e8-c9f58bf331eb">&lt;em&gt;</bpt>The Phantom Menace<ept id="fff00c3d-34c7-4ee8-b5e8-c9f58bf331eb">&lt;/em&gt;</ept>, <bpt id="80d8c275-1dab-48dc-8640-828f4dc21ff5">&lt;em&gt;</bpt>Attack of the Clones<ept id="80d8c275-1dab-48dc-8640-828f4dc21ff5">&lt;/em&gt;</ept>, and <bpt id="d620ab99-3f86-482f-8a47-429dcf1ddcc4">&lt;em&gt;</bpt>Revenge of the Sith<ept id="d620ab99-3f86-482f-8a47-429dcf1ddcc4">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49eaa8d3-ea67-4ae5-985c-8dc67f3616eb" xml:space="preserve">
+          <source>Mahout determines that users who liked the previous three movies also like these three.</source>
+          <target state="new">Mahout determines that users who liked the previous three movies also like these three.</target>
+        </trans-unit>
+        <trans-unit id="5812f526-1b88-4cfa-b1b5-e5d5e1486c78" xml:space="preserve">
+          <source><bpt id="77400ae8-84a6-4131-ab1d-f1f2e403121f">&lt;strong&gt;</bpt>Similarity recommendation<ept id="77400ae8-84a6-4131-ab1d-f1f2e403121f">&lt;/strong&gt;</ept>: Because Joe liked the first three movies, Mahout looks at movies that others with similar preferences liked, but Joe has not watched (liked/rated).</source>
+          <target state="new"><bpt id="77400ae8-84a6-4131-ab1d-f1f2e403121f">&lt;strong&gt;</bpt>Similarity recommendation<ept id="77400ae8-84a6-4131-ab1d-f1f2e403121f">&lt;/strong&gt;</ept>: Because Joe liked the first three movies, Mahout looks at movies that others with similar preferences liked, but Joe has not watched (liked/rated).</target>
+        </trans-unit>
+        <trans-unit id="ec9d0735-9379-4baa-b575-f3dfe24f038e" xml:space="preserve">
+          <source>In this case, Mahout recommends <bpt id="40889f48-1dd3-4c8b-b8cb-131f233390bb">&lt;em&gt;</bpt>The Phantom Menace<ept id="40889f48-1dd3-4c8b-b8cb-131f233390bb">&lt;/em&gt;</ept>, <bpt id="9b7aad6b-047e-4c96-993e-fc656bd445bd">&lt;em&gt;</bpt>Attack of the Clones<ept id="9b7aad6b-047e-4c96-993e-fc656bd445bd">&lt;/em&gt;</ept>, and <bpt id="e5f5076d-64b7-409e-8d36-735112cdf284">&lt;em&gt;</bpt>Revenge of the Sith<ept id="e5f5076d-64b7-409e-8d36-735112cdf284">&lt;/em&gt;</ept>.</source>
+          <target state="new">In this case, Mahout recommends <bpt id="40889f48-1dd3-4c8b-b8cb-131f233390bb">&lt;em&gt;</bpt>The Phantom Menace<ept id="40889f48-1dd3-4c8b-b8cb-131f233390bb">&lt;/em&gt;</ept>, <bpt id="9b7aad6b-047e-4c96-993e-fc656bd445bd">&lt;em&gt;</bpt>Attack of the Clones<ept id="9b7aad6b-047e-4c96-993e-fc656bd445bd">&lt;/em&gt;</ept>, and <bpt id="e5f5076d-64b7-409e-8d36-735112cdf284">&lt;em&gt;</bpt>Revenge of the Sith<ept id="e5f5076d-64b7-409e-8d36-735112cdf284">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39db0917-995a-4427-8a1c-8de75bf95c7d" xml:space="preserve">
+          <source>Conveniently, <bpt id="a3dc7a15-5355-44aa-bc08-513935eeddec">&lt;linkText&gt;</bpt>GroupLens Research[movielens]<ept id="a3dc7a15-5355-44aa-bc08-513935eeddec">&lt;/linkText&gt;</ept><bpt id="a3dc7a15-5355-44aa-bc08-513935eeddec">&lt;title&gt;</bpt><ept id="a3dc7a15-5355-44aa-bc08-513935eeddec">&lt;/title&gt;</ept> provides rating data for movies in a format that is compatible with Mahout.</source>
+          <target state="new">Conveniently, <bpt id="a3dc7a15-5355-44aa-bc08-513935eeddec">&lt;linkText&gt;</bpt>GroupLens Research[movielens]<ept id="a3dc7a15-5355-44aa-bc08-513935eeddec">&lt;/linkText&gt;</ept><bpt id="a3dc7a15-5355-44aa-bc08-513935eeddec">&lt;title&gt;</bpt><ept id="a3dc7a15-5355-44aa-bc08-513935eeddec">&lt;/title&gt;</ept> provides rating data for movies in a format that is compatible with Mahout.</target>
+        </trans-unit>
+        <trans-unit id="9ad5fb8c-96d9-46ee-8ae2-63860635d60e" xml:space="preserve">
+          <source>Use the following steps to download the data, then load it into the default storage for the cluster:</source>
+          <target state="new">Use the following steps to download the data, then load it into the default storage for the cluster:</target>
+        </trans-unit>
+        <trans-unit id="a4f4840f-29e2-4e09-9f61-b160572fe90f" xml:space="preserve">
+          <source>Use SSH to connect to the Linux-based HDInsight cluster.</source>
+          <target state="new">Use SSH to connect to the Linux-based HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="5eb1b158-9c12-48e7-99b4-6fd942a6f56b" xml:space="preserve">
+          <source>The address to use when connecting is <bpt id="a3021e5f-c0f9-45dd-bb71-d1158c70c466">&lt;code&gt;</bpt>CLUSTERNAME-ssh.azurehdinsight.net<ept id="a3021e5f-c0f9-45dd-bb71-d1158c70c466">&lt;/code&gt;</ept> and the port is <bpt id="b2b5deb9-c929-402d-89f0-ee34f98b96e4">&lt;code&gt;</bpt>22<ept id="b2b5deb9-c929-402d-89f0-ee34f98b96e4">&lt;/code&gt;</ept>.</source>
+          <target state="new">The address to use when connecting is <bpt id="a3021e5f-c0f9-45dd-bb71-d1158c70c466">&lt;code&gt;</bpt>CLUSTERNAME-ssh.azurehdinsight.net<ept id="a3021e5f-c0f9-45dd-bb71-d1158c70c466">&lt;/code&gt;</ept> and the port is <bpt id="b2b5deb9-c929-402d-89f0-ee34f98b96e4">&lt;code&gt;</bpt>22<ept id="b2b5deb9-c929-402d-89f0-ee34f98b96e4">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9fb65373-93ef-4e56-ac87-b46f653478a3" xml:space="preserve">
+          <source>For more information on using SSH to connect to HDInsight, see the following documents:</source>
+          <target state="new">For more information on using SSH to connect to HDInsight, see the following documents:</target>
+        </trans-unit>
+        <trans-unit id="939e190f-46ff-4ba7-bba0-5545856c7478" xml:space="preserve">
+          <source><bpt id="7a0f416f-8cd5-495a-a350-5ae7cdd09065">&lt;strong&gt;</bpt>Linux, Unix or OS X clients<ept id="7a0f416f-8cd5-495a-a350-5ae7cdd09065">&lt;/strong&gt;</ept>: See <bpt id="089a3a9b-53ff-4a8a-972d-2592b5078fb9">&lt;linkText&gt;</bpt>Connect to a Linux-based HDInsight cluster from Linux, OS X or Unix<ept id="089a3a9b-53ff-4a8a-972d-2592b5078fb9">&lt;/linkText&gt;</ept><bpt id="089a3a9b-53ff-4a8a-972d-2592b5078fb9">&lt;title&gt;</bpt><ept id="089a3a9b-53ff-4a8a-972d-2592b5078fb9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7a0f416f-8cd5-495a-a350-5ae7cdd09065">&lt;strong&gt;</bpt>Linux, Unix or OS X clients<ept id="7a0f416f-8cd5-495a-a350-5ae7cdd09065">&lt;/strong&gt;</ept>: See <bpt id="089a3a9b-53ff-4a8a-972d-2592b5078fb9">&lt;linkText&gt;</bpt>Connect to a Linux-based HDInsight cluster from Linux, OS X or Unix<ept id="089a3a9b-53ff-4a8a-972d-2592b5078fb9">&lt;/linkText&gt;</ept><bpt id="089a3a9b-53ff-4a8a-972d-2592b5078fb9">&lt;title&gt;</bpt><ept id="089a3a9b-53ff-4a8a-972d-2592b5078fb9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26dc4c75-9be8-4d77-b02c-279f9d184404" xml:space="preserve">
+          <source><bpt id="419bdc5f-8d0e-4bd0-8793-22b11c0873c0">&lt;strong&gt;</bpt>Windows clients<ept id="419bdc5f-8d0e-4bd0-8793-22b11c0873c0">&lt;/strong&gt;</ept>: See <bpt id="263f0e49-f74d-4e5a-ae81-ee4463efa906">&lt;linkText&gt;</bpt>Connect to a Linux-based HDInsight cluster from Windows<ept id="263f0e49-f74d-4e5a-ae81-ee4463efa906">&lt;/linkText&gt;</ept><bpt id="263f0e49-f74d-4e5a-ae81-ee4463efa906">&lt;title&gt;</bpt><ept id="263f0e49-f74d-4e5a-ae81-ee4463efa906">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="419bdc5f-8d0e-4bd0-8793-22b11c0873c0">&lt;strong&gt;</bpt>Windows clients<ept id="419bdc5f-8d0e-4bd0-8793-22b11c0873c0">&lt;/strong&gt;</ept>: See <bpt id="263f0e49-f74d-4e5a-ae81-ee4463efa906">&lt;linkText&gt;</bpt>Connect to a Linux-based HDInsight cluster from Windows<ept id="263f0e49-f74d-4e5a-ae81-ee4463efa906">&lt;/linkText&gt;</ept><bpt id="263f0e49-f74d-4e5a-ae81-ee4463efa906">&lt;title&gt;</bpt><ept id="263f0e49-f74d-4e5a-ae81-ee4463efa906">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="440eb810-afea-4c16-9bbb-5c9890187390" xml:space="preserve">
+          <source>Download the MovieLens 100k archive, which contains 100,000 ratings from 1000 users for 1700 movies.</source>
+          <target state="new">Download the MovieLens 100k archive, which contains 100,000 ratings from 1000 users for 1700 movies.</target>
+        </trans-unit>
+        <trans-unit id="a077d8ca-72c8-45d3-b8d6-83c70e36955c" xml:space="preserve">
+          <source>Extract the archive using the following command:</source>
+          <target state="new">Extract the archive using the following command:</target>
+        </trans-unit>
+        <trans-unit id="4c16dcf9-7e87-4b81-9ebe-af9ff50ee791" xml:space="preserve">
+          <source>This will extract the contents to a new folder named <bpt id="5ac166f2-b3d7-4d2a-bd86-1423143168f1">&lt;strong&gt;</bpt>ml-100k<ept id="5ac166f2-b3d7-4d2a-bd86-1423143168f1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This will extract the contents to a new folder named <bpt id="5ac166f2-b3d7-4d2a-bd86-1423143168f1">&lt;strong&gt;</bpt>ml-100k<ept id="5ac166f2-b3d7-4d2a-bd86-1423143168f1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb36ff57-9a49-462e-9597-65258e16bb03" xml:space="preserve">
+          <source>Use the following commands to copy the data to HDInsight storage:</source>
+          <target state="new">Use the following commands to copy the data to HDInsight storage:</target>
+        </trans-unit>
+        <trans-unit id="43c0953f-03fd-4265-9086-03521879ef3c" xml:space="preserve">
+          <source>The data contained in this file has a structure of <bpt id="c9ef28f3-f0d0-4a2a-9c92-ffbc4e03df75">&lt;code&gt;</bpt>userID<ept id="c9ef28f3-f0d0-4a2a-9c92-ffbc4e03df75">&lt;/code&gt;</ept>, <bpt id="5f21243f-0b43-40a0-aef3-82a8f37c203f">&lt;code&gt;</bpt>movieID<ept id="5f21243f-0b43-40a0-aef3-82a8f37c203f">&lt;/code&gt;</ept>, <bpt id="3239434a-4659-4ba7-a2e0-19e95c1305d1">&lt;code&gt;</bpt>userRating<ept id="3239434a-4659-4ba7-a2e0-19e95c1305d1">&lt;/code&gt;</ept>, and <bpt id="50d58d6a-4487-4ea9-aed1-4908e805af64">&lt;code&gt;</bpt>timestamp<ept id="50d58d6a-4487-4ea9-aed1-4908e805af64">&lt;/code&gt;</ept>, which tells us how highly each user rated a movie.</source>
+          <target state="new">The data contained in this file has a structure of <bpt id="c9ef28f3-f0d0-4a2a-9c92-ffbc4e03df75">&lt;code&gt;</bpt>userID<ept id="c9ef28f3-f0d0-4a2a-9c92-ffbc4e03df75">&lt;/code&gt;</ept>, <bpt id="5f21243f-0b43-40a0-aef3-82a8f37c203f">&lt;code&gt;</bpt>movieID<ept id="5f21243f-0b43-40a0-aef3-82a8f37c203f">&lt;/code&gt;</ept>, <bpt id="3239434a-4659-4ba7-a2e0-19e95c1305d1">&lt;code&gt;</bpt>userRating<ept id="3239434a-4659-4ba7-a2e0-19e95c1305d1">&lt;/code&gt;</ept>, and <bpt id="50d58d6a-4487-4ea9-aed1-4908e805af64">&lt;code&gt;</bpt>timestamp<ept id="50d58d6a-4487-4ea9-aed1-4908e805af64">&lt;/code&gt;</ept>, which tells us how highly each user rated a movie.</target>
+        </trans-unit>
+        <trans-unit id="9c1cf5d3-71cf-4a00-8ce2-4af395c907a4" xml:space="preserve">
+          <source>Here is an example of the data:</source>
+          <target state="new">Here is an example of the data:</target>
+        </trans-unit>
+        <trans-unit id="005e8c61-a6f6-4924-af1f-544058bbd555" xml:space="preserve">
+          <source>Use the following command to run the recommendation job:</source>
+          <target state="new">Use the following command to run the recommendation job:</target>
+        </trans-unit>
+        <trans-unit id="c1518f50-6757-4a9a-9511-24d53a53b88f" xml:space="preserve">
+          <source>The job may take several minutes to complete, and may run multiple MapReduce jobs.</source>
+          <target state="new">The job may take several minutes to complete, and may run multiple MapReduce jobs.</target>
+        </trans-unit>
+        <trans-unit id="0b82fffe-38d5-4a90-95cb-2e9f9f03f0b1" xml:space="preserve">
+          <source>Once the job completes, use the following command to view the generated output:</source>
+          <target state="new">Once the job completes, use the following command to view the generated output:</target>
+        </trans-unit>
+        <trans-unit id="73741f15-f9de-47eb-8272-49b87a5bb944" xml:space="preserve">
+          <source>The output will appear as follows:</source>
+          <target state="new">The output will appear as follows:</target>
+        </trans-unit>
+        <trans-unit id="8a2aa371-97ea-4dcd-af8b-250556c14c74" xml:space="preserve">
+          <source>The first column is the <bpt id="7e48481d-656a-47b9-9dff-4cdd5367417e">&lt;code&gt;</bpt>userID<ept id="7e48481d-656a-47b9-9dff-4cdd5367417e">&lt;/code&gt;</ept>.</source>
+          <target state="new">The first column is the <bpt id="7e48481d-656a-47b9-9dff-4cdd5367417e">&lt;code&gt;</bpt>userID<ept id="7e48481d-656a-47b9-9dff-4cdd5367417e">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3401bfc-9e29-4649-98c7-dec77d965be4" xml:space="preserve">
+          <source>The values contained in '[' and ']' are <bpt id="37de8be0-e3e9-4eab-abf7-291f3f920905">&lt;code&gt;</bpt>movieId<ept id="37de8be0-e3e9-4eab-abf7-291f3f920905">&lt;/code&gt;</ept>:<bpt id="291e20f7-9ed8-4cfa-b944-84abac0fb288">&lt;code&gt;</bpt>recommendationScore<ept id="291e20f7-9ed8-4cfa-b944-84abac0fb288">&lt;/code&gt;</ept>.</source>
+          <target state="new">The values contained in '[' and ']' are <bpt id="37de8be0-e3e9-4eab-abf7-291f3f920905">&lt;code&gt;</bpt>movieId<ept id="37de8be0-e3e9-4eab-abf7-291f3f920905">&lt;/code&gt;</ept>:<bpt id="291e20f7-9ed8-4cfa-b944-84abac0fb288">&lt;code&gt;</bpt>recommendationScore<ept id="291e20f7-9ed8-4cfa-b944-84abac0fb288">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="824c0208-ff8a-4106-a211-a27ea2206475" xml:space="preserve">
+          <source>Some of the other data contained in the <bpt id="e94acfbf-67ed-472d-82b5-efc2eda38486">&lt;strong&gt;</bpt>ml-100k<ept id="e94acfbf-67ed-472d-82b5-efc2eda38486">&lt;/strong&gt;</ept> directory can be used to make the data more user friendly.</source>
+          <target state="new">Some of the other data contained in the <bpt id="e94acfbf-67ed-472d-82b5-efc2eda38486">&lt;strong&gt;</bpt>ml-100k<ept id="e94acfbf-67ed-472d-82b5-efc2eda38486">&lt;/strong&gt;</ept> directory can be used to make the data more user friendly.</target>
+        </trans-unit>
+        <trans-unit id="b2452b18-17a9-4749-b511-797969df663e" xml:space="preserve">
+          <source>First, download the data using the following command:</source>
+          <target state="new">First, download the data using the following command:</target>
+        </trans-unit>
+        <trans-unit id="e7cdd466-cdd5-4d7e-843f-07e445bc5883" xml:space="preserve">
+          <source>This will copy the output data to a file named <bpt id="6b8cca4e-19b2-4cfc-a2f6-10d5f926e2f2">&lt;strong&gt;</bpt>recommendations.txt<ept id="6b8cca4e-19b2-4cfc-a2f6-10d5f926e2f2">&lt;/strong&gt;</ept> in the current directory.</source>
+          <target state="new">This will copy the output data to a file named <bpt id="6b8cca4e-19b2-4cfc-a2f6-10d5f926e2f2">&lt;strong&gt;</bpt>recommendations.txt<ept id="6b8cca4e-19b2-4cfc-a2f6-10d5f926e2f2">&lt;/strong&gt;</ept> in the current directory.</target>
+        </trans-unit>
+        <trans-unit id="0ccc3be5-e49c-4b84-851d-9653b9eef27d" xml:space="preserve">
+          <source>Use the following command to create a new Python script that will look up movie names for the data in the recommendations output:</source>
+          <target state="new">Use the following command to create a new Python script that will look up movie names for the data in the recommendations output:</target>
+        </trans-unit>
+        <trans-unit id="22cb0ecf-4578-4864-a4ca-cf1123b2f293" xml:space="preserve">
+          <source>When the editor opens, use the following as the contents of the file:</source>
+          <target state="new">When the editor opens, use the following as the contents of the file:</target>
+        </trans-unit>
+        <trans-unit id="2b16725a-9c1d-4f33-a918-68302d8b9f21" xml:space="preserve">
+          <source>Press <bpt id="5fd7044f-727e-42cf-bf93-f791f17d9628">&lt;strong&gt;</bpt>Ctrl-X<ept id="5fd7044f-727e-42cf-bf93-f791f17d9628">&lt;/strong&gt;</ept>, <bpt id="58fb82e2-b063-4b41-8284-000c1ad10dc8">&lt;strong&gt;</bpt>Y<ept id="58fb82e2-b063-4b41-8284-000c1ad10dc8">&lt;/strong&gt;</ept>, and finally <bpt id="e7a96222-d57a-4120-8804-c0a3dd4620cb">&lt;strong&gt;</bpt>Enter<ept id="e7a96222-d57a-4120-8804-c0a3dd4620cb">&lt;/strong&gt;</ept> to save the data.</source>
+          <target state="new">Press <bpt id="5fd7044f-727e-42cf-bf93-f791f17d9628">&lt;strong&gt;</bpt>Ctrl-X<ept id="5fd7044f-727e-42cf-bf93-f791f17d9628">&lt;/strong&gt;</ept>, <bpt id="58fb82e2-b063-4b41-8284-000c1ad10dc8">&lt;strong&gt;</bpt>Y<ept id="58fb82e2-b063-4b41-8284-000c1ad10dc8">&lt;/strong&gt;</ept>, and finally <bpt id="e7a96222-d57a-4120-8804-c0a3dd4620cb">&lt;strong&gt;</bpt>Enter<ept id="e7a96222-d57a-4120-8804-c0a3dd4620cb">&lt;/strong&gt;</ept> to save the data.</target>
+        </trans-unit>
+        <trans-unit id="bfca07ea-69fa-414c-bde3-3c8bd7e6796e" xml:space="preserve">
+          <source>Use the following command to make the file executable:</source>
+          <target state="new">Use the following command to make the file executable:</target>
+        </trans-unit>
+        <trans-unit id="cc3e6696-6e73-462a-90a6-4ce256d4251b" xml:space="preserve">
+          <source>Run the Python script:</source>
+          <target state="new">Run the Python script:</target>
+        </trans-unit>
+        <trans-unit id="40825b47-75d4-49d0-8b98-7c5d62a72245" xml:space="preserve">
+          <source>This will look at the recommendations generated for user ID 4.</source>
+          <target state="new">This will look at the recommendations generated for user ID 4.</target>
+        </trans-unit>
+        <trans-unit id="c27289aa-ee93-4c09-afce-470f6082b342" xml:space="preserve">
+          <source>The <bpt id="8cf155a3-a690-4485-8558-2260796bb246">&lt;strong&gt;</bpt>u.data<ept id="8cf155a3-a690-4485-8558-2260796bb246">&lt;/strong&gt;</ept> file is used to retrieve movies that the user has rated</source>
+          <target state="new">The <bpt id="8cf155a3-a690-4485-8558-2260796bb246">&lt;strong&gt;</bpt>u.data<ept id="8cf155a3-a690-4485-8558-2260796bb246">&lt;/strong&gt;</ept> file is used to retrieve movies that the user has rated</target>
+        </trans-unit>
+        <trans-unit id="f8a43862-5556-40fd-b4a1-1d756ad0a1fd" xml:space="preserve">
+          <source>The <bpt id="165a5637-cf0d-48a0-b4d3-ad9b69a03e81">&lt;strong&gt;</bpt>u.item<ept id="165a5637-cf0d-48a0-b4d3-ad9b69a03e81">&lt;/strong&gt;</ept> file is used to retrieve the names of the movies</source>
+          <target state="new">The <bpt id="165a5637-cf0d-48a0-b4d3-ad9b69a03e81">&lt;strong&gt;</bpt>u.item<ept id="165a5637-cf0d-48a0-b4d3-ad9b69a03e81">&lt;/strong&gt;</ept> file is used to retrieve the names of the movies</target>
+        </trans-unit>
+        <trans-unit id="379ad5bf-f728-4b07-8583-6487585d0463" xml:space="preserve">
+          <source>The <bpt id="c73aa41e-3d47-4102-b439-7c8b2c6d1c8e">&lt;strong&gt;</bpt>recommendations.txt<ept id="c73aa41e-3d47-4102-b439-7c8b2c6d1c8e">&lt;/strong&gt;</ept> is used to retrieve the movie recommendations for this user</source>
+          <target state="new">The <bpt id="c73aa41e-3d47-4102-b439-7c8b2c6d1c8e">&lt;strong&gt;</bpt>recommendations.txt<ept id="c73aa41e-3d47-4102-b439-7c8b2c6d1c8e">&lt;/strong&gt;</ept> is used to retrieve the movie recommendations for this user</target>
+        </trans-unit>
+        <trans-unit id="e246f9a0-4b44-4276-ac73-9e107f6356e3" xml:space="preserve">
+          <source>The output from this command will be similar to the following:</source>
+          <target state="new">The output from this command will be similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="c9117533-ded1-444f-ad78-0e48a650a7a7" xml:space="preserve">
+          <source>Mahout jobs do not remove temporary data that is created while processing the job.</source>
+          <target state="new">Mahout jobs do not remove temporary data that is created while processing the job.</target>
+        </trans-unit>
+        <trans-unit id="361ba364-6a14-4d18-9af8-5ec8e36d3cf1" xml:space="preserve">
+          <source>The <bpt id="d19a053b-55e9-4af8-af56-32544af0018c">&lt;code&gt;</bpt>--tempDir<ept id="d19a053b-55e9-4af8-af56-32544af0018c">&lt;/code&gt;</ept> parameter is specified in the example job to isolate the temporary files into a specific path for easy deletion.</source>
+          <target state="new">The <bpt id="d19a053b-55e9-4af8-af56-32544af0018c">&lt;code&gt;</bpt>--tempDir<ept id="d19a053b-55e9-4af8-af56-32544af0018c">&lt;/code&gt;</ept> parameter is specified in the example job to isolate the temporary files into a specific path for easy deletion.</target>
+        </trans-unit>
+        <trans-unit id="133da1a8-9694-44c8-a470-e895cb050a08" xml:space="preserve">
+          <source>To remove the temp files, use the following command:</source>
+          <target state="new">To remove the temp files, use the following command:</target>
+        </trans-unit>
+        <trans-unit id="ed7efa2f-697d-463f-aec7-42c7e9cb5bee" xml:space="preserve">
+          <source>If you do not remove the temporary files or the output file, you will receive a 'cannot overwrite file' error message if you run the job again with the same <bpt id="531f33d8-8e68-4000-a9dd-9fc526102bb7">&lt;code&gt;</bpt>--tempDir<ept id="531f33d8-8e68-4000-a9dd-9fc526102bb7">&lt;/code&gt;</ept> path.</source>
+          <target state="new">If you do not remove the temporary files or the output file, you will receive a 'cannot overwrite file' error message if you run the job again with the same <bpt id="531f33d8-8e68-4000-a9dd-9fc526102bb7">&lt;code&gt;</bpt>--tempDir<ept id="531f33d8-8e68-4000-a9dd-9fc526102bb7">&lt;/code&gt;</ept> path.</target>
+        </trans-unit>
+        <trans-unit id="55d78d74-47d7-45ee-bcf1-263b31727034" xml:space="preserve">
+          <source>Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:</source>
+          <target state="new">Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:</target>
+        </trans-unit>
+        <trans-unit id="bf31961f-5e9d-4843-8ee4-2140a4d7c927" xml:space="preserve">
+          <source><bpt id="653793b4-2f72-44a3-b122-b96a4b68bca5">&lt;linkText&gt;</bpt>Hive with HDInsight<ept id="653793b4-2f72-44a3-b122-b96a4b68bca5">&lt;/linkText&gt;</ept><bpt id="653793b4-2f72-44a3-b122-b96a4b68bca5">&lt;title&gt;</bpt><ept id="653793b4-2f72-44a3-b122-b96a4b68bca5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="653793b4-2f72-44a3-b122-b96a4b68bca5">&lt;linkText&gt;</bpt>Hive with HDInsight<ept id="653793b4-2f72-44a3-b122-b96a4b68bca5">&lt;/linkText&gt;</ept><bpt id="653793b4-2f72-44a3-b122-b96a4b68bca5">&lt;title&gt;</bpt><ept id="653793b4-2f72-44a3-b122-b96a4b68bca5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ac5877e-6da6-42d3-83b0-af2162e9f7f2" xml:space="preserve">
+          <source><bpt id="736226f9-d3ee-4d59-bceb-46c17722a855">&lt;linkText&gt;</bpt>Pig with HDInsight<ept id="736226f9-d3ee-4d59-bceb-46c17722a855">&lt;/linkText&gt;</ept><bpt id="736226f9-d3ee-4d59-bceb-46c17722a855">&lt;title&gt;</bpt><ept id="736226f9-d3ee-4d59-bceb-46c17722a855">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="736226f9-d3ee-4d59-bceb-46c17722a855">&lt;linkText&gt;</bpt>Pig with HDInsight<ept id="736226f9-d3ee-4d59-bceb-46c17722a855">&lt;/linkText&gt;</ept><bpt id="736226f9-d3ee-4d59-bceb-46c17722a855">&lt;title&gt;</bpt><ept id="736226f9-d3ee-4d59-bceb-46c17722a855">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bea794ce-c424-4ccb-8ae4-672ebea50f7b" xml:space="preserve">
+          <source><bpt id="abb88992-dcd1-420d-b722-77a875d0e69e">&lt;linkText&gt;</bpt>MapReduce with HDInsight<ept id="abb88992-dcd1-420d-b722-77a875d0e69e">&lt;/linkText&gt;</ept><bpt id="abb88992-dcd1-420d-b722-77a875d0e69e">&lt;title&gt;</bpt><ept id="abb88992-dcd1-420d-b722-77a875d0e69e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="abb88992-dcd1-420d-b722-77a875d0e69e">&lt;linkText&gt;</bpt>MapReduce with HDInsight<ept id="abb88992-dcd1-420d-b722-77a875d0e69e">&lt;/linkText&gt;</ept><bpt id="abb88992-dcd1-420d-b722-77a875d0e69e">&lt;title&gt;</bpt><ept id="abb88992-dcd1-420d-b722-77a875d0e69e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5321ddd-516d-4c31-8a28-177e64d925a6" xml:space="preserve">
+          <source>http://mahout.apache.org/developers/buildingmahout.html</source>
+          <target state="new">http://mahout.apache.org/developers/buildingmahout.html</target>
+        </trans-unit>
+        <trans-unit id="defecad2-af06-4f2c-8616-3aa0e09f7271" xml:space="preserve">
+          <source>http://grouplens.org/datasets/movielens/</source>
+          <target state="new">http://grouplens.org/datasets/movielens/</target>
+        </trans-unit>
+        <trans-unit id="52c91aad-f0ad-417f-ba76-6e57e90fe1bb" xml:space="preserve">
+          <source>http://files.grouplens.org/datasets/movielens/ml-100k.zip</source>
+          <target state="new">http://files.grouplens.org/datasets/movielens/ml-100k.zip</target>
+        </trans-unit>
+        <trans-unit id="1de08742-d9cf-4bbb-be08-1b49231bc234" xml:space="preserve">
+          <source>hdinsight-hadoop-linux-tutorial-get-started.md</source>
+          <target state="new">hdinsight-hadoop-linux-tutorial-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="2f749ab4-539f-4c24-8ed3-b2693c2c9040" xml:space="preserve">
+          <source>hdinsight-upload-data.md</source>
+          <target state="new">hdinsight-upload-data.md</target>
+        </trans-unit>
+        <trans-unit id="5ff4674c-7ec4-46c4-8ac4-814b4e1222ef" xml:space="preserve">
+          <source>http://en.wikipedia.org/wiki/Machine_learning</source>
+          <target state="new">http://en.wikipedia.org/wiki/Machine_learning</target>
+        </trans-unit>
+        <trans-unit id="d057a63d-7213-459d-b6c9-da09a2c0a74c" xml:space="preserve">
+          <source>http://en.wikipedia.org/wiki/Random_forest</source>
+          <target state="new">http://en.wikipedia.org/wiki/Random_forest</target>
+        </trans-unit>
+        <trans-unit id="05598ad0-945a-4081-8946-1086ce41ac58" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="caf783c1-ff55-4a1e-a28d-6ff2e750065d" xml:space="preserve">
+          <source>./media/hdinsight-mahout/enableremote.png</source>
+          <target state="new">./media/hdinsight-mahout/enableremote.png</target>
+        </trans-unit>
+        <trans-unit id="22db9b25-879a-433a-9002-914ee9fcd71c" xml:space="preserve">
+          <source>./media/hdinsight-mahout/connect.png</source>
+          <target state="new">./media/hdinsight-mahout/connect.png</target>
+        </trans-unit>
+        <trans-unit id="4751b1d7-fa54-494a-aeb0-17420a4c674e" xml:space="preserve">
+          <source>./media/hdinsight-mahout/hadoopcli.png</source>
+          <target state="new">./media/hdinsight-mahout/hadoopcli.png</target>
+        </trans-unit>
+        <trans-unit id="980fdb4e-520b-4ab8-b29e-c5c40728cc67" xml:space="preserve">
+          <source>https://github.com/Blackmist/hdinsight-tools</source>
+          <target state="new">https://github.com/Blackmist/hdinsight-tools</target>
+        </trans-unit>
+      </group>
+      <group id="5ae73eeb-59cc-4917-91b6-0a0c8784cf02" />
+    </body>
+  </file>
+</xliff>

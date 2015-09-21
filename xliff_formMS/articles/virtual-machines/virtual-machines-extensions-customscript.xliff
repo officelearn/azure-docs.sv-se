@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="beeb7fa6-4887-49ff-b6bb-48d4ebc4042f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="beeb7fa6-4887-49ff-b6bb-48d4ebc4042f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="62815b6c-9a2c-4746-a4d3-f751809bf0b9">
+        <trans-unit id="6024822f-dcfe-4d3c-9625-d4cc3ffa10c4" xml:space="preserve">
+          <source>Custom Script extension on Windows | Microsoft Azure</source>
+          <target state="new">Custom Script extension on Windows | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4c2dad27-9d66-4195-ae5e-a1f44686898d" xml:space="preserve">
+          <source>Automating Azure virtual machine configuration tasks using Custom script extension on Windows </source>
+          <target state="new">Automating Azure virtual machine configuration tasks using Custom script extension on Windows </target>
+        </trans-unit>
+        <trans-unit id="a2b21de9-2782-47c6-8e8b-592ed99f212d" xml:space="preserve">
+          <source>This article gives an overview of using Custom Script Extension on Windows using Azure PowerShell cmdlets.</source>
+          <target state="new">This article gives an overview of using Custom Script Extension on Windows using Azure PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="00d6ca65-0e05-4742-b7ea-3fc2eef005a1" xml:space="preserve">
+          <source>Virtual machine (VM) extensions are built by Microsoft and trusted third-party publishers to extend the functionality of the VM.</source>
+          <target state="new">Virtual machine (VM) extensions are built by Microsoft and trusted third-party publishers to extend the functionality of the VM.</target>
+        </trans-unit>
+        <trans-unit id="fc8a2c0a-5f66-4ef3-b9ed-ae8089a2a4c6" xml:space="preserve">
+          <source>For an overview of VM extensions, see
+&lt;a href="https://msdn.microsoft.com/library/azure/dn606311.aspx" target="_blank"&gt;Azure VM extensions and features&lt;/a&gt;.</source>
+          <target state="new">For an overview of VM extensions, see
+&lt;a href="https://msdn.microsoft.com/library/azure/dn606311.aspx" target="_blank"&gt;Azure VM extensions and features&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="ea4012ae-f338-48da-85b0-7b6eebc2ff21" xml:space="preserve">
+          <source>Custom Script Extension for Windows allows you to run PowerShell scripts on a remote VM, without logging into it.</source>
+          <target state="new">Custom Script Extension for Windows allows you to run PowerShell scripts on a remote VM, without logging into it.</target>
+        </trans-unit>
+        <trans-unit id="ee59cf0c-a489-48fc-8488-83ff6ced7f40" xml:space="preserve">
+          <source>The scripts can be run after provisioning the VM or any time during the lifecycle of the VM without requiring to open any additional ports on the VM.</source>
+          <target state="new">The scripts can be run after provisioning the VM or any time during the lifecycle of the VM without requiring to open any additional ports on the VM.</target>
+        </trans-unit>
+        <trans-unit id="b065a658-00a8-4026-8291-928b3328dca0" xml:space="preserve">
+          <source>The most common use case for Custom Script Extension include running, installing, and configuring additional software on the VM after it's provisioned.</source>
+          <target state="new">The most common use case for Custom Script Extension include running, installing, and configuring additional software on the VM after it's provisioned.</target>
+        </trans-unit>
+        <trans-unit id="2cb45383-6ad4-42e4-bbc2-8c5961c01186" xml:space="preserve">
+          <source>Install Azure PowerShell cmdlets version 0.8.0 or later from &lt;a href="http://azure.microsoft.com/downloads" target="_blank"&gt;here&lt;/a&gt;.</source>
+          <target state="new">Install Azure PowerShell cmdlets version 0.8.0 or later from &lt;a href="http://azure.microsoft.com/downloads" target="_blank"&gt;here&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="11bcb277-776e-42d8-9dfe-fef93b408318" xml:space="preserve">
+          <source>If the scripts are run on an existing VM, make sure VM Agent is enabled on the VM, if not follow this &lt;a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank"&gt;article&lt;/a&gt; to install one.</source>
+          <target state="new">If the scripts are run on an existing VM, make sure VM Agent is enabled on the VM, if not follow this &lt;a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank"&gt;article&lt;/a&gt; to install one.</target>
+        </trans-unit>
+        <trans-unit id="a63293a5-d8a5-40c6-b044-6d6fc65eb499" xml:space="preserve">
+          <source>Upload the scripts that you want to run on the VM to Azure Storage.</source>
+          <target state="new">Upload the scripts that you want to run on the VM to Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="c46aa37a-88b8-4bfc-8180-a7bbeb0c6b00" xml:space="preserve">
+          <source>The scripts can come from a single container or multiple storage containers.</source>
+          <target state="new">The scripts can come from a single container or multiple storage containers.</target>
+        </trans-unit>
+        <trans-unit id="595a2676-5cae-4999-8ad3-e9af32ff3b5e" xml:space="preserve">
+          <source>The script should be authored in such a way that the entry script, which is started by the extension, starts other scripts.</source>
+          <target state="new">The script should be authored in such a way that the entry script, which is started by the extension, starts other scripts.</target>
+        </trans-unit>
+        <trans-unit id="b74f4776-b5df-4fca-8ff0-c34a131bd727" xml:space="preserve">
+          <source>If you have your scripts in the storage container of the default account of your subscription, then the following example shows how you can run them on the VM.</source>
+          <target state="new">If you have your scripts in the storage container of the default account of your subscription, then the following example shows how you can run them on the VM.</target>
+        </trans-unit>
+        <trans-unit id="983beba7-c168-4980-9f82-22d9507d2b3a" xml:space="preserve">
+          <source>The ContainerName is where you upload the scripts to.</source>
+          <target state="new">The ContainerName is where you upload the scripts to.</target>
+        </trans-unit>
+        <trans-unit id="e34935e3-342a-4a45-8d81-a664f1b037e4" xml:space="preserve">
+          <source>The default storage account can be verified by using the <bpt id="f7be5ea7-ea01-486f-85b8-900236db3260">&lt;strong&gt;</bpt>Get-AzureSubscription –Default<ept id="f7be5ea7-ea01-486f-85b8-900236db3260">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">The default storage account can be verified by using the <bpt id="f7be5ea7-ea01-486f-85b8-900236db3260">&lt;strong&gt;</bpt>Get-AzureSubscription –Default<ept id="f7be5ea7-ea01-486f-85b8-900236db3260">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="53d55c55-b8c6-428e-b86d-7d5a421fb507" xml:space="preserve">
+          <source>The following example creates a new VM, but the same scenario can be run on an existing VM as well.</source>
+          <target state="new">The following example creates a new VM, but the same scenario can be run on an existing VM as well.</target>
+        </trans-unit>
+        <trans-unit id="54253960-8300-4a27-a0ef-800694270333" xml:space="preserve">
+          <source>This scenario shows how to use a non-default storage either within the same subscription or in a different subscription for uploading scripts and files.</source>
+          <target state="new">This scenario shows how to use a non-default storage either within the same subscription or in a different subscription for uploading scripts and files.</target>
+        </trans-unit>
+        <trans-unit id="0d1772b2-4d12-491b-9e14-8abe92adf85d" xml:space="preserve">
+          <source>Here we’ll use an existing VM but the same operations can be done while creating a new VM.</source>
+          <target state="new">Here we’ll use an existing VM but the same operations can be done while creating a new VM.</target>
+        </trans-unit>
+        <trans-unit id="7942c587-51d7-42ba-8d78-b308cc1e4932" xml:space="preserve">
+          <source>  If the script files are stored across multiple containers, to run the scripts, you have to provide the full SAS URL for the files.</source>
+          <target state="new">  If the script files are stored across multiple containers, to run the scripts, you have to provide the full SAS URL for the files.</target>
+        </trans-unit>
+        <trans-unit id="7bbcb1a2-73fa-448b-b55c-4ccc43a6c436" xml:space="preserve">
+          <source>Browse to the VM in the &lt;a href="https://portal.azure.com/ " target="_blank"&gt;Azure preview portal &lt;/a&gt; and add the extension by specifying the script file to run.</source>
+          <target state="new">Browse to the VM in the &lt;a href="https://portal.azure.com/ " target="_blank"&gt;Azure preview portal &lt;/a&gt; and add the extension by specifying the script file to run.</target>
+        </trans-unit>
+        <trans-unit id="b4c7491e-8b4d-4765-8d72-f44586d20ec0" xml:space="preserve">
+          <source>  <bpt id="411618ea-8676-4210-a956-fc7360631b21">&lt;linkText&gt;</bpt><ept id="411618ea-8676-4210-a956-fc7360631b21">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="411618ea-8676-4210-a956-fc7360631b21">&lt;linkText&gt;</bpt><ept id="411618ea-8676-4210-a956-fc7360631b21">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66c4f403-84e9-4f7e-be40-300f9b047af7" xml:space="preserve">
+          <source>Custom Script Extension can be uninstalled from the VM using the following command.</source>
+          <target state="new">Custom Script Extension can be uninstalled from the VM using the following command.</target>
+        </trans-unit>
+        <trans-unit id="fde44194-fbf5-4984-9fc9-e3ec0776b2a3" xml:space="preserve">
+          <source>To learn about using Custom Script Extension with Templates, see the documentation [here](virtual-machines-extensions-customscript -with template.md).</source>
+          <target state="new">To learn about using Custom Script Extension with Templates, see the documentation [here](virtual-machines-extensions-customscript -with template.md).</target>
+        </trans-unit>
+        <trans-unit id="b358b05c-3938-4c06-a786-4abbc002eabf" xml:space="preserve">
+          <source>./media/virtual-machines-extensions-customscript/addcse.png</source>
+          <target state="new">./media/virtual-machines-extensions-customscript/addcse.png</target>
+        </trans-unit>
+      </group>
+      <group id="067c28db-2945-4d7a-a990-a716a999ae82" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="27762ece-dc26-45de-ac25-bc6fdfed80f1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="27762ece-dc26-45de-ac25-bc6fdfed80f1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3d9829ab-ddc8-4d4f-935b-576ed65f9e7c">
+        <trans-unit id="29731fc7-532f-4639-8062-87103855cc57" xml:space="preserve">
+          <source>Add push notifications to your Windows Runtime 8.1 universal app | Azure Mobile Apps</source>
+          <target state="new">Add push notifications to your Windows Runtime 8.1 universal app | Azure Mobile Apps</target>
+        </trans-unit>
+        <trans-unit id="3b87a0de-d9d5-43b1-aaa8-0b046e62040f" xml:space="preserve">
+          <source>Learn how to use Azure App Service Mobile Apps and Azure Notification Hubs to send push notifications to your Windows app.</source>
+          <target state="new">Learn how to use Azure App Service Mobile Apps and Azure Notification Hubs to send push notifications to your Windows app.</target>
+        </trans-unit>
+        <trans-unit id="64bcdb80-5e8c-4085-b63f-52baac6af10c" xml:space="preserve">
+          <source><bpt id="85b2b892-0bbe-4760-aeea-b184b407acb4">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="85b2b892-0bbe-4760-aeea-b184b407acb4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="85b2b892-0bbe-4760-aeea-b184b407acb4">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="85b2b892-0bbe-4760-aeea-b184b407acb4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d2d9760-1c01-4490-996a-51ef1b243c2e" xml:space="preserve">
+          <source>This topic shows you how to send push notifications to a Windows Runtime 8.1 universal app by using Azure App Service Mobile Apps and Azure Notification Hubs.</source>
+          <target state="new">This topic shows you how to send push notifications to a Windows Runtime 8.1 universal app by using Azure App Service Mobile Apps and Azure Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="49371cb4-7fc0-4454-9f6f-86b771ce3b35" xml:space="preserve">
+          <source>In this scenario, when a new item is added, your Mobile App backend sends a push notification to all Windows apps registered with the Windows Notification Service (WNS).</source>
+          <target state="new">In this scenario, when a new item is added, your Mobile App backend sends a push notification to all Windows apps registered with the Windows Notification Service (WNS).</target>
+        </trans-unit>
+        <trans-unit id="16bd5b9c-0840-4884-be64-dff56514a2ec" xml:space="preserve">
+          <source>This tutorial is based on the App Service Mobile App quickstart.</source>
+          <target state="new">This tutorial is based on the App Service Mobile App quickstart.</target>
+        </trans-unit>
+        <trans-unit id="922addb1-a093-46ce-9662-6fe13f024cb2" xml:space="preserve">
+          <source>Before you start this tutorial, you must first complete the quickstart tutorial <bpt id="7d4f70ab-c2b7-4f49-bc0f-cdebbd35ef7d">&lt;linkText&gt;</bpt>Create a Windows app<ept id="7d4f70ab-c2b7-4f49-bc0f-cdebbd35ef7d">&lt;/linkText&gt;</ept><bpt id="7d4f70ab-c2b7-4f49-bc0f-cdebbd35ef7d">&lt;title&gt;</bpt><ept id="7d4f70ab-c2b7-4f49-bc0f-cdebbd35ef7d">&lt;/title&gt;</ept>.</source>
+          <target state="new">Before you start this tutorial, you must first complete the quickstart tutorial <bpt id="7d4f70ab-c2b7-4f49-bc0f-cdebbd35ef7d">&lt;linkText&gt;</bpt>Create a Windows app<ept id="7d4f70ab-c2b7-4f49-bc0f-cdebbd35ef7d">&lt;/linkText&gt;</ept><bpt id="7d4f70ab-c2b7-4f49-bc0f-cdebbd35ef7d">&lt;title&gt;</bpt><ept id="7d4f70ab-c2b7-4f49-bc0f-cdebbd35ef7d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7282081e-a64d-46de-b144-f8ba414594bd" xml:space="preserve">
+          <source>If you do not use the downloaded quick start server project, you must add the push notification extension package to your project.</source>
+          <target state="new">If you do not use the downloaded quick start server project, you must add the push notification extension package to your project.</target>
+        </trans-unit>
+        <trans-unit id="d391d38d-e11f-4c9b-835b-8e035de7d50a" xml:space="preserve">
+          <source>For more information about server extension packages, see <bpt id="39686ef7-eaf7-47a4-814a-846a98284a2b">&lt;linkText&gt;</bpt>Work with the .NET backend server SDK for Azure Mobile Apps<ept id="39686ef7-eaf7-47a4-814a-846a98284a2b">&lt;/linkText&gt;</ept><bpt id="39686ef7-eaf7-47a4-814a-846a98284a2b">&lt;title&gt;</bpt><ept id="39686ef7-eaf7-47a4-814a-846a98284a2b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about server extension packages, see <bpt id="39686ef7-eaf7-47a4-814a-846a98284a2b">&lt;linkText&gt;</bpt>Work with the .NET backend server SDK for Azure Mobile Apps<ept id="39686ef7-eaf7-47a4-814a-846a98284a2b">&lt;/linkText&gt;</ept><bpt id="39686ef7-eaf7-47a4-814a-846a98284a2b">&lt;title&gt;</bpt><ept id="39686ef7-eaf7-47a4-814a-846a98284a2b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b42132b1-a0ba-4733-98a9-ef2852cc9419" xml:space="preserve">
+          <source>To complete this tutorial, you need the following:</source>
+          <target state="new">To complete this tutorial, you need the following:</target>
+        </trans-unit>
+        <trans-unit id="b6c3b9da-f07c-4e91-92ed-843acf419a8f" xml:space="preserve">
+          <source>An active <bpt id="41c19664-fffd-4661-8f16-96a5b5f64ff2">&lt;linkText&gt;</bpt>Microsoft Store account<ept id="41c19664-fffd-4661-8f16-96a5b5f64ff2">&lt;/linkText&gt;</ept><bpt id="41c19664-fffd-4661-8f16-96a5b5f64ff2">&lt;title&gt;</bpt><ept id="41c19664-fffd-4661-8f16-96a5b5f64ff2">&lt;/title&gt;</ept>.</source>
+          <target state="new">An active <bpt id="41c19664-fffd-4661-8f16-96a5b5f64ff2">&lt;linkText&gt;</bpt>Microsoft Store account<ept id="41c19664-fffd-4661-8f16-96a5b5f64ff2">&lt;/linkText&gt;</ept><bpt id="41c19664-fffd-4661-8f16-96a5b5f64ff2">&lt;title&gt;</bpt><ept id="41c19664-fffd-4661-8f16-96a5b5f64ff2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02a2c4fd-2ef4-4902-8adb-df4aa2c751c0" xml:space="preserve">
+          <source><bpt id="8e7a3e74-93e5-4133-ba2d-b4bd1983438c">&lt;linkText&gt;</bpt>Visual Studio Community 2013<ept id="8e7a3e74-93e5-4133-ba2d-b4bd1983438c">&lt;/linkText&gt;</ept><bpt id="8e7a3e74-93e5-4133-ba2d-b4bd1983438c">&lt;title&gt;</bpt><ept id="8e7a3e74-93e5-4133-ba2d-b4bd1983438c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8e7a3e74-93e5-4133-ba2d-b4bd1983438c">&lt;linkText&gt;</bpt>Visual Studio Community 2013<ept id="8e7a3e74-93e5-4133-ba2d-b4bd1983438c">&lt;/linkText&gt;</ept><bpt id="8e7a3e74-93e5-4133-ba2d-b4bd1983438c">&lt;title&gt;</bpt><ept id="8e7a3e74-93e5-4133-ba2d-b4bd1983438c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1c46634-4a46-4ef7-a983-79b6bcc1c832" xml:space="preserve">
+          <source>Complete the <bpt id="bbb1744c-c563-421e-b6ce-86bc538dc894">&lt;linkText&gt;</bpt>quickstart tutorial<ept id="bbb1744c-c563-421e-b6ce-86bc538dc894">&lt;/linkText&gt;</ept><bpt id="bbb1744c-c563-421e-b6ce-86bc538dc894">&lt;title&gt;</bpt><ept id="bbb1744c-c563-421e-b6ce-86bc538dc894">&lt;/title&gt;</ept>.</source>
+          <target state="new">Complete the <bpt id="bbb1744c-c563-421e-b6ce-86bc538dc894">&lt;linkText&gt;</bpt>quickstart tutorial<ept id="bbb1744c-c563-421e-b6ce-86bc538dc894">&lt;/linkText&gt;</ept><bpt id="bbb1744c-c563-421e-b6ce-86bc538dc894">&lt;title&gt;</bpt><ept id="bbb1744c-c563-421e-b6ce-86bc538dc894">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50f33ca3-7521-4f75-b4dd-d918951f4dbe" xml:space="preserve">
+          <source>Follow these steps to create a new Notification Hub to handle push notifications.</source>
+          <target state="new">Follow these steps to create a new Notification Hub to handle push notifications.</target>
+        </trans-unit>
+        <trans-unit id="c16b4b1b-9c4e-4ca4-aad9-c7bc6a897f10" xml:space="preserve">
+          <source>If you already have a hub in the same resource group, you do not need to complete this section.</source>
+          <target state="new">If you already have a hub in the same resource group, you do not need to complete this section.</target>
+        </trans-unit>
+        <trans-unit id="bedc34b0-3c8d-40d6-a892-998d77b554d4" xml:space="preserve">
+          <source>Visit the [Azure Portal].</source>
+          <target state="new">Visit the [Azure Portal].</target>
+        </trans-unit>
+        <trans-unit id="6b690630-88a7-430d-90e6-48b510b62cf8" xml:space="preserve">
+          <source>Click <bpt id="c185b5af-9bb5-4cc0-94da-d66dd152c8c7">&lt;strong&gt;</bpt>Browse All<ept id="c185b5af-9bb5-4cc0-94da-d66dd152c8c7">&lt;/strong&gt;</ept> &gt; <bpt id="d98caa66-4c41-4f41-b15b-845e1d997caa">&lt;strong&gt;</bpt>Mobile Apps<ept id="d98caa66-4c41-4f41-b15b-845e1d997caa">&lt;/strong&gt;</ept> &gt; the backend that you just created.</source>
+          <target state="new">Click <bpt id="c185b5af-9bb5-4cc0-94da-d66dd152c8c7">&lt;strong&gt;</bpt>Browse All<ept id="c185b5af-9bb5-4cc0-94da-d66dd152c8c7">&lt;/strong&gt;</ept> &gt; <bpt id="d98caa66-4c41-4f41-b15b-845e1d997caa">&lt;strong&gt;</bpt>Mobile Apps<ept id="d98caa66-4c41-4f41-b15b-845e1d997caa">&lt;/strong&gt;</ept> &gt; the backend that you just created.</target>
+        </trans-unit>
+        <trans-unit id="308badb3-689a-418d-a65e-c6c5ce6acced" xml:space="preserve">
+          <source>Click <bpt id="d8699220-3020-47d2-a958-1e5ecc3c8cfb">&lt;strong&gt;</bpt>Settings<ept id="d8699220-3020-47d2-a958-1e5ecc3c8cfb">&lt;/strong&gt;</ept> &gt; <bpt id="a247569c-341f-4877-852a-e6b45e2bb140">&lt;strong&gt;</bpt>Mobile<ept id="a247569c-341f-4877-852a-e6b45e2bb140">&lt;/strong&gt;</ept> &gt; <bpt id="34b05055-0b31-4d1e-9033-68d4af087570">&lt;strong&gt;</bpt>Push<ept id="34b05055-0b31-4d1e-9033-68d4af087570">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d8699220-3020-47d2-a958-1e5ecc3c8cfb">&lt;strong&gt;</bpt>Settings<ept id="d8699220-3020-47d2-a958-1e5ecc3c8cfb">&lt;/strong&gt;</ept> &gt; <bpt id="a247569c-341f-4877-852a-e6b45e2bb140">&lt;strong&gt;</bpt>Mobile<ept id="a247569c-341f-4877-852a-e6b45e2bb140">&lt;/strong&gt;</ept> &gt; <bpt id="34b05055-0b31-4d1e-9033-68d4af087570">&lt;strong&gt;</bpt>Push<ept id="34b05055-0b31-4d1e-9033-68d4af087570">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90aad95a-4988-4abf-bc8e-a05fb01ac384" xml:space="preserve">
+          <source>Follow the work flow to create a notification hub.</source>
+          <target state="new">Follow the work flow to create a notification hub.</target>
+        </trans-unit>
+        <trans-unit id="cc92167a-87db-4abe-aeb6-40275c286ab0" xml:space="preserve">
+          <source>You will need to create a new namespace if there is none in your current resource group.</source>
+          <target state="new">You will need to create a new namespace if there is none in your current resource group.</target>
+        </trans-unit>
+        <trans-unit id="cfc0c850-c498-454d-bf87-3a86f7f8dd65" xml:space="preserve">
+          <source>Click <bpt id="6e87ac6b-58ea-489d-b019-a208591b6d96">&lt;strong&gt;</bpt>Create<ept id="6e87ac6b-58ea-489d-b019-a208591b6d96">&lt;/strong&gt;</ept> once you've configured all the settings.</source>
+          <target state="new">Click <bpt id="6e87ac6b-58ea-489d-b019-a208591b6d96">&lt;strong&gt;</bpt>Create<ept id="6e87ac6b-58ea-489d-b019-a208591b6d96">&lt;/strong&gt;</ept> once you've configured all the settings.</target>
+        </trans-unit>
+        <trans-unit id="b74732ac-6103-4121-89ef-19ea42af6c4c" xml:space="preserve">
+          <source>Next, you will use this notificaton hub to enable push for your app.</source>
+          <target state="new">Next, you will use this notificaton hub to enable push for your app.</target>
+        </trans-unit>
+        <trans-unit id="c280efa0-4714-4e90-9cb9-6935096328de" xml:space="preserve">
+          <source>Before you can send push notifications to your Windows apps from Azure, you must submit your app to the Windows Store.</source>
+          <target state="new">Before you can send push notifications to your Windows apps from Azure, you must submit your app to the Windows Store.</target>
+        </trans-unit>
+        <trans-unit id="539ba196-cf28-4aab-8cca-5fb391e8bc86" xml:space="preserve">
+          <source>You can then configure your server project to integrate with WNS.</source>
+          <target state="new">You can then configure your server project to integrate with WNS.</target>
+        </trans-unit>
+        <trans-unit id="a9e667d1-0440-4edb-8a91-907031a353db" xml:space="preserve">
+          <source>In Visual Studio Solution Explorer, right-click the Windows Store app project, click <bpt id="b26a31a7-df5e-40d2-a6f9-32cf18d07468">&lt;strong&gt;</bpt>Store<ept id="b26a31a7-df5e-40d2-a6f9-32cf18d07468">&lt;/strong&gt;</ept> &gt; <bpt id="49174561-e597-44fb-868d-c5a1bdb046d0">&lt;strong&gt;</bpt>Associate App with the Store...<ept id="49174561-e597-44fb-868d-c5a1bdb046d0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio Solution Explorer, right-click the Windows Store app project, click <bpt id="b26a31a7-df5e-40d2-a6f9-32cf18d07468">&lt;strong&gt;</bpt>Store<ept id="b26a31a7-df5e-40d2-a6f9-32cf18d07468">&lt;/strong&gt;</ept> &gt; <bpt id="49174561-e597-44fb-868d-c5a1bdb046d0">&lt;strong&gt;</bpt>Associate App with the Store...<ept id="49174561-e597-44fb-868d-c5a1bdb046d0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8cc02d05-6c26-4228-a1ef-17e662d340f8" xml:space="preserve">
+          <source><bpt id="f56439fa-2a88-4fea-bebb-72503586663d">&lt;linkText&gt;</bpt><ept id="f56439fa-2a88-4fea-bebb-72503586663d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f56439fa-2a88-4fea-bebb-72503586663d">&lt;linkText&gt;</bpt><ept id="f56439fa-2a88-4fea-bebb-72503586663d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79cdb534-3974-499b-a05a-e6967bde7bf1" xml:space="preserve">
+          <source>In the wizard, click <bpt id="4568ec91-0172-465b-8d0a-136863d96bd5">&lt;strong&gt;</bpt>Next<ept id="4568ec91-0172-465b-8d0a-136863d96bd5">&lt;/strong&gt;</ept>, sign in with your Microsoft account, type a name for your app in <bpt id="6597e358-2daa-4ddd-856a-e65667183082">&lt;strong&gt;</bpt>Reserve a new app name<ept id="6597e358-2daa-4ddd-856a-e65667183082">&lt;/strong&gt;</ept>, then click <bpt id="64819178-10fa-4de0-90e5-0c75665f70ae">&lt;strong&gt;</bpt>Reserve<ept id="64819178-10fa-4de0-90e5-0c75665f70ae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the wizard, click <bpt id="4568ec91-0172-465b-8d0a-136863d96bd5">&lt;strong&gt;</bpt>Next<ept id="4568ec91-0172-465b-8d0a-136863d96bd5">&lt;/strong&gt;</ept>, sign in with your Microsoft account, type a name for your app in <bpt id="6597e358-2daa-4ddd-856a-e65667183082">&lt;strong&gt;</bpt>Reserve a new app name<ept id="6597e358-2daa-4ddd-856a-e65667183082">&lt;/strong&gt;</ept>, then click <bpt id="64819178-10fa-4de0-90e5-0c75665f70ae">&lt;strong&gt;</bpt>Reserve<ept id="64819178-10fa-4de0-90e5-0c75665f70ae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff429551-e72a-40aa-a605-8dff2668dacc" xml:space="preserve">
+          <source>After the app registration is successfully created, select the new app name, click <bpt id="10370684-30cb-4e95-b6bb-e832f51e6558">&lt;strong&gt;</bpt>Next<ept id="10370684-30cb-4e95-b6bb-e832f51e6558">&lt;/strong&gt;</ept>, and then click <bpt id="1fe09b72-3ecb-40e6-ad11-b78b6875ba59">&lt;strong&gt;</bpt>Associate<ept id="1fe09b72-3ecb-40e6-ad11-b78b6875ba59">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the app registration is successfully created, select the new app name, click <bpt id="10370684-30cb-4e95-b6bb-e832f51e6558">&lt;strong&gt;</bpt>Next<ept id="10370684-30cb-4e95-b6bb-e832f51e6558">&lt;/strong&gt;</ept>, and then click <bpt id="1fe09b72-3ecb-40e6-ad11-b78b6875ba59">&lt;strong&gt;</bpt>Associate<ept id="1fe09b72-3ecb-40e6-ad11-b78b6875ba59">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78d3ee21-6940-4058-94f0-c8d49b7b8756" xml:space="preserve">
+          <source>This adds the required Windows Store registration information to the application manifest.</source>
+          <target state="new">This adds the required Windows Store registration information to the application manifest.</target>
+        </trans-unit>
+        <trans-unit id="23e2c24b-5502-4ca5-8a6d-eedea133d006" xml:space="preserve">
+          <source>Repeat steps 1 and 3 for the Windows Phone Store app project using the same registration you previously created for the Windows Store app.</source>
+          <target state="new">Repeat steps 1 and 3 for the Windows Phone Store app project using the same registration you previously created for the Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="f3d67f9e-4ccd-4079-8270-896b4a393b79" xml:space="preserve">
+          <source>Navigate to the <bpt id="ed3d2bd8-150e-45e3-9a70-677c0a828ae5">&lt;linkText&gt;</bpt>Windows Dev Center<ept id="ed3d2bd8-150e-45e3-9a70-677c0a828ae5">&lt;/linkText&gt;</ept><bpt id="ed3d2bd8-150e-45e3-9a70-677c0a828ae5">&lt;title&gt;</bpt><ept id="ed3d2bd8-150e-45e3-9a70-677c0a828ae5">&lt;/title&gt;</ept>, sign-in with your Microsoft account, click the new app registration in <bpt id="4fb71031-900a-468c-80e8-dc7397a87cd4">&lt;strong&gt;</bpt>My apps<ept id="4fb71031-900a-468c-80e8-dc7397a87cd4">&lt;/strong&gt;</ept>, then expand <bpt id="f33ebece-4b4d-47e9-965e-45d1772799cf">&lt;strong&gt;</bpt>Services<ept id="f33ebece-4b4d-47e9-965e-45d1772799cf">&lt;/strong&gt;</ept> &gt; <bpt id="66c1875e-d86d-480d-9df3-27af738b4215">&lt;strong&gt;</bpt>Push notifications<ept id="66c1875e-d86d-480d-9df3-27af738b4215">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to the <bpt id="ed3d2bd8-150e-45e3-9a70-677c0a828ae5">&lt;linkText&gt;</bpt>Windows Dev Center<ept id="ed3d2bd8-150e-45e3-9a70-677c0a828ae5">&lt;/linkText&gt;</ept><bpt id="ed3d2bd8-150e-45e3-9a70-677c0a828ae5">&lt;title&gt;</bpt><ept id="ed3d2bd8-150e-45e3-9a70-677c0a828ae5">&lt;/title&gt;</ept>, sign-in with your Microsoft account, click the new app registration in <bpt id="4fb71031-900a-468c-80e8-dc7397a87cd4">&lt;strong&gt;</bpt>My apps<ept id="4fb71031-900a-468c-80e8-dc7397a87cd4">&lt;/strong&gt;</ept>, then expand <bpt id="f33ebece-4b4d-47e9-965e-45d1772799cf">&lt;strong&gt;</bpt>Services<ept id="f33ebece-4b4d-47e9-965e-45d1772799cf">&lt;/strong&gt;</ept> &gt; <bpt id="66c1875e-d86d-480d-9df3-27af738b4215">&lt;strong&gt;</bpt>Push notifications<ept id="66c1875e-d86d-480d-9df3-27af738b4215">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="391cb3c8-b4d5-4ebd-b508-a5ec74daefa1" xml:space="preserve">
+          <source>In the <bpt id="0e5e2e63-746a-43d5-ae02-6a9f2542c0ee">&lt;strong&gt;</bpt>Push notifications<ept id="0e5e2e63-746a-43d5-ae02-6a9f2542c0ee">&lt;/strong&gt;</ept> page, click <bpt id="d5b07e86-0a9d-42cb-b0dd-14d0647a14e7">&lt;strong&gt;</bpt>Live Services site<ept id="d5b07e86-0a9d-42cb-b0dd-14d0647a14e7">&lt;/strong&gt;</ept> under <bpt id="219419f9-2039-48df-938b-577d58a2f2a7">&lt;strong&gt;</bpt>Microsoft Azure Mobile Services<ept id="219419f9-2039-48df-938b-577d58a2f2a7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="0e5e2e63-746a-43d5-ae02-6a9f2542c0ee">&lt;strong&gt;</bpt>Push notifications<ept id="0e5e2e63-746a-43d5-ae02-6a9f2542c0ee">&lt;/strong&gt;</ept> page, click <bpt id="d5b07e86-0a9d-42cb-b0dd-14d0647a14e7">&lt;strong&gt;</bpt>Live Services site<ept id="d5b07e86-0a9d-42cb-b0dd-14d0647a14e7">&lt;/strong&gt;</ept> under <bpt id="219419f9-2039-48df-938b-577d58a2f2a7">&lt;strong&gt;</bpt>Microsoft Azure Mobile Services<ept id="219419f9-2039-48df-938b-577d58a2f2a7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10534454-2e05-4834-b0b0-d4b002a14d66" xml:space="preserve">
+          <source>In the <bpt id="1c5611bb-de1e-45c7-a0e6-53612d9c14e6">&lt;strong&gt;</bpt>App Settings<ept id="1c5611bb-de1e-45c7-a0e6-53612d9c14e6">&lt;/strong&gt;</ept> tab, make a note of the values of <bpt id="488c17d8-b632-4623-94ec-ba2867a6849b">&lt;strong&gt;</bpt>Client secret<ept id="488c17d8-b632-4623-94ec-ba2867a6849b">&lt;/strong&gt;</ept> and <bpt id="24bd69e1-7deb-4606-8123-6d9770da2a9a">&lt;strong&gt;</bpt>Package SID<ept id="24bd69e1-7deb-4606-8123-6d9770da2a9a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1c5611bb-de1e-45c7-a0e6-53612d9c14e6">&lt;strong&gt;</bpt>App Settings<ept id="1c5611bb-de1e-45c7-a0e6-53612d9c14e6">&lt;/strong&gt;</ept> tab, make a note of the values of <bpt id="488c17d8-b632-4623-94ec-ba2867a6849b">&lt;strong&gt;</bpt>Client secret<ept id="488c17d8-b632-4623-94ec-ba2867a6849b">&lt;/strong&gt;</ept> and <bpt id="24bd69e1-7deb-4606-8123-6d9770da2a9a">&lt;strong&gt;</bpt>Package SID<ept id="24bd69e1-7deb-4606-8123-6d9770da2a9a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="993b330a-d1a2-4e3f-864a-e7b3236e8f0e" xml:space="preserve">
+          <source><bpt id="6f1880df-b8a7-40ef-92ab-1039a0978a98">&lt;linkText&gt;</bpt><ept id="6f1880df-b8a7-40ef-92ab-1039a0978a98">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f1880df-b8a7-40ef-92ab-1039a0978a98">&lt;linkText&gt;</bpt><ept id="6f1880df-b8a7-40ef-92ab-1039a0978a98">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="368ecedd-ffdc-49eb-8d79-10beddd9c2a3" xml:space="preserve">
+          <source>The client secret and package SID are important security credentials.</source>
+          <target state="new">The client secret and package SID are important security credentials.</target>
+        </trans-unit>
+        <trans-unit id="0eba35f6-ca3c-4028-b36c-f343772b4f35" xml:space="preserve">
+          <source>Do not share these values with anyone or distribute them with your app.</source>
+          <target state="new">Do not share these values with anyone or distribute them with your app.</target>
+        </trans-unit>
+        <trans-unit id="a1d303ec-85d7-47ee-9ff0-0cf6aeb8bd47" xml:space="preserve">
+          <source>Log on to the [Azure Portal], select <bpt id="ca245ae6-36d8-42fa-9031-8c3b92a9de51">&lt;strong&gt;</bpt>Browse<ept id="ca245ae6-36d8-42fa-9031-8c3b92a9de51">&lt;/strong&gt;</ept> &gt; <bpt id="e4e48ae0-45fa-45de-b512-d26ab6b0d3d9">&lt;strong&gt;</bpt>Mobile App<ept id="e4e48ae0-45fa-45de-b512-d26ab6b0d3d9">&lt;/strong&gt;</ept> &gt; your app &gt; <bpt id="0cff81c7-4507-4cac-abd1-494c9c8a9552">&lt;strong&gt;</bpt>Push notification services<ept id="0cff81c7-4507-4cac-abd1-494c9c8a9552">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Log on to the [Azure Portal], select <bpt id="ca245ae6-36d8-42fa-9031-8c3b92a9de51">&lt;strong&gt;</bpt>Browse<ept id="ca245ae6-36d8-42fa-9031-8c3b92a9de51">&lt;/strong&gt;</ept> &gt; <bpt id="e4e48ae0-45fa-45de-b512-d26ab6b0d3d9">&lt;strong&gt;</bpt>Mobile App<ept id="e4e48ae0-45fa-45de-b512-d26ab6b0d3d9">&lt;/strong&gt;</ept> &gt; your app &gt; <bpt id="0cff81c7-4507-4cac-abd1-494c9c8a9552">&lt;strong&gt;</bpt>Push notification services<ept id="0cff81c7-4507-4cac-abd1-494c9c8a9552">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="131c746c-035f-462d-9887-2537fe2354fa" xml:space="preserve">
+          <source>In <bpt id="7d496a54-cf65-46aa-88a4-56d6e45b7835">&lt;strong&gt;</bpt>Windows Notification Service<ept id="7d496a54-cf65-46aa-88a4-56d6e45b7835">&lt;/strong&gt;</ept>, enter the <bpt id="05e0fe4b-5790-4898-bd40-d85277672fb4">&lt;strong&gt;</bpt>Security key<ept id="05e0fe4b-5790-4898-bd40-d85277672fb4">&lt;/strong&gt;</ept> (client secret) and <bpt id="682d1355-8281-449c-8477-77925a94c886">&lt;strong&gt;</bpt>Package SID<ept id="682d1355-8281-449c-8477-77925a94c886">&lt;/strong&gt;</ept> that you obtained from the Live Services site, then click <bpt id="de82ef9e-2005-437e-8895-d50de6dff23b">&lt;strong&gt;</bpt>Save<ept id="de82ef9e-2005-437e-8895-d50de6dff23b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="7d496a54-cf65-46aa-88a4-56d6e45b7835">&lt;strong&gt;</bpt>Windows Notification Service<ept id="7d496a54-cf65-46aa-88a4-56d6e45b7835">&lt;/strong&gt;</ept>, enter the <bpt id="05e0fe4b-5790-4898-bd40-d85277672fb4">&lt;strong&gt;</bpt>Security key<ept id="05e0fe4b-5790-4898-bd40-d85277672fb4">&lt;/strong&gt;</ept> (client secret) and <bpt id="682d1355-8281-449c-8477-77925a94c886">&lt;strong&gt;</bpt>Package SID<ept id="682d1355-8281-449c-8477-77925a94c886">&lt;/strong&gt;</ept> that you obtained from the Live Services site, then click <bpt id="de82ef9e-2005-437e-8895-d50de6dff23b">&lt;strong&gt;</bpt>Save<ept id="de82ef9e-2005-437e-8895-d50de6dff23b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c2d83b7-5ac4-46f8-b0cb-515a5861948d" xml:space="preserve">
+          <source>Your Mobile App backend is now configured to work with WNS.</source>
+          <target state="new">Your Mobile App backend is now configured to work with WNS.</target>
+        </trans-unit>
+        <trans-unit id="ce6c2db6-780c-4402-a2e1-8835eb593768" xml:space="preserve">
+          <source>Now that push notifications are enabled in the app, you must update your app backend to send push notifications.</source>
+          <target state="new">Now that push notifications are enabled in the app, you must update your app backend to send push notifications.</target>
+        </trans-unit>
+        <trans-unit id="4f715825-b143-4337-a375-0ee523db33b7" xml:space="preserve">
+          <source>In Visual Studio, right-click the server project and click <bpt id="0ea80e73-0f53-44d4-8c96-9518375e5e09">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="0ea80e73-0f53-44d4-8c96-9518375e5e09">&lt;/strong&gt;</ept>, search for <bpt id="f216fe78-7e4b-473f-a21b-f6a54a153ce6">&lt;code&gt;</bpt>Microsoft.Azure.NotificationHubs<ept id="f216fe78-7e4b-473f-a21b-f6a54a153ce6">&lt;/code&gt;</ept>, then click <bpt id="caa9626e-55c2-4df2-adda-93a4611fd1ca">&lt;strong&gt;</bpt>Install<ept id="caa9626e-55c2-4df2-adda-93a4611fd1ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, right-click the server project and click <bpt id="0ea80e73-0f53-44d4-8c96-9518375e5e09">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="0ea80e73-0f53-44d4-8c96-9518375e5e09">&lt;/strong&gt;</ept>, search for <bpt id="f216fe78-7e4b-473f-a21b-f6a54a153ce6">&lt;code&gt;</bpt>Microsoft.Azure.NotificationHubs<ept id="f216fe78-7e4b-473f-a21b-f6a54a153ce6">&lt;/code&gt;</ept>, then click <bpt id="caa9626e-55c2-4df2-adda-93a4611fd1ca">&lt;strong&gt;</bpt>Install<ept id="caa9626e-55c2-4df2-adda-93a4611fd1ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f4176c3-ed02-4915-b5d0-dadb01b8cc1a" xml:space="preserve">
+          <source>This installs the Notification Hubs client library.</source>
+          <target state="new">This installs the Notification Hubs client library.</target>
+        </trans-unit>
+        <trans-unit id="f42f4cdc-616f-45ee-9309-fb0054fa94d7" xml:space="preserve">
+          <source>In the server project, open <bpt id="a0f3e4e4-0306-4896-9af0-efa654948c86">&lt;strong&gt;</bpt>Controllers<ept id="a0f3e4e4-0306-4896-9af0-efa654948c86">&lt;/strong&gt;</ept> &gt; <bpt id="2a335eea-cbbb-48f4-937f-d01edfa59332">&lt;strong&gt;</bpt>TodoItemController.cs<ept id="2a335eea-cbbb-48f4-937f-d01edfa59332">&lt;/strong&gt;</ept>, and add the following using statements:</source>
+          <target state="new">In the server project, open <bpt id="a0f3e4e4-0306-4896-9af0-efa654948c86">&lt;strong&gt;</bpt>Controllers<ept id="a0f3e4e4-0306-4896-9af0-efa654948c86">&lt;/strong&gt;</ept> &gt; <bpt id="2a335eea-cbbb-48f4-937f-d01edfa59332">&lt;strong&gt;</bpt>TodoItemController.cs<ept id="2a335eea-cbbb-48f4-937f-d01edfa59332">&lt;/strong&gt;</ept>, and add the following using statements:</target>
+        </trans-unit>
+        <trans-unit id="87367d14-acef-447c-8aac-4887d2aa4914" xml:space="preserve">
+          <source>In the <bpt id="5f4cbf3c-1ef5-4b1d-a6c3-b924dc23de5f">&lt;strong&gt;</bpt>PostTodoItem<ept id="5f4cbf3c-1ef5-4b1d-a6c3-b924dc23de5f">&lt;/strong&gt;</ept> method, add the following code after the call to <bpt id="d47f32d6-2d9c-4e44-bff6-bfe15910cc1d">&lt;strong&gt;</bpt>InsertAsync<ept id="d47f32d6-2d9c-4e44-bff6-bfe15910cc1d">&lt;/strong&gt;</ept>:  </source>
+          <target state="new">In the <bpt id="5f4cbf3c-1ef5-4b1d-a6c3-b924dc23de5f">&lt;strong&gt;</bpt>PostTodoItem<ept id="5f4cbf3c-1ef5-4b1d-a6c3-b924dc23de5f">&lt;/strong&gt;</ept> method, add the following code after the call to <bpt id="d47f32d6-2d9c-4e44-bff6-bfe15910cc1d">&lt;strong&gt;</bpt>InsertAsync<ept id="d47f32d6-2d9c-4e44-bff6-bfe15910cc1d">&lt;/strong&gt;</ept>:  </target>
+        </trans-unit>
+        <trans-unit id="9d447ee2-f07d-4ecf-9953-28fb5335eac0" xml:space="preserve">
+          <source>This code tells the notification hub to send a push notification after a new item is insertion.</source>
+          <target state="new">This code tells the notification hub to send a push notification after a new item is insertion.</target>
+        </trans-unit>
+        <trans-unit id="44a15458-7620-48bb-8243-d77386c34cab" xml:space="preserve">
+          <source><bpt id="781fc2cb-1994-4322-b3ad-bf25355a4158">&lt;token href="../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md"&gt;</bpt><ept id="781fc2cb-1994-4322-b3ad-bf25355a4158">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="781fc2cb-1994-4322-b3ad-bf25355a4158">&lt;token href="../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md"&gt;</bpt><ept id="781fc2cb-1994-4322-b3ad-bf25355a4158">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4d3672b-0989-4c44-91e0-6bd60a68f4f8" xml:space="preserve">
+          <source>In Visual Studio, right-click the solution, then click <bpt id="65fa1835-8b74-4f60-8f96-59a07464b47f">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="65fa1835-8b74-4f60-8f96-59a07464b47f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, right-click the solution, then click <bpt id="65fa1835-8b74-4f60-8f96-59a07464b47f">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="65fa1835-8b74-4f60-8f96-59a07464b47f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d97e22e-2b4e-4a6f-ab75-4d6e91db5b67" xml:space="preserve">
+          <source>This displays the Manage NuGet Packages dialog box.</source>
+          <target state="new">This displays the Manage NuGet Packages dialog box.</target>
+        </trans-unit>
+        <trans-unit id="ddc987f0-ba01-466a-b046-fed14f298782" xml:space="preserve">
+          <source>Search for the App Service Mobile App client SDK for managed and click <bpt id="f708149e-a41c-42f3-ad1d-e65519303b90">&lt;strong&gt;</bpt>Install<ept id="f708149e-a41c-42f3-ad1d-e65519303b90">&lt;/strong&gt;</ept>, select all client projects in the solution, and accept the terms of use.</source>
+          <target state="new">Search for the App Service Mobile App client SDK for managed and click <bpt id="f708149e-a41c-42f3-ad1d-e65519303b90">&lt;strong&gt;</bpt>Install<ept id="f708149e-a41c-42f3-ad1d-e65519303b90">&lt;/strong&gt;</ept>, select all client projects in the solution, and accept the terms of use.</target>
+        </trans-unit>
+        <trans-unit id="f6ed0b11-285a-4634-bec3-618651a0a20a" xml:space="preserve">
+          <source>This downloads, installs, and adds a reference in all client projects to the Azure Mobile Push library for Windows.</source>
+          <target state="new">This downloads, installs, and adds a reference in all client projects to the Azure Mobile Push library for Windows.</target>
+        </trans-unit>
+        <trans-unit id="8673f848-de5d-444c-972f-937a13c906d3" xml:space="preserve">
+          <source>Open the shared <bpt id="850cb5a7-dfba-4396-84a8-f73697bda657">&lt;strong&gt;</bpt>App.xaml.cs<ept id="850cb5a7-dfba-4396-84a8-f73697bda657">&lt;/strong&gt;</ept> project file and add the following <bpt id="ec86d65f-0ce2-4cd4-b8c0-d48c9cc01e81">&lt;code&gt;</bpt>using<ept id="ec86d65f-0ce2-4cd4-b8c0-d48c9cc01e81">&lt;/code&gt;</ept> statements:</source>
+          <target state="new">Open the shared <bpt id="850cb5a7-dfba-4396-84a8-f73697bda657">&lt;strong&gt;</bpt>App.xaml.cs<ept id="850cb5a7-dfba-4396-84a8-f73697bda657">&lt;/strong&gt;</ept> project file and add the following <bpt id="ec86d65f-0ce2-4cd4-b8c0-d48c9cc01e81">&lt;code&gt;</bpt>using<ept id="ec86d65f-0ce2-4cd4-b8c0-d48c9cc01e81">&lt;/code&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="f64a6877-9cc4-4a33-9892-47b145f72358" xml:space="preserve">
+          <source>In the same file, add the following <bpt id="30af4c2b-d953-4361-bcf2-8476400ae60c">&lt;strong&gt;</bpt>InitNotificationsAsync<ept id="30af4c2b-d953-4361-bcf2-8476400ae60c">&lt;/strong&gt;</ept> method definition to the <bpt id="acd1a25f-658b-42b9-9a3c-d690a5d1b89c">&lt;strong&gt;</bpt>App<ept id="acd1a25f-658b-42b9-9a3c-d690a5d1b89c">&lt;/strong&gt;</ept> class:</source>
+          <target state="new">In the same file, add the following <bpt id="30af4c2b-d953-4361-bcf2-8476400ae60c">&lt;strong&gt;</bpt>InitNotificationsAsync<ept id="30af4c2b-d953-4361-bcf2-8476400ae60c">&lt;/strong&gt;</ept> method definition to the <bpt id="acd1a25f-658b-42b9-9a3c-d690a5d1b89c">&lt;strong&gt;</bpt>App<ept id="acd1a25f-658b-42b9-9a3c-d690a5d1b89c">&lt;/strong&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="64fbeefa-fd37-4967-a7ca-732306ac0620" xml:space="preserve">
+          <source>This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your App Service Mobile App.</source>
+          <target state="new">This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your App Service Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="311d9b1b-1eef-4985-8f27-54212bb2f5cb" xml:space="preserve">
+          <source>At the top of the <bpt id="960736e8-247c-4c5b-a0d2-a6e44c576a05">&lt;strong&gt;</bpt>OnLaunched<ept id="960736e8-247c-4c5b-a0d2-a6e44c576a05">&lt;/strong&gt;</ept> event handler in <bpt id="e8de5979-9d97-4283-a7c3-92afd7f4c810">&lt;strong&gt;</bpt>App.xaml.cs<ept id="e8de5979-9d97-4283-a7c3-92afd7f4c810">&lt;/strong&gt;</ept>, add the <bpt id="694323fc-0719-4f48-bfdf-6ef463051662">&lt;strong&gt;</bpt>async<ept id="694323fc-0719-4f48-bfdf-6ef463051662">&lt;/strong&gt;</ept> modifier to the method definition and add the following call to the new <bpt id="94a6b999-0cc2-4f5f-b4b0-a44a93aa2e8a">&lt;strong&gt;</bpt>InitNotificationsAsync<ept id="94a6b999-0cc2-4f5f-b4b0-a44a93aa2e8a">&lt;/strong&gt;</ept> method, as in the following example:</source>
+          <target state="new">At the top of the <bpt id="960736e8-247c-4c5b-a0d2-a6e44c576a05">&lt;strong&gt;</bpt>OnLaunched<ept id="960736e8-247c-4c5b-a0d2-a6e44c576a05">&lt;/strong&gt;</ept> event handler in <bpt id="e8de5979-9d97-4283-a7c3-92afd7f4c810">&lt;strong&gt;</bpt>App.xaml.cs<ept id="e8de5979-9d97-4283-a7c3-92afd7f4c810">&lt;/strong&gt;</ept>, add the <bpt id="694323fc-0719-4f48-bfdf-6ef463051662">&lt;strong&gt;</bpt>async<ept id="694323fc-0719-4f48-bfdf-6ef463051662">&lt;/strong&gt;</ept> modifier to the method definition and add the following call to the new <bpt id="94a6b999-0cc2-4f5f-b4b0-a44a93aa2e8a">&lt;strong&gt;</bpt>InitNotificationsAsync<ept id="94a6b999-0cc2-4f5f-b4b0-a44a93aa2e8a">&lt;/strong&gt;</ept> method, as in the following example:</target>
+        </trans-unit>
+        <trans-unit id="713be2f2-562b-4bfd-b95a-a30ed2915068" xml:space="preserve">
+          <source>This guarantees that the short-lived ChannelURI is registered each time the application is launched.</source>
+          <target state="new">This guarantees that the short-lived ChannelURI is registered each time the application is launched.</target>
+        </trans-unit>
+        <trans-unit id="1765cce4-ecc4-4c18-9854-d2033f00369a" xml:space="preserve">
+          <source>In Solution Explorer double-click <bpt id="c1977ed8-ee1d-4fa7-a0a2-f50c53fef7e7">&lt;strong&gt;</bpt>Package.appxmanifest<ept id="c1977ed8-ee1d-4fa7-a0a2-f50c53fef7e7">&lt;/strong&gt;</ept> of the Windows Store app, in <bpt id="edbabc64-bf00-4696-b3a3-785a34b256af">&lt;strong&gt;</bpt>Notifications<ept id="edbabc64-bf00-4696-b3a3-785a34b256af">&lt;/strong&gt;</ept>, set <bpt id="da9fedb2-e25e-4b2b-93dd-c2d9dbaa3ac0">&lt;strong&gt;</bpt>Toast capable<ept id="da9fedb2-e25e-4b2b-93dd-c2d9dbaa3ac0">&lt;/strong&gt;</ept> to <bpt id="847765a2-7e39-4ec2-87c1-4a51c2bb1612">&lt;strong&gt;</bpt>Yes<ept id="847765a2-7e39-4ec2-87c1-4a51c2bb1612">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer double-click <bpt id="c1977ed8-ee1d-4fa7-a0a2-f50c53fef7e7">&lt;strong&gt;</bpt>Package.appxmanifest<ept id="c1977ed8-ee1d-4fa7-a0a2-f50c53fef7e7">&lt;/strong&gt;</ept> of the Windows Store app, in <bpt id="edbabc64-bf00-4696-b3a3-785a34b256af">&lt;strong&gt;</bpt>Notifications<ept id="edbabc64-bf00-4696-b3a3-785a34b256af">&lt;/strong&gt;</ept>, set <bpt id="da9fedb2-e25e-4b2b-93dd-c2d9dbaa3ac0">&lt;strong&gt;</bpt>Toast capable<ept id="da9fedb2-e25e-4b2b-93dd-c2d9dbaa3ac0">&lt;/strong&gt;</ept> to <bpt id="847765a2-7e39-4ec2-87c1-4a51c2bb1612">&lt;strong&gt;</bpt>Yes<ept id="847765a2-7e39-4ec2-87c1-4a51c2bb1612">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d457ad1a-f16b-4d47-8c87-c652359ccf09" xml:space="preserve">
+          <source>From the <bpt id="d098725f-f218-4875-9faa-9de4d43c554a">&lt;strong&gt;</bpt>File<ept id="d098725f-f218-4875-9faa-9de4d43c554a">&lt;/strong&gt;</ept> menu, click <bpt id="e4ff0a83-09cf-4179-a02a-726e733e5253">&lt;strong&gt;</bpt>Save All<ept id="e4ff0a83-09cf-4179-a02a-726e733e5253">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="d098725f-f218-4875-9faa-9de4d43c554a">&lt;strong&gt;</bpt>File<ept id="d098725f-f218-4875-9faa-9de4d43c554a">&lt;/strong&gt;</ept> menu, click <bpt id="e4ff0a83-09cf-4179-a02a-726e733e5253">&lt;strong&gt;</bpt>Save All<ept id="e4ff0a83-09cf-4179-a02a-726e733e5253">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ecaaab1-a47c-41fe-802f-93208597277c" xml:space="preserve">
+          <source>Repeat the previous step in the Windows Phone Store app project.</source>
+          <target state="new">Repeat the previous step in the Windows Phone Store app project.</target>
+        </trans-unit>
+        <trans-unit id="dd7cdd9b-0ea2-43ee-ada0-6c2cff4bcfff" xml:space="preserve">
+          <source>Your app is now ready to receive toast notifications.</source>
+          <target state="new">Your app is now ready to receive toast notifications.</target>
+        </trans-unit>
+        <trans-unit id="c54d63e7-0f97-4524-9b6a-2c9d95c37ff6" xml:space="preserve">
+          <source><bpt id="405040a6-b87e-48c3-9dfc-febf22e144e3">&lt;token href="../../includes/app-service-mobile-windows-universal-test-push-preview.md"&gt;</bpt><ept id="405040a6-b87e-48c3-9dfc-febf22e144e3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="405040a6-b87e-48c3-9dfc-febf22e144e3">&lt;token href="../../includes/app-service-mobile-windows-universal-test-push-preview.md"&gt;</bpt><ept id="405040a6-b87e-48c3-9dfc-febf22e144e3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="799c7491-4c3e-46d1-83c3-f9ac8a4e830d" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="afd8c05b-36a4-48ac-9fa6-3d2eeea772d5" xml:space="preserve">
+          <source>./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-submit-win8-app.png</source>
+          <target state="new">./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-submit-win8-app.png</target>
+        </trans-unit>
+        <trans-unit id="aa9a89ea-8030-4f40-b801-3b0c50e399ab" xml:space="preserve">
+          <source>./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-app-name.png</source>
+          <target state="new">./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-app-name.png</target>
+        </trans-unit>
+        <trans-unit id="47988c1f-623d-484e-a22f-8f4ba906ed12" xml:space="preserve">
+          <source>./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png</source>
+          <target state="new">./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png</target>
+        </trans-unit>
+        <trans-unit id="4f7a5659-2d05-4af9-bcc9-9d64ed52411c" xml:space="preserve">
+          <source>./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/notification-hub-associate-win8-app.png</source>
+          <target state="new">./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/notification-hub-associate-win8-app.png</target>
+        </trans-unit>
+        <trans-unit id="386c7238-1ba7-4b5b-bf0e-6aa0d96b3383" xml:space="preserve">
+          <source>./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-select-app-name.png</source>
+          <target state="new">./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-select-app-name.png</target>
+        </trans-unit>
+        <trans-unit id="e2a68b4e-a86d-46d7-96ab-bf1494852108" xml:space="preserve">
+          <source>./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-edit-app.png</source>
+          <target state="new">./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-edit-app.png</target>
+        </trans-unit>
+        <trans-unit id="b33013bc-64e4-480d-bf6a-84aaa064c8c5" xml:space="preserve">
+          <source>./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-app-push-auth.png</source>
+          <target state="new">./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-app-push-auth.png</target>
+        </trans-unit>
+        <trans-unit id="98ca97fa-2f68-459f-a038-5644653f3956" xml:space="preserve">
+          <source>./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal.png</source>
+          <target state="new">./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal.png</target>
+        </trans-unit>
+        <trans-unit id="623b09d4-10af-487b-94e6-b07f2efb6504" xml:space="preserve">
+          <source>./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-edit2-app.png</source>
+          <target state="new">./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-edit2-app.png</target>
+        </trans-unit>
+        <trans-unit id="ceab9be2-12fd-4556-9076-6b49ad6bb747" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=266582</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=266582</target>
+        </trans-unit>
+      </group>
+      <group id="82e4b1e9-d188-46be-a1de-5a21949763fa" />
+    </body>
+  </file>
+</xliff>

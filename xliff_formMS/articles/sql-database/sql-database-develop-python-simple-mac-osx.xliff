@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2344ac0a-0cd4-40db-afc9-f3303770cbf7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2344ac0a-0cd4-40db-afc9-f3303770cbf7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bd48bb26-828d-4c3a-8a95-233a1def3a0e">
+        <trans-unit id="72b819ed-eee6-4971-b0c1-74d91c4cc56b" xml:space="preserve">
+          <source>Connect to SQL Database by using Python on Mac OS</source>
+          <target state="new">Connect to SQL Database by using Python on Mac OS</target>
+        </trans-unit>
+        <trans-unit id="799bf049-b407-4937-854d-5eab89416d56" xml:space="preserve">
+          <source>Presents a Python code sample you can use to connect to Azure SQL Database from a Mac. The sample uses the pymssql driver.</source>
+          <target state="new">Presents a Python code sample you can use to connect to Azure SQL Database from a Mac. The sample uses the pymssql driver.</target>
+        </trans-unit>
+        <trans-unit id="c237e4b4-7211-45b2-93e3-34c0b2847ca6" xml:space="preserve">
+          <source><bpt id="0f940d5c-156a-48e0-bf91-e6554afeeb6d">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="0f940d5c-156a-48e0-bf91-e6554afeeb6d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0f940d5c-156a-48e0-bf91-e6554afeeb6d">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="0f940d5c-156a-48e0-bf91-e6554afeeb6d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d2ccd79-3f96-495f-a454-4d3dfebadf5c" xml:space="preserve">
+          <source>This topic presents a code sample written in Python.</source>
+          <target state="new">This topic presents a code sample written in Python.</target>
+        </trans-unit>
+        <trans-unit id="0a765509-1be7-412c-b7cf-e15230b6683e" xml:space="preserve">
+          <source>The sample runs on a Mac computer.</source>
+          <target state="new">The sample runs on a Mac computer.</target>
+        </trans-unit>
+        <trans-unit id="9e969dc7-b131-4af4-bd45-a71eec4bf452" xml:space="preserve">
+          <source>The sample and connects to Azure SQL Database by using the <bpt id="3716dd79-e87a-4b23-88c6-558368c43f02">&lt;strong&gt;</bpt>pymssql<ept id="3716dd79-e87a-4b23-88c6-558368c43f02">&lt;/strong&gt;</ept> driver.</source>
+          <target state="new">The sample and connects to Azure SQL Database by using the <bpt id="3716dd79-e87a-4b23-88c6-558368c43f02">&lt;strong&gt;</bpt>pymssql<ept id="3716dd79-e87a-4b23-88c6-558368c43f02">&lt;/strong&gt;</ept> driver.</target>
+        </trans-unit>
+        <trans-unit id="3b7c87e2-5a18-49df-a179-9702417bdc32" xml:space="preserve">
+          <source><bpt id="a7b76063-3878-4515-97ab-52dd0d934036">&lt;linkText&gt;</bpt>Python 2.7.6<ept id="a7b76063-3878-4515-97ab-52dd0d934036">&lt;/linkText&gt;</ept><bpt id="a7b76063-3878-4515-97ab-52dd0d934036">&lt;title&gt;</bpt><ept id="a7b76063-3878-4515-97ab-52dd0d934036">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a7b76063-3878-4515-97ab-52dd0d934036">&lt;linkText&gt;</bpt>Python 2.7.6<ept id="a7b76063-3878-4515-97ab-52dd0d934036">&lt;/linkText&gt;</ept><bpt id="a7b76063-3878-4515-97ab-52dd0d934036">&lt;title&gt;</bpt><ept id="a7b76063-3878-4515-97ab-52dd0d934036">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a222f4e-7557-41e5-a266-f0a20d78322b" xml:space="preserve">
+          <source><bpt id="d10b4b5a-c1d0-4ef5-a463-450c10773b26">&lt;linkText&gt;</bpt>FreeTDS<ept id="d10b4b5a-c1d0-4ef5-a463-450c10773b26">&lt;/linkText&gt;</ept><bpt id="d10b4b5a-c1d0-4ef5-a463-450c10773b26">&lt;title&gt;</bpt><ept id="d10b4b5a-c1d0-4ef5-a463-450c10773b26">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d10b4b5a-c1d0-4ef5-a463-450c10773b26">&lt;linkText&gt;</bpt>FreeTDS<ept id="d10b4b5a-c1d0-4ef5-a463-450c10773b26">&lt;/linkText&gt;</ept><bpt id="d10b4b5a-c1d0-4ef5-a463-450c10773b26">&lt;title&gt;</bpt><ept id="d10b4b5a-c1d0-4ef5-a463-450c10773b26">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79a42dd4-8780-4eba-96a1-d016c3b80f5d" xml:space="preserve">
+          <source><bpt id="8ff25608-e7b5-4fe3-b4fa-811e06203ff8">&lt;linkText&gt;</bpt>Pymssql<ept id="8ff25608-e7b5-4fe3-b4fa-811e06203ff8">&lt;/linkText&gt;</ept><bpt id="8ff25608-e7b5-4fe3-b4fa-811e06203ff8">&lt;title&gt;</bpt><ept id="8ff25608-e7b5-4fe3-b4fa-811e06203ff8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8ff25608-e7b5-4fe3-b4fa-811e06203ff8">&lt;linkText&gt;</bpt>Pymssql<ept id="8ff25608-e7b5-4fe3-b4fa-811e06203ff8">&lt;/linkText&gt;</ept><bpt id="8ff25608-e7b5-4fe3-b4fa-811e06203ff8">&lt;title&gt;</bpt><ept id="8ff25608-e7b5-4fe3-b4fa-811e06203ff8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bd2e6db-7baf-432c-894a-cdb89f7641e2" xml:space="preserve">
+          <source>Open your terminal and install</source>
+          <target state="new">Open your terminal and install</target>
+        </trans-unit>
+        <trans-unit id="874d9494-a290-408e-9eb8-5d8f8663a2e6" xml:space="preserve">
+          <source><bpt id="9df67b32-1e60-4d3f-ab05-17faefa3e647">&lt;strong&gt;</bpt>1) Homebrew<ept id="9df67b32-1e60-4d3f-ab05-17faefa3e647">&lt;/strong&gt;</ept>: Run the following command from your terminal.</source>
+          <target state="new"><bpt id="9df67b32-1e60-4d3f-ab05-17faefa3e647">&lt;strong&gt;</bpt>1) Homebrew<ept id="9df67b32-1e60-4d3f-ab05-17faefa3e647">&lt;/strong&gt;</ept>: Run the following command from your terminal.</target>
+        </trans-unit>
+        <trans-unit id="c6723187-f906-4c97-8cf9-438bb9723622" xml:space="preserve">
+          <source>This will download the Homebrew package manager on your machine.</source>
+          <target state="new">This will download the Homebrew package manager on your machine.</target>
+        </trans-unit>
+        <trans-unit id="18d2bf4f-0924-4d10-8811-98f8ab38e2b5" xml:space="preserve">
+          <source><bpt id="bfdf7c6f-7dbb-42b8-ae32-af5d33fc1fc6">&lt;strong&gt;</bpt>2) FreeTDS<ept id="bfdf7c6f-7dbb-42b8-ae32-af5d33fc1fc6">&lt;/strong&gt;</ept>: Run the following command from your terminal.</source>
+          <target state="new"><bpt id="bfdf7c6f-7dbb-42b8-ae32-af5d33fc1fc6">&lt;strong&gt;</bpt>2) FreeTDS<ept id="bfdf7c6f-7dbb-42b8-ae32-af5d33fc1fc6">&lt;/strong&gt;</ept>: Run the following command from your terminal.</target>
+        </trans-unit>
+        <trans-unit id="c34ad094-9301-4a4c-91f2-df6f0480d0bd" xml:space="preserve">
+          <source>This will download FreeTDS on your machine.</source>
+          <target state="new">This will download FreeTDS on your machine.</target>
+        </trans-unit>
+        <trans-unit id="8c4117d1-8160-4480-a78c-fe9d96eafe2d" xml:space="preserve">
+          <source>FreeTDS is required for pymmsql to work.</source>
+          <target state="new">FreeTDS is required for pymmsql to work.</target>
+        </trans-unit>
+        <trans-unit id="920af885-66b1-41d0-9875-c1994969eaa3" xml:space="preserve">
+          <source><bpt id="b54a4de6-fde5-4f24-a369-d90271d36c8d">&lt;strong&gt;</bpt>3) Pymmsql<ept id="b54a4de6-fde5-4f24-a369-d90271d36c8d">&lt;/strong&gt;</ept>: Run the following command from your terminal.</source>
+          <target state="new"><bpt id="b54a4de6-fde5-4f24-a369-d90271d36c8d">&lt;strong&gt;</bpt>3) Pymmsql<ept id="b54a4de6-fde5-4f24-a369-d90271d36c8d">&lt;/strong&gt;</ept>: Run the following command from your terminal.</target>
+        </trans-unit>
+        <trans-unit id="e2e23de7-f5ff-4540-86a2-8106b16ceff9" xml:space="preserve">
+          <source>This will install pymmsql on your machine.</source>
+          <target state="new">This will install pymmsql on your machine.</target>
+        </trans-unit>
+        <trans-unit id="9f556889-c742-4aa2-9cb2-816a0f67b6dc" xml:space="preserve">
+          <source>See the <bpt id="366e8b69-8927-4512-96f0-c8ad4aa07867">&lt;linkText&gt;</bpt>getting started page<ept id="366e8b69-8927-4512-96f0-c8ad4aa07867">&lt;/linkText&gt;</ept><bpt id="366e8b69-8927-4512-96f0-c8ad4aa07867">&lt;title&gt;</bpt><ept id="366e8b69-8927-4512-96f0-c8ad4aa07867">&lt;/title&gt;</ept> to learn how to create a sample database and get your connection string.</source>
+          <target state="new">See the <bpt id="366e8b69-8927-4512-96f0-c8ad4aa07867">&lt;linkText&gt;</bpt>getting started page<ept id="366e8b69-8927-4512-96f0-c8ad4aa07867">&lt;/linkText&gt;</ept><bpt id="366e8b69-8927-4512-96f0-c8ad4aa07867">&lt;title&gt;</bpt><ept id="366e8b69-8927-4512-96f0-c8ad4aa07867">&lt;/title&gt;</ept> to learn how to create a sample database and get your connection string.</target>
+        </trans-unit>
+        <trans-unit id="393c20ce-d8aa-400e-8eea-1ae9a341a05e" xml:space="preserve">
+          <source>It is important you follow the guide to create an <bpt id="31bbdd6e-df17-4ee8-91c0-7b8a1c520520">&lt;strong&gt;</bpt>AdventureWorks database template<ept id="31bbdd6e-df17-4ee8-91c0-7b8a1c520520">&lt;/strong&gt;</ept>.</source>
+          <target state="new">It is important you follow the guide to create an <bpt id="31bbdd6e-df17-4ee8-91c0-7b8a1c520520">&lt;strong&gt;</bpt>AdventureWorks database template<ept id="31bbdd6e-df17-4ee8-91c0-7b8a1c520520">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e939aed-ded5-47c0-ae84-d872bb25bfff" xml:space="preserve">
+          <source>The samples shown below only work with the <bpt id="09357c0d-743a-4cf7-980f-823c03c84e51">&lt;strong&gt;</bpt>AdventureWorks schema<ept id="09357c0d-743a-4cf7-980f-823c03c84e51">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The samples shown below only work with the <bpt id="09357c0d-743a-4cf7-980f-823c03c84e51">&lt;strong&gt;</bpt>AdventureWorks schema<ept id="09357c0d-743a-4cf7-980f-823c03c84e51">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="410b1e40-ad95-42ff-b9f9-8247ed31517c" xml:space="preserve">
+          <source>The <bpt id="9fabc6c5-61ed-4154-92df-dbbae5ae2705">&lt;linkText&gt;</bpt>pymssql.connect<ept id="9fabc6c5-61ed-4154-92df-dbbae5ae2705">&lt;/linkText&gt;</ept><bpt id="9fabc6c5-61ed-4154-92df-dbbae5ae2705">&lt;title&gt;</bpt><ept id="9fabc6c5-61ed-4154-92df-dbbae5ae2705">&lt;/title&gt;</ept> function is used to connect to SQL Database.</source>
+          <target state="new">The <bpt id="9fabc6c5-61ed-4154-92df-dbbae5ae2705">&lt;linkText&gt;</bpt>pymssql.connect<ept id="9fabc6c5-61ed-4154-92df-dbbae5ae2705">&lt;/linkText&gt;</ept><bpt id="9fabc6c5-61ed-4154-92df-dbbae5ae2705">&lt;title&gt;</bpt><ept id="9fabc6c5-61ed-4154-92df-dbbae5ae2705">&lt;/title&gt;</ept> function is used to connect to SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="935286fc-2848-4f0a-b2f3-302a2f3642b9" xml:space="preserve">
+          <source>The <bpt id="28205eeb-3a40-4cef-a30d-428f48ed3f9e">&lt;linkText&gt;</bpt>cursor.execute<ept id="28205eeb-3a40-4cef-a30d-428f48ed3f9e">&lt;/linkText&gt;</ept><bpt id="28205eeb-3a40-4cef-a30d-428f48ed3f9e">&lt;title&gt;</bpt><ept id="28205eeb-3a40-4cef-a30d-428f48ed3f9e">&lt;/title&gt;</ept> function can be used to retrieve a result set from a query against SQL Database.</source>
+          <target state="new">The <bpt id="28205eeb-3a40-4cef-a30d-428f48ed3f9e">&lt;linkText&gt;</bpt>cursor.execute<ept id="28205eeb-3a40-4cef-a30d-428f48ed3f9e">&lt;/linkText&gt;</ept><bpt id="28205eeb-3a40-4cef-a30d-428f48ed3f9e">&lt;title&gt;</bpt><ept id="28205eeb-3a40-4cef-a30d-428f48ed3f9e">&lt;/title&gt;</ept> function can be used to retrieve a result set from a query against SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="57520585-bfb5-4626-acc7-8b14f120b212" xml:space="preserve">
+          <source>This function essentially accepts any query and returns a result set which can be iterated over with the use of <bpt id="f8cd7784-70c5-4002-a07c-e7d9db1e6311">&lt;linkText&gt;</bpt>cursor.fetchone()<ept id="f8cd7784-70c5-4002-a07c-e7d9db1e6311">&lt;/linkText&gt;</ept><bpt id="f8cd7784-70c5-4002-a07c-e7d9db1e6311">&lt;title&gt;</bpt><ept id="f8cd7784-70c5-4002-a07c-e7d9db1e6311">&lt;/title&gt;</ept>.</source>
+          <target state="new">This function essentially accepts any query and returns a result set which can be iterated over with the use of <bpt id="f8cd7784-70c5-4002-a07c-e7d9db1e6311">&lt;linkText&gt;</bpt>cursor.fetchone()<ept id="f8cd7784-70c5-4002-a07c-e7d9db1e6311">&lt;/linkText&gt;</ept><bpt id="f8cd7784-70c5-4002-a07c-e7d9db1e6311">&lt;title&gt;</bpt><ept id="f8cd7784-70c5-4002-a07c-e7d9db1e6311">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66feccba-d378-45d0-83b2-e6a868aecaa3" xml:space="preserve">
+          <source>In SQL Database the <bpt id="fbdd1aa0-bf6a-418a-92fe-ad86011c54eb">&lt;linkText&gt;</bpt>IDENTITY<ept id="fbdd1aa0-bf6a-418a-92fe-ad86011c54eb">&lt;/linkText&gt;</ept><bpt id="fbdd1aa0-bf6a-418a-92fe-ad86011c54eb">&lt;title&gt;</bpt><ept id="fbdd1aa0-bf6a-418a-92fe-ad86011c54eb">&lt;/title&gt;</ept> property and the <bpt id="4497929a-fb14-4c7c-a497-20b290a79716">&lt;linkText&gt;</bpt>SEQUENCE<ept id="4497929a-fb14-4c7c-a497-20b290a79716">&lt;/linkText&gt;</ept><bpt id="4497929a-fb14-4c7c-a497-20b290a79716">&lt;title&gt;</bpt><ept id="4497929a-fb14-4c7c-a497-20b290a79716">&lt;/title&gt;</ept> object can be used to auto-generate <bpt id="a7f1a9fa-8693-426d-8c34-e32bce522c29">&lt;linkText&gt;</bpt>primary key<ept id="a7f1a9fa-8693-426d-8c34-e32bce522c29">&lt;/linkText&gt;</ept><bpt id="a7f1a9fa-8693-426d-8c34-e32bce522c29">&lt;title&gt;</bpt><ept id="a7f1a9fa-8693-426d-8c34-e32bce522c29">&lt;/title&gt;</ept> values.</source>
+          <target state="new">In SQL Database the <bpt id="fbdd1aa0-bf6a-418a-92fe-ad86011c54eb">&lt;linkText&gt;</bpt>IDENTITY<ept id="fbdd1aa0-bf6a-418a-92fe-ad86011c54eb">&lt;/linkText&gt;</ept><bpt id="fbdd1aa0-bf6a-418a-92fe-ad86011c54eb">&lt;title&gt;</bpt><ept id="fbdd1aa0-bf6a-418a-92fe-ad86011c54eb">&lt;/title&gt;</ept> property and the <bpt id="4497929a-fb14-4c7c-a497-20b290a79716">&lt;linkText&gt;</bpt>SEQUENCE<ept id="4497929a-fb14-4c7c-a497-20b290a79716">&lt;/linkText&gt;</ept><bpt id="4497929a-fb14-4c7c-a497-20b290a79716">&lt;title&gt;</bpt><ept id="4497929a-fb14-4c7c-a497-20b290a79716">&lt;/title&gt;</ept> object can be used to auto-generate <bpt id="a7f1a9fa-8693-426d-8c34-e32bce522c29">&lt;linkText&gt;</bpt>primary key<ept id="a7f1a9fa-8693-426d-8c34-e32bce522c29">&lt;/linkText&gt;</ept><bpt id="a7f1a9fa-8693-426d-8c34-e32bce522c29">&lt;title&gt;</bpt><ept id="a7f1a9fa-8693-426d-8c34-e32bce522c29">&lt;/title&gt;</ept> values.</target>
+        </trans-unit>
+        <trans-unit id="7263a4dc-f43b-4103-9293-8c545e4e0c20" xml:space="preserve">
+          <source>This code example demonstrates the use of transactions in which you:</source>
+          <target state="new">This code example demonstrates the use of transactions in which you:</target>
+        </trans-unit>
+        <trans-unit id="b1bbd40a-2550-4b75-b2ec-3ce84ac89589" xml:space="preserve">
+          <source>-Begin a transaction</source>
+          <target state="new">-Begin a transaction</target>
+        </trans-unit>
+        <trans-unit id="64f73d7a-f373-4c1d-930e-4c9648ddd1b1" xml:space="preserve">
+          <source>-Insert a row of data</source>
+          <target state="new">-Insert a row of data</target>
+        </trans-unit>
+        <trans-unit id="e3162867-4a90-4f3e-9ee3-4000ca05ddc9" xml:space="preserve">
+          <source>-Rollback your transaction to undo the insert</source>
+          <target state="new">-Rollback your transaction to undo the insert</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

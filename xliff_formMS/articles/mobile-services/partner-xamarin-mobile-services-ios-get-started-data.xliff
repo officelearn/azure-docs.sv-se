@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="701b2e1c-5df1-4972-8eeb-a716bde27736" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="701b2e1c-5df1-4972-8eeb-a716bde27736" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="825651fb-b9df-4b97-be8d-c42a8a479850">
+        <trans-unit id="dc0a0fd3-0910-445b-8b7c-c69da819efbc" xml:space="preserve">
+          <source>Add Mobile Services to an existing app (Xamarin.iOS) | Microsoft Azure</source>
+          <target state="new">Add Mobile Services to an existing app (Xamarin.iOS) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b8cc25a2-cbc8-4898-8546-97529127b01b" xml:space="preserve">
+          <source>Learn how to store and access data from your Azure Mobile Services Xamarin.iOS app.</source>
+          <target state="new">Learn how to store and access data from your Azure Mobile Services Xamarin.iOS app.</target>
+        </trans-unit>
+        <trans-unit id="fc1983e8-701e-4c02-9729-30ab0c50dfa6" xml:space="preserve">
+          <source><bpt id="1011f15b-82cd-44ac-9131-cc4909f07b97">&lt;token href="../../includes/mobile-services-selector-get-started-data.md"&gt;</bpt><ept id="1011f15b-82cd-44ac-9131-cc4909f07b97">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1011f15b-82cd-44ac-9131-cc4909f07b97">&lt;token href="../../includes/mobile-services-selector-get-started-data.md"&gt;</bpt><ept id="1011f15b-82cd-44ac-9131-cc4909f07b97">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d433aa90-4cf5-49f3-bb28-4fb597c9fb43" xml:space="preserve">
+          <source>This topic shows you how to use Azure Mobile Services to leverage data in a Xamarin.iOS app.</source>
+          <target state="new">This topic shows you how to use Azure Mobile Services to leverage data in a Xamarin.iOS app.</target>
+        </trans-unit>
+        <trans-unit id="3accfbc0-1968-4bac-b6a5-3c7b238aac31" xml:space="preserve">
+          <source>In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.</source>
+          <target state="new">In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.</target>
+        </trans-unit>
+        <trans-unit id="9fbadeee-b77f-4630-b3f1-7b3e28265f9f" xml:space="preserve">
+          <source>This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from a Xamarin.iOS app.</source>
+          <target state="new">This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from a Xamarin.iOS app.</target>
+        </trans-unit>
+        <trans-unit id="ad6cd3de-74e8-45c0-bdf1-04adf5ba5d58" xml:space="preserve">
+          <source>As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart.</source>
+          <target state="new">As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart.</target>
+        </trans-unit>
+        <trans-unit id="8240df8a-8664-4185-b423-e0f112d445f2" xml:space="preserve">
+          <source>If this is your first experience with Mobile Services, consider first completing the tutorial <bpt id="04d95005-fc9a-4db6-9521-7a59892f7ca1">&lt;linkText&gt;</bpt>Get started with Mobile Services<ept id="04d95005-fc9a-4db6-9521-7a59892f7ca1">&lt;/linkText&gt;</ept><bpt id="04d95005-fc9a-4db6-9521-7a59892f7ca1">&lt;title&gt;</bpt><ept id="04d95005-fc9a-4db6-9521-7a59892f7ca1">&lt;/title&gt;</ept>.</source>
+          <target state="new">If this is your first experience with Mobile Services, consider first completing the tutorial <bpt id="04d95005-fc9a-4db6-9521-7a59892f7ca1">&lt;linkText&gt;</bpt>Get started with Mobile Services<ept id="04d95005-fc9a-4db6-9521-7a59892f7ca1">&lt;/linkText&gt;</ept><bpt id="04d95005-fc9a-4db6-9521-7a59892f7ca1">&lt;title&gt;</bpt><ept id="04d95005-fc9a-4db6-9521-7a59892f7ca1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd5fc37b-8333-432e-91ea-3e165d91d571" xml:space="preserve">
+          <source>This tutorial walks you through these basic steps:</source>
+          <target state="new">This tutorial walks you through these basic steps:</target>
+        </trans-unit>
+        <trans-unit id="1b5ab39d-e865-4338-a1ea-aa2d50a8ced8" xml:space="preserve">
+          <source><bpt id="89da7fae-ba4e-41d5-b089-920cb2816cea">&lt;linkText&gt;</bpt>Download the Xamarin.iOS app project[github]<ept id="89da7fae-ba4e-41d5-b089-920cb2816cea">&lt;/linkText&gt;</ept><bpt id="89da7fae-ba4e-41d5-b089-920cb2816cea">&lt;title&gt;</bpt><ept id="89da7fae-ba4e-41d5-b089-920cb2816cea">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="89da7fae-ba4e-41d5-b089-920cb2816cea">&lt;linkText&gt;</bpt>Download the Xamarin.iOS app project[github]<ept id="89da7fae-ba4e-41d5-b089-920cb2816cea">&lt;/linkText&gt;</ept><bpt id="89da7fae-ba4e-41d5-b089-920cb2816cea">&lt;title&gt;</bpt><ept id="89da7fae-ba4e-41d5-b089-920cb2816cea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71389ed1-dad3-460d-98f6-a864bc3eb211" xml:space="preserve">
+          <source>[Create the mobile service]</source>
+          <target state="new">[Create the mobile service]</target>
+        </trans-unit>
+        <trans-unit id="ad41d90b-b728-4661-8320-025aefe6e150" xml:space="preserve">
+          <source>[Add a data table for storage]</source>
+          <target state="new">[Add a data table for storage]</target>
+        </trans-unit>
+        <trans-unit id="375bf28d-07fa-4bda-b6ed-e27aaa98329c" xml:space="preserve">
+          <source>[Update the app to use Mobile Services]</source>
+          <target state="new">[Update the app to use Mobile Services]</target>
+        </trans-unit>
+        <trans-unit id="17760b57-399b-4272-b45b-1c260dbf1ebe" xml:space="preserve">
+          <source>[Test the app against Mobile Services]</source>
+          <target state="new">[Test the app against Mobile Services]</target>
+        </trans-unit>
+        <trans-unit id="1b355fc8-4603-414b-b86c-27ce26c6cfac" xml:space="preserve">
+          <source>This tutorial requires the [Azure Mobile Services Component], <bpt id="700b8f57-92d9-4949-af59-3a323a99bc95">&lt;linkText&gt;</bpt>XCode 6.0[install xcode]<ept id="700b8f57-92d9-4949-af59-3a323a99bc95">&lt;/linkText&gt;</ept><bpt id="700b8f57-92d9-4949-af59-3a323a99bc95">&lt;title&gt;</bpt><ept id="700b8f57-92d9-4949-af59-3a323a99bc95">&lt;/title&gt;</ept>, [Xamarin.iOS], and iOS 7.0 or later versions.</source>
+          <target state="new">This tutorial requires the [Azure Mobile Services Component], <bpt id="700b8f57-92d9-4949-af59-3a323a99bc95">&lt;linkText&gt;</bpt>XCode 6.0[install xcode]<ept id="700b8f57-92d9-4949-af59-3a323a99bc95">&lt;/linkText&gt;</ept><bpt id="700b8f57-92d9-4949-af59-3a323a99bc95">&lt;title&gt;</bpt><ept id="700b8f57-92d9-4949-af59-3a323a99bc95">&lt;/title&gt;</ept>, [Xamarin.iOS], and iOS 7.0 or later versions.</target>
+        </trans-unit>
+        <trans-unit id="2188cd10-bf20-4990-9a0d-a0b728c5df48" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="c8fba997-adaf-4871-8b1a-5010baa7e055" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="39ca963a-6c03-47da-8663-c2c3dc18c595" xml:space="preserve">
+          <source>For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc<bpt id="fea63a72-72de-4690-b6ae-ad945dac729e">&lt;em&gt;</bpt>id=A643EE910&amp;amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F"%20target="<ept id="fea63a72-72de-4690-b6ae-ad945dac729e">&lt;/em&gt;</ept>blank).</source>
+          <target state="new">For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc<bpt id="fea63a72-72de-4690-b6ae-ad945dac729e">&lt;em&gt;</bpt>id=A643EE910&amp;amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F"%20target="<ept id="fea63a72-72de-4690-b6ae-ad945dac729e">&lt;/em&gt;</ept>blank).</target>
+        </trans-unit>
+        <trans-unit id="73e4e19f-99c7-49fe-ae29-d8300a451265" xml:space="preserve">
+          <source>This tutorial is built on the <bpt id="94c1df3f-020a-4386-bdd7-79dd97165cef">&lt;linkText&gt;</bpt>GetStartedWithData app[github]<ept id="94c1df3f-020a-4386-bdd7-79dd97165cef">&lt;/linkText&gt;</ept><bpt id="94c1df3f-020a-4386-bdd7-79dd97165cef">&lt;title&gt;</bpt><ept id="94c1df3f-020a-4386-bdd7-79dd97165cef">&lt;/title&gt;</ept>, which is a Xamarin.iOS app.</source>
+          <target state="new">This tutorial is built on the <bpt id="94c1df3f-020a-4386-bdd7-79dd97165cef">&lt;linkText&gt;</bpt>GetStartedWithData app[github]<ept id="94c1df3f-020a-4386-bdd7-79dd97165cef">&lt;/linkText&gt;</ept><bpt id="94c1df3f-020a-4386-bdd7-79dd97165cef">&lt;title&gt;</bpt><ept id="94c1df3f-020a-4386-bdd7-79dd97165cef">&lt;/title&gt;</ept>, which is a Xamarin.iOS app.</target>
+        </trans-unit>
+        <trans-unit id="52d2ec5f-0b2d-4c2f-a470-808b5d81092d" xml:space="preserve">
+          <source>The UI for this app is identical to the app generated by the Mobile Services Xamarin.iOS quickstart, except that added items are stored locally in memory.</source>
+          <target state="new">The UI for this app is identical to the app generated by the Mobile Services Xamarin.iOS quickstart, except that added items are stored locally in memory.</target>
+        </trans-unit>
+        <trans-unit id="0bfeb8f0-4a8c-4d38-9d8f-5cd955d73626" xml:space="preserve">
+          <source>Download the <bpt id="8a873316-c267-4dd9-9480-fd847e100061">&lt;linkText&gt;</bpt>GetStartedWithData app[github]<ept id="8a873316-c267-4dd9-9480-fd847e100061">&lt;/linkText&gt;</ept><bpt id="8a873316-c267-4dd9-9480-fd847e100061">&lt;title&gt;</bpt><ept id="8a873316-c267-4dd9-9480-fd847e100061">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download the <bpt id="8a873316-c267-4dd9-9480-fd847e100061">&lt;linkText&gt;</bpt>GetStartedWithData app[github]<ept id="8a873316-c267-4dd9-9480-fd847e100061">&lt;/linkText&gt;</ept><bpt id="8a873316-c267-4dd9-9480-fd847e100061">&lt;title&gt;</bpt><ept id="8a873316-c267-4dd9-9480-fd847e100061">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51ea06b0-b25f-44c5-8ff7-7bbd654c0889" xml:space="preserve">
+          <source>In Xamarin Studio, open the downloaded project and examine the <bpt id="93f5b4aa-c8b2-4225-9b19-e9e6e344efdd">&lt;strong&gt;</bpt>TodoService<ept id="93f5b4aa-c8b2-4225-9b19-e9e6e344efdd">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">In Xamarin Studio, open the downloaded project and examine the <bpt id="93f5b4aa-c8b2-4225-9b19-e9e6e344efdd">&lt;strong&gt;</bpt>TodoService<ept id="93f5b4aa-c8b2-4225-9b19-e9e6e344efdd">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="d77d5ae2-b6f1-46a1-aa29-dbb421b2e203" xml:space="preserve">
+          <source>Notice that there are several <bpt id="b66f14f3-5bee-43dc-a13e-10cbab084bd7">&lt;strong&gt;</bpt>// TODO<ept id="b66f14f3-5bee-43dc-a13e-10cbab084bd7">&lt;/strong&gt;</ept> comments that specify the steps you must take to make this app work with your mobile service.</source>
+          <target state="new">Notice that there are several <bpt id="b66f14f3-5bee-43dc-a13e-10cbab084bd7">&lt;strong&gt;</bpt>// TODO<ept id="b66f14f3-5bee-43dc-a13e-10cbab084bd7">&lt;/strong&gt;</ept> comments that specify the steps you must take to make this app work with your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="e98cd474-669c-46be-a5d2-8bb668e0fdd6" xml:space="preserve">
+          <source>Go to the <bpt id="6d9d626a-d29b-4472-b364-7f39137753f2">&lt;strong&gt;</bpt>Run<ept id="6d9d626a-d29b-4472-b364-7f39137753f2">&lt;/strong&gt;</ept> menu and choose <bpt id="c30f163e-d920-4f91-aa6a-8dd4880346be">&lt;strong&gt;</bpt>Start Without Debugging<ept id="c30f163e-d920-4f91-aa6a-8dd4880346be">&lt;/strong&gt;</ept> to start the app.</source>
+          <target state="new">Go to the <bpt id="6d9d626a-d29b-4472-b364-7f39137753f2">&lt;strong&gt;</bpt>Run<ept id="6d9d626a-d29b-4472-b364-7f39137753f2">&lt;/strong&gt;</ept> menu and choose <bpt id="c30f163e-d920-4f91-aa6a-8dd4880346be">&lt;strong&gt;</bpt>Start Without Debugging<ept id="c30f163e-d920-4f91-aa6a-8dd4880346be">&lt;/strong&gt;</ept> to start the app.</target>
+        </trans-unit>
+        <trans-unit id="9bc00f08-b32f-4648-a205-10e69f83aac8" xml:space="preserve">
+          <source>In the app, type some text in the text box, then click the <bpt id="6f715894-e001-4e6c-81c7-735a495ad905">&lt;strong&gt;</bpt>+<ept id="6f715894-e001-4e6c-81c7-735a495ad905">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the app, type some text in the text box, then click the <bpt id="6f715894-e001-4e6c-81c7-735a495ad905">&lt;strong&gt;</bpt>+<ept id="6f715894-e001-4e6c-81c7-735a495ad905">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="b2fce7af-194f-4a18-bb27-6078fc5288e0" xml:space="preserve">
+          <source><bpt id="087f02af-39a1-46a3-a4a0-553f896414d6">&lt;linkText&gt;</bpt><ept id="087f02af-39a1-46a3-a4a0-553f896414d6">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="087f02af-39a1-46a3-a4a0-553f896414d6">&lt;linkText&gt;</bpt><ept id="087f02af-39a1-46a3-a4a0-553f896414d6">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="5552f80c-6194-4c6a-992f-e462fed4a0b6" xml:space="preserve">
+          <source>Notice that the saved text is displayed in the list below.</source>
+          <target state="new">Notice that the saved text is displayed in the list below.</target>
+        </trans-unit>
+        <trans-unit id="99ed5c37-3520-400b-8976-3e4350a62a78" xml:space="preserve">
+          <source><bpt id="c3febaf7-97fa-4eb2-8856-6fc7b339e891">&lt;token href="../../includes/mobile-services-create-new-service-data.md"&gt;</bpt><ept id="c3febaf7-97fa-4eb2-8856-6fc7b339e891">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c3febaf7-97fa-4eb2-8856-6fc7b339e891">&lt;token href="../../includes/mobile-services-create-new-service-data.md"&gt;</bpt><ept id="c3febaf7-97fa-4eb2-8856-6fc7b339e891">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33741f74-134d-4855-ad91-4655d3b82f54" xml:space="preserve">
+          <source>To be able to store app data in the new mobile service, you must first create a new table in the associated SQL Database instance.</source>
+          <target state="new">To be able to store app data in the new mobile service, you must first create a new table in the associated SQL Database instance.</target>
+        </trans-unit>
+        <trans-unit id="20c7664e-f2d5-4e71-950d-e4b17471ba24" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="d605d96c-9564-4bc1-8bdb-c286a60a38b5">&lt;strong&gt;</bpt>Mobile Services<ept id="d605d96c-9564-4bc1-8bdb-c286a60a38b5">&lt;/strong&gt;</ept>, and then click the mobile service that you just created.</source>
+          <target state="new">In the Management Portal, click <bpt id="d605d96c-9564-4bc1-8bdb-c286a60a38b5">&lt;strong&gt;</bpt>Mobile Services<ept id="d605d96c-9564-4bc1-8bdb-c286a60a38b5">&lt;/strong&gt;</ept>, and then click the mobile service that you just created.</target>
+        </trans-unit>
+        <trans-unit id="065ad7fd-838e-45c2-bf73-bfd2a9f0f1a4" xml:space="preserve">
+          <source>Click the <bpt id="28f09091-4061-4d9e-8c02-9c16193ba572">&lt;strong&gt;</bpt>Data<ept id="28f09091-4061-4d9e-8c02-9c16193ba572">&lt;/strong&gt;</ept> tab, then click <bpt id="e4b8a1f3-8316-4af7-8d5d-868f0bc8d00a">&lt;strong&gt;</bpt>+Create<ept id="e4b8a1f3-8316-4af7-8d5d-868f0bc8d00a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="28f09091-4061-4d9e-8c02-9c16193ba572">&lt;strong&gt;</bpt>Data<ept id="28f09091-4061-4d9e-8c02-9c16193ba572">&lt;/strong&gt;</ept> tab, then click <bpt id="e4b8a1f3-8316-4af7-8d5d-868f0bc8d00a">&lt;strong&gt;</bpt>+Create<ept id="e4b8a1f3-8316-4af7-8d5d-868f0bc8d00a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52da9199-773c-443d-86f1-b9b0a413f701" xml:space="preserve">
+          <source><bpt id="083c2f16-90bf-4996-b45a-30daf2b9a96a">&lt;linkText&gt;</bpt><ept id="083c2f16-90bf-4996-b45a-30daf2b9a96a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="083c2f16-90bf-4996-b45a-30daf2b9a96a">&lt;linkText&gt;</bpt><ept id="083c2f16-90bf-4996-b45a-30daf2b9a96a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61522863-e273-4f94-8e3d-5c77a77e91fd" xml:space="preserve">
+          <source>This displays the <bpt id="c9a5b426-6444-456d-a593-6c02d9971ddb">&lt;strong&gt;</bpt>Create new table<ept id="c9a5b426-6444-456d-a593-6c02d9971ddb">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">This displays the <bpt id="c9a5b426-6444-456d-a593-6c02d9971ddb">&lt;strong&gt;</bpt>Create new table<ept id="c9a5b426-6444-456d-a593-6c02d9971ddb">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="cd6a23e6-b97d-41ba-a34e-ffff3346e0a1" xml:space="preserve">
+          <source>In <bpt id="8d580c17-1ac8-4fbe-b984-d698b69bfa5e">&lt;strong&gt;</bpt>Table name<ept id="8d580c17-1ac8-4fbe-b984-d698b69bfa5e">&lt;/strong&gt;</ept> type <bpt id="be0b847b-8fc6-471c-b686-5ed2093571fa">&lt;em&gt;</bpt>TodoItem<ept id="be0b847b-8fc6-471c-b686-5ed2093571fa">&lt;/em&gt;</ept>, then click the check button.</source>
+          <target state="new">In <bpt id="8d580c17-1ac8-4fbe-b984-d698b69bfa5e">&lt;strong&gt;</bpt>Table name<ept id="8d580c17-1ac8-4fbe-b984-d698b69bfa5e">&lt;/strong&gt;</ept> type <bpt id="be0b847b-8fc6-471c-b686-5ed2093571fa">&lt;em&gt;</bpt>TodoItem<ept id="be0b847b-8fc6-471c-b686-5ed2093571fa">&lt;/em&gt;</ept>, then click the check button.</target>
+        </trans-unit>
+        <trans-unit id="4e36add4-798a-4852-a82a-d43edcc86d86" xml:space="preserve">
+          <source><bpt id="67c750d2-e117-4a7f-971a-1fe094091675">&lt;linkText&gt;</bpt><ept id="67c750d2-e117-4a7f-971a-1fe094091675">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="67c750d2-e117-4a7f-971a-1fe094091675">&lt;linkText&gt;</bpt><ept id="67c750d2-e117-4a7f-971a-1fe094091675">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35acf529-99c1-4378-8786-bab91815483b" xml:space="preserve">
+          <source>This creates a new storage table <bpt id="4e5c8175-d0f7-44ea-975d-e05b5fb34971">&lt;strong&gt;</bpt>TodoItem<ept id="4e5c8175-d0f7-44ea-975d-e05b5fb34971">&lt;/strong&gt;</ept> with the default permissions set, which means that any user of the app can access and change data in the table.</source>
+          <target state="new">This creates a new storage table <bpt id="4e5c8175-d0f7-44ea-975d-e05b5fb34971">&lt;strong&gt;</bpt>TodoItem<ept id="4e5c8175-d0f7-44ea-975d-e05b5fb34971">&lt;/strong&gt;</ept> with the default permissions set, which means that any user of the app can access and change data in the table.</target>
+        </trans-unit>
+        <trans-unit id="7688cbc8-74cd-4cb2-8626-a2702d28883e" xml:space="preserve">
+          <source>The same table name is used in Mobile Services quickstart.</source>
+          <target state="new">The same table name is used in Mobile Services quickstart.</target>
+        </trans-unit>
+        <trans-unit id="7358377b-4211-468b-b438-c76e7aa951a7" xml:space="preserve">
+          <source>However, each table is created in a schema that is specific to a given mobile service.</source>
+          <target state="new">However, each table is created in a schema that is specific to a given mobile service.</target>
+        </trans-unit>
+        <trans-unit id="84bc7412-045c-4caa-877e-23a95e7d9915" xml:space="preserve">
+          <source>This is to prevent data collisions when multiple mobile services use the same database.</source>
+          <target state="new">This is to prevent data collisions when multiple mobile services use the same database.</target>
+        </trans-unit>
+        <trans-unit id="f2683dcd-d3a6-4263-8a1c-76413270eba8" xml:space="preserve">
+          <source>Click the new <bpt id="453debfb-d018-4eab-bd8b-14b05a2bed16">&lt;strong&gt;</bpt>TodoItem<ept id="453debfb-d018-4eab-bd8b-14b05a2bed16">&lt;/strong&gt;</ept> table and verify that there are no data rows.</source>
+          <target state="new">Click the new <bpt id="453debfb-d018-4eab-bd8b-14b05a2bed16">&lt;strong&gt;</bpt>TodoItem<ept id="453debfb-d018-4eab-bd8b-14b05a2bed16">&lt;/strong&gt;</ept> table and verify that there are no data rows.</target>
+        </trans-unit>
+        <trans-unit id="217de391-89a5-4ca2-ae73-93cb082a4e2e" xml:space="preserve">
+          <source>Click the <bpt id="1d62c9e2-c043-415e-aacd-f575c369e1d3">&lt;strong&gt;</bpt>Columns<ept id="1d62c9e2-c043-415e-aacd-f575c369e1d3">&lt;/strong&gt;</ept> tab and verify that there is only a single <bpt id="214f06ad-65c8-4db8-80b5-49b9b96b9d00">&lt;strong&gt;</bpt>id<ept id="214f06ad-65c8-4db8-80b5-49b9b96b9d00">&lt;/strong&gt;</ept> column, which is automatically created for you.</source>
+          <target state="new">Click the <bpt id="1d62c9e2-c043-415e-aacd-f575c369e1d3">&lt;strong&gt;</bpt>Columns<ept id="1d62c9e2-c043-415e-aacd-f575c369e1d3">&lt;/strong&gt;</ept> tab and verify that there is only a single <bpt id="214f06ad-65c8-4db8-80b5-49b9b96b9d00">&lt;strong&gt;</bpt>id<ept id="214f06ad-65c8-4db8-80b5-49b9b96b9d00">&lt;/strong&gt;</ept> column, which is automatically created for you.</target>
+        </trans-unit>
+        <trans-unit id="d8fb2d74-b73c-4128-9833-0a8730ba15e7" xml:space="preserve">
+          <source>  This is the minimum requirement for a table in Mobile Services.</source>
+          <target state="new">  This is the minimum requirement for a table in Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="8be01fd4-dac1-4adf-a875-35c90a2dad11" xml:space="preserve">
+          <source>When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.</source>
+          <target state="new">When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.</target>
+        </trans-unit>
+        <trans-unit id="55a91044-f04d-4e6c-accf-cca545869603" xml:space="preserve">
+          <source>You are now ready to use the new mobile service as data storage for the app.</source>
+          <target state="new">You are now ready to use the new mobile service as data storage for the app.</target>
+        </trans-unit>
+        <trans-unit id="22220e59-af13-40af-860d-8b75d063e18f" xml:space="preserve">
+          <source>Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection.</source>
+          <target state="new">Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection.</target>
+        </trans-unit>
+        <trans-unit id="19810770-f863-4eb0-97dc-19954301c96f" xml:space="preserve">
+          <source>If you don't already have <bpt id="c8854f99-2de9-44d7-81f8-8a7a20bd3d8d">&lt;strong&gt;</bpt>Azure Mobile Services<ept id="c8854f99-2de9-44d7-81f8-8a7a20bd3d8d">&lt;/strong&gt;</ept> listed in the Components folder, you can get it by right-clicking <bpt id="62bb1c09-ff69-4c60-b6f7-3e5eea0105a2">&lt;strong&gt;</bpt>Components<ept id="62bb1c09-ff69-4c60-b6f7-3e5eea0105a2">&lt;/strong&gt;</ept>, choosing <bpt id="c872cb30-d277-4299-bc12-7cd96be76d30">&lt;strong&gt;</bpt>Get More Components<ept id="c872cb30-d277-4299-bc12-7cd96be76d30">&lt;/strong&gt;</ept> and then searching for <bpt id="45f1e263-aae4-4d13-b40e-50a83ea59802">&lt;strong&gt;</bpt>Azure Mobile Services<ept id="45f1e263-aae4-4d13-b40e-50a83ea59802">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you don't already have <bpt id="c8854f99-2de9-44d7-81f8-8a7a20bd3d8d">&lt;strong&gt;</bpt>Azure Mobile Services<ept id="c8854f99-2de9-44d7-81f8-8a7a20bd3d8d">&lt;/strong&gt;</ept> listed in the Components folder, you can get it by right-clicking <bpt id="62bb1c09-ff69-4c60-b6f7-3e5eea0105a2">&lt;strong&gt;</bpt>Components<ept id="62bb1c09-ff69-4c60-b6f7-3e5eea0105a2">&lt;/strong&gt;</ept>, choosing <bpt id="c872cb30-d277-4299-bc12-7cd96be76d30">&lt;strong&gt;</bpt>Get More Components<ept id="c872cb30-d277-4299-bc12-7cd96be76d30">&lt;/strong&gt;</ept> and then searching for <bpt id="45f1e263-aae4-4d13-b40e-50a83ea59802">&lt;strong&gt;</bpt>Azure Mobile Services<ept id="45f1e263-aae4-4d13-b40e-50a83ea59802">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9de72150-be05-4922-bcc6-b533378f7c70" xml:space="preserve">
+          <source>In the Solution view in Xamarin Studio, open the <bpt id="c6d5ec16-c610-4d36-aae2-218e75227d41">&lt;strong&gt;</bpt>TodoService<ept id="c6d5ec16-c610-4d36-aae2-218e75227d41">&lt;/strong&gt;</ept> class and uncomment the following <bpt id="4eddfa13-338a-43a9-a397-52addc477930">&lt;code&gt;</bpt>using<ept id="4eddfa13-338a-43a9-a397-52addc477930">&lt;/code&gt;</ept> statement:</source>
+          <target state="new">In the Solution view in Xamarin Studio, open the <bpt id="c6d5ec16-c610-4d36-aae2-218e75227d41">&lt;strong&gt;</bpt>TodoService<ept id="c6d5ec16-c610-4d36-aae2-218e75227d41">&lt;/strong&gt;</ept> class and uncomment the following <bpt id="4eddfa13-338a-43a9-a397-52addc477930">&lt;code&gt;</bpt>using<ept id="4eddfa13-338a-43a9-a397-52addc477930">&lt;/code&gt;</ept> statement:</target>
+        </trans-unit>
+        <trans-unit id="301b6808-98ea-4950-85df-752787c09d75" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="a898773e-2e7e-4595-803f-7ce83be9176f">&lt;strong&gt;</bpt>Mobile Services<ept id="a898773e-2e7e-4595-803f-7ce83be9176f">&lt;/strong&gt;</ept>, and then click the mobile service you just created.</source>
+          <target state="new">In the Management Portal, click <bpt id="a898773e-2e7e-4595-803f-7ce83be9176f">&lt;strong&gt;</bpt>Mobile Services<ept id="a898773e-2e7e-4595-803f-7ce83be9176f">&lt;/strong&gt;</ept>, and then click the mobile service you just created.</target>
+        </trans-unit>
+        <trans-unit id="413ba283-a1ad-4d78-bc5c-7e353ae92d16" xml:space="preserve">
+          <source>Click the <bpt id="d50f1e1d-9797-4a18-b91e-21849b069eb4">&lt;strong&gt;</bpt>Dashboard<ept id="d50f1e1d-9797-4a18-b91e-21849b069eb4">&lt;/strong&gt;</ept> tab and make a note of the <bpt id="a0cda1ba-1f2d-4eb5-a492-989f45a6a5bb">&lt;strong&gt;</bpt>Site URL<ept id="a0cda1ba-1f2d-4eb5-a492-989f45a6a5bb">&lt;/strong&gt;</ept>, then click <bpt id="b4a75c3a-f286-4aff-9ff4-865702750617">&lt;strong&gt;</bpt>Manage keys<ept id="b4a75c3a-f286-4aff-9ff4-865702750617">&lt;/strong&gt;</ept> and make a note of the <bpt id="7ce3cfef-5a29-42b5-805c-4c6a3e9a508e">&lt;strong&gt;</bpt>Application key<ept id="7ce3cfef-5a29-42b5-805c-4c6a3e9a508e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="d50f1e1d-9797-4a18-b91e-21849b069eb4">&lt;strong&gt;</bpt>Dashboard<ept id="d50f1e1d-9797-4a18-b91e-21849b069eb4">&lt;/strong&gt;</ept> tab and make a note of the <bpt id="a0cda1ba-1f2d-4eb5-a492-989f45a6a5bb">&lt;strong&gt;</bpt>Site URL<ept id="a0cda1ba-1f2d-4eb5-a492-989f45a6a5bb">&lt;/strong&gt;</ept>, then click <bpt id="b4a75c3a-f286-4aff-9ff4-865702750617">&lt;strong&gt;</bpt>Manage keys<ept id="b4a75c3a-f286-4aff-9ff4-865702750617">&lt;/strong&gt;</ept> and make a note of the <bpt id="7ce3cfef-5a29-42b5-805c-4c6a3e9a508e">&lt;strong&gt;</bpt>Application key<ept id="7ce3cfef-5a29-42b5-805c-4c6a3e9a508e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d79ffe28-7ffe-4296-9e7f-20f9cd363cf9" xml:space="preserve">
+          <source><bpt id="ad2ff775-81a0-4ca3-bdc2-cd0bb671c6cc">&lt;linkText&gt;</bpt><ept id="ad2ff775-81a0-4ca3-bdc2-cd0bb671c6cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ad2ff775-81a0-4ca3-bdc2-cd0bb671c6cc">&lt;linkText&gt;</bpt><ept id="ad2ff775-81a0-4ca3-bdc2-cd0bb671c6cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2cecbe2-f64d-4b69-b19e-e9421119e056" xml:space="preserve">
+          <source>In the <bpt id="3d17b252-1b95-4fa3-9aea-4ec6b75db5f9">&lt;strong&gt;</bpt>Constants<ept id="3d17b252-1b95-4fa3-9aea-4ec6b75db5f9">&lt;/strong&gt;</ept> class, uncomment the following constants:</source>
+          <target state="new">In the <bpt id="3d17b252-1b95-4fa3-9aea-4ec6b75db5f9">&lt;strong&gt;</bpt>Constants<ept id="3d17b252-1b95-4fa3-9aea-4ec6b75db5f9">&lt;/strong&gt;</ept> class, uncomment the following constants:</target>
+        </trans-unit>
+        <trans-unit id="0f11f808-43ef-4276-a283-d59b825ce12a" xml:space="preserve">
+          <source>Replace <bpt id="ca91de6c-fb79-4222-8a93-3176c0dd5750">&lt;strong&gt;</bpt>AppUrl<ept id="ca91de6c-fb79-4222-8a93-3176c0dd5750">&lt;/strong&gt;</ept> and <bpt id="2273440a-41e8-4d22-adac-a2b4824db5c2">&lt;strong&gt;</bpt>AppKey<ept id="2273440a-41e8-4d22-adac-a2b4824db5c2">&lt;/strong&gt;</ept> in the above constants with the values you found above in the Management Portal.</source>
+          <target state="new">Replace <bpt id="ca91de6c-fb79-4222-8a93-3176c0dd5750">&lt;strong&gt;</bpt>AppUrl<ept id="ca91de6c-fb79-4222-8a93-3176c0dd5750">&lt;/strong&gt;</ept> and <bpt id="2273440a-41e8-4d22-adac-a2b4824db5c2">&lt;strong&gt;</bpt>AppKey<ept id="2273440a-41e8-4d22-adac-a2b4824db5c2">&lt;/strong&gt;</ept> in the above constants with the values you found above in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="82efe27d-6d28-4d02-8b51-fa13eeb1ab4f" xml:space="preserve">
+          <source>In the <bpt id="304a13a6-6085-4804-9dfe-14a2e79a491f">&lt;strong&gt;</bpt>TodoService<ept id="304a13a6-6085-4804-9dfe-14a2e79a491f">&lt;/strong&gt;</ept> class, uncomment the following line of code:</source>
+          <target state="new">In the <bpt id="304a13a6-6085-4804-9dfe-14a2e79a491f">&lt;strong&gt;</bpt>TodoService<ept id="304a13a6-6085-4804-9dfe-14a2e79a491f">&lt;/strong&gt;</ept> class, uncomment the following line of code:</target>
+        </trans-unit>
+        <trans-unit id="ab2ec213-0569-46fc-8720-46f722a1b673" xml:space="preserve">
+          <source>This creates a property that represents the MobileServiceClient that connects to the service</source>
+          <target state="new">This creates a property that represents the MobileServiceClient that connects to the service</target>
+        </trans-unit>
+        <trans-unit id="a54ba8d0-6698-4806-b817-e8b1a00913b4" xml:space="preserve">
+          <source>In the <bpt id="d8ac8995-7441-4391-8b67-a8a84c9e3e2f">&lt;strong&gt;</bpt>TodoService<ept id="d8ac8995-7441-4391-8b67-a8a84c9e3e2f">&lt;/strong&gt;</ept> class, uncomment the following line of code:</source>
+          <target state="new">In the <bpt id="d8ac8995-7441-4391-8b67-a8a84c9e3e2f">&lt;strong&gt;</bpt>TodoService<ept id="d8ac8995-7441-4391-8b67-a8a84c9e3e2f">&lt;/strong&gt;</ept> class, uncomment the following line of code:</target>
+        </trans-unit>
+        <trans-unit id="c4f78820-b0aa-465c-ad7d-fe4514369c4a" xml:space="preserve">
+          <source>This creates a property representation for your mobile services table.</source>
+          <target state="new">This creates a property representation for your mobile services table.</target>
+        </trans-unit>
+        <trans-unit id="caa42e8f-5e82-46fa-9957-18200e425db9" xml:space="preserve">
+          <source>Uncomment the following lines in the <bpt id="17ef590f-fd6c-41b2-a14e-b7b4e8d0ac31">&lt;strong&gt;</bpt>TodoService<ept id="17ef590f-fd6c-41b2-a14e-b7b4e8d0ac31">&lt;/strong&gt;</ept> constructor:</source>
+          <target state="new">Uncomment the following lines in the <bpt id="17ef590f-fd6c-41b2-a14e-b7b4e8d0ac31">&lt;strong&gt;</bpt>TodoService<ept id="17ef590f-fd6c-41b2-a14e-b7b4e8d0ac31">&lt;/strong&gt;</ept> constructor:</target>
+        </trans-unit>
+        <trans-unit id="9261c566-db1d-4e87-9f18-662ffe756413" xml:space="preserve">
+          <source>This creates an instance of the Mobile Services client and creates the TodoItem table instance.</source>
+          <target state="new">This creates an instance of the Mobile Services client and creates the TodoItem table instance.</target>
+        </trans-unit>
+        <trans-unit id="0fbdf478-5cbf-4a7b-9d8e-adab3f228cd7" xml:space="preserve">
+          <source>Uncomment the following lines in the <bpt id="e7c8ede8-142f-4996-9b6f-94fbebc81be2">&lt;strong&gt;</bpt>RefreshDataAsync<ept id="e7c8ede8-142f-4996-9b6f-94fbebc81be2">&lt;/strong&gt;</ept> method in <bpt id="ecbf9f97-f06f-4f14-8712-8c4b61cea79f">&lt;strong&gt;</bpt>TodoService<ept id="ecbf9f97-f06f-4f14-8712-8c4b61cea79f">&lt;/strong&gt;</ept></source>
+          <target state="new">Uncomment the following lines in the <bpt id="e7c8ede8-142f-4996-9b6f-94fbebc81be2">&lt;strong&gt;</bpt>RefreshDataAsync<ept id="e7c8ede8-142f-4996-9b6f-94fbebc81be2">&lt;/strong&gt;</ept> method in <bpt id="ecbf9f97-f06f-4f14-8712-8c4b61cea79f">&lt;strong&gt;</bpt>TodoService<ept id="ecbf9f97-f06f-4f14-8712-8c4b61cea79f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4dce4f3-ac73-4eed-8b2f-27daa63ab757" xml:space="preserve">
+          <source>This creates a query to return all tasks that have not yet been completed.</source>
+          <target state="new">This creates a query to return all tasks that have not yet been completed.</target>
+        </trans-unit>
+        <trans-unit id="691b4b8b-d333-4ea9-822f-2ef2f9d165cb" xml:space="preserve">
+          <source>Locate the <bpt id="61a1973f-5cb0-44ae-8fd3-bf81dd19b605">&lt;strong&gt;</bpt>InsertTodoItemAsync<ept id="61a1973f-5cb0-44ae-8fd3-bf81dd19b605">&lt;/strong&gt;</ept> method, and uncomment the following line:</source>
+          <target state="new">Locate the <bpt id="61a1973f-5cb0-44ae-8fd3-bf81dd19b605">&lt;strong&gt;</bpt>InsertTodoItemAsync<ept id="61a1973f-5cb0-44ae-8fd3-bf81dd19b605">&lt;/strong&gt;</ept> method, and uncomment the following line:</target>
+        </trans-unit>
+        <trans-unit id="4339fa18-c6d8-43bf-9175-5072479ac1be" xml:space="preserve">
+          <source>This code sends an insert request to the mobile service.</source>
+          <target state="new">This code sends an insert request to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="dc3b355e-29fb-43f0-87f1-90f5e7213740" xml:space="preserve">
+          <source>Locate the <bpt id="3b0ee0ed-526c-4312-a912-8e7f37517aee">&lt;strong&gt;</bpt>CompleteItemAsync<ept id="3b0ee0ed-526c-4312-a912-8e7f37517aee">&lt;/strong&gt;</ept> method, and uncomment the following line:</source>
+          <target state="new">Locate the <bpt id="3b0ee0ed-526c-4312-a912-8e7f37517aee">&lt;strong&gt;</bpt>CompleteItemAsync<ept id="3b0ee0ed-526c-4312-a912-8e7f37517aee">&lt;/strong&gt;</ept> method, and uncomment the following line:</target>
+        </trans-unit>
+        <trans-unit id="612ecee1-ae27-4b56-bbc4-6b19f35a0384" xml:space="preserve">
+          <source>This code removes TodoItems after they are marked as completed.</source>
+          <target state="new">This code removes TodoItems after they are marked as completed.</target>
+        </trans-unit>
+        <trans-unit id="e8ec3878-953d-4db6-8cdf-684f54d6e240" xml:space="preserve">
+          <source>Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.</source>
+          <target state="new">Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="5f4e3a02-43d1-4157-888a-5301471c89cc" xml:space="preserve">
+          <source>In Xamarin Studio, select an emulator or device to deploy to from one of the primary comboboxes, then go to the <bpt id="53ca0351-45df-48ca-ae44-b5ae4e195594">&lt;strong&gt;</bpt>Run<ept id="53ca0351-45df-48ca-ae44-b5ae4e195594">&lt;/strong&gt;</ept> menu and select <bpt id="9b4b302d-ea57-4d4b-8235-b1aeb24b037c">&lt;strong&gt;</bpt>Start WithoutDebugging<ept id="9b4b302d-ea57-4d4b-8235-b1aeb24b037c">&lt;/strong&gt;</ept> to start the app.</source>
+          <target state="new">In Xamarin Studio, select an emulator or device to deploy to from one of the primary comboboxes, then go to the <bpt id="53ca0351-45df-48ca-ae44-b5ae4e195594">&lt;strong&gt;</bpt>Run<ept id="53ca0351-45df-48ca-ae44-b5ae4e195594">&lt;/strong&gt;</ept> menu and select <bpt id="9b4b302d-ea57-4d4b-8235-b1aeb24b037c">&lt;strong&gt;</bpt>Start WithoutDebugging<ept id="9b4b302d-ea57-4d4b-8235-b1aeb24b037c">&lt;/strong&gt;</ept> to start the app.</target>
+        </trans-unit>
+        <trans-unit id="b27f3bde-507f-4310-9501-e523b42506fd" xml:space="preserve">
+          <source>This executes your Azure Mobile Services client, built with Xamarin.iOS, that queries items from your mobile service.</source>
+          <target state="new">This executes your Azure Mobile Services client, built with Xamarin.iOS, that queries items from your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="5b050777-4b99-4d64-8b58-01745d2f9290" xml:space="preserve">
+          <source>As before, type text in the textbox, and then click the <bpt id="910773b6-7cef-4176-b188-b8ac21673c99">&lt;strong&gt;</bpt>+<ept id="910773b6-7cef-4176-b188-b8ac21673c99">&lt;/strong&gt;</ept> button..</source>
+          <target state="new">As before, type text in the textbox, and then click the <bpt id="910773b6-7cef-4176-b188-b8ac21673c99">&lt;strong&gt;</bpt>+<ept id="910773b6-7cef-4176-b188-b8ac21673c99">&lt;/strong&gt;</ept> button..</target>
+        </trans-unit>
+        <trans-unit id="8d18e73c-2d45-4a66-b944-1ae9ce89ae5f" xml:space="preserve">
+          <source>This sends a new item as an insert to the mobile service.</source>
+          <target state="new">This sends a new item as an insert to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="65b4da58-d4e7-49c5-8c47-1ba1f863dfab" xml:space="preserve">
+          <source>In the [Management Portal], click <bpt id="fe6b1679-50e9-4b40-a10b-b69ccfeb13dc">&lt;strong&gt;</bpt>Mobile Services<ept id="fe6b1679-50e9-4b40-a10b-b69ccfeb13dc">&lt;/strong&gt;</ept>, and then click your mobile service.</source>
+          <target state="new">In the [Management Portal], click <bpt id="fe6b1679-50e9-4b40-a10b-b69ccfeb13dc">&lt;strong&gt;</bpt>Mobile Services<ept id="fe6b1679-50e9-4b40-a10b-b69ccfeb13dc">&lt;/strong&gt;</ept>, and then click your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="16dbbbec-b82a-49d4-b071-8dd66b614f48" xml:space="preserve">
+          <source>Click the <bpt id="f14bc464-ee43-47f9-baf0-c50b9f44c18b">&lt;strong&gt;</bpt>Data<ept id="f14bc464-ee43-47f9-baf0-c50b9f44c18b">&lt;/strong&gt;</ept> tab, then click <bpt id="91e7d8c5-2541-4f87-a44c-23c45419a63f">&lt;strong&gt;</bpt>Browse<ept id="91e7d8c5-2541-4f87-a44c-23c45419a63f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="f14bc464-ee43-47f9-baf0-c50b9f44c18b">&lt;strong&gt;</bpt>Data<ept id="f14bc464-ee43-47f9-baf0-c50b9f44c18b">&lt;/strong&gt;</ept> tab, then click <bpt id="91e7d8c5-2541-4f87-a44c-23c45419a63f">&lt;strong&gt;</bpt>Browse<ept id="91e7d8c5-2541-4f87-a44c-23c45419a63f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66af2b35-0abf-42fd-b9ee-ec4707a73e88" xml:space="preserve">
+          <source><bpt id="6a79c5ca-a9ed-470a-98e1-c8a3b778cd1f">&lt;linkText&gt;</bpt><ept id="6a79c5ca-a9ed-470a-98e1-c8a3b778cd1f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6a79c5ca-a9ed-470a-98e1-c8a3b778cd1f">&lt;linkText&gt;</bpt><ept id="6a79c5ca-a9ed-470a-98e1-c8a3b778cd1f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04a5fade-6272-4224-8fba-757bd6eb5958" xml:space="preserve">
+          <source>Notice that the <bpt id="41a534de-7376-4cff-89c3-c60103527cc4">&lt;strong&gt;</bpt>TodoItem<ept id="41a534de-7376-4cff-89c3-c60103527cc4">&lt;/strong&gt;</ept> table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.</source>
+          <target state="new">Notice that the <bpt id="41a534de-7376-4cff-89c3-c60103527cc4">&lt;strong&gt;</bpt>TodoItem<ept id="41a534de-7376-4cff-89c3-c60103527cc4">&lt;/strong&gt;</ept> table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.</target>
+        </trans-unit>
+        <trans-unit id="4ab61d42-d445-498c-9058-592d57e27f3f" xml:space="preserve">
+          <source>This concludes the <bpt id="7b9371fe-2c34-4f5d-be92-8d57537589d2">&lt;strong&gt;</bpt>Get started with data<ept id="7b9371fe-2c34-4f5d-be92-8d57537589d2">&lt;/strong&gt;</ept> tutorial for Xamarin.iOS.</source>
+          <target state="new">This concludes the <bpt id="7b9371fe-2c34-4f5d-be92-8d57537589d2">&lt;strong&gt;</bpt>Get started with data<ept id="7b9371fe-2c34-4f5d-be92-8d57537589d2">&lt;/strong&gt;</ept> tutorial for Xamarin.iOS.</target>
+        </trans-unit>
+        <trans-unit id="2d56c6dd-33d9-430b-b903-e9eb97080272" xml:space="preserve">
+          <source>Download the [completed example project].</source>
+          <target state="new">Download the [completed example project].</target>
+        </trans-unit>
+        <trans-unit id="c66652be-6e64-4a52-bf21-d1899f170b76" xml:space="preserve">
+          <source>Be sure to update the <bpt id="7c9e88aa-54fa-43ea-8f3c-5cb17981f50c">&lt;strong&gt;</bpt>applicationURL<ept id="7c9e88aa-54fa-43ea-8f3c-5cb17981f50c">&lt;/strong&gt;</ept> and <bpt id="23544be7-e71c-4597-9ad9-155eb75e0a54">&lt;strong&gt;</bpt>applicationKey<ept id="23544be7-e71c-4597-9ad9-155eb75e0a54">&lt;/strong&gt;</ept> variables with your own Azure settings.</source>
+          <target state="new">Be sure to update the <bpt id="7c9e88aa-54fa-43ea-8f3c-5cb17981f50c">&lt;strong&gt;</bpt>applicationURL<ept id="7c9e88aa-54fa-43ea-8f3c-5cb17981f50c">&lt;/strong&gt;</ept> and <bpt id="23544be7-e71c-4597-9ad9-155eb75e0a54">&lt;strong&gt;</bpt>applicationKey<ept id="23544be7-e71c-4597-9ad9-155eb75e0a54">&lt;/strong&gt;</ept> variables with your own Azure settings.</target>
+        </trans-unit>
+        <trans-unit id="6685a86c-1e5f-4e76-a9ba-a148d85a69c9" xml:space="preserve">
+          <source>This tutorial demonstrated the basics of enabling an iOS app to work with data in Mobile Services.</source>
+          <target state="new">This tutorial demonstrated the basics of enabling an iOS app to work with data in Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="f2874603-a133-46c5-b0c5-7a4cfcbfdb39" xml:space="preserve">
+          <source>Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:</source>
+          <target state="new">Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:</target>
+        </trans-unit>
+        <trans-unit id="fb1e4164-81e9-4f82-8b21-13fab13b7e44" xml:space="preserve">
+          <source>[Validate and modify data with scripts]
+&lt;br/&gt;Learn more about using server scripts in Mobile Services to validate and change data sent from your app.</source>
+          <target state="new">[Validate and modify data with scripts]
+&lt;br/&gt;Learn more about using server scripts in Mobile Services to validate and change data sent from your app.</target>
+        </trans-unit>
+        <trans-unit id="037ea7ce-2270-4b9a-9671-0c05702ba7a2" xml:space="preserve">
+          <source>[Refine queries with paging]
+&lt;br/&gt;Learn how to use paging in queries to control the amount of data handled in a single request.</source>
+          <target state="new">[Refine queries with paging]
+&lt;br/&gt;Learn how to use paging in queries to control the amount of data handled in a single request.</target>
+        </trans-unit>
+        <trans-unit id="108fab68-0978-4e3b-8a8e-c564b6ca0b02" xml:space="preserve">
+          <source>Once you have completed the data series, try these other iOS tutorials:</source>
+          <target state="new">Once you have completed the data series, try these other iOS tutorials:</target>
+        </trans-unit>
+        <trans-unit id="c2a8233f-be73-4c12-b820-63ed0f1211f1" xml:space="preserve">
+          <source>[Get started with authentication]
+&lt;br/&gt;Learn how to authenticate users of your app.</source>
+          <target state="new">[Get started with authentication]
+&lt;br/&gt;Learn how to authenticate users of your app.</target>
+        </trans-unit>
+        <trans-unit id="90b00682-8004-406a-b472-7ad2aef8d465" xml:space="preserve">
+          <source>[Get started with push notifications]
+&lt;br/&gt;Learn how to send a very basic push notification to your app with Mobile Services.</source>
+          <target state="new">[Get started with push notifications]
+&lt;br/&gt;Learn how to send a very basic push notification to your app with Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="34ccd73a-78ab-422b-aeb1-4a7d99fe6411" xml:space="preserve">
+          <source>#download-app</source>
+          <target state="new">#download-app</target>
+        </trans-unit>
+        <trans-unit id="431963f3-d969-4153-9022-681482b43da2" xml:space="preserve">
+          <source>#create-service</source>
+          <target state="new">#create-service</target>
+        </trans-unit>
+        <trans-unit id="69d53e51-3fd1-4a8c-a088-55008226aa82" xml:space="preserve">
+          <source>#add-table</source>
+          <target state="new">#add-table</target>
+        </trans-unit>
+        <trans-unit id="08c91570-6fc8-4b54-8503-c5524a60d8d7" xml:space="preserve">
+          <source>#update-app</source>
+          <target state="new">#update-app</target>
+        </trans-unit>
+        <trans-unit id="7dc33e09-a4ff-43c5-b4a9-fdce5fae0b28" xml:space="preserve">
+          <source>#test-app</source>
+          <target state="new">#test-app</target>
+        </trans-unit>
+        <trans-unit id="b219cec7-d0a4-415b-a354-4622148ef9c5" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="da4976a5-0868-4e12-a934-4dcf51fe81cc" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png</target>
+        </trans-unit>
+        <trans-unit id="5b85c8f5-c8f9-4117-ac36-d95b6642e4c6" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-data-tab-empty.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-data-tab-empty.png</target>
+        </trans-unit>
+        <trans-unit id="c6ad872f-5cfa-4626-9289-fc678680992a" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-create-todoitem-table.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-create-todoitem-table.png</target>
+        </trans-unit>
+        <trans-unit id="549b55f9-9662-41e0-88c9-5849c9106c62" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-dashboard-tab.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-dashboard-tab.png</target>
+        </trans-unit>
+        <trans-unit id="44da0d28-00d3-4c2a-a066-98a3727bc555" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-todoitem-data-browse.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-todoitem-data-browse.png</target>
+        </trans-unit>
+        <trans-unit id="60710207-8360-4bd4-8d24-d3e76010d79e" xml:space="preserve">
+          <source>/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="5265e2f5-a1b1-4d58-a652-61fe28ea70cf" xml:space="preserve">
+          <source>/develop/mobile/tutorials/add-paging-to-data-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/add-paging-to-data-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="b1843091-2c53-4ac8-adc3-43219c31e848" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/get-started-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="ff217973-9c2b-4124-a638-b143fa7b36ed" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-data-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-data-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="88a6b240-26af-433a-aabf-86b65d48a1fc" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-users-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-users-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="46b14ffa-c624-4ee3-a678-5bcdee97e48a" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-push-xamarin-ios</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-push-xamarin-ios</target>
+        </trans-unit>
+        <trans-unit id="af7e566d-4d56-45c4-a15f-a090ed8aad16" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="363f9f9d-ff90-402d-a30f-14a222db0f04" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="969a375b-21ef-40c8-822d-cf757f99a256" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/p/?LinkID=266532</source>
+          <target state="new">https://go.microsoft.com/fwLink/p/?LinkID=266532</target>
+        </trans-unit>
+        <trans-unit id="30e191e1-125e-4dec-b273-53010f0fa386" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/p/?LinkID=266533</source>
+          <target state="new">https://go.microsoft.com/fwLink/p/?LinkID=266533</target>
+        </trans-unit>
+        <trans-unit id="474a8f17-7354-48d7-ae65-a03b5f2461cf" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=331302</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=331302</target>
+        </trans-unit>
+        <trans-unit id="cebeed96-b5e6-4ff1-ba81-0b2438103be2" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=268784</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=268784</target>
+        </trans-unit>
+        <trans-unit id="4c6b2214-5b09-4799-8863-04ded9b9fb7c" xml:space="preserve">
+          <source>http://components.xamarin.com/view/azure-mobile-services/</source>
+          <target state="new">http://components.xamarin.com/view/azure-mobile-services/</target>
+        </trans-unit>
+        <trans-unit id="5477109a-aed5-4f34-a39e-e95807e4dccb" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=331302</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=331302</target>
+        </trans-unit>
+        <trans-unit id="2975bdd5-d5da-4ee8-8cce-08e91f7adc28" xml:space="preserve">
+          <source>http://xamarin.com/download</source>
+          <target state="new">http://xamarin.com/download</target>
+        </trans-unit>
+      </group>
+      <group id="201f33ec-04b1-4ca8-99a1-9600712835be" />
+    </body>
+  </file>
+</xliff>

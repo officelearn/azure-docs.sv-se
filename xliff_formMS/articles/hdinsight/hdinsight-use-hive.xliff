@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4a8394f1-8d9e-43cb-a81f-710fd8747a32" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4a8394f1-8d9e-43cb-a81f-710fd8747a32" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="82915e34-1ce7-4063-a0c1-49d6765f6f75">
+        <trans-unit id="0fb24236-28e9-4719-9cb0-29c703a284da" xml:space="preserve">
+          <source>Learn what is Hive and how to use HiveQL | Microsoft Azure</source>
+          <target state="new">Learn what is Hive and how to use HiveQL | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="996c9279-38b1-4af2-85f9-e42f40e3e85c" xml:space="preserve">
+          <source>Learn about Apache Hive and how to use it with Hadoop in HDInsight. Choose how to run your Hive job, and use HiveQL to analyze a sample Apache log4j file.</source>
+          <target state="new">Learn about Apache Hive and how to use it with Hadoop in HDInsight. Choose how to run your Hive job, and use HiveQL to analyze a sample Apache log4j file.</target>
+        </trans-unit>
+        <trans-unit id="270f0820-f7c8-4581-a1c0-2be214688aeb" xml:space="preserve">
+          <source><bpt id="591b0b23-639b-4121-b6a6-e2d702c4946b">&lt;token href="../../includes/hdinsight-selector-use-hive.md"&gt;</bpt><ept id="591b0b23-639b-4121-b6a6-e2d702c4946b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="591b0b23-639b-4121-b6a6-e2d702c4946b">&lt;token href="../../includes/hdinsight-selector-use-hive.md"&gt;</bpt><ept id="591b0b23-639b-4121-b6a6-e2d702c4946b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05e8ddcf-bdef-47af-b351-8b8a2130a5e9" xml:space="preserve">
+          <source>In this tutorial, you'll learn how to use Apache Hive in Hadoop on HDInsight, and choose how to run your Hive job.</source>
+          <target state="new">In this tutorial, you'll learn how to use Apache Hive in Hadoop on HDInsight, and choose how to run your Hive job.</target>
+        </trans-unit>
+        <trans-unit id="e1124d46-6d30-4bd0-873a-4fcb461dc546" xml:space="preserve">
+          <source>You'll also learn about HiveQL and how to analyze a sample Apache log4j file.</source>
+          <target state="new">You'll also learn about HiveQL and how to analyze a sample Apache log4j file.</target>
+        </trans-unit>
+        <trans-unit id="39bb57b9-bde5-40f7-8c03-574ff33519cb" xml:space="preserve">
+          <source><bpt id="9cd80901-92f0-4c34-ab01-dd6119734223">&lt;linkText&gt;</bpt>Apache Hive<ept id="9cd80901-92f0-4c34-ab01-dd6119734223">&lt;/linkText&gt;</ept><bpt id="9cd80901-92f0-4c34-ab01-dd6119734223">&lt;title&gt;</bpt><ept id="9cd80901-92f0-4c34-ab01-dd6119734223">&lt;/title&gt;</ept> is a data warehouse system for Hadoop, which enables data summarization, querying, and analysis of data by using HiveQL (a query language similar to SQL).</source>
+          <target state="new"><bpt id="9cd80901-92f0-4c34-ab01-dd6119734223">&lt;linkText&gt;</bpt>Apache Hive<ept id="9cd80901-92f0-4c34-ab01-dd6119734223">&lt;/linkText&gt;</ept><bpt id="9cd80901-92f0-4c34-ab01-dd6119734223">&lt;title&gt;</bpt><ept id="9cd80901-92f0-4c34-ab01-dd6119734223">&lt;/title&gt;</ept> is a data warehouse system for Hadoop, which enables data summarization, querying, and analysis of data by using HiveQL (a query language similar to SQL).</target>
+        </trans-unit>
+        <trans-unit id="74cd994c-e92b-4d7d-a8c1-0af9a9c7b7c4" xml:space="preserve">
+          <source>Hive can be used to interactively explore your data or to create reusable batch processing jobs.</source>
+          <target state="new">Hive can be used to interactively explore your data or to create reusable batch processing jobs.</target>
+        </trans-unit>
+        <trans-unit id="4d7dd879-22d1-4203-b142-885b8293c791" xml:space="preserve">
+          <source>Hive allows you to project structure on largely unstructured data.</source>
+          <target state="new">Hive allows you to project structure on largely unstructured data.</target>
+        </trans-unit>
+        <trans-unit id="5c0598b4-27dd-41c9-ab1f-92b121e2714c" xml:space="preserve">
+          <source>After you define the structure, you can use Hive to query that data without knowledge of Java or MapReduce.</source>
+          <target state="new">After you define the structure, you can use Hive to query that data without knowledge of Java or MapReduce.</target>
+        </trans-unit>
+        <trans-unit id="1c10442f-f241-448e-92a9-42aa5eb16e62" xml:space="preserve">
+          <source><bpt id="cfd7a43e-b667-4967-a66b-c62eb0c15ae2">&lt;strong&gt;</bpt>HiveQL<ept id="cfd7a43e-b667-4967-a66b-c62eb0c15ae2">&lt;/strong&gt;</ept> (the Hive query language) allows you to write queries with statements that are similar to T-SQL.</source>
+          <target state="new"><bpt id="cfd7a43e-b667-4967-a66b-c62eb0c15ae2">&lt;strong&gt;</bpt>HiveQL<ept id="cfd7a43e-b667-4967-a66b-c62eb0c15ae2">&lt;/strong&gt;</ept> (the Hive query language) allows you to write queries with statements that are similar to T-SQL.</target>
+        </trans-unit>
+        <trans-unit id="39f69687-7451-4f90-ad71-9c1778f54ffc" xml:space="preserve">
+          <source>Hive understands how to work with structured and semi-structured data, such as text files where the fields are delimited by specific characters.</source>
+          <target state="new">Hive understands how to work with structured and semi-structured data, such as text files where the fields are delimited by specific characters.</target>
+        </trans-unit>
+        <trans-unit id="1f6c392d-478e-4205-8dbb-de3c43a728a5" xml:space="preserve">
+          <source>Hive also supports custom <bpt id="95698cf9-c202-4dd2-ab3a-1a20c355eacf">&lt;strong&gt;</bpt>serializer/deserializers (SerDe)<ept id="95698cf9-c202-4dd2-ab3a-1a20c355eacf">&lt;/strong&gt;</ept> for complex or irregularly structured data.</source>
+          <target state="new">Hive also supports custom <bpt id="95698cf9-c202-4dd2-ab3a-1a20c355eacf">&lt;strong&gt;</bpt>serializer/deserializers (SerDe)<ept id="95698cf9-c202-4dd2-ab3a-1a20c355eacf">&lt;/strong&gt;</ept> for complex or irregularly structured data.</target>
+        </trans-unit>
+        <trans-unit id="1fe4108b-374f-40cf-8cce-095bc8fe046d" xml:space="preserve">
+          <source>For more information, see <bpt id="0f50beae-f358-43a8-a96c-aa101640e780">&lt;linkText&gt;</bpt>How to use a custom JSON SerDe with HDInsight<ept id="0f50beae-f358-43a8-a96c-aa101640e780">&lt;/linkText&gt;</ept><bpt id="0f50beae-f358-43a8-a96c-aa101640e780">&lt;title&gt;</bpt><ept id="0f50beae-f358-43a8-a96c-aa101640e780">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="0f50beae-f358-43a8-a96c-aa101640e780">&lt;linkText&gt;</bpt>How to use a custom JSON SerDe with HDInsight<ept id="0f50beae-f358-43a8-a96c-aa101640e780">&lt;/linkText&gt;</ept><bpt id="0f50beae-f358-43a8-a96c-aa101640e780">&lt;title&gt;</bpt><ept id="0f50beae-f358-43a8-a96c-aa101640e780">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="935c0944-e9b0-4de7-836b-cd3b6df97ef6" xml:space="preserve">
+          <source>Hive can also be extended through <bpt id="c15e8848-eedb-4e90-9763-24f652bb6e83">&lt;strong&gt;</bpt>user-defined functions (UDF)<ept id="c15e8848-eedb-4e90-9763-24f652bb6e83">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Hive can also be extended through <bpt id="c15e8848-eedb-4e90-9763-24f652bb6e83">&lt;strong&gt;</bpt>user-defined functions (UDF)<ept id="c15e8848-eedb-4e90-9763-24f652bb6e83">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c87f40b6-145f-479e-9790-83cf346d2b9f" xml:space="preserve">
+          <source>A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL.</source>
+          <target state="new">A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL.</target>
+        </trans-unit>
+        <trans-unit id="4324d490-961c-4458-abe8-ef15071beb85" xml:space="preserve">
+          <source>For an example of using UDFs with Hive, see the following:</source>
+          <target state="new">For an example of using UDFs with Hive, see the following:</target>
+        </trans-unit>
+        <trans-unit id="51895404-2b82-4175-b6a5-8bd21432f1ce" xml:space="preserve">
+          <source><bpt id="071e8d68-80e7-43e7-b92f-391ce70eceb2">&lt;linkText&gt;</bpt>Using Python with Hive and Pig in HDInsight<ept id="071e8d68-80e7-43e7-b92f-391ce70eceb2">&lt;/linkText&gt;</ept><bpt id="071e8d68-80e7-43e7-b92f-391ce70eceb2">&lt;title&gt;</bpt><ept id="071e8d68-80e7-43e7-b92f-391ce70eceb2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="071e8d68-80e7-43e7-b92f-391ce70eceb2">&lt;linkText&gt;</bpt>Using Python with Hive and Pig in HDInsight<ept id="071e8d68-80e7-43e7-b92f-391ce70eceb2">&lt;/linkText&gt;</ept><bpt id="071e8d68-80e7-43e7-b92f-391ce70eceb2">&lt;title&gt;</bpt><ept id="071e8d68-80e7-43e7-b92f-391ce70eceb2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b1c35dc-f05a-4847-adf4-774d5b2e8b6b" xml:space="preserve">
+          <source><bpt id="f06fe9d7-ec4d-4524-8e78-e7accee7730d">&lt;linkText&gt;</bpt>Use C# with Hive and Pig in HDInsight<ept id="f06fe9d7-ec4d-4524-8e78-e7accee7730d">&lt;/linkText&gt;</ept><bpt id="f06fe9d7-ec4d-4524-8e78-e7accee7730d">&lt;title&gt;</bpt><ept id="f06fe9d7-ec4d-4524-8e78-e7accee7730d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f06fe9d7-ec4d-4524-8e78-e7accee7730d">&lt;linkText&gt;</bpt>Use C# with Hive and Pig in HDInsight<ept id="f06fe9d7-ec4d-4524-8e78-e7accee7730d">&lt;/linkText&gt;</ept><bpt id="f06fe9d7-ec4d-4524-8e78-e7accee7730d">&lt;title&gt;</bpt><ept id="f06fe9d7-ec4d-4524-8e78-e7accee7730d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ee79bfc-c2fa-4f3e-96e4-15ec9141f162" xml:space="preserve">
+          <source><bpt id="6592ad7e-812e-4526-b112-a5f43c0c9cf8">&lt;linkText&gt;</bpt>How to add a custom Hive UDF to HDInsight<ept id="6592ad7e-812e-4526-b112-a5f43c0c9cf8">&lt;/linkText&gt;</ept><bpt id="6592ad7e-812e-4526-b112-a5f43c0c9cf8">&lt;title&gt;</bpt><ept id="6592ad7e-812e-4526-b112-a5f43c0c9cf8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6592ad7e-812e-4526-b112-a5f43c0c9cf8">&lt;linkText&gt;</bpt>How to add a custom Hive UDF to HDInsight<ept id="6592ad7e-812e-4526-b112-a5f43c0c9cf8">&lt;/linkText&gt;</ept><bpt id="6592ad7e-812e-4526-b112-a5f43c0c9cf8">&lt;title&gt;</bpt><ept id="6592ad7e-812e-4526-b112-a5f43c0c9cf8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96425571-d8ce-4aea-ba73-51d0c490aabb" xml:space="preserve">
+          <source>This example uses a <bpt id="216ab86a-7442-4507-9da9-ef98048d15fc">&lt;em&gt;</bpt>log4j<ept id="216ab86a-7442-4507-9da9-ef98048d15fc">&lt;/em&gt;</ept> sample file, which is stored at <bpt id="3a1c3e6d-338c-4005-a284-5dcb1d31b395">&lt;strong&gt;</bpt>/example/data/sample.log<ept id="3a1c3e6d-338c-4005-a284-5dcb1d31b395">&lt;/strong&gt;</ept> in your blob storage container.</source>
+          <target state="new">This example uses a <bpt id="216ab86a-7442-4507-9da9-ef98048d15fc">&lt;em&gt;</bpt>log4j<ept id="216ab86a-7442-4507-9da9-ef98048d15fc">&lt;/em&gt;</ept> sample file, which is stored at <bpt id="3a1c3e6d-338c-4005-a284-5dcb1d31b395">&lt;strong&gt;</bpt>/example/data/sample.log<ept id="3a1c3e6d-338c-4005-a284-5dcb1d31b395">&lt;/strong&gt;</ept> in your blob storage container.</target>
+        </trans-unit>
+        <trans-unit id="4f64f7b0-8085-46fe-8ea6-a1c82be766cb" xml:space="preserve">
+          <source>Each log inside the file consists of a line of fields that contains a <bpt id="bea7a991-5ecd-4dfa-98bf-20514419e123">&lt;code&gt;</bpt>[LOG LEVEL]<ept id="bea7a991-5ecd-4dfa-98bf-20514419e123">&lt;/code&gt;</ept> field to show the type and the severity, for example:</source>
+          <target state="new">Each log inside the file consists of a line of fields that contains a <bpt id="bea7a991-5ecd-4dfa-98bf-20514419e123">&lt;code&gt;</bpt>[LOG LEVEL]<ept id="bea7a991-5ecd-4dfa-98bf-20514419e123">&lt;/code&gt;</ept> field to show the type and the severity, for example:</target>
+        </trans-unit>
+        <trans-unit id="479368c9-8baf-4209-b2de-a185cb6a6a47" xml:space="preserve">
+          <source>In the previous example, the log level is ERROR.</source>
+          <target state="new">In the previous example, the log level is ERROR.</target>
+        </trans-unit>
+        <trans-unit id="3419b429-8238-4909-8fa6-1c8d7d31de20" xml:space="preserve">
+          <source>You can also generate a log4j file by using the <bpt id="deb5a5bf-35db-482f-8cab-0c686421a755">&lt;linkText&gt;</bpt>Apache Log4j<ept id="deb5a5bf-35db-482f-8cab-0c686421a755">&lt;/linkText&gt;</ept><bpt id="deb5a5bf-35db-482f-8cab-0c686421a755">&lt;title&gt;</bpt><ept id="deb5a5bf-35db-482f-8cab-0c686421a755">&lt;/title&gt;</ept> logging tool and then upload that file to the blob container.</source>
+          <target state="new">You can also generate a log4j file by using the <bpt id="deb5a5bf-35db-482f-8cab-0c686421a755">&lt;linkText&gt;</bpt>Apache Log4j<ept id="deb5a5bf-35db-482f-8cab-0c686421a755">&lt;/linkText&gt;</ept><bpt id="deb5a5bf-35db-482f-8cab-0c686421a755">&lt;title&gt;</bpt><ept id="deb5a5bf-35db-482f-8cab-0c686421a755">&lt;/title&gt;</ept> logging tool and then upload that file to the blob container.</target>
+        </trans-unit>
+        <trans-unit id="e3d3f675-2244-428b-80b8-85fd4cd61cb3" xml:space="preserve">
+          <source>See <bpt id="326c4204-70a6-4c86-9dc0-3000ad12803f">&lt;linkText&gt;</bpt>Upload Data to HDInsight<ept id="326c4204-70a6-4c86-9dc0-3000ad12803f">&lt;/linkText&gt;</ept><bpt id="326c4204-70a6-4c86-9dc0-3000ad12803f">&lt;title&gt;</bpt><ept id="326c4204-70a6-4c86-9dc0-3000ad12803f">&lt;/title&gt;</ept> for instructions.</source>
+          <target state="new">See <bpt id="326c4204-70a6-4c86-9dc0-3000ad12803f">&lt;linkText&gt;</bpt>Upload Data to HDInsight<ept id="326c4204-70a6-4c86-9dc0-3000ad12803f">&lt;/linkText&gt;</ept><bpt id="326c4204-70a6-4c86-9dc0-3000ad12803f">&lt;title&gt;</bpt><ept id="326c4204-70a6-4c86-9dc0-3000ad12803f">&lt;/title&gt;</ept> for instructions.</target>
+        </trans-unit>
+        <trans-unit id="0457d420-fdc2-4e02-a7f4-ab077860433b" xml:space="preserve">
+          <source>For more information about how Azure Blob storage is used with HDInsight, see <bpt id="b1655be5-fe02-45c7-a738-30a42648ab9c">&lt;linkText&gt;</bpt>Use Azure Blob Storage with HDInsight<ept id="b1655be5-fe02-45c7-a738-30a42648ab9c">&lt;/linkText&gt;</ept><bpt id="b1655be5-fe02-45c7-a738-30a42648ab9c">&lt;title&gt;</bpt><ept id="b1655be5-fe02-45c7-a738-30a42648ab9c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how Azure Blob storage is used with HDInsight, see <bpt id="b1655be5-fe02-45c7-a738-30a42648ab9c">&lt;linkText&gt;</bpt>Use Azure Blob Storage with HDInsight<ept id="b1655be5-fe02-45c7-a738-30a42648ab9c">&lt;/linkText&gt;</ept><bpt id="b1655be5-fe02-45c7-a738-30a42648ab9c">&lt;title&gt;</bpt><ept id="b1655be5-fe02-45c7-a738-30a42648ab9c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44e5af4c-0aea-474e-a755-cde16407912e" xml:space="preserve">
+          <source>The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system.</source>
+          <target state="new">The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system.</target>
+        </trans-unit>
+        <trans-unit id="b0fd7d18-5bc0-4d19-b8d0-a3b66db79cae" xml:space="preserve">
+          <source>HDInsight can access files stored in blobs by using the <bpt id="c195a931-d9b1-41b2-bb20-d5bd04e7bc83">&lt;strong&gt;</bpt>wasb<ept id="c195a931-d9b1-41b2-bb20-d5bd04e7bc83">&lt;/strong&gt;</ept> prefix.</source>
+          <target state="new">HDInsight can access files stored in blobs by using the <bpt id="c195a931-d9b1-41b2-bb20-d5bd04e7bc83">&lt;strong&gt;</bpt>wasb<ept id="c195a931-d9b1-41b2-bb20-d5bd04e7bc83">&lt;/strong&gt;</ept> prefix.</target>
+        </trans-unit>
+        <trans-unit id="939d7bff-511d-4799-a942-6098d8627013" xml:space="preserve">
+          <source>For example, to access the sample.log file, you would use the following syntax:</source>
+          <target state="new">For example, to access the sample.log file, you would use the following syntax:</target>
+        </trans-unit>
+        <trans-unit id="ee2bdb63-a7c6-458b-8539-12132e5371af" xml:space="preserve">
+          <source>Because Azure Blob storage is the default storage for HDInsight, you can also access the file by using <bpt id="4413a408-6712-4ae5-8615-05a0b76bebaf">&lt;strong&gt;</bpt>/example/data/sample.log<ept id="4413a408-6712-4ae5-8615-05a0b76bebaf">&lt;/strong&gt;</ept> from HiveQL.</source>
+          <target state="new">Because Azure Blob storage is the default storage for HDInsight, you can also access the file by using <bpt id="4413a408-6712-4ae5-8615-05a0b76bebaf">&lt;strong&gt;</bpt>/example/data/sample.log<ept id="4413a408-6712-4ae5-8615-05a0b76bebaf">&lt;/strong&gt;</ept> from HiveQL.</target>
+        </trans-unit>
+        <trans-unit id="68db7085-005a-4ee5-82d0-195ad4c505e2" xml:space="preserve">
+          <source>The syntax, <bpt id="158b7bd0-ec66-4e86-a8df-d64fc413cf28">&lt;strong&gt;</bpt>wasb:///<ept id="158b7bd0-ec66-4e86-a8df-d64fc413cf28">&lt;/strong&gt;</ept>, is used to access files stored in the default storage container for your HDInsight cluster.</source>
+          <target state="new">The syntax, <bpt id="158b7bd0-ec66-4e86-a8df-d64fc413cf28">&lt;strong&gt;</bpt>wasb:///<ept id="158b7bd0-ec66-4e86-a8df-d64fc413cf28">&lt;/strong&gt;</ept>, is used to access files stored in the default storage container for your HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="14263cf0-299c-4488-881a-dc020e158739" xml:space="preserve">
+          <source>If you specified additional storage accounts when you provisioned your cluster, and you want to access files stored in these accounts, you can access the data by specifying the container name and storage account address, for example, <bpt id="8e5f00dd-525c-47c6-85ef-123b45eba5d2">&lt;strong&gt;</bpt>wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log<ept id="8e5f00dd-525c-47c6-85ef-123b45eba5d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you specified additional storage accounts when you provisioned your cluster, and you want to access files stored in these accounts, you can access the data by specifying the container name and storage account address, for example, <bpt id="8e5f00dd-525c-47c6-85ef-123b45eba5d2">&lt;strong&gt;</bpt>wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log<ept id="8e5f00dd-525c-47c6-85ef-123b45eba5d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e0d79a4-dae1-47dd-9f93-bab44817f5b2" xml:space="preserve">
+          <source>The following HiveQL statements will project columns onto delimited data that is stored in the <bpt id="efd53567-015b-44d0-ae04-d81285a818b4">&lt;strong&gt;</bpt>wasb:///example/data<ept id="efd53567-015b-44d0-ae04-d81285a818b4">&lt;/strong&gt;</ept> directory:</source>
+          <target state="new">The following HiveQL statements will project columns onto delimited data that is stored in the <bpt id="efd53567-015b-44d0-ae04-d81285a818b4">&lt;strong&gt;</bpt>wasb:///example/data<ept id="efd53567-015b-44d0-ae04-d81285a818b4">&lt;/strong&gt;</ept> directory:</target>
+        </trans-unit>
+        <trans-unit id="69985144-cb9b-400c-bc76-9d22a0164aaf" xml:space="preserve">
+          <source>In the previous example, the HiveQL statements perform the following actions:</source>
+          <target state="new">In the previous example, the HiveQL statements perform the following actions:</target>
+        </trans-unit>
+        <trans-unit id="363e17ad-621f-4e5a-8cd7-79389f4aca7f" xml:space="preserve">
+          <source><bpt id="3c4f8c78-4469-497b-b4a3-aee16254e209">&lt;strong&gt;</bpt>DROP TABLE<ept id="3c4f8c78-4469-497b-b4a3-aee16254e209">&lt;/strong&gt;</ept>: Deletes the table and the data file if the table already exists.</source>
+          <target state="new"><bpt id="3c4f8c78-4469-497b-b4a3-aee16254e209">&lt;strong&gt;</bpt>DROP TABLE<ept id="3c4f8c78-4469-497b-b4a3-aee16254e209">&lt;/strong&gt;</ept>: Deletes the table and the data file if the table already exists.</target>
+        </trans-unit>
+        <trans-unit id="cbbf6c30-db46-4084-97dc-4afb8bff2e0f" xml:space="preserve">
+          <source><bpt id="bfbd5bc6-bf63-4869-84e2-a2585744a68b">&lt;strong&gt;</bpt>CREATE EXTERNAL TABLE<ept id="bfbd5bc6-bf63-4869-84e2-a2585744a68b">&lt;/strong&gt;</ept>: Creates a new <bpt id="3ac4cc58-0b30-42e8-a279-96a0647bd16a">&lt;strong&gt;</bpt>external<ept id="3ac4cc58-0b30-42e8-a279-96a0647bd16a">&lt;/strong&gt;</ept> table in Hive.</source>
+          <target state="new"><bpt id="bfbd5bc6-bf63-4869-84e2-a2585744a68b">&lt;strong&gt;</bpt>CREATE EXTERNAL TABLE<ept id="bfbd5bc6-bf63-4869-84e2-a2585744a68b">&lt;/strong&gt;</ept>: Creates a new <bpt id="3ac4cc58-0b30-42e8-a279-96a0647bd16a">&lt;strong&gt;</bpt>external<ept id="3ac4cc58-0b30-42e8-a279-96a0647bd16a">&lt;/strong&gt;</ept> table in Hive.</target>
+        </trans-unit>
+        <trans-unit id="df819f7a-fba5-4d7f-8d70-7efeee114833" xml:space="preserve">
+          <source>External tables only store the table definition in Hive; the data is left in the original location and in the original format.</source>
+          <target state="new">External tables only store the table definition in Hive; the data is left in the original location and in the original format.</target>
+        </trans-unit>
+        <trans-unit id="4c11faca-cbde-4ab3-8d98-40c90018825d" xml:space="preserve">
+          <source><bpt id="5fcc912e-108a-4689-9eec-47d7134fc2b3">&lt;strong&gt;</bpt>ROW FORMAT<ept id="5fcc912e-108a-4689-9eec-47d7134fc2b3">&lt;/strong&gt;</ept>: Tells Hive how the data is formatted.</source>
+          <target state="new"><bpt id="5fcc912e-108a-4689-9eec-47d7134fc2b3">&lt;strong&gt;</bpt>ROW FORMAT<ept id="5fcc912e-108a-4689-9eec-47d7134fc2b3">&lt;/strong&gt;</ept>: Tells Hive how the data is formatted.</target>
+        </trans-unit>
+        <trans-unit id="f40edab8-0a28-40d8-bea1-d3174d2e1851" xml:space="preserve">
+          <source>In this case, the fields in each log are separated by a space.</source>
+          <target state="new">In this case, the fields in each log are separated by a space.</target>
+        </trans-unit>
+        <trans-unit id="cb059ea5-b706-491e-87aa-7706543bba6d" xml:space="preserve">
+          <source><bpt id="1160eb61-ecb5-4e2c-8ade-23233144d4c8">&lt;strong&gt;</bpt>STORED AS TEXTFILE LOCATION<ept id="1160eb61-ecb5-4e2c-8ade-23233144d4c8">&lt;/strong&gt;</ept>: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.</source>
+          <target state="new"><bpt id="1160eb61-ecb5-4e2c-8ade-23233144d4c8">&lt;strong&gt;</bpt>STORED AS TEXTFILE LOCATION<ept id="1160eb61-ecb5-4e2c-8ade-23233144d4c8">&lt;/strong&gt;</ept>: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.</target>
+        </trans-unit>
+        <trans-unit id="acc293fa-633d-41b5-8526-324fc7b5ad2d" xml:space="preserve">
+          <source>The data can be in one file or spread across multiple files within the directory.</source>
+          <target state="new">The data can be in one file or spread across multiple files within the directory.</target>
+        </trans-unit>
+        <trans-unit id="972ca85f-7aaa-461d-b748-75bc390ca524" xml:space="preserve">
+          <source><bpt id="91052729-90c2-48ee-ade7-2d83abd79cd9">&lt;strong&gt;</bpt>SELECT<ept id="91052729-90c2-48ee-ade7-2d83abd79cd9">&lt;/strong&gt;</ept>: Selects a count of all rows where the column <bpt id="3f8ed64c-c2c9-469b-9c3c-954d6f81a15a">&lt;strong&gt;</bpt>t4<ept id="3f8ed64c-c2c9-469b-9c3c-954d6f81a15a">&lt;/strong&gt;</ept> contains the value <bpt id="4adb0ffb-3f90-42e1-8bbf-40a298bbacbc">&lt;strong&gt;</bpt>[ERROR]<ept id="4adb0ffb-3f90-42e1-8bbf-40a298bbacbc">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="91052729-90c2-48ee-ade7-2d83abd79cd9">&lt;strong&gt;</bpt>SELECT<ept id="91052729-90c2-48ee-ade7-2d83abd79cd9">&lt;/strong&gt;</ept>: Selects a count of all rows where the column <bpt id="3f8ed64c-c2c9-469b-9c3c-954d6f81a15a">&lt;strong&gt;</bpt>t4<ept id="3f8ed64c-c2c9-469b-9c3c-954d6f81a15a">&lt;/strong&gt;</ept> contains the value <bpt id="4adb0ffb-3f90-42e1-8bbf-40a298bbacbc">&lt;strong&gt;</bpt>[ERROR]<ept id="4adb0ffb-3f90-42e1-8bbf-40a298bbacbc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1eef5cff-ce6c-4c80-a87e-97c980911886" xml:space="preserve">
+          <source>This should return a value of <bpt id="45497302-ef29-4351-a92c-4a1cc1c49f84">&lt;strong&gt;</bpt>3<ept id="45497302-ef29-4351-a92c-4a1cc1c49f84">&lt;/strong&gt;</ept> because there are three rows that contain this value.</source>
+          <target state="new">This should return a value of <bpt id="45497302-ef29-4351-a92c-4a1cc1c49f84">&lt;strong&gt;</bpt>3<ept id="45497302-ef29-4351-a92c-4a1cc1c49f84">&lt;/strong&gt;</ept> because there are three rows that contain this value.</target>
+        </trans-unit>
+        <trans-unit id="2498003a-8893-4258-9cfc-06e291c7ec32" xml:space="preserve">
+          <source><bpt id="18e9a466-2baa-4151-a521-1581c4112f9d">&lt;strong&gt;</bpt>INPUT__FILE__NAME LIKE '%.log'<ept id="18e9a466-2baa-4151-a521-1581c4112f9d">&lt;/strong&gt;</ept> - Tells Hive that we should only return data from files ending in .log.</source>
+          <target state="new"><bpt id="18e9a466-2baa-4151-a521-1581c4112f9d">&lt;strong&gt;</bpt>INPUT__FILE__NAME LIKE '%.log'<ept id="18e9a466-2baa-4151-a521-1581c4112f9d">&lt;/strong&gt;</ept> - Tells Hive that we should only return data from files ending in .log.</target>
+        </trans-unit>
+        <trans-unit id="a2b6aa96-ad24-41e8-aeee-82d623c1f9d5" xml:space="preserve">
+          <source>This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.</source>
+          <target state="new">This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.</target>
+        </trans-unit>
+        <trans-unit id="bc8a80a2-79b4-4a46-8a0e-a61f8781cfcf" xml:space="preserve">
+          <source>External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, and you always want Hive queries to use the latest data.</source>
+          <target state="new">External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, and you always want Hive queries to use the latest data.</target>
+        </trans-unit>
+        <trans-unit id="94b39a5b-5617-4c1c-ac44-307add9bac78" xml:space="preserve">
+          <source>Dropping an external table does <bpt id="b13d0170-3371-4f2e-85f2-01d2973d4e7c">&lt;strong&gt;</bpt>not<ept id="b13d0170-3371-4f2e-85f2-01d2973d4e7c">&lt;/strong&gt;</ept> delete the data, it only deletes the table definition.</source>
+          <target state="new">Dropping an external table does <bpt id="b13d0170-3371-4f2e-85f2-01d2973d4e7c">&lt;strong&gt;</bpt>not<ept id="b13d0170-3371-4f2e-85f2-01d2973d4e7c">&lt;/strong&gt;</ept> delete the data, it only deletes the table definition.</target>
+        </trans-unit>
+        <trans-unit id="7777c519-2393-45ba-a603-49d237cce3ad" xml:space="preserve">
+          <source>After creating the external table, the following statements are used to create an <bpt id="e8c251ad-36f7-4c5e-a80f-7bf1e82f526b">&lt;strong&gt;</bpt>internal<ept id="e8c251ad-36f7-4c5e-a80f-7bf1e82f526b">&lt;/strong&gt;</ept> table.</source>
+          <target state="new">After creating the external table, the following statements are used to create an <bpt id="e8c251ad-36f7-4c5e-a80f-7bf1e82f526b">&lt;strong&gt;</bpt>internal<ept id="e8c251ad-36f7-4c5e-a80f-7bf1e82f526b">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="627a7ff2-07c9-44ce-a555-8ecd7c08de98" xml:space="preserve">
+          <source>These statements perform the following actions:</source>
+          <target state="new">These statements perform the following actions:</target>
+        </trans-unit>
+        <trans-unit id="671c1714-1805-486c-b90a-611ce969d0dd" xml:space="preserve">
+          <source><bpt id="dfbd1d44-17fc-4bb3-b266-6e4b37ed53f1">&lt;strong&gt;</bpt>CREATE TABLE IF NOT EXISTS<ept id="dfbd1d44-17fc-4bb3-b266-6e4b37ed53f1">&lt;/strong&gt;</ept>: Creates a table, if it does not already exist.</source>
+          <target state="new"><bpt id="dfbd1d44-17fc-4bb3-b266-6e4b37ed53f1">&lt;strong&gt;</bpt>CREATE TABLE IF NOT EXISTS<ept id="dfbd1d44-17fc-4bb3-b266-6e4b37ed53f1">&lt;/strong&gt;</ept>: Creates a table, if it does not already exist.</target>
+        </trans-unit>
+        <trans-unit id="54bf77c0-ea52-4e79-961e-745fd63a7180" xml:space="preserve">
+          <source>Because the <bpt id="e4b10d34-f492-4821-b8ad-15f21f817f05">&lt;strong&gt;</bpt>EXTERNAL<ept id="e4b10d34-f492-4821-b8ad-15f21f817f05">&lt;/strong&gt;</ept> keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.</source>
+          <target state="new">Because the <bpt id="e4b10d34-f492-4821-b8ad-15f21f817f05">&lt;strong&gt;</bpt>EXTERNAL<ept id="e4b10d34-f492-4821-b8ad-15f21f817f05">&lt;/strong&gt;</ept> keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.</target>
+        </trans-unit>
+        <trans-unit id="6ee964a6-c2dc-42e1-8646-84fec9378942" xml:space="preserve">
+          <source><bpt id="4a58cb10-16bb-48c7-9058-7736d649ca86">&lt;strong&gt;</bpt>STORED AS ORC<ept id="4a58cb10-16bb-48c7-9058-7736d649ca86">&lt;/strong&gt;</ept>: Stores the data in Optimized Row Columnar (ORC) format.</source>
+          <target state="new"><bpt id="4a58cb10-16bb-48c7-9058-7736d649ca86">&lt;strong&gt;</bpt>STORED AS ORC<ept id="4a58cb10-16bb-48c7-9058-7736d649ca86">&lt;/strong&gt;</ept>: Stores the data in Optimized Row Columnar (ORC) format.</target>
+        </trans-unit>
+        <trans-unit id="be894027-d0ee-425f-b068-93d55f277628" xml:space="preserve">
+          <source>This is a highly optimized and efficient format for storing Hive data.</source>
+          <target state="new">This is a highly optimized and efficient format for storing Hive data.</target>
+        </trans-unit>
+        <trans-unit id="b4cf8773-82d0-4e23-a167-6bc3d1fd466e" xml:space="preserve">
+          <source><bpt id="ff2397d3-7227-4cc4-bd20-aed5517f5cc9">&lt;strong&gt;</bpt>INSERT OVERWRITE ... SELECT<ept id="ff2397d3-7227-4cc4-bd20-aed5517f5cc9">&lt;/strong&gt;</ept>: Selects rows from the <bpt id="7b9b2380-cccc-4cff-8b88-65261a13af83">&lt;strong&gt;</bpt>log4jLogs<ept id="7b9b2380-cccc-4cff-8b88-65261a13af83">&lt;/strong&gt;</ept> table that contains <bpt id="eb60f57b-fcb2-4a25-9d1a-c9ebd8239249">&lt;strong&gt;</bpt>[ERROR]<ept id="eb60f57b-fcb2-4a25-9d1a-c9ebd8239249">&lt;/strong&gt;</ept>, and then inserts the data into the <bpt id="824cf19e-c4d7-4980-9a7b-e1407fae023d">&lt;strong&gt;</bpt>errorLogs<ept id="824cf19e-c4d7-4980-9a7b-e1407fae023d">&lt;/strong&gt;</ept> table.</source>
+          <target state="new"><bpt id="ff2397d3-7227-4cc4-bd20-aed5517f5cc9">&lt;strong&gt;</bpt>INSERT OVERWRITE ... SELECT<ept id="ff2397d3-7227-4cc4-bd20-aed5517f5cc9">&lt;/strong&gt;</ept>: Selects rows from the <bpt id="7b9b2380-cccc-4cff-8b88-65261a13af83">&lt;strong&gt;</bpt>log4jLogs<ept id="7b9b2380-cccc-4cff-8b88-65261a13af83">&lt;/strong&gt;</ept> table that contains <bpt id="eb60f57b-fcb2-4a25-9d1a-c9ebd8239249">&lt;strong&gt;</bpt>[ERROR]<ept id="eb60f57b-fcb2-4a25-9d1a-c9ebd8239249">&lt;/strong&gt;</ept>, and then inserts the data into the <bpt id="824cf19e-c4d7-4980-9a7b-e1407fae023d">&lt;strong&gt;</bpt>errorLogs<ept id="824cf19e-c4d7-4980-9a7b-e1407fae023d">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="8725ec31-0db0-4c27-9967-19b4a04bae31" xml:space="preserve">
+          <source>Unlike external tables, dropping an internal table also deletes the underlying data.</source>
+          <target state="new">Unlike external tables, dropping an internal table also deletes the underlying data.</target>
+        </trans-unit>
+        <trans-unit id="5824e3c5-47fb-4395-8493-9d95e361d361" xml:space="preserve">
+          <source><bpt id="13533908-e5ea-42c3-8c9b-e8d039b74adb">&lt;linkText&gt;</bpt>Apache Tez<ept id="13533908-e5ea-42c3-8c9b-e8d039b74adb">&lt;/linkText&gt;</ept><bpt id="13533908-e5ea-42c3-8c9b-e8d039b74adb">&lt;title&gt;</bpt><ept id="13533908-e5ea-42c3-8c9b-e8d039b74adb">&lt;/title&gt;</ept> is a framework that allows data intensive applications, such as Hive, to run much more efficiently at scale.</source>
+          <target state="new"><bpt id="13533908-e5ea-42c3-8c9b-e8d039b74adb">&lt;linkText&gt;</bpt>Apache Tez<ept id="13533908-e5ea-42c3-8c9b-e8d039b74adb">&lt;/linkText&gt;</ept><bpt id="13533908-e5ea-42c3-8c9b-e8d039b74adb">&lt;title&gt;</bpt><ept id="13533908-e5ea-42c3-8c9b-e8d039b74adb">&lt;/title&gt;</ept> is a framework that allows data intensive applications, such as Hive, to run much more efficiently at scale.</target>
+        </trans-unit>
+        <trans-unit id="a00f56eb-16f3-4eec-860e-77f4fdda5898" xml:space="preserve">
+          <source>In the latest release of HDInsight, Hive supports running on Tez.</source>
+          <target state="new">In the latest release of HDInsight, Hive supports running on Tez.</target>
+        </trans-unit>
+        <trans-unit id="d6338a26-81fc-4cdd-8a73-a0cb3558ef11" xml:space="preserve">
+          <source>Tez is currently off by default for Windows-based HDInsight clusters and it must be enabled.</source>
+          <target state="new">Tez is currently off by default for Windows-based HDInsight clusters and it must be enabled.</target>
+        </trans-unit>
+        <trans-unit id="3744a36d-2c58-46bc-b38d-11b8af3985be" xml:space="preserve">
+          <source>To take advantage of Tez, the following value must be set for a Hive query:</source>
+          <target state="new">To take advantage of Tez, the following value must be set for a Hive query:</target>
+        </trans-unit>
+        <trans-unit id="2fc3b978-5f8b-434b-84aa-ef55f4d95e90" xml:space="preserve">
+          <source>This can be submitted on a per-query basis by placing it at the beginning of your query.</source>
+          <target state="new">This can be submitted on a per-query basis by placing it at the beginning of your query.</target>
+        </trans-unit>
+        <trans-unit id="526798f8-7f58-4fe9-8dca-2fc74a7cb6cf" xml:space="preserve">
+          <source>You can also set this to be on by default on a cluster by setting the configuration value when you create the cluster.</source>
+          <target state="new">You can also set this to be on by default on a cluster by setting the configuration value when you create the cluster.</target>
+        </trans-unit>
+        <trans-unit id="98370227-738f-49ae-b3f3-836dd260d26d" xml:space="preserve">
+          <source>You can find more details in <bpt id="4e6c3acd-6a31-4766-bde2-e6869a3d9678">&lt;linkText&gt;</bpt>Provisioning HDInsight Clusters<ept id="4e6c3acd-6a31-4766-bde2-e6869a3d9678">&lt;/linkText&gt;</ept><bpt id="4e6c3acd-6a31-4766-bde2-e6869a3d9678">&lt;title&gt;</bpt><ept id="4e6c3acd-6a31-4766-bde2-e6869a3d9678">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find more details in <bpt id="4e6c3acd-6a31-4766-bde2-e6869a3d9678">&lt;linkText&gt;</bpt>Provisioning HDInsight Clusters<ept id="4e6c3acd-6a31-4766-bde2-e6869a3d9678">&lt;/linkText&gt;</ept><bpt id="4e6c3acd-6a31-4766-bde2-e6869a3d9678">&lt;title&gt;</bpt><ept id="4e6c3acd-6a31-4766-bde2-e6869a3d9678">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="349303b8-8301-4575-b2b1-7277f65464b5" xml:space="preserve">
+          <source>Tez is on as default for Linux-based HDInsight clusters.</source>
+          <target state="new">Tez is on as default for Linux-based HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="a42d18db-fd57-4981-9600-2c80d439efc8" xml:space="preserve">
+          <source>The <bpt id="23256036-5872-4fde-942e-b6c633d85d0b">&lt;linkText&gt;</bpt>Hive on Tez design documents<ept id="23256036-5872-4fde-942e-b6c633d85d0b">&lt;/linkText&gt;</ept><bpt id="23256036-5872-4fde-942e-b6c633d85d0b">&lt;title&gt;</bpt><ept id="23256036-5872-4fde-942e-b6c633d85d0b">&lt;/title&gt;</ept> contain a number of details about the implementation choices and tuning configurations.</source>
+          <target state="new">The <bpt id="23256036-5872-4fde-942e-b6c633d85d0b">&lt;linkText&gt;</bpt>Hive on Tez design documents<ept id="23256036-5872-4fde-942e-b6c633d85d0b">&lt;/linkText&gt;</ept><bpt id="23256036-5872-4fde-942e-b6c633d85d0b">&lt;title&gt;</bpt><ept id="23256036-5872-4fde-942e-b6c633d85d0b">&lt;/title&gt;</ept> contain a number of details about the implementation choices and tuning configurations.</target>
+        </trans-unit>
+        <trans-unit id="a13d31e3-2e9d-4465-aae7-ac123019cfe0" xml:space="preserve">
+          <source>HDInsight can run HiveQL jobs using a variety of methods.</source>
+          <target state="new">HDInsight can run HiveQL jobs using a variety of methods.</target>
+        </trans-unit>
+        <trans-unit id="e6a3d802-aed8-43ae-b0bd-2102d3a043f1" xml:space="preserve">
+          <source>Use the following table to decide which method is right for you, then follow the link for a walkthrough.</source>
+          <target state="new">Use the following table to decide which method is right for you, then follow the link for a walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="69a3c1c9-823d-4bb4-82ba-756c8fd64ad7" xml:space="preserve">
+          <source><bpt id="5aecef6d-6c00-4958-b456-e1facc6aa1d1">&lt;strong&gt;</bpt>Use this<ept id="5aecef6d-6c00-4958-b456-e1facc6aa1d1">&lt;/strong&gt;</ept> if you want...</source>
+          <target state="new"><bpt id="5aecef6d-6c00-4958-b456-e1facc6aa1d1">&lt;strong&gt;</bpt>Use this<ept id="5aecef6d-6c00-4958-b456-e1facc6aa1d1">&lt;/strong&gt;</ept> if you want...</target>
+        </trans-unit>
+        <trans-unit id="498fae22-7385-4ea9-98c2-7a3e653604e0" xml:space="preserve">
+          <source>...an <bpt id="44c9d120-4175-4efe-8bb8-a050c2263232">&lt;strong&gt;</bpt>interactive<ept id="44c9d120-4175-4efe-8bb8-a050c2263232">&lt;/strong&gt;</ept> shell</source>
+          <target state="new">...an <bpt id="44c9d120-4175-4efe-8bb8-a050c2263232">&lt;strong&gt;</bpt>interactive<ept id="44c9d120-4175-4efe-8bb8-a050c2263232">&lt;/strong&gt;</ept> shell</target>
+        </trans-unit>
+        <trans-unit id="6199ea48-15e4-4f61-bcc9-edef8d4fa4dd" xml:space="preserve">
+          <source>...<bpt id="28aedf58-d176-4fa1-94aa-6e4ee2c83945">&lt;strong&gt;</bpt>batch<ept id="28aedf58-d176-4fa1-94aa-6e4ee2c83945">&lt;/strong&gt;</ept> processing</source>
+          <target state="new">...<bpt id="28aedf58-d176-4fa1-94aa-6e4ee2c83945">&lt;strong&gt;</bpt>batch<ept id="28aedf58-d176-4fa1-94aa-6e4ee2c83945">&lt;/strong&gt;</ept> processing</target>
+        </trans-unit>
+        <trans-unit id="a75c6423-b474-47d2-a537-0ef08f5d07c7" xml:space="preserve">
+          <source>...with this <bpt id="9c48c8a1-d10e-4549-a5f3-78191cb99976">&lt;strong&gt;</bpt>cluster operating system<ept id="9c48c8a1-d10e-4549-a5f3-78191cb99976">&lt;/strong&gt;</ept></source>
+          <target state="new">...with this <bpt id="9c48c8a1-d10e-4549-a5f3-78191cb99976">&lt;strong&gt;</bpt>cluster operating system<ept id="9c48c8a1-d10e-4549-a5f3-78191cb99976">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f10622a9-0dff-4a07-b21e-cdd799ce392a" xml:space="preserve">
+          <source>...from this <bpt id="403636d5-7bdb-4946-8a14-2e519c111071">&lt;strong&gt;</bpt>client operating system<ept id="403636d5-7bdb-4946-8a14-2e519c111071">&lt;/strong&gt;</ept></source>
+          <target state="new">...from this <bpt id="403636d5-7bdb-4946-8a14-2e519c111071">&lt;strong&gt;</bpt>client operating system<ept id="403636d5-7bdb-4946-8a14-2e519c111071">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9dca7fa-5b86-42f8-bf05-a3ddd209fe8e" xml:space="preserve">
+          <source><bpt id="a6b6d48a-b3fc-499c-9a62-212b94daa2ce">&lt;linkText&gt;</bpt>SSH<ept id="a6b6d48a-b3fc-499c-9a62-212b94daa2ce">&lt;/linkText&gt;</ept><bpt id="a6b6d48a-b3fc-499c-9a62-212b94daa2ce">&lt;title&gt;</bpt><ept id="a6b6d48a-b3fc-499c-9a62-212b94daa2ce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a6b6d48a-b3fc-499c-9a62-212b94daa2ce">&lt;linkText&gt;</bpt>SSH<ept id="a6b6d48a-b3fc-499c-9a62-212b94daa2ce">&lt;/linkText&gt;</ept><bpt id="a6b6d48a-b3fc-499c-9a62-212b94daa2ce">&lt;title&gt;</bpt><ept id="a6b6d48a-b3fc-499c-9a62-212b94daa2ce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3aeec842-c2e0-47df-a667-eb671277a867" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="2f4f2067-8473-4ecf-bcc2-99de74eabdce" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="897d5dd7-f8ce-4b1a-90dc-f1da471f8a4a" xml:space="preserve">
+          <source>Linux</source>
+          <target state="new">Linux</target>
+        </trans-unit>
+        <trans-unit id="7294f7af-119f-43dd-9369-347447fe684e" xml:space="preserve">
+          <source>Linux, Unix, Mac OS X, or Windows</source>
+          <target state="new">Linux, Unix, Mac OS X, or Windows</target>
+        </trans-unit>
+        <trans-unit id="c8934c0b-693b-49b6-8f25-5c0cc02b1c21" xml:space="preserve">
+          <source><bpt id="a64d0493-6463-4d48-b690-37caa4f6256d">&lt;linkText&gt;</bpt>Curl<ept id="a64d0493-6463-4d48-b690-37caa4f6256d">&lt;/linkText&gt;</ept><bpt id="a64d0493-6463-4d48-b690-37caa4f6256d">&lt;title&gt;</bpt><ept id="a64d0493-6463-4d48-b690-37caa4f6256d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a64d0493-6463-4d48-b690-37caa4f6256d">&lt;linkText&gt;</bpt>Curl<ept id="a64d0493-6463-4d48-b690-37caa4f6256d">&lt;/linkText&gt;</ept><bpt id="a64d0493-6463-4d48-b690-37caa4f6256d">&lt;title&gt;</bpt><ept id="a64d0493-6463-4d48-b690-37caa4f6256d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7666ae35-f43d-4154-9735-16d4e4712103" xml:space="preserve">
+          <source>&amp;nbsp;</source>
+          <target state="new">&amp;nbsp;</target>
+        </trans-unit>
+        <trans-unit id="bb14832c-21df-4d6c-8de0-c85159efed89" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="d123039c-4e34-494e-b7a0-504dca4f0e18" xml:space="preserve">
+          <source>Linux or Windows</source>
+          <target state="new">Linux or Windows</target>
+        </trans-unit>
+        <trans-unit id="d4961ed1-d2dc-4aba-bfa8-bc453d4b22bd" xml:space="preserve">
+          <source>Linux, Unix, Mac OS X, or Windows</source>
+          <target state="new">Linux, Unix, Mac OS X, or Windows</target>
+        </trans-unit>
+        <trans-unit id="6f308ffa-2f4c-4c55-a788-9213846c63bf" xml:space="preserve">
+          <source><bpt id="eb0309ca-f7cf-4c07-8399-71c6899c69f0">&lt;linkText&gt;</bpt>Query console<ept id="eb0309ca-f7cf-4c07-8399-71c6899c69f0">&lt;/linkText&gt;</ept><bpt id="eb0309ca-f7cf-4c07-8399-71c6899c69f0">&lt;title&gt;</bpt><ept id="eb0309ca-f7cf-4c07-8399-71c6899c69f0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eb0309ca-f7cf-4c07-8399-71c6899c69f0">&lt;linkText&gt;</bpt>Query console<ept id="eb0309ca-f7cf-4c07-8399-71c6899c69f0">&lt;/linkText&gt;</ept><bpt id="eb0309ca-f7cf-4c07-8399-71c6899c69f0">&lt;title&gt;</bpt><ept id="eb0309ca-f7cf-4c07-8399-71c6899c69f0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b180a30-7c42-41ce-a1b3-a1bb4b269403" xml:space="preserve">
+          <source>&amp;nbsp;</source>
+          <target state="new">&amp;nbsp;</target>
+        </trans-unit>
+        <trans-unit id="574ea14b-4af9-4a10-812b-5a1f672c5ba7" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="66cf1053-b8e8-4bf1-ba72-aa56187e8e29" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="10817c27-c9c3-4b57-a6fc-0d8f4b0a271d" xml:space="preserve">
+          <source>Browser-based</source>
+          <target state="new">Browser-based</target>
+        </trans-unit>
+        <trans-unit id="93ad028e-16a1-4540-aef6-a276da542e02" xml:space="preserve">
+          <source><bpt id="be5300a1-0f95-4241-9a44-b14cc7e785a9">&lt;linkText&gt;</bpt>HDInsight tools for Visual Studio<ept id="be5300a1-0f95-4241-9a44-b14cc7e785a9">&lt;/linkText&gt;</ept><bpt id="be5300a1-0f95-4241-9a44-b14cc7e785a9">&lt;title&gt;</bpt><ept id="be5300a1-0f95-4241-9a44-b14cc7e785a9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="be5300a1-0f95-4241-9a44-b14cc7e785a9">&lt;linkText&gt;</bpt>HDInsight tools for Visual Studio<ept id="be5300a1-0f95-4241-9a44-b14cc7e785a9">&lt;/linkText&gt;</ept><bpt id="be5300a1-0f95-4241-9a44-b14cc7e785a9">&lt;title&gt;</bpt><ept id="be5300a1-0f95-4241-9a44-b14cc7e785a9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d995ef9-2cc4-41b0-830c-f61a1160a8f2" xml:space="preserve">
+          <source>&amp;nbsp;</source>
+          <target state="new">&amp;nbsp;</target>
+        </trans-unit>
+        <trans-unit id="e1575162-772b-4f45-93a1-2281247a8215" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="0aa253d5-78d3-4050-b632-80e29aff5b65" xml:space="preserve">
+          <source>Linux or Windows</source>
+          <target state="new">Linux or Windows</target>
+        </trans-unit>
+        <trans-unit id="d5a9052f-93a9-4bc4-84fb-3efa045ef5b3" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="4452af66-bb52-427f-b291-b01f90fca63f" xml:space="preserve">
+          <source><bpt id="8059c437-d631-45b2-9c5e-a90ed98e2b0e">&lt;linkText&gt;</bpt>Windows PowerShell<ept id="8059c437-d631-45b2-9c5e-a90ed98e2b0e">&lt;/linkText&gt;</ept><bpt id="8059c437-d631-45b2-9c5e-a90ed98e2b0e">&lt;title&gt;</bpt><ept id="8059c437-d631-45b2-9c5e-a90ed98e2b0e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8059c437-d631-45b2-9c5e-a90ed98e2b0e">&lt;linkText&gt;</bpt>Windows PowerShell<ept id="8059c437-d631-45b2-9c5e-a90ed98e2b0e">&lt;/linkText&gt;</ept><bpt id="8059c437-d631-45b2-9c5e-a90ed98e2b0e">&lt;title&gt;</bpt><ept id="8059c437-d631-45b2-9c5e-a90ed98e2b0e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5dc6fb12-7e7b-4c40-b5c2-30d9c1fc04fe" xml:space="preserve">
+          <source>&amp;nbsp;</source>
+          <target state="new">&amp;nbsp;</target>
+        </trans-unit>
+        <trans-unit id="e8c99e4e-898c-4dd7-8761-33afa2394773" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="b3329056-5482-417d-9b33-45c05863556e" xml:space="preserve">
+          <source>Linux or Windows</source>
+          <target state="new">Linux or Windows</target>
+        </trans-unit>
+        <trans-unit id="8dd621b7-3823-48da-bac5-fb1dd796791d" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="fe54cdfb-b16a-41c1-aca2-6ac199aa497e" xml:space="preserve">
+          <source><bpt id="df78f7a3-f875-4f59-8faf-eaa5f15ec324">&lt;linkText&gt;</bpt>Remote Desktop<ept id="df78f7a3-f875-4f59-8faf-eaa5f15ec324">&lt;/linkText&gt;</ept><bpt id="df78f7a3-f875-4f59-8faf-eaa5f15ec324">&lt;title&gt;</bpt><ept id="df78f7a3-f875-4f59-8faf-eaa5f15ec324">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="df78f7a3-f875-4f59-8faf-eaa5f15ec324">&lt;linkText&gt;</bpt>Remote Desktop<ept id="df78f7a3-f875-4f59-8faf-eaa5f15ec324">&lt;/linkText&gt;</ept><bpt id="df78f7a3-f875-4f59-8faf-eaa5f15ec324">&lt;title&gt;</bpt><ept id="df78f7a3-f875-4f59-8faf-eaa5f15ec324">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2942f233-3c83-45d7-8ee3-666ec80db698" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="7d45a9e7-58a5-4c23-9feb-82b8c9862990" xml:space="preserve">
+          <source>✔</source>
+          <target state="new">✔</target>
+        </trans-unit>
+        <trans-unit id="329c8d7e-1839-4760-b1c2-9a5258eb52a9" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="a3254cb9-2976-45a2-a8ca-fc345064d41f" xml:space="preserve">
+          <source>Windows</source>
+          <target state="new">Windows</target>
+        </trans-unit>
+        <trans-unit id="95947cbe-2960-4897-ab58-c94460209953" xml:space="preserve">
+          <source>You can also use SQL Server Integration Services (SSIS) to run a Hive job.</source>
+          <target state="new">You can also use SQL Server Integration Services (SSIS) to run a Hive job.</target>
+        </trans-unit>
+        <trans-unit id="45d74b2c-f346-4c31-bbef-356789a485ff" xml:space="preserve">
+          <source>The Azure Feature Pack for SSIS provides the following components that work with Hive jobs on HDInsight.</source>
+          <target state="new">The Azure Feature Pack for SSIS provides the following components that work with Hive jobs on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="54085301-fdc9-4afe-96aa-9dfaec2d2c41" xml:space="preserve">
+          <source><bpt id="bb2d9289-c5d0-4bc2-801c-c043e0948425">&lt;linkText&gt;</bpt>Azure HDInsight Hive Task[hivetask]<ept id="bb2d9289-c5d0-4bc2-801c-c043e0948425">&lt;/linkText&gt;</ept><bpt id="bb2d9289-c5d0-4bc2-801c-c043e0948425">&lt;title&gt;</bpt><ept id="bb2d9289-c5d0-4bc2-801c-c043e0948425">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bb2d9289-c5d0-4bc2-801c-c043e0948425">&lt;linkText&gt;</bpt>Azure HDInsight Hive Task[hivetask]<ept id="bb2d9289-c5d0-4bc2-801c-c043e0948425">&lt;/linkText&gt;</ept><bpt id="bb2d9289-c5d0-4bc2-801c-c043e0948425">&lt;title&gt;</bpt><ept id="bb2d9289-c5d0-4bc2-801c-c043e0948425">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e49f61bd-a3d4-4e01-8b2d-2d85cd9534f9" xml:space="preserve">
+          <source><bpt id="79a4ebca-59cf-4ef5-852b-65a2a5b5971e">&lt;linkText&gt;</bpt>Azure Subscription Connection Manager[connectionmanager]<ept id="79a4ebca-59cf-4ef5-852b-65a2a5b5971e">&lt;/linkText&gt;</ept><bpt id="79a4ebca-59cf-4ef5-852b-65a2a5b5971e">&lt;title&gt;</bpt><ept id="79a4ebca-59cf-4ef5-852b-65a2a5b5971e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="79a4ebca-59cf-4ef5-852b-65a2a5b5971e">&lt;linkText&gt;</bpt>Azure Subscription Connection Manager[connectionmanager]<ept id="79a4ebca-59cf-4ef5-852b-65a2a5b5971e">&lt;/linkText&gt;</ept><bpt id="79a4ebca-59cf-4ef5-852b-65a2a5b5971e">&lt;title&gt;</bpt><ept id="79a4ebca-59cf-4ef5-852b-65a2a5b5971e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2184640b-9cab-47b0-8a40-3431f37f13b9" xml:space="preserve">
+          <source>Learn more about the Azure Feature Pack for SSIS <bpt id="fd49b8ee-38e1-40b4-9843-c5b1446bc05e">&lt;linkText&gt;</bpt>here[ssispack]<ept id="fd49b8ee-38e1-40b4-9843-c5b1446bc05e">&lt;/linkText&gt;</ept><bpt id="fd49b8ee-38e1-40b4-9843-c5b1446bc05e">&lt;title&gt;</bpt><ept id="fd49b8ee-38e1-40b4-9843-c5b1446bc05e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about the Azure Feature Pack for SSIS <bpt id="fd49b8ee-38e1-40b4-9843-c5b1446bc05e">&lt;linkText&gt;</bpt>here[ssispack]<ept id="fd49b8ee-38e1-40b4-9843-c5b1446bc05e">&lt;/linkText&gt;</ept><bpt id="fd49b8ee-38e1-40b4-9843-c5b1446bc05e">&lt;title&gt;</bpt><ept id="fd49b8ee-38e1-40b4-9843-c5b1446bc05e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="956335f8-edf8-4df4-9576-1ad187973110" xml:space="preserve">
+          <source>Now that you've learned what Hive is and how to use it with Hadoop in HDInsight, use the following links to explore other ways to work with Azure HDInsight.</source>
+          <target state="new">Now that you've learned what Hive is and how to use it with Hadoop in HDInsight, use the following links to explore other ways to work with Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="6abb5023-4b79-4c9a-aad5-ef1d6b9704ad" xml:space="preserve">
+          <source><bpt id="39035735-4350-4fde-8031-3772bae519fa">&lt;linkText&gt;</bpt>Upload data to HDInsight[hdinsight-upload-data]<ept id="39035735-4350-4fde-8031-3772bae519fa">&lt;/linkText&gt;</ept><bpt id="39035735-4350-4fde-8031-3772bae519fa">&lt;title&gt;</bpt><ept id="39035735-4350-4fde-8031-3772bae519fa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="39035735-4350-4fde-8031-3772bae519fa">&lt;linkText&gt;</bpt>Upload data to HDInsight[hdinsight-upload-data]<ept id="39035735-4350-4fde-8031-3772bae519fa">&lt;/linkText&gt;</ept><bpt id="39035735-4350-4fde-8031-3772bae519fa">&lt;title&gt;</bpt><ept id="39035735-4350-4fde-8031-3772bae519fa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27299c5f-3f8a-42ed-a19d-6856cf2b1d13" xml:space="preserve">
+          <source><bpt id="987e2009-4920-4f9b-a1f6-2de0c2f8a098">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="987e2009-4920-4f9b-a1f6-2de0c2f8a098">&lt;/linkText&gt;</ept><bpt id="987e2009-4920-4f9b-a1f6-2de0c2f8a098">&lt;title&gt;</bpt><ept id="987e2009-4920-4f9b-a1f6-2de0c2f8a098">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="987e2009-4920-4f9b-a1f6-2de0c2f8a098">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="987e2009-4920-4f9b-a1f6-2de0c2f8a098">&lt;/linkText&gt;</ept><bpt id="987e2009-4920-4f9b-a1f6-2de0c2f8a098">&lt;title&gt;</bpt><ept id="987e2009-4920-4f9b-a1f6-2de0c2f8a098">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="770822cd-7624-4845-9fe0-1761997615a6" xml:space="preserve">
+          <source><bpt id="0a55ac73-a566-46c3-9816-43458e12e037">&lt;linkText&gt;</bpt>Use MapReduce jobs with HDInsight[hdinsight-use-mapreduce]<ept id="0a55ac73-a566-46c3-9816-43458e12e037">&lt;/linkText&gt;</ept><bpt id="0a55ac73-a566-46c3-9816-43458e12e037">&lt;title&gt;</bpt><ept id="0a55ac73-a566-46c3-9816-43458e12e037">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0a55ac73-a566-46c3-9816-43458e12e037">&lt;linkText&gt;</bpt>Use MapReduce jobs with HDInsight[hdinsight-use-mapreduce]<ept id="0a55ac73-a566-46c3-9816-43458e12e037">&lt;/linkText&gt;</ept><bpt id="0a55ac73-a566-46c3-9816-43458e12e037">&lt;title&gt;</bpt><ept id="0a55ac73-a566-46c3-9816-43458e12e037">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6ca4b23-a6cf-471c-98c2-c83274929780" xml:space="preserve">
+          <source>./media/hdinsight-use-hive/hdi.checkmark.png</source>
+          <target state="new">./media/hdinsight-use-hive/hdi.checkmark.png</target>
+        </trans-unit>
+        <trans-unit id="a5b9e98c-7c26-401d-ad6f-623f96affe9c" xml:space="preserve">
+          <source>../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md</source>
+          <target state="new">../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="2039dd89-0a9d-4ba3-a50d-61b5fc4ad26c" xml:space="preserve">
+          <source>http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx</source>
+          <target state="new">http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx</target>
+        </trans-unit>
+        <trans-unit id="79904881-4d93-435b-8f9b-c4490d60fa1d" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="d14f6bbe-370f-406d-8b2d-fe20f81aff36" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="6003d773-8a3a-49ce-b6ce-909cd25cf045" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="f716758b-278a-4d74-8e2d-2e0dffb6dca8" xml:space="preserve">
+          <source>http://tez.apache.org</source>
+          <target state="new">http://tez.apache.org</target>
+        </trans-unit>
+        <trans-unit id="a49aed26-e732-4771-90a4-d826ac718a6e" xml:space="preserve">
+          <source>http://hive.apache.org/</source>
+          <target state="new">http://hive.apache.org/</target>
+        </trans-unit>
+        <trans-unit id="2cc7ad67-50bc-402b-9912-a686036f5a3f" xml:space="preserve">
+          <source>http://en.wikipedia.org/wiki/Log4j</source>
+          <target state="new">http://en.wikipedia.org/wiki/Log4j</target>
+        </trans-unit>
+        <trans-unit id="0893c91f-36d8-4400-9dbe-1b9a08ad8661" xml:space="preserve">
+          <source>https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez</source>
+          <target state="new">https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez</target>
+        </trans-unit>
+        <trans-unit id="a40add82-b2b0-4c01-a6d8-f5842d1ec975" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/</target>
+        </trans-unit>
+        <trans-unit id="ca5dda9a-13aa-4a75-951b-46e59f33fbb8" xml:space="preserve">
+          <source>http://msdn.microsoft.com/en-US/library/mt146771(v=sql.120).aspx</source>
+          <target state="new">http://msdn.microsoft.com/en-US/library/mt146771(v=sql.120).aspx</target>
+        </trans-unit>
+        <trans-unit id="7b6f0a9e-8f58-4ed7-b998-8579c76fcb3a" xml:space="preserve">
+          <source>http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx</source>
+          <target state="new">http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx</target>
+        </trans-unit>
+        <trans-unit id="4015aef8-891b-4dd6-8e55-372fe3b48f36" xml:space="preserve">
+          <source>http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx</source>
+          <target state="new">http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx</target>
+        </trans-unit>
+        <trans-unit id="2e2b30be-4956-417f-98d3-dfc94c90810b" xml:space="preserve">
+          <source>hdinsight-use-pig.md</source>
+          <target state="new">hdinsight-use-pig.md</target>
+        </trans-unit>
+        <trans-unit id="ea2610ec-8af5-4843-9c71-e847e37a2798" xml:space="preserve">
+          <source>hdinsight-use-oozie.md</source>
+          <target state="new">hdinsight-use-oozie.md</target>
+        </trans-unit>
+        <trans-unit id="b8742387-51e7-413f-b376-ddb2909796ad" xml:space="preserve">
+          <source>hdinsight-analyze-flight-delay-data.md</source>
+          <target state="new">hdinsight-analyze-flight-delay-data.md</target>
+        </trans-unit>
+        <trans-unit id="d7c8a73e-35c3-4dce-8e3a-c6e057d39a42" xml:space="preserve">
+          <source>hdinsight-use-mapreduce.md</source>
+          <target state="new">hdinsight-use-mapreduce.md</target>
+        </trans-unit>
+        <trans-unit id="9457cfd6-f64c-4ca8-b834-adf0a01b7d7b" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="bd62fe11-53a8-4e0b-a45e-75fe5abd4326" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="6a89f37a-bb44-48b2-a1e6-0d861fd5d3f5" xml:space="preserve">
+          <source>hdinsight-submit-hadoop-jobs-programmatically.md</source>
+          <target state="new">hdinsight-submit-hadoop-jobs-programmatically.md</target>
+        </trans-unit>
+        <trans-unit id="2dc47845-5b0c-43a6-acaf-8eef045bcb21" xml:space="preserve">
+          <source>hdinsight-upload-data.md</source>
+          <target state="new">hdinsight-upload-data.md</target>
+        </trans-unit>
+        <trans-unit id="3eeda8fa-6dc0-4ec7-bf17-3faeabaf645a" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="6b48f86a-a1bd-4cbc-bfd6-51638e29e2cb" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="8856d550-5cdf-4a36-8b0b-a742b3f70e2a" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/ee692792.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/ee692792.aspx</target>
+        </trans-unit>
+        <trans-unit id="0ba9c120-d4cd-4310-8806-fd5bdd823b02" xml:space="preserve">
+          <source>./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png</source>
+          <target state="new">./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png</target>
+        </trans-unit>
+        <trans-unit id="a6729bad-03d7-48a0-9451-cb822c29bbfd" xml:space="preserve">
+          <source>./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png</source>
+          <target state="new">./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png</target>
+        </trans-unit>
+        <trans-unit id="98a6984f-e19a-44ac-97d6-7b9668381d74" xml:space="preserve">
+          <source>./media/hdinsight-use-hive/HDI.Hive.Architecture.png</source>
+          <target state="new">./media/hdinsight-use-hive/HDI.Hive.Architecture.png</target>
+        </trans-unit>
+      </group>
+      <group id="9853605c-0b80-4f64-853a-fa7d4cc717fa" />
+    </body>
+  </file>
+</xliff>

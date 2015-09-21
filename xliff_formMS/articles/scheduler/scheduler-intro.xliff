@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9d6d9599-0c34-4107-9799-03a8b064700c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9d6d9599-0c34-4107-9799-03a8b064700c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4a1fe59c-d8fc-4383-940a-e870a42adb6d">
+        <trans-unit id="fca802e2-3587-448e-89b4-ca4ead52e6aa" xml:space="preserve">
+          <source>What is Azure Scheduler? | Microsoft Azure</source>
+          <target state="new">What is Azure Scheduler? | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="112c5b34-787d-4cd3-baad-83058cb05c11" xml:space="preserve">
+          <source>Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically.</source>
+          <target state="new">Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically.</target>
+        </trans-unit>
+        <trans-unit id="4f6d64aa-93ee-4cad-98dd-75af46fa67b3" xml:space="preserve">
+          <source>Azure Scheduler allows you to declaratively describe actions to run in the cloud.</source>
+          <target state="new">Azure Scheduler allows you to declaratively describe actions to run in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="af8d029d-a28f-4cce-b22f-b49e82159d41" xml:space="preserve">
+          <source>It then schedules and runs those actions automatically.</source>
+          <target state="new">It then schedules and runs those actions automatically.</target>
+        </trans-unit>
+        <trans-unit id="99f78cc1-eb39-4fd0-843d-168a5c88438d" xml:space="preserve">
+          <source>Scheduler does this by using <bpt id="8665db4a-9215-419a-a28b-7a3f8ec2ce82">&lt;linkText&gt;</bpt>the Azure portal<ept id="8665db4a-9215-419a-a28b-7a3f8ec2ce82">&lt;/linkText&gt;</ept><bpt id="8665db4a-9215-419a-a28b-7a3f8ec2ce82">&lt;title&gt;</bpt><ept id="8665db4a-9215-419a-a28b-7a3f8ec2ce82">&lt;/title&gt;</ept>, code, <bpt id="da0d36f6-13ad-45d5-8e02-3ff23e7e3585">&lt;linkText&gt;</bpt>REST API<ept id="da0d36f6-13ad-45d5-8e02-3ff23e7e3585">&lt;/linkText&gt;</ept><bpt id="da0d36f6-13ad-45d5-8e02-3ff23e7e3585">&lt;title&gt;</bpt><ept id="da0d36f6-13ad-45d5-8e02-3ff23e7e3585">&lt;/title&gt;</ept>, or Azure PowerShell.</source>
+          <target state="new">Scheduler does this by using <bpt id="8665db4a-9215-419a-a28b-7a3f8ec2ce82">&lt;linkText&gt;</bpt>the Azure portal<ept id="8665db4a-9215-419a-a28b-7a3f8ec2ce82">&lt;/linkText&gt;</ept><bpt id="8665db4a-9215-419a-a28b-7a3f8ec2ce82">&lt;title&gt;</bpt><ept id="8665db4a-9215-419a-a28b-7a3f8ec2ce82">&lt;/title&gt;</ept>, code, <bpt id="da0d36f6-13ad-45d5-8e02-3ff23e7e3585">&lt;linkText&gt;</bpt>REST API<ept id="da0d36f6-13ad-45d5-8e02-3ff23e7e3585">&lt;/linkText&gt;</ept><bpt id="da0d36f6-13ad-45d5-8e02-3ff23e7e3585">&lt;title&gt;</bpt><ept id="da0d36f6-13ad-45d5-8e02-3ff23e7e3585">&lt;/title&gt;</ept>, or Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="801cd0ef-6f7d-4d94-83da-4c5f14726510" xml:space="preserve">
+          <source>Scheduler creates, maintains, and invokes scheduled work.</source>
+          <target state="new">Scheduler creates, maintains, and invokes scheduled work.</target>
+        </trans-unit>
+        <trans-unit id="d322e1cc-1510-4c6d-b1c8-9f36220b2e24" xml:space="preserve">
+          <source>Scheduler does not host any workloads or run any code.</source>
+          <target state="new">Scheduler does not host any workloads or run any code.</target>
+        </trans-unit>
+        <trans-unit id="ecfe3bc7-2e6a-4e70-b05e-8655f75d4cd2" xml:space="preserve">
+          <source>It only <bpt id="06ec698c-a25a-4376-8712-8eb005f9842a">&lt;em&gt;</bpt>invokes<ept id="06ec698c-a25a-4376-8712-8eb005f9842a">&lt;/em&gt;</ept> code hosted elsewhere—in Azure, on-premises, or with another provider.</source>
+          <target state="new">It only <bpt id="06ec698c-a25a-4376-8712-8eb005f9842a">&lt;em&gt;</bpt>invokes<ept id="06ec698c-a25a-4376-8712-8eb005f9842a">&lt;/em&gt;</ept> code hosted elsewhere—in Azure, on-premises, or with another provider.</target>
+        </trans-unit>
+        <trans-unit id="9b8d3e4b-a6f3-4646-85f6-9e074f276c73" xml:space="preserve">
+          <source>It invokes via HTTP, HTTPS, or a storage queue.</source>
+          <target state="new">It invokes via HTTP, HTTPS, or a storage queue.</target>
+        </trans-unit>
+        <trans-unit id="1987ecb3-b181-4d68-9a14-78220f490b7a" xml:space="preserve">
+          <source>Scheduler schedules <bpt id="eaf0da79-f7ce-4396-963f-261a12020946">&lt;linkText&gt;</bpt>jobs<ept id="eaf0da79-f7ce-4396-963f-261a12020946">&lt;/linkText&gt;</ept><bpt id="eaf0da79-f7ce-4396-963f-261a12020946">&lt;title&gt;</bpt><ept id="eaf0da79-f7ce-4396-963f-261a12020946">&lt;/title&gt;</ept>, keeps a history of job execution results that one can review, and deterministically and reliably schedules workloads to be run.</source>
+          <target state="new">Scheduler schedules <bpt id="eaf0da79-f7ce-4396-963f-261a12020946">&lt;linkText&gt;</bpt>jobs<ept id="eaf0da79-f7ce-4396-963f-261a12020946">&lt;/linkText&gt;</ept><bpt id="eaf0da79-f7ce-4396-963f-261a12020946">&lt;title&gt;</bpt><ept id="eaf0da79-f7ce-4396-963f-261a12020946">&lt;/title&gt;</ept>, keeps a history of job execution results that one can review, and deterministically and reliably schedules workloads to be run.</target>
+        </trans-unit>
+        <trans-unit id="11970fed-2d1a-403d-9d99-33038b12d38f" xml:space="preserve">
+          <source>Azure WebJobs (part of the Web Apps feature in Azure App Service) and other Azure scheduling capabilities use Scheduler in the background.</source>
+          <target state="new">Azure WebJobs (part of the Web Apps feature in Azure App Service) and other Azure scheduling capabilities use Scheduler in the background.</target>
+        </trans-unit>
+        <trans-unit id="c32f1d71-96d0-48cf-9785-0c97f5e47cf7" xml:space="preserve">
+          <source>The <bpt id="b3974b47-ffa4-4432-9e13-897e712883f1">&lt;linkText&gt;</bpt>Scheduler REST API<ept id="b3974b47-ffa4-4432-9e13-897e712883f1">&lt;/linkText&gt;</ept><bpt id="b3974b47-ffa4-4432-9e13-897e712883f1">&lt;title&gt;</bpt><ept id="b3974b47-ffa4-4432-9e13-897e712883f1">&lt;/title&gt;</ept> helps manage the communication for these actions.</source>
+          <target state="new">The <bpt id="b3974b47-ffa4-4432-9e13-897e712883f1">&lt;linkText&gt;</bpt>Scheduler REST API<ept id="b3974b47-ffa4-4432-9e13-897e712883f1">&lt;/linkText&gt;</ept><bpt id="b3974b47-ffa4-4432-9e13-897e712883f1">&lt;title&gt;</bpt><ept id="b3974b47-ffa4-4432-9e13-897e712883f1">&lt;/title&gt;</ept> helps manage the communication for these actions.</target>
+        </trans-unit>
+        <trans-unit id="5fe17c5d-abd8-4d6f-a1f6-9b287851789c" xml:space="preserve">
+          <source>As such, Scheduler supports <bpt id="d7d5e9a1-3ff9-42e1-ac46-6f79121d1498">&lt;linkText&gt;</bpt>complex schedules and advanced recurrence<ept id="d7d5e9a1-3ff9-42e1-ac46-6f79121d1498">&lt;/linkText&gt;</ept><bpt id="d7d5e9a1-3ff9-42e1-ac46-6f79121d1498">&lt;title&gt;</bpt><ept id="d7d5e9a1-3ff9-42e1-ac46-6f79121d1498">&lt;/title&gt;</ept> easily.</source>
+          <target state="new">As such, Scheduler supports <bpt id="d7d5e9a1-3ff9-42e1-ac46-6f79121d1498">&lt;linkText&gt;</bpt>complex schedules and advanced recurrence<ept id="d7d5e9a1-3ff9-42e1-ac46-6f79121d1498">&lt;/linkText&gt;</ept><bpt id="d7d5e9a1-3ff9-42e1-ac46-6f79121d1498">&lt;title&gt;</bpt><ept id="d7d5e9a1-3ff9-42e1-ac46-6f79121d1498">&lt;/title&gt;</ept> easily.</target>
+        </trans-unit>
+        <trans-unit id="97301aa6-93da-47fc-b0c5-c11e687a6f6c" xml:space="preserve">
+          <source>There are several scenarios that lend themselves to the usage of Scheduler.</source>
+          <target state="new">There are several scenarios that lend themselves to the usage of Scheduler.</target>
+        </trans-unit>
+        <trans-unit id="e7fdb4c2-de96-437b-a1b4-4604000e0466" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="7b7433a0-fb93-4476-87c2-46f7bd166c90" xml:space="preserve">
+          <source><bpt id="9b1ddae0-7978-4404-aa23-1a183bfe7cf9">&lt;em&gt;</bpt>Recurring application actions:<ept id="9b1ddae0-7978-4404-aa23-1a183bfe7cf9">&lt;/em&gt;</ept> Periodically gathering data from Twitter into a feed.</source>
+          <target state="new"><bpt id="9b1ddae0-7978-4404-aa23-1a183bfe7cf9">&lt;em&gt;</bpt>Recurring application actions:<ept id="9b1ddae0-7978-4404-aa23-1a183bfe7cf9">&lt;/em&gt;</ept> Periodically gathering data from Twitter into a feed.</target>
+        </trans-unit>
+        <trans-unit id="f63b8dc5-46a4-4fd9-9d57-85fba27a2070" xml:space="preserve">
+          <source><bpt id="ab687a01-9b3f-417f-a6b3-b3985b8562ca">&lt;em&gt;</bpt>Daily maintenance:<ept id="ab687a01-9b3f-417f-a6b3-b3985b8562ca">&lt;/em&gt;</ept> Daily pruning of logs, performing backups, and other maintenance tasks.</source>
+          <target state="new"><bpt id="ab687a01-9b3f-417f-a6b3-b3985b8562ca">&lt;em&gt;</bpt>Daily maintenance:<ept id="ab687a01-9b3f-417f-a6b3-b3985b8562ca">&lt;/em&gt;</ept> Daily pruning of logs, performing backups, and other maintenance tasks.</target>
+        </trans-unit>
+        <trans-unit id="b530f1a6-cfb9-4db1-8971-3fdb260703e3" xml:space="preserve">
+          <source>For example, an administrator may choose to back up the database at 1:00 A.M. every day for the next nine months.</source>
+          <target state="new">For example, an administrator may choose to back up the database at 1:00 A.M. every day for the next nine months.</target>
+        </trans-unit>
+        <trans-unit id="41bc1732-16c2-4b46-854c-c0f353318ec7" xml:space="preserve">
+          <source>Scheduler allows you to create, update, delete, view, and manage jobs and <bpt id="2ef6318d-d724-43af-8107-3b782e735475">&lt;linkText&gt;</bpt>job collections<ept id="2ef6318d-d724-43af-8107-3b782e735475">&lt;/linkText&gt;</ept><bpt id="2ef6318d-d724-43af-8107-3b782e735475">&lt;title&gt;</bpt><ept id="2ef6318d-d724-43af-8107-3b782e735475">&lt;/title&gt;</ept> programmatically, by using scripts, and in the portal.</source>
+          <target state="new">Scheduler allows you to create, update, delete, view, and manage jobs and <bpt id="2ef6318d-d724-43af-8107-3b782e735475">&lt;linkText&gt;</bpt>job collections<ept id="2ef6318d-d724-43af-8107-3b782e735475">&lt;/linkText&gt;</ept><bpt id="2ef6318d-d724-43af-8107-3b782e735475">&lt;title&gt;</bpt><ept id="2ef6318d-d724-43af-8107-3b782e735475">&lt;/title&gt;</ept> programmatically, by using scripts, and in the portal.</target>
+        </trans-unit>
+        <trans-unit id="b9284d8c-bbf0-41c6-91c5-a1c7f4039e87" xml:space="preserve">
+          <source> <bpt id="75357be2-b866-4182-b721-c31eb18e2281">&lt;linkText&gt;</bpt>Azure Scheduler concepts, terminology, and entity hierarchy<ept id="75357be2-b866-4182-b721-c31eb18e2281">&lt;/linkText&gt;</ept><bpt id="75357be2-b866-4182-b721-c31eb18e2281">&lt;title&gt;</bpt><ept id="75357be2-b866-4182-b721-c31eb18e2281">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="75357be2-b866-4182-b721-c31eb18e2281">&lt;linkText&gt;</bpt>Azure Scheduler concepts, terminology, and entity hierarchy<ept id="75357be2-b866-4182-b721-c31eb18e2281">&lt;/linkText&gt;</ept><bpt id="75357be2-b866-4182-b721-c31eb18e2281">&lt;title&gt;</bpt><ept id="75357be2-b866-4182-b721-c31eb18e2281">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="567ba01b-7d1c-4e0c-a0a2-4acbb85b8603" xml:space="preserve">
+          <source> <bpt id="70133958-7259-4b9f-8a10-73627dd67d86">&lt;linkText&gt;</bpt>Get started using Azure Scheduler in the Azure portal<ept id="70133958-7259-4b9f-8a10-73627dd67d86">&lt;/linkText&gt;</ept><bpt id="70133958-7259-4b9f-8a10-73627dd67d86">&lt;title&gt;</bpt><ept id="70133958-7259-4b9f-8a10-73627dd67d86">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="70133958-7259-4b9f-8a10-73627dd67d86">&lt;linkText&gt;</bpt>Get started using Azure Scheduler in the Azure portal<ept id="70133958-7259-4b9f-8a10-73627dd67d86">&lt;/linkText&gt;</ept><bpt id="70133958-7259-4b9f-8a10-73627dd67d86">&lt;title&gt;</bpt><ept id="70133958-7259-4b9f-8a10-73627dd67d86">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1364f7dd-ed4e-4f1c-a679-3164fff9516c" xml:space="preserve">
+          <source> <bpt id="96daf33b-784c-460d-af6d-ec6644818e61">&lt;linkText&gt;</bpt>Plans and billing in Azure Scheduler<ept id="96daf33b-784c-460d-af6d-ec6644818e61">&lt;/linkText&gt;</ept><bpt id="96daf33b-784c-460d-af6d-ec6644818e61">&lt;title&gt;</bpt><ept id="96daf33b-784c-460d-af6d-ec6644818e61">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="96daf33b-784c-460d-af6d-ec6644818e61">&lt;linkText&gt;</bpt>Plans and billing in Azure Scheduler<ept id="96daf33b-784c-460d-af6d-ec6644818e61">&lt;/linkText&gt;</ept><bpt id="96daf33b-784c-460d-af6d-ec6644818e61">&lt;title&gt;</bpt><ept id="96daf33b-784c-460d-af6d-ec6644818e61">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b24136e-a8f4-4968-98c3-f4d7e5dfb4d4" xml:space="preserve">
+          <source> <bpt id="e25d675f-8cef-4bf9-a259-57ddc6294767">&lt;linkText&gt;</bpt>How to build complex schedules and advanced recurrence with Azure Scheduler<ept id="e25d675f-8cef-4bf9-a259-57ddc6294767">&lt;/linkText&gt;</ept><bpt id="e25d675f-8cef-4bf9-a259-57ddc6294767">&lt;title&gt;</bpt><ept id="e25d675f-8cef-4bf9-a259-57ddc6294767">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="e25d675f-8cef-4bf9-a259-57ddc6294767">&lt;linkText&gt;</bpt>How to build complex schedules and advanced recurrence with Azure Scheduler<ept id="e25d675f-8cef-4bf9-a259-57ddc6294767">&lt;/linkText&gt;</ept><bpt id="e25d675f-8cef-4bf9-a259-57ddc6294767">&lt;title&gt;</bpt><ept id="e25d675f-8cef-4bf9-a259-57ddc6294767">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c7031ec-2dc5-4212-8bbd-34b539a4ad5f" xml:space="preserve">
+          <source> <bpt id="3bfd74ba-ba4d-4bb3-b26a-860597ac5efa">&lt;linkText&gt;</bpt>Azure Scheduler REST API reference<ept id="3bfd74ba-ba4d-4bb3-b26a-860597ac5efa">&lt;/linkText&gt;</ept><bpt id="3bfd74ba-ba4d-4bb3-b26a-860597ac5efa">&lt;title&gt;</bpt><ept id="3bfd74ba-ba4d-4bb3-b26a-860597ac5efa">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="3bfd74ba-ba4d-4bb3-b26a-860597ac5efa">&lt;linkText&gt;</bpt>Azure Scheduler REST API reference<ept id="3bfd74ba-ba4d-4bb3-b26a-860597ac5efa">&lt;/linkText&gt;</ept><bpt id="3bfd74ba-ba4d-4bb3-b26a-860597ac5efa">&lt;title&gt;</bpt><ept id="3bfd74ba-ba4d-4bb3-b26a-860597ac5efa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24c8eed4-31ac-4711-9ce2-810ccc10ce3f" xml:space="preserve">
+          <source> <bpt id="3c3440d4-fcfc-43b7-be45-d06d862fc7e8">&lt;linkText&gt;</bpt>Azure Scheduler PowerShell cmdlets reference<ept id="3c3440d4-fcfc-43b7-be45-d06d862fc7e8">&lt;/linkText&gt;</ept><bpt id="3c3440d4-fcfc-43b7-be45-d06d862fc7e8">&lt;title&gt;</bpt><ept id="3c3440d4-fcfc-43b7-be45-d06d862fc7e8">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="3c3440d4-fcfc-43b7-be45-d06d862fc7e8">&lt;linkText&gt;</bpt>Azure Scheduler PowerShell cmdlets reference<ept id="3c3440d4-fcfc-43b7-be45-d06d862fc7e8">&lt;/linkText&gt;</ept><bpt id="3c3440d4-fcfc-43b7-be45-d06d862fc7e8">&lt;title&gt;</bpt><ept id="3c3440d4-fcfc-43b7-be45-d06d862fc7e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d7aa5bf-cb9b-4ce5-aa92-b8f7d8d2795e" xml:space="preserve">
+          <source> <bpt id="2adc1f47-b71d-41f0-be02-888151d0260f">&lt;linkText&gt;</bpt>Azure Scheduler high-availability and reliability<ept id="2adc1f47-b71d-41f0-be02-888151d0260f">&lt;/linkText&gt;</ept><bpt id="2adc1f47-b71d-41f0-be02-888151d0260f">&lt;title&gt;</bpt><ept id="2adc1f47-b71d-41f0-be02-888151d0260f">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="2adc1f47-b71d-41f0-be02-888151d0260f">&lt;linkText&gt;</bpt>Azure Scheduler high-availability and reliability<ept id="2adc1f47-b71d-41f0-be02-888151d0260f">&lt;/linkText&gt;</ept><bpt id="2adc1f47-b71d-41f0-be02-888151d0260f">&lt;title&gt;</bpt><ept id="2adc1f47-b71d-41f0-be02-888151d0260f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c3f447c-81b0-47ec-81ce-4a3cf8032c6a" xml:space="preserve">
+          <source> <bpt id="6f1dd86e-c9a8-4e20-ac42-792893030c15">&lt;linkText&gt;</bpt>Azure Scheduler limits, defaults, and error codes<ept id="6f1dd86e-c9a8-4e20-ac42-792893030c15">&lt;/linkText&gt;</ept><bpt id="6f1dd86e-c9a8-4e20-ac42-792893030c15">&lt;title&gt;</bpt><ept id="6f1dd86e-c9a8-4e20-ac42-792893030c15">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="6f1dd86e-c9a8-4e20-ac42-792893030c15">&lt;linkText&gt;</bpt>Azure Scheduler limits, defaults, and error codes<ept id="6f1dd86e-c9a8-4e20-ac42-792893030c15">&lt;/linkText&gt;</ept><bpt id="6f1dd86e-c9a8-4e20-ac42-792893030c15">&lt;title&gt;</bpt><ept id="6f1dd86e-c9a8-4e20-ac42-792893030c15">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74a53df7-26a8-4c2f-b9a1-97f5eb74ea6b" xml:space="preserve">
+          <source> <bpt id="7fca4ea4-01b3-4b79-82db-5333006f9d58">&lt;linkText&gt;</bpt>Azure Scheduler outbound authentication<ept id="7fca4ea4-01b3-4b79-82db-5333006f9d58">&lt;/linkText&gt;</ept><bpt id="7fca4ea4-01b3-4b79-82db-5333006f9d58">&lt;title&gt;</bpt><ept id="7fca4ea4-01b3-4b79-82db-5333006f9d58">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="7fca4ea4-01b3-4b79-82db-5333006f9d58">&lt;linkText&gt;</bpt>Azure Scheduler outbound authentication<ept id="7fca4ea4-01b3-4b79-82db-5333006f9d58">&lt;/linkText&gt;</ept><bpt id="7fca4ea4-01b3-4b79-82db-5333006f9d58">&lt;title&gt;</bpt><ept id="7fca4ea4-01b3-4b79-82db-5333006f9d58">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

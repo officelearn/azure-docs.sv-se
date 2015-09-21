@@ -1,0 +1,1071 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="86f6b050-5a2b-4f6e-b7ca-ba6d70d48910" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="86f6b050-5a2b-4f6e-b7ca-ba6d70d48910" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4122accf-43b4-42ad-83e6-3b7e7ed05d2e">
+        <trans-unit id="d019d26c-87a9-4fc8-8eae-96cf92682877" xml:space="preserve">
+          <source>Analyze flight delay data with Hadoop in HDInsight | Microsoft Azure</source>
+          <target state="new">Analyze flight delay data with Hadoop in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8208ce9c-86c6-419e-8c05-516d467e11ff" xml:space="preserve">
+          <source>Learn how to use one Windows PowerShell script to provision an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster.</source>
+          <target state="new">Learn how to use one Windows PowerShell script to provision an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster.</target>
+        </trans-unit>
+        <trans-unit id="3e0e1f13-bed9-417f-810f-5893d32a1c20" xml:space="preserve">
+          <source>Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language called *<bpt id="c68eafbf-f1d4-4b40-8306-92ebb948896f">&lt;linkText&gt;</bpt>HiveQL[hadoop-hiveql]<ept id="c68eafbf-f1d4-4b40-8306-92ebb948896f">&lt;/linkText&gt;</ept><bpt id="c68eafbf-f1d4-4b40-8306-92ebb948896f">&lt;title&gt;</bpt><ept id="c68eafbf-f1d4-4b40-8306-92ebb948896f">&lt;/title&gt;</ept>*, which can be applied towards summarizing, querying, and analyzing large volumes of data.</source>
+          <target state="new">Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language called *<bpt id="c68eafbf-f1d4-4b40-8306-92ebb948896f">&lt;linkText&gt;</bpt>HiveQL[hadoop-hiveql]<ept id="c68eafbf-f1d4-4b40-8306-92ebb948896f">&lt;/linkText&gt;</ept><bpt id="c68eafbf-f1d4-4b40-8306-92ebb948896f">&lt;title&gt;</bpt><ept id="c68eafbf-f1d4-4b40-8306-92ebb948896f">&lt;/title&gt;</ept>*, which can be applied towards summarizing, querying, and analyzing large volumes of data.</target>
+        </trans-unit>
+        <trans-unit id="0f435459-8a76-48f1-bde4-67bb02176a61" xml:space="preserve">
+          <source>One of the major benefits of Azure HDInsight is the separation of data storage and compute.</source>
+          <target state="new">One of the major benefits of Azure HDInsight is the separation of data storage and compute.</target>
+        </trans-unit>
+        <trans-unit id="84cc1c19-1994-4be4-88de-c5446f1e4c4b" xml:space="preserve">
+          <source>HDInsight uses Azure Blob storage for data storage.</source>
+          <target state="new">HDInsight uses Azure Blob storage for data storage.</target>
+        </trans-unit>
+        <trans-unit id="911c09fe-66c9-4b94-8b1b-0824af177824" xml:space="preserve">
+          <source>A common MapReduce process can be broken into 3 parts:</source>
+          <target state="new">A common MapReduce process can be broken into 3 parts:</target>
+        </trans-unit>
+        <trans-unit id="07326d98-a85f-43fb-a52e-26e5885a552e" xml:space="preserve">
+          <source><bpt id="84a8b990-ee28-40e2-82e1-e88b46ad3f0c">&lt;strong&gt;</bpt>Store data in Azure Blob storage.<ept id="84a8b990-ee28-40e2-82e1-e88b46ad3f0c">&lt;/strong&gt;</ept> This can be a continuous process.</source>
+          <target state="new"><bpt id="84a8b990-ee28-40e2-82e1-e88b46ad3f0c">&lt;strong&gt;</bpt>Store data in Azure Blob storage.<ept id="84a8b990-ee28-40e2-82e1-e88b46ad3f0c">&lt;/strong&gt;</ept> This can be a continuous process.</target>
+        </trans-unit>
+        <trans-unit id="4edc308f-a7ed-458a-a20e-58bdbffb34b9" xml:space="preserve">
+          <source>For example, weather data, sensor data, web logs, and in this case, flight delay data are saved into Azure Blob storage.</source>
+          <target state="new">For example, weather data, sensor data, web logs, and in this case, flight delay data are saved into Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="7d56120a-67a8-4e1c-a256-249c4f333959" xml:space="preserve">
+          <source><bpt id="55c789f0-97b8-49d9-ba58-bd67c24967f8">&lt;strong&gt;</bpt>Run jobs.<ept id="55c789f0-97b8-49d9-ba58-bd67c24967f8">&lt;/strong&gt;</ept> When it is time to process the data, you run a Windows PowerShell script (or a client application) to provision an HDInsight cluster, run jobs, and delete the cluster.</source>
+          <target state="new"><bpt id="55c789f0-97b8-49d9-ba58-bd67c24967f8">&lt;strong&gt;</bpt>Run jobs.<ept id="55c789f0-97b8-49d9-ba58-bd67c24967f8">&lt;/strong&gt;</ept> When it is time to process the data, you run a Windows PowerShell script (or a client application) to provision an HDInsight cluster, run jobs, and delete the cluster.</target>
+        </trans-unit>
+        <trans-unit id="a1493eba-027d-4a72-b802-2c38311b690c" xml:space="preserve">
+          <source>The jobs save output data to Azure Blob storage.</source>
+          <target state="new">The jobs save output data to Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="b77ec77f-dfa8-49c1-bc81-b26691f8edd7" xml:space="preserve">
+          <source>The output data is retained even after the cluster is deleted.</source>
+          <target state="new">The output data is retained even after the cluster is deleted.</target>
+        </trans-unit>
+        <trans-unit id="2f65bdc1-1531-44c4-b813-b9bdab0a35b8" xml:space="preserve">
+          <source>This way, you pay for only what you have consumed.</source>
+          <target state="new">This way, you pay for only what you have consumed.</target>
+        </trans-unit>
+        <trans-unit id="ae21fc61-9f06-4a9b-a7be-ce11091800fc" xml:space="preserve">
+          <source><bpt id="dc892d4e-c482-4985-bd49-d0c95ce42138">&lt;strong&gt;</bpt>Retrieve the output from Azure Blob storage<ept id="dc892d4e-c482-4985-bd49-d0c95ce42138">&lt;/strong&gt;</ept>, or in this tutorial, export the data to an Azure SQL database.</source>
+          <target state="new"><bpt id="dc892d4e-c482-4985-bd49-d0c95ce42138">&lt;strong&gt;</bpt>Retrieve the output from Azure Blob storage<ept id="dc892d4e-c482-4985-bd49-d0c95ce42138">&lt;/strong&gt;</ept>, or in this tutorial, export the data to an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="028d0f28-6ccd-42ab-a540-efbb12f8c9e0" xml:space="preserve">
+          <source>The following diagram illustrates the scenario and the structure of this tutorial:</source>
+          <target state="new">The following diagram illustrates the scenario and the structure of this tutorial:</target>
+        </trans-unit>
+        <trans-unit id="09bd01b2-a22d-4218-a3d0-c0b28090de74" xml:space="preserve">
+          <source><bpt id="2a5f315d-9e59-4d68-a66a-4b0b90ba0c34">&lt;linkText&gt;</bpt>HDI.FlightDelays.flow<ept id="2a5f315d-9e59-4d68-a66a-4b0b90ba0c34">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a5f315d-9e59-4d68-a66a-4b0b90ba0c34">&lt;linkText&gt;</bpt>HDI.FlightDelays.flow<ept id="2a5f315d-9e59-4d68-a66a-4b0b90ba0c34">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03a53762-4db2-479e-8762-ce5c48e4aaf1" xml:space="preserve">
+          <source><bpt id="18939113-8867-4c67-b92c-fb408d5e1796">&lt;strong&gt;</bpt>Note<ept id="18939113-8867-4c67-b92c-fb408d5e1796">&lt;/strong&gt;</ept>: The numbers in the diagram correspond to the section titles.</source>
+          <target state="new"><bpt id="18939113-8867-4c67-b92c-fb408d5e1796">&lt;strong&gt;</bpt>Note<ept id="18939113-8867-4c67-b92c-fb408d5e1796">&lt;/strong&gt;</ept>: The numbers in the diagram correspond to the section titles.</target>
+        </trans-unit>
+        <trans-unit id="323a0a8d-9506-47f9-806c-ae95e5fc2e9a" xml:space="preserve">
+          <source>The main portion of the tutorial shows you how to use one Windows PowerShell script to perform the following:</source>
+          <target state="new">The main portion of the tutorial shows you how to use one Windows PowerShell script to perform the following:</target>
+        </trans-unit>
+        <trans-unit id="3ceedfdc-e0fd-420e-8cef-0a701dbaf49c" xml:space="preserve">
+          <source>Provision an HDInsight cluster.</source>
+          <target state="new">Provision an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="cc3c1400-c7ad-4ab6-9d03-a54719581e2c" xml:space="preserve">
+          <source>Run a Hive job on the cluster to calculate average delays at airports.</source>
+          <target state="new">Run a Hive job on the cluster to calculate average delays at airports.</target>
+        </trans-unit>
+        <trans-unit id="cc0e0c9d-5a67-47df-beb6-85bfb17f2f4e" xml:space="preserve">
+          <source>The flight delay data is stored in an Azure Blob storage account.</source>
+          <target state="new">The flight delay data is stored in an Azure Blob storage account.</target>
+        </trans-unit>
+        <trans-unit id="49f6808d-1425-488d-b405-225520d2e7c4" xml:space="preserve">
+          <source>Run a Sqoop job to export the Hive job output to an Azure SQL database.</source>
+          <target state="new">Run a Sqoop job to export the Hive job output to an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="cef64915-3dd3-4679-9b3b-373aa78dd0a0" xml:space="preserve">
+          <source>Delete the HDInsight cluster.</source>
+          <target state="new">Delete the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="68230312-6d53-4dca-99ca-b9af36208012" xml:space="preserve">
+          <source>In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.</source>
+          <target state="new">In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.</target>
+        </trans-unit>
+        <trans-unit id="17629e08-e21b-4c07-8c7d-cab0ead63756" xml:space="preserve">
+          <source>The steps in this document are specific to Windows-based HDInsight clusters.</source>
+          <target state="new">The steps in this document are specific to Windows-based HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="85c09b42-a4c6-47cc-a19d-3b1bd7b29039" xml:space="preserve">
+          <source>For steps that will work with a Linux-based cluster, see <bpt id="0df3814d-79cb-4e28-94b7-4df6db401ca7">&lt;linkText&gt;</bpt>Analyze flight delay data using Hive in HDInsight (Linux)<ept id="0df3814d-79cb-4e28-94b7-4df6db401ca7">&lt;/linkText&gt;</ept><bpt id="0df3814d-79cb-4e28-94b7-4df6db401ca7">&lt;title&gt;</bpt><ept id="0df3814d-79cb-4e28-94b7-4df6db401ca7">&lt;/title&gt;</ept></source>
+          <target state="new">For steps that will work with a Linux-based cluster, see <bpt id="0df3814d-79cb-4e28-94b7-4df6db401ca7">&lt;linkText&gt;</bpt>Analyze flight delay data using Hive in HDInsight (Linux)<ept id="0df3814d-79cb-4e28-94b7-4df6db401ca7">&lt;/linkText&gt;</ept><bpt id="0df3814d-79cb-4e28-94b7-4df6db401ca7">&lt;title&gt;</bpt><ept id="0df3814d-79cb-4e28-94b7-4df6db401ca7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2666ff4-5d1f-462e-bf9f-6a9418888e7c" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have the following:</source>
+          <target state="new">Before you begin this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="b5866ac2-3d58-445e-99dc-b9af7a8ed655" xml:space="preserve">
+          <source><bpt id="50c6d971-970c-4920-9d77-09c99e9bf8a2">&lt;strong&gt;</bpt>An Azure subscription<ept id="50c6d971-970c-4920-9d77-09c99e9bf8a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="50c6d971-970c-4920-9d77-09c99e9bf8a2">&lt;strong&gt;</bpt>An Azure subscription<ept id="50c6d971-970c-4920-9d77-09c99e9bf8a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fb7dd83-046c-44f9-a0d6-de91d6c464dd" xml:space="preserve">
+          <source>See <bpt id="5e5bd6a6-7064-4462-94bd-0f9b9f5bb9d5">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="5e5bd6a6-7064-4462-94bd-0f9b9f5bb9d5">&lt;/linkText&gt;</ept><bpt id="5e5bd6a6-7064-4462-94bd-0f9b9f5bb9d5">&lt;title&gt;</bpt><ept id="5e5bd6a6-7064-4462-94bd-0f9b9f5bb9d5">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="5e5bd6a6-7064-4462-94bd-0f9b9f5bb9d5">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="5e5bd6a6-7064-4462-94bd-0f9b9f5bb9d5">&lt;/linkText&gt;</ept><bpt id="5e5bd6a6-7064-4462-94bd-0f9b9f5bb9d5">&lt;title&gt;</bpt><ept id="5e5bd6a6-7064-4462-94bd-0f9b9f5bb9d5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="42d21ae3-4541-429d-8b7c-36f365a6f99f" xml:space="preserve">
+          <source><bpt id="f6ae1605-3659-4e0b-a6d1-53dfa1052753">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="f6ae1605-3659-4e0b-a6d1-53dfa1052753">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f6ae1605-3659-4e0b-a6d1-53dfa1052753">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="f6ae1605-3659-4e0b-a6d1-53dfa1052753">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="336c8709-52ed-4634-a95c-46278b05feb0" xml:space="preserve">
+          <source>See <bpt id="09ee18e9-a4bc-40c8-85eb-8198e820fdf7">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="09ee18e9-a4bc-40c8-85eb-8198e820fdf7">&lt;/linkText&gt;</ept><bpt id="09ee18e9-a4bc-40c8-85eb-8198e820fdf7">&lt;title&gt;</bpt><ept id="09ee18e9-a4bc-40c8-85eb-8198e820fdf7">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="09ee18e9-a4bc-40c8-85eb-8198e820fdf7">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="09ee18e9-a4bc-40c8-85eb-8198e820fdf7">&lt;/linkText&gt;</ept><bpt id="09ee18e9-a4bc-40c8-85eb-8198e820fdf7">&lt;title&gt;</bpt><ept id="09ee18e9-a4bc-40c8-85eb-8198e820fdf7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="480b3386-b43d-4835-82e0-c795ac277b0f" xml:space="preserve">
+          <source><bpt id="aa242261-3a23-47fa-b95e-92eec451841d">&lt;strong&gt;</bpt>Understand HDInsight storage<ept id="aa242261-3a23-47fa-b95e-92eec451841d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="aa242261-3a23-47fa-b95e-92eec451841d">&lt;strong&gt;</bpt>Understand HDInsight storage<ept id="aa242261-3a23-47fa-b95e-92eec451841d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f7370e6-e309-451e-a7f4-5c106cfa580d" xml:space="preserve">
+          <source>Hadoop clusters in HDInsight use Azure Blob storage for data storage.</source>
+          <target state="new">Hadoop clusters in HDInsight use Azure Blob storage for data storage.</target>
+        </trans-unit>
+        <trans-unit id="b2dcfb56-cc6f-4517-a998-e48e93a3fdbf" xml:space="preserve">
+          <source>For more information, see <bpt id="483f1d31-34ff-4968-880f-f72727d95fa6">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="483f1d31-34ff-4968-880f-f72727d95fa6">&lt;/linkText&gt;</ept><bpt id="483f1d31-34ff-4968-880f-f72727d95fa6">&lt;title&gt;</bpt><ept id="483f1d31-34ff-4968-880f-f72727d95fa6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="483f1d31-34ff-4968-880f-f72727d95fa6">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="483f1d31-34ff-4968-880f-f72727d95fa6">&lt;/linkText&gt;</ept><bpt id="483f1d31-34ff-4968-880f-f72727d95fa6">&lt;title&gt;</bpt><ept id="483f1d31-34ff-4968-880f-f72727d95fa6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f008f056-91ac-4232-98e2-d76a53b2efcb" xml:space="preserve">
+          <source>When you provision an HDInsight cluster, a Blob storage container of an Azure Storage account is designated as the default file system, just like in Hadoop Distributed File System (HDFS).</source>
+          <target state="new">When you provision an HDInsight cluster, a Blob storage container of an Azure Storage account is designated as the default file system, just like in Hadoop Distributed File System (HDFS).</target>
+        </trans-unit>
+        <trans-unit id="711da596-6921-4df3-9836-81ac991a7907" xml:space="preserve">
+          <source>This Storage account is referred to as the <bpt id="1d88c39e-2885-4323-af25-357361d50c49">&lt;em&gt;</bpt>default Storage account<ept id="1d88c39e-2885-4323-af25-357361d50c49">&lt;/em&gt;</ept>, and the Blob container is referred to as the <bpt id="7e618ca8-ef53-43ca-8507-2ecd0cd0d7a3">&lt;em&gt;</bpt>default Blob container<ept id="7e618ca8-ef53-43ca-8507-2ecd0cd0d7a3">&lt;/em&gt;</ept> or <bpt id="2b59fc56-7e07-4d59-ba2c-1e7ef5e3afdb">&lt;em&gt;</bpt>default container<ept id="2b59fc56-7e07-4d59-ba2c-1e7ef5e3afdb">&lt;/em&gt;</ept>.</source>
+          <target state="new">This Storage account is referred to as the <bpt id="1d88c39e-2885-4323-af25-357361d50c49">&lt;em&gt;</bpt>default Storage account<ept id="1d88c39e-2885-4323-af25-357361d50c49">&lt;/em&gt;</ept>, and the Blob container is referred to as the <bpt id="7e618ca8-ef53-43ca-8507-2ecd0cd0d7a3">&lt;em&gt;</bpt>default Blob container<ept id="7e618ca8-ef53-43ca-8507-2ecd0cd0d7a3">&lt;/em&gt;</ept> or <bpt id="2b59fc56-7e07-4d59-ba2c-1e7ef5e3afdb">&lt;em&gt;</bpt>default container<ept id="2b59fc56-7e07-4d59-ba2c-1e7ef5e3afdb">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf4c06df-a380-4849-9a83-634f1be0a1fb" xml:space="preserve">
+          <source>The default Storage account must be co-located in the same datacenter as the HDInsight cluster.</source>
+          <target state="new">The default Storage account must be co-located in the same datacenter as the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="487a1870-cfd2-4c59-b81d-e02eb6d3f345" xml:space="preserve">
+          <source>Deleting an HDInsight cluster does not delete the default container or the default Storage account.</source>
+          <target state="new">Deleting an HDInsight cluster does not delete the default container or the default Storage account.</target>
+        </trans-unit>
+        <trans-unit id="9f377535-0ecc-4625-8840-0dc173bc44cc" xml:space="preserve">
+          <source>In addition to the default Storage account, other Azure Storage accounts can be bound to an HDInsight cluster during the provisioning process.</source>
+          <target state="new">In addition to the default Storage account, other Azure Storage accounts can be bound to an HDInsight cluster during the provisioning process.</target>
+        </trans-unit>
+        <trans-unit id="c18d3617-997c-4229-a30b-ee5f579a5fb9" xml:space="preserve">
+          <source>The binding is to add the Storage account and Storage account key to the configuration file so the cluster can access those Storage accounts at run time.</source>
+          <target state="new">The binding is to add the Storage account and Storage account key to the configuration file so the cluster can access those Storage accounts at run time.</target>
+        </trans-unit>
+        <trans-unit id="db663e36-5a17-44fd-bbb7-f8bed322ce40" xml:space="preserve">
+          <source>For instructions on adding additional Storage accounts, see <bpt id="e95d684c-baab-44bc-9411-c3ed7bfa2f8d">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight[hdinsight-provision]<ept id="e95d684c-baab-44bc-9411-c3ed7bfa2f8d">&lt;/linkText&gt;</ept><bpt id="e95d684c-baab-44bc-9411-c3ed7bfa2f8d">&lt;title&gt;</bpt><ept id="e95d684c-baab-44bc-9411-c3ed7bfa2f8d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on adding additional Storage accounts, see <bpt id="e95d684c-baab-44bc-9411-c3ed7bfa2f8d">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight[hdinsight-provision]<ept id="e95d684c-baab-44bc-9411-c3ed7bfa2f8d">&lt;/linkText&gt;</ept><bpt id="e95d684c-baab-44bc-9411-c3ed7bfa2f8d">&lt;title&gt;</bpt><ept id="e95d684c-baab-44bc-9411-c3ed7bfa2f8d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="946ebb24-9597-4ffd-bf8a-9d655bb10c9b" xml:space="preserve">
+          <source>The Azure Blob storage syntax is:</source>
+          <target state="new">The Azure Blob storage syntax is:</target>
+        </trans-unit>
+        <trans-unit id="be779619-c2f9-49f0-98aa-9736758911fa" xml:space="preserve">
+          <source>The Blob storage path is a virtual path.</source>
+          <target state="new">The Blob storage path is a virtual path.</target>
+        </trans-unit>
+        <trans-unit id="2551d3fe-afe6-48ea-ae1b-3a8bdeeec16d" xml:space="preserve">
+          <source>For more information, see <bpt id="e96bc271-b0b4-4724-930f-aa9f4f9b3e27">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="e96bc271-b0b4-4724-930f-aa9f4f9b3e27">&lt;/linkText&gt;</ept><bpt id="e96bc271-b0b4-4724-930f-aa9f4f9b3e27">&lt;title&gt;</bpt><ept id="e96bc271-b0b4-4724-930f-aa9f4f9b3e27">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="e96bc271-b0b4-4724-930f-aa9f4f9b3e27">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="e96bc271-b0b4-4724-930f-aa9f4f9b3e27">&lt;/linkText&gt;</ept><bpt id="e96bc271-b0b4-4724-930f-aa9f4f9b3e27">&lt;title&gt;</bpt><ept id="e96bc271-b0b4-4724-930f-aa9f4f9b3e27">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef881f65-50f7-476d-a2e4-d44770e8de5e" xml:space="preserve">
+          <source>Files stored in the default container can be accessed from HDInsight by using any of the following URIs (using flightdelays.hql as an example):</source>
+          <target state="new">Files stored in the default container can be accessed from HDInsight by using any of the following URIs (using flightdelays.hql as an example):</target>
+        </trans-unit>
+        <trans-unit id="bda4845c-2d84-4436-bd29-21b0233cca6a" xml:space="preserve">
+          <source>For accessing the file directly from the Storage account, the blob name for the file is:</source>
+          <target state="new">For accessing the file directly from the Storage account, the blob name for the file is:</target>
+        </trans-unit>
+        <trans-unit id="b642dd77-4ddc-444a-a094-c9860674fafe" xml:space="preserve">
+          <source>Notice there is no "/" in the front of the blob name.</source>
+          <target state="new">Notice there is no "/" in the front of the blob name.</target>
+        </trans-unit>
+        <trans-unit id="060c1cff-c73e-408d-aabf-cab1774674b1" xml:space="preserve">
+          <source><bpt id="cb16f605-5fb8-44ca-909e-695ecc91db95">&lt;strong&gt;</bpt>Files used in this tutorial<ept id="cb16f605-5fb8-44ca-909e-695ecc91db95">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cb16f605-5fb8-44ca-909e-695ecc91db95">&lt;strong&gt;</bpt>Files used in this tutorial<ept id="cb16f605-5fb8-44ca-909e-695ecc91db95">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a983b4c3-dba4-44db-8c92-d2b80c0157e3" xml:space="preserve">
+          <source>This tutorial uses the on-time performance of airline flight data from <bpt id="703262f6-a3c4-45e2-8cea-ff3b84ecd91a">&lt;linkText&gt;</bpt>Research and Innovative Technology Administration, Bureau of Transportation Statistics or RITA[rita-website]<ept id="703262f6-a3c4-45e2-8cea-ff3b84ecd91a">&lt;/linkText&gt;</ept><bpt id="703262f6-a3c4-45e2-8cea-ff3b84ecd91a">&lt;title&gt;</bpt><ept id="703262f6-a3c4-45e2-8cea-ff3b84ecd91a">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial uses the on-time performance of airline flight data from <bpt id="703262f6-a3c4-45e2-8cea-ff3b84ecd91a">&lt;linkText&gt;</bpt>Research and Innovative Technology Administration, Bureau of Transportation Statistics or RITA[rita-website]<ept id="703262f6-a3c4-45e2-8cea-ff3b84ecd91a">&lt;/linkText&gt;</ept><bpt id="703262f6-a3c4-45e2-8cea-ff3b84ecd91a">&lt;title&gt;</bpt><ept id="703262f6-a3c4-45e2-8cea-ff3b84ecd91a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30cfb4b5-27b9-4f3d-a3a1-045fb4ca259e" xml:space="preserve">
+          <source>The data has been uploaded to an Azure Blob storage container with the Public Blob access permission.</source>
+          <target state="new">The data has been uploaded to an Azure Blob storage container with the Public Blob access permission.</target>
+        </trans-unit>
+        <trans-unit id="43931ca8-e339-4e04-a454-8cb1fb4a6e7c" xml:space="preserve">
+          <source>Because it is a public Blob container, you do not need to bind this Storage account to the HDInsight cluster running the Hive script.</source>
+          <target state="new">Because it is a public Blob container, you do not need to bind this Storage account to the HDInsight cluster running the Hive script.</target>
+        </trans-unit>
+        <trans-unit id="28124357-decb-4f74-916c-1c62202cc6ec" xml:space="preserve">
+          <source>The HiveQL script is also uploaded to the same Blob container.</source>
+          <target state="new">The HiveQL script is also uploaded to the same Blob container.</target>
+        </trans-unit>
+        <trans-unit id="286066fc-bd9b-4f4a-8793-9063ed31c6d6" xml:space="preserve">
+          <source>If you want to learn how to get/upload the data to your own Storage account, and how to create/upload the HiveQL script file, see <bpt id="71728e09-e7e7-4d6e-b73f-ccf3226e74c4">&lt;linkText&gt;</bpt>Appendix A<ept id="71728e09-e7e7-4d6e-b73f-ccf3226e74c4">&lt;/linkText&gt;</ept><bpt id="71728e09-e7e7-4d6e-b73f-ccf3226e74c4">&lt;title&gt;</bpt><ept id="71728e09-e7e7-4d6e-b73f-ccf3226e74c4">&lt;/title&gt;</ept> and <bpt id="bf4ff00c-de93-4714-b519-0371f887669a">&lt;linkText&gt;</bpt>Appendix B<ept id="bf4ff00c-de93-4714-b519-0371f887669a">&lt;/linkText&gt;</ept><bpt id="bf4ff00c-de93-4714-b519-0371f887669a">&lt;title&gt;</bpt><ept id="bf4ff00c-de93-4714-b519-0371f887669a">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to learn how to get/upload the data to your own Storage account, and how to create/upload the HiveQL script file, see <bpt id="71728e09-e7e7-4d6e-b73f-ccf3226e74c4">&lt;linkText&gt;</bpt>Appendix A<ept id="71728e09-e7e7-4d6e-b73f-ccf3226e74c4">&lt;/linkText&gt;</ept><bpt id="71728e09-e7e7-4d6e-b73f-ccf3226e74c4">&lt;title&gt;</bpt><ept id="71728e09-e7e7-4d6e-b73f-ccf3226e74c4">&lt;/title&gt;</ept> and <bpt id="bf4ff00c-de93-4714-b519-0371f887669a">&lt;linkText&gt;</bpt>Appendix B<ept id="bf4ff00c-de93-4714-b519-0371f887669a">&lt;/linkText&gt;</ept><bpt id="bf4ff00c-de93-4714-b519-0371f887669a">&lt;title&gt;</bpt><ept id="bf4ff00c-de93-4714-b519-0371f887669a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4506e80-31ca-40ac-b480-9ffd524fc512" xml:space="preserve">
+          <source>The following table lists the files used in this tutorial:</source>
+          <target state="new">The following table lists the files used in this tutorial:</target>
+        </trans-unit>
+        <trans-unit id="cb3a29a2-6243-4e4a-ab83-ed9a6751c816" xml:space="preserve">
+          <source>Files</source>
+          <target state="new">Files</target>
+        </trans-unit>
+        <trans-unit id="9df41488-7271-4401-8887-93d596435470" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="94527430-27d9-4df4-bb56-ebb496618e94" xml:space="preserve">
+          <source>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</source>
+          <target state="new">wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</target>
+        </trans-unit>
+        <trans-unit id="2aa147e5-bbb6-4272-a9cd-f6dbbd3f4bdc" xml:space="preserve">
+          <source>The HiveQL script file used by the Hive job that you will run. This script has been uploaded to an Azure Blob storage account with the public access. </source>
+          <target state="new">The HiveQL script file used by the Hive job that you will run. This script has been uploaded to an Azure Blob storage account with the public access. </target>
+        </trans-unit>
+        <trans-unit id="8ecf9860-b844-4bd2-996a-7b7db9d676b7" xml:space="preserve">
+          <source>Appendix B</source>
+          <target state="new">Appendix B</target>
+        </trans-unit>
+        <trans-unit id="d26412c8-b674-434e-a6ec-3255f4350560" xml:space="preserve">
+          <source> has instructions on preparing and uploading this file to your own Azure Blob storage account.</source>
+          <target state="new"> has instructions on preparing and uploading this file to your own Azure Blob storage account.</target>
+        </trans-unit>
+        <trans-unit id="fb2f5448-9188-4c30-bf47-11f14e699900" xml:space="preserve">
+          <source>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</source>
+          <target state="new">wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</target>
+        </trans-unit>
+        <trans-unit id="4d31e217-f765-4b88-9c67-fc16cb72f8ec" xml:space="preserve">
+          <source>Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. </source>
+          <target state="new">Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. </target>
+        </trans-unit>
+        <trans-unit id="cdeae5cc-40b6-45f7-a550-9b1553f2fb85" xml:space="preserve">
+          <source>Appendix A</source>
+          <target state="new">Appendix A</target>
+        </trans-unit>
+        <trans-unit id="976aacc0-bcdc-404b-81f2-55897f646703" xml:space="preserve">
+          <source> has instructions on getting the data and uploading the data to your own Azure Blob storage account.</source>
+          <target state="new"> has instructions on getting the data and uploading the data to your own Azure Blob storage account.</target>
+        </trans-unit>
+        <trans-unit id="86568ec9-b29f-4ec8-95ed-1ea8ecd930a8" xml:space="preserve">
+          <source>\tutorials\flightdelays\output</source>
+          <target state="new">\tutorials\flightdelays\output</target>
+        </trans-unit>
+        <trans-unit id="0a9f9d05-ee6c-4903-b355-ab11de8f0e5e" xml:space="preserve">
+          <source>The output path for the Hive job. The default container is used for storing the output data.</source>
+          <target state="new">The output path for the Hive job. The default container is used for storing the output data.</target>
+        </trans-unit>
+        <trans-unit id="5c127037-618e-403e-a240-8e6baa47dfb5" xml:space="preserve">
+          <source>\tutorials\flightdelays\jobstatus</source>
+          <target state="new">\tutorials\flightdelays\jobstatus</target>
+        </trans-unit>
+        <trans-unit id="ffb96342-b835-4610-b90a-226c4130f8bf" xml:space="preserve">
+          <source>The Hive job status folder on the default container.</source>
+          <target state="new">The Hive job status folder on the default container.</target>
+        </trans-unit>
+        <trans-unit id="6abfdfc7-8b7e-4af6-81c0-42946f6ed4d7" xml:space="preserve">
+          <source><bpt id="4b75ba3d-711f-4339-bc98-4e09da04142c">&lt;strong&gt;</bpt>Understand the Hive internal table and external table<ept id="4b75ba3d-711f-4339-bc98-4e09da04142c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4b75ba3d-711f-4339-bc98-4e09da04142c">&lt;strong&gt;</bpt>Understand the Hive internal table and external table<ept id="4b75ba3d-711f-4339-bc98-4e09da04142c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2d4446c-5fb6-478d-8714-6ec4cb2e2cc7" xml:space="preserve">
+          <source>There are a few things you need to know about the Hive internal table and external table:</source>
+          <target state="new">There are a few things you need to know about the Hive internal table and external table:</target>
+        </trans-unit>
+        <trans-unit id="ef31b0ca-60e3-4d06-8915-78f13d45180b" xml:space="preserve">
+          <source>The <bpt id="ed98faf4-9694-44ff-8803-aaf826d0aef7">&lt;strong&gt;</bpt>CREATE TABLE<ept id="ed98faf4-9694-44ff-8803-aaf826d0aef7">&lt;/strong&gt;</ept> command creates an internal table.</source>
+          <target state="new">The <bpt id="ed98faf4-9694-44ff-8803-aaf826d0aef7">&lt;strong&gt;</bpt>CREATE TABLE<ept id="ed98faf4-9694-44ff-8803-aaf826d0aef7">&lt;/strong&gt;</ept> command creates an internal table.</target>
+        </trans-unit>
+        <trans-unit id="b97c0d6b-3cda-4ae3-8beb-3da348f11eec" xml:space="preserve">
+          <source>The data file must be located in the default container.</source>
+          <target state="new">The data file must be located in the default container.</target>
+        </trans-unit>
+        <trans-unit id="e07ff66c-954d-402f-98e2-0f1dd90af0e4" xml:space="preserve">
+          <source>The <bpt id="92ccc391-d9b1-4a92-9176-cb50f824a489">&lt;strong&gt;</bpt>CREATE TABLE<ept id="92ccc391-d9b1-4a92-9176-cb50f824a489">&lt;/strong&gt;</ept> command moves the data file to the /hive/warehouse/&lt;TableName&gt; folder.</source>
+          <target state="new">The <bpt id="92ccc391-d9b1-4a92-9176-cb50f824a489">&lt;strong&gt;</bpt>CREATE TABLE<ept id="92ccc391-d9b1-4a92-9176-cb50f824a489">&lt;/strong&gt;</ept> command moves the data file to the /hive/warehouse/&lt;TableName&gt; folder.</target>
+        </trans-unit>
+        <trans-unit id="39755964-b0b3-4f53-a919-8e3b67cb06a7" xml:space="preserve">
+          <source>The <bpt id="21ba8dbb-f3af-4542-a645-5e8eceed085f">&lt;strong&gt;</bpt>CREATE EXTERNAL TABLE<ept id="21ba8dbb-f3af-4542-a645-5e8eceed085f">&lt;/strong&gt;</ept> command creates an external table.</source>
+          <target state="new">The <bpt id="21ba8dbb-f3af-4542-a645-5e8eceed085f">&lt;strong&gt;</bpt>CREATE EXTERNAL TABLE<ept id="21ba8dbb-f3af-4542-a645-5e8eceed085f">&lt;/strong&gt;</ept> command creates an external table.</target>
+        </trans-unit>
+        <trans-unit id="4b4f12dc-7aad-4d76-aedc-2cf7415a8edb" xml:space="preserve">
+          <source>The data file can be located outside the default container.</source>
+          <target state="new">The data file can be located outside the default container.</target>
+        </trans-unit>
+        <trans-unit id="b14aec81-bd56-486c-979c-7367464f13fd" xml:space="preserve">
+          <source>The <bpt id="1fe68877-7363-4885-b200-b00b1c1a25ff">&lt;strong&gt;</bpt>CREATE EXTERNAL TABLE<ept id="1fe68877-7363-4885-b200-b00b1c1a25ff">&lt;/strong&gt;</ept> command does not move the data file.</source>
+          <target state="new">The <bpt id="1fe68877-7363-4885-b200-b00b1c1a25ff">&lt;strong&gt;</bpt>CREATE EXTERNAL TABLE<ept id="1fe68877-7363-4885-b200-b00b1c1a25ff">&lt;/strong&gt;</ept> command does not move the data file.</target>
+        </trans-unit>
+        <trans-unit id="4f1e610b-602b-479a-bb4d-abcf7c7908b1" xml:space="preserve">
+          <source>The <bpt id="6f6b1d41-0ba6-485e-9806-7387cacec2dd">&lt;strong&gt;</bpt>CREATE EXTERNAL TABLE<ept id="6f6b1d41-0ba6-485e-9806-7387cacec2dd">&lt;/strong&gt;</ept> command doesn't allow any folders in the LOCATION.</source>
+          <target state="new">The <bpt id="6f6b1d41-0ba6-485e-9806-7387cacec2dd">&lt;strong&gt;</bpt>CREATE EXTERNAL TABLE<ept id="6f6b1d41-0ba6-485e-9806-7387cacec2dd">&lt;/strong&gt;</ept> command doesn't allow any folders in the LOCATION.</target>
+        </trans-unit>
+        <trans-unit id="d1398548-eed5-498e-aa0e-d1e1f5cede35" xml:space="preserve">
+          <source>This is the reason why the tutorial makes a copy of the sample.log file.</source>
+          <target state="new">This is the reason why the tutorial makes a copy of the sample.log file.</target>
+        </trans-unit>
+        <trans-unit id="2c879145-51b3-4152-adc6-8fc3f0377e63" xml:space="preserve">
+          <source>For more information, see <bpt id="af161161-2267-46dc-8a98-eb41295cf73f">&lt;linkText&gt;</bpt>HDInsight: Hive Internal and External Tables Intro[cindygross-hive-tables]<ept id="af161161-2267-46dc-8a98-eb41295cf73f">&lt;/linkText&gt;</ept><bpt id="af161161-2267-46dc-8a98-eb41295cf73f">&lt;title&gt;</bpt><ept id="af161161-2267-46dc-8a98-eb41295cf73f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="af161161-2267-46dc-8a98-eb41295cf73f">&lt;linkText&gt;</bpt>HDInsight: Hive Internal and External Tables Intro[cindygross-hive-tables]<ept id="af161161-2267-46dc-8a98-eb41295cf73f">&lt;/linkText&gt;</ept><bpt id="af161161-2267-46dc-8a98-eb41295cf73f">&lt;title&gt;</bpt><ept id="af161161-2267-46dc-8a98-eb41295cf73f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc8fe2d9-22fe-4f77-bf55-75105958aa18" xml:space="preserve">
+          <source>One of the HiveQL statements creates a Hive external table.</source>
+          <target state="new">One of the HiveQL statements creates a Hive external table.</target>
+        </trans-unit>
+        <trans-unit id="e951cdf3-ae65-4c5b-ad2b-0597bcc5d313" xml:space="preserve">
+          <source>The Hive external table keeps the data file in the original location.</source>
+          <target state="new">The Hive external table keeps the data file in the original location.</target>
+        </trans-unit>
+        <trans-unit id="245db5db-0264-415b-9586-df02dec736aa" xml:space="preserve">
+          <source>The Hive internal table moves the data file to hive\warehouse.</source>
+          <target state="new">The Hive internal table moves the data file to hive\warehouse.</target>
+        </trans-unit>
+        <trans-unit id="9cf77f01-3d27-4f37-a560-f74478f68962" xml:space="preserve">
+          <source>The Hive internal table requires the data file to be located in the default container.</source>
+          <target state="new">The Hive internal table requires the data file to be located in the default container.</target>
+        </trans-unit>
+        <trans-unit id="57bbcb5e-823d-4af4-a03b-502cd6c0f39d" xml:space="preserve">
+          <source>For data stored outside the default Blob container, you must use Hive external tables.</source>
+          <target state="new">For data stored outside the default Blob container, you must use Hive external tables.</target>
+        </trans-unit>
+        <trans-unit id="054b7a94-e19b-4639-be83-557fdd64cf1b" xml:space="preserve">
+          <source>Hadoop MapReduce is batch processing.</source>
+          <target state="new">Hadoop MapReduce is batch processing.</target>
+        </trans-unit>
+        <trans-unit id="2da38af9-09ec-4b50-8b76-00165998c8f9" xml:space="preserve">
+          <source>The most cost-effective way to run a Hive job is to provision a cluster for the job, and delete the job after the job is completed.</source>
+          <target state="new">The most cost-effective way to run a Hive job is to provision a cluster for the job, and delete the job after the job is completed.</target>
+        </trans-unit>
+        <trans-unit id="5470b536-85f4-4866-a092-00f5b8ceb27b" xml:space="preserve">
+          <source>The following script covers the whole process.</source>
+          <target state="new">The following script covers the whole process.</target>
+        </trans-unit>
+        <trans-unit id="09792ee8-c9e1-4054-9d64-a64672e2cee1" xml:space="preserve">
+          <source>For more information on provisioning an HDInsight cluster and running Hive jobs, see <bpt id="de4c2084-b9ed-42a8-b30d-ce6ba02612b9">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight[hdinsight-provision]<ept id="de4c2084-b9ed-42a8-b30d-ce6ba02612b9">&lt;/linkText&gt;</ept><bpt id="de4c2084-b9ed-42a8-b30d-ce6ba02612b9">&lt;title&gt;</bpt><ept id="de4c2084-b9ed-42a8-b30d-ce6ba02612b9">&lt;/title&gt;</ept> and <bpt id="339588f9-5c12-42b1-b953-8c06a61e2e9f">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="339588f9-5c12-42b1-b953-8c06a61e2e9f">&lt;/linkText&gt;</ept><bpt id="339588f9-5c12-42b1-b953-8c06a61e2e9f">&lt;title&gt;</bpt><ept id="339588f9-5c12-42b1-b953-8c06a61e2e9f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on provisioning an HDInsight cluster and running Hive jobs, see <bpt id="de4c2084-b9ed-42a8-b30d-ce6ba02612b9">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight[hdinsight-provision]<ept id="de4c2084-b9ed-42a8-b30d-ce6ba02612b9">&lt;/linkText&gt;</ept><bpt id="de4c2084-b9ed-42a8-b30d-ce6ba02612b9">&lt;title&gt;</bpt><ept id="de4c2084-b9ed-42a8-b30d-ce6ba02612b9">&lt;/title&gt;</ept> and <bpt id="339588f9-5c12-42b1-b953-8c06a61e2e9f">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="339588f9-5c12-42b1-b953-8c06a61e2e9f">&lt;/linkText&gt;</ept><bpt id="339588f9-5c12-42b1-b953-8c06a61e2e9f">&lt;title&gt;</bpt><ept id="339588f9-5c12-42b1-b953-8c06a61e2e9f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e61d3ea-2105-414b-828e-d212ab941e85" xml:space="preserve">
+          <source><bpt id="b893dd1f-b34a-496c-a727-6f0df698705b">&lt;strong&gt;</bpt>To run the Hive queries by using Windows PowerShell<ept id="b893dd1f-b34a-496c-a727-6f0df698705b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b893dd1f-b34a-496c-a727-6f0df698705b">&lt;strong&gt;</bpt>To run the Hive queries by using Windows PowerShell<ept id="b893dd1f-b34a-496c-a727-6f0df698705b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06013ed7-8d01-4e83-aa83-0ab72abd5740" xml:space="preserve">
+          <source>Create an Azure SQL database and the table for the Sqoop job output by using the instructions in <bpt id="2e61bf52-ad86-44e1-a804-a824a2433cd5">&lt;linkText&gt;</bpt>Appendix C<ept id="2e61bf52-ad86-44e1-a804-a824a2433cd5">&lt;/linkText&gt;</ept><bpt id="2e61bf52-ad86-44e1-a804-a824a2433cd5">&lt;title&gt;</bpt><ept id="2e61bf52-ad86-44e1-a804-a824a2433cd5">&lt;/title&gt;</ept>.</source>
+          <target state="new">Create an Azure SQL database and the table for the Sqoop job output by using the instructions in <bpt id="2e61bf52-ad86-44e1-a804-a824a2433cd5">&lt;linkText&gt;</bpt>Appendix C<ept id="2e61bf52-ad86-44e1-a804-a824a2433cd5">&lt;/linkText&gt;</ept><bpt id="2e61bf52-ad86-44e1-a804-a824a2433cd5">&lt;title&gt;</bpt><ept id="2e61bf52-ad86-44e1-a804-a824a2433cd5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ef0199d-f8c6-4cbf-8144-d855dea1a43a" xml:space="preserve">
+          <source>Prepare the parameters:</source>
+          <target state="new">Prepare the parameters:</target>
+        </trans-unit>
+        <trans-unit id="ab426201-01ef-4138-9544-0911793a3e7b" xml:space="preserve">
+          <source>Variable Name</source>
+          <target state="new">Variable Name</target>
+        </trans-unit>
+        <trans-unit id="aa4641d0-a8c9-4383-98cb-d4bf684bc0be" xml:space="preserve">
+          <source>Notes</source>
+          <target state="new">Notes</target>
+        </trans-unit>
+        <trans-unit id="72855e78-0e34-49be-aa71-5f59f74e9cd2" xml:space="preserve">
+          <source>$hdinsightClusterName</source>
+          <target state="new">$hdinsightClusterName</target>
+        </trans-unit>
+        <trans-unit id="a5216495-f20d-4eb8-94bd-759c48c5d915" xml:space="preserve">
+          <source>The HDInsight cluster name. If the cluster doesn't exist, the script will create one with the name entered.</source>
+          <target state="new">The HDInsight cluster name. If the cluster doesn't exist, the script will create one with the name entered.</target>
+        </trans-unit>
+        <trans-unit id="b5824cad-e670-451c-9eb7-754cf3355d12" xml:space="preserve">
+          <source>$storageAccountName</source>
+          <target state="new">$storageAccountName</target>
+        </trans-unit>
+        <trans-unit id="fe6c335b-83ff-4423-b2ad-86c7d3363046" xml:space="preserve">
+          <source>The Azure Storage account that will be used as the default Storage account. This value is needed only when the script needs to create an HDInsight cluster. Leave it blank if you have specified an existing HDInsight cluster name for $hdinsightClusterName. If the Storage account with the value entered doesn't exist, the script will create one with the name.</source>
+          <target state="new">The Azure Storage account that will be used as the default Storage account. This value is needed only when the script needs to create an HDInsight cluster. Leave it blank if you have specified an existing HDInsight cluster name for $hdinsightClusterName. If the Storage account with the value entered doesn't exist, the script will create one with the name.</target>
+        </trans-unit>
+        <trans-unit id="940330df-e674-477d-a995-6a9a24c13235" xml:space="preserve">
+          <source>$blobContainerName</source>
+          <target state="new">$blobContainerName</target>
+        </trans-unit>
+        <trans-unit id="5721e84d-aa5b-4f7f-9270-b62c5c2a6414" xml:space="preserve">
+          <source>The Blob container that will be used for the default file system. If you leave it blank, the $hdinsightClusterName value will be used. </source>
+          <target state="new">The Blob container that will be used for the default file system. If you leave it blank, the $hdinsightClusterName value will be used. </target>
+        </trans-unit>
+        <trans-unit id="412a2cde-3696-405c-b049-e0c1e95f993b" xml:space="preserve">
+          <source>$sqlDatabaseServerName</source>
+          <target state="new">$sqlDatabaseServerName</target>
+        </trans-unit>
+        <trans-unit id="d3cbcb99-19d9-440f-853d-d55eb27545a5" xml:space="preserve">
+          <source>The Azure SQL database server name. It has to be an existing server. See </source>
+          <target state="new">The Azure SQL database server name. It has to be an existing server. See </target>
+        </trans-unit>
+        <trans-unit id="fd33c646-e598-46a2-9339-11801d809182" xml:space="preserve">
+          <source>Appendix C</source>
+          <target state="new">Appendix C</target>
+        </trans-unit>
+        <trans-unit id="368ea27f-fbb5-4c14-aa4f-d1664239e110" xml:space="preserve">
+          <source> for information about creating one.</source>
+          <target state="new"> for information about creating one.</target>
+        </trans-unit>
+        <trans-unit id="7d27ba89-61dd-4156-b2cb-4b9fa67fc547" xml:space="preserve">
+          <source>$sqlDatabaseUsername</source>
+          <target state="new">$sqlDatabaseUsername</target>
+        </trans-unit>
+        <trans-unit id="886d0e4d-940d-4e7c-a5b5-e4bcbbdbe146" xml:space="preserve">
+          <source>The login name for the Azure SQL database server.</source>
+          <target state="new">The login name for the Azure SQL database server.</target>
+        </trans-unit>
+        <trans-unit id="ed618184-23ce-40cc-b09b-ccf4e307a2d0" xml:space="preserve">
+          <source>$sqlDatabasePassword</source>
+          <target state="new">$sqlDatabasePassword</target>
+        </trans-unit>
+        <trans-unit id="db9e5de7-8e79-4efd-be7d-1ac62f01b883" xml:space="preserve">
+          <source>The login password for the Azure SQL database server.</source>
+          <target state="new">The login password for the Azure SQL database server.</target>
+        </trans-unit>
+        <trans-unit id="835fbee5-a642-4c75-8b0c-0eb321b97a9d" xml:space="preserve">
+          <source>$sqlDatabaseName</source>
+          <target state="new">$sqlDatabaseName</target>
+        </trans-unit>
+        <trans-unit id="f764ab6b-d95c-4008-b7c1-30f3809cbaf9" xml:space="preserve">
+          <source>The SQL database where Sqoop will export data to. The default name is HDISqoop. The table name for the Sqoop job output is AvgDelays. </source>
+          <target state="new">The SQL database where Sqoop will export data to. The default name is HDISqoop. The table name for the Sqoop job output is AvgDelays. </target>
+        </trans-unit>
+        <trans-unit id="f164a020-161a-4d34-9b3f-c20308d3240a" xml:space="preserve">
+          <source>Open Windows PowerShell Integrated Scripting Environment (ISE).</source>
+          <target state="new">Open Windows PowerShell Integrated Scripting Environment (ISE).</target>
+        </trans-unit>
+        <trans-unit id="6b58763d-ce57-4f6e-b06f-1af50462f356" xml:space="preserve">
+          <source>Copy and paste the following script into the script pane:</source>
+          <target state="new">Copy and paste the following script into the script pane:</target>
+        </trans-unit>
+        <trans-unit id="b0989f66-4c1d-4de4-849a-2a13f14ee56c" xml:space="preserve">
+          <source>Press <bpt id="9170d77d-77f5-46c8-8eb3-423e06e009a1">&lt;strong&gt;</bpt>F5<ept id="9170d77d-77f5-46c8-8eb3-423e06e009a1">&lt;/strong&gt;</ept> to run the script.</source>
+          <target state="new">Press <bpt id="9170d77d-77f5-46c8-8eb3-423e06e009a1">&lt;strong&gt;</bpt>F5<ept id="9170d77d-77f5-46c8-8eb3-423e06e009a1">&lt;/strong&gt;</ept> to run the script.</target>
+        </trans-unit>
+        <trans-unit id="9710d7bb-bb47-419c-a524-4b422948840c" xml:space="preserve">
+          <source>The output shall be similar to:</source>
+          <target state="new">The output shall be similar to:</target>
+        </trans-unit>
+        <trans-unit id="77fe0b63-d440-46bf-8c5e-95ba63cc2ea5" xml:space="preserve">
+          <source><bpt id="08ed734b-6294-499e-91d2-e541a6e7a3ec">&lt;linkText&gt;</bpt>HDI.FlightDelays.RunHiveJob.output<ept id="08ed734b-6294-499e-91d2-e541a6e7a3ec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="08ed734b-6294-499e-91d2-e541a6e7a3ec">&lt;linkText&gt;</bpt>HDI.FlightDelays.RunHiveJob.output<ept id="08ed734b-6294-499e-91d2-e541a6e7a3ec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd5981fe-17d1-40da-8a8f-7c674ae7fb70" xml:space="preserve">
+          <source>Connect to your SQL database and see average flight delays by city in the AvgDelays table:</source>
+          <target state="new">Connect to your SQL database and see average flight delays by city in the AvgDelays table:</target>
+        </trans-unit>
+        <trans-unit id="3dbf11e9-4bef-42d6-bb56-bd24eaac170c" xml:space="preserve">
+          <source><bpt id="a45fd295-c091-40f1-abc3-7d046abe8418">&lt;linkText&gt;</bpt>HDI.FlightDelays.AvgDelays.Dataset<ept id="a45fd295-c091-40f1-abc3-7d046abe8418">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a45fd295-c091-40f1-abc3-7d046abe8418">&lt;linkText&gt;</bpt>HDI.FlightDelays.AvgDelays.Dataset<ept id="a45fd295-c091-40f1-abc3-7d046abe8418">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d0bf3bb-7100-49ee-84ba-c6829ddb04c2" xml:space="preserve">
+          <source>Uploading the data file and the HiveQL script files (see <bpt id="501d1726-afac-4da7-9226-cf1aa0380203">&lt;linkText&gt;</bpt>Appendix B<ept id="501d1726-afac-4da7-9226-cf1aa0380203">&lt;/linkText&gt;</ept><bpt id="501d1726-afac-4da7-9226-cf1aa0380203">&lt;title&gt;</bpt><ept id="501d1726-afac-4da7-9226-cf1aa0380203">&lt;/title&gt;</ept>) requires some planning.</source>
+          <target state="new">Uploading the data file and the HiveQL script files (see <bpt id="501d1726-afac-4da7-9226-cf1aa0380203">&lt;linkText&gt;</bpt>Appendix B<ept id="501d1726-afac-4da7-9226-cf1aa0380203">&lt;/linkText&gt;</ept><bpt id="501d1726-afac-4da7-9226-cf1aa0380203">&lt;title&gt;</bpt><ept id="501d1726-afac-4da7-9226-cf1aa0380203">&lt;/title&gt;</ept>) requires some planning.</target>
+        </trans-unit>
+        <trans-unit id="4f14f24f-c765-4a27-be83-4f7bc7117cff" xml:space="preserve">
+          <source>The idea is to store the data files and the HiveQL file before provisioning an HDInsight cluster and running the Hive job.</source>
+          <target state="new">The idea is to store the data files and the HiveQL file before provisioning an HDInsight cluster and running the Hive job.</target>
+        </trans-unit>
+        <trans-unit id="4e2925e7-a0d6-4495-b1a5-bb2771c861b3" xml:space="preserve">
+          <source>You have two options:</source>
+          <target state="new">You have two options:</target>
+        </trans-unit>
+        <trans-unit id="79a31076-18c6-4613-8209-86f903966f16" xml:space="preserve">
+          <source><bpt id="052bc4bf-dbf3-4908-b42a-7f9a898ac028">&lt;strong&gt;</bpt>Use the same Azure Storage account that will be used by the HDInsight cluster as the default file system.<ept id="052bc4bf-dbf3-4908-b42a-7f9a898ac028">&lt;/strong&gt;</ept> Because the HDInsight cluster will have the Storage account access key, you don't need to make any additional changes.</source>
+          <target state="new"><bpt id="052bc4bf-dbf3-4908-b42a-7f9a898ac028">&lt;strong&gt;</bpt>Use the same Azure Storage account that will be used by the HDInsight cluster as the default file system.<ept id="052bc4bf-dbf3-4908-b42a-7f9a898ac028">&lt;/strong&gt;</ept> Because the HDInsight cluster will have the Storage account access key, you don't need to make any additional changes.</target>
+        </trans-unit>
+        <trans-unit id="0b772702-246e-4276-a03e-e15d5cb394b6" xml:space="preserve">
+          <source><bpt id="3f969a32-1b79-4ee6-9dcd-e4cbb5287a41">&lt;strong&gt;</bpt>Use a different Azure Storage account from the HDInsight cluster default file system.<ept id="3f969a32-1b79-4ee6-9dcd-e4cbb5287a41">&lt;/strong&gt;</ept> If this is the case, you must modify the provisioning part of the Windows PowerShell script found in <bpt id="11e7fedf-daae-4743-b6f9-1a73d538dbef">&lt;linkText&gt;</bpt>Provision HDInsight cluster and run Hive/Sqoop jobs<ept id="11e7fedf-daae-4743-b6f9-1a73d538dbef">&lt;/linkText&gt;</ept><bpt id="11e7fedf-daae-4743-b6f9-1a73d538dbef">&lt;title&gt;</bpt><ept id="11e7fedf-daae-4743-b6f9-1a73d538dbef">&lt;/title&gt;</ept> to include the Storage account as an additional Storage account.</source>
+          <target state="new"><bpt id="3f969a32-1b79-4ee6-9dcd-e4cbb5287a41">&lt;strong&gt;</bpt>Use a different Azure Storage account from the HDInsight cluster default file system.<ept id="3f969a32-1b79-4ee6-9dcd-e4cbb5287a41">&lt;/strong&gt;</ept> If this is the case, you must modify the provisioning part of the Windows PowerShell script found in <bpt id="11e7fedf-daae-4743-b6f9-1a73d538dbef">&lt;linkText&gt;</bpt>Provision HDInsight cluster and run Hive/Sqoop jobs<ept id="11e7fedf-daae-4743-b6f9-1a73d538dbef">&lt;/linkText&gt;</ept><bpt id="11e7fedf-daae-4743-b6f9-1a73d538dbef">&lt;title&gt;</bpt><ept id="11e7fedf-daae-4743-b6f9-1a73d538dbef">&lt;/title&gt;</ept> to include the Storage account as an additional Storage account.</target>
+        </trans-unit>
+        <trans-unit id="2c390c45-a14c-49c2-a77b-a7da05fd71b1" xml:space="preserve">
+          <source>For instructions, see <bpt id="be648c37-48dd-407e-9423-b445434f4d92">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight[hdinsight-provision]<ept id="be648c37-48dd-407e-9423-b445434f4d92">&lt;/linkText&gt;</ept><bpt id="be648c37-48dd-407e-9423-b445434f4d92">&lt;title&gt;</bpt><ept id="be648c37-48dd-407e-9423-b445434f4d92">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="be648c37-48dd-407e-9423-b445434f4d92">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight[hdinsight-provision]<ept id="be648c37-48dd-407e-9423-b445434f4d92">&lt;/linkText&gt;</ept><bpt id="be648c37-48dd-407e-9423-b445434f4d92">&lt;title&gt;</bpt><ept id="be648c37-48dd-407e-9423-b445434f4d92">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8dcefc22-74e9-4126-bc0a-5fe81282b025" xml:space="preserve">
+          <source>The HDInsight cluster then knows the access key for the Storage account.</source>
+          <target state="new">The HDInsight cluster then knows the access key for the Storage account.</target>
+        </trans-unit>
+        <trans-unit id="6cd92092-a31e-4b20-b571-afecb70b6f32" xml:space="preserve">
+          <source>The Blob storage path for the data file is hard coded in the HiveQL script file.</source>
+          <target state="new">The Blob storage path for the data file is hard coded in the HiveQL script file.</target>
+        </trans-unit>
+        <trans-unit id="4b5df35c-8df5-43ad-a56f-bd03f4100f72" xml:space="preserve">
+          <source>You must update it accordingly.</source>
+          <target state="new">You must update it accordingly.</target>
+        </trans-unit>
+        <trans-unit id="dd22fce4-3222-4e48-9bea-7323d5b4415a" xml:space="preserve">
+          <source><bpt id="bd60dbed-5c21-4a31-857d-02ee9a864d3a">&lt;strong&gt;</bpt>To download the flight data<ept id="bd60dbed-5c21-4a31-857d-02ee9a864d3a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bd60dbed-5c21-4a31-857d-02ee9a864d3a">&lt;strong&gt;</bpt>To download the flight data<ept id="bd60dbed-5c21-4a31-857d-02ee9a864d3a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a6fccda-0ed6-44a5-954f-19838c73d38a" xml:space="preserve">
+          <source>Browse to <bpt id="7c48e917-3d6a-419b-8a98-2f745b62a242">&lt;linkText&gt;</bpt>Research and Innovative Technology Administration, Bureau of Transportation Statistics[rita-website]<ept id="7c48e917-3d6a-419b-8a98-2f745b62a242">&lt;/linkText&gt;</ept><bpt id="7c48e917-3d6a-419b-8a98-2f745b62a242">&lt;title&gt;</bpt><ept id="7c48e917-3d6a-419b-8a98-2f745b62a242">&lt;/title&gt;</ept>.</source>
+          <target state="new">Browse to <bpt id="7c48e917-3d6a-419b-8a98-2f745b62a242">&lt;linkText&gt;</bpt>Research and Innovative Technology Administration, Bureau of Transportation Statistics[rita-website]<ept id="7c48e917-3d6a-419b-8a98-2f745b62a242">&lt;/linkText&gt;</ept><bpt id="7c48e917-3d6a-419b-8a98-2f745b62a242">&lt;title&gt;</bpt><ept id="7c48e917-3d6a-419b-8a98-2f745b62a242">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30c82553-fcf1-42ce-9a59-6f2b31e71c4f" xml:space="preserve">
+          <source>On the page, select the following values:</source>
+          <target state="new">On the page, select the following values:</target>
+        </trans-unit>
+        <trans-unit id="9488b324-3331-4511-afc4-3ada905c71a2" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="ab7d55c5-be2e-49e0-8e11-4f48e7bddce9" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="284ce323-5727-4409-8384-5502f0ff01ef" xml:space="preserve">
+          <source>Filter Year</source>
+          <target state="new">Filter Year</target>
+        </trans-unit>
+        <trans-unit id="0ad50362-b149-4cc7-9500-2f1b160e74d4" xml:space="preserve">
+          <source>2013 </source>
+          <target state="new">2013 </target>
+        </trans-unit>
+        <trans-unit id="36e0047c-8524-4589-86ff-6cee9d6d7309" xml:space="preserve">
+          <source>Filter Period</source>
+          <target state="new">Filter Period</target>
+        </trans-unit>
+        <trans-unit id="278e67da-3946-4cb2-a327-9e97e50b62d7" xml:space="preserve">
+          <source>January</source>
+          <target state="new">January</target>
+        </trans-unit>
+        <trans-unit id="b6844b98-a8c9-4a35-8811-28ef1f23e83f" xml:space="preserve">
+          <source>Fields</source>
+          <target state="new">Fields</target>
+        </trans-unit>
+        <trans-unit id="86af53cc-3c09-40af-b45b-b4b2d745e402" xml:space="preserve">
+          <source>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</source>
+          <target state="new">*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</target>
+        </trans-unit>
+        <trans-unit id="9853c6be-9fa7-41ab-9df3-0e641c11d54d" xml:space="preserve">
+          <source>Click <bpt id="61353a1b-921a-4420-bf06-bf50eee30d32">&lt;strong&gt;</bpt>Download<ept id="61353a1b-921a-4420-bf06-bf50eee30d32">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="61353a1b-921a-4420-bf06-bf50eee30d32">&lt;strong&gt;</bpt>Download<ept id="61353a1b-921a-4420-bf06-bf50eee30d32">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9759f984-3272-41c5-8f18-da2f1eb005ea" xml:space="preserve">
+          <source>Unzip the file to the <bpt id="4dd60439-4aff-4a4e-be4d-bd320326b9af">&lt;strong&gt;</bpt>C:\Tutorials\FlightDelays\Data<ept id="4dd60439-4aff-4a4e-be4d-bd320326b9af">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">Unzip the file to the <bpt id="4dd60439-4aff-4a4e-be4d-bd320326b9af">&lt;strong&gt;</bpt>C:\Tutorials\FlightDelays\Data<ept id="4dd60439-4aff-4a4e-be4d-bd320326b9af">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="719379d6-59f1-4158-b476-b021c95b1f85" xml:space="preserve">
+          <source>Each file is a CSV file and is approximately 60GB in size.</source>
+          <target state="new">Each file is a CSV file and is approximately 60GB in size.</target>
+        </trans-unit>
+        <trans-unit id="bca5f7aa-784b-4178-9507-98dd0e2782a8" xml:space="preserve">
+          <source>Rename the file to the name of the month that it contains data for.</source>
+          <target state="new">Rename the file to the name of the month that it contains data for.</target>
+        </trans-unit>
+        <trans-unit id="1ed0505f-bb93-4471-a92e-825d75348f10" xml:space="preserve">
+          <source>For example, the file containing the January data would be named <bpt id="ccd6011c-6b59-4f11-a77f-6f44654c97c1">&lt;em&gt;</bpt>January.csv<ept id="ccd6011c-6b59-4f11-a77f-6f44654c97c1">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, the file containing the January data would be named <bpt id="ccd6011c-6b59-4f11-a77f-6f44654c97c1">&lt;em&gt;</bpt>January.csv<ept id="ccd6011c-6b59-4f11-a77f-6f44654c97c1">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51335774-7288-4554-9e2b-bd4b3548669f" xml:space="preserve">
+          <source>Repeat steps 2 and 5 to download a file for each of the 12 months in 2013.</source>
+          <target state="new">Repeat steps 2 and 5 to download a file for each of the 12 months in 2013.</target>
+        </trans-unit>
+        <trans-unit id="8393353c-376e-424c-b177-7681309fc3c6" xml:space="preserve">
+          <source>You will need a minimum of one file to run the tutorial.</source>
+          <target state="new">You will need a minimum of one file to run the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="ee72f208-9ab8-4930-a3e5-337a243a51ec" xml:space="preserve">
+          <source><bpt id="77a1fd22-b0c8-4c72-b396-54e9c98d4f55">&lt;strong&gt;</bpt>To upload the flight delay data to Azure Blob storage<ept id="77a1fd22-b0c8-4c72-b396-54e9c98d4f55">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="77a1fd22-b0c8-4c72-b396-54e9c98d4f55">&lt;strong&gt;</bpt>To upload the flight delay data to Azure Blob storage<ept id="77a1fd22-b0c8-4c72-b396-54e9c98d4f55">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="768cdcb4-a4fe-40bc-a1ae-97121d7acfeb" xml:space="preserve">
+          <source>Prepare the parameters:</source>
+          <target state="new">Prepare the parameters:</target>
+        </trans-unit>
+        <trans-unit id="c633ea54-3bf0-446b-b5ac-772903e60316" xml:space="preserve">
+          <source>Variable Name</source>
+          <target state="new">Variable Name</target>
+        </trans-unit>
+        <trans-unit id="cf8e24f9-1c41-48dc-a84a-1bdf03a02d33" xml:space="preserve">
+          <source>Notes</source>
+          <target state="new">Notes</target>
+        </trans-unit>
+        <trans-unit id="12f2ed96-e232-4b1a-a10c-e65c85ae54ee" xml:space="preserve">
+          <source>$storageAccountName</source>
+          <target state="new">$storageAccountName</target>
+        </trans-unit>
+        <trans-unit id="4eec8704-5d4c-44b0-8d45-c83069f7d382" xml:space="preserve">
+          <source>The Azure Storage account where you want to upload the data to.</source>
+          <target state="new">The Azure Storage account where you want to upload the data to.</target>
+        </trans-unit>
+        <trans-unit id="afd5af45-5aef-43bf-81b2-34faa2328b16" xml:space="preserve">
+          <source>$blobContainerName</source>
+          <target state="new">$blobContainerName</target>
+        </trans-unit>
+        <trans-unit id="bf099ea6-1410-4dc0-9370-e06412a61671" xml:space="preserve">
+          <source>The Blob container where you want to upload the data to.</source>
+          <target state="new">The Blob container where you want to upload the data to.</target>
+        </trans-unit>
+        <trans-unit id="47c82fad-77bc-424b-a932-ddd8926439dc" xml:space="preserve">
+          <source>Open Azure PowerShell ISE.</source>
+          <target state="new">Open Azure PowerShell ISE.</target>
+        </trans-unit>
+        <trans-unit id="36bba720-9181-467f-9dfd-2ba31388243f" xml:space="preserve">
+          <source>Paste the following script into the script pane:</source>
+          <target state="new">Paste the following script into the script pane:</target>
+        </trans-unit>
+        <trans-unit id="15eb858c-9b0a-4472-81b8-45132e5adc50" xml:space="preserve">
+          <source>Press <bpt id="7721231c-b342-456a-b19f-6af3372b983b">&lt;strong&gt;</bpt>F5<ept id="7721231c-b342-456a-b19f-6af3372b983b">&lt;/strong&gt;</ept> to run the script.</source>
+          <target state="new">Press <bpt id="7721231c-b342-456a-b19f-6af3372b983b">&lt;strong&gt;</bpt>F5<ept id="7721231c-b342-456a-b19f-6af3372b983b">&lt;/strong&gt;</ept> to run the script.</target>
+        </trans-unit>
+        <trans-unit id="db22a9d5-81f8-42f3-bb54-8c5fa6c9588d" xml:space="preserve">
+          <source>If you choose to use a different method for uploading the files, please make sure the file path is tutorials/flightdelays/data.</source>
+          <target state="new">If you choose to use a different method for uploading the files, please make sure the file path is tutorials/flightdelays/data.</target>
+        </trans-unit>
+        <trans-unit id="4cb1d1c1-c933-40d9-8e0b-fd73b080390c" xml:space="preserve">
+          <source>The syntax for accessing the files is:</source>
+          <target state="new">The syntax for accessing the files is:</target>
+        </trans-unit>
+        <trans-unit id="ad26a87d-9354-4ebd-acaf-7c3b1fcee10b" xml:space="preserve">
+          <source>The path tutorials/flightdelays/data is the virtual folder you created when you uploaded the files.</source>
+          <target state="new">The path tutorials/flightdelays/data is the virtual folder you created when you uploaded the files.</target>
+        </trans-unit>
+        <trans-unit id="a1790608-ba99-4ea6-9e4b-002c064978a6" xml:space="preserve">
+          <source>Verify that there are 12 files, one for each month.</source>
+          <target state="new">Verify that there are 12 files, one for each month.</target>
+        </trans-unit>
+        <trans-unit id="c83dcf25-cc64-4dcc-bda5-1641cdb59c90" xml:space="preserve">
+          <source>You must update the Hive query to read from the new location.</source>
+          <target state="new">You must update the Hive query to read from the new location.</target>
+        </trans-unit>
+        <trans-unit id="18707695-a2a9-4175-b9bd-b9dccddc3fc8" xml:space="preserve">
+          <source>You must either configure the container access permission to be public or bind the Storage account to the HDInsight cluster.</source>
+          <target state="new">You must either configure the container access permission to be public or bind the Storage account to the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="24141f7a-0531-41c7-ab86-3f40f3892e2b" xml:space="preserve">
+          <source>Otherwise, the Hive query string will not be able to access the data files.</source>
+          <target state="new">Otherwise, the Hive query string will not be able to access the data files.</target>
+        </trans-unit>
+        <trans-unit id="6e5895b4-8218-439c-861d-17854c98e8e9" xml:space="preserve">
+          <source>Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file.</source>
+          <target state="new">Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file.</target>
+        </trans-unit>
+        <trans-unit id="86164093-a359-4d7a-896f-cb2d7ebe6bdc" xml:space="preserve">
+          <source>This section shows you how to create a HiveQL script and upload the script to Azure Blob storage by using Azure PowerShell.</source>
+          <target state="new">This section shows you how to create a HiveQL script and upload the script to Azure Blob storage by using Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="9d917811-6689-4885-947a-2c0b1eba5553" xml:space="preserve">
+          <source>Hive requires the HiveQL scripts to be stored in Azure Blob storage.</source>
+          <target state="new">Hive requires the HiveQL scripts to be stored in Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="dea650f7-96d5-4138-a25e-1b604fc64e28" xml:space="preserve">
+          <source>The HiveQL script will perform the following:</source>
+          <target state="new">The HiveQL script will perform the following:</target>
+        </trans-unit>
+        <trans-unit id="7ed6e607-a5f5-4dd6-8de0-b406ad268b72" xml:space="preserve">
+          <source><bpt id="82e98715-f949-494f-9a11-cc4159474cda">&lt;strong&gt;</bpt>Drop the delays_raw table<ept id="82e98715-f949-494f-9a11-cc4159474cda">&lt;/strong&gt;</ept>, in case the table already exists.</source>
+          <target state="new"><bpt id="82e98715-f949-494f-9a11-cc4159474cda">&lt;strong&gt;</bpt>Drop the delays_raw table<ept id="82e98715-f949-494f-9a11-cc4159474cda">&lt;/strong&gt;</ept>, in case the table already exists.</target>
+        </trans-unit>
+        <trans-unit id="e9de733a-ddf5-4279-adbd-ad7e8e1f80c2" xml:space="preserve">
+          <source><bpt id="a37919a2-a75e-4eb2-8c86-1ddbdf802653">&lt;strong&gt;</bpt>Create the delays_raw external Hive table<ept id="a37919a2-a75e-4eb2-8c86-1ddbdf802653">&lt;/strong&gt;</ept> pointing to the Blob storage location with the flight delay files.</source>
+          <target state="new"><bpt id="a37919a2-a75e-4eb2-8c86-1ddbdf802653">&lt;strong&gt;</bpt>Create the delays_raw external Hive table<ept id="a37919a2-a75e-4eb2-8c86-1ddbdf802653">&lt;/strong&gt;</ept> pointing to the Blob storage location with the flight delay files.</target>
+        </trans-unit>
+        <trans-unit id="f327d6c2-f1c2-470f-9947-26b61d689e00" xml:space="preserve">
+          <source>This query specifies that fields are delimited by "," and that lines are terminated by "\n".</source>
+          <target state="new">This query specifies that fields are delimited by "," and that lines are terminated by "\n".</target>
+        </trans-unit>
+        <trans-unit id="90fa4429-a2ea-4062-bcb7-0cacf89b4289" xml:space="preserve">
+          <source>This poses a problem when field values contain commas because Hive cannot differentiate between a comma that is a field delimiter and a one that is part of a field value (which is the case in field values for ORIGIN\<bpt id="a6f510f8-bd05-4fc2-ba83-75094b1bb637">&lt;em&gt;</bpt>CITY\<ept id="a6f510f8-bd05-4fc2-ba83-75094b1bb637">&lt;/em&gt;</ept>NAME and DEST\<bpt id="14fbfee4-00d3-47a6-97ec-e119176d1431">&lt;em&gt;</bpt>CITY\<ept id="14fbfee4-00d3-47a6-97ec-e119176d1431">&lt;/em&gt;</ept>NAME).</source>
+          <target state="new">This poses a problem when field values contain commas because Hive cannot differentiate between a comma that is a field delimiter and a one that is part of a field value (which is the case in field values for ORIGIN\<bpt id="a6f510f8-bd05-4fc2-ba83-75094b1bb637">&lt;em&gt;</bpt>CITY\<ept id="a6f510f8-bd05-4fc2-ba83-75094b1bb637">&lt;/em&gt;</ept>NAME and DEST\<bpt id="14fbfee4-00d3-47a6-97ec-e119176d1431">&lt;em&gt;</bpt>CITY\<ept id="14fbfee4-00d3-47a6-97ec-e119176d1431">&lt;/em&gt;</ept>NAME).</target>
+        </trans-unit>
+        <trans-unit id="d0b1789c-f833-4d37-b1c6-bf8590c6ae7f" xml:space="preserve">
+          <source>To address this, the query creates TEMP columns to hold data that is incorrectly split into columns.</source>
+          <target state="new">To address this, the query creates TEMP columns to hold data that is incorrectly split into columns.</target>
+        </trans-unit>
+        <trans-unit id="903a057c-8010-44e6-9f70-1c978c23d6e5" xml:space="preserve">
+          <source><bpt id="c52e5227-6703-481f-b368-cdebc8d011c0">&lt;strong&gt;</bpt>Drop the delays table<ept id="c52e5227-6703-481f-b368-cdebc8d011c0">&lt;/strong&gt;</ept>, in case the table already exists.</source>
+          <target state="new"><bpt id="c52e5227-6703-481f-b368-cdebc8d011c0">&lt;strong&gt;</bpt>Drop the delays table<ept id="c52e5227-6703-481f-b368-cdebc8d011c0">&lt;/strong&gt;</ept>, in case the table already exists.</target>
+        </trans-unit>
+        <trans-unit id="f550f7b6-27b3-45dc-b038-2bfa290eb92d" xml:space="preserve">
+          <source><bpt id="7659e619-d066-4532-8236-afa3b6712ad0">&lt;strong&gt;</bpt>Create the delays table<ept id="7659e619-d066-4532-8236-afa3b6712ad0">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="7659e619-d066-4532-8236-afa3b6712ad0">&lt;strong&gt;</bpt>Create the delays table<ept id="7659e619-d066-4532-8236-afa3b6712ad0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9be5ab2a-757f-4f6b-8601-3c15af665798" xml:space="preserve">
+          <source>It is helpful to clean up the data before further processing.</source>
+          <target state="new">It is helpful to clean up the data before further processing.</target>
+        </trans-unit>
+        <trans-unit id="d3c2b7ed-b5fa-4ffb-bd08-edc0eac3ec92" xml:space="preserve">
+          <source>This query creates a new table, <bpt id="24a78d0d-6eb4-4454-9b27-421640e224ff">&lt;em&gt;</bpt>delays<ept id="24a78d0d-6eb4-4454-9b27-421640e224ff">&lt;/em&gt;</ept>, from the delays_raw table.</source>
+          <target state="new">This query creates a new table, <bpt id="24a78d0d-6eb4-4454-9b27-421640e224ff">&lt;em&gt;</bpt>delays<ept id="24a78d0d-6eb4-4454-9b27-421640e224ff">&lt;/em&gt;</ept>, from the delays_raw table.</target>
+        </trans-unit>
+        <trans-unit id="a63a7634-e0a4-4a85-ac6f-8b2cf30f6280" xml:space="preserve">
+          <source>Note that the TEMP columns (as mentioned previously) are not copied, and that the <bpt id="ad0013ff-8f41-43e6-81a1-aa184b4e22ee">&lt;strong&gt;</bpt>substring<ept id="ad0013ff-8f41-43e6-81a1-aa184b4e22ee">&lt;/strong&gt;</ept> function is used to remove quotation marks from the data.</source>
+          <target state="new">Note that the TEMP columns (as mentioned previously) are not copied, and that the <bpt id="ad0013ff-8f41-43e6-81a1-aa184b4e22ee">&lt;strong&gt;</bpt>substring<ept id="ad0013ff-8f41-43e6-81a1-aa184b4e22ee">&lt;/strong&gt;</ept> function is used to remove quotation marks from the data.</target>
+        </trans-unit>
+        <trans-unit id="95bf445b-fbe3-4de2-9c94-b7cbab8f9f1d" xml:space="preserve">
+          <source><bpt id="183063da-14af-49c5-949c-ccf1d589dc44">&lt;strong&gt;</bpt>Compute the average weather delay and groups the results by city name.<ept id="183063da-14af-49c5-949c-ccf1d589dc44">&lt;/strong&gt;</ept> It will also output the results to Blob storage.</source>
+          <target state="new"><bpt id="183063da-14af-49c5-949c-ccf1d589dc44">&lt;strong&gt;</bpt>Compute the average weather delay and groups the results by city name.<ept id="183063da-14af-49c5-949c-ccf1d589dc44">&lt;/strong&gt;</ept> It will also output the results to Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="99af4d1f-da28-47e6-bc7f-f17c26f5f11c" xml:space="preserve">
+          <source>Note that the query will remove apostrophes from the data and will exclude rows where the value for <bpt id="4f5e7a0d-ad26-47dc-a4e1-bb801944659d">&lt;strong&gt;</bpt>weather_delay<ept id="4f5e7a0d-ad26-47dc-a4e1-bb801944659d">&lt;/strong&gt;</ept> is null.</source>
+          <target state="new">Note that the query will remove apostrophes from the data and will exclude rows where the value for <bpt id="4f5e7a0d-ad26-47dc-a4e1-bb801944659d">&lt;strong&gt;</bpt>weather_delay<ept id="4f5e7a0d-ad26-47dc-a4e1-bb801944659d">&lt;/strong&gt;</ept> is null.</target>
+        </trans-unit>
+        <trans-unit id="6ab7c2a0-353d-4050-8847-f707367ad8fa" xml:space="preserve">
+          <source>This is necessary because Sqoop, used later in this tutorial, doesn't handle those values gracefully by default.</source>
+          <target state="new">This is necessary because Sqoop, used later in this tutorial, doesn't handle those values gracefully by default.</target>
+        </trans-unit>
+        <trans-unit id="474f8122-55ed-4d82-89ab-9f17f3a84c92" xml:space="preserve">
+          <source>For a full list of the HiveQL commands, see <bpt id="d4042322-7bc0-4335-bdff-94232ca861e1">&lt;linkText&gt;</bpt>Hive Data Definition Language[hadoop-hiveql]<ept id="d4042322-7bc0-4335-bdff-94232ca861e1">&lt;/linkText&gt;</ept><bpt id="d4042322-7bc0-4335-bdff-94232ca861e1">&lt;title&gt;</bpt><ept id="d4042322-7bc0-4335-bdff-94232ca861e1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a full list of the HiveQL commands, see <bpt id="d4042322-7bc0-4335-bdff-94232ca861e1">&lt;linkText&gt;</bpt>Hive Data Definition Language[hadoop-hiveql]<ept id="d4042322-7bc0-4335-bdff-94232ca861e1">&lt;/linkText&gt;</ept><bpt id="d4042322-7bc0-4335-bdff-94232ca861e1">&lt;title&gt;</bpt><ept id="d4042322-7bc0-4335-bdff-94232ca861e1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca703dc5-53b9-4c22-bfdf-3cb6c9adbc92" xml:space="preserve">
+          <source>Each HiveQL command must terminate with a semicolon.</source>
+          <target state="new">Each HiveQL command must terminate with a semicolon.</target>
+        </trans-unit>
+        <trans-unit id="e4e662de-08cd-41f3-8f27-aaf835cb671a" xml:space="preserve">
+          <source><bpt id="5f7a47d0-9a3d-49dd-b8c0-de81c2eee090">&lt;strong&gt;</bpt>To create a HiveQL script file<ept id="5f7a47d0-9a3d-49dd-b8c0-de81c2eee090">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5f7a47d0-9a3d-49dd-b8c0-de81c2eee090">&lt;strong&gt;</bpt>To create a HiveQL script file<ept id="5f7a47d0-9a3d-49dd-b8c0-de81c2eee090">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7764be21-6df7-4165-b428-9f0eae719c23" xml:space="preserve">
+          <source>Prepare the parameters:</source>
+          <target state="new">Prepare the parameters:</target>
+        </trans-unit>
+        <trans-unit id="be511f65-8913-43e0-8186-e50b3b34ad47" xml:space="preserve">
+          <source>Variable Name</source>
+          <target state="new">Variable Name</target>
+        </trans-unit>
+        <trans-unit id="22c30f6f-b790-491e-8f4c-e616653fdaf9" xml:space="preserve">
+          <source>Notes</source>
+          <target state="new">Notes</target>
+        </trans-unit>
+        <trans-unit id="28ea8264-21ca-484e-8cde-812fd3d6d314" xml:space="preserve">
+          <source>$storageAccountName</source>
+          <target state="new">$storageAccountName</target>
+        </trans-unit>
+        <trans-unit id="86ca8ec4-d46b-4ed6-89d1-86675f40283a" xml:space="preserve">
+          <source>The Azure Storage account where you want to upload the HiveQL script to.</source>
+          <target state="new">The Azure Storage account where you want to upload the HiveQL script to.</target>
+        </trans-unit>
+        <trans-unit id="1ba6a497-ee7b-4cfa-9531-08f1aea378a9" xml:space="preserve">
+          <source>$blobContainerName</source>
+          <target state="new">$blobContainerName</target>
+        </trans-unit>
+        <trans-unit id="2f822447-eb22-4c9b-a361-fe6a9eda216e" xml:space="preserve">
+          <source>The Blob container where you want to upload the HiveQL script to.</source>
+          <target state="new">The Blob container where you want to upload the HiveQL script to.</target>
+        </trans-unit>
+        <trans-unit id="1f4908f2-bf23-42ed-b39c-51735a0ec586" xml:space="preserve">
+          <source>Open Azure PowerShell ISE.</source>
+          <target state="new">Open Azure PowerShell ISE.</target>
+        </trans-unit>
+        <trans-unit id="666a4843-62f6-4132-b8ce-c89ac239fc8d" xml:space="preserve">
+          <source>Copy and paste the following script into the script pane:</source>
+          <target state="new">Copy and paste the following script into the script pane:</target>
+        </trans-unit>
+        <trans-unit id="31b961e6-e41a-4a8d-a2c5-b05a1a556912" xml:space="preserve">
+          <source>Here are the variables used in the script:</source>
+          <target state="new">Here are the variables used in the script:</target>
+        </trans-unit>
+        <trans-unit id="2d759f13-247d-457f-aa30-174c083e2a73" xml:space="preserve">
+          <source><bpt id="02be1bc0-8b2f-47eb-bdb8-54efd2e9a39e">&lt;strong&gt;</bpt>$hqlLocalFileName<ept id="02be1bc0-8b2f-47eb-bdb8-54efd2e9a39e">&lt;/strong&gt;</ept> - The script saves the HiveQL script file locally before uploading it to Blob storage.</source>
+          <target state="new"><bpt id="02be1bc0-8b2f-47eb-bdb8-54efd2e9a39e">&lt;strong&gt;</bpt>$hqlLocalFileName<ept id="02be1bc0-8b2f-47eb-bdb8-54efd2e9a39e">&lt;/strong&gt;</ept> - The script saves the HiveQL script file locally before uploading it to Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="047925d0-8ece-42ff-ae73-08cba6128390" xml:space="preserve">
+          <source>This is the file name.</source>
+          <target state="new">This is the file name.</target>
+        </trans-unit>
+        <trans-unit id="695b9fa8-c151-479a-af7d-7aa06a6c0653" xml:space="preserve">
+          <source>The default value is &lt;u&gt;C:\tutorials\flightdelays\flightdelays.hql&lt;/u&gt;.</source>
+          <target state="new">The default value is &lt;u&gt;C:\tutorials\flightdelays\flightdelays.hql&lt;/u&gt;.</target>
+        </trans-unit>
+        <trans-unit id="05fd48a9-3903-46cd-96bc-5cd8f74e03c8" xml:space="preserve">
+          <source><bpt id="eb1aa1a1-e519-444b-aa22-7f2968d228f0">&lt;strong&gt;</bpt>$hqlBlobName<ept id="eb1aa1a1-e519-444b-aa22-7f2968d228f0">&lt;/strong&gt;</ept> - This is the HiveQL script file blob name used in the Azure Blob storage.</source>
+          <target state="new"><bpt id="eb1aa1a1-e519-444b-aa22-7f2968d228f0">&lt;strong&gt;</bpt>$hqlBlobName<ept id="eb1aa1a1-e519-444b-aa22-7f2968d228f0">&lt;/strong&gt;</ept> - This is the HiveQL script file blob name used in the Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="a703a03d-27ad-4811-b4cf-cc1735019d7f" xml:space="preserve">
+          <source>The default value is tutorials/flightdelays/flightdelays.hql.</source>
+          <target state="new">The default value is tutorials/flightdelays/flightdelays.hql.</target>
+        </trans-unit>
+        <trans-unit id="e4357cfe-ee01-4f96-bfd7-f47bc78b7135" xml:space="preserve">
+          <source>Because the file will be written directly to Azure Blob storage, there is NOT a "/" at the beginning of the blob name.</source>
+          <target state="new">Because the file will be written directly to Azure Blob storage, there is NOT a "/" at the beginning of the blob name.</target>
+        </trans-unit>
+        <trans-unit id="598971bf-7c85-44bb-af57-b4e107e3000f" xml:space="preserve">
+          <source>If you want to access the file from Blob storage, you will need to add a "/" at the beginning of the file name.</source>
+          <target state="new">If you want to access the file from Blob storage, you will need to add a "/" at the beginning of the file name.</target>
+        </trans-unit>
+        <trans-unit id="d136630e-a989-4c92-8e46-4333657a850c" xml:space="preserve">
+          <source><bpt id="60b94f97-ba0b-4174-91c9-eea2651760e7">&lt;strong&gt;</bpt>$srcDataFolder<ept id="60b94f97-ba0b-4174-91c9-eea2651760e7">&lt;/strong&gt;</ept> and <bpt id="4ecbe61d-eaa0-4ffd-93a7-cefebd777388">&lt;strong&gt;</bpt>$dstDataFolder<ept id="4ecbe61d-eaa0-4ffd-93a7-cefebd777388">&lt;/strong&gt;</ept> - = "tutorials/flightdelays/data"
+= "tutorials/flightdelays/output"</source>
+          <target state="new"><bpt id="60b94f97-ba0b-4174-91c9-eea2651760e7">&lt;strong&gt;</bpt>$srcDataFolder<ept id="60b94f97-ba0b-4174-91c9-eea2651760e7">&lt;/strong&gt;</ept> and <bpt id="4ecbe61d-eaa0-4ffd-93a7-cefebd777388">&lt;strong&gt;</bpt>$dstDataFolder<ept id="4ecbe61d-eaa0-4ffd-93a7-cefebd777388">&lt;/strong&gt;</ept> - = "tutorials/flightdelays/data"
+= "tutorials/flightdelays/output"</target>
+        </trans-unit>
+        <trans-unit id="9809f29d-57e8-468b-abdb-c2452c4e5d19" xml:space="preserve">
+          <source><bpt id="ffbc52a6-1b74-47d6-9f0f-f48146cdc4b6">&lt;strong&gt;</bpt>To prepare the SQL database (merge this with the Sqoop script)<ept id="ffbc52a6-1b74-47d6-9f0f-f48146cdc4b6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ffbc52a6-1b74-47d6-9f0f-f48146cdc4b6">&lt;strong&gt;</bpt>To prepare the SQL database (merge this with the Sqoop script)<ept id="ffbc52a6-1b74-47d6-9f0f-f48146cdc4b6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9fab52d5-0ac5-4532-97ce-d72bdf84ba68" xml:space="preserve">
+          <source>Prepare the parameters:</source>
+          <target state="new">Prepare the parameters:</target>
+        </trans-unit>
+        <trans-unit id="4411ce4e-5096-4da8-8974-f5da65381b52" xml:space="preserve">
+          <source>Variable Name</source>
+          <target state="new">Variable Name</target>
+        </trans-unit>
+        <trans-unit id="b221dbdd-efcf-466e-8836-1cdb0c0b9127" xml:space="preserve">
+          <source>Notes</source>
+          <target state="new">Notes</target>
+        </trans-unit>
+        <trans-unit id="09c902c9-1f0e-4edd-9523-94a2d86e8ba1" xml:space="preserve">
+          <source>$sqlDatabaseServerName</source>
+          <target state="new">$sqlDatabaseServerName</target>
+        </trans-unit>
+        <trans-unit id="cb2e52ba-ef98-4931-88a8-ca71c558d62c" xml:space="preserve">
+          <source>The name of the Azure SQL database server. Enter nothing to create a new server.</source>
+          <target state="new">The name of the Azure SQL database server. Enter nothing to create a new server.</target>
+        </trans-unit>
+        <trans-unit id="8000b394-4a8c-45d5-8f60-cedb6c571589" xml:space="preserve">
+          <source>$sqlDatabaseUsername</source>
+          <target state="new">$sqlDatabaseUsername</target>
+        </trans-unit>
+        <trans-unit id="525145c9-710a-48c2-b025-abd0de320a7f" xml:space="preserve">
+          <source>The login name for the Azure SQL database server. If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server. Otherwise they are used to create a new server.</source>
+          <target state="new">The login name for the Azure SQL database server. If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server. Otherwise they are used to create a new server.</target>
+        </trans-unit>
+        <trans-unit id="7d47af17-efa9-47d0-ad96-011862d62b2f" xml:space="preserve">
+          <source>$sqlDatabasePassword</source>
+          <target state="new">$sqlDatabasePassword</target>
+        </trans-unit>
+        <trans-unit id="89ea8ecb-d760-461b-8a5a-1f59464063b3" xml:space="preserve">
+          <source>The login password for the Azure SQL database server.</source>
+          <target state="new">The login password for the Azure SQL database server.</target>
+        </trans-unit>
+        <trans-unit id="c72483dc-9a26-484d-8a8d-e599e4fb9e46" xml:space="preserve">
+          <source>$sqlDatabaseLocation</source>
+          <target state="new">$sqlDatabaseLocation</target>
+        </trans-unit>
+        <trans-unit id="1c7151f8-b888-487f-807e-c7cb6d4bcdfc" xml:space="preserve">
+          <source>This value is used only when you're creating a new Azure database server.</source>
+          <target state="new">This value is used only when you're creating a new Azure database server.</target>
+        </trans-unit>
+        <trans-unit id="02741caa-0f8b-449e-8d6d-2c85520b7c30" xml:space="preserve">
+          <source>$sqlDatabaseName</source>
+          <target state="new">$sqlDatabaseName</target>
+        </trans-unit>
+        <trans-unit id="2f85582d-2f97-4099-ae3a-0b669224d9dd" xml:space="preserve">
+          <source>The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays. </source>
+          <target state="new">The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays. </target>
+        </trans-unit>
+        <trans-unit id="5db3a936-cd7d-4c69-9963-4716c3cb8293" xml:space="preserve">
+          <source>Open Azure PowerShell ISE.</source>
+          <target state="new">Open Azure PowerShell ISE.</target>
+        </trans-unit>
+        <trans-unit id="693ff67a-fea3-4970-9063-af84b8d56cda" xml:space="preserve">
+          <source>Copy and paste the following script into the script pane:</source>
+          <target state="new">Copy and paste the following script into the script pane:</target>
+        </trans-unit>
+        <trans-unit id="408bd4dd-9373-4f53-830d-42d28e08bad2" xml:space="preserve">
+          <source>The script uses a representational state transfer (REST) service, http://bot.whatismyipaddress.com, to retrieve your external IP address.</source>
+          <target state="new">The script uses a representational state transfer (REST) service, http://bot.whatismyipaddress.com, to retrieve your external IP address.</target>
+        </trans-unit>
+        <trans-unit id="ee16f200-65f9-4205-a17a-d10a51caa8b2" xml:space="preserve">
+          <source>The IP address is used for creating a firewall rule for your SQL database server.</source>
+          <target state="new">The IP address is used for creating a firewall rule for your SQL database server.</target>
+        </trans-unit>
+        <trans-unit id="ca81ebb4-7260-4754-81e9-5c061426f9a2" xml:space="preserve">
+          <source>Here are some variables used in the script:</source>
+          <target state="new">Here are some variables used in the script:</target>
+        </trans-unit>
+        <trans-unit id="917b794f-1dfb-4716-a874-e95cc3be2fb0" xml:space="preserve">
+          <source><bpt id="9e7b369c-6d63-4de6-9a83-caae55f9e1d3">&lt;strong&gt;</bpt>$ipAddressRestService<ept id="9e7b369c-6d63-4de6-9a83-caae55f9e1d3">&lt;/strong&gt;</ept> - The default value is http://bot.whatismyipaddress.com.</source>
+          <target state="new"><bpt id="9e7b369c-6d63-4de6-9a83-caae55f9e1d3">&lt;strong&gt;</bpt>$ipAddressRestService<ept id="9e7b369c-6d63-4de6-9a83-caae55f9e1d3">&lt;/strong&gt;</ept> - The default value is http://bot.whatismyipaddress.com.</target>
+        </trans-unit>
+        <trans-unit id="bc0045db-b515-4514-86a2-89100ba4dce6" xml:space="preserve">
+          <source>It is a public IP address REST service for getting your external IP address.</source>
+          <target state="new">It is a public IP address REST service for getting your external IP address.</target>
+        </trans-unit>
+        <trans-unit id="a0065a51-f653-4b24-9ba8-a437f0804fae" xml:space="preserve">
+          <source>You can use other services if you want.</source>
+          <target state="new">You can use other services if you want.</target>
+        </trans-unit>
+        <trans-unit id="ed0be153-a34f-4362-9355-dc29d446764e" xml:space="preserve">
+          <source>The external IP address retrieved through the service will be used to create a firewall rule for your Azure SQL database server, so that you can access the database from your workstation (by using a Windows PowerShell script).</source>
+          <target state="new">The external IP address retrieved through the service will be used to create a firewall rule for your Azure SQL database server, so that you can access the database from your workstation (by using a Windows PowerShell script).</target>
+        </trans-unit>
+        <trans-unit id="ef542e2f-2970-43af-b92e-f02e7c83f65d" xml:space="preserve">
+          <source><bpt id="81468899-1d42-4830-a661-4ac93342b8bc">&lt;strong&gt;</bpt>$fireWallRuleName<ept id="81468899-1d42-4830-a661-4ac93342b8bc">&lt;/strong&gt;</ept> - This is the name of the firewall rule for the Azure SQL database server.</source>
+          <target state="new"><bpt id="81468899-1d42-4830-a661-4ac93342b8bc">&lt;strong&gt;</bpt>$fireWallRuleName<ept id="81468899-1d42-4830-a661-4ac93342b8bc">&lt;/strong&gt;</ept> - This is the name of the firewall rule for the Azure SQL database server.</target>
+        </trans-unit>
+        <trans-unit id="f5ddaeda-370a-4006-be44-ca6d762e27ad" xml:space="preserve">
+          <source>The default name is &lt;u&gt;FlightDelay&lt;/u&gt;.</source>
+          <target state="new">The default name is &lt;u&gt;FlightDelay&lt;/u&gt;.</target>
+        </trans-unit>
+        <trans-unit id="966bb682-0f78-4231-baa2-fed1c58cc200" xml:space="preserve">
+          <source>You can rename it if you want.</source>
+          <target state="new">You can rename it if you want.</target>
+        </trans-unit>
+        <trans-unit id="d159770c-519d-47fa-9842-382d18fc8ebc" xml:space="preserve">
+          <source><bpt id="dbbb1e64-5c1b-41e1-8018-cd69e6484810">&lt;strong&gt;</bpt>$sqlDatabaseMaxSizeGB<ept id="dbbb1e64-5c1b-41e1-8018-cd69e6484810">&lt;/strong&gt;</ept> - This value is used only when you're creating a new Azure SQL database server.</source>
+          <target state="new"><bpt id="dbbb1e64-5c1b-41e1-8018-cd69e6484810">&lt;strong&gt;</bpt>$sqlDatabaseMaxSizeGB<ept id="dbbb1e64-5c1b-41e1-8018-cd69e6484810">&lt;/strong&gt;</ept> - This value is used only when you're creating a new Azure SQL database server.</target>
+        </trans-unit>
+        <trans-unit id="ef16498f-9741-40e4-b720-c90ec2d56701" xml:space="preserve">
+          <source>The default value is 10GB.</source>
+          <target state="new">The default value is 10GB.</target>
+        </trans-unit>
+        <trans-unit id="cb73ff46-5d22-4d79-87e9-9ab271ae0172" xml:space="preserve">
+          <source>10GB is sufficient for this tutorial.</source>
+          <target state="new">10GB is sufficient for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="a6f43750-9376-4adb-add3-fdea02da9bad" xml:space="preserve">
+          <source><bpt id="055c50d5-3018-4266-b511-43cba4b503f5">&lt;strong&gt;</bpt>$sqlDatabaseName<ept id="055c50d5-3018-4266-b511-43cba4b503f5">&lt;/strong&gt;</ept> - This value is used only when you're creating a new Azure SQL database.</source>
+          <target state="new"><bpt id="055c50d5-3018-4266-b511-43cba4b503f5">&lt;strong&gt;</bpt>$sqlDatabaseName<ept id="055c50d5-3018-4266-b511-43cba4b503f5">&lt;/strong&gt;</ept> - This value is used only when you're creating a new Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="d752310b-3adb-4313-bea1-5130d1527579" xml:space="preserve">
+          <source>The default value is HDISqoop.</source>
+          <target state="new">The default value is HDISqoop.</target>
+        </trans-unit>
+        <trans-unit id="aa7337ed-4823-4217-abc5-24c4dc016993" xml:space="preserve">
+          <source>If you rename it, you must update the Sqoop Windows PowerShell script accordingly.</source>
+          <target state="new">If you rename it, you must update the Sqoop Windows PowerShell script accordingly.</target>
+        </trans-unit>
+        <trans-unit id="295305b6-8176-4941-af93-e857540d6644" xml:space="preserve">
+          <source>Press <bpt id="3e0706ff-fdec-4870-a670-8b0e83c4f075">&lt;strong&gt;</bpt>F5<ept id="3e0706ff-fdec-4870-a670-8b0e83c4f075">&lt;/strong&gt;</ept> to run the script.</source>
+          <target state="new">Press <bpt id="3e0706ff-fdec-4870-a670-8b0e83c4f075">&lt;strong&gt;</bpt>F5<ept id="3e0706ff-fdec-4870-a670-8b0e83c4f075">&lt;/strong&gt;</ept> to run the script.</target>
+        </trans-unit>
+        <trans-unit id="bd046f20-597c-45f2-892e-5014dd160309" xml:space="preserve">
+          <source>Validate the script output.</source>
+          <target state="new">Validate the script output.</target>
+        </trans-unit>
+        <trans-unit id="bd1965e2-7c74-4ca9-abb6-8f4c20e909d1" xml:space="preserve">
+          <source>Make sure the script ran successfully.</source>
+          <target state="new">Make sure the script ran successfully.</target>
+        </trans-unit>
+        <trans-unit id="d64f0666-28fe-48a5-8eae-b59e2b2068b1" xml:space="preserve">
+          <source>Now you understand how to upload a file to Azure Blob storage, how to populate a Hive table by using the data from Azure Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to an Azure SQL database.</source>
+          <target state="new">Now you understand how to upload a file to Azure Blob storage, how to populate a Hive table by using the data from Azure Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="b5e64156-6d82-4c94-8c81-dcea1ec8d017" xml:space="preserve">
+          <source>To learn more, see the following articles:</source>
+          <target state="new">To learn more, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="de3f48a9-f60f-4ab3-ba7d-a94393830af3" xml:space="preserve">
+          <source><bpt id="9956bc9c-39dd-45b9-a2c7-feaf5c3c2ede">&lt;linkText&gt;</bpt>Getting started with HDInsight[hdinsight-get-started]<ept id="9956bc9c-39dd-45b9-a2c7-feaf5c3c2ede">&lt;/linkText&gt;</ept><bpt id="9956bc9c-39dd-45b9-a2c7-feaf5c3c2ede">&lt;title&gt;</bpt><ept id="9956bc9c-39dd-45b9-a2c7-feaf5c3c2ede">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9956bc9c-39dd-45b9-a2c7-feaf5c3c2ede">&lt;linkText&gt;</bpt>Getting started with HDInsight[hdinsight-get-started]<ept id="9956bc9c-39dd-45b9-a2c7-feaf5c3c2ede">&lt;/linkText&gt;</ept><bpt id="9956bc9c-39dd-45b9-a2c7-feaf5c3c2ede">&lt;title&gt;</bpt><ept id="9956bc9c-39dd-45b9-a2c7-feaf5c3c2ede">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6930ec3-6a9b-44bf-aad3-503c5a114c6d" xml:space="preserve">
+          <source><bpt id="605e8ceb-1d81-48d9-8ed4-36b47af4b0f2">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="605e8ceb-1d81-48d9-8ed4-36b47af4b0f2">&lt;/linkText&gt;</ept><bpt id="605e8ceb-1d81-48d9-8ed4-36b47af4b0f2">&lt;title&gt;</bpt><ept id="605e8ceb-1d81-48d9-8ed4-36b47af4b0f2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="605e8ceb-1d81-48d9-8ed4-36b47af4b0f2">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="605e8ceb-1d81-48d9-8ed4-36b47af4b0f2">&lt;/linkText&gt;</ept><bpt id="605e8ceb-1d81-48d9-8ed4-36b47af4b0f2">&lt;title&gt;</bpt><ept id="605e8ceb-1d81-48d9-8ed4-36b47af4b0f2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37d42a03-36b4-4113-8b4e-7f14d3c73b1d" xml:space="preserve">
+          <source><bpt id="aeb7268a-b67e-4fc3-a998-6e705a8d8c97">&lt;linkText&gt;</bpt>Use Oozie with HDInsight[hdinsight-use-oozie]<ept id="aeb7268a-b67e-4fc3-a998-6e705a8d8c97">&lt;/linkText&gt;</ept><bpt id="aeb7268a-b67e-4fc3-a998-6e705a8d8c97">&lt;title&gt;</bpt><ept id="aeb7268a-b67e-4fc3-a998-6e705a8d8c97">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aeb7268a-b67e-4fc3-a998-6e705a8d8c97">&lt;linkText&gt;</bpt>Use Oozie with HDInsight[hdinsight-use-oozie]<ept id="aeb7268a-b67e-4fc3-a998-6e705a8d8c97">&lt;/linkText&gt;</ept><bpt id="aeb7268a-b67e-4fc3-a998-6e705a8d8c97">&lt;title&gt;</bpt><ept id="aeb7268a-b67e-4fc3-a998-6e705a8d8c97">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d7fa30c-69cb-46d0-a2d1-51681d27592d" xml:space="preserve">
+          <source><bpt id="809e2746-901c-4745-8c24-c053b9ef3203">&lt;linkText&gt;</bpt>Use Sqoop with HDInsight[hdinsight-use-sqoop]<ept id="809e2746-901c-4745-8c24-c053b9ef3203">&lt;/linkText&gt;</ept><bpt id="809e2746-901c-4745-8c24-c053b9ef3203">&lt;title&gt;</bpt><ept id="809e2746-901c-4745-8c24-c053b9ef3203">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="809e2746-901c-4745-8c24-c053b9ef3203">&lt;linkText&gt;</bpt>Use Sqoop with HDInsight[hdinsight-use-sqoop]<ept id="809e2746-901c-4745-8c24-c053b9ef3203">&lt;/linkText&gt;</ept><bpt id="809e2746-901c-4745-8c24-c053b9ef3203">&lt;title&gt;</bpt><ept id="809e2746-901c-4745-8c24-c053b9ef3203">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ddc6438b-24a4-4ef7-8a35-ad792627e200" xml:space="preserve">
+          <source><bpt id="1a759414-bb56-4e79-b625-e542f81aa0ca">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="1a759414-bb56-4e79-b625-e542f81aa0ca">&lt;/linkText&gt;</ept><bpt id="1a759414-bb56-4e79-b625-e542f81aa0ca">&lt;title&gt;</bpt><ept id="1a759414-bb56-4e79-b625-e542f81aa0ca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1a759414-bb56-4e79-b625-e542f81aa0ca">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="1a759414-bb56-4e79-b625-e542f81aa0ca">&lt;/linkText&gt;</ept><bpt id="1a759414-bb56-4e79-b625-e542f81aa0ca">&lt;title&gt;</bpt><ept id="1a759414-bb56-4e79-b625-e542f81aa0ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbdeb8ff-a248-40c1-9a11-0924a0cd8aa0" xml:space="preserve">
+          <source><bpt id="97accf05-de79-4067-ad3b-22023a6d157b">&lt;linkText&gt;</bpt>Develop Java MapReduce programs for HDInsight[hdinsight-develop-mapreduce]<ept id="97accf05-de79-4067-ad3b-22023a6d157b">&lt;/linkText&gt;</ept><bpt id="97accf05-de79-4067-ad3b-22023a6d157b">&lt;title&gt;</bpt><ept id="97accf05-de79-4067-ad3b-22023a6d157b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="97accf05-de79-4067-ad3b-22023a6d157b">&lt;linkText&gt;</bpt>Develop Java MapReduce programs for HDInsight[hdinsight-develop-mapreduce]<ept id="97accf05-de79-4067-ad3b-22023a6d157b">&lt;/linkText&gt;</ept><bpt id="97accf05-de79-4067-ad3b-22023a6d157b">&lt;title&gt;</bpt><ept id="97accf05-de79-4067-ad3b-22023a6d157b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa0a30f8-53d4-4726-99d4-3a568f5d7ab5" xml:space="preserve">
+          <source><bpt id="c91d5c26-42f9-49d9-bd6f-2e5fe4dfbcd0">&lt;linkText&gt;</bpt>Develop C# Hadoop streaming programs for HDInsight[hdinsight-develop-streaming]<ept id="c91d5c26-42f9-49d9-bd6f-2e5fe4dfbcd0">&lt;/linkText&gt;</ept><bpt id="c91d5c26-42f9-49d9-bd6f-2e5fe4dfbcd0">&lt;title&gt;</bpt><ept id="c91d5c26-42f9-49d9-bd6f-2e5fe4dfbcd0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c91d5c26-42f9-49d9-bd6f-2e5fe4dfbcd0">&lt;linkText&gt;</bpt>Develop C# Hadoop streaming programs for HDInsight[hdinsight-develop-streaming]<ept id="c91d5c26-42f9-49d9-bd6f-2e5fe4dfbcd0">&lt;/linkText&gt;</ept><bpt id="c91d5c26-42f9-49d9-bd6f-2e5fe4dfbcd0">&lt;title&gt;</bpt><ept id="c91d5c26-42f9-49d9-bd6f-2e5fe4dfbcd0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d2f9926-85a2-46b9-a359-26313935ae39" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="fd8260fb-7825-4d17-9648-6f2cee61f5ca" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="bf50f5e7-5acd-45bf-8be6-a3e7a6a51714" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="1aaebf2b-8038-4e40-8ff6-008475e682e3" xml:space="preserve">
+          <source>http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</source>
+          <target state="new">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</target>
+        </trans-unit>
+        <trans-unit id="b6c0d8bf-4844-4254-8c4f-5518fa9a95e5" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx</source>
+          <target state="new">http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx</target>
+        </trans-unit>
+        <trans-unit id="f37c613b-0b2d-48be-b649-f7677bb6bf11" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="fdd28681-2760-49a8-8f34-41056fc59816" xml:space="preserve">
+          <source>hdinsight-use-oozie.md</source>
+          <target state="new">hdinsight-use-oozie.md</target>
+        </trans-unit>
+        <trans-unit id="cd6f4519-3f3d-4868-85b9-f096731f7c55" xml:space="preserve">
+          <source>hdinsight-use-hive.md</source>
+          <target state="new">hdinsight-use-hive.md</target>
+        </trans-unit>
+        <trans-unit id="e09244d0-f800-4330-a15e-47b1d6cae02f" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="521ef6c7-945d-4db2-97b1-8779e80493a5" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="c8beb573-332c-4999-b3d0-551a45c0d2c4" xml:space="preserve">
+          <source>hdinsight-upload-data.md</source>
+          <target state="new">hdinsight-upload-data.md</target>
+        </trans-unit>
+        <trans-unit id="08972562-02bd-483d-999b-8a0a0f89be96" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="d2d96417-1021-4c19-a352-7dc81fb6b31a" xml:space="preserve">
+          <source>hdinsight-use-sqoop.md</source>
+          <target state="new">hdinsight-use-sqoop.md</target>
+        </trans-unit>
+        <trans-unit id="c643e839-de03-44ff-8da6-51497de0480c" xml:space="preserve">
+          <source>hdinsight-use-pig.md</source>
+          <target state="new">hdinsight-use-pig.md</target>
+        </trans-unit>
+        <trans-unit id="aeb5181b-062f-441e-9c9c-2fa4ee398681" xml:space="preserve">
+          <source>hdinsight-hadoop-develop-deploy-streaming-jobs.md</source>
+          <target state="new">hdinsight-hadoop-develop-deploy-streaming-jobs.md</target>
+        </trans-unit>
+        <trans-unit id="8f491dfb-5e7d-4de3-bfce-847e0c6d6795" xml:space="preserve">
+          <source>hdinsight-develop-deploy-java-mapreduce.md</source>
+          <target state="new">hdinsight-develop-deploy-java-mapreduce.md</target>
+        </trans-unit>
+        <trans-unit id="2930e8fe-503a-4ac9-ab7e-be946deed995" xml:space="preserve">
+          <source>https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL</source>
+          <target state="new">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL</target>
+        </trans-unit>
+        <trans-unit id="e72c42c9-4dcf-449a-9113-4f4f60f55d51" xml:space="preserve">
+          <source>http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html</source>
+          <target state="new">http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html</target>
+        </trans-unit>
+        <trans-unit id="4a413ff7-2800-472a-b507-f3ae4788c56d" xml:space="preserve">
+          <source>http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx</source>
+          <target state="new">http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx</target>
+        </trans-unit>
+        <trans-unit id="a22cfa7e-a92c-4d07-9541-cd79aeb3c100" xml:space="preserve">
+          <source>./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png</source>
+          <target state="new">./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png</target>
+        </trans-unit>
+        <trans-unit id="ffa36f53-cbb5-43c1-b06a-99931dc59653" xml:space="preserve">
+          <source>./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png</source>
+          <target state="new">./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png</target>
+        </trans-unit>
+        <trans-unit id="22f5f152-e8ef-48c5-acc8-980c5a3f5981" xml:space="preserve">
+          <source>./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png</source>
+          <target state="new">./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png</target>
+        </trans-unit>
+      </group>
+      <group id="627bd9ab-118f-4d43-827d-96cbeb17636c" />
+    </body>
+  </file>
+</xliff>

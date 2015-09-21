@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="995ba7e0-8b90-483c-8095-3346e3d929a2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="995ba7e0-8b90-483c-8095-3346e3d929a2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="83622db1-4588-4c4c-bcce-dd68d55a866f">
+        <trans-unit id="799aba82-635a-4338-a0b4-25286d3009fa" xml:space="preserve">
+          <source>Performance considerations for Azure Traffic Manager | Microsoft Azure</source>
+          <target state="new">Performance considerations for Azure Traffic Manager | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d10fe091-93a6-424b-b85b-eae947b5a006" xml:space="preserve">
+          <source>Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager</source>
+          <target state="new">Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager</target>
+        </trans-unit>
+        <trans-unit id="88aff25e-bced-4970-9f45-3b61fd9d4df5" xml:space="preserve">
+          <source>Common question regarding Azure Traffic Manager deals with potential performance problems that it might cause.</source>
+          <target state="new">Common question regarding Azure Traffic Manager deals with potential performance problems that it might cause.</target>
+        </trans-unit>
+        <trans-unit id="5cc84b3d-f57a-420b-9a6b-c1b5e3b98668" xml:space="preserve">
+          <source>The questions are typically along the lines of “How much latency will Traffic Manager add to my website?”, “My monitoring site says that my website was slow for a couple hours yesterday – were there any Traffic Manager issues at that time?”, “Where are the Traffic Manager servers?</source>
+          <target state="new">The questions are typically along the lines of “How much latency will Traffic Manager add to my website?”, “My monitoring site says that my website was slow for a couple hours yesterday – were there any Traffic Manager issues at that time?”, “Where are the Traffic Manager servers?</target>
+        </trans-unit>
+        <trans-unit id="45f2303c-b4c2-49b4-aa33-af854c19dd60" xml:space="preserve">
+          <source>I want to make sure they are in the same datacenter as my website so that performance isn’t impacted”.</source>
+          <target state="new">I want to make sure they are in the same datacenter as my website so that performance isn’t impacted”.</target>
+        </trans-unit>
+        <trans-unit id="f999c2ab-bde9-4492-a2ba-6f0c088a7b37" xml:space="preserve">
+          <source>This page will talk about the direct performance impact that Traffic Manager can cause to a website.</source>
+          <target state="new">This page will talk about the direct performance impact that Traffic Manager can cause to a website.</target>
+        </trans-unit>
+        <trans-unit id="4bfc3292-d0ba-493f-a81a-ba2edbee22a1" xml:space="preserve">
+          <source>If you have a website in East US and one in Asia and your East US is failing the Traffic Manager probes, then all of your users will be directed to your Asia website and you will see performance impacts, but this performance impact has nothing to do with Traffic Manager itself.</source>
+          <target state="new">If you have a website in East US and one in Asia and your East US is failing the Traffic Manager probes, then all of your users will be directed to your Asia website and you will see performance impacts, but this performance impact has nothing to do with Traffic Manager itself.</target>
+        </trans-unit>
+        <trans-unit id="f8777bbc-9b58-4f57-ae79-df14313e0156" xml:space="preserve">
+          <source><bpt id="24907b8e-3000-4e8d-89f2-c99f930f158f">&lt;linkText&gt;</bpt>Traffic Manager Overview<ept id="24907b8e-3000-4e8d-89f2-c99f930f158f">&lt;/linkText&gt;</ept><bpt id="24907b8e-3000-4e8d-89f2-c99f930f158f">&lt;title&gt;</bpt><ept id="24907b8e-3000-4e8d-89f2-c99f930f158f">&lt;/title&gt;</ept> is an excellent resource to learn how Traffic Manager works, but there is a lot of information on that page and picking out the key information relating to performance can be difficult.</source>
+          <target state="new"><bpt id="24907b8e-3000-4e8d-89f2-c99f930f158f">&lt;linkText&gt;</bpt>Traffic Manager Overview<ept id="24907b8e-3000-4e8d-89f2-c99f930f158f">&lt;/linkText&gt;</ept><bpt id="24907b8e-3000-4e8d-89f2-c99f930f158f">&lt;title&gt;</bpt><ept id="24907b8e-3000-4e8d-89f2-c99f930f158f">&lt;/title&gt;</ept> is an excellent resource to learn how Traffic Manager works, but there is a lot of information on that page and picking out the key information relating to performance can be difficult.</target>
+        </trans-unit>
+        <trans-unit id="937ba598-cd2c-40c9-9d38-02ef2419fd81" xml:space="preserve">
+          <source>The important points to look at in the MSDN documentation is step #5 and #6 from Image 3, which I will explain in more detail here:</source>
+          <target state="new">The important points to look at in the MSDN documentation is step #5 and #6 from Image 3, which I will explain in more detail here:</target>
+        </trans-unit>
+        <trans-unit id="8159cf08-083b-41fb-8f0e-679a19fbb529" xml:space="preserve">
+          <source>Traffic Manager essentially only does one thing – DNS resolution.</source>
+          <target state="new">Traffic Manager essentially only does one thing – DNS resolution.</target>
+        </trans-unit>
+        <trans-unit id="50ec3a02-dde2-432e-9ecc-999e17f14471" xml:space="preserve">
+          <source>This means that the only performance impact that Traffic Manager can have on your website is the initial DNS lookup.</source>
+          <target state="new">This means that the only performance impact that Traffic Manager can have on your website is the initial DNS lookup.</target>
+        </trans-unit>
+        <trans-unit id="75bfb38f-57d4-4e60-bc4a-a8737bb79722" xml:space="preserve">
+          <source>A point of clarification about the Traffic Manager DNS lookup.</source>
+          <target state="new">A point of clarification about the Traffic Manager DNS lookup.</target>
+        </trans-unit>
+        <trans-unit id="883ea8cd-62af-4895-b2c4-1c2ed2fbe082" xml:space="preserve">
+          <source>Traffic Manager populates, and regularly updates, the normal Microsoft DNS root servers based on your policy and the probe results.</source>
+          <target state="new">Traffic Manager populates, and regularly updates, the normal Microsoft DNS root servers based on your policy and the probe results.</target>
+        </trans-unit>
+        <trans-unit id="fb579e3e-b44b-40e4-ae70-35219ea53f18" xml:space="preserve">
+          <source>So even during the initial DNS lookup there is no involvement by Traffic Manager since the DNS request is handled by the normal Microsoft DNS root servers.</source>
+          <target state="new">So even during the initial DNS lookup there is no involvement by Traffic Manager since the DNS request is handled by the normal Microsoft DNS root servers.</target>
+        </trans-unit>
+        <trans-unit id="3046ae96-66c4-4ad8-901a-0a5090022d86" xml:space="preserve">
+          <source>If Traffic Manager goes ‘down’ (ie. a failure in the VMs doing the policy probing and DNS updating) then there will be no impact to your Traffic Manager DNS name since the entries in the Microsoft DNS servers will still be preserved – the only impact will be that probing and updating based on policy will not happen (ie. if your primary site goes down, Traffic Manager will not be able to update DNS to point to your failover site).</source>
+          <target state="new">If Traffic Manager goes ‘down’ (ie. a failure in the VMs doing the policy probing and DNS updating) then there will be no impact to your Traffic Manager DNS name since the entries in the Microsoft DNS servers will still be preserved – the only impact will be that probing and updating based on policy will not happen (ie. if your primary site goes down, Traffic Manager will not be able to update DNS to point to your failover site).</target>
+        </trans-unit>
+        <trans-unit id="1aac917a-1561-4eee-b45d-736c670bc27c" xml:space="preserve">
+          <source>Traffic does NOT flow through Traffic Manager.</source>
+          <target state="new">Traffic does NOT flow through Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="63ffe84b-6387-4bca-8983-8f28e7ccbd12" xml:space="preserve">
+          <source>There are no Traffic Manager servers acting as a middle-man between your clients and your Azure hosted service.</source>
+          <target state="new">There are no Traffic Manager servers acting as a middle-man between your clients and your Azure hosted service.</target>
+        </trans-unit>
+        <trans-unit id="a7bb4849-5333-4e84-8c1f-067fe731d038" xml:space="preserve">
+          <source>Once the DNS lookup is finished then Traffic Manager is completely removed from the communication between client and server.</source>
+          <target state="new">Once the DNS lookup is finished then Traffic Manager is completely removed from the communication between client and server.</target>
+        </trans-unit>
+        <trans-unit id="0f4317b9-1f73-411c-8696-a6a5a03faa0b" xml:space="preserve">
+          <source>DNS lookup is very fast, and is cached.</source>
+          <target state="new">DNS lookup is very fast, and is cached.</target>
+        </trans-unit>
+        <trans-unit id="5b428131-ca0f-42ee-9311-e7fb8e6d3587" xml:space="preserve">
+          <source>The initial DNS lookup will depend on the client and their configured DNS servers, by typically a client can do a DNS lookup in ~50 ms (see http://www.solvedns.com/dns-comparison/).</source>
+          <target state="new">The initial DNS lookup will depend on the client and their configured DNS servers, by typically a client can do a DNS lookup in ~50 ms (see http://www.solvedns.com/dns-comparison/).</target>
+        </trans-unit>
+        <trans-unit id="8fcffb6a-fe54-4757-8af3-f4a31fde14ba" xml:space="preserve">
+          <source>Once the first lookup is done the results will be cached for the DNS TTL, which for Traffic Manager is default of 300 seconds.</source>
+          <target state="new">Once the first lookup is done the results will be cached for the DNS TTL, which for Traffic Manager is default of 300 seconds.</target>
+        </trans-unit>
+        <trans-unit id="e16e0275-5453-4944-9507-91f03dccc9d9" xml:space="preserve">
+          <source>The Traffic Manager policy you choose (performance, failover, round robin) has no influence on the DNS performance.</source>
+          <target state="new">The Traffic Manager policy you choose (performance, failover, round robin) has no influence on the DNS performance.</target>
+        </trans-unit>
+        <trans-unit id="21dddf3f-d7c4-4f4f-a241-ef21d9e4766d" xml:space="preserve">
+          <source>Your performance policy can negatively impact your user’s experience, for example if you send US users to a service hosed in Asia, but this performance issue is not caused by Traffic Manager.</source>
+          <target state="new">Your performance policy can negatively impact your user’s experience, for example if you send US users to a service hosed in Asia, but this performance issue is not caused by Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="b7312b71-bd23-4e0e-aa39-0cb3be23e5d3" xml:space="preserve">
+          <source>There are a few publicly available websites that you can use to determine your Traffic Manager performance and behavior.</source>
+          <target state="new">There are a few publicly available websites that you can use to determine your Traffic Manager performance and behavior.</target>
+        </trans-unit>
+        <trans-unit id="b5334f06-1d59-4a4b-9f64-3b17b0e6dedb" xml:space="preserve">
+          <source>These sites are useful to determine the DNS latency and which of your hosted services your users around the world are being directed to.</source>
+          <target state="new">These sites are useful to determine the DNS latency and which of your hosted services your users around the world are being directed to.</target>
+        </trans-unit>
+        <trans-unit id="bceb2f85-7fea-445d-8d27-00a0cda88346" xml:space="preserve">
+          <source>Keep in mind that most of these tools do not cache the DNS results so running the tests multiple times will show the full DNS lookup, whereas clients connecting to your Traffic Manager endpoint will only see the full DNS lookup performance impact once during the TTL duration.</source>
+          <target state="new">Keep in mind that most of these tools do not cache the DNS results so running the tests multiple times will show the full DNS lookup, whereas clients connecting to your Traffic Manager endpoint will only see the full DNS lookup performance impact once during the TTL duration.</target>
+        </trans-unit>
+        <trans-unit id="0e01d8fc-0251-48a1-b68f-04c65092cf02" xml:space="preserve">
+          <source>One of the simplest tools is WebSitePulse.</source>
+          <target state="new">One of the simplest tools is WebSitePulse.</target>
+        </trans-unit>
+        <trans-unit id="de5ed951-04f0-4069-a1b3-ff71903dc1e8" xml:space="preserve">
+          <source>Enter the URL and you will see statistics such as DNS resolution time, First Byte, Last Byte, and other performance statistics.</source>
+          <target state="new">Enter the URL and you will see statistics such as DNS resolution time, First Byte, Last Byte, and other performance statistics.</target>
+        </trans-unit>
+        <trans-unit id="f561dc2a-12b4-4d56-ac3b-2180714dfd72" xml:space="preserve">
+          <source>You can choose from three different locations to test your site from.</source>
+          <target state="new">You can choose from three different locations to test your site from.</target>
+        </trans-unit>
+        <trans-unit id="dcb1d795-b350-4fd9-a2fc-cf2d9663b651" xml:space="preserve">
+          <source>In this example you will see that the first execution shows that first DNS lookup time takes 0.204 sec.</source>
+          <target state="new">In this example you will see that the first execution shows that first DNS lookup time takes 0.204 sec.</target>
+        </trans-unit>
+        <trans-unit id="00b1fb18-8a6c-45dd-9897-e093334756d2" xml:space="preserve">
+          <source>The second time we run this test on the same Traffic Manager endpoint the DNS lookup time takes 0.002 sec since the results are already cached.</source>
+          <target state="new">The second time we run this test on the same Traffic Manager endpoint the DNS lookup time takes 0.002 sec since the results are already cached.</target>
+        </trans-unit>
+        <trans-unit id="7c1c1ffa-3064-49d2-9973-c765dde90798" xml:space="preserve">
+          <source>http://www.websitepulse.com/help/tools.php</source>
+          <target state="new">http://www.websitepulse.com/help/tools.php</target>
+        </trans-unit>
+        <trans-unit id="237b4477-8fc7-44ae-8f4a-0b6ea4bbc96c" xml:space="preserve">
+          <source><bpt id="cf69e4b6-ae25-448c-b0f4-88c465637cae">&lt;linkText&gt;</bpt>pulse1<ept id="cf69e4b6-ae25-448c-b0f4-88c465637cae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf69e4b6-ae25-448c-b0f4-88c465637cae">&lt;linkText&gt;</bpt>pulse1<ept id="cf69e4b6-ae25-448c-b0f4-88c465637cae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e186f0d2-7e44-4e33-b4a0-c858033b2ad7" xml:space="preserve">
+          <source>DNS time when cached:</source>
+          <target state="new">DNS time when cached:</target>
+        </trans-unit>
+        <trans-unit id="40deb70e-1afd-4d4d-b14a-eb767396ef27" xml:space="preserve">
+          <source><bpt id="f0a8f166-32f9-41bd-b4d2-90f5dcc12535">&lt;linkText&gt;</bpt>pulse2<ept id="f0a8f166-32f9-41bd-b4d2-90f5dcc12535">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0a8f166-32f9-41bd-b4d2-90f5dcc12535">&lt;linkText&gt;</bpt>pulse2<ept id="f0a8f166-32f9-41bd-b4d2-90f5dcc12535">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e74fb72d-b9ae-4b3b-950a-210932a9ee30" xml:space="preserve">
+          <source>Another really useful tool to get DNS resolution time from multiple geographic regions simultaneously is Watchmouse’s Check Website tool.</source>
+          <target state="new">Another really useful tool to get DNS resolution time from multiple geographic regions simultaneously is Watchmouse’s Check Website tool.</target>
+        </trans-unit>
+        <trans-unit id="80618313-902d-4099-ae61-06759f77a1a6" xml:space="preserve">
+          <source>Enter the URL and you will see DNS resolution time, connection time, and speed from several geo locations.</source>
+          <target state="new">Enter the URL and you will see DNS resolution time, connection time, and speed from several geo locations.</target>
+        </trans-unit>
+        <trans-unit id="49bdbb3d-a3c7-491d-b2a5-c2cadc186de6" xml:space="preserve">
+          <source>This is also handy to test the Traffic Manager Performance policy to see which hosted service your different users around the world are being sent to.</source>
+          <target state="new">This is also handy to test the Traffic Manager Performance policy to see which hosted service your different users around the world are being sent to.</target>
+        </trans-unit>
+        <trans-unit id="d4235c23-a465-458d-8091-5b6882867667" xml:space="preserve">
+          <source>http://www.watchmouse.com/en/checkit.php</source>
+          <target state="new">http://www.watchmouse.com/en/checkit.php</target>
+        </trans-unit>
+        <trans-unit id="7062e476-d306-4b19-ab50-d0426d3febf2" xml:space="preserve">
+          <source><bpt id="d585f143-b9cb-4864-9075-bde48d5e2e80">&lt;linkText&gt;</bpt>pulse1<ept id="d585f143-b9cb-4864-9075-bde48d5e2e80">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d585f143-b9cb-4864-9075-bde48d5e2e80">&lt;linkText&gt;</bpt>pulse1<ept id="d585f143-b9cb-4864-9075-bde48d5e2e80">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a8d2309-f1a4-445e-a56e-df871bd6fee9" xml:space="preserve">
+          <source>http://tools.pingdom.com/ – This will test a website and provide performance statistics for each element on the page on a visual graph.</source>
+          <target state="new">http://tools.pingdom.com/ – This will test a website and provide performance statistics for each element on the page on a visual graph.</target>
+        </trans-unit>
+        <trans-unit id="9d0fe9c4-152d-4228-b509-b55ab0e83fd4" xml:space="preserve">
+          <source>If you switch to the Page Analysis tab you can see the percentage of time spent doing DNS lookup.</source>
+          <target state="new">If you switch to the Page Analysis tab you can see the percentage of time spent doing DNS lookup.</target>
+        </trans-unit>
+        <trans-unit id="62c4d9c9-2b56-46f4-b953-f5a9ae2e0a71" xml:space="preserve">
+          <source>http://www.whatsmydns.net/ – This site will do a DNS lookup from 20 different geo locations and display the results on a map.</source>
+          <target state="new">http://www.whatsmydns.net/ – This site will do a DNS lookup from 20 different geo locations and display the results on a map.</target>
+        </trans-unit>
+        <trans-unit id="62219741-3c34-4403-bf8b-1b4ac4858a5b" xml:space="preserve">
+          <source>This is a great visual representation to help determine which hosted service your clients will connect to.</source>
+          <target state="new">This is a great visual representation to help determine which hosted service your clients will connect to.</target>
+        </trans-unit>
+        <trans-unit id="1c24c0a8-88b0-4b60-be9f-673fb0249af5" xml:space="preserve">
+          <source>http://www.digwebinterface.com – Similar to the watchmouse site, but this one shows more detailed DNS information including CNAMEs and A records.</source>
+          <target state="new">http://www.digwebinterface.com – Similar to the watchmouse site, but this one shows more detailed DNS information including CNAMEs and A records.</target>
+        </trans-unit>
+        <trans-unit id="40fd5d59-9bbb-434f-b9aa-2684678d2ef2" xml:space="preserve">
+          <source>Make sure you check the ‘Colorize output’ and ‘Stats’ under options, and select ‘All’ under Nameservers.</source>
+          <target state="new">Make sure you check the ‘Colorize output’ and ‘Stats’ under options, and select ‘All’ under Nameservers.</target>
+        </trans-unit>
+        <trans-unit id="6ad94faa-b9b3-48b7-8056-bf123665e305" xml:space="preserve">
+          <source>Given the above information we know that the only performance impact that Traffic Manager will have on a website is the first DNS lookup (times vary, but average ~50 ms), and then 0 performance impact for the duration of the DNS TTL (300 seconds default), and then again a refresh the DNS cache after the TTL expires.</source>
+          <target state="new">Given the above information we know that the only performance impact that Traffic Manager will have on a website is the first DNS lookup (times vary, but average ~50 ms), and then 0 performance impact for the duration of the DNS TTL (300 seconds default), and then again a refresh the DNS cache after the TTL expires.</target>
+        </trans-unit>
+        <trans-unit id="e637acf4-19fd-450b-8278-c4f8647003c4" xml:space="preserve">
+          <source>So the answer to the question “How much latency will Traffic Manager add to my website?"</source>
+          <target state="new">So the answer to the question “How much latency will Traffic Manager add to my website?"</target>
+        </trans-unit>
+        <trans-unit id="0a4baa48-827d-4371-bd87-b76814f6f748" xml:space="preserve">
+          <source>is, essentially, zero.</source>
+          <target state="new">is, essentially, zero.</target>
+        </trans-unit>
+        <trans-unit id="74f4c2ce-b3c8-4481-a059-6045ea934ff0" xml:space="preserve">
+          <source><bpt id="46dcc65b-162f-47cc-adde-e6f1ef01d5c2">&lt;linkText&gt;</bpt>About Traffic Manager traffic routing methods<ept id="46dcc65b-162f-47cc-adde-e6f1ef01d5c2">&lt;/linkText&gt;</ept><bpt id="46dcc65b-162f-47cc-adde-e6f1ef01d5c2">&lt;title&gt;</bpt><ept id="46dcc65b-162f-47cc-adde-e6f1ef01d5c2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="46dcc65b-162f-47cc-adde-e6f1ef01d5c2">&lt;linkText&gt;</bpt>About Traffic Manager traffic routing methods<ept id="46dcc65b-162f-47cc-adde-e6f1ef01d5c2">&lt;/linkText&gt;</ept><bpt id="46dcc65b-162f-47cc-adde-e6f1ef01d5c2">&lt;title&gt;</bpt><ept id="46dcc65b-162f-47cc-adde-e6f1ef01d5c2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf72f39d-8c9a-4e55-ba61-fbc6db95090b" xml:space="preserve">
+          <source><bpt id="e94173fe-3f48-4c8b-bd44-f8249161b8bb">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="e94173fe-3f48-4c8b-bd44-f8249161b8bb">&lt;/linkText&gt;</ept><bpt id="e94173fe-3f48-4c8b-bd44-f8249161b8bb">&lt;title&gt;</bpt><ept id="e94173fe-3f48-4c8b-bd44-f8249161b8bb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e94173fe-3f48-4c8b-bd44-f8249161b8bb">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="e94173fe-3f48-4c8b-bd44-f8249161b8bb">&lt;/linkText&gt;</ept><bpt id="e94173fe-3f48-4c8b-bd44-f8249161b8bb">&lt;title&gt;</bpt><ept id="e94173fe-3f48-4c8b-bd44-f8249161b8bb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a64ca837-d11b-4af4-8bff-fb7bb5ca45db" xml:space="preserve">
+          <source><bpt id="d57c909d-5846-404d-be72-91577cbe0034">&lt;linkText&gt;</bpt>Cloud Services<ept id="d57c909d-5846-404d-be72-91577cbe0034">&lt;/linkText&gt;</ept><bpt id="d57c909d-5846-404d-be72-91577cbe0034">&lt;title&gt;</bpt><ept id="d57c909d-5846-404d-be72-91577cbe0034">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d57c909d-5846-404d-be72-91577cbe0034">&lt;linkText&gt;</bpt>Cloud Services<ept id="d57c909d-5846-404d-be72-91577cbe0034">&lt;/linkText&gt;</ept><bpt id="d57c909d-5846-404d-be72-91577cbe0034">&lt;title&gt;</bpt><ept id="d57c909d-5846-404d-be72-91577cbe0034">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f901136c-01a5-41fc-8640-ee010a841dfb" xml:space="preserve">
+          <source><bpt id="0b929671-8b1d-428c-b780-c470062a4d14">&lt;linkText&gt;</bpt>Websites<ept id="0b929671-8b1d-428c-b780-c470062a4d14">&lt;/linkText&gt;</ept><bpt id="0b929671-8b1d-428c-b780-c470062a4d14">&lt;title&gt;</bpt><ept id="0b929671-8b1d-428c-b780-c470062a4d14">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0b929671-8b1d-428c-b780-c470062a4d14">&lt;linkText&gt;</bpt>Websites<ept id="0b929671-8b1d-428c-b780-c470062a4d14">&lt;/linkText&gt;</ept><bpt id="0b929671-8b1d-428c-b780-c470062a4d14">&lt;title&gt;</bpt><ept id="0b929671-8b1d-428c-b780-c470062a4d14">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebd5628c-203e-43af-a3f2-3bd1e681a267" xml:space="preserve">
+          <source><bpt id="93b4e5b5-25b7-48dd-b137-85dac55b9c10">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="93b4e5b5-25b7-48dd-b137-85dac55b9c10">&lt;/linkText&gt;</ept><bpt id="93b4e5b5-25b7-48dd-b137-85dac55b9c10">&lt;title&gt;</bpt><ept id="93b4e5b5-25b7-48dd-b137-85dac55b9c10">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="93b4e5b5-25b7-48dd-b137-85dac55b9c10">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="93b4e5b5-25b7-48dd-b137-85dac55b9c10">&lt;/linkText&gt;</ept><bpt id="93b4e5b5-25b7-48dd-b137-85dac55b9c10">&lt;title&gt;</bpt><ept id="93b4e5b5-25b7-48dd-b137-85dac55b9c10">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a90de6d-04c7-417c-8e06-df86f2dd05bc" xml:space="preserve">
+          <source><bpt id="407a3ebd-2fc8-446f-818d-a82241acf769">&lt;linkText&gt;</bpt>Azure Traffic Manager Cmdlets<ept id="407a3ebd-2fc8-446f-818d-a82241acf769">&lt;/linkText&gt;</ept><bpt id="407a3ebd-2fc8-446f-818d-a82241acf769">&lt;title&gt;</bpt><ept id="407a3ebd-2fc8-446f-818d-a82241acf769">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="407a3ebd-2fc8-446f-818d-a82241acf769">&lt;linkText&gt;</bpt>Azure Traffic Manager Cmdlets<ept id="407a3ebd-2fc8-446f-818d-a82241acf769">&lt;/linkText&gt;</ept><bpt id="407a3ebd-2fc8-446f-818d-a82241acf769">&lt;title&gt;</bpt><ept id="407a3ebd-2fc8-446f-818d-a82241acf769">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

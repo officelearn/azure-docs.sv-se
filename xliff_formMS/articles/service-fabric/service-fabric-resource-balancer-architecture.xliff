@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="51ecc5c8-f99b-417f-9866-9826883e538d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="51ecc5c8-f99b-417f-9866-9826883e538d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eb0615ec-5852-4640-a707-40ba476d23f9">
+        <trans-unit id="a1039da7-431f-4b13-bff5-2805932cdc86" xml:space="preserve">
+          <source>Resource Balancer Architecture</source>
+          <target state="new">Resource Balancer Architecture</target>
+        </trans-unit>
+        <trans-unit id="93a04c5f-f913-4206-8c55-f1d5e0fc1ab8" xml:space="preserve">
+          <source>An architectural overview of Service Fabric's Resource Balancer</source>
+          <target state="new">An architectural overview of Service Fabric's Resource Balancer</target>
+        </trans-unit>
+        <trans-unit id="951fcfd6-839b-44fe-b205-14f6fd27cbbf" xml:space="preserve">
+          <source><bpt id="46c6bdda-9c5f-4859-a4af-d0e884307a28">&lt;linkText&gt;</bpt>Resource Balancer Architecture<ept id="46c6bdda-9c5f-4859-a4af-d0e884307a28">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46c6bdda-9c5f-4859-a4af-d0e884307a28">&lt;linkText&gt;</bpt>Resource Balancer Architecture<ept id="46c6bdda-9c5f-4859-a4af-d0e884307a28">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab16dc84-a1a2-4bfb-b4bd-135015c2fe55" xml:space="preserve">
+          <source>The Service Fabric Resource Balancer consists of a single centralized Resource Balancing service and a component that exists on every node, which are conceptually collocated with the Service Fabric Failover Manager and with the local Service Fabric node, respectively.</source>
+          <target state="new">The Service Fabric Resource Balancer consists of a single centralized Resource Balancing service and a component that exists on every node, which are conceptually collocated with the Service Fabric Failover Manager and with the local Service Fabric node, respectively.</target>
+        </trans-unit>
+        <trans-unit id="4857b9aa-4ded-4fee-8114-4158fff0a16c" xml:space="preserve">
+          <source>The local agent is responsible for collecting and buffering load reports from the services that are running on the local node, for sending them to the Resource Balancer service, and also for reporting failures and other events to the Failover Manager and Resource Balancer (1 and 2 above).</source>
+          <target state="new">The local agent is responsible for collecting and buffering load reports from the services that are running on the local node, for sending them to the Resource Balancer service, and also for reporting failures and other events to the Failover Manager and Resource Balancer (1 and 2 above).</target>
+        </trans-unit>
+        <trans-unit id="a8b2c8aa-d12d-4abe-8769-55bdc038f227" xml:space="preserve">
+          <source>The Resource Balancer service and the Failover Manager collaborate to respond to load events and other events in the system, such as replica or node failures, load reports, and services and applications that are created and deleted.</source>
+          <target state="new">The Resource Balancer service and the Failover Manager collaborate to respond to load events and other events in the system, such as replica or node failures, load reports, and services and applications that are created and deleted.</target>
+        </trans-unit>
+        <trans-unit id="4a5d81f7-d7cb-49d9-a689-d61a39997c88" xml:space="preserve">
+          <source>For example, when a replica fails, the Failover Manager requests that the Service Fabric Resource Balancer suggest a location for the replacement that is based on load data from the different nodes.</source>
+          <target state="new">For example, when a replica fails, the Failover Manager requests that the Service Fabric Resource Balancer suggest a location for the replacement that is based on load data from the different nodes.</target>
+        </trans-unit>
+        <trans-unit id="656cd0c5-87ff-4781-9049-5923938b5610" xml:space="preserve">
+          <source>Similarly, when a new service request is received, the Failover Manager requests recommendations from the Resource Balancer for where to place that service.</source>
+          <target state="new">Similarly, when a new service request is received, the Failover Manager requests recommendations from the Resource Balancer for where to place that service.</target>
+        </trans-unit>
+        <trans-unit id="19c821bc-9222-42fa-9efe-d072cf40eadc" xml:space="preserve">
+          <source>In all these cases, the Resource Balancer responds with changes to various service configurations (3), which are then enacted by the Failover Manager.</source>
+          <target state="new">In all these cases, the Resource Balancer responds with changes to various service configurations (3), which are then enacted by the Failover Manager.</target>
+        </trans-unit>
+        <trans-unit id="e1db5496-e9a5-4bf4-a4b0-c02d6e9439b0" xml:space="preserve">
+          <source>In the preceding example, the Failover Manager creates a new replica on the node, which results in the best overall balance (4).</source>
+          <target state="new">In the preceding example, the Failover Manager creates a new replica on the node, which results in the best overall balance (4).</target>
+        </trans-unit>
+        <trans-unit id="96b6ff9d-4def-440a-8103-e0f85d977983" xml:space="preserve">
+          <source>Resource Balancing Features:</source>
+          <target state="new">Resource Balancing Features:</target>
+        </trans-unit>
+        <trans-unit id="c1a95726-ec16-4de9-836e-ecc60a8c4dd3" xml:space="preserve">
+          <source><bpt id="0d654275-bef4-43a4-a509-0b0f3892e4f4">&lt;linkText&gt;</bpt>Describe the Cluster<ept id="0d654275-bef4-43a4-a509-0b0f3892e4f4">&lt;/linkText&gt;</ept><bpt id="0d654275-bef4-43a4-a509-0b0f3892e4f4">&lt;title&gt;</bpt><ept id="0d654275-bef4-43a4-a509-0b0f3892e4f4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0d654275-bef4-43a4-a509-0b0f3892e4f4">&lt;linkText&gt;</bpt>Describe the Cluster<ept id="0d654275-bef4-43a4-a509-0b0f3892e4f4">&lt;/linkText&gt;</ept><bpt id="0d654275-bef4-43a4-a509-0b0f3892e4f4">&lt;title&gt;</bpt><ept id="0d654275-bef4-43a4-a509-0b0f3892e4f4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef83afdf-fb1d-4084-ae4c-e4689dbba32d" xml:space="preserve">
+          <source><bpt id="5f7dc534-48a6-47db-ac7f-84e17178a293">&lt;linkText&gt;</bpt>Describe Services<ept id="5f7dc534-48a6-47db-ac7f-84e17178a293">&lt;/linkText&gt;</ept><bpt id="5f7dc534-48a6-47db-ac7f-84e17178a293">&lt;title&gt;</bpt><ept id="5f7dc534-48a6-47db-ac7f-84e17178a293">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5f7dc534-48a6-47db-ac7f-84e17178a293">&lt;linkText&gt;</bpt>Describe Services<ept id="5f7dc534-48a6-47db-ac7f-84e17178a293">&lt;/linkText&gt;</ept><bpt id="5f7dc534-48a6-47db-ac7f-84e17178a293">&lt;title&gt;</bpt><ept id="5f7dc534-48a6-47db-ac7f-84e17178a293">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ad3d26e-810e-442a-b8de-e7d7741216b8" xml:space="preserve">
+          <source><bpt id="1173431e-b622-4900-bfee-869eeffde5b9">&lt;linkText&gt;</bpt>Report Dynamic Load<ept id="1173431e-b622-4900-bfee-869eeffde5b9">&lt;/linkText&gt;</ept><bpt id="1173431e-b622-4900-bfee-869eeffde5b9">&lt;title&gt;</bpt><ept id="1173431e-b622-4900-bfee-869eeffde5b9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1173431e-b622-4900-bfee-869eeffde5b9">&lt;linkText&gt;</bpt>Report Dynamic Load<ept id="1173431e-b622-4900-bfee-869eeffde5b9">&lt;/linkText&gt;</ept><bpt id="1173431e-b622-4900-bfee-869eeffde5b9">&lt;title&gt;</bpt><ept id="1173431e-b622-4900-bfee-869eeffde5b9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b563c6d-000d-463a-a90a-042e72d01d3e" xml:space="preserve">
+          <source><bpt id="b817290e-ab91-4993-9c04-7a5247cfb374">&lt;linkText&gt;</bpt>Proactive Metric Packing<ept id="b817290e-ab91-4993-9c04-7a5247cfb374">&lt;/linkText&gt;</ept><bpt id="b817290e-ab91-4993-9c04-7a5247cfb374">&lt;title&gt;</bpt><ept id="b817290e-ab91-4993-9c04-7a5247cfb374">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b817290e-ab91-4993-9c04-7a5247cfb374">&lt;linkText&gt;</bpt>Proactive Metric Packing<ept id="b817290e-ab91-4993-9c04-7a5247cfb374">&lt;/linkText&gt;</ept><bpt id="b817290e-ab91-4993-9c04-7a5247cfb374">&lt;title&gt;</bpt><ept id="b817290e-ab91-4993-9c04-7a5247cfb374">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="556ab242-bbf6-4260-93e4-6998d84a19c7" xml:space="preserve">
+          <source><bpt id="b07787a3-99dc-4fc1-bdf0-90a054fb0bca">&lt;linkText&gt;</bpt>Node Buffer Percentage<ept id="b07787a3-99dc-4fc1-bdf0-90a054fb0bca">&lt;/linkText&gt;</ept><bpt id="b07787a3-99dc-4fc1-bdf0-90a054fb0bca">&lt;title&gt;</bpt><ept id="b07787a3-99dc-4fc1-bdf0-90a054fb0bca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b07787a3-99dc-4fc1-bdf0-90a054fb0bca">&lt;linkText&gt;</bpt>Node Buffer Percentage<ept id="b07787a3-99dc-4fc1-bdf0-90a054fb0bca">&lt;/linkText&gt;</ept><bpt id="b07787a3-99dc-4fc1-bdf0-90a054fb0bca">&lt;title&gt;</bpt><ept id="b07787a3-99dc-4fc1-bdf0-90a054fb0bca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcc7d368-c32c-4bce-8640-c07f1c7fa076" xml:space="preserve">
+          <source>media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png</source>
+          <target state="new">media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png</target>
+        </trans-unit>
+      </group>
+      <group id="b1cc9624-943e-47ae-bc6e-abb00d2902bf" />
+    </body>
+  </file>
+</xliff>

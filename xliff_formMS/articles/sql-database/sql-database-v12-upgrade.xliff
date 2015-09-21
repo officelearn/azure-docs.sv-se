@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5d9b59a0-e8ba-488d-863e-8c02eba101c4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5d9b59a0-e8ba-488d-863e-8c02eba101c4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6793916f-168c-4208-8c5e-b86358e922cf">
+        <trans-unit id="68a86ca6-401a-4e12-adee-b72c65db77ad" xml:space="preserve">
+          <source>Upgrade to SQL Database V12</source>
+          <target state="new">Upgrade to SQL Database V12</target>
+        </trans-unit>
+        <trans-unit id="d3089a2d-eb64-4b17-b7ee-b7670d2940ae" xml:space="preserve">
+          <source>Explains how to upgrade to Azure SQL Database V12, from an earlier version of Azure SQL Database.</source>
+          <target state="new">Explains how to upgrade to Azure SQL Database V12, from an earlier version of Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="ddbd20fe-514b-4cf3-b44f-0153c00fb0bb" xml:space="preserve">
+          <source><bpt id="e9709326-1564-466e-acd3-60a1e417eebd">&lt;linkText&gt;</bpt>Sign up<ept id="e9709326-1564-466e-acd3-60a1e417eebd">&lt;/linkText&gt;</ept><bpt id="e9709326-1564-466e-acd3-60a1e417eebd">&lt;title&gt;</bpt><ept id="e9709326-1564-466e-acd3-60a1e417eebd">&lt;/title&gt;</ept> for SQL Database V12 to take advantage of the next generation of  SQL Database on Microsoft Azure.</source>
+          <target state="new"><bpt id="e9709326-1564-466e-acd3-60a1e417eebd">&lt;linkText&gt;</bpt>Sign up<ept id="e9709326-1564-466e-acd3-60a1e417eebd">&lt;/linkText&gt;</ept><bpt id="e9709326-1564-466e-acd3-60a1e417eebd">&lt;title&gt;</bpt><ept id="e9709326-1564-466e-acd3-60a1e417eebd">&lt;/title&gt;</ept> for SQL Database V12 to take advantage of the next generation of  SQL Database on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="5b962ffd-c14f-4b7c-9780-eb3ba30a710d" xml:space="preserve">
+          <source>First, you need a subscription to Microsoft Azure.</source>
+          <target state="new">First, you need a subscription to Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="1553ae1f-49ee-4c85-bb1f-7aacf0a8c758" xml:space="preserve">
+          <source>Sign up for a <bpt id="3f89ea7e-30a8-414d-b0ad-8edebabe78c7">&lt;linkText&gt;</bpt>free Azure trial<ept id="3f89ea7e-30a8-414d-b0ad-8edebabe78c7">&lt;/linkText&gt;</ept><bpt id="3f89ea7e-30a8-414d-b0ad-8edebabe78c7">&lt;title&gt;</bpt><ept id="3f89ea7e-30a8-414d-b0ad-8edebabe78c7">&lt;/title&gt;</ept> and review <bpt id="5f1454e9-6db1-445e-aa66-bb7811c64d65">&lt;linkText&gt;</bpt>pricing<ept id="5f1454e9-6db1-445e-aa66-bb7811c64d65">&lt;/linkText&gt;</ept><bpt id="5f1454e9-6db1-445e-aa66-bb7811c64d65">&lt;title&gt;</bpt><ept id="5f1454e9-6db1-445e-aa66-bb7811c64d65">&lt;/title&gt;</ept> information.</source>
+          <target state="new">Sign up for a <bpt id="3f89ea7e-30a8-414d-b0ad-8edebabe78c7">&lt;linkText&gt;</bpt>free Azure trial<ept id="3f89ea7e-30a8-414d-b0ad-8edebabe78c7">&lt;/linkText&gt;</ept><bpt id="3f89ea7e-30a8-414d-b0ad-8edebabe78c7">&lt;title&gt;</bpt><ept id="3f89ea7e-30a8-414d-b0ad-8edebabe78c7">&lt;/title&gt;</ept> and review <bpt id="5f1454e9-6db1-445e-aa66-bb7811c64d65">&lt;linkText&gt;</bpt>pricing<ept id="5f1454e9-6db1-445e-aa66-bb7811c64d65">&lt;/linkText&gt;</ept><bpt id="5f1454e9-6db1-445e-aa66-bb7811c64d65">&lt;title&gt;</bpt><ept id="5f1454e9-6db1-445e-aa66-bb7811c64d65">&lt;/title&gt;</ept> information.</target>
+        </trans-unit>
+        <trans-unit id="8a129dd4-6abd-44b3-ac15-934426adf4e0" xml:space="preserve">
+          <source>Upgrade step</source>
+          <target state="new">Upgrade step</target>
+        </trans-unit>
+        <trans-unit id="c963cb10-64a9-4927-87f5-2f3abadabb6b" xml:space="preserve">
+          <source>Screen shot</source>
+          <target state="new">Screen shot</target>
+        </trans-unit>
+        <trans-unit id="ef170934-190f-4a12-985c-5570aa945380" xml:space="preserve">
+          <source>1. Sign in to <bpt id="43c9b9b0-bc79-4266-b8c9-b6632e9ea197">&lt;linkText&gt;</bpt>http://portal.azure.com/<ept id="43c9b9b0-bc79-4266-b8c9-b6632e9ea197">&lt;/linkText&gt;</ept><bpt id="43c9b9b0-bc79-4266-b8c9-b6632e9ea197">&lt;title&gt;</bpt><ept id="43c9b9b0-bc79-4266-b8c9-b6632e9ea197">&lt;/title&gt;</ept>.</source>
+          <target state="new">1. Sign in to <bpt id="43c9b9b0-bc79-4266-b8c9-b6632e9ea197">&lt;linkText&gt;</bpt>http://portal.azure.com/<ept id="43c9b9b0-bc79-4266-b8c9-b6632e9ea197">&lt;/linkText&gt;</ept><bpt id="43c9b9b0-bc79-4266-b8c9-b6632e9ea197">&lt;title&gt;</bpt><ept id="43c9b9b0-bc79-4266-b8c9-b6632e9ea197">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c2339f3-b578-4eed-89fb-ae33e5301288" xml:space="preserve">
+          <source><bpt id="30beaaf6-3b55-497b-a4eb-3d51dca84ca6">&lt;linkText&gt;</bpt>New Azure Portal<ept id="30beaaf6-3b55-497b-a4eb-3d51dca84ca6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="30beaaf6-3b55-497b-a4eb-3d51dca84ca6">&lt;linkText&gt;</bpt>New Azure Portal<ept id="30beaaf6-3b55-497b-a4eb-3d51dca84ca6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="354f72a1-2d1f-4abd-b8d7-bbd38064aa8f" xml:space="preserve">
+          <source>2. Click <bpt id="ad43f2a7-e4ac-49f5-99d3-9717f345583d">&lt;strong&gt;</bpt>BROWSE<ept id="ad43f2a7-e4ac-49f5-99d3-9717f345583d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">2. Click <bpt id="ad43f2a7-e4ac-49f5-99d3-9717f345583d">&lt;strong&gt;</bpt>BROWSE<ept id="ad43f2a7-e4ac-49f5-99d3-9717f345583d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aca6897b-a34b-4a90-b226-147683984469" xml:space="preserve">
+          <source><bpt id="c2221714-58b4-4dde-8a91-fc256d4ba304">&lt;linkText&gt;</bpt>Browse Services<ept id="c2221714-58b4-4dde-8a91-fc256d4ba304">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c2221714-58b4-4dde-8a91-fc256d4ba304">&lt;linkText&gt;</bpt>Browse Services<ept id="c2221714-58b4-4dde-8a91-fc256d4ba304">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13a38421-3817-4e43-bb21-770a28081d61" xml:space="preserve">
+          <source>3.    Click <bpt id="198676c7-951b-4dc2-9ff2-f56c3de45698">&lt;strong&gt;</bpt>SQL servers<ept id="198676c7-951b-4dc2-9ff2-f56c3de45698">&lt;/strong&gt;</ept>.</source>
+          <target state="new">3.    Click <bpt id="198676c7-951b-4dc2-9ff2-f56c3de45698">&lt;strong&gt;</bpt>SQL servers<ept id="198676c7-951b-4dc2-9ff2-f56c3de45698">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62ad2b91-a8b5-4f70-b2b6-13d911370a6e" xml:space="preserve">
+          <source>A list of SQL Server names is displayed.</source>
+          <target state="new">A list of SQL Server names is displayed.</target>
+        </trans-unit>
+        <trans-unit id="d22c4b66-1aca-4365-8074-672d7260f60a" xml:space="preserve">
+          <source><bpt id="0ad71c69-63b1-4c4b-bf6b-a13d6efeac09">&lt;linkText&gt;</bpt>Select SQL Server service<ept id="0ad71c69-63b1-4c4b-bf6b-a13d6efeac09">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ad71c69-63b1-4c4b-bf6b-a13d6efeac09">&lt;linkText&gt;</bpt>Select SQL Server service<ept id="0ad71c69-63b1-4c4b-bf6b-a13d6efeac09">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4542638f-0a87-4c83-a84e-fd3f24bdd52a" xml:space="preserve">
+          <source>4. Select the server you want to copy to a new server with  SQL Database Update enabled.</source>
+          <target state="new">4. Select the server you want to copy to a new server with  SQL Database Update enabled.</target>
+        </trans-unit>
+        <trans-unit id="f2d7e10f-8811-4fb1-ac3c-5b5985d98a4c" xml:space="preserve">
+          <source><bpt id="e97de127-d400-425f-b922-f350c11190e0">&lt;linkText&gt;</bpt>Shows a list of SQL Servers<ept id="e97de127-d400-425f-b922-f350c11190e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e97de127-d400-425f-b922-f350c11190e0">&lt;linkText&gt;</bpt>Shows a list of SQL Servers<ept id="e97de127-d400-425f-b922-f350c11190e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12803c84-9861-4b6b-b3c3-250428383d39" xml:space="preserve">
+          <source>5. Click <bpt id="3f796218-e134-461e-b56c-c589b437cbf7">&lt;strong&gt;</bpt>Settings<ept id="3f796218-e134-461e-b56c-c589b437cbf7">&lt;/strong&gt;</ept> or <bpt id="8e0f8371-e2fa-41b0-9c1a-8b4816ba84e1">&lt;strong&gt;</bpt>Server version<ept id="8e0f8371-e2fa-41b0-9c1a-8b4816ba84e1">&lt;/strong&gt;</ept> to upgrade your server to V12.</source>
+          <target state="new">5. Click <bpt id="3f796218-e134-461e-b56c-c589b437cbf7">&lt;strong&gt;</bpt>Settings<ept id="3f796218-e134-461e-b56c-c589b437cbf7">&lt;/strong&gt;</ept> or <bpt id="8e0f8371-e2fa-41b0-9c1a-8b4816ba84e1">&lt;strong&gt;</bpt>Server version<ept id="8e0f8371-e2fa-41b0-9c1a-8b4816ba84e1">&lt;/strong&gt;</ept> to upgrade your server to V12.</target>
+        </trans-unit>
+        <trans-unit id="c86a90f0-cfdf-4111-9767-42bc45540323" xml:space="preserve">
+          <source><bpt id="be92df2c-43be-4555-81c4-1a7dafd7ac28">&lt;linkText&gt;</bpt>Latest preview feature<ept id="be92df2c-43be-4555-81c4-1a7dafd7ac28">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be92df2c-43be-4555-81c4-1a7dafd7ac28">&lt;linkText&gt;</bpt>Latest preview feature<ept id="be92df2c-43be-4555-81c4-1a7dafd7ac28">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1894c37-ffcc-4d41-924a-c28f763cbb18" xml:space="preserve">
+          <source>6. Click <bpt id="ed8a8cfb-68d6-4707-ac08-de66cd4982a9">&lt;strong&gt;</bpt>UPGRADE THIS SERVER<ept id="ed8a8cfb-68d6-4707-ac08-de66cd4982a9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">6. Click <bpt id="ed8a8cfb-68d6-4707-ac08-de66cd4982a9">&lt;strong&gt;</bpt>UPGRADE THIS SERVER<ept id="ed8a8cfb-68d6-4707-ac08-de66cd4982a9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb9d05c6-bbbe-4201-9033-13a86a84b32d" xml:space="preserve">
+          <source><bpt id="c112ab05-4822-45bd-8395-986873c08843">&lt;linkText&gt;</bpt>Upgrades the SQL Server to the preview<ept id="c112ab05-4822-45bd-8395-986873c08843">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c112ab05-4822-45bd-8395-986873c08843">&lt;linkText&gt;</bpt>Upgrades the SQL Server to the preview<ept id="c112ab05-4822-45bd-8395-986873c08843">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba1283ee-2f09-4ac5-8277-5a453c4c70a0" xml:space="preserve">
+          <source>7. Once you click <bpt id="f17af9ef-32c5-4c2d-83f9-8bfede5685d2">&lt;strong&gt;</bpt>UPGRADE THIS SERVER<ept id="f17af9ef-32c5-4c2d-83f9-8bfede5685d2">&lt;/strong&gt;</ept>, the upgrade process will be initiated.</source>
+          <target state="new">7. Once you click <bpt id="f17af9ef-32c5-4c2d-83f9-8bfede5685d2">&lt;strong&gt;</bpt>UPGRADE THIS SERVER<ept id="f17af9ef-32c5-4c2d-83f9-8bfede5685d2">&lt;/strong&gt;</ept>, the upgrade process will be initiated.</target>
+        </trans-unit>
+        <trans-unit id="54c9cf55-5424-46e8-9dff-063e1609d12e" xml:space="preserve">
+          <source>Under <bpt id="140d47a8-9fd7-41e4-b548-b6bd0f8211ff">&lt;strong&gt;</bpt>Server version<ept id="140d47a8-9fd7-41e4-b548-b6bd0f8211ff">&lt;/strong&gt;</ept>, the notification changes from <bpt id="877289b3-6075-41a2-bcfe-030917457cc3">&lt;strong&gt;</bpt>V2<ept id="877289b3-6075-41a2-bcfe-030917457cc3">&lt;/strong&gt;</ept> to <bpt id="78366cb6-d57e-4167-9da3-9a3f52e96198">&lt;strong&gt;</bpt>Upgrade scheduled..<ept id="78366cb6-d57e-4167-9da3-9a3f52e96198">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="140d47a8-9fd7-41e4-b548-b6bd0f8211ff">&lt;strong&gt;</bpt>Server version<ept id="140d47a8-9fd7-41e4-b548-b6bd0f8211ff">&lt;/strong&gt;</ept>, the notification changes from <bpt id="877289b3-6075-41a2-bcfe-030917457cc3">&lt;strong&gt;</bpt>V2<ept id="877289b3-6075-41a2-bcfe-030917457cc3">&lt;/strong&gt;</ept> to <bpt id="78366cb6-d57e-4167-9da3-9a3f52e96198">&lt;strong&gt;</bpt>Upgrade scheduled..<ept id="78366cb6-d57e-4167-9da3-9a3f52e96198">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f818d14d-550e-4604-a8a1-d937cc88f48d" xml:space="preserve">
+          <source>If you click on the <bpt id="25469419-1807-49b1-9420-2beb26345ca8">&lt;strong&gt;</bpt>Upgrade scheduled..<ept id="25469419-1807-49b1-9420-2beb26345ca8">&lt;/strong&gt;</ept> notification, a blade opens with the <bpt id="7e2d3f4b-bb67-419c-a427-14f7da39cb4f">&lt;strong&gt;</bpt>Cancel Upgrade<ept id="7e2d3f4b-bb67-419c-a427-14f7da39cb4f">&lt;/strong&gt;</ept> button at the top.</source>
+          <target state="new">If you click on the <bpt id="25469419-1807-49b1-9420-2beb26345ca8">&lt;strong&gt;</bpt>Upgrade scheduled..<ept id="25469419-1807-49b1-9420-2beb26345ca8">&lt;/strong&gt;</ept> notification, a blade opens with the <bpt id="7e2d3f4b-bb67-419c-a427-14f7da39cb4f">&lt;strong&gt;</bpt>Cancel Upgrade<ept id="7e2d3f4b-bb67-419c-a427-14f7da39cb4f">&lt;/strong&gt;</ept> button at the top.</target>
+        </trans-unit>
+        <trans-unit id="250bcec6-709a-4788-ae66-e336415f5903" xml:space="preserve">
+          <source>Click <bpt id="511ff7fb-4900-484b-b886-0db5395c1d3a">&lt;strong&gt;</bpt>Cancel Upgrade<ept id="511ff7fb-4900-484b-b886-0db5395c1d3a">&lt;/strong&gt;</ept> in case you decide against upgrading the server for any reason.</source>
+          <target state="new">Click <bpt id="511ff7fb-4900-484b-b886-0db5395c1d3a">&lt;strong&gt;</bpt>Cancel Upgrade<ept id="511ff7fb-4900-484b-b886-0db5395c1d3a">&lt;/strong&gt;</ept> in case you decide against upgrading the server for any reason.</target>
+        </trans-unit>
+        <trans-unit id="60abc65c-04a7-415f-9e46-6a64c24059fe" xml:space="preserve">
+          <source>Please <bpt id="4195d3bf-584e-4205-b77d-cba7cfa040f5">&lt;strong&gt;</bpt>note<ept id="4195d3bf-584e-4205-b77d-cba7cfa040f5">&lt;/strong&gt;</ept> that cancel operation will not work towards the end of the upgrade process and the upgrade will be completed.</source>
+          <target state="new">Please <bpt id="4195d3bf-584e-4205-b77d-cba7cfa040f5">&lt;strong&gt;</bpt>note<ept id="4195d3bf-584e-4205-b77d-cba7cfa040f5">&lt;/strong&gt;</ept> that cancel operation will not work towards the end of the upgrade process and the upgrade will be completed.</target>
+        </trans-unit>
+        <trans-unit id="09178945-42e2-4aa4-9c92-d5a8b2b61906" xml:space="preserve">
+          <source><bpt id="af26ad30-6944-48cd-860b-35e929c65632">&lt;linkText&gt;</bpt>Cancel Upgrade<ept id="af26ad30-6944-48cd-860b-35e929c65632">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af26ad30-6944-48cd-860b-35e929c65632">&lt;linkText&gt;</bpt>Cancel Upgrade<ept id="af26ad30-6944-48cd-860b-35e929c65632">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4a01d2e-7154-489f-bfd8-d724546ab24d" xml:space="preserve">
+          <source>Once you select the upgrade option, your server and the databases within that server will be enabled with SQL Database V12 features, and you will not be able to reverse that.</source>
+          <target state="new">Once you select the upgrade option, your server and the databases within that server will be enabled with SQL Database V12 features, and you will not be able to reverse that.</target>
+        </trans-unit>
+        <trans-unit id="65ccef22-c6c8-4110-853b-189784830eaa" xml:space="preserve">
+          <source>To upgrade servers to SQL Database V12, you require a Basic, Standard or Premium service tier.</source>
+          <target state="new">To upgrade servers to SQL Database V12, you require a Basic, Standard or Premium service tier.</target>
+        </trans-unit>
+        <trans-unit id="285d0b92-2909-48f1-9b3c-bbfa8fbeabaa" xml:space="preserve">
+          <source>For more information on the  service tiers,see <bpt id="67a009c4-51b1-484f-a25b-eec05278412b">&lt;linkText&gt;</bpt>Upgrade SQL Database Web/Business Databases to New Service Tiers"<ept id="67a009c4-51b1-484f-a25b-eec05278412b">&lt;/linkText&gt;</ept><bpt id="67a009c4-51b1-484f-a25b-eec05278412b">&lt;title&gt;</bpt><ept id="67a009c4-51b1-484f-a25b-eec05278412b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the  service tiers,see <bpt id="67a009c4-51b1-484f-a25b-eec05278412b">&lt;linkText&gt;</bpt>Upgrade SQL Database Web/Business Databases to New Service Tiers"<ept id="67a009c4-51b1-484f-a25b-eec05278412b">&lt;/linkText&gt;</ept><bpt id="67a009c4-51b1-484f-a25b-eec05278412b">&lt;title&gt;</bpt><ept id="67a009c4-51b1-484f-a25b-eec05278412b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81c6f756-72e1-46a9-8455-f1103b642264" xml:space="preserve">
+          <source>Geo-replication is not supported with SQL Database V12 (preview).</source>
+          <target state="new">Geo-replication is not supported with SQL Database V12 (preview).</target>
+        </trans-unit>
+        <trans-unit id="7e023f44-ef7c-4a7c-942f-1233edfd1a5e" xml:space="preserve">
+          <source>For more information, see <bpt id="6d18a848-6b81-481e-ad41-2ea9940c3989">&lt;linkText&gt;</bpt>Plan and Prepare to Upgrade to Azure SQL Database V12 Preview<ept id="6d18a848-6b81-481e-ad41-2ea9940c3989">&lt;/linkText&gt;</ept><bpt id="6d18a848-6b81-481e-ad41-2ea9940c3989">&lt;title&gt;</bpt><ept id="6d18a848-6b81-481e-ad41-2ea9940c3989">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="6d18a848-6b81-481e-ad41-2ea9940c3989">&lt;linkText&gt;</bpt>Plan and Prepare to Upgrade to Azure SQL Database V12 Preview<ept id="6d18a848-6b81-481e-ad41-2ea9940c3989">&lt;/linkText&gt;</ept><bpt id="6d18a848-6b81-481e-ad41-2ea9940c3989">&lt;title&gt;</bpt><ept id="6d18a848-6b81-481e-ad41-2ea9940c3989">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb2d1b04-c6ad-4451-b7ea-141dd3d098d1" xml:space="preserve">
+          <source>Once you click the <bpt id="70e510eb-fd0b-4144-98c5-bc6f399f634b">&lt;strong&gt;</bpt>UPGRADE THIS SERVER<ept id="70e510eb-fd0b-4144-98c5-bc6f399f634b">&lt;/strong&gt;</ept> option, the blade that opens shows a message about a validation process.</source>
+          <target state="new">Once you click the <bpt id="70e510eb-fd0b-4144-98c5-bc6f399f634b">&lt;strong&gt;</bpt>UPGRADE THIS SERVER<ept id="70e510eb-fd0b-4144-98c5-bc6f399f634b">&lt;/strong&gt;</ept> option, the blade that opens shows a message about a validation process.</target>
+        </trans-unit>
+        <trans-unit id="fef117d2-0df9-46fc-880d-66977fe46e11" xml:space="preserve">
+          <source>The validation process checks the service tier of your database and checks whether Geo-replication is enabled.</source>
+          <target state="new">The validation process checks the service tier of your database and checks whether Geo-replication is enabled.</target>
+        </trans-unit>
+        <trans-unit id="42ed3234-8615-4916-89f0-92c1590b86f7" xml:space="preserve">
+          <source>The blade will show the results after the validation is complete.</source>
+          <target state="new">The blade will show the results after the validation is complete.</target>
+        </trans-unit>
+        <trans-unit id="b817bc56-2c33-4ea7-a317-2d368db3207c" xml:space="preserve">
+          <source>After the validation process is complete, you will see a list of database names that require you to take action to meet the requirements of upgrading to SQL Database V12.</source>
+          <target state="new">After the validation process is complete, you will see a list of database names that require you to take action to meet the requirements of upgrading to SQL Database V12.</target>
+        </trans-unit>
+        <trans-unit id="d7a39686-3a60-4631-b1b9-ab69c1379a32" xml:space="preserve">
+          <source><bpt id="414c5ec7-a518-42f9-af91-1af5a3e3f951">&lt;strong&gt;</bpt>You need to complete the actions for each of those databases to be able to upgrade to SQL Database V12<ept id="414c5ec7-a518-42f9-af91-1af5a3e3f951">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="414c5ec7-a518-42f9-af91-1af5a3e3f951">&lt;strong&gt;</bpt>You need to complete the actions for each of those databases to be able to upgrade to SQL Database V12<ept id="414c5ec7-a518-42f9-af91-1af5a3e3f951">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b07178af-cf41-41b7-a7ad-bcb57816cbed" xml:space="preserve">
+          <source>As you click on each database name, a new blade provides service pricing tier recommendation based on your current usage.</source>
+          <target state="new">As you click on each database name, a new blade provides service pricing tier recommendation based on your current usage.</target>
+        </trans-unit>
+        <trans-unit id="fb645df4-172f-443e-a6ef-49135ad207b1" xml:space="preserve">
+          <source>You can also browse various pricing tiers and select the one that suits your environment best.</source>
+          <target state="new">You can also browse various pricing tiers and select the one that suits your environment best.</target>
+        </trans-unit>
+        <trans-unit id="0f3f5b56-69cd-4eae-83d2-100d57bd2974" xml:space="preserve">
+          <source>All the databases that are setup for Geo Replication need to be reconfigured to stop replication.</source>
+          <target state="new">All the databases that are setup for Geo Replication need to be reconfigured to stop replication.</target>
+        </trans-unit>
+        <trans-unit id="00ea06aa-1924-4d05-8336-0583a3265ef8" xml:space="preserve">
+          <source>Note that a recommendation on pricing tier will not be displayed if enough data is not found.</source>
+          <target state="new">Note that a recommendation on pricing tier will not be displayed if enough data is not found.</target>
+        </trans-unit>
+        <trans-unit id="b41669f5-5072-44c5-9817-aa786b2d99c9" xml:space="preserve">
+          <source>Action</source>
+          <target state="new">Action</target>
+        </trans-unit>
+        <trans-unit id="ec78d7a1-3752-4547-aa3d-9646d69a1e53" xml:space="preserve">
+          <source>Screen shot</source>
+          <target state="new">Screen shot</target>
+        </trans-unit>
+        <trans-unit id="cdc741a8-1153-4d79-b040-928efc24834c" xml:space="preserve">
+          <source>7. Once you have completed the actions that prepares your server for the upgrade, type the name of the server to upgrade and Click <bpt id="b38b2a2b-db4c-45f7-8758-ac604fd9d1fc">&lt;strong&gt;</bpt>OK<ept id="b38b2a2b-db4c-45f7-8758-ac604fd9d1fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">7. Once you have completed the actions that prepares your server for the upgrade, type the name of the server to upgrade and Click <bpt id="b38b2a2b-db4c-45f7-8758-ac604fd9d1fc">&lt;strong&gt;</bpt>OK<ept id="b38b2a2b-db4c-45f7-8758-ac604fd9d1fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3853cd50-ddd4-4b17-adb6-e384da384b8f" xml:space="preserve">
+          <source><bpt id="d24d74e6-4756-455b-b5da-52bee5676f93">&lt;linkText&gt;</bpt>Confirm the server name to upgrade<ept id="d24d74e6-4756-455b-b5da-52bee5676f93">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d24d74e6-4756-455b-b5da-52bee5676f93">&lt;linkText&gt;</bpt>Confirm the server name to upgrade<ept id="d24d74e6-4756-455b-b5da-52bee5676f93">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28223ad7-3bb2-4f7e-9494-ab74e5414fed" xml:space="preserve">
+          <source>8. The upgrade process is initiated.</source>
+          <target state="new">8. The upgrade process is initiated.</target>
+        </trans-unit>
+        <trans-unit id="cc8a0101-9536-4b88-97ce-d1cdb5bbf0c7" xml:space="preserve">
+          <source>Upgrade can take up to 24 hours.</source>
+          <target state="new">Upgrade can take up to 24 hours.</target>
+        </trans-unit>
+        <trans-unit id="1eab7da9-0c10-49d3-8dab-5c69d6eaacd6" xml:space="preserve">
+          <source>During this time all databases on this server will remain online but server and database management actions will be restricted.</source>
+          <target state="new">During this time all databases on this server will remain online but server and database management actions will be restricted.</target>
+        </trans-unit>
+        <trans-unit id="505803ab-4ef7-4765-96d5-f51c3e9a716a" xml:space="preserve">
+          <source>Once the process is complete, the status <bpt id="74d3ba1b-4a48-4922-bd71-71e8ce8a0011">&lt;strong&gt;</bpt>Enabled<ept id="74d3ba1b-4a48-4922-bd71-71e8ce8a0011">&lt;/strong&gt;</ept> is displayed on the server blade.</source>
+          <target state="new">Once the process is complete, the status <bpt id="74d3ba1b-4a48-4922-bd71-71e8ce8a0011">&lt;strong&gt;</bpt>Enabled<ept id="74d3ba1b-4a48-4922-bd71-71e8ce8a0011">&lt;/strong&gt;</ept> is displayed on the server blade.</target>
+        </trans-unit>
+        <trans-unit id="d4214b37-0e47-44e8-bc70-e92f4475f9d0" xml:space="preserve">
+          <source><bpt id="69526840-bb1e-4949-91b4-c726032ca215">&lt;linkText&gt;</bpt>Confirms preview features are enabled<ept id="69526840-bb1e-4949-91b4-c726032ca215">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="69526840-bb1e-4949-91b4-c726032ca215">&lt;linkText&gt;</bpt>Confirms preview features are enabled<ept id="69526840-bb1e-4949-91b4-c726032ca215">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79915c81-3d2f-4839-9625-642690bd3e51" xml:space="preserve">
+          <source>Powershell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.</source>
+          <target state="new">Powershell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.</target>
+        </trans-unit>
+        <trans-unit id="d4232e93-54e1-4869-ac68-0f0e9a11d776" xml:space="preserve">
+          <source>For reference documentation about these Powershell cmdlets, see:</source>
+          <target state="new">For reference documentation about these Powershell cmdlets, see:</target>
+        </trans-unit>
+        <trans-unit id="121485b9-6be1-4b84-8301-0c9b68e1994c" xml:space="preserve">
+          <source><bpt id="9caa2801-d796-4cc8-b194-4c2e9180f83c">&lt;linkText&gt;</bpt>Get-AzureSqlServerUpgrade<ept id="9caa2801-d796-4cc8-b194-4c2e9180f83c">&lt;/linkText&gt;</ept><bpt id="9caa2801-d796-4cc8-b194-4c2e9180f83c">&lt;title&gt;</bpt><ept id="9caa2801-d796-4cc8-b194-4c2e9180f83c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9caa2801-d796-4cc8-b194-4c2e9180f83c">&lt;linkText&gt;</bpt>Get-AzureSqlServerUpgrade<ept id="9caa2801-d796-4cc8-b194-4c2e9180f83c">&lt;/linkText&gt;</ept><bpt id="9caa2801-d796-4cc8-b194-4c2e9180f83c">&lt;title&gt;</bpt><ept id="9caa2801-d796-4cc8-b194-4c2e9180f83c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e992088-1c66-4fa6-9a71-eef06c3c2fc7" xml:space="preserve">
+          <source><bpt id="1c464464-70ba-4052-96c1-0a77f8489162">&lt;linkText&gt;</bpt>Start-AzureSqlServerUpgrade<ept id="1c464464-70ba-4052-96c1-0a77f8489162">&lt;/linkText&gt;</ept><bpt id="1c464464-70ba-4052-96c1-0a77f8489162">&lt;title&gt;</bpt><ept id="1c464464-70ba-4052-96c1-0a77f8489162">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1c464464-70ba-4052-96c1-0a77f8489162">&lt;linkText&gt;</bpt>Start-AzureSqlServerUpgrade<ept id="1c464464-70ba-4052-96c1-0a77f8489162">&lt;/linkText&gt;</ept><bpt id="1c464464-70ba-4052-96c1-0a77f8489162">&lt;title&gt;</bpt><ept id="1c464464-70ba-4052-96c1-0a77f8489162">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33401153-ba9d-4e06-a656-f243b683a7be" xml:space="preserve">
+          <source><bpt id="0ea3a1cf-7001-47ea-8286-026e11cb73e6">&lt;linkText&gt;</bpt>Stop-AzureSqlServerUpgrade<ept id="0ea3a1cf-7001-47ea-8286-026e11cb73e6">&lt;/linkText&gt;</ept><bpt id="0ea3a1cf-7001-47ea-8286-026e11cb73e6">&lt;title&gt;</bpt><ept id="0ea3a1cf-7001-47ea-8286-026e11cb73e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0ea3a1cf-7001-47ea-8286-026e11cb73e6">&lt;linkText&gt;</bpt>Stop-AzureSqlServerUpgrade<ept id="0ea3a1cf-7001-47ea-8286-026e11cb73e6">&lt;/linkText&gt;</ept><bpt id="0ea3a1cf-7001-47ea-8286-026e11cb73e6">&lt;title&gt;</bpt><ept id="0ea3a1cf-7001-47ea-8286-026e11cb73e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55b255d3-97c9-4d17-9572-9d78b8d3fbf6" xml:space="preserve">
+          <source>The Stop- cmdlet means cancel, not pause.</source>
+          <target state="new">The Stop- cmdlet means cancel, not pause.</target>
+        </trans-unit>
+        <trans-unit id="5b351518-e272-4ff8-8628-031575e7354a" xml:space="preserve">
+          <source>There is no way to resume an upgrade, other than starting again from the beginning.</source>
+          <target state="new">There is no way to resume an upgrade, other than starting again from the beginning.</target>
+        </trans-unit>
+        <trans-unit id="1d025ed9-cb8b-4672-b911-5a6ac961f218" xml:space="preserve">
+          <source>The Stop- cmdlet cleans up and releases all appropriate resources.</source>
+          <target state="new">The Stop- cmdlet cleans up and releases all appropriate resources.</target>
+        </trans-unit>
+        <trans-unit id="6897c1fb-0c3c-41b3-b05d-ec586eea34f4" xml:space="preserve">
+          <source><bpt id="e86d5757-0b3c-47d7-87eb-94660f4a2cbd">&lt;linkText&gt;</bpt>What's new in SQL Database V12<ept id="e86d5757-0b3c-47d7-87eb-94660f4a2cbd">&lt;/linkText&gt;</ept><bpt id="e86d5757-0b3c-47d7-87eb-94660f4a2cbd">&lt;title&gt;</bpt><ept id="e86d5757-0b3c-47d7-87eb-94660f4a2cbd">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="e86d5757-0b3c-47d7-87eb-94660f4a2cbd">&lt;linkText&gt;</bpt>What's new in SQL Database V12<ept id="e86d5757-0b3c-47d7-87eb-94660f4a2cbd">&lt;/linkText&gt;</ept><bpt id="e86d5757-0b3c-47d7-87eb-94660f4a2cbd">&lt;title&gt;</bpt><ept id="e86d5757-0b3c-47d7-87eb-94660f4a2cbd">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d5f4391c-8e62-4ce9-bc7d-e7fa435b4ad8" xml:space="preserve">
+          <source><bpt id="1b8a738d-d506-4e76-813c-df855b78ca9f">&lt;linkText&gt;</bpt>Plan and prepare to upgrade to SQL Database V12<ept id="1b8a738d-d506-4e76-813c-df855b78ca9f">&lt;/linkText&gt;</ept><bpt id="1b8a738d-d506-4e76-813c-df855b78ca9f">&lt;title&gt;</bpt><ept id="1b8a738d-d506-4e76-813c-df855b78ca9f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1b8a738d-d506-4e76-813c-df855b78ca9f">&lt;linkText&gt;</bpt>Plan and prepare to upgrade to SQL Database V12<ept id="1b8a738d-d506-4e76-813c-df855b78ca9f">&lt;/linkText&gt;</ept><bpt id="1b8a738d-d506-4e76-813c-df855b78ca9f">&lt;title&gt;</bpt><ept id="1b8a738d-d506-4e76-813c-df855b78ca9f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0fd16d06-2e89-45ab-863d-c67f78ba1a11" xml:space="preserve">
+          <source>./media/sql-database-v12-upgrade/firstscreenportal.png</source>
+          <target state="new">./media/sql-database-v12-upgrade/firstscreenportal.png</target>
+        </trans-unit>
+        <trans-unit id="f12ccb06-9c8b-4b1c-89ed-90a61d826edc" xml:space="preserve">
+          <source>./media/sql-database-v12-upgrade/firstscreenportal.png</source>
+          <target state="new">./media/sql-database-v12-upgrade/firstscreenportal.png</target>
+        </trans-unit>
+        <trans-unit id="a69388b0-2d22-4a84-906a-5c20e475b2de" xml:space="preserve">
+          <source>./media/sql-database-v12-upgrade/sqlserverlist.png</source>
+          <target state="new">./media/sql-database-v12-upgrade/sqlserverlist.png</target>
+        </trans-unit>
+        <trans-unit id="86a701e1-0cab-4a82-b673-645b65f6f0a1" xml:space="preserve">
+          <source>./media/sql-database-v12-upgrade/sqlserverlist.png</source>
+          <target state="new">./media/sql-database-v12-upgrade/sqlserverlist.png</target>
+        </trans-unit>
+        <trans-unit id="02b60a4e-6765-43a0-afd8-c85aa130e31f" xml:space="preserve">
+          <source>./media/sql-database-v12-upgrade/latestprview.png</source>
+          <target state="new">./media/sql-database-v12-upgrade/latestprview.png</target>
+        </trans-unit>
+        <trans-unit id="46c1ced7-72c5-4d31-948d-0b4de8ea1480" xml:space="preserve">
+          <source>./media/sql-database-v12-upgrade/upgrade.png</source>
+          <target state="new">./media/sql-database-v12-upgrade/upgrade.png</target>
+        </trans-unit>
+        <trans-unit id="dcdb2b8a-0691-49de-98a6-926823006dd4" xml:space="preserve">
+          <source>./media/sql-database-v12-upgrade/typeservername.png</source>
+          <target state="new">./media/sql-database-v12-upgrade/typeservername.png</target>
+        </trans-unit>
+        <trans-unit id="38c411fd-731d-481a-bb27-280e697ae020" xml:space="preserve">
+          <source>./media/sql-database-v12-upgrade/enabled.png</source>
+          <target state="new">./media/sql-database-v12-upgrade/enabled.png</target>
+        </trans-unit>
+        <trans-unit id="835ab2c7-f725-42c2-9c9b-31a6d2ce965f" xml:space="preserve">
+          <source>./media/sql-database-v12-upgrade/cancel.PNG</source>
+          <target state="new">./media/sql-database-v12-upgrade/cancel.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="81a6be66-d7b6-4b18-ae79-76a7ab6f5e4a" />
+    </body>
+  </file>
+</xliff>

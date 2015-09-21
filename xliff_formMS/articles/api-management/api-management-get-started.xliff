@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="73f15543-0cfd-4ba5-9bc3-956d01f468df" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="73f15543-0cfd-4ba5-9bc3-956d01f468df" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1c189c44-611e-4ecd-8f1e-9d9d41e5589f">
+        <trans-unit id="cbcc4cec-1d69-46b5-9f85-7f2a8d6fb1a5" xml:space="preserve">
+          <source>Manage your first API in Azure API Management | Microsoft Azure</source>
+          <target state="new">Manage your first API in Azure API Management | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f3000bee-3d29-441c-9fdd-b4e36cc127bb" xml:space="preserve">
+          <source>Learn how to create APIs, add operations, and get started with API Management.</source>
+          <target state="new">Learn how to create APIs, add operations, and get started with API Management.</target>
+        </trans-unit>
+        <trans-unit id="b9d7ab84-5f5c-4433-9608-b1a81a521d99" xml:space="preserve">
+          <source>This guide shows you how to quickly get started in using Azure API Management and make your first API call.</source>
+          <target state="new">This guide shows you how to quickly get started in using Azure API Management and make your first API call.</target>
+        </trans-unit>
+        <trans-unit id="f9556b9c-05e0-427e-a0e9-62ab1a69bf14" xml:space="preserve">
+          <source>You can use Azure API Management to take any backend and launch a full-fledged API program based on it.</source>
+          <target state="new">You can use Azure API Management to take any backend and launch a full-fledged API program based on it.</target>
+        </trans-unit>
+        <trans-unit id="04905a53-474f-4475-9984-e7cde14254d9" xml:space="preserve">
+          <source>Common scenarios include:</source>
+          <target state="new">Common scenarios include:</target>
+        </trans-unit>
+        <trans-unit id="db6f688e-306e-45fd-8548-76a945969cbb" xml:space="preserve">
+          <source><bpt id="802345e1-114a-41b7-9ab1-da56832dfee6">&lt;strong&gt;</bpt>Securing mobile infrastructure<ept id="802345e1-114a-41b7-9ab1-da56832dfee6">&lt;/strong&gt;</ept> by gating access with API keys, preventing DOS attacks by using throttling, or using advanced security policies like JWT token validation.</source>
+          <target state="new"><bpt id="802345e1-114a-41b7-9ab1-da56832dfee6">&lt;strong&gt;</bpt>Securing mobile infrastructure<ept id="802345e1-114a-41b7-9ab1-da56832dfee6">&lt;/strong&gt;</ept> by gating access with API keys, preventing DOS attacks by using throttling, or using advanced security policies like JWT token validation.</target>
+        </trans-unit>
+        <trans-unit id="7c7bccae-56c1-437e-8e46-c3067cbe028f" xml:space="preserve">
+          <source><bpt id="0c994779-0293-4971-a13f-0316cc1281b6">&lt;strong&gt;</bpt>Enabling ISV partner ecosystems<ept id="0c994779-0293-4971-a13f-0316cc1281b6">&lt;/strong&gt;</ept> by offering fast partner onboarding through the developer portal and building an API facade to decouple from internal implementations that are not ripe for partner consumption.</source>
+          <target state="new"><bpt id="0c994779-0293-4971-a13f-0316cc1281b6">&lt;strong&gt;</bpt>Enabling ISV partner ecosystems<ept id="0c994779-0293-4971-a13f-0316cc1281b6">&lt;/strong&gt;</ept> by offering fast partner onboarding through the developer portal and building an API facade to decouple from internal implementations that are not ripe for partner consumption.</target>
+        </trans-unit>
+        <trans-unit id="e6bde7a2-343f-4b70-b7b4-5afa78945ea2" xml:space="preserve">
+          <source><bpt id="9f8743e5-7246-4e9f-bc72-6826fe6bbbfb">&lt;strong&gt;</bpt>Running an internal API program<ept id="9f8743e5-7246-4e9f-bc72-6826fe6bbbfb">&lt;/strong&gt;</ept> by offering a centralized location for the organization to communicate about the availability and latest changes to APIs, gating access based on organizational accounts, all based on a secured channel between the API gateway and the backend.</source>
+          <target state="new"><bpt id="9f8743e5-7246-4e9f-bc72-6826fe6bbbfb">&lt;strong&gt;</bpt>Running an internal API program<ept id="9f8743e5-7246-4e9f-bc72-6826fe6bbbfb">&lt;/strong&gt;</ept> by offering a centralized location for the organization to communicate about the availability and latest changes to APIs, gating access based on organizational accounts, all based on a secured channel between the API gateway and the backend.</target>
+        </trans-unit>
+        <trans-unit id="e4633316-266d-4ecb-9fcb-c7e7d8e2fc12" xml:space="preserve">
+          <source>The system is made up of the following components:</source>
+          <target state="new">The system is made up of the following components:</target>
+        </trans-unit>
+        <trans-unit id="02894707-f194-477e-8028-9db160cabe3e" xml:space="preserve">
+          <source>The <bpt id="627d4a46-7ac6-4823-a425-faacc5be7a66">&lt;strong&gt;</bpt>API gateway<ept id="627d4a46-7ac6-4823-a425-faacc5be7a66">&lt;/strong&gt;</ept> is the endpoint that:</source>
+          <target state="new">The <bpt id="627d4a46-7ac6-4823-a425-faacc5be7a66">&lt;strong&gt;</bpt>API gateway<ept id="627d4a46-7ac6-4823-a425-faacc5be7a66">&lt;/strong&gt;</ept> is the endpoint that:</target>
+        </trans-unit>
+        <trans-unit id="2b045279-2769-4ce6-a949-43084f7efcc4" xml:space="preserve">
+          <source>Accepts API calls and routes them to your backends.</source>
+          <target state="new">Accepts API calls and routes them to your backends.</target>
+        </trans-unit>
+        <trans-unit id="393f326d-7aca-479d-8167-cd6804f43a66" xml:space="preserve">
+          <source>Verifies API keys, JWT tokens, certificates, and other credentials.</source>
+          <target state="new">Verifies API keys, JWT tokens, certificates, and other credentials.</target>
+        </trans-unit>
+        <trans-unit id="c5238e53-a3f7-4f75-adcd-2c8109344d6d" xml:space="preserve">
+          <source>Enforces usage quotas and rate limits.</source>
+          <target state="new">Enforces usage quotas and rate limits.</target>
+        </trans-unit>
+        <trans-unit id="ac1336cb-dd7c-4743-b2c8-44ed9bec6d9e" xml:space="preserve">
+          <source>Transforms your API on the fly without code modifications.</source>
+          <target state="new">Transforms your API on the fly without code modifications.</target>
+        </trans-unit>
+        <trans-unit id="5fe240ab-d620-4759-8080-62f5ed99e9bc" xml:space="preserve">
+          <source>Caches backend responses where set up.</source>
+          <target state="new">Caches backend responses where set up.</target>
+        </trans-unit>
+        <trans-unit id="ef8eb786-b9ff-40dc-b938-53544832df5c" xml:space="preserve">
+          <source>Logs call metadata for analytics purposes.</source>
+          <target state="new">Logs call metadata for analytics purposes.</target>
+        </trans-unit>
+        <trans-unit id="cbc6460c-8ca2-45a2-939f-bedb5a9391a0" xml:space="preserve">
+          <source>The <bpt id="5b66f91d-0b5f-4135-9b95-e215909b6aa1">&lt;strong&gt;</bpt>publisher portal<ept id="5b66f91d-0b5f-4135-9b95-e215909b6aa1">&lt;/strong&gt;</ept> is the administrative interface where you set up your API program.</source>
+          <target state="new">The <bpt id="5b66f91d-0b5f-4135-9b95-e215909b6aa1">&lt;strong&gt;</bpt>publisher portal<ept id="5b66f91d-0b5f-4135-9b95-e215909b6aa1">&lt;/strong&gt;</ept> is the administrative interface where you set up your API program.</target>
+        </trans-unit>
+        <trans-unit id="735dcafa-35a3-49c9-ad10-80a0d448a534" xml:space="preserve">
+          <source>Use it to:</source>
+          <target state="new">Use it to:</target>
+        </trans-unit>
+        <trans-unit id="d133d986-3e09-4061-8f87-072994984f65" xml:space="preserve">
+          <source>Define or import API schema.</source>
+          <target state="new">Define or import API schema.</target>
+        </trans-unit>
+        <trans-unit id="c461c0fd-75f3-4584-b480-049664f4e15e" xml:space="preserve">
+          <source>Package APIs into products.</source>
+          <target state="new">Package APIs into products.</target>
+        </trans-unit>
+        <trans-unit id="cfe6b4a2-cc86-4243-9c0d-dc71a376223f" xml:space="preserve">
+          <source>Set up policies like quotas or transformations on the APIs.</source>
+          <target state="new">Set up policies like quotas or transformations on the APIs.</target>
+        </trans-unit>
+        <trans-unit id="6c330fbe-6c2a-4054-bb57-1b7270dd6c2c" xml:space="preserve">
+          <source>Get insights from analytics.</source>
+          <target state="new">Get insights from analytics.</target>
+        </trans-unit>
+        <trans-unit id="26108350-89c0-4aa1-a07b-bf3d13ff597e" xml:space="preserve">
+          <source>Manage users.</source>
+          <target state="new">Manage users.</target>
+        </trans-unit>
+        <trans-unit id="1b72f43d-3fc2-4749-a6f9-7af11a8bcf09" xml:space="preserve">
+          <source>The <bpt id="f07de623-cc77-468f-be07-468ee2bc707e">&lt;strong&gt;</bpt>developer portal<ept id="f07de623-cc77-468f-be07-468ee2bc707e">&lt;/strong&gt;</ept> serves as the main web presence for developers, where they can:</source>
+          <target state="new">The <bpt id="f07de623-cc77-468f-be07-468ee2bc707e">&lt;strong&gt;</bpt>developer portal<ept id="f07de623-cc77-468f-be07-468ee2bc707e">&lt;/strong&gt;</ept> serves as the main web presence for developers, where they can:</target>
+        </trans-unit>
+        <trans-unit id="49ad18ae-7153-4881-9e6b-9967feff03c4" xml:space="preserve">
+          <source>Read API documentation.</source>
+          <target state="new">Read API documentation.</target>
+        </trans-unit>
+        <trans-unit id="476bf5b1-98da-4ed5-9143-1164d5a9e3b2" xml:space="preserve">
+          <source>Try out an API via the interactive console.</source>
+          <target state="new">Try out an API via the interactive console.</target>
+        </trans-unit>
+        <trans-unit id="2722cf3e-ba51-4e74-87a5-7582066bbad7" xml:space="preserve">
+          <source>Create an account and subscribe to get API keys.</source>
+          <target state="new">Create an account and subscribe to get API keys.</target>
+        </trans-unit>
+        <trans-unit id="d36de7ca-5de9-4086-b3e5-6165a9b00c4b" xml:space="preserve">
+          <source>Access analytics on their own usage.</source>
+          <target state="new">Access analytics on their own usage.</target>
+        </trans-unit>
+        <trans-unit id="c363df5a-a1c2-423d-b3ea-4cd3563a7831" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="78321354-b8b7-4c87-add2-5c4a1909c801" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="2dc4d5dd-905e-4009-8092-51416a002a29" xml:space="preserve">
+          <source>For details, see <bpt id="7f2f01a9-c715-4061-9ae6-4cc9de694a1f">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="7f2f01a9-c715-4061-9ae6-4cc9de694a1f">&lt;/linkText&gt;</ept><bpt id="7f2f01a9-c715-4061-9ae6-4cc9de694a1f">&lt;title&gt;</bpt><ept id="7f2f01a9-c715-4061-9ae6-4cc9de694a1f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="7f2f01a9-c715-4061-9ae6-4cc9de694a1f">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="7f2f01a9-c715-4061-9ae6-4cc9de694a1f">&lt;/linkText&gt;</ept><bpt id="7f2f01a9-c715-4061-9ae6-4cc9de694a1f">&lt;title&gt;</bpt><ept id="7f2f01a9-c715-4061-9ae6-4cc9de694a1f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b59a355-c39f-4f11-9e36-aa81d5c96f60" xml:space="preserve">
+          <source>The first step in working with API Management is to create a service instance.</source>
+          <target state="new">The first step in working with API Management is to create a service instance.</target>
+        </trans-unit>
+        <trans-unit id="2c71a65d-c289-41d1-b439-acca457d1246" xml:space="preserve">
+          <source>Sign in to the <bpt id="b5f42ea7-7270-492a-9b14-2225e5eb4af7">&lt;linkText&gt;</bpt>Azure portal<ept id="b5f42ea7-7270-492a-9b14-2225e5eb4af7">&lt;/linkText&gt;</ept><bpt id="b5f42ea7-7270-492a-9b14-2225e5eb4af7">&lt;title&gt;</bpt><ept id="b5f42ea7-7270-492a-9b14-2225e5eb4af7">&lt;/title&gt;</ept> and click <bpt id="fe8cfb9e-346b-4f7c-8f8a-603ec9bbe2d9">&lt;strong&gt;</bpt>New<ept id="fe8cfb9e-346b-4f7c-8f8a-603ec9bbe2d9">&lt;/strong&gt;</ept>, <bpt id="ad22164a-333e-4e1c-9e07-9cfe12e07195">&lt;strong&gt;</bpt>App Services<ept id="ad22164a-333e-4e1c-9e07-9cfe12e07195">&lt;/strong&gt;</ept>, <bpt id="389c386c-ac5f-40fe-94ea-05c04d25a028">&lt;strong&gt;</bpt>API Management<ept id="389c386c-ac5f-40fe-94ea-05c04d25a028">&lt;/strong&gt;</ept>, <bpt id="87d98cb5-93d7-41ac-b63d-f1dfdf915724">&lt;strong&gt;</bpt>Create<ept id="87d98cb5-93d7-41ac-b63d-f1dfdf915724">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="b5f42ea7-7270-492a-9b14-2225e5eb4af7">&lt;linkText&gt;</bpt>Azure portal<ept id="b5f42ea7-7270-492a-9b14-2225e5eb4af7">&lt;/linkText&gt;</ept><bpt id="b5f42ea7-7270-492a-9b14-2225e5eb4af7">&lt;title&gt;</bpt><ept id="b5f42ea7-7270-492a-9b14-2225e5eb4af7">&lt;/title&gt;</ept> and click <bpt id="fe8cfb9e-346b-4f7c-8f8a-603ec9bbe2d9">&lt;strong&gt;</bpt>New<ept id="fe8cfb9e-346b-4f7c-8f8a-603ec9bbe2d9">&lt;/strong&gt;</ept>, <bpt id="ad22164a-333e-4e1c-9e07-9cfe12e07195">&lt;strong&gt;</bpt>App Services<ept id="ad22164a-333e-4e1c-9e07-9cfe12e07195">&lt;/strong&gt;</ept>, <bpt id="389c386c-ac5f-40fe-94ea-05c04d25a028">&lt;strong&gt;</bpt>API Management<ept id="389c386c-ac5f-40fe-94ea-05c04d25a028">&lt;/strong&gt;</ept>, <bpt id="87d98cb5-93d7-41ac-b63d-f1dfdf915724">&lt;strong&gt;</bpt>Create<ept id="87d98cb5-93d7-41ac-b63d-f1dfdf915724">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f70c5e6-9abb-443d-9949-49c0d535f113" xml:space="preserve">
+          <source><bpt id="ac927dea-e19d-49bb-bcdc-6b662fa7bbe8">&lt;linkText&gt;</bpt>API Management new instance<ept id="ac927dea-e19d-49bb-bcdc-6b662fa7bbe8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ac927dea-e19d-49bb-bcdc-6b662fa7bbe8">&lt;linkText&gt;</bpt>API Management new instance<ept id="ac927dea-e19d-49bb-bcdc-6b662fa7bbe8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="555abac2-6816-4e00-befa-87150c083eec" xml:space="preserve">
+          <source>For <bpt id="4925fdba-d769-46d5-9fc5-21e0400fd19b">&lt;strong&gt;</bpt>URL<ept id="4925fdba-d769-46d5-9fc5-21e0400fd19b">&lt;/strong&gt;</ept>, specify a unique sub-domain name to use for the service URL.</source>
+          <target state="new">For <bpt id="4925fdba-d769-46d5-9fc5-21e0400fd19b">&lt;strong&gt;</bpt>URL<ept id="4925fdba-d769-46d5-9fc5-21e0400fd19b">&lt;/strong&gt;</ept>, specify a unique sub-domain name to use for the service URL.</target>
+        </trans-unit>
+        <trans-unit id="02798c10-29a7-4a6e-8d17-3c667eac7117" xml:space="preserve">
+          <source>Choose the desired <bpt id="66c2ae85-5489-410b-951f-a4c4e6a0c238">&lt;strong&gt;</bpt>Subscription<ept id="66c2ae85-5489-410b-951f-a4c4e6a0c238">&lt;/strong&gt;</ept> and <bpt id="5d4ea5b6-d1ce-4c44-b94a-00dd596e9f7b">&lt;strong&gt;</bpt>Region<ept id="5d4ea5b6-d1ce-4c44-b94a-00dd596e9f7b">&lt;/strong&gt;</ept> for your service instance.</source>
+          <target state="new">Choose the desired <bpt id="66c2ae85-5489-410b-951f-a4c4e6a0c238">&lt;strong&gt;</bpt>Subscription<ept id="66c2ae85-5489-410b-951f-a4c4e6a0c238">&lt;/strong&gt;</ept> and <bpt id="5d4ea5b6-d1ce-4c44-b94a-00dd596e9f7b">&lt;strong&gt;</bpt>Region<ept id="5d4ea5b6-d1ce-4c44-b94a-00dd596e9f7b">&lt;/strong&gt;</ept> for your service instance.</target>
+        </trans-unit>
+        <trans-unit id="27161063-a62a-437f-a0eb-975b66140e87" xml:space="preserve">
+          <source>After making your selections, click the <bpt id="ff9b81b8-542a-47de-a8fe-11f880303bd3">&lt;strong&gt;</bpt>Next<ept id="ff9b81b8-542a-47de-a8fe-11f880303bd3">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">After making your selections, click the <bpt id="ff9b81b8-542a-47de-a8fe-11f880303bd3">&lt;strong&gt;</bpt>Next<ept id="ff9b81b8-542a-47de-a8fe-11f880303bd3">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="ae523fb4-5e6b-4594-bbd5-90b3681f8a2e" xml:space="preserve">
+          <source><bpt id="e3cd3d0e-7082-4914-b565-875b224e00ba">&lt;linkText&gt;</bpt>New API Management service<ept id="e3cd3d0e-7082-4914-b565-875b224e00ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3cd3d0e-7082-4914-b565-875b224e00ba">&lt;linkText&gt;</bpt>New API Management service<ept id="e3cd3d0e-7082-4914-b565-875b224e00ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b572d65a-c7d6-40fc-8b85-cad35f8b2cef" xml:space="preserve">
+          <source>Enter <bpt id="2b926bdc-d073-4c30-a4e7-e4a6f14ee12a">&lt;strong&gt;</bpt>Contoso Ltd.<ept id="2b926bdc-d073-4c30-a4e7-e4a6f14ee12a">&lt;/strong&gt;</ept> for the <bpt id="58491db1-b679-415e-8049-fa2756639f02">&lt;strong&gt;</bpt>Organization Name<ept id="58491db1-b679-415e-8049-fa2756639f02">&lt;/strong&gt;</ept>, and enter your email address in the <bpt id="4c4ccb9b-607c-4716-bda9-2a24b03f3fd7">&lt;strong&gt;</bpt>Administrator E-Mail<ept id="4c4ccb9b-607c-4716-bda9-2a24b03f3fd7">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Enter <bpt id="2b926bdc-d073-4c30-a4e7-e4a6f14ee12a">&lt;strong&gt;</bpt>Contoso Ltd.<ept id="2b926bdc-d073-4c30-a4e7-e4a6f14ee12a">&lt;/strong&gt;</ept> for the <bpt id="58491db1-b679-415e-8049-fa2756639f02">&lt;strong&gt;</bpt>Organization Name<ept id="58491db1-b679-415e-8049-fa2756639f02">&lt;/strong&gt;</ept>, and enter your email address in the <bpt id="4c4ccb9b-607c-4716-bda9-2a24b03f3fd7">&lt;strong&gt;</bpt>Administrator E-Mail<ept id="4c4ccb9b-607c-4716-bda9-2a24b03f3fd7">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="bb27cf1e-2010-4c12-bcc5-0746319966ad" xml:space="preserve">
+          <source>This email address is used for notifications from the API Management system.</source>
+          <target state="new">This email address is used for notifications from the API Management system.</target>
+        </trans-unit>
+        <trans-unit id="d7350a52-0191-4c90-bd59-ccb6d61959e3" xml:space="preserve">
+          <source>For more information, see <bpt id="7309c12d-509c-4cd3-9f79-075fb41f2ddb">&lt;linkText&gt;</bpt>How to configure notifications and email templates in Azure API Management<ept id="7309c12d-509c-4cd3-9f79-075fb41f2ddb">&lt;/linkText&gt;</ept><bpt id="7309c12d-509c-4cd3-9f79-075fb41f2ddb">&lt;title&gt;</bpt><ept id="7309c12d-509c-4cd3-9f79-075fb41f2ddb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7309c12d-509c-4cd3-9f79-075fb41f2ddb">&lt;linkText&gt;</bpt>How to configure notifications and email templates in Azure API Management<ept id="7309c12d-509c-4cd3-9f79-075fb41f2ddb">&lt;/linkText&gt;</ept><bpt id="7309c12d-509c-4cd3-9f79-075fb41f2ddb">&lt;title&gt;</bpt><ept id="7309c12d-509c-4cd3-9f79-075fb41f2ddb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f6600d0-f477-4c39-a75b-e276d24e2afe" xml:space="preserve">
+          <source><bpt id="62dfdf20-2f6c-44cc-aa1c-91a4d6147ede">&lt;linkText&gt;</bpt>New API Management service<ept id="62dfdf20-2f6c-44cc-aa1c-91a4d6147ede">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62dfdf20-2f6c-44cc-aa1c-91a4d6147ede">&lt;linkText&gt;</bpt>New API Management service<ept id="62dfdf20-2f6c-44cc-aa1c-91a4d6147ede">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca81f052-146f-4b2b-b545-63ae8e5bf978" xml:space="preserve">
+          <source>API Management service instances are available in three tiers: Developer, Standard, and Premium.</source>
+          <target state="new">API Management service instances are available in three tiers: Developer, Standard, and Premium.</target>
+        </trans-unit>
+        <trans-unit id="d801aa8e-bb61-49de-961b-4341fd4b6bec" xml:space="preserve">
+          <source>By default, new API Management service instances are created in the Developer tier.</source>
+          <target state="new">By default, new API Management service instances are created in the Developer tier.</target>
+        </trans-unit>
+        <trans-unit id="830acbbf-5eab-4f85-a309-fb197000f0d8" xml:space="preserve">
+          <source>To select the Standard or Premium tier, check the <bpt id="b74c012d-2ea5-480a-a2c9-aa8e0a26b625">&lt;strong&gt;</bpt>Advanced settings<ept id="b74c012d-2ea5-480a-a2c9-aa8e0a26b625">&lt;/strong&gt;</ept> check box and select the desired tier on the following screen.</source>
+          <target state="new">To select the Standard or Premium tier, check the <bpt id="b74c012d-2ea5-480a-a2c9-aa8e0a26b625">&lt;strong&gt;</bpt>Advanced settings<ept id="b74c012d-2ea5-480a-a2c9-aa8e0a26b625">&lt;/strong&gt;</ept> check box and select the desired tier on the following screen.</target>
+        </trans-unit>
+        <trans-unit id="ad33bc32-47df-47e7-8d5a-0da003f38298" xml:space="preserve">
+          <source>The Developer Tier is for development, testing, and pilot API programs where high availability is not a concern.</source>
+          <target state="new">The Developer Tier is for development, testing, and pilot API programs where high availability is not a concern.</target>
+        </trans-unit>
+        <trans-unit id="947c12b4-ef7a-4768-af53-f20be967ed9e" xml:space="preserve">
+          <source>In the Standard and Premium tiers, you can scale your reserved unit count to handle more traffic.</source>
+          <target state="new">In the Standard and Premium tiers, you can scale your reserved unit count to handle more traffic.</target>
+        </trans-unit>
+        <trans-unit id="60863bc6-97b2-41a5-9b02-d60e5f0daf77" xml:space="preserve">
+          <source>The Standard and Premium tiers provide your API Management service with the most processing power and performance.</source>
+          <target state="new">The Standard and Premium tiers provide your API Management service with the most processing power and performance.</target>
+        </trans-unit>
+        <trans-unit id="200ab1d6-dd45-468e-a419-ccb65c625e12" xml:space="preserve">
+          <source>You can complete this tutorial by using any tier.</source>
+          <target state="new">You can complete this tutorial by using any tier.</target>
+        </trans-unit>
+        <trans-unit id="152d2d5f-6527-4ed3-9962-5c9cd483912f" xml:space="preserve">
+          <source>For more information about API Management tiers, see <bpt id="b5e3b2fa-561b-4665-be20-fd39e006f8da">&lt;linkText&gt;</bpt>API Management pricing<ept id="b5e3b2fa-561b-4665-be20-fd39e006f8da">&lt;/linkText&gt;</ept><bpt id="b5e3b2fa-561b-4665-be20-fd39e006f8da">&lt;title&gt;</bpt><ept id="b5e3b2fa-561b-4665-be20-fd39e006f8da">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about API Management tiers, see <bpt id="b5e3b2fa-561b-4665-be20-fd39e006f8da">&lt;linkText&gt;</bpt>API Management pricing<ept id="b5e3b2fa-561b-4665-be20-fd39e006f8da">&lt;/linkText&gt;</ept><bpt id="b5e3b2fa-561b-4665-be20-fd39e006f8da">&lt;title&gt;</bpt><ept id="b5e3b2fa-561b-4665-be20-fd39e006f8da">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="805b7e76-5782-458a-9d6f-d3cbdcda3bb9" xml:space="preserve">
+          <source>Click the check box to create your service instance.</source>
+          <target state="new">Click the check box to create your service instance.</target>
+        </trans-unit>
+        <trans-unit id="3e344bfd-9544-425b-930a-44c471849f38" xml:space="preserve">
+          <source><bpt id="28f07e4b-e48f-4779-9045-62ce1f76b78b">&lt;linkText&gt;</bpt>New API Management service<ept id="28f07e4b-e48f-4779-9045-62ce1f76b78b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="28f07e4b-e48f-4779-9045-62ce1f76b78b">&lt;linkText&gt;</bpt>New API Management service<ept id="28f07e4b-e48f-4779-9045-62ce1f76b78b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd43b4b7-120c-4fb9-9584-1da741687c01" xml:space="preserve">
+          <source>Once the service instance is created, the next step is to create or import an API.</source>
+          <target state="new">Once the service instance is created, the next step is to create or import an API.</target>
+        </trans-unit>
+        <trans-unit id="f42d8c2a-04d0-4f77-bab2-95982b0db7ed" xml:space="preserve">
+          <source>An API consists of a set of operations that can be invoked from a client application.</source>
+          <target state="new">An API consists of a set of operations that can be invoked from a client application.</target>
+        </trans-unit>
+        <trans-unit id="049222e8-90a4-4ea6-b011-fd3ec7cfba60" xml:space="preserve">
+          <source>API operations are proxied to existing web services.</source>
+          <target state="new">API operations are proxied to existing web services.</target>
+        </trans-unit>
+        <trans-unit id="686901d2-7e8c-44c7-b07e-bccbf1bc7ba4" xml:space="preserve">
+          <source>APIs can be created (and operations can be added) manually, or they can be imported.</source>
+          <target state="new">APIs can be created (and operations can be added) manually, or they can be imported.</target>
+        </trans-unit>
+        <trans-unit id="5d0ed457-77ff-446f-9dd9-2e4b4aab302b" xml:space="preserve">
+          <source>In this tutorial, we will import the API for a sample calculator web service provided by Microsoft and hosted on Azure.</source>
+          <target state="new">In this tutorial, we will import the API for a sample calculator web service provided by Microsoft and hosted on Azure.</target>
+        </trans-unit>
+        <trans-unit id="b1126c72-49c8-46e7-8a94-30e3eb0a2b34" xml:space="preserve">
+          <source>For guidance on creating an API and manually adding operations, see <bpt id="87b089ff-bd30-41aa-acee-3634a5a07ca4">&lt;linkText&gt;</bpt>How to create APIs<ept id="87b089ff-bd30-41aa-acee-3634a5a07ca4">&lt;/linkText&gt;</ept><bpt id="87b089ff-bd30-41aa-acee-3634a5a07ca4">&lt;title&gt;</bpt><ept id="87b089ff-bd30-41aa-acee-3634a5a07ca4">&lt;/title&gt;</ept> and <bpt id="b39b64b3-750c-4277-a165-e9c3a4e711b0">&lt;linkText&gt;</bpt>How to add operations to an API<ept id="b39b64b3-750c-4277-a165-e9c3a4e711b0">&lt;/linkText&gt;</ept><bpt id="b39b64b3-750c-4277-a165-e9c3a4e711b0">&lt;title&gt;</bpt><ept id="b39b64b3-750c-4277-a165-e9c3a4e711b0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For guidance on creating an API and manually adding operations, see <bpt id="87b089ff-bd30-41aa-acee-3634a5a07ca4">&lt;linkText&gt;</bpt>How to create APIs<ept id="87b089ff-bd30-41aa-acee-3634a5a07ca4">&lt;/linkText&gt;</ept><bpt id="87b089ff-bd30-41aa-acee-3634a5a07ca4">&lt;title&gt;</bpt><ept id="87b089ff-bd30-41aa-acee-3634a5a07ca4">&lt;/title&gt;</ept> and <bpt id="b39b64b3-750c-4277-a165-e9c3a4e711b0">&lt;linkText&gt;</bpt>How to add operations to an API<ept id="b39b64b3-750c-4277-a165-e9c3a4e711b0">&lt;/linkText&gt;</ept><bpt id="b39b64b3-750c-4277-a165-e9c3a4e711b0">&lt;title&gt;</bpt><ept id="b39b64b3-750c-4277-a165-e9c3a4e711b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97ee9701-d87c-46d3-9b53-58f7041fc91a" xml:space="preserve">
+          <source>APIs are configured from the publisher portal, which is accessed through the Azure portal.</source>
+          <target state="new">APIs are configured from the publisher portal, which is accessed through the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="62029fa9-c280-49f8-8bce-734e8189c1b5" xml:space="preserve">
+          <source>To reach the publisher portal, click <bpt id="9bc31608-476f-46cf-8a81-9de3b331e8fd">&lt;strong&gt;</bpt>Manage<ept id="9bc31608-476f-46cf-8a81-9de3b331e8fd">&lt;/strong&gt;</ept> in the Azure portal for your API Management service.</source>
+          <target state="new">To reach the publisher portal, click <bpt id="9bc31608-476f-46cf-8a81-9de3b331e8fd">&lt;strong&gt;</bpt>Manage<ept id="9bc31608-476f-46cf-8a81-9de3b331e8fd">&lt;/strong&gt;</ept> in the Azure portal for your API Management service.</target>
+        </trans-unit>
+        <trans-unit id="a04109cb-4825-40ab-abff-6a43a5a3041d" xml:space="preserve">
+          <source><bpt id="c6815f3a-2150-4c8b-a16f-861a2416e5da">&lt;linkText&gt;</bpt>Publisher portal<ept id="c6815f3a-2150-4c8b-a16f-861a2416e5da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c6815f3a-2150-4c8b-a16f-861a2416e5da">&lt;linkText&gt;</bpt>Publisher portal<ept id="c6815f3a-2150-4c8b-a16f-861a2416e5da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61f152c1-bafa-4b36-a641-f432512f7af8" xml:space="preserve">
+          <source>To import the calculator API, click <bpt id="257e029e-99b0-45c6-b8dc-1b8f4eb9c7b7">&lt;strong&gt;</bpt>APIs<ept id="257e029e-99b0-45c6-b8dc-1b8f4eb9c7b7">&lt;/strong&gt;</ept> from the <bpt id="d15641e8-5cb9-4ece-90e6-6b0b2983584e">&lt;strong&gt;</bpt>API Management<ept id="d15641e8-5cb9-4ece-90e6-6b0b2983584e">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="93f02bf2-a7a4-42e1-83bc-52e31c0393b2">&lt;strong&gt;</bpt>Import API<ept id="93f02bf2-a7a4-42e1-83bc-52e31c0393b2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To import the calculator API, click <bpt id="257e029e-99b0-45c6-b8dc-1b8f4eb9c7b7">&lt;strong&gt;</bpt>APIs<ept id="257e029e-99b0-45c6-b8dc-1b8f4eb9c7b7">&lt;/strong&gt;</ept> from the <bpt id="d15641e8-5cb9-4ece-90e6-6b0b2983584e">&lt;strong&gt;</bpt>API Management<ept id="d15641e8-5cb9-4ece-90e6-6b0b2983584e">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="93f02bf2-a7a4-42e1-83bc-52e31c0393b2">&lt;strong&gt;</bpt>Import API<ept id="93f02bf2-a7a4-42e1-83bc-52e31c0393b2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d41e08e-bb09-4f5d-b098-4ac27d389c80" xml:space="preserve">
+          <source><bpt id="a264584d-467b-435a-83c4-ad1e19434b39">&lt;linkText&gt;</bpt>Import API button<ept id="a264584d-467b-435a-83c4-ad1e19434b39">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a264584d-467b-435a-83c4-ad1e19434b39">&lt;linkText&gt;</bpt>Import API button<ept id="a264584d-467b-435a-83c4-ad1e19434b39">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6214291f-f885-419e-be1a-a1eadcc88ba6" xml:space="preserve">
+          <source>Perform the following steps to configure the calculator API:</source>
+          <target state="new">Perform the following steps to configure the calculator API:</target>
+        </trans-unit>
+        <trans-unit id="093ea28e-f2fa-4fca-a168-acac64bf91fd" xml:space="preserve">
+          <source>Click <bpt id="6083d896-caba-4f5f-8f24-e7ae64ab05a3">&lt;strong&gt;</bpt>From URL<ept id="6083d896-caba-4f5f-8f24-e7ae64ab05a3">&lt;/strong&gt;</ept>, enter <bpt id="ec48d691-ed78-4563-81f0-d1d192f78710">&lt;strong&gt;</bpt>http://calcapi.cloudapp.net/calcapi.json<ept id="ec48d691-ed78-4563-81f0-d1d192f78710">&lt;/strong&gt;</ept> into the <bpt id="c0cc05e3-99d6-4075-ab4e-d06ec267edc7">&lt;strong&gt;</bpt>Specification document URL<ept id="c0cc05e3-99d6-4075-ab4e-d06ec267edc7">&lt;/strong&gt;</ept> text box, and click the <bpt id="ac2abb98-4870-4400-96a7-7802d0f2027f">&lt;strong&gt;</bpt>Swagger<ept id="ac2abb98-4870-4400-96a7-7802d0f2027f">&lt;/strong&gt;</ept> radio button.</source>
+          <target state="new">Click <bpt id="6083d896-caba-4f5f-8f24-e7ae64ab05a3">&lt;strong&gt;</bpt>From URL<ept id="6083d896-caba-4f5f-8f24-e7ae64ab05a3">&lt;/strong&gt;</ept>, enter <bpt id="ec48d691-ed78-4563-81f0-d1d192f78710">&lt;strong&gt;</bpt>http://calcapi.cloudapp.net/calcapi.json<ept id="ec48d691-ed78-4563-81f0-d1d192f78710">&lt;/strong&gt;</ept> into the <bpt id="c0cc05e3-99d6-4075-ab4e-d06ec267edc7">&lt;strong&gt;</bpt>Specification document URL<ept id="c0cc05e3-99d6-4075-ab4e-d06ec267edc7">&lt;/strong&gt;</ept> text box, and click the <bpt id="ac2abb98-4870-4400-96a7-7802d0f2027f">&lt;strong&gt;</bpt>Swagger<ept id="ac2abb98-4870-4400-96a7-7802d0f2027f">&lt;/strong&gt;</ept> radio button.</target>
+        </trans-unit>
+        <trans-unit id="676b97a5-6f25-441d-99d5-affebff20977" xml:space="preserve">
+          <source>Type <bpt id="888b9ecc-d886-45fd-9f4f-5803fe3ce8d4">&lt;strong&gt;</bpt>calc<ept id="888b9ecc-d886-45fd-9f4f-5803fe3ce8d4">&lt;/strong&gt;</ept> into the <bpt id="506fccf5-e31d-4517-98ae-999f4f2200bd">&lt;strong&gt;</bpt>Web API URL suffix<ept id="506fccf5-e31d-4517-98ae-999f4f2200bd">&lt;/strong&gt;</ept> text box.</source>
+          <target state="new">Type <bpt id="888b9ecc-d886-45fd-9f4f-5803fe3ce8d4">&lt;strong&gt;</bpt>calc<ept id="888b9ecc-d886-45fd-9f4f-5803fe3ce8d4">&lt;/strong&gt;</ept> into the <bpt id="506fccf5-e31d-4517-98ae-999f4f2200bd">&lt;strong&gt;</bpt>Web API URL suffix<ept id="506fccf5-e31d-4517-98ae-999f4f2200bd">&lt;/strong&gt;</ept> text box.</target>
+        </trans-unit>
+        <trans-unit id="f7209504-68a7-4cde-9dad-bec4b22f77f3" xml:space="preserve">
+          <source>Click in the <bpt id="d71d5feb-010e-434e-982c-0265f338eda4">&lt;strong&gt;</bpt>Products (optional)<ept id="d71d5feb-010e-434e-982c-0265f338eda4">&lt;/strong&gt;</ept> box and choose <bpt id="56651a48-d7a3-4d95-bdeb-f000077d8d18">&lt;strong&gt;</bpt>Starter<ept id="56651a48-d7a3-4d95-bdeb-f000077d8d18">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click in the <bpt id="d71d5feb-010e-434e-982c-0265f338eda4">&lt;strong&gt;</bpt>Products (optional)<ept id="d71d5feb-010e-434e-982c-0265f338eda4">&lt;/strong&gt;</ept> box and choose <bpt id="56651a48-d7a3-4d95-bdeb-f000077d8d18">&lt;strong&gt;</bpt>Starter<ept id="56651a48-d7a3-4d95-bdeb-f000077d8d18">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5dd9d8d-d53d-4587-a20f-db4b1ece096c" xml:space="preserve">
+          <source>Click <bpt id="7ee56528-1ad7-49a9-a30e-28a98209a84a">&lt;strong&gt;</bpt>Save<ept id="7ee56528-1ad7-49a9-a30e-28a98209a84a">&lt;/strong&gt;</ept> to import the API.</source>
+          <target state="new">Click <bpt id="7ee56528-1ad7-49a9-a30e-28a98209a84a">&lt;strong&gt;</bpt>Save<ept id="7ee56528-1ad7-49a9-a30e-28a98209a84a">&lt;/strong&gt;</ept> to import the API.</target>
+        </trans-unit>
+        <trans-unit id="d4e43b94-0232-4c4f-aa11-3235435a2eaf" xml:space="preserve">
+          <source><bpt id="47543517-5a01-4f12-9969-e54c1a03d42c">&lt;linkText&gt;</bpt>Add new API<ept id="47543517-5a01-4f12-9969-e54c1a03d42c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="47543517-5a01-4f12-9969-e54c1a03d42c">&lt;linkText&gt;</bpt>Add new API<ept id="47543517-5a01-4f12-9969-e54c1a03d42c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27945d6e-affb-46ed-87d5-1441fd9e8123" xml:space="preserve">
+          <source>Once the API is imported, the summary page for the API is displayed in the publisher portal.</source>
+          <target state="new">Once the API is imported, the summary page for the API is displayed in the publisher portal.</target>
+        </trans-unit>
+        <trans-unit id="15620b51-e062-4e29-867a-a950aab813dc" xml:space="preserve">
+          <source><bpt id="686dc6a8-7973-4e07-8b66-ae98bbb4f624">&lt;linkText&gt;</bpt>API summary<ept id="686dc6a8-7973-4e07-8b66-ae98bbb4f624">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="686dc6a8-7973-4e07-8b66-ae98bbb4f624">&lt;linkText&gt;</bpt>API summary<ept id="686dc6a8-7973-4e07-8b66-ae98bbb4f624">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49bb7e8e-c55a-455d-beb6-21ccd58e18f1" xml:space="preserve">
+          <source>The API section has several tabs.</source>
+          <target state="new">The API section has several tabs.</target>
+        </trans-unit>
+        <trans-unit id="1ea1e668-a83b-485b-b3a1-bf2d4566f8eb" xml:space="preserve">
+          <source>The <bpt id="2f861c0b-10bd-4752-b2d1-4856882fa6c5">&lt;strong&gt;</bpt>Summary<ept id="2f861c0b-10bd-4752-b2d1-4856882fa6c5">&lt;/strong&gt;</ept> tab displays basic metrics and information about the API.</source>
+          <target state="new">The <bpt id="2f861c0b-10bd-4752-b2d1-4856882fa6c5">&lt;strong&gt;</bpt>Summary<ept id="2f861c0b-10bd-4752-b2d1-4856882fa6c5">&lt;/strong&gt;</ept> tab displays basic metrics and information about the API.</target>
+        </trans-unit>
+        <trans-unit id="82c00b15-c37f-4531-8935-89341e2c9754" xml:space="preserve">
+          <source>The <bpt id="3a3bf316-dcd3-43f2-998e-69b179d2d1e9">&lt;linkText&gt;</bpt>Settings<ept id="3a3bf316-dcd3-43f2-998e-69b179d2d1e9">&lt;/linkText&gt;</ept><bpt id="3a3bf316-dcd3-43f2-998e-69b179d2d1e9">&lt;title&gt;</bpt><ept id="3a3bf316-dcd3-43f2-998e-69b179d2d1e9">&lt;/title&gt;</ept> tab is used to view and edit the configuration for an API.</source>
+          <target state="new">The <bpt id="3a3bf316-dcd3-43f2-998e-69b179d2d1e9">&lt;linkText&gt;</bpt>Settings<ept id="3a3bf316-dcd3-43f2-998e-69b179d2d1e9">&lt;/linkText&gt;</ept><bpt id="3a3bf316-dcd3-43f2-998e-69b179d2d1e9">&lt;title&gt;</bpt><ept id="3a3bf316-dcd3-43f2-998e-69b179d2d1e9">&lt;/title&gt;</ept> tab is used to view and edit the configuration for an API.</target>
+        </trans-unit>
+        <trans-unit id="7f0edcc5-2fa9-43c5-b4bf-84ac83d8b0f1" xml:space="preserve">
+          <source>The <bpt id="f5c4e43f-9f7f-493a-b227-2d786dbf4cee">&lt;linkText&gt;</bpt>Operations<ept id="f5c4e43f-9f7f-493a-b227-2d786dbf4cee">&lt;/linkText&gt;</ept><bpt id="f5c4e43f-9f7f-493a-b227-2d786dbf4cee">&lt;title&gt;</bpt><ept id="f5c4e43f-9f7f-493a-b227-2d786dbf4cee">&lt;/title&gt;</ept> tab is used to manage the API's operations.</source>
+          <target state="new">The <bpt id="f5c4e43f-9f7f-493a-b227-2d786dbf4cee">&lt;linkText&gt;</bpt>Operations<ept id="f5c4e43f-9f7f-493a-b227-2d786dbf4cee">&lt;/linkText&gt;</ept><bpt id="f5c4e43f-9f7f-493a-b227-2d786dbf4cee">&lt;title&gt;</bpt><ept id="f5c4e43f-9f7f-493a-b227-2d786dbf4cee">&lt;/title&gt;</ept> tab is used to manage the API's operations.</target>
+        </trans-unit>
+        <trans-unit id="228eb8c8-75be-43a5-8fb0-6f89cb0f38e8" xml:space="preserve">
+          <source>The <bpt id="ef23fcbb-7930-43ca-9990-b3e018cf6bf3">&lt;strong&gt;</bpt>Security<ept id="ef23fcbb-7930-43ca-9990-b3e018cf6bf3">&lt;/strong&gt;</ept> tab can be used to configure proxy authentication for the backend server by using Basic authentication or <bpt id="8fb60721-671a-415a-83ab-661ed7a21b2d">&lt;linkText&gt;</bpt>mutual certificate authentication<ept id="8fb60721-671a-415a-83ab-661ed7a21b2d">&lt;/linkText&gt;</ept><bpt id="8fb60721-671a-415a-83ab-661ed7a21b2d">&lt;title&gt;</bpt><ept id="8fb60721-671a-415a-83ab-661ed7a21b2d">&lt;/title&gt;</ept>, and to configure <bpt id="65d8cc18-2ea0-4f1e-8f75-b244817fd1ae">&lt;linkText&gt;</bpt>user authorization by using OAuth 2.0<ept id="65d8cc18-2ea0-4f1e-8f75-b244817fd1ae">&lt;/linkText&gt;</ept><bpt id="65d8cc18-2ea0-4f1e-8f75-b244817fd1ae">&lt;title&gt;</bpt><ept id="65d8cc18-2ea0-4f1e-8f75-b244817fd1ae">&lt;/title&gt;</ept>.</source>
+          <target state="new">The <bpt id="ef23fcbb-7930-43ca-9990-b3e018cf6bf3">&lt;strong&gt;</bpt>Security<ept id="ef23fcbb-7930-43ca-9990-b3e018cf6bf3">&lt;/strong&gt;</ept> tab can be used to configure proxy authentication for the backend server by using Basic authentication or <bpt id="8fb60721-671a-415a-83ab-661ed7a21b2d">&lt;linkText&gt;</bpt>mutual certificate authentication<ept id="8fb60721-671a-415a-83ab-661ed7a21b2d">&lt;/linkText&gt;</ept><bpt id="8fb60721-671a-415a-83ab-661ed7a21b2d">&lt;title&gt;</bpt><ept id="8fb60721-671a-415a-83ab-661ed7a21b2d">&lt;/title&gt;</ept>, and to configure <bpt id="65d8cc18-2ea0-4f1e-8f75-b244817fd1ae">&lt;linkText&gt;</bpt>user authorization by using OAuth 2.0<ept id="65d8cc18-2ea0-4f1e-8f75-b244817fd1ae">&lt;/linkText&gt;</ept><bpt id="65d8cc18-2ea0-4f1e-8f75-b244817fd1ae">&lt;title&gt;</bpt><ept id="65d8cc18-2ea0-4f1e-8f75-b244817fd1ae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77ff7020-361c-400b-80e5-8d6c530a1220" xml:space="preserve">
+          <source>The <bpt id="5bdc1536-0168-4e97-9e95-7276f3452c37">&lt;strong&gt;</bpt>Issues<ept id="5bdc1536-0168-4e97-9e95-7276f3452c37">&lt;/strong&gt;</ept> tab is used to view issues reported by the developers who are using your APIs.</source>
+          <target state="new">The <bpt id="5bdc1536-0168-4e97-9e95-7276f3452c37">&lt;strong&gt;</bpt>Issues<ept id="5bdc1536-0168-4e97-9e95-7276f3452c37">&lt;/strong&gt;</ept> tab is used to view issues reported by the developers who are using your APIs.</target>
+        </trans-unit>
+        <trans-unit id="d14a0742-0e08-4696-9432-9c9fbedea239" xml:space="preserve">
+          <source>The <bpt id="66c9c18d-7031-4f7f-af97-c6f7a9bc5ecb">&lt;strong&gt;</bpt>Products<ept id="66c9c18d-7031-4f7f-af97-c6f7a9bc5ecb">&lt;/strong&gt;</ept> tab is used to configure the products that contain this API.</source>
+          <target state="new">The <bpt id="66c9c18d-7031-4f7f-af97-c6f7a9bc5ecb">&lt;strong&gt;</bpt>Products<ept id="66c9c18d-7031-4f7f-af97-c6f7a9bc5ecb">&lt;/strong&gt;</ept> tab is used to configure the products that contain this API.</target>
+        </trans-unit>
+        <trans-unit id="28cca33e-5ca2-4124-8062-1869be844ab2" xml:space="preserve">
+          <source>By default, each API Management instance comes with two sample products:</source>
+          <target state="new">By default, each API Management instance comes with two sample products:</target>
+        </trans-unit>
+        <trans-unit id="51fa1789-530e-43b4-b992-429f6ab89609" xml:space="preserve">
+          <source><bpt id="b903e4a5-9c79-483d-b321-51f8ef506d8b">&lt;strong&gt;</bpt>Starter<ept id="b903e4a5-9c79-483d-b321-51f8ef506d8b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b903e4a5-9c79-483d-b321-51f8ef506d8b">&lt;strong&gt;</bpt>Starter<ept id="b903e4a5-9c79-483d-b321-51f8ef506d8b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="533f2c77-e1fd-4e83-a144-3957b7395909" xml:space="preserve">
+          <source><bpt id="429b3a7d-5a55-436e-bcad-5cc7cbd1089d">&lt;strong&gt;</bpt>Unlimited<ept id="429b3a7d-5a55-436e-bcad-5cc7cbd1089d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="429b3a7d-5a55-436e-bcad-5cc7cbd1089d">&lt;strong&gt;</bpt>Unlimited<ept id="429b3a7d-5a55-436e-bcad-5cc7cbd1089d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01931e3a-45f8-414e-8d7c-bfe8d48daa38" xml:space="preserve">
+          <source>In this tutorial, the Basic Calculator API was added to the Starter product when the API was imported.</source>
+          <target state="new">In this tutorial, the Basic Calculator API was added to the Starter product when the API was imported.</target>
+        </trans-unit>
+        <trans-unit id="ef59c54c-8684-4aa2-8b7b-f34d493775db" xml:space="preserve">
+          <source>In order to make calls to an API, developers must first subscribe to a product that gives them access to it.</source>
+          <target state="new">In order to make calls to an API, developers must first subscribe to a product that gives them access to it.</target>
+        </trans-unit>
+        <trans-unit id="796ec2d7-573a-4b67-95e6-5975eac344a5" xml:space="preserve">
+          <source>Developers can subscribe to products in the developer portal, or administrators can subscribe developers to products in the publisher portal.</source>
+          <target state="new">Developers can subscribe to products in the developer portal, or administrators can subscribe developers to products in the publisher portal.</target>
+        </trans-unit>
+        <trans-unit id="c44ed25c-7a2e-4cd6-82b3-01f00829a331" xml:space="preserve">
+          <source>You are an administrator since you created the API Management instance in the previous steps in the tutorial, so you are already subscribed to every product by default.</source>
+          <target state="new">You are an administrator since you created the API Management instance in the previous steps in the tutorial, so you are already subscribed to every product by default.</target>
+        </trans-unit>
+        <trans-unit id="54c7cfea-ccc1-438f-b38d-4d821894982d" xml:space="preserve">
+          <source>Operations can be called directly from the developer portal, which provides a convenient way to view and test the operations of an API.</source>
+          <target state="new">Operations can be called directly from the developer portal, which provides a convenient way to view and test the operations of an API.</target>
+        </trans-unit>
+        <trans-unit id="9c85c0a9-cccc-4874-bbfe-b5b25ed9b327" xml:space="preserve">
+          <source>In this tutorial step, you will call the Basic Calculator API's <bpt id="d25838db-9a9b-43d0-88e0-89bcd65127ff">&lt;strong&gt;</bpt>Add two integers<ept id="d25838db-9a9b-43d0-88e0-89bcd65127ff">&lt;/strong&gt;</ept> operation.</source>
+          <target state="new">In this tutorial step, you will call the Basic Calculator API's <bpt id="d25838db-9a9b-43d0-88e0-89bcd65127ff">&lt;strong&gt;</bpt>Add two integers<ept id="d25838db-9a9b-43d0-88e0-89bcd65127ff">&lt;/strong&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="6b96003d-16d5-410b-a8e8-83bc17548864" xml:space="preserve">
+          <source>Click <bpt id="aec8e4f0-dd27-4ddd-8de4-b82d73e62609">&lt;strong&gt;</bpt>Developer portal<ept id="aec8e4f0-dd27-4ddd-8de4-b82d73e62609">&lt;/strong&gt;</ept> from the menu at the top right of the publisher portal.</source>
+          <target state="new">Click <bpt id="aec8e4f0-dd27-4ddd-8de4-b82d73e62609">&lt;strong&gt;</bpt>Developer portal<ept id="aec8e4f0-dd27-4ddd-8de4-b82d73e62609">&lt;/strong&gt;</ept> from the menu at the top right of the publisher portal.</target>
+        </trans-unit>
+        <trans-unit id="c5d2846b-4e4a-4ec7-8374-ab635c208690" xml:space="preserve">
+          <source><bpt id="9980b889-55eb-4990-9b66-30b9190e5be9">&lt;linkText&gt;</bpt>Developer portal<ept id="9980b889-55eb-4990-9b66-30b9190e5be9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9980b889-55eb-4990-9b66-30b9190e5be9">&lt;linkText&gt;</bpt>Developer portal<ept id="9980b889-55eb-4990-9b66-30b9190e5be9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6a1e3b0-7842-4efc-b43f-ad04e8426e04" xml:space="preserve">
+          <source>Click <bpt id="ae3544bd-7b90-4b3e-b9c2-e8834f29aa40">&lt;strong&gt;</bpt>APIs<ept id="ae3544bd-7b90-4b3e-b9c2-e8834f29aa40">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="7f302f5e-6297-4f46-abf7-64d025aee103">&lt;strong&gt;</bpt>Basic Calculator<ept id="7f302f5e-6297-4f46-abf7-64d025aee103">&lt;/strong&gt;</ept> to see the available operations.</source>
+          <target state="new">Click <bpt id="ae3544bd-7b90-4b3e-b9c2-e8834f29aa40">&lt;strong&gt;</bpt>APIs<ept id="ae3544bd-7b90-4b3e-b9c2-e8834f29aa40">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="7f302f5e-6297-4f46-abf7-64d025aee103">&lt;strong&gt;</bpt>Basic Calculator<ept id="7f302f5e-6297-4f46-abf7-64d025aee103">&lt;/strong&gt;</ept> to see the available operations.</target>
+        </trans-unit>
+        <trans-unit id="6b43f3f7-013b-4b00-850e-630e519cc82a" xml:space="preserve">
+          <source><bpt id="57148701-1616-41f8-ada5-063f1fc6a770">&lt;linkText&gt;</bpt>Developer portal<ept id="57148701-1616-41f8-ada5-063f1fc6a770">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="57148701-1616-41f8-ada5-063f1fc6a770">&lt;linkText&gt;</bpt>Developer portal<ept id="57148701-1616-41f8-ada5-063f1fc6a770">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea092444-0d8e-4cdd-bf04-e23807b3b94b" xml:space="preserve">
+          <source>Note the sample descriptions and parameters that were imported along with the API and operations, providing documentation for the developers that will use this operation.</source>
+          <target state="new">Note the sample descriptions and parameters that were imported along with the API and operations, providing documentation for the developers that will use this operation.</target>
+        </trans-unit>
+        <trans-unit id="aeb0dcfb-d677-410d-841d-223eef69c639" xml:space="preserve">
+          <source>These descriptions can also be added when operations are added manually.</source>
+          <target state="new">These descriptions can also be added when operations are added manually.</target>
+        </trans-unit>
+        <trans-unit id="915e6ea9-fcd7-4522-b037-6256e0ff5421" xml:space="preserve">
+          <source>To call the <bpt id="a22c5f3b-c481-4345-a30c-ed341f77ae8e">&lt;strong&gt;</bpt>Add two integers<ept id="a22c5f3b-c481-4345-a30c-ed341f77ae8e">&lt;/strong&gt;</ept> operation, click <bpt id="f136d419-bad8-46c6-ac08-c611171808e2">&lt;strong&gt;</bpt>Try it<ept id="f136d419-bad8-46c6-ac08-c611171808e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To call the <bpt id="a22c5f3b-c481-4345-a30c-ed341f77ae8e">&lt;strong&gt;</bpt>Add two integers<ept id="a22c5f3b-c481-4345-a30c-ed341f77ae8e">&lt;/strong&gt;</ept> operation, click <bpt id="f136d419-bad8-46c6-ac08-c611171808e2">&lt;strong&gt;</bpt>Try it<ept id="f136d419-bad8-46c6-ac08-c611171808e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c844b29-28d8-49fa-93b7-582b6140eff1" xml:space="preserve">
+          <source><bpt id="c222d2d9-f495-439e-8fc8-50369ada20cd">&lt;linkText&gt;</bpt>Try it<ept id="c222d2d9-f495-439e-8fc8-50369ada20cd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c222d2d9-f495-439e-8fc8-50369ada20cd">&lt;linkText&gt;</bpt>Try it<ept id="c222d2d9-f495-439e-8fc8-50369ada20cd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9dc96141-6910-4ef7-8ec0-818aa85738a9" xml:space="preserve">
+          <source>You can enter some values for the parameters or keep the defaults, and then click <bpt id="3b84c661-3270-48e5-bb41-baf3558efe32">&lt;strong&gt;</bpt>Send<ept id="3b84c661-3270-48e5-bb41-baf3558efe32">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can enter some values for the parameters or keep the defaults, and then click <bpt id="3b84c661-3270-48e5-bb41-baf3558efe32">&lt;strong&gt;</bpt>Send<ept id="3b84c661-3270-48e5-bb41-baf3558efe32">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c9ad3a2-9a5d-4bd1-86f4-b370a86e714d" xml:space="preserve">
+          <source><bpt id="8d789872-8818-40bb-80ed-0cbfc0ce732c">&lt;linkText&gt;</bpt>HTTP Get<ept id="8d789872-8818-40bb-80ed-0cbfc0ce732c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8d789872-8818-40bb-80ed-0cbfc0ce732c">&lt;linkText&gt;</bpt>HTTP Get<ept id="8d789872-8818-40bb-80ed-0cbfc0ce732c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00e9b7b5-deb0-4408-9317-f4f0b1c856e8" xml:space="preserve">
+          <source>After an operation is invoked, the developer portal displays the <bpt id="c275a4ca-6c85-478c-8370-9280f68924a1">&lt;strong&gt;</bpt>Response status<ept id="c275a4ca-6c85-478c-8370-9280f68924a1">&lt;/strong&gt;</ept>, the <bpt id="f1ce3fa6-b485-429c-b36f-f8cbe86d94dc">&lt;strong&gt;</bpt>Response headers<ept id="f1ce3fa6-b485-429c-b36f-f8cbe86d94dc">&lt;/strong&gt;</ept>, and any <bpt id="3d172427-27ad-45e8-ad3d-594acc05255b">&lt;strong&gt;</bpt>Response content<ept id="3d172427-27ad-45e8-ad3d-594acc05255b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After an operation is invoked, the developer portal displays the <bpt id="c275a4ca-6c85-478c-8370-9280f68924a1">&lt;strong&gt;</bpt>Response status<ept id="c275a4ca-6c85-478c-8370-9280f68924a1">&lt;/strong&gt;</ept>, the <bpt id="f1ce3fa6-b485-429c-b36f-f8cbe86d94dc">&lt;strong&gt;</bpt>Response headers<ept id="f1ce3fa6-b485-429c-b36f-f8cbe86d94dc">&lt;/strong&gt;</ept>, and any <bpt id="3d172427-27ad-45e8-ad3d-594acc05255b">&lt;strong&gt;</bpt>Response content<ept id="3d172427-27ad-45e8-ad3d-594acc05255b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="444f21db-4d5d-458a-b0ff-7563ed70e22e" xml:space="preserve">
+          <source><bpt id="3b1d46fb-3f95-47e7-948c-54204034e3ec">&lt;linkText&gt;</bpt>Response<ept id="3b1d46fb-3f95-47e7-948c-54204034e3ec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b1d46fb-3f95-47e7-948c-54204034e3ec">&lt;linkText&gt;</bpt>Response<ept id="3b1d46fb-3f95-47e7-948c-54204034e3ec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5aa5e77-8562-4071-ae24-6d5cf8587c05" xml:space="preserve">
+          <source>To view analytics for Basic Calculator, switch back to the publisher portal by selecting <bpt id="3304a4fd-b869-4228-b0df-62a05389393f">&lt;strong&gt;</bpt>Manage<ept id="3304a4fd-b869-4228-b0df-62a05389393f">&lt;/strong&gt;</ept> from the menu at the top right of the developer portal.</source>
+          <target state="new">To view analytics for Basic Calculator, switch back to the publisher portal by selecting <bpt id="3304a4fd-b869-4228-b0df-62a05389393f">&lt;strong&gt;</bpt>Manage<ept id="3304a4fd-b869-4228-b0df-62a05389393f">&lt;/strong&gt;</ept> from the menu at the top right of the developer portal.</target>
+        </trans-unit>
+        <trans-unit id="c8981e22-6fc8-408a-8c81-4abf7fae9853" xml:space="preserve">
+          <source><bpt id="9bf8c9e0-27da-4d48-8c83-c662486fb835">&lt;linkText&gt;</bpt>Manage<ept id="9bf8c9e0-27da-4d48-8c83-c662486fb835">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9bf8c9e0-27da-4d48-8c83-c662486fb835">&lt;linkText&gt;</bpt>Manage<ept id="9bf8c9e0-27da-4d48-8c83-c662486fb835">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa25a5bd-0adc-403a-aa4c-ccd2ed6f2a37" xml:space="preserve">
+          <source>The default view for the publisher portal is the <bpt id="be532933-262e-4d4e-b7f0-39aebc3b5326">&lt;strong&gt;</bpt>Dashboard<ept id="be532933-262e-4d4e-b7f0-39aebc3b5326">&lt;/strong&gt;</ept>, which provides an overview of your API Management instance.</source>
+          <target state="new">The default view for the publisher portal is the <bpt id="be532933-262e-4d4e-b7f0-39aebc3b5326">&lt;strong&gt;</bpt>Dashboard<ept id="be532933-262e-4d4e-b7f0-39aebc3b5326">&lt;/strong&gt;</ept>, which provides an overview of your API Management instance.</target>
+        </trans-unit>
+        <trans-unit id="74aeb0e6-a4d9-4baf-91fe-ea57592d5194" xml:space="preserve">
+          <source><bpt id="a07f644f-bb44-40d2-99eb-9915f164f32d">&lt;linkText&gt;</bpt>Dashboard<ept id="a07f644f-bb44-40d2-99eb-9915f164f32d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a07f644f-bb44-40d2-99eb-9915f164f32d">&lt;linkText&gt;</bpt>Dashboard<ept id="a07f644f-bb44-40d2-99eb-9915f164f32d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe87093f-efa4-4a79-b390-262dec0e6330" xml:space="preserve">
+          <source>Hover the mouse over the chart for <bpt id="060b7ae3-f26f-436e-bbc1-060c2364d7d8">&lt;strong&gt;</bpt>Basic Calculator<ept id="060b7ae3-f26f-436e-bbc1-060c2364d7d8">&lt;/strong&gt;</ept> to see the specific metrics for the usage of the API for a given time period.</source>
+          <target state="new">Hover the mouse over the chart for <bpt id="060b7ae3-f26f-436e-bbc1-060c2364d7d8">&lt;strong&gt;</bpt>Basic Calculator<ept id="060b7ae3-f26f-436e-bbc1-060c2364d7d8">&lt;/strong&gt;</ept> to see the specific metrics for the usage of the API for a given time period.</target>
+        </trans-unit>
+        <trans-unit id="f74708c5-7961-42aa-8fe4-b1f18c941cb6" xml:space="preserve">
+          <source>If you don't see any lines on your chart, switch back to the developer portal and make some calls into the API, wait a few moments, and then come back to the dashboard.</source>
+          <target state="new">If you don't see any lines on your chart, switch back to the developer portal and make some calls into the API, wait a few moments, and then come back to the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="c313a4d8-edc7-4ab8-8985-6a670206d29b" xml:space="preserve">
+          <source>Click <bpt id="00c39fd4-1721-4f89-90c2-b9717cf19f71">&lt;strong&gt;</bpt>View Details<ept id="00c39fd4-1721-4f89-90c2-b9717cf19f71">&lt;/strong&gt;</ept> to view the summary page for the API, including a larger version of the displayed metrics.</source>
+          <target state="new">Click <bpt id="00c39fd4-1721-4f89-90c2-b9717cf19f71">&lt;strong&gt;</bpt>View Details<ept id="00c39fd4-1721-4f89-90c2-b9717cf19f71">&lt;/strong&gt;</ept> to view the summary page for the API, including a larger version of the displayed metrics.</target>
+        </trans-unit>
+        <trans-unit id="fe347e5b-1ca9-404b-8046-f56a10777f31" xml:space="preserve">
+          <source><bpt id="7f22fbb0-a6a2-40ea-9267-4d8264f3ffa1">&lt;linkText&gt;</bpt>Analytics<ept id="7f22fbb0-a6a2-40ea-9267-4d8264f3ffa1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f22fbb0-a6a2-40ea-9267-4d8264f3ffa1">&lt;linkText&gt;</bpt>Analytics<ept id="7f22fbb0-a6a2-40ea-9267-4d8264f3ffa1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a857f846-0e33-41b4-ab86-5df2c943f202" xml:space="preserve">
+          <source><bpt id="eebc28a6-35f0-479d-9d4a-670d548d8e06">&lt;linkText&gt;</bpt>Summary<ept id="eebc28a6-35f0-479d-9d4a-670d548d8e06">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eebc28a6-35f0-479d-9d4a-670d548d8e06">&lt;linkText&gt;</bpt>Summary<ept id="eebc28a6-35f0-479d-9d4a-670d548d8e06">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b15eb4de-d0e3-4922-819a-2f2b7953f76a" xml:space="preserve">
+          <source>For detailed metrics and reports, click <bpt id="2b08c08b-ad87-4c41-a1a5-95d04f6ea298">&lt;strong&gt;</bpt>Analytics<ept id="2b08c08b-ad87-4c41-a1a5-95d04f6ea298">&lt;/strong&gt;</ept> from the <bpt id="90357bb5-82d0-4698-93b5-b2072e7ceab7">&lt;strong&gt;</bpt>API Management<ept id="90357bb5-82d0-4698-93b5-b2072e7ceab7">&lt;/strong&gt;</ept> menu on the left.</source>
+          <target state="new">For detailed metrics and reports, click <bpt id="2b08c08b-ad87-4c41-a1a5-95d04f6ea298">&lt;strong&gt;</bpt>Analytics<ept id="2b08c08b-ad87-4c41-a1a5-95d04f6ea298">&lt;/strong&gt;</ept> from the <bpt id="90357bb5-82d0-4698-93b5-b2072e7ceab7">&lt;strong&gt;</bpt>API Management<ept id="90357bb5-82d0-4698-93b5-b2072e7ceab7">&lt;/strong&gt;</ept> menu on the left.</target>
+        </trans-unit>
+        <trans-unit id="ca03e440-f80b-457a-b2cd-a04c8b35a5af" xml:space="preserve">
+          <source><bpt id="e19ee315-1c08-4ff4-9f8d-5e5cae2a7417">&lt;linkText&gt;</bpt>Overview<ept id="e19ee315-1c08-4ff4-9f8d-5e5cae2a7417">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e19ee315-1c08-4ff4-9f8d-5e5cae2a7417">&lt;linkText&gt;</bpt>Overview<ept id="e19ee315-1c08-4ff4-9f8d-5e5cae2a7417">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe6af42b-8c3c-4044-aa34-e701df073092" xml:space="preserve">
+          <source>The <bpt id="191db56b-8969-4a3d-a013-66b723c4c071">&lt;strong&gt;</bpt>Analytics<ept id="191db56b-8969-4a3d-a013-66b723c4c071">&lt;/strong&gt;</ept> section has the following four tabs:</source>
+          <target state="new">The <bpt id="191db56b-8969-4a3d-a013-66b723c4c071">&lt;strong&gt;</bpt>Analytics<ept id="191db56b-8969-4a3d-a013-66b723c4c071">&lt;/strong&gt;</ept> section has the following four tabs:</target>
+        </trans-unit>
+        <trans-unit id="9cdecba9-b62c-4f18-a813-2bb2ab6acae7" xml:space="preserve">
+          <source><bpt id="38d89da0-8380-4f06-a56b-d60df5e629b2">&lt;strong&gt;</bpt>At a glance<ept id="38d89da0-8380-4f06-a56b-d60df5e629b2">&lt;/strong&gt;</ept> provides overall usage and health metrics, as well as the top developers, top products, top APIs, and top operations.</source>
+          <target state="new"><bpt id="38d89da0-8380-4f06-a56b-d60df5e629b2">&lt;strong&gt;</bpt>At a glance<ept id="38d89da0-8380-4f06-a56b-d60df5e629b2">&lt;/strong&gt;</ept> provides overall usage and health metrics, as well as the top developers, top products, top APIs, and top operations.</target>
+        </trans-unit>
+        <trans-unit id="264f412e-20e8-4205-b385-8744f36ac942" xml:space="preserve">
+          <source><bpt id="b9967465-9673-4354-9276-64fe5ed6dd91">&lt;strong&gt;</bpt>Usage<ept id="b9967465-9673-4354-9276-64fe5ed6dd91">&lt;/strong&gt;</ept> provides an in-depth look at API calls and bandwidth, including a geographical representation.</source>
+          <target state="new"><bpt id="b9967465-9673-4354-9276-64fe5ed6dd91">&lt;strong&gt;</bpt>Usage<ept id="b9967465-9673-4354-9276-64fe5ed6dd91">&lt;/strong&gt;</ept> provides an in-depth look at API calls and bandwidth, including a geographical representation.</target>
+        </trans-unit>
+        <trans-unit id="d15ffb4e-c36f-413a-829a-1b3a6ec6bf78" xml:space="preserve">
+          <source><bpt id="937e95ee-27fa-4485-8af6-995366732bde">&lt;strong&gt;</bpt>Health<ept id="937e95ee-27fa-4485-8af6-995366732bde">&lt;/strong&gt;</ept> focuses on status codes, cache success rates, response times, and API and service response times.</source>
+          <target state="new"><bpt id="937e95ee-27fa-4485-8af6-995366732bde">&lt;strong&gt;</bpt>Health<ept id="937e95ee-27fa-4485-8af6-995366732bde">&lt;/strong&gt;</ept> focuses on status codes, cache success rates, response times, and API and service response times.</target>
+        </trans-unit>
+        <trans-unit id="7ac7d6c7-1f9c-4282-bdb6-54b3d9d396ed" xml:space="preserve">
+          <source><bpt id="ff4780c0-17e4-4551-8a50-650d82340c89">&lt;strong&gt;</bpt>Activity<ept id="ff4780c0-17e4-4551-8a50-650d82340c89">&lt;/strong&gt;</ept> provides reports that drill down on the specific activity by developer, product, API, and operation.</source>
+          <target state="new"><bpt id="ff4780c0-17e4-4551-8a50-650d82340c89">&lt;strong&gt;</bpt>Activity<ept id="ff4780c0-17e4-4551-8a50-650d82340c89">&lt;/strong&gt;</ept> provides reports that drill down on the specific activity by developer, product, API, and operation.</target>
+        </trans-unit>
+        <trans-unit id="6e304428-5d48-4a64-bbcb-131e5129cc05" xml:space="preserve">
+          <source>Check out the other topics in the <bpt id="85e5a7b1-4678-477f-94b0-82a46fff9e47">&lt;linkText&gt;</bpt>Get started with advanced API configuration<ept id="85e5a7b1-4678-477f-94b0-82a46fff9e47">&lt;/linkText&gt;</ept><bpt id="85e5a7b1-4678-477f-94b0-82a46fff9e47">&lt;title&gt;</bpt><ept id="85e5a7b1-4678-477f-94b0-82a46fff9e47">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">Check out the other topics in the <bpt id="85e5a7b1-4678-477f-94b0-82a46fff9e47">&lt;linkText&gt;</bpt>Get started with advanced API configuration<ept id="85e5a7b1-4678-477f-94b0-82a46fff9e47">&lt;/linkText&gt;</ept><bpt id="85e5a7b1-4678-477f-94b0-82a46fff9e47">&lt;title&gt;</bpt><ept id="85e5a7b1-4678-477f-94b0-82a46fff9e47">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="b8d45db5-3a38-42bd-8565-75805310f449" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a</target>
+        </trans-unit>
+        <trans-unit id="6b6fc1b9-8962-4d06-b76c-415798ff9880" xml:space="preserve">
+          <source>#create-service-instance</source>
+          <target state="new">#create-service-instance</target>
+        </trans-unit>
+        <trans-unit id="e6f5e02e-6f93-4052-b544-036dc99bcd6c" xml:space="preserve">
+          <source>#create-api</source>
+          <target state="new">#create-api</target>
+        </trans-unit>
+        <trans-unit id="489ecf0c-2ee2-423b-be81-58fbeeef0c9e" xml:space="preserve">
+          <source>#add-operation</source>
+          <target state="new">#add-operation</target>
+        </trans-unit>
+        <trans-unit id="a84ce8e3-1128-4a28-9751-0f2b5c6c9081" xml:space="preserve">
+          <source>#add-api-to-product</source>
+          <target state="new">#add-api-to-product</target>
+        </trans-unit>
+        <trans-unit id="cf111491-c8a7-4f0e-890b-2bcdbdf491da" xml:space="preserve">
+          <source>#subscribe</source>
+          <target state="new">#subscribe</target>
+        </trans-unit>
+        <trans-unit id="429c6234-03c8-4bcc-82ae-2d247c936a49" xml:space="preserve">
+          <source>#call-operation</source>
+          <target state="new">#call-operation</target>
+        </trans-unit>
+        <trans-unit id="f99c40ad-4ef8-4558-b3b4-a4f0f4e99a5e" xml:space="preserve">
+          <source>#view-analytics</source>
+          <target state="new">#view-analytics</target>
+        </trans-unit>
+        <trans-unit id="139349d6-e648-4ba5-ba6a-b4526f1610d4" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="74db8e1e-3060-4080-83c4-215ee5fec883" xml:space="preserve">
+          <source>api-management-howto-create-or-invite-developers.md</source>
+          <target state="new">api-management-howto-create-or-invite-developers.md</target>
+        </trans-unit>
+        <trans-unit id="707236a9-cd5d-452e-a2fb-d886719c6f34" xml:space="preserve">
+          <source>api-management-howto-create-apis.md#configure-api-settings</source>
+          <target state="new">api-management-howto-create-apis.md#configure-api-settings</target>
+        </trans-unit>
+        <trans-unit id="bb95ca7e-0314-429c-a1a5-f12503914cfb" xml:space="preserve">
+          <source>api-management-howto-configure-notifications.md</source>
+          <target state="new">api-management-howto-configure-notifications.md</target>
+        </trans-unit>
+        <trans-unit id="6cc4f8c9-1cf0-4566-95f3-c93c1720160a" xml:space="preserve">
+          <source>api-management-howto-add-operations.md#responses</source>
+          <target state="new">api-management-howto-add-operations.md#responses</target>
+        </trans-unit>
+        <trans-unit id="51f1b992-6050-482f-8c8b-091253d5f1a6" xml:space="preserve">
+          <source>api-management-howto-add-products.md</source>
+          <target state="new">api-management-howto-add-products.md</target>
+        </trans-unit>
+        <trans-unit id="41c7d8f5-d1d8-47a9-81a3-6d082c2ed6c4" xml:space="preserve">
+          <source>api-management-get-started-advanced.md</source>
+          <target state="new">api-management-get-started-advanced.md</target>
+        </trans-unit>
+        <trans-unit id="21392805-9fe2-443c-a83a-23cc778cd949" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/details/api-management/</source>
+          <target state="new">http://azure.microsoft.com/pricing/details/api-management/</target>
+        </trans-unit>
+        <trans-unit id="cfcff505-c5f6-4deb-8e15-213ac9d93ab5" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="bc3ad7a9-d324-4c5d-93f7-7ee9e265188d" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-management-console.png</source>
+          <target state="new">./media/api-management-get-started/api-management-management-console.png</target>
+        </trans-unit>
+        <trans-unit id="14aba18d-4dff-4541-a699-7d85ba116be0" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-create-instance-menu.png</source>
+          <target state="new">./media/api-management-get-started/api-management-create-instance-menu.png</target>
+        </trans-unit>
+        <trans-unit id="9668c8e7-1c13-4022-be98-3ff6ac6f77a8" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-create-instance-step1.png</source>
+          <target state="new">./media/api-management-get-started/api-management-create-instance-step1.png</target>
+        </trans-unit>
+        <trans-unit id="dc9d9d65-997f-4e3b-9cbb-1035e81eb5b0" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-create-instance-step2.png</source>
+          <target state="new">./media/api-management-get-started/api-management-create-instance-step2.png</target>
+        </trans-unit>
+        <trans-unit id="1b72d7ca-4db4-47ed-af5d-f395435c2d1f" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-instance-created.png</source>
+          <target state="new">./media/api-management-get-started/api-management-instance-created.png</target>
+        </trans-unit>
+        <trans-unit id="dc7119d0-cdc2-4dce-b9f8-72fe778af23b" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-import-api.png</source>
+          <target state="new">./media/api-management-get-started/api-management-import-api.png</target>
+        </trans-unit>
+        <trans-unit id="636f7a24-6037-420c-a1e4-f9a126840168" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-import-new-api.png</source>
+          <target state="new">./media/api-management-get-started/api-management-import-new-api.png</target>
+        </trans-unit>
+        <trans-unit id="66a98c98-f035-4724-ac2e-b84600d5e942" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-imported-api-summary.png</source>
+          <target state="new">./media/api-management-get-started/api-management-imported-api-summary.png</target>
+        </trans-unit>
+        <trans-unit id="e9c001cd-354d-4a9e-ada3-2517a559c141" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-calc-operations.png</source>
+          <target state="new">./media/api-management-get-started/api-management-calc-operations.png</target>
+        </trans-unit>
+        <trans-unit id="df984411-1c31-4590-baf2-f7404381bced" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-list-products.png</source>
+          <target state="new">./media/api-management-get-started/api-management-list-products.png</target>
+        </trans-unit>
+        <trans-unit id="885e0d4b-cb60-4649-9855-6a0a6dd5ded6" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-add-api-to-product.png</source>
+          <target state="new">./media/api-management-get-started/api-management-add-api-to-product.png</target>
+        </trans-unit>
+        <trans-unit id="e7d5ae9a-607e-4917-b888-9cf330e6cca1" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-add-myechoapi-to-product.png</source>
+          <target state="new">./media/api-management-get-started/api-management-add-myechoapi-to-product.png</target>
+        </trans-unit>
+        <trans-unit id="ad057b07-86b0-4c14-9cbe-ee4802ff2058" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-api-added-to-product.png</source>
+          <target state="new">./media/api-management-get-started/api-management-api-added-to-product.png</target>
+        </trans-unit>
+        <trans-unit id="c5adb917-36aa-414a-a0c9-812d346b8d4c" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-developers.png</source>
+          <target state="new">./media/api-management-get-started/api-management-developers.png</target>
+        </trans-unit>
+        <trans-unit id="34524e37-9a50-4e1f-94ed-7f7ef30488f0" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-add-subscription.png</source>
+          <target state="new">./media/api-management-get-started/api-management-add-subscription.png</target>
+        </trans-unit>
+        <trans-unit id="bdb57817-1ddf-4e52-a87f-4573b3ab034a" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-add-subscription-window.png</source>
+          <target state="new">./media/api-management-get-started/api-management-add-subscription-window.png</target>
+        </trans-unit>
+        <trans-unit id="45610826-63df-4106-a641-2e92a966676f" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-subscription-added.png</source>
+          <target state="new">./media/api-management-get-started/api-management-subscription-added.png</target>
+        </trans-unit>
+        <trans-unit id="06e58778-e5d8-454f-930a-7b1e03d47e34" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-developer-portal-menu.png</source>
+          <target state="new">./media/api-management-get-started/api-management-developer-portal-menu.png</target>
+        </trans-unit>
+        <trans-unit id="b7a48fec-9a26-45a9-bff8-26f988e1b983" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-developer-portal-calc-api.png</source>
+          <target state="new">./media/api-management-get-started/api-management-developer-portal-calc-api.png</target>
+        </trans-unit>
+        <trans-unit id="247cdb35-64bb-46ca-b576-07e1e4ed3558" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-developer-portal-calc-api-console.png</source>
+          <target state="new">./media/api-management-get-started/api-management-developer-portal-calc-api-console.png</target>
+        </trans-unit>
+        <trans-unit id="f92bb13e-21fb-4605-89ca-017762f02e85" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-invoke-get.png</source>
+          <target state="new">./media/api-management-get-started/api-management-invoke-get.png</target>
+        </trans-unit>
+        <trans-unit id="de4ef7e8-f1b8-4215-9d81-ed07824e015e" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-invoke-get-response.png</source>
+          <target state="new">./media/api-management-get-started/api-management-invoke-get-response.png</target>
+        </trans-unit>
+        <trans-unit id="74c73a56-2acf-4a8d-872e-42d5b6088fda" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-manage-menu.png</source>
+          <target state="new">./media/api-management-get-started/api-management-manage-menu.png</target>
+        </trans-unit>
+        <trans-unit id="140d0cd1-05e7-462b-b516-8f5718812c71" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-dashboard.png</source>
+          <target state="new">./media/api-management-get-started/api-management-dashboard.png</target>
+        </trans-unit>
+        <trans-unit id="0faa4a44-f246-4d86-bdcd-cc5e32548805" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-add-response.png</source>
+          <target state="new">./media/api-management-get-started/api-management-add-response.png</target>
+        </trans-unit>
+        <trans-unit id="806cbe0e-0076-447f-b445-2d420bd99d24" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-add-response-window.png</source>
+          <target state="new">./media/api-management-get-started/api-management-add-response-window.png</target>
+        </trans-unit>
+        <trans-unit id="150ffdaa-152a-4d3b-af30-63595653e6bf" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-developer-key.png</source>
+          <target state="new">./media/api-management-get-started/api-management-developer-key.png</target>
+        </trans-unit>
+        <trans-unit id="918373fc-73dc-4119-83fa-a32b94980d94" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-mouse-over.png</source>
+          <target state="new">./media/api-management-get-started/api-management-mouse-over.png</target>
+        </trans-unit>
+        <trans-unit id="f9fa6e22-6413-4ead-9532-146e6539278f" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-api-summary-metrics.png</source>
+          <target state="new">./media/api-management-get-started/api-management-api-summary-metrics.png</target>
+        </trans-unit>
+        <trans-unit id="84c9f084-12ba-42b4-b737-d6ddc5c5105e" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-analytics-overview.png</source>
+          <target state="new">./media/api-management-get-started/api-management-analytics-overview.png</target>
+        </trans-unit>
+        <trans-unit id="85cdaf3c-9797-4097-bc34-8cbd9d054344" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-analytics-usage.png</source>
+          <target state="new">./media/api-management-get-started/api-management-analytics-usage.png</target>
+        </trans-unit>
+        <trans-unit id="305e5edf-8303-48cd-93dd-dd0eec68269d" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-.png</source>
+          <target state="new">./media/api-management-get-started/api-management-.png</target>
+        </trans-unit>
+        <trans-unit id="444cebf3-fe40-4ffd-8adc-c148e7236941" xml:space="preserve">
+          <source>./media/api-management-get-started/api-management-.png</source>
+          <target state="new">./media/api-management-get-started/api-management-.png</target>
+        </trans-unit>
+      </group>
+      <group id="f029b4bf-4965-4930-a8c4-a2980dda64b4" />
+    </body>
+  </file>
+</xliff>

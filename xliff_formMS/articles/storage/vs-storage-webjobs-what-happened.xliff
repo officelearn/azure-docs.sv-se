@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c87db26d-29a6-4e34-8872-5ddde9978df8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c87db26d-29a6-4e34-8872-5ddde9978df8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ba2cba36-505b-4845-9c2b-9b03d3a3b73f">
+        <trans-unit id="23438299-aa22-4269-88ca-9cfc32476194" xml:space="preserve">
+          <source>Getting Started with Azure Storage</source>
+          <target state="new">Getting Started with Azure Storage</target>
+        </trans-unit>
+        <trans-unit id="fc00f179-e3c2-4266-a791-c8748f798121" xml:space="preserve">
+          <source>Describes what happened when creating an Azure storage in a Visual Studio Azure WebJob project</source>
+          <target state="new">Describes what happened when creating an Azure storage in a Visual Studio Azure WebJob project</target>
+        </trans-unit>
+        <trans-unit id="fddfe2f6-8b8f-43a1-91dd-cccf96867d0d" xml:space="preserve">
+          <source>The Azure Storage NuGet package was added to or updated in your Visual Studio project.</source>
+          <target state="new">The Azure Storage NuGet package was added to or updated in your Visual Studio project.</target>
+        </trans-unit>
+        <trans-unit id="6fc79841-71cf-4d2e-8bb5-fafa2d5e070a" xml:space="preserve">
+          <source>This package adds the following .NET references:</source>
+          <target state="new">This package adds the following .NET references:</target>
+        </trans-unit>
+        <trans-unit id="cd442603-7c21-43cd-acd6-9ee64e9054f5" xml:space="preserve">
+          <source><bpt id="bbce601a-9ebf-4ff4-b0da-70c2db759692">&lt;code&gt;</bpt>Microsoft.Data.Edm<ept id="bbce601a-9ebf-4ff4-b0da-70c2db759692">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="bbce601a-9ebf-4ff4-b0da-70c2db759692">&lt;code&gt;</bpt>Microsoft.Data.Edm<ept id="bbce601a-9ebf-4ff4-b0da-70c2db759692">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9abc8f40-d877-4e5a-b5d5-3c72c0d05cb7" xml:space="preserve">
+          <source><bpt id="36db9c41-87e6-49ec-aa84-541fa223ee2c">&lt;code&gt;</bpt>Microsoft.Data.OData<ept id="36db9c41-87e6-49ec-aa84-541fa223ee2c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="36db9c41-87e6-49ec-aa84-541fa223ee2c">&lt;code&gt;</bpt>Microsoft.Data.OData<ept id="36db9c41-87e6-49ec-aa84-541fa223ee2c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7714677-911e-4f9e-9a8c-34c3ae12cd3f" xml:space="preserve">
+          <source><bpt id="62a7f2e3-d762-4235-876a-2c4c791411d8">&lt;code&gt;</bpt>Microsoft.Data.Services.Client<ept id="62a7f2e3-d762-4235-876a-2c4c791411d8">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="62a7f2e3-d762-4235-876a-2c4c791411d8">&lt;code&gt;</bpt>Microsoft.Data.Services.Client<ept id="62a7f2e3-d762-4235-876a-2c4c791411d8">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2caca632-a238-4a11-8934-6bd963754d09" xml:space="preserve">
+          <source><bpt id="e66f382d-681d-4fe4-abfb-12b588f828a2">&lt;code&gt;</bpt>Microsoft.WindowsAzure.ConfigurationManager<ept id="e66f382d-681d-4fe4-abfb-12b588f828a2">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e66f382d-681d-4fe4-abfb-12b588f828a2">&lt;code&gt;</bpt>Microsoft.WindowsAzure.ConfigurationManager<ept id="e66f382d-681d-4fe4-abfb-12b588f828a2">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67571d53-740a-4384-8594-992b88fe31b2" xml:space="preserve">
+          <source><bpt id="6f15ff1b-ada6-4c8b-952d-032d9359ba63">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Storage<ept id="6f15ff1b-ada6-4c8b-952d-032d9359ba63">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="6f15ff1b-ada6-4c8b-952d-032d9359ba63">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Storage<ept id="6f15ff1b-ada6-4c8b-952d-032d9359ba63">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15494414-6870-4cfd-a2b5-14558774bc39" xml:space="preserve">
+          <source><bpt id="9dc09fe6-9afe-4d9f-9acb-bdd38ee10dd4">&lt;code&gt;</bpt>Newtonsoft.Json<ept id="9dc09fe6-9afe-4d9f-9acb-bdd38ee10dd4">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="9dc09fe6-9afe-4d9f-9acb-bdd38ee10dd4">&lt;code&gt;</bpt>Newtonsoft.Json<ept id="9dc09fe6-9afe-4d9f-9acb-bdd38ee10dd4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01ef2969-895e-4303-80f7-4fa0bb48f1df" xml:space="preserve">
+          <source><bpt id="2b37ba32-8a2b-47fe-8bbd-4f1b327b6949">&lt;code&gt;</bpt>System.Data<ept id="2b37ba32-8a2b-47fe-8bbd-4f1b327b6949">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="2b37ba32-8a2b-47fe-8bbd-4f1b327b6949">&lt;code&gt;</bpt>System.Data<ept id="2b37ba32-8a2b-47fe-8bbd-4f1b327b6949">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c06854b-a2c1-4521-a475-c891a6ec1ff5" xml:space="preserve">
+          <source><bpt id="e34dd1c6-fe13-4b76-8e3c-7a33686b7422">&lt;code&gt;</bpt>System.Spatial<ept id="e34dd1c6-fe13-4b76-8e3c-7a33686b7422">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e34dd1c6-fe13-4b76-8e3c-7a33686b7422">&lt;code&gt;</bpt>System.Spatial<ept id="e34dd1c6-fe13-4b76-8e3c-7a33686b7422">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0c83991-7516-456e-ad33-68203afdbbb6" xml:space="preserve">
+          <source>In the App.config file of your project, the <bpt id="d6c44db1-e8f4-4f7f-b1dc-726b13fe971e">&lt;code&gt;</bpt>AzureWebJobsStorage<ept id="d6c44db1-e8f4-4f7f-b1dc-726b13fe971e">&lt;/code&gt;</ept> and <bpt id="de474bad-71c0-4f58-bc1d-5dc6953d8475">&lt;code&gt;</bpt>AzureWebJobsDashboard<ept id="de474bad-71c0-4f58-bc1d-5dc6953d8475">&lt;/code&gt;</ept> were updated with the selected storage account's connection string and key.</source>
+          <target state="new">In the App.config file of your project, the <bpt id="d6c44db1-e8f4-4f7f-b1dc-726b13fe971e">&lt;code&gt;</bpt>AzureWebJobsStorage<ept id="d6c44db1-e8f4-4f7f-b1dc-726b13fe971e">&lt;/code&gt;</ept> and <bpt id="de474bad-71c0-4f58-bc1d-5dc6953d8475">&lt;code&gt;</bpt>AzureWebJobsDashboard<ept id="de474bad-71c0-4f58-bc1d-5dc6953d8475">&lt;/code&gt;</ept> were updated with the selected storage account's connection string and key.</target>
+        </trans-unit>
+        <trans-unit id="f7d39330-6758-4a23-be02-d8ff301de9cd" xml:space="preserve">
+          <source>For more information, see <bpt id="24064c97-ff3a-45c5-a1b2-12b5339d2244">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources<ept id="24064c97-ff3a-45c5-a1b2-12b5339d2244">&lt;/linkText&gt;</ept><bpt id="24064c97-ff3a-45c5-a1b2-12b5339d2244">&lt;title&gt;</bpt><ept id="24064c97-ff3a-45c5-a1b2-12b5339d2244">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="24064c97-ff3a-45c5-a1b2-12b5339d2244">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources<ept id="24064c97-ff3a-45c5-a1b2-12b5339d2244">&lt;/linkText&gt;</ept><bpt id="24064c97-ff3a-45c5-a1b2-12b5339d2244">&lt;title&gt;</bpt><ept id="24064c97-ff3a-45c5-a1b2-12b5339d2244">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

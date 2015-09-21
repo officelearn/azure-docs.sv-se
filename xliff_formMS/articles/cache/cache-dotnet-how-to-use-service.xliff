@@ -1,0 +1,1125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5d5b505b-6fc6-4ebe-9e38-b78458cffd26" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5d5b505b-6fc6-4ebe-9e38-b78458cffd26" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2714d2c9-c3f4-4e0a-8a0f-4ef833bcdfb7">
+        <trans-unit id="5f73c526-b2b6-481d-9e40-cbd55db2ea38" xml:space="preserve">
+          <source>How to Use Azure Managed Cache Service</source>
+          <target state="new">How to Use Azure Managed Cache Service</target>
+        </trans-unit>
+        <trans-unit id="f85c8e06-c4e5-40a7-81c4-21ed29e68558" xml:space="preserve">
+          <source>Learn how to improve the performance of your Azure applications with Azure Managed Cache Service</source>
+          <target state="new">Learn how to improve the performance of your Azure applications with Azure Managed Cache Service</target>
+        </trans-unit>
+        <trans-unit id="598624d2-91c3-4dff-a8ee-8f4ad1f36d57" xml:space="preserve">
+          <source>This guide shows you how to get started using 
+<bpt id="fe3ad7e5-2dd8-4dbe-8463-6e2101f4e99c">&lt;strong&gt;</bpt>Azure Managed Cache Service<ept id="fe3ad7e5-2dd8-4dbe-8463-6e2101f4e99c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This guide shows you how to get started using 
+<bpt id="fe3ad7e5-2dd8-4dbe-8463-6e2101f4e99c">&lt;strong&gt;</bpt>Azure Managed Cache Service<ept id="fe3ad7e5-2dd8-4dbe-8463-6e2101f4e99c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9112df13-15e1-4bf0-a77e-71cacb3142fc" xml:space="preserve">
+          <source>The samples are written in C\# code and
+use the .NET API.</source>
+          <target state="new">The samples are written in C\# code and
+use the .NET API.</target>
+        </trans-unit>
+        <trans-unit id="c91a2638-cb61-4861-af54-1e71674f9b67" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="3f347a7e-0122-43b3-b4cc-9ff8fd13d148">&lt;strong&gt;</bpt>creating and configuring a cache<ept id="3f347a7e-0122-43b3-b4cc-9ff8fd13d148">&lt;/strong&gt;</ept>, <bpt id="367384dc-92cc-44d1-bbfc-7e1d1ff50e60">&lt;strong&gt;</bpt>configuring cache clients<ept id="367384dc-92cc-44d1-bbfc-7e1d1ff50e60">&lt;/strong&gt;</ept>, <bpt id="d966af58-6be5-4918-a00e-558f0745aac2">&lt;strong&gt;</bpt>adding and removing
+objects from the cache, storing ASP.NET session state in the cache<ept id="d966af58-6be5-4918-a00e-558f0745aac2">&lt;/strong&gt;</ept>,
+and <bpt id="d4d0931a-92f4-47d0-a208-82cd663ecc1c">&lt;strong&gt;</bpt>enabling ASP.NET page output caching using the cache<ept id="d4d0931a-92f4-47d0-a208-82cd663ecc1c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The scenarios covered include <bpt id="3f347a7e-0122-43b3-b4cc-9ff8fd13d148">&lt;strong&gt;</bpt>creating and configuring a cache<ept id="3f347a7e-0122-43b3-b4cc-9ff8fd13d148">&lt;/strong&gt;</ept>, <bpt id="367384dc-92cc-44d1-bbfc-7e1d1ff50e60">&lt;strong&gt;</bpt>configuring cache clients<ept id="367384dc-92cc-44d1-bbfc-7e1d1ff50e60">&lt;/strong&gt;</ept>, <bpt id="d966af58-6be5-4918-a00e-558f0745aac2">&lt;strong&gt;</bpt>adding and removing
+objects from the cache, storing ASP.NET session state in the cache<ept id="d966af58-6be5-4918-a00e-558f0745aac2">&lt;/strong&gt;</ept>,
+and <bpt id="d4d0931a-92f4-47d0-a208-82cd663ecc1c">&lt;strong&gt;</bpt>enabling ASP.NET page output caching using the cache<ept id="d4d0931a-92f4-47d0-a208-82cd663ecc1c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7b3c447-30aa-40b5-a247-925ceda34a67" xml:space="preserve">
+          <source>For more
+information on using Azure Cache, refer to the <bpt id="953d3c71-835e-4499-b491-4f4b2627c19d">&lt;linkText&gt;</bpt>Next Steps<ept id="953d3c71-835e-4499-b491-4f4b2627c19d">&lt;/linkText&gt;</ept><bpt id="953d3c71-835e-4499-b491-4f4b2627c19d">&lt;title&gt;</bpt><ept id="953d3c71-835e-4499-b491-4f4b2627c19d">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more
+information on using Azure Cache, refer to the <bpt id="953d3c71-835e-4499-b491-4f4b2627c19d">&lt;linkText&gt;</bpt>Next Steps<ept id="953d3c71-835e-4499-b491-4f4b2627c19d">&lt;/linkText&gt;</ept><bpt id="953d3c71-835e-4499-b491-4f4b2627c19d">&lt;title&gt;</bpt><ept id="953d3c71-835e-4499-b491-4f4b2627c19d">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="df947309-6b30-46b2-a6b2-33064f018248" xml:space="preserve">
+          <source>For guidance on choosing the right Azure Cache offering for your application, see <bpt id="54f506fc-c838-40d0-b931-161ba8f7e065">&lt;linkText&gt;</bpt>Which Azure Cache offering is right for me?<ept id="54f506fc-c838-40d0-b931-161ba8f7e065">&lt;/linkText&gt;</ept><bpt id="54f506fc-c838-40d0-b931-161ba8f7e065">&lt;title&gt;</bpt><ept id="54f506fc-c838-40d0-b931-161ba8f7e065">&lt;/title&gt;</ept>.</source>
+          <target state="new">For guidance on choosing the right Azure Cache offering for your application, see <bpt id="54f506fc-c838-40d0-b931-161ba8f7e065">&lt;linkText&gt;</bpt>Which Azure Cache offering is right for me?<ept id="54f506fc-c838-40d0-b931-161ba8f7e065">&lt;/linkText&gt;</ept><bpt id="54f506fc-c838-40d0-b931-161ba8f7e065">&lt;title&gt;</bpt><ept id="54f506fc-c838-40d0-b931-161ba8f7e065">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa947c0e-114e-4300-8a0c-611cb57ea2e4" xml:space="preserve">
+          <source><bpt id="fbd84a3e-a011-42c0-8c18-9dfc782aedba">&lt;bookmark&gt;</bpt><ept id="fbd84a3e-a011-42c0-8c18-9dfc782aedba">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="fbd84a3e-a011-42c0-8c18-9dfc782aedba">&lt;bookmark&gt;</bpt><ept id="fbd84a3e-a011-42c0-8c18-9dfc782aedba">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5752ced-41c8-4854-9ca7-ff38a93808ad" xml:space="preserve">
+          <source>Azure Managed Cache Service is a distributed, in-memory, scalable solution that enables you to build highly scalable and responsive applications by providing super-fast access to data.</source>
+          <target state="new">Azure Managed Cache Service is a distributed, in-memory, scalable solution that enables you to build highly scalable and responsive applications by providing super-fast access to data.</target>
+        </trans-unit>
+        <trans-unit id="d401bbde-dae6-464c-a69f-33aadd457c7e" xml:space="preserve">
+          <source>Azure Managed Cache Service includes the following
+features:</source>
+          <target state="new">Azure Managed Cache Service includes the following
+features:</target>
+        </trans-unit>
+        <trans-unit id="5bc2fec7-84fb-43ed-a477-ec78c24e527e" xml:space="preserve">
+          <source>Pre-built ASP.NET providers for session state and page output
+caching, enabling acceleration of web applications without having to
+modify application code.</source>
+          <target state="new">Pre-built ASP.NET providers for session state and page output
+caching, enabling acceleration of web applications without having to
+modify application code.</target>
+        </trans-unit>
+        <trans-unit id="b93b57ae-91cf-4283-91ad-be1bfb8eb1dc" xml:space="preserve">
+          <source>Caches any serializable managed object - for example: CLR objects, rows, XML,
+binary data.</source>
+          <target state="new">Caches any serializable managed object - for example: CLR objects, rows, XML,
+binary data.</target>
+        </trans-unit>
+        <trans-unit id="ccfb191b-e32e-4d82-ac60-fa987ca5edd5" xml:space="preserve">
+          <source>Consistent development model across both Azure and Windows
+Server AppFabric.</source>
+          <target state="new">Consistent development model across both Azure and Windows
+Server AppFabric.</target>
+        </trans-unit>
+        <trans-unit id="3007996e-dd75-455a-a347-78f192e7702c" xml:space="preserve">
+          <source>Managed Cache Service gives you access to a secure, dedicated cache that is managed by Microsoft. A cache created using the Managed Cache Service is accessible from applications within Azure running on Azure Websites, Web &amp; Worker Roles and Virtual Machines.</source>
+          <target state="new">Managed Cache Service gives you access to a secure, dedicated cache that is managed by Microsoft. A cache created using the Managed Cache Service is accessible from applications within Azure running on Azure Websites, Web &amp; Worker Roles and Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="1af20539-4c77-4af1-90d8-73b433010762" xml:space="preserve">
+          <source>Managed Cache Service is available in three tiers:</source>
+          <target state="new">Managed Cache Service is available in three tiers:</target>
+        </trans-unit>
+        <trans-unit id="b20cebc1-2e4a-4635-9e87-3c733bcd3216" xml:space="preserve">
+          <source>Basic - Cache in sizes from 128MB to 1GB</source>
+          <target state="new">Basic - Cache in sizes from 128MB to 1GB</target>
+        </trans-unit>
+        <trans-unit id="d759e637-91d6-42a9-a3ed-cfcde5f649b1" xml:space="preserve">
+          <source>Standard - Cache in sizes from 1GB to 10GB</source>
+          <target state="new">Standard - Cache in sizes from 1GB to 10GB</target>
+        </trans-unit>
+        <trans-unit id="512e458c-f969-4738-8512-c9cceb7b8a4e" xml:space="preserve">
+          <source>Premium - Cache in sizes from 5GB to 150GB</source>
+          <target state="new">Premium - Cache in sizes from 5GB to 150GB</target>
+        </trans-unit>
+        <trans-unit id="11047d2e-f478-4d21-9331-f54f98a620b5" xml:space="preserve">
+          <source>Each tier differs in terms of features and pricing.</source>
+          <target state="new">Each tier differs in terms of features and pricing.</target>
+        </trans-unit>
+        <trans-unit id="e695b148-4d70-4d4f-9d61-2c3e45852ad2" xml:space="preserve">
+          <source>The features are covered later in this guide, and for more information on pricing, see <bpt id="d449c4d1-b878-49cb-ad6c-484990003392">&lt;linkText&gt;</bpt>Cache Pricing Details<ept id="d449c4d1-b878-49cb-ad6c-484990003392">&lt;/linkText&gt;</ept><bpt id="d449c4d1-b878-49cb-ad6c-484990003392">&lt;title&gt;</bpt><ept id="d449c4d1-b878-49cb-ad6c-484990003392">&lt;/title&gt;</ept>.</source>
+          <target state="new">The features are covered later in this guide, and for more information on pricing, see <bpt id="d449c4d1-b878-49cb-ad6c-484990003392">&lt;linkText&gt;</bpt>Cache Pricing Details<ept id="d449c4d1-b878-49cb-ad6c-484990003392">&lt;/linkText&gt;</ept><bpt id="d449c4d1-b878-49cb-ad6c-484990003392">&lt;title&gt;</bpt><ept id="d449c4d1-b878-49cb-ad6c-484990003392">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3eb9ba3-1feb-47b6-a69b-706b283e00a3" xml:space="preserve">
+          <source>This guide provides an overview of getting started with Managed Cache Service.</source>
+          <target state="new">This guide provides an overview of getting started with Managed Cache Service.</target>
+        </trans-unit>
+        <trans-unit id="dbe0b315-8d49-4222-a6f5-79315ee81115" xml:space="preserve">
+          <source>For more detailed information on these features that are beyond the scope of this getting started guide, see <bpt id="3c9b4163-a018-4c74-9909-2a6a05861e70">&lt;linkText&gt;</bpt>Overview of Azure Managed Cache Service<ept id="3c9b4163-a018-4c74-9909-2a6a05861e70">&lt;/linkText&gt;</ept><bpt id="3c9b4163-a018-4c74-9909-2a6a05861e70">&lt;title&gt;</bpt><ept id="3c9b4163-a018-4c74-9909-2a6a05861e70">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more detailed information on these features that are beyond the scope of this getting started guide, see <bpt id="3c9b4163-a018-4c74-9909-2a6a05861e70">&lt;linkText&gt;</bpt>Overview of Azure Managed Cache Service<ept id="3c9b4163-a018-4c74-9909-2a6a05861e70">&lt;/linkText&gt;</ept><bpt id="3c9b4163-a018-4c74-9909-2a6a05861e70">&lt;title&gt;</bpt><ept id="3c9b4163-a018-4c74-9909-2a6a05861e70">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="191d762c-db52-4631-9f88-719249c87fc0" xml:space="preserve">
+          <source><bpt id="29ef8b65-6f84-4d0b-81f5-5c740551a7d3">&lt;bookmark&gt;</bpt><ept id="29ef8b65-6f84-4d0b-81f5-5c740551a7d3">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="29ef8b65-6f84-4d0b-81f5-5c740551a7d3">&lt;bookmark&gt;</bpt><ept id="29ef8b65-6f84-4d0b-81f5-5c740551a7d3">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3da9aca6-2ab9-45e7-80bc-3bdace1ef6f4" xml:space="preserve">
+          <source>Getting started with Managed Cache Service is easy.</source>
+          <target state="new">Getting started with Managed Cache Service is easy.</target>
+        </trans-unit>
+        <trans-unit id="438641a4-97b3-4d07-bc4b-72ca254803d2" xml:space="preserve">
+          <source>To get started, you provision and configure a cache.</source>
+          <target state="new">To get started, you provision and configure a cache.</target>
+        </trans-unit>
+        <trans-unit id="dc017183-f5b6-4d1e-bd2b-9f0f84bcf3a5" xml:space="preserve">
+          <source>Next, you configure the cache clients so they can access the cache.</source>
+          <target state="new">Next, you configure the cache clients so they can access the cache.</target>
+        </trans-unit>
+        <trans-unit id="19d30bfe-b435-421f-b236-3544532075e4" xml:space="preserve">
+          <source>Once the cache clients are configured, you can begin working with them.</source>
+          <target state="new">Once the cache clients are configured, you can begin working with them.</target>
+        </trans-unit>
+        <trans-unit id="61efc6c0-3ca5-42a4-9088-827ec8591bbf" xml:space="preserve">
+          <source><bpt id="8c8c51d1-f407-43a5-a53c-ef425a6e7eba">&lt;linkText&gt;</bpt>Create the cache<ept id="8c8c51d1-f407-43a5-a53c-ef425a6e7eba">&lt;/linkText&gt;</ept><bpt id="8c8c51d1-f407-43a5-a53c-ef425a6e7eba">&lt;title&gt;</bpt><ept id="8c8c51d1-f407-43a5-a53c-ef425a6e7eba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8c8c51d1-f407-43a5-a53c-ef425a6e7eba">&lt;linkText&gt;</bpt>Create the cache<ept id="8c8c51d1-f407-43a5-a53c-ef425a6e7eba">&lt;/linkText&gt;</ept><bpt id="8c8c51d1-f407-43a5-a53c-ef425a6e7eba">&lt;title&gt;</bpt><ept id="8c8c51d1-f407-43a5-a53c-ef425a6e7eba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13841562-8f86-409f-ae0e-650600c225de" xml:space="preserve">
+          <source><bpt id="6fe05542-06cb-4c28-9fe1-c338d6731cf6">&lt;linkText&gt;</bpt>Configure the cache<ept id="6fe05542-06cb-4c28-9fe1-c338d6731cf6">&lt;/linkText&gt;</ept><bpt id="6fe05542-06cb-4c28-9fe1-c338d6731cf6">&lt;title&gt;</bpt><ept id="6fe05542-06cb-4c28-9fe1-c338d6731cf6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6fe05542-06cb-4c28-9fe1-c338d6731cf6">&lt;linkText&gt;</bpt>Configure the cache<ept id="6fe05542-06cb-4c28-9fe1-c338d6731cf6">&lt;/linkText&gt;</ept><bpt id="6fe05542-06cb-4c28-9fe1-c338d6731cf6">&lt;title&gt;</bpt><ept id="6fe05542-06cb-4c28-9fe1-c338d6731cf6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfe44d93-0a95-40d3-a456-685d71f2424c" xml:space="preserve">
+          <source><bpt id="912ac3b6-2343-4b69-bb08-84570f0b67cc">&lt;linkText&gt;</bpt>Configure the cache clients<ept id="912ac3b6-2343-4b69-bb08-84570f0b67cc">&lt;/linkText&gt;</ept><bpt id="912ac3b6-2343-4b69-bb08-84570f0b67cc">&lt;title&gt;</bpt><ept id="912ac3b6-2343-4b69-bb08-84570f0b67cc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="912ac3b6-2343-4b69-bb08-84570f0b67cc">&lt;linkText&gt;</bpt>Configure the cache clients<ept id="912ac3b6-2343-4b69-bb08-84570f0b67cc">&lt;/linkText&gt;</ept><bpt id="912ac3b6-2343-4b69-bb08-84570f0b67cc">&lt;title&gt;</bpt><ept id="912ac3b6-2343-4b69-bb08-84570f0b67cc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abc94508-74fe-4010-ba09-26b814a08d7c" xml:space="preserve">
+          <source><bpt id="2306c3fe-4a21-4e45-af4e-e8888bfd9cb2">&lt;bookmark&gt;</bpt><ept id="2306c3fe-4a21-4e45-af4e-e8888bfd9cb2">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="2306c3fe-4a21-4e45-af4e-e8888bfd9cb2">&lt;bookmark&gt;</bpt><ept id="2306c3fe-4a21-4e45-af4e-e8888bfd9cb2">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa644f87-d971-442d-bcbd-489019fcb5bb" xml:space="preserve">
+          <source>Cache instances in Managed Cache Service are created using PowerShell cmdlets.</source>
+          <target state="new">Cache instances in Managed Cache Service are created using PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="78c7ea53-d96d-46af-8e52-e4934e2cef08" xml:space="preserve">
+          <source>Once a Managed Cache Service instance is created using the PowerShell cmdlets it can be viewed and configured in the <bpt id="35006ace-7589-4644-b2a3-93ac18ca0e92">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="35006ace-7589-4644-b2a3-93ac18ca0e92">&lt;/linkText&gt;</ept><bpt id="35006ace-7589-4644-b2a3-93ac18ca0e92">&lt;title&gt;</bpt><ept id="35006ace-7589-4644-b2a3-93ac18ca0e92">&lt;/title&gt;</ept>.</source>
+          <target state="new">Once a Managed Cache Service instance is created using the PowerShell cmdlets it can be viewed and configured in the <bpt id="35006ace-7589-4644-b2a3-93ac18ca0e92">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="35006ace-7589-4644-b2a3-93ac18ca0e92">&lt;/linkText&gt;</ept><bpt id="35006ace-7589-4644-b2a3-93ac18ca0e92">&lt;title&gt;</bpt><ept id="35006ace-7589-4644-b2a3-93ac18ca0e92">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b18cf0d0-6898-42b7-8af6-dd1bf7c6c4b4" xml:space="preserve">
+          <source>To create a Managed Cache Service instance, open an Azure PowerShell command window.</source>
+          <target state="new">To create a Managed Cache Service instance, open an Azure PowerShell command window.</target>
+        </trans-unit>
+        <trans-unit id="0f73a37a-b28d-4c70-bb82-7750dbfbbe7c" xml:space="preserve">
+          <source>For instructions on installing and using Azure PowerShell, see <bpt id="e32890c7-1143-4fc5-b0ad-6e55b0bdccad">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="e32890c7-1143-4fc5-b0ad-6e55b0bdccad">&lt;/linkText&gt;</ept><bpt id="e32890c7-1143-4fc5-b0ad-6e55b0bdccad">&lt;title&gt;</bpt><ept id="e32890c7-1143-4fc5-b0ad-6e55b0bdccad">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on installing and using Azure PowerShell, see <bpt id="e32890c7-1143-4fc5-b0ad-6e55b0bdccad">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="e32890c7-1143-4fc5-b0ad-6e55b0bdccad">&lt;/linkText&gt;</ept><bpt id="e32890c7-1143-4fc5-b0ad-6e55b0bdccad">&lt;title&gt;</bpt><ept id="e32890c7-1143-4fc5-b0ad-6e55b0bdccad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="996ee4e8-0a87-4f64-a35f-ab8cc148e465" xml:space="preserve">
+          <source>Invoke the <bpt id="fed31eda-77a0-4993-ba02-1f06cf9e71ef">&lt;linkText&gt;</bpt>Add-AzureAccount<ept id="fed31eda-77a0-4993-ba02-1f06cf9e71ef">&lt;/linkText&gt;</ept><bpt id="fed31eda-77a0-4993-ba02-1f06cf9e71ef">&lt;title&gt;</bpt><ept id="fed31eda-77a0-4993-ba02-1f06cf9e71ef">&lt;/title&gt;</ept> cmdlet, and enter the email address and password associated with your account.</source>
+          <target state="new">Invoke the <bpt id="fed31eda-77a0-4993-ba02-1f06cf9e71ef">&lt;linkText&gt;</bpt>Add-AzureAccount<ept id="fed31eda-77a0-4993-ba02-1f06cf9e71ef">&lt;/linkText&gt;</ept><bpt id="fed31eda-77a0-4993-ba02-1f06cf9e71ef">&lt;title&gt;</bpt><ept id="fed31eda-77a0-4993-ba02-1f06cf9e71ef">&lt;/title&gt;</ept> cmdlet, and enter the email address and password associated with your account.</target>
+        </trans-unit>
+        <trans-unit id="c491886c-8c38-4c7a-b469-eaad41ab90a1" xml:space="preserve">
+          <source>A subscription is chosen by default and is displayed after you invoke the <bpt id="e1b8a21e-78cc-49e4-917a-534d1c3f86f9">&lt;linkText&gt;</bpt>Add-AzureAccount<ept id="e1b8a21e-78cc-49e4-917a-534d1c3f86f9">&lt;/linkText&gt;</ept><bpt id="e1b8a21e-78cc-49e4-917a-534d1c3f86f9">&lt;title&gt;</bpt><ept id="e1b8a21e-78cc-49e4-917a-534d1c3f86f9">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">A subscription is chosen by default and is displayed after you invoke the <bpt id="e1b8a21e-78cc-49e4-917a-534d1c3f86f9">&lt;linkText&gt;</bpt>Add-AzureAccount<ept id="e1b8a21e-78cc-49e4-917a-534d1c3f86f9">&lt;/linkText&gt;</ept><bpt id="e1b8a21e-78cc-49e4-917a-534d1c3f86f9">&lt;title&gt;</bpt><ept id="e1b8a21e-78cc-49e4-917a-534d1c3f86f9">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="30719eb7-b5f7-4df9-a7c0-bd85ec33b3e8" xml:space="preserve">
+          <source>To change the subscription, invoke the <bpt id="1b228b20-3b3c-4062-9988-164fbf328608">&lt;linkText&gt;</bpt>Select-AzureSubscription<ept id="1b228b20-3b3c-4062-9988-164fbf328608">&lt;/linkText&gt;</ept><bpt id="1b228b20-3b3c-4062-9988-164fbf328608">&lt;title&gt;</bpt><ept id="1b228b20-3b3c-4062-9988-164fbf328608">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">To change the subscription, invoke the <bpt id="1b228b20-3b3c-4062-9988-164fbf328608">&lt;linkText&gt;</bpt>Select-AzureSubscription<ept id="1b228b20-3b3c-4062-9988-164fbf328608">&lt;/linkText&gt;</ept><bpt id="1b228b20-3b3c-4062-9988-164fbf328608">&lt;title&gt;</bpt><ept id="1b228b20-3b3c-4062-9988-164fbf328608">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="d24635a1-7d18-4065-8096-8d3a05957b29" xml:space="preserve">
+          <source>If you have configured Azure PowerShell with a certificate for your account then you can skip this step.</source>
+          <target state="new">If you have configured Azure PowerShell with a certificate for your account then you can skip this step.</target>
+        </trans-unit>
+        <trans-unit id="bd3417b0-aa97-417a-824f-471772b82646" xml:space="preserve">
+          <source>For more information about connecting Azure PowerShell with your Azure account, see <bpt id="d4055285-eb21-43be-86cb-b59b1337ef63">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="d4055285-eb21-43be-86cb-b59b1337ef63">&lt;/linkText&gt;</ept><bpt id="d4055285-eb21-43be-86cb-b59b1337ef63">&lt;title&gt;</bpt><ept id="d4055285-eb21-43be-86cb-b59b1337ef63">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about connecting Azure PowerShell with your Azure account, see <bpt id="d4055285-eb21-43be-86cb-b59b1337ef63">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="d4055285-eb21-43be-86cb-b59b1337ef63">&lt;/linkText&gt;</ept><bpt id="d4055285-eb21-43be-86cb-b59b1337ef63">&lt;title&gt;</bpt><ept id="d4055285-eb21-43be-86cb-b59b1337ef63">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ba07b5e-7fdd-483f-82bf-55ae5bfe1b3a" xml:space="preserve">
+          <source>A subscription is chosen by default and is displayed.</source>
+          <target state="new">A subscription is chosen by default and is displayed.</target>
+        </trans-unit>
+        <trans-unit id="f180f442-9c5d-408e-9674-05da40579c97" xml:space="preserve">
+          <source>To change the subscription, invoke the <bpt id="0e89fc0c-c329-425b-a8c5-ccf00986b766">&lt;linkText&gt;</bpt>Select-AzureSubscription<ept id="0e89fc0c-c329-425b-a8c5-ccf00986b766">&lt;/linkText&gt;</ept><bpt id="0e89fc0c-c329-425b-a8c5-ccf00986b766">&lt;title&gt;</bpt><ept id="0e89fc0c-c329-425b-a8c5-ccf00986b766">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">To change the subscription, invoke the <bpt id="0e89fc0c-c329-425b-a8c5-ccf00986b766">&lt;linkText&gt;</bpt>Select-AzureSubscription<ept id="0e89fc0c-c329-425b-a8c5-ccf00986b766">&lt;/linkText&gt;</ept><bpt id="0e89fc0c-c329-425b-a8c5-ccf00986b766">&lt;title&gt;</bpt><ept id="0e89fc0c-c329-425b-a8c5-ccf00986b766">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="b9a42ee3-fbd5-4f40-8c64-00968cca356c" xml:space="preserve">
+          <source>Invoke the <bpt id="a95a1e9e-a8c7-434f-ab0d-d72511dfaaa0">&lt;linkText&gt;</bpt>New-AzureManagedCache<ept id="a95a1e9e-a8c7-434f-ab0d-d72511dfaaa0">&lt;/linkText&gt;</ept><bpt id="a95a1e9e-a8c7-434f-ab0d-d72511dfaaa0">&lt;title&gt;</bpt><ept id="a95a1e9e-a8c7-434f-ab0d-d72511dfaaa0">&lt;/title&gt;</ept> cmdlet and specify the name, region, cache offering, and size for the cache.</source>
+          <target state="new">Invoke the <bpt id="a95a1e9e-a8c7-434f-ab0d-d72511dfaaa0">&lt;linkText&gt;</bpt>New-AzureManagedCache<ept id="a95a1e9e-a8c7-434f-ab0d-d72511dfaaa0">&lt;/linkText&gt;</ept><bpt id="a95a1e9e-a8c7-434f-ab0d-d72511dfaaa0">&lt;title&gt;</bpt><ept id="a95a1e9e-a8c7-434f-ab0d-d72511dfaaa0">&lt;/title&gt;</ept> cmdlet and specify the name, region, cache offering, and size for the cache.</target>
+        </trans-unit>
+        <trans-unit id="0f33a34a-9d97-4c39-a333-15c28822fc3f" xml:space="preserve">
+          <source>For <bpt id="c36633b4-0aa3-4f33-9640-073e6f9b3752">&lt;strong&gt;</bpt>Name<ept id="c36633b4-0aa3-4f33-9640-073e6f9b3752">&lt;/strong&gt;</ept>, enter a subdomain name to use for the cache endpoint.</source>
+          <target state="new">For <bpt id="c36633b4-0aa3-4f33-9640-073e6f9b3752">&lt;strong&gt;</bpt>Name<ept id="c36633b4-0aa3-4f33-9640-073e6f9b3752">&lt;/strong&gt;</ept>, enter a subdomain name to use for the cache endpoint.</target>
+        </trans-unit>
+        <trans-unit id="fb7f432d-9b5e-411a-a447-f60d1b75b48a" xml:space="preserve">
+          <source>The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.</source>
+          <target state="new">The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.</target>
+        </trans-unit>
+        <trans-unit id="5a5dd10c-a756-4281-a71e-cd8a5a2471aa" xml:space="preserve">
+          <source>For <bpt id="9e7105f3-def4-4e47-8c8b-39b7baaf3247">&lt;strong&gt;</bpt>Location<ept id="9e7105f3-def4-4e47-8c8b-39b7baaf3247">&lt;/strong&gt;</ept>, specify a region for the cache.</source>
+          <target state="new">For <bpt id="9e7105f3-def4-4e47-8c8b-39b7baaf3247">&lt;strong&gt;</bpt>Location<ept id="9e7105f3-def4-4e47-8c8b-39b7baaf3247">&lt;/strong&gt;</ept>, specify a region for the cache.</target>
+        </trans-unit>
+        <trans-unit id="0fad8f70-ed40-4310-aa98-781e083217e6" xml:space="preserve">
+          <source>For the best performance, create the cache in the same region as the cache client application.</source>
+          <target state="new">For the best performance, create the cache in the same region as the cache client application.</target>
+        </trans-unit>
+        <trans-unit id="baaa949f-3276-4ce2-ba57-a88329a144e9" xml:space="preserve">
+          <source><bpt id="a3d6798d-6f9c-47bf-826a-99a061f18d10">&lt;strong&gt;</bpt>Sku<ept id="a3d6798d-6f9c-47bf-826a-99a061f18d10">&lt;/strong&gt;</ept> and <bpt id="c897ad06-f5c1-424e-a575-2100c447baca">&lt;strong&gt;</bpt>Memory<ept id="c897ad06-f5c1-424e-a575-2100c447baca">&lt;/strong&gt;</ept> work together to determine the size of the cache.</source>
+          <target state="new"><bpt id="a3d6798d-6f9c-47bf-826a-99a061f18d10">&lt;strong&gt;</bpt>Sku<ept id="a3d6798d-6f9c-47bf-826a-99a061f18d10">&lt;/strong&gt;</ept> and <bpt id="c897ad06-f5c1-424e-a575-2100c447baca">&lt;strong&gt;</bpt>Memory<ept id="c897ad06-f5c1-424e-a575-2100c447baca">&lt;/strong&gt;</ept> work together to determine the size of the cache.</target>
+        </trans-unit>
+        <trans-unit id="2015681d-67f0-4eba-9e41-10ae4349d147" xml:space="preserve">
+          <source>Managed Cache Service is available in the three following tiers.</source>
+          <target state="new">Managed Cache Service is available in the three following tiers.</target>
+        </trans-unit>
+        <trans-unit id="9473ee53-4365-4b7d-b774-991b836d549b" xml:space="preserve">
+          <source>Basic - Cache in sizes from 128MB to 1GB in 128MB increments, with one default named cache</source>
+          <target state="new">Basic - Cache in sizes from 128MB to 1GB in 128MB increments, with one default named cache</target>
+        </trans-unit>
+        <trans-unit id="4ff8a4d0-c161-4e51-8cbf-b1d66477becb" xml:space="preserve">
+          <source>Standard - Cache in sizes from 1GB to 10GB in 1GB increments, with support for notifications and up to ten named caches</source>
+          <target state="new">Standard - Cache in sizes from 1GB to 10GB in 1GB increments, with support for notifications and up to ten named caches</target>
+        </trans-unit>
+        <trans-unit id="ba1af6d2-9350-41b6-9dc6-f6d0ede090c7" xml:space="preserve">
+          <source>Premium - Cache in sizes from 5GB to 150GB in 5GB increments, with support for notifications, high availability, and up to ten named caches</source>
+          <target state="new">Premium - Cache in sizes from 5GB to 150GB in 5GB increments, with support for notifications, high availability, and up to ten named caches</target>
+        </trans-unit>
+        <trans-unit id="b62693a4-fe81-410c-983e-fd38fc8ff5a6" xml:space="preserve">
+          <source>Choose the <bpt id="a1485d5a-65d9-4c18-a0c3-8a02829c26e8">&lt;strong&gt;</bpt>Sku<ept id="a1485d5a-65d9-4c18-a0c3-8a02829c26e8">&lt;/strong&gt;</ept> and <bpt id="5449c058-b7a4-46b7-ab9e-d19b5f13a683">&lt;strong&gt;</bpt>Memory<ept id="5449c058-b7a4-46b7-ab9e-d19b5f13a683">&lt;/strong&gt;</ept> that meets the needs of your application.</source>
+          <target state="new">Choose the <bpt id="a1485d5a-65d9-4c18-a0c3-8a02829c26e8">&lt;strong&gt;</bpt>Sku<ept id="a1485d5a-65d9-4c18-a0c3-8a02829c26e8">&lt;/strong&gt;</ept> and <bpt id="5449c058-b7a4-46b7-ab9e-d19b5f13a683">&lt;strong&gt;</bpt>Memory<ept id="5449c058-b7a4-46b7-ab9e-d19b5f13a683">&lt;/strong&gt;</ept> that meets the needs of your application.</target>
+        </trans-unit>
+        <trans-unit id="f425dc5c-d609-4b3f-a920-f4ecef5bbc41" xml:space="preserve">
+          <source>Note that some cache features, such as notifications and high availability, are only available with certain cache offerings.</source>
+          <target state="new">Note that some cache features, such as notifications and high availability, are only available with certain cache offerings.</target>
+        </trans-unit>
+        <trans-unit id="999e46f3-7750-4b80-ac61-3340dae60ba7" xml:space="preserve">
+          <source>For more information on choosing the cache offering and size that's best for your application, see <bpt id="46fcb20a-49fa-482b-8a53-c48925cddef7">&lt;linkText&gt;</bpt>Cache offerings<ept id="46fcb20a-49fa-482b-8a53-c48925cddef7">&lt;/linkText&gt;</ept><bpt id="46fcb20a-49fa-482b-8a53-c48925cddef7">&lt;title&gt;</bpt><ept id="46fcb20a-49fa-482b-8a53-c48925cddef7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on choosing the cache offering and size that's best for your application, see <bpt id="46fcb20a-49fa-482b-8a53-c48925cddef7">&lt;linkText&gt;</bpt>Cache offerings<ept id="46fcb20a-49fa-482b-8a53-c48925cddef7">&lt;/linkText&gt;</ept><bpt id="46fcb20a-49fa-482b-8a53-c48925cddef7">&lt;title&gt;</bpt><ept id="46fcb20a-49fa-482b-8a53-c48925cddef7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0dc4011-1ac1-4e57-92dd-e49990f5f3ca" xml:space="preserve">
+          <source> In the following example, a Basic 128MB cache is created with name contosocache, in the South Central US geographic region.</source>
+          <target state="new"> In the following example, a Basic 128MB cache is created with name contosocache, in the South Central US geographic region.</target>
+        </trans-unit>
+        <trans-unit id="ba037720-1684-416b-9376-f34a86c9b8b0" xml:space="preserve">
+          <source>For a complete list of parameters and values that can be used when creating a cache, see the <bpt id="764b0728-c4c4-4466-a0b1-c3e1bc90c8a0">&lt;linkText&gt;</bpt>New-AzureManagedCache<ept id="764b0728-c4c4-4466-a0b1-c3e1bc90c8a0">&lt;/linkText&gt;</ept><bpt id="764b0728-c4c4-4466-a0b1-c3e1bc90c8a0">&lt;title&gt;</bpt><ept id="764b0728-c4c4-4466-a0b1-c3e1bc90c8a0">&lt;/title&gt;</ept> cmdlet documentation.</source>
+          <target state="new">For a complete list of parameters and values that can be used when creating a cache, see the <bpt id="764b0728-c4c4-4466-a0b1-c3e1bc90c8a0">&lt;linkText&gt;</bpt>New-AzureManagedCache<ept id="764b0728-c4c4-4466-a0b1-c3e1bc90c8a0">&lt;/linkText&gt;</ept><bpt id="764b0728-c4c4-4466-a0b1-c3e1bc90c8a0">&lt;title&gt;</bpt><ept id="764b0728-c4c4-4466-a0b1-c3e1bc90c8a0">&lt;/title&gt;</ept> cmdlet documentation.</target>
+        </trans-unit>
+        <trans-unit id="d8a1c2c6-23aa-4415-b438-65d8f876e662" xml:space="preserve">
+          <source>Once the PowerShell cmdlet is invoked, it can take a few minutes for the cache to be created.</source>
+          <target state="new">Once the PowerShell cmdlet is invoked, it can take a few minutes for the cache to be created.</target>
+        </trans-unit>
+        <trans-unit id="06e6125d-d3e9-434b-b92c-6f00a6b18f09" xml:space="preserve">
+          <source>After the cache has been created, your new cache has a <bpt id="ba230e27-cec0-476b-b9eb-cac897756649">&lt;code&gt;</bpt>Running<ept id="ba230e27-cec0-476b-b9eb-cac897756649">&lt;/code&gt;</ept> status and is ready for use with default settings, and can be viewed and configured in the <bpt id="1e862425-54e0-4f6a-8086-9df936dc2495">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1e862425-54e0-4f6a-8086-9df936dc2495">&lt;/linkText&gt;</ept><bpt id="1e862425-54e0-4f6a-8086-9df936dc2495">&lt;title&gt;</bpt><ept id="1e862425-54e0-4f6a-8086-9df936dc2495">&lt;/title&gt;</ept>.</source>
+          <target state="new">After the cache has been created, your new cache has a <bpt id="ba230e27-cec0-476b-b9eb-cac897756649">&lt;code&gt;</bpt>Running<ept id="ba230e27-cec0-476b-b9eb-cac897756649">&lt;/code&gt;</ept> status and is ready for use with default settings, and can be viewed and configured in the <bpt id="1e862425-54e0-4f6a-8086-9df936dc2495">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1e862425-54e0-4f6a-8086-9df936dc2495">&lt;/linkText&gt;</ept><bpt id="1e862425-54e0-4f6a-8086-9df936dc2495">&lt;title&gt;</bpt><ept id="1e862425-54e0-4f6a-8086-9df936dc2495">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22bf0eb0-8ca0-4db4-9a2c-a7ca8abbf3e9" xml:space="preserve">
+          <source>To customize the configuration of your cache, see the following <bpt id="5c80ff93-1dda-4f59-a2ae-05af52daeb22">&lt;linkText&gt;</bpt>Configure the cache<ept id="5c80ff93-1dda-4f59-a2ae-05af52daeb22">&lt;/linkText&gt;</ept><bpt id="5c80ff93-1dda-4f59-a2ae-05af52daeb22">&lt;title&gt;</bpt><ept id="5c80ff93-1dda-4f59-a2ae-05af52daeb22">&lt;/title&gt;</ept> section.</source>
+          <target state="new">To customize the configuration of your cache, see the following <bpt id="5c80ff93-1dda-4f59-a2ae-05af52daeb22">&lt;linkText&gt;</bpt>Configure the cache<ept id="5c80ff93-1dda-4f59-a2ae-05af52daeb22">&lt;/linkText&gt;</ept><bpt id="5c80ff93-1dda-4f59-a2ae-05af52daeb22">&lt;title&gt;</bpt><ept id="5c80ff93-1dda-4f59-a2ae-05af52daeb22">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="3a14f7a6-7906-4d35-a213-23861efdc01d" xml:space="preserve">
+          <source>You can monitor the creation progress in the Azure PowerShell window.</source>
+          <target state="new">You can monitor the creation progress in the Azure PowerShell window.</target>
+        </trans-unit>
+        <trans-unit id="c172e54f-b6cb-4b9b-b45f-874444383bfc" xml:space="preserve">
+          <source>Once the cache is ready for use, the <bpt id="36ba4ee3-2a36-4dbd-9de3-2d41d74e5488">&lt;linkText&gt;</bpt>New-AzureManagedCache<ept id="36ba4ee3-2a36-4dbd-9de3-2d41d74e5488">&lt;/linkText&gt;</ept><bpt id="36ba4ee3-2a36-4dbd-9de3-2d41d74e5488">&lt;title&gt;</bpt><ept id="36ba4ee3-2a36-4dbd-9de3-2d41d74e5488">&lt;/title&gt;</ept> cmdlet will display the cache information, as shown in the following example.</source>
+          <target state="new">Once the cache is ready for use, the <bpt id="36ba4ee3-2a36-4dbd-9de3-2d41d74e5488">&lt;linkText&gt;</bpt>New-AzureManagedCache<ept id="36ba4ee3-2a36-4dbd-9de3-2d41d74e5488">&lt;/linkText&gt;</ept><bpt id="36ba4ee3-2a36-4dbd-9de3-2d41d74e5488">&lt;title&gt;</bpt><ept id="36ba4ee3-2a36-4dbd-9de3-2d41d74e5488">&lt;/title&gt;</ept> cmdlet will display the cache information, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="63cd45d0-5774-46fe-a7c9-6d07bd019f5c" xml:space="preserve">
+          <source><bpt id="10db7fe8-d815-4c96-802a-314a21074444">&lt;bookmark&gt;</bpt><ept id="10db7fe8-d815-4c96-802a-314a21074444">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="10db7fe8-d815-4c96-802a-314a21074444">&lt;bookmark&gt;</bpt><ept id="10db7fe8-d815-4c96-802a-314a21074444">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2eae9ad-8018-4a93-8209-8c834948f3de" xml:space="preserve">
+          <source>The <bpt id="9fb6738e-c894-42fc-abe1-b1a4ba9377af">&lt;strong&gt;</bpt>Configure<ept id="9fb6738e-c894-42fc-abe1-b1a4ba9377af">&lt;/strong&gt;</ept> tab for Cache in the Management Portal is where you configure the options for your cache.</source>
+          <target state="new">The <bpt id="9fb6738e-c894-42fc-abe1-b1a4ba9377af">&lt;strong&gt;</bpt>Configure<ept id="9fb6738e-c894-42fc-abe1-b1a4ba9377af">&lt;/strong&gt;</ept> tab for Cache in the Management Portal is where you configure the options for your cache.</target>
+        </trans-unit>
+        <trans-unit id="de34ee41-b7ed-4395-a297-35ff6bdb78f8" xml:space="preserve">
+          <source>Each cache has a <bpt id="804a8a7a-eb17-47b9-b828-8b5b5b6b8c5f">&lt;strong&gt;</bpt>default<ept id="804a8a7a-eb17-47b9-b828-8b5b5b6b8c5f">&lt;/strong&gt;</ept> named cache, and the Standard and Premium cache offerings support up to nine additional named caches, for a total of ten.</source>
+          <target state="new">Each cache has a <bpt id="804a8a7a-eb17-47b9-b828-8b5b5b6b8c5f">&lt;strong&gt;</bpt>default<ept id="804a8a7a-eb17-47b9-b828-8b5b5b6b8c5f">&lt;/strong&gt;</ept> named cache, and the Standard and Premium cache offerings support up to nine additional named caches, for a total of ten.</target>
+        </trans-unit>
+        <trans-unit id="c5f9aeaa-582b-4c55-b2f4-7bfecfc3899b" xml:space="preserve">
+          <source>Each named cache has its own set of options which allow you to configure your cache in a highly flexible manner.</source>
+          <target state="new">Each named cache has its own set of options which allow you to configure your cache in a highly flexible manner.</target>
+        </trans-unit>
+        <trans-unit id="c96a0a88-0224-4e4c-ad8e-9e430ce87d7a" xml:space="preserve">
+          <source><bpt id="dd7adcc9-550c-46dd-b5eb-9be4f1d55074">&lt;linkText&gt;</bpt>NamedCaches<ept id="dd7adcc9-550c-46dd-b5eb-9be4f1d55074">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dd7adcc9-550c-46dd-b5eb-9be4f1d55074">&lt;linkText&gt;</bpt>NamedCaches<ept id="dd7adcc9-550c-46dd-b5eb-9be4f1d55074">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44ed28d3-9ccc-4947-8e50-34c63731954f" xml:space="preserve">
+          <source>To create a named cache, type the name of the new cache into the <bpt id="5140f5ee-efbe-4b40-ae6c-772b3fdfc1ba">&lt;strong&gt;</bpt>Name<ept id="5140f5ee-efbe-4b40-ae6c-772b3fdfc1ba">&lt;/strong&gt;</ept> box, specify the desired options, click <bpt id="a6f4725d-2517-4131-ac5c-6f219c6197b2">&lt;strong&gt;</bpt>Save<ept id="a6f4725d-2517-4131-ac5c-6f219c6197b2">&lt;/strong&gt;</ept>, and click <bpt id="691320b4-3adb-4d81-b765-38c123975c8e">&lt;strong&gt;</bpt>Yes<ept id="691320b4-3adb-4d81-b765-38c123975c8e">&lt;/strong&gt;</ept> to confirm.</source>
+          <target state="new">To create a named cache, type the name of the new cache into the <bpt id="5140f5ee-efbe-4b40-ae6c-772b3fdfc1ba">&lt;strong&gt;</bpt>Name<ept id="5140f5ee-efbe-4b40-ae6c-772b3fdfc1ba">&lt;/strong&gt;</ept> box, specify the desired options, click <bpt id="a6f4725d-2517-4131-ac5c-6f219c6197b2">&lt;strong&gt;</bpt>Save<ept id="a6f4725d-2517-4131-ac5c-6f219c6197b2">&lt;/strong&gt;</ept>, and click <bpt id="691320b4-3adb-4d81-b765-38c123975c8e">&lt;strong&gt;</bpt>Yes<ept id="691320b4-3adb-4d81-b765-38c123975c8e">&lt;/strong&gt;</ept> to confirm.</target>
+        </trans-unit>
+        <trans-unit id="503aaff8-ffbe-4f79-b026-b86c7d6887e9" xml:space="preserve">
+          <source>To cancel any changes, click <bpt id="85cf5c8a-f5c8-4bb8-b99d-2613a5de7b1b">&lt;strong&gt;</bpt>Discard<ept id="85cf5c8a-f5c8-4bb8-b99d-2613a5de7b1b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To cancel any changes, click <bpt id="85cf5c8a-f5c8-4bb8-b99d-2613a5de7b1b">&lt;strong&gt;</bpt>Discard<ept id="85cf5c8a-f5c8-4bb8-b99d-2613a5de7b1b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd740d26-5630-4f7f-83fe-457c930fac65" xml:space="preserve">
+          <source>The <bpt id="f26f9a87-1e32-4b0a-876e-e8d1ae19f65f">&lt;strong&gt;</bpt>Expiry Policy<ept id="f26f9a87-1e32-4b0a-876e-e8d1ae19f65f">&lt;/strong&gt;</ept> works in conjunction with the <bpt id="676d1c6f-8e7a-454f-8dc4-88173f99c55f">&lt;strong&gt;</bpt>Time (min)<ept id="676d1c6f-8e7a-454f-8dc4-88173f99c55f">&lt;/strong&gt;</ept> setting to determine when cached items expire.</source>
+          <target state="new">The <bpt id="f26f9a87-1e32-4b0a-876e-e8d1ae19f65f">&lt;strong&gt;</bpt>Expiry Policy<ept id="f26f9a87-1e32-4b0a-876e-e8d1ae19f65f">&lt;/strong&gt;</ept> works in conjunction with the <bpt id="676d1c6f-8e7a-454f-8dc4-88173f99c55f">&lt;strong&gt;</bpt>Time (min)<ept id="676d1c6f-8e7a-454f-8dc4-88173f99c55f">&lt;/strong&gt;</ept> setting to determine when cached items expire.</target>
+        </trans-unit>
+        <trans-unit id="1a673294-cf6a-4192-8fc4-03cb8c5f997a" xml:space="preserve">
+          <source>There are three types of expiration policies: <bpt id="4ea8350b-f076-47f3-94e5-651953d7ac5b">&lt;strong&gt;</bpt>Absolute<ept id="4ea8350b-f076-47f3-94e5-651953d7ac5b">&lt;/strong&gt;</ept>, <bpt id="480534fb-21ee-4916-937b-d5bb5e88b8e3">&lt;strong&gt;</bpt>Sliding<ept id="480534fb-21ee-4916-937b-d5bb5e88b8e3">&lt;/strong&gt;</ept>, and <bpt id="7079ebdb-6c76-4cd5-bdfb-5298109bc3fb">&lt;strong&gt;</bpt>Never<ept id="7079ebdb-6c76-4cd5-bdfb-5298109bc3fb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">There are three types of expiration policies: <bpt id="4ea8350b-f076-47f3-94e5-651953d7ac5b">&lt;strong&gt;</bpt>Absolute<ept id="4ea8350b-f076-47f3-94e5-651953d7ac5b">&lt;/strong&gt;</ept>, <bpt id="480534fb-21ee-4916-937b-d5bb5e88b8e3">&lt;strong&gt;</bpt>Sliding<ept id="480534fb-21ee-4916-937b-d5bb5e88b8e3">&lt;/strong&gt;</ept>, and <bpt id="7079ebdb-6c76-4cd5-bdfb-5298109bc3fb">&lt;strong&gt;</bpt>Never<ept id="7079ebdb-6c76-4cd5-bdfb-5298109bc3fb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1a746f2-d4bb-4f37-8bb9-62eff942797f" xml:space="preserve">
+          <source>When <bpt id="7c3bc0aa-583f-4384-9868-d596bd9f0c72">&lt;strong&gt;</bpt>Absolute<ept id="7c3bc0aa-583f-4384-9868-d596bd9f0c72">&lt;/strong&gt;</ept> is specified, the expiration interval specified by <bpt id="357ef32e-dcdd-4e8d-9092-3b38a49f2f65">&lt;strong&gt;</bpt>Time (min)<ept id="357ef32e-dcdd-4e8d-9092-3b38a49f2f65">&lt;/strong&gt;</ept> begins when an item is added to the cache.</source>
+          <target state="new">When <bpt id="7c3bc0aa-583f-4384-9868-d596bd9f0c72">&lt;strong&gt;</bpt>Absolute<ept id="7c3bc0aa-583f-4384-9868-d596bd9f0c72">&lt;/strong&gt;</ept> is specified, the expiration interval specified by <bpt id="357ef32e-dcdd-4e8d-9092-3b38a49f2f65">&lt;strong&gt;</bpt>Time (min)<ept id="357ef32e-dcdd-4e8d-9092-3b38a49f2f65">&lt;/strong&gt;</ept> begins when an item is added to the cache.</target>
+        </trans-unit>
+        <trans-unit id="32b93662-9365-4aee-b507-fb5b223f388b" xml:space="preserve">
+          <source>After the interval specified by <bpt id="bc56a423-7d8d-443d-ab4f-43cd16018895">&lt;strong&gt;</bpt>Time (min)<ept id="bc56a423-7d8d-443d-ab4f-43cd16018895">&lt;/strong&gt;</ept> elapses, the item expires.</source>
+          <target state="new">After the interval specified by <bpt id="bc56a423-7d8d-443d-ab4f-43cd16018895">&lt;strong&gt;</bpt>Time (min)<ept id="bc56a423-7d8d-443d-ab4f-43cd16018895">&lt;/strong&gt;</ept> elapses, the item expires.</target>
+        </trans-unit>
+        <trans-unit id="8a8bed46-5653-4bd5-954f-4306651b47fb" xml:space="preserve">
+          <source>When <bpt id="5d653e7f-bd3e-4051-b6ba-8be653112b1f">&lt;strong&gt;</bpt>Sliding<ept id="5d653e7f-bd3e-4051-b6ba-8be653112b1f">&lt;/strong&gt;</ept> is specified, the expiration interval specified by <bpt id="197d0fcc-8568-4b61-a9c1-1658caef89cf">&lt;strong&gt;</bpt>Time (min)<ept id="197d0fcc-8568-4b61-a9c1-1658caef89cf">&lt;/strong&gt;</ept> is reset each time an item is accessed in the cache.</source>
+          <target state="new">When <bpt id="5d653e7f-bd3e-4051-b6ba-8be653112b1f">&lt;strong&gt;</bpt>Sliding<ept id="5d653e7f-bd3e-4051-b6ba-8be653112b1f">&lt;/strong&gt;</ept> is specified, the expiration interval specified by <bpt id="197d0fcc-8568-4b61-a9c1-1658caef89cf">&lt;strong&gt;</bpt>Time (min)<ept id="197d0fcc-8568-4b61-a9c1-1658caef89cf">&lt;/strong&gt;</ept> is reset each time an item is accessed in the cache.</target>
+        </trans-unit>
+        <trans-unit id="922d8448-3e38-4b14-835a-73dd3ddcf6b3" xml:space="preserve">
+          <source>The item does not expire until the interval specified by <bpt id="b9dc734e-4d99-46cf-a491-0f46fd0bef13">&lt;strong&gt;</bpt>Time (min)<ept id="b9dc734e-4d99-46cf-a491-0f46fd0bef13">&lt;/strong&gt;</ept> elapses after the last access to the item.</source>
+          <target state="new">The item does not expire until the interval specified by <bpt id="b9dc734e-4d99-46cf-a491-0f46fd0bef13">&lt;strong&gt;</bpt>Time (min)<ept id="b9dc734e-4d99-46cf-a491-0f46fd0bef13">&lt;/strong&gt;</ept> elapses after the last access to the item.</target>
+        </trans-unit>
+        <trans-unit id="c2978ad7-fbf6-4603-9880-db120e7e740a" xml:space="preserve">
+          <source>When <bpt id="93dd58e9-2c8b-4840-af6f-71993f54ea04">&lt;strong&gt;</bpt>Never<ept id="93dd58e9-2c8b-4840-af6f-71993f54ea04">&lt;/strong&gt;</ept> is specified, <bpt id="c9e51e06-cdda-49b6-afa9-babdf317d476">&lt;strong&gt;</bpt>Time (min)<ept id="c9e51e06-cdda-49b6-afa9-babdf317d476">&lt;/strong&gt;</ept> must be set to <bpt id="43e6ff56-35ce-4eb8-9cd9-174a6303389d">&lt;strong&gt;</bpt>0<ept id="43e6ff56-35ce-4eb8-9cd9-174a6303389d">&lt;/strong&gt;</ept>, and items do not expire.</source>
+          <target state="new">When <bpt id="93dd58e9-2c8b-4840-af6f-71993f54ea04">&lt;strong&gt;</bpt>Never<ept id="93dd58e9-2c8b-4840-af6f-71993f54ea04">&lt;/strong&gt;</ept> is specified, <bpt id="c9e51e06-cdda-49b6-afa9-babdf317d476">&lt;strong&gt;</bpt>Time (min)<ept id="c9e51e06-cdda-49b6-afa9-babdf317d476">&lt;/strong&gt;</ept> must be set to <bpt id="43e6ff56-35ce-4eb8-9cd9-174a6303389d">&lt;strong&gt;</bpt>0<ept id="43e6ff56-35ce-4eb8-9cd9-174a6303389d">&lt;/strong&gt;</ept>, and items do not expire.</target>
+        </trans-unit>
+        <trans-unit id="6ca7132e-c0f0-44df-81e8-cc93c3f36949" xml:space="preserve">
+          <source><bpt id="6dca6928-7393-42dc-bb69-bb6f6bf71b4e">&lt;strong&gt;</bpt>Absolute<ept id="6dca6928-7393-42dc-bb69-bb6f6bf71b4e">&lt;/strong&gt;</ept> is the default expiration policy and 10 minutes is the default setting for <bpt id="98573965-f86b-4c18-8865-5f9c13357711">&lt;strong&gt;</bpt>Time (min)<ept id="98573965-f86b-4c18-8865-5f9c13357711">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="6dca6928-7393-42dc-bb69-bb6f6bf71b4e">&lt;strong&gt;</bpt>Absolute<ept id="6dca6928-7393-42dc-bb69-bb6f6bf71b4e">&lt;/strong&gt;</ept> is the default expiration policy and 10 minutes is the default setting for <bpt id="98573965-f86b-4c18-8865-5f9c13357711">&lt;strong&gt;</bpt>Time (min)<ept id="98573965-f86b-4c18-8865-5f9c13357711">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ff8bd55-8cd7-4798-9528-6ac164035dc2" xml:space="preserve">
+          <source>The expiration policy is fixed for each item in a named cache, but the <bpt id="12db93c9-e942-4a9f-99ad-71d8ca700267">&lt;strong&gt;</bpt>Time (min)<ept id="12db93c9-e942-4a9f-99ad-71d8ca700267">&lt;/strong&gt;</ept> can be customized for each item by using <bpt id="b0d4b3bf-58c5-4025-993a-55fe7cec080c">&lt;strong&gt;</bpt>Add<ept id="b0d4b3bf-58c5-4025-993a-55fe7cec080c">&lt;/strong&gt;</ept> and <bpt id="ccfb6d63-fdd7-407d-a91c-656963068364">&lt;strong&gt;</bpt>Put<ept id="ccfb6d63-fdd7-407d-a91c-656963068364">&lt;/strong&gt;</ept> overloads that take a timeout parameter.</source>
+          <target state="new">The expiration policy is fixed for each item in a named cache, but the <bpt id="12db93c9-e942-4a9f-99ad-71d8ca700267">&lt;strong&gt;</bpt>Time (min)<ept id="12db93c9-e942-4a9f-99ad-71d8ca700267">&lt;/strong&gt;</ept> can be customized for each item by using <bpt id="b0d4b3bf-58c5-4025-993a-55fe7cec080c">&lt;strong&gt;</bpt>Add<ept id="b0d4b3bf-58c5-4025-993a-55fe7cec080c">&lt;/strong&gt;</ept> and <bpt id="ccfb6d63-fdd7-407d-a91c-656963068364">&lt;strong&gt;</bpt>Put<ept id="ccfb6d63-fdd7-407d-a91c-656963068364">&lt;/strong&gt;</ept> overloads that take a timeout parameter.</target>
+        </trans-unit>
+        <trans-unit id="d3253a4d-fcb2-4a88-a940-724210531488" xml:space="preserve">
+          <source>For more information about eviction and expiration policies, see <bpt id="7ee02ac6-5f8e-49e0-82a6-56acfef3a7ae">&lt;linkText&gt;</bpt>Expiration and Eviction<ept id="7ee02ac6-5f8e-49e0-82a6-56acfef3a7ae">&lt;/linkText&gt;</ept><bpt id="7ee02ac6-5f8e-49e0-82a6-56acfef3a7ae">&lt;title&gt;</bpt><ept id="7ee02ac6-5f8e-49e0-82a6-56acfef3a7ae">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about eviction and expiration policies, see <bpt id="7ee02ac6-5f8e-49e0-82a6-56acfef3a7ae">&lt;linkText&gt;</bpt>Expiration and Eviction<ept id="7ee02ac6-5f8e-49e0-82a6-56acfef3a7ae">&lt;/linkText&gt;</ept><bpt id="7ee02ac6-5f8e-49e0-82a6-56acfef3a7ae">&lt;title&gt;</bpt><ept id="7ee02ac6-5f8e-49e0-82a6-56acfef3a7ae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b327c1a7-23a6-45bf-ae73-9c557c1ee8e8" xml:space="preserve">
+          <source>Cache notifications that allow your applications to receive asynchronous notifications when a variety of cache operations occur on the cache cluster.</source>
+          <target state="new">Cache notifications that allow your applications to receive asynchronous notifications when a variety of cache operations occur on the cache cluster.</target>
+        </trans-unit>
+        <trans-unit id="3a6e12e8-5b00-4e66-9383-a822107f1dd5" xml:space="preserve">
+          <source>Cache notifications also provide automatic invalidation of locally cached objects.</source>
+          <target state="new">Cache notifications also provide automatic invalidation of locally cached objects.</target>
+        </trans-unit>
+        <trans-unit id="cfe432f7-882b-4c8f-a801-0d5278c38ae1" xml:space="preserve">
+          <source>For more information, see <bpt id="77057995-caac-4b6a-a75c-d1054b43eb78">&lt;linkText&gt;</bpt>Notifications<ept id="77057995-caac-4b6a-a75c-d1054b43eb78">&lt;/linkText&gt;</ept><bpt id="77057995-caac-4b6a-a75c-d1054b43eb78">&lt;title&gt;</bpt><ept id="77057995-caac-4b6a-a75c-d1054b43eb78">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="77057995-caac-4b6a-a75c-d1054b43eb78">&lt;linkText&gt;</bpt>Notifications<ept id="77057995-caac-4b6a-a75c-d1054b43eb78">&lt;/linkText&gt;</ept><bpt id="77057995-caac-4b6a-a75c-d1054b43eb78">&lt;title&gt;</bpt><ept id="77057995-caac-4b6a-a75c-d1054b43eb78">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb4bfa35-89af-4e80-8a6c-e1d1035c16da" xml:space="preserve">
+          <source>Notifications are only available in the Standard and Premium cache offerings, and are not available in the Basic cache offering.</source>
+          <target state="new">Notifications are only available in the Standard and Premium cache offerings, and are not available in the Basic cache offering.</target>
+        </trans-unit>
+        <trans-unit id="1a5fea07-6c35-4b13-b391-0ae6cbf4e526" xml:space="preserve">
+          <source>For more information, see <bpt id="bba99594-acac-4e25-af76-e3e3de7af783">&lt;linkText&gt;</bpt>Cache offerings<ept id="bba99594-acac-4e25-af76-e3e3de7af783">&lt;/linkText&gt;</ept><bpt id="bba99594-acac-4e25-af76-e3e3de7af783">&lt;title&gt;</bpt><ept id="bba99594-acac-4e25-af76-e3e3de7af783">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="bba99594-acac-4e25-af76-e3e3de7af783">&lt;linkText&gt;</bpt>Cache offerings<ept id="bba99594-acac-4e25-af76-e3e3de7af783">&lt;/linkText&gt;</ept><bpt id="bba99594-acac-4e25-af76-e3e3de7af783">&lt;title&gt;</bpt><ept id="bba99594-acac-4e25-af76-e3e3de7af783">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a890e823-b385-4522-93ef-dfd65901f31d" xml:space="preserve">
+          <source>When high availability is enabled, a backup copy is made of each item added to the cache.</source>
+          <target state="new">When high availability is enabled, a backup copy is made of each item added to the cache.</target>
+        </trans-unit>
+        <trans-unit id="a54539e1-2003-486c-b80b-05ce58c6076f" xml:space="preserve">
+          <source>If an unexpected failure occurs to the primary copy of the item, the backup copy is still available.</source>
+          <target state="new">If an unexpected failure occurs to the primary copy of the item, the backup copy is still available.</target>
+        </trans-unit>
+        <trans-unit id="2b91e9c1-c87e-45f2-9931-7990655b0416" xml:space="preserve">
+          <source>By definition, the use of high availability multiplies the amount of required memory for each cached item by two.</source>
+          <target state="new">By definition, the use of high availability multiplies the amount of required memory for each cached item by two.</target>
+        </trans-unit>
+        <trans-unit id="da41cc59-dcc5-4757-84a3-4864aef849ce" xml:space="preserve">
+          <source>Consider this memory impact during capacity planning tasks.</source>
+          <target state="new">Consider this memory impact during capacity planning tasks.</target>
+        </trans-unit>
+        <trans-unit id="56fd5607-f699-47a3-97a6-1c90f20f6d92" xml:space="preserve">
+          <source>For more information, see <bpt id="74fdaa6d-26b8-4d64-a727-980d8e2d1ff9">&lt;linkText&gt;</bpt>High Availability<ept id="74fdaa6d-26b8-4d64-a727-980d8e2d1ff9">&lt;/linkText&gt;</ept><bpt id="74fdaa6d-26b8-4d64-a727-980d8e2d1ff9">&lt;title&gt;</bpt><ept id="74fdaa6d-26b8-4d64-a727-980d8e2d1ff9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="74fdaa6d-26b8-4d64-a727-980d8e2d1ff9">&lt;linkText&gt;</bpt>High Availability<ept id="74fdaa6d-26b8-4d64-a727-980d8e2d1ff9">&lt;/linkText&gt;</ept><bpt id="74fdaa6d-26b8-4d64-a727-980d8e2d1ff9">&lt;title&gt;</bpt><ept id="74fdaa6d-26b8-4d64-a727-980d8e2d1ff9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c8f7f00-b250-4e1f-8f08-7e3ec9c082ad" xml:space="preserve">
+          <source>High availability is only available in the Premium cache offering, and is not available in the Basic or Standard cache offerings.</source>
+          <target state="new">High availability is only available in the Premium cache offering, and is not available in the Basic or Standard cache offerings.</target>
+        </trans-unit>
+        <trans-unit id="23e847d2-25ae-4b78-9985-605230271b4e" xml:space="preserve">
+          <source>For more information, see <bpt id="ffd119c8-ae18-4ae4-8f95-f959ab3eff04">&lt;linkText&gt;</bpt>Cache offerings<ept id="ffd119c8-ae18-4ae4-8f95-f959ab3eff04">&lt;/linkText&gt;</ept><bpt id="ffd119c8-ae18-4ae4-8f95-f959ab3eff04">&lt;title&gt;</bpt><ept id="ffd119c8-ae18-4ae4-8f95-f959ab3eff04">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ffd119c8-ae18-4ae4-8f95-f959ab3eff04">&lt;linkText&gt;</bpt>Cache offerings<ept id="ffd119c8-ae18-4ae4-8f95-f959ab3eff04">&lt;/linkText&gt;</ept><bpt id="ffd119c8-ae18-4ae4-8f95-f959ab3eff04">&lt;title&gt;</bpt><ept id="ffd119c8-ae18-4ae4-8f95-f959ab3eff04">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2935a7e5-83ac-48c2-b297-cbcf80cd8dbb" xml:space="preserve">
+          <source>To maintain the memory capacity available within a cache, least recently used (LRU) eviction is supported.</source>
+          <target state="new">To maintain the memory capacity available within a cache, least recently used (LRU) eviction is supported.</target>
+        </trans-unit>
+        <trans-unit id="786921f2-d861-47a6-b9e7-a50b466e20f1" xml:space="preserve">
+          <source>When memory consumption exceeds the memory threshold, objects are evicted from memory, regardless of whether they have expired or not, until the memory pressure is relieved.</source>
+          <target state="new">When memory consumption exceeds the memory threshold, objects are evicted from memory, regardless of whether they have expired or not, until the memory pressure is relieved.</target>
+        </trans-unit>
+        <trans-unit id="14343e76-350b-453b-bf6a-bcb83fab9128" xml:space="preserve">
+          <source>Eviction is enabled by default.</source>
+          <target state="new">Eviction is enabled by default.</target>
+        </trans-unit>
+        <trans-unit id="842f999a-bedf-4619-958e-41f6df5640ea" xml:space="preserve">
+          <source>If eviction is disabled, items will not be evicted from the cache when the capacity is reached, and instead Put and Add operations will fail.</source>
+          <target state="new">If eviction is disabled, items will not be evicted from the cache when the capacity is reached, and instead Put and Add operations will fail.</target>
+        </trans-unit>
+        <trans-unit id="05dafa1d-f66f-477e-9793-c967c6be9558" xml:space="preserve">
+          <source>For more information about eviction and expiration policies, see <bpt id="d31101b7-a787-469e-98df-5f8177a060f4">&lt;linkText&gt;</bpt>Expiration and Eviction<ept id="d31101b7-a787-469e-98df-5f8177a060f4">&lt;/linkText&gt;</ept><bpt id="d31101b7-a787-469e-98df-5f8177a060f4">&lt;title&gt;</bpt><ept id="d31101b7-a787-469e-98df-5f8177a060f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about eviction and expiration policies, see <bpt id="d31101b7-a787-469e-98df-5f8177a060f4">&lt;linkText&gt;</bpt>Expiration and Eviction<ept id="d31101b7-a787-469e-98df-5f8177a060f4">&lt;/linkText&gt;</ept><bpt id="d31101b7-a787-469e-98df-5f8177a060f4">&lt;title&gt;</bpt><ept id="d31101b7-a787-469e-98df-5f8177a060f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9989eea4-8d1b-452b-8b8d-0cbcbf9b9a7e" xml:space="preserve">
+          <source>Once the cache is configured, you can configure the cache clients to allow access to the cache.</source>
+          <target state="new">Once the cache is configured, you can configure the cache clients to allow access to the cache.</target>
+        </trans-unit>
+        <trans-unit id="3d52821d-421a-41dc-9942-76f42274d8d9" xml:space="preserve">
+          <source><bpt id="b3d8c28f-b6ae-4da0-a083-42ea991dabec">&lt;bookmark&gt;</bpt><ept id="b3d8c28f-b6ae-4da0-a083-42ea991dabec">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="b3d8c28f-b6ae-4da0-a083-42ea991dabec">&lt;bookmark&gt;</bpt><ept id="b3d8c28f-b6ae-4da0-a083-42ea991dabec">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62a3555d-3470-465c-a38a-637ca52b21ea" xml:space="preserve">
+          <source>A cache created using the Managed Cache Service is accessible from Azure applications running on Azure Websites, Web &amp; Worker Roles and Virtual Machines. A NuGet package is provided that simplifies the configuration of cache client applications. </source>
+          <target state="new">A cache created using the Managed Cache Service is accessible from Azure applications running on Azure Websites, Web &amp; Worker Roles and Virtual Machines. A NuGet package is provided that simplifies the configuration of cache client applications. </target>
+        </trans-unit>
+        <trans-unit id="63eec905-6bf9-4c37-af4e-2e48b784d6c7" xml:space="preserve">
+          <source>To configure a client application using the Cache NuGet package, right-click the project in <bpt id="704d696a-5c55-4000-a33c-d9d0507bad45">&lt;strong&gt;</bpt>Solution Explorer<ept id="704d696a-5c55-4000-a33c-d9d0507bad45">&lt;/strong&gt;</ept> and choose <bpt id="e502431a-8f68-4b5b-a283-aa5b9164afe1">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="e502431a-8f68-4b5b-a283-aa5b9164afe1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To configure a client application using the Cache NuGet package, right-click the project in <bpt id="704d696a-5c55-4000-a33c-d9d0507bad45">&lt;strong&gt;</bpt>Solution Explorer<ept id="704d696a-5c55-4000-a33c-d9d0507bad45">&lt;/strong&gt;</ept> and choose <bpt id="e502431a-8f68-4b5b-a283-aa5b9164afe1">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="e502431a-8f68-4b5b-a283-aa5b9164afe1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e9568fd-35c4-44b9-b951-5788789705e0" xml:space="preserve">
+          <source><bpt id="b7e48444-6c47-4a5e-ad9d-c762102ce93c">&lt;linkText&gt;</bpt>NuGetPackageMenu<ept id="b7e48444-6c47-4a5e-ad9d-c762102ce93c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7e48444-6c47-4a5e-ad9d-c762102ce93c">&lt;linkText&gt;</bpt>NuGetPackageMenu<ept id="b7e48444-6c47-4a5e-ad9d-c762102ce93c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8980b1e-faf3-4986-afbe-2bee71a5042c" xml:space="preserve">
+          <source>Type <bpt id="31a679b3-14cd-45ea-8194-33140d22cb24">&lt;strong&gt;</bpt>WindowsAzure.Caching<ept id="31a679b3-14cd-45ea-8194-33140d22cb24">&lt;/strong&gt;</ept> into the <bpt id="6686a944-4cc7-4092-9627-c44a963151fa">&lt;strong&gt;</bpt>Search Online<ept id="6686a944-4cc7-4092-9627-c44a963151fa">&lt;/strong&gt;</ept> text box, and select <bpt id="1f1bbd3b-e763-4f39-89dc-695b0ea94398">&lt;strong&gt;</bpt>Windows<ept id="1f1bbd3b-e763-4f39-89dc-695b0ea94398">&lt;/strong&gt;</ept>  
+<bpt id="e8e61cd7-fa79-4181-8fe7-71dd39ec7b20">&lt;strong&gt;</bpt>Azure<ept id="e8e61cd7-fa79-4181-8fe7-71dd39ec7b20">&lt;/strong&gt;</ept> <bpt id="18533cee-f881-4c1e-9395-fe34e869e2dd">&lt;strong&gt;</bpt>Cache<ept id="18533cee-f881-4c1e-9395-fe34e869e2dd">&lt;/strong&gt;</ept> from the results.</source>
+          <target state="new">Type <bpt id="31a679b3-14cd-45ea-8194-33140d22cb24">&lt;strong&gt;</bpt>WindowsAzure.Caching<ept id="31a679b3-14cd-45ea-8194-33140d22cb24">&lt;/strong&gt;</ept> into the <bpt id="6686a944-4cc7-4092-9627-c44a963151fa">&lt;strong&gt;</bpt>Search Online<ept id="6686a944-4cc7-4092-9627-c44a963151fa">&lt;/strong&gt;</ept> text box, and select <bpt id="1f1bbd3b-e763-4f39-89dc-695b0ea94398">&lt;strong&gt;</bpt>Windows<ept id="1f1bbd3b-e763-4f39-89dc-695b0ea94398">&lt;/strong&gt;</ept>  
+<bpt id="e8e61cd7-fa79-4181-8fe7-71dd39ec7b20">&lt;strong&gt;</bpt>Azure<ept id="e8e61cd7-fa79-4181-8fe7-71dd39ec7b20">&lt;/strong&gt;</ept> <bpt id="18533cee-f881-4c1e-9395-fe34e869e2dd">&lt;strong&gt;</bpt>Cache<ept id="18533cee-f881-4c1e-9395-fe34e869e2dd">&lt;/strong&gt;</ept> from the results.</target>
+        </trans-unit>
+        <trans-unit id="76ae998e-9efc-4634-b1e0-404c6957faed" xml:space="preserve">
+          <source>Click <bpt id="4ad1fcc5-d69b-4012-af83-b13d1804cdef">&lt;strong&gt;</bpt>Install<ept id="4ad1fcc5-d69b-4012-af83-b13d1804cdef">&lt;/strong&gt;</ept>, and then click <bpt id="c36bddee-11bd-47e3-a8b4-75e9288eb3da">&lt;strong&gt;</bpt>I Accept<ept id="c36bddee-11bd-47e3-a8b4-75e9288eb3da">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="4ad1fcc5-d69b-4012-af83-b13d1804cdef">&lt;strong&gt;</bpt>Install<ept id="4ad1fcc5-d69b-4012-af83-b13d1804cdef">&lt;/strong&gt;</ept>, and then click <bpt id="c36bddee-11bd-47e3-a8b4-75e9288eb3da">&lt;strong&gt;</bpt>I Accept<ept id="c36bddee-11bd-47e3-a8b4-75e9288eb3da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb3b9136-1dc5-4ec1-b5a3-770671567804" xml:space="preserve">
+          <source><bpt id="d11205c9-e9e1-44cb-b722-b4700900c90e">&lt;linkText&gt;</bpt>NuGetPackage<ept id="d11205c9-e9e1-44cb-b722-b4700900c90e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d11205c9-e9e1-44cb-b722-b4700900c90e">&lt;linkText&gt;</bpt>NuGetPackage<ept id="d11205c9-e9e1-44cb-b722-b4700900c90e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73371776-ef12-45d8-88d7-ed1e02d50e0a" xml:space="preserve">
+          <source>The NuGet package does several things: it adds the required configuration to the config file of the application, and it adds the required assembly references.</source>
+          <target state="new">The NuGet package does several things: it adds the required configuration to the config file of the application, and it adds the required assembly references.</target>
+        </trans-unit>
+        <trans-unit id="e9333e3c-f078-43ba-8594-1234b9f0a278" xml:space="preserve">
+          <source>For Cloud Services projects, it also adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Cloud Service.</source>
+          <target state="new">For Cloud Services projects, it also adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Cloud Service.</target>
+        </trans-unit>
+        <trans-unit id="93db3684-286c-4591-9d2e-902229489920" xml:space="preserve">
+          <source>For ASP.NET web projects, the Cache NuGet package also adds two commented out sections to web.config.</source>
+          <target state="new">For ASP.NET web projects, the Cache NuGet package also adds two commented out sections to web.config.</target>
+        </trans-unit>
+        <trans-unit id="8820b9d3-7265-4698-99ff-174623afa689" xml:space="preserve">
+          <source>The first section enables session state to be stored in the cache, and the second section enables ASP.NET page output caching.</source>
+          <target state="new">The first section enables session state to be stored in the cache, and the second section enables ASP.NET page output caching.</target>
+        </trans-unit>
+        <trans-unit id="3e515a3b-7abc-447a-acac-d238d0aa2ab1" xml:space="preserve">
+          <source>For more information, see [How To: Store ASP.NET Session State in the Cache] and <bpt id="cc975225-2e08-46f9-a75c-46051054a984">&lt;linkText&gt;</bpt>How To: Store ASP.NET Page Output Caching in the Cache<ept id="cc975225-2e08-46f9-a75c-46051054a984">&lt;/linkText&gt;</ept><bpt id="cc975225-2e08-46f9-a75c-46051054a984">&lt;title&gt;</bpt><ept id="cc975225-2e08-46f9-a75c-46051054a984">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see [How To: Store ASP.NET Session State in the Cache] and <bpt id="cc975225-2e08-46f9-a75c-46051054a984">&lt;linkText&gt;</bpt>How To: Store ASP.NET Page Output Caching in the Cache<ept id="cc975225-2e08-46f9-a75c-46051054a984">&lt;/linkText&gt;</ept><bpt id="cc975225-2e08-46f9-a75c-46051054a984">&lt;title&gt;</bpt><ept id="cc975225-2e08-46f9-a75c-46051054a984">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4b4a80d-d4d0-4447-a276-48978b15a958" xml:space="preserve">
+          <source>The NuGet package adds the following configuration elements into your application's web.config or app.config.</source>
+          <target state="new">The NuGet package adds the following configuration elements into your application's web.config or app.config.</target>
+        </trans-unit>
+        <trans-unit id="85adaed4-89da-4155-b565-41f4df285c4a" xml:space="preserve">
+          <source>A <bpt id="03e4c8db-cd3b-471f-81aa-17e9c32f17bb">&lt;strong&gt;</bpt>dataCacheClients<ept id="03e4c8db-cd3b-471f-81aa-17e9c32f17bb">&lt;/strong&gt;</ept> section and a <bpt id="d7c95665-c293-4bbd-932c-e7518d33c181">&lt;strong&gt;</bpt>cacheDiagnostics<ept id="d7c95665-c293-4bbd-932c-e7518d33c181">&lt;/strong&gt;</ept> section are added under the <bpt id="2c11fb07-087c-4cba-bc38-7da336eb06ec">&lt;strong&gt;</bpt>configSections<ept id="2c11fb07-087c-4cba-bc38-7da336eb06ec">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">A <bpt id="03e4c8db-cd3b-471f-81aa-17e9c32f17bb">&lt;strong&gt;</bpt>dataCacheClients<ept id="03e4c8db-cd3b-471f-81aa-17e9c32f17bb">&lt;/strong&gt;</ept> section and a <bpt id="d7c95665-c293-4bbd-932c-e7518d33c181">&lt;strong&gt;</bpt>cacheDiagnostics<ept id="d7c95665-c293-4bbd-932c-e7518d33c181">&lt;/strong&gt;</ept> section are added under the <bpt id="2c11fb07-087c-4cba-bc38-7da336eb06ec">&lt;strong&gt;</bpt>configSections<ept id="2c11fb07-087c-4cba-bc38-7da336eb06ec">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="dd56b9f9-caa5-44ad-9c8c-1c38fef1e271" xml:space="preserve">
+          <source>If there is no <bpt id="fc5c0faf-e918-46b4-accf-fcc44904da4c">&lt;strong&gt;</bpt>configSections<ept id="fc5c0faf-e918-46b4-accf-fcc44904da4c">&lt;/strong&gt;</ept> element present, one is created as a child of the <bpt id="1871fcf1-5ca9-47d7-86e8-859271dd9bcd">&lt;strong&gt;</bpt>configuration<ept id="1871fcf1-5ca9-47d7-86e8-859271dd9bcd">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">If there is no <bpt id="fc5c0faf-e918-46b4-accf-fcc44904da4c">&lt;strong&gt;</bpt>configSections<ept id="fc5c0faf-e918-46b4-accf-fcc44904da4c">&lt;/strong&gt;</ept> element present, one is created as a child of the <bpt id="1871fcf1-5ca9-47d7-86e8-859271dd9bcd">&lt;strong&gt;</bpt>configuration<ept id="1871fcf1-5ca9-47d7-86e8-859271dd9bcd">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="33b6e269-510d-460d-99d7-135c37c52ab3" xml:space="preserve">
+          <source>These new sections include references to a <bpt id="aeb183a8-5d8e-43db-8fdf-69634314beb3">&lt;strong&gt;</bpt>dataCacheClients<ept id="aeb183a8-5d8e-43db-8fdf-69634314beb3">&lt;/strong&gt;</ept> element, which is also added to the <bpt id="bae483c0-d58a-44e5-8352-66f32c9c3735">&lt;strong&gt;</bpt>configuration<ept id="bae483c0-d58a-44e5-8352-66f32c9c3735">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">These new sections include references to a <bpt id="aeb183a8-5d8e-43db-8fdf-69634314beb3">&lt;strong&gt;</bpt>dataCacheClients<ept id="aeb183a8-5d8e-43db-8fdf-69634314beb3">&lt;/strong&gt;</ept> element, which is also added to the <bpt id="bae483c0-d58a-44e5-8352-66f32c9c3735">&lt;strong&gt;</bpt>configuration<ept id="bae483c0-d58a-44e5-8352-66f32c9c3735">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="8cf50358-c1ab-4650-b552-d38339d1a8eb" xml:space="preserve">
+          <source>After the configuration is added, replace the following two items in the newly added configuration.</source>
+          <target state="new">After the configuration is added, replace the following two items in the newly added configuration.</target>
+        </trans-unit>
+        <trans-unit id="07e65d87-b742-492c-bdbe-03ab5b5e0dc1" xml:space="preserve">
+          <source>Replace <bpt id="774e1434-a28c-4ffc-b665-4849e28a542a">&lt;strong&gt;</bpt>[Cache role name or Service Endpoint]<ept id="774e1434-a28c-4ffc-b665-4849e28a542a">&lt;/strong&gt;</ept> with the endpoint, which is displayed on the Dashboard in the Management Portal.</source>
+          <target state="new">Replace <bpt id="774e1434-a28c-4ffc-b665-4849e28a542a">&lt;strong&gt;</bpt>[Cache role name or Service Endpoint]<ept id="774e1434-a28c-4ffc-b665-4849e28a542a">&lt;/strong&gt;</ept> with the endpoint, which is displayed on the Dashboard in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="95b8ebb5-fe36-4ee9-9136-b74016fb5043" xml:space="preserve">
+          <source><bpt id="3e452342-e28c-4b92-8142-590c509c728b">&lt;linkText&gt;</bpt>Endpoint<ept id="3e452342-e28c-4b92-8142-590c509c728b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e452342-e28c-4b92-8142-590c509c728b">&lt;linkText&gt;</bpt>Endpoint<ept id="3e452342-e28c-4b92-8142-590c509c728b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="627f0dfa-6ea6-4499-afce-becddc62c5f9" xml:space="preserve">
+          <source>Uncomment the securityProperties section, and replace <bpt id="40d3bfa1-5466-469c-933c-f9ef048437bb">&lt;strong&gt;</bpt>[Authentication Key]<ept id="40d3bfa1-5466-469c-933c-f9ef048437bb">&lt;/strong&gt;</ept> with the authentication key, which can be found in the Management Portal by clicking <bpt id="35a2fda0-9b03-4140-b6bf-045bdc6fbf13">&lt;strong&gt;</bpt>Manage Keys<ept id="35a2fda0-9b03-4140-b6bf-045bdc6fbf13">&lt;/strong&gt;</ept> from the cache dashboard.</source>
+          <target state="new">Uncomment the securityProperties section, and replace <bpt id="40d3bfa1-5466-469c-933c-f9ef048437bb">&lt;strong&gt;</bpt>[Authentication Key]<ept id="40d3bfa1-5466-469c-933c-f9ef048437bb">&lt;/strong&gt;</ept> with the authentication key, which can be found in the Management Portal by clicking <bpt id="35a2fda0-9b03-4140-b6bf-045bdc6fbf13">&lt;strong&gt;</bpt>Manage Keys<ept id="35a2fda0-9b03-4140-b6bf-045bdc6fbf13">&lt;/strong&gt;</ept> from the cache dashboard.</target>
+        </trans-unit>
+        <trans-unit id="f5af326c-753b-483b-ac6d-217a326a32e3" xml:space="preserve">
+          <source><bpt id="8abb21b5-cf5a-40fe-840f-1069e872cd01">&lt;linkText&gt;</bpt>AccessKeys<ept id="8abb21b5-cf5a-40fe-840f-1069e872cd01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8abb21b5-cf5a-40fe-840f-1069e872cd01">&lt;linkText&gt;</bpt>AccessKeys<ept id="8abb21b5-cf5a-40fe-840f-1069e872cd01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fd6143c-7d09-4570-b3db-7cceca100c8c" xml:space="preserve">
+          <source>These settings must be configured properly or clients will not be able to access the cache.</source>
+          <target state="new">These settings must be configured properly or clients will not be able to access the cache.</target>
+        </trans-unit>
+        <trans-unit id="b12f45dc-afc2-402d-ac07-c6ae935927d7" xml:space="preserve">
+          <source>For Cloud Services projects, the NuGet package also adds a <bpt id="14b576bc-15ff-400c-b9e0-b1497f75e3b7">&lt;strong&gt;</bpt>ClientDiagnosticLevel<ept id="14b576bc-15ff-400c-b9e0-b1497f75e3b7">&lt;/strong&gt;</ept> setting to the <bpt id="e4ecab96-fe17-4430-88f4-0bdcde402bf9">&lt;strong&gt;</bpt>ConfigurationSettings<ept id="e4ecab96-fe17-4430-88f4-0bdcde402bf9">&lt;/strong&gt;</ept> of the cache client role in ServiceConfiguration.cscfg.</source>
+          <target state="new">For Cloud Services projects, the NuGet package also adds a <bpt id="14b576bc-15ff-400c-b9e0-b1497f75e3b7">&lt;strong&gt;</bpt>ClientDiagnosticLevel<ept id="14b576bc-15ff-400c-b9e0-b1497f75e3b7">&lt;/strong&gt;</ept> setting to the <bpt id="e4ecab96-fe17-4430-88f4-0bdcde402bf9">&lt;strong&gt;</bpt>ConfigurationSettings<ept id="e4ecab96-fe17-4430-88f4-0bdcde402bf9">&lt;/strong&gt;</ept> of the cache client role in ServiceConfiguration.cscfg.</target>
+        </trans-unit>
+        <trans-unit id="9c405944-6bad-4fe7-9aa0-f83173ac2646" xml:space="preserve">
+          <source>The following example is the <bpt id="ace0f063-1396-438b-ad62-6a4b7a1fc269">&lt;strong&gt;</bpt>WebRole1<ept id="ace0f063-1396-438b-ad62-6a4b7a1fc269">&lt;/strong&gt;</ept> section from a ServiceConfiguration.cscfg file with a <bpt id="c12f46f0-05f1-47b8-bb18-dd923dacebe2">&lt;strong&gt;</bpt>ClientDiagnosticLevel<ept id="c12f46f0-05f1-47b8-bb18-dd923dacebe2">&lt;/strong&gt;</ept> of 1, which is the default <bpt id="be2a4caa-d4a4-4195-a1aa-10151e920686">&lt;strong&gt;</bpt>ClientDiagnosticLevel<ept id="be2a4caa-d4a4-4195-a1aa-10151e920686">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following example is the <bpt id="ace0f063-1396-438b-ad62-6a4b7a1fc269">&lt;strong&gt;</bpt>WebRole1<ept id="ace0f063-1396-438b-ad62-6a4b7a1fc269">&lt;/strong&gt;</ept> section from a ServiceConfiguration.cscfg file with a <bpt id="c12f46f0-05f1-47b8-bb18-dd923dacebe2">&lt;strong&gt;</bpt>ClientDiagnosticLevel<ept id="c12f46f0-05f1-47b8-bb18-dd923dacebe2">&lt;/strong&gt;</ept> of 1, which is the default <bpt id="be2a4caa-d4a4-4195-a1aa-10151e920686">&lt;strong&gt;</bpt>ClientDiagnosticLevel<ept id="be2a4caa-d4a4-4195-a1aa-10151e920686">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e277c5c-a6a6-4042-b41c-d3ab208109e8" xml:space="preserve">
+          <source>The client diagnostic level configures the level of caching diagnostic information collected for cache clients.</source>
+          <target state="new">The client diagnostic level configures the level of caching diagnostic information collected for cache clients.</target>
+        </trans-unit>
+        <trans-unit id="e53eec81-fefb-4b7a-8bb8-3ff1e0cf2192" xml:space="preserve">
+          <source>For more information, see <bpt id="fa16965e-36b5-4cfc-9d77-026edf173a13">&lt;linkText&gt;</bpt>Troubleshooting and Diagnostics<ept id="fa16965e-36b5-4cfc-9d77-026edf173a13">&lt;/linkText&gt;</ept><bpt id="fa16965e-36b5-4cfc-9d77-026edf173a13">&lt;title&gt;</bpt><ept id="fa16965e-36b5-4cfc-9d77-026edf173a13">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="fa16965e-36b5-4cfc-9d77-026edf173a13">&lt;linkText&gt;</bpt>Troubleshooting and Diagnostics<ept id="fa16965e-36b5-4cfc-9d77-026edf173a13">&lt;/linkText&gt;</ept><bpt id="fa16965e-36b5-4cfc-9d77-026edf173a13">&lt;title&gt;</bpt><ept id="fa16965e-36b5-4cfc-9d77-026edf173a13">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc4405a6-70d4-46fe-83a6-39226cff096e" xml:space="preserve">
+          <source>The NuGet package also adds references to the following assemblies:</source>
+          <target state="new">The NuGet package also adds references to the following assemblies:</target>
+        </trans-unit>
+        <trans-unit id="ea4b1313-6efc-43d8-ae51-ec5d0ab92428" xml:space="preserve">
+          <source>Microsoft.ApplicationServer.Caching.Client.dll</source>
+          <target state="new">Microsoft.ApplicationServer.Caching.Client.dll</target>
+        </trans-unit>
+        <trans-unit id="c74fe2f2-efd7-49eb-b0d9-3405b729ad45" xml:space="preserve">
+          <source>Microsoft.ApplicationServer.Caching.Core.dll</source>
+          <target state="new">Microsoft.ApplicationServer.Caching.Core.dll</target>
+        </trans-unit>
+        <trans-unit id="57a6cd7a-b097-4a79-928a-c39c1f1c1723" xml:space="preserve">
+          <source>Microsoft.WindowsFabric.Common.dll</source>
+          <target state="new">Microsoft.WindowsFabric.Common.dll</target>
+        </trans-unit>
+        <trans-unit id="fa90d73a-a16c-47e3-ad70-65b3bdfe8e53" xml:space="preserve">
+          <source>Microsoft.WindowsFabric.Data.Common.dll</source>
+          <target state="new">Microsoft.WindowsFabric.Data.Common.dll</target>
+        </trans-unit>
+        <trans-unit id="6a1656d0-b32d-4d83-bd5d-388b527ce07d" xml:space="preserve">
+          <source>Microsoft.ApplicationServer.Caching.AzureCommon.dll</source>
+          <target state="new">Microsoft.ApplicationServer.Caching.AzureCommon.dll</target>
+        </trans-unit>
+        <trans-unit id="08068962-32aa-49a1-af69-176a954c183e" xml:space="preserve">
+          <source>Microsoft.ApplicationServer.Caching.AzureClientHelper.dll</source>
+          <target state="new">Microsoft.ApplicationServer.Caching.AzureClientHelper.dll</target>
+        </trans-unit>
+        <trans-unit id="986365c4-b246-4008-b7df-663b0390e6b7" xml:space="preserve">
+          <source>If your project is a web project, the following assembly reference is also added:</source>
+          <target state="new">If your project is a web project, the following assembly reference is also added:</target>
+        </trans-unit>
+        <trans-unit id="2d444787-270c-4e38-9b4e-1d828ab4d44d" xml:space="preserve">
+          <source>Microsoft.Web.DistributedCache.dll.</source>
+          <target state="new">Microsoft.Web.DistributedCache.dll.</target>
+        </trans-unit>
+        <trans-unit id="7c7372f4-74e2-485d-a08d-2a7dd74ae891" xml:space="preserve">
+          <source>Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.</source>
+          <target state="new">Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.</target>
+        </trans-unit>
+        <trans-unit id="505a157d-05c7-4f7f-94f5-aa160c66fffd" xml:space="preserve">
+          <source><bpt id="9407922c-1f35-44fe-a0c0-a244d6b497c4">&lt;bookmark&gt;</bpt><ept id="9407922c-1f35-44fe-a0c0-a244d6b497c4">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="9407922c-1f35-44fe-a0c0-a244d6b497c4">&lt;bookmark&gt;</bpt><ept id="9407922c-1f35-44fe-a0c0-a244d6b497c4">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1928766b-a8a5-438f-a0bc-f037b1828100" xml:space="preserve">
+          <source>The steps in this section describe how to perform common tasks with Cache.</source>
+          <target state="new">The steps in this section describe how to perform common tasks with Cache.</target>
+        </trans-unit>
+        <trans-unit id="a49a9ee9-af84-4388-a87a-9507d654b06b" xml:space="preserve">
+          <source><bpt id="40a95acc-896c-4429-8677-8137747c1758">&lt;linkText&gt;</bpt>How To: Create a DataCache Object<ept id="40a95acc-896c-4429-8677-8137747c1758">&lt;/linkText&gt;</ept><bpt id="40a95acc-896c-4429-8677-8137747c1758">&lt;title&gt;</bpt><ept id="40a95acc-896c-4429-8677-8137747c1758">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="40a95acc-896c-4429-8677-8137747c1758">&lt;linkText&gt;</bpt>How To: Create a DataCache Object<ept id="40a95acc-896c-4429-8677-8137747c1758">&lt;/linkText&gt;</ept><bpt id="40a95acc-896c-4429-8677-8137747c1758">&lt;title&gt;</bpt><ept id="40a95acc-896c-4429-8677-8137747c1758">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6debec6-bde1-4a5c-bccf-4c4ae78ee607" xml:space="preserve">
+          <source><bpt id="88c2ed38-2908-4203-ae4f-f1cc66860f0a">&lt;linkText&gt;</bpt>How To: Add and Retrieve an Object from the Cache<ept id="88c2ed38-2908-4203-ae4f-f1cc66860f0a">&lt;/linkText&gt;</ept><bpt id="88c2ed38-2908-4203-ae4f-f1cc66860f0a">&lt;title&gt;</bpt><ept id="88c2ed38-2908-4203-ae4f-f1cc66860f0a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="88c2ed38-2908-4203-ae4f-f1cc66860f0a">&lt;linkText&gt;</bpt>How To: Add and Retrieve an Object from the Cache<ept id="88c2ed38-2908-4203-ae4f-f1cc66860f0a">&lt;/linkText&gt;</ept><bpt id="88c2ed38-2908-4203-ae4f-f1cc66860f0a">&lt;title&gt;</bpt><ept id="88c2ed38-2908-4203-ae4f-f1cc66860f0a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35c6d6bf-faa1-45aa-9ea2-bf3a704e0173" xml:space="preserve">
+          <source><bpt id="7e5912ed-39f5-400f-bd47-c4aa1d1f8b0c">&lt;linkText&gt;</bpt>How To: Specify the Expiration of an Object in the Cache<ept id="7e5912ed-39f5-400f-bd47-c4aa1d1f8b0c">&lt;/linkText&gt;</ept><bpt id="7e5912ed-39f5-400f-bd47-c4aa1d1f8b0c">&lt;title&gt;</bpt><ept id="7e5912ed-39f5-400f-bd47-c4aa1d1f8b0c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7e5912ed-39f5-400f-bd47-c4aa1d1f8b0c">&lt;linkText&gt;</bpt>How To: Specify the Expiration of an Object in the Cache<ept id="7e5912ed-39f5-400f-bd47-c4aa1d1f8b0c">&lt;/linkText&gt;</ept><bpt id="7e5912ed-39f5-400f-bd47-c4aa1d1f8b0c">&lt;title&gt;</bpt><ept id="7e5912ed-39f5-400f-bd47-c4aa1d1f8b0c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="daff75a5-e9c3-4ce4-b2a8-e2e44a730aea" xml:space="preserve">
+          <source><bpt id="93330d75-b7e5-4efd-84dd-26afd79b49a4">&lt;linkText&gt;</bpt>How To: Store ASP.NET Session State in the Cache<ept id="93330d75-b7e5-4efd-84dd-26afd79b49a4">&lt;/linkText&gt;</ept><bpt id="93330d75-b7e5-4efd-84dd-26afd79b49a4">&lt;title&gt;</bpt><ept id="93330d75-b7e5-4efd-84dd-26afd79b49a4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="93330d75-b7e5-4efd-84dd-26afd79b49a4">&lt;linkText&gt;</bpt>How To: Store ASP.NET Session State in the Cache<ept id="93330d75-b7e5-4efd-84dd-26afd79b49a4">&lt;/linkText&gt;</ept><bpt id="93330d75-b7e5-4efd-84dd-26afd79b49a4">&lt;title&gt;</bpt><ept id="93330d75-b7e5-4efd-84dd-26afd79b49a4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7bcf79b-5fd5-4d0d-9aef-2c042af656ab" xml:space="preserve">
+          <source><bpt id="f9ff8703-147f-44ad-bc87-2d358b45055e">&lt;linkText&gt;</bpt>How To: Store ASP.NET Page Output Caching in the Cache<ept id="f9ff8703-147f-44ad-bc87-2d358b45055e">&lt;/linkText&gt;</ept><bpt id="f9ff8703-147f-44ad-bc87-2d358b45055e">&lt;title&gt;</bpt><ept id="f9ff8703-147f-44ad-bc87-2d358b45055e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f9ff8703-147f-44ad-bc87-2d358b45055e">&lt;linkText&gt;</bpt>How To: Store ASP.NET Page Output Caching in the Cache<ept id="f9ff8703-147f-44ad-bc87-2d358b45055e">&lt;/linkText&gt;</ept><bpt id="f9ff8703-147f-44ad-bc87-2d358b45055e">&lt;title&gt;</bpt><ept id="f9ff8703-147f-44ad-bc87-2d358b45055e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6de32734-036d-478b-8bd0-437a9261f01d" xml:space="preserve">
+          <source><bpt id="11ec7413-7bfb-4a9b-b91d-fdaba788ac74">&lt;bookmark&gt;</bpt><ept id="11ec7413-7bfb-4a9b-b91d-fdaba788ac74">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="11ec7413-7bfb-4a9b-b91d-fdaba788ac74">&lt;bookmark&gt;</bpt><ept id="11ec7413-7bfb-4a9b-b91d-fdaba788ac74">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff9afbf7-dc7f-44a8-9045-0c2bfe23c97e" xml:space="preserve">
+          <source>In order to programatically work with a cache, you need a reference to the cache.</source>
+          <target state="new">In order to programatically work with a cache, you need a reference to the cache.</target>
+        </trans-unit>
+        <trans-unit id="9d7314a4-7b32-42f5-bd7e-fb2c27ed52be" xml:space="preserve">
+          <source>Add the following to the top of any file from which you want to use
+Azure Cache:</source>
+          <target state="new">Add the following to the top of any file from which you want to use
+Azure Cache:</target>
+        </trans-unit>
+        <trans-unit id="c57f376a-8538-4656-a3ab-b9d8eb83fe68" xml:space="preserve">
+          <source>If Visual Studio doesn't recognize the types in the using
+statement even after installing the Cache NuGet package, which adds the necessary references, ensure that the target
+profile for the project is .NET Framework 4 or higher, and be sure to select one of the profiles that does not specify <bpt id="3a6bda15-0698-46fb-b0aa-0a4b4a30adcd">&lt;strong&gt;</bpt>Client Profile<ept id="3a6bda15-0698-46fb-b0aa-0a4b4a30adcd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If Visual Studio doesn't recognize the types in the using
+statement even after installing the Cache NuGet package, which adds the necessary references, ensure that the target
+profile for the project is .NET Framework 4 or higher, and be sure to select one of the profiles that does not specify <bpt id="3a6bda15-0698-46fb-b0aa-0a4b4a30adcd">&lt;strong&gt;</bpt>Client Profile<ept id="3a6bda15-0698-46fb-b0aa-0a4b4a30adcd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c497a878-4367-4dbd-adc2-ad10e4fbb191" xml:space="preserve">
+          <source>For instructions on configuring cache clients, see <bpt id="495f9faf-9d43-4b17-853b-c1ca55178d2f">&lt;linkText&gt;</bpt>Configure the cache clients<ept id="495f9faf-9d43-4b17-853b-c1ca55178d2f">&lt;/linkText&gt;</ept><bpt id="495f9faf-9d43-4b17-853b-c1ca55178d2f">&lt;title&gt;</bpt><ept id="495f9faf-9d43-4b17-853b-c1ca55178d2f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on configuring cache clients, see <bpt id="495f9faf-9d43-4b17-853b-c1ca55178d2f">&lt;linkText&gt;</bpt>Configure the cache clients<ept id="495f9faf-9d43-4b17-853b-c1ca55178d2f">&lt;/linkText&gt;</ept><bpt id="495f9faf-9d43-4b17-853b-c1ca55178d2f">&lt;title&gt;</bpt><ept id="495f9faf-9d43-4b17-853b-c1ca55178d2f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="435d6910-904c-41c7-b7fc-06c358daf573" xml:space="preserve">
+          <source>There are two ways to create a <bpt id="f387c9cf-dcfc-4d8f-8ca8-58b6f07ff648">&lt;strong&gt;</bpt>DataCache<ept id="f387c9cf-dcfc-4d8f-8ca8-58b6f07ff648">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">There are two ways to create a <bpt id="f387c9cf-dcfc-4d8f-8ca8-58b6f07ff648">&lt;strong&gt;</bpt>DataCache<ept id="f387c9cf-dcfc-4d8f-8ca8-58b6f07ff648">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="05586ea1-6d70-4c3f-afeb-64fe5e7c4e34" xml:space="preserve">
+          <source>The first way is to simply create a <bpt id="9cbd5f62-8b25-4638-8dd1-245351378ab5">&lt;strong&gt;</bpt>DataCache<ept id="9cbd5f62-8b25-4638-8dd1-245351378ab5">&lt;/strong&gt;</ept>, passing in the name of the desired cache.</source>
+          <target state="new">The first way is to simply create a <bpt id="9cbd5f62-8b25-4638-8dd1-245351378ab5">&lt;strong&gt;</bpt>DataCache<ept id="9cbd5f62-8b25-4638-8dd1-245351378ab5">&lt;/strong&gt;</ept>, passing in the name of the desired cache.</target>
+        </trans-unit>
+        <trans-unit id="e36000ca-5413-4738-8362-b18026fb1bf4" xml:space="preserve">
+          <source>Once the <bpt id="b4cc8e74-70a3-49bb-820b-7b3335d79ec1">&lt;strong&gt;</bpt>DataCache<ept id="b4cc8e74-70a3-49bb-820b-7b3335d79ec1">&lt;/strong&gt;</ept> is instantiated, you can use it to interact with the cache, as described in the following sections.</source>
+          <target state="new">Once the <bpt id="b4cc8e74-70a3-49bb-820b-7b3335d79ec1">&lt;strong&gt;</bpt>DataCache<ept id="b4cc8e74-70a3-49bb-820b-7b3335d79ec1">&lt;/strong&gt;</ept> is instantiated, you can use it to interact with the cache, as described in the following sections.</target>
+        </trans-unit>
+        <trans-unit id="ffab8672-2f0a-4dbe-a990-c3caa3482b7b" xml:space="preserve">
+          <source>To use the second way, create a new <bpt id="6f17c56e-88c6-4645-84c4-f0887b19be54">&lt;strong&gt;</bpt>DataCacheFactory<ept id="6f17c56e-88c6-4645-84c4-f0887b19be54">&lt;/strong&gt;</ept> object in your application using the default constructor.</source>
+          <target state="new">To use the second way, create a new <bpt id="6f17c56e-88c6-4645-84c4-f0887b19be54">&lt;strong&gt;</bpt>DataCacheFactory<ept id="6f17c56e-88c6-4645-84c4-f0887b19be54">&lt;/strong&gt;</ept> object in your application using the default constructor.</target>
+        </trans-unit>
+        <trans-unit id="6bbb7382-7c23-49ca-8d14-65a362d54ddc" xml:space="preserve">
+          <source>This causes the cache client to use the settings in the configuration file.</source>
+          <target state="new">This causes the cache client to use the settings in the configuration file.</target>
+        </trans-unit>
+        <trans-unit id="0a6ee870-ffde-49fe-9772-e768daf59dd7" xml:space="preserve">
+          <source>Call either the <bpt id="7315b7d1-5610-420d-851e-638d79924112">&lt;strong&gt;</bpt>GetDefaultCache<ept id="7315b7d1-5610-420d-851e-638d79924112">&lt;/strong&gt;</ept> method of the new <bpt id="574aed20-5b19-4e70-832b-1bdef77156bf">&lt;strong&gt;</bpt>DataCacheFactory<ept id="574aed20-5b19-4e70-832b-1bdef77156bf">&lt;/strong&gt;</ept> instance which returns a <bpt id="2091a745-4a48-4409-9076-55d0478b07c0">&lt;strong&gt;</bpt>DataCache<ept id="2091a745-4a48-4409-9076-55d0478b07c0">&lt;/strong&gt;</ept> object, or the <bpt id="c2f34f6e-e962-4a07-851a-62bf5b44613f">&lt;strong&gt;</bpt>GetCache<ept id="c2f34f6e-e962-4a07-851a-62bf5b44613f">&lt;/strong&gt;</ept> method and pass in the name of your cache.</source>
+          <target state="new">Call either the <bpt id="7315b7d1-5610-420d-851e-638d79924112">&lt;strong&gt;</bpt>GetDefaultCache<ept id="7315b7d1-5610-420d-851e-638d79924112">&lt;/strong&gt;</ept> method of the new <bpt id="574aed20-5b19-4e70-832b-1bdef77156bf">&lt;strong&gt;</bpt>DataCacheFactory<ept id="574aed20-5b19-4e70-832b-1bdef77156bf">&lt;/strong&gt;</ept> instance which returns a <bpt id="2091a745-4a48-4409-9076-55d0478b07c0">&lt;strong&gt;</bpt>DataCache<ept id="2091a745-4a48-4409-9076-55d0478b07c0">&lt;/strong&gt;</ept> object, or the <bpt id="c2f34f6e-e962-4a07-851a-62bf5b44613f">&lt;strong&gt;</bpt>GetCache<ept id="c2f34f6e-e962-4a07-851a-62bf5b44613f">&lt;/strong&gt;</ept> method and pass in the name of your cache.</target>
+        </trans-unit>
+        <trans-unit id="e20dfe02-a083-4665-bd80-fd9181012ea7" xml:space="preserve">
+          <source>These methods return a <bpt id="4f098061-cf8e-4b9d-a7ab-689c7b758e04">&lt;strong&gt;</bpt>DataCache<ept id="4f098061-cf8e-4b9d-a7ab-689c7b758e04">&lt;/strong&gt;</ept> object that can then be used to programmatically access the cache.</source>
+          <target state="new">These methods return a <bpt id="4f098061-cf8e-4b9d-a7ab-689c7b758e04">&lt;strong&gt;</bpt>DataCache<ept id="4f098061-cf8e-4b9d-a7ab-689c7b758e04">&lt;/strong&gt;</ept> object that can then be used to programmatically access the cache.</target>
+        </trans-unit>
+        <trans-unit id="5770ecdf-f450-43f7-bd97-d1a959efa83f" xml:space="preserve">
+          <source><bpt id="aac02881-5b57-4d74-a119-08819344ce7c">&lt;bookmark&gt;</bpt><ept id="aac02881-5b57-4d74-a119-08819344ce7c">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="aac02881-5b57-4d74-a119-08819344ce7c">&lt;bookmark&gt;</bpt><ept id="aac02881-5b57-4d74-a119-08819344ce7c">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51fc6aaa-363a-494c-9d05-3c4f169a3173" xml:space="preserve">
+          <source>To add an item to the cache, the <bpt id="bd9a0ded-ff00-46a1-a51f-1c93177275d4">&lt;strong&gt;</bpt>Add<ept id="bd9a0ded-ff00-46a1-a51f-1c93177275d4">&lt;/strong&gt;</ept> method or the <bpt id="9a19dca8-94bf-4d96-8e8a-62d2f643dfd9">&lt;strong&gt;</bpt>Put<ept id="9a19dca8-94bf-4d96-8e8a-62d2f643dfd9">&lt;/strong&gt;</ept> method
+can be used.</source>
+          <target state="new">To add an item to the cache, the <bpt id="bd9a0ded-ff00-46a1-a51f-1c93177275d4">&lt;strong&gt;</bpt>Add<ept id="bd9a0ded-ff00-46a1-a51f-1c93177275d4">&lt;/strong&gt;</ept> method or the <bpt id="9a19dca8-94bf-4d96-8e8a-62d2f643dfd9">&lt;strong&gt;</bpt>Put<ept id="9a19dca8-94bf-4d96-8e8a-62d2f643dfd9">&lt;/strong&gt;</ept> method
+can be used.</target>
+        </trans-unit>
+        <trans-unit id="0c540391-3519-4655-b9ab-bdb2394f2355" xml:space="preserve">
+          <source>The <bpt id="8076801a-4b96-499d-9fd6-b5077ca6e45f">&lt;strong&gt;</bpt>Add<ept id="8076801a-4b96-499d-9fd6-b5077ca6e45f">&lt;/strong&gt;</ept> method adds the specified object to the cache,
+keyed by the value of the key parameter.</source>
+          <target state="new">The <bpt id="8076801a-4b96-499d-9fd6-b5077ca6e45f">&lt;strong&gt;</bpt>Add<ept id="8076801a-4b96-499d-9fd6-b5077ca6e45f">&lt;/strong&gt;</ept> method adds the specified object to the cache,
+keyed by the value of the key parameter.</target>
+        </trans-unit>
+        <trans-unit id="d0d70669-90df-4865-b24c-76a41ba2a4b9" xml:space="preserve">
+          <source>If an object with the same key is already in the cache, a
+<bpt id="52caefaf-80da-4d24-9ea2-c58206ed7f78">&lt;strong&gt;</bpt>DataCacheException<ept id="52caefaf-80da-4d24-9ea2-c58206ed7f78">&lt;/strong&gt;</ept> will be thrown with the following message:</source>
+          <target state="new">If an object with the same key is already in the cache, a
+<bpt id="52caefaf-80da-4d24-9ea2-c58206ed7f78">&lt;strong&gt;</bpt>DataCacheException<ept id="52caefaf-80da-4d24-9ea2-c58206ed7f78">&lt;/strong&gt;</ept> will be thrown with the following message:</target>
+        </trans-unit>
+        <trans-unit id="cadbe85e-be09-4172-9e8d-e9715c457bf7" xml:space="preserve">
+          <source>ErrorCode:SubStatus: An attempt is being made to create an object with
+a Key that already exists in the cache.</source>
+          <target state="new">ErrorCode:SubStatus: An attempt is being made to create an object with
+a Key that already exists in the cache.</target>
+        </trans-unit>
+        <trans-unit id="3ddc0d17-e55e-4e32-9f8e-4362b35e8016" xml:space="preserve">
+          <source>Caching will only accept
+unique Key values for objects.</source>
+          <target state="new">Caching will only accept
+unique Key values for objects.</target>
+        </trans-unit>
+        <trans-unit id="f0cef3cd-ecf4-435f-b5cb-8bcb2e58e1a8" xml:space="preserve">
+          <source>To retrieve an object with a specific key, the <bpt id="b09e35cf-1eaa-4612-85ad-a1396ad5db61">&lt;strong&gt;</bpt>Get<ept id="b09e35cf-1eaa-4612-85ad-a1396ad5db61">&lt;/strong&gt;</ept> method can be used.</source>
+          <target state="new">To retrieve an object with a specific key, the <bpt id="b09e35cf-1eaa-4612-85ad-a1396ad5db61">&lt;strong&gt;</bpt>Get<ept id="b09e35cf-1eaa-4612-85ad-a1396ad5db61">&lt;/strong&gt;</ept> method can be used.</target>
+        </trans-unit>
+        <trans-unit id="4b4de028-86b9-471f-9703-392ee988d966" xml:space="preserve">
+          <source>If the object exists, it is
+returned, and if it does not, null is returned.</source>
+          <target state="new">If the object exists, it is
+returned, and if it does not, null is returned.</target>
+        </trans-unit>
+        <trans-unit id="89e46d29-946e-45bc-ab02-bb0ce05d2319" xml:space="preserve">
+          <source>The <bpt id="cc07f734-6d03-487a-bf10-6ed132e7baa2">&lt;strong&gt;</bpt>Put<ept id="cc07f734-6d03-487a-bf10-6ed132e7baa2">&lt;/strong&gt;</ept> method adds the object with the specified key to the cache
+if it does not exist, or replaces the object if it does exist.</source>
+          <target state="new">The <bpt id="cc07f734-6d03-487a-bf10-6ed132e7baa2">&lt;strong&gt;</bpt>Put<ept id="cc07f734-6d03-487a-bf10-6ed132e7baa2">&lt;/strong&gt;</ept> method adds the object with the specified key to the cache
+if it does not exist, or replaces the object if it does exist.</target>
+        </trans-unit>
+        <trans-unit id="e493af18-498d-4755-a8ea-e9493fe76158" xml:space="preserve">
+          <source><bpt id="7e416c7f-72a8-4207-9396-f619e56d1e67">&lt;bookmark&gt;</bpt><ept id="7e416c7f-72a8-4207-9396-f619e56d1e67">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="7e416c7f-72a8-4207-9396-f619e56d1e67">&lt;bookmark&gt;</bpt><ept id="7e416c7f-72a8-4207-9396-f619e56d1e67">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a03818a-e78c-4769-a7a2-690ab8e80e63" xml:space="preserve">
+          <source>By default items in the cache expire 10 minutes after they are placed in the cache.</source>
+          <target state="new">By default items in the cache expire 10 minutes after they are placed in the cache.</target>
+        </trans-unit>
+        <trans-unit id="8ce8d06b-1dfb-43c5-9c27-93d1fed87eb8" xml:space="preserve">
+          <source>This can be configured in the <bpt id="b36b0639-1bf2-4972-a9f3-a93a59683f60">&lt;strong&gt;</bpt>Time (min)<ept id="b36b0639-1bf2-4972-a9f3-a93a59683f60">&lt;/strong&gt;</ept> setting on the Configure tab for Cache in the Management Portal.</source>
+          <target state="new">This can be configured in the <bpt id="b36b0639-1bf2-4972-a9f3-a93a59683f60">&lt;strong&gt;</bpt>Time (min)<ept id="b36b0639-1bf2-4972-a9f3-a93a59683f60">&lt;/strong&gt;</ept> setting on the Configure tab for Cache in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="391253b0-0c16-4ff8-8624-d5e865aaa8e5" xml:space="preserve">
+          <source><bpt id="1cfc5222-2d38-4781-b365-aa7de5f4d2f1">&lt;linkText&gt;</bpt>NamedCaches<ept id="1cfc5222-2d38-4781-b365-aa7de5f4d2f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1cfc5222-2d38-4781-b365-aa7de5f4d2f1">&lt;linkText&gt;</bpt>NamedCaches<ept id="1cfc5222-2d38-4781-b365-aa7de5f4d2f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dee97a95-46dd-4e0a-a649-9b2ef24887b5" xml:space="preserve">
+          <source>There are three types of <bpt id="1dd0bbc6-0c5e-4b0e-a448-b095f6cb1b68">&lt;strong&gt;</bpt>Expiry Policy<ept id="1dd0bbc6-0c5e-4b0e-a448-b095f6cb1b68">&lt;/strong&gt;</ept>: <bpt id="0520a938-1c14-4316-b744-e23148f58802">&lt;strong&gt;</bpt>Never<ept id="0520a938-1c14-4316-b744-e23148f58802">&lt;/strong&gt;</ept>, <bpt id="044786c1-0afd-4c1e-84bb-3f39a7153fec">&lt;strong&gt;</bpt>Absolute<ept id="044786c1-0afd-4c1e-84bb-3f39a7153fec">&lt;/strong&gt;</ept>, and <bpt id="e49120cc-3253-46e0-a7d9-4de7bb074830">&lt;strong&gt;</bpt>Sliding<ept id="e49120cc-3253-46e0-a7d9-4de7bb074830">&lt;/strong&gt;</ept>.</source>
+          <target state="new">There are three types of <bpt id="1dd0bbc6-0c5e-4b0e-a448-b095f6cb1b68">&lt;strong&gt;</bpt>Expiry Policy<ept id="1dd0bbc6-0c5e-4b0e-a448-b095f6cb1b68">&lt;/strong&gt;</ept>: <bpt id="0520a938-1c14-4316-b744-e23148f58802">&lt;strong&gt;</bpt>Never<ept id="0520a938-1c14-4316-b744-e23148f58802">&lt;/strong&gt;</ept>, <bpt id="044786c1-0afd-4c1e-84bb-3f39a7153fec">&lt;strong&gt;</bpt>Absolute<ept id="044786c1-0afd-4c1e-84bb-3f39a7153fec">&lt;/strong&gt;</ept>, and <bpt id="e49120cc-3253-46e0-a7d9-4de7bb074830">&lt;strong&gt;</bpt>Sliding<ept id="e49120cc-3253-46e0-a7d9-4de7bb074830">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23fa6492-6a0c-4eac-b610-896e8cfa473f" xml:space="preserve">
+          <source>These configure how <bpt id="2ff1caaa-9c80-458c-8f6b-c9de31931d16">&lt;strong&gt;</bpt>Time (min)<ept id="2ff1caaa-9c80-458c-8f6b-c9de31931d16">&lt;/strong&gt;</ept> is used to determine expiration.</source>
+          <target state="new">These configure how <bpt id="2ff1caaa-9c80-458c-8f6b-c9de31931d16">&lt;strong&gt;</bpt>Time (min)<ept id="2ff1caaa-9c80-458c-8f6b-c9de31931d16">&lt;/strong&gt;</ept> is used to determine expiration.</target>
+        </trans-unit>
+        <trans-unit id="36b32309-edae-4288-803d-1eea98e02afa" xml:space="preserve">
+          <source>The default <bpt id="8960dbe5-f54f-4baa-b631-77bafe09e4b3">&lt;strong&gt;</bpt>Expiration Type<ept id="8960dbe5-f54f-4baa-b631-77bafe09e4b3">&lt;/strong&gt;</ept> is <bpt id="3a6f52b7-3551-404b-8c56-71d28298e22f">&lt;strong&gt;</bpt>Absolute<ept id="3a6f52b7-3551-404b-8c56-71d28298e22f">&lt;/strong&gt;</ept>, which means that the countdown timer for an item's expiration begins when the item is placed into the cache.</source>
+          <target state="new">The default <bpt id="8960dbe5-f54f-4baa-b631-77bafe09e4b3">&lt;strong&gt;</bpt>Expiration Type<ept id="8960dbe5-f54f-4baa-b631-77bafe09e4b3">&lt;/strong&gt;</ept> is <bpt id="3a6f52b7-3551-404b-8c56-71d28298e22f">&lt;strong&gt;</bpt>Absolute<ept id="3a6f52b7-3551-404b-8c56-71d28298e22f">&lt;/strong&gt;</ept>, which means that the countdown timer for an item's expiration begins when the item is placed into the cache.</target>
+        </trans-unit>
+        <trans-unit id="b7b53ab1-e24b-413c-a752-19cd3e963554" xml:space="preserve">
+          <source>Once the specified amount of time has elapsed for an item, the item expires.</source>
+          <target state="new">Once the specified amount of time has elapsed for an item, the item expires.</target>
+        </trans-unit>
+        <trans-unit id="1a3a183c-fd27-4273-807b-88ec0519924d" xml:space="preserve">
+          <source>If <bpt id="5629f39a-77e9-4891-b6d0-693a86e8c008">&lt;strong&gt;</bpt>Sliding<ept id="5629f39a-77e9-4891-b6d0-693a86e8c008">&lt;/strong&gt;</ept> is specified, then the expiration countdown for an item is reset each time the item is accessed in the cache, and the item will not expire until the specified amount of time has elapsed since its last access.</source>
+          <target state="new">If <bpt id="5629f39a-77e9-4891-b6d0-693a86e8c008">&lt;strong&gt;</bpt>Sliding<ept id="5629f39a-77e9-4891-b6d0-693a86e8c008">&lt;/strong&gt;</ept> is specified, then the expiration countdown for an item is reset each time the item is accessed in the cache, and the item will not expire until the specified amount of time has elapsed since its last access.</target>
+        </trans-unit>
+        <trans-unit id="7f1eb1df-e0b6-4bcc-9781-82dc03267e2c" xml:space="preserve">
+          <source>If <bpt id="c62c6db7-0485-4cb9-b205-8d017f8f15f9">&lt;strong&gt;</bpt>Never<ept id="c62c6db7-0485-4cb9-b205-8d017f8f15f9">&lt;/strong&gt;</ept> is specified, then <bpt id="3b8b8ef8-5977-479d-b76b-ee9fc76b5998">&lt;strong&gt;</bpt>Time (min)<ept id="3b8b8ef8-5977-479d-b76b-ee9fc76b5998">&lt;/strong&gt;</ept> must be set to <bpt id="04c35ecd-aa9c-456f-89b5-348ca118ecc8">&lt;strong&gt;</bpt>0<ept id="04c35ecd-aa9c-456f-89b5-348ca118ecc8">&lt;/strong&gt;</ept>, and items will not expire, and will remain valid as long as they are in the cache.</source>
+          <target state="new">If <bpt id="c62c6db7-0485-4cb9-b205-8d017f8f15f9">&lt;strong&gt;</bpt>Never<ept id="c62c6db7-0485-4cb9-b205-8d017f8f15f9">&lt;/strong&gt;</ept> is specified, then <bpt id="3b8b8ef8-5977-479d-b76b-ee9fc76b5998">&lt;strong&gt;</bpt>Time (min)<ept id="3b8b8ef8-5977-479d-b76b-ee9fc76b5998">&lt;/strong&gt;</ept> must be set to <bpt id="04c35ecd-aa9c-456f-89b5-348ca118ecc8">&lt;strong&gt;</bpt>0<ept id="04c35ecd-aa9c-456f-89b5-348ca118ecc8">&lt;/strong&gt;</ept>, and items will not expire, and will remain valid as long as they are in the cache.</target>
+        </trans-unit>
+        <trans-unit id="146c6187-c994-47bd-ade5-34f993e13ee4" xml:space="preserve">
+          <source>If a longer or shorter timeout interval than what is configured in the cache properties is desired, a specific duration can be specified when an item is added or updated in the cache by using the
+overload of <bpt id="64bd897a-9f5c-411c-b6ca-1ef4decfb631">&lt;strong&gt;</bpt>Add<ept id="64bd897a-9f5c-411c-b6ca-1ef4decfb631">&lt;/strong&gt;</ept> and <bpt id="0c21d5d8-0a63-431c-aec7-bb4886c4c982">&lt;strong&gt;</bpt>Put<ept id="0c21d5d8-0a63-431c-aec7-bb4886c4c982">&lt;/strong&gt;</ept> that take a <bpt id="13e0ef6d-d433-4e12-9253-045dbe15e9a7">&lt;strong&gt;</bpt>TimeSpan<ept id="13e0ef6d-d433-4e12-9253-045dbe15e9a7">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">If a longer or shorter timeout interval than what is configured in the cache properties is desired, a specific duration can be specified when an item is added or updated in the cache by using the
+overload of <bpt id="64bd897a-9f5c-411c-b6ca-1ef4decfb631">&lt;strong&gt;</bpt>Add<ept id="64bd897a-9f5c-411c-b6ca-1ef4decfb631">&lt;/strong&gt;</ept> and <bpt id="0c21d5d8-0a63-431c-aec7-bb4886c4c982">&lt;strong&gt;</bpt>Put<ept id="0c21d5d8-0a63-431c-aec7-bb4886c4c982">&lt;/strong&gt;</ept> that take a <bpt id="13e0ef6d-d433-4e12-9253-045dbe15e9a7">&lt;strong&gt;</bpt>TimeSpan<ept id="13e0ef6d-d433-4e12-9253-045dbe15e9a7">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="bd61e534-9d5d-4859-95a6-89336205da39" xml:space="preserve">
+          <source>In
+the following example, the string <bpt id="62b86c7f-56b0-47a5-ae3b-454383db91d6">&lt;strong&gt;</bpt>value<ept id="62b86c7f-56b0-47a5-ae3b-454383db91d6">&lt;/strong&gt;</ept> is added to cache, keyed by
+<bpt id="76a3844d-d8d4-430e-966b-1647efb27230">&lt;strong&gt;</bpt>item<ept id="76a3844d-d8d4-430e-966b-1647efb27230">&lt;/strong&gt;</ept>, with a timeout of 30 minutes.</source>
+          <target state="new">In
+the following example, the string <bpt id="62b86c7f-56b0-47a5-ae3b-454383db91d6">&lt;strong&gt;</bpt>value<ept id="62b86c7f-56b0-47a5-ae3b-454383db91d6">&lt;/strong&gt;</ept> is added to cache, keyed by
+<bpt id="76a3844d-d8d4-430e-966b-1647efb27230">&lt;strong&gt;</bpt>item<ept id="76a3844d-d8d4-430e-966b-1647efb27230">&lt;/strong&gt;</ept>, with a timeout of 30 minutes.</target>
+        </trans-unit>
+        <trans-unit id="b6a5db6a-306a-4cbb-a278-f32b30360d1f" xml:space="preserve">
+          <source>To view the remaining timeout interval of an item in the cache, the
+<bpt id="556e5b58-7147-4940-9e03-a42603844902">&lt;strong&gt;</bpt>GetCacheItem<ept id="556e5b58-7147-4940-9e03-a42603844902">&lt;/strong&gt;</ept> method can be used to retrieve a <bpt id="864e222c-9a06-4b5e-8a87-802ca8bdb34e">&lt;strong&gt;</bpt>DataCacheItem<ept id="864e222c-9a06-4b5e-8a87-802ca8bdb34e">&lt;/strong&gt;</ept>
+object that contains information about the item in the cache, including
+the remaining timeout interval.</source>
+          <target state="new">To view the remaining timeout interval of an item in the cache, the
+<bpt id="556e5b58-7147-4940-9e03-a42603844902">&lt;strong&gt;</bpt>GetCacheItem<ept id="556e5b58-7147-4940-9e03-a42603844902">&lt;/strong&gt;</ept> method can be used to retrieve a <bpt id="864e222c-9a06-4b5e-8a87-802ca8bdb34e">&lt;strong&gt;</bpt>DataCacheItem<ept id="864e222c-9a06-4b5e-8a87-802ca8bdb34e">&lt;/strong&gt;</ept>
+object that contains information about the item in the cache, including
+the remaining timeout interval.</target>
+        </trans-unit>
+        <trans-unit id="59075d38-64eb-4666-9875-4a1a7a1cfc20" xml:space="preserve">
+          <source><bpt id="0b3e8e01-184f-4613-b223-834d62310ce3">&lt;bookmark&gt;</bpt><ept id="0b3e8e01-184f-4613-b223-834d62310ce3">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="0b3e8e01-184f-4613-b223-834d62310ce3">&lt;bookmark&gt;</bpt><ept id="0b3e8e01-184f-4613-b223-834d62310ce3">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1025617d-1007-4481-a674-5307fa5a14d3" xml:space="preserve">
+          <source>The Session State Provider for Azure Cache is an
+out-of-process storage mechanism for ASP.NET applications.</source>
+          <target state="new">The Session State Provider for Azure Cache is an
+out-of-process storage mechanism for ASP.NET applications.</target>
+        </trans-unit>
+        <trans-unit id="e5005544-26b5-4ef9-a920-be866fb1095d" xml:space="preserve">
+          <source>This provider
+enables you to store your session state in an Azure cache rather
+than in-memory or in a SQL Server database.</source>
+          <target state="new">This provider
+enables you to store your session state in an Azure cache rather
+than in-memory or in a SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="4a663132-f7ba-4567-acd4-41bf819040eb" xml:space="preserve">
+          <source>To use the caching session
+state provider, first configure your cache, and then configure your ASP.NET application for Cache using the Cache NuGet package as described in <bpt id="76924340-b202-4280-9512-a7b3c387914f">&lt;linkText&gt;</bpt>Getting Started with Managed Cache Service<ept id="76924340-b202-4280-9512-a7b3c387914f">&lt;/linkText&gt;</ept><bpt id="76924340-b202-4280-9512-a7b3c387914f">&lt;title&gt;</bpt><ept id="76924340-b202-4280-9512-a7b3c387914f">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use the caching session
+state provider, first configure your cache, and then configure your ASP.NET application for Cache using the Cache NuGet package as described in <bpt id="76924340-b202-4280-9512-a7b3c387914f">&lt;linkText&gt;</bpt>Getting Started with Managed Cache Service<ept id="76924340-b202-4280-9512-a7b3c387914f">&lt;/linkText&gt;</ept><bpt id="76924340-b202-4280-9512-a7b3c387914f">&lt;title&gt;</bpt><ept id="76924340-b202-4280-9512-a7b3c387914f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17f1a54c-08bc-412f-a55a-535d44a5885f" xml:space="preserve">
+          <source>When the Cache NuGet package is installed, it adds a commented out section in web.config that contains the required configuration for your ASP.NET application to use the Session State Provider for Azure Cache.</source>
+          <target state="new">When the Cache NuGet package is installed, it adds a commented out section in web.config that contains the required configuration for your ASP.NET application to use the Session State Provider for Azure Cache.</target>
+        </trans-unit>
+        <trans-unit id="60c60808-6308-4eab-ae5d-3e22d91310c0" xml:space="preserve">
+          <source>If your web.config does not contain this commented out section after installing the Cache NuGet package, ensure that the latest NuGet Package Manager is installed from <bpt id="d7c097fa-8378-4171-ba7e-b58e98928047">&lt;linkText&gt;</bpt>NuGet Package Manager Installation<ept id="d7c097fa-8378-4171-ba7e-b58e98928047">&lt;/linkText&gt;</ept><bpt id="d7c097fa-8378-4171-ba7e-b58e98928047">&lt;title&gt;</bpt><ept id="d7c097fa-8378-4171-ba7e-b58e98928047">&lt;/title&gt;</ept>, and then uninstall and reinstall the package.</source>
+          <target state="new">If your web.config does not contain this commented out section after installing the Cache NuGet package, ensure that the latest NuGet Package Manager is installed from <bpt id="d7c097fa-8378-4171-ba7e-b58e98928047">&lt;linkText&gt;</bpt>NuGet Package Manager Installation<ept id="d7c097fa-8378-4171-ba7e-b58e98928047">&lt;/linkText&gt;</ept><bpt id="d7c097fa-8378-4171-ba7e-b58e98928047">&lt;title&gt;</bpt><ept id="d7c097fa-8378-4171-ba7e-b58e98928047">&lt;/title&gt;</ept>, and then uninstall and reinstall the package.</target>
+        </trans-unit>
+        <trans-unit id="490314a8-f79b-47bb-a15a-12c965b1a9a3" xml:space="preserve">
+          <source>To enable the Session State Provider for Azure Cache, uncomment the specified section.</source>
+          <target state="new">To enable the Session State Provider for Azure Cache, uncomment the specified section.</target>
+        </trans-unit>
+        <trans-unit id="d61b4240-cc9e-4c12-bf93-df4ca54f15eb" xml:space="preserve">
+          <source>The default cache is specified in the provided snippet.</source>
+          <target state="new">The default cache is specified in the provided snippet.</target>
+        </trans-unit>
+        <trans-unit id="e10859b8-a777-477b-9973-90a4ae32c938" xml:space="preserve">
+          <source>To use a different cache, specify the desired cache in the <bpt id="5c8dcbf5-6fdc-4c42-b705-64efcd54213f">&lt;strong&gt;</bpt>cacheName<ept id="5c8dcbf5-6fdc-4c42-b705-64efcd54213f">&lt;/strong&gt;</ept> attribute.</source>
+          <target state="new">To use a different cache, specify the desired cache in the <bpt id="5c8dcbf5-6fdc-4c42-b705-64efcd54213f">&lt;strong&gt;</bpt>cacheName<ept id="5c8dcbf5-6fdc-4c42-b705-64efcd54213f">&lt;/strong&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="67bd4aa5-8887-4793-b8fd-7d11b5d909c9" xml:space="preserve">
+          <source>For more information about using the Managed Cache service session state
+provider, see <bpt id="5baf72cb-2c9c-41da-9c8c-fff80fa73a7e">&lt;linkText&gt;</bpt>Session State Provider for Azure Cache<ept id="5baf72cb-2c9c-41da-9c8c-fff80fa73a7e">&lt;/linkText&gt;</ept><bpt id="5baf72cb-2c9c-41da-9c8c-fff80fa73a7e">&lt;title&gt;</bpt><ept id="5baf72cb-2c9c-41da-9c8c-fff80fa73a7e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using the Managed Cache service session state
+provider, see <bpt id="5baf72cb-2c9c-41da-9c8c-fff80fa73a7e">&lt;linkText&gt;</bpt>Session State Provider for Azure Cache<ept id="5baf72cb-2c9c-41da-9c8c-fff80fa73a7e">&lt;/linkText&gt;</ept><bpt id="5baf72cb-2c9c-41da-9c8c-fff80fa73a7e">&lt;title&gt;</bpt><ept id="5baf72cb-2c9c-41da-9c8c-fff80fa73a7e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6dcac52a-f01a-4219-850b-fa37db3adac4" xml:space="preserve">
+          <source><bpt id="fc200598-cdc4-4794-b3a6-9e7f48ff42bb">&lt;bookmark&gt;</bpt><ept id="fc200598-cdc4-4794-b3a6-9e7f48ff42bb">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="fc200598-cdc4-4794-b3a6-9e7f48ff42bb">&lt;bookmark&gt;</bpt><ept id="fc200598-cdc4-4794-b3a6-9e7f48ff42bb">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="561c5b7c-63e0-4353-b887-eb37c4ee7e01" xml:space="preserve">
+          <source>The Output Cache Provider for Azure Cache is an out-of-process storage mechanism for output cache data.</source>
+          <target state="new">The Output Cache Provider for Azure Cache is an out-of-process storage mechanism for output cache data.</target>
+        </trans-unit>
+        <trans-unit id="9ce2e9ad-cc43-4463-a75d-8124b59c6673" xml:space="preserve">
+          <source>This data is specifically for full HTTP
+responses (page output caching).</source>
+          <target state="new">This data is specifically for full HTTP
+responses (page output caching).</target>
+        </trans-unit>
+        <trans-unit id="9e8818cf-6a23-44e3-9675-9990837e9002" xml:space="preserve">
+          <source>The provider plugs into the new output
+cache provider extensibility point that was introduced in ASP.NET 4.</source>
+          <target state="new">The provider plugs into the new output
+cache provider extensibility point that was introduced in ASP.NET 4.</target>
+        </trans-unit>
+        <trans-unit id="6d8b8b13-469d-4c4b-beb7-6b803ccf0ea2" xml:space="preserve">
+          <source>To
+use the output cache provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Cache NuGet package, as described in <bpt id="f790e40a-36e8-434c-801f-b7cd0e978d73">&lt;linkText&gt;</bpt>Getting Started with Managed Cache Service<ept id="f790e40a-36e8-434c-801f-b7cd0e978d73">&lt;/linkText&gt;</ept><bpt id="f790e40a-36e8-434c-801f-b7cd0e978d73">&lt;title&gt;</bpt><ept id="f790e40a-36e8-434c-801f-b7cd0e978d73">&lt;/title&gt;</ept>.</source>
+          <target state="new">To
+use the output cache provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Cache NuGet package, as described in <bpt id="f790e40a-36e8-434c-801f-b7cd0e978d73">&lt;linkText&gt;</bpt>Getting Started with Managed Cache Service<ept id="f790e40a-36e8-434c-801f-b7cd0e978d73">&lt;/linkText&gt;</ept><bpt id="f790e40a-36e8-434c-801f-b7cd0e978d73">&lt;title&gt;</bpt><ept id="f790e40a-36e8-434c-801f-b7cd0e978d73">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5402a3dd-0969-42d3-a9a5-bf3249289709" xml:space="preserve">
+          <source>When the Caching NuGet package is installed, it adds the following commented out section in web.config that contains the required configuration for your ASP.NET application to use the Output Cache Provider for Azure Caching.</source>
+          <target state="new">When the Caching NuGet package is installed, it adds the following commented out section in web.config that contains the required configuration for your ASP.NET application to use the Output Cache Provider for Azure Caching.</target>
+        </trans-unit>
+        <trans-unit id="fa8f7a54-a522-4799-a5d0-80e477091d4e" xml:space="preserve">
+          <source>If your web.config does not contain this commented out section after installing the Cache NuGet package, ensure that the latest NuGet Package Manager is installed from <bpt id="409edb7b-2adb-409d-ae06-5c100a173117">&lt;linkText&gt;</bpt>NuGet Package Manager Installation<ept id="409edb7b-2adb-409d-ae06-5c100a173117">&lt;/linkText&gt;</ept><bpt id="409edb7b-2adb-409d-ae06-5c100a173117">&lt;title&gt;</bpt><ept id="409edb7b-2adb-409d-ae06-5c100a173117">&lt;/title&gt;</ept>, and then uninstall and reinstall the package.</source>
+          <target state="new">If your web.config does not contain this commented out section after installing the Cache NuGet package, ensure that the latest NuGet Package Manager is installed from <bpt id="409edb7b-2adb-409d-ae06-5c100a173117">&lt;linkText&gt;</bpt>NuGet Package Manager Installation<ept id="409edb7b-2adb-409d-ae06-5c100a173117">&lt;/linkText&gt;</ept><bpt id="409edb7b-2adb-409d-ae06-5c100a173117">&lt;title&gt;</bpt><ept id="409edb7b-2adb-409d-ae06-5c100a173117">&lt;/title&gt;</ept>, and then uninstall and reinstall the package.</target>
+        </trans-unit>
+        <trans-unit id="0fb23503-b162-45c6-a1e3-225929559bc5" xml:space="preserve">
+          <source>To enable the Output Cache Provider for Azure Cache, uncomment the specified section.</source>
+          <target state="new">To enable the Output Cache Provider for Azure Cache, uncomment the specified section.</target>
+        </trans-unit>
+        <trans-unit id="b1bee50b-2403-44a0-a5e8-8f953db3a53f" xml:space="preserve">
+          <source>The default cache is specified in the provided snippet.</source>
+          <target state="new">The default cache is specified in the provided snippet.</target>
+        </trans-unit>
+        <trans-unit id="fa765c90-4c62-4a81-8437-1d3898930c9a" xml:space="preserve">
+          <source>To use a different cache, specify the desired cache in the <bpt id="445958e1-b0d0-4625-b4fa-a264a12fb10d">&lt;strong&gt;</bpt>cacheName<ept id="445958e1-b0d0-4625-b4fa-a264a12fb10d">&lt;/strong&gt;</ept> attribute.</source>
+          <target state="new">To use a different cache, specify the desired cache in the <bpt id="445958e1-b0d0-4625-b4fa-a264a12fb10d">&lt;strong&gt;</bpt>cacheName<ept id="445958e1-b0d0-4625-b4fa-a264a12fb10d">&lt;/strong&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="a90ca8c4-a94f-4f38-855b-dc923f744cf8" xml:space="preserve">
+          <source>Add an <bpt id="4c543398-0ff7-442f-9fa7-40ab0bc4d79f">&lt;strong&gt;</bpt>OutputCache<ept id="4c543398-0ff7-442f-9fa7-40ab0bc4d79f">&lt;/strong&gt;</ept> directive to each page for which you wish to cache the output.</source>
+          <target state="new">Add an <bpt id="4c543398-0ff7-442f-9fa7-40ab0bc4d79f">&lt;strong&gt;</bpt>OutputCache<ept id="4c543398-0ff7-442f-9fa7-40ab0bc4d79f">&lt;/strong&gt;</ept> directive to each page for which you wish to cache the output.</target>
+        </trans-unit>
+        <trans-unit id="a719b957-cd5e-459b-9ef3-3b504750ab91" xml:space="preserve">
+          <source>In this example the cached page data will remain in the cache for 60 seconds, and a different version of the page will be cached for each parameter combination.</source>
+          <target state="new">In this example the cached page data will remain in the cache for 60 seconds, and a different version of the page will be cached for each parameter combination.</target>
+        </trans-unit>
+        <trans-unit id="dc2561c9-bc35-43fc-bbd0-f7097da4a0fb" xml:space="preserve">
+          <source>For more information on the available options, see <bpt id="9f930668-1635-4c9d-88f4-dfb4111260c9">&lt;linkText&gt;</bpt>OutputCache Directive<ept id="9f930668-1635-4c9d-88f4-dfb4111260c9">&lt;/linkText&gt;</ept><bpt id="9f930668-1635-4c9d-88f4-dfb4111260c9">&lt;title&gt;</bpt><ept id="9f930668-1635-4c9d-88f4-dfb4111260c9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the available options, see <bpt id="9f930668-1635-4c9d-88f4-dfb4111260c9">&lt;linkText&gt;</bpt>OutputCache Directive<ept id="9f930668-1635-4c9d-88f4-dfb4111260c9">&lt;/linkText&gt;</ept><bpt id="9f930668-1635-4c9d-88f4-dfb4111260c9">&lt;title&gt;</bpt><ept id="9f930668-1635-4c9d-88f4-dfb4111260c9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="caf09599-eca2-45a7-ac11-0bbfe1fb49dc" xml:space="preserve">
+          <source>For more information about using the Output Cache Provider for Azure Cache, see <bpt id="afcf371e-35f1-4099-bf22-f0dd441a3405">&lt;linkText&gt;</bpt>Output Cache Provider for Azure Cache<ept id="afcf371e-35f1-4099-bf22-f0dd441a3405">&lt;/linkText&gt;</ept><bpt id="afcf371e-35f1-4099-bf22-f0dd441a3405">&lt;title&gt;</bpt><ept id="afcf371e-35f1-4099-bf22-f0dd441a3405">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using the Output Cache Provider for Azure Cache, see <bpt id="afcf371e-35f1-4099-bf22-f0dd441a3405">&lt;linkText&gt;</bpt>Output Cache Provider for Azure Cache<ept id="afcf371e-35f1-4099-bf22-f0dd441a3405">&lt;/linkText&gt;</ept><bpt id="afcf371e-35f1-4099-bf22-f0dd441a3405">&lt;title&gt;</bpt><ept id="afcf371e-35f1-4099-bf22-f0dd441a3405">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffa660f4-5f3e-433b-a81b-517c160bed5b" xml:space="preserve">
+          <source><bpt id="e484f2a8-95c9-422d-b93b-8374b38f8f40">&lt;bookmark&gt;</bpt><ept id="e484f2a8-95c9-422d-b93b-8374b38f8f40">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e484f2a8-95c9-422d-b93b-8374b38f8f40">&lt;bookmark&gt;</bpt><ept id="e484f2a8-95c9-422d-b93b-8374b38f8f40">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe1d994c-84ee-4172-86c0-5d24de28378d" xml:space="preserve">
+          <source>Now that you've learned the basics of Managed Cache Service,
+follow these links to learn how to do more complex caching tasks.</source>
+          <target state="new">Now that you've learned the basics of Managed Cache Service,
+follow these links to learn how to do more complex caching tasks.</target>
+        </trans-unit>
+        <trans-unit id="a9418071-bf8c-4f43-92eb-6f0033b7165c" xml:space="preserve">
+          <source>See the MSDN Reference: <bpt id="4877a7d8-de4b-4335-8768-a2d9a8ddcac3">&lt;linkText&gt;</bpt>Managed Cache Service<ept id="4877a7d8-de4b-4335-8768-a2d9a8ddcac3">&lt;/linkText&gt;</ept><bpt id="4877a7d8-de4b-4335-8768-a2d9a8ddcac3">&lt;title&gt;</bpt><ept id="4877a7d8-de4b-4335-8768-a2d9a8ddcac3">&lt;/title&gt;</ept></source>
+          <target state="new">See the MSDN Reference: <bpt id="4877a7d8-de4b-4335-8768-a2d9a8ddcac3">&lt;linkText&gt;</bpt>Managed Cache Service<ept id="4877a7d8-de4b-4335-8768-a2d9a8ddcac3">&lt;/linkText&gt;</ept><bpt id="4877a7d8-de4b-4335-8768-a2d9a8ddcac3">&lt;title&gt;</bpt><ept id="4877a7d8-de4b-4335-8768-a2d9a8ddcac3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5291a25-3d6c-4cb0-91e1-0922cd09047b" xml:space="preserve">
+          <source>Learn how to migrate to Managed Cache Service: <bpt id="08f4c4df-c0e3-4658-a5eb-ad7c884edf2d">&lt;linkText&gt;</bpt>Migrate to Managed Cache Service<ept id="08f4c4df-c0e3-4658-a5eb-ad7c884edf2d">&lt;/linkText&gt;</ept><bpt id="08f4c4df-c0e3-4658-a5eb-ad7c884edf2d">&lt;title&gt;</bpt><ept id="08f4c4df-c0e3-4658-a5eb-ad7c884edf2d">&lt;/title&gt;</ept></source>
+          <target state="new">Learn how to migrate to Managed Cache Service: <bpt id="08f4c4df-c0e3-4658-a5eb-ad7c884edf2d">&lt;linkText&gt;</bpt>Migrate to Managed Cache Service<ept id="08f4c4df-c0e3-4658-a5eb-ad7c884edf2d">&lt;/linkText&gt;</ept><bpt id="08f4c4df-c0e3-4658-a5eb-ad7c884edf2d">&lt;title&gt;</bpt><ept id="08f4c4df-c0e3-4658-a5eb-ad7c884edf2d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f76bdebb-c8e8-457e-8a40-425d4565e534" xml:space="preserve">
+          <source>Check out the samples: <bpt id="e6302312-4787-40d1-95e2-d12a484a28cf">&lt;linkText&gt;</bpt>Managed Cache Service Samples<ept id="e6302312-4787-40d1-95e2-d12a484a28cf">&lt;/linkText&gt;</ept><bpt id="e6302312-4787-40d1-95e2-d12a484a28cf">&lt;title&gt;</bpt><ept id="e6302312-4787-40d1-95e2-d12a484a28cf">&lt;/title&gt;</ept></source>
+          <target state="new">Check out the samples: <bpt id="e6302312-4787-40d1-95e2-d12a484a28cf">&lt;linkText&gt;</bpt>Managed Cache Service Samples<ept id="e6302312-4787-40d1-95e2-d12a484a28cf">&lt;/linkText&gt;</ept><bpt id="e6302312-4787-40d1-95e2-d12a484a28cf">&lt;title&gt;</bpt><ept id="e6302312-4787-40d1-95e2-d12a484a28cf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="962b3c16-d71d-4027-89f1-67b5a0bf8fc3" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="ad5d86b0-a5d7-4123-a021-6a8d3da8f25d" xml:space="preserve">
+          <source>#what-is</source>
+          <target state="new">#what-is</target>
+        </trans-unit>
+        <trans-unit id="d1651666-0b07-492e-9f3a-7d447c05377f" xml:space="preserve">
+          <source>#create-cache</source>
+          <target state="new">#create-cache</target>
+        </trans-unit>
+        <trans-unit id="3d07fb7d-6322-4b7e-af3c-8deba68daa96" xml:space="preserve">
+          <source>#choosing-cache</source>
+          <target state="new">#choosing-cache</target>
+        </trans-unit>
+        <trans-unit id="cfa3ae77-9ead-44fc-8c81-eba9e080db2c" xml:space="preserve">
+          <source>#prepare-vs</source>
+          <target state="new">#prepare-vs</target>
+        </trans-unit>
+        <trans-unit id="4aaa1cf3-257c-40c2-9247-6627ef62cf37" xml:space="preserve">
+          <source>#configure-app</source>
+          <target state="new">#configure-app</target>
+        </trans-unit>
+        <trans-unit id="186ed79e-63a1-4920-89a6-4754c41fac79" xml:space="preserve">
+          <source>#getting-started-cache-service</source>
+          <target state="new">#getting-started-cache-service</target>
+        </trans-unit>
+        <trans-unit id="18cd9cac-1891-4f06-9722-d3bfb066e6f7" xml:space="preserve">
+          <source>#create-cache</source>
+          <target state="new">#create-cache</target>
+        </trans-unit>
+        <trans-unit id="87feeb19-9469-4f50-995d-1e35258f6e58" xml:space="preserve">
+          <source>#enable-caching</source>
+          <target state="new">#enable-caching</target>
+        </trans-unit>
+        <trans-unit id="8faad12d-67df-45b5-bb69-09cb202ccf82" xml:space="preserve">
+          <source>#NuGet</source>
+          <target state="new">#NuGet</target>
+        </trans-unit>
+        <trans-unit id="b413d54f-0c47-4b71-a2bb-d4692478b54d" xml:space="preserve">
+          <source>#working-with-caches</source>
+          <target state="new">#working-with-caches</target>
+        </trans-unit>
+        <trans-unit id="01a4271a-787d-4215-bcde-d791403a40b1" xml:space="preserve">
+          <source>#create-cache-object</source>
+          <target state="new">#create-cache-object</target>
+        </trans-unit>
+        <trans-unit id="8168c2b8-3806-4d3b-8c21-90bcff5962e7" xml:space="preserve">
+          <source>#add-object</source>
+          <target state="new">#add-object</target>
+        </trans-unit>
+        <trans-unit id="4e422cff-8183-4575-9208-810bf5b20b81" xml:space="preserve">
+          <source>#specify-expiration</source>
+          <target state="new">#specify-expiration</target>
+        </trans-unit>
+        <trans-unit id="14e0f8bd-f10d-413d-9291-9fdd839ea9d3" xml:space="preserve">
+          <source>#store-session</source>
+          <target state="new">#store-session</target>
+        </trans-unit>
+        <trans-unit id="c13cbb58-e8eb-498e-a310-c4bbe2218525" xml:space="preserve">
+          <source>#store-page</source>
+          <target state="new">#store-page</target>
+        </trans-unit>
+        <trans-unit id="0661ae22-69d8-4f8a-9938-f376e50da3cc" xml:space="preserve">
+          <source>#prepare-vs-target-net</source>
+          <target state="new">#prepare-vs-target-net</target>
+        </trans-unit>
+        <trans-unit id="d7b1b462-555c-45d1-a72e-69591f01bbb5" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-service/CacheServiceNewCacheMenu.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-service/CacheServiceNewCacheMenu.png</target>
+        </trans-unit>
+        <trans-unit id="3a0169b3-a2bb-4e5d-90ef-c81b0df4e1b6" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-service/CacheServiceQuickCreate.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-service/CacheServiceQuickCreate.png</target>
+        </trans-unit>
+        <trans-unit id="73dd72c2-399d-41ff-b241-c9e7e411bee8" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png</target>
+        </trans-unit>
+        <trans-unit id="b092673e-d309-4e75-8189-04ddef4ae543" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-service/CacheServiceManageAccessKeys.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-service/CacheServiceManageAccessKeys.png</target>
+        </trans-unit>
+        <trans-unit id="8efbba54-451e-4814-b81d-a6cd42da32cd" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackage.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackage.png</target>
+        </trans-unit>
+        <trans-unit id="510df625-1b8a-4bbe-ba0e-21c3a58189a2" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackagesMenu.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackagesMenu.png</target>
+        </trans-unit>
+        <trans-unit id="3e547a92-5ff7-43dd-8703-cd7473678757" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-service/CacheServiceNamedCaches.jpg</source>
+          <target state="new">./media/cache-dotnet-how-to-use-service/CacheServiceNamedCaches.jpg</target>
+        </trans-unit>
+        <trans-unit id="c8ce41dc-2d5e-485d-af59-c67fedeffedd" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="8f523130-55f7-4d3a-93fc-e847e7e27ecc" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/gg618003.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/gg618003.aspx</target>
+        </trans-unit>
+        <trans-unit id="e209e5ca-ea49-4d1a-9990-696d7bc5b062" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320835</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320835</target>
+        </trans-unit>
+        <trans-unit id="562912bd-27cf-41a4-94c6-b2a0c2fe360d" xml:space="preserve">
+          <source>http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20</source>
+          <target state="new">http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20</target>
+        </trans-unit>
+        <trans-unit id="3ea0ec0e-3532-40eb-8201-f8a9cffab80e" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320837</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320837</target>
+        </trans-unit>
+        <trans-unit id="59abf1f8-61d1-46c7-86d8-d4df81f758b5" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/gg278356.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/gg278356.aspx</target>
+        </trans-unit>
+        <trans-unit id="ffbb30e0-3ed6-4011-ae51-644ba65fe89c" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/windowsazure/</source>
+          <target state="new">http://blogs.msdn.com/b/windowsazure/</target>
+        </trans-unit>
+        <trans-unit id="1f1327fa-b824-4c96-9687-517a37ab1716" xml:space="preserve">
+          <source>http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching</source>
+          <target state="new">http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching</target>
+        </trans-unit>
+        <trans-unit id="8a827733-549d-4abf-b360-fee378a0ab03" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=164387</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=164387</target>
+        </trans-unit>
+        <trans-unit id="34d59add-ceae-4ead-885c-7546ff1875c8" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320167</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320167</target>
+        </trans-unit>
+        <trans-unit id="6b06cae9-49c2-43a3-9124-92db9afa3956" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=252658</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=252658</target>
+        </trans-unit>
+        <trans-unit id="02c2d998-3574-41fe-946c-fb4f4f0cba14" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/zd1ysf1y.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/zd1ysf1y.aspx</target>
+        </trans-unit>
+        <trans-unit id="b573339a-9e6d-444d-9c25-07e56573d8bc" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/z852zf6b.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/z852zf6b.aspx</target>
+        </trans-unit>
+        <trans-unit id="0e02204f-386a-40cb-a7ca-a0001bc81bbe" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320830</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320830</target>
+        </trans-unit>
+        <trans-unit id="dc76c401-f809-4175-970d-e74aa0a8a098" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320830</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320830</target>
+        </trans-unit>
+        <trans-unit id="4ad049c4-01bd-4457-95d3-e5b5cdffcee9" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=251979</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=251979</target>
+        </trans-unit>
+        <trans-unit id="0717bbd9-af79-4778-96d5-ca3ce1556aad" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320839</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320839</target>
+        </trans-unit>
+        <trans-unit id="f6a276ac-8919-4ee5-95c1-0762498007a5" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=240311</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=240311</target>
+        </trans-unit>
+        <trans-unit id="918cd206-9b84-4187-b791-b9ea69378ad4" xml:space="preserve">
+          <source>http://www.windowsazure.com/pricing/details/cache/</source>
+          <target state="new">http://www.windowsazure.com/pricing/details/cache/</target>
+        </trans-unit>
+        <trans-unit id="c0774f15-f4cf-40a6-92ee-a54fb1320c70" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="e38a585c-f149-4d21-bea0-a50ae5f06129" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=317277</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=317277</target>
+        </trans-unit>
+        <trans-unit id="da9581a1-c2f9-41e2-a744-2095b658672f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320167</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320167</target>
+        </trans-unit>
+        <trans-unit id="2a767ac4-d236-4076-abea-dac575b3d879" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=317278</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=317278</target>
+        </trans-unit>
+        <trans-unit id="cf3d2e48-1316-4c28-b0ec-447301a3555d" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=317329</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=317329</target>
+        </trans-unit>
+        <trans-unit id="1de5ead0-327f-4660-89e0-7e048c615ad4" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=317276</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=317276</target>
+        </trans-unit>
+        <trans-unit id="1bb5f7ff-9c0f-4444-ae7a-4e240b95ca84" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=317347</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=317347</target>
+        </trans-unit>
+        <trans-unit id="1d5ed102-740a-4020-b010-058066ceea47" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320840</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320840</target>
+        </trans-unit>
+        <trans-unit id="dc1135a5-bd8f-4f16-b1c1-929edc63b83d" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=400495</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=400495</target>
+        </trans-unit>
+        <trans-unit id="fd0450af-7ef9-4402-8d03-e11abfa6ab44" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=398555</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=398555</target>
+        </trans-unit>
+        <trans-unit id="87f5592c-4646-4e26-9b52-99f353edd8c5" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=400494</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=400494</target>
+        </trans-unit>
+        <trans-unit id="7e4153d8-7c09-4a69-bf65-315db5012fca" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/dn495128.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/dn495128.aspx</target>
+        </trans-unit>
+        <trans-unit id="6d0683d4-9d27-47e2-82c5-843731860a74" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/dn495203.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/dn495203.aspx</target>
+        </trans-unit>
+        <trans-unit id="4fc6448d-0e2c-4319-a3d9-1604c5cdffff" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn766201.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn766201.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="48f76cae-9de5-4a23-8398-1035399b18b7" />
+    </body>
+  </file>
+</xliff>

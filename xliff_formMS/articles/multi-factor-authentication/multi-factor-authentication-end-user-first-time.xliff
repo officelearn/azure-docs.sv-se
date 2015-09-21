@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ae8fb9fa-9f5e-45bb-90cd-7172a71a2778" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ae8fb9fa-9f5e-45bb-90cd-7172a71a2778" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="77f07f31-8fbf-4063-bedd-dd8fa99b0a26">
+        <trans-unit id="38f65f4a-33ed-4ae8-a038-892b00869bf1" xml:space="preserve">
+          <source>Signing in for the first time with Azure Multi-Factor Authentication</source>
+          <target state="new">Signing in for the first time with Azure Multi-Factor Authentication</target>
+        </trans-unit>
+        <trans-unit id="0371d3ee-8080-457d-87ef-134e976fa67e" xml:space="preserve">
+          <source>This page describes what the user experience will be the first time they signin.</source>
+          <target state="new">This page describes what the user experience will be the first time they signin.</target>
+        </trans-unit>
+        <trans-unit id="9f43cb47-deb9-4e1f-8c7b-18d27723379e" xml:space="preserve">
+          <source>Additional security verification settings are used when an admin has configured your account to require that both your password and a response from your phone must be used to verify your identity.</source>
+          <target state="new">Additional security verification settings are used when an admin has configured your account to require that both your password and a response from your phone must be used to verify your identity.</target>
+        </trans-unit>
+        <trans-unit id="738e6b68-f908-41ec-904d-8366a7d71467" xml:space="preserve">
+          <source>If an administrator has configured your account to require additional security verification, <bpt id="d65a3d1d-f388-4f83-ad4b-abe19de61271">&lt;strong&gt;</bpt>you will be unable to sign-in until you have completed the auto-enrollment process<ept id="d65a3d1d-f388-4f83-ad4b-abe19de61271">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If an administrator has configured your account to require additional security verification, <bpt id="d65a3d1d-f388-4f83-ad4b-abe19de61271">&lt;strong&gt;</bpt>you will be unable to sign-in until you have completed the auto-enrollment process<ept id="d65a3d1d-f388-4f83-ad4b-abe19de61271">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8409484-787b-42d6-a682-63a56367bfc5" xml:space="preserve">
+          <source>The first time that you sign in after your account has been configured, you will be prompted to begin the auto-enrollment process.</source>
+          <target state="new">The first time that you sign in after your account has been configured, you will be prompted to begin the auto-enrollment process.</target>
+        </trans-unit>
+        <trans-unit id="81ca291a-ea19-4a1a-a312-dc01dae85737" xml:space="preserve">
+          <source>You can begin this process by clicking <bpt id="4c466f89-fccd-4aa4-9654-fe4382f8582f">&lt;strong&gt;</bpt>Set it up now.<ept id="4c466f89-fccd-4aa4-9654-fe4382f8582f">&lt;/strong&gt;</ept></source>
+          <target state="new">You can begin this process by clicking <bpt id="4c466f89-fccd-4aa4-9654-fe4382f8582f">&lt;strong&gt;</bpt>Set it up now.<ept id="4c466f89-fccd-4aa4-9654-fe4382f8582f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb92b10a-6cbb-49fc-8d47-662215346f2f" xml:space="preserve">
+          <source><bpt id="1b0d8d0e-4d3c-48f9-a4a3-8f9dfbcf3bea">&lt;linkText&gt;</bpt>Setup<ept id="1b0d8d0e-4d3c-48f9-a4a3-8f9dfbcf3bea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b0d8d0e-4d3c-48f9-a4a3-8f9dfbcf3bea">&lt;linkText&gt;</bpt>Setup<ept id="1b0d8d0e-4d3c-48f9-a4a3-8f9dfbcf3bea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c372d2c-c4ae-4e03-aa48-db6d06fc9c60" xml:space="preserve">
+          <source>Using the enrollment process you will be able to specify your preferred method of verification.</source>
+          <target state="new">Using the enrollment process you will be able to specify your preferred method of verification.</target>
+        </trans-unit>
+        <trans-unit id="ecc80818-bf2d-4576-988d-9cdd671966a8" xml:space="preserve">
+          <source>This can be any of the following in the table below.</source>
+          <target state="new">This can be any of the following in the table below.</target>
+        </trans-unit>
+        <trans-unit id="18c4889c-f020-4acd-9f01-5897fadad5a9" xml:space="preserve">
+          <source>For additional information including a walk-through simply click on one of the methods.</source>
+          <target state="new">For additional information including a walk-through simply click on one of the methods.</target>
+        </trans-unit>
+        <trans-unit id="0cd71c92-b938-4813-916e-e498cf4c4e99" xml:space="preserve">
+          <source>Method</source>
+          <target state="new">Method</target>
+        </trans-unit>
+        <trans-unit id="9ccc88e3-f312-447d-8488-38c7b9b948ed" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="28a0b15b-44da-4bac-b67f-d1e822abd765" xml:space="preserve">
+          <source><bpt id="62b93827-18b0-4429-819e-6cc3131d9ddd">&lt;linkText&gt;</bpt>Mobile Phone Call<ept id="62b93827-18b0-4429-819e-6cc3131d9ddd">&lt;/linkText&gt;</ept><bpt id="62b93827-18b0-4429-819e-6cc3131d9ddd">&lt;title&gt;</bpt><ept id="62b93827-18b0-4429-819e-6cc3131d9ddd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="62b93827-18b0-4429-819e-6cc3131d9ddd">&lt;linkText&gt;</bpt>Mobile Phone Call<ept id="62b93827-18b0-4429-819e-6cc3131d9ddd">&lt;/linkText&gt;</ept><bpt id="62b93827-18b0-4429-819e-6cc3131d9ddd">&lt;title&gt;</bpt><ept id="62b93827-18b0-4429-819e-6cc3131d9ddd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4452f43f-fae8-4df1-9ca6-053f5cea72d7" xml:space="preserve">
+          <source>Places an automated voice call to the Authentication phone.</source>
+          <target state="new">Places an automated voice call to the Authentication phone.</target>
+        </trans-unit>
+        <trans-unit id="cb8b0183-69b0-47da-8e85-538419b2c3ef" xml:space="preserve">
+          <source>The user answers the call and presses # in the phone keypad to authenticate.</source>
+          <target state="new">The user answers the call and presses # in the phone keypad to authenticate.</target>
+        </trans-unit>
+        <trans-unit id="c622347f-2d9a-4428-b2bd-9e56a43cdc48" xml:space="preserve">
+          <source>This phone number will not be synchronized to on-premises Active Directory.</source>
+          <target state="new">This phone number will not be synchronized to on-premises Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="996a58ee-be12-49b1-884e-0b36ab0377b3" xml:space="preserve">
+          <source><bpt id="f0f6fc3f-fa52-4363-8793-4c324b49d955">&lt;linkText&gt;</bpt>Mobile Phone Text Message<ept id="f0f6fc3f-fa52-4363-8793-4c324b49d955">&lt;/linkText&gt;</ept><bpt id="f0f6fc3f-fa52-4363-8793-4c324b49d955">&lt;title&gt;</bpt><ept id="f0f6fc3f-fa52-4363-8793-4c324b49d955">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f0f6fc3f-fa52-4363-8793-4c324b49d955">&lt;linkText&gt;</bpt>Mobile Phone Text Message<ept id="f0f6fc3f-fa52-4363-8793-4c324b49d955">&lt;/linkText&gt;</ept><bpt id="f0f6fc3f-fa52-4363-8793-4c324b49d955">&lt;title&gt;</bpt><ept id="f0f6fc3f-fa52-4363-8793-4c324b49d955">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8adaaf50-51ff-4813-abfa-1e39d2a4b9a0" xml:space="preserve">
+          <source>Sends a text message containing a verification code to the user.</source>
+          <target state="new">Sends a text message containing a verification code to the user.</target>
+        </trans-unit>
+        <trans-unit id="3cbdc4d6-f519-48b8-8730-d726b77022dd" xml:space="preserve">
+          <source>The user is prompted to either reply to the text message with the verification code or to enter the verification code into the sign-in interface.</source>
+          <target state="new">The user is prompted to either reply to the text message with the verification code or to enter the verification code into the sign-in interface.</target>
+        </trans-unit>
+        <trans-unit id="714df2ce-4d5e-4993-8c71-b7d79e67dda7" xml:space="preserve">
+          <source><bpt id="bbe59600-02a1-449b-9aef-810ed6b934d3">&lt;linkText&gt;</bpt>Office Phone Call<ept id="bbe59600-02a1-449b-9aef-810ed6b934d3">&lt;/linkText&gt;</ept><bpt id="bbe59600-02a1-449b-9aef-810ed6b934d3">&lt;title&gt;</bpt><ept id="bbe59600-02a1-449b-9aef-810ed6b934d3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bbe59600-02a1-449b-9aef-810ed6b934d3">&lt;linkText&gt;</bpt>Office Phone Call<ept id="bbe59600-02a1-449b-9aef-810ed6b934d3">&lt;/linkText&gt;</ept><bpt id="bbe59600-02a1-449b-9aef-810ed6b934d3">&lt;title&gt;</bpt><ept id="bbe59600-02a1-449b-9aef-810ed6b934d3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57081e36-8004-4e0f-962c-001ba25d2d52" xml:space="preserve">
+          <source>Places an automated voice call to the user.</source>
+          <target state="new">Places an automated voice call to the user.</target>
+        </trans-unit>
+        <trans-unit id="730085d9-db22-4fef-bb75-ef99db9cc51f" xml:space="preserve">
+          <source>The user answers the call and presses # in the phone keypad to authenticate.</source>
+          <target state="new">The user answers the call and presses # in the phone keypad to authenticate.</target>
+        </trans-unit>
+        <trans-unit id="0af8fe14-20eb-4ada-afb8-91154ff5ac51" xml:space="preserve">
+          <source><bpt id="cb04380d-bc60-4481-821e-06076963bb09">&lt;linkText&gt;</bpt>Mobile app<ept id="cb04380d-bc60-4481-821e-06076963bb09">&lt;/linkText&gt;</ept><bpt id="cb04380d-bc60-4481-821e-06076963bb09">&lt;title&gt;</bpt><ept id="cb04380d-bc60-4481-821e-06076963bb09">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cb04380d-bc60-4481-821e-06076963bb09">&lt;linkText&gt;</bpt>Mobile app<ept id="cb04380d-bc60-4481-821e-06076963bb09">&lt;/linkText&gt;</ept><bpt id="cb04380d-bc60-4481-821e-06076963bb09">&lt;title&gt;</bpt><ept id="cb04380d-bc60-4481-821e-06076963bb09">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff430a9d-4655-4722-9fbc-a29e7439a3f1" xml:space="preserve">
+          <source>Pushes a notification to the Multi-Factor mobile app on the user’s smartphone or tablet. The user taps “Verify” in the app to authenticate. Alternately, the app can also be used as an OTP token for offline authentication. The user enters the token into the sign-in screen to authenticate.&lt;br&gt;&lt;p&gt;  The Multi-Factor Authentication app can operate in 2 different modes to provide the additional security that a multi-factor authentication service can provide. These are the following:&lt;li&gt;<bpt id="f18e35c8-d763-45df-901a-42cafeba9d9c">&lt;strong&gt;</bpt>Notification<ept id="f18e35c8-d763-45df-901a-42cafeba9d9c">&lt;/strong&gt;</ept> - In this mode, the Multi-Factor Authentication app prevents unauthorized access to accounts and stops fraudulent transactions. This is done using a push notification to your phone or registered device. Simply view the notification and if it is legitimate select Authenticate. Otherwise you may choose Deny or choose to deny and report the fraudulent notification. For information on reporting fraudulent notifications see How to use the Deny and Report Fraud Feature for Multi-Factor Authentication.&lt;/li&gt;&lt;p&gt;&lt;li&gt;<bpt id="b150dff8-7aad-4c82-b24b-064d579fe0ba">&lt;strong&gt;</bpt>One-Time Password<ept id="b150dff8-7aad-4c82-b24b-064d579fe0ba">&lt;/strong&gt;</ept> - In this mode, the Multi-Factor Authentication app can be used as a software token to generate an OATH verification code. This verification code can then be entered along with the username and password to provide the second form of authentication.&lt;/li&gt;&lt;br&gt;&lt;p&gt; The Azure Authenticator app is available for <bpt id="fe2ac062-6b00-4112-ad84-fad772b39107">&lt;linkText&gt;</bpt>Windows Phone<ept id="fe2ac062-6b00-4112-ad84-fad772b39107">&lt;/linkText&gt;</ept><bpt id="fe2ac062-6b00-4112-ad84-fad772b39107">&lt;title&gt;</bpt><ept id="fe2ac062-6b00-4112-ad84-fad772b39107">&lt;/title&gt;</ept>, <bpt id="a2e8dbcb-910d-4d59-8e83-5900628bfe47">&lt;linkText&gt;</bpt>Android<ept id="a2e8dbcb-910d-4d59-8e83-5900628bfe47">&lt;/linkText&gt;</ept><bpt id="a2e8dbcb-910d-4d59-8e83-5900628bfe47">&lt;title&gt;</bpt><ept id="a2e8dbcb-910d-4d59-8e83-5900628bfe47">&lt;/title&gt;</ept>, and <bpt id="873053da-e7f4-4f84-b634-07ebc6e9c623">&lt;linkText&gt;</bpt>IOS<ept id="873053da-e7f4-4f84-b634-07ebc6e9c623">&lt;/linkText&gt;</ept><bpt id="873053da-e7f4-4f84-b634-07ebc6e9c623">&lt;title&gt;</bpt><ept id="873053da-e7f4-4f84-b634-07ebc6e9c623">&lt;/title&gt;</ept>.</source>
+          <target state="new">Pushes a notification to the Multi-Factor mobile app on the user’s smartphone or tablet. The user taps “Verify” in the app to authenticate. Alternately, the app can also be used as an OTP token for offline authentication. The user enters the token into the sign-in screen to authenticate.&lt;br&gt;&lt;p&gt;  The Multi-Factor Authentication app can operate in 2 different modes to provide the additional security that a multi-factor authentication service can provide. These are the following:&lt;li&gt;<bpt id="f18e35c8-d763-45df-901a-42cafeba9d9c">&lt;strong&gt;</bpt>Notification<ept id="f18e35c8-d763-45df-901a-42cafeba9d9c">&lt;/strong&gt;</ept> - In this mode, the Multi-Factor Authentication app prevents unauthorized access to accounts and stops fraudulent transactions. This is done using a push notification to your phone or registered device. Simply view the notification and if it is legitimate select Authenticate. Otherwise you may choose Deny or choose to deny and report the fraudulent notification. For information on reporting fraudulent notifications see How to use the Deny and Report Fraud Feature for Multi-Factor Authentication.&lt;/li&gt;&lt;p&gt;&lt;li&gt;<bpt id="b150dff8-7aad-4c82-b24b-064d579fe0ba">&lt;strong&gt;</bpt>One-Time Password<ept id="b150dff8-7aad-4c82-b24b-064d579fe0ba">&lt;/strong&gt;</ept> - In this mode, the Multi-Factor Authentication app can be used as a software token to generate an OATH verification code. This verification code can then be entered along with the username and password to provide the second form of authentication.&lt;/li&gt;&lt;br&gt;&lt;p&gt; The Azure Authenticator app is available for <bpt id="fe2ac062-6b00-4112-ad84-fad772b39107">&lt;linkText&gt;</bpt>Windows Phone<ept id="fe2ac062-6b00-4112-ad84-fad772b39107">&lt;/linkText&gt;</ept><bpt id="fe2ac062-6b00-4112-ad84-fad772b39107">&lt;title&gt;</bpt><ept id="fe2ac062-6b00-4112-ad84-fad772b39107">&lt;/title&gt;</ept>, <bpt id="a2e8dbcb-910d-4d59-8e83-5900628bfe47">&lt;linkText&gt;</bpt>Android<ept id="a2e8dbcb-910d-4d59-8e83-5900628bfe47">&lt;/linkText&gt;</ept><bpt id="a2e8dbcb-910d-4d59-8e83-5900628bfe47">&lt;title&gt;</bpt><ept id="a2e8dbcb-910d-4d59-8e83-5900628bfe47">&lt;/title&gt;</ept>, and <bpt id="873053da-e7f4-4f84-b634-07ebc6e9c623">&lt;linkText&gt;</bpt>IOS<ept id="873053da-e7f4-4f84-b634-07ebc6e9c623">&lt;/linkText&gt;</ept><bpt id="873053da-e7f4-4f84-b634-07ebc6e9c623">&lt;title&gt;</bpt><ept id="873053da-e7f4-4f84-b634-07ebc6e9c623">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

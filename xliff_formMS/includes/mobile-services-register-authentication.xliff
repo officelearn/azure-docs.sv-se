@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3d736761-dab4-4aad-a7f2-24c1999fe658" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3d736761-dab4-4aad-a7f2-24c1999fe658" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="dca16fd9-78f8-44b0-b96f-271095ee7612">
+        <trans-unit id="9998c40d-744d-4599-abab-97a9f0e82576" xml:space="preserve">
+          <source>Click Azure Portal &gt; <bpt id="3a7ab9f9-5ba7-44a2-b8d2-cbe2473d2d80">&lt;strong&gt;</bpt>Mobile Services<ept id="3a7ab9f9-5ba7-44a2-b8d2-cbe2473d2d80">&lt;/strong&gt;</ept> &gt; your mobile service &gt; <bpt id="73e8bc50-0b73-470b-b87a-2c606d157d47">&lt;strong&gt;</bpt>Dashboard<ept id="73e8bc50-0b73-470b-b87a-2c606d157d47">&lt;/strong&gt;</ept>, and make a note of the <bpt id="4115fc45-dbaa-4279-bf0d-585cf9ee963f">&lt;strong&gt;</bpt>Mobile Service URL<ept id="4115fc45-dbaa-4279-bf0d-585cf9ee963f">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">Click Azure Portal &gt; <bpt id="3a7ab9f9-5ba7-44a2-b8d2-cbe2473d2d80">&lt;strong&gt;</bpt>Mobile Services<ept id="3a7ab9f9-5ba7-44a2-b8d2-cbe2473d2d80">&lt;/strong&gt;</ept> &gt; your mobile service &gt; <bpt id="73e8bc50-0b73-470b-b87a-2c606d157d47">&lt;strong&gt;</bpt>Dashboard<ept id="73e8bc50-0b73-470b-b87a-2c606d157d47">&lt;/strong&gt;</ept>, and make a note of the <bpt id="4115fc45-dbaa-4279-bf0d-585cf9ee963f">&lt;strong&gt;</bpt>Mobile Service URL<ept id="4115fc45-dbaa-4279-bf0d-585cf9ee963f">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="e2209010-558a-4d1b-b728-defd18d4d957" xml:space="preserve">
+          <source>Register your app with one or more of the following authentication providers:</source>
+          <target state="new">Register your app with one or more of the following authentication providers:</target>
+        </trans-unit>
+        <trans-unit id="10810322-709a-4f56-b648-5ab6049bb1a5" xml:space="preserve">
+          <source><bpt id="7fd6bc17-4dde-473f-a191-6304eef9d944">&lt;linkText&gt;</bpt>Google<ept id="7fd6bc17-4dde-473f-a191-6304eef9d944">&lt;/linkText&gt;</ept><bpt id="7fd6bc17-4dde-473f-a191-6304eef9d944">&lt;title&gt;</bpt><ept id="7fd6bc17-4dde-473f-a191-6304eef9d944">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7fd6bc17-4dde-473f-a191-6304eef9d944">&lt;linkText&gt;</bpt>Google<ept id="7fd6bc17-4dde-473f-a191-6304eef9d944">&lt;/linkText&gt;</ept><bpt id="7fd6bc17-4dde-473f-a191-6304eef9d944">&lt;title&gt;</bpt><ept id="7fd6bc17-4dde-473f-a191-6304eef9d944">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6be2ca00-d074-4f02-a3f5-22ba06eefa6d" xml:space="preserve">
+          <source><bpt id="b3fd92e4-c620-4cc8-bd50-17efa1da4bde">&lt;linkText&gt;</bpt>Facebook<ept id="b3fd92e4-c620-4cc8-bd50-17efa1da4bde">&lt;/linkText&gt;</ept><bpt id="b3fd92e4-c620-4cc8-bd50-17efa1da4bde">&lt;title&gt;</bpt><ept id="b3fd92e4-c620-4cc8-bd50-17efa1da4bde">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b3fd92e4-c620-4cc8-bd50-17efa1da4bde">&lt;linkText&gt;</bpt>Facebook<ept id="b3fd92e4-c620-4cc8-bd50-17efa1da4bde">&lt;/linkText&gt;</ept><bpt id="b3fd92e4-c620-4cc8-bd50-17efa1da4bde">&lt;title&gt;</bpt><ept id="b3fd92e4-c620-4cc8-bd50-17efa1da4bde">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="141496e2-54af-48c9-9213-7a28365a2da6" xml:space="preserve">
+          <source><bpt id="392740c9-4d85-4eea-9167-f69aad1dfae9">&lt;linkText&gt;</bpt>Twitter<ept id="392740c9-4d85-4eea-9167-f69aad1dfae9">&lt;/linkText&gt;</ept><bpt id="392740c9-4d85-4eea-9167-f69aad1dfae9">&lt;title&gt;</bpt><ept id="392740c9-4d85-4eea-9167-f69aad1dfae9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="392740c9-4d85-4eea-9167-f69aad1dfae9">&lt;linkText&gt;</bpt>Twitter<ept id="392740c9-4d85-4eea-9167-f69aad1dfae9">&lt;/linkText&gt;</ept><bpt id="392740c9-4d85-4eea-9167-f69aad1dfae9">&lt;title&gt;</bpt><ept id="392740c9-4d85-4eea-9167-f69aad1dfae9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e89e8d3a-738a-4b9a-8566-8a0daa146794" xml:space="preserve">
+          <source><bpt id="f14e01bc-a841-4989-9627-2548442f99e9">&lt;linkText&gt;</bpt>Microsoft<ept id="f14e01bc-a841-4989-9627-2548442f99e9">&lt;/linkText&gt;</ept><bpt id="f14e01bc-a841-4989-9627-2548442f99e9">&lt;title&gt;</bpt><ept id="f14e01bc-a841-4989-9627-2548442f99e9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f14e01bc-a841-4989-9627-2548442f99e9">&lt;linkText&gt;</bpt>Microsoft<ept id="f14e01bc-a841-4989-9627-2548442f99e9">&lt;/linkText&gt;</ept><bpt id="f14e01bc-a841-4989-9627-2548442f99e9">&lt;title&gt;</bpt><ept id="f14e01bc-a841-4989-9627-2548442f99e9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c095a2e5-9085-445f-ad81-764e11ad4233" xml:space="preserve">
+          <source><bpt id="546adffb-30c7-4d82-9077-87474c08a169">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="546adffb-30c7-4d82-9077-87474c08a169">&lt;/linkText&gt;</ept><bpt id="546adffb-30c7-4d82-9077-87474c08a169">&lt;title&gt;</bpt><ept id="546adffb-30c7-4d82-9077-87474c08a169">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="546adffb-30c7-4d82-9077-87474c08a169">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="546adffb-30c7-4d82-9077-87474c08a169">&lt;/linkText&gt;</ept><bpt id="546adffb-30c7-4d82-9077-87474c08a169">&lt;title&gt;</bpt><ept id="546adffb-30c7-4d82-9077-87474c08a169">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="114ddc2e-204c-493b-b3ee-0e7b92313582" xml:space="preserve">
+          <source>Make a note of the client identity and client secret values generated by the provider.</source>
+          <target state="new">Make a note of the client identity and client secret values generated by the provider.</target>
+        </trans-unit>
+        <trans-unit id="c575dd3e-9cb2-4bf6-a18e-8b245daef7c8" xml:space="preserve">
+          <source>Do not distribute or share the client secret.</source>
+          <target state="new">Do not distribute or share the client secret.</target>
+        </trans-unit>
+        <trans-unit id="14d9c4d7-5189-4bfd-b2e0-d8c9560e0d96" xml:space="preserve">
+          <source>In the Azure portal, click <bpt id="eaefdb08-8f61-4a86-a099-4836205c9848">&lt;strong&gt;</bpt>Mobile Services<ept id="eaefdb08-8f61-4a86-a099-4836205c9848">&lt;/strong&gt;</ept> &gt; your mobile service &gt; <bpt id="758de5b4-e376-403c-ba76-ad0d780caacb">&lt;strong&gt;</bpt>Identity<ept id="758de5b4-e376-403c-ba76-ad0d780caacb">&lt;/strong&gt;</ept> &gt; your identity provider settings, then enter the client ID and secret value from your provider.</source>
+          <target state="new">In the Azure portal, click <bpt id="eaefdb08-8f61-4a86-a099-4836205c9848">&lt;strong&gt;</bpt>Mobile Services<ept id="eaefdb08-8f61-4a86-a099-4836205c9848">&lt;/strong&gt;</ept> &gt; your mobile service &gt; <bpt id="758de5b4-e376-403c-ba76-ad0d780caacb">&lt;strong&gt;</bpt>Identity<ept id="758de5b4-e376-403c-ba76-ad0d780caacb">&lt;/strong&gt;</ept> &gt; your identity provider settings, then enter the client ID and secret value from your provider.</target>
+        </trans-unit>
+        <trans-unit id="9f73b276-1b74-461d-8fe1-a08878c93949" xml:space="preserve">
+          <source>You've now configured both your app and your mobile service to work with your auth provider.</source>
+          <target state="new">You've now configured both your app and your mobile service to work with your auth provider.</target>
+        </trans-unit>
+        <trans-unit id="7e263fa1-d716-47ff-8ad0-e419caa0ae4d" xml:space="preserve">
+          <source>You may optionally repeat all these steps for each additional identity provider you'd like to support.</source>
+          <target state="new">You may optionally repeat all these steps for each additional identity provider you'd like to support.</target>
+        </trans-unit>
+        <trans-unit id="90e3f871-65fc-4434-8935-121fd46b0967" xml:space="preserve">
+          <source>Verify that you've set the correct redirect URI on your identity provider's developer site.</source>
+          <target state="new">Verify that you've set the correct redirect URI on your identity provider's developer site.</target>
+        </trans-unit>
+        <trans-unit id="39d4f9d6-cbec-4dab-9c55-b8e8e1981131" xml:space="preserve">
+          <source>As described in the linked instructions for each provider above, the redirect URI may be different for a .NET backend service vs. for a JavaScript backend service.</source>
+          <target state="new">As described in the linked instructions for each provider above, the redirect URI may be different for a .NET backend service vs. for a JavaScript backend service.</target>
+        </trans-unit>
+        <trans-unit id="35d6dfbf-82c1-4c52-8255-8882f6dd5ab3" xml:space="preserve">
+          <source>An incorrectly configured redirect URI may result in the login screen not being displayed properly and the app malfunctioning in unexpected ways.</source>
+          <target state="new">An incorrectly configured redirect URI may result in the login screen not being displayed properly and the app malfunctioning in unexpected ways.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

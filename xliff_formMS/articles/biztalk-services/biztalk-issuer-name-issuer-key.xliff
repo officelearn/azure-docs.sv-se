@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="81c3d069-bf56-4cc2-89da-846a35e50c11" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="81c3d069-bf56-4cc2-89da-846a35e50c11" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="73eee963-4479-4341-ad6a-8ab7dae6b190">
+        <trans-unit id="abb8a38b-a9c9-49dc-ab35-79810c327028" xml:space="preserve">
+          <source>Issuer Name and Issuer Key in BizTalk Services | Microsoft Azure</source>
+          <target state="new">Issuer Name and Issuer Key in BizTalk Services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="65f06cf8-eae1-4a10-ad92-8deec8611953" xml:space="preserve">
+          <source>Learn how to retrieve Issuer Name and Issuer Key for either Service Bus or Access Control (ACS) in BizTalk Services. MABS, WABS</source>
+          <target state="new">Learn how to retrieve Issuer Name and Issuer Key for either Service Bus or Access Control (ACS) in BizTalk Services. MABS, WABS</target>
+        </trans-unit>
+        <trans-unit id="165da9d2-5f89-415f-9df8-dbfbdfd5d688" xml:space="preserve">
+          <source>Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, and the Access Control Issuer Name and Issuer Key.</source>
+          <target state="new">Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, and the Access Control Issuer Name and Issuer Key.</target>
+        </trans-unit>
+        <trans-unit id="20bbfcd7-13c1-48cb-8bae-9f1715cc82e0" xml:space="preserve">
+          <source>Specifically:</source>
+          <target state="new">Specifically:</target>
+        </trans-unit>
+        <trans-unit id="febd3064-c08a-4166-8352-f471c7f85445" xml:space="preserve">
+          <source>Task</source>
+          <target state="new">Task</target>
+        </trans-unit>
+        <trans-unit id="bcc901c6-de04-496b-898b-2ce234d48b30" xml:space="preserve">
+          <source>Which Issuer Name and Issuer Key</source>
+          <target state="new">Which Issuer Name and Issuer Key</target>
+        </trans-unit>
+        <trans-unit id="3b7a0609-215f-4d16-870b-504d14c65dc1" xml:space="preserve">
+          <source>Deploying your application from Visual Studio</source>
+          <target state="new">Deploying your application from Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="34c04b0d-9ed2-437b-97ce-34ee1a104c2a" xml:space="preserve">
+          <source>Access Control Issuer Name and Issuer Key</source>
+          <target state="new">Access Control Issuer Name and Issuer Key</target>
+        </trans-unit>
+        <trans-unit id="00c6dd1e-7917-4577-a598-957b85e0bed7" xml:space="preserve">
+          <source>Configuring the Azure BizTalk Services Portal</source>
+          <target state="new">Configuring the Azure BizTalk Services Portal</target>
+        </trans-unit>
+        <trans-unit id="ba1337a7-c4d3-4d5e-888c-3b3052af34ea" xml:space="preserve">
+          <source>Access Control Issuer Name and Issuer Key</source>
+          <target state="new">Access Control Issuer Name and Issuer Key</target>
+        </trans-unit>
+        <trans-unit id="6f41af7f-d738-424a-84fa-5de0070cadd4" xml:space="preserve">
+          <source>Creating LOB Relays with the BizTalk Adapter Services in Visual Studio</source>
+          <target state="new">Creating LOB Relays with the BizTalk Adapter Services in Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="b1eac86f-563a-4fa9-84bb-07644d1757dc" xml:space="preserve">
+          <source>Service Bus Issuer Name and Issuer Key</source>
+          <target state="new">Service Bus Issuer Name and Issuer Key</target>
+        </trans-unit>
+        <trans-unit id="5d77402f-f7f4-452c-b95b-0b7a639b90f3" xml:space="preserve">
+          <source>This topic lists the steps to retrieve the Issuer Name and Issuer Key.</source>
+          <target state="new">This topic lists the steps to retrieve the Issuer Name and Issuer Key.</target>
+        </trans-unit>
+        <trans-unit id="53ccf59a-42c4-4fe3-9f70-61fd6bad1d23" xml:space="preserve">
+          <source>The Access Control Issuer Name and Issuer Key are used by the following:</source>
+          <target state="new">The Access Control Issuer Name and Issuer Key are used by the following:</target>
+        </trans-unit>
+        <trans-unit id="4d9ab877-acfd-4d55-8a97-f362c377377d" xml:space="preserve">
+          <source>Your Azure BizTalk Service application created in Visual Studio: To successfully deploy your BizTalk Service application in Visual Studio to Azure, you enter the Access Control Issuer Name and Issuer Key.</source>
+          <target state="new">Your Azure BizTalk Service application created in Visual Studio: To successfully deploy your BizTalk Service application in Visual Studio to Azure, you enter the Access Control Issuer Name and Issuer Key.</target>
+        </trans-unit>
+        <trans-unit id="f093a086-f090-4047-8d29-7d5c2942b7d9" xml:space="preserve">
+          <source>The Azure BizTalk Services  Portal: When you create a BizTalk Service and open the BizTalk Services Portal, your Access Control Issuer Name and Issuer Key are automatically registered for your deployments with the same Access Control values.</source>
+          <target state="new">The Azure BizTalk Services  Portal: When you create a BizTalk Service and open the BizTalk Services Portal, your Access Control Issuer Name and Issuer Key are automatically registered for your deployments with the same Access Control values.</target>
+        </trans-unit>
+        <trans-unit id="e92089ca-0a5e-4d3c-b333-878f70a70026" xml:space="preserve">
+          <source>Sign in to the <bpt id="8eab26bb-8115-4452-8580-e244ffe236cc">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="8eab26bb-8115-4452-8580-e244ffe236cc">&lt;/linkText&gt;</ept><bpt id="8eab26bb-8115-4452-8580-e244ffe236cc">&lt;title&gt;</bpt><ept id="8eab26bb-8115-4452-8580-e244ffe236cc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="8eab26bb-8115-4452-8580-e244ffe236cc">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="8eab26bb-8115-4452-8580-e244ffe236cc">&lt;/linkText&gt;</ept><bpt id="8eab26bb-8115-4452-8580-e244ffe236cc">&lt;title&gt;</bpt><ept id="8eab26bb-8115-4452-8580-e244ffe236cc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2724ff2-480e-49e7-afec-e3c1e840d06a" xml:space="preserve">
+          <source>In the left navigation pane, select <bpt id="51b7152a-99da-4260-ae0b-6f057a34f3d2">&lt;strong&gt;</bpt>BizTalk Services<ept id="51b7152a-99da-4260-ae0b-6f057a34f3d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left navigation pane, select <bpt id="51b7152a-99da-4260-ae0b-6f057a34f3d2">&lt;strong&gt;</bpt>BizTalk Services<ept id="51b7152a-99da-4260-ae0b-6f057a34f3d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10883db3-85e4-42b3-ab7d-9a882342a5ec" xml:space="preserve">
+          <source>Select your BizTalk Service.</source>
+          <target state="new">Select your BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="ea8b10d0-c731-4fb0-8e71-e0de03334178" xml:space="preserve">
+          <source>Select <bpt id="bec96a0c-ba6b-4d32-a757-1b168e4ae5ca">&lt;strong&gt;</bpt>Connection Information<ept id="bec96a0c-ba6b-4d32-a757-1b168e4ae5ca">&lt;/strong&gt;</ept> in the task bar.</source>
+          <target state="new">Select <bpt id="bec96a0c-ba6b-4d32-a757-1b168e4ae5ca">&lt;strong&gt;</bpt>Connection Information<ept id="bec96a0c-ba6b-4d32-a757-1b168e4ae5ca">&lt;/strong&gt;</ept> in the task bar.</target>
+        </trans-unit>
+        <trans-unit id="ed7edd65-e933-425e-a493-fc81bfca6d94" xml:space="preserve">
+          <source>The Access Control Namespace, Default Issuer (Issuer Name), and Default Key (Issuer Key) are listed and can be copied and pasted.</source>
+          <target state="new">The Access Control Namespace, Default Issuer (Issuer Name), and Default Key (Issuer Key) are listed and can be copied and pasted.</target>
+        </trans-unit>
+        <trans-unit id="4d42e844-3ee6-4303-99f4-bf28f0d43bb5" xml:space="preserve">
+          <source>To summarize:  
+Issuer Name = Default Issuer  
+Issuer Key = Default Key</source>
+          <target state="new">To summarize:  
+Issuer Name = Default Issuer  
+Issuer Key = Default Key</target>
+        </trans-unit>
+        <trans-unit id="726dec87-f4d4-48c1-997f-32b544af94d6" xml:space="preserve">
+          <source>You can also select <bpt id="cc1cd021-6a57-4e6a-a522-74724957646c">&lt;strong&gt;</bpt>Open ACS Management Portal<ept id="cc1cd021-6a57-4e6a-a522-74724957646c">&lt;/strong&gt;</ept> to get the Access Control values:</source>
+          <target state="new">You can also select <bpt id="cc1cd021-6a57-4e6a-a522-74724957646c">&lt;strong&gt;</bpt>Open ACS Management Portal<ept id="cc1cd021-6a57-4e6a-a522-74724957646c">&lt;/strong&gt;</ept> to get the Access Control values:</target>
+        </trans-unit>
+        <trans-unit id="b15cdf34-bb65-4260-8e7c-726587c05dd1" xml:space="preserve">
+          <source>Sign in to the <bpt id="6fc0fd49-5219-44c6-8260-dfa54dbab105">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="6fc0fd49-5219-44c6-8260-dfa54dbab105">&lt;/linkText&gt;</ept><bpt id="6fc0fd49-5219-44c6-8260-dfa54dbab105">&lt;title&gt;</bpt><ept id="6fc0fd49-5219-44c6-8260-dfa54dbab105">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="6fc0fd49-5219-44c6-8260-dfa54dbab105">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="6fc0fd49-5219-44c6-8260-dfa54dbab105">&lt;/linkText&gt;</ept><bpt id="6fc0fd49-5219-44c6-8260-dfa54dbab105">&lt;title&gt;</bpt><ept id="6fc0fd49-5219-44c6-8260-dfa54dbab105">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c57ec3b9-e9e7-4a58-be6c-7b031887dd4e" xml:space="preserve">
+          <source>In the left navigation pane, select <bpt id="45fe5da1-59f5-465a-83a0-e519645fd10c">&lt;strong&gt;</bpt>BizTalk Services<ept id="45fe5da1-59f5-465a-83a0-e519645fd10c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left navigation pane, select <bpt id="45fe5da1-59f5-465a-83a0-e519645fd10c">&lt;strong&gt;</bpt>BizTalk Services<ept id="45fe5da1-59f5-465a-83a0-e519645fd10c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77abeb63-7b0d-4e62-9021-690bc720dc9b" xml:space="preserve">
+          <source>Select your BizTalk Service.</source>
+          <target state="new">Select your BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="0afc8fbb-771f-418c-b261-638a9a0250dd" xml:space="preserve">
+          <source>Select the Connection Information button and select <bpt id="5eea5611-a8e5-47d5-a31b-09aeb825ec66">&lt;strong&gt;</bpt>Open ACS Management Portal<ept id="5eea5611-a8e5-47d5-a31b-09aeb825ec66">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the Connection Information button and select <bpt id="5eea5611-a8e5-47d5-a31b-09aeb825ec66">&lt;strong&gt;</bpt>Open ACS Management Portal<ept id="5eea5611-a8e5-47d5-a31b-09aeb825ec66">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17948c37-746f-44e1-9134-ba91e6442424" xml:space="preserve">
+          <source>In the Portal under <bpt id="263d0276-7d1c-414b-aeb2-0af6b355c052">&lt;strong&gt;</bpt>Service Settings<ept id="263d0276-7d1c-414b-aeb2-0af6b355c052">&lt;/strong&gt;</ept>, select <bpt id="ac65adb0-6a2f-42fe-b737-42dfc9095491">&lt;strong&gt;</bpt>Service Identities<ept id="ac65adb0-6a2f-42fe-b737-42dfc9095491">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Portal under <bpt id="263d0276-7d1c-414b-aeb2-0af6b355c052">&lt;strong&gt;</bpt>Service Settings<ept id="263d0276-7d1c-414b-aeb2-0af6b355c052">&lt;/strong&gt;</ept>, select <bpt id="ac65adb0-6a2f-42fe-b737-42dfc9095491">&lt;strong&gt;</bpt>Service Identities<ept id="ac65adb0-6a2f-42fe-b737-42dfc9095491">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7837c576-1f66-455c-ab96-3bcd7a82699a" xml:space="preserve">
+          <source>This displays your Service Identity, which is your Access Control Issuer Name value.</source>
+          <target state="new">This displays your Service Identity, which is your Access Control Issuer Name value.</target>
+        </trans-unit>
+        <trans-unit id="42671eac-1834-41a0-9403-bcee257a17a6" xml:space="preserve">
+          <source>Select your Service Identity link to see the Password, which is your Issuer Key value.</source>
+          <target state="new">Select your Service Identity link to see the Password, which is your Issuer Key value.</target>
+        </trans-unit>
+        <trans-unit id="e14e6423-d210-49f2-bcbb-02fc5af6efb4" xml:space="preserve">
+          <source>Their values can be copied.&lt;br/&gt;&lt;br/&gt;
+For example, in <bpt id="8f000339-e920-436c-b3aa-b15f74d4a1fc">&lt;strong&gt;</bpt>Service Identities<ept id="8f000339-e920-436c-b3aa-b15f74d4a1fc">&lt;/strong&gt;</ept>, you see "owner".</source>
+          <target state="new">Their values can be copied.&lt;br/&gt;&lt;br/&gt;
+For example, in <bpt id="8f000339-e920-436c-b3aa-b15f74d4a1fc">&lt;strong&gt;</bpt>Service Identities<ept id="8f000339-e920-436c-b3aa-b15f74d4a1fc">&lt;/strong&gt;</ept>, you see "owner".</target>
+        </trans-unit>
+        <trans-unit id="3e61d3cd-b2a1-4916-96bf-78e7c17b1105" xml:space="preserve">
+          <source>"Owner" is your Access Control Issuer Name.</source>
+          <target state="new">"Owner" is your Access Control Issuer Name.</target>
+        </trans-unit>
+        <trans-unit id="29fff66f-5621-468a-9de8-4f978fb413de" xml:space="preserve">
+          <source>When you click the "owner" link, you see the <bpt id="f8f40273-245c-42c4-af4f-1da8c4d7507d">&lt;strong&gt;</bpt>Password<ept id="f8f40273-245c-42c4-af4f-1da8c4d7507d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you click the "owner" link, you see the <bpt id="f8f40273-245c-42c4-af4f-1da8c4d7507d">&lt;strong&gt;</bpt>Password<ept id="f8f40273-245c-42c4-af4f-1da8c4d7507d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="112b5277-fb45-4514-93b8-18400579125a" xml:space="preserve">
+          <source>When you click the "Password" link, you see the value.</source>
+          <target state="new">When you click the "Password" link, you see the value.</target>
+        </trans-unit>
+        <trans-unit id="5b34ed46-2060-47bf-bb4c-521aa1492c9a" xml:space="preserve">
+          <source>This Password value is your Access Control Issuer Key.</source>
+          <target state="new">This Password value is your Access Control Issuer Key.</target>
+        </trans-unit>
+        <trans-unit id="2dc7c6f4-8674-4d8f-9c61-bd9d5bff8d5e" xml:space="preserve">
+          <source>To summarize:  
+Issuer Name = Service Identity name  
+Issuer Key = Password value</source>
+          <target state="new">To summarize:  
+Issuer Name = Service Identity name  
+Issuer Key = Password value</target>
+        </trans-unit>
+        <trans-unit id="d9ecd373-3ae9-497f-9cc3-3f46c4c650d9" xml:space="preserve">
+          <source>In the left navigation pane, you can also select <bpt id="2988afc1-9c9e-4cf0-9d8b-c24c787ef845">&lt;strong&gt;</bpt>Active Directory<ept id="2988afc1-9c9e-4cf0-9d8b-c24c787ef845">&lt;/strong&gt;</ept> to retrieve the Access Control values.</source>
+          <target state="new">In the left navigation pane, you can also select <bpt id="2988afc1-9c9e-4cf0-9d8b-c24c787ef845">&lt;strong&gt;</bpt>Active Directory<ept id="2988afc1-9c9e-4cf0-9d8b-c24c787ef845">&lt;/strong&gt;</ept> to retrieve the Access Control values.</target>
+        </trans-unit>
+        <trans-unit id="4b0d4fad-2225-488b-aafd-2c50bbea2fe3" xml:space="preserve">
+          <source>When an Access Control Namespace is created using <bpt id="e6bdd5ec-5324-487d-98d6-a124482ed133">&lt;strong&gt;</bpt>Active Directory<ept id="e6bdd5ec-5324-487d-98d6-a124482ed133">&lt;/strong&gt;</ept>, a Service Identity is <bpt id="caba5831-7144-4502-bdb2-8f5210fd2449">&lt;strong&gt;</bpt>not<ept id="caba5831-7144-4502-bdb2-8f5210fd2449">&lt;/strong&gt;</ept> automatically created.</source>
+          <target state="new">When an Access Control Namespace is created using <bpt id="e6bdd5ec-5324-487d-98d6-a124482ed133">&lt;strong&gt;</bpt>Active Directory<ept id="e6bdd5ec-5324-487d-98d6-a124482ed133">&lt;/strong&gt;</ept>, a Service Identity is <bpt id="caba5831-7144-4502-bdb2-8f5210fd2449">&lt;strong&gt;</bpt>not<ept id="caba5831-7144-4502-bdb2-8f5210fd2449">&lt;/strong&gt;</ept> automatically created.</target>
+        </trans-unit>
+        <trans-unit id="d9da532a-ea6a-4554-a63c-7f8a7df126be" xml:space="preserve">
+          <source>When you provision a BizTalk Service, an Access Control Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.&lt;br /&gt; 
+<bpt id="8bdb68cb-4d45-4eb3-9cf0-9330ce2d7e24">&lt;linkText&gt;</bpt>How to: Use ACS Management Service to Configure Service Identities<ept id="8bdb68cb-4d45-4eb3-9cf0-9330ce2d7e24">&lt;/linkText&gt;</ept><bpt id="8bdb68cb-4d45-4eb3-9cf0-9330ce2d7e24">&lt;title&gt;</bpt><ept id="8bdb68cb-4d45-4eb3-9cf0-9330ce2d7e24">&lt;/title&gt;</ept> provides more information on Access Control Service Identities.</source>
+          <target state="new">When you provision a BizTalk Service, an Access Control Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.&lt;br /&gt; 
+<bpt id="8bdb68cb-4d45-4eb3-9cf0-9330ce2d7e24">&lt;linkText&gt;</bpt>How to: Use ACS Management Service to Configure Service Identities<ept id="8bdb68cb-4d45-4eb3-9cf0-9330ce2d7e24">&lt;/linkText&gt;</ept><bpt id="8bdb68cb-4d45-4eb3-9cf0-9330ce2d7e24">&lt;title&gt;</bpt><ept id="8bdb68cb-4d45-4eb3-9cf0-9330ce2d7e24">&lt;/title&gt;</ept> provides more information on Access Control Service Identities.</target>
+        </trans-unit>
+        <trans-unit id="707cdf6e-c8fc-4b05-b35d-2c5cddf863be" xml:space="preserve">
+          <source>Service Bus Issuer Name and Issuer Key are used by BizTalk Adapter Services.</source>
+          <target state="new">Service Bus Issuer Name and Issuer Key are used by BizTalk Adapter Services.</target>
+        </trans-unit>
+        <trans-unit id="044491e9-6921-4a3a-b945-59d530880745" xml:space="preserve">
+          <source>In your BizTalk Services project in Visual Studio, you use the BizTalk Adapter Services to connect to an on-premises Line-of-Business (LOB) system.</source>
+          <target state="new">In your BizTalk Services project in Visual Studio, you use the BizTalk Adapter Services to connect to an on-premises Line-of-Business (LOB) system.</target>
+        </trans-unit>
+        <trans-unit id="06e9a78a-4535-4d75-b3bd-87f902372319" xml:space="preserve">
+          <source>To connect, you create the LOB Relay and enter your LOB system details.</source>
+          <target state="new">To connect, you create the LOB Relay and enter your LOB system details.</target>
+        </trans-unit>
+        <trans-unit id="995f6a6a-c131-41b9-aef3-0f9d60af75df" xml:space="preserve">
+          <source>When doing this, you also enter the Service Bus Issuer Name and Issuer Key.</source>
+          <target state="new">When doing this, you also enter the Service Bus Issuer Name and Issuer Key.</target>
+        </trans-unit>
+        <trans-unit id="0e27e12c-6eff-4412-b741-8ef960497c80" xml:space="preserve">
+          <source>Sign in to the <bpt id="c5a0481e-6bd7-4a54-8402-804746102051">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="c5a0481e-6bd7-4a54-8402-804746102051">&lt;/linkText&gt;</ept><bpt id="c5a0481e-6bd7-4a54-8402-804746102051">&lt;title&gt;</bpt><ept id="c5a0481e-6bd7-4a54-8402-804746102051">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="c5a0481e-6bd7-4a54-8402-804746102051">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="c5a0481e-6bd7-4a54-8402-804746102051">&lt;/linkText&gt;</ept><bpt id="c5a0481e-6bd7-4a54-8402-804746102051">&lt;title&gt;</bpt><ept id="c5a0481e-6bd7-4a54-8402-804746102051">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4838f8d-675f-4ece-9594-0d0af96c7307" xml:space="preserve">
+          <source>In the left navigation pane, select <bpt id="46ccee9a-4c39-4600-844f-34ae8d8863e8">&lt;strong&gt;</bpt>Service Bus<ept id="46ccee9a-4c39-4600-844f-34ae8d8863e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left navigation pane, select <bpt id="46ccee9a-4c39-4600-844f-34ae8d8863e8">&lt;strong&gt;</bpt>Service Bus<ept id="46ccee9a-4c39-4600-844f-34ae8d8863e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="313d6243-6927-4328-a793-44ec9b2f15df" xml:space="preserve">
+          <source>Select your namespace.</source>
+          <target state="new">Select your namespace.</target>
+        </trans-unit>
+        <trans-unit id="8f605b90-0bee-4a35-aa62-953682fe7313" xml:space="preserve">
+          <source>In the task bar, select <bpt id="13efca56-4bb7-45b2-911b-555971a61986">&lt;strong&gt;</bpt>Connection Information<ept id="13efca56-4bb7-45b2-911b-555971a61986">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar, select <bpt id="13efca56-4bb7-45b2-911b-555971a61986">&lt;strong&gt;</bpt>Connection Information<ept id="13efca56-4bb7-45b2-911b-555971a61986">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3366f282-fd3f-45b3-ae46-6f764bba19ad" xml:space="preserve">
+          <source>This displays the <bpt id="48b2ccd4-a6e0-40b8-b73a-8446685e7117">&lt;strong&gt;</bpt>Default Issuer<ept id="48b2ccd4-a6e0-40b8-b73a-8446685e7117">&lt;/strong&gt;</ept> (Issuer Name) and <bpt id="13dc7802-a547-4f52-b064-a46f47804396">&lt;strong&gt;</bpt>Default Key<ept id="13dc7802-a547-4f52-b064-a46f47804396">&lt;/strong&gt;</ept> (Issuer Key).</source>
+          <target state="new">This displays the <bpt id="48b2ccd4-a6e0-40b8-b73a-8446685e7117">&lt;strong&gt;</bpt>Default Issuer<ept id="48b2ccd4-a6e0-40b8-b73a-8446685e7117">&lt;/strong&gt;</ept> (Issuer Name) and <bpt id="13dc7802-a547-4f52-b064-a46f47804396">&lt;strong&gt;</bpt>Default Key<ept id="13dc7802-a547-4f52-b064-a46f47804396">&lt;/strong&gt;</ept> (Issuer Key).</target>
+        </trans-unit>
+        <trans-unit id="a58e8ef6-0f35-4285-a57b-11cb899344e9" xml:space="preserve">
+          <source>Their values can be copied.</source>
+          <target state="new">Their values can be copied.</target>
+        </trans-unit>
+        <trans-unit id="14811e66-c606-4d9d-99bb-3fc0d6921b29" xml:space="preserve">
+          <source>To summarize:  
+Issuer Name = Default Issuer  
+Issuer Key = Default Key</source>
+          <target state="new">To summarize:  
+Issuer Name = Default Issuer  
+Issuer Key = Default Key</target>
+        </trans-unit>
+        <trans-unit id="892f427b-cf77-4489-92be-13938a980a1b" xml:space="preserve">
+          <source>Additional Azure BizTalk Services topics:</source>
+          <target state="new">Additional Azure BizTalk Services topics:</target>
+        </trans-unit>
+        <trans-unit id="ed2920d9-fa8c-49e6-9b9b-0b1cb0fb1167" xml:space="preserve">
+          <source><bpt id="d7a7d70c-bf3a-4fbf-b73b-d1120df49940">&lt;linkText&gt;</bpt>Installing the Azure BizTalk Services SDK<ept id="d7a7d70c-bf3a-4fbf-b73b-d1120df49940">&lt;/linkText&gt;</ept><bpt id="d7a7d70c-bf3a-4fbf-b73b-d1120df49940">&lt;title&gt;</bpt><ept id="d7a7d70c-bf3a-4fbf-b73b-d1120df49940">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="d7a7d70c-bf3a-4fbf-b73b-d1120df49940">&lt;linkText&gt;</bpt>Installing the Azure BizTalk Services SDK<ept id="d7a7d70c-bf3a-4fbf-b73b-d1120df49940">&lt;/linkText&gt;</ept><bpt id="d7a7d70c-bf3a-4fbf-b73b-d1120df49940">&lt;title&gt;</bpt><ept id="d7a7d70c-bf3a-4fbf-b73b-d1120df49940">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="b8c38548-36b2-494f-bc47-65ee6c9d98ea" xml:space="preserve">
+          <source><bpt id="68fafb05-0dc3-41e8-9972-67e707db90ab">&lt;linkText&gt;</bpt>Tutorials: Azure BizTalk Services<ept id="68fafb05-0dc3-41e8-9972-67e707db90ab">&lt;/linkText&gt;</ept><bpt id="68fafb05-0dc3-41e8-9972-67e707db90ab">&lt;title&gt;</bpt><ept id="68fafb05-0dc3-41e8-9972-67e707db90ab">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="68fafb05-0dc3-41e8-9972-67e707db90ab">&lt;linkText&gt;</bpt>Tutorials: Azure BizTalk Services<ept id="68fafb05-0dc3-41e8-9972-67e707db90ab">&lt;/linkText&gt;</ept><bpt id="68fafb05-0dc3-41e8-9972-67e707db90ab">&lt;title&gt;</bpt><ept id="68fafb05-0dc3-41e8-9972-67e707db90ab">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="1903bc46-1fae-40c0-aa13-27a289b64b49" xml:space="preserve">
+          <source><bpt id="12406192-f2a6-4e14-9ec2-50bb4a1e8d6f">&lt;linkText&gt;</bpt>How do I Start Using the Azure BizTalk Services SDK<ept id="12406192-f2a6-4e14-9ec2-50bb4a1e8d6f">&lt;/linkText&gt;</ept><bpt id="12406192-f2a6-4e14-9ec2-50bb4a1e8d6f">&lt;title&gt;</bpt><ept id="12406192-f2a6-4e14-9ec2-50bb4a1e8d6f">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="12406192-f2a6-4e14-9ec2-50bb4a1e8d6f">&lt;linkText&gt;</bpt>How do I Start Using the Azure BizTalk Services SDK<ept id="12406192-f2a6-4e14-9ec2-50bb4a1e8d6f">&lt;/linkText&gt;</ept><bpt id="12406192-f2a6-4e14-9ec2-50bb4a1e8d6f">&lt;title&gt;</bpt><ept id="12406192-f2a6-4e14-9ec2-50bb4a1e8d6f">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="41d349d9-8a66-4a5d-887a-4e5233ca8eaf" xml:space="preserve">
+          <source><bpt id="3205909d-66b7-4db1-a68e-3766a8cb49c3">&lt;linkText&gt;</bpt>Azure BizTalk Services<ept id="3205909d-66b7-4db1-a68e-3766a8cb49c3">&lt;/linkText&gt;</ept><bpt id="3205909d-66b7-4db1-a68e-3766a8cb49c3">&lt;title&gt;</bpt><ept id="3205909d-66b7-4db1-a68e-3766a8cb49c3">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="3205909d-66b7-4db1-a68e-3766a8cb49c3">&lt;linkText&gt;</bpt>Azure BizTalk Services<ept id="3205909d-66b7-4db1-a68e-3766a8cb49c3">&lt;/linkText&gt;</ept><bpt id="3205909d-66b7-4db1-a68e-3766a8cb49c3">&lt;title&gt;</bpt><ept id="3205909d-66b7-4db1-a68e-3766a8cb49c3">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="75833e86-184f-4ef3-b7b8-87d9cbd9a2db" xml:space="preserve">
+          <source><bpt id="4d98bb43-cc9d-4855-8be4-ec4eea28e649">&lt;linkText&gt;</bpt>How to: Use ACS Management Service to Configure Service Identities<ept id="4d98bb43-cc9d-4855-8be4-ec4eea28e649">&lt;/linkText&gt;</ept><bpt id="4d98bb43-cc9d-4855-8be4-ec4eea28e649">&lt;title&gt;</bpt><ept id="4d98bb43-cc9d-4855-8be4-ec4eea28e649">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="4d98bb43-cc9d-4855-8be4-ec4eea28e649">&lt;linkText&gt;</bpt>How to: Use ACS Management Service to Configure Service Identities<ept id="4d98bb43-cc9d-4855-8be4-ec4eea28e649">&lt;/linkText&gt;</ept><bpt id="4d98bb43-cc9d-4855-8be4-ec4eea28e649">&lt;title&gt;</bpt><ept id="4d98bb43-cc9d-4855-8be4-ec4eea28e649">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="ed7d2768-47af-4434-ad82-c99b9dd0a976" xml:space="preserve">
+          <source><bpt id="78b582a9-88c6-4692-8e01-0ccbf9382365">&lt;linkText&gt;</bpt>BizTalk Services: Developer, Basic, Standard and Premium Editions Chart<ept id="78b582a9-88c6-4692-8e01-0ccbf9382365">&lt;/linkText&gt;</ept><bpt id="78b582a9-88c6-4692-8e01-0ccbf9382365">&lt;title&gt;</bpt><ept id="78b582a9-88c6-4692-8e01-0ccbf9382365">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="78b582a9-88c6-4692-8e01-0ccbf9382365">&lt;linkText&gt;</bpt>BizTalk Services: Developer, Basic, Standard and Premium Editions Chart<ept id="78b582a9-88c6-4692-8e01-0ccbf9382365">&lt;/linkText&gt;</ept><bpt id="78b582a9-88c6-4692-8e01-0ccbf9382365">&lt;title&gt;</bpt><ept id="78b582a9-88c6-4692-8e01-0ccbf9382365">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="26e45513-8721-48db-be40-f1bcf19919b9" xml:space="preserve">
+          <source><bpt id="df3caff4-f59b-4d0e-a6e8-12bc7e7c852f">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="df3caff4-f59b-4d0e-a6e8-12bc7e7c852f">&lt;/linkText&gt;</ept><bpt id="df3caff4-f59b-4d0e-a6e8-12bc7e7c852f">&lt;title&gt;</bpt><ept id="df3caff4-f59b-4d0e-a6e8-12bc7e7c852f">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="df3caff4-f59b-4d0e-a6e8-12bc7e7c852f">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="df3caff4-f59b-4d0e-a6e8-12bc7e7c852f">&lt;/linkText&gt;</ept><bpt id="df3caff4-f59b-4d0e-a6e8-12bc7e7c852f">&lt;title&gt;</bpt><ept id="df3caff4-f59b-4d0e-a6e8-12bc7e7c852f">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="69c10774-4ffc-4a23-ba6d-87de8501094f" xml:space="preserve">
+          <source><bpt id="cc77f523-df26-4c33-8ace-c79826042fae">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Status Chart<ept id="cc77f523-df26-4c33-8ace-c79826042fae">&lt;/linkText&gt;</ept><bpt id="cc77f523-df26-4c33-8ace-c79826042fae">&lt;title&gt;</bpt><ept id="cc77f523-df26-4c33-8ace-c79826042fae">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="cc77f523-df26-4c33-8ace-c79826042fae">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Status Chart<ept id="cc77f523-df26-4c33-8ace-c79826042fae">&lt;/linkText&gt;</ept><bpt id="cc77f523-df26-4c33-8ace-c79826042fae">&lt;title&gt;</bpt><ept id="cc77f523-df26-4c33-8ace-c79826042fae">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="092f7934-1150-4d99-8c82-80e233e856c7" xml:space="preserve">
+          <source><bpt id="0744bb9b-788a-4928-989b-349321be7ffb">&lt;linkText&gt;</bpt>BizTalk Services: Dashboard, Monitor and Scale tabs<ept id="0744bb9b-788a-4928-989b-349321be7ffb">&lt;/linkText&gt;</ept><bpt id="0744bb9b-788a-4928-989b-349321be7ffb">&lt;title&gt;</bpt><ept id="0744bb9b-788a-4928-989b-349321be7ffb">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="0744bb9b-788a-4928-989b-349321be7ffb">&lt;linkText&gt;</bpt>BizTalk Services: Dashboard, Monitor and Scale tabs<ept id="0744bb9b-788a-4928-989b-349321be7ffb">&lt;/linkText&gt;</ept><bpt id="0744bb9b-788a-4928-989b-349321be7ffb">&lt;title&gt;</bpt><ept id="0744bb9b-788a-4928-989b-349321be7ffb">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="b0e8b58c-ce55-4f58-82d1-edf1c4a88e0d" xml:space="preserve">
+          <source><bpt id="0c83247d-3277-475f-8040-a34e116f937e">&lt;linkText&gt;</bpt>BizTalk Services: Backup and Restore<ept id="0c83247d-3277-475f-8040-a34e116f937e">&lt;/linkText&gt;</ept><bpt id="0c83247d-3277-475f-8040-a34e116f937e">&lt;title&gt;</bpt><ept id="0c83247d-3277-475f-8040-a34e116f937e">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="0c83247d-3277-475f-8040-a34e116f937e">&lt;linkText&gt;</bpt>BizTalk Services: Backup and Restore<ept id="0c83247d-3277-475f-8040-a34e116f937e">&lt;/linkText&gt;</ept><bpt id="0c83247d-3277-475f-8040-a34e116f937e">&lt;title&gt;</bpt><ept id="0c83247d-3277-475f-8040-a34e116f937e">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="94a157ba-d029-4fef-b2b7-15ccda8e1db1" xml:space="preserve">
+          <source><bpt id="d08e26ca-d249-455a-90e5-e34ca22fc446">&lt;linkText&gt;</bpt>BizTalk Services: Throttling<ept id="d08e26ca-d249-455a-90e5-e34ca22fc446">&lt;/linkText&gt;</ept><bpt id="d08e26ca-d249-455a-90e5-e34ca22fc446">&lt;title&gt;</bpt><ept id="d08e26ca-d249-455a-90e5-e34ca22fc446">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="d08e26ca-d249-455a-90e5-e34ca22fc446">&lt;linkText&gt;</bpt>BizTalk Services: Throttling<ept id="d08e26ca-d249-455a-90e5-e34ca22fc446">&lt;/linkText&gt;</ept><bpt id="d08e26ca-d249-455a-90e5-e34ca22fc446">&lt;title&gt;</bpt><ept id="d08e26ca-d249-455a-90e5-e34ca22fc446">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

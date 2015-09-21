@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9d01beac-4872-43cc-a9c5-9038f10ccd74" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9d01beac-4872-43cc-a9c5-9038f10ccd74" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e720743e-a9ca-4219-aea3-34bba2a8a640">
+        <trans-unit id="d30aeaf9-7bdb-4c7d-b987-40e683c7129f" xml:space="preserve">
+          <source>Resource Balancer Cluster Description</source>
+          <target state="new">Resource Balancer Cluster Description</target>
+        </trans-unit>
+        <trans-unit id="87f6fa72-a0df-4c9f-b787-3683a916dc9e" xml:space="preserve">
+          <source>Specifying a cluster description for the Resource Balancer</source>
+          <target state="new">Specifying a cluster description for the Resource Balancer</target>
+        </trans-unit>
+        <trans-unit id="4ad249d1-5b64-4e8a-b0ec-dcf8cd637ac3" xml:space="preserve">
+          <source>The Service Fabric Resource Balancer provides several mechanisms to describe a cluster.</source>
+          <target state="new">The Service Fabric Resource Balancer provides several mechanisms to describe a cluster.</target>
+        </trans-unit>
+        <trans-unit id="7bbdf0d8-9983-442c-aa3e-22ed13388a94" xml:space="preserve">
+          <source>During runtime, the Resource Balancer uses these pieces of information to ensure that it places services in ways that ensure high availability of the services running in the cluster while also ensuring maximum utilization of the cluster resources.</source>
+          <target state="new">During runtime, the Resource Balancer uses these pieces of information to ensure that it places services in ways that ensure high availability of the services running in the cluster while also ensuring maximum utilization of the cluster resources.</target>
+        </trans-unit>
+        <trans-unit id="733a65ae-9532-48c3-af48-f8ff534cebb0" xml:space="preserve">
+          <source>The Resource Balancer features that describe a cluster are fault domains, upgrade domains, node properties, and node capacities.</source>
+          <target state="new">The Resource Balancer features that describe a cluster are fault domains, upgrade domains, node properties, and node capacities.</target>
+        </trans-unit>
+        <trans-unit id="6e6b0f43-e95b-438b-a09e-f6b75061fa92" xml:space="preserve">
+          <source>Additionally, the Resource Balancer has some configuration options that can tweak its performance.</source>
+          <target state="new">Additionally, the Resource Balancer has some configuration options that can tweak its performance.</target>
+        </trans-unit>
+        <trans-unit id="52565487-ef07-4290-9edf-f38fbd9dc8ca" xml:space="preserve">
+          <source>Fault domains enable cluster administrators to define the physical nodes that are likely to experience failure at the same time due to shared physical dependencies such as power and networking sources.</source>
+          <target state="new">Fault domains enable cluster administrators to define the physical nodes that are likely to experience failure at the same time due to shared physical dependencies such as power and networking sources.</target>
+        </trans-unit>
+        <trans-unit id="fff6cf96-e15b-4898-8aae-766853f29243" xml:space="preserve">
+          <source>Fault domains typically represent hierarchies that are related to these shared dependencies, with more nodes likely to fail together from a higher point in the fault domain tree.</source>
+          <target state="new">Fault domains typically represent hierarchies that are related to these shared dependencies, with more nodes likely to fail together from a higher point in the fault domain tree.</target>
+        </trans-unit>
+        <trans-unit id="5896be8c-766e-4305-9e89-8371d3dc9d20" xml:space="preserve">
+          <source>The following figure shows several nodes that are organized via hierarchical fault domains in the order of data center, rack, and blade.</source>
+          <target state="new">The following figure shows several nodes that are organized via hierarchical fault domains in the order of data center, rack, and blade.</target>
+        </trans-unit>
+        <trans-unit id="3849ff01-c848-41d8-a1de-a1878b5afda1" xml:space="preserve">
+          <source><bpt id="14a69ed4-8df7-441c-ad06-3b6faa4c480b">&lt;linkText&gt;</bpt>Fault Domains<ept id="14a69ed4-8df7-441c-ad06-3b6faa4c480b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="14a69ed4-8df7-441c-ad06-3b6faa4c480b">&lt;linkText&gt;</bpt>Fault Domains<ept id="14a69ed4-8df7-441c-ad06-3b6faa4c480b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be6e863b-8bd7-46bb-8124-1867616b3f60" xml:space="preserve">
+          <source>During runtime, the Service Fabric Resource Manager considers the fault domains in the cluster and attempts to spread out the replicas for a given service so that they are all in separate fault domains.</source>
+          <target state="new">During runtime, the Service Fabric Resource Manager considers the fault domains in the cluster and attempts to spread out the replicas for a given service so that they are all in separate fault domains.</target>
+        </trans-unit>
+        <trans-unit id="5d9d16d7-db05-4cf1-8f32-93552e1c5e4b" xml:space="preserve">
+          <source>This process helps ensure, in case of failure of any one fault domain, that the availability of that service and its state is not compromised.</source>
+          <target state="new">This process helps ensure, in case of failure of any one fault domain, that the availability of that service and its state is not compromised.</target>
+        </trans-unit>
+        <trans-unit id="6173b6d2-60b4-4525-9b3d-fe4671c84e74" xml:space="preserve">
+          <source>The following figure shows the replicas of a service that is spread over several fault domains even though there is enough room to concentrate them in only one or two domains.</source>
+          <target state="new">The following figure shows the replicas of a service that is spread over several fault domains even though there is enough room to concentrate them in only one or two domains.</target>
+        </trans-unit>
+        <trans-unit id="7c112aa8-81f0-44c9-b07d-8dd4e7b7dc32" xml:space="preserve">
+          <source><bpt id="cd1b0ae2-b2fa-438d-9fd2-fb926fbb2527">&lt;linkText&gt;</bpt>Fault Domains<ept id="cd1b0ae2-b2fa-438d-9fd2-fb926fbb2527">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cd1b0ae2-b2fa-438d-9fd2-fb926fbb2527">&lt;linkText&gt;</bpt>Fault Domains<ept id="cd1b0ae2-b2fa-438d-9fd2-fb926fbb2527">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6480fcc-fbe4-4ee3-b6cc-a0725aa21902" xml:space="preserve">
+          <source>Fault domains are configured within the cluster manifest.</source>
+          <target state="new">Fault domains are configured within the cluster manifest.</target>
+        </trans-unit>
+        <trans-unit id="53e04f15-40ce-4e76-9142-7b990a74cd67" xml:space="preserve">
+          <source>Each node is defined to be within a particular fault domain.</source>
+          <target state="new">Each node is defined to be within a particular fault domain.</target>
+        </trans-unit>
+        <trans-unit id="6911bfb7-c1b6-4629-aa90-aa9f8852e549" xml:space="preserve">
+          <source>During runtime, the Resource Manager combines the reports from all the nodes to develop a complete overview of all of the fault domains in the system.</source>
+          <target state="new">During runtime, the Resource Manager combines the reports from all the nodes to develop a complete overview of all of the fault domains in the system.</target>
+        </trans-unit>
+        <trans-unit id="064d1756-5948-46fa-bb66-f498b1cab312" xml:space="preserve">
+          <source>Upgrade domains are another piece of information that is consumed by the Resource Manager.</source>
+          <target state="new">Upgrade domains are another piece of information that is consumed by the Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="e7777e23-b48e-450c-9a9f-116fd7693f2c" xml:space="preserve">
+          <source>Upgrade domains, like fault domains, describe sets of nodes that are shut down for upgrades at approximately the same time.</source>
+          <target state="new">Upgrade domains, like fault domains, describe sets of nodes that are shut down for upgrades at approximately the same time.</target>
+        </trans-unit>
+        <trans-unit id="6de6c3a6-a9cc-4431-8c63-01f8c14c3489" xml:space="preserve">
+          <source>Upgrade domains are not hierarchical and can be thought of as tags.</source>
+          <target state="new">Upgrade domains are not hierarchical and can be thought of as tags.</target>
+        </trans-unit>
+        <trans-unit id="43156941-a39c-4a7e-853d-cda6a907ca79" xml:space="preserve">
+          <source>Whereas fault domains are defined by the physical layout of the nodes in the cluster, upgrade domains are determined by cluster administrators that are based on policies.</source>
+          <target state="new">Whereas fault domains are defined by the physical layout of the nodes in the cluster, upgrade domains are determined by cluster administrators that are based on policies.</target>
+        </trans-unit>
+        <trans-unit id="67c31b5d-2fc6-45e8-9244-e8dd500cddee" xml:space="preserve">
+          <source>The policies are related to upgrades within the cluster.</source>
+          <target state="new">The policies are related to upgrades within the cluster.</target>
+        </trans-unit>
+        <trans-unit id="a5b3d733-be52-4dd2-a358-ff71c46a78c4" xml:space="preserve">
+          <source>More upgrade domains make upgrades more granular by limiting impact on the running cluster and services and by preventing any failure from affecting a large number of services.</source>
+          <target state="new">More upgrade domains make upgrades more granular by limiting impact on the running cluster and services and by preventing any failure from affecting a large number of services.</target>
+        </trans-unit>
+        <trans-unit id="73419f81-9867-4bc5-9200-c530fae6181c" xml:space="preserve">
+          <source>Depending on other policies, such as the time that Service Fabric should wait after upgrading a domain before Service Fabric moves to the next domain, more upgrade domains can also increase the amount of time it takes to complete an upgrade in the cluster.</source>
+          <target state="new">Depending on other policies, such as the time that Service Fabric should wait after upgrading a domain before Service Fabric moves to the next domain, more upgrade domains can also increase the amount of time it takes to complete an upgrade in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="8672d407-6dd4-434f-aeb6-5eb3ffb04801" xml:space="preserve">
+          <source>For these reasons, the Resource Manager collects upgrade domain information and spreads replicas among the upgrade domains in a cluster just like fault domains.</source>
+          <target state="new">For these reasons, the Resource Manager collects upgrade domain information and spreads replicas among the upgrade domains in a cluster just like fault domains.</target>
+        </trans-unit>
+        <trans-unit id="fe55d763-7841-4e85-936c-8056b80c8d1a" xml:space="preserve">
+          <source>Upgrade domains might or might not correspond one-to-one with fault domains, but generally are not expected to correspond one-to-one.</source>
+          <target state="new">Upgrade domains might or might not correspond one-to-one with fault domains, but generally are not expected to correspond one-to-one.</target>
+        </trans-unit>
+        <trans-unit id="0abfc24e-0730-4f1c-a6db-7c23b240747a" xml:space="preserve">
+          <source>The following figure shows a layer of several upgrade domains on top of the previously defined fault domains.</source>
+          <target state="new">The following figure shows a layer of several upgrade domains on top of the previously defined fault domains.</target>
+        </trans-unit>
+        <trans-unit id="eb8d7537-be2a-4277-a713-0620b51203a3" xml:space="preserve">
+          <source>The Resource Manager still spreads the replicas across domains so that no fault or upgrade domain becomes concentrated with replicas to ensure high availability for the service, in spite of either upgrades or faults in the cluster.</source>
+          <target state="new">The Resource Manager still spreads the replicas across domains so that no fault or upgrade domain becomes concentrated with replicas to ensure high availability for the service, in spite of either upgrades or faults in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="4de4d7ed-df4d-479c-ab15-871debada643" xml:space="preserve">
+          <source><bpt id="cae1436b-2309-4728-9a0a-edd11556b700">&lt;linkText&gt;</bpt>Upgrade Domains<ept id="cae1436b-2309-4728-9a0a-edd11556b700">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cae1436b-2309-4728-9a0a-edd11556b700">&lt;linkText&gt;</bpt>Upgrade Domains<ept id="cae1436b-2309-4728-9a0a-edd11556b700">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22423b12-295d-4d04-b6fe-68478aa4f953" xml:space="preserve">
+          <source>Upgrade domains and fault domains are both configured as a part of the node definition within the cluster manifest, as shown below:</source>
+          <target state="new">Upgrade domains and fault domains are both configured as a part of the node definition within the cluster manifest, as shown below:</target>
+        </trans-unit>
+        <trans-unit id="a6e44202-fc53-4050-a67e-66fea9b3cc5b" xml:space="preserve">
+          <source>In Azure deployments, fault domains and upgrade domains are assigned by Azure; therefore, the definition of your nodes and roles within the Infrastructure option for Azure does not include fault domain or upgrade domain information.</source>
+          <target state="new">In Azure deployments, fault domains and upgrade domains are assigned by Azure; therefore, the definition of your nodes and roles within the Infrastructure option for Azure does not include fault domain or upgrade domain information.</target>
+        </trans-unit>
+        <trans-unit id="38900470-ed7c-4d67-bab5-2a1bfb7ecb28" xml:space="preserve">
+          <source>Node properties are user-defined key/value pairs that provide extra metadata for a given node.</source>
+          <target state="new">Node properties are user-defined key/value pairs that provide extra metadata for a given node.</target>
+        </trans-unit>
+        <trans-unit id="462d7d89-4e2b-4534-bfcd-3b4bc5cdc3e7" xml:space="preserve">
+          <source>Examples of node properties include whether the node had a hard drive or video card, the number of spindles in its hard drive, cores, and other physical properties.</source>
+          <target state="new">Examples of node properties include whether the node had a hard drive or video card, the number of spindles in its hard drive, cores, and other physical properties.</target>
+        </trans-unit>
+        <trans-unit id="e215c299-de01-46a4-961c-96f268687bf3" xml:space="preserve">
+          <source>Node properties can also be used to specify more abstract properties to aid in placing policy decisions.</source>
+          <target state="new">Node properties can also be used to specify more abstract properties to aid in placing policy decisions.</target>
+        </trans-unit>
+        <trans-unit id="3a06c697-583f-45bf-9537-0195b72a8101" xml:space="preserve">
+          <source>For example, several nodes within a cluster can be assigned a "color" as a means of segmenting the cluster into different sections.</source>
+          <target state="new">For example, several nodes within a cluster can be assigned a "color" as a means of segmenting the cluster into different sections.</target>
+        </trans-unit>
+        <trans-unit id="3cda62dc-f25b-46e6-866f-edb3a8aa9ba8" xml:space="preserve">
+          <source>The code example shows that node properties are defined for nodes via the cluster manifest as a part of node type definitions, which can then be applied to multiple nodes within the cluster.</source>
+          <target state="new">The code example shows that node properties are defined for nodes via the cluster manifest as a part of node type definitions, which can then be applied to multiple nodes within the cluster.</target>
+        </trans-unit>
+        <trans-unit id="f946c7ab-1c1b-41da-b0a2-385b4dfe1937" xml:space="preserve">
+          <source>The NodeName, NodeType, FaultDomain, and UpgradeDomain placement properties have default values.</source>
+          <target state="new">The NodeName, NodeType, FaultDomain, and UpgradeDomain placement properties have default values.</target>
+        </trans-unit>
+        <trans-unit id="567f7160-797c-4650-9ce4-94a0e40cb722" xml:space="preserve">
+          <source>Service Fabric will automatically supply default values for you so that you can use them when creating your service.</source>
+          <target state="new">Service Fabric will automatically supply default values for you so that you can use them when creating your service.</target>
+        </trans-unit>
+        <trans-unit id="6e10e349-d37c-425d-8335-cd1b41824eed" xml:space="preserve">
+          <source>Users should not specify their own placement properties with these same names.</source>
+          <target state="new">Users should not specify their own placement properties with these same names.</target>
+        </trans-unit>
+        <trans-unit id="bf4537f4-b7d2-4bad-9cfe-08d2545ee9d6" xml:space="preserve">
+          <source>During runtime, the Resource Balancer uses node property information to ensure that services that require specific capabilities are placed on the appropriate nodes.</source>
+          <target state="new">During runtime, the Resource Balancer uses node property information to ensure that services that require specific capabilities are placed on the appropriate nodes.</target>
+        </trans-unit>
+        <trans-unit id="19d019ef-8cd0-4d18-9730-db8cab369053" xml:space="preserve">
+          <source>Node capacities are key/value pairs that define the name and amount of a particular resource that a particular node has available for consumption.</source>
+          <target state="new">Node capacities are key/value pairs that define the name and amount of a particular resource that a particular node has available for consumption.</target>
+        </trans-unit>
+        <trans-unit id="9468b661-5cc2-4864-a5a9-73f32baa9edb" xml:space="preserve">
+          <source>The code example shows a node that it has capacity for a metric called "MemoryInMb" and that it has 2048 MB in memory available by default.</source>
+          <target state="new">The code example shows a node that it has capacity for a metric called "MemoryInMb" and that it has 2048 MB in memory available by default.</target>
+        </trans-unit>
+        <trans-unit id="720c39a3-1b1f-486d-bd7e-4938583be203" xml:space="preserve">
+          <source>Capacities are defined via the cluster manifest, much like node properties.</source>
+          <target state="new">Capacities are defined via the cluster manifest, much like node properties.</target>
+        </trans-unit>
+        <trans-unit id="3eba51e8-f20d-4caf-9534-f7dd67d1a30e" xml:space="preserve">
+          <source><bpt id="b0b61b5c-dd70-4229-b7b7-c2e4fd2f23be">&lt;linkText&gt;</bpt>Node Capacity<ept id="b0b61b5c-dd70-4229-b7b7-c2e4fd2f23be">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b0b61b5c-dd70-4229-b7b7-c2e4fd2f23be">&lt;linkText&gt;</bpt>Node Capacity<ept id="b0b61b5c-dd70-4229-b7b7-c2e4fd2f23be">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4a75790-9eb6-470f-b8bb-5768e65993c6" xml:space="preserve">
+          <source>Because services that run on a node can update their capacity requirements via Reporting Load, the Resource Balancer also checks periodically whether a node is at or over capacity for any of its metrics.</source>
+          <target state="new">Because services that run on a node can update their capacity requirements via Reporting Load, the Resource Balancer also checks periodically whether a node is at or over capacity for any of its metrics.</target>
+        </trans-unit>
+        <trans-unit id="7e80d7d7-2e93-45ac-bebe-f649f8a9f7af" xml:space="preserve">
+          <source>If it is, the Resource Balancer can move services to less loaded nodes to decrease resource contention and to improve overall performance and utilization.</source>
+          <target state="new">If it is, the Resource Balancer can move services to less loaded nodes to decrease resource contention and to improve overall performance and utilization.</target>
+        </trans-unit>
+        <trans-unit id="c97a9acd-d98d-4592-8297-2157c9b9d393" xml:space="preserve">
+          <source>Note that while a given metric could also be listed in the property section of the node type, it is better to list it as a capacity if this is a property of the node that can be consumed during runtime.</source>
+          <target state="new">Note that while a given metric could also be listed in the property section of the node type, it is better to list it as a capacity if this is a property of the node that can be consumed during runtime.</target>
+        </trans-unit>
+        <trans-unit id="f3a14e91-d0ce-4ed1-9c93-f83762b16157" xml:space="preserve">
+          <source>To list it additionally as a property enables a service that depends on "minimum hardware requirements” to query for the node with placement constraints, which might be necessary if the resource is consumed by other services during runtime.</source>
+          <target state="new">To list it additionally as a property enables a service that depends on "minimum hardware requirements” to query for the node with placement constraints, which might be necessary if the resource is consumed by other services during runtime.</target>
+        </trans-unit>
+        <trans-unit id="9f7ceb83-497a-4d7a-8a6c-3df35ea394f9" xml:space="preserve">
+          <source>We recommend also including it as a capacity so that the Resource Balancer can take additional actions.</source>
+          <target state="new">We recommend also including it as a capacity so that the Resource Balancer can take additional actions.</target>
+        </trans-unit>
+        <trans-unit id="8c7ce100-ed99-4271-855b-d695678aa029" xml:space="preserve">
+          <source>When new services are created, the Service Fabric Cluster Resource Balancer uses the information about the capacity of existing nodes and the consumption of existing services to determine if there is sufficient available in the capacity to place the entire new service.</source>
+          <target state="new">When new services are created, the Service Fabric Cluster Resource Balancer uses the information about the capacity of existing nodes and the consumption of existing services to determine if there is sufficient available in the capacity to place the entire new service.</target>
+        </trans-unit>
+        <trans-unit id="46b4c557-8e06-4f9d-9396-021aac133c95" xml:space="preserve">
+          <source>If there is insufficient capacity then the Create Service request is rejected with an error message indicating that there is insufficient cluster capacity remaining.</source>
+          <target state="new">If there is insufficient capacity then the Create Service request is rejected with an error message indicating that there is insufficient cluster capacity remaining.</target>
+        </trans-unit>
+        <trans-unit id="d8995e62-1fbb-4b62-9d31-570398a26619" xml:space="preserve">
+          <source>Within the cluster manifest, the following several different configuration values that define the overall behavior of the Resource Balancer:</source>
+          <target state="new">Within the cluster manifest, the following several different configuration values that define the overall behavior of the Resource Balancer:</target>
+        </trans-unit>
+        <trans-unit id="43163a40-385d-4187-b123-cbe4ccdae57c" xml:space="preserve">
+          <source>Balancing Thresholds govern how imbalanced the cluster can become with regard to a particular metric before the Resource Balancer reacts.</source>
+          <target state="new">Balancing Thresholds govern how imbalanced the cluster can become with regard to a particular metric before the Resource Balancer reacts.</target>
+        </trans-unit>
+        <trans-unit id="e5a71c7f-91d0-4b9e-95c4-5d95d526db18" xml:space="preserve">
+          <source>A balancing threshold is the maximum ratio between the maximally used and minimally used nodes that the Resource Balancer allows to exist before it rebalances the clusters.</source>
+          <target state="new">A balancing threshold is the maximum ratio between the maximally used and minimally used nodes that the Resource Balancer allows to exist before it rebalances the clusters.</target>
+        </trans-unit>
+        <trans-unit id="7688344b-4cb1-4c37-8cc0-dd2919810cba" xml:space="preserve">
+          <source>The following figure shows two examples, where the balancing threshold for the given metric to be is 10.</source>
+          <target state="new">The following figure shows two examples, where the balancing threshold for the given metric to be is 10.</target>
+        </trans-unit>
+        <trans-unit id="a734b981-e240-46fc-aa83-4f6e8ca8bb1c" xml:space="preserve">
+          <source><bpt id="d0899421-f29e-4f22-8b4b-3f27f7925f65">&lt;linkText&gt;</bpt>Balancing Threshold<ept id="d0899421-f29e-4f22-8b4b-3f27f7925f65">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d0899421-f29e-4f22-8b4b-3f27f7925f65">&lt;linkText&gt;</bpt>Balancing Threshold<ept id="d0899421-f29e-4f22-8b4b-3f27f7925f65">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10a38aa3-dcff-4791-8643-b064b66b5788" xml:space="preserve">
+          <source>Note that at this time, the "utilization" on a node does not take into consideration the size of the node as determined by the capacity of the node, but only the absolute use that is currently reported on the node for the specified metric.</source>
+          <target state="new">Note that at this time, the "utilization" on a node does not take into consideration the size of the node as determined by the capacity of the node, but only the absolute use that is currently reported on the node for the specified metric.</target>
+        </trans-unit>
+        <trans-unit id="bce0ec16-2adb-43de-a0f8-3dd51787c389" xml:space="preserve">
+          <source>The code example shows that balancing thresholds for metrics are configured per metric via the FabricSettings element within the cluster manifest.</source>
+          <target state="new">The code example shows that balancing thresholds for metrics are configured per metric via the FabricSettings element within the cluster manifest.</target>
+        </trans-unit>
+        <trans-unit id="e9ff2b2b-0777-4251-a407-600ce348a52b" xml:space="preserve">
+          <source>Activity Thresholds act as a gate on how often the Resource Balancer runs by limiting the cases that the Resource Balancer reacts to when a significant absolute amount of load is present.</source>
+          <target state="new">Activity Thresholds act as a gate on how often the Resource Balancer runs by limiting the cases that the Resource Balancer reacts to when a significant absolute amount of load is present.</target>
+        </trans-unit>
+        <trans-unit id="d494f762-77a4-4a8a-850c-daa74f7bbb2d" xml:space="preserve">
+          <source>In this way, if the cluster is not very busy for a particular metric, the Resource Balancer does not run even if that small amount of metric is very imbalanced within the cluster.</source>
+          <target state="new">In this way, if the cluster is not very busy for a particular metric, the Resource Balancer does not run even if that small amount of metric is very imbalanced within the cluster.</target>
+        </trans-unit>
+        <trans-unit id="642de417-cf17-4637-8f95-ba9d1bef182b" xml:space="preserve">
+          <source>This measure prevents wasting resources by rebalancing the cluster for substantively little gain.</source>
+          <target state="new">This measure prevents wasting resources by rebalancing the cluster for substantively little gain.</target>
+        </trans-unit>
+        <trans-unit id="154a989f-350c-49f3-b9ab-e9c0763d968a" xml:space="preserve">
+          <source>The following figure shows that the balancing threshold for the metric is 4 and that the activity threshold is 1536.</source>
+          <target state="new">The following figure shows that the balancing threshold for the metric is 4 and that the activity threshold is 1536.</target>
+        </trans-unit>
+        <trans-unit id="7b52782f-5f88-4ee5-8fab-21dcd3d72fdd" xml:space="preserve">
+          <source><bpt id="f1dc1906-83f2-4f8b-9820-0f2c0849008b">&lt;linkText&gt;</bpt>Activity Threshold<ept id="f1dc1906-83f2-4f8b-9820-0f2c0849008b">&lt;/linkText&gt;</ept>
+Note also that both the activity and balancing thresholds must be exceeded for the same metric to cause the Resource Balancer to run.</source>
+          <target state="new"><bpt id="f1dc1906-83f2-4f8b-9820-0f2c0849008b">&lt;linkText&gt;</bpt>Activity Threshold<ept id="f1dc1906-83f2-4f8b-9820-0f2c0849008b">&lt;/linkText&gt;</ept>
+Note also that both the activity and balancing thresholds must be exceeded for the same metric to cause the Resource Balancer to run.</target>
+        </trans-unit>
+        <trans-unit id="11ba6ef9-f29c-46e6-9cbc-2c220982cdfe" xml:space="preserve">
+          <source>Triggering either for two separate metrics does not cause the Resource Balancer to run.</source>
+          <target state="new">Triggering either for two separate metrics does not cause the Resource Balancer to run.</target>
+        </trans-unit>
+        <trans-unit id="f3459b2c-c0a8-4f99-b67b-992a8f61cb1a" xml:space="preserve">
+          <source>The code example shows that just like balancing thresholds, activity thresholds are configured per metric via the FabricSettings element within the cluster manifest.</source>
+          <target state="new">The code example shows that just like balancing thresholds, activity thresholds are configured per metric via the FabricSettings element within the cluster manifest.</target>
+        </trans-unit>
+        <trans-unit id="86d1332a-7c35-4e60-a85c-3ab5892050ab" xml:space="preserve">
+          <source>PLBRefreshInterval – Governs how frequently the Resource Balancer scans the information that it must check for constraint violations.</source>
+          <target state="new">PLBRefreshInterval – Governs how frequently the Resource Balancer scans the information that it must check for constraint violations.</target>
+        </trans-unit>
+        <trans-unit id="c689297e-5563-47a4-98c0-6a50c40c773a" xml:space="preserve">
+          <source>Constraint violations include placement constraints that are not met, services with fewer than their required number of instances or replicas, nodes over capacity for some metric, and overloaded fault or upgrade domains, or cluster imbalances by using the balancing and activity thresholds and its current view of load on the nodes in the cluster.</source>
+          <target state="new">Constraint violations include placement constraints that are not met, services with fewer than their required number of instances or replicas, nodes over capacity for some metric, and overloaded fault or upgrade domains, or cluster imbalances by using the balancing and activity thresholds and its current view of load on the nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="68d0b3f3-3825-46c9-be82-77a6fae8477e" xml:space="preserve">
+          <source>The refresh interval is defined in seconds, and the default is 1.</source>
+          <target state="new">The refresh interval is defined in seconds, and the default is 1.</target>
+        </trans-unit>
+        <trans-unit id="18eb8d02-da0d-44e2-8014-8681caadcddc" xml:space="preserve">
+          <source>Frequency of constraint check and placement can alternatively be controlled by two new intervals (MinConstraintCheckInterval and MinPlacementInterval) and if the new parameters are defined, PLBRefreshInterval will not be used and cannot be defined.</source>
+          <target state="new">Frequency of constraint check and placement can alternatively be controlled by two new intervals (MinConstraintCheckInterval and MinPlacementInterval) and if the new parameters are defined, PLBRefreshInterval will not be used and cannot be defined.</target>
+        </trans-unit>
+        <trans-unit id="294c88fc-6877-44b8-9105-887e303da232" xml:space="preserve">
+          <source>MinConstraintCheckInterval - Governs how frequently the Resource Balancer scans the information that it must check for constraint violations.</source>
+          <target state="new">MinConstraintCheckInterval - Governs how frequently the Resource Balancer scans the information that it must check for constraint violations.</target>
+        </trans-unit>
+        <trans-unit id="3b994cf7-e44c-4f8f-b959-9428be6fec21" xml:space="preserve">
+          <source>Constraint violations include placement constraints that are not met, services with fewer than their required number of instances or replicas, nodes over capacity for some metric, and overloaded fault or upgrade domains, or cluster imbalances by using the balancing and activity thresholds and its current view of load on the nodes in the cluster.</source>
+          <target state="new">Constraint violations include placement constraints that are not met, services with fewer than their required number of instances or replicas, nodes over capacity for some metric, and overloaded fault or upgrade domains, or cluster imbalances by using the balancing and activity thresholds and its current view of load on the nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="9b50dddc-0cf6-4528-8c11-73ae680d824b" xml:space="preserve">
+          <source>The constraint check interval is defined in seconds.</source>
+          <target state="new">The constraint check interval is defined in seconds.</target>
+        </trans-unit>
+        <trans-unit id="0fe0a6cd-59fe-4511-82f1-ecd982b436e9" xml:space="preserve">
+          <source>If constraint check interval is not defined, its default value will be equal to the value of PLBRefreshInterval (both values cannot be specified at the same time).</source>
+          <target state="new">If constraint check interval is not defined, its default value will be equal to the value of PLBRefreshInterval (both values cannot be specified at the same time).</target>
+        </trans-unit>
+        <trans-unit id="0c2f3114-d5e6-4e85-b4cd-29cd48a8c820" xml:space="preserve">
+          <source>MinPlacementInterval – Governs how frequently the Resource Balancer checks if there are new instances or replicas that need to be placed and tries to place them.</source>
+          <target state="new">MinPlacementInterval – Governs how frequently the Resource Balancer checks if there are new instances or replicas that need to be placed and tries to place them.</target>
+        </trans-unit>
+        <trans-unit id="31485192-d3b2-4783-9df4-505851d74b08" xml:space="preserve">
+          <source>The placement interval is defined in seconds.</source>
+          <target state="new">The placement interval is defined in seconds.</target>
+        </trans-unit>
+        <trans-unit id="64aac339-8807-4707-9b00-95b6c4fba21e" xml:space="preserve">
+          <source>If placement interval is not defined, default value is equal to the value of PLBRefreshInterval (both values cannot be specified at the same time).</source>
+          <target state="new">If placement interval is not defined, default value is equal to the value of PLBRefreshInterval (both values cannot be specified at the same time).</target>
+        </trans-unit>
+        <trans-unit id="586be5d8-48c1-43e1-88b8-1ee77f49ff1e" xml:space="preserve">
+          <source>MinLoadBalancingInterval – Establishes the minimum amount of time between Resource Balancing rounds.</source>
+          <target state="new">MinLoadBalancingInterval – Establishes the minimum amount of time between Resource Balancing rounds.</target>
+        </trans-unit>
+        <trans-unit id="b38075d8-98b7-4d35-9878-a99d6b07fb11" xml:space="preserve">
+          <source>If the Resource Balancer took action based on information from the scan that is performed during the last PLBRefreshInterval interval, it does not run again for at least the same amount of time.</source>
+          <target state="new">If the Resource Balancer took action based on information from the scan that is performed during the last PLBRefreshInterval interval, it does not run again for at least the same amount of time.</target>
+        </trans-unit>
+        <trans-unit id="b134bac7-931b-481a-8688-2d5d80fe0c86" xml:space="preserve">
+          <source>It is defined in seconds, and the default is 5.</source>
+          <target state="new">It is defined in seconds, and the default is 5.</target>
+        </trans-unit>
+        <trans-unit id="fc756ee1-df40-42ff-bbdb-543a0985d217" xml:space="preserve">
+          <source>Note that these values are aggressive, but that load balancing overall only occurs in the cluster if the balancing and activity thresholds are met for a given metric.</source>
+          <target state="new">Note that these values are aggressive, but that load balancing overall only occurs in the cluster if the balancing and activity thresholds are met for a given metric.</target>
+        </trans-unit>
+        <trans-unit id="86ef41e2-e47e-4831-b045-90ebf8d0075a" xml:space="preserve">
+          <source>The code example shows that if accurate and active load balancing is not required for a particular cluster, these values can be made less aggressive through the following configuration within the FabricSettings element.</source>
+          <target state="new">The code example shows that if accurate and active load balancing is not required for a particular cluster, these values can be made less aggressive through the following configuration within the FabricSettings element.</target>
+        </trans-unit>
+        <trans-unit id="7c105679-74e8-44e2-b528-e6b3df082348" xml:space="preserve">
+          <source>In this example configuration, minimal time distance between two constraint checks is 10 seconds, for placement 5 seconds while load balancing will occur every 5 minutes.</source>
+          <target state="new">In this example configuration, minimal time distance between two constraint checks is 10 seconds, for placement 5 seconds while load balancing will occur every 5 minutes.</target>
+        </trans-unit>
+        <trans-unit id="c7c3ac50-0ca3-4f14-9529-bc4f95b5c21b" xml:space="preserve">
+          <source>Note that PLBRefreshInterval is not defined in this case.</source>
+          <target state="new">Note that PLBRefreshInterval is not defined in this case.</target>
+        </trans-unit>
+        <trans-unit id="c798c0e9-7874-4574-834b-e36b157b799a" xml:space="preserve">
+          <source>In the second example configuration below we have PLBRefreshInterval and MinLoadBalancingInterval defined.</source>
+          <target state="new">In the second example configuration below we have PLBRefreshInterval and MinLoadBalancingInterval defined.</target>
+        </trans-unit>
+        <trans-unit id="0fe0c923-93d2-41ab-98fe-23e9c9f4fb4b" xml:space="preserve">
+          <source>Since PLBRefreshInterval is set to 2 seconds, both MinPlacementInterval and MinConstraintCheckInterval will have their value set to 2 seconds as well.</source>
+          <target state="new">Since PLBRefreshInterval is set to 2 seconds, both MinPlacementInterval and MinConstraintCheckInterval will have their value set to 2 seconds as well.</target>
+        </trans-unit>
+        <trans-unit id="9b5223ae-1ddc-4e68-9b42-661b9f1c4004" xml:space="preserve">
+          <source>For more information: <bpt id="1c70ddb9-a1ea-403a-bd7b-a9d9c1537e03">&lt;linkText&gt;</bpt>Resource Balancer Architecture<ept id="1c70ddb9-a1ea-403a-bd7b-a9d9c1537e03">&lt;/linkText&gt;</ept><bpt id="1c70ddb9-a1ea-403a-bd7b-a9d9c1537e03">&lt;title&gt;</bpt><ept id="1c70ddb9-a1ea-403a-bd7b-a9d9c1537e03">&lt;/title&gt;</ept></source>
+          <target state="new">For more information: <bpt id="1c70ddb9-a1ea-403a-bd7b-a9d9c1537e03">&lt;linkText&gt;</bpt>Resource Balancer Architecture<ept id="1c70ddb9-a1ea-403a-bd7b-a9d9c1537e03">&lt;/linkText&gt;</ept><bpt id="1c70ddb9-a1ea-403a-bd7b-a9d9c1537e03">&lt;title&gt;</bpt><ept id="1c70ddb9-a1ea-403a-bd7b-a9d9c1537e03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a90f1b0-15c8-4518-934b-509c13d245c7" xml:space="preserve">
+          <source>media/service-fabric-resource-balancer-cluster-description/FD1.png</source>
+          <target state="new">media/service-fabric-resource-balancer-cluster-description/FD1.png</target>
+        </trans-unit>
+        <trans-unit id="5ed04e7a-7f8a-4586-ae7e-699d43931d18" xml:space="preserve">
+          <source>media/service-fabric-resource-balancer-cluster-description/FD2.png</source>
+          <target state="new">media/service-fabric-resource-balancer-cluster-description/FD2.png</target>
+        </trans-unit>
+        <trans-unit id="cc51ef6b-78b7-493c-aa61-7592d23f59ee" xml:space="preserve">
+          <source>media/service-fabric-resource-balancer-cluster-description/UD.png</source>
+          <target state="new">media/service-fabric-resource-balancer-cluster-description/UD.png</target>
+        </trans-unit>
+        <trans-unit id="bc0071db-140e-4008-9870-a39a85daa395" xml:space="preserve">
+          <source>media/service-fabric-resource-balancer-cluster-description/NC.png</source>
+          <target state="new">media/service-fabric-resource-balancer-cluster-description/NC.png</target>
+        </trans-unit>
+        <trans-unit id="5c70513f-519f-43e8-8702-21222bc9b1da" xml:space="preserve">
+          <source>media/service-fabric-resource-balancer-cluster-description/Config.png</source>
+          <target state="new">media/service-fabric-resource-balancer-cluster-description/Config.png</target>
+        </trans-unit>
+        <trans-unit id="bfa135d7-9b5a-4eb1-bf5f-29d6169748bb" xml:space="preserve">
+          <source>media/service-fabric-resource-balancer-cluster-description/Thresholds.png</source>
+          <target state="new">media/service-fabric-resource-balancer-cluster-description/Thresholds.png</target>
+        </trans-unit>
+      </group>
+      <group id="b714768c-d792-4ff4-9a9b-0e6391e2da55" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d7575acf-f9dc-493f-929e-f969f1be9e5a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d7575acf-f9dc-493f-929e-f969f1be9e5a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="dbb2e6e8-4414-4fb1-b1e3-9dc5b1fe9dfd">
+        <trans-unit id="5240bca2-5e4d-45eb-84a0-3b206137796e" xml:space="preserve">
+          <source>Follow these steps to install and run MongoDB on a virtual machine running CentOS Linux.</source>
+          <target state="new">Follow these steps to install and run MongoDB on a virtual machine running CentOS Linux.</target>
+        </trans-unit>
+        <trans-unit id="e5a51089-5b94-4702-a793-e4b8cf4cdf80" xml:space="preserve">
+          <source>MongoDB security features, such as authentication and IP address binding, are not enabled by default.</source>
+          <target state="new">MongoDB security features, such as authentication and IP address binding, are not enabled by default.</target>
+        </trans-unit>
+        <trans-unit id="b682707b-aec9-4d9f-a6e1-f2a5dd2113f9" xml:space="preserve">
+          <source>Security features should be enabled before deploying MongoDB to a production environment.</source>
+          <target state="new">Security features should be enabled before deploying MongoDB to a production environment.</target>
+        </trans-unit>
+        <trans-unit id="5f78b9f0-0a7f-4477-a7fa-b2480e00a267" xml:space="preserve">
+          <source>See <bpt id="190d4110-fe35-405c-b79b-24c8a62e9956">&lt;linkText&gt;</bpt>Security and Authentication<ept id="190d4110-fe35-405c-b79b-24c8a62e9956">&lt;/linkText&gt;</ept><bpt id="190d4110-fe35-405c-b79b-24c8a62e9956">&lt;title&gt;</bpt><ept id="190d4110-fe35-405c-b79b-24c8a62e9956">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="190d4110-fe35-405c-b79b-24c8a62e9956">&lt;linkText&gt;</bpt>Security and Authentication<ept id="190d4110-fe35-405c-b79b-24c8a62e9956">&lt;/linkText&gt;</ept><bpt id="190d4110-fe35-405c-b79b-24c8a62e9956">&lt;title&gt;</bpt><ept id="190d4110-fe35-405c-b79b-24c8a62e9956">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="0a47f9af-8285-41a6-a3cf-77e129bdcdb6" xml:space="preserve">
+          <source>Configure the Package Management System (YUM) so that you can install MongoDB.</source>
+          <target state="new">Configure the Package Management System (YUM) so that you can install MongoDB.</target>
+        </trans-unit>
+        <trans-unit id="165a5734-7858-4312-be69-0b4bec4f9779" xml:space="preserve">
+          <source>Create a <bpt id="ed51ca03-488a-42e0-a655-4fbadc347a50">&lt;em&gt;</bpt>/etc/yum.repos.d/10gen.repo<ept id="ed51ca03-488a-42e0-a655-4fbadc347a50">&lt;/em&gt;</ept> file to hold information about your repository and add the following:</source>
+          <target state="new">Create a <bpt id="ed51ca03-488a-42e0-a655-4fbadc347a50">&lt;em&gt;</bpt>/etc/yum.repos.d/10gen.repo<ept id="ed51ca03-488a-42e0-a655-4fbadc347a50">&lt;/em&gt;</ept> file to hold information about your repository and add the following:</target>
+        </trans-unit>
+        <trans-unit id="cc822d28-b779-4031-b164-09f57abfdc9c" xml:space="preserve">
+          <source>Save the repo file and then run the following command to update the local package database:</source>
+          <target state="new">Save the repo file and then run the following command to update the local package database:</target>
+        </trans-unit>
+        <trans-unit id="a7933543-bc62-4ba3-b77b-9f28f3e2bc8f" xml:space="preserve">
+          <source>To install the package, run the following command to install the latest stable version of MongoDB and the associated tools:</source>
+          <target state="new">To install the package, run the following command to install the latest stable version of MongoDB and the associated tools:</target>
+        </trans-unit>
+        <trans-unit id="e5ddf633-c7b2-4652-8bbb-ba68dba2e928" xml:space="preserve">
+          <source>Wait while MongoDB downloads and installs.</source>
+          <target state="new">Wait while MongoDB downloads and installs.</target>
+        </trans-unit>
+        <trans-unit id="c4c9d8e1-cf0a-4f5a-95f4-e91cc40a4940" xml:space="preserve">
+          <source>Create a data directory.</source>
+          <target state="new">Create a data directory.</target>
+        </trans-unit>
+        <trans-unit id="ce0a3ebc-7ed7-425d-b263-ffc8b29f4459" xml:space="preserve">
+          <source>By default MongoDB stores data in the <bpt id="1c10626d-d009-4a61-9d87-f5e62e2ffa8a">&lt;em&gt;</bpt>/data/db<ept id="1c10626d-d009-4a61-9d87-f5e62e2ffa8a">&lt;/em&gt;</ept> directory, but you must create that directory.</source>
+          <target state="new">By default MongoDB stores data in the <bpt id="1c10626d-d009-4a61-9d87-f5e62e2ffa8a">&lt;em&gt;</bpt>/data/db<ept id="1c10626d-d009-4a61-9d87-f5e62e2ffa8a">&lt;/em&gt;</ept> directory, but you must create that directory.</target>
+        </trans-unit>
+        <trans-unit id="9c65b6c6-0aa7-4e34-be09-7b7bd0539613" xml:space="preserve">
+          <source>To create it, run:</source>
+          <target state="new">To create it, run:</target>
+        </trans-unit>
+        <trans-unit id="53888784-59dd-4209-b156-bb41922a86d2" xml:space="preserve">
+          <source>For more information on installing MongoDB on Linux, see <bpt id="f2f96fbf-202c-40e3-a627-ede3a210df8b">&lt;linkText&gt;</bpt>Quickstart Unix[quickstartunix]<ept id="f2f96fbf-202c-40e3-a627-ede3a210df8b">&lt;/linkText&gt;</ept><bpt id="f2f96fbf-202c-40e3-a627-ede3a210df8b">&lt;title&gt;</bpt><ept id="f2f96fbf-202c-40e3-a627-ede3a210df8b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on installing MongoDB on Linux, see <bpt id="f2f96fbf-202c-40e3-a627-ede3a210df8b">&lt;linkText&gt;</bpt>Quickstart Unix[quickstartunix]<ept id="f2f96fbf-202c-40e3-a627-ede3a210df8b">&lt;/linkText&gt;</ept><bpt id="f2f96fbf-202c-40e3-a627-ede3a210df8b">&lt;title&gt;</bpt><ept id="f2f96fbf-202c-40e3-a627-ede3a210df8b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f471f9f1-5177-4181-83c2-fe005cfa187e" xml:space="preserve">
+          <source>To start the database, run:</source>
+          <target state="new">To start the database, run:</target>
+        </trans-unit>
+        <trans-unit id="c88ff779-e856-46ba-a5be-1eb161538410" xml:space="preserve">
+          <source>All log messages will be directed to the <bpt id="8c2c857f-1f18-4e2b-8770-db5935a91e13">&lt;em&gt;</bpt>/srv/datadrive/data/mongod.log<ept id="8c2c857f-1f18-4e2b-8770-db5935a91e13">&lt;/em&gt;</ept> file as MongoDB server starts and preallocates journal files.</source>
+          <target state="new">All log messages will be directed to the <bpt id="8c2c857f-1f18-4e2b-8770-db5935a91e13">&lt;em&gt;</bpt>/srv/datadrive/data/mongod.log<ept id="8c2c857f-1f18-4e2b-8770-db5935a91e13">&lt;/em&gt;</ept> file as MongoDB server starts and preallocates journal files.</target>
+        </trans-unit>
+        <trans-unit id="1223c05a-e082-4334-9ab9-bf23fa8ccb1c" xml:space="preserve">
+          <source>It may take several minutes for MongoDB to preallocate the journal files and start listening for connections.</source>
+          <target state="new">It may take several minutes for MongoDB to preallocate the journal files and start listening for connections.</target>
+        </trans-unit>
+        <trans-unit id="1a97fc2e-64e1-4bce-9fff-c87f4f910c07" xml:space="preserve">
+          <source>To start the MongoDB administrative shell, open a separate SSH or PuTTY window and run:</source>
+          <target state="new">To start the MongoDB administrative shell, open a separate SSH or PuTTY window and run:</target>
+        </trans-unit>
+        <trans-unit id="ac2ba549-d770-4710-9d4d-dd2b3ab3bd27" xml:space="preserve">
+          <source>db.foo.save ( { a:1 } )
+db.foo.find()
+    { _id : ..., a : 1 }
+show dbs  
+    ...
+show collections  
+    ...  
+help  </source>
+          <target state="new">db.foo.save ( { a:1 } )
+db.foo.find()
+    { _id : ..., a : 1 }
+show dbs  
+    ...
+show collections  
+    ...  
+help  </target>
+        </trans-unit>
+        <trans-unit id="bce470ca-7ee0-4422-b73c-f2398e1a697b" xml:space="preserve">
+          <source>The database is created by the insert.</source>
+          <target state="new">The database is created by the insert.</target>
+        </trans-unit>
+        <trans-unit id="4cdae087-2d88-4c20-9c8e-448e0d6760f4" xml:space="preserve">
+          <source>Once MongoDB is installed you must configure an endpoint so that MongoDB can be accessed remotely.</source>
+          <target state="new">Once MongoDB is installed you must configure an endpoint so that MongoDB can be accessed remotely.</target>
+        </trans-unit>
+        <trans-unit id="d8f9de2a-a619-4a65-81c4-eac451f500b4" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="33c72ecd-e2be-45df-b685-f4c3dc2467d4">&lt;strong&gt;</bpt>Virtual Machines<ept id="33c72ecd-e2be-45df-b685-f4c3dc2467d4">&lt;/strong&gt;</ept>, then click the name of your new virtual machine, then click <bpt id="63a23484-7d55-4486-847f-7f420b5e330a">&lt;strong&gt;</bpt>Endpoints<ept id="63a23484-7d55-4486-847f-7f420b5e330a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Management Portal, click <bpt id="33c72ecd-e2be-45df-b685-f4c3dc2467d4">&lt;strong&gt;</bpt>Virtual Machines<ept id="33c72ecd-e2be-45df-b685-f4c3dc2467d4">&lt;/strong&gt;</ept>, then click the name of your new virtual machine, then click <bpt id="63a23484-7d55-4486-847f-7f420b5e330a">&lt;strong&gt;</bpt>Endpoints<ept id="63a23484-7d55-4486-847f-7f420b5e330a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5802aefc-ad60-4a89-974c-1d570ff0a107" xml:space="preserve">
+          <source><bpt id="5e1e7ac8-5bd6-4971-94d6-7b94df64cc3f">&lt;linkText&gt;</bpt>Endpoints<ept id="5e1e7ac8-5bd6-4971-94d6-7b94df64cc3f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5e1e7ac8-5bd6-4971-94d6-7b94df64cc3f">&lt;linkText&gt;</bpt>Endpoints<ept id="5e1e7ac8-5bd6-4971-94d6-7b94df64cc3f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0fbb3472-f9cb-452d-9f05-40baa5e8e056" xml:space="preserve">
+          <source>Click <bpt id="e4dbcbb3-752b-40c9-829e-e57772d8ec26">&lt;strong&gt;</bpt>Add Endpoint<ept id="e4dbcbb3-752b-40c9-829e-e57772d8ec26">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="e4dbcbb3-752b-40c9-829e-e57772d8ec26">&lt;strong&gt;</bpt>Add Endpoint<ept id="e4dbcbb3-752b-40c9-829e-e57772d8ec26">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="8d15c68a-06b0-4e78-a66f-9d85a537956f" xml:space="preserve">
+          <source><bpt id="a290bc18-bfbd-4ab8-8db1-24e4e9036eb8">&lt;linkText&gt;</bpt>Endpoints<ept id="a290bc18-bfbd-4ab8-8db1-24e4e9036eb8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a290bc18-bfbd-4ab8-8db1-24e4e9036eb8">&lt;linkText&gt;</bpt>Endpoints<ept id="a290bc18-bfbd-4ab8-8db1-24e4e9036eb8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac787e2e-42ed-4f53-ad69-c08f1960155e" xml:space="preserve">
+          <source>Add an endpoint with the following settings:</source>
+          <target state="new">Add an endpoint with the following settings:</target>
+        </trans-unit>
+        <trans-unit id="d8f327e1-96c8-4df5-8bc0-d22ff6317da8" xml:space="preserve">
+          <source><bpt id="c349cfb4-dd15-4741-b22d-50fa9e1fcfc4">&lt;strong&gt;</bpt>Name<ept id="c349cfb4-dd15-4741-b22d-50fa9e1fcfc4">&lt;/strong&gt;</ept>: Mongo</source>
+          <target state="new"><bpt id="c349cfb4-dd15-4741-b22d-50fa9e1fcfc4">&lt;strong&gt;</bpt>Name<ept id="c349cfb4-dd15-4741-b22d-50fa9e1fcfc4">&lt;/strong&gt;</ept>: Mongo</target>
+        </trans-unit>
+        <trans-unit id="d2ec440f-b3bd-417f-941e-7a127b8c90cf" xml:space="preserve">
+          <source><bpt id="7e494b6d-768e-460e-9382-a9b6d1052ae2">&lt;strong&gt;</bpt>Protocol<ept id="7e494b6d-768e-460e-9382-a9b6d1052ae2">&lt;/strong&gt;</ept>: TCP</source>
+          <target state="new"><bpt id="7e494b6d-768e-460e-9382-a9b6d1052ae2">&lt;strong&gt;</bpt>Protocol<ept id="7e494b6d-768e-460e-9382-a9b6d1052ae2">&lt;/strong&gt;</ept>: TCP</target>
+        </trans-unit>
+        <trans-unit id="a09d3d5c-7ad0-422c-879c-33f5ccc50b4c" xml:space="preserve">
+          <source><bpt id="4cf5e584-6446-4824-b3ce-116614928d7a">&lt;strong&gt;</bpt>Public Port<ept id="4cf5e584-6446-4824-b3ce-116614928d7a">&lt;/strong&gt;</ept>: 27017</source>
+          <target state="new"><bpt id="4cf5e584-6446-4824-b3ce-116614928d7a">&lt;strong&gt;</bpt>Public Port<ept id="4cf5e584-6446-4824-b3ce-116614928d7a">&lt;/strong&gt;</ept>: 27017</target>
+        </trans-unit>
+        <trans-unit id="4965171b-12d7-4745-b78d-c89ddec40d59" xml:space="preserve">
+          <source><bpt id="7e8019c2-2bbb-460a-8268-5297a2178584">&lt;strong&gt;</bpt>Private Port<ept id="7e8019c2-2bbb-460a-8268-5297a2178584">&lt;/strong&gt;</ept>: 27017</source>
+          <target state="new"><bpt id="7e8019c2-2bbb-460a-8268-5297a2178584">&lt;strong&gt;</bpt>Private Port<ept id="7e8019c2-2bbb-460a-8268-5297a2178584">&lt;/strong&gt;</ept>: 27017</target>
+        </trans-unit>
+        <trans-unit id="76090a6f-89a4-44b8-83f4-6456ba7d3088" xml:space="preserve">
+          <source>This will allow MongoDB to be accessed remotely.</source>
+          <target state="new">This will allow MongoDB to be accessed remotely.</target>
+        </trans-unit>
+        <trans-unit id="6b35a44e-904e-4f23-b5e7-4f3ebb6ab001" xml:space="preserve">
+          <source>http://www.mongodb.org/display/DOCS/Quickstart+Unix</source>
+          <target state="new">http://www.mongodb.org/display/DOCS/Quickstart+Unix</target>
+        </trans-unit>
+        <trans-unit id="e6aef9c6-53e8-44a8-92d9-7cd25e9c51dc" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png</source>
+          <target state="new">./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png</target>
+        </trans-unit>
+        <trans-unit id="5d71462b-d115-4990-9f66-345d60aba4dc" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png</source>
+          <target state="new">./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png</target>
+        </trans-unit>
+      </group>
+      <group id="e7024ec2-5393-45ee-8fa7-cae970f4e33b" />
+    </body>
+  </file>
+</xliff>

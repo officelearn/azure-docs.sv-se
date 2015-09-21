@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="10cddcbd-d3e6-4437-ac00-ea752327685e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="10cddcbd-d3e6-4437-ac00-ea752327685e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0cd321d2-c99b-41a8-a320-39623ef3518f">
+        <trans-unit id="5297fc32-31a7-4295-b389-ccb5c8c84968" xml:space="preserve">
+          <source>How to Create a Media Processor | Microsoft Azure</source>
+          <target state="new">How to Create a Media Processor | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="76fed452-9395-4713-bc34-9b3231a6ac77" xml:space="preserve">
+          <source>Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services. Code samples are written in C# and use the Media Services SDK for .NET.</source>
+          <target state="new">Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services. Code samples are written in C# and use the Media Services SDK for .NET.</target>
+        </trans-unit>
+        <trans-unit id="9a30f15d-2f5b-4736-96c6-b6e71b9389d9" xml:space="preserve">
+          <source>In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content.</source>
+          <target state="new">In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content.</target>
+        </trans-unit>
+        <trans-unit id="35780975-b0ac-4cec-a73c-7edb56331590" xml:space="preserve">
+          <source>You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.</source>
+          <target state="new">You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.</target>
+        </trans-unit>
+        <trans-unit id="4a8b9dda-d6a0-405c-8c48-81e2de5d3c53" xml:space="preserve">
+          <source>The following table provides the name and description of each available media processor.</source>
+          <target state="new">The following table provides the name and description of each available media processor.</target>
+        </trans-unit>
+        <trans-unit id="6902b278-9534-4f80-ad58-aaa1a73de155" xml:space="preserve">
+          <source>Media Processor Name</source>
+          <target state="new">Media Processor Name</target>
+        </trans-unit>
+        <trans-unit id="8bdf98e2-09c3-4dc3-b588-a17a46b49573" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="b84bcc88-7113-4cf9-b24e-9c8f3aaccdb6" xml:space="preserve">
+          <source>More Information</source>
+          <target state="new">More Information</target>
+        </trans-unit>
+        <trans-unit id="790dc7d2-72d0-4175-8bb9-321a05485d8e" xml:space="preserve">
+          <source>Azure Media Encoder</source>
+          <target state="new">Azure Media Encoder</target>
+        </trans-unit>
+        <trans-unit id="cefaa80e-22ee-44f3-ad25-8adde120ea01" xml:space="preserve">
+          <source>Lets you run encoding tasks using the Azure Media Encoder.</source>
+          <target state="new">Lets you run encoding tasks using the Azure Media Encoder.</target>
+        </trans-unit>
+        <trans-unit id="cc10fe86-abb4-4001-9db9-029e7dd6e311" xml:space="preserve">
+          <source>[Azure Media Encoder](media-services-encode-asset.md#azure<bpt id="62397f9b-3fd6-4082-89c0-a832a230aaba">&lt;em&gt;</bpt>media<ept id="62397f9b-3fd6-4082-89c0-a832a230aaba">&lt;/em&gt;</ept>encoder)</source>
+          <target state="new">[Azure Media Encoder](media-services-encode-asset.md#azure<bpt id="62397f9b-3fd6-4082-89c0-a832a230aaba">&lt;em&gt;</bpt>media<ept id="62397f9b-3fd6-4082-89c0-a832a230aaba">&lt;/em&gt;</ept>encoder)</target>
+        </trans-unit>
+        <trans-unit id="cac102e8-95fa-4438-9c1e-81bb8cc30df8" xml:space="preserve">
+          <source>Media Encoder Standard</source>
+          <target state="new">Media Encoder Standard</target>
+        </trans-unit>
+        <trans-unit id="483bc9a1-bbd0-489e-a922-de50a684c6cc" xml:space="preserve">
+          <source>Lets you run encoding tasks using the Media Encoder Standard.</source>
+          <target state="new">Lets you run encoding tasks using the Media Encoder Standard.</target>
+        </trans-unit>
+        <trans-unit id="438ba422-c97e-4edd-bbe6-3abe42ff0141" xml:space="preserve">
+          <source>[Azure Media Encoder](media-services-encode-asset.md#media<bpt id="c162f17c-6ccc-493a-8bfb-35f5c574a3ae">&lt;em&gt;</bpt>encoder<ept id="c162f17c-6ccc-493a-8bfb-35f5c574a3ae">&lt;/em&gt;</ept>standard)</source>
+          <target state="new">[Azure Media Encoder](media-services-encode-asset.md#media<bpt id="c162f17c-6ccc-493a-8bfb-35f5c574a3ae">&lt;em&gt;</bpt>encoder<ept id="c162f17c-6ccc-493a-8bfb-35f5c574a3ae">&lt;/em&gt;</ept>standard)</target>
+        </trans-unit>
+        <trans-unit id="059a5707-2223-4fea-873c-b550dabff2ed" xml:space="preserve">
+          <source>Media Encoder Premium Workflow</source>
+          <target state="new">Media Encoder Premium Workflow</target>
+        </trans-unit>
+        <trans-unit id="f81bc2af-301c-4ed0-b7c1-3bf93fc6cc89" xml:space="preserve">
+          <source>Lets you run encoding tasks using Media Encoder Premium Workflow.</source>
+          <target state="new">Lets you run encoding tasks using Media Encoder Premium Workflow.</target>
+        </trans-unit>
+        <trans-unit id="7f7fa1de-9bc8-4d28-953c-1a28709e0766" xml:space="preserve">
+          <source>[Media Encoder Premium Workflow](media-services-encode-asset.md#media<bpt id="3d5067db-c43a-4be4-a6e9-169e8574970d">&lt;em&gt;</bpt>encoder<ept id="3d5067db-c43a-4be4-a6e9-169e8574970d">&lt;/em&gt;</ept>premium_wokrflow)</source>
+          <target state="new">[Media Encoder Premium Workflow](media-services-encode-asset.md#media<bpt id="3d5067db-c43a-4be4-a6e9-169e8574970d">&lt;em&gt;</bpt>encoder<ept id="3d5067db-c43a-4be4-a6e9-169e8574970d">&lt;/em&gt;</ept>premium_wokrflow)</target>
+        </trans-unit>
+        <trans-unit id="b34a6870-4e7e-44cb-b2f1-2e45322d4e11" xml:space="preserve">
+          <source>Azure Media Indexer</source>
+          <target state="new">Azure Media Indexer</target>
+        </trans-unit>
+        <trans-unit id="03bad476-0dfc-4e93-9496-3bc79eb1bd51" xml:space="preserve">
+          <source>Enables you to make media files and content searchable, as well as generate closed captioning tracks and keywords.</source>
+          <target state="new">Enables you to make media files and content searchable, as well as generate closed captioning tracks and keywords.</target>
+        </trans-unit>
+        <trans-unit id="6ad8053e-b57b-47e6-a8a4-f0694bae9454" xml:space="preserve">
+          <source><bpt id="4c96a249-db62-48b6-97ae-617cb9563b11">&lt;linkText&gt;</bpt>Indexing Media Files with Azure Media Indexer<ept id="4c96a249-db62-48b6-97ae-617cb9563b11">&lt;/linkText&gt;</ept><bpt id="4c96a249-db62-48b6-97ae-617cb9563b11">&lt;title&gt;</bpt><ept id="4c96a249-db62-48b6-97ae-617cb9563b11">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="4c96a249-db62-48b6-97ae-617cb9563b11">&lt;linkText&gt;</bpt>Indexing Media Files with Azure Media Indexer<ept id="4c96a249-db62-48b6-97ae-617cb9563b11">&lt;/linkText&gt;</ept><bpt id="4c96a249-db62-48b6-97ae-617cb9563b11">&lt;title&gt;</bpt><ept id="4c96a249-db62-48b6-97ae-617cb9563b11">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="142a0555-d4d1-4ed9-9065-906a56aa4b6f" xml:space="preserve">
+          <source>Azure Media Hyperlapse (preview)</source>
+          <target state="new">Azure Media Hyperlapse (preview)</target>
+        </trans-unit>
+        <trans-unit id="c471e266-5001-4136-8200-282056d03d0e" xml:space="preserve">
+          <source>Enables you to smooth out the "bumps" in your video with video stabilization.</source>
+          <target state="new">Enables you to smooth out the "bumps" in your video with video stabilization.</target>
+        </trans-unit>
+        <trans-unit id="92a746de-f6f0-4229-9bc9-2a05bc2242f4" xml:space="preserve">
+          <source>Also allows you to speed up your content into a consumable clip.</source>
+          <target state="new">Also allows you to speed up your content into a consumable clip.</target>
+        </trans-unit>
+        <trans-unit id="4971dfcb-5d99-43bd-9eab-2018bd9a2af6" xml:space="preserve">
+          <source><bpt id="e700102c-9819-4e17-95b1-07d8925d0cf5">&lt;linkText&gt;</bpt>Azure Media Hyperlapse<ept id="e700102c-9819-4e17-95b1-07d8925d0cf5">&lt;/linkText&gt;</ept><bpt id="e700102c-9819-4e17-95b1-07d8925d0cf5">&lt;title&gt;</bpt><ept id="e700102c-9819-4e17-95b1-07d8925d0cf5">&lt;/title&gt;</ept>&lt;/a&gt;</source>
+          <target state="new"><bpt id="e700102c-9819-4e17-95b1-07d8925d0cf5">&lt;linkText&gt;</bpt>Azure Media Hyperlapse<ept id="e700102c-9819-4e17-95b1-07d8925d0cf5">&lt;/linkText&gt;</ept><bpt id="e700102c-9819-4e17-95b1-07d8925d0cf5">&lt;title&gt;</bpt><ept id="e700102c-9819-4e17-95b1-07d8925d0cf5">&lt;/title&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="be05b53e-893d-42ea-85d2-5751b050fd2b" xml:space="preserve">
+          <source>Storage Decryption</source>
+          <target state="new">Storage Decryption</target>
+        </trans-unit>
+        <trans-unit id="1bc5276f-56d8-4e58-b307-ec88e0123a3f" xml:space="preserve">
+          <source>Lets you decrypt media assets that were encrypted using storage encryption.</source>
+          <target state="new">Lets you decrypt media assets that were encrypted using storage encryption.</target>
+        </trans-unit>
+        <trans-unit id="39a29d41-0722-446f-a5c0-e870ca32b42b" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="17ef1236-836f-4ec6-958d-9405f5946784" xml:space="preserve">
+          <source>Windows Azure Media Packager</source>
+          <target state="new">Windows Azure Media Packager</target>
+        </trans-unit>
+        <trans-unit id="d5449227-02e9-46ff-a524-fa4d058a2702" xml:space="preserve">
+          <source>Lets you convert media assets from .mp4 to smooth streaming format.</source>
+          <target state="new">Lets you convert media assets from .mp4 to smooth streaming format.</target>
+        </trans-unit>
+        <trans-unit id="60b9860d-e33d-4d56-94e3-62b4b0dfeac0" xml:space="preserve">
+          <source>Also, lets you convert media assets from smooth streaming to the Apple HTTP Live Streaming (HLS) format.</source>
+          <target state="new">Also, lets you convert media assets from smooth streaming to the Apple HTTP Live Streaming (HLS) format.</target>
+        </trans-unit>
+        <trans-unit id="1c8543e6-296b-4666-a343-6c4c30df1a0c" xml:space="preserve">
+          <source><bpt id="5b5a3961-5606-4b21-a0fb-3140918da9dc">&lt;linkText&gt;</bpt>Task Preset Strings for the Azure Media Packager<ept id="5b5a3961-5606-4b21-a0fb-3140918da9dc">&lt;/linkText&gt;</ept><bpt id="5b5a3961-5606-4b21-a0fb-3140918da9dc">&lt;title&gt;</bpt><ept id="5b5a3961-5606-4b21-a0fb-3140918da9dc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5b5a3961-5606-4b21-a0fb-3140918da9dc">&lt;linkText&gt;</bpt>Task Preset Strings for the Azure Media Packager<ept id="5b5a3961-5606-4b21-a0fb-3140918da9dc">&lt;/linkText&gt;</ept><bpt id="5b5a3961-5606-4b21-a0fb-3140918da9dc">&lt;title&gt;</bpt><ept id="5b5a3961-5606-4b21-a0fb-3140918da9dc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20ef28de-c7ef-4723-984e-698040fcedb4" xml:space="preserve">
+          <source>Windows Azure Media Encryptor</source>
+          <target state="new">Windows Azure Media Encryptor</target>
+        </trans-unit>
+        <trans-unit id="bea3ade0-d23b-4269-af5e-cf5e32da0f8e" xml:space="preserve">
+          <source>Lets you encrypt media assets using PlayReady Protection.</source>
+          <target state="new">Lets you encrypt media assets using PlayReady Protection.</target>
+        </trans-unit>
+        <trans-unit id="3f868a03-8549-4bea-83db-21313fdbc214" xml:space="preserve">
+          <source><bpt id="4634bf9f-c7b4-43e0-b643-c8ec6b9ad73c">&lt;linkText&gt;</bpt>Task Preset Strings for the Azure Media Packager<ept id="4634bf9f-c7b4-43e0-b643-c8ec6b9ad73c">&lt;/linkText&gt;</ept><bpt id="4634bf9f-c7b4-43e0-b643-c8ec6b9ad73c">&lt;title&gt;</bpt><ept id="4634bf9f-c7b4-43e0-b643-c8ec6b9ad73c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4634bf9f-c7b4-43e0-b643-c8ec6b9ad73c">&lt;linkText&gt;</bpt>Task Preset Strings for the Azure Media Packager<ept id="4634bf9f-c7b4-43e0-b643-c8ec6b9ad73c">&lt;/linkText&gt;</ept><bpt id="4634bf9f-c7b4-43e0-b643-c8ec6b9ad73c">&lt;title&gt;</bpt><ept id="4634bf9f-c7b4-43e0-b643-c8ec6b9ad73c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="150692a4-dda0-4159-b33b-0ee902073a73" xml:space="preserve">
+          <source>The following method shows how to get a media processor instance.</source>
+          <target state="new">The following method shows how to get a media processor instance.</target>
+        </trans-unit>
+        <trans-unit id="a5acdfb3-b115-4dfa-8d5b-e33b67ec48fb" xml:space="preserve">
+          <source>The code example assumes the use of a module-level variable named <bpt id="9dac109d-3fcf-49ca-9c43-9f49f6231632">&lt;strong&gt;</bpt>_context<ept id="9dac109d-3fcf-49ca-9c43-9f49f6231632">&lt;/strong&gt;</ept> to reference the server context as described in the section [How to: Connect to Media Services Programmatically].</source>
+          <target state="new">The code example assumes the use of a module-level variable named <bpt id="9dac109d-3fcf-49ca-9c43-9f49f6231632">&lt;strong&gt;</bpt>_context<ept id="9dac109d-3fcf-49ca-9c43-9f49f6231632">&lt;/strong&gt;</ept> to reference the server context as described in the section [How to: Connect to Media Services Programmatically].</target>
+        </trans-unit>
+        <trans-unit id="ea03206a-2971-4ff2-9eff-746b0c941aad" xml:space="preserve">
+          <source>Now that you know how to get a media processor instance, go to the <bpt id="db83e7a0-a2bb-47d4-8db2-fe9876c1feba">&lt;linkText&gt;</bpt>How to Encode an Asset<ept id="db83e7a0-a2bb-47d4-8db2-fe9876c1feba">&lt;/linkText&gt;</ept><bpt id="db83e7a0-a2bb-47d4-8db2-fe9876c1feba">&lt;title&gt;</bpt><ept id="db83e7a0-a2bb-47d4-8db2-fe9876c1feba">&lt;/title&gt;</ept> topic which will show you how to use the Azure Media Encoder to encode an asset.</source>
+          <target state="new">Now that you know how to get a media processor instance, go to the <bpt id="db83e7a0-a2bb-47d4-8db2-fe9876c1feba">&lt;linkText&gt;</bpt>How to Encode an Asset<ept id="db83e7a0-a2bb-47d4-8db2-fe9876c1feba">&lt;/linkText&gt;</ept><bpt id="db83e7a0-a2bb-47d4-8db2-fe9876c1feba">&lt;title&gt;</bpt><ept id="db83e7a0-a2bb-47d4-8db2-fe9876c1feba">&lt;/title&gt;</ept> topic which will show you how to use the Azure Media Encoder to encode an asset.</target>
+        </trans-unit>
+        <trans-unit id="1601ce94-3f66-4fbb-8027-1645cb84713c" xml:space="preserve">
+          <source>media-services-encode-asset.md</source>
+          <target state="new">media-services-encode-asset.md</target>
+        </trans-unit>
+        <trans-unit id="e362c10e-bcf4-4faa-90ac-947d977cdc94" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/jj129582.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/jj129582.aspx</target>
+        </trans-unit>
+        <trans-unit id="4a8058fc-1164-494e-bc7c-91ed04915a71" xml:space="preserve">
+          <source>../media-services-set-up-computer/</source>
+          <target state="new">../media-services-set-up-computer/</target>
+        </trans-unit>
+      </group>
+      <group id="4544dd9e-0411-4a69-84cd-c6c98ee8e830" />
+    </body>
+  </file>
+</xliff>

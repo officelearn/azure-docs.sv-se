@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b9d6914d-fa36-4f13-babe-0a6982c900bf" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b9d6914d-fa36-4f13-babe-0a6982c900bf" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5ee312ee-910a-4133-98bf-67fc56c5cf04">
+        <trans-unit id="d690db7e-8169-4206-ac56-b8f6bc94f71a" xml:space="preserve">
+          <source>REST-Based Application Lifecycle Sample | Microsoft Azure</source>
+          <target state="new">REST-Based Application Lifecycle Sample | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4ad3e962-a56a-4c12-9b62-557c19149218" xml:space="preserve">
+          <source>A Microsoft Azure Service Fabric sample that shows the Application Lifecycle by using the Service Fabric REST interface.</source>
+          <target state="new">A Microsoft Azure Service Fabric sample that shows the Application Lifecycle by using the Service Fabric REST interface.</target>
+        </trans-unit>
+        <trans-unit id="6c2010da-fbb9-463b-bd6b-d2b73a31cacc" xml:space="preserve">
+          <source>This sample demonstrates the Service Fabric application lifecycle through REST API calls.</source>
+          <target state="new">This sample demonstrates the Service Fabric application lifecycle through REST API calls.</target>
+        </trans-unit>
+        <trans-unit id="35a379df-166c-49e6-b4ae-a9870270cb46" xml:space="preserve">
+          <source>For more information on the Service Fabric application lifecycle, see <bpt id="a9cfd9d9-b53c-428f-b92d-6ab37b5b1ace">&lt;linkText&gt;</bpt>Service Fabric Application Lifecycle<ept id="a9cfd9d9-b53c-428f-b92d-6ab37b5b1ace">&lt;/linkText&gt;</ept><bpt id="a9cfd9d9-b53c-428f-b92d-6ab37b5b1ace">&lt;title&gt;</bpt><ept id="a9cfd9d9-b53c-428f-b92d-6ab37b5b1ace">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the Service Fabric application lifecycle, see <bpt id="a9cfd9d9-b53c-428f-b92d-6ab37b5b1ace">&lt;linkText&gt;</bpt>Service Fabric Application Lifecycle<ept id="a9cfd9d9-b53c-428f-b92d-6ab37b5b1ace">&lt;/linkText&gt;</ept><bpt id="a9cfd9d9-b53c-428f-b92d-6ab37b5b1ace">&lt;title&gt;</bpt><ept id="a9cfd9d9-b53c-428f-b92d-6ab37b5b1ace">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8449998-544d-4d70-bba8-17823cc727b8" xml:space="preserve">
+          <source>This sample performs the following:</source>
+          <target state="new">This sample performs the following:</target>
+        </trans-unit>
+        <trans-unit id="bbb1ab1a-535d-451f-83d8-b72f1166a846" xml:space="preserve">
+          <source>Provisions the WordCount 1.0.0.0 sample from the WordCount application package in the ImageStore.</source>
+          <target state="new">Provisions the WordCount 1.0.0.0 sample from the WordCount application package in the ImageStore.</target>
+        </trans-unit>
+        <trans-unit id="a865e506-a17e-4f1a-897c-bf2a16484120" xml:space="preserve">
+          <source>Displays the list of application types, which includes WordCount 1.0.0.0.</source>
+          <target state="new">Displays the list of application types, which includes WordCount 1.0.0.0.</target>
+        </trans-unit>
+        <trans-unit id="e8115e2b-3f33-435a-be7c-36c58410f1b8" xml:space="preserve">
+          <source>Creates the WordCount application as fabric:/WordCount.</source>
+          <target state="new">Creates the WordCount application as fabric:/WordCount.</target>
+        </trans-unit>
+        <trans-unit id="8273c1b8-545b-4518-a7d0-89d33056148e" xml:space="preserve">
+          <source>Displays the list of applications, which includes fabric:/WordCount version 1.0.0.0.</source>
+          <target state="new">Displays the list of applications, which includes fabric:/WordCount version 1.0.0.0.</target>
+        </trans-unit>
+        <trans-unit id="57128734-caab-46df-9722-d526cf12bd04" xml:space="preserve">
+          <source>Provisions the 1.1.0.0 version of the WordCount sample from the WordCountUpgrade application package in the ImageStore.</source>
+          <target state="new">Provisions the 1.1.0.0 version of the WordCount sample from the WordCountUpgrade application package in the ImageStore.</target>
+        </trans-unit>
+        <trans-unit id="1c063f72-2110-4a0b-9cc9-15660cb2583c" xml:space="preserve">
+          <source>Displays the list of application types, which includes both WordCount 1.0.0.0 and WordCount 1.1.0.0.</source>
+          <target state="new">Displays the list of application types, which includes both WordCount 1.0.0.0 and WordCount 1.1.0.0.</target>
+        </trans-unit>
+        <trans-unit id="b7efd8e9-d72b-48f1-a315-48e2e1fa8815" xml:space="preserve">
+          <source>Upgrades the WordCount application to version 1.1.0.0.</source>
+          <target state="new">Upgrades the WordCount application to version 1.1.0.0.</target>
+        </trans-unit>
+        <trans-unit id="95d2f8f2-8bdb-4378-84c1-a48a08a01d24" xml:space="preserve">
+          <source>Displays the list of applications, which includes WordCount version 1.1.0.0, but no longer includes WordCount version 1.0.0.0.</source>
+          <target state="new">Displays the list of applications, which includes WordCount version 1.1.0.0, but no longer includes WordCount version 1.0.0.0.</target>
+        </trans-unit>
+        <trans-unit id="633850dc-6fa0-464d-9479-0190acd74a72" xml:space="preserve">
+          <source>Deletes the WordCount application.</source>
+          <target state="new">Deletes the WordCount application.</target>
+        </trans-unit>
+        <trans-unit id="b9d9b163-2810-4a62-abd3-f41d005e16cf" xml:space="preserve">
+          <source>Displays the list of applications, which no longer includes fabric:/WordCount.</source>
+          <target state="new">Displays the list of applications, which no longer includes fabric:/WordCount.</target>
+        </trans-unit>
+        <trans-unit id="b49f9fa9-de7b-401b-97df-7575d567d521" xml:space="preserve">
+          <source>Unprovisions the 1.1.0.0 version of the WordCount sample.</source>
+          <target state="new">Unprovisions the 1.1.0.0 version of the WordCount sample.</target>
+        </trans-unit>
+        <trans-unit id="c16c8808-4516-4ba9-9f40-7dfb5c67b6ef" xml:space="preserve">
+          <source>Displays the list of application types, which includes WordCount 1.0.0.0, but no longer includes WordCount 1.1.0.0.</source>
+          <target state="new">Displays the list of application types, which includes WordCount 1.0.0.0, but no longer includes WordCount 1.1.0.0.</target>
+        </trans-unit>
+        <trans-unit id="6a71cb3c-9bf3-4d9e-9a78-b7468cda4b30" xml:space="preserve">
+          <source>Unprovisions the 1.0.0.0 version of the WordCount sample.</source>
+          <target state="new">Unprovisions the 1.0.0.0 version of the WordCount sample.</target>
+        </trans-unit>
+        <trans-unit id="b88447e1-6cbd-4ae3-b51c-e24df1b0045a" xml:space="preserve">
+          <source>Displays the list of application types, which no longer includes WordCount.</source>
+          <target state="new">Displays the list of application types, which no longer includes WordCount.</target>
+        </trans-unit>
+        <trans-unit id="9a22c38c-1889-4d48-aa43-c7c245313a28" xml:space="preserve">
+          <source>This sample uses the <bpt id="8300a8c2-5806-4810-882a-d3b341618b5a">&lt;linkText&gt;</bpt>WordCount sample<ept id="8300a8c2-5806-4810-882a-d3b341618b5a">&lt;/linkText&gt;</ept><bpt id="8300a8c2-5806-4810-882a-d3b341618b5a">&lt;title&gt;</bpt><ept id="8300a8c2-5806-4810-882a-d3b341618b5a">&lt;/title&gt;</ept>.</source>
+          <target state="new">This sample uses the <bpt id="8300a8c2-5806-4810-882a-d3b341618b5a">&lt;linkText&gt;</bpt>WordCount sample<ept id="8300a8c2-5806-4810-882a-d3b341618b5a">&lt;/linkText&gt;</ept><bpt id="8300a8c2-5806-4810-882a-d3b341618b5a">&lt;title&gt;</bpt><ept id="8300a8c2-5806-4810-882a-d3b341618b5a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39e88cda-d24e-479e-ab6f-19a318299495" xml:space="preserve">
+          <source>The WordCount sample must first be built and then two application packages must be copied to the ImageStore.</source>
+          <target state="new">The WordCount sample must first be built and then two application packages must be copied to the ImageStore.</target>
+        </trans-unit>
+        <trans-unit id="3b22c752-0d5f-4925-bd60-77207f94c661" xml:space="preserve">
+          <source>Folder</source>
+          <target state="new">Folder</target>
+        </trans-unit>
+        <trans-unit id="b4d04f2f-a62f-4220-a58f-f67d4e85e2f5" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="3d046800-283d-4c9f-8f02-5ee5e1f24d07" xml:space="preserve">
+          <source>WordCount</source>
+          <target state="new">WordCount</target>
+        </trans-unit>
+        <trans-unit id="fe151ee3-2410-43ba-b011-2454d76dd96b" xml:space="preserve">
+          <source>The WordCount sample application.</source>
+          <target state="new">The WordCount sample application.</target>
+        </trans-unit>
+        <trans-unit id="70357eac-39be-41d3-a25b-315cacf9dca8" xml:space="preserve">
+          <source>The ApplicationManifest.xml contains ApplicationTypeVersion="1.0.0.0".</source>
+          <target state="new">The ApplicationManifest.xml contains ApplicationTypeVersion="1.0.0.0".</target>
+        </trans-unit>
+        <trans-unit id="4ec571aa-cbb4-48df-8d3e-09c71b62f3c2" xml:space="preserve">
+          <source>WordCountUpgrade</source>
+          <target state="new">WordCountUpgrade</target>
+        </trans-unit>
+        <trans-unit id="9f4c5622-6850-4299-8572-b54f7b8382d3" xml:space="preserve">
+          <source>The WordCount sample application.</source>
+          <target state="new">The WordCount sample application.</target>
+        </trans-unit>
+        <trans-unit id="96c7c1ba-7a37-4e6f-a4a9-1d5a55b69915" xml:space="preserve">
+          <source>The ApplicationManifest.xml file must be changed to ApplicationTypeVersion="1.1.0.0" to allow the application upgrade to occur.</source>
+          <target state="new">The ApplicationManifest.xml file must be changed to ApplicationTypeVersion="1.1.0.0" to allow the application upgrade to occur.</target>
+        </trans-unit>
+        <trans-unit id="fc2953e4-e710-4e4c-b0ec-c5287da12ce1" xml:space="preserve">
+          <source>To create the application packages and copy them to the ImageStore, take the following steps:</source>
+          <target state="new">To create the application packages and copy them to the ImageStore, take the following steps:</target>
+        </trans-unit>
+        <trans-unit id="d948b900-0eef-4135-a53a-8e591e1b04a8" xml:space="preserve">
+          <source>Copy C:\Samples\Services\VS2015\WordCountUpgrade\WordCount\pkg\Debug to C:\Temp\WordCount.</source>
+          <target state="new">Copy C:\Samples\Services\VS2015\WordCountUpgrade\WordCount\pkg\Debug to C:\Temp\WordCount.</target>
+        </trans-unit>
+        <trans-unit id="f2d2b497-ebd2-451f-8290-bace7b6dd957" xml:space="preserve">
+          <source>This creates the WordCount application package.</source>
+          <target state="new">This creates the WordCount application package.</target>
+        </trans-unit>
+        <trans-unit id="6a2ac93a-2878-4358-ab4f-c6a468f522f8" xml:space="preserve">
+          <source>Copy C:\Temp\WordCount to C:\Temp\WordCountUpgrade.</source>
+          <target state="new">Copy C:\Temp\WordCount to C:\Temp\WordCountUpgrade.</target>
+        </trans-unit>
+        <trans-unit id="9dfe33cd-4472-45e2-9da2-b4ccd9443c5c" xml:space="preserve">
+          <source>This creates the WordCountUpgrade application package.</source>
+          <target state="new">This creates the WordCountUpgrade application package.</target>
+        </trans-unit>
+        <trans-unit id="88b1b356-ee11-45b5-8bbf-680999002126" xml:space="preserve">
+          <source>Open C:\Temp\WordCountUpgrade\ApplicationManifest.xml in a text editor.</source>
+          <target state="new">Open C:\Temp\WordCountUpgrade\ApplicationManifest.xml in a text editor.</target>
+        </trans-unit>
+        <trans-unit id="1407708f-3c1d-40b1-a6bb-59977cb15ec1" xml:space="preserve">
+          <source>In the ApplicationManifest element, change the ApplicationTypeVersion attribute to "1.1.0.0".</source>
+          <target state="new">In the ApplicationManifest element, change the ApplicationTypeVersion attribute to "1.1.0.0".</target>
+        </trans-unit>
+        <trans-unit id="28ee962f-17d7-4301-87fe-4e402ac8f666" xml:space="preserve">
+          <source>This updates the version number of the application.</source>
+          <target state="new">This updates the version number of the application.</target>
+        </trans-unit>
+        <trans-unit id="a30dd909-504c-41ae-976e-b5f4f759683d" xml:space="preserve">
+          <source>Save the changed ApplicationManifest.xml file.</source>
+          <target state="new">Save the changed ApplicationManifest.xml file.</target>
+        </trans-unit>
+        <trans-unit id="5fef56c8-6654-4c7f-910e-812034b769bf" xml:space="preserve">
+          <source>Run the following PowerShell script as an administrator to copy the applications to the ImageStore:</source>
+          <target state="new">Run the following PowerShell script as an administrator to copy the applications to the ImageStore:</target>
+        </trans-unit>
+        <trans-unit id="45ac94f6-3fd7-4043-8f09-97405b0ac119" xml:space="preserve">
+          <source>After the PowerShell script completes, this application will be ready to run.</source>
+          <target state="new">After the PowerShell script completes, this application will be ready to run.</target>
+        </trans-unit>
+        <trans-unit id="adbe8169-30e0-4046-aff3-ef9797f4f128" xml:space="preserve">
+          <source>The following example demonstrates the Service Fabric application lifecycle.</source>
+          <target state="new">The following example demonstrates the Service Fabric application lifecycle.</target>
+        </trans-unit>
+        <trans-unit id="54193008-479a-44eb-9866-5331e64bc1bb" xml:space="preserve">
+          <source><bpt id="b4935426-664b-41c3-a0e3-5f2fabb2cba4">&lt;linkText&gt;</bpt>Service Fabric Application Lifecycle<ept id="b4935426-664b-41c3-a0e3-5f2fabb2cba4">&lt;/linkText&gt;</ept><bpt id="b4935426-664b-41c3-a0e3-5f2fabb2cba4">&lt;title&gt;</bpt><ept id="b4935426-664b-41c3-a0e3-5f2fabb2cba4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b4935426-664b-41c3-a0e3-5f2fabb2cba4">&lt;linkText&gt;</bpt>Service Fabric Application Lifecycle<ept id="b4935426-664b-41c3-a0e3-5f2fabb2cba4">&lt;/linkText&gt;</ept><bpt id="b4935426-664b-41c3-a0e3-5f2fabb2cba4">&lt;title&gt;</bpt><ept id="b4935426-664b-41c3-a0e3-5f2fabb2cba4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

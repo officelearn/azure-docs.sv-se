@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="57bbe03f-2003-4135-a4f7-5bb3da8042b8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="57bbe03f-2003-4135-a4f7-5bb3da8042b8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c01e2c06-db7c-48bf-a3ad-892950859180">
+        <trans-unit id="73cd4419-dfbe-4904-a982-ef5007bd730d" xml:space="preserve">
+          <source>Open a web browser and browse to <bpt id="813266ad-6d9c-48df-95bb-4546b6eabe20">&lt;linkText&gt;</bpt>http://www.windowsazure.com<ept id="813266ad-6d9c-48df-95bb-4546b6eabe20">&lt;/linkText&gt;</ept><bpt id="813266ad-6d9c-48df-95bb-4546b6eabe20">&lt;title&gt;</bpt><ept id="813266ad-6d9c-48df-95bb-4546b6eabe20">&lt;/title&gt;</ept>.</source>
+          <target state="new">Open a web browser and browse to <bpt id="813266ad-6d9c-48df-95bb-4546b6eabe20">&lt;linkText&gt;</bpt>http://www.windowsazure.com<ept id="813266ad-6d9c-48df-95bb-4546b6eabe20">&lt;/linkText&gt;</ept><bpt id="813266ad-6d9c-48df-95bb-4546b6eabe20">&lt;title&gt;</bpt><ept id="813266ad-6d9c-48df-95bb-4546b6eabe20">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5175af3e-6132-440d-b2e1-2db406d2f3a0" xml:space="preserve">
+          <source>To get started with a free account, click <bpt id="eb886a21-fcef-489f-8ad7-b081b692a774">&lt;strong&gt;</bpt>Free Trial<ept id="eb886a21-fcef-489f-8ad7-b081b692a774">&lt;/strong&gt;</ept> in the upper-right corner and follow the steps.</source>
+          <target state="new">To get started with a free account, click <bpt id="eb886a21-fcef-489f-8ad7-b081b692a774">&lt;strong&gt;</bpt>Free Trial<ept id="eb886a21-fcef-489f-8ad7-b081b692a774">&lt;/strong&gt;</ept> in the upper-right corner and follow the steps.</target>
+        </trans-unit>
+        <trans-unit id="729c898f-7e04-4484-be3c-bf4b5b055d25" xml:space="preserve">
+          <source>You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.</source>
+          <target state="new">You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.</target>
+        </trans-unit>
+        <trans-unit id="45dcb3ae-9bd9-45b1-a2a4-4acbb0cbc097" xml:space="preserve">
+          <source><bpt id="76626b2a-65b1-41ee-9b67-e0322267c85a">&lt;linkText&gt;</bpt>Azure Web Site<ept id="76626b2a-65b1-41ee-9b67-e0322267c85a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="76626b2a-65b1-41ee-9b67-e0322267c85a">&lt;linkText&gt;</bpt>Azure Web Site<ept id="76626b2a-65b1-41ee-9b67-e0322267c85a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ee92046-2a65-4e9c-b2a0-d41a3bc918a3" xml:space="preserve">
+          <source>./media/create-azure-account/freetrialonwindowsazurehomepage.png</source>
+          <target state="new">./media/create-azure-account/freetrialonwindowsazurehomepage.png</target>
+        </trans-unit>
+      </group>
+      <group id="62df1f82-2c25-4950-9dbc-5a173102be9e" />
+    </body>
+  </file>
+</xliff>

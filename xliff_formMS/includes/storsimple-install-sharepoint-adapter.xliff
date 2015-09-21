@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dc0bdfaf-374b-4938-b894-b58e32a93c23" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dc0bdfaf-374b-4938-b894-b58e32a93c23" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="266c6964-8a59-465f-914c-96fe87e8cde3">
+        <trans-unit id="f934570b-1c20-457c-9342-71b858119f81" xml:space="preserve">
+          <source>Install StorSimple Adapter for SharePoint | Microsoft Azure</source>
+          <target state="new">Install StorSimple Adapter for SharePoint | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6ece1bf5-54fd-4a5a-8fe5-91e6f375d562" xml:space="preserve">
+          <source>Describes how to install the StorSimple Adapter for SharePoint in a SharePoint server farm.</source>
+          <target state="new">Describes how to install the StorSimple Adapter for SharePoint in a SharePoint server farm.</target>
+        </trans-unit>
+        <trans-unit id="278a8c38-c6ff-4c95-a954-35605827ba4f" xml:space="preserve">
+          <source>Copy the installer to the web front end (WFE) server that is also configured to run the SharePoint Central Administration web application.</source>
+          <target state="new">Copy the installer to the web front end (WFE) server that is also configured to run the SharePoint Central Administration web application.</target>
+        </trans-unit>
+        <trans-unit id="600c8d0c-6b96-4efe-adbb-5c4d1caed156" xml:space="preserve">
+          <source>Use an account with administrator privileges to log on to the WFE server.</source>
+          <target state="new">Use an account with administrator privileges to log on to the WFE server.</target>
+        </trans-unit>
+        <trans-unit id="8030cc38-7728-4027-9f1b-6150c45402a6" xml:space="preserve">
+          <source>Double-click the installer.</source>
+          <target state="new">Double-click the installer.</target>
+        </trans-unit>
+        <trans-unit id="5202a9bf-cc11-43d1-8e5f-005f8e5efc48" xml:space="preserve">
+          <source>The StorSimple Adapter for SharePoint Setup Wizard starts.</source>
+          <target state="new">The StorSimple Adapter for SharePoint Setup Wizard starts.</target>
+        </trans-unit>
+        <trans-unit id="c4507281-9100-4fb7-9f9b-b2d13e78ad63" xml:space="preserve">
+          <source>Click <bpt id="3e74b702-ce5f-44ca-a154-50d0ee41fa35">&lt;strong&gt;</bpt>Next<ept id="3e74b702-ce5f-44ca-a154-50d0ee41fa35">&lt;/strong&gt;</ept> to begin the installation.</source>
+          <target state="new">Click <bpt id="3e74b702-ce5f-44ca-a154-50d0ee41fa35">&lt;strong&gt;</bpt>Next<ept id="3e74b702-ce5f-44ca-a154-50d0ee41fa35">&lt;/strong&gt;</ept> to begin the installation.</target>
+        </trans-unit>
+        <trans-unit id="b6f3c0d2-aa08-4054-b95d-38dbe5a0e6ba" xml:space="preserve">
+          <source><bpt id="cf10cbbb-6a9f-44ae-b115-c416d3763cb1">&lt;linkText&gt;</bpt>StorSimple adapter setup start page<ept id="cf10cbbb-6a9f-44ae-b115-c416d3763cb1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf10cbbb-6a9f-44ae-b115-c416d3763cb1">&lt;linkText&gt;</bpt>StorSimple adapter setup start page<ept id="cf10cbbb-6a9f-44ae-b115-c416d3763cb1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a698002-22b0-40c4-b99e-90e9304e06ce" xml:space="preserve">
+          <source>In the StorSimple Adapter for SharePoint setup configuration page, select an installation location, type the IP address for the DATA 0 network interface on your StorSimple device, and then click <bpt id="3b1aadf7-e198-40c9-9747-8b88e3cade4e">&lt;strong&gt;</bpt>Next<ept id="3b1aadf7-e198-40c9-9747-8b88e3cade4e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the StorSimple Adapter for SharePoint setup configuration page, select an installation location, type the IP address for the DATA 0 network interface on your StorSimple device, and then click <bpt id="3b1aadf7-e198-40c9-9747-8b88e3cade4e">&lt;strong&gt;</bpt>Next<ept id="3b1aadf7-e198-40c9-9747-8b88e3cade4e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5409c499-6e54-42d4-aced-51e1cb7186c1" xml:space="preserve">
+          <source><bpt id="8a9e5717-e7a2-40d3-bad3-4e608971677f">&lt;linkText&gt;</bpt>StorSimple adapter setup configuration page<ept id="8a9e5717-e7a2-40d3-bad3-4e608971677f">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="8a9e5717-e7a2-40d3-bad3-4e608971677f">&lt;linkText&gt;</bpt>StorSimple adapter setup configuration page<ept id="8a9e5717-e7a2-40d3-bad3-4e608971677f">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="b12efcab-4594-47ac-97bc-b180d99f03a0" xml:space="preserve">
+          <source>In the setup confirmation page, click <bpt id="ee6ebd8f-ca3a-4c6c-9aaa-ee8a993f8d82">&lt;strong&gt;</bpt>Install<ept id="ee6ebd8f-ca3a-4c6c-9aaa-ee8a993f8d82">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the setup confirmation page, click <bpt id="ee6ebd8f-ca3a-4c6c-9aaa-ee8a993f8d82">&lt;strong&gt;</bpt>Install<ept id="ee6ebd8f-ca3a-4c6c-9aaa-ee8a993f8d82">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f26eef34-90eb-4393-b91e-ca685cce7d87" xml:space="preserve">
+          <source><bpt id="18fec189-ec47-43dc-94e7-0cccbe080abc">&lt;linkText&gt;</bpt>StorSimple adapter setup confirmation page<ept id="18fec189-ec47-43dc-94e7-0cccbe080abc">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="18fec189-ec47-43dc-94e7-0cccbe080abc">&lt;linkText&gt;</bpt>StorSimple adapter setup confirmation page<ept id="18fec189-ec47-43dc-94e7-0cccbe080abc">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="04ff20cc-28f1-4bac-9732-b17f70d43c57" xml:space="preserve">
+          <source>Click <bpt id="a7f989cd-a54d-4f07-b4cf-85a27d3d88a3">&lt;strong&gt;</bpt>Finish<ept id="a7f989cd-a54d-4f07-b4cf-85a27d3d88a3">&lt;/strong&gt;</ept> to close the Setup Wizard.</source>
+          <target state="new">Click <bpt id="a7f989cd-a54d-4f07-b4cf-85a27d3d88a3">&lt;strong&gt;</bpt>Finish<ept id="a7f989cd-a54d-4f07-b4cf-85a27d3d88a3">&lt;/strong&gt;</ept> to close the Setup Wizard.</target>
+        </trans-unit>
+        <trans-unit id="d59cb04b-83b9-48f9-a271-8976a6e3ef12" xml:space="preserve">
+          <source><bpt id="3a361037-cfc9-40f8-bd01-e45c1881889f">&lt;linkText&gt;</bpt>StorSimple adapter setup finished page<ept id="3a361037-cfc9-40f8-bd01-e45c1881889f">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="3a361037-cfc9-40f8-bd01-e45c1881889f">&lt;linkText&gt;</bpt>StorSimple adapter setup finished page<ept id="3a361037-cfc9-40f8-bd01-e45c1881889f">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c4421979-7307-440a-b73f-1320f7d27a1f" xml:space="preserve">
+          <source>Open the SharePoint Central Administration page.</source>
+          <target state="new">Open the SharePoint Central Administration page.</target>
+        </trans-unit>
+        <trans-unit id="7f50b28f-80aa-42c1-a714-298f08436465" xml:space="preserve">
+          <source>You should see a StorSimple Configuration group that contains the StorSimple Adapter for SharePoint links.</source>
+          <target state="new">You should see a StorSimple Configuration group that contains the StorSimple Adapter for SharePoint links.</target>
+        </trans-unit>
+        <trans-unit id="c72b65f2-7d32-4898-8887-89f182d6d9d9" xml:space="preserve">
+          <source>Go to the next step: <bpt id="53160b0f-4d5a-4b38-97b6-c65812276813">&lt;linkText&gt;</bpt>Configure RBS<ept id="53160b0f-4d5a-4b38-97b6-c65812276813">&lt;/linkText&gt;</ept><bpt id="53160b0f-4d5a-4b38-97b6-c65812276813">&lt;title&gt;</bpt><ept id="53160b0f-4d5a-4b38-97b6-c65812276813">&lt;/title&gt;</ept>.</source>
+          <target state="new">Go to the next step: <bpt id="53160b0f-4d5a-4b38-97b6-c65812276813">&lt;linkText&gt;</bpt>Configure RBS<ept id="53160b0f-4d5a-4b38-97b6-c65812276813">&lt;/linkText&gt;</ept><bpt id="53160b0f-4d5a-4b38-97b6-c65812276813">&lt;title&gt;</bpt><ept id="53160b0f-4d5a-4b38-97b6-c65812276813">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

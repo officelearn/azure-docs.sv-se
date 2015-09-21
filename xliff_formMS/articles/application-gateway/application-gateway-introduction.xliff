@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4518893b-0392-4b71-8270-a6ed355c1d56" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4518893b-0392-4b71-8270-a6ed355c1d56" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="77831bb3-87d5-454a-9bd9-a536439f6a82">
+        <trans-unit id="e5e32156-ddaf-4d03-ace1-8cc4b17f48b7" xml:space="preserve">
+          <source>Introduction to Application Gateway | Microsoft Azure</source>
+          <target state="new">Introduction to Application Gateway | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="aec27770-6c11-43c4-b11a-e65b6767eb68" xml:space="preserve">
+          <source>This page provides an overview of the Application Gateway service for layer 7 load balancing, including gateway sizes, HTTP load balancing, cookie based session affinity, and SSL offload.</source>
+          <target state="new">This page provides an overview of the Application Gateway service for layer 7 load balancing, including gateway sizes, HTTP load balancing, cookie based session affinity, and SSL offload.</target>
+        </trans-unit>
+        <trans-unit id="a3cfc014-500d-4740-863e-b4315fb5df92" xml:space="preserve">
+          <source>Microsoft Azure Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing.</source>
+          <target state="new">Microsoft Azure Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing.</target>
+        </trans-unit>
+        <trans-unit id="7fd482d0-97d1-4640-a7ed-2eae5aad3615" xml:space="preserve">
+          <source>Application load balancing  enables IT administrators and developers to create routing rules for network traffic based on HTTP.</source>
+          <target state="new">Application load balancing  enables IT administrators and developers to create routing rules for network traffic based on HTTP.</target>
+        </trans-unit>
+        <trans-unit id="a20f140b-625f-4088-9053-88934d733753" xml:space="preserve">
+          <source>The application gateway service is highly available and metered.</source>
+          <target state="new">The application gateway service is highly available and metered.</target>
+        </trans-unit>
+        <trans-unit id="e9cfc517-b8b4-4686-976a-21af2896190f" xml:space="preserve">
+          <source>For the SLA and Pricing, please refer to the <bpt id="270cdd56-c09a-42cb-a2d9-7acaeb596803">&lt;linkText&gt;</bpt>SLA<ept id="270cdd56-c09a-42cb-a2d9-7acaeb596803">&lt;/linkText&gt;</ept><bpt id="270cdd56-c09a-42cb-a2d9-7acaeb596803">&lt;title&gt;</bpt><ept id="270cdd56-c09a-42cb-a2d9-7acaeb596803">&lt;/title&gt;</ept> and <bpt id="ef02f831-b5a6-43a1-bda7-870deb097532">&lt;linkText&gt;</bpt>Pricing<ept id="ef02f831-b5a6-43a1-bda7-870deb097532">&lt;/linkText&gt;</ept><bpt id="ef02f831-b5a6-43a1-bda7-870deb097532">&lt;title&gt;</bpt><ept id="ef02f831-b5a6-43a1-bda7-870deb097532">&lt;/title&gt;</ept> pages.</source>
+          <target state="new">For the SLA and Pricing, please refer to the <bpt id="270cdd56-c09a-42cb-a2d9-7acaeb596803">&lt;linkText&gt;</bpt>SLA<ept id="270cdd56-c09a-42cb-a2d9-7acaeb596803">&lt;/linkText&gt;</ept><bpt id="270cdd56-c09a-42cb-a2d9-7acaeb596803">&lt;title&gt;</bpt><ept id="270cdd56-c09a-42cb-a2d9-7acaeb596803">&lt;/title&gt;</ept> and <bpt id="ef02f831-b5a6-43a1-bda7-870deb097532">&lt;linkText&gt;</bpt>Pricing<ept id="ef02f831-b5a6-43a1-bda7-870deb097532">&lt;/linkText&gt;</ept><bpt id="ef02f831-b5a6-43a1-bda7-870deb097532">&lt;title&gt;</bpt><ept id="ef02f831-b5a6-43a1-bda7-870deb097532">&lt;/title&gt;</ept> pages.</target>
+        </trans-unit>
+        <trans-unit id="77806154-39c9-43c8-a479-7274e49764e7" xml:space="preserve">
+          <source>Application Gateway currently supports layer 7 application delivery for the following:</source>
+          <target state="new">Application Gateway currently supports layer 7 application delivery for the following:</target>
+        </trans-unit>
+        <trans-unit id="b4bf95da-6ede-4f6f-89de-171bc901c635" xml:space="preserve">
+          <source>HTTP load balancing</source>
+          <target state="new">HTTP load balancing</target>
+        </trans-unit>
+        <trans-unit id="8c543258-b306-4bd3-826f-a575386c9c38" xml:space="preserve">
+          <source>Cookie based session affinity</source>
+          <target state="new">Cookie based session affinity</target>
+        </trans-unit>
+        <trans-unit id="78d900d5-d9b9-40e5-b563-8d739814620e" xml:space="preserve">
+          <source>SSL offload</source>
+          <target state="new">SSL offload</target>
+        </trans-unit>
+        <trans-unit id="5c01978d-166d-4e25-a20b-799252f8605a" xml:space="preserve">
+          <source><bpt id="8f470255-3523-49b9-9c8e-6ccb9cc61a40">&lt;linkText&gt;</bpt>Application Gateway<ept id="8f470255-3523-49b9-9c8e-6ccb9cc61a40">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8f470255-3523-49b9-9c8e-6ccb9cc61a40">&lt;linkText&gt;</bpt>Application Gateway<ept id="8f470255-3523-49b9-9c8e-6ccb9cc61a40">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98e806a4-b381-4d85-9e9d-8cd282fb5534" xml:space="preserve">
+          <source>Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the App Gateway service.</source>
+          <target state="new">Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the App Gateway service.</target>
+        </trans-unit>
+        <trans-unit id="308f9a67-4c2e-4198-b5c1-7b2e8334033a" xml:space="preserve">
+          <source>The Application Gateway then will apply the routing rules to HTTP traffic, providing level 7 (HTTP) load balancing.</source>
+          <target state="new">The Application Gateway then will apply the routing rules to HTTP traffic, providing level 7 (HTTP) load balancing.</target>
+        </trans-unit>
+        <trans-unit id="ad914b5c-fdcb-43c5-97c6-b8586fdefb70" xml:space="preserve">
+          <source>When you create an Application Gateway, an endpoint (VIP) will be associated and used as public IP for ingress network traffic.</source>
+          <target state="new">When you create an Application Gateway, an endpoint (VIP) will be associated and used as public IP for ingress network traffic.</target>
+        </trans-unit>
+        <trans-unit id="225326a0-7982-4428-be4f-b2b29f10bc8c" xml:space="preserve">
+          <source>The Application Gateway will route the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, web app or an external IP address.</source>
+          <target state="new">The Application Gateway will route the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, web app or an external IP address.</target>
+        </trans-unit>
+        <trans-unit id="ec4148e0-d181-48db-9343-86b1d359e33f" xml:space="preserve">
+          <source>The diagram below explains how traffic flows for Application Gateway: 
+<bpt id="3e31f90a-505d-4719-9207-efa2d0019bf3">&lt;linkText&gt;</bpt>Application Gateway2<ept id="3e31f90a-505d-4719-9207-efa2d0019bf3">&lt;/linkText&gt;</ept></source>
+          <target state="new">The diagram below explains how traffic flows for Application Gateway: 
+<bpt id="3e31f90a-505d-4719-9207-efa2d0019bf3">&lt;linkText&gt;</bpt>Application Gateway2<ept id="3e31f90a-505d-4719-9207-efa2d0019bf3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cba49883-15ae-45a2-b28a-97622c0d05f3" xml:space="preserve">
+          <source>HTTP layer 7 load balancing is useful for:</source>
+          <target state="new">HTTP layer 7 load balancing is useful for:</target>
+        </trans-unit>
+        <trans-unit id="2cad82a2-1023-475d-94ba-73f693c207dd" xml:space="preserve">
+          <source>Applications that require requests from the same user/client session to reach the same back-end VM.</source>
+          <target state="new">Applications that require requests from the same user/client session to reach the same back-end VM.</target>
+        </trans-unit>
+        <trans-unit id="e4d64645-de51-4f80-8aef-b927da5ecfa9" xml:space="preserve">
+          <source>Examples of this would be shopping cart apps and web mail servers.</source>
+          <target state="new">Examples of this would be shopping cart apps and web mail servers.</target>
+        </trans-unit>
+        <trans-unit id="7e798d83-6cfb-4347-9738-2c775411f186" xml:space="preserve">
+          <source>Applications that want to free web server farms from SSL termination overhead.</source>
+          <target state="new">Applications that want to free web server farms from SSL termination overhead.</target>
+        </trans-unit>
+        <trans-unit id="a8f21a6f-cb3e-4c6a-94cc-b5a46426bf0c" xml:space="preserve">
+          <source>Applications, such as CDN, that require multiple HTTP requests on the same long-running TCP connection to be routed/load balanced to different backend servers.</source>
+          <target state="new">Applications, such as CDN, that require multiple HTTP requests on the same long-running TCP connection to be routed/load balanced to different backend servers.</target>
+        </trans-unit>
+        <trans-unit id="406212e8-e4a2-4740-ab35-fc25fd1e0806" xml:space="preserve">
+          <source>Application Gateway is currently offered in 3 sizes: Small, Medium and Large.</source>
+          <target state="new">Application Gateway is currently offered in 3 sizes: Small, Medium and Large.</target>
+        </trans-unit>
+        <trans-unit id="2bb31e43-4a0d-4b15-9af1-2d4824964211" xml:space="preserve">
+          <source>Small instance sizes are intended for development and testing scenarios.</source>
+          <target state="new">Small instance sizes are intended for development and testing scenarios.</target>
+        </trans-unit>
+        <trans-unit id="1c705644-d1c0-449b-9fea-58b4d10e9a63" xml:space="preserve">
+          <source>You can create up to 10 application gateways per subscription and each application gateway can have up to 10 instances each.</source>
+          <target state="new">You can create up to 10 application gateways per subscription and each application gateway can have up to 10 instances each.</target>
+        </trans-unit>
+        <trans-unit id="f350b4e2-c2c5-447b-998a-ff5b8efbf713" xml:space="preserve">
+          <source>Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.</source>
+          <target state="new">Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.</target>
+        </trans-unit>
+        <trans-unit id="2d211ca1-2567-47ba-807b-f9e101befc4f" xml:space="preserve">
+          <source>You can create and manage the application gateway by using REST APIs and by using PowerShell cmdlets.</source>
+          <target state="new">You can create and manage the application gateway by using REST APIs and by using PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="59dd2394-8038-4355-a5cf-f2b4032d0e91" xml:space="preserve">
+          <source>Create an Application Gateway.</source>
+          <target state="new">Create an Application Gateway.</target>
+        </trans-unit>
+        <trans-unit id="a74b6e28-3858-473b-abe6-da4b95afb2d9" xml:space="preserve">
+          <source>See <bpt id="6687b71a-183d-40ca-abef-e96794ebd9ba">&lt;linkText&gt;</bpt>Create an Application Gateway<ept id="6687b71a-183d-40ca-abef-e96794ebd9ba">&lt;/linkText&gt;</ept><bpt id="6687b71a-183d-40ca-abef-e96794ebd9ba">&lt;title&gt;</bpt><ept id="6687b71a-183d-40ca-abef-e96794ebd9ba">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="6687b71a-183d-40ca-abef-e96794ebd9ba">&lt;linkText&gt;</bpt>Create an Application Gateway<ept id="6687b71a-183d-40ca-abef-e96794ebd9ba">&lt;/linkText&gt;</ept><bpt id="6687b71a-183d-40ca-abef-e96794ebd9ba">&lt;title&gt;</bpt><ept id="6687b71a-183d-40ca-abef-e96794ebd9ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5bfd39b-1572-4a74-9c90-f6b6001c95d6" xml:space="preserve">
+          <source>Configure SSL offload.</source>
+          <target state="new">Configure SSL offload.</target>
+        </trans-unit>
+        <trans-unit id="0ee458f6-1a19-404d-a3dc-5da79323ac90" xml:space="preserve">
+          <source>See <bpt id="e16bc7a4-d47e-4e4c-9b82-aecd80d470f9">&lt;linkText&gt;</bpt>Configure SSL Offload with Application Gateway<ept id="e16bc7a4-d47e-4e4c-9b82-aecd80d470f9">&lt;/linkText&gt;</ept><bpt id="e16bc7a4-d47e-4e4c-9b82-aecd80d470f9">&lt;title&gt;</bpt><ept id="e16bc7a4-d47e-4e4c-9b82-aecd80d470f9">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="e16bc7a4-d47e-4e4c-9b82-aecd80d470f9">&lt;linkText&gt;</bpt>Configure SSL Offload with Application Gateway<ept id="e16bc7a4-d47e-4e4c-9b82-aecd80d470f9">&lt;/linkText&gt;</ept><bpt id="e16bc7a4-d47e-4e4c-9b82-aecd80d470f9">&lt;title&gt;</bpt><ept id="e16bc7a4-d47e-4e4c-9b82-aecd80d470f9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

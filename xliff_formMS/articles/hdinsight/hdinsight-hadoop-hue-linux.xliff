@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c8f14e91-da5d-4e7b-b818-a4b864c8d563" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c8f14e91-da5d-4e7b-b818-a4b864c8d563" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5a060b22-c739-47b6-ab4a-b89fd2c909bb">
+        <trans-unit id="3a56d889-511f-48b6-8198-e9978bb1b73c" xml:space="preserve">
+          <source>Use Hue with Hadoop on HDInsight Linux clusters | Microsoft Azure</source>
+          <target state="new">Use Hue with Hadoop on HDInsight Linux clusters | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c68907e1-9690-4771-82c4-1bb87021e3ba" xml:space="preserve">
+          <source>Learn how to install and use Hue with Hadoop clusters on HDInsight Linux.</source>
+          <target state="new">Learn how to install and use Hue with Hadoop clusters on HDInsight Linux.</target>
+        </trans-unit>
+        <trans-unit id="93a486d1-7165-4ac1-bea7-f80436c045fb" xml:space="preserve">
+          <source>Learn how to install Hue on HDInsight Linux clusters and use tunneling to route the requests to Hue.</source>
+          <target state="new">Learn how to install Hue on HDInsight Linux clusters and use tunneling to route the requests to Hue.</target>
+        </trans-unit>
+        <trans-unit id="0cad1cb6-f526-4470-b552-e9a1eebd625f" xml:space="preserve">
+          <source>Hue is a set of Web applications used to interact with a Hadoop cluster.</source>
+          <target state="new">Hue is a set of Web applications used to interact with a Hadoop cluster.</target>
+        </trans-unit>
+        <trans-unit id="9868d70e-214a-475e-8c63-d0b8e97a8d06" xml:space="preserve">
+          <source>You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, etc. The following components are supported with Hue installation on an HDInsight Hadoop cluster.</source>
+          <target state="new">You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, etc. The following components are supported with Hue installation on an HDInsight Hadoop cluster.</target>
+        </trans-unit>
+        <trans-unit id="891a56b1-5285-42f9-a5a2-16614de4126e" xml:space="preserve">
+          <source>Beeswax Hive Editor</source>
+          <target state="new">Beeswax Hive Editor</target>
+        </trans-unit>
+        <trans-unit id="5c295b93-74fc-4829-b677-17fbfd621a6a" xml:space="preserve">
+          <source>Pig</source>
+          <target state="new">Pig</target>
+        </trans-unit>
+        <trans-unit id="f2f2d564-53d3-4080-aaa7-997ec1b245c9" xml:space="preserve">
+          <source>Metastore manager</source>
+          <target state="new">Metastore manager</target>
+        </trans-unit>
+        <trans-unit id="99594e88-d4e6-4aac-bb6e-4005916a85a0" xml:space="preserve">
+          <source>Oozie</source>
+          <target state="new">Oozie</target>
+        </trans-unit>
+        <trans-unit id="c2b43ed6-17a4-4c79-a101-97fed0964293" xml:space="preserve">
+          <source>FileBrowser (which talks to WASB default container)</source>
+          <target state="new">FileBrowser (which talks to WASB default container)</target>
+        </trans-unit>
+        <trans-unit id="5552feaf-f03b-4d77-a3e6-38baed93adcd" xml:space="preserve">
+          <source>Job Browser</source>
+          <target state="new">Job Browser</target>
+        </trans-unit>
+        <trans-unit id="70330338-6f01-4be9-b5fe-8b00d05cc28b" xml:space="preserve">
+          <source>The <bpt id="5c3b8816-b9b8-488b-9602-b2513852af97">&lt;linkText&gt;</bpt>https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh<ept id="5c3b8816-b9b8-488b-9602-b2513852af97">&lt;/linkText&gt;</ept><bpt id="5c3b8816-b9b8-488b-9602-b2513852af97">&lt;title&gt;</bpt><ept id="5c3b8816-b9b8-488b-9602-b2513852af97">&lt;/title&gt;</ept> script action is used to install Hue on an HDInsight cluster.</source>
+          <target state="new">The <bpt id="5c3b8816-b9b8-488b-9602-b2513852af97">&lt;linkText&gt;</bpt>https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh<ept id="5c3b8816-b9b8-488b-9602-b2513852af97">&lt;/linkText&gt;</ept><bpt id="5c3b8816-b9b8-488b-9602-b2513852af97">&lt;title&gt;</bpt><ept id="5c3b8816-b9b8-488b-9602-b2513852af97">&lt;/title&gt;</ept> script action is used to install Hue on an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="c9cda182-f21f-41ff-9897-cab26d27d1fe" xml:space="preserve">
+          <source>This section provides instructions about how to use the script when provisioning the cluster using the Azure portal.</source>
+          <target state="new">This section provides instructions about how to use the script when provisioning the cluster using the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="fd73c0f6-637d-4319-94ac-9c01e83ec293" xml:space="preserve">
+          <source>You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script.</source>
+          <target state="new">You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script.</target>
+        </trans-unit>
+        <trans-unit id="f71e8298-a91c-46fc-a626-058e97c231f9" xml:space="preserve">
+          <source>For more information on using these methods, see <bpt id="042d6c57-6c53-48fb-b3a5-1b31e11bac6f">&lt;linkText&gt;</bpt>Customize HDInsight clusters with Script Actions<ept id="042d6c57-6c53-48fb-b3a5-1b31e11bac6f">&lt;/linkText&gt;</ept><bpt id="042d6c57-6c53-48fb-b3a5-1b31e11bac6f">&lt;title&gt;</bpt><ept id="042d6c57-6c53-48fb-b3a5-1b31e11bac6f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on using these methods, see <bpt id="042d6c57-6c53-48fb-b3a5-1b31e11bac6f">&lt;linkText&gt;</bpt>Customize HDInsight clusters with Script Actions<ept id="042d6c57-6c53-48fb-b3a5-1b31e11bac6f">&lt;/linkText&gt;</ept><bpt id="042d6c57-6c53-48fb-b3a5-1b31e11bac6f">&lt;title&gt;</bpt><ept id="042d6c57-6c53-48fb-b3a5-1b31e11bac6f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f492d76-02c4-4d11-aad0-8191b3027bb7" xml:space="preserve">
+          <source>Start provisioning a cluster by using the steps in <bpt id="d958024c-c40e-4a6b-9cb1-5fc2f4a4565a">&lt;linkText&gt;</bpt>Provision HDInsight clusters on Linux<ept id="d958024c-c40e-4a6b-9cb1-5fc2f4a4565a">&lt;/linkText&gt;</ept><bpt id="d958024c-c40e-4a6b-9cb1-5fc2f4a4565a">&lt;title&gt;</bpt><ept id="d958024c-c40e-4a6b-9cb1-5fc2f4a4565a">&lt;/title&gt;</ept>, but do not complete provisioning.</source>
+          <target state="new">Start provisioning a cluster by using the steps in <bpt id="d958024c-c40e-4a6b-9cb1-5fc2f4a4565a">&lt;linkText&gt;</bpt>Provision HDInsight clusters on Linux<ept id="d958024c-c40e-4a6b-9cb1-5fc2f4a4565a">&lt;/linkText&gt;</ept><bpt id="d958024c-c40e-4a6b-9cb1-5fc2f4a4565a">&lt;title&gt;</bpt><ept id="d958024c-c40e-4a6b-9cb1-5fc2f4a4565a">&lt;/title&gt;</ept>, but do not complete provisioning.</target>
+        </trans-unit>
+        <trans-unit id="225b239f-fe6d-475c-93c5-413bbb7a4853" xml:space="preserve">
+          <source>On the <bpt id="5abf06b8-6843-4e5e-8df9-94b75c1714bc">&lt;strong&gt;</bpt>Optional Configuration<ept id="5abf06b8-6843-4e5e-8df9-94b75c1714bc">&lt;/strong&gt;</ept> blade, select <bpt id="02ca3cb9-68f5-4fce-b0d5-1e0c76746c49">&lt;strong&gt;</bpt>Script Actions<ept id="02ca3cb9-68f5-4fce-b0d5-1e0c76746c49">&lt;/strong&gt;</ept>, and provide the information below:</source>
+          <target state="new">On the <bpt id="5abf06b8-6843-4e5e-8df9-94b75c1714bc">&lt;strong&gt;</bpt>Optional Configuration<ept id="5abf06b8-6843-4e5e-8df9-94b75c1714bc">&lt;/strong&gt;</ept> blade, select <bpt id="02ca3cb9-68f5-4fce-b0d5-1e0c76746c49">&lt;strong&gt;</bpt>Script Actions<ept id="02ca3cb9-68f5-4fce-b0d5-1e0c76746c49">&lt;/strong&gt;</ept>, and provide the information below:</target>
+        </trans-unit>
+        <trans-unit id="d83052ff-2e23-41df-9a69-14835070ae2e" xml:space="preserve">
+          <source><bpt id="6921b39e-1960-4f6b-9a10-cfa2d2496ea1">&lt;strong&gt;</bpt>NAME<ept id="6921b39e-1960-4f6b-9a10-cfa2d2496ea1">&lt;/strong&gt;</ept>: Enter a friendly name for the script action.</source>
+          <target state="new"><bpt id="6921b39e-1960-4f6b-9a10-cfa2d2496ea1">&lt;strong&gt;</bpt>NAME<ept id="6921b39e-1960-4f6b-9a10-cfa2d2496ea1">&lt;/strong&gt;</ept>: Enter a friendly name for the script action.</target>
+        </trans-unit>
+        <trans-unit id="445bbf8c-1f63-4d5c-9d2b-66f26689cc1e" xml:space="preserve">
+          <source><bpt id="4cea6c56-71b8-40ce-924e-0a1b23a51467">&lt;strong&gt;</bpt>SCRIPT URI<ept id="4cea6c56-71b8-40ce-924e-0a1b23a51467">&lt;/strong&gt;</ept>: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh</source>
+          <target state="new"><bpt id="4cea6c56-71b8-40ce-924e-0a1b23a51467">&lt;strong&gt;</bpt>SCRIPT URI<ept id="4cea6c56-71b8-40ce-924e-0a1b23a51467">&lt;/strong&gt;</ept>: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh</target>
+        </trans-unit>
+        <trans-unit id="c81c80b3-1510-4cdc-8ea7-cce98088cacb" xml:space="preserve">
+          <source><bpt id="c4b62ac2-0a17-430e-8bb2-268ad98d3fab">&lt;strong&gt;</bpt>HEAD<ept id="c4b62ac2-0a17-430e-8bb2-268ad98d3fab">&lt;/strong&gt;</ept>: Check this option</source>
+          <target state="new"><bpt id="c4b62ac2-0a17-430e-8bb2-268ad98d3fab">&lt;strong&gt;</bpt>HEAD<ept id="c4b62ac2-0a17-430e-8bb2-268ad98d3fab">&lt;/strong&gt;</ept>: Check this option</target>
+        </trans-unit>
+        <trans-unit id="6f403b1f-7103-414e-af68-41ec3626a753" xml:space="preserve">
+          <source><bpt id="2c590b39-ea88-465b-9435-248637055f7f">&lt;strong&gt;</bpt>WORKER<ept id="2c590b39-ea88-465b-9435-248637055f7f">&lt;/strong&gt;</ept>: Leave this blank.</source>
+          <target state="new"><bpt id="2c590b39-ea88-465b-9435-248637055f7f">&lt;strong&gt;</bpt>WORKER<ept id="2c590b39-ea88-465b-9435-248637055f7f">&lt;/strong&gt;</ept>: Leave this blank.</target>
+        </trans-unit>
+        <trans-unit id="756cf16e-b81f-4630-8515-740dc93764ef" xml:space="preserve">
+          <source><bpt id="b51df833-e8b8-4680-99cc-9d5ccc856d3a">&lt;strong&gt;</bpt>ZOOKEEPER<ept id="b51df833-e8b8-4680-99cc-9d5ccc856d3a">&lt;/strong&gt;</ept>: Leave this blank.</source>
+          <target state="new"><bpt id="b51df833-e8b8-4680-99cc-9d5ccc856d3a">&lt;strong&gt;</bpt>ZOOKEEPER<ept id="b51df833-e8b8-4680-99cc-9d5ccc856d3a">&lt;/strong&gt;</ept>: Leave this blank.</target>
+        </trans-unit>
+        <trans-unit id="dd59135e-292b-4fae-b768-eafd9401bd4b" xml:space="preserve">
+          <source><bpt id="84f81ea6-85bd-49c1-90b0-0ee6a91aee82">&lt;strong&gt;</bpt>PARAMETERS<ept id="84f81ea6-85bd-49c1-90b0-0ee6a91aee82">&lt;/strong&gt;</ept>: The script expects the cluster admin password as a parameter.</source>
+          <target state="new"><bpt id="84f81ea6-85bd-49c1-90b0-0ee6a91aee82">&lt;strong&gt;</bpt>PARAMETERS<ept id="84f81ea6-85bd-49c1-90b0-0ee6a91aee82">&lt;/strong&gt;</ept>: The script expects the cluster admin password as a parameter.</target>
+        </trans-unit>
+        <trans-unit id="e73cb2c1-ba7d-4b68-9905-ee4c770c455e" xml:space="preserve">
+          <source>Specify the password within single quotes.</source>
+          <target state="new">Specify the password within single quotes.</target>
+        </trans-unit>
+        <trans-unit id="07e2f23d-2172-41f3-9561-585e29b3a549" xml:space="preserve">
+          <source>At the bottom of the <bpt id="36362bfd-d483-4a96-9a85-a6cdf82bd4fb">&lt;strong&gt;</bpt>Script Actions<ept id="36362bfd-d483-4a96-9a85-a6cdf82bd4fb">&lt;/strong&gt;</ept>, use the <bpt id="7a3dcb0f-ae2d-4e10-bb48-73cd72315017">&lt;strong&gt;</bpt>Select<ept id="7a3dcb0f-ae2d-4e10-bb48-73cd72315017">&lt;/strong&gt;</ept> button to save the configuration.</source>
+          <target state="new">At the bottom of the <bpt id="36362bfd-d483-4a96-9a85-a6cdf82bd4fb">&lt;strong&gt;</bpt>Script Actions<ept id="36362bfd-d483-4a96-9a85-a6cdf82bd4fb">&lt;/strong&gt;</ept>, use the <bpt id="7a3dcb0f-ae2d-4e10-bb48-73cd72315017">&lt;strong&gt;</bpt>Select<ept id="7a3dcb0f-ae2d-4e10-bb48-73cd72315017">&lt;/strong&gt;</ept> button to save the configuration.</target>
+        </trans-unit>
+        <trans-unit id="95bac81e-225e-4ae4-bda1-a0b5faa6d772" xml:space="preserve">
+          <source>Finally, use the <bpt id="584bc7a4-f1d5-4f56-b303-65927216adfe">&lt;strong&gt;</bpt>Select<ept id="584bc7a4-f1d5-4f56-b303-65927216adfe">&lt;/strong&gt;</ept> button at the bottom of the <bpt id="650cf6fd-c29d-4432-aebc-ac5e7557db99">&lt;strong&gt;</bpt>Optional Configuration<ept id="650cf6fd-c29d-4432-aebc-ac5e7557db99">&lt;/strong&gt;</ept> blade to save the optional configuration information.</source>
+          <target state="new">Finally, use the <bpt id="584bc7a4-f1d5-4f56-b303-65927216adfe">&lt;strong&gt;</bpt>Select<ept id="584bc7a4-f1d5-4f56-b303-65927216adfe">&lt;/strong&gt;</ept> button at the bottom of the <bpt id="650cf6fd-c29d-4432-aebc-ac5e7557db99">&lt;strong&gt;</bpt>Optional Configuration<ept id="650cf6fd-c29d-4432-aebc-ac5e7557db99">&lt;/strong&gt;</ept> blade to save the optional configuration information.</target>
+        </trans-unit>
+        <trans-unit id="a0fdd2f0-493f-4d7c-9476-eaa355e4b302" xml:space="preserve">
+          <source>Continue provisining the cluster as described in <bpt id="b9897330-3439-48f1-9b9c-7b61d9f30038">&lt;linkText&gt;</bpt>Provision HDInsight clusters on Linux<ept id="b9897330-3439-48f1-9b9c-7b61d9f30038">&lt;/linkText&gt;</ept><bpt id="b9897330-3439-48f1-9b9c-7b61d9f30038">&lt;title&gt;</bpt><ept id="b9897330-3439-48f1-9b9c-7b61d9f30038">&lt;/title&gt;</ept>.</source>
+          <target state="new">Continue provisining the cluster as described in <bpt id="b9897330-3439-48f1-9b9c-7b61d9f30038">&lt;linkText&gt;</bpt>Provision HDInsight clusters on Linux<ept id="b9897330-3439-48f1-9b9c-7b61d9f30038">&lt;/linkText&gt;</ept><bpt id="b9897330-3439-48f1-9b9c-7b61d9f30038">&lt;title&gt;</bpt><ept id="b9897330-3439-48f1-9b9c-7b61d9f30038">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3cbf87cd-9475-4cb8-8026-44d58cefecad" xml:space="preserve">
+          <source>SSH Tunneling is the only way to access Hue on the cluster once it is running.</source>
+          <target state="new">SSH Tunneling is the only way to access Hue on the cluster once it is running.</target>
+        </trans-unit>
+        <trans-unit id="ab8df67f-ee52-4a43-8419-8534f838beae" xml:space="preserve">
+          <source>Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running.</source>
+          <target state="new">Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running.</target>
+        </trans-unit>
+        <trans-unit id="e544e860-bd41-43ab-8474-d9f1370ee1f6" xml:space="preserve">
+          <source>After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight Linux cluster.</source>
+          <target state="new">After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight Linux cluster.</target>
+        </trans-unit>
+        <trans-unit id="294a33db-4650-45a1-939a-4710b878060f" xml:space="preserve">
+          <source>The instructions below assume that you have a Firefox Web browser with <bpt id="13d7c7d2-a367-4ac8-a0c7-1cd8b0a23b10">&lt;linkText&gt;</bpt>FoxyProxy<ept id="13d7c7d2-a367-4ac8-a0c7-1cd8b0a23b10">&lt;/linkText&gt;</ept><bpt id="13d7c7d2-a367-4ac8-a0c7-1cd8b0a23b10">&lt;title&gt;</bpt><ept id="13d7c7d2-a367-4ac8-a0c7-1cd8b0a23b10">&lt;/title&gt;</ept> extension installed.</source>
+          <target state="new">The instructions below assume that you have a Firefox Web browser with <bpt id="13d7c7d2-a367-4ac8-a0c7-1cd8b0a23b10">&lt;linkText&gt;</bpt>FoxyProxy<ept id="13d7c7d2-a367-4ac8-a0c7-1cd8b0a23b10">&lt;/linkText&gt;</ept><bpt id="13d7c7d2-a367-4ac8-a0c7-1cd8b0a23b10">&lt;title&gt;</bpt><ept id="13d7c7d2-a367-4ac8-a0c7-1cd8b0a23b10">&lt;/title&gt;</ept> extension installed.</target>
+        </trans-unit>
+        <trans-unit id="e0fa4086-6645-4d35-9b4c-37a6b46cacad" xml:space="preserve">
+          <source>Enable SSH tunneling from your desktop computer and configure your Firefox Web browser to use the SSH tunnel.</source>
+          <target state="new">Enable SSH tunneling from your desktop computer and configure your Firefox Web browser to use the SSH tunnel.</target>
+        </trans-unit>
+        <trans-unit id="857fb18b-7346-47f9-afec-af718fe685ef" xml:space="preserve">
+          <source>While configuring tunneling, use a port other than port 8888.</source>
+          <target state="new">While configuring tunneling, use a port other than port 8888.</target>
+        </trans-unit>
+        <trans-unit id="8de6c608-47d8-4108-94fe-bfb1e86a4076" xml:space="preserve">
+          <source>For instructions on enabling SSH tunneling from a Linux computer, see <bpt id="9774726f-29d6-4c10-b937-6f61a0d0b4ea">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="9774726f-29d6-4c10-b937-6f61a0d0b4ea">&lt;/linkText&gt;</ept><bpt id="9774726f-29d6-4c10-b937-6f61a0d0b4ea">&lt;title&gt;</bpt><ept id="9774726f-29d6-4c10-b937-6f61a0d0b4ea">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on enabling SSH tunneling from a Linux computer, see <bpt id="9774726f-29d6-4c10-b937-6f61a0d0b4ea">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="9774726f-29d6-4c10-b937-6f61a0d0b4ea">&lt;/linkText&gt;</ept><bpt id="9774726f-29d6-4c10-b937-6f61a0d0b4ea">&lt;title&gt;</bpt><ept id="9774726f-29d6-4c10-b937-6f61a0d0b4ea">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3229160-8bd7-4de2-8910-94d821ead9dd" xml:space="preserve">
+          <source>For instructions on enabling SSH tunneling from a Windows computer, see <bpt id="d4bafd03-ac75-47b3-acb5-5c5b080be1dd">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="d4bafd03-ac75-47b3-acb5-5c5b080be1dd">&lt;/linkText&gt;</ept><bpt id="d4bafd03-ac75-47b3-acb5-5c5b080be1dd">&lt;title&gt;</bpt><ept id="d4bafd03-ac75-47b3-acb5-5c5b080be1dd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on enabling SSH tunneling from a Windows computer, see <bpt id="d4bafd03-ac75-47b3-acb5-5c5b080be1dd">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="d4bafd03-ac75-47b3-acb5-5c5b080be1dd">&lt;/linkText&gt;</ept><bpt id="d4bafd03-ac75-47b3-acb5-5c5b080be1dd">&lt;title&gt;</bpt><ept id="d4bafd03-ac75-47b3-acb5-5c5b080be1dd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db25bcae-6b43-4c34-b185-8cc3838c75bf" xml:space="preserve">
+          <source>Keep the PuTTY session running.</source>
+          <target state="new">Keep the PuTTY session running.</target>
+        </trans-unit>
+        <trans-unit id="b179c6f1-32fe-49d0-8c38-7eeb9dc6408c" xml:space="preserve">
+          <source>From your computer, use the Firefox Web browser with FoxyProxy configured to launch the Hue portal at http://headnode0:8888.</source>
+          <target state="new">From your computer, use the Firefox Web browser with FoxyProxy configured to launch the Hue portal at http://headnode0:8888.</target>
+        </trans-unit>
+        <trans-unit id="b7699cce-90a3-4cf9-8b66-b48dffd44b0f" xml:space="preserve">
+          <source>When you log in for the first time, you are prompted to create an account to log into the Hue portal.</source>
+          <target state="new">When you log in for the first time, you are prompted to create an account to log into the Hue portal.</target>
+        </trans-unit>
+        <trans-unit id="43d56f0b-8cfc-4f0b-ac93-8af696cec356" xml:space="preserve">
+          <source>The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.</source>
+          <target state="new">The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.</target>
+        </trans-unit>
+        <trans-unit id="9bc01d68-3c00-4121-8b10-85facfdcb05c" xml:space="preserve">
+          <source><bpt id="8a23364e-de72-414e-811b-f7b3f445d0c2">&lt;linkText&gt;</bpt>Login to the Hue portal<ept id="8a23364e-de72-414e-811b-f7b3f445d0c2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8a23364e-de72-414e-811b-f7b3f445d0c2">&lt;linkText&gt;</bpt>Login to the Hue portal<ept id="8a23364e-de72-414e-811b-f7b3f445d0c2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa1fb701-e7b2-4e63-9226-9aa11dd4d4cd" xml:space="preserve">
+          <source>From the Hue portal, click <bpt id="41d2070c-9864-4a1a-a5e5-0e09cd2c6c72">&lt;strong&gt;</bpt>Query Editors<ept id="41d2070c-9864-4a1a-a5e5-0e09cd2c6c72">&lt;/strong&gt;</ept>, and then click <bpt id="1953cbc2-834f-41c1-861b-89587f0533ae">&lt;strong&gt;</bpt>Hive<ept id="1953cbc2-834f-41c1-861b-89587f0533ae">&lt;/strong&gt;</ept> to open the Hive editor.</source>
+          <target state="new">From the Hue portal, click <bpt id="41d2070c-9864-4a1a-a5e5-0e09cd2c6c72">&lt;strong&gt;</bpt>Query Editors<ept id="41d2070c-9864-4a1a-a5e5-0e09cd2c6c72">&lt;/strong&gt;</ept>, and then click <bpt id="1953cbc2-834f-41c1-861b-89587f0533ae">&lt;strong&gt;</bpt>Hive<ept id="1953cbc2-834f-41c1-861b-89587f0533ae">&lt;/strong&gt;</ept> to open the Hive editor.</target>
+        </trans-unit>
+        <trans-unit id="482b322b-8fc8-4041-a634-35763ec0126c" xml:space="preserve">
+          <source><bpt id="236ceb6d-d80b-4182-b5ba-1a59f8cfc191">&lt;linkText&gt;</bpt>Use Hive<ept id="236ceb6d-d80b-4182-b5ba-1a59f8cfc191">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="236ceb6d-d80b-4182-b5ba-1a59f8cfc191">&lt;linkText&gt;</bpt>Use Hive<ept id="236ceb6d-d80b-4182-b5ba-1a59f8cfc191">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e712cfb-87d0-4deb-96f4-43332523a522" xml:space="preserve">
+          <source>On the <bpt id="ea504658-60a7-4df6-af68-5dd98236998c">&lt;strong&gt;</bpt>Assist<ept id="ea504658-60a7-4df6-af68-5dd98236998c">&lt;/strong&gt;</ept> tab, under <bpt id="fc4adf64-2f54-4dab-ac3f-0b53fca82154">&lt;strong&gt;</bpt>Database<ept id="fc4adf64-2f54-4dab-ac3f-0b53fca82154">&lt;/strong&gt;</ept>, you should see <bpt id="b6902cbb-6986-4b1a-a930-3ee2cc8c9ac2">&lt;strong&gt;</bpt>hivesampletable<ept id="b6902cbb-6986-4b1a-a930-3ee2cc8c9ac2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="ea504658-60a7-4df6-af68-5dd98236998c">&lt;strong&gt;</bpt>Assist<ept id="ea504658-60a7-4df6-af68-5dd98236998c">&lt;/strong&gt;</ept> tab, under <bpt id="fc4adf64-2f54-4dab-ac3f-0b53fca82154">&lt;strong&gt;</bpt>Database<ept id="fc4adf64-2f54-4dab-ac3f-0b53fca82154">&lt;/strong&gt;</ept>, you should see <bpt id="b6902cbb-6986-4b1a-a930-3ee2cc8c9ac2">&lt;strong&gt;</bpt>hivesampletable<ept id="b6902cbb-6986-4b1a-a930-3ee2cc8c9ac2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60732125-6a1c-4ce1-a80e-48f6bd77e6e9" xml:space="preserve">
+          <source>This is a sample table that is shipped with all Hadoop clusters on HDInsight.</source>
+          <target state="new">This is a sample table that is shipped with all Hadoop clusters on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="d2e1a680-b925-4869-b4cb-b372d385dd1f" xml:space="preserve">
+          <source>Enter a sample query in the right pane and see the output on the <bpt id="5ae96aa5-11c8-4510-a8bd-9b7c4e38ef26">&lt;strong&gt;</bpt>Results<ept id="5ae96aa5-11c8-4510-a8bd-9b7c4e38ef26">&lt;/strong&gt;</ept> tab in the pane below, as shown in the screen capture.</source>
+          <target state="new">Enter a sample query in the right pane and see the output on the <bpt id="5ae96aa5-11c8-4510-a8bd-9b7c4e38ef26">&lt;strong&gt;</bpt>Results<ept id="5ae96aa5-11c8-4510-a8bd-9b7c4e38ef26">&lt;/strong&gt;</ept> tab in the pane below, as shown in the screen capture.</target>
+        </trans-unit>
+        <trans-unit id="1330fe03-54b9-4cbb-9e6a-f53f861a5bf4" xml:space="preserve">
+          <source><bpt id="ec0b913d-dcd4-4553-a9e9-4ae9c3bbec6e">&lt;linkText&gt;</bpt>Run Hive query<ept id="ec0b913d-dcd4-4553-a9e9-4ae9c3bbec6e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec0b913d-dcd4-4553-a9e9-4ae9c3bbec6e">&lt;linkText&gt;</bpt>Run Hive query<ept id="ec0b913d-dcd4-4553-a9e9-4ae9c3bbec6e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af2e2c9f-74f2-45e6-b86e-4480ae1b3d9b" xml:space="preserve">
+          <source>You can also use the <bpt id="54e4eda2-ada3-4ea3-b533-719b63089d00">&lt;strong&gt;</bpt>Chart<ept id="54e4eda2-ada3-4ea3-b533-719b63089d00">&lt;/strong&gt;</ept> tab to see a visual representation of the result.</source>
+          <target state="new">You can also use the <bpt id="54e4eda2-ada3-4ea3-b533-719b63089d00">&lt;strong&gt;</bpt>Chart<ept id="54e4eda2-ada3-4ea3-b533-719b63089d00">&lt;/strong&gt;</ept> tab to see a visual representation of the result.</target>
+        </trans-unit>
+        <trans-unit id="db9a30d7-8772-4402-973c-8a89b31c74d6" xml:space="preserve">
+          <source>From the Hue portal, click <bpt id="81296154-ef0c-4776-b232-2573a6b095fa">&lt;strong&gt;</bpt>File Browser<ept id="81296154-ef0c-4776-b232-2573a6b095fa">&lt;/strong&gt;</ept> in the top-right corner of the menu bar.</source>
+          <target state="new">From the Hue portal, click <bpt id="81296154-ef0c-4776-b232-2573a6b095fa">&lt;strong&gt;</bpt>File Browser<ept id="81296154-ef0c-4776-b232-2573a6b095fa">&lt;/strong&gt;</ept> in the top-right corner of the menu bar.</target>
+        </trans-unit>
+        <trans-unit id="719cf455-3e79-4865-a68d-1f9e14424411" xml:space="preserve">
+          <source>By default the file browser opens at the <bpt id="10b65d8b-b63d-4a06-9e79-c6b8828bc9cf">&lt;strong&gt;</bpt>/user/myuser<ept id="10b65d8b-b63d-4a06-9e79-c6b8828bc9cf">&lt;/strong&gt;</ept> directory.</source>
+          <target state="new">By default the file browser opens at the <bpt id="10b65d8b-b63d-4a06-9e79-c6b8828bc9cf">&lt;strong&gt;</bpt>/user/myuser<ept id="10b65d8b-b63d-4a06-9e79-c6b8828bc9cf">&lt;/strong&gt;</ept> directory.</target>
+        </trans-unit>
+        <trans-unit id="1ddd7af1-3ce9-40f3-b3fc-a88fce00c5d6" xml:space="preserve">
+          <source>Click the forward slash right before the user directory in the path to go to the root of the Azure storage container associated with the cluster.</source>
+          <target state="new">Click the forward slash right before the user directory in the path to go to the root of the Azure storage container associated with the cluster.</target>
+        </trans-unit>
+        <trans-unit id="c2ab6426-1b46-4e94-bf02-b80ed8f30f36" xml:space="preserve">
+          <source><bpt id="153e3fe0-ca0e-4c2c-a0a1-c32f348b64fc">&lt;linkText&gt;</bpt>Use file browser<ept id="153e3fe0-ca0e-4c2c-a0a1-c32f348b64fc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="153e3fe0-ca0e-4c2c-a0a1-c32f348b64fc">&lt;linkText&gt;</bpt>Use file browser<ept id="153e3fe0-ca0e-4c2c-a0a1-c32f348b64fc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c102ddb2-faf4-4c0f-b70a-60effe41e3df" xml:space="preserve">
+          <source>Right-click on a file or folder to see the available operations.</source>
+          <target state="new">Right-click on a file or folder to see the available operations.</target>
+        </trans-unit>
+        <trans-unit id="5badcf22-f715-4dde-b5b6-286b3ead6e62" xml:space="preserve">
+          <source>Use the <bpt id="61fef835-4c92-4f7f-b585-4ce961ed9a55">&lt;strong&gt;</bpt>Upload<ept id="61fef835-4c92-4f7f-b585-4ce961ed9a55">&lt;/strong&gt;</ept> button in the right corner to upload files to the current directory.</source>
+          <target state="new">Use the <bpt id="61fef835-4c92-4f7f-b585-4ce961ed9a55">&lt;strong&gt;</bpt>Upload<ept id="61fef835-4c92-4f7f-b585-4ce961ed9a55">&lt;/strong&gt;</ept> button in the right corner to upload files to the current directory.</target>
+        </trans-unit>
+        <trans-unit id="9cbb3ef1-02cc-47bf-8a2e-c723ff1ccfb8" xml:space="preserve">
+          <source>Use the <bpt id="3cae2957-b051-4439-847e-5fce902eebe9">&lt;strong&gt;</bpt>New<ept id="3cae2957-b051-4439-847e-5fce902eebe9">&lt;/strong&gt;</ept> button to create new files or directories.</source>
+          <target state="new">Use the <bpt id="3cae2957-b051-4439-847e-5fce902eebe9">&lt;strong&gt;</bpt>New<ept id="3cae2957-b051-4439-847e-5fce902eebe9">&lt;/strong&gt;</ept> button to create new files or directories.</target>
+        </trans-unit>
+        <trans-unit id="9a819f63-50e1-45a2-80de-58343250bf84" xml:space="preserve">
+          <source>The Hue file browser can only show the contents of the default container associated with the HDInsight cluster.</source>
+          <target state="new">The Hue file browser can only show the contents of the default container associated with the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="0c1b31ee-9570-4a04-97bc-f59d8db83417" xml:space="preserve">
+          <source>Any additional storage accounts/containers that you might have associated with the cluster will not be accessible using the file browser.</source>
+          <target state="new">Any additional storage accounts/containers that you might have associated with the cluster will not be accessible using the file browser.</target>
+        </trans-unit>
+        <trans-unit id="76584c65-a4fc-4358-9c80-484b62eabf38" xml:space="preserve">
+          <source>However, the additional containers associated with the cluster will always be accessible for the Hive jobs.</source>
+          <target state="new">However, the additional containers associated with the cluster will always be accessible for the Hive jobs.</target>
+        </trans-unit>
+        <trans-unit id="23dd35c8-51fd-4f0a-8d05-3a4f55e3166c" xml:space="preserve">
+          <source>For example, if you enter the command <bpt id="276dcbbe-c120-4721-8218-cd87469a3f81">&lt;code&gt;</bpt>dfs -ls wasb://newcontainer@mystore.blob.core.windows.net<ept id="276dcbbe-c120-4721-8218-cd87469a3f81">&lt;/code&gt;</ept> in the Hive editor, you can see the contents of additional containers as well.</source>
+          <target state="new">For example, if you enter the command <bpt id="276dcbbe-c120-4721-8218-cd87469a3f81">&lt;code&gt;</bpt>dfs -ls wasb://newcontainer@mystore.blob.core.windows.net<ept id="276dcbbe-c120-4721-8218-cd87469a3f81">&lt;/code&gt;</ept> in the Hive editor, you can see the contents of additional containers as well.</target>
+        </trans-unit>
+        <trans-unit id="8cbf1839-1ebc-45f7-b5a3-ba93b1c4b526" xml:space="preserve">
+          <source>In this command, <bpt id="684965e3-0480-4af9-bb37-2fccbb0f5237">&lt;strong&gt;</bpt>newcontainer<ept id="684965e3-0480-4af9-bb37-2fccbb0f5237">&lt;/strong&gt;</ept> is not the default container associated with a cluster.</source>
+          <target state="new">In this command, <bpt id="684965e3-0480-4af9-bb37-2fccbb0f5237">&lt;strong&gt;</bpt>newcontainer<ept id="684965e3-0480-4af9-bb37-2fccbb0f5237">&lt;/strong&gt;</ept> is not the default container associated with a cluster.</target>
+        </trans-unit>
+        <trans-unit id="11209759-3c39-487d-87fc-bbd74c9085f0" xml:space="preserve">
+          <source>The script used to install Hue installs it only on HEADNODE0 of the cluster.</source>
+          <target state="new">The script used to install Hue installs it only on HEADNODE0 of the cluster.</target>
+        </trans-unit>
+        <trans-unit id="66f536e4-9c02-438c-9cae-5f9556dd65f5" xml:space="preserve">
+          <source>During installation, multiple Hadoop services (HDFS, YARN, MR2, Oozie) are restarted for updating the configuration.</source>
+          <target state="new">During installation, multiple Hadoop services (HDFS, YARN, MR2, Oozie) are restarted for updating the configuration.</target>
+        </trans-unit>
+        <trans-unit id="7d2f4d70-48d6-4c4a-b460-037b07c4bb89" xml:space="preserve">
+          <source>After the script finishes installing Hue, it might take some time for other Hadoop services to start up.</source>
+          <target state="new">After the script finishes installing Hue, it might take some time for other Hadoop services to start up.</target>
+        </trans-unit>
+        <trans-unit id="921842da-c31d-4341-8b3c-d29d6348c95f" xml:space="preserve">
+          <source>This might affect Hue's performance initially.</source>
+          <target state="new">This might affect Hue's performance initially.</target>
+        </trans-unit>
+        <trans-unit id="b0617e0c-4614-4239-a69c-da896ad2fa84" xml:space="preserve">
+          <source>Once all services start up, Hue will be fully functional.</source>
+          <target state="new">Once all services start up, Hue will be fully functional.</target>
+        </trans-unit>
+        <trans-unit id="fa6e68fe-2ceb-44e1-9d60-e2a0683a4c85" xml:space="preserve">
+          <source>Hue does not understand Tez jobs, which is the current default for Hive.</source>
+          <target state="new">Hue does not understand Tez jobs, which is the current default for Hive.</target>
+        </trans-unit>
+        <trans-unit id="5a688ec4-5020-4230-8300-29c816335072" xml:space="preserve">
+          <source>If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script:</source>
+          <target state="new">If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script:</target>
+        </trans-unit>
+        <trans-unit id="10535c29-e6b7-484f-87be-62fa82475a15" xml:space="preserve">
+          <source>With Linux clusters, you can have a scenario where your services are running on HEADNODE0 while the Resource Manager could be running on HEADNODE1.</source>
+          <target state="new">With Linux clusters, you can have a scenario where your services are running on HEADNODE0 while the Resource Manager could be running on HEADNODE1.</target>
+        </trans-unit>
+        <trans-unit id="09266d0a-7e2c-4c6d-a2f6-9e08b1798aa1" xml:space="preserve">
+          <source>Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster.</source>
+          <target state="new">Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster.</target>
+        </trans-unit>
+        <trans-unit id="d64de804-a515-4a5c-9f9b-59b27070a684" xml:space="preserve">
+          <source>However, you can view the job details when the job has completed.</source>
+          <target state="new">However, you can view the job details when the job has completed.</target>
+        </trans-unit>
+        <trans-unit id="b91ff8cf-e572-42bd-9778-79fc903d6e06" xml:space="preserve">
+          <source><bpt id="c14995fe-1352-46e2-ae7a-2751e6a00baa">&lt;linkText&gt;</bpt>Hue portal error<ept id="c14995fe-1352-46e2-ae7a-2751e6a00baa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c14995fe-1352-46e2-ae7a-2751e6a00baa">&lt;linkText&gt;</bpt>Hue portal error<ept id="c14995fe-1352-46e2-ae7a-2751e6a00baa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a3cc8c3-aac5-44de-b9fc-03827934a35b" xml:space="preserve">
+          <source>This is due to a known issue.</source>
+          <target state="new">This is due to a known issue.</target>
+        </trans-unit>
+        <trans-unit id="07ce196b-4c61-4919-b742-c7d73990cac8" xml:space="preserve">
+          <source>As a workaround, modify Ambari so that the active Resource Manager also runs on HEADNODE0.</source>
+          <target state="new">As a workaround, modify Ambari so that the active Resource Manager also runs on HEADNODE0.</target>
+        </trans-unit>
+        <trans-unit id="03f75888-9dc6-4901-9eef-97419323d4df" xml:space="preserve">
+          <source>Hue understands WebHDFS while HDInsight clusters use Azure Storage using <bpt id="474cc6d2-33e6-45aa-8464-ca3059228d41">&lt;code&gt;</bpt>wasb://<ept id="474cc6d2-33e6-45aa-8464-ca3059228d41">&lt;/code&gt;</ept>.</source>
+          <target state="new">Hue understands WebHDFS while HDInsight clusters use Azure Storage using <bpt id="474cc6d2-33e6-45aa-8464-ca3059228d41">&lt;code&gt;</bpt>wasb://<ept id="474cc6d2-33e6-45aa-8464-ca3059228d41">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57d85999-c180-486c-a68a-a3f87ce1642b" xml:space="preserve">
+          <source>So, the custom script used with script action installs WebWasb, which is a WebHDFS-compatible service for talking to WASB.</source>
+          <target state="new">So, the custom script used with script action installs WebWasb, which is a WebHDFS-compatible service for talking to WASB.</target>
+        </trans-unit>
+        <trans-unit id="2d3c1a47-ffc7-4052-8bf9-87abdfd415ee" xml:space="preserve">
+          <source>So, even though the Hue portal says HDFS in places (like when you move your mouse over the <bpt id="58daeabf-4f78-43fc-b05a-f114ac36ca62">&lt;strong&gt;</bpt>File Browser<ept id="58daeabf-4f78-43fc-b05a-f114ac36ca62">&lt;/strong&gt;</ept>), it should be interpreted as WASB.</source>
+          <target state="new">So, even though the Hue portal says HDFS in places (like when you move your mouse over the <bpt id="58daeabf-4f78-43fc-b05a-f114ac36ca62">&lt;strong&gt;</bpt>File Browser<ept id="58daeabf-4f78-43fc-b05a-f114ac36ca62">&lt;/strong&gt;</ept>), it should be interpreted as WASB.</target>
+        </trans-unit>
+        <trans-unit id="a6f6d1fd-a401-4131-a594-409c27f9604b" xml:space="preserve">
+          <source><bpt id="144d215d-b0f3-4649-9972-9195235231be">&lt;linkText&gt;</bpt>Install and use Spark on HDInsight clusters<ept id="144d215d-b0f3-4649-9972-9195235231be">&lt;/linkText&gt;</ept><bpt id="144d215d-b0f3-4649-9972-9195235231be">&lt;title&gt;</bpt><ept id="144d215d-b0f3-4649-9972-9195235231be">&lt;/title&gt;</ept> for  instructions about how to use cluster customization to install and use Spark on HDInsight Hadoop clusters.</source>
+          <target state="new"><bpt id="144d215d-b0f3-4649-9972-9195235231be">&lt;linkText&gt;</bpt>Install and use Spark on HDInsight clusters<ept id="144d215d-b0f3-4649-9972-9195235231be">&lt;/linkText&gt;</ept><bpt id="144d215d-b0f3-4649-9972-9195235231be">&lt;title&gt;</bpt><ept id="144d215d-b0f3-4649-9972-9195235231be">&lt;/title&gt;</ept> for  instructions about how to use cluster customization to install and use Spark on HDInsight Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="5774d8a0-2273-401e-9fd7-af534b16f495" xml:space="preserve">
+          <source>Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications.</source>
+          <target state="new">Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications.</target>
+        </trans-unit>
+        <trans-unit id="0dc9dfb1-08a6-46b2-99fe-268f216c6a6e" xml:space="preserve">
+          <source><bpt id="a1ca96b1-1ac3-49c1-b709-03941575208d">&lt;linkText&gt;</bpt>Install Giraph on HDInsight clusters<ept id="a1ca96b1-1ac3-49c1-b709-03941575208d">&lt;/linkText&gt;</ept><bpt id="a1ca96b1-1ac3-49c1-b709-03941575208d">&lt;title&gt;</bpt><ept id="a1ca96b1-1ac3-49c1-b709-03941575208d">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a1ca96b1-1ac3-49c1-b709-03941575208d">&lt;linkText&gt;</bpt>Install Giraph on HDInsight clusters<ept id="a1ca96b1-1ac3-49c1-b709-03941575208d">&lt;/linkText&gt;</ept><bpt id="a1ca96b1-1ac3-49c1-b709-03941575208d">&lt;title&gt;</bpt><ept id="a1ca96b1-1ac3-49c1-b709-03941575208d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b35f4e2-43d9-496c-b4e0-c3b25a3e838b" xml:space="preserve">
+          <source>Use cluster customization to install Giraph on HDInsight Hadoop clusters.</source>
+          <target state="new">Use cluster customization to install Giraph on HDInsight Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="55f77144-fadc-4b6a-9341-9754231f929c" xml:space="preserve">
+          <source>Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.</source>
+          <target state="new">Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="cf6d3b90-9ec5-426d-a51e-94c7cb4ca214" xml:space="preserve">
+          <source><bpt id="7215e8e9-0344-401b-ac3c-7a53093ca478">&lt;linkText&gt;</bpt>Install Solr on HDInsight clusters<ept id="7215e8e9-0344-401b-ac3c-7a53093ca478">&lt;/linkText&gt;</ept><bpt id="7215e8e9-0344-401b-ac3c-7a53093ca478">&lt;title&gt;</bpt><ept id="7215e8e9-0344-401b-ac3c-7a53093ca478">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="7215e8e9-0344-401b-ac3c-7a53093ca478">&lt;linkText&gt;</bpt>Install Solr on HDInsight clusters<ept id="7215e8e9-0344-401b-ac3c-7a53093ca478">&lt;/linkText&gt;</ept><bpt id="7215e8e9-0344-401b-ac3c-7a53093ca478">&lt;title&gt;</bpt><ept id="7215e8e9-0344-401b-ac3c-7a53093ca478">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5634ef44-b099-426a-b11c-0095bf78e22b" xml:space="preserve">
+          <source>Use cluster customization to install Solr on HDInsight Hadoop clusters.</source>
+          <target state="new">Use cluster customization to install Solr on HDInsight Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="1ac2c685-a656-4298-8517-2938af20fd57" xml:space="preserve">
+          <source>Solr allows you to perform powerful search operations on stored data.</source>
+          <target state="new">Solr allows you to perform powerful search operations on stored data.</target>
+        </trans-unit>
+        <trans-unit id="9be62ec4-33ef-4272-8bea-27e9e47b1849" xml:space="preserve">
+          <source><bpt id="90d1a6c5-cde4-41d5-acf6-132fc7f5dc52">&lt;linkText&gt;</bpt>Install R on HDInsight clusters<ept id="90d1a6c5-cde4-41d5-acf6-132fc7f5dc52">&lt;/linkText&gt;</ept><bpt id="90d1a6c5-cde4-41d5-acf6-132fc7f5dc52">&lt;title&gt;</bpt><ept id="90d1a6c5-cde4-41d5-acf6-132fc7f5dc52">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="90d1a6c5-cde4-41d5-acf6-132fc7f5dc52">&lt;linkText&gt;</bpt>Install R on HDInsight clusters<ept id="90d1a6c5-cde4-41d5-acf6-132fc7f5dc52">&lt;/linkText&gt;</ept><bpt id="90d1a6c5-cde4-41d5-acf6-132fc7f5dc52">&lt;title&gt;</bpt><ept id="90d1a6c5-cde4-41d5-acf6-132fc7f5dc52">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b0fa884-d9cf-4e94-a21e-afedcc26a998" xml:space="preserve">
+          <source>Use cluster customization to install R on HDInsight Hadoop clusters.</source>
+          <target state="new">Use cluster customization to install R on HDInsight Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="e8dbbd60-06f9-4d8b-b5bc-f0e12c94e78b" xml:space="preserve">
+          <source>R is an open-source language and environment for statistical computing.</source>
+          <target state="new">R is an open-source language and environment for statistical computing.</target>
+        </trans-unit>
+        <trans-unit id="6b91b9b7-3444-40a5-a187-b15862e9e952" xml:space="preserve">
+          <source>It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming.</source>
+          <target state="new">It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming.</target>
+        </trans-unit>
+        <trans-unit id="afd98c29-4e26-4451-a6a9-15e0b5fc4e30" xml:space="preserve">
+          <source>It also provides extensive graphical capabilities.</source>
+          <target state="new">It also provides extensive graphical capabilities.</target>
+        </trans-unit>
+        <trans-unit id="a14a6455-ca52-4e4b-af3e-ff5b8cfc8cc2" xml:space="preserve">
+          <source>install-configure-powershell-linux.md</source>
+          <target state="new">install-configure-powershell-linux.md</target>
+        </trans-unit>
+        <trans-unit id="e2041d26-c203-469a-b822-970f5529d8c3" xml:space="preserve">
+          <source>hdinsight-provision-clusters-linux.md</source>
+          <target state="new">hdinsight-provision-clusters-linux.md</target>
+        </trans-unit>
+        <trans-unit id="064c9143-3bbe-4e19-9d6e-86db8c9eb7fd" xml:space="preserve">
+          <source>hdinsight-hadoop-customize-cluster-linux.md</source>
+          <target state="new">hdinsight-hadoop-customize-cluster-linux.md</target>
+        </trans-unit>
+        <trans-unit id="a9353dd6-03b1-495b-bc80-47d5353cc52c" xml:space="preserve">
+          <source>hdinsight-hadoop-spark-install-linux.md</source>
+          <target state="new">hdinsight-hadoop-spark-install-linux.md</target>
+        </trans-unit>
+      </group>
+      <group id="18c81c87-e8b4-4ab6-a79d-5b8e6e80a113" />
+    </body>
+  </file>
+</xliff>

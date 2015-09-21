@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0a10283b-c995-40cf-956f-351f90ec4346" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0a10283b-c995-40cf-956f-351f90ec4346" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="543449b7-0f89-445a-8ac4-c43abdfeb865">
+        <trans-unit id="e02619e6-edec-483d-ac14-2e7c266314b3" xml:space="preserve">
+          <source>Use Azure Machine Learning with SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Use Azure Machine Learning with SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e3c8b53a-0965-4ae0-b7bd-e3a7319ba74c" xml:space="preserve">
+          <source>Tutorial for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tutorial for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="c9c246d9-9875-4050-9964-c223150ef46b" xml:space="preserve">
+          <source>Azure Machine Learning is a fully managed predictive analytics service that you can use to create predictive models against your data in SQL Data Warehouse, and publish them as ready-to-consume web services.</source>
+          <target state="new">Azure Machine Learning is a fully managed predictive analytics service that you can use to create predictive models against your data in SQL Data Warehouse, and publish them as ready-to-consume web services.</target>
+        </trans-unit>
+        <trans-unit id="831ed6aa-9c55-40b5-8cd4-726f1ecddaf5" xml:space="preserve">
+          <source>You can learn the basics of predictive analytics and machine learning by reading <bpt id="6c8f1896-e0ed-47be-acbe-8275d3e19672">&lt;linkText&gt;</bpt>Introduction to Machine Learning on Azure<ept id="6c8f1896-e0ed-47be-acbe-8275d3e19672">&lt;/linkText&gt;</ept><bpt id="6c8f1896-e0ed-47be-acbe-8275d3e19672">&lt;title&gt;</bpt><ept id="6c8f1896-e0ed-47be-acbe-8275d3e19672">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn the basics of predictive analytics and machine learning by reading <bpt id="6c8f1896-e0ed-47be-acbe-8275d3e19672">&lt;linkText&gt;</bpt>Introduction to Machine Learning on Azure<ept id="6c8f1896-e0ed-47be-acbe-8275d3e19672">&lt;/linkText&gt;</ept><bpt id="6c8f1896-e0ed-47be-acbe-8275d3e19672">&lt;title&gt;</bpt><ept id="6c8f1896-e0ed-47be-acbe-8275d3e19672">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2270641-4a9f-49a9-97f9-f0544ed3ee3a" xml:space="preserve">
+          <source>You can then learn how to create, train, score and test a machine learning model using the <bpt id="1ea6b847-2e84-45d3-b08c-a10a66e77268">&lt;linkText&gt;</bpt>Create experiment tutorial<ept id="1ea6b847-2e84-45d3-b08c-a10a66e77268">&lt;/linkText&gt;</ept><bpt id="1ea6b847-2e84-45d3-b08c-a10a66e77268">&lt;title&gt;</bpt><ept id="1ea6b847-2e84-45d3-b08c-a10a66e77268">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can then learn how to create, train, score and test a machine learning model using the <bpt id="1ea6b847-2e84-45d3-b08c-a10a66e77268">&lt;linkText&gt;</bpt>Create experiment tutorial<ept id="1ea6b847-2e84-45d3-b08c-a10a66e77268">&lt;/linkText&gt;</ept><bpt id="1ea6b847-2e84-45d3-b08c-a10a66e77268">&lt;title&gt;</bpt><ept id="1ea6b847-2e84-45d3-b08c-a10a66e77268">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b5b77fa-23ce-4ae9-98b1-a7d3d44f2cbc" xml:space="preserve">
+          <source>In this article, you will learn how to do the following using the <bpt id="01c62733-fdff-4775-a01b-d25fc4e53780">&lt;linkText&gt;</bpt>Azure Machine Learning Studio<ept id="01c62733-fdff-4775-a01b-d25fc4e53780">&lt;/linkText&gt;</ept><bpt id="01c62733-fdff-4775-a01b-d25fc4e53780">&lt;title&gt;</bpt><ept id="01c62733-fdff-4775-a01b-d25fc4e53780">&lt;/title&gt;</ept>:</source>
+          <target state="new">In this article, you will learn how to do the following using the <bpt id="01c62733-fdff-4775-a01b-d25fc4e53780">&lt;linkText&gt;</bpt>Azure Machine Learning Studio<ept id="01c62733-fdff-4775-a01b-d25fc4e53780">&lt;/linkText&gt;</ept><bpt id="01c62733-fdff-4775-a01b-d25fc4e53780">&lt;title&gt;</bpt><ept id="01c62733-fdff-4775-a01b-d25fc4e53780">&lt;/title&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="d56dd14a-6007-4ee4-80f5-c7632a1bd03e" xml:space="preserve">
+          <source>Read data from your database to create, train and score a predictive model </source>
+          <target state="new">Read data from your database to create, train and score a predictive model </target>
+        </trans-unit>
+        <trans-unit id="e923a1a6-6bc1-4755-a98f-7145f26e4cad" xml:space="preserve">
+          <source>Write data to your database </source>
+          <target state="new">Write data to your database </target>
+        </trans-unit>
+        <trans-unit id="8a55990f-90a2-4c01-9d17-40c857afbeeb" xml:space="preserve">
+          <source>We will read data from Product table in the AdventureWorksDW database.</source>
+          <target state="new">We will read data from Product table in the AdventureWorksDW database.</target>
+        </trans-unit>
+        <trans-unit id="053cf52a-a8bf-4cf9-b3a9-5a5f5c2cc4f3" xml:space="preserve">
+          <source>Start a new experiment by clicking +NEW at the bottom of the Machine Learning Studio window, select EXPERIMENT, and then select Blank Experiment.</source>
+          <target state="new">Start a new experiment by clicking +NEW at the bottom of the Machine Learning Studio window, select EXPERIMENT, and then select Blank Experiment.</target>
+        </trans-unit>
+        <trans-unit id="6a8875a7-74b2-4cfb-872c-0d0e44920eff" xml:space="preserve">
+          <source>Select the default experiment name at the top of the canvas and rename it to something meaningful, for example, Bicycle price prediction.</source>
+          <target state="new">Select the default experiment name at the top of the canvas and rename it to something meaningful, for example, Bicycle price prediction.</target>
+        </trans-unit>
+        <trans-unit id="82cd2805-0164-4098-88c2-840668bfc318" xml:space="preserve">
+          <source>Look for the Reader module in the palette of datasets and modules on the left of the experiment canvas.</source>
+          <target state="new">Look for the Reader module in the palette of datasets and modules on the left of the experiment canvas.</target>
+        </trans-unit>
+        <trans-unit id="95284c36-b4de-4c7f-82ba-ea0d0e5ed21b" xml:space="preserve">
+          <source>Drag the module to the experiment canvas.</source>
+          <target state="new">Drag the module to the experiment canvas.</target>
+        </trans-unit>
+        <trans-unit id="0e889912-9481-4b28-88b7-9ae2c087763a" xml:space="preserve">
+          <source><bpt id="0b9e1925-2d35-419a-a0a0-682d41ad0aa5">&lt;linkText&gt;</bpt><ept id="0b9e1925-2d35-419a-a0a0-682d41ad0aa5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0b9e1925-2d35-419a-a0a0-682d41ad0aa5">&lt;linkText&gt;</bpt><ept id="0b9e1925-2d35-419a-a0a0-682d41ad0aa5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2417b9d-2ca6-4949-a61b-b144580e3ee8" xml:space="preserve">
+          <source>Select the Reader module and fill out the properties pane</source>
+          <target state="new">Select the Reader module and fill out the properties pane</target>
+        </trans-unit>
+        <trans-unit id="1ab1c75e-dc28-4b28-9e06-2fd9f4744cc7" xml:space="preserve">
+          <source>Select Azure SQL Database as the Data Source</source>
+          <target state="new">Select Azure SQL Database as the Data Source</target>
+        </trans-unit>
+        <trans-unit id="abaa738e-001e-4b5b-8c6b-887434b31a77" xml:space="preserve">
+          <source>Database server name: Type the server name.</source>
+          <target state="new">Database server name: Type the server name.</target>
+        </trans-unit>
+        <trans-unit id="2039ed61-35f1-4a62-b0b5-d86b8e8f13d3" xml:space="preserve">
+          <source>You can use the <bpt id="1281ce05-d4d7-4e1e-9ad1-ccb3d14df2ae">&lt;linkText&gt;</bpt>Azure Portal<ept id="1281ce05-d4d7-4e1e-9ad1-ccb3d14df2ae">&lt;/linkText&gt;</ept><bpt id="1281ce05-d4d7-4e1e-9ad1-ccb3d14df2ae">&lt;title&gt;</bpt><ept id="1281ce05-d4d7-4e1e-9ad1-ccb3d14df2ae">&lt;/title&gt;</ept> to find this.</source>
+          <target state="new">You can use the <bpt id="1281ce05-d4d7-4e1e-9ad1-ccb3d14df2ae">&lt;linkText&gt;</bpt>Azure Portal<ept id="1281ce05-d4d7-4e1e-9ad1-ccb3d14df2ae">&lt;/linkText&gt;</ept><bpt id="1281ce05-d4d7-4e1e-9ad1-ccb3d14df2ae">&lt;title&gt;</bpt><ept id="1281ce05-d4d7-4e1e-9ad1-ccb3d14df2ae">&lt;/title&gt;</ept> to find this.</target>
+        </trans-unit>
+        <trans-unit id="90ebb895-b88e-4e26-8625-839b14416339" xml:space="preserve">
+          <source><bpt id="a89bf040-866c-4a20-9559-07d4a9cbb944">&lt;linkText&gt;</bpt><ept id="a89bf040-866c-4a20-9559-07d4a9cbb944">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a89bf040-866c-4a20-9559-07d4a9cbb944">&lt;linkText&gt;</bpt><ept id="a89bf040-866c-4a20-9559-07d4a9cbb944">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bd6d57f-2b44-4fa1-8bb2-420a59f20a89" xml:space="preserve">
+          <source>Database name: Type the name of a database on the server you just specified.</source>
+          <target state="new">Database name: Type the name of a database on the server you just specified.</target>
+        </trans-unit>
+        <trans-unit id="f7232de4-e24e-4ae3-8748-931174f01117" xml:space="preserve">
+          <source>Server user account name:  Type the user name of an account that has access permissions for the database.</source>
+          <target state="new">Server user account name:  Type the user name of an account that has access permissions for the database.</target>
+        </trans-unit>
+        <trans-unit id="1733d366-383d-44f6-95ed-e92fb356a720" xml:space="preserve">
+          <source>Server user account password: Provide the password for the specified user account.</source>
+          <target state="new">Server user account password: Provide the password for the specified user account.</target>
+        </trans-unit>
+        <trans-unit id="6581ad8c-b278-4b8a-9942-971b79cb2a74" xml:space="preserve">
+          <source>Accept any server certificate: Use this option (less secure) if you want to skip reviewing the site certificate before you read your data.</source>
+          <target state="new">Accept any server certificate: Use this option (less secure) if you want to skip reviewing the site certificate before you read your data.</target>
+        </trans-unit>
+        <trans-unit id="06e5152c-ccd9-4f02-927f-3c02edb871fb" xml:space="preserve">
+          <source>Database query: Enter a SQL statement that describes the data you want to read.</source>
+          <target state="new">Database query: Enter a SQL statement that describes the data you want to read.</target>
+        </trans-unit>
+        <trans-unit id="2da172e3-3e1b-4e4a-9bce-d38c88f7be5f" xml:space="preserve">
+          <source>In this case, we’ll read data from Product table using the following query.</source>
+          <target state="new">In this case, we’ll read data from Product table using the following query.</target>
+        </trans-unit>
+        <trans-unit id="88e9b498-9e76-49c8-b845-b782d7d3a6ab" xml:space="preserve">
+          <source><bpt id="26368b23-7658-4a16-8d81-929230d6c81f">&lt;linkText&gt;</bpt><ept id="26368b23-7658-4a16-8d81-929230d6c81f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="26368b23-7658-4a16-8d81-929230d6c81f">&lt;linkText&gt;</bpt><ept id="26368b23-7658-4a16-8d81-929230d6c81f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2789d6a0-32a3-4f2d-a661-a1a5eb0f95b4" xml:space="preserve">
+          <source>Run the experiment by clicking Run under the experiment canvas.</source>
+          <target state="new">Run the experiment by clicking Run under the experiment canvas.</target>
+        </trans-unit>
+        <trans-unit id="08732dfc-b8a9-4e86-b7a7-bb9e2deb0675" xml:space="preserve">
+          <source>When the experiment finishes, the Reader module will have a green check mark to indicate that it has completed successfully.</source>
+          <target state="new">When the experiment finishes, the Reader module will have a green check mark to indicate that it has completed successfully.</target>
+        </trans-unit>
+        <trans-unit id="170be8ef-5e7b-43a1-950d-fba268a8c25f" xml:space="preserve">
+          <source>Notice also the Finished running status in the upper-right corner.</source>
+          <target state="new">Notice also the Finished running status in the upper-right corner.</target>
+        </trans-unit>
+        <trans-unit id="0a8db540-600b-4ea4-b551-1bb42059ede8" xml:space="preserve">
+          <source><bpt id="518875c3-c96c-46bb-9869-32e6d0ddfc3c">&lt;linkText&gt;</bpt><ept id="518875c3-c96c-46bb-9869-32e6d0ddfc3c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="518875c3-c96c-46bb-9869-32e6d0ddfc3c">&lt;linkText&gt;</bpt><ept id="518875c3-c96c-46bb-9869-32e6d0ddfc3c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62c008b2-0fc3-40c9-b4b5-fb231282c0e9" xml:space="preserve">
+          <source>To see the imported data, click the output port at the bottom of the automobile dataset and select Visualize.</source>
+          <target state="new">To see the imported data, click the output port at the bottom of the automobile dataset and select Visualize.</target>
+        </trans-unit>
+        <trans-unit id="2e93b423-7500-4be8-bd54-b33b7255854a" xml:space="preserve">
+          <source>Now you can use this dataset to:</source>
+          <target state="new">Now you can use this dataset to:</target>
+        </trans-unit>
+        <trans-unit id="1b12fd2f-b955-44e9-a99b-192b12c63eb6" xml:space="preserve">
+          <source>Create a Model: Process data and define features</source>
+          <target state="new">Create a Model: Process data and define features</target>
+        </trans-unit>
+        <trans-unit id="7b3f9c3f-264c-44b6-80d5-ff5bb941c428" xml:space="preserve">
+          <source>Train the model: Choose and apply a learning algorithm</source>
+          <target state="new">Train the model: Choose and apply a learning algorithm</target>
+        </trans-unit>
+        <trans-unit id="d3569f5c-2584-44f6-b5f5-e29a226bc322" xml:space="preserve">
+          <source>Score and test the model: Predict new bicycle price</source>
+          <target state="new">Score and test the model: Predict new bicycle price</target>
+        </trans-unit>
+        <trans-unit id="a7e22a54-915a-4e30-a2bd-925260279518" xml:space="preserve">
+          <source><bpt id="c4b75c08-b69b-4bc3-aa52-f636bdb86b1c">&lt;linkText&gt;</bpt><ept id="c4b75c08-b69b-4bc3-aa52-f636bdb86b1c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c4b75c08-b69b-4bc3-aa52-f636bdb86b1c">&lt;linkText&gt;</bpt><ept id="c4b75c08-b69b-4bc3-aa52-f636bdb86b1c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e05503c-f7fd-4332-9c43-e3a12dd570d0" xml:space="preserve">
+          <source>To learn more about how to create, train, score and test a machine learning model use the <bpt id="1f488f09-146c-4bf4-a3b4-7cf9032d95e8">&lt;linkText&gt;</bpt>Create experiment tutorial<ept id="1f488f09-146c-4bf4-a3b4-7cf9032d95e8">&lt;/linkText&gt;</ept><bpt id="1f488f09-146c-4bf4-a3b4-7cf9032d95e8">&lt;title&gt;</bpt><ept id="1f488f09-146c-4bf4-a3b4-7cf9032d95e8">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about how to create, train, score and test a machine learning model use the <bpt id="1f488f09-146c-4bf4-a3b4-7cf9032d95e8">&lt;linkText&gt;</bpt>Create experiment tutorial<ept id="1f488f09-146c-4bf4-a3b4-7cf9032d95e8">&lt;/linkText&gt;</ept><bpt id="1f488f09-146c-4bf4-a3b4-7cf9032d95e8">&lt;title&gt;</bpt><ept id="1f488f09-146c-4bf4-a3b4-7cf9032d95e8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="007f840e-e27e-495f-846d-eef13db62cb0" xml:space="preserve">
+          <source>We will write the result set to ProductPriceForecast table in the AdventureWorksDW database.</source>
+          <target state="new">We will write the result set to ProductPriceForecast table in the AdventureWorksDW database.</target>
+        </trans-unit>
+        <trans-unit id="89dd0d5b-dce8-4d83-89ed-a17255aeaa7e" xml:space="preserve">
+          <source>Look for the Writer module in the palette of datasets and modules on the left of the experiment canvas.</source>
+          <target state="new">Look for the Writer module in the palette of datasets and modules on the left of the experiment canvas.</target>
+        </trans-unit>
+        <trans-unit id="6d5d14c5-fa1b-4e86-812f-e5b66445fddf" xml:space="preserve">
+          <source>Drag the module to the experiment canvas.</source>
+          <target state="new">Drag the module to the experiment canvas.</target>
+        </trans-unit>
+        <trans-unit id="acb52bbb-b600-47df-904d-e88c865e967e" xml:space="preserve">
+          <source><bpt id="8644a2f2-7f5d-4270-b2b4-2dd512a0fcdd">&lt;linkText&gt;</bpt><ept id="8644a2f2-7f5d-4270-b2b4-2dd512a0fcdd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8644a2f2-7f5d-4270-b2b4-2dd512a0fcdd">&lt;linkText&gt;</bpt><ept id="8644a2f2-7f5d-4270-b2b4-2dd512a0fcdd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e90dbbbf-5254-4f2f-90c0-2cc153a6face" xml:space="preserve">
+          <source>Select the Writer module and fill out the properties pane.</source>
+          <target state="new">Select the Writer module and fill out the properties pane.</target>
+        </trans-unit>
+        <trans-unit id="e0938ded-81f5-4eac-a816-f89dc810cc7b" xml:space="preserve">
+          <source>Select Azure SQL Database as the Data Destination.</source>
+          <target state="new">Select Azure SQL Database as the Data Destination.</target>
+        </trans-unit>
+        <trans-unit id="d5b17dd1-1285-4aac-baf1-9bc53d6bb1d1" xml:space="preserve">
+          <source>Database server name: Type the server name.</source>
+          <target state="new">Database server name: Type the server name.</target>
+        </trans-unit>
+        <trans-unit id="8dd962d6-04f8-4b67-8059-78a3fcf0ddc5" xml:space="preserve">
+          <source>You can use the <bpt id="a1640376-e2f9-40d3-b5f5-608b94ff83a6">&lt;linkText&gt;</bpt>Azure Portal<ept id="a1640376-e2f9-40d3-b5f5-608b94ff83a6">&lt;/linkText&gt;</ept><bpt id="a1640376-e2f9-40d3-b5f5-608b94ff83a6">&lt;title&gt;</bpt><ept id="a1640376-e2f9-40d3-b5f5-608b94ff83a6">&lt;/title&gt;</ept> to find this.</source>
+          <target state="new">You can use the <bpt id="a1640376-e2f9-40d3-b5f5-608b94ff83a6">&lt;linkText&gt;</bpt>Azure Portal<ept id="a1640376-e2f9-40d3-b5f5-608b94ff83a6">&lt;/linkText&gt;</ept><bpt id="a1640376-e2f9-40d3-b5f5-608b94ff83a6">&lt;title&gt;</bpt><ept id="a1640376-e2f9-40d3-b5f5-608b94ff83a6">&lt;/title&gt;</ept> to find this.</target>
+        </trans-unit>
+        <trans-unit id="60772c2f-8670-4f08-b061-7077a674d216" xml:space="preserve">
+          <source>Database name: Type the name of a database on the server you just specified.</source>
+          <target state="new">Database name: Type the name of a database on the server you just specified.</target>
+        </trans-unit>
+        <trans-unit id="779e25ea-5b51-4804-9ff3-14e633c7d4de" xml:space="preserve">
+          <source>Server user account name:  Type the user name of an account that has write permissions for the database.</source>
+          <target state="new">Server user account name:  Type the user name of an account that has write permissions for the database.</target>
+        </trans-unit>
+        <trans-unit id="869196cc-a1cf-41df-93cb-7621fe1448a0" xml:space="preserve">
+          <source>Server user account password: Provide the password for the specified user account.</source>
+          <target state="new">Server user account password: Provide the password for the specified user account.</target>
+        </trans-unit>
+        <trans-unit id="624e2f2f-271d-438f-8ad3-b8541ba69cc1" xml:space="preserve">
+          <source>Accept any server certificate (insecure): Select this option if you don’t want to view the certificate.</source>
+          <target state="new">Accept any server certificate (insecure): Select this option if you don’t want to view the certificate.</target>
+        </trans-unit>
+        <trans-unit id="3731be7f-8eb0-4b31-88bc-ed02f736dc3f" xml:space="preserve">
+          <source>Comma-separated list of columns to be saved: Provide a list of the dataset or result columns that you want to output.</source>
+          <target state="new">Comma-separated list of columns to be saved: Provide a list of the dataset or result columns that you want to output.</target>
+        </trans-unit>
+        <trans-unit id="4436d88d-5900-43da-a88a-3c9c959c59dc" xml:space="preserve">
+          <source>Data table name: Specify the name of the data table.</source>
+          <target state="new">Data table name: Specify the name of the data table.</target>
+        </trans-unit>
+        <trans-unit id="124ca254-8480-4f22-aeb2-8c950db02ece" xml:space="preserve">
+          <source>Comma-separated list of datatable columns:  Specify the column names to use in the new table.</source>
+          <target state="new">Comma-separated list of datatable columns:  Specify the column names to use in the new table.</target>
+        </trans-unit>
+        <trans-unit id="f777d40f-03c3-471c-bf83-2206e4e4625e" xml:space="preserve">
+          <source>The column names can be different from the ones in the source dataset, but you must list the same number of columns here that you define for the output table.</source>
+          <target state="new">The column names can be different from the ones in the source dataset, but you must list the same number of columns here that you define for the output table.</target>
+        </trans-unit>
+        <trans-unit id="336248b1-7d8f-4b27-bb22-27b524b794e7" xml:space="preserve">
+          <source>Number of rows written per SQL Azure operation: You can configure the number of rows that are written to a SQL database in one operation.</source>
+          <target state="new">Number of rows written per SQL Azure operation: You can configure the number of rows that are written to a SQL database in one operation.</target>
+        </trans-unit>
+        <trans-unit id="462925e6-4740-4ccd-8c79-73b92dcd0412" xml:space="preserve">
+          <source><bpt id="9498000a-fd16-4246-98e8-3ad27b6ecbe6">&lt;linkText&gt;</bpt><ept id="9498000a-fd16-4246-98e8-3ad27b6ecbe6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9498000a-fd16-4246-98e8-3ad27b6ecbe6">&lt;linkText&gt;</bpt><ept id="9498000a-fd16-4246-98e8-3ad27b6ecbe6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50aee4ad-cb80-4e74-88cb-939b003dcc40" xml:space="preserve">
+          <source>Run the experiment by clicking Run under the experiment canvas.</source>
+          <target state="new">Run the experiment by clicking Run under the experiment canvas.</target>
+        </trans-unit>
+        <trans-unit id="e35cec8f-2671-42fa-9c62-bbd27b412226" xml:space="preserve">
+          <source>When the experiment finishes, all modules will have a green check mark to indicate that they completed successfully.</source>
+          <target state="new">When the experiment finishes, all modules will have a green check mark to indicate that they completed successfully.</target>
+        </trans-unit>
+        <trans-unit id="7dc1ef3f-6b19-453d-9e5c-0f8ae8cb6f8a" xml:space="preserve">
+          <source>For an overview of integration, see <bpt id="cd0000ba-ef0a-42af-a329-b670adb57c54">&lt;linkText&gt;</bpt>SQL Data Warehouse integration overview<ept id="cd0000ba-ef0a-42af-a329-b670adb57c54">&lt;/linkText&gt;</ept><bpt id="cd0000ba-ef0a-42af-a329-b670adb57c54">&lt;title&gt;</bpt><ept id="cd0000ba-ef0a-42af-a329-b670adb57c54">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an overview of integration, see <bpt id="cd0000ba-ef0a-42af-a329-b670adb57c54">&lt;linkText&gt;</bpt>SQL Data Warehouse integration overview<ept id="cd0000ba-ef0a-42af-a329-b670adb57c54">&lt;/linkText&gt;</ept><bpt id="cd0000ba-ef0a-42af-a329-b670adb57c54">&lt;title&gt;</bpt><ept id="cd0000ba-ef0a-42af-a329-b670adb57c54">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4256b4a9-9b0e-43ad-821e-033ec45ee8a5" xml:space="preserve">
+          <source>For more development tips, see <bpt id="82fdb532-9f38-4cc8-9688-5e6d2bd6d825">&lt;linkText&gt;</bpt>SQL Data Warehouse development overview<ept id="82fdb532-9f38-4cc8-9688-5e6d2bd6d825">&lt;/linkText&gt;</ept><bpt id="82fdb532-9f38-4cc8-9688-5e6d2bd6d825">&lt;title&gt;</bpt><ept id="82fdb532-9f38-4cc8-9688-5e6d2bd6d825">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="82fdb532-9f38-4cc8-9688-5e6d2bd6d825">&lt;linkText&gt;</bpt>SQL Data Warehouse development overview<ept id="82fdb532-9f38-4cc8-9688-5e6d2bd6d825">&lt;/linkText&gt;</ept><bpt id="82fdb532-9f38-4cc8-9688-5e6d2bd6d825">&lt;title&gt;</bpt><ept id="82fdb532-9f38-4cc8-9688-5e6d2bd6d825">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1561c9e8-7281-4ad4-aaa3-8e2a2bb6fcf6" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-reader.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-reader.png</target>
+        </trans-unit>
+        <trans-unit id="f2feab12-c208-4478-a625-43ab3f015685" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-machine-learning/dw-server-name.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-machine-learning/dw-server-name.png</target>
+        </trans-unit>
+        <trans-unit id="46bc844d-b2fa-4b1c-aa20-d58678c7d1b0" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-machine-learning/ml-reader-properties.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-machine-learning/ml-reader-properties.png</target>
+        </trans-unit>
+        <trans-unit id="990a2798-2115-4e08-b1c1-564ddbfd9236" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-machine-learning/ml-finished-running.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-machine-learning/ml-finished-running.png</target>
+        </trans-unit>
+        <trans-unit id="bcbd70a7-d468-476d-bc31-91276f738b81" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-machine-learning/ml-create-train-score-model.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-machine-learning/ml-create-train-score-model.png</target>
+        </trans-unit>
+        <trans-unit id="04fd5718-10ee-4488-bffa-7268dd4b2ab0" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-writer.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-writer.png</target>
+        </trans-unit>
+        <trans-unit id="8b508eba-975e-4ea6-b328-aab37f63c029" xml:space="preserve">
+          <source>./media/sql-data-warehouse-integrate-azure-machine-learning/ml-writer-properties.png</source>
+          <target state="new">./media/sql-data-warehouse-integrate-azure-machine-learning/ml-writer-properties.png</target>
+        </trans-unit>
+        <trans-unit id="b67a8a46-5143-4825-a6a0-c1ca23b47cd5" xml:space="preserve">
+          <source>./sql-data-warehouse-overview-develop/</source>
+          <target state="new">./sql-data-warehouse-overview-develop/</target>
+        </trans-unit>
+        <trans-unit id="c4b93f34-a378-4db9-a58d-2e10aa0019cc" xml:space="preserve">
+          <source>./sql-data-warehouse-overview-integration/</source>
+          <target state="new">./sql-data-warehouse-overview-integration/</target>
+        </trans-unit>
+        <trans-unit id="98b6a3a3-d16c-492c-b221-1aff52471063" xml:space="preserve">
+          <source>./machine-learning-create-experiment/</source>
+          <target state="new">./machine-learning-create-experiment/</target>
+        </trans-unit>
+        <trans-unit id="45a1e23a-5c66-4058-84ee-bd57f769dded" xml:space="preserve">
+          <source>./machine-learning-what-is-machine-learning/</source>
+          <target state="new">./machine-learning-what-is-machine-learning/</target>
+        </trans-unit>
+        <trans-unit id="dde9a628-6782-4d74-bb06-9af5e184baf1" xml:space="preserve">
+          <source>https://studio.azureml.net/Home</source>
+          <target state="new">https://studio.azureml.net/Home</target>
+        </trans-unit>
+        <trans-unit id="d1f82e24-5652-4de2-a448-b3fe777d5e9c" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="059c015f-f3af-4977-9f47-bf935e1765c9" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/services/machine-learning/</source>
+          <target state="new">http://azure.microsoft.com/documentation/services/machine-learning/</target>
+        </trans-unit>
+      </group>
+      <group id="2315c943-55fd-455c-9fc0-425ffd9265e3" />
+    </body>
+  </file>
+</xliff>

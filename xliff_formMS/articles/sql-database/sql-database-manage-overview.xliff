@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="89b38a4a-62a3-4d08-810c-ef5201d15650" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="89b38a4a-62a3-4d08-810c-ef5201d15650" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="29b934d8-e758-4ee8-8b8d-7b7f7f9368c8">
+        <trans-unit id="53b81578-464a-4fc9-9a73-2795d9872dab" xml:space="preserve">
+          <source>Overview: management tools for SQL Database</source>
+          <target state="new">Overview: management tools for SQL Database</target>
+        </trans-unit>
+        <trans-unit id="348b08c4-43e9-465a-8c57-9f6974327084" xml:space="preserve">
+          <source>Compares tools and options for managing Azure SQL Database</source>
+          <target state="new">Compares tools and options for managing Azure SQL Database</target>
+        </trans-unit>
+        <trans-unit id="aafc34fb-72d6-4bdc-a964-7af27708eccf" xml:space="preserve">
+          <source>This topic explores and compares tools and options for managing SQL Databases so you can pick the right tool for the job, your business, and you.</source>
+          <target state="new">This topic explores and compares tools and options for managing SQL Databases so you can pick the right tool for the job, your business, and you.</target>
+        </trans-unit>
+        <trans-unit id="5150fec5-1623-49a9-8514-4865d3099937" xml:space="preserve">
+          <source>Choosing the right tool depends on how many databases you manage, the task, and how often a task is performed.</source>
+          <target state="new">Choosing the right tool depends on how many databases you manage, the task, and how often a task is performed.</target>
+        </trans-unit>
+        <trans-unit id="507272e4-1a6c-4dcf-81c5-03e30f64f34a" xml:space="preserve">
+          <source>The <bpt id="cfcb6569-30d1-4795-bac4-3e15dca688dc">&lt;linkText&gt;</bpt>Azure Portal<ept id="cfcb6569-30d1-4795-bac4-3e15dca688dc">&lt;/linkText&gt;</ept><bpt id="cfcb6569-30d1-4795-bac4-3e15dca688dc">&lt;title&gt;</bpt><ept id="cfcb6569-30d1-4795-bac4-3e15dca688dc">&lt;/title&gt;</ept> is a web-based management portal where you can create, update, and delete Azure SQL Databases and logical servers and monitor database resources.</source>
+          <target state="new">The <bpt id="cfcb6569-30d1-4795-bac4-3e15dca688dc">&lt;linkText&gt;</bpt>Azure Portal<ept id="cfcb6569-30d1-4795-bac4-3e15dca688dc">&lt;/linkText&gt;</ept><bpt id="cfcb6569-30d1-4795-bac4-3e15dca688dc">&lt;title&gt;</bpt><ept id="cfcb6569-30d1-4795-bac4-3e15dca688dc">&lt;/title&gt;</ept> is a web-based management portal where you can create, update, and delete Azure SQL Databases and logical servers and monitor database resources.</target>
+        </trans-unit>
+        <trans-unit id="26f29eb3-6518-41a1-a13f-cfe79a82adfa" xml:space="preserve">
+          <source>This tool is great is if you're just getting started with Azure, managing a small number of databases, or need to quickly do something.</source>
+          <target state="new">This tool is great is if you're just getting started with Azure, managing a small number of databases, or need to quickly do something.</target>
+        </trans-unit>
+        <trans-unit id="482c175d-b7cd-4d4b-a5b8-c151cc8fff73" xml:space="preserve">
+          <source>For more in-depth information about using the portal see <bpt id="e19d76f0-d0c5-4027-8813-aaa2e4c25f16">&lt;linkText&gt;</bpt>Manage SQL Databases using the Azure portal<ept id="e19d76f0-d0c5-4027-8813-aaa2e4c25f16">&lt;/linkText&gt;</ept><bpt id="e19d76f0-d0c5-4027-8813-aaa2e4c25f16">&lt;title&gt;</bpt><ept id="e19d76f0-d0c5-4027-8813-aaa2e4c25f16">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more in-depth information about using the portal see <bpt id="e19d76f0-d0c5-4027-8813-aaa2e4c25f16">&lt;linkText&gt;</bpt>Manage SQL Databases using the Azure portal<ept id="e19d76f0-d0c5-4027-8813-aaa2e4c25f16">&lt;/linkText&gt;</ept><bpt id="e19d76f0-d0c5-4027-8813-aaa2e4c25f16">&lt;title&gt;</bpt><ept id="e19d76f0-d0c5-4027-8813-aaa2e4c25f16">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bbaace2-fc0b-402e-8165-36b0e1d7e298" xml:space="preserve">
+          <source>SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) in Visual Studio are client tools that run on your computer and allow you to connect to, manage, and develop your database in the cloud.</source>
+          <target state="new">SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) in Visual Studio are client tools that run on your computer and allow you to connect to, manage, and develop your database in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="f383c5a9-3b3a-4f8f-91a8-12a47c72bde7" xml:space="preserve">
+          <source>If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), try using SSDT in Visual Studio.</source>
+          <target state="new">If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), try using SSDT in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="cb9476b6-5c6a-4f5f-9e9e-429aeca1018c" xml:space="preserve">
+          <source>If you need advanced SQL capabilities that are not already capable in SSDT such as managing SQL Server Databases in hybrid environments, use SSMS.</source>
+          <target state="new">If you need advanced SQL capabilities that are not already capable in SSDT such as managing SQL Server Databases in hybrid environments, use SSMS.</target>
+        </trans-unit>
+        <trans-unit id="3fadf240-8744-4cb4-aac8-f4162a72cc6b" xml:space="preserve">
+          <source>For more information on managing your Azure SQL Databases with SSMS and SSDT, <bpt id="bd6ac5a1-5fd0-4cc3-9315-b3b68349ff55">&lt;linkText&gt;</bpt>Manage SQL Databases using SSMS<ept id="bd6ac5a1-5fd0-4cc3-9315-b3b68349ff55">&lt;/linkText&gt;</ept><bpt id="bd6ac5a1-5fd0-4cc3-9315-b3b68349ff55">&lt;title&gt;</bpt><ept id="bd6ac5a1-5fd0-4cc3-9315-b3b68349ff55">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on managing your Azure SQL Databases with SSMS and SSDT, <bpt id="bd6ac5a1-5fd0-4cc3-9315-b3b68349ff55">&lt;linkText&gt;</bpt>Manage SQL Databases using SSMS<ept id="bd6ac5a1-5fd0-4cc3-9315-b3b68349ff55">&lt;/linkText&gt;</ept><bpt id="bd6ac5a1-5fd0-4cc3-9315-b3b68349ff55">&lt;title&gt;</bpt><ept id="bd6ac5a1-5fd0-4cc3-9315-b3b68349ff55">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eceefd7e-9604-47c9-bc0e-e2abdda5f593" xml:space="preserve">
+          <source>You can use command line tools such as PowerShell to manage Azure SQL Databases and automate Azure resource deployments.</source>
+          <target state="new">You can use command line tools such as PowerShell to manage Azure SQL Databases and automate Azure resource deployments.</target>
+        </trans-unit>
+        <trans-unit id="a60ebba6-2a86-487b-9317-ab64b24500c1" xml:space="preserve">
+          <source>Microsoft Recommends this tool for managing a large number of Azure SQL Database and deploying resource changes in a production environment.</source>
+          <target state="new">Microsoft Recommends this tool for managing a large number of Azure SQL Database and deploying resource changes in a production environment.</target>
+        </trans-unit>
+        <trans-unit id="943a392d-86ed-4786-8080-23f2792a3528" xml:space="preserve">
+          <source>For more information on managing your Azure SQL Databases with command line tools, <bpt id="7df0dfe4-d1d5-43d7-98e8-cc89ce10a5dd">&lt;linkText&gt;</bpt>click here<ept id="7df0dfe4-d1d5-43d7-98e8-cc89ce10a5dd">&lt;/linkText&gt;</ept><bpt id="7df0dfe4-d1d5-43d7-98e8-cc89ce10a5dd">&lt;title&gt;</bpt><ept id="7df0dfe4-d1d5-43d7-98e8-cc89ce10a5dd">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on managing your Azure SQL Databases with command line tools, <bpt id="7df0dfe4-d1d5-43d7-98e8-cc89ce10a5dd">&lt;linkText&gt;</bpt>click here<ept id="7df0dfe4-d1d5-43d7-98e8-cc89ce10a5dd">&lt;/linkText&gt;</ept><bpt id="7df0dfe4-d1d5-43d7-98e8-cc89ce10a5dd">&lt;title&gt;</bpt><ept id="7df0dfe4-d1d5-43d7-98e8-cc89ce10a5dd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

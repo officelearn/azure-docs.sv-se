@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1f61143d-616a-4e6c-820d-9e703ab9e581" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1f61143d-616a-4e6c-820d-9e703ab9e581" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7340189d-a670-4046-9fe8-6f128cac27f6">
+        <trans-unit id="2f17bd5f-2cfc-4fe4-8659-8f73231f3313" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Jitbit Helpdesk | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Jitbit Helpdesk | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="46350519-2ea4-46fd-9eaf-89b39bf5108f" xml:space="preserve">
+          <source>Learn how to use Jitbit Helpdesk with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Jitbit Helpdesk with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="4948e252-e2b8-400f-a958-2f6010f1e6c4" xml:space="preserve">
+          <source>For feedback, click <bpt id="71f136a1-cbd9-4905-a142-a4a40cf1cdfc">&lt;linkText&gt;</bpt>here<ept id="71f136a1-cbd9-4905-a142-a4a40cf1cdfc">&lt;/linkText&gt;</ept><bpt id="71f136a1-cbd9-4905-a142-a4a40cf1cdfc">&lt;title&gt;</bpt><ept id="71f136a1-cbd9-4905-a142-a4a40cf1cdfc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="71f136a1-cbd9-4905-a142-a4a40cf1cdfc">&lt;linkText&gt;</bpt>here<ept id="71f136a1-cbd9-4905-a142-a4a40cf1cdfc">&lt;/linkText&gt;</ept><bpt id="71f136a1-cbd9-4905-a142-a4a40cf1cdfc">&lt;title&gt;</bpt><ept id="71f136a1-cbd9-4905-a142-a4a40cf1cdfc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48c406a9-f7eb-460e-915b-1d0ff4251f6d" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Jitbit Helpdesk.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Jitbit Helpdesk.</target>
+        </trans-unit>
+        <trans-unit id="c9f86c62-0e51-41ca-81b4-8f5fa5ca27b3" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="a7380c60-ba56-4f41-870d-e17e09bd951a" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="20cc92f6-ce34-4d86-933e-f081372854b8" xml:space="preserve">
+          <source>A Jitbit Helpdesk tenant</source>
+          <target state="new">A Jitbit Helpdesk tenant</target>
+        </trans-unit>
+        <trans-unit id="ba859f26-d709-4e85-8fea-2243ebb27153" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Jitbit Helpdesk will be able to single sign into the application at your Jitbit Helpdesk company site (service provider initiated sign on), or using the <bpt id="c096c4e6-bfb0-437e-9ae8-7e1fe543714e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c096c4e6-bfb0-437e-9ae8-7e1fe543714e">&lt;/linkText&gt;</ept><bpt id="c096c4e6-bfb0-437e-9ae8-7e1fe543714e">&lt;title&gt;</bpt><ept id="c096c4e6-bfb0-437e-9ae8-7e1fe543714e">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Jitbit Helpdesk will be able to single sign into the application at your Jitbit Helpdesk company site (service provider initiated sign on), or using the <bpt id="c096c4e6-bfb0-437e-9ae8-7e1fe543714e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c096c4e6-bfb0-437e-9ae8-7e1fe543714e">&lt;/linkText&gt;</ept><bpt id="c096c4e6-bfb0-437e-9ae8-7e1fe543714e">&lt;title&gt;</bpt><ept id="c096c4e6-bfb0-437e-9ae8-7e1fe543714e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b655769-678f-441a-843a-af9e2ac7167e" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="38cef9da-2e93-43eb-b32d-5bf50fd87e4c" xml:space="preserve">
+          <source>Enabling the application integration for Jitbit Helpdesk</source>
+          <target state="new">Enabling the application integration for Jitbit Helpdesk</target>
+        </trans-unit>
+        <trans-unit id="f4cb8c80-ef02-402f-b621-cf6d606570e6" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="f5ba6182-3909-4a31-b962-4e33ade2f4be" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="b7316f2d-073b-4937-8a36-cfb1c4c2029e" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="4e91b6b6-52fb-49dc-aef2-41aaee8a0e89" xml:space="preserve">
+          <source><bpt id="598d2e26-80df-4d55-8d84-9a6638763a56">&lt;linkText&gt;</bpt>Scenario<ept id="598d2e26-80df-4d55-8d84-9a6638763a56">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="598d2e26-80df-4d55-8d84-9a6638763a56">&lt;linkText&gt;</bpt>Scenario<ept id="598d2e26-80df-4d55-8d84-9a6638763a56">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0502edd5-89a2-4989-8d56-a45ded4618ce" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Jitbit Helpdesk.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Jitbit Helpdesk.</target>
+        </trans-unit>
+        <trans-unit id="b23f494a-a5f1-45f1-959b-a045ac8289a8" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="3684a70b-cfca-41a5-b798-84afd988d324">&lt;strong&gt;</bpt>Active Directory<ept id="3684a70b-cfca-41a5-b798-84afd988d324">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="3684a70b-cfca-41a5-b798-84afd988d324">&lt;strong&gt;</bpt>Active Directory<ept id="3684a70b-cfca-41a5-b798-84afd988d324">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8628770-0b79-48ab-a3f8-661b078fd3f4" xml:space="preserve">
+          <source><bpt id="a7fa6956-825a-4990-a0e2-f4a14c4541f3">&lt;linkText&gt;</bpt>Active Directory<ept id="a7fa6956-825a-4990-a0e2-f4a14c4541f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a7fa6956-825a-4990-a0e2-f4a14c4541f3">&lt;linkText&gt;</bpt>Active Directory<ept id="a7fa6956-825a-4990-a0e2-f4a14c4541f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="453a52e7-deee-436c-9182-3fa24da7dfee" xml:space="preserve">
+          <source>From the <bpt id="f7101365-1a51-484d-814b-d8d6191051ad">&lt;strong&gt;</bpt>Directory<ept id="f7101365-1a51-484d-814b-d8d6191051ad">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="f7101365-1a51-484d-814b-d8d6191051ad">&lt;strong&gt;</bpt>Directory<ept id="f7101365-1a51-484d-814b-d8d6191051ad">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="3a9ac699-6f16-439d-afde-d6a4cde378d4" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="76d74c1d-06b2-4a83-855b-fb53d397b9c7">&lt;strong&gt;</bpt>Applications<ept id="76d74c1d-06b2-4a83-855b-fb53d397b9c7">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="76d74c1d-06b2-4a83-855b-fb53d397b9c7">&lt;strong&gt;</bpt>Applications<ept id="76d74c1d-06b2-4a83-855b-fb53d397b9c7">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="6a0f85c9-7a2b-40ee-bc31-90615112b905" xml:space="preserve">
+          <source><bpt id="f2c17db9-99a1-4485-b6da-8521ccb509d4">&lt;linkText&gt;</bpt>Applications<ept id="f2c17db9-99a1-4485-b6da-8521ccb509d4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f2c17db9-99a1-4485-b6da-8521ccb509d4">&lt;linkText&gt;</bpt>Applications<ept id="f2c17db9-99a1-4485-b6da-8521ccb509d4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e877998f-c897-4dcb-88e2-5fa40b630cb1" xml:space="preserve">
+          <source>Click <bpt id="394abec6-12fb-4a64-8767-671be4b1ca45">&lt;strong&gt;</bpt>Add<ept id="394abec6-12fb-4a64-8767-671be4b1ca45">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="394abec6-12fb-4a64-8767-671be4b1ca45">&lt;strong&gt;</bpt>Add<ept id="394abec6-12fb-4a64-8767-671be4b1ca45">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="69545b55-3197-4ffa-9949-8f846ecba200" xml:space="preserve">
+          <source><bpt id="47c6d214-84b0-49ca-b727-e92804cddbd8">&lt;linkText&gt;</bpt>Add application<ept id="47c6d214-84b0-49ca-b727-e92804cddbd8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="47c6d214-84b0-49ca-b727-e92804cddbd8">&lt;linkText&gt;</bpt>Add application<ept id="47c6d214-84b0-49ca-b727-e92804cddbd8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d8295ab-c56b-4146-95a9-c35a419fdd35" xml:space="preserve">
+          <source>On the <bpt id="0dce4238-4103-4891-9612-491ceb44c49f">&lt;strong&gt;</bpt>What do you want to do<ept id="0dce4238-4103-4891-9612-491ceb44c49f">&lt;/strong&gt;</ept> dialog, click <bpt id="5d45d7b5-1da9-4aa4-abb8-4eb983e2bfee">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="5d45d7b5-1da9-4aa4-abb8-4eb983e2bfee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="0dce4238-4103-4891-9612-491ceb44c49f">&lt;strong&gt;</bpt>What do you want to do<ept id="0dce4238-4103-4891-9612-491ceb44c49f">&lt;/strong&gt;</ept> dialog, click <bpt id="5d45d7b5-1da9-4aa4-abb8-4eb983e2bfee">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="5d45d7b5-1da9-4aa4-abb8-4eb983e2bfee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="202c7906-b50e-4ebf-9874-b669267e555a" xml:space="preserve">
+          <source><bpt id="f722b9f4-7b78-4661-a633-1952ca775ab4">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="f722b9f4-7b78-4661-a633-1952ca775ab4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f722b9f4-7b78-4661-a633-1952ca775ab4">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="f722b9f4-7b78-4661-a633-1952ca775ab4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85c129aa-3d91-4d40-bd81-a97f3cbb99a4" xml:space="preserve">
+          <source>In the <bpt id="c48c37c8-16ab-476f-a8a7-376f88b6a679">&lt;strong&gt;</bpt>search box<ept id="c48c37c8-16ab-476f-a8a7-376f88b6a679">&lt;/strong&gt;</ept>, type <bpt id="065d5a1a-2799-46ff-97c2-8c14127332ee">&lt;strong&gt;</bpt>Jitbit Helpdesk<ept id="065d5a1a-2799-46ff-97c2-8c14127332ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c48c37c8-16ab-476f-a8a7-376f88b6a679">&lt;strong&gt;</bpt>search box<ept id="c48c37c8-16ab-476f-a8a7-376f88b6a679">&lt;/strong&gt;</ept>, type <bpt id="065d5a1a-2799-46ff-97c2-8c14127332ee">&lt;strong&gt;</bpt>Jitbit Helpdesk<ept id="065d5a1a-2799-46ff-97c2-8c14127332ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7628cb9-c7b7-4de7-9515-8f8580b697ca" xml:space="preserve">
+          <source><bpt id="ec3febf0-ba13-4b1a-92fb-1653c4ab5efa">&lt;linkText&gt;</bpt>Application Gallery<ept id="ec3febf0-ba13-4b1a-92fb-1653c4ab5efa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec3febf0-ba13-4b1a-92fb-1653c4ab5efa">&lt;linkText&gt;</bpt>Application Gallery<ept id="ec3febf0-ba13-4b1a-92fb-1653c4ab5efa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66c83042-c6b0-4483-98ee-d827b4a5880e" xml:space="preserve">
+          <source>In the results pane, select <bpt id="3e78a9cb-45d0-48b1-9683-fb090200893c">&lt;strong&gt;</bpt>Jitbit Helpdesk<ept id="3e78a9cb-45d0-48b1-9683-fb090200893c">&lt;/strong&gt;</ept>, and then click <bpt id="93e7d83d-7ad6-484c-874b-c1cc5e5c89d4">&lt;strong&gt;</bpt>Complete<ept id="93e7d83d-7ad6-484c-874b-c1cc5e5c89d4">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="3e78a9cb-45d0-48b1-9683-fb090200893c">&lt;strong&gt;</bpt>Jitbit Helpdesk<ept id="3e78a9cb-45d0-48b1-9683-fb090200893c">&lt;/strong&gt;</ept>, and then click <bpt id="93e7d83d-7ad6-484c-874b-c1cc5e5c89d4">&lt;strong&gt;</bpt>Complete<ept id="93e7d83d-7ad6-484c-874b-c1cc5e5c89d4">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="c5305611-2a81-4730-b3b9-f499bf27fd20" xml:space="preserve">
+          <source><bpt id="55d920e1-fb19-4625-abaf-16aec3ba9e34">&lt;linkText&gt;</bpt>JitBit<ept id="55d920e1-fb19-4625-abaf-16aec3ba9e34">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55d920e1-fb19-4625-abaf-16aec3ba9e34">&lt;linkText&gt;</bpt>JitBit<ept id="55d920e1-fb19-4625-abaf-16aec3ba9e34">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef0857f8-1dc1-4574-bb0a-e3498c00053b" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Jitbit Helpdesk with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Jitbit Helpdesk with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="f28d88f3-afa5-47aa-ba53-d198236465bb" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="0f92aa81-54fe-46e1-91b1-d56f71d8f77b" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="a2cd0140-5565-499d-9087-f6acb96bc32f" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="17072a42-6ac8-435d-b0de-976e9652cc4a">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="17072a42-6ac8-435d-b0de-976e9652cc4a">&lt;/linkText&gt;</ept><bpt id="17072a42-6ac8-435d-b0de-976e9652cc4a">&lt;title&gt;</bpt><ept id="17072a42-6ac8-435d-b0de-976e9652cc4a">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="17072a42-6ac8-435d-b0de-976e9652cc4a">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="17072a42-6ac8-435d-b0de-976e9652cc4a">&lt;/linkText&gt;</ept><bpt id="17072a42-6ac8-435d-b0de-976e9652cc4a">&lt;title&gt;</bpt><ept id="17072a42-6ac8-435d-b0de-976e9652cc4a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d225d83c-bfad-4b74-876c-407a0fa1f80d" xml:space="preserve">
+          <source>In order to be able to configure single sign-on on your Jitbit Helpdesk tenant, you need to contact first the Jitbit Helpdesk technical support to get this feature enabled.</source>
+          <target state="new">In order to be able to configure single sign-on on your Jitbit Helpdesk tenant, you need to contact first the Jitbit Helpdesk technical support to get this feature enabled.</target>
+        </trans-unit>
+        <trans-unit id="e59f8136-cab8-442c-b3cd-8edf903b0a8e" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="1eb89f05-d80f-4683-86d7-1d9c8bc7694f">&lt;strong&gt;</bpt>Jitbit Helpdesk<ept id="1eb89f05-d80f-4683-86d7-1d9c8bc7694f">&lt;/strong&gt;</ept> application integration page, click <bpt id="840d159b-1fd3-420c-8c9b-6040d4ac3543">&lt;strong&gt;</bpt>Configure single sign-on<ept id="840d159b-1fd3-420c-8c9b-6040d4ac3543">&lt;/strong&gt;</ept> to open the <bpt id="43dcb12c-7f64-4a9f-87d1-893c606ca909">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="43dcb12c-7f64-4a9f-87d1-893c606ca909">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="1eb89f05-d80f-4683-86d7-1d9c8bc7694f">&lt;strong&gt;</bpt>Jitbit Helpdesk<ept id="1eb89f05-d80f-4683-86d7-1d9c8bc7694f">&lt;/strong&gt;</ept> application integration page, click <bpt id="840d159b-1fd3-420c-8c9b-6040d4ac3543">&lt;strong&gt;</bpt>Configure single sign-on<ept id="840d159b-1fd3-420c-8c9b-6040d4ac3543">&lt;/strong&gt;</ept> to open the <bpt id="43dcb12c-7f64-4a9f-87d1-893c606ca909">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="43dcb12c-7f64-4a9f-87d1-893c606ca909">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="64a092a0-3c57-490d-aa46-93cedc3e750b" xml:space="preserve">
+          <source><bpt id="a81f43f5-6d4d-49d2-9d90-08cc8fbdcb01">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a81f43f5-6d4d-49d2-9d90-08cc8fbdcb01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a81f43f5-6d4d-49d2-9d90-08cc8fbdcb01">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a81f43f5-6d4d-49d2-9d90-08cc8fbdcb01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd55f523-e80a-4d06-ad04-bf7f23564b30" xml:space="preserve">
+          <source>On the <bpt id="d1eda807-8971-4fd3-a475-66ee6e3bb152">&lt;strong&gt;</bpt>How would you like users to sign on to Jitbit Helpdesk<ept id="d1eda807-8971-4fd3-a475-66ee6e3bb152">&lt;/strong&gt;</ept> page, select <bpt id="ad4a32fb-a165-4f11-a54d-74e4b83b86f7">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="ad4a32fb-a165-4f11-a54d-74e4b83b86f7">&lt;/strong&gt;</ept>, and then click <bpt id="86a1d536-5130-406d-ab84-d69cef72916b">&lt;strong&gt;</bpt>Next<ept id="86a1d536-5130-406d-ab84-d69cef72916b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d1eda807-8971-4fd3-a475-66ee6e3bb152">&lt;strong&gt;</bpt>How would you like users to sign on to Jitbit Helpdesk<ept id="d1eda807-8971-4fd3-a475-66ee6e3bb152">&lt;/strong&gt;</ept> page, select <bpt id="ad4a32fb-a165-4f11-a54d-74e4b83b86f7">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="ad4a32fb-a165-4f11-a54d-74e4b83b86f7">&lt;/strong&gt;</ept>, and then click <bpt id="86a1d536-5130-406d-ab84-d69cef72916b">&lt;strong&gt;</bpt>Next<ept id="86a1d536-5130-406d-ab84-d69cef72916b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b1ee8f6-005e-4d07-92e5-c0f5f2b77cce" xml:space="preserve">
+          <source><bpt id="deacc57e-0409-4fde-98b3-e54efd3fd33f">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="deacc57e-0409-4fde-98b3-e54efd3fd33f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="deacc57e-0409-4fde-98b3-e54efd3fd33f">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="deacc57e-0409-4fde-98b3-e54efd3fd33f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="977fb51f-7f27-4b7a-a6d1-66406e662df6" xml:space="preserve">
+          <source>On the <bpt id="8f1afb3a-676f-4c43-8dd0-87b31fb123c2">&lt;strong&gt;</bpt>Configure App URL<ept id="8f1afb3a-676f-4c43-8dd0-87b31fb123c2">&lt;/strong&gt;</ept> page, in the <bpt id="7fa1e724-17c1-436e-a685-560ed70311ea">&lt;strong&gt;</bpt>Jitbit Helpdesk Sign In URL<ept id="7fa1e724-17c1-436e-a685-560ed70311ea">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="9c202ee7-7f4f-49de-85fc-02c569370e79">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.Jitbit.com<ept id="9c202ee7-7f4f-49de-85fc-02c569370e79">&lt;/em&gt;</ept>", and then click <bpt id="239b1252-501f-4b59-8102-424fdb81e795">&lt;strong&gt;</bpt>Next<ept id="239b1252-501f-4b59-8102-424fdb81e795">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="8f1afb3a-676f-4c43-8dd0-87b31fb123c2">&lt;strong&gt;</bpt>Configure App URL<ept id="8f1afb3a-676f-4c43-8dd0-87b31fb123c2">&lt;/strong&gt;</ept> page, in the <bpt id="7fa1e724-17c1-436e-a685-560ed70311ea">&lt;strong&gt;</bpt>Jitbit Helpdesk Sign In URL<ept id="7fa1e724-17c1-436e-a685-560ed70311ea">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="9c202ee7-7f4f-49de-85fc-02c569370e79">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.Jitbit.com<ept id="9c202ee7-7f4f-49de-85fc-02c569370e79">&lt;/em&gt;</ept>", and then click <bpt id="239b1252-501f-4b59-8102-424fdb81e795">&lt;strong&gt;</bpt>Next<ept id="239b1252-501f-4b59-8102-424fdb81e795">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7444e13d-972d-44c8-85dd-a0145118a2a5" xml:space="preserve">
+          <source><bpt id="b979ef93-4736-467e-a46c-2db0ade82232">&lt;linkText&gt;</bpt>Configure app URL<ept id="b979ef93-4736-467e-a46c-2db0ade82232">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b979ef93-4736-467e-a46c-2db0ade82232">&lt;linkText&gt;</bpt>Configure app URL<ept id="b979ef93-4736-467e-a46c-2db0ade82232">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7a4a185-eed0-4892-9081-26caa69efbef" xml:space="preserve">
+          <source>On the <bpt id="d787a2bd-c584-4177-8ff0-ff34a58c1891">&lt;strong&gt;</bpt>Configure single sign-on at Jitbit Helpdesk<ept id="d787a2bd-c584-4177-8ff0-ff34a58c1891">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="a61bca75-6b01-4181-adbd-801070c0221d">&lt;strong&gt;</bpt>Download certificate<ept id="a61bca75-6b01-4181-adbd-801070c0221d">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="78c11c40-47ac-464e-a4ec-8a91e6a47edd">&lt;strong&gt;</bpt>c:\\Jitbit Helpdesk.cer<ept id="78c11c40-47ac-464e-a4ec-8a91e6a47edd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d787a2bd-c584-4177-8ff0-ff34a58c1891">&lt;strong&gt;</bpt>Configure single sign-on at Jitbit Helpdesk<ept id="d787a2bd-c584-4177-8ff0-ff34a58c1891">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="a61bca75-6b01-4181-adbd-801070c0221d">&lt;strong&gt;</bpt>Download certificate<ept id="a61bca75-6b01-4181-adbd-801070c0221d">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="78c11c40-47ac-464e-a4ec-8a91e6a47edd">&lt;strong&gt;</bpt>c:\\Jitbit Helpdesk.cer<ept id="78c11c40-47ac-464e-a4ec-8a91e6a47edd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4661a60-cde4-4343-aa12-d9bba0bdd5de" xml:space="preserve">
+          <source><bpt id="b2960fe8-90a6-40bb-84ac-578290560c72">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="b2960fe8-90a6-40bb-84ac-578290560c72">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b2960fe8-90a6-40bb-84ac-578290560c72">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="b2960fe8-90a6-40bb-84ac-578290560c72">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0039de2-2ecd-4bf7-bc28-709a2abf2775" xml:space="preserve">
+          <source>In a different web browser window, log into your Jitbit Helpdesk company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Jitbit Helpdesk company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="886ab405-b340-4f61-9b69-d9f7ba29479f" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="d8906359-f693-4117-b5b8-0b98833c03ea">&lt;strong&gt;</bpt>Administration<ept id="d8906359-f693-4117-b5b8-0b98833c03ea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="d8906359-f693-4117-b5b8-0b98833c03ea">&lt;strong&gt;</bpt>Administration<ept id="d8906359-f693-4117-b5b8-0b98833c03ea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e4ea4c1-54aa-4a04-89a7-d21c608761cd" xml:space="preserve">
+          <source><bpt id="8ccf68fb-8acb-4a5a-a8bf-7991ee5bf905">&lt;linkText&gt;</bpt>Administration<ept id="8ccf68fb-8acb-4a5a-a8bf-7991ee5bf905">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8ccf68fb-8acb-4a5a-a8bf-7991ee5bf905">&lt;linkText&gt;</bpt>Administration<ept id="8ccf68fb-8acb-4a5a-a8bf-7991ee5bf905">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f216a324-4823-4ea3-83a4-a3fa481a91d7" xml:space="preserve">
+          <source>Click <bpt id="b52a5183-c05f-46c5-8f08-5a18e64d3c55">&lt;strong&gt;</bpt>General settings<ept id="b52a5183-c05f-46c5-8f08-5a18e64d3c55">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b52a5183-c05f-46c5-8f08-5a18e64d3c55">&lt;strong&gt;</bpt>General settings<ept id="b52a5183-c05f-46c5-8f08-5a18e64d3c55">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fffa36dd-a87c-41d2-94d8-0461f7cc61b1" xml:space="preserve">
+          <source><bpt id="2c84eee0-34d7-43f0-8b6a-a84b6597bccd">&lt;linkText&gt;</bpt>Users, companies and permissions<ept id="2c84eee0-34d7-43f0-8b6a-a84b6597bccd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c84eee0-34d7-43f0-8b6a-a84b6597bccd">&lt;linkText&gt;</bpt>Users, companies and permissions<ept id="2c84eee0-34d7-43f0-8b6a-a84b6597bccd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9094f88c-2775-475d-a4a7-9ea96c5f7035" xml:space="preserve">
+          <source>In the <bpt id="2b628480-a678-4280-9863-fc37133b29a5">&lt;strong&gt;</bpt>Authentication settings<ept id="2b628480-a678-4280-9863-fc37133b29a5">&lt;/strong&gt;</ept> configuration section, perform the following steps:</source>
+          <target state="new">In the <bpt id="2b628480-a678-4280-9863-fc37133b29a5">&lt;strong&gt;</bpt>Authentication settings<ept id="2b628480-a678-4280-9863-fc37133b29a5">&lt;/strong&gt;</ept> configuration section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="3020bead-b99f-495e-9549-1a652770eaaa" xml:space="preserve">
+          <source><bpt id="80392747-a615-4ad0-86a5-28a370964d2b">&lt;linkText&gt;</bpt>Authentication settings<ept id="80392747-a615-4ad0-86a5-28a370964d2b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="80392747-a615-4ad0-86a5-28a370964d2b">&lt;linkText&gt;</bpt>Authentication settings<ept id="80392747-a615-4ad0-86a5-28a370964d2b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="702ffe34-2e43-4753-9b19-19921703fc53" xml:space="preserve">
+          <source>Select <bpt id="099b7b02-3286-40a2-aba3-e615d57fd75f">&lt;strong&gt;</bpt>Enable SAML 2.0 single sign on<ept id="099b7b02-3286-40a2-aba3-e615d57fd75f">&lt;/strong&gt;</ept> sign-in using Single Sign-On (SSO) with <bpt id="586c06b1-e9c7-424d-a089-8719a5e239b5">&lt;strong&gt;</bpt>OneLogin<ept id="586c06b1-e9c7-424d-a089-8719a5e239b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="099b7b02-3286-40a2-aba3-e615d57fd75f">&lt;strong&gt;</bpt>Enable SAML 2.0 single sign on<ept id="099b7b02-3286-40a2-aba3-e615d57fd75f">&lt;/strong&gt;</ept> sign-in using Single Sign-On (SSO) with <bpt id="586c06b1-e9c7-424d-a089-8719a5e239b5">&lt;strong&gt;</bpt>OneLogin<ept id="586c06b1-e9c7-424d-a089-8719a5e239b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d80eaf8-a662-4f2f-a162-60ab91911139" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="4e039fdc-8736-4fbe-bb35-e8a815affa26">&lt;strong&gt;</bpt>Configure single sign-on at Jitbit Helpdesk<ept id="4e039fdc-8736-4fbe-bb35-e8a815affa26">&lt;/strong&gt;</ept> dialogue page, copy the <bpt id="dab9d22b-f32e-43a5-8f33-e186f6788387">&lt;strong&gt;</bpt>Service Provider (SP) initiated endpoint<ept id="dab9d22b-f32e-43a5-8f33-e186f6788387">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="c412109e-99e7-43b1-a69d-5cffcb9e9cb0">&lt;strong&gt;</bpt>EndPoint URL<ept id="c412109e-99e7-43b1-a69d-5cffcb9e9cb0">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="4e039fdc-8736-4fbe-bb35-e8a815affa26">&lt;strong&gt;</bpt>Configure single sign-on at Jitbit Helpdesk<ept id="4e039fdc-8736-4fbe-bb35-e8a815affa26">&lt;/strong&gt;</ept> dialogue page, copy the <bpt id="dab9d22b-f32e-43a5-8f33-e186f6788387">&lt;strong&gt;</bpt>Service Provider (SP) initiated endpoint<ept id="dab9d22b-f32e-43a5-8f33-e186f6788387">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="c412109e-99e7-43b1-a69d-5cffcb9e9cb0">&lt;strong&gt;</bpt>EndPoint URL<ept id="c412109e-99e7-43b1-a69d-5cffcb9e9cb0">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="357b6577-2da3-4d19-bcac-fba1ea1660c7" xml:space="preserve">
+          <source>Create a <bpt id="4e5fd50b-9a23-430e-9ab8-f4ceb9194322">&lt;strong&gt;</bpt>base-64 encoded<ept id="4e5fd50b-9a23-430e-9ab8-f4ceb9194322">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="4e5fd50b-9a23-430e-9ab8-f4ceb9194322">&lt;strong&gt;</bpt>base-64 encoded<ept id="4e5fd50b-9a23-430e-9ab8-f4ceb9194322">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="002758cc-7589-4f0b-a0cc-b6cf3ae4ecca" xml:space="preserve">
+          <source>For more details, see <bpt id="9be359cc-e8f1-4ee8-9b16-d4c7b9a5eeb4">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="9be359cc-e8f1-4ee8-9b16-d4c7b9a5eeb4">&lt;/linkText&gt;</ept><bpt id="9be359cc-e8f1-4ee8-9b16-d4c7b9a5eeb4">&lt;title&gt;</bpt><ept id="9be359cc-e8f1-4ee8-9b16-d4c7b9a5eeb4">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="9be359cc-e8f1-4ee8-9b16-d4c7b9a5eeb4">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="9be359cc-e8f1-4ee8-9b16-d4c7b9a5eeb4">&lt;/linkText&gt;</ept><bpt id="9be359cc-e8f1-4ee8-9b16-d4c7b9a5eeb4">&lt;title&gt;</bpt><ept id="9be359cc-e8f1-4ee8-9b16-d4c7b9a5eeb4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02297702-e80a-44ed-b27c-bffcc9496d84" xml:space="preserve">
+          <source>Open your base-64 encoded certificate, copy the content of it into your clipboard, and then paste it to the <bpt id="c470b23b-e236-4c4f-9056-2bca193d7795">&lt;strong&gt;</bpt>X.509 Certificate<ept id="c470b23b-e236-4c4f-9056-2bca193d7795">&lt;/strong&gt;</ept> textbox</source>
+          <target state="new">Open your base-64 encoded certificate, copy the content of it into your clipboard, and then paste it to the <bpt id="c470b23b-e236-4c4f-9056-2bca193d7795">&lt;strong&gt;</bpt>X.509 Certificate<ept id="c470b23b-e236-4c4f-9056-2bca193d7795">&lt;/strong&gt;</ept> textbox</target>
+        </trans-unit>
+        <trans-unit id="1ac54b5e-7c3c-448b-ac8a-ed8606be82a3" xml:space="preserve">
+          <source>Click <bpt id="2a19dc78-dac0-4166-b1cd-028c9e345d98">&lt;strong&gt;</bpt>Save changes<ept id="2a19dc78-dac0-4166-b1cd-028c9e345d98">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="2a19dc78-dac0-4166-b1cd-028c9e345d98">&lt;strong&gt;</bpt>Save changes<ept id="2a19dc78-dac0-4166-b1cd-028c9e345d98">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f111293f-95f4-433e-aca1-1f93975a10bd" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="4d107493-53a3-443f-9055-1ac65609ff65">&lt;strong&gt;</bpt>Complete<ept id="4d107493-53a3-443f-9055-1ac65609ff65">&lt;/strong&gt;</ept> to close the <bpt id="db581921-8c95-40ef-b48a-a173a1c55602">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="db581921-8c95-40ef-b48a-a173a1c55602">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="4d107493-53a3-443f-9055-1ac65609ff65">&lt;strong&gt;</bpt>Complete<ept id="4d107493-53a3-443f-9055-1ac65609ff65">&lt;/strong&gt;</ept> to close the <bpt id="db581921-8c95-40ef-b48a-a173a1c55602">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="db581921-8c95-40ef-b48a-a173a1c55602">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="883ebe2a-6e8b-46ae-9a9c-e1d042cc6553" xml:space="preserve">
+          <source><bpt id="d643b3bc-b218-40fb-8237-e03ee55f2c74">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="d643b3bc-b218-40fb-8237-e03ee55f2c74">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d643b3bc-b218-40fb-8237-e03ee55f2c74">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="d643b3bc-b218-40fb-8237-e03ee55f2c74">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f367e6c9-9d17-4d55-83df-805e3e3eff4b" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Jitbit Helpdesk, they must be provisioned into Jitbit Helpdesk.</source>
+          <target state="new">In order to enable Azure AD users to log into Jitbit Helpdesk, they must be provisioned into Jitbit Helpdesk.</target>
+        </trans-unit>
+        <trans-unit id="96c49392-9a39-4341-b459-a14e9023ec5a" xml:space="preserve">
+          <source>In the case of Jitbit Helpdesk, provisioning is a manual task.</source>
+          <target state="new">In the case of Jitbit Helpdesk, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="e6279750-35db-4078-9478-09b7567817cd" xml:space="preserve">
+          <source>Log in to your <bpt id="c56bace7-9df8-4a5d-889a-ce5de881e187">&lt;strong&gt;</bpt>Jitbit Helpdesk<ept id="c56bace7-9df8-4a5d-889a-ce5de881e187">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="c56bace7-9df8-4a5d-889a-ce5de881e187">&lt;strong&gt;</bpt>Jitbit Helpdesk<ept id="c56bace7-9df8-4a5d-889a-ce5de881e187">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="d4905530-5461-44cf-b01b-d67c6d8f2b95" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="39959f78-af7f-4f71-807b-5c2036af13a7">&lt;strong&gt;</bpt>Administration<ept id="39959f78-af7f-4f71-807b-5c2036af13a7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="39959f78-af7f-4f71-807b-5c2036af13a7">&lt;strong&gt;</bpt>Administration<ept id="39959f78-af7f-4f71-807b-5c2036af13a7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f054df8-5ebd-4422-8bc9-4c6136ac2498" xml:space="preserve">
+          <source><bpt id="fd71e534-54e4-4083-b5e4-1107d757361f">&lt;linkText&gt;</bpt>Administration<ept id="fd71e534-54e4-4083-b5e4-1107d757361f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd71e534-54e4-4083-b5e4-1107d757361f">&lt;linkText&gt;</bpt>Administration<ept id="fd71e534-54e4-4083-b5e4-1107d757361f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a3788ee-36c0-4b96-87c5-176f4a54c5cc" xml:space="preserve">
+          <source>Click <bpt id="90e503bc-18e9-4bc8-b54a-f53fcc67ff14">&lt;strong&gt;</bpt>Users, companies and permissions<ept id="90e503bc-18e9-4bc8-b54a-f53fcc67ff14">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="90e503bc-18e9-4bc8-b54a-f53fcc67ff14">&lt;strong&gt;</bpt>Users, companies and permissions<ept id="90e503bc-18e9-4bc8-b54a-f53fcc67ff14">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7e9f1b6-87c7-4122-a72d-87f8d12bf902" xml:space="preserve">
+          <source><bpt id="0b51dc42-f95c-453b-8d65-177085aaa05d">&lt;linkText&gt;</bpt>Users, companies and permissions<ept id="0b51dc42-f95c-453b-8d65-177085aaa05d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0b51dc42-f95c-453b-8d65-177085aaa05d">&lt;linkText&gt;</bpt>Users, companies and permissions<ept id="0b51dc42-f95c-453b-8d65-177085aaa05d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c48118a-87a8-4713-8971-e4227ed93428" xml:space="preserve">
+          <source>Click <bpt id="3aeef98f-b1f0-4eb4-b33c-9ce2d2cd1923">&lt;strong&gt;</bpt>Add user<ept id="3aeef98f-b1f0-4eb4-b33c-9ce2d2cd1923">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3aeef98f-b1f0-4eb4-b33c-9ce2d2cd1923">&lt;strong&gt;</bpt>Add user<ept id="3aeef98f-b1f0-4eb4-b33c-9ce2d2cd1923">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5766adfd-9108-45c5-bb5c-0d9db4c1d180" xml:space="preserve">
+          <source><bpt id="40e22301-871b-462c-8c7a-f647fcd1cc01">&lt;linkText&gt;</bpt>Add user<ept id="40e22301-871b-462c-8c7a-f647fcd1cc01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40e22301-871b-462c-8c7a-f647fcd1cc01">&lt;linkText&gt;</bpt>Add user<ept id="40e22301-871b-462c-8c7a-f647fcd1cc01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67ac4a15-c657-4f06-913e-fd987b764fd0" xml:space="preserve">
+          <source>In the Create section, type the data of the Azure AD account you want to provision into the following textboxes: <bpt id="15b04fe2-6714-40ff-af7b-c2a7dbdcc227">&lt;strong&gt;</bpt>Username<ept id="15b04fe2-6714-40ff-af7b-c2a7dbdcc227">&lt;/strong&gt;</ept>, <bpt id="8ebdecaf-07a0-4a03-8a4f-e68790499f1f">&lt;strong&gt;</bpt>Email<ept id="8ebdecaf-07a0-4a03-8a4f-e68790499f1f">&lt;/strong&gt;</ept>, <bpt id="b1b146bb-66a5-4f99-a965-ac8ee812e355">&lt;strong&gt;</bpt>First Name<ept id="b1b146bb-66a5-4f99-a965-ac8ee812e355">&lt;/strong&gt;</ept>, <bpt id="6c6fc774-4421-484a-90e7-439e59519864">&lt;strong&gt;</bpt>Last Name<ept id="6c6fc774-4421-484a-90e7-439e59519864">&lt;/strong&gt;</ept></source>
+          <target state="new">In the Create section, type the data of the Azure AD account you want to provision into the following textboxes: <bpt id="15b04fe2-6714-40ff-af7b-c2a7dbdcc227">&lt;strong&gt;</bpt>Username<ept id="15b04fe2-6714-40ff-af7b-c2a7dbdcc227">&lt;/strong&gt;</ept>, <bpt id="8ebdecaf-07a0-4a03-8a4f-e68790499f1f">&lt;strong&gt;</bpt>Email<ept id="8ebdecaf-07a0-4a03-8a4f-e68790499f1f">&lt;/strong&gt;</ept>, <bpt id="b1b146bb-66a5-4f99-a965-ac8ee812e355">&lt;strong&gt;</bpt>First Name<ept id="b1b146bb-66a5-4f99-a965-ac8ee812e355">&lt;/strong&gt;</ept>, <bpt id="6c6fc774-4421-484a-90e7-439e59519864">&lt;strong&gt;</bpt>Last Name<ept id="6c6fc774-4421-484a-90e7-439e59519864">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="690970ef-d15c-4d55-8fc4-476851f3da62" xml:space="preserve">
+          <source><bpt id="ecea2bd9-d9cb-4d27-9814-cbb5150ca176">&lt;linkText&gt;</bpt>Create<ept id="ecea2bd9-d9cb-4d27-9814-cbb5150ca176">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ecea2bd9-d9cb-4d27-9814-cbb5150ca176">&lt;linkText&gt;</bpt>Create<ept id="ecea2bd9-d9cb-4d27-9814-cbb5150ca176">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fece7720-c1e1-4733-ad35-b9c48701b835" xml:space="preserve">
+          <source>Click <bpt id="0f5de67c-addd-4b45-8b9a-0845a643d925">&lt;strong&gt;</bpt>Create<ept id="0f5de67c-addd-4b45-8b9a-0845a643d925">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0f5de67c-addd-4b45-8b9a-0845a643d925">&lt;strong&gt;</bpt>Create<ept id="0f5de67c-addd-4b45-8b9a-0845a643d925">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6b225b9-ffc3-4a79-84b8-afcc1719e3c1" xml:space="preserve">
+          <source>You can use any other Jitbit Helpdesk user account creation tools or APIs provided by Jitbit Helpdesk to provision AAD user accounts.</source>
+          <target state="new">You can use any other Jitbit Helpdesk user account creation tools or APIs provided by Jitbit Helpdesk to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="834b766b-e9b2-42a7-9b2f-ac6fe2ed2e7c" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="039aef59-20bf-4d93-9fce-76cb749511ce" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="e2fc6378-d758-4b10-b027-94f49bf3312b" xml:space="preserve">
+          <source>On the <bpt id="6bdcfdbe-93cb-4f63-a9d7-eeebfe2a9869">&lt;strong&gt;</bpt>Jitbit Helpdesk **application integration page, click **Assign users<ept id="6bdcfdbe-93cb-4f63-a9d7-eeebfe2a9869">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6bdcfdbe-93cb-4f63-a9d7-eeebfe2a9869">&lt;strong&gt;</bpt>Jitbit Helpdesk **application integration page, click **Assign users<ept id="6bdcfdbe-93cb-4f63-a9d7-eeebfe2a9869">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ccd00359-f11b-484b-922e-9bfd4e86b2c3" xml:space="preserve">
+          <source><bpt id="09d1d2ae-2b8c-4459-af9d-70e22b2de69f">&lt;linkText&gt;</bpt>Assign users<ept id="09d1d2ae-2b8c-4459-af9d-70e22b2de69f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09d1d2ae-2b8c-4459-af9d-70e22b2de69f">&lt;linkText&gt;</bpt>Assign users<ept id="09d1d2ae-2b8c-4459-af9d-70e22b2de69f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c3535c7-e076-4dea-961d-d65cc95f7275" xml:space="preserve">
+          <source>Select your test user, click <bpt id="fbda12b7-df02-4b3c-a7a1-a3930bac4d78">&lt;strong&gt;</bpt>Assign<ept id="fbda12b7-df02-4b3c-a7a1-a3930bac4d78">&lt;/strong&gt;</ept>, and then click <bpt id="48b4ce96-2985-4633-8093-2c6efb8852bb">&lt;strong&gt;</bpt>Yes<ept id="48b4ce96-2985-4633-8093-2c6efb8852bb">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="fbda12b7-df02-4b3c-a7a1-a3930bac4d78">&lt;strong&gt;</bpt>Assign<ept id="fbda12b7-df02-4b3c-a7a1-a3930bac4d78">&lt;/strong&gt;</ept>, and then click <bpt id="48b4ce96-2985-4633-8093-2c6efb8852bb">&lt;strong&gt;</bpt>Yes<ept id="48b4ce96-2985-4633-8093-2c6efb8852bb">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="eed5313a-ee40-453c-9743-e0b2287ffe5c" xml:space="preserve">
+          <source><bpt id="4210c969-7247-46ea-bea0-094fcaf95949">&lt;linkText&gt;</bpt>Yes<ept id="4210c969-7247-46ea-bea0-094fcaf95949">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4210c969-7247-46ea-bea0-094fcaf95949">&lt;linkText&gt;</bpt>Yes<ept id="4210c969-7247-46ea-bea0-094fcaf95949">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7e25728-3d65-4a01-94aa-1e67e217f0a6" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="abf52b1c-3f3a-4a1a-a682-3912d8b8bfc6" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="4f46ee8a-6ea8-44aa-a03b-0641af8ef102">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="4f46ee8a-6ea8-44aa-a03b-0641af8ef102">&lt;/linkText&gt;</ept><bpt id="4f46ee8a-6ea8-44aa-a03b-0641af8ef102">&lt;title&gt;</bpt><ept id="4f46ee8a-6ea8-44aa-a03b-0641af8ef102">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="4f46ee8a-6ea8-44aa-a03b-0641af8ef102">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="4f46ee8a-6ea8-44aa-a03b-0641af8ef102">&lt;/linkText&gt;</ept><bpt id="4f46ee8a-6ea8-44aa-a03b-0641af8ef102">&lt;title&gt;</bpt><ept id="4f46ee8a-6ea8-44aa-a03b-0641af8ef102">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

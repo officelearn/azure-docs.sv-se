@@ -1,0 +1,632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ea5b8982-7e7e-4c33-b8f4-e7320e1f89bc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ea5b8982-7e7e-4c33-b8f4-e7320e1f89bc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d0923c20-4a5a-4c3c-a011-e6a26cba5506">
+        <trans-unit id="d1429517-c1d9-441e-9712-75bb1f06b519" xml:space="preserve">
+          <source>Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine</source>
+          <target state="new">Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine</target>
+        </trans-unit>
+        <trans-unit id="a8163175-1c96-4ae7-a2a7-7617bb097700" xml:space="preserve">
+          <source>If you can't connect your Windows-based Azure virtual machine, use these diagnotics and steps to isolate the source of the problem.</source>
+          <target state="new">If you can't connect your Windows-based Azure virtual machine, use these diagnotics and steps to isolate the source of the problem.</target>
+        </trans-unit>
+        <trans-unit id="04202414-40b4-46a2-87e6-28878e5f8526" xml:space="preserve">
+          <source>If you can't connect to Windows-based Azure virtual machines, this article describes a methodical approach for correction and root-cause determination of Remote Desktop connections.</source>
+          <target state="new">If you can't connect to Windows-based Azure virtual machines, this article describes a methodical approach for correction and root-cause determination of Remote Desktop connections.</target>
+        </trans-unit>
+        <trans-unit id="5d4c8cd2-fdf7-450a-b63b-ff968b269574" xml:space="preserve">
+          <source>To address many of the common problems with creating Remote Desktop connections, Microsoft has created an <bpt id="1d126cfd-03f5-4fbe-a76a-effead10cd45">&lt;linkText&gt;</bpt>Azure IaaS (Windows) diagnostics package<ept id="1d126cfd-03f5-4fbe-a76a-effead10cd45">&lt;/linkText&gt;</ept><bpt id="1d126cfd-03f5-4fbe-a76a-effead10cd45">&lt;title&gt;</bpt><ept id="1d126cfd-03f5-4fbe-a76a-effead10cd45">&lt;/title&gt;</ept>.</source>
+          <target state="new">To address many of the common problems with creating Remote Desktop connections, Microsoft has created an <bpt id="1d126cfd-03f5-4fbe-a76a-effead10cd45">&lt;linkText&gt;</bpt>Azure IaaS (Windows) diagnostics package<ept id="1d126cfd-03f5-4fbe-a76a-effead10cd45">&lt;/linkText&gt;</ept><bpt id="1d126cfd-03f5-4fbe-a76a-effead10cd45">&lt;title&gt;</bpt><ept id="1d126cfd-03f5-4fbe-a76a-effead10cd45">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2431b307-98b8-4cbe-b7a1-509cd388480a" xml:space="preserve">
+          <source>Click <bpt id="ff30490b-b014-4afa-b0d1-64bc650ea11f">&lt;strong&gt;</bpt>Microsoft Azure IaaS (Windows) diagnostics package<ept id="ff30490b-b014-4afa-b0d1-64bc650ea11f">&lt;/strong&gt;</ept> on this page to create a new diagnostics session.</source>
+          <target state="new">Click <bpt id="ff30490b-b014-4afa-b0d1-64bc650ea11f">&lt;strong&gt;</bpt>Microsoft Azure IaaS (Windows) diagnostics package<ept id="ff30490b-b014-4afa-b0d1-64bc650ea11f">&lt;/strong&gt;</ept> on this page to create a new diagnostics session.</target>
+        </trans-unit>
+        <trans-unit id="b2c36bbd-4bed-4d7a-9a4c-a5873ccacc8a" xml:space="preserve">
+          <source>On the <bpt id="f0692b2c-7a85-435d-8a3c-205d34860b9a">&lt;strong&gt;</bpt>Which of the following issues are you experiencing with your Azure VM?<ept id="f0692b2c-7a85-435d-8a3c-205d34860b9a">&lt;/strong&gt;</ept> page, select the <bpt id="71e4a382-7a00-40e9-b35f-a40f89390dad">&lt;strong&gt;</bpt>RDP connectivity to an Azure VM (Reboot Required)<ept id="71e4a382-7a00-40e9-b35f-a40f89390dad">&lt;/strong&gt;</ept> issue.</source>
+          <target state="new">On the <bpt id="f0692b2c-7a85-435d-8a3c-205d34860b9a">&lt;strong&gt;</bpt>Which of the following issues are you experiencing with your Azure VM?<ept id="f0692b2c-7a85-435d-8a3c-205d34860b9a">&lt;/strong&gt;</ept> page, select the <bpt id="71e4a382-7a00-40e9-b35f-a40f89390dad">&lt;strong&gt;</bpt>RDP connectivity to an Azure VM (Reboot Required)<ept id="71e4a382-7a00-40e9-b35f-a40f89390dad">&lt;/strong&gt;</ept> issue.</target>
+        </trans-unit>
+        <trans-unit id="711fea2b-206f-4d97-92d8-844bad37a9dc" xml:space="preserve">
+          <source>For more information, see the <bpt id="c6d3d53e-0e82-4a90-b76b-19cd52a12fcc">&lt;linkText&gt;</bpt>Microsoft Azure IaaS (Windows) diagnostics package Knowledgebase article<ept id="c6d3d53e-0e82-4a90-b76b-19cd52a12fcc">&lt;/linkText&gt;</ept><bpt id="c6d3d53e-0e82-4a90-b76b-19cd52a12fcc">&lt;title&gt;</bpt><ept id="c6d3d53e-0e82-4a90-b76b-19cd52a12fcc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="c6d3d53e-0e82-4a90-b76b-19cd52a12fcc">&lt;linkText&gt;</bpt>Microsoft Azure IaaS (Windows) diagnostics package Knowledgebase article<ept id="c6d3d53e-0e82-4a90-b76b-19cd52a12fcc">&lt;/linkText&gt;</ept><bpt id="c6d3d53e-0e82-4a90-b76b-19cd52a12fcc">&lt;title&gt;</bpt><ept id="c6d3d53e-0e82-4a90-b76b-19cd52a12fcc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44877d03-871c-4bee-9439-cf9be75f849b" xml:space="preserve">
+          <source>If running the Azure IaaS diagnostics package did not correct the problem or you were unable to run the diagnostics package, more detailed troubleshooting described in the following steps might be required.</source>
+          <target state="new">If running the Azure IaaS diagnostics package did not correct the problem or you were unable to run the diagnostics package, more detailed troubleshooting described in the following steps might be required.</target>
+        </trans-unit>
+        <trans-unit id="437a455e-7fa9-466e-af65-7a012abbb588" xml:space="preserve">
+          <source>The Azure IaaS (Windows) diagnostics package must be run from a computer running Windows 8, Windows 8.1, Windows Server 2012, or Windows Server 2012 R2.</source>
+          <target state="new">The Azure IaaS (Windows) diagnostics package must be run from a computer running Windows 8, Windows 8.1, Windows Server 2012, or Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="b48e912a-15f2-4823-9d40-60ee8693b047" xml:space="preserve">
+          <source>Use these sections based on the error message you see when attempting to connect.</source>
+          <target state="new">Use these sections based on the error message you see when attempting to connect.</target>
+        </trans-unit>
+        <trans-unit id="6dd02376-90eb-40c5-aa23-134d42981f50" xml:space="preserve">
+          <source>Cause: The 120-day licensing grace period for the Remote Desktop Server role has expired and you need to install licenses.</source>
+          <target state="new">Cause: The 120-day licensing grace period for the Remote Desktop Server role has expired and you need to install licenses.</target>
+        </trans-unit>
+        <trans-unit id="07c95325-9e86-4791-aa0d-dea845f1e511" xml:space="preserve">
+          <source>As a temporary workaround, save a local copy of the RDP file from the Azure portal and then run this command at a Windows PowerShell command prompt to connect.</source>
+          <target state="new">As a temporary workaround, save a local copy of the RDP file from the Azure portal and then run this command at a Windows PowerShell command prompt to connect.</target>
+        </trans-unit>
+        <trans-unit id="23833c4f-92ae-49d6-b37e-5422fded8f5b" xml:space="preserve">
+          <source>This will disable licensing for only that connection.</source>
+          <target state="new">This will disable licensing for only that connection.</target>
+        </trans-unit>
+        <trans-unit id="2638c4e7-739a-4fce-ae2f-ddedcd83cbab" xml:space="preserve">
+          <source>If you don't actually need more than two simultaneous Remote Desktop connections to the virtual machine, you can use Server Manager to remove the Remote Desktop Server role.</source>
+          <target state="new">If you don't actually need more than two simultaneous Remote Desktop connections to the virtual machine, you can use Server Manager to remove the Remote Desktop Server role.</target>
+        </trans-unit>
+        <trans-unit id="c7f41db5-b1c9-4773-964c-fe36ec1d6c23" xml:space="preserve">
+          <source>Also see the <bpt id="0565d1f0-8f31-431f-a444-15c23362f7c4">&lt;linkText&gt;</bpt>Azure VM fails with "No Remote Desktop License Servers available"<ept id="0565d1f0-8f31-431f-a444-15c23362f7c4">&lt;/linkText&gt;</ept><bpt id="0565d1f0-8f31-431f-a444-15c23362f7c4">&lt;title&gt;</bpt><ept id="0565d1f0-8f31-431f-a444-15c23362f7c4">&lt;/title&gt;</ept> blog post.</source>
+          <target state="new">Also see the <bpt id="0565d1f0-8f31-431f-a444-15c23362f7c4">&lt;linkText&gt;</bpt>Azure VM fails with "No Remote Desktop License Servers available"<ept id="0565d1f0-8f31-431f-a444-15c23362f7c4">&lt;/linkText&gt;</ept><bpt id="0565d1f0-8f31-431f-a444-15c23362f7c4">&lt;title&gt;</bpt><ept id="0565d1f0-8f31-431f-a444-15c23362f7c4">&lt;/title&gt;</ept> blog post.</target>
+        </trans-unit>
+        <trans-unit id="90e58c32-2a1d-45d0-97ef-69d4b994da47" xml:space="preserve">
+          <source>Cause: The Remote Desktop client on your computer cannot resolve the name of the computer in the settings of the RDP file.</source>
+          <target state="new">Cause: The Remote Desktop client on your computer cannot resolve the name of the computer in the settings of the RDP file.</target>
+        </trans-unit>
+        <trans-unit id="a8712e1c-8e98-4c60-b166-08b12a97c123" xml:space="preserve">
+          <source>Here is an example RDP file generated by the Azure portal:</source>
+          <target state="new">Here is an example RDP file generated by the Azure portal:</target>
+        </trans-unit>
+        <trans-unit id="ebd69bac-1251-4bb2-b8e5-760b947ca44a" xml:space="preserve">
+          <source>In this example, the address portion consists of the fully qualified domain name of the cloud service that contains the virtual machine (tailspin-azdatatier.cloudapp.net in this example) and the external TCP port of the endpoint for Remote Desktop traffic (55919).</source>
+          <target state="new">In this example, the address portion consists of the fully qualified domain name of the cloud service that contains the virtual machine (tailspin-azdatatier.cloudapp.net in this example) and the external TCP port of the endpoint for Remote Desktop traffic (55919).</target>
+        </trans-unit>
+        <trans-unit id="8e4cbbeb-c61f-4d6c-a1f4-c1f4c836dacf" xml:space="preserve">
+          <source>Possible solutions to this problem:</source>
+          <target state="new">Possible solutions to this problem:</target>
+        </trans-unit>
+        <trans-unit id="0862a917-e456-4949-a80d-e1c7d8445023" xml:space="preserve">
+          <source>If you are on an organization intranet, ensure that your computer has access to the proxy server and can send HTTPS traffic to it.</source>
+          <target state="new">If you are on an organization intranet, ensure that your computer has access to the proxy server and can send HTTPS traffic to it.</target>
+        </trans-unit>
+        <trans-unit id="8f475e0d-95d5-4814-ac0e-d60340d0aebc" xml:space="preserve">
+          <source>If you are using a locally stored RDP file, try using the one generated by the Azure portal to ensure you have the correct DNS name for the virtual machine or the cloud service and the endpoint port of the virtual machine.</source>
+          <target state="new">If you are using a locally stored RDP file, try using the one generated by the Azure portal to ensure you have the correct DNS name for the virtual machine or the cloud service and the endpoint port of the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="ca019dde-fb58-4339-b4ad-128225dc0601" xml:space="preserve">
+          <source>Cause: The virtual machine to which you are connecting cannot locate the security authority indicated in the user name portion of your credentials.</source>
+          <target state="new">Cause: The virtual machine to which you are connecting cannot locate the security authority indicated in the user name portion of your credentials.</target>
+        </trans-unit>
+        <trans-unit id="2d352d14-5780-4609-8130-dc9c8ccdbae2" xml:space="preserve">
+          <source>When your user name is of the form <bpt id="404a0b64-29d1-4767-ac6e-3b18bfbeb879">&lt;em&gt;</bpt>SecurityAuthority<ept id="404a0b64-29d1-4767-ac6e-3b18bfbeb879">&lt;/em&gt;</ept>\\<bpt id="ab836422-aeec-4d0a-afc0-b17cf2388356">&lt;em&gt;</bpt>UserName<ept id="ab836422-aeec-4d0a-afc0-b17cf2388356">&lt;/em&gt;</ept> (example: CORP\User1), the <bpt id="f9a35faf-2f7a-4dd1-95bc-5e0ae796ee5f">&lt;em&gt;</bpt>SecurityAuthority<ept id="f9a35faf-2f7a-4dd1-95bc-5e0ae796ee5f">&lt;/em&gt;</ept> portion is either the virtual machine's computer name (for the local security authority) or an Active Directory domain name.</source>
+          <target state="new">When your user name is of the form <bpt id="404a0b64-29d1-4767-ac6e-3b18bfbeb879">&lt;em&gt;</bpt>SecurityAuthority<ept id="404a0b64-29d1-4767-ac6e-3b18bfbeb879">&lt;/em&gt;</ept>\\<bpt id="ab836422-aeec-4d0a-afc0-b17cf2388356">&lt;em&gt;</bpt>UserName<ept id="ab836422-aeec-4d0a-afc0-b17cf2388356">&lt;/em&gt;</ept> (example: CORP\User1), the <bpt id="f9a35faf-2f7a-4dd1-95bc-5e0ae796ee5f">&lt;em&gt;</bpt>SecurityAuthority<ept id="f9a35faf-2f7a-4dd1-95bc-5e0ae796ee5f">&lt;/em&gt;</ept> portion is either the virtual machine's computer name (for the local security authority) or an Active Directory domain name.</target>
+        </trans-unit>
+        <trans-unit id="eb360b16-c015-45d4-9fbe-ee387f77c3c2" xml:space="preserve">
+          <source>Possible solutions to this problem:</source>
+          <target state="new">Possible solutions to this problem:</target>
+        </trans-unit>
+        <trans-unit id="9c63d264-b0a7-48f6-a266-424c04344711" xml:space="preserve">
+          <source>If the user account is local to the virtual machine, verify the spelling of the virtual machine name.</source>
+          <target state="new">If the user account is local to the virtual machine, verify the spelling of the virtual machine name.</target>
+        </trans-unit>
+        <trans-unit id="f6278852-f2c3-4db6-92db-60586de77e55" xml:space="preserve">
+          <source>If the user account is an Active Directory domain account, verify the spelling of the domain name.</source>
+          <target state="new">If the user account is an Active Directory domain account, verify the spelling of the domain name.</target>
+        </trans-unit>
+        <trans-unit id="7a8357ac-b05b-4b7f-81d8-46e1e2bade3e" xml:space="preserve">
+          <source>If the user account is an Active Directory domain account and the domain name is spelled correctly, verify that a domain controller for the Active Directory domain is available.</source>
+          <target state="new">If the user account is an Active Directory domain account and the domain name is spelled correctly, verify that a domain controller for the Active Directory domain is available.</target>
+        </trans-unit>
+        <trans-unit id="c8e9bce4-1112-4d9d-a662-a4de1d6b77b1" xml:space="preserve">
+          <source>This can be a common issue in an Azure virtual network that contains domain controllers, in which a domain controller computer is not started.</source>
+          <target state="new">This can be a common issue in an Azure virtual network that contains domain controllers, in which a domain controller computer is not started.</target>
+        </trans-unit>
+        <trans-unit id="30e09717-1dbb-47bb-930a-4c75e94ee6d8" xml:space="preserve">
+          <source>A temporary workaround is to use a local administrator account, rather than a domain account.</source>
+          <target state="new">A temporary workaround is to use a local administrator account, rather than a domain account.</target>
+        </trans-unit>
+        <trans-unit id="a7b28d83-11bf-442d-9741-42a9dd8ec6ae" xml:space="preserve">
+          <source>Cause: The account name and password that you submitted cannot be validated by the virtual machine to which you are connecting.</source>
+          <target state="new">Cause: The account name and password that you submitted cannot be validated by the virtual machine to which you are connecting.</target>
+        </trans-unit>
+        <trans-unit id="125fe20b-d722-489d-8afe-7ab1e117987e" xml:space="preserve">
+          <source>A Windows-based computer can validate the credentials of either a local account or a domain-based account.</source>
+          <target state="new">A Windows-based computer can validate the credentials of either a local account or a domain-based account.</target>
+        </trans-unit>
+        <trans-unit id="e6533f86-bf30-461c-8367-bb6e25e467a7" xml:space="preserve">
+          <source>For local accounts, use the <bpt id="f8f42c72-2033-45fc-8661-4f078d5753af">&lt;em&gt;</bpt>ComputerName<ept id="f8f42c72-2033-45fc-8661-4f078d5753af">&lt;/em&gt;</ept>\\<bpt id="a6348847-44fa-4399-b16a-5245a5ce0dad">&lt;em&gt;</bpt>UserName<ept id="a6348847-44fa-4399-b16a-5245a5ce0dad">&lt;/em&gt;</ept> syntax (example: SQL1\Admin4798).</source>
+          <target state="new">For local accounts, use the <bpt id="f8f42c72-2033-45fc-8661-4f078d5753af">&lt;em&gt;</bpt>ComputerName<ept id="f8f42c72-2033-45fc-8661-4f078d5753af">&lt;/em&gt;</ept>\\<bpt id="a6348847-44fa-4399-b16a-5245a5ce0dad">&lt;em&gt;</bpt>UserName<ept id="a6348847-44fa-4399-b16a-5245a5ce0dad">&lt;/em&gt;</ept> syntax (example: SQL1\Admin4798).</target>
+        </trans-unit>
+        <trans-unit id="2767a301-eb7f-4cc4-8a5a-9dce9d90e6b8" xml:space="preserve">
+          <source>For domain accounts, use the <bpt id="6929dcae-763f-4b32-8172-85c26359a32b">&lt;em&gt;</bpt>DomainName<ept id="6929dcae-763f-4b32-8172-85c26359a32b">&lt;/em&gt;</ept>\\<bpt id="013997c5-8810-4fd6-99cd-5be1429553c5">&lt;em&gt;</bpt>UserName<ept id="013997c5-8810-4fd6-99cd-5be1429553c5">&lt;/em&gt;</ept> syntax (example: CONTOSO\johndoe).</source>
+          <target state="new">For domain accounts, use the <bpt id="6929dcae-763f-4b32-8172-85c26359a32b">&lt;em&gt;</bpt>DomainName<ept id="6929dcae-763f-4b32-8172-85c26359a32b">&lt;/em&gt;</ept>\\<bpt id="013997c5-8810-4fd6-99cd-5be1429553c5">&lt;em&gt;</bpt>UserName<ept id="013997c5-8810-4fd6-99cd-5be1429553c5">&lt;/em&gt;</ept> syntax (example: CONTOSO\johndoe).</target>
+        </trans-unit>
+        <trans-unit id="fbe7a58b-0559-46db-8d65-105a6634e036" xml:space="preserve">
+          <source>For computers that you promote to domain controllers in a new Active Directory forest, the local administrator account that you are logged in to when you perform the promotion gets converted to an equivalent account with the same password in the new forest and domain.</source>
+          <target state="new">For computers that you promote to domain controllers in a new Active Directory forest, the local administrator account that you are logged in to when you perform the promotion gets converted to an equivalent account with the same password in the new forest and domain.</target>
+        </trans-unit>
+        <trans-unit id="f70b301e-e7f3-458c-a55f-5d627bd32b9a" xml:space="preserve">
+          <source>The previous local administrator account is deleted.</source>
+          <target state="new">The previous local administrator account is deleted.</target>
+        </trans-unit>
+        <trans-unit id="331d1e93-c08a-4909-8630-db20bc2d9270" xml:space="preserve">
+          <source>For example, if you logged in with the local administrator account DC1\DCAdmin and promoted the virtual machine as a domain controller in a new forest for the corp.contoso.com domain, the DC1\DCAdmin local account gets deleted and a new domain account (CORP\DCAdmin) is created with the same password.</source>
+          <target state="new">For example, if you logged in with the local administrator account DC1\DCAdmin and promoted the virtual machine as a domain controller in a new forest for the corp.contoso.com domain, the DC1\DCAdmin local account gets deleted and a new domain account (CORP\DCAdmin) is created with the same password.</target>
+        </trans-unit>
+        <trans-unit id="57a72242-74c7-4e0d-96e3-fcb499d8b6de" xml:space="preserve">
+          <source>Double-check the account name to ensure that it is a name that the virtual machine can verify as a valid account.</source>
+          <target state="new">Double-check the account name to ensure that it is a name that the virtual machine can verify as a valid account.</target>
+        </trans-unit>
+        <trans-unit id="53739c92-da82-4a6d-b0f3-7dfd495df1ea" xml:space="preserve">
+          <source>Double-check the password to ensure that it is the correct password.</source>
+          <target state="new">Double-check the password to ensure that it is the correct password.</target>
+        </trans-unit>
+        <trans-unit id="23468a90-efc8-4fe1-97dd-8eb7dc3417b3" xml:space="preserve">
+          <source>If you need to change the password of the local administrator account, see <bpt id="ad0b15ea-fcfb-4725-814d-56a3f1bfc131">&lt;linkText&gt;</bpt>How to reset a password or the Remote Desktop service for Windows virtual machines<ept id="ad0b15ea-fcfb-4725-814d-56a3f1bfc131">&lt;/linkText&gt;</ept><bpt id="ad0b15ea-fcfb-4725-814d-56a3f1bfc131">&lt;title&gt;</bpt><ept id="ad0b15ea-fcfb-4725-814d-56a3f1bfc131">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need to change the password of the local administrator account, see <bpt id="ad0b15ea-fcfb-4725-814d-56a3f1bfc131">&lt;linkText&gt;</bpt>How to reset a password or the Remote Desktop service for Windows virtual machines<ept id="ad0b15ea-fcfb-4725-814d-56a3f1bfc131">&lt;/linkText&gt;</ept><bpt id="ad0b15ea-fcfb-4725-814d-56a3f1bfc131">&lt;title&gt;</bpt><ept id="ad0b15ea-fcfb-4725-814d-56a3f1bfc131">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a96e5f3c-8439-4cee-9384-0fac94d5aa1f" xml:space="preserve">
+          <source>Cause: The account that you are using to connect does not have Remote Desktop logon rights.</source>
+          <target state="new">Cause: The account that you are using to connect does not have Remote Desktop logon rights.</target>
+        </trans-unit>
+        <trans-unit id="7ef99534-02d2-4b05-bd21-9da5ff79c416" xml:space="preserve">
+          <source>Each Windows-based computer has a Remote Desktop Users local group, which contains the accounts and groups that have the right to log on with a Remote Desktop connection.</source>
+          <target state="new">Each Windows-based computer has a Remote Desktop Users local group, which contains the accounts and groups that have the right to log on with a Remote Desktop connection.</target>
+        </trans-unit>
+        <trans-unit id="b55eb1d7-9961-4947-9ee4-81e18f816e1d" xml:space="preserve">
+          <source>Members of the local Administrators group also have access, even though those accounts are not listed as members of the Remote Desktop Users local group.</source>
+          <target state="new">Members of the local Administrators group also have access, even though those accounts are not listed as members of the Remote Desktop Users local group.</target>
+        </trans-unit>
+        <trans-unit id="c6ddb4f5-88a6-450f-b15e-36c7cba30b2e" xml:space="preserve">
+          <source>For domain-joined machines, the local Administrators group also contains the domain administrators for the domain.</source>
+          <target state="new">For domain-joined machines, the local Administrators group also contains the domain administrators for the domain.</target>
+        </trans-unit>
+        <trans-unit id="40efd6b1-ae42-4454-a729-26177530ee6a" xml:space="preserve">
+          <source>Ensure that the account you are using to initiate the connection has Remote Desktop logon rights.</source>
+          <target state="new">Ensure that the account you are using to initiate the connection has Remote Desktop logon rights.</target>
+        </trans-unit>
+        <trans-unit id="21aa25b8-e885-40be-b695-bca2f340ca08" xml:space="preserve">
+          <source>Use a domain administrator or local administrator account as a temporary workaround to create a Remote Desktop connection and add the desired account to the Remote Desktop Users local group by using the Computer Management snap-in (<bpt id="0745ae43-2bfc-45af-93bf-cbcdf31eca66">&lt;strong&gt;</bpt>System Tools &gt; Local Users and Groups &gt; Groups &gt; Remote Desktop Users<ept id="0745ae43-2bfc-45af-93bf-cbcdf31eca66">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Use a domain administrator or local administrator account as a temporary workaround to create a Remote Desktop connection and add the desired account to the Remote Desktop Users local group by using the Computer Management snap-in (<bpt id="0745ae43-2bfc-45af-93bf-cbcdf31eca66">&lt;strong&gt;</bpt>System Tools &gt; Local Users and Groups &gt; Groups &gt; Remote Desktop Users<ept id="0745ae43-2bfc-45af-93bf-cbcdf31eca66">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="6378687a-dffe-4c8b-a1fe-86247cd9ccc6" xml:space="preserve">
+          <source>Cause: The Remote Desktop client cannot reach the Remote Desktop Services service on the virtual machine.</source>
+          <target state="new">Cause: The Remote Desktop client cannot reach the Remote Desktop Services service on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="81869ffc-6977-46bf-9542-914bcd5ed26d" xml:space="preserve">
+          <source>This problem can be due to many root causes.</source>
+          <target state="new">This problem can be due to many root causes.</target>
+        </trans-unit>
+        <trans-unit id="e377bd97-9771-4712-b107-862c272e6898" xml:space="preserve">
+          <source>Here is the set of components involved.</source>
+          <target state="new">Here is the set of components involved.</target>
+        </trans-unit>
+        <trans-unit id="6d3d9584-1706-4de7-80cc-387cf43abcf3" xml:space="preserve">
+          <source><bpt id="6d5f8295-64b3-41cb-88e3-c4f22ea020f1">&lt;linkText&gt;</bpt><ept id="6d5f8295-64b3-41cb-88e3-c4f22ea020f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d5f8295-64b3-41cb-88e3-c4f22ea020f1">&lt;linkText&gt;</bpt><ept id="6d5f8295-64b3-41cb-88e3-c4f22ea020f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db743d87-a077-45f2-9961-31cad201b14b" xml:space="preserve">
+          <source>Before diving into a step-by-step troubleshooting process, it is helpful to mentally review what has changed since you were able to successfully create Remote Desktop connections and use that change as a basis for correcting the problem.</source>
+          <target state="new">Before diving into a step-by-step troubleshooting process, it is helpful to mentally review what has changed since you were able to successfully create Remote Desktop connections and use that change as a basis for correcting the problem.</target>
+        </trans-unit>
+        <trans-unit id="7d2357e8-bed7-49e5-b67f-7d6d17f8af44" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="5eeea61c-3eca-4eca-91fd-039167d2d880" xml:space="preserve">
+          <source>If you were able to create Remote Desktop connections and you changed the public IP address of the virtual machine or the cloud service containing your virtual machine (also known as the virtual IP address [VIP]), your DNS client cache might have an entry for the DNS name and the <bpt id="bf1f9f4e-972a-4620-87c3-a285e6e0c839">&lt;em&gt;</bpt>old IP address<ept id="bf1f9f4e-972a-4620-87c3-a285e6e0c839">&lt;/em&gt;</ept>.</source>
+          <target state="new">If you were able to create Remote Desktop connections and you changed the public IP address of the virtual machine or the cloud service containing your virtual machine (also known as the virtual IP address [VIP]), your DNS client cache might have an entry for the DNS name and the <bpt id="bf1f9f4e-972a-4620-87c3-a285e6e0c839">&lt;em&gt;</bpt>old IP address<ept id="bf1f9f4e-972a-4620-87c3-a285e6e0c839">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ec52d15-0569-41bb-9c2d-deff6f8e9201" xml:space="preserve">
+          <source>Flush your DNS client cache and try again.</source>
+          <target state="new">Flush your DNS client cache and try again.</target>
+        </trans-unit>
+        <trans-unit id="32104408-b096-45ab-a08e-d078b7758a96" xml:space="preserve">
+          <source>Alternately, try making the connection by using the new VIP.</source>
+          <target state="new">Alternately, try making the connection by using the new VIP.</target>
+        </trans-unit>
+        <trans-unit id="b6174490-1b5d-437b-9827-866e706959fc" xml:space="preserve">
+          <source>If you changed from using the Azure portal or the Azure preview portal to using an application to manage your Remote Desktop connections, ensure that the application configuration includes the randomly determined TCP port for the Remote Desktop traffic.</source>
+          <target state="new">If you changed from using the Azure portal or the Azure preview portal to using an application to manage your Remote Desktop connections, ensure that the application configuration includes the randomly determined TCP port for the Remote Desktop traffic.</target>
+        </trans-unit>
+        <trans-unit id="b84c51e1-d8e8-402e-9905-9403cd45176a" xml:space="preserve">
+          <source>The following sections step through isolating and determining the various root causes for this problem and providing solutions and workarounds.</source>
+          <target state="new">The following sections step through isolating and determining the various root causes for this problem and providing solutions and workarounds.</target>
+        </trans-unit>
+        <trans-unit id="431cecee-b721-4656-96ff-4c20076e8316" xml:space="preserve">
+          <source>Perform these steps:</source>
+          <target state="new">Perform these steps:</target>
+        </trans-unit>
+        <trans-unit id="0e4d61af-9f92-431d-95d6-308aa9d5b0c6" xml:space="preserve">
+          <source>Check the status of the virtual machine in the Azure portal or the Azure preview portal</source>
+          <target state="new">Check the status of the virtual machine in the Azure portal or the Azure preview portal</target>
+        </trans-unit>
+        <trans-unit id="d0337ae6-ef49-4505-8594-a155d7306cb2" xml:space="preserve">
+          <source><bpt id="f0508468-6cf2-4c57-8de2-f1a36ad158c3">&lt;linkText&gt;</bpt>Restart the virtual machine<ept id="f0508468-6cf2-4c57-8de2-f1a36ad158c3">&lt;/linkText&gt;</ept><bpt id="f0508468-6cf2-4c57-8de2-f1a36ad158c3">&lt;title&gt;</bpt><ept id="f0508468-6cf2-4c57-8de2-f1a36ad158c3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f0508468-6cf2-4c57-8de2-f1a36ad158c3">&lt;linkText&gt;</bpt>Restart the virtual machine<ept id="f0508468-6cf2-4c57-8de2-f1a36ad158c3">&lt;/linkText&gt;</ept><bpt id="f0508468-6cf2-4c57-8de2-f1a36ad158c3">&lt;title&gt;</bpt><ept id="f0508468-6cf2-4c57-8de2-f1a36ad158c3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edced764-7720-4ab6-b3b8-4bff02e6fae6" xml:space="preserve">
+          <source><bpt id="0b500357-d787-47af-bb80-e4ac34a1f73f">&lt;linkText&gt;</bpt>Resize the virtual machine<ept id="0b500357-d787-47af-bb80-e4ac34a1f73f">&lt;/linkText&gt;</ept><bpt id="0b500357-d787-47af-bb80-e4ac34a1f73f">&lt;title&gt;</bpt><ept id="0b500357-d787-47af-bb80-e4ac34a1f73f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0b500357-d787-47af-bb80-e4ac34a1f73f">&lt;linkText&gt;</bpt>Resize the virtual machine<ept id="0b500357-d787-47af-bb80-e4ac34a1f73f">&lt;/linkText&gt;</ept><bpt id="0b500357-d787-47af-bb80-e4ac34a1f73f">&lt;title&gt;</bpt><ept id="0b500357-d787-47af-bb80-e4ac34a1f73f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6a790ea-81b4-409b-8307-e9d1d6c23a21" xml:space="preserve">
+          <source>After these steps, try the Remote Desktop connection again.</source>
+          <target state="new">After these steps, try the Remote Desktop connection again.</target>
+        </trans-unit>
+        <trans-unit id="fe5c47f1-d620-44b3-96dc-f3d9f53791ae" xml:space="preserve">
+          <source>The inability of your Remote Desktop client to reach the Remote Desktop Services service on the Azure virtual machine can be due to the following sources of issues or misconfigurations:</source>
+          <target state="new">The inability of your Remote Desktop client to reach the Remote Desktop Services service on the Azure virtual machine can be due to the following sources of issues or misconfigurations:</target>
+        </trans-unit>
+        <trans-unit id="0d8a6c3c-a22b-40ea-a614-13a84cfbbb65" xml:space="preserve">
+          <source>Remote Desktop client computer</source>
+          <target state="new">Remote Desktop client computer</target>
+        </trans-unit>
+        <trans-unit id="b4b24cb0-d5ab-4464-86b1-8fafd6eb5fbe" xml:space="preserve">
+          <source>Organization intranet edge device</source>
+          <target state="new">Organization intranet edge device</target>
+        </trans-unit>
+        <trans-unit id="87dc8854-8924-4b2c-9950-d1b21ea1d616" xml:space="preserve">
+          <source>Cloud service endpoint and access control list (ACL)</source>
+          <target state="new">Cloud service endpoint and access control list (ACL)</target>
+        </trans-unit>
+        <trans-unit id="5d5d0600-4b64-4a60-a87f-46c16a9bdc03" xml:space="preserve">
+          <source>Network security groups</source>
+          <target state="new">Network security groups</target>
+        </trans-unit>
+        <trans-unit id="c57a15bc-4c5f-423a-bc6a-8365c49fd958" xml:space="preserve">
+          <source>Windows-based Azure virtual machine</source>
+          <target state="new">Windows-based Azure virtual machine</target>
+        </trans-unit>
+        <trans-unit id="77dfead5-b6fd-4398-9e1f-9a9bbc1717ef" xml:space="preserve">
+          <source>To eliminate your computer as being the source of issues or misconfiguration, verify that your computer can make Remote Desktop connections to another on-premises, Windows-based computer.</source>
+          <target state="new">To eliminate your computer as being the source of issues or misconfiguration, verify that your computer can make Remote Desktop connections to another on-premises, Windows-based computer.</target>
+        </trans-unit>
+        <trans-unit id="c0d2de9d-3b05-445c-a3fd-0ec719662e26" xml:space="preserve">
+          <source><bpt id="2bdf4c17-639c-44c0-9180-aadff981a980">&lt;linkText&gt;</bpt><ept id="2bdf4c17-639c-44c0-9180-aadff981a980">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2bdf4c17-639c-44c0-9180-aadff981a980">&lt;linkText&gt;</bpt><ept id="2bdf4c17-639c-44c0-9180-aadff981a980">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8beab82a-98bd-49da-92a9-495de557f450" xml:space="preserve">
+          <source>If you cannot, check for these on your computer:</source>
+          <target state="new">If you cannot, check for these on your computer:</target>
+        </trans-unit>
+        <trans-unit id="3d542789-4ff2-42cd-9dca-02ab2e7e585e" xml:space="preserve">
+          <source>A local firewall setting that is blocking Remote Desktop traffic</source>
+          <target state="new">A local firewall setting that is blocking Remote Desktop traffic</target>
+        </trans-unit>
+        <trans-unit id="aa42b719-6c82-4937-91fd-4260f7b47e97" xml:space="preserve">
+          <source>Locally installed client proxy software that is preventing Remote Desktop connections</source>
+          <target state="new">Locally installed client proxy software that is preventing Remote Desktop connections</target>
+        </trans-unit>
+        <trans-unit id="22b2e565-9867-4065-bacc-b91093939628" xml:space="preserve">
+          <source>Locally installed network monitoring software that is preventing Remote Desktop connections</source>
+          <target state="new">Locally installed network monitoring software that is preventing Remote Desktop connections</target>
+        </trans-unit>
+        <trans-unit id="49be0169-e907-44c8-b61d-ac2961b36b8b" xml:space="preserve">
+          <source>Other types of security software that either monitor traffic or allow/disallow specific types of traffic that is preventing Remote Desktop connections</source>
+          <target state="new">Other types of security software that either monitor traffic or allow/disallow specific types of traffic that is preventing Remote Desktop connections</target>
+        </trans-unit>
+        <trans-unit id="1501bea3-4cb0-487f-bccc-19e058d01d88" xml:space="preserve">
+          <source>In all of these cases, try to temporarily disable the software and attempt a Remote Desktop connection to an on-premises computer to determine the root cause.</source>
+          <target state="new">In all of these cases, try to temporarily disable the software and attempt a Remote Desktop connection to an on-premises computer to determine the root cause.</target>
+        </trans-unit>
+        <trans-unit id="bc6f2a05-9a07-407f-a32b-0c9577645298" xml:space="preserve">
+          <source>Then, work with your network administrator to correct the settings of the software to allow Remote Desktop connections.</source>
+          <target state="new">Then, work with your network administrator to correct the settings of the software to allow Remote Desktop connections.</target>
+        </trans-unit>
+        <trans-unit id="d93725ad-bc5e-4205-a3e8-ab50b1a43734" xml:space="preserve">
+          <source>To eliminate your organization intranet edge device as being the source of issues or misconfiguration, verify that a computer directly connected to the Internet can make Remote Desktop connections to your Azure virtual machine.</source>
+          <target state="new">To eliminate your organization intranet edge device as being the source of issues or misconfiguration, verify that a computer directly connected to the Internet can make Remote Desktop connections to your Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e45f9aa9-963f-4fc8-92a8-8b3038389341" xml:space="preserve">
+          <source><bpt id="b3640277-a33b-40a8-9e72-5520ad7b3673">&lt;linkText&gt;</bpt><ept id="b3640277-a33b-40a8-9e72-5520ad7b3673">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b3640277-a33b-40a8-9e72-5520ad7b3673">&lt;linkText&gt;</bpt><ept id="b3640277-a33b-40a8-9e72-5520ad7b3673">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1232d814-4548-4593-962d-85504ba47319" xml:space="preserve">
+          <source>If you do not have a computer that is directly connected to the Internet, you can easily create a new Azure virtual machine in its own resource group or cloud service and use it.</source>
+          <target state="new">If you do not have a computer that is directly connected to the Internet, you can easily create a new Azure virtual machine in its own resource group or cloud service and use it.</target>
+        </trans-unit>
+        <trans-unit id="3575d62f-b84d-4ee1-ac6b-b16a251e555b" xml:space="preserve">
+          <source>For more information, see <bpt id="e0589643-c14f-4995-a6a4-98279cb9cb74">&lt;linkText&gt;</bpt>Create a virtual machine running Windows in Azure<ept id="e0589643-c14f-4995-a6a4-98279cb9cb74">&lt;/linkText&gt;</ept><bpt id="e0589643-c14f-4995-a6a4-98279cb9cb74">&lt;title&gt;</bpt><ept id="e0589643-c14f-4995-a6a4-98279cb9cb74">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="e0589643-c14f-4995-a6a4-98279cb9cb74">&lt;linkText&gt;</bpt>Create a virtual machine running Windows in Azure<ept id="e0589643-c14f-4995-a6a4-98279cb9cb74">&lt;/linkText&gt;</ept><bpt id="e0589643-c14f-4995-a6a4-98279cb9cb74">&lt;title&gt;</bpt><ept id="e0589643-c14f-4995-a6a4-98279cb9cb74">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f5e340c-c112-4270-b21f-a6d4f25a0c40" xml:space="preserve">
+          <source>Delete the resource group or the virtual machine and cloud service when you are done with your testing.</source>
+          <target state="new">Delete the resource group or the virtual machine and cloud service when you are done with your testing.</target>
+        </trans-unit>
+        <trans-unit id="a163a7e0-536d-4d29-8728-638d7b270b84" xml:space="preserve">
+          <source>If you can create a Remote Desktop connection with a computer directly attached to the Internet, check your organization intranet edge device for:</source>
+          <target state="new">If you can create a Remote Desktop connection with a computer directly attached to the Internet, check your organization intranet edge device for:</target>
+        </trans-unit>
+        <trans-unit id="d0650dd6-35ee-4706-bf11-b4bf65bf20af" xml:space="preserve">
+          <source>An internal firewall that is blocking HTTPS connections to the Internet</source>
+          <target state="new">An internal firewall that is blocking HTTPS connections to the Internet</target>
+        </trans-unit>
+        <trans-unit id="6f4a03d8-8716-4acb-9729-7dbb524a5ae8" xml:space="preserve">
+          <source>Your proxy server that is preventing Remote Desktop connections</source>
+          <target state="new">Your proxy server that is preventing Remote Desktop connections</target>
+        </trans-unit>
+        <trans-unit id="af52a20e-ff17-4785-921c-a96feaff5fb0" xml:space="preserve">
+          <source>Intrusion detection or network monitoring software running on devices in your edge network that is preventing Remote Desktop connections</source>
+          <target state="new">Intrusion detection or network monitoring software running on devices in your edge network that is preventing Remote Desktop connections</target>
+        </trans-unit>
+        <trans-unit id="ff5bcd98-8cfa-4d79-af74-7a20caf22842" xml:space="preserve">
+          <source>Work with your network administrator to correct the settings of your organization intranet edge device to allow HTTPS-based Remote Desktop connections to the Internet.</source>
+          <target state="new">Work with your network administrator to correct the settings of your organization intranet edge device to allow HTTPS-based Remote Desktop connections to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="36e297b0-819a-42ad-b9d1-55e3febfd257" xml:space="preserve">
+          <source>To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for virtual machines created using the Service Management API, verify that another Azure virtual machine that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure virtual machine.</source>
+          <target state="new">To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for virtual machines created using the Service Management API, verify that another Azure virtual machine that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="5a346c0a-092c-4e64-90c1-78f42d2cd69e" xml:space="preserve">
+          <source><bpt id="dc83e996-1201-43a9-9d78-c7369db9ac12">&lt;linkText&gt;</bpt><ept id="dc83e996-1201-43a9-9d78-c7369db9ac12">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dc83e996-1201-43a9-9d78-c7369db9ac12">&lt;linkText&gt;</bpt><ept id="dc83e996-1201-43a9-9d78-c7369db9ac12">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c32422fe-ef42-4136-b9d8-b683be398ae7" xml:space="preserve">
+          <source>For virtual machines created in Resource Manager, skip to <bpt id="74b25295-01ec-4d07-96dd-b1a5c0496664">&lt;linkText&gt;</bpt>Source 4: Network Security Groups<ept id="74b25295-01ec-4d07-96dd-b1a5c0496664">&lt;/linkText&gt;</ept><bpt id="74b25295-01ec-4d07-96dd-b1a5c0496664">&lt;title&gt;</bpt><ept id="74b25295-01ec-4d07-96dd-b1a5c0496664">&lt;/title&gt;</ept>.</source>
+          <target state="new">For virtual machines created in Resource Manager, skip to <bpt id="74b25295-01ec-4d07-96dd-b1a5c0496664">&lt;linkText&gt;</bpt>Source 4: Network Security Groups<ept id="74b25295-01ec-4d07-96dd-b1a5c0496664">&lt;/linkText&gt;</ept><bpt id="74b25295-01ec-4d07-96dd-b1a5c0496664">&lt;title&gt;</bpt><ept id="74b25295-01ec-4d07-96dd-b1a5c0496664">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8aaa956-4c03-4eec-bd1d-566f651a2350" xml:space="preserve">
+          <source>If you do not have another virtual machine in the same cloud service or virtual network, you can easily create a new one.</source>
+          <target state="new">If you do not have another virtual machine in the same cloud service or virtual network, you can easily create a new one.</target>
+        </trans-unit>
+        <trans-unit id="3dc359ab-32a1-4aa3-a36a-cd6dfd8a61b5" xml:space="preserve">
+          <source>For more information, see <bpt id="1bdc63d8-9621-4fcc-a072-cca15ca87180">&lt;linkText&gt;</bpt>Create a virtual machine running Windows in Azure<ept id="1bdc63d8-9621-4fcc-a072-cca15ca87180">&lt;/linkText&gt;</ept><bpt id="1bdc63d8-9621-4fcc-a072-cca15ca87180">&lt;title&gt;</bpt><ept id="1bdc63d8-9621-4fcc-a072-cca15ca87180">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="1bdc63d8-9621-4fcc-a072-cca15ca87180">&lt;linkText&gt;</bpt>Create a virtual machine running Windows in Azure<ept id="1bdc63d8-9621-4fcc-a072-cca15ca87180">&lt;/linkText&gt;</ept><bpt id="1bdc63d8-9621-4fcc-a072-cca15ca87180">&lt;title&gt;</bpt><ept id="1bdc63d8-9621-4fcc-a072-cca15ca87180">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9fe1e357-c00e-4acd-be7b-252210cedf2d" xml:space="preserve">
+          <source>Delete the extra virtual machine when you are done with your testing.</source>
+          <target state="new">Delete the extra virtual machine when you are done with your testing.</target>
+        </trans-unit>
+        <trans-unit id="0aa14cad-fe3c-4f52-8dc7-4b30bad1fc2b" xml:space="preserve">
+          <source>If you can create a Remote Desktop connection with a virtual machine in the same cloud service or virtual network, check for these:</source>
+          <target state="new">If you can create a Remote Desktop connection with a virtual machine in the same cloud service or virtual network, check for these:</target>
+        </trans-unit>
+        <trans-unit id="bd1589cf-0abb-4a0f-9aaa-2b8d4e55a30e" xml:space="preserve">
+          <source>The endpoint configuration for Remote Desktop traffic on the target virtual machine.</source>
+          <target state="new">The endpoint configuration for Remote Desktop traffic on the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="99e7cc1a-845e-4a16-aade-ef5ba2d2c5b2" xml:space="preserve">
+          <source>The private TCP port of the endpoint must match the TCP port on which the Remote Desktop Services service on the virtual machine is listening, which by default is 3389.</source>
+          <target state="new">The private TCP port of the endpoint must match the TCP port on which the Remote Desktop Services service on the virtual machine is listening, which by default is 3389.</target>
+        </trans-unit>
+        <trans-unit id="c8d26c4a-2bea-4423-90b0-d5109242b76e" xml:space="preserve">
+          <source>The ACL for the Remote Desktop traffic endpoint on the target virtual machine.</source>
+          <target state="new">The ACL for the Remote Desktop traffic endpoint on the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="293a8119-6cf2-4e92-ba09-1f8e37f77345" xml:space="preserve">
+          <source>ACLs allow you to specify allowed or denied incoming traffic from the Internet based on its source IP address.</source>
+          <target state="new">ACLs allow you to specify allowed or denied incoming traffic from the Internet based on its source IP address.</target>
+        </trans-unit>
+        <trans-unit id="07daff99-6579-46a6-8a78-7c8fffbee00a" xml:space="preserve">
+          <source>Misconfigured ACLs can prevent incoming Remote Desktop traffic to the endpoint.</source>
+          <target state="new">Misconfigured ACLs can prevent incoming Remote Desktop traffic to the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="c58aa1a8-41d1-4970-a396-029007fe0023" xml:space="preserve">
+          <source>Examine your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server is allowed.</source>
+          <target state="new">Examine your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server is allowed.</target>
+        </trans-unit>
+        <trans-unit id="e8744f8a-924e-4fb3-82b5-2910955fe9e3" xml:space="preserve">
+          <source>For more information, see <bpt id="2b8c85f0-f808-49ab-8300-c639b3be7a47">&lt;linkText&gt;</bpt>What is a Network Access Control List (ACL)?<ept id="2b8c85f0-f808-49ab-8300-c639b3be7a47">&lt;/linkText&gt;</ept><bpt id="2b8c85f0-f808-49ab-8300-c639b3be7a47">&lt;title&gt;</bpt><ept id="2b8c85f0-f808-49ab-8300-c639b3be7a47">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="2b8c85f0-f808-49ab-8300-c639b3be7a47">&lt;linkText&gt;</bpt>What is a Network Access Control List (ACL)?<ept id="2b8c85f0-f808-49ab-8300-c639b3be7a47">&lt;/linkText&gt;</ept><bpt id="2b8c85f0-f808-49ab-8300-c639b3be7a47">&lt;title&gt;</bpt><ept id="2b8c85f0-f808-49ab-8300-c639b3be7a47">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="555ced4f-9e4f-477f-804a-7753f2582358" xml:space="preserve">
+          <source>To eliminate the endpoint as a source of the problem, remove the current endpoint and create a new endpoint, choosing a random port in the range 49152–65535 for the external port number.</source>
+          <target state="new">To eliminate the endpoint as a source of the problem, remove the current endpoint and create a new endpoint, choosing a random port in the range 49152–65535 for the external port number.</target>
+        </trans-unit>
+        <trans-unit id="e97930b2-92bc-42a2-a754-44313ec79b33" xml:space="preserve">
+          <source>For more information, see <bpt id="900e19be-d0f5-4812-ad72-17c4756fe37e">&lt;linkText&gt;</bpt>How to set up endpoints to a virtual machine<ept id="900e19be-d0f5-4812-ad72-17c4756fe37e">&lt;/linkText&gt;</ept><bpt id="900e19be-d0f5-4812-ad72-17c4756fe37e">&lt;title&gt;</bpt><ept id="900e19be-d0f5-4812-ad72-17c4756fe37e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="900e19be-d0f5-4812-ad72-17c4756fe37e">&lt;linkText&gt;</bpt>How to set up endpoints to a virtual machine<ept id="900e19be-d0f5-4812-ad72-17c4756fe37e">&lt;/linkText&gt;</ept><bpt id="900e19be-d0f5-4812-ad72-17c4756fe37e">&lt;title&gt;</bpt><ept id="900e19be-d0f5-4812-ad72-17c4756fe37e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05993529-041b-42da-9de2-18d47cf81fcc" xml:space="preserve">
+          <source>Network Security Groups allow you have more granular control of allowed inbound and outbound traffic.</source>
+          <target state="new">Network Security Groups allow you have more granular control of allowed inbound and outbound traffic.</target>
+        </trans-unit>
+        <trans-unit id="b26f931e-8e9b-49e8-9c2c-d8592e45c0cb" xml:space="preserve">
+          <source>You can create rules that span subnets and cloud services in an Azure virtual network.</source>
+          <target state="new">You can create rules that span subnets and cloud services in an Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="8d97b2a9-0f4d-4a12-96de-ca19f7da871a" xml:space="preserve">
+          <source>Examine your Network Security Group rules to ensure that Remote Desktop traffic from the Internet is allowed.</source>
+          <target state="new">Examine your Network Security Group rules to ensure that Remote Desktop traffic from the Internet is allowed.</target>
+        </trans-unit>
+        <trans-unit id="c3419cdd-b325-4f6f-9124-e89588b8e6dd" xml:space="preserve">
+          <source>For more information, see <bpt id="d94cc0c7-b117-486a-9089-49f4b3420d88">&lt;linkText&gt;</bpt>What is a Network Security Group (NSG)?<ept id="d94cc0c7-b117-486a-9089-49f4b3420d88">&lt;/linkText&gt;</ept><bpt id="d94cc0c7-b117-486a-9089-49f4b3420d88">&lt;title&gt;</bpt><ept id="d94cc0c7-b117-486a-9089-49f4b3420d88">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d94cc0c7-b117-486a-9089-49f4b3420d88">&lt;linkText&gt;</bpt>What is a Network Security Group (NSG)?<ept id="d94cc0c7-b117-486a-9089-49f4b3420d88">&lt;/linkText&gt;</ept><bpt id="d94cc0c7-b117-486a-9089-49f4b3420d88">&lt;title&gt;</bpt><ept id="d94cc0c7-b117-486a-9089-49f4b3420d88">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d059971f-d4f0-46b1-98ed-610b30962673" xml:space="preserve">
+          <source>The last set of possible problems is on the Azure virtual machine itself.</source>
+          <target state="new">The last set of possible problems is on the Azure virtual machine itself.</target>
+        </trans-unit>
+        <trans-unit id="732ffb3a-6218-405e-86ab-cc4631057967" xml:space="preserve">
+          <source><bpt id="be5af1ba-3d9a-49b4-b2e7-a8e6f5fbd190">&lt;linkText&gt;</bpt><ept id="be5af1ba-3d9a-49b4-b2e7-a8e6f5fbd190">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be5af1ba-3d9a-49b4-b2e7-a8e6f5fbd190">&lt;linkText&gt;</bpt><ept id="be5af1ba-3d9a-49b4-b2e7-a8e6f5fbd190">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a95dd47b-5bb4-40fd-bc2d-967a0ef2db46" xml:space="preserve">
+          <source>First, if you were unable to run the <bpt id="46182849-3b2d-43d1-9707-dfebe3bfbc63">&lt;linkText&gt;</bpt>Azure IaaS (Windows) diagnostics package<ept id="46182849-3b2d-43d1-9707-dfebe3bfbc63">&lt;/linkText&gt;</ept><bpt id="46182849-3b2d-43d1-9707-dfebe3bfbc63">&lt;title&gt;</bpt><ept id="46182849-3b2d-43d1-9707-dfebe3bfbc63">&lt;/title&gt;</ept> for the <bpt id="7bab3b9a-9db4-46b1-90df-0c24e63510f4">&lt;strong&gt;</bpt>RDP connectivity to an Azure VM (Reboot Required)<ept id="7bab3b9a-9db4-46b1-90df-0c24e63510f4">&lt;/strong&gt;</ept> issue, follow the instructions in <bpt id="ee476f00-9b5c-42df-9278-d3437ceaabf5">&lt;linkText&gt;</bpt>How to reset a password or the Remote Desktop service for Windows virtual machines<ept id="ee476f00-9b5c-42df-9278-d3437ceaabf5">&lt;/linkText&gt;</ept><bpt id="ee476f00-9b5c-42df-9278-d3437ceaabf5">&lt;title&gt;</bpt><ept id="ee476f00-9b5c-42df-9278-d3437ceaabf5">&lt;/title&gt;</ept> to reset the Remote Desktop Services service on the virtual machine.</source>
+          <target state="new">First, if you were unable to run the <bpt id="46182849-3b2d-43d1-9707-dfebe3bfbc63">&lt;linkText&gt;</bpt>Azure IaaS (Windows) diagnostics package<ept id="46182849-3b2d-43d1-9707-dfebe3bfbc63">&lt;/linkText&gt;</ept><bpt id="46182849-3b2d-43d1-9707-dfebe3bfbc63">&lt;title&gt;</bpt><ept id="46182849-3b2d-43d1-9707-dfebe3bfbc63">&lt;/title&gt;</ept> for the <bpt id="7bab3b9a-9db4-46b1-90df-0c24e63510f4">&lt;strong&gt;</bpt>RDP connectivity to an Azure VM (Reboot Required)<ept id="7bab3b9a-9db4-46b1-90df-0c24e63510f4">&lt;/strong&gt;</ept> issue, follow the instructions in <bpt id="ee476f00-9b5c-42df-9278-d3437ceaabf5">&lt;linkText&gt;</bpt>How to reset a password or the Remote Desktop service for Windows virtual machines<ept id="ee476f00-9b5c-42df-9278-d3437ceaabf5">&lt;/linkText&gt;</ept><bpt id="ee476f00-9b5c-42df-9278-d3437ceaabf5">&lt;title&gt;</bpt><ept id="ee476f00-9b5c-42df-9278-d3437ceaabf5">&lt;/title&gt;</ept> to reset the Remote Desktop Services service on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="41d36d18-a716-4384-b137-aa0674f12337" xml:space="preserve">
+          <source>This will:</source>
+          <target state="new">This will:</target>
+        </trans-unit>
+        <trans-unit id="b7edc8ed-8599-45cc-abc5-409fe4c69d8e" xml:space="preserve">
+          <source>Enable the "Remote Desktop" Windows Firewall default rule (TCP port 3389).</source>
+          <target state="new">Enable the "Remote Desktop" Windows Firewall default rule (TCP port 3389).</target>
+        </trans-unit>
+        <trans-unit id="ff9a2897-6efb-4610-bc5b-0f58e027c49e" xml:space="preserve">
+          <source>Enable Remote Desktop connections by setting the HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections registry value to 0.</source>
+          <target state="new">Enable Remote Desktop connections by setting the HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections registry value to 0.</target>
+        </trans-unit>
+        <trans-unit id="c2c241a0-c3e6-4a99-8376-2eee271cc9d2" xml:space="preserve">
+          <source>Try the connection from your computer again.</source>
+          <target state="new">Try the connection from your computer again.</target>
+        </trans-unit>
+        <trans-unit id="8ae4616b-69f4-4e86-b3af-37c9a36444e1" xml:space="preserve">
+          <source>If you are not successful, these are some of the possible problems:</source>
+          <target state="new">If you are not successful, these are some of the possible problems:</target>
+        </trans-unit>
+        <trans-unit id="646f97d4-5234-4464-aef3-53e701e16ce3" xml:space="preserve">
+          <source>The Remote Desktop Services service is not running on the target virtual machine.</source>
+          <target state="new">The Remote Desktop Services service is not running on the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e663397a-798b-4cb5-bf17-96f7baffa38a" xml:space="preserve">
+          <source>The Remote Desktop Services service is not listening on TCP port 3389.</source>
+          <target state="new">The Remote Desktop Services service is not listening on TCP port 3389.</target>
+        </trans-unit>
+        <trans-unit id="8b56b278-8a09-45e2-8894-809d324edf87" xml:space="preserve">
+          <source>Windows Firewall or another local firewall has an outbound rule that is preventing Remote Desktop traffic.</source>
+          <target state="new">Windows Firewall or another local firewall has an outbound rule that is preventing Remote Desktop traffic.</target>
+        </trans-unit>
+        <trans-unit id="55db771a-24e5-4ee1-b485-327dfbaab1b9" xml:space="preserve">
+          <source>Intrusion detection or network monitoring software running on the Azure virtual machine is preventing Remote Desktop connections.</source>
+          <target state="new">Intrusion detection or network monitoring software running on the Azure virtual machine is preventing Remote Desktop connections.</target>
+        </trans-unit>
+        <trans-unit id="2ade400a-0eb9-47b7-9a48-eb0dba836460" xml:space="preserve">
+          <source>To correct these possible problems for virtual machines created using the Service Management API, you can use a remote Azure PowerShell session to the Azure virtual machine.</source>
+          <target state="new">To correct these possible problems for virtual machines created using the Service Management API, you can use a remote Azure PowerShell session to the Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="4712adbf-00a8-4f30-9585-28ca67ca4b27" xml:space="preserve">
+          <source>First, you must install a certificate for the virtual machine's hosting cloud service.</source>
+          <target state="new">First, you must install a certificate for the virtual machine's hosting cloud service.</target>
+        </trans-unit>
+        <trans-unit id="9b6b2c12-a441-45f4-b657-517a5281ae28" xml:space="preserve">
+          <source>Go to <bpt id="654a7724-f1e7-4139-b0a1-4d41f8cce5a5">&lt;linkText&gt;</bpt>Configures Secure Remote PowerShell Access to Azure Virtual Machines<ept id="654a7724-f1e7-4139-b0a1-4d41f8cce5a5">&lt;/linkText&gt;</ept><bpt id="654a7724-f1e7-4139-b0a1-4d41f8cce5a5">&lt;title&gt;</bpt><ept id="654a7724-f1e7-4139-b0a1-4d41f8cce5a5">&lt;/title&gt;</ept> and download the <bpt id="fb14f0e1-e821-493e-b149-7bf8f8888e4c">&lt;strong&gt;</bpt>InstallWinRMCertAzureVM.ps1<ept id="fb14f0e1-e821-493e-b149-7bf8f8888e4c">&lt;/strong&gt;</ept> script file to a folder on your local computer.</source>
+          <target state="new">Go to <bpt id="654a7724-f1e7-4139-b0a1-4d41f8cce5a5">&lt;linkText&gt;</bpt>Configures Secure Remote PowerShell Access to Azure Virtual Machines<ept id="654a7724-f1e7-4139-b0a1-4d41f8cce5a5">&lt;/linkText&gt;</ept><bpt id="654a7724-f1e7-4139-b0a1-4d41f8cce5a5">&lt;title&gt;</bpt><ept id="654a7724-f1e7-4139-b0a1-4d41f8cce5a5">&lt;/title&gt;</ept> and download the <bpt id="fb14f0e1-e821-493e-b149-7bf8f8888e4c">&lt;strong&gt;</bpt>InstallWinRMCertAzureVM.ps1<ept id="fb14f0e1-e821-493e-b149-7bf8f8888e4c">&lt;/strong&gt;</ept> script file to a folder on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="03a1a38d-3edc-41ad-9310-a18412f8593e" xml:space="preserve">
+          <source>Next, install Azure PowerShell if you haven't already.</source>
+          <target state="new">Next, install Azure PowerShell if you haven't already.</target>
+        </trans-unit>
+        <trans-unit id="f601ce94-c8ef-49f1-bafa-e33b030eb728" xml:space="preserve">
+          <source>See <bpt id="b336f4f1-a3d7-4749-a35c-b00930d2bcbb">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="b336f4f1-a3d7-4749-a35c-b00930d2bcbb">&lt;/linkText&gt;</ept><bpt id="b336f4f1-a3d7-4749-a35c-b00930d2bcbb">&lt;title&gt;</bpt><ept id="b336f4f1-a3d7-4749-a35c-b00930d2bcbb">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="b336f4f1-a3d7-4749-a35c-b00930d2bcbb">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="b336f4f1-a3d7-4749-a35c-b00930d2bcbb">&lt;/linkText&gt;</ept><bpt id="b336f4f1-a3d7-4749-a35c-b00930d2bcbb">&lt;title&gt;</bpt><ept id="b336f4f1-a3d7-4749-a35c-b00930d2bcbb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01a5204e-2000-4d66-a622-74cf9dda2ce5" xml:space="preserve">
+          <source>Next, open an Azure PowerShell command prompt and then change the current folder to the location of the <bpt id="af06bfa3-5c67-457f-a8fc-63040b5e8956">&lt;strong&gt;</bpt>InstallWinRMCertAzureVM.ps1<ept id="af06bfa3-5c67-457f-a8fc-63040b5e8956">&lt;/strong&gt;</ept> script file.</source>
+          <target state="new">Next, open an Azure PowerShell command prompt and then change the current folder to the location of the <bpt id="af06bfa3-5c67-457f-a8fc-63040b5e8956">&lt;strong&gt;</bpt>InstallWinRMCertAzureVM.ps1<ept id="af06bfa3-5c67-457f-a8fc-63040b5e8956">&lt;/strong&gt;</ept> script file.</target>
+        </trans-unit>
+        <trans-unit id="65348098-161d-4667-bb37-75e9aed27a01" xml:space="preserve">
+          <source>To run an Azure PowerShell script, you must set the correct execution policy.</source>
+          <target state="new">To run an Azure PowerShell script, you must set the correct execution policy.</target>
+        </trans-unit>
+        <trans-unit id="ba9bf81b-6b58-49e9-b17e-f58721b90bd8" xml:space="preserve">
+          <source>Run the <bpt id="41b8d756-b1fd-4b6e-96b4-b0bb6fda56f6">&lt;strong&gt;</bpt>Get-ExecutionPolicy<ept id="41b8d756-b1fd-4b6e-96b4-b0bb6fda56f6">&lt;/strong&gt;</ept> command to determine your current policy level.</source>
+          <target state="new">Run the <bpt id="41b8d756-b1fd-4b6e-96b4-b0bb6fda56f6">&lt;strong&gt;</bpt>Get-ExecutionPolicy<ept id="41b8d756-b1fd-4b6e-96b4-b0bb6fda56f6">&lt;/strong&gt;</ept> command to determine your current policy level.</target>
+        </trans-unit>
+        <trans-unit id="41f16da5-1065-495a-a461-2eff48abe2c2" xml:space="preserve">
+          <source>For information about setting the appropriate level, see <bpt id="9e3ecb5f-6daf-4d21-a730-9261fb22a7e1">&lt;linkText&gt;</bpt>Set-ExecutionPolicy<ept id="9e3ecb5f-6daf-4d21-a730-9261fb22a7e1">&lt;/linkText&gt;</ept><bpt id="9e3ecb5f-6daf-4d21-a730-9261fb22a7e1">&lt;title&gt;</bpt><ept id="9e3ecb5f-6daf-4d21-a730-9261fb22a7e1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about setting the appropriate level, see <bpt id="9e3ecb5f-6daf-4d21-a730-9261fb22a7e1">&lt;linkText&gt;</bpt>Set-ExecutionPolicy<ept id="9e3ecb5f-6daf-4d21-a730-9261fb22a7e1">&lt;/linkText&gt;</ept><bpt id="9e3ecb5f-6daf-4d21-a730-9261fb22a7e1">&lt;title&gt;</bpt><ept id="9e3ecb5f-6daf-4d21-a730-9261fb22a7e1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0df1bde-57e9-4cbc-a8b3-72ec7e35ea41" xml:space="preserve">
+          <source>Next, fill in your Azure subscription name, the cloud service name, and your virtual machine name (removing the &lt; and &gt; characters), and then run these commands.</source>
+          <target state="new">Next, fill in your Azure subscription name, the cloud service name, and your virtual machine name (removing the &lt; and &gt; characters), and then run these commands.</target>
+        </trans-unit>
+        <trans-unit id="0c675f37-e312-4612-81b5-5d6b872d80f1" xml:space="preserve">
+          <source>You can get the correct subscription name from the SubscriptionName property of the display of the <bpt id="3688725f-71ad-4ec0-ac1a-0b5ccc084ad6">&lt;strong&gt;</bpt>Get-AzureSubscription<ept id="3688725f-71ad-4ec0-ac1a-0b5ccc084ad6">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">You can get the correct subscription name from the SubscriptionName property of the display of the <bpt id="3688725f-71ad-4ec0-ac1a-0b5ccc084ad6">&lt;strong&gt;</bpt>Get-AzureSubscription<ept id="3688725f-71ad-4ec0-ac1a-0b5ccc084ad6">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="a19065f5-ddc7-45ce-97ae-62a556c71a2e" xml:space="preserve">
+          <source>You can get the cloud service name for the virtual machine from the ServiceName column of the display of the <bpt id="0d488b86-3a5d-422c-9170-eee4fbecb95f">&lt;strong&gt;</bpt>Get-AzureVM<ept id="0d488b86-3a5d-422c-9170-eee4fbecb95f">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">You can get the cloud service name for the virtual machine from the ServiceName column of the display of the <bpt id="0d488b86-3a5d-422c-9170-eee4fbecb95f">&lt;strong&gt;</bpt>Get-AzureVM<ept id="0d488b86-3a5d-422c-9170-eee4fbecb95f">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="bcc5c8de-7e37-45fd-854b-7c8b80cf3bfe" xml:space="preserve">
+          <source>To prove that you have this new certificate, open a Certificates snap-in focused on the current user and look in the <bpt id="ae60c9b9-3052-400f-930d-30bdef4346b5">&lt;strong&gt;</bpt>Trusted Root Certification Authorities\Certificates<ept id="ae60c9b9-3052-400f-930d-30bdef4346b5">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">To prove that you have this new certificate, open a Certificates snap-in focused on the current user and look in the <bpt id="ae60c9b9-3052-400f-930d-30bdef4346b5">&lt;strong&gt;</bpt>Trusted Root Certification Authorities\Certificates<ept id="ae60c9b9-3052-400f-930d-30bdef4346b5">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="48d7a9d0-a1aa-4694-ba79-012dea24a5f9" xml:space="preserve">
+          <source>You should see a certificate with the DNS name of your cloud service in the Issued To column (example: cloudservice4testing.cloudapp.net).</source>
+          <target state="new">You should see a certificate with the DNS name of your cloud service in the Issued To column (example: cloudservice4testing.cloudapp.net).</target>
+        </trans-unit>
+        <trans-unit id="3abbd195-5850-48c1-a910-5b702a7517ea" xml:space="preserve">
+          <source>Next, initiate a remote Azure PowerShell session by using these commands.</source>
+          <target state="new">Next, initiate a remote Azure PowerShell session by using these commands.</target>
+        </trans-unit>
+        <trans-unit id="1aaf0551-850f-4c77-a542-839dfc869e25" xml:space="preserve">
+          <source>After entering valid administrator credentials, you should see something like this as your Azure PowerShell prompt:</source>
+          <target state="new">After entering valid administrator credentials, you should see something like this as your Azure PowerShell prompt:</target>
+        </trans-unit>
+        <trans-unit id="07b1b7a4-2267-47d4-8aa7-b2055b2be30c" xml:space="preserve">
+          <source>The first part of the prompt indicates that you are now issuing Azure PowerShell commands for the cloud service that contains the target virtual machine.</source>
+          <target state="new">The first part of the prompt indicates that you are now issuing Azure PowerShell commands for the cloud service that contains the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="15649674-4ac6-4561-8a03-7a8429bed6ff" xml:space="preserve">
+          <source>Your cloud service name will be something different from "cloudservice4testing.cloudapp.net".</source>
+          <target state="new">Your cloud service name will be something different from "cloudservice4testing.cloudapp.net".</target>
+        </trans-unit>
+        <trans-unit id="1584cf06-48de-47c8-ba34-79efbf82caa9" xml:space="preserve">
+          <source>You can now issue Azure PowerShell commands to investigate the additional problems cited above and make configuration corrections.</source>
+          <target state="new">You can now issue Azure PowerShell commands to investigate the additional problems cited above and make configuration corrections.</target>
+        </trans-unit>
+        <trans-unit id="8b985ce2-def4-46c6-ba77-323f2721c0fe" xml:space="preserve">
+          <source>If you were unable to run the <bpt id="098de25c-f0f2-4c52-b75b-52e7aa77f19e">&lt;linkText&gt;</bpt>Azure IaaS (Windows) diagnostics package<ept id="098de25c-f0f2-4c52-b75b-52e7aa77f19e">&lt;/linkText&gt;</ept><bpt id="098de25c-f0f2-4c52-b75b-52e7aa77f19e">&lt;title&gt;</bpt><ept id="098de25c-f0f2-4c52-b75b-52e7aa77f19e">&lt;/title&gt;</ept> for the <bpt id="3ba89216-7738-4079-9baf-cf3a82f84323">&lt;strong&gt;</bpt>RDP connectivity to an Azure VM (Reboot Required)<ept id="3ba89216-7738-4079-9baf-cf3a82f84323">&lt;/strong&gt;</ept> issue, at the remote Azure PowerShell session prompt, run this command.</source>
+          <target state="new">If you were unable to run the <bpt id="098de25c-f0f2-4c52-b75b-52e7aa77f19e">&lt;linkText&gt;</bpt>Azure IaaS (Windows) diagnostics package<ept id="098de25c-f0f2-4c52-b75b-52e7aa77f19e">&lt;/linkText&gt;</ept><bpt id="098de25c-f0f2-4c52-b75b-52e7aa77f19e">&lt;title&gt;</bpt><ept id="098de25c-f0f2-4c52-b75b-52e7aa77f19e">&lt;/title&gt;</ept> for the <bpt id="3ba89216-7738-4079-9baf-cf3a82f84323">&lt;strong&gt;</bpt>RDP connectivity to an Azure VM (Reboot Required)<ept id="3ba89216-7738-4079-9baf-cf3a82f84323">&lt;/strong&gt;</ept> issue, at the remote Azure PowerShell session prompt, run this command.</target>
+        </trans-unit>
+        <trans-unit id="6b6794cd-571e-4373-aa2e-7e906f35181c" xml:space="preserve">
+          <source>The PortNumber property shows the current port number.</source>
+          <target state="new">The PortNumber property shows the current port number.</target>
+        </trans-unit>
+        <trans-unit id="1aff290a-930e-4fa3-9bf3-575ede487e64" xml:space="preserve">
+          <source>If needed, change the Remote Desktop port number back to its default value (3389) by using this command.</source>
+          <target state="new">If needed, change the Remote Desktop port number back to its default value (3389) by using this command.</target>
+        </trans-unit>
+        <trans-unit id="37726588-2b60-45f8-a62e-6b9cf06759fa" xml:space="preserve">
+          <source>Verify that the port has been changed to 3389 by using this command.</source>
+          <target state="new">Verify that the port has been changed to 3389 by using this command.</target>
+        </trans-unit>
+        <trans-unit id="7d6c2aef-d73e-4a75-a133-0d94342bbaec" xml:space="preserve">
+          <source>Exit the remote Azure PowerShell session by using this command.</source>
+          <target state="new">Exit the remote Azure PowerShell session by using this command.</target>
+        </trans-unit>
+        <trans-unit id="97c3b380-9886-4b0e-aef9-6dc1bdbe164b" xml:space="preserve">
+          <source>Verify that the Remote Desktop endpoint for the Azure virtual machine is also using TCP port 3398 as its internal port.</source>
+          <target state="new">Verify that the Remote Desktop endpoint for the Azure virtual machine is also using TCP port 3398 as its internal port.</target>
+        </trans-unit>
+        <trans-unit id="ce3a8401-a1ad-4ee9-b83f-2986a71c8ad4" xml:space="preserve">
+          <source>Then, restart the Azure virtual machine and try your Remote Desktop connection again.</source>
+          <target state="new">Then, restart the Azure virtual machine and try your Remote Desktop connection again.</target>
+        </trans-unit>
+        <trans-unit id="3ca7a15a-bf63-40d8-9f8e-2dc14e44bb6f" xml:space="preserve">
+          <source>To get help from Azure experts across the world, you can submit your issue to either the MSDN Azure or Stack Overflow forums.</source>
+          <target state="new">To get help from Azure experts across the world, you can submit your issue to either the MSDN Azure or Stack Overflow forums.</target>
+        </trans-unit>
+        <trans-unit id="2d53d0d5-5b9e-42c2-85c4-a329959997ff" xml:space="preserve">
+          <source>See <bpt id="58779482-3edc-4e3d-b7f3-4ec01e189165">&lt;linkText&gt;</bpt>Microsoft Azure forums<ept id="58779482-3edc-4e3d-b7f3-4ec01e189165">&lt;/linkText&gt;</ept><bpt id="58779482-3edc-4e3d-b7f3-4ec01e189165">&lt;title&gt;</bpt><ept id="58779482-3edc-4e3d-b7f3-4ec01e189165">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="58779482-3edc-4e3d-b7f3-4ec01e189165">&lt;linkText&gt;</bpt>Microsoft Azure forums<ept id="58779482-3edc-4e3d-b7f3-4ec01e189165">&lt;/linkText&gt;</ept><bpt id="58779482-3edc-4e3d-b7f3-4ec01e189165">&lt;title&gt;</bpt><ept id="58779482-3edc-4e3d-b7f3-4ec01e189165">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="bcf6d8a5-ffcd-424b-a4c5-a849b78b5f0f" xml:space="preserve">
+          <source>If you have run the <bpt id="8ad764de-7cd2-444b-a566-3e0a3da1e8ad">&lt;linkText&gt;</bpt>Azure IaaS (Windows) diagnostics package<ept id="8ad764de-7cd2-444b-a566-3e0a3da1e8ad">&lt;/linkText&gt;</ept><bpt id="8ad764de-7cd2-444b-a566-3e0a3da1e8ad">&lt;title&gt;</bpt><ept id="8ad764de-7cd2-444b-a566-3e0a3da1e8ad">&lt;/title&gt;</ept> for the <bpt id="01e006ae-caac-4716-9a37-92c1298a51c4">&lt;strong&gt;</bpt>RDP connectivity to an Azure VM (Reboot Required)<ept id="01e006ae-caac-4716-9a37-92c1298a51c4">&lt;/strong&gt;</ept> issue or done steps 2 through 5 in in this article and submitted your issue to the Azure support forums, but still cannot create a Remote Desktop connection, one alternative to consider is whether you can re-create the virtual machine.</source>
+          <target state="new">If you have run the <bpt id="8ad764de-7cd2-444b-a566-3e0a3da1e8ad">&lt;linkText&gt;</bpt>Azure IaaS (Windows) diagnostics package<ept id="8ad764de-7cd2-444b-a566-3e0a3da1e8ad">&lt;/linkText&gt;</ept><bpt id="8ad764de-7cd2-444b-a566-3e0a3da1e8ad">&lt;title&gt;</bpt><ept id="8ad764de-7cd2-444b-a566-3e0a3da1e8ad">&lt;/title&gt;</ept> for the <bpt id="01e006ae-caac-4716-9a37-92c1298a51c4">&lt;strong&gt;</bpt>RDP connectivity to an Azure VM (Reboot Required)<ept id="01e006ae-caac-4716-9a37-92c1298a51c4">&lt;/strong&gt;</ept> issue or done steps 2 through 5 in in this article and submitted your issue to the Azure support forums, but still cannot create a Remote Desktop connection, one alternative to consider is whether you can re-create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="4e5cc892-6a86-4b9a-91a4-7da715025a44" xml:space="preserve">
+          <source>If you cannot re-create the virtual machine, it might be time for you to file an Azure support incident.</source>
+          <target state="new">If you cannot re-create the virtual machine, it might be time for you to file an Azure support incident.</target>
+        </trans-unit>
+        <trans-unit id="e339500a-2841-4a50-81b0-d8302b3f5664" xml:space="preserve">
+          <source>To file an incident, go to the <bpt id="16b3310d-7e8b-46b7-bb21-a021a213227b">&lt;linkText&gt;</bpt>Azure Support site<ept id="16b3310d-7e8b-46b7-bb21-a021a213227b">&lt;/linkText&gt;</ept><bpt id="16b3310d-7e8b-46b7-bb21-a021a213227b">&lt;title&gt;</bpt><ept id="16b3310d-7e8b-46b7-bb21-a021a213227b">&lt;/title&gt;</ept> and click on <bpt id="444cbdfa-8577-4ef9-9048-568a3c862248">&lt;strong&gt;</bpt>Get Support<ept id="444cbdfa-8577-4ef9-9048-568a3c862248">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To file an incident, go to the <bpt id="16b3310d-7e8b-46b7-bb21-a021a213227b">&lt;linkText&gt;</bpt>Azure Support site<ept id="16b3310d-7e8b-46b7-bb21-a021a213227b">&lt;/linkText&gt;</ept><bpt id="16b3310d-7e8b-46b7-bb21-a021a213227b">&lt;title&gt;</bpt><ept id="16b3310d-7e8b-46b7-bb21-a021a213227b">&lt;/title&gt;</ept> and click on <bpt id="444cbdfa-8577-4ef9-9048-568a3c862248">&lt;strong&gt;</bpt>Get Support<ept id="444cbdfa-8577-4ef9-9048-568a3c862248">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d8831b7-1826-4e5d-988a-d54cdaee6809" xml:space="preserve">
+          <source>For information about using Azure Support, see the <bpt id="a21179ec-f095-4579-9c0b-913f1fa5a73f">&lt;linkText&gt;</bpt>Microsoft Azure Support FAQ<ept id="a21179ec-f095-4579-9c0b-913f1fa5a73f">&lt;/linkText&gt;</ept><bpt id="a21179ec-f095-4579-9c0b-913f1fa5a73f">&lt;title&gt;</bpt><ept id="a21179ec-f095-4579-9c0b-913f1fa5a73f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using Azure Support, see the <bpt id="a21179ec-f095-4579-9c0b-913f1fa5a73f">&lt;linkText&gt;</bpt>Microsoft Azure Support FAQ<ept id="a21179ec-f095-4579-9c0b-913f1fa5a73f">&lt;/linkText&gt;</ept><bpt id="a21179ec-f095-4579-9c0b-913f1fa5a73f">&lt;title&gt;</bpt><ept id="a21179ec-f095-4579-9c0b-913f1fa5a73f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a160b6f-5003-478f-8550-0e8b06dcfa2e" xml:space="preserve">
+          <source><bpt id="0409ce84-7812-4e7f-82a9-ace9a96c8a0a">&lt;linkText&gt;</bpt>Azure IaaS (Windows) diagnostics package<ept id="0409ce84-7812-4e7f-82a9-ace9a96c8a0a">&lt;/linkText&gt;</ept><bpt id="0409ce84-7812-4e7f-82a9-ace9a96c8a0a">&lt;title&gt;</bpt><ept id="0409ce84-7812-4e7f-82a9-ace9a96c8a0a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0409ce84-7812-4e7f-82a9-ace9a96c8a0a">&lt;linkText&gt;</bpt>Azure IaaS (Windows) diagnostics package<ept id="0409ce84-7812-4e7f-82a9-ace9a96c8a0a">&lt;/linkText&gt;</ept><bpt id="0409ce84-7812-4e7f-82a9-ace9a96c8a0a">&lt;title&gt;</bpt><ept id="0409ce84-7812-4e7f-82a9-ace9a96c8a0a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f4c5aff-a763-4193-8cbf-f39e73f722ac" xml:space="preserve">
+          <source><bpt id="e023d17f-76ee-431b-ab36-824273992daf">&lt;linkText&gt;</bpt>How to reset a password or the Remote Desktop service for Windows virtual machines<ept id="e023d17f-76ee-431b-ab36-824273992daf">&lt;/linkText&gt;</ept><bpt id="e023d17f-76ee-431b-ab36-824273992daf">&lt;title&gt;</bpt><ept id="e023d17f-76ee-431b-ab36-824273992daf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e023d17f-76ee-431b-ab36-824273992daf">&lt;linkText&gt;</bpt>How to reset a password or the Remote Desktop service for Windows virtual machines<ept id="e023d17f-76ee-431b-ab36-824273992daf">&lt;/linkText&gt;</ept><bpt id="e023d17f-76ee-431b-ab36-824273992daf">&lt;title&gt;</bpt><ept id="e023d17f-76ee-431b-ab36-824273992daf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="816b9f2a-d32a-44d7-a2c5-77690b871752" xml:space="preserve">
+          <source><bpt id="2aaffb13-93b8-4e5a-b8b1-fdbd4a01b70b">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="2aaffb13-93b8-4e5a-b8b1-fdbd4a01b70b">&lt;/linkText&gt;</ept><bpt id="2aaffb13-93b8-4e5a-b8b1-fdbd4a01b70b">&lt;title&gt;</bpt><ept id="2aaffb13-93b8-4e5a-b8b1-fdbd4a01b70b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2aaffb13-93b8-4e5a-b8b1-fdbd4a01b70b">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="2aaffb13-93b8-4e5a-b8b1-fdbd4a01b70b">&lt;/linkText&gt;</ept><bpt id="2aaffb13-93b8-4e5a-b8b1-fdbd4a01b70b">&lt;title&gt;</bpt><ept id="2aaffb13-93b8-4e5a-b8b1-fdbd4a01b70b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3585257-3823-4786-b165-8873e0320237" xml:space="preserve">
+          <source><bpt id="251f97ce-0fbf-4c98-b482-1d6a60a0816b">&lt;linkText&gt;</bpt>Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine<ept id="251f97ce-0fbf-4c98-b482-1d6a60a0816b">&lt;/linkText&gt;</ept><bpt id="251f97ce-0fbf-4c98-b482-1d6a60a0816b">&lt;title&gt;</bpt><ept id="251f97ce-0fbf-4c98-b482-1d6a60a0816b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="251f97ce-0fbf-4c98-b482-1d6a60a0816b">&lt;linkText&gt;</bpt>Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine<ept id="251f97ce-0fbf-4c98-b482-1d6a60a0816b">&lt;/linkText&gt;</ept><bpt id="251f97ce-0fbf-4c98-b482-1d6a60a0816b">&lt;title&gt;</bpt><ept id="251f97ce-0fbf-4c98-b482-1d6a60a0816b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06db215d-f547-4d86-a754-cd923762ef15" xml:space="preserve">
+          <source><bpt id="ad627a1a-b76e-43fd-af53-bf1ece2ee822">&lt;linkText&gt;</bpt>Troubleshoot access to an application running on an Azure virtual machine<ept id="ad627a1a-b76e-43fd-af53-bf1ece2ee822">&lt;/linkText&gt;</ept><bpt id="ad627a1a-b76e-43fd-af53-bf1ece2ee822">&lt;title&gt;</bpt><ept id="ad627a1a-b76e-43fd-af53-bf1ece2ee822">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ad627a1a-b76e-43fd-af53-bf1ece2ee822">&lt;linkText&gt;</bpt>Troubleshoot access to an application running on an Azure virtual machine<ept id="ad627a1a-b76e-43fd-af53-bf1ece2ee822">&lt;/linkText&gt;</ept><bpt id="ad627a1a-b76e-43fd-af53-bf1ece2ee822">&lt;title&gt;</bpt><ept id="ad627a1a-b76e-43fd-af53-bf1ece2ee822">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

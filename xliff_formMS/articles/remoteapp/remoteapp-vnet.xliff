@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f8be8e8f-2fa9-428e-bcad-f7fa4935f416" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f8be8e8f-2fa9-428e-bcad-f7fa4935f416" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f2d2e90b-852a-4aea-bf0b-f618baea02ef">
+        <trans-unit id="dcb745b1-c2b9-4cd7-b782-e9130fe068f1" xml:space="preserve">
+          <source>&lt;properties
+    pageTitle="Validate the Azure VNET to use with Azure RemoteApp"
+    description="Learn how to make sure your Azure VNET is ready to use with Azure RemoteApp"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
+    manager="mbaldwin" /&gt;</source>
+          <target state="new">&lt;properties
+    pageTitle="Validate the Azure VNET to use with Azure RemoteApp"
+    description="Learn how to make sure your Azure VNET is ready to use with Azure RemoteApp"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
+    manager="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="540e925c-369f-4269-a504-50c456bdfd77" xml:space="preserve">
+          <source>&lt;tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2015"
+    ms.author="elizapo" /&gt;</source>
+          <target state="new">&lt;tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2015"
+    ms.author="elizapo" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="52fba584-9b15-4332-907a-3733ef73337a" xml:space="preserve">
+          <source>Before you use an Azure VNET with Azure RemoteApp, you might want to validate the VNET.</source>
+          <target state="new">Before you use an Azure VNET with Azure RemoteApp, you might want to validate the VNET.</target>
+        </trans-unit>
+        <trans-unit id="37753efb-4399-45d1-a7fe-2921bbdbf6af" xml:space="preserve">
+          <source>This helps prevent issues with connectivity.</source>
+          <target state="new">This helps prevent issues with connectivity.</target>
+        </trans-unit>
+        <trans-unit id="b7a5e7ce-d7a2-438d-888e-870a170fe3b6" xml:space="preserve">
+          <source>To validate your Azure VNET, do the following:</source>
+          <target state="new">To validate your Azure VNET, do the following:</target>
+        </trans-unit>
+        <trans-unit id="cdd19b70-ed87-4c65-a5a5-f83cfe5d7819" xml:space="preserve">
+          <source>Create an Azure virtual machine inside the subnet of the Azure VNET you want to use with Azure RemoteApp.</source>
+          <target state="new">Create an Azure virtual machine inside the subnet of the Azure VNET you want to use with Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="5fa4f64c-c5da-4152-92e6-01e3334a3a79" xml:space="preserve">
+          <source>Connect to that VM by using the <bpt id="f01c7eaa-2955-4c26-8404-a6fc6248d015">&lt;strong&gt;</bpt>Connect<ept id="f01c7eaa-2955-4c26-8404-a6fc6248d015">&lt;/strong&gt;</ept> option in the management portal.</source>
+          <target state="new">Connect to that VM by using the <bpt id="f01c7eaa-2955-4c26-8404-a6fc6248d015">&lt;strong&gt;</bpt>Connect<ept id="f01c7eaa-2955-4c26-8404-a6fc6248d015">&lt;/strong&gt;</ept> option in the management portal.</target>
+        </trans-unit>
+        <trans-unit id="b9084113-be9d-4893-9360-b73998182dcd" xml:space="preserve">
+          <source>Join the virtual machine to the same domain that you want to use with Azure RemoteApp.</source>
+          <target state="new">Join the virtual machine to the same domain that you want to use with Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="8a8dc8c0-ee92-4db7-9480-fd74067baf8c" xml:space="preserve">
+          <source>If this is successful, the Azure VNET is ready to use with RemoteApp.</source>
+          <target state="new">If this is successful, the Azure VNET is ready to use with RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="72326bca-07f9-47d4-9ecc-944b36ebcaa2" xml:space="preserve">
+          <source>For more information about the end-to-end hybrid collection workflow, see the following articles:</source>
+          <target state="new">For more information about the end-to-end hybrid collection workflow, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="da3c70ca-bf4e-4163-b210-fbd75374628b" xml:space="preserve">
+          <source><bpt id="32a40d5e-e38b-4426-b661-553696e39bc9">&lt;linkText&gt;</bpt>Create a hybrid collection<ept id="32a40d5e-e38b-4426-b661-553696e39bc9">&lt;/linkText&gt;</ept><bpt id="32a40d5e-e38b-4426-b661-553696e39bc9">&lt;title&gt;</bpt><ept id="32a40d5e-e38b-4426-b661-553696e39bc9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="32a40d5e-e38b-4426-b661-553696e39bc9">&lt;linkText&gt;</bpt>Create a hybrid collection<ept id="32a40d5e-e38b-4426-b661-553696e39bc9">&lt;/linkText&gt;</ept><bpt id="32a40d5e-e38b-4426-b661-553696e39bc9">&lt;title&gt;</bpt><ept id="32a40d5e-e38b-4426-b661-553696e39bc9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a4f7290-a993-4d2b-9f28-d3f2cd798600" xml:space="preserve">
+          <source><bpt id="509970be-e203-4276-8c55-e59cc3117b0d">&lt;linkText&gt;</bpt>Deploy Azure RemoteApp collection to your Azure Virtual Network (with support for ExpressRoute)<ept id="509970be-e203-4276-8c55-e59cc3117b0d">&lt;/linkText&gt;</ept><bpt id="509970be-e203-4276-8c55-e59cc3117b0d">&lt;title&gt;</bpt><ept id="509970be-e203-4276-8c55-e59cc3117b0d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="509970be-e203-4276-8c55-e59cc3117b0d">&lt;linkText&gt;</bpt>Deploy Azure RemoteApp collection to your Azure Virtual Network (with support for ExpressRoute)<ept id="509970be-e203-4276-8c55-e59cc3117b0d">&lt;/linkText&gt;</ept><bpt id="509970be-e203-4276-8c55-e59cc3117b0d">&lt;title&gt;</bpt><ept id="509970be-e203-4276-8c55-e59cc3117b0d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4856e60b-8f34-4e3a-aeb0-e1342a90dca4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4856e60b-8f34-4e3a-aeb0-e1342a90dca4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9b1eebf4-a13c-40a4-8778-a13c5ee12d7e">
+        <trans-unit id="f112b0b1-a71f-4a9d-8519-6d1ede87cfba" xml:space="preserve">
+          <source>What is Azure Active Directory?</source>
+          <target state="new">What is Azure Active Directory?</target>
+        </trans-unit>
+        <trans-unit id="32a5c2d4-43b9-4432-8573-6dc166126579" xml:space="preserve">
+          <source>Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications.</source>
+          <target state="new">Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications.</target>
+        </trans-unit>
+        <trans-unit id="e3d386a6-8c09-47b7-94d8-11cf25ec6b80" xml:space="preserve">
+          <source>Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.</source>
+          <target state="new">Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.</target>
+        </trans-unit>
+        <trans-unit id="4d4f22cc-c3ba-44d4-b927-1a4b979766c0" xml:space="preserve">
+          <source>For IT Admins, Azure AD provides an affordable, easy to use solution to give employees and business partners single sign-on (SSO) access to <bpt id="b5fc28f6-b627-4cc3-bc64-e124cade5cd5">&lt;linkText&gt;</bpt>thousands of cloud SaaS Applications<ept id="b5fc28f6-b627-4cc3-bc64-e124cade5cd5">&lt;/linkText&gt;</ept><bpt id="b5fc28f6-b627-4cc3-bc64-e124cade5cd5">&lt;title&gt;</bpt><ept id="b5fc28f6-b627-4cc3-bc64-e124cade5cd5">&lt;/title&gt;</ept> like Office365, Salesforce.com, DropBox, and Concur.</source>
+          <target state="new">For IT Admins, Azure AD provides an affordable, easy to use solution to give employees and business partners single sign-on (SSO) access to <bpt id="b5fc28f6-b627-4cc3-bc64-e124cade5cd5">&lt;linkText&gt;</bpt>thousands of cloud SaaS Applications<ept id="b5fc28f6-b627-4cc3-bc64-e124cade5cd5">&lt;/linkText&gt;</ept><bpt id="b5fc28f6-b627-4cc3-bc64-e124cade5cd5">&lt;title&gt;</bpt><ept id="b5fc28f6-b627-4cc3-bc64-e124cade5cd5">&lt;/title&gt;</ept> like Office365, Salesforce.com, DropBox, and Concur.</target>
+        </trans-unit>
+        <trans-unit id="55a1e43d-167d-414f-aba0-42dce5fbf0ab" xml:space="preserve">
+          <source>For application developers, Azure AD lets you focus on building your application by making it fast and simple to integrate with a world class identity management solution used by millions of organizations around the world.</source>
+          <target state="new">For application developers, Azure AD lets you focus on building your application by making it fast and simple to integrate with a world class identity management solution used by millions of organizations around the world.</target>
+        </trans-unit>
+        <trans-unit id="62c2e57c-6d89-4798-8061-560d138f4c0a" xml:space="preserve">
+          <source>Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role based access control, application usage monitoring, rich auditing and security monitoring and alerting.</source>
+          <target state="new">Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role based access control, application usage monitoring, rich auditing and security monitoring and alerting.</target>
+        </trans-unit>
+        <trans-unit id="047858f1-faa6-4a3d-bdf4-c33b29604042" xml:space="preserve">
+          <source>These capabilities can help secure cloud based applications, streamline IT processes, cut costs and help assure corporate compliance goals are met.</source>
+          <target state="new">These capabilities can help secure cloud based applications, streamline IT processes, cut costs and help assure corporate compliance goals are met.</target>
+        </trans-unit>
+        <trans-unit id="57a5f4cc-0230-4010-b001-3de28ea771bb" xml:space="preserve">
+          <source>Additionally, with just <bpt id="47b4de5d-d6b4-4a9c-aef2-68edf718dcfb">&lt;linkText&gt;</bpt>four clicks<ept id="47b4de5d-d6b4-4a9c-aef2-68edf718dcfb">&lt;/linkText&gt;</ept><bpt id="47b4de5d-d6b4-4a9c-aef2-68edf718dcfb">&lt;title&gt;</bpt><ept id="47b4de5d-d6b4-4a9c-aef2-68edf718dcfb">&lt;/title&gt;</ept>, Azure AD can be integrated with an existing Windows Server Active Directory, giving organizations the ability to leverage their existing on-premises identity investments to manage access to cloud based SaaS applications.</source>
+          <target state="new">Additionally, with just <bpt id="47b4de5d-d6b4-4a9c-aef2-68edf718dcfb">&lt;linkText&gt;</bpt>four clicks<ept id="47b4de5d-d6b4-4a9c-aef2-68edf718dcfb">&lt;/linkText&gt;</ept><bpt id="47b4de5d-d6b4-4a9c-aef2-68edf718dcfb">&lt;title&gt;</bpt><ept id="47b4de5d-d6b4-4a9c-aef2-68edf718dcfb">&lt;/title&gt;</ept>, Azure AD can be integrated with an existing Windows Server Active Directory, giving organizations the ability to leverage their existing on-premises identity investments to manage access to cloud based SaaS applications.</target>
+        </trans-unit>
+        <trans-unit id="7c15c7bf-88bf-4426-beaa-ce3f1cf864f8" xml:space="preserve">
+          <source>If you are an Office365, Azure or Dynamics CRM Online customer, you might not realize that you are already using Azure AD.</source>
+          <target state="new">If you are an Office365, Azure or Dynamics CRM Online customer, you might not realize that you are already using Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="5bab0abc-4a6e-46bb-b79c-5c3ac3018190" xml:space="preserve">
+          <source>Every Office365, Azure and Dynamics CRM tenant is actually already an Azure AD tenant.</source>
+          <target state="new">Every Office365, Azure and Dynamics CRM tenant is actually already an Azure AD tenant.</target>
+        </trans-unit>
+        <trans-unit id="10dbc39a-af3f-478a-a846-4b4f88427667" xml:space="preserve">
+          <source>Whenever you want you can start using that tenant to manage access to thousands of other cloud applications Azure AD integrates with!</source>
+          <target state="new">Whenever you want you can start using that tenant to manage access to thousands of other cloud applications Azure AD integrates with!</target>
+        </trans-unit>
+        <trans-unit id="3a7ad387-5d32-45a3-867a-0e51973d08fb" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="6003e8b8-8a91-4541-975f-e4b151554763">&lt;linkText&gt;</bpt>Azure AD Connect Stack<ept id="6003e8b8-8a91-4541-975f-e4b151554763">&lt;/linkText&gt;</ept>
+&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="6003e8b8-8a91-4541-975f-e4b151554763">&lt;linkText&gt;</bpt>Azure AD Connect Stack<ept id="6003e8b8-8a91-4541-975f-e4b151554763">&lt;/linkText&gt;</ept>
+&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="26f7649f-1e29-49b8-bf7f-a9e8e5dc6f6b" xml:space="preserve">
+          <source>The multi-tenant, geo-distributed, high availability design of Azure AD means that you can rely on it for your most critical business needs.</source>
+          <target state="new">The multi-tenant, geo-distributed, high availability design of Azure AD means that you can rely on it for your most critical business needs.</target>
+        </trans-unit>
+        <trans-unit id="6e75810d-0fde-41bd-95fa-0869bb0ac18f" xml:space="preserve">
+          <source>Running out of 28 data centers around the world with automated failover, you’ll have the comfort of knowing that Azure AD is highly reliable and that even if a data center goes down, copies of your directory data are live in at least two more regionally dispersed data centers and available for instant access.</source>
+          <target state="new">Running out of 28 data centers around the world with automated failover, you’ll have the comfort of knowing that Azure AD is highly reliable and that even if a data center goes down, copies of your directory data are live in at least two more regionally dispersed data centers and available for instant access.</target>
+        </trans-unit>
+        <trans-unit id="ec068126-47a7-4516-ab61-d31f854d0653" xml:space="preserve">
+          <source>For more details, see <bpt id="cada1a87-6044-40ff-a30e-7ba2d65869a9">&lt;linkText&gt;</bpt>Service Level Agreements<ept id="cada1a87-6044-40ff-a30e-7ba2d65869a9">&lt;/linkText&gt;</ept><bpt id="cada1a87-6044-40ff-a30e-7ba2d65869a9">&lt;title&gt;</bpt><ept id="cada1a87-6044-40ff-a30e-7ba2d65869a9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="cada1a87-6044-40ff-a30e-7ba2d65869a9">&lt;linkText&gt;</bpt>Service Level Agreements<ept id="cada1a87-6044-40ff-a30e-7ba2d65869a9">&lt;/linkText&gt;</ept><bpt id="cada1a87-6044-40ff-a30e-7ba2d65869a9">&lt;title&gt;</bpt><ept id="cada1a87-6044-40ff-a30e-7ba2d65869a9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb71b83b-594e-4e99-9af8-b4df15dfb518" xml:space="preserve">
+          <source>Your organization can use Azure AD to improve employee productivity, streamline IT processes, improve security and cut costs in many ways:</source>
+          <target state="new">Your organization can use Azure AD to improve employee productivity, streamline IT processes, improve security and cut costs in many ways:</target>
+        </trans-unit>
+        <trans-unit id="762f8529-7c19-4a38-aee8-2017c9d1323b" xml:space="preserve">
+          <source>Quickly adopt cloud services, providing employees and partners with an easy single-sign on experience powered by Azure AD’s fully automated SaaS app access management and provisioning services capabilities.</source>
+          <target state="new">Quickly adopt cloud services, providing employees and partners with an easy single-sign on experience powered by Azure AD’s fully automated SaaS app access management and provisioning services capabilities.</target>
+        </trans-unit>
+        <trans-unit id="af7ea264-89dd-4285-8238-edc5f86dfd17" xml:space="preserve">
+          <source>Empower employees with access to world class cloud apps and service and self-services capabilities from wherever they need to work on the devices they love to use.</source>
+          <target state="new">Empower employees with access to world class cloud apps and service and self-services capabilities from wherever they need to work on the devices they love to use.</target>
+        </trans-unit>
+        <trans-unit id="a952ec6c-9129-4698-9b9d-4aa549a8b97f" xml:space="preserve">
+          <source>Easily and securely manage employee and vendor access to your corporate social media accounts.</source>
+          <target state="new">Easily and securely manage employee and vendor access to your corporate social media accounts.</target>
+        </trans-unit>
+        <trans-unit id="39102c4c-42e3-46dc-9baa-e4fd75ac3a76" xml:space="preserve">
+          <source>Improve application security with Azure AD multifactor authentication and conditional access.</source>
+          <target state="new">Improve application security with Azure AD multifactor authentication and conditional access.</target>
+        </trans-unit>
+        <trans-unit id="15e37ab5-b7af-43c6-a9a3-1868b6406a1e" xml:space="preserve">
+          <source>Implement consistent, self-service application access management, empowering business owners to move quickly while cutting IT costs and overhead.</source>
+          <target state="new">Implement consistent, self-service application access management, empowering business owners to move quickly while cutting IT costs and overhead.</target>
+        </trans-unit>
+        <trans-unit id="ebbcdb68-d40d-46a1-8ad2-0ae1e85c6b25" xml:space="preserve">
+          <source>Monitor application usage and protect your business from advanced threats with security reporting and monitoring.</source>
+          <target state="new">Monitor application usage and protect your business from advanced threats with security reporting and monitoring.</target>
+        </trans-unit>
+        <trans-unit id="83e3bba0-acb2-46bd-8d33-f6bc41abe90b" xml:space="preserve">
+          <source>Secure mobile (remote) access to on-premises applications.</source>
+          <target state="new">Secure mobile (remote) access to on-premises applications.</target>
+        </trans-unit>
+        <trans-unit id="5b3fadf1-f044-4093-a884-95385c9e5569" xml:space="preserve">
+          <source>If you are an IT admin:</source>
+          <target state="new">If you are an IT admin:</target>
+        </trans-unit>
+        <trans-unit id="5615428d-26a1-46f3-9bc5-27da7ce148d2" xml:space="preserve">
+          <source><bpt id="bf7cf8f6-68f8-49f8-a79d-8d75d9f0ea30">&lt;linkText&gt;</bpt>Try it out!<ept id="bf7cf8f6-68f8-49f8-a79d-8d75d9f0ea30">&lt;/linkText&gt;</ept><bpt id="bf7cf8f6-68f8-49f8-a79d-8d75d9f0ea30">&lt;title&gt;</bpt><ept id="bf7cf8f6-68f8-49f8-a79d-8d75d9f0ea30">&lt;/title&gt;</ept> - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link</source>
+          <target state="new"><bpt id="bf7cf8f6-68f8-49f8-a79d-8d75d9f0ea30">&lt;linkText&gt;</bpt>Try it out!<ept id="bf7cf8f6-68f8-49f8-a79d-8d75d9f0ea30">&lt;/linkText&gt;</ept><bpt id="bf7cf8f6-68f8-49f8-a79d-8d75d9f0ea30">&lt;title&gt;</bpt><ept id="bf7cf8f6-68f8-49f8-a79d-8d75d9f0ea30">&lt;/title&gt;</ept> - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link</target>
+        </trans-unit>
+        <trans-unit id="0bbf1827-6c9d-419b-8481-c5fb6b5c9283" xml:space="preserve">
+          <source>Read our “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast</source>
+          <target state="new">Read our “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast</target>
+        </trans-unit>
+        <trans-unit id="684ac81c-2557-49e7-8281-48e432621b47" xml:space="preserve">
+          <source>If you are a developer:</source>
+          <target state="new">If you are a developer:</target>
+        </trans-unit>
+        <trans-unit id="27624072-38f3-4754-8a3d-5d85a44c2cbe" xml:space="preserve">
+          <source>Check out our <bpt id="8b861b79-b77a-4a20-bac2-fad838b70483">&lt;linkText&gt;</bpt>Developers Guide<ept id="8b861b79-b77a-4a20-bac2-fad838b70483">&lt;/linkText&gt;</ept><bpt id="8b861b79-b77a-4a20-bac2-fad838b70483">&lt;title&gt;</bpt><ept id="8b861b79-b77a-4a20-bac2-fad838b70483">&lt;/title&gt;</ept> to Azure Active Directory &lt;need link&gt;</source>
+          <target state="new">Check out our <bpt id="8b861b79-b77a-4a20-bac2-fad838b70483">&lt;linkText&gt;</bpt>Developers Guide<ept id="8b861b79-b77a-4a20-bac2-fad838b70483">&lt;/linkText&gt;</ept><bpt id="8b861b79-b77a-4a20-bac2-fad838b70483">&lt;title&gt;</bpt><ept id="8b861b79-b77a-4a20-bac2-fad838b70483">&lt;/title&gt;</ept> to Azure Active Directory &lt;need link&gt;</target>
+        </trans-unit>
+        <trans-unit id="08423cb4-b92b-4d0f-b50e-05969e53d9da" xml:space="preserve">
+          <source><bpt id="e8f123a1-7d55-46a5-bace-640894302829">&lt;linkText&gt;</bpt>Start a trial<ept id="e8f123a1-7d55-46a5-bace-640894302829">&lt;/linkText&gt;</ept><bpt id="e8f123a1-7d55-46a5-bace-640894302829">&lt;title&gt;</bpt><ept id="e8f123a1-7d55-46a5-bace-640894302829">&lt;/title&gt;</ept> – sign up for a free 30 day trial today and get started integrating your app with Azure AD </source>
+          <target state="new"><bpt id="e8f123a1-7d55-46a5-bace-640894302829">&lt;linkText&gt;</bpt>Start a trial<ept id="e8f123a1-7d55-46a5-bace-640894302829">&lt;/linkText&gt;</ept><bpt id="e8f123a1-7d55-46a5-bace-640894302829">&lt;title&gt;</bpt><ept id="e8f123a1-7d55-46a5-bace-640894302829">&lt;/title&gt;</ept> – sign up for a free 30 day trial today and get started integrating your app with Azure AD </target>
+        </trans-unit>
+        <trans-unit id="5f858397-a0fc-4220-965d-f1a24fa7084c" xml:space="preserve">
+          <source>We have a ton of great resources online to help you learn all about Azure AD.</source>
+          <target state="new">We have a ton of great resources online to help you learn all about Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="f91bab27-3e73-4ae0-91fb-34d2698704f7" xml:space="preserve">
+          <source>Here’s a list of great articles to get you started:</source>
+          <target state="new">Here’s a list of great articles to get you started:</target>
+        </trans-unit>
+        <trans-unit id="f264fe17-8a4d-48ec-9319-6738c4479d60" xml:space="preserve">
+          <source><bpt id="13dc2bcc-3503-4dc8-9c30-3ba1200fd95c">&lt;linkText&gt;</bpt>Enabling your directory for hybrid management with Azure AD Connect<ept id="13dc2bcc-3503-4dc8-9c30-3ba1200fd95c">&lt;/linkText&gt;</ept><bpt id="13dc2bcc-3503-4dc8-9c30-3ba1200fd95c">&lt;title&gt;</bpt><ept id="13dc2bcc-3503-4dc8-9c30-3ba1200fd95c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="13dc2bcc-3503-4dc8-9c30-3ba1200fd95c">&lt;linkText&gt;</bpt>Enabling your directory for hybrid management with Azure AD Connect<ept id="13dc2bcc-3503-4dc8-9c30-3ba1200fd95c">&lt;/linkText&gt;</ept><bpt id="13dc2bcc-3503-4dc8-9c30-3ba1200fd95c">&lt;title&gt;</bpt><ept id="13dc2bcc-3503-4dc8-9c30-3ba1200fd95c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f0c13fa-d977-419c-a5ea-441cc6b20c78" xml:space="preserve">
+          <source><bpt id="a4716435-a14b-4678-9864-4a46c6922879">&lt;linkText&gt;</bpt>Additional security for an ever connected world<ept id="a4716435-a14b-4678-9864-4a46c6922879">&lt;/linkText&gt;</ept><bpt id="a4716435-a14b-4678-9864-4a46c6922879">&lt;title&gt;</bpt><ept id="a4716435-a14b-4678-9864-4a46c6922879">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a4716435-a14b-4678-9864-4a46c6922879">&lt;linkText&gt;</bpt>Additional security for an ever connected world<ept id="a4716435-a14b-4678-9864-4a46c6922879">&lt;/linkText&gt;</ept><bpt id="a4716435-a14b-4678-9864-4a46c6922879">&lt;title&gt;</bpt><ept id="a4716435-a14b-4678-9864-4a46c6922879">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66cfadac-3eee-4938-9018-f365d533922e" xml:space="preserve">
+          <source><bpt id="c8ccb712-2db2-4ed6-9e73-3e6ec87f8531">&lt;linkText&gt;</bpt>Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory<ept id="c8ccb712-2db2-4ed6-9e73-3e6ec87f8531">&lt;/linkText&gt;</ept><bpt id="c8ccb712-2db2-4ed6-9e73-3e6ec87f8531">&lt;title&gt;</bpt><ept id="c8ccb712-2db2-4ed6-9e73-3e6ec87f8531">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c8ccb712-2db2-4ed6-9e73-3e6ec87f8531">&lt;linkText&gt;</bpt>Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory<ept id="c8ccb712-2db2-4ed6-9e73-3e6ec87f8531">&lt;/linkText&gt;</ept><bpt id="c8ccb712-2db2-4ed6-9e73-3e6ec87f8531">&lt;title&gt;</bpt><ept id="c8ccb712-2db2-4ed6-9e73-3e6ec87f8531">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb89f99a-5865-4d36-b3e7-40f43ac9b04f" xml:space="preserve">
+          <source><bpt id="f096bca3-569f-483a-a39c-2856cf5ef750">&lt;linkText&gt;</bpt>Getting started with Azure AD Reporting<ept id="f096bca3-569f-483a-a39c-2856cf5ef750">&lt;/linkText&gt;</ept><bpt id="f096bca3-569f-483a-a39c-2856cf5ef750">&lt;title&gt;</bpt><ept id="f096bca3-569f-483a-a39c-2856cf5ef750">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f096bca3-569f-483a-a39c-2856cf5ef750">&lt;linkText&gt;</bpt>Getting started with Azure AD Reporting<ept id="f096bca3-569f-483a-a39c-2856cf5ef750">&lt;/linkText&gt;</ept><bpt id="f096bca3-569f-483a-a39c-2856cf5ef750">&lt;title&gt;</bpt><ept id="f096bca3-569f-483a-a39c-2856cf5ef750">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e6af95f-c0b5-4447-84aa-3650db6bcb9b" xml:space="preserve">
+          <source><bpt id="07e6075f-d208-4fbe-ae8f-d0123873d51c">&lt;linkText&gt;</bpt>Manage your passwords from anywhere<ept id="07e6075f-d208-4fbe-ae8f-d0123873d51c">&lt;/linkText&gt;</ept><bpt id="07e6075f-d208-4fbe-ae8f-d0123873d51c">&lt;title&gt;</bpt><ept id="07e6075f-d208-4fbe-ae8f-d0123873d51c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="07e6075f-d208-4fbe-ae8f-d0123873d51c">&lt;linkText&gt;</bpt>Manage your passwords from anywhere<ept id="07e6075f-d208-4fbe-ae8f-d0123873d51c">&lt;/linkText&gt;</ept><bpt id="07e6075f-d208-4fbe-ae8f-d0123873d51c">&lt;title&gt;</bpt><ept id="07e6075f-d208-4fbe-ae8f-d0123873d51c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4282dced-cf74-4d7b-bc22-a0e8264c4568" xml:space="preserve">
+          <source><bpt id="1fffaff6-7d12-424c-8e3b-ddd0bc62aa4e">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="1fffaff6-7d12-424c-8e3b-ddd0bc62aa4e">&lt;/linkText&gt;</ept><bpt id="1fffaff6-7d12-424c-8e3b-ddd0bc62aa4e">&lt;title&gt;</bpt><ept id="1fffaff6-7d12-424c-8e3b-ddd0bc62aa4e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1fffaff6-7d12-424c-8e3b-ddd0bc62aa4e">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="1fffaff6-7d12-424c-8e3b-ddd0bc62aa4e">&lt;/linkText&gt;</ept><bpt id="1fffaff6-7d12-424c-8e3b-ddd0bc62aa4e">&lt;title&gt;</bpt><ept id="1fffaff6-7d12-424c-8e3b-ddd0bc62aa4e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ffb460c-246f-4a09-a68f-092829c99f59" xml:space="preserve">
+          <source><bpt id="d1635f1d-fc01-4d43-937c-791e4adb9d55">&lt;linkText&gt;</bpt>Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory<ept id="d1635f1d-fc01-4d43-937c-791e4adb9d55">&lt;/linkText&gt;</ept><bpt id="d1635f1d-fc01-4d43-937c-791e4adb9d55">&lt;title&gt;</bpt><ept id="d1635f1d-fc01-4d43-937c-791e4adb9d55">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d1635f1d-fc01-4d43-937c-791e4adb9d55">&lt;linkText&gt;</bpt>Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory<ept id="d1635f1d-fc01-4d43-937c-791e4adb9d55">&lt;/linkText&gt;</ept><bpt id="d1635f1d-fc01-4d43-937c-791e4adb9d55">&lt;title&gt;</bpt><ept id="d1635f1d-fc01-4d43-937c-791e4adb9d55">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3068a30f-2142-4fb9-b31c-89f492d5299c" xml:space="preserve">
+          <source><bpt id="0ee6cc29-85f8-4418-904f-8a48be53901b">&lt;linkText&gt;</bpt>How to provide secure remote access to on-premises applications<ept id="0ee6cc29-85f8-4418-904f-8a48be53901b">&lt;/linkText&gt;</ept><bpt id="0ee6cc29-85f8-4418-904f-8a48be53901b">&lt;title&gt;</bpt><ept id="0ee6cc29-85f8-4418-904f-8a48be53901b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0ee6cc29-85f8-4418-904f-8a48be53901b">&lt;linkText&gt;</bpt>How to provide secure remote access to on-premises applications<ept id="0ee6cc29-85f8-4418-904f-8a48be53901b">&lt;/linkText&gt;</ept><bpt id="0ee6cc29-85f8-4418-904f-8a48be53901b">&lt;title&gt;</bpt><ept id="0ee6cc29-85f8-4418-904f-8a48be53901b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="106ce8f1-21fa-4600-9545-30590d5c6277" xml:space="preserve">
+          <source><bpt id="caefcbb2-0110-40d6-9658-a2900952bc0d">&lt;linkText&gt;</bpt>Managing access to resources with Azure Active Directory groups<ept id="caefcbb2-0110-40d6-9658-a2900952bc0d">&lt;/linkText&gt;</ept><bpt id="caefcbb2-0110-40d6-9658-a2900952bc0d">&lt;title&gt;</bpt><ept id="caefcbb2-0110-40d6-9658-a2900952bc0d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="caefcbb2-0110-40d6-9658-a2900952bc0d">&lt;linkText&gt;</bpt>Managing access to resources with Azure Active Directory groups<ept id="caefcbb2-0110-40d6-9658-a2900952bc0d">&lt;/linkText&gt;</ept><bpt id="caefcbb2-0110-40d6-9658-a2900952bc0d">&lt;title&gt;</bpt><ept id="caefcbb2-0110-40d6-9658-a2900952bc0d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7f0c894-886c-4a07-9409-93d775f5cc5f" xml:space="preserve">
+          <source><bpt id="37aaa1a4-0401-4c4d-8a5d-c002eecf1850">&lt;linkText&gt;</bpt>What is Microsoft Azure Active Directory licensing?<ept id="37aaa1a4-0401-4c4d-8a5d-c002eecf1850">&lt;/linkText&gt;</ept><bpt id="37aaa1a4-0401-4c4d-8a5d-c002eecf1850">&lt;title&gt;</bpt><ept id="37aaa1a4-0401-4c4d-8a5d-c002eecf1850">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="37aaa1a4-0401-4c4d-8a5d-c002eecf1850">&lt;linkText&gt;</bpt>What is Microsoft Azure Active Directory licensing?<ept id="37aaa1a4-0401-4c4d-8a5d-c002eecf1850">&lt;/linkText&gt;</ept><bpt id="37aaa1a4-0401-4c4d-8a5d-c002eecf1850">&lt;title&gt;</bpt><ept id="37aaa1a4-0401-4c4d-8a5d-c002eecf1850">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d0b6baa-56a0-4e38-b61d-42fb1dc1c0c9" xml:space="preserve">
+          <source><bpt id="2aa79c38-a219-4d04-944d-f73f468c8387">&lt;linkText&gt;</bpt>How can I discover unsanctioned cloud apps that are used within my organization<ept id="2aa79c38-a219-4d04-944d-f73f468c8387">&lt;/linkText&gt;</ept><bpt id="2aa79c38-a219-4d04-944d-f73f468c8387">&lt;title&gt;</bpt><ept id="2aa79c38-a219-4d04-944d-f73f468c8387">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2aa79c38-a219-4d04-944d-f73f468c8387">&lt;linkText&gt;</bpt>How can I discover unsanctioned cloud apps that are used within my organization<ept id="2aa79c38-a219-4d04-944d-f73f468c8387">&lt;/linkText&gt;</ept><bpt id="2aa79c38-a219-4d04-944d-f73f468c8387">&lt;title&gt;</bpt><ept id="2aa79c38-a219-4d04-944d-f73f468c8387">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

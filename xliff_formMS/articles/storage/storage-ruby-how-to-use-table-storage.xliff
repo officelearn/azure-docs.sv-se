@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f4ba5b69-9470-4471-9504-fa40bbb2ed0e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f4ba5b69-9470-4471-9504-fa40bbb2ed0e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3e4ee541-a320-4108-938b-83e0d2af67d1">
+        <trans-unit id="f186c8f5-40a0-48bd-86a4-8bda0fe8e0c8" xml:space="preserve">
+          <source>How to use Table storage from Ruby | Microsoft Azure</source>
+          <target state="new">How to use Table storage from Ruby | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="cfeebad9-4863-47e2-bc84-31600559d65f" xml:space="preserve">
+          <source>Learn how to use the table storage service in Azure. Code samples are written using the Ruby API.</source>
+          <target state="new">Learn how to use the table storage service in Azure. Code samples are written using the Ruby API.</target>
+        </trans-unit>
+        <trans-unit id="411da083-71ea-4a70-ba37-eb892a54ed7f" xml:space="preserve">
+          <source><bpt id="198bdd6c-2ba4-49d0-bec4-56161b286ab5">&lt;token href="../../includes/storage-selector-table-include.md"&gt;</bpt><ept id="198bdd6c-2ba4-49d0-bec4-56161b286ab5">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="198bdd6c-2ba4-49d0-bec4-56161b286ab5">&lt;token href="../../includes/storage-selector-table-include.md"&gt;</bpt><ept id="198bdd6c-2ba4-49d0-bec4-56161b286ab5">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc47020f-65b3-43aa-970b-b396a8057c2b" xml:space="preserve">
+          <source>This guide shows you how to perform common scenarios using the Microsoft
+Azure Table service.</source>
+          <target state="new">This guide shows you how to perform common scenarios using the Microsoft
+Azure Table service.</target>
+        </trans-unit>
+        <trans-unit id="00619da3-6f34-4d7c-b95f-29d6e2a1593a" xml:space="preserve">
+          <source>The samples are written written using the
+Ruby API.</source>
+          <target state="new">The samples are written written using the
+Ruby API.</target>
+        </trans-unit>
+        <trans-unit id="dffac70e-c4b9-47f5-a9c5-5301e830cf3e" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="c80fce3b-2adc-4edb-9dfe-f4706ea21e46">&lt;strong&gt;</bpt>creating and deleting a
+table, inserting and querying entities in a table<ept id="c80fce3b-2adc-4edb-9dfe-f4706ea21e46">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The scenarios covered include <bpt id="c80fce3b-2adc-4edb-9dfe-f4706ea21e46">&lt;strong&gt;</bpt>creating and deleting a
+table, inserting and querying entities in a table<ept id="c80fce3b-2adc-4edb-9dfe-f4706ea21e46">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5c2db82-7ad5-4e34-9cb4-d15bcd490f60" xml:space="preserve">
+          <source><bpt id="4f57db23-52cb-43c2-8c1e-d11607d2ffa1">&lt;token href="../../includes/storage-table-concepts-include.md"&gt;</bpt><ept id="4f57db23-52cb-43c2-8c1e-d11607d2ffa1">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4f57db23-52cb-43c2-8c1e-d11607d2ffa1">&lt;token href="../../includes/storage-table-concepts-include.md"&gt;</bpt><ept id="4f57db23-52cb-43c2-8c1e-d11607d2ffa1">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66192659-7660-46b8-b720-a1027f29f846" xml:space="preserve">
+          <source><bpt id="422a9929-4df1-4704-9a9b-51e4d2049721">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="422a9929-4df1-4704-9a9b-51e4d2049721">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="422a9929-4df1-4704-9a9b-51e4d2049721">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="422a9929-4df1-4704-9a9b-51e4d2049721">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24ffeb66-e08c-4bf1-9950-f93fb529bb3a" xml:space="preserve">
+          <source>Create a Ruby application.</source>
+          <target state="new">Create a Ruby application.</target>
+        </trans-unit>
+        <trans-unit id="5b05900b-aeda-4bf1-bfd4-7fae064c5955" xml:space="preserve">
+          <source>For instructions, 
+see <bpt id="471fa0f9-3e6d-4c66-ae56-4bb42cd1abe7">&lt;linkText&gt;</bpt>Create a Ruby Application on Azure<ept id="471fa0f9-3e6d-4c66-ae56-4bb42cd1abe7">&lt;/linkText&gt;</ept><bpt id="471fa0f9-3e6d-4c66-ae56-4bb42cd1abe7">&lt;title&gt;</bpt><ept id="471fa0f9-3e6d-4c66-ae56-4bb42cd1abe7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, 
+see <bpt id="471fa0f9-3e6d-4c66-ae56-4bb42cd1abe7">&lt;linkText&gt;</bpt>Create a Ruby Application on Azure<ept id="471fa0f9-3e6d-4c66-ae56-4bb42cd1abe7">&lt;/linkText&gt;</ept><bpt id="471fa0f9-3e6d-4c66-ae56-4bb42cd1abe7">&lt;title&gt;</bpt><ept id="471fa0f9-3e6d-4c66-ae56-4bb42cd1abe7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53bcb175-ea06-4a77-b367-cbec72082d7b" xml:space="preserve">
+          <source>To use Azure storage, you need to download and use the Ruby azure package, 
+which includes a set of convenience libraries that communicate with the storage REST services.</source>
+          <target state="new">To use Azure storage, you need to download and use the Ruby azure package, 
+which includes a set of convenience libraries that communicate with the storage REST services.</target>
+        </trans-unit>
+        <trans-unit id="cc6a88b8-7ea0-40c2-878c-9d4e894becc7" xml:space="preserve">
+          <source>Use a command-line interface such as <bpt id="a0207f12-a0a0-436a-9415-433fc06f6c79">&lt;strong&gt;</bpt>PowerShell<ept id="a0207f12-a0a0-436a-9415-433fc06f6c79">&lt;/strong&gt;</ept> (Windows), <bpt id="09aec66d-eaa0-4231-ac32-6ac9a873cf49">&lt;strong&gt;</bpt>Terminal<ept id="09aec66d-eaa0-4231-ac32-6ac9a873cf49">&lt;/strong&gt;</ept> (Mac), or <bpt id="438373a6-f257-4d6c-bcf0-6230415f6122">&lt;strong&gt;</bpt>Bash<ept id="438373a6-f257-4d6c-bcf0-6230415f6122">&lt;/strong&gt;</ept> (Unix).</source>
+          <target state="new">Use a command-line interface such as <bpt id="a0207f12-a0a0-436a-9415-433fc06f6c79">&lt;strong&gt;</bpt>PowerShell<ept id="a0207f12-a0a0-436a-9415-433fc06f6c79">&lt;/strong&gt;</ept> (Windows), <bpt id="09aec66d-eaa0-4231-ac32-6ac9a873cf49">&lt;strong&gt;</bpt>Terminal<ept id="09aec66d-eaa0-4231-ac32-6ac9a873cf49">&lt;/strong&gt;</ept> (Mac), or <bpt id="438373a6-f257-4d6c-bcf0-6230415f6122">&lt;strong&gt;</bpt>Bash<ept id="438373a6-f257-4d6c-bcf0-6230415f6122">&lt;/strong&gt;</ept> (Unix).</target>
+        </trans-unit>
+        <trans-unit id="e888890d-14fd-4cfa-ad36-ac07e6003909" xml:space="preserve">
+          <source>Type <bpt id="d2bff533-0ed6-4396-9444-4382be9c97a4">&lt;strong&gt;</bpt>gem install azure<ept id="d2bff533-0ed6-4396-9444-4382be9c97a4">&lt;/strong&gt;</ept> in the command window to install the gem and dependencies.</source>
+          <target state="new">Type <bpt id="d2bff533-0ed6-4396-9444-4382be9c97a4">&lt;strong&gt;</bpt>gem install azure<ept id="d2bff533-0ed6-4396-9444-4382be9c97a4">&lt;/strong&gt;</ept> in the command window to install the gem and dependencies.</target>
+        </trans-unit>
+        <trans-unit id="652aa8d4-3daf-4608-a2d0-d446212aa206" xml:space="preserve">
+          <source>Use your favorite text editor, add the following to the top of the Ruby file where you intend to use storage:</source>
+          <target state="new">Use your favorite text editor, add the following to the top of the Ruby file where you intend to use storage:</target>
+        </trans-unit>
+        <trans-unit id="8ab47bf6-efe6-4d10-b4a9-9b1d198eeb2f" xml:space="preserve">
+          <source>The azure module will read the environment variables <bpt id="47c78dcc-c438-4f52-9fb1-e18cd15c6fe3">&lt;strong&gt;</bpt>AZURE\_STORAGE\_ACCOUNT<ept id="47c78dcc-c438-4f52-9fb1-e18cd15c6fe3">&lt;/strong&gt;</ept> and <bpt id="162eb974-d10c-4903-a19f-1b046c95e0bb">&lt;strong&gt;</bpt>AZURE\_STORAGE\_ACCESS\_KEY<ept id="162eb974-d10c-4903-a19f-1b046c95e0bb">&lt;/strong&gt;</ept> 
+for information required to connect to your Azure storage account.</source>
+          <target state="new">The azure module will read the environment variables <bpt id="47c78dcc-c438-4f52-9fb1-e18cd15c6fe3">&lt;strong&gt;</bpt>AZURE\_STORAGE\_ACCOUNT<ept id="47c78dcc-c438-4f52-9fb1-e18cd15c6fe3">&lt;/strong&gt;</ept> and <bpt id="162eb974-d10c-4903-a19f-1b046c95e0bb">&lt;strong&gt;</bpt>AZURE\_STORAGE\_ACCESS\_KEY<ept id="162eb974-d10c-4903-a19f-1b046c95e0bb">&lt;/strong&gt;</ept> 
+for information required to connect to your Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="52f8eaff-db39-4635-b3e3-e2efe4d5885d" xml:space="preserve">
+          <source>If these environment variables are not set, you must specify the account information before using <bpt id="a321f880-0f7b-448a-9848-573bbd8a7be9">&lt;strong&gt;</bpt>Azure::TableService<ept id="a321f880-0f7b-448a-9848-573bbd8a7be9">&lt;/strong&gt;</ept> with the following code:</source>
+          <target state="new">If these environment variables are not set, you must specify the account information before using <bpt id="a321f880-0f7b-448a-9848-573bbd8a7be9">&lt;strong&gt;</bpt>Azure::TableService<ept id="a321f880-0f7b-448a-9848-573bbd8a7be9">&lt;/strong&gt;</ept> with the following code:</target>
+        </trans-unit>
+        <trans-unit id="5ce050a1-157f-409f-ab34-a6982e5365b1" xml:space="preserve">
+          <source>To obtain these values:</source>
+          <target state="new">To obtain these values:</target>
+        </trans-unit>
+        <trans-unit id="13db8bbc-fd6f-4ddb-925f-948f6abdfed3" xml:space="preserve">
+          <source>Log into the <bpt id="b9a9ca11-2f68-4bb6-aef3-80b8a1a20742">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="b9a9ca11-2f68-4bb6-aef3-80b8a1a20742">&lt;/linkText&gt;</ept><bpt id="b9a9ca11-2f68-4bb6-aef3-80b8a1a20742">&lt;title&gt;</bpt><ept id="b9a9ca11-2f68-4bb6-aef3-80b8a1a20742">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log into the <bpt id="b9a9ca11-2f68-4bb6-aef3-80b8a1a20742">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="b9a9ca11-2f68-4bb6-aef3-80b8a1a20742">&lt;/linkText&gt;</ept><bpt id="b9a9ca11-2f68-4bb6-aef3-80b8a1a20742">&lt;title&gt;</bpt><ept id="b9a9ca11-2f68-4bb6-aef3-80b8a1a20742">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7acd09b-59a9-40de-a8fa-9407643af4d3" xml:space="preserve">
+          <source>Navigate to the storage account you want to use.</source>
+          <target state="new">Navigate to the storage account you want to use.</target>
+        </trans-unit>
+        <trans-unit id="41a4bcbf-f245-44a2-a3e3-ea6c11dc7de9" xml:space="preserve">
+          <source>Click <bpt id="e07260bb-c7a5-4d2c-9863-dd09aedfd69c">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="e07260bb-c7a5-4d2c-9863-dd09aedfd69c">&lt;/strong&gt;</ept> at the bottom of the navigation pane.</source>
+          <target state="new">Click <bpt id="e07260bb-c7a5-4d2c-9863-dd09aedfd69c">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="e07260bb-c7a5-4d2c-9863-dd09aedfd69c">&lt;/strong&gt;</ept> at the bottom of the navigation pane.</target>
+        </trans-unit>
+        <trans-unit id="52e0f2b6-3cbe-4773-a4b6-ed7890a054d5" xml:space="preserve">
+          <source>In the pop up dialog, you will see the storage account name, primary access key and secondary access key.</source>
+          <target state="new">In the pop up dialog, you will see the storage account name, primary access key and secondary access key.</target>
+        </trans-unit>
+        <trans-unit id="aac73250-0895-442e-864d-fea6fed3e602" xml:space="preserve">
+          <source>For access key, you can either the primary one or the secondary one.</source>
+          <target state="new">For access key, you can either the primary one or the secondary one.</target>
+        </trans-unit>
+        <trans-unit id="cd264f8d-353e-4d4d-bb1e-704dad3da68d" xml:space="preserve">
+          <source>The <bpt id="8e690c09-41ed-4b89-8e73-0602a2fd610d">&lt;strong&gt;</bpt>Azure::TableService<ept id="8e690c09-41ed-4b89-8e73-0602a2fd610d">&lt;/strong&gt;</ept> object lets you work with tabls and entities.</source>
+          <target state="new">The <bpt id="8e690c09-41ed-4b89-8e73-0602a2fd610d">&lt;strong&gt;</bpt>Azure::TableService<ept id="8e690c09-41ed-4b89-8e73-0602a2fd610d">&lt;/strong&gt;</ept> object lets you work with tabls and entities.</target>
+        </trans-unit>
+        <trans-unit id="126f79db-6f76-4183-8077-0a5cbc252514" xml:space="preserve">
+          <source>To create a table, use the <bpt id="1bc17619-c651-4e94-8ee8-c17f26185a66">&lt;strong&gt;</bpt>create\_table()<ept id="1bc17619-c651-4e94-8ee8-c17f26185a66">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To create a table, use the <bpt id="1bc17619-c651-4e94-8ee8-c17f26185a66">&lt;strong&gt;</bpt>create\_table()<ept id="1bc17619-c651-4e94-8ee8-c17f26185a66">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="55a32587-7034-4c12-bfa9-8c13cfb19e8a" xml:space="preserve">
+          <source>The following example creates a table or print out the error if there is any.</source>
+          <target state="new">The following example creates a table or print out the error if there is any.</target>
+        </trans-unit>
+        <trans-unit id="b965ae05-4190-4eaf-9ef4-e0161d13207a" xml:space="preserve">
+          <source>To add an entity, first create a hash object that defines your entity properties.</source>
+          <target state="new">To add an entity, first create a hash object that defines your entity properties.</target>
+        </trans-unit>
+        <trans-unit id="c57f0032-05ee-4161-a174-6024aa8a8159" xml:space="preserve">
+          <source>Note that for every entity you mustspecify a <bpt id="94dc5697-359d-425b-8ce7-5d36c3d56ed4">&lt;strong&gt;</bpt>PartitionKey<ept id="94dc5697-359d-425b-8ce7-5d36c3d56ed4">&lt;/strong&gt;</ept> and <bpt id="6fe24414-a4c5-42b4-b864-275369b3f1cd">&lt;strong&gt;</bpt>RowKey<ept id="6fe24414-a4c5-42b4-b864-275369b3f1cd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Note that for every entity you mustspecify a <bpt id="94dc5697-359d-425b-8ce7-5d36c3d56ed4">&lt;strong&gt;</bpt>PartitionKey<ept id="94dc5697-359d-425b-8ce7-5d36c3d56ed4">&lt;/strong&gt;</ept> and <bpt id="6fe24414-a4c5-42b4-b864-275369b3f1cd">&lt;strong&gt;</bpt>RowKey<ept id="6fe24414-a4c5-42b4-b864-275369b3f1cd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91e63ee6-1a04-4b62-b93d-73cba2cec76d" xml:space="preserve">
+          <source>These are the unique identifiers of your entities, and are values that can be queried much faster than your other properties.</source>
+          <target state="new">These are the unique identifiers of your entities, and are values that can be queried much faster than your other properties.</target>
+        </trans-unit>
+        <trans-unit id="e4e9bd24-64dd-4370-a847-8b8edde95ab7" xml:space="preserve">
+          <source>Azure Storage Service uses <bpt id="3916d98d-e95c-4d94-82d0-2cce43d3b4db">&lt;strong&gt;</bpt>PartitionKey<ept id="3916d98d-e95c-4d94-82d0-2cce43d3b4db">&lt;/strong&gt;</ept> to automatically distribute the table's entities over many storage nodes.</source>
+          <target state="new">Azure Storage Service uses <bpt id="3916d98d-e95c-4d94-82d0-2cce43d3b4db">&lt;strong&gt;</bpt>PartitionKey<ept id="3916d98d-e95c-4d94-82d0-2cce43d3b4db">&lt;/strong&gt;</ept> to automatically distribute the table's entities over many storage nodes.</target>
+        </trans-unit>
+        <trans-unit id="84e29a40-69b4-404f-a25c-beb44c134cfd" xml:space="preserve">
+          <source>Entities with the same <bpt id="4f512493-5ade-4d0c-add0-c9b2973da90e">&lt;strong&gt;</bpt>PartitionKey<ept id="4f512493-5ade-4d0c-add0-c9b2973da90e">&lt;/strong&gt;</ept> are stored on the same node.</source>
+          <target state="new">Entities with the same <bpt id="4f512493-5ade-4d0c-add0-c9b2973da90e">&lt;strong&gt;</bpt>PartitionKey<ept id="4f512493-5ade-4d0c-add0-c9b2973da90e">&lt;/strong&gt;</ept> are stored on the same node.</target>
+        </trans-unit>
+        <trans-unit id="f10f5db4-02fc-47ab-b0ee-a4cfba7794c2" xml:space="preserve">
+          <source>The <bpt id="15883557-5afe-490d-b164-fe86dd7562d2">&lt;strong&gt;</bpt>RowKey<ept id="15883557-5afe-490d-b164-fe86dd7562d2">&lt;/strong&gt;</ept> is the unique ID of the entity within the partition it belongs to.</source>
+          <target state="new">The <bpt id="15883557-5afe-490d-b164-fe86dd7562d2">&lt;strong&gt;</bpt>RowKey<ept id="15883557-5afe-490d-b164-fe86dd7562d2">&lt;/strong&gt;</ept> is the unique ID of the entity within the partition it belongs to.</target>
+        </trans-unit>
+        <trans-unit id="c46a6b4a-1225-4934-b5fd-59fd1c298228" xml:space="preserve">
+          <source>There are multiple methods available to update an existing entity:</source>
+          <target state="new">There are multiple methods available to update an existing entity:</target>
+        </trans-unit>
+        <trans-unit id="cd89e6a5-7260-4b76-b96e-87ac83a61656" xml:space="preserve">
+          <source><bpt id="403de65e-d26a-4103-a641-52527a7872a0">&lt;strong&gt;</bpt>update\_entity():<ept id="403de65e-d26a-4103-a641-52527a7872a0">&lt;/strong&gt;</ept> Update an existing entity by replacing it.</source>
+          <target state="new"><bpt id="403de65e-d26a-4103-a641-52527a7872a0">&lt;strong&gt;</bpt>update\_entity():<ept id="403de65e-d26a-4103-a641-52527a7872a0">&lt;/strong&gt;</ept> Update an existing entity by replacing it.</target>
+        </trans-unit>
+        <trans-unit id="0dd8d883-0a07-4abc-b20f-7f5695810383" xml:space="preserve">
+          <source><bpt id="41d5e903-f7db-48ea-b528-44b38e655798">&lt;strong&gt;</bpt>merge\_entity():<ept id="41d5e903-f7db-48ea-b528-44b38e655798">&lt;/strong&gt;</ept> Updates an existing entity by merging new property values into the existing entity.</source>
+          <target state="new"><bpt id="41d5e903-f7db-48ea-b528-44b38e655798">&lt;strong&gt;</bpt>merge\_entity():<ept id="41d5e903-f7db-48ea-b528-44b38e655798">&lt;/strong&gt;</ept> Updates an existing entity by merging new property values into the existing entity.</target>
+        </trans-unit>
+        <trans-unit id="93e9c964-c4a3-4172-9a23-4e58fdf64beb" xml:space="preserve">
+          <source><bpt id="50311266-7cce-4518-8065-27669cf04cc5">&lt;strong&gt;</bpt>insert\_or\_merge\_entity():<ept id="50311266-7cce-4518-8065-27669cf04cc5">&lt;/strong&gt;</ept> Updates an existing entity by replacing it.</source>
+          <target state="new"><bpt id="50311266-7cce-4518-8065-27669cf04cc5">&lt;strong&gt;</bpt>insert\_or\_merge\_entity():<ept id="50311266-7cce-4518-8065-27669cf04cc5">&lt;/strong&gt;</ept> Updates an existing entity by replacing it.</target>
+        </trans-unit>
+        <trans-unit id="db34a70b-b45c-4598-83d3-0ffa3e6757ce" xml:space="preserve">
+          <source>If no entity exists, a new one will be inserted:</source>
+          <target state="new">If no entity exists, a new one will be inserted:</target>
+        </trans-unit>
+        <trans-unit id="f0f2d8c0-60f4-464d-ba2a-b4348c37a12c" xml:space="preserve">
+          <source><bpt id="53bf774b-8546-403d-bcd9-45f595c0d827">&lt;strong&gt;</bpt>insert\_or\_replace\_entity():<ept id="53bf774b-8546-403d-bcd9-45f595c0d827">&lt;/strong&gt;</ept> Updates an existing entity by merging new property values into the existing entity.</source>
+          <target state="new"><bpt id="53bf774b-8546-403d-bcd9-45f595c0d827">&lt;strong&gt;</bpt>insert\_or\_replace\_entity():<ept id="53bf774b-8546-403d-bcd9-45f595c0d827">&lt;/strong&gt;</ept> Updates an existing entity by merging new property values into the existing entity.</target>
+        </trans-unit>
+        <trans-unit id="8946337d-4052-488b-8a1b-f58f5a8192ed" xml:space="preserve">
+          <source>If no entity exists, a new one will be inserted.</source>
+          <target state="new">If no entity exists, a new one will be inserted.</target>
+        </trans-unit>
+        <trans-unit id="6eba3b62-6bd3-4991-96dd-37d42fe2107d" xml:space="preserve">
+          <source>The following example demonstrates updating an entity using <bpt id="e1a89bd8-cc98-40cc-afce-08322015d156">&lt;strong&gt;</bpt>update\_entity()<ept id="e1a89bd8-cc98-40cc-afce-08322015d156">&lt;/strong&gt;</ept>:</source>
+          <target state="new">The following example demonstrates updating an entity using <bpt id="e1a89bd8-cc98-40cc-afce-08322015d156">&lt;strong&gt;</bpt>update\_entity()<ept id="e1a89bd8-cc98-40cc-afce-08322015d156">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="cda7fc4f-d65d-42a4-9284-cb64e0fc6d1f" xml:space="preserve">
+          <source>With <bpt id="63851894-a4e6-4c29-904e-1de635d1b282">&lt;strong&gt;</bpt>update\_entity()<ept id="63851894-a4e6-4c29-904e-1de635d1b282">&lt;/strong&gt;</ept> and <bpt id="a1a26f04-ff06-404b-aa60-6c457d4022e6">&lt;strong&gt;</bpt>merge\_entity()<ept id="a1a26f04-ff06-404b-aa60-6c457d4022e6">&lt;/strong&gt;</ept>, if the entity that is being updated doesn't exist then the update operation will fail.</source>
+          <target state="new">With <bpt id="63851894-a4e6-4c29-904e-1de635d1b282">&lt;strong&gt;</bpt>update\_entity()<ept id="63851894-a4e6-4c29-904e-1de635d1b282">&lt;/strong&gt;</ept> and <bpt id="a1a26f04-ff06-404b-aa60-6c457d4022e6">&lt;strong&gt;</bpt>merge\_entity()<ept id="a1a26f04-ff06-404b-aa60-6c457d4022e6">&lt;/strong&gt;</ept>, if the entity that is being updated doesn't exist then the update operation will fail.</target>
+        </trans-unit>
+        <trans-unit id="5bab7f76-1f96-425e-bc8c-5cbbf29b43f8" xml:space="preserve">
+          <source>Therefore if you wish to store an entity regardless of whether it already exists, you should instead use <bpt id="f1edbe24-e48e-4007-a9a7-2da18562edb9">&lt;strong&gt;</bpt>insert\_or\_replace\_entity()<ept id="f1edbe24-e48e-4007-a9a7-2da18562edb9">&lt;/strong&gt;</ept> or <bpt id="8658ffcf-2375-49dc-9a6b-60901ee475f2">&lt;strong&gt;</bpt>insert\_or\_merge\_entity()<ept id="8658ffcf-2375-49dc-9a6b-60901ee475f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Therefore if you wish to store an entity regardless of whether it already exists, you should instead use <bpt id="f1edbe24-e48e-4007-a9a7-2da18562edb9">&lt;strong&gt;</bpt>insert\_or\_replace\_entity()<ept id="f1edbe24-e48e-4007-a9a7-2da18562edb9">&lt;/strong&gt;</ept> or <bpt id="8658ffcf-2375-49dc-9a6b-60901ee475f2">&lt;strong&gt;</bpt>insert\_or\_merge\_entity()<ept id="8658ffcf-2375-49dc-9a6b-60901ee475f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16c244b7-6e03-4e3d-b17e-fb984f31c072" xml:space="preserve">
+          <source>Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server.</source>
+          <target state="new">Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server.</target>
+        </trans-unit>
+        <trans-unit id="546ca876-3b65-4704-89a0-7751138af115" xml:space="preserve">
+          <source>To accomplish that, you first create a <bpt id="b8a75ee8-d5e6-4e00-99ca-914c7bc01f13">&lt;strong&gt;</bpt>Batch<ept id="b8a75ee8-d5e6-4e00-99ca-914c7bc01f13">&lt;/strong&gt;</ept> object and then use the <bpt id="c7340d42-4671-4c73-b9b3-8ed065010c04">&lt;strong&gt;</bpt>execute\_batch()<ept id="c7340d42-4671-4c73-b9b3-8ed065010c04">&lt;/strong&gt;</ept> method on <bpt id="d144a170-d1e7-467c-85b3-2fa189fcdc3c">&lt;strong&gt;</bpt>TableService<ept id="d144a170-d1e7-467c-85b3-2fa189fcdc3c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To accomplish that, you first create a <bpt id="b8a75ee8-d5e6-4e00-99ca-914c7bc01f13">&lt;strong&gt;</bpt>Batch<ept id="b8a75ee8-d5e6-4e00-99ca-914c7bc01f13">&lt;/strong&gt;</ept> object and then use the <bpt id="c7340d42-4671-4c73-b9b3-8ed065010c04">&lt;strong&gt;</bpt>execute\_batch()<ept id="c7340d42-4671-4c73-b9b3-8ed065010c04">&lt;/strong&gt;</ept> method on <bpt id="d144a170-d1e7-467c-85b3-2fa189fcdc3c">&lt;strong&gt;</bpt>TableService<ept id="d144a170-d1e7-467c-85b3-2fa189fcdc3c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c45ffbc-0e22-4d11-a1f1-1086cc2c19bd" xml:space="preserve">
+          <source>The following example demonstrates submitting two entities with RowKey 2 and 3 in a batch.</source>
+          <target state="new">The following example demonstrates submitting two entities with RowKey 2 and 3 in a batch.</target>
+        </trans-unit>
+        <trans-unit id="23f24536-af8f-4f43-b5f8-0c9046b53a96" xml:space="preserve">
+          <source>Notice that it only works for entities with the same PartitionKey.</source>
+          <target state="new">Notice that it only works for entities with the same PartitionKey.</target>
+        </trans-unit>
+        <trans-unit id="a52b1665-32cf-4825-89d2-f6fb5b90d8a2" xml:space="preserve">
+          <source>To query an entity in a table, use the <bpt id="f4adb190-d8f9-4fd1-b3b2-3bfd751b8a9b">&lt;strong&gt;</bpt>get\_entity()<ept id="f4adb190-d8f9-4fd1-b3b2-3bfd751b8a9b">&lt;/strong&gt;</ept> method, by passing the table name, <bpt id="a868744e-512e-4488-b436-be1cf32eb2e7">&lt;strong&gt;</bpt>PartitionKey<ept id="a868744e-512e-4488-b436-be1cf32eb2e7">&lt;/strong&gt;</ept> and <bpt id="727045bd-efb1-47d6-b805-753918658738">&lt;strong&gt;</bpt>RowKey<ept id="727045bd-efb1-47d6-b805-753918658738">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To query an entity in a table, use the <bpt id="f4adb190-d8f9-4fd1-b3b2-3bfd751b8a9b">&lt;strong&gt;</bpt>get\_entity()<ept id="f4adb190-d8f9-4fd1-b3b2-3bfd751b8a9b">&lt;/strong&gt;</ept> method, by passing the table name, <bpt id="a868744e-512e-4488-b436-be1cf32eb2e7">&lt;strong&gt;</bpt>PartitionKey<ept id="a868744e-512e-4488-b436-be1cf32eb2e7">&lt;/strong&gt;</ept> and <bpt id="727045bd-efb1-47d6-b805-753918658738">&lt;strong&gt;</bpt>RowKey<ept id="727045bd-efb1-47d6-b805-753918658738">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="648e1281-7b9e-4f7c-aa33-926475eef623" xml:space="preserve">
+          <source>To query a set of entities in a table, create a query hash object and use the <bpt id="a9ece89e-5587-4eb6-8108-c42a3b154644">&lt;strong&gt;</bpt>query\_entities()<ept id="a9ece89e-5587-4eb6-8108-c42a3b154644">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To query a set of entities in a table, create a query hash object and use the <bpt id="a9ece89e-5587-4eb6-8108-c42a3b154644">&lt;strong&gt;</bpt>query\_entities()<ept id="a9ece89e-5587-4eb6-8108-c42a3b154644">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="18b473c3-2df6-4478-a39c-9077347bb299" xml:space="preserve">
+          <source>The following example demonstrates getting all the entities with the same <bpt id="f3e1785e-ca6c-475c-9779-a859f7733fbd">&lt;strong&gt;</bpt>PartitionKey<ept id="f3e1785e-ca6c-475c-9779-a859f7733fbd">&lt;/strong&gt;</ept>:</source>
+          <target state="new">The following example demonstrates getting all the entities with the same <bpt id="f3e1785e-ca6c-475c-9779-a859f7733fbd">&lt;strong&gt;</bpt>PartitionKey<ept id="f3e1785e-ca6c-475c-9779-a859f7733fbd">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="7e4c6739-6c91-4541-a8f7-9d34956f3988" xml:space="preserve">
+          <source><bpt id="e746edab-4f71-4c4a-b37b-8d9eb5a62519">&lt;strong&gt;</bpt>Notice<ept id="e746edab-4f71-4c4a-b37b-8d9eb5a62519">&lt;/strong&gt;</ept> that if the result set is too large for a single query to return, a continuation token will be returned which you can use to retrieve subsequent pages.</source>
+          <target state="new"><bpt id="e746edab-4f71-4c4a-b37b-8d9eb5a62519">&lt;strong&gt;</bpt>Notice<ept id="e746edab-4f71-4c4a-b37b-8d9eb5a62519">&lt;/strong&gt;</ept> that if the result set is too large for a single query to return, a continuation token will be returned which you can use to retrieve subsequent pages.</target>
+        </trans-unit>
+        <trans-unit id="5b936bab-090d-4fc5-aff9-0c15b49207cd" xml:space="preserve">
+          <source>A query to a table can retrieve just a few properties from an entity.</source>
+          <target state="new">A query to a table can retrieve just a few properties from an entity.</target>
+        </trans-unit>
+        <trans-unit id="707a7998-130e-413a-957e-4ecafcda78ff" xml:space="preserve">
+          <source>This technique, called "projection", reduces bandwidth and can improve query performance, especially for large entities.</source>
+          <target state="new">This technique, called "projection", reduces bandwidth and can improve query performance, especially for large entities.</target>
+        </trans-unit>
+        <trans-unit id="92d1654a-d057-4b6f-8956-3ed795bcf723" xml:space="preserve">
+          <source>Use the select clause and pass the names of the properties you would like to bring over to the client.</source>
+          <target state="new">Use the select clause and pass the names of the properties you would like to bring over to the client.</target>
+        </trans-unit>
+        <trans-unit id="8610094c-71fd-45c3-8942-4652554819b5" xml:space="preserve">
+          <source>To delete an entity, use the <bpt id="e27b2a1e-3a77-4567-846b-9ce32551487b">&lt;strong&gt;</bpt>delete\_entity()<ept id="e27b2a1e-3a77-4567-846b-9ce32551487b">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To delete an entity, use the <bpt id="e27b2a1e-3a77-4567-846b-9ce32551487b">&lt;strong&gt;</bpt>delete\_entity()<ept id="e27b2a1e-3a77-4567-846b-9ce32551487b">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="f7d21ec4-76ab-41d1-8b55-474b1824024a" xml:space="preserve">
+          <source>You need to pas in the name of the table which contains the entity, the PartitionKey and RowKey of the entity.</source>
+          <target state="new">You need to pas in the name of the table which contains the entity, the PartitionKey and RowKey of the entity.</target>
+        </trans-unit>
+        <trans-unit id="d3e1c353-2b25-45cd-8e90-d91fefc5ddfd" xml:space="preserve">
+          <source>To delete a table, use the <bpt id="43489138-ddbe-4692-a615-91edc08ec274">&lt;strong&gt;</bpt>delete\_table()<ept id="43489138-ddbe-4692-a615-91edc08ec274">&lt;/strong&gt;</ept> method and pass in the name of the table you want to delete.</source>
+          <target state="new">To delete a table, use the <bpt id="43489138-ddbe-4692-a615-91edc08ec274">&lt;strong&gt;</bpt>delete\_table()<ept id="43489138-ddbe-4692-a615-91edc08ec274">&lt;/strong&gt;</ept> method and pass in the name of the table you want to delete.</target>
+        </trans-unit>
+        <trans-unit id="44a84268-cc23-482e-b261-25519110afa3" xml:space="preserve">
+          <source>Now that you've learned the basics of table storage, follow these links to learn about more complex storage tasks.</source>
+          <target state="new">Now that you've learned the basics of table storage, follow these links to learn about more complex storage tasks.</target>
+        </trans-unit>
+        <trans-unit id="39307051-a071-4a89-98ba-38f555519d80" xml:space="preserve">
+          <source>See the MSDN Reference: <bpt id="7fae2d61-839e-4088-8c1f-8aa4dfd0b33f">&lt;linkText&gt;</bpt>Azure Storage<ept id="7fae2d61-839e-4088-8c1f-8aa4dfd0b33f">&lt;/linkText&gt;</ept><bpt id="7fae2d61-839e-4088-8c1f-8aa4dfd0b33f">&lt;title&gt;</bpt><ept id="7fae2d61-839e-4088-8c1f-8aa4dfd0b33f">&lt;/title&gt;</ept></source>
+          <target state="new">See the MSDN Reference: <bpt id="7fae2d61-839e-4088-8c1f-8aa4dfd0b33f">&lt;linkText&gt;</bpt>Azure Storage<ept id="7fae2d61-839e-4088-8c1f-8aa4dfd0b33f">&lt;/linkText&gt;</ept><bpt id="7fae2d61-839e-4088-8c1f-8aa4dfd0b33f">&lt;title&gt;</bpt><ept id="7fae2d61-839e-4088-8c1f-8aa4dfd0b33f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="677221b4-fdc0-4718-b324-351e45509119" xml:space="preserve">
+          <source>Visit the <bpt id="09c0bc43-4b83-472a-aadf-17c5d98affa2">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="09c0bc43-4b83-472a-aadf-17c5d98affa2">&lt;/linkText&gt;</ept><bpt id="09c0bc43-4b83-472a-aadf-17c5d98affa2">&lt;title&gt;</bpt><ept id="09c0bc43-4b83-472a-aadf-17c5d98affa2">&lt;/title&gt;</ept></source>
+          <target state="new">Visit the <bpt id="09c0bc43-4b83-472a-aadf-17c5d98affa2">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="09c0bc43-4b83-472a-aadf-17c5d98affa2">&lt;/linkText&gt;</ept><bpt id="09c0bc43-4b83-472a-aadf-17c5d98affa2">&lt;title&gt;</bpt><ept id="09c0bc43-4b83-472a-aadf-17c5d98affa2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b911b664-8e51-4f48-a5be-73897396fe2f" xml:space="preserve">
+          <source>Visit the <bpt id="42ffa2fc-d83b-4fda-baf7-168b379c58a1">&lt;linkText&gt;</bpt>Azure SDK for Ruby<ept id="42ffa2fc-d83b-4fda-baf7-168b379c58a1">&lt;/linkText&gt;</ept><bpt id="42ffa2fc-d83b-4fda-baf7-168b379c58a1">&lt;title&gt;</bpt><ept id="42ffa2fc-d83b-4fda-baf7-168b379c58a1">&lt;/title&gt;</ept> repository on GitHub</source>
+          <target state="new">Visit the <bpt id="42ffa2fc-d83b-4fda-baf7-168b379c58a1">&lt;linkText&gt;</bpt>Azure SDK for Ruby<ept id="42ffa2fc-d83b-4fda-baf7-168b379c58a1">&lt;/linkText&gt;</ept><bpt id="42ffa2fc-d83b-4fda-baf7-168b379c58a1">&lt;title&gt;</bpt><ept id="42ffa2fc-d83b-4fda-baf7-168b379c58a1">&lt;/title&gt;</ept> repository on GitHub</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

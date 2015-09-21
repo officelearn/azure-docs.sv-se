@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1c0e9001-0f97-4398-b358-1e380e815230" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1c0e9001-0f97-4398-b358-1e380e815230" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2cbade8d-71df-4bbe-92a8-115e9c6793d2">
+        <trans-unit id="5f5478a6-f3d8-45ad-b3af-20de9c23f0c4" xml:space="preserve">
+          <source>How to connect classic VNets to ARM VNets in Azure</source>
+          <target state="new">How to connect classic VNets to ARM VNets in Azure</target>
+        </trans-unit>
+        <trans-unit id="05532d0b-c3ae-4f0e-ae42-2cd854790b9f" xml:space="preserve">
+          <source>Learn how to create a VPN connection between classic VNets and new VNets</source>
+          <target state="new">Learn how to create a VPN connection between classic VNets and new VNets</target>
+        </trans-unit>
+        <trans-unit id="2411bb71-7b70-4341-9022-a0aa57a6f732" xml:space="preserve">
+          <source>Azure currently has two management modes: Azure Service Manager (referred to as classic), and Azure Resource Manager (ARM).</source>
+          <target state="new">Azure currently has two management modes: Azure Service Manager (referred to as classic), and Azure Resource Manager (ARM).</target>
+        </trans-unit>
+        <trans-unit id="9d55e57f-2c3e-4a13-b8a4-defd84087fbe" xml:space="preserve">
+          <source>If you have been using Azure for some time, you probably have Azure VMs and instance roles running on a classic VNet.</source>
+          <target state="new">If you have been using Azure for some time, you probably have Azure VMs and instance roles running on a classic VNet.</target>
+        </trans-unit>
+        <trans-unit id="e2c51422-321f-4b9d-b609-69075ec19a42" xml:space="preserve">
+          <source>And your newer VMs and role instances may be running on a VNet created in ARM.</source>
+          <target state="new">And your newer VMs and role instances may be running on a VNet created in ARM.</target>
+        </trans-unit>
+        <trans-unit id="618b2790-0a09-426d-beae-3ba34bc437b7" xml:space="preserve">
+          <source>In such situations, you will want to ensure the new infrastructure is able to communicate with your classic resources.</source>
+          <target state="new">In such situations, you will want to ensure the new infrastructure is able to communicate with your classic resources.</target>
+        </trans-unit>
+        <trans-unit id="e06a0a41-39d4-4924-8144-8ee83d953e06" xml:space="preserve">
+          <source>You can do so by creating a VPN connection between the two VNets.</source>
+          <target state="new">You can do so by creating a VPN connection between the two VNets.</target>
+        </trans-unit>
+        <trans-unit id="c92e9817-7873-40a9-b9be-6ac667c07748" xml:space="preserve">
+          <source>In this article, you will learn how to create a site-to-site (S2S) VPN connection between a classic VNet and an ARM VNet.</source>
+          <target state="new">In this article, you will learn how to create a site-to-site (S2S) VPN connection between a classic VNet and an ARM VNet.</target>
+        </trans-unit>
+        <trans-unit id="3ffa329a-3620-42a4-bf98-73ccb5c7661a" xml:space="preserve">
+          <source>This article assumes you already have classic VNets, and ARM VNets, and that you are familiar with configuring a S2S VPN connection for classic VNets.</source>
+          <target state="new">This article assumes you already have classic VNets, and ARM VNets, and that you are familiar with configuring a S2S VPN connection for classic VNets.</target>
+        </trans-unit>
+        <trans-unit id="9d4c22af-4ac1-4f6e-9c64-dabe50bef213" xml:space="preserve">
+          <source>For a detailed end-to-end solution on S2S VPN connectivity between classic and ARM VNets, visit <bpt id="52c70eeb-5ef8-4333-9531-25442ea1c892">&lt;linkText&gt;</bpt>Solution Guide - Connect a classic VNet to and ARM VNet by using a S2S VPN<ept id="52c70eeb-5ef8-4333-9531-25442ea1c892">&lt;/linkText&gt;</ept><bpt id="52c70eeb-5ef8-4333-9531-25442ea1c892">&lt;title&gt;</bpt><ept id="52c70eeb-5ef8-4333-9531-25442ea1c892">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a detailed end-to-end solution on S2S VPN connectivity between classic and ARM VNets, visit <bpt id="52c70eeb-5ef8-4333-9531-25442ea1c892">&lt;linkText&gt;</bpt>Solution Guide - Connect a classic VNet to and ARM VNet by using a S2S VPN<ept id="52c70eeb-5ef8-4333-9531-25442ea1c892">&lt;/linkText&gt;</ept><bpt id="52c70eeb-5ef8-4333-9531-25442ea1c892">&lt;title&gt;</bpt><ept id="52c70eeb-5ef8-4333-9531-25442ea1c892">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a6d8869-374f-4686-b183-a7da23bec5bc" xml:space="preserve">
+          <source>You can see an overview of tasks to be done to create a S2S VPN connection between a classic VNet and an ARM VNet by using Azure gateways below.</source>
+          <target state="new">You can see an overview of tasks to be done to create a S2S VPN connection between a classic VNet and an ARM VNet by using Azure gateways below.</target>
+        </trans-unit>
+        <trans-unit id="fcbde971-5416-455a-84b1-6b58574ec0e9" xml:space="preserve">
+          <source>1 - <bpt id="e651303f-5e76-49f6-81c5-c795bc1a3c29">&lt;linkText&gt;</bpt>Create a VPN gateway for the classic VNet<ept id="e651303f-5e76-49f6-81c5-c795bc1a3c29">&lt;/linkText&gt;</ept><bpt id="e651303f-5e76-49f6-81c5-c795bc1a3c29">&lt;title&gt;</bpt><ept id="e651303f-5e76-49f6-81c5-c795bc1a3c29">&lt;/title&gt;</ept></source>
+          <target state="new">1 - <bpt id="e651303f-5e76-49f6-81c5-c795bc1a3c29">&lt;linkText&gt;</bpt>Create a VPN gateway for the classic VNet<ept id="e651303f-5e76-49f6-81c5-c795bc1a3c29">&lt;/linkText&gt;</ept><bpt id="e651303f-5e76-49f6-81c5-c795bc1a3c29">&lt;title&gt;</bpt><ept id="e651303f-5e76-49f6-81c5-c795bc1a3c29">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3d8ebdd-34fb-4124-8247-7b127896c353" xml:space="preserve">
+          <source>2 - <bpt id="77c9a303-2b7b-4adf-9d96-7a2eb5959e5f">&lt;linkText&gt;</bpt>Create a VPN gateway for the ARM VNet<ept id="77c9a303-2b7b-4adf-9d96-7a2eb5959e5f">&lt;/linkText&gt;</ept><bpt id="77c9a303-2b7b-4adf-9d96-7a2eb5959e5f">&lt;title&gt;</bpt><ept id="77c9a303-2b7b-4adf-9d96-7a2eb5959e5f">&lt;/title&gt;</ept></source>
+          <target state="new">2 - <bpt id="77c9a303-2b7b-4adf-9d96-7a2eb5959e5f">&lt;linkText&gt;</bpt>Create a VPN gateway for the ARM VNet<ept id="77c9a303-2b7b-4adf-9d96-7a2eb5959e5f">&lt;/linkText&gt;</ept><bpt id="77c9a303-2b7b-4adf-9d96-7a2eb5959e5f">&lt;title&gt;</bpt><ept id="77c9a303-2b7b-4adf-9d96-7a2eb5959e5f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49bd1e63-486a-4916-896b-a1fb50233ff8" xml:space="preserve">
+          <source>3 - <bpt id="10ef744b-6c35-4d56-8140-66af7803fff0">&lt;linkText&gt;</bpt>Create a connection between the gateways<ept id="10ef744b-6c35-4d56-8140-66af7803fff0">&lt;/linkText&gt;</ept><bpt id="10ef744b-6c35-4d56-8140-66af7803fff0">&lt;title&gt;</bpt><ept id="10ef744b-6c35-4d56-8140-66af7803fff0">&lt;/title&gt;</ept></source>
+          <target state="new">3 - <bpt id="10ef744b-6c35-4d56-8140-66af7803fff0">&lt;linkText&gt;</bpt>Create a connection between the gateways<ept id="10ef744b-6c35-4d56-8140-66af7803fff0">&lt;/linkText&gt;</ept><bpt id="10ef744b-6c35-4d56-8140-66af7803fff0">&lt;title&gt;</bpt><ept id="10ef744b-6c35-4d56-8140-66af7803fff0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2763473-0069-4ab9-9b81-30f88d1d8cb2" xml:space="preserve">
+          <source>To create the VPN gateway for the classic VNet, follow the instructions below.</source>
+          <target state="new">To create the VPN gateway for the classic VNet, follow the instructions below.</target>
+        </trans-unit>
+        <trans-unit id="f8d85330-c648-4940-a94f-bc59e26e49b2" xml:space="preserve">
+          <source>Open the classic portal from https://manage.windowsazure.com, and enter your credentials, if necessary.</source>
+          <target state="new">Open the classic portal from https://manage.windowsazure.com, and enter your credentials, if necessary.</target>
+        </trans-unit>
+        <trans-unit id="395c40e4-34de-45d8-97ca-f365ef836f8f" xml:space="preserve">
+          <source>On the bottom left hand corner of the screen, click on the <bpt id="f835059f-6c96-4380-bc9d-a28356c874d6">&lt;strong&gt;</bpt>NEW<ept id="f835059f-6c96-4380-bc9d-a28356c874d6">&lt;/strong&gt;</ept> button, then click <bpt id="28f1cc31-42fe-4346-8477-8a0c2c573993">&lt;strong&gt;</bpt>NETWORK SERVICES<ept id="28f1cc31-42fe-4346-8477-8a0c2c573993">&lt;/strong&gt;</ept>, then click <bpt id="11aab50e-f579-47c5-8b84-131285d0b43a">&lt;strong&gt;</bpt>VIRTUAL NETWORKS<ept id="11aab50e-f579-47c5-8b84-131285d0b43a">&lt;/strong&gt;</ept>, and then click <bpt id="0b561798-4937-4908-a78c-70fed62f5ae8">&lt;strong&gt;</bpt>ADD LOCAL NETWORK<ept id="0b561798-4937-4908-a78c-70fed62f5ae8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the bottom left hand corner of the screen, click on the <bpt id="f835059f-6c96-4380-bc9d-a28356c874d6">&lt;strong&gt;</bpt>NEW<ept id="f835059f-6c96-4380-bc9d-a28356c874d6">&lt;/strong&gt;</ept> button, then click <bpt id="28f1cc31-42fe-4346-8477-8a0c2c573993">&lt;strong&gt;</bpt>NETWORK SERVICES<ept id="28f1cc31-42fe-4346-8477-8a0c2c573993">&lt;/strong&gt;</ept>, then click <bpt id="11aab50e-f579-47c5-8b84-131285d0b43a">&lt;strong&gt;</bpt>VIRTUAL NETWORKS<ept id="11aab50e-f579-47c5-8b84-131285d0b43a">&lt;/strong&gt;</ept>, and then click <bpt id="0b561798-4937-4908-a78c-70fed62f5ae8">&lt;strong&gt;</bpt>ADD LOCAL NETWORK<ept id="0b561798-4937-4908-a78c-70fed62f5ae8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b224868-2e5d-4a53-bc76-5e68e821c339" xml:space="preserve">
+          <source>In the <bpt id="16f9c62b-7d42-4f4c-b6ba-57573c53224a">&lt;strong&gt;</bpt>Specify your local network details<ept id="16f9c62b-7d42-4f4c-b6ba-57573c53224a">&lt;/strong&gt;</ept> window, type a name for the ARM VNet you want to connect to, and then on the bottom right hand corner of the window, click on the arrow button.</source>
+          <target state="new">In the <bpt id="16f9c62b-7d42-4f4c-b6ba-57573c53224a">&lt;strong&gt;</bpt>Specify your local network details<ept id="16f9c62b-7d42-4f4c-b6ba-57573c53224a">&lt;/strong&gt;</ept> window, type a name for the ARM VNet you want to connect to, and then on the bottom right hand corner of the window, click on the arrow button.</target>
+        </trans-unit>
+        <trans-unit id="68317a08-8eb7-4656-bb66-f9a6ad077fa4" xml:space="preserve">
+          <source>In the address space <bpt id="6f8f3c77-d786-4ae3-a3d9-e21f4759419a">&lt;strong&gt;</bpt>STARTING IP<ept id="6f8f3c77-d786-4ae3-a3d9-e21f4759419a">&lt;/strong&gt;</ept> text box, type the network prefix for the ARM VNet you want to connect to.</source>
+          <target state="new">In the address space <bpt id="6f8f3c77-d786-4ae3-a3d9-e21f4759419a">&lt;strong&gt;</bpt>STARTING IP<ept id="6f8f3c77-d786-4ae3-a3d9-e21f4759419a">&lt;/strong&gt;</ept> text box, type the network prefix for the ARM VNet you want to connect to.</target>
+        </trans-unit>
+        <trans-unit id="b7a11e1c-ef31-413d-8ff7-9e992232b555" xml:space="preserve">
+          <source>In the <bpt id="e7b0ee2e-d1c4-4432-950e-0732ee7be6ec">&lt;strong&gt;</bpt>CIDR (ADDRESS COUNT)<ept id="e7b0ee2e-d1c4-4432-950e-0732ee7be6ec">&lt;/strong&gt;</ept> drop down, select the number of bits used for the network portion of the CIDR block used by the ARM VNet you want to connect to.</source>
+          <target state="new">In the <bpt id="e7b0ee2e-d1c4-4432-950e-0732ee7be6ec">&lt;strong&gt;</bpt>CIDR (ADDRESS COUNT)<ept id="e7b0ee2e-d1c4-4432-950e-0732ee7be6ec">&lt;/strong&gt;</ept> drop down, select the number of bits used for the network portion of the CIDR block used by the ARM VNet you want to connect to.</target>
+        </trans-unit>
+        <trans-unit id="7fd2984d-115c-464f-a077-cc764613e4c1" xml:space="preserve">
+          <source>In <bpt id="6e559f48-ab11-440e-9b02-4009ea3fc0ea">&lt;strong&gt;</bpt>VPN DEVICE IP ADDRESS (OPTIONAL)<ept id="6e559f48-ab11-440e-9b02-4009ea3fc0ea">&lt;/strong&gt;</ept>, type any valid public IP address.</source>
+          <target state="new">In <bpt id="6e559f48-ab11-440e-9b02-4009ea3fc0ea">&lt;strong&gt;</bpt>VPN DEVICE IP ADDRESS (OPTIONAL)<ept id="6e559f48-ab11-440e-9b02-4009ea3fc0ea">&lt;/strong&gt;</ept>, type any valid public IP address.</target>
+        </trans-unit>
+        <trans-unit id="94818853-a399-451c-98e0-8eb8d30be6f0" xml:space="preserve">
+          <source>We will change this IP address later.</source>
+          <target state="new">We will change this IP address later.</target>
+        </trans-unit>
+        <trans-unit id="e9335eb6-cd7e-4ae3-8ed0-226ed5ae81a0" xml:space="preserve">
+          <source>Then click on the checkmark button on the bottom right of the screen.</source>
+          <target state="new">Then click on the checkmark button on the bottom right of the screen.</target>
+        </trans-unit>
+        <trans-unit id="37b8fef9-0090-4e05-9ddd-379e4cee8882" xml:space="preserve">
+          <source>The figure below shows sample settings for this page.</source>
+          <target state="new">The figure below shows sample settings for this page.</target>
+        </trans-unit>
+        <trans-unit id="03654a24-20e6-471f-b56e-4f0cfbc03267" xml:space="preserve">
+          <source><bpt id="23f5b844-8cbb-454c-9bcc-297f029cb7c0">&lt;linkText&gt;</bpt>Local netowrk settings<ept id="23f5b844-8cbb-454c-9bcc-297f029cb7c0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23f5b844-8cbb-454c-9bcc-297f029cb7c0">&lt;linkText&gt;</bpt>Local netowrk settings<ept id="23f5b844-8cbb-454c-9bcc-297f029cb7c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db63e58e-3e97-4a1c-84a2-a571e7ed120a" xml:space="preserve">
+          <source>On the <bpt id="296f280d-d4de-43d5-adbd-3760c4b236cf">&lt;strong&gt;</bpt>networks<ept id="296f280d-d4de-43d5-adbd-3760c4b236cf">&lt;/strong&gt;</ept> page, click on <bpt id="9f92586d-45eb-4a28-8465-826657597d6a">&lt;strong&gt;</bpt>VIRTUAL NETWORKS<ept id="9f92586d-45eb-4a28-8465-826657597d6a">&lt;/strong&gt;</ept>, then click on your classic VNet, and then click on <bpt id="6b06c8d6-662c-471c-b985-53b5277a1aae">&lt;strong&gt;</bpt>CONFIGURE<ept id="6b06c8d6-662c-471c-b985-53b5277a1aae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="296f280d-d4de-43d5-adbd-3760c4b236cf">&lt;strong&gt;</bpt>networks<ept id="296f280d-d4de-43d5-adbd-3760c4b236cf">&lt;/strong&gt;</ept> page, click on <bpt id="9f92586d-45eb-4a28-8465-826657597d6a">&lt;strong&gt;</bpt>VIRTUAL NETWORKS<ept id="9f92586d-45eb-4a28-8465-826657597d6a">&lt;/strong&gt;</ept>, then click on your classic VNet, and then click on <bpt id="6b06c8d6-662c-471c-b985-53b5277a1aae">&lt;strong&gt;</bpt>CONFIGURE<ept id="6b06c8d6-662c-471c-b985-53b5277a1aae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31b557e4-d6b0-41ac-8dcf-9be2aa5c4dc7" xml:space="preserve">
+          <source>Under <bpt id="70c9c4a9-2fa3-4847-8e1d-3754f8a9e182">&lt;strong&gt;</bpt>site-to-site connectivity<ept id="70c9c4a9-2fa3-4847-8e1d-3754f8a9e182">&lt;/strong&gt;</ept> enable the <bpt id="6adf2fbe-8be0-4a4c-8b43-026dd9cfd459">&lt;strong&gt;</bpt>connect to the local network<ept id="6adf2fbe-8be0-4a4c-8b43-026dd9cfd459">&lt;/strong&gt;</ept> checkbox.</source>
+          <target state="new">Under <bpt id="70c9c4a9-2fa3-4847-8e1d-3754f8a9e182">&lt;strong&gt;</bpt>site-to-site connectivity<ept id="70c9c4a9-2fa3-4847-8e1d-3754f8a9e182">&lt;/strong&gt;</ept> enable the <bpt id="6adf2fbe-8be0-4a4c-8b43-026dd9cfd459">&lt;strong&gt;</bpt>connect to the local network<ept id="6adf2fbe-8be0-4a4c-8b43-026dd9cfd459">&lt;/strong&gt;</ept> checkbox.</target>
+        </trans-unit>
+        <trans-unit id="974696cc-142d-4461-8e41-f3ac7bbe9856" xml:space="preserve">
+          <source>Select the local network you created in step 4 from the list of available networks from the <bpt id="c6ac0bb2-b4b0-4d1d-bcb8-5d483a672c95">&lt;strong&gt;</bpt>LOCAL NETWORK<ept id="c6ac0bb2-b4b0-4d1d-bcb8-5d483a672c95">&lt;/strong&gt;</ept> drop down, and then click <bpt id="62e4008d-27bc-492e-a9de-d22897c8126e">&lt;strong&gt;</bpt>SAVE<ept id="62e4008d-27bc-492e-a9de-d22897c8126e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the local network you created in step 4 from the list of available networks from the <bpt id="c6ac0bb2-b4b0-4d1d-bcb8-5d483a672c95">&lt;strong&gt;</bpt>LOCAL NETWORK<ept id="c6ac0bb2-b4b0-4d1d-bcb8-5d483a672c95">&lt;/strong&gt;</ept> drop down, and then click <bpt id="62e4008d-27bc-492e-a9de-d22897c8126e">&lt;strong&gt;</bpt>SAVE<ept id="62e4008d-27bc-492e-a9de-d22897c8126e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="983b5cbd-be9d-4629-8f9b-2bd12be4228c" xml:space="preserve">
+          <source>Once the settings are saved, click on <bpt id="de81966e-36b3-468d-85f7-d091c02f4fbc">&lt;strong&gt;</bpt>DASHBOARD<ept id="de81966e-36b3-468d-85f7-d091c02f4fbc">&lt;/strong&gt;</ept>, then on the bottom of the page, click <bpt id="6e8818e3-a382-454b-89d8-2f42eadb319b">&lt;strong&gt;</bpt>CREATE GATEWAY<ept id="6e8818e3-a382-454b-89d8-2f42eadb319b">&lt;/strong&gt;</ept>, then click <bpt id="140a84a2-33e6-4eb6-a134-fb6f39063ed3">&lt;strong&gt;</bpt>DYNAMIC ROUTING<ept id="140a84a2-33e6-4eb6-a134-fb6f39063ed3">&lt;/strong&gt;</ept>, and then click <bpt id="8c38d698-e8f7-46df-a719-c8e2055fb5d3">&lt;strong&gt;</bpt>YES<ept id="8c38d698-e8f7-46df-a719-c8e2055fb5d3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the settings are saved, click on <bpt id="de81966e-36b3-468d-85f7-d091c02f4fbc">&lt;strong&gt;</bpt>DASHBOARD<ept id="de81966e-36b3-468d-85f7-d091c02f4fbc">&lt;/strong&gt;</ept>, then on the bottom of the page, click <bpt id="6e8818e3-a382-454b-89d8-2f42eadb319b">&lt;strong&gt;</bpt>CREATE GATEWAY<ept id="6e8818e3-a382-454b-89d8-2f42eadb319b">&lt;/strong&gt;</ept>, then click <bpt id="140a84a2-33e6-4eb6-a134-fb6f39063ed3">&lt;strong&gt;</bpt>DYNAMIC ROUTING<ept id="140a84a2-33e6-4eb6-a134-fb6f39063ed3">&lt;/strong&gt;</ept>, and then click <bpt id="8c38d698-e8f7-46df-a719-c8e2055fb5d3">&lt;strong&gt;</bpt>YES<ept id="8c38d698-e8f7-46df-a719-c8e2055fb5d3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc4e2842-348a-4cd5-85ad-4169b969acd4" xml:space="preserve">
+          <source>Wait for the gateway to be created and copy its public IP address.</source>
+          <target state="new">Wait for the gateway to be created and copy its public IP address.</target>
+        </trans-unit>
+        <trans-unit id="ddb35c4f-9210-4770-9a90-26a759b7d2f2" xml:space="preserve">
+          <source>You will need it to setup the gateway in the ARM VNet.</source>
+          <target state="new">You will need it to setup the gateway in the ARM VNet.</target>
+        </trans-unit>
+        <trans-unit id="a3ef02f7-e9bd-492c-9251-372186833206" xml:space="preserve">
+          <source>To create a VPN gateway for the ARM VNet, follow the instructions below.</source>
+          <target state="new">To create a VPN gateway for the ARM VNet, follow the instructions below.</target>
+        </trans-unit>
+        <trans-unit id="e50c57d2-17f0-4ec3-a92d-0d1caff777cb" xml:space="preserve">
+          <source>From a PowerShell console, switch to ARM mode by running the command below.</source>
+          <target state="new">From a PowerShell console, switch to ARM mode by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="568b8ea9-02f1-4f74-9ead-64bd921b1870" xml:space="preserve">
+          <source>Create a local network by running the command below.</source>
+          <target state="new">Create a local network by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="6f68aab7-bb38-4aca-b094-d41538462ebe" xml:space="preserve">
+          <source>The local network must use the CIDR block of the classic VNet you want to connect to, and the public IP address of the gateway created in step 1 above.</source>
+          <target state="new">The local network must use the CIDR block of the classic VNet you want to connect to, and the public IP address of the gateway created in step 1 above.</target>
+        </trans-unit>
+        <trans-unit id="3aaa3887-5600-41cb-aacd-98b14a024c78" xml:space="preserve">
+          <source>Create a public IP address for the gateway by running the command below.</source>
+          <target state="new">Create a public IP address for the gateway by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="46f1a45b-eedc-45c1-b371-5198ff893740" xml:space="preserve">
+          <source>Retrieve the subnet used for the gateway by running the command below.</source>
+          <target state="new">Retrieve the subnet used for the gateway by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="d59cdbee-682a-4f6a-a5ac-7f86e8c8e45c" xml:space="preserve">
+          <source>The gateway subnet must already exist, and it must be named GatewaySubnet.</source>
+          <target state="new">The gateway subnet must already exist, and it must be named GatewaySubnet.</target>
+        </trans-unit>
+        <trans-unit id="e75c5c15-0bd0-4b14-a4df-fd614d7b3cee" xml:space="preserve">
+          <source>Create an IP configuration object for the gateway by running the command below.</source>
+          <target state="new">Create an IP configuration object for the gateway by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="20466488-0d4a-4a32-b787-e2cce7c61e27" xml:space="preserve">
+          <source>Notice the id for a gateway subnet.</source>
+          <target state="new">Notice the id for a gateway subnet.</target>
+        </trans-unit>
+        <trans-unit id="03557ae5-3274-4672-b433-8122dd804503" xml:space="preserve">
+          <source>That subnet must exist in the VNet.</source>
+          <target state="new">That subnet must exist in the VNet.</target>
+        </trans-unit>
+        <trans-unit id="f7ac2d34-f8b8-48ea-8e34-f43b248297df" xml:space="preserve">
+          <source>The <bpt id="45ea402d-ea6c-428e-aeca-fe18d04fe0aa">&lt;em&gt;</bpt>SubnetId<ept id="45ea402d-ea6c-428e-aeca-fe18d04fe0aa">&lt;/em&gt;</ept> and <bpt id="f71b2136-8afd-4d79-ac10-8959c16cb63a">&lt;em&gt;</bpt>PublicIpAddressId<ept id="f71b2136-8afd-4d79-ac10-8959c16cb63a">&lt;/em&gt;</ept> parameters must be passed the id property from the subnet, and IP adress objects, repectively.</source>
+          <target state="new">The <bpt id="45ea402d-ea6c-428e-aeca-fe18d04fe0aa">&lt;em&gt;</bpt>SubnetId<ept id="45ea402d-ea6c-428e-aeca-fe18d04fe0aa">&lt;/em&gt;</ept> and <bpt id="f71b2136-8afd-4d79-ac10-8959c16cb63a">&lt;em&gt;</bpt>PublicIpAddressId<ept id="f71b2136-8afd-4d79-ac10-8959c16cb63a">&lt;/em&gt;</ept> parameters must be passed the id property from the subnet, and IP adress objects, repectively.</target>
+        </trans-unit>
+        <trans-unit id="7beee31b-154f-4e3f-8dd1-e433e66f4542" xml:space="preserve">
+          <source>You cannot use a simple string.</source>
+          <target state="new">You cannot use a simple string.</target>
+        </trans-unit>
+        <trans-unit id="90546892-c465-425e-9edc-522231c2ee03" xml:space="preserve">
+          <source>Create the ARM VNet gateway by running the command below.</source>
+          <target state="new">Create the ARM VNet gateway by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="31ef8f3f-ca3a-4a0d-8a1c-e52d3e67ae10" xml:space="preserve">
+          <source>Once the VPN gateway is created, retrieve its public IP address by running the command below.</source>
+          <target state="new">Once the VPN gateway is created, retrieve its public IP address by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="1d98a63e-2194-4543-817e-664bf58be8b3" xml:space="preserve">
+          <source>Copy the IP address, you will need it to configure the local network for the classic VNet.</source>
+          <target state="new">Copy the IP address, you will need it to configure the local network for the classic VNet.</target>
+        </trans-unit>
+        <trans-unit id="dae74aaa-1db0-4334-8ee2-8916ee382ade" xml:space="preserve">
+          <source>Open the classic portal from https://manage.windowsazure.com, and enter your credentials, if necessary.</source>
+          <target state="new">Open the classic portal from https://manage.windowsazure.com, and enter your credentials, if necessary.</target>
+        </trans-unit>
+        <trans-unit id="c4d53333-3592-4b5b-b268-90e94fdb3906" xml:space="preserve">
+          <source>In the classic portal, scroll down and click <bpt id="bd392978-abaf-4dbc-b046-73f2a1c7cb24">&lt;strong&gt;</bpt>NETWORKS<ept id="bd392978-abaf-4dbc-b046-73f2a1c7cb24">&lt;/strong&gt;</ept>, then click <bpt id="b25bc755-0da5-48e7-8a51-d16ebb320c50">&lt;strong&gt;</bpt>LOCAL NETWORKS<ept id="b25bc755-0da5-48e7-8a51-d16ebb320c50">&lt;/strong&gt;</ept>, then click the ARM VNet you want to connect to, and then click on the <bpt id="20473725-463d-4198-9882-2520d67cf954">&lt;strong&gt;</bpt>EDIT<ept id="20473725-463d-4198-9882-2520d67cf954">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the classic portal, scroll down and click <bpt id="bd392978-abaf-4dbc-b046-73f2a1c7cb24">&lt;strong&gt;</bpt>NETWORKS<ept id="bd392978-abaf-4dbc-b046-73f2a1c7cb24">&lt;/strong&gt;</ept>, then click <bpt id="b25bc755-0da5-48e7-8a51-d16ebb320c50">&lt;strong&gt;</bpt>LOCAL NETWORKS<ept id="b25bc755-0da5-48e7-8a51-d16ebb320c50">&lt;/strong&gt;</ept>, then click the ARM VNet you want to connect to, and then click on the <bpt id="20473725-463d-4198-9882-2520d67cf954">&lt;strong&gt;</bpt>EDIT<ept id="20473725-463d-4198-9882-2520d67cf954">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="e9ed3ef4-5785-467a-a3ab-dc9093c2e265" xml:space="preserve">
+          <source>In <bpt id="b1cacfb0-4038-4b33-badd-a105dbb0b0fc">&lt;strong&gt;</bpt>VPN DEVICE IP ADDRESS (OPTIONAL)<ept id="b1cacfb0-4038-4b33-badd-a105dbb0b0fc">&lt;/strong&gt;</ept>, type the IP address for the ARM VNet gateway retrieve in step 2 above, then click the right arrow on teh bottom right hand corner, and then click the checkmark button.</source>
+          <target state="new">In <bpt id="b1cacfb0-4038-4b33-badd-a105dbb0b0fc">&lt;strong&gt;</bpt>VPN DEVICE IP ADDRESS (OPTIONAL)<ept id="b1cacfb0-4038-4b33-badd-a105dbb0b0fc">&lt;/strong&gt;</ept>, type the IP address for the ARM VNet gateway retrieve in step 2 above, then click the right arrow on teh bottom right hand corner, and then click the checkmark button.</target>
+        </trans-unit>
+        <trans-unit id="95b000f0-2708-4c0b-95e4-49ebb23cc76a" xml:space="preserve">
+          <source>From a PowerShell console, switch to Azure Service Manager mode by running the command below.</source>
+          <target state="new">From a PowerShell console, switch to Azure Service Manager mode by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="5ff9ac2f-a8ba-4594-ae51-221df272d006" xml:space="preserve">
+          <source>Setup a shared key by running the command below.</source>
+          <target state="new">Setup a shared key by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="ac56e8ad-8fae-4656-9586-a3122d4b1562" xml:space="preserve">
+          <source>Make sure you change the names of the VNets to the your own VNet names.</source>
+          <target state="new">Make sure you change the names of the VNets to the your own VNet names.</target>
+        </trans-unit>
+        <trans-unit id="5e7ee823-8a73-4406-a768-63b0602fc7f3" xml:space="preserve">
+          <source>From a PowerShell console, switch to Azure Resource Manager mode by running the command below.</source>
+          <target state="new">From a PowerShell console, switch to Azure Resource Manager mode by running the command below.</target>
+        </trans-unit>
+        <trans-unit id="cdd4c270-95d5-4737-a1de-5681abe2a6a1" xml:space="preserve">
+          <source>Create the VPN connection by running the commands below.</source>
+          <target state="new">Create the VPN connection by running the commands below.</target>
+        </trans-unit>
+        <trans-unit id="e8bef34b-3f79-4c6c-8a5b-412392741ad0" xml:space="preserve">
+          <source>Learn more about <bpt id="64a33e2b-57e3-48e4-8462-c10b6e386c7e">&lt;linkText&gt;</bpt>the Network Resource Provider (NRP) for ARM<ept id="64a33e2b-57e3-48e4-8462-c10b6e386c7e">&lt;/linkText&gt;</ept><bpt id="64a33e2b-57e3-48e4-8462-c10b6e386c7e">&lt;title&gt;</bpt><ept id="64a33e2b-57e3-48e4-8462-c10b6e386c7e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about <bpt id="64a33e2b-57e3-48e4-8462-c10b6e386c7e">&lt;linkText&gt;</bpt>the Network Resource Provider (NRP) for ARM<ept id="64a33e2b-57e3-48e4-8462-c10b6e386c7e">&lt;/linkText&gt;</ept><bpt id="64a33e2b-57e3-48e4-8462-c10b6e386c7e">&lt;title&gt;</bpt><ept id="64a33e2b-57e3-48e4-8462-c10b6e386c7e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b72915b-d785-4cdf-9822-585a265b0ee0" xml:space="preserve">
+          <source>Create an <bpt id="6fc63486-1bfc-48b5-859c-53e0bd85bd8e">&lt;linkText&gt;</bpt>end-to-end solution connecting a classic VNet to an ARM VNet by using a S2S VPN<ept id="6fc63486-1bfc-48b5-859c-53e0bd85bd8e">&lt;/linkText&gt;</ept><bpt id="6fc63486-1bfc-48b5-859c-53e0bd85bd8e">&lt;title&gt;</bpt><ept id="6fc63486-1bfc-48b5-859c-53e0bd85bd8e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Create an <bpt id="6fc63486-1bfc-48b5-859c-53e0bd85bd8e">&lt;linkText&gt;</bpt>end-to-end solution connecting a classic VNet to an ARM VNet by using a S2S VPN<ept id="6fc63486-1bfc-48b5-859c-53e0bd85bd8e">&lt;/linkText&gt;</ept><bpt id="6fc63486-1bfc-48b5-859c-53e0bd85bd8e">&lt;title&gt;</bpt><ept id="6fc63486-1bfc-48b5-859c-53e0bd85bd8e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a91cab0d-14a5-461c-9055-6ee0e0e489c3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a91cab0d-14a5-461c-9055-6ee0e0e489c3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a40703f9-4038-47aa-bba0-7d3e3e2ac524">
+        <trans-unit id="23496a4b-28e8-40c2-bc11-dc0584f770a0" xml:space="preserve">
+          <source>Analyze Twitter data with Hadoop in HDInsight | Microsoft Azure</source>
+          <target state="new">Analyze Twitter data with Hadoop in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="98a419da-adaf-44ee-a36f-33c8b50ca8a8" xml:space="preserve">
+          <source>Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word.</source>
+          <target state="new">Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word.</target>
+        </trans-unit>
+        <trans-unit id="41050681-d39e-40d2-9c84-7eacdf35b5c1" xml:space="preserve">
+          <source>In this document, you will get tweets by using a Twitter streaming API and then use Apache Hive on a Linux-based HDInsight (preview) cluster to process the JSON formatted data.</source>
+          <target state="new">In this document, you will get tweets by using a Twitter streaming API and then use Apache Hive on a Linux-based HDInsight (preview) cluster to process the JSON formatted data.</target>
+        </trans-unit>
+        <trans-unit id="ce283768-f2f2-42f7-97fb-2b8616767196" xml:space="preserve">
+          <source>The result will be a list of Twitter users who sent the most tweets that contained a certain word.</source>
+          <target state="new">The result will be a list of Twitter users who sent the most tweets that contained a certain word.</target>
+        </trans-unit>
+        <trans-unit id="3b38c2b5-9f3f-4218-a6ff-6f6a7e976a89" xml:space="preserve">
+          <source>While individual pieces of this document can be used with Windows-based HDInsight clusters (Python and Hive for example,) many steps are based on using a Linux-based HDInsight cluster.</source>
+          <target state="new">While individual pieces of this document can be used with Windows-based HDInsight clusters (Python and Hive for example,) many steps are based on using a Linux-based HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="f5897897-c02f-4c0d-a3b4-d040ee92b0ce" xml:space="preserve">
+          <source>For steps specific to a Windows-based cluster, see <bpt id="b99a2cb5-b391-4e95-93f0-73155aa315d4">&lt;linkText&gt;</bpt>Analyze Twitter data using Hive in HDInsight<ept id="b99a2cb5-b391-4e95-93f0-73155aa315d4">&lt;/linkText&gt;</ept><bpt id="b99a2cb5-b391-4e95-93f0-73155aa315d4">&lt;title&gt;</bpt><ept id="b99a2cb5-b391-4e95-93f0-73155aa315d4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For steps specific to a Windows-based cluster, see <bpt id="b99a2cb5-b391-4e95-93f0-73155aa315d4">&lt;linkText&gt;</bpt>Analyze Twitter data using Hive in HDInsight<ept id="b99a2cb5-b391-4e95-93f0-73155aa315d4">&lt;/linkText&gt;</ept><bpt id="b99a2cb5-b391-4e95-93f0-73155aa315d4">&lt;title&gt;</bpt><ept id="b99a2cb5-b391-4e95-93f0-73155aa315d4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="117111b8-9fd3-49ca-8a28-c28203c0b025" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have the following:</source>
+          <target state="new">Before you begin this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="94946f2f-faee-40e8-b128-2a371ad1c584" xml:space="preserve">
+          <source>A <bpt id="e0754c26-321a-4bc0-bba6-1883e0ca63f2">&lt;strong&gt;</bpt>Linux-based Azure HDInsight cluster<ept id="e0754c26-321a-4bc0-bba6-1883e0ca63f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">A <bpt id="e0754c26-321a-4bc0-bba6-1883e0ca63f2">&lt;strong&gt;</bpt>Linux-based Azure HDInsight cluster<ept id="e0754c26-321a-4bc0-bba6-1883e0ca63f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="308fb8fd-3b3e-4c1d-9315-5f7192e58aa1" xml:space="preserve">
+          <source>For information on creating a cluster, see <bpt id="08115b47-1150-462f-80f5-38cb47908c16">&lt;linkText&gt;</bpt>Get Started with Linux-based HDInsight<ept id="08115b47-1150-462f-80f5-38cb47908c16">&lt;/linkText&gt;</ept><bpt id="08115b47-1150-462f-80f5-38cb47908c16">&lt;title&gt;</bpt><ept id="08115b47-1150-462f-80f5-38cb47908c16">&lt;/title&gt;</ept> for steps on creating a cluster.</source>
+          <target state="new">For information on creating a cluster, see <bpt id="08115b47-1150-462f-80f5-38cb47908c16">&lt;linkText&gt;</bpt>Get Started with Linux-based HDInsight<ept id="08115b47-1150-462f-80f5-38cb47908c16">&lt;/linkText&gt;</ept><bpt id="08115b47-1150-462f-80f5-38cb47908c16">&lt;title&gt;</bpt><ept id="08115b47-1150-462f-80f5-38cb47908c16">&lt;/title&gt;</ept> for steps on creating a cluster.</target>
+        </trans-unit>
+        <trans-unit id="dd417b5f-198c-47ec-880e-da83153e8262" xml:space="preserve">
+          <source>An <bpt id="512b3d65-8a7d-4683-98e6-7f61d31242f9">&lt;strong&gt;</bpt>SSH client<ept id="512b3d65-8a7d-4683-98e6-7f61d31242f9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">An <bpt id="512b3d65-8a7d-4683-98e6-7f61d31242f9">&lt;strong&gt;</bpt>SSH client<ept id="512b3d65-8a7d-4683-98e6-7f61d31242f9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dfd583b0-b8ad-4b71-bf04-5180f46f99b7" xml:space="preserve">
+          <source>For more information on using SSH with Linux-based HDInsight, see the following articles:</source>
+          <target state="new">For more information on using SSH with Linux-based HDInsight, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="48acea77-1902-42cf-8122-7d070ec787b6" xml:space="preserve">
+          <source><bpt id="5e3e2b8d-337d-4bac-9b92-a9f35e852438">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="5e3e2b8d-337d-4bac-9b92-a9f35e852438">&lt;/linkText&gt;</ept><bpt id="5e3e2b8d-337d-4bac-9b92-a9f35e852438">&lt;title&gt;</bpt><ept id="5e3e2b8d-337d-4bac-9b92-a9f35e852438">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5e3e2b8d-337d-4bac-9b92-a9f35e852438">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="5e3e2b8d-337d-4bac-9b92-a9f35e852438">&lt;/linkText&gt;</ept><bpt id="5e3e2b8d-337d-4bac-9b92-a9f35e852438">&lt;title&gt;</bpt><ept id="5e3e2b8d-337d-4bac-9b92-a9f35e852438">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb2837fc-c85e-4208-8d97-f9a8583f84da" xml:space="preserve">
+          <source><bpt id="fa5d4c46-7db9-4467-a3eb-6a57911e4f10">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="fa5d4c46-7db9-4467-a3eb-6a57911e4f10">&lt;/linkText&gt;</ept><bpt id="fa5d4c46-7db9-4467-a3eb-6a57911e4f10">&lt;title&gt;</bpt><ept id="fa5d4c46-7db9-4467-a3eb-6a57911e4f10">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fa5d4c46-7db9-4467-a3eb-6a57911e4f10">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="fa5d4c46-7db9-4467-a3eb-6a57911e4f10">&lt;/linkText&gt;</ept><bpt id="fa5d4c46-7db9-4467-a3eb-6a57911e4f10">&lt;title&gt;</bpt><ept id="fa5d4c46-7db9-4467-a3eb-6a57911e4f10">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a83e6ef1-1d4d-4747-956b-6827392baae8" xml:space="preserve">
+          <source><bpt id="e7e817e2-410d-482d-b673-309d11ecf35b">&lt;strong&gt;</bpt>Python<ept id="e7e817e2-410d-482d-b673-309d11ecf35b">&lt;/strong&gt;</ept> and <bpt id="d690804a-49f2-40ee-8402-65515d4fcaf0">&lt;linkText&gt;</bpt>pip<ept id="d690804a-49f2-40ee-8402-65515d4fcaf0">&lt;/linkText&gt;</ept><bpt id="d690804a-49f2-40ee-8402-65515d4fcaf0">&lt;title&gt;</bpt><ept id="d690804a-49f2-40ee-8402-65515d4fcaf0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e7e817e2-410d-482d-b673-309d11ecf35b">&lt;strong&gt;</bpt>Python<ept id="e7e817e2-410d-482d-b673-309d11ecf35b">&lt;/strong&gt;</ept> and <bpt id="d690804a-49f2-40ee-8402-65515d4fcaf0">&lt;linkText&gt;</bpt>pip<ept id="d690804a-49f2-40ee-8402-65515d4fcaf0">&lt;/linkText&gt;</ept><bpt id="d690804a-49f2-40ee-8402-65515d4fcaf0">&lt;title&gt;</bpt><ept id="d690804a-49f2-40ee-8402-65515d4fcaf0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74f92a80-1e89-4f4f-8fd1-570bb3c5060b" xml:space="preserve">
+          <source>The <bpt id="08c6376d-abb7-40ec-8c63-a548500db155">&lt;strong&gt;</bpt>Azure CLI<ept id="08c6376d-abb7-40ec-8c63-a548500db155">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="08c6376d-abb7-40ec-8c63-a548500db155">&lt;strong&gt;</bpt>Azure CLI<ept id="08c6376d-abb7-40ec-8c63-a548500db155">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce768a45-8ae5-4f67-90fb-16e569822528" xml:space="preserve">
+          <source>For more information, see <bpt id="7a99da44-fd4d-49fa-af80-9524e0c6ca03">&lt;linkText&gt;</bpt>Install and configure the Azure CLI<ept id="7a99da44-fd4d-49fa-af80-9524e0c6ca03">&lt;/linkText&gt;</ept><bpt id="7a99da44-fd4d-49fa-af80-9524e0c6ca03">&lt;title&gt;</bpt><ept id="7a99da44-fd4d-49fa-af80-9524e0c6ca03">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="7a99da44-fd4d-49fa-af80-9524e0c6ca03">&lt;linkText&gt;</bpt>Install and configure the Azure CLI<ept id="7a99da44-fd4d-49fa-af80-9524e0c6ca03">&lt;/linkText&gt;</ept><bpt id="7a99da44-fd4d-49fa-af80-9524e0c6ca03">&lt;title&gt;</bpt><ept id="7a99da44-fd4d-49fa-af80-9524e0c6ca03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b057ae43-386a-4e56-a641-289ac9a59d16" xml:space="preserve">
+          <source>Twitter allows you to retrieve the <bpt id="c4505431-872c-444b-89ea-c7514bb2588c">&lt;linkText&gt;</bpt>data for each tweet<ept id="c4505431-872c-444b-89ea-c7514bb2588c">&lt;/linkText&gt;</ept><bpt id="c4505431-872c-444b-89ea-c7514bb2588c">&lt;title&gt;</bpt><ept id="c4505431-872c-444b-89ea-c7514bb2588c">&lt;/title&gt;</ept> as a JavaScript Object Notation (JSON) document through a REST API.</source>
+          <target state="new">Twitter allows you to retrieve the <bpt id="c4505431-872c-444b-89ea-c7514bb2588c">&lt;linkText&gt;</bpt>data for each tweet<ept id="c4505431-872c-444b-89ea-c7514bb2588c">&lt;/linkText&gt;</ept><bpt id="c4505431-872c-444b-89ea-c7514bb2588c">&lt;title&gt;</bpt><ept id="c4505431-872c-444b-89ea-c7514bb2588c">&lt;/title&gt;</ept> as a JavaScript Object Notation (JSON) document through a REST API.</target>
+        </trans-unit>
+        <trans-unit id="1d574837-6a2e-4430-808a-44a9f1e13e70" xml:space="preserve">
+          <source><bpt id="55c15424-de31-4ee9-a11f-d4b07cca0718">&lt;linkText&gt;</bpt>OAuth<ept id="55c15424-de31-4ee9-a11f-d4b07cca0718">&lt;/linkText&gt;</ept><bpt id="55c15424-de31-4ee9-a11f-d4b07cca0718">&lt;title&gt;</bpt><ept id="55c15424-de31-4ee9-a11f-d4b07cca0718">&lt;/title&gt;</ept> is required for authentication to the API.</source>
+          <target state="new"><bpt id="55c15424-de31-4ee9-a11f-d4b07cca0718">&lt;linkText&gt;</bpt>OAuth<ept id="55c15424-de31-4ee9-a11f-d4b07cca0718">&lt;/linkText&gt;</ept><bpt id="55c15424-de31-4ee9-a11f-d4b07cca0718">&lt;title&gt;</bpt><ept id="55c15424-de31-4ee9-a11f-d4b07cca0718">&lt;/title&gt;</ept> is required for authentication to the API.</target>
+        </trans-unit>
+        <trans-unit id="433c336c-d2ed-4ded-a3ad-0398aa54509a" xml:space="preserve">
+          <source>You must also create a <bpt id="525dfe6b-2944-49a2-98da-fa84150c4747">&lt;em&gt;</bpt>Twitter Application<ept id="525dfe6b-2944-49a2-98da-fa84150c4747">&lt;/em&gt;</ept> that contains the settings used to access the API.</source>
+          <target state="new">You must also create a <bpt id="525dfe6b-2944-49a2-98da-fa84150c4747">&lt;em&gt;</bpt>Twitter Application<ept id="525dfe6b-2944-49a2-98da-fa84150c4747">&lt;/em&gt;</ept> that contains the settings used to access the API.</target>
+        </trans-unit>
+        <trans-unit id="ee07455a-25f2-481d-8b53-9207e0340d80" xml:space="preserve">
+          <source>From a web browser, sign in to <bpt id="6a9d31f4-a822-4571-a16e-4beb84e4b9fb">&lt;linkText&gt;</bpt>https://apps.twitter.com/<ept id="6a9d31f4-a822-4571-a16e-4beb84e4b9fb">&lt;/linkText&gt;</ept><bpt id="6a9d31f4-a822-4571-a16e-4beb84e4b9fb">&lt;title&gt;</bpt><ept id="6a9d31f4-a822-4571-a16e-4beb84e4b9fb">&lt;/title&gt;</ept>.</source>
+          <target state="new">From a web browser, sign in to <bpt id="6a9d31f4-a822-4571-a16e-4beb84e4b9fb">&lt;linkText&gt;</bpt>https://apps.twitter.com/<ept id="6a9d31f4-a822-4571-a16e-4beb84e4b9fb">&lt;/linkText&gt;</ept><bpt id="6a9d31f4-a822-4571-a16e-4beb84e4b9fb">&lt;title&gt;</bpt><ept id="6a9d31f4-a822-4571-a16e-4beb84e4b9fb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe80a1d2-04a5-4be8-a5ae-335938872fa0" xml:space="preserve">
+          <source>Click the <bpt id="9d9e14a1-cee8-41df-bf8b-d4b66929c8b4">&lt;strong&gt;</bpt>Sign up now<ept id="9d9e14a1-cee8-41df-bf8b-d4b66929c8b4">&lt;/strong&gt;</ept> link if you don't have a Twitter account.</source>
+          <target state="new">Click the <bpt id="9d9e14a1-cee8-41df-bf8b-d4b66929c8b4">&lt;strong&gt;</bpt>Sign up now<ept id="9d9e14a1-cee8-41df-bf8b-d4b66929c8b4">&lt;/strong&gt;</ept> link if you don't have a Twitter account.</target>
+        </trans-unit>
+        <trans-unit id="0df331f2-76f9-4fe4-9898-6f67456bb777" xml:space="preserve">
+          <source>Click <bpt id="921f750d-d64a-424d-81f5-cc0bf310be78">&lt;strong&gt;</bpt>Create New App<ept id="921f750d-d64a-424d-81f5-cc0bf310be78">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="921f750d-d64a-424d-81f5-cc0bf310be78">&lt;strong&gt;</bpt>Create New App<ept id="921f750d-d64a-424d-81f5-cc0bf310be78">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7c9d710-de62-4207-b1fb-a0af00ac97d5" xml:space="preserve">
+          <source>Enter <bpt id="267f53b1-7f7b-407d-8a7e-ad19ac899048">&lt;strong&gt;</bpt>Name<ept id="267f53b1-7f7b-407d-8a7e-ad19ac899048">&lt;/strong&gt;</ept>, <bpt id="572520bf-77b2-4bcd-b870-c311d1ef916c">&lt;strong&gt;</bpt>Description<ept id="572520bf-77b2-4bcd-b870-c311d1ef916c">&lt;/strong&gt;</ept>, <bpt id="a9c9a9fa-a26c-435a-9ae9-a4c3c32ddfa9">&lt;strong&gt;</bpt>Website<ept id="a9c9a9fa-a26c-435a-9ae9-a4c3c32ddfa9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter <bpt id="267f53b1-7f7b-407d-8a7e-ad19ac899048">&lt;strong&gt;</bpt>Name<ept id="267f53b1-7f7b-407d-8a7e-ad19ac899048">&lt;/strong&gt;</ept>, <bpt id="572520bf-77b2-4bcd-b870-c311d1ef916c">&lt;strong&gt;</bpt>Description<ept id="572520bf-77b2-4bcd-b870-c311d1ef916c">&lt;/strong&gt;</ept>, <bpt id="a9c9a9fa-a26c-435a-9ae9-a4c3c32ddfa9">&lt;strong&gt;</bpt>Website<ept id="a9c9a9fa-a26c-435a-9ae9-a4c3c32ddfa9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="693349eb-0783-4bd5-a1cb-fd8177378840" xml:space="preserve">
+          <source>You can make up a URL for the <bpt id="92196783-f941-4d01-8f72-08405406740d">&lt;strong&gt;</bpt>Website<ept id="92196783-f941-4d01-8f72-08405406740d">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">You can make up a URL for the <bpt id="92196783-f941-4d01-8f72-08405406740d">&lt;strong&gt;</bpt>Website<ept id="92196783-f941-4d01-8f72-08405406740d">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="c0d353aa-4e08-44e6-b93f-1121fef72296" xml:space="preserve">
+          <source>The following table shows some sample values to use:</source>
+          <target state="new">The following table shows some sample values to use:</target>
+        </trans-unit>
+        <trans-unit id="ef974982-710e-4163-a3f9-c21440f25566" xml:space="preserve">
+          <source>| Field | Value |
+|:----- |:----- |
+| Name  | MyHDInsightApp |
+| Description | MyHDInsightApp |
+| Website | http://www.myhdinsightapp.com |</source>
+          <target state="new">| Field | Value |
+|:----- |:----- |
+| Name  | MyHDInsightApp |
+| Description | MyHDInsightApp |
+| Website | http://www.myhdinsightapp.com |</target>
+        </trans-unit>
+        <trans-unit id="aa16bdd8-7d5c-43c8-976a-77d71807b7da" xml:space="preserve">
+          <source>Check <bpt id="ccabbea2-964b-4c17-8110-5e4c6fdf9f20">&lt;strong&gt;</bpt>Yes, I agree<ept id="ccabbea2-964b-4c17-8110-5e4c6fdf9f20">&lt;/strong&gt;</ept>, and then click <bpt id="bda8f750-fd28-4ebe-80a8-7efb1a31093a">&lt;strong&gt;</bpt>Create your Twitter application<ept id="bda8f750-fd28-4ebe-80a8-7efb1a31093a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Check <bpt id="ccabbea2-964b-4c17-8110-5e4c6fdf9f20">&lt;strong&gt;</bpt>Yes, I agree<ept id="ccabbea2-964b-4c17-8110-5e4c6fdf9f20">&lt;/strong&gt;</ept>, and then click <bpt id="bda8f750-fd28-4ebe-80a8-7efb1a31093a">&lt;strong&gt;</bpt>Create your Twitter application<ept id="bda8f750-fd28-4ebe-80a8-7efb1a31093a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e253e024-1d44-45e1-8bca-2efefc530308" xml:space="preserve">
+          <source>Click the <bpt id="87118154-10fd-49a4-b3f5-a8af3d9052af">&lt;strong&gt;</bpt>Permissions<ept id="87118154-10fd-49a4-b3f5-a8af3d9052af">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="87118154-10fd-49a4-b3f5-a8af3d9052af">&lt;strong&gt;</bpt>Permissions<ept id="87118154-10fd-49a4-b3f5-a8af3d9052af">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="afe03783-0c7c-43e0-aa62-127c7b3515de" xml:space="preserve">
+          <source>The default permission is <bpt id="42d11027-075b-49d5-8274-74b757bf9644">&lt;strong&gt;</bpt>Read only<ept id="42d11027-075b-49d5-8274-74b757bf9644">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default permission is <bpt id="42d11027-075b-49d5-8274-74b757bf9644">&lt;strong&gt;</bpt>Read only<ept id="42d11027-075b-49d5-8274-74b757bf9644">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd7c5840-10cc-47dc-8909-1abbcda4c001" xml:space="preserve">
+          <source>This is sufficient for this tutorial.</source>
+          <target state="new">This is sufficient for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="9306d0fe-d566-4761-8304-969ac512a187" xml:space="preserve">
+          <source>Click the <bpt id="199fea64-8217-4b7b-9dbd-5a8a99161360">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="199fea64-8217-4b7b-9dbd-5a8a99161360">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="199fea64-8217-4b7b-9dbd-5a8a99161360">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="199fea64-8217-4b7b-9dbd-5a8a99161360">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="19c3e5e3-e97f-4457-88de-5e602e5f0aee" xml:space="preserve">
+          <source>Click <bpt id="e14e6707-bc2e-466e-9253-6e24ea9f9765">&lt;strong&gt;</bpt>Create my access token<ept id="e14e6707-bc2e-466e-9253-6e24ea9f9765">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e14e6707-bc2e-466e-9253-6e24ea9f9765">&lt;strong&gt;</bpt>Create my access token<ept id="e14e6707-bc2e-466e-9253-6e24ea9f9765">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0323a79e-1530-4e06-a382-1a34306106eb" xml:space="preserve">
+          <source>Click <bpt id="a5e50ac9-a096-4db8-918a-d79f6f0c9f89">&lt;strong&gt;</bpt>Test OAuth<ept id="a5e50ac9-a096-4db8-918a-d79f6f0c9f89">&lt;/strong&gt;</ept> in the upper-right corner of the page.</source>
+          <target state="new">Click <bpt id="a5e50ac9-a096-4db8-918a-d79f6f0c9f89">&lt;strong&gt;</bpt>Test OAuth<ept id="a5e50ac9-a096-4db8-918a-d79f6f0c9f89">&lt;/strong&gt;</ept> in the upper-right corner of the page.</target>
+        </trans-unit>
+        <trans-unit id="9ebdbfa8-0795-4f4f-acd6-045aac181467" xml:space="preserve">
+          <source>Write down <bpt id="0a93b0b2-c8eb-4754-be4c-a7c92c1fa1bd">&lt;strong&gt;</bpt>consumer key<ept id="0a93b0b2-c8eb-4754-be4c-a7c92c1fa1bd">&lt;/strong&gt;</ept>, <bpt id="0611b62a-4811-4bae-8b79-d42d929d836e">&lt;strong&gt;</bpt>Consumer secret<ept id="0611b62a-4811-4bae-8b79-d42d929d836e">&lt;/strong&gt;</ept>, <bpt id="c079aeaf-fe2f-447f-86e9-4121f55ed31b">&lt;strong&gt;</bpt>Access token<ept id="c079aeaf-fe2f-447f-86e9-4121f55ed31b">&lt;/strong&gt;</ept>, and <bpt id="2f8475f0-da3b-4b07-b92e-880982dbd838">&lt;strong&gt;</bpt>Access token secret<ept id="2f8475f0-da3b-4b07-b92e-880982dbd838">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Write down <bpt id="0a93b0b2-c8eb-4754-be4c-a7c92c1fa1bd">&lt;strong&gt;</bpt>consumer key<ept id="0a93b0b2-c8eb-4754-be4c-a7c92c1fa1bd">&lt;/strong&gt;</ept>, <bpt id="0611b62a-4811-4bae-8b79-d42d929d836e">&lt;strong&gt;</bpt>Consumer secret<ept id="0611b62a-4811-4bae-8b79-d42d929d836e">&lt;/strong&gt;</ept>, <bpt id="c079aeaf-fe2f-447f-86e9-4121f55ed31b">&lt;strong&gt;</bpt>Access token<ept id="c079aeaf-fe2f-447f-86e9-4121f55ed31b">&lt;/strong&gt;</ept>, and <bpt id="2f8475f0-da3b-4b07-b92e-880982dbd838">&lt;strong&gt;</bpt>Access token secret<ept id="2f8475f0-da3b-4b07-b92e-880982dbd838">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60d77835-a2d1-45e4-b4d8-8c39b1eb8f1d" xml:space="preserve">
+          <source>You will need the values later.</source>
+          <target state="new">You will need the values later.</target>
+        </trans-unit>
+        <trans-unit id="63ae11d9-12e2-4fd2-86e2-02b1ba79192b" xml:space="preserve">
+          <source>When you use the curl command in Windows, use double quotes instead of single quotes for the option values.</source>
+          <target state="new">When you use the curl command in Windows, use double quotes instead of single quotes for the option values.</target>
+        </trans-unit>
+        <trans-unit id="40a0e766-7f96-4b86-bf00-2c8b8853c923" xml:space="preserve">
+          <source>The following Python code will download 10,000 tweets from Twitter and save them to a file named <bpt id="15f3b0cc-23c9-408b-86c6-3f7620b74db2">&lt;strong&gt;</bpt>tweets.txt<ept id="15f3b0cc-23c9-408b-86c6-3f7620b74db2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following Python code will download 10,000 tweets from Twitter and save them to a file named <bpt id="15f3b0cc-23c9-408b-86c6-3f7620b74db2">&lt;strong&gt;</bpt>tweets.txt<ept id="15f3b0cc-23c9-408b-86c6-3f7620b74db2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="782e0dc8-08ac-4a0f-8428-143e8a4216a2" xml:space="preserve">
+          <source>The following steps are performed on the HDInsight cluster, since Python is already installed.</source>
+          <target state="new">The following steps are performed on the HDInsight cluster, since Python is already installed.</target>
+        </trans-unit>
+        <trans-unit id="d4c07ae3-f387-4565-9ba6-4cd9a117ac8b" xml:space="preserve">
+          <source>Connect to the HDInsight cluster using SSH:</source>
+          <target state="new">Connect to the HDInsight cluster using SSH:</target>
+        </trans-unit>
+        <trans-unit id="5074f8cf-2123-434d-a0a7-96e26bf07265" xml:space="preserve">
+          <source>If you used a password to secure your SSH user account, you will be prompted to enter it.</source>
+          <target state="new">If you used a password to secure your SSH user account, you will be prompted to enter it.</target>
+        </trans-unit>
+        <trans-unit id="051de15d-a245-429b-83ae-6f88b8b4abaa" xml:space="preserve">
+          <source>If you used a public key, you may have to use the <bpt id="4e4c8e1a-2463-44d0-97c6-32022cbad75e">&lt;code&gt;</bpt>-i<ept id="4e4c8e1a-2463-44d0-97c6-32022cbad75e">&lt;/code&gt;</ept> parameter to specify the matching private key.</source>
+          <target state="new">If you used a public key, you may have to use the <bpt id="4e4c8e1a-2463-44d0-97c6-32022cbad75e">&lt;code&gt;</bpt>-i<ept id="4e4c8e1a-2463-44d0-97c6-32022cbad75e">&lt;/code&gt;</ept> parameter to specify the matching private key.</target>
+        </trans-unit>
+        <trans-unit id="3af1cbd3-b9fc-4888-8858-1dbfcb491f38" xml:space="preserve">
+          <source>For example, <bpt id="77535355-c6b5-41f5-b208-fdfd31a90695">&lt;code&gt;</bpt>ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net<ept id="77535355-c6b5-41f5-b208-fdfd31a90695">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="77535355-c6b5-41f5-b208-fdfd31a90695">&lt;code&gt;</bpt>ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net<ept id="77535355-c6b5-41f5-b208-fdfd31a90695">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db2de581-e97b-4155-981b-f74ea1fca1fa" xml:space="preserve">
+          <source>For more information on using SSH with Linux-based HDInsight, see the following articles:</source>
+          <target state="new">For more information on using SSH with Linux-based HDInsight, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="0e957b2a-7ba2-4d7f-a4b8-77b73f8d3f90" xml:space="preserve">
+          <source><bpt id="32e0d10d-7577-4cba-8ef9-40152ebcc253">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="32e0d10d-7577-4cba-8ef9-40152ebcc253">&lt;/linkText&gt;</ept><bpt id="32e0d10d-7577-4cba-8ef9-40152ebcc253">&lt;title&gt;</bpt><ept id="32e0d10d-7577-4cba-8ef9-40152ebcc253">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="32e0d10d-7577-4cba-8ef9-40152ebcc253">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="32e0d10d-7577-4cba-8ef9-40152ebcc253">&lt;/linkText&gt;</ept><bpt id="32e0d10d-7577-4cba-8ef9-40152ebcc253">&lt;title&gt;</bpt><ept id="32e0d10d-7577-4cba-8ef9-40152ebcc253">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6cd8fef9-a000-4088-bb3d-714f02c28cc8" xml:space="preserve">
+          <source><bpt id="ca87dbb8-ccd9-4fb4-afab-da68aef60875">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="ca87dbb8-ccd9-4fb4-afab-da68aef60875">&lt;/linkText&gt;</ept><bpt id="ca87dbb8-ccd9-4fb4-afab-da68aef60875">&lt;title&gt;</bpt><ept id="ca87dbb8-ccd9-4fb4-afab-da68aef60875">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ca87dbb8-ccd9-4fb4-afab-da68aef60875">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="ca87dbb8-ccd9-4fb4-afab-da68aef60875">&lt;/linkText&gt;</ept><bpt id="ca87dbb8-ccd9-4fb4-afab-da68aef60875">&lt;title&gt;</bpt><ept id="ca87dbb8-ccd9-4fb4-afab-da68aef60875">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="baa90a30-3386-4194-aa70-79505c92008c" xml:space="preserve">
+          <source>By default, the <bpt id="7d59ef65-44b8-4af5-ae29-07b51fb348f9">&lt;strong&gt;</bpt>pip<ept id="7d59ef65-44b8-4af5-ae29-07b51fb348f9">&lt;/strong&gt;</ept> utility is not installed on the HDInsight head node.</source>
+          <target state="new">By default, the <bpt id="7d59ef65-44b8-4af5-ae29-07b51fb348f9">&lt;strong&gt;</bpt>pip<ept id="7d59ef65-44b8-4af5-ae29-07b51fb348f9">&lt;/strong&gt;</ept> utility is not installed on the HDInsight head node.</target>
+        </trans-unit>
+        <trans-unit id="7cf12825-ead6-43d7-8d63-355f0973109d" xml:space="preserve">
+          <source>Use the following to install, and then update this utility:</source>
+          <target state="new">Use the following to install, and then update this utility:</target>
+        </trans-unit>
+        <trans-unit id="e746928e-c2d2-47ca-be27-1932c61bd4ad" xml:space="preserve">
+          <source>The code to download tweets relies on <bpt id="33da80b8-d14e-4c65-8af9-ae7376fb3a97">&lt;linkText&gt;</bpt>Tweepy<ept id="33da80b8-d14e-4c65-8af9-ae7376fb3a97">&lt;/linkText&gt;</ept><bpt id="33da80b8-d14e-4c65-8af9-ae7376fb3a97">&lt;title&gt;</bpt><ept id="33da80b8-d14e-4c65-8af9-ae7376fb3a97">&lt;/title&gt;</ept> and <bpt id="f54a8e7f-c0df-49c9-875d-1a6acacdd15e">&lt;linkText&gt;</bpt>Progressbar<ept id="f54a8e7f-c0df-49c9-875d-1a6acacdd15e">&lt;/linkText&gt;</ept><bpt id="f54a8e7f-c0df-49c9-875d-1a6acacdd15e">&lt;title&gt;</bpt><ept id="f54a8e7f-c0df-49c9-875d-1a6acacdd15e">&lt;/title&gt;</ept>.</source>
+          <target state="new">The code to download tweets relies on <bpt id="33da80b8-d14e-4c65-8af9-ae7376fb3a97">&lt;linkText&gt;</bpt>Tweepy<ept id="33da80b8-d14e-4c65-8af9-ae7376fb3a97">&lt;/linkText&gt;</ept><bpt id="33da80b8-d14e-4c65-8af9-ae7376fb3a97">&lt;title&gt;</bpt><ept id="33da80b8-d14e-4c65-8af9-ae7376fb3a97">&lt;/title&gt;</ept> and <bpt id="f54a8e7f-c0df-49c9-875d-1a6acacdd15e">&lt;linkText&gt;</bpt>Progressbar<ept id="f54a8e7f-c0df-49c9-875d-1a6acacdd15e">&lt;/linkText&gt;</ept><bpt id="f54a8e7f-c0df-49c9-875d-1a6acacdd15e">&lt;title&gt;</bpt><ept id="f54a8e7f-c0df-49c9-875d-1a6acacdd15e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99244a71-148a-4389-afe0-19ce9fa2f9ac" xml:space="preserve">
+          <source>To install these, use the following command:</source>
+          <target state="new">To install these, use the following command:</target>
+        </trans-unit>
+        <trans-unit id="2b48575e-b312-43c7-970f-64cb2e8937f0" xml:space="preserve">
+          <source>The bits about removing python-openssl, installing python-dev, libffi-dev, libssl-dev, pyOpenSSL and requests[security] is to avoid an InsecurePlatform warning when connecting to Twitter via SSL from Python.</source>
+          <target state="new">The bits about removing python-openssl, installing python-dev, libffi-dev, libssl-dev, pyOpenSSL and requests[security] is to avoid an InsecurePlatform warning when connecting to Twitter via SSL from Python.</target>
+        </trans-unit>
+        <trans-unit id="2e371c1b-9906-4e32-8f01-513ec9b3e180" xml:space="preserve">
+          <source>Tweepy v3.2.0 is used to avoid <bpt id="ac52c120-b6af-498a-a2f3-f0fa06b88164">&lt;linkText&gt;</bpt>an error<ept id="ac52c120-b6af-498a-a2f3-f0fa06b88164">&lt;/linkText&gt;</ept><bpt id="ac52c120-b6af-498a-a2f3-f0fa06b88164">&lt;title&gt;</bpt><ept id="ac52c120-b6af-498a-a2f3-f0fa06b88164">&lt;/title&gt;</ept> that can occur when processing tweets.</source>
+          <target state="new">Tweepy v3.2.0 is used to avoid <bpt id="ac52c120-b6af-498a-a2f3-f0fa06b88164">&lt;linkText&gt;</bpt>an error<ept id="ac52c120-b6af-498a-a2f3-f0fa06b88164">&lt;/linkText&gt;</ept><bpt id="ac52c120-b6af-498a-a2f3-f0fa06b88164">&lt;title&gt;</bpt><ept id="ac52c120-b6af-498a-a2f3-f0fa06b88164">&lt;/title&gt;</ept> that can occur when processing tweets.</target>
+        </trans-unit>
+        <trans-unit id="ec7f2445-7ad4-4622-80d0-45e7c3dfa4b9" xml:space="preserve">
+          <source>Use the following command to create a new file named <bpt id="8b2baa05-f9a7-45d7-84cc-476c776c27b4">&lt;strong&gt;</bpt>gettweets.py<ept id="8b2baa05-f9a7-45d7-84cc-476c776c27b4">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Use the following command to create a new file named <bpt id="8b2baa05-f9a7-45d7-84cc-476c776c27b4">&lt;strong&gt;</bpt>gettweets.py<ept id="8b2baa05-f9a7-45d7-84cc-476c776c27b4">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="67d2e4f7-b590-41fa-b484-c2e9a04a8819" xml:space="preserve">
+          <source>Use the following as the contents of the <bpt id="1a2e434f-8025-4408-9282-d8017aadfcbc">&lt;strong&gt;</bpt>gettweets.py<ept id="1a2e434f-8025-4408-9282-d8017aadfcbc">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Use the following as the contents of the <bpt id="1a2e434f-8025-4408-9282-d8017aadfcbc">&lt;strong&gt;</bpt>gettweets.py<ept id="1a2e434f-8025-4408-9282-d8017aadfcbc">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="2dcb2f8a-9bdd-4b6c-b95c-0f8f6acc7c68" xml:space="preserve">
+          <source>Replace the placeholder information for <bpt id="cf757171-cb51-4fb5-a1f1-4a6778204c05">&lt;strong&gt;</bpt>consumer/_secret<ept id="cf757171-cb51-4fb5-a1f1-4a6778204c05">&lt;/strong&gt;</ept>, <bpt id="a89f530f-54ef-4c88-b659-7686eec912f4">&lt;strong&gt;</bpt>consumer/_key<ept id="a89f530f-54ef-4c88-b659-7686eec912f4">&lt;/strong&gt;</ept>, <bpt id="8f81636e-8a39-4756-b0c4-5e478b066255">&lt;strong&gt;</bpt>access/_token<ept id="8f81636e-8a39-4756-b0c4-5e478b066255">&lt;/strong&gt;</ept>, and <bpt id="c3fb8887-abf5-4f9e-bbb7-27c526de31e1">&lt;strong&gt;</bpt>access/_token/_secret<ept id="c3fb8887-abf5-4f9e-bbb7-27c526de31e1">&lt;/strong&gt;</ept> with the information from your Twitter application.</source>
+          <target state="new">Replace the placeholder information for <bpt id="cf757171-cb51-4fb5-a1f1-4a6778204c05">&lt;strong&gt;</bpt>consumer/_secret<ept id="cf757171-cb51-4fb5-a1f1-4a6778204c05">&lt;/strong&gt;</ept>, <bpt id="a89f530f-54ef-4c88-b659-7686eec912f4">&lt;strong&gt;</bpt>consumer/_key<ept id="a89f530f-54ef-4c88-b659-7686eec912f4">&lt;/strong&gt;</ept>, <bpt id="8f81636e-8a39-4756-b0c4-5e478b066255">&lt;strong&gt;</bpt>access/_token<ept id="8f81636e-8a39-4756-b0c4-5e478b066255">&lt;/strong&gt;</ept>, and <bpt id="c3fb8887-abf5-4f9e-bbb7-27c526de31e1">&lt;strong&gt;</bpt>access/_token/_secret<ept id="c3fb8887-abf5-4f9e-bbb7-27c526de31e1">&lt;/strong&gt;</ept> with the information from your Twitter application.</target>
+        </trans-unit>
+        <trans-unit id="48a7d66a-6bcf-4bed-8fe1-9162f0918e0f" xml:space="preserve">
+          <source>Use <bpt id="bf50d01a-62f9-4197-a7f9-d85eb4ae0bb1">&lt;strong&gt;</bpt>Ctrl + X<ept id="bf50d01a-62f9-4197-a7f9-d85eb4ae0bb1">&lt;/strong&gt;</ept>, then <bpt id="2c0c404e-caec-4358-8147-ab6b102eb6fd">&lt;strong&gt;</bpt>Y<ept id="2c0c404e-caec-4358-8147-ab6b102eb6fd">&lt;/strong&gt;</ept> to save the file.</source>
+          <target state="new">Use <bpt id="bf50d01a-62f9-4197-a7f9-d85eb4ae0bb1">&lt;strong&gt;</bpt>Ctrl + X<ept id="bf50d01a-62f9-4197-a7f9-d85eb4ae0bb1">&lt;/strong&gt;</ept>, then <bpt id="2c0c404e-caec-4358-8147-ab6b102eb6fd">&lt;strong&gt;</bpt>Y<ept id="2c0c404e-caec-4358-8147-ab6b102eb6fd">&lt;/strong&gt;</ept> to save the file.</target>
+        </trans-unit>
+        <trans-unit id="7a3fd4bf-eae0-4969-a31a-a0c696116996" xml:space="preserve">
+          <source>Use the following command to run the file and download tweets:</source>
+          <target state="new">Use the following command to run the file and download tweets:</target>
+        </trans-unit>
+        <trans-unit id="1a453dca-cae7-4ad6-bf3f-762901b9b314" xml:space="preserve">
+          <source>A progress indicator should appear, and count up to 100% as the tweets are downloaded and saved to file.</source>
+          <target state="new">A progress indicator should appear, and count up to 100% as the tweets are downloaded and saved to file.</target>
+        </trans-unit>
+        <trans-unit id="ab22973b-1958-44b5-a680-9c3a4a7198cd" xml:space="preserve">
+          <source>To upload the data to WASB (the distributed file system used by HDInsight,) use the following commands:</source>
+          <target state="new">To upload the data to WASB (the distributed file system used by HDInsight,) use the following commands:</target>
+        </trans-unit>
+        <trans-unit id="33f8664d-3f09-425a-91b9-799eae8a10f9" xml:space="preserve">
+          <source>This stores the data in a location that all nodes in the cluster can access.</source>
+          <target state="new">This stores the data in a location that all nodes in the cluster can access.</target>
+        </trans-unit>
+        <trans-unit id="3e6171cf-21b7-4770-928d-ea19744c9ee1" xml:space="preserve">
+          <source>Use the following command to create a file containing HiveQL statements:</source>
+          <target state="new">Use the following command to create a file containing HiveQL statements:</target>
+        </trans-unit>
+        <trans-unit id="c110e60a-4786-48f0-b5b6-b486eb43568f" xml:space="preserve">
+          <source>Use the following as the contents of the file:</source>
+          <target state="new">Use the following as the contents of the file:</target>
+        </trans-unit>
+        <trans-unit id="95b8dd82-33a3-4253-b9f8-1d51e4332b87" xml:space="preserve">
+          <source>Press <bpt id="58a06819-4f1a-40a3-a2ad-376fa0b7892e">&lt;strong&gt;</bpt>Ctrl + X<ept id="58a06819-4f1a-40a3-a2ad-376fa0b7892e">&lt;/strong&gt;</ept>, then press <bpt id="4b618d37-78da-47df-b1be-afb480bf7eea">&lt;strong&gt;</bpt>Y<ept id="4b618d37-78da-47df-b1be-afb480bf7eea">&lt;/strong&gt;</ept> to save the file.</source>
+          <target state="new">Press <bpt id="58a06819-4f1a-40a3-a2ad-376fa0b7892e">&lt;strong&gt;</bpt>Ctrl + X<ept id="58a06819-4f1a-40a3-a2ad-376fa0b7892e">&lt;/strong&gt;</ept>, then press <bpt id="4b618d37-78da-47df-b1be-afb480bf7eea">&lt;strong&gt;</bpt>Y<ept id="4b618d37-78da-47df-b1be-afb480bf7eea">&lt;/strong&gt;</ept> to save the file.</target>
+        </trans-unit>
+        <trans-unit id="cfa8ea6a-b3a0-42b9-9ead-83b5b8120ecb" xml:space="preserve">
+          <source>Use the following command to run the HiveQL contained in the file:</source>
+          <target state="new">Use the following command to run the HiveQL contained in the file:</target>
+        </trans-unit>
+        <trans-unit id="7db5e084-5754-4e50-8a69-f47ae3452452" xml:space="preserve">
+          <source>This will load the Hive shell, run the HiveQL in the <bpt id="f91edd9b-d81e-4ec3-a4e9-b0a4c9c47aa8">&lt;strong&gt;</bpt>twitter.hql<ept id="f91edd9b-d81e-4ec3-a4e9-b0a4c9c47aa8">&lt;/strong&gt;</ept> file, and finally return a <bpt id="060392ab-aca1-4f49-9746-b15db5633610">&lt;code&gt;</bpt>hive &gt;<ept id="060392ab-aca1-4f49-9746-b15db5633610">&lt;/code&gt;</ept> prompt.</source>
+          <target state="new">This will load the Hive shell, run the HiveQL in the <bpt id="f91edd9b-d81e-4ec3-a4e9-b0a4c9c47aa8">&lt;strong&gt;</bpt>twitter.hql<ept id="f91edd9b-d81e-4ec3-a4e9-b0a4c9c47aa8">&lt;/strong&gt;</ept> file, and finally return a <bpt id="060392ab-aca1-4f49-9746-b15db5633610">&lt;code&gt;</bpt>hive &gt;<ept id="060392ab-aca1-4f49-9746-b15db5633610">&lt;/code&gt;</ept> prompt.</target>
+        </trans-unit>
+        <trans-unit id="b2a1a50e-47c0-401a-b05d-5db51ba952e3" xml:space="preserve">
+          <source>From the <bpt id="d6af6c6b-5fad-4311-9257-30c090f5df12">&lt;code&gt;</bpt>hive &gt;<ept id="d6af6c6b-5fad-4311-9257-30c090f5df12">&lt;/code&gt;</ept> prompt, use the following to verify that you can select data from the <bpt id="b66daa24-3dd4-49cf-94af-78c6a5899080">&lt;strong&gt;</bpt>tweets<ept id="b66daa24-3dd4-49cf-94af-78c6a5899080">&lt;/strong&gt;</ept> table created by the HiveQL in the <bpt id="a4340ef9-8c65-4e1a-a8be-87ee395e6e01">&lt;strong&gt;</bpt>twitter.hql<ept id="a4340ef9-8c65-4e1a-a8be-87ee395e6e01">&lt;/strong&gt;</ept> file:</source>
+          <target state="new">From the <bpt id="d6af6c6b-5fad-4311-9257-30c090f5df12">&lt;code&gt;</bpt>hive &gt;<ept id="d6af6c6b-5fad-4311-9257-30c090f5df12">&lt;/code&gt;</ept> prompt, use the following to verify that you can select data from the <bpt id="b66daa24-3dd4-49cf-94af-78c6a5899080">&lt;strong&gt;</bpt>tweets<ept id="b66daa24-3dd4-49cf-94af-78c6a5899080">&lt;/strong&gt;</ept> table created by the HiveQL in the <bpt id="a4340ef9-8c65-4e1a-a8be-87ee395e6e01">&lt;strong&gt;</bpt>twitter.hql<ept id="a4340ef9-8c65-4e1a-a8be-87ee395e6e01">&lt;/strong&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="0e0afbc2-0c92-4473-8b8c-2c95130a3298" xml:space="preserve">
+          <source>This will return a maximum of 10 tweets that contain the word <bpt id="daaf0a0b-0f0c-4803-b599-8daa490c706c">&lt;strong&gt;</bpt>Azure<ept id="daaf0a0b-0f0c-4803-b599-8daa490c706c">&lt;/strong&gt;</ept> in the message text.</source>
+          <target state="new">This will return a maximum of 10 tweets that contain the word <bpt id="daaf0a0b-0f0c-4803-b599-8daa490c706c">&lt;strong&gt;</bpt>Azure<ept id="daaf0a0b-0f0c-4803-b599-8daa490c706c">&lt;/strong&gt;</ept> in the message text.</target>
+        </trans-unit>
+        <trans-unit id="79e1f306-2a14-4ae0-ae44-de6395311824" xml:space="preserve">
+          <source>In this tutorial we have seen how to transform an unstructured JSON dataset into a structured Hive table to query, explore, and analyze data from Twitter by using HDInsight on Azure.</source>
+          <target state="new">In this tutorial we have seen how to transform an unstructured JSON dataset into a structured Hive table to query, explore, and analyze data from Twitter by using HDInsight on Azure.</target>
+        </trans-unit>
+        <trans-unit id="a30ae968-dedf-4977-934f-2b27f187521f" xml:space="preserve">
+          <source>To learn more, see:</source>
+          <target state="new">To learn more, see:</target>
+        </trans-unit>
+        <trans-unit id="40c0f38f-c680-439e-a6bf-f4bb954fd30f" xml:space="preserve">
+          <source><bpt id="00804db5-2800-4aee-80f0-4492d7547407">&lt;linkText&gt;</bpt>Get started with HDInsight<ept id="00804db5-2800-4aee-80f0-4492d7547407">&lt;/linkText&gt;</ept><bpt id="00804db5-2800-4aee-80f0-4492d7547407">&lt;title&gt;</bpt><ept id="00804db5-2800-4aee-80f0-4492d7547407">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="00804db5-2800-4aee-80f0-4492d7547407">&lt;linkText&gt;</bpt>Get started with HDInsight<ept id="00804db5-2800-4aee-80f0-4492d7547407">&lt;/linkText&gt;</ept><bpt id="00804db5-2800-4aee-80f0-4492d7547407">&lt;title&gt;</bpt><ept id="00804db5-2800-4aee-80f0-4492d7547407">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27e3cbae-01e8-42f8-ba82-347a93ef0578" xml:space="preserve">
+          <source><bpt id="cd6c9818-117b-4ed9-b530-a344973a6171">&lt;linkText&gt;</bpt>Analyze flight delay data using HDInsight<ept id="cd6c9818-117b-4ed9-b530-a344973a6171">&lt;/linkText&gt;</ept><bpt id="cd6c9818-117b-4ed9-b530-a344973a6171">&lt;title&gt;</bpt><ept id="cd6c9818-117b-4ed9-b530-a344973a6171">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cd6c9818-117b-4ed9-b530-a344973a6171">&lt;linkText&gt;</bpt>Analyze flight delay data using HDInsight<ept id="cd6c9818-117b-4ed9-b530-a344973a6171">&lt;/linkText&gt;</ept><bpt id="cd6c9818-117b-4ed9-b530-a344973a6171">&lt;title&gt;</bpt><ept id="cd6c9818-117b-4ed9-b530-a344973a6171">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c944ef2-d0cf-47ba-959f-26270859a247" xml:space="preserve">
+          <source>http://curl.haxx.se</source>
+          <target state="new">http://curl.haxx.se</target>
+        </trans-unit>
+        <trans-unit id="3a731a44-67d9-48d1-9517-46143750c6d7" xml:space="preserve">
+          <source>http://curl.haxx.se/download.html</source>
+          <target state="new">http://curl.haxx.se/download.html</target>
+        </trans-unit>
+        <trans-unit id="e5576d8b-6b51-40a2-beda-a6b4f0cb2c2b" xml:space="preserve">
+          <source>https://cwiki.apache.org/confluence/display/Hive/Tutorial</source>
+          <target state="new">https://cwiki.apache.org/confluence/display/Hive/Tutorial</target>
+        </trans-unit>
+        <trans-unit id="987d1f89-a1dd-4c0e-a1c4-5c2f6513d1a3" xml:space="preserve">
+          <source>https://dev.twitter.com/docs/streaming-apis</source>
+          <target state="new">https://dev.twitter.com/docs/streaming-apis</target>
+        </trans-unit>
+        <trans-unit id="3dc287fe-dc65-4e6b-87c9-e99f29bd6050" xml:space="preserve">
+          <source>https://dev.twitter.com/docs/api/1.1/post/statuses/filter</source>
+          <target state="new">https://dev.twitter.com/docs/api/1.1/post/statuses/filter</target>
+        </trans-unit>
+      </group>
+      <group id="c4890408-a15b-4487-857c-1dc005f1b603" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2675359a-c23f-4b13-a7cd-2f70cb550132" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2675359a-c23f-4b13-a7cd-2f70cb550132" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="83c47e38-d319-40eb-af6c-c787a2398174">
+        <trans-unit id="92dbc20a-2467-4269-975f-cacdcbe17633" xml:space="preserve">
+          <source>Sample data in Azure HDInsight Hive tables | Microsoft Azure</source>
+          <target state="new">Sample data in Azure HDInsight Hive tables | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c6e2b125-eace-414a-9030-829129ada1ab" xml:space="preserve">
+          <source>Down sampling data in Azure HDInsight Hive Tables</source>
+          <target state="new">Down sampling data in Azure HDInsight Hive Tables</target>
+        </trans-unit>
+        <trans-unit id="716cce29-723a-4fed-b458-0c87418dae09" xml:space="preserve">
+          <source>If the dataset you plan to analyze is big, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size.</source>
+          <target state="new">If the dataset you plan to analyze is big, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size.</target>
+        </trans-unit>
+        <trans-unit id="a612ca57-5224-40d9-bcf0-1745c4873886" xml:space="preserve">
+          <source>This facilitates data understanding, exploration, and feature engineering.</source>
+          <target state="new">This facilitates data understanding, exploration, and feature engineering.</target>
+        </trans-unit>
+        <trans-unit id="62b98ee9-f7c6-4e53-91e9-16754ace7f4e" xml:space="preserve">
+          <source>Its role in the Advanced Analytics Process and Technology (ADAPT) of Azure Machine Learning, is to enable fast prototyping of the data processing functions and machine learning models.</source>
+          <target state="new">Its role in the Advanced Analytics Process and Technology (ADAPT) of Azure Machine Learning, is to enable fast prototyping of the data processing functions and machine learning models.</target>
+        </trans-unit>
+        <trans-unit id="84d9d156-1ef0-45a8-9d63-c64cabc5f651" xml:space="preserve">
+          <source>In this article, we describe how to down-sample data in Azure HDInsight Hive tables using Hive queries.</source>
+          <target state="new">In this article, we describe how to down-sample data in Azure HDInsight Hive tables using Hive queries.</target>
+        </trans-unit>
+        <trans-unit id="855c57f6-1239-486d-acd0-fecec1b0785c" xml:space="preserve">
+          <source>We cover three popularly used sampling methods:</source>
+          <target state="new">We cover three popularly used sampling methods:</target>
+        </trans-unit>
+        <trans-unit id="831647d8-f295-4e30-b5fd-4addfa981e89" xml:space="preserve">
+          <source>Uniform random sampling </source>
+          <target state="new">Uniform random sampling </target>
+        </trans-unit>
+        <trans-unit id="11f5752f-53e9-4a65-9eda-921e276d478e" xml:space="preserve">
+          <source>random sampling by groups </source>
+          <target state="new">random sampling by groups </target>
+        </trans-unit>
+        <trans-unit id="28156044-cdec-4727-9345-eeab4475cc28" xml:space="preserve">
+          <source>stratified sampling</source>
+          <target state="new">stratified sampling</target>
+        </trans-unit>
+        <trans-unit id="6640b27b-46c4-4982-968b-03ef7f41e8c9" xml:space="preserve">
+          <source>You should submit the Hive queries from the Hadoop Command Line console on the head node of the Hadoop cluster.</source>
+          <target state="new">You should submit the Hive queries from the Hadoop Command Line console on the head node of the Hadoop cluster.</target>
+        </trans-unit>
+        <trans-unit id="2b4fbe73-280e-4c9b-8985-360eca6679cc" xml:space="preserve">
+          <source>To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there.</source>
+          <target state="new">To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there.</target>
+        </trans-unit>
+        <trans-unit id="aab05f4a-bd16-4058-bf6c-923722316e4a" xml:space="preserve">
+          <source>For instructions on submitting Hive queries in the Hadoop Command Line console, see <bpt id="7d71d579-1789-43d5-a662-9faae06db62c">&lt;linkText&gt;</bpt>How to Submit Hive Queries<ept id="7d71d579-1789-43d5-a662-9faae06db62c">&lt;/linkText&gt;</ept><bpt id="7d71d579-1789-43d5-a662-9faae06db62c">&lt;title&gt;</bpt><ept id="7d71d579-1789-43d5-a662-9faae06db62c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on submitting Hive queries in the Hadoop Command Line console, see <bpt id="7d71d579-1789-43d5-a662-9faae06db62c">&lt;linkText&gt;</bpt>How to Submit Hive Queries<ept id="7d71d579-1789-43d5-a662-9faae06db62c">&lt;/linkText&gt;</ept><bpt id="7d71d579-1789-43d5-a662-9faae06db62c">&lt;title&gt;</bpt><ept id="7d71d579-1789-43d5-a662-9faae06db62c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e65b09b-6ac6-4d39-b789-44728fb9af0d" xml:space="preserve">
+          <source>Uniform random sampling means that each row in the data set has an equal chance of being sampled.</source>
+          <target state="new">Uniform random sampling means that each row in the data set has an equal chance of being sampled.</target>
+        </trans-unit>
+        <trans-unit id="753e13b6-c07b-4e44-9b20-1a11fb8b84c0" xml:space="preserve">
+          <source>This can be implemented by adding an extra field rand() to the data set in the inner "select" query, and in the outer "select" query that condition on that random field.</source>
+          <target state="new">This can be implemented by adding an extra field rand() to the data set in the inner "select" query, and in the outer "select" query that condition on that random field.</target>
+        </trans-unit>
+        <trans-unit id="67aff500-b475-4c5c-8128-6652cc9ac417" xml:space="preserve">
+          <source>Here is an example query:</source>
+          <target state="new">Here is an example query:</target>
+        </trans-unit>
+        <trans-unit id="a82217b5-6ef2-43c1-acd9-65db3154bcc0" xml:space="preserve">
+          <source>Here, <bpt id="0eb36b52-b9d7-466a-a07c-0a20818f9999">&lt;code&gt;</bpt>&lt;sample rate, 0-1&gt;<ept id="0eb36b52-b9d7-466a-a07c-0a20818f9999">&lt;/code&gt;</ept> specifies the proportion of records that the users want to sample.</source>
+          <target state="new">Here, <bpt id="0eb36b52-b9d7-466a-a07c-0a20818f9999">&lt;code&gt;</bpt>&lt;sample rate, 0-1&gt;<ept id="0eb36b52-b9d7-466a-a07c-0a20818f9999">&lt;/code&gt;</ept> specifies the proportion of records that the users want to sample.</target>
+        </trans-unit>
+        <trans-unit id="5a646859-631b-4980-86f0-9616acdc6824" xml:space="preserve">
+          <source>When sampling categorical data, you may want to either include or exclude all of the instances of some particular value of a categorical variable.</source>
+          <target state="new">When sampling categorical data, you may want to either include or exclude all of the instances of some particular value of a categorical variable.</target>
+        </trans-unit>
+        <trans-unit id="66e654dc-7996-43d1-b5cc-cf0e7097a677" xml:space="preserve">
+          <source>This is what is meant by "sampling by group".</source>
+          <target state="new">This is what is meant by "sampling by group".</target>
+        </trans-unit>
+        <trans-unit id="55a96c19-d134-4ec8-8114-3942228d53de" xml:space="preserve">
+          <source>For example, if you have a categorical variable "State", which has values NY, MA, CA, NJ, PA, etc, you want records of the same state be always together, whether they are sampled or not.</source>
+          <target state="new">For example, if you have a categorical variable "State", which has values NY, MA, CA, NJ, PA, etc, you want records of the same state be always together, whether they are sampled or not.</target>
+        </trans-unit>
+        <trans-unit id="2d68bb3a-5a7f-431b-bc7d-2089d2ddc157" xml:space="preserve">
+          <source>Here is an example query that samples by group:</source>
+          <target state="new">Here is an example query that samples by group:</target>
+        </trans-unit>
+        <trans-unit id="72151d9c-71e6-4930-956f-cf568fc69546" xml:space="preserve">
+          <source>Random sampling is stratified with respect to a categorical variable when the samples obtained have values of that categorical that are in the same ratio as in the parent population from which the samples were obtained.</source>
+          <target state="new">Random sampling is stratified with respect to a categorical variable when the samples obtained have values of that categorical that are in the same ratio as in the parent population from which the samples were obtained.</target>
+        </trans-unit>
+        <trans-unit id="dc424fe3-6505-4c85-914a-313a5f806aa1" xml:space="preserve">
+          <source>Using the same example as above, suppose your data has sub-populations by states, say NJ has 100 observations, NY has 60 observations, and WA has 300 observations.</source>
+          <target state="new">Using the same example as above, suppose your data has sub-populations by states, say NJ has 100 observations, NY has 60 observations, and WA has 300 observations.</target>
+        </trans-unit>
+        <trans-unit id="598606b8-01e2-47e6-9e35-f6fcca5bf578" xml:space="preserve">
+          <source>If you specify the rate of stratified sampling to be 0.5, then the sample obtained should have approximately 50, 30, and 150 observations of NJ, NY, and WA respectively.</source>
+          <target state="new">If you specify the rate of stratified sampling to be 0.5, then the sample obtained should have approximately 50, 30, and 150 observations of NJ, NY, and WA respectively.</target>
+        </trans-unit>
+        <trans-unit id="5bcddf51-77b7-4fcc-a174-c5456cef206e" xml:space="preserve">
+          <source>Here is an example query:</source>
+          <target state="new">Here is an example query:</target>
+        </trans-unit>
+        <trans-unit id="5bd6b86f-1555-4934-9dee-365df57cb289" xml:space="preserve">
+          <source>For information on more advanced sampling methods that are available in Hive, see <bpt id="86178867-ffdb-41c1-b743-cf795fcd80a9">&lt;linkText&gt;</bpt>LanguageManual Sampling<ept id="86178867-ffdb-41c1-b743-cf795fcd80a9">&lt;/linkText&gt;</ept><bpt id="86178867-ffdb-41c1-b743-cf795fcd80a9">&lt;title&gt;</bpt><ept id="86178867-ffdb-41c1-b743-cf795fcd80a9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on more advanced sampling methods that are available in Hive, see <bpt id="86178867-ffdb-41c1-b743-cf795fcd80a9">&lt;linkText&gt;</bpt>LanguageManual Sampling<ept id="86178867-ffdb-41c1-b743-cf795fcd80a9">&lt;/linkText&gt;</ept><bpt id="86178867-ffdb-41c1-b743-cf795fcd80a9">&lt;title&gt;</bpt><ept id="86178867-ffdb-41c1-b743-cf795fcd80a9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

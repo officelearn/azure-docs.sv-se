@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d30ae1d5-9f49-44ed-97d0-a649e4c67a8f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d30ae1d5-9f49-44ed-97d0-a649e4c67a8f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="99d18c89-eca4-4316-ba28-c5cf169382ab">
+        <trans-unit id="4636594b-6199-4406-9929-3d972467c435" xml:space="preserve">
+          <source>How to create, manage, or delete a storage account | Microsoft Azure</source>
+          <target state="new">How to create, manage, or delete a storage account | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8fc1da55-97d7-48d8-8b76-398a423e7997" xml:space="preserve">
+          <source>Learn how to create, manage, or delete a storage account in the Azure portal.</source>
+          <target state="new">Learn how to create, manage, or delete a storage account in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="1f11d624-ae23-4ab0-bcac-db0769db7df5" xml:space="preserve">
+          <source>An Azure storage account gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage.</source>
+          <target state="new">An Azure storage account gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="b101d713-4181-473b-bb11-697422409189" xml:space="preserve">
+          <source>Your storage account provides the unique namespace for your Azure Storage data objects.</source>
+          <target state="new">Your storage account provides the unique namespace for your Azure Storage data objects.</target>
+        </trans-unit>
+        <trans-unit id="5e2b7833-53cb-4736-a9de-e6b93e7acbd2" xml:space="preserve">
+          <source>By default, the data in your account is available only to you, the account owner.</source>
+          <target state="new">By default, the data in your account is available only to you, the account owner.</target>
+        </trans-unit>
+        <trans-unit id="32af0485-f625-4b2d-97a5-f78c0a8e021f" xml:space="preserve">
+          <source>There are two types of storage accounts:</source>
+          <target state="new">There are two types of storage accounts:</target>
+        </trans-unit>
+        <trans-unit id="5e79626f-0b26-41be-be57-622d5316d285" xml:space="preserve">
+          <source>A standard storage account includes Blob, Table, and Queue storage.</source>
+          <target state="new">A standard storage account includes Blob, Table, and Queue storage.</target>
+        </trans-unit>
+        <trans-unit id="a44c192a-4913-4306-ba86-0adf7d13fde5" xml:space="preserve">
+          <source>File storage is available by request via the <bpt id="ec345647-aac9-4400-a05a-833e79c43b68">&lt;linkText&gt;</bpt>Azure Preview page<ept id="ec345647-aac9-4400-a05a-833e79c43b68">&lt;/linkText&gt;</ept><bpt id="ec345647-aac9-4400-a05a-833e79c43b68">&lt;title&gt;</bpt><ept id="ec345647-aac9-4400-a05a-833e79c43b68">&lt;/title&gt;</ept>.</source>
+          <target state="new">File storage is available by request via the <bpt id="ec345647-aac9-4400-a05a-833e79c43b68">&lt;linkText&gt;</bpt>Azure Preview page<ept id="ec345647-aac9-4400-a05a-833e79c43b68">&lt;/linkText&gt;</ept><bpt id="ec345647-aac9-4400-a05a-833e79c43b68">&lt;title&gt;</bpt><ept id="ec345647-aac9-4400-a05a-833e79c43b68">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c723cf5-74c9-4747-a1bb-571a147a9e55" xml:space="preserve">
+          <source>A premium storage account currently supports Azure virtual machine disks only.</source>
+          <target state="new">A premium storage account currently supports Azure virtual machine disks only.</target>
+        </trans-unit>
+        <trans-unit id="7ad1762b-8263-42bd-aaf6-e412a435436e" xml:space="preserve">
+          <source>See <bpt id="c483e200-91dd-4e65-bfcd-9cb0335c023e">&lt;linkText&gt;</bpt>Premium Storage: High-performance storage for Azure virtual machine workloads<ept id="c483e200-91dd-4e65-bfcd-9cb0335c023e">&lt;/linkText&gt;</ept><bpt id="c483e200-91dd-4e65-bfcd-9cb0335c023e">&lt;title&gt;</bpt><ept id="c483e200-91dd-4e65-bfcd-9cb0335c023e">&lt;/title&gt;</ept> for an in-depth overview of Premium Storage.</source>
+          <target state="new">See <bpt id="c483e200-91dd-4e65-bfcd-9cb0335c023e">&lt;linkText&gt;</bpt>Premium Storage: High-performance storage for Azure virtual machine workloads<ept id="c483e200-91dd-4e65-bfcd-9cb0335c023e">&lt;/linkText&gt;</ept><bpt id="c483e200-91dd-4e65-bfcd-9cb0335c023e">&lt;title&gt;</bpt><ept id="c483e200-91dd-4e65-bfcd-9cb0335c023e">&lt;/title&gt;</ept> for an in-depth overview of Premium Storage.</target>
+        </trans-unit>
+        <trans-unit id="355fe779-d909-400b-8e93-fc9ab9424946" xml:space="preserve">
+          <source>You are billed for Azure Storage usage based on your storage account.</source>
+          <target state="new">You are billed for Azure Storage usage based on your storage account.</target>
+        </trans-unit>
+        <trans-unit id="7babf20a-8af3-4493-9a76-128b003ea985" xml:space="preserve">
+          <source>Storage costs are based on four factors: storage capacity, replication scheme, storage transactions, and data egress.</source>
+          <target state="new">Storage costs are based on four factors: storage capacity, replication scheme, storage transactions, and data egress.</target>
+        </trans-unit>
+        <trans-unit id="62c68ad9-a8be-44da-9877-742ce4ef0509" xml:space="preserve">
+          <source>Storage capacity refers to how much of your storage account allotment you are using to store data.</source>
+          <target state="new">Storage capacity refers to how much of your storage account allotment you are using to store data.</target>
+        </trans-unit>
+        <trans-unit id="c7180887-6ba0-4497-9915-fd94188c212b" xml:space="preserve">
+          <source>The cost of simply storing your data is determined by how much data you are storing, and how it is replicated.</source>
+          <target state="new">The cost of simply storing your data is determined by how much data you are storing, and how it is replicated.</target>
+        </trans-unit>
+        <trans-unit id="fbe73c4d-e991-4b74-b44b-5e8e3fd0be7e" xml:space="preserve">
+          <source>Replication determines how many copies of your data are maintained at once, and in what locations.</source>
+          <target state="new">Replication determines how many copies of your data are maintained at once, and in what locations.</target>
+        </trans-unit>
+        <trans-unit id="5270c3d2-a3ad-43fd-b100-d90c40baa70a" xml:space="preserve">
+          <source>Transactions refer to all read and write operations to Azure Storage.</source>
+          <target state="new">Transactions refer to all read and write operations to Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="398df0c0-c763-41cb-89a5-57a93cf188da" xml:space="preserve">
+          <source>Data egress refers to data transferred out of an Azure region.</source>
+          <target state="new">Data egress refers to data transferred out of an Azure region.</target>
+        </trans-unit>
+        <trans-unit id="58b204eb-fcb8-4e29-8f6e-593c1a1b2782" xml:space="preserve">
+          <source>When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress.</source>
+          <target state="new">When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress.</target>
+        </trans-unit>
+        <trans-unit id="951352d6-490e-49a8-8284-252df958efd9" xml:space="preserve">
+          <source>(For Azure services, you can take steps to group your data and services in the same datacenters to reduce or eliminate data egress charges.)</source>
+          <target state="new">(For Azure services, you can take steps to group your data and services in the same datacenters to reduce or eliminate data egress charges.)</target>
+        </trans-unit>
+        <trans-unit id="1e036d7f-4b44-4eaf-a27f-7f3c8d5afd01" xml:space="preserve">
+          <source>The <bpt id="09194915-0467-45ce-8978-aa3a48e4e432">&lt;linkText&gt;</bpt>Azure pricing<ept id="09194915-0467-45ce-8978-aa3a48e4e432">&lt;/linkText&gt;</ept><bpt id="09194915-0467-45ce-8978-aa3a48e4e432">&lt;title&gt;</bpt><ept id="09194915-0467-45ce-8978-aa3a48e4e432">&lt;/title&gt;</ept> page provides detailed pricing information for storage capacity, replication, and transactions.</source>
+          <target state="new">The <bpt id="09194915-0467-45ce-8978-aa3a48e4e432">&lt;linkText&gt;</bpt>Azure pricing<ept id="09194915-0467-45ce-8978-aa3a48e4e432">&lt;/linkText&gt;</ept><bpt id="09194915-0467-45ce-8978-aa3a48e4e432">&lt;title&gt;</bpt><ept id="09194915-0467-45ce-8978-aa3a48e4e432">&lt;/title&gt;</ept> page provides detailed pricing information for storage capacity, replication, and transactions.</target>
+        </trans-unit>
+        <trans-unit id="e4282a64-2129-48f5-a234-6b10a7d8e82a" xml:space="preserve">
+          <source>The <bpt id="78f34110-67de-481f-8c6a-337f886bb93d">&lt;linkText&gt;</bpt>Data transfers pricing details<ept id="78f34110-67de-481f-8c6a-337f886bb93d">&lt;/linkText&gt;</ept><bpt id="78f34110-67de-481f-8c6a-337f886bb93d">&lt;title&gt;</bpt><ept id="78f34110-67de-481f-8c6a-337f886bb93d">&lt;/title&gt;</ept> page provides detailed pricing information for data egress.</source>
+          <target state="new">The <bpt id="78f34110-67de-481f-8c6a-337f886bb93d">&lt;linkText&gt;</bpt>Data transfers pricing details<ept id="78f34110-67de-481f-8c6a-337f886bb93d">&lt;/linkText&gt;</ept><bpt id="78f34110-67de-481f-8c6a-337f886bb93d">&lt;title&gt;</bpt><ept id="78f34110-67de-481f-8c6a-337f886bb93d">&lt;/title&gt;</ept> page provides detailed pricing information for data egress.</target>
+        </trans-unit>
+        <trans-unit id="6c551893-d59f-40c8-8e84-70a3f1d2d533" xml:space="preserve">
+          <source>For details about storage account capacity and performance targets, see <bpt id="6bfb086c-a1e3-42bb-ad5c-7d1f5051588a">&lt;linkText&gt;</bpt>Azure Storage scalability and performance targets<ept id="6bfb086c-a1e3-42bb-ad5c-7d1f5051588a">&lt;/linkText&gt;</ept><bpt id="6bfb086c-a1e3-42bb-ad5c-7d1f5051588a">&lt;title&gt;</bpt><ept id="6bfb086c-a1e3-42bb-ad5c-7d1f5051588a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about storage account capacity and performance targets, see <bpt id="6bfb086c-a1e3-42bb-ad5c-7d1f5051588a">&lt;linkText&gt;</bpt>Azure Storage scalability and performance targets<ept id="6bfb086c-a1e3-42bb-ad5c-7d1f5051588a">&lt;/linkText&gt;</ept><bpt id="6bfb086c-a1e3-42bb-ad5c-7d1f5051588a">&lt;title&gt;</bpt><ept id="6bfb086c-a1e3-42bb-ad5c-7d1f5051588a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="798a773a-5e18-4d63-8314-3b6fe452a756" xml:space="preserve">
+          <source>When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location.</source>
+          <target state="new">When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location.</target>
+        </trans-unit>
+        <trans-unit id="3d9844b5-26ff-412a-bbfe-58a07b9d210e" xml:space="preserve">
+          <source>So it's not necessary to follow the steps below to create a storage account for your virtual machine disks.</source>
+          <target state="new">So it's not necessary to follow the steps below to create a storage account for your virtual machine disks.</target>
+        </trans-unit>
+        <trans-unit id="6d718375-f178-47bd-88c0-bfa1807dff3f" xml:space="preserve">
+          <source>The storage account name will be based on the virtual machine name.</source>
+          <target state="new">The storage account name will be based on the virtual machine name.</target>
+        </trans-unit>
+        <trans-unit id="8cbbeeaf-d1b5-4243-ab63-1a256d2cd424" xml:space="preserve">
+          <source>See the <bpt id="fff51109-4b8f-40ca-b54b-5dfda6394238">&lt;linkText&gt;</bpt>Azure Virtual Machines documentation<ept id="fff51109-4b8f-40ca-b54b-5dfda6394238">&lt;/linkText&gt;</ept><bpt id="fff51109-4b8f-40ca-b54b-5dfda6394238">&lt;title&gt;</bpt><ept id="fff51109-4b8f-40ca-b54b-5dfda6394238">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See the <bpt id="fff51109-4b8f-40ca-b54b-5dfda6394238">&lt;linkText&gt;</bpt>Azure Virtual Machines documentation<ept id="fff51109-4b8f-40ca-b54b-5dfda6394238">&lt;/linkText&gt;</ept><bpt id="fff51109-4b8f-40ca-b54b-5dfda6394238">&lt;title&gt;</bpt><ept id="fff51109-4b8f-40ca-b54b-5dfda6394238">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="fbac59a4-d647-4624-8849-54b9e1c66bbb" xml:space="preserve">
+          <source>Sign in to the <bpt id="02f506a0-0071-4354-b3a2-92473804d7fc">&lt;linkText&gt;</bpt>Azure portal<ept id="02f506a0-0071-4354-b3a2-92473804d7fc">&lt;/linkText&gt;</ept><bpt id="02f506a0-0071-4354-b3a2-92473804d7fc">&lt;title&gt;</bpt><ept id="02f506a0-0071-4354-b3a2-92473804d7fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="02f506a0-0071-4354-b3a2-92473804d7fc">&lt;linkText&gt;</bpt>Azure portal<ept id="02f506a0-0071-4354-b3a2-92473804d7fc">&lt;/linkText&gt;</ept><bpt id="02f506a0-0071-4354-b3a2-92473804d7fc">&lt;title&gt;</bpt><ept id="02f506a0-0071-4354-b3a2-92473804d7fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3f16a55-46fc-4810-97b7-ac18fb9669d7" xml:space="preserve">
+          <source>Click <bpt id="c0b54687-7533-4e3b-a013-214124267c04">&lt;strong&gt;</bpt>Create New<ept id="c0b54687-7533-4e3b-a013-214124267c04">&lt;/strong&gt;</ept>, click <bpt id="4ba32aa6-1243-4bd9-a2e5-3cde4c8c8376">&lt;strong&gt;</bpt>Storage<ept id="4ba32aa6-1243-4bd9-a2e5-3cde4c8c8376">&lt;/strong&gt;</ept>, and then click <bpt id="b3e302a4-b05c-4bce-a4ce-0705cf8d48ed">&lt;strong&gt;</bpt>Quick Create<ept id="b3e302a4-b05c-4bce-a4ce-0705cf8d48ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c0b54687-7533-4e3b-a013-214124267c04">&lt;strong&gt;</bpt>Create New<ept id="c0b54687-7533-4e3b-a013-214124267c04">&lt;/strong&gt;</ept>, click <bpt id="4ba32aa6-1243-4bd9-a2e5-3cde4c8c8376">&lt;strong&gt;</bpt>Storage<ept id="4ba32aa6-1243-4bd9-a2e5-3cde4c8c8376">&lt;/strong&gt;</ept>, and then click <bpt id="b3e302a4-b05c-4bce-a4ce-0705cf8d48ed">&lt;strong&gt;</bpt>Quick Create<ept id="b3e302a4-b05c-4bce-a4ce-0705cf8d48ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db941f44-4af6-429a-9838-895a2dd82a87" xml:space="preserve">
+          <source><bpt id="320cc817-07df-4484-a63a-e35d675a3bd1">&lt;linkText&gt;</bpt>NewStorageAccount<ept id="320cc817-07df-4484-a63a-e35d675a3bd1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="320cc817-07df-4484-a63a-e35d675a3bd1">&lt;linkText&gt;</bpt>NewStorageAccount<ept id="320cc817-07df-4484-a63a-e35d675a3bd1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac762f97-6b79-42e6-94e6-be056f818074" xml:space="preserve">
+          <source>In <bpt id="5d81f210-ce66-442e-b911-72e70b0a1a6c">&lt;strong&gt;</bpt>URL<ept id="5d81f210-ce66-442e-b911-72e70b0a1a6c">&lt;/strong&gt;</ept>, enter a name for your storage account.</source>
+          <target state="new">In <bpt id="5d81f210-ce66-442e-b911-72e70b0a1a6c">&lt;strong&gt;</bpt>URL<ept id="5d81f210-ce66-442e-b911-72e70b0a1a6c">&lt;/strong&gt;</ept>, enter a name for your storage account.</target>
+        </trans-unit>
+        <trans-unit id="df05bb78-ca78-4045-942c-2c7e4fc0d80b" xml:space="preserve">
+          <source>Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.</source>
+          <target state="new">Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.</target>
+        </trans-unit>
+        <trans-unit id="0258b2f5-033f-4e62-80b1-a446c9d1b763" xml:space="preserve">
+          <source>Your storage account name must be unique within Azure.</source>
+          <target state="new">Your storage account name must be unique within Azure.</target>
+        </trans-unit>
+        <trans-unit id="57e5eb46-a620-4d5f-a989-ab23ec27a06a" xml:space="preserve">
+          <source>The portal will indicate if the storage account name you select is already taken.</source>
+          <target state="new">The portal will indicate if the storage account name you select is already taken.</target>
+        </trans-unit>
+        <trans-unit id="bfd6e97f-1c46-478b-ab91-51fb50d02d77" xml:space="preserve">
+          <source>See <bpt id="c89539f0-103a-43ce-93b3-cfebc7eaf1cb">&lt;linkText&gt;</bpt>Storage account endpoints<ept id="c89539f0-103a-43ce-93b3-cfebc7eaf1cb">&lt;/linkText&gt;</ept><bpt id="c89539f0-103a-43ce-93b3-cfebc7eaf1cb">&lt;title&gt;</bpt><ept id="c89539f0-103a-43ce-93b3-cfebc7eaf1cb">&lt;/title&gt;</ept> below for details about how the storage account name will be used to address your objects in Azure Storage.</source>
+          <target state="new">See <bpt id="c89539f0-103a-43ce-93b3-cfebc7eaf1cb">&lt;linkText&gt;</bpt>Storage account endpoints<ept id="c89539f0-103a-43ce-93b3-cfebc7eaf1cb">&lt;/linkText&gt;</ept><bpt id="c89539f0-103a-43ce-93b3-cfebc7eaf1cb">&lt;title&gt;</bpt><ept id="c89539f0-103a-43ce-93b3-cfebc7eaf1cb">&lt;/title&gt;</ept> below for details about how the storage account name will be used to address your objects in Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="73da167d-963c-4777-9b81-a9e1f1535a76" xml:space="preserve">
+          <source>In <bpt id="dcd33e39-4e16-428d-b6bc-da51041fd0de">&lt;strong&gt;</bpt>Location/Affinity Group<ept id="dcd33e39-4e16-428d-b6bc-da51041fd0de">&lt;/strong&gt;</ept>, select a location for your storage account that is close to you or to your customers.</source>
+          <target state="new">In <bpt id="dcd33e39-4e16-428d-b6bc-da51041fd0de">&lt;strong&gt;</bpt>Location/Affinity Group<ept id="dcd33e39-4e16-428d-b6bc-da51041fd0de">&lt;/strong&gt;</ept>, select a location for your storage account that is close to you or to your customers.</target>
+        </trans-unit>
+        <trans-unit id="aea73a08-1180-412c-ace9-dff7b073ab61" xml:space="preserve">
+          <source>If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same datacenter with other Azure services that you are using to improve performance and lower costs.</source>
+          <target state="new">If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same datacenter with other Azure services that you are using to improve performance and lower costs.</target>
+        </trans-unit>
+        <trans-unit id="f395c3c2-b153-4098-a18a-05ec83a1910b" xml:space="preserve">
+          <source>Note that you must select an affinity group when your storage account is created.</source>
+          <target state="new">Note that you must select an affinity group when your storage account is created.</target>
+        </trans-unit>
+        <trans-unit id="a12c1b95-0dad-4058-9993-f4896725ea1d" xml:space="preserve">
+          <source>You cannot move an existing account to an affinity group.</source>
+          <target state="new">You cannot move an existing account to an affinity group.</target>
+        </trans-unit>
+        <trans-unit id="11b51682-0a94-4a44-9ad5-0e4c204d76be" xml:space="preserve">
+          <source>For more information on affinity groups, see <bpt id="fba82531-13d7-46db-bf2b-40edef3e39d5">&lt;linkText&gt;</bpt>Service colocation with an affinity group<ept id="fba82531-13d7-46db-bf2b-40edef3e39d5">&lt;/linkText&gt;</ept><bpt id="fba82531-13d7-46db-bf2b-40edef3e39d5">&lt;title&gt;</bpt><ept id="fba82531-13d7-46db-bf2b-40edef3e39d5">&lt;/title&gt;</ept> below.</source>
+          <target state="new">For more information on affinity groups, see <bpt id="fba82531-13d7-46db-bf2b-40edef3e39d5">&lt;linkText&gt;</bpt>Service colocation with an affinity group<ept id="fba82531-13d7-46db-bf2b-40edef3e39d5">&lt;/linkText&gt;</ept><bpt id="fba82531-13d7-46db-bf2b-40edef3e39d5">&lt;title&gt;</bpt><ept id="fba82531-13d7-46db-bf2b-40edef3e39d5">&lt;/title&gt;</ept> below.</target>
+        </trans-unit>
+        <trans-unit id="2eeb3b56-e1c7-4dab-96d2-d886a0728579" xml:space="preserve">
+          <source>If you have more than one Azure subscription, then the <bpt id="45e471c7-bc05-4eb4-9b7d-f69d93da8382">&lt;strong&gt;</bpt>Subscription<ept id="45e471c7-bc05-4eb4-9b7d-f69d93da8382">&lt;/strong&gt;</ept> field is displayed.</source>
+          <target state="new">If you have more than one Azure subscription, then the <bpt id="45e471c7-bc05-4eb4-9b7d-f69d93da8382">&lt;strong&gt;</bpt>Subscription<ept id="45e471c7-bc05-4eb4-9b7d-f69d93da8382">&lt;/strong&gt;</ept> field is displayed.</target>
+        </trans-unit>
+        <trans-unit id="6fa19ca4-19cb-4ef5-b78a-d6fbb22c9b21" xml:space="preserve">
+          <source>In <bpt id="8fbafe62-5485-425b-a97e-217a64908dc8">&lt;strong&gt;</bpt>Subscription<ept id="8fbafe62-5485-425b-a97e-217a64908dc8">&lt;/strong&gt;</ept>, enter the Azure subscription that you want to use the storage account with.</source>
+          <target state="new">In <bpt id="8fbafe62-5485-425b-a97e-217a64908dc8">&lt;strong&gt;</bpt>Subscription<ept id="8fbafe62-5485-425b-a97e-217a64908dc8">&lt;/strong&gt;</ept>, enter the Azure subscription that you want to use the storage account with.</target>
+        </trans-unit>
+        <trans-unit id="733fbf2f-09d7-435f-8539-6bd0a3d9262d" xml:space="preserve">
+          <source>In <bpt id="30470a89-7112-4fc3-9834-3147dec8f6d0">&lt;strong&gt;</bpt>Replication<ept id="30470a89-7112-4fc3-9834-3147dec8f6d0">&lt;/strong&gt;</ept>, select the desired level of replication for your storage account.</source>
+          <target state="new">In <bpt id="30470a89-7112-4fc3-9834-3147dec8f6d0">&lt;strong&gt;</bpt>Replication<ept id="30470a89-7112-4fc3-9834-3147dec8f6d0">&lt;/strong&gt;</ept>, select the desired level of replication for your storage account.</target>
+        </trans-unit>
+        <trans-unit id="2e6fe6c7-a36c-4690-9c84-432ff374f60d" xml:space="preserve">
+          <source>The recommended replication option is geo-redundant replication, which provides maximum durability for your data.</source>
+          <target state="new">The recommended replication option is geo-redundant replication, which provides maximum durability for your data.</target>
+        </trans-unit>
+        <trans-unit id="73015781-34e0-43be-a3f6-aac1f5cf4c2f" xml:space="preserve">
+          <source>For more details on Azure Storage replication options, see <bpt id="7f23dea7-f51a-4e96-a99f-f46dd898e9d9">&lt;linkText&gt;</bpt>Azure Storage replication<ept id="7f23dea7-f51a-4e96-a99f-f46dd898e9d9">&lt;/linkText&gt;</ept><bpt id="7f23dea7-f51a-4e96-a99f-f46dd898e9d9">&lt;title&gt;</bpt><ept id="7f23dea7-f51a-4e96-a99f-f46dd898e9d9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details on Azure Storage replication options, see <bpt id="7f23dea7-f51a-4e96-a99f-f46dd898e9d9">&lt;linkText&gt;</bpt>Azure Storage replication<ept id="7f23dea7-f51a-4e96-a99f-f46dd898e9d9">&lt;/linkText&gt;</ept><bpt id="7f23dea7-f51a-4e96-a99f-f46dd898e9d9">&lt;title&gt;</bpt><ept id="7f23dea7-f51a-4e96-a99f-f46dd898e9d9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10baa029-10ff-48f4-a672-0f1881769d1e" xml:space="preserve">
+          <source>Click <bpt id="2ea235cf-137f-4230-b854-9c8b47226e46">&lt;strong&gt;</bpt>Create Storage Account<ept id="2ea235cf-137f-4230-b854-9c8b47226e46">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="2ea235cf-137f-4230-b854-9c8b47226e46">&lt;strong&gt;</bpt>Create Storage Account<ept id="2ea235cf-137f-4230-b854-9c8b47226e46">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de40cdfa-7a74-4f7f-87e8-bdd39fb92cad" xml:space="preserve">
+          <source>It may take a few minutes to create your storage account.</source>
+          <target state="new">It may take a few minutes to create your storage account.</target>
+        </trans-unit>
+        <trans-unit id="6a79ccb8-dd48-40da-8189-0ee5bb4d25d3" xml:space="preserve">
+          <source>To check the status, you can monitor the notifications at the bottom of the portal.</source>
+          <target state="new">To check the status, you can monitor the notifications at the bottom of the portal.</target>
+        </trans-unit>
+        <trans-unit id="210b0718-9ea2-4e4c-8b70-e97d8302ec12" xml:space="preserve">
+          <source>After the storage account has been created, your new storage account has <bpt id="ba86b79c-f7cd-4864-8f33-16fc56eb2593">&lt;strong&gt;</bpt>Online<ept id="ba86b79c-f7cd-4864-8f33-16fc56eb2593">&lt;/strong&gt;</ept> status and is ready for use.</source>
+          <target state="new">After the storage account has been created, your new storage account has <bpt id="ba86b79c-f7cd-4864-8f33-16fc56eb2593">&lt;strong&gt;</bpt>Online<ept id="ba86b79c-f7cd-4864-8f33-16fc56eb2593">&lt;/strong&gt;</ept> status and is ready for use.</target>
+        </trans-unit>
+        <trans-unit id="937e6581-8780-4842-85ab-ec0be21da03d" xml:space="preserve">
+          <source><bpt id="0c325ebb-b4ed-453a-9cb1-4cd9b4673de7">&lt;linkText&gt;</bpt>StoragePage<ept id="0c325ebb-b4ed-453a-9cb1-4cd9b4673de7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c325ebb-b4ed-453a-9cb1-4cd9b4673de7">&lt;linkText&gt;</bpt>StoragePage<ept id="0c325ebb-b4ed-453a-9cb1-4cd9b4673de7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40e8ac7e-472f-4533-bf49-47ee181278fb" xml:space="preserve">
+          <source>Every object that you store in Azure Storage has a unique URL address.</source>
+          <target state="new">Every object that you store in Azure Storage has a unique URL address.</target>
+        </trans-unit>
+        <trans-unit id="ad9923b0-5841-4c6a-98c9-dc8a6e4e8e08" xml:space="preserve">
+          <source>The storage account name forms the subdomain of that address.</source>
+          <target state="new">The storage account name forms the subdomain of that address.</target>
+        </trans-unit>
+        <trans-unit id="57d98bb7-548d-46bb-870e-fac834d97a22" xml:space="preserve">
+          <source>The combination of subdomain and domain name, which is specific to each service, forms an <bpt id="e7479854-420e-4321-9319-fb7235a1ef2e">&lt;em&gt;</bpt>endpoint<ept id="e7479854-420e-4321-9319-fb7235a1ef2e">&lt;/em&gt;</ept> for your storage account.</source>
+          <target state="new">The combination of subdomain and domain name, which is specific to each service, forms an <bpt id="e7479854-420e-4321-9319-fb7235a1ef2e">&lt;em&gt;</bpt>endpoint<ept id="e7479854-420e-4321-9319-fb7235a1ef2e">&lt;/em&gt;</ept> for your storage account.</target>
+        </trans-unit>
+        <trans-unit id="497153d9-54e3-4e6f-bc4c-687aef205a8c" xml:space="preserve">
+          <source>For example, if your storage account is named <bpt id="eae8a3e3-fe83-4c41-a5d2-39d6d64bb9f4">&lt;em&gt;</bpt>mystorageaccount<ept id="eae8a3e3-fe83-4c41-a5d2-39d6d64bb9f4">&lt;/em&gt;</ept>, then the default endpoints for your storage account are:</source>
+          <target state="new">For example, if your storage account is named <bpt id="eae8a3e3-fe83-4c41-a5d2-39d6d64bb9f4">&lt;em&gt;</bpt>mystorageaccount<ept id="eae8a3e3-fe83-4c41-a5d2-39d6d64bb9f4">&lt;/em&gt;</ept>, then the default endpoints for your storage account are:</target>
+        </trans-unit>
+        <trans-unit id="a45cdcc6-9b4c-44ec-b7a2-b4a7f9e9521a" xml:space="preserve">
+          <source>Blob service: http://<bpt id="599bfcac-f81e-4b32-9397-bb6883143deb">&lt;em&gt;</bpt>mystorageaccount<ept id="599bfcac-f81e-4b32-9397-bb6883143deb">&lt;/em&gt;</ept>.blob.core.windows.net</source>
+          <target state="new">Blob service: http://<bpt id="599bfcac-f81e-4b32-9397-bb6883143deb">&lt;em&gt;</bpt>mystorageaccount<ept id="599bfcac-f81e-4b32-9397-bb6883143deb">&lt;/em&gt;</ept>.blob.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="96e2bcbe-9f6f-4359-bd41-794b885e4968" xml:space="preserve">
+          <source>Table service: http://<bpt id="71634850-a7bd-4fcc-8887-3ff6f8998901">&lt;em&gt;</bpt>mystorageaccount<ept id="71634850-a7bd-4fcc-8887-3ff6f8998901">&lt;/em&gt;</ept>.table.core.windows.net</source>
+          <target state="new">Table service: http://<bpt id="71634850-a7bd-4fcc-8887-3ff6f8998901">&lt;em&gt;</bpt>mystorageaccount<ept id="71634850-a7bd-4fcc-8887-3ff6f8998901">&lt;/em&gt;</ept>.table.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="7dbc0c9c-e15e-4a35-b03d-8f36ae19231a" xml:space="preserve">
+          <source>Queue service: http://<bpt id="ee0e3b97-118e-409a-9518-d4dd253b1c9d">&lt;em&gt;</bpt>mystorageaccount<ept id="ee0e3b97-118e-409a-9518-d4dd253b1c9d">&lt;/em&gt;</ept>.queue.core.windows.net</source>
+          <target state="new">Queue service: http://<bpt id="ee0e3b97-118e-409a-9518-d4dd253b1c9d">&lt;em&gt;</bpt>mystorageaccount<ept id="ee0e3b97-118e-409a-9518-d4dd253b1c9d">&lt;/em&gt;</ept>.queue.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="76d0c62e-72d3-4a6f-87a9-76f49277236c" xml:space="preserve">
+          <source>File service: http://<bpt id="5aa8bd73-c4d3-417d-b917-76c7e7a065f0">&lt;em&gt;</bpt>mystorageaccount<ept id="5aa8bd73-c4d3-417d-b917-76c7e7a065f0">&lt;/em&gt;</ept>.file.core.windows.net</source>
+          <target state="new">File service: http://<bpt id="5aa8bd73-c4d3-417d-b917-76c7e7a065f0">&lt;em&gt;</bpt>mystorageaccount<ept id="5aa8bd73-c4d3-417d-b917-76c7e7a065f0">&lt;/em&gt;</ept>.file.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="ffa7f075-ec69-4521-ac85-ae85a579c692" xml:space="preserve">
+          <source>You can see the endpoints for your storage account on the storage dashboard in the Azure portal once the account has been created.</source>
+          <target state="new">You can see the endpoints for your storage account on the storage dashboard in the Azure portal once the account has been created.</target>
+        </trans-unit>
+        <trans-unit id="13a4da75-a75a-4039-ba6e-7045dc332f04" xml:space="preserve">
+          <source>The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint.</source>
+          <target state="new">The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="cfe17bd6-23db-4f90-90db-610469d232fb" xml:space="preserve">
+          <source>For example, a blob address might have this format: http://<bpt id="bda42a7d-6e38-416a-bb2e-7823bd04b02a">&lt;em&gt;</bpt>mystorageaccount<ept id="bda42a7d-6e38-416a-bb2e-7823bd04b02a">&lt;/em&gt;</ept>.blob.core.windows.net/<bpt id="05382432-ff21-45ef-b8c5-c0690499f06d">&lt;em&gt;</bpt>mycontainer<ept id="05382432-ff21-45ef-b8c5-c0690499f06d">&lt;/em&gt;</ept>/<bpt id="f87a8db7-ec9c-4670-abc5-2fff58292223">&lt;em&gt;</bpt>myblob<ept id="f87a8db7-ec9c-4670-abc5-2fff58292223">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, a blob address might have this format: http://<bpt id="bda42a7d-6e38-416a-bb2e-7823bd04b02a">&lt;em&gt;</bpt>mystorageaccount<ept id="bda42a7d-6e38-416a-bb2e-7823bd04b02a">&lt;/em&gt;</ept>.blob.core.windows.net/<bpt id="05382432-ff21-45ef-b8c5-c0690499f06d">&lt;em&gt;</bpt>mycontainer<ept id="05382432-ff21-45ef-b8c5-c0690499f06d">&lt;/em&gt;</ept>/<bpt id="f87a8db7-ec9c-4670-abc5-2fff58292223">&lt;em&gt;</bpt>myblob<ept id="f87a8db7-ec9c-4670-abc5-2fff58292223">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7833785-3ba7-43d8-a994-cfc961020249" xml:space="preserve">
+          <source>You can also configure a custom domain name to use with your storage account.</source>
+          <target state="new">You can also configure a custom domain name to use with your storage account.</target>
+        </trans-unit>
+        <trans-unit id="86dec6fb-454a-409e-9320-a8e2a33e61d9" xml:space="preserve">
+          <source>See <bpt id="a1880e78-5480-4bd2-b411-184d338ea40e">&lt;linkText&gt;</bpt>Configure a custom domain name for blob data in an Azure storage account<ept id="a1880e78-5480-4bd2-b411-184d338ea40e">&lt;/linkText&gt;</ept><bpt id="a1880e78-5480-4bd2-b411-184d338ea40e">&lt;title&gt;</bpt><ept id="a1880e78-5480-4bd2-b411-184d338ea40e">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="a1880e78-5480-4bd2-b411-184d338ea40e">&lt;linkText&gt;</bpt>Configure a custom domain name for blob data in an Azure storage account<ept id="a1880e78-5480-4bd2-b411-184d338ea40e">&lt;/linkText&gt;</ept><bpt id="a1880e78-5480-4bd2-b411-184d338ea40e">&lt;title&gt;</bpt><ept id="a1880e78-5480-4bd2-b411-184d338ea40e">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="b443c5b2-bf53-4412-b34d-e393ac756a55" xml:space="preserve">
+          <source>An <bpt id="d767c14a-7b34-4ba4-b2a9-d0e954630d6f">&lt;em&gt;</bpt>affinity group<ept id="d767c14a-7b34-4ba4-b2a9-d0e954630d6f">&lt;/em&gt;</ept> is a geographic grouping of your Azure services and VMs with your Azure storage account.</source>
+          <target state="new">An <bpt id="d767c14a-7b34-4ba4-b2a9-d0e954630d6f">&lt;em&gt;</bpt>affinity group<ept id="d767c14a-7b34-4ba4-b2a9-d0e954630d6f">&lt;/em&gt;</ept> is a geographic grouping of your Azure services and VMs with your Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="a3484151-d6c4-4d82-873f-7e8a8b5c1691" xml:space="preserve">
+          <source>An affinity group can improve service performance by locating computer workloads in the same datacenter or near the target user audience.</source>
+          <target state="new">An affinity group can improve service performance by locating computer workloads in the same datacenter or near the target user audience.</target>
+        </trans-unit>
+        <trans-unit id="06368f9f-0a53-466b-9de8-e9139751c16b" xml:space="preserve">
+          <source>Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.</source>
+          <target state="new">Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.</target>
+        </trans-unit>
+        <trans-unit id="419646bb-de27-45bf-9d7f-20067a4087c1" xml:space="preserve">
+          <source>To create an affinity group, open the &lt;b&gt;Settings&lt;/b&gt; area of the Azure portal, click &lt;b&gt;Affinity Groups&lt;/b&gt;, and then click either &lt;b&gt;Add an affinity group&lt;/b&gt; or the &lt;b&gt;Add&lt;/b&gt; button.</source>
+          <target state="new">To create an affinity group, open the &lt;b&gt;Settings&lt;/b&gt; area of the Azure portal, click &lt;b&gt;Affinity Groups&lt;/b&gt;, and then click either &lt;b&gt;Add an affinity group&lt;/b&gt; or the &lt;b&gt;Add&lt;/b&gt; button.</target>
+        </trans-unit>
+        <trans-unit id="d0f56115-98b9-4aec-9b29-5f46982b3c4f" xml:space="preserve">
+          <source>You can also create and manage affinity groups by using the Azure Service Management API.</source>
+          <target state="new">You can also create and manage affinity groups by using the Azure Service Management API.</target>
+        </trans-unit>
+        <trans-unit id="5212ef56-4ecc-4b7d-8021-de5599bca601" xml:space="preserve">
+          <source>See &lt;a href="http://msdn.microsoft.com/library/azure/ee460798.aspx"&gt;Operations on affinity groups&lt;/a&gt; for more information.</source>
+          <target state="new">See &lt;a href="http://msdn.microsoft.com/library/azure/ee460798.aspx"&gt;Operations on affinity groups&lt;/a&gt; for more information.</target>
+        </trans-unit>
+        <trans-unit id="4b748a6a-1049-41a4-abaf-fdbb127184c9" xml:space="preserve">
+          <source>When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed.</source>
+          <target state="new">When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed.</target>
+        </trans-unit>
+        <trans-unit id="60537d54-85a8-4147-a5fb-6f5ac3397e44" xml:space="preserve">
+          <source>By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.</source>
+          <target state="new">By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.</target>
+        </trans-unit>
+        <trans-unit id="4d796ebd-80f5-4163-b5e6-eb708917ed90" xml:space="preserve">
+          <source>We recommend that you avoid sharing your storage access keys with anyone else.</source>
+          <target state="new">We recommend that you avoid sharing your storage access keys with anyone else.</target>
+        </trans-unit>
+        <trans-unit id="fdc0c111-0a60-4cb3-9f8d-a9244896a080" xml:space="preserve">
+          <source>To permit access to storage resources without giving out your access keys, you can use a <bpt id="37f20b3d-469e-4171-a0d0-84fd900e481c">&lt;em&gt;</bpt>shared access signature<ept id="37f20b3d-469e-4171-a0d0-84fd900e481c">&lt;/em&gt;</ept>.</source>
+          <target state="new">To permit access to storage resources without giving out your access keys, you can use a <bpt id="37f20b3d-469e-4171-a0d0-84fd900e481c">&lt;em&gt;</bpt>shared access signature<ept id="37f20b3d-469e-4171-a0d0-84fd900e481c">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cabc73e-f9ee-4647-96f6-bcb61410bcd9" xml:space="preserve">
+          <source>A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify.</source>
+          <target state="new">A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify.</target>
+        </trans-unit>
+        <trans-unit id="0aa054e0-09a8-4845-a7de-42c3a1f52c34" xml:space="preserve">
+          <source>See the <bpt id="5f67faa7-947a-4ede-8825-246e657543e4">&lt;linkText&gt;</bpt>shared access signature tutorial<ept id="5f67faa7-947a-4ede-8825-246e657543e4">&lt;/linkText&gt;</ept><bpt id="5f67faa7-947a-4ede-8825-246e657543e4">&lt;title&gt;</bpt><ept id="5f67faa7-947a-4ede-8825-246e657543e4">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See the <bpt id="5f67faa7-947a-4ede-8825-246e657543e4">&lt;linkText&gt;</bpt>shared access signature tutorial<ept id="5f67faa7-947a-4ede-8825-246e657543e4">&lt;/linkText&gt;</ept><bpt id="5f67faa7-947a-4ede-8825-246e657543e4">&lt;title&gt;</bpt><ept id="5f67faa7-947a-4ede-8825-246e657543e4">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="f25dc4e8-4070-4ba7-b5d1-08c99e53dbf0" xml:space="preserve">
+          <source>In the <bpt id="de3ae120-f156-476f-9546-a5f52bf0d172">&lt;linkText&gt;</bpt>Azure portal<ept id="de3ae120-f156-476f-9546-a5f52bf0d172">&lt;/linkText&gt;</ept><bpt id="de3ae120-f156-476f-9546-a5f52bf0d172">&lt;title&gt;</bpt><ept id="de3ae120-f156-476f-9546-a5f52bf0d172">&lt;/title&gt;</ept>, use <bpt id="a4210cf8-8ade-4266-9248-290eacdc7447">&lt;strong&gt;</bpt>Manage Keys<ept id="a4210cf8-8ade-4266-9248-290eacdc7447">&lt;/strong&gt;</ept> on the dashboard or the <bpt id="99ef7f6f-5125-416c-a3d4-80cf093aed66">&lt;strong&gt;</bpt>Storage<ept id="99ef7f6f-5125-416c-a3d4-80cf093aed66">&lt;/strong&gt;</ept> page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services.</source>
+          <target state="new">In the <bpt id="de3ae120-f156-476f-9546-a5f52bf0d172">&lt;linkText&gt;</bpt>Azure portal<ept id="de3ae120-f156-476f-9546-a5f52bf0d172">&lt;/linkText&gt;</ept><bpt id="de3ae120-f156-476f-9546-a5f52bf0d172">&lt;title&gt;</bpt><ept id="de3ae120-f156-476f-9546-a5f52bf0d172">&lt;/title&gt;</ept>, use <bpt id="a4210cf8-8ade-4266-9248-290eacdc7447">&lt;strong&gt;</bpt>Manage Keys<ept id="a4210cf8-8ade-4266-9248-290eacdc7447">&lt;/strong&gt;</ept> on the dashboard or the <bpt id="99ef7f6f-5125-416c-a3d4-80cf093aed66">&lt;strong&gt;</bpt>Storage<ept id="99ef7f6f-5125-416c-a3d4-80cf093aed66">&lt;/strong&gt;</ept> page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services.</target>
+        </trans-unit>
+        <trans-unit id="6ecff241-b725-4824-bb74-b8c79de95c8b" xml:space="preserve">
+          <source>You can use <bpt id="d1595d1e-6044-4ad4-8fc1-adfd4de831c1">&lt;strong&gt;</bpt>Manage Keys<ept id="d1595d1e-6044-4ad4-8fc1-adfd4de831c1">&lt;/strong&gt;</ept> to copy a storage access key to use in a connection string.</source>
+          <target state="new">You can use <bpt id="d1595d1e-6044-4ad4-8fc1-adfd4de831c1">&lt;strong&gt;</bpt>Manage Keys<ept id="d1595d1e-6044-4ad4-8fc1-adfd4de831c1">&lt;/strong&gt;</ept> to copy a storage access key to use in a connection string.</target>
+        </trans-unit>
+        <trans-unit id="ceb0cb22-0ea5-4948-95a0-1b42ed50248e" xml:space="preserve">
+          <source>The connection string requires the storage account name and a key to use in authentication.</source>
+          <target state="new">The connection string requires the storage account name and a key to use in authentication.</target>
+        </trans-unit>
+        <trans-unit id="596b9edc-09c7-40b3-8348-1a10b15f2bea" xml:space="preserve">
+          <source>For information about configuring connection strings to access Azure storage services, see <bpt id="ed2dee52-7418-43f7-b9a2-eb66fc5f1347">&lt;linkText&gt;</bpt>Configuring Azure connection strings<ept id="ed2dee52-7418-43f7-b9a2-eb66fc5f1347">&lt;/linkText&gt;</ept><bpt id="ed2dee52-7418-43f7-b9a2-eb66fc5f1347">&lt;title&gt;</bpt><ept id="ed2dee52-7418-43f7-b9a2-eb66fc5f1347">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about configuring connection strings to access Azure storage services, see <bpt id="ed2dee52-7418-43f7-b9a2-eb66fc5f1347">&lt;linkText&gt;</bpt>Configuring Azure connection strings<ept id="ed2dee52-7418-43f7-b9a2-eb66fc5f1347">&lt;/linkText&gt;</ept><bpt id="ed2dee52-7418-43f7-b9a2-eb66fc5f1347">&lt;title&gt;</bpt><ept id="ed2dee52-7418-43f7-b9a2-eb66fc5f1347">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ede5ddb-088b-4bc4-954c-90d8635d0dfc" xml:space="preserve">
+          <source>In the <bpt id="8db07f6c-2943-4c13-865e-56320f6ed332">&lt;linkText&gt;</bpt>Azure portal<ept id="8db07f6c-2943-4c13-865e-56320f6ed332">&lt;/linkText&gt;</ept><bpt id="8db07f6c-2943-4c13-865e-56320f6ed332">&lt;title&gt;</bpt><ept id="8db07f6c-2943-4c13-865e-56320f6ed332">&lt;/title&gt;</ept>, click <bpt id="bf021d1e-bc09-4d64-be64-a7713e13f341">&lt;strong&gt;</bpt>Storage<ept id="bf021d1e-bc09-4d64-be64-a7713e13f341">&lt;/strong&gt;</ept>, and then click the name of the storage account to open the dashboard.</source>
+          <target state="new">In the <bpt id="8db07f6c-2943-4c13-865e-56320f6ed332">&lt;linkText&gt;</bpt>Azure portal<ept id="8db07f6c-2943-4c13-865e-56320f6ed332">&lt;/linkText&gt;</ept><bpt id="8db07f6c-2943-4c13-865e-56320f6ed332">&lt;title&gt;</bpt><ept id="8db07f6c-2943-4c13-865e-56320f6ed332">&lt;/title&gt;</ept>, click <bpt id="bf021d1e-bc09-4d64-be64-a7713e13f341">&lt;strong&gt;</bpt>Storage<ept id="bf021d1e-bc09-4d64-be64-a7713e13f341">&lt;/strong&gt;</ept>, and then click the name of the storage account to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="7e9b5e3f-1c69-4d00-97e3-c01d69a51bcd" xml:space="preserve">
+          <source>Click <bpt id="aec458c4-fc11-45b1-824c-fcc672ca055f">&lt;strong&gt;</bpt>Manage Keys<ept id="aec458c4-fc11-45b1-824c-fcc672ca055f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="aec458c4-fc11-45b1-824c-fcc672ca055f">&lt;strong&gt;</bpt>Manage Keys<ept id="aec458c4-fc11-45b1-824c-fcc672ca055f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="888d3a34-2c1f-4f1d-b557-8ca9ac5f1826" xml:space="preserve">
+          <source><bpt id="ef7badb8-8f6f-4e59-81aa-867230a1f4d3">&lt;strong&gt;</bpt>Manage Access Keys<ept id="ef7badb8-8f6f-4e59-81aa-867230a1f4d3">&lt;/strong&gt;</ept> opens.</source>
+          <target state="new"><bpt id="ef7badb8-8f6f-4e59-81aa-867230a1f4d3">&lt;strong&gt;</bpt>Manage Access Keys<ept id="ef7badb8-8f6f-4e59-81aa-867230a1f4d3">&lt;/strong&gt;</ept> opens.</target>
+        </trans-unit>
+        <trans-unit id="fcbdb401-1da6-46d5-bc0d-ae626e124ba6" xml:space="preserve">
+          <source><bpt id="945b1b44-98c7-45f9-97ad-6f6133245b55">&lt;linkText&gt;</bpt>Managekeys<ept id="945b1b44-98c7-45f9-97ad-6f6133245b55">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="945b1b44-98c7-45f9-97ad-6f6133245b55">&lt;linkText&gt;</bpt>Managekeys<ept id="945b1b44-98c7-45f9-97ad-6f6133245b55">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7679246-e148-455d-9281-ee0dd17a5f20" xml:space="preserve">
+          <source>To copy a storage access key, select the key text.</source>
+          <target state="new">To copy a storage access key, select the key text.</target>
+        </trans-unit>
+        <trans-unit id="f4a34523-1a4d-41ec-b6c7-70e23d4a1029" xml:space="preserve">
+          <source>Then right-click, and click <bpt id="a9f117af-8567-4631-977c-68035e736296">&lt;strong&gt;</bpt>Copy<ept id="a9f117af-8567-4631-977c-68035e736296">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then right-click, and click <bpt id="a9f117af-8567-4631-977c-68035e736296">&lt;strong&gt;</bpt>Copy<ept id="a9f117af-8567-4631-977c-68035e736296">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3f6373f-eea6-468c-a156-46964ba9748e" xml:space="preserve">
+          <source>You should change the access keys to your storage account periodically to help keep your storage connections secure.</source>
+          <target state="new">You should change the access keys to your storage account periodically to help keep your storage connections secure.</target>
+        </trans-unit>
+        <trans-unit id="4a2175ff-b730-44a9-8e5d-787194cc0494" xml:space="preserve">
+          <source>Two access keys are assigned so that you can maintain connections to the storage account by using one access key while you regenerate the other access key.</source>
+          <target state="new">Two access keys are assigned so that you can maintain connections to the storage account by using one access key while you regenerate the other access key.</target>
+        </trans-unit>
+        <trans-unit id="0f50faa8-00d0-453c-baad-216054bd5938" xml:space="preserve">
+          <source>Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account.</source>
+          <target state="new">Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account.</target>
+        </trans-unit>
+        <trans-unit id="5c7d498d-fd39-41de-8d3c-c0280a294a6d" xml:space="preserve">
+          <source>All clients that use the access key to access the storage account must be updated to use the new key.</source>
+          <target state="new">All clients that use the access key to access the storage account must be updated to use the new key.</target>
+        </trans-unit>
+        <trans-unit id="152ccf2f-6749-490b-8515-3c7f82ad23e4" xml:space="preserve">
+          <source><bpt id="b939f87e-96b6-43e1-97c9-2fe7ed87e918">&lt;strong&gt;</bpt>Virtual machines<ept id="b939f87e-96b6-43e1-97c9-2fe7ed87e918">&lt;/strong&gt;</ept> - If your storage account contains any virtual machines that are running, you will have to redeploy all virtual machines after you regenerate the access keys.</source>
+          <target state="new"><bpt id="b939f87e-96b6-43e1-97c9-2fe7ed87e918">&lt;strong&gt;</bpt>Virtual machines<ept id="b939f87e-96b6-43e1-97c9-2fe7ed87e918">&lt;/strong&gt;</ept> - If your storage account contains any virtual machines that are running, you will have to redeploy all virtual machines after you regenerate the access keys.</target>
+        </trans-unit>
+        <trans-unit id="ff5d7a4a-f4d6-42a4-9730-12215831eeb6" xml:space="preserve">
+          <source>To avoid redeployment, shut down the virtual machines before you regenerate the access keys.</source>
+          <target state="new">To avoid redeployment, shut down the virtual machines before you regenerate the access keys.</target>
+        </trans-unit>
+        <trans-unit id="5401e4d6-4aba-4f5f-9c45-ee13d992df26" xml:space="preserve">
+          <source><bpt id="773da43b-33d1-4109-b1a6-fe465d3a5630">&lt;strong&gt;</bpt>Media services<ept id="773da43b-33d1-4109-b1a6-fe465d3a5630">&lt;/strong&gt;</ept> - If you have media services that are dependent on your storage account, you must resync the access keys with your media service after you regenerate the keys.</source>
+          <target state="new"><bpt id="773da43b-33d1-4109-b1a6-fe465d3a5630">&lt;strong&gt;</bpt>Media services<ept id="773da43b-33d1-4109-b1a6-fe465d3a5630">&lt;/strong&gt;</ept> - If you have media services that are dependent on your storage account, you must resync the access keys with your media service after you regenerate the keys.</target>
+        </trans-unit>
+        <trans-unit id="a0706d68-9970-4f9c-8a5f-b08eb3ca9ea3" xml:space="preserve">
+          <source><bpt id="cf4fdabe-8ab5-4366-b03a-771776cd34d8">&lt;strong&gt;</bpt>Applications<ept id="cf4fdabe-8ab5-4366-b03a-771776cd34d8">&lt;/strong&gt;</ept> - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys.</source>
+          <target state="new"><bpt id="cf4fdabe-8ab5-4366-b03a-771776cd34d8">&lt;strong&gt;</bpt>Applications<ept id="cf4fdabe-8ab5-4366-b03a-771776cd34d8">&lt;/strong&gt;</ept> - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys.</target>
+        </trans-unit>
+        <trans-unit id="2e443b09-4e88-40a2-a2fb-5a0d78f04f31" xml:space="preserve">
+          <source>Here is the process:</source>
+          <target state="new">Here is the process:</target>
+        </trans-unit>
+        <trans-unit id="1f24cca4-58d1-4c86-b416-5b1ae1079e49" xml:space="preserve">
+          <source>Update the connection strings in your application code to reference the secondary access key of the storage account.</source>
+          <target state="new">Update the connection strings in your application code to reference the secondary access key of the storage account.</target>
+        </trans-unit>
+        <trans-unit id="863da730-0c90-4365-b528-e71286d05f3c" xml:space="preserve">
+          <source>Regenerate the primary access key for your storage account.</source>
+          <target state="new">Regenerate the primary access key for your storage account.</target>
+        </trans-unit>
+        <trans-unit id="a457bea0-e3cc-4648-ade2-f6c8b6affcdd" xml:space="preserve">
+          <source>In the <bpt id="dcf3fa61-20ac-46e7-9032-80a9cb1f76a6">&lt;linkText&gt;</bpt>Azure portal<ept id="dcf3fa61-20ac-46e7-9032-80a9cb1f76a6">&lt;/linkText&gt;</ept><bpt id="dcf3fa61-20ac-46e7-9032-80a9cb1f76a6">&lt;title&gt;</bpt><ept id="dcf3fa61-20ac-46e7-9032-80a9cb1f76a6">&lt;/title&gt;</ept>, from the dashboard or the <bpt id="1827f9a6-566c-4d5e-b347-86160b663fef">&lt;strong&gt;</bpt>Configure<ept id="1827f9a6-566c-4d5e-b347-86160b663fef">&lt;/strong&gt;</ept> page, click <bpt id="99e3f8dd-ef2c-481d-a48d-8bf7b2eb5d07">&lt;strong&gt;</bpt>Manage Keys<ept id="99e3f8dd-ef2c-481d-a48d-8bf7b2eb5d07">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="dcf3fa61-20ac-46e7-9032-80a9cb1f76a6">&lt;linkText&gt;</bpt>Azure portal<ept id="dcf3fa61-20ac-46e7-9032-80a9cb1f76a6">&lt;/linkText&gt;</ept><bpt id="dcf3fa61-20ac-46e7-9032-80a9cb1f76a6">&lt;title&gt;</bpt><ept id="dcf3fa61-20ac-46e7-9032-80a9cb1f76a6">&lt;/title&gt;</ept>, from the dashboard or the <bpt id="1827f9a6-566c-4d5e-b347-86160b663fef">&lt;strong&gt;</bpt>Configure<ept id="1827f9a6-566c-4d5e-b347-86160b663fef">&lt;/strong&gt;</ept> page, click <bpt id="99e3f8dd-ef2c-481d-a48d-8bf7b2eb5d07">&lt;strong&gt;</bpt>Manage Keys<ept id="99e3f8dd-ef2c-481d-a48d-8bf7b2eb5d07">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01a5893a-dd48-40b5-a522-437a05755832" xml:space="preserve">
+          <source>Click <bpt id="0879d391-ffd6-4514-91cb-27f2875b8524">&lt;strong&gt;</bpt>Regenerate<ept id="0879d391-ffd6-4514-91cb-27f2875b8524">&lt;/strong&gt;</ept> under the primary access key, and then click <bpt id="f35a5ebd-b9e1-469c-ad74-de7b2022fd99">&lt;strong&gt;</bpt>Yes<ept id="f35a5ebd-b9e1-469c-ad74-de7b2022fd99">&lt;/strong&gt;</ept> to confirm that you want to generate a new key.</source>
+          <target state="new">Click <bpt id="0879d391-ffd6-4514-91cb-27f2875b8524">&lt;strong&gt;</bpt>Regenerate<ept id="0879d391-ffd6-4514-91cb-27f2875b8524">&lt;/strong&gt;</ept> under the primary access key, and then click <bpt id="f35a5ebd-b9e1-469c-ad74-de7b2022fd99">&lt;strong&gt;</bpt>Yes<ept id="f35a5ebd-b9e1-469c-ad74-de7b2022fd99">&lt;/strong&gt;</ept> to confirm that you want to generate a new key.</target>
+        </trans-unit>
+        <trans-unit id="1e833397-0cac-4e53-93c4-ef69c2eb8a2e" xml:space="preserve">
+          <source>Update the connection strings in your code to reference the new primary access key.</source>
+          <target state="new">Update the connection strings in your code to reference the new primary access key.</target>
+        </trans-unit>
+        <trans-unit id="66e60cbc-bfce-48bb-b3e7-d28bb3a19422" xml:space="preserve">
+          <source>Regenerate the secondary access key.</source>
+          <target state="new">Regenerate the secondary access key.</target>
+        </trans-unit>
+        <trans-unit id="ce5b2623-4e3b-4bce-a858-2326ea9d32b2" xml:space="preserve">
+          <source>To remove a storage account that you are no longer using, use <bpt id="fca79ddb-05c0-439b-9f31-83a763666bb3">&lt;strong&gt;</bpt>Delete<ept id="fca79ddb-05c0-439b-9f31-83a763666bb3">&lt;/strong&gt;</ept> on the dashboard or the <bpt id="59611d6f-f762-42b3-88a1-6cd3a829fb5e">&lt;strong&gt;</bpt>Configure<ept id="59611d6f-f762-42b3-88a1-6cd3a829fb5e">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">To remove a storage account that you are no longer using, use <bpt id="fca79ddb-05c0-439b-9f31-83a763666bb3">&lt;strong&gt;</bpt>Delete<ept id="fca79ddb-05c0-439b-9f31-83a763666bb3">&lt;/strong&gt;</ept> on the dashboard or the <bpt id="59611d6f-f762-42b3-88a1-6cd3a829fb5e">&lt;strong&gt;</bpt>Configure<ept id="59611d6f-f762-42b3-88a1-6cd3a829fb5e">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="9acd81b8-cf5d-4c9a-b92b-a6adb96869f7" xml:space="preserve">
+          <source><bpt id="cca568de-57c2-4a15-a78b-69639c7aeb87">&lt;strong&gt;</bpt>Delete<ept id="cca568de-57c2-4a15-a78b-69639c7aeb87">&lt;/strong&gt;</ept> deletes the entire storage account, including all of the blobs, tables, and queues in the account.</source>
+          <target state="new"><bpt id="cca568de-57c2-4a15-a78b-69639c7aeb87">&lt;strong&gt;</bpt>Delete<ept id="cca568de-57c2-4a15-a78b-69639c7aeb87">&lt;/strong&gt;</ept> deletes the entire storage account, including all of the blobs, tables, and queues in the account.</target>
+        </trans-unit>
+        <trans-unit id="f0780949-aab4-4d89-a1df-1e85d64a579e" xml:space="preserve">
+          <source>It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion.</source>
+          <target state="new">It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion.</target>
+        </trans-unit>
+        <trans-unit id="0f8b2845-a57a-446e-a40d-4da31d691556" xml:space="preserve">
+          <source>Be sure to back up anything you want to save before you delete the account.</source>
+          <target state="new">Be sure to back up anything you want to save before you delete the account.</target>
+        </trans-unit>
+        <trans-unit id="dc0870f5-1eb5-4333-8203-129e888a6a62" xml:space="preserve">
+          <source>This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.</source>
+          <target state="new">This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.</target>
+        </trans-unit>
+        <trans-unit id="aa22bd29-772f-4327-9057-e3e0379fc666" xml:space="preserve">
+          <source>If your storage account contains VHD files for an Azure virtual machine, then you must delete any images and disks that are using those VHD files before you can delete the storage account.</source>
+          <target state="new">If your storage account contains VHD files for an Azure virtual machine, then you must delete any images and disks that are using those VHD files before you can delete the storage account.</target>
+        </trans-unit>
+        <trans-unit id="8b2673a0-7c81-4076-89e5-4a6a99b9c800" xml:space="preserve">
+          <source>First, stop the virtual machine if it is running, and then delete it.</source>
+          <target state="new">First, stop the virtual machine if it is running, and then delete it.</target>
+        </trans-unit>
+        <trans-unit id="8bc45bcf-589c-4dd1-9ce8-7677524d9fc5" xml:space="preserve">
+          <source>To delete disks, navigate to the <bpt id="d4b348d7-1149-4591-8198-53d2f3ac8af3">&lt;strong&gt;</bpt>Disks<ept id="d4b348d7-1149-4591-8198-53d2f3ac8af3">&lt;/strong&gt;</ept> tab and delete any disks there.</source>
+          <target state="new">To delete disks, navigate to the <bpt id="d4b348d7-1149-4591-8198-53d2f3ac8af3">&lt;strong&gt;</bpt>Disks<ept id="d4b348d7-1149-4591-8198-53d2f3ac8af3">&lt;/strong&gt;</ept> tab and delete any disks there.</target>
+        </trans-unit>
+        <trans-unit id="ad4b2310-b541-4a05-8083-6d822ab136e2" xml:space="preserve">
+          <source>To delete images, navigate to the <bpt id="0b89d902-49e1-4cab-bdfb-a5166c364042">&lt;strong&gt;</bpt>Images<ept id="0b89d902-49e1-4cab-bdfb-a5166c364042">&lt;/strong&gt;</ept> tab and delete any images that are stored in the account.</source>
+          <target state="new">To delete images, navigate to the <bpt id="0b89d902-49e1-4cab-bdfb-a5166c364042">&lt;strong&gt;</bpt>Images<ept id="0b89d902-49e1-4cab-bdfb-a5166c364042">&lt;/strong&gt;</ept> tab and delete any images that are stored in the account.</target>
+        </trans-unit>
+        <trans-unit id="76da17b9-f548-4c9f-8522-170036d109f2" xml:space="preserve">
+          <source>In the <bpt id="cbb8f024-e91b-42af-858b-69520789a99a">&lt;linkText&gt;</bpt>Azure portal<ept id="cbb8f024-e91b-42af-858b-69520789a99a">&lt;/linkText&gt;</ept><bpt id="cbb8f024-e91b-42af-858b-69520789a99a">&lt;title&gt;</bpt><ept id="cbb8f024-e91b-42af-858b-69520789a99a">&lt;/title&gt;</ept>, click <bpt id="e069a064-c502-432e-b97b-4ef89a62d7cc">&lt;strong&gt;</bpt>Storage<ept id="e069a064-c502-432e-b97b-4ef89a62d7cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="cbb8f024-e91b-42af-858b-69520789a99a">&lt;linkText&gt;</bpt>Azure portal<ept id="cbb8f024-e91b-42af-858b-69520789a99a">&lt;/linkText&gt;</ept><bpt id="cbb8f024-e91b-42af-858b-69520789a99a">&lt;title&gt;</bpt><ept id="cbb8f024-e91b-42af-858b-69520789a99a">&lt;/title&gt;</ept>, click <bpt id="e069a064-c502-432e-b97b-4ef89a62d7cc">&lt;strong&gt;</bpt>Storage<ept id="e069a064-c502-432e-b97b-4ef89a62d7cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aff8198f-f552-44f4-8abd-513fe2adaa1f" xml:space="preserve">
+          <source>Click anywhere in the storage account entry except the name, and then click <bpt id="9af672bd-aa9b-4b64-b0e1-b991e36b53c1">&lt;strong&gt;</bpt>Delete<ept id="9af672bd-aa9b-4b64-b0e1-b991e36b53c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click anywhere in the storage account entry except the name, and then click <bpt id="9af672bd-aa9b-4b64-b0e1-b991e36b53c1">&lt;strong&gt;</bpt>Delete<ept id="9af672bd-aa9b-4b64-b0e1-b991e36b53c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be66be2b-1ad6-4070-87c7-515a77b1c4ed" xml:space="preserve">
+          <source> -Or-</source>
+          <target state="new"> -Or-</target>
+        </trans-unit>
+        <trans-unit id="90584c38-ad38-4ff1-99f6-6ab2cc02a900" xml:space="preserve">
+          <source>Click the name of the storage account to open the dashboard, and then click <bpt id="98c19af1-6db5-4694-94f5-4df9dbfc007a">&lt;strong&gt;</bpt>Delete<ept id="98c19af1-6db5-4694-94f5-4df9dbfc007a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the name of the storage account to open the dashboard, and then click <bpt id="98c19af1-6db5-4694-94f5-4df9dbfc007a">&lt;strong&gt;</bpt>Delete<ept id="98c19af1-6db5-4694-94f5-4df9dbfc007a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3131d1c6-4c15-4718-bbb4-5ef7c8ed6f45" xml:space="preserve">
+          <source>Click <bpt id="2e00fba8-7fab-4027-8d52-fef175e0d62a">&lt;strong&gt;</bpt>Yes<ept id="2e00fba8-7fab-4027-8d52-fef175e0d62a">&lt;/strong&gt;</ept> to confirm that you want to delete the storage account.</source>
+          <target state="new">Click <bpt id="2e00fba8-7fab-4027-8d52-fef175e0d62a">&lt;strong&gt;</bpt>Yes<ept id="2e00fba8-7fab-4027-8d52-fef175e0d62a">&lt;/strong&gt;</ept> to confirm that you want to delete the storage account.</target>
+        </trans-unit>
+        <trans-unit id="6bcf4621-ee44-421c-8349-68be5cad783f" xml:space="preserve">
+          <source>To learn more about Azure Storage, see the Azure Storage documentation on <bpt id="61b8b649-c057-4df6-9a57-5ecadb0c11fa">&lt;linkText&gt;</bpt>Azure.com<ept id="61b8b649-c057-4df6-9a57-5ecadb0c11fa">&lt;/linkText&gt;</ept><bpt id="61b8b649-c057-4df6-9a57-5ecadb0c11fa">&lt;title&gt;</bpt><ept id="61b8b649-c057-4df6-9a57-5ecadb0c11fa">&lt;/title&gt;</ept> and on <bpt id="83220f3c-45a1-4af7-aeec-3b2948d6e3ca">&lt;linkText&gt;</bpt>MSDN<ept id="83220f3c-45a1-4af7-aeec-3b2948d6e3ca">&lt;/linkText&gt;</ept><bpt id="83220f3c-45a1-4af7-aeec-3b2948d6e3ca">&lt;title&gt;</bpt><ept id="83220f3c-45a1-4af7-aeec-3b2948d6e3ca">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Azure Storage, see the Azure Storage documentation on <bpt id="61b8b649-c057-4df6-9a57-5ecadb0c11fa">&lt;linkText&gt;</bpt>Azure.com<ept id="61b8b649-c057-4df6-9a57-5ecadb0c11fa">&lt;/linkText&gt;</ept><bpt id="61b8b649-c057-4df6-9a57-5ecadb0c11fa">&lt;title&gt;</bpt><ept id="61b8b649-c057-4df6-9a57-5ecadb0c11fa">&lt;/title&gt;</ept> and on <bpt id="83220f3c-45a1-4af7-aeec-3b2948d6e3ca">&lt;linkText&gt;</bpt>MSDN<ept id="83220f3c-45a1-4af7-aeec-3b2948d6e3ca">&lt;/linkText&gt;</ept><bpt id="83220f3c-45a1-4af7-aeec-3b2948d6e3ca">&lt;title&gt;</bpt><ept id="83220f3c-45a1-4af7-aeec-3b2948d6e3ca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3ff24b8-bff0-4094-9590-6c8713d76673" xml:space="preserve">
+          <source>Visit the <bpt id="88c2fb82-b76d-42ec-90ba-7fb0db54d3c4">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="88c2fb82-b76d-42ec-90ba-7fb0db54d3c4">&lt;/linkText&gt;</ept><bpt id="88c2fb82-b76d-42ec-90ba-7fb0db54d3c4">&lt;title&gt;</bpt><ept id="88c2fb82-b76d-42ec-90ba-7fb0db54d3c4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Visit the <bpt id="88c2fb82-b76d-42ec-90ba-7fb0db54d3c4">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="88c2fb82-b76d-42ec-90ba-7fb0db54d3c4">&lt;/linkText&gt;</ept><bpt id="88c2fb82-b76d-42ec-90ba-7fb0db54d3c4">&lt;title&gt;</bpt><ept id="88c2fb82-b76d-42ec-90ba-7fb0db54d3c4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

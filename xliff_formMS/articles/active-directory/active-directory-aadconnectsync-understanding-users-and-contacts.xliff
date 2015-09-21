@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="df3a24c8-f050-4b3c-9874-23d3efa4065e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="df3a24c8-f050-4b3c-9874-23d3efa4065e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="682bc173-05c2-4f6a-aee8-867b837c4fb3">
+        <trans-unit id="24e07f10-56c7-4355-88be-e49c5d090c91" xml:space="preserve">
+          <source>Azure AD Connect Sync: Understanding Users and Contacts</source>
+          <target state="new">Azure AD Connect Sync: Understanding Users and Contacts</target>
+        </trans-unit>
+        <trans-unit id="bea95389-03cd-4ca1-a71a-049e7f18d7d0" xml:space="preserve">
+          <source>Explains users and contacts in Azure AD Connect Sync.</source>
+          <target state="new">Explains users and contacts in Azure AD Connect Sync.</target>
+        </trans-unit>
+        <trans-unit id="c6870acd-c0c2-49b2-bc32-694e091b7ed5" xml:space="preserve">
+          <source>There are several different reasons why you would have multiple Active Directory forests and there are several different deployment topologies. Common models include an account-resource deployment and GAL sync’ed forests after a merger &amp; acquisition. But even if there are pure models, hybrid models are common as well. The default configuration in Azure AD Connect Sync does not assume any particular model but depending on how user matching was selected in the installation guide, different behaviors can be observed.</source>
+          <target state="new">There are several different reasons why you would have multiple Active Directory forests and there are several different deployment topologies. Common models include an account-resource deployment and GAL sync’ed forests after a merger &amp; acquisition. But even if there are pure models, hybrid models are common as well. The default configuration in Azure AD Connect Sync does not assume any particular model but depending on how user matching was selected in the installation guide, different behaviors can be observed.</target>
+        </trans-unit>
+        <trans-unit id="f345b822-6f96-46e1-b4ff-a239703b878f" xml:space="preserve">
+          <source>In this topic, we will go through how the default configuration behaves in certain topologies.</source>
+          <target state="new">In this topic, we will go through how the default configuration behaves in certain topologies.</target>
+        </trans-unit>
+        <trans-unit id="aceb796c-393d-4746-92e3-600e1f9a4f9c" xml:space="preserve">
+          <source>We will go through the configuration and the Synchronization Rules Editor can be used to look at the configuration.</source>
+          <target state="new">We will go through the configuration and the Synchronization Rules Editor can be used to look at the configuration.</target>
+        </trans-unit>
+        <trans-unit id="f65e9057-86a4-4615-aff1-74b5e63209ec" xml:space="preserve">
+          <source>There are a few general rules the configuration assumes:</source>
+          <target state="new">There are a few general rules the configuration assumes:</target>
+        </trans-unit>
+        <trans-unit id="bbe5dd01-5d1b-49d1-af19-32590f092427" xml:space="preserve">
+          <source>Regardless of which order we read the source Active Directories, the end result should always be the same.</source>
+          <target state="new">Regardless of which order we read the source Active Directories, the end result should always be the same.</target>
+        </trans-unit>
+        <trans-unit id="5b54b6b8-7722-4517-b1b5-9d03eb827502" xml:space="preserve">
+          <source>An active account will always contribute login information, including <bpt id="ff0300d6-fbd5-40ac-bb07-f7e66032cc06">&lt;strong&gt;</bpt>userPrincipalName<ept id="ff0300d6-fbd5-40ac-bb07-f7e66032cc06">&lt;/strong&gt;</ept> and <bpt id="af6f2de0-c0cf-45e2-a517-1922f50dd2ae">&lt;strong&gt;</bpt>sourceAnchor<ept id="af6f2de0-c0cf-45e2-a517-1922f50dd2ae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">An active account will always contribute login information, including <bpt id="ff0300d6-fbd5-40ac-bb07-f7e66032cc06">&lt;strong&gt;</bpt>userPrincipalName<ept id="ff0300d6-fbd5-40ac-bb07-f7e66032cc06">&lt;/strong&gt;</ept> and <bpt id="af6f2de0-c0cf-45e2-a517-1922f50dd2ae">&lt;strong&gt;</bpt>sourceAnchor<ept id="af6f2de0-c0cf-45e2-a517-1922f50dd2ae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52c48ab0-c8b2-4b60-a307-af30ad2807e8" xml:space="preserve">
+          <source>A disabled account will contribute userPrincipalName and sourceAnchor, unless it is a linked mailbox.</source>
+          <target state="new">A disabled account will contribute userPrincipalName and sourceAnchor, unless it is a linked mailbox.</target>
+        </trans-unit>
+        <trans-unit id="232e8ee5-1a98-4ba2-b503-ddaa0d7ac821" xml:space="preserve">
+          <source>An account with a linked mailbox will never be used for userPrincipalName and sourceAnchor.</source>
+          <target state="new">An account with a linked mailbox will never be used for userPrincipalName and sourceAnchor.</target>
+        </trans-unit>
+        <trans-unit id="a34cd65c-8ce0-4888-9452-d20b39881bcb" xml:space="preserve">
+          <source>It is assumed that an active account will be found later.</source>
+          <target state="new">It is assumed that an active account will be found later.</target>
+        </trans-unit>
+        <trans-unit id="b957df34-3f18-47e1-ad8f-e6fc9eb60513" xml:space="preserve">
+          <source>A contact object might be provisioned to Azure AD as a contact or as a user.</source>
+          <target state="new">A contact object might be provisioned to Azure AD as a contact or as a user.</target>
+        </trans-unit>
+        <trans-unit id="43fab2b5-d824-40a9-9549-75449a8fba85" xml:space="preserve">
+          <source>You don’t really know until all source Active Directory forests have been processed.</source>
+          <target state="new">You don’t really know until all source Active Directory forests have been processed.</target>
+        </trans-unit>
+        <trans-unit id="66a2698a-d1d9-45d9-823d-de67d69cf4d5" xml:space="preserve">
+          <source>Having contacts representing a user in a different forest is common after a merger &amp; acquisition where a GALSync solution is bridging two or more Exchange forests. The contact object is always joining from the connector space to the metaverse using the mail attribute. If there is already a contact object or user object with the same mail address, the objects are joined together. This is configured in the rule <bpt id="cd6dc001-b1f1-4a1c-b71b-dfc0b933d879">&lt;strong&gt;</bpt>In from AD – Contact Join<ept id="cd6dc001-b1f1-4a1c-b71b-dfc0b933d879">&lt;/strong&gt;</ept>. There is also a rule named <bpt id="33c9e525-bc11-44ae-8ddc-d65320ceb571">&lt;strong&gt;</bpt>In from AD – Contact Common<ept id="33c9e525-bc11-44ae-8ddc-d65320ceb571">&lt;/strong&gt;</ept> with an attribute flow to the metaverse attribute <bpt id="94391279-8c09-4de0-b5ae-a723eb3011ab">&lt;strong&gt;</bpt>sourceObjectType<ept id="94391279-8c09-4de0-b5ae-a723eb3011ab">&lt;/strong&gt;</ept> with the constant <bpt id="24f4d510-8c86-40dd-8dce-bcbadce3cf2a">&lt;strong&gt;</bpt>Contact<ept id="24f4d510-8c86-40dd-8dce-bcbadce3cf2a">&lt;/strong&gt;</ept>. This rule has very low precedence so if any user object is joined to the same metaverse object, then the rule In from AD – User Common will contribute the value User to this attribute. With this rule, this attribute will have the value Contact if no user has been joined and the value User if at least one user has been found.</source>
+          <target state="new">Having contacts representing a user in a different forest is common after a merger &amp; acquisition where a GALSync solution is bridging two or more Exchange forests. The contact object is always joining from the connector space to the metaverse using the mail attribute. If there is already a contact object or user object with the same mail address, the objects are joined together. This is configured in the rule <bpt id="cd6dc001-b1f1-4a1c-b71b-dfc0b933d879">&lt;strong&gt;</bpt>In from AD – Contact Join<ept id="cd6dc001-b1f1-4a1c-b71b-dfc0b933d879">&lt;/strong&gt;</ept>. There is also a rule named <bpt id="33c9e525-bc11-44ae-8ddc-d65320ceb571">&lt;strong&gt;</bpt>In from AD – Contact Common<ept id="33c9e525-bc11-44ae-8ddc-d65320ceb571">&lt;/strong&gt;</ept> with an attribute flow to the metaverse attribute <bpt id="94391279-8c09-4de0-b5ae-a723eb3011ab">&lt;strong&gt;</bpt>sourceObjectType<ept id="94391279-8c09-4de0-b5ae-a723eb3011ab">&lt;/strong&gt;</ept> with the constant <bpt id="24f4d510-8c86-40dd-8dce-bcbadce3cf2a">&lt;strong&gt;</bpt>Contact<ept id="24f4d510-8c86-40dd-8dce-bcbadce3cf2a">&lt;/strong&gt;</ept>. This rule has very low precedence so if any user object is joined to the same metaverse object, then the rule In from AD – User Common will contribute the value User to this attribute. With this rule, this attribute will have the value Contact if no user has been joined and the value User if at least one user has been found.</target>
+        </trans-unit>
+        <trans-unit id="ec00e378-bf8d-4d33-8b96-3547d59b1050" xml:space="preserve">
+          <source>For provisioning an object to Azure AD, the outbound rule <bpt id="e6d90e9a-572c-4d54-a7e2-018f7553fb00">&lt;strong&gt;</bpt>Out to AAD – Contact Join<ept id="e6d90e9a-572c-4d54-a7e2-018f7553fb00">&lt;/strong&gt;</ept> will create a contact object if the metaverse attribute <bpt id="d37a3cc9-4805-4b80-88b0-bd92644c2d48">&lt;strong&gt;</bpt>sourceObjectType<ept id="d37a3cc9-4805-4b80-88b0-bd92644c2d48">&lt;/strong&gt;</ept> is set to <bpt id="3476074b-4f15-4ab7-8fe4-f5cc31f9f4a0">&lt;strong&gt;</bpt>Contact<ept id="3476074b-4f15-4ab7-8fe4-f5cc31f9f4a0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For provisioning an object to Azure AD, the outbound rule <bpt id="e6d90e9a-572c-4d54-a7e2-018f7553fb00">&lt;strong&gt;</bpt>Out to AAD – Contact Join<ept id="e6d90e9a-572c-4d54-a7e2-018f7553fb00">&lt;/strong&gt;</ept> will create a contact object if the metaverse attribute <bpt id="d37a3cc9-4805-4b80-88b0-bd92644c2d48">&lt;strong&gt;</bpt>sourceObjectType<ept id="d37a3cc9-4805-4b80-88b0-bd92644c2d48">&lt;/strong&gt;</ept> is set to <bpt id="3476074b-4f15-4ab7-8fe4-f5cc31f9f4a0">&lt;strong&gt;</bpt>Contact<ept id="3476074b-4f15-4ab7-8fe4-f5cc31f9f4a0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85eeb1ad-a56f-4db2-9436-3dee10f7d7cf" xml:space="preserve">
+          <source>If this attribute is set to <bpt id="74845949-7d3f-4507-a606-4415b38312b1">&lt;strong&gt;</bpt>User<ept id="74845949-7d3f-4507-a606-4415b38312b1">&lt;/strong&gt;</ept>, then the rule <bpt id="10556a4e-0945-4aac-a06c-17822b081ce4">&lt;strong&gt;</bpt>Out to AAD – User Join<ept id="10556a4e-0945-4aac-a06c-17822b081ce4">&lt;/strong&gt;</ept> will create a user object instead.</source>
+          <target state="new">If this attribute is set to <bpt id="74845949-7d3f-4507-a606-4415b38312b1">&lt;strong&gt;</bpt>User<ept id="74845949-7d3f-4507-a606-4415b38312b1">&lt;/strong&gt;</ept>, then the rule <bpt id="10556a4e-0945-4aac-a06c-17822b081ce4">&lt;strong&gt;</bpt>Out to AAD – User Join<ept id="10556a4e-0945-4aac-a06c-17822b081ce4">&lt;/strong&gt;</ept> will create a user object instead.</target>
+        </trans-unit>
+        <trans-unit id="7044cc38-b869-4b5c-9182-bd422958b9cb" xml:space="preserve">
+          <source>It is possible that an object is promoted from Contact to User when more source Active Directories are imported and synchronized.</source>
+          <target state="new">It is possible that an object is promoted from Contact to User when more source Active Directories are imported and synchronized.</target>
+        </trans-unit>
+        <trans-unit id="3be19b6f-33bf-4d7c-be26-8c05cb7fe63f" xml:space="preserve">
+          <source>For example, in a GALSync topology we will find contact objects for everyone in the second forest when we import the first forest.</source>
+          <target state="new">For example, in a GALSync topology we will find contact objects for everyone in the second forest when we import the first forest.</target>
+        </trans-unit>
+        <trans-unit id="5eea3977-08a3-44d6-a156-3c8d44ab5133" xml:space="preserve">
+          <source>This will stage new contact objects in the AAD Connector.</source>
+          <target state="new">This will stage new contact objects in the AAD Connector.</target>
+        </trans-unit>
+        <trans-unit id="677b0ed2-ae2b-4902-b799-ce72b21c2766" xml:space="preserve">
+          <source>When we later import and synchronize the second forest, we will find the real users and join them to the existing metaverse objects.</source>
+          <target state="new">When we later import and synchronize the second forest, we will find the real users and join them to the existing metaverse objects.</target>
+        </trans-unit>
+        <trans-unit id="0a083bba-632e-4c51-8c8c-7da65330789b" xml:space="preserve">
+          <source>We will then delete the contact object in AAD and create a new user object instead.</source>
+          <target state="new">We will then delete the contact object in AAD and create a new user object instead.</target>
+        </trans-unit>
+        <trans-unit id="a9a686d7-7261-47ad-87b4-000f4e9c92da" xml:space="preserve">
+          <source>If you have a topology where users and represented as contacts, make sure you select to match users on the mail attribute in the installation guide.</source>
+          <target state="new">If you have a topology where users and represented as contacts, make sure you select to match users on the mail attribute in the installation guide.</target>
+        </trans-unit>
+        <trans-unit id="33af35a8-3561-4471-9d0b-6942b12a61ec" xml:space="preserve">
+          <source>If you select another option, then you will have an order dependent configuration.</source>
+          <target state="new">If you select another option, then you will have an order dependent configuration.</target>
+        </trans-unit>
+        <trans-unit id="05f39e44-bec3-4a62-aedb-8c858280aaa5" xml:space="preserve">
+          <source>Contact objects will always join on the mail attribute, but user objects will only join on the mail attribute if this option was selected in the installation guide.</source>
+          <target state="new">Contact objects will always join on the mail attribute, but user objects will only join on the mail attribute if this option was selected in the installation guide.</target>
+        </trans-unit>
+        <trans-unit id="aa1fbaa8-727a-4e45-9e00-79f87715bcb9" xml:space="preserve">
+          <source>You could then end up with two different objects in the metaverse with the same mail attribute if the contact object was imported before the user object.</source>
+          <target state="new">You could then end up with two different objects in the metaverse with the same mail attribute if the contact object was imported before the user object.</target>
+        </trans-unit>
+        <trans-unit id="de759a10-8fe9-4b07-bc13-4fa8e05f9967" xml:space="preserve">
+          <source>During export to Azure AD, an error will be thrown.</source>
+          <target state="new">During export to Azure AD, an error will be thrown.</target>
+        </trans-unit>
+        <trans-unit id="5a910ef9-8090-4a36-b3da-0b83056d30fc" xml:space="preserve">
+          <source>This behavior is by design and would indicate bad data or that the topology was not correctly identified during the installation.</source>
+          <target state="new">This behavior is by design and would indicate bad data or that the topology was not correctly identified during the installation.</target>
+        </trans-unit>
+        <trans-unit id="b0623d3c-e311-49e4-92b0-0091edcece76" xml:space="preserve">
+          <source>Disabled accounts are synchronized as well to Azure AD.</source>
+          <target state="new">Disabled accounts are synchronized as well to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="e8c74883-db95-46a0-9a90-1ac09916f958" xml:space="preserve">
+          <source>Disabled accounts are common to represent resources in Exchange, for example conference rooms.</source>
+          <target state="new">Disabled accounts are common to represent resources in Exchange, for example conference rooms.</target>
+        </trans-unit>
+        <trans-unit id="109b22d7-0dd1-44f3-8ccd-2ebdd34b3b9e" xml:space="preserve">
+          <source>The exception is users with a linked mailbox; as previously mentioned, these will never provision an account to Azure AD.</source>
+          <target state="new">The exception is users with a linked mailbox; as previously mentioned, these will never provision an account to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="587d6bec-e15d-4bca-936a-b9cd3edda673" xml:space="preserve">
+          <source>The assumption is that if a disabled user account is found, then we will not find another active account later and the object is provisioned to Azure AD with the userPrincipalName and sourceAnchor found.</source>
+          <target state="new">The assumption is that if a disabled user account is found, then we will not find another active account later and the object is provisioned to Azure AD with the userPrincipalName and sourceAnchor found.</target>
+        </trans-unit>
+        <trans-unit id="7dcb643b-945f-4456-9c71-1f10475269c4" xml:space="preserve">
+          <source>In case another active account will join to the same metaverse object, then its userPrincipalName and sourceAnchor will be used.</source>
+          <target state="new">In case another active account will join to the same metaverse object, then its userPrincipalName and sourceAnchor will be used.</target>
+        </trans-unit>
+        <trans-unit id="91936cb3-7c2d-4f29-aab5-c99293e8f1b4" xml:space="preserve">
+          <source>When an object has been exported to Azure AD then it is not allowed to change the sourceAnchor anymore.</source>
+          <target state="new">When an object has been exported to Azure AD then it is not allowed to change the sourceAnchor anymore.</target>
+        </trans-unit>
+        <trans-unit id="685edad9-d83a-470b-9aa0-02471943783e" xml:space="preserve">
+          <source>When the object has been exported the metaverse attribute <bpt id="9af4a94f-9844-40d9-9bbf-13b7b239cf8a">&lt;strong&gt;</bpt>cloudSourceAnchor<ept id="9af4a94f-9844-40d9-9bbf-13b7b239cf8a">&lt;/strong&gt;</ept> is set with the <bpt id="87674ab1-434d-4a83-9de5-82ec754fa297">&lt;strong&gt;</bpt>sourceAnchor<ept id="87674ab1-434d-4a83-9de5-82ec754fa297">&lt;/strong&gt;</ept> value accepted by Azure AD.</source>
+          <target state="new">When the object has been exported the metaverse attribute <bpt id="9af4a94f-9844-40d9-9bbf-13b7b239cf8a">&lt;strong&gt;</bpt>cloudSourceAnchor<ept id="9af4a94f-9844-40d9-9bbf-13b7b239cf8a">&lt;/strong&gt;</ept> is set with the <bpt id="87674ab1-434d-4a83-9de5-82ec754fa297">&lt;strong&gt;</bpt>sourceAnchor<ept id="87674ab1-434d-4a83-9de5-82ec754fa297">&lt;/strong&gt;</ept> value accepted by Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="c711ba79-24d0-486c-b594-c7c25baba884" xml:space="preserve">
+          <source>If <bpt id="e2e785c6-ef8b-428d-9cbd-0ce32284efc5">&lt;strong&gt;</bpt>sourceAnchor<ept id="e2e785c6-ef8b-428d-9cbd-0ce32284efc5">&lt;/strong&gt;</ept> is changed and not match <bpt id="db59affd-abf0-4c89-8686-2c9ceacd2424">&lt;strong&gt;</bpt>cloudSourceAnchor<ept id="db59affd-abf0-4c89-8686-2c9ceacd2424">&lt;/strong&gt;</ept>, the rule<bpt id="103ed14b-c310-4caa-8b2e-9d7a273560ba">&lt;em&gt;</bpt>* Out to AAD – User Join<ept id="103ed14b-c310-4caa-8b2e-9d7a273560ba">&lt;/em&gt;</ept>* will throw the error <bpt id="00b25fbb-ae56-4338-bd2a-c5c75e971604">&lt;strong&gt;</bpt>sourceAnchor attribute has changed<ept id="00b25fbb-ae56-4338-bd2a-c5c75e971604">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If <bpt id="e2e785c6-ef8b-428d-9cbd-0ce32284efc5">&lt;strong&gt;</bpt>sourceAnchor<ept id="e2e785c6-ef8b-428d-9cbd-0ce32284efc5">&lt;/strong&gt;</ept> is changed and not match <bpt id="db59affd-abf0-4c89-8686-2c9ceacd2424">&lt;strong&gt;</bpt>cloudSourceAnchor<ept id="db59affd-abf0-4c89-8686-2c9ceacd2424">&lt;/strong&gt;</ept>, the rule<bpt id="103ed14b-c310-4caa-8b2e-9d7a273560ba">&lt;em&gt;</bpt>* Out to AAD – User Join<ept id="103ed14b-c310-4caa-8b2e-9d7a273560ba">&lt;/em&gt;</ept>* will throw the error <bpt id="00b25fbb-ae56-4338-bd2a-c5c75e971604">&lt;strong&gt;</bpt>sourceAnchor attribute has changed<ept id="00b25fbb-ae56-4338-bd2a-c5c75e971604">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ecf4e3a-42f0-4fd8-91d2-07f91ef81277" xml:space="preserve">
+          <source>In this case, the configuration or data must be corrected so the same sourceAnchor is present in the metaverse again before the object can be synchronized again.</source>
+          <target state="new">In this case, the configuration or data must be corrected so the same sourceAnchor is present in the metaverse again before the object can be synchronized again.</target>
+        </trans-unit>
+        <trans-unit id="c1ec4088-8c05-4615-9651-7842af62acf0" xml:space="preserve">
+          <source><bpt id="2cc07b0e-6db4-4a8c-a909-824853528e68">&lt;linkText&gt;</bpt>Azure AD Connect Sync: Customizing Synchronization options<ept id="2cc07b0e-6db4-4a8c-a909-824853528e68">&lt;/linkText&gt;</ept><bpt id="2cc07b0e-6db4-4a8c-a909-824853528e68">&lt;title&gt;</bpt><ept id="2cc07b0e-6db4-4a8c-a909-824853528e68">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2cc07b0e-6db4-4a8c-a909-824853528e68">&lt;linkText&gt;</bpt>Azure AD Connect Sync: Customizing Synchronization options<ept id="2cc07b0e-6db4-4a8c-a909-824853528e68">&lt;/linkText&gt;</ept><bpt id="2cc07b0e-6db4-4a8c-a909-824853528e68">&lt;title&gt;</bpt><ept id="2cc07b0e-6db4-4a8c-a909-824853528e68">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="deec5e5f-3063-4f77-bb4f-ead5d6b14bd5" xml:space="preserve">
+          <source><bpt id="85713636-94b3-4a30-b8f7-47e1a7b983af">&lt;linkText&gt;</bpt>Integrating your on-premises identities with Azure Active Directory<ept id="85713636-94b3-4a30-b8f7-47e1a7b983af">&lt;/linkText&gt;</ept><bpt id="85713636-94b3-4a30-b8f7-47e1a7b983af">&lt;title&gt;</bpt><ept id="85713636-94b3-4a30-b8f7-47e1a7b983af">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="85713636-94b3-4a30-b8f7-47e1a7b983af">&lt;linkText&gt;</bpt>Integrating your on-premises identities with Azure Active Directory<ept id="85713636-94b3-4a30-b8f7-47e1a7b983af">&lt;/linkText&gt;</ept><bpt id="85713636-94b3-4a30-b8f7-47e1a7b983af">&lt;title&gt;</bpt><ept id="85713636-94b3-4a30-b8f7-47e1a7b983af">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

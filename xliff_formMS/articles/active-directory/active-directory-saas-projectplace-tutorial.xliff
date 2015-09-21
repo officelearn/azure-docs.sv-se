@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e0440cf0-b7e3-473b-8712-3ebbb41513d7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e0440cf0-b7e3-473b-8712-3ebbb41513d7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c45c2d61-08d7-4698-b309-e91893145631">
+        <trans-unit id="ca3d9f58-5c67-4149-96db-3b03c096fb77" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Projectplace | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Projectplace | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="dba7d2cc-3595-448b-990b-9a8e53299c19" xml:space="preserve">
+          <source>Learn how to use Projectplace with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Projectplace with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="8aeafc2a-11b0-45ba-9dc8-8be231955d01" xml:space="preserve">
+          <source>For feedback, click <bpt id="e097de5b-c783-499f-8232-905d3bdda702">&lt;linkText&gt;</bpt>here<ept id="e097de5b-c783-499f-8232-905d3bdda702">&lt;/linkText&gt;</ept><bpt id="e097de5b-c783-499f-8232-905d3bdda702">&lt;title&gt;</bpt><ept id="e097de5b-c783-499f-8232-905d3bdda702">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="e097de5b-c783-499f-8232-905d3bdda702">&lt;linkText&gt;</bpt>here<ept id="e097de5b-c783-499f-8232-905d3bdda702">&lt;/linkText&gt;</ept><bpt id="e097de5b-c783-499f-8232-905d3bdda702">&lt;title&gt;</bpt><ept id="e097de5b-c783-499f-8232-905d3bdda702">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd3ce0f0-8c30-4de0-ba19-11b886741e49" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Projectplace.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Projectplace.</target>
+        </trans-unit>
+        <trans-unit id="190da9a2-3da6-4549-985e-952b2d8891b8" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="792938e7-b19c-4d41-9367-3c5f57344630" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="a6c1adab-5261-4631-88e6-d774f187c47b" xml:space="preserve">
+          <source>A Projectplace single sign-on enabled subscription</source>
+          <target state="new">A Projectplace single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="54396f71-aec2-4e9d-814b-863a16451d2d" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Projectplace will be able to single sign into the application at your Projectplace company site (service provider initiated sign on), or using the <bpt id="35f538ea-7437-41cd-8197-91368bc0bdf1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="35f538ea-7437-41cd-8197-91368bc0bdf1">&lt;/linkText&gt;</ept><bpt id="35f538ea-7437-41cd-8197-91368bc0bdf1">&lt;title&gt;</bpt><ept id="35f538ea-7437-41cd-8197-91368bc0bdf1">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Projectplace will be able to single sign into the application at your Projectplace company site (service provider initiated sign on), or using the <bpt id="35f538ea-7437-41cd-8197-91368bc0bdf1">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="35f538ea-7437-41cd-8197-91368bc0bdf1">&lt;/linkText&gt;</ept><bpt id="35f538ea-7437-41cd-8197-91368bc0bdf1">&lt;title&gt;</bpt><ept id="35f538ea-7437-41cd-8197-91368bc0bdf1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="980ee2bf-35e1-4660-b55f-823382f4765b" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="142a91ab-f7bf-4b87-af25-af3881f13009" xml:space="preserve">
+          <source>Enabling the application integration for Projectplace</source>
+          <target state="new">Enabling the application integration for Projectplace</target>
+        </trans-unit>
+        <trans-unit id="f81bb5c4-ad21-4877-8212-ab570d03e7ca" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="742b4ebc-e895-43ba-a1b7-361dec6414e3" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="f1ab601a-876f-4d76-8ea7-e98697da6dca" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="ce972e2e-5d54-46c7-a728-2fd517ba7d32" xml:space="preserve">
+          <source><bpt id="baebebf1-eb58-41b4-afab-0eb36fbf771d">&lt;linkText&gt;</bpt>Scenario<ept id="baebebf1-eb58-41b4-afab-0eb36fbf771d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="baebebf1-eb58-41b4-afab-0eb36fbf771d">&lt;linkText&gt;</bpt>Scenario<ept id="baebebf1-eb58-41b4-afab-0eb36fbf771d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27785a6f-d953-4204-81d2-9c5761ef11df" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Projectplace.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Projectplace.</target>
+        </trans-unit>
+        <trans-unit id="e96cff36-5c3c-441a-b489-bd1346f5c79b" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="f9800843-8d3a-4854-9b29-a7df90ca4f18">&lt;strong&gt;</bpt>Active Directory<ept id="f9800843-8d3a-4854-9b29-a7df90ca4f18">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="f9800843-8d3a-4854-9b29-a7df90ca4f18">&lt;strong&gt;</bpt>Active Directory<ept id="f9800843-8d3a-4854-9b29-a7df90ca4f18">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eccacd33-d4c0-41b7-bd0f-6c40adaf1e49" xml:space="preserve">
+          <source><bpt id="cdc5339d-bdc0-45a0-9d53-f2025e6bd2e6">&lt;linkText&gt;</bpt>Active Directory<ept id="cdc5339d-bdc0-45a0-9d53-f2025e6bd2e6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cdc5339d-bdc0-45a0-9d53-f2025e6bd2e6">&lt;linkText&gt;</bpt>Active Directory<ept id="cdc5339d-bdc0-45a0-9d53-f2025e6bd2e6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f39bd695-b185-4c15-88ed-d2d70facfc7e" xml:space="preserve">
+          <source>From the <bpt id="e2651d59-09d2-4d45-807b-53e55ac79e88">&lt;strong&gt;</bpt>Directory<ept id="e2651d59-09d2-4d45-807b-53e55ac79e88">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="e2651d59-09d2-4d45-807b-53e55ac79e88">&lt;strong&gt;</bpt>Directory<ept id="e2651d59-09d2-4d45-807b-53e55ac79e88">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="20bbdbc7-bb5a-4540-868c-6d9477cbae8f" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="380ccb6f-6144-4cc9-89d8-4a8155179e7d">&lt;strong&gt;</bpt>Applications<ept id="380ccb6f-6144-4cc9-89d8-4a8155179e7d">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="380ccb6f-6144-4cc9-89d8-4a8155179e7d">&lt;strong&gt;</bpt>Applications<ept id="380ccb6f-6144-4cc9-89d8-4a8155179e7d">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="c85b5a09-9c9e-4217-b2b2-eb2937445e7b" xml:space="preserve">
+          <source><bpt id="f8e3a7d4-9e0b-4d05-a17d-27f8f91eb9b9">&lt;linkText&gt;</bpt>Applications<ept id="f8e3a7d4-9e0b-4d05-a17d-27f8f91eb9b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8e3a7d4-9e0b-4d05-a17d-27f8f91eb9b9">&lt;linkText&gt;</bpt>Applications<ept id="f8e3a7d4-9e0b-4d05-a17d-27f8f91eb9b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b009a7f1-f630-4738-ab16-95d128bf7354" xml:space="preserve">
+          <source>Click <bpt id="a68455c4-a7a8-4281-9884-9cf8fd3113fb">&lt;strong&gt;</bpt>Add<ept id="a68455c4-a7a8-4281-9884-9cf8fd3113fb">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="a68455c4-a7a8-4281-9884-9cf8fd3113fb">&lt;strong&gt;</bpt>Add<ept id="a68455c4-a7a8-4281-9884-9cf8fd3113fb">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="6774cfde-0a0a-4969-b133-586859286c38" xml:space="preserve">
+          <source><bpt id="54d41376-8bed-4789-8bed-4f3abc71d286">&lt;linkText&gt;</bpt>Add application<ept id="54d41376-8bed-4789-8bed-4f3abc71d286">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54d41376-8bed-4789-8bed-4f3abc71d286">&lt;linkText&gt;</bpt>Add application<ept id="54d41376-8bed-4789-8bed-4f3abc71d286">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccfce0d6-f9e3-4a0d-a33c-d5f5537e9c70" xml:space="preserve">
+          <source>On the <bpt id="3406786e-aad0-42b8-8360-ae38ac3f9cbe">&lt;strong&gt;</bpt>What do you want to do<ept id="3406786e-aad0-42b8-8360-ae38ac3f9cbe">&lt;/strong&gt;</ept> dialog, click <bpt id="5dab9f6f-e463-4d70-98e2-71366eca91ec">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="5dab9f6f-e463-4d70-98e2-71366eca91ec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="3406786e-aad0-42b8-8360-ae38ac3f9cbe">&lt;strong&gt;</bpt>What do you want to do<ept id="3406786e-aad0-42b8-8360-ae38ac3f9cbe">&lt;/strong&gt;</ept> dialog, click <bpt id="5dab9f6f-e463-4d70-98e2-71366eca91ec">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="5dab9f6f-e463-4d70-98e2-71366eca91ec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c3124fea-9901-40e4-aee8-59add0917130" xml:space="preserve">
+          <source><bpt id="a3e15452-e366-4e78-b954-74be5c3d8e79">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="a3e15452-e366-4e78-b954-74be5c3d8e79">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a3e15452-e366-4e78-b954-74be5c3d8e79">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="a3e15452-e366-4e78-b954-74be5c3d8e79">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2cc90a9-424a-417e-9af8-337f0d541cdd" xml:space="preserve">
+          <source>In the <bpt id="cd42da5b-b0e9-4aa2-8a67-440626206ad9">&lt;strong&gt;</bpt>search box<ept id="cd42da5b-b0e9-4aa2-8a67-440626206ad9">&lt;/strong&gt;</ept>, type <bpt id="07c2c372-8cd5-4de7-b1a4-bc672da6a3b1">&lt;strong&gt;</bpt>Projectplace<ept id="07c2c372-8cd5-4de7-b1a4-bc672da6a3b1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="cd42da5b-b0e9-4aa2-8a67-440626206ad9">&lt;strong&gt;</bpt>search box<ept id="cd42da5b-b0e9-4aa2-8a67-440626206ad9">&lt;/strong&gt;</ept>, type <bpt id="07c2c372-8cd5-4de7-b1a4-bc672da6a3b1">&lt;strong&gt;</bpt>Projectplace<ept id="07c2c372-8cd5-4de7-b1a4-bc672da6a3b1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5172e04-3dab-448c-98c7-22afd0f3830e" xml:space="preserve">
+          <source><bpt id="7dae595a-b800-4758-87d8-13b29bc3f049">&lt;linkText&gt;</bpt>Application Gallery<ept id="7dae595a-b800-4758-87d8-13b29bc3f049">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7dae595a-b800-4758-87d8-13b29bc3f049">&lt;linkText&gt;</bpt>Application Gallery<ept id="7dae595a-b800-4758-87d8-13b29bc3f049">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ba540a5-eaa0-49fd-94aa-9105ef40cbe7" xml:space="preserve">
+          <source>In the results pane, select <bpt id="5e3ed9bc-b821-4dcc-9fc6-72988bc9b335">&lt;strong&gt;</bpt>Projectplace<ept id="5e3ed9bc-b821-4dcc-9fc6-72988bc9b335">&lt;/strong&gt;</ept>, and then click <bpt id="36a9aef3-46eb-4a20-ab82-077fd99285bb">&lt;strong&gt;</bpt>Complete<ept id="36a9aef3-46eb-4a20-ab82-077fd99285bb">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="5e3ed9bc-b821-4dcc-9fc6-72988bc9b335">&lt;strong&gt;</bpt>Projectplace<ept id="5e3ed9bc-b821-4dcc-9fc6-72988bc9b335">&lt;/strong&gt;</ept>, and then click <bpt id="36a9aef3-46eb-4a20-ab82-077fd99285bb">&lt;strong&gt;</bpt>Complete<ept id="36a9aef3-46eb-4a20-ab82-077fd99285bb">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="e8ceebc2-e850-4532-a9f8-96aa76e34a8d" xml:space="preserve">
+          <source><bpt id="e52f6ac0-b6c7-41d0-b1ca-d61159bc2307">&lt;linkText&gt;</bpt>ProjectPlace<ept id="e52f6ac0-b6c7-41d0-b1ca-d61159bc2307">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e52f6ac0-b6c7-41d0-b1ca-d61159bc2307">&lt;linkText&gt;</bpt>ProjectPlace<ept id="e52f6ac0-b6c7-41d0-b1ca-d61159bc2307">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="baf82af8-e289-40fc-8495-0d9040806421" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Projectplace with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Projectplace with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="2d5f6d97-b393-4ef5-94f5-95a5f0c22ded" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="a0ff5b5e-4127-4bd1-85c6-fc015311b7d1">&lt;strong&gt;</bpt>Projectplace<ept id="a0ff5b5e-4127-4bd1-85c6-fc015311b7d1">&lt;/strong&gt;</ept> application integration page, click <bpt id="c7ab31d6-17a3-4c5f-b336-6d564b99ba74">&lt;strong&gt;</bpt>Configure single sign-on<ept id="c7ab31d6-17a3-4c5f-b336-6d564b99ba74">&lt;/strong&gt;</ept> to open the <bpt id="0417e96e-0b43-42e7-a4b8-9be59921a1a1">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="0417e96e-0b43-42e7-a4b8-9be59921a1a1">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="a0ff5b5e-4127-4bd1-85c6-fc015311b7d1">&lt;strong&gt;</bpt>Projectplace<ept id="a0ff5b5e-4127-4bd1-85c6-fc015311b7d1">&lt;/strong&gt;</ept> application integration page, click <bpt id="c7ab31d6-17a3-4c5f-b336-6d564b99ba74">&lt;strong&gt;</bpt>Configure single sign-on<ept id="c7ab31d6-17a3-4c5f-b336-6d564b99ba74">&lt;/strong&gt;</ept> to open the <bpt id="0417e96e-0b43-42e7-a4b8-9be59921a1a1">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="0417e96e-0b43-42e7-a4b8-9be59921a1a1">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="cdf7717c-6510-40a3-b82b-fc2cb77f9c8d" xml:space="preserve">
+          <source><bpt id="449c01d1-2052-4686-8b7a-911639a52e79">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="449c01d1-2052-4686-8b7a-911639a52e79">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="449c01d1-2052-4686-8b7a-911639a52e79">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="449c01d1-2052-4686-8b7a-911639a52e79">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1b3ee02-4a72-4d24-a9c6-1ef5773b9fd1" xml:space="preserve">
+          <source>On the <bpt id="0000d32d-8777-4cb5-9130-d36e3386650d">&lt;strong&gt;</bpt>How would you like users to sign on to Projectplace<ept id="0000d32d-8777-4cb5-9130-d36e3386650d">&lt;/strong&gt;</ept> page, select <bpt id="b1eabc83-ca71-42b1-936b-8f0eb81bf065">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="b1eabc83-ca71-42b1-936b-8f0eb81bf065">&lt;/strong&gt;</ept>, and then click <bpt id="86864903-d3a4-4bcb-b558-012c1d1fa85c">&lt;strong&gt;</bpt>Next<ept id="86864903-d3a4-4bcb-b558-012c1d1fa85c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="0000d32d-8777-4cb5-9130-d36e3386650d">&lt;strong&gt;</bpt>How would you like users to sign on to Projectplace<ept id="0000d32d-8777-4cb5-9130-d36e3386650d">&lt;/strong&gt;</ept> page, select <bpt id="b1eabc83-ca71-42b1-936b-8f0eb81bf065">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="b1eabc83-ca71-42b1-936b-8f0eb81bf065">&lt;/strong&gt;</ept>, and then click <bpt id="86864903-d3a4-4bcb-b558-012c1d1fa85c">&lt;strong&gt;</bpt>Next<ept id="86864903-d3a4-4bcb-b558-012c1d1fa85c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9457dacc-20ac-4492-a1ad-2ae986d4eaed" xml:space="preserve">
+          <source><bpt id="0d0baf68-2b02-43ac-9739-b5b6252a066f">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="0d0baf68-2b02-43ac-9739-b5b6252a066f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d0baf68-2b02-43ac-9739-b5b6252a066f">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="0d0baf68-2b02-43ac-9739-b5b6252a066f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1cda3564-d82f-4ba6-a88a-c282af496c57" xml:space="preserve">
+          <source>On the <bpt id="8c4d2c0a-7b0d-4535-be80-5b2a9a98e988">&lt;strong&gt;</bpt>Configure App URL<ept id="8c4d2c0a-7b0d-4535-be80-5b2a9a98e988">&lt;/strong&gt;</ept> page, in the <bpt id="4b100e43-41ea-4683-b343-dfab5e98d371">&lt;strong&gt;</bpt>Projectplace Sign On URL<ept id="4b100e43-41ea-4683-b343-dfab5e98d371">&lt;/strong&gt;</ept> textbox, type your ProjectPlace tenant URL (e.g.: "<bpt id="4d9ec162-80a4-40b5-beb9-36ff8363aca5">&lt;em&gt;</bpt>http://company.projectplace.com<ept id="4d9ec162-80a4-40b5-beb9-36ff8363aca5">&lt;/em&gt;</ept>"), and then click <bpt id="f872c5d5-f342-4fab-936e-f8b6cc7c8189">&lt;strong&gt;</bpt>Next<ept id="f872c5d5-f342-4fab-936e-f8b6cc7c8189">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="8c4d2c0a-7b0d-4535-be80-5b2a9a98e988">&lt;strong&gt;</bpt>Configure App URL<ept id="8c4d2c0a-7b0d-4535-be80-5b2a9a98e988">&lt;/strong&gt;</ept> page, in the <bpt id="4b100e43-41ea-4683-b343-dfab5e98d371">&lt;strong&gt;</bpt>Projectplace Sign On URL<ept id="4b100e43-41ea-4683-b343-dfab5e98d371">&lt;/strong&gt;</ept> textbox, type your ProjectPlace tenant URL (e.g.: "<bpt id="4d9ec162-80a4-40b5-beb9-36ff8363aca5">&lt;em&gt;</bpt>http://company.projectplace.com<ept id="4d9ec162-80a4-40b5-beb9-36ff8363aca5">&lt;/em&gt;</ept>"), and then click <bpt id="f872c5d5-f342-4fab-936e-f8b6cc7c8189">&lt;strong&gt;</bpt>Next<ept id="f872c5d5-f342-4fab-936e-f8b6cc7c8189">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="550ffb13-e4fc-45a3-ace1-924a45a7a1b2" xml:space="preserve">
+          <source><bpt id="e5023a00-231a-4e3b-9e76-9f12026a072e">&lt;linkText&gt;</bpt>Configure App URL<ept id="e5023a00-231a-4e3b-9e76-9f12026a072e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e5023a00-231a-4e3b-9e76-9f12026a072e">&lt;linkText&gt;</bpt>Configure App URL<ept id="e5023a00-231a-4e3b-9e76-9f12026a072e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0614ace-3297-4e80-8b13-9d461b1e6e10" xml:space="preserve">
+          <source>On the <bpt id="1e0e925d-34fb-400f-8daf-95ff39ba4e39">&lt;strong&gt;</bpt>Configure single sign-on at Projectplace<ept id="1e0e925d-34fb-400f-8daf-95ff39ba4e39">&lt;/strong&gt;</ept> page, click <bpt id="45015553-e2a9-4b06-9ccb-d0f431eabd4a">&lt;strong&gt;</bpt>Download metadata<ept id="45015553-e2a9-4b06-9ccb-d0f431eabd4a">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</source>
+          <target state="new">On the <bpt id="1e0e925d-34fb-400f-8daf-95ff39ba4e39">&lt;strong&gt;</bpt>Configure single sign-on at Projectplace<ept id="1e0e925d-34fb-400f-8daf-95ff39ba4e39">&lt;/strong&gt;</ept> page, click <bpt id="45015553-e2a9-4b06-9ccb-d0f431eabd4a">&lt;strong&gt;</bpt>Download metadata<ept id="45015553-e2a9-4b06-9ccb-d0f431eabd4a">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="ea3c594a-50a0-4e0f-9a50-c75115a87268" xml:space="preserve">
+          <source><bpt id="fa8f2b19-86e7-48ed-8044-9f9cf4b9e390">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="fa8f2b19-86e7-48ed-8044-9f9cf4b9e390">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa8f2b19-86e7-48ed-8044-9f9cf4b9e390">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="fa8f2b19-86e7-48ed-8044-9f9cf4b9e390">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f6c63a6-db85-495d-9414-6a45157cfdb8" xml:space="preserve">
+          <source>Send the metadatafile to the Projectplace support team.</source>
+          <target state="new">Send the metadatafile to the Projectplace support team.</target>
+        </trans-unit>
+        <trans-unit id="56a84030-95bf-4267-8ad8-d65bfc416b6d" xml:space="preserve">
+          <source>The single sign-on configuration has to be performed by the Projectplace support team.</source>
+          <target state="new">The single sign-on configuration has to be performed by the Projectplace support team.</target>
+        </trans-unit>
+        <trans-unit id="18ff5a25-8309-4a5c-b0ef-4edaf475a639" xml:space="preserve">
+          <source>You will get a notification as soon as the configuration has been completed.</source>
+          <target state="new">You will get a notification as soon as the configuration has been completed.</target>
+        </trans-unit>
+        <trans-unit id="c11882b8-dcc5-4bb7-b9c4-a3665551f5bf" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="4173bb2e-0e6a-42b8-af71-7d24ebc7705a">&lt;strong&gt;</bpt>Complete<ept id="4173bb2e-0e6a-42b8-af71-7d24ebc7705a">&lt;/strong&gt;</ept> to close the <bpt id="aac4d73f-96e3-4469-833f-4c50790bfcdd">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="aac4d73f-96e3-4469-833f-4c50790bfcdd">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="4173bb2e-0e6a-42b8-af71-7d24ebc7705a">&lt;strong&gt;</bpt>Complete<ept id="4173bb2e-0e6a-42b8-af71-7d24ebc7705a">&lt;/strong&gt;</ept> to close the <bpt id="aac4d73f-96e3-4469-833f-4c50790bfcdd">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="aac4d73f-96e3-4469-833f-4c50790bfcdd">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="ae10e12f-93fe-449a-9b0d-318d206a4167" xml:space="preserve">
+          <source><bpt id="dc5a86bd-a505-44a3-8b36-0a1eded1f1d9">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="dc5a86bd-a505-44a3-8b36-0a1eded1f1d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dc5a86bd-a505-44a3-8b36-0a1eded1f1d9">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="dc5a86bd-a505-44a3-8b36-0a1eded1f1d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ab4a800-bb12-438e-8f5a-3d9de9940737" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Projectplace, they must be provisioned into Projectplace.</source>
+          <target state="new">In order to enable Azure AD users to log into Projectplace, they must be provisioned into Projectplace.</target>
+        </trans-unit>
+        <trans-unit id="3580b649-9a17-413c-835a-699385618abf" xml:space="preserve">
+          <source>In the case of Projectplace, provisioning is a manual task.</source>
+          <target state="new">In the case of Projectplace, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="d18318c3-d7d2-4565-a418-b423d13e70bf" xml:space="preserve">
+          <source>Log in to your <bpt id="dcfab368-f366-4b42-a0d7-17fd0d5dc1c5">&lt;strong&gt;</bpt>Projectplace<ept id="dcfab368-f366-4b42-a0d7-17fd0d5dc1c5">&lt;/strong&gt;</ept> company site as an administrator.</source>
+          <target state="new">Log in to your <bpt id="dcfab368-f366-4b42-a0d7-17fd0d5dc1c5">&lt;strong&gt;</bpt>Projectplace<ept id="dcfab368-f366-4b42-a0d7-17fd0d5dc1c5">&lt;/strong&gt;</ept> company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="79158807-d6a0-47ea-bc17-3e01c1d79fbf" xml:space="preserve">
+          <source>Go to <bpt id="3560ed80-85f0-43ab-9ef5-6b34431c1a7a">&lt;strong&gt;</bpt>People<ept id="3560ed80-85f0-43ab-9ef5-6b34431c1a7a">&lt;/strong&gt;</ept>, and then click <bpt id="24a5b948-757a-4da8-8110-9673b8268312">&lt;strong&gt;</bpt>Members<ept id="24a5b948-757a-4da8-8110-9673b8268312">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="3560ed80-85f0-43ab-9ef5-6b34431c1a7a">&lt;strong&gt;</bpt>People<ept id="3560ed80-85f0-43ab-9ef5-6b34431c1a7a">&lt;/strong&gt;</ept>, and then click <bpt id="24a5b948-757a-4da8-8110-9673b8268312">&lt;strong&gt;</bpt>Members<ept id="24a5b948-757a-4da8-8110-9673b8268312">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e83c805-3621-4145-9078-8334bbab0744" xml:space="preserve">
+          <source><bpt id="eb4a0ffd-4d08-4463-b5bc-deef76424393">&lt;linkText&gt;</bpt>People<ept id="eb4a0ffd-4d08-4463-b5bc-deef76424393">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb4a0ffd-4d08-4463-b5bc-deef76424393">&lt;linkText&gt;</bpt>People<ept id="eb4a0ffd-4d08-4463-b5bc-deef76424393">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6552558c-ccef-40ba-b854-680d658f1a39" xml:space="preserve">
+          <source>Click <bpt id="7b5ee116-793a-4d7e-b073-3321fe8ad548">&lt;strong&gt;</bpt>Add Member<ept id="7b5ee116-793a-4d7e-b073-3321fe8ad548">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7b5ee116-793a-4d7e-b073-3321fe8ad548">&lt;strong&gt;</bpt>Add Member<ept id="7b5ee116-793a-4d7e-b073-3321fe8ad548">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da6c3901-08f1-4e4d-93be-27efd0eee31b" xml:space="preserve">
+          <source><bpt id="4c46d469-a034-42bd-b01c-cab797c9c7f1">&lt;linkText&gt;</bpt>Add Members<ept id="4c46d469-a034-42bd-b01c-cab797c9c7f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4c46d469-a034-42bd-b01c-cab797c9c7f1">&lt;linkText&gt;</bpt>Add Members<ept id="4c46d469-a034-42bd-b01c-cab797c9c7f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="249f89fc-cd33-4e6c-99c5-f77736158865" xml:space="preserve">
+          <source>In the <bpt id="2cbc6dfe-d689-4030-93d3-f28cf87df25e">&lt;strong&gt;</bpt>Add Member<ept id="2cbc6dfe-d689-4030-93d3-f28cf87df25e">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="2cbc6dfe-d689-4030-93d3-f28cf87df25e">&lt;strong&gt;</bpt>Add Member<ept id="2cbc6dfe-d689-4030-93d3-f28cf87df25e">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="99ebe6c6-a3e7-456d-9117-5e393b327478" xml:space="preserve">
+          <source><bpt id="f53caec7-dbe5-496f-93f8-0005f8ab3f6d">&lt;linkText&gt;</bpt>New Members<ept id="f53caec7-dbe5-496f-93f8-0005f8ab3f6d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f53caec7-dbe5-496f-93f8-0005f8ab3f6d">&lt;linkText&gt;</bpt>New Members<ept id="f53caec7-dbe5-496f-93f8-0005f8ab3f6d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d930071-d485-452d-bc3c-0d96cf7e11bf" xml:space="preserve">
+          <source>In the <bpt id="8abf2dd2-ca43-4f71-b979-a9143cb64c63">&lt;strong&gt;</bpt>New Members<ept id="8abf2dd2-ca43-4f71-b979-a9143cb64c63">&lt;/strong&gt;</ept> textbox, type the email address of a valid AAD account you want to provision into the related textboxes.</source>
+          <target state="new">In the <bpt id="8abf2dd2-ca43-4f71-b979-a9143cb64c63">&lt;strong&gt;</bpt>New Members<ept id="8abf2dd2-ca43-4f71-b979-a9143cb64c63">&lt;/strong&gt;</ept> textbox, type the email address of a valid AAD account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="0a582b48-7dfd-4d76-b3b7-28d2bd65d4bc" xml:space="preserve">
+          <source>Click <bpt id="eea6f797-9920-4578-98d0-5124ddd1d798">&lt;strong&gt;</bpt>Send<ept id="eea6f797-9920-4578-98d0-5124ddd1d798">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="eea6f797-9920-4578-98d0-5124ddd1d798">&lt;strong&gt;</bpt>Send<ept id="eea6f797-9920-4578-98d0-5124ddd1d798">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="329c5cc8-e2d5-4924-99f9-47375bff5dc5" xml:space="preserve">
+          <source>An email including a link to confirm the account before it becomes active is sent to the Azure Active Directory account holder.</source>
+          <target state="new">An email including a link to confirm the account before it becomes active is sent to the Azure Active Directory account holder.</target>
+        </trans-unit>
+        <trans-unit id="14a3e954-33dc-46dd-9c8a-110274d5c573" xml:space="preserve">
+          <source>You can use any other Projectplace user account creation tools or APIs provided by Projectplace to provision AAD user accounts.</source>
+          <target state="new">You can use any other Projectplace user account creation tools or APIs provided by Projectplace to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="39153065-32c2-49e5-8e8a-2e02d190c63b" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="0103c2cc-5898-4d25-9eb2-cfc2bdc2ca88" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="65e538b5-9935-4bd0-9370-fb1339906f9f" xml:space="preserve">
+          <source>On the <bpt id="9453df7e-3477-46e5-aa50-3078b8fd1336">&lt;strong&gt;</bpt>Projectplace **application integration page, click **Assign users<ept id="9453df7e-3477-46e5-aa50-3078b8fd1336">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="9453df7e-3477-46e5-aa50-3078b8fd1336">&lt;strong&gt;</bpt>Projectplace **application integration page, click **Assign users<ept id="9453df7e-3477-46e5-aa50-3078b8fd1336">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="270412bb-5583-437b-b221-4581e3849422" xml:space="preserve">
+          <source><bpt id="14820159-4958-45ec-9142-1f7d15741659">&lt;linkText&gt;</bpt>Assign Users<ept id="14820159-4958-45ec-9142-1f7d15741659">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="14820159-4958-45ec-9142-1f7d15741659">&lt;linkText&gt;</bpt>Assign Users<ept id="14820159-4958-45ec-9142-1f7d15741659">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6a2c16d-6a43-40fa-b759-aa04b4d7f91a" xml:space="preserve">
+          <source>Select your test user, click <bpt id="62ab2ec2-4bcf-4ab7-a74d-47713ab2ab5b">&lt;strong&gt;</bpt>Assign<ept id="62ab2ec2-4bcf-4ab7-a74d-47713ab2ab5b">&lt;/strong&gt;</ept>, and then click <bpt id="d3bbda8c-4b59-4361-822f-eaf693800d75">&lt;strong&gt;</bpt>Yes<ept id="d3bbda8c-4b59-4361-822f-eaf693800d75">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="62ab2ec2-4bcf-4ab7-a74d-47713ab2ab5b">&lt;strong&gt;</bpt>Assign<ept id="62ab2ec2-4bcf-4ab7-a74d-47713ab2ab5b">&lt;/strong&gt;</ept>, and then click <bpt id="d3bbda8c-4b59-4361-822f-eaf693800d75">&lt;strong&gt;</bpt>Yes<ept id="d3bbda8c-4b59-4361-822f-eaf693800d75">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="74a7db68-c00c-4817-99b5-1a76ab805c35" xml:space="preserve">
+          <source><bpt id="6805ce4a-a3fa-4a52-ac73-95644d498c00">&lt;linkText&gt;</bpt>Yes<ept id="6805ce4a-a3fa-4a52-ac73-95644d498c00">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6805ce4a-a3fa-4a52-ac73-95644d498c00">&lt;linkText&gt;</bpt>Yes<ept id="6805ce4a-a3fa-4a52-ac73-95644d498c00">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f4ba501-2435-4f41-bfbf-147aac2a9e54" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="2d78dfee-9e62-4919-a03f-be7f7a2dbbeb" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="3acdaad4-2bde-4205-931a-b719a66a5eab">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="3acdaad4-2bde-4205-931a-b719a66a5eab">&lt;/linkText&gt;</ept><bpt id="3acdaad4-2bde-4205-931a-b719a66a5eab">&lt;title&gt;</bpt><ept id="3acdaad4-2bde-4205-931a-b719a66a5eab">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="3acdaad4-2bde-4205-931a-b719a66a5eab">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="3acdaad4-2bde-4205-931a-b719a66a5eab">&lt;/linkText&gt;</ept><bpt id="3acdaad4-2bde-4205-931a-b719a66a5eab">&lt;title&gt;</bpt><ept id="3acdaad4-2bde-4205-931a-b719a66a5eab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

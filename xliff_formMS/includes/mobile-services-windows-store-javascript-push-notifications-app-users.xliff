@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="05f5531d-0b99-476b-b2d2-5b59fcc548df" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="05f5531d-0b99-476b-b2d2-5b59fcc548df" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="672f0b41-a478-41a9-9cf4-eae878088c96">
+        <trans-unit id="24176a44-078e-4332-bcd0-4a342419fbc5" xml:space="preserve">
+          <source>Next, you need to change the way that push notifications are registered to make sure that the user is authenticated before registration is attempted.</source>
+          <target state="new">Next, you need to change the way that push notifications are registered to make sure that the user is authenticated before registration is attempted.</target>
+        </trans-unit>
+        <trans-unit id="c30a26e2-6024-4706-bd4b-b6495106e541" xml:space="preserve">
+          <source>The client app updates depend on the way in which you implemented push notifications.</source>
+          <target state="new">The client app updates depend on the way in which you implemented push notifications.</target>
+        </trans-unit>
+        <trans-unit id="ce7b6b7d-2fd5-484b-94e7-5531abaf8a23" xml:space="preserve">
+          <source>In this method, the wizard generated new push.register.js and service.js files in your project.</source>
+          <target state="new">In this method, the wizard generated new push.register.js and service.js files in your project.</target>
+        </trans-unit>
+        <trans-unit id="a0032539-750e-4a85-8b59-3d226543bfeb" xml:space="preserve">
+          <source>In Visual Studio in Solution Explorer, open the push.register.js project file and comment-out or delete the call to <bpt id="982249be-2bc5-46e7-8ccf-4e9a0ab082e3">&lt;strong&gt;</bpt>addEventListener<ept id="982249be-2bc5-46e7-8ccf-4e9a0ab082e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio in Solution Explorer, open the push.register.js project file and comment-out or delete the call to <bpt id="982249be-2bc5-46e7-8ccf-4e9a0ab082e3">&lt;strong&gt;</bpt>addEventListener<ept id="982249be-2bc5-46e7-8ccf-4e9a0ab082e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4bcc63ef-a484-4607-9406-f282c950630d" xml:space="preserve">
+          <source>In the default.js project file, replace the existing <bpt id="695d7b45-b754-49c6-8053-8bc2fb58f956">&lt;strong&gt;</bpt>login<ept id="695d7b45-b754-49c6-8053-8bc2fb58f956">&lt;/strong&gt;</ept> function, with the following code:</source>
+          <target state="new">In the default.js project file, replace the existing <bpt id="695d7b45-b754-49c6-8053-8bc2fb58f956">&lt;strong&gt;</bpt>login<ept id="695d7b45-b754-49c6-8053-8bc2fb58f956">&lt;/strong&gt;</ept> function, with the following code:</target>
+        </trans-unit>
+        <trans-unit id="bc32ce04-3579-4fbe-bdb8-f1c4e0b0b073" xml:space="preserve">
+          <source>In this method, you added registration code from the tutorial directly to the default.js project file.</source>
+          <target state="new">In this method, you added registration code from the tutorial directly to the default.js project file.</target>
+        </trans-unit>
+        <trans-unit id="8312f347-1428-4695-b6d0-291003bde37a" xml:space="preserve">
+          <source>In Visual Studio in Solution Explorer, open the default.js project file and in the <bpt id="b2da3870-2e7b-4bba-a11a-d4fd25282876">&lt;strong&gt;</bpt>onActivated<ept id="b2da3870-2e7b-4bba-a11a-d4fd25282876">&lt;/strong&gt;</ept> event handler, locate the line of code that calls the <bpt id="51159120-77fe-4235-9322-cd5138829f49">&lt;strong&gt;</bpt>createPushNotificationChannelForApplicationAsync<ept id="51159120-77fe-4235-9322-cd5138829f49">&lt;/strong&gt;</ept> function, which looks like the following:</source>
+          <target state="new">In Visual Studio in Solution Explorer, open the default.js project file and in the <bpt id="b2da3870-2e7b-4bba-a11a-d4fd25282876">&lt;strong&gt;</bpt>onActivated<ept id="b2da3870-2e7b-4bba-a11a-d4fd25282876">&lt;/strong&gt;</ept> event handler, locate the line of code that calls the <bpt id="51159120-77fe-4235-9322-cd5138829f49">&lt;strong&gt;</bpt>createPushNotificationChannelForApplicationAsync<ept id="51159120-77fe-4235-9322-cd5138829f49">&lt;/strong&gt;</ept> function, which looks like the following:</target>
+        </trans-unit>
+        <trans-unit id="36a4c9c7-c9e0-47ec-b3f5-2259a4cb19c1" xml:space="preserve">
+          <source>Move this line of code into the <bpt id="b9e59b84-5d68-489a-8ae6-47efb4c1b648">&lt;strong&gt;</bpt>login<ept id="b9e59b84-5d68-489a-8ae6-47efb4c1b648">&lt;/strong&gt;</ept> function, just before the call to <bpt id="d0d0109e-5c3f-4537-bc98-f1cc4800e703">&lt;strong&gt;</bpt>refreshTodoItems<ept id="d0d0109e-5c3f-4537-bc98-f1cc4800e703">&lt;/strong&gt;</ept> so that the <bpt id="a639384c-5348-4475-a84b-516dd5b3c693">&lt;strong&gt;</bpt>login<ept id="a639384c-5348-4475-a84b-516dd5b3c693">&lt;/strong&gt;</ept> function looks like this:</source>
+          <target state="new">Move this line of code into the <bpt id="b9e59b84-5d68-489a-8ae6-47efb4c1b648">&lt;strong&gt;</bpt>login<ept id="b9e59b84-5d68-489a-8ae6-47efb4c1b648">&lt;/strong&gt;</ept> function, just before the call to <bpt id="d0d0109e-5c3f-4537-bc98-f1cc4800e703">&lt;strong&gt;</bpt>refreshTodoItems<ept id="d0d0109e-5c3f-4537-bc98-f1cc4800e703">&lt;/strong&gt;</ept> so that the <bpt id="a639384c-5348-4475-a84b-516dd5b3c693">&lt;strong&gt;</bpt>login<ept id="a639384c-5348-4475-a84b-516dd5b3c693">&lt;/strong&gt;</ept> function looks like this:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

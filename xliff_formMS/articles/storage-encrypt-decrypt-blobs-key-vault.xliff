@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7384b2ab-2cd7-4d2c-bba1-388ae5de478c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7384b2ab-2cd7-4d2c-bba1-388ae5de478c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="710803ad-c00f-4a99-80e1-8789dd05b6bd">
+        <trans-unit id="d596837f-df8a-4a63-9291-d87e68529765" xml:space="preserve">
+          <source>Encrypt and Decrypt Blobs in Microsoft Azure Storage using Azure Key Vault</source>
+          <target state="new">Encrypt and Decrypt Blobs in Microsoft Azure Storage using Azure Key Vault</target>
+        </trans-unit>
+        <trans-unit id="7f27eaee-1ecd-4313-849f-74697552ecba" xml:space="preserve">
+          <source>This tutorial walks you through how to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault</source>
+          <target state="new">This tutorial walks you through how to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault</target>
+        </trans-unit>
+        <trans-unit id="6d8e995d-bf19-4859-bbe8-7dc12c465f38" xml:space="preserve">
+          <source>This tutorial covers how to make use of client-side storage encryption - currently in preview - with Azure Key Vault - also currently in preview.</source>
+          <target state="new">This tutorial covers how to make use of client-side storage encryption - currently in preview - with Azure Key Vault - also currently in preview.</target>
+        </trans-unit>
+        <trans-unit id="414eca3b-9a72-48f1-9155-b68acc4672ab" xml:space="preserve">
+          <source>It walks you through how to encrypt and decrypt a blob in a console application using these technologies.</source>
+          <target state="new">It walks you through how to encrypt and decrypt a blob in a console application using these technologies.</target>
+        </trans-unit>
+        <trans-unit id="f18eee08-a4c1-4e60-8a72-5c8d69b06a02" xml:space="preserve">
+          <source><bpt id="3e80eb96-d67f-4d04-8290-60062bab60ab">&lt;strong&gt;</bpt>Estimated time to complete:<ept id="3e80eb96-d67f-4d04-8290-60062bab60ab">&lt;/strong&gt;</ept> 20 minutes</source>
+          <target state="new"><bpt id="3e80eb96-d67f-4d04-8290-60062bab60ab">&lt;strong&gt;</bpt>Estimated time to complete:<ept id="3e80eb96-d67f-4d04-8290-60062bab60ab">&lt;/strong&gt;</ept> 20 minutes</target>
+        </trans-unit>
+        <trans-unit id="15e3ef28-77e5-4a9b-a853-9f997a5d6402" xml:space="preserve">
+          <source>For overview information about Azure Key Vault, see <bpt id="6e5f4cab-ec98-4fa0-bec4-3c2281f5ec94">&lt;linkText&gt;</bpt>What is Azure Key Vault?<ept id="6e5f4cab-ec98-4fa0-bec4-3c2281f5ec94">&lt;/linkText&gt;</ept><bpt id="6e5f4cab-ec98-4fa0-bec4-3c2281f5ec94">&lt;title&gt;</bpt><ept id="6e5f4cab-ec98-4fa0-bec4-3c2281f5ec94">&lt;/title&gt;</ept></source>
+          <target state="new">For overview information about Azure Key Vault, see <bpt id="6e5f4cab-ec98-4fa0-bec4-3c2281f5ec94">&lt;linkText&gt;</bpt>What is Azure Key Vault?<ept id="6e5f4cab-ec98-4fa0-bec4-3c2281f5ec94">&lt;/linkText&gt;</ept><bpt id="6e5f4cab-ec98-4fa0-bec4-3c2281f5ec94">&lt;title&gt;</bpt><ept id="6e5f4cab-ec98-4fa0-bec4-3c2281f5ec94">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c42a8e02-f74b-4592-8a15-c50f069eaf58" xml:space="preserve">
+          <source>For overview information about client-side encryption for Azure Storage, see <bpt id="af64bd6e-53f1-4211-8015-3a15b2d00bb2">&lt;linkText&gt;</bpt>Client-Side Encryption for Microsoft Azure Storage – Preview<ept id="af64bd6e-53f1-4211-8015-3a15b2d00bb2">&lt;/linkText&gt;</ept><bpt id="af64bd6e-53f1-4211-8015-3a15b2d00bb2">&lt;title&gt;</bpt><ept id="af64bd6e-53f1-4211-8015-3a15b2d00bb2">&lt;/title&gt;</ept></source>
+          <target state="new">For overview information about client-side encryption for Azure Storage, see <bpt id="af64bd6e-53f1-4211-8015-3a15b2d00bb2">&lt;linkText&gt;</bpt>Client-Side Encryption for Microsoft Azure Storage – Preview<ept id="af64bd6e-53f1-4211-8015-3a15b2d00bb2">&lt;/linkText&gt;</ept><bpt id="af64bd6e-53f1-4211-8015-3a15b2d00bb2">&lt;title&gt;</bpt><ept id="af64bd6e-53f1-4211-8015-3a15b2d00bb2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c667f242-392f-4eef-b956-7f10542e8dfb" xml:space="preserve">
+          <source>To complete this tutorial, you must have the following:</source>
+          <target state="new">To complete this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="42c72f9a-4368-48bf-86e7-4c0a53799cd0" xml:space="preserve">
+          <source>An Azure Storage account</source>
+          <target state="new">An Azure Storage account</target>
+        </trans-unit>
+        <trans-unit id="960a3f8c-49d8-47f9-96a6-9649e227dff2" xml:space="preserve">
+          <source>Visual Studio 2013 or later</source>
+          <target state="new">Visual Studio 2013 or later</target>
+        </trans-unit>
+        <trans-unit id="18ac46a7-7d6f-4acb-8cdf-974117f53872" xml:space="preserve">
+          <source>Azure PowerShell </source>
+          <target state="new">Azure PowerShell </target>
+        </trans-unit>
+        <trans-unit id="2557fff3-e6cb-4b03-9d50-3ed53e00fc02" xml:space="preserve">
+          <source>For an overview of Client-Side Encryption for Microsoft Azure Storage, see <bpt id="d82e6169-f567-4224-9bae-98f24a558f2e">&lt;linkText&gt;</bpt>http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/29/getting-started-with-client-side-encryption-for-microsoft-azure-storage.aspx<ept id="d82e6169-f567-4224-9bae-98f24a558f2e">&lt;/linkText&gt;</ept><bpt id="d82e6169-f567-4224-9bae-98f24a558f2e">&lt;title&gt;</bpt>Getting Started with Client-Side Encryption for Microsoft Azure Storage<ept id="d82e6169-f567-4224-9bae-98f24a558f2e">&lt;/title&gt;</ept></source>
+          <target state="new">For an overview of Client-Side Encryption for Microsoft Azure Storage, see <bpt id="d82e6169-f567-4224-9bae-98f24a558f2e">&lt;linkText&gt;</bpt>http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/29/getting-started-with-client-side-encryption-for-microsoft-azure-storage.aspx<ept id="d82e6169-f567-4224-9bae-98f24a558f2e">&lt;/linkText&gt;</ept><bpt id="d82e6169-f567-4224-9bae-98f24a558f2e">&lt;title&gt;</bpt>Getting Started with Client-Side Encryption for Microsoft Azure Storage<ept id="d82e6169-f567-4224-9bae-98f24a558f2e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24046acc-25ed-4d59-ba7e-ae690c0e61cd" xml:space="preserve">
+          <source>Here is the process as described in that blog post:</source>
+          <target state="new">Here is the process as described in that blog post:</target>
+        </trans-unit>
+        <trans-unit id="738c0962-f3b4-415f-aa89-1a22f9a957b3" xml:space="preserve">
+          <source>The Azure Storage client SDK will generate a content encryption key (CEK) which is a one-time-use symmetric key.</source>
+          <target state="new">The Azure Storage client SDK will generate a content encryption key (CEK) which is a one-time-use symmetric key.</target>
+        </trans-unit>
+        <trans-unit id="b383de2c-d6c2-4596-816d-fa017b5703fa" xml:space="preserve">
+          <source>User data is encrypted using this CEK.</source>
+          <target state="new">User data is encrypted using this CEK.</target>
+        </trans-unit>
+        <trans-unit id="2a26f292-89f1-480e-b545-0af186770c8a" xml:space="preserve">
+          <source>The CEK is then wrapped (encrypted) using the key encryption key KEK.</source>
+          <target state="new">The CEK is then wrapped (encrypted) using the key encryption key KEK.</target>
+        </trans-unit>
+        <trans-unit id="8e5d846d-7e35-488e-8864-c2b38a5952ca" xml:space="preserve">
+          <source>The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vaults.</source>
+          <target state="new">The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vaults.</target>
+        </trans-unit>
+        <trans-unit id="d00dc558-c16f-4800-8cb0-01baa92d3bda" xml:space="preserve">
+          <source>The Storage client itself never has access to KEK.</source>
+          <target state="new">The Storage client itself never has access to KEK.</target>
+        </trans-unit>
+        <trans-unit id="d3baf201-8ee5-4e9b-8e34-cc16be3be1be" xml:space="preserve">
+          <source>It just invokes the key wrapping algorithm that is provided by Key Vault.</source>
+          <target state="new">It just invokes the key wrapping algorithm that is provided by Key Vault.</target>
+        </trans-unit>
+        <trans-unit id="28c0058c-47a9-4071-8d0e-825696696605" xml:space="preserve">
+          <source>Users can choose to use custom providers for key wrapping/unwrapping if desired.</source>
+          <target state="new">Users can choose to use custom providers for key wrapping/unwrapping if desired.</target>
+        </trans-unit>
+        <trans-unit id="10df2850-8942-4b32-9830-96407045c62f" xml:space="preserve">
+          <source>The encrypted data is then uploaded to the Azure Storage service.</source>
+          <target state="new">The encrypted data is then uploaded to the Azure Storage service.</target>
+        </trans-unit>
+        <trans-unit id="95e18a24-cdfb-4a72-a425-48772a04a207" xml:space="preserve">
+          <source>In order to proceed with this tutorial, you need to do the following which are outlined in the tutorial:  <bpt id="90d10be7-2618-4a1b-93cc-50630c4f7667">&lt;linkText&gt;</bpt>Get Started with Azure Key Vault<ept id="90d10be7-2618-4a1b-93cc-50630c4f7667">&lt;/linkText&gt;</ept><bpt id="90d10be7-2618-4a1b-93cc-50630c4f7667">&lt;title&gt;</bpt><ept id="90d10be7-2618-4a1b-93cc-50630c4f7667">&lt;/title&gt;</ept> </source>
+          <target state="new">In order to proceed with this tutorial, you need to do the following which are outlined in the tutorial:  <bpt id="90d10be7-2618-4a1b-93cc-50630c4f7667">&lt;linkText&gt;</bpt>Get Started with Azure Key Vault<ept id="90d10be7-2618-4a1b-93cc-50630c4f7667">&lt;/linkText&gt;</ept><bpt id="90d10be7-2618-4a1b-93cc-50630c4f7667">&lt;title&gt;</bpt><ept id="90d10be7-2618-4a1b-93cc-50630c4f7667">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="29eec11f-ff17-4bd2-bfd8-94854b0791e1" xml:space="preserve">
+          <source>Create a key vault</source>
+          <target state="new">Create a key vault</target>
+        </trans-unit>
+        <trans-unit id="79599a94-0c2c-48b2-9c14-c9fc39978dc4" xml:space="preserve">
+          <source>Add a key or secret to the key vault</source>
+          <target state="new">Add a key or secret to the key vault</target>
+        </trans-unit>
+        <trans-unit id="8120d87a-5cf8-43d3-822b-289083d91a7e" xml:space="preserve">
+          <source>Register an application with Azure Active Directory</source>
+          <target state="new">Register an application with Azure Active Directory</target>
+        </trans-unit>
+        <trans-unit id="9438e58e-f274-4ea3-a083-02393ac3e81b" xml:space="preserve">
+          <source>Authorize the application to use the key or secret</source>
+          <target state="new">Authorize the application to use the key or secret</target>
+        </trans-unit>
+        <trans-unit id="2e3d7f0a-4d13-4dc5-bae5-d8915ddfa48b" xml:space="preserve">
+          <source>Make note of the ClientID and ClientSecret that were generated when registering an application with Azure Active Directory.</source>
+          <target state="new">Make note of the ClientID and ClientSecret that were generated when registering an application with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="a1a61a8e-ded9-4599-8d54-a53dac976030" xml:space="preserve">
+          <source>Create both a key in the key vault.</source>
+          <target state="new">Create both a key in the key vault.</target>
+        </trans-unit>
+        <trans-unit id="d8c3f109-5e7d-42f0-ac7b-a2802b113f57" xml:space="preserve">
+          <source>We will assume for the rest of the tutorial that you have used the following names: ContosoKeyVault and TestRSAKey1.</source>
+          <target state="new">We will assume for the rest of the tutorial that you have used the following names: ContosoKeyVault and TestRSAKey1.</target>
+        </trans-unit>
+        <trans-unit id="7d2917cc-b934-4e39-bde6-a7b05a08e145" xml:space="preserve">
+          <source>In Visual Studio, create a new Console Application.</source>
+          <target state="new">In Visual Studio, create a new Console Application.</target>
+        </trans-unit>
+        <trans-unit id="267e008c-d640-4eea-8fa4-fbd98b66eb93" xml:space="preserve">
+          <source>Add necessary nuget packages in the Package Manager Console:</source>
+          <target state="new">Add necessary nuget packages in the Package Manager Console:</target>
+        </trans-unit>
+        <trans-unit id="62094f27-5d2d-4212-921d-495700827b5a" xml:space="preserve">
+          <source>Add AppSettings to the App.Config.</source>
+          <target state="new">Add AppSettings to the App.Config.</target>
+        </trans-unit>
+        <trans-unit id="393710d9-365c-4987-b9dd-d88b6596fa34" xml:space="preserve">
+          <source>Add the following using statements and make sure to add a reference to System.Configuration to the project.</source>
+          <target state="new">Add the following using statements and make sure to add a reference to System.Configuration to the project.</target>
+        </trans-unit>
+        <trans-unit id="676d8132-b7c8-4a74-be7d-3e7ff0a81e59" xml:space="preserve">
+          <source>The following method is used by Key Vault classes that need to authenticate for access to your Key Vault.</source>
+          <target state="new">The following method is used by Key Vault classes that need to authenticate for access to your Key Vault.</target>
+        </trans-unit>
+        <trans-unit id="32a98b68-250b-41e7-bcda-0a5a3e314685" xml:space="preserve">
+          <source>In the Main function, add the following code:</source>
+          <target state="new">In the Main function, add the following code:</target>
+        </trans-unit>
+        <trans-unit id="7e92a2b6-221e-401f-ad27-e1c1f9cddeb2" xml:space="preserve">
+          <source>Key Vault Object Models</source>
+          <target state="new">Key Vault Object Models</target>
+        </trans-unit>
+        <trans-unit id="807c983c-cef4-4193-9dd0-af52d32d1b91" xml:space="preserve">
+          <source>It is important to understand that there are actually two Key Vault object models to be aware of: one is based on the REST API (KeyVault namespace) and the other is an extension for client-side encryption.</source>
+          <target state="new">It is important to understand that there are actually two Key Vault object models to be aware of: one is based on the REST API (KeyVault namespace) and the other is an extension for client-side encryption.</target>
+        </trans-unit>
+        <trans-unit id="05f47ae9-d494-4b0c-aafc-2e5700c9bfd0" xml:space="preserve">
+          <source>The Key Vault Client interacts with the REST API and understands JSON Web Keys and Secrets for the two kinds of things that are contained in the Key Vault.</source>
+          <target state="new">The Key Vault Client interacts with the REST API and understands JSON Web Keys and Secrets for the two kinds of things that are contained in the Key Vault.</target>
+        </trans-unit>
+        <trans-unit id="a4fcf490-6c6e-46d9-93d6-3055c3615be1" xml:space="preserve">
+          <source>The Key Vault Extensions are classes that seem specifically created for client-side encryption in Azure Storage.</source>
+          <target state="new">The Key Vault Extensions are classes that seem specifically created for client-side encryption in Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="f43534b0-fef5-48a3-959a-f60c100ed909" xml:space="preserve">
+          <source>They contain an interface for keys - IKey - and classes based on the concept of a Key Resolver.</source>
+          <target state="new">They contain an interface for keys - IKey - and classes based on the concept of a Key Resolver.</target>
+        </trans-unit>
+        <trans-unit id="1502f80e-0a60-4e4d-aeae-8b177054c550" xml:space="preserve">
+          <source>There are two implementations of IKey that you need to know: RSAKey and SymmetricKey.</source>
+          <target state="new">There are two implementations of IKey that you need to know: RSAKey and SymmetricKey.</target>
+        </trans-unit>
+        <trans-unit id="5eea58ad-29df-469f-9225-dab17f7e8fc6" xml:space="preserve">
+          <source>Now they happen to coincide with the things that are contained in a Key Vault, but at this point they are independent classes (so the Key and Secret retrieved by the Key Vault Client do not implement IKey).</source>
+          <target state="new">Now they happen to coincide with the things that are contained in a Key Vault, but at this point they are independent classes (so the Key and Secret retrieved by the Key Vault Client do not implement IKey).</target>
+        </trans-unit>
+        <trans-unit id="6d90d18f-5791-4d79-af09-55c370e98d62" xml:space="preserve">
+          <source>Add the following code to encrypt a Blob and upload it to your Azure Storage account.</source>
+          <target state="new">Add the following code to encrypt a Blob and upload it to your Azure Storage account.</target>
+        </trans-unit>
+        <trans-unit id="24040900-6d4d-44a7-af9e-384561454a2d" xml:space="preserve">
+          <source>The ResolveKeyAsync method that is used returns an IKey.</source>
+          <target state="new">The ResolveKeyAsync method that is used returns an IKey.</target>
+        </trans-unit>
+        <trans-unit id="9ad0e942-0da3-47fd-b56c-5e9100d5bfd6" xml:space="preserve">
+          <source>Following is a screenshot from the current Azure Management portal for a blob that has been encrypted using client-side encryption with a key stored in Key Vault.</source>
+          <target state="new">Following is a screenshot from the current Azure Management portal for a blob that has been encrypted using client-side encryption with a key stored in Key Vault.</target>
+        </trans-unit>
+        <trans-unit id="a00289b9-893c-4d45-95a5-430823c25e16" xml:space="preserve">
+          <source>The KeyId property is the URI for the key in Key Vault that acts as the key encryption key (KEK).</source>
+          <target state="new">The KeyId property is the URI for the key in Key Vault that acts as the key encryption key (KEK).</target>
+        </trans-unit>
+        <trans-unit id="d9a91c67-09a1-4c77-b1f6-7b1f7ecfae3e" xml:space="preserve">
+          <source>The EncryptedKey property contains the encrypted version of the content encryption key (CEK).</source>
+          <target state="new">The EncryptedKey property contains the encrypted version of the content encryption key (CEK).</target>
+        </trans-unit>
+        <trans-unit id="74218c61-11e0-4af2-8042-7bcdf0e5bfaa" xml:space="preserve">
+          <source><bpt id="ce9384c6-985f-4167-b7f5-32af3344f173">&lt;linkText&gt;</bpt>Screenshot showing Blob metadata that includes encryption metadata<ept id="ce9384c6-985f-4167-b7f5-32af3344f173">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce9384c6-985f-4167-b7f5-32af3344f173">&lt;linkText&gt;</bpt>Screenshot showing Blob metadata that includes encryption metadata<ept id="ce9384c6-985f-4167-b7f5-32af3344f173">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a389379d-101d-4d5c-a0c5-0e4ab076fc17" xml:space="preserve">
+          <source>If you look at the BlobEncryptionPolicy constructor, you will see that it can accept a key and/or a resolver.</source>
+          <target state="new">If you look at the BlobEncryptionPolicy constructor, you will see that it can accept a key and/or a resolver.</target>
+        </trans-unit>
+        <trans-unit id="3e4dd238-51d9-4dfa-962f-4a24307667ce" xml:space="preserve">
+          <source>Be aware that right now you cannot use a resolver for encryption because it does not currently support a default key.</source>
+          <target state="new">Be aware that right now you cannot use a resolver for encryption because it does not currently support a default key.</target>
+        </trans-unit>
+        <trans-unit id="fdd58b6c-d46f-48b5-99a5-96c455e940aa" xml:space="preserve">
+          <source>Decryption is really when the Resolver classes make sense.</source>
+          <target state="new">Decryption is really when the Resolver classes make sense.</target>
+        </trans-unit>
+        <trans-unit id="430c3e84-e20c-45db-863a-e91652052b80" xml:space="preserve">
+          <source>The ID of the key used for encryption is associated with the Blob in its metadata, so there is no reason for you to retrieve the key and remember the association between key and blob.</source>
+          <target state="new">The ID of the key used for encryption is associated with the Blob in its metadata, so there is no reason for you to retrieve the key and remember the association between key and blob.</target>
+        </trans-unit>
+        <trans-unit id="924efa24-dbb7-4cee-affa-82565d5ef2a2" xml:space="preserve">
+          <source>You just have to make sure that the key remains in the Key Vault.</source>
+          <target state="new">You just have to make sure that the key remains in the Key Vault.</target>
+        </trans-unit>
+        <trans-unit id="295f86b0-22cf-442c-9907-6543e47203b8" xml:space="preserve">
+          <source>The private key of an RSA Key remains in Key Vault, so for decryption to occur the Encrypted Key from the blob metadata which contains the CEC (content encryption key) is sent to Key Vault for decryption.</source>
+          <target state="new">The private key of an RSA Key remains in Key Vault, so for decryption to occur the Encrypted Key from the blob metadata which contains the CEC (content encryption key) is sent to Key Vault for decryption.</target>
+        </trans-unit>
+        <trans-unit id="276128b4-7256-48bb-b65c-2f85218f0a4d" xml:space="preserve">
+          <source>Add the following to decrypt the blob that you just uploaded.</source>
+          <target state="new">Add the following to decrypt the blob that you just uploaded.</target>
+        </trans-unit>
+        <trans-unit id="b3c32271-5f66-4878-915c-9090b73bbe79" xml:space="preserve">
+          <source>There are a couple of other kinds of Resolvers to make key management easier, including: AggregateKeyResolver and CachingKeyResolver.</source>
+          <target state="new">There are a couple of other kinds of Resolvers to make key management easier, including: AggregateKeyResolver and CachingKeyResolver.</target>
+        </trans-unit>
+        <trans-unit id="337bc0e1-4de7-4ce3-8420-ac35abdb5bc4" xml:space="preserve">
+          <source>The way to use a Secret with client-side encryption is via the SymmetricKey class because a Secret is essentially a symmetric key.</source>
+          <target state="new">The way to use a Secret with client-side encryption is via the SymmetricKey class because a Secret is essentially a symmetric key.</target>
+        </trans-unit>
+        <trans-unit id="775f970b-3204-4244-b358-9aa4917a36d8" xml:space="preserve">
+          <source>But, as noted above, a Secret in Key Vault does not map exactly to a SymmetricKey.</source>
+          <target state="new">But, as noted above, a Secret in Key Vault does not map exactly to a SymmetricKey.</target>
+        </trans-unit>
+        <trans-unit id="c9747788-3587-4dbc-88c8-a1f6088e21db" xml:space="preserve">
+          <source>There are a few things to understand:</source>
+          <target state="new">There are a few things to understand:</target>
+        </trans-unit>
+        <trans-unit id="057fe9fe-bde2-481e-a33d-ff3e23792f1a" xml:space="preserve">
+          <source>The key in a SymmetricKey has to be a fixed length: 128, 192, 256, 384, or 512 bits</source>
+          <target state="new">The key in a SymmetricKey has to be a fixed length: 128, 192, 256, 384, or 512 bits</target>
+        </trans-unit>
+        <trans-unit id="6aa3b4e4-5b07-4530-9870-68e7d154b3da" xml:space="preserve">
+          <source>The key in a SymmetricKey should be Base64 encoded</source>
+          <target state="new">The key in a SymmetricKey should be Base64 encoded</target>
+        </trans-unit>
+        <trans-unit id="19d1110a-4eda-4899-8649-cb76020ca042" xml:space="preserve">
+          <source>A Key Vault Secret that will be used as a SymmetricKey needs to have a Content Type of "application/octet-stream" in Key Vault</source>
+          <target state="new">A Key Vault Secret that will be used as a SymmetricKey needs to have a Content Type of "application/octet-stream" in Key Vault</target>
+        </trans-unit>
+        <trans-unit id="d045b2c8-bf01-48b9-9889-31ac8948e8b7" xml:space="preserve">
+          <source>Here is an example in PowerShell of creating a Secret in Key Vault that can be used as a SymmetricKey:</source>
+          <target state="new">Here is an example in PowerShell of creating a Secret in Key Vault that can be used as a SymmetricKey:</target>
+        </trans-unit>
+        <trans-unit id="018f02cd-67fe-428a-8978-57243913dc38" xml:space="preserve">
+          <source>In your console application, you can use the same call as before to retrieve this Secret as a SymmetricKey.</source>
+          <target state="new">In your console application, you can use the same call as before to retrieve this Secret as a SymmetricKey.</target>
+        </trans-unit>
+        <trans-unit id="81d12fe1-3358-4a2f-88e4-bc9f0b5e30ef" xml:space="preserve">
+          <source>That's it.</source>
+          <target state="new">That's it.</target>
+        </trans-unit>
+        <trans-unit id="169355b7-77da-44da-a64d-8a7f97ac4daf" xml:space="preserve">
+          <source>Enjoy!</source>
+          <target state="new">Enjoy!</target>
+        </trans-unit>
+        <trans-unit id="cbf167ab-02d4-482a-ae9e-999421dfaf16" xml:space="preserve">
+          <source>For more information about using Microsoft Azure Storage with C#, see <bpt id="605a585d-6e75-4aef-8fb8-834a214006f0">&lt;linkText&gt;</bpt>Microsoft Azure Storage Client Library for .NET<ept id="605a585d-6e75-4aef-8fb8-834a214006f0">&lt;/linkText&gt;</ept><bpt id="605a585d-6e75-4aef-8fb8-834a214006f0">&lt;title&gt;</bpt><ept id="605a585d-6e75-4aef-8fb8-834a214006f0">&lt;/title&gt;</ept></source>
+          <target state="new">For more information about using Microsoft Azure Storage with C#, see <bpt id="605a585d-6e75-4aef-8fb8-834a214006f0">&lt;linkText&gt;</bpt>Microsoft Azure Storage Client Library for .NET<ept id="605a585d-6e75-4aef-8fb8-834a214006f0">&lt;/linkText&gt;</ept><bpt id="605a585d-6e75-4aef-8fb8-834a214006f0">&lt;title&gt;</bpt><ept id="605a585d-6e75-4aef-8fb8-834a214006f0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8226e34-d946-47f7-899d-45d3f5188924" xml:space="preserve">
+          <source>For more information about the Blob REST API, see <bpt id="4c5e3bef-a0d3-416b-a4e8-aab24999c1d7">&lt;linkText&gt;</bpt>Blob Service REST API<ept id="4c5e3bef-a0d3-416b-a4e8-aab24999c1d7">&lt;/linkText&gt;</ept><bpt id="4c5e3bef-a0d3-416b-a4e8-aab24999c1d7">&lt;title&gt;</bpt><ept id="4c5e3bef-a0d3-416b-a4e8-aab24999c1d7">&lt;/title&gt;</ept></source>
+          <target state="new">For more information about the Blob REST API, see <bpt id="4c5e3bef-a0d3-416b-a4e8-aab24999c1d7">&lt;linkText&gt;</bpt>Blob Service REST API<ept id="4c5e3bef-a0d3-416b-a4e8-aab24999c1d7">&lt;/linkText&gt;</ept><bpt id="4c5e3bef-a0d3-416b-a4e8-aab24999c1d7">&lt;title&gt;</bpt><ept id="4c5e3bef-a0d3-416b-a4e8-aab24999c1d7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a908092-3092-4e7a-baf0-794e4f4cf362" xml:space="preserve">
+          <source>For the latest information on Microsoft Azure Storage, go to the <bpt id="7c3e413c-acf4-4a69-8877-9eee0ea0b754">&lt;linkText&gt;</bpt>Microsoft Azure Storage Team Blog<ept id="7c3e413c-acf4-4a69-8877-9eee0ea0b754">&lt;/linkText&gt;</ept><bpt id="7c3e413c-acf4-4a69-8877-9eee0ea0b754">&lt;title&gt;</bpt><ept id="7c3e413c-acf4-4a69-8877-9eee0ea0b754">&lt;/title&gt;</ept></source>
+          <target state="new">For the latest information on Microsoft Azure Storage, go to the <bpt id="7c3e413c-acf4-4a69-8877-9eee0ea0b754">&lt;linkText&gt;</bpt>Microsoft Azure Storage Team Blog<ept id="7c3e413c-acf4-4a69-8877-9eee0ea0b754">&lt;/linkText&gt;</ept><bpt id="7c3e413c-acf4-4a69-8877-9eee0ea0b754">&lt;title&gt;</bpt><ept id="7c3e413c-acf4-4a69-8877-9eee0ea0b754">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5bab76b-4ed5-434e-8f33-15e3de581460" xml:space="preserve">
+          <source>./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png</source>
+          <target state="new">./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png</target>
+        </trans-unit>
+      </group>
+      <group id="09d3e316-bcf5-4058-bd23-16a67635df4f" />
+    </body>
+  </file>
+</xliff>

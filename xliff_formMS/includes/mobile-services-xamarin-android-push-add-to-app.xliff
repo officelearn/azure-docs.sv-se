@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e7738a43-63a1-49ae-9277-943d86bf681d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e7738a43-63a1-49ae-9277-943d86bf681d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ac4a569f-a298-45be-8c62-41adc1bad936">
+        <trans-unit id="0025d2c7-213d-41c7-8b5a-7ece66d53075" xml:space="preserve">
+          <source>Create a new class in the project called <bpt id="5b782b1e-1442-4a6b-b0d5-c1b159f2e641">&lt;code&gt;</bpt>ToDoBroadcastReceiver<ept id="5b782b1e-1442-4a6b-b0d5-c1b159f2e641">&lt;/code&gt;</ept>.</source>
+          <target state="new">Create a new class in the project called <bpt id="5b782b1e-1442-4a6b-b0d5-c1b159f2e641">&lt;code&gt;</bpt>ToDoBroadcastReceiver<ept id="5b782b1e-1442-4a6b-b0d5-c1b159f2e641">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1883a7ba-0d6b-4112-bcf0-43ce9b170f7a" xml:space="preserve">
+          <source>Add the following using statements to <bpt id="53addc36-c475-4806-854e-8153fff5347a">&lt;strong&gt;</bpt>ToDoBroadcastReceiver<ept id="53addc36-c475-4806-854e-8153fff5347a">&lt;/strong&gt;</ept> class:</source>
+          <target state="new">Add the following using statements to <bpt id="53addc36-c475-4806-854e-8153fff5347a">&lt;strong&gt;</bpt>ToDoBroadcastReceiver<ept id="53addc36-c475-4806-854e-8153fff5347a">&lt;/strong&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="613c197e-59ab-4320-8c44-79025303b6df" xml:space="preserve">
+          <source>Add the following permission requests between the <bpt id="07a8a374-0ba0-4604-b847-b53ff17e4013">&lt;strong&gt;</bpt>using<ept id="07a8a374-0ba0-4604-b847-b53ff17e4013">&lt;/strong&gt;</ept> statements and the <bpt id="30eb7d00-52ba-43f2-8914-b8a4e01bb834">&lt;strong&gt;</bpt>namespace<ept id="30eb7d00-52ba-43f2-8914-b8a4e01bb834">&lt;/strong&gt;</ept> declaration:</source>
+          <target state="new">Add the following permission requests between the <bpt id="07a8a374-0ba0-4604-b847-b53ff17e4013">&lt;strong&gt;</bpt>using<ept id="07a8a374-0ba0-4604-b847-b53ff17e4013">&lt;/strong&gt;</ept> statements and the <bpt id="30eb7d00-52ba-43f2-8914-b8a4e01bb834">&lt;strong&gt;</bpt>namespace<ept id="30eb7d00-52ba-43f2-8914-b8a4e01bb834">&lt;/strong&gt;</ept> declaration:</target>
+        </trans-unit>
+        <trans-unit id="4fadc1fe-10fb-4db5-ac77-1e2cb7b9b20f" xml:space="preserve">
+          <source>Replace the existing <bpt id="2def9764-466e-4ff3-988d-0fb1804c540f">&lt;strong&gt;</bpt>ToDoBroadcastReceiver<ept id="2def9764-466e-4ff3-988d-0fb1804c540f">&lt;/strong&gt;</ept> class definition with the following:</source>
+          <target state="new">Replace the existing <bpt id="2def9764-466e-4ff3-988d-0fb1804c540f">&lt;strong&gt;</bpt>ToDoBroadcastReceiver<ept id="2def9764-466e-4ff3-988d-0fb1804c540f">&lt;/strong&gt;</ept> class definition with the following:</target>
+        </trans-unit>
+        <trans-unit id="f6b312c8-f97b-45b7-a907-df2c25f6e90d" xml:space="preserve">
+          <source>In the above code, you must replace _<bpt id="77498f68-887d-482f-8477-830f9871a078">&lt;code&gt;</bpt>&lt;PROJECT_NUMBER&gt;<ept id="77498f68-887d-482f-8477-830f9871a078">&lt;/code&gt;</ept>_ with the project number assigned by Google when you provisioned your app in the Google developer portal. </source>
+          <target state="new">In the above code, you must replace _<bpt id="77498f68-887d-482f-8477-830f9871a078">&lt;code&gt;</bpt>&lt;PROJECT_NUMBER&gt;<ept id="77498f68-887d-482f-8477-830f9871a078">&lt;/code&gt;</ept>_ with the project number assigned by Google when you provisioned your app in the Google developer portal. </target>
+        </trans-unit>
+        <trans-unit id="1ebbd359-2d61-4f85-adbf-622804fdb10b" xml:space="preserve">
+          <source>In the ToDoBroadcastReceiver.cs project file, add the following code that defines the <bpt id="09a7a62b-581b-4830-8542-9803934af368">&lt;strong&gt;</bpt>PushHandlerService<ept id="09a7a62b-581b-4830-8542-9803934af368">&lt;/strong&gt;</ept> class:</source>
+          <target state="new">In the ToDoBroadcastReceiver.cs project file, add the following code that defines the <bpt id="09a7a62b-581b-4830-8542-9803934af368">&lt;strong&gt;</bpt>PushHandlerService<ept id="09a7a62b-581b-4830-8542-9803934af368">&lt;/strong&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="e234e2e4-8aad-40fb-a8d8-5769cc3ab773" xml:space="preserve">
+          <source>Note that this class derives from <bpt id="63217365-d32f-4f60-9ac4-63a8ee779a33">&lt;strong&gt;</bpt>GcmServiceBase<ept id="63217365-d32f-4f60-9ac4-63a8ee779a33">&lt;/strong&gt;</ept> and that the <bpt id="355c2f88-fe50-4909-94b4-7ab8f450f960">&lt;strong&gt;</bpt>Service<ept id="355c2f88-fe50-4909-94b4-7ab8f450f960">&lt;/strong&gt;</ept> attribute must be applied to this class.</source>
+          <target state="new">Note that this class derives from <bpt id="63217365-d32f-4f60-9ac4-63a8ee779a33">&lt;strong&gt;</bpt>GcmServiceBase<ept id="63217365-d32f-4f60-9ac4-63a8ee779a33">&lt;/strong&gt;</ept> and that the <bpt id="355c2f88-fe50-4909-94b4-7ab8f450f960">&lt;strong&gt;</bpt>Service<ept id="355c2f88-fe50-4909-94b4-7ab8f450f960">&lt;/strong&gt;</ept> attribute must be applied to this class.</target>
+        </trans-unit>
+        <trans-unit id="430e6f02-5d33-491b-9fc2-4721b361fbc1" xml:space="preserve">
+          <source>The <bpt id="0e435cfe-a5bb-4865-a433-ac5f08f3a3ac">&lt;strong&gt;</bpt>GcmServiceBase<ept id="0e435cfe-a5bb-4865-a433-ac5f08f3a3ac">&lt;/strong&gt;</ept> class implements the <bpt id="bf338b79-79d6-4286-9583-9efe3ed0fc3a">&lt;strong&gt;</bpt>OnRegistered()<ept id="bf338b79-79d6-4286-9583-9efe3ed0fc3a">&lt;/strong&gt;</ept>, <bpt id="d3d0f077-d69c-406a-82b7-d2b44795a2e8">&lt;strong&gt;</bpt>OnUnRegistered()<ept id="d3d0f077-d69c-406a-82b7-d2b44795a2e8">&lt;/strong&gt;</ept>, <bpt id="7035f954-8027-4aae-9485-23086384e946">&lt;strong&gt;</bpt>OnMessage()<ept id="7035f954-8027-4aae-9485-23086384e946">&lt;/strong&gt;</ept> and <bpt id="b25ada25-2c20-4e19-84b4-46c9a2075055">&lt;strong&gt;</bpt>OnError()<ept id="b25ada25-2c20-4e19-84b4-46c9a2075055">&lt;/strong&gt;</ept> methods.</source>
+          <target state="new">The <bpt id="0e435cfe-a5bb-4865-a433-ac5f08f3a3ac">&lt;strong&gt;</bpt>GcmServiceBase<ept id="0e435cfe-a5bb-4865-a433-ac5f08f3a3ac">&lt;/strong&gt;</ept> class implements the <bpt id="bf338b79-79d6-4286-9583-9efe3ed0fc3a">&lt;strong&gt;</bpt>OnRegistered()<ept id="bf338b79-79d6-4286-9583-9efe3ed0fc3a">&lt;/strong&gt;</ept>, <bpt id="d3d0f077-d69c-406a-82b7-d2b44795a2e8">&lt;strong&gt;</bpt>OnUnRegistered()<ept id="d3d0f077-d69c-406a-82b7-d2b44795a2e8">&lt;/strong&gt;</ept>, <bpt id="7035f954-8027-4aae-9485-23086384e946">&lt;strong&gt;</bpt>OnMessage()<ept id="7035f954-8027-4aae-9485-23086384e946">&lt;/strong&gt;</ept> and <bpt id="b25ada25-2c20-4e19-84b4-46c9a2075055">&lt;strong&gt;</bpt>OnError()<ept id="b25ada25-2c20-4e19-84b4-46c9a2075055">&lt;/strong&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="a9a0a536-944e-47ac-b492-865e9a2afdc0" xml:space="preserve">
+          <source>You must override these methods in the <bpt id="2e1cf30a-3ba6-4e92-990d-888067c3116e">&lt;strong&gt;</bpt>PushHandlerService<ept id="2e1cf30a-3ba6-4e92-990d-888067c3116e">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">You must override these methods in the <bpt id="2e1cf30a-3ba6-4e92-990d-888067c3116e">&lt;strong&gt;</bpt>PushHandlerService<ept id="2e1cf30a-3ba6-4e92-990d-888067c3116e">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="1d148222-3a83-412d-8399-2b815cdce9a6" xml:space="preserve">
+          <source>Add the following code to the <bpt id="f7c683e2-217f-438e-96e5-b3bce0cf8900">&lt;strong&gt;</bpt>PushHandlerService<ept id="f7c683e2-217f-438e-96e5-b3bce0cf8900">&lt;/strong&gt;</ept> class that overrides the <bpt id="8a3cb45c-7e15-4048-8983-ac071718dd9a">&lt;strong&gt;</bpt>OnRegistered<ept id="8a3cb45c-7e15-4048-8983-ac071718dd9a">&lt;/strong&gt;</ept> event handler.</source>
+          <target state="new">Add the following code to the <bpt id="f7c683e2-217f-438e-96e5-b3bce0cf8900">&lt;strong&gt;</bpt>PushHandlerService<ept id="f7c683e2-217f-438e-96e5-b3bce0cf8900">&lt;/strong&gt;</ept> class that overrides the <bpt id="8a3cb45c-7e15-4048-8983-ac071718dd9a">&lt;strong&gt;</bpt>OnRegistered<ept id="8a3cb45c-7e15-4048-8983-ac071718dd9a">&lt;/strong&gt;</ept> event handler.</target>
+        </trans-unit>
+        <trans-unit id="2e55f5e9-ae3f-40dd-afde-6537beab40d3" xml:space="preserve">
+          <source>This method uses the returned GCM registration ID to register with Azure for push notifications.</source>
+          <target state="new">This method uses the returned GCM registration ID to register with Azure for push notifications.</target>
+        </trans-unit>
+        <trans-unit id="ef25395f-8035-4a70-aab5-862a80921263" xml:space="preserve">
+          <source>Override the <bpt id="c2f78ba6-b8c9-493b-bfa7-8894fb6f3f2c">&lt;strong&gt;</bpt>OnMessage<ept id="c2f78ba6-b8c9-493b-bfa7-8894fb6f3f2c">&lt;/strong&gt;</ept> method in <bpt id="8776f495-6d38-4e6e-bdd2-0e1f1dbd87db">&lt;strong&gt;</bpt>PushHandlerService<ept id="8776f495-6d38-4e6e-bdd2-0e1f1dbd87db">&lt;/strong&gt;</ept> with the following code:</source>
+          <target state="new">Override the <bpt id="c2f78ba6-b8c9-493b-bfa7-8894fb6f3f2c">&lt;strong&gt;</bpt>OnMessage<ept id="c2f78ba6-b8c9-493b-bfa7-8894fb6f3f2c">&lt;/strong&gt;</ept> method in <bpt id="8776f495-6d38-4e6e-bdd2-0e1f1dbd87db">&lt;strong&gt;</bpt>PushHandlerService<ept id="8776f495-6d38-4e6e-bdd2-0e1f1dbd87db">&lt;/strong&gt;</ept> with the following code:</target>
+        </trans-unit>
+        <trans-unit id="0e446b11-e408-4371-8378-2c15dfcba02d" xml:space="preserve">
+          <source>Override the <bpt id="f7e3b5ac-f8e6-4e08-9d70-269a346a2df6">&lt;strong&gt;</bpt>OnUnRegistered()<ept id="f7e3b5ac-f8e6-4e08-9d70-269a346a2df6">&lt;/strong&gt;</ept> and <bpt id="263efb6d-40c5-440b-a68f-77e35b16ab5e">&lt;strong&gt;</bpt>OnError()<ept id="263efb6d-40c5-440b-a68f-77e35b16ab5e">&lt;/strong&gt;</ept> methods with the following code.</source>
+          <target state="new">Override the <bpt id="f7e3b5ac-f8e6-4e08-9d70-269a346a2df6">&lt;strong&gt;</bpt>OnUnRegistered()<ept id="f7e3b5ac-f8e6-4e08-9d70-269a346a2df6">&lt;/strong&gt;</ept> and <bpt id="263efb6d-40c5-440b-a68f-77e35b16ab5e">&lt;strong&gt;</bpt>OnError()<ept id="263efb6d-40c5-440b-a68f-77e35b16ab5e">&lt;/strong&gt;</ept> methods with the following code.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

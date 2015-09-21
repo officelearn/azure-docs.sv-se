@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a4244cfc-768e-4ad8-ab60-58154659a969" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a4244cfc-768e-4ad8-ab60-58154659a969" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="328157dc-3150-42d1-969f-65689073f2f0">
+        <trans-unit id="d86e93aa-3e47-4f8e-a555-d9876f780c6a" xml:space="preserve">
+          <source>Real-time Twitter sentiment analysis with Stream Analytics | Microsoft Azure</source>
+          <target state="new">Real-time Twitter sentiment analysis with Stream Analytics | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f2f7f732-11ec-44b6-aa18-5784b33961bb" xml:space="preserve">
+          <source>Learn how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.</source>
+          <target state="new">Learn how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.</target>
+        </trans-unit>
+        <trans-unit id="442c51e1-ec06-46a3-86c5-43a988829f3e" xml:space="preserve">
+          <source>In this tutorial, you'll learn how to build a sentiment analysis solution by bringing real-time Twitter events into Event Hubs, writing Stream Analytics queries to analyze the data, and then storing the results or using a dashboard to provide insights in real time.</source>
+          <target state="new">In this tutorial, you'll learn how to build a sentiment analysis solution by bringing real-time Twitter events into Event Hubs, writing Stream Analytics queries to analyze the data, and then storing the results or using a dashboard to provide insights in real time.</target>
+        </trans-unit>
+        <trans-unit id="e6cd6bdc-3b24-4a57-aa43-12db2bca9f41" xml:space="preserve">
+          <source>Social media analytics tools help organizations understand trending topics, meaning subjects and attitudes with a high volume of posts in social media.</source>
+          <target state="new">Social media analytics tools help organizations understand trending topics, meaning subjects and attitudes with a high volume of posts in social media.</target>
+        </trans-unit>
+        <trans-unit id="38b784b2-a0f1-4abb-8185-3d53f21c6c83" xml:space="preserve">
+          <source>Sentiment analysis - also called "opinion mining" - uses social media analytics tools to determine attitudes toward a product, idea, and so on.</source>
+          <target state="new">Sentiment analysis - also called "opinion mining" - uses social media analytics tools to determine attitudes toward a product, idea, and so on.</target>
+        </trans-unit>
+        <trans-unit id="80bcf2e1-6479-4249-bdb1-7911b80fc905" xml:space="preserve">
+          <source>A news media website is interested in getting an edge over its competitors by featuring site content that is immediately relevant to its readers.</source>
+          <target state="new">A news media website is interested in getting an edge over its competitors by featuring site content that is immediately relevant to its readers.</target>
+        </trans-unit>
+        <trans-unit id="c88e0043-fc99-4bf6-8ae2-40f84c8704a6" xml:space="preserve">
+          <source>They use social media analysis on topics relevant to their readers by doing real time sentiment analysis on Twitter data.</source>
+          <target state="new">They use social media analysis on topics relevant to their readers by doing real time sentiment analysis on Twitter data.</target>
+        </trans-unit>
+        <trans-unit id="a2c2f673-d372-47d2-ae6a-30cdc73208a8" xml:space="preserve">
+          <source>Specifically, to identify what topics are trending in real time on Twitter, they need real-time analytics about the tweet volume and sentiment for key topics.</source>
+          <target state="new">Specifically, to identify what topics are trending in real time on Twitter, they need real-time analytics about the tweet volume and sentiment for key topics.</target>
+        </trans-unit>
+        <trans-unit id="61faba37-db94-4fcf-9bb7-559450782572" xml:space="preserve">
+          <source>A Twitter account is required for this tutorial.</source>
+          <target state="new">A Twitter account is required for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="44135333-c668-4bec-a275-546c6b283cab" xml:space="preserve">
+          <source>This walkthough uses a Twitter client application which is located on GitHub.</source>
+          <target state="new">This walkthough uses a Twitter client application which is located on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="0b3123e1-d01d-43e0-b778-979634ba61df" xml:space="preserve">
+          <source>Download it <bpt id="18339235-bc8a-4f50-a8ed-2557bd27e990">&lt;linkText&gt;</bpt>here<ept id="18339235-bc8a-4f50-a8ed-2557bd27e990">&lt;/linkText&gt;</ept><bpt id="18339235-bc8a-4f50-a8ed-2557bd27e990">&lt;title&gt;</bpt><ept id="18339235-bc8a-4f50-a8ed-2557bd27e990">&lt;/title&gt;</ept> and follow the steps below to set up your solution.</source>
+          <target state="new">Download it <bpt id="18339235-bc8a-4f50-a8ed-2557bd27e990">&lt;linkText&gt;</bpt>here<ept id="18339235-bc8a-4f50-a8ed-2557bd27e990">&lt;/linkText&gt;</ept><bpt id="18339235-bc8a-4f50-a8ed-2557bd27e990">&lt;title&gt;</bpt><ept id="18339235-bc8a-4f50-a8ed-2557bd27e990">&lt;/title&gt;</ept> and follow the steps below to set up your solution.</target>
+        </trans-unit>
+        <trans-unit id="bd186959-b6f7-49c2-bd1a-c360eead8c56" xml:space="preserve">
+          <source>The sample application will generate events and push them to an Event Hubs instance (an Event Hub, for short).</source>
+          <target state="new">The sample application will generate events and push them to an Event Hubs instance (an Event Hub, for short).</target>
+        </trans-unit>
+        <trans-unit id="7bf65652-3302-4183-baa6-56f4022d62bd" xml:space="preserve">
+          <source>Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics.</source>
+          <target state="new">Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics.</target>
+        </trans-unit>
+        <trans-unit id="87da4314-7399-4208-b941-a49a2936cdf2" xml:space="preserve">
+          <source>See Event Hubs documentation in <bpt id="23ea66e6-4b42-4833-a934-a953b87a1810">&lt;linkText&gt;</bpt>Service Bus documentation<ept id="23ea66e6-4b42-4833-a934-a953b87a1810">&lt;/linkText&gt;</ept><bpt id="23ea66e6-4b42-4833-a934-a953b87a1810">&lt;title&gt;</bpt><ept id="23ea66e6-4b42-4833-a934-a953b87a1810">&lt;/title&gt;</ept></source>
+          <target state="new">See Event Hubs documentation in <bpt id="23ea66e6-4b42-4833-a934-a953b87a1810">&lt;linkText&gt;</bpt>Service Bus documentation<ept id="23ea66e6-4b42-4833-a934-a953b87a1810">&lt;/linkText&gt;</ept><bpt id="23ea66e6-4b42-4833-a934-a953b87a1810">&lt;title&gt;</bpt><ept id="23ea66e6-4b42-4833-a934-a953b87a1810">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25ed6535-ec81-473c-acde-ad63c17a75ff" xml:space="preserve">
+          <source>Follow the steps below to create an Event Hub.</source>
+          <target state="new">Follow the steps below to create an Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="74dc1d55-bda8-4746-abeb-835f4ca0bc64" xml:space="preserve">
+          <source>In the Azure Portal click <bpt id="db209093-1bb3-437c-a6e2-490fdd42d0ec">&lt;strong&gt;</bpt>NEW<ept id="db209093-1bb3-437c-a6e2-490fdd42d0ec">&lt;/strong&gt;</ept> &gt; <bpt id="1490c6ea-5c1d-48db-934c-d0c18ded989d">&lt;strong&gt;</bpt>APP SERVICES<ept id="1490c6ea-5c1d-48db-934c-d0c18ded989d">&lt;/strong&gt;</ept> &gt; <bpt id="155e6070-3926-4214-bffb-cf036ecd286e">&lt;strong&gt;</bpt>SERVICE BUS<ept id="155e6070-3926-4214-bffb-cf036ecd286e">&lt;/strong&gt;</ept> &gt; <bpt id="76789905-5378-422d-a50e-b6e246e67aee">&lt;strong&gt;</bpt>EVENT HUB<ept id="76789905-5378-422d-a50e-b6e246e67aee">&lt;/strong&gt;</ept> &gt; <bpt id="41baf71c-9815-4307-a2b6-3e3b37d147f1">&lt;strong&gt;</bpt>QUICK CREATE<ept id="41baf71c-9815-4307-a2b6-3e3b37d147f1">&lt;/strong&gt;</ept> and provide a name, region, and new or existing namespace to create a new Event Hub.</source>
+          <target state="new">In the Azure Portal click <bpt id="db209093-1bb3-437c-a6e2-490fdd42d0ec">&lt;strong&gt;</bpt>NEW<ept id="db209093-1bb3-437c-a6e2-490fdd42d0ec">&lt;/strong&gt;</ept> &gt; <bpt id="1490c6ea-5c1d-48db-934c-d0c18ded989d">&lt;strong&gt;</bpt>APP SERVICES<ept id="1490c6ea-5c1d-48db-934c-d0c18ded989d">&lt;/strong&gt;</ept> &gt; <bpt id="155e6070-3926-4214-bffb-cf036ecd286e">&lt;strong&gt;</bpt>SERVICE BUS<ept id="155e6070-3926-4214-bffb-cf036ecd286e">&lt;/strong&gt;</ept> &gt; <bpt id="76789905-5378-422d-a50e-b6e246e67aee">&lt;strong&gt;</bpt>EVENT HUB<ept id="76789905-5378-422d-a50e-b6e246e67aee">&lt;/strong&gt;</ept> &gt; <bpt id="41baf71c-9815-4307-a2b6-3e3b37d147f1">&lt;strong&gt;</bpt>QUICK CREATE<ept id="41baf71c-9815-4307-a2b6-3e3b37d147f1">&lt;/strong&gt;</ept> and provide a name, region, and new or existing namespace to create a new Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="ce3343ac-0365-4de1-8ff2-3a5e595857a7" xml:space="preserve">
+          <source>As a best practice, each Stream Analytics job should read from a single Event Hubs Consumer Group.</source>
+          <target state="new">As a best practice, each Stream Analytics job should read from a single Event Hubs Consumer Group.</target>
+        </trans-unit>
+        <trans-unit id="9ad60b9b-325a-4c28-a370-3118a6f4ffdf" xml:space="preserve">
+          <source>We will walk you through the process of creating a Consumer Group below and you can learn more about them here.</source>
+          <target state="new">We will walk you through the process of creating a Consumer Group below and you can learn more about them here.</target>
+        </trans-unit>
+        <trans-unit id="2cea1be8-2811-4991-8ffa-816fd70396a3" xml:space="preserve">
+          <source>To create a Consumer Group, navigate to the newly created Event Hub and click the <bpt id="78a58cc6-322a-49f0-bab5-677154ce1358">&lt;strong&gt;</bpt>CONSUMER GROUPS<ept id="78a58cc6-322a-49f0-bab5-677154ce1358">&lt;/strong&gt;</ept> tab, then click <bpt id="30c2fdea-467a-4843-8d77-d2968717a4d0">&lt;strong&gt;</bpt>CREATE<ept id="30c2fdea-467a-4843-8d77-d2968717a4d0">&lt;/strong&gt;</ept> on the bottom of the page and provide a name for your Consumer Group.</source>
+          <target state="new">To create a Consumer Group, navigate to the newly created Event Hub and click the <bpt id="78a58cc6-322a-49f0-bab5-677154ce1358">&lt;strong&gt;</bpt>CONSUMER GROUPS<ept id="78a58cc6-322a-49f0-bab5-677154ce1358">&lt;/strong&gt;</ept> tab, then click <bpt id="30c2fdea-467a-4843-8d77-d2968717a4d0">&lt;strong&gt;</bpt>CREATE<ept id="30c2fdea-467a-4843-8d77-d2968717a4d0">&lt;/strong&gt;</ept> on the bottom of the page and provide a name for your Consumer Group.</target>
+        </trans-unit>
+        <trans-unit id="c8136b5b-5185-47ae-9a0f-f677db0cfe11" xml:space="preserve">
+          <source>To grant access to the Event Hub, we will need to create a shared access policy.</source>
+          <target state="new">To grant access to the Event Hub, we will need to create a shared access policy.</target>
+        </trans-unit>
+        <trans-unit id="8f8d5b1a-01d9-4920-8c7a-b8e2d110d18b" xml:space="preserve">
+          <source>Click the <bpt id="d78b243c-21e1-469a-81f0-2a400f073d81">&lt;strong&gt;</bpt>CONFIGURE<ept id="d78b243c-21e1-469a-81f0-2a400f073d81">&lt;/strong&gt;</ept> tab of your Event Hub.</source>
+          <target state="new">Click the <bpt id="d78b243c-21e1-469a-81f0-2a400f073d81">&lt;strong&gt;</bpt>CONFIGURE<ept id="d78b243c-21e1-469a-81f0-2a400f073d81">&lt;/strong&gt;</ept> tab of your Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="6c9f95d8-a603-4a63-84f3-2dfea459a93f" xml:space="preserve">
+          <source>Under <bpt id="64dbebaf-a6b4-495f-ad57-7414db3d0465">&lt;strong&gt;</bpt>SHARED ACCESS POLICIES<ept id="64dbebaf-a6b4-495f-ad57-7414db3d0465">&lt;/strong&gt;</ept>, create a new policy with <bpt id="6e28d83a-8d7e-4055-a520-570ae1cc425a">&lt;strong&gt;</bpt>MANAGE<ept id="6e28d83a-8d7e-4055-a520-570ae1cc425a">&lt;/strong&gt;</ept> permissions.</source>
+          <target state="new">Under <bpt id="64dbebaf-a6b4-495f-ad57-7414db3d0465">&lt;strong&gt;</bpt>SHARED ACCESS POLICIES<ept id="64dbebaf-a6b4-495f-ad57-7414db3d0465">&lt;/strong&gt;</ept>, create a new policy with <bpt id="6e28d83a-8d7e-4055-a520-570ae1cc425a">&lt;strong&gt;</bpt>MANAGE<ept id="6e28d83a-8d7e-4055-a520-570ae1cc425a">&lt;/strong&gt;</ept> permissions.</target>
+        </trans-unit>
+        <trans-unit id="964847f8-4d30-4690-a481-a2879e956995" xml:space="preserve">
+          <source><bpt id="76a51996-bb6a-45eb-a0ac-dc057636e793">&lt;linkText&gt;</bpt>Shared Access Policies where you can create a policy with Manage permissions.<ept id="76a51996-bb6a-45eb-a0ac-dc057636e793">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="76a51996-bb6a-45eb-a0ac-dc057636e793">&lt;linkText&gt;</bpt>Shared Access Policies where you can create a policy with Manage permissions.<ept id="76a51996-bb6a-45eb-a0ac-dc057636e793">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06d6bcc9-1870-45b1-ba57-3150b567ca7d" xml:space="preserve">
+          <source>Click <bpt id="b5ae9f9e-8918-4165-8794-13f45124ddc3">&lt;strong&gt;</bpt>SAVE<ept id="b5ae9f9e-8918-4165-8794-13f45124ddc3">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="b5ae9f9e-8918-4165-8794-13f45124ddc3">&lt;strong&gt;</bpt>SAVE<ept id="b5ae9f9e-8918-4165-8794-13f45124ddc3">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="79619113-9488-47d2-831f-773f23c4542a" xml:space="preserve">
+          <source>Navigate to the <bpt id="1a075224-c5d3-494e-9ce3-b89a5cc5af60">&lt;strong&gt;</bpt>DASHBOARD<ept id="1a075224-c5d3-494e-9ce3-b89a5cc5af60">&lt;/strong&gt;</ept> and click <bpt id="f46445e2-a036-402c-be53-8318d33cfa91">&lt;strong&gt;</bpt>CONNECTION INFORMATION<ept id="f46445e2-a036-402c-be53-8318d33cfa91">&lt;/strong&gt;</ept> at the bottom of the page and copy and save the connection information.</source>
+          <target state="new">Navigate to the <bpt id="1a075224-c5d3-494e-9ce3-b89a5cc5af60">&lt;strong&gt;</bpt>DASHBOARD<ept id="1a075224-c5d3-494e-9ce3-b89a5cc5af60">&lt;/strong&gt;</ept> and click <bpt id="f46445e2-a036-402c-be53-8318d33cfa91">&lt;strong&gt;</bpt>CONNECTION INFORMATION<ept id="f46445e2-a036-402c-be53-8318d33cfa91">&lt;/strong&gt;</ept> at the bottom of the page and copy and save the connection information.</target>
+        </trans-unit>
+        <trans-unit id="322992c6-a52f-4864-8bcb-d01e8c0906ac" xml:space="preserve">
+          <source>(Use the copy icon that appears under the search icon.)</source>
+          <target state="new">(Use the copy icon that appears under the search icon.)</target>
+        </trans-unit>
+        <trans-unit id="0c178ed1-979f-4dcd-bf87-bc3cc76ab087" xml:space="preserve">
+          <source>We have provided a client application that will tap into Twitter data via <bpt id="0df76f56-39da-4f76-8d2e-2bf2d1614e66">&lt;linkText&gt;</bpt>Twitter's Streaming APIs<ept id="0df76f56-39da-4f76-8d2e-2bf2d1614e66">&lt;/linkText&gt;</ept><bpt id="0df76f56-39da-4f76-8d2e-2bf2d1614e66">&lt;title&gt;</bpt><ept id="0df76f56-39da-4f76-8d2e-2bf2d1614e66">&lt;/title&gt;</ept> to collect Tweet events about a parameterized set of topics.</source>
+          <target state="new">We have provided a client application that will tap into Twitter data via <bpt id="0df76f56-39da-4f76-8d2e-2bf2d1614e66">&lt;linkText&gt;</bpt>Twitter's Streaming APIs<ept id="0df76f56-39da-4f76-8d2e-2bf2d1614e66">&lt;/linkText&gt;</ept><bpt id="0df76f56-39da-4f76-8d2e-2bf2d1614e66">&lt;title&gt;</bpt><ept id="0df76f56-39da-4f76-8d2e-2bf2d1614e66">&lt;/title&gt;</ept> to collect Tweet events about a parameterized set of topics.</target>
+        </trans-unit>
+        <trans-unit id="9f2fe775-5226-4071-9ce8-cae80c552978" xml:space="preserve">
+          <source>The 3rd party open source tool <bpt id="6ae61f03-39c2-4f6a-923a-26a1997a5e9a">&lt;linkText&gt;</bpt>Sentiment140<ept id="6ae61f03-39c2-4f6a-923a-26a1997a5e9a">&lt;/linkText&gt;</ept><bpt id="6ae61f03-39c2-4f6a-923a-26a1997a5e9a">&lt;title&gt;</bpt><ept id="6ae61f03-39c2-4f6a-923a-26a1997a5e9a">&lt;/title&gt;</ept> is used to assign a sentiment value to each tweet (0: negative, 2: neutral, 4: positive) and then Tweet events are pushed to Event Hub.</source>
+          <target state="new">The 3rd party open source tool <bpt id="6ae61f03-39c2-4f6a-923a-26a1997a5e9a">&lt;linkText&gt;</bpt>Sentiment140<ept id="6ae61f03-39c2-4f6a-923a-26a1997a5e9a">&lt;/linkText&gt;</ept><bpt id="6ae61f03-39c2-4f6a-923a-26a1997a5e9a">&lt;title&gt;</bpt><ept id="6ae61f03-39c2-4f6a-923a-26a1997a5e9a">&lt;/title&gt;</ept> is used to assign a sentiment value to each tweet (0: negative, 2: neutral, 4: positive) and then Tweet events are pushed to Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="a5364388-866a-43a2-800f-52edd4f81552" xml:space="preserve">
+          <source>Follow these steps to set up the application:</source>
+          <target state="new">Follow these steps to set up the application:</target>
+        </trans-unit>
+        <trans-unit id="288cf10e-5c7b-4fd8-b46a-c2d49690b5ba" xml:space="preserve">
+          <source><bpt id="d01f9d1f-d326-41fd-9dcd-f3a8ead01696">&lt;linkText&gt;</bpt>Download the TwitterClient solution<ept id="d01f9d1f-d326-41fd-9dcd-f3a8ead01696">&lt;/linkText&gt;</ept><bpt id="d01f9d1f-d326-41fd-9dcd-f3a8ead01696">&lt;title&gt;</bpt><ept id="d01f9d1f-d326-41fd-9dcd-f3a8ead01696">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d01f9d1f-d326-41fd-9dcd-f3a8ead01696">&lt;linkText&gt;</bpt>Download the TwitterClient solution<ept id="d01f9d1f-d326-41fd-9dcd-f3a8ead01696">&lt;/linkText&gt;</ept><bpt id="d01f9d1f-d326-41fd-9dcd-f3a8ead01696">&lt;title&gt;</bpt><ept id="d01f9d1f-d326-41fd-9dcd-f3a8ead01696">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d6d2961-a3fa-4730-9dee-68c4841dbb07" xml:space="preserve">
+          <source>Open App.config and replace oauth<bpt id="fdce8ea1-89bf-43df-bf12-b94c2f1dc044">&lt;em&gt;</bpt>consumer<ept id="fdce8ea1-89bf-43df-bf12-b94c2f1dc044">&lt;/em&gt;</ept>key, oauth<bpt id="a91948dc-ce6e-4c0a-a49a-1a14b0e7f760">&lt;em&gt;</bpt>consumer<ept id="a91948dc-ce6e-4c0a-a49a-1a14b0e7f760">&lt;/em&gt;</ept>secret, oauth<bpt id="bc1e68ed-483b-4789-a2a8-807ede748a14">&lt;em&gt;</bpt>token, oauth<ept id="bc1e68ed-483b-4789-a2a8-807ede748a14">&lt;/em&gt;</ept>token_secret with Twitter tokens with your values.</source>
+          <target state="new">Open App.config and replace oauth<bpt id="fdce8ea1-89bf-43df-bf12-b94c2f1dc044">&lt;em&gt;</bpt>consumer<ept id="fdce8ea1-89bf-43df-bf12-b94c2f1dc044">&lt;/em&gt;</ept>key, oauth<bpt id="a91948dc-ce6e-4c0a-a49a-1a14b0e7f760">&lt;em&gt;</bpt>consumer<ept id="a91948dc-ce6e-4c0a-a49a-1a14b0e7f760">&lt;/em&gt;</ept>secret, oauth<bpt id="bc1e68ed-483b-4789-a2a8-807ede748a14">&lt;em&gt;</bpt>token, oauth<ept id="bc1e68ed-483b-4789-a2a8-807ede748a14">&lt;/em&gt;</ept>token_secret with Twitter tokens with your values.</target>
+        </trans-unit>
+        <trans-unit id="51a56357-8e31-4024-8e41-df4da61d6e42" xml:space="preserve">
+          <source><bpt id="3938f591-beb8-4999-abac-116065fbda51">&lt;linkText&gt;</bpt>Steps to generate an OAuth access token<ept id="3938f591-beb8-4999-abac-116065fbda51">&lt;/linkText&gt;</ept><bpt id="3938f591-beb8-4999-abac-116065fbda51">&lt;title&gt;</bpt><ept id="3938f591-beb8-4999-abac-116065fbda51">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="3938f591-beb8-4999-abac-116065fbda51">&lt;linkText&gt;</bpt>Steps to generate an OAuth access token<ept id="3938f591-beb8-4999-abac-116065fbda51">&lt;/linkText&gt;</ept><bpt id="3938f591-beb8-4999-abac-116065fbda51">&lt;title&gt;</bpt><ept id="3938f591-beb8-4999-abac-116065fbda51">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="765ae3cf-dd8f-4d55-9cd0-8a1ce8e881f1" xml:space="preserve">
+          <source>Note that you will need to make an empty application to generate a token.</source>
+          <target state="new">Note that you will need to make an empty application to generate a token.</target>
+        </trans-unit>
+        <trans-unit id="46e91fc6-2943-481f-ad28-ede65c86024d" xml:space="preserve">
+          <source>Replace the EventHubConnectionString and EventHubName values in App.config with your Event Hub connection string and name.</source>
+          <target state="new">Replace the EventHubConnectionString and EventHubName values in App.config with your Event Hub connection string and name.</target>
+        </trans-unit>
+        <trans-unit id="3a72f8e5-cdec-49b1-8643-6ed2ebb28ab8" xml:space="preserve">
+          <source><bpt id="e8670bcc-51a1-4916-9224-fe8b9276ab90">&lt;em&gt;</bpt>Optional:<ept id="e8670bcc-51a1-4916-9224-fe8b9276ab90">&lt;/em&gt;</ept> Adjust the keywords to search for.</source>
+          <target state="new"><bpt id="e8670bcc-51a1-4916-9224-fe8b9276ab90">&lt;em&gt;</bpt>Optional:<ept id="e8670bcc-51a1-4916-9224-fe8b9276ab90">&lt;/em&gt;</ept> Adjust the keywords to search for.</target>
+        </trans-unit>
+        <trans-unit id="dbd20b1d-48f7-4350-a21b-ca63f84cd1d0" xml:space="preserve">
+          <source>As a default, this application looks for "Azure,Skype,XBox,Microsoft,Seattle".</source>
+          <target state="new">As a default, this application looks for "Azure,Skype,XBox,Microsoft,Seattle".</target>
+        </trans-unit>
+        <trans-unit id="e93270e3-eeb3-4f72-8120-e81f8dc425d8" xml:space="preserve">
+          <source>You can adjust the values for twitter_keywords in App.config, if desired.</source>
+          <target state="new">You can adjust the values for twitter_keywords in App.config, if desired.</target>
+        </trans-unit>
+        <trans-unit id="39433bb1-dfa7-4559-a711-3a2b7ef25ddc" xml:space="preserve">
+          <source>Build the solution</source>
+          <target state="new">Build the solution</target>
+        </trans-unit>
+        <trans-unit id="70cd6ec6-04be-4bc5-9f9b-4e58e419cbd0" xml:space="preserve">
+          <source>Start the application.</source>
+          <target state="new">Start the application.</target>
+        </trans-unit>
+        <trans-unit id="b9c748a5-d22f-4b7d-88ed-5767bbd5cbcf" xml:space="preserve">
+          <source>You will see Tweet events with the CreatedAt, Topic, and SentimentScore values being sent to your Event Hub:</source>
+          <target state="new">You will see Tweet events with the CreatedAt, Topic, and SentimentScore values being sent to your Event Hub:</target>
+        </trans-unit>
+        <trans-unit id="a9929779-310b-4909-83a3-a2cb376e962b" xml:space="preserve">
+          <source><bpt id="c67c7476-33df-4a03-a428-7ec862639573">&lt;linkText&gt;</bpt>Sentiment analysis: SentimentScore values sent to an event hub.<ept id="c67c7476-33df-4a03-a428-7ec862639573">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c67c7476-33df-4a03-a428-7ec862639573">&lt;linkText&gt;</bpt>Sentiment analysis: SentimentScore values sent to an event hub.<ept id="c67c7476-33df-4a03-a428-7ec862639573">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8b99554-f6ec-4fd7-98ca-bf1fac4c288a" xml:space="preserve">
+          <source>Now that we have Tweet events streaming in real-time from Twitter, we can set up a Stream Analytics job to analyze these events in real time.</source>
+          <target state="new">Now that we have Tweet events streaming in real-time from Twitter, we can set up a Stream Analytics job to analyze these events in real time.</target>
+        </trans-unit>
+        <trans-unit id="e7e324c2-f0f9-4858-8576-e5ad3fc3685b" xml:space="preserve">
+          <source>In the <bpt id="7310f926-a674-4e6a-bd79-7ac2790815ca">&lt;linkText&gt;</bpt>Azure Portal<ept id="7310f926-a674-4e6a-bd79-7ac2790815ca">&lt;/linkText&gt;</ept><bpt id="7310f926-a674-4e6a-bd79-7ac2790815ca">&lt;title&gt;</bpt><ept id="7310f926-a674-4e6a-bd79-7ac2790815ca">&lt;/title&gt;</ept>, click <bpt id="7c4fca02-996b-4056-8f21-2184d3dab956">&lt;strong&gt;</bpt>NEW<ept id="7c4fca02-996b-4056-8f21-2184d3dab956">&lt;/strong&gt;</ept> &gt; <bpt id="2c23e565-14b0-4076-80c7-fca1606d42a8">&lt;strong&gt;</bpt>DATA SERVICES<ept id="2c23e565-14b0-4076-80c7-fca1606d42a8">&lt;/strong&gt;</ept> &gt; <bpt id="b495f9af-fdc8-4bd3-ba81-bbba53568952">&lt;strong&gt;</bpt>STREAM ANALYTICS<ept id="b495f9af-fdc8-4bd3-ba81-bbba53568952">&lt;/strong&gt;</ept> &gt; <bpt id="25440942-c230-40e9-8f2e-4973d9041418">&lt;strong&gt;</bpt>QUICK CREATE<ept id="25440942-c230-40e9-8f2e-4973d9041418">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="7310f926-a674-4e6a-bd79-7ac2790815ca">&lt;linkText&gt;</bpt>Azure Portal<ept id="7310f926-a674-4e6a-bd79-7ac2790815ca">&lt;/linkText&gt;</ept><bpt id="7310f926-a674-4e6a-bd79-7ac2790815ca">&lt;title&gt;</bpt><ept id="7310f926-a674-4e6a-bd79-7ac2790815ca">&lt;/title&gt;</ept>, click <bpt id="7c4fca02-996b-4056-8f21-2184d3dab956">&lt;strong&gt;</bpt>NEW<ept id="7c4fca02-996b-4056-8f21-2184d3dab956">&lt;/strong&gt;</ept> &gt; <bpt id="2c23e565-14b0-4076-80c7-fca1606d42a8">&lt;strong&gt;</bpt>DATA SERVICES<ept id="2c23e565-14b0-4076-80c7-fca1606d42a8">&lt;/strong&gt;</ept> &gt; <bpt id="b495f9af-fdc8-4bd3-ba81-bbba53568952">&lt;strong&gt;</bpt>STREAM ANALYTICS<ept id="b495f9af-fdc8-4bd3-ba81-bbba53568952">&lt;/strong&gt;</ept> &gt; <bpt id="25440942-c230-40e9-8f2e-4973d9041418">&lt;strong&gt;</bpt>QUICK CREATE<ept id="25440942-c230-40e9-8f2e-4973d9041418">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1d33557-bf1a-4650-adca-8fd26c3f852a" xml:space="preserve">
+          <source>Specify the following values, and then click <bpt id="d9f1c4c0-b4b5-4314-9382-4914648b6934">&lt;strong&gt;</bpt>CREATE STREAM ANALYTICS JOB<ept id="d9f1c4c0-b4b5-4314-9382-4914648b6934">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Specify the following values, and then click <bpt id="d9f1c4c0-b4b5-4314-9382-4914648b6934">&lt;strong&gt;</bpt>CREATE STREAM ANALYTICS JOB<ept id="d9f1c4c0-b4b5-4314-9382-4914648b6934">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="8a6901e9-7043-4858-8059-0303ff9dd6f2" xml:space="preserve">
+          <source><bpt id="1348f6c5-190e-4e64-ab6a-043775362db3">&lt;strong&gt;</bpt>JOB NAME<ept id="1348f6c5-190e-4e64-ab6a-043775362db3">&lt;/strong&gt;</ept>: Enter a job name.</source>
+          <target state="new"><bpt id="1348f6c5-190e-4e64-ab6a-043775362db3">&lt;strong&gt;</bpt>JOB NAME<ept id="1348f6c5-190e-4e64-ab6a-043775362db3">&lt;/strong&gt;</ept>: Enter a job name.</target>
+        </trans-unit>
+        <trans-unit id="6ca9a656-213f-4982-850a-7d4ff0063cda" xml:space="preserve">
+          <source><bpt id="2a4b1664-87e2-4a2d-bdf8-d599d397aeb9">&lt;strong&gt;</bpt>REGION<ept id="2a4b1664-87e2-4a2d-bdf8-d599d397aeb9">&lt;/strong&gt;</ept>: Select the region where you want to run the job.</source>
+          <target state="new"><bpt id="2a4b1664-87e2-4a2d-bdf8-d599d397aeb9">&lt;strong&gt;</bpt>REGION<ept id="2a4b1664-87e2-4a2d-bdf8-d599d397aeb9">&lt;/strong&gt;</ept>: Select the region where you want to run the job.</target>
+        </trans-unit>
+        <trans-unit id="6fafbb66-4c8c-45c1-abd6-f8f301ac87d8" xml:space="preserve">
+          <source>Consider placing the job and the event hub in the same region to ensure better performance and to ensure that you will not be paying to transfer data between regions.</source>
+          <target state="new">Consider placing the job and the event hub in the same region to ensure better performance and to ensure that you will not be paying to transfer data between regions.</target>
+        </trans-unit>
+        <trans-unit id="6e693f4a-39af-4259-91be-398e3f6511a4" xml:space="preserve">
+          <source><bpt id="10dc5a92-46a2-4df5-8d43-3155a498eba1">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="10dc5a92-46a2-4df5-8d43-3155a498eba1">&lt;/strong&gt;</ept>: Choose the Storage account that you would like to use to store monitoring data for all Stream Analytics jobs running within this region.</source>
+          <target state="new"><bpt id="10dc5a92-46a2-4df5-8d43-3155a498eba1">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="10dc5a92-46a2-4df5-8d43-3155a498eba1">&lt;/strong&gt;</ept>: Choose the Storage account that you would like to use to store monitoring data for all Stream Analytics jobs running within this region.</target>
+        </trans-unit>
+        <trans-unit id="6d1de64e-b26d-46f9-987a-8df5ce9705e8" xml:space="preserve">
+          <source>You have the option to choose an existing Storage account or to create a new one.</source>
+          <target state="new">You have the option to choose an existing Storage account or to create a new one.</target>
+        </trans-unit>
+        <trans-unit id="1731a1e3-73a5-4019-b8f3-ce8402cc5cba" xml:space="preserve">
+          <source>Click <bpt id="2ef3e239-7788-49c6-9223-db1b17f53cb2">&lt;strong&gt;</bpt>STREAM ANALYTICS<ept id="2ef3e239-7788-49c6-9223-db1b17f53cb2">&lt;/strong&gt;</ept> in the left pane to list the Stream Analytics jobs.</source>
+          <target state="new">Click <bpt id="2ef3e239-7788-49c6-9223-db1b17f53cb2">&lt;strong&gt;</bpt>STREAM ANALYTICS<ept id="2ef3e239-7788-49c6-9223-db1b17f53cb2">&lt;/strong&gt;</ept> in the left pane to list the Stream Analytics jobs.</target>
+        </trans-unit>
+        <trans-unit id="fbda1f0c-56f1-42d9-b2e4-b22ee58934d1" xml:space="preserve">
+          <source><bpt id="ec80e087-f9ec-43dc-9e66-7b6606f9fe65">&lt;linkText&gt;</bpt>Stream Analytics service icon<ept id="ec80e087-f9ec-43dc-9e66-7b6606f9fe65">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec80e087-f9ec-43dc-9e66-7b6606f9fe65">&lt;linkText&gt;</bpt>Stream Analytics service icon<ept id="ec80e087-f9ec-43dc-9e66-7b6606f9fe65">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="377e3779-1ca8-40cb-8e3d-65a985a9c7d4" xml:space="preserve">
+          <source>The new job will be shown with a status of <bpt id="96df9725-24c7-418f-b909-370467f180b9">&lt;strong&gt;</bpt>CREATED<ept id="96df9725-24c7-418f-b909-370467f180b9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The new job will be shown with a status of <bpt id="96df9725-24c7-418f-b909-370467f180b9">&lt;strong&gt;</bpt>CREATED<ept id="96df9725-24c7-418f-b909-370467f180b9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8e6be5b-0556-4f4f-9cd0-79802075d05b" xml:space="preserve">
+          <source>Notice that the <bpt id="af800392-2ae8-46da-92e6-6ff84e403ce9">&lt;strong&gt;</bpt>START<ept id="af800392-2ae8-46da-92e6-6ff84e403ce9">&lt;/strong&gt;</ept> button on the bottom of the page is disabled.</source>
+          <target state="new">Notice that the <bpt id="af800392-2ae8-46da-92e6-6ff84e403ce9">&lt;strong&gt;</bpt>START<ept id="af800392-2ae8-46da-92e6-6ff84e403ce9">&lt;/strong&gt;</ept> button on the bottom of the page is disabled.</target>
+        </trans-unit>
+        <trans-unit id="8c8da85c-348c-41d6-8492-5dea3e798cdd" xml:space="preserve">
+          <source>You must configure the job input, output, and query before you can start the job.</source>
+          <target state="new">You must configure the job input, output, and query before you can start the job.</target>
+        </trans-unit>
+        <trans-unit id="57908f3b-3d27-475a-b2c4-4a8fb88fa125" xml:space="preserve">
+          <source>In your Stream Analytics job click <bpt id="e027d59c-ba5a-4c95-ac7a-3e345f2e64eb">&lt;strong&gt;</bpt>INPUTS<ept id="e027d59c-ba5a-4c95-ac7a-3e345f2e64eb">&lt;/strong&gt;</ept> from the top of the page, and then click <bpt id="df48c19e-2968-40cf-abff-eeb0629d1f4b">&lt;strong&gt;</bpt>ADD INPUT<ept id="df48c19e-2968-40cf-abff-eeb0629d1f4b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In your Stream Analytics job click <bpt id="e027d59c-ba5a-4c95-ac7a-3e345f2e64eb">&lt;strong&gt;</bpt>INPUTS<ept id="e027d59c-ba5a-4c95-ac7a-3e345f2e64eb">&lt;/strong&gt;</ept> from the top of the page, and then click <bpt id="df48c19e-2968-40cf-abff-eeb0629d1f4b">&lt;strong&gt;</bpt>ADD INPUT<ept id="df48c19e-2968-40cf-abff-eeb0629d1f4b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1aacb786-d095-41a4-8b6d-35d1ccb764b1" xml:space="preserve">
+          <source>The dialog that opens will walk you through a number of steps to set up your input.</source>
+          <target state="new">The dialog that opens will walk you through a number of steps to set up your input.</target>
+        </trans-unit>
+        <trans-unit id="2e93bb74-fe3c-438c-8a60-fdb8c9ecb930" xml:space="preserve">
+          <source>Select <bpt id="5d87209b-814e-408f-a122-b680499079fb">&lt;strong&gt;</bpt>DATA STREAM<ept id="5d87209b-814e-408f-a122-b680499079fb">&lt;/strong&gt;</ept>, and then click the right button.</source>
+          <target state="new">Select <bpt id="5d87209b-814e-408f-a122-b680499079fb">&lt;strong&gt;</bpt>DATA STREAM<ept id="5d87209b-814e-408f-a122-b680499079fb">&lt;/strong&gt;</ept>, and then click the right button.</target>
+        </trans-unit>
+        <trans-unit id="a9998f5a-4834-4d8c-9261-cb1f7b54acdf" xml:space="preserve">
+          <source>Select <bpt id="498b2233-c59f-49f5-b1eb-f0a34a967fff">&lt;strong&gt;</bpt>EVENT HUB<ept id="498b2233-c59f-49f5-b1eb-f0a34a967fff">&lt;/strong&gt;</ept>, and then click the right button.</source>
+          <target state="new">Select <bpt id="498b2233-c59f-49f5-b1eb-f0a34a967fff">&lt;strong&gt;</bpt>EVENT HUB<ept id="498b2233-c59f-49f5-b1eb-f0a34a967fff">&lt;/strong&gt;</ept>, and then click the right button.</target>
+        </trans-unit>
+        <trans-unit id="af967678-759f-4a80-9cbb-ba71b4b589a3" xml:space="preserve">
+          <source>Type or select the following values on the third page:</source>
+          <target state="new">Type or select the following values on the third page:</target>
+        </trans-unit>
+        <trans-unit id="b4a6d568-260f-4e1e-a3f8-7b5545329b52" xml:space="preserve">
+          <source><bpt id="c0884332-60d4-48fa-9c98-15a5b186fcd4">&lt;strong&gt;</bpt>INPUT ALIAS<ept id="c0884332-60d4-48fa-9c98-15a5b186fcd4">&lt;/strong&gt;</ept>: Enter a friendly name for this job input, such as TwitterStream.</source>
+          <target state="new"><bpt id="c0884332-60d4-48fa-9c98-15a5b186fcd4">&lt;strong&gt;</bpt>INPUT ALIAS<ept id="c0884332-60d4-48fa-9c98-15a5b186fcd4">&lt;/strong&gt;</ept>: Enter a friendly name for this job input, such as TwitterStream.</target>
+        </trans-unit>
+        <trans-unit id="f4c83eff-1fe7-4384-bb9f-7b8a0710b430" xml:space="preserve">
+          <source>Note that you will be using this name in the query later on.</source>
+          <target state="new">Note that you will be using this name in the query later on.</target>
+        </trans-unit>
+        <trans-unit id="74c1d16e-2156-4b1d-b309-76e423167d84" xml:space="preserve">
+          <source><bpt id="198a38af-7025-4a35-8a11-03e190556aba">&lt;strong&gt;</bpt>EVENT HUB<ept id="198a38af-7025-4a35-8a11-03e190556aba">&lt;/strong&gt;</ept>: If the Event Hub you created is in the same subscription as the Stream Analytics job, select the namespace that the event hub is in.</source>
+          <target state="new"><bpt id="198a38af-7025-4a35-8a11-03e190556aba">&lt;strong&gt;</bpt>EVENT HUB<ept id="198a38af-7025-4a35-8a11-03e190556aba">&lt;/strong&gt;</ept>: If the Event Hub you created is in the same subscription as the Stream Analytics job, select the namespace that the event hub is in.</target>
+        </trans-unit>
+        <trans-unit id="95062861-87a3-4ffa-b10f-9b7967e7144a" xml:space="preserve">
+          <source>If your event hub is in a different subscription, select <bpt id="6f1fa361-cb66-44ac-a481-fe3ce549be8f">&lt;strong&gt;</bpt>Use Event Hub from Another Subscription<ept id="6f1fa361-cb66-44ac-a481-fe3ce549be8f">&lt;/strong&gt;</ept>, and then manually enter information for <bpt id="079ae431-759f-49b5-8435-7a0aa3e61dc3">&lt;strong&gt;</bpt>SERVICE BUS NAMESPACE<ept id="079ae431-759f-49b5-8435-7a0aa3e61dc3">&lt;/strong&gt;</ept>, <bpt id="5a8db7b1-afa8-4670-b527-e6c3b9008685">&lt;strong&gt;</bpt>EVENT HUB NAME<ept id="5a8db7b1-afa8-4670-b527-e6c3b9008685">&lt;/strong&gt;</ept>, <bpt id="f8d50f45-edd0-4209-be90-5bd83d51038c">&lt;strong&gt;</bpt>EVENT HUB POLICY NAME<ept id="f8d50f45-edd0-4209-be90-5bd83d51038c">&lt;/strong&gt;</ept>, <bpt id="b096f8e6-3da4-433d-9314-aeec4209699b">&lt;strong&gt;</bpt>EVENT HUB POLICY KEY<ept id="b096f8e6-3da4-433d-9314-aeec4209699b">&lt;/strong&gt;</ept>, and <bpt id="14f120c3-fac1-4737-b900-18b75f317c6e">&lt;strong&gt;</bpt>EVENT HUB PARTITION COUNT<ept id="14f120c3-fac1-4737-b900-18b75f317c6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If your event hub is in a different subscription, select <bpt id="6f1fa361-cb66-44ac-a481-fe3ce549be8f">&lt;strong&gt;</bpt>Use Event Hub from Another Subscription<ept id="6f1fa361-cb66-44ac-a481-fe3ce549be8f">&lt;/strong&gt;</ept>, and then manually enter information for <bpt id="079ae431-759f-49b5-8435-7a0aa3e61dc3">&lt;strong&gt;</bpt>SERVICE BUS NAMESPACE<ept id="079ae431-759f-49b5-8435-7a0aa3e61dc3">&lt;/strong&gt;</ept>, <bpt id="5a8db7b1-afa8-4670-b527-e6c3b9008685">&lt;strong&gt;</bpt>EVENT HUB NAME<ept id="5a8db7b1-afa8-4670-b527-e6c3b9008685">&lt;/strong&gt;</ept>, <bpt id="f8d50f45-edd0-4209-be90-5bd83d51038c">&lt;strong&gt;</bpt>EVENT HUB POLICY NAME<ept id="f8d50f45-edd0-4209-be90-5bd83d51038c">&lt;/strong&gt;</ept>, <bpt id="b096f8e6-3da4-433d-9314-aeec4209699b">&lt;strong&gt;</bpt>EVENT HUB POLICY KEY<ept id="b096f8e6-3da4-433d-9314-aeec4209699b">&lt;/strong&gt;</ept>, and <bpt id="14f120c3-fac1-4737-b900-18b75f317c6e">&lt;strong&gt;</bpt>EVENT HUB PARTITION COUNT<ept id="14f120c3-fac1-4737-b900-18b75f317c6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d3f0d2c-69b7-4a0c-9402-4f6d6bc57e91" xml:space="preserve">
+          <source><bpt id="d4254642-4b86-424b-a2bc-7f621c75c4e2">&lt;strong&gt;</bpt>EVENT HUB NAME<ept id="d4254642-4b86-424b-a2bc-7f621c75c4e2">&lt;/strong&gt;</ept>: Select the name of the Event Hub</source>
+          <target state="new"><bpt id="d4254642-4b86-424b-a2bc-7f621c75c4e2">&lt;strong&gt;</bpt>EVENT HUB NAME<ept id="d4254642-4b86-424b-a2bc-7f621c75c4e2">&lt;/strong&gt;</ept>: Select the name of the Event Hub</target>
+        </trans-unit>
+        <trans-unit id="f495aa48-ef48-401f-9e78-46fc55da2987" xml:space="preserve">
+          <source><bpt id="4b2bd718-df72-4d3d-95d9-afe81c051bf7">&lt;strong&gt;</bpt>EVENT HUB POLICY NAME<ept id="4b2bd718-df72-4d3d-95d9-afe81c051bf7">&lt;/strong&gt;</ept>: Select the event-hub policy created earlier in this tutorial.</source>
+          <target state="new"><bpt id="4b2bd718-df72-4d3d-95d9-afe81c051bf7">&lt;strong&gt;</bpt>EVENT HUB POLICY NAME<ept id="4b2bd718-df72-4d3d-95d9-afe81c051bf7">&lt;/strong&gt;</ept>: Select the event-hub policy created earlier in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="d273e9d3-9e13-40eb-80e9-3cfd3265cae5" xml:space="preserve">
+          <source><bpt id="f6f5d3f6-dfe0-474c-91a2-a5d67c9a590a">&lt;strong&gt;</bpt>EVENT HUB CONSUMER GROUP<ept id="f6f5d3f6-dfe0-474c-91a2-a5d67c9a590a">&lt;/strong&gt;</ept>: Type in the Consumer Group created earlier in this tutorial.</source>
+          <target state="new"><bpt id="f6f5d3f6-dfe0-474c-91a2-a5d67c9a590a">&lt;strong&gt;</bpt>EVENT HUB CONSUMER GROUP<ept id="f6f5d3f6-dfe0-474c-91a2-a5d67c9a590a">&lt;/strong&gt;</ept>: Type in the Consumer Group created earlier in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="126dcb9e-5539-4e08-8789-40da2d36e289" xml:space="preserve">
+          <source>Click the right button.</source>
+          <target state="new">Click the right button.</target>
+        </trans-unit>
+        <trans-unit id="be583fc2-66d1-41a5-aa5c-e46e75357122" xml:space="preserve">
+          <source>Specify the following values:</source>
+          <target state="new">Specify the following values:</target>
+        </trans-unit>
+        <trans-unit id="3ca2eafb-bb60-472d-9b25-806f7e5310a2" xml:space="preserve">
+          <source><bpt id="ad35b8e0-c990-4c4b-92bd-61e8a49a7186">&lt;strong&gt;</bpt>EVENT SERIALIZER FORMAT<ept id="ad35b8e0-c990-4c4b-92bd-61e8a49a7186">&lt;/strong&gt;</ept>: JSON</source>
+          <target state="new"><bpt id="ad35b8e0-c990-4c4b-92bd-61e8a49a7186">&lt;strong&gt;</bpt>EVENT SERIALIZER FORMAT<ept id="ad35b8e0-c990-4c4b-92bd-61e8a49a7186">&lt;/strong&gt;</ept>: JSON</target>
+        </trans-unit>
+        <trans-unit id="3b92fee4-0b3e-47c4-a6bd-32e4107a049e" xml:space="preserve">
+          <source><bpt id="6a41f151-108a-463b-8ed6-e4d0dbc2d212">&lt;strong&gt;</bpt>ENCODING<ept id="6a41f151-108a-463b-8ed6-e4d0dbc2d212">&lt;/strong&gt;</ept>: UTF8</source>
+          <target state="new"><bpt id="6a41f151-108a-463b-8ed6-e4d0dbc2d212">&lt;strong&gt;</bpt>ENCODING<ept id="6a41f151-108a-463b-8ed6-e4d0dbc2d212">&lt;/strong&gt;</ept>: UTF8</target>
+        </trans-unit>
+        <trans-unit id="03b99c2d-797d-4011-8b06-ffb671506bac" xml:space="preserve">
+          <source>Click the check button to add this source and to verify that Stream Analytics can successfully connect to the event hub.</source>
+          <target state="new">Click the check button to add this source and to verify that Stream Analytics can successfully connect to the event hub.</target>
+        </trans-unit>
+        <trans-unit id="46dda8ad-7671-4010-9537-017044c7bfbb" xml:space="preserve">
+          <source>Stream Analytics supports a simple, declarative query model for describing transformations.</source>
+          <target state="new">Stream Analytics supports a simple, declarative query model for describing transformations.</target>
+        </trans-unit>
+        <trans-unit id="3dbe7f85-2e24-4fb6-82d2-1a7727ba3237" xml:space="preserve">
+          <source>To learn more about the language, see the <bpt id="8eda8138-b00c-418f-94a5-601186d17cf6">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="8eda8138-b00c-418f-94a5-601186d17cf6">&lt;/linkText&gt;</ept><bpt id="8eda8138-b00c-418f-94a5-601186d17cf6">&lt;title&gt;</bpt><ept id="8eda8138-b00c-418f-94a5-601186d17cf6">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about the language, see the <bpt id="8eda8138-b00c-418f-94a5-601186d17cf6">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="8eda8138-b00c-418f-94a5-601186d17cf6">&lt;/linkText&gt;</ept><bpt id="8eda8138-b00c-418f-94a5-601186d17cf6">&lt;title&gt;</bpt><ept id="8eda8138-b00c-418f-94a5-601186d17cf6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98f984b9-435d-4bb8-9b33-57bd9b7a3b41" xml:space="preserve">
+          <source>This tutorial will help you author and test several queries over Twitter data.</source>
+          <target state="new">This tutorial will help you author and test several queries over Twitter data.</target>
+        </trans-unit>
+        <trans-unit id="736debc2-18e3-452c-84cb-33f1466c18d8" xml:space="preserve">
+          <source>To validate your query against actual job data, you can use the SAMPLE DATA feature to extract events from your stream and create a .JSON file of the events for testing.</source>
+          <target state="new">To validate your query against actual job data, you can use the SAMPLE DATA feature to extract events from your stream and create a .JSON file of the events for testing.</target>
+        </trans-unit>
+        <trans-unit id="3333cc00-2975-49ba-b13d-62ff63885de4" xml:space="preserve">
+          <source>Select on your Event Hub input and click <bpt id="69f21ef2-bf80-49f9-b9c8-56b8147a1532">&lt;strong&gt;</bpt>SAMPLE DATA<ept id="69f21ef2-bf80-49f9-b9c8-56b8147a1532">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Select on your Event Hub input and click <bpt id="69f21ef2-bf80-49f9-b9c8-56b8147a1532">&lt;strong&gt;</bpt>SAMPLE DATA<ept id="69f21ef2-bf80-49f9-b9c8-56b8147a1532">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="14c0457f-2b62-4e22-8a50-4c0332b78e0c" xml:space="preserve">
+          <source>In the dialog that appears, specify a <bpt id="e8b8c2ae-38b5-4cad-8495-1d2c73a5fdf0">&lt;strong&gt;</bpt>START TIME<ept id="e8b8c2ae-38b5-4cad-8495-1d2c73a5fdf0">&lt;/strong&gt;</ept> to start collecting data from and a <bpt id="d9831518-390f-492d-810a-874fd1c24cf0">&lt;strong&gt;</bpt>DURATION<ept id="d9831518-390f-492d-810a-874fd1c24cf0">&lt;/strong&gt;</ept> for how much additional data to consume.</source>
+          <target state="new">In the dialog that appears, specify a <bpt id="e8b8c2ae-38b5-4cad-8495-1d2c73a5fdf0">&lt;strong&gt;</bpt>START TIME<ept id="e8b8c2ae-38b5-4cad-8495-1d2c73a5fdf0">&lt;/strong&gt;</ept> to start collecting data from and a <bpt id="d9831518-390f-492d-810a-874fd1c24cf0">&lt;strong&gt;</bpt>DURATION<ept id="d9831518-390f-492d-810a-874fd1c24cf0">&lt;/strong&gt;</ept> for how much additional data to consume.</target>
+        </trans-unit>
+        <trans-unit id="7d2b6686-9e04-42d5-afa7-08a92f00f7c4" xml:space="preserve">
+          <source>Click the <bpt id="280ed0e8-5806-4cc9-9d34-5c2c3d982e60">&lt;strong&gt;</bpt>DETAILS<ept id="280ed0e8-5806-4cc9-9d34-5c2c3d982e60">&lt;/strong&gt;</ept> button, and then the <bpt id="8fa96fc1-24f1-440b-b7f2-154f6026d8e4">&lt;strong&gt;</bpt>Click here<ept id="8fa96fc1-24f1-440b-b7f2-154f6026d8e4">&lt;/strong&gt;</ept> link to download and save the .JSON file that is generated.</source>
+          <target state="new">Click the <bpt id="280ed0e8-5806-4cc9-9d34-5c2c3d982e60">&lt;strong&gt;</bpt>DETAILS<ept id="280ed0e8-5806-4cc9-9d34-5c2c3d982e60">&lt;/strong&gt;</ept> button, and then the <bpt id="8fa96fc1-24f1-440b-b7f2-154f6026d8e4">&lt;strong&gt;</bpt>Click here<ept id="8fa96fc1-24f1-440b-b7f2-154f6026d8e4">&lt;/strong&gt;</ept> link to download and save the .JSON file that is generated.</target>
+        </trans-unit>
+        <trans-unit id="e4c627ee-183e-4cfb-b2de-8725c87fa09b" xml:space="preserve">
+          <source>To start with, we will do a simple pass-through query that projects all the fields in an event.</source>
+          <target state="new">To start with, we will do a simple pass-through query that projects all the fields in an event.</target>
+        </trans-unit>
+        <trans-unit id="15ad890b-bb57-4027-a397-675a33325449" xml:space="preserve">
+          <source>Click <bpt id="ba2acdf7-a16c-4485-a6e0-931db6025b6f">&lt;strong&gt;</bpt>QUERY<ept id="ba2acdf7-a16c-4485-a6e0-931db6025b6f">&lt;/strong&gt;</ept> from the top of the Stream Analytics job page.</source>
+          <target state="new">Click <bpt id="ba2acdf7-a16c-4485-a6e0-931db6025b6f">&lt;strong&gt;</bpt>QUERY<ept id="ba2acdf7-a16c-4485-a6e0-931db6025b6f">&lt;/strong&gt;</ept> from the top of the Stream Analytics job page.</target>
+        </trans-unit>
+        <trans-unit id="b160f550-be7f-49ed-a2d4-3e2bebe392e5" xml:space="preserve">
+          <source>In the code editor, replace the initial query template with the following:</source>
+          <target state="new">In the code editor, replace the initial query template with the following:</target>
+        </trans-unit>
+        <trans-unit id="843cffa8-7a1b-4270-b77e-f67fa1700ae3" xml:space="preserve">
+          <source>Make sure that the name of the input source matches the name of the input you specified earlier.</source>
+          <target state="new">Make sure that the name of the input source matches the name of the input you specified earlier.</target>
+        </trans-unit>
+        <trans-unit id="358c9eeb-c4df-4b75-be3a-f35d279b5623" xml:space="preserve">
+          <source>Click <bpt id="e50c0b25-d9ca-4149-91ca-022c769d5df3">&lt;strong&gt;</bpt>TEST<ept id="e50c0b25-d9ca-4149-91ca-022c769d5df3">&lt;/strong&gt;</ept> under the query editor</source>
+          <target state="new">Click <bpt id="e50c0b25-d9ca-4149-91ca-022c769d5df3">&lt;strong&gt;</bpt>TEST<ept id="e50c0b25-d9ca-4149-91ca-022c769d5df3">&lt;/strong&gt;</ept> under the query editor</target>
+        </trans-unit>
+        <trans-unit id="fd72fb17-3927-44c1-a74c-4368978a8c97" xml:space="preserve">
+          <source>Browse to your sample .JSON file</source>
+          <target state="new">Browse to your sample .JSON file</target>
+        </trans-unit>
+        <trans-unit id="a22abe57-7b9d-429b-8e41-97a9226014be" xml:space="preserve">
+          <source>Click the check button and see the results displayed below the query definition.</source>
+          <target state="new">Click the check button and see the results displayed below the query definition.</target>
+        </trans-unit>
+        <trans-unit id="989bb8be-fbfb-4dbb-9814-4cd219c7aeb1" xml:space="preserve">
+          <source><bpt id="9daa4788-d02e-4d0f-b125-64e464223d11">&lt;linkText&gt;</bpt>Results displayed below query definition<ept id="9daa4788-d02e-4d0f-b125-64e464223d11">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9daa4788-d02e-4d0f-b125-64e464223d11">&lt;linkText&gt;</bpt>Results displayed below query definition<ept id="9daa4788-d02e-4d0f-b125-64e464223d11">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c306eb5c-324a-45c0-a50a-4cd4a83fde77" xml:space="preserve">
+          <source>To compare the number of mentions between topics, we'll leverage a <bpt id="7647b843-14b6-4caf-94b4-4cdd5be4cefb">&lt;linkText&gt;</bpt>TumblingWindow<ept id="7647b843-14b6-4caf-94b4-4cdd5be4cefb">&lt;/linkText&gt;</ept><bpt id="7647b843-14b6-4caf-94b4-4cdd5be4cefb">&lt;title&gt;</bpt><ept id="7647b843-14b6-4caf-94b4-4cdd5be4cefb">&lt;/title&gt;</ept> to get the count of mentions by topic every 5 seconds.</source>
+          <target state="new">To compare the number of mentions between topics, we'll leverage a <bpt id="7647b843-14b6-4caf-94b4-4cdd5be4cefb">&lt;linkText&gt;</bpt>TumblingWindow<ept id="7647b843-14b6-4caf-94b4-4cdd5be4cefb">&lt;/linkText&gt;</ept><bpt id="7647b843-14b6-4caf-94b4-4cdd5be4cefb">&lt;title&gt;</bpt><ept id="7647b843-14b6-4caf-94b4-4cdd5be4cefb">&lt;/title&gt;</ept> to get the count of mentions by topic every 5 seconds.</target>
+        </trans-unit>
+        <trans-unit id="4c810d15-42be-4db7-ae6a-ce7857610c03" xml:space="preserve">
+          <source>Change the query in the code editor to:</source>
+          <target state="new">Change the query in the code editor to:</target>
+        </trans-unit>
+        <trans-unit id="37ccdfbd-f1ab-4671-827d-c5e47126ed6b" xml:space="preserve">
+          <source>Note that this query uses the <bpt id="f289bfd7-8ec0-45c5-9745-be45e17830e3">&lt;strong&gt;</bpt>TIMESTAMP BY<ept id="f289bfd7-8ec0-45c5-9745-be45e17830e3">&lt;/strong&gt;</ept> keyword to specify a timestamp field in the payload to be used in the temporal computation.</source>
+          <target state="new">Note that this query uses the <bpt id="f289bfd7-8ec0-45c5-9745-be45e17830e3">&lt;strong&gt;</bpt>TIMESTAMP BY<ept id="f289bfd7-8ec0-45c5-9745-be45e17830e3">&lt;/strong&gt;</ept> keyword to specify a timestamp field in the payload to be used in the temporal computation.</target>
+        </trans-unit>
+        <trans-unit id="79a7e3c6-629b-4280-b501-4d80d8cf06be" xml:space="preserve">
+          <source>If this field wasn't specified, the windowing operation would be performed using the time each event arrived at Event Hub.</source>
+          <target state="new">If this field wasn't specified, the windowing operation would be performed using the time each event arrived at Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="bace5892-5595-48dc-aed8-405ac9dcbad1" xml:space="preserve">
+          <source>Learn more under "Arrival Time Vs Application Time" in the <bpt id="70f8b9ab-07f1-4b3f-b954-8b5c0a15c0ed">&lt;linkText&gt;</bpt>Stream Analytics Query Reference<ept id="70f8b9ab-07f1-4b3f-b954-8b5c0a15c0ed">&lt;/linkText&gt;</ept><bpt id="70f8b9ab-07f1-4b3f-b954-8b5c0a15c0ed">&lt;title&gt;</bpt><ept id="70f8b9ab-07f1-4b3f-b954-8b5c0a15c0ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more under "Arrival Time Vs Application Time" in the <bpt id="70f8b9ab-07f1-4b3f-b954-8b5c0a15c0ed">&lt;linkText&gt;</bpt>Stream Analytics Query Reference<ept id="70f8b9ab-07f1-4b3f-b954-8b5c0a15c0ed">&lt;/linkText&gt;</ept><bpt id="70f8b9ab-07f1-4b3f-b954-8b5c0a15c0ed">&lt;title&gt;</bpt><ept id="70f8b9ab-07f1-4b3f-b954-8b5c0a15c0ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65699582-93db-4774-b156-2c4e21657037" xml:space="preserve">
+          <source>This query also accesses a timestamp for the end of each window with <bpt id="c856ab39-06ee-445e-9744-0e1ff8637242">&lt;strong&gt;</bpt>System.Timestamp<ept id="c856ab39-06ee-445e-9744-0e1ff8637242">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This query also accesses a timestamp for the end of each window with <bpt id="c856ab39-06ee-445e-9744-0e1ff8637242">&lt;strong&gt;</bpt>System.Timestamp<ept id="c856ab39-06ee-445e-9744-0e1ff8637242">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94f83c95-df92-4952-bcf6-1034d07e3f5f" xml:space="preserve">
+          <source>Click <bpt id="dcc5a469-ffe2-48bd-8277-3351ade28be0">&lt;strong&gt;</bpt>RERUN<ept id="dcc5a469-ffe2-48bd-8277-3351ade28be0">&lt;/strong&gt;</ept> under the query editor to see the results of the query.</source>
+          <target state="new">Click <bpt id="dcc5a469-ffe2-48bd-8277-3351ade28be0">&lt;strong&gt;</bpt>RERUN<ept id="dcc5a469-ffe2-48bd-8277-3351ade28be0">&lt;/strong&gt;</ept> under the query editor to see the results of the query.</target>
+        </trans-unit>
+        <trans-unit id="a0b8e116-3db3-4848-be8f-a49d84341ace" xml:space="preserve">
+          <source>To identify trending topics we'll look for topics that cross a threshold value for mentions in a given amount of time.</source>
+          <target state="new">To identify trending topics we'll look for topics that cross a threshold value for mentions in a given amount of time.</target>
+        </trans-unit>
+        <trans-unit id="34506231-5e69-476b-ace4-15de64e1ccb8" xml:space="preserve">
+          <source>For the purposes of this tutorial, we'll check for topics that are mentioned more than 20 times in the last 5 seconds using a <bpt id="7aa2d6ad-2c7d-4dda-8a4a-00ffd4defc9a">&lt;linkText&gt;</bpt>SlidingWindow<ept id="7aa2d6ad-2c7d-4dda-8a4a-00ffd4defc9a">&lt;/linkText&gt;</ept><bpt id="7aa2d6ad-2c7d-4dda-8a4a-00ffd4defc9a">&lt;title&gt;</bpt><ept id="7aa2d6ad-2c7d-4dda-8a4a-00ffd4defc9a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the purposes of this tutorial, we'll check for topics that are mentioned more than 20 times in the last 5 seconds using a <bpt id="7aa2d6ad-2c7d-4dda-8a4a-00ffd4defc9a">&lt;linkText&gt;</bpt>SlidingWindow<ept id="7aa2d6ad-2c7d-4dda-8a4a-00ffd4defc9a">&lt;/linkText&gt;</ept><bpt id="7aa2d6ad-2c7d-4dda-8a4a-00ffd4defc9a">&lt;title&gt;</bpt><ept id="7aa2d6ad-2c7d-4dda-8a4a-00ffd4defc9a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="385f88c1-56bf-401b-a545-bbc7ad28b5c4" xml:space="preserve">
+          <source>Change the query in the code editor to:</source>
+          <target state="new">Change the query in the code editor to:</target>
+        </trans-unit>
+        <trans-unit id="a354a4b2-32e7-419d-b574-a4e45d4a2533" xml:space="preserve">
+          <source>Click <bpt id="56ac2bee-f27e-49c7-9389-372dfcf71e3f">&lt;strong&gt;</bpt>RERUN<ept id="56ac2bee-f27e-49c7-9389-372dfcf71e3f">&lt;/strong&gt;</ept> under the query editor to see the results of the query.</source>
+          <target state="new">Click <bpt id="56ac2bee-f27e-49c7-9389-372dfcf71e3f">&lt;strong&gt;</bpt>RERUN<ept id="56ac2bee-f27e-49c7-9389-372dfcf71e3f">&lt;/strong&gt;</ept> under the query editor to see the results of the query.</target>
+        </trans-unit>
+        <trans-unit id="281c7cbb-416d-4841-89d1-b2edda5869d2" xml:space="preserve">
+          <source><bpt id="0e39e3df-f980-49e0-bd5c-b55609edb8f6">&lt;linkText&gt;</bpt>Sliding Window query output<ept id="0e39e3df-f980-49e0-bd5c-b55609edb8f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e39e3df-f980-49e0-bd5c-b55609edb8f6">&lt;linkText&gt;</bpt>Sliding Window query output<ept id="0e39e3df-f980-49e0-bd5c-b55609edb8f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45dcc418-aa44-4200-a5fa-ffaaa38dcdfb" xml:space="preserve">
+          <source>The final query we will test uses a TumblingWindow to obtain the number of mentions and average, minimum, maximum, and standard deviation of sentiment score for each topic every 5 seconds.</source>
+          <target state="new">The final query we will test uses a TumblingWindow to obtain the number of mentions and average, minimum, maximum, and standard deviation of sentiment score for each topic every 5 seconds.</target>
+        </trans-unit>
+        <trans-unit id="5695a43a-70c7-4884-9401-61baa72b0c8f" xml:space="preserve">
+          <source>Change the query in the code editor to:</source>
+          <target state="new">Change the query in the code editor to:</target>
+        </trans-unit>
+        <trans-unit id="bd4cb57f-0ddd-4654-b80e-a0ec6c26c8a4" xml:space="preserve">
+          <source>Click <bpt id="1cfd0165-83b8-418a-97a0-10a327b4d415">&lt;strong&gt;</bpt>RERUN<ept id="1cfd0165-83b8-418a-97a0-10a327b4d415">&lt;/strong&gt;</ept> under the query editor to see the results of the query.</source>
+          <target state="new">Click <bpt id="1cfd0165-83b8-418a-97a0-10a327b4d415">&lt;strong&gt;</bpt>RERUN<ept id="1cfd0165-83b8-418a-97a0-10a327b4d415">&lt;/strong&gt;</ept> under the query editor to see the results of the query.</target>
+        </trans-unit>
+        <trans-unit id="485c8da2-cbaa-47fd-bf41-db31cefe442e" xml:space="preserve">
+          <source>This is the query we will use for our dashboard.</source>
+          <target state="new">This is the query we will use for our dashboard.</target>
+        </trans-unit>
+        <trans-unit id="d0e4d781-90e5-4548-8d07-9b71134dd386" xml:space="preserve">
+          <source>Click <bpt id="eb312a1b-7ba9-484b-8aa7-ea1bda9d9e78">&lt;strong&gt;</bpt>SAVE<ept id="eb312a1b-7ba9-484b-8aa7-ea1bda9d9e78">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="eb312a1b-7ba9-484b-8aa7-ea1bda9d9e78">&lt;strong&gt;</bpt>SAVE<ept id="eb312a1b-7ba9-484b-8aa7-ea1bda9d9e78">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="c9a1596f-9fcc-4350-bfd3-2dc9e9996224" xml:space="preserve">
+          <source>Now that we have defined an event stream, an Event Hub input to ingest events, and a query to perform a transformation over the stream, the last step is to define an output sink for the job.</source>
+          <target state="new">Now that we have defined an event stream, an Event Hub input to ingest events, and a query to perform a transformation over the stream, the last step is to define an output sink for the job.</target>
+        </trans-unit>
+        <trans-unit id="4d2ba0a4-6df8-49a2-9c21-8da539bea3fc" xml:space="preserve">
+          <source>We'll write the aggregated tweet events from our job query to an Azure Blob.</source>
+          <target state="new">We'll write the aggregated tweet events from our job query to an Azure Blob.</target>
+        </trans-unit>
+        <trans-unit id="3d7cd4b2-5b1f-461a-9727-742156e17adf" xml:space="preserve">
+          <source>You could also push your results to SQL Database, Table Store or Event Hub, depending on your specific application needs.</source>
+          <target state="new">You could also push your results to SQL Database, Table Store or Event Hub, depending on your specific application needs.</target>
+        </trans-unit>
+        <trans-unit id="f018ffc7-6e83-4d48-bd22-ed8f8259b86d" xml:space="preserve">
+          <source>Follow the steps below to create a container for Blob storage, if you don't already have one:</source>
+          <target state="new">Follow the steps below to create a container for Blob storage, if you don't already have one:</target>
+        </trans-unit>
+        <trans-unit id="1ce1e8c3-712d-42bc-8b26-9b53551fd2aa" xml:space="preserve">
+          <source>Use an existing Storage account or create a new Storage account by clicking <bpt id="a32891f9-c7f0-4c82-a6e5-4cf40205167b">&lt;strong&gt;</bpt>NEW<ept id="a32891f9-c7f0-4c82-a6e5-4cf40205167b">&lt;/strong&gt;</ept> &gt; <bpt id="f0f68475-d80d-4f78-82b2-f08b958e5e2f">&lt;strong&gt;</bpt>DATA SERVICES<ept id="f0f68475-d80d-4f78-82b2-f08b958e5e2f">&lt;/strong&gt;</ept> &gt; <bpt id="1d071e39-ed12-403a-9b4c-8c7348f052a9">&lt;strong&gt;</bpt>STORAGE<ept id="1d071e39-ed12-403a-9b4c-8c7348f052a9">&lt;/strong&gt;</ept> &gt; <bpt id="d9b47f49-a0cb-4afa-8cb2-e72f89fda80d">&lt;strong&gt;</bpt>QUICK CREATE<ept id="d9b47f49-a0cb-4afa-8cb2-e72f89fda80d">&lt;/strong&gt;</ept> &gt; and following the instructions on  the screen.</source>
+          <target state="new">Use an existing Storage account or create a new Storage account by clicking <bpt id="a32891f9-c7f0-4c82-a6e5-4cf40205167b">&lt;strong&gt;</bpt>NEW<ept id="a32891f9-c7f0-4c82-a6e5-4cf40205167b">&lt;/strong&gt;</ept> &gt; <bpt id="f0f68475-d80d-4f78-82b2-f08b958e5e2f">&lt;strong&gt;</bpt>DATA SERVICES<ept id="f0f68475-d80d-4f78-82b2-f08b958e5e2f">&lt;/strong&gt;</ept> &gt; <bpt id="1d071e39-ed12-403a-9b4c-8c7348f052a9">&lt;strong&gt;</bpt>STORAGE<ept id="1d071e39-ed12-403a-9b4c-8c7348f052a9">&lt;/strong&gt;</ept> &gt; <bpt id="d9b47f49-a0cb-4afa-8cb2-e72f89fda80d">&lt;strong&gt;</bpt>QUICK CREATE<ept id="d9b47f49-a0cb-4afa-8cb2-e72f89fda80d">&lt;/strong&gt;</ept> &gt; and following the instructions on  the screen.</target>
+        </trans-unit>
+        <trans-unit id="3edcb908-0088-476c-81da-70d082c51316" xml:space="preserve">
+          <source>Select the Storage account and then click <bpt id="3a271728-3db9-4b59-9bb5-be2c2c1d439e">&lt;strong&gt;</bpt>CONTAINERS<ept id="3a271728-3db9-4b59-9bb5-be2c2c1d439e">&lt;/strong&gt;</ept> at the top of the page, and then click <bpt id="2cd0cab8-a28a-4d0a-b991-db1811f3974a">&lt;strong&gt;</bpt>ADD<ept id="2cd0cab8-a28a-4d0a-b991-db1811f3974a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the Storage account and then click <bpt id="3a271728-3db9-4b59-9bb5-be2c2c1d439e">&lt;strong&gt;</bpt>CONTAINERS<ept id="3a271728-3db9-4b59-9bb5-be2c2c1d439e">&lt;/strong&gt;</ept> at the top of the page, and then click <bpt id="2cd0cab8-a28a-4d0a-b991-db1811f3974a">&lt;strong&gt;</bpt>ADD<ept id="2cd0cab8-a28a-4d0a-b991-db1811f3974a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="affa1952-091a-4a91-88a8-83293e7f96ef" xml:space="preserve">
+          <source>Specify a <bpt id="f317b5d3-b64b-4f6e-9ae6-510b0f3a8f6c">&lt;strong&gt;</bpt>NAME<ept id="f317b5d3-b64b-4f6e-9ae6-510b0f3a8f6c">&lt;/strong&gt;</ept> for your container and set its <bpt id="41730fde-e9de-4cec-b1d7-212b6669c69c">&lt;strong&gt;</bpt>ACCESS<ept id="41730fde-e9de-4cec-b1d7-212b6669c69c">&lt;/strong&gt;</ept> to Public Blob.</source>
+          <target state="new">Specify a <bpt id="f317b5d3-b64b-4f6e-9ae6-510b0f3a8f6c">&lt;strong&gt;</bpt>NAME<ept id="f317b5d3-b64b-4f6e-9ae6-510b0f3a8f6c">&lt;/strong&gt;</ept> for your container and set its <bpt id="41730fde-e9de-4cec-b1d7-212b6669c69c">&lt;strong&gt;</bpt>ACCESS<ept id="41730fde-e9de-4cec-b1d7-212b6669c69c">&lt;/strong&gt;</ept> to Public Blob.</target>
+        </trans-unit>
+        <trans-unit id="927cb79c-20ba-4645-8033-f175858dc7f6" xml:space="preserve">
+          <source>In your Stream Analytics job, click <bpt id="4ba2ad92-d081-4a2d-b9e6-7f65064c17bb">&lt;strong&gt;</bpt>OUTPUT<ept id="4ba2ad92-d081-4a2d-b9e6-7f65064c17bb">&lt;/strong&gt;</ept> at the top of the page, and then click <bpt id="11c3d116-a4c6-45e4-85ac-41146befc902">&lt;strong&gt;</bpt>ADD OUTPUT<ept id="11c3d116-a4c6-45e4-85ac-41146befc902">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In your Stream Analytics job, click <bpt id="4ba2ad92-d081-4a2d-b9e6-7f65064c17bb">&lt;strong&gt;</bpt>OUTPUT<ept id="4ba2ad92-d081-4a2d-b9e6-7f65064c17bb">&lt;/strong&gt;</ept> at the top of the page, and then click <bpt id="11c3d116-a4c6-45e4-85ac-41146befc902">&lt;strong&gt;</bpt>ADD OUTPUT<ept id="11c3d116-a4c6-45e4-85ac-41146befc902">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9963f6a-4853-4e4f-b882-2f72d4956eac" xml:space="preserve">
+          <source>The dialog that opens will walk you through a number of steps to set up your output.</source>
+          <target state="new">The dialog that opens will walk you through a number of steps to set up your output.</target>
+        </trans-unit>
+        <trans-unit id="785ae5c1-5d76-414a-a6ab-04b5b2dfc95d" xml:space="preserve">
+          <source>Select <bpt id="1b5015c6-c06e-4cca-a39b-846f5b0e4bb9">&lt;strong&gt;</bpt>BLOB STORAGE<ept id="1b5015c6-c06e-4cca-a39b-846f5b0e4bb9">&lt;/strong&gt;</ept>, and then click the right button.</source>
+          <target state="new">Select <bpt id="1b5015c6-c06e-4cca-a39b-846f5b0e4bb9">&lt;strong&gt;</bpt>BLOB STORAGE<ept id="1b5015c6-c06e-4cca-a39b-846f5b0e4bb9">&lt;/strong&gt;</ept>, and then click the right button.</target>
+        </trans-unit>
+        <trans-unit id="25dc2560-bb7a-4d7e-a7b5-f77733124467" xml:space="preserve">
+          <source>Type or select the following values on the third page:</source>
+          <target state="new">Type or select the following values on the third page:</target>
+        </trans-unit>
+        <trans-unit id="0931de69-9d3b-4a33-b290-1383e2e44dcf" xml:space="preserve">
+          <source><bpt id="5fe8e98d-03f0-4eb1-9beb-e8571aa355cc">&lt;strong&gt;</bpt>OUTPUT ALIAS<ept id="5fe8e98d-03f0-4eb1-9beb-e8571aa355cc">&lt;/strong&gt;</ept>: Enter a friendly name for this job output</source>
+          <target state="new"><bpt id="5fe8e98d-03f0-4eb1-9beb-e8571aa355cc">&lt;strong&gt;</bpt>OUTPUT ALIAS<ept id="5fe8e98d-03f0-4eb1-9beb-e8571aa355cc">&lt;/strong&gt;</ept>: Enter a friendly name for this job output</target>
+        </trans-unit>
+        <trans-unit id="fdaea7a9-cf3f-482e-aef4-a9efca94cb0d" xml:space="preserve">
+          <source><bpt id="d61a9eb2-0857-44d5-9342-6bc9c8b9533b">&lt;strong&gt;</bpt>SUBSCRIPTION<ept id="d61a9eb2-0857-44d5-9342-6bc9c8b9533b">&lt;/strong&gt;</ept>: If the Blob Storage you created is in the same subscription as the Stream Analytics job, select <bpt id="bffb15bc-736a-430f-a884-589f3f711191">&lt;strong&gt;</bpt>Use Storage Account from Current Subscription<ept id="bffb15bc-736a-430f-a884-589f3f711191">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="d61a9eb2-0857-44d5-9342-6bc9c8b9533b">&lt;strong&gt;</bpt>SUBSCRIPTION<ept id="d61a9eb2-0857-44d5-9342-6bc9c8b9533b">&lt;/strong&gt;</ept>: If the Blob Storage you created is in the same subscription as the Stream Analytics job, select <bpt id="bffb15bc-736a-430f-a884-589f3f711191">&lt;strong&gt;</bpt>Use Storage Account from Current Subscription<ept id="bffb15bc-736a-430f-a884-589f3f711191">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ca1236c-44a3-482e-bac0-a490615cd811" xml:space="preserve">
+          <source>If your storage is in a different subscription, select <bpt id="5e677bdf-d524-4d12-9a8e-dc1d72ce5ae1">&lt;strong&gt;</bpt>Use Storage Account from Another Subscription<ept id="5e677bdf-d524-4d12-9a8e-dc1d72ce5ae1">&lt;/strong&gt;</ept> and manually enter information for <bpt id="d9929f61-8ce9-4b9c-beda-468370f2e8dc">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="d9929f61-8ce9-4b9c-beda-468370f2e8dc">&lt;/strong&gt;</ept>, <bpt id="8e905850-94dc-40aa-9190-8e6a56f9c6c6">&lt;strong&gt;</bpt>STORAGE ACCOUNT KEY<ept id="8e905850-94dc-40aa-9190-8e6a56f9c6c6">&lt;/strong&gt;</ept>, <bpt id="e8a2d332-2ed8-409f-b6d5-5b3c3b2062f7">&lt;strong&gt;</bpt>CONTAINER<ept id="e8a2d332-2ed8-409f-b6d5-5b3c3b2062f7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If your storage is in a different subscription, select <bpt id="5e677bdf-d524-4d12-9a8e-dc1d72ce5ae1">&lt;strong&gt;</bpt>Use Storage Account from Another Subscription<ept id="5e677bdf-d524-4d12-9a8e-dc1d72ce5ae1">&lt;/strong&gt;</ept> and manually enter information for <bpt id="d9929f61-8ce9-4b9c-beda-468370f2e8dc">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="d9929f61-8ce9-4b9c-beda-468370f2e8dc">&lt;/strong&gt;</ept>, <bpt id="8e905850-94dc-40aa-9190-8e6a56f9c6c6">&lt;strong&gt;</bpt>STORAGE ACCOUNT KEY<ept id="8e905850-94dc-40aa-9190-8e6a56f9c6c6">&lt;/strong&gt;</ept>, <bpt id="e8a2d332-2ed8-409f-b6d5-5b3c3b2062f7">&lt;strong&gt;</bpt>CONTAINER<ept id="e8a2d332-2ed8-409f-b6d5-5b3c3b2062f7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="325b82f6-13fe-4af8-9f84-a3d31947fd0b" xml:space="preserve">
+          <source><bpt id="3d163952-4e78-4850-9fc2-69334c27df32">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="3d163952-4e78-4850-9fc2-69334c27df32">&lt;/strong&gt;</ept>: Select the name of the Storage Account</source>
+          <target state="new"><bpt id="3d163952-4e78-4850-9fc2-69334c27df32">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="3d163952-4e78-4850-9fc2-69334c27df32">&lt;/strong&gt;</ept>: Select the name of the Storage Account</target>
+        </trans-unit>
+        <trans-unit id="acf4657a-cefd-4c86-b52e-261b1e7531a7" xml:space="preserve">
+          <source><bpt id="9c326427-a441-4740-8265-a1c06f166717">&lt;strong&gt;</bpt>CONTAINER<ept id="9c326427-a441-4740-8265-a1c06f166717">&lt;/strong&gt;</ept>: Select the name of the Container</source>
+          <target state="new"><bpt id="9c326427-a441-4740-8265-a1c06f166717">&lt;strong&gt;</bpt>CONTAINER<ept id="9c326427-a441-4740-8265-a1c06f166717">&lt;/strong&gt;</ept>: Select the name of the Container</target>
+        </trans-unit>
+        <trans-unit id="3d45d6f0-49af-4882-9f70-731ecd1971fa" xml:space="preserve">
+          <source><bpt id="f2a225a4-0802-4773-9d0d-9b02cb69eedc">&lt;strong&gt;</bpt>FILENAME PREFIX<ept id="f2a225a4-0802-4773-9d0d-9b02cb69eedc">&lt;/strong&gt;</ept>: Type in a file prefix to use when writing blob output</source>
+          <target state="new"><bpt id="f2a225a4-0802-4773-9d0d-9b02cb69eedc">&lt;strong&gt;</bpt>FILENAME PREFIX<ept id="f2a225a4-0802-4773-9d0d-9b02cb69eedc">&lt;/strong&gt;</ept>: Type in a file prefix to use when writing blob output</target>
+        </trans-unit>
+        <trans-unit id="c126b360-2677-4e3f-9732-dc5a5806be93" xml:space="preserve">
+          <source>Click the right button.</source>
+          <target state="new">Click the right button.</target>
+        </trans-unit>
+        <trans-unit id="26882c73-b41f-4e39-a1a0-7addc97b72a5" xml:space="preserve">
+          <source>Specify the following values:</source>
+          <target state="new">Specify the following values:</target>
+        </trans-unit>
+        <trans-unit id="5a8882ff-f84a-4c36-9251-995b24e1c7f7" xml:space="preserve">
+          <source><bpt id="1138e320-51be-4a66-a962-8b96ea0c2148">&lt;strong&gt;</bpt>EVENT SERIALIZER FORMAT<ept id="1138e320-51be-4a66-a962-8b96ea0c2148">&lt;/strong&gt;</ept>: JSON</source>
+          <target state="new"><bpt id="1138e320-51be-4a66-a962-8b96ea0c2148">&lt;strong&gt;</bpt>EVENT SERIALIZER FORMAT<ept id="1138e320-51be-4a66-a962-8b96ea0c2148">&lt;/strong&gt;</ept>: JSON</target>
+        </trans-unit>
+        <trans-unit id="4d382df4-3dad-4635-9424-6eb6d1eac835" xml:space="preserve">
+          <source><bpt id="eb02ebcd-b1a0-44ca-84ec-ee57142bb49e">&lt;strong&gt;</bpt>ENCODING<ept id="eb02ebcd-b1a0-44ca-84ec-ee57142bb49e">&lt;/strong&gt;</ept>: UTF8</source>
+          <target state="new"><bpt id="eb02ebcd-b1a0-44ca-84ec-ee57142bb49e">&lt;strong&gt;</bpt>ENCODING<ept id="eb02ebcd-b1a0-44ca-84ec-ee57142bb49e">&lt;/strong&gt;</ept>: UTF8</target>
+        </trans-unit>
+        <trans-unit id="ab3b2028-b090-4aed-acae-ef5a1964f838" xml:space="preserve">
+          <source>Click the check button to add this source and to verify that Stream Analytics can successfully connect to the storage account.</source>
+          <target state="new">Click the check button to add this source and to verify that Stream Analytics can successfully connect to the storage account.</target>
+        </trans-unit>
+        <trans-unit id="64bd8a92-efdd-4c33-b800-7d018cf216bf" xml:space="preserve">
+          <source>Since a job input, query and output have all been specified, we are ready to start the Stream Analytics job.</source>
+          <target state="new">Since a job input, query and output have all been specified, we are ready to start the Stream Analytics job.</target>
+        </trans-unit>
+        <trans-unit id="43f061b9-38ef-4667-80ac-141ebe7c7b3b" xml:space="preserve">
+          <source>From the job <bpt id="018eb2cd-dd1e-43e5-a9f2-019d1648703d">&lt;strong&gt;</bpt>DASHBOARD<ept id="018eb2cd-dd1e-43e5-a9f2-019d1648703d">&lt;/strong&gt;</ept>, click <bpt id="a79567fe-d44b-461c-b976-e80286cde802">&lt;strong&gt;</bpt>START<ept id="a79567fe-d44b-461c-b976-e80286cde802">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">From the job <bpt id="018eb2cd-dd1e-43e5-a9f2-019d1648703d">&lt;strong&gt;</bpt>DASHBOARD<ept id="018eb2cd-dd1e-43e5-a9f2-019d1648703d">&lt;/strong&gt;</ept>, click <bpt id="a79567fe-d44b-461c-b976-e80286cde802">&lt;strong&gt;</bpt>START<ept id="a79567fe-d44b-461c-b976-e80286cde802">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="f2fbc7ca-ccb2-4629-8e5b-e3ed994ef23b" xml:space="preserve">
+          <source>In the dialog that appears, select <bpt id="1d51448f-af26-44a5-b165-79860a5f3c3e">&lt;strong&gt;</bpt>JOB START TIME<ept id="1d51448f-af26-44a5-b165-79860a5f3c3e">&lt;/strong&gt;</ept>, and then click the checkmark button on the bottom of the dialog.</source>
+          <target state="new">In the dialog that appears, select <bpt id="1d51448f-af26-44a5-b165-79860a5f3c3e">&lt;strong&gt;</bpt>JOB START TIME<ept id="1d51448f-af26-44a5-b165-79860a5f3c3e">&lt;/strong&gt;</ept>, and then click the checkmark button on the bottom of the dialog.</target>
+        </trans-unit>
+        <trans-unit id="481fb71c-7f13-4ce1-a2e4-3737c49a902b" xml:space="preserve">
+          <source>The job status will change to <bpt id="eaa725bd-eeb3-4952-9ef5-297a6dc33265">&lt;strong&gt;</bpt>Starting<ept id="eaa725bd-eeb3-4952-9ef5-297a6dc33265">&lt;/strong&gt;</ept> and will shortly move to <bpt id="834c710a-fca3-4262-ac16-1ac7b97333c0">&lt;strong&gt;</bpt>Running<ept id="834c710a-fca3-4262-ac16-1ac7b97333c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The job status will change to <bpt id="eaa725bd-eeb3-4952-9ef5-297a6dc33265">&lt;strong&gt;</bpt>Starting<ept id="eaa725bd-eeb3-4952-9ef5-297a6dc33265">&lt;/strong&gt;</ept> and will shortly move to <bpt id="834c710a-fca3-4262-ac16-1ac7b97333c0">&lt;strong&gt;</bpt>Running<ept id="834c710a-fca3-4262-ac16-1ac7b97333c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="678ad39f-7699-4122-9f58-1941fef2f6cb" xml:space="preserve">
+          <source>Once your job is running and processing the real-time Twitter stream, choose how you want to view the output for sentiment analysis.</source>
+          <target state="new">Once your job is running and processing the real-time Twitter stream, choose how you want to view the output for sentiment analysis.</target>
+        </trans-unit>
+        <trans-unit id="087088a8-fbc3-4ba1-889e-03b2cf5cf53e" xml:space="preserve">
+          <source>Use a tool like <bpt id="77c9f8de-7247-4837-b5b0-edcc9c51a0d4">&lt;linkText&gt;</bpt>Azure Storage Explorer<ept id="77c9f8de-7247-4837-b5b0-edcc9c51a0d4">&lt;/linkText&gt;</ept><bpt id="77c9f8de-7247-4837-b5b0-edcc9c51a0d4">&lt;title&gt;</bpt><ept id="77c9f8de-7247-4837-b5b0-edcc9c51a0d4">&lt;/title&gt;</ept> or <bpt id="6ed5cb6c-a859-4ca8-a1df-084aeab77244">&lt;linkText&gt;</bpt>Azure Explorer<ept id="6ed5cb6c-a859-4ca8-a1df-084aeab77244">&lt;/linkText&gt;</ept><bpt id="6ed5cb6c-a859-4ca8-a1df-084aeab77244">&lt;title&gt;</bpt><ept id="6ed5cb6c-a859-4ca8-a1df-084aeab77244">&lt;/title&gt;</ept> to view your job output in real time.</source>
+          <target state="new">Use a tool like <bpt id="77c9f8de-7247-4837-b5b0-edcc9c51a0d4">&lt;linkText&gt;</bpt>Azure Storage Explorer<ept id="77c9f8de-7247-4837-b5b0-edcc9c51a0d4">&lt;/linkText&gt;</ept><bpt id="77c9f8de-7247-4837-b5b0-edcc9c51a0d4">&lt;title&gt;</bpt><ept id="77c9f8de-7247-4837-b5b0-edcc9c51a0d4">&lt;/title&gt;</ept> or <bpt id="6ed5cb6c-a859-4ca8-a1df-084aeab77244">&lt;linkText&gt;</bpt>Azure Explorer<ept id="6ed5cb6c-a859-4ca8-a1df-084aeab77244">&lt;/linkText&gt;</ept><bpt id="6ed5cb6c-a859-4ca8-a1df-084aeab77244">&lt;title&gt;</bpt><ept id="6ed5cb6c-a859-4ca8-a1df-084aeab77244">&lt;/title&gt;</ept> to view your job output in real time.</target>
+        </trans-unit>
+        <trans-unit id="72697a7e-0160-4d6a-ac14-f14418d9b7de" xml:space="preserve">
+          <source>From here, you could extend your application to include a customized dashboard over your output, like the one pictured below using <bpt id="d63e4085-d86f-48c7-8b82-f419d4bde224">&lt;linkText&gt;</bpt>Power BI<ept id="d63e4085-d86f-48c7-8b82-f419d4bde224">&lt;/linkText&gt;</ept><bpt id="d63e4085-d86f-48c7-8b82-f419d4bde224">&lt;title&gt;</bpt><ept id="d63e4085-d86f-48c7-8b82-f419d4bde224">&lt;/title&gt;</ept>.</source>
+          <target state="new">From here, you could extend your application to include a customized dashboard over your output, like the one pictured below using <bpt id="d63e4085-d86f-48c7-8b82-f419d4bde224">&lt;linkText&gt;</bpt>Power BI<ept id="d63e4085-d86f-48c7-8b82-f419d4bde224">&lt;/linkText&gt;</ept><bpt id="d63e4085-d86f-48c7-8b82-f419d4bde224">&lt;title&gt;</bpt><ept id="d63e4085-d86f-48c7-8b82-f419d4bde224">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f5522123-bc26-4d7d-8da0-735fb0791f3c" xml:space="preserve">
+          <source><bpt id="409348fb-c866-47db-b39d-85513589ab49">&lt;linkText&gt;</bpt>Social media analysis: Stream Analytics sentiment analysis (opinion mining) output in a Power BI dashboard.<ept id="409348fb-c866-47db-b39d-85513589ab49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="409348fb-c866-47db-b39d-85513589ab49">&lt;linkText&gt;</bpt>Social media analysis: Stream Analytics sentiment analysis (opinion mining) output in a Power BI dashboard.<ept id="409348fb-c866-47db-b39d-85513589ab49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ac3d192-8bd6-446a-b1cb-78c259ced6d8" xml:space="preserve">
+          <source>For further assistance, try our <bpt id="7d878194-108f-4f58-b1cd-3ab2da4707e2">&lt;linkText&gt;</bpt>Azure Stream Analytics forum<ept id="7d878194-108f-4f58-b1cd-3ab2da4707e2">&lt;/linkText&gt;</ept><bpt id="7d878194-108f-4f58-b1cd-3ab2da4707e2">&lt;title&gt;</bpt><ept id="7d878194-108f-4f58-b1cd-3ab2da4707e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For further assistance, try our <bpt id="7d878194-108f-4f58-b1cd-3ab2da4707e2">&lt;linkText&gt;</bpt>Azure Stream Analytics forum<ept id="7d878194-108f-4f58-b1cd-3ab2da4707e2">&lt;/linkText&gt;</ept><bpt id="7d878194-108f-4f58-b1cd-3ab2da4707e2">&lt;title&gt;</bpt><ept id="7d878194-108f-4f58-b1cd-3ab2da4707e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c2b34af5-0761-4991-9966-456eacd2bae1" xml:space="preserve">
+          <source><bpt id="c4f5d451-818a-4ccf-a8f0-8857f57a507d">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="c4f5d451-818a-4ccf-a8f0-8857f57a507d">&lt;/linkText&gt;</ept><bpt id="c4f5d451-818a-4ccf-a8f0-8857f57a507d">&lt;title&gt;</bpt><ept id="c4f5d451-818a-4ccf-a8f0-8857f57a507d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c4f5d451-818a-4ccf-a8f0-8857f57a507d">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="c4f5d451-818a-4ccf-a8f0-8857f57a507d">&lt;/linkText&gt;</ept><bpt id="c4f5d451-818a-4ccf-a8f0-8857f57a507d">&lt;title&gt;</bpt><ept id="c4f5d451-818a-4ccf-a8f0-8857f57a507d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d34ef78-492c-438f-adf3-e1bc258f89c7" xml:space="preserve">
+          <source><bpt id="9d29b256-299b-445a-8729-7d81e8ed56aa">&lt;linkText&gt;</bpt>Get started using Azure Stream Analytics<ept id="9d29b256-299b-445a-8729-7d81e8ed56aa">&lt;/linkText&gt;</ept><bpt id="9d29b256-299b-445a-8729-7d81e8ed56aa">&lt;title&gt;</bpt><ept id="9d29b256-299b-445a-8729-7d81e8ed56aa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9d29b256-299b-445a-8729-7d81e8ed56aa">&lt;linkText&gt;</bpt>Get started using Azure Stream Analytics<ept id="9d29b256-299b-445a-8729-7d81e8ed56aa">&lt;/linkText&gt;</ept><bpt id="9d29b256-299b-445a-8729-7d81e8ed56aa">&lt;title&gt;</bpt><ept id="9d29b256-299b-445a-8729-7d81e8ed56aa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a87bb531-c799-45ad-b641-e1ff36ddeb8d" xml:space="preserve">
+          <source><bpt id="4b7a0ae5-5f86-4565-b180-8b311d68cefc">&lt;linkText&gt;</bpt>Scale Azure Stream Analytics jobs<ept id="4b7a0ae5-5f86-4565-b180-8b311d68cefc">&lt;/linkText&gt;</ept><bpt id="4b7a0ae5-5f86-4565-b180-8b311d68cefc">&lt;title&gt;</bpt><ept id="4b7a0ae5-5f86-4565-b180-8b311d68cefc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4b7a0ae5-5f86-4565-b180-8b311d68cefc">&lt;linkText&gt;</bpt>Scale Azure Stream Analytics jobs<ept id="4b7a0ae5-5f86-4565-b180-8b311d68cefc">&lt;/linkText&gt;</ept><bpt id="4b7a0ae5-5f86-4565-b180-8b311d68cefc">&lt;title&gt;</bpt><ept id="4b7a0ae5-5f86-4565-b180-8b311d68cefc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7dc0b73c-8e96-4739-9c9a-49fbc990a4b2" xml:space="preserve">
+          <source><bpt id="2b5f0f7f-4c6f-4d73-b942-eb2dd7b6c2e4">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="2b5f0f7f-4c6f-4d73-b942-eb2dd7b6c2e4">&lt;/linkText&gt;</ept><bpt id="2b5f0f7f-4c6f-4d73-b942-eb2dd7b6c2e4">&lt;title&gt;</bpt><ept id="2b5f0f7f-4c6f-4d73-b942-eb2dd7b6c2e4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2b5f0f7f-4c6f-4d73-b942-eb2dd7b6c2e4">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="2b5f0f7f-4c6f-4d73-b942-eb2dd7b6c2e4">&lt;/linkText&gt;</ept><bpt id="2b5f0f7f-4c6f-4d73-b942-eb2dd7b6c2e4">&lt;title&gt;</bpt><ept id="2b5f0f7f-4c6f-4d73-b942-eb2dd7b6c2e4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="880cf2f2-2724-475c-b93c-7cc160357944" xml:space="preserve">
+          <source><bpt id="caa146e2-8541-47c0-9f65-4c1fd1c5446e">&lt;linkText&gt;</bpt>Azure Stream Analytics Management REST API Reference<ept id="caa146e2-8541-47c0-9f65-4c1fd1c5446e">&lt;/linkText&gt;</ept><bpt id="caa146e2-8541-47c0-9f65-4c1fd1c5446e">&lt;title&gt;</bpt><ept id="caa146e2-8541-47c0-9f65-4c1fd1c5446e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="caa146e2-8541-47c0-9f65-4c1fd1c5446e">&lt;linkText&gt;</bpt>Azure Stream Analytics Management REST API Reference<ept id="caa146e2-8541-47c0-9f65-4c1fd1c5446e">&lt;/linkText&gt;</ept><bpt id="caa146e2-8541-47c0-9f65-4c1fd1c5446e">&lt;title&gt;</bpt><ept id="caa146e2-8541-47c0-9f65-4c1fd1c5446e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

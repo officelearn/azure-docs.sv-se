@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fdd87257-9296-44a5-b988-b02a1ed01b2c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fdd87257-9296-44a5-b988-b02a1ed01b2c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="57405210-eb1c-46f0-b372-45dda125c156">
+        <trans-unit id="68381bd9-48c9-496d-8d98-f1391c01d3eb" xml:space="preserve">
+          <source>Pig Activity</source>
+          <target state="new">Pig Activity</target>
+        </trans-unit>
+        <trans-unit id="b1fe7536-1403-42b9-b8db-e07fba49c46d" xml:space="preserve">
+          <source>Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster.</source>
+          <target state="new">Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="31828980-092c-4746-83e6-6f0739340641" xml:space="preserve">
+          <source>The HDInsight Pig activity in a Data Factory <bpt id="bd51439e-7387-431b-aa19-735025bcc8c2">&lt;linkText&gt;</bpt>pipeline<ept id="bd51439e-7387-431b-aa19-735025bcc8c2">&lt;/linkText&gt;</ept><bpt id="bd51439e-7387-431b-aa19-735025bcc8c2">&lt;title&gt;</bpt><ept id="bd51439e-7387-431b-aa19-735025bcc8c2">&lt;/title&gt;</ept> executes Pig queries on <bpt id="4933e149-e577-437f-aa61-503fc8df4685">&lt;linkText&gt;</bpt>your own<ept id="4933e149-e577-437f-aa61-503fc8df4685">&lt;/linkText&gt;</ept><bpt id="4933e149-e577-437f-aa61-503fc8df4685">&lt;title&gt;</bpt><ept id="4933e149-e577-437f-aa61-503fc8df4685">&lt;/title&gt;</ept> or <bpt id="ab5f903a-2e11-4cc1-b016-737ce133bc0f">&lt;linkText&gt;</bpt>on-demand<ept id="ab5f903a-2e11-4cc1-b016-737ce133bc0f">&lt;/linkText&gt;</ept><bpt id="ab5f903a-2e11-4cc1-b016-737ce133bc0f">&lt;title&gt;</bpt><ept id="ab5f903a-2e11-4cc1-b016-737ce133bc0f">&lt;/title&gt;</ept> HDInsight cluster..</source>
+          <target state="new">The HDInsight Pig activity in a Data Factory <bpt id="bd51439e-7387-431b-aa19-735025bcc8c2">&lt;linkText&gt;</bpt>pipeline<ept id="bd51439e-7387-431b-aa19-735025bcc8c2">&lt;/linkText&gt;</ept><bpt id="bd51439e-7387-431b-aa19-735025bcc8c2">&lt;title&gt;</bpt><ept id="bd51439e-7387-431b-aa19-735025bcc8c2">&lt;/title&gt;</ept> executes Pig queries on <bpt id="4933e149-e577-437f-aa61-503fc8df4685">&lt;linkText&gt;</bpt>your own<ept id="4933e149-e577-437f-aa61-503fc8df4685">&lt;/linkText&gt;</ept><bpt id="4933e149-e577-437f-aa61-503fc8df4685">&lt;title&gt;</bpt><ept id="4933e149-e577-437f-aa61-503fc8df4685">&lt;/title&gt;</ept> or <bpt id="ab5f903a-2e11-4cc1-b016-737ce133bc0f">&lt;linkText&gt;</bpt>on-demand<ept id="ab5f903a-2e11-4cc1-b016-737ce133bc0f">&lt;/linkText&gt;</ept><bpt id="ab5f903a-2e11-4cc1-b016-737ce133bc0f">&lt;title&gt;</bpt><ept id="ab5f903a-2e11-4cc1-b016-737ce133bc0f">&lt;/title&gt;</ept> HDInsight cluster..</target>
+        </trans-unit>
+        <trans-unit id="1cf4d01f-d888-4e3e-ba17-df97fa84fe34" xml:space="preserve">
+          <source>This article builds on the <bpt id="75d665d3-d603-4655-9cbd-2d8e1e7b0bf5">&lt;linkText&gt;</bpt>data transformation activities<ept id="75d665d3-d603-4655-9cbd-2d8e1e7b0bf5">&lt;/linkText&gt;</ept><bpt id="75d665d3-d603-4655-9cbd-2d8e1e7b0bf5">&lt;title&gt;</bpt><ept id="75d665d3-d603-4655-9cbd-2d8e1e7b0bf5">&lt;/title&gt;</ept> article which presents a general overview of data transformation and the supported transformation activities.</source>
+          <target state="new">This article builds on the <bpt id="75d665d3-d603-4655-9cbd-2d8e1e7b0bf5">&lt;linkText&gt;</bpt>data transformation activities<ept id="75d665d3-d603-4655-9cbd-2d8e1e7b0bf5">&lt;/linkText&gt;</ept><bpt id="75d665d3-d603-4655-9cbd-2d8e1e7b0bf5">&lt;title&gt;</bpt><ept id="75d665d3-d603-4655-9cbd-2d8e1e7b0bf5">&lt;/title&gt;</ept> article which presents a general overview of data transformation and the supported transformation activities.</target>
+        </trans-unit>
+        <trans-unit id="8849b208-dd4e-4afb-8c5e-f2a0bd3d18c5" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="da10fd02-3bd7-464e-be73-ed1e68cc4a03" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="8fbc15f6-861d-448a-97f6-a60c6705b6a8" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="196f867a-d5e6-4c20-bce0-e8328f9c9fc5" xml:space="preserve">
+          <source>name</source>
+          <target state="new">name</target>
+        </trans-unit>
+        <trans-unit id="1baf4d1b-6f6b-4780-8550-408864e3a9cf" xml:space="preserve">
+          <source>Name of the activity</source>
+          <target state="new">Name of the activity</target>
+        </trans-unit>
+        <trans-unit id="0f2bb342-fdc3-4db7-b2fd-34108745bb6e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2f4feb65-6eca-467a-9810-57e16bd64d7d" xml:space="preserve">
+          <source>description</source>
+          <target state="new">description</target>
+        </trans-unit>
+        <trans-unit id="86bf12e4-ce5f-4e0a-8c17-211c7f99f4c2" xml:space="preserve">
+          <source>Text describing what the activity is used for</source>
+          <target state="new">Text describing what the activity is used for</target>
+        </trans-unit>
+        <trans-unit id="2813fadb-5e70-45a0-831b-22d44a6b4b0f" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="21421ffe-7f7a-43d4-affb-2a9388b09eef" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="c647dbba-1bd5-4c77-9171-a8b94eb6ed2b" xml:space="preserve">
+          <source>HDinsightPig</source>
+          <target state="new">HDinsightPig</target>
+        </trans-unit>
+        <trans-unit id="96195c4a-bd8c-4913-a5dd-01c5f84b8368" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d3762d12-b352-44b2-a59d-48cb9bb2f5cd" xml:space="preserve">
+          <source>inputs</source>
+          <target state="new">inputs</target>
+        </trans-unit>
+        <trans-unit id="603902c8-a2f9-46b0-819d-0815b243d900" xml:space="preserve">
+          <source>Input(s) consumed by the Pig activity</source>
+          <target state="new">Input(s) consumed by the Pig activity</target>
+        </trans-unit>
+        <trans-unit id="c187b575-a7e6-46fb-8bbe-2264d3d2b85f" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="fca9879a-8338-4b8e-b2ce-0da3ad352805" xml:space="preserve">
+          <source>outputs</source>
+          <target state="new">outputs</target>
+        </trans-unit>
+        <trans-unit id="2fcdf166-3772-4c80-a6fd-98afdab6f005" xml:space="preserve">
+          <source>Output(s) produced by the Pig activity</source>
+          <target state="new">Output(s) produced by the Pig activity</target>
+        </trans-unit>
+        <trans-unit id="6e859db3-4ee3-4321-a9fe-38e2f5a381f2" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="6ab75f07-46b5-4bcf-af12-30ed7a051735" xml:space="preserve">
+          <source>linkedServiceName</source>
+          <target state="new">linkedServiceName</target>
+        </trans-unit>
+        <trans-unit id="9a8922b4-9ad9-49be-acd5-a251e2d925ec" xml:space="preserve">
+          <source>Reference to the HDInsight cluster registered as a linked service in Data Factory</source>
+          <target state="new">Reference to the HDInsight cluster registered as a linked service in Data Factory</target>
+        </trans-unit>
+        <trans-unit id="3117a14c-0bcc-4009-a70f-31d52ce30dac" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="41726955-4ff9-4dc6-907c-f49c4492d7df" xml:space="preserve">
+          <source>script</source>
+          <target state="new">script</target>
+        </trans-unit>
+        <trans-unit id="26bdca32-cb16-4f49-aaa9-3919d725b422" xml:space="preserve">
+          <source>Specify the Pig script inline</source>
+          <target state="new">Specify the Pig script inline</target>
+        </trans-unit>
+        <trans-unit id="f9c4c43b-9fb5-45c9-8c6d-64616f83b3d9" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="2acc438e-74a5-46a9-8e73-1187ec8a037c" xml:space="preserve">
+          <source>script path</source>
+          <target state="new">script path</target>
+        </trans-unit>
+        <trans-unit id="21151a94-798c-4751-9e78-30e835fa5d2c" xml:space="preserve">
+          <source>Store the Pig script in an Azure blob storage and provide the path to the file.</source>
+          <target state="new">Store the Pig script in an Azure blob storage and provide the path to the file.</target>
+        </trans-unit>
+        <trans-unit id="daa6d3ca-b1ef-413a-bbf6-14164d1b2948" xml:space="preserve">
+          <source>Use 'script' or 'scriptPath' property.</source>
+          <target state="new">Use 'script' or 'scriptPath' property.</target>
+        </trans-unit>
+        <trans-unit id="5fa1da08-7cba-4f3e-b4f2-b5b3e16f0d75" xml:space="preserve">
+          <source>Both cannot be used together</source>
+          <target state="new">Both cannot be used together</target>
+        </trans-unit>
+        <trans-unit id="283c09bb-6369-432b-a600-32d42d4fd49f" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="11cd23f7-32a1-451d-a114-dde970368a1b" xml:space="preserve">
+          <source>defines</source>
+          <target state="new">defines</target>
+        </trans-unit>
+        <trans-unit id="4015f8d9-a104-4db6-9e2d-3187617c5bcf" xml:space="preserve">
+          <source>Specify parameters as key/value pairs for referencing within the Pig script</source>
+          <target state="new">Specify parameters as key/value pairs for referencing within the Pig script</target>
+        </trans-unit>
+        <trans-unit id="a01edc82-9d2d-4539-b8aa-1eba3fd34c44" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="f1f23a60-2ebe-49cf-bd14-3b5e8020d41e" xml:space="preserve">
+          <source>Let’s consider an example of game logs analytics where you want to identify the time spent by users playing games launched by your company.</source>
+          <target state="new">Let’s consider an example of game logs analytics where you want to identify the time spent by users playing games launched by your company.</target>
+        </trans-unit>
+        <trans-unit id="7e0b3360-106a-47ad-9b87-906b382aef6e" xml:space="preserve">
+          <source>Below is a sample game log, which is comma (,) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.</source>
+          <target state="new">Below is a sample game log, which is comma (,) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.</target>
+        </trans-unit>
+        <trans-unit id="acf6013c-2207-4234-a759-7f084fb5c892" xml:space="preserve">
+          <source>The <bpt id="2995f876-1e4d-402c-92de-3175607579b6">&lt;strong&gt;</bpt>Pig script<ept id="2995f876-1e4d-402c-92de-3175607579b6">&lt;/strong&gt;</ept> to process this data looks like this:</source>
+          <target state="new">The <bpt id="2995f876-1e4d-402c-92de-3175607579b6">&lt;strong&gt;</bpt>Pig script<ept id="2995f876-1e4d-402c-92de-3175607579b6">&lt;/strong&gt;</ept> to process this data looks like this:</target>
+        </trans-unit>
+        <trans-unit id="bc2a59e8-e456-4bdd-a360-7eee56e04899" xml:space="preserve">
+          <source>To execute this Pig script in a Data Factory pipeline, you need to the do the following:</source>
+          <target state="new">To execute this Pig script in a Data Factory pipeline, you need to the do the following:</target>
+        </trans-unit>
+        <trans-unit id="2774c72c-c47b-43a4-8067-894bdddb85a3" xml:space="preserve">
+          <source>Create a linked service to register <bpt id="5d7bcf58-f56d-49c9-83e8-4f2402fb07f6">&lt;linkText&gt;</bpt>your own HDInsight compute cluster<ept id="5d7bcf58-f56d-49c9-83e8-4f2402fb07f6">&lt;/linkText&gt;</ept><bpt id="5d7bcf58-f56d-49c9-83e8-4f2402fb07f6">&lt;title&gt;</bpt><ept id="5d7bcf58-f56d-49c9-83e8-4f2402fb07f6">&lt;/title&gt;</ept> or configure <bpt id="92fe68bb-d29b-4684-b584-f6df383b4e88">&lt;linkText&gt;</bpt>on-demand HDInsight compute cluster<ept id="92fe68bb-d29b-4684-b584-f6df383b4e88">&lt;/linkText&gt;</ept><bpt id="92fe68bb-d29b-4684-b584-f6df383b4e88">&lt;title&gt;</bpt><ept id="92fe68bb-d29b-4684-b584-f6df383b4e88">&lt;/title&gt;</ept>.</source>
+          <target state="new">Create a linked service to register <bpt id="5d7bcf58-f56d-49c9-83e8-4f2402fb07f6">&lt;linkText&gt;</bpt>your own HDInsight compute cluster<ept id="5d7bcf58-f56d-49c9-83e8-4f2402fb07f6">&lt;/linkText&gt;</ept><bpt id="5d7bcf58-f56d-49c9-83e8-4f2402fb07f6">&lt;title&gt;</bpt><ept id="5d7bcf58-f56d-49c9-83e8-4f2402fb07f6">&lt;/title&gt;</ept> or configure <bpt id="92fe68bb-d29b-4684-b584-f6df383b4e88">&lt;linkText&gt;</bpt>on-demand HDInsight compute cluster<ept id="92fe68bb-d29b-4684-b584-f6df383b4e88">&lt;/linkText&gt;</ept><bpt id="92fe68bb-d29b-4684-b584-f6df383b4e88">&lt;title&gt;</bpt><ept id="92fe68bb-d29b-4684-b584-f6df383b4e88">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ac3755c-8133-4dda-816d-86ed3718013f" xml:space="preserve">
+          <source>Let’s call this linked service “HDInsightLinkedService”.</source>
+          <target state="new">Let’s call this linked service “HDInsightLinkedService”.</target>
+        </trans-unit>
+        <trans-unit id="804cdd14-3a42-4ebe-af65-97a41bb2574a" xml:space="preserve">
+          <source>Create a <bpt id="b90f8543-9611-436f-9f66-b00aba23c0ac">&lt;linkText&gt;</bpt>linked service<ept id="b90f8543-9611-436f-9f66-b00aba23c0ac">&lt;/linkText&gt;</ept><bpt id="b90f8543-9611-436f-9f66-b00aba23c0ac">&lt;title&gt;</bpt><ept id="b90f8543-9611-436f-9f66-b00aba23c0ac">&lt;/title&gt;</ept> to configure the connection to Azure Blob storage hosting the data.</source>
+          <target state="new">Create a <bpt id="b90f8543-9611-436f-9f66-b00aba23c0ac">&lt;linkText&gt;</bpt>linked service<ept id="b90f8543-9611-436f-9f66-b00aba23c0ac">&lt;/linkText&gt;</ept><bpt id="b90f8543-9611-436f-9f66-b00aba23c0ac">&lt;title&gt;</bpt><ept id="b90f8543-9611-436f-9f66-b00aba23c0ac">&lt;/title&gt;</ept> to configure the connection to Azure Blob storage hosting the data.</target>
+        </trans-unit>
+        <trans-unit id="8521fab0-bf3d-4c43-b145-f864c4a33464" xml:space="preserve">
+          <source>Let’s call this linked service “StorageLinkedService”.</source>
+          <target state="new">Let’s call this linked service “StorageLinkedService”.</target>
+        </trans-unit>
+        <trans-unit id="1074978b-9a8e-4a59-a217-7fed11360b46" xml:space="preserve">
+          <source>Create <bpt id="21c7d8e3-f864-455e-b493-afa88a28647e">&lt;linkText&gt;</bpt>datasets<ept id="21c7d8e3-f864-455e-b493-afa88a28647e">&lt;/linkText&gt;</ept><bpt id="21c7d8e3-f864-455e-b493-afa88a28647e">&lt;title&gt;</bpt><ept id="21c7d8e3-f864-455e-b493-afa88a28647e">&lt;/title&gt;</ept> pointing to the input and the output data.</source>
+          <target state="new">Create <bpt id="21c7d8e3-f864-455e-b493-afa88a28647e">&lt;linkText&gt;</bpt>datasets<ept id="21c7d8e3-f864-455e-b493-afa88a28647e">&lt;/linkText&gt;</ept><bpt id="21c7d8e3-f864-455e-b493-afa88a28647e">&lt;title&gt;</bpt><ept id="21c7d8e3-f864-455e-b493-afa88a28647e">&lt;/title&gt;</ept> pointing to the input and the output data.</target>
+        </trans-unit>
+        <trans-unit id="1df54bac-df47-4bef-9506-fda5b0b1bba8" xml:space="preserve">
+          <source>Let’s call the input dataset “PigSampleIn” and the output dataset “PigSampleOut”.</source>
+          <target state="new">Let’s call the input dataset “PigSampleIn” and the output dataset “PigSampleOut”.</target>
+        </trans-unit>
+        <trans-unit id="c3508b06-3e6d-41eb-b605-f7f46c92c67e" xml:space="preserve">
+          <source>Copy the Pig query in a file the Azure Blob Storage configured in step #2 above.</source>
+          <target state="new">Copy the Pig query in a file the Azure Blob Storage configured in step #2 above.</target>
+        </trans-unit>
+        <trans-unit id="d66103a4-19a2-4d4b-959e-23e96521cff3" xml:space="preserve">
+          <source>if the linked service for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity configuration.</source>
+          <target state="new">if the linked service for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity configuration.</target>
+        </trans-unit>
+        <trans-unit id="9a71d1c0-4374-4e9b-90ac-213947012d39" xml:space="preserve">
+          <source>Use <bpt id="9afcbd22-85d0-4ecf-afd3-9e0113a8e02d">&lt;strong&gt;</bpt>scriptPath **to specify the path to pig script file and **scriptLinkedService<ept id="9afcbd22-85d0-4ecf-afd3-9e0113a8e02d">&lt;/strong&gt;</ept> to specify the Azure storage that contains the script file.</source>
+          <target state="new">Use <bpt id="9afcbd22-85d0-4ecf-afd3-9e0113a8e02d">&lt;strong&gt;</bpt>scriptPath **to specify the path to pig script file and **scriptLinkedService<ept id="9afcbd22-85d0-4ecf-afd3-9e0113a8e02d">&lt;/strong&gt;</ept> to specify the Azure storage that contains the script file.</target>
+        </trans-unit>
+        <trans-unit id="fa1c9fb6-121c-4ab4-a907-0bf30b65c7da" xml:space="preserve">
+          <source>You can also provide the Pig script inline in the activity definition by using the <bpt id="c52b7a3f-3408-4fe0-8421-cc909d961a77">&lt;strong&gt;</bpt>script<ept id="c52b7a3f-3408-4fe0-8421-cc909d961a77">&lt;/strong&gt;</ept> property but this is not recommended as all special characters in the script within the JSON document needs to be escaped and may cause debugging issues.</source>
+          <target state="new">You can also provide the Pig script inline in the activity definition by using the <bpt id="c52b7a3f-3408-4fe0-8421-cc909d961a77">&lt;strong&gt;</bpt>script<ept id="c52b7a3f-3408-4fe0-8421-cc909d961a77">&lt;/strong&gt;</ept> property but this is not recommended as all special characters in the script within the JSON document needs to be escaped and may cause debugging issues.</target>
+        </trans-unit>
+        <trans-unit id="6fee97e9-5827-444d-bbfd-2ce85f03095c" xml:space="preserve">
+          <source>The best practice is to follow step #4.</source>
+          <target state="new">The best practice is to follow step #4.</target>
+        </trans-unit>
+        <trans-unit id="e5f17827-6ff6-48ed-af90-40e59573f7bb" xml:space="preserve">
+          <source>Create the below pipeline with the HDInsightPig activity to process the data.</source>
+          <target state="new">Create the below pipeline with the HDInsightPig activity to process the data.</target>
+        </trans-unit>
+        <trans-unit id="98b84b0e-9136-408a-8192-a4bcaf90f598" xml:space="preserve">
+          <source>Deploy the pipeline.</source>
+          <target state="new">Deploy the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="fa0a333d-d422-447e-a166-33218e42a4c5" xml:space="preserve">
+          <source>See <bpt id="caceebd1-2814-45e1-9d3e-5c22aef99b84">&lt;linkText&gt;</bpt>Creating pipelines<ept id="caceebd1-2814-45e1-9d3e-5c22aef99b84">&lt;/linkText&gt;</ept><bpt id="caceebd1-2814-45e1-9d3e-5c22aef99b84">&lt;title&gt;</bpt><ept id="caceebd1-2814-45e1-9d3e-5c22aef99b84">&lt;/title&gt;</ept> article for details.</source>
+          <target state="new">See <bpt id="caceebd1-2814-45e1-9d3e-5c22aef99b84">&lt;linkText&gt;</bpt>Creating pipelines<ept id="caceebd1-2814-45e1-9d3e-5c22aef99b84">&lt;/linkText&gt;</ept><bpt id="caceebd1-2814-45e1-9d3e-5c22aef99b84">&lt;title&gt;</bpt><ept id="caceebd1-2814-45e1-9d3e-5c22aef99b84">&lt;/title&gt;</ept> article for details.</target>
+        </trans-unit>
+        <trans-unit id="a9036064-509b-4251-8414-f93ae1121f4c" xml:space="preserve">
+          <source>Monitor the pipeline using the data factory monitoring and management views.</source>
+          <target state="new">Monitor the pipeline using the data factory monitoring and management views.</target>
+        </trans-unit>
+        <trans-unit id="35096db1-88e2-4538-838d-42ba6440d003" xml:space="preserve">
+          <source>See <bpt id="7b9f8531-131d-4c49-89f0-057f3742f8df">&lt;linkText&gt;</bpt>Monitoring and manage Data Factory pipelines<ept id="7b9f8531-131d-4c49-89f0-057f3742f8df">&lt;/linkText&gt;</ept><bpt id="7b9f8531-131d-4c49-89f0-057f3742f8df">&lt;title&gt;</bpt><ept id="7b9f8531-131d-4c49-89f0-057f3742f8df">&lt;/title&gt;</ept> article for details.</source>
+          <target state="new">See <bpt id="7b9f8531-131d-4c49-89f0-057f3742f8df">&lt;linkText&gt;</bpt>Monitoring and manage Data Factory pipelines<ept id="7b9f8531-131d-4c49-89f0-057f3742f8df">&lt;/linkText&gt;</ept><bpt id="7b9f8531-131d-4c49-89f0-057f3742f8df">&lt;title&gt;</bpt><ept id="7b9f8531-131d-4c49-89f0-057f3742f8df">&lt;/title&gt;</ept> article for details.</target>
+        </trans-unit>
+        <trans-unit id="12ddbd42-9068-4fcb-ab35-59cb149653d3" xml:space="preserve">
+          <source>Consider the example where the game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned with date and time.</source>
+          <target state="new">Consider the example where the game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned with date and time.</target>
+        </trans-unit>
+        <trans-unit id="3c78b9f4-8f12-4e7d-9312-b0aa4973adcf" xml:space="preserve">
+          <source>You want to parameterize the Pig script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.</source>
+          <target state="new">You want to parameterize the Pig script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.</target>
+        </trans-unit>
+        <trans-unit id="2473631a-893c-4643-9b1e-382b190072b0" xml:space="preserve">
+          <source>To use parameterize Pig script, do the following:</source>
+          <target state="new">To use parameterize Pig script, do the following:</target>
+        </trans-unit>
+        <trans-unit id="691f2950-ea2d-4177-9e3e-ccdadd376e2d" xml:space="preserve">
+          <source>Define the parameters in <bpt id="c48c6d36-7d55-451c-ab65-e1f2861f5a84">&lt;strong&gt;</bpt>defines<ept id="c48c6d36-7d55-451c-ab65-e1f2861f5a84">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Define the parameters in <bpt id="c48c6d36-7d55-451c-ab65-e1f2861f5a84">&lt;strong&gt;</bpt>defines<ept id="c48c6d36-7d55-451c-ab65-e1f2861f5a84">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c9ab6772-1036-4b20-ba67-22beca3d6d35" xml:space="preserve">
+          <source>In the Pig Script, refer to the parameters using '<bpt id="d6dc0146-6202-4254-a4ef-3d6e619948be">&lt;strong&gt;</bpt>$parameterName<ept id="d6dc0146-6202-4254-a4ef-3d6e619948be">&lt;/strong&gt;</ept>' as shown in the following example:</source>
+          <target state="new">In the Pig Script, refer to the parameters using '<bpt id="d6dc0146-6202-4254-a4ef-3d6e619948be">&lt;strong&gt;</bpt>$parameterName<ept id="d6dc0146-6202-4254-a4ef-3d6e619948be">&lt;/strong&gt;</ept>' as shown in the following example:</target>
+        </trans-unit>
+        <trans-unit id="2b2a6203-518a-49a2-87b8-3e9eae77b39b" xml:space="preserve">
+          <source>We would really appreciate your feedback on this article.</source>
+          <target state="new">We would really appreciate your feedback on this article.</target>
+        </trans-unit>
+        <trans-unit id="863de7d7-7e49-4165-8cf3-74180f97df2d" xml:space="preserve">
+          <source>Please take a few minutes to submit your feedback via <bpt id="9527ebbe-bad1-4e2d-a334-9a488ae8f032">&lt;linkText&gt;</bpt>email<ept id="9527ebbe-bad1-4e2d-a334-9a488ae8f032">&lt;/linkText&gt;</ept><bpt id="9527ebbe-bad1-4e2d-a334-9a488ae8f032">&lt;title&gt;</bpt><ept id="9527ebbe-bad1-4e2d-a334-9a488ae8f032">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please take a few minutes to submit your feedback via <bpt id="9527ebbe-bad1-4e2d-a334-9a488ae8f032">&lt;linkText&gt;</bpt>email<ept id="9527ebbe-bad1-4e2d-a334-9a488ae8f032">&lt;/linkText&gt;</ept><bpt id="9527ebbe-bad1-4e2d-a334-9a488ae8f032">&lt;title&gt;</bpt><ept id="9527ebbe-bad1-4e2d-a334-9a488ae8f032">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="11fe2530-00f5-4388-a526-9d9abd45f560" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="11fe2530-00f5-4388-a526-9d9abd45f560" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e69d82d1-94c3-40ff-ad1a-ec86bcd20e19">
+        <trans-unit id="96a5a687-eb24-4e08-bc8e-2c6bec687a88" xml:space="preserve">
+          <source><bpt id="c94a2e1f-8ab4-4808-9a64-4d3b85ba919e">&lt;linkText&gt;</bpt>Register an App ID for your app<ept id="c94a2e1f-8ab4-4808-9a64-4d3b85ba919e">&lt;/linkText&gt;</ept><bpt id="c94a2e1f-8ab4-4808-9a64-4d3b85ba919e">&lt;title&gt;</bpt><ept id="c94a2e1f-8ab4-4808-9a64-4d3b85ba919e">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="c94a2e1f-8ab4-4808-9a64-4d3b85ba919e">&lt;linkText&gt;</bpt>Register an App ID for your app<ept id="c94a2e1f-8ab4-4808-9a64-4d3b85ba919e">&lt;/linkText&gt;</ept><bpt id="c94a2e1f-8ab4-4808-9a64-4d3b85ba919e">&lt;title&gt;</bpt><ept id="c94a2e1f-8ab4-4808-9a64-4d3b85ba919e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da823072-3fdf-4f3c-a0cb-ee8b75aa960b" xml:space="preserve">
+          <source>Create an explicit App ID (not a wildcard App ID) and for <bpt id="dfc02f52-8bc2-4185-917d-7923fce8cea3">&lt;strong&gt;</bpt>Bundle ID<ept id="dfc02f52-8bc2-4185-917d-7923fce8cea3">&lt;/strong&gt;</ept>, use the exact <bpt id="15c29bc5-4a4d-4156-85fa-1b9447663903">&lt;strong&gt;</bpt>Bundle ID<ept id="15c29bc5-4a4d-4156-85fa-1b9447663903">&lt;/strong&gt;</ept> that is in your Xcode quickstart project.</source>
+          <target state="new">Create an explicit App ID (not a wildcard App ID) and for <bpt id="dfc02f52-8bc2-4185-917d-7923fce8cea3">&lt;strong&gt;</bpt>Bundle ID<ept id="dfc02f52-8bc2-4185-917d-7923fce8cea3">&lt;/strong&gt;</ept>, use the exact <bpt id="15c29bc5-4a4d-4156-85fa-1b9447663903">&lt;strong&gt;</bpt>Bundle ID<ept id="15c29bc5-4a4d-4156-85fa-1b9447663903">&lt;/strong&gt;</ept> that is in your Xcode quickstart project.</target>
+        </trans-unit>
+        <trans-unit id="b4023c66-9e1a-4144-bd4d-1364fbb29d3a" xml:space="preserve">
+          <source>It is also crucial that you check the <bpt id="5050aa4e-e085-445c-8ce6-16207109449d">&lt;strong&gt;</bpt>Push Notifications<ept id="5050aa4e-e085-445c-8ce6-16207109449d">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">It is also crucial that you check the <bpt id="5050aa4e-e085-445c-8ce6-16207109449d">&lt;strong&gt;</bpt>Push Notifications<ept id="5050aa4e-e085-445c-8ce6-16207109449d">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="143b6da3-beeb-4d8b-a3b5-f52c4d8abc35" xml:space="preserve">
+          <source>Next, <bpt id="603c1cd6-028a-425a-bb2f-94d9279d0aa8">&lt;linkText&gt;</bpt>enable push notifications for the app<ept id="603c1cd6-028a-425a-bb2f-94d9279d0aa8">&lt;/linkText&gt;</ept><bpt id="603c1cd6-028a-425a-bb2f-94d9279d0aa8">&lt;title&gt;</bpt><ept id="603c1cd6-028a-425a-bb2f-94d9279d0aa8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Next, <bpt id="603c1cd6-028a-425a-bb2f-94d9279d0aa8">&lt;linkText&gt;</bpt>enable push notifications for the app<ept id="603c1cd6-028a-425a-bb2f-94d9279d0aa8">&lt;/linkText&gt;</ept><bpt id="603c1cd6-028a-425a-bb2f-94d9279d0aa8">&lt;title&gt;</bpt><ept id="603c1cd6-028a-425a-bb2f-94d9279d0aa8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d178c807-8a22-4417-bde2-08cde47832d7" xml:space="preserve">
+          <source>You may create either a "Development" or "Distribution" SSL certificate (remember to select the corresponding option in the Azure portal later.)</source>
+          <target state="new">You may create either a "Development" or "Distribution" SSL certificate (remember to select the corresponding option in the Azure portal later.)</target>
+        </trans-unit>
+        <trans-unit id="41b6504f-5ffe-4c0d-acb8-a6ef2eb91b7e" xml:space="preserve">
+          <source>Then, <bpt id="dc8a9046-f35b-4f32-accd-708f9d423779">&lt;linkText&gt;</bpt>verify that the app ID enables push notifications<ept id="dc8a9046-f35b-4f32-accd-708f9d423779">&lt;/linkText&gt;</ept><bpt id="dc8a9046-f35b-4f32-accd-708f9d423779">&lt;title&gt;</bpt><ept id="dc8a9046-f35b-4f32-accd-708f9d423779">&lt;/title&gt;</ept>.</source>
+          <target state="new">Then, <bpt id="dc8a9046-f35b-4f32-accd-708f9d423779">&lt;linkText&gt;</bpt>verify that the app ID enables push notifications<ept id="dc8a9046-f35b-4f32-accd-708f9d423779">&lt;/linkText&gt;</ept><bpt id="dc8a9046-f35b-4f32-accd-708f9d423779">&lt;title&gt;</bpt><ept id="dc8a9046-f35b-4f32-accd-708f9d423779">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba5820db-e0ce-41ba-b667-cadff69e90ea" xml:space="preserve">
+          <source>Finally, [refresh the provisioning profiles in the Xcode quickstart project](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple<bpt id="0bbc404c-375e-4c17-ae1e-4cdd425052dd">&lt;em&gt;</bpt>ref/doc/uid/TP40012582-CH32-SW10) and [verify that the provisioning profile was either created or regenerated to enable push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple<ept id="0bbc404c-375e-4c17-ae1e-4cdd425052dd">&lt;/em&gt;</ept>ref/doc/uid/TP40012582-CH32-SW12).</source>
+          <target state="new">Finally, [refresh the provisioning profiles in the Xcode quickstart project](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple<bpt id="0bbc404c-375e-4c17-ae1e-4cdd425052dd">&lt;em&gt;</bpt>ref/doc/uid/TP40012582-CH32-SW10) and [verify that the provisioning profile was either created or regenerated to enable push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple<ept id="0bbc404c-375e-4c17-ae1e-4cdd425052dd">&lt;/em&gt;</ept>ref/doc/uid/TP40012582-CH32-SW12).</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

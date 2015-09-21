@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0425d392-0492-48a3-9d84-a133ab99ed3e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0425d392-0492-48a3-9d84-a133ab99ed3e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3d92b6f4-4a90-42d2-85f1-a0b77574828c">
+        <trans-unit id="a0b741a4-c3e6-49e9-b600-0b8973e8b4b8" xml:space="preserve">
+          <source>How to use Azure Blob storage from Java | Microsoft Azure</source>
+          <target state="new">How to use Azure Blob storage from Java | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4f08ae75-2990-4a9d-bdb1-29b335afd786" xml:space="preserve">
+          <source>Learn how to use Azure Blob storage to upload, download, list, and delete blob content. Samples written in Java.</source>
+          <target state="new">Learn how to use Azure Blob storage to upload, download, list, and delete blob content. Samples written in Java.</target>
+        </trans-unit>
+        <trans-unit id="9202818a-c70a-4abf-ac34-38f6c02d02c2" xml:space="preserve">
+          <source><bpt id="cc59809a-6e47-496a-ae0b-611f81b6ca0c">&lt;token href="../../includes/storage-selector-blob-include.md"&gt;</bpt><ept id="cc59809a-6e47-496a-ae0b-611f81b6ca0c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="cc59809a-6e47-496a-ae0b-611f81b6ca0c">&lt;token href="../../includes/storage-selector-blob-include.md"&gt;</bpt><ept id="cc59809a-6e47-496a-ae0b-611f81b6ca0c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0797d66a-7732-40a6-b123-fdf5671e10ee" xml:space="preserve">
+          <source>This article will show you how to perform common scenarios using the Microsoft Azure Blob storage.</source>
+          <target state="new">This article will show you how to perform common scenarios using the Microsoft Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="5114913a-593b-403d-b1c7-5390845a5d5d" xml:space="preserve">
+          <source>The samples are written in Java and use the <bpt id="ef4edbce-2b77-4607-ab46-574d9f74216a">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="ef4edbce-2b77-4607-ab46-574d9f74216a">&lt;/linkText&gt;</ept><bpt id="ef4edbce-2b77-4607-ab46-574d9f74216a">&lt;title&gt;</bpt><ept id="ef4edbce-2b77-4607-ab46-574d9f74216a">&lt;/title&gt;</ept>.</source>
+          <target state="new">The samples are written in Java and use the <bpt id="ef4edbce-2b77-4607-ab46-574d9f74216a">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="ef4edbce-2b77-4607-ab46-574d9f74216a">&lt;/linkText&gt;</ept><bpt id="ef4edbce-2b77-4607-ab46-574d9f74216a">&lt;title&gt;</bpt><ept id="ef4edbce-2b77-4607-ab46-574d9f74216a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50adef0f-e6d8-4a71-bd7b-3a723f9b5f9a" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="c715ed40-d4cf-4242-858e-834fa1e013a2">&lt;strong&gt;</bpt>uploading<ept id="c715ed40-d4cf-4242-858e-834fa1e013a2">&lt;/strong&gt;</ept>, <bpt id="8fb48647-c34e-438a-b839-9e7456c3ca56">&lt;strong&gt;</bpt>listing<ept id="8fb48647-c34e-438a-b839-9e7456c3ca56">&lt;/strong&gt;</ept>, <bpt id="369a265d-c8df-41a4-8054-9e115486cb0f">&lt;strong&gt;</bpt>downloading<ept id="369a265d-c8df-41a4-8054-9e115486cb0f">&lt;/strong&gt;</ept>, and <bpt id="0f1a01f7-664a-4849-bb58-55ca729b777f">&lt;strong&gt;</bpt>deleting<ept id="0f1a01f7-664a-4849-bb58-55ca729b777f">&lt;/strong&gt;</ept> blobs.</source>
+          <target state="new">The scenarios covered include <bpt id="c715ed40-d4cf-4242-858e-834fa1e013a2">&lt;strong&gt;</bpt>uploading<ept id="c715ed40-d4cf-4242-858e-834fa1e013a2">&lt;/strong&gt;</ept>, <bpt id="8fb48647-c34e-438a-b839-9e7456c3ca56">&lt;strong&gt;</bpt>listing<ept id="8fb48647-c34e-438a-b839-9e7456c3ca56">&lt;/strong&gt;</ept>, <bpt id="369a265d-c8df-41a4-8054-9e115486cb0f">&lt;strong&gt;</bpt>downloading<ept id="369a265d-c8df-41a4-8054-9e115486cb0f">&lt;/strong&gt;</ept>, and <bpt id="0f1a01f7-664a-4849-bb58-55ca729b777f">&lt;strong&gt;</bpt>deleting<ept id="0f1a01f7-664a-4849-bb58-55ca729b777f">&lt;/strong&gt;</ept> blobs.</target>
+        </trans-unit>
+        <trans-unit id="40c51e69-b914-4f17-9227-679b7d502753" xml:space="preserve">
+          <source>For more information on blobs, see the <bpt id="b4ebb1cb-eef6-4c6f-9b74-d88def99bb4a">&lt;linkText&gt;</bpt>Next Steps<ept id="b4ebb1cb-eef6-4c6f-9b74-d88def99bb4a">&lt;/linkText&gt;</ept><bpt id="b4ebb1cb-eef6-4c6f-9b74-d88def99bb4a">&lt;title&gt;</bpt><ept id="b4ebb1cb-eef6-4c6f-9b74-d88def99bb4a">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information on blobs, see the <bpt id="b4ebb1cb-eef6-4c6f-9b74-d88def99bb4a">&lt;linkText&gt;</bpt>Next Steps<ept id="b4ebb1cb-eef6-4c6f-9b74-d88def99bb4a">&lt;/linkText&gt;</ept><bpt id="b4ebb1cb-eef6-4c6f-9b74-d88def99bb4a">&lt;title&gt;</bpt><ept id="b4ebb1cb-eef6-4c6f-9b74-d88def99bb4a">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="cb953639-4aa4-4745-96b3-53499c9d8b7c" xml:space="preserve">
+          <source>An SDK is available for developers who are using Azure Storage on Android devices.</source>
+          <target state="new">An SDK is available for developers who are using Azure Storage on Android devices.</target>
+        </trans-unit>
+        <trans-unit id="2902576c-9a49-4071-aac5-de038bb974a2" xml:space="preserve">
+          <source>For more information, see the <bpt id="625b8d3c-ea83-471f-af75-137137f4f14b">&lt;linkText&gt;</bpt>Azure Storage SDK for Android<ept id="625b8d3c-ea83-471f-af75-137137f4f14b">&lt;/linkText&gt;</ept><bpt id="625b8d3c-ea83-471f-af75-137137f4f14b">&lt;title&gt;</bpt><ept id="625b8d3c-ea83-471f-af75-137137f4f14b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="625b8d3c-ea83-471f-af75-137137f4f14b">&lt;linkText&gt;</bpt>Azure Storage SDK for Android<ept id="625b8d3c-ea83-471f-af75-137137f4f14b">&lt;/linkText&gt;</ept><bpt id="625b8d3c-ea83-471f-af75-137137f4f14b">&lt;title&gt;</bpt><ept id="625b8d3c-ea83-471f-af75-137137f4f14b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de071afb-3892-4e69-b6d6-33e503b4b115" xml:space="preserve">
+          <source><bpt id="5bc6ada5-3168-411f-a80f-eef5340dcdf5">&lt;token href="../../includes/storage-blob-concepts-include.md"&gt;</bpt><ept id="5bc6ada5-3168-411f-a80f-eef5340dcdf5">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="5bc6ada5-3168-411f-a80f-eef5340dcdf5">&lt;token href="../../includes/storage-blob-concepts-include.md"&gt;</bpt><ept id="5bc6ada5-3168-411f-a80f-eef5340dcdf5">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f0e15e2-ee34-4650-976e-805ea40e88b7" xml:space="preserve">
+          <source><bpt id="400dc826-7bca-41fe-9768-a7908011c8bb">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="400dc826-7bca-41fe-9768-a7908011c8bb">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="400dc826-7bca-41fe-9768-a7908011c8bb">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="400dc826-7bca-41fe-9768-a7908011c8bb">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39b78fc8-3e50-4ac5-8ba0-a183a22e1b44" xml:space="preserve">
+          <source>In this article, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.</source>
+          <target state="new">In this article, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.</target>
+        </trans-unit>
+        <trans-unit id="b374484d-9340-4cbb-869d-9e45d5a213a6" xml:space="preserve">
+          <source>To do so, you will need to install the Java Development Kit (JDK) and create an Azure Storage account in your Azure subscription.</source>
+          <target state="new">To do so, you will need to install the Java Development Kit (JDK) and create an Azure Storage account in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="fe22b2ad-d013-4a80-b3db-39773c783e5b" xml:space="preserve">
+          <source>Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the <bpt id="313dcea8-a93f-4a51-aa3f-d032630d01a2">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="313dcea8-a93f-4a51-aa3f-d032630d01a2">&lt;/linkText&gt;</ept><bpt id="313dcea8-a93f-4a51-aa3f-d032630d01a2">&lt;title&gt;</bpt><ept id="313dcea8-a93f-4a51-aa3f-d032630d01a2">&lt;/title&gt;</ept> repository on GitHub.</source>
+          <target state="new">Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the <bpt id="313dcea8-a93f-4a51-aa3f-d032630d01a2">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="313dcea8-a93f-4a51-aa3f-d032630d01a2">&lt;/linkText&gt;</ept><bpt id="313dcea8-a93f-4a51-aa3f-d032630d01a2">&lt;title&gt;</bpt><ept id="313dcea8-a93f-4a51-aa3f-d032630d01a2">&lt;/title&gt;</ept> repository on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="491d6fa1-11d9-4428-a9ad-dab67eca4042" xml:space="preserve">
+          <source>If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository.</source>
+          <target state="new">If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository.</target>
+        </trans-unit>
+        <trans-unit id="d1e8c6f5-b973-4fb5-97c1-284743f39e0b" xml:space="preserve">
+          <source>Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.</source>
+          <target state="new">Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.</target>
+        </trans-unit>
+        <trans-unit id="8351eca0-421e-45fa-adc3-d5a1c3ca9d58" xml:space="preserve">
+          <source>Add the following import statements to the top of the Java file where you want to use the Azure Storage APIs to access blobs.</source>
+          <target state="new">Add the following import statements to the top of the Java file where you want to use the Azure Storage APIs to access blobs.</target>
+        </trans-unit>
+        <trans-unit id="d450135f-86ce-4bff-a8cb-1dc1970886e5" xml:space="preserve">
+          <source>An Azure Storage client uses a storage connection string to store
+endpoints and credentials for accessing data management services.</source>
+          <target state="new">An Azure Storage client uses a storage connection string to store
+endpoints and credentials for accessing data management services.</target>
+        </trans-unit>
+        <trans-unit id="1a745223-3bb9-4bb4-8794-fe9d5a2055d8" xml:space="preserve">
+          <source>When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Azure portal for the <bpt id="00b34a9b-0cff-4a77-8a0d-d20bf53495b0">&lt;em&gt;</bpt>AccountName<ept id="00b34a9b-0cff-4a77-8a0d-d20bf53495b0">&lt;/em&gt;</ept> and <bpt id="82e62786-66b0-4c5e-bb34-b2dc59242051">&lt;em&gt;</bpt>AccountKey<ept id="82e62786-66b0-4c5e-bb34-b2dc59242051">&lt;/em&gt;</ept> values.</source>
+          <target state="new">When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Azure portal for the <bpt id="00b34a9b-0cff-4a77-8a0d-d20bf53495b0">&lt;em&gt;</bpt>AccountName<ept id="00b34a9b-0cff-4a77-8a0d-d20bf53495b0">&lt;/em&gt;</ept> and <bpt id="82e62786-66b0-4c5e-bb34-b2dc59242051">&lt;em&gt;</bpt>AccountKey<ept id="82e62786-66b0-4c5e-bb34-b2dc59242051">&lt;/em&gt;</ept> values.</target>
+        </trans-unit>
+        <trans-unit id="0e5e361e-c38f-492e-a64f-3b2d4f3856b0" xml:space="preserve">
+          <source>The following example shows how you can declare a static field to hold the connection string.</source>
+          <target state="new">The following example shows how you can declare a static field to hold the connection string.</target>
+        </trans-unit>
+        <trans-unit id="675c759e-ba8a-4824-8fc5-0fa90d65046e" xml:space="preserve">
+          <source>In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, <bpt id="04767971-3fc9-456d-9fa1-86e5a7569bfb">&lt;em&gt;</bpt>ServiceConfiguration.cscfg<ept id="04767971-3fc9-456d-9fa1-86e5a7569bfb">&lt;/em&gt;</ept>, and can be accessed with a call to the <bpt id="1fc05cf3-4de5-4763-9633-5a56696a150b">&lt;strong&gt;</bpt>RoleEnvironment.getConfigurationSettings<ept id="1fc05cf3-4de5-4763-9633-5a56696a150b">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, <bpt id="04767971-3fc9-456d-9fa1-86e5a7569bfb">&lt;em&gt;</bpt>ServiceConfiguration.cscfg<ept id="04767971-3fc9-456d-9fa1-86e5a7569bfb">&lt;/em&gt;</ept>, and can be accessed with a call to the <bpt id="1fc05cf3-4de5-4763-9633-5a56696a150b">&lt;strong&gt;</bpt>RoleEnvironment.getConfigurationSettings<ept id="1fc05cf3-4de5-4763-9633-5a56696a150b">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="f610f707-9a81-4be9-95e4-d63c0a8fe08d" xml:space="preserve">
+          <source>The followng example gets the connection string from a <bpt id="e3d222c4-389c-4746-b734-7de62941588f">&lt;strong&gt;</bpt>Setting<ept id="e3d222c4-389c-4746-b734-7de62941588f">&lt;/strong&gt;</ept> element named <bpt id="8d03f017-d4d4-429c-8062-058e24843f53">&lt;em&gt;</bpt>StorageConnectionString<ept id="8d03f017-d4d4-429c-8062-058e24843f53">&lt;/em&gt;</ept> in the service configuration file.</source>
+          <target state="new">The followng example gets the connection string from a <bpt id="e3d222c4-389c-4746-b734-7de62941588f">&lt;strong&gt;</bpt>Setting<ept id="e3d222c4-389c-4746-b734-7de62941588f">&lt;/strong&gt;</ept> element named <bpt id="8d03f017-d4d4-429c-8062-058e24843f53">&lt;em&gt;</bpt>StorageConnectionString<ept id="8d03f017-d4d4-429c-8062-058e24843f53">&lt;/em&gt;</ept> in the service configuration file.</target>
+        </trans-unit>
+        <trans-unit id="23f3162e-6264-4c0c-8bcc-627559d8a1d3" xml:space="preserve">
+          <source>The following samples assume that you have used one of these two methods to get the storage connection string.</source>
+          <target state="new">The following samples assume that you have used one of these two methods to get the storage connection string.</target>
+        </trans-unit>
+        <trans-unit id="b718caf0-839f-4ce1-a949-e77dc3edbc1a" xml:space="preserve">
+          <source>A <bpt id="ef8f780f-e1ca-4cc0-ba9a-dbb6180517dd">&lt;strong&gt;</bpt>CloudBlobClient<ept id="ef8f780f-e1ca-4cc0-ba9a-dbb6180517dd">&lt;/strong&gt;</ept> object lets you get reference objects for containers and blobs.</source>
+          <target state="new">A <bpt id="ef8f780f-e1ca-4cc0-ba9a-dbb6180517dd">&lt;strong&gt;</bpt>CloudBlobClient<ept id="ef8f780f-e1ca-4cc0-ba9a-dbb6180517dd">&lt;/strong&gt;</ept> object lets you get reference objects for containers and blobs.</target>
+        </trans-unit>
+        <trans-unit id="bd3ef0cd-7613-4a7c-a765-bbd871009a0f" xml:space="preserve">
+          <source>The following code creates a <bpt id="a463c1d2-2057-4fa6-b901-e38cc4bc6191">&lt;strong&gt;</bpt>CloudBlobClient<ept id="a463c1d2-2057-4fa6-b901-e38cc4bc6191">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">The following code creates a <bpt id="a463c1d2-2057-4fa6-b901-e38cc4bc6191">&lt;strong&gt;</bpt>CloudBlobClient<ept id="a463c1d2-2057-4fa6-b901-e38cc4bc6191">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="5f881f4a-db60-4526-8de5-d48516d5a283" xml:space="preserve">
+          <source>There are additional ways to create <bpt id="c33c9869-63a0-4374-ba68-f42f9975aaf2">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="c33c9869-63a0-4374-ba68-f42f9975aaf2">&lt;/strong&gt;</ept> objects; for more information, see <bpt id="41a01f22-3d83-4c9f-a8f8-b264fff8ba3c">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="41a01f22-3d83-4c9f-a8f8-b264fff8ba3c">&lt;/strong&gt;</ept> in the [Azure Storage Client SDK Reference].</source>
+          <target state="new">There are additional ways to create <bpt id="c33c9869-63a0-4374-ba68-f42f9975aaf2">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="c33c9869-63a0-4374-ba68-f42f9975aaf2">&lt;/strong&gt;</ept> objects; for more information, see <bpt id="41a01f22-3d83-4c9f-a8f8-b264fff8ba3c">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="41a01f22-3d83-4c9f-a8f8-b264fff8ba3c">&lt;/strong&gt;</ept> in the [Azure Storage Client SDK Reference].</target>
+        </trans-unit>
+        <trans-unit id="380cd797-3478-47f8-97fd-a8967db2a85f" xml:space="preserve">
+          <source><bpt id="1b5c7c24-9a3c-4414-b24a-f4e0a176b9ff">&lt;token href="../../includes/storage-container-naming-rules-include.md"&gt;</bpt><ept id="1b5c7c24-9a3c-4414-b24a-f4e0a176b9ff">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1b5c7c24-9a3c-4414-b24a-f4e0a176b9ff">&lt;token href="../../includes/storage-container-naming-rules-include.md"&gt;</bpt><ept id="1b5c7c24-9a3c-4414-b24a-f4e0a176b9ff">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a8edae9-2fd8-4c4a-b9dd-c83f0ce03bb5" xml:space="preserve">
+          <source>Use the <bpt id="4faf2eef-0bfc-4765-956e-76eb3c5f7a85">&lt;strong&gt;</bpt>CloudBlobClient<ept id="4faf2eef-0bfc-4765-956e-76eb3c5f7a85">&lt;/strong&gt;</ept> object to get a reference to the container you want to use.</source>
+          <target state="new">Use the <bpt id="4faf2eef-0bfc-4765-956e-76eb3c5f7a85">&lt;strong&gt;</bpt>CloudBlobClient<ept id="4faf2eef-0bfc-4765-956e-76eb3c5f7a85">&lt;/strong&gt;</ept> object to get a reference to the container you want to use.</target>
+        </trans-unit>
+        <trans-unit id="1667726a-ad05-4e4f-9f8c-d430e2e7c502" xml:space="preserve">
+          <source>You can create the container if it doesn't exist with the <bpt id="3d501848-036f-440a-b08e-fb6f3be5f9aa">&lt;strong&gt;</bpt>createIfNotExists<ept id="3d501848-036f-440a-b08e-fb6f3be5f9aa">&lt;/strong&gt;</ept> method, which will otherwise return the existing container.</source>
+          <target state="new">You can create the container if it doesn't exist with the <bpt id="3d501848-036f-440a-b08e-fb6f3be5f9aa">&lt;strong&gt;</bpt>createIfNotExists<ept id="3d501848-036f-440a-b08e-fb6f3be5f9aa">&lt;/strong&gt;</ept> method, which will otherwise return the existing container.</target>
+        </trans-unit>
+        <trans-unit id="d5e43475-a6da-437d-b03a-1ca46b824416" xml:space="preserve">
+          <source>By default, the new container is private, so you must specify your storage access key (as you did earlier) to download blobs from this container.</source>
+          <target state="new">By default, the new container is private, so you must specify your storage access key (as you did earlier) to download blobs from this container.</target>
+        </trans-unit>
+        <trans-unit id="2042421c-9e84-48a6-9a4d-d49f49c333e2" xml:space="preserve">
+          <source>A container's permissions are configured for private access by default, but you can easily configure a container's permissions to allow public, read-only access for all users on the Internet:</source>
+          <target state="new">A container's permissions are configured for private access by default, but you can easily configure a container's permissions to allow public, read-only access for all users on the Internet:</target>
+        </trans-unit>
+        <trans-unit id="a35e4f4b-334b-424c-bc72-0d0623324e19" xml:space="preserve">
+          <source>To upload a file to a blob, get a container reference and use it to get a blob reference.</source>
+          <target state="new">To upload a file to a blob, get a container reference and use it to get a blob reference.</target>
+        </trans-unit>
+        <trans-unit id="87befdc4-c1cf-410c-996a-5806b15d8b34" xml:space="preserve">
+          <source>Once you have a blob reference, you can upload any stream by calling upload on the blob reference.</source>
+          <target state="new">Once you have a blob reference, you can upload any stream by calling upload on the blob reference.</target>
+        </trans-unit>
+        <trans-unit id="d7fb26a8-988f-424a-a15e-036459908722" xml:space="preserve">
+          <source>This operation will create the blob if it doesn't exist, or overwrite it if it does.</source>
+          <target state="new">This operation will create the blob if it doesn't exist, or overwrite it if it does.</target>
+        </trans-unit>
+        <trans-unit id="c9720ba0-e7cf-49a2-bf70-0dbf5afee014" xml:space="preserve">
+          <source>The following code sample shows this, and assumes that the container has already been created.</source>
+          <target state="new">The following code sample shows this, and assumes that the container has already been created.</target>
+        </trans-unit>
+        <trans-unit id="8fcc3f38-4a7d-453a-8f45-714d4ca5d65b" xml:space="preserve">
+          <source>To list the blobs in a container, first get a container reference like you did to upload a blob.</source>
+          <target state="new">To list the blobs in a container, first get a container reference like you did to upload a blob.</target>
+        </trans-unit>
+        <trans-unit id="7f131805-ca98-4b9b-a47c-c6f81a898a99" xml:space="preserve">
+          <source>You can use the container's <bpt id="608405f9-b001-4c35-b5b8-14581533cb05">&lt;strong&gt;</bpt>listBlobs<ept id="608405f9-b001-4c35-b5b8-14581533cb05">&lt;/strong&gt;</ept> method with a <bpt id="13731c9b-942f-4df7-acf9-f9ebd4bb771e">&lt;strong&gt;</bpt>for<ept id="13731c9b-942f-4df7-acf9-f9ebd4bb771e">&lt;/strong&gt;</ept> loop.</source>
+          <target state="new">You can use the container's <bpt id="608405f9-b001-4c35-b5b8-14581533cb05">&lt;strong&gt;</bpt>listBlobs<ept id="608405f9-b001-4c35-b5b8-14581533cb05">&lt;/strong&gt;</ept> method with a <bpt id="13731c9b-942f-4df7-acf9-f9ebd4bb771e">&lt;strong&gt;</bpt>for<ept id="13731c9b-942f-4df7-acf9-f9ebd4bb771e">&lt;/strong&gt;</ept> loop.</target>
+        </trans-unit>
+        <trans-unit id="08eb27d7-d654-4e7f-86a6-a9cb92f750fc" xml:space="preserve">
+          <source>The following code outputs the Uri of each blob in a container to the console.</source>
+          <target state="new">The following code outputs the Uri of each blob in a container to the console.</target>
+        </trans-unit>
+        <trans-unit id="091a858e-95a6-4a4f-8f26-7f804892206b" xml:space="preserve">
+          <source>The blob service has the concept of directories within containers, as well.</source>
+          <target state="new">The blob service has the concept of directories within containers, as well.</target>
+        </trans-unit>
+        <trans-unit id="99722dc4-aec7-4d4f-8c04-7740f64d86f7" xml:space="preserve">
+          <source>This is so you can organize your blobs in a more folder-like structure.</source>
+          <target state="new">This is so you can organize your blobs in a more folder-like structure.</target>
+        </trans-unit>
+        <trans-unit id="27dd6f4f-5474-4f66-84f1-fd2d530c0214" xml:space="preserve">
+          <source>For example, you could have a container named "photos", in which you might upload blobs named "rootphoto1", "2010/photo1", "2010/photo2", and "2011/photo1".</source>
+          <target state="new">For example, you could have a container named "photos", in which you might upload blobs named "rootphoto1", "2010/photo1", "2010/photo2", and "2011/photo1".</target>
+        </trans-unit>
+        <trans-unit id="d2bbac1f-0afc-49ef-bfc5-9c3b0ebbfb21" xml:space="preserve">
+          <source>This would create the virtual directories "2010" and "2011" within the "photos" container.</source>
+          <target state="new">This would create the virtual directories "2010" and "2011" within the "photos" container.</target>
+        </trans-unit>
+        <trans-unit id="81736162-2aa4-4b6b-ae14-1892c7775820" xml:space="preserve">
+          <source>When you call <bpt id="9ce9457c-2e40-46eb-bb54-189e5fc11caf">&lt;strong&gt;</bpt>listBlobs<ept id="9ce9457c-2e40-46eb-bb54-189e5fc11caf">&lt;/strong&gt;</ept> on the "photos" container, the collection returned will contain <bpt id="fd25f790-106a-43ea-81a9-665db48af8a2">&lt;strong&gt;</bpt>CloudBlobDirectory<ept id="fd25f790-106a-43ea-81a9-665db48af8a2">&lt;/strong&gt;</ept> and <bpt id="96558546-c3b1-49ad-9e9e-be26e1046d44">&lt;strong&gt;</bpt>CloudBlob<ept id="96558546-c3b1-49ad-9e9e-be26e1046d44">&lt;/strong&gt;</ept> objects representing the directories and blobs contained at the top level.</source>
+          <target state="new">When you call <bpt id="9ce9457c-2e40-46eb-bb54-189e5fc11caf">&lt;strong&gt;</bpt>listBlobs<ept id="9ce9457c-2e40-46eb-bb54-189e5fc11caf">&lt;/strong&gt;</ept> on the "photos" container, the collection returned will contain <bpt id="fd25f790-106a-43ea-81a9-665db48af8a2">&lt;strong&gt;</bpt>CloudBlobDirectory<ept id="fd25f790-106a-43ea-81a9-665db48af8a2">&lt;/strong&gt;</ept> and <bpt id="96558546-c3b1-49ad-9e9e-be26e1046d44">&lt;strong&gt;</bpt>CloudBlob<ept id="96558546-c3b1-49ad-9e9e-be26e1046d44">&lt;/strong&gt;</ept> objects representing the directories and blobs contained at the top level.</target>
+        </trans-unit>
+        <trans-unit id="c08e34cf-6a08-4106-bac9-5043734c404c" xml:space="preserve">
+          <source>In this case, directories "2010" and "2011", as well as photo "rootphoto1" would be returned.</source>
+          <target state="new">In this case, directories "2010" and "2011", as well as photo "rootphoto1" would be returned.</target>
+        </trans-unit>
+        <trans-unit id="634f06e4-0b52-477a-8f2c-c533d7174be7" xml:space="preserve">
+          <source>You can use the <bpt id="d27a3af9-cb12-47d7-a181-6c08abe357e2">&lt;strong&gt;</bpt>instanceof<ept id="d27a3af9-cb12-47d7-a181-6c08abe357e2">&lt;/strong&gt;</ept> operator to distinguish these objects.</source>
+          <target state="new">You can use the <bpt id="d27a3af9-cb12-47d7-a181-6c08abe357e2">&lt;strong&gt;</bpt>instanceof<ept id="d27a3af9-cb12-47d7-a181-6c08abe357e2">&lt;/strong&gt;</ept> operator to distinguish these objects.</target>
+        </trans-unit>
+        <trans-unit id="e6e7b647-2f58-4e72-8691-fb562c18d37d" xml:space="preserve">
+          <source>Optionally, you can pass in parameters to the <bpt id="ecf6c675-2707-4aa7-8961-63d3f4fae13c">&lt;strong&gt;</bpt>listBlobs<ept id="ecf6c675-2707-4aa7-8961-63d3f4fae13c">&lt;/strong&gt;</ept> method with
+the <bpt id="61dec7c8-89e2-4a8b-979a-792ca5cad760">&lt;strong&gt;</bpt>useFlatBlobListing<ept id="61dec7c8-89e2-4a8b-979a-792ca5cad760">&lt;/strong&gt;</ept> parameter set to true.</source>
+          <target state="new">Optionally, you can pass in parameters to the <bpt id="ecf6c675-2707-4aa7-8961-63d3f4fae13c">&lt;strong&gt;</bpt>listBlobs<ept id="ecf6c675-2707-4aa7-8961-63d3f4fae13c">&lt;/strong&gt;</ept> method with
+the <bpt id="61dec7c8-89e2-4a8b-979a-792ca5cad760">&lt;strong&gt;</bpt>useFlatBlobListing<ept id="61dec7c8-89e2-4a8b-979a-792ca5cad760">&lt;/strong&gt;</ept> parameter set to true.</target>
+        </trans-unit>
+        <trans-unit id="117bcac7-5d28-41a4-9133-b99098b981a1" xml:space="preserve">
+          <source>This will result in
+every blob being returned, regardless of directory.</source>
+          <target state="new">This will result in
+every blob being returned, regardless of directory.</target>
+        </trans-unit>
+        <trans-unit id="500aa847-43ca-4dee-995a-52e30b966019" xml:space="preserve">
+          <source>For more
+information, see <bpt id="cb457269-4b3f-4dff-9f8c-44a6b733a6a4">&lt;strong&gt;</bpt>CloudBlobContainer.listBlobs<ept id="cb457269-4b3f-4dff-9f8c-44a6b733a6a4">&lt;/strong&gt;</ept> in the [Azure Storage Client SDK Reference].</source>
+          <target state="new">For more
+information, see <bpt id="cb457269-4b3f-4dff-9f8c-44a6b733a6a4">&lt;strong&gt;</bpt>CloudBlobContainer.listBlobs<ept id="cb457269-4b3f-4dff-9f8c-44a6b733a6a4">&lt;/strong&gt;</ept> in the [Azure Storage Client SDK Reference].</target>
+        </trans-unit>
+        <trans-unit id="f6583258-b7c9-4d4f-aa37-5fc47cb01d3a" xml:space="preserve">
+          <source>To download blobs, follow the same steps as you did for uploading a blob in order to get a blob reference.</source>
+          <target state="new">To download blobs, follow the same steps as you did for uploading a blob in order to get a blob reference.</target>
+        </trans-unit>
+        <trans-unit id="e6845cfa-92de-4090-9c05-2ca03b54b76b" xml:space="preserve">
+          <source>In the uploading example, you called upload on the blob object.</source>
+          <target state="new">In the uploading example, you called upload on the blob object.</target>
+        </trans-unit>
+        <trans-unit id="03287b92-d741-451c-a780-7aaf54fd83a3" xml:space="preserve">
+          <source>In the following example, call download to transfer the blob contents to a stream object such as a <bpt id="75a828e9-ced4-4f65-bd12-2efce66e9bca">&lt;strong&gt;</bpt>FileOutputStream<ept id="75a828e9-ced4-4f65-bd12-2efce66e9bca">&lt;/strong&gt;</ept> that you can use to persist the blob to a local file.</source>
+          <target state="new">In the following example, call download to transfer the blob contents to a stream object such as a <bpt id="75a828e9-ced4-4f65-bd12-2efce66e9bca">&lt;strong&gt;</bpt>FileOutputStream<ept id="75a828e9-ced4-4f65-bd12-2efce66e9bca">&lt;/strong&gt;</ept> that you can use to persist the blob to a local file.</target>
+        </trans-unit>
+        <trans-unit id="e773aa5f-c8e5-4229-9243-c1b01d1d4063" xml:space="preserve">
+          <source>To delete a blob, get a blob reference, and call <bpt id="2cd606be-0176-4103-9152-8d118b42dc4f">&lt;strong&gt;</bpt>deleteIfExists<ept id="2cd606be-0176-4103-9152-8d118b42dc4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To delete a blob, get a blob reference, and call <bpt id="2cd606be-0176-4103-9152-8d118b42dc4f">&lt;strong&gt;</bpt>deleteIfExists<ept id="2cd606be-0176-4103-9152-8d118b42dc4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ce441dd-821a-496a-8835-f1d2616cf87b" xml:space="preserve">
+          <source>Finally, to delete a blob container, get a blob container reference, and
+call <bpt id="8b1ebef3-16ab-44a3-8e7d-a051a1b4fc2c">&lt;strong&gt;</bpt>deleteIfExists<ept id="8b1ebef3-16ab-44a3-8e7d-a051a1b4fc2c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Finally, to delete a blob container, get a blob container reference, and
+call <bpt id="8b1ebef3-16ab-44a3-8e7d-a051a1b4fc2c">&lt;strong&gt;</bpt>deleteIfExists<ept id="8b1ebef3-16ab-44a3-8e7d-a051a1b4fc2c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3101a78c-8329-4530-bb1d-ddca13923162" xml:space="preserve">
+          <source>Now that you've learned the basics of Blob storage, follow these links to learn about more complex storage tasks.</source>
+          <target state="new">Now that you've learned the basics of Blob storage, follow these links to learn about more complex storage tasks.</target>
+        </trans-unit>
+        <trans-unit id="290be7ad-c607-4677-bf1b-231eb85b5403" xml:space="preserve">
+          <source><bpt id="e5900b03-9656-4ce9-b610-c419f2373ed5">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="e5900b03-9656-4ce9-b610-c419f2373ed5">&lt;/linkText&gt;</ept><bpt id="e5900b03-9656-4ce9-b610-c419f2373ed5">&lt;title&gt;</bpt><ept id="e5900b03-9656-4ce9-b610-c419f2373ed5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e5900b03-9656-4ce9-b610-c419f2373ed5">&lt;linkText&gt;</bpt>Azure Storage SDK for Java<ept id="e5900b03-9656-4ce9-b610-c419f2373ed5">&lt;/linkText&gt;</ept><bpt id="e5900b03-9656-4ce9-b610-c419f2373ed5">&lt;title&gt;</bpt><ept id="e5900b03-9656-4ce9-b610-c419f2373ed5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d33565cd-9bb6-4116-a38f-13f822eaaa62" xml:space="preserve">
+          <source><bpt id="175730f2-c030-43c1-8247-42903bdd3ea2">&lt;linkText&gt;</bpt>Azure Storage Client SDK Reference<ept id="175730f2-c030-43c1-8247-42903bdd3ea2">&lt;/linkText&gt;</ept><bpt id="175730f2-c030-43c1-8247-42903bdd3ea2">&lt;title&gt;</bpt><ept id="175730f2-c030-43c1-8247-42903bdd3ea2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="175730f2-c030-43c1-8247-42903bdd3ea2">&lt;linkText&gt;</bpt>Azure Storage Client SDK Reference<ept id="175730f2-c030-43c1-8247-42903bdd3ea2">&lt;/linkText&gt;</ept><bpt id="175730f2-c030-43c1-8247-42903bdd3ea2">&lt;title&gt;</bpt><ept id="175730f2-c030-43c1-8247-42903bdd3ea2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0a7a6d9-f48e-45ff-bfa8-912dd1390642" xml:space="preserve">
+          <source><bpt id="89be697e-d709-46d7-9569-6518fd5b8264">&lt;linkText&gt;</bpt>Azure Storage REST API<ept id="89be697e-d709-46d7-9569-6518fd5b8264">&lt;/linkText&gt;</ept><bpt id="89be697e-d709-46d7-9569-6518fd5b8264">&lt;title&gt;</bpt><ept id="89be697e-d709-46d7-9569-6518fd5b8264">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="89be697e-d709-46d7-9569-6518fd5b8264">&lt;linkText&gt;</bpt>Azure Storage REST API<ept id="89be697e-d709-46d7-9569-6518fd5b8264">&lt;/linkText&gt;</ept><bpt id="89be697e-d709-46d7-9569-6518fd5b8264">&lt;title&gt;</bpt><ept id="89be697e-d709-46d7-9569-6518fd5b8264">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6b9c2b8-df47-4f8d-8e69-b2b2543d3cda" xml:space="preserve">
+          <source><bpt id="6dde0d66-c175-41a8-b415-a30645be8dd3">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="6dde0d66-c175-41a8-b415-a30645be8dd3">&lt;/linkText&gt;</ept><bpt id="6dde0d66-c175-41a8-b415-a30645be8dd3">&lt;title&gt;</bpt><ept id="6dde0d66-c175-41a8-b415-a30645be8dd3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6dde0d66-c175-41a8-b415-a30645be8dd3">&lt;linkText&gt;</bpt>Azure Storage Team Blog<ept id="6dde0d66-c175-41a8-b415-a30645be8dd3">&lt;/linkText&gt;</ept><bpt id="6dde0d66-c175-41a8-b415-a30645be8dd3">&lt;title&gt;</bpt><ept id="6dde0d66-c175-41a8-b415-a30645be8dd3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a916fc6-ba29-4d10-a668-caa1af543a17" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525671</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525671</target>
+        </trans-unit>
+        <trans-unit id="5495409b-c1e1-4902-b759-19b30194d86b" xml:space="preserve">
+          <source>https://github.com/azure/azure-storage-java</source>
+          <target state="new">https://github.com/azure/azure-storage-java</target>
+        </trans-unit>
+        <trans-unit id="d5718005-cfb0-4904-911f-ced44b1eca77" xml:space="preserve">
+          <source>https://github.com/azure/azure-storage-android</source>
+          <target state="new">https://github.com/azure/azure-storage-android</target>
+        </trans-unit>
+        <trans-unit id="2e2bf862-689f-4769-a759-a524b44ca07a" xml:space="preserve">
+          <source>http://dl.windowsazure.com/storage/javadoc/</source>
+          <target state="new">http://dl.windowsazure.com/storage/javadoc/</target>
+        </trans-unit>
+        <trans-unit id="5220698a-c07b-4deb-9345-d94c926649a4" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/gg433040.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/gg433040.aspx</target>
+        </trans-unit>
+        <trans-unit id="3a90a206-0d8e-4b54-a023-3d1f06a2ea4c" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/windowsazurestorage/</source>
+          <target state="new">http://blogs.msdn.com/b/windowsazurestorage/</target>
+        </trans-unit>
+      </group>
+      <group id="c6af2652-d184-4a1c-aa1d-eeaf89fbdae8" />
+    </body>
+  </file>
+</xliff>

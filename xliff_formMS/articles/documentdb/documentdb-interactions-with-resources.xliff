@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1742550d-ab88-4bac-9d28-301e91d1d214" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1742550d-ab88-4bac-9d28-301e91d1d214" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4d6589a7-d478-42e5-b148-89958f49bf91">
+        <trans-unit id="3cd12f60-3774-4795-9a5b-50be6a7f872d" xml:space="preserve">
+          <source>RESTful interactions with DocumentDB resources | Microsoft Azure</source>
+          <target state="new">RESTful interactions with DocumentDB resources | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e544f360-a0b9-4932-b143-acd3d82c380f" xml:space="preserve">
+          <source>Learn how to perform RESTful interactions with Microsoft Azure DocumentDB resources by using HTTP verbs.</source>
+          <target state="new">Learn how to perform RESTful interactions with Microsoft Azure DocumentDB resources by using HTTP verbs.</target>
+        </trans-unit>
+        <trans-unit id="55ccfd74-44d0-48bf-b127-57c0c18deb89" xml:space="preserve">
+          <source>DocumentDB supports the use of HTTP methods to create, read, replace, get, and delete DocumentDB resources.</source>
+          <target state="new">DocumentDB supports the use of HTTP methods to create, read, replace, get, and delete DocumentDB resources.</target>
+        </trans-unit>
+        <trans-unit id="4b916be8-cacc-4432-9a1d-0562cf1889d4" xml:space="preserve">
+          <source>By reading this article, you'll be able to answer the following questions:</source>
+          <target state="new">By reading this article, you'll be able to answer the following questions:</target>
+        </trans-unit>
+        <trans-unit id="779c389c-7638-45d7-aa13-805a479c0045" xml:space="preserve">
+          <source>How do the standard HTTP methods work with DocumentDB resources?</source>
+          <target state="new">How do the standard HTTP methods work with DocumentDB resources?</target>
+        </trans-unit>
+        <trans-unit id="ee24518f-c515-4bff-a071-2b3b619d2dbf" xml:space="preserve">
+          <source>How do I create a new resource using POST?</source>
+          <target state="new">How do I create a new resource using POST?</target>
+        </trans-unit>
+        <trans-unit id="b464e884-532e-422f-8f65-84649a2f18ff" xml:space="preserve">
+          <source>How do I register a stored procedure using POST?</source>
+          <target state="new">How do I register a stored procedure using POST?</target>
+        </trans-unit>
+        <trans-unit id="2ff74c0f-945b-495b-afb3-017aa204d174" xml:space="preserve">
+          <source>How does DocumentDB support currency control?</source>
+          <target state="new">How does DocumentDB support currency control?</target>
+        </trans-unit>
+        <trans-unit id="307f2ef9-2078-40ba-a152-19da9097176b" xml:space="preserve">
+          <source>What are the connectivity options for HTTPS and TCP?</source>
+          <target state="new">What are the connectivity options for HTTPS and TCP?</target>
+        </trans-unit>
+        <trans-unit id="9e2f5520-e055-4483-87b9-673ebe5caf4e" xml:space="preserve">
+          <source>DocumentDB resources support the following HTTP verbs with their standard interpretation:</source>
+          <target state="new">DocumentDB resources support the following HTTP verbs with their standard interpretation:</target>
+        </trans-unit>
+        <trans-unit id="62c7dc06-07a9-41ce-87a3-339b349441ce" xml:space="preserve">
+          <source>POST means create a new item resource.</source>
+          <target state="new">POST means create a new item resource.</target>
+        </trans-unit>
+        <trans-unit id="55cea782-b0eb-48ae-a6ce-c226c6b4128a" xml:space="preserve">
+          <source>GET means read an existing item or a feed resource </source>
+          <target state="new">GET means read an existing item or a feed resource </target>
+        </trans-unit>
+        <trans-unit id="a0604486-d406-45e1-8906-4b4d178e6ffb" xml:space="preserve">
+          <source>PUT means replace an existing item resource </source>
+          <target state="new">PUT means replace an existing item resource </target>
+        </trans-unit>
+        <trans-unit id="ade71b5c-6f06-4dab-a54c-cb6e83e4f4f8" xml:space="preserve">
+          <source>DELETE means delete an existing  item resource</source>
+          <target state="new">DELETE means delete an existing  item resource</target>
+        </trans-unit>
+        <trans-unit id="eb8a44b1-5352-4863-aa13-eaa0a516f09e" xml:space="preserve">
+          <source>HEAD means GET sans the response payload (i.e. just the headers) </source>
+          <target state="new">HEAD means GET sans the response payload (i.e. just the headers) </target>
+        </trans-unit>
+        <trans-unit id="81916dcc-96c8-4da0-9ebe-d98196d472c0" xml:space="preserve">
+          <source>In the future, we intend to add support for selective updates via PATCH.</source>
+          <target state="new">In the future, we intend to add support for selective updates via PATCH.</target>
+        </trans-unit>
+        <trans-unit id="1576e2a0-c1ff-448f-bc9b-8ee67d0f700e" xml:space="preserve">
+          <source>As illustrated in the following diagram, POST can only be issued against a feed resource; PUT and DELETE can only be issued against an item resource; GET and HEAD can be issued against either feed or item resources.</source>
+          <target state="new">As illustrated in the following diagram, POST can only be issued against a feed resource; PUT and DELETE can only be issued against an item resource; GET and HEAD can be issued against either feed or item resources.</target>
+        </trans-unit>
+        <trans-unit id="239baad0-eb89-4f2b-9214-7a27f0de2716" xml:space="preserve">
+          <source><bpt id="8672687f-a802-471b-b6de-86ea5a840214">&lt;linkText&gt;</bpt><ept id="8672687f-a802-471b-b6de-86ea5a840214">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="8672687f-a802-471b-b6de-86ea5a840214">&lt;linkText&gt;</bpt><ept id="8672687f-a802-471b-b6de-86ea5a840214">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="871b65af-6966-493f-9096-3846f7e91299" xml:space="preserve">
+          <source><bpt id="8abd2aba-b04e-4daf-9fac-45f82a5a9c90">&lt;strong&gt;</bpt>Interaction model using the standard HTTP methods<ept id="8abd2aba-b04e-4daf-9fac-45f82a5a9c90">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8abd2aba-b04e-4daf-9fac-45f82a5a9c90">&lt;strong&gt;</bpt>Interaction model using the standard HTTP methods<ept id="8abd2aba-b04e-4daf-9fac-45f82a5a9c90">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1f7481d-02ba-4ac9-ae56-7a29a73f5da7" xml:space="preserve">
+          <source>To get a better feel for the interaction model, let’s consider the case of creating a new resource (aka INSERT).</source>
+          <target state="new">To get a better feel for the interaction model, let’s consider the case of creating a new resource (aka INSERT).</target>
+        </trans-unit>
+        <trans-unit id="bec9bc0d-cd95-4c41-a39d-8d0ae443bcef" xml:space="preserve">
+          <source>In order to create a new resource you are required to issue an HTTP POST request with the request body containing the representation of the resource against the URI of the container feed the resource belongs to.</source>
+          <target state="new">In order to create a new resource you are required to issue an HTTP POST request with the request body containing the representation of the resource against the URI of the container feed the resource belongs to.</target>
+        </trans-unit>
+        <trans-unit id="b5224092-23d9-458b-902d-79a1baa13468" xml:space="preserve">
+          <source>The only required property for the request is the id of the resource.</source>
+          <target state="new">The only required property for the request is the id of the resource.</target>
+        </trans-unit>
+        <trans-unit id="c208d59c-3d84-49c4-b99f-30eff6ef1ddf" xml:space="preserve">
+          <source>As an example, in order to create a new database, you POST a database resource (by setting the id property with a unique name) against /dbs.</source>
+          <target state="new">As an example, in order to create a new database, you POST a database resource (by setting the id property with a unique name) against /dbs.</target>
+        </trans-unit>
+        <trans-unit id="bec06fdd-a91b-49c7-81ce-30058e52f343" xml:space="preserve">
+          <source>Similarly, in order to create a new collection, you POST a collection resource against <bpt id="b9904102-8744-41a7-91f6-13654b5ba0bd">&lt;em&gt;</bpt>/dbs/_rid/colls/<ept id="b9904102-8744-41a7-91f6-13654b5ba0bd">&lt;/em&gt;</ept> and so on.</source>
+          <target state="new">Similarly, in order to create a new collection, you POST a collection resource against <bpt id="b9904102-8744-41a7-91f6-13654b5ba0bd">&lt;em&gt;</bpt>/dbs/_rid/colls/<ept id="b9904102-8744-41a7-91f6-13654b5ba0bd">&lt;/em&gt;</ept> and so on.</target>
+        </trans-unit>
+        <trans-unit id="f5cee57a-9568-424e-994a-abbcf1e1f2a5" xml:space="preserve">
+          <source>The response contains the fully committed resource with the system generated properties including the <bpt id="0c5576d2-2558-40f0-96e3-d50f6b709ab8">&lt;em&gt;</bpt>_self<ept id="0c5576d2-2558-40f0-96e3-d50f6b709ab8">&lt;/em&gt;</ept> link of the resource using which you can navigate to other resources.</source>
+          <target state="new">The response contains the fully committed resource with the system generated properties including the <bpt id="0c5576d2-2558-40f0-96e3-d50f6b709ab8">&lt;em&gt;</bpt>_self<ept id="0c5576d2-2558-40f0-96e3-d50f6b709ab8">&lt;/em&gt;</ept> link of the resource using which you can navigate to other resources.</target>
+        </trans-unit>
+        <trans-unit id="8b8fbdcd-d52d-4f9c-938e-38e58b5fc255" xml:space="preserve">
+          <source>As an example of the simple HTTP based interaction model, a client can issue an HTTP request to create a new database within an account.</source>
+          <target state="new">As an example of the simple HTTP based interaction model, a client can issue an HTTP request to create a new database within an account.</target>
+        </trans-unit>
+        <trans-unit id="7ebc8bf4-c495-42e0-9c9a-ee163b53f1b7" xml:space="preserve">
+          <source>As another example of creating and executing a resource, consider a simple "HelloWorld" stored procedure written entirely in JavaScript.</source>
+          <target state="new">As another example of creating and executing a resource, consider a simple "HelloWorld" stored procedure written entirely in JavaScript.</target>
+        </trans-unit>
+        <trans-unit id="e542fbaf-6ee6-4616-962a-cc86c3c77c40" xml:space="preserve">
+          <source>The stored procedure can be registered to a collection under MyDb by issuing a POST against <bpt id="95f99f64-0b2f-4aa1-86cc-7353b09004ae">&lt;em&gt;</bpt>/dbs/_rid-db/colls/_rid-coll/sprocs<ept id="95f99f64-0b2f-4aa1-86cc-7353b09004ae">&lt;/em&gt;</ept>.</source>
+          <target state="new">The stored procedure can be registered to a collection under MyDb by issuing a POST against <bpt id="95f99f64-0b2f-4aa1-86cc-7353b09004ae">&lt;em&gt;</bpt>/dbs/_rid-db/colls/_rid-coll/sprocs<ept id="95f99f64-0b2f-4aa1-86cc-7353b09004ae">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e1e04cd-819d-4313-b2a8-4bbe11a57aad" xml:space="preserve">
+          <source>The DocumentDB service responds with a successful response and a status code indicating successful registration of the stored procedure.</source>
+          <target state="new">The DocumentDB service responds with a successful response and a status code indicating successful registration of the stored procedure.</target>
+        </trans-unit>
+        <trans-unit id="c44510c1-a53c-4ede-a848-38a4199a9e94" xml:space="preserve">
+          <source>Finally, to execute the stored procedure in the above example, one needs to issue a POST against the URI of the stored procedure resource (/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA==/) as illustrated below.</source>
+          <target state="new">Finally, to execute the stored procedure in the above example, one needs to issue a POST against the URI of the stored procedure resource (/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA==/) as illustrated below.</target>
+        </trans-unit>
+        <trans-unit id="e663ebd9-69f4-45fb-9cdb-eddc08fc6ede" xml:space="preserve">
+          <source>The DocumentDB service responds with the following response.</source>
+          <target state="new">The DocumentDB service responds with the following response.</target>
+        </trans-unit>
+        <trans-unit id="fba0dd0b-a2c2-4d75-a8f2-b1960fac5ce8" xml:space="preserve">
+          <source>Note that the POST verb is used for creation of a new resource, for executing a stored procedure, and for issuing a SQL query.</source>
+          <target state="new">Note that the POST verb is used for creation of a new resource, for executing a stored procedure, and for issuing a SQL query.</target>
+        </trans-unit>
+        <trans-unit id="424bfdb5-b191-4ce0-88e0-9d048a039340" xml:space="preserve">
+          <source>To illustrate the SQL query execution, consider the following.</source>
+          <target state="new">To illustrate the SQL query execution, consider the following.</target>
+        </trans-unit>
+        <trans-unit id="003a3606-7e0a-47ff-ac7c-23145276e3d0" xml:space="preserve">
+          <source>The service responds with the results of the SQL query.</source>
+          <target state="new">The service responds with the results of the SQL query.</target>
+        </trans-unit>
+        <trans-unit id="d21d4bcd-42a3-43a5-b3c0-931931f65131" xml:space="preserve">
+          <source>Replacing or reading a resource amounts to issuing PUT (with a valid request body) and GET verbs against the <bpt id="d623dd7f-189b-4803-99bc-d699efd6dc4d">&lt;em&gt;</bpt>_self<ept id="d623dd7f-189b-4803-99bc-d699efd6dc4d">&lt;/em&gt;</ept> link of the resource respectively.</source>
+          <target state="new">Replacing or reading a resource amounts to issuing PUT (with a valid request body) and GET verbs against the <bpt id="d623dd7f-189b-4803-99bc-d699efd6dc4d">&lt;em&gt;</bpt>_self<ept id="d623dd7f-189b-4803-99bc-d699efd6dc4d">&lt;/em&gt;</ept> link of the resource respectively.</target>
+        </trans-unit>
+        <trans-unit id="11a99e7b-e2e5-4506-a7ee-a83672bb8878" xml:space="preserve">
+          <source>Likewise, deleting a resource amounts to issuing a DELETE verb against the <bpt id="67b0c8e9-f460-4913-a512-d9fafefbfb0c">&lt;em&gt;</bpt>_self<ept id="67b0c8e9-f460-4913-a512-d9fafefbfb0c">&lt;/em&gt;</ept> link of the resource.</source>
+          <target state="new">Likewise, deleting a resource amounts to issuing a DELETE verb against the <bpt id="67b0c8e9-f460-4913-a512-d9fafefbfb0c">&lt;em&gt;</bpt>_self<ept id="67b0c8e9-f460-4913-a512-d9fafefbfb0c">&lt;/em&gt;</ept> link of the resource.</target>
+        </trans-unit>
+        <trans-unit id="c4e4d655-0fec-4fac-b696-6bfbe6b0baac" xml:space="preserve">
+          <source>It is worth pointing out that the hierarchical organization of resources in the DocumentDB’s resource model necessitates the support for cascaded deletes wherein deleting the owner resource causes deletion of the dependent resources.</source>
+          <target state="new">It is worth pointing out that the hierarchical organization of resources in the DocumentDB’s resource model necessitates the support for cascaded deletes wherein deleting the owner resource causes deletion of the dependent resources.</target>
+        </trans-unit>
+        <trans-unit id="6a7b5468-13b3-4bf0-b6ce-114299dcf33c" xml:space="preserve">
+          <source>The dependent resources may be distributed across other nodes than the owner resources and so the deletion could happen lazily.</source>
+          <target state="new">The dependent resources may be distributed across other nodes than the owner resources and so the deletion could happen lazily.</target>
+        </trans-unit>
+        <trans-unit id="ba2153bd-9973-4b3f-a0ae-258365855923" xml:space="preserve">
+          <source>Regardless of mechanics of the garbage collection, upon deletion of a resource, the quota is instantly freed up and is available for you to use.</source>
+          <target state="new">Regardless of mechanics of the garbage collection, upon deletion of a resource, the quota is instantly freed up and is available for you to use.</target>
+        </trans-unit>
+        <trans-unit id="4f0f0f60-2ae5-4162-aa0c-6fd0f9e63d60" xml:space="preserve">
+          <source>Note that the referential integrity is preserved by the system.</source>
+          <target state="new">Note that the referential integrity is preserved by the system.</target>
+        </trans-unit>
+        <trans-unit id="35ab5c4c-e391-4788-a112-5b8d5e2c1b2d" xml:space="preserve">
+          <source>For instance, you cannot insert a collection to a database which is deleted or replace or query a document of a collection which no longer exists.</source>
+          <target state="new">For instance, you cannot insert a collection to a database which is deleted or replace or query a document of a collection which no longer exists.</target>
+        </trans-unit>
+        <trans-unit id="04783d7b-6aaa-4d17-9238-e4f30fb6645e" xml:space="preserve">
+          <source>Issuing a GET against a feed of resources or querying a collection may result into potentially millions of items, thus making it impractical for both server to materialize them and clients to consume them as part of a single roundtrip/ request and response exchange.</source>
+          <target state="new">Issuing a GET against a feed of resources or querying a collection may result into potentially millions of items, thus making it impractical for both server to materialize them and clients to consume them as part of a single roundtrip/ request and response exchange.</target>
+        </trans-unit>
+        <trans-unit id="794b74c5-ce16-40d7-83ab-6948b9bfecb4" xml:space="preserve">
+          <source>To address this, DocumentDB allows the clients to paginate over the large feed page-at-a-time.</source>
+          <target state="new">To address this, DocumentDB allows the clients to paginate over the large feed page-at-a-time.</target>
+        </trans-unit>
+        <trans-unit id="0c4d3b45-d2c1-49f4-8f13-4a76207e730f" xml:space="preserve">
+          <source>The clients can use the [x-ms-continuation] response header as a cursor to navigate to the next page.</source>
+          <target state="new">The clients can use the [x-ms-continuation] response header as a cursor to navigate to the next page.</target>
+        </trans-unit>
+        <trans-unit id="657e91ec-5bcc-47c8-8fbc-642e1ef564ab" xml:space="preserve">
+          <source>Most web applications rely on entity tag based optimistic concurrency control to avoid the infamous “Lost Update” and “Lost Delete” problems.</source>
+          <target state="new">Most web applications rely on entity tag based optimistic concurrency control to avoid the infamous “Lost Update” and “Lost Delete” problems.</target>
+        </trans-unit>
+        <trans-unit id="9542e3fb-51c9-4b73-9646-2b3b43e86081" xml:space="preserve">
+          <source>The entity tag is a HTTP friendly, logical timestamp associated with a resource.</source>
+          <target state="new">The entity tag is a HTTP friendly, logical timestamp associated with a resource.</target>
+        </trans-unit>
+        <trans-unit id="e7be6987-105c-4f4c-bf8a-88f67974f70a" xml:space="preserve">
+          <source>DocumentDB natively support the optimistic concurrency control by ensuring that every HTTP response contains the version (durably) associated with the specific resource.</source>
+          <target state="new">DocumentDB natively support the optimistic concurrency control by ensuring that every HTTP response contains the version (durably) associated with the specific resource.</target>
+        </trans-unit>
+        <trans-unit id="375f2972-a721-4be1-9ab1-18064347547b" xml:space="preserve">
+          <source>The concurrency control conflicts are correctly detected for the following cases:</source>
+          <target state="new">The concurrency control conflicts are correctly detected for the following cases:</target>
+        </trans-unit>
+        <trans-unit id="69d56c9b-eef8-4228-9969-7260f0b9f31c" xml:space="preserve">
+          <source>If two clients simultaneously issue mutating requests (via PUT/ DELETE verbs) on a resource with the latest version of the resource (specified via the [if-match] request header), the DocumentDB database engine subjects them to the transactional concurrency control.</source>
+          <target state="new">If two clients simultaneously issue mutating requests (via PUT/ DELETE verbs) on a resource with the latest version of the resource (specified via the [if-match] request header), the DocumentDB database engine subjects them to the transactional concurrency control.</target>
+        </trans-unit>
+        <trans-unit id="f36776e6-c871-4e49-8826-41805a46ee3e" xml:space="preserve">
+          <source>If a client presents with an older version of the resource (specified via the [if-match] request header), its request is rejected.</source>
+          <target state="new">If a client presents with an older version of the resource (specified via the [if-match] request header), its request is rejected.</target>
+        </trans-unit>
+        <trans-unit id="8820bced-92ee-475f-a49a-d8f00949567a" xml:space="preserve">
+          <source>DocumentDB exposes a logical addressing model wherein each resource has a logical and stable URI identified by its <bpt id="26499ba9-ad5e-4b7d-9fac-98355e96b0b2">&lt;em&gt;</bpt>_self<ept id="26499ba9-ad5e-4b7d-9fac-98355e96b0b2">&lt;/em&gt;</ept> link.</source>
+          <target state="new">DocumentDB exposes a logical addressing model wherein each resource has a logical and stable URI identified by its <bpt id="26499ba9-ad5e-4b7d-9fac-98355e96b0b2">&lt;em&gt;</bpt>_self<ept id="26499ba9-ad5e-4b7d-9fac-98355e96b0b2">&lt;/em&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="b4f50de8-1faf-45df-8328-11527a88733a" xml:space="preserve">
+          <source>As a distributed storage system spread across regions, the resources under various database accounts in DocumentDB are partitioned across numerous machines and each partition is replicated for high availability.</source>
+          <target state="new">As a distributed storage system spread across regions, the resources under various database accounts in DocumentDB are partitioned across numerous machines and each partition is replicated for high availability.</target>
+        </trans-unit>
+        <trans-unit id="be3f632a-f4fb-4cfa-9613-395d6fdd967b" xml:space="preserve">
+          <source>The replicas managing the resources of a given partition register physical addresses.</source>
+          <target state="new">The replicas managing the resources of a given partition register physical addresses.</target>
+        </trans-unit>
+        <trans-unit id="da48bc89-4ffa-49af-a055-6b90cb0ccf4c" xml:space="preserve">
+          <source>While the physical addresses change over the course of time due to failures, their logical addresses remain stable and constant.</source>
+          <target state="new">While the physical addresses change over the course of time due to failures, their logical addresses remain stable and constant.</target>
+        </trans-unit>
+        <trans-unit id="e712e593-fc9b-4762-b69d-4dee2b753968" xml:space="preserve">
+          <source>The logical to physical address translation is kept in a routing table which is also internally available as a resource.</source>
+          <target state="new">The logical to physical address translation is kept in a routing table which is also internally available as a resource.</target>
+        </trans-unit>
+        <trans-unit id="45b49b9a-27f9-43a1-a30b-28291c2b837a" xml:space="preserve">
+          <source>DocumentDB exposes two connectivity modes:</source>
+          <target state="new">DocumentDB exposes two connectivity modes:</target>
+        </trans-unit>
+        <trans-unit id="b1d7a6af-5d08-4601-8946-f6387e656299" xml:space="preserve">
+          <source><bpt id="7c2d24b6-8ce2-42b7-adad-c05f940473d9">&lt;strong&gt;</bpt>Gateway Mode:<ept id="7c2d24b6-8ce2-42b7-adad-c05f940473d9">&lt;/strong&gt;</ept> The clients are shielded from the translation between logical to physical addresses or the details of the routing; they simply deal with logical URIs and RESTfully navigate the resource model.</source>
+          <target state="new"><bpt id="7c2d24b6-8ce2-42b7-adad-c05f940473d9">&lt;strong&gt;</bpt>Gateway Mode:<ept id="7c2d24b6-8ce2-42b7-adad-c05f940473d9">&lt;/strong&gt;</ept> The clients are shielded from the translation between logical to physical addresses or the details of the routing; they simply deal with logical URIs and RESTfully navigate the resource model.</target>
+        </trans-unit>
+        <trans-unit id="5387fe4a-9269-4c14-ab50-01e3c87e5c53" xml:space="preserve">
+          <source>The clients issue the requests using logical URI and the edge machines translate the logical URI to the physical address of the replica which manages the resource and forwards the request.</source>
+          <target state="new">The clients issue the requests using logical URI and the edge machines translate the logical URI to the physical address of the replica which manages the resource and forwards the request.</target>
+        </trans-unit>
+        <trans-unit id="dfb60e90-8f9b-4232-9cbf-4f376b9ea36f" xml:space="preserve">
+          <source>With the edge machines caching (and periodically refreshing) the routing table, routing is extremely efficient.</source>
+          <target state="new">With the edge machines caching (and periodically refreshing) the routing table, routing is extremely efficient.</target>
+        </trans-unit>
+        <trans-unit id="a15c687c-ad31-440d-919b-e45919e159c3" xml:space="preserve">
+          <source><bpt id="40860bdd-56b8-4044-9120-ad8d47393a76">&lt;strong&gt;</bpt>Direct Connectivity Mode:<ept id="40860bdd-56b8-4044-9120-ad8d47393a76">&lt;/strong&gt;</ept> The clients directly manage the routing table in their process space and periodically refresh it.</source>
+          <target state="new"><bpt id="40860bdd-56b8-4044-9120-ad8d47393a76">&lt;strong&gt;</bpt>Direct Connectivity Mode:<ept id="40860bdd-56b8-4044-9120-ad8d47393a76">&lt;/strong&gt;</ept> The clients directly manage the routing table in their process space and periodically refresh it.</target>
+        </trans-unit>
+        <trans-unit id="33186342-9568-4755-91bc-b67ec0f85363" xml:space="preserve">
+          <source>Client can directly connect with the replicas and bypass the edge machines.</source>
+          <target state="new">Client can directly connect with the replicas and bypass the edge machines.</target>
+        </trans-unit>
+        <trans-unit id="31100737-1097-484e-bd9b-04e1e7085772" xml:space="preserve">
+          <source>Connectivity Mode</source>
+          <target state="new">Connectivity Mode</target>
+        </trans-unit>
+        <trans-unit id="16e3aad5-9b22-4e88-98b0-c0d7985daca3" xml:space="preserve">
+          <source>Protocol</source>
+          <target state="new">Protocol</target>
+        </trans-unit>
+        <trans-unit id="fb60392d-baa3-49ff-9e67-3b0a0a9b2031" xml:space="preserve">
+          <source>Details</source>
+          <target state="new">Details</target>
+        </trans-unit>
+        <trans-unit id="0ccab482-faab-4687-8206-bc63d6481266" xml:space="preserve">
+          <source>DocumentDB SDKs</source>
+          <target state="new">DocumentDB SDKs</target>
+        </trans-unit>
+        <trans-unit id="8d44f8ba-4f62-436b-af9f-d132cb079ff7" xml:space="preserve">
+          <source>Gateway</source>
+          <target state="new">Gateway</target>
+        </trans-unit>
+        <trans-unit id="c17dfdf2-1b09-4dc5-900e-f349ca396766" xml:space="preserve">
+          <source>HTTPS</source>
+          <target state="new">HTTPS</target>
+        </trans-unit>
+        <trans-unit id="e5422b5d-1d43-480b-8d61-293982e8ef2b" xml:space="preserve">
+          <source>Applications directly connect with the edge nodes using logical URIs.</source>
+          <target state="new">Applications directly connect with the edge nodes using logical URIs.</target>
+        </trans-unit>
+        <trans-unit id="51fa8f2c-3d6e-4c85-b554-2fe1a52d6ab0" xml:space="preserve">
+          <source>This incurs an extra network hop.</source>
+          <target state="new">This incurs an extra network hop.</target>
+        </trans-unit>
+        <trans-unit id="2f8309ce-ff9a-408b-af48-da6aaf608692" xml:space="preserve">
+          <source>REST API, .NET, Node.js, Java, Python, JavaScript</source>
+          <target state="new">REST API, .NET, Node.js, Java, Python, JavaScript</target>
+        </trans-unit>
+        <trans-unit id="4248f54d-3e25-407a-b5d1-03ef37a15959" xml:space="preserve">
+          <source>Direct Connectivity</source>
+          <target state="new">Direct Connectivity</target>
+        </trans-unit>
+        <trans-unit id="cc8baf4e-ebad-485f-9dde-49b797da3dbe" xml:space="preserve">
+          <source>HTTPS and TCP</source>
+          <target state="new">HTTPS and TCP</target>
+        </trans-unit>
+        <trans-unit id="bb96f510-0094-4992-aaee-81a038383203" xml:space="preserve">
+          <source>The applications can directly access the routing table and perform the client side routing to directly connect with replicas.</source>
+          <target state="new">The applications can directly access the routing table and perform the client side routing to directly connect with replicas.</target>
+        </trans-unit>
+        <trans-unit id="e98485ba-b575-451d-872c-540f97b7a8cb" xml:space="preserve">
+          <source>.NET</source>
+          <target state="new">.NET</target>
+        </trans-unit>
+        <trans-unit id="2d12c960-859a-4700-b345-eb022354d63f" xml:space="preserve">
+          <source>Explore the <bpt id="d7d33d0f-e63e-4431-b6c0-b24b8fc9504d">&lt;linkText&gt;</bpt>Azure DocumentDB REST API Reference<ept id="d7d33d0f-e63e-4431-b6c0-b24b8fc9504d">&lt;/linkText&gt;</ept><bpt id="d7d33d0f-e63e-4431-b6c0-b24b8fc9504d">&lt;title&gt;</bpt><ept id="d7d33d0f-e63e-4431-b6c0-b24b8fc9504d">&lt;/title&gt;</ept> to learn more about working with resources using the REST API.</source>
+          <target state="new">Explore the <bpt id="d7d33d0f-e63e-4431-b6c0-b24b8fc9504d">&lt;linkText&gt;</bpt>Azure DocumentDB REST API Reference<ept id="d7d33d0f-e63e-4431-b6c0-b24b8fc9504d">&lt;/linkText&gt;</ept><bpt id="d7d33d0f-e63e-4431-b6c0-b24b8fc9504d">&lt;title&gt;</bpt><ept id="d7d33d0f-e63e-4431-b6c0-b24b8fc9504d">&lt;/title&gt;</ept> to learn more about working with resources using the REST API.</target>
+        </trans-unit>
+        <trans-unit id="64bd631c-7892-4430-a2df-935351e01818" xml:space="preserve">
+          <source><bpt id="ce429432-5772-4772-8fb5-82144785e68a">&lt;linkText&gt;</bpt>Azure DocumentDB REST API Reference<ept id="ce429432-5772-4772-8fb5-82144785e68a">&lt;/linkText&gt;</ept><bpt id="ce429432-5772-4772-8fb5-82144785e68a">&lt;title&gt;</bpt><ept id="ce429432-5772-4772-8fb5-82144785e68a">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="ce429432-5772-4772-8fb5-82144785e68a">&lt;linkText&gt;</bpt>Azure DocumentDB REST API Reference<ept id="ce429432-5772-4772-8fb5-82144785e68a">&lt;/linkText&gt;</ept><bpt id="ce429432-5772-4772-8fb5-82144785e68a">&lt;title&gt;</bpt><ept id="ce429432-5772-4772-8fb5-82144785e68a">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f63da885-ab8a-4927-8c80-95dbb3c78fa4" xml:space="preserve">
+          <source><bpt id="1d8991e5-6c89-40fc-8f94-da8073f78a10">&lt;linkText&gt;</bpt>Query DocumentDB<ept id="1d8991e5-6c89-40fc-8f94-da8073f78a10">&lt;/linkText&gt;</ept><bpt id="1d8991e5-6c89-40fc-8f94-da8073f78a10">&lt;title&gt;</bpt><ept id="1d8991e5-6c89-40fc-8f94-da8073f78a10">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1d8991e5-6c89-40fc-8f94-da8073f78a10">&lt;linkText&gt;</bpt>Query DocumentDB<ept id="1d8991e5-6c89-40fc-8f94-da8073f78a10">&lt;/linkText&gt;</ept><bpt id="1d8991e5-6c89-40fc-8f94-da8073f78a10">&lt;title&gt;</bpt><ept id="1d8991e5-6c89-40fc-8f94-da8073f78a10">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe2aae04-337d-40b3-8b3c-470d59a100d1" xml:space="preserve">
+          <source><bpt id="9249349f-a14a-4ad5-b09d-12093335c485">&lt;linkText&gt;</bpt>DocumentDB SQL Reference<ept id="9249349f-a14a-4ad5-b09d-12093335c485">&lt;/linkText&gt;</ept><bpt id="9249349f-a14a-4ad5-b09d-12093335c485">&lt;title&gt;</bpt><ept id="9249349f-a14a-4ad5-b09d-12093335c485">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9249349f-a14a-4ad5-b09d-12093335c485">&lt;linkText&gt;</bpt>DocumentDB SQL Reference<ept id="9249349f-a14a-4ad5-b09d-12093335c485">&lt;/linkText&gt;</ept><bpt id="9249349f-a14a-4ad5-b09d-12093335c485">&lt;title&gt;</bpt><ept id="9249349f-a14a-4ad5-b09d-12093335c485">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e24c890c-d4a6-4cbb-87ad-5a1eadd456d2" xml:space="preserve">
+          <source><bpt id="60e4dbc6-5137-436e-adbb-3c6452f1d2d7">&lt;linkText&gt;</bpt>DocumentDB Programming: Stored procedures, triggers, and UDFs<ept id="60e4dbc6-5137-436e-adbb-3c6452f1d2d7">&lt;/linkText&gt;</ept><bpt id="60e4dbc6-5137-436e-adbb-3c6452f1d2d7">&lt;title&gt;</bpt><ept id="60e4dbc6-5137-436e-adbb-3c6452f1d2d7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="60e4dbc6-5137-436e-adbb-3c6452f1d2d7">&lt;linkText&gt;</bpt>DocumentDB Programming: Stored procedures, triggers, and UDFs<ept id="60e4dbc6-5137-436e-adbb-3c6452f1d2d7">&lt;/linkText&gt;</ept><bpt id="60e4dbc6-5137-436e-adbb-3c6452f1d2d7">&lt;title&gt;</bpt><ept id="60e4dbc6-5137-436e-adbb-3c6452f1d2d7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a7ad19b-99a1-4a90-ba85-dac92ae8ead9" xml:space="preserve">
+          <source><bpt id="d464806f-4720-4ffd-9bba-2d862c0701eb">&lt;linkText&gt;</bpt>DocumentDB Reference Documentation<ept id="d464806f-4720-4ffd-9bba-2d862c0701eb">&lt;/linkText&gt;</ept><bpt id="d464806f-4720-4ffd-9bba-2d862c0701eb">&lt;title&gt;</bpt><ept id="d464806f-4720-4ffd-9bba-2d862c0701eb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d464806f-4720-4ffd-9bba-2d862c0701eb">&lt;linkText&gt;</bpt>DocumentDB Reference Documentation<ept id="d464806f-4720-4ffd-9bba-2d862c0701eb">&lt;/linkText&gt;</ept><bpt id="d464806f-4720-4ffd-9bba-2d862c0701eb">&lt;title&gt;</bpt><ept id="d464806f-4720-4ffd-9bba-2d862c0701eb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6ffb785-4ecc-4e57-bfb0-22d9e93dde7f" xml:space="preserve">
+          <source>REST [http://en.wikipedia.org/wiki/Representational<bpt id="b7e410e2-9e01-493d-8f92-679b81152114">&lt;em&gt;</bpt>state<ept id="b7e410e2-9e01-493d-8f92-679b81152114">&lt;/em&gt;</ept>transfer](http://en.wikipedia.org/wiki/Representational<bpt id="f483b7d4-555d-4b09-9e2f-9519cdcd49ed">&lt;em&gt;</bpt>state<ept id="f483b7d4-555d-4b09-9e2f-9519cdcd49ed">&lt;/em&gt;</ept>transfer)</source>
+          <target state="new">REST [http://en.wikipedia.org/wiki/Representational<bpt id="b7e410e2-9e01-493d-8f92-679b81152114">&lt;em&gt;</bpt>state<ept id="b7e410e2-9e01-493d-8f92-679b81152114">&lt;/em&gt;</ept>transfer](http://en.wikipedia.org/wiki/Representational<bpt id="f483b7d4-555d-4b09-9e2f-9519cdcd49ed">&lt;em&gt;</bpt>state<ept id="f483b7d4-555d-4b09-9e2f-9519cdcd49ed">&lt;/em&gt;</ept>transfer)</target>
+        </trans-unit>
+        <trans-unit id="81714f7e-c42c-460b-862b-f7c0a5ff6729" xml:space="preserve">
+          <source>JSON specification  <bpt id="4f0d14d2-a1b0-431f-a8d5-1f0a80a0b089">&lt;linkText&gt;</bpt>http://www.ietf.org/rfc/rfc4627.txt<ept id="4f0d14d2-a1b0-431f-a8d5-1f0a80a0b089">&lt;/linkText&gt;</ept><bpt id="4f0d14d2-a1b0-431f-a8d5-1f0a80a0b089">&lt;title&gt;</bpt><ept id="4f0d14d2-a1b0-431f-a8d5-1f0a80a0b089">&lt;/title&gt;</ept></source>
+          <target state="new">JSON specification  <bpt id="4f0d14d2-a1b0-431f-a8d5-1f0a80a0b089">&lt;linkText&gt;</bpt>http://www.ietf.org/rfc/rfc4627.txt<ept id="4f0d14d2-a1b0-431f-a8d5-1f0a80a0b089">&lt;/linkText&gt;</ept><bpt id="4f0d14d2-a1b0-431f-a8d5-1f0a80a0b089">&lt;title&gt;</bpt><ept id="4f0d14d2-a1b0-431f-a8d5-1f0a80a0b089">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab77af42-e007-412c-af9d-76f1ac2d0074" xml:space="preserve">
+          <source>HTTP specification <bpt id="e5568511-7000-49c0-b98a-c355b9ca0d29">&lt;linkText&gt;</bpt>http://www.w3.org/Protocols/rfc2616/rfc2616.html<ept id="e5568511-7000-49c0-b98a-c355b9ca0d29">&lt;/linkText&gt;</ept><bpt id="e5568511-7000-49c0-b98a-c355b9ca0d29">&lt;title&gt;</bpt><ept id="e5568511-7000-49c0-b98a-c355b9ca0d29">&lt;/title&gt;</ept></source>
+          <target state="new">HTTP specification <bpt id="e5568511-7000-49c0-b98a-c355b9ca0d29">&lt;linkText&gt;</bpt>http://www.w3.org/Protocols/rfc2616/rfc2616.html<ept id="e5568511-7000-49c0-b98a-c355b9ca0d29">&lt;/linkText&gt;</ept><bpt id="e5568511-7000-49c0-b98a-c355b9ca0d29">&lt;title&gt;</bpt><ept id="e5568511-7000-49c0-b98a-c355b9ca0d29">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ccd939e-8969-44bf-afdb-bee63fb80076" xml:space="preserve">
+          <source>Entity Tags [http://en.wikipedia.org/wiki/HTTP<bpt id="904b3bc5-3701-432d-9348-bec47b5c710b">&lt;em&gt;</bpt>ETag](http://en.wikipedia.org/wiki/HTTP<ept id="904b3bc5-3701-432d-9348-bec47b5c710b">&lt;/em&gt;</ept>ETag)</source>
+          <target state="new">Entity Tags [http://en.wikipedia.org/wiki/HTTP<bpt id="904b3bc5-3701-432d-9348-bec47b5c710b">&lt;em&gt;</bpt>ETag](http://en.wikipedia.org/wiki/HTTP<ept id="904b3bc5-3701-432d-9348-bec47b5c710b">&lt;/em&gt;</ept>ETag)</target>
+        </trans-unit>
+        <trans-unit id="fb150117-b41a-4c2d-91f2-7d6a745f3ede" xml:space="preserve">
+          <source>./media/documentdb-interactions-with-resources/interactions-with-resources2.png</source>
+          <target state="new">./media/documentdb-interactions-with-resources/interactions-with-resources2.png</target>
+        </trans-unit>
+      </group>
+      <group id="2245049e-815d-444c-803a-6fa3e0f0559e" />
+    </body>
+  </file>
+</xliff>

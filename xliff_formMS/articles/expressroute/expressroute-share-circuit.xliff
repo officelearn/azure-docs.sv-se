@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="763e00fc-8640-4d66-87ad-4e20a35b896f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="763e00fc-8640-4d66-87ad-4e20a35b896f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4e5ab974-1d08-403f-a8ec-2a6ad49ac8f4">
+        <trans-unit id="c496e5c2-b29a-4151-a2ff-50c3af59b7f9" xml:space="preserve">
+          <source>Sharing an ExpressRoute Circuit Across Multiple Subscriptions | Microsoft Azure</source>
+          <target state="new">Sharing an ExpressRoute Circuit Across Multiple Subscriptions | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="df53b7ee-6ac2-49ac-b0d4-010feaaa7e3e" xml:space="preserve">
+          <source>This article walks you through sharing your ExpressRoute circuit across multiple Azure subscriptions.</source>
+          <target state="new">This article walks you through sharing your ExpressRoute circuit across multiple Azure subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="6f5a201d-500d-484f-94e6-f37b2c26e37a" xml:space="preserve">
+          <source>A single ExpressRoute circuit can be shared across multiple subscriptions.</source>
+          <target state="new">A single ExpressRoute circuit can be shared across multiple subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="3f2e92f4-62b8-4f24-8ae6-37223829e956" xml:space="preserve">
+          <source><bpt id="5534d1c2-9623-4aa6-b387-1083c5ba29da">&lt;strong&gt;</bpt>Figure 1<ept id="5534d1c2-9623-4aa6-b387-1083c5ba29da">&lt;/strong&gt;</ept> shows a simple schematic of how sharing ExpressRoute circuits across multiple subscriptions works.</source>
+          <target state="new"><bpt id="5534d1c2-9623-4aa6-b387-1083c5ba29da">&lt;strong&gt;</bpt>Figure 1<ept id="5534d1c2-9623-4aa6-b387-1083c5ba29da">&lt;/strong&gt;</ept> shows a simple schematic of how sharing ExpressRoute circuits across multiple subscriptions works.</target>
+        </trans-unit>
+        <trans-unit id="057e0269-b31a-4985-b897-7d53d1a79f95" xml:space="preserve">
+          <source>Each of the smaller clouds within the large cloud is used to represent subscriptions belonging to different departments within an organization.</source>
+          <target state="new">Each of the smaller clouds within the large cloud is used to represent subscriptions belonging to different departments within an organization.</target>
+        </trans-unit>
+        <trans-unit id="31832a9c-e1b6-49c2-ad77-bc9fb5dac3aa" xml:space="preserve">
+          <source>Each of the departments within the organization can use their own subscription for deploying their services but can share a single ExpressRoute dedicated circuit to connect back to the corporate network.</source>
+          <target state="new">Each of the departments within the organization can use their own subscription for deploying their services but can share a single ExpressRoute dedicated circuit to connect back to the corporate network.</target>
+        </trans-unit>
+        <trans-unit id="43ff52d6-c806-4d66-9b73-3ab915ac8af5" xml:space="preserve">
+          <source>A single department (in this example: IT) can own the ExpressRoute dedicated circuit.</source>
+          <target state="new">A single department (in this example: IT) can own the ExpressRoute dedicated circuit.</target>
+        </trans-unit>
+        <trans-unit id="332a0b87-547c-4fa7-911d-b6caf9e57fd9" xml:space="preserve">
+          <source>Connectivity and bandwidth charges for the dedicated circuit will be applied to the dedicated circuit owner.</source>
+          <target state="new">Connectivity and bandwidth charges for the dedicated circuit will be applied to the dedicated circuit owner.</target>
+        </trans-unit>
+        <trans-unit id="8a9efaab-0e15-42f8-96e3-c843511b546b" xml:space="preserve">
+          <source>Other subscriptions within the organization can use the ExpressRoute circuit.</source>
+          <target state="new">Other subscriptions within the organization can use the ExpressRoute circuit.</target>
+        </trans-unit>
+        <trans-unit id="3433a4e1-54d2-4fc9-a3bb-029cd3dbdcbb" xml:space="preserve">
+          <source><bpt id="76e280bc-9f6f-44a3-9986-01641bac2093">&lt;strong&gt;</bpt>Figure 1<ept id="76e280bc-9f6f-44a3-9986-01641bac2093">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="76e280bc-9f6f-44a3-9986-01641bac2093">&lt;strong&gt;</bpt>Figure 1<ept id="76e280bc-9f6f-44a3-9986-01641bac2093">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="081b6bf2-379a-4283-bb94-9b13cc1d9cf3" xml:space="preserve">
+          <source><bpt id="a7c91625-57c9-45fd-bf62-7c81187a444e">&lt;linkText&gt;</bpt>Subscription Sharing<ept id="a7c91625-57c9-45fd-bf62-7c81187a444e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a7c91625-57c9-45fd-bf62-7c81187a444e">&lt;linkText&gt;</bpt>Subscription Sharing<ept id="a7c91625-57c9-45fd-bf62-7c81187a444e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38bbab30-b2c9-458f-83bd-8e0f7ee69773" xml:space="preserve">
+          <source>The <bpt id="8b56e461-13d7-4242-9bf8-e5c3fcf8e114">&lt;em&gt;</bpt>circuit owner<ept id="8b56e461-13d7-4242-9bf8-e5c3fcf8e114">&lt;/em&gt;</ept> is the administrator/co-administrator of the subscription in which the ExpressRoute dedicated circuit is created.</source>
+          <target state="new">The <bpt id="8b56e461-13d7-4242-9bf8-e5c3fcf8e114">&lt;em&gt;</bpt>circuit owner<ept id="8b56e461-13d7-4242-9bf8-e5c3fcf8e114">&lt;/em&gt;</ept> is the administrator/co-administrator of the subscription in which the ExpressRoute dedicated circuit is created.</target>
+        </trans-unit>
+        <trans-unit id="373d87e8-dbc2-43b9-b3ae-033d25fc5b00" xml:space="preserve">
+          <source>The circuit owner can authorize administrators/co-administrators of other subscriptions (referred to as <bpt id="aa64d57f-9eae-413c-b28a-961dd14bbe87">&lt;em&gt;</bpt>circuit user<ept id="aa64d57f-9eae-413c-b28a-961dd14bbe87">&lt;/em&gt;</ept> in the Workflow diagram) to use the dedicated circuit they own.</source>
+          <target state="new">The circuit owner can authorize administrators/co-administrators of other subscriptions (referred to as <bpt id="aa64d57f-9eae-413c-b28a-961dd14bbe87">&lt;em&gt;</bpt>circuit user<ept id="aa64d57f-9eae-413c-b28a-961dd14bbe87">&lt;/em&gt;</ept> in the Workflow diagram) to use the dedicated circuit they own.</target>
+        </trans-unit>
+        <trans-unit id="7579aba5-6091-4a1d-b45b-89ba9f3db969" xml:space="preserve">
+          <source>Circuit users authorized to use the organization's dedicated circuit can link VNet in their subscription to the dedicated circuit once they are authorized.</source>
+          <target state="new">Circuit users authorized to use the organization's dedicated circuit can link VNet in their subscription to the dedicated circuit once they are authorized.</target>
+        </trans-unit>
+        <trans-unit id="eac5411f-a02b-42a4-a336-971f5ce195ea" xml:space="preserve">
+          <source>The circuit owner has the power to modify and revoke authorizations at any time.</source>
+          <target state="new">The circuit owner has the power to modify and revoke authorizations at any time.</target>
+        </trans-unit>
+        <trans-unit id="3ac902a0-f920-4bd8-b1d5-adaedd833795" xml:space="preserve">
+          <source>Revoking an authorization will result in all links being deleted from the subscription whose access was revoked.</source>
+          <target state="new">Revoking an authorization will result in all links being deleted from the subscription whose access was revoked.</target>
+        </trans-unit>
+        <trans-unit id="d20d7e3c-c093-4eb4-97fb-3637761c1ccb" xml:space="preserve">
+          <source>The circuit owner authorizes the administrators of other subscriptions to use the specified circuit.</source>
+          <target state="new">The circuit owner authorizes the administrators of other subscriptions to use the specified circuit.</target>
+        </trans-unit>
+        <trans-unit id="55a8e82e-e44d-49ed-805c-021d501141fa" xml:space="preserve">
+          <source>In the example below, the administrator of the circuit (Contoso IT) enables the administrator of another subscription (Contoso Sales), by specifying their Microsoft ID, to link up to 2 VNETs to the circuit.</source>
+          <target state="new">In the example below, the administrator of the circuit (Contoso IT) enables the administrator of another subscription (Contoso Sales), by specifying their Microsoft ID, to link up to 2 VNETs to the circuit.</target>
+        </trans-unit>
+        <trans-unit id="84916908-325d-48be-89c6-595ab28a394e" xml:space="preserve">
+          <source>The cmdlet doesn't send email to the specified Microsoft ID.</source>
+          <target state="new">The cmdlet doesn't send email to the specified Microsoft ID.</target>
+        </trans-unit>
+        <trans-unit id="426f1861-56b9-4aec-9661-975ef0056177" xml:space="preserve">
+          <source>The circuit owner need to explicitly notify the other subscription owner that the authorization is complete.</source>
+          <target state="new">The circuit owner need to explicitly notify the other subscription owner that the authorization is complete.</target>
+        </trans-unit>
+        <trans-unit id="7fc5e103-a319-4cba-94b8-5a1b3cda2b07" xml:space="preserve">
+          <source>Once notified by the circuit owner, the administrator of the authorized subscription can run the following cmdlet to retrieve the service key of the circuit.</source>
+          <target state="new">Once notified by the circuit owner, the administrator of the authorized subscription can run the following cmdlet to retrieve the service key of the circuit.</target>
+        </trans-unit>
+        <trans-unit id="d78d1f7d-9f61-4029-bf2d-ae8031388a86" xml:space="preserve">
+          <source>In this example, the administrator of Contoso Sales must first sign in using the specified Microsoft ID, salesadmin@contoso.com.</source>
+          <target state="new">In this example, the administrator of Contoso Sales must first sign in using the specified Microsoft ID, salesadmin@contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="ee2694e6-247e-4b73-a26b-118581b249f0" xml:space="preserve">
+          <source>The administrator of the authorized subscription runs the following cmdlet to complete the link operation.</source>
+          <target state="new">The administrator of the authorized subscription runs the following cmdlet to complete the link operation.</target>
+        </trans-unit>
+        <trans-unit id="bbe4a80a-4729-465e-9829-8e23072a34b3" xml:space="preserve">
+          <source>And that's it.</source>
+          <target state="new">And that's it.</target>
+        </trans-unit>
+        <trans-unit id="0fc1b9ac-29a0-4798-a685-ee58e6cf627f" xml:space="preserve">
+          <source>Conto's Sales VNet on Azure is now linked to a circuit created/owned by ContosoIT.</source>
+          <target state="new">Conto's Sales VNet on Azure is now linked to a circuit created/owned by ContosoIT.</target>
+        </trans-unit>
+        <trans-unit id="b2dc149e-7889-4d5e-81a2-48f3ad7eafc2" xml:space="preserve">
+          <source>The circuit owner can share a circuit with up to 10 Azure subscriptions.</source>
+          <target state="new">The circuit owner can share a circuit with up to 10 Azure subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="8db07525-9d18-40ad-96d3-26a693302081" xml:space="preserve">
+          <source>The circuit owner can view who has been authorized to the circuit.</source>
+          <target state="new">The circuit owner can view who has been authorized to the circuit.</target>
+        </trans-unit>
+        <trans-unit id="5d375a89-da17-463e-87f7-cbec3a8445ec" xml:space="preserve">
+          <source>The owner can revoke the authorization at any time.</source>
+          <target state="new">The owner can revoke the authorization at any time.</target>
+        </trans-unit>
+        <trans-unit id="edd6ef81-8bc2-42f4-ab36-6b91caacf554" xml:space="preserve">
+          <source>When the circuit owner revokes an authorization, identified by LinkAuthorizationId, all links permitted by that authorization will be deleted immediately.</source>
+          <target state="new">When the circuit owner revokes an authorization, identified by LinkAuthorizationId, all links permitted by that authorization will be deleted immediately.</target>
+        </trans-unit>
+        <trans-unit id="3fcd89cb-3061-4112-88eb-7e4f77716ab7" xml:space="preserve">
+          <source>The linked VNETs will lose connectivity to the on-premises network through the ExpressRoute circuit.</source>
+          <target state="new">The linked VNETs will lose connectivity to the on-premises network through the ExpressRoute circuit.</target>
+        </trans-unit>
+        <trans-unit id="4a882e8b-98e1-4d36-91dc-6b1b35716120" xml:space="preserve">
+          <source>The diagram below shows the Authorization Workflow:</source>
+          <target state="new">The diagram below shows the Authorization Workflow:</target>
+        </trans-unit>
+        <trans-unit id="a8e33216-fa6f-47d1-9a65-86b9e2245c34" xml:space="preserve">
+          <source><bpt id="c180ecc2-51e7-4e09-906d-8999a91bce6a">&lt;linkText&gt;</bpt>Subscription Sharing Workflow<ept id="c180ecc2-51e7-4e09-906d-8999a91bce6a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c180ecc2-51e7-4e09-906d-8999a91bce6a">&lt;linkText&gt;</bpt>Subscription Sharing Workflow<ept id="c180ecc2-51e7-4e09-906d-8999a91bce6a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3259eb6c-62dd-4c85-96cd-2ef773450680" xml:space="preserve">
+          <source>For more information about ExpressRoute, see the <bpt id="2ed71719-3ac3-4217-bfe2-eea0e4038c90">&lt;linkText&gt;</bpt>ExpressRoute Overview<ept id="2ed71719-3ac3-4217-bfe2-eea0e4038c90">&lt;/linkText&gt;</ept><bpt id="2ed71719-3ac3-4217-bfe2-eea0e4038c90">&lt;title&gt;</bpt><ept id="2ed71719-3ac3-4217-bfe2-eea0e4038c90">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about ExpressRoute, see the <bpt id="2ed71719-3ac3-4217-bfe2-eea0e4038c90">&lt;linkText&gt;</bpt>ExpressRoute Overview<ept id="2ed71719-3ac3-4217-bfe2-eea0e4038c90">&lt;/linkText&gt;</ept><bpt id="2ed71719-3ac3-4217-bfe2-eea0e4038c90">&lt;title&gt;</bpt><ept id="2ed71719-3ac3-4217-bfe2-eea0e4038c90">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

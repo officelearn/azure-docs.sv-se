@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="70aa1ba6-3f02-41b1-ba28-3effa39c2555" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="70aa1ba6-3f02-41b1-ba28-3effa39c2555" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="998ff597-e813-4f37-8e9c-5af854c94d18">
+        <trans-unit id="df72d5e3-3164-4921-9079-1e266780fbd7" xml:space="preserve">
+          <source>How to run a compute-intensive task in .NET on an Azure virtual machine</source>
+          <target state="new">How to run a compute-intensive task in .NET on an Azure virtual machine</target>
+        </trans-unit>
+        <trans-unit id="ab517901-154b-4923-8ab4-9566a72cb9e7" xml:space="preserve">
+          <source>Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Azure Service Bus queues to monitor progress remotely.</source>
+          <target state="new">Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Azure Service Bus queues to monitor progress remotely.</target>
+        </trans-unit>
+        <trans-unit id="7e57c4e6-5032-4bc1-8b52-f785a1856881" xml:space="preserve">
+          <source>With Azure, you can use a virtual machine to handle compute-intensive tasks.</source>
+          <target state="new">With Azure, you can use a virtual machine to handle compute-intensive tasks.</target>
+        </trans-unit>
+        <trans-unit id="ee185ab0-def2-4d53-811c-91ef4a3eee1c" xml:space="preserve">
+          <source>For example, a virtual machine can handle tasks and deliver results to client machines or mobile applications.</source>
+          <target state="new">For example, a virtual machine can handle tasks and deliver results to client machines or mobile applications.</target>
+        </trans-unit>
+        <trans-unit id="daddf22f-4211-454a-a200-3b71b76eac98" xml:space="preserve">
+          <source>After completing the tutorial, you will understand how to create a virtual machine that runs a compute-intensive .NET application that can be monitored by another .NET application.</source>
+          <target state="new">After completing the tutorial, you will understand how to create a virtual machine that runs a compute-intensive .NET application that can be monitored by another .NET application.</target>
+        </trans-unit>
+        <trans-unit id="f3fc55fe-7bd0-4b08-950d-81b3fb9a1e1c" xml:space="preserve">
+          <source>This tutorial assumes you know how to create .NET console applications.</source>
+          <target state="new">This tutorial assumes you know how to create .NET console applications.</target>
+        </trans-unit>
+        <trans-unit id="a3abde17-c71c-4494-8029-9981a623bd6d" xml:space="preserve">
+          <source>No knowledge of Azure is assumed.</source>
+          <target state="new">No knowledge of Azure is assumed.</target>
+        </trans-unit>
+        <trans-unit id="f62a4097-80c8-4124-a211-c2b741104a98" xml:space="preserve">
+          <source>You will learn:</source>
+          <target state="new">You will learn:</target>
+        </trans-unit>
+        <trans-unit id="b00b9eca-cfb5-4b36-a2d1-198e10d2f62b" xml:space="preserve">
+          <source>How to create a virtual machine.</source>
+          <target state="new">How to create a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="9ef200c6-c4bd-4fa3-b5df-b2df9ba00c42" xml:space="preserve">
+          <source>How to remotely log in to your virtual machine.</source>
+          <target state="new">How to remotely log in to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e94e7f3f-1b68-4ae4-ae3b-a08c6737eda9" xml:space="preserve">
+          <source>How to create an Azure Service Bus namespace.</source>
+          <target state="new">How to create an Azure Service Bus namespace.</target>
+        </trans-unit>
+        <trans-unit id="a2170d8a-c242-4f12-b299-5fa9466fb954" xml:space="preserve">
+          <source>How to create a .NET application that performs a compute-intensive task.</source>
+          <target state="new">How to create a .NET application that performs a compute-intensive task.</target>
+        </trans-unit>
+        <trans-unit id="2d3ab701-5d4e-4a3c-aa4d-cc562ca6ff3e" xml:space="preserve">
+          <source>How to create a .NET application that monitors the progress of the compute-intensive task.</source>
+          <target state="new">How to create a .NET application that monitors the progress of the compute-intensive task.</target>
+        </trans-unit>
+        <trans-unit id="fcd87ad5-f88c-42b3-ba04-dac038169256" xml:space="preserve">
+          <source>How to run the .NET applications.</source>
+          <target state="new">How to run the .NET applications.</target>
+        </trans-unit>
+        <trans-unit id="cd9db9a7-b466-4198-b5bd-703147782301" xml:space="preserve">
+          <source>How to stop the .NET applications.</source>
+          <target state="new">How to stop the .NET applications.</target>
+        </trans-unit>
+        <trans-unit id="325289dc-4093-414f-a227-8c6e82f53376" xml:space="preserve">
+          <source>This tutorial will use the Traveling Salesman Problem for the compute-intensive task.</source>
+          <target state="new">This tutorial will use the Traveling Salesman Problem for the compute-intensive task.</target>
+        </trans-unit>
+        <trans-unit id="209e7bb4-9168-4770-8487-1eaa71d2053a" xml:space="preserve">
+          <source>The following is an example of the .NET application running the compute-intensive task.</source>
+          <target state="new">The following is an example of the .NET application running the compute-intensive task.</target>
+        </trans-unit>
+        <trans-unit id="4a9818b2-b771-4a67-a21c-e673d79cd64c" xml:space="preserve">
+          <source><bpt id="6d6a016e-13fb-46cf-b735-92844fa24858">&lt;linkText&gt;</bpt>Traveling Salesman Problem solver<ept id="6d6a016e-13fb-46cf-b735-92844fa24858">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d6a016e-13fb-46cf-b735-92844fa24858">&lt;linkText&gt;</bpt>Traveling Salesman Problem solver<ept id="6d6a016e-13fb-46cf-b735-92844fa24858">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9dbaf174-c78c-467e-a73a-f4363da962c2" xml:space="preserve">
+          <source>The following is an example of the .NET application monitoring the compute-intensive task.</source>
+          <target state="new">The following is an example of the .NET application monitoring the compute-intensive task.</target>
+        </trans-unit>
+        <trans-unit id="55760950-569c-4905-9c5c-36b86b759bcf" xml:space="preserve">
+          <source><bpt id="5dd762c3-0040-4f52-9557-2b6a8cba1095">&lt;linkText&gt;</bpt>Traveling Salesman Problem client<ept id="5dd762c3-0040-4f52-9557-2b6a8cba1095">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5dd762c3-0040-4f52-9557-2b6a8cba1095">&lt;linkText&gt;</bpt>Traveling Salesman Problem client<ept id="5dd762c3-0040-4f52-9557-2b6a8cba1095">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23f92fe2-83e7-4f6f-b4d0-81080e09ea33" xml:space="preserve">
+          <source><bpt id="c4000f2a-6d3e-4a4a-943c-2fcda5ba7a17">&lt;token href="../../includes/create-account-and-vms-note.md"&gt;</bpt><ept id="c4000f2a-6d3e-4a4a-943c-2fcda5ba7a17">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c4000f2a-6d3e-4a4a-943c-2fcda5ba7a17">&lt;token href="../../includes/create-account-and-vms-note.md"&gt;</bpt><ept id="c4000f2a-6d3e-4a4a-943c-2fcda5ba7a17">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c5ac4d2-8670-428e-af6a-da57ca38b679" xml:space="preserve">
+          <source>Log in to the <bpt id="be219621-ce98-4aa9-a09c-402489ee9e46">&lt;linkText&gt;</bpt>Azure portal<ept id="be219621-ce98-4aa9-a09c-402489ee9e46">&lt;/linkText&gt;</ept><bpt id="be219621-ce98-4aa9-a09c-402489ee9e46">&lt;title&gt;</bpt><ept id="be219621-ce98-4aa9-a09c-402489ee9e46">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="be219621-ce98-4aa9-a09c-402489ee9e46">&lt;linkText&gt;</bpt>Azure portal<ept id="be219621-ce98-4aa9-a09c-402489ee9e46">&lt;/linkText&gt;</ept><bpt id="be219621-ce98-4aa9-a09c-402489ee9e46">&lt;title&gt;</bpt><ept id="be219621-ce98-4aa9-a09c-402489ee9e46">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13b9c27c-0ac7-42df-87eb-38d949d97c6d" xml:space="preserve">
+          <source>Click <bpt id="34296ace-8a66-4644-988d-8757e15a62a4">&lt;strong&gt;</bpt>New<ept id="34296ace-8a66-4644-988d-8757e15a62a4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="34296ace-8a66-4644-988d-8757e15a62a4">&lt;strong&gt;</bpt>New<ept id="34296ace-8a66-4644-988d-8757e15a62a4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="718fa1b1-1ed8-400e-b98c-1e4fd6c6fa29" xml:space="preserve">
+          <source>Click <bpt id="d5324b4b-4ab4-4830-89a1-4b6f7a9379d7">&lt;strong&gt;</bpt>Virtual machine<ept id="d5324b4b-4ab4-4830-89a1-4b6f7a9379d7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d5324b4b-4ab4-4830-89a1-4b6f7a9379d7">&lt;strong&gt;</bpt>Virtual machine<ept id="d5324b4b-4ab4-4830-89a1-4b6f7a9379d7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63853797-3d62-4929-b96d-5b1b1a60ba17" xml:space="preserve">
+          <source>Click <bpt id="d87e1904-5db1-47eb-aebb-4f3c25cca05c">&lt;strong&gt;</bpt>Quick create<ept id="d87e1904-5db1-47eb-aebb-4f3c25cca05c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d87e1904-5db1-47eb-aebb-4f3c25cca05c">&lt;strong&gt;</bpt>Quick create<ept id="d87e1904-5db1-47eb-aebb-4f3c25cca05c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df24fb61-5b6f-4a24-9105-23d724e708e5" xml:space="preserve">
+          <source>In the <bpt id="2393a1b0-16e3-4193-8dfd-cfd68440b4d1">&lt;strong&gt;</bpt>Create a virtual machine<ept id="2393a1b0-16e3-4193-8dfd-cfd68440b4d1">&lt;/strong&gt;</ept> screen, enter a value for <bpt id="8f8d8e35-b394-4153-bcd7-28167e3237bd">&lt;strong&gt;</bpt>DNS name<ept id="8f8d8e35-b394-4153-bcd7-28167e3237bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2393a1b0-16e3-4193-8dfd-cfd68440b4d1">&lt;strong&gt;</bpt>Create a virtual machine<ept id="2393a1b0-16e3-4193-8dfd-cfd68440b4d1">&lt;/strong&gt;</ept> screen, enter a value for <bpt id="8f8d8e35-b394-4153-bcd7-28167e3237bd">&lt;strong&gt;</bpt>DNS name<ept id="8f8d8e35-b394-4153-bcd7-28167e3237bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e300da35-2a9a-4407-8b95-e2a2bbfa2eec" xml:space="preserve">
+          <source>From the <bpt id="d7742d66-d854-4d76-bfc1-1c59d1c175e7">&lt;strong&gt;</bpt>Image<ept id="d7742d66-d854-4d76-bfc1-1c59d1c175e7">&lt;/strong&gt;</ept> drop-down list, select an image, such as <bpt id="741f1940-059d-49b0-892e-0c77665ae96d">&lt;strong&gt;</bpt>Windows Server 2012 R2<ept id="741f1940-059d-49b0-892e-0c77665ae96d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="d7742d66-d854-4d76-bfc1-1c59d1c175e7">&lt;strong&gt;</bpt>Image<ept id="d7742d66-d854-4d76-bfc1-1c59d1c175e7">&lt;/strong&gt;</ept> drop-down list, select an image, such as <bpt id="741f1940-059d-49b0-892e-0c77665ae96d">&lt;strong&gt;</bpt>Windows Server 2012 R2<ept id="741f1940-059d-49b0-892e-0c77665ae96d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b1c4d45-5e44-405c-9790-576a7c2ed9ab" xml:space="preserve">
+          <source>Enter a name for the administrator in the <bpt id="0d2a6571-28a6-462c-85c1-926f8edc9681">&lt;strong&gt;</bpt>User Name<ept id="0d2a6571-28a6-462c-85c1-926f8edc9681">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Enter a name for the administrator in the <bpt id="0d2a6571-28a6-462c-85c1-926f8edc9681">&lt;strong&gt;</bpt>User Name<ept id="0d2a6571-28a6-462c-85c1-926f8edc9681">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="7a0dacf3-1c58-42bc-bfbb-4d36b0002489" xml:space="preserve">
+          <source>Remember this name and the password that you will enter next, you will use them when you remotely log in to the virtual machine.</source>
+          <target state="new">Remember this name and the password that you will enter next, you will use them when you remotely log in to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="152f2b20-7050-41fb-8c1e-26beaf445991" xml:space="preserve">
+          <source>Enter a password in the <bpt id="c6833f08-db8c-4ed4-a75e-c867a77bf9aa">&lt;strong&gt;</bpt>New password<ept id="c6833f08-db8c-4ed4-a75e-c867a77bf9aa">&lt;/strong&gt;</ept> field, and enter it again in the <bpt id="2645bc38-c61f-4610-a3ac-1fa56489d1e7">&lt;strong&gt;</bpt>Confirm<ept id="2645bc38-c61f-4610-a3ac-1fa56489d1e7">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Enter a password in the <bpt id="c6833f08-db8c-4ed4-a75e-c867a77bf9aa">&lt;strong&gt;</bpt>New password<ept id="c6833f08-db8c-4ed4-a75e-c867a77bf9aa">&lt;/strong&gt;</ept> field, and enter it again in the <bpt id="2645bc38-c61f-4610-a3ac-1fa56489d1e7">&lt;strong&gt;</bpt>Confirm<ept id="2645bc38-c61f-4610-a3ac-1fa56489d1e7">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="85925566-7aa4-48ae-9516-598586bd076d" xml:space="preserve">
+          <source>From the <bpt id="e2ce0809-40a5-4833-a74c-87aaf219fc68">&lt;strong&gt;</bpt>Location<ept id="e2ce0809-40a5-4833-a74c-87aaf219fc68">&lt;/strong&gt;</ept> drop-down list, select the data center location for your virtual machine.</source>
+          <target state="new">From the <bpt id="e2ce0809-40a5-4833-a74c-87aaf219fc68">&lt;strong&gt;</bpt>Location<ept id="e2ce0809-40a5-4833-a74c-87aaf219fc68">&lt;/strong&gt;</ept> drop-down list, select the data center location for your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="d2c657fc-c091-435f-81fb-5bae678fa7aa" xml:space="preserve">
+          <source>Click <bpt id="d58f589a-a0b5-425c-82d1-098ad1c78193">&lt;strong&gt;</bpt>Create virtual machine<ept id="d58f589a-a0b5-425c-82d1-098ad1c78193">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d58f589a-a0b5-425c-82d1-098ad1c78193">&lt;strong&gt;</bpt>Create virtual machine<ept id="d58f589a-a0b5-425c-82d1-098ad1c78193">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1479aeb-a536-442d-b7a0-f8e052ba58e2" xml:space="preserve">
+          <source>You can monitor the status in the <bpt id="6eb0a74b-de8a-4f5a-93a8-630f78e14170">&lt;strong&gt;</bpt>Virtual machines<ept id="6eb0a74b-de8a-4f5a-93a8-630f78e14170">&lt;/strong&gt;</ept> section of the Azure portal.</source>
+          <target state="new">You can monitor the status in the <bpt id="6eb0a74b-de8a-4f5a-93a8-630f78e14170">&lt;strong&gt;</bpt>Virtual machines<ept id="6eb0a74b-de8a-4f5a-93a8-630f78e14170">&lt;/strong&gt;</ept> section of the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="2b6415e8-dd73-496f-bd31-31418a3a3a1a" xml:space="preserve">
+          <source>When its status is displayed as <bpt id="ffb7132c-94d9-416d-a2f8-5ce27c460cbf">&lt;strong&gt;</bpt>Active<ept id="ffb7132c-94d9-416d-a2f8-5ce27c460cbf">&lt;/strong&gt;</ept>, you can log in to the virtual machine.</source>
+          <target state="new">When its status is displayed as <bpt id="ffb7132c-94d9-416d-a2f8-5ce27c460cbf">&lt;strong&gt;</bpt>Active<ept id="ffb7132c-94d9-416d-a2f8-5ce27c460cbf">&lt;/strong&gt;</ept>, you can log in to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="223c1a45-5270-4a8e-8c97-8bfd0b3f3c0e" xml:space="preserve">
+          <source>Log in to the <bpt id="02731eda-bbb0-4301-9fe0-81f68e40ab07">&lt;linkText&gt;</bpt>Azure portal<ept id="02731eda-bbb0-4301-9fe0-81f68e40ab07">&lt;/linkText&gt;</ept><bpt id="02731eda-bbb0-4301-9fe0-81f68e40ab07">&lt;title&gt;</bpt><ept id="02731eda-bbb0-4301-9fe0-81f68e40ab07">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="02731eda-bbb0-4301-9fe0-81f68e40ab07">&lt;linkText&gt;</bpt>Azure portal<ept id="02731eda-bbb0-4301-9fe0-81f68e40ab07">&lt;/linkText&gt;</ept><bpt id="02731eda-bbb0-4301-9fe0-81f68e40ab07">&lt;title&gt;</bpt><ept id="02731eda-bbb0-4301-9fe0-81f68e40ab07">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c449c9d-e367-414e-b10f-0d996862f0be" xml:space="preserve">
+          <source>Click <bpt id="d1b8681a-559b-4a9a-a4b6-df41e392f8be">&lt;strong&gt;</bpt>Virtual machines<ept id="d1b8681a-559b-4a9a-a4b6-df41e392f8be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d1b8681a-559b-4a9a-a4b6-df41e392f8be">&lt;strong&gt;</bpt>Virtual machines<ept id="d1b8681a-559b-4a9a-a4b6-df41e392f8be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="549c7871-d5aa-4d0b-bfe0-56747d6bed7c" xml:space="preserve">
+          <source>Click the name of the virtual machine that you want to log in to.</source>
+          <target state="new">Click the name of the virtual machine that you want to log in to.</target>
+        </trans-unit>
+        <trans-unit id="a16e0cf1-a4e0-4b99-a640-92f35fa5cb94" xml:space="preserve">
+          <source>Click <bpt id="0c1a0467-815b-4fd0-ad2c-36d14c9e6227">&lt;strong&gt;</bpt>Connect<ept id="0c1a0467-815b-4fd0-ad2c-36d14c9e6227">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0c1a0467-815b-4fd0-ad2c-36d14c9e6227">&lt;strong&gt;</bpt>Connect<ept id="0c1a0467-815b-4fd0-ad2c-36d14c9e6227">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34484c93-00c3-4d21-aa5f-b9b2b3eaf829" xml:space="preserve">
+          <source>Respond to the prompts as needed to connect to the virtual machine.</source>
+          <target state="new">Respond to the prompts as needed to connect to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="d51d47d1-2a63-4cc0-881d-714a4f788480" xml:space="preserve">
+          <source>When prompted for the administrator name and password, use the values that you provided when you created the virtual machine.</source>
+          <target state="new">When prompted for the administrator name and password, use the values that you provided when you created the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e25be231-e3a7-40d6-92cf-09331635bb8e" xml:space="preserve">
+          <source>To begin using Service Bus queues in Azure, you must first
+create a service namespace.</source>
+          <target state="new">To begin using Service Bus queues in Azure, you must first
+create a service namespace.</target>
+        </trans-unit>
+        <trans-unit id="c8b6ee6b-b7c8-4b1e-a4f8-621c5cd00788" xml:space="preserve">
+          <source>A service namespace provides a scoping
+container for addressing Service Bus resources within your application.</source>
+          <target state="new">A service namespace provides a scoping
+container for addressing Service Bus resources within your application.</target>
+        </trans-unit>
+        <trans-unit id="b83ae26b-4b05-4982-b99f-39cc9c2720fb" xml:space="preserve">
+          <source>To create a service namespace:</source>
+          <target state="new">To create a service namespace:</target>
+        </trans-unit>
+        <trans-unit id="747fb186-3499-482e-b3df-c510a151809a" xml:space="preserve">
+          <source>Log in to the <bpt id="1aefd048-adab-4933-984d-c54917173a9e">&lt;linkText&gt;</bpt>Azure portal<ept id="1aefd048-adab-4933-984d-c54917173a9e">&lt;/linkText&gt;</ept><bpt id="1aefd048-adab-4933-984d-c54917173a9e">&lt;title&gt;</bpt><ept id="1aefd048-adab-4933-984d-c54917173a9e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="1aefd048-adab-4933-984d-c54917173a9e">&lt;linkText&gt;</bpt>Azure portal<ept id="1aefd048-adab-4933-984d-c54917173a9e">&lt;/linkText&gt;</ept><bpt id="1aefd048-adab-4933-984d-c54917173a9e">&lt;title&gt;</bpt><ept id="1aefd048-adab-4933-984d-c54917173a9e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="613b8000-3b00-454d-8835-7f46da063382" xml:space="preserve">
+          <source>In the left navigation pane of the Azure portal, click <bpt id="edd668ee-c0e6-4c24-bf99-c17db1cfca04">&lt;strong&gt;</bpt>Service Bus<ept id="edd668ee-c0e6-4c24-bf99-c17db1cfca04">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left navigation pane of the Azure portal, click <bpt id="edd668ee-c0e6-4c24-bf99-c17db1cfca04">&lt;strong&gt;</bpt>Service Bus<ept id="edd668ee-c0e6-4c24-bf99-c17db1cfca04">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c93879c-03ec-4431-9f38-5c18b316adc9" xml:space="preserve">
+          <source>In the lower pane of the Azure portal, click  <bpt id="3cb82e17-9c85-450f-bd6d-57adc4507d96">&lt;strong&gt;</bpt>Create<ept id="3cb82e17-9c85-450f-bd6d-57adc4507d96">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the lower pane of the Azure portal, click  <bpt id="3cb82e17-9c85-450f-bd6d-57adc4507d96">&lt;strong&gt;</bpt>Create<ept id="3cb82e17-9c85-450f-bd6d-57adc4507d96">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba3ead7c-4af9-4c9a-af7a-b235c1a453a8" xml:space="preserve">
+          <source><bpt id="b5de6c23-bcac-4d97-91bb-74a5505d6910">&lt;linkText&gt;</bpt>Create new service bus<ept id="b5de6c23-bcac-4d97-91bb-74a5505d6910">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b5de6c23-bcac-4d97-91bb-74a5505d6910">&lt;linkText&gt;</bpt>Create new service bus<ept id="b5de6c23-bcac-4d97-91bb-74a5505d6910">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33906c42-a583-47cd-8208-ee85edada902" xml:space="preserve">
+          <source>In the <bpt id="0e2d2cbf-8acc-461b-b954-6bb3006a25b5">&lt;strong&gt;</bpt>Create a namespace<ept id="0e2d2cbf-8acc-461b-b954-6bb3006a25b5">&lt;/strong&gt;</ept> dialog box, enter a namespace name.</source>
+          <target state="new">In the <bpt id="0e2d2cbf-8acc-461b-b954-6bb3006a25b5">&lt;strong&gt;</bpt>Create a namespace<ept id="0e2d2cbf-8acc-461b-b954-6bb3006a25b5">&lt;/strong&gt;</ept> dialog box, enter a namespace name.</target>
+        </trans-unit>
+        <trans-unit id="b8868f79-f641-4f79-9d35-d281a401f35d" xml:space="preserve">
+          <source>The system immediately checks to see if the name is available, as it must be a unique name.</source>
+          <target state="new">The system immediately checks to see if the name is available, as it must be a unique name.</target>
+        </trans-unit>
+        <trans-unit id="45098ead-fb3a-4ee9-9418-f01e9e5c0f16" xml:space="preserve">
+          <source><bpt id="b4f2ac02-fd3d-4756-a82c-fc3f117f0e49">&lt;linkText&gt;</bpt>Create a namespace dialog<ept id="b4f2ac02-fd3d-4756-a82c-fc3f117f0e49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b4f2ac02-fd3d-4756-a82c-fc3f117f0e49">&lt;linkText&gt;</bpt>Create a namespace dialog<ept id="b4f2ac02-fd3d-4756-a82c-fc3f117f0e49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6aa3fbd-3ed2-4b38-882d-c20f837da42c" xml:space="preserve">
+          <source>After ensuring the namespace name is available, choose the region in which your namespace should be hosted (make sure you use the same region in which your virtual machine is hosted).</source>
+          <target state="new">After ensuring the namespace name is available, choose the region in which your namespace should be hosted (make sure you use the same region in which your virtual machine is hosted).</target>
+        </trans-unit>
+        <trans-unit id="ffbceee3-8244-477d-a089-771bf640e78d" xml:space="preserve">
+          <source>Pick the <bpt id="f48f6cfd-cc46-4806-9a84-8992eeb73f86">&lt;strong&gt;</bpt>same region<ept id="f48f6cfd-cc46-4806-9a84-8992eeb73f86">&lt;/strong&gt;</ept> that you use or intend to use for your virtual machine.</source>
+          <target state="new">Pick the <bpt id="f48f6cfd-cc46-4806-9a84-8992eeb73f86">&lt;strong&gt;</bpt>same region<ept id="f48f6cfd-cc46-4806-9a84-8992eeb73f86">&lt;/strong&gt;</ept> that you use or intend to use for your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="0d0fcf9c-f65b-4e97-9b39-6c82c24cfdc1" xml:space="preserve">
+          <source>This will give you the best performance.</source>
+          <target state="new">This will give you the best performance.</target>
+        </trans-unit>
+        <trans-unit id="406a5e3b-4e74-4b47-ba17-cbd9b0699dad" xml:space="preserve">
+          <source>If you have more than one Azure subscription for the account with which you're logged on, select the subscription to use for the namespace.</source>
+          <target state="new">If you have more than one Azure subscription for the account with which you're logged on, select the subscription to use for the namespace.</target>
+        </trans-unit>
+        <trans-unit id="84c36097-31ca-4985-87ec-e9c957c1ae2d" xml:space="preserve">
+          <source>(If you have only one subscription for the account with which you're logged on, you will not see a drop-down list containing your subscriptions.)</source>
+          <target state="new">(If you have only one subscription for the account with which you're logged on, you will not see a drop-down list containing your subscriptions.)</target>
+        </trans-unit>
+        <trans-unit id="0d5e1a83-22c8-4ecb-835c-d4b304290469" xml:space="preserve">
+          <source>Click the check mark.</source>
+          <target state="new">Click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="1ed2d508-1527-4ff7-98e3-c7f3f28d5658" xml:space="preserve">
+          <source>The system now creates your service namespace and enables it.</source>
+          <target state="new">The system now creates your service namespace and enables it.</target>
+        </trans-unit>
+        <trans-unit id="14b34031-8e06-446c-83ea-77de71eca9c8" xml:space="preserve">
+          <source>You might have to wait several minutes as the system provisions resources for your account.</source>
+          <target state="new">You might have to wait several minutes as the system provisions resources for your account.</target>
+        </trans-unit>
+        <trans-unit id="981dc116-beea-4e0f-b83a-7c00fc1f546b" xml:space="preserve">
+          <source><bpt id="06248e50-694a-4565-bc56-0214d39064cd">&lt;linkText&gt;</bpt>Click create screenshot<ept id="06248e50-694a-4565-bc56-0214d39064cd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06248e50-694a-4565-bc56-0214d39064cd">&lt;linkText&gt;</bpt>Click create screenshot<ept id="06248e50-694a-4565-bc56-0214d39064cd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b658da6-fe21-4acd-a4bc-7aa71b7bfe95" xml:space="preserve">
+          <source>The namespace you created will then appear in the Azure portal, and it takes a moment to activate.</source>
+          <target state="new">The namespace you created will then appear in the Azure portal, and it takes a moment to activate.</target>
+        </trans-unit>
+        <trans-unit id="96414686-bcbc-43ee-a0a0-19c20bf0259c" xml:space="preserve">
+          <source>Wait until the status is <bpt id="841618a4-38be-4eb2-a396-b0c5b0207a12">&lt;strong&gt;</bpt>Active<ept id="841618a4-38be-4eb2-a396-b0c5b0207a12">&lt;/strong&gt;</ept> before continuing with the next step.</source>
+          <target state="new">Wait until the status is <bpt id="841618a4-38be-4eb2-a396-b0c5b0207a12">&lt;strong&gt;</bpt>Active<ept id="841618a4-38be-4eb2-a396-b0c5b0207a12">&lt;/strong&gt;</ept> before continuing with the next step.</target>
+        </trans-unit>
+        <trans-unit id="2698f453-d0a9-4117-9f72-1bdb7a5594f3" xml:space="preserve">
+          <source>In order to perform management operations, such as creating a queue, on
+the new namespace, you need to obtain the management credentials for the
+namespace.</source>
+          <target state="new">In order to perform management operations, such as creating a queue, on
+the new namespace, you need to obtain the management credentials for the
+namespace.</target>
+        </trans-unit>
+        <trans-unit id="680c2c87-1551-427a-8931-15aa0d4ff65a" xml:space="preserve">
+          <source>In the left navigation pane, click <bpt id="79ac31c5-3287-4512-ab8a-858174ba7d3f">&lt;strong&gt;</bpt>Service Bus<ept id="79ac31c5-3287-4512-ab8a-858174ba7d3f">&lt;/strong&gt;</ept> to
+display the list of available namespaces.</source>
+          <target state="new">In the left navigation pane, click <bpt id="79ac31c5-3287-4512-ab8a-858174ba7d3f">&lt;strong&gt;</bpt>Service Bus<ept id="79ac31c5-3287-4512-ab8a-858174ba7d3f">&lt;/strong&gt;</ept> to
+display the list of available namespaces.</target>
+        </trans-unit>
+        <trans-unit id="f203b8bf-d301-43ef-a113-ffd6ce5acd82" xml:space="preserve">
+          <source><bpt id="2f1d3679-5489-4ca6-9f65-4839d8b72c03">&lt;linkText&gt;</bpt>Available namespaces screenshot<ept id="2f1d3679-5489-4ca6-9f65-4839d8b72c03">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2f1d3679-5489-4ca6-9f65-4839d8b72c03">&lt;linkText&gt;</bpt>Available namespaces screenshot<ept id="2f1d3679-5489-4ca6-9f65-4839d8b72c03">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="509a01d5-fb82-4fed-97ae-e0ee3a2a9b9d" xml:space="preserve">
+          <source>Select the namespace you just created from the list.</source>
+          <target state="new">Select the namespace you just created from the list.</target>
+        </trans-unit>
+        <trans-unit id="ed9e5aab-0b19-4f0a-a747-62b1e6f5ca36" xml:space="preserve">
+          <source><bpt id="2b723a00-ef37-4fb4-9b6d-95aca7d16b8d">&lt;linkText&gt;</bpt>Namespace list screenshot<ept id="2b723a00-ef37-4fb4-9b6d-95aca7d16b8d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2b723a00-ef37-4fb4-9b6d-95aca7d16b8d">&lt;linkText&gt;</bpt>Namespace list screenshot<ept id="2b723a00-ef37-4fb4-9b6d-95aca7d16b8d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcb41424-8037-4d3b-9213-14a23f1a5f45" xml:space="preserve">
+          <source>Click <bpt id="c89cb7cf-2268-494b-bc98-4d438e9b2793">&lt;strong&gt;</bpt>Connection Information<ept id="c89cb7cf-2268-494b-bc98-4d438e9b2793">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c89cb7cf-2268-494b-bc98-4d438e9b2793">&lt;strong&gt;</bpt>Connection Information<ept id="c89cb7cf-2268-494b-bc98-4d438e9b2793">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63e835f9-4db6-4114-a9f0-24c53d08238e" xml:space="preserve">
+          <source><bpt id="aa0fb504-218d-4bb2-bd40-87f57641f6a0">&lt;linkText&gt;</bpt>Access key button<ept id="aa0fb504-218d-4bb2-bd40-87f57641f6a0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa0fb504-218d-4bb2-bd40-87f57641f6a0">&lt;linkText&gt;</bpt>Access key button<ept id="aa0fb504-218d-4bb2-bd40-87f57641f6a0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b6db160-3a5a-4d93-abe1-e55382594f61" xml:space="preserve">
+          <source>In the dialog box, find the <bpt id="0c8771ca-d24f-4dea-9633-2b43b4ec98c3">&lt;strong&gt;</bpt>Connection String<ept id="0c8771ca-d24f-4dea-9633-2b43b4ec98c3">&lt;/strong&gt;</ept> entry.</source>
+          <target state="new">In the dialog box, find the <bpt id="0c8771ca-d24f-4dea-9633-2b43b4ec98c3">&lt;strong&gt;</bpt>Connection String<ept id="0c8771ca-d24f-4dea-9633-2b43b4ec98c3">&lt;/strong&gt;</ept> entry.</target>
+        </trans-unit>
+        <trans-unit id="caf30e22-9197-4d9e-8bf4-32dfa266bd23" xml:space="preserve">
+          <source>Make a note of this value, as you will use this information later in the tutorial to perform operations with the namespace.</source>
+          <target state="new">Make a note of this value, as you will use this information later in the tutorial to perform operations with the namespace.</target>
+        </trans-unit>
+        <trans-unit id="e6ed8e25-871f-4ca8-8273-3360000bcb66" xml:space="preserve">
+          <source>On your development machine (which does not have to be the virtual machine that you created), download the <bpt id="865e2ece-60a8-483a-aa86-5ab7dda36480">&lt;linkText&gt;</bpt>Azure SDK for .NET<ept id="865e2ece-60a8-483a-aa86-5ab7dda36480">&lt;/linkText&gt;</ept><bpt id="865e2ece-60a8-483a-aa86-5ab7dda36480">&lt;title&gt;</bpt><ept id="865e2ece-60a8-483a-aa86-5ab7dda36480">&lt;/title&gt;</ept>.</source>
+          <target state="new">On your development machine (which does not have to be the virtual machine that you created), download the <bpt id="865e2ece-60a8-483a-aa86-5ab7dda36480">&lt;linkText&gt;</bpt>Azure SDK for .NET<ept id="865e2ece-60a8-483a-aa86-5ab7dda36480">&lt;/linkText&gt;</ept><bpt id="865e2ece-60a8-483a-aa86-5ab7dda36480">&lt;title&gt;</bpt><ept id="865e2ece-60a8-483a-aa86-5ab7dda36480">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f8da40f-d96b-4978-93eb-c8ce7923f353" xml:space="preserve">
+          <source>Create a .NET console application with the project named TSPSolver.</source>
+          <target state="new">Create a .NET console application with the project named TSPSolver.</target>
+        </trans-unit>
+        <trans-unit id="945b36c7-3679-49e2-b543-5f4a033ea38a" xml:space="preserve">
+          <source>Ensure the traget framework is set for .<bpt id="d4fc0327-ec18-4b84-92ae-76778be06c11">&lt;strong&gt;</bpt>NET Framework 4<ept id="d4fc0327-ec18-4b84-92ae-76778be06c11">&lt;/strong&gt;</ept> or later (not <bpt id="b12918b8-768b-47b5-abae-43158cb8836d">&lt;strong&gt;</bpt>.NET Framework 4 Client Profile<ept id="b12918b8-768b-47b5-abae-43158cb8836d">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Ensure the traget framework is set for .<bpt id="d4fc0327-ec18-4b84-92ae-76778be06c11">&lt;strong&gt;</bpt>NET Framework 4<ept id="d4fc0327-ec18-4b84-92ae-76778be06c11">&lt;/strong&gt;</ept> or later (not <bpt id="b12918b8-768b-47b5-abae-43158cb8836d">&lt;strong&gt;</bpt>.NET Framework 4 Client Profile<ept id="b12918b8-768b-47b5-abae-43158cb8836d">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="f6865b64-f999-454f-9b5a-499f46e769c8" xml:space="preserve">
+          <source>The target framework can be set after you create a project by the following: In Visual Studio's menu, click <bpt id="d4775dca-dbf6-47a2-a77b-64d300cf437d">&lt;strong&gt;</bpt>Projects<ept id="d4775dca-dbf6-47a2-a77b-64d300cf437d">&lt;/strong&gt;</ept>, click <bpt id="c9a3861c-9ab9-4aad-81f5-3fa967bc97ee">&lt;strong&gt;</bpt>Properties<ept id="c9a3861c-9ab9-4aad-81f5-3fa967bc97ee">&lt;/strong&gt;</ept>, click the <bpt id="8fd66eff-da32-482f-88fd-ab8396660bb6">&lt;strong&gt;</bpt>Application<ept id="8fd66eff-da32-482f-88fd-ab8396660bb6">&lt;/strong&gt;</ept> tab, and then set the value for <bpt id="06874c59-cf3c-4ca8-bf4f-29997050d55a">&lt;strong&gt;</bpt>Target framework<ept id="06874c59-cf3c-4ca8-bf4f-29997050d55a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The target framework can be set after you create a project by the following: In Visual Studio's menu, click <bpt id="d4775dca-dbf6-47a2-a77b-64d300cf437d">&lt;strong&gt;</bpt>Projects<ept id="d4775dca-dbf6-47a2-a77b-64d300cf437d">&lt;/strong&gt;</ept>, click <bpt id="c9a3861c-9ab9-4aad-81f5-3fa967bc97ee">&lt;strong&gt;</bpt>Properties<ept id="c9a3861c-9ab9-4aad-81f5-3fa967bc97ee">&lt;/strong&gt;</ept>, click the <bpt id="8fd66eff-da32-482f-88fd-ab8396660bb6">&lt;strong&gt;</bpt>Application<ept id="8fd66eff-da32-482f-88fd-ab8396660bb6">&lt;/strong&gt;</ept> tab, and then set the value for <bpt id="06874c59-cf3c-4ca8-bf4f-29997050d55a">&lt;strong&gt;</bpt>Target framework<ept id="06874c59-cf3c-4ca8-bf4f-29997050d55a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6e951ba-3429-45b7-94ec-d38b20a52618" xml:space="preserve">
+          <source>Add the Microsoft ServiceBus library.</source>
+          <target state="new">Add the Microsoft ServiceBus library.</target>
+        </trans-unit>
+        <trans-unit id="5184c113-7eb7-4c8a-90e4-b81f4e7dd2d6" xml:space="preserve">
+          <source>In Visual Studio Solution Explorer, right-click <bpt id="a04d8272-0a76-4767-beae-2a932fe4d556">&lt;strong&gt;</bpt>TSPSolver<ept id="a04d8272-0a76-4767-beae-2a932fe4d556">&lt;/strong&gt;</ept>, click <bpt id="aa5a0c83-3b36-49ef-917f-12b7fa2698eb">&lt;strong&gt;</bpt>Add Reference<ept id="aa5a0c83-3b36-49ef-917f-12b7fa2698eb">&lt;/strong&gt;</ept>, click the <bpt id="4ab78b38-11a3-4b22-81ee-01f56ac9c593">&lt;strong&gt;</bpt>Browse<ept id="4ab78b38-11a3-4b22-81ee-01f56ac9c593">&lt;/strong&gt;</ept> tab, browse to the Azure .NET SDK (for example, C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef) and then select <bpt id="5b99e755-2f62-418d-9e4e-cff30a2a8df4">&lt;strong&gt;</bpt>Microsoft.ServiceBus.dll<ept id="5b99e755-2f62-418d-9e4e-cff30a2a8df4">&lt;/strong&gt;</ept> as a reference.</source>
+          <target state="new">In Visual Studio Solution Explorer, right-click <bpt id="a04d8272-0a76-4767-beae-2a932fe4d556">&lt;strong&gt;</bpt>TSPSolver<ept id="a04d8272-0a76-4767-beae-2a932fe4d556">&lt;/strong&gt;</ept>, click <bpt id="aa5a0c83-3b36-49ef-917f-12b7fa2698eb">&lt;strong&gt;</bpt>Add Reference<ept id="aa5a0c83-3b36-49ef-917f-12b7fa2698eb">&lt;/strong&gt;</ept>, click the <bpt id="4ab78b38-11a3-4b22-81ee-01f56ac9c593">&lt;strong&gt;</bpt>Browse<ept id="4ab78b38-11a3-4b22-81ee-01f56ac9c593">&lt;/strong&gt;</ept> tab, browse to the Azure .NET SDK (for example, C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef) and then select <bpt id="5b99e755-2f62-418d-9e4e-cff30a2a8df4">&lt;strong&gt;</bpt>Microsoft.ServiceBus.dll<ept id="5b99e755-2f62-418d-9e4e-cff30a2a8df4">&lt;/strong&gt;</ept> as a reference.</target>
+        </trans-unit>
+        <trans-unit id="4ce0fa2c-1d29-4ff3-be51-50c91e5ab1cd" xml:space="preserve">
+          <source>Add the System Runtime Serialization library.</source>
+          <target state="new">Add the System Runtime Serialization library.</target>
+        </trans-unit>
+        <trans-unit id="b8196f3a-76a9-4d22-a05e-bcde52748f38" xml:space="preserve">
+          <source>In Visual Studio Solution Explorer, right-click <bpt id="be75abdb-fa11-4297-8d1e-10c214b0c725">&lt;strong&gt;</bpt>TSPSolver<ept id="be75abdb-fa11-4297-8d1e-10c214b0c725">&lt;/strong&gt;</ept>, click <bpt id="64197469-541c-4e24-8e90-31e8b131d604">&lt;strong&gt;</bpt>Add Reference<ept id="64197469-541c-4e24-8e90-31e8b131d604">&lt;/strong&gt;</ept>, click the <bpt id="20cb6a53-3197-4965-813c-43c616e61024">&lt;strong&gt;</bpt>.NET<ept id="20cb6a53-3197-4965-813c-43c616e61024">&lt;/strong&gt;</ept> tab, and then select <bpt id="a5e6fd9e-9fbb-41cf-88e9-cb65d366a248">&lt;strong&gt;</bpt>System.Runtime.Serialization<ept id="a5e6fd9e-9fbb-41cf-88e9-cb65d366a248">&lt;/strong&gt;</ept> as a reference.</source>
+          <target state="new">In Visual Studio Solution Explorer, right-click <bpt id="be75abdb-fa11-4297-8d1e-10c214b0c725">&lt;strong&gt;</bpt>TSPSolver<ept id="be75abdb-fa11-4297-8d1e-10c214b0c725">&lt;/strong&gt;</ept>, click <bpt id="64197469-541c-4e24-8e90-31e8b131d604">&lt;strong&gt;</bpt>Add Reference<ept id="64197469-541c-4e24-8e90-31e8b131d604">&lt;/strong&gt;</ept>, click the <bpt id="20cb6a53-3197-4965-813c-43c616e61024">&lt;strong&gt;</bpt>.NET<ept id="20cb6a53-3197-4965-813c-43c616e61024">&lt;/strong&gt;</ept> tab, and then select <bpt id="a5e6fd9e-9fbb-41cf-88e9-cb65d366a248">&lt;strong&gt;</bpt>System.Runtime.Serialization<ept id="a5e6fd9e-9fbb-41cf-88e9-cb65d366a248">&lt;/strong&gt;</ept> as a reference.</target>
+        </trans-unit>
+        <trans-unit id="565760d6-a3b4-43e5-9f10-cc8fd2345b78" xml:space="preserve">
+          <source>Use the example code at the end of this section for the contents of the Program.cs file.</source>
+          <target state="new">Use the example code at the end of this section for the contents of the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="c8fe55fc-8d63-453c-9fb0-cf9371b93dab" xml:space="preserve">
+          <source>Modify the <bpt id="5248774d-3672-4bad-9a3e-4546405f2918">&lt;strong&gt;</bpt>your\_connection\_string<ept id="5248774d-3672-4bad-9a3e-4546405f2918">&lt;/strong&gt;</ept> placeholder to use your Service Bus <bpt id="1250f44b-5797-4386-b9d1-a8641d55e33c">&lt;strong&gt;</bpt>connection string<ept id="1250f44b-5797-4386-b9d1-a8641d55e33c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Modify the <bpt id="5248774d-3672-4bad-9a3e-4546405f2918">&lt;strong&gt;</bpt>your\_connection\_string<ept id="5248774d-3672-4bad-9a3e-4546405f2918">&lt;/strong&gt;</ept> placeholder to use your Service Bus <bpt id="1250f44b-5797-4386-b9d1-a8641d55e33c">&lt;strong&gt;</bpt>connection string<ept id="1250f44b-5797-4386-b9d1-a8641d55e33c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5748ce33-054c-4d6c-861d-526e4e7c5aa7" xml:space="preserve">
+          <source>Compile the application.</source>
+          <target state="new">Compile the application.</target>
+        </trans-unit>
+        <trans-unit id="604a3367-00b3-4c3d-a4e7-321128eeecd9" xml:space="preserve">
+          <source>This will create TSPSolver.exe in your project's bin folder (either bin\release or bin\debug, depending on whether you're targeting a release or debug build).</source>
+          <target state="new">This will create TSPSolver.exe in your project's bin folder (either bin\release or bin\debug, depending on whether you're targeting a release or debug build).</target>
+        </trans-unit>
+        <trans-unit id="a6f05941-2654-404f-ac79-2c92d7f6c5f8" xml:space="preserve">
+          <source>You'll copy this executable and Microsoft.ServiceBus.dll to your virtual machine later.</source>
+          <target state="new">You'll copy this executable and Microsoft.ServiceBus.dll to your virtual machine later.</target>
+        </trans-unit>
+        <trans-unit id="f396e5e2-f6f8-4ac2-a78c-010aa16bdc63" xml:space="preserve">
+          <source>&lt;p/&gt;</source>
+          <target state="new">&lt;p/&gt;</target>
+        </trans-unit>
+        <trans-unit id="61bf55c1-0ebd-4a81-8223-5e945f219bdd" xml:space="preserve">
+          <source>On your development machine, create a .NET console application using TSPClient as the project name.</source>
+          <target state="new">On your development machine, create a .NET console application using TSPClient as the project name.</target>
+        </trans-unit>
+        <trans-unit id="b616b074-3f97-4d83-9998-9b0cc00d5894" xml:space="preserve">
+          <source>Ensure the target framework is set for .<bpt id="9425ede9-df8d-4af0-8947-d9db7cd7a957">&lt;strong&gt;</bpt>NET Framework 4<ept id="9425ede9-df8d-4af0-8947-d9db7cd7a957">&lt;/strong&gt;</ept> or later (not <bpt id="d7f754fb-f816-4dc9-a8a1-2182a908f03f">&lt;strong&gt;</bpt>.NET Framework 4 Client Profile<ept id="d7f754fb-f816-4dc9-a8a1-2182a908f03f">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Ensure the target framework is set for .<bpt id="9425ede9-df8d-4af0-8947-d9db7cd7a957">&lt;strong&gt;</bpt>NET Framework 4<ept id="9425ede9-df8d-4af0-8947-d9db7cd7a957">&lt;/strong&gt;</ept> or later (not <bpt id="d7f754fb-f816-4dc9-a8a1-2182a908f03f">&lt;strong&gt;</bpt>.NET Framework 4 Client Profile<ept id="d7f754fb-f816-4dc9-a8a1-2182a908f03f">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="76496c48-e98d-42f9-a141-44a3f1d2f926" xml:space="preserve">
+          <source>The target framework can be set after you create a project with the following: In Visual Studio's menu, click <bpt id="306bbc3d-ea4e-438b-97dd-bcafcfd56cfc">&lt;strong&gt;</bpt>Projects<ept id="306bbc3d-ea4e-438b-97dd-bcafcfd56cfc">&lt;/strong&gt;</ept>, click <bpt id="23d6fe3d-31be-4648-98c5-7022014e97a4">&lt;strong&gt;</bpt>Properties<ept id="23d6fe3d-31be-4648-98c5-7022014e97a4">&lt;/strong&gt;</ept>, click the <bpt id="f2f2de14-065e-4adb-bb5c-6984471ee936">&lt;strong&gt;</bpt>Application<ept id="f2f2de14-065e-4adb-bb5c-6984471ee936">&lt;/strong&gt;</ept> tab, and then set the value for <bpt id="7581875e-4dc0-44eb-bbe2-f5b69db28b6f">&lt;strong&gt;</bpt>Target framework<ept id="7581875e-4dc0-44eb-bbe2-f5b69db28b6f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The target framework can be set after you create a project with the following: In Visual Studio's menu, click <bpt id="306bbc3d-ea4e-438b-97dd-bcafcfd56cfc">&lt;strong&gt;</bpt>Projects<ept id="306bbc3d-ea4e-438b-97dd-bcafcfd56cfc">&lt;/strong&gt;</ept>, click <bpt id="23d6fe3d-31be-4648-98c5-7022014e97a4">&lt;strong&gt;</bpt>Properties<ept id="23d6fe3d-31be-4648-98c5-7022014e97a4">&lt;/strong&gt;</ept>, click the <bpt id="f2f2de14-065e-4adb-bb5c-6984471ee936">&lt;strong&gt;</bpt>Application<ept id="f2f2de14-065e-4adb-bb5c-6984471ee936">&lt;/strong&gt;</ept> tab, and then set the value for <bpt id="7581875e-4dc0-44eb-bbe2-f5b69db28b6f">&lt;strong&gt;</bpt>Target framework<ept id="7581875e-4dc0-44eb-bbe2-f5b69db28b6f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e039df8-5379-4a55-bca0-85c1832b21d3" xml:space="preserve">
+          <source>Add in the Microsoft ServiceBus library.</source>
+          <target state="new">Add in the Microsoft ServiceBus library.</target>
+        </trans-unit>
+        <trans-unit id="cb10cea1-9d6e-495c-b2bb-5112b784478d" xml:space="preserve">
+          <source>In Visual Studio Solution Explorer, right-click <bpt id="cd4bd45e-ca8f-4c54-85af-413ade9b73a2">&lt;strong&gt;</bpt>TSPClient<ept id="cd4bd45e-ca8f-4c54-85af-413ade9b73a2">&lt;/strong&gt;</ept>, click <bpt id="f08b5601-3567-4dcd-9fc4-007fe4840825">&lt;strong&gt;</bpt>Add Reference<ept id="f08b5601-3567-4dcd-9fc4-007fe4840825">&lt;/strong&gt;</ept>, click the <bpt id="9e339808-6c57-4d70-b1d9-326c1d45a9ab">&lt;strong&gt;</bpt>Browse<ept id="9e339808-6c57-4d70-b1d9-326c1d45a9ab">&lt;/strong&gt;</ept> tab, browse to the Azure .NET SDK (for example, C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef) and then select <bpt id="9fd45301-49a2-48bf-be23-5e6be9cf657d">&lt;strong&gt;</bpt>Microsoft.ServiceBus.dll<ept id="9fd45301-49a2-48bf-be23-5e6be9cf657d">&lt;/strong&gt;</ept> as a reference.</source>
+          <target state="new">In Visual Studio Solution Explorer, right-click <bpt id="cd4bd45e-ca8f-4c54-85af-413ade9b73a2">&lt;strong&gt;</bpt>TSPClient<ept id="cd4bd45e-ca8f-4c54-85af-413ade9b73a2">&lt;/strong&gt;</ept>, click <bpt id="f08b5601-3567-4dcd-9fc4-007fe4840825">&lt;strong&gt;</bpt>Add Reference<ept id="f08b5601-3567-4dcd-9fc4-007fe4840825">&lt;/strong&gt;</ept>, click the <bpt id="9e339808-6c57-4d70-b1d9-326c1d45a9ab">&lt;strong&gt;</bpt>Browse<ept id="9e339808-6c57-4d70-b1d9-326c1d45a9ab">&lt;/strong&gt;</ept> tab, browse to the Azure .NET SDK (for example, C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef) and then select <bpt id="9fd45301-49a2-48bf-be23-5e6be9cf657d">&lt;strong&gt;</bpt>Microsoft.ServiceBus.dll<ept id="9fd45301-49a2-48bf-be23-5e6be9cf657d">&lt;/strong&gt;</ept> as a reference.</target>
+        </trans-unit>
+        <trans-unit id="f5617a46-edc6-4c9b-abda-65720bd56f7d" xml:space="preserve">
+          <source>Add the System Runtime Serialization library.</source>
+          <target state="new">Add the System Runtime Serialization library.</target>
+        </trans-unit>
+        <trans-unit id="0a0da5ed-448d-4d50-8362-030f10818155" xml:space="preserve">
+          <source>In Visual Studio Solution Explorer, right-click <bpt id="fff1acd6-0a09-42a2-b9db-3ee1034cadb2">&lt;strong&gt;</bpt>TSPClient<ept id="fff1acd6-0a09-42a2-b9db-3ee1034cadb2">&lt;/strong&gt;</ept>, click <bpt id="53012227-14b3-4634-826e-2876b54ea80f">&lt;strong&gt;</bpt>Add Reference<ept id="53012227-14b3-4634-826e-2876b54ea80f">&lt;/strong&gt;</ept>, click the <bpt id="30a2af4f-4e55-46da-b1db-576ca9a8e590">&lt;strong&gt;</bpt>.NET<ept id="30a2af4f-4e55-46da-b1db-576ca9a8e590">&lt;/strong&gt;</ept> tab, and then select <bpt id="83fe4c7e-df53-4e04-9691-6c0a44f5dcf0">&lt;strong&gt;</bpt>System.Runtime.Serialization<ept id="83fe4c7e-df53-4e04-9691-6c0a44f5dcf0">&lt;/strong&gt;</ept> as a reference.</source>
+          <target state="new">In Visual Studio Solution Explorer, right-click <bpt id="fff1acd6-0a09-42a2-b9db-3ee1034cadb2">&lt;strong&gt;</bpt>TSPClient<ept id="fff1acd6-0a09-42a2-b9db-3ee1034cadb2">&lt;/strong&gt;</ept>, click <bpt id="53012227-14b3-4634-826e-2876b54ea80f">&lt;strong&gt;</bpt>Add Reference<ept id="53012227-14b3-4634-826e-2876b54ea80f">&lt;/strong&gt;</ept>, click the <bpt id="30a2af4f-4e55-46da-b1db-576ca9a8e590">&lt;strong&gt;</bpt>.NET<ept id="30a2af4f-4e55-46da-b1db-576ca9a8e590">&lt;/strong&gt;</ept> tab, and then select <bpt id="83fe4c7e-df53-4e04-9691-6c0a44f5dcf0">&lt;strong&gt;</bpt>System.Runtime.Serialization<ept id="83fe4c7e-df53-4e04-9691-6c0a44f5dcf0">&lt;/strong&gt;</ept> as a reference.</target>
+        </trans-unit>
+        <trans-unit id="6cada993-4077-485d-9d7a-3f11eee49026" xml:space="preserve">
+          <source>Use the example code at the end of this section for the contents of the Program.cs file.</source>
+          <target state="new">Use the example code at the end of this section for the contents of the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="b02d9dd7-4152-4376-804f-74dbcc0712f7" xml:space="preserve">
+          <source>Modify the <bpt id="2120e9d6-47e9-44b8-a6cd-ea33172c195a">&lt;strong&gt;</bpt>your\_connection\_string<ept id="2120e9d6-47e9-44b8-a6cd-ea33172c195a">&lt;/strong&gt;</ept> placeholder to use your Service Bus <bpt id="2a399ba9-55d5-43a3-80b4-45809562278e">&lt;strong&gt;</bpt>connection string<ept id="2a399ba9-55d5-43a3-80b4-45809562278e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Modify the <bpt id="2120e9d6-47e9-44b8-a6cd-ea33172c195a">&lt;strong&gt;</bpt>your\_connection\_string<ept id="2120e9d6-47e9-44b8-a6cd-ea33172c195a">&lt;/strong&gt;</ept> placeholder to use your Service Bus <bpt id="2a399ba9-55d5-43a3-80b4-45809562278e">&lt;strong&gt;</bpt>connection string<ept id="2a399ba9-55d5-43a3-80b4-45809562278e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88d17d6d-aa71-474a-abb6-4d1c5b26fc94" xml:space="preserve">
+          <source>Compile the application.</source>
+          <target state="new">Compile the application.</target>
+        </trans-unit>
+        <trans-unit id="4a1e8802-80e2-40eb-997c-5201a059f857" xml:space="preserve">
+          <source>This will create TSPClient.exe in your project's bin folder (either bin\release or bin\debug, depending on whether you're targeting a release or debug build).</source>
+          <target state="new">This will create TSPClient.exe in your project's bin folder (either bin\release or bin\debug, depending on whether you're targeting a release or debug build).</target>
+        </trans-unit>
+        <trans-unit id="5f8fada0-fda8-4c43-a4ff-a77dad8f7bc9" xml:space="preserve">
+          <source>You can run this code from your development machine, or copy this executable and Microsoft.ServiceBus.dll to a machine that will run the client application (it does not need to be on your virtual machine).</source>
+          <target state="new">You can run this code from your development machine, or copy this executable and Microsoft.ServiceBus.dll to a machine that will run the client application (it does not need to be on your virtual machine).</target>
+        </trans-unit>
+        <trans-unit id="dcf11b5b-c32d-4f77-91ff-1644dffb2244" xml:space="preserve">
+          <source>&lt;p/&gt;</source>
+          <target state="new">&lt;p/&gt;</target>
+        </trans-unit>
+        <trans-unit id="7ea83458-0017-4e99-befc-ca6d456b8940" xml:space="preserve">
+          <source>Run the compute-intensive application, first to create the queue, then to solve the Traveling Saleseman Problem, which will add the current best route to the Service Bus queue.</source>
+          <target state="new">Run the compute-intensive application, first to create the queue, then to solve the Traveling Saleseman Problem, which will add the current best route to the Service Bus queue.</target>
+        </trans-unit>
+        <trans-unit id="255d562c-cd10-41e8-b8db-ae8d39785bb2" xml:space="preserve">
+          <source>While the compute-intensive application is running (or afterwards), run the client to display results from the Service Bus queue.</source>
+          <target state="new">While the compute-intensive application is running (or afterwards), run the client to display results from the Service Bus queue.</target>
+        </trans-unit>
+        <trans-unit id="4ff3e271-fac1-4b52-a071-74079a1c19c5" xml:space="preserve">
+          <source>Log in to your virtual machine.</source>
+          <target state="new">Log in to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="fa6e413b-1c0f-493f-9826-54a569ac6bf0" xml:space="preserve">
+          <source>Create a folder named c:\TSP.</source>
+          <target state="new">Create a folder named c:\TSP.</target>
+        </trans-unit>
+        <trans-unit id="aca0b9a0-d730-4b70-83d1-07d3e65c607b" xml:space="preserve">
+          <source>This is where you will run your application.</source>
+          <target state="new">This is where you will run your application.</target>
+        </trans-unit>
+        <trans-unit id="69f9d3c7-db7a-430c-a07e-05f90f93a648" xml:space="preserve">
+          <source>Copy TSPSolver.exe and Microsoft.ServiceBus.dll, both of which are available in your TSPSolver project's bin folder, to c:\TSP.</source>
+          <target state="new">Copy TSPSolver.exe and Microsoft.ServiceBus.dll, both of which are available in your TSPSolver project's bin folder, to c:\TSP.</target>
+        </trans-unit>
+        <trans-unit id="d3706cd5-67e1-43ed-b367-ed604409910d" xml:space="preserve">
+          <source>Create a file named c:\TSP\cities.txt with the following contents.</source>
+          <target state="new">Create a file named c:\TSP\cities.txt with the following contents.</target>
+        </trans-unit>
+        <trans-unit id="26c6a2af-7051-4ded-8fa4-7cfd7ab85702" xml:space="preserve">
+          <source>At a command prompt, change directories to c:\TSP.</source>
+          <target state="new">At a command prompt, change directories to c:\TSP.</target>
+        </trans-unit>
+        <trans-unit id="5b05c2f1-a0a3-46de-8dcb-70c1d31002b5" xml:space="preserve">
+          <source>You'll need to create the Service Bus queue before you run the TSP solver permutations.</source>
+          <target state="new">You'll need to create the Service Bus queue before you run the TSP solver permutations.</target>
+        </trans-unit>
+        <trans-unit id="6297b4b8-8f98-471e-8117-65f405bfa6f4" xml:space="preserve">
+          <source>Run the following command to create the Service Bus queue.</source>
+          <target state="new">Run the following command to create the Service Bus queue.</target>
+        </trans-unit>
+        <trans-unit id="2a22aa5e-3301-406b-bd51-821badd25344" xml:space="preserve">
+          <source>Now that the queue is created, you can run the TSP solver permutations.</source>
+          <target state="new">Now that the queue is created, you can run the TSP solver permutations.</target>
+        </trans-unit>
+        <trans-unit id="3b9f167a-032b-48c5-a6ab-dc70fff953bc" xml:space="preserve">
+          <source>For example, run the following command to run the solver for 8 cities.</source>
+          <target state="new">For example, run the following command to run the solver for 8 cities.</target>
+        </trans-unit>
+        <trans-unit id="c84e70fe-3d5b-430b-a343-ccb49592eb03" xml:space="preserve">
+          <source>If you don't specify a number, the solver will run for 10 cities.</source>
+          <target state="new">If you don't specify a number, the solver will run for 10 cities.</target>
+        </trans-unit>
+        <trans-unit id="6d35fc5d-4773-4eb8-b25d-9e449a12cea8" xml:space="preserve">
+          <source>As the solver finds current shortest routes, it will add them to the queue.</source>
+          <target state="new">As the solver finds current shortest routes, it will add them to the queue.</target>
+        </trans-unit>
+        <trans-unit id="132ef464-80da-43cb-a2e8-a3194a531261" xml:space="preserve">
+          <source>The solver will run until it finishes examining all routes.</source>
+          <target state="new">The solver will run until it finishes examining all routes.</target>
+        </trans-unit>
+        <trans-unit id="45b885ee-5f0f-4a2b-85a4-0c3fa84c9f06" xml:space="preserve">
+          <source>The larger the number that you specify, the longer the solver will run.</source>
+          <target state="new">The larger the number that you specify, the longer the solver will run.</target>
+        </trans-unit>
+        <trans-unit id="62435904-6e6f-4066-b148-f13964c41bd3" xml:space="preserve">
+          <source>For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours.</source>
+          <target state="new">For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours.</target>
+        </trans-unit>
+        <trans-unit id="b3ff9097-e6c7-4be8-a23a-c8bb0969a188" xml:space="preserve">
+          <source>Increasing to 16 or more cities could result in days of run time (eventually weeks, months, and years).</source>
+          <target state="new">Increasing to 16 or more cities could result in days of run time (eventually weeks, months, and years).</target>
+        </trans-unit>
+        <trans-unit id="c312d813-0700-4a9f-aa6e-75fdc080a219" xml:space="preserve">
+          <source>This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.</source>
+          <target state="new">This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.</target>
+        </trans-unit>
+        <trans-unit id="14bdb5b8-9ac9-46e3-8058-d9fae0c5cb41" xml:space="preserve">
+          <source>Log in to your machine where you will run the client application.</source>
+          <target state="new">Log in to your machine where you will run the client application.</target>
+        </trans-unit>
+        <trans-unit id="5fa7d925-508a-4032-95ae-3a124d24d0e8" xml:space="preserve">
+          <source>This does not need to be the same machine running the TSPSolver application, although it can be.</source>
+          <target state="new">This does not need to be the same machine running the TSPSolver application, although it can be.</target>
+        </trans-unit>
+        <trans-unit id="23fbceb3-3402-4c2b-93bf-16f067dd16ab" xml:space="preserve">
+          <source>Create a folder where you will run your application.</source>
+          <target state="new">Create a folder where you will run your application.</target>
+        </trans-unit>
+        <trans-unit id="ac57b3a8-ae4f-48e7-91aa-2cad600bbad1" xml:space="preserve">
+          <source>For example, c:\TSP.</source>
+          <target state="new">For example, c:\TSP.</target>
+        </trans-unit>
+        <trans-unit id="3cf796a4-cd6f-4c0b-90fc-8d7299cd3edc" xml:space="preserve">
+          <source>Copy TSPClient.exe and Microsoft.ServiceBus.dll, both of which are in your TSPClient project's bin folder, to the c:\TSP folder.</source>
+          <target state="new">Copy TSPClient.exe and Microsoft.ServiceBus.dll, both of which are in your TSPClient project's bin folder, to the c:\TSP folder.</target>
+        </trans-unit>
+        <trans-unit id="602d8bc4-a2ab-417f-91dc-70d5f9f9627a" xml:space="preserve">
+          <source>At a command prompt, change directories to c:\TSP.</source>
+          <target state="new">At a command prompt, change directories to c:\TSP.</target>
+        </trans-unit>
+        <trans-unit id="6bfc5c79-27f9-4ca1-8846-47d13d231ee0" xml:space="preserve">
+          <source>Run the following command.</source>
+          <target state="new">Run the following command.</target>
+        </trans-unit>
+        <trans-unit id="93085c9b-2c38-4771-970f-ed43998d938d" xml:space="preserve">
+          <source>Optionally, specify the number of minutes to sleep in between checking the queue, by passing in a command-line argument.</source>
+          <target state="new">Optionally, specify the number of minutes to sleep in between checking the queue, by passing in a command-line argument.</target>
+        </trans-unit>
+        <trans-unit id="030fd6ae-51ff-4327-b2e8-75b9fe52ed3b" xml:space="preserve">
+          <source>The default sleep period for checking the queue is 3 minutes, which is used if no command-line argument is passed to TSPClient.</source>
+          <target state="new">The default sleep period for checking the queue is 3 minutes, which is used if no command-line argument is passed to TSPClient.</target>
+        </trans-unit>
+        <trans-unit id="a55fd2b6-a148-437b-9fe2-7bce954a9954" xml:space="preserve">
+          <source>If you want to use a different value for the sleep interval, for example, one minute, run the following command.</source>
+          <target state="new">If you want to use a different value for the sleep interval, for example, one minute, run the following command.</target>
+        </trans-unit>
+        <trans-unit id="5a0a137b-9da2-4ea4-9490-e3f2c8a7a0a4" xml:space="preserve">
+          <source>The client will run until it sees a queue message of "Complete".</source>
+          <target state="new">The client will run until it sees a queue message of "Complete".</target>
+        </trans-unit>
+        <trans-unit id="76f0260a-8317-4117-960b-d7e5e8fe99f3" xml:space="preserve">
+          <source>Note that if you run multiple occurrences of the solver without running the client, you may need to run the client multiple times to completely empty the queue.</source>
+          <target state="new">Note that if you run multiple occurrences of the solver without running the client, you may need to run the client multiple times to completely empty the queue.</target>
+        </trans-unit>
+        <trans-unit id="5f4d7e6c-36bb-46cb-be1f-e3b5c0417fb2" xml:space="preserve">
+          <source>Alternatively, you can delete the queue and then create it again.</source>
+          <target state="new">Alternatively, you can delete the queue and then create it again.</target>
+        </trans-unit>
+        <trans-unit id="28050a69-dbcc-4469-a744-7c881e86de6d" xml:space="preserve">
+          <source>To delete the queue, run the following TSPSolver (not TSPClient)  command.</source>
+          <target state="new">To delete the queue, run the following TSPSolver (not TSPClient)  command.</target>
+        </trans-unit>
+        <trans-unit id="ad43fb2f-8249-47db-8a4a-4f3e808f5bbb" xml:space="preserve">
+          <source>For both the solver and client applications, you can press Ctrl+C to exit if you want to end prior to normal completion.</source>
+          <target state="new">For both the solver and client applications, you can press Ctrl+C to exit if you want to end prior to normal completion.</target>
+        </trans-unit>
+        <trans-unit id="c413bb9b-aabd-4db7-866c-9e5ae93a832f" xml:space="preserve">
+          <source>Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the <bpt id="0f1087bd-a416-4722-a1be-13fa804bc8e3">&lt;linkText&gt;</bpt>Azure portal<ept id="0f1087bd-a416-4722-a1be-13fa804bc8e3">&lt;/linkText&gt;</ept><bpt id="0f1087bd-a416-4722-a1be-13fa804bc8e3">&lt;title&gt;</bpt><ept id="0f1087bd-a416-4722-a1be-13fa804bc8e3">&lt;/title&gt;</ept>.</source>
+          <target state="new">Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the <bpt id="0f1087bd-a416-4722-a1be-13fa804bc8e3">&lt;linkText&gt;</bpt>Azure portal<ept id="0f1087bd-a416-4722-a1be-13fa804bc8e3">&lt;/linkText&gt;</ept><bpt id="0f1087bd-a416-4722-a1be-13fa804bc8e3">&lt;title&gt;</bpt><ept id="0f1087bd-a416-4722-a1be-13fa804bc8e3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="595c8f10-6641-4432-9d19-ced8e46a6328" xml:space="preserve">
+          <source>Visit the Service Bus section of the Azure portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key.</source>
+          <target state="new">Visit the Service Bus section of the Azure portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key.</target>
+        </trans-unit>
+        <trans-unit id="7c08aaff-76e7-408d-a07c-906a85b26f01" xml:space="preserve">
+          <source>You can also view a dashboard of your Service Bus queues, allowing you to view metrics for your incoming and outgoing messages.</source>
+          <target state="new">You can also view a dashboard of your Service Bus queues, allowing you to view metrics for your incoming and outgoing messages.</target>
+        </trans-unit>
+        <trans-unit id="5b73d30c-d63b-459b-9f2d-8a5cff545da2" xml:space="preserve">
+          <source>./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png</source>
+          <target state="new">./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png</target>
+        </trans-unit>
+        <trans-unit id="d6c77a15-dc82-4afd-bf62-95bcffb5d61d" xml:space="preserve">
+          <source>./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png</source>
+          <target state="new">./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png</target>
+        </trans-unit>
+        <trans-unit id="bada443a-308d-49ee-92f5-fa96f0d2e061" xml:space="preserve">
+          <source>./media/virtual-machines-dotnet-run-compute-intensive-task/ServiceBusCreateNew.png</source>
+          <target state="new">./media/virtual-machines-dotnet-run-compute-intensive-task/ServiceBusCreateNew.png</target>
+        </trans-unit>
+        <trans-unit id="daaba2bc-ed50-4fcc-a56b-a28c29d70265" xml:space="preserve">
+          <source>./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png</source>
+          <target state="new">./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png</target>
+        </trans-unit>
+        <trans-unit id="a8483cd2-81df-4a8e-a644-0a611430ed14" xml:space="preserve">
+          <source>./media/virtual-machines-dotnet-run-compute-intensive-task/AvailableNamespaces.png</source>
+          <target state="new">./media/virtual-machines-dotnet-run-compute-intensive-task/AvailableNamespaces.png</target>
+        </trans-unit>
+        <trans-unit id="cf8c4740-9dcb-4808-9972-69c26ebe538f" xml:space="preserve">
+          <source>./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png</source>
+          <target state="new">./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png</target>
+        </trans-unit>
+        <trans-unit id="7a05a90a-251a-4b4b-8f16-8aae42678fc0" xml:space="preserve">
+          <source>./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png</source>
+          <target state="new">./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png</target>
+        </trans-unit>
+        <trans-unit id="32a699ba-5e24-4df5-816e-154f6a1b4bbe" xml:space="preserve">
+          <source>./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png</source>
+          <target state="new">./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png</target>
+        </trans-unit>
+      </group>
+      <group id="ea024c3c-9109-457b-8a5e-3469cdf89596" />
+    </body>
+  </file>
+</xliff>

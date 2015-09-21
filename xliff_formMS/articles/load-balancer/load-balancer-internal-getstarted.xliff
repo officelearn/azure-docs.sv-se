@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ce0fd9e1-49ff-47e2-80cf-87be61526ba3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ce0fd9e1-49ff-47e2-80cf-87be61526ba3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="59feace1-0303-443a-96a1-6b8d3722bd4d">
+        <trans-unit id="d88a1576-361d-4446-a1ed-aa570688e933" xml:space="preserve">
+          <source>Get started with Internal load balancer | Microsoft Azure </source>
+          <target state="new">Get started with Internal load balancer | Microsoft Azure </target>
+        </trans-unit>
+        <trans-unit id="a2f24586-9f32-487f-96da-4fb7fa1a4225" xml:space="preserve">
+          <source>Configure Internal Load balancer and how to implement them for Virtual Machines and Cloud deployments</source>
+          <target state="new">Configure Internal Load balancer and how to implement them for Virtual Machines and Cloud deployments</target>
+        </trans-unit>
+        <trans-unit id="3166e343-eedb-49b3-9f73-59718e0e66c7" xml:space="preserve">
+          <source>Azure Internal Load Balancing (ILB) provides load balancing between virtual machines that reside inside of a cloud service or a virtual network with a regional scope.</source>
+          <target state="new">Azure Internal Load Balancing (ILB) provides load balancing between virtual machines that reside inside of a cloud service or a virtual network with a regional scope.</target>
+        </trans-unit>
+        <trans-unit id="6a841397-6f89-4f60-aed7-5f3bff97b749" xml:space="preserve">
+          <source>For information about the use and configuration of virtual networks with a regional scope, see <bpt id="6d374f26-c44b-4c28-877a-c8e1d8c5c81c">&lt;linkText&gt;</bpt>Regional Virtual Networks<ept id="6d374f26-c44b-4c28-877a-c8e1d8c5c81c">&lt;/linkText&gt;</ept><bpt id="6d374f26-c44b-4c28-877a-c8e1d8c5c81c">&lt;title&gt;</bpt><ept id="6d374f26-c44b-4c28-877a-c8e1d8c5c81c">&lt;/title&gt;</ept> in the Azure blog.</source>
+          <target state="new">For information about the use and configuration of virtual networks with a regional scope, see <bpt id="6d374f26-c44b-4c28-877a-c8e1d8c5c81c">&lt;linkText&gt;</bpt>Regional Virtual Networks<ept id="6d374f26-c44b-4c28-877a-c8e1d8c5c81c">&lt;/linkText&gt;</ept><bpt id="6d374f26-c44b-4c28-877a-c8e1d8c5c81c">&lt;title&gt;</bpt><ept id="6d374f26-c44b-4c28-877a-c8e1d8c5c81c">&lt;/title&gt;</ept> in the Azure blog.</target>
+        </trans-unit>
+        <trans-unit id="2f043f01-047b-4596-97b3-4bd3263f895c" xml:space="preserve">
+          <source>Existing virtual networks that have been configured for an affinity group cannot use ILB.</source>
+          <target state="new">Existing virtual networks that have been configured for an affinity group cannot use ILB.</target>
+        </trans-unit>
+        <trans-unit id="5d130ca0-3b77-4ebf-861e-807b69b7cd98" xml:space="preserve">
+          <source>To create an Azure internal load-balanced set and the servers that will send their traffic to it, you must do the following:</source>
+          <target state="new">To create an Azure internal load-balanced set and the servers that will send their traffic to it, you must do the following:</target>
+        </trans-unit>
+        <trans-unit id="9324f944-1c8e-49c5-ba08-e34bdcc1205b" xml:space="preserve">
+          <source>Create an ILB instance that will be the endpoint of incoming traffic to be load balanced across the servers of a load-balanced set.</source>
+          <target state="new">Create an ILB instance that will be the endpoint of incoming traffic to be load balanced across the servers of a load-balanced set.</target>
+        </trans-unit>
+        <trans-unit id="68efd3fc-127e-4bd8-bdb0-d52ba1180c43" xml:space="preserve">
+          <source>Add endpoints corresponding to the virtual machines that will be receiving the incoming traffic.</source>
+          <target state="new">Add endpoints corresponding to the virtual machines that will be receiving the incoming traffic.</target>
+        </trans-unit>
+        <trans-unit id="9c68a1f7-5195-4887-921c-ac268a775389" xml:space="preserve">
+          <source>Configure the servers that will be sending the traffic to be load balanced to send their traffic to the virtual IP address (VIP) of the ILB instance.</source>
+          <target state="new">Configure the servers that will be sending the traffic to be load balanced to send their traffic to the virtual IP address (VIP) of the ILB instance.</target>
+        </trans-unit>
+        <trans-unit id="cabe160c-f639-4924-9eb3-8c5a2a028947" xml:space="preserve">
+          <source>For an existing cloud service or a cloud service deployed under a regional virtual network, you can create and ILB instance with the following Windows PowerShell commands:</source>
+          <target state="new">For an existing cloud service or a cloud service deployed under a regional virtual network, you can create and ILB instance with the following Windows PowerShell commands:</target>
+        </trans-unit>
+        <trans-unit id="cd2e8d1a-f2c4-4f12-a00e-55ebb9037347" xml:space="preserve">
+          <source>To use these commands, fill in the values and remove the &lt; and &gt;. Here is an example:</source>
+          <target state="new">To use these commands, fill in the values and remove the &lt; and &gt;. Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="dc8060aa-d6bf-48ea-930c-6551f4378f80" xml:space="preserve">
+          <source>For existing virtual machines, you can add endpoints to the ILB instance with the following commands:</source>
+          <target state="new">For existing virtual machines, you can add endpoints to the ILB instance with the following commands:</target>
+        </trans-unit>
+        <trans-unit id="6ffc64cb-9058-4560-9603-3c262e69c122" xml:space="preserve">
+          <source>To use these commands, fill in the values and remove the &lt; and &gt;.</source>
+          <target state="new">To use these commands, fill in the values and remove the &lt; and &gt;.</target>
+        </trans-unit>
+        <trans-unit id="d9fbaa55-bc41-4bdc-b7ae-0d4e469b28e3" xml:space="preserve">
+          <source>Note that this use of the <bpt id="190d46d3-95a2-4836-b4c0-5c7bd3e4923a">&lt;linkText&gt;</bpt>Add-AzureEndpoint<ept id="190d46d3-95a2-4836-b4c0-5c7bd3e4923a">&lt;/linkText&gt;</ept><bpt id="190d46d3-95a2-4836-b4c0-5c7bd3e4923a">&lt;title&gt;</bpt><ept id="190d46d3-95a2-4836-b4c0-5c7bd3e4923a">&lt;/title&gt;</ept> Windows PowerShell cmdlet uses the DefaultProbe parameter set.</source>
+          <target state="new">Note that this use of the <bpt id="190d46d3-95a2-4836-b4c0-5c7bd3e4923a">&lt;linkText&gt;</bpt>Add-AzureEndpoint<ept id="190d46d3-95a2-4836-b4c0-5c7bd3e4923a">&lt;/linkText&gt;</ept><bpt id="190d46d3-95a2-4836-b4c0-5c7bd3e4923a">&lt;title&gt;</bpt><ept id="190d46d3-95a2-4836-b4c0-5c7bd3e4923a">&lt;/title&gt;</ept> Windows PowerShell cmdlet uses the DefaultProbe parameter set.</target>
+        </trans-unit>
+        <trans-unit id="10ad5c06-cb3b-4032-9d6a-f3da3a69c25e" xml:space="preserve">
+          <source>For more information on additional parameter sets, see <bpt id="ea92c9f3-f7f4-4313-9dba-9d72402c6336">&lt;linkText&gt;</bpt>Add-AzureEndpoint<ept id="ea92c9f3-f7f4-4313-9dba-9d72402c6336">&lt;/linkText&gt;</ept><bpt id="ea92c9f3-f7f4-4313-9dba-9d72402c6336">&lt;title&gt;</bpt><ept id="ea92c9f3-f7f4-4313-9dba-9d72402c6336">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on additional parameter sets, see <bpt id="ea92c9f3-f7f4-4313-9dba-9d72402c6336">&lt;linkText&gt;</bpt>Add-AzureEndpoint<ept id="ea92c9f3-f7f4-4313-9dba-9d72402c6336">&lt;/linkText&gt;</ept><bpt id="ea92c9f3-f7f4-4313-9dba-9d72402c6336">&lt;title&gt;</bpt><ept id="ea92c9f3-f7f4-4313-9dba-9d72402c6336">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d631d0e-45a9-4bcd-a828-3677e188a756" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="f0059807-fe9c-42fd-afce-c709d30e8240" xml:space="preserve">
+          <source>You must configure the servers whose traffic is going to be load balanced to use the new IP address (the VIP) of the ILB instance.</source>
+          <target state="new">You must configure the servers whose traffic is going to be load balanced to use the new IP address (the VIP) of the ILB instance.</target>
+        </trans-unit>
+        <trans-unit id="866fb71a-0f46-418e-bb15-15e394a3cb77" xml:space="preserve">
+          <source>This is the address on which the ILB instance is listening.</source>
+          <target state="new">This is the address on which the ILB instance is listening.</target>
+        </trans-unit>
+        <trans-unit id="0e06be25-315c-4478-9225-151eb818042b" xml:space="preserve">
+          <source>In most cases, you just need to add or modify a DNS record for the VIP of the ILB instance.</source>
+          <target state="new">In most cases, you just need to add or modify a DNS record for the VIP of the ILB instance.</target>
+        </trans-unit>
+        <trans-unit id="084c0ded-9f38-43bb-a316-13289fd69114" xml:space="preserve">
+          <source>If you specified the IP address during the creation of the ILB instance, you already have the VIP.</source>
+          <target state="new">If you specified the IP address during the creation of the ILB instance, you already have the VIP.</target>
+        </trans-unit>
+        <trans-unit id="68a44416-e0a1-43ba-b1ac-08ba586cf1bc" xml:space="preserve">
+          <source>Otherwise, you can see the VIP from the following commands:</source>
+          <target state="new">Otherwise, you can see the VIP from the following commands:</target>
+        </trans-unit>
+        <trans-unit id="e20ddb28-c905-4869-b01c-c54f31b429d6" xml:space="preserve">
+          <source>To use these commands, fill in the values and remove the &lt; and &gt;. Here is an example:</source>
+          <target state="new">To use these commands, fill in the values and remove the &lt; and &gt;. Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="0f715caa-c29f-48f4-9289-6147cd58a761" xml:space="preserve">
+          <source>From the display of the Get-AzureInternalLoadBalancer command, note the IP address and make the necessary changes to your servers or DNS records to ensure that traffic gets sent to the VIP.</source>
+          <target state="new">From the display of the Get-AzureInternalLoadBalancer command, note the IP address and make the necessary changes to your servers or DNS records to ensure that traffic gets sent to the VIP.</target>
+        </trans-unit>
+        <trans-unit id="1b267ed6-0286-4f3d-abd5-d41a41b2730e" xml:space="preserve">
+          <source>The Microsoft Azure platform uses a static, publicly routable IPv4 address for a variety of administrative scenarios.</source>
+          <target state="new">The Microsoft Azure platform uses a static, publicly routable IPv4 address for a variety of administrative scenarios.</target>
+        </trans-unit>
+        <trans-unit id="cc31f47e-4ae1-41bc-9159-da8b28d19d31" xml:space="preserve">
+          <source>The IP address is 168.63.129.16.</source>
+          <target state="new">The IP address is 168.63.129.16.</target>
+        </trans-unit>
+        <trans-unit id="ab13c7ae-43ca-438f-8a91-00f45f4ae5f7" xml:space="preserve">
+          <source>This IP address should not be blocked by any firewalls, as it can cause unexpected behavior.</source>
+          <target state="new">This IP address should not be blocked by any firewalls, as it can cause unexpected behavior.</target>
+        </trans-unit>
+        <trans-unit id="aacf471e-dee8-415a-acd1-202384620222" xml:space="preserve">
+          <source>With respect to the Azure ILB, this IP address is used by monitoring probes from the load balancer, to determine health state for VMs in a load balanced set.</source>
+          <target state="new">With respect to the Azure ILB, this IP address is used by monitoring probes from the load balancer, to determine health state for VMs in a load balanced set.</target>
+        </trans-unit>
+        <trans-unit id="0fab2802-f404-444f-8efd-88dc7aba5875" xml:space="preserve">
+          <source>If a Network Security Group is used to restrict traffic to Azure Virtual Machines in an internally load-balanced set, or is applied to a Virtual Network Subnet, ensure that a Network Security Rule is added to allow traffic from 168.63.129.16.</source>
+          <target state="new">If a Network Security Group is used to restrict traffic to Azure Virtual Machines in an internally load-balanced set, or is applied to a Virtual Network Subnet, ensure that a Network Security Rule is added to allow traffic from 168.63.129.16.</target>
+        </trans-unit>
+        <trans-unit id="8e7fc4cd-b5e8-483a-8a32-b46ebe6e12d9" xml:space="preserve">
+          <source>To step you through the end-to end process of creating a load-balanced set for two example configurations, see the following sections.</source>
+          <target state="new">To step you through the end-to end process of creating a load-balanced set for two example configurations, see the following sections.</target>
+        </trans-unit>
+        <trans-unit id="a8ec43b1-421a-4357-8566-d900101f8ea9" xml:space="preserve">
+          <source>The Contoso Corporation wants to provide load balancing between a set of Internet-facing web servers and a set of database servers.</source>
+          <target state="new">The Contoso Corporation wants to provide load balancing between a set of Internet-facing web servers and a set of database servers.</target>
+        </trans-unit>
+        <trans-unit id="214c56b5-dbab-4dd0-af22-0e08b52fa4d2" xml:space="preserve">
+          <source>Both sets of servers are hosted in a single Azure cloud service.</source>
+          <target state="new">Both sets of servers are hosted in a single Azure cloud service.</target>
+        </trans-unit>
+        <trans-unit id="1bc774d1-ab89-4f45-9396-15adca7d465f" xml:space="preserve">
+          <source>Web server traffic to TCP port 1433 must be distributed among three virtual machines in the database tier.</source>
+          <target state="new">Web server traffic to TCP port 1433 must be distributed among three virtual machines in the database tier.</target>
+        </trans-unit>
+        <trans-unit id="c13dcf85-9d49-421e-8c2a-678a9ca616fe" xml:space="preserve">
+          <source>Figure 1 shows the configuration.</source>
+          <target state="new">Figure 1 shows the configuration.</target>
+        </trans-unit>
+        <trans-unit id="9b6d06bd-1e60-4c4c-87f9-8a106cfbadeb" xml:space="preserve">
+          <source><bpt id="1179d95e-c29a-4158-a8c7-63b51a2739bb">&lt;linkText&gt;</bpt>Internal load-balanced set for the database tier<ept id="1179d95e-c29a-4158-a8c7-63b51a2739bb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1179d95e-c29a-4158-a8c7-63b51a2739bb">&lt;linkText&gt;</bpt>Internal load-balanced set for the database tier<ept id="1179d95e-c29a-4158-a8c7-63b51a2739bb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="290e4eea-9017-4447-8fc4-e6a02ca54daf" xml:space="preserve">
+          <source>Figure 1: Example of an Internet-facing, multi-tier application</source>
+          <target state="new">Figure 1: Example of an Internet-facing, multi-tier application</target>
+        </trans-unit>
+        <trans-unit id="d8839a5b-adf4-43ee-97b7-4af8a2e90a28" xml:space="preserve">
+          <source>The configuration consists of the following:</source>
+          <target state="new">The configuration consists of the following:</target>
+        </trans-unit>
+        <trans-unit id="4f80804f-f53f-4e89-971d-a489cf4b8f12" xml:space="preserve">
+          <source>The existing cloud service hosting the virtual machines is named Contoso-PartnerSite.</source>
+          <target state="new">The existing cloud service hosting the virtual machines is named Contoso-PartnerSite.</target>
+        </trans-unit>
+        <trans-unit id="dab7c22b-f3fc-43be-af91-5f2fb5343135" xml:space="preserve">
+          <source>The three existing database servers are named PARTNER-SQL-1, PARTNER-SQL-2, and PARTNER-SQL-3.</source>
+          <target state="new">The three existing database servers are named PARTNER-SQL-1, PARTNER-SQL-2, and PARTNER-SQL-3.</target>
+        </trans-unit>
+        <trans-unit id="f3adf089-abd0-478d-9657-ec847ab4fe27" xml:space="preserve">
+          <source>Web servers in the web tier connect to the database servers in the database tier using the DNS name partner-sql.external.contoso.com.</source>
+          <target state="new">Web servers in the web tier connect to the database servers in the database tier using the DNS name partner-sql.external.contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="a64051cf-5076-4661-a1d4-5dc2f9423bfd" xml:space="preserve">
+          <source>The following commands configure a new ILB instance named PARTNER-DBTIER and add endpoints to the virtual machines corresponding to the three database servers:</source>
+          <target state="new">The following commands configure a new ILB instance named PARTNER-DBTIER and add endpoints to the virtual machines corresponding to the three database servers:</target>
+        </trans-unit>
+        <trans-unit id="6e6e6cf6-595e-45b8-b36e-3b34688f7290" xml:space="preserve">
+          <source>Next, Contoso determined the VIP of the PARTNER-DBTIER ILB instance with the following command:</source>
+          <target state="new">Next, Contoso determined the VIP of the PARTNER-DBTIER ILB instance with the following command:</target>
+        </trans-unit>
+        <trans-unit id="652d66b6-1171-4f9f-a79a-a766530f5578" xml:space="preserve">
+          <source>From the display of this command, Contoso noted the VIP address of 100.64.65.211 and configured the DNS Address (A) record for the name partner-sql.external.contoso.com to use this new address.</source>
+          <target state="new">From the display of this command, Contoso noted the VIP address of 100.64.65.211 and configured the DNS Address (A) record for the name partner-sql.external.contoso.com to use this new address.</target>
+        </trans-unit>
+        <trans-unit id="112ba7bc-ab7b-4179-bb7c-23535b40dfbc" xml:space="preserve">
+          <source>The Contoso Corporation wants to host a line-of-business (LOB) application on a set of web servers in Azure.</source>
+          <target state="new">The Contoso Corporation wants to host a line-of-business (LOB) application on a set of web servers in Azure.</target>
+        </trans-unit>
+        <trans-unit id="8fbbe031-4852-46b5-a9fd-efacc4e950f6" xml:space="preserve">
+          <source>Client traffic to TCP port 80 must be load-balanced among three virtual machines running in a cross-premises virtual network.</source>
+          <target state="new">Client traffic to TCP port 80 must be load-balanced among three virtual machines running in a cross-premises virtual network.</target>
+        </trans-unit>
+        <trans-unit id="f5119d2d-910f-4715-a589-15f2b731db46" xml:space="preserve">
+          <source>Figure 2 shows the configuration.</source>
+          <target state="new">Figure 2 shows the configuration.</target>
+        </trans-unit>
+        <trans-unit id="c336e33e-fbd2-4bd2-8de3-936329cd979b" xml:space="preserve">
+          <source><bpt id="576fc4c4-7d63-4b55-98cc-5a4fc25374b6">&lt;linkText&gt;</bpt>Internal load balancing for an LOB application<ept id="576fc4c4-7d63-4b55-98cc-5a4fc25374b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="576fc4c4-7d63-4b55-98cc-5a4fc25374b6">&lt;linkText&gt;</bpt>Internal load balancing for an LOB application<ept id="576fc4c4-7d63-4b55-98cc-5a4fc25374b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c02b687f-bac1-4225-97a8-323c7ab3de9a" xml:space="preserve">
+          <source>Figure 2: Example of an LOB application hosted in Azure</source>
+          <target state="new">Figure 2: Example of an LOB application hosted in Azure</target>
+        </trans-unit>
+        <trans-unit id="cee0927e-d0e9-4497-adfe-10f6cffbe120" xml:space="preserve">
+          <source>The configuration consists of the following:</source>
+          <target state="new">The configuration consists of the following:</target>
+        </trans-unit>
+        <trans-unit id="5f9e29f0-23dd-44aa-a9c3-2d24b0fd4ae5" xml:space="preserve">
+          <source>The existing cloud service hosting the virtual machines is named Contoso-Legal.</source>
+          <target state="new">The existing cloud service hosting the virtual machines is named Contoso-Legal.</target>
+        </trans-unit>
+        <trans-unit id="72bfac63-c8da-4da5-b167-e20631048ddc" xml:space="preserve">
+          <source>The subnet on which the LOB servers are located is named LOB-LEGAL and Contoso has chosen the address 198.168.99.145 as the VIP address for the internal load balancer.</source>
+          <target state="new">The subnet on which the LOB servers are located is named LOB-LEGAL and Contoso has chosen the address 198.168.99.145 as the VIP address for the internal load balancer.</target>
+        </trans-unit>
+        <trans-unit id="151c8b98-0637-4efd-9ad9-8916b2faff4c" xml:space="preserve">
+          <source>The three existing LOB servers are named LEGAL-1, LEGAL-2, and LEGAL-3.</source>
+          <target state="new">The three existing LOB servers are named LEGAL-1, LEGAL-2, and LEGAL-3.</target>
+        </trans-unit>
+        <trans-unit id="5193663a-c920-4bc2-acd4-ab0d1d0015e7" xml:space="preserve">
+          <source>Intranet web clients connect to them using the DNS name legalnet.corp.contoso.com.</source>
+          <target state="new">Intranet web clients connect to them using the DNS name legalnet.corp.contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="6d5c8226-a234-44c8-bc01-ea1657e51f28" xml:space="preserve">
+          <source>The following commands create an ILB instance named LEGAL-ILB and add endpoints to the virtual machines corresponding to the three LOB servers:</source>
+          <target state="new">The following commands create an ILB instance named LEGAL-ILB and add endpoints to the virtual machines corresponding to the three LOB servers:</target>
+        </trans-unit>
+        <trans-unit id="1effbe57-7ac1-42a1-9745-a091220a2871" xml:space="preserve">
+          <source>Next, Contoso configured the DNS A record for the legalnet.corp.contoso.com name to use 198.168.99.145.</source>
+          <target state="new">Next, Contoso configured the DNS A record for the legalnet.corp.contoso.com name to use 198.168.99.145.</target>
+        </trans-unit>
+        <trans-unit id="2b958e41-612c-4ba9-a052-e944b669d5ea" xml:space="preserve">
+          <source>To add a virtual machine to an ILB instance as it is created, you can use the New-AzureInternalLoadBalancerConfig and New-AzureVMConfig cmdlets.</source>
+          <target state="new">To add a virtual machine to an ILB instance as it is created, you can use the New-AzureInternalLoadBalancerConfig and New-AzureVMConfig cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="95638449-c06c-4fab-8507-5d8e76875206" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="d2102343-cc78-4153-85e2-7bae816ca4c5" xml:space="preserve">
+          <source>ILB is supported for both Virtual machines and Cloud Services
+An ILB endpoint created in a Cloud Service that is outside a Regional Virtual Network will be accessible only within the Cloud Service.</source>
+          <target state="new">ILB is supported for both Virtual machines and Cloud Services
+An ILB endpoint created in a Cloud Service that is outside a Regional Virtual Network will be accessible only within the Cloud Service.</target>
+        </trans-unit>
+        <trans-unit id="93cee892-393c-466d-8419-2cc671ee4174" xml:space="preserve">
+          <source>The ILB configuration has to be set during the creation of the first deployment in the Cloud Service, as shown in the sample below.</source>
+          <target state="new">The ILB configuration has to be set during the creation of the first deployment in the Cloud Service, as shown in the sample below.</target>
+        </trans-unit>
+        <trans-unit id="1504d0b4-2361-49e5-877c-590b71e600dd" xml:space="preserve">
+          <source>prerequisite to run the steps below is to have a virtual network already created for the cloud deployment.</source>
+          <target state="new">prerequisite to run the steps below is to have a virtual network already created for the cloud deployment.</target>
+        </trans-unit>
+        <trans-unit id="92d62722-bf64-4ba9-b61d-f6129ce3447b" xml:space="preserve">
+          <source>You will need the virtual network name and subnet name to create the ILB.</source>
+          <target state="new">You will need the virtual network name and subnet name to create the ILB.</target>
+        </trans-unit>
+        <trans-unit id="738dfd4a-2d47-42cb-a33c-49255576cea6" xml:space="preserve">
+          <source>Open the service configuration file (.cscfg) for your cloud deployment in visual studio and add the following section to create the ILB under the last "<bpt id="91f5efff-ead3-424a-8b52-965d810f4294">&lt;code&gt;</bpt>&lt;/Role&gt;<ept id="91f5efff-ead3-424a-8b52-965d810f4294">&lt;/code&gt;</ept>" item for the network configuration. </source>
+          <target state="new">Open the service configuration file (.cscfg) for your cloud deployment in visual studio and add the following section to create the ILB under the last "<bpt id="91f5efff-ead3-424a-8b52-965d810f4294">&lt;code&gt;</bpt>&lt;/Role&gt;<ept id="91f5efff-ead3-424a-8b52-965d810f4294">&lt;/code&gt;</ept>" item for the network configuration. </target>
+        </trans-unit>
+        <trans-unit id="c29ba940-1b78-4c42-adcd-566aa571f13b" xml:space="preserve">
+          <source>Let's add the values for the network configuration file to show how it will look like.</source>
+          <target state="new">Let's add the values for the network configuration file to show how it will look like.</target>
+        </trans-unit>
+        <trans-unit id="1bc42404-59bc-4a03-ad44-a77308eff020" xml:space="preserve">
+          <source>In the example, assume you created a subnet called "test<bpt id="ea07a0a0-2ac2-4c25-a61c-7e59d9b45ed2">&lt;em&gt;</bpt>vnet" with a subnet 10.0.0.0/24 called test<ept id="ea07a0a0-2ac2-4c25-a61c-7e59d9b45ed2">&lt;/em&gt;</ept>subnet and a static IP 10.0.0.4.</source>
+          <target state="new">In the example, assume you created a subnet called "test<bpt id="ea07a0a0-2ac2-4c25-a61c-7e59d9b45ed2">&lt;em&gt;</bpt>vnet" with a subnet 10.0.0.0/24 called test<ept id="ea07a0a0-2ac2-4c25-a61c-7e59d9b45ed2">&lt;/em&gt;</ept>subnet and a static IP 10.0.0.4.</target>
+        </trans-unit>
+        <trans-unit id="50b5adb8-1d9c-49b4-b8e7-8b8f5a1cafa1" xml:space="preserve">
+          <source>The load balancer will be named testLB.</source>
+          <target state="new">The load balancer will be named testLB.</target>
+        </trans-unit>
+        <trans-unit id="c97f0a32-4c42-4128-86e1-2f313c8dba5f" xml:space="preserve">
+          <source>More information about the load balancer schema see <bpt id="dece62b0-3a4f-426c-81fc-de422ea5573d">&lt;linkText&gt;</bpt>add load balancer<ept id="dece62b0-3a4f-426c-81fc-de422ea5573d">&lt;/linkText&gt;</ept><bpt id="dece62b0-3a4f-426c-81fc-de422ea5573d">&lt;title&gt;</bpt><ept id="dece62b0-3a4f-426c-81fc-de422ea5573d">&lt;/title&gt;</ept></source>
+          <target state="new">More information about the load balancer schema see <bpt id="dece62b0-3a4f-426c-81fc-de422ea5573d">&lt;linkText&gt;</bpt>add load balancer<ept id="dece62b0-3a4f-426c-81fc-de422ea5573d">&lt;/linkText&gt;</ept><bpt id="dece62b0-3a4f-426c-81fc-de422ea5573d">&lt;title&gt;</bpt><ept id="dece62b0-3a4f-426c-81fc-de422ea5573d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82b92961-8377-44c1-9a48-c40643405da0" xml:space="preserve">
+          <source>Change the service definition (.csdef) file to add endpoints to the ILB.</source>
+          <target state="new">Change the service definition (.csdef) file to add endpoints to the ILB.</target>
+        </trans-unit>
+        <trans-unit id="09eb09b0-8b4a-4e10-a304-834e0c4f855a" xml:space="preserve">
+          <source>The moment a role instance is created, the service definition file will add the role instances to the ILB.</source>
+          <target state="new">The moment a role instance is created, the service definition file will add the role instances to the ILB.</target>
+        </trans-unit>
+        <trans-unit id="013099f7-67c0-45fe-b3c8-84879013ade4" xml:space="preserve">
+          <source>Following the same values from the example above, let's add the values to the service definition file </source>
+          <target state="new">Following the same values from the example above, let's add the values to the service definition file </target>
+        </trans-unit>
+        <trans-unit id="f2423082-ac38-4d70-8b46-4fe5d126e61b" xml:space="preserve">
+          <source>The network traffic  will be load balanced using testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80.</source>
+          <target state="new">The network traffic  will be load balanced using testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80.</target>
+        </trans-unit>
+        <trans-unit id="d3a01746-9108-4c95-86b9-c24bbf6b5209" xml:space="preserve">
+          <source>To remove a virtual machine as an endpoint from an ILB instance, use the following commands:</source>
+          <target state="new">To remove a virtual machine as an endpoint from an ILB instance, use the following commands:</target>
+        </trans-unit>
+        <trans-unit id="b5426359-c4c3-4144-a415-69c7a3c9c7bb" xml:space="preserve">
+          <source>To use these commands, fill in the values, removing the &lt; and &gt;.</source>
+          <target state="new">To use these commands, fill in the values, removing the &lt; and &gt;.</target>
+        </trans-unit>
+        <trans-unit id="2cb17134-9c10-40c5-91a7-0a2a1d7e354b" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="f7799097-013f-44bc-bc63-b37af6f8852d" xml:space="preserve">
+          <source>To remove an ILB instance from a cloud service, use the following commands:</source>
+          <target state="new">To remove an ILB instance from a cloud service, use the following commands:</target>
+        </trans-unit>
+        <trans-unit id="69ec0b8b-980a-4cf8-89a1-a05627f0ac3b" xml:space="preserve">
+          <source>To use these commands, fill in the value and remove the &lt; and &gt;.</source>
+          <target state="new">To use these commands, fill in the value and remove the &lt; and &gt;.</target>
+        </trans-unit>
+        <trans-unit id="d34fe3f3-1091-46fa-934d-05c1340217a8" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="20d0dcba-fff1-48c0-83d6-2a0bd2d27bf6" xml:space="preserve">
+          <source>To obtain additional information about ILB cmdlets, run the following commands at an Azure Windows PowerShell prompt:</source>
+          <target state="new">To obtain additional information about ILB cmdlets, run the following commands at an Azure Windows PowerShell prompt:</target>
+        </trans-unit>
+        <trans-unit id="9407c2d5-deab-44d8-8a48-7b9097a66c7e" xml:space="preserve">
+          <source>Get-help New-AzureInternalLoadBalancerConfig -full</source>
+          <target state="new">Get-help New-AzureInternalLoadBalancerConfig -full</target>
+        </trans-unit>
+        <trans-unit id="335cf835-982e-4991-bf6d-759c094b08b7" xml:space="preserve">
+          <source>Get-help Add-AzureInternalLoadBalancer -full</source>
+          <target state="new">Get-help Add-AzureInternalLoadBalancer -full</target>
+        </trans-unit>
+        <trans-unit id="b49681cc-a95e-4a05-9878-d7556b415a5c" xml:space="preserve">
+          <source>Get-help Get-AzureInternalLoadbalancer -full</source>
+          <target state="new">Get-help Get-AzureInternalLoadbalancer -full</target>
+        </trans-unit>
+        <trans-unit id="88fbc81f-4988-413a-acf3-c3a04c3d2f92" xml:space="preserve">
+          <source>Get-help Remove-AzureInternalLoadBalancer -full</source>
+          <target state="new">Get-help Remove-AzureInternalLoadBalancer -full</target>
+        </trans-unit>
+        <trans-unit id="2921429c-64b2-4b08-98ae-c41e73fe2870" xml:space="preserve">
+          <source><bpt id="0cef2761-4452-40f7-9071-dd5919b323fd">&lt;linkText&gt;</bpt>Configure a Load balancer distribution mode<ept id="0cef2761-4452-40f7-9071-dd5919b323fd">&lt;/linkText&gt;</ept><bpt id="0cef2761-4452-40f7-9071-dd5919b323fd">&lt;title&gt;</bpt><ept id="0cef2761-4452-40f7-9071-dd5919b323fd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0cef2761-4452-40f7-9071-dd5919b323fd">&lt;linkText&gt;</bpt>Configure a Load balancer distribution mode<ept id="0cef2761-4452-40f7-9071-dd5919b323fd">&lt;/linkText&gt;</ept><bpt id="0cef2761-4452-40f7-9071-dd5919b323fd">&lt;title&gt;</bpt><ept id="0cef2761-4452-40f7-9071-dd5919b323fd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65f3c26c-75d3-410b-ba08-6bb379aaa069" xml:space="preserve">
+          <source><bpt id="4717ca9d-03cb-4a51-84d7-5fc681bba91b">&lt;linkText&gt;</bpt>Configure idle TCP timeout settings for your load balancer<ept id="4717ca9d-03cb-4a51-84d7-5fc681bba91b">&lt;/linkText&gt;</ept><bpt id="4717ca9d-03cb-4a51-84d7-5fc681bba91b">&lt;title&gt;</bpt><ept id="4717ca9d-03cb-4a51-84d7-5fc681bba91b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4717ca9d-03cb-4a51-84d7-5fc681bba91b">&lt;linkText&gt;</bpt>Configure idle TCP timeout settings for your load balancer<ept id="4717ca9d-03cb-4a51-84d7-5fc681bba91b">&lt;/linkText&gt;</ept><bpt id="4717ca9d-03cb-4a51-84d7-5fc681bba91b">&lt;title&gt;</bpt><ept id="4717ca9d-03cb-4a51-84d7-5fc681bba91b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

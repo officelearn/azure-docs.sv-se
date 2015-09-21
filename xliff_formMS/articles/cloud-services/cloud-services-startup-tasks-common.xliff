@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="719440fd-9b2a-4669-9a55-19b818e1dc9c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="719440fd-9b2a-4669-9a55-19b818e1dc9c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a43ea733-a080-4dda-a9a9-1f0c83925985">
+        <trans-unit id="ab70c0f4-b6bd-4f03-af0b-172c1cccffb7" xml:space="preserve">
+          <source>Common startup tasks for Cloud Services | Microsoft Azure</source>
+          <target state="new">Common startup tasks for Cloud Services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="49a83869-100c-4c9f-9843-0596a0f9782f" xml:space="preserve">
+          <source>Provides some examples of common startup tasks you may want to perform in your cloud services web role or worker role.</source>
+          <target state="new">Provides some examples of common startup tasks you may want to perform in your cloud services web role or worker role.</target>
+        </trans-unit>
+        <trans-unit id="f510301f-81b3-41e8-bdd7-77d11cecc64b" xml:space="preserve">
+          <source>This article provides some examples of common startup tasks you may want to perform in your cloud service.</source>
+          <target state="new">This article provides some examples of common startup tasks you may want to perform in your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="3073fc23-c86b-4880-898f-e4f8b8d0da52" xml:space="preserve">
+          <source>You can use startup tasks to perform operations before a role starts.</source>
+          <target state="new">You can use startup tasks to perform operations before a role starts.</target>
+        </trans-unit>
+        <trans-unit id="42f6abc1-e88a-4c34-ab62-e349563e0f37" xml:space="preserve">
+          <source>Operations that you might want to perform include installing a component, registering COM components, setting registry keys, or starting a long running process.</source>
+          <target state="new">Operations that you might want to perform include installing a component, registering COM components, setting registry keys, or starting a long running process.</target>
+        </trans-unit>
+        <trans-unit id="98c88671-56fc-44b2-9d89-2354d5d68487" xml:space="preserve">
+          <source>See <bpt id="c9fa5fcf-a26e-4656-967d-73cff07f6769">&lt;linkText&gt;</bpt>this article<ept id="c9fa5fcf-a26e-4656-967d-73cff07f6769">&lt;/linkText&gt;</ept><bpt id="c9fa5fcf-a26e-4656-967d-73cff07f6769">&lt;title&gt;</bpt><ept id="c9fa5fcf-a26e-4656-967d-73cff07f6769">&lt;/title&gt;</ept> to understand how startup tasks work, and specifically how to create the entries that define a startup task.</source>
+          <target state="new">See <bpt id="c9fa5fcf-a26e-4656-967d-73cff07f6769">&lt;linkText&gt;</bpt>this article<ept id="c9fa5fcf-a26e-4656-967d-73cff07f6769">&lt;/linkText&gt;</ept><bpt id="c9fa5fcf-a26e-4656-967d-73cff07f6769">&lt;title&gt;</bpt><ept id="c9fa5fcf-a26e-4656-967d-73cff07f6769">&lt;/title&gt;</ept> to understand how startup tasks work, and specifically how to create the entries that define a startup task.</target>
+        </trans-unit>
+        <trans-unit id="c57ba027-311e-491d-858f-dc0c2228f91c" xml:space="preserve">
+          <source>Many of the tasks here use the </source>
+          <target state="new">Many of the tasks here use the </target>
+        </trans-unit>
+        <trans-unit id="30fc9282-8985-4dc1-baaa-524560c9cc2a" xml:space="preserve">
+          <source>Startup tasks are not applicable to Virtual Machines, only to Cloud Service Web and Worker roles.</source>
+          <target state="new">Startup tasks are not applicable to Virtual Machines, only to Cloud Service Web and Worker roles.</target>
+        </trans-unit>
+        <trans-unit id="6f695266-c7a4-4f8e-8c22-05c11d387f9a" xml:space="preserve">
+          <source>You can define environment variables for an entire role by adding the [Runtime] element to the definition of the role in the service definition file.</source>
+          <target state="new">You can define environment variables for an entire role by adding the [Runtime] element to the definition of the role in the service definition file.</target>
+        </trans-unit>
+        <trans-unit id="391e2928-5f53-4733-9028-669c125b54c5" xml:space="preserve">
+          <source>If you need environment variables defined for a specific task, that isn't shared by other tasks, you can use the [Environment] element inside of the [Task] element.</source>
+          <target state="new">If you need environment variables defined for a specific task, that isn't shared by other tasks, you can use the [Environment] element inside of the [Task] element.</target>
+        </trans-unit>
+        <trans-unit id="8b93d609-82e3-4cd8-bd94-fff233233525" xml:space="preserve">
+          <source>Variables can also use a <bpt id="f0133475-e47a-46fc-ae89-0610d3d0683c">&lt;linkText&gt;</bpt>valid Azure XPath value<ept id="f0133475-e47a-46fc-ae89-0610d3d0683c">&lt;/linkText&gt;</ept><bpt id="f0133475-e47a-46fc-ae89-0610d3d0683c">&lt;title&gt;</bpt><ept id="f0133475-e47a-46fc-ae89-0610d3d0683c">&lt;/title&gt;</ept> to reference something about the deployment.</source>
+          <target state="new">Variables can also use a <bpt id="f0133475-e47a-46fc-ae89-0610d3d0683c">&lt;linkText&gt;</bpt>valid Azure XPath value<ept id="f0133475-e47a-46fc-ae89-0610d3d0683c">&lt;/linkText&gt;</ept><bpt id="f0133475-e47a-46fc-ae89-0610d3d0683c">&lt;title&gt;</bpt><ept id="f0133475-e47a-46fc-ae89-0610d3d0683c">&lt;/title&gt;</ept> to reference something about the deployment.</target>
+        </trans-unit>
+        <trans-unit id="d7746695-c08d-416a-b022-d783bdee9d84" xml:space="preserve">
+          <source>Instead of using the <bpt id="9e8a0db4-c2f5-4941-8575-4f59d679177d">&lt;code&gt;</bpt>value<ept id="9e8a0db4-c2f5-4941-8575-4f59d679177d">&lt;/code&gt;</ept> attribute, define a [RoleInstanceValue] child element.</source>
+          <target state="new">Instead of using the <bpt id="9e8a0db4-c2f5-4941-8575-4f59d679177d">&lt;code&gt;</bpt>value<ept id="9e8a0db4-c2f5-4941-8575-4f59d679177d">&lt;/code&gt;</ept> attribute, define a [RoleInstanceValue] child element.</target>
+        </trans-unit>
+        <trans-unit id="5d5ced1e-8db0-46c1-bf17-2435f008a38a" xml:space="preserve">
+          <source>The <bpt id="33b594d3-6e9d-4cf7-bd29-556fdda57884">&lt;linkText&gt;</bpt>AppCmd.exe<ept id="33b594d3-6e9d-4cf7-bd29-556fdda57884">&lt;/linkText&gt;</ept><bpt id="33b594d3-6e9d-4cf7-bd29-556fdda57884">&lt;title&gt;</bpt><ept id="33b594d3-6e9d-4cf7-bd29-556fdda57884">&lt;/title&gt;</ept> command line tool can be used to manage IIS settings at startup on Azure.</source>
+          <target state="new">The <bpt id="33b594d3-6e9d-4cf7-bd29-556fdda57884">&lt;linkText&gt;</bpt>AppCmd.exe<ept id="33b594d3-6e9d-4cf7-bd29-556fdda57884">&lt;/linkText&gt;</ept><bpt id="33b594d3-6e9d-4cf7-bd29-556fdda57884">&lt;title&gt;</bpt><ept id="33b594d3-6e9d-4cf7-bd29-556fdda57884">&lt;/title&gt;</ept> command line tool can be used to manage IIS settings at startup on Azure.</target>
+        </trans-unit>
+        <trans-unit id="efd8b3bf-20fb-46aa-8e6b-5da92c03a327" xml:space="preserve">
+          <source><bpt id="f65868cf-b4c9-47b3-bf58-165354aeb6e4">&lt;em&gt;</bpt>AppCmd.exe<ept id="f65868cf-b4c9-47b3-bf58-165354aeb6e4">&lt;/em&gt;</ept> provides convenient, command line access to configuration settings for use in startup tasks on Azure.</source>
+          <target state="new"><bpt id="f65868cf-b4c9-47b3-bf58-165354aeb6e4">&lt;em&gt;</bpt>AppCmd.exe<ept id="f65868cf-b4c9-47b3-bf58-165354aeb6e4">&lt;/em&gt;</ept> provides convenient, command line access to configuration settings for use in startup tasks on Azure.</target>
+        </trans-unit>
+        <trans-unit id="8d1c7d4c-6673-4361-a086-1c46377be700" xml:space="preserve">
+          <source>Using <bpt id="162bcdab-b8c2-4a92-9283-edd4a0c80794">&lt;em&gt;</bpt>AppCmd.exe<ept id="162bcdab-b8c2-4a92-9283-edd4a0c80794">&lt;/em&gt;</ept>, Website settings can be added, modified, or removed for applications and sites.</source>
+          <target state="new">Using <bpt id="162bcdab-b8c2-4a92-9283-edd4a0c80794">&lt;em&gt;</bpt>AppCmd.exe<ept id="162bcdab-b8c2-4a92-9283-edd4a0c80794">&lt;/em&gt;</ept>, Website settings can be added, modified, or removed for applications and sites.</target>
+        </trans-unit>
+        <trans-unit id="9f6873ea-667b-4ac7-a65d-28adf4550281" xml:space="preserve">
+          <source>However, there are a few things to watch out for in the use of <bpt id="c2c21b63-0ef9-495c-b8d0-4e7f4f82c0d2">&lt;em&gt;</bpt>AppCmd.exe<ept id="c2c21b63-0ef9-495c-b8d0-4e7f4f82c0d2">&lt;/em&gt;</ept> as a startup task:</source>
+          <target state="new">However, there are a few things to watch out for in the use of <bpt id="c2c21b63-0ef9-495c-b8d0-4e7f4f82c0d2">&lt;em&gt;</bpt>AppCmd.exe<ept id="c2c21b63-0ef9-495c-b8d0-4e7f4f82c0d2">&lt;/em&gt;</ept> as a startup task:</target>
+        </trans-unit>
+        <trans-unit id="a0d6fa4c-d5cf-46c5-8ed5-ac7eec8c818b" xml:space="preserve">
+          <source>Startup tasks can be run more than once between reboots.</source>
+          <target state="new">Startup tasks can be run more than once between reboots.</target>
+        </trans-unit>
+        <trans-unit id="b635a641-5b08-4974-9b07-6403503294a2" xml:space="preserve">
+          <source>This can happen if the role recycles, for instance.</source>
+          <target state="new">This can happen if the role recycles, for instance.</target>
+        </trans-unit>
+        <trans-unit id="9d974161-f160-48c5-9121-298bf8941b98" xml:space="preserve">
+          <source>Some <bpt id="39e948c1-08b6-464d-9ae9-b7d352612426">&lt;em&gt;</bpt>AppCmd.exe<ept id="39e948c1-08b6-464d-9ae9-b7d352612426">&lt;/em&gt;</ept> actions can generate errors if they are performed more than once.</source>
+          <target state="new">Some <bpt id="39e948c1-08b6-464d-9ae9-b7d352612426">&lt;em&gt;</bpt>AppCmd.exe<ept id="39e948c1-08b6-464d-9ae9-b7d352612426">&lt;/em&gt;</ept> actions can generate errors if they are performed more than once.</target>
+        </trans-unit>
+        <trans-unit id="d55441c0-1adc-46a9-bff9-866bd74b74e5" xml:space="preserve">
+          <source>Attempting to add a section to <bpt id="ddd90590-f69b-46f8-884a-61007be3bff4">&lt;em&gt;</bpt>Web.config<ept id="ddd90590-f69b-46f8-884a-61007be3bff4">&lt;/em&gt;</ept> twice could generate an error.</source>
+          <target state="new">Attempting to add a section to <bpt id="ddd90590-f69b-46f8-884a-61007be3bff4">&lt;em&gt;</bpt>Web.config<ept id="ddd90590-f69b-46f8-884a-61007be3bff4">&lt;/em&gt;</ept> twice could generate an error.</target>
+        </trans-unit>
+        <trans-unit id="4e8ae0af-7e25-481a-82da-f4f932e83814" xml:space="preserve">
+          <source>Startup tasks fail if they return a non-zero exit code or <bpt id="5462fbaf-6576-494a-9b41-5d15839e34ac">&lt;strong&gt;</bpt>errorlevel<ept id="5462fbaf-6576-494a-9b41-5d15839e34ac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Startup tasks fail if they return a non-zero exit code or <bpt id="5462fbaf-6576-494a-9b41-5d15839e34ac">&lt;strong&gt;</bpt>errorlevel<ept id="5462fbaf-6576-494a-9b41-5d15839e34ac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7436365-49b1-4dd7-be69-4672f65f192f" xml:space="preserve">
+          <source>This can happen if <bpt id="c6d374ba-a3ba-4105-9f21-9187894fbee8">&lt;em&gt;</bpt>AppCmd.exe<ept id="c6d374ba-a3ba-4105-9f21-9187894fbee8">&lt;/em&gt;</ept> generates an error.</source>
+          <target state="new">This can happen if <bpt id="c6d374ba-a3ba-4105-9f21-9187894fbee8">&lt;em&gt;</bpt>AppCmd.exe<ept id="c6d374ba-a3ba-4105-9f21-9187894fbee8">&lt;/em&gt;</ept> generates an error.</target>
+        </trans-unit>
+        <trans-unit id="e704fdb4-b301-4f4d-8b58-789b581fdf06" xml:space="preserve">
+          <source>For the reasons listed, it is often wise to check the <bpt id="6da2b860-1408-4ccd-9cbe-6634f1f2cf9d">&lt;strong&gt;</bpt>errorlevel<ept id="6da2b860-1408-4ccd-9cbe-6634f1f2cf9d">&lt;/strong&gt;</ept> after calling <bpt id="d4d91eed-5ddf-46af-8c4d-80c3ae0d5c42">&lt;em&gt;</bpt>AppCmd.exe<ept id="d4d91eed-5ddf-46af-8c4d-80c3ae0d5c42">&lt;/em&gt;</ept>, which is easy to do if you wrap the call to <bpt id="9b3f424b-591b-4e34-b5a6-5d363ab5fb57">&lt;em&gt;</bpt>AppCmd.exe<ept id="9b3f424b-591b-4e34-b5a6-5d363ab5fb57">&lt;/em&gt;</ept> with a <bpt id="03597c66-81ac-4b71-8170-1ae5d1254a13">&lt;em&gt;</bpt>.cmd<ept id="03597c66-81ac-4b71-8170-1ae5d1254a13">&lt;/em&gt;</ept> file.</source>
+          <target state="new">For the reasons listed, it is often wise to check the <bpt id="6da2b860-1408-4ccd-9cbe-6634f1f2cf9d">&lt;strong&gt;</bpt>errorlevel<ept id="6da2b860-1408-4ccd-9cbe-6634f1f2cf9d">&lt;/strong&gt;</ept> after calling <bpt id="d4d91eed-5ddf-46af-8c4d-80c3ae0d5c42">&lt;em&gt;</bpt>AppCmd.exe<ept id="d4d91eed-5ddf-46af-8c4d-80c3ae0d5c42">&lt;/em&gt;</ept>, which is easy to do if you wrap the call to <bpt id="9b3f424b-591b-4e34-b5a6-5d363ab5fb57">&lt;em&gt;</bpt>AppCmd.exe<ept id="9b3f424b-591b-4e34-b5a6-5d363ab5fb57">&lt;/em&gt;</ept> with a <bpt id="03597c66-81ac-4b71-8170-1ae5d1254a13">&lt;em&gt;</bpt>.cmd<ept id="03597c66-81ac-4b71-8170-1ae5d1254a13">&lt;/em&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="c83dfb4e-5dfc-4710-b89d-f050643dc9e7" xml:space="preserve">
+          <source>If you detect a known <bpt id="5b93f5b1-acbf-46f4-b019-6cad2a15c80a">&lt;strong&gt;</bpt>errorlevel<ept id="5b93f5b1-acbf-46f4-b019-6cad2a15c80a">&lt;/strong&gt;</ept> response, you can ignore it, otherwise return it.</source>
+          <target state="new">If you detect a known <bpt id="5b93f5b1-acbf-46f4-b019-6cad2a15c80a">&lt;strong&gt;</bpt>errorlevel<ept id="5b93f5b1-acbf-46f4-b019-6cad2a15c80a">&lt;/strong&gt;</ept> response, you can ignore it, otherwise return it.</target>
+        </trans-unit>
+        <trans-unit id="4f9534e4-e5e3-447b-a441-5a72358c8794" xml:space="preserve">
+          <source>This is demonstrated in the example below.</source>
+          <target state="new">This is demonstrated in the example below.</target>
+        </trans-unit>
+        <trans-unit id="1c6c7e25-79c6-4721-a8b6-3e89cae37d94" xml:space="preserve">
+          <source>The errorlevels returned by <bpt id="475698f1-2e3c-4ddd-9fad-54fffa57da26">&lt;em&gt;</bpt>AppCmd.exe<ept id="475698f1-2e3c-4ddd-9fad-54fffa57da26">&lt;/em&gt;</ept> are listed in the winerror.h file, and can also be seen on <bpt id="b7fdc551-d447-4d32-90a1-d5d4085a530a">&lt;linkText&gt;</bpt>MSDN<ept id="b7fdc551-d447-4d32-90a1-d5d4085a530a">&lt;/linkText&gt;</ept><bpt id="b7fdc551-d447-4d32-90a1-d5d4085a530a">&lt;title&gt;</bpt><ept id="b7fdc551-d447-4d32-90a1-d5d4085a530a">&lt;/title&gt;</ept>.</source>
+          <target state="new">The errorlevels returned by <bpt id="475698f1-2e3c-4ddd-9fad-54fffa57da26">&lt;em&gt;</bpt>AppCmd.exe<ept id="475698f1-2e3c-4ddd-9fad-54fffa57da26">&lt;/em&gt;</ept> are listed in the winerror.h file, and can also be seen on <bpt id="b7fdc551-d447-4d32-90a1-d5d4085a530a">&lt;linkText&gt;</bpt>MSDN<ept id="b7fdc551-d447-4d32-90a1-d5d4085a530a">&lt;/linkText&gt;</ept><bpt id="b7fdc551-d447-4d32-90a1-d5d4085a530a">&lt;title&gt;</bpt><ept id="b7fdc551-d447-4d32-90a1-d5d4085a530a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d74f5e4-27c4-4c56-9fc6-369903570344" xml:space="preserve">
+          <source>This example adds a compression section and a compression entry for JSON to the <bpt id="e5f5327d-9140-44eb-baf0-3f394c0cc43d">&lt;em&gt;</bpt>Web.config<ept id="e5f5327d-9140-44eb-baf0-3f394c0cc43d">&lt;/em&gt;</ept> file, with error handling and logging.</source>
+          <target state="new">This example adds a compression section and a compression entry for JSON to the <bpt id="e5f5327d-9140-44eb-baf0-3f394c0cc43d">&lt;em&gt;</bpt>Web.config<ept id="e5f5327d-9140-44eb-baf0-3f394c0cc43d">&lt;/em&gt;</ept> file, with error handling and logging.</target>
+        </trans-unit>
+        <trans-unit id="85a30d22-3677-4c0e-8d3b-a9648e840039" xml:space="preserve">
+          <source>The relevant sections of the [ServiceDefinition.csdef] file are shown here, which include setting the <bpt id="6b53f4b2-0766-4431-aea5-51cd47bc803a">&lt;linkText&gt;</bpt>executionContext<ept id="6b53f4b2-0766-4431-aea5-51cd47bc803a">&lt;/linkText&gt;</ept><bpt id="6b53f4b2-0766-4431-aea5-51cd47bc803a">&lt;title&gt;</bpt><ept id="6b53f4b2-0766-4431-aea5-51cd47bc803a">&lt;/title&gt;</ept> attribute to <bpt id="b15f2669-5bbc-42b6-8061-e19bb45a0fd2">&lt;code&gt;</bpt>elevated<ept id="b15f2669-5bbc-42b6-8061-e19bb45a0fd2">&lt;/code&gt;</ept> to give <bpt id="6b059fcd-c3c2-4c82-9509-15354bfe93ac">&lt;em&gt;</bpt>AppCmd.exe<ept id="6b059fcd-c3c2-4c82-9509-15354bfe93ac">&lt;/em&gt;</ept> sufficient permissions to change the settings in the <bpt id="503329c0-27ac-4ed0-8262-92dc9096025a">&lt;em&gt;</bpt>Web.config<ept id="503329c0-27ac-4ed0-8262-92dc9096025a">&lt;/em&gt;</ept> file:</source>
+          <target state="new">The relevant sections of the [ServiceDefinition.csdef] file are shown here, which include setting the <bpt id="6b53f4b2-0766-4431-aea5-51cd47bc803a">&lt;linkText&gt;</bpt>executionContext<ept id="6b53f4b2-0766-4431-aea5-51cd47bc803a">&lt;/linkText&gt;</ept><bpt id="6b53f4b2-0766-4431-aea5-51cd47bc803a">&lt;title&gt;</bpt><ept id="6b53f4b2-0766-4431-aea5-51cd47bc803a">&lt;/title&gt;</ept> attribute to <bpt id="b15f2669-5bbc-42b6-8061-e19bb45a0fd2">&lt;code&gt;</bpt>elevated<ept id="b15f2669-5bbc-42b6-8061-e19bb45a0fd2">&lt;/code&gt;</ept> to give <bpt id="6b059fcd-c3c2-4c82-9509-15354bfe93ac">&lt;em&gt;</bpt>AppCmd.exe<ept id="6b059fcd-c3c2-4c82-9509-15354bfe93ac">&lt;/em&gt;</ept> sufficient permissions to change the settings in the <bpt id="503329c0-27ac-4ed0-8262-92dc9096025a">&lt;em&gt;</bpt>Web.config<ept id="503329c0-27ac-4ed0-8262-92dc9096025a">&lt;/em&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="de4cc33b-e022-41a2-a3e6-57653ee5874e" xml:space="preserve">
+          <source>The Startup.cmd batch file uses AppCmd.exe to add a compression section and a compression entry for JSON to the <bpt id="b0d39e24-7afa-4fef-bd04-aea92dc27911">&lt;em&gt;</bpt>Web.config<ept id="b0d39e24-7afa-4fef-bd04-aea92dc27911">&lt;/em&gt;</ept> file.</source>
+          <target state="new">The Startup.cmd batch file uses AppCmd.exe to add a compression section and a compression entry for JSON to the <bpt id="b0d39e24-7afa-4fef-bd04-aea92dc27911">&lt;em&gt;</bpt>Web.config<ept id="b0d39e24-7afa-4fef-bd04-aea92dc27911">&lt;/em&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="18536ef4-c594-4f09-a20e-4659672e05c1" xml:space="preserve">
+          <source>The expected <bpt id="d6744942-2305-46f3-847f-56ec76499d0b">&lt;strong&gt;</bpt>errorlevel<ept id="d6744942-2305-46f3-847f-56ec76499d0b">&lt;/strong&gt;</ept> of 183 is set to zero using the VERIFY.EXE command line program.</source>
+          <target state="new">The expected <bpt id="d6744942-2305-46f3-847f-56ec76499d0b">&lt;strong&gt;</bpt>errorlevel<ept id="d6744942-2305-46f3-847f-56ec76499d0b">&lt;/strong&gt;</ept> of 183 is set to zero using the VERIFY.EXE command line program.</target>
+        </trans-unit>
+        <trans-unit id="6fefd390-b1c9-4311-9a9f-4bd5024d15c6" xml:space="preserve">
+          <source>Unexpected errorlevels are logged to StartupErrorLog.txt.</source>
+          <target state="new">Unexpected errorlevels are logged to StartupErrorLog.txt.</target>
+        </trans-unit>
+        <trans-unit id="f1a8cda7-01d4-4d32-94c9-c338db69da44" xml:space="preserve">
+          <source>In Azure, there are effectively two firewalls.</source>
+          <target state="new">In Azure, there are effectively two firewalls.</target>
+        </trans-unit>
+        <trans-unit id="e8c5a4c6-6c40-4e49-b8a4-eab2b235c142" xml:space="preserve">
+          <source>The first firewall controls connections between the virtual machine and the outside world.</source>
+          <target state="new">The first firewall controls connections between the virtual machine and the outside world.</target>
+        </trans-unit>
+        <trans-unit id="b315693c-0ea6-4a27-9fee-6f9a7646f415" xml:space="preserve">
+          <source>This is controlled by the [EndPoints] element in the [ServiceDefinition.csdef] file.</source>
+          <target state="new">This is controlled by the [EndPoints] element in the [ServiceDefinition.csdef] file.</target>
+        </trans-unit>
+        <trans-unit id="a99265a9-fe57-450f-93c1-bd404080ff09" xml:space="preserve">
+          <source>The second firewall controls connections between the virtual machine and the processes within that virtual machine.</source>
+          <target state="new">The second firewall controls connections between the virtual machine and the processes within that virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e0533b0c-5e99-443e-90bf-cee5015c27a0" xml:space="preserve">
+          <source>This is controlled by the <bpt id="c1a08b91-3e65-430f-a3ae-7785f76bc0b4">&lt;code&gt;</bpt>netsh advfirewall firewall<ept id="c1a08b91-3e65-430f-a3ae-7785f76bc0b4">&lt;/code&gt;</ept> command line tool, and is the focus of this article.</source>
+          <target state="new">This is controlled by the <bpt id="c1a08b91-3e65-430f-a3ae-7785f76bc0b4">&lt;code&gt;</bpt>netsh advfirewall firewall<ept id="c1a08b91-3e65-430f-a3ae-7785f76bc0b4">&lt;/code&gt;</ept> command line tool, and is the focus of this article.</target>
+        </trans-unit>
+        <trans-unit id="cbed530f-405f-4652-a3d9-deef4180e0f2" xml:space="preserve">
+          <source>Azure creates firewall rules for the processes started within your roles.</source>
+          <target state="new">Azure creates firewall rules for the processes started within your roles.</target>
+        </trans-unit>
+        <trans-unit id="8f71ed58-9537-4d82-81de-9209bf788203" xml:space="preserve">
+          <source>For example, when you start a service or program, Azure automatically creates the necessary firewall rules to allow that service to communicate with the Internet.</source>
+          <target state="new">For example, when you start a service or program, Azure automatically creates the necessary firewall rules to allow that service to communicate with the Internet.</target>
+        </trans-unit>
+        <trans-unit id="5c1bdf87-3bfa-4de7-877a-7aab03c8e858" xml:space="preserve">
+          <source>However, if you create a service that is started by a process outside your role (for example, a COM+ service, or a program that starts by using the Windows Scheduler), you will need to manually create a firewall rule to allow access to that service.</source>
+          <target state="new">However, if you create a service that is started by a process outside your role (for example, a COM+ service, or a program that starts by using the Windows Scheduler), you will need to manually create a firewall rule to allow access to that service.</target>
+        </trans-unit>
+        <trans-unit id="7b70738e-1237-4a1c-a3b8-6d28a050441e" xml:space="preserve">
+          <source>These firewall rules can be created by using a startup task.</source>
+          <target state="new">These firewall rules can be created by using a startup task.</target>
+        </trans-unit>
+        <trans-unit id="5058750b-0ee1-41d4-9032-16199db16c7b" xml:space="preserve">
+          <source>A startup task that creates a firewall rule must have an <bpt id="869e1689-40e3-4cdb-accf-d1ffce6e4b1c">&lt;linkText&gt;</bpt>executionContext[task]<ept id="869e1689-40e3-4cdb-accf-d1ffce6e4b1c">&lt;/linkText&gt;</ept><bpt id="869e1689-40e3-4cdb-accf-d1ffce6e4b1c">&lt;title&gt;</bpt><ept id="869e1689-40e3-4cdb-accf-d1ffce6e4b1c">&lt;/title&gt;</ept> of <bpt id="9a7a2b5c-9e4f-41cc-8349-ca73b8b86fde">&lt;strong&gt;</bpt>elevated<ept id="9a7a2b5c-9e4f-41cc-8349-ca73b8b86fde">&lt;/strong&gt;</ept>.</source>
+          <target state="new">A startup task that creates a firewall rule must have an <bpt id="869e1689-40e3-4cdb-accf-d1ffce6e4b1c">&lt;linkText&gt;</bpt>executionContext[task]<ept id="869e1689-40e3-4cdb-accf-d1ffce6e4b1c">&lt;/linkText&gt;</ept><bpt id="869e1689-40e3-4cdb-accf-d1ffce6e4b1c">&lt;title&gt;</bpt><ept id="869e1689-40e3-4cdb-accf-d1ffce6e4b1c">&lt;/title&gt;</ept> of <bpt id="9a7a2b5c-9e4f-41cc-8349-ca73b8b86fde">&lt;strong&gt;</bpt>elevated<ept id="9a7a2b5c-9e4f-41cc-8349-ca73b8b86fde">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24baeaae-2a73-4a13-bf32-3642bc9866d3" xml:space="preserve">
+          <source>Add the following startup task to the [ServiceDefinition.csdef] file.</source>
+          <target state="new">Add the following startup task to the [ServiceDefinition.csdef] file.</target>
+        </trans-unit>
+        <trans-unit id="d4ec1318-f43d-4f39-9ae5-f61d093d95ee" xml:space="preserve">
+          <source>To add the firewall rule, you must use the appropriate <bpt id="da4428c6-43cd-4159-9d98-1dcea6ccd3f8">&lt;code&gt;</bpt>netsh advfirewall firewall<ept id="da4428c6-43cd-4159-9d98-1dcea6ccd3f8">&lt;/code&gt;</ept> commands in your startup batch file.</source>
+          <target state="new">To add the firewall rule, you must use the appropriate <bpt id="da4428c6-43cd-4159-9d98-1dcea6ccd3f8">&lt;code&gt;</bpt>netsh advfirewall firewall<ept id="da4428c6-43cd-4159-9d98-1dcea6ccd3f8">&lt;/code&gt;</ept> commands in your startup batch file.</target>
+        </trans-unit>
+        <trans-unit id="46fce1fe-5721-405d-999a-28b7c2449d70" xml:space="preserve">
+          <source>In this example, the startup task requires security and encryption for TCP port 80.</source>
+          <target state="new">In this example, the startup task requires security and encryption for TCP port 80.</target>
+        </trans-unit>
+        <trans-unit id="900b62b9-cb9d-45bd-b343-9d8bedf69ae7" xml:space="preserve">
+          <source>You can restrict an Azure web role access to a set of specified IP addresses by modifying your IIS <bpt id="0af1e6e9-5354-4342-8d48-dd116c17026a">&lt;strong&gt;</bpt>web.config<ept id="0af1e6e9-5354-4342-8d48-dd116c17026a">&lt;/strong&gt;</ept> file and creating a command file which unlocks the <bpt id="c8e4452d-f5d1-4de9-9104-40f9720461d4">&lt;strong&gt;</bpt>ipSecurity<ept id="c8e4452d-f5d1-4de9-9104-40f9720461d4">&lt;/strong&gt;</ept> section of the <bpt id="8a278530-6a5a-46c8-a99d-c9be60a3609d">&lt;strong&gt;</bpt>ApplicationHost.config<ept id="8a278530-6a5a-46c8-a99d-c9be60a3609d">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">You can restrict an Azure web role access to a set of specified IP addresses by modifying your IIS <bpt id="0af1e6e9-5354-4342-8d48-dd116c17026a">&lt;strong&gt;</bpt>web.config<ept id="0af1e6e9-5354-4342-8d48-dd116c17026a">&lt;/strong&gt;</ept> file and creating a command file which unlocks the <bpt id="c8e4452d-f5d1-4de9-9104-40f9720461d4">&lt;strong&gt;</bpt>ipSecurity<ept id="c8e4452d-f5d1-4de9-9104-40f9720461d4">&lt;/strong&gt;</ept> section of the <bpt id="8a278530-6a5a-46c8-a99d-c9be60a3609d">&lt;strong&gt;</bpt>ApplicationHost.config<ept id="8a278530-6a5a-46c8-a99d-c9be60a3609d">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="e4e59a81-6ca9-489e-94be-fd5cb0dbb90a" xml:space="preserve">
+          <source>First, create a command file that runs when your role starts which unlocks the <bpt id="d0850567-a057-4a2b-9638-67514f3ec5bb">&lt;strong&gt;</bpt>ipSecurity<ept id="d0850567-a057-4a2b-9638-67514f3ec5bb">&lt;/strong&gt;</ept> section of the <bpt id="07069c33-dd5e-4c51-9124-c3c717313b9f">&lt;strong&gt;</bpt>ApplicationHost.config<ept id="07069c33-dd5e-4c51-9124-c3c717313b9f">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">First, create a command file that runs when your role starts which unlocks the <bpt id="d0850567-a057-4a2b-9638-67514f3ec5bb">&lt;strong&gt;</bpt>ipSecurity<ept id="d0850567-a057-4a2b-9638-67514f3ec5bb">&lt;/strong&gt;</ept> section of the <bpt id="07069c33-dd5e-4c51-9124-c3c717313b9f">&lt;strong&gt;</bpt>ApplicationHost.config<ept id="07069c33-dd5e-4c51-9124-c3c717313b9f">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="31da819c-1c03-4a29-bbfc-5e060c5c5f79" xml:space="preserve">
+          <source>Create a new folder at the root level of your web role called <bpt id="18589244-466d-4563-b258-2c4df15f6f60">&lt;strong&gt;</bpt>startup<ept id="18589244-466d-4563-b258-2c4df15f6f60">&lt;/strong&gt;</ept> and, within this folder, create a batch file called <bpt id="2abae34e-0a91-44b5-a372-cf3d86d97bcb">&lt;strong&gt;</bpt>startup.cmd<ept id="2abae34e-0a91-44b5-a372-cf3d86d97bcb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a new folder at the root level of your web role called <bpt id="18589244-466d-4563-b258-2c4df15f6f60">&lt;strong&gt;</bpt>startup<ept id="18589244-466d-4563-b258-2c4df15f6f60">&lt;/strong&gt;</ept> and, within this folder, create a batch file called <bpt id="2abae34e-0a91-44b5-a372-cf3d86d97bcb">&lt;strong&gt;</bpt>startup.cmd<ept id="2abae34e-0a91-44b5-a372-cf3d86d97bcb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0befa5ac-f3aa-43f9-8424-25962a4f8aae" xml:space="preserve">
+          <source>Set the properties of this file to <bpt id="f85fa5d6-8d08-4270-b1c7-bef7e28f50e0">&lt;strong&gt;</bpt>Copy Always<ept id="f85fa5d6-8d08-4270-b1c7-bef7e28f50e0">&lt;/strong&gt;</ept> to ensure that it will be deployed.</source>
+          <target state="new">Set the properties of this file to <bpt id="f85fa5d6-8d08-4270-b1c7-bef7e28f50e0">&lt;strong&gt;</bpt>Copy Always<ept id="f85fa5d6-8d08-4270-b1c7-bef7e28f50e0">&lt;/strong&gt;</ept> to ensure that it will be deployed.</target>
+        </trans-unit>
+        <trans-unit id="4b858d9e-2e53-475d-82fd-d7e65c5c8875" xml:space="preserve">
+          <source>Add the following startup task to the [ServiceDefinition.csdef] file.</source>
+          <target state="new">Add the following startup task to the [ServiceDefinition.csdef] file.</target>
+        </trans-unit>
+        <trans-unit id="6e5bf467-f04b-4be4-97ae-79087637b27d" xml:space="preserve">
+          <source>Add this command to the <bpt id="ade956ec-3b02-4256-9aba-cc0f73a901de">&lt;strong&gt;</bpt>startup.cmd<ept id="ade956ec-3b02-4256-9aba-cc0f73a901de">&lt;/strong&gt;</ept> file:</source>
+          <target state="new">Add this command to the <bpt id="ade956ec-3b02-4256-9aba-cc0f73a901de">&lt;strong&gt;</bpt>startup.cmd<ept id="ade956ec-3b02-4256-9aba-cc0f73a901de">&lt;/strong&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="c436a3b9-5e56-4e51-a4b7-88b742f10e03" xml:space="preserve">
+          <source>This causes the <bpt id="f1f83ef8-287d-43b0-8e20-c3cab43f8e3c">&lt;strong&gt;</bpt>startup.cmd<ept id="f1f83ef8-287d-43b0-8e20-c3cab43f8e3c">&lt;/strong&gt;</ept> batch file to be run every time the web role is initialized, ensuring that the required <bpt id="bd97848a-2eff-4019-8c3e-8549b8c711e7">&lt;strong&gt;</bpt>ipSecurity<ept id="bd97848a-2eff-4019-8c3e-8549b8c711e7">&lt;/strong&gt;</ept> section is unlocked.</source>
+          <target state="new">This causes the <bpt id="f1f83ef8-287d-43b0-8e20-c3cab43f8e3c">&lt;strong&gt;</bpt>startup.cmd<ept id="f1f83ef8-287d-43b0-8e20-c3cab43f8e3c">&lt;/strong&gt;</ept> batch file to be run every time the web role is initialized, ensuring that the required <bpt id="bd97848a-2eff-4019-8c3e-8549b8c711e7">&lt;strong&gt;</bpt>ipSecurity<ept id="bd97848a-2eff-4019-8c3e-8549b8c711e7">&lt;/strong&gt;</ept> section is unlocked.</target>
+        </trans-unit>
+        <trans-unit id="ae94c104-04bf-45f5-b2ca-8e82e7c024b7" xml:space="preserve">
+          <source>Finally, modify the <bpt id="cef3064d-5162-4529-9741-721cd9fac986">&lt;linkText&gt;</bpt>system.webServer section<ept id="cef3064d-5162-4529-9741-721cd9fac986">&lt;/linkText&gt;</ept><bpt id="cef3064d-5162-4529-9741-721cd9fac986">&lt;title&gt;</bpt><ept id="cef3064d-5162-4529-9741-721cd9fac986">&lt;/title&gt;</ept> your web role’s <bpt id="233339c6-703d-43eb-8d8b-de80a55e9f78">&lt;strong&gt;</bpt>web.config<ept id="233339c6-703d-43eb-8d8b-de80a55e9f78">&lt;/strong&gt;</ept> file to add a list of IP addresses that are granted access, as shown in the following example:</source>
+          <target state="new">Finally, modify the <bpt id="cef3064d-5162-4529-9741-721cd9fac986">&lt;linkText&gt;</bpt>system.webServer section<ept id="cef3064d-5162-4529-9741-721cd9fac986">&lt;/linkText&gt;</ept><bpt id="cef3064d-5162-4529-9741-721cd9fac986">&lt;title&gt;</bpt><ept id="cef3064d-5162-4529-9741-721cd9fac986">&lt;/title&gt;</ept> your web role’s <bpt id="233339c6-703d-43eb-8d8b-de80a55e9f78">&lt;strong&gt;</bpt>web.config<ept id="233339c6-703d-43eb-8d8b-de80a55e9f78">&lt;/strong&gt;</ept> file to add a list of IP addresses that are granted access, as shown in the following example:</target>
+        </trans-unit>
+        <trans-unit id="d4df5ac4-052b-48b2-98fd-e9b31f496193" xml:space="preserve">
+          <source>This sample config <bpt id="13f308b5-27b0-43da-b50e-b75916ec2152">&lt;strong&gt;</bpt>allows<ept id="13f308b5-27b0-43da-b50e-b75916ec2152">&lt;/strong&gt;</ept> all IPs to access the server except the two defined</source>
+          <target state="new">This sample config <bpt id="13f308b5-27b0-43da-b50e-b75916ec2152">&lt;strong&gt;</bpt>allows<ept id="13f308b5-27b0-43da-b50e-b75916ec2152">&lt;/strong&gt;</ept> all IPs to access the server except the two defined</target>
+        </trans-unit>
+        <trans-unit id="3781abb8-e31f-4c8b-a085-8880f0d222bb" xml:space="preserve">
+          <source>This sample config <bpt id="a7e5185b-06f2-42d4-9d40-86b8a0668f66">&lt;strong&gt;</bpt>denies<ept id="a7e5185b-06f2-42d4-9d40-86b8a0668f66">&lt;/strong&gt;</ept> all IPs from accessing the server except for the two defined.</source>
+          <target state="new">This sample config <bpt id="a7e5185b-06f2-42d4-9d40-86b8a0668f66">&lt;strong&gt;</bpt>denies<ept id="a7e5185b-06f2-42d4-9d40-86b8a0668f66">&lt;/strong&gt;</ept> all IPs from accessing the server except for the two defined.</target>
+        </trans-unit>
+        <trans-unit id="98aeece9-a26a-4163-b8b7-75af94c701e1" xml:space="preserve">
+          <source>Windows PowerShell scripts cannot be called directly from the [ServiceDefinition.csdef] file, but they can be invoked from within a startup batch file.</source>
+          <target state="new">Windows PowerShell scripts cannot be called directly from the [ServiceDefinition.csdef] file, but they can be invoked from within a startup batch file.</target>
+        </trans-unit>
+        <trans-unit id="c5bec66c-b59c-4bb8-bd75-0b5ab8178597" xml:space="preserve">
+          <source>PowerShell, by default, will not run an unsigned script.</source>
+          <target state="new">PowerShell, by default, will not run an unsigned script.</target>
+        </trans-unit>
+        <trans-unit id="cbf6c456-a9fb-4503-94be-b9920f196195" xml:space="preserve">
+          <source>Unless you sign your scripts, you need to configure Windows PowerShell to run unsigned scripts.</source>
+          <target state="new">Unless you sign your scripts, you need to configure Windows PowerShell to run unsigned scripts.</target>
+        </trans-unit>
+        <trans-unit id="58ee7b8f-43aa-4f75-8774-f018b3b099b7" xml:space="preserve">
+          <source>To run unsigned scripts, <bpt id="44841a4e-e051-4b4d-90b9-06fdcdbf3482">&lt;strong&gt;</bpt>ExecutionPolicy<ept id="44841a4e-e051-4b4d-90b9-06fdcdbf3482">&lt;/strong&gt;</ept> must be set to <bpt id="a17ab6ac-7921-4df8-8d5c-239b0655cef4">&lt;strong&gt;</bpt>Unrestricted<ept id="a17ab6ac-7921-4df8-8d5c-239b0655cef4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To run unsigned scripts, <bpt id="44841a4e-e051-4b4d-90b9-06fdcdbf3482">&lt;strong&gt;</bpt>ExecutionPolicy<ept id="44841a4e-e051-4b4d-90b9-06fdcdbf3482">&lt;/strong&gt;</ept> must be set to <bpt id="a17ab6ac-7921-4df8-8d5c-239b0655cef4">&lt;strong&gt;</bpt>Unrestricted<ept id="a17ab6ac-7921-4df8-8d5c-239b0655cef4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d142d913-add5-4c02-b63a-50b3224b8084" xml:space="preserve">
+          <source>The <bpt id="69fba3ef-63d1-4d96-a8d0-4784c44a7a98">&lt;strong&gt;</bpt>ExecutionPolicy<ept id="69fba3ef-63d1-4d96-a8d0-4784c44a7a98">&lt;/strong&gt;</ept> setting that you use is based on the version of Windows PowerShell.</source>
+          <target state="new">The <bpt id="69fba3ef-63d1-4d96-a8d0-4784c44a7a98">&lt;strong&gt;</bpt>ExecutionPolicy<ept id="69fba3ef-63d1-4d96-a8d0-4784c44a7a98">&lt;/strong&gt;</ept> setting that you use is based on the version of Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="eb85faf2-eb58-429a-ba60-c8975cf12681" xml:space="preserve">
+          <source>If you're using a Guest OS that is runs PowerShell 2.0 or 1.0 you can force version 2 to run, and if unavailable, use version 1.</source>
+          <target state="new">If you're using a Guest OS that is runs PowerShell 2.0 or 1.0 you can force version 2 to run, and if unavailable, use version 1.</target>
+        </trans-unit>
+        <trans-unit id="56397fcc-ed7c-4538-a47c-931bb1f58570" xml:space="preserve">
+          <source>You can use a local storage resource to store files created by your startup task which will be accessed later by your application.</source>
+          <target state="new">You can use a local storage resource to store files created by your startup task which will be accessed later by your application.</target>
+        </trans-unit>
+        <trans-unit id="aa4ef7fb-d0f2-47f6-a0fc-4b7250eb1d4e" xml:space="preserve">
+          <source>To create the local storage resource, add a [LocalResources] section to the [ServiceDefinition.csdef] file and then add the [LocalStorage] child element.</source>
+          <target state="new">To create the local storage resource, add a [LocalResources] section to the [ServiceDefinition.csdef] file and then add the [LocalStorage] child element.</target>
+        </trans-unit>
+        <trans-unit id="a1e06c9b-00e4-46dc-98e6-de6ac12df438" xml:space="preserve">
+          <source>Give the local storage resource a unique name and an appropriate size for your startup task.</source>
+          <target state="new">Give the local storage resource a unique name and an appropriate size for your startup task.</target>
+        </trans-unit>
+        <trans-unit id="f8ae9e59-48ac-4f9e-9184-87d802d929c9" xml:space="preserve">
+          <source>To use a local storage resource in your startup task, you need to create an environment variable to reference the local storage resource location.</source>
+          <target state="new">To use a local storage resource in your startup task, you need to create an environment variable to reference the local storage resource location.</target>
+        </trans-unit>
+        <trans-unit id="08dabf38-124d-42a0-8a75-d5991817c7cf" xml:space="preserve">
+          <source>Then the Startup task and the application will be able to read and write files to the local storage resource.</source>
+          <target state="new">Then the Startup task and the application will be able to read and write files to the local storage resource.</target>
+        </trans-unit>
+        <trans-unit id="3ec41c9e-621b-49d3-9ce0-3dc0c6c805ed" xml:space="preserve">
+          <source>The relevant sections of the <bpt id="18fdf9ce-cee0-4522-9420-37ab40bf8c09">&lt;strong&gt;</bpt>ServiceDefinition.csdef<ept id="18fdf9ce-cee0-4522-9420-37ab40bf8c09">&lt;/strong&gt;</ept> file are shown here:</source>
+          <target state="new">The relevant sections of the <bpt id="18fdf9ce-cee0-4522-9420-37ab40bf8c09">&lt;strong&gt;</bpt>ServiceDefinition.csdef<ept id="18fdf9ce-cee0-4522-9420-37ab40bf8c09">&lt;/strong&gt;</ept> file are shown here:</target>
+        </trans-unit>
+        <trans-unit id="87e5752b-b92d-4694-9fdf-a96530fe88fc" xml:space="preserve">
+          <source>As an example, this <bpt id="85a23e93-6fd4-4de6-8692-436bf3eaa409">&lt;strong&gt;</bpt>Startup.cmd<ept id="85a23e93-6fd4-4de6-8692-436bf3eaa409">&lt;/strong&gt;</ept> batch file uses the <bpt id="5a99a444-64de-4f23-81b5-d98fc9ea731c">&lt;strong&gt;</bpt>PathToStartupStorage<ept id="5a99a444-64de-4f23-81b5-d98fc9ea731c">&lt;/strong&gt;</ept> environment variable to create the file <bpt id="80967cd9-6778-4722-b195-d17a8e3e6c42">&lt;strong&gt;</bpt>MyTest.txt<ept id="80967cd9-6778-4722-b195-d17a8e3e6c42">&lt;/strong&gt;</ept> on the local storage location.</source>
+          <target state="new">As an example, this <bpt id="85a23e93-6fd4-4de6-8692-436bf3eaa409">&lt;strong&gt;</bpt>Startup.cmd<ept id="85a23e93-6fd4-4de6-8692-436bf3eaa409">&lt;/strong&gt;</ept> batch file uses the <bpt id="5a99a444-64de-4f23-81b5-d98fc9ea731c">&lt;strong&gt;</bpt>PathToStartupStorage<ept id="5a99a444-64de-4f23-81b5-d98fc9ea731c">&lt;/strong&gt;</ept> environment variable to create the file <bpt id="80967cd9-6778-4722-b195-d17a8e3e6c42">&lt;strong&gt;</bpt>MyTest.txt<ept id="80967cd9-6778-4722-b195-d17a8e3e6c42">&lt;/strong&gt;</ept> on the local storage location.</target>
+        </trans-unit>
+        <trans-unit id="fcc0c1cc-42b7-45a9-aa1e-f07204301fcd" xml:space="preserve">
+          <source>You can access local storage from the Azure SDK by using the <bpt id="53c768cf-3f61-44bc-9f8e-4caf2667ae9b">&lt;linkText&gt;</bpt>GetLocalResource<ept id="53c768cf-3f61-44bc-9f8e-4caf2667ae9b">&lt;/linkText&gt;</ept><bpt id="53c768cf-3f61-44bc-9f8e-4caf2667ae9b">&lt;title&gt;</bpt><ept id="53c768cf-3f61-44bc-9f8e-4caf2667ae9b">&lt;/title&gt;</ept> method.</source>
+          <target state="new">You can access local storage from the Azure SDK by using the <bpt id="53c768cf-3f61-44bc-9f8e-4caf2667ae9b">&lt;linkText&gt;</bpt>GetLocalResource<ept id="53c768cf-3f61-44bc-9f8e-4caf2667ae9b">&lt;/linkText&gt;</ept><bpt id="53c768cf-3f61-44bc-9f8e-4caf2667ae9b">&lt;title&gt;</bpt><ept id="53c768cf-3f61-44bc-9f8e-4caf2667ae9b">&lt;/title&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="8a61e2f1-ce36-4208-8f0b-e50d9752bb4c" xml:space="preserve">
+          <source>Standard file read and write operations will then work to read and write the contents of the local storage resource.</source>
+          <target state="new">Standard file read and write operations will then work to read and write the contents of the local storage resource.</target>
+        </trans-unit>
+        <trans-unit id="3dd2bbc6-95ca-4521-8df1-efab53715d14" xml:space="preserve">
+          <source>You can have your startup task perform different steps when it is operating in the cloud compared to when it is in the compute emulator.</source>
+          <target state="new">You can have your startup task perform different steps when it is operating in the cloud compared to when it is in the compute emulator.</target>
+        </trans-unit>
+        <trans-unit id="845063b5-9c9f-493a-8e65-417dc77e09e2" xml:space="preserve">
+          <source>For example, you may want to use a fresh copy of your SQL data only when running in the emulator.</source>
+          <target state="new">For example, you may want to use a fresh copy of your SQL data only when running in the emulator.</target>
+        </trans-unit>
+        <trans-unit id="81dff966-bc96-4b5f-aaad-746be9b59904" xml:space="preserve">
+          <source>Or you may want to do some sort of performance optimizations for the cloud that you don't need to do when running in the emulator.</source>
+          <target state="new">Or you may want to do some sort of performance optimizations for the cloud that you don't need to do when running in the emulator.</target>
+        </trans-unit>
+        <trans-unit id="3bed9aac-2d57-4c81-af85-20d1d0ac0aa2" xml:space="preserve">
+          <source>This ability to perform different actions on the compute emulator and the cloud can be accomplished by creating an environment variable in the [ServiceDefinition.csdef] file, then testing the environment variable in your startup task.</source>
+          <target state="new">This ability to perform different actions on the compute emulator and the cloud can be accomplished by creating an environment variable in the [ServiceDefinition.csdef] file, then testing the environment variable in your startup task.</target>
+        </trans-unit>
+        <trans-unit id="5663915b-4ba2-4c8b-bbef-7bd4dac7fb35" xml:space="preserve">
+          <source>To create the environment variable, add the [Variable]/[RoleInstanceValue] element and create an XPath value of <bpt id="a5ca99a3-a7b1-4926-9af1-06b4d4dbdbb5">&lt;code&gt;</bpt>/RoleEnvironment/Deployment/@emulated<ept id="a5ca99a3-a7b1-4926-9af1-06b4d4dbdbb5">&lt;/code&gt;</ept>.</source>
+          <target state="new">To create the environment variable, add the [Variable]/[RoleInstanceValue] element and create an XPath value of <bpt id="a5ca99a3-a7b1-4926-9af1-06b4d4dbdbb5">&lt;code&gt;</bpt>/RoleEnvironment/Deployment/@emulated<ept id="a5ca99a3-a7b1-4926-9af1-06b4d4dbdbb5">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91e47200-cde7-4a72-acd6-3feda87e2518" xml:space="preserve">
+          <source>The value of the <bpt id="6361249d-9990-4cc8-96c7-87da7ac91140">&lt;strong&gt;</bpt>%ComputeEmulatorRunning%<ept id="6361249d-9990-4cc8-96c7-87da7ac91140">&lt;/strong&gt;</ept> environment variable will be <bpt id="2113160c-bfdc-4e8d-93fe-126c93acdbd5">&lt;code&gt;</bpt>"true"<ept id="2113160c-bfdc-4e8d-93fe-126c93acdbd5">&lt;/code&gt;</ept> when running on the compute emulator, and <bpt id="3bd4bbb0-6db3-40cd-b91c-1c925754e67b">&lt;code&gt;</bpt>"false"<ept id="3bd4bbb0-6db3-40cd-b91c-1c925754e67b">&lt;/code&gt;</ept> when running on the cloud.</source>
+          <target state="new">The value of the <bpt id="6361249d-9990-4cc8-96c7-87da7ac91140">&lt;strong&gt;</bpt>%ComputeEmulatorRunning%<ept id="6361249d-9990-4cc8-96c7-87da7ac91140">&lt;/strong&gt;</ept> environment variable will be <bpt id="2113160c-bfdc-4e8d-93fe-126c93acdbd5">&lt;code&gt;</bpt>"true"<ept id="2113160c-bfdc-4e8d-93fe-126c93acdbd5">&lt;/code&gt;</ept> when running on the compute emulator, and <bpt id="3bd4bbb0-6db3-40cd-b91c-1c925754e67b">&lt;code&gt;</bpt>"false"<ept id="3bd4bbb0-6db3-40cd-b91c-1c925754e67b">&lt;/code&gt;</ept> when running on the cloud.</target>
+        </trans-unit>
+        <trans-unit id="03a3df9b-b63e-42b6-b0f4-7dfec2e9b35c" xml:space="preserve">
+          <source>Any task run can now use the <bpt id="657ec938-fa18-41ec-a924-42386eb12d94">&lt;strong&gt;</bpt>%ComputeEmulatorRunning%<ept id="657ec938-fa18-41ec-a924-42386eb12d94">&lt;/strong&gt;</ept> environment variable to perform different actions based on whether or not the role is running in the cloud or the emulator.</source>
+          <target state="new">Any task run can now use the <bpt id="657ec938-fa18-41ec-a924-42386eb12d94">&lt;strong&gt;</bpt>%ComputeEmulatorRunning%<ept id="657ec938-fa18-41ec-a924-42386eb12d94">&lt;/strong&gt;</ept> environment variable to perform different actions based on whether or not the role is running in the cloud or the emulator.</target>
+        </trans-unit>
+        <trans-unit id="b934daf2-2f55-46ca-83cb-01895f5bbc0d" xml:space="preserve">
+          <source>Here is a .cmd shell script that checks for that environment variable.</source>
+          <target state="new">Here is a .cmd shell script that checks for that environment variable.</target>
+        </trans-unit>
+        <trans-unit id="1ee88680-1fd7-435d-9579-eba26099d4fa" xml:space="preserve">
+          <source>The role may recycle without a reboot causing your startup tasks to run again.</source>
+          <target state="new">The role may recycle without a reboot causing your startup tasks to run again.</target>
+        </trans-unit>
+        <trans-unit id="5d136e9c-a95d-43e9-b093-412a1c12290f" xml:space="preserve">
+          <source>There is flag to indicate a task has already run on the hosting VM.</source>
+          <target state="new">There is flag to indicate a task has already run on the hosting VM.</target>
+        </trans-unit>
+        <trans-unit id="e21c71e1-0438-47a3-8fd2-981a3b4127cc" xml:space="preserve">
+          <source>You may have some tasks where it doesn't matter that they run multiple times.</source>
+          <target state="new">You may have some tasks where it doesn't matter that they run multiple times.</target>
+        </trans-unit>
+        <trans-unit id="f8c14ba9-16f9-4510-9633-16949f53618f" xml:space="preserve">
+          <source>However you may run into a situation where you need to prevent a task from running more than once.</source>
+          <target state="new">However you may run into a situation where you need to prevent a task from running more than once.</target>
+        </trans-unit>
+        <trans-unit id="15f8cab8-ff51-4988-a372-f240fd4732f2" xml:space="preserve">
+          <source>The simplest way to detect that a task has already run is to create a file in the <bpt id="f87771eb-cbe9-480a-a70f-c59bf403ea9e">&lt;strong&gt;</bpt>%TEMP%<ept id="f87771eb-cbe9-480a-a70f-c59bf403ea9e">&lt;/strong&gt;</ept> folder when the task is successful and look for it at the start of the task.</source>
+          <target state="new">The simplest way to detect that a task has already run is to create a file in the <bpt id="f87771eb-cbe9-480a-a70f-c59bf403ea9e">&lt;strong&gt;</bpt>%TEMP%<ept id="f87771eb-cbe9-480a-a70f-c59bf403ea9e">&lt;/strong&gt;</ept> folder when the task is successful and look for it at the start of the task.</target>
+        </trans-unit>
+        <trans-unit id="b02e6010-afe7-4ad9-a054-2d7244d65bf2" xml:space="preserve">
+          <source>Here is a sample cmd shell script that does that for you.</source>
+          <target state="new">Here is a sample cmd shell script that does that for you.</target>
+        </trans-unit>
+        <trans-unit id="78381870-8d63-407d-9438-7236558cd62d" xml:space="preserve">
+          <source>Here are some best practices you should follow when configuring task for your web or worker role.</source>
+          <target state="new">Here are some best practices you should follow when configuring task for your web or worker role.</target>
+        </trans-unit>
+        <trans-unit id="b96e2a48-5b2b-4fce-a72c-572dd4f1ec33" xml:space="preserve">
+          <source>Visual Studio does not provide a debugger to step through batch files, so it's good to get as much data on the operation of batch files as possible. Logging the output of batch files, both <bpt id="5720faeb-9cb7-4249-8d38-7ee89ec50fdd">&lt;strong&gt;</bpt>stdout<ept id="5720faeb-9cb7-4249-8d38-7ee89ec50fdd">&lt;/strong&gt;</ept> and <bpt id="822d7e93-f5a2-4afd-baea-d4ea39cf59b2">&lt;strong&gt;</bpt>stderr<ept id="822d7e93-f5a2-4afd-baea-d4ea39cf59b2">&lt;/strong&gt;</ept>, can give you important information when trying to debug and fix batch files. To log both <bpt id="7329bd06-0eda-4f50-b20a-81620a611e1f">&lt;strong&gt;</bpt>stdout<ept id="7329bd06-0eda-4f50-b20a-81620a611e1f">&lt;/strong&gt;</ept> and <bpt id="935bf3b7-f4f4-4c75-afd8-0307b44b291a">&lt;strong&gt;</bpt>stderr<ept id="935bf3b7-f4f4-4c75-afd8-0307b44b291a">&lt;/strong&gt;</ept> to the StartupLog.txt file in the directory pointed to by the <bpt id="80253f0c-94c6-4076-802c-cac7c317a02f">&lt;strong&gt;</bpt>%TEMP%<ept id="80253f0c-94c6-4076-802c-cac7c317a02f">&lt;/strong&gt;</ept> environment variable, add the text <bpt id="9139361f-d313-4d0e-8f82-7a4d62c9a73e">&lt;code&gt;</bpt>&gt;&gt;  "%TEMP%\\StartupLog.txt" 2&gt;&amp;1<ept id="9139361f-d313-4d0e-8f82-7a4d62c9a73e">&lt;/code&gt;</ept> to the end of specific lines you want to log. For example, to execute setup.exe in the <bpt id="ca3d9934-6aa1-48cd-8a77-33bb3239a4d3">&lt;strong&gt;</bpt>%PathToApp1Install%<ept id="ca3d9934-6aa1-48cd-8a77-33bb3239a4d3">&lt;/strong&gt;</ept> directory:</source>
+          <target state="new">Visual Studio does not provide a debugger to step through batch files, so it's good to get as much data on the operation of batch files as possible. Logging the output of batch files, both <bpt id="5720faeb-9cb7-4249-8d38-7ee89ec50fdd">&lt;strong&gt;</bpt>stdout<ept id="5720faeb-9cb7-4249-8d38-7ee89ec50fdd">&lt;/strong&gt;</ept> and <bpt id="822d7e93-f5a2-4afd-baea-d4ea39cf59b2">&lt;strong&gt;</bpt>stderr<ept id="822d7e93-f5a2-4afd-baea-d4ea39cf59b2">&lt;/strong&gt;</ept>, can give you important information when trying to debug and fix batch files. To log both <bpt id="7329bd06-0eda-4f50-b20a-81620a611e1f">&lt;strong&gt;</bpt>stdout<ept id="7329bd06-0eda-4f50-b20a-81620a611e1f">&lt;/strong&gt;</ept> and <bpt id="935bf3b7-f4f4-4c75-afd8-0307b44b291a">&lt;strong&gt;</bpt>stderr<ept id="935bf3b7-f4f4-4c75-afd8-0307b44b291a">&lt;/strong&gt;</ept> to the StartupLog.txt file in the directory pointed to by the <bpt id="80253f0c-94c6-4076-802c-cac7c317a02f">&lt;strong&gt;</bpt>%TEMP%<ept id="80253f0c-94c6-4076-802c-cac7c317a02f">&lt;/strong&gt;</ept> environment variable, add the text <bpt id="9139361f-d313-4d0e-8f82-7a4d62c9a73e">&lt;code&gt;</bpt>&gt;&gt;  "%TEMP%\\StartupLog.txt" 2&gt;&amp;1<ept id="9139361f-d313-4d0e-8f82-7a4d62c9a73e">&lt;/code&gt;</ept> to the end of specific lines you want to log. For example, to execute setup.exe in the <bpt id="ca3d9934-6aa1-48cd-8a77-33bb3239a4d3">&lt;strong&gt;</bpt>%PathToApp1Install%<ept id="ca3d9934-6aa1-48cd-8a77-33bb3239a4d3">&lt;/strong&gt;</ept> directory:</target>
+        </trans-unit>
+        <trans-unit id="9e27211f-f1f7-442d-8f05-718135b7438a" xml:space="preserve">
+          <source>If you want to log all output from the startup task without adding <bpt id="3183f4f5-1b6f-40bf-8674-6e4fdfbf2402">&lt;code&gt;</bpt>&gt;&gt; "%TEMP%\StartupLog.txt" 2&gt;&amp;1<ept id="3183f4f5-1b6f-40bf-8674-6e4fdfbf2402">&lt;/code&gt;</ept>to the end of each line, two startup batch files are needed. The first batch file will call the second batch file with redirection to log all of the activities of the second batch file. This is necessary for proper redirection to occur.</source>
+          <target state="new">If you want to log all output from the startup task without adding <bpt id="3183f4f5-1b6f-40bf-8674-6e4fdfbf2402">&lt;code&gt;</bpt>&gt;&gt; "%TEMP%\StartupLog.txt" 2&gt;&amp;1<ept id="3183f4f5-1b6f-40bf-8674-6e4fdfbf2402">&lt;/code&gt;</ept>to the end of each line, two startup batch files are needed. The first batch file will call the second batch file with redirection to log all of the activities of the second batch file. This is necessary for proper redirection to occur.</target>
+        </trans-unit>
+        <trans-unit id="879b8334-6592-4339-8efa-ac7dfff27c22" xml:space="preserve">
+          <source>The following shows how to redirect all output from a startup batch file.</source>
+          <target state="new">The following shows how to redirect all output from a startup batch file.</target>
+        </trans-unit>
+        <trans-unit id="a59f71ad-7753-4e74-abe3-14da063084a2" xml:space="preserve">
+          <source>In this example, the ServerDefinition.csdef file creates a startup task that calls Startup1.cmd.</source>
+          <target state="new">In this example, the ServerDefinition.csdef file creates a startup task that calls Startup1.cmd.</target>
+        </trans-unit>
+        <trans-unit id="5e6de08b-bc0e-4e30-b3f6-4b133e9c1e67" xml:space="preserve">
+          <source>Startup1.cmd calls Startup2.cmd, redirecting all output to %TEMP%\\StartupLog.txt.</source>
+          <target state="new">Startup1.cmd calls Startup2.cmd, redirecting all output to %TEMP%\\StartupLog.txt.</target>
+        </trans-unit>
+        <trans-unit id="cd0e13ce-8069-435b-88fe-d8114c04c96f" xml:space="preserve">
+          <source>ServiceDefinition.cmd:</source>
+          <target state="new">ServiceDefinition.cmd:</target>
+        </trans-unit>
+        <trans-unit id="03779e0d-fc58-4019-a4cf-cab98723fd72" xml:space="preserve">
+          <source>Startup1.cmd:</source>
+          <target state="new">Startup1.cmd:</target>
+        </trans-unit>
+        <trans-unit id="34d741f1-4b4f-4860-8b6f-c3fe6897bc4b" xml:space="preserve">
+          <source>Startup2.cmd:</source>
+          <target state="new">Startup2.cmd:</target>
+        </trans-unit>
+        <trans-unit id="f4958a67-049f-4675-a81e-3aa3fe725c28" xml:space="preserve">
+          <source>Set privileges appropriately for the startup task.</source>
+          <target state="new">Set privileges appropriately for the startup task.</target>
+        </trans-unit>
+        <trans-unit id="d867fbff-6c15-4295-adb3-c0a21f807684" xml:space="preserve">
+          <source>Sometimes startup tasks must run with elevated privileges even though the role runs with normal privileges.</source>
+          <target state="new">Sometimes startup tasks must run with elevated privileges even though the role runs with normal privileges.</target>
+        </trans-unit>
+        <trans-unit id="ddc86f53-da9b-457b-9e57-fd4ece32b646" xml:space="preserve">
+          <source>The <bpt id="e054eab9-1863-4029-b48a-03e573414f67">&lt;linkText&gt;</bpt>executionContext[task]<ept id="e054eab9-1863-4029-b48a-03e573414f67">&lt;/linkText&gt;</ept><bpt id="e054eab9-1863-4029-b48a-03e573414f67">&lt;title&gt;</bpt><ept id="e054eab9-1863-4029-b48a-03e573414f67">&lt;/title&gt;</ept> attribute sets the privilege level of the startup task.</source>
+          <target state="new">The <bpt id="e054eab9-1863-4029-b48a-03e573414f67">&lt;linkText&gt;</bpt>executionContext[task]<ept id="e054eab9-1863-4029-b48a-03e573414f67">&lt;/linkText&gt;</ept><bpt id="e054eab9-1863-4029-b48a-03e573414f67">&lt;title&gt;</bpt><ept id="e054eab9-1863-4029-b48a-03e573414f67">&lt;/title&gt;</ept> attribute sets the privilege level of the startup task.</target>
+        </trans-unit>
+        <trans-unit id="ae9313ff-16a0-42ee-a70b-5ff0294c3fe5" xml:space="preserve">
+          <source>Using <bpt id="32a002bd-97ce-4e30-9220-503e3a2fdf47">&lt;code&gt;</bpt>executionContext="limited"<ept id="32a002bd-97ce-4e30-9220-503e3a2fdf47">&lt;/code&gt;</ept> means the startup task will have the same privilege level as the role.</source>
+          <target state="new">Using <bpt id="32a002bd-97ce-4e30-9220-503e3a2fdf47">&lt;code&gt;</bpt>executionContext="limited"<ept id="32a002bd-97ce-4e30-9220-503e3a2fdf47">&lt;/code&gt;</ept> means the startup task will have the same privilege level as the role.</target>
+        </trans-unit>
+        <trans-unit id="0a6a3e4a-b6a3-43c6-83f2-34baca3ca0fa" xml:space="preserve">
+          <source>Using <bpt id="cb4aed05-b3c2-4307-9ecc-8bce480542f4">&lt;code&gt;</bpt>executionContext="elevated"<ept id="cb4aed05-b3c2-4307-9ecc-8bce480542f4">&lt;/code&gt;</ept> means the startup task will have administrator privileges, which allows the startup task to perform administrator tasks without giving administrator privileges to your role.</source>
+          <target state="new">Using <bpt id="cb4aed05-b3c2-4307-9ecc-8bce480542f4">&lt;code&gt;</bpt>executionContext="elevated"<ept id="cb4aed05-b3c2-4307-9ecc-8bce480542f4">&lt;/code&gt;</ept> means the startup task will have administrator privileges, which allows the startup task to perform administrator tasks without giving administrator privileges to your role.</target>
+        </trans-unit>
+        <trans-unit id="7408276c-52e1-4e11-a739-46c55e703a0b" xml:space="preserve">
+          <source>An example of a startup task that requires elevated privileges is a startup task that uses <bpt id="c18a430e-71df-4519-a4b7-c9469670d978">&lt;strong&gt;</bpt>AppCmd.exe<ept id="c18a430e-71df-4519-a4b7-c9469670d978">&lt;/strong&gt;</ept> to configure IIS.</source>
+          <target state="new">An example of a startup task that requires elevated privileges is a startup task that uses <bpt id="c18a430e-71df-4519-a4b7-c9469670d978">&lt;strong&gt;</bpt>AppCmd.exe<ept id="c18a430e-71df-4519-a4b7-c9469670d978">&lt;/strong&gt;</ept> to configure IIS.</target>
+        </trans-unit>
+        <trans-unit id="e34ab439-d2ce-4311-85a7-d449bf1d65ec" xml:space="preserve">
+          <source><bpt id="b962aae3-e729-41b3-8701-258f22b682d6">&lt;strong&gt;</bpt>AppCmd.exe<ept id="b962aae3-e729-41b3-8701-258f22b682d6">&lt;/strong&gt;</ept> requires <bpt id="7c1879c9-f801-4518-827a-078880f2af6e">&lt;code&gt;</bpt>executionContext="elevated"<ept id="7c1879c9-f801-4518-827a-078880f2af6e">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="b962aae3-e729-41b3-8701-258f22b682d6">&lt;strong&gt;</bpt>AppCmd.exe<ept id="b962aae3-e729-41b3-8701-258f22b682d6">&lt;/strong&gt;</ept> requires <bpt id="7c1879c9-f801-4518-827a-078880f2af6e">&lt;code&gt;</bpt>executionContext="elevated"<ept id="7c1879c9-f801-4518-827a-078880f2af6e">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7070c734-5a44-4309-961b-df5000ebc889" xml:space="preserve">
+          <source>The <bpt id="87afa178-0141-4a7b-ab0f-7f3f876bfa56">&lt;linkText&gt;</bpt>taskType[task]<ept id="87afa178-0141-4a7b-ab0f-7f3f876bfa56">&lt;/linkText&gt;</ept><bpt id="87afa178-0141-4a7b-ab0f-7f3f876bfa56">&lt;title&gt;</bpt><ept id="87afa178-0141-4a7b-ab0f-7f3f876bfa56">&lt;/title&gt;</ept> attribute determines the way the startup task will be executed.</source>
+          <target state="new">The <bpt id="87afa178-0141-4a7b-ab0f-7f3f876bfa56">&lt;linkText&gt;</bpt>taskType[task]<ept id="87afa178-0141-4a7b-ab0f-7f3f876bfa56">&lt;/linkText&gt;</ept><bpt id="87afa178-0141-4a7b-ab0f-7f3f876bfa56">&lt;title&gt;</bpt><ept id="87afa178-0141-4a7b-ab0f-7f3f876bfa56">&lt;/title&gt;</ept> attribute determines the way the startup task will be executed.</target>
+        </trans-unit>
+        <trans-unit id="5e6177a4-e110-49ac-a226-632d4182624d" xml:space="preserve">
+          <source>There are three values: <bpt id="5761b145-adb6-4b0d-824e-e132e46f683f">&lt;strong&gt;</bpt>simple<ept id="5761b145-adb6-4b0d-824e-e132e46f683f">&lt;/strong&gt;</ept>, <bpt id="6dddba7d-b3f3-44a1-82af-9d996059755d">&lt;strong&gt;</bpt>background<ept id="6dddba7d-b3f3-44a1-82af-9d996059755d">&lt;/strong&gt;</ept>, and <bpt id="49a7a013-4a55-4bd4-9c0e-6c631289bbb9">&lt;strong&gt;</bpt>foreground<ept id="49a7a013-4a55-4bd4-9c0e-6c631289bbb9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">There are three values: <bpt id="5761b145-adb6-4b0d-824e-e132e46f683f">&lt;strong&gt;</bpt>simple<ept id="5761b145-adb6-4b0d-824e-e132e46f683f">&lt;/strong&gt;</ept>, <bpt id="6dddba7d-b3f3-44a1-82af-9d996059755d">&lt;strong&gt;</bpt>background<ept id="6dddba7d-b3f3-44a1-82af-9d996059755d">&lt;/strong&gt;</ept>, and <bpt id="49a7a013-4a55-4bd4-9c0e-6c631289bbb9">&lt;strong&gt;</bpt>foreground<ept id="49a7a013-4a55-4bd4-9c0e-6c631289bbb9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4410f3e7-79b6-448c-9aca-ac90ec656846" xml:space="preserve">
+          <source>The background and foreground tasks are started asynchronously, and then the simple tasks are executed synchronously one at a time.</source>
+          <target state="new">The background and foreground tasks are started asynchronously, and then the simple tasks are executed synchronously one at a time.</target>
+        </trans-unit>
+        <trans-unit id="a06b4329-8d82-49f3-98f0-4d2d2515b4a0" xml:space="preserve">
+          <source>With <bpt id="b746cf8e-5509-404d-b703-44a1ed5a88f8">&lt;strong&gt;</bpt>simple<ept id="b746cf8e-5509-404d-b703-44a1ed5a88f8">&lt;/strong&gt;</ept> startup tasks, you can set the order in which the tasks will occur by the order in which the tasks are listed in the ServiceDefinition.csdef file.</source>
+          <target state="new">With <bpt id="b746cf8e-5509-404d-b703-44a1ed5a88f8">&lt;strong&gt;</bpt>simple<ept id="b746cf8e-5509-404d-b703-44a1ed5a88f8">&lt;/strong&gt;</ept> startup tasks, you can set the order in which the tasks will occur by the order in which the tasks are listed in the ServiceDefinition.csdef file.</target>
+        </trans-unit>
+        <trans-unit id="a5ca326c-4c74-4df9-bace-211d75b9102a" xml:space="preserve">
+          <source>If a <bpt id="5bfa70a0-d419-448a-a34a-d9bf26be77d6">&lt;strong&gt;</bpt>simple<ept id="5bfa70a0-d419-448a-a34a-d9bf26be77d6">&lt;/strong&gt;</ept> task ends with a non-zero exit code, then the startup procedure will stop and the role will not start.</source>
+          <target state="new">If a <bpt id="5bfa70a0-d419-448a-a34a-d9bf26be77d6">&lt;strong&gt;</bpt>simple<ept id="5bfa70a0-d419-448a-a34a-d9bf26be77d6">&lt;/strong&gt;</ept> task ends with a non-zero exit code, then the startup procedure will stop and the role will not start.</target>
+        </trans-unit>
+        <trans-unit id="64266c36-469e-49bb-aa86-a5c2b68efcb7" xml:space="preserve">
+          <source>The difference between <bpt id="a518dc4a-d66b-4759-a8d8-3f288a87a9c0">&lt;strong&gt;</bpt>background<ept id="a518dc4a-d66b-4759-a8d8-3f288a87a9c0">&lt;/strong&gt;</ept> startup tasks and <bpt id="b4569006-bbca-4f25-9e86-8cba25c77a15">&lt;strong&gt;</bpt>foreground<ept id="b4569006-bbca-4f25-9e86-8cba25c77a15">&lt;/strong&gt;</ept> startup tasks is that <bpt id="d1483ace-7235-45d1-8228-4a418d97571a">&lt;strong&gt;</bpt>foreground<ept id="d1483ace-7235-45d1-8228-4a418d97571a">&lt;/strong&gt;</ept> tasks will keep the role running until the <bpt id="edf846bf-b6d3-480e-98b7-0dd537bc1ff6">&lt;strong&gt;</bpt>foreground<ept id="edf846bf-b6d3-480e-98b7-0dd537bc1ff6">&lt;/strong&gt;</ept> task ends.</source>
+          <target state="new">The difference between <bpt id="a518dc4a-d66b-4759-a8d8-3f288a87a9c0">&lt;strong&gt;</bpt>background<ept id="a518dc4a-d66b-4759-a8d8-3f288a87a9c0">&lt;/strong&gt;</ept> startup tasks and <bpt id="b4569006-bbca-4f25-9e86-8cba25c77a15">&lt;strong&gt;</bpt>foreground<ept id="b4569006-bbca-4f25-9e86-8cba25c77a15">&lt;/strong&gt;</ept> startup tasks is that <bpt id="d1483ace-7235-45d1-8228-4a418d97571a">&lt;strong&gt;</bpt>foreground<ept id="d1483ace-7235-45d1-8228-4a418d97571a">&lt;/strong&gt;</ept> tasks will keep the role running until the <bpt id="edf846bf-b6d3-480e-98b7-0dd537bc1ff6">&lt;strong&gt;</bpt>foreground<ept id="edf846bf-b6d3-480e-98b7-0dd537bc1ff6">&lt;/strong&gt;</ept> task ends.</target>
+        </trans-unit>
+        <trans-unit id="75126914-7772-41a6-ba7a-14ef2f39555b" xml:space="preserve">
+          <source>This also means that if the <bpt id="1b97bd47-c228-42e8-8265-9a802c6ba822">&lt;strong&gt;</bpt>foreground<ept id="1b97bd47-c228-42e8-8265-9a802c6ba822">&lt;/strong&gt;</ept> task hangs or crashes, the role will not recycle until the <bpt id="f24ed069-3bfa-474e-9c03-e82684897311">&lt;strong&gt;</bpt>foreground<ept id="f24ed069-3bfa-474e-9c03-e82684897311">&lt;/strong&gt;</ept> task is forced closed.</source>
+          <target state="new">This also means that if the <bpt id="1b97bd47-c228-42e8-8265-9a802c6ba822">&lt;strong&gt;</bpt>foreground<ept id="1b97bd47-c228-42e8-8265-9a802c6ba822">&lt;/strong&gt;</ept> task hangs or crashes, the role will not recycle until the <bpt id="f24ed069-3bfa-474e-9c03-e82684897311">&lt;strong&gt;</bpt>foreground<ept id="f24ed069-3bfa-474e-9c03-e82684897311">&lt;/strong&gt;</ept> task is forced closed.</target>
+        </trans-unit>
+        <trans-unit id="00903aba-1b19-4490-8364-1d81b8f2701a" xml:space="preserve">
+          <source>For this reason, <bpt id="88ced8ec-c8fe-4122-af06-b7b7756bcd03">&lt;strong&gt;</bpt>background<ept id="88ced8ec-c8fe-4122-af06-b7b7756bcd03">&lt;/strong&gt;</ept> tasks are recommended for asynchronous startup tasks unless you need that feature of the <bpt id="e85c4f15-a092-4299-b857-638bfeb845a2">&lt;strong&gt;</bpt>foreground<ept id="e85c4f15-a092-4299-b857-638bfeb845a2">&lt;/strong&gt;</ept> task.</source>
+          <target state="new">For this reason, <bpt id="88ced8ec-c8fe-4122-af06-b7b7756bcd03">&lt;strong&gt;</bpt>background<ept id="88ced8ec-c8fe-4122-af06-b7b7756bcd03">&lt;/strong&gt;</ept> tasks are recommended for asynchronous startup tasks unless you need that feature of the <bpt id="e85c4f15-a092-4299-b857-638bfeb845a2">&lt;strong&gt;</bpt>foreground<ept id="e85c4f15-a092-4299-b857-638bfeb845a2">&lt;/strong&gt;</ept> task.</target>
+        </trans-unit>
+        <trans-unit id="87a5c4c4-1ee8-42c5-96e0-1d691ad06194" xml:space="preserve">
+          <source>The role will only start if the <bpt id="285f434d-2792-4efe-9478-52cdbd121c99">&lt;strong&gt;</bpt>errorlevel<ept id="285f434d-2792-4efe-9478-52cdbd121c99">&lt;/strong&gt;</ept> from each of your simple startup task is zero.</source>
+          <target state="new">The role will only start if the <bpt id="285f434d-2792-4efe-9478-52cdbd121c99">&lt;strong&gt;</bpt>errorlevel<ept id="285f434d-2792-4efe-9478-52cdbd121c99">&lt;/strong&gt;</ept> from each of your simple startup task is zero.</target>
+        </trans-unit>
+        <trans-unit id="1c7f6040-52e1-4f4b-8331-1e0621454bd2" xml:space="preserve">
+          <source>Not all programs set the <bpt id="6f1933a4-2836-45a4-881f-226d5e5834a5">&lt;strong&gt;</bpt>errorlevel<ept id="6f1933a4-2836-45a4-881f-226d5e5834a5">&lt;/strong&gt;</ept> (exit code) correctly, so the batch file should end with an <bpt id="e5d9d525-250a-4af5-bbdd-7ef0e3181fd4">&lt;code&gt;</bpt>EXIT /B 0<ept id="e5d9d525-250a-4af5-bbdd-7ef0e3181fd4">&lt;/code&gt;</ept> if everything ran correctly.</source>
+          <target state="new">Not all programs set the <bpt id="6f1933a4-2836-45a4-881f-226d5e5834a5">&lt;strong&gt;</bpt>errorlevel<ept id="6f1933a4-2836-45a4-881f-226d5e5834a5">&lt;/strong&gt;</ept> (exit code) correctly, so the batch file should end with an <bpt id="e5d9d525-250a-4af5-bbdd-7ef0e3181fd4">&lt;code&gt;</bpt>EXIT /B 0<ept id="e5d9d525-250a-4af5-bbdd-7ef0e3181fd4">&lt;/code&gt;</ept> if everything ran correctly.</target>
+        </trans-unit>
+        <trans-unit id="db925847-a8f7-4143-a935-752c1b4a0ac1" xml:space="preserve">
+          <source>A missing <bpt id="bc35d200-7ba3-42b5-82a2-fdfcec720e38">&lt;code&gt;</bpt>EXIT /B 0<ept id="bc35d200-7ba3-42b5-82a2-fdfcec720e38">&lt;/code&gt;</ept> at the end of a startup batch file is a common cause of roles that do not start.</source>
+          <target state="new">A missing <bpt id="bc35d200-7ba3-42b5-82a2-fdfcec720e38">&lt;code&gt;</bpt>EXIT /B 0<ept id="bc35d200-7ba3-42b5-82a2-fdfcec720e38">&lt;/code&gt;</ept> at the end of a startup batch file is a common cause of roles that do not start.</target>
+        </trans-unit>
+        <trans-unit id="f79592be-0b84-4a84-8fef-0994219eebb1" xml:space="preserve">
+          <source>Not all role recycles include a reboot, but all role recycles include running all startup tasks.</source>
+          <target state="new">Not all role recycles include a reboot, but all role recycles include running all startup tasks.</target>
+        </trans-unit>
+        <trans-unit id="88c998a7-891f-4d05-a2ef-15b9fd00ed6c" xml:space="preserve">
+          <source>This means that startup tasks must be able to run multiple times between reboots without any problems.</source>
+          <target state="new">This means that startup tasks must be able to run multiple times between reboots without any problems.</target>
+        </trans-unit>
+        <trans-unit id="52a66c55-f556-4297-9b83-0a2a9452e5db" xml:space="preserve">
+          <source>This is discussed <bpt id="2b8b300b-d6f2-4600-9939-c81951303250">&lt;linkText&gt;</bpt>above<ept id="2b8b300b-d6f2-4600-9939-c81951303250">&lt;/linkText&gt;</ept><bpt id="2b8b300b-d6f2-4600-9939-c81951303250">&lt;title&gt;</bpt><ept id="2b8b300b-d6f2-4600-9939-c81951303250">&lt;/title&gt;</ept>.</source>
+          <target state="new">This is discussed <bpt id="2b8b300b-d6f2-4600-9939-c81951303250">&lt;linkText&gt;</bpt>above<ept id="2b8b300b-d6f2-4600-9939-c81951303250">&lt;/linkText&gt;</ept><bpt id="2b8b300b-d6f2-4600-9939-c81951303250">&lt;title&gt;</bpt><ept id="2b8b300b-d6f2-4600-9939-c81951303250">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb44d726-105f-4442-9185-1b6bec8ac9cf" xml:space="preserve">
+          <source>If you want to copy or create a file during your startup task that is then accessible to your role, then that file must be placed in local storage.</source>
+          <target state="new">If you want to copy or create a file during your startup task that is then accessible to your role, then that file must be placed in local storage.</target>
+        </trans-unit>
+        <trans-unit id="39874ba9-9b28-46f1-9b8b-d4723ae9dc21" xml:space="preserve">
+          <source>See the <bpt id="e9379311-aec1-4d0a-9e29-8a7d0f4bd887">&lt;linkText&gt;</bpt>section<ept id="e9379311-aec1-4d0a-9e29-8a7d0f4bd887">&lt;/linkText&gt;</ept><bpt id="e9379311-aec1-4d0a-9e29-8a7d0f4bd887">&lt;title&gt;</bpt><ept id="e9379311-aec1-4d0a-9e29-8a7d0f4bd887">&lt;/title&gt;</ept> above.</source>
+          <target state="new">See the <bpt id="e9379311-aec1-4d0a-9e29-8a7d0f4bd887">&lt;linkText&gt;</bpt>section<ept id="e9379311-aec1-4d0a-9e29-8a7d0f4bd887">&lt;/linkText&gt;</ept><bpt id="e9379311-aec1-4d0a-9e29-8a7d0f4bd887">&lt;title&gt;</bpt><ept id="e9379311-aec1-4d0a-9e29-8a7d0f4bd887">&lt;/title&gt;</ept> above.</target>
+        </trans-unit>
+        <trans-unit id="f529855f-9229-4016-a073-132bc83164b6" xml:space="preserve">
+          <source>Review the cloud <bpt id="a2543b36-f704-47f7-ab5e-5d028d96b8ab">&lt;linkText&gt;</bpt>service model and package<ept id="a2543b36-f704-47f7-ab5e-5d028d96b8ab">&lt;/linkText&gt;</ept><bpt id="a2543b36-f704-47f7-ab5e-5d028d96b8ab">&lt;title&gt;</bpt><ept id="a2543b36-f704-47f7-ab5e-5d028d96b8ab">&lt;/title&gt;</ept></source>
+          <target state="new">Review the cloud <bpt id="a2543b36-f704-47f7-ab5e-5d028d96b8ab">&lt;linkText&gt;</bpt>service model and package<ept id="a2543b36-f704-47f7-ab5e-5d028d96b8ab">&lt;/linkText&gt;</ept><bpt id="a2543b36-f704-47f7-ab5e-5d028d96b8ab">&lt;title&gt;</bpt><ept id="a2543b36-f704-47f7-ab5e-5d028d96b8ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f37a7767-8fe3-4733-b7a5-581a26c3bb77" xml:space="preserve">
+          <source>Learn more about how <bpt id="a1ce484b-bf2c-4fed-9878-d2e92364bfa9">&lt;linkText&gt;</bpt>Tasks<ept id="a1ce484b-bf2c-4fed-9878-d2e92364bfa9">&lt;/linkText&gt;</ept><bpt id="a1ce484b-bf2c-4fed-9878-d2e92364bfa9">&lt;title&gt;</bpt><ept id="a1ce484b-bf2c-4fed-9878-d2e92364bfa9">&lt;/title&gt;</ept> work.</source>
+          <target state="new">Learn more about how <bpt id="a1ce484b-bf2c-4fed-9878-d2e92364bfa9">&lt;linkText&gt;</bpt>Tasks<ept id="a1ce484b-bf2c-4fed-9878-d2e92364bfa9">&lt;/linkText&gt;</ept><bpt id="a1ce484b-bf2c-4fed-9878-d2e92364bfa9">&lt;title&gt;</bpt><ept id="a1ce484b-bf2c-4fed-9878-d2e92364bfa9">&lt;/title&gt;</ept> work.</target>
+        </trans-unit>
+        <trans-unit id="ac16caf9-2168-4b07-91d5-affdf80aae1c" xml:space="preserve">
+          <source><bpt id="90990b09-9a56-41b6-96d9-0adde409ffcb">&lt;linkText&gt;</bpt>Create and deploy<ept id="90990b09-9a56-41b6-96d9-0adde409ffcb">&lt;/linkText&gt;</ept><bpt id="90990b09-9a56-41b6-96d9-0adde409ffcb">&lt;title&gt;</bpt><ept id="90990b09-9a56-41b6-96d9-0adde409ffcb">&lt;/title&gt;</ept> your cloud service package.</source>
+          <target state="new"><bpt id="90990b09-9a56-41b6-96d9-0adde409ffcb">&lt;linkText&gt;</bpt>Create and deploy<ept id="90990b09-9a56-41b6-96d9-0adde409ffcb">&lt;/linkText&gt;</ept><bpt id="90990b09-9a56-41b6-96d9-0adde409ffcb">&lt;title&gt;</bpt><ept id="90990b09-9a56-41b6-96d9-0adde409ffcb">&lt;/title&gt;</ept> your cloud service package.</target>
+        </trans-unit>
+        <trans-unit id="a0cdeb1e-0ba7-4cf9-9a89-29910f16bea1" xml:space="preserve">
+          <source>cloud-services-model-and-package.md#csdef</source>
+          <target state="new">cloud-services-model-and-package.md#csdef</target>
+        </trans-unit>
+        <trans-unit id="4602ad45-e2e0-475a-ad46-ccf2eefbb2ef" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/gg557552.aspx#Task</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/gg557552.aspx#Task</target>
+        </trans-unit>
+        <trans-unit id="f1f10ed2-3f4e-4887-b9f1-28836bfcfc23" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/azure/gg557552.aspx#Runtime</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/azure/gg557552.aspx#Runtime</target>
+        </trans-unit>
+        <trans-unit id="a182fb29-32dd-4804-8bb0-ed5f4e5be841" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup</target>
+        </trans-unit>
+        <trans-unit id="6d045b94-43ce-4ef9-8c81-ae4ee3905ca6" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime</target>
+        </trans-unit>
+        <trans-unit id="3784c968-ec8a-44d4-8cf4-d639c55b1788" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment</target>
+        </trans-unit>
+        <trans-unit id="c922cce3-1f51-434f-82f3-55a03232ca6c" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable</target>
+        </trans-unit>
+        <trans-unit id="26bf7910-ac26-41c8-bc2a-04d54d3854aa" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue</target>
+        </trans-unit>
+        <trans-unit id="8b2b6628-3581-42e0-9e96-a2b5770835bd" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx</target>
+        </trans-unit>
+        <trans-unit id="5e74de5f-e7f7-4777-b5da-b577f6552f25" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints</target>
+        </trans-unit>
+        <trans-unit id="94a8d36c-6618-40e0-9e74-b2938f24d45d" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage</target>
+        </trans-unit>
+        <trans-unit id="cab72b0b-79f8-441d-bf78-51c24b412128" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources</target>
+        </trans-unit>
+        <trans-unit id="c59f6247-4515-49d6-93f4-336c1e3b80c3" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue</target>
+        </trans-unit>
+      </group>
+      <group id="3b858c0f-0873-4f2e-a913-10075c8b7966" />
+    </body>
+  </file>
+</xliff>

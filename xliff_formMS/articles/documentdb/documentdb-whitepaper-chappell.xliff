@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f0f91e64-2c49-4288-9ed4-0340889cb909" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f0f91e64-2c49-4288-9ed4-0340889cb909" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a193b6d3-3ea4-42c1-a9c4-bf2900e57922">
+        <trans-unit id="6d03bfb5-537a-45ae-a993-e1fbdd75bcdf" xml:space="preserve">
+          <source>Introducing DocumentDB - A NoSQL Database for Microsoft Azure | Microsoft Azure</source>
+          <target state="new">Introducing DocumentDB - A NoSQL Database for Microsoft Azure | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3856e381-c274-434e-b371-e67437ad9ba8" xml:space="preserve">
+          <source>Download a whitepaper by David Chappell about DocumentDB, a managed NoSQL database on Azure.</source>
+          <target state="new">Download a whitepaper by David Chappell about DocumentDB, a managed NoSQL database on Azure.</target>
+        </trans-unit>
+        <trans-unit id="b27a62d8-8979-47bc-a5f1-a1b2b746cf89" xml:space="preserve">
+          <source>Not sure if DocumentDB is right for your application or data?</source>
+          <target state="new">Not sure if DocumentDB is right for your application or data?</target>
+        </trans-unit>
+        <trans-unit id="dd909c8c-f83d-4b2b-9822-fc539d26b813" xml:space="preserve">
+          <source>Want to learn about how JSON data is stored and accessed in DocumentDB?</source>
+          <target state="new">Want to learn about how JSON data is stored and accessed in DocumentDB?</target>
+        </trans-unit>
+        <trans-unit id="c3197a23-059f-435d-8efc-4f0761d4788d" xml:space="preserve">
+          <source>If so, this introductory whitepaper by David Chappell is a good place to start.</source>
+          <target state="new">If so, this introductory whitepaper by David Chappell is a good place to start.</target>
+        </trans-unit>
+        <trans-unit id="a94ea150-f101-4cdd-9676-d1a45a195048" xml:space="preserve">
+          <source>It discusses how you can benefit from the flexibility that schema-free JSON data provides, enabling you to handle changes to data structure effortlessly.</source>
+          <target state="new">It discusses how you can benefit from the flexibility that schema-free JSON data provides, enabling you to handle changes to data structure effortlessly.</target>
+        </trans-unit>
+        <trans-unit id="b9730b90-c50d-4213-b3b9-36b3378f12db" xml:space="preserve">
+          <source>The whitepaper also walks you through the following:</source>
+          <target state="new">The whitepaper also walks you through the following:</target>
+        </trans-unit>
+        <trans-unit id="847152f1-e993-4d97-bad2-1e48f3122021" xml:space="preserve">
+          <source>Using the DocumentDB data model to store JSON data in documents and collections within a database.</source>
+          <target state="new">Using the DocumentDB data model to store JSON data in documents and collections within a database.</target>
+        </trans-unit>
+        <trans-unit id="ff2eb496-79b7-41a6-b5ef-2598d8e22258" xml:space="preserve">
+          <source>Working with your data by using the client libraries, the RESTful access methods, or DocumentDB SQL.</source>
+          <target state="new">Working with your data by using the client libraries, the RESTful access methods, or DocumentDB SQL.</target>
+        </trans-unit>
+        <trans-unit id="4765b3a4-8098-4746-a715-b3d057187faf" xml:space="preserve">
+          <source>Running logic from the database itself by writing stored procedures (sprocs), triggers, or user defined functions (UDFs) and storing them in the collection.</source>
+          <target state="new">Running logic from the database itself by writing stored procedures (sprocs), triggers, or user defined functions (UDFs) and storing them in the collection.</target>
+        </trans-unit>
+        <trans-unit id="00f514ff-b375-42db-ab7b-029c9a09a73a" xml:space="preserve">
+          <source>Choosing a consistency option to meet the reliability and performance needs of your application.</source>
+          <target state="new">Choosing a consistency option to meet the reliability and performance needs of your application.</target>
+        </trans-unit>
+        <trans-unit id="c16a46d7-47ad-4bea-84b8-efbc877ce422" xml:space="preserve">
+          <source>Selecting a pricing option based on your throughput requirements.</source>
+          <target state="new">Selecting a pricing option based on your throughput requirements.</target>
+        </trans-unit>
+        <trans-unit id="491e4295-4a75-46f1-87ab-b07e67a168e4" xml:space="preserve">
+          <source><bpt id="77665630-f354-4b0a-acd8-bb0dcc8dd7e0">&lt;strong&gt;</bpt>PDF Download:<ept id="77665630-f354-4b0a-acd8-bb0dcc8dd7e0">&lt;/strong&gt;</ept> <bpt id="4cb8997a-bf91-4a0f-8428-443268083b95">&lt;linkText&gt;</bpt>Introducing DocumentDB - A NoSQL Database for Microsoft Azure<ept id="4cb8997a-bf91-4a0f-8428-443268083b95">&lt;/linkText&gt;</ept><bpt id="4cb8997a-bf91-4a0f-8428-443268083b95">&lt;title&gt;</bpt><ept id="4cb8997a-bf91-4a0f-8428-443268083b95">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="77665630-f354-4b0a-acd8-bb0dcc8dd7e0">&lt;strong&gt;</bpt>PDF Download:<ept id="77665630-f354-4b0a-acd8-bb0dcc8dd7e0">&lt;/strong&gt;</ept> <bpt id="4cb8997a-bf91-4a0f-8428-443268083b95">&lt;linkText&gt;</bpt>Introducing DocumentDB - A NoSQL Database for Microsoft Azure<ept id="4cb8997a-bf91-4a0f-8428-443268083b95">&lt;/linkText&gt;</ept><bpt id="4cb8997a-bf91-4a0f-8428-443268083b95">&lt;title&gt;</bpt><ept id="4cb8997a-bf91-4a0f-8428-443268083b95">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

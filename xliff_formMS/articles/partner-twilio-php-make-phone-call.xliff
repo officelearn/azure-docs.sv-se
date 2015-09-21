@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="af5c4399-2140-4566-9ac1-8d0a2e4ca080" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="af5c4399-2140-4566-9ac1-8d0a2e4ca080" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f2df4bf9-c215-4bd0-90a5-198a10ddfced">
+        <trans-unit id="01889fd2-ff16-4f70-97d2-939afa4302f5" xml:space="preserve">
+          <source>How to make a phone call from Twilio (PHP) | Microsoft Azure</source>
+          <target state="new">How to make a phone call from Twilio (PHP) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b6ecc40f-bcab-4427-bca4-d54679a843a6" xml:space="preserve">
+          <source>Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Samples are for PHP application.</source>
+          <target state="new">Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Samples are for PHP application.</target>
+        </trans-unit>
+        <trans-unit id="1c9a3ede-8add-4533-9f02-807ef37e3398" xml:space="preserve">
+          <source>The following example shows you how you can use Twilio to make a call from a PHP web page hosted in Azure.</source>
+          <target state="new">The following example shows you how you can use Twilio to make a call from a PHP web page hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="1c60d077-794c-4780-874c-1eacb038b929" xml:space="preserve">
+          <source>The resulting application will prompt the user for phone call values, as shown in the following screen shot.</source>
+          <target state="new">The resulting application will prompt the user for phone call values, as shown in the following screen shot.</target>
+        </trans-unit>
+        <trans-unit id="7b070c4d-2410-4b39-8379-5d62949105c6" xml:space="preserve">
+          <source><bpt id="5701f458-71d6-40f3-9413-5f4026250295">&lt;linkText&gt;</bpt>Azure Call Form Using Twilio and PHP<ept id="5701f458-71d6-40f3-9413-5f4026250295">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5701f458-71d6-40f3-9413-5f4026250295">&lt;linkText&gt;</bpt>Azure Call Form Using Twilio and PHP<ept id="5701f458-71d6-40f3-9413-5f4026250295">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05dbb997-44ab-48af-8c83-bdb860201816" xml:space="preserve">
+          <source>You'll need to do the following to use the code in this topic:</source>
+          <target state="new">You'll need to do the following to use the code in this topic:</target>
+        </trans-unit>
+        <trans-unit id="2a924db8-ac6a-411d-b6bd-8ba4fc7b03f6" xml:space="preserve">
+          <source>Acquire a Twilio account and authentication token.</source>
+          <target state="new">Acquire a Twilio account and authentication token.</target>
+        </trans-unit>
+        <trans-unit id="9cdb814f-cddb-4515-908b-6ce9750746c3" xml:space="preserve">
+          <source>To get started with Twilio, evaluate pricing at <bpt id="40b7bc45-b3cf-437d-ab5a-875392457f38">&lt;linkText&gt;</bpt>http://www.twilio.com/pricing[twilio_pricing]<ept id="40b7bc45-b3cf-437d-ab5a-875392457f38">&lt;/linkText&gt;</ept><bpt id="40b7bc45-b3cf-437d-ab5a-875392457f38">&lt;title&gt;</bpt><ept id="40b7bc45-b3cf-437d-ab5a-875392457f38">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started with Twilio, evaluate pricing at <bpt id="40b7bc45-b3cf-437d-ab5a-875392457f38">&lt;linkText&gt;</bpt>http://www.twilio.com/pricing[twilio_pricing]<ept id="40b7bc45-b3cf-437d-ab5a-875392457f38">&lt;/linkText&gt;</ept><bpt id="40b7bc45-b3cf-437d-ab5a-875392457f38">&lt;title&gt;</bpt><ept id="40b7bc45-b3cf-437d-ab5a-875392457f38">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db642f6b-c4d7-449f-af9c-afc741f5a8bd" xml:space="preserve">
+          <source>You can sign up for a trial account at <bpt id="5124efee-146f-4c81-8b84-1b739f3d389d">&lt;linkText&gt;</bpt>https://www.twilio.com/try-twilio[try_twilio]<ept id="5124efee-146f-4c81-8b84-1b739f3d389d">&lt;/linkText&gt;</ept><bpt id="5124efee-146f-4c81-8b84-1b739f3d389d">&lt;title&gt;</bpt><ept id="5124efee-146f-4c81-8b84-1b739f3d389d">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can sign up for a trial account at <bpt id="5124efee-146f-4c81-8b84-1b739f3d389d">&lt;linkText&gt;</bpt>https://www.twilio.com/try-twilio[try_twilio]<ept id="5124efee-146f-4c81-8b84-1b739f3d389d">&lt;/linkText&gt;</ept><bpt id="5124efee-146f-4c81-8b84-1b739f3d389d">&lt;title&gt;</bpt><ept id="5124efee-146f-4c81-8b84-1b739f3d389d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e05d6cc-ca31-400e-b8f3-6cc95a4a3267" xml:space="preserve">
+          <source>For information about the API provided by Twilio, see <bpt id="a814ce22-f49e-4a04-8dc9-a1e967571818">&lt;linkText&gt;</bpt>http://www.twilio.com/api[twilio_api]<ept id="a814ce22-f49e-4a04-8dc9-a1e967571818">&lt;/linkText&gt;</ept><bpt id="a814ce22-f49e-4a04-8dc9-a1e967571818">&lt;title&gt;</bpt><ept id="a814ce22-f49e-4a04-8dc9-a1e967571818">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the API provided by Twilio, see <bpt id="a814ce22-f49e-4a04-8dc9-a1e967571818">&lt;linkText&gt;</bpt>http://www.twilio.com/api[twilio_api]<ept id="a814ce22-f49e-4a04-8dc9-a1e967571818">&lt;/linkText&gt;</ept><bpt id="a814ce22-f49e-4a04-8dc9-a1e967571818">&lt;title&gt;</bpt><ept id="a814ce22-f49e-4a04-8dc9-a1e967571818">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="660eda0b-776f-4444-bdc4-16c03c339c29" xml:space="preserve">
+          <source>Obtain the Twilio library for PHP.</source>
+          <target state="new">Obtain the Twilio library for PHP.</target>
+        </trans-unit>
+        <trans-unit id="97b858c7-1bdc-42e3-be28-3390e3124a76" xml:space="preserve">
+          <source>You can download it from GitHub (<bpt id="5b721b01-0941-454b-9e8b-a99794d45010">&lt;linkText&gt;</bpt>https://github.com/twilio/twilio-php[twilio_php_github]<ept id="5b721b01-0941-454b-9e8b-a99794d45010">&lt;/linkText&gt;</ept><bpt id="5b721b01-0941-454b-9e8b-a99794d45010">&lt;title&gt;</bpt><ept id="5b721b01-0941-454b-9e8b-a99794d45010">&lt;/title&gt;</ept>) or install it as a PEAR package.</source>
+          <target state="new">You can download it from GitHub (<bpt id="5b721b01-0941-454b-9e8b-a99794d45010">&lt;linkText&gt;</bpt>https://github.com/twilio/twilio-php[twilio_php_github]<ept id="5b721b01-0941-454b-9e8b-a99794d45010">&lt;/linkText&gt;</ept><bpt id="5b721b01-0941-454b-9e8b-a99794d45010">&lt;title&gt;</bpt><ept id="5b721b01-0941-454b-9e8b-a99794d45010">&lt;/title&gt;</ept>) or install it as a PEAR package.</target>
+        </trans-unit>
+        <trans-unit id="a9f3146e-d1fb-41ca-b44a-bbed5ad39b4d" xml:space="preserve">
+          <source>For more information, see <bpt id="80f81e6b-14aa-4238-97f1-045c920b0fef">&lt;linkText&gt;</bpt>https://github.com/twilio/twilio-php/blob/master/README.md[twilio_github_readme]<ept id="80f81e6b-14aa-4238-97f1-045c920b0fef">&lt;/linkText&gt;</ept><bpt id="80f81e6b-14aa-4238-97f1-045c920b0fef">&lt;title&gt;</bpt><ept id="80f81e6b-14aa-4238-97f1-045c920b0fef">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="80f81e6b-14aa-4238-97f1-045c920b0fef">&lt;linkText&gt;</bpt>https://github.com/twilio/twilio-php/blob/master/README.md[twilio_github_readme]<ept id="80f81e6b-14aa-4238-97f1-045c920b0fef">&lt;/linkText&gt;</ept><bpt id="80f81e6b-14aa-4238-97f1-045c920b0fef">&lt;title&gt;</bpt><ept id="80f81e6b-14aa-4238-97f1-045c920b0fef">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6d0f3f7-f28e-4820-bf13-432f6e43449b" xml:space="preserve">
+          <source>Install the Azure SDK for PHP.</source>
+          <target state="new">Install the Azure SDK for PHP.</target>
+        </trans-unit>
+        <trans-unit id="4e567970-4a10-4278-b95c-c31bf7b2900a" xml:space="preserve">
+          <source>For an overview of the SDK and instructions on installing it, see <bpt id="c704a3f7-5c9b-415b-9f6c-4aba7ccc8f9e">&lt;linkText&gt;</bpt>Set up the Azure SDK for PHP[setup_php_sdk]<ept id="c704a3f7-5c9b-415b-9f6c-4aba7ccc8f9e">&lt;/linkText&gt;</ept><bpt id="c704a3f7-5c9b-415b-9f6c-4aba7ccc8f9e">&lt;title&gt;</bpt><ept id="c704a3f7-5c9b-415b-9f6c-4aba7ccc8f9e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an overview of the SDK and instructions on installing it, see <bpt id="c704a3f7-5c9b-415b-9f6c-4aba7ccc8f9e">&lt;linkText&gt;</bpt>Set up the Azure SDK for PHP[setup_php_sdk]<ept id="c704a3f7-5c9b-415b-9f6c-4aba7ccc8f9e">&lt;/linkText&gt;</ept><bpt id="c704a3f7-5c9b-415b-9f6c-4aba7ccc8f9e">&lt;title&gt;</bpt><ept id="c704a3f7-5c9b-415b-9f6c-4aba7ccc8f9e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15c7d87b-35eb-436b-b2a7-f4d376644feb" xml:space="preserve">
+          <source>The following HTML code shows how to build a web page (<bpt id="96bfc88c-84e4-4079-b597-cbb7f2c045fa">&lt;strong&gt;</bpt>callform.html<ept id="96bfc88c-84e4-4079-b597-cbb7f2c045fa">&lt;/strong&gt;</ept>) that retrieves user data for making a call:</source>
+          <target state="new">The following HTML code shows how to build a web page (<bpt id="96bfc88c-84e4-4079-b597-cbb7f2c045fa">&lt;strong&gt;</bpt>callform.html<ept id="96bfc88c-84e4-4079-b597-cbb7f2c045fa">&lt;/strong&gt;</ept>) that retrieves user data for making a call:</target>
+        </trans-unit>
+        <trans-unit id="92fd6ebb-2644-40d9-9950-324e76ca880a" xml:space="preserve">
+          <source>The following code shows how to build a web page (<bpt id="3fd8f565-25d4-4de7-ba16-d9536d42383e">&lt;strong&gt;</bpt>makecall.php<ept id="3fd8f565-25d4-4de7-ba16-d9536d42383e">&lt;/strong&gt;</ept>) which is called when the user submits the form displayed by <bpt id="afaba3b4-6065-4b04-b163-371088d921fe">&lt;strong&gt;</bpt>callform.html<ept id="afaba3b4-6065-4b04-b163-371088d921fe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following code shows how to build a web page (<bpt id="3fd8f565-25d4-4de7-ba16-d9536d42383e">&lt;strong&gt;</bpt>makecall.php<ept id="3fd8f565-25d4-4de7-ba16-d9536d42383e">&lt;/strong&gt;</ept>) which is called when the user submits the form displayed by <bpt id="afaba3b4-6065-4b04-b163-371088d921fe">&lt;strong&gt;</bpt>callform.html<ept id="afaba3b4-6065-4b04-b163-371088d921fe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="093a8531-2048-4d3b-9dba-bde2c661853d" xml:space="preserve">
+          <source>The code shown below creates the call message and generates the call.</source>
+          <target state="new">The code shown below creates the call message and generates the call.</target>
+        </trans-unit>
+        <trans-unit id="ebecad14-f2cd-4852-9571-d204be47b3ea" xml:space="preserve">
+          <source>(Use your Twilio account and authentication token instead of the placeholder values assigned to <bpt id="cc46bdd6-6349-47ec-ad0f-4618228e9254">&lt;strong&gt;</bpt>$sid<ept id="cc46bdd6-6349-47ec-ad0f-4618228e9254">&lt;/strong&gt;</ept> and <bpt id="bbaacd5b-a725-4ce2-9b86-d0986e648f36">&lt;strong&gt;</bpt>$token<ept id="bbaacd5b-a725-4ce2-9b86-d0986e648f36">&lt;/strong&gt;</ept> in the code below.)</source>
+          <target state="new">(Use your Twilio account and authentication token instead of the placeholder values assigned to <bpt id="cc46bdd6-6349-47ec-ad0f-4618228e9254">&lt;strong&gt;</bpt>$sid<ept id="cc46bdd6-6349-47ec-ad0f-4618228e9254">&lt;/strong&gt;</ept> and <bpt id="bbaacd5b-a725-4ce2-9b86-d0986e648f36">&lt;strong&gt;</bpt>$token<ept id="bbaacd5b-a725-4ce2-9b86-d0986e648f36">&lt;/strong&gt;</ept> in the code below.)</target>
+        </trans-unit>
+        <trans-unit id="fb0e62af-5b32-40ea-a416-46288be009ed" xml:space="preserve">
+          <source>In addition to making the call, <bpt id="91a915a5-f7b5-4a75-abb0-cec89ba7beb8">&lt;strong&gt;</bpt>makecall.php<ept id="91a915a5-f7b5-4a75-abb0-cec89ba7beb8">&lt;/strong&gt;</ept> displays some call metadata (example shown in screenshot below).</source>
+          <target state="new">In addition to making the call, <bpt id="91a915a5-f7b5-4a75-abb0-cec89ba7beb8">&lt;strong&gt;</bpt>makecall.php<ept id="91a915a5-f7b5-4a75-abb0-cec89ba7beb8">&lt;/strong&gt;</ept> displays some call metadata (example shown in screenshot below).</target>
+        </trans-unit>
+        <trans-unit id="2dce807c-be2d-4969-809a-e1ce96198b41" xml:space="preserve">
+          <source>For more information about call metadata, see <bpt id="ef11925b-0d92-4632-a12f-88c14cfed4a8">&lt;linkText&gt;</bpt>https://www.twilio.com/docs/api/rest/call#instance-properties[twilio_call_properties]<ept id="ef11925b-0d92-4632-a12f-88c14cfed4a8">&lt;/linkText&gt;</ept><bpt id="ef11925b-0d92-4632-a12f-88c14cfed4a8">&lt;title&gt;</bpt><ept id="ef11925b-0d92-4632-a12f-88c14cfed4a8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about call metadata, see <bpt id="ef11925b-0d92-4632-a12f-88c14cfed4a8">&lt;linkText&gt;</bpt>https://www.twilio.com/docs/api/rest/call#instance-properties[twilio_call_properties]<ept id="ef11925b-0d92-4632-a12f-88c14cfed4a8">&lt;/linkText&gt;</ept><bpt id="ef11925b-0d92-4632-a12f-88c14cfed4a8">&lt;title&gt;</bpt><ept id="ef11925b-0d92-4632-a12f-88c14cfed4a8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e702cde-1f08-4894-9c3c-008b7ca2b7ed" xml:space="preserve">
+          <source><bpt id="e0b3a818-3fa2-48c0-8de7-6b7323ef2345">&lt;linkText&gt;</bpt>Azure Call Response Using Twilio and PHP<ept id="e0b3a818-3fa2-48c0-8de7-6b7323ef2345">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e0b3a818-3fa2-48c0-8de7-6b7323ef2345">&lt;linkText&gt;</bpt>Azure Call Response Using Twilio and PHP<ept id="e0b3a818-3fa2-48c0-8de7-6b7323ef2345">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4c0cd61-8c5d-42ae-b0d1-7fdc9e888751" xml:space="preserve">
+          <source>The next step is to deploy your application to Azure Websites.</source>
+          <target state="new">The next step is to deploy your application to Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="a336a6dc-7ff3-4d78-af82-c466d4de611e" xml:space="preserve">
+          <source>The following articles contain the information for creating a website and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):</source>
+          <target state="new">The following articles contain the information for creating a website and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):</target>
+        </trans-unit>
+        <trans-unit id="f542c2da-0d93-4ef2-a99e-9b1af4713ac4" xml:space="preserve">
+          <source><bpt id="35d0749d-3bdd-4a85-8e2e-38efa0c05306">&lt;linkText&gt;</bpt>Create a PHP-MySQL Azure Web Site and deploy using Git[website-git]<ept id="35d0749d-3bdd-4a85-8e2e-38efa0c05306">&lt;/linkText&gt;</ept><bpt id="35d0749d-3bdd-4a85-8e2e-38efa0c05306">&lt;title&gt;</bpt><ept id="35d0749d-3bdd-4a85-8e2e-38efa0c05306">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="35d0749d-3bdd-4a85-8e2e-38efa0c05306">&lt;linkText&gt;</bpt>Create a PHP-MySQL Azure Web Site and deploy using Git[website-git]<ept id="35d0749d-3bdd-4a85-8e2e-38efa0c05306">&lt;/linkText&gt;</ept><bpt id="35d0749d-3bdd-4a85-8e2e-38efa0c05306">&lt;title&gt;</bpt><ept id="35d0749d-3bdd-4a85-8e2e-38efa0c05306">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec20b91b-730d-4423-8f02-fa22231339f2" xml:space="preserve">
+          <source><bpt id="eb069d71-abe8-47b8-9650-56b2bdf7a18a">&lt;linkText&gt;</bpt>Create a PHP-MySQL Azure Web Site and Deploy Using FTP[website-ftp]<ept id="eb069d71-abe8-47b8-9650-56b2bdf7a18a">&lt;/linkText&gt;</ept><bpt id="eb069d71-abe8-47b8-9650-56b2bdf7a18a">&lt;title&gt;</bpt><ept id="eb069d71-abe8-47b8-9650-56b2bdf7a18a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eb069d71-abe8-47b8-9650-56b2bdf7a18a">&lt;linkText&gt;</bpt>Create a PHP-MySQL Azure Web Site and Deploy Using FTP[website-ftp]<ept id="eb069d71-abe8-47b8-9650-56b2bdf7a18a">&lt;/linkText&gt;</ept><bpt id="eb069d71-abe8-47b8-9650-56b2bdf7a18a">&lt;title&gt;</bpt><ept id="eb069d71-abe8-47b8-9650-56b2bdf7a18a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff0c2357-385d-4102-bb18-0244e966a9bf" xml:space="preserve">
+          <source><bpt id="c1fae8f6-f3ee-4367-bdb0-747c912b24c9">&lt;linkText&gt;</bpt>Create and deploy a PHP-MySQL Azure Web Site using WebMatrix[website-webmatrix]<ept id="c1fae8f6-f3ee-4367-bdb0-747c912b24c9">&lt;/linkText&gt;</ept><bpt id="c1fae8f6-f3ee-4367-bdb0-747c912b24c9">&lt;title&gt;</bpt><ept id="c1fae8f6-f3ee-4367-bdb0-747c912b24c9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c1fae8f6-f3ee-4367-bdb0-747c912b24c9">&lt;linkText&gt;</bpt>Create and deploy a PHP-MySQL Azure Web Site using WebMatrix[website-webmatrix]<ept id="c1fae8f6-f3ee-4367-bdb0-747c912b24c9">&lt;/linkText&gt;</ept><bpt id="c1fae8f6-f3ee-4367-bdb0-747c912b24c9">&lt;title&gt;</bpt><ept id="c1fae8f6-f3ee-4367-bdb0-747c912b24c9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db4b3ad5-cc45-4b5f-ad21-dbd9e6cb08a5" xml:space="preserve">
+          <source>This code was provided to show you basic functionality using Twilio in PHP on Azure.</source>
+          <target state="new">This code was provided to show you basic functionality using Twilio in PHP on Azure.</target>
+        </trans-unit>
+        <trans-unit id="5c7c60ac-7bee-4a5a-adb6-cb4b1b75172d" xml:space="preserve">
+          <source>Before deploying to Azure in production, you may want to add more error handling or other features.</source>
+          <target state="new">Before deploying to Azure in production, you may want to add more error handling or other features.</target>
+        </trans-unit>
+        <trans-unit id="afab43aa-5678-4376-bc06-249021b2ea6a" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="f9c54855-ae08-4726-937d-65da9e8309fb" xml:space="preserve">
+          <source>Instead of using a web form, you could use Azure storage blobs or SQL Database to store phone numbers and call text.</source>
+          <target state="new">Instead of using a web form, you could use Azure storage blobs or SQL Database to store phone numbers and call text.</target>
+        </trans-unit>
+        <trans-unit id="a164e7af-39f3-4bb7-888e-f5ff1b43fbc0" xml:space="preserve">
+          <source>For information about using Azure storage blobs in PHP, see <bpt id="ef503bae-d521-4b77-a95b-43a8a51353d8">&lt;linkText&gt;</bpt>Using Azure Storage with PHP Applications[howto_blob_storage_php]<ept id="ef503bae-d521-4b77-a95b-43a8a51353d8">&lt;/linkText&gt;</ept><bpt id="ef503bae-d521-4b77-a95b-43a8a51353d8">&lt;title&gt;</bpt><ept id="ef503bae-d521-4b77-a95b-43a8a51353d8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using Azure storage blobs in PHP, see <bpt id="ef503bae-d521-4b77-a95b-43a8a51353d8">&lt;linkText&gt;</bpt>Using Azure Storage with PHP Applications[howto_blob_storage_php]<ept id="ef503bae-d521-4b77-a95b-43a8a51353d8">&lt;/linkText&gt;</ept><bpt id="ef503bae-d521-4b77-a95b-43a8a51353d8">&lt;title&gt;</bpt><ept id="ef503bae-d521-4b77-a95b-43a8a51353d8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4cdff277-acb8-408c-8af7-51fc5b6c090e" xml:space="preserve">
+          <source>For information about using SQL Database in PHP, see <bpt id="3ce68e31-f5df-4aa0-97a4-f47db766a3f8">&lt;linkText&gt;</bpt>Using SQL Database with PHP Applications[howto_sql_azure_php]<ept id="3ce68e31-f5df-4aa0-97a4-f47db766a3f8">&lt;/linkText&gt;</ept><bpt id="3ce68e31-f5df-4aa0-97a4-f47db766a3f8">&lt;title&gt;</bpt><ept id="3ce68e31-f5df-4aa0-97a4-f47db766a3f8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using SQL Database in PHP, see <bpt id="3ce68e31-f5df-4aa0-97a4-f47db766a3f8">&lt;linkText&gt;</bpt>Using SQL Database with PHP Applications[howto_sql_azure_php]<ept id="3ce68e31-f5df-4aa0-97a4-f47db766a3f8">&lt;/linkText&gt;</ept><bpt id="3ce68e31-f5df-4aa0-97a4-f47db766a3f8">&lt;title&gt;</bpt><ept id="3ce68e31-f5df-4aa0-97a4-f47db766a3f8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5978374f-fa55-4f2a-9c96-28bdc2a777df" xml:space="preserve">
+          <source>The <bpt id="7d0a7fa1-2f5b-44bb-8757-243ca37cedf7">&lt;strong&gt;</bpt>makecall.php<ept id="7d0a7fa1-2f5b-44bb-8757-243ca37cedf7">&lt;/strong&gt;</ept> code uses Twilio-provided URL (<bpt id="56d178d1-d2ef-4b4d-b621-d36fc8ef3543">&lt;linkText&gt;</bpt>http://twimlets.com/message[twimlet_message_url]<ept id="56d178d1-d2ef-4b4d-b621-d36fc8ef3543">&lt;/linkText&gt;</ept><bpt id="56d178d1-d2ef-4b4d-b621-d36fc8ef3543">&lt;title&gt;</bpt><ept id="56d178d1-d2ef-4b4d-b621-d36fc8ef3543">&lt;/title&gt;</ept>) to provide a Twilio Markup Language (TwiML) response that informs Twilio how to proceed with the call. For example, the TwiML that is returned can contain a <bpt id="65f3aa8e-e402-4831-9ffc-53cd8194405f">&lt;code&gt;</bpt>&lt;Say&gt;<ept id="65f3aa8e-e402-4831-9ffc-53cd8194405f">&lt;/code&gt;</ept> verb that results in text being spoken to the call recipient. Instead of using the Twilio-provided URL, you could build your own service to respond to Twilio's request; for more information, see <bpt id="25e5c586-f67a-4192-9b6f-7d4001511d4e">&lt;linkText&gt;</bpt>How to Use Twilio for Voice and SMS Capabilities in PHP[howto_twilio_voice_sms_php]<ept id="25e5c586-f67a-4192-9b6f-7d4001511d4e">&lt;/linkText&gt;</ept><bpt id="25e5c586-f67a-4192-9b6f-7d4001511d4e">&lt;title&gt;</bpt><ept id="25e5c586-f67a-4192-9b6f-7d4001511d4e">&lt;/title&gt;</ept>. More information about TwiML can be found at <bpt id="3f886dd7-965f-49ad-b1ca-d9a22c250f6b">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml[twiml]<ept id="3f886dd7-965f-49ad-b1ca-d9a22c250f6b">&lt;/linkText&gt;</ept><bpt id="3f886dd7-965f-49ad-b1ca-d9a22c250f6b">&lt;title&gt;</bpt><ept id="3f886dd7-965f-49ad-b1ca-d9a22c250f6b">&lt;/title&gt;</ept>, and more information about <bpt id="aa431c87-3a40-44cd-abb9-d6cb2c97d905">&lt;code&gt;</bpt>&lt;Say&gt;<ept id="aa431c87-3a40-44cd-abb9-d6cb2c97d905">&lt;/code&gt;</ept> and other Twilio verbs can be found at <bpt id="e35d7dc2-06ff-419a-8653-0a07b7422406">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml/say[twilio_say]<ept id="e35d7dc2-06ff-419a-8653-0a07b7422406">&lt;/linkText&gt;</ept><bpt id="e35d7dc2-06ff-419a-8653-0a07b7422406">&lt;title&gt;</bpt><ept id="e35d7dc2-06ff-419a-8653-0a07b7422406">&lt;/title&gt;</ept>.</source>
+          <target state="new">The <bpt id="7d0a7fa1-2f5b-44bb-8757-243ca37cedf7">&lt;strong&gt;</bpt>makecall.php<ept id="7d0a7fa1-2f5b-44bb-8757-243ca37cedf7">&lt;/strong&gt;</ept> code uses Twilio-provided URL (<bpt id="56d178d1-d2ef-4b4d-b621-d36fc8ef3543">&lt;linkText&gt;</bpt>http://twimlets.com/message[twimlet_message_url]<ept id="56d178d1-d2ef-4b4d-b621-d36fc8ef3543">&lt;/linkText&gt;</ept><bpt id="56d178d1-d2ef-4b4d-b621-d36fc8ef3543">&lt;title&gt;</bpt><ept id="56d178d1-d2ef-4b4d-b621-d36fc8ef3543">&lt;/title&gt;</ept>) to provide a Twilio Markup Language (TwiML) response that informs Twilio how to proceed with the call. For example, the TwiML that is returned can contain a <bpt id="65f3aa8e-e402-4831-9ffc-53cd8194405f">&lt;code&gt;</bpt>&lt;Say&gt;<ept id="65f3aa8e-e402-4831-9ffc-53cd8194405f">&lt;/code&gt;</ept> verb that results in text being spoken to the call recipient. Instead of using the Twilio-provided URL, you could build your own service to respond to Twilio's request; for more information, see <bpt id="25e5c586-f67a-4192-9b6f-7d4001511d4e">&lt;linkText&gt;</bpt>How to Use Twilio for Voice and SMS Capabilities in PHP[howto_twilio_voice_sms_php]<ept id="25e5c586-f67a-4192-9b6f-7d4001511d4e">&lt;/linkText&gt;</ept><bpt id="25e5c586-f67a-4192-9b6f-7d4001511d4e">&lt;title&gt;</bpt><ept id="25e5c586-f67a-4192-9b6f-7d4001511d4e">&lt;/title&gt;</ept>. More information about TwiML can be found at <bpt id="3f886dd7-965f-49ad-b1ca-d9a22c250f6b">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml[twiml]<ept id="3f886dd7-965f-49ad-b1ca-d9a22c250f6b">&lt;/linkText&gt;</ept><bpt id="3f886dd7-965f-49ad-b1ca-d9a22c250f6b">&lt;title&gt;</bpt><ept id="3f886dd7-965f-49ad-b1ca-d9a22c250f6b">&lt;/title&gt;</ept>, and more information about <bpt id="aa431c87-3a40-44cd-abb9-d6cb2c97d905">&lt;code&gt;</bpt>&lt;Say&gt;<ept id="aa431c87-3a40-44cd-abb9-d6cb2c97d905">&lt;/code&gt;</ept> and other Twilio verbs can be found at <bpt id="e35d7dc2-06ff-419a-8653-0a07b7422406">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/twiml/say[twilio_say]<ept id="e35d7dc2-06ff-419a-8653-0a07b7422406">&lt;/linkText&gt;</ept><bpt id="e35d7dc2-06ff-419a-8653-0a07b7422406">&lt;title&gt;</bpt><ept id="e35d7dc2-06ff-419a-8653-0a07b7422406">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ca64331-ff4a-47ab-aa50-61a62ebcb043" xml:space="preserve">
+          <source>Read the Twilio security guidelines at <bpt id="863a6f31-a8d4-4e1a-983b-746a16212638">&lt;linkText&gt;</bpt>https://www.twilio.com/docs/security[twilio_docs_security]<ept id="863a6f31-a8d4-4e1a-983b-746a16212638">&lt;/linkText&gt;</ept><bpt id="863a6f31-a8d4-4e1a-983b-746a16212638">&lt;title&gt;</bpt><ept id="863a6f31-a8d4-4e1a-983b-746a16212638">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read the Twilio security guidelines at <bpt id="863a6f31-a8d4-4e1a-983b-746a16212638">&lt;linkText&gt;</bpt>https://www.twilio.com/docs/security[twilio_docs_security]<ept id="863a6f31-a8d4-4e1a-983b-746a16212638">&lt;/linkText&gt;</ept><bpt id="863a6f31-a8d4-4e1a-983b-746a16212638">&lt;title&gt;</bpt><ept id="863a6f31-a8d4-4e1a-983b-746a16212638">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9450b9d-8be0-4732-8996-d8218090d228" xml:space="preserve">
+          <source>For additional information about Twilio, see <bpt id="17234dd6-a1f3-4487-80ec-c6a9553f5340">&lt;linkText&gt;</bpt>https://www.twilio.com/docs[twilio_docs]<ept id="17234dd6-a1f3-4487-80ec-c6a9553f5340">&lt;/linkText&gt;</ept><bpt id="17234dd6-a1f3-4487-80ec-c6a9553f5340">&lt;title&gt;</bpt><ept id="17234dd6-a1f3-4487-80ec-c6a9553f5340">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information about Twilio, see <bpt id="17234dd6-a1f3-4487-80ec-c6a9553f5340">&lt;linkText&gt;</bpt>https://www.twilio.com/docs[twilio_docs]<ept id="17234dd6-a1f3-4487-80ec-c6a9553f5340">&lt;/linkText&gt;</ept><bpt id="17234dd6-a1f3-4487-80ec-c6a9553f5340">&lt;title&gt;</bpt><ept id="17234dd6-a1f3-4487-80ec-c6a9553f5340">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09ac4f50-2e20-42ba-9f84-6208d86257f9" xml:space="preserve">
+          <source><bpt id="d27b4489-34cd-41c1-9831-3bd4592a03b8">&lt;linkText&gt;</bpt>How to Use Twilio for Voice and SMS Capabilities in PHP<ept id="d27b4489-34cd-41c1-9831-3bd4592a03b8">&lt;/linkText&gt;</ept><bpt id="d27b4489-34cd-41c1-9831-3bd4592a03b8">&lt;title&gt;</bpt><ept id="d27b4489-34cd-41c1-9831-3bd4592a03b8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d27b4489-34cd-41c1-9831-3bd4592a03b8">&lt;linkText&gt;</bpt>How to Use Twilio for Voice and SMS Capabilities in PHP<ept id="d27b4489-34cd-41c1-9831-3bd4592a03b8">&lt;/linkText&gt;</ept><bpt id="d27b4489-34cd-41c1-9831-3bd4592a03b8">&lt;title&gt;</bpt><ept id="d27b4489-34cd-41c1-9831-3bd4592a03b8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97dde646-0d2c-44c5-bd4e-a9b8878eabe8" xml:space="preserve">
+          <source>http://www.twilio.com/pricing</source>
+          <target state="new">http://www.twilio.com/pricing</target>
+        </trans-unit>
+        <trans-unit id="2345b215-08c8-47e6-8c16-0836db22304d" xml:space="preserve">
+          <source>http://www.twilio.com/try-twilio</source>
+          <target state="new">http://www.twilio.com/try-twilio</target>
+        </trans-unit>
+        <trans-unit id="9233dff3-40fa-431f-8f36-4ff3b72bf09a" xml:space="preserve">
+          <source>http://www.twilio.com/api</source>
+          <target state="new">http://www.twilio.com/api</target>
+        </trans-unit>
+        <trans-unit id="8f05620b-f3ef-4fb5-b5a4-57eeec919ff2" xml:space="preserve">
+          <source>https://www.twilio.com/user/account/phone-numbers/verified#</source>
+          <target state="new">https://www.twilio.com/user/account/phone-numbers/verified#</target>
+        </trans-unit>
+        <trans-unit id="2ad819eb-aab8-4ed3-8117-11cab3cf210f" xml:space="preserve">
+          <source>https://github.com/twilio/twilio-php</source>
+          <target state="new">https://github.com/twilio/twilio-php</target>
+        </trans-unit>
+        <trans-unit id="3ee24819-276b-4ddb-a000-8e224f68bf07" xml:space="preserve">
+          <source>https://github.com/twilio/twilio-php/blob/master/README.md</source>
+          <target state="new">https://github.com/twilio/twilio-php/blob/master/README.md</target>
+        </trans-unit>
+        <trans-unit id="fe7487a9-b77b-456a-837e-872a8e4cc2a7" xml:space="preserve">
+          <source>http://azurephp.interoperabilitybridges.com/articles/setup-the-windows-azure-sdk-for-php</source>
+          <target state="new">http://azurephp.interoperabilitybridges.com/articles/setup-the-windows-azure-sdk-for-php</target>
+        </trans-unit>
+        <trans-unit id="9ff71826-3a55-4fc5-8ae8-bc57761ee635" xml:space="preserve">
+          <source>http://twimlets.com/message</source>
+          <target state="new">http://twimlets.com/message</target>
+        </trans-unit>
+        <trans-unit id="6cfe77cc-7c4e-41d0-8619-41e25e11dccc" xml:space="preserve">
+          <source>http://www.twilio.com/docs/api/twiml</source>
+          <target state="new">http://www.twilio.com/docs/api/twiml</target>
+        </trans-unit>
+        <trans-unit id="28aa2117-faa6-4461-bbd1-ccb444dd0a41" xml:space="preserve">
+          <source>http://api.twilio.com</source>
+          <target state="new">http://api.twilio.com</target>
+        </trans-unit>
+        <trans-unit id="ae15ec6f-c62c-43a8-b922-d54027f5440f" xml:space="preserve">
+          <source>http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application</source>
+          <target state="new">http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application</target>
+        </trans-unit>
+        <trans-unit id="fa6fe152-9169-487f-adbc-9ffb71b2ec77" xml:space="preserve">
+          <source>partner-twilio-php-how-to-use-voice-sms.md</source>
+          <target state="new">partner-twilio-php-how-to-use-voice-sms.md</target>
+        </trans-unit>
+        <trans-unit id="ea169fa1-1adf-47ab-a64e-c1bf16b201e4" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/</target>
+        </trans-unit>
+        <trans-unit id="738bd00f-ac3b-494c-86de-9abb14a3d937" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/</target>
+        </trans-unit>
+        <trans-unit id="a9a007ea-4e64-47f2-8f7c-2da8bc29bac0" xml:space="preserve">
+          <source>https://www.twilio.com/docs/api/rest/call#instance-properties</source>
+          <target state="new">https://www.twilio.com/docs/api/rest/call#instance-properties</target>
+        </trans-unit>
+        <trans-unit id="702ba62a-e9a3-4ed6-9d6b-9847bd5ab25e" xml:space="preserve">
+          <source>http://www.twilio.com/docs/security</source>
+          <target state="new">http://www.twilio.com/docs/security</target>
+        </trans-unit>
+        <trans-unit id="038f5c49-5fdc-4c85-8255-1954efbf4e1c" xml:space="preserve">
+          <source>http://www.twilio.com/docs</source>
+          <target state="new">http://www.twilio.com/docs</target>
+        </trans-unit>
+        <trans-unit id="9a1fbe28-caa0-41f1-8ed0-afa236ddc6b5" xml:space="preserve">
+          <source>http://www.twilio.com/docs/api/twiml/say</source>
+          <target state="new">http://www.twilio.com/docs/api/twiml/say</target>
+        </trans-unit>
+        <trans-unit id="73d66707-9979-4310-88f9-dcb3fd40f9c0" xml:space="preserve">
+          <source>http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html</source>
+          <target state="new">http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html</target>
+        </trans-unit>
+        <trans-unit id="1518d243-7ffe-4456-839c-98851a1af07b" xml:space="preserve">
+          <source>./media/partner-twilio-php-make-phone-call/WA_TwilioPHPCallForm.jpg</source>
+          <target state="new">./media/partner-twilio-php-make-phone-call/WA_TwilioPHPCallForm.jpg</target>
+        </trans-unit>
+        <trans-unit id="b74464cd-37bd-4ae2-ade1-b22c381d5b8e" xml:space="preserve">
+          <source>./media/partner-twilio-php-make-phone-call/WA_TwilioPHPMakeCall.jpg</source>
+          <target state="new">./media/partner-twilio-php-make-phone-call/WA_TwilioPHPMakeCall.jpg</target>
+        </trans-unit>
+        <trans-unit id="77a27696-3040-4aa4-9e03-941404284ec9" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-git/</source>
+          <target state="new">https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-git/</target>
+        </trans-unit>
+        <trans-unit id="c83f997c-4749-4dc3-90e3-6657e1547936" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-ftp/</source>
+          <target state="new">https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-ftp/</target>
+        </trans-unit>
+        <trans-unit id="b98e9734-fdfc-4043-9d2f-567d0c961663" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/</source>
+          <target state="new">https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/</target>
+        </trans-unit>
+        <trans-unit id="1a7a214a-0b67-433e-88e7-7d6a999c97b1" xml:space="preserve">
+          <source>https://github.com/twilio/twilio-php</source>
+          <target state="new">https://github.com/twilio/twilio-php</target>
+        </trans-unit>
+      </group>
+      <group id="596c457a-d34b-4341-a956-d70db56917ee" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7b705ff6-3256-472b-9338-02d0c7a1aa79" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7b705ff6-3256-472b-9338-02d0c7a1aa79" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="82e46c56-bef0-47d6-8bfa-638ff91d02fd">
+        <trans-unit id="7542b539-5d12-41f2-8414-aa8edc4af28c" xml:space="preserve">
+          <source>Accessing Azure Virtual Machines from Server Explorer</source>
+          <target state="new">Accessing Azure Virtual Machines from Server Explorer</target>
+        </trans-unit>
+        <trans-unit id="e55354d0-425d-4cb4-af96-0738409b5687" xml:space="preserve">
+          <source>Get an overview of how to view create and manage Azure virtual machines (VMs) in Server Explorer in Visual Studio.</source>
+          <target state="new">Get an overview of how to view create and manage Azure virtual machines (VMs) in Server Explorer in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="27e5d14e-62b7-4a09-b077-7fbc2133498b" xml:space="preserve">
+          <source>By using Server Explorer in Visual Studio, you can display information about your virtual machines hosted by Azure.</source>
+          <target state="new">By using Server Explorer in Visual Studio, you can display information about your virtual machines hosted by Azure.</target>
+        </trans-unit>
+        <trans-unit id="2a12a668-aca1-4afa-8b82-b076191bd735" xml:space="preserve">
+          <source>If you have virtual machines hosted by Azure, you can access them in Server Explorer.</source>
+          <target state="new">If you have virtual machines hosted by Azure, you can access them in Server Explorer.</target>
+        </trans-unit>
+        <trans-unit id="16a37ee1-23a9-430b-99d6-a71167be214e" xml:space="preserve">
+          <source>You must first sign in to your Azure subscription to view your mobile services.</source>
+          <target state="new">You must first sign in to your Azure subscription to view your mobile services.</target>
+        </trans-unit>
+        <trans-unit id="6ed575c8-8cbd-40e4-9407-ded69e6f55e2" xml:space="preserve">
+          <source>To sign in, open the shortcut menu for the Azure node in Server Explorer, and choose <bpt id="7a004867-35cb-4c57-b9a4-00c61a563cff">&lt;strong&gt;</bpt>Connect to Microsoft Azure<ept id="7a004867-35cb-4c57-b9a4-00c61a563cff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To sign in, open the shortcut menu for the Azure node in Server Explorer, and choose <bpt id="7a004867-35cb-4c57-b9a4-00c61a563cff">&lt;strong&gt;</bpt>Connect to Microsoft Azure<ept id="7a004867-35cb-4c57-b9a4-00c61a563cff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="494ec58b-ab6b-4ad4-8686-92853505aa1b" xml:space="preserve">
+          <source>In Server Explorer, choose a virtual machine, and then choose the F4 key to show its properties window.</source>
+          <target state="new">In Server Explorer, choose a virtual machine, and then choose the F4 key to show its properties window.</target>
+        </trans-unit>
+        <trans-unit id="3870215c-06ec-4ace-b297-f700fab20b04" xml:space="preserve">
+          <source>The following table shows what properties are available, but they are all read-only.</source>
+          <target state="new">The following table shows what properties are available, but they are all read-only.</target>
+        </trans-unit>
+        <trans-unit id="4460565a-5318-4349-bc86-ec544a29b5be" xml:space="preserve">
+          <source>To change them, use the management portal.</source>
+          <target state="new">To change them, use the management portal.</target>
+        </trans-unit>
+        <trans-unit id="0ff650a9-01de-4f85-a38b-79afff62ffb2" xml:space="preserve">
+          <source>|Property|Description|
+|---|---|
+|DNS Name|The URL with the Internet address of the virtual machine.|
+|Environment|For a virtual machine, the value of this property is always Production.|
+|Name|The name of the virtual machine.|
+|Size|The size of the virtual machine, which reflects the amount of memory and disk space that’s available.</source>
+          <target state="new">|Property|Description|
+|---|---|
+|DNS Name|The URL with the Internet address of the virtual machine.|
+|Environment|For a virtual machine, the value of this property is always Production.|
+|Name|The name of the virtual machine.|
+|Size|The size of the virtual machine, which reflects the amount of memory and disk space that’s available.</target>
+        </trans-unit>
+        <trans-unit id="efe0bb2b-d202-4166-9d5a-05f81cf0b484" xml:space="preserve">
+          <source>For more information, see How To: Configure Virtual Machine Sizes.|
+|Status|Values include Starting, Started, Stopping, Stopped, and Retrieving Status.</source>
+          <target state="new">For more information, see How To: Configure Virtual Machine Sizes.|
+|Status|Values include Starting, Started, Stopping, Stopped, and Retrieving Status.</target>
+        </trans-unit>
+        <trans-unit id="278c483f-d88e-4cb7-b7c5-87b3609c1176" xml:space="preserve">
+          <source>If Retrieving Status appears, the current status is unknown.</source>
+          <target state="new">If Retrieving Status appears, the current status is unknown.</target>
+        </trans-unit>
+        <trans-unit id="dad35652-a2f3-4b42-8022-162330ebde39" xml:space="preserve">
+          <source>The values for this property differ from the values that are used on the management portal.|
+|SubscriptionID|The subscription ID for your Azure account.</source>
+          <target state="new">The values for this property differ from the values that are used on the management portal.|
+|SubscriptionID|The subscription ID for your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="713dc97b-ce5a-415d-9da6-9a44c87c9ed9" xml:space="preserve">
+          <source>You can show this information on the management portal by viewing the properties for a subscription.|</source>
+          <target state="new">You can show this information on the management portal by viewing the properties for a subscription.|</target>
+        </trans-unit>
+        <trans-unit id="025c7df1-1e9c-4f6f-9218-348c588b2550" xml:space="preserve">
+          <source>Choose an endpoint node, and then view the <bpt id="935bf51c-d769-4ac9-a37b-5c7d0cc47fab">&lt;strong&gt;</bpt>Properties<ept id="935bf51c-d769-4ac9-a37b-5c7d0cc47fab">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">Choose an endpoint node, and then view the <bpt id="935bf51c-d769-4ac9-a37b-5c7d0cc47fab">&lt;strong&gt;</bpt>Properties<ept id="935bf51c-d769-4ac9-a37b-5c7d0cc47fab">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="e2ea9972-4e8a-47ff-a3cd-58af9432921c" xml:space="preserve">
+          <source>The following table describes the available properties of endpoints, but they are read-only.</source>
+          <target state="new">The following table describes the available properties of endpoints, but they are read-only.</target>
+        </trans-unit>
+        <trans-unit id="6e5a4132-e1c5-4c62-af3d-d0b7bfaeee4e" xml:space="preserve">
+          <source>To add or edit the endpoints for a virtual machine, use the management portal.</source>
+          <target state="new">To add or edit the endpoints for a virtual machine, use the management portal.</target>
+        </trans-unit>
+        <trans-unit id="69891b4c-1d28-4a9b-9a20-e8c197831bd4" xml:space="preserve">
+          <source>|Property|Description|
+|---|---|
+|Name|An identifier for the endpoint.|
+|Private Port|The port for network access internal to your application.|
+|Protocol|The protocol that the transport layer for this endpoint uses, either TCP or UDP.|
+|Public Port|The port that’s used for public access to your application.|</source>
+          <target state="new">|Property|Description|
+|---|---|
+|Name|An identifier for the endpoint.|
+|Private Port|The port for network access internal to your application.|
+|Protocol|The protocol that the transport layer for this endpoint uses, either TCP or UDP.|
+|Public Port|The port that’s used for public access to your application.|</target>
+        </trans-unit>
+        <trans-unit id="5105b7af-fe98-4457-bb6b-d9ce16985b1a" xml:space="preserve">
+          <source><bpt id="37566fbf-f242-42db-99f5-63823310ba9a">&lt;linkText&gt;</bpt>Using Remote Desktop with Azure Roles<ept id="37566fbf-f242-42db-99f5-63823310ba9a">&lt;/linkText&gt;</ept><bpt id="37566fbf-f242-42db-99f5-63823310ba9a">&lt;title&gt;</bpt><ept id="37566fbf-f242-42db-99f5-63823310ba9a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="37566fbf-f242-42db-99f5-63823310ba9a">&lt;linkText&gt;</bpt>Using Remote Desktop with Azure Roles<ept id="37566fbf-f242-42db-99f5-63823310ba9a">&lt;/linkText&gt;</ept><bpt id="37566fbf-f242-42db-99f5-63823310ba9a">&lt;title&gt;</bpt><ept id="37566fbf-f242-42db-99f5-63823310ba9a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

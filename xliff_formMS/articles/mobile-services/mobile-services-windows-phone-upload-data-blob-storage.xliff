@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8d2ba81a-1e84-4b44-9259-c10391ebde2b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8d2ba81a-1e84-4b44-9259-c10391ebde2b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8f8022ff-525b-4b65-b339-7e0b8aca24b2">
+        <trans-unit id="c9e9a2af-b1ff-46c4-a350-f3afdea07541" xml:space="preserve">
+          <source>Upload images to Azure Storage from a Windows Phone Silverlight app | Microsoft Azure</source>
+          <target state="new">Upload images to Azure Storage from a Windows Phone Silverlight app | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ac2b2324-4ad1-4b51-aacb-c249a77e80c3" xml:space="preserve">
+          <source>Learn how to use Mobile Services to upload images from a Windows Phone Silverlight app to Azure Blob Storage.</source>
+          <target state="new">Learn how to use Mobile Services to upload images from a Windows Phone Silverlight app to Azure Blob Storage.</target>
+        </trans-unit>
+        <trans-unit id="2e6ce2f1-4cf3-4f3f-87f8-e53fc3ac53ba" xml:space="preserve">
+          <source><bpt id="166e5d16-57ec-40e0-bc3d-24f84a97a230">&lt;token href="../../includes/mobile-services-selector-upload-data-blob-storage.md"&gt;</bpt><ept id="166e5d16-57ec-40e0-bc3d-24f84a97a230">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="166e5d16-57ec-40e0-bc3d-24f84a97a230">&lt;token href="../../includes/mobile-services-selector-upload-data-blob-storage.md"&gt;</bpt><ept id="166e5d16-57ec-40e0-bc3d-24f84a97a230">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="acbfdc76-0231-439b-8f57-79d3ecc09b3c" xml:space="preserve">
+          <source>This topic shows you how to use Azure Mobile Services to enable your app to upload and store user-generated images in Azure Storage.</source>
+          <target state="new">This topic shows you how to use Azure Mobile Services to enable your app to upload and store user-generated images in Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="42d7ab01-1352-4c1f-b646-1e2fe351c4b3" xml:space="preserve">
+          <source>Mobile Services uses a SQL Database to store data.</source>
+          <target state="new">Mobile Services uses a SQL Database to store data.</target>
+        </trans-unit>
+        <trans-unit id="57959d78-7dc0-4099-b850-bef4324c6d7a" xml:space="preserve">
+          <source>However, binary large object (BLOB) data is more efficiently stored in Azure Blob storage service.</source>
+          <target state="new">However, binary large object (BLOB) data is more efficiently stored in Azure Blob storage service.</target>
+        </trans-unit>
+        <trans-unit id="f22200b5-29bc-4060-a954-18dfcdc37ec5" xml:space="preserve">
+          <source>You cannot securely distribute with the client app the credentials required to securely upload data to the Blob Storage service.</source>
+          <target state="new">You cannot securely distribute with the client app the credentials required to securely upload data to the Blob Storage service.</target>
+        </trans-unit>
+        <trans-unit id="fe7ad396-3d43-4bbf-bc28-0d9fd3ed6a23" xml:space="preserve">
+          <source>Instead, you must store these credentials your mobile service and use them to generate a Shared Access Signature (SAS) that is used to upload a new image.</source>
+          <target state="new">Instead, you must store these credentials your mobile service and use them to generate a Shared Access Signature (SAS) that is used to upload a new image.</target>
+        </trans-unit>
+        <trans-unit id="b3202272-7d6a-4e2f-9148-13785086cda4" xml:space="preserve">
+          <source>The SAS, a credential with a short expiration&amp;mdash;in this case 5 minutes, is returned securely by Mobile Services to the client app.</source>
+          <target state="new">The SAS, a credential with a short expiration&amp;mdash;in this case 5 minutes, is returned securely by Mobile Services to the client app.</target>
+        </trans-unit>
+        <trans-unit id="84f82be3-7fac-48c4-9dee-63a3272ca21a" xml:space="preserve">
+          <source>The app then uses this temporary credential to upload the image.</source>
+          <target state="new">The app then uses this temporary credential to upload the image.</target>
+        </trans-unit>
+        <trans-unit id="46f393e7-0cc7-45f0-b10a-a51521bc64c2" xml:space="preserve">
+          <source>In this example, downloads from the Blob service are public.</source>
+          <target state="new">In this example, downloads from the Blob service are public.</target>
+        </trans-unit>
+        <trans-unit id="5f8973c8-3968-4fcd-9c8c-2e923c27c84a" xml:space="preserve">
+          <source>In this tutorial, you add functionality to the <bpt id="99fcbab6-447f-437a-9245-be21357edda3">&lt;linkText&gt;</bpt>GetStartedWithData sample app project<ept id="99fcbab6-447f-437a-9245-be21357edda3">&lt;/linkText&gt;</ept><bpt id="99fcbab6-447f-437a-9245-be21357edda3">&lt;title&gt;</bpt><ept id="99fcbab6-447f-437a-9245-be21357edda3">&lt;/title&gt;</ept> to take pictures and upload the images to Azure by using an SAS generated by Mobile Services.</source>
+          <target state="new">In this tutorial, you add functionality to the <bpt id="99fcbab6-447f-437a-9245-be21357edda3">&lt;linkText&gt;</bpt>GetStartedWithData sample app project<ept id="99fcbab6-447f-437a-9245-be21357edda3">&lt;/linkText&gt;</ept><bpt id="99fcbab6-447f-437a-9245-be21357edda3">&lt;title&gt;</bpt><ept id="99fcbab6-447f-437a-9245-be21357edda3">&lt;/title&gt;</ept> to take pictures and upload the images to Azure by using an SAS generated by Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="e9701436-8324-4481-8a6a-47e3d358351b" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="2bd5d0d3-0433-417b-94fd-9bece1accf54" xml:space="preserve">
+          <source>Microsoft Visual Studio 2012 Express for Windows 8, or a later version</source>
+          <target state="new">Microsoft Visual Studio 2012 Express for Windows 8, or a later version</target>
+        </trans-unit>
+        <trans-unit id="d3523149-377e-4299-b8be-c0d4237ce71d" xml:space="preserve">
+          <source>[Windows Phone SDK 8.0] or higher</source>
+          <target state="new">[Windows Phone SDK 8.0] or higher</target>
+        </trans-unit>
+        <trans-unit id="a2b23ea3-9aa2-45c7-b335-ef39121a3ab5" xml:space="preserve">
+          <source>Nuget Package Manager installed for Microsoft Visual Studio.</source>
+          <target state="new">Nuget Package Manager installed for Microsoft Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="428c1070-8112-419f-8378-8230a9291d4f" xml:space="preserve">
+          <source><bpt id="7ae33c66-34cf-4f73-b779-7649fac7df52">&lt;linkText&gt;</bpt>Azure Storage account[how to create a storage account]<ept id="7ae33c66-34cf-4f73-b779-7649fac7df52">&lt;/linkText&gt;</ept><bpt id="7ae33c66-34cf-4f73-b779-7649fac7df52">&lt;title&gt;</bpt><ept id="7ae33c66-34cf-4f73-b779-7649fac7df52">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7ae33c66-34cf-4f73-b779-7649fac7df52">&lt;linkText&gt;</bpt>Azure Storage account[how to create a storage account]<ept id="7ae33c66-34cf-4f73-b779-7649fac7df52">&lt;/linkText&gt;</ept><bpt id="7ae33c66-34cf-4f73-b779-7649fac7df52">&lt;title&gt;</bpt><ept id="7ae33c66-34cf-4f73-b779-7649fac7df52">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0467a97-55ca-42d4-991d-9af45501876d" xml:space="preserve">
+          <source>Complete the tutorial <bpt id="80466f43-28af-4838-8163-324ae5179168">&lt;linkText&gt;</bpt>Add Mobile Services to an existing app<ept id="80466f43-28af-4838-8163-324ae5179168">&lt;/linkText&gt;</ept><bpt id="80466f43-28af-4838-8163-324ae5179168">&lt;title&gt;</bpt><ept id="80466f43-28af-4838-8163-324ae5179168">&lt;/title&gt;</ept>  </source>
+          <target state="new">Complete the tutorial <bpt id="80466f43-28af-4838-8163-324ae5179168">&lt;linkText&gt;</bpt>Add Mobile Services to an existing app<ept id="80466f43-28af-4838-8163-324ae5179168">&lt;/linkText&gt;</ept><bpt id="80466f43-28af-4838-8163-324ae5179168">&lt;title&gt;</bpt><ept id="80466f43-28af-4838-8163-324ae5179168">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="6ff15ba7-e116-4edd-967e-3418cddd9753" xml:space="preserve">
+          <source>To be able to use an SAS to upload images to Blob storage, you must first add the NuGet package that installs Storage client library for Windows Phone apps.</source>
+          <target state="new">To be able to use an SAS to upload images to Blob storage, you must first add the NuGet package that installs Storage client library for Windows Phone apps.</target>
+        </trans-unit>
+        <trans-unit id="77c2808e-bb58-40a5-93cd-98d554c82c17" xml:space="preserve">
+          <source>In <bpt id="1f54145e-d011-4979-840d-74c30f4587ba">&lt;strong&gt;</bpt>Solution Explorer<ept id="1f54145e-d011-4979-840d-74c30f4587ba">&lt;/strong&gt;</ept> in Visual Studio, right-click the project name, and then select <bpt id="e1dfae47-82ae-41e3-8ea1-4fb88e7ffc60">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="e1dfae47-82ae-41e3-8ea1-4fb88e7ffc60">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="1f54145e-d011-4979-840d-74c30f4587ba">&lt;strong&gt;</bpt>Solution Explorer<ept id="1f54145e-d011-4979-840d-74c30f4587ba">&lt;/strong&gt;</ept> in Visual Studio, right-click the project name, and then select <bpt id="e1dfae47-82ae-41e3-8ea1-4fb88e7ffc60">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="e1dfae47-82ae-41e3-8ea1-4fb88e7ffc60">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e735d6b-bc8c-4bc8-91dd-1a1e39b44c54" xml:space="preserve">
+          <source>In the left pane, select the <bpt id="d28570b7-1c9b-4dab-90ba-3c511db70af3">&lt;strong&gt;</bpt>Online<ept id="d28570b7-1c9b-4dab-90ba-3c511db70af3">&lt;/strong&gt;</ept> category, select <bpt id="7930e4e7-6fb0-4b1c-b78c-f3294afb8ff3">&lt;strong&gt;</bpt>Include Prerelease<ept id="7930e4e7-6fb0-4b1c-b78c-f3294afb8ff3">&lt;/strong&gt;</ept>, search for <bpt id="19493e99-93be-4b58-87c1-a7ff385e7b8f">&lt;strong&gt;</bpt>WindowsAzure.Storage-Preview<ept id="19493e99-93be-4b58-87c1-a7ff385e7b8f">&lt;/strong&gt;</ept>, click <bpt id="df298293-e212-4773-a3e4-573b6e9e06d8">&lt;strong&gt;</bpt>Install<ept id="df298293-e212-4773-a3e4-573b6e9e06d8">&lt;/strong&gt;</ept> on the <bpt id="288ed71c-233b-46e2-bb78-3ab1c625160e">&lt;strong&gt;</bpt>Azure Storage<ept id="288ed71c-233b-46e2-bb78-3ab1c625160e">&lt;/strong&gt;</ept> package, then accept the license agreements.</source>
+          <target state="new">In the left pane, select the <bpt id="d28570b7-1c9b-4dab-90ba-3c511db70af3">&lt;strong&gt;</bpt>Online<ept id="d28570b7-1c9b-4dab-90ba-3c511db70af3">&lt;/strong&gt;</ept> category, select <bpt id="7930e4e7-6fb0-4b1c-b78c-f3294afb8ff3">&lt;strong&gt;</bpt>Include Prerelease<ept id="7930e4e7-6fb0-4b1c-b78c-f3294afb8ff3">&lt;/strong&gt;</ept>, search for <bpt id="19493e99-93be-4b58-87c1-a7ff385e7b8f">&lt;strong&gt;</bpt>WindowsAzure.Storage-Preview<ept id="19493e99-93be-4b58-87c1-a7ff385e7b8f">&lt;/strong&gt;</ept>, click <bpt id="df298293-e212-4773-a3e4-573b6e9e06d8">&lt;strong&gt;</bpt>Install<ept id="df298293-e212-4773-a3e4-573b6e9e06d8">&lt;/strong&gt;</ept> on the <bpt id="288ed71c-233b-46e2-bb78-3ab1c625160e">&lt;strong&gt;</bpt>Azure Storage<ept id="288ed71c-233b-46e2-bb78-3ab1c625160e">&lt;/strong&gt;</ept> package, then accept the license agreements.</target>
+        </trans-unit>
+        <trans-unit id="fb7f4f4c-49f2-430e-80d4-8340cbc745ff" xml:space="preserve">
+          <source><bpt id="9b32c7b5-dcef-44d3-9360-a24a7e8dbcac">&lt;linkText&gt;</bpt>Add Azure Storage NuGet<ept id="9b32c7b5-dcef-44d3-9360-a24a7e8dbcac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b32c7b5-dcef-44d3-9360-a24a7e8dbcac">&lt;linkText&gt;</bpt>Add Azure Storage NuGet<ept id="9b32c7b5-dcef-44d3-9360-a24a7e8dbcac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a432bc99-75eb-44e6-b688-978883fde4a9" xml:space="preserve">
+          <source>This adds the client library for Azure storage services to the project.</source>
+          <target state="new">This adds the client library for Azure storage services to the project.</target>
+        </trans-unit>
+        <trans-unit id="e6571535-4f0f-4e43-a053-13d64851bccf" xml:space="preserve">
+          <source>Next, you will update the quickstart app to capture and upload images.</source>
+          <target state="new">Next, you will update the quickstart app to capture and upload images.</target>
+        </trans-unit>
+        <trans-unit id="4295c684-64b0-412c-9aa5-aea0547ad893" xml:space="preserve">
+          <source><bpt id="e4659fde-2a6e-4279-bfc7-9bf7462e12d0">&lt;token href="../../includes/mobile-services-configure-blob-storage.md"&gt;</bpt><ept id="e4659fde-2a6e-4279-bfc7-9bf7462e12d0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e4659fde-2a6e-4279-bfc7-9bf7462e12d0">&lt;token href="../../includes/mobile-services-configure-blob-storage.md"&gt;</bpt><ept id="e4659fde-2a6e-4279-bfc7-9bf7462e12d0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5dba0436-1ed8-43fe-93d4-fcab172103d3" xml:space="preserve">
+          <source>To add new properties to the TodoItem object, you must have Dynamic Schema enabled in your mobile service.</source>
+          <target state="new">To add new properties to the TodoItem object, you must have Dynamic Schema enabled in your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="5b05c7b5-910f-4f24-93ee-e13d48818576" xml:space="preserve">
+          <source>When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.</source>
+          <target state="new">When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.</target>
+        </trans-unit>
+        <trans-unit id="af70fbf3-d07f-47cf-90c3-7169d3a673f4" xml:space="preserve">
+          <source><bpt id="e513bec8-67d5-4680-a177-96b8eb213ff8">&lt;token href="../../includes/mobile-services-windows-phone-upload-to-blob-storage.md"&gt;</bpt><ept id="e513bec8-67d5-4680-a177-96b8eb213ff8">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e513bec8-67d5-4680-a177-96b8eb213ff8">&lt;token href="../../includes/mobile-services-windows-phone-upload-to-blob-storage.md"&gt;</bpt><ept id="e513bec8-67d5-4680-a177-96b8eb213ff8">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0515c04b-a3dc-468a-a206-652424cc2f07" xml:space="preserve">
+          <source>Now that you have been able to securely upload images by integrating your mobile service with the Blob service, check out some of the other backend service and integration topics:</source>
+          <target state="new">Now that you have been able to securely upload images by integrating your mobile service with the Blob service, check out some of the other backend service and integration topics:</target>
+        </trans-unit>
+        <trans-unit id="9dc16706-30d3-4476-ab50-064daf3e9238" xml:space="preserve">
+          <source>[Send email from Mobile Services with SendGrid]</source>
+          <target state="new">[Send email from Mobile Services with SendGrid]</target>
+        </trans-unit>
+        <trans-unit id="caa7e902-438b-4eb1-a0a5-56304f09b635" xml:space="preserve">
+          <source>Learn how to add email functionality to your Mobile Service using the SendGrid email service.</source>
+          <target state="new">Learn how to add email functionality to your Mobile Service using the SendGrid email service.</target>
+        </trans-unit>
+        <trans-unit id="4471f4d6-62f6-4335-bf4a-2451660ce989" xml:space="preserve">
+          <source>This topic demonstrates how to add server side scripts to send email using SendGrid.</source>
+          <target state="new">This topic demonstrates how to add server side scripts to send email using SendGrid.</target>
+        </trans-unit>
+        <trans-unit id="7802d785-7a34-4f1e-8a8a-dd7c37ea65ea" xml:space="preserve">
+          <source>[Schedule backend jobs in Mobile Services]</source>
+          <target state="new">[Schedule backend jobs in Mobile Services]</target>
+        </trans-unit>
+        <trans-unit id="3d36ee84-f326-4f05-be72-5109deb08546" xml:space="preserve">
+          <source>Learn how to use the Mobile Services job scheduler functionality to define server script code that is executed on a schedule that you define.</source>
+          <target state="new">Learn how to use the Mobile Services job scheduler functionality to define server script code that is executed on a schedule that you define.</target>
+        </trans-unit>
+        <trans-unit id="6ddfcf34-fc6f-4017-a7a9-e0d147c14173" xml:space="preserve">
+          <source>[Mobile Services server script reference]</source>
+          <target state="new">[Mobile Services server script reference]</target>
+        </trans-unit>
+        <trans-unit id="85a72dc9-c46a-4f8b-8081-8ff24b1c2a5f" xml:space="preserve">
+          <source>Reference topics for using server scripts to perform server-side tasks and integration with other Azure components and external resources.</source>
+          <target state="new">Reference topics for using server scripts to perform server-side tasks and integration with other Azure components and external resources.</target>
+        </trans-unit>
+        <trans-unit id="f1a9bd61-0123-43f3-9e55-143014ef78cc" xml:space="preserve">
+          <source>[Mobile Services .NET How-to Conceptual Reference]</source>
+          <target state="new">[Mobile Services .NET How-to Conceptual Reference]</target>
+        </trans-unit>
+        <trans-unit id="49c8fb2b-3b4c-409c-a8d6-2a15b401d504" xml:space="preserve">
+          <source>Learn more about how to use Mobile Services with .NET</source>
+          <target state="new">Learn more about how to use Mobile Services with .NET</target>
+        </trans-unit>
+        <trans-unit id="48a08a3a-39df-44ea-adaa-b9b6f425ea67" xml:space="preserve">
+          <source>store-sendgrid-mobile-services-send-email-scripts.md</source>
+          <target state="new">store-sendgrid-mobile-services-send-email-scripts.md</target>
+        </trans-unit>
+        <trans-unit id="f1512de4-b89c-499c-bc41-9c83335546cf" xml:space="preserve">
+          <source>mobile-services-schedule-recurring-tasks.md</source>
+          <target state="new">mobile-services-schedule-recurring-tasks.md</target>
+        </trans-unit>
+        <trans-unit id="2b275f8f-47f7-45af-af68-1be9f54d0856" xml:space="preserve">
+          <source>mobile-services-how-to-use-server-scripts.md</source>
+          <target state="new">mobile-services-how-to-use-server-scripts.md</target>
+        </trans-unit>
+        <trans-unit id="fc1e5484-103b-4984-b4c2-e27252f0ffbd" xml:space="preserve">
+          <source>../mobile-services-windows-phone-get-started.md</source>
+          <target state="new">../mobile-services-windows-phone-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="da37c7d8-037b-44ac-badd-e12e8d2e33ee" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="9f33c799-ceb8-4ba9-a80c-202b9556bb1b" xml:space="preserve">
+          <source>../storage-create-storage-account.md</source>
+          <target state="new">../storage-create-storage-account.md</target>
+        </trans-unit>
+        <trans-unit id="4412b2e5-b099-4844-a00c-8da68a94e47f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=276866</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=276866</target>
+        </trans-unit>
+        <trans-unit id="50b94ba3-130f-4903-9551-a3a9f501334e" xml:space="preserve">
+          <source>mobile-services-windows-dotnet-how-to-use-client-library.md</source>
+          <target state="new">mobile-services-windows-dotnet-how-to-use-client-library.md</target>
+        </trans-unit>
+        <trans-unit id="b4cd9cd8-46f9-42ea-9d78-0c7a87d40d4e" xml:space="preserve">
+          <source>http://www.microsoft.com/download/details.aspx?id=35471</source>
+          <target state="new">http://www.microsoft.com/download/details.aspx?id=35471</target>
+        </trans-unit>
+      </group>
+      <group id="16cb897d-6167-498d-9145-31a26e87389b" />
+    </body>
+  </file>
+</xliff>

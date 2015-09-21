@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2995e1a7-3036-4210-9d72-ca66a75263f3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2995e1a7-3036-4210-9d72-ca66a75263f3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8e4426ed-44dc-4eb9-92bf-5a7d53ebb92e">
+        <trans-unit id="21ba64ee-db80-4b61-9351-4129c6ba94ec" xml:space="preserve">
+          <source>The dataset contains customer data and indications about their response to a direct mailing campaign.</source>
+          <target state="new">The dataset contains customer data and indications about their response to a direct mailing campaign.</target>
+        </trans-unit>
+        <trans-unit id="dcccd9a5-0fbb-456e-b4ff-c4853638c07d" xml:space="preserve">
+          <source>Each row represents a customer.</source>
+          <target state="new">Each row represents a customer.</target>
+        </trans-unit>
+        <trans-unit id="c6ce16c5-30e1-4c94-8f39-516394b7e469" xml:space="preserve">
+          <source>The dataset contains 9 features about user demographics and past behavior, and 3 label columns (visit, conversion, and spend).</source>
+          <target state="new">The dataset contains 9 features about user demographics and past behavior, and 3 label columns (visit, conversion, and spend).</target>
+        </trans-unit>
+        <trans-unit id="36246448-aff6-4c8a-bc25-c01beee7835b" xml:space="preserve">
+          <source>Visit is a binary column that indicates that a customer visited after the marketing campaign, conversion indicates a customer purchased something, and spend is the amount that was spent.</source>
+          <target state="new">Visit is a binary column that indicates that a customer visited after the marketing campaign, conversion indicates a customer purchased something, and spend is the amount that was spent.</target>
+        </trans-unit>
+        <trans-unit id="5ba8510e-46fe-4c64-80e0-da978f788ebe" xml:space="preserve">
+          <source>The dataset was made available by Kevin Hillstrom for MineThatData E-Mail Analytics And Data Mining Challenge.</source>
+          <target state="new">The dataset was made available by Kevin Hillstrom for MineThatData E-Mail Analytics And Data Mining Challenge.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

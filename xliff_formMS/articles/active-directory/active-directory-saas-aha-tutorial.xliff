@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="171a6afc-cdc8-43e4-8abc-e739988aa3e2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="171a6afc-cdc8-43e4-8abc-e739988aa3e2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c2aca9d1-879e-43b8-9964-ae32dae6e350">
+        <trans-unit id="090a5f35-5b89-413f-b1e4-27dc16bf94ef" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Aha! | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Aha! | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="14d87ee4-415f-4a30-83a2-a25ce34f3f01" xml:space="preserve">
+          <source>Learn how to use Aha! with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Aha! with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="a7507dc3-5a7f-4c23-8d1f-492591b38576" xml:space="preserve">
+          <source>For feedback, click <bpt id="ac96b6cb-684f-425a-a199-f7e34f80a19f">&lt;linkText&gt;</bpt>here<ept id="ac96b6cb-684f-425a-a199-f7e34f80a19f">&lt;/linkText&gt;</ept><bpt id="ac96b6cb-684f-425a-a199-f7e34f80a19f">&lt;title&gt;</bpt><ept id="ac96b6cb-684f-425a-a199-f7e34f80a19f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="ac96b6cb-684f-425a-a199-f7e34f80a19f">&lt;linkText&gt;</bpt>here<ept id="ac96b6cb-684f-425a-a199-f7e34f80a19f">&lt;/linkText&gt;</ept><bpt id="ac96b6cb-684f-425a-a199-f7e34f80a19f">&lt;title&gt;</bpt><ept id="ac96b6cb-684f-425a-a199-f7e34f80a19f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b16ddebf-ea31-46a8-b4bd-bfb0f9efaba2" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Aha!</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Aha!</target>
+        </trans-unit>
+        <trans-unit id="c5505531-4dfb-467d-86b9-32c1fdcacd36" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="45ccafde-cef9-4772-8682-ddcb3cf7456f" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="782daf62-c971-4e0c-b4bb-dd0b1c35aab6" xml:space="preserve">
+          <source>An Aha!</source>
+          <target state="new">An Aha!</target>
+        </trans-unit>
+        <trans-unit id="2fa43048-f6be-4bdd-941b-12e935633758" xml:space="preserve">
+          <source>single sign-on enabled subscription</source>
+          <target state="new">single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="b6d1d9d0-56a5-41d7-84af-4d6f178a0d4a" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Aha!</source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Aha!</target>
+        </trans-unit>
+        <trans-unit id="ebd6e63f-b0af-4d12-a6f1-e4ed0ec69194" xml:space="preserve">
+          <source>will be able to single sign into the application at your Aha!</source>
+          <target state="new">will be able to single sign into the application at your Aha!</target>
+        </trans-unit>
+        <trans-unit id="bf7c047e-1ed4-4a5d-8db9-bd48b505d33b" xml:space="preserve">
+          <source>company site (service provider initiated sign on), or using the <bpt id="8cf29835-d99c-49f7-aa58-ceaa3ba4bea7">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="8cf29835-d99c-49f7-aa58-ceaa3ba4bea7">&lt;/linkText&gt;</ept><bpt id="8cf29835-d99c-49f7-aa58-ceaa3ba4bea7">&lt;title&gt;</bpt><ept id="8cf29835-d99c-49f7-aa58-ceaa3ba4bea7">&lt;/title&gt;</ept></source>
+          <target state="new">company site (service provider initiated sign on), or using the <bpt id="8cf29835-d99c-49f7-aa58-ceaa3ba4bea7">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="8cf29835-d99c-49f7-aa58-ceaa3ba4bea7">&lt;/linkText&gt;</ept><bpt id="8cf29835-d99c-49f7-aa58-ceaa3ba4bea7">&lt;title&gt;</bpt><ept id="8cf29835-d99c-49f7-aa58-ceaa3ba4bea7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fa302c3-50b1-4971-a4a6-c0e796aea8f2" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="29429fb4-53d6-469b-9916-fe77e6ef1ee8" xml:space="preserve">
+          <source>Enabling the application integration for Aha!</source>
+          <target state="new">Enabling the application integration for Aha!</target>
+        </trans-unit>
+        <trans-unit id="ebfc571a-6d81-4234-a247-2b69550cbf3a" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="c850504a-2cba-4f0d-9533-fc801dea65dc" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="2f12fb6b-c652-410b-a385-26b54ff2b53f" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="4645365d-2c34-42ae-88c3-e86f7fe06050" xml:space="preserve">
+          <source><bpt id="21204d0d-fd7e-4d59-b84b-209f26acf611">&lt;linkText&gt;</bpt>Scenario<ept id="21204d0d-fd7e-4d59-b84b-209f26acf611">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21204d0d-fd7e-4d59-b84b-209f26acf611">&lt;linkText&gt;</bpt>Scenario<ept id="21204d0d-fd7e-4d59-b84b-209f26acf611">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d95393a-3a84-409c-8882-f08094a8c60d" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Aha!.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Aha!.</target>
+        </trans-unit>
+        <trans-unit id="3a5ff3bf-47d3-4c12-962b-b99d033f8742" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="5f07e8f9-66d7-4016-9d5c-5d48784a6b0c">&lt;strong&gt;</bpt>Active Directory<ept id="5f07e8f9-66d7-4016-9d5c-5d48784a6b0c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="5f07e8f9-66d7-4016-9d5c-5d48784a6b0c">&lt;strong&gt;</bpt>Active Directory<ept id="5f07e8f9-66d7-4016-9d5c-5d48784a6b0c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e16a72ba-7af1-4f60-9747-8e5ca579b648" xml:space="preserve">
+          <source><bpt id="3dc15a22-9c20-444c-bae7-fa3817b95739">&lt;linkText&gt;</bpt>Active Directory<ept id="3dc15a22-9c20-444c-bae7-fa3817b95739">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3dc15a22-9c20-444c-bae7-fa3817b95739">&lt;linkText&gt;</bpt>Active Directory<ept id="3dc15a22-9c20-444c-bae7-fa3817b95739">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d91925ab-1dd5-4255-9648-974e186fbaab" xml:space="preserve">
+          <source>From the <bpt id="159ce47e-35c0-4422-92eb-49d891772e56">&lt;strong&gt;</bpt>Directory<ept id="159ce47e-35c0-4422-92eb-49d891772e56">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="159ce47e-35c0-4422-92eb-49d891772e56">&lt;strong&gt;</bpt>Directory<ept id="159ce47e-35c0-4422-92eb-49d891772e56">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="63f29122-92b8-4598-bcee-d759eb7b0942" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="f5b5f9a3-8380-4a5a-aef8-81c3960626a8">&lt;strong&gt;</bpt>Applications<ept id="f5b5f9a3-8380-4a5a-aef8-81c3960626a8">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="f5b5f9a3-8380-4a5a-aef8-81c3960626a8">&lt;strong&gt;</bpt>Applications<ept id="f5b5f9a3-8380-4a5a-aef8-81c3960626a8">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="1e936aaa-d595-40af-9920-bc4784e363dd" xml:space="preserve">
+          <source><bpt id="39148f83-6798-4016-9142-b8c307e78d5f">&lt;linkText&gt;</bpt>Applications<ept id="39148f83-6798-4016-9142-b8c307e78d5f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="39148f83-6798-4016-9142-b8c307e78d5f">&lt;linkText&gt;</bpt>Applications<ept id="39148f83-6798-4016-9142-b8c307e78d5f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90dda17e-95c9-4a58-9a68-e864a7e78158" xml:space="preserve">
+          <source>Click <bpt id="681bb18e-a0cc-4a4f-a834-908c9837ef0d">&lt;strong&gt;</bpt>Add<ept id="681bb18e-a0cc-4a4f-a834-908c9837ef0d">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="681bb18e-a0cc-4a4f-a834-908c9837ef0d">&lt;strong&gt;</bpt>Add<ept id="681bb18e-a0cc-4a4f-a834-908c9837ef0d">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="b23eb9b3-208f-4ba5-8eb8-40c434de2dcf" xml:space="preserve">
+          <source><bpt id="a2141f03-d8bd-443d-a5a4-6e8a1aef71b1">&lt;linkText&gt;</bpt>Add application<ept id="a2141f03-d8bd-443d-a5a4-6e8a1aef71b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2141f03-d8bd-443d-a5a4-6e8a1aef71b1">&lt;linkText&gt;</bpt>Add application<ept id="a2141f03-d8bd-443d-a5a4-6e8a1aef71b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d30daf7-dca2-49e5-b45e-dce0c2202bd5" xml:space="preserve">
+          <source>On the <bpt id="155e6380-e912-4c65-aafd-32466e9ff93f">&lt;strong&gt;</bpt>What do you want to do<ept id="155e6380-e912-4c65-aafd-32466e9ff93f">&lt;/strong&gt;</ept> dialog, click <bpt id="e5b91a68-5faf-42c4-b821-5f5ce46f63c8">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="e5b91a68-5faf-42c4-b821-5f5ce46f63c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="155e6380-e912-4c65-aafd-32466e9ff93f">&lt;strong&gt;</bpt>What do you want to do<ept id="155e6380-e912-4c65-aafd-32466e9ff93f">&lt;/strong&gt;</ept> dialog, click <bpt id="e5b91a68-5faf-42c4-b821-5f5ce46f63c8">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="e5b91a68-5faf-42c4-b821-5f5ce46f63c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="06f3148d-76fb-44b8-a48c-4946468c41a9" xml:space="preserve">
+          <source><bpt id="34088b74-11a3-4eb3-9029-1e0a26a9609e">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="34088b74-11a3-4eb3-9029-1e0a26a9609e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="34088b74-11a3-4eb3-9029-1e0a26a9609e">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="34088b74-11a3-4eb3-9029-1e0a26a9609e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cdea2f42-e606-4504-8dd3-ad2f3eb8d41d" xml:space="preserve">
+          <source>In the <bpt id="23c0aa97-a5c2-4021-9971-671743e9566d">&lt;strong&gt;</bpt>search box<ept id="23c0aa97-a5c2-4021-9971-671743e9566d">&lt;/strong&gt;</ept>, type <bpt id="317b45a3-f98b-4de5-a0cf-9ad1f513ff0b">&lt;strong&gt;</bpt>Aha!<ept id="317b45a3-f98b-4de5-a0cf-9ad1f513ff0b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="23c0aa97-a5c2-4021-9971-671743e9566d">&lt;strong&gt;</bpt>search box<ept id="23c0aa97-a5c2-4021-9971-671743e9566d">&lt;/strong&gt;</ept>, type <bpt id="317b45a3-f98b-4de5-a0cf-9ad1f513ff0b">&lt;strong&gt;</bpt>Aha!<ept id="317b45a3-f98b-4de5-a0cf-9ad1f513ff0b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a10b31e-c98e-4988-8bf7-c03f867df632" xml:space="preserve">
+          <source><bpt id="74f919c6-87ff-4ea2-9e3c-1ef897cb08bb">&lt;linkText&gt;</bpt>Application Gallery<ept id="74f919c6-87ff-4ea2-9e3c-1ef897cb08bb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="74f919c6-87ff-4ea2-9e3c-1ef897cb08bb">&lt;linkText&gt;</bpt>Application Gallery<ept id="74f919c6-87ff-4ea2-9e3c-1ef897cb08bb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d408c36-d4e7-4b60-9f36-ee2df432272c" xml:space="preserve">
+          <source>In the results pane, select <bpt id="59aa867f-57d4-40af-95c9-8bf682b2b916">&lt;strong&gt;</bpt>Aha!<ept id="59aa867f-57d4-40af-95c9-8bf682b2b916">&lt;/strong&gt;</ept>, and then click <bpt id="59d69020-824e-4f26-8826-072e70f65bfb">&lt;strong&gt;</bpt>Complete<ept id="59d69020-824e-4f26-8826-072e70f65bfb">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="59aa867f-57d4-40af-95c9-8bf682b2b916">&lt;strong&gt;</bpt>Aha!<ept id="59aa867f-57d4-40af-95c9-8bf682b2b916">&lt;/strong&gt;</ept>, and then click <bpt id="59d69020-824e-4f26-8826-072e70f65bfb">&lt;strong&gt;</bpt>Complete<ept id="59d69020-824e-4f26-8826-072e70f65bfb">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="30b9e245-3b88-43ab-a82d-43d69f64eb70" xml:space="preserve">
+          <source><bpt id="9261e94b-bcba-4253-8b93-84a93bd9495b">&lt;linkText&gt;</bpt>Aha!<ept id="9261e94b-bcba-4253-8b93-84a93bd9495b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9261e94b-bcba-4253-8b93-84a93bd9495b">&lt;linkText&gt;</bpt>Aha!<ept id="9261e94b-bcba-4253-8b93-84a93bd9495b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33bcf80b-817e-4058-9cff-537217565a85" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Aha!</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Aha!</target>
+        </trans-unit>
+        <trans-unit id="2d7208b2-5f51-49e4-a11c-542926601325" xml:space="preserve">
+          <source>with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="adb05327-4dac-412c-8b41-1528c828cdc2" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="6ba74de1-bd56-41fb-b6ad-5b91062f457e">&lt;strong&gt;</bpt>Aha!<ept id="6ba74de1-bd56-41fb-b6ad-5b91062f457e">&lt;/strong&gt;</ept> application integration page, click <bpt id="1533a204-72ac-4fab-9ce8-4be352af79d4">&lt;strong&gt;</bpt>Configure single sign-on<ept id="1533a204-72ac-4fab-9ce8-4be352af79d4">&lt;/strong&gt;</ept> to open the <bpt id="ead0421f-5286-4356-908d-a273c259e150">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="ead0421f-5286-4356-908d-a273c259e150">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="6ba74de1-bd56-41fb-b6ad-5b91062f457e">&lt;strong&gt;</bpt>Aha!<ept id="6ba74de1-bd56-41fb-b6ad-5b91062f457e">&lt;/strong&gt;</ept> application integration page, click <bpt id="1533a204-72ac-4fab-9ce8-4be352af79d4">&lt;strong&gt;</bpt>Configure single sign-on<ept id="1533a204-72ac-4fab-9ce8-4be352af79d4">&lt;/strong&gt;</ept> to open the <bpt id="ead0421f-5286-4356-908d-a273c259e150">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="ead0421f-5286-4356-908d-a273c259e150">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="01f3b962-dbeb-4ff9-ad99-22b5bd74b006" xml:space="preserve">
+          <source><bpt id="e4974b27-c7ca-4a0d-a85c-143ef410c3c0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="e4974b27-c7ca-4a0d-a85c-143ef410c3c0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e4974b27-c7ca-4a0d-a85c-143ef410c3c0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="e4974b27-c7ca-4a0d-a85c-143ef410c3c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0b880d7-895e-44b1-80db-ce807d1d35c4" xml:space="preserve">
+          <source>On the <bpt id="c0b24242-ca6e-4a3c-98f5-fae8dbad34ab">&lt;strong&gt;</bpt>How would you like users to sign on to Aha!<ept id="c0b24242-ca6e-4a3c-98f5-fae8dbad34ab">&lt;/strong&gt;</ept> page, select <bpt id="6f02a516-8934-4346-8bca-272e37ba2a1a">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="6f02a516-8934-4346-8bca-272e37ba2a1a">&lt;/strong&gt;</ept>, and then click <bpt id="40b92f4c-f267-4164-81f4-f64f1a3e020c">&lt;strong&gt;</bpt>Next<ept id="40b92f4c-f267-4164-81f4-f64f1a3e020c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c0b24242-ca6e-4a3c-98f5-fae8dbad34ab">&lt;strong&gt;</bpt>How would you like users to sign on to Aha!<ept id="c0b24242-ca6e-4a3c-98f5-fae8dbad34ab">&lt;/strong&gt;</ept> page, select <bpt id="6f02a516-8934-4346-8bca-272e37ba2a1a">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="6f02a516-8934-4346-8bca-272e37ba2a1a">&lt;/strong&gt;</ept>, and then click <bpt id="40b92f4c-f267-4164-81f4-f64f1a3e020c">&lt;strong&gt;</bpt>Next<ept id="40b92f4c-f267-4164-81f4-f64f1a3e020c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae5d5203-411c-47e9-839a-03337034bf49" xml:space="preserve">
+          <source><bpt id="572fd8df-5664-4bdc-94ff-25f3ee8a66d0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="572fd8df-5664-4bdc-94ff-25f3ee8a66d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="572fd8df-5664-4bdc-94ff-25f3ee8a66d0">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="572fd8df-5664-4bdc-94ff-25f3ee8a66d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7c4d7c4-2f2f-4b10-966d-251d114647a3" xml:space="preserve">
+          <source>On the <bpt id="1b13f951-6908-42d4-848c-326dd027fd0e">&lt;strong&gt;</bpt>Configure App URL<ept id="1b13f951-6908-42d4-848c-326dd027fd0e">&lt;/strong&gt;</ept> page, in the **Aha!</source>
+          <target state="new">On the <bpt id="1b13f951-6908-42d4-848c-326dd027fd0e">&lt;strong&gt;</bpt>Configure App URL<ept id="1b13f951-6908-42d4-848c-326dd027fd0e">&lt;/strong&gt;</ept> page, in the **Aha!</target>
+        </trans-unit>
+        <trans-unit id="3633e018-e19c-4ad9-959c-c5d1dd4e9985" xml:space="preserve">
+          <source>Sign On URL** textbox, type the URL used by your users to sign-on to your Aha!</source>
+          <target state="new">Sign On URL** textbox, type the URL used by your users to sign-on to your Aha!</target>
+        </trans-unit>
+        <trans-unit id="9309fd8a-eb4a-4d2e-822a-e57eebe7eff2" xml:space="preserve">
+          <source>Application (e.g.: "<bpt id="0e97cebd-9a50-4a4b-8524-e51b886966e3">&lt;em&gt;</bpt>https://company.aha.io/session/new<ept id="0e97cebd-9a50-4a4b-8524-e51b886966e3">&lt;/em&gt;</ept>"), and then click <bpt id="aed5e319-b596-4a90-a6a0-ca648300d742">&lt;strong&gt;</bpt>Next<ept id="aed5e319-b596-4a90-a6a0-ca648300d742">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Application (e.g.: "<bpt id="0e97cebd-9a50-4a4b-8524-e51b886966e3">&lt;em&gt;</bpt>https://company.aha.io/session/new<ept id="0e97cebd-9a50-4a4b-8524-e51b886966e3">&lt;/em&gt;</ept>"), and then click <bpt id="aed5e319-b596-4a90-a6a0-ca648300d742">&lt;strong&gt;</bpt>Next<ept id="aed5e319-b596-4a90-a6a0-ca648300d742">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6733f08d-bc29-46b9-a427-d49af1929aff" xml:space="preserve">
+          <source><bpt id="d63d0c2d-fb86-4f72-8911-a5aca4220150">&lt;linkText&gt;</bpt>Configure App URL<ept id="d63d0c2d-fb86-4f72-8911-a5aca4220150">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d63d0c2d-fb86-4f72-8911-a5aca4220150">&lt;linkText&gt;</bpt>Configure App URL<ept id="d63d0c2d-fb86-4f72-8911-a5aca4220150">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31a14193-dced-4e3f-b2d0-75214e48e074" xml:space="preserve">
+          <source>On the <bpt id="99511ca4-1e0a-44a1-a21d-81460c64fcb4">&lt;strong&gt;</bpt>Configure single sign-on at Aha!<ept id="99511ca4-1e0a-44a1-a21d-81460c64fcb4">&lt;/strong&gt;</ept> page, to download your metadata file, click <bpt id="4863df9d-603a-4c0e-a4ad-35a746f8f3e2">&lt;strong&gt;</bpt>Download metadata<ept id="4863df9d-603a-4c0e-a4ad-35a746f8f3e2">&lt;/strong&gt;</ept>, and then save the metadata file locally on your computer.</source>
+          <target state="new">On the <bpt id="99511ca4-1e0a-44a1-a21d-81460c64fcb4">&lt;strong&gt;</bpt>Configure single sign-on at Aha!<ept id="99511ca4-1e0a-44a1-a21d-81460c64fcb4">&lt;/strong&gt;</ept> page, to download your metadata file, click <bpt id="4863df9d-603a-4c0e-a4ad-35a746f8f3e2">&lt;strong&gt;</bpt>Download metadata<ept id="4863df9d-603a-4c0e-a4ad-35a746f8f3e2">&lt;/strong&gt;</ept>, and then save the metadata file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="8a439fc1-a6f6-4b88-b180-27e71f6ffa55" xml:space="preserve">
+          <source><bpt id="1f9942ed-de8c-46fe-b708-a4ad2a583676">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="1f9942ed-de8c-46fe-b708-a4ad2a583676">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1f9942ed-de8c-46fe-b708-a4ad2a583676">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="1f9942ed-de8c-46fe-b708-a4ad2a583676">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88931819-d584-421e-a8cd-aee8566a9463" xml:space="preserve">
+          <source>In a different web browser window, log into your Aha!</source>
+          <target state="new">In a different web browser window, log into your Aha!</target>
+        </trans-unit>
+        <trans-unit id="ab9cbfb2-9d50-4375-99a5-6c2da461eef6" xml:space="preserve">
+          <source>company site as an administrator.</source>
+          <target state="new">company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="7d77ef1b-59d1-45eb-9b0d-64cfcfa8d482" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="ca90b1fc-2a9c-4895-bb61-8a27a1de6e4e">&lt;strong&gt;</bpt>Settings<ept id="ca90b1fc-2a9c-4895-bb61-8a27a1de6e4e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="ca90b1fc-2a9c-4895-bb61-8a27a1de6e4e">&lt;strong&gt;</bpt>Settings<ept id="ca90b1fc-2a9c-4895-bb61-8a27a1de6e4e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f315aca5-a12a-4661-99a5-d185b8b95768" xml:space="preserve">
+          <source><bpt id="8dd1fa1c-ac0e-420c-afd7-3c451f73df9c">&lt;linkText&gt;</bpt>Settings<ept id="8dd1fa1c-ac0e-420c-afd7-3c451f73df9c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8dd1fa1c-ac0e-420c-afd7-3c451f73df9c">&lt;linkText&gt;</bpt>Settings<ept id="8dd1fa1c-ac0e-420c-afd7-3c451f73df9c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01590b22-5052-46f3-bb6d-d028af8bceb1" xml:space="preserve">
+          <source>Click <bpt id="8d048d84-8a0a-4b9b-877a-d5578b2628c8">&lt;strong&gt;</bpt>Account<ept id="8d048d84-8a0a-4b9b-877a-d5578b2628c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8d048d84-8a0a-4b9b-877a-d5578b2628c8">&lt;strong&gt;</bpt>Account<ept id="8d048d84-8a0a-4b9b-877a-d5578b2628c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdf5c8a3-9add-4854-91c2-541a0f91a4cb" xml:space="preserve">
+          <source><bpt id="cf080de7-e6db-4720-a443-68c53be33fb4">&lt;linkText&gt;</bpt>Profile<ept id="cf080de7-e6db-4720-a443-68c53be33fb4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf080de7-e6db-4720-a443-68c53be33fb4">&lt;linkText&gt;</bpt>Profile<ept id="cf080de7-e6db-4720-a443-68c53be33fb4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c258d211-8a56-474b-9ead-7e85a5806577" xml:space="preserve">
+          <source>Click <bpt id="b117d6e0-1bbd-45a7-9a75-75dded8203e1">&lt;strong&gt;</bpt>Security and single sign-on<ept id="b117d6e0-1bbd-45a7-9a75-75dded8203e1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b117d6e0-1bbd-45a7-9a75-75dded8203e1">&lt;strong&gt;</bpt>Security and single sign-on<ept id="b117d6e0-1bbd-45a7-9a75-75dded8203e1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad578b1d-a25f-4c4f-823e-a2792ead24ba" xml:space="preserve">
+          <source><bpt id="4b260b58-c2d0-488a-b1b5-5449214d7600">&lt;linkText&gt;</bpt>Security and single sign-on<ept id="4b260b58-c2d0-488a-b1b5-5449214d7600">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b260b58-c2d0-488a-b1b5-5449214d7600">&lt;linkText&gt;</bpt>Security and single sign-on<ept id="4b260b58-c2d0-488a-b1b5-5449214d7600">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebe12efb-ee0d-435b-875c-598f1b7bdeba" xml:space="preserve">
+          <source>In <bpt id="b5b6d46c-9401-46b1-b962-730f62a1612f">&lt;strong&gt;</bpt>Single Sign-On<ept id="b5b6d46c-9401-46b1-b962-730f62a1612f">&lt;/strong&gt;</ept> section, as <bpt id="00f960e9-716c-49cd-8f6d-e57132598c2c">&lt;strong&gt;</bpt>Identity Provider<ept id="00f960e9-716c-49cd-8f6d-e57132598c2c">&lt;/strong&gt;</ept>, select <bpt id="3d6bb8fa-076b-4281-976d-c3f160df9c9c">&lt;strong&gt;</bpt>SAML2.0<ept id="3d6bb8fa-076b-4281-976d-c3f160df9c9c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="b5b6d46c-9401-46b1-b962-730f62a1612f">&lt;strong&gt;</bpt>Single Sign-On<ept id="b5b6d46c-9401-46b1-b962-730f62a1612f">&lt;/strong&gt;</ept> section, as <bpt id="00f960e9-716c-49cd-8f6d-e57132598c2c">&lt;strong&gt;</bpt>Identity Provider<ept id="00f960e9-716c-49cd-8f6d-e57132598c2c">&lt;/strong&gt;</ept>, select <bpt id="3d6bb8fa-076b-4281-976d-c3f160df9c9c">&lt;strong&gt;</bpt>SAML2.0<ept id="3d6bb8fa-076b-4281-976d-c3f160df9c9c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d505a43c-fba9-4f42-8711-dbb746de7a00" xml:space="preserve">
+          <source><bpt id="2fe59e27-8f4b-4919-a395-22a8aef40f31">&lt;linkText&gt;</bpt>Security and single sign-on<ept id="2fe59e27-8f4b-4919-a395-22a8aef40f31">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2fe59e27-8f4b-4919-a395-22a8aef40f31">&lt;linkText&gt;</bpt>Security and single sign-on<ept id="2fe59e27-8f4b-4919-a395-22a8aef40f31">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6cef4d57-e84d-4766-b4ea-62674f39e14f" xml:space="preserve">
+          <source>On the <bpt id="0646ed53-824e-48b2-a457-9f36397f885c">&lt;strong&gt;</bpt>Single Sign-On<ept id="0646ed53-824e-48b2-a457-9f36397f885c">&lt;/strong&gt;</ept> configuration page, perform the following steps:</source>
+          <target state="new">On the <bpt id="0646ed53-824e-48b2-a457-9f36397f885c">&lt;strong&gt;</bpt>Single Sign-On<ept id="0646ed53-824e-48b2-a457-9f36397f885c">&lt;/strong&gt;</ept> configuration page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="1cb88a55-6d0f-4978-9749-65d95a4606ed" xml:space="preserve">
+          <source><bpt id="404fba99-798d-45c0-b4ad-5eb488aec0da">&lt;linkText&gt;</bpt>Single Sign-On<ept id="404fba99-798d-45c0-b4ad-5eb488aec0da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="404fba99-798d-45c0-b4ad-5eb488aec0da">&lt;linkText&gt;</bpt>Single Sign-On<ept id="404fba99-798d-45c0-b4ad-5eb488aec0da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7ae4e62-1ad5-44d1-a6b1-949cd69428cd" xml:space="preserve">
+          <source>In the <bpt id="4ea8a914-a705-4d02-9533-ace048dfe2bb">&lt;strong&gt;</bpt>Name<ept id="4ea8a914-a705-4d02-9533-ace048dfe2bb">&lt;/strong&gt;</ept> textbox, type a name for your configuration.</source>
+          <target state="new">In the <bpt id="4ea8a914-a705-4d02-9533-ace048dfe2bb">&lt;strong&gt;</bpt>Name<ept id="4ea8a914-a705-4d02-9533-ace048dfe2bb">&lt;/strong&gt;</ept> textbox, type a name for your configuration.</target>
+        </trans-unit>
+        <trans-unit id="dabcb9f6-f0f0-4cd6-b6e0-d2c7c6ea60c3" xml:space="preserve">
+          <source>For <bpt id="76ba2804-8e6f-4593-b8b8-829b9ddaf372">&lt;strong&gt;</bpt>Configure using<ept id="76ba2804-8e6f-4593-b8b8-829b9ddaf372">&lt;/strong&gt;</ept>, select <bpt id="4f3c3ee5-49da-459a-b0e0-0481272e28aa">&lt;strong&gt;</bpt>Metadata File<ept id="4f3c3ee5-49da-459a-b0e0-0481272e28aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="76ba2804-8e6f-4593-b8b8-829b9ddaf372">&lt;strong&gt;</bpt>Configure using<ept id="76ba2804-8e6f-4593-b8b8-829b9ddaf372">&lt;/strong&gt;</ept>, select <bpt id="4f3c3ee5-49da-459a-b0e0-0481272e28aa">&lt;strong&gt;</bpt>Metadata File<ept id="4f3c3ee5-49da-459a-b0e0-0481272e28aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72542b4d-de91-469e-8e64-0d45a806bacf" xml:space="preserve">
+          <source>To upload your downloaded metadata file, click <bpt id="1b782bf8-0d82-45f4-adf5-337d6cb87186">&lt;strong&gt;</bpt>Browse<ept id="1b782bf8-0d82-45f4-adf5-337d6cb87186">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To upload your downloaded metadata file, click <bpt id="1b782bf8-0d82-45f4-adf5-337d6cb87186">&lt;strong&gt;</bpt>Browse<ept id="1b782bf8-0d82-45f4-adf5-337d6cb87186">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d072b508-7412-44d1-841c-d19e04ac8c05" xml:space="preserve">
+          <source>Click <bpt id="5fb038d2-f69e-46ca-b563-27fbc11c26b8">&lt;strong&gt;</bpt>Update<ept id="5fb038d2-f69e-46ca-b563-27fbc11c26b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5fb038d2-f69e-46ca-b563-27fbc11c26b8">&lt;strong&gt;</bpt>Update<ept id="5fb038d2-f69e-46ca-b563-27fbc11c26b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5618385d-7c91-4db0-bc0e-88afacf15f89" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="6f154d8f-7cf9-40fc-919d-c213a78b4f8e">&lt;strong&gt;</bpt>Complete<ept id="6f154d8f-7cf9-40fc-919d-c213a78b4f8e">&lt;/strong&gt;</ept> to close the <bpt id="5f7829bb-c649-4962-b2e3-88ceebff29ba">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="5f7829bb-c649-4962-b2e3-88ceebff29ba">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="6f154d8f-7cf9-40fc-919d-c213a78b4f8e">&lt;strong&gt;</bpt>Complete<ept id="6f154d8f-7cf9-40fc-919d-c213a78b4f8e">&lt;/strong&gt;</ept> to close the <bpt id="5f7829bb-c649-4962-b2e3-88ceebff29ba">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="5f7829bb-c649-4962-b2e3-88ceebff29ba">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="66f35774-ec45-44ad-96e7-9193e9bd3f5c" xml:space="preserve">
+          <source><bpt id="3a589362-4094-41d7-bc22-9637e95ad433">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="3a589362-4094-41d7-bc22-9637e95ad433">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a589362-4094-41d7-bc22-9637e95ad433">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="3a589362-4094-41d7-bc22-9637e95ad433">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b307293-f2fd-4f77-9aa4-2c4a2eedbb2f" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Aha!, they must be provisioned into Aha!.</source>
+          <target state="new">In order to enable Azure AD users to log into Aha!, they must be provisioned into Aha!.</target>
+        </trans-unit>
+        <trans-unit id="d5baf2b5-2806-4509-85e5-cf43a44c44fb" xml:space="preserve">
+          <source>In the case of Aha!, provisioning is an automated task.</source>
+          <target state="new">In the case of Aha!, provisioning is an automated task.</target>
+        </trans-unit>
+        <trans-unit id="e91c4e85-631c-4b07-9a78-341cc2e9de98" xml:space="preserve">
+          <source>There is no action item for you.</source>
+          <target state="new">There is no action item for you.</target>
+        </trans-unit>
+        <trans-unit id="517e6d32-206e-4005-a9f0-0c12cb11a2be" xml:space="preserve">
+          <source>Users are automatically created if necessary during the first single sign-on attempt.</source>
+          <target state="new">Users are automatically created if necessary during the first single sign-on attempt.</target>
+        </trans-unit>
+        <trans-unit id="f36a32ae-12af-427a-8a15-82e62ce57595" xml:space="preserve">
+          <source>You can use any other Aha!</source>
+          <target state="new">You can use any other Aha!</target>
+        </trans-unit>
+        <trans-unit id="b1e41afd-3475-4bd6-acaf-b917b076a36a" xml:space="preserve">
+          <source>user account creation tools or APIs provided by Aha!</source>
+          <target state="new">user account creation tools or APIs provided by Aha!</target>
+        </trans-unit>
+        <trans-unit id="130a0ce8-bcf3-4cb1-8239-9673d8bd481d" xml:space="preserve">
+          <source>to provision AAD user accounts.</source>
+          <target state="new">to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="8b6d3711-175d-42f5-a0b5-2ebf9c2bbf34" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="2014940a-5d56-4985-bb0b-28e0a4a54886" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="d62ccb61-148a-40ff-8370-51ad77b0a460" xml:space="preserve">
+          <source>On the **Aha!</source>
+          <target state="new">On the **Aha!</target>
+        </trans-unit>
+        <trans-unit id="9e741f11-81d4-4567-b4a3-d24184ba75be" xml:space="preserve">
+          <source><bpt id="4e5a0d82-eac4-4b84-a106-41dc48190d27">&lt;strong&gt;</bpt>application integration page, click **Assign users<ept id="4e5a0d82-eac4-4b84-a106-41dc48190d27">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="4e5a0d82-eac4-4b84-a106-41dc48190d27">&lt;strong&gt;</bpt>application integration page, click **Assign users<ept id="4e5a0d82-eac4-4b84-a106-41dc48190d27">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97a4a82c-5e67-4c90-9b68-07db6a81ac9b" xml:space="preserve">
+          <source><bpt id="68916996-bff9-4bcb-90f8-79d79d893274">&lt;linkText&gt;</bpt>Assign Users<ept id="68916996-bff9-4bcb-90f8-79d79d893274">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="68916996-bff9-4bcb-90f8-79d79d893274">&lt;linkText&gt;</bpt>Assign Users<ept id="68916996-bff9-4bcb-90f8-79d79d893274">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e9ac48f-4ebe-46de-b2e5-ed19feb79c48" xml:space="preserve">
+          <source>Select your test user, click <bpt id="c4172a91-abea-4efd-8d3e-52580e2936df">&lt;strong&gt;</bpt>Assign<ept id="c4172a91-abea-4efd-8d3e-52580e2936df">&lt;/strong&gt;</ept>, and then click <bpt id="9704137a-217a-4683-a85c-d9f34e489ffa">&lt;strong&gt;</bpt>Yes<ept id="9704137a-217a-4683-a85c-d9f34e489ffa">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="c4172a91-abea-4efd-8d3e-52580e2936df">&lt;strong&gt;</bpt>Assign<ept id="c4172a91-abea-4efd-8d3e-52580e2936df">&lt;/strong&gt;</ept>, and then click <bpt id="9704137a-217a-4683-a85c-d9f34e489ffa">&lt;strong&gt;</bpt>Yes<ept id="9704137a-217a-4683-a85c-d9f34e489ffa">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="e7129a46-4c97-4fbf-9e12-1fbb39fa7840" xml:space="preserve">
+          <source><bpt id="e290a4da-a326-4c15-b0ac-9699dea63728">&lt;linkText&gt;</bpt>Yes<ept id="e290a4da-a326-4c15-b0ac-9699dea63728">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e290a4da-a326-4c15-b0ac-9699dea63728">&lt;linkText&gt;</bpt>Yes<ept id="e290a4da-a326-4c15-b0ac-9699dea63728">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73e0a7f6-652a-495f-8b5d-d7e8c49e7345" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="67c81375-92d7-46fe-a30d-0c80d03b9530" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="b35e10ef-66c0-4523-a856-a58c4cb0d313">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="b35e10ef-66c0-4523-a856-a58c4cb0d313">&lt;/linkText&gt;</ept><bpt id="b35e10ef-66c0-4523-a856-a58c4cb0d313">&lt;title&gt;</bpt><ept id="b35e10ef-66c0-4523-a856-a58c4cb0d313">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="b35e10ef-66c0-4523-a856-a58c4cb0d313">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="b35e10ef-66c0-4523-a856-a58c4cb0d313">&lt;/linkText&gt;</ept><bpt id="b35e10ef-66c0-4523-a856-a58c4cb0d313">&lt;title&gt;</bpt><ept id="b35e10ef-66c0-4523-a856-a58c4cb0d313">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

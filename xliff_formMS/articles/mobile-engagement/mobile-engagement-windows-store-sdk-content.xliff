@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c0d67f75-4aa3-4ba1-ae64-d81a1d4f2d49" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c0d67f75-4aa3-4ba1-ae64-d81a1d4f2d49" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9984bf40-b155-446b-9377-0c068a756d1f">
+        <trans-unit id="c7542530-ebdb-4cb8-9dea-bdd6d1271b16" xml:space="preserve">
+          <source>Windows Universal Apps SDK content</source>
+          <target state="new">Windows Universal Apps SDK content</target>
+        </trans-unit>
+        <trans-unit id="d26e9281-72cb-48fb-9ccb-207e1989f072" xml:space="preserve">
+          <source>Learn about the contents of the Windows Universal Apps SDK for Azure Mobile Engagement</source>
+          <target state="new">Learn about the contents of the Windows Universal Apps SDK for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="bc3f8688-7c7e-4761-8353-8d9d461b4a8c" xml:space="preserve">
+          <source>This document lists and describes the content deployed by the SDK in your application.</source>
+          <target state="new">This document lists and describes the content deployed by the SDK in your application.</target>
+        </trans-unit>
+        <trans-unit id="cb75fb97-1f2b-473d-b2aa-61aa95d5d98c" xml:space="preserve">
+          <source>This folder contains all the resources that Mobile Engagement needs.</source>
+          <target state="new">This folder contains all the resources that Mobile Engagement needs.</target>
+        </trans-unit>
+        <trans-unit id="ad56ecc8-be0c-4266-ae1e-25b1a1f194ba" xml:space="preserve">
+          <source>You can also customize them to fit your app.</source>
+          <target state="new">You can also customize them to fit your app.</target>
+        </trans-unit>
+        <trans-unit id="88407cc5-f8cb-44fa-b658-b98b91a90799" xml:space="preserve">
+          <source><bpt id="f330b0d0-e9b1-474c-9b57-b6f2a73dba5b">&lt;code&gt;</bpt>EngagementConfiguration.xml<ept id="f330b0d0-e9b1-474c-9b57-b6f2a73dba5b">&lt;/code&gt;</ept> : The Mobile Engagement's configuration file, this is where you can customize Mobile Engagement settings (Mobile Engagement connection string, report crash...).</source>
+          <target state="new"><bpt id="f330b0d0-e9b1-474c-9b57-b6f2a73dba5b">&lt;code&gt;</bpt>EngagementConfiguration.xml<ept id="f330b0d0-e9b1-474c-9b57-b6f2a73dba5b">&lt;/code&gt;</ept> : The Mobile Engagement's configuration file, this is where you can customize Mobile Engagement settings (Mobile Engagement connection string, report crash...).</target>
+        </trans-unit>
+        <trans-unit id="4e80c447-df89-412f-836b-866e8c0a4343" xml:space="preserve">
+          <source><bpt id="cd43d4cd-b4fd-4bcc-b2c9-620b8aacb749">&lt;code&gt;</bpt>EngagementNotification.html<ept id="cd43d4cd-b4fd-4bcc-b2c9-620b8aacb749">&lt;/code&gt;</ept> : The <bpt id="84174add-3617-4c66-8fb2-6d711534449b">&lt;code&gt;</bpt>Notification<ept id="84174add-3617-4c66-8fb2-6d711534449b">&lt;/code&gt;</ept> web view html design.</source>
+          <target state="new"><bpt id="cd43d4cd-b4fd-4bcc-b2c9-620b8aacb749">&lt;code&gt;</bpt>EngagementNotification.html<ept id="cd43d4cd-b4fd-4bcc-b2c9-620b8aacb749">&lt;/code&gt;</ept> : The <bpt id="84174add-3617-4c66-8fb2-6d711534449b">&lt;code&gt;</bpt>Notification<ept id="84174add-3617-4c66-8fb2-6d711534449b">&lt;/code&gt;</ept> web view html design.</target>
+        </trans-unit>
+        <trans-unit id="d719e34a-276f-4e75-a165-a54dd98d3dd7" xml:space="preserve">
+          <source><bpt id="0513d737-0523-4d66-af72-dee293a35226">&lt;code&gt;</bpt>EngagementAnnouncement.html<ept id="0513d737-0523-4d66-af72-dee293a35226">&lt;/code&gt;</ept> : The <bpt id="3d0e2bac-9248-4adb-a066-751ee1688069">&lt;code&gt;</bpt>Announcement<ept id="3d0e2bac-9248-4adb-a066-751ee1688069">&lt;/code&gt;</ept> web view html design.</source>
+          <target state="new"><bpt id="0513d737-0523-4d66-af72-dee293a35226">&lt;code&gt;</bpt>EngagementAnnouncement.html<ept id="0513d737-0523-4d66-af72-dee293a35226">&lt;/code&gt;</ept> : The <bpt id="3d0e2bac-9248-4adb-a066-751ee1688069">&lt;code&gt;</bpt>Announcement<ept id="3d0e2bac-9248-4adb-a066-751ee1688069">&lt;/code&gt;</ept> web view html design.</target>
+        </trans-unit>
+        <trans-unit id="9d435c1e-3299-417f-822d-5dc14bd42eb4" xml:space="preserve">
+          <source><bpt id="b0af49f8-3488-4431-ba95-48c7b30b139b">&lt;code&gt;</bpt>EngagementIconNotification.png<ept id="b0af49f8-3488-4431-ba95-48c7b30b139b">&lt;/code&gt;</ept> : The brand icon displayed at the left of a notification, replace this one by your brand icon.</source>
+          <target state="new"><bpt id="b0af49f8-3488-4431-ba95-48c7b30b139b">&lt;code&gt;</bpt>EngagementIconNotification.png<ept id="b0af49f8-3488-4431-ba95-48c7b30b139b">&lt;/code&gt;</ept> : The brand icon displayed at the left of a notification, replace this one by your brand icon.</target>
+        </trans-unit>
+        <trans-unit id="efac3666-4e39-4e3d-8f02-43c49ccdbd07" xml:space="preserve">
+          <source><bpt id="ee29ade8-9dc7-4f78-a166-9ca39d023d0e">&lt;code&gt;</bpt>EngagementIconOk.png<ept id="ee29ade8-9dc7-4f78-a166-9ca39d023d0e">&lt;/code&gt;</ept> : The <bpt id="50257e49-5a72-480a-be61-e70d4dd563f3">&lt;code&gt;</bpt>Ok<ept id="50257e49-5a72-480a-be61-e70d4dd563f3">&lt;/code&gt;</ept> icon of the reach content pages for the action or validation button.</source>
+          <target state="new"><bpt id="ee29ade8-9dc7-4f78-a166-9ca39d023d0e">&lt;code&gt;</bpt>EngagementIconOk.png<ept id="ee29ade8-9dc7-4f78-a166-9ca39d023d0e">&lt;/code&gt;</ept> : The <bpt id="50257e49-5a72-480a-be61-e70d4dd563f3">&lt;code&gt;</bpt>Ok<ept id="50257e49-5a72-480a-be61-e70d4dd563f3">&lt;/code&gt;</ept> icon of the reach content pages for the action or validation button.</target>
+        </trans-unit>
+        <trans-unit id="88d26345-0487-4e9e-93cd-3cd9c782722b" xml:space="preserve">
+          <source><bpt id="57a53d86-63b5-4b21-8d78-6c05083f9bb5">&lt;code&gt;</bpt>EngagementIconNOK.png<ept id="57a53d86-63b5-4b21-8d78-6c05083f9bb5">&lt;/code&gt;</ept> : The <bpt id="2e727789-2861-4650-bcf2-a2aa97bd76d4">&lt;code&gt;</bpt>NOK<ept id="2e727789-2861-4650-bcf2-a2aa97bd76d4">&lt;/code&gt;</ept> icon used when the validation button of the reach content pages is disabled.</source>
+          <target state="new"><bpt id="57a53d86-63b5-4b21-8d78-6c05083f9bb5">&lt;code&gt;</bpt>EngagementIconNOK.png<ept id="57a53d86-63b5-4b21-8d78-6c05083f9bb5">&lt;/code&gt;</ept> : The <bpt id="2e727789-2861-4650-bcf2-a2aa97bd76d4">&lt;code&gt;</bpt>NOK<ept id="2e727789-2861-4650-bcf2-a2aa97bd76d4">&lt;/code&gt;</ept> icon used when the validation button of the reach content pages is disabled.</target>
+        </trans-unit>
+        <trans-unit id="54e18442-9b90-4845-b709-66ff98bb03ac" xml:space="preserve">
+          <source><bpt id="88a5a756-7184-49a2-8402-bcea43c4922f">&lt;code&gt;</bpt>EngagementIconClose.png<ept id="88a5a756-7184-49a2-8402-bcea43c4922f">&lt;/code&gt;</ept> : The <bpt id="37333615-3e65-4b92-a6c1-ec8d39b7268a">&lt;code&gt;</bpt>Close<ept id="37333615-3e65-4b92-a6c1-ec8d39b7268a">&lt;/code&gt;</ept> icon of the reach notifications and contents for the dismiss button.</source>
+          <target state="new"><bpt id="88a5a756-7184-49a2-8402-bcea43c4922f">&lt;code&gt;</bpt>EngagementIconClose.png<ept id="88a5a756-7184-49a2-8402-bcea43c4922f">&lt;/code&gt;</ept> : The <bpt id="37333615-3e65-4b92-a6c1-ec8d39b7268a">&lt;code&gt;</bpt>Close<ept id="37333615-3e65-4b92-a6c1-ec8d39b7268a">&lt;/code&gt;</ept> icon of the reach notifications and contents for the dismiss button.</target>
+        </trans-unit>
+        <trans-unit id="ceabc158-3844-4954-8d4c-fba305d400dd" xml:space="preserve">
+          <source><bpt id="30d08151-f711-44ab-8cec-011db47ead4b">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml<ept id="30d08151-f711-44ab-8cec-011db47ead4b">&lt;/code&gt;</ept> : The <bpt id="7dab493d-d5fd-43e3-b4a9-5cb0a5f81108">&lt;code&gt;</bpt>Announcement<ept id="7dab493d-d5fd-43e3-b4a9-5cb0a5f81108">&lt;/code&gt;</ept> xaml design.</source>
+          <target state="new"><bpt id="30d08151-f711-44ab-8cec-011db47ead4b">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml<ept id="30d08151-f711-44ab-8cec-011db47ead4b">&lt;/code&gt;</ept> : The <bpt id="7dab493d-d5fd-43e3-b4a9-5cb0a5f81108">&lt;code&gt;</bpt>Announcement<ept id="7dab493d-d5fd-43e3-b4a9-5cb0a5f81108">&lt;/code&gt;</ept> xaml design.</target>
+        </trans-unit>
+        <trans-unit id="ae79f7c5-5da3-4dcc-85ac-954849abbb47" xml:space="preserve">
+          <source><bpt id="7da8e705-541e-426d-8b5f-8c857a0a5339">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml.cs<ept id="7da8e705-541e-426d-8b5f-8c857a0a5339">&lt;/code&gt;</ept> : The <bpt id="3dfdffb4-b788-4fa2-96c2-e2d600250b17">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml<ept id="3dfdffb4-b788-4fa2-96c2-e2d600250b17">&lt;/code&gt;</ept> linked code.</source>
+          <target state="new"><bpt id="7da8e705-541e-426d-8b5f-8c857a0a5339">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml.cs<ept id="7da8e705-541e-426d-8b5f-8c857a0a5339">&lt;/code&gt;</ept> : The <bpt id="3dfdffb4-b788-4fa2-96c2-e2d600250b17">&lt;code&gt;</bpt>EngagementOverlayAnnouncement.xaml<ept id="3dfdffb4-b788-4fa2-96c2-e2d600250b17">&lt;/code&gt;</ept> linked code.</target>
+        </trans-unit>
+        <trans-unit id="ba0319b8-769f-4749-93eb-7a52d932173c" xml:space="preserve">
+          <source><bpt id="2a257cc0-b401-464e-bc2f-9da3e519bda6">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml<ept id="2a257cc0-b401-464e-bc2f-9da3e519bda6">&lt;/code&gt;</ept> : The <bpt id="7db65c3c-804c-4b09-a50a-d03d95bb6cc6">&lt;code&gt;</bpt>Notification<ept id="7db65c3c-804c-4b09-a50a-d03d95bb6cc6">&lt;/code&gt;</ept> xaml design.</source>
+          <target state="new"><bpt id="2a257cc0-b401-464e-bc2f-9da3e519bda6">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml<ept id="2a257cc0-b401-464e-bc2f-9da3e519bda6">&lt;/code&gt;</ept> : The <bpt id="7db65c3c-804c-4b09-a50a-d03d95bb6cc6">&lt;code&gt;</bpt>Notification<ept id="7db65c3c-804c-4b09-a50a-d03d95bb6cc6">&lt;/code&gt;</ept> xaml design.</target>
+        </trans-unit>
+        <trans-unit id="4e2e8b32-db64-4f20-838c-a9562a019ae1" xml:space="preserve">
+          <source><bpt id="b9ef816f-ab0d-4710-9794-8ab9286250c6">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml.cs<ept id="b9ef816f-ab0d-4710-9794-8ab9286250c6">&lt;/code&gt;</ept> : The <bpt id="2cc3715a-d161-432c-a109-2f2d8910c45e">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml<ept id="2cc3715a-d161-432c-a109-2f2d8910c45e">&lt;/code&gt;</ept> linked code.</source>
+          <target state="new"><bpt id="b9ef816f-ab0d-4710-9794-8ab9286250c6">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml.cs<ept id="b9ef816f-ab0d-4710-9794-8ab9286250c6">&lt;/code&gt;</ept> : The <bpt id="2cc3715a-d161-432c-a109-2f2d8910c45e">&lt;code&gt;</bpt>EngagementOverlayNotification.xaml<ept id="2cc3715a-d161-432c-a109-2f2d8910c45e">&lt;/code&gt;</ept> linked code.</target>
+        </trans-unit>
+        <trans-unit id="607ac18e-51dd-4fb6-8b62-8de78b1847d4" xml:space="preserve">
+          <source><bpt id="6495bde1-0c28-4cc4-9c8d-286334d5178a">&lt;code&gt;</bpt>EngagementPageOverlay.cs<ept id="6495bde1-0c28-4cc4-9c8d-286334d5178a">&lt;/code&gt;</ept> : The <bpt id="1fe3c430-b002-4cd5-ac1f-d12730361004">&lt;code&gt;</bpt>Overlay<ept id="1fe3c430-b002-4cd5-ac1f-d12730361004">&lt;/code&gt;</ept> announcement and notification display code.</source>
+          <target state="new"><bpt id="6495bde1-0c28-4cc4-9c8d-286334d5178a">&lt;code&gt;</bpt>EngagementPageOverlay.cs<ept id="6495bde1-0c28-4cc4-9c8d-286334d5178a">&lt;/code&gt;</ept> : The <bpt id="1fe3c430-b002-4cd5-ac1f-d12730361004">&lt;code&gt;</bpt>Overlay<ept id="1fe3c430-b002-4cd5-ac1f-d12730361004">&lt;/code&gt;</ept> announcement and notification display code.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

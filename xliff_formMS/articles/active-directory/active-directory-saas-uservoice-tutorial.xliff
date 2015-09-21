@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5c57face-190e-4add-b5a3-d007d570af06" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5c57face-190e-4add-b5a3-d007d570af06" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6e5ce320-52f2-49e7-b5a6-a47377bf4fc4">
+        <trans-unit id="6def1a5b-2cec-47fe-8039-17e739a19328" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with UserVoice | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with UserVoice | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="08f261b1-842a-43d2-b468-81ecdac081fe" xml:space="preserve">
+          <source>Learn how to use UserVoice with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use UserVoice with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="bf187e5a-8cfd-479b-b742-40e54571c0b0" xml:space="preserve">
+          <source>For feedback, click <bpt id="0181a1d9-77dd-42ad-b8e2-5b0caf7052bd">&lt;linkText&gt;</bpt>here<ept id="0181a1d9-77dd-42ad-b8e2-5b0caf7052bd">&lt;/linkText&gt;</ept><bpt id="0181a1d9-77dd-42ad-b8e2-5b0caf7052bd">&lt;title&gt;</bpt><ept id="0181a1d9-77dd-42ad-b8e2-5b0caf7052bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="0181a1d9-77dd-42ad-b8e2-5b0caf7052bd">&lt;linkText&gt;</bpt>here<ept id="0181a1d9-77dd-42ad-b8e2-5b0caf7052bd">&lt;/linkText&gt;</ept><bpt id="0181a1d9-77dd-42ad-b8e2-5b0caf7052bd">&lt;title&gt;</bpt><ept id="0181a1d9-77dd-42ad-b8e2-5b0caf7052bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ab7d762-a349-4f33-9ffb-71d575971f50" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and UserVoice.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and UserVoice.</target>
+        </trans-unit>
+        <trans-unit id="52ac49d2-3e2d-4191-afee-6d4e23f35970" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="5f15d5fa-e26f-4edd-b6ae-8225424eec33" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="a2991c4c-6dcf-44b5-8696-93ffdc454f63" xml:space="preserve">
+          <source>A UserVoice tenant</source>
+          <target state="new">A UserVoice tenant</target>
+        </trans-unit>
+        <trans-unit id="c59f45c2-feaa-4062-9eb5-fc2e6c6950a1" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to UserVoice will be able to single sign into the application at your UserVoice company site (service provider initiated sign on), or using the <bpt id="40e6782c-fd40-429c-b50c-8a73e0924869">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="40e6782c-fd40-429c-b50c-8a73e0924869">&lt;/linkText&gt;</ept><bpt id="40e6782c-fd40-429c-b50c-8a73e0924869">&lt;title&gt;</bpt><ept id="40e6782c-fd40-429c-b50c-8a73e0924869">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to UserVoice will be able to single sign into the application at your UserVoice company site (service provider initiated sign on), or using the <bpt id="40e6782c-fd40-429c-b50c-8a73e0924869">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="40e6782c-fd40-429c-b50c-8a73e0924869">&lt;/linkText&gt;</ept><bpt id="40e6782c-fd40-429c-b50c-8a73e0924869">&lt;title&gt;</bpt><ept id="40e6782c-fd40-429c-b50c-8a73e0924869">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab25b900-491f-46cf-96a6-ee22b79ae228" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="03339641-f9e3-429f-a405-e47f8873df47" xml:space="preserve">
+          <source>Enabling the application integration for UserVoice</source>
+          <target state="new">Enabling the application integration for UserVoice</target>
+        </trans-unit>
+        <trans-unit id="1144b690-506b-4f3c-8460-6467b9c20cb7" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="3d5279fd-43d4-4452-ac8d-46f4f22f36ca" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="3351b962-5ac6-428c-aefd-2cfb22b6a883" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="ff65d041-425b-4aba-bcf3-ae6fbb3d93c5" xml:space="preserve">
+          <source><bpt id="9af0ea24-d2b8-451a-ae4e-bbca06b30fd2">&lt;linkText&gt;</bpt>Scenario<ept id="9af0ea24-d2b8-451a-ae4e-bbca06b30fd2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9af0ea24-d2b8-451a-ae4e-bbca06b30fd2">&lt;linkText&gt;</bpt>Scenario<ept id="9af0ea24-d2b8-451a-ae4e-bbca06b30fd2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15cb1cce-2b08-47b0-8d7f-58d4f3a915b5" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for UserVoice.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for UserVoice.</target>
+        </trans-unit>
+        <trans-unit id="019daa7f-378b-41e3-aaf8-351ad0cd3ae9" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="a95cd8e2-9052-47bb-8eb7-e21d8503abc7">&lt;strong&gt;</bpt>Active Directory<ept id="a95cd8e2-9052-47bb-8eb7-e21d8503abc7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="a95cd8e2-9052-47bb-8eb7-e21d8503abc7">&lt;strong&gt;</bpt>Active Directory<ept id="a95cd8e2-9052-47bb-8eb7-e21d8503abc7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d625881f-5429-4d42-86e9-ccb804751617" xml:space="preserve">
+          <source><bpt id="86a53b92-7914-48aa-bab6-6cb4df6082c9">&lt;linkText&gt;</bpt>Active Directory<ept id="86a53b92-7914-48aa-bab6-6cb4df6082c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="86a53b92-7914-48aa-bab6-6cb4df6082c9">&lt;linkText&gt;</bpt>Active Directory<ept id="86a53b92-7914-48aa-bab6-6cb4df6082c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="000f1b73-be28-46a7-9606-061bb5362188" xml:space="preserve">
+          <source>From the <bpt id="2be5f9a7-9644-4f43-aeae-0a625e92eb8f">&lt;strong&gt;</bpt>Directory<ept id="2be5f9a7-9644-4f43-aeae-0a625e92eb8f">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="2be5f9a7-9644-4f43-aeae-0a625e92eb8f">&lt;strong&gt;</bpt>Directory<ept id="2be5f9a7-9644-4f43-aeae-0a625e92eb8f">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="7588f0ad-2eac-4a96-8f21-f6a5cbae6b20" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="ab4e697d-326a-4500-812d-fc14a4fce84c">&lt;strong&gt;</bpt>Applications<ept id="ab4e697d-326a-4500-812d-fc14a4fce84c">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="ab4e697d-326a-4500-812d-fc14a4fce84c">&lt;strong&gt;</bpt>Applications<ept id="ab4e697d-326a-4500-812d-fc14a4fce84c">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="adc8a470-66b3-4fbf-a3b4-3ed5342b1f9f" xml:space="preserve">
+          <source><bpt id="0dc58626-43c5-4404-8c6e-2fba8157947f">&lt;linkText&gt;</bpt>Applications<ept id="0dc58626-43c5-4404-8c6e-2fba8157947f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0dc58626-43c5-4404-8c6e-2fba8157947f">&lt;linkText&gt;</bpt>Applications<ept id="0dc58626-43c5-4404-8c6e-2fba8157947f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d16ea40-48c3-4a77-81a2-148a8237a22c" xml:space="preserve">
+          <source>Click <bpt id="743b30b2-18ec-485b-ae87-98b4bfe0be09">&lt;strong&gt;</bpt>Add<ept id="743b30b2-18ec-485b-ae87-98b4bfe0be09">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="743b30b2-18ec-485b-ae87-98b4bfe0be09">&lt;strong&gt;</bpt>Add<ept id="743b30b2-18ec-485b-ae87-98b4bfe0be09">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="0488b60a-fd73-4342-8ea6-6818eec3ae8d" xml:space="preserve">
+          <source><bpt id="a3fb112c-d6f1-4482-acfd-2c2ae2de740e">&lt;linkText&gt;</bpt>Add application<ept id="a3fb112c-d6f1-4482-acfd-2c2ae2de740e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a3fb112c-d6f1-4482-acfd-2c2ae2de740e">&lt;linkText&gt;</bpt>Add application<ept id="a3fb112c-d6f1-4482-acfd-2c2ae2de740e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed3d5126-7fb6-4bd4-ab7b-3c33866b865d" xml:space="preserve">
+          <source>On the <bpt id="236ce056-669e-4220-a08a-2517a9df74c6">&lt;strong&gt;</bpt>What do you want to do<ept id="236ce056-669e-4220-a08a-2517a9df74c6">&lt;/strong&gt;</ept> dialog, click <bpt id="59eaba68-40b2-4faf-97d6-eb982764915b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="59eaba68-40b2-4faf-97d6-eb982764915b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="236ce056-669e-4220-a08a-2517a9df74c6">&lt;strong&gt;</bpt>What do you want to do<ept id="236ce056-669e-4220-a08a-2517a9df74c6">&lt;/strong&gt;</ept> dialog, click <bpt id="59eaba68-40b2-4faf-97d6-eb982764915b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="59eaba68-40b2-4faf-97d6-eb982764915b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="451a6f1f-8399-45c1-b872-991704b37d26" xml:space="preserve">
+          <source><bpt id="5903334c-5df0-4cab-869b-de8737d7b944">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="5903334c-5df0-4cab-869b-de8737d7b944">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5903334c-5df0-4cab-869b-de8737d7b944">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="5903334c-5df0-4cab-869b-de8737d7b944">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2497cf2f-dc43-4203-b2ec-13431b154c83" xml:space="preserve">
+          <source>In the <bpt id="c2650ac2-ebdb-497b-bb80-b7ea3216083e">&lt;strong&gt;</bpt>search box<ept id="c2650ac2-ebdb-497b-bb80-b7ea3216083e">&lt;/strong&gt;</ept>, type <bpt id="82e68cc2-a79c-4ccf-b9c8-81c7cfba6f95">&lt;strong&gt;</bpt>UserVoice<ept id="82e68cc2-a79c-4ccf-b9c8-81c7cfba6f95">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c2650ac2-ebdb-497b-bb80-b7ea3216083e">&lt;strong&gt;</bpt>search box<ept id="c2650ac2-ebdb-497b-bb80-b7ea3216083e">&lt;/strong&gt;</ept>, type <bpt id="82e68cc2-a79c-4ccf-b9c8-81c7cfba6f95">&lt;strong&gt;</bpt>UserVoice<ept id="82e68cc2-a79c-4ccf-b9c8-81c7cfba6f95">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d5f205c-ad8c-4f6d-abe1-374150bc8309" xml:space="preserve">
+          <source><bpt id="8a24b0c8-d31e-45e6-9f08-65c6d918d204">&lt;linkText&gt;</bpt>Application gallery<ept id="8a24b0c8-d31e-45e6-9f08-65c6d918d204">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8a24b0c8-d31e-45e6-9f08-65c6d918d204">&lt;linkText&gt;</bpt>Application gallery<ept id="8a24b0c8-d31e-45e6-9f08-65c6d918d204">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="987bae14-9045-4444-adf2-8c84d029c567" xml:space="preserve">
+          <source>In the results pane, select <bpt id="bac2f12e-2d60-466e-b9c7-e22596b875b4">&lt;strong&gt;</bpt>UserVoice<ept id="bac2f12e-2d60-466e-b9c7-e22596b875b4">&lt;/strong&gt;</ept>, and then click <bpt id="7f278429-87b0-446e-ae62-9a9466160066">&lt;strong&gt;</bpt>Complete<ept id="7f278429-87b0-446e-ae62-9a9466160066">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="bac2f12e-2d60-466e-b9c7-e22596b875b4">&lt;strong&gt;</bpt>UserVoice<ept id="bac2f12e-2d60-466e-b9c7-e22596b875b4">&lt;/strong&gt;</ept>, and then click <bpt id="7f278429-87b0-446e-ae62-9a9466160066">&lt;strong&gt;</bpt>Complete<ept id="7f278429-87b0-446e-ae62-9a9466160066">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="4ede712d-edc1-4181-a92a-1130edb84e11" xml:space="preserve">
+          <source><bpt id="f770d87b-e6f7-4b5d-8102-410e60aafa29">&lt;linkText&gt;</bpt>UserVoice<ept id="f770d87b-e6f7-4b5d-8102-410e60aafa29">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f770d87b-e6f7-4b5d-8102-410e60aafa29">&lt;linkText&gt;</bpt>UserVoice<ept id="f770d87b-e6f7-4b5d-8102-410e60aafa29">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f519cf45-2c0d-48d9-bea0-91d0eacdc26f" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to UserVoice with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to UserVoice with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="81e47584-a04f-4f16-b477-1907064bf3ba" xml:space="preserve">
+          <source>Configuring single sign-on for UserVoice requires you to retrieve a thumbprint value from a certificate.</source>
+          <target state="new">Configuring single sign-on for UserVoice requires you to retrieve a thumbprint value from a certificate.</target>
+        </trans-unit>
+        <trans-unit id="5923a762-0fe2-43d7-ac75-ebab606aeaf4" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="6a23b8b8-5124-46ff-9b9f-b8064ae960ac">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="6a23b8b8-5124-46ff-9b9f-b8064ae960ac">&lt;/linkText&gt;</ept><bpt id="6a23b8b8-5124-46ff-9b9f-b8064ae960ac">&lt;title&gt;</bpt><ept id="6a23b8b8-5124-46ff-9b9f-b8064ae960ac">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="6a23b8b8-5124-46ff-9b9f-b8064ae960ac">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="6a23b8b8-5124-46ff-9b9f-b8064ae960ac">&lt;/linkText&gt;</ept><bpt id="6a23b8b8-5124-46ff-9b9f-b8064ae960ac">&lt;title&gt;</bpt><ept id="6a23b8b8-5124-46ff-9b9f-b8064ae960ac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c929a82-9859-43ba-b21c-0933b45f0d2c" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="220db215-2ba8-43b1-82f8-ba6003c6085a">&lt;strong&gt;</bpt>UserVoice<ept id="220db215-2ba8-43b1-82f8-ba6003c6085a">&lt;/strong&gt;</ept> application integration page, click <bpt id="e9425e4f-a26a-40ef-a970-fa2cb6f84554">&lt;strong&gt;</bpt>Configure single sign-on<ept id="e9425e4f-a26a-40ef-a970-fa2cb6f84554">&lt;/strong&gt;</ept> to open the <bpt id="e286456e-53b2-4591-b938-f0ba74ff7f14">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="e286456e-53b2-4591-b938-f0ba74ff7f14">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="220db215-2ba8-43b1-82f8-ba6003c6085a">&lt;strong&gt;</bpt>UserVoice<ept id="220db215-2ba8-43b1-82f8-ba6003c6085a">&lt;/strong&gt;</ept> application integration page, click <bpt id="e9425e4f-a26a-40ef-a970-fa2cb6f84554">&lt;strong&gt;</bpt>Configure single sign-on<ept id="e9425e4f-a26a-40ef-a970-fa2cb6f84554">&lt;/strong&gt;</ept> to open the <bpt id="e286456e-53b2-4591-b938-f0ba74ff7f14">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="e286456e-53b2-4591-b938-f0ba74ff7f14">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="f2eafa4b-f899-4d0b-b23b-e990120f71f0" xml:space="preserve">
+          <source><bpt id="d1594664-7e0f-4c8a-a1b5-6e02061b30f5">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="d1594664-7e0f-4c8a-a1b5-6e02061b30f5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d1594664-7e0f-4c8a-a1b5-6e02061b30f5">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="d1594664-7e0f-4c8a-a1b5-6e02061b30f5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6980eaa1-b8ba-4d72-b008-3825794c3d15" xml:space="preserve">
+          <source>On the <bpt id="da00ccd4-82d3-42c4-b1f0-8c0d303a5510">&lt;strong&gt;</bpt>How would you like users to sign on to UserVoice<ept id="da00ccd4-82d3-42c4-b1f0-8c0d303a5510">&lt;/strong&gt;</ept> page, select <bpt id="fcc036aa-9e79-49ff-a6f9-9e606b9da5ce">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="fcc036aa-9e79-49ff-a6f9-9e606b9da5ce">&lt;/strong&gt;</ept>, and then click <bpt id="91e0219b-f01e-48cb-99de-e0b883ea3f40">&lt;strong&gt;</bpt>Next<ept id="91e0219b-f01e-48cb-99de-e0b883ea3f40">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="da00ccd4-82d3-42c4-b1f0-8c0d303a5510">&lt;strong&gt;</bpt>How would you like users to sign on to UserVoice<ept id="da00ccd4-82d3-42c4-b1f0-8c0d303a5510">&lt;/strong&gt;</ept> page, select <bpt id="fcc036aa-9e79-49ff-a6f9-9e606b9da5ce">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="fcc036aa-9e79-49ff-a6f9-9e606b9da5ce">&lt;/strong&gt;</ept>, and then click <bpt id="91e0219b-f01e-48cb-99de-e0b883ea3f40">&lt;strong&gt;</bpt>Next<ept id="91e0219b-f01e-48cb-99de-e0b883ea3f40">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4eb8c725-ec1c-421a-b730-6dc2a1441dc3" xml:space="preserve">
+          <source><bpt id="d9880f53-8f80-4fdb-9616-5c79fbf5869b">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="d9880f53-8f80-4fdb-9616-5c79fbf5869b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d9880f53-8f80-4fdb-9616-5c79fbf5869b">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="d9880f53-8f80-4fdb-9616-5c79fbf5869b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7f515bf-69a3-4fbc-87d7-61f2217a23c6" xml:space="preserve">
+          <source>On the <bpt id="c6111f37-f166-4d7b-99fc-28823c5ce9d1">&lt;strong&gt;</bpt>Configure App URL<ept id="c6111f37-f166-4d7b-99fc-28823c5ce9d1">&lt;/strong&gt;</ept> page, in the <bpt id="82b2ea75-7bd7-4836-a518-6fa4d52bb311">&lt;strong&gt;</bpt>UserVoice Sign In URL<ept id="82b2ea75-7bd7-4836-a518-6fa4d52bb311">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="ad79bc05-128b-446a-8e8f-b8c6168eced0">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.UserVoice.com<ept id="ad79bc05-128b-446a-8e8f-b8c6168eced0">&lt;/em&gt;</ept>", and then click <bpt id="990bef9b-f78d-4290-8bbd-537cdb28a072">&lt;strong&gt;</bpt>Next<ept id="990bef9b-f78d-4290-8bbd-537cdb28a072">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c6111f37-f166-4d7b-99fc-28823c5ce9d1">&lt;strong&gt;</bpt>Configure App URL<ept id="c6111f37-f166-4d7b-99fc-28823c5ce9d1">&lt;/strong&gt;</ept> page, in the <bpt id="82b2ea75-7bd7-4836-a518-6fa4d52bb311">&lt;strong&gt;</bpt>UserVoice Sign In URL<ept id="82b2ea75-7bd7-4836-a518-6fa4d52bb311">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="ad79bc05-128b-446a-8e8f-b8c6168eced0">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.UserVoice.com<ept id="ad79bc05-128b-446a-8e8f-b8c6168eced0">&lt;/em&gt;</ept>", and then click <bpt id="990bef9b-f78d-4290-8bbd-537cdb28a072">&lt;strong&gt;</bpt>Next<ept id="990bef9b-f78d-4290-8bbd-537cdb28a072">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7afe187-90a5-4e17-a714-834a08ac50fd" xml:space="preserve">
+          <source><bpt id="2c270a3e-5392-4092-b573-99fc2ee24c7b">&lt;linkText&gt;</bpt>Configure App URL<ept id="2c270a3e-5392-4092-b573-99fc2ee24c7b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c270a3e-5392-4092-b573-99fc2ee24c7b">&lt;linkText&gt;</bpt>Configure App URL<ept id="2c270a3e-5392-4092-b573-99fc2ee24c7b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="249fd196-ca11-4570-b841-721b2abd695f" xml:space="preserve">
+          <source>On the <bpt id="7a485a88-888a-4389-a016-cd99a8e9ea03">&lt;strong&gt;</bpt>Configure single sign-on at UserVoice<ept id="7a485a88-888a-4389-a016-cd99a8e9ea03">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="1ae1ef06-9167-4111-b35f-3af6da48b247">&lt;strong&gt;</bpt>Download certificate<ept id="1ae1ef06-9167-4111-b35f-3af6da48b247">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="637abd47-bf2a-4d6b-ad08-91406e834bce">&lt;strong&gt;</bpt>c:\\UserVoice.cer<ept id="637abd47-bf2a-4d6b-ad08-91406e834bce">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7a485a88-888a-4389-a016-cd99a8e9ea03">&lt;strong&gt;</bpt>Configure single sign-on at UserVoice<ept id="7a485a88-888a-4389-a016-cd99a8e9ea03">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="1ae1ef06-9167-4111-b35f-3af6da48b247">&lt;strong&gt;</bpt>Download certificate<ept id="1ae1ef06-9167-4111-b35f-3af6da48b247">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="637abd47-bf2a-4d6b-ad08-91406e834bce">&lt;strong&gt;</bpt>c:\\UserVoice.cer<ept id="637abd47-bf2a-4d6b-ad08-91406e834bce">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5dbb191-0c1d-4116-b1e7-35e29c890b4f" xml:space="preserve">
+          <source><bpt id="a73f7e41-0716-4fc6-a203-e38dcad50f5f">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a73f7e41-0716-4fc6-a203-e38dcad50f5f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a73f7e41-0716-4fc6-a203-e38dcad50f5f">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a73f7e41-0716-4fc6-a203-e38dcad50f5f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c05205a-206a-41f2-ad4a-15d848622a19" xml:space="preserve">
+          <source>In a different web browser window, log into your UserVoice company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your UserVoice company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="73cfc740-b855-462e-8dfa-5310762e6ed9" xml:space="preserve">
+          <source>In the toolbar on the top, click Settings, and then select Web portal from the menu.</source>
+          <target state="new">In the toolbar on the top, click Settings, and then select Web portal from the menu.</target>
+        </trans-unit>
+        <trans-unit id="dfaf1e52-385c-45ea-9614-4a6cd693668c" xml:space="preserve">
+          <source><bpt id="d3de5500-fad8-4c10-b2b7-284be1b0cfd9">&lt;linkText&gt;</bpt>Settings<ept id="d3de5500-fad8-4c10-b2b7-284be1b0cfd9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d3de5500-fad8-4c10-b2b7-284be1b0cfd9">&lt;linkText&gt;</bpt>Settings<ept id="d3de5500-fad8-4c10-b2b7-284be1b0cfd9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="414faf3a-e567-4f91-b49b-36cb12dfb0ae" xml:space="preserve">
+          <source>On the <bpt id="78f1fd5d-8b47-43ff-8352-a6372067c7bc">&lt;strong&gt;</bpt>Web portal<ept id="78f1fd5d-8b47-43ff-8352-a6372067c7bc">&lt;/strong&gt;</ept> tab, in the <bpt id="dbd5bcb0-7b44-4e83-8df0-6378fd760137">&lt;strong&gt;</bpt>User authentication<ept id="dbd5bcb0-7b44-4e83-8df0-6378fd760137">&lt;/strong&gt;</ept> section, click <bpt id="d0c21159-cba9-4da8-966b-36061afcc251">&lt;strong&gt;</bpt>Edit<ept id="d0c21159-cba9-4da8-966b-36061afcc251">&lt;/strong&gt;</ept> to open the <bpt id="ceefd546-5415-4c8a-b2b8-d7c4dbdcfcbe">&lt;strong&gt;</bpt>Edit User Authentication<ept id="ceefd546-5415-4c8a-b2b8-d7c4dbdcfcbe">&lt;/strong&gt;</ept> dialog page</source>
+          <target state="new">On the <bpt id="78f1fd5d-8b47-43ff-8352-a6372067c7bc">&lt;strong&gt;</bpt>Web portal<ept id="78f1fd5d-8b47-43ff-8352-a6372067c7bc">&lt;/strong&gt;</ept> tab, in the <bpt id="dbd5bcb0-7b44-4e83-8df0-6378fd760137">&lt;strong&gt;</bpt>User authentication<ept id="dbd5bcb0-7b44-4e83-8df0-6378fd760137">&lt;/strong&gt;</ept> section, click <bpt id="d0c21159-cba9-4da8-966b-36061afcc251">&lt;strong&gt;</bpt>Edit<ept id="d0c21159-cba9-4da8-966b-36061afcc251">&lt;/strong&gt;</ept> to open the <bpt id="ceefd546-5415-4c8a-b2b8-d7c4dbdcfcbe">&lt;strong&gt;</bpt>Edit User Authentication<ept id="ceefd546-5415-4c8a-b2b8-d7c4dbdcfcbe">&lt;/strong&gt;</ept> dialog page</target>
+        </trans-unit>
+        <trans-unit id="1ebdfa8f-5fe3-4eb8-8474-82651eb3f7b9" xml:space="preserve">
+          <source><bpt id="f86d088a-6671-45a5-8190-81bfcb9c23e0">&lt;linkText&gt;</bpt>Web portal<ept id="f86d088a-6671-45a5-8190-81bfcb9c23e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f86d088a-6671-45a5-8190-81bfcb9c23e0">&lt;linkText&gt;</bpt>Web portal<ept id="f86d088a-6671-45a5-8190-81bfcb9c23e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e4a7211-df8b-425b-814b-0b3fcb43bfd9" xml:space="preserve">
+          <source>On the <bpt id="9636381c-85df-474d-8962-fd1c54f46ad1">&lt;strong&gt;</bpt>Edit User Authentication<ept id="9636381c-85df-474d-8962-fd1c54f46ad1">&lt;/strong&gt;</ept> dialog page, perform the following steps:</source>
+          <target state="new">On the <bpt id="9636381c-85df-474d-8962-fd1c54f46ad1">&lt;strong&gt;</bpt>Edit User Authentication<ept id="9636381c-85df-474d-8962-fd1c54f46ad1">&lt;/strong&gt;</ept> dialog page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="a716b519-3283-400b-80a9-1d5b1700a708" xml:space="preserve">
+          <source><bpt id="6017df50-3194-47a7-a23c-53c61cbc5803">&lt;linkText&gt;</bpt>Edit user authentication<ept id="6017df50-3194-47a7-a23c-53c61cbc5803">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6017df50-3194-47a7-a23c-53c61cbc5803">&lt;linkText&gt;</bpt>Edit user authentication<ept id="6017df50-3194-47a7-a23c-53c61cbc5803">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5d182ea-73aa-4892-ab45-e2168de84e21" xml:space="preserve">
+          <source>Click <bpt id="c2815eb7-6689-4fc3-b1e3-db1fcfafb70b">&lt;strong&gt;</bpt>Single Sign-On (SSO)<ept id="c2815eb7-6689-4fc3-b1e3-db1fcfafb70b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c2815eb7-6689-4fc3-b1e3-db1fcfafb70b">&lt;strong&gt;</bpt>Single Sign-On (SSO)<ept id="c2815eb7-6689-4fc3-b1e3-db1fcfafb70b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7105cd4c-9efb-41dc-b09a-eb95438bffb8" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="dbcde9b5-6ab7-4de7-97d0-512f54b0b386">&lt;strong&gt;</bpt>Configure single sign-on at UserVoice<ept id="dbcde9b5-6ab7-4de7-97d0-512f54b0b386">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="40b9650d-2177-449b-904d-130e731e61aa">&lt;strong&gt;</bpt>Remote Login URL<ept id="40b9650d-2177-449b-904d-130e731e61aa">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="c362f50a-7da4-4749-b33c-c1e6f7504c7e">&lt;strong&gt;</bpt>SSO Remote Sign-In<ept id="c362f50a-7da4-4749-b33c-c1e6f7504c7e">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="dbcde9b5-6ab7-4de7-97d0-512f54b0b386">&lt;strong&gt;</bpt>Configure single sign-on at UserVoice<ept id="dbcde9b5-6ab7-4de7-97d0-512f54b0b386">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="40b9650d-2177-449b-904d-130e731e61aa">&lt;strong&gt;</bpt>Remote Login URL<ept id="40b9650d-2177-449b-904d-130e731e61aa">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="c362f50a-7da4-4749-b33c-c1e6f7504c7e">&lt;strong&gt;</bpt>SSO Remote Sign-In<ept id="c362f50a-7da4-4749-b33c-c1e6f7504c7e">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="fcfd079a-6275-40de-9276-6517e171b1e7" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="75383676-fe0a-434c-89fd-cc9294f1750e">&lt;strong&gt;</bpt>Configure single sign-on at UserVoice<ept id="75383676-fe0a-434c-89fd-cc9294f1750e">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="2281f6ca-794a-4ab2-9321-067181188b88">&lt;strong&gt;</bpt>Remote Logout URL<ept id="2281f6ca-794a-4ab2-9321-067181188b88">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="14d34ae3-e13d-4293-bc91-8b37ea2d1986">&lt;strong&gt;</bpt>SSO Remote Sign-Out textbox<ept id="14d34ae3-e13d-4293-bc91-8b37ea2d1986">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal, on the <bpt id="75383676-fe0a-434c-89fd-cc9294f1750e">&lt;strong&gt;</bpt>Configure single sign-on at UserVoice<ept id="75383676-fe0a-434c-89fd-cc9294f1750e">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="2281f6ca-794a-4ab2-9321-067181188b88">&lt;strong&gt;</bpt>Remote Logout URL<ept id="2281f6ca-794a-4ab2-9321-067181188b88">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="14d34ae3-e13d-4293-bc91-8b37ea2d1986">&lt;strong&gt;</bpt>SSO Remote Sign-Out textbox<ept id="14d34ae3-e13d-4293-bc91-8b37ea2d1986">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b95b810-a9a7-4080-bc19-1b689a1789c8" xml:space="preserve">
+          <source>Copy the <bpt id="401316d5-a495-4128-9f19-07d303a2bd1a">&lt;strong&gt;</bpt>Thumbprint<ept id="401316d5-a495-4128-9f19-07d303a2bd1a">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="40e0d843-e40e-40c8-a5df-4866bd9379c8">&lt;strong&gt;</bpt>Current certificate SHA1 fingerprint<ept id="40e0d843-e40e-40c8-a5df-4866bd9379c8">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Copy the <bpt id="401316d5-a495-4128-9f19-07d303a2bd1a">&lt;strong&gt;</bpt>Thumbprint<ept id="401316d5-a495-4128-9f19-07d303a2bd1a">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="40e0d843-e40e-40c8-a5df-4866bd9379c8">&lt;strong&gt;</bpt>Current certificate SHA1 fingerprint<ept id="40e0d843-e40e-40c8-a5df-4866bd9379c8">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="714a9f72-3ebd-4902-a83c-623126cbc731" xml:space="preserve">
+          <source>For more details, see <bpt id="2dc3dd77-55b2-4310-951d-e0c4a47c9dbe">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="2dc3dd77-55b2-4310-951d-e0c4a47c9dbe">&lt;/linkText&gt;</ept><bpt id="2dc3dd77-55b2-4310-951d-e0c4a47c9dbe">&lt;title&gt;</bpt><ept id="2dc3dd77-55b2-4310-951d-e0c4a47c9dbe">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="2dc3dd77-55b2-4310-951d-e0c4a47c9dbe">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="2dc3dd77-55b2-4310-951d-e0c4a47c9dbe">&lt;/linkText&gt;</ept><bpt id="2dc3dd77-55b2-4310-951d-e0c4a47c9dbe">&lt;title&gt;</bpt><ept id="2dc3dd77-55b2-4310-951d-e0c4a47c9dbe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="685b97de-3f6d-4593-9d07-0ac7ca1007d0" xml:space="preserve">
+          <source>Click <bpt id="ee8a490e-9e91-45da-9915-0393b031bf2d">&lt;strong&gt;</bpt>Save authentication settings<ept id="ee8a490e-9e91-45da-9915-0393b031bf2d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ee8a490e-9e91-45da-9915-0393b031bf2d">&lt;strong&gt;</bpt>Save authentication settings<ept id="ee8a490e-9e91-45da-9915-0393b031bf2d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7b313f2-c73e-486f-acbb-617d78bbb54a" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="c6fc905a-81cf-474b-9aec-38772cc0c83d">&lt;strong&gt;</bpt>Complete<ept id="c6fc905a-81cf-474b-9aec-38772cc0c83d">&lt;/strong&gt;</ept> to close the <bpt id="9396ff44-aac3-45cd-8d34-e485340fdfff">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="9396ff44-aac3-45cd-8d34-e485340fdfff">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="c6fc905a-81cf-474b-9aec-38772cc0c83d">&lt;strong&gt;</bpt>Complete<ept id="c6fc905a-81cf-474b-9aec-38772cc0c83d">&lt;/strong&gt;</ept> to close the <bpt id="9396ff44-aac3-45cd-8d34-e485340fdfff">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="9396ff44-aac3-45cd-8d34-e485340fdfff">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="0678c4fa-947d-4f07-ac57-9ad91d5fddcf" xml:space="preserve">
+          <source><bpt id="b5472702-9672-4a1b-9f54-406f278875e5">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="b5472702-9672-4a1b-9f54-406f278875e5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b5472702-9672-4a1b-9f54-406f278875e5">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="b5472702-9672-4a1b-9f54-406f278875e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="429f1936-6fc1-4551-9f89-41e76ab1eabb" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into UserVoice, they must be provisioned into UserVoice.</source>
+          <target state="new">In order to enable Azure AD users to log into UserVoice, they must be provisioned into UserVoice.</target>
+        </trans-unit>
+        <trans-unit id="8e633aed-5360-4657-9906-3c3185989097" xml:space="preserve">
+          <source>In the case of UserVoice, provisioning is a manual task.</source>
+          <target state="new">In the case of UserVoice, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="9f48749e-1144-4b06-914c-28ffe4205812" xml:space="preserve">
+          <source>Log in to your <bpt id="f8c6f308-f90d-4a01-aa6f-e1e93d07069f">&lt;strong&gt;</bpt>UserVoice<ept id="f8c6f308-f90d-4a01-aa6f-e1e93d07069f">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="f8c6f308-f90d-4a01-aa6f-e1e93d07069f">&lt;strong&gt;</bpt>UserVoice<ept id="f8c6f308-f90d-4a01-aa6f-e1e93d07069f">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="cf7dbc70-5c8c-4342-a36a-a03f89c7d1e7" xml:space="preserve">
+          <source>Go to <bpt id="7551ff09-bbdd-48f1-8cf2-f1ad9c1f2586">&lt;strong&gt;</bpt>Settings<ept id="7551ff09-bbdd-48f1-8cf2-f1ad9c1f2586">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="7551ff09-bbdd-48f1-8cf2-f1ad9c1f2586">&lt;strong&gt;</bpt>Settings<ept id="7551ff09-bbdd-48f1-8cf2-f1ad9c1f2586">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d22e2f5-4f79-47c8-b5e0-03fbc46bb45e" xml:space="preserve">
+          <source><bpt id="cf020d2a-19a7-4c30-af21-98514790b8f4">&lt;linkText&gt;</bpt>Settings<ept id="cf020d2a-19a7-4c30-af21-98514790b8f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf020d2a-19a7-4c30-af21-98514790b8f4">&lt;linkText&gt;</bpt>Settings<ept id="cf020d2a-19a7-4c30-af21-98514790b8f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f6edc0f-a88d-4070-8c23-fc103a48fff8" xml:space="preserve">
+          <source>Click <bpt id="8fc201a0-06a1-43b6-baf9-9344d9a28e58">&lt;strong&gt;</bpt>General<ept id="8fc201a0-06a1-43b6-baf9-9344d9a28e58">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8fc201a0-06a1-43b6-baf9-9344d9a28e58">&lt;strong&gt;</bpt>General<ept id="8fc201a0-06a1-43b6-baf9-9344d9a28e58">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e21e942-e43c-4d7c-87ad-67f132d46d6b" xml:space="preserve">
+          <source>Click <bpt id="642039e5-7f87-4bbc-ac88-73275d758677">&lt;strong&gt;</bpt>Agents and permissions<ept id="642039e5-7f87-4bbc-ac88-73275d758677">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="642039e5-7f87-4bbc-ac88-73275d758677">&lt;strong&gt;</bpt>Agents and permissions<ept id="642039e5-7f87-4bbc-ac88-73275d758677">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6f4fe33-7429-4039-b572-08b72a2fb902" xml:space="preserve">
+          <source><bpt id="3c047aa5-025f-4d1a-b1f2-16ad1a179620">&lt;linkText&gt;</bpt>Agents and permissions<ept id="3c047aa5-025f-4d1a-b1f2-16ad1a179620">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3c047aa5-025f-4d1a-b1f2-16ad1a179620">&lt;linkText&gt;</bpt>Agents and permissions<ept id="3c047aa5-025f-4d1a-b1f2-16ad1a179620">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64989da3-95e6-4871-abde-d2bcc4a8ee08" xml:space="preserve">
+          <source>Click <bpt id="e582b382-f139-4582-9c83-406fdaf0745e">&lt;strong&gt;</bpt>Add admins<ept id="e582b382-f139-4582-9c83-406fdaf0745e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e582b382-f139-4582-9c83-406fdaf0745e">&lt;strong&gt;</bpt>Add admins<ept id="e582b382-f139-4582-9c83-406fdaf0745e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b499180-b5df-407b-b24a-f914aecb38a9" xml:space="preserve">
+          <source><bpt id="23ceacf9-381c-4871-bef9-0df275ef0ee8">&lt;linkText&gt;</bpt>Add admins<ept id="23ceacf9-381c-4871-bef9-0df275ef0ee8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23ceacf9-381c-4871-bef9-0df275ef0ee8">&lt;linkText&gt;</bpt>Add admins<ept id="23ceacf9-381c-4871-bef9-0df275ef0ee8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2f9f80b-2200-47ac-8228-4a681dc4f118" xml:space="preserve">
+          <source>On the <bpt id="dd327f88-89a3-4552-9ab7-ae7a9d608cd6">&lt;strong&gt;</bpt>Invite admins<ept id="dd327f88-89a3-4552-9ab7-ae7a9d608cd6">&lt;/strong&gt;</ept> dialog, perform the following steps:</source>
+          <target state="new">On the <bpt id="dd327f88-89a3-4552-9ab7-ae7a9d608cd6">&lt;strong&gt;</bpt>Invite admins<ept id="dd327f88-89a3-4552-9ab7-ae7a9d608cd6">&lt;/strong&gt;</ept> dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="6818591b-ecfb-4e67-8985-599fa4d72ae7" xml:space="preserve">
+          <source><bpt id="c239b6bf-4ff7-4a67-a0dd-cbf4268b0743">&lt;linkText&gt;</bpt>Invite admins<ept id="c239b6bf-4ff7-4a67-a0dd-cbf4268b0743">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c239b6bf-4ff7-4a67-a0dd-cbf4268b0743">&lt;linkText&gt;</bpt>Invite admins<ept id="c239b6bf-4ff7-4a67-a0dd-cbf4268b0743">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4b8b75c-558d-492a-a50c-ae90148a6a34" xml:space="preserve">
+          <source>In the Emails texbox, type the email address of the account you want to provision, and then click <bpt id="fe0df19c-686f-41f9-bcc4-08fe821919be">&lt;strong&gt;</bpt>Add<ept id="fe0df19c-686f-41f9-bcc4-08fe821919be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Emails texbox, type the email address of the account you want to provision, and then click <bpt id="fe0df19c-686f-41f9-bcc4-08fe821919be">&lt;strong&gt;</bpt>Add<ept id="fe0df19c-686f-41f9-bcc4-08fe821919be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb66a811-ac74-41b3-b08c-885a9952a39e" xml:space="preserve">
+          <source>Click <bpt id="ecf255d2-0424-432a-8caf-c3b2fdbcd417">&lt;strong&gt;</bpt>Invite<ept id="ecf255d2-0424-432a-8caf-c3b2fdbcd417">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ecf255d2-0424-432a-8caf-c3b2fdbcd417">&lt;strong&gt;</bpt>Invite<ept id="ecf255d2-0424-432a-8caf-c3b2fdbcd417">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b5ff516-6458-49bd-9935-54f2ff3cf5e4" xml:space="preserve">
+          <source>You can use any other UserVoice user account creation tools or APIs provided by UserVoice to provision AAD user accounts.</source>
+          <target state="new">You can use any other UserVoice user account creation tools or APIs provided by UserVoice to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="18258208-70de-4577-b0ca-c11fc4a5b599" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="dcea0625-69e4-4b01-a847-ece31220da0b" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="3403987f-cbed-42b8-80b5-7c86e695cfac" xml:space="preserve">
+          <source>On the <bpt id="8aa80bbf-1431-4941-b4f1-936282c0fcc7">&lt;strong&gt;</bpt>UserVoice **application integration page, click **Assign users<ept id="8aa80bbf-1431-4941-b4f1-936282c0fcc7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="8aa80bbf-1431-4941-b4f1-936282c0fcc7">&lt;strong&gt;</bpt>UserVoice **application integration page, click **Assign users<ept id="8aa80bbf-1431-4941-b4f1-936282c0fcc7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e807acab-24f6-4506-be82-40a5d67db2b9" xml:space="preserve">
+          <source><bpt id="c4850425-8052-409d-bd82-3dbfdbbe944b">&lt;linkText&gt;</bpt>Assign users<ept id="c4850425-8052-409d-bd82-3dbfdbbe944b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c4850425-8052-409d-bd82-3dbfdbbe944b">&lt;linkText&gt;</bpt>Assign users<ept id="c4850425-8052-409d-bd82-3dbfdbbe944b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b4ec884-3ef0-4ab7-ba9b-d5ed7f84e3da" xml:space="preserve">
+          <source>Select your test user, click <bpt id="cbeebeb5-0619-4c12-a93b-860ff7988d21">&lt;strong&gt;</bpt>Assign<ept id="cbeebeb5-0619-4c12-a93b-860ff7988d21">&lt;/strong&gt;</ept>, and then click <bpt id="14b20147-a85e-48d8-a2b0-948f35c27fd5">&lt;strong&gt;</bpt>Yes<ept id="14b20147-a85e-48d8-a2b0-948f35c27fd5">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="cbeebeb5-0619-4c12-a93b-860ff7988d21">&lt;strong&gt;</bpt>Assign<ept id="cbeebeb5-0619-4c12-a93b-860ff7988d21">&lt;/strong&gt;</ept>, and then click <bpt id="14b20147-a85e-48d8-a2b0-948f35c27fd5">&lt;strong&gt;</bpt>Yes<ept id="14b20147-a85e-48d8-a2b0-948f35c27fd5">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="6636a24b-f040-4c04-866b-98c1a3ce7b48" xml:space="preserve">
+          <source><bpt id="72d2856b-7f4d-4dae-91bf-364316db97f1">&lt;linkText&gt;</bpt>Yes<ept id="72d2856b-7f4d-4dae-91bf-364316db97f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="72d2856b-7f4d-4dae-91bf-364316db97f1">&lt;linkText&gt;</bpt>Yes<ept id="72d2856b-7f4d-4dae-91bf-364316db97f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcf51378-285c-419f-ae99-c1d80f099c1f" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="603e8c3d-03fe-4398-87f3-810cdf54b365" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="a00a0e0e-dabc-4cea-9bb5-b4cf03c07d34">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="a00a0e0e-dabc-4cea-9bb5-b4cf03c07d34">&lt;/linkText&gt;</ept><bpt id="a00a0e0e-dabc-4cea-9bb5-b4cf03c07d34">&lt;title&gt;</bpt><ept id="a00a0e0e-dabc-4cea-9bb5-b4cf03c07d34">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="a00a0e0e-dabc-4cea-9bb5-b4cf03c07d34">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="a00a0e0e-dabc-4cea-9bb5-b4cf03c07d34">&lt;/linkText&gt;</ept><bpt id="a00a0e0e-dabc-4cea-9bb5-b4cf03c07d34">&lt;title&gt;</bpt><ept id="a00a0e0e-dabc-4cea-9bb5-b4cf03c07d34">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

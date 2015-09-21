@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="eea971d2-a87f-412b-bb88-020824703732" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="eea971d2-a87f-412b-bb88-020824703732" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="34275e18-26a1-42ae-893a-968d3f4fbafa">
+        <trans-unit id="ac548cea-069a-4a50-9639-c27d534dffe7" xml:space="preserve">
+          <source>CREATE ASSEMBLY on Azure SQL Database with CSharp</source>
+          <target state="new">CREATE ASSEMBLY on Azure SQL Database with CSharp</target>
+        </trans-unit>
+        <trans-unit id="b54bb375-4a69-4e6a-881c-e9426fbd36bb" xml:space="preserve">
+          <source>Provides C# source code to issue CREATE ASSEMBLY to Azure SQL Database after first encoding a DLL file into a string that contains a long hexadecimal number.</source>
+          <target state="new">Provides C# source code to issue CREATE ASSEMBLY to Azure SQL Database after first encoding a DLL file into a string that contains a long hexadecimal number.</target>
+        </trans-unit>
+        <trans-unit id="5bb7f1cf-d0dc-4619-ac35-613347df3bb1" xml:space="preserve">
+          <source>This topic provides a C# code sample you can use to issue a <bpt id="f2925f1e-31b9-4236-b8bb-c19ebb605a9a">&lt;linkText&gt;</bpt>CREATE ASSEMBLY<ept id="f2925f1e-31b9-4236-b8bb-c19ebb605a9a">&lt;/linkText&gt;</ept><bpt id="f2925f1e-31b9-4236-b8bb-c19ebb605a9a">&lt;title&gt;</bpt><ept id="f2925f1e-31b9-4236-b8bb-c19ebb605a9a">&lt;/title&gt;</ept> statement to Azure SQL Database.</source>
+          <target state="new">This topic provides a C# code sample you can use to issue a <bpt id="f2925f1e-31b9-4236-b8bb-c19ebb605a9a">&lt;linkText&gt;</bpt>CREATE ASSEMBLY<ept id="f2925f1e-31b9-4236-b8bb-c19ebb605a9a">&lt;/linkText&gt;</ept><bpt id="f2925f1e-31b9-4236-b8bb-c19ebb605a9a">&lt;title&gt;</bpt><ept id="f2925f1e-31b9-4236-b8bb-c19ebb605a9a">&lt;/title&gt;</ept> statement to Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="517c8968-5ee3-4cf5-8fa7-5d208d07ae7f" xml:space="preserve">
+          <source>For SQL Database, the FROM clause cannot accept the simple format of a path on the local computer that hosts the database.</source>
+          <target state="new">For SQL Database, the FROM clause cannot accept the simple format of a path on the local computer that hosts the database.</target>
+        </trans-unit>
+        <trans-unit id="c54278a5-464b-433c-a3b2-ddcc30b9a42c" xml:space="preserve">
+          <source>An alternative is to first encode the binary bits of the assembly DLL into a long string containing a hexadecimal number.</source>
+          <target state="new">An alternative is to first encode the binary bits of the assembly DLL into a long string containing a hexadecimal number.</target>
+        </trans-unit>
+        <trans-unit id="e25a34f2-40f5-4bab-9879-5181d667d91c" xml:space="preserve">
+          <source>Then give the string as the value on the FROM clause.</source>
+          <target state="new">Then give the string as the value on the FROM clause.</target>
+        </trans-unit>
+        <trans-unit id="2d57be96-bec6-484a-94a3-54abccf320f3" xml:space="preserve">
+          <source>To understand this topic, you must have already partially know the following:</source>
+          <target state="new">To understand this topic, you must have already partially know the following:</target>
+        </trans-unit>
+        <trans-unit id="3782217d-f3fa-45d2-8769-53e4ffdb6352" xml:space="preserve">
+          <source><bpt id="02e7ec3e-e0e3-456f-b7b0-35cd4e8656bb">&lt;linkText&gt;</bpt>CLR Table-Valued Functions<ept id="02e7ec3e-e0e3-456f-b7b0-35cd4e8656bb">&lt;/linkText&gt;</ept><bpt id="02e7ec3e-e0e3-456f-b7b0-35cd4e8656bb">&lt;title&gt;</bpt><ept id="02e7ec3e-e0e3-456f-b7b0-35cd4e8656bb">&lt;/title&gt;</ept>&lt;br/&gt;Explains how the CREATE ASSEMBLY Transact-SQL statement works with other statements for the on-premises Microsoft SQL Server.</source>
+          <target state="new"><bpt id="02e7ec3e-e0e3-456f-b7b0-35cd4e8656bb">&lt;linkText&gt;</bpt>CLR Table-Valued Functions<ept id="02e7ec3e-e0e3-456f-b7b0-35cd4e8656bb">&lt;/linkText&gt;</ept><bpt id="02e7ec3e-e0e3-456f-b7b0-35cd4e8656bb">&lt;title&gt;</bpt><ept id="02e7ec3e-e0e3-456f-b7b0-35cd4e8656bb">&lt;/title&gt;</ept>&lt;br/&gt;Explains how the CREATE ASSEMBLY Transact-SQL statement works with other statements for the on-premises Microsoft SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="ebd55227-55f9-4205-acc9-2a996159694d" xml:space="preserve">
+          <source>DROP FUNCTION and DROP ASSEMBLY, if necessary to clean up a previous run.</source>
+          <target state="new">DROP FUNCTION and DROP ASSEMBLY, if necessary to clean up a previous run.</target>
+        </trans-unit>
+        <trans-unit id="b1cff5c9-babd-4b11-83f6-0d3d87aae10c" xml:space="preserve">
+          <source>Remember the location of the Microsoft .NET Framework assembly DLL file that you compiled from your own code.</source>
+          <target state="new">Remember the location of the Microsoft .NET Framework assembly DLL file that you compiled from your own code.</target>
+        </trans-unit>
+        <trans-unit id="1c1f4b64-f918-4821-96ff-c6eb3691e2aa" xml:space="preserve">
+          <source>You provide the location in the next step.</source>
+          <target state="new">You provide the location in the next step.</target>
+        </trans-unit>
+        <trans-unit id="e5d4fc60-79a5-47d5-a2d0-7a6d1819b532" xml:space="preserve">
+          <source>Run the EXE for which the C# source code is given in this topic.</source>
+          <target state="new">Run the EXE for which the C# source code is given in this topic.</target>
+        </trans-unit>
+        <trans-unit id="b3810efc-fbfd-49c7-81e8-79b177a9f147" xml:space="preserve">
+          <source>Tell the EXE where your DLL file is.</source>
+          <target state="new">Tell the EXE where your DLL file is.</target>
+        </trans-unit>
+        <trans-unit id="717352d7-32c7-4819-86d6-4b6da468e279" xml:space="preserve">
+          <source>Encodes your binary DLL into a long string containing a hexadecimal number.</source>
+          <target state="new">Encodes your binary DLL into a long string containing a hexadecimal number.</target>
+        </trans-unit>
+        <trans-unit id="3affbd77-56ed-4d60-a551-0b23bbfa9358" xml:space="preserve">
+          <source>Issues a CREATE ASSEMBLY statement with the hex string given in the FROM clause.</source>
+          <target state="new">Issues a CREATE ASSEMBLY statement with the hex string given in the FROM clause.</target>
+        </trans-unit>
+        <trans-unit id="e09a4284-ae6b-4943-af67-394409011c82" xml:space="preserve">
+          <source><bpt id="944f6b01-bd38-482e-8761-c5a0c2309bb3">&lt;linkText&gt;</bpt>CREATE FUNCTION<ept id="944f6b01-bd38-482e-8761-c5a0c2309bb3">&lt;/linkText&gt;</ept><bpt id="944f6b01-bd38-482e-8761-c5a0c2309bb3">&lt;title&gt;</bpt><ept id="944f6b01-bd38-482e-8761-c5a0c2309bb3">&lt;/title&gt;</ept> to reference a method in your assembly.</source>
+          <target state="new"><bpt id="944f6b01-bd38-482e-8761-c5a0c2309bb3">&lt;linkText&gt;</bpt>CREATE FUNCTION<ept id="944f6b01-bd38-482e-8761-c5a0c2309bb3">&lt;/linkText&gt;</ept><bpt id="944f6b01-bd38-482e-8761-c5a0c2309bb3">&lt;title&gt;</bpt><ept id="944f6b01-bd38-482e-8761-c5a0c2309bb3">&lt;/title&gt;</ept> to reference a method in your assembly.</target>
+        </trans-unit>
+        <trans-unit id="a8219bb2-d0f4-4162-91d8-30672c2f5bb2" xml:space="preserve">
+          <source>T-SQL SELECT statement to call and test your function.</source>
+          <target state="new">T-SQL SELECT statement to call and test your function.</target>
+        </trans-unit>
+        <trans-unit id="2e0d1bd9-d818-42e3-92d6-df3301935aaf" xml:space="preserve">
+          <source>The preceding list makes no mention of...&lt;br/&gt;
+<bpt id="221bffe2-4476-4c99-b5ad-f217dec6ebfc">&lt;strong&gt;</bpt>execute sp_configure 'clr enabled', 1;<ept id="221bffe2-4476-4c99-b5ad-f217dec6ebfc">&lt;/strong&gt;</ept>&lt;br/&gt;
+...because this is not needed for Azure SQL Database, even though it is needed for Microsoft SQL Server.</source>
+          <target state="new">The preceding list makes no mention of...&lt;br/&gt;
+<bpt id="221bffe2-4476-4c99-b5ad-f217dec6ebfc">&lt;strong&gt;</bpt>execute sp_configure 'clr enabled', 1;<ept id="221bffe2-4476-4c99-b5ad-f217dec6ebfc">&lt;/strong&gt;</ept>&lt;br/&gt;
+...because this is not needed for Azure SQL Database, even though it is needed for Microsoft SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="f3429864-a64f-4dfb-b9c8-5420f0aea471" xml:space="preserve">
+          <source>If necessary for reruns, the T-SQL code to drop the function and assembly is the following:</source>
+          <target state="new">If necessary for reruns, the T-SQL code to drop the function and assembly is the following:</target>
+        </trans-unit>
+        <trans-unit id="e2de46a5-767e-4f04-aaff-b33b9f993c97" xml:space="preserve">
+          <source>The trivial C# code sample in this section can be compiled into an assembly DLL file.</source>
+          <target state="new">The trivial C# code sample in this section can be compiled into an assembly DLL file.</target>
+        </trans-unit>
+        <trans-unit id="461c983f-a676-457d-8cdc-3cb3e27c28e9" xml:space="preserve">
+          <source>This code sample contains the method <bpt id="62eae138-3168-4a85-821a-b57b4fb2a0ca">&lt;strong&gt;</bpt>CompareCaseSensitiveNet<ept id="62eae138-3168-4a85-821a-b57b4fb2a0ca">&lt;/strong&gt;</ept> which is referenced later in a T-SQL CREATE FUNCTION statement.</source>
+          <target state="new">This code sample contains the method <bpt id="62eae138-3168-4a85-821a-b57b4fb2a0ca">&lt;strong&gt;</bpt>CompareCaseSensitiveNet<ept id="62eae138-3168-4a85-821a-b57b4fb2a0ca">&lt;/strong&gt;</ept> which is referenced later in a T-SQL CREATE FUNCTION statement.</target>
+        </trans-unit>
+        <trans-unit id="06bd7146-eba5-4d69-ad66-e393c2869e9d" xml:space="preserve">
+          <source>Notice that the method is decorated with a .NET attribute named <bpt id="a07bcb8b-f726-4b84-91b9-bbbbc954d6da">&lt;strong&gt;</bpt>SqlFunction<ept id="a07bcb8b-f726-4b84-91b9-bbbbc954d6da">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice that the method is decorated with a .NET attribute named <bpt id="a07bcb8b-f726-4b84-91b9-bbbbc954d6da">&lt;strong&gt;</bpt>SqlFunction<ept id="a07bcb8b-f726-4b84-91b9-bbbbc954d6da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="040e40ed-4692-4e3c-86ef-cb5e11a2412e" xml:space="preserve">
+          <source>A method that is decorated with this attribute can be called by your T-SQL as a function.</source>
+          <target state="new">A method that is decorated with this attribute can be called by your T-SQL as a function.</target>
+        </trans-unit>
+        <trans-unit id="b982c018-5851-42d9-9027-34a209bbf2fd" xml:space="preserve">
+          <source>The following sequence occurs when you run the EXE that is built from this C# sample:</source>
+          <target state="new">The following sequence occurs when you run the EXE that is built from this C# sample:</target>
+        </trans-unit>
+        <trans-unit id="fe098ac4-2dea-425c-bfd2-d257df38bfaf" xml:space="preserve">
+          <source>The command line run of the EXE calls the <bpt id="54bffc04-a48d-4298-b3b6-f7ad4140c46f">&lt;strong&gt;</bpt>Main<ept id="54bffc04-a48d-4298-b3b6-f7ad4140c46f">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">The command line run of the EXE calls the <bpt id="54bffc04-a48d-4298-b3b6-f7ad4140c46f">&lt;strong&gt;</bpt>Main<ept id="54bffc04-a48d-4298-b3b6-f7ad4140c46f">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="94d471d2-5363-47bc-94b9-063b931f8501" xml:space="preserve">
+          <source>Main calls the <bpt id="b4e48980-625d-43b2-9789-b0348a36b1a6">&lt;strong&gt;</bpt>ObtainHexStringOfAssembly<ept id="b4e48980-625d-43b2-9789-b0348a36b1a6">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">Main calls the <bpt id="b4e48980-625d-43b2-9789-b0348a36b1a6">&lt;strong&gt;</bpt>ObtainHexStringOfAssembly<ept id="b4e48980-625d-43b2-9789-b0348a36b1a6">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="f6cd2854-b241-4ee9-9e38-dffc9e342a2b" xml:space="preserve">
+          <source>The method outputs a SqlString that stores the assembly as a hexadecimal number.</source>
+          <target state="new">The method outputs a SqlString that stores the assembly as a hexadecimal number.</target>
+        </trans-unit>
+        <trans-unit id="2f16f027-32c0-4af2-83bb-6e9778507ce8" xml:space="preserve">
+          <source>Main calls the <bpt id="b2493a90-5b39-4fd8-9e64-338166205c78">&lt;strong&gt;</bpt>SubmitCreateAssemblyToAzureSqlDb<ept id="b2493a90-5b39-4fd8-9e64-338166205c78">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">Main calls the <bpt id="b2493a90-5b39-4fd8-9e64-338166205c78">&lt;strong&gt;</bpt>SubmitCreateAssemblyToAzureSqlDb<ept id="b2493a90-5b39-4fd8-9e64-338166205c78">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="b06b2a29-a7ba-474d-b895-195907528cca" xml:space="preserve">
+          <source>The primary input is the SqlString.</source>
+          <target state="new">The primary input is the SqlString.</target>
+        </trans-unit>
+        <trans-unit id="72dcd60e-84b8-4d7a-8381-7571a4f2f64b" xml:space="preserve">
+          <source>The output is a CREATE ASSEMBLY call that is sent to Azure SQL Database.</source>
+          <target state="new">The output is a CREATE ASSEMBLY call that is sent to Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="2e7ea172-1385-43ae-a672-a68d957471c9" xml:space="preserve">
+          <source>When we compiled and tested the sample code for the EXE tool, we used the following:</source>
+          <target state="new">When we compiled and tested the sample code for the EXE tool, we used the following:</target>
+        </trans-unit>
+        <trans-unit id="964589bb-27a6-4c0e-86e4-617cd1d7e4f1" xml:space="preserve">
+          <source>Visual Studio 2013, update 4</source>
+          <target state="new">Visual Studio 2013, update 4</target>
+        </trans-unit>
+        <trans-unit id="b01734a7-db98-411e-a778-e1733f429c0c" xml:space="preserve">
+          <source>Our project template type was the simple console application.</source>
+          <target state="new">Our project template type was the simple console application.</target>
+        </trans-unit>
+        <trans-unit id="8ea4a0fc-49e1-4f7f-a9a8-af1c13462254" xml:space="preserve">
+          <source>.NET Framework 4.5</source>
+          <target state="new">.NET Framework 4.5</target>
+        </trans-unit>
+        <trans-unit id="0f8c4f74-553d-4a19-92b4-2a9df4c85285" xml:space="preserve">
+          <source>Our Visual Studio project referenced the following assemblies for compile:</source>
+          <target state="new">Our Visual Studio project referenced the following assemblies for compile:</target>
+        </trans-unit>
+        <trans-unit id="4c2de255-94c3-4ab2-b023-a6c6e265909e" xml:space="preserve">
+          <source>Microsoft.CSharp</source>
+          <target state="new">Microsoft.CSharp</target>
+        </trans-unit>
+        <trans-unit id="8c3531d1-ea79-44b0-8448-324b72eb1aa8" xml:space="preserve">
+          <source>System</source>
+          <target state="new">System</target>
+        </trans-unit>
+        <trans-unit id="6e047cdd-ae3a-44dd-8e8b-2c7be958305b" xml:space="preserve">
+          <source>System.Core</source>
+          <target state="new">System.Core</target>
+        </trans-unit>
+        <trans-unit id="df748766-4e37-40d2-98e4-fcb3d42c4474" xml:space="preserve">
+          <source>System.Data</source>
+          <target state="new">System.Data</target>
+        </trans-unit>
+        <trans-unit id="1c8c99bb-78df-49e5-9c19-1c737abd61e6" xml:space="preserve">
+          <source>System.Data.DataSetExtensions</source>
+          <target state="new">System.Data.DataSetExtensions</target>
+        </trans-unit>
+        <trans-unit id="f13172ef-7afc-465f-9937-67d3b5e80f61" xml:space="preserve">
+          <source>System.Xml</source>
+          <target state="new">System.Xml</target>
+        </trans-unit>
+        <trans-unit id="dacc63c6-3287-44db-8ad4-7ffb831786be" xml:space="preserve">
+          <source>System.Xml.Linq</source>
+          <target state="new">System.Xml.Linq</target>
+        </trans-unit>
+        <trans-unit id="124321fd-cdd9-475e-b313-7d602d78b105" xml:space="preserve">
+          <source>The following code block displays an example of the command line that you would enter to run the EXE from the console.</source>
+          <target state="new">The following code block displays an example of the command line that you would enter to run the EXE from the console.</target>
+        </trans-unit>
+        <trans-unit id="62290eb1-85cf-4152-aa1b-bbccbd275f16" xml:space="preserve">
+          <source>The parameters in the command line are artificially wrapped here for better display.</source>
+          <target state="new">The parameters in the command line are artificially wrapped here for better display.</target>
+        </trans-unit>
+        <trans-unit id="ff7ffecb-bc1e-4348-a6b2-77d2cd7829dc" xml:space="preserve">
+          <source>For simplicity of explanation this example passes the password as a command line parameter.</source>
+          <target state="new">For simplicity of explanation this example passes the password as a command line parameter.</target>
+        </trans-unit>
+        <trans-unit id="22fe9c05-1438-4c7e-8c47-53be83b1737b" xml:space="preserve">
+          <source>A better design is to have the C# code obtain the password from a CONFIG file.</source>
+          <target state="new">A better design is to have the C# code obtain the password from a CONFIG file.</target>
+        </trans-unit>
+        <trans-unit id="3dfa0faf-9b82-4397-b4b0-82fd1e55531e" xml:space="preserve">
+          <source>After the assembly is stored in your Azure SQL Database server, you must run a Transact-SQL CREATE FUNCTION statement that references the method in the assembly.</source>
+          <target state="new">After the assembly is stored in your Azure SQL Database server, you must run a Transact-SQL CREATE FUNCTION statement that references the method in the assembly.</target>
+        </trans-unit>
+        <trans-unit id="0821c0b4-1343-447c-95e0-bb6b77326c86" xml:space="preserve">
+          <source>The following block of Transact-SQL code includes a couple of nonessential SELECT statements to show proof that the database system has records for your assembly and your function.</source>
+          <target state="new">The following block of Transact-SQL code includes a couple of nonessential SELECT statements to show proof that the database system has records for your assembly and your function.</target>
+        </trans-unit>
+        <trans-unit id="9fe771ee-e5e2-48b8-958e-4eadd75bbd87" xml:space="preserve">
+          <source>Finally there is a SELECT that calls the function.</source>
+          <target state="new">Finally there is a SELECT that calls the function.</target>
+        </trans-unit>
+        <trans-unit id="f3857391-cfa6-4937-b24e-5629190b116e" xml:space="preserve">
+          <source>The preceding Transact-SQL code block ends with a SELECT statement that calls the new function.</source>
+          <target state="new">The preceding Transact-SQL code block ends with a SELECT statement that calls the new function.</target>
+        </trans-unit>
+        <trans-unit id="0171926b-e471-409e-8aec-1c53ed2d680e" xml:space="preserve">
+          <source>You could place the SELECT statement into a stored procedure.</source>
+          <target state="new">You could place the SELECT statement into a stored procedure.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

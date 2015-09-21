@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6e837b5d-3939-4b6a-b65e-18cffe07e98c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6e837b5d-3939-4b6a-b65e-18cffe07e98c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="847affb4-e4c4-4a77-abeb-4a2474275975">
+        <trans-unit id="317d1263-15e6-4068-8b73-77fb6cedf8ff" xml:space="preserve">
+          <source>CDN - Restrict access to your content by country</source>
+          <target state="new">CDN - Restrict access to your content by country</target>
+        </trans-unit>
+        <trans-unit id="715f3e76-d64c-47b0-8861-df75cc77eed9" xml:space="preserve">
+          <source>When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This topic explains how to use the **Country Filtering** feature in order to configure the service to allow or block access by country.</source>
+          <target state="new">When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This topic explains how to use the **Country Filtering** feature in order to configure the service to allow or block access by country.</target>
+        </trans-unit>
+        <trans-unit id="33516e2b-b502-425a-bebb-45950f7cab7e" xml:space="preserve">
+          <source>When a user requests your content, by default, the content is served regardless of where the user made this request from.</source>
+          <target state="new">When a user requests your content, by default, the content is served regardless of where the user made this request from.</target>
+        </trans-unit>
+        <trans-unit id="a7cf46e1-1d8c-49d2-8b7f-5db0ab522bf7" xml:space="preserve">
+          <source>In some cases, you may want to restrict access to your content by country.</source>
+          <target state="new">In some cases, you may want to restrict access to your content by country.</target>
+        </trans-unit>
+        <trans-unit id="10aeac32-f278-48d9-a74b-bf6b6c227717" xml:space="preserve">
+          <source>This topic explains how to use the <bpt id="96a4f225-8076-4662-928d-d7660064cc15">&lt;strong&gt;</bpt>Country Filtering<ept id="96a4f225-8076-4662-928d-d7660064cc15">&lt;/strong&gt;</ept> feature in order to configure the service to allow or block access by country.</source>
+          <target state="new">This topic explains how to use the <bpt id="96a4f225-8076-4662-928d-d7660064cc15">&lt;strong&gt;</bpt>Country Filtering<ept id="96a4f225-8076-4662-928d-d7660064cc15">&lt;/strong&gt;</ept> feature in order to configure the service to allow or block access by country.</target>
+        </trans-unit>
+        <trans-unit id="39403f92-2a80-45a7-b5d4-aaa811b2bcd9" xml:space="preserve">
+          <source>Once the configuration is set up, it will apply to all CDN endpoints in your subscription.</source>
+          <target state="new">Once the configuration is set up, it will apply to all CDN endpoints in your subscription.</target>
+        </trans-unit>
+        <trans-unit id="d4e0e1d7-9d8e-464a-b229-e54a3a880286" xml:space="preserve">
+          <source>For information about considerations that apply to configuring this type of restrictions, see the <bpt id="e25c53e5-d6dd-4302-86c6-4c5816be3c42">&lt;linkText&gt;</bpt>Considerations<ept id="e25c53e5-d6dd-4302-86c6-4c5816be3c42">&lt;/linkText&gt;</ept><bpt id="e25c53e5-d6dd-4302-86c6-4c5816be3c42">&lt;title&gt;</bpt><ept id="e25c53e5-d6dd-4302-86c6-4c5816be3c42">&lt;/title&gt;</ept> section at the end of the topic.</source>
+          <target state="new">For information about considerations that apply to configuring this type of restrictions, see the <bpt id="e25c53e5-d6dd-4302-86c6-4c5816be3c42">&lt;linkText&gt;</bpt>Considerations<ept id="e25c53e5-d6dd-4302-86c6-4c5816be3c42">&lt;/linkText&gt;</ept><bpt id="e25c53e5-d6dd-4302-86c6-4c5816be3c42">&lt;title&gt;</bpt><ept id="e25c53e5-d6dd-4302-86c6-4c5816be3c42">&lt;/title&gt;</ept> section at the end of the topic.</target>
+        </trans-unit>
+        <trans-unit id="4fda4b39-244c-4819-a018-e4ffb7ac9307" xml:space="preserve">
+          <source><bpt id="22d47198-fba2-43d2-ab55-582c9b064498">&lt;linkText&gt;</bpt>Country filtering<ept id="22d47198-fba2-43d2-ab55-582c9b064498">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22d47198-fba2-43d2-ab55-582c9b064498">&lt;linkText&gt;</bpt>Country filtering<ept id="22d47198-fba2-43d2-ab55-582c9b064498">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a6d07f7-839a-4cea-89a2-a0bc3a511aaa" xml:space="preserve">
+          <source>When configuring a country filter, you must specify the relative path to the location to which users will be allowed or denied access.</source>
+          <target state="new">When configuring a country filter, you must specify the relative path to the location to which users will be allowed or denied access.</target>
+        </trans-unit>
+        <trans-unit id="f2a6a567-0ea8-43cc-a527-ccfef17c43a9" xml:space="preserve">
+          <source>You can apply country filtering for all your files with "/" or selected folders by specifying directory paths.</source>
+          <target state="new">You can apply country filtering for all your files with "/" or selected folders by specifying directory paths.</target>
+        </trans-unit>
+        <trans-unit id="b813ce5b-f5e3-4ca8-a5ac-248adac019a9" xml:space="preserve">
+          <source>Example directory path filter:</source>
+          <target state="new">Example directory path filter:</target>
+        </trans-unit>
+        <trans-unit id="79e0d8a5-cd00-43b4-94fa-59a46cdc9413" xml:space="preserve">
+          <source><bpt id="a50c2143-f226-4066-9476-06cbc0739525">&lt;strong&gt;</bpt>Block:<ept id="a50c2143-f226-4066-9476-06cbc0739525">&lt;/strong&gt;</ept> Users from the specified countries will be denied access to assets requested from that recursive path.</source>
+          <target state="new"><bpt id="a50c2143-f226-4066-9476-06cbc0739525">&lt;strong&gt;</bpt>Block:<ept id="a50c2143-f226-4066-9476-06cbc0739525">&lt;/strong&gt;</ept> Users from the specified countries will be denied access to assets requested from that recursive path.</target>
+        </trans-unit>
+        <trans-unit id="a2b3d61a-259c-4884-aa24-213dad33d67b" xml:space="preserve">
+          <source>If no other country filtering options have been configured for that location, then all other users will be allowed access.</source>
+          <target state="new">If no other country filtering options have been configured for that location, then all other users will be allowed access.</target>
+        </trans-unit>
+        <trans-unit id="d328c6c3-f8e2-4fb3-af0e-7f949de84c80" xml:space="preserve">
+          <source><bpt id="700a2fc6-e8a1-444a-bc37-42788f38ecab">&lt;strong&gt;</bpt>Allow:<ept id="700a2fc6-e8a1-444a-bc37-42788f38ecab">&lt;/strong&gt;</ept> Only users from the specified countries will be allowed access to assets requested from that recursive path.</source>
+          <target state="new"><bpt id="700a2fc6-e8a1-444a-bc37-42788f38ecab">&lt;strong&gt;</bpt>Allow:<ept id="700a2fc6-e8a1-444a-bc37-42788f38ecab">&lt;/strong&gt;</ept> Only users from the specified countries will be allowed access to assets requested from that recursive path.</target>
+        </trans-unit>
+        <trans-unit id="bca84841-dcc3-49f8-8e4c-9dafbf46f313" xml:space="preserve">
+          <source>Select the countries that you want to block or allow for the path.</source>
+          <target state="new">Select the countries that you want to block or allow for the path.</target>
+        </trans-unit>
+        <trans-unit id="909dcb27-50d8-485d-9284-5a5f7419bcd0" xml:space="preserve">
+          <source>For more information, see the <bpt id="f3c59c0c-0b94-446f-99c6-159a1af94133">&lt;linkText&gt;</bpt>Country codes<ept id="f3c59c0c-0b94-446f-99c6-159a1af94133">&lt;/linkText&gt;</ept><bpt id="f3c59c0c-0b94-446f-99c6-159a1af94133">&lt;title&gt;</bpt><ept id="f3c59c0c-0b94-446f-99c6-159a1af94133">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">For more information, see the <bpt id="f3c59c0c-0b94-446f-99c6-159a1af94133">&lt;linkText&gt;</bpt>Country codes<ept id="f3c59c0c-0b94-446f-99c6-159a1af94133">&lt;/linkText&gt;</ept><bpt id="f3c59c0c-0b94-446f-99c6-159a1af94133">&lt;title&gt;</bpt><ept id="f3c59c0c-0b94-446f-99c6-159a1af94133">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="c450c743-75cd-4951-955f-1c566b994d79" xml:space="preserve">
+          <source>For example, the rule of blocking /Photos/Strasbourg/ will filter files including:</source>
+          <target state="new">For example, the rule of blocking /Photos/Strasbourg/ will filter files including:</target>
+        </trans-unit>
+        <trans-unit id="5b8c4a89-507f-4d70-bc0a-f60d62064438" xml:space="preserve">
+          <source>The <bpt id="d1372822-ff06-4fcf-ae3d-52ee7857ab07">&lt;strong&gt;</bpt>Country Filtering<ept id="d1372822-ff06-4fcf-ae3d-52ee7857ab07">&lt;/strong&gt;</ept> feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory.</source>
+          <target state="new">The <bpt id="d1372822-ff06-4fcf-ae3d-52ee7857ab07">&lt;strong&gt;</bpt>Country Filtering<ept id="d1372822-ff06-4fcf-ae3d-52ee7857ab07">&lt;/strong&gt;</ept> feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory.</target>
+        </trans-unit>
+        <trans-unit id="d79a46d3-3308-40bf-aa19-16d507231b77" xml:space="preserve">
+          <source>You will find the country codes in <bpt id="5853ad28-93c2-4c8d-b0e3-8b46c7d311e7">&lt;linkText&gt;</bpt>this<ept id="5853ad28-93c2-4c8d-b0e3-8b46c7d311e7">&lt;/linkText&gt;</ept><bpt id="5853ad28-93c2-4c8d-b0e3-8b46c7d311e7">&lt;title&gt;</bpt><ept id="5853ad28-93c2-4c8d-b0e3-8b46c7d311e7">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">You will find the country codes in <bpt id="5853ad28-93c2-4c8d-b0e3-8b46c7d311e7">&lt;linkText&gt;</bpt>this<ept id="5853ad28-93c2-4c8d-b0e3-8b46c7d311e7">&lt;/linkText&gt;</ept><bpt id="5853ad28-93c2-4c8d-b0e3-8b46c7d311e7">&lt;title&gt;</bpt><ept id="5853ad28-93c2-4c8d-b0e3-8b46c7d311e7">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="a906ec96-907a-4f3b-b4fb-370966e9ddc3" xml:space="preserve">
+          <source>If you specify “EU” (Europe) or "AP" (Asia/Pacific), a subset of IP addresses that originate from any country in that regions will be blocked or allowed.</source>
+          <target state="new">If you specify “EU” (Europe) or "AP" (Asia/Pacific), a subset of IP addresses that originate from any country in that regions will be blocked or allowed.</target>
+        </trans-unit>
+        <trans-unit id="4ec0cc8d-ecb0-4040-b4d3-a5d6c9592af8" xml:space="preserve">
+          <source>It may take up to an hour for changes to your country filtering configuration to take effect.</source>
+          <target state="new">It may take up to an hour for changes to your country filtering configuration to take effect.</target>
+        </trans-unit>
+        <trans-unit id="f9ab6de5-0619-485b-8749-c122d39599b9" xml:space="preserve">
+          <source>This feature does not support wildcard characters (for example, ‘*’).</source>
+          <target state="new">This feature does not support wildcard characters (for example, ‘*’).</target>
+        </trans-unit>
+        <trans-unit id="6fcba07e-3e06-4b6e-b8ef-6b878c36bcdd" xml:space="preserve">
+          <source>The country filtering configuration associated with the relative path will be applied recursively to that path.</source>
+          <target state="new">The country filtering configuration associated with the relative path will be applied recursively to that path.</target>
+        </trans-unit>
+        <trans-unit id="c560dee2-28db-4735-9362-c93f66620797" xml:space="preserve">
+          <source>Only one rule can be applied to the same relative path (you cannot create multiple country filters that point to the same relative path.</source>
+          <target state="new">Only one rule can be applied to the same relative path (you cannot create multiple country filters that point to the same relative path.</target>
+        </trans-unit>
+        <trans-unit id="ef1afcb5-916e-473b-a4db-fb6307f3ad6b" xml:space="preserve">
+          <source>However, a folder may have multiple country filters.</source>
+          <target state="new">However, a folder may have multiple country filters.</target>
+        </trans-unit>
+        <trans-unit id="ceb09c8e-1237-4d43-919d-65a4e142a8d3" xml:space="preserve">
+          <source>This is due to the recursive nature of country filters.</source>
+          <target state="new">This is due to the recursive nature of country filters.</target>
+        </trans-unit>
+        <trans-unit id="7a3fefdf-bbaf-4b75-814c-f0eedb59f5ee" xml:space="preserve">
+          <source>In other words, a subfolder of a previously configured folder can be assigned a different country filter.</source>
+          <target state="new">In other words, a subfolder of a previously configured folder can be assigned a different country filter.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

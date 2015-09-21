@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9f191bc9-dd30-4004-9bc8-fb8404f200ce" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9f191bc9-dd30-4004-9bc8-fb8404f200ce" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6bd882b2-de87-4edf-bca5-88799f1d9487">
+        <trans-unit id="7257a62b-cbf4-479e-9f05-c2f7afdcf279" xml:space="preserve">
+          <source>Scale instance count manually or automatically</source>
+          <target state="new">Scale instance count manually or automatically</target>
+        </trans-unit>
+        <trans-unit id="6ce3b07a-05d8-4c7c-89a2-430707e804b4" xml:space="preserve">
+          <source>Learn how to scale your services Azure.</source>
+          <target state="new">Learn how to scale your services Azure.</target>
+        </trans-unit>
+        <trans-unit id="9b2f3a2f-fae3-4b30-8dd7-6962426066ac" xml:space="preserve">
+          <source>In the <bpt id="10d7a35d-be80-48c1-ba71-85a622eb724f">&lt;linkText&gt;</bpt>Azure Portal<ept id="10d7a35d-be80-48c1-ba71-85a622eb724f">&lt;/linkText&gt;</ept><bpt id="10d7a35d-be80-48c1-ba71-85a622eb724f">&lt;title&gt;</bpt><ept id="10d7a35d-be80-48c1-ba71-85a622eb724f">&lt;/title&gt;</ept>, you can manually set the instance count of your service, or, you can set parameters to have it automatically scale based on demand.</source>
+          <target state="new">In the <bpt id="10d7a35d-be80-48c1-ba71-85a622eb724f">&lt;linkText&gt;</bpt>Azure Portal<ept id="10d7a35d-be80-48c1-ba71-85a622eb724f">&lt;/linkText&gt;</ept><bpt id="10d7a35d-be80-48c1-ba71-85a622eb724f">&lt;title&gt;</bpt><ept id="10d7a35d-be80-48c1-ba71-85a622eb724f">&lt;/title&gt;</ept>, you can manually set the instance count of your service, or, you can set parameters to have it automatically scale based on demand.</target>
+        </trans-unit>
+        <trans-unit id="1f1adcb1-e2f9-47bc-abe0-7009de7255aa" xml:space="preserve">
+          <source>This is typically referred to as <bpt id="b8860451-ce26-46e8-afe0-5905b2f24114">&lt;em&gt;</bpt>Scale out<ept id="b8860451-ce26-46e8-afe0-5905b2f24114">&lt;/em&gt;</ept> or <bpt id="9ba60b96-d4d0-4652-b026-368b921879f2">&lt;em&gt;</bpt>Scale in<ept id="9ba60b96-d4d0-4652-b026-368b921879f2">&lt;/em&gt;</ept>.</source>
+          <target state="new">This is typically referred to as <bpt id="b8860451-ce26-46e8-afe0-5905b2f24114">&lt;em&gt;</bpt>Scale out<ept id="b8860451-ce26-46e8-afe0-5905b2f24114">&lt;/em&gt;</ept> or <bpt id="9ba60b96-d4d0-4652-b026-368b921879f2">&lt;em&gt;</bpt>Scale in<ept id="9ba60b96-d4d0-4652-b026-368b921879f2">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="987a25f1-f94a-4e6e-ad6e-3ae22ea5fa74" xml:space="preserve">
+          <source>Before scaling based on instance count, you should consider that scaling is affected by <bpt id="30c481a4-02d6-4291-89b9-6346b9884b5d">&lt;strong&gt;</bpt>Pricing tier<ept id="30c481a4-02d6-4291-89b9-6346b9884b5d">&lt;/strong&gt;</ept> in addition to instance count.</source>
+          <target state="new">Before scaling based on instance count, you should consider that scaling is affected by <bpt id="30c481a4-02d6-4291-89b9-6346b9884b5d">&lt;strong&gt;</bpt>Pricing tier<ept id="30c481a4-02d6-4291-89b9-6346b9884b5d">&lt;/strong&gt;</ept> in addition to instance count.</target>
+        </trans-unit>
+        <trans-unit id="dae7d2b1-5b5a-4312-a436-e8064eaf1863" xml:space="preserve">
+          <source>Different pricing tiers can have different numbers cores and memory, and so they will have better performance for the same number of instances (which is <bpt id="61e4a5f2-1d72-4aa2-8f69-8d1c7d1cfd6d">&lt;em&gt;</bpt>Scale up<ept id="61e4a5f2-1d72-4aa2-8f69-8d1c7d1cfd6d">&lt;/em&gt;</ept> or <bpt id="b7573cd5-6072-4557-b2d7-9b8b3f897f03">&lt;em&gt;</bpt>Scale down<ept id="b7573cd5-6072-4557-b2d7-9b8b3f897f03">&lt;/em&gt;</ept>).</source>
+          <target state="new">Different pricing tiers can have different numbers cores and memory, and so they will have better performance for the same number of instances (which is <bpt id="61e4a5f2-1d72-4aa2-8f69-8d1c7d1cfd6d">&lt;em&gt;</bpt>Scale up<ept id="61e4a5f2-1d72-4aa2-8f69-8d1c7d1cfd6d">&lt;/em&gt;</ept> or <bpt id="b7573cd5-6072-4557-b2d7-9b8b3f897f03">&lt;em&gt;</bpt>Scale down<ept id="b7573cd5-6072-4557-b2d7-9b8b3f897f03">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="dc68f55c-79bd-41c6-884a-1b5acd57c0b4" xml:space="preserve">
+          <source>This article specifically covers <bpt id="656707b9-cec8-43b4-87e6-2926eba8d06a">&lt;em&gt;</bpt>Scale in<ept id="656707b9-cec8-43b4-87e6-2926eba8d06a">&lt;/em&gt;</ept> and <bpt id="1e3893cf-b2eb-42d1-a2c2-d7c5523d2d04">&lt;em&gt;</bpt>out<ept id="1e3893cf-b2eb-42d1-a2c2-d7c5523d2d04">&lt;/em&gt;</ept>.</source>
+          <target state="new">This article specifically covers <bpt id="656707b9-cec8-43b4-87e6-2926eba8d06a">&lt;em&gt;</bpt>Scale in<ept id="656707b9-cec8-43b4-87e6-2926eba8d06a">&lt;/em&gt;</ept> and <bpt id="1e3893cf-b2eb-42d1-a2c2-d7c5523d2d04">&lt;em&gt;</bpt>out<ept id="1e3893cf-b2eb-42d1-a2c2-d7c5523d2d04">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20a4e0c8-b3e9-4096-87e5-3ad90de5e825" xml:space="preserve">
+          <source>You can scale in the portal, and you can also use the <bpt id="bcb869e7-470c-415e-93cf-2122cddf6e4b">&lt;linkText&gt;</bpt>REST API<ept id="bcb869e7-470c-415e-93cf-2122cddf6e4b">&lt;/linkText&gt;</ept><bpt id="bcb869e7-470c-415e-93cf-2122cddf6e4b">&lt;title&gt;</bpt><ept id="bcb869e7-470c-415e-93cf-2122cddf6e4b">&lt;/title&gt;</ept> or <bpt id="a772a580-6cfa-43c4-b782-7b8975a629fd">&lt;linkText&gt;</bpt>.NET SDK<ept id="a772a580-6cfa-43c4-b782-7b8975a629fd">&lt;/linkText&gt;</ept><bpt id="a772a580-6cfa-43c4-b782-7b8975a629fd">&lt;title&gt;</bpt><ept id="a772a580-6cfa-43c4-b782-7b8975a629fd">&lt;/title&gt;</ept> to adjust scale manually or automatically.</source>
+          <target state="new">You can scale in the portal, and you can also use the <bpt id="bcb869e7-470c-415e-93cf-2122cddf6e4b">&lt;linkText&gt;</bpt>REST API<ept id="bcb869e7-470c-415e-93cf-2122cddf6e4b">&lt;/linkText&gt;</ept><bpt id="bcb869e7-470c-415e-93cf-2122cddf6e4b">&lt;title&gt;</bpt><ept id="bcb869e7-470c-415e-93cf-2122cddf6e4b">&lt;/title&gt;</ept> or <bpt id="a772a580-6cfa-43c4-b782-7b8975a629fd">&lt;linkText&gt;</bpt>.NET SDK<ept id="a772a580-6cfa-43c4-b782-7b8975a629fd">&lt;/linkText&gt;</ept><bpt id="a772a580-6cfa-43c4-b782-7b8975a629fd">&lt;title&gt;</bpt><ept id="a772a580-6cfa-43c4-b782-7b8975a629fd">&lt;/title&gt;</ept> to adjust scale manually or automatically.</target>
+        </trans-unit>
+        <trans-unit id="02cf1f42-ac77-4b06-a806-24607ef3f5b0" xml:space="preserve">
+          <source>In the <bpt id="369622cb-ff62-48eb-8df7-e1a170e11d91">&lt;linkText&gt;</bpt>Azure Portal<ept id="369622cb-ff62-48eb-8df7-e1a170e11d91">&lt;/linkText&gt;</ept><bpt id="369622cb-ff62-48eb-8df7-e1a170e11d91">&lt;title&gt;</bpt><ept id="369622cb-ff62-48eb-8df7-e1a170e11d91">&lt;/title&gt;</ept>, click <bpt id="5ee48664-3f69-4fc9-82e2-c91258d41f17">&lt;strong&gt;</bpt>Browse<ept id="5ee48664-3f69-4fc9-82e2-c91258d41f17">&lt;/strong&gt;</ept>, then navigate to the resource you want to scale, such as a <bpt id="2dd24377-cf3b-4ece-b2c6-646e452519e9">&lt;strong&gt;</bpt>App Service plan<ept id="2dd24377-cf3b-4ece-b2c6-646e452519e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="369622cb-ff62-48eb-8df7-e1a170e11d91">&lt;linkText&gt;</bpt>Azure Portal<ept id="369622cb-ff62-48eb-8df7-e1a170e11d91">&lt;/linkText&gt;</ept><bpt id="369622cb-ff62-48eb-8df7-e1a170e11d91">&lt;title&gt;</bpt><ept id="369622cb-ff62-48eb-8df7-e1a170e11d91">&lt;/title&gt;</ept>, click <bpt id="5ee48664-3f69-4fc9-82e2-c91258d41f17">&lt;strong&gt;</bpt>Browse<ept id="5ee48664-3f69-4fc9-82e2-c91258d41f17">&lt;/strong&gt;</ept>, then navigate to the resource you want to scale, such as a <bpt id="2dd24377-cf3b-4ece-b2c6-646e452519e9">&lt;strong&gt;</bpt>App Service plan<ept id="2dd24377-cf3b-4ece-b2c6-646e452519e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1ca0126-77f0-4ed8-b690-eb17c3e452c6" xml:space="preserve">
+          <source>The <bpt id="b991f3fc-ca83-4311-86dc-824c1b7f17c7">&lt;strong&gt;</bpt>Scale<ept id="b991f3fc-ca83-4311-86dc-824c1b7f17c7">&lt;/strong&gt;</ept> tile in <bpt id="d13d0cfe-de69-4e8e-9982-f83918352aaa">&lt;strong&gt;</bpt>Operations<ept id="d13d0cfe-de69-4e8e-9982-f83918352aaa">&lt;/strong&gt;</ept> will tell you the status of scaling: <bpt id="04af3a8c-8cca-4ac0-9038-123b2ec4d3ca">&lt;strong&gt;</bpt>Off<ept id="04af3a8c-8cca-4ac0-9038-123b2ec4d3ca">&lt;/strong&gt;</ept> for when you are scaling manually, <bpt id="a07e9426-9b0a-4835-9f2c-50b570660e2e">&lt;strong&gt;</bpt>On<ept id="a07e9426-9b0a-4835-9f2c-50b570660e2e">&lt;/strong&gt;</ept> for when you are scaling by one or more performance metrics.</source>
+          <target state="new">The <bpt id="b991f3fc-ca83-4311-86dc-824c1b7f17c7">&lt;strong&gt;</bpt>Scale<ept id="b991f3fc-ca83-4311-86dc-824c1b7f17c7">&lt;/strong&gt;</ept> tile in <bpt id="d13d0cfe-de69-4e8e-9982-f83918352aaa">&lt;strong&gt;</bpt>Operations<ept id="d13d0cfe-de69-4e8e-9982-f83918352aaa">&lt;/strong&gt;</ept> will tell you the status of scaling: <bpt id="04af3a8c-8cca-4ac0-9038-123b2ec4d3ca">&lt;strong&gt;</bpt>Off<ept id="04af3a8c-8cca-4ac0-9038-123b2ec4d3ca">&lt;/strong&gt;</ept> for when you are scaling manually, <bpt id="a07e9426-9b0a-4835-9f2c-50b570660e2e">&lt;strong&gt;</bpt>On<ept id="a07e9426-9b0a-4835-9f2c-50b570660e2e">&lt;/strong&gt;</ept> for when you are scaling by one or more performance metrics.</target>
+        </trans-unit>
+        <trans-unit id="f5a0585e-ffb5-44a6-a25c-dfe09d371657" xml:space="preserve">
+          <source><bpt id="e3c47c77-b1e8-4982-be3e-42ad2490e8e8">&lt;linkText&gt;</bpt>Scale tile<ept id="e3c47c77-b1e8-4982-be3e-42ad2490e8e8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3c47c77-b1e8-4982-be3e-42ad2490e8e8">&lt;linkText&gt;</bpt>Scale tile<ept id="e3c47c77-b1e8-4982-be3e-42ad2490e8e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81c9db88-93f4-482d-9340-a311109be201" xml:space="preserve">
+          <source>Clicking on the tile will take you to the <bpt id="8950655f-f709-4c8a-b8c4-13d8b6e98852">&lt;strong&gt;</bpt>Scale<ept id="8950655f-f709-4c8a-b8c4-13d8b6e98852">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Clicking on the tile will take you to the <bpt id="8950655f-f709-4c8a-b8c4-13d8b6e98852">&lt;strong&gt;</bpt>Scale<ept id="8950655f-f709-4c8a-b8c4-13d8b6e98852">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="149efa11-4304-4363-aa90-dd202599588c" xml:space="preserve">
+          <source>At the top of the scale blade you can see a history of autoscale actions the service.</source>
+          <target state="new">At the top of the scale blade you can see a history of autoscale actions the service.</target>
+        </trans-unit>
+        <trans-unit id="b54379a6-60ce-4d4d-aa90-e1626cd482f2" xml:space="preserve">
+          <source><bpt id="826cdd7d-b92f-4a79-8dc3-dce850bc7f34">&lt;linkText&gt;</bpt>Scale blade<ept id="826cdd7d-b92f-4a79-8dc3-dce850bc7f34">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="826cdd7d-b92f-4a79-8dc3-dce850bc7f34">&lt;linkText&gt;</bpt>Scale blade<ept id="826cdd7d-b92f-4a79-8dc3-dce850bc7f34">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2837868-57dd-40d2-ad80-abcc3601ee5b" xml:space="preserve">
+          <source>Only actions that are performed by autoscale will show up in this chart.</source>
+          <target state="new">Only actions that are performed by autoscale will show up in this chart.</target>
+        </trans-unit>
+        <trans-unit id="8a455d45-9eca-4d17-bcdd-0aba0bda4967" xml:space="preserve">
+          <source>If you manually adjust the instance count, the change will not be reflected in this chart.</source>
+          <target state="new">If you manually adjust the instance count, the change will not be reflected in this chart.</target>
+        </trans-unit>
+        <trans-unit id="4bf0bbe8-e25f-4d79-960a-31af3ca6634a" xml:space="preserve">
+          <source>You can manually adjust the number <bpt id="b973ff90-e8bf-4472-b9c4-44c2528d8c58">&lt;strong&gt;</bpt>Instances<ept id="b973ff90-e8bf-4472-b9c4-44c2528d8c58">&lt;/strong&gt;</ept> with slider.</source>
+          <target state="new">You can manually adjust the number <bpt id="b973ff90-e8bf-4472-b9c4-44c2528d8c58">&lt;strong&gt;</bpt>Instances<ept id="b973ff90-e8bf-4472-b9c4-44c2528d8c58">&lt;/strong&gt;</ept> with slider.</target>
+        </trans-unit>
+        <trans-unit id="54c2be46-2ca1-4c6c-84b0-672c8aa4707e" xml:space="preserve">
+          <source>Click the <bpt id="20bed2ce-4bc9-4775-af95-c294f70bf413">&lt;strong&gt;</bpt>Save<ept id="20bed2ce-4bc9-4775-af95-c294f70bf413">&lt;/strong&gt;</ept> command and you'll be scaled to that number of instances almost immediately.</source>
+          <target state="new">Click the <bpt id="20bed2ce-4bc9-4775-af95-c294f70bf413">&lt;strong&gt;</bpt>Save<ept id="20bed2ce-4bc9-4775-af95-c294f70bf413">&lt;/strong&gt;</ept> command and you'll be scaled to that number of instances almost immediately.</target>
+        </trans-unit>
+        <trans-unit id="5b29486c-8a03-420c-89d6-019808300437" xml:space="preserve">
+          <source>If you want the number of instances to automatically adjust based on a metric, select the metric you want in the <bpt id="6b779bde-c77f-4539-983e-310cb614038d">&lt;strong&gt;</bpt>Scale by<ept id="6b779bde-c77f-4539-983e-310cb614038d">&lt;/strong&gt;</ept> dropdown.</source>
+          <target state="new">If you want the number of instances to automatically adjust based on a metric, select the metric you want in the <bpt id="6b779bde-c77f-4539-983e-310cb614038d">&lt;strong&gt;</bpt>Scale by<ept id="6b779bde-c77f-4539-983e-310cb614038d">&lt;/strong&gt;</ept> dropdown.</target>
+        </trans-unit>
+        <trans-unit id="a522cc6f-6400-48fa-8009-413ab35b8066" xml:space="preserve">
+          <source>For example, for an <bpt id="298dc842-1e9a-4459-8462-59d25f013c8f">&lt;strong&gt;</bpt>App Service plan<ept id="298dc842-1e9a-4459-8462-59d25f013c8f">&lt;/strong&gt;</ept> you can scale by <bpt id="50d23979-257e-49ea-b26f-07dc3fe3d180">&lt;strong&gt;</bpt>CPU Percentage<ept id="50d23979-257e-49ea-b26f-07dc3fe3d180">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, for an <bpt id="298dc842-1e9a-4459-8462-59d25f013c8f">&lt;strong&gt;</bpt>App Service plan<ept id="298dc842-1e9a-4459-8462-59d25f013c8f">&lt;/strong&gt;</ept> you can scale by <bpt id="50d23979-257e-49ea-b26f-07dc3fe3d180">&lt;strong&gt;</bpt>CPU Percentage<ept id="50d23979-257e-49ea-b26f-07dc3fe3d180">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b63137da-d012-44fb-8727-c49c234dc60a" xml:space="preserve">
+          <source>When you select a metric you'll get a slider, and/or, text boxes to enter the number of instances you want to scale between:</source>
+          <target state="new">When you select a metric you'll get a slider, and/or, text boxes to enter the number of instances you want to scale between:</target>
+        </trans-unit>
+        <trans-unit id="33a6ae22-bfc4-4584-853e-8e4774a79585" xml:space="preserve">
+          <source><bpt id="b86b7751-27e2-4667-83fd-5a7691fc7472">&lt;linkText&gt;</bpt>Scale blade with CPU Percentage<ept id="b86b7751-27e2-4667-83fd-5a7691fc7472">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="b86b7751-27e2-4667-83fd-5a7691fc7472">&lt;linkText&gt;</bpt>Scale blade with CPU Percentage<ept id="b86b7751-27e2-4667-83fd-5a7691fc7472">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="ccd80126-8c14-4f00-9288-5c1f4eb42abc" xml:space="preserve">
+          <source>Autoscale will never take your service below or above the boundaries that you set, no matter your load.</source>
+          <target state="new">Autoscale will never take your service below or above the boundaries that you set, no matter your load.</target>
+        </trans-unit>
+        <trans-unit id="a4b65f11-e19b-4b48-a808-76451230ae85" xml:space="preserve">
+          <source>Second, you choose the target range for the metric.</source>
+          <target state="new">Second, you choose the target range for the metric.</target>
+        </trans-unit>
+        <trans-unit id="4e3f1571-90d7-493d-9154-dc5a3b26d1a8" xml:space="preserve">
+          <source>For example, if you chose <bpt id="04da9345-61c3-46c4-a72d-8561382da6c8">&lt;strong&gt;</bpt>CPU percentage<ept id="04da9345-61c3-46c4-a72d-8561382da6c8">&lt;/strong&gt;</ept>, you can set a target for the average CPU across all of the instances in your service.</source>
+          <target state="new">For example, if you chose <bpt id="04da9345-61c3-46c4-a72d-8561382da6c8">&lt;strong&gt;</bpt>CPU percentage<ept id="04da9345-61c3-46c4-a72d-8561382da6c8">&lt;/strong&gt;</ept>, you can set a target for the average CPU across all of the instances in your service.</target>
+        </trans-unit>
+        <trans-unit id="e9196f6a-e155-40a6-b06a-56474af4edb2" xml:space="preserve">
+          <source>A scale out will happen when the average CPU exceeds the maximum you define, likewise, a scale in will happen whenever the average CPU drops below the minimum.</source>
+          <target state="new">A scale out will happen when the average CPU exceeds the maximum you define, likewise, a scale in will happen whenever the average CPU drops below the minimum.</target>
+        </trans-unit>
+        <trans-unit id="a6d390d1-0ee1-4d45-ba8a-91ed544c2e68" xml:space="preserve">
+          <source>Click the <bpt id="42eff97c-db72-42b2-a0d9-2a603103064d">&lt;strong&gt;</bpt>Save<ept id="42eff97c-db72-42b2-a0d9-2a603103064d">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">Click the <bpt id="42eff97c-db72-42b2-a0d9-2a603103064d">&lt;strong&gt;</bpt>Save<ept id="42eff97c-db72-42b2-a0d9-2a603103064d">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="7a5c7c58-25f5-4465-8719-8dbc3795776c" xml:space="preserve">
+          <source>Autoscale will check every few minutes to make sure that you are in the instance range and target for your metric.</source>
+          <target state="new">Autoscale will check every few minutes to make sure that you are in the instance range and target for your metric.</target>
+        </trans-unit>
+        <trans-unit id="f0957538-c572-495a-83bc-39501ffbd598" xml:space="preserve">
+          <source>When your service receives additional traffic,  you will get more instances without doing anything.</source>
+          <target state="new">When your service receives additional traffic,  you will get more instances without doing anything.</target>
+        </trans-unit>
+        <trans-unit id="5bc08b01-4cf3-4233-8f5f-73593d0db40a" xml:space="preserve">
+          <source>You can scale based on metrics other than the presets that appear in the <bpt id="64b0c722-20b4-4dcf-9f08-deb11d67b888">&lt;strong&gt;</bpt>Scale by<ept id="64b0c722-20b4-4dcf-9f08-deb11d67b888">&lt;/strong&gt;</ept> dropdown, and can even have a complex set of scale out and scale in rules.</source>
+          <target state="new">You can scale based on metrics other than the presets that appear in the <bpt id="64b0c722-20b4-4dcf-9f08-deb11d67b888">&lt;strong&gt;</bpt>Scale by<ept id="64b0c722-20b4-4dcf-9f08-deb11d67b888">&lt;/strong&gt;</ept> dropdown, and can even have a complex set of scale out and scale in rules.</target>
+        </trans-unit>
+        <trans-unit id="72806b20-c83e-40ba-9bb4-7b03b656c114" xml:space="preserve">
+          <source>Choose the <bpt id="91ba4d0f-f2f1-4df7-8c10-a44a243b1782">&lt;strong&gt;</bpt>schedule and performance rules<ept id="91ba4d0f-f2f1-4df7-8c10-a44a243b1782">&lt;/strong&gt;</ept> in the <bpt id="0378f2a3-4f33-47c5-a4d4-268e6c4e6ad3">&lt;strong&gt;</bpt>Scale by<ept id="0378f2a3-4f33-47c5-a4d4-268e6c4e6ad3">&lt;/strong&gt;</ept> dropdown:
+<bpt id="34ae2b4b-0934-4260-956e-4c2f5f12ba89">&lt;linkText&gt;</bpt>Performance rules<ept id="34ae2b4b-0934-4260-956e-4c2f5f12ba89">&lt;/linkText&gt;</ept></source>
+          <target state="new">Choose the <bpt id="91ba4d0f-f2f1-4df7-8c10-a44a243b1782">&lt;strong&gt;</bpt>schedule and performance rules<ept id="91ba4d0f-f2f1-4df7-8c10-a44a243b1782">&lt;/strong&gt;</ept> in the <bpt id="0378f2a3-4f33-47c5-a4d4-268e6c4e6ad3">&lt;strong&gt;</bpt>Scale by<ept id="0378f2a3-4f33-47c5-a4d4-268e6c4e6ad3">&lt;/strong&gt;</ept> dropdown:
+<bpt id="34ae2b4b-0934-4260-956e-4c2f5f12ba89">&lt;linkText&gt;</bpt>Performance rules<ept id="34ae2b4b-0934-4260-956e-4c2f5f12ba89">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="183ec278-0929-4143-9c58-9e98df2bc8a5" xml:space="preserve">
+          <source>If you previously had autoscale, on you'll see a view of the exact rules that you had.</source>
+          <target state="new">If you previously had autoscale, on you'll see a view of the exact rules that you had.</target>
+        </trans-unit>
+        <trans-unit id="665f0946-2af8-4186-8d54-2a39f64bfed7" xml:space="preserve">
+          <source>To scale based on another metric click the <bpt id="4470cc6f-6374-43fe-b85c-07e07fcb942a">&lt;strong&gt;</bpt>Add Rule<ept id="4470cc6f-6374-43fe-b85c-07e07fcb942a">&lt;/strong&gt;</ept> row.</source>
+          <target state="new">To scale based on another metric click the <bpt id="4470cc6f-6374-43fe-b85c-07e07fcb942a">&lt;strong&gt;</bpt>Add Rule<ept id="4470cc6f-6374-43fe-b85c-07e07fcb942a">&lt;/strong&gt;</ept> row.</target>
+        </trans-unit>
+        <trans-unit id="fc9ad59f-e542-4d04-9a2f-a79e2f0dc311" xml:space="preserve">
+          <source>You can also click one of the existing rows to change from the metric you previously had to the metric you want to scale by.</source>
+          <target state="new">You can also click one of the existing rows to change from the metric you previously had to the metric you want to scale by.</target>
+        </trans-unit>
+        <trans-unit id="26673343-0c1e-40ef-bcfd-e38312deb769" xml:space="preserve">
+          <source><bpt id="2e90a7fc-265f-4fc9-a3bb-09df3942a4e5">&lt;linkText&gt;</bpt>Add rule<ept id="2e90a7fc-265f-4fc9-a3bb-09df3942a4e5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e90a7fc-265f-4fc9-a3bb-09df3942a4e5">&lt;linkText&gt;</bpt>Add rule<ept id="2e90a7fc-265f-4fc9-a3bb-09df3942a4e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aedde7f1-01fc-4af9-8231-ffc5779d87a0" xml:space="preserve">
+          <source>Now you need to select which metric you want to scale by.</source>
+          <target state="new">Now you need to select which metric you want to scale by.</target>
+        </trans-unit>
+        <trans-unit id="65b72903-3197-40ed-8957-6fe1ddec7187" xml:space="preserve">
+          <source>When choosing a metric there are a couple things to consider:</source>
+          <target state="new">When choosing a metric there are a couple things to consider:</target>
+        </trans-unit>
+        <trans-unit id="e9e5eda0-20f2-4fb5-9cff-49bb5ecf59cd" xml:space="preserve">
+          <source>The <bpt id="e4d1b94d-5e7d-4351-9a73-240bd405308e">&lt;em&gt;</bpt>resource<ept id="e4d1b94d-5e7d-4351-9a73-240bd405308e">&lt;/em&gt;</ept> the metric comes from.</source>
+          <target state="new">The <bpt id="e4d1b94d-5e7d-4351-9a73-240bd405308e">&lt;em&gt;</bpt>resource<ept id="e4d1b94d-5e7d-4351-9a73-240bd405308e">&lt;/em&gt;</ept> the metric comes from.</target>
+        </trans-unit>
+        <trans-unit id="959f259c-656d-4f9c-8106-45033716ca00" xml:space="preserve">
+          <source>Typically, this will be the same as the resource you are scaling.</source>
+          <target state="new">Typically, this will be the same as the resource you are scaling.</target>
+        </trans-unit>
+        <trans-unit id="ce9a4953-7b58-457c-96b3-ea1bb31479af" xml:space="preserve">
+          <source>However, if you want to scale by the depth of a Storage queue, the resource is the queue that you want to scale by.</source>
+          <target state="new">However, if you want to scale by the depth of a Storage queue, the resource is the queue that you want to scale by.</target>
+        </trans-unit>
+        <trans-unit id="4b53987f-ba6d-45bf-902d-bb441080a4b4" xml:space="preserve">
+          <source>The <bpt id="b95c0e8a-ef9a-436f-93bb-01f1636a024d">&lt;em&gt;</bpt>metric name<ept id="b95c0e8a-ef9a-436f-93bb-01f1636a024d">&lt;/em&gt;</ept> itself.</source>
+          <target state="new">The <bpt id="b95c0e8a-ef9a-436f-93bb-01f1636a024d">&lt;em&gt;</bpt>metric name<ept id="b95c0e8a-ef9a-436f-93bb-01f1636a024d">&lt;/em&gt;</ept> itself.</target>
+        </trans-unit>
+        <trans-unit id="aa175407-51fb-4522-96e9-33537badd363" xml:space="preserve">
+          <source>The <bpt id="7d35e1c7-8495-448c-8748-8c2e9e693620">&lt;em&gt;</bpt>time aggregation<ept id="7d35e1c7-8495-448c-8748-8c2e9e693620">&lt;/em&gt;</ept> of the metric.</source>
+          <target state="new">The <bpt id="7d35e1c7-8495-448c-8748-8c2e9e693620">&lt;em&gt;</bpt>time aggregation<ept id="7d35e1c7-8495-448c-8748-8c2e9e693620">&lt;/em&gt;</ept> of the metric.</target>
+        </trans-unit>
+        <trans-unit id="f9847624-9d28-483f-abf5-0bced571610d" xml:space="preserve">
+          <source>This is how the data is combine over the <bpt id="1d5c9269-1d2d-4476-a1a5-49a812b23db3">&lt;em&gt;</bpt>duration<ept id="1d5c9269-1d2d-4476-a1a5-49a812b23db3">&lt;/em&gt;</ept>.</source>
+          <target state="new">This is how the data is combine over the <bpt id="1d5c9269-1d2d-4476-a1a5-49a812b23db3">&lt;em&gt;</bpt>duration<ept id="1d5c9269-1d2d-4476-a1a5-49a812b23db3">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d5a4a05-b6bf-44fc-ace5-a8513ea3c048" xml:space="preserve">
+          <source>After choosing your metric you choose the threshold for the metric, and the operator.</source>
+          <target state="new">After choosing your metric you choose the threshold for the metric, and the operator.</target>
+        </trans-unit>
+        <trans-unit id="1c41c5c1-62a4-47f2-8da0-d5d448f051c4" xml:space="preserve">
+          <source>For example, you could say <bpt id="dfd1b882-e748-4e71-941b-e2b082479ebb">&lt;strong&gt;</bpt>Greater than<ept id="dfd1b882-e748-4e71-941b-e2b082479ebb">&lt;/strong&gt;</ept> <bpt id="22c4b6f3-45dc-4be9-8016-3492c3e917a7">&lt;strong&gt;</bpt>80%<ept id="22c4b6f3-45dc-4be9-8016-3492c3e917a7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, you could say <bpt id="dfd1b882-e748-4e71-941b-e2b082479ebb">&lt;strong&gt;</bpt>Greater than<ept id="dfd1b882-e748-4e71-941b-e2b082479ebb">&lt;/strong&gt;</ept> <bpt id="22c4b6f3-45dc-4be9-8016-3492c3e917a7">&lt;strong&gt;</bpt>80%<ept id="22c4b6f3-45dc-4be9-8016-3492c3e917a7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a37697c6-fc32-4ce8-b7bc-ed933d7aa251" xml:space="preserve">
+          <source>Then choose the action that you want to take.</source>
+          <target state="new">Then choose the action that you want to take.</target>
+        </trans-unit>
+        <trans-unit id="2ff0f196-bc91-4ea3-80f9-b19ffe48e283" xml:space="preserve">
+          <source>There are a couple different type of actions:</source>
+          <target state="new">There are a couple different type of actions:</target>
+        </trans-unit>
+        <trans-unit id="4f2f9697-3ca3-4208-84ee-6ba3f7c524af" xml:space="preserve">
+          <source>Increase or decrease by - this will add or remove the <bpt id="fc54a21b-b047-4489-98c2-9c50630819e4">&lt;strong&gt;</bpt>Value<ept id="fc54a21b-b047-4489-98c2-9c50630819e4">&lt;/strong&gt;</ept> number of instances you define</source>
+          <target state="new">Increase or decrease by - this will add or remove the <bpt id="fc54a21b-b047-4489-98c2-9c50630819e4">&lt;strong&gt;</bpt>Value<ept id="fc54a21b-b047-4489-98c2-9c50630819e4">&lt;/strong&gt;</ept> number of instances you define</target>
+        </trans-unit>
+        <trans-unit id="acaf7f38-58bc-4e69-b7f8-f5b6e6441006" xml:space="preserve">
+          <source>Increase or decrease percent - this will change the instance count by a percent.</source>
+          <target state="new">Increase or decrease percent - this will change the instance count by a percent.</target>
+        </trans-unit>
+        <trans-unit id="75cc0cd6-4d2f-426f-85a3-3b26e92090e6" xml:space="preserve">
+          <source>For example, you could put 25 in the <bpt id="2c32db42-586d-4d46-8eb2-f317ff591d26">&lt;strong&gt;</bpt>Value<ept id="2c32db42-586d-4d46-8eb2-f317ff591d26">&lt;/strong&gt;</ept> field, and if you currently had 8 instances, 2 would be added.</source>
+          <target state="new">For example, you could put 25 in the <bpt id="2c32db42-586d-4d46-8eb2-f317ff591d26">&lt;strong&gt;</bpt>Value<ept id="2c32db42-586d-4d46-8eb2-f317ff591d26">&lt;/strong&gt;</ept> field, and if you currently had 8 instances, 2 would be added.</target>
+        </trans-unit>
+        <trans-unit id="1ff30987-7609-458c-840c-afa2547f5ab1" xml:space="preserve">
+          <source>Increase or decrease to - this will set the instance count to the <bpt id="a65de430-d4a5-4397-afc8-a7bc440e23d6">&lt;strong&gt;</bpt>Value<ept id="a65de430-d4a5-4397-afc8-a7bc440e23d6">&lt;/strong&gt;</ept> you define.</source>
+          <target state="new">Increase or decrease to - this will set the instance count to the <bpt id="a65de430-d4a5-4397-afc8-a7bc440e23d6">&lt;strong&gt;</bpt>Value<ept id="a65de430-d4a5-4397-afc8-a7bc440e23d6">&lt;/strong&gt;</ept> you define.</target>
+        </trans-unit>
+        <trans-unit id="0ee3660c-7dbb-463d-9d8e-bfc62b45b6b7" xml:space="preserve">
+          <source>Finally, you can choose cool down - how long this rule should wait after the previous scale action to scale again.</source>
+          <target state="new">Finally, you can choose cool down - how long this rule should wait after the previous scale action to scale again.</target>
+        </trans-unit>
+        <trans-unit id="6862a596-d29c-46f2-891f-acbb32dba149" xml:space="preserve">
+          <source>After configuring your rule hit <bpt id="02d768c2-c7b3-45fd-8102-3540eea66e2b">&lt;strong&gt;</bpt>OK<ept id="02d768c2-c7b3-45fd-8102-3540eea66e2b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After configuring your rule hit <bpt id="02d768c2-c7b3-45fd-8102-3540eea66e2b">&lt;strong&gt;</bpt>OK<ept id="02d768c2-c7b3-45fd-8102-3540eea66e2b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de20f43d-6640-4feb-8330-ce654cd09f56" xml:space="preserve">
+          <source>Once you have configured all of the rules you want, be sure to hit the <bpt id="10d09a9c-8410-4806-a96b-8bacc8580fa9">&lt;strong&gt;</bpt>Save<ept id="10d09a9c-8410-4806-a96b-8bacc8580fa9">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">Once you have configured all of the rules you want, be sure to hit the <bpt id="10d09a9c-8410-4806-a96b-8bacc8580fa9">&lt;strong&gt;</bpt>Save<ept id="10d09a9c-8410-4806-a96b-8bacc8580fa9">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="0631b662-b87b-4a30-a89c-e564168624df" xml:space="preserve">
+          <source>The examples above are pretty basic.</source>
+          <target state="new">The examples above are pretty basic.</target>
+        </trans-unit>
+        <trans-unit id="5193f869-de84-4e63-abb0-3c1958a6fae5" xml:space="preserve">
+          <source>However, if you want to be more agressive about scaling up (or down), you can even add multiple scale rules for the same metric.</source>
+          <target state="new">However, if you want to be more agressive about scaling up (or down), you can even add multiple scale rules for the same metric.</target>
+        </trans-unit>
+        <trans-unit id="ab8c7373-182d-49f4-bc20-f34979b062d3" xml:space="preserve">
+          <source>For example, you can define two scale rules on CPU percentage:</source>
+          <target state="new">For example, you can define two scale rules on CPU percentage:</target>
+        </trans-unit>
+        <trans-unit id="7f3f8cc5-438a-4c59-92bb-eff5910a968f" xml:space="preserve">
+          <source>Scale out by 1 instance if CPU percentage is above 60%</source>
+          <target state="new">Scale out by 1 instance if CPU percentage is above 60%</target>
+        </trans-unit>
+        <trans-unit id="40d1dcc3-e82e-4997-b822-9f24715bbbd3" xml:space="preserve">
+          <source>Scale out by 3 instances if CPU percentage is above 85%</source>
+          <target state="new">Scale out by 3 instances if CPU percentage is above 85%</target>
+        </trans-unit>
+        <trans-unit id="9109eae4-efc1-475a-94d0-a9c5dd33e13f" xml:space="preserve">
+          <source><bpt id="da10cd3f-60cb-4c27-9651-71f6ef6b81b8">&lt;linkText&gt;</bpt>Multiple scale rules<ept id="da10cd3f-60cb-4c27-9651-71f6ef6b81b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da10cd3f-60cb-4c27-9651-71f6ef6b81b8">&lt;linkText&gt;</bpt>Multiple scale rules<ept id="da10cd3f-60cb-4c27-9651-71f6ef6b81b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7827294f-3a9e-4613-8c2a-ccc176419e0d" xml:space="preserve">
+          <source>With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one.</source>
+          <target state="new">With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one.</target>
+        </trans-unit>
+        <trans-unit id="93e58eab-030e-46fe-976f-b8e4616ccf49" xml:space="preserve">
+          <source>By default, when you create a scale rule it will  always apply.</source>
+          <target state="new">By default, when you create a scale rule it will  always apply.</target>
+        </trans-unit>
+        <trans-unit id="47d5fcba-14ae-49dd-85c1-8eb6290669e6" xml:space="preserve">
+          <source>You can see that when you click on the profile header:</source>
+          <target state="new">You can see that when you click on the profile header:</target>
+        </trans-unit>
+        <trans-unit id="1933e85f-df19-412a-9b87-3d89d4ed1297" xml:space="preserve">
+          <source><bpt id="d6e948d0-4b24-4460-a270-a89cb35c37be">&lt;linkText&gt;</bpt>Profile<ept id="d6e948d0-4b24-4460-a270-a89cb35c37be">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d6e948d0-4b24-4460-a270-a89cb35c37be">&lt;linkText&gt;</bpt>Profile<ept id="d6e948d0-4b24-4460-a270-a89cb35c37be">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4cdd27a-5635-4466-baa3-0bc303be8ad5" xml:space="preserve">
+          <source>However, you may want to have more agressive scaling during the day, or the week, than on the weekend.</source>
+          <target state="new">However, you may want to have more agressive scaling during the day, or the week, than on the weekend.</target>
+        </trans-unit>
+        <trans-unit id="9fc4d212-4c00-4562-9b3e-4a78a3994179" xml:space="preserve">
+          <source>You could even shut down your service entirely off working hours.</source>
+          <target state="new">You could even shut down your service entirely off working hours.</target>
+        </trans-unit>
+        <trans-unit id="75dcabd6-f7e9-4b39-97ac-24fe65c39bdb" xml:space="preserve">
+          <source>To do this, on the profile you have, select <bpt id="645d8c0c-682e-4dfa-8f5b-7c162cc54e43">&lt;strong&gt;</bpt>recurrence<ept id="645d8c0c-682e-4dfa-8f5b-7c162cc54e43">&lt;/strong&gt;</ept> instead of <bpt id="8b436a42-3cd1-43bf-bf33-88d57fee8002">&lt;strong&gt;</bpt>always,<ept id="8b436a42-3cd1-43bf-bf33-88d57fee8002">&lt;/strong&gt;</ept> and choose the times that you want the profile to apply.</source>
+          <target state="new">To do this, on the profile you have, select <bpt id="645d8c0c-682e-4dfa-8f5b-7c162cc54e43">&lt;strong&gt;</bpt>recurrence<ept id="645d8c0c-682e-4dfa-8f5b-7c162cc54e43">&lt;/strong&gt;</ept> instead of <bpt id="8b436a42-3cd1-43bf-bf33-88d57fee8002">&lt;strong&gt;</bpt>always,<ept id="8b436a42-3cd1-43bf-bf33-88d57fee8002">&lt;/strong&gt;</ept> and choose the times that you want the profile to apply.</target>
+        </trans-unit>
+        <trans-unit id="b5eff868-13df-4391-8984-0083a4b4048b" xml:space="preserve">
+          <source>For example, to have a profile that applies during the week, in the <bpt id="d1497172-77de-45ba-9811-e99e4897e2f0">&lt;strong&gt;</bpt>Days<ept id="d1497172-77de-45ba-9811-e99e4897e2f0">&lt;/strong&gt;</ept> dropdown uncheck <bpt id="a4399950-1e3b-4cd6-9799-692b8ede0c94">&lt;strong&gt;</bpt>Saturday<ept id="a4399950-1e3b-4cd6-9799-692b8ede0c94">&lt;/strong&gt;</ept> and <bpt id="d40807fc-5514-49cc-b2c9-9fb16ae8831d">&lt;strong&gt;</bpt>Sunday<ept id="d40807fc-5514-49cc-b2c9-9fb16ae8831d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, to have a profile that applies during the week, in the <bpt id="d1497172-77de-45ba-9811-e99e4897e2f0">&lt;strong&gt;</bpt>Days<ept id="d1497172-77de-45ba-9811-e99e4897e2f0">&lt;/strong&gt;</ept> dropdown uncheck <bpt id="a4399950-1e3b-4cd6-9799-692b8ede0c94">&lt;strong&gt;</bpt>Saturday<ept id="a4399950-1e3b-4cd6-9799-692b8ede0c94">&lt;/strong&gt;</ept> and <bpt id="d40807fc-5514-49cc-b2c9-9fb16ae8831d">&lt;strong&gt;</bpt>Sunday<ept id="d40807fc-5514-49cc-b2c9-9fb16ae8831d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2cc0988a-02f1-47ea-945a-fc94af4b403a" xml:space="preserve">
+          <source>To have a profile that applies during the daytime, set the <bpt id="cef17084-df22-4ec6-bbc6-1f84e30f977f">&lt;strong&gt;</bpt>Start time<ept id="cef17084-df22-4ec6-bbc6-1f84e30f977f">&lt;/strong&gt;</ept> to the time of day that you want to start at.</source>
+          <target state="new">To have a profile that applies during the daytime, set the <bpt id="cef17084-df22-4ec6-bbc6-1f84e30f977f">&lt;strong&gt;</bpt>Start time<ept id="cef17084-df22-4ec6-bbc6-1f84e30f977f">&lt;/strong&gt;</ept> to the time of day that you want to start at.</target>
+        </trans-unit>
+        <trans-unit id="26792055-d230-4877-b9c4-c3d1d41b7c48" xml:space="preserve">
+          <source><bpt id="b1f6b027-16f6-470a-ad13-d1d706d6955e">&lt;linkText&gt;</bpt>Default recurrence<ept id="b1f6b027-16f6-470a-ad13-d1d706d6955e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1f6b027-16f6-470a-ad13-d1d706d6955e">&lt;linkText&gt;</bpt>Default recurrence<ept id="b1f6b027-16f6-470a-ad13-d1d706d6955e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5317ace-929c-4a41-b41f-bc7243c7461a" xml:space="preserve">
+          <source>Click <bpt id="b1ea5b0b-a008-4b1c-8372-76ede103f60a">&lt;strong&gt;</bpt>OK<ept id="b1ea5b0b-a008-4b1c-8372-76ede103f60a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b1ea5b0b-a008-4b1c-8372-76ede103f60a">&lt;strong&gt;</bpt>OK<ept id="b1ea5b0b-a008-4b1c-8372-76ede103f60a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cbd0e51c-eef5-4114-8937-904cdcc6c06e" xml:space="preserve">
+          <source>Next, you will need to add the profile that you want to apply at other times.</source>
+          <target state="new">Next, you will need to add the profile that you want to apply at other times.</target>
+        </trans-unit>
+        <trans-unit id="bf36b5e2-edc8-4d32-83be-0056f5835d86" xml:space="preserve">
+          <source>Click the <bpt id="f7421e5f-725c-41d3-893e-69dccdfc2fae">&lt;strong&gt;</bpt>Add Profile<ept id="f7421e5f-725c-41d3-893e-69dccdfc2fae">&lt;/strong&gt;</ept> row.</source>
+          <target state="new">Click the <bpt id="f7421e5f-725c-41d3-893e-69dccdfc2fae">&lt;strong&gt;</bpt>Add Profile<ept id="f7421e5f-725c-41d3-893e-69dccdfc2fae">&lt;/strong&gt;</ept> row.</target>
+        </trans-unit>
+        <trans-unit id="399e023a-7784-48c1-b49e-bb276727f4a2" xml:space="preserve">
+          <source><bpt id="a5c56652-a9bd-4005-9127-b1f9b727ff7f">&lt;linkText&gt;</bpt>Off Work<ept id="a5c56652-a9bd-4005-9127-b1f9b727ff7f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a5c56652-a9bd-4005-9127-b1f9b727ff7f">&lt;linkText&gt;</bpt>Off Work<ept id="a5c56652-a9bd-4005-9127-b1f9b727ff7f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce718b0a-7bc1-4943-a554-af62cd312ea3" xml:space="preserve">
+          <source>Name your new, second, profile, for example you could call it <bpt id="e37e6a7d-7585-4b36-9916-15d813b1b3f2">&lt;strong&gt;</bpt>Off work<ept id="e37e6a7d-7585-4b36-9916-15d813b1b3f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name your new, second, profile, for example you could call it <bpt id="e37e6a7d-7585-4b36-9916-15d813b1b3f2">&lt;strong&gt;</bpt>Off work<ept id="e37e6a7d-7585-4b36-9916-15d813b1b3f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba541ad5-c040-4bdb-b7d6-c590d7273d45" xml:space="preserve">
+          <source>Then select <bpt id="bda83d97-d25a-42ae-9ce6-4475cdad7e72">&lt;strong&gt;</bpt>recurrence<ept id="bda83d97-d25a-42ae-9ce6-4475cdad7e72">&lt;/strong&gt;</ept> again, and choose the instance count range you want during this time.</source>
+          <target state="new">Then select <bpt id="bda83d97-d25a-42ae-9ce6-4475cdad7e72">&lt;strong&gt;</bpt>recurrence<ept id="bda83d97-d25a-42ae-9ce6-4475cdad7e72">&lt;/strong&gt;</ept> again, and choose the instance count range you want during this time.</target>
+        </trans-unit>
+        <trans-unit id="b421a50d-5ab0-42cf-a2ef-7665e04d76e5" xml:space="preserve">
+          <source>As with the Default profile, choose the <bpt id="e3be547e-660b-4784-af68-86443f35db49">&lt;strong&gt;</bpt>Days<ept id="e3be547e-660b-4784-af68-86443f35db49">&lt;/strong&gt;</ept> you want this profile to apply to, and the <bpt id="0f0c4442-bf7e-4b0c-b531-c9bce4ab1cc8">&lt;strong&gt;</bpt>Start time<ept id="0f0c4442-bf7e-4b0c-b531-c9bce4ab1cc8">&lt;/strong&gt;</ept> during the day.</source>
+          <target state="new">As with the Default profile, choose the <bpt id="e3be547e-660b-4784-af68-86443f35db49">&lt;strong&gt;</bpt>Days<ept id="e3be547e-660b-4784-af68-86443f35db49">&lt;/strong&gt;</ept> you want this profile to apply to, and the <bpt id="0f0c4442-bf7e-4b0c-b531-c9bce4ab1cc8">&lt;strong&gt;</bpt>Start time<ept id="0f0c4442-bf7e-4b0c-b531-c9bce4ab1cc8">&lt;/strong&gt;</ept> during the day.</target>
+        </trans-unit>
+        <trans-unit id="1cf10a9a-1062-4b11-9c2b-ba5261311a7a" xml:space="preserve">
+          <source>Autoscale will use the Daylight savings rules for whichever <bpt id="98799ccf-df0e-483c-b473-602c13d9b3d1">&lt;strong&gt;</bpt>Time zone<ept id="98799ccf-df0e-483c-b473-602c13d9b3d1">&lt;/strong&gt;</ept> you select.</source>
+          <target state="new">Autoscale will use the Daylight savings rules for whichever <bpt id="98799ccf-df0e-483c-b473-602c13d9b3d1">&lt;strong&gt;</bpt>Time zone<ept id="98799ccf-df0e-483c-b473-602c13d9b3d1">&lt;/strong&gt;</ept> you select.</target>
+        </trans-unit>
+        <trans-unit id="4eddf729-aa32-499e-b449-a9642b6ab09d" xml:space="preserve">
+          <source>However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset.</source>
+          <target state="new">However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset.</target>
+        </trans-unit>
+        <trans-unit id="88f094d8-c2b6-4bd8-9806-16a61abc3841" xml:space="preserve">
+          <source>Click <bpt id="eec5591f-76b1-47d9-9a28-5896fcdd0d8b">&lt;strong&gt;</bpt>OK<ept id="eec5591f-76b1-47d9-9a28-5896fcdd0d8b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="eec5591f-76b1-47d9-9a28-5896fcdd0d8b">&lt;strong&gt;</bpt>OK<ept id="eec5591f-76b1-47d9-9a28-5896fcdd0d8b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92b35e60-02e8-4773-8c70-ccadb4ff2d05" xml:space="preserve">
+          <source>Now, you will need to add whatever rules you want to apply during your second profile.</source>
+          <target state="new">Now, you will need to add whatever rules you want to apply during your second profile.</target>
+        </trans-unit>
+        <trans-unit id="eb863daf-cc47-4acc-9b6e-59bc1940ffcd" xml:space="preserve">
+          <source>Click <bpt id="3eee3e90-30e6-4761-857a-acaf4bb067e0">&lt;strong&gt;</bpt>Add Rule<ept id="3eee3e90-30e6-4761-857a-acaf4bb067e0">&lt;/strong&gt;</ept>, and then you could construct the same rule you have during the Default profile.</source>
+          <target state="new">Click <bpt id="3eee3e90-30e6-4761-857a-acaf4bb067e0">&lt;strong&gt;</bpt>Add Rule<ept id="3eee3e90-30e6-4761-857a-acaf4bb067e0">&lt;/strong&gt;</ept>, and then you could construct the same rule you have during the Default profile.</target>
+        </trans-unit>
+        <trans-unit id="faf1e7ba-7c67-4382-9aeb-efaa6749a95f" xml:space="preserve">
+          <source><bpt id="6f8ec5b7-7694-428f-a6f2-3910221077ce">&lt;linkText&gt;</bpt>Add rule to off work<ept id="6f8ec5b7-7694-428f-a6f2-3910221077ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f8ec5b7-7694-428f-a6f2-3910221077ce">&lt;linkText&gt;</bpt>Add rule to off work<ept id="6f8ec5b7-7694-428f-a6f2-3910221077ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="888afdf9-27b8-4e83-87c8-5c00aa1b8d5e" xml:space="preserve">
+          <source>Be sure to create both a rule for scale out and scale in, or else during the profile the instance count will only grow (or decrease).</source>
+          <target state="new">Be sure to create both a rule for scale out and scale in, or else during the profile the instance count will only grow (or decrease).</target>
+        </trans-unit>
+        <trans-unit id="ed5d2c0a-c68a-46b8-9487-60b2baa59fca" xml:space="preserve">
+          <source>Finally, click <bpt id="981439c3-0542-4d0e-8541-8041b472f387">&lt;strong&gt;</bpt>Save<ept id="981439c3-0542-4d0e-8541-8041b472f387">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Finally, click <bpt id="981439c3-0542-4d0e-8541-8041b472f387">&lt;strong&gt;</bpt>Save<ept id="981439c3-0542-4d0e-8541-8041b472f387">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c44a7caa-a3cc-470c-8ed2-0c31c515b38c" xml:space="preserve">
+          <source><bpt id="7ebf43db-2726-4346-a07a-df2dc851323d">&lt;linkText&gt;</bpt>Monitor service metrics<ept id="7ebf43db-2726-4346-a07a-df2dc851323d">&lt;/linkText&gt;</ept><bpt id="7ebf43db-2726-4346-a07a-df2dc851323d">&lt;title&gt;</bpt><ept id="7ebf43db-2726-4346-a07a-df2dc851323d">&lt;/title&gt;</ept> to make sure your service is available and responsive.</source>
+          <target state="new"><bpt id="7ebf43db-2726-4346-a07a-df2dc851323d">&lt;linkText&gt;</bpt>Monitor service metrics<ept id="7ebf43db-2726-4346-a07a-df2dc851323d">&lt;/linkText&gt;</ept><bpt id="7ebf43db-2726-4346-a07a-df2dc851323d">&lt;title&gt;</bpt><ept id="7ebf43db-2726-4346-a07a-df2dc851323d">&lt;/title&gt;</ept> to make sure your service is available and responsive.</target>
+        </trans-unit>
+        <trans-unit id="babd3b25-4cf9-49bb-be80-865a39b2b5b0" xml:space="preserve">
+          <source><bpt id="ebe49540-7fab-4edc-b46b-930b466e1f33">&lt;linkText&gt;</bpt>Enable monitoring and diagnostics<ept id="ebe49540-7fab-4edc-b46b-930b466e1f33">&lt;/linkText&gt;</ept><bpt id="ebe49540-7fab-4edc-b46b-930b466e1f33">&lt;title&gt;</bpt><ept id="ebe49540-7fab-4edc-b46b-930b466e1f33">&lt;/title&gt;</ept> to collect detailed high-frequency metrics on your service.</source>
+          <target state="new"><bpt id="ebe49540-7fab-4edc-b46b-930b466e1f33">&lt;linkText&gt;</bpt>Enable monitoring and diagnostics<ept id="ebe49540-7fab-4edc-b46b-930b466e1f33">&lt;/linkText&gt;</ept><bpt id="ebe49540-7fab-4edc-b46b-930b466e1f33">&lt;title&gt;</bpt><ept id="ebe49540-7fab-4edc-b46b-930b466e1f33">&lt;/title&gt;</ept> to collect detailed high-frequency metrics on your service.</target>
+        </trans-unit>
+        <trans-unit id="d7b64c1c-5e8a-4bcb-b93f-91ecefdd1b58" xml:space="preserve">
+          <source><bpt id="4bc9ac72-3a5b-47ef-89e0-1d2ddb2f9fed">&lt;linkText&gt;</bpt>Receive alert notifications<ept id="4bc9ac72-3a5b-47ef-89e0-1d2ddb2f9fed">&lt;/linkText&gt;</ept><bpt id="4bc9ac72-3a5b-47ef-89e0-1d2ddb2f9fed">&lt;title&gt;</bpt><ept id="4bc9ac72-3a5b-47ef-89e0-1d2ddb2f9fed">&lt;/title&gt;</ept> whenever operational events happen or metrics cross a threshold.</source>
+          <target state="new"><bpt id="4bc9ac72-3a5b-47ef-89e0-1d2ddb2f9fed">&lt;linkText&gt;</bpt>Receive alert notifications<ept id="4bc9ac72-3a5b-47ef-89e0-1d2ddb2f9fed">&lt;/linkText&gt;</ept><bpt id="4bc9ac72-3a5b-47ef-89e0-1d2ddb2f9fed">&lt;title&gt;</bpt><ept id="4bc9ac72-3a5b-47ef-89e0-1d2ddb2f9fed">&lt;/title&gt;</ept> whenever operational events happen or metrics cross a threshold.</target>
+        </trans-unit>
+        <trans-unit id="6b9a651f-e7bf-4c4c-80b0-63745f7bce4d" xml:space="preserve">
+          <source><bpt id="13553d03-1b94-4dca-9d11-4f99af7d37e4">&lt;linkText&gt;</bpt>Monitor application performance<ept id="13553d03-1b94-4dca-9d11-4f99af7d37e4">&lt;/linkText&gt;</ept><bpt id="13553d03-1b94-4dca-9d11-4f99af7d37e4">&lt;title&gt;</bpt><ept id="13553d03-1b94-4dca-9d11-4f99af7d37e4">&lt;/title&gt;</ept> if you want to understand exactly how your code is performing in the cloud.</source>
+          <target state="new"><bpt id="13553d03-1b94-4dca-9d11-4f99af7d37e4">&lt;linkText&gt;</bpt>Monitor application performance<ept id="13553d03-1b94-4dca-9d11-4f99af7d37e4">&lt;/linkText&gt;</ept><bpt id="13553d03-1b94-4dca-9d11-4f99af7d37e4">&lt;title&gt;</bpt><ept id="13553d03-1b94-4dca-9d11-4f99af7d37e4">&lt;/title&gt;</ept> if you want to understand exactly how your code is performing in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="28bfed11-016e-4838-b202-e9469fb06194" xml:space="preserve">
+          <source><bpt id="b95d44f1-1584-4226-a8f5-c3d9b80ea121">&lt;linkText&gt;</bpt>View events and audit logs<ept id="b95d44f1-1584-4226-a8f5-c3d9b80ea121">&lt;/linkText&gt;</ept><bpt id="b95d44f1-1584-4226-a8f5-c3d9b80ea121">&lt;title&gt;</bpt><ept id="b95d44f1-1584-4226-a8f5-c3d9b80ea121">&lt;/title&gt;</ept> to learn everything that has happened in your service.</source>
+          <target state="new"><bpt id="b95d44f1-1584-4226-a8f5-c3d9b80ea121">&lt;linkText&gt;</bpt>View events and audit logs<ept id="b95d44f1-1584-4226-a8f5-c3d9b80ea121">&lt;/linkText&gt;</ept><bpt id="b95d44f1-1584-4226-a8f5-c3d9b80ea121">&lt;title&gt;</bpt><ept id="b95d44f1-1584-4226-a8f5-c3d9b80ea121">&lt;/title&gt;</ept> to learn everything that has happened in your service.</target>
+        </trans-unit>
+        <trans-unit id="ad3f167e-6e8e-458e-8b0a-d70a877df403" xml:space="preserve">
+          <source><bpt id="be56e24d-4316-42c3-82f0-adc3b2f48536">&lt;linkText&gt;</bpt>Monitor availability and responsiveness of any web page<ept id="be56e24d-4316-42c3-82f0-adc3b2f48536">&lt;/linkText&gt;</ept><bpt id="be56e24d-4316-42c3-82f0-adc3b2f48536">&lt;title&gt;</bpt><ept id="be56e24d-4316-42c3-82f0-adc3b2f48536">&lt;/title&gt;</ept> with Application Insights so you can find out if your page is down.</source>
+          <target state="new"><bpt id="be56e24d-4316-42c3-82f0-adc3b2f48536">&lt;linkText&gt;</bpt>Monitor availability and responsiveness of any web page<ept id="be56e24d-4316-42c3-82f0-adc3b2f48536">&lt;/linkText&gt;</ept><bpt id="be56e24d-4316-42c3-82f0-adc3b2f48536">&lt;title&gt;</bpt><ept id="be56e24d-4316-42c3-82f0-adc3b2f48536">&lt;/title&gt;</ept> with Application Insights so you can find out if your page is down.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="715fc495-9bf7-4cd2-9b54-6d2578f17268" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="715fc495-9bf7-4cd2-9b54-6d2578f17268" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="20fd2e30-dd9d-4ae6-991a-78198a9c1f13">
+        <trans-unit id="110c4d93-de98-400d-9560-937cd9b12233" xml:space="preserve">
+          <source>Monitor your on-premises identity infrastructure in the cloud.</source>
+          <target state="new">Monitor your on-premises identity infrastructure in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="aaeaafe1-3a38-41ef-82b5-00cd058c106c" xml:space="preserve">
+          <source>This is the Azure AD Connect Health page that describes what it is and why you would use it.</source>
+          <target state="new">This is the Azure AD Connect Health page that describes what it is and why you would use it.</target>
+        </trans-unit>
+        <trans-unit id="39d34ca6-3530-485f-bbbe-b49cb4d8c765" xml:space="preserve">
+          <source>Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services available through Azure AD Connect.</source>
+          <target state="new">Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services available through Azure AD Connect.</target>
+        </trans-unit>
+        <trans-unit id="719c24e0-d52c-48b0-b001-581993052069" xml:space="preserve">
+          <source>It offers you the ability to view alerts, performance, usage patterns, configuration settings, enables you to maintain a reliable connection to Office 365 and much more.</source>
+          <target state="new">It offers you the ability to view alerts, performance, usage patterns, configuration settings, enables you to maintain a reliable connection to Office 365 and much more.</target>
+        </trans-unit>
+        <trans-unit id="19d5025b-3aa1-4847-a5d6-3d752aba86b1" xml:space="preserve">
+          <source>This is accomplished using an agent that is installed on the targeted servers.</source>
+          <target state="new">This is accomplished using an agent that is installed on the targeted servers.</target>
+        </trans-unit>
+        <trans-unit id="a0c13d24-df75-4c91-b213-ba225a0c113f" xml:space="preserve">
+          <source><bpt id="6bcf2c63-c8db-468e-af5e-3c047f3ffc07">&lt;linkText&gt;</bpt>What is Azure AD Connect Health<ept id="6bcf2c63-c8db-468e-af5e-3c047f3ffc07">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6bcf2c63-c8db-468e-af5e-3c047f3ffc07">&lt;linkText&gt;</bpt>What is Azure AD Connect Health<ept id="6bcf2c63-c8db-468e-af5e-3c047f3ffc07">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71befacb-8982-43e9-a27e-d3d7cae0995e" xml:space="preserve">
+          <source>This information is all presented in the Azure AD Connect Health portal.</source>
+          <target state="new">This information is all presented in the Azure AD Connect Health portal.</target>
+        </trans-unit>
+        <trans-unit id="3ad6dc4e-8c96-497a-b7c1-8bb2afb0c576" xml:space="preserve">
+          <source>Using the Azure AD Connect Health portal you can view alerts, performance monitoring, and usage analytics.</source>
+          <target state="new">Using the Azure AD Connect Health portal you can view alerts, performance monitoring, and usage analytics.</target>
+        </trans-unit>
+        <trans-unit id="0b79b01a-d761-4e01-98be-7aba1a4920b7" xml:space="preserve">
+          <source>This information is presented all in one easy to use place so that you do not have to waste time digging for the information you need.</source>
+          <target state="new">This information is presented all in one easy to use place so that you do not have to waste time digging for the information you need.</target>
+        </trans-unit>
+        <trans-unit id="f30d4cb0-600c-423b-9a82-842c5ebe4aeb" xml:space="preserve">
+          <source><bpt id="da6989b0-0238-46f4-a4f5-83b3b788a60d">&lt;linkText&gt;</bpt>What is Azure AD Connect Health<ept id="da6989b0-0238-46f4-a4f5-83b3b788a60d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da6989b0-0238-46f4-a4f5-83b3b788a60d">&lt;linkText&gt;</bpt>What is Azure AD Connect Health<ept id="da6989b0-0238-46f4-a4f5-83b3b788a60d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef1924fb-cf63-4184-acb2-5b76129c0737" xml:space="preserve">
+          <source>Future updates to Azure AD Connect Health will include additional monitoring and insight into other identity components and services such as Azure AD Connect Sync services.</source>
+          <target state="new">Future updates to Azure AD Connect Health will include additional monitoring and insight into other identity components and services such as Azure AD Connect Sync services.</target>
+        </trans-unit>
+        <trans-unit id="35389943-f8d0-4df6-8b1d-bcb4ce1a5fc9" xml:space="preserve">
+          <source>Thus providing you a single dash board through the lens of identity, enabling you to have an even more robust, healthy, and integrated environment that your users can take advantage of to increase their ability to get things done.</source>
+          <target state="new">Thus providing you a single dash board through the lens of identity, enabling you to have an even more robust, healthy, and integrated environment that your users can take advantage of to increase their ability to get things done.</target>
+        </trans-unit>
+        <trans-unit id="742f62fe-8240-40b6-9add-84a03bf836a3" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="01546597-aaee-4cca-b9f0-31c46f821875">&lt;linkText&gt;</bpt>What is Azure AD Connect Health<ept id="01546597-aaee-4cca-b9f0-31c46f821875">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="01546597-aaee-4cca-b9f0-31c46f821875">&lt;linkText&gt;</bpt>What is Azure AD Connect Health<ept id="01546597-aaee-4cca-b9f0-31c46f821875">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="2868a287-a264-4c33-acb5-e2cd01cb42bc" xml:space="preserve">
+          <source>Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources.</source>
+          <target state="new">Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources.</target>
+        </trans-unit>
+        <trans-unit id="ceb376d9-f370-483d-8b8b-d2740db39710" xml:space="preserve">
+          <source>However, with this integration comes the challenges of ensuring that this environment is healthy so that users can reliably access resources both on-premises and in cloud from any device.</source>
+          <target state="new">However, with this integration comes the challenges of ensuring that this environment is healthy so that users can reliably access resources both on-premises and in cloud from any device.</target>
+        </trans-unit>
+        <trans-unit id="e4976a04-c9b8-4ace-ac85-9a916d990c93" xml:space="preserve">
+          <source>Azure AD Connect Health provides an easy cloud based approach to monitor and gain insights into your on-premises identity infrastructure is used to access Office 365 or other Azure AD applications.</source>
+          <target state="new">Azure AD Connect Health provides an easy cloud based approach to monitor and gain insights into your on-premises identity infrastructure is used to access Office 365 or other Azure AD applications.</target>
+        </trans-unit>
+        <trans-unit id="59620873-507b-4b1d-b9a6-84e4eacbafca" xml:space="preserve">
+          <source>It is as simple as installing an agent on each of your on-premises identity servers.</source>
+          <target state="new">It is as simple as installing an agent on each of your on-premises identity servers.</target>
+        </trans-unit>
+        <trans-unit id="16eca4d4-1d27-4b0e-b630-b46031cbf7c6" xml:space="preserve">
+          <source>Azure AD Connect Health for AD FS supports AD FS 2.0 in Windows Server 2008/2008 R2, AD FS in Windows Server 2012/2012R2.</source>
+          <target state="new">Azure AD Connect Health for AD FS supports AD FS 2.0 in Windows Server 2008/2008 R2, AD FS in Windows Server 2012/2012R2.</target>
+        </trans-unit>
+        <trans-unit id="4fe9b47c-bf82-41b7-ab69-5cb16dba1fe5" xml:space="preserve">
+          <source>These also include any AD FS Proxy or Web Application Proxy servers that provide authentication support for extranet access.</source>
+          <target state="new">These also include any AD FS Proxy or Web Application Proxy servers that provide authentication support for extranet access.</target>
+        </trans-unit>
+        <trans-unit id="6ea93717-5ca7-426e-a1aa-71f32d918884" xml:space="preserve">
+          <source>Azure AD Connect Health for AD FS provides the following set of key capabilities:</source>
+          <target state="new">Azure AD Connect Health for AD FS provides the following set of key capabilities:</target>
+        </trans-unit>
+        <trans-unit id="bdf1eb84-21e0-44e4-bb36-e6d5bc7dc117" xml:space="preserve">
+          <source>View and take action on alerts for reliable access to AD FS protected applications including Azure AD</source>
+          <target state="new">View and take action on alerts for reliable access to AD FS protected applications including Azure AD</target>
+        </trans-unit>
+        <trans-unit id="4609ee2e-f1b7-4bdd-acea-3e776d6f2df0" xml:space="preserve">
+          <source>Email notifications for critical alerts</source>
+          <target state="new">Email notifications for critical alerts</target>
+        </trans-unit>
+        <trans-unit id="2b8bea9e-7ddf-4d89-b1f7-cee9936ae96e" xml:space="preserve">
+          <source>View performance data to determine capacity planning</source>
+          <target state="new">View performance data to determine capacity planning</target>
+        </trans-unit>
+        <trans-unit id="f523d57a-d8d9-45b9-94a4-c39de9a91b19" xml:space="preserve">
+          <source>Detailed views of your AD FS login patterns to determine anomalies or establish baselines for capacity planning</source>
+          <target state="new">Detailed views of your AD FS login patterns to determine anomalies or establish baselines for capacity planning</target>
+        </trans-unit>
+        <trans-unit id="7e59ea8e-21c2-4d76-97b1-e8e2d8dc2949" xml:space="preserve">
+          <source>The following video will provide an overview of Azure AD Connect Health:</source>
+          <target state="new">The following video will provide an overview of Azure AD Connect Health:</target>
+        </trans-unit>
+        <trans-unit id="b3f58456-487a-4c21-8b5d-5b9c3bb2383e" xml:space="preserve">
+          <source>[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]</source>
+          <target state="new">[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]</target>
+        </trans-unit>
+        <trans-unit id="a28f03f3-73f3-4744-baac-e468d4736a42" xml:space="preserve">
+          <source>To get started with Azure Active Directory Connect Health, follow the steps below.</source>
+          <target state="new">To get started with Azure Active Directory Connect Health, follow the steps below.</target>
+        </trans-unit>
+        <trans-unit id="f519f7bb-aecf-432c-85b8-d137698e66a2" xml:space="preserve">
+          <source>Sign in to the <bpt id="df95e302-776b-413e-aace-86b6aa5926ee">&lt;linkText&gt;</bpt>Microsoft Azure portal.<ept id="df95e302-776b-413e-aace-86b6aa5926ee">&lt;/linkText&gt;</ept><bpt id="df95e302-776b-413e-aace-86b6aa5926ee">&lt;title&gt;</bpt><ept id="df95e302-776b-413e-aace-86b6aa5926ee">&lt;/title&gt;</ept></source>
+          <target state="new">Sign in to the <bpt id="df95e302-776b-413e-aace-86b6aa5926ee">&lt;linkText&gt;</bpt>Microsoft Azure portal.<ept id="df95e302-776b-413e-aace-86b6aa5926ee">&lt;/linkText&gt;</ept><bpt id="df95e302-776b-413e-aace-86b6aa5926ee">&lt;title&gt;</bpt><ept id="df95e302-776b-413e-aace-86b6aa5926ee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a80bc42-6b24-4705-a823-df69ad95b202" xml:space="preserve">
+          <source>Azure Active Directory Connect Health can be access by going to Marketplace and searching for it or by selecting Marketplace, and selecting Security + Identity.</source>
+          <target state="new">Azure Active Directory Connect Health can be access by going to Marketplace and searching for it or by selecting Marketplace, and selecting Security + Identity.</target>
+        </trans-unit>
+        <trans-unit id="aa5ceca4-eea0-41b3-af3f-33adf115ed55" xml:space="preserve">
+          <source>On the introductory blade (A blade is one piece of the overall view.</source>
+          <target state="new">On the introductory blade (A blade is one piece of the overall view.</target>
+        </trans-unit>
+        <trans-unit id="c4b7720e-faa7-4a14-a335-1f69a33b43c7" xml:space="preserve">
+          <source>You can think of a blade as a window or fly out), click <bpt id="7a6cea78-7b5b-483b-83b6-1d3f2b0569d8">&lt;strong&gt;</bpt>Create<ept id="7a6cea78-7b5b-483b-83b6-1d3f2b0569d8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can think of a blade as a window or fly out), click <bpt id="7a6cea78-7b5b-483b-83b6-1d3f2b0569d8">&lt;strong&gt;</bpt>Create<ept id="7a6cea78-7b5b-483b-83b6-1d3f2b0569d8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdf74f9e-f505-4d7b-940f-7f1069f55d89" xml:space="preserve">
+          <source>This will open another blade with your directory information.</source>
+          <target state="new">This will open another blade with your directory information.</target>
+        </trans-unit>
+        <trans-unit id="49261c7b-1cca-4283-a50b-9a011f0a01fa" xml:space="preserve">
+          <source>On directory blade, click <bpt id="0aa076fe-7cfb-4fd4-8151-49a865c17988">&lt;strong&gt;</bpt>Create<ept id="0aa076fe-7cfb-4fd4-8151-49a865c17988">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On directory blade, click <bpt id="0aa076fe-7cfb-4fd4-8151-49a865c17988">&lt;strong&gt;</bpt>Create<ept id="0aa076fe-7cfb-4fd4-8151-49a865c17988">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c3eda1b0-cbd2-42bb-b44e-2b1e9ef4376e" xml:space="preserve">
+          <source>If you do not have an Azure Active Directory Premium License you will need one to use Azure AD Connect Health.</source>
+          <target state="new">If you do not have an Azure Active Directory Premium License you will need one to use Azure AD Connect Health.</target>
+        </trans-unit>
+        <trans-unit id="7698e7e4-e47f-4888-ac34-bcce4d85a245" xml:space="preserve">
+          <source>For information on Azure AD Premium see Getting started with Azure AD Premium.</source>
+          <target state="new">For information on Azure AD Premium see Getting started with Azure AD Premium.</target>
+        </trans-unit>
+        <trans-unit id="a0209335-ffe7-42af-8899-d57249e0be9c" xml:space="preserve">
+          <source>Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers.</source>
+          <target state="new">Remember that before you see any data in your instance of Azure AD Connect Health, you will need to install the Azure AD Connect Health Agent on your targeted servers.</target>
+        </trans-unit>
+        <trans-unit id="264af1ab-b74f-4b31-8387-e62ae2468ec3" xml:space="preserve">
+          <source>To download the Azure AD Connect Health Agent, from the first blade, select Quick Start and Get Tools.</source>
+          <target state="new">To download the Azure AD Connect Health Agent, from the first blade, select Quick Start and Get Tools.</target>
+        </trans-unit>
+        <trans-unit id="d427d782-5ebe-4c24-8c38-a5892b7503f6" xml:space="preserve">
+          <source>You can also download the agent directly using the <bpt id="add63db1-bd44-4d98-9c24-ccfb5a64f9d0">&lt;linkText&gt;</bpt>link<ept id="add63db1-bd44-4d98-9c24-ccfb5a64f9d0">&lt;/linkText&gt;</ept><bpt id="add63db1-bd44-4d98-9c24-ccfb5a64f9d0">&lt;title&gt;</bpt><ept id="add63db1-bd44-4d98-9c24-ccfb5a64f9d0">&lt;/title&gt;</ept> below.</source>
+          <target state="new">You can also download the agent directly using the <bpt id="add63db1-bd44-4d98-9c24-ccfb5a64f9d0">&lt;linkText&gt;</bpt>link<ept id="add63db1-bd44-4d98-9c24-ccfb5a64f9d0">&lt;/linkText&gt;</ept><bpt id="add63db1-bd44-4d98-9c24-ccfb5a64f9d0">&lt;title&gt;</bpt><ept id="add63db1-bd44-4d98-9c24-ccfb5a64f9d0">&lt;/title&gt;</ept> below.</target>
+        </trans-unit>
+        <trans-unit id="d09c8a40-2d7f-4bb5-a5c0-916234b724fe" xml:space="preserve">
+          <source>To use Azure Active Directory Connect Health do the following:</source>
+          <target state="new">To use Azure Active Directory Connect Health do the following:</target>
+        </trans-unit>
+        <trans-unit id="79eb058f-2b75-4e8f-a1dc-60dba069e9ed" xml:space="preserve">
+          <source>The Azure AD Connect Health portal allows you to view alerts, performance monitoring, and usage analytics.</source>
+          <target state="new">The Azure AD Connect Health portal allows you to view alerts, performance monitoring, and usage analytics.</target>
+        </trans-unit>
+        <trans-unit id="9da232ba-ec5d-4139-b806-1b029f27ebf8" xml:space="preserve">
+          <source>Upon first accessing Azure AD Connect Health you will be presented with the first blade.</source>
+          <target state="new">Upon first accessing Azure AD Connect Health you will be presented with the first blade.</target>
+        </trans-unit>
+        <trans-unit id="c8babb42-cd2c-4973-9e41-1c20cb4212cc" xml:space="preserve">
+          <source>You can think of a blade as a window.</source>
+          <target state="new">You can think of a blade as a window.</target>
+        </trans-unit>
+        <trans-unit id="b0626e4e-53c0-4ed7-80d7-0f4fb479dfba" xml:space="preserve">
+          <source>The first blade you see shows Quick Start, Services and Configure.</source>
+          <target state="new">The first blade you see shows Quick Start, Services and Configure.</target>
+        </trans-unit>
+        <trans-unit id="33c9e5e3-bb34-44f4-9ff9-268ebffbeb41" xml:space="preserve">
+          <source>Below the screenshot is a brief explanation of each of these.</source>
+          <target state="new">Below the screenshot is a brief explanation of each of these.</target>
+        </trans-unit>
+        <trans-unit id="f4f913c5-4864-46cd-91fb-60cb7d5c6cd6" xml:space="preserve">
+          <source>The services section shows the active services and instances of those services that Azure AD Connect Health is monitoring.</source>
+          <target state="new">The services section shows the active services and instances of those services that Azure AD Connect Health is monitoring.</target>
+        </trans-unit>
+        <trans-unit id="28ac6641-0172-461a-b658-2e292cdb6271" xml:space="preserve">
+          <source><bpt id="7f515948-24ab-44a0-a5a9-7d375c00b8ef">&lt;linkText&gt;</bpt>Azure AD Connect Health Portal<ept id="7f515948-24ab-44a0-a5a9-7d375c00b8ef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f515948-24ab-44a0-a5a9-7d375c00b8ef">&lt;linkText&gt;</bpt>Azure AD Connect Health Portal<ept id="7f515948-24ab-44a0-a5a9-7d375c00b8ef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce089d3d-49fc-4667-9004-d9f5f509164b" xml:space="preserve">
+          <source><bpt id="c0c3d74e-10a1-413f-8059-87ccc8ab7672">&lt;strong&gt;</bpt>Quick Start<ept id="c0c3d74e-10a1-413f-8059-87ccc8ab7672">&lt;/strong&gt;</ept> – by selecting this you will open the Quick Start blade.</source>
+          <target state="new"><bpt id="c0c3d74e-10a1-413f-8059-87ccc8ab7672">&lt;strong&gt;</bpt>Quick Start<ept id="c0c3d74e-10a1-413f-8059-87ccc8ab7672">&lt;/strong&gt;</ept> – by selecting this you will open the Quick Start blade.</target>
+        </trans-unit>
+        <trans-unit id="383f4df0-2a23-432d-b680-f3f1fb9902c9" xml:space="preserve">
+          <source>Here you will be able to download the Azure AD Connect Health agent by choosing Get Tools, access documentation, and provide feedback.</source>
+          <target state="new">Here you will be able to download the Azure AD Connect Health agent by choosing Get Tools, access documentation, and provide feedback.</target>
+        </trans-unit>
+        <trans-unit id="1f3e687f-09a5-42ef-9cce-b50950a233d0" xml:space="preserve">
+          <source><bpt id="0e33d41d-1db5-4208-9c62-b53077a4524b">&lt;strong&gt;</bpt>Active Directory Federation Services<ept id="0e33d41d-1db5-4208-9c62-b53077a4524b">&lt;/strong&gt;</ept> – this represents all of the AD FS services that Azure AD Connect Health is currently monitoring.</source>
+          <target state="new"><bpt id="0e33d41d-1db5-4208-9c62-b53077a4524b">&lt;strong&gt;</bpt>Active Directory Federation Services<ept id="0e33d41d-1db5-4208-9c62-b53077a4524b">&lt;/strong&gt;</ept> – this represents all of the AD FS services that Azure AD Connect Health is currently monitoring.</target>
+        </trans-unit>
+        <trans-unit id="166d74d9-871b-40d7-9b8f-463d9005b3aa" xml:space="preserve">
+          <source>By selecting one of the instances, a blade will open with information about that services instance.</source>
+          <target state="new">By selecting one of the instances, a blade will open with information about that services instance.</target>
+        </trans-unit>
+        <trans-unit id="5e082472-acf1-4d69-a99d-9ebde18717eb" xml:space="preserve">
+          <source>This information includes an overview, properties, alerts, monitoring, and usage analytics.</source>
+          <target state="new">This information includes an overview, properties, alerts, monitoring, and usage analytics.</target>
+        </trans-unit>
+        <trans-unit id="18fcd705-3480-4638-b86d-b4b91a0ae33b" xml:space="preserve">
+          <source>Configure – this allows you to turn the following on or off:
+&lt;ol&gt;</source>
+          <target state="new">Configure – this allows you to turn the following on or off:
+&lt;ol&gt;</target>
+        </trans-unit>
+        <trans-unit id="4d9a9279-2c54-44bf-96b5-a24b7c701b9e" xml:space="preserve">
+          <source>Auto update to automatically update the Azure AD Connect Health agent to the latest version - This means that you will be automatically updated to the latest version of the Azure AD Connect Health Agent when they become available.</source>
+          <target state="new">Auto update to automatically update the Azure AD Connect Health agent to the latest version - This means that you will be automatically updated to the latest version of the Azure AD Connect Health Agent when they become available.</target>
+        </trans-unit>
+        <trans-unit id="49272f22-3af5-4245-aafb-19f637178184" xml:space="preserve">
+          <source>This is enabled by default.</source>
+          <target state="new">This is enabled by default.</target>
+        </trans-unit>
+        <trans-unit id="c270fb48-9c8d-42b4-aa7e-b048fbc858dc" xml:space="preserve">
+          <source>Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only - This means that if this is enabled, Microsoft will be able to see the same data that you are seeing.</source>
+          <target state="new">Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only - This means that if this is enabled, Microsoft will be able to see the same data that you are seeing.</target>
+        </trans-unit>
+        <trans-unit id="6ecb21b5-2a48-4db8-aa26-b8159d710f18" xml:space="preserve">
+          <source>This can help with troubleshooting and assistance with issues.</source>
+          <target state="new">This can help with troubleshooting and assistance with issues.</target>
+        </trans-unit>
+        <trans-unit id="bf964cac-b22c-45ce-aee8-06c72f194b8b" xml:space="preserve">
+          <source>This is disabled by default.</source>
+          <target state="new">This is disabled by default.</target>
+        </trans-unit>
+        <trans-unit id="f068d09e-623e-475d-8f14-0ca4f602f466" xml:space="preserve">
+          <source>The following table is a list of requirements that must be met before you can get going with Azure AD Connect Health.</source>
+          <target state="new">The following table is a list of requirements that must be met before you can get going with Azure AD Connect Health.</target>
+        </trans-unit>
+        <trans-unit id="efeb7f71-182e-4561-bd49-53f6cbe23223" xml:space="preserve">
+          <source>Requirement</source>
+          <target state="new">Requirement</target>
+        </trans-unit>
+        <trans-unit id="d6c03dc2-e023-41fb-bf22-4b454494918b" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="f093f858-857d-4f04-b94c-d3a0932eee16" xml:space="preserve">
+          <source>Azure AD Premium</source>
+          <target state="new">Azure AD Premium</target>
+        </trans-unit>
+        <trans-unit id="5feb796a-fcdf-4733-955c-c7cc920792e6" xml:space="preserve">
+          <source>Azure AD Connect Health is an Azure AD Premium feature and requires Azure AD Premium. &lt;/br&gt;&lt;/br&gt;For more information see <bpt id="d1f3f793-5131-48b6-a659-6fd1d198c2cb">&lt;linkText&gt;</bpt>Getting started with Azure AD Premium<ept id="d1f3f793-5131-48b6-a659-6fd1d198c2cb">&lt;/linkText&gt;</ept><bpt id="d1f3f793-5131-48b6-a659-6fd1d198c2cb">&lt;title&gt;</bpt><ept id="d1f3f793-5131-48b6-a659-6fd1d198c2cb">&lt;/title&gt;</ept>.&lt;/br&gt;&lt;/br&gt;To start a free 30 day trial see <bpt id="f43cb734-1282-4719-8cc9-66db1458807d">&lt;linkText&gt;</bpt>Start a trial.<ept id="f43cb734-1282-4719-8cc9-66db1458807d">&lt;/linkText&gt;</ept><bpt id="f43cb734-1282-4719-8cc9-66db1458807d">&lt;title&gt;</bpt><ept id="f43cb734-1282-4719-8cc9-66db1458807d">&lt;/title&gt;</ept></source>
+          <target state="new">Azure AD Connect Health is an Azure AD Premium feature and requires Azure AD Premium. &lt;/br&gt;&lt;/br&gt;For more information see <bpt id="d1f3f793-5131-48b6-a659-6fd1d198c2cb">&lt;linkText&gt;</bpt>Getting started with Azure AD Premium<ept id="d1f3f793-5131-48b6-a659-6fd1d198c2cb">&lt;/linkText&gt;</ept><bpt id="d1f3f793-5131-48b6-a659-6fd1d198c2cb">&lt;title&gt;</bpt><ept id="d1f3f793-5131-48b6-a659-6fd1d198c2cb">&lt;/title&gt;</ept>.&lt;/br&gt;&lt;/br&gt;To start a free 30 day trial see <bpt id="f43cb734-1282-4719-8cc9-66db1458807d">&lt;linkText&gt;</bpt>Start a trial.<ept id="f43cb734-1282-4719-8cc9-66db1458807d">&lt;/linkText&gt;</ept><bpt id="f43cb734-1282-4719-8cc9-66db1458807d">&lt;title&gt;</bpt><ept id="f43cb734-1282-4719-8cc9-66db1458807d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c82dcb9-14c2-4dbb-9a62-47d66f360ff4" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="ff4acc2f-e632-41cc-9c39-3a082815c3ee" xml:space="preserve">
+          <source>You must be a global administrator of your Azure AD directory</source>
+          <target state="new">You must be a global administrator of your Azure AD directory</target>
+        </trans-unit>
+        <trans-unit id="5237adb0-f464-4312-a15a-a5e791104a94" xml:space="preserve">
+          <source>By default, global administrators have access to the information that is provided by Azure AD Connect Health. If you are not a global administrator of your Azure AD directory, you will not be able to create a service instance of Azure AD Connect Health. Ensure that you are a global administrator.  For additional information see <bpt id="4a9c114c-2f37-47c6-afe3-5dff3de1e3d5">&lt;linkText&gt;</bpt>Administering your Azure AD directory<ept id="4a9c114c-2f37-47c6-afe3-5dff3de1e3d5">&lt;/linkText&gt;</ept><bpt id="4a9c114c-2f37-47c6-afe3-5dff3de1e3d5">&lt;title&gt;</bpt><ept id="4a9c114c-2f37-47c6-afe3-5dff3de1e3d5">&lt;/title&gt;</ept>.&lt;/br&gt;&lt;/br&gt;<bpt id="e50401f9-a102-4e53-91f9-53f8f8920849">&lt;strong&gt;</bpt>Important:<ept id="e50401f9-a102-4e53-91f9-53f8f8920849">&lt;/strong&gt;</ept> The account you use when installing the agents must be a work or organizational account and cannot be a Microsoft account.   For more information see <bpt id="7953b346-b22b-4841-887c-43628ceeda65">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="7953b346-b22b-4841-887c-43628ceeda65">&lt;/linkText&gt;</ept><bpt id="7953b346-b22b-4841-887c-43628ceeda65">&lt;title&gt;</bpt><ept id="7953b346-b22b-4841-887c-43628ceeda65">&lt;/title&gt;</ept></source>
+          <target state="new">By default, global administrators have access to the information that is provided by Azure AD Connect Health. If you are not a global administrator of your Azure AD directory, you will not be able to create a service instance of Azure AD Connect Health. Ensure that you are a global administrator.  For additional information see <bpt id="4a9c114c-2f37-47c6-afe3-5dff3de1e3d5">&lt;linkText&gt;</bpt>Administering your Azure AD directory<ept id="4a9c114c-2f37-47c6-afe3-5dff3de1e3d5">&lt;/linkText&gt;</ept><bpt id="4a9c114c-2f37-47c6-afe3-5dff3de1e3d5">&lt;title&gt;</bpt><ept id="4a9c114c-2f37-47c6-afe3-5dff3de1e3d5">&lt;/title&gt;</ept>.&lt;/br&gt;&lt;/br&gt;<bpt id="e50401f9-a102-4e53-91f9-53f8f8920849">&lt;strong&gt;</bpt>Important:<ept id="e50401f9-a102-4e53-91f9-53f8f8920849">&lt;/strong&gt;</ept> The account you use when installing the agents must be a work or organizational account and cannot be a Microsoft account.   For more information see <bpt id="7953b346-b22b-4841-887c-43628ceeda65">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="7953b346-b22b-4841-887c-43628ceeda65">&lt;/linkText&gt;</ept><bpt id="7953b346-b22b-4841-887c-43628ceeda65">&lt;title&gt;</bpt><ept id="7953b346-b22b-4841-887c-43628ceeda65">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb3d890c-54dd-4660-9b6d-61b36cdeed74" xml:space="preserve">
+          <source>For AD FS, AD FS auditing must be enabled to use Usage Analytics</source>
+          <target state="new">For AD FS, AD FS auditing must be enabled to use Usage Analytics</target>
+        </trans-unit>
+        <trans-unit id="2b37053d-ff4a-4229-8f4b-7e0e2998332f" xml:space="preserve">
+          <source>If you plan on using Usage Analytics with AD FS, then AD FS auditing must be enabled.  &lt;/br&gt;&lt;/br&gt;See <bpt id="23cd3670-fc3b-4ffb-8beb-bafd4126e41c">&lt;linkText&gt;</bpt>Enable Auditing for AD FS.<ept id="23cd3670-fc3b-4ffb-8beb-bafd4126e41c">&lt;/linkText&gt;</ept><bpt id="23cd3670-fc3b-4ffb-8beb-bafd4126e41c">&lt;title&gt;</bpt><ept id="23cd3670-fc3b-4ffb-8beb-bafd4126e41c">&lt;/title&gt;</ept></source>
+          <target state="new">If you plan on using Usage Analytics with AD FS, then AD FS auditing must be enabled.  &lt;/br&gt;&lt;/br&gt;See <bpt id="23cd3670-fc3b-4ffb-8beb-bafd4126e41c">&lt;linkText&gt;</bpt>Enable Auditing for AD FS.<ept id="23cd3670-fc3b-4ffb-8beb-bafd4126e41c">&lt;/linkText&gt;</ept><bpt id="23cd3670-fc3b-4ffb-8beb-bafd4126e41c">&lt;title&gt;</bpt><ept id="23cd3670-fc3b-4ffb-8beb-bafd4126e41c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="405aa552-4a52-436b-ad66-a40b093c0945" xml:space="preserve">
+          <source>Meet the Azure AD Connect Health Agent Requirements</source>
+          <target state="new">Meet the Azure AD Connect Health Agent Requirements</target>
+        </trans-unit>
+        <trans-unit id="7c245852-88ba-4030-97fd-972420b44618" xml:space="preserve">
+          <source>See the table below for agent specific requirements.</source>
+          <target state="new">See the table below for agent specific requirements.</target>
+        </trans-unit>
+        <trans-unit id="6c8ec383-2a4d-4fc8-b6f9-136feb4599d3" xml:space="preserve">
+          <source>The following table is a list of agent requirements that must be met before you can get going with Azure AD Connect Health.</source>
+          <target state="new">The following table is a list of agent requirements that must be met before you can get going with Azure AD Connect Health.</target>
+        </trans-unit>
+        <trans-unit id="e6fa1d66-1a5b-4d40-b8c5-138a538c0114" xml:space="preserve">
+          <source>Requirement</source>
+          <target state="new">Requirement</target>
+        </trans-unit>
+        <trans-unit id="7b424c5b-0aab-4123-8d04-37c6052754ef" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="4a5173a6-d2c2-4abc-a90b-82d3d7b6f741" xml:space="preserve">
+          <source>The Azure AD Connect Health Agent installed on each targeted server</source>
+          <target state="new">The Azure AD Connect Health Agent installed on each targeted server</target>
+        </trans-unit>
+        <trans-unit id="5d726fc2-84a7-4f8f-a739-8321f1fae6f9" xml:space="preserve">
+          <source>Azure AD Connect Health requires that an agent be installed on targeted servers in order to provide the data that is viewed in the portal. &lt;/br&gt;&lt;/br&gt;For example, in order to get data on your AD FS on-premises infrastructure, the agent must be installed on the AD FS servers.  This includes AD FS Proxy servers and Web Application Proxy servers.   &lt;/br&gt;&lt;/br&gt;For information on installing the agent see the <bpt id="92701a25-b46b-4467-ae99-d3780c6cf865">&lt;linkText&gt;</bpt>Azure AD Connect Health Agent Installation<ept id="92701a25-b46b-4467-ae99-d3780c6cf865">&lt;/linkText&gt;</ept><bpt id="92701a25-b46b-4467-ae99-d3780c6cf865">&lt;title&gt;</bpt><ept id="92701a25-b46b-4467-ae99-d3780c6cf865">&lt;/title&gt;</ept>.&lt;/br&gt;&lt;/br&gt;<bpt id="9bef3e5e-bf4c-4d85-98d6-e7bf32200599">&lt;strong&gt;</bpt>Important:<ept id="9bef3e5e-bf4c-4d85-98d6-e7bf32200599">&lt;/strong&gt;</ept> The account you use when installing the agents must be a work or organizational account and cannot be a Microsoft account.   For more information see <bpt id="193fc9de-4c74-4b65-9ceb-1fe2f55913dd">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="193fc9de-4c74-4b65-9ceb-1fe2f55913dd">&lt;/linkText&gt;</ept><bpt id="193fc9de-4c74-4b65-9ceb-1fe2f55913dd">&lt;title&gt;</bpt><ept id="193fc9de-4c74-4b65-9ceb-1fe2f55913dd">&lt;/title&gt;</ept></source>
+          <target state="new">Azure AD Connect Health requires that an agent be installed on targeted servers in order to provide the data that is viewed in the portal. &lt;/br&gt;&lt;/br&gt;For example, in order to get data on your AD FS on-premises infrastructure, the agent must be installed on the AD FS servers.  This includes AD FS Proxy servers and Web Application Proxy servers.   &lt;/br&gt;&lt;/br&gt;For information on installing the agent see the <bpt id="92701a25-b46b-4467-ae99-d3780c6cf865">&lt;linkText&gt;</bpt>Azure AD Connect Health Agent Installation<ept id="92701a25-b46b-4467-ae99-d3780c6cf865">&lt;/linkText&gt;</ept><bpt id="92701a25-b46b-4467-ae99-d3780c6cf865">&lt;title&gt;</bpt><ept id="92701a25-b46b-4467-ae99-d3780c6cf865">&lt;/title&gt;</ept>.&lt;/br&gt;&lt;/br&gt;<bpt id="9bef3e5e-bf4c-4d85-98d6-e7bf32200599">&lt;strong&gt;</bpt>Important:<ept id="9bef3e5e-bf4c-4d85-98d6-e7bf32200599">&lt;/strong&gt;</ept> The account you use when installing the agents must be a work or organizational account and cannot be a Microsoft account.   For more information see <bpt id="193fc9de-4c74-4b65-9ceb-1fe2f55913dd">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="193fc9de-4c74-4b65-9ceb-1fe2f55913dd">&lt;/linkText&gt;</ept><bpt id="193fc9de-4c74-4b65-9ceb-1fe2f55913dd">&lt;title&gt;</bpt><ept id="193fc9de-4c74-4b65-9ceb-1fe2f55913dd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cddcc2f4-ea53-4226-9088-a53ee51cfc3c" xml:space="preserve">
+          <source>Outbound connectivity to the Azure service endpoints</source>
+          <target state="new">Outbound connectivity to the Azure service endpoints</target>
+        </trans-unit>
+        <trans-unit id="b81b1724-4a49-4e49-9ac4-bb59091af49a" xml:space="preserve">
+          <source>During installation and runtime, the agent requires connectivity to the Azure AD Connect Health service end points listed below. If you block outbound connectivity make sure that the following are added to the allowed list: &lt;/br&gt;&lt;/br&gt;&lt;li&gt;&amp;#42;.servicebus.windows.net - Port: 5671&lt;/li&gt;&lt;li&gt;https://&amp;#42;.adhybridhealth.azure.com/&lt;/li&gt;&lt;li&gt;https://&amp;#42;.table.core.windows.net/&lt;/li&gt;&lt;li&gt;https://policykeyservice.dc.ad.msft.net/&lt;/li&gt;&lt;li&gt;https://login.windows.net&lt;/li&gt;&lt;li&gt;https://login.microsoftonline.com&lt;/li&gt;&lt;li&gt;https://secure.aadcdn.microsoftonline-p.com&lt;/li&gt;</source>
+          <target state="new">During installation and runtime, the agent requires connectivity to the Azure AD Connect Health service end points listed below. If you block outbound connectivity make sure that the following are added to the allowed list: &lt;/br&gt;&lt;/br&gt;&lt;li&gt;&amp;#42;.servicebus.windows.net - Port: 5671&lt;/li&gt;&lt;li&gt;https://&amp;#42;.adhybridhealth.azure.com/&lt;/li&gt;&lt;li&gt;https://&amp;#42;.table.core.windows.net/&lt;/li&gt;&lt;li&gt;https://policykeyservice.dc.ad.msft.net/&lt;/li&gt;&lt;li&gt;https://login.windows.net&lt;/li&gt;&lt;li&gt;https://login.microsoftonline.com&lt;/li&gt;&lt;li&gt;https://secure.aadcdn.microsoftonline-p.com&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="b70217ff-9b5b-4372-8358-d2c369893f57" xml:space="preserve">
+          <source>Firewall ports on the server running the agent.</source>
+          <target state="new">Firewall ports on the server running the agent.</target>
+        </trans-unit>
+        <trans-unit id="8701ccff-0161-4026-9c63-0ea9ef2d01ed" xml:space="preserve">
+          <source>The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.&lt;/br&gt;&lt;/br&gt;&lt;li&gt;TCP/UDP port 80&lt;/li&gt;&lt;li&gt;TCP/UDP port 443&lt;/li&gt;</source>
+          <target state="new">The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.&lt;/br&gt;&lt;/br&gt;&lt;li&gt;TCP/UDP port 80&lt;/li&gt;&lt;li&gt;TCP/UDP port 443&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="ad97d52f-58f8-4eef-a7ad-37864000703b" xml:space="preserve">
+          <source>Allow the following websites if IE Enhanced Security is enabled</source>
+          <target state="new">Allow the following websites if IE Enhanced Security is enabled</target>
+        </trans-unit>
+        <trans-unit id="9ea6ffa7-ecc0-49f8-90f8-93d95e011eb8" xml:space="preserve">
+          <source>The following websites need to be allowed if IE Enhanced Security is enabled on the server that is going to have the agent installed.&lt;/br&gt;&lt;/br&gt;&lt;li&gt;https://login.microsoftonline.com&lt;/li&gt;&lt;li&gt;https://secure.aadcdn.microsoftonline-p.com&lt;/li&gt;&lt;li&gt;https://login.windows.net&lt;/li&gt;&lt;li&gt;The federation server for your organization trusted by Azure Active Directory For example: https://sts.contoso.com&lt;/li&gt;</source>
+          <target state="new">The following websites need to be allowed if IE Enhanced Security is enabled on the server that is going to have the agent installed.&lt;/br&gt;&lt;/br&gt;&lt;li&gt;https://login.microsoftonline.com&lt;/li&gt;&lt;li&gt;https://secure.aadcdn.microsoftonline-p.com&lt;/li&gt;&lt;li&gt;https://login.windows.net&lt;/li&gt;&lt;li&gt;The federation server for your organization trusted by Azure Active Directory For example: https://sts.contoso.com&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="afa7316b-e887-4bd9-9ad3-95edc969509b" xml:space="preserve">
+          <source>To get started using Azure AD Connect Health you can download the latest version of the agent here:  <bpt id="373dbe64-d505-4f2a-b35e-5d37efe9c35c">&lt;linkText&gt;</bpt>Download Azure AD Connect Health Agent.<ept id="373dbe64-d505-4f2a-b35e-5d37efe9c35c">&lt;/linkText&gt;</ept><bpt id="373dbe64-d505-4f2a-b35e-5d37efe9c35c">&lt;title&gt;</bpt><ept id="373dbe64-d505-4f2a-b35e-5d37efe9c35c">&lt;/title&gt;</ept> Ensure that you’ve added the service from Marketplace before installing the agents.</source>
+          <target state="new">To get started using Azure AD Connect Health you can download the latest version of the agent here:  <bpt id="373dbe64-d505-4f2a-b35e-5d37efe9c35c">&lt;linkText&gt;</bpt>Download Azure AD Connect Health Agent.<ept id="373dbe64-d505-4f2a-b35e-5d37efe9c35c">&lt;/linkText&gt;</ept><bpt id="373dbe64-d505-4f2a-b35e-5d37efe9c35c">&lt;title&gt;</bpt><ept id="373dbe64-d505-4f2a-b35e-5d37efe9c35c">&lt;/title&gt;</ept> Ensure that you’ve added the service from Marketplace before installing the agents.</target>
+        </trans-unit>
+        <trans-unit id="ad55b647-40a7-4570-9fd1-e62b2a1eb2c2" xml:space="preserve">
+          <source><bpt id="50bd45a0-bdcd-4e03-b900-3e7e3f4cdb73">&lt;linkText&gt;</bpt>Azure AD Connect Health Agent Installation for AD FS<ept id="50bd45a0-bdcd-4e03-b900-3e7e3f4cdb73">&lt;/linkText&gt;</ept><bpt id="50bd45a0-bdcd-4e03-b900-3e7e3f4cdb73">&lt;title&gt;</bpt><ept id="50bd45a0-bdcd-4e03-b900-3e7e3f4cdb73">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="50bd45a0-bdcd-4e03-b900-3e7e3f4cdb73">&lt;linkText&gt;</bpt>Azure AD Connect Health Agent Installation for AD FS<ept id="50bd45a0-bdcd-4e03-b900-3e7e3f4cdb73">&lt;/linkText&gt;</ept><bpt id="50bd45a0-bdcd-4e03-b900-3e7e3f4cdb73">&lt;title&gt;</bpt><ept id="50bd45a0-bdcd-4e03-b900-3e7e3f4cdb73">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="553b9ff3-9a14-4c57-bfae-e38db7b51e09" xml:space="preserve">
+          <source><bpt id="dbd13441-298b-4fbf-8608-77e971015f2d">&lt;linkText&gt;</bpt>Azure AD Connect Health Operations<ept id="dbd13441-298b-4fbf-8608-77e971015f2d">&lt;/linkText&gt;</ept><bpt id="dbd13441-298b-4fbf-8608-77e971015f2d">&lt;title&gt;</bpt><ept id="dbd13441-298b-4fbf-8608-77e971015f2d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dbd13441-298b-4fbf-8608-77e971015f2d">&lt;linkText&gt;</bpt>Azure AD Connect Health Operations<ept id="dbd13441-298b-4fbf-8608-77e971015f2d">&lt;/linkText&gt;</ept><bpt id="dbd13441-298b-4fbf-8608-77e971015f2d">&lt;title&gt;</bpt><ept id="dbd13441-298b-4fbf-8608-77e971015f2d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81314125-1aa5-44b2-bcef-0fc4c11423cb" xml:space="preserve">
+          <source><bpt id="2081d8c4-15a0-4584-b526-8d76c8f165bc">&lt;linkText&gt;</bpt>Using Azure AD Connect Health with AD FS<ept id="2081d8c4-15a0-4584-b526-8d76c8f165bc">&lt;/linkText&gt;</ept><bpt id="2081d8c4-15a0-4584-b526-8d76c8f165bc">&lt;title&gt;</bpt><ept id="2081d8c4-15a0-4584-b526-8d76c8f165bc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2081d8c4-15a0-4584-b526-8d76c8f165bc">&lt;linkText&gt;</bpt>Using Azure AD Connect Health with AD FS<ept id="2081d8c4-15a0-4584-b526-8d76c8f165bc">&lt;/linkText&gt;</ept><bpt id="2081d8c4-15a0-4584-b526-8d76c8f165bc">&lt;title&gt;</bpt><ept id="2081d8c4-15a0-4584-b526-8d76c8f165bc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e8aec0b-2e56-46bc-951e-5b7fe376b3c5" xml:space="preserve">
+          <source><bpt id="89b7e5ec-8d2b-4563-8402-7104f646bb4b">&lt;linkText&gt;</bpt>Azure AD Connect Health FAQ<ept id="89b7e5ec-8d2b-4563-8402-7104f646bb4b">&lt;/linkText&gt;</ept><bpt id="89b7e5ec-8d2b-4563-8402-7104f646bb4b">&lt;title&gt;</bpt><ept id="89b7e5ec-8d2b-4563-8402-7104f646bb4b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="89b7e5ec-8d2b-4563-8402-7104f646bb4b">&lt;linkText&gt;</bpt>Azure AD Connect Health FAQ<ept id="89b7e5ec-8d2b-4563-8402-7104f646bb4b">&lt;/linkText&gt;</ept><bpt id="89b7e5ec-8d2b-4563-8402-7104f646bb4b">&lt;title&gt;</bpt><ept id="89b7e5ec-8d2b-4563-8402-7104f646bb4b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

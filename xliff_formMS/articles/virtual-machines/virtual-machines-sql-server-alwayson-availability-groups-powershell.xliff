@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3e3ff153-b650-423e-94be-3383598bc79e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3e3ff153-b650-423e-94be-3383598bc79e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bb1a9022-7546-4db6-a5ce-c81b5012a51c">
+        <trans-unit id="9ca98458-116a-44e1-8dd4-24c720cf474b" xml:space="preserve">
+          <source>Configure AlwaysOn Availability Groups in Azure (PowerShell)</source>
+          <target state="new">Configure AlwaysOn Availability Groups in Azure (PowerShell)</target>
+        </trans-unit>
+        <trans-unit id="4ef07f4d-8ad4-4012-bb72-fd229a9390fb" xml:space="preserve">
+          <source>Use PowerShell to create an AlwaysOn Availability Group in Azure.</source>
+          <target state="new">Use PowerShell to create an AlwaysOn Availability Group in Azure.</target>
+        </trans-unit>
+        <trans-unit id="11e9b880-aeba-49ec-ade6-56214dd0655a" xml:space="preserve">
+          <source>For the GUI-based tutorial of the same scenario, see <bpt id="04b7d4ec-1c13-4564-a9da-dfc651618a73">&lt;linkText&gt;</bpt>Configure AlwaysOn Availability Groups in Azure (GUI)<ept id="04b7d4ec-1c13-4564-a9da-dfc651618a73">&lt;/linkText&gt;</ept><bpt id="04b7d4ec-1c13-4564-a9da-dfc651618a73">&lt;title&gt;</bpt><ept id="04b7d4ec-1c13-4564-a9da-dfc651618a73">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the GUI-based tutorial of the same scenario, see <bpt id="04b7d4ec-1c13-4564-a9da-dfc651618a73">&lt;linkText&gt;</bpt>Configure AlwaysOn Availability Groups in Azure (GUI)<ept id="04b7d4ec-1c13-4564-a9da-dfc651618a73">&lt;/linkText&gt;</ept><bpt id="04b7d4ec-1c13-4564-a9da-dfc651618a73">&lt;title&gt;</bpt><ept id="04b7d4ec-1c13-4564-a9da-dfc651618a73">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce2c59de-4e12-467b-bbd7-94903f96e7c4" xml:space="preserve">
+          <source>Azure virtual machines (VMs) can help database administrators to implement lower the cost of a high availability SQL Server system.</source>
+          <target state="new">Azure virtual machines (VMs) can help database administrators to implement lower the cost of a high availability SQL Server system.</target>
+        </trans-unit>
+        <trans-unit id="675155b4-ea3f-481f-aaa0-0a3a4cf62066" xml:space="preserve">
+          <source>This tutorial shows you how to implement an availability group using SQL Server AlwaysOn end-to-end inside an Azure environment.</source>
+          <target state="new">This tutorial shows you how to implement an availability group using SQL Server AlwaysOn end-to-end inside an Azure environment.</target>
+        </trans-unit>
+        <trans-unit id="d864e674-f7a0-41f9-937a-a353da746846" xml:space="preserve">
+          <source>At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:</source>
+          <target state="new">At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:</target>
+        </trans-unit>
+        <trans-unit id="39e3aa40-9812-4be8-88f6-89668e5a7fc5" xml:space="preserve">
+          <source>A virtual network containing multiple subnets, including a front-end and a back-end subnet</source>
+          <target state="new">A virtual network containing multiple subnets, including a front-end and a back-end subnet</target>
+        </trans-unit>
+        <trans-unit id="2342c58b-39ee-4d19-9e50-02afde47ce6b" xml:space="preserve">
+          <source>A domain controller with an Active Directory (AD) domain</source>
+          <target state="new">A domain controller with an Active Directory (AD) domain</target>
+        </trans-unit>
+        <trans-unit id="a2553189-82d7-40d3-9461-5f28d92311a9" xml:space="preserve">
+          <source>Two SQL Server VMs deployed to the back-end subnet and joined to the AD domain</source>
+          <target state="new">Two SQL Server VMs deployed to the back-end subnet and joined to the AD domain</target>
+        </trans-unit>
+        <trans-unit id="2cb9f42d-08ac-4c82-bc04-9045189c1ab9" xml:space="preserve">
+          <source>A 3-node WSFC cluster with the Node Majority quorum model</source>
+          <target state="new">A 3-node WSFC cluster with the Node Majority quorum model</target>
+        </trans-unit>
+        <trans-unit id="e1430c1f-fd5a-4895-9bd0-6042071cc7f6" xml:space="preserve">
+          <source>An availability group with two synchronous-commit replicas of an availability database</source>
+          <target state="new">An availability group with two synchronous-commit replicas of an availability database</target>
+        </trans-unit>
+        <trans-unit id="4eeb3b47-bb61-4810-8335-c6ffd74075fe" xml:space="preserve">
+          <source>This scenario is chosen for its simplicity, not for its cost effectiveness or other factors on Azure.</source>
+          <target state="new">This scenario is chosen for its simplicity, not for its cost effectiveness or other factors on Azure.</target>
+        </trans-unit>
+        <trans-unit id="1a50897f-8604-4ac4-807c-0cc040ebff6f" xml:space="preserve">
+          <source>For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node WSFC cluster.</source>
+          <target state="new">For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node WSFC cluster.</target>
+        </trans-unit>
+        <trans-unit id="52cbaf1b-6fd4-45e2-b5a1-3da57b8fc176" xml:space="preserve">
+          <source>This method reduces the VM count by one from the above configuration.</source>
+          <target state="new">This method reduces the VM count by one from the above configuration.</target>
+        </trans-unit>
+        <trans-unit id="1e272460-b73a-4e5a-9fe6-6a92a539ccc8" xml:space="preserve">
+          <source>This tutorial is intended to show you the steps required to set up the described solution above without elaborating on the details of each step.</source>
+          <target state="new">This tutorial is intended to show you the steps required to set up the described solution above without elaborating on the details of each step.</target>
+        </trans-unit>
+        <trans-unit id="22756428-7436-4587-a15b-0d6e018b6984" xml:space="preserve">
+          <source>Therefore, instead of showing you the GUI configuration steps, it uses PowerShell scripting to take you quickly through each step.</source>
+          <target state="new">Therefore, instead of showing you the GUI configuration steps, it uses PowerShell scripting to take you quickly through each step.</target>
+        </trans-unit>
+        <trans-unit id="022fbb9b-d14b-4073-94aa-ac0d554d433a" xml:space="preserve">
+          <source>It assumes the following:</source>
+          <target state="new">It assumes the following:</target>
+        </trans-unit>
+        <trans-unit id="ed9b07e9-e934-4a22-b1a1-e7a0191019b3" xml:space="preserve">
+          <source>You already have an Azure account with the virtual machine subscription.</source>
+          <target state="new">You already have an Azure account with the virtual machine subscription.</target>
+        </trans-unit>
+        <trans-unit id="26524d7f-5b5f-452c-8f09-bf4198a82737" xml:space="preserve">
+          <source>You have installed the <bpt id="1af714c2-2ec3-4d52-832f-64b59751f18d">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="1af714c2-2ec3-4d52-832f-64b59751f18d">&lt;/linkText&gt;</ept><bpt id="1af714c2-2ec3-4d52-832f-64b59751f18d">&lt;title&gt;</bpt><ept id="1af714c2-2ec3-4d52-832f-64b59751f18d">&lt;/title&gt;</ept>.</source>
+          <target state="new">You have installed the <bpt id="1af714c2-2ec3-4d52-832f-64b59751f18d">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="1af714c2-2ec3-4d52-832f-64b59751f18d">&lt;/linkText&gt;</ept><bpt id="1af714c2-2ec3-4d52-832f-64b59751f18d">&lt;title&gt;</bpt><ept id="1af714c2-2ec3-4d52-832f-64b59751f18d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58fcb327-7893-4318-bcbf-1754fd2b750c" xml:space="preserve">
+          <source>You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI.</source>
+          <target state="new">You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI.</target>
+        </trans-unit>
+        <trans-unit id="4c4ff728-e919-4bcb-9f5a-633e0b49c7d6" xml:space="preserve">
+          <source>For more information, see <bpt id="ed5d0e25-1dbd-4c4a-9f73-ac6aab31d435">&lt;linkText&gt;</bpt>Provisioning a SQL Server Virtual Machine on Azure<ept id="ed5d0e25-1dbd-4c4a-9f73-ac6aab31d435">&lt;/linkText&gt;</ept><bpt id="ed5d0e25-1dbd-4c4a-9f73-ac6aab31d435">&lt;title&gt;</bpt><ept id="ed5d0e25-1dbd-4c4a-9f73-ac6aab31d435">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="ed5d0e25-1dbd-4c4a-9f73-ac6aab31d435">&lt;linkText&gt;</bpt>Provisioning a SQL Server Virtual Machine on Azure<ept id="ed5d0e25-1dbd-4c4a-9f73-ac6aab31d435">&lt;/linkText&gt;</ept><bpt id="ed5d0e25-1dbd-4c4a-9f73-ac6aab31d435">&lt;title&gt;</bpt><ept id="ed5d0e25-1dbd-4c4a-9f73-ac6aab31d435">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61e3fc28-652b-4faf-ad95-9d213d3fa6d7" xml:space="preserve">
+          <source>You already have a solid understanding of AlwaysOn Availability Groups for on-premise solutions.</source>
+          <target state="new">You already have a solid understanding of AlwaysOn Availability Groups for on-premise solutions.</target>
+        </trans-unit>
+        <trans-unit id="ae9cfb85-663b-450c-b2da-f49138af6aab" xml:space="preserve">
+          <source>For more information, see <bpt id="83b9bda5-c094-4dad-a0d8-878459ad6b3a">&lt;linkText&gt;</bpt>AlwaysOn Availability Groups (SQL Server)<ept id="83b9bda5-c094-4dad-a0d8-878459ad6b3a">&lt;/linkText&gt;</ept><bpt id="83b9bda5-c094-4dad-a0d8-878459ad6b3a">&lt;title&gt;</bpt><ept id="83b9bda5-c094-4dad-a0d8-878459ad6b3a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="83b9bda5-c094-4dad-a0d8-878459ad6b3a">&lt;linkText&gt;</bpt>AlwaysOn Availability Groups (SQL Server)<ept id="83b9bda5-c094-4dad-a0d8-878459ad6b3a">&lt;/linkText&gt;</ept><bpt id="83b9bda5-c094-4dad-a0d8-878459ad6b3a">&lt;title&gt;</bpt><ept id="83b9bda5-c094-4dad-a0d8-878459ad6b3a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3099781e-3876-45bb-a77f-448724069197" xml:space="preserve">
+          <source>In a PowerShell window on your local computer, import the Azure module, download a publishing settings file to your machine, and connect your PowerShell session to your Azure subscription by importing the downloaded publishing settings.</source>
+          <target state="new">In a PowerShell window on your local computer, import the Azure module, download a publishing settings file to your machine, and connect your PowerShell session to your Azure subscription by importing the downloaded publishing settings.</target>
+        </trans-unit>
+        <trans-unit id="733a90be-c3f1-4ea9-b1e4-c26baf688f65" xml:space="preserve">
+          <source>The <bpt id="e56ffae3-9a88-4a6f-b22c-efbf66115c3a">&lt;strong&gt;</bpt>Get-AzurePublishgSettingsFile<ept id="e56ffae3-9a88-4a6f-b22c-efbf66115c3a">&lt;/strong&gt;</ept> command automatically generates a management certificate with Azure downloads it to your machine.</source>
+          <target state="new">The <bpt id="e56ffae3-9a88-4a6f-b22c-efbf66115c3a">&lt;strong&gt;</bpt>Get-AzurePublishgSettingsFile<ept id="e56ffae3-9a88-4a6f-b22c-efbf66115c3a">&lt;/strong&gt;</ept> command automatically generates a management certificate with Azure downloads it to your machine.</target>
+        </trans-unit>
+        <trans-unit id="da136da7-ee45-4279-a5c0-19664d438ca8" xml:space="preserve">
+          <source>A browser will be automatically opened and you are prompted to enter the Microsoft account credentials for your Azure subscription.</source>
+          <target state="new">A browser will be automatically opened and you are prompted to enter the Microsoft account credentials for your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="d95d963b-6d94-4bfe-ae9c-9260e8267e57" xml:space="preserve">
+          <source>The downloaded <bpt id="2d77aa92-78f5-49ab-bc19-ac18a8568e52">&lt;strong&gt;</bpt>.publishsettings<ept id="2d77aa92-78f5-49ab-bc19-ac18a8568e52">&lt;/strong&gt;</ept> file contains all the information you need to manage your Azure subscription.</source>
+          <target state="new">The downloaded <bpt id="2d77aa92-78f5-49ab-bc19-ac18a8568e52">&lt;strong&gt;</bpt>.publishsettings<ept id="2d77aa92-78f5-49ab-bc19-ac18a8568e52">&lt;/strong&gt;</ept> file contains all the information you need to manage your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="95fa3df4-9b2e-44c0-97c6-2ce6a8049519" xml:space="preserve">
+          <source>After saving this file to a local directory, import it using the <bpt id="368c2929-7f10-429a-8c2c-ad34f8f58b72">&lt;strong&gt;</bpt>Import-AzurePublishSettingsFile<ept id="368c2929-7f10-429a-8c2c-ad34f8f58b72">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">After saving this file to a local directory, import it using the <bpt id="368c2929-7f10-429a-8c2c-ad34f8f58b72">&lt;strong&gt;</bpt>Import-AzurePublishSettingsFile<ept id="368c2929-7f10-429a-8c2c-ad34f8f58b72">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="ff4aee96-7941-446e-b905-83edb8d0d92b" xml:space="preserve">
+          <source>The publishsettings file contains your credentials (unencoded) that are used to administer your Azure subscriptions and services.</source>
+          <target state="new">The publishsettings file contains your credentials (unencoded) that are used to administer your Azure subscriptions and services.</target>
+        </trans-unit>
+        <trans-unit id="3334cf19-8dcc-4699-afa5-b8edca40dff5" xml:space="preserve">
+          <source>The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it once the import has completed.</source>
+          <target state="new">The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it once the import has completed.</target>
+        </trans-unit>
+        <trans-unit id="0b089c04-b75d-48f6-8d14-5207c3b6e367" xml:space="preserve">
+          <source>A malicious user gaining access to the publishsettings file can edit, create, and delete your Azure services.</source>
+          <target state="new">A malicious user gaining access to the publishsettings file can edit, create, and delete your Azure services.</target>
+        </trans-unit>
+        <trans-unit id="42f1858d-fc0c-48d9-9e0e-56e411b5b8ae" xml:space="preserve">
+          <source>Define a series of variables that you will use to create your cloud IT infrastructure.</source>
+          <target state="new">Define a series of variables that you will use to create your cloud IT infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="e888e45a-ec73-4a92-ba0b-8b5764b5ec6b" xml:space="preserve">
+          <source>Pay attention to the following to ensure that your commands will succeed later:</source>
+          <target state="new">Pay attention to the following to ensure that your commands will succeed later:</target>
+        </trans-unit>
+        <trans-unit id="e26ce1dc-ca27-42ff-84c6-68a849422ba3" xml:space="preserve">
+          <source>Variables <bpt id="dbf1d33d-dcd1-481a-851f-f537a8aa66ae">&lt;strong&gt;</bpt>$storageAccountName<ept id="dbf1d33d-dcd1-481a-851f-f537a8aa66ae">&lt;/strong&gt;</ept> and <bpt id="3c40f437-1cba-4a50-96fe-99735b245900">&lt;strong&gt;</bpt>$dcServiceName<ept id="3c40f437-1cba-4a50-96fe-99735b245900">&lt;/strong&gt;</ept> must be unique because they are used to identify your cloud storage account and cloud server, respectively, on the internet.</source>
+          <target state="new">Variables <bpt id="dbf1d33d-dcd1-481a-851f-f537a8aa66ae">&lt;strong&gt;</bpt>$storageAccountName<ept id="dbf1d33d-dcd1-481a-851f-f537a8aa66ae">&lt;/strong&gt;</ept> and <bpt id="3c40f437-1cba-4a50-96fe-99735b245900">&lt;strong&gt;</bpt>$dcServiceName<ept id="3c40f437-1cba-4a50-96fe-99735b245900">&lt;/strong&gt;</ept> must be unique because they are used to identify your cloud storage account and cloud server, respectively, on the internet.</target>
+        </trans-unit>
+        <trans-unit id="f40cd6d5-6680-4746-ae4c-03521294802b" xml:space="preserve">
+          <source>Names specified for variables <bpt id="9990b029-b816-4ccc-8397-9038daa7b9c2">&lt;strong&gt;</bpt>$affinityGroupName<ept id="9990b029-b816-4ccc-8397-9038daa7b9c2">&lt;/strong&gt;</ept> and <bpt id="9a6df4da-dde9-4a21-b631-50d8427c080f">&lt;strong&gt;</bpt>$virtualNetworkName<ept id="9a6df4da-dde9-4a21-b631-50d8427c080f">&lt;/strong&gt;</ept> are configured in the virtual network configuration document that you will use later.</source>
+          <target state="new">Names specified for variables <bpt id="9990b029-b816-4ccc-8397-9038daa7b9c2">&lt;strong&gt;</bpt>$affinityGroupName<ept id="9990b029-b816-4ccc-8397-9038daa7b9c2">&lt;/strong&gt;</ept> and <bpt id="9a6df4da-dde9-4a21-b631-50d8427c080f">&lt;strong&gt;</bpt>$virtualNetworkName<ept id="9a6df4da-dde9-4a21-b631-50d8427c080f">&lt;/strong&gt;</ept> are configured in the virtual network configuration document that you will use later.</target>
+        </trans-unit>
+        <trans-unit id="f7ddee0b-ab97-4f67-91b3-b470b4f12d90" xml:space="preserve">
+          <source><bpt id="c3afa590-a109-4e63-bbce-7dac478c16fe">&lt;strong&gt;</bpt>$sqlImageName<ept id="c3afa590-a109-4e63-bbce-7dac478c16fe">&lt;/strong&gt;</ept> specifies the updated name of the VM image that contains SQL Server 2012 Service Pack 1 Enterprise Edition.</source>
+          <target state="new"><bpt id="c3afa590-a109-4e63-bbce-7dac478c16fe">&lt;strong&gt;</bpt>$sqlImageName<ept id="c3afa590-a109-4e63-bbce-7dac478c16fe">&lt;/strong&gt;</ept> specifies the updated name of the VM image that contains SQL Server 2012 Service Pack 1 Enterprise Edition.</target>
+        </trans-unit>
+        <trans-unit id="d3a550f1-a471-415c-a9ab-0cfafad29214" xml:space="preserve">
+          <source>For simplicity, <bpt id="856566dc-87f5-4b96-8b5c-6122c55ee906">&lt;strong&gt;</bpt>Contoso!000<ept id="856566dc-87f5-4b96-8b5c-6122c55ee906">&lt;/strong&gt;</ept> is the same password used throughout the entire tutorial.</source>
+          <target state="new">For simplicity, <bpt id="856566dc-87f5-4b96-8b5c-6122c55ee906">&lt;strong&gt;</bpt>Contoso!000<ept id="856566dc-87f5-4b96-8b5c-6122c55ee906">&lt;/strong&gt;</ept> is the same password used throughout the entire tutorial.</target>
+        </trans-unit>
+        <trans-unit id="3321bb56-fa4b-4f4a-8df9-93b90fe958f9" xml:space="preserve">
+          <source>Create an affinity group.</source>
+          <target state="new">Create an affinity group.</target>
+        </trans-unit>
+        <trans-unit id="6aea98e0-b478-4d43-bfce-83620241c34c" xml:space="preserve">
+          <source>Create a virtual network by importing a configuration file.</source>
+          <target state="new">Create a virtual network by importing a configuration file.</target>
+        </trans-unit>
+        <trans-unit id="88264878-677d-499c-91f4-0897e4dfa503" xml:space="preserve">
+          <source>The configuration file contains the following XML document.</source>
+          <target state="new">The configuration file contains the following XML document.</target>
+        </trans-unit>
+        <trans-unit id="1851a67a-f0bd-4055-a1ca-c0c98ddfcd19" xml:space="preserve">
+          <source>In brief, it specifies a virtual network called <bpt id="216f83d8-5804-46de-ae08-230ce7e6ca27">&lt;strong&gt;</bpt>ContosoNET<ept id="216f83d8-5804-46de-ae08-230ce7e6ca27">&lt;/strong&gt;</ept> in the affinity group called <bpt id="d7070228-9e4d-4a0d-a93e-98611006466e">&lt;strong&gt;</bpt>ContosoAG<ept id="d7070228-9e4d-4a0d-a93e-98611006466e">&lt;/strong&gt;</ept>, and it has the address space <bpt id="9643b682-9013-4876-8c80-ee3158f180d3">&lt;strong&gt;</bpt>10.10.0.0/16<ept id="9643b682-9013-4876-8c80-ee3158f180d3">&lt;/strong&gt;</ept> and has two subnets, <bpt id="03549c89-ca12-4f12-966b-221d4668d9bd">&lt;strong&gt;</bpt>10.10.1.0/24<ept id="03549c89-ca12-4f12-966b-221d4668d9bd">&lt;/strong&gt;</ept> and <bpt id="53185469-f016-4bf0-8234-d5fc60eb5d16">&lt;strong&gt;</bpt>10.10.2.0/24<ept id="53185469-f016-4bf0-8234-d5fc60eb5d16">&lt;/strong&gt;</ept>, which are the front subnet and back subnet, respectively.</source>
+          <target state="new">In brief, it specifies a virtual network called <bpt id="216f83d8-5804-46de-ae08-230ce7e6ca27">&lt;strong&gt;</bpt>ContosoNET<ept id="216f83d8-5804-46de-ae08-230ce7e6ca27">&lt;/strong&gt;</ept> in the affinity group called <bpt id="d7070228-9e4d-4a0d-a93e-98611006466e">&lt;strong&gt;</bpt>ContosoAG<ept id="d7070228-9e4d-4a0d-a93e-98611006466e">&lt;/strong&gt;</ept>, and it has the address space <bpt id="9643b682-9013-4876-8c80-ee3158f180d3">&lt;strong&gt;</bpt>10.10.0.0/16<ept id="9643b682-9013-4876-8c80-ee3158f180d3">&lt;/strong&gt;</ept> and has two subnets, <bpt id="03549c89-ca12-4f12-966b-221d4668d9bd">&lt;strong&gt;</bpt>10.10.1.0/24<ept id="03549c89-ca12-4f12-966b-221d4668d9bd">&lt;/strong&gt;</ept> and <bpt id="53185469-f016-4bf0-8234-d5fc60eb5d16">&lt;strong&gt;</bpt>10.10.2.0/24<ept id="53185469-f016-4bf0-8234-d5fc60eb5d16">&lt;/strong&gt;</ept>, which are the front subnet and back subnet, respectively.</target>
+        </trans-unit>
+        <trans-unit id="58a677d3-1691-4971-aa2d-5a5455a539ee" xml:space="preserve">
+          <source>The front subnet is where you can place client applications such as Microsoft SharePoint, and the back subnet is where you will place the SQL Server VMs.</source>
+          <target state="new">The front subnet is where you can place client applications such as Microsoft SharePoint, and the back subnet is where you will place the SQL Server VMs.</target>
+        </trans-unit>
+        <trans-unit id="cd1c8d2d-9284-434d-a884-393f4af133c7" xml:space="preserve">
+          <source>If you change the <bpt id="8a71f53d-540f-4e0e-810c-780536be020d">&lt;strong&gt;</bpt>$affinityGroupName<ept id="8a71f53d-540f-4e0e-810c-780536be020d">&lt;/strong&gt;</ept> and <bpt id="f71a44c1-dea7-4220-957b-cd4eed1e1b7b">&lt;strong&gt;</bpt>$virtualNetworkName<ept id="f71a44c1-dea7-4220-957b-cd4eed1e1b7b">&lt;/strong&gt;</ept> variables earlier, you must also change the corresponding names below.</source>
+          <target state="new">If you change the <bpt id="8a71f53d-540f-4e0e-810c-780536be020d">&lt;strong&gt;</bpt>$affinityGroupName<ept id="8a71f53d-540f-4e0e-810c-780536be020d">&lt;/strong&gt;</ept> and <bpt id="f71a44c1-dea7-4220-957b-cd4eed1e1b7b">&lt;strong&gt;</bpt>$virtualNetworkName<ept id="f71a44c1-dea7-4220-957b-cd4eed1e1b7b">&lt;/strong&gt;</ept> variables earlier, you must also change the corresponding names below.</target>
+        </trans-unit>
+        <trans-unit id="a6259197-4cfb-4cea-ac62-100a7365e168" xml:space="preserve">
+          <source>Create a storage account that is associated with the affinity group you created and set it as the current storage account in your subscription.</source>
+          <target state="new">Create a storage account that is associated with the affinity group you created and set it as the current storage account in your subscription.</target>
+        </trans-unit>
+        <trans-unit id="5aeebe6e-5df1-4dfb-9d4b-60428f46b8d5" xml:space="preserve">
+          <source>Create the DC server in new cloud service and availability set.</source>
+          <target state="new">Create the DC server in new cloud service and availability set.</target>
+        </trans-unit>
+        <trans-unit id="383ec81a-ad90-4ea3-8997-9a85db22186b" xml:space="preserve">
+          <source>This series of piped commands do the following things:</source>
+          <target state="new">This series of piped commands do the following things:</target>
+        </trans-unit>
+        <trans-unit id="23d354a7-fb4a-4032-bc26-5b90b2065f37" xml:space="preserve">
+          <source><bpt id="f9d8631e-081b-4a47-a5d4-3e6d2d915a3f">&lt;strong&gt;</bpt>New-AzureVMConfig<ept id="f9d8631e-081b-4a47-a5d4-3e6d2d915a3f">&lt;/strong&gt;</ept> creates a VM configuration.</source>
+          <target state="new"><bpt id="f9d8631e-081b-4a47-a5d4-3e6d2d915a3f">&lt;strong&gt;</bpt>New-AzureVMConfig<ept id="f9d8631e-081b-4a47-a5d4-3e6d2d915a3f">&lt;/strong&gt;</ept> creates a VM configuration.</target>
+        </trans-unit>
+        <trans-unit id="3316a163-dd04-4a4b-8deb-8be3b9f4a041" xml:space="preserve">
+          <source><bpt id="826e4851-9331-4225-8768-e1095a6b91fc">&lt;strong&gt;</bpt>Add-AzureProvisioningConfig<ept id="826e4851-9331-4225-8768-e1095a6b91fc">&lt;/strong&gt;</ept> gives the configuration parameters of a standalone Windows server.</source>
+          <target state="new"><bpt id="826e4851-9331-4225-8768-e1095a6b91fc">&lt;strong&gt;</bpt>Add-AzureProvisioningConfig<ept id="826e4851-9331-4225-8768-e1095a6b91fc">&lt;/strong&gt;</ept> gives the configuration parameters of a standalone Windows server.</target>
+        </trans-unit>
+        <trans-unit id="fc7e25b2-9ae2-4208-a66f-fb10b53b2bde" xml:space="preserve">
+          <source><bpt id="bee9ef1a-69bd-497b-883c-85dfbf1210d5">&lt;strong&gt;</bpt>Add-AzureDataDisk<ept id="bee9ef1a-69bd-497b-883c-85dfbf1210d5">&lt;/strong&gt;</ept> adds the data disk that you will use for storing Active Directory data, with caching option set to None.</source>
+          <target state="new"><bpt id="bee9ef1a-69bd-497b-883c-85dfbf1210d5">&lt;strong&gt;</bpt>Add-AzureDataDisk<ept id="bee9ef1a-69bd-497b-883c-85dfbf1210d5">&lt;/strong&gt;</ept> adds the data disk that you will use for storing Active Directory data, with caching option set to None.</target>
+        </trans-unit>
+        <trans-unit id="8415c3c7-f773-460d-9b55-b4dfa34bd394" xml:space="preserve">
+          <source><bpt id="7d81035f-88e1-4e44-b13e-2604d796b594">&lt;strong&gt;</bpt>New-AzureVM<ept id="7d81035f-88e1-4e44-b13e-2604d796b594">&lt;/strong&gt;</ept> creates a new cloud service and creates the new Azure VM in the new cloud service.</source>
+          <target state="new"><bpt id="7d81035f-88e1-4e44-b13e-2604d796b594">&lt;strong&gt;</bpt>New-AzureVM<ept id="7d81035f-88e1-4e44-b13e-2604d796b594">&lt;/strong&gt;</ept> creates a new cloud service and creates the new Azure VM in the new cloud service.</target>
+        </trans-unit>
+        <trans-unit id="3f20dae9-4c78-4507-9910-04ec6b986959" xml:space="preserve">
+          <source>Wait for the new VM to be fully provisioned and download the remote desktop file to your working directory.</source>
+          <target state="new">Wait for the new VM to be fully provisioned and download the remote desktop file to your working directory.</target>
+        </trans-unit>
+        <trans-unit id="9c26073b-d2a0-4ab5-b56e-3419e05a1338" xml:space="preserve">
+          <source>Since the new Azure VM takes a long time to provision, the while loop continues to poll the new VM until it is ready for use.</source>
+          <target state="new">Since the new Azure VM takes a long time to provision, the while loop continues to poll the new VM until it is ready for use.</target>
+        </trans-unit>
+        <trans-unit id="182fdc0e-8964-4377-bf02-24a0a24108d3" xml:space="preserve">
+          <source>The DC server is now successfully provisioned.</source>
+          <target state="new">The DC server is now successfully provisioned.</target>
+        </trans-unit>
+        <trans-unit id="2d4a1a39-31ba-4dd6-b3ea-295d04107772" xml:space="preserve">
+          <source>Next, you will configure the Active Directory domain on this DC server.</source>
+          <target state="new">Next, you will configure the Active Directory domain on this DC server.</target>
+        </trans-unit>
+        <trans-unit id="0dc4161b-a253-476a-8d83-7f2e3b218e24" xml:space="preserve">
+          <source>Leave the PowerShell window open on your local computer.</source>
+          <target state="new">Leave the PowerShell window open on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="2be4435b-0a89-4d8f-ab47-2a739dfd6389" xml:space="preserve">
+          <source>You will use it again later to create the two SQL Server VMs.</source>
+          <target state="new">You will use it again later to create the two SQL Server VMs.</target>
+        </trans-unit>
+        <trans-unit id="5383f2f2-c90f-4a2b-b045-8f54630607e7" xml:space="preserve">
+          <source>Connect to the DC server by launching the remote desktop file.</source>
+          <target state="new">Connect to the DC server by launching the remote desktop file.</target>
+        </trans-unit>
+        <trans-unit id="d7a71d5e-0d24-42f9-9207-c79e80e9ca60" xml:space="preserve">
+          <source>Use the machine administrator’s username AzureAdmin and password <bpt id="27d7d63d-1e81-460d-9813-83f3ea41cfd2">&lt;strong&gt;</bpt>Contoso!000<ept id="27d7d63d-1e81-460d-9813-83f3ea41cfd2">&lt;/strong&gt;</ept>, which you specified when creating the new VM.</source>
+          <target state="new">Use the machine administrator’s username AzureAdmin and password <bpt id="27d7d63d-1e81-460d-9813-83f3ea41cfd2">&lt;strong&gt;</bpt>Contoso!000<ept id="27d7d63d-1e81-460d-9813-83f3ea41cfd2">&lt;/strong&gt;</ept>, which you specified when creating the new VM.</target>
+        </trans-unit>
+        <trans-unit id="11b97887-6429-4aa5-a485-414bbaff3846" xml:space="preserve">
+          <source>Open a PowerShell window in administrator mode.</source>
+          <target state="new">Open a PowerShell window in administrator mode.</target>
+        </trans-unit>
+        <trans-unit id="1ed0f35c-16b5-4c03-b3e9-43aa124dbfa8" xml:space="preserve">
+          <source>Run the following <bpt id="5355ab61-e11b-446e-8c42-fea22082c37f">&lt;strong&gt;</bpt>DCPROMO.EXE<ept id="5355ab61-e11b-446e-8c42-fea22082c37f">&lt;/strong&gt;</ept> command to setup the <bpt id="de5341a8-e1ed-41b4-98e6-9d8a4b08c454">&lt;strong&gt;</bpt>corp.contoso.com<ept id="de5341a8-e1ed-41b4-98e6-9d8a4b08c454">&lt;/strong&gt;</ept> domain, with the data directories on drive M.</source>
+          <target state="new">Run the following <bpt id="5355ab61-e11b-446e-8c42-fea22082c37f">&lt;strong&gt;</bpt>DCPROMO.EXE<ept id="5355ab61-e11b-446e-8c42-fea22082c37f">&lt;/strong&gt;</ept> command to setup the <bpt id="de5341a8-e1ed-41b4-98e6-9d8a4b08c454">&lt;strong&gt;</bpt>corp.contoso.com<ept id="de5341a8-e1ed-41b4-98e6-9d8a4b08c454">&lt;/strong&gt;</ept> domain, with the data directories on drive M.</target>
+        </trans-unit>
+        <trans-unit id="166392b3-8574-4992-9878-f65429a629c3" xml:space="preserve">
+          <source>Once the command completes, the VM restarts automatically.</source>
+          <target state="new">Once the command completes, the VM restarts automatically.</target>
+        </trans-unit>
+        <trans-unit id="4e7cd2d2-3ae2-41d2-8729-61aff474ed79" xml:space="preserve">
+          <source>Connect to the DC server again by launching the remote desktop file.</source>
+          <target state="new">Connect to the DC server again by launching the remote desktop file.</target>
+        </trans-unit>
+        <trans-unit id="688561aa-9637-4287-be6f-31e104b3c606" xml:space="preserve">
+          <source>This time, log in as <bpt id="07a56aed-8896-4cfe-9f36-594e878c21c6">&lt;strong&gt;</bpt>CORP\Administrator<ept id="07a56aed-8896-4cfe-9f36-594e878c21c6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This time, log in as <bpt id="07a56aed-8896-4cfe-9f36-594e878c21c6">&lt;strong&gt;</bpt>CORP\Administrator<ept id="07a56aed-8896-4cfe-9f36-594e878c21c6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ddced70-f1eb-40a6-8907-e989c2888be5" xml:space="preserve">
+          <source>Open a PowerShell window in administrator mode and import the Active Directory PowerShell module using the following command:</source>
+          <target state="new">Open a PowerShell window in administrator mode and import the Active Directory PowerShell module using the following command:</target>
+        </trans-unit>
+        <trans-unit id="36b708d9-a996-413b-93bf-0a21dac37dd6" xml:space="preserve">
+          <source>Run the following commands to add three users to the domain.</source>
+          <target state="new">Run the following commands to add three users to the domain.</target>
+        </trans-unit>
+        <trans-unit id="af2935d9-9740-4033-aac7-d19c3a332745" xml:space="preserve">
+          <source><bpt id="c5840f34-4e0f-4fb9-a538-89134e4421ca">&lt;strong&gt;</bpt>CORP\Install<ept id="c5840f34-4e0f-4fb9-a538-89134e4421ca">&lt;/strong&gt;</ept> is used to configure everything related to the SQL Server service instances, the WSFC cluster, and the availability group.</source>
+          <target state="new"><bpt id="c5840f34-4e0f-4fb9-a538-89134e4421ca">&lt;strong&gt;</bpt>CORP\Install<ept id="c5840f34-4e0f-4fb9-a538-89134e4421ca">&lt;/strong&gt;</ept> is used to configure everything related to the SQL Server service instances, the WSFC cluster, and the availability group.</target>
+        </trans-unit>
+        <trans-unit id="01ec54ef-e7ae-4e15-bc5f-c49cc3f4a1b4" xml:space="preserve">
+          <source><bpt id="c54365c5-e08c-43cd-a9b1-6bd6e36ccb4c">&lt;strong&gt;</bpt>CORP\SQLSvc1<ept id="c54365c5-e08c-43cd-a9b1-6bd6e36ccb4c">&lt;/strong&gt;</ept> and <bpt id="66d110fa-23a1-4aa7-a228-808cf3d608d6">&lt;strong&gt;</bpt>CORP\SQLSvc2<ept id="66d110fa-23a1-4aa7-a228-808cf3d608d6">&lt;/strong&gt;</ept> are used as the SQL Server service accounts for the two SQL Server VMs.</source>
+          <target state="new"><bpt id="c54365c5-e08c-43cd-a9b1-6bd6e36ccb4c">&lt;strong&gt;</bpt>CORP\SQLSvc1<ept id="c54365c5-e08c-43cd-a9b1-6bd6e36ccb4c">&lt;/strong&gt;</ept> and <bpt id="66d110fa-23a1-4aa7-a228-808cf3d608d6">&lt;strong&gt;</bpt>CORP\SQLSvc2<ept id="66d110fa-23a1-4aa7-a228-808cf3d608d6">&lt;/strong&gt;</ept> are used as the SQL Server service accounts for the two SQL Server VMs.</target>
+        </trans-unit>
+        <trans-unit id="0ceb4b56-783b-4d02-a02f-c9e5194b76dc" xml:space="preserve">
+          <source>Next, run the following commands to give <bpt id="0d7ada75-8f78-4664-a25e-c61cded2485f">&lt;strong&gt;</bpt>CORP\Install<ept id="0d7ada75-8f78-4664-a25e-c61cded2485f">&lt;/strong&gt;</ept> the permissions to create computer objects in the domain.</source>
+          <target state="new">Next, run the following commands to give <bpt id="0d7ada75-8f78-4664-a25e-c61cded2485f">&lt;strong&gt;</bpt>CORP\Install<ept id="0d7ada75-8f78-4664-a25e-c61cded2485f">&lt;/strong&gt;</ept> the permissions to create computer objects in the domain.</target>
+        </trans-unit>
+        <trans-unit id="1fa68af5-c1f1-4efe-8676-3c8378c8a38d" xml:space="preserve">
+          <source>The GUID specified above is the GUID for the computer object type.</source>
+          <target state="new">The GUID specified above is the GUID for the computer object type.</target>
+        </trans-unit>
+        <trans-unit id="7e4ca2c1-3fae-4246-9d59-0a0813a19eec" xml:space="preserve">
+          <source>The <bpt id="595a9fee-6cfd-41bc-98dc-547500dbce4b">&lt;strong&gt;</bpt>CORP\Install<ept id="595a9fee-6cfd-41bc-98dc-547500dbce4b">&lt;/strong&gt;</ept> account needs the <bpt id="e5abdc9e-6c2e-469c-9801-64032a539bd9">&lt;strong&gt;</bpt>Read All Properties<ept id="e5abdc9e-6c2e-469c-9801-64032a539bd9">&lt;/strong&gt;</ept> and <bpt id="373a12c7-098e-40b6-83c2-c0bf4083acbe">&lt;strong&gt;</bpt>Create Computer Objects<ept id="373a12c7-098e-40b6-83c2-c0bf4083acbe">&lt;/strong&gt;</ept> permission in order to create the Active Direct objects for the WSFC cluster.</source>
+          <target state="new">The <bpt id="595a9fee-6cfd-41bc-98dc-547500dbce4b">&lt;strong&gt;</bpt>CORP\Install<ept id="595a9fee-6cfd-41bc-98dc-547500dbce4b">&lt;/strong&gt;</ept> account needs the <bpt id="e5abdc9e-6c2e-469c-9801-64032a539bd9">&lt;strong&gt;</bpt>Read All Properties<ept id="e5abdc9e-6c2e-469c-9801-64032a539bd9">&lt;/strong&gt;</ept> and <bpt id="373a12c7-098e-40b6-83c2-c0bf4083acbe">&lt;strong&gt;</bpt>Create Computer Objects<ept id="373a12c7-098e-40b6-83c2-c0bf4083acbe">&lt;/strong&gt;</ept> permission in order to create the Active Direct objects for the WSFC cluster.</target>
+        </trans-unit>
+        <trans-unit id="17781bad-2337-4c7c-ac24-2278e32f0373" xml:space="preserve">
+          <source>The <bpt id="979792fd-80c1-4d26-a4a6-cd025834e472">&lt;strong&gt;</bpt>Read All Properties<ept id="979792fd-80c1-4d26-a4a6-cd025834e472">&lt;/strong&gt;</ept> permission is already given to CORP\Install by default, so you do not need to grant it explicitly.</source>
+          <target state="new">The <bpt id="979792fd-80c1-4d26-a4a6-cd025834e472">&lt;strong&gt;</bpt>Read All Properties<ept id="979792fd-80c1-4d26-a4a6-cd025834e472">&lt;/strong&gt;</ept> permission is already given to CORP\Install by default, so you do not need to grant it explicitly.</target>
+        </trans-unit>
+        <trans-unit id="d4fdc4c0-24b6-4317-99da-6c2b6729070e" xml:space="preserve">
+          <source>For more information on permissions needed to create the WSFC cluster, see <bpt id="3e991193-56e6-4dbb-9d15-64c97799563d">&lt;linkText&gt;</bpt>Failover Cluster Step-by-Step Guide: Configuring Accounts in Active Directory<ept id="3e991193-56e6-4dbb-9d15-64c97799563d">&lt;/linkText&gt;</ept><bpt id="3e991193-56e6-4dbb-9d15-64c97799563d">&lt;title&gt;</bpt><ept id="3e991193-56e6-4dbb-9d15-64c97799563d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on permissions needed to create the WSFC cluster, see <bpt id="3e991193-56e6-4dbb-9d15-64c97799563d">&lt;linkText&gt;</bpt>Failover Cluster Step-by-Step Guide: Configuring Accounts in Active Directory<ept id="3e991193-56e6-4dbb-9d15-64c97799563d">&lt;/linkText&gt;</ept><bpt id="3e991193-56e6-4dbb-9d15-64c97799563d">&lt;title&gt;</bpt><ept id="3e991193-56e6-4dbb-9d15-64c97799563d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="022cf8b0-c53b-47a6-ba33-8a47b5b39fb0" xml:space="preserve">
+          <source>Now that you have finished configuring Active Directory and the user objects, you will create two SQL Server VMs and join them to this domain.</source>
+          <target state="new">Now that you have finished configuring Active Directory and the user objects, you will create two SQL Server VMs and join them to this domain.</target>
+        </trans-unit>
+        <trans-unit id="830546d5-ddb2-47df-a395-e963107c44e9" xml:space="preserve">
+          <source>Continue to use the PowerShell window that is open on your local computer.</source>
+          <target state="new">Continue to use the PowerShell window that is open on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="5a49ea25-de4c-4250-8270-f5c56ec11725" xml:space="preserve">
+          <source>Define the following additional variables:</source>
+          <target state="new">Define the following additional variables:</target>
+        </trans-unit>
+        <trans-unit id="07e74434-e528-4d29-b22b-14cfe2d79539" xml:space="preserve">
+          <source>The IP address <bpt id="2b80b431-ce83-411d-b91a-be6efbaab93d">&lt;strong&gt;</bpt>10.10.0.4<ept id="2b80b431-ce83-411d-b91a-be6efbaab93d">&lt;/strong&gt;</ept> is typically assigned to the first VM you create in the <bpt id="17e3df5f-7d3d-4c2c-89b8-9fb3decfcb27">&lt;strong&gt;</bpt>10.10.0.0/16<ept id="17e3df5f-7d3d-4c2c-89b8-9fb3decfcb27">&lt;/strong&gt;</ept> subnet of your Azure virtual network.</source>
+          <target state="new">The IP address <bpt id="2b80b431-ce83-411d-b91a-be6efbaab93d">&lt;strong&gt;</bpt>10.10.0.4<ept id="2b80b431-ce83-411d-b91a-be6efbaab93d">&lt;/strong&gt;</ept> is typically assigned to the first VM you create in the <bpt id="17e3df5f-7d3d-4c2c-89b8-9fb3decfcb27">&lt;strong&gt;</bpt>10.10.0.0/16<ept id="17e3df5f-7d3d-4c2c-89b8-9fb3decfcb27">&lt;/strong&gt;</ept> subnet of your Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="8052fd6d-90ab-4d10-9217-175af291e994" xml:space="preserve">
+          <source>You should verify this is the address of your DC server by running <bpt id="abf41f74-c8a6-4017-ad9a-381e37ec5aa1">&lt;strong&gt;</bpt>IPCONFIG<ept id="abf41f74-c8a6-4017-ad9a-381e37ec5aa1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You should verify this is the address of your DC server by running <bpt id="abf41f74-c8a6-4017-ad9a-381e37ec5aa1">&lt;strong&gt;</bpt>IPCONFIG<ept id="abf41f74-c8a6-4017-ad9a-381e37ec5aa1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b518c86-2078-49c6-b685-153582ffd2f5" xml:space="preserve">
+          <source>Run the following piped commands to create the first VM in the WSFC cluster, named <bpt id="b5032c80-75ce-4f90-b71c-6e25090b9cf5">&lt;strong&gt;</bpt>ContosoQuorum<ept id="b5032c80-75ce-4f90-b71c-6e25090b9cf5">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Run the following piped commands to create the first VM in the WSFC cluster, named <bpt id="b5032c80-75ce-4f90-b71c-6e25090b9cf5">&lt;strong&gt;</bpt>ContosoQuorum<ept id="b5032c80-75ce-4f90-b71c-6e25090b9cf5">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="2ef8b8e3-0a81-4ad7-8394-92e21c2d4be0" xml:space="preserve">
+          <source>Note the following regarding the command above: </source>
+          <target state="new">Note the following regarding the command above: </target>
+        </trans-unit>
+        <trans-unit id="413856f9-f916-4910-bb91-498ea17517b8" xml:space="preserve">
+          <source><bpt id="a3023f59-c467-4349-beb8-2cf399ac5a8f">&lt;strong&gt;</bpt>New-AzureVMConfig<ept id="a3023f59-c467-4349-beb8-2cf399ac5a8f">&lt;/strong&gt;</ept> creates a VM configuration with the desired availability set name.</source>
+          <target state="new"><bpt id="a3023f59-c467-4349-beb8-2cf399ac5a8f">&lt;strong&gt;</bpt>New-AzureVMConfig<ept id="a3023f59-c467-4349-beb8-2cf399ac5a8f">&lt;/strong&gt;</ept> creates a VM configuration with the desired availability set name.</target>
+        </trans-unit>
+        <trans-unit id="c763bc7b-3847-4d9a-9b2b-e316207053fc" xml:space="preserve">
+          <source>The subsequent VMs will be created with the same availability set name so that they are joined to the same availability set.</source>
+          <target state="new">The subsequent VMs will be created with the same availability set name so that they are joined to the same availability set.</target>
+        </trans-unit>
+        <trans-unit id="107f8094-4d4e-4633-91ae-efeaac29e65f" xml:space="preserve">
+          <source><bpt id="c6ce906e-457d-453d-a81f-a2a354b3b493">&lt;strong&gt;</bpt>Add-AzureProvisioningConfig<ept id="c6ce906e-457d-453d-a81f-a2a354b3b493">&lt;/strong&gt;</ept> joins the VM to the Active Directory domain you created.</source>
+          <target state="new"><bpt id="c6ce906e-457d-453d-a81f-a2a354b3b493">&lt;strong&gt;</bpt>Add-AzureProvisioningConfig<ept id="c6ce906e-457d-453d-a81f-a2a354b3b493">&lt;/strong&gt;</ept> joins the VM to the Active Directory domain you created.</target>
+        </trans-unit>
+        <trans-unit id="a8c1b896-cac1-4850-8974-026806cf92af" xml:space="preserve">
+          <source><bpt id="4832d280-2dd8-4a5f-9075-8fc8d232b10d">&lt;strong&gt;</bpt>Set-AzureSubnet<ept id="4832d280-2dd8-4a5f-9075-8fc8d232b10d">&lt;/strong&gt;</ept> places the VM in the Back subnet.</source>
+          <target state="new"><bpt id="4832d280-2dd8-4a5f-9075-8fc8d232b10d">&lt;strong&gt;</bpt>Set-AzureSubnet<ept id="4832d280-2dd8-4a5f-9075-8fc8d232b10d">&lt;/strong&gt;</ept> places the VM in the Back subnet.</target>
+        </trans-unit>
+        <trans-unit id="97d02995-99f5-4c7b-9627-c4ce53c2a8ed" xml:space="preserve">
+          <source><bpt id="8ed3a942-c431-4b69-81e8-eb92c2f7ac9f">&lt;strong&gt;</bpt>New-AzureVM<ept id="8ed3a942-c431-4b69-81e8-eb92c2f7ac9f">&lt;/strong&gt;</ept> creates a new cloud service and creates the new Azure VM in the new cloud service.</source>
+          <target state="new"><bpt id="8ed3a942-c431-4b69-81e8-eb92c2f7ac9f">&lt;strong&gt;</bpt>New-AzureVM<ept id="8ed3a942-c431-4b69-81e8-eb92c2f7ac9f">&lt;/strong&gt;</ept> creates a new cloud service and creates the new Azure VM in the new cloud service.</target>
+        </trans-unit>
+        <trans-unit id="ffa3530f-80e2-4e84-9ef2-e039a9307145" xml:space="preserve">
+          <source>The <bpt id="2afe7da3-f01f-4589-b67f-80fa35a1c1ac">&lt;strong&gt;</bpt>DnsSettings<ept id="2afe7da3-f01f-4589-b67f-80fa35a1c1ac">&lt;/strong&gt;</ept> parameter specifies that the DNS server for the servers in the new cloud service has the IP address <bpt id="7d966d62-8e3e-4072-ad49-de5e4b2f2fd6">&lt;strong&gt;</bpt>10.10.0.4<ept id="7d966d62-8e3e-4072-ad49-de5e4b2f2fd6">&lt;/strong&gt;</ept>, which is the IP address of the DC server.</source>
+          <target state="new">The <bpt id="2afe7da3-f01f-4589-b67f-80fa35a1c1ac">&lt;strong&gt;</bpt>DnsSettings<ept id="2afe7da3-f01f-4589-b67f-80fa35a1c1ac">&lt;/strong&gt;</ept> parameter specifies that the DNS server for the servers in the new cloud service has the IP address <bpt id="7d966d62-8e3e-4072-ad49-de5e4b2f2fd6">&lt;strong&gt;</bpt>10.10.0.4<ept id="7d966d62-8e3e-4072-ad49-de5e4b2f2fd6">&lt;/strong&gt;</ept>, which is the IP address of the DC server.</target>
+        </trans-unit>
+        <trans-unit id="b5bfb7d2-dcb2-4ca6-a490-71c61c1da344" xml:space="preserve">
+          <source>This parameter is needed to enable the new VMs in the cloud service to join to the Active Directory domain successfully.</source>
+          <target state="new">This parameter is needed to enable the new VMs in the cloud service to join to the Active Directory domain successfully.</target>
+        </trans-unit>
+        <trans-unit id="464a42d8-ca70-40f4-a6ff-cab38f39383c" xml:space="preserve">
+          <source>Without this parameter, you must manually set the IPv4 settings in your VM to use the DC server as the primary DNS server after the VM is provisioned and then join the VM to the Active Directory domain.</source>
+          <target state="new">Without this parameter, you must manually set the IPv4 settings in your VM to use the DC server as the primary DNS server after the VM is provisioned and then join the VM to the Active Directory domain.</target>
+        </trans-unit>
+        <trans-unit id="87bb22d4-8084-4f44-82af-c80a05133525" xml:space="preserve">
+          <source>Run the following piped commands to create the SQL Server VMs, named <bpt id="daba5552-dfcf-41bb-8ba6-e03147ed4e5f">&lt;strong&gt;</bpt>ContosoSQL1<ept id="daba5552-dfcf-41bb-8ba6-e03147ed4e5f">&lt;/strong&gt;</ept> and <bpt id="79608c91-9703-4605-a328-feb5aaec7f0c">&lt;strong&gt;</bpt>ContosoSQL2<ept id="79608c91-9703-4605-a328-feb5aaec7f0c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Run the following piped commands to create the SQL Server VMs, named <bpt id="daba5552-dfcf-41bb-8ba6-e03147ed4e5f">&lt;strong&gt;</bpt>ContosoSQL1<ept id="daba5552-dfcf-41bb-8ba6-e03147ed4e5f">&lt;/strong&gt;</ept> and <bpt id="79608c91-9703-4605-a328-feb5aaec7f0c">&lt;strong&gt;</bpt>ContosoSQL2<ept id="79608c91-9703-4605-a328-feb5aaec7f0c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c34dbed-d6e8-4af8-8219-b8c730fe8ed1" xml:space="preserve">
+          <source>Note the following regarding the commands above:</source>
+          <target state="new">Note the following regarding the commands above:</target>
+        </trans-unit>
+        <trans-unit id="4836ec82-78a6-48d4-b216-e5c8ba1f7887" xml:space="preserve">
+          <source><bpt id="b4bf2959-0079-476e-ba98-afbfd3c74e87">&lt;strong&gt;</bpt>New-AzureVMConfig<ept id="b4bf2959-0079-476e-ba98-afbfd3c74e87">&lt;/strong&gt;</ept> uses the same availability set name as the DC server, and uses the SQL Server 2012 Service Pack 1 Enterprise Edition image in the virtual machine gallery.</source>
+          <target state="new"><bpt id="b4bf2959-0079-476e-ba98-afbfd3c74e87">&lt;strong&gt;</bpt>New-AzureVMConfig<ept id="b4bf2959-0079-476e-ba98-afbfd3c74e87">&lt;/strong&gt;</ept> uses the same availability set name as the DC server, and uses the SQL Server 2012 Service Pack 1 Enterprise Edition image in the virtual machine gallery.</target>
+        </trans-unit>
+        <trans-unit id="35e308b0-316d-40ec-a0b9-88de550e180e" xml:space="preserve">
+          <source>It also sets the operating system disk to read-caching only (no write caching).</source>
+          <target state="new">It also sets the operating system disk to read-caching only (no write caching).</target>
+        </trans-unit>
+        <trans-unit id="945eb085-5944-4a3e-97f6-197669c575b4" xml:space="preserve">
+          <source>It is recommended that you migrate the database files to a separate data disk that you attach to the VM and configure it with no read or write caching.</source>
+          <target state="new">It is recommended that you migrate the database files to a separate data disk that you attach to the VM and configure it with no read or write caching.</target>
+        </trans-unit>
+        <trans-unit id="53518953-b274-4457-b8b8-fb47b62368f2" xml:space="preserve">
+          <source>However, the next best thing is to remove write caching on the operating system disk, since you cannot remove read caching on the operating system disk.</source>
+          <target state="new">However, the next best thing is to remove write caching on the operating system disk, since you cannot remove read caching on the operating system disk.</target>
+        </trans-unit>
+        <trans-unit id="e6de8bb4-f485-4963-a99f-736c0f7e1512" xml:space="preserve">
+          <source><bpt id="b888fdb3-07ff-4c75-bb64-a5bc9c1202f0">&lt;strong&gt;</bpt>Add-AzureProvisioningConfig<ept id="b888fdb3-07ff-4c75-bb64-a5bc9c1202f0">&lt;/strong&gt;</ept> joins the VM to the Active Directory domain you created.</source>
+          <target state="new"><bpt id="b888fdb3-07ff-4c75-bb64-a5bc9c1202f0">&lt;strong&gt;</bpt>Add-AzureProvisioningConfig<ept id="b888fdb3-07ff-4c75-bb64-a5bc9c1202f0">&lt;/strong&gt;</ept> joins the VM to the Active Directory domain you created.</target>
+        </trans-unit>
+        <trans-unit id="8cf3002e-4acf-432a-879d-a7fb1c858276" xml:space="preserve">
+          <source><bpt id="b9e225f3-3db9-4971-8bf3-b9b4a30c62f8">&lt;strong&gt;</bpt>Set-AzureSubnet<ept id="b9e225f3-3db9-4971-8bf3-b9b4a30c62f8">&lt;/strong&gt;</ept> places the VM in the Back subnet.</source>
+          <target state="new"><bpt id="b9e225f3-3db9-4971-8bf3-b9b4a30c62f8">&lt;strong&gt;</bpt>Set-AzureSubnet<ept id="b9e225f3-3db9-4971-8bf3-b9b4a30c62f8">&lt;/strong&gt;</ept> places the VM in the Back subnet.</target>
+        </trans-unit>
+        <trans-unit id="f016aa98-a8ef-44ea-bc18-3506a3a6c576" xml:space="preserve">
+          <source><bpt id="69408487-cba3-4362-92a7-fb94a37197d5">&lt;strong&gt;</bpt>Add-AzureEndpoint<ept id="69408487-cba3-4362-92a7-fb94a37197d5">&lt;/strong&gt;</ept> adds access endpoints so that client applications can access these SQL Server services instances on the internet.</source>
+          <target state="new"><bpt id="69408487-cba3-4362-92a7-fb94a37197d5">&lt;strong&gt;</bpt>Add-AzureEndpoint<ept id="69408487-cba3-4362-92a7-fb94a37197d5">&lt;/strong&gt;</ept> adds access endpoints so that client applications can access these SQL Server services instances on the internet.</target>
+        </trans-unit>
+        <trans-unit id="e2111589-935d-4ecf-b637-bd8f1e06232b" xml:space="preserve">
+          <source>Different ports are given to ContosoSQL1 and ContosoSQL2.</source>
+          <target state="new">Different ports are given to ContosoSQL1 and ContosoSQL2.</target>
+        </trans-unit>
+        <trans-unit id="5e14fd96-a877-4dd2-83c5-6fcb5e96a19c" xml:space="preserve">
+          <source><bpt id="336f0dc0-ecc2-4f09-9de2-1da5ad3c239b">&lt;strong&gt;</bpt>New-AzureVM<ept id="336f0dc0-ecc2-4f09-9de2-1da5ad3c239b">&lt;/strong&gt;</ept> creates the new SQL Server VM in the same cloud service as ContosoQuorum.</source>
+          <target state="new"><bpt id="336f0dc0-ecc2-4f09-9de2-1da5ad3c239b">&lt;strong&gt;</bpt>New-AzureVM<ept id="336f0dc0-ecc2-4f09-9de2-1da5ad3c239b">&lt;/strong&gt;</ept> creates the new SQL Server VM in the same cloud service as ContosoQuorum.</target>
+        </trans-unit>
+        <trans-unit id="22fc85c6-5821-442b-b782-87016bd07a07" xml:space="preserve">
+          <source>You must place the VMs in the same cloud service if you want them to be in the same availability set.</source>
+          <target state="new">You must place the VMs in the same cloud service if you want them to be in the same availability set.</target>
+        </trans-unit>
+        <trans-unit id="5e21fc22-7716-4495-b857-9d7be5ffc669" xml:space="preserve">
+          <source>Wait for each VM to be fully provisioned and download its remote desktop file to your working directory.</source>
+          <target state="new">Wait for each VM to be fully provisioned and download its remote desktop file to your working directory.</target>
+        </trans-unit>
+        <trans-unit id="ca8246f7-57db-4faf-8bc2-b3d6fc50b9fb" xml:space="preserve">
+          <source>The for loop cycles through the three new VMs and executes the commands inside the top-level curly brackets for each of them.</source>
+          <target state="new">The for loop cycles through the three new VMs and executes the commands inside the top-level curly brackets for each of them.</target>
+        </trans-unit>
+        <trans-unit id="e6dafbf3-3c7e-41f4-a19f-17d134ba3a34" xml:space="preserve">
+          <source>The SQL Server VMs are now provisioned and running, but they are installed with SQL Server with default options.</source>
+          <target state="new">The SQL Server VMs are now provisioned and running, but they are installed with SQL Server with default options.</target>
+        </trans-unit>
+        <trans-unit id="e42f0817-4e3d-46e1-be24-b0c44f1aab1e" xml:space="preserve">
+          <source>In this section, you need to modify the three servers you will use in the WSFC cluster and the SQL Server installation.</source>
+          <target state="new">In this section, you need to modify the three servers you will use in the WSFC cluster and the SQL Server installation.</target>
+        </trans-unit>
+        <trans-unit id="fedd58f3-5da3-4bcb-8453-ab80fb51332d" xml:space="preserve">
+          <source>Specifically:</source>
+          <target state="new">Specifically:</target>
+        </trans-unit>
+        <trans-unit id="8751d495-8be8-4773-962d-1152fede0858" xml:space="preserve">
+          <source>(All servers) You need to install the <bpt id="296abc47-1ce3-45a3-81b2-3b56de85601a">&lt;strong&gt;</bpt>Failover Clustering<ept id="296abc47-1ce3-45a3-81b2-3b56de85601a">&lt;/strong&gt;</ept> feature.</source>
+          <target state="new">(All servers) You need to install the <bpt id="296abc47-1ce3-45a3-81b2-3b56de85601a">&lt;strong&gt;</bpt>Failover Clustering<ept id="296abc47-1ce3-45a3-81b2-3b56de85601a">&lt;/strong&gt;</ept> feature.</target>
+        </trans-unit>
+        <trans-unit id="202b6c43-96c3-4239-bb59-7c07f079cf56" xml:space="preserve">
+          <source>(All servers) You need to add <bpt id="040f1a21-c78d-4fb2-b93b-4a045ac2901a">&lt;strong&gt;</bpt>CORP\Install<ept id="040f1a21-c78d-4fb2-b93b-4a045ac2901a">&lt;/strong&gt;</ept> as the machine <bpt id="53ccc374-256c-46e9-be70-c58c1de868ed">&lt;strong&gt;</bpt>administrator<ept id="53ccc374-256c-46e9-be70-c58c1de868ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">(All servers) You need to add <bpt id="040f1a21-c78d-4fb2-b93b-4a045ac2901a">&lt;strong&gt;</bpt>CORP\Install<ept id="040f1a21-c78d-4fb2-b93b-4a045ac2901a">&lt;/strong&gt;</ept> as the machine <bpt id="53ccc374-256c-46e9-be70-c58c1de868ed">&lt;strong&gt;</bpt>administrator<ept id="53ccc374-256c-46e9-be70-c58c1de868ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb01e20f-178c-43b7-9b05-b4f6057a67d8" xml:space="preserve">
+          <source>(ContosoSQL1 and ContosoSQL2 only) You need to add <bpt id="df63bfe5-e874-48e5-807e-8ef367aeab84">&lt;strong&gt;</bpt>CORP\Install<ept id="df63bfe5-e874-48e5-807e-8ef367aeab84">&lt;/strong&gt;</ept> as a <bpt id="b9cc4f42-05f2-4d2c-99c9-aad9e101e7d1">&lt;strong&gt;</bpt>sysadmin<ept id="b9cc4f42-05f2-4d2c-99c9-aad9e101e7d1">&lt;/strong&gt;</ept> role in the default database.</source>
+          <target state="new">(ContosoSQL1 and ContosoSQL2 only) You need to add <bpt id="df63bfe5-e874-48e5-807e-8ef367aeab84">&lt;strong&gt;</bpt>CORP\Install<ept id="df63bfe5-e874-48e5-807e-8ef367aeab84">&lt;/strong&gt;</ept> as a <bpt id="b9cc4f42-05f2-4d2c-99c9-aad9e101e7d1">&lt;strong&gt;</bpt>sysadmin<ept id="b9cc4f42-05f2-4d2c-99c9-aad9e101e7d1">&lt;/strong&gt;</ept> role in the default database.</target>
+        </trans-unit>
+        <trans-unit id="d6304f90-449f-44d7-a2a8-fdd89054136f" xml:space="preserve">
+          <source>(ContosoSQL1 and ContosoSQL2 only) You need to add <bpt id="9993fd4a-1b81-4a99-81ac-d7c01522832b">&lt;strong&gt;</bpt>NT AUTHORITY\System<ept id="9993fd4a-1b81-4a99-81ac-d7c01522832b">&lt;/strong&gt;</ept> as a login with the following permissions:</source>
+          <target state="new">(ContosoSQL1 and ContosoSQL2 only) You need to add <bpt id="9993fd4a-1b81-4a99-81ac-d7c01522832b">&lt;strong&gt;</bpt>NT AUTHORITY\System<ept id="9993fd4a-1b81-4a99-81ac-d7c01522832b">&lt;/strong&gt;</ept> as a login with the following permissions:</target>
+        </trans-unit>
+        <trans-unit id="51c58c41-4923-45d2-acdc-069bdd014c07" xml:space="preserve">
+          <source>Alter any availability group</source>
+          <target state="new">Alter any availability group</target>
+        </trans-unit>
+        <trans-unit id="3f0e7bcd-866c-4247-b361-e5e187387c46" xml:space="preserve">
+          <source>Connect SQL</source>
+          <target state="new">Connect SQL</target>
+        </trans-unit>
+        <trans-unit id="3aefae22-b11b-4275-8f24-6eeefa85669c" xml:space="preserve">
+          <source>View server state</source>
+          <target state="new">View server state</target>
+        </trans-unit>
+        <trans-unit id="cd8682bf-cc47-4d42-9d65-9fa1057d0d1a" xml:space="preserve">
+          <source>(ContosoSQL1 and ContosoSQL2 only) The <bpt id="c055b247-0941-4899-9a45-4b821499a62c">&lt;strong&gt;</bpt>TCP<ept id="c055b247-0941-4899-9a45-4b821499a62c">&lt;/strong&gt;</ept> protocol is already enabled on the SQL Server VM.</source>
+          <target state="new">(ContosoSQL1 and ContosoSQL2 only) The <bpt id="c055b247-0941-4899-9a45-4b821499a62c">&lt;strong&gt;</bpt>TCP<ept id="c055b247-0941-4899-9a45-4b821499a62c">&lt;/strong&gt;</ept> protocol is already enabled on the SQL Server VM.</target>
+        </trans-unit>
+        <trans-unit id="8048e3fd-805f-44f8-a68b-e46bebbf7e6c" xml:space="preserve">
+          <source>However, you still need to open the firewall for remote access of SQL Server.</source>
+          <target state="new">However, you still need to open the firewall for remote access of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="e7c2c5e0-1518-4888-a69f-79cabd48cc5d" xml:space="preserve">
+          <source>Now, you are ready to start.</source>
+          <target state="new">Now, you are ready to start.</target>
+        </trans-unit>
+        <trans-unit id="961c9222-d21f-4a9f-a3eb-c758a60a433d" xml:space="preserve">
+          <source>Beginning with <bpt id="63a86767-4625-4144-ae4d-8ecdcbbf06c9">&lt;strong&gt;</bpt>ContosoQuorum<ept id="63a86767-4625-4144-ae4d-8ecdcbbf06c9">&lt;/strong&gt;</ept>, follow the steps below:</source>
+          <target state="new">Beginning with <bpt id="63a86767-4625-4144-ae4d-8ecdcbbf06c9">&lt;strong&gt;</bpt>ContosoQuorum<ept id="63a86767-4625-4144-ae4d-8ecdcbbf06c9">&lt;/strong&gt;</ept>, follow the steps below:</target>
+        </trans-unit>
+        <trans-unit id="40e09a0a-ea3b-4a3a-937a-88f77737d638" xml:space="preserve">
+          <source>Connect to <bpt id="92354049-7261-4a2b-a382-606522dd993d">&lt;strong&gt;</bpt>ContosoQuorum<ept id="92354049-7261-4a2b-a382-606522dd993d">&lt;/strong&gt;</ept> by launching the remote desktop files.</source>
+          <target state="new">Connect to <bpt id="92354049-7261-4a2b-a382-606522dd993d">&lt;strong&gt;</bpt>ContosoQuorum<ept id="92354049-7261-4a2b-a382-606522dd993d">&lt;/strong&gt;</ept> by launching the remote desktop files.</target>
+        </trans-unit>
+        <trans-unit id="c54b693d-1d55-4cac-8e99-9dc2cda1e3b3" xml:space="preserve">
+          <source>Use the machine administrator’s username <bpt id="29e28279-efb9-4bba-8f80-64b693655f93">&lt;strong&gt;</bpt>AzureAdmin<ept id="29e28279-efb9-4bba-8f80-64b693655f93">&lt;/strong&gt;</ept> and password <bpt id="c41666da-5faf-4f4e-a360-0e6e9f2edba5">&lt;strong&gt;</bpt>Contoso!000<ept id="c41666da-5faf-4f4e-a360-0e6e9f2edba5">&lt;/strong&gt;</ept>, which you specified when creating the VMs.</source>
+          <target state="new">Use the machine administrator’s username <bpt id="29e28279-efb9-4bba-8f80-64b693655f93">&lt;strong&gt;</bpt>AzureAdmin<ept id="29e28279-efb9-4bba-8f80-64b693655f93">&lt;/strong&gt;</ept> and password <bpt id="c41666da-5faf-4f4e-a360-0e6e9f2edba5">&lt;strong&gt;</bpt>Contoso!000<ept id="c41666da-5faf-4f4e-a360-0e6e9f2edba5">&lt;/strong&gt;</ept>, which you specified when creating the VMs.</target>
+        </trans-unit>
+        <trans-unit id="45d533de-5b70-4cca-814e-e8c7dcfc08e4" xml:space="preserve">
+          <source>Verify that the computers have been successfully joined to <bpt id="0f91d586-3dc8-4d9f-8b0e-770bf18f1eb9">&lt;strong&gt;</bpt>corp.contoso.com<ept id="0f91d586-3dc8-4d9f-8b0e-770bf18f1eb9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Verify that the computers have been successfully joined to <bpt id="0f91d586-3dc8-4d9f-8b0e-770bf18f1eb9">&lt;strong&gt;</bpt>corp.contoso.com<ept id="0f91d586-3dc8-4d9f-8b0e-770bf18f1eb9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30959595-f174-4b51-befb-6c93e42113fe" xml:space="preserve">
+          <source>Wait for the SQL Server installation to finish running the automated initialization tasks before proceeding.</source>
+          <target state="new">Wait for the SQL Server installation to finish running the automated initialization tasks before proceeding.</target>
+        </trans-unit>
+        <trans-unit id="d32a6b02-8ec0-4344-be80-f1b377f287de" xml:space="preserve">
+          <source>Open a PowerShell window in administrator mode.</source>
+          <target state="new">Open a PowerShell window in administrator mode.</target>
+        </trans-unit>
+        <trans-unit id="2e21bce4-5b5d-47d5-b415-e96e43e204f0" xml:space="preserve">
+          <source>Install the Windows Failover Clustering feature.</source>
+          <target state="new">Install the Windows Failover Clustering feature.</target>
+        </trans-unit>
+        <trans-unit id="f986c615-eedc-4d29-bcc1-93d3eda17e72" xml:space="preserve">
+          <source>Add <bpt id="438808fa-1b64-4405-9c19-c80e1a7d929a">&lt;strong&gt;</bpt>CORP\Install<ept id="438808fa-1b64-4405-9c19-c80e1a7d929a">&lt;/strong&gt;</ept> as local administrator.</source>
+          <target state="new">Add <bpt id="438808fa-1b64-4405-9c19-c80e1a7d929a">&lt;strong&gt;</bpt>CORP\Install<ept id="438808fa-1b64-4405-9c19-c80e1a7d929a">&lt;/strong&gt;</ept> as local administrator.</target>
+        </trans-unit>
+        <trans-unit id="3f8376f8-45ad-4dff-8448-7532a9d1f4a7" xml:space="preserve">
+          <source>Log out of ContosoQuorum.</source>
+          <target state="new">Log out of ContosoQuorum.</target>
+        </trans-unit>
+        <trans-unit id="48559d8d-9e1a-4df5-a2e1-cb5cd577beb2" xml:space="preserve">
+          <source>You are done with this server now.</source>
+          <target state="new">You are done with this server now.</target>
+        </trans-unit>
+        <trans-unit id="76bc30bf-6a0e-4e7a-a03f-10a4065a72fa" xml:space="preserve">
+          <source>Next, initialize <bpt id="10c24cbe-112c-4756-a775-ccb6f3ecf17f">&lt;strong&gt;</bpt>ContosoSQL1<ept id="10c24cbe-112c-4756-a775-ccb6f3ecf17f">&lt;/strong&gt;</ept> and <bpt id="d90250eb-78bb-493b-a145-856114057a2b">&lt;strong&gt;</bpt>ContosoSQL2<ept id="d90250eb-78bb-493b-a145-856114057a2b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Next, initialize <bpt id="10c24cbe-112c-4756-a775-ccb6f3ecf17f">&lt;strong&gt;</bpt>ContosoSQL1<ept id="10c24cbe-112c-4756-a775-ccb6f3ecf17f">&lt;/strong&gt;</ept> and <bpt id="d90250eb-78bb-493b-a145-856114057a2b">&lt;strong&gt;</bpt>ContosoSQL2<ept id="d90250eb-78bb-493b-a145-856114057a2b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1674fa49-7aa3-4e31-9b82-7430c2523502" xml:space="preserve">
+          <source>Follow the steps below, which are identical for both of the SQL Server VMs.</source>
+          <target state="new">Follow the steps below, which are identical for both of the SQL Server VMs.</target>
+        </trans-unit>
+        <trans-unit id="574fffe9-92b7-4947-8b75-c929f0ef3455" xml:space="preserve">
+          <source>Connect to the two SQL Server VMs by launching the remote desktop files.</source>
+          <target state="new">Connect to the two SQL Server VMs by launching the remote desktop files.</target>
+        </trans-unit>
+        <trans-unit id="aba5b830-d3ee-42ec-8d9f-3f88258736da" xml:space="preserve">
+          <source>Use the machine administrator’s username <bpt id="8192b358-493d-45a1-a8b3-0529c0513ffb">&lt;strong&gt;</bpt>AzureAdmin<ept id="8192b358-493d-45a1-a8b3-0529c0513ffb">&lt;/strong&gt;</ept> and password <bpt id="0fad84e4-60ca-4c88-86f7-de1d6ae21945">&lt;strong&gt;</bpt>Contoso!000<ept id="0fad84e4-60ca-4c88-86f7-de1d6ae21945">&lt;/strong&gt;</ept>, which you specified when creating the VMs.</source>
+          <target state="new">Use the machine administrator’s username <bpt id="8192b358-493d-45a1-a8b3-0529c0513ffb">&lt;strong&gt;</bpt>AzureAdmin<ept id="8192b358-493d-45a1-a8b3-0529c0513ffb">&lt;/strong&gt;</ept> and password <bpt id="0fad84e4-60ca-4c88-86f7-de1d6ae21945">&lt;strong&gt;</bpt>Contoso!000<ept id="0fad84e4-60ca-4c88-86f7-de1d6ae21945">&lt;/strong&gt;</ept>, which you specified when creating the VMs.</target>
+        </trans-unit>
+        <trans-unit id="85d591e0-5577-40d9-bca3-b519773a76f7" xml:space="preserve">
+          <source>Verify that the computers have been successfully joined to <bpt id="be83f952-5f73-4107-9eb4-29d70080f529">&lt;strong&gt;</bpt>corp.contoso.com<ept id="be83f952-5f73-4107-9eb4-29d70080f529">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Verify that the computers have been successfully joined to <bpt id="be83f952-5f73-4107-9eb4-29d70080f529">&lt;strong&gt;</bpt>corp.contoso.com<ept id="be83f952-5f73-4107-9eb4-29d70080f529">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="187c55a6-e725-48e2-8efa-a0c9a3b01129" xml:space="preserve">
+          <source>Wait for the SQL Server installation to finish running the automated initialization tasks before proceeding.</source>
+          <target state="new">Wait for the SQL Server installation to finish running the automated initialization tasks before proceeding.</target>
+        </trans-unit>
+        <trans-unit id="7a45282d-99e3-48b6-b3e7-92158d493a73" xml:space="preserve">
+          <source>Open a PowerShell window in administrator mode.</source>
+          <target state="new">Open a PowerShell window in administrator mode.</target>
+        </trans-unit>
+        <trans-unit id="a5b94f7f-a13a-4644-a5c0-d5c4d160d3d8" xml:space="preserve">
+          <source>Install the Windows Failover Clustering feature.</source>
+          <target state="new">Install the Windows Failover Clustering feature.</target>
+        </trans-unit>
+        <trans-unit id="ef999576-599a-49e5-a8ea-0b340f3e1f13" xml:space="preserve">
+          <source>Add <bpt id="3d0f2aed-e5e2-40ba-bcb9-4c4fff0bcce9">&lt;strong&gt;</bpt>CORP\Install<ept id="3d0f2aed-e5e2-40ba-bcb9-4c4fff0bcce9">&lt;/strong&gt;</ept> as local administrator</source>
+          <target state="new">Add <bpt id="3d0f2aed-e5e2-40ba-bcb9-4c4fff0bcce9">&lt;strong&gt;</bpt>CORP\Install<ept id="3d0f2aed-e5e2-40ba-bcb9-4c4fff0bcce9">&lt;/strong&gt;</ept> as local administrator</target>
+        </trans-unit>
+        <trans-unit id="6d3c03e7-deba-4370-bbb1-5a7f59bf9aab" xml:space="preserve">
+          <source>Import the SQL Server PowerShell Provider.</source>
+          <target state="new">Import the SQL Server PowerShell Provider.</target>
+        </trans-unit>
+        <trans-unit id="9abbb131-8d4c-4c61-855f-515ab81e3460" xml:space="preserve">
+          <source>Add <bpt id="bae38fbd-191a-4830-8386-07cd264b53b5">&lt;strong&gt;</bpt>CORP\Install<ept id="bae38fbd-191a-4830-8386-07cd264b53b5">&lt;/strong&gt;</ept> as the sysadmin role for the default SQL Server instance.</source>
+          <target state="new">Add <bpt id="bae38fbd-191a-4830-8386-07cd264b53b5">&lt;strong&gt;</bpt>CORP\Install<ept id="bae38fbd-191a-4830-8386-07cd264b53b5">&lt;/strong&gt;</ept> as the sysadmin role for the default SQL Server instance.</target>
+        </trans-unit>
+        <trans-unit id="38cffbaa-581f-4867-939d-087e9e1585f6" xml:space="preserve">
+          <source>Add <bpt id="db3f2b78-2d2b-4fa3-8086-cacb584f75c1">&lt;strong&gt;</bpt>NT AUTHORITY\System<ept id="db3f2b78-2d2b-4fa3-8086-cacb584f75c1">&lt;/strong&gt;</ept> as a login with the three permissions described above.</source>
+          <target state="new">Add <bpt id="db3f2b78-2d2b-4fa3-8086-cacb584f75c1">&lt;strong&gt;</bpt>NT AUTHORITY\System<ept id="db3f2b78-2d2b-4fa3-8086-cacb584f75c1">&lt;/strong&gt;</ept> as a login with the three permissions described above.</target>
+        </trans-unit>
+        <trans-unit id="a0ada1bb-0a2e-4b6c-a124-cd66eed15605" xml:space="preserve">
+          <source>Open the firewall for remote access of SQL Server.</source>
+          <target state="new">Open the firewall for remote access of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="8e25363f-f547-4e8c-9ba1-209e4333f5fa" xml:space="preserve">
+          <source>Log out of both VMs.</source>
+          <target state="new">Log out of both VMs.</target>
+        </trans-unit>
+        <trans-unit id="708502d8-28b6-4bb0-a267-6d559d5a8c1f" xml:space="preserve">
+          <source>Finally, you are ready to configure the availability group.</source>
+          <target state="new">Finally, you are ready to configure the availability group.</target>
+        </trans-unit>
+        <trans-unit id="279d9eed-f9f3-469e-9cac-721a806e9474" xml:space="preserve">
+          <source>You will use the SQL Server PowerShell Provider to perform all of the work on <bpt id="5418121d-1c84-4927-99fe-a54e2d9be0b0">&lt;strong&gt;</bpt>ContosoSQL1<ept id="5418121d-1c84-4927-99fe-a54e2d9be0b0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You will use the SQL Server PowerShell Provider to perform all of the work on <bpt id="5418121d-1c84-4927-99fe-a54e2d9be0b0">&lt;strong&gt;</bpt>ContosoSQL1<ept id="5418121d-1c84-4927-99fe-a54e2d9be0b0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57201677-ed5a-41b7-8738-8cbe228c5fe0" xml:space="preserve">
+          <source>Connect to <bpt id="52e9ebb6-f2f8-43e7-a806-6ef3259c2847">&lt;strong&gt;</bpt>ContosoSQL1<ept id="52e9ebb6-f2f8-43e7-a806-6ef3259c2847">&lt;/strong&gt;</ept> again by launching the remote desktop files.</source>
+          <target state="new">Connect to <bpt id="52e9ebb6-f2f8-43e7-a806-6ef3259c2847">&lt;strong&gt;</bpt>ContosoSQL1<ept id="52e9ebb6-f2f8-43e7-a806-6ef3259c2847">&lt;/strong&gt;</ept> again by launching the remote desktop files.</target>
+        </trans-unit>
+        <trans-unit id="ee5c9416-c1fd-48db-bd0d-553ad34c12f1" xml:space="preserve">
+          <source>Instead of logging in using the machine account, log in using <bpt id="92e18728-9e59-41e2-b1eb-a98769cdd767">&lt;strong&gt;</bpt>CORP\Install<ept id="92e18728-9e59-41e2-b1eb-a98769cdd767">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Instead of logging in using the machine account, log in using <bpt id="92e18728-9e59-41e2-b1eb-a98769cdd767">&lt;strong&gt;</bpt>CORP\Install<ept id="92e18728-9e59-41e2-b1eb-a98769cdd767">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1e62272-3e7b-4be3-bdd0-2e0469adc640" xml:space="preserve">
+          <source>Open a PowerShell window in administrator mode.</source>
+          <target state="new">Open a PowerShell window in administrator mode.</target>
+        </trans-unit>
+        <trans-unit id="0b34c492-2878-4053-8516-ce808e41b374" xml:space="preserve">
+          <source>Define the following variables:</source>
+          <target state="new">Define the following variables:</target>
+        </trans-unit>
+        <trans-unit id="db755139-4442-4e28-add6-3d7540078367" xml:space="preserve">
+          <source>Import SQL Server PowerShell Provider.</source>
+          <target state="new">Import SQL Server PowerShell Provider.</target>
+        </trans-unit>
+        <trans-unit id="a8f09607-6500-401a-ae0d-455925f83fb7" xml:space="preserve">
+          <source>Change the SQL Server service account for ContosoSQL1 to CORP\SQLSvc1.</source>
+          <target state="new">Change the SQL Server service account for ContosoSQL1 to CORP\SQLSvc1.</target>
+        </trans-unit>
+        <trans-unit id="59a7bf96-1425-46e4-bc9b-82b1330b0117" xml:space="preserve">
+          <source>Change the SQL Server service account for ContosoSQL2 to CORP\SQLSvc2.</source>
+          <target state="new">Change the SQL Server service account for ContosoSQL2 to CORP\SQLSvc2.</target>
+        </trans-unit>
+        <trans-unit id="25c93739-2407-429e-af1f-16ab330dc507" xml:space="preserve">
+          <source>Download <bpt id="d99e04ea-374b-4fe7-ba23-a1ad0beaea04">&lt;strong&gt;</bpt>CreateAzureFailoverCluster.ps1<ept id="d99e04ea-374b-4fe7-ba23-a1ad0beaea04">&lt;/strong&gt;</ept> from <bpt id="19e739bf-25b2-47ba-9309-a4bca0448221">&lt;linkText&gt;</bpt>Create WSFC Cluster for AlwaysOn Availability Groups in Azure VM<ept id="19e739bf-25b2-47ba-9309-a4bca0448221">&lt;/linkText&gt;</ept><bpt id="19e739bf-25b2-47ba-9309-a4bca0448221">&lt;title&gt;</bpt><ept id="19e739bf-25b2-47ba-9309-a4bca0448221">&lt;/title&gt;</ept> to the local working directory.</source>
+          <target state="new">Download <bpt id="d99e04ea-374b-4fe7-ba23-a1ad0beaea04">&lt;strong&gt;</bpt>CreateAzureFailoverCluster.ps1<ept id="d99e04ea-374b-4fe7-ba23-a1ad0beaea04">&lt;/strong&gt;</ept> from <bpt id="19e739bf-25b2-47ba-9309-a4bca0448221">&lt;linkText&gt;</bpt>Create WSFC Cluster for AlwaysOn Availability Groups in Azure VM<ept id="19e739bf-25b2-47ba-9309-a4bca0448221">&lt;/linkText&gt;</ept><bpt id="19e739bf-25b2-47ba-9309-a4bca0448221">&lt;title&gt;</bpt><ept id="19e739bf-25b2-47ba-9309-a4bca0448221">&lt;/title&gt;</ept> to the local working directory.</target>
+        </trans-unit>
+        <trans-unit id="040dab6b-a71e-4e05-a98c-c632d8118ed8" xml:space="preserve">
+          <source>You will use this script to help you create a functional WSFC cluster.</source>
+          <target state="new">You will use this script to help you create a functional WSFC cluster.</target>
+        </trans-unit>
+        <trans-unit id="98c6f233-d5b1-4649-8a77-d52a5c76a83f" xml:space="preserve">
+          <source>For important information on how WSFC interacts with the Azure network, see <bpt id="c11ddbce-f199-4a18-a2f5-21d81508425a">&lt;linkText&gt;</bpt>High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines<ept id="c11ddbce-f199-4a18-a2f5-21d81508425a">&lt;/linkText&gt;</ept><bpt id="c11ddbce-f199-4a18-a2f5-21d81508425a">&lt;title&gt;</bpt><ept id="c11ddbce-f199-4a18-a2f5-21d81508425a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For important information on how WSFC interacts with the Azure network, see <bpt id="c11ddbce-f199-4a18-a2f5-21d81508425a">&lt;linkText&gt;</bpt>High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines<ept id="c11ddbce-f199-4a18-a2f5-21d81508425a">&lt;/linkText&gt;</ept><bpt id="c11ddbce-f199-4a18-a2f5-21d81508425a">&lt;title&gt;</bpt><ept id="c11ddbce-f199-4a18-a2f5-21d81508425a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22aa4747-015c-4b2e-828e-741c11a2b31d" xml:space="preserve">
+          <source>Change to your working directory and create the WSFC cluster with the downloaded script.</source>
+          <target state="new">Change to your working directory and create the WSFC cluster with the downloaded script.</target>
+        </trans-unit>
+        <trans-unit id="ffc9388f-ad42-4666-9236-e9e640b8e7a3" xml:space="preserve">
+          <source>Enable AlwaysOn Availability Groups for the default SQL Server instances on <bpt id="69bf3809-31bb-4953-b4e1-424c56df73cf">&lt;strong&gt;</bpt>ContosoSQL1<ept id="69bf3809-31bb-4953-b4e1-424c56df73cf">&lt;/strong&gt;</ept> and <bpt id="6c8e2054-f6a3-4183-8f7a-d52503376325">&lt;strong&gt;</bpt>ContosoSQL2<ept id="6c8e2054-f6a3-4183-8f7a-d52503376325">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enable AlwaysOn Availability Groups for the default SQL Server instances on <bpt id="69bf3809-31bb-4953-b4e1-424c56df73cf">&lt;strong&gt;</bpt>ContosoSQL1<ept id="69bf3809-31bb-4953-b4e1-424c56df73cf">&lt;/strong&gt;</ept> and <bpt id="6c8e2054-f6a3-4183-8f7a-d52503376325">&lt;strong&gt;</bpt>ContosoSQL2<ept id="6c8e2054-f6a3-4183-8f7a-d52503376325">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a753708-4d9c-41e7-9832-6cceef27c7d0" xml:space="preserve">
+          <source>Create a backup directory and grant permissions for the SQL Server service accounts.</source>
+          <target state="new">Create a backup directory and grant permissions for the SQL Server service accounts.</target>
+        </trans-unit>
+        <trans-unit id="c9fd1b1f-237c-4319-9a53-0c444d166bd9" xml:space="preserve">
+          <source>You will use this directory to prepare the availability database on the secondary replica.</source>
+          <target state="new">You will use this directory to prepare the availability database on the secondary replica.</target>
+        </trans-unit>
+        <trans-unit id="f0e5843d-2da1-401e-baeb-2b11cfb9912c" xml:space="preserve">
+          <source>Create a database on <bpt id="e1d2bce5-73d0-44b4-82df-181183fd72d3">&lt;strong&gt;</bpt>ContosoSQL1<ept id="e1d2bce5-73d0-44b4-82df-181183fd72d3">&lt;/strong&gt;</ept> called <bpt id="df2cc656-b977-4927-8028-ba3cfb3e77cc">&lt;strong&gt;</bpt>MyDB1<ept id="df2cc656-b977-4927-8028-ba3cfb3e77cc">&lt;/strong&gt;</ept>, take both a full backup and a log backup, and restore them on <bpt id="422f8af3-bdef-46fa-9dc3-a2f418274002">&lt;strong&gt;</bpt>ContosoSQL2<ept id="422f8af3-bdef-46fa-9dc3-a2f418274002">&lt;/strong&gt;</ept> with the <bpt id="131439aa-e6df-4ba3-b36c-69170177257e">&lt;em&gt;</bpt>*WITH NORECOVERY *<ept id="131439aa-e6df-4ba3-b36c-69170177257e">&lt;/em&gt;</ept> option.</source>
+          <target state="new">Create a database on <bpt id="e1d2bce5-73d0-44b4-82df-181183fd72d3">&lt;strong&gt;</bpt>ContosoSQL1<ept id="e1d2bce5-73d0-44b4-82df-181183fd72d3">&lt;/strong&gt;</ept> called <bpt id="df2cc656-b977-4927-8028-ba3cfb3e77cc">&lt;strong&gt;</bpt>MyDB1<ept id="df2cc656-b977-4927-8028-ba3cfb3e77cc">&lt;/strong&gt;</ept>, take both a full backup and a log backup, and restore them on <bpt id="422f8af3-bdef-46fa-9dc3-a2f418274002">&lt;strong&gt;</bpt>ContosoSQL2<ept id="422f8af3-bdef-46fa-9dc3-a2f418274002">&lt;/strong&gt;</ept> with the <bpt id="131439aa-e6df-4ba3-b36c-69170177257e">&lt;em&gt;</bpt>*WITH NORECOVERY *<ept id="131439aa-e6df-4ba3-b36c-69170177257e">&lt;/em&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="167b8e0b-b21e-4dbd-8c13-5dc0eacbcc87" xml:space="preserve">
+          <source>Create the availability group endpoints on the SQL Server VMs and set the proper permissions on the endpoints.</source>
+          <target state="new">Create the availability group endpoints on the SQL Server VMs and set the proper permissions on the endpoints.</target>
+        </trans-unit>
+        <trans-unit id="97897fe8-bf79-4c4a-8b08-0e3ea999cfa3" xml:space="preserve">
+          <source>Create the availability replicas.</source>
+          <target state="new">Create the availability replicas.</target>
+        </trans-unit>
+        <trans-unit id="79d7e0e6-11ae-4fc3-8086-fef4ab9b1f48" xml:space="preserve">
+          <source>Finally, create the availability group and join the secondary replica to the availability group.</source>
+          <target state="new">Finally, create the availability group and join the secondary replica to the availability group.</target>
+        </trans-unit>
+        <trans-unit id="ea38d5b1-e89b-4777-8a8c-e5a06e742062" xml:space="preserve">
+          <source>You have now successfully implemented SQL Server AlwaysOn by creating an availability group in Azure.</source>
+          <target state="new">You have now successfully implemented SQL Server AlwaysOn by creating an availability group in Azure.</target>
+        </trans-unit>
+        <trans-unit id="672d79d8-e73a-46e9-a45c-020668e33cda" xml:space="preserve">
+          <source>To configure a listener for this availability group, see <bpt id="23bf8609-524b-4583-aeb5-ced7bfa3b2dc">&lt;linkText&gt;</bpt>Configure an ILB listener for AlwaysOn Availability Groups in Azure<ept id="23bf8609-524b-4583-aeb5-ced7bfa3b2dc">&lt;/linkText&gt;</ept><bpt id="23bf8609-524b-4583-aeb5-ced7bfa3b2dc">&lt;title&gt;</bpt><ept id="23bf8609-524b-4583-aeb5-ced7bfa3b2dc">&lt;/title&gt;</ept>.</source>
+          <target state="new">To configure a listener for this availability group, see <bpt id="23bf8609-524b-4583-aeb5-ced7bfa3b2dc">&lt;linkText&gt;</bpt>Configure an ILB listener for AlwaysOn Availability Groups in Azure<ept id="23bf8609-524b-4583-aeb5-ced7bfa3b2dc">&lt;/linkText&gt;</ept><bpt id="23bf8609-524b-4583-aeb5-ced7bfa3b2dc">&lt;title&gt;</bpt><ept id="23bf8609-524b-4583-aeb5-ced7bfa3b2dc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c06e28ba-c215-40c0-9cac-0b0be5c8ad2f" xml:space="preserve">
+          <source>For other information about using SQL Server in Azure, see <bpt id="5972e0e1-4efb-42f1-89e3-02d93d68b896">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines<ept id="5972e0e1-4efb-42f1-89e3-02d93d68b896">&lt;/linkText&gt;</ept><bpt id="5972e0e1-4efb-42f1-89e3-02d93d68b896">&lt;title&gt;</bpt><ept id="5972e0e1-4efb-42f1-89e3-02d93d68b896">&lt;/title&gt;</ept>.</source>
+          <target state="new">For other information about using SQL Server in Azure, see <bpt id="5972e0e1-4efb-42f1-89e3-02d93d68b896">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines<ept id="5972e0e1-4efb-42f1-89e3-02d93d68b896">&lt;/linkText&gt;</ept><bpt id="5972e0e1-4efb-42f1-89e3-02d93d68b896">&lt;title&gt;</bpt><ept id="5972e0e1-4efb-42f1-89e3-02d93d68b896">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

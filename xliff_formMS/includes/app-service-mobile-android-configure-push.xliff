@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3a1b781c-04b4-4c7e-90d2-a880c2506378" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3a1b781c-04b4-4c7e-90d2-a880c2506378" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="55603902-f853-42ad-8d84-1d7ef90ab4c7">
+        <trans-unit id="2cd3e97d-e03b-4a24-89a3-f34cf30e8936" xml:space="preserve">
+          <source>In the Azure Portal, click <bpt id="89c55b31-62d8-4f0b-943b-26f3fa21dd11">&lt;strong&gt;</bpt>Browse All<ept id="89c55b31-62d8-4f0b-943b-26f3fa21dd11">&lt;/strong&gt;</ept>, click <bpt id="e1c018b8-370f-4f7e-baee-921254d3583b">&lt;strong&gt;</bpt>Mobile Apps<ept id="e1c018b8-370f-4f7e-baee-921254d3583b">&lt;/strong&gt;</ept>, and then click the mobile app that you just created.</source>
+          <target state="new">In the Azure Portal, click <bpt id="89c55b31-62d8-4f0b-943b-26f3fa21dd11">&lt;strong&gt;</bpt>Browse All<ept id="89c55b31-62d8-4f0b-943b-26f3fa21dd11">&lt;/strong&gt;</ept>, click <bpt id="e1c018b8-370f-4f7e-baee-921254d3583b">&lt;strong&gt;</bpt>Mobile Apps<ept id="e1c018b8-370f-4f7e-baee-921254d3583b">&lt;/strong&gt;</ept>, and then click the mobile app that you just created.</target>
+        </trans-unit>
+        <trans-unit id="3e159465-b8a1-4c99-a6b5-ea6d94201dda" xml:space="preserve">
+          <source>In the <bpt id="2432e1b5-ffec-4e23-a578-18f065dce78d">&lt;strong&gt;</bpt>Related<ept id="2432e1b5-ffec-4e23-a578-18f065dce78d">&lt;/strong&gt;</ept> section of the blade, click <bpt id="7cfc7d41-6eda-4a6f-8a8c-009bda9690f4">&lt;strong&gt;</bpt>Push notification services<ept id="7cfc7d41-6eda-4a6f-8a8c-009bda9690f4">&lt;/strong&gt;</ept>, click <bpt id="b040512d-77ca-4d50-bdc6-285c2c97b9e0">&lt;strong&gt;</bpt>Google Cloud Messaging<ept id="b040512d-77ca-4d50-bdc6-285c2c97b9e0">&lt;/strong&gt;</ept>, enter the <bpt id="9ecebf7d-b6d8-4d7a-abf4-28bdaf26ad35">&lt;strong&gt;</bpt>API Key<ept id="9ecebf7d-b6d8-4d7a-abf4-28bdaf26ad35">&lt;/strong&gt;</ept> value that you obtained from GCM in the previous procedure, and then click the <bpt id="cc2fee96-10f8-4a93-8580-ec3c2e8b2f13">&lt;strong&gt;</bpt>Save<ept id="cc2fee96-10f8-4a93-8580-ec3c2e8b2f13">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the <bpt id="2432e1b5-ffec-4e23-a578-18f065dce78d">&lt;strong&gt;</bpt>Related<ept id="2432e1b5-ffec-4e23-a578-18f065dce78d">&lt;/strong&gt;</ept> section of the blade, click <bpt id="7cfc7d41-6eda-4a6f-8a8c-009bda9690f4">&lt;strong&gt;</bpt>Push notification services<ept id="7cfc7d41-6eda-4a6f-8a8c-009bda9690f4">&lt;/strong&gt;</ept>, click <bpt id="b040512d-77ca-4d50-bdc6-285c2c97b9e0">&lt;strong&gt;</bpt>Google Cloud Messaging<ept id="b040512d-77ca-4d50-bdc6-285c2c97b9e0">&lt;/strong&gt;</ept>, enter the <bpt id="9ecebf7d-b6d8-4d7a-abf4-28bdaf26ad35">&lt;strong&gt;</bpt>API Key<ept id="9ecebf7d-b6d8-4d7a-abf4-28bdaf26ad35">&lt;/strong&gt;</ept> value that you obtained from GCM in the previous procedure, and then click the <bpt id="cc2fee96-10f8-4a93-8580-ec3c2e8b2f13">&lt;strong&gt;</bpt>Save<ept id="cc2fee96-10f8-4a93-8580-ec3c2e8b2f13">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="6162887b-ac4c-4357-b891-9766529330e5" xml:space="preserve">
+          <source><bpt id="d6c44ae9-d480-4eae-a4d7-0d89e722f083">&lt;linkText&gt;</bpt><ept id="d6c44ae9-d480-4eae-a4d7-0d89e722f083">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d6c44ae9-d480-4eae-a4d7-0d89e722f083">&lt;linkText&gt;</bpt><ept id="d6c44ae9-d480-4eae-a4d7-0d89e722f083">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad17c243-0ca7-4895-9592-42d88ab9f286" xml:space="preserve">
+          <source>https://azure.portal.com/</source>
+          <target state="new">https://azure.portal.com/</target>
+        </trans-unit>
+        <trans-unit id="47b4df35-fca3-458e-a985-c3f1ea55029e" xml:space="preserve">
+          <source>./media/app-service-mobile-android-configure-push/mobile-push-api-key.png</source>
+          <target state="new">./media/app-service-mobile-android-configure-push/mobile-push-api-key.png</target>
+        </trans-unit>
+      </group>
+      <group id="693b76ab-b40d-47cf-9090-4ac7e0dacae9" />
+    </body>
+  </file>
+</xliff>

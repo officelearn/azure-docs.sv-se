@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a51bcfc8-1fb9-4b67-98fe-6c3e74db014a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a51bcfc8-1fb9-4b67-98fe-6c3e74db014a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7d586392-518e-4d37-84fc-175f17a03f98">
+        <trans-unit id="14820def-c47d-485e-ae8f-6350738501ef" xml:space="preserve">
+          <source>&lt;properties
+    pageTitle="Get started with push notifications (Android JavaScript) | Microsoft Azure"
+    description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app."
+    services="mobile-services, notification-hubs"
+    documentationCenter="android"
+    authors="RickSaling"
+    writer="ricksal"
+    manager="dwrede"
+    editor=""/&gt;</source>
+          <target state="new">&lt;properties
+    pageTitle="Get started with push notifications (Android JavaScript) | Microsoft Azure"
+    description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app."
+    services="mobile-services, notification-hubs"
+    documentationCenter="android"
+    authors="RickSaling"
+    writer="ricksal"
+    manager="dwrede"
+    editor=""/&gt;</target>
+        </trans-unit>
+        <trans-unit id="7339d403-ba7f-4271-8ad0-1f41d2ee5a84" xml:space="preserve">
+          <source>&lt;tags
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="06/16/2015" 
+    ms.author="ricksal"/&gt;</source>
+          <target state="new">&lt;tags
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="06/16/2015" 
+    ms.author="ricksal"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="aadeaa27-7a5a-4499-b7f9-b8aa17e7ec29" xml:space="preserve">
+          <source><bpt id="322249bf-b6be-4096-afac-887f01db3c7f">&lt;token href="../../includes/mobile-services-selector-get-started-push.md"&gt;</bpt><ept id="322249bf-b6be-4096-afac-887f01db3c7f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="322249bf-b6be-4096-afac-887f01db3c7f">&lt;token href="../../includes/mobile-services-selector-get-started-push.md"&gt;</bpt><ept id="322249bf-b6be-4096-afac-887f01db3c7f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfdb962e-7675-4998-86e7-cf22f04fd83f" xml:space="preserve">
+          <source>This topic shows how to use Azure Mobile Services to send push notifications to your Android app using Google Cloud Messaging ("GCM").</source>
+          <target state="new">This topic shows how to use Azure Mobile Services to send push notifications to your Android app using Google Cloud Messaging ("GCM").</target>
+        </trans-unit>
+        <trans-unit id="b72eb14b-b977-4ad1-98ef-801994b682a9" xml:space="preserve">
+          <source>You will add push notifications to the quickstart project that is a prerequisite for this tutorial.</source>
+          <target state="new">You will add push notifications to the quickstart project that is a prerequisite for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="df9bfa52-e052-467d-b1dc-51ec6e55758a" xml:space="preserve">
+          <source>Push notifications are enabled by using the Azure Notification Hub that is included in your mobile service.</source>
+          <target state="new">Push notifications are enabled by using the Azure Notification Hub that is included in your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="9f94b284-206d-48f9-8abe-69fc1aea3246" xml:space="preserve">
+          <source>When complete, your mobile service will send a push notification each time a record is inserted.</source>
+          <target state="new">When complete, your mobile service will send a push notification each time a record is inserted.</target>
+        </trans-unit>
+        <trans-unit id="f06fa981-12d5-48ff-b829-a1d9e8683737" xml:space="preserve">
+          <source><bpt id="34368c41-1605-4410-867d-27abb6626a63">&lt;token href="../../includes/mobile-services-android-prerequisites.md"&gt;</bpt><ept id="34368c41-1605-4410-867d-27abb6626a63">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="34368c41-1605-4410-867d-27abb6626a63">&lt;token href="../../includes/mobile-services-android-prerequisites.md"&gt;</bpt><ept id="34368c41-1605-4410-867d-27abb6626a63">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d5e3739-499c-498e-91d1-c7720f1a9eb8" xml:space="preserve">
+          <source><bpt id="85677c26-8b96-446d-b456-6d741f4e4a03">&lt;token href="../../includes/mobile-services-enable-google-cloud-messaging.md"&gt;</bpt><ept id="85677c26-8b96-446d-b456-6d741f4e4a03">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="85677c26-8b96-446d-b456-6d741f4e4a03">&lt;token href="../../includes/mobile-services-enable-google-cloud-messaging.md"&gt;</bpt><ept id="85677c26-8b96-446d-b456-6d741f4e4a03">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b0461a7-2e44-4c51-bbd0-38aa361f2606" xml:space="preserve">
+          <source><bpt id="f196e50e-03ab-4c68-b41d-b199be1966a6">&lt;token href="../../includes/mobile-services-android-configure-push.md"&gt;</bpt><ept id="f196e50e-03ab-4c68-b41d-b199be1966a6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f196e50e-03ab-4c68-b41d-b199be1966a6">&lt;token href="../../includes/mobile-services-android-configure-push.md"&gt;</bpt><ept id="f196e50e-03ab-4c68-b41d-b199be1966a6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b0b15ed-c22b-491e-9e6e-1e45c6bcc239" xml:space="preserve">
+          <source>Your next step is to install Google Play services.</source>
+          <target state="new">Your next step is to install Google Play services.</target>
+        </trans-unit>
+        <trans-unit id="7a72e15b-24d7-43b4-bfbc-ad6e7c33fa5c" xml:space="preserve">
+          <source>Google Cloud Messaging has some minimum API level requirements for development and testing, which the <bpt id="72a9520d-47f2-4d8a-95fc-0302b4413a14">&lt;strong&gt;</bpt>minSdkVersion<ept id="72a9520d-47f2-4d8a-95fc-0302b4413a14">&lt;/strong&gt;</ept> property in the Manifest must conform to.</source>
+          <target state="new">Google Cloud Messaging has some minimum API level requirements for development and testing, which the <bpt id="72a9520d-47f2-4d8a-95fc-0302b4413a14">&lt;strong&gt;</bpt>minSdkVersion<ept id="72a9520d-47f2-4d8a-95fc-0302b4413a14">&lt;/strong&gt;</ept> property in the Manifest must conform to.</target>
+        </trans-unit>
+        <trans-unit id="90297a97-e94f-4859-ac6b-48163b6f9fc3" xml:space="preserve">
+          <source>If you will be testing with an older device, then consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.</source>
+          <target state="new">If you will be testing with an older device, then consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.</target>
+        </trans-unit>
+        <trans-unit id="6a525179-31a6-4c78-9d65-b51a13096f71" xml:space="preserve">
+          <source><bpt id="834f5c8d-3cb0-441f-ae51-e1dfcdfebb39">&lt;token href="../../includes/mobile-services-add-google-play-services.md"&gt;</bpt><ept id="834f5c8d-3cb0-441f-ae51-e1dfcdfebb39">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="834f5c8d-3cb0-441f-ae51-e1dfcdfebb39">&lt;token href="../../includes/mobile-services-add-google-play-services.md"&gt;</bpt><ept id="834f5c8d-3cb0-441f-ae51-e1dfcdfebb39">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e51e068c-efca-4689-bcde-9449a460fe17" xml:space="preserve">
+          <source><bpt id="f0055796-4465-4225-b0f9-cd0ccfe42bc4">&lt;token href="../../includes/mobile-services-android-getting-started-with-push.md"&gt;</bpt><ept id="f0055796-4465-4225-b0f9-cd0ccfe42bc4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f0055796-4465-4225-b0f9-cd0ccfe42bc4">&lt;token href="../../includes/mobile-services-android-getting-started-with-push.md"&gt;</bpt><ept id="f0055796-4465-4225-b0f9-cd0ccfe42bc4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="839c7bff-bfe7-4d38-a5ad-886e57a68042" xml:space="preserve">
+          <source><bpt id="02c709bd-cc82-49b2-b8de-16f65ba044a0">&lt;token href="../../includes/mobile-services-javascript-backend-android-push-insert-script.md"&gt;</bpt><ept id="02c709bd-cc82-49b2-b8de-16f65ba044a0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="02c709bd-cc82-49b2-b8de-16f65ba044a0">&lt;token href="../../includes/mobile-services-javascript-backend-android-push-insert-script.md"&gt;</bpt><ept id="02c709bd-cc82-49b2-b8de-16f65ba044a0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55230e37-2dc0-4c9b-b21d-0e7275dd8edd" xml:space="preserve">
+          <source>You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.</source>
+          <target state="new">You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.</target>
+        </trans-unit>
+        <trans-unit id="70643638-d81c-4af8-b145-2247a2226014" xml:space="preserve">
+          <source>When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</source>
+          <target state="new">When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</target>
+        </trans-unit>
+        <trans-unit id="47b5a85a-6c6c-41c8-a171-7f1d6771595b" xml:space="preserve">
+          <source>From the right end of the toolbar, select the Android Virtual Device Manager, select your device, click the edit icon on the right.</source>
+          <target state="new">From the right end of the toolbar, select the Android Virtual Device Manager, select your device, click the edit icon on the right.</target>
+        </trans-unit>
+        <trans-unit id="63cdcdf8-4881-4b16-a421-a78a3baabea8" xml:space="preserve">
+          <source><bpt id="9b36a96a-21fe-4a8f-8a1a-dc1e0d1fae45">&lt;linkText&gt;</bpt><ept id="9b36a96a-21fe-4a8f-8a1a-dc1e0d1fae45">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b36a96a-21fe-4a8f-8a1a-dc1e0d1fae45">&lt;linkText&gt;</bpt><ept id="9b36a96a-21fe-4a8f-8a1a-dc1e0d1fae45">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22fd9830-3b73-47aa-b7a5-446d2418d5fb" xml:space="preserve">
+          <source>Select <bpt id="9c8137c4-58fe-448a-bdc8-d7ca6f240542">&lt;strong&gt;</bpt>Change<ept id="9c8137c4-58fe-448a-bdc8-d7ca6f240542">&lt;/strong&gt;</ept> on the device description line, select <bpt id="9deb2733-c4cf-4b44-b2f5-96a2bf877892">&lt;strong&gt;</bpt>Google APIs<ept id="9deb2733-c4cf-4b44-b2f5-96a2bf877892">&lt;/strong&gt;</ept>,  then click OK.</source>
+          <target state="new">Select <bpt id="9c8137c4-58fe-448a-bdc8-d7ca6f240542">&lt;strong&gt;</bpt>Change<ept id="9c8137c4-58fe-448a-bdc8-d7ca6f240542">&lt;/strong&gt;</ept> on the device description line, select <bpt id="9deb2733-c4cf-4b44-b2f5-96a2bf877892">&lt;strong&gt;</bpt>Google APIs<ept id="9deb2733-c4cf-4b44-b2f5-96a2bf877892">&lt;/strong&gt;</ept>,  then click OK.</target>
+        </trans-unit>
+        <trans-unit id="4f79020d-43de-4515-bfe1-113c74b8760e" xml:space="preserve">
+          <source><bpt id="fe83059d-8aad-4c9d-8b49-4721aa61c110">&lt;linkText&gt;</bpt><ept id="fe83059d-8aad-4c9d-8b49-4721aa61c110">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe83059d-8aad-4c9d-8b49-4721aa61c110">&lt;linkText&gt;</bpt><ept id="fe83059d-8aad-4c9d-8b49-4721aa61c110">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a83e9372-96b7-4013-ad6e-b9d8946dfce9" xml:space="preserve">
+          <source>This targets the AVD to use Google APIs.</source>
+          <target state="new">This targets the AVD to use Google APIs.</target>
+        </trans-unit>
+        <trans-unit id="f890b9fd-14fa-4742-971a-3a141e8f2ba7" xml:space="preserve">
+          <source>From the <bpt id="b57a3a72-9b6d-4a8e-b954-885eacae31da">&lt;strong&gt;</bpt>Run<ept id="b57a3a72-9b6d-4a8e-b954-885eacae31da">&lt;/strong&gt;</ept> menu item, click <bpt id="4fee3e87-ea85-47ce-aaf5-7192baf235c6">&lt;strong&gt;</bpt>Run app<ept id="4fee3e87-ea85-47ce-aaf5-7192baf235c6">&lt;/strong&gt;</ept> to start the app.</source>
+          <target state="new">From the <bpt id="b57a3a72-9b6d-4a8e-b954-885eacae31da">&lt;strong&gt;</bpt>Run<ept id="b57a3a72-9b6d-4a8e-b954-885eacae31da">&lt;/strong&gt;</ept> menu item, click <bpt id="4fee3e87-ea85-47ce-aaf5-7192baf235c6">&lt;strong&gt;</bpt>Run app<ept id="4fee3e87-ea85-47ce-aaf5-7192baf235c6">&lt;/strong&gt;</ept> to start the app.</target>
+        </trans-unit>
+        <trans-unit id="40ea388e-6548-4df0-8da8-ffe80ee6dd40" xml:space="preserve">
+          <source>In the app, type meaningful text, such as <bpt id="8cedef29-b28e-481d-a8aa-3966b4a62128">&lt;em&gt;</bpt>A new Mobile Services task<ept id="8cedef29-b28e-481d-a8aa-3966b4a62128">&lt;/em&gt;</ept> and then click the <bpt id="57662fc0-d636-4388-919b-476b4ba91fd1">&lt;strong&gt;</bpt>Add<ept id="57662fc0-d636-4388-919b-476b4ba91fd1">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the app, type meaningful text, such as <bpt id="8cedef29-b28e-481d-a8aa-3966b4a62128">&lt;em&gt;</bpt>A new Mobile Services task<ept id="8cedef29-b28e-481d-a8aa-3966b4a62128">&lt;/em&gt;</ept> and then click the <bpt id="57662fc0-d636-4388-919b-476b4ba91fd1">&lt;strong&gt;</bpt>Add<ept id="57662fc0-d636-4388-919b-476b4ba91fd1">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="504a30b1-cadf-4aa8-a8de-50ad423e3775" xml:space="preserve">
+          <source><bpt id="b87fbb89-ccc6-4e87-a1f9-cb08edbd7cab">&lt;linkText&gt;</bpt><ept id="b87fbb89-ccc6-4e87-a1f9-cb08edbd7cab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b87fbb89-ccc6-4e87-a1f9-cb08edbd7cab">&lt;linkText&gt;</bpt><ept id="b87fbb89-ccc6-4e87-a1f9-cb08edbd7cab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6d70386-e83e-4372-b08b-5bb44597b4f0" xml:space="preserve">
+          <source>Swipe down from the top of the screen to open the device's Notification Drawer to see the notification.</source>
+          <target state="new">Swipe down from the top of the screen to open the device's Notification Drawer to see the notification.</target>
+        </trans-unit>
+        <trans-unit id="cb4d541e-cac9-4152-bdfa-2b69e2467b99" xml:space="preserve">
+          <source>You have successfully completed this tutorial.</source>
+          <target state="new">You have successfully completed this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="7e0fa303-8338-489c-9b04-ffe69bb109b1" xml:space="preserve">
+          <source><bpt id="7c35ac18-a62d-4dd5-a288-efe1cacfdce6">&lt;token href="../../includes/mobile-services-verify-android-sdk-version.md"&gt;</bpt><ept id="7c35ac18-a62d-4dd5-a288-efe1cacfdce6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7c35ac18-a62d-4dd5-a288-efe1cacfdce6">&lt;token href="../../includes/mobile-services-verify-android-sdk-version.md"&gt;</bpt><ept id="7c35ac18-a62d-4dd5-a288-efe1cacfdce6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3920645c-b165-4ce1-a877-d8965a984965" xml:space="preserve">
+          <source>If you would like to see the Eclipse version of this tutorial, go to [Get started with push notifications (Eclipse)].</source>
+          <target state="new">If you would like to see the Eclipse version of this tutorial, go to [Get started with push notifications (Eclipse)].</target>
+        </trans-unit>
+        <trans-unit id="19d8d7c1-845e-49fd-9031-abad069968be" xml:space="preserve">
+          <source>Learn more about Mobile Services and Notification Hubs in the following topics:</source>
+          <target state="new">Learn more about Mobile Services and Notification Hubs in the following topics:</target>
+        </trans-unit>
+        <trans-unit id="bf99a883-38bd-48cb-95e5-0b54c89417d0" xml:space="preserve">
+          <source>[Get started with data]
+&lt;br/&gt;Learn more about storing and querying data using mobile services.</source>
+          <target state="new">[Get started with data]
+&lt;br/&gt;Learn more about storing and querying data using mobile services.</target>
+        </trans-unit>
+        <trans-unit id="6516e070-f04d-4db4-99e5-0e867b6cba1e" xml:space="preserve">
+          <source>[Get started with authentication]
+&lt;br/&gt;Learn how to authenticate users of your app with different account types using mobile services.</source>
+          <target state="new">[Get started with authentication]
+&lt;br/&gt;Learn how to authenticate users of your app with different account types using mobile services.</target>
+        </trans-unit>
+        <trans-unit id="a9a37161-6336-4451-879a-ba2bf9d1b9e3" xml:space="preserve">
+          <source>[What are Notification Hubs?]</source>
+          <target state="new">[What are Notification Hubs?]</target>
+        </trans-unit>
+        <trans-unit id="5140a846-6846-4ddb-b358-2250942bfc7c" xml:space="preserve">
+          <source>&lt;br/&gt;Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.</source>
+          <target state="new">&lt;br/&gt;Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.</target>
+        </trans-unit>
+        <trans-unit id="0acba3ef-cf4d-4287-b658-eea1b02c0260" xml:space="preserve">
+          <source><bpt id="fe3e018b-4144-47e9-ba39-637f936a28a4">&lt;linkText&gt;</bpt>Debug Notification Hubs applications<ept id="fe3e018b-4144-47e9-ba39-637f936a28a4">&lt;/linkText&gt;</ept><bpt id="fe3e018b-4144-47e9-ba39-637f936a28a4">&lt;title&gt;</bpt><ept id="fe3e018b-4144-47e9-ba39-637f936a28a4">&lt;/title&gt;</ept>
+&lt;/br&gt;Get guidance troubleshooting and debugging Notification Hubs solutions.</source>
+          <target state="new"><bpt id="fe3e018b-4144-47e9-ba39-637f936a28a4">&lt;linkText&gt;</bpt>Debug Notification Hubs applications<ept id="fe3e018b-4144-47e9-ba39-637f936a28a4">&lt;/linkText&gt;</ept><bpt id="fe3e018b-4144-47e9-ba39-637f936a28a4">&lt;title&gt;</bpt><ept id="fe3e018b-4144-47e9-ba39-637f936a28a4">&lt;/title&gt;</ept>
+&lt;/br&gt;Get guidance troubleshooting and debugging Notification Hubs solutions.</target>
+        </trans-unit>
+        <trans-unit id="dde8aa35-f204-4dd9-a192-81da03d31508" xml:space="preserve">
+          <source>[How to use the Android client library for Mobile Services]
+&lt;br/&gt;Learn more about how to use Mobile Services with Android.</source>
+          <target state="new">[How to use the Android client library for Mobile Services]
+&lt;br/&gt;Learn more about how to use Mobile Services with Android.</target>
+        </trans-unit>
+        <trans-unit id="9caa3eb1-8011-4886-b98a-7dc6a731a429" xml:space="preserve">
+          <source>[Mobile Services server script reference]
+&lt;br/&gt;Learn more about how to implement business logic in your mobile service.</source>
+          <target state="new">[Mobile Services server script reference]
+&lt;br/&gt;Learn more about how to implement business logic in your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="81806a16-0495-4ef1-a560-de5d64291a16" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="36b38e55-0a3f-4609-9299-34b88353aa80" xml:space="preserve">
+          <source>#update-scripts</source>
+          <target state="new">#update-scripts</target>
+        </trans-unit>
+        <trans-unit id="22b0d70b-bd1d-4a1b-8cef-07987b6ff571" xml:space="preserve">
+          <source>#test</source>
+          <target state="new">#test</target>
+        </trans-unit>
+        <trans-unit id="c872e93d-e85d-4a43-bf50-ec6f1ac94df4" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="a890ca6e-e16a-4d6c-8cf0-3466ad18fc60" xml:space="preserve">
+          <source>./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png</source>
+          <target state="new">./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png</target>
+        </trans-unit>
+        <trans-unit id="ff0886f0-59d6-49ff-9f81-b24b6aa7f918" xml:space="preserve">
+          <source>./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png</source>
+          <target state="new">./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png</target>
+        </trans-unit>
+        <trans-unit id="5564f8d7-d5b0-4b7e-9f0a-b9f48e7a026b" xml:space="preserve">
+          <source>mobile-services-javascript-backend-android-get-started-push-ec.md</source>
+          <target state="new">mobile-services-javascript-backend-android-get-started-push-ec.md</target>
+        </trans-unit>
+        <trans-unit id="0506b524-2145-4ffc-b9d0-25a3eef8e567" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=266582</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=266582</target>
+        </trans-unit>
+        <trans-unit id="2efc3867-a236-4783-9865-b94b092d4ade" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="ca4cc712-5c47-4013-8ca8-f357a4ee1da0" xml:space="preserve">
+          <source>mobile-services-android-get-started.md</source>
+          <target state="new">mobile-services-android-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="2378d9e7-0a75-4dc3-8ca2-180df48235d8" xml:space="preserve">
+          <source>mobile-services-android-get-started-data.md</source>
+          <target state="new">mobile-services-android-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="96457e89-c0b0-4cc7-b358-f3df4b33915e" xml:space="preserve">
+          <source>mobile-services-android-get-started-users.md</source>
+          <target state="new">mobile-services-android-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="cf00b11c-c59c-4bbc-8213-90da4ecebf1d" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-push-js</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-push-js</target>
+        </trans-unit>
+        <trans-unit id="79068b0a-c4d6-4aff-b1da-da652dea5927" xml:space="preserve">
+          <source>/develop/mobile/tutorials/push-notifications-to-users-js</source>
+          <target state="new">/develop/mobile/tutorials/push-notifications-to-users-js</target>
+        </trans-unit>
+        <trans-unit id="2cf687de-338b-4146-b9bf-5d5d3afd8017" xml:space="preserve">
+          <source>/develop/mobile/tutorials/authorize-users-in-scripts-js</source>
+          <target state="new">/develop/mobile/tutorials/authorize-users-in-scripts-js</target>
+        </trans-unit>
+        <trans-unit id="075f735b-2ce4-4c73-a6d6-67f396949e3d" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-push-js</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-push-js</target>
+        </trans-unit>
+        <trans-unit id="e77b2d88-24c8-4357-977c-cc7575a3b06c" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=389801</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=389801</target>
+        </trans-unit>
+        <trans-unit id="2856ba5f-e66b-4636-ba7e-c7d28dc47c30" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="259d4366-3a3c-4a7d-a073-8e634b0815f3" xml:space="preserve">
+          <source>mobile-services-android-how-to-use-client-library.md</source>
+          <target state="new">mobile-services-android-how-to-use-client-library.md</target>
+        </trans-unit>
+        <trans-unit id="45348951-9215-4187-adc7-f5bcfff9a963" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=282645</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=282645</target>
+        </trans-unit>
+        <trans-unit id="3f307a22-045c-4b51-a9af-066239752d41" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262293</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262293</target>
+        </trans-unit>
+        <trans-unit id="e9aa7434-b4ed-419a-872c-46a03955aad8" xml:space="preserve">
+          <source>mobile-services-javascript-backend-android-push-notifications-app-users.md</source>
+          <target state="new">mobile-services-javascript-backend-android-push-notifications-app-users.md</target>
+        </trans-unit>
+        <trans-unit id="9c0d96e5-1720-4f91-9b40-45db4b04579e" xml:space="preserve">
+          <source>../notification-hubs-overview.md</source>
+          <target state="new">../notification-hubs-overview.md</target>
+        </trans-unit>
+        <trans-unit id="e060b707-17d7-413c-b857-e530c606a11f" xml:space="preserve">
+          <source>../notification-hubs-android-send-breaking-news.md</source>
+          <target state="new">../notification-hubs-android-send-breaking-news.md</target>
+        </trans-unit>
+        <trans-unit id="e78cbbb5-f9d3-41b3-8b2b-9609af9fc367" xml:space="preserve">
+          <source>../notification-hubs-android-send-localized-breaking-news.md</source>
+          <target state="new">../notification-hubs-android-send-localized-breaking-news.md</target>
+        </trans-unit>
+      </group>
+      <group id="4356135a-4d7d-4afd-b58d-d1db7815872c" />
+    </body>
+  </file>
+</xliff>

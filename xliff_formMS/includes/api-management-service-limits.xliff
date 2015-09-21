@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d73dd054-f4fe-41e0-bc61-9a6f709d314d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d73dd054-f4fe-41e0-bc61-9a6f709d314d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0d7a0bce-c0b9-483f-ba8a-4036e124aa49">
+        <trans-unit id="513b7797-2e8a-4812-ba91-70381b807d78" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="35dc2f57-9340-4b3c-bf99-7825956fa573" xml:space="preserve">
+          <source>Limit</source>
+          <target state="new">Limit</target>
+        </trans-unit>
+        <trans-unit id="54c1d768-3786-4515-9949-3cc45faa60ad" xml:space="preserve">
+          <source>API Calls (per unit of scale)</source>
+          <target state="new">API Calls (per unit of scale)</target>
+        </trans-unit>
+        <trans-unit id="1fda884f-3b18-4a84-8d8a-79a2f5697885" xml:space="preserve">
+          <source>32 million per day&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">32 million per day&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="60485dea-6779-47c4-82de-495676375843" xml:space="preserve">
+          <source>Data transfer (per unit of scale)</source>
+          <target state="new">Data transfer (per unit of scale)</target>
+        </trans-unit>
+        <trans-unit id="faa841c0-e60b-40a6-b0fb-cafefec5f30e" xml:space="preserve">
+          <source>161 GB per day&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">161 GB per day&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="f2873c96-461b-4990-9ba8-fa6758d662f5" xml:space="preserve">
+          <source>Cache</source>
+          <target state="new">Cache</target>
+        </trans-unit>
+        <trans-unit id="41969383-6bda-4172-9929-51a0af3a4937" xml:space="preserve">
+          <source>5 GB&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">5 GB&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="72ebea50-1dde-41c2-ab22-0297fc63d59f" xml:space="preserve">
+          <source>Units of scale</source>
+          <target state="new">Units of scale</target>
+        </trans-unit>
+        <trans-unit id="73d8d5ab-55e3-4625-b193-f8d55686b8e4" xml:space="preserve">
+          <source>Unlimited&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">Unlimited&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="a890fad1-1c8c-425f-b020-4d27ac90f5cf" xml:space="preserve">
+          <source>Azure Active Directory Integration</source>
+          <target state="new">Azure Active Directory Integration</target>
+        </trans-unit>
+        <trans-unit id="2d5da54a-e9fd-4dfd-bbb1-b4e7952fd7fa" xml:space="preserve">
+          <source>Unlimited User Accounts&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new">Unlimited User Accounts&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="26a43739-1085-486e-96b3-fb8a4a555247" xml:space="preserve">
+          <source>&lt;sup&gt;1&lt;/sup&gt;API Management limits are different for each pricing tier.</source>
+          <target state="new">&lt;sup&gt;1&lt;/sup&gt;API Management limits are different for each pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="8180f73d-de95-41ce-bdee-4ecc177e433d" xml:space="preserve">
+          <source>To see the pricing tiers and their associated limits and scaling options, see <bpt id="12dc6369-abd3-40c1-95d7-c9477172d2e9">&lt;linkText&gt;</bpt>API Management Pricing<ept id="12dc6369-abd3-40c1-95d7-c9477172d2e9">&lt;/linkText&gt;</ept><bpt id="12dc6369-abd3-40c1-95d7-c9477172d2e9">&lt;title&gt;</bpt><ept id="12dc6369-abd3-40c1-95d7-c9477172d2e9">&lt;/title&gt;</ept>.</source>
+          <target state="new">To see the pricing tiers and their associated limits and scaling options, see <bpt id="12dc6369-abd3-40c1-95d7-c9477172d2e9">&lt;linkText&gt;</bpt>API Management Pricing<ept id="12dc6369-abd3-40c1-95d7-c9477172d2e9">&lt;/linkText&gt;</ept><bpt id="12dc6369-abd3-40c1-95d7-c9477172d2e9">&lt;title&gt;</bpt><ept id="12dc6369-abd3-40c1-95d7-c9477172d2e9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

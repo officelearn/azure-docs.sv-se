@@ -1,0 +1,1468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1949158e-03bf-4699-96ee-a651c60bf8e8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1949158e-03bf-4699-96ee-a651c60bf8e8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="95299a2d-d912-4c91-aaf0-22ea9340f9b6">
+        <trans-unit id="1e6ed090-5e4f-43b9-9ac5-4df4adb5d2ce" xml:space="preserve">
+          <source>Virtual machine sizes</source>
+          <target state="new">Virtual machine sizes</target>
+        </trans-unit>
+        <trans-unit id="1850d884-a922-4031-911a-1737cfa18550" xml:space="preserve">
+          <source>Lists the different sizes for virtual machines and their capacities.</source>
+          <target state="new">Lists the different sizes for virtual machines and their capacities.</target>
+        </trans-unit>
+        <trans-unit id="ce19aa01-0e54-4e22-89cb-f210ee8f5941" xml:space="preserve">
+          <source>This article describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads.</source>
+          <target state="new">This article describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads.</target>
+        </trans-unit>
+        <trans-unit id="43bbff16-e9e5-4b60-8247-14700eed8e70" xml:space="preserve">
+          <source>It also provides deployment considerations to be aware of when you're planning to use these resources.</source>
+          <target state="new">It also provides deployment considerations to be aware of when you're planning to use these resources.</target>
+        </trans-unit>
+        <trans-unit id="243227b6-618c-4b06-a9dc-e375edd090d9" xml:space="preserve">
+          <source>Azure Virtual Machines and Cloud Services are two of several types of compute resources offered by Azure.</source>
+          <target state="new">Azure Virtual Machines and Cloud Services are two of several types of compute resources offered by Azure.</target>
+        </trans-unit>
+        <trans-unit id="b8d648e6-6d8a-46bc-b4c5-8e39f8e99023" xml:space="preserve">
+          <source>For explanations, see <bpt id="18dfbc71-7399-49ca-ab79-08b1fd886e66">&lt;linkText&gt;</bpt>Compute hosting options provided by Azure<ept id="18dfbc71-7399-49ca-ab79-08b1fd886e66">&lt;/linkText&gt;</ept><bpt id="18dfbc71-7399-49ca-ab79-08b1fd886e66">&lt;title&gt;</bpt><ept id="18dfbc71-7399-49ca-ab79-08b1fd886e66">&lt;/title&gt;</ept>.</source>
+          <target state="new">For explanations, see <bpt id="18dfbc71-7399-49ca-ab79-08b1fd886e66">&lt;linkText&gt;</bpt>Compute hosting options provided by Azure<ept id="18dfbc71-7399-49ca-ab79-08b1fd886e66">&lt;/linkText&gt;</ept><bpt id="18dfbc71-7399-49ca-ab79-08b1fd886e66">&lt;title&gt;</bpt><ept id="18dfbc71-7399-49ca-ab79-08b1fd886e66">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9018cef6-5637-4310-bc09-5782ed14d393" xml:space="preserve">
+          <source>To see related Azure limits, see <bpt id="c0b3fa1a-a12b-4575-8873-4cf6c3aec355">&lt;linkText&gt;</bpt>Azure subscription and service limits, quotas, and constraints<ept id="c0b3fa1a-a12b-4575-8873-4cf6c3aec355">&lt;/linkText&gt;</ept><bpt id="c0b3fa1a-a12b-4575-8873-4cf6c3aec355">&lt;title&gt;</bpt><ept id="c0b3fa1a-a12b-4575-8873-4cf6c3aec355">&lt;/title&gt;</ept>.</source>
+          <target state="new">To see related Azure limits, see <bpt id="c0b3fa1a-a12b-4575-8873-4cf6c3aec355">&lt;linkText&gt;</bpt>Azure subscription and service limits, quotas, and constraints<ept id="c0b3fa1a-a12b-4575-8873-4cf6c3aec355">&lt;/linkText&gt;</ept><bpt id="c0b3fa1a-a12b-4575-8873-4cf6c3aec355">&lt;title&gt;</bpt><ept id="c0b3fa1a-a12b-4575-8873-4cf6c3aec355">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5527ddb5-a4ee-4d7b-a17c-f1ad664be1c7" xml:space="preserve">
+          <source>Virtual machines are available in two tiers: basic and standard.</source>
+          <target state="new">Virtual machines are available in two tiers: basic and standard.</target>
+        </trans-unit>
+        <trans-unit id="1f40ac21-1673-40bc-8632-4e5c03f7668b" xml:space="preserve">
+          <source>Both types offer a choice of sizes, but the basic tier doesn’t provide some capabilities available in the standard tier, such as load-balancing and auto-scaling.</source>
+          <target state="new">Both types offer a choice of sizes, but the basic tier doesn’t provide some capabilities available in the standard tier, such as load-balancing and auto-scaling.</target>
+        </trans-unit>
+        <trans-unit id="fb9ef0c8-ff1d-4f7a-a026-bf65026f9f88" xml:space="preserve">
+          <source>The standard tier of sizes consists of different series: A, D, DS, G, and GS.</source>
+          <target state="new">The standard tier of sizes consists of different series: A, D, DS, G, and GS.</target>
+        </trans-unit>
+        <trans-unit id="6b65eba8-50f6-46dc-bce3-96c95a5986bd" xml:space="preserve">
+          <source>Considerations for some of these sizes include:</source>
+          <target state="new">Considerations for some of these sizes include:</target>
+        </trans-unit>
+        <trans-unit id="f84e19ac-cd6a-49a5-af4d-a6f20217d478" xml:space="preserve">
+          <source>D-series VMs are designed to run applications that demand higher compute power and temporary disk performance.</source>
+          <target state="new">D-series VMs are designed to run applications that demand higher compute power and temporary disk performance.</target>
+        </trans-unit>
+        <trans-unit id="650665cb-4237-429a-a2f6-2b8bdde7dd1d" xml:space="preserve">
+          <source>D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk.</source>
+          <target state="new">D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk.</target>
+        </trans-unit>
+        <trans-unit id="56cd40a4-42fe-490b-82bc-54b45741b304" xml:space="preserve">
+          <source>For details, see the announcement on the Azure blog, <bpt id="a23d077a-ef97-4f62-ad52-1a9b1774df49">&lt;linkText&gt;</bpt>New D-Series Virtual Machine Sizes<ept id="a23d077a-ef97-4f62-ad52-1a9b1774df49">&lt;/linkText&gt;</ept><bpt id="a23d077a-ef97-4f62-ad52-1a9b1774df49">&lt;title&gt;</bpt><ept id="a23d077a-ef97-4f62-ad52-1a9b1774df49">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see the announcement on the Azure blog, <bpt id="a23d077a-ef97-4f62-ad52-1a9b1774df49">&lt;linkText&gt;</bpt>New D-Series Virtual Machine Sizes<ept id="a23d077a-ef97-4f62-ad52-1a9b1774df49">&lt;/linkText&gt;</ept><bpt id="a23d077a-ef97-4f62-ad52-1a9b1774df49">&lt;title&gt;</bpt><ept id="a23d077a-ef97-4f62-ad52-1a9b1774df49">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b78f3fe9-89a7-4cd0-987a-59b98062248f" xml:space="preserve">
+          <source>G-series VMs offer the biggest size and best performance and run on hosts that have Intel Xeon E5 V3 family processors.</source>
+          <target state="new">G-series VMs offer the biggest size and best performance and run on hosts that have Intel Xeon E5 V3 family processors.</target>
+        </trans-unit>
+        <trans-unit id="7645ca94-b7be-4723-8cca-0462852a7072" xml:space="preserve">
+          <source>DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads.</source>
+          <target state="new">DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads.</target>
+        </trans-unit>
+        <trans-unit id="469c158f-713b-4379-afe6-b48dfc830944" xml:space="preserve">
+          <source>These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache.</source>
+          <target state="new">These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache.</target>
+        </trans-unit>
+        <trans-unit id="71800b35-a9c9-48f2-bace-351050d4eb44" xml:space="preserve">
+          <source>Premium Storage is available in certain regions.</source>
+          <target state="new">Premium Storage is available in certain regions.</target>
+        </trans-unit>
+        <trans-unit id="dc4881ff-fefe-4c61-b0c1-d3fb148d2adf" xml:space="preserve">
+          <source>For details, see <bpt id="6c007ae0-223a-45ec-86d8-206596fafb0c">&lt;linkText&gt;</bpt>Premium Storage: High-performance storage for Azure virtual machine workloads<ept id="6c007ae0-223a-45ec-86d8-206596fafb0c">&lt;/linkText&gt;</ept><bpt id="6c007ae0-223a-45ec-86d8-206596fafb0c">&lt;title&gt;</bpt><ept id="6c007ae0-223a-45ec-86d8-206596fafb0c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="6c007ae0-223a-45ec-86d8-206596fafb0c">&lt;linkText&gt;</bpt>Premium Storage: High-performance storage for Azure virtual machine workloads<ept id="6c007ae0-223a-45ec-86d8-206596fafb0c">&lt;/linkText&gt;</ept><bpt id="6c007ae0-223a-45ec-86d8-206596fafb0c">&lt;title&gt;</bpt><ept id="6c007ae0-223a-45ec-86d8-206596fafb0c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="159c6c57-9a0b-48d0-bb79-b2da215a2477" xml:space="preserve">
+          <source>The size of the virtual machine affects the pricing.</source>
+          <target state="new">The size of the virtual machine affects the pricing.</target>
+        </trans-unit>
+        <trans-unit id="fdf48155-32ed-4193-ab4e-aadff5a0bb13" xml:space="preserve">
+          <source>The size also affects the processing, memory, and storage capacity of the virtual machine.</source>
+          <target state="new">The size also affects the processing, memory, and storage capacity of the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="2a2c4c75-6d64-4991-b9ad-8a8a83af6e55" xml:space="preserve">
+          <source>Storage costs are calculated separately based on used pages in the storage account.</source>
+          <target state="new">Storage costs are calculated separately based on used pages in the storage account.</target>
+        </trans-unit>
+        <trans-unit id="6bbdee22-0c68-4eb5-9500-9c14486f35b3" xml:space="preserve">
+          <source>For details, see <bpt id="2cb330fc-1cb3-4bc0-a202-0a96607069b1">&lt;linkText&gt;</bpt>Virtual Machines Pricing Details<ept id="2cb330fc-1cb3-4bc0-a202-0a96607069b1">&lt;/linkText&gt;</ept><bpt id="2cb330fc-1cb3-4bc0-a202-0a96607069b1">&lt;title&gt;</bpt><ept id="2cb330fc-1cb3-4bc0-a202-0a96607069b1">&lt;/title&gt;</ept> and <bpt id="636bf399-30df-4d38-af47-469ef1762cd8">&lt;linkText&gt;</bpt>Azure Storage Pricing<ept id="636bf399-30df-4d38-af47-469ef1762cd8">&lt;/linkText&gt;</ept><bpt id="636bf399-30df-4d38-af47-469ef1762cd8">&lt;title&gt;</bpt><ept id="636bf399-30df-4d38-af47-469ef1762cd8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="2cb330fc-1cb3-4bc0-a202-0a96607069b1">&lt;linkText&gt;</bpt>Virtual Machines Pricing Details<ept id="2cb330fc-1cb3-4bc0-a202-0a96607069b1">&lt;/linkText&gt;</ept><bpt id="2cb330fc-1cb3-4bc0-a202-0a96607069b1">&lt;title&gt;</bpt><ept id="2cb330fc-1cb3-4bc0-a202-0a96607069b1">&lt;/title&gt;</ept> and <bpt id="636bf399-30df-4d38-af47-469ef1762cd8">&lt;linkText&gt;</bpt>Azure Storage Pricing<ept id="636bf399-30df-4d38-af47-469ef1762cd8">&lt;/linkText&gt;</ept><bpt id="636bf399-30df-4d38-af47-469ef1762cd8">&lt;title&gt;</bpt><ept id="636bf399-30df-4d38-af47-469ef1762cd8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e671e09-55f5-4f4e-a270-315c87b7f94b" xml:space="preserve">
+          <source>For more details about storage for VMss, see <bpt id="9f9a3663-ae25-465b-9ff4-44968d8016ae">&lt;linkText&gt;</bpt>About disks and VHDs for virtual machines <ept id="9f9a3663-ae25-465b-9ff4-44968d8016ae">&lt;/linkText&gt;</ept><bpt id="9f9a3663-ae25-465b-9ff4-44968d8016ae">&lt;title&gt;</bpt><ept id="9f9a3663-ae25-465b-9ff4-44968d8016ae">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about storage for VMss, see <bpt id="9f9a3663-ae25-465b-9ff4-44968d8016ae">&lt;linkText&gt;</bpt>About disks and VHDs for virtual machines <ept id="9f9a3663-ae25-465b-9ff4-44968d8016ae">&lt;/linkText&gt;</ept><bpt id="9f9a3663-ae25-465b-9ff4-44968d8016ae">&lt;title&gt;</bpt><ept id="9f9a3663-ae25-465b-9ff4-44968d8016ae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="602df6f3-ce3f-40db-a05f-58010d77bbdb" xml:space="preserve">
+          <source>The following considerations might help you decide on a size:</source>
+          <target state="new">The following considerations might help you decide on a size:</target>
+        </trans-unit>
+        <trans-unit id="652afa9f-ad62-4995-85ec-7328af248f96" xml:space="preserve">
+          <source>The A0\Basic_A0 size is available only by using Azure SDK version 1.3 or later.</source>
+          <target state="new">The A0\Basic_A0 size is available only by using Azure SDK version 1.3 or later.</target>
+        </trans-unit>
+        <trans-unit id="440e363b-0574-4225-81f5-aea7f69bcb3a" xml:space="preserve">
+          <source>A1\Basic_A1 is the smallest size recommended for production workloads.</source>
+          <target state="new">A1\Basic_A1 is the smallest size recommended for production workloads.</target>
+        </trans-unit>
+        <trans-unit id="aa5372fb-00af-4fc9-bf2d-e2b8f7d31ed4" xml:space="preserve">
+          <source>Select a virtual machine that has four or eight CPU cores when using SQL Server Enterprise Edition.</source>
+          <target state="new">Select a virtual machine that has four or eight CPU cores when using SQL Server Enterprise Edition.</target>
+        </trans-unit>
+        <trans-unit id="26520e19-d999-4086-8df9-1b048b42cefc" xml:space="preserve">
+          <source>Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11\. As a result, you may see the error message <bpt id="37d8b8ac-c068-4ef1-bf85-f35235af9453">&lt;strong&gt;</bpt>Failed to configure virtual machine &lt;machine name&gt;<ept id="37d8b8ac-c068-4ef1-bf85-f35235af9453">&lt;/strong&gt;</ept> or <bpt id="7cfc591d-56d3-40a0-8f28-e4b21b79013a">&lt;strong&gt;</bpt>Failed to create virtual machine &lt;machine name&gt;<ept id="7cfc591d-56d3-40a0-8f28-e4b21b79013a">&lt;/strong&gt;</ept> when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See the topic <bpt id="9a7bb6ab-bc2d-42a4-8cf8-31c969688939">&lt;linkText&gt;</bpt>Error: “Failed to configure virtual machine”<ept id="9a7bb6ab-bc2d-42a4-8cf8-31c969688939">&lt;/linkText&gt;</ept><bpt id="9a7bb6ab-bc2d-42a4-8cf8-31c969688939">&lt;title&gt;</bpt><ept id="9a7bb6ab-bc2d-42a4-8cf8-31c969688939">&lt;/title&gt;</ept> on the support forum for workarounds for each deployment scenario.  </source>
+          <target state="new">Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11\. As a result, you may see the error message <bpt id="37d8b8ac-c068-4ef1-bf85-f35235af9453">&lt;strong&gt;</bpt>Failed to configure virtual machine &lt;machine name&gt;<ept id="37d8b8ac-c068-4ef1-bf85-f35235af9453">&lt;/strong&gt;</ept> or <bpt id="7cfc591d-56d3-40a0-8f28-e4b21b79013a">&lt;strong&gt;</bpt>Failed to create virtual machine &lt;machine name&gt;<ept id="7cfc591d-56d3-40a0-8f28-e4b21b79013a">&lt;/strong&gt;</ept> when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See the topic <bpt id="9a7bb6ab-bc2d-42a4-8cf8-31c969688939">&lt;linkText&gt;</bpt>Error: “Failed to configure virtual machine”<ept id="9a7bb6ab-bc2d-42a4-8cf8-31c969688939">&lt;/linkText&gt;</ept><bpt id="9a7bb6ab-bc2d-42a4-8cf8-31c969688939">&lt;title&gt;</bpt><ept id="9a7bb6ab-bc2d-42a4-8cf8-31c969688939">&lt;/title&gt;</ept> on the support forum for workarounds for each deployment scenario.  </target>
+        </trans-unit>
+        <trans-unit id="da15e881-d744-44e3-9ada-31e48d55e70c" xml:space="preserve">
+          <source>The A8/A10 and A9/A11 virtual machine sizes have the same capacities.</source>
+          <target state="new">The A8/A10 and A9/A11 virtual machine sizes have the same capacities.</target>
+        </trans-unit>
+        <trans-unit id="36a43895-d875-4592-a1cd-2d3f71224537" xml:space="preserve">
+          <source>The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines.</source>
+          <target state="new">The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="89c47598-e914-4fdf-8e5f-78258dc5df95" xml:space="preserve">
+          <source>The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI).</source>
+          <target state="new">The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI).</target>
+        </trans-unit>
+        <trans-unit id="d746dc05-f4d4-4d5f-bdb3-b01ad6078283" xml:space="preserve">
+          <source>The A10 and A11 virtual machine instances do not include the additional network adapter.</source>
+          <target state="new">The A10 and A11 virtual machine instances do not include the additional network adapter.</target>
+        </trans-unit>
+        <trans-unit id="3c92e9b0-5e3d-48ef-8d04-b3b49332bf98" xml:space="preserve">
+          <source>A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.</source>
+          <target state="new">A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.</target>
+        </trans-unit>
+        <trans-unit id="60622697-13a4-46b8-97b5-7fbc567fd015" xml:space="preserve">
+          <source>This table shows limits that apply regardless of a virtual machine's size, for virtual machines created using the Service Management deployment model.</source>
+          <target state="new">This table shows limits that apply regardless of a virtual machine's size, for virtual machines created using the Service Management deployment model.</target>
+        </trans-unit>
+        <trans-unit id="25841eaf-49e2-4217-a3db-bcb4a146cd03" xml:space="preserve">
+          <source><bpt id="595f28eb-7baf-4cbc-a41d-c32e4bb9dfff">&lt;token href="../../includes/azure-virtual-machines-limits.md"&gt;</bpt><ept id="595f28eb-7baf-4cbc-a41d-c32e4bb9dfff">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="595f28eb-7baf-4cbc-a41d-c32e4bb9dfff">&lt;token href="../../includes/azure-virtual-machines-limits.md"&gt;</bpt><ept id="595f28eb-7baf-4cbc-a41d-c32e4bb9dfff">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebce7302-816e-4033-8f2e-993115b14c6c" xml:space="preserve">
+          <source>This table shows limits that apply regardless of a virtual machine's size, for virtual machines created using the Resource Manager deployment model.</source>
+          <target state="new">This table shows limits that apply regardless of a virtual machine's size, for virtual machines created using the Resource Manager deployment model.</target>
+        </trans-unit>
+        <trans-unit id="772a21c9-2f38-4439-a9f5-1af6e1b343a3" xml:space="preserve">
+          <source><bpt id="9b34ed43-79b4-4f06-b1b9-1f28a27b5da2">&lt;token href="../../includes/azure-virtual-machines-limits-azure-resource-manager.md"&gt;</bpt><ept id="9b34ed43-79b4-4f06-b1b9-1f28a27b5da2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9b34ed43-79b4-4f06-b1b9-1f28a27b5da2">&lt;token href="../../includes/azure-virtual-machines-limits-azure-resource-manager.md"&gt;</bpt><ept id="9b34ed43-79b4-4f06-b1b9-1f28a27b5da2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c8c41a8-1ac2-48d2-bbb7-2b948cb03eae" xml:space="preserve">
+          <source>The following tables show the sizes and the capacities they provide.</source>
+          <target state="new">The following tables show the sizes and the capacities they provide.</target>
+        </trans-unit>
+        <trans-unit id="0871f554-678a-4461-922d-9e8de1901ff6" xml:space="preserve">
+          <source>Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB.</source>
+          <target state="new">Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB.</target>
+        </trans-unit>
+        <trans-unit id="524adbfb-9cd9-4744-b219-1da435609994" xml:space="preserve">
+          <source>This is sometimes referred to as gibibyte, or base 2 definition.</source>
+          <target state="new">This is sometimes referred to as gibibyte, or base 2 definition.</target>
+        </trans-unit>
+        <trans-unit id="40b09e39-9aab-4dff-93f7-2d4aa48b7d27" xml:space="preserve">
+          <source>When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3.</source>
+          <target state="new">When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3.</target>
+        </trans-unit>
+        <trans-unit id="598d0d1e-8204-4605-8694-3e0beaa74dd2" xml:space="preserve">
+          <source>Size – Azure Portal\cmdlets &amp; APIs</source>
+          <target state="new">Size – Azure Portal\cmdlets &amp; APIs</target>
+        </trans-unit>
+        <trans-unit id="4055bc33-e9c0-4832-b56d-bf878c855dbb" xml:space="preserve">
+          <source>CPU cores</source>
+          <target state="new">CPU cores</target>
+        </trans-unit>
+        <trans-unit id="847d5e56-c6de-42c8-8676-e22c1b06f215" xml:space="preserve">
+          <source>Memory</source>
+          <target state="new">Memory</target>
+        </trans-unit>
+        <trans-unit id="e7b429f1-9e1b-4feb-89c3-03b4387bca37" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="a946cb7c-9ec1-4710-b84b-677412a4c573" xml:space="preserve">
+          <source>disk sizes – virtual machine</source>
+          <target state="new">disk sizes – virtual machine</target>
+        </trans-unit>
+        <trans-unit id="e8a74434-8563-4206-a9d0-359fa56646f1" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="94648cb0-92d4-41a2-9665-a0e6129c09ca" xml:space="preserve">
+          <source>data disks 1023 GB each)</source>
+          <target state="new">data disks 1023 GB each)</target>
+        </trans-unit>
+        <trans-unit id="3807860a-eb78-42bc-beb3-2a996b4f1e71" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="e3d44a4b-9033-4dbb-896c-7c58dd49d5e6" xml:space="preserve">
+          <source>IOPS (300 per disk)</source>
+          <target state="new">IOPS (300 per disk)</target>
+        </trans-unit>
+        <trans-unit id="d7cf4b0c-25bf-4d6c-a4ae-922e2fa85c1d" xml:space="preserve">
+          <source>A0\Basic_A0</source>
+          <target state="new">A0\Basic_A0</target>
+        </trans-unit>
+        <trans-unit id="361cc6aa-bf58-4663-9cf8-9476592069c5" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="0adf4e20-e84b-48ab-aa70-03ae5cf869c2" xml:space="preserve">
+          <source>768 MB</source>
+          <target state="new">768 MB</target>
+        </trans-unit>
+        <trans-unit id="4d164a9c-2036-4641-91ab-94b2fd67c7d5" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 20 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 20 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="a8bf9d04-a3cc-4fc2-8edd-ad0377b22c5b" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="43416160-7571-4f95-914e-6e6b15933019" xml:space="preserve">
+          <source>1x300</source>
+          <target state="new">1x300</target>
+        </trans-unit>
+        <trans-unit id="f495b1d5-f973-4273-8a14-1a31ad37e85f" xml:space="preserve">
+          <source>A1\Basic_A1</source>
+          <target state="new">A1\Basic_A1</target>
+        </trans-unit>
+        <trans-unit id="ce70a8d5-72bb-4b2a-b8f3-ef5aa49dc18f" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="92f1e387-0f68-4b8e-9cdc-adef268c386a" xml:space="preserve">
+          <source>1.75 GB</source>
+          <target state="new">1.75 GB</target>
+        </trans-unit>
+        <trans-unit id="404df7fa-e0a1-4407-aaaa-ce99a4dd15d1" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 40 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 40 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="1539cb27-9258-4100-932b-e608fccd13a8" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="3d25fb9d-59c6-4e31-839b-5ed6ecc3d039" xml:space="preserve">
+          <source>2x300</source>
+          <target state="new">2x300</target>
+        </trans-unit>
+        <trans-unit id="37987ed4-706b-4de7-882a-a8d1ef51be33" xml:space="preserve">
+          <source>A2\Basic_A2</source>
+          <target state="new">A2\Basic_A2</target>
+        </trans-unit>
+        <trans-unit id="12523be7-89e0-4af7-94d3-2e20a4279a41" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="4e1ed4a8-ba9d-428a-915a-86c43ddf791d" xml:space="preserve">
+          <source>3.5 GB</source>
+          <target state="new">3.5 GB</target>
+        </trans-unit>
+        <trans-unit id="028464ca-03b3-4445-b97b-1b2e20953e9b" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 60 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 60 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="bdc4b236-e4e3-41ce-9c0f-adf56735041c" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="77433a86-5670-4363-956a-ed7ec607dc57" xml:space="preserve">
+          <source>4x300</source>
+          <target state="new">4x300</target>
+        </trans-unit>
+        <trans-unit id="236dbd53-5dd6-434b-b134-1b707e3b95ec" xml:space="preserve">
+          <source>A3\Basic_A3</source>
+          <target state="new">A3\Basic_A3</target>
+        </trans-unit>
+        <trans-unit id="3172e55c-3552-4ee0-aaaf-e7286cdd7526" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="4be4cdba-3fcf-4253-8344-86ea02296abd" xml:space="preserve">
+          <source>7 GB</source>
+          <target state="new">7 GB</target>
+        </trans-unit>
+        <trans-unit id="c88e1da6-f2e2-4bd8-9d52-7d62a870ca7a" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 120 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 120 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="7b56c414-7ec7-4cab-be02-bb5e67395acf" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="1d2164f7-9ca6-49f0-9a6e-7bd436d50c2f" xml:space="preserve">
+          <source>8x300</source>
+          <target state="new">8x300</target>
+        </trans-unit>
+        <trans-unit id="93222e07-ddae-4c90-9dc9-82b4177a9448" xml:space="preserve">
+          <source>A4\Basic_A4</source>
+          <target state="new">A4\Basic_A4</target>
+        </trans-unit>
+        <trans-unit id="5616907e-4281-431d-a5cc-9f17a769d049" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="1d2262e8-e241-49e3-9ffc-8e202fdc146b" xml:space="preserve">
+          <source>14 GB</source>
+          <target state="new">14 GB</target>
+        </trans-unit>
+        <trans-unit id="80945208-af2e-450d-9cd5-b0c0b78cb901" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 240 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 240 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="06fad154-5a38-4bf0-8ba7-9f518ca54762" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="063d4f28-d8c1-42ef-bc59-1c57d4a15c6c" xml:space="preserve">
+          <source>16x300</source>
+          <target state="new">16x300</target>
+        </trans-unit>
+        <trans-unit id="32361aac-de7c-411d-ad44-bcab74d130c6" xml:space="preserve">
+          <source>Size – Azure Portal\cmdlets &amp; APIs</source>
+          <target state="new">Size – Azure Portal\cmdlets &amp; APIs</target>
+        </trans-unit>
+        <trans-unit id="75e3b2bc-73f2-487a-8554-6383fef73230" xml:space="preserve">
+          <source>CPU cores</source>
+          <target state="new">CPU cores</target>
+        </trans-unit>
+        <trans-unit id="eb28f22b-5a98-4cbb-be4f-bd7bf4400841" xml:space="preserve">
+          <source>Memory</source>
+          <target state="new">Memory</target>
+        </trans-unit>
+        <trans-unit id="fff13a4a-6315-4186-9652-5f9b4d6f5c0f" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="3a77cc1f-2f4d-4a35-82ab-faafdad670ab" xml:space="preserve">
+          <source>disk sizes – virtual machine</source>
+          <target state="new">disk sizes – virtual machine</target>
+        </trans-unit>
+        <trans-unit id="87e34279-2ad3-4cb1-ab6c-272fada5bb94" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="557390af-b984-4306-abe2-8a27f185c711" xml:space="preserve">
+          <source>data disks (1023 GB each)</source>
+          <target state="new">data disks (1023 GB each)</target>
+        </trans-unit>
+        <trans-unit id="b4cc7623-7238-4dc0-b6f9-0facc2e3f898" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="2b9cd79f-e3d1-4950-a8d4-8cf766cd7393" xml:space="preserve">
+          <source>IOPS (500 per disk)</source>
+          <target state="new">IOPS (500 per disk)</target>
+        </trans-unit>
+        <trans-unit id="58ddbf80-60ce-434b-ad9a-73161f747f34" xml:space="preserve">
+          <source>A0\ extra small</source>
+          <target state="new">A0\ extra small</target>
+        </trans-unit>
+        <trans-unit id="397b3c20-15f8-4623-bafe-946d7b7d7f02" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="4f9533a4-6ec1-4b04-a277-0a3b569d7c46" xml:space="preserve">
+          <source>768 MB</source>
+          <target state="new">768 MB</target>
+        </trans-unit>
+        <trans-unit id="58313f71-36c5-48c2-918f-b33e2cea5b13" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 20 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 20 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="cdf99cf7-865f-4170-85ea-c69862986fa4" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="feedd684-cb23-4672-89e8-2a00e40ac6dd" xml:space="preserve">
+          <source>1x500</source>
+          <target state="new">1x500</target>
+        </trans-unit>
+        <trans-unit id="2b5254dc-2e6c-4bb3-979c-5702361f5e00" xml:space="preserve">
+          <source>A1\small</source>
+          <target state="new">A1\small</target>
+        </trans-unit>
+        <trans-unit id="91ca31c8-3adb-40a9-8be7-e6482283322a" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="d657e80a-7741-489f-9fea-2fdb3a9db39f" xml:space="preserve">
+          <source>1.75 GB</source>
+          <target state="new">1.75 GB</target>
+        </trans-unit>
+        <trans-unit id="7468bb4d-5611-4a0e-9994-32f2438909bf" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 70 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 70 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="4e8c879d-ac97-4072-928b-c5f0aefe0100" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="3949444b-4b0f-4dc7-83a5-6887fbbd858b" xml:space="preserve">
+          <source>2x500</source>
+          <target state="new">2x500</target>
+        </trans-unit>
+        <trans-unit id="534f23eb-aed5-4d0a-bd2a-7137f81ffbca" xml:space="preserve">
+          <source>A2\medium</source>
+          <target state="new">A2\medium</target>
+        </trans-unit>
+        <trans-unit id="657c42d3-2369-46be-9845-f7b645d0d588" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="359a33bd-3734-4fcb-99e5-aa0a5f2c8738" xml:space="preserve">
+          <source>3.5 GB</source>
+          <target state="new">3.5 GB</target>
+        </trans-unit>
+        <trans-unit id="1c7c258b-43da-4c37-bc95-bfa3d2d41362" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 135 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 135 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="c90e8780-f44a-4efe-82fe-6bcba7bd98bc" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="df54836d-54e3-4587-98e5-5b79a26c0119" xml:space="preserve">
+          <source>4x500</source>
+          <target state="new">4x500</target>
+        </trans-unit>
+        <trans-unit id="8853a895-c8df-4425-98e4-4222fadfc640" xml:space="preserve">
+          <source>A3\large</source>
+          <target state="new">A3\large</target>
+        </trans-unit>
+        <trans-unit id="f2590713-432e-40ad-acfa-520ae57a7ca7" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="61455290-fcb4-45f0-9c86-e1568521c2ac" xml:space="preserve">
+          <source>7 GB</source>
+          <target state="new">7 GB</target>
+        </trans-unit>
+        <trans-unit id="4c031801-07fd-461a-b1ed-301d93b3b8af" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 285 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 285 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="57536d74-a29c-4b48-ae4b-84fef8d3c0dd" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="ca24c5ab-62b0-49a9-a6f1-a5cb4b264192" xml:space="preserve">
+          <source>8x500</source>
+          <target state="new">8x500</target>
+        </trans-unit>
+        <trans-unit id="6aefc85e-6ed6-4eb5-adfe-22b88fd5bed2" xml:space="preserve">
+          <source>A4\extra large</source>
+          <target state="new">A4\extra large</target>
+        </trans-unit>
+        <trans-unit id="4846445b-9f54-4e13-aad9-c4fc571ec103" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="c157e900-1cbe-45fe-8961-d5f85d77a3fa" xml:space="preserve">
+          <source>14 GB</source>
+          <target state="new">14 GB</target>
+        </trans-unit>
+        <trans-unit id="78383a9c-4829-46a0-9cee-224c23c2d9e6" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 605 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 605 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="8cbd831a-36cc-45fe-906c-6f69d5f9cb98" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="f8e34d1c-4a82-4a63-99d4-82717538fbe2" xml:space="preserve">
+          <source>16x500</source>
+          <target state="new">16x500</target>
+        </trans-unit>
+        <trans-unit id="236a99fa-8afe-4dbd-9335-b00d4f480bb5" xml:space="preserve">
+          <source>A5\same</source>
+          <target state="new">A5\same</target>
+        </trans-unit>
+        <trans-unit id="4d2c8078-054c-4314-ad8a-960dff6a2a58" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="96abd9c1-93c4-4eec-9ea5-34aa83049a4b" xml:space="preserve">
+          <source>14 GB</source>
+          <target state="new">14 GB</target>
+        </trans-unit>
+        <trans-unit id="145f1ad2-93bf-4055-9b0f-014c1212d329" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 135 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 135 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="3a62ec55-2ef3-4150-ad38-6901e60d78cc" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="8a69c3a0-1867-4611-bb9e-0972f065810e" xml:space="preserve">
+          <source>4X500</source>
+          <target state="new">4X500</target>
+        </trans-unit>
+        <trans-unit id="0fdd1989-30e4-40b7-a61c-d1a7b804d0ec" xml:space="preserve">
+          <source>A6\same</source>
+          <target state="new">A6\same</target>
+        </trans-unit>
+        <trans-unit id="5e907235-0501-403e-9964-278a7421cb70" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="049e92b4-7eee-4643-bdf6-c45558acb19b" xml:space="preserve">
+          <source>28 GB</source>
+          <target state="new">28 GB</target>
+        </trans-unit>
+        <trans-unit id="ee05229b-fcfb-481b-979d-f4daa1e3cbfb" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 285 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 285 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="9e1ce256-ea30-4ead-9707-3f9043fa4a60" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="fdbbeeae-7220-4a1a-a434-b7c7ebc2b3e8" xml:space="preserve">
+          <source>8x500</source>
+          <target state="new">8x500</target>
+        </trans-unit>
+        <trans-unit id="5189d7d5-daf8-4de6-8a9f-ee7428a7abfe" xml:space="preserve">
+          <source>A7\same</source>
+          <target state="new">A7\same</target>
+        </trans-unit>
+        <trans-unit id="05f7a1af-ff1b-47bc-939c-1eeaee95bcc1" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="199f78e3-c2c8-4d3a-98cd-fd6d9fcc2911" xml:space="preserve">
+          <source>56 GB</source>
+          <target state="new">56 GB</target>
+        </trans-unit>
+        <trans-unit id="eda8fd8b-d3f2-4416-a255-5639bb1979e9" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 605 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 605 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="b42b1fb9-b20f-4349-a2ee-1d95c8ec2515" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="0c730af4-0c64-40cf-985e-45250e10ea07" xml:space="preserve">
+          <source>16x500</source>
+          <target state="new">16x500</target>
+        </trans-unit>
+        <trans-unit id="1a189155-1c64-490a-8f65-67588d4be52b" xml:space="preserve">
+          <source>A8\same</source>
+          <target state="new">A8\same</target>
+        </trans-unit>
+        <trans-unit id="259a72af-7f3b-47e2-81b6-b28029ccfcde" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="4594a5f8-20d3-4600-a914-1bd91734bd27" xml:space="preserve">
+          <source>56 GB</source>
+          <target state="new">56 GB</target>
+        </trans-unit>
+        <trans-unit id="9f77cc2a-2bb4-4e01-9633-4cc4f13e944e" xml:space="preserve">
+          <source>&lt;p&gt;&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 382 GB&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;Note: For information and considerations about using this size, see &lt;a href="http://go.microsoft.com/fwlink/p/?linkid=328042"&gt;About the A8, A9, A10, and A11 compute intensive instances&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;</source>
+          <target state="new">&lt;p&gt;&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 382 GB&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;Note: For information and considerations about using this size, see &lt;a href="http://go.microsoft.com/fwlink/p/?linkid=328042"&gt;About the A8, A9, A10, and A11 compute intensive instances&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;</target>
+        </trans-unit>
+        <trans-unit id="ee81a2b8-d48c-41a8-9606-0746b5542884" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="aa82a8d5-016e-4006-8755-72885310a158" xml:space="preserve">
+          <source>16x500</source>
+          <target state="new">16x500</target>
+        </trans-unit>
+        <trans-unit id="0264b7e0-4083-432b-b7ac-a7ba9363bb4b" xml:space="preserve">
+          <source>A9\same</source>
+          <target state="new">A9\same</target>
+        </trans-unit>
+        <trans-unit id="ad701a31-8c23-45b6-8206-3946f8635d61" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="cc95ad72-3149-4c17-8668-4fbdeddbd88d" xml:space="preserve">
+          <source>112 GB</source>
+          <target state="new">112 GB</target>
+        </trans-unit>
+        <trans-unit id="2d25cd3f-b685-416e-a02e-46aa14f83f25" xml:space="preserve">
+          <source>&lt;p&gt;&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 382 GB&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;Note: For information and considerations about using this size, see &lt;a href="http://go.microsoft.com/fwlink/p/?linkid=328042"&gt;About the A8, A9, A10, and A11 compute intensive instances&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;</source>
+          <target state="new">&lt;p&gt;&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 382 GB&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;Note: For information and considerations about using this size, see &lt;a href="http://go.microsoft.com/fwlink/p/?linkid=328042"&gt;About the A8, A9, A10, and A11 compute intensive instances&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;</target>
+        </trans-unit>
+        <trans-unit id="4233eada-62ab-4e1d-b35a-ef0467b1e30f" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="77e57eb0-c7c3-4d2a-839b-d736a8525b8c" xml:space="preserve">
+          <source>16x500</source>
+          <target state="new">16x500</target>
+        </trans-unit>
+        <trans-unit id="e576a725-9b2f-4fbf-8783-bd0e0d617d77" xml:space="preserve">
+          <source>A10\same</source>
+          <target state="new">A10\same</target>
+        </trans-unit>
+        <trans-unit id="27ec1f2f-2f18-4ce6-ab08-7c9ed6b366e8" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="6b4a18be-92c1-4fb8-80c0-bfede58642cc" xml:space="preserve">
+          <source>56 GB</source>
+          <target state="new">56 GB</target>
+        </trans-unit>
+        <trans-unit id="3e478869-81d0-4535-8429-a93f2874c358" xml:space="preserve">
+          <source>&lt;p&gt;&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 382 GB&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;Note: For information and considerations about using this size, see &lt;a href="http://go.microsoft.com/fwlink/p/?linkid=328042"&gt;About the A8, A9, A10, and A11 compute intensive instances&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;</source>
+          <target state="new">&lt;p&gt;&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 382 GB&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;Note: For information and considerations about using this size, see &lt;a href="http://go.microsoft.com/fwlink/p/?linkid=328042"&gt;About the A8, A9, A10, and A11 compute intensive instances&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;</target>
+        </trans-unit>
+        <trans-unit id="504cdb66-39ca-4945-8989-7f889579f596" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="6e2f313a-d4fb-467d-8c28-a0b8284b343b" xml:space="preserve">
+          <source>16x500</source>
+          <target state="new">16x500</target>
+        </trans-unit>
+        <trans-unit id="fc621fdd-6205-45d6-9842-25e91a5ebf1f" xml:space="preserve">
+          <source>A11\same</source>
+          <target state="new">A11\same</target>
+        </trans-unit>
+        <trans-unit id="5b4a864f-40e5-4c09-923e-31a6e4de46e1" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="f86778ea-f834-4b96-bee9-ec33f1327c1d" xml:space="preserve">
+          <source>112 GB</source>
+          <target state="new">112 GB</target>
+        </trans-unit>
+        <trans-unit id="4a945474-84a8-4994-a703-fac4f31ca9a2" xml:space="preserve">
+          <source>&lt;p&gt;&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 382 GB&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;Note: For information and considerations about using this size, see &lt;a href="http://go.microsoft.com/fwlink/p/?linkid=328042"&gt;About the A8, A9, A10, and A11 compute intensive instances&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;</source>
+          <target state="new">&lt;p&gt;&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary = 382 GB&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;Note: For information and considerations about using this size, see &lt;a href="http://go.microsoft.com/fwlink/p/?linkid=328042"&gt;About the A8, A9, A10, and A11 compute intensive instances&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;</target>
+        </trans-unit>
+        <trans-unit id="429d680a-47ea-4fbb-85cd-41dae3f837d4" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="3d088854-64fb-47ab-997d-713c22506e9c" xml:space="preserve">
+          <source>16x500</source>
+          <target state="new">16x500</target>
+        </trans-unit>
+        <trans-unit id="1ebd1d03-c47b-4684-b095-144f057da275" xml:space="preserve">
+          <source>Standard_D1\same</source>
+          <target state="new">Standard_D1\same</target>
+        </trans-unit>
+        <trans-unit id="86b159b9-d003-43af-90c3-0127cad2151f" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="ac922115-66c2-4571-b6a5-d4cbb7e02a98" xml:space="preserve">
+          <source>3.5 GB</source>
+          <target state="new">3.5 GB</target>
+        </trans-unit>
+        <trans-unit id="57614eb3-5734-4a0e-8ff4-c763a32873c7" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =50 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =50 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="36f46659-e659-405e-acf3-c6bbe92dc982" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="e4611167-f163-4921-9541-1d284656bb66" xml:space="preserve">
+          <source>2x500</source>
+          <target state="new">2x500</target>
+        </trans-unit>
+        <trans-unit id="affc9ee2-b4b9-46b3-80f5-12b016f13c2f" xml:space="preserve">
+          <source>Standard_D2\same</source>
+          <target state="new">Standard_D2\same</target>
+        </trans-unit>
+        <trans-unit id="ec256f43-6fa6-44f3-8934-fa6ac0a4dc10" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="a89d6b8d-5213-453b-b517-0c7dd9f67f87" xml:space="preserve">
+          <source>7 GB</source>
+          <target state="new">7 GB</target>
+        </trans-unit>
+        <trans-unit id="1f3841b3-3767-4a88-b98b-0ea72bdd5b78" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =100 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =100 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="56a1ae0d-63cc-4fe0-af37-5b113932bd4f" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="a960f5fe-a746-4d14-8f4b-57ab739ac670" xml:space="preserve">
+          <source>4x500</source>
+          <target state="new">4x500</target>
+        </trans-unit>
+        <trans-unit id="d7bcd0dc-1189-49d6-b8b1-2c92d56b161c" xml:space="preserve">
+          <source>Standard_D3\same</source>
+          <target state="new">Standard_D3\same</target>
+        </trans-unit>
+        <trans-unit id="25c66fdd-46ea-45c2-883d-524e4e404d84" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="6dfec88c-ab70-4ae3-8e3d-fe8fd34837a6" xml:space="preserve">
+          <source>14 GB</source>
+          <target state="new">14 GB</target>
+        </trans-unit>
+        <trans-unit id="7cecf625-7908-46b4-be0e-ba4f5404b4eb" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =200 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =200 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="ed241415-92c2-489a-bf8e-90d03bd9a9f3" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="d54797ed-663c-4eb8-900d-dce7cb94d835" xml:space="preserve">
+          <source>8x500</source>
+          <target state="new">8x500</target>
+        </trans-unit>
+        <trans-unit id="904976cd-58d8-41d4-b0ff-06dd4cc03661" xml:space="preserve">
+          <source>Standard_D4\same</source>
+          <target state="new">Standard_D4\same</target>
+        </trans-unit>
+        <trans-unit id="203fac6e-5fd7-4283-963b-86e42f1a55ca" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="5c536389-9db6-4662-a88b-5ec777545676" xml:space="preserve">
+          <source>28 GB</source>
+          <target state="new">28 GB</target>
+        </trans-unit>
+        <trans-unit id="f41d7d44-2976-4ab6-b231-9f264ce1f58c" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =400 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =400 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="28e94592-4fca-4326-9c49-1d9e81533aa4" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="41f48614-1968-49c3-a569-a7572de47edb" xml:space="preserve">
+          <source>16x500</source>
+          <target state="new">16x500</target>
+        </trans-unit>
+        <trans-unit id="1577b0f4-8ffd-4531-a963-cff5eda5b744" xml:space="preserve">
+          <source>Standard_D11\same</source>
+          <target state="new">Standard_D11\same</target>
+        </trans-unit>
+        <trans-unit id="3123c928-e59b-4cbf-b154-f513fc29af93" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="44b98834-4d24-40dc-b216-484eafe6b14f" xml:space="preserve">
+          <source>14 GB</source>
+          <target state="new">14 GB</target>
+        </trans-unit>
+        <trans-unit id="f01107d6-ce3c-4ed9-9851-b709a1d9dbfe" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =100 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =100 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="dcaabab1-268e-45a3-8435-aa81cd1ee798" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="c9dfb071-3f02-4cf3-9475-a11c6ea1bf47" xml:space="preserve">
+          <source>4x500</source>
+          <target state="new">4x500</target>
+        </trans-unit>
+        <trans-unit id="676d5c7e-e6fb-425e-aaf0-7d24738b93da" xml:space="preserve">
+          <source>Standard_D12\same</source>
+          <target state="new">Standard_D12\same</target>
+        </trans-unit>
+        <trans-unit id="96b4668a-185a-4125-a973-bff2f937676e" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="32d3f6e0-64a2-43f4-9815-2fb0690c3b84" xml:space="preserve">
+          <source>28 GB</source>
+          <target state="new">28 GB</target>
+        </trans-unit>
+        <trans-unit id="faf2f8a6-02fc-46bf-82c8-b95e83cd0ab8" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =200 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =200 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="c1ebc77f-ec90-4020-9dc7-b57e184d7607" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="29603267-f005-423f-9b95-f4aa6cee9769" xml:space="preserve">
+          <source>8x500</source>
+          <target state="new">8x500</target>
+        </trans-unit>
+        <trans-unit id="ce69d264-798f-4a98-acdc-adada5de88fc" xml:space="preserve">
+          <source>Standard_D13\same</source>
+          <target state="new">Standard_D13\same</target>
+        </trans-unit>
+        <trans-unit id="b45ee311-fc36-46bd-b5fe-daaaecc071f6" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="06c71b0a-9832-4ea9-be97-2e7ef1fe9ce4" xml:space="preserve">
+          <source>56 GB</source>
+          <target state="new">56 GB</target>
+        </trans-unit>
+        <trans-unit id="50cecf21-5b45-4751-afe7-1a1145a60dc9" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =400 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =400 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="0fcb2c18-35e2-41e4-850d-1eb7c7618536" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="9c6131c8-c7c9-4f70-81bd-178227dc6dc6" xml:space="preserve">
+          <source>16x500</source>
+          <target state="new">16x500</target>
+        </trans-unit>
+        <trans-unit id="82275da0-1e4b-47da-a9d1-5c24a3637467" xml:space="preserve">
+          <source>Standard_D14\same</source>
+          <target state="new">Standard_D14\same</target>
+        </trans-unit>
+        <trans-unit id="8fcd9c4a-5bb9-4967-ba2d-5549e71a52d4" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="fa2d6dfc-b90c-4d03-9e62-861d939bfaab" xml:space="preserve">
+          <source>112 GB</source>
+          <target state="new">112 GB</target>
+        </trans-unit>
+        <trans-unit id="a9636773-7dfc-46d3-9e17-7ed4bce3ed07" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =800 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Temporary (SSD) =800 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="6e6956fe-f48b-4b8e-b977-673aebb34ab4" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="b1d2b56d-649f-4ca2-82a8-8e4e19913f44" xml:space="preserve">
+          <source>32x500</source>
+          <target state="new">32x500</target>
+        </trans-unit>
+        <trans-unit id="eb924ec8-3550-48b9-951d-6ce5604c12b5" xml:space="preserve">
+          <source>Size – Azure Portal\cmdlets &amp; APIs</source>
+          <target state="new">Size – Azure Portal\cmdlets &amp; APIs</target>
+        </trans-unit>
+        <trans-unit id="8e5df022-4816-4116-8513-e24273f8458c" xml:space="preserve">
+          <source>CPU cores</source>
+          <target state="new">CPU cores</target>
+        </trans-unit>
+        <trans-unit id="a11f7639-a93d-4c32-acd0-12e6c99d03c8" xml:space="preserve">
+          <source>Memory</source>
+          <target state="new">Memory</target>
+        </trans-unit>
+        <trans-unit id="ae99cd49-0df0-4e4c-a991-02bbdbc2ff67" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="fadd6008-ed97-4e06-9971-742a4513a9e8" xml:space="preserve">
+          <source>disk sizes – virtual machine</source>
+          <target state="new">disk sizes – virtual machine</target>
+        </trans-unit>
+        <trans-unit id="a1610284-481c-440c-8149-592bd42f4b7a" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="83f40e9a-7b3b-4f69-9e22-dd3dcd817fdd" xml:space="preserve">
+          <source>data disks (1023 GB each)</source>
+          <target state="new">data disks (1023 GB each)</target>
+        </trans-unit>
+        <trans-unit id="5467585b-b47d-4f48-992f-cb235e8758c5" xml:space="preserve">
+          <source>Cache size (GB)</source>
+          <target state="new">Cache size (GB)</target>
+        </trans-unit>
+        <trans-unit id="d3160d50-6f29-4174-9a94-1c35582d1469" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="b7a65213-c537-4e94-bc5d-bad88fb98f23" xml:space="preserve">
+          <source>disk IOPS &amp;amp; bandwidth</source>
+          <target state="new">disk IOPS &amp;amp; bandwidth</target>
+        </trans-unit>
+        <trans-unit id="2e46909c-f65f-43ee-b1b4-80285ffba4e3" xml:space="preserve">
+          <source>Standard_DS1\same</source>
+          <target state="new">Standard_DS1\same</target>
+        </trans-unit>
+        <trans-unit id="758de99d-6c5e-45ca-bfc3-d20c761d2665" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="633f57ba-f188-4b05-b233-f54e1c096906" xml:space="preserve">
+          <source>3.5</source>
+          <target state="new">3.5</target>
+        </trans-unit>
+        <trans-unit id="f1ccd260-581a-4b7d-a129-dc40c33a0c21" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 7 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 7 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="3ca21979-a04c-40b0-9fce-5afacd5bab6b" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="6f2ee4f7-c84f-486e-adea-a774717abb04" xml:space="preserve">
+          <source>43</source>
+          <target state="new">43</target>
+        </trans-unit>
+        <trans-unit id="eecae78e-7c27-4077-a9ad-a1a908668d6c" xml:space="preserve">
+          <source>&lt;p&gt;3,200&lt;/p&gt;&lt;p&gt;32 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;3,200&lt;/p&gt;&lt;p&gt;32 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="e5f96731-4583-4264-a4ac-8ca026a52ac7" xml:space="preserve">
+          <source>Standard_DS2\same</source>
+          <target state="new">Standard_DS2\same</target>
+        </trans-unit>
+        <trans-unit id="304b97a3-b364-44dd-ba98-2c45d544c1cf" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="e2bed3f9-e9b4-43bd-abcc-7448ecee1dcc" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="7db7dc0f-8bc2-4cd4-a723-59c583f42011" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 14 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 14 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="4a156416-47a8-4a63-98e4-0c64fc37c486" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="3179770d-8d68-4ddd-ad1a-108fe16f57df" xml:space="preserve">
+          <source>86</source>
+          <target state="new">86</target>
+        </trans-unit>
+        <trans-unit id="c9a81f41-f7d7-4987-b431-93fd309abde9" xml:space="preserve">
+          <source>&lt;p&gt;6,400&lt;/p&gt;&lt;p&gt;64 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;6,400&lt;/p&gt;&lt;p&gt;64 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="1bc0ea72-7164-4f09-beb4-c2f8f567459c" xml:space="preserve">
+          <source>Standard_DS3\same</source>
+          <target state="new">Standard_DS3\same</target>
+        </trans-unit>
+        <trans-unit id="459045b8-f2b8-4ae0-a41d-cac47f78bfd9" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="2dc86c11-2254-45a6-a513-e3a4ebb48bde" xml:space="preserve">
+          <source>14</source>
+          <target state="new">14</target>
+        </trans-unit>
+        <trans-unit id="f2671d30-d8f4-4b3b-bdc3-1e7e6e46c01f" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 28 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 28 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="48fd148a-41a4-4eb3-b8e2-eb5286200b88" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="a7501aa7-4d95-411e-ab4b-bd8379edcfa8" xml:space="preserve">
+          <source>172</source>
+          <target state="new">172</target>
+        </trans-unit>
+        <trans-unit id="3dbedc62-4d72-4519-9ead-1179a3180b23" xml:space="preserve">
+          <source>&lt;p&gt;12,800&lt;/p&gt;&lt;p&gt;128 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;12,800&lt;/p&gt;&lt;p&gt;128 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="5a2198c1-13a7-48b9-a31e-4ccb119fabe9" xml:space="preserve">
+          <source>Standard_DS4\same</source>
+          <target state="new">Standard_DS4\same</target>
+        </trans-unit>
+        <trans-unit id="43af9711-f280-4044-a281-dbaf1da78991" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="185e409c-7218-4271-9d12-0951a3c8b0e1" xml:space="preserve">
+          <source>28</source>
+          <target state="new">28</target>
+        </trans-unit>
+        <trans-unit id="23bd080a-a02f-448f-9239-11023272109d" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 56 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 56 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="50c12552-6e07-41cf-b2de-a2ac61460888" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="7adc192b-7b3a-482f-ab93-5ea4f6448668" xml:space="preserve">
+          <source>344</source>
+          <target state="new">344</target>
+        </trans-unit>
+        <trans-unit id="d5e34400-4be0-4b23-a436-101832099e18" xml:space="preserve">
+          <source>&lt;p&gt;25,600&lt;/p&gt;&lt;p&gt;256 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;25,600&lt;/p&gt;&lt;p&gt;256 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="9b0fde19-2925-460d-a3b0-1f62d83d3242" xml:space="preserve">
+          <source>Standard_DS11\same</source>
+          <target state="new">Standard_DS11\same</target>
+        </trans-unit>
+        <trans-unit id="59806719-c4e5-4f2e-a4db-572f6770d132" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="c6e73cb2-722a-41ba-be2b-7b5dc3be1544" xml:space="preserve">
+          <source>14</source>
+          <target state="new">14</target>
+        </trans-unit>
+        <trans-unit id="9e1295c6-fd78-45ce-90b1-5fa313d1db7e" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 28 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 28 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="736faaac-5400-43a7-b195-25de6e494955" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="e80ba4be-f794-46c1-a591-a71aef74f379" xml:space="preserve">
+          <source>72</source>
+          <target state="new">72</target>
+        </trans-unit>
+        <trans-unit id="70ef3bb4-c0a7-46e0-aaeb-36b9bd82124a" xml:space="preserve">
+          <source>&lt;p&gt;6,400&lt;/p&gt;&lt;p&gt;64 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;6,400&lt;/p&gt;&lt;p&gt;64 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="6e8e269c-3894-488a-aba8-0be42cb608c1" xml:space="preserve">
+          <source>Standard_DS12\same</source>
+          <target state="new">Standard_DS12\same</target>
+        </trans-unit>
+        <trans-unit id="b72bea22-9968-45f0-8d56-5ce2ac4fb11f" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="ca36d37e-cf53-427d-967d-cdebad8c2a9d" xml:space="preserve">
+          <source>28</source>
+          <target state="new">28</target>
+        </trans-unit>
+        <trans-unit id="85f24349-effd-4c75-87b4-1435fc4a1256" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 56 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 56 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="8a3105b5-7ad8-4779-a17c-d63bd70daf46" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="db12e8b8-871f-48a5-9762-9f58ff1aa8b7" xml:space="preserve">
+          <source>144</source>
+          <target state="new">144</target>
+        </trans-unit>
+        <trans-unit id="b0307ae0-3a8a-41bb-8d42-2e0d4af5b8c2" xml:space="preserve">
+          <source>&lt;p&gt;12,800&lt;/p&gt;&lt;p&gt;128 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;12,800&lt;/p&gt;&lt;p&gt;128 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="20a5c880-8cc7-43e9-bf43-430e3c6bae95" xml:space="preserve">
+          <source>Standard_DS13\same</source>
+          <target state="new">Standard_DS13\same</target>
+        </trans-unit>
+        <trans-unit id="aa8a4ab0-5f1f-4475-a400-5a1d67cfb04e" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="6051b1e2-0f7d-4a65-b16f-7eb04f06596d" xml:space="preserve">
+          <source>56</source>
+          <target state="new">56</target>
+        </trans-unit>
+        <trans-unit id="bcaa31c6-af08-4006-9d61-fdf8cd834567" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 112 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 112 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="d4520366-f3f4-4775-8cf2-921a1eb6cba3" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="b6d508c8-7360-451a-a86e-1830afe7d971" xml:space="preserve">
+          <source>288</source>
+          <target state="new">288</target>
+        </trans-unit>
+        <trans-unit id="5698c125-e19b-4ddc-81d8-6b707cc8a3d4" xml:space="preserve">
+          <source>&lt;p&gt;25,600&lt;/p&gt;&lt;p&gt;256 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;25,600&lt;/p&gt;&lt;p&gt;256 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="a006f88e-f41b-49ee-81ad-a52b50ca6fa0" xml:space="preserve">
+          <source>Standard_DS14\same</source>
+          <target state="new">Standard_DS14\same</target>
+        </trans-unit>
+        <trans-unit id="e7249a9f-5c80-40b0-9af2-fba726f8a78f" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="b5bf9cb0-3cf7-424c-832d-e55d5f550603" xml:space="preserve">
+          <source>112</source>
+          <target state="new">112</target>
+        </trans-unit>
+        <trans-unit id="ad4c0f7c-6b01-461d-8fa8-1d902ba0d6a5" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 224 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 224 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="1c20a667-f916-4e4e-96f3-91b4f8947cf3" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="ed1d62fa-00b4-4c42-a870-c758ee5a47bc" xml:space="preserve">
+          <source>576</source>
+          <target state="new">576</target>
+        </trans-unit>
+        <trans-unit id="b3e8c1d2-f40a-4b38-810a-9d9a42daa7b1" xml:space="preserve">
+          <source>&lt;p&gt;50,000&lt;/p&gt;&lt;p&gt;512 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;50,000&lt;/p&gt;&lt;p&gt;512 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="d2ace22d-e5b6-46d4-99ec-0225ece6b0bb" xml:space="preserve">
+          <source>*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk.</source>
+          <target state="new">*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk.</target>
+        </trans-unit>
+        <trans-unit id="2a0cf04f-9fa4-4b40-8f43-1c338b24157b" xml:space="preserve">
+          <source>For details, see <bpt id="2882238d-b00f-42e6-9739-7dd1d4792efa">&lt;linkText&gt;</bpt>Premium Storage: High-performance storage for Azure virtual machine workloads<ept id="2882238d-b00f-42e6-9739-7dd1d4792efa">&lt;/linkText&gt;</ept><bpt id="2882238d-b00f-42e6-9739-7dd1d4792efa">&lt;title&gt;</bpt><ept id="2882238d-b00f-42e6-9739-7dd1d4792efa">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="2882238d-b00f-42e6-9739-7dd1d4792efa">&lt;linkText&gt;</bpt>Premium Storage: High-performance storage for Azure virtual machine workloads<ept id="2882238d-b00f-42e6-9739-7dd1d4792efa">&lt;/linkText&gt;</ept><bpt id="2882238d-b00f-42e6-9739-7dd1d4792efa">&lt;title&gt;</bpt><ept id="2882238d-b00f-42e6-9739-7dd1d4792efa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17f1558d-350b-4423-95e8-a18c833ffc51" xml:space="preserve">
+          <source>Size – Azure Portal\cmdlets &amp;amp; APIs</source>
+          <target state="new">Size – Azure Portal\cmdlets &amp;amp; APIs</target>
+        </trans-unit>
+        <trans-unit id="f82f347c-f8f7-46d6-819d-9abd4b77217e" xml:space="preserve">
+          <source>CPU cores</source>
+          <target state="new">CPU cores</target>
+        </trans-unit>
+        <trans-unit id="5bed593f-ec3e-436d-b961-b721840c2c23" xml:space="preserve">
+          <source>Memory</source>
+          <target state="new">Memory</target>
+        </trans-unit>
+        <trans-unit id="484c6f59-533c-4d51-9af2-01b026d8a828" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="a6741e10-4b90-42c1-851e-12ffffac2487" xml:space="preserve">
+          <source>disk sizes – virtual machine</source>
+          <target state="new">disk sizes – virtual machine</target>
+        </trans-unit>
+        <trans-unit id="e356e53a-13f7-47a1-b422-abe2b26982ea" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="a69617c1-a201-44ff-a202-06875471a223" xml:space="preserve">
+          <source>data disks (1023 GB each)</source>
+          <target state="new">data disks (1023 GB each)</target>
+        </trans-unit>
+        <trans-unit id="adcc41df-d8d8-490a-af16-1c433501309b" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="895e6608-06a4-4be8-87d4-4aefc3e17f21" xml:space="preserve">
+          <source>IOPS (500 per disk)</source>
+          <target state="new">IOPS (500 per disk)</target>
+        </trans-unit>
+        <trans-unit id="4ed4908c-3e6f-4245-953f-f5ec73e1d53a" xml:space="preserve">
+          <source>Standard_G1\same</source>
+          <target state="new">Standard_G1\same</target>
+        </trans-unit>
+        <trans-unit id="e1f22de5-cd7f-4f78-b537-daf22a4374b1" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="5b4edc57-ef49-478c-a1a6-a4287d9b9e29" xml:space="preserve">
+          <source>28 GB</source>
+          <target state="new">28 GB</target>
+        </trans-unit>
+        <trans-unit id="ae59f684-35ed-40a3-aaeb-bc3e4d7738c7" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 384 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 384 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="5023e5b3-a418-4634-8101-05bf1b234269" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="dc2ab96a-bcfa-4b6c-81a3-e62b4f3828ae" xml:space="preserve">
+          <source>4 x 500</source>
+          <target state="new">4 x 500</target>
+        </trans-unit>
+        <trans-unit id="2f716026-18ec-4e23-a421-ddbef687fa0c" xml:space="preserve">
+          <source>Standard_G2\same</source>
+          <target state="new">Standard_G2\same</target>
+        </trans-unit>
+        <trans-unit id="0f679dc7-cf7a-4ac2-a2c8-1457a3ed54b3" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="9e9bc32a-ff3d-4c7f-97f7-6fa8fe384a38" xml:space="preserve">
+          <source>56 GB</source>
+          <target state="new">56 GB</target>
+        </trans-unit>
+        <trans-unit id="bf6b121d-6170-462c-8577-35f57945e4bb" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 768 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 768 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="fc91be6c-e3ad-42cb-ae8d-599d7b8b16b1" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="2f300a32-48e0-44db-bb84-e03201b0f6a6" xml:space="preserve">
+          <source>8 x 500</source>
+          <target state="new">8 x 500</target>
+        </trans-unit>
+        <trans-unit id="bbe8ae8c-4549-4a27-9ed6-8b48ab676292" xml:space="preserve">
+          <source>Standard_G3\same</source>
+          <target state="new">Standard_G3\same</target>
+        </trans-unit>
+        <trans-unit id="306bd85f-c1c8-45a9-ad02-55fcccc62aec" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="5643e8e9-1d63-4de1-bb3a-ac33149dbc63" xml:space="preserve">
+          <source>112 GB</source>
+          <target state="new">112 GB</target>
+        </trans-unit>
+        <trans-unit id="f46d44a8-afd3-47dc-932c-719e5aefda59" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 1,536 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 1,536 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="2420bfa5-f0e4-4dd8-bb64-e500c9599ed4" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="945959ba-1694-4f5b-bf3a-82f9e2c20874" xml:space="preserve">
+          <source>16 x 500</source>
+          <target state="new">16 x 500</target>
+        </trans-unit>
+        <trans-unit id="4aa466c8-590b-455e-a40d-3c67bac8b6ef" xml:space="preserve">
+          <source>Standard_G4\same</source>
+          <target state="new">Standard_G4\same</target>
+        </trans-unit>
+        <trans-unit id="93b7325b-e03c-4781-8e4c-dd6b73d9bb2d" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="ee2d48f5-fe51-41ad-b22f-f479e23ddf13" xml:space="preserve">
+          <source>224 GB</source>
+          <target state="new">224 GB</target>
+        </trans-unit>
+        <trans-unit id="0b098f16-3faa-433a-adfc-0365526ff52c" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 3,072 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 3,072 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="755873e3-9d84-4c50-8030-7d002de1acd4" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="b766b298-d3e9-4439-b624-83571eb7348e" xml:space="preserve">
+          <source>32 x 500</source>
+          <target state="new">32 x 500</target>
+        </trans-unit>
+        <trans-unit id="3db1576c-0aee-4098-bde7-a40a1c19701e" xml:space="preserve">
+          <source>Standard_G5\same</source>
+          <target state="new">Standard_G5\same</target>
+        </trans-unit>
+        <trans-unit id="b3990987-0a9e-4cc3-8485-36d03db76a2c" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="16e582a7-40ee-4610-82eb-46ffef3c492f" xml:space="preserve">
+          <source>448 GB</source>
+          <target state="new">448 GB</target>
+        </trans-unit>
+        <trans-unit id="c4e9e623-b426-4ff5-9d85-2c5da9dd16ae" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 6,144 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 6,144 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="f43a18a4-995b-435a-bd78-0cc919a5d920" xml:space="preserve">
+          <source>64</source>
+          <target state="new">64</target>
+        </trans-unit>
+        <trans-unit id="5784122b-bda0-47cb-addd-8372222c02e2" xml:space="preserve">
+          <source>&lt;p&gt;64 x 500&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;64 x 500&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="65d7eaf6-9f55-40bd-bf1b-a7f6ac80f4ed" xml:space="preserve">
+          <source>Size – Azure Portal\cmdlets &amp; APIs</source>
+          <target state="new">Size – Azure Portal\cmdlets &amp; APIs</target>
+        </trans-unit>
+        <trans-unit id="8c477cab-951e-4ad2-8b6c-ad3752f1ebcd" xml:space="preserve">
+          <source>CPU cores</source>
+          <target state="new">CPU cores</target>
+        </trans-unit>
+        <trans-unit id="fd924665-c0a2-44d4-9630-c7c8ddab3b38" xml:space="preserve">
+          <source>Memory</source>
+          <target state="new">Memory</target>
+        </trans-unit>
+        <trans-unit id="685f2a6a-0f99-4a24-bcdd-d9c2a79892a6" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="7e0767db-a714-402f-ab88-3afc7882a621" xml:space="preserve">
+          <source>disk sizes – virtual machine</source>
+          <target state="new">disk sizes – virtual machine</target>
+        </trans-unit>
+        <trans-unit id="8e8e058d-ef93-4507-8588-b7c668b5014d" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="9f373919-a37e-4fd6-abd4-8b1a1d81b19b" xml:space="preserve">
+          <source>data disks (1023 GB each)</source>
+          <target state="new">data disks (1023 GB each)</target>
+        </trans-unit>
+        <trans-unit id="74334a96-7854-486b-9aaa-2c07d9d6a2cb" xml:space="preserve">
+          <source>Cache size (GB)</source>
+          <target state="new">Cache size (GB)</target>
+        </trans-unit>
+        <trans-unit id="41f9a44a-52c5-4229-a667-7318c4e8cf01" xml:space="preserve">
+          <source>Max.</source>
+          <target state="new">Max.</target>
+        </trans-unit>
+        <trans-unit id="c67f85ea-ccfa-4ea2-84b3-d0bbf44bf48d" xml:space="preserve">
+          <source>disk IOPS &amp;amp; bandwidth</source>
+          <target state="new">disk IOPS &amp;amp; bandwidth</target>
+        </trans-unit>
+        <trans-unit id="123c2d4a-736c-4d3e-a99c-fd5a93cec7f9" xml:space="preserve">
+          <source>Standard_GS1</source>
+          <target state="new">Standard_GS1</target>
+        </trans-unit>
+        <trans-unit id="79c83a14-3e71-4efb-9b74-6f933674e775" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="642bc9cd-c7ef-42ff-b78e-bb9de5257179" xml:space="preserve">
+          <source>28</source>
+          <target state="new">28</target>
+        </trans-unit>
+        <trans-unit id="7839fe53-e741-4eb4-99da-957cf086b6ab" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 56 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 56 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="f9ccd79a-2c30-4201-a08d-50f6afdf09b0" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="10b90f16-e732-419f-bf2f-e2ad8104c369" xml:space="preserve">
+          <source>264</source>
+          <target state="new">264</target>
+        </trans-unit>
+        <trans-unit id="51b7cfab-e615-4bea-913a-dd8a5ba6db4b" xml:space="preserve">
+          <source>&lt;p&gt;5,000&lt;/p&gt;&lt;p&gt;125 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;5,000&lt;/p&gt;&lt;p&gt;125 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="19dfd0ac-0006-49ad-a8eb-48daad391660" xml:space="preserve">
+          <source>Standard_GS2</source>
+          <target state="new">Standard_GS2</target>
+        </trans-unit>
+        <trans-unit id="5c1e242f-1c67-4820-b94c-931aaa0581ff" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="4903f0fb-9792-4052-a695-d223e0a175f0" xml:space="preserve">
+          <source>56</source>
+          <target state="new">56</target>
+        </trans-unit>
+        <trans-unit id="fc753484-e516-4f5c-a77a-90f6ac1344d9" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 112 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 112 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="126fe94b-40f7-4e10-b8a4-4c73a31cc630" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="48d08a4f-5555-4270-b740-dcca132a1c42" xml:space="preserve">
+          <source>528</source>
+          <target state="new">528</target>
+        </trans-unit>
+        <trans-unit id="3027fb65-8895-4414-a9c0-8c8504aa6b05" xml:space="preserve">
+          <source>&lt;p&gt;10,000&lt;/p&gt;&lt;p&gt;250 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;10,000&lt;/p&gt;&lt;p&gt;250 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="cc847055-29cb-4942-8dce-45a6cd9b673a" xml:space="preserve">
+          <source>Standard_GS3</source>
+          <target state="new">Standard_GS3</target>
+        </trans-unit>
+        <trans-unit id="4fed5e07-dbe1-4ea7-8205-2d5f044dd93f" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="da5bfbd6-5796-4675-a01a-84f119c8ba31" xml:space="preserve">
+          <source>112</source>
+          <target state="new">112</target>
+        </trans-unit>
+        <trans-unit id="d664d951-da0f-4f53-9e43-17912b32e13c" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 224 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 224 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="b43c3be5-dde7-4c30-b805-f531415f0c9c" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="3dd62dd1-2fb7-4cec-b80a-148b99a4650f" xml:space="preserve">
+          <source>1056</source>
+          <target state="new">1056</target>
+        </trans-unit>
+        <trans-unit id="27c510ee-84fc-474b-9297-ed28014bdd81" xml:space="preserve">
+          <source>&lt;p&gt;20,000&lt;/p&gt;&lt;p&gt;500 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;20,000&lt;/p&gt;&lt;p&gt;500 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="b02f3155-b9a3-405b-a9c0-719ea86a45c6" xml:space="preserve">
+          <source>Standard_GS4</source>
+          <target state="new">Standard_GS4</target>
+        </trans-unit>
+        <trans-unit id="e9f8269c-f117-4b94-9492-6ef327573ccf" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="2dbb5334-bff2-4878-8629-cb065541a412" xml:space="preserve">
+          <source>224</source>
+          <target state="new">224</target>
+        </trans-unit>
+        <trans-unit id="da6e3d99-f9bf-4c8d-a760-ee723978ed29" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 448 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 448 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="10877b80-3a1c-43e3-9c39-a8421df571d5" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="00e1bd14-63c3-4a70-9a2f-53dd3cb8a43f" xml:space="preserve">
+          <source>2112</source>
+          <target state="new">2112</target>
+        </trans-unit>
+        <trans-unit id="260c3ce4-5261-4436-9227-6d673ce8755d" xml:space="preserve">
+          <source>&lt;p&gt;40,000&lt;/p&gt;&lt;p&gt;1,000 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;40,000&lt;/p&gt;&lt;p&gt;1,000 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="5b35a374-d609-4250-947d-0e7aff5a9233" xml:space="preserve">
+          <source>Standard_GS5</source>
+          <target state="new">Standard_GS5</target>
+        </trans-unit>
+        <trans-unit id="f346a663-cee6-4fb3-8602-e8da00dc40f6" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="d15b621e-fbd4-4aa8-9981-29b3bf2e0616" xml:space="preserve">
+          <source>448</source>
+          <target state="new">448</target>
+        </trans-unit>
+        <trans-unit id="cb826548-2038-4d84-848f-3a003978f6b4" xml:space="preserve">
+          <source>&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 896 GB&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;OS = 1023 GB&lt;/p&gt;&lt;p&gt;Local SSD disk = 896 GB&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="d22a640c-cffd-4928-bb61-f5c005a19539" xml:space="preserve">
+          <source>64</source>
+          <target state="new">64</target>
+        </trans-unit>
+        <trans-unit id="5b6379fb-2612-448b-9c7b-3c8cefd76b14" xml:space="preserve">
+          <source>4224</source>
+          <target state="new">4224</target>
+        </trans-unit>
+        <trans-unit id="7b99f02b-a5e1-464e-9983-69380ddd1c65" xml:space="preserve">
+          <source>&lt;p&gt;80,000&lt;/p&gt;&lt;p&gt;2,000 MB per second&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;80,000&lt;/p&gt;&lt;p&gt;2,000 MB per second&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="43cf94a6-4839-4586-b02f-ea17057dabf0" xml:space="preserve">
+          <source><bpt id="596c568b-680c-46e4-8a2e-c0d87669cb5f">&lt;linkText&gt;</bpt>Azure subscription and service limits, quotas, and constraints<ept id="596c568b-680c-46e4-8a2e-c0d87669cb5f">&lt;/linkText&gt;</ept><bpt id="596c568b-680c-46e4-8a2e-c0d87669cb5f">&lt;title&gt;</bpt><ept id="596c568b-680c-46e4-8a2e-c0d87669cb5f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="596c568b-680c-46e4-8a2e-c0d87669cb5f">&lt;linkText&gt;</bpt>Azure subscription and service limits, quotas, and constraints<ept id="596c568b-680c-46e4-8a2e-c0d87669cb5f">&lt;/linkText&gt;</ept><bpt id="596c568b-680c-46e4-8a2e-c0d87669cb5f">&lt;title&gt;</bpt><ept id="596c568b-680c-46e4-8a2e-c0d87669cb5f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a84b812e-6502-4f26-800a-20b793f66cac" xml:space="preserve">
+          <source><bpt id="1f73170c-43e3-442b-9961-36038241501a">&lt;linkText&gt;</bpt>About the A8, A9, A10, and A11 compute intensive instances<ept id="1f73170c-43e3-442b-9961-36038241501a">&lt;/linkText&gt;</ept><bpt id="1f73170c-43e3-442b-9961-36038241501a">&lt;title&gt;</bpt><ept id="1f73170c-43e3-442b-9961-36038241501a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1f73170c-43e3-442b-9961-36038241501a">&lt;linkText&gt;</bpt>About the A8, A9, A10, and A11 compute intensive instances<ept id="1f73170c-43e3-442b-9961-36038241501a">&lt;/linkText&gt;</ept><bpt id="1f73170c-43e3-442b-9961-36038241501a">&lt;title&gt;</bpt><ept id="1f73170c-43e3-442b-9961-36038241501a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

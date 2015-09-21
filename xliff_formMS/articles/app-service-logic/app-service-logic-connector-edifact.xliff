@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e76a432f-8ff6-4c4f-9605-59038353207f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e76a432f-8ff6-4c4f-9605-59038353207f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e3acfe5f-b6bf-4433-bc06-ba18b7f8f46e">
+        <trans-unit id="084959c8-7bc4-44cf-a619-abc495ff089f" xml:space="preserve">
+          <source>Using the BizTalk Edifact Connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the BizTalk Edifact Connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="536404b4-d4b3-40aa-95fd-5eb137616fae" xml:space="preserve">
+          <source>How to create and configure the BizTalk Edifact Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the BizTalk Edifact Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="c9b7444a-a469-4207-bbcc-e108322e1279" xml:space="preserve">
+          <source>Use the Edifact service to receive and send messages over the Edifact protocol in business to business communications.</source>
+          <target state="new">Use the Edifact service to receive and send messages over the Edifact protocol in business to business communications.</target>
+        </trans-unit>
+        <trans-unit id="4f9d86f7-0bdc-4837-86b4-3449d53978ca" xml:space="preserve">
+          <source>Edifact is also commonly referred to as ASC Edifact or Accredited Standards Committee Edifact and is widely used across industries.</source>
+          <target state="new">Edifact is also commonly referred to as ASC Edifact or Accredited Standards Committee Edifact and is widely used across industries.</target>
+        </trans-unit>
+        <trans-unit id="34c86e13-9ec9-455a-9768-143c87411a1c" xml:space="preserve">
+          <source>You can add the BizTalk Edifact connector to your business workflow and process data as part of this workflow within a Logic App.</source>
+          <target state="new">You can add the BizTalk Edifact connector to your business workflow and process data as part of this workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="c5df09ce-3a77-4d58-8261-896af2bddcbb" xml:space="preserve">
+          <source>TPM API App: Before creating a Edifact connector, you have to create a <bpt id="ebbc9f50-1857-4b9f-a8e9-af6a47e4addc">&lt;linkText&gt;</bpt>BizTalk Trading Partner Management Connector[1]<ept id="ebbc9f50-1857-4b9f-a8e9-af6a47e4addc">&lt;/linkText&gt;</ept><bpt id="ebbc9f50-1857-4b9f-a8e9-af6a47e4addc">&lt;title&gt;</bpt><ept id="ebbc9f50-1857-4b9f-a8e9-af6a47e4addc">&lt;/title&gt;</ept>.</source>
+          <target state="new">TPM API App: Before creating a Edifact connector, you have to create a <bpt id="ebbc9f50-1857-4b9f-a8e9-af6a47e4addc">&lt;linkText&gt;</bpt>BizTalk Trading Partner Management Connector[1]<ept id="ebbc9f50-1857-4b9f-a8e9-af6a47e4addc">&lt;/linkText&gt;</ept><bpt id="ebbc9f50-1857-4b9f-a8e9-af6a47e4addc">&lt;title&gt;</bpt><ept id="ebbc9f50-1857-4b9f-a8e9-af6a47e4addc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc3a19ce-5f4f-4555-89e7-20377da9876d" xml:space="preserve">
+          <source>SQL Azure database: Each of the B2B API Apps requires its own Azure SQL Database.</source>
+          <target state="new">SQL Azure database: Each of the B2B API Apps requires its own Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="918eebc0-5e38-4dea-a8a7-90c828082a52" xml:space="preserve">
+          <source>Azure Service Bus: This is optional, and used only in the case of batching.</source>
+          <target state="new">Azure Service Bus: This is optional, and used only in the case of batching.</target>
+        </trans-unit>
+        <trans-unit id="b0a507b7-3942-4403-bf35-d671d6be8c79" xml:space="preserve">
+          <source>To use the Edifact Connector, you need to first create an instance of the AS2 Connector API app.</source>
+          <target state="new">To use the Edifact Connector, you need to first create an instance of the AS2 Connector API app.</target>
+        </trans-unit>
+        <trans-unit id="4dc0dda9-87ec-4aa1-a248-16095f8ceb02" xml:space="preserve">
+          <source>This can be done either inline while creating a logic app or by selecting the AS2 Connector API app from the Azure Marketplace.</source>
+          <target state="new">This can be done either inline while creating a logic app or by selecting the AS2 Connector API app from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="16241275-04a0-4648-858c-73aca7263bba" xml:space="preserve">
+          <source>Trading partners are the entities involved in B2B (Business-to-Business) communications.</source>
+          <target state="new">Trading partners are the entities involved in B2B (Business-to-Business) communications.</target>
+        </trans-unit>
+        <trans-unit id="39385534-8390-41e8-b784-19a0dcd7d085" xml:space="preserve">
+          <source>When two partners establish a relationship, this is referred to as an Agreement.</source>
+          <target state="new">When two partners establish a relationship, this is referred to as an Agreement.</target>
+        </trans-unit>
+        <trans-unit id="0b302686-0cc8-44b4-846e-098e038885ad" xml:space="preserve">
+          <source>The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.</source>
+          <target state="new">The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.</target>
+        </trans-unit>
+        <trans-unit id="eeca8f98-9eb1-4bd5-9e9c-b868372c3ece" xml:space="preserve">
+          <source>Steps involved in creating a trading partner agreement is documented <bpt id="93d8ff22-9bf8-4226-881b-12800adc4201">&lt;linkText&gt;</bpt>here[2]<ept id="93d8ff22-9bf8-4226-881b-12800adc4201">&lt;/linkText&gt;</ept><bpt id="93d8ff22-9bf8-4226-881b-12800adc4201">&lt;title&gt;</bpt><ept id="93d8ff22-9bf8-4226-881b-12800adc4201">&lt;/title&gt;</ept>.</source>
+          <target state="new">Steps involved in creating a trading partner agreement is documented <bpt id="93d8ff22-9bf8-4226-881b-12800adc4201">&lt;linkText&gt;</bpt>here[2]<ept id="93d8ff22-9bf8-4226-881b-12800adc4201">&lt;/linkText&gt;</ept><bpt id="93d8ff22-9bf8-4226-881b-12800adc4201">&lt;title&gt;</bpt><ept id="93d8ff22-9bf8-4226-881b-12800adc4201">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49c80a5c-23a1-48ee-b2dc-aa519349b1cb" xml:space="preserve">
+          <source>Edifact Connector can be used either as a trigger or as an action.</source>
+          <target state="new">Edifact Connector can be used either as a trigger or as an action.</target>
+        </trans-unit>
+        <trans-unit id="a9564561-5e29-44a0-93b0-9eb9a8d0bd2d" xml:space="preserve">
+          <source>Launch the Azure Logic Apps flow designer</source>
+          <target state="new">Launch the Azure Logic Apps flow designer</target>
+        </trans-unit>
+        <trans-unit id="89cd4973-114a-4248-b897-37e360e3992a" xml:space="preserve">
+          <source>Click on Edifact Connector from the right pane:  
+<bpt id="586fbac2-4f9d-440d-b8e0-85101c9008c4">&lt;linkText&gt;</bpt>Trigger settings<ept id="586fbac2-4f9d-440d-b8e0-85101c9008c4">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click on Edifact Connector from the right pane:  
+<bpt id="586fbac2-4f9d-440d-b8e0-85101c9008c4">&lt;linkText&gt;</bpt>Trigger settings<ept id="586fbac2-4f9d-440d-b8e0-85101c9008c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c34a90e-03a2-410f-8eb4-b4a6124f8a62" xml:space="preserve">
+          <source>Click on -&gt;:  
+<bpt id="28bca2bb-1c66-495d-87d0-e4e9601ce24c">&lt;linkText&gt;</bpt>Trigger options<ept id="28bca2bb-1c66-495d-87d0-e4e9601ce24c">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click on -&gt;:  
+<bpt id="28bca2bb-1c66-495d-87d0-e4e9601ce24c">&lt;linkText&gt;</bpt>Trigger options<ept id="28bca2bb-1c66-495d-87d0-e4e9601ce24c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64f0544f-f629-4482-901c-2256ed979577" xml:space="preserve">
+          <source>EDIFACT Connector exposes a single trigger.</source>
+          <target state="new">EDIFACT Connector exposes a single trigger.</target>
+        </trans-unit>
+        <trans-unit id="26a8938e-357d-45ec-8f3b-5fa8a731fc29" xml:space="preserve">
+          <source>Select <bpt id="9cec691a-1c10-48ac-b4ca-496e16fe7018">&lt;em&gt;</bpt>Release Batch<ept id="9cec691a-1c10-48ac-b4ca-496e16fe7018">&lt;/em&gt;</ept>:  
+<bpt id="a8b765ea-b5c0-419e-9363-2b3c721b0135">&lt;linkText&gt;</bpt>Release batch input<ept id="a8b765ea-b5c0-419e-9363-2b3c721b0135">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select <bpt id="9cec691a-1c10-48ac-b4ca-496e16fe7018">&lt;em&gt;</bpt>Release Batch<ept id="9cec691a-1c10-48ac-b4ca-496e16fe7018">&lt;/em&gt;</ept>:  
+<bpt id="a8b765ea-b5c0-419e-9363-2b3c721b0135">&lt;linkText&gt;</bpt>Release batch input<ept id="a8b765ea-b5c0-419e-9363-2b3c721b0135">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37958426-a7c3-405e-83f7-e88ff8d5fec3" xml:space="preserve">
+          <source>This trigger has no inputs.</source>
+          <target state="new">This trigger has no inputs.</target>
+        </trans-unit>
+        <trans-unit id="fa1ef66f-0caf-43b7-a535-61bb50eb6a14" xml:space="preserve">
+          <source>Click on -&gt;:  
+<bpt id="22651838-2334-46ff-a2b6-bd0c17d103b7">&lt;linkText&gt;</bpt>Release batch configured<ept id="22651838-2334-46ff-a2b6-bd0c17d103b7">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click on -&gt;:  
+<bpt id="22651838-2334-46ff-a2b6-bd0c17d103b7">&lt;linkText&gt;</bpt>Release batch configured<ept id="22651838-2334-46ff-a2b6-bd0c17d103b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3b385a5-ec55-4a26-9d77-cbf1216e7a82" xml:space="preserve">
+          <source>As part of the output, the connector returns the Edifact payload, agreement id as well as information as to whether the message is batched, or not.</source>
+          <target state="new">As part of the output, the connector returns the Edifact payload, agreement id as well as information as to whether the message is batched, or not.</target>
+        </trans-unit>
+        <trans-unit id="bcabc569-35f4-4540-b7a9-b0f9d9b2b1a2" xml:space="preserve">
+          <source>Click on Edifact Connector from the right pane:  
+<bpt id="0a8dbd43-3fce-4c01-8c26-fd8cf34aceaf">&lt;linkText&gt;</bpt>Action settings<ept id="0a8dbd43-3fce-4c01-8c26-fd8cf34aceaf">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click on Edifact Connector from the right pane:  
+<bpt id="0a8dbd43-3fce-4c01-8c26-fd8cf34aceaf">&lt;linkText&gt;</bpt>Action settings<ept id="0a8dbd43-3fce-4c01-8c26-fd8cf34aceaf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbbc0c56-24de-4ee4-bc91-936daed4bfbc" xml:space="preserve">
+          <source>Click on -&gt;:  
+<bpt id="aa1b0d5e-3593-4fba-b103-83cd4baf7c67">&lt;linkText&gt;</bpt>List of Actions<ept id="aa1b0d5e-3593-4fba-b103-83cd4baf7c67">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click on -&gt;:  
+<bpt id="aa1b0d5e-3593-4fba-b103-83cd4baf7c67">&lt;linkText&gt;</bpt>List of Actions<ept id="aa1b0d5e-3593-4fba-b103-83cd4baf7c67">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19d2f310-d76e-4b50-97fa-009c0a63d4e4" xml:space="preserve">
+          <source>Edifact connector supports many actions.</source>
+          <target state="new">Edifact connector supports many actions.</target>
+        </trans-unit>
+        <trans-unit id="5328dc5b-15be-4012-8e3d-161bff11c3ec" xml:space="preserve">
+          <source>Select <bpt id="0f554c5a-0c17-48a8-83e8-516eb2d31542">&lt;em&gt;</bpt>Encode<ept id="0f554c5a-0c17-48a8-83e8-516eb2d31542">&lt;/em&gt;</ept>:  
+<bpt id="0cf051e4-1326-4b7f-b656-3953c029cada">&lt;linkText&gt;</bpt>Encode input<ept id="0cf051e4-1326-4b7f-b656-3953c029cada">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select <bpt id="0f554c5a-0c17-48a8-83e8-516eb2d31542">&lt;em&gt;</bpt>Encode<ept id="0f554c5a-0c17-48a8-83e8-516eb2d31542">&lt;/em&gt;</ept>:  
+<bpt id="0cf051e4-1326-4b7f-b656-3953c029cada">&lt;linkText&gt;</bpt>Encode input<ept id="0cf051e4-1326-4b7f-b656-3953c029cada">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f314444-d675-427c-8504-72fcfdb835e3" xml:space="preserve">
+          <source>Provide the inputs for the action and configure it:  
+<bpt id="6f287578-24a3-416d-9cbb-a4dcb619289e">&lt;linkText&gt;</bpt>Encode configured<ept id="6f287578-24a3-416d-9cbb-a4dcb619289e">&lt;/linkText&gt;</ept></source>
+          <target state="new">Provide the inputs for the action and configure it:  
+<bpt id="6f287578-24a3-416d-9cbb-a4dcb619289e">&lt;linkText&gt;</bpt>Encode configured<ept id="6f287578-24a3-416d-9cbb-a4dcb619289e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4e655cb-ec27-45f4-9b02-1d9e1f7d9c8a" xml:space="preserve">
+          <source>Parameter|Type|Description of the parameter
+---|---|---
+Content|string|XML Message
+Agreement ID|integer|Agreement ID
+Is Batched Message|boolean|Is Batched Message
+Data Element Separator|string|Data Element Separator
+Component Separator|string|Component Separator
+Segment Terminator|string|Segment Terminator
+Decimal Point Indicator|string|Decimal Point Indicator
+Repetition Separator|string|Repetition Separator
+Escape Character|string|Escape Character
+Replacement Character|string|Replacement Character
+Segment Terminator Suffix|string|Segment Terminator Suffix</source>
+          <target state="new">Parameter|Type|Description of the parameter
+---|---|---
+Content|string|XML Message
+Agreement ID|integer|Agreement ID
+Is Batched Message|boolean|Is Batched Message
+Data Element Separator|string|Data Element Separator
+Component Separator|string|Component Separator
+Segment Terminator|string|Segment Terminator
+Decimal Point Indicator|string|Decimal Point Indicator
+Repetition Separator|string|Repetition Separator
+Escape Character|string|Escape Character
+Replacement Character|string|Replacement Character
+Segment Terminator Suffix|string|Segment Terminator Suffix</target>
+        </trans-unit>
+        <trans-unit id="a3ac5216-444b-455b-b145-c48a2bc9d384" xml:space="preserve">
+          <source>The action returns an object containing the EDIFACT payload on successful completion.</source>
+          <target state="new">The action returns an object containing the EDIFACT payload on successful completion.</target>
+        </trans-unit>
+        <trans-unit id="ac5671fe-7a4d-4de6-a089-1705c8661f57" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business flow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business flow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="3be9066e-5cc0-49d6-8f81-9cd1d19aeeac" xml:space="preserve">
+          <source>See <bpt id="3a92deb4-86db-4cb1-a250-e82919cd4615">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="3a92deb4-86db-4cb1-a250-e82919cd4615">&lt;/linkText&gt;</ept><bpt id="3a92deb4-86db-4cb1-a250-e82919cd4615">&lt;title&gt;</bpt><ept id="3a92deb4-86db-4cb1-a250-e82919cd4615">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="3a92deb4-86db-4cb1-a250-e82919cd4615">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="3a92deb4-86db-4cb1-a250-e82919cd4615">&lt;/linkText&gt;</ept><bpt id="3a92deb4-86db-4cb1-a250-e82919cd4615">&lt;title&gt;</bpt><ept id="3a92deb4-86db-4cb1-a250-e82919cd4615">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="386b7a63-f0af-439b-b2cd-e74e99903cd9" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="60329ef5-c810-4cc4-a23f-4e320aeeb58b">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="60329ef5-c810-4cc4-a23f-4e320aeeb58b">&lt;/linkText&gt;</ept><bpt id="60329ef5-c810-4cc4-a23f-4e320aeeb58b">&lt;title&gt;</bpt><ept id="60329ef5-c810-4cc4-a23f-4e320aeeb58b">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="60329ef5-c810-4cc4-a23f-4e320aeeb58b">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="60329ef5-c810-4cc4-a23f-4e320aeeb58b">&lt;/linkText&gt;</ept><bpt id="60329ef5-c810-4cc4-a23f-4e320aeeb58b">&lt;title&gt;</bpt><ept id="60329ef5-c810-4cc4-a23f-4e320aeeb58b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="620372c6-9155-48e3-951f-70b9817a598b" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="0a8b7861-9085-4d9f-a6ea-366317236fdb" xml:space="preserve">
+          <source>See <bpt id="aaf3d958-4dea-4a7f-924f-394a508aab00">&lt;linkText&gt;</bpt>Manage  and Monitor API apps and connector<ept id="aaf3d958-4dea-4a7f-924f-394a508aab00">&lt;/linkText&gt;</ept><bpt id="aaf3d958-4dea-4a7f-924f-394a508aab00">&lt;title&gt;</bpt><ept id="aaf3d958-4dea-4a7f-924f-394a508aab00">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="aaf3d958-4dea-4a7f-924f-394a508aab00">&lt;linkText&gt;</bpt>Manage  and Monitor API apps and connector<ept id="aaf3d958-4dea-4a7f-924f-394a508aab00">&lt;/linkText&gt;</ept><bpt id="aaf3d958-4dea-4a7f-924f-394a508aab00">&lt;title&gt;</bpt><ept id="aaf3d958-4dea-4a7f-924f-394a508aab00">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4a246df-36a6-4504-9180-d1c83705ffcc" xml:space="preserve">
+          <source>app-service-logic-connector-tpm.md</source>
+          <target state="new">app-service-logic-connector-tpm.md</target>
+        </trans-unit>
+        <trans-unit id="b82be463-4f44-4c38-9d59-6c848774330e" xml:space="preserve">
+          <source>app-service-logic-create-a-trading-partner-agreement.md</source>
+          <target state="new">app-service-logic-create-a-trading-partner-agreement.md</target>
+        </trans-unit>
+        <trans-unit id="77710dfd-5236-41aa-88eb-2016dff4fb98" xml:space="preserve">
+          <source>./media/app-service-logic-connector-edifact/TriggerSettings.PNG</source>
+          <target state="new">./media/app-service-logic-connector-edifact/TriggerSettings.PNG</target>
+        </trans-unit>
+        <trans-unit id="3cb92266-11cf-42db-a438-1758426a62b1" xml:space="preserve">
+          <source>./media/app-service-logic-connector-edifact/ListOfTriggers.PNG</source>
+          <target state="new">./media/app-service-logic-connector-edifact/ListOfTriggers.PNG</target>
+        </trans-unit>
+        <trans-unit id="8fb0e69e-328e-49e0-9c4f-0e59a2a2890c" xml:space="preserve">
+          <source>./media/app-service-logic-connector-edifact/ReleaseBatchTriggerInput.PNG</source>
+          <target state="new">./media/app-service-logic-connector-edifact/ReleaseBatchTriggerInput.PNG</target>
+        </trans-unit>
+        <trans-unit id="18c6e560-9055-4e87-813d-20da6230d2cd" xml:space="preserve">
+          <source>./media/app-service-logic-connector-edifact/ReleaseBatchTriggerConfigured.PNG</source>
+          <target state="new">./media/app-service-logic-connector-edifact/ReleaseBatchTriggerConfigured.PNG</target>
+        </trans-unit>
+        <trans-unit id="807257e6-56be-42ed-aa2d-967ad9c2049a" xml:space="preserve">
+          <source>./media/app-service-logic-connector-edifact/ActionSettings.PNG</source>
+          <target state="new">./media/app-service-logic-connector-edifact/ActionSettings.PNG</target>
+        </trans-unit>
+        <trans-unit id="16a85e60-62fc-4bf4-b84c-4efebd2dc089" xml:space="preserve">
+          <source>./media/app-service-logic-connector-edifact/ListOfActions.PNG</source>
+          <target state="new">./media/app-service-logic-connector-edifact/ListOfActions.PNG</target>
+        </trans-unit>
+        <trans-unit id="60d97e1b-f83f-435f-be3e-7a0551f658d6" xml:space="preserve">
+          <source>./media/app-service-logic-connector-edifact/EncodeInput.PNG</source>
+          <target state="new">./media/app-service-logic-connector-edifact/EncodeInput.PNG</target>
+        </trans-unit>
+        <trans-unit id="a604d462-c796-4370-bef2-4bb7bbc9e281" xml:space="preserve">
+          <source>./media/app-service-logic-connector-edifact/EncodeConfigured.PNG</source>
+          <target state="new">./media/app-service-logic-connector-edifact/EncodeConfigured.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="aa4ec57d-a902-4e12-a2c2-5757549de9d2" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d0ec6896-5122-4b9a-90ad-f01636489c78" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d0ec6896-5122-4b9a-90ad-f01636489c78" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="154c30e5-fea1-4bc6-83e5-e817702332d9">
+        <trans-unit id="231e46c1-7e05-442d-beca-0e537b228c5d" xml:space="preserve">
+          <source>Getting started with delivering Video on Demand (VoD) using the Azure portal | Microsoft Azure</source>
+          <target state="new">Getting started with delivering Video on Demand (VoD) using the Azure portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2392e6c2-8198-413e-ae9f-ea4d44ef534c" xml:space="preserve">
+          <source>This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using the Azure portal.</source>
+          <target state="new">This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="f94b6836-12ce-4d17-bdfa-072bcac84b56" xml:space="preserve">
+          <source><bpt id="0ebeaf63-52a0-4d19-9458-81757ba55f96">&lt;token href="../../includes/media-services-selector-get-started.md"&gt;</bpt><ept id="0ebeaf63-52a0-4d19-9458-81757ba55f96">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0ebeaf63-52a0-4d19-9458-81757ba55f96">&lt;token href="../../includes/media-services-selector-get-started.md"&gt;</bpt><ept id="0ebeaf63-52a0-4d19-9458-81757ba55f96">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a0fdbd8-38a8-45d6-b4d2-604b43a58579" xml:space="preserve">
+          <source>This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery application using the Azure portal.</source>
+          <target state="new">This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery application using the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="934aa564-851d-48f0-b1a0-d9cd18abb1c9" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="b42f2708-735e-4591-a42d-11091d4adbba" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="f9e315a2-05b4-4972-95df-5f3ec75c5937" xml:space="preserve">
+          <source>For details, see &lt;a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc<bpt id="15fed229-66eb-454b-95ff-72b00b6217d1">&lt;em&gt;</bpt>id=A8A8397B5" target="<ept id="15fed229-66eb-454b-95ff-72b00b6217d1">&lt;/em&gt;</ept>blank"&gt;Azure Free Trial&lt;/a&gt;.</source>
+          <target state="new">For details, see &lt;a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc<bpt id="15fed229-66eb-454b-95ff-72b00b6217d1">&lt;em&gt;</bpt>id=A8A8397B5" target="<ept id="15fed229-66eb-454b-95ff-72b00b6217d1">&lt;/em&gt;</ept>blank"&gt;Azure Free Trial&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="d141df92-f618-496f-8939-d8d39e574cc1" xml:space="preserve">
+          <source>This tutorial includes the following tasks:</source>
+          <target state="new">This tutorial includes the following tasks:</target>
+        </trans-unit>
+        <trans-unit id="9544d270-ae43-4e27-b0ac-5edf3651b3a2" xml:space="preserve">
+          <source>Create an Azure Media Services account.</source>
+          <target state="new">Create an Azure Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="8d8caee0-20cf-42b6-8666-4c24d226d942" xml:space="preserve">
+          <source>Configure streaming endpoint.</source>
+          <target state="new">Configure streaming endpoint.</target>
+        </trans-unit>
+        <trans-unit id="ad7d398f-1fcf-4949-8e1a-4a233f723f2d" xml:space="preserve">
+          <source>Upload a video file.</source>
+          <target state="new">Upload a video file.</target>
+        </trans-unit>
+        <trans-unit id="a35b18fe-f0cd-4203-a8d3-273e78f38c5a" xml:space="preserve">
+          <source>Encode the source file into a set of adaptive bitrate MP4 files.</source>
+          <target state="new">Encode the source file into a set of adaptive bitrate MP4 files.</target>
+        </trans-unit>
+        <trans-unit id="458c0d3b-d485-4d96-b9f9-16255d6b031a" xml:space="preserve">
+          <source>Publish the asset and get streaming and progressive download URLs.</source>
+          <target state="new">Publish the asset and get streaming and progressive download URLs.</target>
+        </trans-unit>
+        <trans-unit id="03b272d9-599e-433c-bfa5-9ab1b8f49347" xml:space="preserve">
+          <source>Play your content.</source>
+          <target state="new">Play your content.</target>
+        </trans-unit>
+        <trans-unit id="1d14f64c-ebd8-411c-beff-c008b7e8ebf4" xml:space="preserve">
+          <source>In the <bpt id="df3b1b1b-06d5-45a8-a126-0b1c0293fec7">&lt;linkText&gt;</bpt>Azure portal<ept id="df3b1b1b-06d5-45a8-a126-0b1c0293fec7">&lt;/linkText&gt;</ept><bpt id="df3b1b1b-06d5-45a8-a126-0b1c0293fec7">&lt;title&gt;</bpt><ept id="df3b1b1b-06d5-45a8-a126-0b1c0293fec7">&lt;/title&gt;</ept>, click <bpt id="2bd654d6-0263-4d61-bd60-25aae6fb08f9">&lt;strong&gt;</bpt>New<ept id="2bd654d6-0263-4d61-bd60-25aae6fb08f9">&lt;/strong&gt;</ept>, click <bpt id="93d2a4ca-0b76-48c0-b111-93d8292f43af">&lt;strong&gt;</bpt>Media Service<ept id="93d2a4ca-0b76-48c0-b111-93d8292f43af">&lt;/strong&gt;</ept>, and then click <bpt id="cef85440-8a59-495b-af88-43fe3429de50">&lt;strong&gt;</bpt>Quick Create<ept id="cef85440-8a59-495b-af88-43fe3429de50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="df3b1b1b-06d5-45a8-a126-0b1c0293fec7">&lt;linkText&gt;</bpt>Azure portal<ept id="df3b1b1b-06d5-45a8-a126-0b1c0293fec7">&lt;/linkText&gt;</ept><bpt id="df3b1b1b-06d5-45a8-a126-0b1c0293fec7">&lt;title&gt;</bpt><ept id="df3b1b1b-06d5-45a8-a126-0b1c0293fec7">&lt;/title&gt;</ept>, click <bpt id="2bd654d6-0263-4d61-bd60-25aae6fb08f9">&lt;strong&gt;</bpt>New<ept id="2bd654d6-0263-4d61-bd60-25aae6fb08f9">&lt;/strong&gt;</ept>, click <bpt id="93d2a4ca-0b76-48c0-b111-93d8292f43af">&lt;strong&gt;</bpt>Media Service<ept id="93d2a4ca-0b76-48c0-b111-93d8292f43af">&lt;/strong&gt;</ept>, and then click <bpt id="cef85440-8a59-495b-af88-43fe3429de50">&lt;strong&gt;</bpt>Quick Create<ept id="cef85440-8a59-495b-af88-43fe3429de50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb2691cc-a81c-4731-863c-056b21da5d80" xml:space="preserve">
+          <source><bpt id="8e1b668a-1dd2-46a7-b621-4c4138d7d3a7">&lt;linkText&gt;</bpt>Media Services Quick Create<ept id="8e1b668a-1dd2-46a7-b621-4c4138d7d3a7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8e1b668a-1dd2-46a7-b621-4c4138d7d3a7">&lt;linkText&gt;</bpt>Media Services Quick Create<ept id="8e1b668a-1dd2-46a7-b621-4c4138d7d3a7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36ad8ad3-6a58-4255-8ff6-4e6f5cb47398" xml:space="preserve">
+          <source>In <bpt id="a9e5e4d9-6fbc-4303-94ea-192910375394">&lt;strong&gt;</bpt>NAME<ept id="a9e5e4d9-6fbc-4303-94ea-192910375394">&lt;/strong&gt;</ept>, enter the name of the new account.</source>
+          <target state="new">In <bpt id="a9e5e4d9-6fbc-4303-94ea-192910375394">&lt;strong&gt;</bpt>NAME<ept id="a9e5e4d9-6fbc-4303-94ea-192910375394">&lt;/strong&gt;</ept>, enter the name of the new account.</target>
+        </trans-unit>
+        <trans-unit id="a1d36462-50b5-4edb-9aaa-1a6a1e623678" xml:space="preserve">
+          <source>A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.</source>
+          <target state="new">A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.</target>
+        </trans-unit>
+        <trans-unit id="5c724c35-841b-48aa-b522-fd4786aa8e14" xml:space="preserve">
+          <source>In <bpt id="ab9c5c7d-780d-4a3f-9b59-d7f1c7d0255f">&lt;strong&gt;</bpt>REGION<ept id="ab9c5c7d-780d-4a3f-9b59-d7f1c7d0255f">&lt;/strong&gt;</ept>, select the geographic region that will be used to store the metadata records for your Media Services account.</source>
+          <target state="new">In <bpt id="ab9c5c7d-780d-4a3f-9b59-d7f1c7d0255f">&lt;strong&gt;</bpt>REGION<ept id="ab9c5c7d-780d-4a3f-9b59-d7f1c7d0255f">&lt;/strong&gt;</ept>, select the geographic region that will be used to store the metadata records for your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="f776bd63-ca2f-47f1-bbcf-08947c81c073" xml:space="preserve">
+          <source>Only the available Media Services regions appear in the drop-down list box.</source>
+          <target state="new">Only the available Media Services regions appear in the drop-down list box.</target>
+        </trans-unit>
+        <trans-unit id="192d8834-a792-42a2-beaa-25ec0fbd28e6" xml:space="preserve">
+          <source>In <bpt id="3998363f-5bce-4117-bb96-65d4e34394bf">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="3998363f-5bce-4117-bb96-65d4e34394bf">&lt;/strong&gt;</ept>, select a storage account to provide blob storage of the media content from your Media Services account.</source>
+          <target state="new">In <bpt id="3998363f-5bce-4117-bb96-65d4e34394bf">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="3998363f-5bce-4117-bb96-65d4e34394bf">&lt;/strong&gt;</ept>, select a storage account to provide blob storage of the media content from your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="4a5fe2df-9abf-4397-8b7b-c839d6a46aa3" xml:space="preserve">
+          <source>You can select an existing storage account in the same geographic region as your Media Services account, or you can create a new storage account.</source>
+          <target state="new">You can select an existing storage account in the same geographic region as your Media Services account, or you can create a new storage account.</target>
+        </trans-unit>
+        <trans-unit id="8194ea74-2166-4c73-aff0-07d37e5a32db" xml:space="preserve">
+          <source>A new storage account is created in the same region.</source>
+          <target state="new">A new storage account is created in the same region.</target>
+        </trans-unit>
+        <trans-unit id="16fa73bc-30d6-4c27-b6c8-a06a156c4062" xml:space="preserve">
+          <source>If you created a new storage account, in <bpt id="f9eebccf-7902-47ae-963d-6e09879c40de">&lt;strong&gt;</bpt>NEW STORAGE ACCOUNT NAME<ept id="f9eebccf-7902-47ae-963d-6e09879c40de">&lt;/strong&gt;</ept>, enter a name for the storage account.</source>
+          <target state="new">If you created a new storage account, in <bpt id="f9eebccf-7902-47ae-963d-6e09879c40de">&lt;strong&gt;</bpt>NEW STORAGE ACCOUNT NAME<ept id="f9eebccf-7902-47ae-963d-6e09879c40de">&lt;/strong&gt;</ept>, enter a name for the storage account.</target>
+        </trans-unit>
+        <trans-unit id="e227d68e-700f-4810-bc1e-3db2d1a0f2a3" xml:space="preserve">
+          <source>The rules for storage account names are the same as for Media Services accounts.</source>
+          <target state="new">The rules for storage account names are the same as for Media Services accounts.</target>
+        </trans-unit>
+        <trans-unit id="d7f503ee-32a7-42e1-b3ae-9dd0e7d84d17" xml:space="preserve">
+          <source>Click <bpt id="941fb5d7-a30c-4afc-927d-da13ce859d88">&lt;strong&gt;</bpt>Quick Create<ept id="941fb5d7-a30c-4afc-927d-da13ce859d88">&lt;/strong&gt;</ept> at the bottom of the form.</source>
+          <target state="new">Click <bpt id="941fb5d7-a30c-4afc-927d-da13ce859d88">&lt;strong&gt;</bpt>Quick Create<ept id="941fb5d7-a30c-4afc-927d-da13ce859d88">&lt;/strong&gt;</ept> at the bottom of the form.</target>
+        </trans-unit>
+        <trans-unit id="5f1f5ea7-1ec5-40bc-ad80-71b79c9783ad" xml:space="preserve">
+          <source>You can monitor the status of the process in the message area at the bottom of the window.</source>
+          <target state="new">You can monitor the status of the process in the message area at the bottom of the window.</target>
+        </trans-unit>
+        <trans-unit id="81cb3cde-e0ed-448a-bded-290409ccd76e" xml:space="preserve">
+          <source>Once the account is successfully created, the status changes to Active.</source>
+          <target state="new">Once the account is successfully created, the status changes to Active.</target>
+        </trans-unit>
+        <trans-unit id="0112a508-ca81-4b3d-a0c5-bdb6b2356abb" xml:space="preserve">
+          <source>At the bottom of the page, the <bpt id="074d5a88-9ffd-4e56-84bb-91040fd1cf40">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="074d5a88-9ffd-4e56-84bb-91040fd1cf40">&lt;/strong&gt;</ept> button appears.</source>
+          <target state="new">At the bottom of the page, the <bpt id="074d5a88-9ffd-4e56-84bb-91040fd1cf40">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="074d5a88-9ffd-4e56-84bb-91040fd1cf40">&lt;/strong&gt;</ept> button appears.</target>
+        </trans-unit>
+        <trans-unit id="e6146e8f-05a8-42a0-b324-7a5a9b72f4d2" xml:space="preserve">
+          <source>When you click this button, a dialog box with the Media Services account name and the primary and secondary keys is displayed.</source>
+          <target state="new">When you click this button, a dialog box with the Media Services account name and the primary and secondary keys is displayed.</target>
+        </trans-unit>
+        <trans-unit id="10e8f75d-2a8c-43f5-a73e-b1e93efa26bb" xml:space="preserve">
+          <source>You will need the account name and the primary key information to programmatically access the Media Services account.</source>
+          <target state="new">You will need the account name and the primary key information to programmatically access the Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="3249ad0d-2ffd-4556-8ba4-22976708fc17" xml:space="preserve">
+          <source><bpt id="aebd8d2a-ebd7-4730-991b-09975a8a494d">&lt;linkText&gt;</bpt>Media Services Page<ept id="aebd8d2a-ebd7-4730-991b-09975a8a494d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aebd8d2a-ebd7-4730-991b-09975a8a494d">&lt;linkText&gt;</bpt>Media Services Page<ept id="aebd8d2a-ebd7-4730-991b-09975a8a494d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="043bba4c-1c20-4b40-baec-b28592c6e0ab" xml:space="preserve">
+          <source>When you double-click the account name, the Quick Start page is displayed by default.</source>
+          <target state="new">When you double-click the account name, the Quick Start page is displayed by default.</target>
+        </trans-unit>
+        <trans-unit id="b2aa4e50-ef69-4b32-8006-6178248c1490" xml:space="preserve">
+          <source>This page enables you to do some management tasks that are also available on other pages of the portal.</source>
+          <target state="new">This page enables you to do some management tasks that are also available on other pages of the portal.</target>
+        </trans-unit>
+        <trans-unit id="63007711-6c3b-42f5-84fe-d009e090c568" xml:space="preserve">
+          <source>For example, you can upload a video file from this page, or do it from the CONTENT page.</source>
+          <target state="new">For example, you can upload a video file from this page, or do it from the CONTENT page.</target>
+        </trans-unit>
+        <trans-unit id="9b18c4f6-f5f8-4764-b4b7-4775a441ee78" xml:space="preserve">
+          <source>When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients.</source>
+          <target state="new">When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients.</target>
+        </trans-unit>
+        <trans-unit id="6ae5c913-bb69-499b-99a3-790e06c6d83f" xml:space="preserve">
+          <source>With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors.</source>
+          <target state="new">With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors.</target>
+        </trans-unit>
+        <trans-unit id="a4c52266-d03c-4f13-92ae-b2c8a0ad91f6" xml:space="preserve">
+          <source>Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</source>
+          <target state="new">Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</target>
+        </trans-unit>
+        <trans-unit id="acbcfa74-e7e0-4bf8-94d5-9c557e1fc7bb" xml:space="preserve">
+          <source>Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.</source>
+          <target state="new">Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.</target>
+        </trans-unit>
+        <trans-unit id="e7cf38e8-867d-4fa0-a9d0-3d0ef1f5dbb6" xml:space="preserve">
+          <source>To take advantage of dynamic packaging, you need to do the following:</source>
+          <target state="new">To take advantage of dynamic packaging, you need to do the following:</target>
+        </trans-unit>
+        <trans-unit id="645d0519-1ff6-48dc-a8de-4fb14d656d9b" xml:space="preserve">
+          <source>Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).</source>
+          <target state="new">Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).</target>
+        </trans-unit>
+        <trans-unit id="a35df32b-c6e9-42df-9c74-f80c6c96ac83" xml:space="preserve">
+          <source>Get at least one streaming unit for the <bpt id="c9dd12d9-f947-4db5-b469-d4bf20cd2319">&lt;em&gt;</bpt>streaming endpoint<ept id="c9dd12d9-f947-4db5-b469-d4bf20cd2319">&lt;/em&gt;</ept> from which you plan to delivery your content.</source>
+          <target state="new">Get at least one streaming unit for the <bpt id="c9dd12d9-f947-4db5-b469-d4bf20cd2319">&lt;em&gt;</bpt>streaming endpoint<ept id="c9dd12d9-f947-4db5-b469-d4bf20cd2319">&lt;/em&gt;</ept> from which you plan to delivery your content.</target>
+        </trans-unit>
+        <trans-unit id="0e236605-9ad7-4272-b84a-96357093c292" xml:space="preserve">
+          <source>With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.</source>
+          <target state="new">With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.</target>
+        </trans-unit>
+        <trans-unit id="11f11a44-2a4d-425b-b603-c45f293d602d" xml:space="preserve">
+          <source>To change the number of streaming reserved units, do the following:</source>
+          <target state="new">To change the number of streaming reserved units, do the following:</target>
+        </trans-unit>
+        <trans-unit id="18e3eafd-d363-448e-b8e6-3e01394c78ea" xml:space="preserve">
+          <source>In the <bpt id="fde454a0-9c15-4920-9ec8-34a59d40dcaf">&lt;linkText&gt;</bpt>Azure portal<ept id="fde454a0-9c15-4920-9ec8-34a59d40dcaf">&lt;/linkText&gt;</ept><bpt id="fde454a0-9c15-4920-9ec8-34a59d40dcaf">&lt;title&gt;</bpt><ept id="fde454a0-9c15-4920-9ec8-34a59d40dcaf">&lt;/title&gt;</ept>, click <bpt id="12dd6956-b58e-4d70-87b2-090e83a9000e">&lt;strong&gt;</bpt>Media Services<ept id="12dd6956-b58e-4d70-87b2-090e83a9000e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="fde454a0-9c15-4920-9ec8-34a59d40dcaf">&lt;linkText&gt;</bpt>Azure portal<ept id="fde454a0-9c15-4920-9ec8-34a59d40dcaf">&lt;/linkText&gt;</ept><bpt id="fde454a0-9c15-4920-9ec8-34a59d40dcaf">&lt;title&gt;</bpt><ept id="fde454a0-9c15-4920-9ec8-34a59d40dcaf">&lt;/title&gt;</ept>, click <bpt id="12dd6956-b58e-4d70-87b2-090e83a9000e">&lt;strong&gt;</bpt>Media Services<ept id="12dd6956-b58e-4d70-87b2-090e83a9000e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a875db1-5e3f-4cfa-8f45-22773a2b8baf" xml:space="preserve">
+          <source>Then, click the name of the media service.</source>
+          <target state="new">Then, click the name of the media service.</target>
+        </trans-unit>
+        <trans-unit id="6230aa10-f518-48d4-8109-400ebefff370" xml:space="preserve">
+          <source>Select the STREAMING ENDPOINTS page.</source>
+          <target state="new">Select the STREAMING ENDPOINTS page.</target>
+        </trans-unit>
+        <trans-unit id="8ad85bb0-d3f3-434c-a277-78dba7324046" xml:space="preserve">
+          <source>Then, click the streaming endpoint that you want to modify.</source>
+          <target state="new">Then, click the streaming endpoint that you want to modify.</target>
+        </trans-unit>
+        <trans-unit id="c70b6cb7-1758-4dde-8585-51e7a39f0fa1" xml:space="preserve">
+          <source>To specify the number of streaming units, select the <bpt id="d7a93118-b02b-41c3-9540-95b97dcbb164">&lt;strong&gt;</bpt>SCALE<ept id="d7a93118-b02b-41c3-9540-95b97dcbb164">&lt;/strong&gt;</ept> tab and move the <bpt id="fc7657e2-bcf0-48df-9acc-12d1f9ff3e03">&lt;strong&gt;</bpt>reserved capacity<ept id="fc7657e2-bcf0-48df-9acc-12d1f9ff3e03">&lt;/strong&gt;</ept> slider.</source>
+          <target state="new">To specify the number of streaming units, select the <bpt id="d7a93118-b02b-41c3-9540-95b97dcbb164">&lt;strong&gt;</bpt>SCALE<ept id="d7a93118-b02b-41c3-9540-95b97dcbb164">&lt;/strong&gt;</ept> tab and move the <bpt id="fc7657e2-bcf0-48df-9acc-12d1f9ff3e03">&lt;strong&gt;</bpt>reserved capacity<ept id="fc7657e2-bcf0-48df-9acc-12d1f9ff3e03">&lt;/strong&gt;</ept> slider.</target>
+        </trans-unit>
+        <trans-unit id="eecb5a16-dfc1-4c7f-920c-daf1743dbb99" xml:space="preserve">
+          <source><bpt id="506f966f-4338-425f-acb7-642b304151aa">&lt;linkText&gt;</bpt>Scale page<ept id="506f966f-4338-425f-acb7-642b304151aa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="506f966f-4338-425f-acb7-642b304151aa">&lt;linkText&gt;</bpt>Scale page<ept id="506f966f-4338-425f-acb7-642b304151aa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f564f543-989f-43be-8cef-45bbc453b049" xml:space="preserve">
+          <source>Click the <bpt id="7b90e9a8-034a-4149-8cbc-ca7490a91e77">&lt;strong&gt;</bpt>SAVE<ept id="7b90e9a8-034a-4149-8cbc-ca7490a91e77">&lt;/strong&gt;</ept> button to save your changes.</source>
+          <target state="new">Click the <bpt id="7b90e9a8-034a-4149-8cbc-ca7490a91e77">&lt;strong&gt;</bpt>SAVE<ept id="7b90e9a8-034a-4149-8cbc-ca7490a91e77">&lt;/strong&gt;</ept> button to save your changes.</target>
+        </trans-unit>
+        <trans-unit id="2be107f2-3a61-4d02-8c97-5075700932c9" xml:space="preserve">
+          <source>The allocation of any new units takes around 20 minutes to complete.</source>
+          <target state="new">The allocation of any new units takes around 20 minutes to complete.</target>
+        </trans-unit>
+        <trans-unit id="e6182a8e-d28a-4773-874d-5adf8329ccc0" xml:space="preserve">
+          <source>Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.</source>
+          <target state="new">Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.</target>
+        </trans-unit>
+        <trans-unit id="6bbf9fb3-b269-4065-b3d0-e18c02e384be" xml:space="preserve">
+          <source>The highest number of units specified for the 24-hour period is used in calculating the cost.</source>
+          <target state="new">The highest number of units specified for the 24-hour period is used in calculating the cost.</target>
+        </trans-unit>
+        <trans-unit id="e848a44a-dda6-4ef5-a69a-c55087f9287d" xml:space="preserve">
+          <source>For information about pricing details, see <bpt id="d5d1dea4-a3e3-44aa-8f49-fd0e8e18a4f9">&lt;linkText&gt;</bpt>Media Services Pricing Details<ept id="d5d1dea4-a3e3-44aa-8f49-fd0e8e18a4f9">&lt;/linkText&gt;</ept><bpt id="d5d1dea4-a3e3-44aa-8f49-fd0e8e18a4f9">&lt;title&gt;</bpt><ept id="d5d1dea4-a3e3-44aa-8f49-fd0e8e18a4f9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about pricing details, see <bpt id="d5d1dea4-a3e3-44aa-8f49-fd0e8e18a4f9">&lt;linkText&gt;</bpt>Media Services Pricing Details<ept id="d5d1dea4-a3e3-44aa-8f49-fd0e8e18a4f9">&lt;/linkText&gt;</ept><bpt id="d5d1dea4-a3e3-44aa-8f49-fd0e8e18a4f9">&lt;title&gt;</bpt><ept id="d5d1dea4-a3e3-44aa-8f49-fd0e8e18a4f9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d1d9dce-fb42-48e6-9788-96b6e233b849" xml:space="preserve">
+          <source>In the <bpt id="b4ef2be2-6afc-4b09-89bd-9b2030197804">&lt;linkText&gt;</bpt>Azure portal<ept id="b4ef2be2-6afc-4b09-89bd-9b2030197804">&lt;/linkText&gt;</ept><bpt id="b4ef2be2-6afc-4b09-89bd-9b2030197804">&lt;title&gt;</bpt><ept id="b4ef2be2-6afc-4b09-89bd-9b2030197804">&lt;/title&gt;</ept>, click <bpt id="a3ee7dae-8651-4b7f-8e54-54462221394c">&lt;strong&gt;</bpt>Media Services<ept id="a3ee7dae-8651-4b7f-8e54-54462221394c">&lt;/strong&gt;</ept> and then click the Media Services account name.</source>
+          <target state="new">In the <bpt id="b4ef2be2-6afc-4b09-89bd-9b2030197804">&lt;linkText&gt;</bpt>Azure portal<ept id="b4ef2be2-6afc-4b09-89bd-9b2030197804">&lt;/linkText&gt;</ept><bpt id="b4ef2be2-6afc-4b09-89bd-9b2030197804">&lt;title&gt;</bpt><ept id="b4ef2be2-6afc-4b09-89bd-9b2030197804">&lt;/title&gt;</ept>, click <bpt id="a3ee7dae-8651-4b7f-8e54-54462221394c">&lt;strong&gt;</bpt>Media Services<ept id="a3ee7dae-8651-4b7f-8e54-54462221394c">&lt;/strong&gt;</ept> and then click the Media Services account name.</target>
+        </trans-unit>
+        <trans-unit id="01630cac-2efd-40cc-8bd3-11ba0a4372a7" xml:space="preserve">
+          <source>Select the CONTENT page.</source>
+          <target state="new">Select the CONTENT page.</target>
+        </trans-unit>
+        <trans-unit id="7d1e41c6-fed4-487d-a272-3a86270da801" xml:space="preserve">
+          <source>Click the <bpt id="ac213be5-4417-438c-9444-c8f778b06a04">&lt;strong&gt;</bpt>Upload<ept id="ac213be5-4417-438c-9444-c8f778b06a04">&lt;/strong&gt;</ept> button on the page or at the bottom of the portal.</source>
+          <target state="new">Click the <bpt id="ac213be5-4417-438c-9444-c8f778b06a04">&lt;strong&gt;</bpt>Upload<ept id="ac213be5-4417-438c-9444-c8f778b06a04">&lt;/strong&gt;</ept> button on the page or at the bottom of the portal.</target>
+        </trans-unit>
+        <trans-unit id="bd0c6f9e-ad9f-4604-a0d9-4da0097a73c8" xml:space="preserve">
+          <source>In the <bpt id="c71d0d5f-ea67-4b27-bb53-c66f67016f9c">&lt;strong&gt;</bpt>Upload content<ept id="c71d0d5f-ea67-4b27-bb53-c66f67016f9c">&lt;/strong&gt;</ept> dialog box, browse to the desired asset file.</source>
+          <target state="new">In the <bpt id="c71d0d5f-ea67-4b27-bb53-c66f67016f9c">&lt;strong&gt;</bpt>Upload content<ept id="c71d0d5f-ea67-4b27-bb53-c66f67016f9c">&lt;/strong&gt;</ept> dialog box, browse to the desired asset file.</target>
+        </trans-unit>
+        <trans-unit id="9fe16b44-2222-41ee-bacd-2185ff6e567f" xml:space="preserve">
+          <source>Click the file and then click <bpt id="1b41b7ca-c553-4f03-a70e-a4f2dc52b42c">&lt;strong&gt;</bpt>Open<ept id="1b41b7ca-c553-4f03-a70e-a4f2dc52b42c">&lt;/strong&gt;</ept> or press Enter.</source>
+          <target state="new">Click the file and then click <bpt id="1b41b7ca-c553-4f03-a70e-a4f2dc52b42c">&lt;strong&gt;</bpt>Open<ept id="1b41b7ca-c553-4f03-a70e-a4f2dc52b42c">&lt;/strong&gt;</ept> or press Enter.</target>
+        </trans-unit>
+        <trans-unit id="b3f556af-6d8b-4cdc-b59f-279d893bfbf5" xml:space="preserve">
+          <source><bpt id="28bf9211-8eb6-4151-b3d6-98a5ab0de398">&lt;linkText&gt;</bpt>UploadContentDialog<ept id="28bf9211-8eb6-4151-b3d6-98a5ab0de398">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="28bf9211-8eb6-4151-b3d6-98a5ab0de398">&lt;linkText&gt;</bpt>UploadContentDialog<ept id="28bf9211-8eb6-4151-b3d6-98a5ab0de398">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4f9375b-a844-4fd3-a34e-0e6c1d8afc24" xml:space="preserve">
+          <source>In the <bpt id="a05bd64b-2f8d-4ae1-be37-59ce8e308af5">&lt;strong&gt;</bpt>Upload content<ept id="a05bd64b-2f8d-4ae1-be37-59ce8e308af5">&lt;/strong&gt;</ept> dialog box, click the check button to accept the <bpt id="1d281988-11c5-4904-a68d-00e17aee77ab">&lt;strong&gt;</bpt>File<ept id="1d281988-11c5-4904-a68d-00e17aee77ab">&lt;/strong&gt;</ept> and <bpt id="979b3d12-0cc4-460e-aab0-598e0916f927">&lt;strong&gt;</bpt>Content Name<ept id="979b3d12-0cc4-460e-aab0-598e0916f927">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a05bd64b-2f8d-4ae1-be37-59ce8e308af5">&lt;strong&gt;</bpt>Upload content<ept id="a05bd64b-2f8d-4ae1-be37-59ce8e308af5">&lt;/strong&gt;</ept> dialog box, click the check button to accept the <bpt id="1d281988-11c5-4904-a68d-00e17aee77ab">&lt;strong&gt;</bpt>File<ept id="1d281988-11c5-4904-a68d-00e17aee77ab">&lt;/strong&gt;</ept> and <bpt id="979b3d12-0cc4-460e-aab0-598e0916f927">&lt;strong&gt;</bpt>Content Name<ept id="979b3d12-0cc4-460e-aab0-598e0916f927">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00a5aca4-c6a1-4ba8-8be3-344bc83b74c3" xml:space="preserve">
+          <source>The upload will start and you can track progress from the bottom of the portal.</source>
+          <target state="new">The upload will start and you can track progress from the bottom of the portal.</target>
+        </trans-unit>
+        <trans-unit id="9896573b-2334-4d54-9f28-912afe4d97c9" xml:space="preserve">
+          <source><bpt id="84e2bead-a437-4671-a2f9-bd53c1160322">&lt;linkText&gt;</bpt>JobStatus<ept id="84e2bead-a437-4671-a2f9-bd53c1160322">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="84e2bead-a437-4671-a2f9-bd53c1160322">&lt;linkText&gt;</bpt>JobStatus<ept id="84e2bead-a437-4671-a2f9-bd53c1160322">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41c5b38c-3929-4af1-a2ec-c5cca0e1afd9" xml:space="preserve">
+          <source>Once the upload has completed, you will see the new asset listed in the Content list.</source>
+          <target state="new">Once the upload has completed, you will see the new asset listed in the Content list.</target>
+        </trans-unit>
+        <trans-unit id="403a6d47-fb7a-46f9-93cb-94eb9ded6c2c" xml:space="preserve">
+          <source>By convention the name will have "<bpt id="451888e6-8cb5-4a60-b173-bfab775f87b1">&lt;strong&gt;</bpt>-Source<ept id="451888e6-8cb5-4a60-b173-bfab775f87b1">&lt;/strong&gt;</ept>" appended at the end to help track new content as source content for encoding tasks.</source>
+          <target state="new">By convention the name will have "<bpt id="451888e6-8cb5-4a60-b173-bfab775f87b1">&lt;strong&gt;</bpt>-Source<ept id="451888e6-8cb5-4a60-b173-bfab775f87b1">&lt;/strong&gt;</ept>" appended at the end to help track new content as source content for encoding tasks.</target>
+        </trans-unit>
+        <trans-unit id="d00cd7f6-224b-4121-9752-23d8ee392e99" xml:space="preserve">
+          <source><bpt id="c77901f7-5dab-4363-8ef8-97f01f536922">&lt;linkText&gt;</bpt>ContentPage<ept id="c77901f7-5dab-4363-8ef8-97f01f536922">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c77901f7-5dab-4363-8ef8-97f01f536922">&lt;linkText&gt;</bpt>ContentPage<ept id="c77901f7-5dab-4363-8ef8-97f01f536922">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a629d67e-6ad6-4982-9155-a69140417edc" xml:space="preserve">
+          <source>If the file size value does not get updated after the uploading process stops, select the <bpt id="798e91f6-3f00-42fc-9146-412ff5dd092d">&lt;strong&gt;</bpt>Sync Metadata<ept id="798e91f6-3f00-42fc-9146-412ff5dd092d">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">If the file size value does not get updated after the uploading process stops, select the <bpt id="798e91f6-3f00-42fc-9146-412ff5dd092d">&lt;strong&gt;</bpt>Sync Metadata<ept id="798e91f6-3f00-42fc-9146-412ff5dd092d">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="cec65d33-12a5-4f61-862b-9b2fe41685f2" xml:space="preserve">
+          <source>This synchronizes the asset file size with the actual file size in storage and refreshes the value on the Content page.</source>
+          <target state="new">This synchronizes the asset file size with the actual file size in storage and refreshes the value on the Content page.</target>
+        </trans-unit>
+        <trans-unit id="f2ded526-e240-47c1-874b-f30908d3e4cd" xml:space="preserve">
+          <source>In order to deliver digital video over the Internet you must compress the media.</source>
+          <target state="new">In order to deliver digital video over the Internet you must compress the media.</target>
+        </trans-unit>
+        <trans-unit id="0117b027-c4bb-4040-91dc-74149d7d8c43" xml:space="preserve">
+          <source>Media Services provides a media encoder that allows you to specify how you want your content to be encoded (for example, the codecs to use, file format, resolution, and bitrate.)</source>
+          <target state="new">Media Services provides a media encoder that allows you to specify how you want your content to be encoded (for example, the codecs to use, file format, resolution, and bitrate.)</target>
+        </trans-unit>
+        <trans-unit id="7cc4a690-4ca9-4299-972e-8ab45f0257bc" xml:space="preserve">
+          <source>When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients.</source>
+          <target state="new">When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients.</target>
+        </trans-unit>
+        <trans-unit id="436ca9e4-d2b7-4475-b5a2-864035853b2a" xml:space="preserve">
+          <source>With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors.</source>
+          <target state="new">With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors.</target>
+        </trans-unit>
+        <trans-unit id="572f4dae-0a86-48ab-be0e-77c680ddc67b" xml:space="preserve">
+          <source>Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</source>
+          <target state="new">Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</target>
+        </trans-unit>
+        <trans-unit id="a62a9010-fbef-4640-91e1-23ac1d0ab99f" xml:space="preserve">
+          <source>Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, or HDS) without you having to re-package into these streaming formats.</source>
+          <target state="new">Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, or HDS) without you having to re-package into these streaming formats.</target>
+        </trans-unit>
+        <trans-unit id="f64f53ac-a8d1-487a-88a1-c4f1a336d719" xml:space="preserve">
+          <source>To take advantage of dynamic packaging, you need to do the following:</source>
+          <target state="new">To take advantage of dynamic packaging, you need to do the following:</target>
+        </trans-unit>
+        <trans-unit id="9cb0b53e-6711-4a4a-8d2c-8649edcc1aa2" xml:space="preserve">
+          <source>Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).</source>
+          <target state="new">Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).</target>
+        </trans-unit>
+        <trans-unit id="64fe233d-d258-4e69-89b3-a1e96a1a8fa8" xml:space="preserve">
+          <source>Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content.</source>
+          <target state="new">Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content.</target>
+        </trans-unit>
+        <trans-unit id="ad8930b1-fbc6-476e-920b-d49ace9643b8" xml:space="preserve">
+          <source>For more information, see [How to scale On-Demand Streaming reserved units](media-services-manage-origins.md#scale<bpt id="0c2a4069-020c-4f52-837b-4e1f4f86dd57">&lt;em&gt;</bpt>streaming<ept id="0c2a4069-020c-4f52-837b-4e1f4f86dd57">&lt;/em&gt;</ept>endpoints/).</source>
+          <target state="new">For more information, see [How to scale On-Demand Streaming reserved units](media-services-manage-origins.md#scale<bpt id="0c2a4069-020c-4f52-837b-4e1f4f86dd57">&lt;em&gt;</bpt>streaming<ept id="0c2a4069-020c-4f52-837b-4e1f4f86dd57">&lt;/em&gt;</ept>endpoints/).</target>
+        </trans-unit>
+        <trans-unit id="3ac2f4fc-3223-495b-87a6-bd692a10868d" xml:space="preserve">
+          <source>With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.</source>
+          <target state="new">With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.</target>
+        </trans-unit>
+        <trans-unit id="5676af0a-f489-4ad4-b221-b7ef19da59f4" xml:space="preserve">
+          <source>Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps.</source>
+          <target state="new">Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps.</target>
+        </trans-unit>
+        <trans-unit id="70caf565-97e8-4441-b689-f2ff8b0631dd" xml:space="preserve">
+          <source>By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, or egress capacity) are shared with all other users.</source>
+          <target state="new">By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, or egress capacity) are shared with all other users.</target>
+        </trans-unit>
+        <trans-unit id="ecdca408-e433-40fe-b242-b86587f9b81d" xml:space="preserve">
+          <source>To improve an on-demand streaming throughput, it is recommended that you purchase On-Demand Streaming reserved units.</source>
+          <target state="new">To improve an on-demand streaming throughput, it is recommended that you purchase On-Demand Streaming reserved units.</target>
+        </trans-unit>
+        <trans-unit id="923b9182-cdfd-4f48-bdeb-7f6dc4f67134" xml:space="preserve">
+          <source>This section describes the steps you can take to encode your content with Azure Media Encoder using the Azure portal.</source>
+          <target state="new">This section describes the steps you can take to encode your content with Azure Media Encoder using the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="e6fa3f4f-c5c5-4f08-b4a8-9ea57b87b929" xml:space="preserve">
+          <source>Select the file that you would like to encode.</source>
+          <target state="new">Select the file that you would like to encode.</target>
+        </trans-unit>
+        <trans-unit id="330f016f-00ee-4ca6-ba19-41511f8481da" xml:space="preserve">
+          <source>If encoding is supported for this file type, the <bpt id="30d40f45-04ca-4006-bd1b-18bd96959a1b">&lt;strong&gt;</bpt>PROCESS<ept id="30d40f45-04ca-4006-bd1b-18bd96959a1b">&lt;/strong&gt;</ept> button will be enabled on the bottom of the CONTENT page.</source>
+          <target state="new">If encoding is supported for this file type, the <bpt id="30d40f45-04ca-4006-bd1b-18bd96959a1b">&lt;strong&gt;</bpt>PROCESS<ept id="30d40f45-04ca-4006-bd1b-18bd96959a1b">&lt;/strong&gt;</ept> button will be enabled on the bottom of the CONTENT page.</target>
+        </trans-unit>
+        <trans-unit id="e0bda52e-f146-4e93-9096-a3a09f92270e" xml:space="preserve">
+          <source>In the <bpt id="bb906fcd-ade6-491d-a4ba-7280c3e6161c">&lt;strong&gt;</bpt>Process<ept id="bb906fcd-ade6-491d-a4ba-7280c3e6161c">&lt;/strong&gt;</ept> dialog box, select the<bpt id="80b339b0-66d9-4b84-b0c1-62a9aa9b1ea5">&lt;em&gt;</bpt>* Azure Media Encoder *<ept id="80b339b0-66d9-4b84-b0c1-62a9aa9b1ea5">&lt;/em&gt;</ept>processor.</source>
+          <target state="new">In the <bpt id="bb906fcd-ade6-491d-a4ba-7280c3e6161c">&lt;strong&gt;</bpt>Process<ept id="bb906fcd-ade6-491d-a4ba-7280c3e6161c">&lt;/strong&gt;</ept> dialog box, select the<bpt id="80b339b0-66d9-4b84-b0c1-62a9aa9b1ea5">&lt;em&gt;</bpt>* Azure Media Encoder *<ept id="80b339b0-66d9-4b84-b0c1-62a9aa9b1ea5">&lt;/em&gt;</ept>processor.</target>
+        </trans-unit>
+        <trans-unit id="43bbbf93-be59-4494-b01e-1cff67e433fe" xml:space="preserve">
+          <source>Choose one of the <bpt id="d5727261-2524-4256-b7db-ede6a35fbfff">&lt;strong&gt;</bpt>encoding configurations<ept id="d5727261-2524-4256-b7db-ede6a35fbfff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose one of the <bpt id="d5727261-2524-4256-b7db-ede6a35fbfff">&lt;strong&gt;</bpt>encoding configurations<ept id="d5727261-2524-4256-b7db-ede6a35fbfff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2038de6c-5ec1-46b7-91f2-3ecc09c39b3b" xml:space="preserve">
+          <source><bpt id="7ea9f0dc-7c13-4e0d-b090-f52e5abda1d5">&lt;linkText&gt;</bpt>Process2<ept id="7ea9f0dc-7c13-4e0d-b090-f52e5abda1d5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ea9f0dc-7c13-4e0d-b090-f52e5abda1d5">&lt;linkText&gt;</bpt>Process2<ept id="7ea9f0dc-7c13-4e0d-b090-f52e5abda1d5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e73921fb-af96-4cb7-b000-6d264858d9e7" xml:space="preserve">
+          <source>The <bpt id="20dce571-caa2-412e-829c-4ddbbb6636ff">&lt;linkText&gt;</bpt>Task Preset Strings for Azure Media Encoder<ept id="20dce571-caa2-412e-829c-4ddbbb6636ff">&lt;/linkText&gt;</ept><bpt id="20dce571-caa2-412e-829c-4ddbbb6636ff">&lt;title&gt;</bpt><ept id="20dce571-caa2-412e-829c-4ddbbb6636ff">&lt;/title&gt;</ept> topic explains what each preset in <bpt id="1082fe8e-2dc5-44d1-a849-2083b668fcf0">&lt;strong&gt;</bpt>Presets for Adaptive Streaming (dynamic packaging)<ept id="1082fe8e-2dc5-44d1-a849-2083b668fcf0">&lt;/strong&gt;</ept>, <bpt id="c82a492f-cf34-4cd5-b6ed-92b3c48fb70b">&lt;strong&gt;</bpt>Presets for Progressive Download<ept id="c82a492f-cf34-4cd5-b6ed-92b3c48fb70b">&lt;/strong&gt;</ept>, <bpt id="e7d5fedc-a5bf-4339-bac9-3596e859b2e5">&lt;strong&gt;</bpt>Legacy Prsests for Adaptive Streaming<ept id="e7d5fedc-a5bf-4339-bac9-3596e859b2e5">&lt;/strong&gt;</ept>  categories means.</source>
+          <target state="new">The <bpt id="20dce571-caa2-412e-829c-4ddbbb6636ff">&lt;linkText&gt;</bpt>Task Preset Strings for Azure Media Encoder<ept id="20dce571-caa2-412e-829c-4ddbbb6636ff">&lt;/linkText&gt;</ept><bpt id="20dce571-caa2-412e-829c-4ddbbb6636ff">&lt;title&gt;</bpt><ept id="20dce571-caa2-412e-829c-4ddbbb6636ff">&lt;/title&gt;</ept> topic explains what each preset in <bpt id="1082fe8e-2dc5-44d1-a849-2083b668fcf0">&lt;strong&gt;</bpt>Presets for Adaptive Streaming (dynamic packaging)<ept id="1082fe8e-2dc5-44d1-a849-2083b668fcf0">&lt;/strong&gt;</ept>, <bpt id="c82a492f-cf34-4cd5-b6ed-92b3c48fb70b">&lt;strong&gt;</bpt>Presets for Progressive Download<ept id="c82a492f-cf34-4cd5-b6ed-92b3c48fb70b">&lt;/strong&gt;</ept>, <bpt id="e7d5fedc-a5bf-4339-bac9-3596e859b2e5">&lt;strong&gt;</bpt>Legacy Prsests for Adaptive Streaming<ept id="e7d5fedc-a5bf-4339-bac9-3596e859b2e5">&lt;/strong&gt;</ept>  categories means.</target>
+        </trans-unit>
+        <trans-unit id="06fc0c16-8ea3-4c8c-a79d-af8261676076" xml:space="preserve">
+          <source>The <bpt id="3983cc56-982c-4c6a-9b29-eddf70205bb5">&lt;strong&gt;</bpt>Other<ept id="3983cc56-982c-4c6a-9b29-eddf70205bb5">&lt;/strong&gt;</ept> configurations are described next.</source>
+          <target state="new">The <bpt id="3983cc56-982c-4c6a-9b29-eddf70205bb5">&lt;strong&gt;</bpt>Other<ept id="3983cc56-982c-4c6a-9b29-eddf70205bb5">&lt;/strong&gt;</ept> configurations are described next.</target>
+        </trans-unit>
+        <trans-unit id="7c91b3f4-d8cc-45f2-b3f9-788afae04d46" xml:space="preserve">
+          <source><bpt id="a8584f73-9a93-4ef6-9cce-46928f33e46d">&lt;strong&gt;</bpt>Encode with PlayReady content protection<ept id="a8584f73-9a93-4ef6-9cce-46928f33e46d">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="a8584f73-9a93-4ef6-9cce-46928f33e46d">&lt;strong&gt;</bpt>Encode with PlayReady content protection<ept id="a8584f73-9a93-4ef6-9cce-46928f33e46d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c74f9929-700c-4e2f-ae39-14321b64dc63" xml:space="preserve">
+          <source>This preset produces an asset encoded with PlayReady content protection.</source>
+          <target state="new">This preset produces an asset encoded with PlayReady content protection.</target>
+        </trans-unit>
+        <trans-unit id="22e0450f-c217-4fd6-9411-16e07a2608ee" xml:space="preserve">
+          <source>By default the Media Services PlayReady license service is used.</source>
+          <target state="new">By default the Media Services PlayReady license service is used.</target>
+        </trans-unit>
+        <trans-unit id="98672e7c-9444-4f91-9039-57b3e829068c" xml:space="preserve">
+          <source>To specify some other service from which clients can obtain a license to play the PlayReady encrypted content, use REST or Media Services .NET SDK APIs.</source>
+          <target state="new">To specify some other service from which clients can obtain a license to play the PlayReady encrypted content, use REST or Media Services .NET SDK APIs.</target>
+        </trans-unit>
+        <trans-unit id="514d8354-a8b2-48a2-9a07-09037c037790" xml:space="preserve">
+          <source>For more information, see <bpt id="6834d951-3640-4d96-ba75-036fcbbaa0aa">&lt;linkText&gt;</bpt>Using Static Encryption to Protect your Content<ept id="6834d951-3640-4d96-ba75-036fcbbaa0aa">&lt;/linkText&gt;</ept><bpt id="6834d951-3640-4d96-ba75-036fcbbaa0aa">&lt;title&gt;</bpt><ept id="6834d951-3640-4d96-ba75-036fcbbaa0aa">&lt;/title&gt;</ept> and set the <bpt id="4bfd7fad-bca3-4bf9-8d8f-15108a0cf036">&lt;strong&gt;</bpt>licenseAcquisitionUrl<ept id="4bfd7fad-bca3-4bf9-8d8f-15108a0cf036">&lt;/strong&gt;</ept> property in the Media Encryptor preset.</source>
+          <target state="new">For more information, see <bpt id="6834d951-3640-4d96-ba75-036fcbbaa0aa">&lt;linkText&gt;</bpt>Using Static Encryption to Protect your Content<ept id="6834d951-3640-4d96-ba75-036fcbbaa0aa">&lt;/linkText&gt;</ept><bpt id="6834d951-3640-4d96-ba75-036fcbbaa0aa">&lt;title&gt;</bpt><ept id="6834d951-3640-4d96-ba75-036fcbbaa0aa">&lt;/title&gt;</ept> and set the <bpt id="4bfd7fad-bca3-4bf9-8d8f-15108a0cf036">&lt;strong&gt;</bpt>licenseAcquisitionUrl<ept id="4bfd7fad-bca3-4bf9-8d8f-15108a0cf036">&lt;/strong&gt;</ept> property in the Media Encryptor preset.</target>
+        </trans-unit>
+        <trans-unit id="912968b2-6cce-493e-8f95-5c449f863863" xml:space="preserve">
+          <source>Alternatively, you can use dynamic encryption and set the <bpt id="f647f32e-fa0a-4121-859e-2dc3d0a6a7f9">&lt;strong&gt;</bpt>PlayReadyLicenseAcquisitionUrl<ept id="f647f32e-fa0a-4121-859e-2dc3d0a6a7f9">&lt;/strong&gt;</ept> property as described in <bpt id="f00a53ea-d7bb-41b4-b0f5-b03b7e38e37e">&lt;linkText&gt;</bpt>Using PlayReady Dynamic Encryption and License Delivery Service<ept id="f00a53ea-d7bb-41b4-b0f5-b03b7e38e37e">&lt;/linkText&gt;</ept><bpt id="f00a53ea-d7bb-41b4-b0f5-b03b7e38e37e">&lt;title&gt;</bpt><ept id="f00a53ea-d7bb-41b4-b0f5-b03b7e38e37e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Alternatively, you can use dynamic encryption and set the <bpt id="f647f32e-fa0a-4121-859e-2dc3d0a6a7f9">&lt;strong&gt;</bpt>PlayReadyLicenseAcquisitionUrl<ept id="f647f32e-fa0a-4121-859e-2dc3d0a6a7f9">&lt;/strong&gt;</ept> property as described in <bpt id="f00a53ea-d7bb-41b4-b0f5-b03b7e38e37e">&lt;linkText&gt;</bpt>Using PlayReady Dynamic Encryption and License Delivery Service<ept id="f00a53ea-d7bb-41b4-b0f5-b03b7e38e37e">&lt;/linkText&gt;</ept><bpt id="f00a53ea-d7bb-41b4-b0f5-b03b7e38e37e">&lt;title&gt;</bpt><ept id="f00a53ea-d7bb-41b4-b0f5-b03b7e38e37e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9d5df01-0233-48dc-b7d3-e81ac721757c" xml:space="preserve">
+          <source><bpt id="ec152bd4-5efe-401c-a4b4-559a9f4251d2">&lt;strong&gt;</bpt>Playback on PC/Mac (via Flash/Silverlight)<ept id="ec152bd4-5efe-401c-a4b4-559a9f4251d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ec152bd4-5efe-401c-a4b4-559a9f4251d2">&lt;strong&gt;</bpt>Playback on PC/Mac (via Flash/Silverlight)<ept id="ec152bd4-5efe-401c-a4b4-559a9f4251d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="101197f6-31fa-48af-b029-a8ef7fb4e3e2" xml:space="preserve">
+          <source>This preset produces a Smooth Streaming asset with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 96 kbps using AAC, and 720p video CBR encoded at 6 bitrates ranging from 3400 kbps to 400 kbps using H.264 Main Profile, and two second GOPs.</source>
+          <target state="new">This preset produces a Smooth Streaming asset with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 96 kbps using AAC, and 720p video CBR encoded at 6 bitrates ranging from 3400 kbps to 400 kbps using H.264 Main Profile, and two second GOPs.</target>
+        </trans-unit>
+        <trans-unit id="006f5330-8c67-401d-be22-6ca4f1602400" xml:space="preserve">
+          <source><bpt id="1d7fc6e5-0007-4128-bf29-5b4c7a8aa4c5">&lt;strong&gt;</bpt>Playback via HTML5 (IE/Chrome/Safari)<ept id="1d7fc6e5-0007-4128-bf29-5b4c7a8aa4c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="1d7fc6e5-0007-4128-bf29-5b4c7a8aa4c5">&lt;strong&gt;</bpt>Playback via HTML5 (IE/Chrome/Safari)<ept id="1d7fc6e5-0007-4128-bf29-5b4c7a8aa4c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d353f458-55e5-4736-8c30-5dcac91eac14" xml:space="preserve">
+          <source>This preset produces a single MP4 file with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 128 kbps using AAC, and 720p video CBR encoded at 4500 kbps using H.264 Main Profile.</source>
+          <target state="new">This preset produces a single MP4 file with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 128 kbps using AAC, and 720p video CBR encoded at 4500 kbps using H.264 Main Profile.</target>
+        </trans-unit>
+        <trans-unit id="d0a7c700-ee57-44ef-b315-d975726137ce" xml:space="preserve">
+          <source><bpt id="782927a2-fdfb-4498-a868-77fc8ccb5a0b">&lt;strong&gt;</bpt>Playback on iOS devices and PC/Mac<ept id="782927a2-fdfb-4498-a868-77fc8ccb5a0b">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="782927a2-fdfb-4498-a868-77fc8ccb5a0b">&lt;strong&gt;</bpt>Playback on iOS devices and PC/Mac<ept id="782927a2-fdfb-4498-a868-77fc8ccb5a0b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eeec666e-1829-4ecf-b3ff-6ce80090f213" xml:space="preserve">
+          <source>This preset produces an asset with the same characteristics as the Smooth Streaming asset (described earlier), but in a format that can be used to deliver Apple HLS streams to iOS devices.</source>
+          <target state="new">This preset produces an asset with the same characteristics as the Smooth Streaming asset (described earlier), but in a format that can be used to deliver Apple HLS streams to iOS devices.</target>
+        </trans-unit>
+        <trans-unit id="282dcc5a-a8bb-4ad7-8161-69bffca32086" xml:space="preserve">
+          <source>Then, enter the desired friendly output content name or accept the default.</source>
+          <target state="new">Then, enter the desired friendly output content name or accept the default.</target>
+        </trans-unit>
+        <trans-unit id="d428362e-7973-438a-9ee5-0849baf24462" xml:space="preserve">
+          <source>Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.</source>
+          <target state="new">Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.</target>
+        </trans-unit>
+        <trans-unit id="c9077566-df71-4918-b23a-b3a1db736bf7" xml:space="preserve">
+          <source>Select <bpt id="0e6fcc50-683c-4e55-b17f-c3f828383d48">&lt;strong&gt;</bpt>OK<ept id="0e6fcc50-683c-4e55-b17f-c3f828383d48">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="0e6fcc50-683c-4e55-b17f-c3f828383d48">&lt;strong&gt;</bpt>OK<ept id="0e6fcc50-683c-4e55-b17f-c3f828383d48">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="beaeac8d-357b-41d8-8cce-b487a9a43353" xml:space="preserve">
+          <source>After the encoding is done, the CONTENT page will contain the encoded file.</source>
+          <target state="new">After the encoding is done, the CONTENT page will contain the encoded file.</target>
+        </trans-unit>
+        <trans-unit id="3e2cbc93-0796-4e71-be7d-0daf20a53e4d" xml:space="preserve">
+          <source>To view the progress of the encoding job, switch to the <bpt id="0e054080-21c0-4917-831d-17e00ef7c3d7">&lt;strong&gt;</bpt>JOBS<ept id="0e054080-21c0-4917-831d-17e00ef7c3d7">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">To view the progress of the encoding job, switch to the <bpt id="0e054080-21c0-4917-831d-17e00ef7c3d7">&lt;strong&gt;</bpt>JOBS<ept id="0e054080-21c0-4917-831d-17e00ef7c3d7">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="23b8c1f5-e167-4d7a-a39e-98d6c6e979a2" xml:space="preserve">
+          <source>If the file size value does not get updated after the encoding is done, select the <bpt id="82755269-d524-4441-b963-5f650cfb97b9">&lt;strong&gt;</bpt>Sync Metadata<ept id="82755269-d524-4441-b963-5f650cfb97b9">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">If the file size value does not get updated after the encoding is done, select the <bpt id="82755269-d524-4441-b963-5f650cfb97b9">&lt;strong&gt;</bpt>Sync Metadata<ept id="82755269-d524-4441-b963-5f650cfb97b9">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="13505689-237a-40b3-bf54-deeef52a17fd" xml:space="preserve">
+          <source>This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.</source>
+          <target state="new">This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.</target>
+        </trans-unit>
+        <trans-unit id="0fed598a-de01-4705-b6f3-aabd206f7493" xml:space="preserve">
+          <source>To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator.</source>
+          <target state="new">To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator.</target>
+        </trans-unit>
+        <trans-unit id="fef6c1f0-bd17-430a-b7c7-86cc675e9ccb" xml:space="preserve">
+          <source>Locators provide access to files contained in the asset.</source>
+          <target state="new">Locators provide access to files contained in the asset.</target>
+        </trans-unit>
+        <trans-unit id="9007139f-e05d-4337-9a35-91670fca356a" xml:space="preserve">
+          <source>Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.</source>
+          <target state="new">Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.</target>
+        </trans-unit>
+        <trans-unit id="d404e250-98fe-4386-8bc3-a7a1dcc739d3" xml:space="preserve">
+          <source>When you use the Azure portal to publish your assets, the locators are created for you and you are provided with an OnDemand-based URL (if your asset contains an .ism file) or a SAS URL.</source>
+          <target state="new">When you use the Azure portal to publish your assets, the locators are created for you and you are provided with an OnDemand-based URL (if your asset contains an .ism file) or a SAS URL.</target>
+        </trans-unit>
+        <trans-unit id="6292fc6e-ba48-4bca-9586-0cf394e54a90" xml:space="preserve">
+          <source>A SAS URL has the following format.</source>
+          <target state="new">A SAS URL has the following format.</target>
+        </trans-unit>
+        <trans-unit id="093b8a3d-81f4-4775-b327-da0ee875c59d" xml:space="preserve">
+          <source>A streaming URL has the following format and you can use it to play Smooth Streaming assets.</source>
+          <target state="new">A streaming URL has the following format and you can use it to play Smooth Streaming assets.</target>
+        </trans-unit>
+        <trans-unit id="c73c050e-37d4-4a06-8067-6f0e70862636" xml:space="preserve">
+          <source>To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.</source>
+          <target state="new">To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.</target>
+        </trans-unit>
+        <trans-unit id="7499b35e-e504-4cda-99bf-c0c632e0129e" xml:space="preserve">
+          <source>To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.</source>
+          <target state="new">To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.</target>
+        </trans-unit>
+        <trans-unit id="9e2e903b-a859-44c7-b84e-cf84495f58ac" xml:space="preserve">
+          <source>Locators have an expiration date.</source>
+          <target state="new">Locators have an expiration date.</target>
+        </trans-unit>
+        <trans-unit id="3dc4583c-ca97-4d65-a340-8bdd10dee491" xml:space="preserve">
+          <source>When using the portal to publish your assets, locators with a 100 year expiration date are created.</source>
+          <target state="new">When using the portal to publish your assets, locators with a 100 year expiration date are created.</target>
+        </trans-unit>
+        <trans-unit id="9679e500-2db3-4588-8156-7dc8750ac31a" xml:space="preserve">
+          <source>If you used the portal to create locators before March 2015, locators with a two year expiration date were created.</source>
+          <target state="new">If you used the portal to create locators before March 2015, locators with a two year expiration date were created.</target>
+        </trans-unit>
+        <trans-unit id="0461bd27-bbb4-43c2-8b76-e807b4a52f82" xml:space="preserve">
+          <source>To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update<bpt id="f30ec69a-51a0-4322-9e7c-ffe0ab445591">&lt;em&gt;</bpt>a<ept id="f30ec69a-51a0-4322-9e7c-ffe0ab445591">&lt;/em&gt;</ept>locator ) or <bpt id="a92b5f3e-f968-43dd-80c7-e86c716915b2">&lt;linkText&gt;</bpt>.NET<ept id="a92b5f3e-f968-43dd-80c7-e86c716915b2">&lt;/linkText&gt;</ept><bpt id="a92b5f3e-f968-43dd-80c7-e86c716915b2">&lt;title&gt;</bpt><ept id="a92b5f3e-f968-43dd-80c7-e86c716915b2">&lt;/title&gt;</ept> APIs.</source>
+          <target state="new">To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update<bpt id="f30ec69a-51a0-4322-9e7c-ffe0ab445591">&lt;em&gt;</bpt>a<ept id="f30ec69a-51a0-4322-9e7c-ffe0ab445591">&lt;/em&gt;</ept>locator ) or <bpt id="a92b5f3e-f968-43dd-80c7-e86c716915b2">&lt;linkText&gt;</bpt>.NET<ept id="a92b5f3e-f968-43dd-80c7-e86c716915b2">&lt;/linkText&gt;</ept><bpt id="a92b5f3e-f968-43dd-80c7-e86c716915b2">&lt;title&gt;</bpt><ept id="a92b5f3e-f968-43dd-80c7-e86c716915b2">&lt;/title&gt;</ept> APIs.</target>
+        </trans-unit>
+        <trans-unit id="e6b02753-3b57-4551-a994-7eca4a488ee8" xml:space="preserve">
+          <source>Note that when you update the expiration date of a SAS locator, the URL changes.</source>
+          <target state="new">Note that when you update the expiration date of a SAS locator, the URL changes.</target>
+        </trans-unit>
+        <trans-unit id="eebc5168-26f2-4807-b019-4752ddbfc92f" xml:space="preserve">
+          <source>To use the portal to publish an asset, do the following:</source>
+          <target state="new">To use the portal to publish an asset, do the following:</target>
+        </trans-unit>
+        <trans-unit id="d160a671-deaa-4859-ba58-5addf9b655eb" xml:space="preserve">
+          <source>Select the asset.</source>
+          <target state="new">Select the asset.</target>
+        </trans-unit>
+        <trans-unit id="c387630e-deac-4fcc-8221-1c1d9558c10c" xml:space="preserve">
+          <source>Then, click the publish button.</source>
+          <target state="new">Then, click the publish button.</target>
+        </trans-unit>
+        <trans-unit id="08874db9-ad47-4c0c-8c02-2a736e841d02" xml:space="preserve">
+          <source><bpt id="b3bea47c-45cb-45d9-9c66-3bc3453a5b6b">&lt;linkText&gt;</bpt>PublishedContent<ept id="b3bea47c-45cb-45d9-9c66-3bc3453a5b6b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b3bea47c-45cb-45d9-9c66-3bc3453a5b6b">&lt;linkText&gt;</bpt>PublishedContent<ept id="b3bea47c-45cb-45d9-9c66-3bc3453a5b6b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3026aa0-d48a-4647-9c60-159c6bcfe27b" xml:space="preserve">
+          <source>The Azure portal provides a content player that you can use to test your video.</source>
+          <target state="new">The Azure portal provides a content player that you can use to test your video.</target>
+        </trans-unit>
+        <trans-unit id="3923b4d9-3253-41f4-a49e-1460f66545d7" xml:space="preserve">
+          <source>Click the desired video and then click the <bpt id="a1e3b997-f47d-490c-b9f3-f86d06aeaab0">&lt;strong&gt;</bpt>Play<ept id="a1e3b997-f47d-490c-b9f3-f86d06aeaab0">&lt;/strong&gt;</ept> button at the bottom of the portal.</source>
+          <target state="new">Click the desired video and then click the <bpt id="a1e3b997-f47d-490c-b9f3-f86d06aeaab0">&lt;strong&gt;</bpt>Play<ept id="a1e3b997-f47d-490c-b9f3-f86d06aeaab0">&lt;/strong&gt;</ept> button at the bottom of the portal.</target>
+        </trans-unit>
+        <trans-unit id="1a3e235e-fcf3-438f-832b-364c6a714f4c" xml:space="preserve">
+          <source>Some considerations apply:</source>
+          <target state="new">Some considerations apply:</target>
+        </trans-unit>
+        <trans-unit id="c135a4d5-ef4d-41d8-bfef-ea176545ebe8" xml:space="preserve">
+          <source>Make sure the video has been published.</source>
+          <target state="new">Make sure the video has been published.</target>
+        </trans-unit>
+        <trans-unit id="fd6c25b2-26a0-4d10-b8b9-e31d7001fe98" xml:space="preserve">
+          <source>The <bpt id="ce63eaa1-2111-483b-a48d-e0e6565e8373">&lt;strong&gt;</bpt>MEDIA SERVICES CONTENT PLAYER<ept id="ce63eaa1-2111-483b-a48d-e0e6565e8373">&lt;/strong&gt;</ept> plays from the default streaming endpoint.</source>
+          <target state="new">The <bpt id="ce63eaa1-2111-483b-a48d-e0e6565e8373">&lt;strong&gt;</bpt>MEDIA SERVICES CONTENT PLAYER<ept id="ce63eaa1-2111-483b-a48d-e0e6565e8373">&lt;/strong&gt;</ept> plays from the default streaming endpoint.</target>
+        </trans-unit>
+        <trans-unit id="2e00e79b-b5f5-47e3-bc1a-efaa1c168808" xml:space="preserve">
+          <source>If you want to play from a non-default streaming endpoint, use another player.</source>
+          <target state="new">If you want to play from a non-default streaming endpoint, use another player.</target>
+        </trans-unit>
+        <trans-unit id="311947ce-578c-4382-93fc-8bc56a9e13bb" xml:space="preserve">
+          <source>For example, <bpt id="47b35890-8faa-4c8c-a28a-9c1ba700dbf3">&lt;linkText&gt;</bpt>Azure Media Services Player<ept id="47b35890-8faa-4c8c-a28a-9c1ba700dbf3">&lt;/linkText&gt;</ept><bpt id="47b35890-8faa-4c8c-a28a-9c1ba700dbf3">&lt;title&gt;</bpt><ept id="47b35890-8faa-4c8c-a28a-9c1ba700dbf3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="47b35890-8faa-4c8c-a28a-9c1ba700dbf3">&lt;linkText&gt;</bpt>Azure Media Services Player<ept id="47b35890-8faa-4c8c-a28a-9c1ba700dbf3">&lt;/linkText&gt;</ept><bpt id="47b35890-8faa-4c8c-a28a-9c1ba700dbf3">&lt;title&gt;</bpt><ept id="47b35890-8faa-4c8c-a28a-9c1ba700dbf3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3b50cf5-bc87-475f-9fba-6cb9dcc743a0" xml:space="preserve">
+          <source><bpt id="d6de65d0-25af-4030-86e3-14804f56d9f8">&lt;linkText&gt;</bpt>AMSPlayer<ept id="d6de65d0-25af-4030-86e3-14804f56d9f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d6de65d0-25af-4030-86e3-14804f56d9f8">&lt;linkText&gt;</bpt>AMSPlayer<ept id="d6de65d0-25af-4030-86e3-14804f56d9f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="505ec936-4971-4b3a-be7a-43dfcb7cf597" xml:space="preserve">
+          <source>&lt;a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-"&gt;Azure Media Services 101 - Get your video online now!&lt;/a&gt;</source>
+          <target state="new">&lt;a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-"&gt;Azure Media Services 101 - Get your video online now!&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="6b54ec47-b0fb-4c12-a45a-7ac20ea06108" xml:space="preserve">
+          <source>&lt;a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices"&gt;Azure Media Services 102 - Dynamic Packaging and Mobile Devices&lt;/a&gt;</source>
+          <target state="new">&lt;a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices"&gt;Azure Media Services 102 - Dynamic Packaging and Mobile Devices&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="949a04df-4ed0-4944-932c-1724827544d7" xml:space="preserve">
+          <source>http://manage.windowsazure.com/</source>
+          <target state="new">http://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="df10f062-e04e-445b-a2e4-a0b2ae400a3b" xml:space="preserve">
+          <source>./media/media-services-portal-get-started/media-services-content-page.png</source>
+          <target state="new">./media/media-services-portal-get-started/media-services-content-page.png</target>
+        </trans-unit>
+        <trans-unit id="8060ea0e-a2d1-45ef-9360-494d17849038" xml:space="preserve">
+          <source>./media/media-services-portal-get-started/media-services-upload-content-published.png</source>
+          <target state="new">./media/media-services-portal-get-started/media-services-upload-content-published.png</target>
+        </trans-unit>
+        <trans-unit id="0b03eabf-da02-443a-99e9-579956f47128" xml:space="preserve">
+          <source>./media/media-services-portal-get-started/UploadContent.png</source>
+          <target state="new">./media/media-services-portal-get-started/UploadContent.png</target>
+        </trans-unit>
+        <trans-unit id="e91dbc0b-cc7b-419e-a15f-fa6223d42d5e" xml:space="preserve">
+          <source>./media/media-services-portal-get-started/Status.png</source>
+          <target state="new">./media/media-services-portal-get-started/Status.png</target>
+        </trans-unit>
+        <trans-unit id="4302c0e7-a330-4f79-a86b-cb17a1e28732" xml:space="preserve">
+          <source>./media/media-services-manage-content/EncoderDialog2.png</source>
+          <target state="new">./media/media-services-manage-content/EncoderDialog2.png</target>
+        </trans-unit>
+        <trans-unit id="1e022f5c-9515-4571-adc9-9582c0ca8cd9" xml:space="preserve">
+          <source>./media/branding-reporting.png</source>
+          <target state="new">./media/branding-reporting.png</target>
+        </trans-unit>
+        <trans-unit id="da50a2a6-ac34-430d-8443-944ad5652681" xml:space="preserve">
+          <source>./media/media-services-portal-get-started/media-services-content-page.png</source>
+          <target state="new">./media/media-services-portal-get-started/media-services-content-page.png</target>
+        </trans-unit>
+        <trans-unit id="6c78c262-b042-49a8-a0be-2766fb2c19b9" xml:space="preserve">
+          <source>./media/media-services-manage-content/media-services-process-video.png</source>
+          <target state="new">./media/media-services-manage-content/media-services-process-video.png</target>
+        </trans-unit>
+        <trans-unit id="e4f4da60-f116-475e-8921-5310c56c574d" xml:space="preserve">
+          <source>./media/media-services-portal-get-started/media-services-process-video2.png</source>
+          <target state="new">./media/media-services-portal-get-started/media-services-process-video2.png</target>
+        </trans-unit>
+        <trans-unit id="112007a8-82a7-4873-81d5-38ea80fd8402" xml:space="preserve">
+          <source>./media/media-services-manage-content/media-services-encrypt-content.png</source>
+          <target state="new">./media/media-services-manage-content/media-services-encrypt-content.png</target>
+        </trans-unit>
+        <trans-unit id="a1ea236b-cd2a-4fb6-ad85-3e3d6c4a2300" xml:space="preserve">
+          <source>./media/media-services-portal-get-started/media-services-portal-player.png</source>
+          <target state="new">./media/media-services-portal-get-started/media-services-portal-player.png</target>
+        </trans-unit>
+      </group>
+      <group id="01e2e8b4-8f09-4d96-934d-76373329a0c9" />
+    </body>
+  </file>
+</xliff>

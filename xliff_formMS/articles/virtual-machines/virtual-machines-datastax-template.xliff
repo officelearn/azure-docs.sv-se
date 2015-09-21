@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="50dc47a4-6aea-43ad-80fd-9ec7e2898688" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="50dc47a4-6aea-43ad-80fd-9ec7e2898688" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="663b5386-0733-4934-85a7-34beaaf7e34b">
+        <trans-unit id="ed0b8a72-f53d-4549-88f3-5b3667391c69" xml:space="preserve">
+          <source>DataStax on Ubuntu Resource Manager Template</source>
+          <target state="new">DataStax on Ubuntu Resource Manager Template</target>
+        </trans-unit>
+        <trans-unit id="6ec878cb-bd6a-4d40-b462-cabc508cd8ca" xml:space="preserve">
+          <source>Learn to easily deploy a new DataStax cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template</source>
+          <target state="new">Learn to easily deploy a new DataStax cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template</target>
+        </trans-unit>
+        <trans-unit id="3e833efd-f504-48e3-a04f-8f8baf80950c" xml:space="preserve">
+          <source>DataStax is a recognized industry leader in developing and delivering solutions based on Apache Cassandra™ - the commercially-supported, enterprise-ready NoSQL distributed database technology that is widely-acknowledged as agile, always-on, and predictably scalable to any size.</source>
+          <target state="new">DataStax is a recognized industry leader in developing and delivering solutions based on Apache Cassandra™ - the commercially-supported, enterprise-ready NoSQL distributed database technology that is widely-acknowledged as agile, always-on, and predictably scalable to any size.</target>
+        </trans-unit>
+        <trans-unit id="6e1e3598-8159-4b17-b344-1c217be5502a" xml:space="preserve">
+          <source>DataStax offers both the Enterprise (DSE) and Community (DSC) flavors.</source>
+          <target state="new">DataStax offers both the Enterprise (DSE) and Community (DSC) flavors.</target>
+        </trans-unit>
+        <trans-unit id="5bb7c2af-b09f-4897-9f0d-22cabd3f6f84" xml:space="preserve">
+          <source>It also provides capabilities like in-memory computing, enterprise-level security, fast and powerful integrated analytics, and enterprise search.</source>
+          <target state="new">It also provides capabilities like in-memory computing, enterprise-level security, fast and powerful integrated analytics, and enterprise search.</target>
+        </trans-unit>
+        <trans-unit id="128b2057-88ed-4d9e-86de-6025c1f4aa71" xml:space="preserve">
+          <source>In addition to what is already available in Azure Marketplace, now you can also easily deploy a new DataStax cluster on Ubuntu VMs using a Resource Manager template deployed through <bpt id="ce7e9911-9424-432b-896c-abb7a2be7dff">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="ce7e9911-9424-432b-896c-abb7a2be7dff">&lt;/linkText&gt;</ept><bpt id="ce7e9911-9424-432b-896c-abb7a2be7dff">&lt;title&gt;</bpt><ept id="ce7e9911-9424-432b-896c-abb7a2be7dff">&lt;/title&gt;</ept> or the <bpt id="2c13fdb4-e613-4923-9910-5daaeb9a0b6f">&lt;linkText&gt;</bpt>Azure CLI<ept id="2c13fdb4-e613-4923-9910-5daaeb9a0b6f">&lt;/linkText&gt;</ept><bpt id="2c13fdb4-e613-4923-9910-5daaeb9a0b6f">&lt;title&gt;</bpt><ept id="2c13fdb4-e613-4923-9910-5daaeb9a0b6f">&lt;/title&gt;</ept>.</source>
+          <target state="new">In addition to what is already available in Azure Marketplace, now you can also easily deploy a new DataStax cluster on Ubuntu VMs using a Resource Manager template deployed through <bpt id="ce7e9911-9424-432b-896c-abb7a2be7dff">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="ce7e9911-9424-432b-896c-abb7a2be7dff">&lt;/linkText&gt;</ept><bpt id="ce7e9911-9424-432b-896c-abb7a2be7dff">&lt;title&gt;</bpt><ept id="ce7e9911-9424-432b-896c-abb7a2be7dff">&lt;/title&gt;</ept> or the <bpt id="2c13fdb4-e613-4923-9910-5daaeb9a0b6f">&lt;linkText&gt;</bpt>Azure CLI<ept id="2c13fdb4-e613-4923-9910-5daaeb9a0b6f">&lt;/linkText&gt;</ept><bpt id="2c13fdb4-e613-4923-9910-5daaeb9a0b6f">&lt;title&gt;</bpt><ept id="2c13fdb4-e613-4923-9910-5daaeb9a0b6f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05a2cf3f-d260-40c1-ab24-04823ddbc4a9" xml:space="preserve">
+          <source>Newly deployed clusters based on this template will have the topology described in the following diagram, although other topologies can be easily achieved by customizing the template presented in this article:</source>
+          <target state="new">Newly deployed clusters based on this template will have the topology described in the following diagram, although other topologies can be easily achieved by customizing the template presented in this article:</target>
+        </trans-unit>
+        <trans-unit id="bf3ca716-311f-49b7-9426-141f904a6394" xml:space="preserve">
+          <source><bpt id="b8485345-f9c9-4829-983d-afe534282a3c">&lt;linkText&gt;</bpt>cluster-architecture<ept id="b8485345-f9c9-4829-983d-afe534282a3c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8485345-f9c9-4829-983d-afe534282a3c">&lt;linkText&gt;</bpt>cluster-architecture<ept id="b8485345-f9c9-4829-983d-afe534282a3c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e85a78f-b6e1-4a90-bbf3-b9511f0bd321" xml:space="preserve">
+          <source>Using parameters, you can define the number of nodes that will be deployed in the new Apache Cassandra cluster.</source>
+          <target state="new">Using parameters, you can define the number of nodes that will be deployed in the new Apache Cassandra cluster.</target>
+        </trans-unit>
+        <trans-unit id="958b6b7b-f37c-4462-831d-551da5a50a1f" xml:space="preserve">
+          <source>An instance of the DataStax Operation Center service will be also deployed in a stand-alone VM within the same VNET, giving you the ability to monitor the status of the cluster and all individual nodes, add/remove nodes, and perform all administrative tasks related to that cluster.</source>
+          <target state="new">An instance of the DataStax Operation Center service will be also deployed in a stand-alone VM within the same VNET, giving you the ability to monitor the status of the cluster and all individual nodes, add/remove nodes, and perform all administrative tasks related to that cluster.</target>
+        </trans-unit>
+        <trans-unit id="45e670a7-1d73-4808-984a-3ef949f35717" xml:space="preserve">
+          <source>Once the deployment is complete, you can access the Datastax Operations Center VM instance using the configured DNS address.</source>
+          <target state="new">Once the deployment is complete, you can access the Datastax Operations Center VM instance using the configured DNS address.</target>
+        </trans-unit>
+        <trans-unit id="a2d6f32a-e893-4275-a5fa-a8e507b8d039" xml:space="preserve">
+          <source>The OpsCenter VM has SSH port 22 enabled, as well as port 8443 for HTTPS.</source>
+          <target state="new">The OpsCenter VM has SSH port 22 enabled, as well as port 8443 for HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="44e07c00-4511-4a7a-9cd2-5937a955f92b" xml:space="preserve">
+          <source>The DNS address for the operations center will include the <bpt id="1a8151e4-b356-4017-9e4d-f05c24694ccd">&lt;em&gt;</bpt>dnsName<ept id="1a8151e4-b356-4017-9e4d-f05c24694ccd">&lt;/em&gt;</ept> and <bpt id="c0a6b43a-819a-4d34-be85-5dc0e01205c6">&lt;em&gt;</bpt>region<ept id="c0a6b43a-819a-4d34-be85-5dc0e01205c6">&lt;/em&gt;</ept> entered as parameters, resulting in the format <bpt id="2e236d28-96ed-4085-b392-d2bdcf84e2fd">&lt;code&gt;</bpt>{dnsName}.{region}.cloudapp.azure.com<ept id="2e236d28-96ed-4085-b392-d2bdcf84e2fd">&lt;/code&gt;</ept>.</source>
+          <target state="new">The DNS address for the operations center will include the <bpt id="1a8151e4-b356-4017-9e4d-f05c24694ccd">&lt;em&gt;</bpt>dnsName<ept id="1a8151e4-b356-4017-9e4d-f05c24694ccd">&lt;/em&gt;</ept> and <bpt id="c0a6b43a-819a-4d34-be85-5dc0e01205c6">&lt;em&gt;</bpt>region<ept id="c0a6b43a-819a-4d34-be85-5dc0e01205c6">&lt;/em&gt;</ept> entered as parameters, resulting in the format <bpt id="2e236d28-96ed-4085-b392-d2bdcf84e2fd">&lt;code&gt;</bpt>{dnsName}.{region}.cloudapp.azure.com<ept id="2e236d28-96ed-4085-b392-d2bdcf84e2fd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f68340e-d561-4e0e-b3bf-05970acaeb77" xml:space="preserve">
+          <source>If you created a deployment with the <bpt id="ecf2a687-1a69-4951-8f92-6c72a65c29b7">&lt;em&gt;</bpt>dnsName<ept id="ecf2a687-1a69-4951-8f92-6c72a65c29b7">&lt;/em&gt;</ept> parameter set to "datastax” in the "West US” region you could access the Datastax Operations Center VM for the deployment at <bpt id="7bbe573d-3214-4c32-8eb0-e4f1c39ddcab">&lt;code&gt;</bpt>https://datastax.westus.cloudapp.azure.com:8443<ept id="7bbe573d-3214-4c32-8eb0-e4f1c39ddcab">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you created a deployment with the <bpt id="ecf2a687-1a69-4951-8f92-6c72a65c29b7">&lt;em&gt;</bpt>dnsName<ept id="ecf2a687-1a69-4951-8f92-6c72a65c29b7">&lt;/em&gt;</ept> parameter set to "datastax” in the "West US” region you could access the Datastax Operations Center VM for the deployment at <bpt id="7bbe573d-3214-4c32-8eb0-e4f1c39ddcab">&lt;code&gt;</bpt>https://datastax.westus.cloudapp.azure.com:8443<ept id="7bbe573d-3214-4c32-8eb0-e4f1c39ddcab">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea0a25a7-c037-41e6-8650-3f49c77c71fd" xml:space="preserve">
+          <source>The certificate used in the deployment is a self-signed certificate that will create a browser warning.</source>
+          <target state="new">The certificate used in the deployment is a self-signed certificate that will create a browser warning.</target>
+        </trans-unit>
+        <trans-unit id="c70028a8-7b49-486d-bf04-2fed0efaa869" xml:space="preserve">
+          <source>You can follow the process on the <bpt id="83804f5f-b5c5-47c7-a3f7-fbe384a41b89">&lt;linkText&gt;</bpt>Datastax<ept id="83804f5f-b5c5-47c7-a3f7-fbe384a41b89">&lt;/linkText&gt;</ept><bpt id="83804f5f-b5c5-47c7-a3f7-fbe384a41b89">&lt;title&gt;</bpt><ept id="83804f5f-b5c5-47c7-a3f7-fbe384a41b89">&lt;/title&gt;</ept> web site for replacing the certificate with your own SSL certificate.</source>
+          <target state="new">You can follow the process on the <bpt id="83804f5f-b5c5-47c7-a3f7-fbe384a41b89">&lt;linkText&gt;</bpt>Datastax<ept id="83804f5f-b5c5-47c7-a3f7-fbe384a41b89">&lt;/linkText&gt;</ept><bpt id="83804f5f-b5c5-47c7-a3f7-fbe384a41b89">&lt;title&gt;</bpt><ept id="83804f5f-b5c5-47c7-a3f7-fbe384a41b89">&lt;/title&gt;</ept> web site for replacing the certificate with your own SSL certificate.</target>
+        </trans-unit>
+        <trans-unit id="85822acb-c905-44db-88f2-0a1c45aebc5a" xml:space="preserve">
+          <source>Before diving into more details related to the Azure Resource Manager and the template we will use for this deployment, make sure you have Azure PowerShell or the Azure CLI configured correctly.</source>
+          <target state="new">Before diving into more details related to the Azure Resource Manager and the template we will use for this deployment, make sure you have Azure PowerShell or the Azure CLI configured correctly.</target>
+        </trans-unit>
+        <trans-unit id="781f387d-1df6-43c0-be68-f1815447d691" xml:space="preserve">
+          <source><bpt id="3adf0edc-7a48-4b67-8921-86cb6d5669c3">&lt;token href="../../includes/arm-getting-setup-powershell.md"&gt;</bpt><ept id="3adf0edc-7a48-4b67-8921-86cb6d5669c3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3adf0edc-7a48-4b67-8921-86cb6d5669c3">&lt;token href="../../includes/arm-getting-setup-powershell.md"&gt;</bpt><ept id="3adf0edc-7a48-4b67-8921-86cb6d5669c3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3625b6c-70f4-46e0-b5d0-c0a275d88342" xml:space="preserve">
+          <source><bpt id="cf9d6e00-bd3c-4023-beb4-b7742482500a">&lt;token href="../../includes/xplat-getting-set-up-arm.md"&gt;</bpt><ept id="cf9d6e00-bd3c-4023-beb4-b7742482500a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="cf9d6e00-bd3c-4023-beb4-b7742482500a">&lt;token href="../../includes/xplat-getting-set-up-arm.md"&gt;</bpt><ept id="cf9d6e00-bd3c-4023-beb4-b7742482500a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="818d1ee3-c0f4-464e-807d-d4ce68bbba23" xml:space="preserve">
+          <source>Follow these steps to create an Apache Cassandra cluster, based on DataStax, using a Resource Manager template from the Github template repository.</source>
+          <target state="new">Follow these steps to create an Apache Cassandra cluster, based on DataStax, using a Resource Manager template from the Github template repository.</target>
+        </trans-unit>
+        <trans-unit id="41620024-9884-4c24-9f18-180fb763e228" xml:space="preserve">
+          <source>Each step will include directions for both Azure PowerShell and the Azure CLI.</source>
+          <target state="new">Each step will include directions for both Azure PowerShell and the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="90f03da6-1124-4360-9c27-4f09a412f972" xml:space="preserve">
+          <source>Create a local folder for the JSON template and other associated files (for example, C:\Azure\Templates\DataStax).</source>
+          <target state="new">Create a local folder for the JSON template and other associated files (for example, C:\Azure\Templates\DataStax).</target>
+        </trans-unit>
+        <trans-unit id="18b28503-81f2-4abb-82fc-bbfcb73eccf3" xml:space="preserve">
+          <source>Substitute in the folder name of your local folder and run these commands:</source>
+          <target state="new">Substitute in the folder name of your local folder and run these commands:</target>
+        </trans-unit>
+        <trans-unit id="b2b1a311-4c42-40af-afd7-91625278c8b0" xml:space="preserve">
+          <source>Clone the entire template repository using a git client of your choice, for example:</source>
+          <target state="new">Clone the entire template repository using a git client of your choice, for example:</target>
+        </trans-unit>
+        <trans-unit id="8337de00-39a1-42ea-9848-35913b982a9d" xml:space="preserve">
+          <source>When completed, look for the <bpt id="deaac78a-1573-4556-9c0d-5db0443a0706">&lt;strong&gt;</bpt>datastax-on-ubuntu<ept id="deaac78a-1573-4556-9c0d-5db0443a0706">&lt;/strong&gt;</ept> folder in your C:\Azure\Templates directory.</source>
+          <target state="new">When completed, look for the <bpt id="deaac78a-1573-4556-9c0d-5db0443a0706">&lt;strong&gt;</bpt>datastax-on-ubuntu<ept id="deaac78a-1573-4556-9c0d-5db0443a0706">&lt;/strong&gt;</ept> folder in your C:\Azure\Templates directory.</target>
+        </trans-unit>
+        <trans-unit id="0ff00ac3-798d-409f-bf1a-22835c51c04c" xml:space="preserve">
+          <source>When you deploy non-trivial solutions like an Apache Cassandra cluster based on DataStax, you must specify a set of configuration parameters to deal with a number of settings required.</source>
+          <target state="new">When you deploy non-trivial solutions like an Apache Cassandra cluster based on DataStax, you must specify a set of configuration parameters to deal with a number of settings required.</target>
+        </trans-unit>
+        <trans-unit id="20e8dc61-86f4-404f-8902-fbe3ccbe9506" xml:space="preserve">
+          <source>By declaring these parameters in the template definition, it’s possible to specify values during deployment through an external file or in the command-line.</source>
+          <target state="new">By declaring these parameters in the template definition, it’s possible to specify values during deployment through an external file or in the command-line.</target>
+        </trans-unit>
+        <trans-unit id="d6a11ab2-a077-48fd-b1e7-e65c780432cb" xml:space="preserve">
+          <source>In the "parameters" section at the top of the <bpt id="38ba64ba-ff6b-459d-9754-4e5a6a04871d">&lt;strong&gt;</bpt>azuredeploy.json<ept id="38ba64ba-ff6b-459d-9754-4e5a6a04871d">&lt;/strong&gt;</ept> file, you’ll find the set of parameters that are required by the template to configure a DataStax cluster.</source>
+          <target state="new">In the "parameters" section at the top of the <bpt id="38ba64ba-ff6b-459d-9754-4e5a6a04871d">&lt;strong&gt;</bpt>azuredeploy.json<ept id="38ba64ba-ff6b-459d-9754-4e5a6a04871d">&lt;/strong&gt;</ept> file, you’ll find the set of parameters that are required by the template to configure a DataStax cluster.</target>
+        </trans-unit>
+        <trans-unit id="ee3a75f4-41df-4cee-8919-5920c7a99393" xml:space="preserve">
+          <source>Here is an example of the parameters section from this template's azuredeploy.json file:</source>
+          <target state="new">Here is an example of the parameters section from this template's azuredeploy.json file:</target>
+        </trans-unit>
+        <trans-unit id="11703339-cf09-4bfa-ae86-5905ce2ec411" xml:space="preserve">
+          <source>Each parameter has details such as data type and allowed values.</source>
+          <target state="new">Each parameter has details such as data type and allowed values.</target>
+        </trans-unit>
+        <trans-unit id="1ad2813c-a00c-45aa-b75e-8008ff5ecf62" xml:space="preserve">
+          <source>This allows for validation of parameters passed during template execution in an interactive mode (e.g. PowerShell or Azure CLI), as well as a self-discovery UI that could be dynamically-built by parsing the list of required parameters and their descriptions.</source>
+          <target state="new">This allows for validation of parameters passed during template execution in an interactive mode (e.g. PowerShell or Azure CLI), as well as a self-discovery UI that could be dynamically-built by parsing the list of required parameters and their descriptions.</target>
+        </trans-unit>
+        <trans-unit id="2cee14ae-6fdc-46f7-adbe-f0a87bcac85c" xml:space="preserve">
+          <source>Prepare a parameters file for your deployment by creating a JSON file containing runtime values for all parameters.</source>
+          <target state="new">Prepare a parameters file for your deployment by creating a JSON file containing runtime values for all parameters.</target>
+        </trans-unit>
+        <trans-unit id="323908ec-10d3-45ca-bc47-eb85ea7642c9" xml:space="preserve">
+          <source>This file will then be passed as a single entity to the deployment command.</source>
+          <target state="new">This file will then be passed as a single entity to the deployment command.</target>
+        </trans-unit>
+        <trans-unit id="e5afab2e-5e54-4921-8216-6c24a7b0949e" xml:space="preserve">
+          <source>If you do not include a parameters file, PowerShell will use any default values specified in the template, and then prompt you to fill in the remaining values.</source>
+          <target state="new">If you do not include a parameters file, PowerShell will use any default values specified in the template, and then prompt you to fill in the remaining values.</target>
+        </trans-unit>
+        <trans-unit id="e3d682b2-2b95-425c-af2d-d7e3edf3e3f3" xml:space="preserve">
+          <source>Here is an example set of parameters from the <bpt id="d5aca42f-fa23-45a1-88ce-42b5d1b4fb4b">&lt;strong&gt;</bpt>azuredeploy-parameters.json<ept id="d5aca42f-fa23-45a1-88ce-42b5d1b4fb4b">&lt;/strong&gt;</ept> file:</source>
+          <target state="new">Here is an example set of parameters from the <bpt id="d5aca42f-fa23-45a1-88ce-42b5d1b4fb4b">&lt;strong&gt;</bpt>azuredeploy-parameters.json<ept id="d5aca42f-fa23-45a1-88ce-42b5d1b4fb4b">&lt;/strong&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="5bf659c9-165f-4d94-9842-9e40270520f0" xml:space="preserve">
+          <source>Fill in an Azure deployment name, resource group name, Azure location, and the folder of your saved JSON deployment file.</source>
+          <target state="new">Fill in an Azure deployment name, resource group name, Azure location, and the folder of your saved JSON deployment file.</target>
+        </trans-unit>
+        <trans-unit id="e43cea1c-bcd4-45a8-8bc3-a679046df046" xml:space="preserve">
+          <source>Then run these commands:</source>
+          <target state="new">Then run these commands:</target>
+        </trans-unit>
+        <trans-unit id="71e97e65-2b6c-41c1-9d77-8c8d989fb2d7" xml:space="preserve">
+          <source>When you run the <bpt id="8812ca16-578c-459f-b6b7-580b6a01b84f">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="8812ca16-578c-459f-b6b7-580b6a01b84f">&lt;/strong&gt;</ept> command, this will extract parameter values from the JSON parameters file, and will start executing the template accordingly.</source>
+          <target state="new">When you run the <bpt id="8812ca16-578c-459f-b6b7-580b6a01b84f">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="8812ca16-578c-459f-b6b7-580b6a01b84f">&lt;/strong&gt;</ept> command, this will extract parameter values from the JSON parameters file, and will start executing the template accordingly.</target>
+        </trans-unit>
+        <trans-unit id="1b179660-568e-4600-b220-41fe6c11e733" xml:space="preserve">
+          <source>Defining and using multiple parameter files with your different environments (e.g. Test, Production, etc.)</source>
+          <target state="new">Defining and using multiple parameter files with your different environments (e.g. Test, Production, etc.)</target>
+        </trans-unit>
+        <trans-unit id="d013ab05-9bc2-4cca-92ce-cfe7253eba30" xml:space="preserve">
+          <source>will promote template reuse and simplify complex multi-environment solutions.</source>
+          <target state="new">will promote template reuse and simplify complex multi-environment solutions.</target>
+        </trans-unit>
+        <trans-unit id="4336f492-26be-4b94-a0d0-3e3cf34a3cd3" xml:space="preserve">
+          <source>When deploying, please keep in mind that a new Azure Storage Account needs to be created so the name you provide as the storage account parameter must be unique and meet all requirements for an Azure Storage Account (lowercase letters and numbers only).</source>
+          <target state="new">When deploying, please keep in mind that a new Azure Storage Account needs to be created so the name you provide as the storage account parameter must be unique and meet all requirements for an Azure Storage Account (lowercase letters and numbers only).</target>
+        </trans-unit>
+        <trans-unit id="70e6b4c7-7132-450e-a3f1-dc45a2959d0e" xml:space="preserve">
+          <source>During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.</source>
+          <target state="new">During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.</target>
+        </trans-unit>
+        <trans-unit id="3879d52e-4936-45b0-9b13-e879e6cbf19b" xml:space="preserve">
+          <source>To do that, go to the <bpt id="b142e37f-b0bd-4cef-a265-8be61565f0f4">&lt;linkText&gt;</bpt>Azure Portal<ept id="b142e37f-b0bd-4cef-a265-8be61565f0f4">&lt;/linkText&gt;</ept><bpt id="b142e37f-b0bd-4cef-a265-8be61565f0f4">&lt;title&gt;</bpt><ept id="b142e37f-b0bd-4cef-a265-8be61565f0f4">&lt;/title&gt;</ept> and do the following:</source>
+          <target state="new">To do that, go to the <bpt id="b142e37f-b0bd-4cef-a265-8be61565f0f4">&lt;linkText&gt;</bpt>Azure Portal<ept id="b142e37f-b0bd-4cef-a265-8be61565f0f4">&lt;/linkText&gt;</ept><bpt id="b142e37f-b0bd-4cef-a265-8be61565f0f4">&lt;title&gt;</bpt><ept id="b142e37f-b0bd-4cef-a265-8be61565f0f4">&lt;/title&gt;</ept> and do the following:</target>
+        </trans-unit>
+        <trans-unit id="96b566eb-e389-4438-86af-b4dde830d3eb" xml:space="preserve">
+          <source>Click "Browse” on the left-hand navigation bar, scroll down and click on "Resource Groups”.</source>
+          <target state="new">Click "Browse” on the left-hand navigation bar, scroll down and click on "Resource Groups”.</target>
+        </trans-unit>
+        <trans-unit id="eab7248f-d313-4848-ac81-fac0bdb39c3e" xml:space="preserve">
+          <source>After clicking on the Resource Group that you just created, it will bring up the "Resource Group” blade.</source>
+          <target state="new">After clicking on the Resource Group that you just created, it will bring up the "Resource Group” blade.</target>
+        </trans-unit>
+        <trans-unit id="3cad5767-df62-48d9-ae20-32733d176e71" xml:space="preserve">
+          <source>By clicking on the "Events” bar graph in the "Monitoring” part of the "Resource Group” blade, you can see the events for your deployment:</source>
+          <target state="new">By clicking on the "Events” bar graph in the "Monitoring” part of the "Resource Group” blade, you can see the events for your deployment:</target>
+        </trans-unit>
+        <trans-unit id="333825b0-84b5-4c34-a51a-61c7b393cac7" xml:space="preserve">
+          <source>Clicking on individual events lets you drill further down into the details of each individual operation made on behalf of the template</source>
+          <target state="new">Clicking on individual events lets you drill further down into the details of each individual operation made on behalf of the template</target>
+        </trans-unit>
+        <trans-unit id="d198a463-1536-4686-9c5a-a76dc23873be" xml:space="preserve">
+          <source>After your tests, if you need to remove this resource group and all of its resources (the storage account, virtual machine, and virtual network), use this single command:</source>
+          <target state="new">After your tests, if you need to remove this resource group and all of its resources (the storage account, virtual machine, and virtual network), use this single command:</target>
+        </trans-unit>
+        <trans-unit id="6699d36c-ac0c-477f-a9b8-113580d19893" xml:space="preserve">
+          <source>To deploy a Datastax cluster via the Azure CLI, first create a Resource Group by specifying a name and a location:</source>
+          <target state="new">To deploy a Datastax cluster via the Azure CLI, first create a Resource Group by specifying a name and a location:</target>
+        </trans-unit>
+        <trans-unit id="8b7df894-ca65-49e8-93f9-4fc49d89daa7" xml:space="preserve">
+          <source>Pass this Resource Group name, the location of the JSON template file, and the location of the parameters file (see the above PowerShell section for details) into the following command:</source>
+          <target state="new">Pass this Resource Group name, the location of the JSON template file, and the location of the parameters file (see the above PowerShell section for details) into the following command:</target>
+        </trans-unit>
+        <trans-unit id="9b6ba471-f496-4070-aec4-e890e7754d0d" xml:space="preserve">
+          <source>You can check the status of individual resources deployments with the following command:</source>
+          <target state="new">You can check the status of individual resources deployments with the following command:</target>
+        </trans-unit>
+        <trans-unit id="982d6130-1ea5-400a-838e-87d8e1860344" xml:space="preserve">
+          <source>In order to design a robust and reusable Resource Manager template, additional thinking is needed to organize the series of complex and interrelated tasks required during the deployment of a complex solution like DataStax.</source>
+          <target state="new">In order to design a robust and reusable Resource Manager template, additional thinking is needed to organize the series of complex and interrelated tasks required during the deployment of a complex solution like DataStax.</target>
+        </trans-unit>
+        <trans-unit id="1f817d1b-8d76-4063-9687-a888760475b2" xml:space="preserve">
+          <source>Leveraging ARM <bpt id="17d2129b-1354-41e8-9059-80d8b8104e4a">&lt;strong&gt;</bpt>template linking<ept id="17d2129b-1354-41e8-9059-80d8b8104e4a">&lt;/strong&gt;</ept> and <bpt id="7c58960c-5817-4c0d-84b1-ab37ceb07250">&lt;strong&gt;</bpt>resource looping<ept id="7c58960c-5817-4c0d-84b1-ab37ceb07250">&lt;/strong&gt;</ept> in addition to script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.</source>
+          <target state="new">Leveraging ARM <bpt id="17d2129b-1354-41e8-9059-80d8b8104e4a">&lt;strong&gt;</bpt>template linking<ept id="17d2129b-1354-41e8-9059-80d8b8104e4a">&lt;/strong&gt;</ept> and <bpt id="7c58960c-5817-4c0d-84b1-ab37ceb07250">&lt;strong&gt;</bpt>resource looping<ept id="7c58960c-5817-4c0d-84b1-ab37ceb07250">&lt;/strong&gt;</ept> in addition to script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.</target>
+        </trans-unit>
+        <trans-unit id="ac8bf1de-86a8-47a2-8b7c-9be56be9e1ca" xml:space="preserve">
+          <source>This diagram describes the relationships between all the files downloaded from GitHub for this deployment:</source>
+          <target state="new">This diagram describes the relationships between all the files downloaded from GitHub for this deployment:</target>
+        </trans-unit>
+        <trans-unit id="b1ba03a5-d188-46b8-aa49-7e1a56ecd503" xml:space="preserve">
+          <source><bpt id="830c0bad-bea2-40ac-8e89-dcc2aa036e81">&lt;linkText&gt;</bpt>datastax-files<ept id="830c0bad-bea2-40ac-8e89-dcc2aa036e81">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="830c0bad-bea2-40ac-8e89-dcc2aa036e81">&lt;linkText&gt;</bpt>datastax-files<ept id="830c0bad-bea2-40ac-8e89-dcc2aa036e81">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf854129-e02d-4641-baa6-568fe247d945" xml:space="preserve">
+          <source>This section steps you through the structure of the <bpt id="82f3917a-a926-4bbf-90ea-d6058904e140">&lt;strong&gt;</bpt>azuredeploy.json<ept id="82f3917a-a926-4bbf-90ea-d6058904e140">&lt;/strong&gt;</ept> file for the Datastax cluster.</source>
+          <target state="new">This section steps you through the structure of the <bpt id="82f3917a-a926-4bbf-90ea-d6058904e140">&lt;strong&gt;</bpt>azuredeploy.json<ept id="82f3917a-a926-4bbf-90ea-d6058904e140">&lt;/strong&gt;</ept> file for the Datastax cluster.</target>
+        </trans-unit>
+        <trans-unit id="91083bf6-c9f7-43f0-82af-6637a725895e" xml:space="preserve">
+          <source>The "parameters" section of <bpt id="ed47c90f-f461-44dd-8b9e-c0c02e15a0b8">&lt;strong&gt;</bpt>azuredeploy.json<ept id="ed47c90f-f461-44dd-8b9e-c0c02e15a0b8">&lt;/strong&gt;</ept> specifies modifiable parameters that are used in this template.</source>
+          <target state="new">The "parameters" section of <bpt id="ed47c90f-f461-44dd-8b9e-c0c02e15a0b8">&lt;strong&gt;</bpt>azuredeploy.json<ept id="ed47c90f-f461-44dd-8b9e-c0c02e15a0b8">&lt;/strong&gt;</ept> specifies modifiable parameters that are used in this template.</target>
+        </trans-unit>
+        <trans-unit id="dfcd3cb1-8475-4202-b1a7-a1e7cad64b2e" xml:space="preserve">
+          <source>The aforementioned <bpt id="097b58ff-c067-49ac-a2ef-86a8c60a8ae5">&lt;strong&gt;</bpt>azuredeploy-parameters.json<ept id="097b58ff-c067-49ac-a2ef-86a8c60a8ae5">&lt;/strong&gt;</ept> file is used to pass values into the "parameters" section of azuredeploy.json during template execution.</source>
+          <target state="new">The aforementioned <bpt id="097b58ff-c067-49ac-a2ef-86a8c60a8ae5">&lt;strong&gt;</bpt>azuredeploy-parameters.json<ept id="097b58ff-c067-49ac-a2ef-86a8c60a8ae5">&lt;/strong&gt;</ept> file is used to pass values into the "parameters" section of azuredeploy.json during template execution.</target>
+        </trans-unit>
+        <trans-unit id="92b9752f-42ae-4892-adf0-ae2500a1179f" xml:space="preserve">
+          <source>The "variables" section specifies variables that can be used throughout this template.</source>
+          <target state="new">The "variables" section specifies variables that can be used throughout this template.</target>
+        </trans-unit>
+        <trans-unit id="21f36449-a2d7-4830-9f71-5c528d7d7624" xml:space="preserve">
+          <source>This contains a number of fields (JSON data types or fragments) that will be set to constants or calculated values at execution time.</source>
+          <target state="new">This contains a number of fields (JSON data types or fragments) that will be set to constants or calculated values at execution time.</target>
+        </trans-unit>
+        <trans-unit id="340ccdd7-62ff-45ca-b186-9b447a7ab342" xml:space="preserve">
+          <source>Here is the "variables" section for this Datastax template:</source>
+          <target state="new">Here is the "variables" section for this Datastax template:</target>
+        </trans-unit>
+        <trans-unit id="b2d3b9b3-3f2b-4935-9895-9026f726ad5c" xml:space="preserve">
+          <source>Drilling down into this example, you can see two different approaches.</source>
+          <target state="new">Drilling down into this example, you can see two different approaches.</target>
+        </trans-unit>
+        <trans-unit id="52d332e6-c65d-4793-80ed-f4ed51f10e98" xml:space="preserve">
+          <source>In this first fragment, the "osSettings” variable is a nested JSON element containing 4 key-value pairs:</source>
+          <target state="new">In this first fragment, the "osSettings” variable is a nested JSON element containing 4 key-value pairs:</target>
+        </trans-unit>
+        <trans-unit id="cbf02e15-8c33-4930-b6c2-1d763be9e890" xml:space="preserve">
+          <source>The <bpt id="3456e513-a32f-4ad0-af68-4896bbe685a3">&lt;strong&gt;</bpt>"resources"<ept id="3456e513-a32f-4ad0-af68-4896bbe685a3">&lt;/strong&gt;</ept> section is where most of the action is happening.</source>
+          <target state="new">The <bpt id="3456e513-a32f-4ad0-af68-4896bbe685a3">&lt;strong&gt;</bpt>"resources"<ept id="3456e513-a32f-4ad0-af68-4896bbe685a3">&lt;/strong&gt;</ept> section is where most of the action is happening.</target>
+        </trans-unit>
+        <trans-unit id="be629580-d2d4-4bc1-9769-8d6a7cf47163" xml:space="preserve">
+          <source>Looking carefully inside this section, you can immediately identify two different cases: the first one is an element defined of type <bpt id="06a743e4-9914-4afc-a28a-c45ff21ede8e">&lt;code&gt;</bpt>Microsoft.Resources/deployments<ept id="06a743e4-9914-4afc-a28a-c45ff21ede8e">&lt;/code&gt;</ept> that basically means the invocation of a nested deployment within the main one.</source>
+          <target state="new">Looking carefully inside this section, you can immediately identify two different cases: the first one is an element defined of type <bpt id="06a743e4-9914-4afc-a28a-c45ff21ede8e">&lt;code&gt;</bpt>Microsoft.Resources/deployments<ept id="06a743e4-9914-4afc-a28a-c45ff21ede8e">&lt;/code&gt;</ept> that basically means the invocation of a nested deployment within the main one.</target>
+        </trans-unit>
+        <trans-unit id="6f4a46d8-d0d2-4c5e-b030-791f62fb587a" xml:space="preserve">
+          <source>Through the "templateLink" element (and related version property), it’s possible to specify a linked template file that will be invoked passing a set of parameters as input, as seen in this fragment:</source>
+          <target state="new">Through the "templateLink" element (and related version property), it’s possible to specify a linked template file that will be invoked passing a set of parameters as input, as seen in this fragment:</target>
+        </trans-unit>
+        <trans-unit id="88c93976-04e2-4d3e-930e-1e29a2db76f0" xml:space="preserve">
+          <source>From this first example, it is clear how <bpt id="7a139cd4-e12a-4ea7-9faf-8891d795b191">&lt;strong&gt;</bpt>azuredeploy.json<ept id="7a139cd4-e12a-4ea7-9faf-8891d795b191">&lt;/strong&gt;</ept> in this scenario has been organized as a sort of orchestration mechanism, invoking a number of other template files, each one responsible for part of the required deployment activities.</source>
+          <target state="new">From this first example, it is clear how <bpt id="7a139cd4-e12a-4ea7-9faf-8891d795b191">&lt;strong&gt;</bpt>azuredeploy.json<ept id="7a139cd4-e12a-4ea7-9faf-8891d795b191">&lt;/strong&gt;</ept> in this scenario has been organized as a sort of orchestration mechanism, invoking a number of other template files, each one responsible for part of the required deployment activities.</target>
+        </trans-unit>
+        <trans-unit id="8b2a785e-138d-409d-a432-0b076e4e56f3" xml:space="preserve">
+          <source>In particular, the following linked templates will be used for this deployment:</source>
+          <target state="new">In particular, the following linked templates will be used for this deployment:</target>
+        </trans-unit>
+        <trans-unit id="2b308759-b6c6-4ecd-83bf-f205046e00e2" xml:space="preserve">
+          <source><bpt id="71165c50-ab28-40c0-816e-2d8574b75abb">&lt;strong&gt;</bpt>shared-resource.json<ept id="71165c50-ab28-40c0-816e-2d8574b75abb">&lt;/strong&gt;</ept>: contains the definition of all resources that will be shared across the deployment.</source>
+          <target state="new"><bpt id="71165c50-ab28-40c0-816e-2d8574b75abb">&lt;strong&gt;</bpt>shared-resource.json<ept id="71165c50-ab28-40c0-816e-2d8574b75abb">&lt;/strong&gt;</ept>: contains the definition of all resources that will be shared across the deployment.</target>
+        </trans-unit>
+        <trans-unit id="966fc867-62ce-44be-babb-d87e74fb2edb" xml:space="preserve">
+          <source>Examples are storage accounts used to store VM’s OS disks and virtual networks.</source>
+          <target state="new">Examples are storage accounts used to store VM’s OS disks and virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="46142ab9-c682-4918-8127-86475c5261d4" xml:space="preserve">
+          <source><bpt id="1eb3696d-0941-4773-84d9-d69180009625">&lt;strong&gt;</bpt>opscenter-resources.json<ept id="1eb3696d-0941-4773-84d9-d69180009625">&lt;/strong&gt;</ept>: deploys an OpsCenter VM and all related resources, including a network interface and public IP address.</source>
+          <target state="new"><bpt id="1eb3696d-0941-4773-84d9-d69180009625">&lt;strong&gt;</bpt>opscenter-resources.json<ept id="1eb3696d-0941-4773-84d9-d69180009625">&lt;/strong&gt;</ept>: deploys an OpsCenter VM and all related resources, including a network interface and public IP address.</target>
+        </trans-unit>
+        <trans-unit id="8860567e-a950-408e-b3a3-ab2ee058451c" xml:space="preserve">
+          <source><bpt id="c075146f-9ac2-422d-9215-9a97c0637d23">&lt;strong&gt;</bpt>opscenter-install-resources.json<ept id="c075146f-9ac2-422d-9215-9a97c0637d23">&lt;/strong&gt;</ept>: deploys the OpsCenter VM extension (custom script for Linux) that will invoke the specific bash script file (<bpt id="2ba3eb2d-3f43-42c9-a6b7-2db372e2a1d3">&lt;strong&gt;</bpt>opscenter.sh<ept id="2ba3eb2d-3f43-42c9-a6b7-2db372e2a1d3">&lt;/strong&gt;</ept>) required to setup the OpsCenter service within that VM.</source>
+          <target state="new"><bpt id="c075146f-9ac2-422d-9215-9a97c0637d23">&lt;strong&gt;</bpt>opscenter-install-resources.json<ept id="c075146f-9ac2-422d-9215-9a97c0637d23">&lt;/strong&gt;</ept>: deploys the OpsCenter VM extension (custom script for Linux) that will invoke the specific bash script file (<bpt id="2ba3eb2d-3f43-42c9-a6b7-2db372e2a1d3">&lt;strong&gt;</bpt>opscenter.sh<ept id="2ba3eb2d-3f43-42c9-a6b7-2db372e2a1d3">&lt;/strong&gt;</ept>) required to setup the OpsCenter service within that VM.</target>
+        </trans-unit>
+        <trans-unit id="80ac77d2-8d39-4689-a7f2-f9becc216092" xml:space="preserve">
+          <source><bpt id="e5deb3dd-df3e-41bc-911c-03704b5bc83f">&lt;strong&gt;</bpt>ephemeral-nodes-resources.json<ept id="e5deb3dd-df3e-41bc-911c-03704b5bc83f">&lt;/strong&gt;</ept>: deploys all cluster node VMs and connected resources (network cards, private IPs, etc.).</source>
+          <target state="new"><bpt id="e5deb3dd-df3e-41bc-911c-03704b5bc83f">&lt;strong&gt;</bpt>ephemeral-nodes-resources.json<ept id="e5deb3dd-df3e-41bc-911c-03704b5bc83f">&lt;/strong&gt;</ept>: deploys all cluster node VMs and connected resources (network cards, private IPs, etc.).</target>
+        </trans-unit>
+        <trans-unit id="1b8d7272-f253-4f77-ab6c-ec65319f4bf6" xml:space="preserve">
+          <source>This template will also deploy VM extensions (custom scripts for Linux) and invoke a bash script (<bpt id="e4d6e11c-33ca-404c-9d21-70b61b91a938">&lt;strong&gt;</bpt>dsenode.sh<ept id="e4d6e11c-33ca-404c-9d21-70b61b91a938">&lt;/strong&gt;</ept>) to physically install Apache Cassandra bits on each node.</source>
+          <target state="new">This template will also deploy VM extensions (custom scripts for Linux) and invoke a bash script (<bpt id="e4d6e11c-33ca-404c-9d21-70b61b91a938">&lt;strong&gt;</bpt>dsenode.sh<ept id="e4d6e11c-33ca-404c-9d21-70b61b91a938">&lt;/strong&gt;</ept>) to physically install Apache Cassandra bits on each node.</target>
+        </trans-unit>
+        <trans-unit id="7932fc49-279e-474e-8b87-670764c9d0ac" xml:space="preserve">
+          <source>Let’s drill down into how this last template is used, as it is one of the most interesting from a template development perspective.</source>
+          <target state="new">Let’s drill down into how this last template is used, as it is one of the most interesting from a template development perspective.</target>
+        </trans-unit>
+        <trans-unit id="883a150a-b413-4518-a7cc-be9607457706" xml:space="preserve">
+          <source>One important concept to highlight is how a single template file can deploy multiple copies of a single resource type, and for each instance can set unique values for required settings.</source>
+          <target state="new">One important concept to highlight is how a single template file can deploy multiple copies of a single resource type, and for each instance can set unique values for required settings.</target>
+        </trans-unit>
+        <trans-unit id="a5a469f0-3e4d-4d5e-9dea-22f37940e328" xml:space="preserve">
+          <source>This concept is known as <bpt id="dc69d16d-b288-43dd-815b-904b88bfb433">&lt;strong&gt;</bpt>Resource Looping<ept id="dc69d16d-b288-43dd-815b-904b88bfb433">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This concept is known as <bpt id="dc69d16d-b288-43dd-815b-904b88bfb433">&lt;strong&gt;</bpt>Resource Looping<ept id="dc69d16d-b288-43dd-815b-904b88bfb433">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e62d85b0-68fe-4049-be98-cf0b48daf164" xml:space="preserve">
+          <source>When <bpt id="7438cba1-4ab5-4daa-96a1-0bd174abfe77">&lt;strong&gt;</bpt>ephemeral-nodes-resources.json<ept id="7438cba1-4ab5-4daa-96a1-0bd174abfe77">&lt;/strong&gt;</ept> is invoked from within the main <bpt id="7ffe6fe0-aec6-4d71-8f9a-d38af211a9de">&lt;strong&gt;</bpt>azuredeploy.json<ept id="7ffe6fe0-aec6-4d71-8f9a-d38af211a9de">&lt;/strong&gt;</ept> file, a parameter called <bpt id="2746e500-4a97-4f2d-9461-fd6f5ee7026d">&lt;strong&gt;</bpt>nodeCount<ept id="2746e500-4a97-4f2d-9461-fd6f5ee7026d">&lt;/strong&gt;</ept> is provided as part of the parameters list.</source>
+          <target state="new">When <bpt id="7438cba1-4ab5-4daa-96a1-0bd174abfe77">&lt;strong&gt;</bpt>ephemeral-nodes-resources.json<ept id="7438cba1-4ab5-4daa-96a1-0bd174abfe77">&lt;/strong&gt;</ept> is invoked from within the main <bpt id="7ffe6fe0-aec6-4d71-8f9a-d38af211a9de">&lt;strong&gt;</bpt>azuredeploy.json<ept id="7ffe6fe0-aec6-4d71-8f9a-d38af211a9de">&lt;/strong&gt;</ept> file, a parameter called <bpt id="2746e500-4a97-4f2d-9461-fd6f5ee7026d">&lt;strong&gt;</bpt>nodeCount<ept id="2746e500-4a97-4f2d-9461-fd6f5ee7026d">&lt;/strong&gt;</ept> is provided as part of the parameters list.</target>
+        </trans-unit>
+        <trans-unit id="c19b4747-3b76-4e92-8a79-d6aa3944e348" xml:space="preserve">
+          <source>Within the child template, nodeCount (the number of nodes to deploy in the cluster) will be used inside the <bpt id="c7e90d78-8d70-4d9e-aa7b-644785f1bc54">&lt;strong&gt;</bpt>"copy”<ept id="c7e90d78-8d70-4d9e-aa7b-644785f1bc54">&lt;/strong&gt;</ept> element of each resource that needs to be deployed in multiple copies, as highlighted in the fragment below.</source>
+          <target state="new">Within the child template, nodeCount (the number of nodes to deploy in the cluster) will be used inside the <bpt id="c7e90d78-8d70-4d9e-aa7b-644785f1bc54">&lt;strong&gt;</bpt>"copy”<ept id="c7e90d78-8d70-4d9e-aa7b-644785f1bc54">&lt;/strong&gt;</ept> element of each resource that needs to be deployed in multiple copies, as highlighted in the fragment below.</target>
+        </trans-unit>
+        <trans-unit id="da51f2bd-3a0a-4cc0-aa3c-bfbb45d33f13" xml:space="preserve">
+          <source>For all settings where you need unique values for different instances of the deployed resource, the <bpt id="c7bf0a90-4b49-48f3-8367-ed1ba9de7f03">&lt;strong&gt;</bpt>copyindex()<ept id="c7bf0a90-4b49-48f3-8367-ed1ba9de7f03">&lt;/strong&gt;</ept> function can be used to obtain a numeric value indicating the current index in that particular resource loop creation.</source>
+          <target state="new">For all settings where you need unique values for different instances of the deployed resource, the <bpt id="c7bf0a90-4b49-48f3-8367-ed1ba9de7f03">&lt;strong&gt;</bpt>copyindex()<ept id="c7bf0a90-4b49-48f3-8367-ed1ba9de7f03">&lt;/strong&gt;</ept> function can be used to obtain a numeric value indicating the current index in that particular resource loop creation.</target>
+        </trans-unit>
+        <trans-unit id="87a92f8a-477d-4468-8a2d-bfbde89725cf" xml:space="preserve">
+          <source>In the following fragment, you can see this concept applied to multiple VMs being created for the Datastax cluster nodes:</source>
+          <target state="new">In the following fragment, you can see this concept applied to multiple VMs being created for the Datastax cluster nodes:</target>
+        </trans-unit>
+        <trans-unit id="1868a4f3-361d-4cb6-bf0d-e05052be3ed4" xml:space="preserve">
+          <source>Another important concept in resource creation is the ability to specify dependencies and precedencies between resources, as you can see in the <bpt id="c4fba311-c9de-4b71-a4ab-71f1c1f362cc">&lt;strong&gt;</bpt>dependsOn<ept id="c4fba311-c9de-4b71-a4ab-71f1c1f362cc">&lt;/strong&gt;</ept> JSON array.</source>
+          <target state="new">Another important concept in resource creation is the ability to specify dependencies and precedencies between resources, as you can see in the <bpt id="c4fba311-c9de-4b71-a4ab-71f1c1f362cc">&lt;strong&gt;</bpt>dependsOn<ept id="c4fba311-c9de-4b71-a4ab-71f1c1f362cc">&lt;/strong&gt;</ept> JSON array.</target>
+        </trans-unit>
+        <trans-unit id="83e3634d-3ee9-4de1-8968-838ac059e1cd" xml:space="preserve">
+          <source>In this particular template, each node will also have an attached 1TB disk (see "dataDisks") that can be used for hosting backups and snapshots of the Apache Cassandra instance.</source>
+          <target state="new">In this particular template, each node will also have an attached 1TB disk (see "dataDisks") that can be used for hosting backups and snapshots of the Apache Cassandra instance.</target>
+        </trans-unit>
+        <trans-unit id="18283ada-bc9e-4f7d-aed0-4d89fd28010d" xml:space="preserve">
+          <source>Attached disks are formatted as part of the node preparation activities triggered by the execution of the <bpt id="9322985d-a98f-4546-8be7-cf1107f864b3">&lt;strong&gt;</bpt>dsenode.sh<ept id="9322985d-a98f-4546-8be7-cf1107f864b3">&lt;/strong&gt;</ept> script file.</source>
+          <target state="new">Attached disks are formatted as part of the node preparation activities triggered by the execution of the <bpt id="9322985d-a98f-4546-8be7-cf1107f864b3">&lt;strong&gt;</bpt>dsenode.sh<ept id="9322985d-a98f-4546-8be7-cf1107f864b3">&lt;/strong&gt;</ept> script file.</target>
+        </trans-unit>
+        <trans-unit id="78ecb788-b085-4bbe-925e-281c8d8a2a81" xml:space="preserve">
+          <source>The first row of that script invokes another script:</source>
+          <target state="new">The first row of that script invokes another script:</target>
+        </trans-unit>
+        <trans-unit id="e359e3d4-1a0d-44a2-af34-6d6102f22b6f" xml:space="preserve">
+          <source>vm-disk-utils-0.1.sh is part of the <bpt id="86ced204-98dc-43b7-840a-91441902e201">&lt;strong&gt;</bpt>shared_scripts\ubuntu<ept id="86ced204-98dc-43b7-840a-91441902e201">&lt;/strong&gt;</ept> folder in the azure-quickstart-tempates github repo, and contains very useful functions for disk mounting, formatting, and striping.</source>
+          <target state="new">vm-disk-utils-0.1.sh is part of the <bpt id="86ced204-98dc-43b7-840a-91441902e201">&lt;strong&gt;</bpt>shared_scripts\ubuntu<ept id="86ced204-98dc-43b7-840a-91441902e201">&lt;/strong&gt;</ept> folder in the azure-quickstart-tempates github repo, and contains very useful functions for disk mounting, formatting, and striping.</target>
+        </trans-unit>
+        <trans-unit id="cdf94d9c-67c7-47f8-ac75-3727fac3c7e6" xml:space="preserve">
+          <source>These functions can be used in all templates in the repo.</source>
+          <target state="new">These functions can be used in all templates in the repo.</target>
+        </trans-unit>
+        <trans-unit id="8ea7eb4e-bef9-46fe-82e7-c6a6fa56c7cd" xml:space="preserve">
+          <source>Another interesting fragment to explore is the one related to CustomScriptForLinux VM extensions.</source>
+          <target state="new">Another interesting fragment to explore is the one related to CustomScriptForLinux VM extensions.</target>
+        </trans-unit>
+        <trans-unit id="c02e2ec4-d83c-47b3-ad42-167105a3878f" xml:space="preserve">
+          <source>These are installed as a separate type of resource, with a dependency on each cluster node (and the OpsCenter instance).</source>
+          <target state="new">These are installed as a separate type of resource, with a dependency on each cluster node (and the OpsCenter instance).</target>
+        </trans-unit>
+        <trans-unit id="f4557318-bdbf-48b3-9275-77d15f294e34" xml:space="preserve">
+          <source>They leverage the same resource looping mechanism described for virtual machines:</source>
+          <target state="new">They leverage the same resource looping mechanism described for virtual machines:</target>
+        </trans-unit>
+        <trans-unit id="5c4a4892-be7d-4ebe-8ff5-d822e8b79062" xml:space="preserve">
+          <source>By familiarizing yourself with the other files included in this deployment, you will be able to understand all the details and best practices required to organize and orchestrate complex deployment strategies for multi-nodes solutions, based on any technology, leveraging Azure Resource Manager templates.</source>
+          <target state="new">By familiarizing yourself with the other files included in this deployment, you will be able to understand all the details and best practices required to organize and orchestrate complex deployment strategies for multi-nodes solutions, based on any technology, leveraging Azure Resource Manager templates.</target>
+        </trans-unit>
+        <trans-unit id="c6feb2d1-e6ff-4141-947b-ad2cec2519c5" xml:space="preserve">
+          <source>While not mandatory, a recommended approach is to structure your template files as highlighted by the following diagram:</source>
+          <target state="new">While not mandatory, a recommended approach is to structure your template files as highlighted by the following diagram:</target>
+        </trans-unit>
+        <trans-unit id="3b9c0f6d-6ce8-4ef1-b5bb-fcdc149fe000" xml:space="preserve">
+          <source><bpt id="fcc0db76-1338-492a-9c38-cf142d6acf08">&lt;linkText&gt;</bpt>datastax-template-structure<ept id="fcc0db76-1338-492a-9c38-cf142d6acf08">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fcc0db76-1338-492a-9c38-cf142d6acf08">&lt;linkText&gt;</bpt>datastax-template-structure<ept id="fcc0db76-1338-492a-9c38-cf142d6acf08">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0b5ed2b-5fc1-4087-a87d-37db6a4580f4" xml:space="preserve">
+          <source>In essence, this approach suggests to:</source>
+          <target state="new">In essence, this approach suggests to:</target>
+        </trans-unit>
+        <trans-unit id="e0a230a9-e0fe-44fa-97f0-bd09d6d1da92" xml:space="preserve">
+          <source>Define your core template file as a central orchestration point for all specific deployment activities, leveraging template linking to invoke sub template executions</source>
+          <target state="new">Define your core template file as a central orchestration point for all specific deployment activities, leveraging template linking to invoke sub template executions</target>
+        </trans-unit>
+        <trans-unit id="fc1588b9-71d6-4b39-89c6-11944516b480" xml:space="preserve">
+          <source>Create a specific template files that will deploy all resources shared across all other specific deployment tasks (e.g. storage accounts, vnet configuration, etc.).</source>
+          <target state="new">Create a specific template files that will deploy all resources shared across all other specific deployment tasks (e.g. storage accounts, vnet configuration, etc.).</target>
+        </trans-unit>
+        <trans-unit id="4c8d60a2-c7a2-402f-aaff-9c02963f1eef" xml:space="preserve">
+          <source>This can be heavily reused between deployments that have similar requirements in terms of common infrastructure.</source>
+          <target state="new">This can be heavily reused between deployments that have similar requirements in terms of common infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="485e97f3-3bd8-4dd8-91cb-6a890e426748" xml:space="preserve">
+          <source>Include optional resource templates for spot requirements specific of a given resource</source>
+          <target state="new">Include optional resource templates for spot requirements specific of a given resource</target>
+        </trans-unit>
+        <trans-unit id="78d2802f-7bb2-47fc-b95c-ca207b7c2fb3" xml:space="preserve">
+          <source>For identical members of a group of resources (nodes in a cluster, etc.)</source>
+          <target state="new">For identical members of a group of resources (nodes in a cluster, etc.)</target>
+        </trans-unit>
+        <trans-unit id="e03810e2-6998-418b-9fd7-e73926708cb8" xml:space="preserve">
+          <source>create specific templates that leverage resource looping in order to deploy multiple instances with unique properties</source>
+          <target state="new">create specific templates that leverage resource looping in order to deploy multiple instances with unique properties</target>
+        </trans-unit>
+        <trans-unit id="87ad11d2-55c5-4b48-b211-89c56a97d287" xml:space="preserve">
+          <source>For all post deployment tasks (e.g. product installation, configurations, etc.)</source>
+          <target state="new">For all post deployment tasks (e.g. product installation, configurations, etc.)</target>
+        </trans-unit>
+        <trans-unit id="959a10ee-70e1-4533-b420-456c6f8184f1" xml:space="preserve">
+          <source>leverage script deployment extensions and create scripts specific to each technology</source>
+          <target state="new">leverage script deployment extensions and create scripts specific to each technology</target>
+        </trans-unit>
+        <trans-unit id="2d2b34cb-0250-4ad7-871a-53a730a305ac" xml:space="preserve">
+          <source>For more information, see <bpt id="4b2769e6-2cb1-4245-bad1-6472176f8a67">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="4b2769e6-2cb1-4245-bad1-6472176f8a67">&lt;/linkText&gt;</ept><bpt id="4b2769e6-2cb1-4245-bad1-6472176f8a67">&lt;title&gt;</bpt><ept id="4b2769e6-2cb1-4245-bad1-6472176f8a67">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4b2769e6-2cb1-4245-bad1-6472176f8a67">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="4b2769e6-2cb1-4245-bad1-6472176f8a67">&lt;/linkText&gt;</ept><bpt id="4b2769e6-2cb1-4245-bad1-6472176f8a67">&lt;title&gt;</bpt><ept id="4b2769e6-2cb1-4245-bad1-6472176f8a67">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

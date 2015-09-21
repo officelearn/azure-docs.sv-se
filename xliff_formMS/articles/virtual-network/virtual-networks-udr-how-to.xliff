@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f4edb832-5ae0-489c-a533-33ea9804cd8f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f4edb832-5ae0-489c-a533-33ea9804cd8f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6df669c7-966f-4f2a-b2ad-425ea4343e7b">
+        <trans-unit id="925639d9-8b4c-4049-85f1-3653f0d4951f" xml:space="preserve">
+          <source>How to Create Routes and Enable IP Forwarding in Azure</source>
+          <target state="new">How to Create Routes and Enable IP Forwarding in Azure</target>
+        </trans-unit>
+        <trans-unit id="16b01789-6b63-4736-812f-78a99ea64d28" xml:space="preserve">
+          <source>Learn how to manage UDRs and IP forwarding</source>
+          <target state="new">Learn how to manage UDRs and IP forwarding</target>
+        </trans-unit>
+        <trans-unit id="93c064c1-49ec-4213-93dc-4142b8432882" xml:space="preserve">
+          <source>You can use virtual appliances in Azure to handle traffic in your Azure virtual network.</source>
+          <target state="new">You can use virtual appliances in Azure to handle traffic in your Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="e985bf71-694f-47de-9434-a968e48d0aba" xml:space="preserve">
+          <source>However, you need to create routes that will allow VMs and cloud services in your virtual network to send packets to your virtual appliance, instead of the desired destination for the packet.</source>
+          <target state="new">However, you need to create routes that will allow VMs and cloud services in your virtual network to send packets to your virtual appliance, instead of the desired destination for the packet.</target>
+        </trans-unit>
+        <trans-unit id="ffa01d47-3f7a-4668-bdb1-53d289bf3bda" xml:space="preserve">
+          <source>You also need to enable IP forwarding on the virtual appliance VM so it can receive and forward packets that are not addressed to the actual virtual appliance VM.</source>
+          <target state="new">You also need to enable IP forwarding on the virtual appliance VM so it can receive and forward packets that are not addressed to the actual virtual appliance VM.</target>
+        </trans-unit>
+        <trans-unit id="bc89a567-e81f-46b4-8a93-d9afde2aed29" xml:space="preserve">
+          <source>You can add, remove, and change routes in Azure by using PowerShell.</source>
+          <target state="new">You can add, remove, and change routes in Azure by using PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="f512ef22-5240-47ae-8baf-857035bf67be" xml:space="preserve">
+          <source>Before you can create a route, you must create a route table to host the route.</source>
+          <target state="new">Before you can create a route, you must create a route table to host the route.</target>
+        </trans-unit>
+        <trans-unit id="f47220da-07b3-4211-a0a6-e921d4f9377c" xml:space="preserve">
+          <source>To create a route table named <bpt id="336fcdc7-c3fc-4e49-ba9e-3ce7e9d61a30">&lt;em&gt;</bpt>FrontEndSubnetRouteTable<ept id="336fcdc7-c3fc-4e49-ba9e-3ce7e9d61a30">&lt;/em&gt;</ept>, run the following PowerShell command:</source>
+          <target state="new">To create a route table named <bpt id="336fcdc7-c3fc-4e49-ba9e-3ce7e9d61a30">&lt;em&gt;</bpt>FrontEndSubnetRouteTable<ept id="336fcdc7-c3fc-4e49-ba9e-3ce7e9d61a30">&lt;/em&gt;</ept>, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="c7cdd20c-f65d-4e4a-9c3a-8d3035ab38e3" xml:space="preserve">
+          <source>The output of the command above should look like the following:</source>
+          <target state="new">The output of the command above should look like the following:</target>
+        </trans-unit>
+        <trans-unit id="6676c43c-2669-4d80-a8c2-790c7a7a7517" xml:space="preserve">
+          <source>To add a route that sets <bpt id="f42d25b4-d559-4c5c-8310-7b385bcef0c7">&lt;em&gt;</bpt>10.1.1.10<ept id="f42d25b4-d559-4c5c-8310-7b385bcef0c7">&lt;/em&gt;</ept> as the next hop for the <bpt id="b164b403-f13d-40a5-a9ac-245734d08b88">&lt;em&gt;</bpt>10.2.0.0/16<ept id="b164b403-f13d-40a5-a9ac-245734d08b88">&lt;/em&gt;</ept> subnet in the route table created above, run the following PowerShell command:</source>
+          <target state="new">To add a route that sets <bpt id="f42d25b4-d559-4c5c-8310-7b385bcef0c7">&lt;em&gt;</bpt>10.1.1.10<ept id="f42d25b4-d559-4c5c-8310-7b385bcef0c7">&lt;/em&gt;</ept> as the next hop for the <bpt id="b164b403-f13d-40a5-a9ac-245734d08b88">&lt;em&gt;</bpt>10.2.0.0/16<ept id="b164b403-f13d-40a5-a9ac-245734d08b88">&lt;/em&gt;</ept> subnet in the route table created above, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="c8885f7f-0661-4088-921e-aecc1950c1a0" xml:space="preserve">
+          <source>The output of the command above should look like the following:</source>
+          <target state="new">The output of the command above should look like the following:</target>
+        </trans-unit>
+        <trans-unit id="97125070-ae83-4d58-aee8-0035c0db008c" xml:space="preserve">
+          <source>A route table must be associated with one or more subnets for it to be used.</source>
+          <target state="new">A route table must be associated with one or more subnets for it to be used.</target>
+        </trans-unit>
+        <trans-unit id="2ea46502-f6f8-4676-87a1-76eb07f72434" xml:space="preserve">
+          <source>To associate the <bpt id="0177593e-0a3c-4458-af33-8bad8cacaa33">&lt;em&gt;</bpt>FrontEndSubnetRouteTable<ept id="0177593e-0a3c-4458-af33-8bad8cacaa33">&lt;/em&gt;</ept> route table to a subnet named <bpt id="87483166-4389-4a4c-a678-46af522c9e51">&lt;em&gt;</bpt>FrontEndSubnet<ept id="87483166-4389-4a4c-a678-46af522c9e51">&lt;/em&gt;</ept> in the virtual network <bpt id="d291937b-979b-47d0-af49-a1d492156875">&lt;em&gt;</bpt>ProductionVnet<ept id="d291937b-979b-47d0-af49-a1d492156875">&lt;/em&gt;</ept>, run the following PowerShell command:</source>
+          <target state="new">To associate the <bpt id="0177593e-0a3c-4458-af33-8bad8cacaa33">&lt;em&gt;</bpt>FrontEndSubnetRouteTable<ept id="0177593e-0a3c-4458-af33-8bad8cacaa33">&lt;/em&gt;</ept> route table to a subnet named <bpt id="87483166-4389-4a4c-a678-46af522c9e51">&lt;em&gt;</bpt>FrontEndSubnet<ept id="87483166-4389-4a4c-a678-46af522c9e51">&lt;/em&gt;</ept> in the virtual network <bpt id="d291937b-979b-47d0-af49-a1d492156875">&lt;em&gt;</bpt>ProductionVnet<ept id="d291937b-979b-47d0-af49-a1d492156875">&lt;/em&gt;</ept>, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="f20f2060-129b-42a6-a0a7-10802242cd47" xml:space="preserve">
+          <source>You can query Azure to see the actual routes applied for a specific VM or role instance.</source>
+          <target state="new">You can query Azure to see the actual routes applied for a specific VM or role instance.</target>
+        </trans-unit>
+        <trans-unit id="05ebcd97-4b8a-4e85-8b9c-2bfd621233d0" xml:space="preserve">
+          <source>The routes shown include default routes that Azure provides, as well as routes advertised by a VPN Gateway.</source>
+          <target state="new">The routes shown include default routes that Azure provides, as well as routes advertised by a VPN Gateway.</target>
+        </trans-unit>
+        <trans-unit id="a60eedc6-6d6d-40b5-bb5d-6a4cfdfc5c5b" xml:space="preserve">
+          <source>The limit of routes shown is 800.</source>
+          <target state="new">The limit of routes shown is 800.</target>
+        </trans-unit>
+        <trans-unit id="231ee171-3cd7-431e-9efe-26b5a75e675d" xml:space="preserve">
+          <source>To see routes associated to the primary NIC on a VM named <bpt id="0ed4523e-b604-4f48-9c51-8de3ad5a0a47">&lt;em&gt;</bpt>FWAppliance1<ept id="0ed4523e-b604-4f48-9c51-8de3ad5a0a47">&lt;/em&gt;</ept>, run the following PowerShell command:</source>
+          <target state="new">To see routes associated to the primary NIC on a VM named <bpt id="0ed4523e-b604-4f48-9c51-8de3ad5a0a47">&lt;em&gt;</bpt>FWAppliance1<ept id="0ed4523e-b604-4f48-9c51-8de3ad5a0a47">&lt;/em&gt;</ept>, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="2b531790-ecd0-474f-b06e-5e6814f76442" xml:space="preserve">
+          <source>The output of the command above should look like the following:</source>
+          <target state="new">The output of the command above should look like the following:</target>
+        </trans-unit>
+        <trans-unit id="a505b7f2-4971-49ea-9299-2f3709741199" xml:space="preserve">
+          <source>To see routes associated to a secondary NIC named <bpt id="6982b119-ff62-46a9-a76b-cb85c36c6a03">&lt;em&gt;</bpt>backendnic<ept id="6982b119-ff62-46a9-a76b-cb85c36c6a03">&lt;/em&gt;</ept> on a VM named <bpt id="71158200-56d4-4126-b8dc-0d72c8eb078b">&lt;em&gt;</bpt>FWAppliance1<ept id="71158200-56d4-4126-b8dc-0d72c8eb078b">&lt;/em&gt;</ept>, run the following PowerShell command:</source>
+          <target state="new">To see routes associated to a secondary NIC named <bpt id="6982b119-ff62-46a9-a76b-cb85c36c6a03">&lt;em&gt;</bpt>backendnic<ept id="6982b119-ff62-46a9-a76b-cb85c36c6a03">&lt;/em&gt;</ept> on a VM named <bpt id="71158200-56d4-4126-b8dc-0d72c8eb078b">&lt;em&gt;</bpt>FWAppliance1<ept id="71158200-56d4-4126-b8dc-0d72c8eb078b">&lt;/em&gt;</ept>, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="66a96cc9-4714-4b10-9311-3054c03196f4" xml:space="preserve">
+          <source>To see routes associated to the primary NIC on a role instance named <bpt id="43d075c0-6e85-4219-ad21-efdd39eaec39">&lt;em&gt;</bpt>myRole<ept id="43d075c0-6e85-4219-ad21-efdd39eaec39">&lt;/em&gt;</ept> that is part of a cloud service named <bpt id="f39e850b-2d43-4a69-bb7b-8fc51b55462a">&lt;em&gt;</bpt>ProductionVMs<ept id="f39e850b-2d43-4a69-bb7b-8fc51b55462a">&lt;/em&gt;</ept>, run the following PowerShell command:</source>
+          <target state="new">To see routes associated to the primary NIC on a role instance named <bpt id="43d075c0-6e85-4219-ad21-efdd39eaec39">&lt;em&gt;</bpt>myRole<ept id="43d075c0-6e85-4219-ad21-efdd39eaec39">&lt;/em&gt;</ept> that is part of a cloud service named <bpt id="f39e850b-2d43-4a69-bb7b-8fc51b55462a">&lt;em&gt;</bpt>ProductionVMs<ept id="f39e850b-2d43-4a69-bb7b-8fc51b55462a">&lt;/em&gt;</ept>, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="ec9495bb-5d61-4da0-9393-c849e9338ca2" xml:space="preserve">
+          <source>As previously mentioned, you need to enable IP forwarding on any VM or role instance that will act as a virtual appliance.</source>
+          <target state="new">As previously mentioned, you need to enable IP forwarding on any VM or role instance that will act as a virtual appliance.</target>
+        </trans-unit>
+        <trans-unit id="fd4b488a-fff7-42fd-8782-10786b042de8" xml:space="preserve">
+          <source>To enable IP forwarding in a VM named <bpt id="dc17bcf8-1d4a-41ab-b64f-78c271e3a4fe">&lt;em&gt;</bpt>FWAppliance1<ept id="dc17bcf8-1d4a-41ab-b64f-78c271e3a4fe">&lt;/em&gt;</ept>, run the following PowerShell command:</source>
+          <target state="new">To enable IP forwarding in a VM named <bpt id="dc17bcf8-1d4a-41ab-b64f-78c271e3a4fe">&lt;em&gt;</bpt>FWAppliance1<ept id="dc17bcf8-1d4a-41ab-b64f-78c271e3a4fe">&lt;/em&gt;</ept>, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="81fed79f-f81f-47ac-864d-e16c16bb11d3" xml:space="preserve">
+          <source>To enable IP forwarding in a role instance named <bpt id="1ff71b47-b65c-4324-8be0-66a2a68b7066">&lt;em&gt;</bpt>FWAppliance<ept id="1ff71b47-b65c-4324-8be0-66a2a68b7066">&lt;/em&gt;</ept> in a cloud service named <bpt id="29fcee6d-3610-4afe-a417-0221c0dbaedf">&lt;em&gt;</bpt>DMZService<ept id="29fcee6d-3610-4afe-a417-0221c0dbaedf">&lt;/em&gt;</ept>, run the following PowerShell command:</source>
+          <target state="new">To enable IP forwarding in a role instance named <bpt id="1ff71b47-b65c-4324-8be0-66a2a68b7066">&lt;em&gt;</bpt>FWAppliance<ept id="1ff71b47-b65c-4324-8be0-66a2a68b7066">&lt;/em&gt;</ept> in a cloud service named <bpt id="29fcee6d-3610-4afe-a417-0221c0dbaedf">&lt;em&gt;</bpt>DMZService<ept id="29fcee6d-3610-4afe-a417-0221c0dbaedf">&lt;/em&gt;</ept>, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="fe3761c0-6d1e-4191-8b70-2bae2b3b1cab" xml:space="preserve">
+          <source>To disable IP forwarding in a VM named <bpt id="4babf60b-c02b-45f6-a042-7caa21adf96d">&lt;em&gt;</bpt>FWAppliance1<ept id="4babf60b-c02b-45f6-a042-7caa21adf96d">&lt;/em&gt;</ept>, run the following PowerShell command:</source>
+          <target state="new">To disable IP forwarding in a VM named <bpt id="4babf60b-c02b-45f6-a042-7caa21adf96d">&lt;em&gt;</bpt>FWAppliance1<ept id="4babf60b-c02b-45f6-a042-7caa21adf96d">&lt;/em&gt;</ept>, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="139be825-b749-422d-9526-d15241c3df85" xml:space="preserve">
+          <source>To disable IP forwarding in a role instance named <bpt id="7a6b7fbb-a55d-4f8c-bb08-8ecf356555a7">&lt;em&gt;</bpt>FWAppliance<ept id="7a6b7fbb-a55d-4f8c-bb08-8ecf356555a7">&lt;/em&gt;</ept> in a cloud service named <bpt id="5dd962d8-c6ba-4826-8903-e32ac61f78e5">&lt;em&gt;</bpt>DMZService<ept id="5dd962d8-c6ba-4826-8903-e32ac61f78e5">&lt;/em&gt;</ept>, run the following PowerShell command:</source>
+          <target state="new">To disable IP forwarding in a role instance named <bpt id="7a6b7fbb-a55d-4f8c-bb08-8ecf356555a7">&lt;em&gt;</bpt>FWAppliance<ept id="7a6b7fbb-a55d-4f8c-bb08-8ecf356555a7">&lt;/em&gt;</ept> in a cloud service named <bpt id="5dd962d8-c6ba-4826-8903-e32ac61f78e5">&lt;em&gt;</bpt>DMZService<ept id="5dd962d8-c6ba-4826-8903-e32ac61f78e5">&lt;/em&gt;</ept>, run the following PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="2bc770c2-77b2-4bd2-ba5a-753ed7a8f3e3" xml:space="preserve">
+          <source>To view the status of IP forwarding on a VM named <bpt id="f14b853a-dd09-4893-b0e7-c78c206897ad">&lt;em&gt;</bpt>FWAppliance1<ept id="f14b853a-dd09-4893-b0e7-c78c206897ad">&lt;/em&gt;</ept>, run the following PowerShell command:</source>
+          <target state="new">To view the status of IP forwarding on a VM named <bpt id="f14b853a-dd09-4893-b0e7-c78c206897ad">&lt;em&gt;</bpt>FWAppliance1<ept id="f14b853a-dd09-4893-b0e7-c78c206897ad">&lt;/em&gt;</ept>, run the following PowerShell command:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

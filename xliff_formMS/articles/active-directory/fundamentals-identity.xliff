@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="68346013-0129-444f-940d-ad1d5a325630" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="68346013-0129-444f-940d-ad1d5a325630" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="02e40f3b-6cc4-44f5-a148-23c85c347cd3">
+        <trans-unit id="559f654d-eb14-4e65-8632-56d912c9d326" xml:space="preserve">
+          <source>Azure Identity</source>
+          <target state="new">Azure Identity</target>
+        </trans-unit>
+        <trans-unit id="ca3f4381-de3b-41d0-a775-a452930d7322" xml:space="preserve">
+          <source>Learn about using Active Directory in Azure.</source>
+          <target state="new">Learn about using Active Directory in Azure.</target>
+        </trans-unit>
+        <trans-unit id="d378fd43-d193-4543-8707-2ef365665bae" xml:space="preserve">
+          <source><bpt id="6b4a9c79-4ba5-46e1-abf7-2f1c5fd2d521">&lt;token href="../../includes/identity.md"&gt;</bpt><ept id="6b4a9c79-4ba5-46e1-abf7-2f1c5fd2d521">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6b4a9c79-4ba5-46e1-abf7-2f1c5fd2d521">&lt;token href="../../includes/identity.md"&gt;</bpt><ept id="6b4a9c79-4ba5-46e1-abf7-2f1c5fd2d521">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

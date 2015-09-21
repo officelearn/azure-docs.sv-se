@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a865b23b-5772-4fdb-a19b-1c0430f823f3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a865b23b-5772-4fdb-a19b-1c0430f823f3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="33721305-971d-444f-8f47-5239a57317a4">
+        <trans-unit id="affbbccb-4498-45a0-aea7-4ef55d212ee6" xml:space="preserve">
+          <source>What is SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">What is SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="161709a9-94d5-469c-b171-93ab3be4022e" xml:space="preserve">
+          <source>Enterprise-class distributed database in the Azure Cloud capable of processing up to petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds. </source>
+          <target state="new">Enterprise-class distributed database in the Azure Cloud capable of processing up to petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds. </target>
+        </trans-unit>
+        <trans-unit id="59b87f6f-eaa1-44b7-81b9-40bf2bbe71b1" xml:space="preserve">
+          <source>SQL Data Warehouse is an enterprise-class distributed database in the Azure Cloud capable of processing up to petabyte volumes of relational and non-relational data.</source>
+          <target state="new">SQL Data Warehouse is an enterprise-class distributed database in the Azure Cloud capable of processing up to petabyte volumes of relational and non-relational data.</target>
+        </trans-unit>
+        <trans-unit id="7316345b-aeeb-44d7-ae34-86a1830350b3" xml:space="preserve">
+          <source>It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds.</source>
+          <target state="new">It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds.</target>
+        </trans-unit>
+        <trans-unit id="285f442d-cb77-43d9-a1a0-d15a1e10ba1e" xml:space="preserve">
+          <source>SQL Data Warehouse blends the best of SQL Server's enterprise-class relational database quality and reliability with Cloud computing.</source>
+          <target state="new">SQL Data Warehouse blends the best of SQL Server's enterprise-class relational database quality and reliability with Cloud computing.</target>
+        </trans-unit>
+        <trans-unit id="621d7317-ef1d-4de9-9a59-e6620c15a61f" xml:space="preserve">
+          <source>Read more about the key design components of SQL Data Warehouse.</source>
+          <target state="new">Read more about the key design components of SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="de80f911-e778-477b-9881-e20a4f086056" xml:space="preserve">
+          <source>With SQL data warehouse, data is stored in cloud-scale storage, and compute is scaled independently, allowing you to pay for query performance as you need it.</source>
+          <target state="new">With SQL data warehouse, data is stored in cloud-scale storage, and compute is scaled independently, allowing you to pay for query performance as you need it.</target>
+        </trans-unit>
+        <trans-unit id="264498af-441b-4632-ac9e-69a73dd0c989" xml:space="preserve">
+          <source>You can now dynamically deploy, grow, shrink, and even pause compute.</source>
+          <target state="new">You can now dynamically deploy, grow, shrink, and even pause compute.</target>
+        </trans-unit>
+        <trans-unit id="f47f21f0-1428-480b-a9fe-7ffbc0b72b4e" xml:space="preserve">
+          <source>Take full advantage of storage at cloud scale, and apply query compute based on seasonal needs.</source>
+          <target state="new">Take full advantage of storage at cloud scale, and apply query compute based on seasonal needs.</target>
+        </trans-unit>
+        <trans-unit id="d6114352-d2ea-4e47-a705-852a8e67fb66" xml:space="preserve">
+          <source>When paused, you only pay for storage.</source>
+          <target state="new">When paused, you only pay for storage.</target>
+        </trans-unit>
+        <trans-unit id="2fd9a6b4-06ea-4f99-9272-a9d1aa8e95db" xml:space="preserve">
+          <source>Data Warehouse Units (DWUs) are the unit of scale for compute resources in SQL Data Warehouse.</source>
+          <target state="new">Data Warehouse Units (DWUs) are the unit of scale for compute resources in SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="5e30f21f-e11f-422c-9af5-4873ca49b64a" xml:space="preserve">
+          <source>When you need faster results, increase your DWUs and pay for the greater number DWUs; when you don't need that much compute power, decrease your DWUs and go back to paying for the smaller amount of DWUs.</source>
+          <target state="new">When you need faster results, increase your DWUs and pay for the greater number DWUs; when you don't need that much compute power, decrease your DWUs and go back to paying for the smaller amount of DWUs.</target>
+        </trans-unit>
+        <trans-unit id="21bd7db1-8b82-4ab7-b1f4-a13ad4b84c5d" xml:space="preserve">
+          <source>The compute power grows in proportion to the number of DWUs; doubling the DWUs doubles the compute resources.</source>
+          <target state="new">The compute power grows in proportion to the number of DWUs; doubling the DWUs doubles the compute resources.</target>
+        </trans-unit>
+        <trans-unit id="28c4572c-fc21-4513-8bba-a202ca91759b" xml:space="preserve">
+          <source>When you don't need to run queries, perhaps in the evenings or weekends, pause compute resources to cancel all running queries and remove all DWUs allocated to your data warehouse.</source>
+          <target state="new">When you don't need to run queries, perhaps in the evenings or weekends, pause compute resources to cancel all running queries and remove all DWUs allocated to your data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="9dc0ca24-ae90-425b-b3c9-214d0e63b68a" xml:space="preserve">
+          <source>Your data storage stays intact, but there is no charge for compute resources.</source>
+          <target state="new">Your data storage stays intact, but there is no charge for compute resources.</target>
+        </trans-unit>
+        <trans-unit id="4bb84dd3-6b6a-4cdc-a9b0-2ae6d99287ad" xml:space="preserve">
+          <source>When you need to start running queries, perhaps on Monday morning, you can resume your compute resources.</source>
+          <target state="new">When you need to start running queries, perhaps on Monday morning, you can resume your compute resources.</target>
+        </trans-unit>
+        <trans-unit id="831f2981-fe25-49fd-b569-5667d226dff3" xml:space="preserve">
+          <source>SQL Data Warehouse uses Microsoft’s massive parallel processing (MPP) architecture, and SQL Server's columnstore index technology to deliver breakthrough performance.</source>
+          <target state="new">SQL Data Warehouse uses Microsoft’s massive parallel processing (MPP) architecture, and SQL Server's columnstore index technology to deliver breakthrough performance.</target>
+        </trans-unit>
+        <trans-unit id="c7e4091f-c7bf-4535-9237-855478f6ba50" xml:space="preserve">
+          <source>MPP is a divide and conquer approach to solving large data problems by using parallel computing.</source>
+          <target state="new">MPP is a divide and conquer approach to solving large data problems by using parallel computing.</target>
+        </trans-unit>
+        <trans-unit id="01721dbb-3223-4f7e-8f9e-e961851fa9c3" xml:space="preserve">
+          <source>Data is divided and distributed across many computing resources, and each computing resource operates on its portion of the data in parallel.</source>
+          <target state="new">Data is divided and distributed across many computing resources, and each computing resource operates on its portion of the data in parallel.</target>
+        </trans-unit>
+        <trans-unit id="77d5ab32-9acf-4bb2-ac84-4468306819cb" xml:space="preserve">
+          <source>Much of the secret sauce is in Microsoft's distributed query technology.</source>
+          <target state="new">Much of the secret sauce is in Microsoft's distributed query technology.</target>
+        </trans-unit>
+        <trans-unit id="dc1c7374-151e-4a64-ad44-370792537f6c" xml:space="preserve">
+          <source>SQL Data Warehouse uses an advanced query optimizer that figures out how to optimize distributed queries based on assessing the cost of query operations.</source>
+          <target state="new">SQL Data Warehouse uses an advanced query optimizer that figures out how to optimize distributed queries based on assessing the cost of query operations.</target>
+        </trans-unit>
+        <trans-unit id="a386adf7-5f12-4332-a4af-ed5ebf4ebff8" xml:space="preserve">
+          <source>It also has advanced algorithms and techniques that efficiently move data among the computing resources as necessary to perform the query.</source>
+          <target state="new">It also has advanced algorithms and techniques that efficiently move data among the computing resources as necessary to perform the query.</target>
+        </trans-unit>
+        <trans-unit id="47636fec-289f-4970-b93f-2b0d2bf50a88" xml:space="preserve">
+          <source>Columnstore indexes are key to achieving fast query performance on data warehouse queries.</source>
+          <target state="new">Columnstore indexes are key to achieving fast query performance on data warehouse queries.</target>
+        </trans-unit>
+        <trans-unit id="da73076c-2b85-4156-b0de-b2ae85b7879d" xml:space="preserve">
+          <source>By using column-based storage, columnstore indexes get up to 5x compression gains over traditional row-oriented storage, and up to 10x query performance gains.</source>
+          <target state="new">By using column-based storage, columnstore indexes get up to 5x compression gains over traditional row-oriented storage, and up to 10x query performance gains.</target>
+        </trans-unit>
+        <trans-unit id="d2abc74f-2be1-491a-b532-11d8e52872d8" xml:space="preserve">
+          <source>Data warehouse queries work great on columnstore indexes because they often scan the entire table or entire partition of a table.</source>
+          <target state="new">Data warehouse queries work great on columnstore indexes because they often scan the entire table or entire partition of a table.</target>
+        </trans-unit>
+        <trans-unit id="3411de16-dbde-44ce-8c02-5c69115386bd" xml:space="preserve">
+          <source>In contrast, OLTP queries work great on binary tree indexes because they seek to specific rows in the table.</source>
+          <target state="new">In contrast, OLTP queries work great on binary tree indexes because they seek to specific rows in the table.</target>
+        </trans-unit>
+        <trans-unit id="b87121a0-6ae8-4d5a-8d9f-010c9e058389" xml:space="preserve">
+          <source>SQL Data Warehouse is based on SQL Server’s proven relational database engine and includes the features you expect from an enterprise data warehouse including stored procedures, user-defined functions, table partitioning, indexes, and collations.</source>
+          <target state="new">SQL Data Warehouse is based on SQL Server’s proven relational database engine and includes the features you expect from an enterprise data warehouse including stored procedures, user-defined functions, table partitioning, indexes, and collations.</target>
+        </trans-unit>
+        <trans-unit id="ee43b99e-f720-42cf-b27b-ccdb785e2eef" xml:space="preserve">
+          <source>If you already know Transact-SQL, its easy to transfer your knowledge to SQL Data Warehouse.</source>
+          <target state="new">If you already know Transact-SQL, its easy to transfer your knowledge to SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="7723395b-e4e7-454b-ac58-8c9f073cdad6" xml:space="preserve">
+          <source>Whether you are advanced or a novice, the documentation examples will help you get started.</source>
+          <target state="new">Whether you are advanced or a novice, the documentation examples will help you get started.</target>
+        </trans-unit>
+        <trans-unit id="89518209-bdcd-4a6f-bf97-0e8d3c35958e" xml:space="preserve">
+          <source>SQL Data Warehouse uses SQL Server's Transact-SQL, columnstore index, and PolyBase technologies along with Analytic Platform System's massively parallel processing (MPP) architecture to create this unique, integrated, Platform-as-a-Service (PaaS) data warehouse experience.</source>
+          <target state="new">SQL Data Warehouse uses SQL Server's Transact-SQL, columnstore index, and PolyBase technologies along with Analytic Platform System's massively parallel processing (MPP) architecture to create this unique, integrated, Platform-as-a-Service (PaaS) data warehouse experience.</target>
+        </trans-unit>
+        <trans-unit id="c9a742d1-1eca-457a-8381-8a6563cff60f" xml:space="preserve">
+          <source>With the Transact-SQL and feature commonality between SQL Server, SQL Data Warehouse, SQL Database, and Analytics Platform System, you can develop a solution that fits your data needs.</source>
+          <target state="new">With the Transact-SQL and feature commonality between SQL Server, SQL Data Warehouse, SQL Database, and Analytics Platform System, you can develop a solution that fits your data needs.</target>
+        </trans-unit>
+        <trans-unit id="3b2e6a9f-4355-413e-8caf-a604daa9a499" xml:space="preserve">
+          <source>You can decide where to keep your data, based on performance, security, and scale requirements, and then transfer data as necessary between on-premises and Cloud.</source>
+          <target state="new">You can decide where to keep your data, based on performance, security, and scale requirements, and then transfer data as necessary between on-premises and Cloud.</target>
+        </trans-unit>
+        <trans-unit id="b2558f68-63b3-4d3c-81e1-0f2043a88747" xml:space="preserve">
+          <source>Polybase enables you to query non-relational data held in Azure blob storage or in Hadoop's File System (HDFS) as though it is a regular table.</source>
+          <target state="new">Polybase enables you to query non-relational data held in Azure blob storage or in Hadoop's File System (HDFS) as though it is a regular table.</target>
+        </trans-unit>
+        <trans-unit id="f077bf98-74aa-4d28-aeb7-5c41125ac3d0" xml:space="preserve">
+          <source>Use Polybase to query non-relational data or to import non-relational data into SQL Data Warehouse.</source>
+          <target state="new">Use Polybase to query non-relational data or to import non-relational data into SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="cec2e64a-e596-46e8-a2c5-b3a55c97c760" xml:space="preserve">
+          <source>Polybase is easy to use and allows you to leverage your data from different sources by using the same T-SQL commands you're already familiar with.</source>
+          <target state="new">Polybase is easy to use and allows you to leverage your data from different sources by using the same T-SQL commands you're already familiar with.</target>
+        </trans-unit>
+        <trans-unit id="47ec583e-5409-4dfd-860b-2b3b4108bcd9" xml:space="preserve">
+          <source>There is no need to learn HiveQL or other languages to benefit from Hadoop.</source>
+          <target state="new">There is no need to learn HiveQL or other languages to benefit from Hadoop.</target>
+        </trans-unit>
+        <trans-unit id="7d716f15-3060-4702-ad8d-c0bca8117bf9" xml:space="preserve">
+          <source>Polybase is agnostic in it's integration.</source>
+          <target state="new">Polybase is agnostic in it's integration.</target>
+        </trans-unit>
+        <trans-unit id="d3ef0496-ca38-4e68-aae2-58e220f4c219" xml:space="preserve">
+          <source>It exposes the same features and functionality to all the distributions of Hadoop that it supports.</source>
+          <target state="new">It exposes the same features and functionality to all the distributions of Hadoop that it supports.</target>
+        </trans-unit>
+        <trans-unit id="2c975b2c-a093-4599-8438-11e91bba9479" xml:space="preserve">
+          <source>The data read by Polybase can be in a variety of formats, including delimited files or ORC files.</source>
+          <target state="new">The data read by Polybase can be in a variety of formats, including delimited files or ORC files.</target>
+        </trans-unit>
+        <trans-unit id="ec4a0a7b-986a-431f-ad6e-eb9018c51ede" xml:space="preserve">
+          <source>PolyBase uses external tables to access non-relational data.</source>
+          <target state="new">PolyBase uses external tables to access non-relational data.</target>
+        </trans-unit>
+        <trans-unit id="4ffba5e4-8fff-4164-8ad7-14b2c3d49313" xml:space="preserve">
+          <source>The table definitions are stored in SQL Data Warehouse, and the data is stored externally in Hadoop or Azure blob storage.</source>
+          <target state="new">The table definitions are stored in SQL Data Warehouse, and the data is stored externally in Hadoop or Azure blob storage.</target>
+        </trans-unit>
+        <trans-unit id="68b6cd45-814f-4411-915c-13c20b19991c" xml:space="preserve">
+          <source>SQL Data Warehouse easily deploys in seconds.</source>
+          <target state="new">SQL Data Warehouse easily deploys in seconds.</target>
+        </trans-unit>
+        <trans-unit id="d256ea6e-2f88-453f-a685-cdb5e0c1a30e" xml:space="preserve">
+          <source>This service is a fully managed offering which removes the hassle of spend time on software patching and maintenance.</source>
+          <target state="new">This service is a fully managed offering which removes the hassle of spend time on software patching and maintenance.</target>
+        </trans-unit>
+        <trans-unit id="92dc5728-8965-4ecb-b756-425827e4f59f" xml:space="preserve">
+          <source>SQL Data Warehouse has built-in backups to support self-service restore; the service automatically backs up your data to Azure Storage as it snapshots database restore points.</source>
+          <target state="new">SQL Data Warehouse has built-in backups to support self-service restore; the service automatically backs up your data to Azure Storage as it snapshots database restore points.</target>
+        </trans-unit>
+        <trans-unit id="0e93a046-90d3-4b1a-83dc-279188214ed5" xml:space="preserve">
+          <source>Learn about the [data warehouse workload].</source>
+          <target state="new">Learn about the [data warehouse workload].</target>
+        </trans-unit>
+        <trans-unit id="53fd9c64-378a-4a8c-859f-e238f644c6e0" xml:space="preserve">
+          <source>[Provision] and load [sample data] to get started.</source>
+          <target state="new">[Provision] and load [sample data] to get started.</target>
+        </trans-unit>
+        <trans-unit id="33fd6daa-4bde-4af4-ad22-dcf6bde45629" xml:space="preserve">
+          <source>./sql-data-warehouse-overview-workload.md</source>
+          <target state="new">./sql-data-warehouse-overview-workload.md</target>
+        </trans-unit>
+        <trans-unit id="13389d7f-ce04-4aac-8cad-213729b30157" xml:space="preserve">
+          <source>./sql-data-warehouse-get-started-load-samples.md</source>
+          <target state="new">./sql-data-warehouse-get-started-load-samples.md</target>
+        </trans-unit>
+        <trans-unit id="37392754-1893-4d0d-8923-e97d6db690c1" xml:space="preserve">
+          <source>./sql-data-warehouse-get-started-provision.md</source>
+          <target state="new">./sql-data-warehouse-get-started-provision.md</target>
+        </trans-unit>
+      </group>
+      <group id="b4f90cb0-9e77-4d77-b073-d780b1d2c4e2" />
+    </body>
+  </file>
+</xliff>

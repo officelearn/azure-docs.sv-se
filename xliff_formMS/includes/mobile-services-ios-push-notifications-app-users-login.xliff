@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="28e00a60-52a3-4614-bf46-8c8cf334b7f5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="28e00a60-52a3-4614-bf46-8c8cf334b7f5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0f6c9816-a309-4e53-851f-d44389f61000">
+        <trans-unit id="dd20a408-dbea-4810-b12f-0b4b8178d33f" xml:space="preserve">
+          <source>Next, you need to change the way that push notifications are registered so that a user is authenticated before registration is attempted.</source>
+          <target state="new">Next, you need to change the way that push notifications are registered so that a user is authenticated before registration is attempted.</target>
+        </trans-unit>
+        <trans-unit id="2db178ad-e5cf-4376-9ae3-eb39c6b6711a" xml:space="preserve">
+          <source>In <bpt id="78867185-2ca5-45f9-b987-adad7e429137">&lt;strong&gt;</bpt>QSAppDelegate.m<ept id="78867185-2ca5-45f9-b987-adad7e429137">&lt;/strong&gt;</ept>, remove the implementation of <bpt id="c4d47990-2686-47a1-ba67-557c2387386a">&lt;strong&gt;</bpt>didFinishLaunchingWithOptions<ept id="c4d47990-2686-47a1-ba67-557c2387386a">&lt;/strong&gt;</ept> altogether.</source>
+          <target state="new">In <bpt id="78867185-2ca5-45f9-b987-adad7e429137">&lt;strong&gt;</bpt>QSAppDelegate.m<ept id="78867185-2ca5-45f9-b987-adad7e429137">&lt;/strong&gt;</ept>, remove the implementation of <bpt id="c4d47990-2686-47a1-ba67-557c2387386a">&lt;strong&gt;</bpt>didFinishLaunchingWithOptions<ept id="c4d47990-2686-47a1-ba67-557c2387386a">&lt;/strong&gt;</ept> altogether.</target>
+        </trans-unit>
+        <trans-unit id="b7ab1e16-a450-4cf6-be00-14a994d8b6e0" xml:space="preserve">
+          <source>Open <bpt id="49206c77-a226-4df8-a4f1-4df81d3f8e1c">&lt;strong&gt;</bpt>QSTodoListViewController.m<ept id="49206c77-a226-4df8-a4f1-4df81d3f8e1c">&lt;/strong&gt;</ept> and add the following code to the end of the <bpt id="92f47e3d-9f26-4242-9a66-494de4f9e7eb">&lt;strong&gt;</bpt>viewDidLoad<ept id="92f47e3d-9f26-4242-9a66-494de4f9e7eb">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Open <bpt id="49206c77-a226-4df8-a4f1-4df81d3f8e1c">&lt;strong&gt;</bpt>QSTodoListViewController.m<ept id="49206c77-a226-4df8-a4f1-4df81d3f8e1c">&lt;/strong&gt;</ept> and add the following code to the end of the <bpt id="92f47e3d-9f26-4242-9a66-494de4f9e7eb">&lt;strong&gt;</bpt>viewDidLoad<ept id="92f47e3d-9f26-4242-9a66-494de4f9e7eb">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

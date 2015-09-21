@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9c47d188-bddc-4192-be02-26d1f3394d3f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9c47d188-bddc-4192-be02-26d1f3394d3f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0e518a25-e7c6-45cd-a592-f7edfc70b320">
+        <trans-unit id="406cd748-2ecf-4ff9-a818-98652ee2d916" xml:space="preserve">
+          <source>How to create and use groups to manage developer accounts in Azure API Management</source>
+          <target state="new">How to create and use groups to manage developer accounts in Azure API Management</target>
+        </trans-unit>
+        <trans-unit id="f73011f8-7d60-43f0-825e-f95f432d57cd" xml:space="preserve">
+          <source>Learn how to manage developer accounts using groups in Azure API Management</source>
+          <target state="new">Learn how to manage developer accounts using groups in Azure API Management</target>
+        </trans-unit>
+        <trans-unit id="5afb9851-00a7-40dd-875a-789075011ed9" xml:space="preserve">
+          <source>In API Management, groups are used to manage the visibility of products to developers.</source>
+          <target state="new">In API Management, groups are used to manage the visibility of products to developers.</target>
+        </trans-unit>
+        <trans-unit id="e6d48d35-0c0f-4b18-bdf6-79b7ad397332" xml:space="preserve">
+          <source>Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups.</source>
+          <target state="new">Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups.</target>
+        </trans-unit>
+        <trans-unit id="2b766333-9999-42ce-8d4b-e3dc81abe026" xml:space="preserve">
+          <source>API Management has the following immutable system groups.</source>
+          <target state="new">API Management has the following immutable system groups.</target>
+        </trans-unit>
+        <trans-unit id="5bbb84f7-fd02-444f-a1ab-3efc59a6aa78" xml:space="preserve">
+          <source><bpt id="4b4e9359-6ad4-4291-b816-3cf821ca2b81">&lt;strong&gt;</bpt>Administrators<ept id="4b4e9359-6ad4-4291-b816-3cf821ca2b81">&lt;/strong&gt;</ept> - Azure subscription administrators are members of this group.</source>
+          <target state="new"><bpt id="4b4e9359-6ad4-4291-b816-3cf821ca2b81">&lt;strong&gt;</bpt>Administrators<ept id="4b4e9359-6ad4-4291-b816-3cf821ca2b81">&lt;/strong&gt;</ept> - Azure subscription administrators are members of this group.</target>
+        </trans-unit>
+        <trans-unit id="368265c9-8966-4096-ae3e-849e0b35e486" xml:space="preserve">
+          <source>Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.</source>
+          <target state="new">Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.</target>
+        </trans-unit>
+        <trans-unit id="12272980-5034-467e-ada9-829df2aa42a2" xml:space="preserve">
+          <source><bpt id="15232b52-d071-4d8d-9476-a7441479a0a9">&lt;strong&gt;</bpt>Developers<ept id="15232b52-d071-4d8d-9476-a7441479a0a9">&lt;/strong&gt;</ept> - Authenticated developer portal users fall into this group.</source>
+          <target state="new"><bpt id="15232b52-d071-4d8d-9476-a7441479a0a9">&lt;strong&gt;</bpt>Developers<ept id="15232b52-d071-4d8d-9476-a7441479a0a9">&lt;/strong&gt;</ept> - Authenticated developer portal users fall into this group.</target>
+        </trans-unit>
+        <trans-unit id="acea69f3-0a9d-4477-8ebb-ac2292391fc1" xml:space="preserve">
+          <source>Developers are the customers that build applications using your APIs.</source>
+          <target state="new">Developers are the customers that build applications using your APIs.</target>
+        </trans-unit>
+        <trans-unit id="a2dce5bb-ebc4-44b9-9ac7-4a17bee763e3" xml:space="preserve">
+          <source>Developers are granted access to the developer portal and build applications that call the operations of an API.</source>
+          <target state="new">Developers are granted access to the developer portal and build applications that call the operations of an API.</target>
+        </trans-unit>
+        <trans-unit id="accbb921-56d2-4a75-9b30-13805a2de57a" xml:space="preserve">
+          <source><bpt id="ecf44c6e-99d7-4aba-ad83-5aa574f7f18c">&lt;strong&gt;</bpt>Guests<ept id="ecf44c6e-99d7-4aba-ad83-5aa574f7f18c">&lt;/strong&gt;</ept> - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group.</source>
+          <target state="new"><bpt id="ecf44c6e-99d7-4aba-ad83-5aa574f7f18c">&lt;strong&gt;</bpt>Guests<ept id="ecf44c6e-99d7-4aba-ad83-5aa574f7f18c">&lt;/strong&gt;</ept> - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group.</target>
+        </trans-unit>
+        <trans-unit id="876114fd-6511-484b-9861-a3a34d0ad05c" xml:space="preserve">
+          <source>They can be granted certain read-only access, such as the ability to view APIs but not call them.</source>
+          <target state="new">They can be granted certain read-only access, such as the ability to view APIs but not call them.</target>
+        </trans-unit>
+        <trans-unit id="b8b2f110-5f27-4761-b2c3-8b830136ce3f" xml:space="preserve">
+          <source>In addition to these system groups, administrators can create custom groups or <bpt id="82d3b4ad-e4e6-49cd-bfc1-aef429be7fe6">&lt;linkText&gt;</bpt>leverage external groups in associated Azure Active Directory tenants<ept id="82d3b4ad-e4e6-49cd-bfc1-aef429be7fe6">&lt;/linkText&gt;</ept><bpt id="82d3b4ad-e4e6-49cd-bfc1-aef429be7fe6">&lt;title&gt;</bpt><ept id="82d3b4ad-e4e6-49cd-bfc1-aef429be7fe6">&lt;/title&gt;</ept>.</source>
+          <target state="new">In addition to these system groups, administrators can create custom groups or <bpt id="82d3b4ad-e4e6-49cd-bfc1-aef429be7fe6">&lt;linkText&gt;</bpt>leverage external groups in associated Azure Active Directory tenants<ept id="82d3b4ad-e4e6-49cd-bfc1-aef429be7fe6">&lt;/linkText&gt;</ept><bpt id="82d3b4ad-e4e6-49cd-bfc1-aef429be7fe6">&lt;title&gt;</bpt><ept id="82d3b4ad-e4e6-49cd-bfc1-aef429be7fe6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e675a303-0a47-460b-8f9b-5da0689ed1d3" xml:space="preserve">
+          <source>Custom and external groups can be used alongside system groups in giving developers visibility and access to API products.</source>
+          <target state="new">Custom and external groups can be used alongside system groups in giving developers visibility and access to API products.</target>
+        </trans-unit>
+        <trans-unit id="4a50890d-86e2-449b-a944-9dc815f03ba4" xml:space="preserve">
+          <source>For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only.</source>
+          <target state="new">For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only.</target>
+        </trans-unit>
+        <trans-unit id="38368dc3-ac79-4561-a86c-170c8a405c87" xml:space="preserve">
+          <source>A user can be a member of more than one group.</source>
+          <target state="new">A user can be a member of more than one group.</target>
+        </trans-unit>
+        <trans-unit id="bf30895a-760c-44cc-a517-6a0701c78b7b" xml:space="preserve">
+          <source>This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.</source>
+          <target state="new">This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.</target>
+        </trans-unit>
+        <trans-unit id="9396a5a2-4e7f-4c1d-83ef-d892bba233e4" xml:space="preserve">
+          <source>To create a new group, click <bpt id="ae56addc-486a-427a-896d-6e20a4e530f6">&lt;strong&gt;</bpt>Manage<ept id="ae56addc-486a-427a-896d-6e20a4e530f6">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</source>
+          <target state="new">To create a new group, click <bpt id="ae56addc-486a-427a-896d-6e20a4e530f6">&lt;strong&gt;</bpt>Manage<ept id="ae56addc-486a-427a-896d-6e20a4e530f6">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</target>
+        </trans-unit>
+        <trans-unit id="80a1bfbd-0f37-4f3b-9070-d0dd6776ceee" xml:space="preserve">
+          <source>This takes you to the API Management publisher portal.</source>
+          <target state="new">This takes you to the API Management publisher portal.</target>
+        </trans-unit>
+        <trans-unit id="6bda7e25-a397-489b-861a-d13c3945d234" xml:space="preserve">
+          <source><bpt id="3f91619c-b086-44fd-9cc5-79e22293f7e5">&lt;linkText&gt;</bpt>Publisher portal<ept id="3f91619c-b086-44fd-9cc5-79e22293f7e5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3f91619c-b086-44fd-9cc5-79e22293f7e5">&lt;linkText&gt;</bpt>Publisher portal<ept id="3f91619c-b086-44fd-9cc5-79e22293f7e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c247304-896c-4bf7-a39c-648c5c8df0b0" xml:space="preserve">
+          <source>If you have not yet created an API Management service instance, see <bpt id="a9e6aa54-4dbe-4d58-a069-520c3d2a5b01">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="a9e6aa54-4dbe-4d58-a069-520c3d2a5b01">&lt;/linkText&gt;</ept><bpt id="a9e6aa54-4dbe-4d58-a069-520c3d2a5b01">&lt;title&gt;</bpt><ept id="a9e6aa54-4dbe-4d58-a069-520c3d2a5b01">&lt;/title&gt;</ept> in the <bpt id="abd3cd3b-0822-496b-8a94-f7e4a46d5d82">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="abd3cd3b-0822-496b-8a94-f7e4a46d5d82">&lt;/linkText&gt;</ept><bpt id="abd3cd3b-0822-496b-8a94-f7e4a46d5d82">&lt;title&gt;</bpt><ept id="abd3cd3b-0822-496b-8a94-f7e4a46d5d82">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">If you have not yet created an API Management service instance, see <bpt id="a9e6aa54-4dbe-4d58-a069-520c3d2a5b01">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="a9e6aa54-4dbe-4d58-a069-520c3d2a5b01">&lt;/linkText&gt;</ept><bpt id="a9e6aa54-4dbe-4d58-a069-520c3d2a5b01">&lt;title&gt;</bpt><ept id="a9e6aa54-4dbe-4d58-a069-520c3d2a5b01">&lt;/title&gt;</ept> in the <bpt id="abd3cd3b-0822-496b-8a94-f7e4a46d5d82">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="abd3cd3b-0822-496b-8a94-f7e4a46d5d82">&lt;/linkText&gt;</ept><bpt id="abd3cd3b-0822-496b-8a94-f7e4a46d5d82">&lt;title&gt;</bpt><ept id="abd3cd3b-0822-496b-8a94-f7e4a46d5d82">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="fb5ab33d-ffb9-4ccb-abee-6e14cdce1285" xml:space="preserve">
+          <source>Click <bpt id="2ba30347-cc71-4bb9-8dc5-a32822084dd3">&lt;strong&gt;</bpt>Groups<ept id="2ba30347-cc71-4bb9-8dc5-a32822084dd3">&lt;/strong&gt;</ept> from the <bpt id="eb7fdab0-51e4-4c11-974b-c3993b50509e">&lt;strong&gt;</bpt>API Management<ept id="eb7fdab0-51e4-4c11-974b-c3993b50509e">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="9f1a469a-77e4-4874-8c5d-e13070eac33a">&lt;strong&gt;</bpt>Add Group<ept id="9f1a469a-77e4-4874-8c5d-e13070eac33a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="2ba30347-cc71-4bb9-8dc5-a32822084dd3">&lt;strong&gt;</bpt>Groups<ept id="2ba30347-cc71-4bb9-8dc5-a32822084dd3">&lt;/strong&gt;</ept> from the <bpt id="eb7fdab0-51e4-4c11-974b-c3993b50509e">&lt;strong&gt;</bpt>API Management<ept id="eb7fdab0-51e4-4c11-974b-c3993b50509e">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="9f1a469a-77e4-4874-8c5d-e13070eac33a">&lt;strong&gt;</bpt>Add Group<ept id="9f1a469a-77e4-4874-8c5d-e13070eac33a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77c13ced-87ff-41ec-bd6c-725f4c734eca" xml:space="preserve">
+          <source><bpt id="2469e214-3f33-4314-b5b2-fd84962abf08">&lt;linkText&gt;</bpt>Add new group<ept id="2469e214-3f33-4314-b5b2-fd84962abf08">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2469e214-3f33-4314-b5b2-fd84962abf08">&lt;linkText&gt;</bpt>Add new group<ept id="2469e214-3f33-4314-b5b2-fd84962abf08">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5d7f14a-20e7-430b-82d7-db43575ae95a" xml:space="preserve">
+          <source>Enter a unique name for the group and an optional description, and click <bpt id="9cb4ee84-2a96-481d-b2c2-56eeb8b691b0">&lt;strong&gt;</bpt>Save<ept id="9cb4ee84-2a96-481d-b2c2-56eeb8b691b0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a unique name for the group and an optional description, and click <bpt id="9cb4ee84-2a96-481d-b2c2-56eeb8b691b0">&lt;strong&gt;</bpt>Save<ept id="9cb4ee84-2a96-481d-b2c2-56eeb8b691b0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db4784d7-7ab2-482d-bec2-344a2ed1456f" xml:space="preserve">
+          <source><bpt id="79fc8246-64d3-4303-90ec-05530098b9a6">&lt;linkText&gt;</bpt>Add new group<ept id="79fc8246-64d3-4303-90ec-05530098b9a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="79fc8246-64d3-4303-90ec-05530098b9a6">&lt;linkText&gt;</bpt>Add new group<ept id="79fc8246-64d3-4303-90ec-05530098b9a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="758c60b3-0cec-48ce-ba44-9d72af7f5912" xml:space="preserve">
+          <source>The new group is displayed in the groups tab.</source>
+          <target state="new">The new group is displayed in the groups tab.</target>
+        </trans-unit>
+        <trans-unit id="a71cd611-cd48-4c2a-b77e-f1127ad81a44" xml:space="preserve">
+          <source>To edit the <bpt id="ca24d8b5-615b-4f49-a00a-4573bd511952">&lt;strong&gt;</bpt>Name<ept id="ca24d8b5-615b-4f49-a00a-4573bd511952">&lt;/strong&gt;</ept> or <bpt id="1d4827e5-0e64-4f34-b149-5b37297a50d7">&lt;strong&gt;</bpt>Description<ept id="1d4827e5-0e64-4f34-b149-5b37297a50d7">&lt;/strong&gt;</ept> of the group, click the name of the group in the list.</source>
+          <target state="new">To edit the <bpt id="ca24d8b5-615b-4f49-a00a-4573bd511952">&lt;strong&gt;</bpt>Name<ept id="ca24d8b5-615b-4f49-a00a-4573bd511952">&lt;/strong&gt;</ept> or <bpt id="1d4827e5-0e64-4f34-b149-5b37297a50d7">&lt;strong&gt;</bpt>Description<ept id="1d4827e5-0e64-4f34-b149-5b37297a50d7">&lt;/strong&gt;</ept> of the group, click the name of the group in the list.</target>
+        </trans-unit>
+        <trans-unit id="a5c14f44-58b0-47eb-8554-6c5b601f708c" xml:space="preserve">
+          <source>To delete the group, click <bpt id="7c73881f-670d-4c22-9d5d-6418908eaf98">&lt;strong&gt;</bpt>Delete<ept id="7c73881f-670d-4c22-9d5d-6418908eaf98">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To delete the group, click <bpt id="7c73881f-670d-4c22-9d5d-6418908eaf98">&lt;strong&gt;</bpt>Delete<ept id="7c73881f-670d-4c22-9d5d-6418908eaf98">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee50974c-3105-4e70-8b05-a0df63a60bff" xml:space="preserve">
+          <source><bpt id="9b10ffcd-4443-4bda-a709-cbf12d86392b">&lt;linkText&gt;</bpt>Group added<ept id="9b10ffcd-4443-4bda-a709-cbf12d86392b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b10ffcd-4443-4bda-a709-cbf12d86392b">&lt;linkText&gt;</bpt>Group added<ept id="9b10ffcd-4443-4bda-a709-cbf12d86392b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7aad8ab7-34e4-4b23-b486-b0437ed1d11b" xml:space="preserve">
+          <source>Now that the group is created, it can be associated with products and developers.</source>
+          <target state="new">Now that the group is created, it can be associated with products and developers.</target>
+        </trans-unit>
+        <trans-unit id="156a14c5-6940-47f6-abdf-053b0320e3ab" xml:space="preserve">
+          <source>To associate a group with a product, click <bpt id="56eb6b17-a08b-4914-a7f9-a087106df71b">&lt;strong&gt;</bpt>Products<ept id="56eb6b17-a08b-4914-a7f9-a087106df71b">&lt;/strong&gt;</ept> from the <bpt id="0d36fdcf-f1dc-4e06-95ff-8107389b26c9">&lt;strong&gt;</bpt>API Management<ept id="0d36fdcf-f1dc-4e06-95ff-8107389b26c9">&lt;/strong&gt;</ept> menu on the left, and then click the name of the desired product.</source>
+          <target state="new">To associate a group with a product, click <bpt id="56eb6b17-a08b-4914-a7f9-a087106df71b">&lt;strong&gt;</bpt>Products<ept id="56eb6b17-a08b-4914-a7f9-a087106df71b">&lt;/strong&gt;</ept> from the <bpt id="0d36fdcf-f1dc-4e06-95ff-8107389b26c9">&lt;strong&gt;</bpt>API Management<ept id="0d36fdcf-f1dc-4e06-95ff-8107389b26c9">&lt;/strong&gt;</ept> menu on the left, and then click the name of the desired product.</target>
+        </trans-unit>
+        <trans-unit id="1e015574-01f1-492a-8b48-743d03cac481" xml:space="preserve">
+          <source><bpt id="ec8d5ec3-46b7-4160-ac76-fb99f2abf211">&lt;linkText&gt;</bpt>Set visibility<ept id="ec8d5ec3-46b7-4160-ac76-fb99f2abf211">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec8d5ec3-46b7-4160-ac76-fb99f2abf211">&lt;linkText&gt;</bpt>Set visibility<ept id="ec8d5ec3-46b7-4160-ac76-fb99f2abf211">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1d1f1e0-a9d8-4211-9f62-0e5344278db4" xml:space="preserve">
+          <source>Select the <bpt id="a0d7ca34-79e5-4ee9-975c-a7c37e81d428">&lt;strong&gt;</bpt>Visibility<ept id="a0d7ca34-79e5-4ee9-975c-a7c37e81d428">&lt;/strong&gt;</ept> tab to add and remove groups, and to view the current groups for the product.</source>
+          <target state="new">Select the <bpt id="a0d7ca34-79e5-4ee9-975c-a7c37e81d428">&lt;strong&gt;</bpt>Visibility<ept id="a0d7ca34-79e5-4ee9-975c-a7c37e81d428">&lt;/strong&gt;</ept> tab to add and remove groups, and to view the current groups for the product.</target>
+        </trans-unit>
+        <trans-unit id="0224a409-e7ae-449f-8ae5-bb9584b6b8c9" xml:space="preserve">
+          <source>To add or remove groups, check or uncheck the checkboxes for the desired groups and click <bpt id="288848c2-a39c-4ed8-9a31-5a00222cce63">&lt;strong&gt;</bpt>Save<ept id="288848c2-a39c-4ed8-9a31-5a00222cce63">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To add or remove groups, check or uncheck the checkboxes for the desired groups and click <bpt id="288848c2-a39c-4ed8-9a31-5a00222cce63">&lt;strong&gt;</bpt>Save<ept id="288848c2-a39c-4ed8-9a31-5a00222cce63">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="870de2fd-c169-4a86-8f95-4183daf44e18" xml:space="preserve">
+          <source><bpt id="7493a163-1786-4036-8b88-8fda0e30b889">&lt;linkText&gt;</bpt>Set visibility<ept id="7493a163-1786-4036-8b88-8fda0e30b889">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7493a163-1786-4036-8b88-8fda0e30b889">&lt;linkText&gt;</bpt>Set visibility<ept id="7493a163-1786-4036-8b88-8fda0e30b889">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cff421e7-f1a7-4787-8fb0-d05083f714e3" xml:space="preserve">
+          <source>To add Azure Active Directory groups, see <bpt id="e55a6ead-7eab-4f41-96e0-f8720fd3ecfa">&lt;linkText&gt;</bpt>How to authorize developer accounts using Azure Active Directory in Azure API Management<ept id="e55a6ead-7eab-4f41-96e0-f8720fd3ecfa">&lt;/linkText&gt;</ept><bpt id="e55a6ead-7eab-4f41-96e0-f8720fd3ecfa">&lt;title&gt;</bpt><ept id="e55a6ead-7eab-4f41-96e0-f8720fd3ecfa">&lt;/title&gt;</ept>.</source>
+          <target state="new">To add Azure Active Directory groups, see <bpt id="e55a6ead-7eab-4f41-96e0-f8720fd3ecfa">&lt;linkText&gt;</bpt>How to authorize developer accounts using Azure Active Directory in Azure API Management<ept id="e55a6ead-7eab-4f41-96e0-f8720fd3ecfa">&lt;/linkText&gt;</ept><bpt id="e55a6ead-7eab-4f41-96e0-f8720fd3ecfa">&lt;title&gt;</bpt><ept id="e55a6ead-7eab-4f41-96e0-f8720fd3ecfa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a15dc914-c025-4a16-8f14-148dd8262acc" xml:space="preserve">
+          <source>To configure groups from the <bpt id="62158285-6e71-49c9-8216-e0d3c471dc9d">&lt;strong&gt;</bpt>Visibility<ept id="62158285-6e71-49c9-8216-e0d3c471dc9d">&lt;/strong&gt;</ept> tab for a product, click <bpt id="ed0f824c-156c-4a93-b7d5-fcc8f5af8dc4">&lt;strong&gt;</bpt>Manage Groups<ept id="ed0f824c-156c-4a93-b7d5-fcc8f5af8dc4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To configure groups from the <bpt id="62158285-6e71-49c9-8216-e0d3c471dc9d">&lt;strong&gt;</bpt>Visibility<ept id="62158285-6e71-49c9-8216-e0d3c471dc9d">&lt;/strong&gt;</ept> tab for a product, click <bpt id="ed0f824c-156c-4a93-b7d5-fcc8f5af8dc4">&lt;strong&gt;</bpt>Manage Groups<ept id="ed0f824c-156c-4a93-b7d5-fcc8f5af8dc4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6c219bc-c5e9-428d-ab8f-a43742dbdaad" xml:space="preserve">
+          <source>Once a product is associated with a group, developers in that group can view and subscribe to the product.</source>
+          <target state="new">Once a product is associated with a group, developers in that group can view and subscribe to the product.</target>
+        </trans-unit>
+        <trans-unit id="1e20903e-9125-4de7-81ba-f9191fca4064" xml:space="preserve">
+          <source>To associate groups with developers, click <bpt id="59270f98-6745-4002-beb1-940953454085">&lt;strong&gt;</bpt>Users<ept id="59270f98-6745-4002-beb1-940953454085">&lt;/strong&gt;</ept> from the <bpt id="a4b57b24-bbc3-4273-80d3-99259a9c5bf3">&lt;strong&gt;</bpt>API Management<ept id="a4b57b24-bbc3-4273-80d3-99259a9c5bf3">&lt;/strong&gt;</ept> menu on the left, and then check the box beside the developers you wish to associate with a group.</source>
+          <target state="new">To associate groups with developers, click <bpt id="59270f98-6745-4002-beb1-940953454085">&lt;strong&gt;</bpt>Users<ept id="59270f98-6745-4002-beb1-940953454085">&lt;/strong&gt;</ept> from the <bpt id="a4b57b24-bbc3-4273-80d3-99259a9c5bf3">&lt;strong&gt;</bpt>API Management<ept id="a4b57b24-bbc3-4273-80d3-99259a9c5bf3">&lt;/strong&gt;</ept> menu on the left, and then check the box beside the developers you wish to associate with a group.</target>
+        </trans-unit>
+        <trans-unit id="44db6c0f-188e-4c51-b4f7-4d11c16376e5" xml:space="preserve">
+          <source><bpt id="3bf570b6-ac5a-452e-b790-621deff49555">&lt;linkText&gt;</bpt>Add developer to group<ept id="3bf570b6-ac5a-452e-b790-621deff49555">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3bf570b6-ac5a-452e-b790-621deff49555">&lt;linkText&gt;</bpt>Add developer to group<ept id="3bf570b6-ac5a-452e-b790-621deff49555">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3de8c9e6-72bb-4a27-884e-35dfc5cc2863" xml:space="preserve">
+          <source>Once the desired developers are checked, click the desired group in the <bpt id="0115810b-1da6-4646-8e2a-01d20aa826d4">&lt;strong&gt;</bpt>Add to Group<ept id="0115810b-1da6-4646-8e2a-01d20aa826d4">&lt;/strong&gt;</ept> drop-down.</source>
+          <target state="new">Once the desired developers are checked, click the desired group in the <bpt id="0115810b-1da6-4646-8e2a-01d20aa826d4">&lt;strong&gt;</bpt>Add to Group<ept id="0115810b-1da6-4646-8e2a-01d20aa826d4">&lt;/strong&gt;</ept> drop-down.</target>
+        </trans-unit>
+        <trans-unit id="b8c2e47a-7acb-4ffa-99a4-ada51dbe18cd" xml:space="preserve">
+          <source>Developers can be removed from groups by using the <bpt id="6b5404c5-f3fd-4052-9a81-48cdad0e8ae0">&lt;strong&gt;</bpt>Remove from Group<ept id="6b5404c5-f3fd-4052-9a81-48cdad0e8ae0">&lt;/strong&gt;</ept> drop-down.</source>
+          <target state="new">Developers can be removed from groups by using the <bpt id="6b5404c5-f3fd-4052-9a81-48cdad0e8ae0">&lt;strong&gt;</bpt>Remove from Group<ept id="6b5404c5-f3fd-4052-9a81-48cdad0e8ae0">&lt;/strong&gt;</ept> drop-down.</target>
+        </trans-unit>
+        <trans-unit id="665a14c3-cbf8-4d57-bdea-650ee441325c" xml:space="preserve">
+          <source><bpt id="109be49b-7d25-400f-9d8d-82fef65d5b53">&lt;linkText&gt;</bpt>Developers<ept id="109be49b-7d25-400f-9d8d-82fef65d5b53">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="109be49b-7d25-400f-9d8d-82fef65d5b53">&lt;linkText&gt;</bpt>Developers<ept id="109be49b-7d25-400f-9d8d-82fef65d5b53">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf4c3232-8223-442b-95b0-d3657101e0bd" xml:space="preserve">
+          <source>Once the association is added between the developer and the group, you can view it in the <bpt id="37379e06-eacb-42e1-8ed3-26ad2fae7e90">&lt;strong&gt;</bpt>Users<ept id="37379e06-eacb-42e1-8ed3-26ad2fae7e90">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Once the association is added between the developer and the group, you can view it in the <bpt id="37379e06-eacb-42e1-8ed3-26ad2fae7e90">&lt;strong&gt;</bpt>Users<ept id="37379e06-eacb-42e1-8ed3-26ad2fae7e90">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="05ea89ae-ff4f-46ef-af5b-ce51caa61743" xml:space="preserve">
+          <source>Once a developer is added to a group, they can view and subscribe to the products associated with that group.</source>
+          <target state="new">Once a developer is added to a group, they can view and subscribe to the products associated with that group.</target>
+        </trans-unit>
+        <trans-unit id="e4a7683c-845e-49c0-9b46-6d8bd371a403" xml:space="preserve">
+          <source>For more information, see <bpt id="a3150d9e-1892-449f-b999-8531bcc4ae6b">&lt;linkText&gt;</bpt>How create and publish a product in Azure API Management<ept id="a3150d9e-1892-449f-b999-8531bcc4ae6b">&lt;/linkText&gt;</ept><bpt id="a3150d9e-1892-449f-b999-8531bcc4ae6b">&lt;title&gt;</bpt><ept id="a3150d9e-1892-449f-b999-8531bcc4ae6b">&lt;/title&gt;</ept>,</source>
+          <target state="new">For more information, see <bpt id="a3150d9e-1892-449f-b999-8531bcc4ae6b">&lt;linkText&gt;</bpt>How create and publish a product in Azure API Management<ept id="a3150d9e-1892-449f-b999-8531bcc4ae6b">&lt;/linkText&gt;</ept><bpt id="a3150d9e-1892-449f-b999-8531bcc4ae6b">&lt;title&gt;</bpt><ept id="a3150d9e-1892-449f-b999-8531bcc4ae6b">&lt;/title&gt;</ept>,</target>
+        </trans-unit>
+        <trans-unit id="bc622351-46f5-4c52-a3e4-25be2f88f5c7" xml:space="preserve">
+          <source>./media/api-management-howto-create-groups/api-management-management-console.png</source>
+          <target state="new">./media/api-management-howto-create-groups/api-management-management-console.png</target>
+        </trans-unit>
+        <trans-unit id="e621d874-d52d-4215-9daf-404682beb343" xml:space="preserve">
+          <source>./media/api-management-howto-create-groups/api-management-add-group.png</source>
+          <target state="new">./media/api-management-howto-create-groups/api-management-add-group.png</target>
+        </trans-unit>
+        <trans-unit id="4ed97cef-9ee1-45f4-9162-eff8b9489e69" xml:space="preserve">
+          <source>./media/api-management-howto-create-groups/api-management-add-group-window.png</source>
+          <target state="new">./media/api-management-howto-create-groups/api-management-add-group-window.png</target>
+        </trans-unit>
+        <trans-unit id="5ff3d2e5-6efc-4536-ae6c-3a2f16a65772" xml:space="preserve">
+          <source>./media/api-management-howto-create-groups/api-management-new-group.png</source>
+          <target state="new">./media/api-management-howto-create-groups/api-management-new-group.png</target>
+        </trans-unit>
+        <trans-unit id="74d669d4-04b6-4a8a-8494-1711f2db1348" xml:space="preserve">
+          <source>./media/api-management-howto-create-groups/api-management-add-group-to-product.png</source>
+          <target state="new">./media/api-management-howto-create-groups/api-management-add-group-to-product.png</target>
+        </trans-unit>
+        <trans-unit id="a702c039-8575-45a0-b1d2-6723ae6e60af" xml:space="preserve">
+          <source>./media/api-management-howto-create-groups/api-management-add-group-to-product-visibility.png</source>
+          <target state="new">./media/api-management-howto-create-groups/api-management-add-group-to-product-visibility.png</target>
+        </trans-unit>
+        <trans-unit id="2a07ddc4-527f-4354-b70c-34aa4590982f" xml:space="preserve">
+          <source>./media/api-management-howto-create-groups/api-management-add-group-to-developer.png</source>
+          <target state="new">./media/api-management-howto-create-groups/api-management-add-group-to-developer.png</target>
+        </trans-unit>
+        <trans-unit id="0ee9289c-833d-4c15-8a47-33b638ffefd2" xml:space="preserve">
+          <source>./media/api-management-howto-create-groups/api-management-add-group-to-developer-saved.png</source>
+          <target state="new">./media/api-management-howto-create-groups/api-management-add-group-to-developer-saved.png</target>
+        </trans-unit>
+        <trans-unit id="437a7efb-6519-427d-bbb5-3feb1d1ef86a" xml:space="preserve">
+          <source>./media/api-management-howto-create-groups/api-management-.png</source>
+          <target state="new">./media/api-management-howto-create-groups/api-management-.png</target>
+        </trans-unit>
+        <trans-unit id="01ff66b6-5f01-46fc-89e2-63acaa73e479" xml:space="preserve">
+          <source>#create-group</source>
+          <target state="new">#create-group</target>
+        </trans-unit>
+        <trans-unit id="ad2a1c0f-6006-4c86-afd8-bfc086e36d36" xml:space="preserve">
+          <source>#associate-group-product</source>
+          <target state="new">#associate-group-product</target>
+        </trans-unit>
+        <trans-unit id="a01650f7-04eb-437a-a602-ecd2dd47e39b" xml:space="preserve">
+          <source>#associate-group-developer</source>
+          <target state="new">#associate-group-developer</target>
+        </trans-unit>
+        <trans-unit id="1a73e6ab-911a-402e-b31a-3f5541e6616b" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="f3a4c250-c0d9-4cf8-87cc-ba57b0bdecae" xml:space="preserve">
+          <source>api-management-howto-add-products.md</source>
+          <target state="new">api-management-howto-add-products.md</target>
+        </trans-unit>
+        <trans-unit id="4a945489-d35a-40f6-859c-f9d95dc96cf4" xml:space="preserve">
+          <source>api-management-get-started.md</source>
+          <target state="new">api-management-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="0356c004-628d-4107-a037-baec0ac7d63f" xml:space="preserve">
+          <source>api-management-get-started.md#create-service-instance</source>
+          <target state="new">api-management-get-started.md#create-service-instance</target>
+        </trans-unit>
+        <trans-unit id="7dc3a3ed-bf64-4501-a1b5-2af9778288a9" xml:space="preserve">
+          <source>api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group</source>
+          <target state="new">api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group</target>
+        </trans-unit>
+      </group>
+      <group id="7c204b7f-8912-45cb-b586-93e835609ad6" />
+    </body>
+  </file>
+</xliff>

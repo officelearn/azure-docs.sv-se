@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ac0e7687-425b-4a94-a50d-38833401f366" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ac0e7687-425b-4a94-a50d-38833401f366" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ead6c56d-02a0-4d85-b897-0fc6af9ec598">
+        <trans-unit id="c09b96aa-a8d3-4d1f-954d-ff31e93d8d8c" xml:space="preserve">
+          <source>Rename in SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Rename in SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4445b57d-3cd5-48c2-a0e1-6fb2e35f3cb8" xml:space="preserve">
+          <source>Tips for renaming objects and databases in Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tips for renaming objects and databases in Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="1aa19a95-b40a-4ced-8a1a-d4151fa51964" xml:space="preserve">
+          <source>SQL Server supports object and database renaming via the stored procedure sp<bpt id="53d62323-f2cb-4249-9721-496d2fa411e8">&lt;em&gt;</bpt>rename and sp<ept id="53d62323-f2cb-4249-9721-496d2fa411e8">&lt;/em&gt;</ept>renamedb respectively.</source>
+          <target state="new">SQL Server supports object and database renaming via the stored procedure sp<bpt id="53d62323-f2cb-4249-9721-496d2fa411e8">&lt;em&gt;</bpt>rename and sp<ept id="53d62323-f2cb-4249-9721-496d2fa411e8">&lt;/em&gt;</ept>renamedb respectively.</target>
+        </trans-unit>
+        <trans-unit id="c3a4bc7e-cd58-4dae-9f36-9299820cc520" xml:space="preserve">
+          <source>SQL Data Warehouse uses DDL syntax to achieve the same goal.</source>
+          <target state="new">SQL Data Warehouse uses DDL syntax to achieve the same goal.</target>
+        </trans-unit>
+        <trans-unit id="54e6c077-ed83-4310-9e19-6bf1c08ff090" xml:space="preserve">
+          <source>The DDL commands are RENAME OBJECT and RENAME DATABASE.</source>
+          <target state="new">The DDL commands are RENAME OBJECT and RENAME DATABASE.</target>
+        </trans-unit>
+        <trans-unit id="3bd27c0d-92a3-43d3-935e-a75035f86267" xml:space="preserve">
+          <source>It is important to understand that the name only affects the object being renamed - there is no propagation of the name change.</source>
+          <target state="new">It is important to understand that the name only affects the object being renamed - there is no propagation of the name change.</target>
+        </trans-unit>
+        <trans-unit id="baea50ee-a25d-465d-90ea-f98ebfd71e20" xml:space="preserve">
+          <source>Consequently any views using the old name of an object will be invalid until an object with the old name has been created.</source>
+          <target state="new">Consequently any views using the old name of an object will be invalid until an object with the old name has been created.</target>
+        </trans-unit>
+        <trans-unit id="c149ca48-a567-4aa0-89e2-4c467c56c4a5" xml:space="preserve">
+          <source>Consequently you will often see <bpt id="3bc91415-0e1a-4805-80da-c5f7f8d0cc22">&lt;code&gt;</bpt>RENAME OBJECT<ept id="3bc91415-0e1a-4805-80da-c5f7f8d0cc22">&lt;/code&gt;</ept> appearing in pairs.</source>
+          <target state="new">Consequently you will often see <bpt id="3bc91415-0e1a-4805-80da-c5f7f8d0cc22">&lt;code&gt;</bpt>RENAME OBJECT<ept id="3bc91415-0e1a-4805-80da-c5f7f8d0cc22">&lt;/code&gt;</ept> appearing in pairs.</target>
+        </trans-unit>
+        <trans-unit id="1f508e3f-6568-45b0-945b-4788c2f0ed1d" xml:space="preserve">
+          <source>Database renaming is very similar to that of object.</source>
+          <target state="new">Database renaming is very similar to that of object.</target>
+        </trans-unit>
+        <trans-unit id="65e2aff5-22b0-4bb7-bbc1-7f4463ed2fd3" xml:space="preserve">
+          <source>It is important to remember that you cannot rename an object or a database if other users are connected to it or are using it.</source>
+          <target state="new">It is important to remember that you cannot rename an object or a database if other users are connected to it or are using it.</target>
+        </trans-unit>
+        <trans-unit id="d7fe8125-9531-42bb-92ba-25324ebe54d1" xml:space="preserve">
+          <source>You may need to terminate open sessions first.</source>
+          <target state="new">You may need to terminate open sessions first.</target>
+        </trans-unit>
+        <trans-unit id="52bfca5a-6cf4-45c1-9136-d569bb2a8d33" xml:space="preserve">
+          <source>To terminate a session you need to use the <bpt id="47ea7061-d011-4716-a55e-c15a6191b14b">&lt;linkText&gt;</bpt>KILL<ept id="47ea7061-d011-4716-a55e-c15a6191b14b">&lt;/linkText&gt;</ept><bpt id="47ea7061-d011-4716-a55e-c15a6191b14b">&lt;title&gt;</bpt><ept id="47ea7061-d011-4716-a55e-c15a6191b14b">&lt;/title&gt;</ept> command.</source>
+          <target state="new">To terminate a session you need to use the <bpt id="47ea7061-d011-4716-a55e-c15a6191b14b">&lt;linkText&gt;</bpt>KILL<ept id="47ea7061-d011-4716-a55e-c15a6191b14b">&lt;/linkText&gt;</ept><bpt id="47ea7061-d011-4716-a55e-c15a6191b14b">&lt;title&gt;</bpt><ept id="47ea7061-d011-4716-a55e-c15a6191b14b">&lt;/title&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="0404ae56-a14a-4d9e-b61f-f149086db0f1" xml:space="preserve">
+          <source>Please be careful when using KILL.</source>
+          <target state="new">Please be careful when using KILL.</target>
+        </trans-unit>
+        <trans-unit id="73fa6965-a01e-4fb9-9931-357d6808b743" xml:space="preserve">
+          <source>Once executed the targeted session will be terminated and any uncommitted work will be rolled back.</source>
+          <target state="new">Once executed the targeted session will be terminated and any uncommitted work will be rolled back.</target>
+        </trans-unit>
+        <trans-unit id="6967fcdf-e027-40cd-a706-b4e8c988df65" xml:space="preserve">
+          <source>Sessions in SQL Data Warehouse are prefixed by 'SID' you will need to include this and the the session number when invoking the KILL command.</source>
+          <target state="new">Sessions in SQL Data Warehouse are prefixed by 'SID' you will need to include this and the the session number when invoking the KILL command.</target>
+        </trans-unit>
+        <trans-unit id="f7a31faa-3613-4df8-9498-496e75bc927b" xml:space="preserve">
+          <source>For example KILL 'SID1234' would kill session 1234 - assuming you have the right permissions to execute it.</source>
+          <target state="new">For example KILL 'SID1234' would kill session 1234 - assuming you have the right permissions to execute it.</target>
+        </trans-unit>
+        <trans-unit id="1af99d29-a64e-4421-a409-a7247bf55477" xml:space="preserve">
+          <source>In order to rename a database you may need to kill sessions connected to your SQL Data Warehouse.</source>
+          <target state="new">In order to rename a database you may need to kill sessions connected to your SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="d15ccd66-3b07-4ea8-aa7a-4876cd9bb3f6" xml:space="preserve">
+          <source>The following query will generate a distinct list of KILL commands to clear the connections (save for the current session).</source>
+          <target state="new">The following query will generate a distinct list of KILL commands to clear the connections (save for the current session).</target>
+        </trans-unit>
+        <trans-unit id="fd4ee61b-eb3c-4492-a1c2-b8209c5fcf30" xml:space="preserve">
+          <source>If the intent is to change the schema that an object belongs to then that is achieved via <bpt id="075816ec-d4e7-4c8c-89cf-325aaf2e4cb3">&lt;code&gt;</bpt>ALTER SCHEMA<ept id="075816ec-d4e7-4c8c-89cf-325aaf2e4cb3">&lt;/code&gt;</ept>:</source>
+          <target state="new">If the intent is to change the schema that an object belongs to then that is achieved via <bpt id="075816ec-d4e7-4c8c-89cf-325aaf2e4cb3">&lt;code&gt;</bpt>ALTER SCHEMA<ept id="075816ec-d4e7-4c8c-89cf-325aaf2e4cb3">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="7afe61ff-bcf6-45cb-a08b-ad80a4e62ba2" xml:space="preserve">
+          <source>For more development tips, see <bpt id="fdedf050-5040-4262-8f00-f3910ee0f285">&lt;linkText&gt;</bpt>development overview<ept id="fdedf050-5040-4262-8f00-f3910ee0f285">&lt;/linkText&gt;</ept><bpt id="fdedf050-5040-4262-8f00-f3910ee0f285">&lt;title&gt;</bpt><ept id="fdedf050-5040-4262-8f00-f3910ee0f285">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="fdedf050-5040-4262-8f00-f3910ee0f285">&lt;linkText&gt;</bpt>development overview<ept id="fdedf050-5040-4262-8f00-f3910ee0f285">&lt;/linkText&gt;</ept><bpt id="fdedf050-5040-4262-8f00-f3910ee0f285">&lt;title&gt;</bpt><ept id="fdedf050-5040-4262-8f00-f3910ee0f285">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="abe7d467-4c82-4681-aea3-86898ad2feab" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+        <trans-unit id="37289105-eb12-4cb7-9b41-fa8e2657da13" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/ms173730.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/ms173730.aspx</target>
+        </trans-unit>
+        <trans-unit id="c37edc6b-31c7-467e-b0b5-b86f08aa5c0b" xml:space="preserve">
+          <source>http://portal.azure.com/</source>
+          <target state="new">http://portal.azure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="ee56a46f-6b46-454c-abc3-abed0abb9810" />
+    </body>
+  </file>
+</xliff>

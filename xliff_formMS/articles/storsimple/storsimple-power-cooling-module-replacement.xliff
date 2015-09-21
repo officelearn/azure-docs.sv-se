@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b553a9e4-261b-4975-b5b4-4c2bdc61a06a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b553a9e4-261b-4975-b5b4-4c2bdc61a06a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="443d47da-52e9-4975-b340-846c14dc74a4">
+        <trans-unit id="3297b885-dc95-44e4-b825-6fb1533e637e" xml:space="preserve">
+          <source>Replace a PCM on your StorSimple device | Microsoft Azure</source>
+          <target state="new">Replace a PCM on your StorSimple device | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="dd979edb-2d42-4b94-8763-a0aa767fa42d" xml:space="preserve">
+          <source>Explains how to remove and replace the Power and Cooling Module (PCM) on your StorSimple device</source>
+          <target state="new">Explains how to remove and replace the Power and Cooling Module (PCM) on your StorSimple device</target>
+        </trans-unit>
+        <trans-unit id="9dad76d8-d2d3-4155-b874-977a303dc4c5" xml:space="preserve">
+          <source>The Power and Cooling Module (PCM) in your Microsoft Azure StorSimple device consists of a power supply and cooling fans that are controlled through the primary and EBOD enclosures.</source>
+          <target state="new">The Power and Cooling Module (PCM) in your Microsoft Azure StorSimple device consists of a power supply and cooling fans that are controlled through the primary and EBOD enclosures.</target>
+        </trans-unit>
+        <trans-unit id="7007e86d-cd87-4f10-93b5-2bed2894491c" xml:space="preserve">
+          <source>There is only one model of PCM that is certified for each enclosure.</source>
+          <target state="new">There is only one model of PCM that is certified for each enclosure.</target>
+        </trans-unit>
+        <trans-unit id="2ca396ca-1e6f-4c0a-8ca0-14b294e455ea" xml:space="preserve">
+          <source>The primary enclosure is certified for a 764 W PCM and the EBOD enclosure is certified for a 580 W PCM.</source>
+          <target state="new">The primary enclosure is certified for a 764 W PCM and the EBOD enclosure is certified for a 580 W PCM.</target>
+        </trans-unit>
+        <trans-unit id="53ea86ec-8d91-4612-9904-37a4406c51e7" xml:space="preserve">
+          <source>Although the PCMs for the primary enclosure and the EBOD enclosure are different, the replacement procedure is identical.</source>
+          <target state="new">Although the PCMs for the primary enclosure and the EBOD enclosure are different, the replacement procedure is identical.</target>
+        </trans-unit>
+        <trans-unit id="6665fade-6135-4df9-a2e5-4c08d00fb4ac" xml:space="preserve">
+          <source>This tutorial explains how to:</source>
+          <target state="new">This tutorial explains how to:</target>
+        </trans-unit>
+        <trans-unit id="7b9d74e7-b6ae-400f-91f6-66d83d312860" xml:space="preserve">
+          <source>Remove a PCM</source>
+          <target state="new">Remove a PCM</target>
+        </trans-unit>
+        <trans-unit id="2172845b-10c2-476a-a008-4b92d7d41d63" xml:space="preserve">
+          <source>Install a replacement PCM</source>
+          <target state="new">Install a replacement PCM</target>
+        </trans-unit>
+        <trans-unit id="c7560b04-a105-4ac7-8b61-4ae649de1492" xml:space="preserve">
+          <source>Before removing and replacing a PCM, review the safety information in <bpt id="47b7ac4f-f95d-4f3b-9aa2-f15ff9fb2e7f">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="47b7ac4f-f95d-4f3b-9aa2-f15ff9fb2e7f">&lt;/linkText&gt;</ept><bpt id="47b7ac4f-f95d-4f3b-9aa2-f15ff9fb2e7f">&lt;title&gt;</bpt><ept id="47b7ac4f-f95d-4f3b-9aa2-f15ff9fb2e7f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Before removing and replacing a PCM, review the safety information in <bpt id="47b7ac4f-f95d-4f3b-9aa2-f15ff9fb2e7f">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="47b7ac4f-f95d-4f3b-9aa2-f15ff9fb2e7f">&lt;/linkText&gt;</ept><bpt id="47b7ac4f-f95d-4f3b-9aa2-f15ff9fb2e7f">&lt;title&gt;</bpt><ept id="47b7ac4f-f95d-4f3b-9aa2-f15ff9fb2e7f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85f28b5a-8c86-4ed7-9380-2ef7435e10df" xml:space="preserve">
+          <source>Be aware of the following important issues before you replace your PCM:</source>
+          <target state="new">Be aware of the following important issues before you replace your PCM:</target>
+        </trans-unit>
+        <trans-unit id="62b19f66-657b-4b83-b190-d15aa9ca65e6" xml:space="preserve">
+          <source>If the power supply of the PCM fails, leave the faulty module installed, but remove the power cord.</source>
+          <target state="new">If the power supply of the PCM fails, leave the faulty module installed, but remove the power cord.</target>
+        </trans-unit>
+        <trans-unit id="20dae0ec-c9aa-4284-bccc-7156a753f9dc" xml:space="preserve">
+          <source>The fan will continue to receive power from the enclosure and continue to provide proper cooling.</source>
+          <target state="new">The fan will continue to receive power from the enclosure and continue to provide proper cooling.</target>
+        </trans-unit>
+        <trans-unit id="9e1753f7-4d88-4bff-be97-3e01c8054fbe" xml:space="preserve">
+          <source>If the fan fails, the PCM needs to be replaced immediately.</source>
+          <target state="new">If the fan fails, the PCM needs to be replaced immediately.</target>
+        </trans-unit>
+        <trans-unit id="cbda5094-5771-4eee-8ec8-3f8ec286e261" xml:space="preserve">
+          <source>Before removing the PCM, disconnect the power from the PCM by turning off the main switch (where present) or by physically removing the power cord.</source>
+          <target state="new">Before removing the PCM, disconnect the power from the PCM by turning off the main switch (where present) or by physically removing the power cord.</target>
+        </trans-unit>
+        <trans-unit id="3cc83d53-9673-4637-a4bc-9cbd2ffda6fa" xml:space="preserve">
+          <source>This provides a warning to your system that a power shutdown is imminent.</source>
+          <target state="new">This provides a warning to your system that a power shutdown is imminent.</target>
+        </trans-unit>
+        <trans-unit id="05410183-1c23-44da-be2c-d1e48926dc0a" xml:space="preserve">
+          <source>Make sure that the other PCM is functional for continued system operation before replacing the faulty PCM.</source>
+          <target state="new">Make sure that the other PCM is functional for continued system operation before replacing the faulty PCM.</target>
+        </trans-unit>
+        <trans-unit id="265dc886-4a12-44e3-bf49-bc3e2037e19d" xml:space="preserve">
+          <source>A faulty PCM must be replaced by a fully operational PCM as soon as possible.</source>
+          <target state="new">A faulty PCM must be replaced by a fully operational PCM as soon as possible.</target>
+        </trans-unit>
+        <trans-unit id="ca05a2d5-7e5a-4746-b7a7-2bf4eb848b5c" xml:space="preserve">
+          <source>PCM module replacement takes only few minutes to complete, but it must be completed within 10 minutes of removing the failed PCM to prevent overheating.</source>
+          <target state="new">PCM module replacement takes only few minutes to complete, but it must be completed within 10 minutes of removing the failed PCM to prevent overheating.</target>
+        </trans-unit>
+        <trans-unit id="733d164e-4337-408f-94ab-7204d3ab237f" xml:space="preserve">
+          <source>Follow these instructions when you are ready to remove a Power and Cooling Module (PCM) from your Microsoft Azure StorSimple device.</source>
+          <target state="new">Follow these instructions when you are ready to remove a Power and Cooling Module (PCM) from your Microsoft Azure StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="ee4bbcb7-a0d2-4b54-b1cc-865858469ee9" xml:space="preserve">
+          <source>Before you remove your PCM, verify that you have a correct replacement (764 W for the primary enclosure or 580 W for the EBOD enclosure).</source>
+          <target state="new">Before you remove your PCM, verify that you have a correct replacement (764 W for the primary enclosure or 580 W for the EBOD enclosure).</target>
+        </trans-unit>
+        <trans-unit id="13e45829-eefa-4bec-8ad9-50bc28dd3a65" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="ec1987fd-7814-40b9-ab06-c482e946ad93">&lt;strong&gt;</bpt>Devices<ept id="ec1987fd-7814-40b9-ab06-c482e946ad93">&lt;/strong&gt;</ept> &gt; <bpt id="15f4f4d7-f5c5-44be-a85b-3b609ed1604a">&lt;strong&gt;</bpt>Maintenance<ept id="15f4f4d7-f5c5-44be-a85b-3b609ed1604a">&lt;/strong&gt;</ept> &gt; <bpt id="03d79532-2366-47dc-9fd8-a78101a8d058">&lt;strong&gt;</bpt>Hardware Status<ept id="03d79532-2366-47dc-9fd8-a78101a8d058">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Management Portal, click <bpt id="ec1987fd-7814-40b9-ab06-c482e946ad93">&lt;strong&gt;</bpt>Devices<ept id="ec1987fd-7814-40b9-ab06-c482e946ad93">&lt;/strong&gt;</ept> &gt; <bpt id="15f4f4d7-f5c5-44be-a85b-3b609ed1604a">&lt;strong&gt;</bpt>Maintenance<ept id="15f4f4d7-f5c5-44be-a85b-3b609ed1604a">&lt;/strong&gt;</ept> &gt; <bpt id="03d79532-2366-47dc-9fd8-a78101a8d058">&lt;strong&gt;</bpt>Hardware Status<ept id="03d79532-2366-47dc-9fd8-a78101a8d058">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="159e7b2f-c456-46e9-940f-689b6917233a" xml:space="preserve">
+          <source>Check the status of the PCM components under <bpt id="88833000-b6cd-4489-a7ca-9c057dcfe9b1">&lt;strong&gt;</bpt>Shared Components<ept id="88833000-b6cd-4489-a7ca-9c057dcfe9b1">&lt;/strong&gt;</ept> to identify which PCM has failed:</source>
+          <target state="new">Check the status of the PCM components under <bpt id="88833000-b6cd-4489-a7ca-9c057dcfe9b1">&lt;strong&gt;</bpt>Shared Components<ept id="88833000-b6cd-4489-a7ca-9c057dcfe9b1">&lt;/strong&gt;</ept> to identify which PCM has failed:</target>
+        </trans-unit>
+        <trans-unit id="64fe8fe8-7e36-425c-af8f-2b10719051c4" xml:space="preserve">
+          <source>If a power supply in PCM 0 has failed, the status of <bpt id="c7da987c-4473-48e5-9818-dbb4929eb042">&lt;strong&gt;</bpt>Power Supply in PCM 0<ept id="c7da987c-4473-48e5-9818-dbb4929eb042">&lt;/strong&gt;</ept> will be red.</source>
+          <target state="new">If a power supply in PCM 0 has failed, the status of <bpt id="c7da987c-4473-48e5-9818-dbb4929eb042">&lt;strong&gt;</bpt>Power Supply in PCM 0<ept id="c7da987c-4473-48e5-9818-dbb4929eb042">&lt;/strong&gt;</ept> will be red.</target>
+        </trans-unit>
+        <trans-unit id="cff2d823-af41-4144-8fcd-869bd87d8d92" xml:space="preserve">
+          <source>If a power supply in PCM 1 has failed, the status of <bpt id="bcfdadc0-d82e-487f-8916-0e6c5685bea8">&lt;strong&gt;</bpt>Power Supply in PCM 1<ept id="bcfdadc0-d82e-487f-8916-0e6c5685bea8">&lt;/strong&gt;</ept> will be red.</source>
+          <target state="new">If a power supply in PCM 1 has failed, the status of <bpt id="bcfdadc0-d82e-487f-8916-0e6c5685bea8">&lt;strong&gt;</bpt>Power Supply in PCM 1<ept id="bcfdadc0-d82e-487f-8916-0e6c5685bea8">&lt;/strong&gt;</ept> will be red.</target>
+        </trans-unit>
+        <trans-unit id="4b351b6e-5dee-4f8d-975c-34b0ec6cb1b4" xml:space="preserve">
+          <source>If the fan in PCM 1 has failed, the status of either <bpt id="3bd1dfd8-9d02-4152-a991-4f5250c6af8f">&lt;strong&gt;</bpt>Cooling 0 for PCM 0<ept id="3bd1dfd8-9d02-4152-a991-4f5250c6af8f">&lt;/strong&gt;</ept> or <bpt id="530e1c91-a2d8-4949-8743-1aa654df78b7">&lt;strong&gt;</bpt>Cooling 1 for PCM 0<ept id="530e1c91-a2d8-4949-8743-1aa654df78b7">&lt;/strong&gt;</ept> will be red.</source>
+          <target state="new">If the fan in PCM 1 has failed, the status of either <bpt id="3bd1dfd8-9d02-4152-a991-4f5250c6af8f">&lt;strong&gt;</bpt>Cooling 0 for PCM 0<ept id="3bd1dfd8-9d02-4152-a991-4f5250c6af8f">&lt;/strong&gt;</ept> or <bpt id="530e1c91-a2d8-4949-8743-1aa654df78b7">&lt;strong&gt;</bpt>Cooling 1 for PCM 0<ept id="530e1c91-a2d8-4949-8743-1aa654df78b7">&lt;/strong&gt;</ept> will be red.</target>
+        </trans-unit>
+        <trans-unit id="75a9203f-7c76-46f0-83e4-b8c49c2e8fe7" xml:space="preserve">
+          <source>Locate the failed PCM on the back of the primary enclosure.</source>
+          <target state="new">Locate the failed PCM on the back of the primary enclosure.</target>
+        </trans-unit>
+        <trans-unit id="357f7fe6-22fa-411f-95ee-776ee20fd2fe" xml:space="preserve">
+          <source>If you are running a 8600 model, identify the primary enclosure by looking at the System Unit Identification Number shown on the front panel LED display.</source>
+          <target state="new">If you are running a 8600 model, identify the primary enclosure by looking at the System Unit Identification Number shown on the front panel LED display.</target>
+        </trans-unit>
+        <trans-unit id="bab29357-6806-484f-9776-a153b6c38430" xml:space="preserve">
+          <source>The default Unit ID displayed on the primary enclosure is <bpt id="1502bc50-c83e-42c0-8563-168a3886405d">&lt;strong&gt;</bpt>00<ept id="1502bc50-c83e-42c0-8563-168a3886405d">&lt;/strong&gt;</ept>, whereas the default Unit ID displayed on the EBOD enclosure is <bpt id="8c232f7b-e165-4869-a470-1b42e2374fbb">&lt;strong&gt;</bpt>01<ept id="8c232f7b-e165-4869-a470-1b42e2374fbb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default Unit ID displayed on the primary enclosure is <bpt id="1502bc50-c83e-42c0-8563-168a3886405d">&lt;strong&gt;</bpt>00<ept id="1502bc50-c83e-42c0-8563-168a3886405d">&lt;/strong&gt;</ept>, whereas the default Unit ID displayed on the EBOD enclosure is <bpt id="8c232f7b-e165-4869-a470-1b42e2374fbb">&lt;strong&gt;</bpt>01<ept id="8c232f7b-e165-4869-a470-1b42e2374fbb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="549aaf2f-9f8c-4a9d-806f-0efc2fd10e68" xml:space="preserve">
+          <source>The following diagram and table explain the front panel of the LED display.</source>
+          <target state="new">The following diagram and table explain the front panel of the LED display.</target>
+        </trans-unit>
+        <trans-unit id="d88dfa1c-28ac-4785-82f8-357281a2ec1a" xml:space="preserve">
+          <source><bpt id="4d2229bf-ac82-4a86-a95b-0f2a68e0e8fa">&lt;linkText&gt;</bpt>System ID on front OPS panel<ept id="4d2229bf-ac82-4a86-a95b-0f2a68e0e8fa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d2229bf-ac82-4a86-a95b-0f2a68e0e8fa">&lt;linkText&gt;</bpt>System ID on front OPS panel<ept id="4d2229bf-ac82-4a86-a95b-0f2a68e0e8fa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc302ed7-31bf-4c02-b0f5-07abc50d6e98" xml:space="preserve">
+          <source> <bpt id="c806bcce-ba31-4682-a44a-0dbdecb217f2">&lt;strong&gt;</bpt>Figure 1<ept id="c806bcce-ba31-4682-a44a-0dbdecb217f2">&lt;/strong&gt;</ept> Front panel of the device  </source>
+          <target state="new"> <bpt id="c806bcce-ba31-4682-a44a-0dbdecb217f2">&lt;strong&gt;</bpt>Figure 1<ept id="c806bcce-ba31-4682-a44a-0dbdecb217f2">&lt;/strong&gt;</ept> Front panel of the device  </target>
+        </trans-unit>
+        <trans-unit id="46ca3844-e896-43af-bdbe-480b711e841d" xml:space="preserve">
+          <source>|Label|Description|
+|:---|:-----------|
+|1|Mute button|
+|2|System power|
+|3|Module fault|
+|4|Logical fault|
+|5|Unit ID display|</source>
+          <target state="new">|Label|Description|
+|:---|:-----------|
+|1|Mute button|
+|2|System power|
+|3|Module fault|
+|4|Logical fault|
+|5|Unit ID display|</target>
+        </trans-unit>
+        <trans-unit id="274080a7-d597-47c4-82fb-51c263204997" xml:space="preserve">
+          <source>The monitoring indicator LEDs in the back of the primary enclosure can also be used to identify the faulty PCM.</source>
+          <target state="new">The monitoring indicator LEDs in the back of the primary enclosure can also be used to identify the faulty PCM.</target>
+        </trans-unit>
+        <trans-unit id="ef6e8ee8-0941-477e-b56f-819ebbd79cdd" xml:space="preserve">
+          <source>See the following diagram and table to understand how to use the LEDs to locate the faulty PCM.</source>
+          <target state="new">See the following diagram and table to understand how to use the LEDs to locate the faulty PCM.</target>
+        </trans-unit>
+        <trans-unit id="2aebd681-5cc3-49e5-a1f0-23297a5d0aab" xml:space="preserve">
+          <source>For example, if the LED corresponding to the <bpt id="b324165e-9944-4577-a661-a88ee4b55a97">&lt;strong&gt;</bpt>Fan Fail<ept id="b324165e-9944-4577-a661-a88ee4b55a97">&lt;/strong&gt;</ept> is lit, the fan has failed.</source>
+          <target state="new">For example, if the LED corresponding to the <bpt id="b324165e-9944-4577-a661-a88ee4b55a97">&lt;strong&gt;</bpt>Fan Fail<ept id="b324165e-9944-4577-a661-a88ee4b55a97">&lt;/strong&gt;</ept> is lit, the fan has failed.</target>
+        </trans-unit>
+        <trans-unit id="fd951786-6e39-400b-a583-1b43961de126" xml:space="preserve">
+          <source>Likewise, if the LED corresponding to <bpt id="0635f8d5-97a2-4083-8319-469efa49e86b">&lt;strong&gt;</bpt>AC Fail<ept id="0635f8d5-97a2-4083-8319-469efa49e86b">&lt;/strong&gt;</ept> is lit, the power supply has failed.</source>
+          <target state="new">Likewise, if the LED corresponding to <bpt id="0635f8d5-97a2-4083-8319-469efa49e86b">&lt;strong&gt;</bpt>AC Fail<ept id="0635f8d5-97a2-4083-8319-469efa49e86b">&lt;/strong&gt;</ept> is lit, the power supply has failed.</target>
+        </trans-unit>
+        <trans-unit id="5f359bec-3e01-4567-8e9b-460eac14c2ac" xml:space="preserve">
+          <source><bpt id="c6d66ccb-165a-4e0d-bc7d-84e79fb3dc5b">&lt;linkText&gt;</bpt>Backplane of device PCM monitoring indicator LEDs<ept id="c6d66ccb-165a-4e0d-bc7d-84e79fb3dc5b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c6d66ccb-165a-4e0d-bc7d-84e79fb3dc5b">&lt;linkText&gt;</bpt>Backplane of device PCM monitoring indicator LEDs<ept id="c6d66ccb-165a-4e0d-bc7d-84e79fb3dc5b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d19b894a-d648-4372-919c-ac7ed29fac9c" xml:space="preserve">
+          <source> <bpt id="06f282c1-1889-4235-97e0-588925dbe719">&lt;strong&gt;</bpt>Figure 2<ept id="06f282c1-1889-4235-97e0-588925dbe719">&lt;/strong&gt;</ept> Back of PCM with indicator LEDs</source>
+          <target state="new"> <bpt id="06f282c1-1889-4235-97e0-588925dbe719">&lt;strong&gt;</bpt>Figure 2<ept id="06f282c1-1889-4235-97e0-588925dbe719">&lt;/strong&gt;</ept> Back of PCM with indicator LEDs</target>
+        </trans-unit>
+        <trans-unit id="717a4d67-8e3d-436b-a937-462f464fcc2e" xml:space="preserve">
+          <source>|Label|Description|
+|:---|:-----------|
+|1|AC power failure|
+|2|Fan failure|
+|3|Battery fault|
+|4|PCM OK|
+|5|DC power failure|
+|6|Battery healthy|</source>
+          <target state="new">|Label|Description|
+|:---|:-----------|
+|1|AC power failure|
+|2|Fan failure|
+|3|Battery fault|
+|4|PCM OK|
+|5|DC power failure|
+|6|Battery healthy|</target>
+        </trans-unit>
+        <trans-unit id="5c5cea22-0017-4682-b8ea-48f9697b89a0" xml:space="preserve">
+          <source>Refer to the following diagram of the back of the StorSimple device to locate the failed PCM module.</source>
+          <target state="new">Refer to the following diagram of the back of the StorSimple device to locate the failed PCM module.</target>
+        </trans-unit>
+        <trans-unit id="1248aa2d-e46f-4207-9801-031702d18f2e" xml:space="preserve">
+          <source>PCM 0 is on the left and PCM 1 is on the right.</source>
+          <target state="new">PCM 0 is on the left and PCM 1 is on the right.</target>
+        </trans-unit>
+        <trans-unit id="2bd8ec2e-a449-4619-9479-9d87294cc921" xml:space="preserve">
+          <source>The table that follows explains the modules.</source>
+          <target state="new">The table that follows explains the modules.</target>
+        </trans-unit>
+        <trans-unit id="828e6dc8-0f7b-4abd-9875-a34ff172c3fd" xml:space="preserve">
+          <source> <bpt id="64f1f367-d199-42a7-bfe3-e267d9629069">&lt;linkText&gt;</bpt>Backplane of device primary enclosure modules<ept id="64f1f367-d199-42a7-bfe3-e267d9629069">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="64f1f367-d199-42a7-bfe3-e267d9629069">&lt;linkText&gt;</bpt>Backplane of device primary enclosure modules<ept id="64f1f367-d199-42a7-bfe3-e267d9629069">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce5dfb75-df4a-49fa-ab12-330bfd875004" xml:space="preserve">
+          <source> <bpt id="f5e77f18-e260-4f4b-810d-4ed072a41ea4">&lt;strong&gt;</bpt>Figure 3<ept id="f5e77f18-e260-4f4b-810d-4ed072a41ea4">&lt;/strong&gt;</ept> Back of device with plug-in modules </source>
+          <target state="new"> <bpt id="f5e77f18-e260-4f4b-810d-4ed072a41ea4">&lt;strong&gt;</bpt>Figure 3<ept id="f5e77f18-e260-4f4b-810d-4ed072a41ea4">&lt;/strong&gt;</ept> Back of device with plug-in modules </target>
+        </trans-unit>
+        <trans-unit id="52cccec1-e29a-42b9-a8e6-2164a19c71c9" xml:space="preserve">
+          <source>|Label|Description|
+|:---|:-----------|
+|1|PCM 0|
+|2|PCM 1|
+|3|Controller 0|
+|4|Controller 1|</source>
+          <target state="new">|Label|Description|
+|:---|:-----------|
+|1|PCM 0|
+|2|PCM 1|
+|3|Controller 0|
+|4|Controller 1|</target>
+        </trans-unit>
+        <trans-unit id="cf01a272-a019-4518-994c-13e37b972e3c" xml:space="preserve">
+          <source>Turn off the faulty PCM and disconnect the power supply cord.</source>
+          <target state="new">Turn off the faulty PCM and disconnect the power supply cord.</target>
+        </trans-unit>
+        <trans-unit id="beb95af5-c3c8-4464-94dc-057a1629f610" xml:space="preserve">
+          <source>You can now remove the PCM.</source>
+          <target state="new">You can now remove the PCM.</target>
+        </trans-unit>
+        <trans-unit id="a701171b-c99f-42bd-82eb-a1094057cf48" xml:space="preserve">
+          <source>Grasp the latch and the side of the PCM handle between your thumb and forefinger, and squeeze them together to open the handle.</source>
+          <target state="new">Grasp the latch and the side of the PCM handle between your thumb and forefinger, and squeeze them together to open the handle.</target>
+        </trans-unit>
+        <trans-unit id="dc1eb85a-5954-44c7-be29-580543eda005" xml:space="preserve">
+          <source><bpt id="d9bf562b-3dc0-47aa-9815-d381923a2793">&lt;linkText&gt;</bpt>Opening PCM Handle<ept id="d9bf562b-3dc0-47aa-9815-d381923a2793">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d9bf562b-3dc0-47aa-9815-d381923a2793">&lt;linkText&gt;</bpt>Opening PCM Handle<ept id="d9bf562b-3dc0-47aa-9815-d381923a2793">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cdaa8222-4a21-42c6-8972-9c9540fc3a61" xml:space="preserve">
+          <source><bpt id="4523f4fe-049c-4a60-8417-0dceb43ec6a1">&lt;strong&gt;</bpt>Figure 4<ept id="4523f4fe-049c-4a60-8417-0dceb43ec6a1">&lt;/strong&gt;</ept> Opening the PCM handle</source>
+          <target state="new"><bpt id="4523f4fe-049c-4a60-8417-0dceb43ec6a1">&lt;strong&gt;</bpt>Figure 4<ept id="4523f4fe-049c-4a60-8417-0dceb43ec6a1">&lt;/strong&gt;</ept> Opening the PCM handle</target>
+        </trans-unit>
+        <trans-unit id="b2897471-08ce-4505-b784-f59131ce5031" xml:space="preserve">
+          <source>Grip the handle and remove the PCM.</source>
+          <target state="new">Grip the handle and remove the PCM.</target>
+        </trans-unit>
+        <trans-unit id="1ffcab67-1380-418d-8742-054ca66f3994" xml:space="preserve">
+          <source><bpt id="9c6b022c-83ce-44c6-a231-113b10390afd">&lt;linkText&gt;</bpt>Removing Device PCM<ept id="9c6b022c-83ce-44c6-a231-113b10390afd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9c6b022c-83ce-44c6-a231-113b10390afd">&lt;linkText&gt;</bpt>Removing Device PCM<ept id="9c6b022c-83ce-44c6-a231-113b10390afd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be4467d2-a5b3-4d20-92c8-469164fc3254" xml:space="preserve">
+          <source><bpt id="27fbce44-4612-48f3-b7ca-d995043d44b9">&lt;strong&gt;</bpt>Figure 5<ept id="27fbce44-4612-48f3-b7ca-d995043d44b9">&lt;/strong&gt;</ept> Removing the PCM</source>
+          <target state="new"><bpt id="27fbce44-4612-48f3-b7ca-d995043d44b9">&lt;strong&gt;</bpt>Figure 5<ept id="27fbce44-4612-48f3-b7ca-d995043d44b9">&lt;/strong&gt;</ept> Removing the PCM</target>
+        </trans-unit>
+        <trans-unit id="422d0590-1cb3-40ba-a357-e2ca8c22277d" xml:space="preserve">
+          <source>Follow these instructions to install a PCM in your StorSimple device.</source>
+          <target state="new">Follow these instructions to install a PCM in your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="5cf5e310-df77-4a58-a0a9-4688529af574" xml:space="preserve">
+          <source>Verify that you have the correct replacement PCM for this enclosure.</source>
+          <target state="new">Verify that you have the correct replacement PCM for this enclosure.</target>
+        </trans-unit>
+        <trans-unit id="d8b3e671-277e-4723-82e0-6f1383bb501f" xml:space="preserve">
+          <source>The primary enclosure needs a 764 W PCM and the EBOD enclosure needs a 580 W PCM.</source>
+          <target state="new">The primary enclosure needs a 764 W PCM and the EBOD enclosure needs a 580 W PCM.</target>
+        </trans-unit>
+        <trans-unit id="8e93b6f6-bd41-4182-a2f4-63648cecc87e" xml:space="preserve">
+          <source>You should not attempt to use the 580 W PCM in the Primary enclosure, or the 764 W PCM in the EBOD enclosure.</source>
+          <target state="new">You should not attempt to use the 580 W PCM in the Primary enclosure, or the 764 W PCM in the EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="99a34006-daa2-424c-9a5f-0ec870f84d43" xml:space="preserve">
+          <source>The following image shows where to identify this information on the label that is affixed to the PCM.</source>
+          <target state="new">The following image shows where to identify this information on the label that is affixed to the PCM.</target>
+        </trans-unit>
+        <trans-unit id="cc3bce7d-8e45-4a70-a4cd-ef8928981956" xml:space="preserve">
+          <source><bpt id="20d0472a-356f-4b07-99e6-b4f355f95880">&lt;linkText&gt;</bpt>Device PCM Label<ept id="20d0472a-356f-4b07-99e6-b4f355f95880">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="20d0472a-356f-4b07-99e6-b4f355f95880">&lt;linkText&gt;</bpt>Device PCM Label<ept id="20d0472a-356f-4b07-99e6-b4f355f95880">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b06d133-a196-4c05-a2b6-ca4e8c98f727" xml:space="preserve">
+          <source><bpt id="dbfe721d-a353-4296-a73b-4629e1e30164">&lt;strong&gt;</bpt>Figure 6<ept id="dbfe721d-a353-4296-a73b-4629e1e30164">&lt;/strong&gt;</ept> PCM label</source>
+          <target state="new"><bpt id="dbfe721d-a353-4296-a73b-4629e1e30164">&lt;strong&gt;</bpt>Figure 6<ept id="dbfe721d-a353-4296-a73b-4629e1e30164">&lt;/strong&gt;</ept> PCM label</target>
+        </trans-unit>
+        <trans-unit id="9c94e449-b1e7-4d98-a244-23e5ccbc4eed" xml:space="preserve">
+          <source>Check for damage to the enclosure, paying particular attention to the connectors.</source>
+          <target state="new">Check for damage to the enclosure, paying particular attention to the connectors.</target>
+        </trans-unit>
+        <trans-unit id="b9d5baac-0753-45be-991a-6be3d65174f8" xml:space="preserve">
+          <source><bpt id="93aa5ac4-91aa-445f-8d14-8cc1b05db12f">&lt;strong&gt;</bpt>Do not install the module if any connector pins are bent.<ept id="93aa5ac4-91aa-445f-8d14-8cc1b05db12f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="93aa5ac4-91aa-445f-8d14-8cc1b05db12f">&lt;strong&gt;</bpt>Do not install the module if any connector pins are bent.<ept id="93aa5ac4-91aa-445f-8d14-8cc1b05db12f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e98b6cf6-2bdd-4b48-a757-2a4477552136" xml:space="preserve">
+          <source>With the PCM handle in the open position, slide the module into the enclosure.</source>
+          <target state="new">With the PCM handle in the open position, slide the module into the enclosure.</target>
+        </trans-unit>
+        <trans-unit id="0ce5b637-ee91-4d56-9863-a178b9eebd0d" xml:space="preserve">
+          <source><bpt id="a045347e-182b-4101-973c-a28317820c8a">&lt;linkText&gt;</bpt>Installing Device PCM<ept id="a045347e-182b-4101-973c-a28317820c8a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a045347e-182b-4101-973c-a28317820c8a">&lt;linkText&gt;</bpt>Installing Device PCM<ept id="a045347e-182b-4101-973c-a28317820c8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8cb3519-23d4-40b1-bbad-6ba6007dd708" xml:space="preserve">
+          <source><bpt id="bc66aea7-e83b-4d9b-b907-c4fa26c3df77">&lt;strong&gt;</bpt>Figure 7<ept id="bc66aea7-e83b-4d9b-b907-c4fa26c3df77">&lt;/strong&gt;</ept> Installing the PCM</source>
+          <target state="new"><bpt id="bc66aea7-e83b-4d9b-b907-c4fa26c3df77">&lt;strong&gt;</bpt>Figure 7<ept id="bc66aea7-e83b-4d9b-b907-c4fa26c3df77">&lt;/strong&gt;</ept> Installing the PCM</target>
+        </trans-unit>
+        <trans-unit id="82544256-301e-405c-8108-56f94d1d0406" xml:space="preserve">
+          <source>Manually close the PCM handle.</source>
+          <target state="new">Manually close the PCM handle.</target>
+        </trans-unit>
+        <trans-unit id="28f72f6e-8b3d-42a0-ba00-5374d4b2adf8" xml:space="preserve">
+          <source>You should hear a click as the handle latch engages.</source>
+          <target state="new">You should hear a click as the handle latch engages.</target>
+        </trans-unit>
+        <trans-unit id="1c8fe1e4-5a19-4b6b-863d-bfb37a1bb91c" xml:space="preserve">
+          <source>To ensure that the connector pins have engaged, you can gently tug on the handle without releasing the latch.</source>
+          <target state="new">To ensure that the connector pins have engaged, you can gently tug on the handle without releasing the latch.</target>
+        </trans-unit>
+        <trans-unit id="30349d14-65a1-4630-ad97-f5038d2aa402" xml:space="preserve">
+          <source>If the PCM slides out, it implies that the latch was closed before the connectors engaged.</source>
+          <target state="new">If the PCM slides out, it implies that the latch was closed before the connectors engaged.</target>
+        </trans-unit>
+        <trans-unit id="c09b47f1-360a-49e5-8f90-eb1b851f2c0c" xml:space="preserve">
+          <source>Connect the power cables to the power source and to the PCM.</source>
+          <target state="new">Connect the power cables to the power source and to the PCM.</target>
+        </trans-unit>
+        <trans-unit id="f82e7321-9fc2-4980-b369-83375f003bde" xml:space="preserve">
+          <source>Secure the strain relief bales.</source>
+          <target state="new">Secure the strain relief bales.</target>
+        </trans-unit>
+        <trans-unit id="863b71ff-6354-4809-ac97-6441274b6609" xml:space="preserve">
+          <source>Turn on the PCM.</source>
+          <target state="new">Turn on the PCM.</target>
+        </trans-unit>
+        <trans-unit id="bd2a0bc1-4011-48da-bca1-4f2c1a9be0a6" xml:space="preserve">
+          <source>Verify that the replacement was successful: in the Management Portal of your StorSimple Manager service, navigate to <bpt id="e4864724-4106-4d30-bf7b-4e1c6d4e406b">&lt;strong&gt;</bpt>Devices<ept id="e4864724-4106-4d30-bf7b-4e1c6d4e406b">&lt;/strong&gt;</ept> &gt; <bpt id="674fcad2-e7d1-4f26-88c5-a32cf8244d54">&lt;strong&gt;</bpt>Maintenance<ept id="674fcad2-e7d1-4f26-88c5-a32cf8244d54">&lt;/strong&gt;</ept> &gt; <bpt id="8447a0be-5f22-4f51-90da-0115c64daa26">&lt;strong&gt;</bpt>Hardware Status<ept id="8447a0be-5f22-4f51-90da-0115c64daa26">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Verify that the replacement was successful: in the Management Portal of your StorSimple Manager service, navigate to <bpt id="e4864724-4106-4d30-bf7b-4e1c6d4e406b">&lt;strong&gt;</bpt>Devices<ept id="e4864724-4106-4d30-bf7b-4e1c6d4e406b">&lt;/strong&gt;</ept> &gt; <bpt id="674fcad2-e7d1-4f26-88c5-a32cf8244d54">&lt;strong&gt;</bpt>Maintenance<ept id="674fcad2-e7d1-4f26-88c5-a32cf8244d54">&lt;/strong&gt;</ept> &gt; <bpt id="8447a0be-5f22-4f51-90da-0115c64daa26">&lt;strong&gt;</bpt>Hardware Status<ept id="8447a0be-5f22-4f51-90da-0115c64daa26">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19d7e926-fc37-463c-a47a-71698e36ad1a" xml:space="preserve">
+          <source>Under <bpt id="895e21a7-e000-4bd9-a2fe-f436df73ba76">&lt;strong&gt;</bpt>Shared Components<ept id="895e21a7-e000-4bd9-a2fe-f436df73ba76">&lt;/strong&gt;</ept>, the status of the PCM should be green.</source>
+          <target state="new">Under <bpt id="895e21a7-e000-4bd9-a2fe-f436df73ba76">&lt;strong&gt;</bpt>Shared Components<ept id="895e21a7-e000-4bd9-a2fe-f436df73ba76">&lt;/strong&gt;</ept>, the status of the PCM should be green.</target>
+        </trans-unit>
+        <trans-unit id="3ee7ae5f-85fb-410d-9435-ca986f333953" xml:space="preserve">
+          <source>It may take a few minutes for the replacement PCM to completely initialize.</source>
+          <target state="new">It may take a few minutes for the replacement PCM to completely initialize.</target>
+        </trans-unit>
+        <trans-unit id="8274ceec-3865-4296-bef0-d9766b1a80bb" xml:space="preserve">
+          <source>Learn more about <bpt id="82025063-c25b-497e-bbeb-d86b21b5c1ef">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="82025063-c25b-497e-bbeb-d86b21b5c1ef">&lt;/linkText&gt;</ept><bpt id="82025063-c25b-497e-bbeb-d86b21b5c1ef">&lt;title&gt;</bpt><ept id="82025063-c25b-497e-bbeb-d86b21b5c1ef">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about <bpt id="82025063-c25b-497e-bbeb-d86b21b5c1ef">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="82025063-c25b-497e-bbeb-d86b21b5c1ef">&lt;/linkText&gt;</ept><bpt id="82025063-c25b-497e-bbeb-d86b21b5c1ef">&lt;title&gt;</bpt><ept id="82025063-c25b-497e-bbeb-d86b21b5c1ef">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

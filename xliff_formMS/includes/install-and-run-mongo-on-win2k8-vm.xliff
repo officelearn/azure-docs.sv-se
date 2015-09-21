@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d9bd4051-b6b7-4bf0-a0fa-a62494dda244" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d9bd4051-b6b7-4bf0-a0fa-a62494dda244" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ae826aaf-4de5-4af4-9d94-82b5030576aa">
+        <trans-unit id="e1564653-4e96-41a3-b810-a8b10f371e67" xml:space="preserve">
+          <source>Follow these steps to install and run MongoDB on a virtual machine running Windows Server.</source>
+          <target state="new">Follow these steps to install and run MongoDB on a virtual machine running Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="70ca58c2-f521-4843-9780-e6d8a62123d1" xml:space="preserve">
+          <source>MongoDB security features, such as authentication and IP address binding, are not enabled by default.</source>
+          <target state="new">MongoDB security features, such as authentication and IP address binding, are not enabled by default.</target>
+        </trans-unit>
+        <trans-unit id="af969406-99a9-41f8-adbe-858921253ff8" xml:space="preserve">
+          <source>Security features should be enabled before deploying MongoDB to a production environment.</source>
+          <target state="new">Security features should be enabled before deploying MongoDB to a production environment.</target>
+        </trans-unit>
+        <trans-unit id="f4987293-767f-47a5-ac5e-65e7f21227d3" xml:space="preserve">
+          <source>See <bpt id="1297d236-7c31-4bb7-b6c0-baa5fa261e65">&lt;linkText&gt;</bpt>Security and Authentication<ept id="1297d236-7c31-4bb7-b6c0-baa5fa261e65">&lt;/linkText&gt;</ept><bpt id="1297d236-7c31-4bb7-b6c0-baa5fa261e65">&lt;title&gt;</bpt><ept id="1297d236-7c31-4bb7-b6c0-baa5fa261e65">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="1297d236-7c31-4bb7-b6c0-baa5fa261e65">&lt;linkText&gt;</bpt>Security and Authentication<ept id="1297d236-7c31-4bb7-b6c0-baa5fa261e65">&lt;/linkText&gt;</ept><bpt id="1297d236-7c31-4bb7-b6c0-baa5fa261e65">&lt;title&gt;</bpt><ept id="1297d236-7c31-4bb7-b6c0-baa5fa261e65">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="2e06b803-0275-4110-80f1-18550d3a91cb" xml:space="preserve">
+          <source>After you've connected to the virtual machine using Remote Desktop, open Internet Explorer from the <bpt id="fe9cc19e-2b3e-4a4e-8c57-ccba94f297cc">&lt;strong&gt;</bpt>Start<ept id="fe9cc19e-2b3e-4a4e-8c57-ccba94f297cc">&lt;/strong&gt;</ept> menu on the virtual machine.</source>
+          <target state="new">After you've connected to the virtual machine using Remote Desktop, open Internet Explorer from the <bpt id="fe9cc19e-2b3e-4a4e-8c57-ccba94f297cc">&lt;strong&gt;</bpt>Start<ept id="fe9cc19e-2b3e-4a4e-8c57-ccba94f297cc">&lt;/strong&gt;</ept> menu on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="d27ca842-3444-4d56-89e6-243d53f53fc3" xml:space="preserve">
+          <source>Select the <bpt id="3c2c78b8-8336-40ad-b7a2-7f173dded2b6">&lt;strong&gt;</bpt>Tools<ept id="3c2c78b8-8336-40ad-b7a2-7f173dded2b6">&lt;/strong&gt;</ept> button in the upper right corner.</source>
+          <target state="new">Select the <bpt id="3c2c78b8-8336-40ad-b7a2-7f173dded2b6">&lt;strong&gt;</bpt>Tools<ept id="3c2c78b8-8336-40ad-b7a2-7f173dded2b6">&lt;/strong&gt;</ept> button in the upper right corner.</target>
+        </trans-unit>
+        <trans-unit id="a738ff92-878f-461f-8cc7-1e1a8640b76f" xml:space="preserve">
+          <source>In <bpt id="cabbd423-b2dc-4532-83d1-a147ceb28dd8">&lt;strong&gt;</bpt>Internet Options<ept id="cabbd423-b2dc-4532-83d1-a147ceb28dd8">&lt;/strong&gt;</ept>, select the <bpt id="a13ba2bb-cabe-487a-b8ad-d5aca4357e7c">&lt;strong&gt;</bpt>Security<ept id="a13ba2bb-cabe-487a-b8ad-d5aca4357e7c">&lt;/strong&gt;</ept> tab, and then select the <bpt id="aa59a546-a4ee-4bd2-bb26-69ed8c83d5fa">&lt;strong&gt;</bpt>Trusted Sites<ept id="aa59a546-a4ee-4bd2-bb26-69ed8c83d5fa">&lt;/strong&gt;</ept> icon, and finally click the <bpt id="b34d1477-84fc-4da1-b16a-23563c6db9d7">&lt;strong&gt;</bpt>Sites<ept id="b34d1477-84fc-4da1-b16a-23563c6db9d7">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In <bpt id="cabbd423-b2dc-4532-83d1-a147ceb28dd8">&lt;strong&gt;</bpt>Internet Options<ept id="cabbd423-b2dc-4532-83d1-a147ceb28dd8">&lt;/strong&gt;</ept>, select the <bpt id="a13ba2bb-cabe-487a-b8ad-d5aca4357e7c">&lt;strong&gt;</bpt>Security<ept id="a13ba2bb-cabe-487a-b8ad-d5aca4357e7c">&lt;/strong&gt;</ept> tab, and then select the <bpt id="aa59a546-a4ee-4bd2-bb26-69ed8c83d5fa">&lt;strong&gt;</bpt>Trusted Sites<ept id="aa59a546-a4ee-4bd2-bb26-69ed8c83d5fa">&lt;/strong&gt;</ept> icon, and finally click the <bpt id="b34d1477-84fc-4da1-b16a-23563c6db9d7">&lt;strong&gt;</bpt>Sites<ept id="b34d1477-84fc-4da1-b16a-23563c6db9d7">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="8c811e2c-3c4d-4b75-9498-8900b2cfe4bc" xml:space="preserve">
+          <source>Add <bpt id="588d23b2-b777-4ad5-9b51-cba20e83d859">&lt;em&gt;</bpt>http://\*.mongodb.org<ept id="588d23b2-b777-4ad5-9b51-cba20e83d859">&lt;/em&gt;</ept> to the list of trusted sites.</source>
+          <target state="new">Add <bpt id="588d23b2-b777-4ad5-9b51-cba20e83d859">&lt;em&gt;</bpt>http://\*.mongodb.org<ept id="588d23b2-b777-4ad5-9b51-cba20e83d859">&lt;/em&gt;</ept> to the list of trusted sites.</target>
+        </trans-unit>
+        <trans-unit id="50f32e82-d5e2-4ede-b479-f472a12bf602" xml:space="preserve">
+          <source>Go to <bpt id="d51d605f-5dbc-425e-8cd1-dc63480a766e">&lt;linkText&gt;</bpt>Downloads- MongoDB[mongodownloads]<ept id="d51d605f-5dbc-425e-8cd1-dc63480a766e">&lt;/linkText&gt;</ept><bpt id="d51d605f-5dbc-425e-8cd1-dc63480a766e">&lt;title&gt;</bpt><ept id="d51d605f-5dbc-425e-8cd1-dc63480a766e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="d51d605f-5dbc-425e-8cd1-dc63480a766e">&lt;linkText&gt;</bpt>Downloads- MongoDB[mongodownloads]<ept id="d51d605f-5dbc-425e-8cd1-dc63480a766e">&lt;/linkText&gt;</ept><bpt id="d51d605f-5dbc-425e-8cd1-dc63480a766e">&lt;title&gt;</bpt><ept id="d51d605f-5dbc-425e-8cd1-dc63480a766e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfe389ea-03ce-44b6-8d90-2c80c2c4c5a9" xml:space="preserve">
+          <source>Find the <bpt id="7da59ed4-b144-476d-a742-fae0b7479790">&lt;strong&gt;</bpt>Current Stable Release<ept id="7da59ed4-b144-476d-a742-fae0b7479790">&lt;/strong&gt;</ept>, select the latest <bpt id="aea5c8c9-e027-4cf6-96de-e8d3053a4cfc">&lt;strong&gt;</bpt>64-bit<ept id="aea5c8c9-e027-4cf6-96de-e8d3053a4cfc">&lt;/strong&gt;</ept> version in the Windows column, download and run the MSI installer.</source>
+          <target state="new">Find the <bpt id="7da59ed4-b144-476d-a742-fae0b7479790">&lt;strong&gt;</bpt>Current Stable Release<ept id="7da59ed4-b144-476d-a742-fae0b7479790">&lt;/strong&gt;</ept>, select the latest <bpt id="aea5c8c9-e027-4cf6-96de-e8d3053a4cfc">&lt;strong&gt;</bpt>64-bit<ept id="aea5c8c9-e027-4cf6-96de-e8d3053a4cfc">&lt;/strong&gt;</ept> version in the Windows column, download and run the MSI installer.</target>
+        </trans-unit>
+        <trans-unit id="6178af4b-3d95-4ff0-b5b6-ce84dec64b4f" xml:space="preserve">
+          <source>MongoDB is typically installed on C:\Program Files\MongoDB.</source>
+          <target state="new">MongoDB is typically installed on C:\Program Files\MongoDB.</target>
+        </trans-unit>
+        <trans-unit id="201cd9ba-006e-4718-8374-aad830ec7a2f" xml:space="preserve">
+          <source>Search for Environment Variables on the desktop and add the MongoDB binaries path to the PATH variable.</source>
+          <target state="new">Search for Environment Variables on the desktop and add the MongoDB binaries path to the PATH variable.</target>
+        </trans-unit>
+        <trans-unit id="9a354d33-51f5-441c-905c-0c911b067a4c" xml:space="preserve">
+          <source>For example, you might find the binaries at C:\Program Files\MongoDB\Server\3.0\bin on your machine.</source>
+          <target state="new">For example, you might find the binaries at C:\Program Files\MongoDB\Server\3.0\bin on your machine.</target>
+        </trans-unit>
+        <trans-unit id="426197a3-1142-4b5f-8f51-dc0afd7eab71" xml:space="preserve">
+          <source>Create MongoDB data and log directories in the data disk (drive <bpt id="115c32f6-dfc0-4123-b966-b0461d65028f">&lt;strong&gt;</bpt>F:<ept id="115c32f6-dfc0-4123-b966-b0461d65028f">&lt;/strong&gt;</ept>, for example) you created in the steps above.</source>
+          <target state="new">Create MongoDB data and log directories in the data disk (drive <bpt id="115c32f6-dfc0-4123-b966-b0461d65028f">&lt;strong&gt;</bpt>F:<ept id="115c32f6-dfc0-4123-b966-b0461d65028f">&lt;/strong&gt;</ept>, for example) you created in the steps above.</target>
+        </trans-unit>
+        <trans-unit id="091baaaa-03d7-4670-9605-21f6d0f1ea0c" xml:space="preserve">
+          <source>From <bpt id="6fc92427-9e35-4e8e-a5e2-eb416b23efcc">&lt;strong&gt;</bpt>Start<ept id="6fc92427-9e35-4e8e-a5e2-eb416b23efcc">&lt;/strong&gt;</ept>, select <bpt id="2c11f869-e94d-4d00-bdde-e5e47383aeab">&lt;strong&gt;</bpt>Command Prompt<ept id="2c11f869-e94d-4d00-bdde-e5e47383aeab">&lt;/strong&gt;</ept> to open a command prompt window.</source>
+          <target state="new">From <bpt id="6fc92427-9e35-4e8e-a5e2-eb416b23efcc">&lt;strong&gt;</bpt>Start<ept id="6fc92427-9e35-4e8e-a5e2-eb416b23efcc">&lt;/strong&gt;</ept>, select <bpt id="2c11f869-e94d-4d00-bdde-e5e47383aeab">&lt;strong&gt;</bpt>Command Prompt<ept id="2c11f869-e94d-4d00-bdde-e5e47383aeab">&lt;/strong&gt;</ept> to open a command prompt window.</target>
+        </trans-unit>
+        <trans-unit id="fc475a37-d0e1-405c-9b16-f72d1902acad" xml:space="preserve">
+          <source>Type:</source>
+          <target state="new">Type:</target>
+        </trans-unit>
+        <trans-unit id="5dbb41c8-b56f-441f-8005-55fd620957af" xml:space="preserve">
+          <source>To run the database, run:</source>
+          <target state="new">To run the database, run:</target>
+        </trans-unit>
+        <trans-unit id="dd63917a-5b66-4110-8611-306ea00e3c64" xml:space="preserve">
+          <source>All log messages will be directed to the <bpt id="68e6f43b-2ff2-4f33-87e2-9e5121ce9b51">&lt;em&gt;</bpt>F:\MongoLogs\mongolog.log<ept id="68e6f43b-2ff2-4f33-87e2-9e5121ce9b51">&lt;/em&gt;</ept> file as mongod.exe server starts and preallocates journal files.</source>
+          <target state="new">All log messages will be directed to the <bpt id="68e6f43b-2ff2-4f33-87e2-9e5121ce9b51">&lt;em&gt;</bpt>F:\MongoLogs\mongolog.log<ept id="68e6f43b-2ff2-4f33-87e2-9e5121ce9b51">&lt;/em&gt;</ept> file as mongod.exe server starts and preallocates journal files.</target>
+        </trans-unit>
+        <trans-unit id="5556b57c-7e94-47fb-9929-20924693841c" xml:space="preserve">
+          <source>It may take several minutes for MongoDB to preallocate the journal files and start listening for connections.</source>
+          <target state="new">It may take several minutes for MongoDB to preallocate the journal files and start listening for connections.</target>
+        </trans-unit>
+        <trans-unit id="76f1244b-7248-46aa-9766-0092af05bedf" xml:space="preserve">
+          <source>To start the MongoDB administrative shell, open another command window from <bpt id="c16f3080-04d6-430c-a17f-677cf5eb4404">&lt;strong&gt;</bpt>Start<ept id="c16f3080-04d6-430c-a17f-677cf5eb4404">&lt;/strong&gt;</ept> and type the following:</source>
+          <target state="new">To start the MongoDB administrative shell, open another command window from <bpt id="c16f3080-04d6-430c-a17f-677cf5eb4404">&lt;strong&gt;</bpt>Start<ept id="c16f3080-04d6-430c-a17f-677cf5eb4404">&lt;/strong&gt;</ept> and type the following:</target>
+        </trans-unit>
+        <trans-unit id="183e5ffa-6047-4fa9-8419-48c60251028b" xml:space="preserve">
+          <source>db  
+    test
+db.foo.insert( { a : 1 } )  
+db.foo.find()  
+    { _id : ..., a : 1 }  
+show dbs  
+    ...  
+show collections  
+    ...  
+help  </source>
+          <target state="new">db  
+    test
+db.foo.insert( { a : 1 } )  
+db.foo.find()  
+    { _id : ..., a : 1 }  
+show dbs  
+    ...  
+show collections  
+    ...  
+help  </target>
+        </trans-unit>
+        <trans-unit id="e2b47883-7806-4b7f-b786-8d49d8e2ab81" xml:space="preserve">
+          <source>The database is created by the insert.</source>
+          <target state="new">The database is created by the insert.</target>
+        </trans-unit>
+        <trans-unit id="354e1f02-bc5e-4f8b-90fe-dcf56558803a" xml:space="preserve">
+          <source>Alternatively, you can install mongod.exe as a service:</source>
+          <target state="new">Alternatively, you can install mongod.exe as a service:</target>
+        </trans-unit>
+        <trans-unit id="3cdb3943-93d9-4675-a01f-fa095886c388" xml:space="preserve">
+          <source>This creates a service named MongoDB with a description of "Mongo DB".</source>
+          <target state="new">This creates a service named MongoDB with a description of "Mongo DB".</target>
+        </trans-unit>
+        <trans-unit id="6746bdcd-0075-4664-8c3d-888f97085e76" xml:space="preserve">
+          <source>The <bpt id="3f0d42e2-632b-42b5-ab83-8650454fe62a">&lt;strong&gt;</bpt>--logpath<ept id="3f0d42e2-632b-42b5-ab83-8650454fe62a">&lt;/strong&gt;</ept> option must be used to specify a log file, since the running service will not have a command window to display output.</source>
+          <target state="new">The <bpt id="3f0d42e2-632b-42b5-ab83-8650454fe62a">&lt;strong&gt;</bpt>--logpath<ept id="3f0d42e2-632b-42b5-ab83-8650454fe62a">&lt;/strong&gt;</ept> option must be used to specify a log file, since the running service will not have a command window to display output.</target>
+        </trans-unit>
+        <trans-unit id="2bc18f13-3d84-4957-87b0-6c04599e0ef5" xml:space="preserve">
+          <source>The <bpt id="af89d75c-6bf9-4c26-b1ad-d138f2c929a0">&lt;strong&gt;</bpt>--logappend<ept id="af89d75c-6bf9-4c26-b1ad-d138f2c929a0">&lt;/strong&gt;</ept> option specifies that a restart of the service will cause output to append to the existing log file.</source>
+          <target state="new">The <bpt id="af89d75c-6bf9-4c26-b1ad-d138f2c929a0">&lt;strong&gt;</bpt>--logappend<ept id="af89d75c-6bf9-4c26-b1ad-d138f2c929a0">&lt;/strong&gt;</ept> option specifies that a restart of the service will cause output to append to the existing log file.</target>
+        </trans-unit>
+        <trans-unit id="2e2b5340-4f0f-4129-ab95-ff8a5039ce94" xml:space="preserve">
+          <source>The <bpt id="8cf1e591-aeb1-4d37-82ac-c8d83b0639d8">&lt;strong&gt;</bpt>--dbpath<ept id="8cf1e591-aeb1-4d37-82ac-c8d83b0639d8">&lt;/strong&gt;</ept> option specifies the location of the data directory.</source>
+          <target state="new">The <bpt id="8cf1e591-aeb1-4d37-82ac-c8d83b0639d8">&lt;strong&gt;</bpt>--dbpath<ept id="8cf1e591-aeb1-4d37-82ac-c8d83b0639d8">&lt;/strong&gt;</ept> option specifies the location of the data directory.</target>
+        </trans-unit>
+        <trans-unit id="a8458d68-ac68-4d83-b302-b0cf4acdbcea" xml:space="preserve">
+          <source>For more service-related command line options, see <bpt id="84bf182d-7330-4324-8489-76151e76b800">&lt;linkText&gt;</bpt>Service-related command line options[mongowindowssvcoptions]<ept id="84bf182d-7330-4324-8489-76151e76b800">&lt;/linkText&gt;</ept><bpt id="84bf182d-7330-4324-8489-76151e76b800">&lt;title&gt;</bpt><ept id="84bf182d-7330-4324-8489-76151e76b800">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more service-related command line options, see <bpt id="84bf182d-7330-4324-8489-76151e76b800">&lt;linkText&gt;</bpt>Service-related command line options[mongowindowssvcoptions]<ept id="84bf182d-7330-4324-8489-76151e76b800">&lt;/linkText&gt;</ept><bpt id="84bf182d-7330-4324-8489-76151e76b800">&lt;title&gt;</bpt><ept id="84bf182d-7330-4324-8489-76151e76b800">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f6e0bdd-bc78-40d5-ae27-2a9afc690706" xml:space="preserve">
+          <source>To start the service, run this command:</source>
+          <target state="new">To start the service, run this command:</target>
+        </trans-unit>
+        <trans-unit id="a97ef427-3834-48b1-913c-0358b44ec76a" xml:space="preserve">
+          <source>Now that MongoDB is installed and running, you'll need to open a port in Windows Firewall so you can remotely connect to MongoDB.</source>
+          <target state="new">Now that MongoDB is installed and running, you'll need to open a port in Windows Firewall so you can remotely connect to MongoDB.</target>
+        </trans-unit>
+        <trans-unit id="e6d455ba-9a4f-4817-addc-923f2941465a" xml:space="preserve">
+          <source>From the <bpt id="e18404ec-0e35-4b8c-a083-c96472e59c69">&lt;strong&gt;</bpt>Start<ept id="e18404ec-0e35-4b8c-a083-c96472e59c69">&lt;/strong&gt;</ept> menu, select <bpt id="a624f14a-bfeb-41fc-a173-9c79db08cec5">&lt;strong&gt;</bpt>Administrator Tools<ept id="a624f14a-bfeb-41fc-a173-9c79db08cec5">&lt;/strong&gt;</ept> and then <bpt id="bd7bb470-e254-4d21-892f-67e1b27b462b">&lt;strong&gt;</bpt>Windows Firewall with Advanced Security<ept id="bd7bb470-e254-4d21-892f-67e1b27b462b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="e18404ec-0e35-4b8c-a083-c96472e59c69">&lt;strong&gt;</bpt>Start<ept id="e18404ec-0e35-4b8c-a083-c96472e59c69">&lt;/strong&gt;</ept> menu, select <bpt id="a624f14a-bfeb-41fc-a173-9c79db08cec5">&lt;strong&gt;</bpt>Administrator Tools<ept id="a624f14a-bfeb-41fc-a173-9c79db08cec5">&lt;/strong&gt;</ept> and then <bpt id="bd7bb470-e254-4d21-892f-67e1b27b462b">&lt;strong&gt;</bpt>Windows Firewall with Advanced Security<ept id="bd7bb470-e254-4d21-892f-67e1b27b462b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e01effa-b3f3-4019-87c7-4b9b1bd3bf10" xml:space="preserve">
+          <source>In the left pane, select <bpt id="1c4649be-1987-4c91-8f83-e585eb603d85">&lt;strong&gt;</bpt>Inbound Rules<ept id="1c4649be-1987-4c91-8f83-e585eb603d85">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, select <bpt id="1c4649be-1987-4c91-8f83-e585eb603d85">&lt;strong&gt;</bpt>Inbound Rules<ept id="1c4649be-1987-4c91-8f83-e585eb603d85">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="959f9392-71fb-48d0-b627-5e87bc3a63f3" xml:space="preserve">
+          <source>In the <bpt id="8bd96584-3116-40ea-8886-bae25411460f">&lt;strong&gt;</bpt>Actions<ept id="8bd96584-3116-40ea-8886-bae25411460f">&lt;/strong&gt;</ept> pane on the right, select <bpt id="0958b11a-719f-425f-b9d6-37cdc363e297">&lt;strong&gt;</bpt>New Rule...<ept id="0958b11a-719f-425f-b9d6-37cdc363e297">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="8bd96584-3116-40ea-8886-bae25411460f">&lt;strong&gt;</bpt>Actions<ept id="8bd96584-3116-40ea-8886-bae25411460f">&lt;/strong&gt;</ept> pane on the right, select <bpt id="0958b11a-719f-425f-b9d6-37cdc363e297">&lt;strong&gt;</bpt>New Rule...<ept id="0958b11a-719f-425f-b9d6-37cdc363e297">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2857b26c-5fbd-40a7-9cd8-87c0ba57ada6" xml:space="preserve">
+          <source><bpt id="fca09211-602b-4cd9-886d-ac3bb79a4a52">&lt;linkText&gt;</bpt>Windows Firewall<ept id="fca09211-602b-4cd9-886d-ac3bb79a4a52">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fca09211-602b-4cd9-886d-ac3bb79a4a52">&lt;linkText&gt;</bpt>Windows Firewall<ept id="fca09211-602b-4cd9-886d-ac3bb79a4a52">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4caaf5e8-2999-4342-8085-baa8ab76d0ac" xml:space="preserve">
+          <source>In the <bpt id="1054ab82-f0cd-4452-acfa-756ac7cefc75">&lt;strong&gt;</bpt>New Inbound Rule Wizard<ept id="1054ab82-f0cd-4452-acfa-756ac7cefc75">&lt;/strong&gt;</ept>, select <bpt id="bbc969e8-e245-4a03-a5cd-68ecec4bed9f">&lt;strong&gt;</bpt>Port<ept id="bbc969e8-e245-4a03-a5cd-68ecec4bed9f">&lt;/strong&gt;</ept> and then click <bpt id="8770614d-7c45-44a8-a0ad-7dd4250961a6">&lt;strong&gt;</bpt>Next<ept id="8770614d-7c45-44a8-a0ad-7dd4250961a6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1054ab82-f0cd-4452-acfa-756ac7cefc75">&lt;strong&gt;</bpt>New Inbound Rule Wizard<ept id="1054ab82-f0cd-4452-acfa-756ac7cefc75">&lt;/strong&gt;</ept>, select <bpt id="bbc969e8-e245-4a03-a5cd-68ecec4bed9f">&lt;strong&gt;</bpt>Port<ept id="bbc969e8-e245-4a03-a5cd-68ecec4bed9f">&lt;/strong&gt;</ept> and then click <bpt id="8770614d-7c45-44a8-a0ad-7dd4250961a6">&lt;strong&gt;</bpt>Next<ept id="8770614d-7c45-44a8-a0ad-7dd4250961a6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0d68827-b5d7-4f11-add3-53f4f98d1b52" xml:space="preserve">
+          <source><bpt id="92720c28-be03-4a8a-863c-3183ec8bc880">&lt;linkText&gt;</bpt>Windows Firewall<ept id="92720c28-be03-4a8a-863c-3183ec8bc880">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="92720c28-be03-4a8a-863c-3183ec8bc880">&lt;linkText&gt;</bpt>Windows Firewall<ept id="92720c28-be03-4a8a-863c-3183ec8bc880">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f6edaf1-1636-4bf8-8452-23c849a71388" xml:space="preserve">
+          <source>Select <bpt id="ec576c84-074f-4549-8488-b47b785b2cd5">&lt;strong&gt;</bpt>TCP<ept id="ec576c84-074f-4549-8488-b47b785b2cd5">&lt;/strong&gt;</ept> and then <bpt id="9c8d267e-c3e7-4b81-be9d-4754c078f178">&lt;strong&gt;</bpt>Specific local ports<ept id="9c8d267e-c3e7-4b81-be9d-4754c078f178">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="ec576c84-074f-4549-8488-b47b785b2cd5">&lt;strong&gt;</bpt>TCP<ept id="ec576c84-074f-4549-8488-b47b785b2cd5">&lt;/strong&gt;</ept> and then <bpt id="9c8d267e-c3e7-4b81-be9d-4754c078f178">&lt;strong&gt;</bpt>Specific local ports<ept id="9c8d267e-c3e7-4b81-be9d-4754c078f178">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e7e9fbb-89f2-4cc4-8303-40f40c082cef" xml:space="preserve">
+          <source>Specify a port of "27017" (the default port MongoDB listens on) and click <bpt id="c5c5e399-ef0b-4c89-86f2-757121140ed8">&lt;strong&gt;</bpt>Next<ept id="c5c5e399-ef0b-4c89-86f2-757121140ed8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify a port of "27017" (the default port MongoDB listens on) and click <bpt id="c5c5e399-ef0b-4c89-86f2-757121140ed8">&lt;strong&gt;</bpt>Next<ept id="c5c5e399-ef0b-4c89-86f2-757121140ed8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04528475-6367-45a5-a572-755d321e482b" xml:space="preserve">
+          <source><bpt id="ea30a54a-acdd-4109-956f-5d2467d8ca70">&lt;linkText&gt;</bpt>Windows Firewall<ept id="ea30a54a-acdd-4109-956f-5d2467d8ca70">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea30a54a-acdd-4109-956f-5d2467d8ca70">&lt;linkText&gt;</bpt>Windows Firewall<ept id="ea30a54a-acdd-4109-956f-5d2467d8ca70">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa6f5df2-0c9a-4946-963a-8787feeeb08e" xml:space="preserve">
+          <source>Select <bpt id="752dc892-2063-465c-a38e-d789bdd00bf0">&lt;strong&gt;</bpt>Allow the connection<ept id="752dc892-2063-465c-a38e-d789bdd00bf0">&lt;/strong&gt;</ept> and click <bpt id="05de21ca-fce8-48c6-abdf-6388e495aa40">&lt;strong&gt;</bpt>Next<ept id="05de21ca-fce8-48c6-abdf-6388e495aa40">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="752dc892-2063-465c-a38e-d789bdd00bf0">&lt;strong&gt;</bpt>Allow the connection<ept id="752dc892-2063-465c-a38e-d789bdd00bf0">&lt;/strong&gt;</ept> and click <bpt id="05de21ca-fce8-48c6-abdf-6388e495aa40">&lt;strong&gt;</bpt>Next<ept id="05de21ca-fce8-48c6-abdf-6388e495aa40">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da9c2a58-df97-4734-aa21-1df39977dba8" xml:space="preserve">
+          <source><bpt id="541ae418-7f56-46ca-9e4b-9750983cf8d8">&lt;linkText&gt;</bpt>Windows Firewall<ept id="541ae418-7f56-46ca-9e4b-9750983cf8d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="541ae418-7f56-46ca-9e4b-9750983cf8d8">&lt;linkText&gt;</bpt>Windows Firewall<ept id="541ae418-7f56-46ca-9e4b-9750983cf8d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b756119-9dfc-463d-ae7b-f6737bf24146" xml:space="preserve">
+          <source>Click <bpt id="a3278d7e-0dfc-41f7-9852-94985ea7ea71">&lt;strong&gt;</bpt>Next<ept id="a3278d7e-0dfc-41f7-9852-94985ea7ea71">&lt;/strong&gt;</ept> again.</source>
+          <target state="new">Click <bpt id="a3278d7e-0dfc-41f7-9852-94985ea7ea71">&lt;strong&gt;</bpt>Next<ept id="a3278d7e-0dfc-41f7-9852-94985ea7ea71">&lt;/strong&gt;</ept> again.</target>
+        </trans-unit>
+        <trans-unit id="74c1bfb8-a729-4108-a39a-fc76ceb0b19f" xml:space="preserve">
+          <source><bpt id="44ea077f-a582-460b-a79e-714f64709205">&lt;linkText&gt;</bpt>Windows Firewall<ept id="44ea077f-a582-460b-a79e-714f64709205">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="44ea077f-a582-460b-a79e-714f64709205">&lt;linkText&gt;</bpt>Windows Firewall<ept id="44ea077f-a582-460b-a79e-714f64709205">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37065030-9464-4172-9dba-24ae3c91e13c" xml:space="preserve">
+          <source>Specify a name for the rule, such as "MongoPort", and click <bpt id="7f22721f-c608-4901-981e-135d8471e0c1">&lt;strong&gt;</bpt>Finish<ept id="7f22721f-c608-4901-981e-135d8471e0c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify a name for the rule, such as "MongoPort", and click <bpt id="7f22721f-c608-4901-981e-135d8471e0c1">&lt;strong&gt;</bpt>Finish<ept id="7f22721f-c608-4901-981e-135d8471e0c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c127f3c-82de-44f8-be6d-b45ef2850e99" xml:space="preserve">
+          <source><bpt id="1461c6f2-c09a-4456-bcba-8bb55328d823">&lt;linkText&gt;</bpt>Windows Firewall<ept id="1461c6f2-c09a-4456-bcba-8bb55328d823">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1461c6f2-c09a-4456-bcba-8bb55328d823">&lt;linkText&gt;</bpt>Windows Firewall<ept id="1461c6f2-c09a-4456-bcba-8bb55328d823">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f285b41-168a-4371-8a05-ad06bdbff2ef" xml:space="preserve">
+          <source>If you didn't configure an endpoint for MongoDB when you created the virtual machine, you can do it now.</source>
+          <target state="new">If you didn't configure an endpoint for MongoDB when you created the virtual machine, you can do it now.</target>
+        </trans-unit>
+        <trans-unit id="9ae07d2f-1e0e-4cbc-807a-9fcf1813fa9d" xml:space="preserve">
+          <source>You need both the firewall rule and the endpoint to be able to connect to MongoDB remotely.</source>
+          <target state="new">You need both the firewall rule and the endpoint to be able to connect to MongoDB remotely.</target>
+        </trans-unit>
+        <trans-unit id="026c501f-e718-4f3c-b612-566ebd4d8655" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="3006e65b-8595-448c-afed-751a822d0cad">&lt;strong&gt;</bpt>Virtual Machines<ept id="3006e65b-8595-448c-afed-751a822d0cad">&lt;/strong&gt;</ept>, click the name of your new virtual machine, and then click <bpt id="36bdfd45-1884-4e83-af26-21ed09677b21">&lt;strong&gt;</bpt>Endpoints<ept id="36bdfd45-1884-4e83-af26-21ed09677b21">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Management Portal, click <bpt id="3006e65b-8595-448c-afed-751a822d0cad">&lt;strong&gt;</bpt>Virtual Machines<ept id="3006e65b-8595-448c-afed-751a822d0cad">&lt;/strong&gt;</ept>, click the name of your new virtual machine, and then click <bpt id="36bdfd45-1884-4e83-af26-21ed09677b21">&lt;strong&gt;</bpt>Endpoints<ept id="36bdfd45-1884-4e83-af26-21ed09677b21">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40513dd8-1679-4a54-842d-dc7b49c87d7e" xml:space="preserve">
+          <source><bpt id="2c506996-3f15-4c38-859a-b14d6dafda32">&lt;linkText&gt;</bpt>Endpoints<ept id="2c506996-3f15-4c38-859a-b14d6dafda32">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c506996-3f15-4c38-859a-b14d6dafda32">&lt;linkText&gt;</bpt>Endpoints<ept id="2c506996-3f15-4c38-859a-b14d6dafda32">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a3805a3-d5de-45f7-9e78-62755ce5fd59" xml:space="preserve">
+          <source>Click <bpt id="07119f69-04ce-4077-b5d8-7b0185595bab">&lt;strong&gt;</bpt>Add<ept id="07119f69-04ce-4077-b5d8-7b0185595bab">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="07119f69-04ce-4077-b5d8-7b0185595bab">&lt;strong&gt;</bpt>Add<ept id="07119f69-04ce-4077-b5d8-7b0185595bab">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="7cb55386-ef4d-4da2-bd8d-1b645b8fbe12" xml:space="preserve">
+          <source>Select <bpt id="e8c39c75-1a74-4c65-a4e8-862ce8704d9e">&lt;strong&gt;</bpt>Add a Stand-Alone Endpoint<ept id="e8c39c75-1a74-4c65-a4e8-862ce8704d9e">&lt;/strong&gt;</ept> and click <bpt id="ca0113c5-d0e2-4c97-bef3-f8a408815f48">&lt;strong&gt;</bpt>Next<ept id="ca0113c5-d0e2-4c97-bef3-f8a408815f48">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e8c39c75-1a74-4c65-a4e8-862ce8704d9e">&lt;strong&gt;</bpt>Add a Stand-Alone Endpoint<ept id="e8c39c75-1a74-4c65-a4e8-862ce8704d9e">&lt;/strong&gt;</ept> and click <bpt id="ca0113c5-d0e2-4c97-bef3-f8a408815f48">&lt;strong&gt;</bpt>Next<ept id="ca0113c5-d0e2-4c97-bef3-f8a408815f48">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95d365e4-d6c5-4a41-8e27-fbe04b517628" xml:space="preserve">
+          <source><bpt id="0d8c3e28-12c8-4a34-bd7e-6af8b46f6a51">&lt;linkText&gt;</bpt>Endpoints<ept id="0d8c3e28-12c8-4a34-bd7e-6af8b46f6a51">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d8c3e28-12c8-4a34-bd7e-6af8b46f6a51">&lt;linkText&gt;</bpt>Endpoints<ept id="0d8c3e28-12c8-4a34-bd7e-6af8b46f6a51">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="726ae56a-cda9-43ed-8a3f-60db2d0c4b3d" xml:space="preserve">
+          <source>Add an endpoint with name "Mongo", protocol <bpt id="064221af-c93f-4f11-a600-7b7355771d0d">&lt;strong&gt;</bpt>TCP<ept id="064221af-c93f-4f11-a600-7b7355771d0d">&lt;/strong&gt;</ept>, and both <bpt id="1142057a-a731-4b18-96ed-b9284094538e">&lt;strong&gt;</bpt>Public<ept id="1142057a-a731-4b18-96ed-b9284094538e">&lt;/strong&gt;</ept> and <bpt id="878f13e8-0e45-4d4b-98db-01b2b7441d1e">&lt;strong&gt;</bpt>Private<ept id="878f13e8-0e45-4d4b-98db-01b2b7441d1e">&lt;/strong&gt;</ept> ports set to "27017".</source>
+          <target state="new">Add an endpoint with name "Mongo", protocol <bpt id="064221af-c93f-4f11-a600-7b7355771d0d">&lt;strong&gt;</bpt>TCP<ept id="064221af-c93f-4f11-a600-7b7355771d0d">&lt;/strong&gt;</ept>, and both <bpt id="1142057a-a731-4b18-96ed-b9284094538e">&lt;strong&gt;</bpt>Public<ept id="1142057a-a731-4b18-96ed-b9284094538e">&lt;/strong&gt;</ept> and <bpt id="878f13e8-0e45-4d4b-98db-01b2b7441d1e">&lt;strong&gt;</bpt>Private<ept id="878f13e8-0e45-4d4b-98db-01b2b7441d1e">&lt;/strong&gt;</ept> ports set to "27017".</target>
+        </trans-unit>
+        <trans-unit id="5d7cb885-c8a0-483c-8abb-ec84a528515b" xml:space="preserve">
+          <source>This will allow MongoDB to be accessed remotely.</source>
+          <target state="new">This will allow MongoDB to be accessed remotely.</target>
+        </trans-unit>
+        <trans-unit id="1f305186-dc37-4025-a0b2-92d9cae3c07e" xml:space="preserve">
+          <source><bpt id="c345aac1-dccc-4f32-b56e-5da8a46dde7d">&lt;linkText&gt;</bpt>Endpoints<ept id="c345aac1-dccc-4f32-b56e-5da8a46dde7d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c345aac1-dccc-4f32-b56e-5da8a46dde7d">&lt;linkText&gt;</bpt>Endpoints<ept id="c345aac1-dccc-4f32-b56e-5da8a46dde7d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd192edc-5c56-42ba-aec3-04369c90014b" xml:space="preserve">
+          <source>The port 27017 is the default port used by MongoDB.</source>
+          <target state="new">The port 27017 is the default port used by MongoDB.</target>
+        </trans-unit>
+        <trans-unit id="285cf87e-198c-46dd-bb0a-53f1213c4bb2" xml:space="preserve">
+          <source>You can change this by the <bpt id="4e75ab83-45d0-4264-b98e-f8bfd1db5553">&lt;em&gt;</bpt>--port<ept id="4e75ab83-45d0-4264-b98e-f8bfd1db5553">&lt;/em&gt;</ept> subcommand when starting the mongod.exe server.</source>
+          <target state="new">You can change this by the <bpt id="4e75ab83-45d0-4264-b98e-f8bfd1db5553">&lt;em&gt;</bpt>--port<ept id="4e75ab83-45d0-4264-b98e-f8bfd1db5553">&lt;/em&gt;</ept> subcommand when starting the mongod.exe server.</target>
+        </trans-unit>
+        <trans-unit id="41066ccd-9b51-409a-a769-4fbae4630e3e" xml:space="preserve">
+          <source>Make sure to give the same port number in the firewall as well as the "Mongo" endpoint in the above instructions.</source>
+          <target state="new">Make sure to give the same port number in the firewall as well as the "Mongo" endpoint in the above instructions.</target>
+        </trans-unit>
+        <trans-unit id="048b34d6-c5fe-421f-a971-d3a5b3e5401f" xml:space="preserve">
+          <source>http://www.mongodb.org/downloads</source>
+          <target state="new">http://www.mongodb.org/downloads</target>
+        </trans-unit>
+        <trans-unit id="bf5ee62e-4f3b-4022-ad5d-17af1d69d9b4" xml:space="preserve">
+          <source>http://www.mongodb.org/display/DOCS/Windows+Service</source>
+          <target state="new">http://www.mongodb.org/display/DOCS/Windows+Service</target>
+        </trans-unit>
+        <trans-unit id="423802f2-cffd-468b-b1a6-e5b531c4ee28" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-win2k8-vm/WinFirewall1.png</source>
+          <target state="new">./media/install-and-run-mongo-on-win2k8-vm/WinFirewall1.png</target>
+        </trans-unit>
+        <trans-unit id="d32d8d90-4bbd-4a78-a30f-8c82409bdba6" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-win2k8-vm/WinFirewall2.png</source>
+          <target state="new">./media/install-and-run-mongo-on-win2k8-vm/WinFirewall2.png</target>
+        </trans-unit>
+        <trans-unit id="3123c280-6a19-47f7-a02c-7cbe2727b3d3" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-win2k8-vm/WinFirewall3.png</source>
+          <target state="new">./media/install-and-run-mongo-on-win2k8-vm/WinFirewall3.png</target>
+        </trans-unit>
+        <trans-unit id="eebdedb4-a11d-4528-8c06-2b72e03a90c0" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-win2k8-vm/WinFirewall4.png</source>
+          <target state="new">./media/install-and-run-mongo-on-win2k8-vm/WinFirewall4.png</target>
+        </trans-unit>
+        <trans-unit id="69b4b882-6bf4-4f2d-9672-c1fd3037d7cf" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-win2k8-vm/WinFirewall5.png</source>
+          <target state="new">./media/install-and-run-mongo-on-win2k8-vm/WinFirewall5.png</target>
+        </trans-unit>
+        <trans-unit id="9fef0225-b9ab-435e-ad85-7cdb31a63715" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-win2k8-vm/WinFirewall6.png</source>
+          <target state="new">./media/install-and-run-mongo-on-win2k8-vm/WinFirewall6.png</target>
+        </trans-unit>
+        <trans-unit id="0da6b900-80c2-4bdb-80b2-ebdea7dc0e67" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint.png</source>
+          <target state="new">./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint.png</target>
+        </trans-unit>
+        <trans-unit id="f4de52e3-f7aa-4ea7-be00-8756c89103f5" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png</source>
+          <target state="new">./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png</target>
+        </trans-unit>
+        <trans-unit id="2f92311b-854b-4a90-8f0f-8ab8f75a3dd0" xml:space="preserve">
+          <source>./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png</source>
+          <target state="new">./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png</target>
+        </trans-unit>
+      </group>
+      <group id="b102c14e-d6d6-4b15-86b6-40b266cce5ef" />
+    </body>
+  </file>
+</xliff>

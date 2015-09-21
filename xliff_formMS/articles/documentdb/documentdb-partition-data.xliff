@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="26dad328-3c04-447c-a44c-c260ef723f38" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="26dad328-3c04-447c-a44c-c260ef723f38" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8484db74-b03c-40ab-84e2-abb814578c43">
+        <trans-unit id="0064d50d-b223-4732-95a9-f0b7d6a1f5eb" xml:space="preserve">
+          <source>Partitioning data in DocumentDB | Microsoft Azure</source>
+          <target state="new">Partitioning data in DocumentDB | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="720ee3ab-f93d-464a-9711-2622215fae11" xml:space="preserve">
+          <source>Learn about how to partition data in DocumentDB, and when to use Hash, Range and Lookup partitioning.</source>
+          <target state="new">Learn about how to partition data in DocumentDB, and when to use Hash, Range and Lookup partitioning.</target>
+        </trans-unit>
+        <trans-unit id="3dc7759e-87de-425b-8e2d-a9baae6c18a0" xml:space="preserve">
+          <source><bpt id="8d90735a-efd0-4f85-9580-c99482096b86">&lt;linkText&gt;</bpt>Microsoft Azure DocumentDB<ept id="8d90735a-efd0-4f85-9580-c99482096b86">&lt;/linkText&gt;</ept><bpt id="8d90735a-efd0-4f85-9580-c99482096b86">&lt;title&gt;</bpt><ept id="8d90735a-efd0-4f85-9580-c99482096b86">&lt;/title&gt;</ept> is designed to help you achieve fast, predictable performance and <bpt id="c7715335-85eb-4b9f-b0cd-a8feb58e9312">&lt;em&gt;</bpt>scale-out<ept id="c7715335-85eb-4b9f-b0cd-a8feb58e9312">&lt;/em&gt;</ept> seamlessly along with your application as it grows.</source>
+          <target state="new"><bpt id="8d90735a-efd0-4f85-9580-c99482096b86">&lt;linkText&gt;</bpt>Microsoft Azure DocumentDB<ept id="8d90735a-efd0-4f85-9580-c99482096b86">&lt;/linkText&gt;</ept><bpt id="8d90735a-efd0-4f85-9580-c99482096b86">&lt;title&gt;</bpt><ept id="8d90735a-efd0-4f85-9580-c99482096b86">&lt;/title&gt;</ept> is designed to help you achieve fast, predictable performance and <bpt id="c7715335-85eb-4b9f-b0cd-a8feb58e9312">&lt;em&gt;</bpt>scale-out<ept id="c7715335-85eb-4b9f-b0cd-a8feb58e9312">&lt;/em&gt;</ept> seamlessly along with your application as it grows.</target>
+        </trans-unit>
+        <trans-unit id="30a5324b-aa0f-417b-b223-acf51a942e78" xml:space="preserve">
+          <source>DocumentDB has been used to power high-scale production services at Microsoft like the User Data Store that powers the MSN suite of web and mobile apps.</source>
+          <target state="new">DocumentDB has been used to power high-scale production services at Microsoft like the User Data Store that powers the MSN suite of web and mobile apps.</target>
+        </trans-unit>
+        <trans-unit id="fe0c81f6-a7e8-4683-a8a4-15120aeee6ba" xml:space="preserve">
+          <source>You can achieve near-infinite scale in terms of storage and throughput for your DocumentDB application by horizontally partitioning your data - a concept commonly referred to as <bpt id="9bfb4cb9-d4e6-4c62-a4d3-caab2872daa6">&lt;strong&gt;</bpt>sharding<ept id="9bfb4cb9-d4e6-4c62-a4d3-caab2872daa6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can achieve near-infinite scale in terms of storage and throughput for your DocumentDB application by horizontally partitioning your data - a concept commonly referred to as <bpt id="9bfb4cb9-d4e6-4c62-a4d3-caab2872daa6">&lt;strong&gt;</bpt>sharding<ept id="9bfb4cb9-d4e6-4c62-a4d3-caab2872daa6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e9437a9-8a90-4877-9f8e-e2272c0ebd0a" xml:space="preserve">
+          <source>DocumentDB accounts can be scaled linearly with cost via stackable units a.k.a.</source>
+          <target state="new">DocumentDB accounts can be scaled linearly with cost via stackable units a.k.a.</target>
+        </trans-unit>
+        <trans-unit id="0903f1d1-9a4f-46bf-a4b4-6b3128a58bd8" xml:space="preserve">
+          <source><bpt id="f941a36d-4c37-4082-af73-b58f66b3009c">&lt;strong&gt;</bpt>collections<ept id="f941a36d-4c37-4082-af73-b58f66b3009c">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f941a36d-4c37-4082-af73-b58f66b3009c">&lt;strong&gt;</bpt>collections<ept id="f941a36d-4c37-4082-af73-b58f66b3009c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6608a6a2-04d0-4436-ab22-ee9338611cd9" xml:space="preserve">
+          <source>How you best partition your data across collections will depend on your data format and access patterns.</source>
+          <target state="new">How you best partition your data across collections will depend on your data format and access patterns.</target>
+        </trans-unit>
+        <trans-unit id="40fff3cd-b6a1-4aa0-a9de-c7ff4dac531b" xml:space="preserve">
+          <source>After reading this article you will be able to answer the following questions:   </source>
+          <target state="new">After reading this article you will be able to answer the following questions:   </target>
+        </trans-unit>
+        <trans-unit id="1451856a-b1a7-4277-8a3f-a42c892116e2" xml:space="preserve">
+          <source>What is hash, range and lookup partitioning?</source>
+          <target state="new">What is hash, range and lookup partitioning?</target>
+        </trans-unit>
+        <trans-unit id="2f8f76ef-83d8-4bb8-9d95-e493d3813b13" xml:space="preserve">
+          <source>When would you use each partitioning technique and why?</source>
+          <target state="new">When would you use each partitioning technique and why?</target>
+        </trans-unit>
+        <trans-unit id="30056898-bc88-4b70-b293-0b9445cd61e7" xml:space="preserve">
+          <source>How do you go about building a partitioned application on Azure DocumentDB?</source>
+          <target state="new">How do you go about building a partitioned application on Azure DocumentDB?</target>
+        </trans-unit>
+        <trans-unit id="47a639b6-8ec1-4fb6-944a-fec94fb75143" xml:space="preserve">
+          <source>This article presents some concepts about sharding.</source>
+          <target state="new">This article presents some concepts about sharding.</target>
+        </trans-unit>
+        <trans-unit id="34b3bb07-cd15-4191-a58c-27cfb02794ce" xml:space="preserve">
+          <source>If you're ready to write code that partitions data using the DocumentDB .NET SDK, take a look at <bpt id="76fe71d8-6e79-476b-a0fa-50c9e4051dc7">&lt;linkText&gt;</bpt>Partitioning data with the DocumentDB .NET SDK<ept id="76fe71d8-6e79-476b-a0fa-50c9e4051dc7">&lt;/linkText&gt;</ept><bpt id="76fe71d8-6e79-476b-a0fa-50c9e4051dc7">&lt;title&gt;</bpt><ept id="76fe71d8-6e79-476b-a0fa-50c9e4051dc7">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you're ready to write code that partitions data using the DocumentDB .NET SDK, take a look at <bpt id="76fe71d8-6e79-476b-a0fa-50c9e4051dc7">&lt;linkText&gt;</bpt>Partitioning data with the DocumentDB .NET SDK<ept id="76fe71d8-6e79-476b-a0fa-50c9e4051dc7">&lt;/linkText&gt;</ept><bpt id="76fe71d8-6e79-476b-a0fa-50c9e4051dc7">&lt;title&gt;</bpt><ept id="76fe71d8-6e79-476b-a0fa-50c9e4051dc7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f6e4918-b6d8-4e3a-840a-eab7fbd51fac" xml:space="preserve">
+          <source>Before we dive deeper on data partitioning techniques, it is important to understand what a collection is and what it isn't.</source>
+          <target state="new">Before we dive deeper on data partitioning techniques, it is important to understand what a collection is and what it isn't.</target>
+        </trans-unit>
+        <trans-unit id="21753aa6-db57-4969-91f8-2e2be1207f5c" xml:space="preserve">
+          <source>As you may already know, a collection is a container for your JSON documents.</source>
+          <target state="new">As you may already know, a collection is a container for your JSON documents.</target>
+        </trans-unit>
+        <trans-unit id="cd8e11ac-14e2-4541-bf72-d111d5f2fb06" xml:space="preserve">
+          <source>Collections in DocumentDB are not just <bpt id="1ef90e14-e2b8-4d03-a32c-1e39600a1164">&lt;em&gt;</bpt>logical<ept id="1ef90e14-e2b8-4d03-a32c-1e39600a1164">&lt;/em&gt;</ept> containers, but also <bpt id="fd697d1a-c6c2-4218-81d2-c55706b63256">&lt;em&gt;</bpt>physical<ept id="fd697d1a-c6c2-4218-81d2-c55706b63256">&lt;/em&gt;</ept> containers.</source>
+          <target state="new">Collections in DocumentDB are not just <bpt id="1ef90e14-e2b8-4d03-a32c-1e39600a1164">&lt;em&gt;</bpt>logical<ept id="1ef90e14-e2b8-4d03-a32c-1e39600a1164">&lt;/em&gt;</ept> containers, but also <bpt id="fd697d1a-c6c2-4218-81d2-c55706b63256">&lt;em&gt;</bpt>physical<ept id="fd697d1a-c6c2-4218-81d2-c55706b63256">&lt;/em&gt;</ept> containers.</target>
+        </trans-unit>
+        <trans-unit id="c8210f9b-4a97-423c-a66e-4f9611c7f18f" xml:space="preserve">
+          <source>They are the transaction boundary for stored procedures and triggers, and the entry point to queries and CRUD operations.</source>
+          <target state="new">They are the transaction boundary for stored procedures and triggers, and the entry point to queries and CRUD operations.</target>
+        </trans-unit>
+        <trans-unit id="275f7dd2-34fc-45b3-83a6-0d6a2b4c5cae" xml:space="preserve">
+          <source>Each collection is assigned a reserved amount of throughput which is not shared with other collections in the same account.</source>
+          <target state="new">Each collection is assigned a reserved amount of throughput which is not shared with other collections in the same account.</target>
+        </trans-unit>
+        <trans-unit id="d650a65a-f5f3-4575-99f3-b45a123e20be" xml:space="preserve">
+          <source>Therefore you can scale out your application both in terms of storage and throughput by adding more collections, and then distributing your documents across them.</source>
+          <target state="new">Therefore you can scale out your application both in terms of storage and throughput by adding more collections, and then distributing your documents across them.</target>
+        </trans-unit>
+        <trans-unit id="cfa9a4a8-3699-44d0-8e53-596e5dd665c6" xml:space="preserve">
+          <source>Collections are not the same as tables in relational databases.</source>
+          <target state="new">Collections are not the same as tables in relational databases.</target>
+        </trans-unit>
+        <trans-unit id="79dbd9b8-f935-4c60-90ea-864eeb270b01" xml:space="preserve">
+          <source>Collections do not enforce schema.</source>
+          <target state="new">Collections do not enforce schema.</target>
+        </trans-unit>
+        <trans-unit id="3b349b0d-829e-4f51-87c9-53f881564ddb" xml:space="preserve">
+          <source>Therefore you can store different types of documents with diverse schemas in the same collection.</source>
+          <target state="new">Therefore you can store different types of documents with diverse schemas in the same collection.</target>
+        </trans-unit>
+        <trans-unit id="06e886cc-bb97-4fed-b84f-e6c30f10389a" xml:space="preserve">
+          <source>You can however choose to use collections to store objects of a single type like you would with tables.</source>
+          <target state="new">You can however choose to use collections to store objects of a single type like you would with tables.</target>
+        </trans-unit>
+        <trans-unit id="c7e56fb9-78dc-45f9-948c-21ed481be3b6" xml:space="preserve">
+          <source>The best model depends only on how the data appears together in queries and transactions.</source>
+          <target state="new">The best model depends only on how the data appears together in queries and transactions.</target>
+        </trans-unit>
+        <trans-unit id="1e191b76-ba8d-47e6-838a-730e6bef686c" xml:space="preserve">
+          <source>The most common techniques used for partitioning data with Azure DocumentDB are <bpt id="89d3b5fb-e3d6-4f99-a2de-1f9bb8af491b">&lt;em&gt;</bpt>range partitioning<ept id="89d3b5fb-e3d6-4f99-a2de-1f9bb8af491b">&lt;/em&gt;</ept>, <bpt id="26339dee-c34d-4eba-b90b-34db5c9b7198">&lt;em&gt;</bpt>lookup partitioning<ept id="26339dee-c34d-4eba-b90b-34db5c9b7198">&lt;/em&gt;</ept>, and <bpt id="e40b32bf-517d-4e08-9a89-8352a8447f28">&lt;em&gt;</bpt>hash partitioning<ept id="e40b32bf-517d-4e08-9a89-8352a8447f28">&lt;/em&gt;</ept>.</source>
+          <target state="new">The most common techniques used for partitioning data with Azure DocumentDB are <bpt id="89d3b5fb-e3d6-4f99-a2de-1f9bb8af491b">&lt;em&gt;</bpt>range partitioning<ept id="89d3b5fb-e3d6-4f99-a2de-1f9bb8af491b">&lt;/em&gt;</ept>, <bpt id="26339dee-c34d-4eba-b90b-34db5c9b7198">&lt;em&gt;</bpt>lookup partitioning<ept id="26339dee-c34d-4eba-b90b-34db5c9b7198">&lt;/em&gt;</ept>, and <bpt id="e40b32bf-517d-4e08-9a89-8352a8447f28">&lt;em&gt;</bpt>hash partitioning<ept id="e40b32bf-517d-4e08-9a89-8352a8447f28">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7102e544-c96b-45e3-be3e-c7ca0a5ef1f3" xml:space="preserve">
+          <source>Usually you designate a single JSON property name within your document as your partition key like "timestamp" or "userID".</source>
+          <target state="new">Usually you designate a single JSON property name within your document as your partition key like "timestamp" or "userID".</target>
+        </trans-unit>
+        <trans-unit id="a8592b23-184d-472e-8672-880a0770a203" xml:space="preserve">
+          <source>In some cases, this might instead be an inner JSON property, or a different property name for each distinct type of document.</source>
+          <target state="new">In some cases, this might instead be an inner JSON property, or a different property name for each distinct type of document.</target>
+        </trans-unit>
+        <trans-unit id="41552f2b-ba88-44da-be3e-e41a1d169c85" xml:space="preserve">
+          <source>Let's take a look at these techniques in some more detail.</source>
+          <target state="new">Let's take a look at these techniques in some more detail.</target>
+        </trans-unit>
+        <trans-unit id="cdb8d4f9-725b-4d03-bb83-b2425e2127d4" xml:space="preserve">
+          <source>In range partitioning, partitions are assigned based on whether the partition key is within a certain range.</source>
+          <target state="new">In range partitioning, partitions are assigned based on whether the partition key is within a certain range.</target>
+        </trans-unit>
+        <trans-unit id="7b88d9f9-71c8-452a-a758-355f6da86ed2" xml:space="preserve">
+          <source>This is commonly used for partitioning with <bpt id="6ab90ca1-10b0-4416-bea1-0bb7148749e2">&lt;em&gt;</bpt>time stamp<ept id="6ab90ca1-10b0-4416-bea1-0bb7148749e2">&lt;/em&gt;</ept> properties (e.g., eventTime between Feb 1, 2015 and Feb 2, 2015).</source>
+          <target state="new">This is commonly used for partitioning with <bpt id="6ab90ca1-10b0-4416-bea1-0bb7148749e2">&lt;em&gt;</bpt>time stamp<ept id="6ab90ca1-10b0-4416-bea1-0bb7148749e2">&lt;/em&gt;</ept> properties (e.g., eventTime between Feb 1, 2015 and Feb 2, 2015).</target>
+        </trans-unit>
+        <trans-unit id="b3dd6f13-f5cb-407a-b1ed-43b5bd5e065f" xml:space="preserve">
+          <source>You should use Range partitioning if your queries are restricted to specifc range values against the partition key.</source>
+          <target state="new">You should use Range partitioning if your queries are restricted to specifc range values against the partition key.</target>
+        </trans-unit>
+        <trans-unit id="3b1d9a22-a3a7-46fa-ad25-b772068cd0ee" xml:space="preserve">
+          <source>In lookup partitioning, partitions are assigned based on a lookup map that assigns discrete partition values to specific partitions a.k.a.</source>
+          <target state="new">In lookup partitioning, partitions are assigned based on a lookup map that assigns discrete partition values to specific partitions a.k.a.</target>
+        </trans-unit>
+        <trans-unit id="d915a2a5-54ac-466c-8413-98f8d21cea73" xml:space="preserve">
+          <source>a partition or shard map.</source>
+          <target state="new">a partition or shard map.</target>
+        </trans-unit>
+        <trans-unit id="626e6bae-788c-4c86-8bae-5f1e2f0f9f94" xml:space="preserve">
+          <source>This is commonly used for partitioning by region (e.g. the partition for Scandinavia contains Norway, Denmark, and Sweden).</source>
+          <target state="new">This is commonly used for partitioning by region (e.g. the partition for Scandinavia contains Norway, Denmark, and Sweden).</target>
+        </trans-unit>
+        <trans-unit id="6a72ce55-6dbb-4534-88aa-6c364aa4e511" xml:space="preserve">
+          <source>Lookup partitioning offers the highest degree of control in managing a multi-tenant application.</source>
+          <target state="new">Lookup partitioning offers the highest degree of control in managing a multi-tenant application.</target>
+        </trans-unit>
+        <trans-unit id="14e7598b-f7b1-4ced-afe4-a6c6dae338e9" xml:space="preserve">
+          <source>You can assign multiple tenants to a single collection, single tenant to a single collection, or even a single tenant across multiple collections.</source>
+          <target state="new">You can assign multiple tenants to a single collection, single tenant to a single collection, or even a single tenant across multiple collections.</target>
+        </trans-unit>
+        <trans-unit id="d980b9ca-071d-48a0-afdf-2c6238e96068" xml:space="preserve">
+          <source>In hash partitioning, partitions are assigned based on the value of a hash function, allowing you to evenly distribute requests and data across a number of partitions.</source>
+          <target state="new">In hash partitioning, partitions are assigned based on the value of a hash function, allowing you to evenly distribute requests and data across a number of partitions.</target>
+        </trans-unit>
+        <trans-unit id="7f8687db-56d7-4e12-88b9-b2b435882728" xml:space="preserve">
+          <source>This is commonly used to partition data produced or consumed from a large number of distinct clients, and is useful for storing user profiles, catalog items, and IoT ("Internet of Things") telemetry data.</source>
+          <target state="new">This is commonly used to partition data produced or consumed from a large number of distinct clients, and is useful for storing user profiles, catalog items, and IoT ("Internet of Things") telemetry data.</target>
+        </trans-unit>
+        <trans-unit id="f51f8e99-f06b-4665-9377-e2216029838a" xml:space="preserve">
+          <source>You should use hash partitioning whenever there are too many entities to enumerate through lookup partitioning (e.g. users or devices) and the request rate is fairly uniform across entities.</source>
+          <target state="new">You should use hash partitioning whenever there are too many entities to enumerate through lookup partitioning (e.g. users or devices) and the request rate is fairly uniform across entities.</target>
+        </trans-unit>
+        <trans-unit id="2d8fe0a2-9f65-4a13-b52f-aefb6d2094e7" xml:space="preserve">
+          <source>So which partitioning technique is right for you?</source>
+          <target state="new">So which partitioning technique is right for you?</target>
+        </trans-unit>
+        <trans-unit id="83feca18-9d63-408d-935e-91aeb98145ec" xml:space="preserve">
+          <source>It depends on the type of data and your common access patterns.</source>
+          <target state="new">It depends on the type of data and your common access patterns.</target>
+        </trans-unit>
+        <trans-unit id="5b338cec-c891-4c32-ba7a-b600d241ecbe" xml:space="preserve">
+          <source>Picking the right partitioning technique at design time allows you to avoid technical debt, and handle growth in data size and request volumes.</source>
+          <target state="new">Picking the right partitioning technique at design time allows you to avoid technical debt, and handle growth in data size and request volumes.</target>
+        </trans-unit>
+        <trans-unit id="86da354b-0781-420e-9b40-92814227a2e3" xml:space="preserve">
+          <source><bpt id="6170d94f-4301-4e30-896d-e43a923356d5">&lt;strong&gt;</bpt>Range partitioning<ept id="6170d94f-4301-4e30-896d-e43a923356d5">&lt;/strong&gt;</ept> is generally used in the context of dates, as it gives you an easy and natural mechanism for aging out partitions by timestamp.</source>
+          <target state="new"><bpt id="6170d94f-4301-4e30-896d-e43a923356d5">&lt;strong&gt;</bpt>Range partitioning<ept id="6170d94f-4301-4e30-896d-e43a923356d5">&lt;/strong&gt;</ept> is generally used in the context of dates, as it gives you an easy and natural mechanism for aging out partitions by timestamp.</target>
+        </trans-unit>
+        <trans-unit id="e3bb9be9-6deb-4238-83be-90592eb6312f" xml:space="preserve">
+          <source>It is also useful when queries are generally constrained to a time range since that is aligned with the partitioning boundaries.</source>
+          <target state="new">It is also useful when queries are generally constrained to a time range since that is aligned with the partitioning boundaries.</target>
+        </trans-unit>
+        <trans-unit id="c545a229-9d3a-43c9-a89c-785e27a41e30" xml:space="preserve">
+          <source><bpt id="245aebf8-c1eb-4b6a-86ea-0f0f9a289676">&lt;strong&gt;</bpt>Lookup partitioning<ept id="245aebf8-c1eb-4b6a-86ea-0f0f9a289676">&lt;/strong&gt;</ept> allows you to group and organize unordered and unrelated sets of data in a natural way e.g., group tenants by organization or states by geographic region.</source>
+          <target state="new"><bpt id="245aebf8-c1eb-4b6a-86ea-0f0f9a289676">&lt;strong&gt;</bpt>Lookup partitioning<ept id="245aebf8-c1eb-4b6a-86ea-0f0f9a289676">&lt;/strong&gt;</ept> allows you to group and organize unordered and unrelated sets of data in a natural way e.g., group tenants by organization or states by geographic region.</target>
+        </trans-unit>
+        <trans-unit id="02ae2d7e-3e22-4181-a68c-700b04a669ec" xml:space="preserve">
+          <source>Lookup also offers fine-grained control for migrating data between collections.</source>
+          <target state="new">Lookup also offers fine-grained control for migrating data between collections.</target>
+        </trans-unit>
+        <trans-unit id="3f2f3672-2a8c-4803-b7e7-a06c4d5b8839" xml:space="preserve">
+          <source><bpt id="6f789cd1-7398-4d32-bced-92e34e787e63">&lt;strong&gt;</bpt>Hash partitioning<ept id="6f789cd1-7398-4d32-bced-92e34e787e63">&lt;/strong&gt;</ept> is useful for uniform load balancing of requests to make effective use of your provisioned storage and throughput.</source>
+          <target state="new"><bpt id="6f789cd1-7398-4d32-bced-92e34e787e63">&lt;strong&gt;</bpt>Hash partitioning<ept id="6f789cd1-7398-4d32-bced-92e34e787e63">&lt;/strong&gt;</ept> is useful for uniform load balancing of requests to make effective use of your provisioned storage and throughput.</target>
+        </trans-unit>
+        <trans-unit id="2c384fbe-d36f-4321-a6a4-3834d06aca30" xml:space="preserve">
+          <source>Using <bpt id="fd9b77e0-d54c-4372-81ac-0588edcac2c8">&lt;em&gt;</bpt>consistent hashing<ept id="fd9b77e0-d54c-4372-81ac-0588edcac2c8">&lt;/em&gt;</ept> algorithms allow you to minimize the amount of data that has to be moved when adding or removing a partition.</source>
+          <target state="new">Using <bpt id="fd9b77e0-d54c-4372-81ac-0588edcac2c8">&lt;em&gt;</bpt>consistent hashing<ept id="fd9b77e0-d54c-4372-81ac-0588edcac2c8">&lt;/em&gt;</ept> algorithms allow you to minimize the amount of data that has to be moved when adding or removing a partition.</target>
+        </trans-unit>
+        <trans-unit id="ac5190b3-28ec-4ad0-a594-2bfff2abe887" xml:space="preserve">
+          <source>You don't have to choose just one partitioning technique.</source>
+          <target state="new">You don't have to choose just one partitioning technique.</target>
+        </trans-unit>
+        <trans-unit id="4f6938ae-3c71-4480-9d07-e323284aceed" xml:space="preserve">
+          <source>A <bpt id="d1e51f6d-6c89-4a66-812d-36a06493365d">&lt;em&gt;</bpt>composite<ept id="d1e51f6d-6c89-4a66-812d-36a06493365d">&lt;/em&gt;</ept> of these techniques can also be useful depending on the scenario.</source>
+          <target state="new">A <bpt id="d1e51f6d-6c89-4a66-812d-36a06493365d">&lt;em&gt;</bpt>composite<ept id="d1e51f6d-6c89-4a66-812d-36a06493365d">&lt;/em&gt;</ept> of these techniques can also be useful depending on the scenario.</target>
+        </trans-unit>
+        <trans-unit id="990e1a35-7d07-45c4-81b3-470a1d3425f2" xml:space="preserve">
+          <source>For example, if you're storing vehicle telemetry data, a good approach would be to partition device telemetry data by range on timestamp for easy manageability of partitions, then sub-partition on VIN (vehicle identification number) in order to scale-out for throughput (range-hash composite partitioning).</source>
+          <target state="new">For example, if you're storing vehicle telemetry data, a good approach would be to partition device telemetry data by range on timestamp for easy manageability of partitions, then sub-partition on VIN (vehicle identification number) in order to scale-out for throughput (range-hash composite partitioning).</target>
+        </trans-unit>
+        <trans-unit id="6281eace-04da-4b7b-a44f-19ab4ceeead3" xml:space="preserve">
+          <source>There are three key design areas to look at when developing a partitioned application on DocumentDB.</source>
+          <target state="new">There are three key design areas to look at when developing a partitioned application on DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="d54f844d-93fd-4243-b122-f40be83a12ba" xml:space="preserve">
+          <source>How you route your creates and reads (including queries) to the right collections.</source>
+          <target state="new">How you route your creates and reads (including queries) to the right collections.</target>
+        </trans-unit>
+        <trans-unit id="ee7f0483-f7de-4c34-8dd0-237b79574069" xml:space="preserve">
+          <source>How you persist and retrieve your partition resolution configuration, a.k.a.</source>
+          <target state="new">How you persist and retrieve your partition resolution configuration, a.k.a.</target>
+        </trans-unit>
+        <trans-unit id="9b882aca-e073-49f4-bfcd-2477980c2b87" xml:space="preserve">
+          <source>partition maps.</source>
+          <target state="new">partition maps.</target>
+        </trans-unit>
+        <trans-unit id="da18c307-ca07-4033-bde8-539b3bf81935" xml:space="preserve">
+          <source>How you add/remove partitions as your data and request volume increases.</source>
+          <target state="new">How you add/remove partitions as your data and request volume increases.</target>
+        </trans-unit>
+        <trans-unit id="2b1721e1-498d-4642-be5a-20280b176cfc" xml:space="preserve">
+          <source>Let's take a closer look at each of these areas.</source>
+          <target state="new">Let's take a closer look at each of these areas.</target>
+        </trans-unit>
+        <trans-unit id="6ab096f2-6da3-45c0-9cbe-949213678566" xml:space="preserve">
+          <source>Routing document creation requests is straight-forward for all three techniques we've discussed so far.</source>
+          <target state="new">Routing document creation requests is straight-forward for all three techniques we've discussed so far.</target>
+        </trans-unit>
+        <trans-unit id="10700926-ca30-4181-b140-ebea49632c18" xml:space="preserve">
+          <source>The document is created on the partition from the hash, lookup, or range value corresponding to the partition key.</source>
+          <target state="new">The document is created on the partition from the hash, lookup, or range value corresponding to the partition key.</target>
+        </trans-unit>
+        <trans-unit id="958fa4b1-49fd-44dc-9d71-ea56ed911be2" xml:space="preserve">
+          <source>Queries and reads should typically be scoped to a single partition key, so queries can be fanned out to only the matching partitions.</source>
+          <target state="new">Queries and reads should typically be scoped to a single partition key, so queries can be fanned out to only the matching partitions.</target>
+        </trans-unit>
+        <trans-unit id="07d0a25a-f20d-4182-96d9-760fc111685c" xml:space="preserve">
+          <source>Queries across all data however, would require you to <bpt id="28d296ce-1fee-4524-a1fd-88386bd666eb">&lt;em&gt;</bpt>fan-out<ept id="28d296ce-1fee-4524-a1fd-88386bd666eb">&lt;/em&gt;</ept> the request across multiple partitions, then merge the results.</source>
+          <target state="new">Queries across all data however, would require you to <bpt id="28d296ce-1fee-4524-a1fd-88386bd666eb">&lt;em&gt;</bpt>fan-out<ept id="28d296ce-1fee-4524-a1fd-88386bd666eb">&lt;/em&gt;</ept> the request across multiple partitions, then merge the results.</target>
+        </trans-unit>
+        <trans-unit id="0797bfa1-52dc-421d-982f-a0d76e925bff" xml:space="preserve">
+          <source>Keep in mind that some queries might have to perform custom logic to merge results for e.g. when fetching the top N results.</source>
+          <target state="new">Keep in mind that some queries might have to perform custom logic to merge results for e.g. when fetching the top N results.</target>
+        </trans-unit>
+        <trans-unit id="2bc4c895-e459-4335-969b-03c6a8800fed" xml:space="preserve">
+          <source>You also need to decide how you will store your partition map, how your clients load it and receive updates when it changes, and how it is shared across multiple clients.</source>
+          <target state="new">You also need to decide how you will store your partition map, how your clients load it and receive updates when it changes, and how it is shared across multiple clients.</target>
+        </trans-unit>
+        <trans-unit id="21a949b5-8c42-41db-bfb1-7d309acd94e3" xml:space="preserve">
+          <source>If the partition map does not change often, you can simply save it in your application config file.</source>
+          <target state="new">If the partition map does not change often, you can simply save it in your application config file.</target>
+        </trans-unit>
+        <trans-unit id="97efca83-8eb1-491b-a55e-8c1829867e79" xml:space="preserve">
+          <source>If not, you can store it in any persistent store.</source>
+          <target state="new">If not, you can store it in any persistent store.</target>
+        </trans-unit>
+        <trans-unit id="967090de-516c-445a-b70c-389a1f897e4b" xml:space="preserve">
+          <source>A common design pattern we've seen in production is to serialize partition maps as JSON, and store them within DocumentDB collections as well.</source>
+          <target state="new">A common design pattern we've seen in production is to serialize partition maps as JSON, and store them within DocumentDB collections as well.</target>
+        </trans-unit>
+        <trans-unit id="a940514a-734b-47e8-abf7-b196d931cc74" xml:space="preserve">
+          <source>Clients can then cache the map in order to avoid the extra round trips, and then poll for changes periodically.</source>
+          <target state="new">Clients can then cache the map in order to avoid the extra round trips, and then poll for changes periodically.</target>
+        </trans-unit>
+        <trans-unit id="a20bec25-dff8-48d7-a3f5-ed5e11332854" xml:space="preserve">
+          <source>If your clients might modify the shard map, ensure that they use a consistent naming schema and use optimistic concurrency (eTags) to allow consistent updates to the partition map.</source>
+          <target state="new">If your clients might modify the shard map, ensure that they use a consistent naming schema and use optimistic concurrency (eTags) to allow consistent updates to the partition map.</target>
+        </trans-unit>
+        <trans-unit id="8d8daced-aebb-48fd-9b66-81b86c25c899" xml:space="preserve">
+          <source>With DocumentDB, you can add and remove collections at any time and use them to store new incoming data or re-balance data available on existing collections.</source>
+          <target state="new">With DocumentDB, you can add and remove collections at any time and use them to store new incoming data or re-balance data available on existing collections.</target>
+        </trans-unit>
+        <trans-unit id="404b727d-167a-45fb-8ca5-69b68e18d0e7" xml:space="preserve">
+          <source>Review the <bpt id="10b36b02-1560-4e37-bfa8-a558a7f41ef5">&lt;linkText&gt;</bpt>Limits<ept id="10b36b02-1560-4e37-bfa8-a558a7f41ef5">&lt;/linkText&gt;</ept><bpt id="10b36b02-1560-4e37-bfa8-a558a7f41ef5">&lt;title&gt;</bpt><ept id="10b36b02-1560-4e37-bfa8-a558a7f41ef5">&lt;/title&gt;</ept> page for the number of collections.</source>
+          <target state="new">Review the <bpt id="10b36b02-1560-4e37-bfa8-a558a7f41ef5">&lt;linkText&gt;</bpt>Limits<ept id="10b36b02-1560-4e37-bfa8-a558a7f41ef5">&lt;/linkText&gt;</ept><bpt id="10b36b02-1560-4e37-bfa8-a558a7f41ef5">&lt;title&gt;</bpt><ept id="10b36b02-1560-4e37-bfa8-a558a7f41ef5">&lt;/title&gt;</ept> page for the number of collections.</target>
+        </trans-unit>
+        <trans-unit id="209c97c2-615b-4127-bd21-bd87d3c994bf" xml:space="preserve">
+          <source>You can always call us to increase these limits.</source>
+          <target state="new">You can always call us to increase these limits.</target>
+        </trans-unit>
+        <trans-unit id="35c3e2c4-db66-423f-afa4-7df990d48101" xml:space="preserve">
+          <source>Adding and removing a new partition with lookup and range partitioning is straightforward.</source>
+          <target state="new">Adding and removing a new partition with lookup and range partitioning is straightforward.</target>
+        </trans-unit>
+        <trans-unit id="48c3ec75-1ab5-40f0-b74c-8e8141b20a54" xml:space="preserve">
+          <source>For example, adding a new geographic region or new time range for recent data, you just need to append the new partitions to the partition map.</source>
+          <target state="new">For example, adding a new geographic region or new time range for recent data, you just need to append the new partitions to the partition map.</target>
+        </trans-unit>
+        <trans-unit id="ec8ae912-25c7-405f-919a-33eece5110ed" xml:space="preserve">
+          <source>Splitting an existing partition into multiple partitions, or merge two partitions requires a little more effort.</source>
+          <target state="new">Splitting an existing partition into multiple partitions, or merge two partitions requires a little more effort.</target>
+        </trans-unit>
+        <trans-unit id="dc8a7437-76e4-4939-b683-360eae62e966" xml:space="preserve">
+          <source>You need to either</source>
+          <target state="new">You need to either</target>
+        </trans-unit>
+        <trans-unit id="407ed255-7941-441b-88ef-12ac8f8b0570" xml:space="preserve">
+          <source>Take the shard offline for reads.</source>
+          <target state="new">Take the shard offline for reads.</target>
+        </trans-unit>
+        <trans-unit id="7da26f51-ac52-488c-8268-33163f2482bc" xml:space="preserve">
+          <source>Route reads to both the partitions using the old partitioning configuration as well as the new partitioning configuration during migration.</source>
+          <target state="new">Route reads to both the partitions using the old partitioning configuration as well as the new partitioning configuration during migration.</target>
+        </trans-unit>
+        <trans-unit id="1cdda89b-3cb9-4578-83c7-4d6f2bdfdcf6" xml:space="preserve">
+          <source>Note that transactions and consistency level guarantees will not be available until migration is complete.</source>
+          <target state="new">Note that transactions and consistency level guarantees will not be available until migration is complete.</target>
+        </trans-unit>
+        <trans-unit id="1beecdcf-9614-4751-96c8-d71f7185c5fe" xml:space="preserve">
+          <source>Hashing is relatively more complicated for adding and removing partitions.</source>
+          <target state="new">Hashing is relatively more complicated for adding and removing partitions.</target>
+        </trans-unit>
+        <trans-unit id="39aca330-545d-48c2-bba5-ef031534914d" xml:space="preserve">
+          <source>Simple hashing techniques will cause shuffling, and require most of the data to get moved around.</source>
+          <target state="new">Simple hashing techniques will cause shuffling, and require most of the data to get moved around.</target>
+        </trans-unit>
+        <trans-unit id="9e4912b8-689c-4ce0-ab98-fab213bc32e0" xml:space="preserve">
+          <source>Using <bpt id="b47e91cf-ac73-486d-8e81-3dfccaf7d022">&lt;strong&gt;</bpt>consistent hashing<ept id="b47e91cf-ac73-486d-8e81-3dfccaf7d022">&lt;/strong&gt;</ept> ensures that only a fraction of data needs to get moved.</source>
+          <target state="new">Using <bpt id="b47e91cf-ac73-486d-8e81-3dfccaf7d022">&lt;strong&gt;</bpt>consistent hashing<ept id="b47e91cf-ac73-486d-8e81-3dfccaf7d022">&lt;/strong&gt;</ept> ensures that only a fraction of data needs to get moved.</target>
+        </trans-unit>
+        <trans-unit id="39ce88bd-6435-48bc-976d-3a7e87f1617e" xml:space="preserve">
+          <source>A relatively easy way to add new partitions without requiring data movement is to  "spill over" your data to a fresh collection, and then fan-out requests across both the old and new collections.</source>
+          <target state="new">A relatively easy way to add new partitions without requiring data movement is to  "spill over" your data to a fresh collection, and then fan-out requests across both the old and new collections.</target>
+        </trans-unit>
+        <trans-unit id="33c466ec-a166-4188-91c8-c11db199ee6d" xml:space="preserve">
+          <source>This approach, however, should be used only in rare situations (e.g. spill over in peak time workloads and to hold data temporarily until it can be moved).</source>
+          <target state="new">This approach, however, should be used only in rare situations (e.g. spill over in peak time workloads and to hold data temporarily until it can be moved).</target>
+        </trans-unit>
+        <trans-unit id="881de04e-9e33-45b1-a7d2-b7cf9ec99bdb" xml:space="preserve">
+          <source>In this article, we've introduced some common techniques on how you can partition data with DocumentDB, and when to use which technique or combination of techniques.</source>
+          <target state="new">In this article, we've introduced some common techniques on how you can partition data with DocumentDB, and when to use which technique or combination of techniques.</target>
+        </trans-unit>
+        <trans-unit id="718f66db-c27d-40f5-aaa0-ad8c8239f271" xml:space="preserve">
+          <source>Next, take a look at this <bpt id="11acc78e-c3cf-4470-b176-59cbaabf245a">&lt;linkText&gt;</bpt>article<ept id="11acc78e-c3cf-4470-b176-59cbaabf245a">&lt;/linkText&gt;</ept><bpt id="11acc78e-c3cf-4470-b176-59cbaabf245a">&lt;title&gt;</bpt><ept id="11acc78e-c3cf-4470-b176-59cbaabf245a">&lt;/title&gt;</ept> on how you can partition data using partition resolvers with the DocumentDB SDK.</source>
+          <target state="new">Next, take a look at this <bpt id="11acc78e-c3cf-4470-b176-59cbaabf245a">&lt;linkText&gt;</bpt>article<ept id="11acc78e-c3cf-4470-b176-59cbaabf245a">&lt;/linkText&gt;</ept><bpt id="11acc78e-c3cf-4470-b176-59cbaabf245a">&lt;title&gt;</bpt><ept id="11acc78e-c3cf-4470-b176-59cbaabf245a">&lt;/title&gt;</ept> on how you can partition data using partition resolvers with the DocumentDB SDK.</target>
+        </trans-unit>
+        <trans-unit id="64da148d-a2ee-476d-a78c-04448490d880" xml:space="preserve">
+          <source>Download one of the <bpt id="512f9e7f-4094-4429-a56d-53613f5aef89">&lt;linkText&gt;</bpt>supported SDKs<ept id="512f9e7f-4094-4429-a56d-53613f5aef89">&lt;/linkText&gt;</ept><bpt id="512f9e7f-4094-4429-a56d-53613f5aef89">&lt;title&gt;</bpt><ept id="512f9e7f-4094-4429-a56d-53613f5aef89">&lt;/title&gt;</ept></source>
+          <target state="new">Download one of the <bpt id="512f9e7f-4094-4429-a56d-53613f5aef89">&lt;linkText&gt;</bpt>supported SDKs<ept id="512f9e7f-4094-4429-a56d-53613f5aef89">&lt;/linkText&gt;</ept><bpt id="512f9e7f-4094-4429-a56d-53613f5aef89">&lt;title&gt;</bpt><ept id="512f9e7f-4094-4429-a56d-53613f5aef89">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9319f6a5-f76c-48ba-9573-9897cab373fe" xml:space="preserve">
+          <source>Contact us through the <bpt id="1cec2bb1-e79f-456a-935a-0acf56d9c12f">&lt;linkText&gt;</bpt>MSDN support forums<ept id="1cec2bb1-e79f-456a-935a-0acf56d9c12f">&lt;/linkText&gt;</ept><bpt id="1cec2bb1-e79f-456a-935a-0acf56d9c12f">&lt;title&gt;</bpt><ept id="1cec2bb1-e79f-456a-935a-0acf56d9c12f">&lt;/title&gt;</ept> if you have questions.</source>
+          <target state="new">Contact us through the <bpt id="1cec2bb1-e79f-456a-935a-0acf56d9c12f">&lt;linkText&gt;</bpt>MSDN support forums<ept id="1cec2bb1-e79f-456a-935a-0acf56d9c12f">&lt;/linkText&gt;</ept><bpt id="1cec2bb1-e79f-456a-935a-0acf56d9c12f">&lt;title&gt;</bpt><ept id="1cec2bb1-e79f-456a-935a-0acf56d9c12f">&lt;/title&gt;</ept> if you have questions.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

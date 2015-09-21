@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dbdea894-4710-4b05-a4dc-2e6b2fed2e1e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dbdea894-4710-4b05-a4dc-2e6b2fed2e1e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a2af3c3a-7015-44f2-b925-b65ce355ddcd">
+        <trans-unit id="5bbf95cd-20eb-403b-9175-66b7f9b9708f" xml:space="preserve">
+          <source>How to use public IP addresses in a virtual network</source>
+          <target state="new">How to use public IP addresses in a virtual network</target>
+        </trans-unit>
+        <trans-unit id="d444d55b-8ae6-440c-a2dc-fd81d8938f59" xml:space="preserve">
+          <source>Learn how to configure a virtual network to use public IP addresses</source>
+          <target state="new">Learn how to configure a virtual network to use public IP addresses</target>
+        </trans-unit>
+        <trans-unit id="461d63ec-41b7-4a2e-a79f-6bc894e20573" xml:space="preserve">
+          <source>You can now add public IP address space to your VNets.</source>
+          <target state="new">You can now add public IP address space to your VNets.</target>
+        </trans-unit>
+        <trans-unit id="b5fadf7d-6cfd-4efb-815b-c9d54e1cf1a6" xml:space="preserve">
+          <source>Previously, you could only add RFC 1918 address blocks (private space) to your VNets.</source>
+          <target state="new">Previously, you could only add RFC 1918 address blocks (private space) to your VNets.</target>
+        </trans-unit>
+        <trans-unit id="3c03cd1a-8fc0-402e-9de1-68da466db0f9" xml:space="preserve">
+          <source>When you add a public IP address range, it will be treated as part of the private VNet IP address space that is only reachable within the VNet, interconnected VNets, and from your on-premises location.</source>
+          <target state="new">When you add a public IP address range, it will be treated as part of the private VNet IP address space that is only reachable within the VNet, interconnected VNets, and from your on-premises location.</target>
+        </trans-unit>
+        <trans-unit id="a3e354f7-9a83-4605-84b6-4d37c75c2141" xml:space="preserve">
+          <source>Adding a public IP address space works conceptually like this:</source>
+          <target state="new">Adding a public IP address space works conceptually like this:</target>
+        </trans-unit>
+        <trans-unit id="cf118212-b96b-44bd-a173-53d0f9537efe" xml:space="preserve">
+          <source><bpt id="6183a207-a229-41e7-9870-d5a3a9ec59db">&lt;linkText&gt;</bpt>Public IP Conceptual<ept id="6183a207-a229-41e7-9870-d5a3a9ec59db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6183a207-a229-41e7-9870-d5a3a9ec59db">&lt;linkText&gt;</bpt>Public IP Conceptual<ept id="6183a207-a229-41e7-9870-d5a3a9ec59db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0544d9e4-438f-48bf-8b1d-84589c69d905" xml:space="preserve">
+          <source>You add a public IP address range the same way you would add a private IP address range; by either using a <bpt id="3f45367c-bab6-42cd-ba54-6cf2fa23ba8b">&lt;em&gt;</bpt>netcfg<ept id="3f45367c-bab6-42cd-ba54-6cf2fa23ba8b">&lt;/em&gt;</ept> file, or making the configuration in the portal.</source>
+          <target state="new">You add a public IP address range the same way you would add a private IP address range; by either using a <bpt id="3f45367c-bab6-42cd-ba54-6cf2fa23ba8b">&lt;em&gt;</bpt>netcfg<ept id="3f45367c-bab6-42cd-ba54-6cf2fa23ba8b">&lt;/em&gt;</ept> file, or making the configuration in the portal.</target>
+        </trans-unit>
+        <trans-unit id="ed90f559-71be-4162-a644-62658eb0a46a" xml:space="preserve">
+          <source>You can add a public IP address range when you create your VNet, or you can go back and add it afterward.</source>
+          <target state="new">You can add a public IP address range when you create your VNet, or you can go back and add it afterward.</target>
+        </trans-unit>
+        <trans-unit id="ec8d0be6-b07b-4265-80d6-e826b7473348" xml:space="preserve">
+          <source>The example below shows both public and private IP address space configured in the same virtual network.</source>
+          <target state="new">The example below shows both public and private IP address space configured in the same virtual network.</target>
+        </trans-unit>
+        <trans-unit id="27c4e3f8-7cf7-4636-ba3b-16cda70367cd" xml:space="preserve">
+          <source><bpt id="4d1a89b7-c232-4648-a5c6-3491cfb2d895">&lt;linkText&gt;</bpt>Public IP Address in Portal<ept id="4d1a89b7-c232-4648-a5c6-3491cfb2d895">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d1a89b7-c232-4648-a5c6-3491cfb2d895">&lt;linkText&gt;</bpt>Public IP Address in Portal<ept id="4d1a89b7-c232-4648-a5c6-3491cfb2d895">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f2fb719-b55e-4895-8c70-363c526ebafc" xml:space="preserve">
+          <source>There are a few IP address ranges that are not allowed:</source>
+          <target state="new">There are a few IP address ranges that are not allowed:</target>
+        </trans-unit>
+        <trans-unit id="8ccc3ef7-fe71-432e-bc2a-b40b64a3ca52" xml:space="preserve">
+          <source>224.0.0.0/4 (Multicast)</source>
+          <target state="new">224.0.0.0/4 (Multicast)</target>
+        </trans-unit>
+        <trans-unit id="9e4705d3-999a-4ea1-8c7e-3b1ea856d010" xml:space="preserve">
+          <source>255.255.255.255/32 (Broadcast)</source>
+          <target state="new">255.255.255.255/32 (Broadcast)</target>
+        </trans-unit>
+        <trans-unit id="151cec0b-dc06-43ed-a4e8-580b3103523d" xml:space="preserve">
+          <source>127.0.0.0/8 (loopback)</source>
+          <target state="new">127.0.0.0/8 (loopback)</target>
+        </trans-unit>
+        <trans-unit id="aea7c8f2-e0c0-4253-85d2-17c2bcb7c144" xml:space="preserve">
+          <source>169.254.0.0/16 (link-local)</source>
+          <target state="new">169.254.0.0/16 (link-local)</target>
+        </trans-unit>
+        <trans-unit id="7835e089-96be-492e-8ec4-97a53806e9af" xml:space="preserve">
+          <source>68.63.129.16/32 (Internal DNS)</source>
+          <target state="new">68.63.129.16/32 (Internal DNS)</target>
+        </trans-unit>
+        <trans-unit id="29fa65f6-2056-4bba-9405-6f826daf5a44" xml:space="preserve">
+          <source><bpt id="acc22071-1a24-45c8-80e7-cb53dfa998ce">&lt;linkText&gt;</bpt>How to manage Virtual Network (VNet) Properties<ept id="acc22071-1a24-45c8-80e7-cb53dfa998ce">&lt;/linkText&gt;</ept><bpt id="acc22071-1a24-45c8-80e7-cb53dfa998ce">&lt;title&gt;</bpt><ept id="acc22071-1a24-45c8-80e7-cb53dfa998ce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="acc22071-1a24-45c8-80e7-cb53dfa998ce">&lt;linkText&gt;</bpt>How to manage Virtual Network (VNet) Properties<ept id="acc22071-1a24-45c8-80e7-cb53dfa998ce">&lt;/linkText&gt;</ept><bpt id="acc22071-1a24-45c8-80e7-cb53dfa998ce">&lt;title&gt;</bpt><ept id="acc22071-1a24-45c8-80e7-cb53dfa998ce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49fd7a10-50de-4c88-90d0-5d6aa882e276" xml:space="preserve">
+          <source><bpt id="b509c47d-4508-4f9e-9fa7-27e1808bf656">&lt;linkText&gt;</bpt>How to manage DNS servers used by a virtual network (VNet)<ept id="b509c47d-4508-4f9e-9fa7-27e1808bf656">&lt;/linkText&gt;</ept><bpt id="b509c47d-4508-4f9e-9fa7-27e1808bf656">&lt;title&gt;</bpt><ept id="b509c47d-4508-4f9e-9fa7-27e1808bf656">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b509c47d-4508-4f9e-9fa7-27e1808bf656">&lt;linkText&gt;</bpt>How to manage DNS servers used by a virtual network (VNet)<ept id="b509c47d-4508-4f9e-9fa7-27e1808bf656">&lt;/linkText&gt;</ept><bpt id="b509c47d-4508-4f9e-9fa7-27e1808bf656">&lt;title&gt;</bpt><ept id="b509c47d-4508-4f9e-9fa7-27e1808bf656">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bc81e20-4924-4fd0-ba0f-8c357d4c2e47" xml:space="preserve">
+          <source><bpt id="2d379b9a-2895-429a-a06d-1b5bfd7c9b3e">&lt;linkText&gt;</bpt>How to delete a Virtual Network (VNet)<ept id="2d379b9a-2895-429a-a06d-1b5bfd7c9b3e">&lt;/linkText&gt;</ept><bpt id="2d379b9a-2895-429a-a06d-1b5bfd7c9b3e">&lt;title&gt;</bpt><ept id="2d379b9a-2895-429a-a06d-1b5bfd7c9b3e">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="2d379b9a-2895-429a-a06d-1b5bfd7c9b3e">&lt;linkText&gt;</bpt>How to delete a Virtual Network (VNet)<ept id="2d379b9a-2895-429a-a06d-1b5bfd7c9b3e">&lt;/linkText&gt;</ept><bpt id="2d379b9a-2895-429a-a06d-1b5bfd7c9b3e">&lt;title&gt;</bpt><ept id="2d379b9a-2895-429a-a06d-1b5bfd7c9b3e">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

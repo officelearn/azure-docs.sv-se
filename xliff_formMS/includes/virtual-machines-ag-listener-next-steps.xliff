@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bec3095f-c824-4a61-9375-143208013892" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bec3095f-c824-4a61-9375-143208013892" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="feb1c87d-4c07-4f81-9f47-a439960dcc50">
+        <trans-unit id="00266f1a-60b8-4d89-a354-6878d43f2980" xml:space="preserve">
+          <source>In addition to automatically connecting clients to the primary replica, a listener can also be used to redirect read-only workloads to the secondaries.</source>
+          <target state="new">In addition to automatically connecting clients to the primary replica, a listener can also be used to redirect read-only workloads to the secondaries.</target>
+        </trans-unit>
+        <trans-unit id="012cfb52-b640-4e72-92b8-6062318b3658" xml:space="preserve">
+          <source>This can improve the performance and scalability of your overall solution.</source>
+          <target state="new">This can improve the performance and scalability of your overall solution.</target>
+        </trans-unit>
+        <trans-unit id="5bc56fda-1a21-447c-9552-0a9a39855862" xml:space="preserve">
+          <source>For more information, see 
+<bpt id="0aa2006c-60c3-449d-97fe-9acdf03194ca">&lt;linkText&gt;</bpt>Use ReadIntent Routing with Azure AlwaysOn Availability Group Listener<ept id="0aa2006c-60c3-449d-97fe-9acdf03194ca">&lt;/linkText&gt;</ept><bpt id="0aa2006c-60c3-449d-97fe-9acdf03194ca">&lt;title&gt;</bpt><ept id="0aa2006c-60c3-449d-97fe-9acdf03194ca">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see 
+<bpt id="0aa2006c-60c3-449d-97fe-9acdf03194ca">&lt;linkText&gt;</bpt>Use ReadIntent Routing with Azure AlwaysOn Availability Group Listener<ept id="0aa2006c-60c3-449d-97fe-9acdf03194ca">&lt;/linkText&gt;</ept><bpt id="0aa2006c-60c3-449d-97fe-9acdf03194ca">&lt;title&gt;</bpt><ept id="0aa2006c-60c3-449d-97fe-9acdf03194ca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4b949fa-5bbd-4f5e-8e8e-8d5d54950821" xml:space="preserve">
+          <source>For other information about using SQL Server in Azure, see <bpt id="2a039acf-a2ec-471a-9257-420f9f84d82e">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines<ept id="2a039acf-a2ec-471a-9257-420f9f84d82e">&lt;/linkText&gt;</ept><bpt id="2a039acf-a2ec-471a-9257-420f9f84d82e">&lt;title&gt;</bpt><ept id="2a039acf-a2ec-471a-9257-420f9f84d82e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For other information about using SQL Server in Azure, see <bpt id="2a039acf-a2ec-471a-9257-420f9f84d82e">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines<ept id="2a039acf-a2ec-471a-9257-420f9f84d82e">&lt;/linkText&gt;</ept><bpt id="2a039acf-a2ec-471a-9257-420f9f84d82e">&lt;title&gt;</bpt><ept id="2a039acf-a2ec-471a-9257-420f9f84d82e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

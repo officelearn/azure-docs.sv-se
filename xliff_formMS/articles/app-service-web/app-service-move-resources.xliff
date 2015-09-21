@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="32ed83bb-b933-4e22-90b8-914c1bf5e548" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="32ed83bb-b933-4e22-90b8-914c1bf5e548" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7c043672-13db-4ee0-aa41-e82b7f209dea">
+        <trans-unit id="7a472660-25fe-4ae1-8fa2-55eaebd6b53f" xml:space="preserve">
+          <source>Move Web App Resources to another Resource Group</source>
+          <target state="new">Move Web App Resources to another Resource Group</target>
+        </trans-unit>
+        <trans-unit id="6c713a8e-b322-4fa8-b523-22294505c45f" xml:space="preserve">
+          <source>Describes the scenarios where you can move Web Apps and App Services from one Resource Group to another.</source>
+          <target state="new">Describes the scenarios where you can move Web Apps and App Services from one Resource Group to another.</target>
+        </trans-unit>
+        <trans-unit id="fa526291-44a5-4b1c-be3c-05364044eff1" xml:space="preserve">
+          <source>You can move Azure Web App resources using the <bpt id="80447867-d6a6-4a70-abc9-2d2e37e7c901">&lt;linkText&gt;</bpt>ARM Move Resources Api<ept id="80447867-d6a6-4a70-abc9-2d2e37e7c901">&lt;/linkText&gt;</ept><bpt id="80447867-d6a6-4a70-abc9-2d2e37e7c901">&lt;title&gt;</bpt><ept id="80447867-d6a6-4a70-abc9-2d2e37e7c901">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can move Azure Web App resources using the <bpt id="80447867-d6a6-4a70-abc9-2d2e37e7c901">&lt;linkText&gt;</bpt>ARM Move Resources Api<ept id="80447867-d6a6-4a70-abc9-2d2e37e7c901">&lt;/linkText&gt;</ept><bpt id="80447867-d6a6-4a70-abc9-2d2e37e7c901">&lt;title&gt;</bpt><ept id="80447867-d6a6-4a70-abc9-2d2e37e7c901">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0beba129-bbdf-466c-aad3-4c2e05a9d8f5" xml:space="preserve">
+          <source>Azure Web Apps currently supports the following move scenarios:</source>
+          <target state="new">Azure Web Apps currently supports the following move scenarios:</target>
+        </trans-unit>
+        <trans-unit id="7dd1f5b5-066b-49d2-a16a-5d9e040be23b" xml:space="preserve">
+          <source>Moving the entire contents of a resource group (web apps, app service plans, and certificates) to another resource group </source>
+          <target state="new">Moving the entire contents of a resource group (web apps, app service plans, and certificates) to another resource group </target>
+        </trans-unit>
+        <trans-unit id="1c18b9aa-6614-431a-b128-9239819c438f" xml:space="preserve">
+          <source>Note: The destination resource group can not contain any Microsoft.Web resources in this scenario</source>
+          <target state="new">Note: The destination resource group can not contain any Microsoft.Web resources in this scenario</target>
+        </trans-unit>
+        <trans-unit id="af081eed-398a-4bd5-976e-168fcb323efb" xml:space="preserve">
+          <source>Moving individual web apps to a different resource group, while still hosting them in their current app service plan (the app service plan stays in the old resource group)</source>
+          <target state="new">Moving individual web apps to a different resource group, while still hosting them in their current app service plan (the app service plan stays in the old resource group)</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

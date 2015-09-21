@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cad570cd-a6cf-4b2f-a870-b957473f13a5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cad570cd-a6cf-4b2f-a870-b957473f13a5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="615c78ed-27d7-47bd-82a2-f65cb22bf5e4">
+        <trans-unit id="6bd9f17c-8b88-4dfb-a513-0eb6fd37ffdb" xml:space="preserve">
+          <source>Use SSH to connect to Linux virtual machines in Azure</source>
+          <target state="new">Use SSH to connect to Linux virtual machines in Azure</target>
+        </trans-unit>
+        <trans-unit id="fbb44a3d-4958-4bfe-bd54-76e0ea7bff0d" xml:space="preserve">
+          <source>Learn how to generate and use SSH keys with a Linux virtual machine on Azure.</source>
+          <target state="new">Learn how to generate and use SSH keys with a Linux virtual machine on Azure.</target>
+        </trans-unit>
+        <trans-unit id="f811ff7d-4e00-4f45-85d0-430588fc6d06" xml:space="preserve">
+          <source>The current version of the Azure Management Portal only accepts SSH public keys that are encapsulated in an X509 certificate.</source>
+          <target state="new">The current version of the Azure Management Portal only accepts SSH public keys that are encapsulated in an X509 certificate.</target>
+        </trans-unit>
+        <trans-unit id="a00dfa2e-61f3-40d7-9911-02f2414d00ab" xml:space="preserve">
+          <source>Follow the steps below to generate and use SSH keys with Azure.</source>
+          <target state="new">Follow the steps below to generate and use SSH keys with Azure.</target>
+        </trans-unit>
+        <trans-unit id="609b9096-7bb3-46e8-a02d-ba469550eba0" xml:space="preserve">
+          <source>Install the <bpt id="dbb4be6c-396d-4b15-a030-233d348e2f4d">&lt;code&gt;</bpt>openssl<ept id="dbb4be6c-396d-4b15-a030-233d348e2f4d">&lt;/code&gt;</ept> utility if needed:</source>
+          <target state="new">Install the <bpt id="dbb4be6c-396d-4b15-a030-233d348e2f4d">&lt;code&gt;</bpt>openssl<ept id="dbb4be6c-396d-4b15-a030-233d348e2f4d">&lt;/code&gt;</ept> utility if needed:</target>
+        </trans-unit>
+        <trans-unit id="973b4a76-1300-41bd-b335-74341559140d" xml:space="preserve">
+          <source><bpt id="bcbaaee9-a795-45e6-ba68-c2e7beee78a5">&lt;strong&gt;</bpt>CentOS / Oracle Linux<ept id="bcbaaee9-a795-45e6-ba68-c2e7beee78a5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bcbaaee9-a795-45e6-ba68-c2e7beee78a5">&lt;strong&gt;</bpt>CentOS / Oracle Linux<ept id="bcbaaee9-a795-45e6-ba68-c2e7beee78a5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="446b7398-8192-4451-a7c0-872a5a499689" xml:space="preserve">
+          <source><bpt id="7d30c85a-f7cf-47d4-9d26-3f5c5b1f41d0">&lt;strong&gt;</bpt>Ubuntu<ept id="7d30c85a-f7cf-47d4-9d26-3f5c5b1f41d0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7d30c85a-f7cf-47d4-9d26-3f5c5b1f41d0">&lt;strong&gt;</bpt>Ubuntu<ept id="7d30c85a-f7cf-47d4-9d26-3f5c5b1f41d0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="505751aa-ab2e-42fe-b88d-830d57448a2e" xml:space="preserve">
+          <source><bpt id="556c2df6-e444-4fca-b8e0-bc9534335fdf">&lt;strong&gt;</bpt>SLES &amp; openSUSE<ept id="556c2df6-e444-4fca-b8e0-bc9534335fdf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="556c2df6-e444-4fca-b8e0-bc9534335fdf">&lt;strong&gt;</bpt>SLES &amp; openSUSE<ept id="556c2df6-e444-4fca-b8e0-bc9534335fdf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6150ad9d-fc97-4958-8c56-654882ce37a4" xml:space="preserve">
+          <source>Use <bpt id="86d3430a-a917-4391-8a42-f8a55b33b7bb">&lt;code&gt;</bpt>openssl<ept id="86d3430a-a917-4391-8a42-f8a55b33b7bb">&lt;/code&gt;</ept> to generate an X509 certificate with a 2048-bit RSA keypair.</source>
+          <target state="new">Use <bpt id="86d3430a-a917-4391-8a42-f8a55b33b7bb">&lt;code&gt;</bpt>openssl<ept id="86d3430a-a917-4391-8a42-f8a55b33b7bb">&lt;/code&gt;</ept> to generate an X509 certificate with a 2048-bit RSA keypair.</target>
+        </trans-unit>
+        <trans-unit id="cacb5d74-b441-4653-9943-09bb38e390da" xml:space="preserve">
+          <source>Please answer the few questions that the <bpt id="9f59f033-1a4a-4813-8209-6b542d38e443">&lt;code&gt;</bpt>openssl<ept id="9f59f033-1a4a-4813-8209-6b542d38e443">&lt;/code&gt;</ept> prompts for (or you may leave them blank).</source>
+          <target state="new">Please answer the few questions that the <bpt id="9f59f033-1a4a-4813-8209-6b542d38e443">&lt;code&gt;</bpt>openssl<ept id="9f59f033-1a4a-4813-8209-6b542d38e443">&lt;/code&gt;</ept> prompts for (or you may leave them blank).</target>
+        </trans-unit>
+        <trans-unit id="7afe4b26-f279-4805-b371-cff76f763356" xml:space="preserve">
+          <source>The content in these fields is not used by the platform:</source>
+          <target state="new">The content in these fields is not used by the platform:</target>
+        </trans-unit>
+        <trans-unit id="1c6673ac-27c7-44df-b535-7a623ef94fd0" xml:space="preserve">
+          <source>Change the permissions on the private key to secure it.</source>
+          <target state="new">Change the permissions on the private key to secure it.</target>
+        </trans-unit>
+        <trans-unit id="725929ec-d3d4-4ebc-9c11-cf5136d6483d" xml:space="preserve">
+          <source>Upload the <bpt id="d03bc31c-bfe5-4417-8a8c-13e7ce5b1764">&lt;code&gt;</bpt>myCert.pem<ept id="d03bc31c-bfe5-4417-8a8c-13e7ce5b1764">&lt;/code&gt;</ept> while creating the Linux virtual machine.</source>
+          <target state="new">Upload the <bpt id="d03bc31c-bfe5-4417-8a8c-13e7ce5b1764">&lt;code&gt;</bpt>myCert.pem<ept id="d03bc31c-bfe5-4417-8a8c-13e7ce5b1764">&lt;/code&gt;</ept> while creating the Linux virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="02f492a1-4067-4a9a-b4a2-2837531acad5" xml:space="preserve">
+          <source>The provisioning process will automatically install the public key in this certificate into the <bpt id="343b0deb-6f1b-4204-9174-a61063bab8c0">&lt;code&gt;</bpt>authorized_keys<ept id="343b0deb-6f1b-4204-9174-a61063bab8c0">&lt;/code&gt;</ept> file for the specified user in the virtual machine.</source>
+          <target state="new">The provisioning process will automatically install the public key in this certificate into the <bpt id="343b0deb-6f1b-4204-9174-a61063bab8c0">&lt;code&gt;</bpt>authorized_keys<ept id="343b0deb-6f1b-4204-9174-a61063bab8c0">&lt;/code&gt;</ept> file for the specified user in the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e91456a5-fe27-4896-80ca-acee9d4fff0a" xml:space="preserve">
+          <source>If you are going to use the API directly, and not use the Management Portal, convert the <bpt id="5a0ef000-c2d5-4f1d-9e1c-eb92b57325ed">&lt;code&gt;</bpt>myCert.pem<ept id="5a0ef000-c2d5-4f1d-9e1c-eb92b57325ed">&lt;/code&gt;</ept> to <bpt id="49f6a2f5-5e52-488c-8ed1-a089fb7c1501">&lt;code&gt;</bpt>myCert.cer<ept id="49f6a2f5-5e52-488c-8ed1-a089fb7c1501">&lt;/code&gt;</ept> (DER encoded X509 certificate) using the following command:</source>
+          <target state="new">If you are going to use the API directly, and not use the Management Portal, convert the <bpt id="5a0ef000-c2d5-4f1d-9e1c-eb92b57325ed">&lt;code&gt;</bpt>myCert.pem<ept id="5a0ef000-c2d5-4f1d-9e1c-eb92b57325ed">&lt;/code&gt;</ept> to <bpt id="49f6a2f5-5e52-488c-8ed1-a089fb7c1501">&lt;code&gt;</bpt>myCert.cer<ept id="49f6a2f5-5e52-488c-8ed1-a089fb7c1501">&lt;/code&gt;</ept> (DER encoded X509 certificate) using the following command:</target>
+        </trans-unit>
+        <trans-unit id="bc6b37af-6a1a-424d-8ab4-f7e85f1219d8" xml:space="preserve">
+          <source>The previous example describes how to create a new key for use with Azure. In some cases you may already have an existing OpenSSH compatible public &amp; private key pair and wish to use the same keys with Azure.</source>
+          <target state="new">The previous example describes how to create a new key for use with Azure. In some cases you may already have an existing OpenSSH compatible public &amp; private key pair and wish to use the same keys with Azure.</target>
+        </trans-unit>
+        <trans-unit id="9b6cd694-677f-4233-a29e-6f86c28ca2e6" xml:space="preserve">
+          <source>OpenSSH private keys are directly readable by the <bpt id="fb406d4e-a190-4426-b124-9fe99f849906">&lt;code&gt;</bpt>openssl<ept id="fb406d4e-a190-4426-b124-9fe99f849906">&lt;/code&gt;</ept> utility.</source>
+          <target state="new">OpenSSH private keys are directly readable by the <bpt id="fb406d4e-a190-4426-b124-9fe99f849906">&lt;code&gt;</bpt>openssl<ept id="fb406d4e-a190-4426-b124-9fe99f849906">&lt;/code&gt;</ept> utility.</target>
+        </trans-unit>
+        <trans-unit id="c0308b0d-7bff-4b48-8a18-08f003c89460" xml:space="preserve">
+          <source>The following command will take an existing SSH private key (id_rsa in the example below) and create the <bpt id="626584be-c846-4266-9f0b-3b6df415faa4">&lt;code&gt;</bpt>.pem<ept id="626584be-c846-4266-9f0b-3b6df415faa4">&lt;/code&gt;</ept> public key that is needed for Azure:</source>
+          <target state="new">The following command will take an existing SSH private key (id_rsa in the example below) and create the <bpt id="626584be-c846-4266-9f0b-3b6df415faa4">&lt;code&gt;</bpt>.pem<ept id="626584be-c846-4266-9f0b-3b6df415faa4">&lt;/code&gt;</ept> public key that is needed for Azure:</target>
+        </trans-unit>
+        <trans-unit id="afba1dc5-7f34-4135-9567-704815cf942b" xml:space="preserve">
+          <source>The <bpt id="d9fef03d-9604-42fe-bb24-31bfcd2ead1b">&lt;strong&gt;</bpt>myCert.pem<ept id="d9fef03d-9604-42fe-bb24-31bfcd2ead1b">&lt;/strong&gt;</ept> file is the public key that may then be used to provision a Linux virtual machine on Azure.</source>
+          <target state="new">The <bpt id="d9fef03d-9604-42fe-bb24-31bfcd2ead1b">&lt;strong&gt;</bpt>myCert.pem<ept id="d9fef03d-9604-42fe-bb24-31bfcd2ead1b">&lt;/strong&gt;</ept> file is the public key that may then be used to provision a Linux virtual machine on Azure.</target>
+        </trans-unit>
+        <trans-unit id="aa931e64-0c43-4bf9-9353-f2f7f33b9220" xml:space="preserve">
+          <source>During provisioning the <bpt id="1e31a82e-fb2b-4821-a09a-3511042500d0">&lt;code&gt;</bpt>.pem<ept id="1e31a82e-fb2b-4821-a09a-3511042500d0">&lt;/code&gt;</ept> file will be translated into an <bpt id="7c1dd8a4-c70f-41e7-ad85-3837c9ecb17e">&lt;code&gt;</bpt>openssh<ept id="7c1dd8a4-c70f-41e7-ad85-3837c9ecb17e">&lt;/code&gt;</ept> compatible public key and placed in <bpt id="ddefa542-5d4b-4ceb-a9b5-a1a6a5e3d017">&lt;code&gt;</bpt>~/.ssh/authorized_keys<ept id="ddefa542-5d4b-4ceb-a9b5-a1a6a5e3d017">&lt;/code&gt;</ept>.</source>
+          <target state="new">During provisioning the <bpt id="1e31a82e-fb2b-4821-a09a-3511042500d0">&lt;code&gt;</bpt>.pem<ept id="1e31a82e-fb2b-4821-a09a-3511042500d0">&lt;/code&gt;</ept> file will be translated into an <bpt id="7c1dd8a4-c70f-41e7-ad85-3837c9ecb17e">&lt;code&gt;</bpt>openssh<ept id="7c1dd8a4-c70f-41e7-ad85-3837c9ecb17e">&lt;/code&gt;</ept> compatible public key and placed in <bpt id="ddefa542-5d4b-4ceb-a9b5-a1a6a5e3d017">&lt;code&gt;</bpt>~/.ssh/authorized_keys<ept id="ddefa542-5d4b-4ceb-a9b5-a1a6a5e3d017">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31bb4b16-178e-4ff9-8f33-9cad92d5d66d" xml:space="preserve">
+          <source>In some cases the SSH endpoint for a Linux virtual machine may be configured for a port other then the default port 22.</source>
+          <target state="new">In some cases the SSH endpoint for a Linux virtual machine may be configured for a port other then the default port 22.</target>
+        </trans-unit>
+        <trans-unit id="8498b74e-bfe1-48b1-ab1c-d073eb1b5d76" xml:space="preserve">
+          <source>You can find the correct port number on the Dashboard for the VM in the Management Portal (under "SSH Details").</source>
+          <target state="new">You can find the correct port number on the Dashboard for the VM in the Management Portal (under "SSH Details").</target>
+        </trans-unit>
+        <trans-unit id="fb0c2553-9fb1-41c0-ba0d-48404d726bd4" xml:space="preserve">
+          <source>Connect to the Linux virtual machine using <bpt id="066bf6b4-7515-4bfd-a730-d9f1e307b58c">&lt;code&gt;</bpt>ssh<ept id="066bf6b4-7515-4bfd-a730-d9f1e307b58c">&lt;/code&gt;</ept>.</source>
+          <target state="new">Connect to the Linux virtual machine using <bpt id="066bf6b4-7515-4bfd-a730-d9f1e307b58c">&lt;code&gt;</bpt>ssh<ept id="066bf6b4-7515-4bfd-a730-d9f1e307b58c">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eff85251-7838-406d-9d37-0c5155d22ff1" xml:space="preserve">
+          <source>You will be prompted to accept the fingerprint of the host's public key the first time you log in.</source>
+          <target state="new">You will be prompted to accept the fingerprint of the host's public key the first time you log in.</target>
+        </trans-unit>
+        <trans-unit id="2c833fd6-5b24-42ff-8da7-4ad63a23a9ba" xml:space="preserve">
+          <source>(Optional) You may copy <bpt id="cc054fff-6c37-469e-9355-e05cb29230be">&lt;code&gt;</bpt>myPrivateKey.key<ept id="cc054fff-6c37-469e-9355-e05cb29230be">&lt;/code&gt;</ept> to <bpt id="72c097af-cfb8-4be4-a652-4bd7bc4ed90b">&lt;code&gt;</bpt>~/.ssh/id_rsa<ept id="72c097af-cfb8-4be4-a652-4bd7bc4ed90b">&lt;/code&gt;</ept> so that your OpenSSH client can automatically pick this up without the use of the <bpt id="8c16adbd-dea4-4afc-b9ae-8118475a30a6">&lt;code&gt;</bpt>-i<ept id="8c16adbd-dea4-4afc-b9ae-8118475a30a6">&lt;/code&gt;</ept> option.</source>
+          <target state="new">(Optional) You may copy <bpt id="cc054fff-6c37-469e-9355-e05cb29230be">&lt;code&gt;</bpt>myPrivateKey.key<ept id="cc054fff-6c37-469e-9355-e05cb29230be">&lt;/code&gt;</ept> to <bpt id="72c097af-cfb8-4be4-a652-4bd7bc4ed90b">&lt;code&gt;</bpt>~/.ssh/id_rsa<ept id="72c097af-cfb8-4be4-a652-4bd7bc4ed90b">&lt;/code&gt;</ept> so that your OpenSSH client can automatically pick this up without the use of the <bpt id="8c16adbd-dea4-4afc-b9ae-8118475a30a6">&lt;code&gt;</bpt>-i<ept id="8c16adbd-dea4-4afc-b9ae-8118475a30a6">&lt;/code&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="0708537c-2c24-46ff-94db-169ee3744b9c" xml:space="preserve">
+          <source>There are a number of utilities that include a <bpt id="c2ee39df-0230-41e2-8481-e35654d75b86">&lt;code&gt;</bpt>openssl<ept id="c2ee39df-0230-41e2-8481-e35654d75b86">&lt;/code&gt;</ept> for Windows.</source>
+          <target state="new">There are a number of utilities that include a <bpt id="c2ee39df-0230-41e2-8481-e35654d75b86">&lt;code&gt;</bpt>openssl<ept id="c2ee39df-0230-41e2-8481-e35654d75b86">&lt;/code&gt;</ept> for Windows.</target>
+        </trans-unit>
+        <trans-unit id="474d139d-f5cb-4b38-a27a-608ff3f3d106" xml:space="preserve">
+          <source>A few examples are listed below -</source>
+          <target state="new">A few examples are listed below -</target>
+        </trans-unit>
+        <trans-unit id="a13b9cf4-1f89-40e4-b5c9-b058c6ad7e2e" xml:space="preserve">
+          <source>Download and install msysgit from the following location: <bpt id="e6c5d48e-e93e-4af1-88e4-af9135192199">&lt;linkText&gt;</bpt>http://msysgit.github.com/<ept id="e6c5d48e-e93e-4af1-88e4-af9135192199">&lt;/linkText&gt;</ept><bpt id="e6c5d48e-e93e-4af1-88e4-af9135192199">&lt;title&gt;</bpt><ept id="e6c5d48e-e93e-4af1-88e4-af9135192199">&lt;/title&gt;</ept></source>
+          <target state="new">Download and install msysgit from the following location: <bpt id="e6c5d48e-e93e-4af1-88e4-af9135192199">&lt;linkText&gt;</bpt>http://msysgit.github.com/<ept id="e6c5d48e-e93e-4af1-88e4-af9135192199">&lt;/linkText&gt;</ept><bpt id="e6c5d48e-e93e-4af1-88e4-af9135192199">&lt;title&gt;</bpt><ept id="e6c5d48e-e93e-4af1-88e4-af9135192199">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37acc1d0-eae0-481f-8375-1ea04f1760b1" xml:space="preserve">
+          <source>Run <bpt id="d2df9d93-a603-4e00-b2d9-7165bfe6a99c">&lt;code&gt;</bpt>msys<ept id="d2df9d93-a603-4e00-b2d9-7165bfe6a99c">&lt;/code&gt;</ept> from the installed directory (example: c:\msysgit\msys.exe)</source>
+          <target state="new">Run <bpt id="d2df9d93-a603-4e00-b2d9-7165bfe6a99c">&lt;code&gt;</bpt>msys<ept id="d2df9d93-a603-4e00-b2d9-7165bfe6a99c">&lt;/code&gt;</ept> from the installed directory (example: c:\msysgit\msys.exe)</target>
+        </trans-unit>
+        <trans-unit id="d513f5a6-a66f-4a2d-89f8-827c1a1a2e7c" xml:space="preserve">
+          <source>Change to the <bpt id="74c03119-9a53-4dae-9d1f-f5cd3301f8c8">&lt;code&gt;</bpt>bin<ept id="74c03119-9a53-4dae-9d1f-f5cd3301f8c8">&lt;/code&gt;</ept> directory by typing in <bpt id="13fd06d5-e4c8-4d23-a4d7-0a15999ba23c">&lt;code&gt;</bpt>cd bin<ept id="13fd06d5-e4c8-4d23-a4d7-0a15999ba23c">&lt;/code&gt;</ept></source>
+          <target state="new">Change to the <bpt id="74c03119-9a53-4dae-9d1f-f5cd3301f8c8">&lt;code&gt;</bpt>bin<ept id="74c03119-9a53-4dae-9d1f-f5cd3301f8c8">&lt;/code&gt;</ept> directory by typing in <bpt id="13fd06d5-e4c8-4d23-a4d7-0a15999ba23c">&lt;code&gt;</bpt>cd bin<ept id="13fd06d5-e4c8-4d23-a4d7-0a15999ba23c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80f69ed5-6847-4c35-a21e-2a735114fc3d" xml:space="preserve">
+          <source>Download and install GitHub for Windows from the following location: <bpt id="14774345-a9c0-41f8-9ea9-42ff80d5d630">&lt;linkText&gt;</bpt>http://windows.github.com/<ept id="14774345-a9c0-41f8-9ea9-42ff80d5d630">&lt;/linkText&gt;</ept><bpt id="14774345-a9c0-41f8-9ea9-42ff80d5d630">&lt;title&gt;</bpt><ept id="14774345-a9c0-41f8-9ea9-42ff80d5d630">&lt;/title&gt;</ept></source>
+          <target state="new">Download and install GitHub for Windows from the following location: <bpt id="14774345-a9c0-41f8-9ea9-42ff80d5d630">&lt;linkText&gt;</bpt>http://windows.github.com/<ept id="14774345-a9c0-41f8-9ea9-42ff80d5d630">&lt;/linkText&gt;</ept><bpt id="14774345-a9c0-41f8-9ea9-42ff80d5d630">&lt;title&gt;</bpt><ept id="14774345-a9c0-41f8-9ea9-42ff80d5d630">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b02a82d6-a3cd-4778-af24-6a72354edde3" xml:space="preserve">
+          <source>Run Git Shell from the Start Menu &gt; All Programs &gt; GitHub, Inc</source>
+          <target state="new">Run Git Shell from the Start Menu &gt; All Programs &gt; GitHub, Inc</target>
+        </trans-unit>
+        <trans-unit id="820a0758-b5b5-4833-8c33-f0efbcc6f5a0" xml:space="preserve">
+          <source><bpt id="072ac704-8855-418b-90c6-c59f3a970181">&lt;strong&gt;</bpt>Note:<ept id="072ac704-8855-418b-90c6-c59f3a970181">&lt;/strong&gt;</ept> You may encounter the following error when running the <bpt id="cf56a63d-edf4-40d8-bf6d-184b3c952d07">&lt;code&gt;</bpt>openssl<ept id="cf56a63d-edf4-40d8-bf6d-184b3c952d07">&lt;/code&gt;</ept> commands above:</source>
+          <target state="new"><bpt id="072ac704-8855-418b-90c6-c59f3a970181">&lt;strong&gt;</bpt>Note:<ept id="072ac704-8855-418b-90c6-c59f3a970181">&lt;/strong&gt;</ept> You may encounter the following error when running the <bpt id="cf56a63d-edf4-40d8-bf6d-184b3c952d07">&lt;code&gt;</bpt>openssl<ept id="cf56a63d-edf4-40d8-bf6d-184b3c952d07">&lt;/code&gt;</ept> commands above:</target>
+        </trans-unit>
+        <trans-unit id="0eee0ad3-8b59-4b77-9136-f12999b00ceb" xml:space="preserve">
+          <source>The easiest way to resolve this is to set the <bpt id="54c0ea9a-5be6-4519-ba13-2abf76f3597a">&lt;code&gt;</bpt>OPENSSL_CONF<ept id="54c0ea9a-5be6-4519-ba13-2abf76f3597a">&lt;/code&gt;</ept> environment variable.</source>
+          <target state="new">The easiest way to resolve this is to set the <bpt id="54c0ea9a-5be6-4519-ba13-2abf76f3597a">&lt;code&gt;</bpt>OPENSSL_CONF<ept id="54c0ea9a-5be6-4519-ba13-2abf76f3597a">&lt;/code&gt;</ept> environment variable.</target>
+        </trans-unit>
+        <trans-unit id="46bdc040-3400-4aec-95c1-1359a375a52a" xml:space="preserve">
+          <source>The process for setting this variable will vary depending on the shell that you have configured in Github:</source>
+          <target state="new">The process for setting this variable will vary depending on the shell that you have configured in Github:</target>
+        </trans-unit>
+        <trans-unit id="24dddff0-d331-438d-9ab4-f822ce5b13ac" xml:space="preserve">
+          <source><bpt id="057018a5-4df3-446f-bdf7-5925782b8368">&lt;strong&gt;</bpt>Powershell:<ept id="057018a5-4df3-446f-bdf7-5925782b8368">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="057018a5-4df3-446f-bdf7-5925782b8368">&lt;strong&gt;</bpt>Powershell:<ept id="057018a5-4df3-446f-bdf7-5925782b8368">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="acb2a20e-1024-474d-9da9-6d3cd7f8c7e6" xml:space="preserve">
+          <source><bpt id="09ec7ef8-960b-4c41-8277-f5c1fb93da70">&lt;strong&gt;</bpt>CMD:<ept id="09ec7ef8-960b-4c41-8277-f5c1fb93da70">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="09ec7ef8-960b-4c41-8277-f5c1fb93da70">&lt;strong&gt;</bpt>CMD:<ept id="09ec7ef8-960b-4c41-8277-f5c1fb93da70">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0288641-1e3e-4afa-9d8e-308eb12dd8f0" xml:space="preserve">
+          <source><bpt id="487a9fd4-ec65-436c-8fd2-b7f8d8be933a">&lt;strong&gt;</bpt>Git Bash:<ept id="487a9fd4-ec65-436c-8fd2-b7f8d8be933a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="487a9fd4-ec65-436c-8fd2-b7f8d8be933a">&lt;strong&gt;</bpt>Git Bash:<ept id="487a9fd4-ec65-436c-8fd2-b7f8d8be933a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90c1013f-6e6e-45c3-8955-70d1df4d73d9" xml:space="preserve">
+          <source>Download and install Cygwin from the following location: <bpt id="d3aa5f54-d4de-4b3d-b0a7-6e646e94ff40">&lt;linkText&gt;</bpt>http://cygwin.com/<ept id="d3aa5f54-d4de-4b3d-b0a7-6e646e94ff40">&lt;/linkText&gt;</ept><bpt id="d3aa5f54-d4de-4b3d-b0a7-6e646e94ff40">&lt;title&gt;</bpt><ept id="d3aa5f54-d4de-4b3d-b0a7-6e646e94ff40">&lt;/title&gt;</ept></source>
+          <target state="new">Download and install Cygwin from the following location: <bpt id="d3aa5f54-d4de-4b3d-b0a7-6e646e94ff40">&lt;linkText&gt;</bpt>http://cygwin.com/<ept id="d3aa5f54-d4de-4b3d-b0a7-6e646e94ff40">&lt;/linkText&gt;</ept><bpt id="d3aa5f54-d4de-4b3d-b0a7-6e646e94ff40">&lt;title&gt;</bpt><ept id="d3aa5f54-d4de-4b3d-b0a7-6e646e94ff40">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1dc2c4c-50b2-49d4-aedf-b27a75abef20" xml:space="preserve">
+          <source>Ensure that the OpenSSL package and all of its dependencies are installed.</source>
+          <target state="new">Ensure that the OpenSSL package and all of its dependencies are installed.</target>
+        </trans-unit>
+        <trans-unit id="cef35994-ecda-435d-857e-46b9d5d07c42" xml:space="preserve">
+          <source>Run <bpt id="da209ab4-1b0b-47d4-b842-9141d66e8cc1">&lt;code&gt;</bpt>cygwin<ept id="da209ab4-1b0b-47d4-b842-9141d66e8cc1">&lt;/code&gt;</ept></source>
+          <target state="new">Run <bpt id="da209ab4-1b0b-47d4-b842-9141d66e8cc1">&lt;code&gt;</bpt>cygwin<ept id="da209ab4-1b0b-47d4-b842-9141d66e8cc1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40c03011-cfbc-480d-9787-776dd5974cf7" xml:space="preserve">
+          <source>Follow one of the set of instructions above to be able to run <bpt id="33bd5357-da52-4139-9c81-5641f14bfa40">&lt;code&gt;</bpt>openssl.exe<ept id="33bd5357-da52-4139-9c81-5641f14bfa40">&lt;/code&gt;</ept></source>
+          <target state="new">Follow one of the set of instructions above to be able to run <bpt id="33bd5357-da52-4139-9c81-5641f14bfa40">&lt;code&gt;</bpt>openssl.exe<ept id="33bd5357-da52-4139-9c81-5641f14bfa40">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47b33e4e-8d7b-4e5e-9a53-aebd8c562d11" xml:space="preserve">
+          <source>Type in the following command:</source>
+          <target state="new">Type in the following command:</target>
+        </trans-unit>
+        <trans-unit id="c9fca91a-6bb5-4403-81d4-0738354a89ab" xml:space="preserve">
+          <source>Your screen should look like the following:</source>
+          <target state="new">Your screen should look like the following:</target>
+        </trans-unit>
+        <trans-unit id="2b26f37b-f0a3-43e9-a608-b6a4d3f878d3" xml:space="preserve">
+          <source><bpt id="eec1faf3-1c66-4b68-b2e6-fec1fbec4a52">&lt;linkText&gt;</bpt>linuxwelcomegit<ept id="eec1faf3-1c66-4b68-b2e6-fec1fbec4a52">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eec1faf3-1c66-4b68-b2e6-fec1fbec4a52">&lt;linkText&gt;</bpt>linuxwelcomegit<ept id="eec1faf3-1c66-4b68-b2e6-fec1fbec4a52">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4425028-4d27-4e6a-bf03-d79ac8872209" xml:space="preserve">
+          <source>Answer the questions that are asked.</source>
+          <target state="new">Answer the questions that are asked.</target>
+        </trans-unit>
+        <trans-unit id="26ea1d72-32a2-4d79-be79-49d63339b3c7" xml:space="preserve">
+          <source>It would have created two files: <bpt id="239e335f-8cb7-40e4-9efd-6e7e751b9708">&lt;code&gt;</bpt>myPrivateKey.key<ept id="239e335f-8cb7-40e4-9efd-6e7e751b9708">&lt;/code&gt;</ept> and <bpt id="2f9022ec-9ca9-4fe1-a103-463b9808c8dd">&lt;code&gt;</bpt>myCert.pem<ept id="2f9022ec-9ca9-4fe1-a103-463b9808c8dd">&lt;/code&gt;</ept>.</source>
+          <target state="new">It would have created two files: <bpt id="239e335f-8cb7-40e4-9efd-6e7e751b9708">&lt;code&gt;</bpt>myPrivateKey.key<ept id="239e335f-8cb7-40e4-9efd-6e7e751b9708">&lt;/code&gt;</ept> and <bpt id="2f9022ec-9ca9-4fe1-a103-463b9808c8dd">&lt;code&gt;</bpt>myCert.pem<ept id="2f9022ec-9ca9-4fe1-a103-463b9808c8dd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3887cbc7-9d13-4417-a81d-69db557194a3" xml:space="preserve">
+          <source>If you are going to use the API directly, and not use the Management Portal, convert the <bpt id="836872a8-1e87-4773-930b-938c921cc412">&lt;code&gt;</bpt>myCert.pem<ept id="836872a8-1e87-4773-930b-938c921cc412">&lt;/code&gt;</ept> to <bpt id="0fe3c3d7-6d73-42d9-abb1-e85028a17276">&lt;code&gt;</bpt>myCert.cer<ept id="0fe3c3d7-6d73-42d9-abb1-e85028a17276">&lt;/code&gt;</ept> (DER encoded X509 certificate) using the following command:</source>
+          <target state="new">If you are going to use the API directly, and not use the Management Portal, convert the <bpt id="836872a8-1e87-4773-930b-938c921cc412">&lt;code&gt;</bpt>myCert.pem<ept id="836872a8-1e87-4773-930b-938c921cc412">&lt;/code&gt;</ept> to <bpt id="0fe3c3d7-6d73-42d9-abb1-e85028a17276">&lt;code&gt;</bpt>myCert.cer<ept id="0fe3c3d7-6d73-42d9-abb1-e85028a17276">&lt;/code&gt;</ept> (DER encoded X509 certificate) using the following command:</target>
+        </trans-unit>
+        <trans-unit id="6687da4c-395d-40ce-b263-eff2f2235f36" xml:space="preserve">
+          <source>Download and install Puttygen from the following location: <bpt id="50e0ccb0-f63f-4025-b2e4-d013f9e6f61f">&lt;linkText&gt;</bpt>http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html<ept id="50e0ccb0-f63f-4025-b2e4-d013f9e6f61f">&lt;/linkText&gt;</ept><bpt id="50e0ccb0-f63f-4025-b2e4-d013f9e6f61f">&lt;title&gt;</bpt><ept id="50e0ccb0-f63f-4025-b2e4-d013f9e6f61f">&lt;/title&gt;</ept></source>
+          <target state="new">Download and install Puttygen from the following location: <bpt id="50e0ccb0-f63f-4025-b2e4-d013f9e6f61f">&lt;linkText&gt;</bpt>http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html<ept id="50e0ccb0-f63f-4025-b2e4-d013f9e6f61f">&lt;/linkText&gt;</ept><bpt id="50e0ccb0-f63f-4025-b2e4-d013f9e6f61f">&lt;title&gt;</bpt><ept id="50e0ccb0-f63f-4025-b2e4-d013f9e6f61f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95969d64-fda5-4527-9cc9-31adf0b7136f" xml:space="preserve">
+          <source>Puttygen may not be able to read the private key that was created earlier (<bpt id="2062c470-2e74-4ed3-944f-5ec83eed1d9e">&lt;code&gt;</bpt>myPrivateKey.key<ept id="2062c470-2e74-4ed3-944f-5ec83eed1d9e">&lt;/code&gt;</ept>).</source>
+          <target state="new">Puttygen may not be able to read the private key that was created earlier (<bpt id="2062c470-2e74-4ed3-944f-5ec83eed1d9e">&lt;code&gt;</bpt>myPrivateKey.key<ept id="2062c470-2e74-4ed3-944f-5ec83eed1d9e">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="91121fa2-ff62-4127-bf57-38f887abf508" xml:space="preserve">
+          <source>Run the following command to translate it into an RSA private key that Puttygen can understand:</source>
+          <target state="new">Run the following command to translate it into an RSA private key that Puttygen can understand:</target>
+        </trans-unit>
+        <trans-unit id="1318d54a-3f78-47a1-a8c6-ff1bf18576b4" xml:space="preserve">
+          <source>The command above should produce a new private key called myPrivateKey_rsa.</source>
+          <target state="new">The command above should produce a new private key called myPrivateKey_rsa.</target>
+        </trans-unit>
+        <trans-unit id="982ca91f-31e1-43b2-9b4b-255b1e5eddf3" xml:space="preserve">
+          <source>Run <bpt id="344c49d9-e62f-44f9-9384-e79869ebc1b1">&lt;code&gt;</bpt>puttygen.exe<ept id="344c49d9-e62f-44f9-9384-e79869ebc1b1">&lt;/code&gt;</ept></source>
+          <target state="new">Run <bpt id="344c49d9-e62f-44f9-9384-e79869ebc1b1">&lt;code&gt;</bpt>puttygen.exe<ept id="344c49d9-e62f-44f9-9384-e79869ebc1b1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="caacf705-b3fa-48f0-8bf8-79185678599b" xml:space="preserve">
+          <source>Click the menu: File &gt; Load a Private Key</source>
+          <target state="new">Click the menu: File &gt; Load a Private Key</target>
+        </trans-unit>
+        <trans-unit id="a5418f8d-ba91-43a5-bd59-1e01c04a93cc" xml:space="preserve">
+          <source>Find your private key, which we named <bpt id="f2de4fba-7c98-4134-b388-dd5fc0cb16b1">&lt;code&gt;</bpt>myPrivateKey_rsa<ept id="f2de4fba-7c98-4134-b388-dd5fc0cb16b1">&lt;/code&gt;</ept> above.</source>
+          <target state="new">Find your private key, which we named <bpt id="f2de4fba-7c98-4134-b388-dd5fc0cb16b1">&lt;code&gt;</bpt>myPrivateKey_rsa<ept id="f2de4fba-7c98-4134-b388-dd5fc0cb16b1">&lt;/code&gt;</ept> above.</target>
+        </trans-unit>
+        <trans-unit id="bce2c414-e808-4e0f-a0a2-503f94b6ecd0" xml:space="preserve">
+          <source>You will need to change the file filter to show <bpt id="69eca533-ab02-499d-8d33-a479120f1c36">&lt;strong&gt;</bpt>All Files (\*.\*)<ept id="69eca533-ab02-499d-8d33-a479120f1c36">&lt;/strong&gt;</ept></source>
+          <target state="new">You will need to change the file filter to show <bpt id="69eca533-ab02-499d-8d33-a479120f1c36">&lt;strong&gt;</bpt>All Files (\*.\*)<ept id="69eca533-ab02-499d-8d33-a479120f1c36">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b67cfc31-c8a1-4172-bb29-a868aa0dd389" xml:space="preserve">
+          <source>Click <bpt id="aec0c5c2-8d54-489d-8ad1-083f813a1e81">&lt;strong&gt;</bpt>Open<ept id="aec0c5c2-8d54-489d-8ad1-083f813a1e81">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="aec0c5c2-8d54-489d-8ad1-083f813a1e81">&lt;strong&gt;</bpt>Open<ept id="aec0c5c2-8d54-489d-8ad1-083f813a1e81">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="042bcaca-44f3-42af-bc2f-36058c5cf56f" xml:space="preserve">
+          <source>You will receive a prompt which should look like this:</source>
+          <target state="new">You will receive a prompt which should look like this:</target>
+        </trans-unit>
+        <trans-unit id="e2822a32-bdca-41da-8235-028c31d37b52" xml:space="preserve">
+          <source><bpt id="22c81baa-1c1f-40dc-b239-098d997c7451">&lt;linkText&gt;</bpt>linuxgoodforeignkey<ept id="22c81baa-1c1f-40dc-b239-098d997c7451">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22c81baa-1c1f-40dc-b239-098d997c7451">&lt;linkText&gt;</bpt>linuxgoodforeignkey<ept id="22c81baa-1c1f-40dc-b239-098d997c7451">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3afc149-8348-42bb-9edc-a04d4754ad85" xml:space="preserve">
+          <source>Click <bpt id="d97dd824-8d2e-4083-833d-bd19505c526f">&lt;strong&gt;</bpt>OK<ept id="d97dd824-8d2e-4083-833d-bd19505c526f">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="d97dd824-8d2e-4083-833d-bd19505c526f">&lt;strong&gt;</bpt>OK<ept id="d97dd824-8d2e-4083-833d-bd19505c526f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50eefd12-909a-40c7-9873-289c8145c08d" xml:space="preserve">
+          <source>Click <bpt id="0f9954c1-dfb8-4bbc-bdc3-dcb41e6f59c1">&lt;strong&gt;</bpt>Save Private Key<ept id="0f9954c1-dfb8-4bbc-bdc3-dcb41e6f59c1">&lt;/strong&gt;</ept>, which is highlighted in the screenshot below:</source>
+          <target state="new">Click <bpt id="0f9954c1-dfb8-4bbc-bdc3-dcb41e6f59c1">&lt;strong&gt;</bpt>Save Private Key<ept id="0f9954c1-dfb8-4bbc-bdc3-dcb41e6f59c1">&lt;/strong&gt;</ept>, which is highlighted in the screenshot below:</target>
+        </trans-unit>
+        <trans-unit id="ef2cc66f-ce74-4076-9638-052bf6dc32e3" xml:space="preserve">
+          <source><bpt id="1fdc9117-0825-43a2-a797-b7bba2c651d8">&lt;linkText&gt;</bpt>linuxputtyprivatekey<ept id="1fdc9117-0825-43a2-a797-b7bba2c651d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1fdc9117-0825-43a2-a797-b7bba2c651d8">&lt;linkText&gt;</bpt>linuxputtyprivatekey<ept id="1fdc9117-0825-43a2-a797-b7bba2c651d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c816ad7b-bed6-4630-9e3e-156620f3d340" xml:space="preserve">
+          <source>Save the file as a PPK</source>
+          <target state="new">Save the file as a PPK</target>
+        </trans-unit>
+        <trans-unit id="892647fe-eeef-4392-b823-ca6eb9d2d46c" xml:space="preserve">
+          <source>Download and install putty from the following location: <bpt id="a5de644c-624a-4ad4-9115-4b9f4a80996a">&lt;linkText&gt;</bpt>http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html<ept id="a5de644c-624a-4ad4-9115-4b9f4a80996a">&lt;/linkText&gt;</ept><bpt id="a5de644c-624a-4ad4-9115-4b9f4a80996a">&lt;title&gt;</bpt><ept id="a5de644c-624a-4ad4-9115-4b9f4a80996a">&lt;/title&gt;</ept></source>
+          <target state="new">Download and install putty from the following location: <bpt id="a5de644c-624a-4ad4-9115-4b9f4a80996a">&lt;linkText&gt;</bpt>http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html<ept id="a5de644c-624a-4ad4-9115-4b9f4a80996a">&lt;/linkText&gt;</ept><bpt id="a5de644c-624a-4ad4-9115-4b9f4a80996a">&lt;title&gt;</bpt><ept id="a5de644c-624a-4ad4-9115-4b9f4a80996a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="185a2ec9-99be-4713-9b82-1160e2c6f0d0" xml:space="preserve">
+          <source>Run putty.exe</source>
+          <target state="new">Run putty.exe</target>
+        </trans-unit>
+        <trans-unit id="e8472790-286b-4949-9a67-2377f41cd4da" xml:space="preserve">
+          <source>Fill in the host name using the IP from the Management Portal:</source>
+          <target state="new">Fill in the host name using the IP from the Management Portal:</target>
+        </trans-unit>
+        <trans-unit id="7dfeab29-1a46-42d8-bf8e-82e5eeb46726" xml:space="preserve">
+          <source><bpt id="eeac4d38-8a25-4da4-b452-16c46bac78d9">&lt;linkText&gt;</bpt>linuxputtyconfig<ept id="eeac4d38-8a25-4da4-b452-16c46bac78d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eeac4d38-8a25-4da4-b452-16c46bac78d9">&lt;linkText&gt;</bpt>linuxputtyconfig<ept id="eeac4d38-8a25-4da4-b452-16c46bac78d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d91d0c7f-eed4-4b92-90e8-a65f74367f33" xml:space="preserve">
+          <source>Before selecting <bpt id="303bd5e2-84a2-440f-819b-49a3b0a922f8">&lt;strong&gt;</bpt>Open<ept id="303bd5e2-84a2-440f-819b-49a3b0a922f8">&lt;/strong&gt;</ept>, click the Connection &gt; SSH &gt; Auth tab to choose your key.</source>
+          <target state="new">Before selecting <bpt id="303bd5e2-84a2-440f-819b-49a3b0a922f8">&lt;strong&gt;</bpt>Open<ept id="303bd5e2-84a2-440f-819b-49a3b0a922f8">&lt;/strong&gt;</ept>, click the Connection &gt; SSH &gt; Auth tab to choose your key.</target>
+        </trans-unit>
+        <trans-unit id="06bb5835-efbc-4abd-a593-57776e45fdd6" xml:space="preserve">
+          <source>See the screenshot below for the field to fill in:</source>
+          <target state="new">See the screenshot below for the field to fill in:</target>
+        </trans-unit>
+        <trans-unit id="22395052-2799-4247-a231-10fa6960deb7" xml:space="preserve">
+          <source><bpt id="cb0efde1-3481-4099-aa23-c190c16bac09">&lt;linkText&gt;</bpt>linuxputtyprivatekey<ept id="cb0efde1-3481-4099-aa23-c190c16bac09">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb0efde1-3481-4099-aa23-c190c16bac09">&lt;linkText&gt;</bpt>linuxputtyprivatekey<ept id="cb0efde1-3481-4099-aa23-c190c16bac09">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75bcb05a-4c91-4e7a-af30-d561a634450e" xml:space="preserve">
+          <source>Click <bpt id="84ee7774-6e2e-4ba2-8f82-2cf89a779747">&lt;strong&gt;</bpt>Open<ept id="84ee7774-6e2e-4ba2-8f82-2cf89a779747">&lt;/strong&gt;</ept> to connect to your virtual machine</source>
+          <target state="new">Click <bpt id="84ee7774-6e2e-4ba2-8f82-2cf89a779747">&lt;strong&gt;</bpt>Open<ept id="84ee7774-6e2e-4ba2-8f82-2cf89a779747">&lt;/strong&gt;</ept> to connect to your virtual machine</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

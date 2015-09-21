@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="891e8474-3706-4340-a6c3-e5762b0f44aa" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="891e8474-3706-4340-a6c3-e5762b0f44aa" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b377bcae-4550-475f-a85f-18ca7ffdf8ec">
+        <trans-unit id="124217fe-5d58-4ed4-8218-0ae0dec0c780" xml:space="preserve">
+          <source>Install updates manually</source>
+          <target state="new">Install updates manually</target>
+        </trans-unit>
+        <trans-unit id="89ecb215-1e02-4865-85d1-d9168bcdab0a" xml:space="preserve">
+          <source>Explains how to use the StorSimple update feature and the Management Portal to install updates manually.</source>
+          <target state="new">Explains how to use the StorSimple update feature and the Management Portal to install updates manually.</target>
+        </trans-unit>
+        <trans-unit id="c35beea5-dd85-4e1a-879a-f09f1c0a7242" xml:space="preserve">
+          <source>On the <bpt id="2e2ee75a-4ed9-4317-85c9-ef27fc989504">&lt;strong&gt;</bpt>Devices<ept id="2e2ee75a-4ed9-4317-85c9-ef27fc989504">&lt;/strong&gt;</ept> page, select the device on which you want to install updates.</source>
+          <target state="new">On the <bpt id="2e2ee75a-4ed9-4317-85c9-ef27fc989504">&lt;strong&gt;</bpt>Devices<ept id="2e2ee75a-4ed9-4317-85c9-ef27fc989504">&lt;/strong&gt;</ept> page, select the device on which you want to install updates.</target>
+        </trans-unit>
+        <trans-unit id="e192806c-0486-4cf1-b0b8-8324c40b49ef" xml:space="preserve">
+          <source>Navigate to <bpt id="8b8498c0-4e5a-4171-adde-654e4d7e2635">&lt;strong&gt;</bpt>Devices<ept id="8b8498c0-4e5a-4171-adde-654e4d7e2635">&lt;/strong&gt;</ept> &gt; <bpt id="9c3eab11-6112-4151-9fbc-f620277c12b6">&lt;strong&gt;</bpt>Maintenance<ept id="9c3eab11-6112-4151-9fbc-f620277c12b6">&lt;/strong&gt;</ept> and scroll down to <bpt id="1c171051-d1bb-4605-92a5-ba0f8027025a">&lt;strong&gt;</bpt>Software Updates<ept id="1c171051-d1bb-4605-92a5-ba0f8027025a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to <bpt id="8b8498c0-4e5a-4171-adde-654e4d7e2635">&lt;strong&gt;</bpt>Devices<ept id="8b8498c0-4e5a-4171-adde-654e4d7e2635">&lt;/strong&gt;</ept> &gt; <bpt id="9c3eab11-6112-4151-9fbc-f620277c12b6">&lt;strong&gt;</bpt>Maintenance<ept id="9c3eab11-6112-4151-9fbc-f620277c12b6">&lt;/strong&gt;</ept> and scroll down to <bpt id="1c171051-d1bb-4605-92a5-ba0f8027025a">&lt;strong&gt;</bpt>Software Updates<ept id="1c171051-d1bb-4605-92a5-ba0f8027025a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b061a0f-1edc-4b99-bccd-4c3f88332e5c" xml:space="preserve">
+          <source>To check for updates, click <bpt id="756f832f-7401-4743-b5d8-fe88a2816f4f">&lt;strong&gt;</bpt>Check Updates<ept id="756f832f-7401-4743-b5d8-fe88a2816f4f">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">To check for updates, click <bpt id="756f832f-7401-4743-b5d8-fe88a2816f4f">&lt;strong&gt;</bpt>Check Updates<ept id="756f832f-7401-4743-b5d8-fe88a2816f4f">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="afc0cdb3-4864-4c5e-8d96-92fe13738ec6" xml:space="preserve">
+          <source>You will see a message if software updates are available.</source>
+          <target state="new">You will see a message if software updates are available.</target>
+        </trans-unit>
+        <trans-unit id="f1b464a1-521b-4185-849b-4fbb77096cf3" xml:space="preserve">
+          <source>Click <bpt id="1b6c953b-8126-4c35-aee9-70bc3891e2a7">&lt;strong&gt;</bpt>Install Updates<ept id="1b6c953b-8126-4c35-aee9-70bc3891e2a7">&lt;/strong&gt;</ept> to begin updating the device.</source>
+          <target state="new">Click <bpt id="1b6c953b-8126-4c35-aee9-70bc3891e2a7">&lt;strong&gt;</bpt>Install Updates<ept id="1b6c953b-8126-4c35-aee9-70bc3891e2a7">&lt;/strong&gt;</ept> to begin updating the device.</target>
+        </trans-unit>
+        <trans-unit id="d5c16ca4-7506-4e26-a2ed-8ef34e07e8f1" xml:space="preserve">
+          <source>You will be notified when the update is successfully installed.</source>
+          <target state="new">You will be notified when the update is successfully installed.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

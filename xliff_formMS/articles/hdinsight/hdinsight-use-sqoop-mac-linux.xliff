@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3069b8db-0007-4fc1-94e5-ff9618e55ae9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3069b8db-0007-4fc1-94e5-ff9618e55ae9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0a5044dd-89b5-4935-aaaa-5c55a0b8a70e">
+        <trans-unit id="7de58574-af58-4c89-bc34-a8ed5c94a7a6" xml:space="preserve">
+          <source>Use Hadoop Sqoop in HDInsight | Microsoft Azure</source>
+          <target state="new">Use Hadoop Sqoop in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6145b5e2-0472-40dd-b5da-c9f3350c432a" xml:space="preserve">
+          <source>Learn how to run Sqoop import and export between a Linux-based Hadoop on HDInsight cluster and an Azure SQL database.</source>
+          <target state="new">Learn how to run Sqoop import and export between a Linux-based Hadoop on HDInsight cluster and an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="80da49bf-6387-422a-92db-b19941e5713e" xml:space="preserve">
+          <source><bpt id="b7316996-c36e-4ceb-ab04-381b44ab0589">&lt;token href="../../includes/hdinsight-selector-use-sqoop.md"&gt;</bpt><ept id="b7316996-c36e-4ceb-ab04-381b44ab0589">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b7316996-c36e-4ceb-ab04-381b44ab0589">&lt;token href="../../includes/hdinsight-selector-use-sqoop.md"&gt;</bpt><ept id="b7316996-c36e-4ceb-ab04-381b44ab0589">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b7d9172-1ced-4af1-8cac-1ca6be25499a" xml:space="preserve">
+          <source>Learn how to use Sqoop to import and export between a Linux-based HDInsight cluster and Azure SQL Database or SQL Server database.</source>
+          <target state="new">Learn how to use Sqoop to import and export between a Linux-based HDInsight cluster and Azure SQL Database or SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="199d71d8-1a69-4f78-ad8f-e719fd8236b6" xml:space="preserve">
+          <source>The steps in this article use SSH to connect to a Linux-based HDInsight cluster.</source>
+          <target state="new">The steps in this article use SSH to connect to a Linux-based HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="0249e8e9-8c53-4ae4-8f8c-6a32da6a71d2" xml:space="preserve">
+          <source>Windows clients can also use Azure PowerShell to work with Sqoop on Linux-based clusters as documented in <bpt id="de071681-8cc7-43da-b553-61b37c71e6a7">&lt;linkText&gt;</bpt>Use Sqoop with Hadoop in HDInsight (PowerShell)<ept id="de071681-8cc7-43da-b553-61b37c71e6a7">&lt;/linkText&gt;</ept><bpt id="de071681-8cc7-43da-b553-61b37c71e6a7">&lt;title&gt;</bpt><ept id="de071681-8cc7-43da-b553-61b37c71e6a7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Windows clients can also use Azure PowerShell to work with Sqoop on Linux-based clusters as documented in <bpt id="de071681-8cc7-43da-b553-61b37c71e6a7">&lt;linkText&gt;</bpt>Use Sqoop with Hadoop in HDInsight (PowerShell)<ept id="de071681-8cc7-43da-b553-61b37c71e6a7">&lt;/linkText&gt;</ept><bpt id="de071681-8cc7-43da-b553-61b37c71e6a7">&lt;title&gt;</bpt><ept id="de071681-8cc7-43da-b553-61b37c71e6a7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72bb6aa6-8bb0-4221-ba04-e3e865166901" xml:space="preserve">
+          <source>Although Hadoop is a natural choice for processing unstructured and semistructured data, such as logs and files, there may also be a need to process structured data that is stored in relational databases.</source>
+          <target state="new">Although Hadoop is a natural choice for processing unstructured and semistructured data, such as logs and files, there may also be a need to process structured data that is stored in relational databases.</target>
+        </trans-unit>
+        <trans-unit id="b9cb1f8e-ca52-4b32-aaf0-d7333333dd03" xml:space="preserve">
+          <source><bpt id="3b4329f6-40bc-40a6-b9ef-48ed9bffaef6">&lt;linkText&gt;</bpt>Sqoop[sqoop-user-guide-1.4.4]<ept id="3b4329f6-40bc-40a6-b9ef-48ed9bffaef6">&lt;/linkText&gt;</ept><bpt id="3b4329f6-40bc-40a6-b9ef-48ed9bffaef6">&lt;title&gt;</bpt><ept id="3b4329f6-40bc-40a6-b9ef-48ed9bffaef6">&lt;/title&gt;</ept> is a tool designed to transfer data between Hadoop clusters and relational databases.</source>
+          <target state="new"><bpt id="3b4329f6-40bc-40a6-b9ef-48ed9bffaef6">&lt;linkText&gt;</bpt>Sqoop[sqoop-user-guide-1.4.4]<ept id="3b4329f6-40bc-40a6-b9ef-48ed9bffaef6">&lt;/linkText&gt;</ept><bpt id="3b4329f6-40bc-40a6-b9ef-48ed9bffaef6">&lt;title&gt;</bpt><ept id="3b4329f6-40bc-40a6-b9ef-48ed9bffaef6">&lt;/title&gt;</ept> is a tool designed to transfer data between Hadoop clusters and relational databases.</target>
+        </trans-unit>
+        <trans-unit id="d7432e15-ca6c-480d-a6ff-1d08b9cf5ff7" xml:space="preserve">
+          <source>You can use it to import data from a relational database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into an RDBMS.</source>
+          <target state="new">You can use it to import data from a relational database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into an RDBMS.</target>
+        </trans-unit>
+        <trans-unit id="d5232532-7965-4d5f-a7fa-1da519ecd96a" xml:space="preserve">
+          <source>In this tutorial, you are using a SQL Server database for your relational database.</source>
+          <target state="new">In this tutorial, you are using a SQL Server database for your relational database.</target>
+        </trans-unit>
+        <trans-unit id="e8ea12cc-6c68-4e50-a7f4-ed304fc75bc6" xml:space="preserve">
+          <source>For Sqoop versions that are supported on HDInsight clusters, see <bpt id="eb41fb71-2515-402b-9c90-7abb9d3b3dd8">&lt;linkText&gt;</bpt>What's new in the cluster versions provided by HDInsight?[hdinsight-versions]<ept id="eb41fb71-2515-402b-9c90-7abb9d3b3dd8">&lt;/linkText&gt;</ept><bpt id="eb41fb71-2515-402b-9c90-7abb9d3b3dd8">&lt;title&gt;</bpt><ept id="eb41fb71-2515-402b-9c90-7abb9d3b3dd8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Sqoop versions that are supported on HDInsight clusters, see <bpt id="eb41fb71-2515-402b-9c90-7abb9d3b3dd8">&lt;linkText&gt;</bpt>What's new in the cluster versions provided by HDInsight?[hdinsight-versions]<ept id="eb41fb71-2515-402b-9c90-7abb9d3b3dd8">&lt;/linkText&gt;</ept><bpt id="eb41fb71-2515-402b-9c90-7abb9d3b3dd8">&lt;title&gt;</bpt><ept id="eb41fb71-2515-402b-9c90-7abb9d3b3dd8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ba40ee8-214b-4b23-8bf2-562da1790f80" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have the following:</source>
+          <target state="new">Before you begin this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="732c59f1-8d44-489b-8512-5f86861aebe5" xml:space="preserve">
+          <source><bpt id="0ae4d27d-5639-41a0-aff5-a2a15a3e096c">&lt;strong&gt;</bpt>Workstation<ept id="0ae4d27d-5639-41a0-aff5-a2a15a3e096c">&lt;/strong&gt;</ept>: A computer with an SSH client.</source>
+          <target state="new"><bpt id="0ae4d27d-5639-41a0-aff5-a2a15a3e096c">&lt;strong&gt;</bpt>Workstation<ept id="0ae4d27d-5639-41a0-aff5-a2a15a3e096c">&lt;/strong&gt;</ept>: A computer with an SSH client.</target>
+        </trans-unit>
+        <trans-unit id="fb826cb2-40a2-42bb-bbf3-7604f8d83f76" xml:space="preserve">
+          <source><bpt id="94387dc6-c5a3-48e7-853b-54ec6e9b1b5c">&lt;strong&gt;</bpt>Azure CLI<ept id="94387dc6-c5a3-48e7-853b-54ec6e9b1b5c">&lt;/strong&gt;</ept>: For more information, see <bpt id="5430144a-c495-4bc0-9547-83c30b21d000">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="5430144a-c495-4bc0-9547-83c30b21d000">&lt;/linkText&gt;</ept><bpt id="5430144a-c495-4bc0-9547-83c30b21d000">&lt;title&gt;</bpt><ept id="5430144a-c495-4bc0-9547-83c30b21d000">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="94387dc6-c5a3-48e7-853b-54ec6e9b1b5c">&lt;strong&gt;</bpt>Azure CLI<ept id="94387dc6-c5a3-48e7-853b-54ec6e9b1b5c">&lt;/strong&gt;</ept>: For more information, see <bpt id="5430144a-c495-4bc0-9547-83c30b21d000">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="5430144a-c495-4bc0-9547-83c30b21d000">&lt;/linkText&gt;</ept><bpt id="5430144a-c495-4bc0-9547-83c30b21d000">&lt;title&gt;</bpt><ept id="5430144a-c495-4bc0-9547-83c30b21d000">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da5dcbfa-67a7-4758-b92b-d94328d21296" xml:space="preserve">
+          <source><bpt id="d84c1a8b-1ce7-4161-a56a-4138f1dabc34">&lt;strong&gt;</bpt>Linux-based HDInsight cluster<ept id="d84c1a8b-1ce7-4161-a56a-4138f1dabc34">&lt;/strong&gt;</ept>: For instructions about cluster provision, see <bpt id="c5c7753b-9116-449d-bcf8-57e254878852">&lt;linkText&gt;</bpt>Get started using HDInsight<ept id="c5c7753b-9116-449d-bcf8-57e254878852">&lt;/linkText&gt;</ept><bpt id="c5c7753b-9116-449d-bcf8-57e254878852">&lt;title&gt;</bpt><ept id="c5c7753b-9116-449d-bcf8-57e254878852">&lt;/title&gt;</ept> or <bpt id="138af1d7-682a-4de4-a7b7-837eb1497bdd">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="138af1d7-682a-4de4-a7b7-837eb1497bdd">&lt;/linkText&gt;</ept><bpt id="138af1d7-682a-4de4-a7b7-837eb1497bdd">&lt;title&gt;</bpt><ept id="138af1d7-682a-4de4-a7b7-837eb1497bdd">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d84c1a8b-1ce7-4161-a56a-4138f1dabc34">&lt;strong&gt;</bpt>Linux-based HDInsight cluster<ept id="d84c1a8b-1ce7-4161-a56a-4138f1dabc34">&lt;/strong&gt;</ept>: For instructions about cluster provision, see <bpt id="c5c7753b-9116-449d-bcf8-57e254878852">&lt;linkText&gt;</bpt>Get started using HDInsight<ept id="c5c7753b-9116-449d-bcf8-57e254878852">&lt;/linkText&gt;</ept><bpt id="c5c7753b-9116-449d-bcf8-57e254878852">&lt;title&gt;</bpt><ept id="c5c7753b-9116-449d-bcf8-57e254878852">&lt;/title&gt;</ept> or <bpt id="138af1d7-682a-4de4-a7b7-837eb1497bdd">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="138af1d7-682a-4de4-a7b7-837eb1497bdd">&lt;/linkText&gt;</ept><bpt id="138af1d7-682a-4de4-a7b7-837eb1497bdd">&lt;title&gt;</bpt><ept id="138af1d7-682a-4de4-a7b7-837eb1497bdd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="815d1b7f-99de-4802-a0c8-cdb7f7aba641" xml:space="preserve">
+          <source><bpt id="5dd9367b-b320-4abb-b00b-41691ac88df1">&lt;strong&gt;</bpt>Azure SQL database<ept id="5dd9367b-b320-4abb-b00b-41691ac88df1">&lt;/strong&gt;</ept>: This document provides instructions for creating an example SQL database.</source>
+          <target state="new"><bpt id="5dd9367b-b320-4abb-b00b-41691ac88df1">&lt;strong&gt;</bpt>Azure SQL database<ept id="5dd9367b-b320-4abb-b00b-41691ac88df1">&lt;/strong&gt;</ept>: This document provides instructions for creating an example SQL database.</target>
+        </trans-unit>
+        <trans-unit id="2951747f-64bd-4682-a237-0b0725dc8a65" xml:space="preserve">
+          <source>For more information on SQL Database, see <bpt id="765423f1-b099-4275-b676-1d818f74e91f">&lt;linkText&gt;</bpt>Get started using Azure SQL database[sqldatabase-get-started]<ept id="765423f1-b099-4275-b676-1d818f74e91f">&lt;/linkText&gt;</ept><bpt id="765423f1-b099-4275-b676-1d818f74e91f">&lt;title&gt;</bpt><ept id="765423f1-b099-4275-b676-1d818f74e91f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on SQL Database, see <bpt id="765423f1-b099-4275-b676-1d818f74e91f">&lt;linkText&gt;</bpt>Get started using Azure SQL database[sqldatabase-get-started]<ept id="765423f1-b099-4275-b676-1d818f74e91f">&lt;/linkText&gt;</ept><bpt id="765423f1-b099-4275-b676-1d818f74e91f">&lt;title&gt;</bpt><ept id="765423f1-b099-4275-b676-1d818f74e91f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38866d53-1712-4c19-b910-9feda77b9866" xml:space="preserve">
+          <source><bpt id="150dec51-4046-4ef2-9ff1-9bda47155a52">&lt;strong&gt;</bpt>SQL Server<ept id="150dec51-4046-4ef2-9ff1-9bda47155a52">&lt;/strong&gt;</ept>: The steps in this document can also be used, with some modification, with SQL Server.</source>
+          <target state="new"><bpt id="150dec51-4046-4ef2-9ff1-9bda47155a52">&lt;strong&gt;</bpt>SQL Server<ept id="150dec51-4046-4ef2-9ff1-9bda47155a52">&lt;/strong&gt;</ept>: The steps in this document can also be used, with some modification, with SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="0217aa51-f7b9-4b19-be29-d1ea337963cf" xml:space="preserve">
+          <source>For more information on requirements specific to using this article with SQL Server, see the <bpt id="14235157-9f50-46f1-89bf-aee5d3933c76">&lt;linkText&gt;</bpt>Using SQL Server<ept id="14235157-9f50-46f1-89bf-aee5d3933c76">&lt;/linkText&gt;</ept><bpt id="14235157-9f50-46f1-89bf-aee5d3933c76">&lt;title&gt;</bpt><ept id="14235157-9f50-46f1-89bf-aee5d3933c76">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information on requirements specific to using this article with SQL Server, see the <bpt id="14235157-9f50-46f1-89bf-aee5d3933c76">&lt;linkText&gt;</bpt>Using SQL Server<ept id="14235157-9f50-46f1-89bf-aee5d3933c76">&lt;/linkText&gt;</ept><bpt id="14235157-9f50-46f1-89bf-aee5d3933c76">&lt;title&gt;</bpt><ept id="14235157-9f50-46f1-89bf-aee5d3933c76">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="81099a5b-7a22-4d48-8267-0ecbe7de7f25" xml:space="preserve">
+          <source>An HDInsight cluster comes with some sample data.</source>
+          <target state="new">An HDInsight cluster comes with some sample data.</target>
+        </trans-unit>
+        <trans-unit id="2dd750e4-9421-4229-a917-787797dc64a6" xml:space="preserve">
+          <source>You will use a Hive table named <bpt id="0b049fc4-b7f1-410e-83b5-2fdde52fbe0a">&lt;strong&gt;</bpt>hivesampletable<ept id="0b049fc4-b7f1-410e-83b5-2fdde52fbe0a">&lt;/strong&gt;</ept>, which references the data file located at <bpt id="6be65ea7-b1f4-4655-8b2c-486f4943f28f">&lt;strong&gt;</bpt>wasb:///hive/warehouse/hivesampletable<ept id="6be65ea7-b1f4-4655-8b2c-486f4943f28f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You will use a Hive table named <bpt id="0b049fc4-b7f1-410e-83b5-2fdde52fbe0a">&lt;strong&gt;</bpt>hivesampletable<ept id="0b049fc4-b7f1-410e-83b5-2fdde52fbe0a">&lt;/strong&gt;</ept>, which references the data file located at <bpt id="6be65ea7-b1f4-4655-8b2c-486f4943f28f">&lt;strong&gt;</bpt>wasb:///hive/warehouse/hivesampletable<ept id="6be65ea7-b1f4-4655-8b2c-486f4943f28f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edd8a39d-e118-4421-bf4e-2490c49328af" xml:space="preserve">
+          <source>The table contains some mobile device data.</source>
+          <target state="new">The table contains some mobile device data.</target>
+        </trans-unit>
+        <trans-unit id="624d474a-859a-48db-aa8e-94b912de0e78" xml:space="preserve">
+          <source>The Hive table schema is:</source>
+          <target state="new">The Hive table schema is:</target>
+        </trans-unit>
+        <trans-unit id="e0dc786a-cd52-4476-8392-35b90247825e" xml:space="preserve">
+          <source>Field</source>
+          <target state="new">Field</target>
+        </trans-unit>
+        <trans-unit id="37882257-97b4-490f-9906-36c95c08a626" xml:space="preserve">
+          <source>Data type</source>
+          <target state="new">Data type</target>
+        </trans-unit>
+        <trans-unit id="6ac37478-96a0-4834-95ee-3a4aeac0ba7a" xml:space="preserve">
+          <source>clientid</source>
+          <target state="new">clientid</target>
+        </trans-unit>
+        <trans-unit id="a13c50ad-cad3-43c0-91db-1a5622ceb2ea" xml:space="preserve">
+          <source>string</source>
+          <target state="new">string</target>
+        </trans-unit>
+        <trans-unit id="b07ebc8b-2237-4019-a5b7-0cc2a8855f69" xml:space="preserve">
+          <source>querytime</source>
+          <target state="new">querytime</target>
+        </trans-unit>
+        <trans-unit id="8ec66fdf-5179-49dc-a9e8-f9a08452371a" xml:space="preserve">
+          <source>string</source>
+          <target state="new">string</target>
+        </trans-unit>
+        <trans-unit id="ec001eb9-4069-494d-b987-0b0bbb331da5" xml:space="preserve">
+          <source>market</source>
+          <target state="new">market</target>
+        </trans-unit>
+        <trans-unit id="fc2bd4f4-1ed9-437a-a858-076bfe7c714c" xml:space="preserve">
+          <source>string</source>
+          <target state="new">string</target>
+        </trans-unit>
+        <trans-unit id="7594498f-ef6b-4a66-8303-43d957afccd7" xml:space="preserve">
+          <source>deviceplatform</source>
+          <target state="new">deviceplatform</target>
+        </trans-unit>
+        <trans-unit id="740b6979-bdc4-460c-a95b-6cc5255a4292" xml:space="preserve">
+          <source>string</source>
+          <target state="new">string</target>
+        </trans-unit>
+        <trans-unit id="ebf28980-bf1c-4070-859d-5e574db80cf3" xml:space="preserve">
+          <source>devicemake</source>
+          <target state="new">devicemake</target>
+        </trans-unit>
+        <trans-unit id="44613b35-1bc2-46a0-bf54-98476b426d69" xml:space="preserve">
+          <source>string</source>
+          <target state="new">string</target>
+        </trans-unit>
+        <trans-unit id="1163a752-df08-495e-8f64-b0e9c69a9342" xml:space="preserve">
+          <source>devicemodel</source>
+          <target state="new">devicemodel</target>
+        </trans-unit>
+        <trans-unit id="4ec7ebdc-a4a1-4dd6-beb7-e7110968dc82" xml:space="preserve">
+          <source>string</source>
+          <target state="new">string</target>
+        </trans-unit>
+        <trans-unit id="b8844ea2-1825-43ba-b7b6-29cf4665a834" xml:space="preserve">
+          <source>state</source>
+          <target state="new">state</target>
+        </trans-unit>
+        <trans-unit id="9f079739-93d5-4418-85d6-3b2cf783ed03" xml:space="preserve">
+          <source>string</source>
+          <target state="new">string</target>
+        </trans-unit>
+        <trans-unit id="5bd6830b-ffba-4c31-8b94-fa964f06cfbb" xml:space="preserve">
+          <source>country</source>
+          <target state="new">country</target>
+        </trans-unit>
+        <trans-unit id="4fe9ac07-e1b3-4152-9afe-f93b194c7f6d" xml:space="preserve">
+          <source>string</source>
+          <target state="new">string</target>
+        </trans-unit>
+        <trans-unit id="fc4bd05b-d101-4a46-83b8-47878a3726d5" xml:space="preserve">
+          <source>querydwelltime</source>
+          <target state="new">querydwelltime</target>
+        </trans-unit>
+        <trans-unit id="205b54c8-577f-4769-b596-beb4f252c0d2" xml:space="preserve">
+          <source>double</source>
+          <target state="new">double</target>
+        </trans-unit>
+        <trans-unit id="2a3834a2-2122-4890-95e2-65e216d00461" xml:space="preserve">
+          <source>sessionid</source>
+          <target state="new">sessionid</target>
+        </trans-unit>
+        <trans-unit id="69ee49a4-ca3d-4ab5-ba38-027235a9aa77" xml:space="preserve">
+          <source>bigint</source>
+          <target state="new">bigint</target>
+        </trans-unit>
+        <trans-unit id="7d240a13-280c-42b0-8d40-4e5a2a267100" xml:space="preserve">
+          <source>sessionpagevieworder</source>
+          <target state="new">sessionpagevieworder</target>
+        </trans-unit>
+        <trans-unit id="e87cfff9-8bb5-493c-b3d8-33beba715c2d" xml:space="preserve">
+          <source>bigint</source>
+          <target state="new">bigint</target>
+        </trans-unit>
+        <trans-unit id="586c1418-26c8-4a49-bbf2-d410073e4c33" xml:space="preserve">
+          <source>You will first export <bpt id="7a817f06-cf86-4794-9398-91809c9edb69">&lt;strong&gt;</bpt>hivesampletable<ept id="7a817f06-cf86-4794-9398-91809c9edb69">&lt;/strong&gt;</ept> to the Azure SQL database or to SQL Server in a table named <bpt id="df66d5ed-c43d-400f-802c-b8ea7d3aa0cc">&lt;strong&gt;</bpt>mobiledata<ept id="df66d5ed-c43d-400f-802c-b8ea7d3aa0cc">&lt;/strong&gt;</ept>, and then import the table back to HDInsight at <bpt id="226b6af2-6c60-4467-9765-d2cec05b52db">&lt;strong&gt;</bpt>wasb:///tutorials/usesqoop/importeddata<ept id="226b6af2-6c60-4467-9765-d2cec05b52db">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You will first export <bpt id="7a817f06-cf86-4794-9398-91809c9edb69">&lt;strong&gt;</bpt>hivesampletable<ept id="7a817f06-cf86-4794-9398-91809c9edb69">&lt;/strong&gt;</ept> to the Azure SQL database or to SQL Server in a table named <bpt id="df66d5ed-c43d-400f-802c-b8ea7d3aa0cc">&lt;strong&gt;</bpt>mobiledata<ept id="df66d5ed-c43d-400f-802c-b8ea7d3aa0cc">&lt;/strong&gt;</ept>, and then import the table back to HDInsight at <bpt id="226b6af2-6c60-4467-9765-d2cec05b52db">&lt;strong&gt;</bpt>wasb:///tutorials/usesqoop/importeddata<ept id="226b6af2-6c60-4467-9765-d2cec05b52db">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a607023e-6e02-4375-8514-855fdb982f59" xml:space="preserve">
+          <source>Open a terminal or command prompt and use the following command to create a new Azure SQL Database server:</source>
+          <target state="new">Open a terminal or command prompt and use the following command to create a new Azure SQL Database server:</target>
+        </trans-unit>
+        <trans-unit id="c9b7a893-72c3-4381-a56c-37f54bcbee71" xml:space="preserve">
+          <source>For exmaple, <bpt id="f8d698f9-518a-431e-a386-3767afa98ee5">&lt;code&gt;</bpt>azure sql server create admin password "West US"<ept id="f8d698f9-518a-431e-a386-3767afa98ee5">&lt;/code&gt;</ept>.</source>
+          <target state="new">For exmaple, <bpt id="f8d698f9-518a-431e-a386-3767afa98ee5">&lt;code&gt;</bpt>azure sql server create admin password "West US"<ept id="f8d698f9-518a-431e-a386-3767afa98ee5">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f57e51f4-6a1a-44c2-952d-fdb002eb36f5" xml:space="preserve">
+          <source>When the command completes, you will receive a response similar to the following:</source>
+          <target state="new">When the command completes, you will receive a response similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="a453aa1c-1d1f-4079-9d8f-04c85503fa38" xml:space="preserve">
+          <source>Note the server name returned by this command.</source>
+          <target state="new">Note the server name returned by this command.</target>
+        </trans-unit>
+        <trans-unit id="198faffb-f485-4f66-8e79-687fcd7700c3" xml:space="preserve">
+          <source>This is the short name of the SQL Database server that was created.</source>
+          <target state="new">This is the short name of the SQL Database server that was created.</target>
+        </trans-unit>
+        <trans-unit id="450ea30f-f0dd-4e38-b9fe-94c1564c0070" xml:space="preserve">
+          <source>The fully qualified domain name (FQDN) is <bpt id="2684b24d-42ec-42f2-b066-75bac35909f7">&lt;strong&gt;</bpt>&amp;lt;shortname&amp;gt;.database.windows.net<ept id="2684b24d-42ec-42f2-b066-75bac35909f7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The fully qualified domain name (FQDN) is <bpt id="2684b24d-42ec-42f2-b066-75bac35909f7">&lt;strong&gt;</bpt>&amp;lt;shortname&amp;gt;.database.windows.net<ept id="2684b24d-42ec-42f2-b066-75bac35909f7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51be72dc-725d-4b31-a00e-9fa6ee42ee98" xml:space="preserve">
+          <source>Use the following command to create a database named <bpt id="120f5e9a-9c29-4b11-a37b-b9585d17379c">&lt;strong&gt;</bpt>sqooptest<ept id="120f5e9a-9c29-4b11-a37b-b9585d17379c">&lt;/strong&gt;</ept> on the SQL Database server:</source>
+          <target state="new">Use the following command to create a database named <bpt id="120f5e9a-9c29-4b11-a37b-b9585d17379c">&lt;strong&gt;</bpt>sqooptest<ept id="120f5e9a-9c29-4b11-a37b-b9585d17379c">&lt;/strong&gt;</ept> on the SQL Database server:</target>
+        </trans-unit>
+        <trans-unit id="72e4495c-1bcc-4987-8d54-cec79647825b" xml:space="preserve">
+          <source>This will return an "OK" message when it completes.</source>
+          <target state="new">This will return an "OK" message when it completes.</target>
+        </trans-unit>
+        <trans-unit id="166f0582-f560-4c1d-8d49-87630e75ac83" xml:space="preserve">
+          <source>If you receive an error indicating that you do not have access, you may need to add your client workstation's IP address to the SQL Database firewall using the following command:</source>
+          <target state="new">If you receive an error indicating that you do not have access, you may need to add your client workstation's IP address to the SQL Database firewall using the following command:</target>
+        </trans-unit>
+        <trans-unit id="9749c2dc-f419-4eb5-a602-7f78b5b6a597" xml:space="preserve">
+          <source><bpt id="6664c949-e371-46b5-b4c2-77f0ce896cb4">&lt;code&gt;</bpt>sql firewallrule create [options] &lt;serverName&gt; &lt;ruleName&gt; &lt;startIPAddress&gt; &lt;endIPAddress&gt;<ept id="6664c949-e371-46b5-b4c2-77f0ce896cb4">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="6664c949-e371-46b5-b4c2-77f0ce896cb4">&lt;code&gt;</bpt>sql firewallrule create [options] &lt;serverName&gt; &lt;ruleName&gt; &lt;startIPAddress&gt; &lt;endIPAddress&gt;<ept id="6664c949-e371-46b5-b4c2-77f0ce896cb4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7731f944-2f60-4df7-a358-34cb39159dd4" xml:space="preserve">
+          <source>There are many ways to connect to SQL Database to create a table.</source>
+          <target state="new">There are many ways to connect to SQL Database to create a table.</target>
+        </trans-unit>
+        <trans-unit id="544f6a1a-c8b2-4b16-8492-81aa120b2c7d" xml:space="preserve">
+          <source>The following steps use <bpt id="e9d01d44-3ff0-438d-a400-d51eb1d306d4">&lt;linkText&gt;</bpt>FreeTDS<ept id="e9d01d44-3ff0-438d-a400-d51eb1d306d4">&lt;/linkText&gt;</ept><bpt id="e9d01d44-3ff0-438d-a400-d51eb1d306d4">&lt;title&gt;</bpt><ept id="e9d01d44-3ff0-438d-a400-d51eb1d306d4">&lt;/title&gt;</ept> from the HDInsight cluster.</source>
+          <target state="new">The following steps use <bpt id="e9d01d44-3ff0-438d-a400-d51eb1d306d4">&lt;linkText&gt;</bpt>FreeTDS<ept id="e9d01d44-3ff0-438d-a400-d51eb1d306d4">&lt;/linkText&gt;</ept><bpt id="e9d01d44-3ff0-438d-a400-d51eb1d306d4">&lt;title&gt;</bpt><ept id="e9d01d44-3ff0-438d-a400-d51eb1d306d4">&lt;/title&gt;</ept> from the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="8e311ec9-94f1-4eb5-937a-19c25d587766" xml:space="preserve">
+          <source>Use SSH to connect to the Linux-based HDInsight cluster.</source>
+          <target state="new">Use SSH to connect to the Linux-based HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="92c00e61-98fd-43ea-99a9-625a47ae7f18" xml:space="preserve">
+          <source>The address to use when connecting is <bpt id="d804f4f8-6b76-4fb7-b70c-4221aacdd5f8">&lt;code&gt;</bpt>CLUSTERNAME-ssh.azurehdinsight.net<ept id="d804f4f8-6b76-4fb7-b70c-4221aacdd5f8">&lt;/code&gt;</ept> and the port is <bpt id="c8d9f84b-a238-4e20-b9dd-fb4afc07865b">&lt;code&gt;</bpt>22<ept id="c8d9f84b-a238-4e20-b9dd-fb4afc07865b">&lt;/code&gt;</ept>.</source>
+          <target state="new">The address to use when connecting is <bpt id="d804f4f8-6b76-4fb7-b70c-4221aacdd5f8">&lt;code&gt;</bpt>CLUSTERNAME-ssh.azurehdinsight.net<ept id="d804f4f8-6b76-4fb7-b70c-4221aacdd5f8">&lt;/code&gt;</ept> and the port is <bpt id="c8d9f84b-a238-4e20-b9dd-fb4afc07865b">&lt;code&gt;</bpt>22<ept id="c8d9f84b-a238-4e20-b9dd-fb4afc07865b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c332ee72-1537-43f3-915e-88030560da6d" xml:space="preserve">
+          <source>For more information on using SSH to connect to HDInsight, see the following documents:</source>
+          <target state="new">For more information on using SSH to connect to HDInsight, see the following documents:</target>
+        </trans-unit>
+        <trans-unit id="9b577123-69d8-4238-8407-3a509e5b1460" xml:space="preserve">
+          <source><bpt id="8bf9d14e-0cd0-44c1-a31b-c4bce9d8d647">&lt;strong&gt;</bpt>Linux, Unix or OS X clients<ept id="8bf9d14e-0cd0-44c1-a31b-c4bce9d8d647">&lt;/strong&gt;</ept>: See <bpt id="005c709e-ae63-45dd-acb1-9381c22cfd5e">&lt;linkText&gt;</bpt>Connect to a Linux-based HDInsight cluster from Linux, OS X or Unix<ept id="005c709e-ae63-45dd-acb1-9381c22cfd5e">&lt;/linkText&gt;</ept><bpt id="005c709e-ae63-45dd-acb1-9381c22cfd5e">&lt;title&gt;</bpt><ept id="005c709e-ae63-45dd-acb1-9381c22cfd5e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8bf9d14e-0cd0-44c1-a31b-c4bce9d8d647">&lt;strong&gt;</bpt>Linux, Unix or OS X clients<ept id="8bf9d14e-0cd0-44c1-a31b-c4bce9d8d647">&lt;/strong&gt;</ept>: See <bpt id="005c709e-ae63-45dd-acb1-9381c22cfd5e">&lt;linkText&gt;</bpt>Connect to a Linux-based HDInsight cluster from Linux, OS X or Unix<ept id="005c709e-ae63-45dd-acb1-9381c22cfd5e">&lt;/linkText&gt;</ept><bpt id="005c709e-ae63-45dd-acb1-9381c22cfd5e">&lt;title&gt;</bpt><ept id="005c709e-ae63-45dd-acb1-9381c22cfd5e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0515c471-f485-4d09-ba2e-e8c8d3ba8837" xml:space="preserve">
+          <source><bpt id="b3b60237-c847-4541-89ff-9abbabda9ca7">&lt;strong&gt;</bpt>Windows clients<ept id="b3b60237-c847-4541-89ff-9abbabda9ca7">&lt;/strong&gt;</ept>: See <bpt id="8782fb2a-a062-4d45-8ac8-42ea845ac1f2">&lt;linkText&gt;</bpt>Connect to a Linux-based HDInsight cluster from Windows<ept id="8782fb2a-a062-4d45-8ac8-42ea845ac1f2">&lt;/linkText&gt;</ept><bpt id="8782fb2a-a062-4d45-8ac8-42ea845ac1f2">&lt;title&gt;</bpt><ept id="8782fb2a-a062-4d45-8ac8-42ea845ac1f2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b3b60237-c847-4541-89ff-9abbabda9ca7">&lt;strong&gt;</bpt>Windows clients<ept id="b3b60237-c847-4541-89ff-9abbabda9ca7">&lt;/strong&gt;</ept>: See <bpt id="8782fb2a-a062-4d45-8ac8-42ea845ac1f2">&lt;linkText&gt;</bpt>Connect to a Linux-based HDInsight cluster from Windows<ept id="8782fb2a-a062-4d45-8ac8-42ea845ac1f2">&lt;/linkText&gt;</ept><bpt id="8782fb2a-a062-4d45-8ac8-42ea845ac1f2">&lt;title&gt;</bpt><ept id="8782fb2a-a062-4d45-8ac8-42ea845ac1f2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="576c7020-fbac-47a6-b2f4-485475195bb9" xml:space="preserve">
+          <source>Use the following command to install FreeTDS:</source>
+          <target state="new">Use the following command to install FreeTDS:</target>
+        </trans-unit>
+        <trans-unit id="74de4e9b-b71e-415a-a8ce-c758f0037c73" xml:space="preserve">
+          <source>Once FreeTDS has been installed, use the following command to connect to the SQL Database server you created previously:</source>
+          <target state="new">Once FreeTDS has been installed, use the following command to connect to the SQL Database server you created previously:</target>
+        </trans-unit>
+        <trans-unit id="59a56610-4dbf-4962-829a-3db3d8ae97fa" xml:space="preserve">
+          <source>You will receive output similar to the following:</source>
+          <target state="new">You will receive output similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="be47aeb9-068e-4328-aafa-ee11cf8647c7" xml:space="preserve">
+          <source>At the <bpt id="dea162a3-f9a9-4e95-9bf2-07e1a429a58b">&lt;code&gt;</bpt>1&gt;<ept id="dea162a3-f9a9-4e95-9bf2-07e1a429a58b">&lt;/code&gt;</ept> prompt, enter the following lines:</source>
+          <target state="new">At the <bpt id="dea162a3-f9a9-4e95-9bf2-07e1a429a58b">&lt;code&gt;</bpt>1&gt;<ept id="dea162a3-f9a9-4e95-9bf2-07e1a429a58b">&lt;/code&gt;</ept> prompt, enter the following lines:</target>
+        </trans-unit>
+        <trans-unit id="f07ddb31-395c-4009-b1d1-11f636ac51f5" xml:space="preserve">
+          <source>When the <bpt id="fbc94b51-e2d8-4e2e-9795-7218acd9a38f">&lt;code&gt;</bpt>GO<ept id="fbc94b51-e2d8-4e2e-9795-7218acd9a38f">&lt;/code&gt;</ept> statement is entered, the previous statements will be evaluated.</source>
+          <target state="new">When the <bpt id="fbc94b51-e2d8-4e2e-9795-7218acd9a38f">&lt;code&gt;</bpt>GO<ept id="fbc94b51-e2d8-4e2e-9795-7218acd9a38f">&lt;/code&gt;</ept> statement is entered, the previous statements will be evaluated.</target>
+        </trans-unit>
+        <trans-unit id="67790760-91cb-47dd-a6a0-95a442fec2fe" xml:space="preserve">
+          <source>First, the <bpt id="1c10a7fe-96c4-4b9a-8ed8-2a9d57eca47d">&lt;strong&gt;</bpt>mobiledata<ept id="1c10a7fe-96c4-4b9a-8ed8-2a9d57eca47d">&lt;/strong&gt;</ept> table is created, then a clustered index is added to it (required by SQL Database.)</source>
+          <target state="new">First, the <bpt id="1c10a7fe-96c4-4b9a-8ed8-2a9d57eca47d">&lt;strong&gt;</bpt>mobiledata<ept id="1c10a7fe-96c4-4b9a-8ed8-2a9d57eca47d">&lt;/strong&gt;</ept> table is created, then a clustered index is added to it (required by SQL Database.)</target>
+        </trans-unit>
+        <trans-unit id="c8202d5f-3be9-4a63-bbac-84fad2cffa05" xml:space="preserve">
+          <source>Use the following to verify that the table has been created:</source>
+          <target state="new">Use the following to verify that the table has been created:</target>
+        </trans-unit>
+        <trans-unit id="dab56c9e-8740-4f55-979b-58b03e59ed44" xml:space="preserve">
+          <source>You should see output similar to the following:</source>
+          <target state="new">You should see output similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="5e39be54-3ae9-48fc-8455-c4010e68c646" xml:space="preserve">
+          <source>Enter <bpt id="3e9725c4-7186-44f2-8a17-50e61aec24ea">&lt;code&gt;</bpt>exit<ept id="3e9725c4-7186-44f2-8a17-50e61aec24ea">&lt;/code&gt;</ept> at the <bpt id="88dfb35b-d50e-4ee8-8895-f050a30922ee">&lt;code&gt;</bpt>1&gt;<ept id="88dfb35b-d50e-4ee8-8895-f050a30922ee">&lt;/code&gt;</ept> prompt to exit the tsql utility.</source>
+          <target state="new">Enter <bpt id="3e9725c4-7186-44f2-8a17-50e61aec24ea">&lt;code&gt;</bpt>exit<ept id="3e9725c4-7186-44f2-8a17-50e61aec24ea">&lt;/code&gt;</ept> at the <bpt id="88dfb35b-d50e-4ee8-8895-f050a30922ee">&lt;code&gt;</bpt>1&gt;<ept id="88dfb35b-d50e-4ee8-8895-f050a30922ee">&lt;/code&gt;</ept> prompt to exit the tsql utility.</target>
+        </trans-unit>
+        <trans-unit id="335a12be-d617-4f23-93dd-cd0ce0b06ff0" xml:space="preserve">
+          <source>Use the following command to create a link to the SQL Server JDBC driver from the Sqoop lib directory.</source>
+          <target state="new">Use the following command to create a link to the SQL Server JDBC driver from the Sqoop lib directory.</target>
+        </trans-unit>
+        <trans-unit id="3c7d3772-0358-48eb-8d4b-c1d1575eee55" xml:space="preserve">
+          <source>This allows Sqoop to use this driver to talk to SQL Database:</source>
+          <target state="new">This allows Sqoop to use this driver to talk to SQL Database:</target>
+        </trans-unit>
+        <trans-unit id="8c22c871-2cb3-4b96-8e54-48ed561eadda" xml:space="preserve">
+          <source>Use the following command to verify that Sqoop can see your SQL Database:</source>
+          <target state="new">Use the following command to verify that Sqoop can see your SQL Database:</target>
+        </trans-unit>
+        <trans-unit id="d6ad8d21-eca4-4bcd-ac0e-ef4febdbd48c" xml:space="preserve">
+          <source>This should return a list of databases, including the <bpt id="96474e67-8fa6-4390-a64c-ead7fa4724f6">&lt;strong&gt;</bpt>sqooptest<ept id="96474e67-8fa6-4390-a64c-ead7fa4724f6">&lt;/strong&gt;</ept> database that you created earlier.</source>
+          <target state="new">This should return a list of databases, including the <bpt id="96474e67-8fa6-4390-a64c-ead7fa4724f6">&lt;strong&gt;</bpt>sqooptest<ept id="96474e67-8fa6-4390-a64c-ead7fa4724f6">&lt;/strong&gt;</ept> database that you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="4cb34cf2-4e6a-4560-9a25-5e57327d19ae" xml:space="preserve">
+          <source>Use the following command to export data from <bpt id="05dd0c8b-23cd-453b-8e07-6ad2902440f1">&lt;strong&gt;</bpt>hivesampletable<ept id="05dd0c8b-23cd-453b-8e07-6ad2902440f1">&lt;/strong&gt;</ept> to the <bpt id="6028c4e1-b99e-4f48-aec2-d8efebb0a237">&lt;strong&gt;</bpt>mobiledata<ept id="6028c4e1-b99e-4f48-aec2-d8efebb0a237">&lt;/strong&gt;</ept> table:</source>
+          <target state="new">Use the following command to export data from <bpt id="05dd0c8b-23cd-453b-8e07-6ad2902440f1">&lt;strong&gt;</bpt>hivesampletable<ept id="05dd0c8b-23cd-453b-8e07-6ad2902440f1">&lt;/strong&gt;</ept> to the <bpt id="6028c4e1-b99e-4f48-aec2-d8efebb0a237">&lt;strong&gt;</bpt>mobiledata<ept id="6028c4e1-b99e-4f48-aec2-d8efebb0a237">&lt;/strong&gt;</ept> table:</target>
+        </trans-unit>
+        <trans-unit id="89d7e117-8390-439c-bceb-648934db35fe" xml:space="preserve">
+          <source>This instructs Sqoop to connect to SQL Database, to the <bpt id="324e79fb-b4ae-4a26-8df6-3f87e8bc26fd">&lt;strong&gt;</bpt>sqooptest<ept id="324e79fb-b4ae-4a26-8df6-3f87e8bc26fd">&lt;/strong&gt;</ept> database, and export data from the <bpt id="78e52b1e-5ad0-4186-a65a-ad34f7aa2282">&lt;strong&gt;</bpt>wasb:///hive/warehouse/hivesampletable<ept id="78e52b1e-5ad0-4186-a65a-ad34f7aa2282">&lt;/strong&gt;</ept> (physical files for the <bpt id="08e6c539-244e-4bd6-a1d7-02a2c8d07dda">&lt;em&gt;</bpt>hivesampletable<ept id="08e6c539-244e-4bd6-a1d7-02a2c8d07dda">&lt;/em&gt;</ept>,) to the <bpt id="fecf93f2-bcc3-4c81-b92d-87bad5d4c3fa">&lt;strong&gt;</bpt>mobiledata<ept id="fecf93f2-bcc3-4c81-b92d-87bad5d4c3fa">&lt;/strong&gt;</ept> table.</source>
+          <target state="new">This instructs Sqoop to connect to SQL Database, to the <bpt id="324e79fb-b4ae-4a26-8df6-3f87e8bc26fd">&lt;strong&gt;</bpt>sqooptest<ept id="324e79fb-b4ae-4a26-8df6-3f87e8bc26fd">&lt;/strong&gt;</ept> database, and export data from the <bpt id="78e52b1e-5ad0-4186-a65a-ad34f7aa2282">&lt;strong&gt;</bpt>wasb:///hive/warehouse/hivesampletable<ept id="78e52b1e-5ad0-4186-a65a-ad34f7aa2282">&lt;/strong&gt;</ept> (physical files for the <bpt id="08e6c539-244e-4bd6-a1d7-02a2c8d07dda">&lt;em&gt;</bpt>hivesampletable<ept id="08e6c539-244e-4bd6-a1d7-02a2c8d07dda">&lt;/em&gt;</ept>,) to the <bpt id="fecf93f2-bcc3-4c81-b92d-87bad5d4c3fa">&lt;strong&gt;</bpt>mobiledata<ept id="fecf93f2-bcc3-4c81-b92d-87bad5d4c3fa">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="dce8c7b4-cae8-47bf-9af0-f49de8c4eec8" xml:space="preserve">
+          <source>After the command completes, use the following to connect to the database using TSQL:</source>
+          <target state="new">After the command completes, use the following to connect to the database using TSQL:</target>
+        </trans-unit>
+        <trans-unit id="a0e710b9-3c04-48f8-9c52-df9bca26fc1f" xml:space="preserve">
+          <source>Once connected, use the following statements to verify that the data was exported to the <bpt id="e55437e8-5bd3-4ae4-ba15-f2bcc9d747c2">&lt;strong&gt;</bpt>mobiledata<ept id="e55437e8-5bd3-4ae4-ba15-f2bcc9d747c2">&lt;/strong&gt;</ept> table:</source>
+          <target state="new">Once connected, use the following statements to verify that the data was exported to the <bpt id="e55437e8-5bd3-4ae4-ba15-f2bcc9d747c2">&lt;strong&gt;</bpt>mobiledata<ept id="e55437e8-5bd3-4ae4-ba15-f2bcc9d747c2">&lt;/strong&gt;</ept> table:</target>
+        </trans-unit>
+        <trans-unit id="c6f5614c-8179-4e4e-b5aa-ce69d9a83c12" xml:space="preserve">
+          <source>You should see a listing of data in the table.</source>
+          <target state="new">You should see a listing of data in the table.</target>
+        </trans-unit>
+        <trans-unit id="befdabb8-6624-44ca-867e-393037e1863b" xml:space="preserve">
+          <source>Type <bpt id="7a85b353-ec13-4346-aacf-7c26d56622d6">&lt;code&gt;</bpt>exit<ept id="7a85b353-ec13-4346-aacf-7c26d56622d6">&lt;/code&gt;</ept> to exit the tsql utility.</source>
+          <target state="new">Type <bpt id="7a85b353-ec13-4346-aacf-7c26d56622d6">&lt;code&gt;</bpt>exit<ept id="7a85b353-ec13-4346-aacf-7c26d56622d6">&lt;/code&gt;</ept> to exit the tsql utility.</target>
+        </trans-unit>
+        <trans-unit id="bca958d2-47c4-4852-8455-5af023e72306" xml:space="preserve">
+          <source>Use the following to import data from the <bpt id="6fef0759-500d-4acd-8d9b-f2319ac9547d">&lt;strong&gt;</bpt>mobiledata<ept id="6fef0759-500d-4acd-8d9b-f2319ac9547d">&lt;/strong&gt;</ept> table in SQL Database, to the <bpt id="38edba8f-becb-4960-a6e4-e8545d74ece7">&lt;strong&gt;</bpt>wasb:///tutorials/usesqoop/importeddata<ept id="38edba8f-becb-4960-a6e4-e8545d74ece7">&lt;/strong&gt;</ept> directory on HDInsight:</source>
+          <target state="new">Use the following to import data from the <bpt id="6fef0759-500d-4acd-8d9b-f2319ac9547d">&lt;strong&gt;</bpt>mobiledata<ept id="6fef0759-500d-4acd-8d9b-f2319ac9547d">&lt;/strong&gt;</ept> table in SQL Database, to the <bpt id="38edba8f-becb-4960-a6e4-e8545d74ece7">&lt;strong&gt;</bpt>wasb:///tutorials/usesqoop/importeddata<ept id="38edba8f-becb-4960-a6e4-e8545d74ece7">&lt;/strong&gt;</ept> directory on HDInsight:</target>
+        </trans-unit>
+        <trans-unit id="fbe21bb4-3ad1-45ae-ae9d-de9de9cbff66" xml:space="preserve">
+          <source>The imported data will have fields that are separated by a tab character, and the lines will be terminated by a new-line character.</source>
+          <target state="new">The imported data will have fields that are separated by a tab character, and the lines will be terminated by a new-line character.</target>
+        </trans-unit>
+        <trans-unit id="82c6c60a-ef78-4f73-8482-0f946f69ded5" xml:space="preserve">
+          <source>Once the import has completed, use the following command to list out the data in the new directory:</source>
+          <target state="new">Once the import has completed, use the following command to list out the data in the new directory:</target>
+        </trans-unit>
+        <trans-unit id="733f29e3-fc44-4132-89b9-fb10e446f059" xml:space="preserve">
+          <source>You can also use Sqoop to import and export data from SQL Server, either in your data center or on a Virtual Machine hosted in Azure.</source>
+          <target state="new">You can also use Sqoop to import and export data from SQL Server, either in your data center or on a Virtual Machine hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="868cf808-9987-4046-b77a-2d42dfa276fe" xml:space="preserve">
+          <source>The differences between using SQL Database and SQL Server are:</source>
+          <target state="new">The differences between using SQL Database and SQL Server are:</target>
+        </trans-unit>
+        <trans-unit id="83d6f7e9-19d2-422c-a8c4-5448e7174fcb" xml:space="preserve">
+          <source>Both HDInsight and the SQL Server must be on the same Azure Virtual Network</source>
+          <target state="new">Both HDInsight and the SQL Server must be on the same Azure Virtual Network</target>
+        </trans-unit>
+        <trans-unit id="efbb085e-c28b-400c-9a35-8f4297af2cb2" xml:space="preserve">
+          <source>HDInsight supports only location-based virtual networks, and it does not currently work with affinity group-based virtual networks.</source>
+          <target state="new">HDInsight supports only location-based virtual networks, and it does not currently work with affinity group-based virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="ab3e2821-9dd2-4df8-a391-5ad63b04c85a" xml:space="preserve">
+          <source>When you are using SQL Server in your datacenter, you must configure the virtual network as <bpt id="de227933-d9d2-44a7-aa7b-cf487aa86e05">&lt;em&gt;</bpt>site-to-site<ept id="de227933-d9d2-44a7-aa7b-cf487aa86e05">&lt;/em&gt;</ept> or <bpt id="5a905c35-1c3a-487f-a491-67319864a1c0">&lt;em&gt;</bpt>point-to-site<ept id="5a905c35-1c3a-487f-a491-67319864a1c0">&lt;/em&gt;</ept>.</source>
+          <target state="new">When you are using SQL Server in your datacenter, you must configure the virtual network as <bpt id="de227933-d9d2-44a7-aa7b-cf487aa86e05">&lt;em&gt;</bpt>site-to-site<ept id="de227933-d9d2-44a7-aa7b-cf487aa86e05">&lt;/em&gt;</ept> or <bpt id="5a905c35-1c3a-487f-a491-67319864a1c0">&lt;em&gt;</bpt>point-to-site<ept id="5a905c35-1c3a-487f-a491-67319864a1c0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e90921c6-3f31-4d98-9a6f-93ab5ccb6dc5" xml:space="preserve">
+          <source>For <bpt id="1bc8bfa2-aee9-4824-87ed-6004c35d6fc1">&lt;strong&gt;</bpt>point-to-site<ept id="1bc8bfa2-aee9-4824-87ed-6004c35d6fc1">&lt;/strong&gt;</ept> virtual networks, SQL Server must be running the VPN client configuration application, which is available from the <bpt id="4df98b9f-461f-4f86-a0b8-277d297f7b49">&lt;strong&gt;</bpt>Dashboard<ept id="4df98b9f-461f-4f86-a0b8-277d297f7b49">&lt;/strong&gt;</ept> of your Azure virtual network configuration.</source>
+          <target state="new">For <bpt id="1bc8bfa2-aee9-4824-87ed-6004c35d6fc1">&lt;strong&gt;</bpt>point-to-site<ept id="1bc8bfa2-aee9-4824-87ed-6004c35d6fc1">&lt;/strong&gt;</ept> virtual networks, SQL Server must be running the VPN client configuration application, which is available from the <bpt id="4df98b9f-461f-4f86-a0b8-277d297f7b49">&lt;strong&gt;</bpt>Dashboard<ept id="4df98b9f-461f-4f86-a0b8-277d297f7b49">&lt;/strong&gt;</ept> of your Azure virtual network configuration.</target>
+        </trans-unit>
+        <trans-unit id="819c3942-8d4e-4e82-88c9-ed7eea585ac4" xml:space="preserve">
+          <source>For more information on creating and configuring a virtual network, see <bpt id="3546de6a-545f-4f3b-a45c-52656ea6c757">&lt;linkText&gt;</bpt>Virtual Network Configuration Tasks<ept id="3546de6a-545f-4f3b-a45c-52656ea6c757">&lt;/linkText&gt;</ept><bpt id="3546de6a-545f-4f3b-a45c-52656ea6c757">&lt;title&gt;</bpt><ept id="3546de6a-545f-4f3b-a45c-52656ea6c757">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on creating and configuring a virtual network, see <bpt id="3546de6a-545f-4f3b-a45c-52656ea6c757">&lt;linkText&gt;</bpt>Virtual Network Configuration Tasks<ept id="3546de6a-545f-4f3b-a45c-52656ea6c757">&lt;/linkText&gt;</ept><bpt id="3546de6a-545f-4f3b-a45c-52656ea6c757">&lt;title&gt;</bpt><ept id="3546de6a-545f-4f3b-a45c-52656ea6c757">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5fdaa19-0310-4b88-8a3b-416722e769b6" xml:space="preserve">
+          <source>SQL Server must be configured to allow SQL authentication.</source>
+          <target state="new">SQL Server must be configured to allow SQL authentication.</target>
+        </trans-unit>
+        <trans-unit id="e088e45f-45fd-4f75-89e4-f2f96429ffe6" xml:space="preserve">
+          <source>For more information, see <bpt id="12f5c851-db22-4318-837f-2181c2b48f76">&lt;linkText&gt;</bpt>Choose an Authentication Mode<ept id="12f5c851-db22-4318-837f-2181c2b48f76">&lt;/linkText&gt;</ept><bpt id="12f5c851-db22-4318-837f-2181c2b48f76">&lt;title&gt;</bpt><ept id="12f5c851-db22-4318-837f-2181c2b48f76">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="12f5c851-db22-4318-837f-2181c2b48f76">&lt;linkText&gt;</bpt>Choose an Authentication Mode<ept id="12f5c851-db22-4318-837f-2181c2b48f76">&lt;/linkText&gt;</ept><bpt id="12f5c851-db22-4318-837f-2181c2b48f76">&lt;title&gt;</bpt><ept id="12f5c851-db22-4318-837f-2181c2b48f76">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="091474e4-39fb-4a85-8bdf-3d4f66b200e2" xml:space="preserve">
+          <source>You may have to configure SQL Server to accept remote connections.</source>
+          <target state="new">You may have to configure SQL Server to accept remote connections.</target>
+        </trans-unit>
+        <trans-unit id="011677ae-d427-4840-afcb-511e77c9f3db" xml:space="preserve">
+          <source>See <bpt id="f877dc8f-ea65-4888-ad69-2c97a86c5785">&lt;linkText&gt;</bpt>How to troubleshoot connecting to the SQL Server database engine<ept id="f877dc8f-ea65-4888-ad69-2c97a86c5785">&lt;/linkText&gt;</ept><bpt id="f877dc8f-ea65-4888-ad69-2c97a86c5785">&lt;title&gt;</bpt><ept id="f877dc8f-ea65-4888-ad69-2c97a86c5785">&lt;/title&gt;</ept> for more information</source>
+          <target state="new">See <bpt id="f877dc8f-ea65-4888-ad69-2c97a86c5785">&lt;linkText&gt;</bpt>How to troubleshoot connecting to the SQL Server database engine<ept id="f877dc8f-ea65-4888-ad69-2c97a86c5785">&lt;/linkText&gt;</ept><bpt id="f877dc8f-ea65-4888-ad69-2c97a86c5785">&lt;title&gt;</bpt><ept id="f877dc8f-ea65-4888-ad69-2c97a86c5785">&lt;/title&gt;</ept> for more information</target>
+        </trans-unit>
+        <trans-unit id="22da38e2-d4ff-448e-9ad7-9171fbc0304d" xml:space="preserve">
+          <source>You must create the <bpt id="0b8902d0-cf64-486d-8706-c3bc0767cb66">&lt;strong&gt;</bpt>sqooptest<ept id="0b8902d0-cf64-486d-8706-c3bc0767cb66">&lt;/strong&gt;</ept> database in SQL Server using a utility such as <bpt id="eb5ab392-23a5-4b39-b962-d42efa4f932c">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="eb5ab392-23a5-4b39-b962-d42efa4f932c">&lt;/strong&gt;</ept> or <bpt id="1c264afa-2975-4f2d-a5dc-0847909debb1">&lt;strong&gt;</bpt>tsql<ept id="1c264afa-2975-4f2d-a5dc-0847909debb1">&lt;/strong&gt;</ept> - the steps for using the Azure CLI only work for Azure SQL Database</source>
+          <target state="new">You must create the <bpt id="0b8902d0-cf64-486d-8706-c3bc0767cb66">&lt;strong&gt;</bpt>sqooptest<ept id="0b8902d0-cf64-486d-8706-c3bc0767cb66">&lt;/strong&gt;</ept> database in SQL Server using a utility such as <bpt id="eb5ab392-23a5-4b39-b962-d42efa4f932c">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="eb5ab392-23a5-4b39-b962-d42efa4f932c">&lt;/strong&gt;</ept> or <bpt id="1c264afa-2975-4f2d-a5dc-0847909debb1">&lt;strong&gt;</bpt>tsql<ept id="1c264afa-2975-4f2d-a5dc-0847909debb1">&lt;/strong&gt;</ept> - the steps for using the Azure CLI only work for Azure SQL Database</target>
+        </trans-unit>
+        <trans-unit id="7ae642af-0583-41ac-8c02-33bf88a97cb8" xml:space="preserve">
+          <source>The TSQL statements to create the <bpt id="81f1e426-ec8e-4fed-815d-48fb00a22e55">&lt;strong&gt;</bpt>mobiledata<ept id="81f1e426-ec8e-4fed-815d-48fb00a22e55">&lt;/strong&gt;</ept> table are similar those used for SQL Database, with the exception of creating a clusterd index - this is not required for SQL Server:</source>
+          <target state="new">The TSQL statements to create the <bpt id="81f1e426-ec8e-4fed-815d-48fb00a22e55">&lt;strong&gt;</bpt>mobiledata<ept id="81f1e426-ec8e-4fed-815d-48fb00a22e55">&lt;/strong&gt;</ept> table are similar those used for SQL Database, with the exception of creating a clusterd index - this is not required for SQL Server:</target>
+        </trans-unit>
+        <trans-unit id="4e684a16-728a-4db4-85ea-39c3c4da4f61" xml:space="preserve">
+          <source>When connecting to the SQL Server from HDInsight, you may have to use the IP address of the SQL Server unless you have configured a Domain Name System (DNS) to resolve names on the Azure Virtual Network.</source>
+          <target state="new">When connecting to the SQL Server from HDInsight, you may have to use the IP address of the SQL Server unless you have configured a Domain Name System (DNS) to resolve names on the Azure Virtual Network.</target>
+        </trans-unit>
+        <trans-unit id="e6a7cd8d-c22b-43e4-bf1e-9f62827661d5" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="d72b1796-2259-4c44-a2ec-27ca2bb66ae0" xml:space="preserve">
+          <source>Now you have learned how to use Sqoop.</source>
+          <target state="new">Now you have learned how to use Sqoop.</target>
+        </trans-unit>
+        <trans-unit id="43a8512c-0a17-4b70-8077-284c8c4b5eff" xml:space="preserve">
+          <source>To learn more, see:</source>
+          <target state="new">To learn more, see:</target>
+        </trans-unit>
+        <trans-unit id="f2422e8d-b0d9-448f-8cc2-f52831d372e0" xml:space="preserve">
+          <source><bpt id="11cc7c26-233c-4eda-8198-fcf62e7da9e9">&lt;linkText&gt;</bpt>Use Oozie with HDInsight[hdinsight-use-oozie]<ept id="11cc7c26-233c-4eda-8198-fcf62e7da9e9">&lt;/linkText&gt;</ept><bpt id="11cc7c26-233c-4eda-8198-fcf62e7da9e9">&lt;title&gt;</bpt><ept id="11cc7c26-233c-4eda-8198-fcf62e7da9e9">&lt;/title&gt;</ept>: Use Sqoop action in an Oozie workflow.</source>
+          <target state="new"><bpt id="11cc7c26-233c-4eda-8198-fcf62e7da9e9">&lt;linkText&gt;</bpt>Use Oozie with HDInsight[hdinsight-use-oozie]<ept id="11cc7c26-233c-4eda-8198-fcf62e7da9e9">&lt;/linkText&gt;</ept><bpt id="11cc7c26-233c-4eda-8198-fcf62e7da9e9">&lt;title&gt;</bpt><ept id="11cc7c26-233c-4eda-8198-fcf62e7da9e9">&lt;/title&gt;</ept>: Use Sqoop action in an Oozie workflow.</target>
+        </trans-unit>
+        <trans-unit id="fedb4e75-34c3-4e74-8fbb-db30788e317c" xml:space="preserve">
+          <source><bpt id="568900df-e47a-4027-ae14-fe5e84f2bfd6">&lt;linkText&gt;</bpt>Analyze flight delay data using HDInsight[hdinsight-analyze-flight-data]<ept id="568900df-e47a-4027-ae14-fe5e84f2bfd6">&lt;/linkText&gt;</ept><bpt id="568900df-e47a-4027-ae14-fe5e84f2bfd6">&lt;title&gt;</bpt><ept id="568900df-e47a-4027-ae14-fe5e84f2bfd6">&lt;/title&gt;</ept>: Use Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.</source>
+          <target state="new"><bpt id="568900df-e47a-4027-ae14-fe5e84f2bfd6">&lt;linkText&gt;</bpt>Analyze flight delay data using HDInsight[hdinsight-analyze-flight-data]<ept id="568900df-e47a-4027-ae14-fe5e84f2bfd6">&lt;/linkText&gt;</ept><bpt id="568900df-e47a-4027-ae14-fe5e84f2bfd6">&lt;title&gt;</bpt><ept id="568900df-e47a-4027-ae14-fe5e84f2bfd6">&lt;/title&gt;</ept>: Use Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="bd56ea37-1b53-41fa-b387-48e70933f6d4" xml:space="preserve">
+          <source><bpt id="6c6db324-e729-423b-af51-2f97c45ed423">&lt;linkText&gt;</bpt>Upload data to HDInsight[hdinsight-upload-data]<ept id="6c6db324-e729-423b-af51-2f97c45ed423">&lt;/linkText&gt;</ept><bpt id="6c6db324-e729-423b-af51-2f97c45ed423">&lt;title&gt;</bpt><ept id="6c6db324-e729-423b-af51-2f97c45ed423">&lt;/title&gt;</ept>: Find other methods for uploading data to HDInsight/Azure Blob storage.</source>
+          <target state="new"><bpt id="6c6db324-e729-423b-af51-2f97c45ed423">&lt;linkText&gt;</bpt>Upload data to HDInsight[hdinsight-upload-data]<ept id="6c6db324-e729-423b-af51-2f97c45ed423">&lt;/linkText&gt;</ept><bpt id="6c6db324-e729-423b-af51-2f97c45ed423">&lt;title&gt;</bpt><ept id="6c6db324-e729-423b-af51-2f97c45ed423">&lt;/title&gt;</ept>: Find other methods for uploading data to HDInsight/Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="fc315e9c-6e82-458e-8573-9a79cf8f81dc" xml:space="preserve">
+          <source>hdinsight-component-versioning.md</source>
+          <target state="new">hdinsight-component-versioning.md</target>
+        </trans-unit>
+        <trans-unit id="d3c39425-e33f-4b36-a292-e150ac001060" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="50d74fd5-227c-40ac-bd51-07215e2a3f39" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="5faddf3f-522f-4c6d-aa1a-529287558b9e" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="26342ead-bed4-4abc-9836-6f451b2642a5" xml:space="preserve">
+          <source>hdinsight-analyze-flight-delay-data.md</source>
+          <target state="new">hdinsight-analyze-flight-delay-data.md</target>
+        </trans-unit>
+        <trans-unit id="1827d426-9aba-4daa-8943-67c81124a8e0" xml:space="preserve">
+          <source>hdinsight-use-oozie.md</source>
+          <target state="new">hdinsight-use-oozie.md</target>
+        </trans-unit>
+        <trans-unit id="b6fc0e0f-c6c1-4d08-8b73-595eb0dd806f" xml:space="preserve">
+          <source>hdinsight-upload-data.md</source>
+          <target state="new">hdinsight-upload-data.md</target>
+        </trans-unit>
+        <trans-unit id="27807f51-fee5-42f6-9442-744a041e6575" xml:space="preserve">
+          <source>hdinsight-submit-hadoop-jobs-programmatically.md</source>
+          <target state="new">hdinsight-submit-hadoop-jobs-programmatically.md</target>
+        </trans-unit>
+        <trans-unit id="f72a5b9c-9528-43ce-a67f-e15e0d756a88" xml:space="preserve">
+          <source>../sql-database-get-started.md</source>
+          <target state="new">../sql-database-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="40e5c848-9c7a-4495-850f-affc9a4f555c" xml:space="preserve">
+          <source>../sql-database-create-configure.md</source>
+          <target state="new">../sql-database-create-configure.md</target>
+        </trans-unit>
+        <trans-unit id="077bbf57-dbe5-47ce-92ab-885e5a2275ed" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/hh847889.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/hh847889.aspx</target>
+        </trans-unit>
+        <trans-unit id="d3f59000-28c7-4212-a6ab-fd35f57b0045" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="76005d58-09de-4b57-85d3-187d8585e35b" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/ee176949.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/ee176949.aspx</target>
+        </trans-unit>
+        <trans-unit id="f3df9653-6ba5-4b7e-b999-9f6dd00d9611" xml:space="preserve">
+          <source>https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html</source>
+          <target state="new">https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html</target>
+        </trans-unit>
+      </group>
+      <group id="2609de3b-0ccd-40b0-beb0-3b4ab65dfe81" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,800 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="42519b13-69ee-4d9e-bcbf-e4fb151f2bf4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="42519b13-69ee-4d9e-bcbf-e4fb151f2bf4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7699ef18-1f7f-4f02-8c3f-6a51acf0dbbd">
+        <trans-unit id="cc5af1d1-56f5-496a-858d-54063126cfa7" xml:space="preserve">
+          <source>Network Resource Provider</source>
+          <target state="new">Network Resource Provider</target>
+        </trans-unit>
+        <trans-unit id="c148b0f7-c847-402a-a85e-dc3921138f17" xml:space="preserve">
+          <source>Network Resource Provider</source>
+          <target state="new">Network Resource Provider</target>
+        </trans-unit>
+        <trans-unit id="4c19f8a4-22c0-41a9-b27a-47111750cdc2" xml:space="preserve">
+          <source>An underpinning need in today’s business success, is the ability to build and manage large scale network aware applications in an agile, flexible, secure and repeatable way.</source>
+          <target state="new">An underpinning need in today’s business success, is the ability to build and manage large scale network aware applications in an agile, flexible, secure and repeatable way.</target>
+        </trans-unit>
+        <trans-unit id="c1f705cb-2432-4a69-a3e9-22f7c60a4741" xml:space="preserve">
+          <source>Azure Resource Manager (ARM) enables you to create such applications, as a single collection of resources in resource groups.</source>
+          <target state="new">Azure Resource Manager (ARM) enables you to create such applications, as a single collection of resources in resource groups.</target>
+        </trans-unit>
+        <trans-unit id="e365fc69-438a-4d15-bd61-3fd32de78323" xml:space="preserve">
+          <source>Such resources are managed through various resource providers under ARM.</source>
+          <target state="new">Such resources are managed through various resource providers under ARM.</target>
+        </trans-unit>
+        <trans-unit id="cf33eb66-52ee-4232-a02c-4612b3727a24" xml:space="preserve">
+          <source>Azure Resource Manager (ARM) enables you to create such applications and the associated collection of network resources as a single collection of resources in a resource group.</source>
+          <target state="new">Azure Resource Manager (ARM) enables you to create such applications and the associated collection of network resources as a single collection of resources in a resource group.</target>
+        </trans-unit>
+        <trans-unit id="2b72aa95-7a79-495e-8213-5a67089aae09" xml:space="preserve">
+          <source>The application and the network resources run as a single unit in an ARM resource group.</source>
+          <target state="new">The application and the network resources run as a single unit in an ARM resource group.</target>
+        </trans-unit>
+        <trans-unit id="4fa28daa-d913-4d3c-8b0e-d9568ae25462" xml:space="preserve">
+          <source>You can manage networking resources by using any of the following management interfaces:</source>
+          <target state="new">You can manage networking resources by using any of the following management interfaces:</target>
+        </trans-unit>
+        <trans-unit id="8c312c89-f2f9-4de8-b3cc-c263352dff4c" xml:space="preserve">
+          <source>REST based API</source>
+          <target state="new">REST based API</target>
+        </trans-unit>
+        <trans-unit id="88c5315e-f125-408c-a638-de410db6c64a" xml:space="preserve">
+          <source>PowerShell</source>
+          <target state="new">PowerShell</target>
+        </trans-unit>
+        <trans-unit id="a8af0541-84f3-4247-b6df-ec6670aad05a" xml:space="preserve">
+          <source>.NET SDK</source>
+          <target state="new">.NET SDK</target>
+        </trans-unit>
+        <trans-unit id="016b4928-2646-4b15-a22b-367eceb7ae9c" xml:space="preserve">
+          <source>Node.JS SDK</source>
+          <target state="new">Node.JS SDK</target>
+        </trans-unit>
+        <trans-unit id="7f1420fc-ac29-4917-9de5-318a2293d534" xml:space="preserve">
+          <source>Java SDK</source>
+          <target state="new">Java SDK</target>
+        </trans-unit>
+        <trans-unit id="bcdae7a8-2d94-4d45-be21-77e9d6322ed8" xml:space="preserve">
+          <source>Azure CLI</source>
+          <target state="new">Azure CLI</target>
+        </trans-unit>
+        <trans-unit id="a27f917b-540a-4d89-9539-fa5616a2a54d" xml:space="preserve">
+          <source>Azure Portal</source>
+          <target state="new">Azure Portal</target>
+        </trans-unit>
+        <trans-unit id="eb309f7f-5f63-4907-9205-2c270b142b31" xml:space="preserve">
+          <source>ARM template language</source>
+          <target state="new">ARM template language</target>
+        </trans-unit>
+        <trans-unit id="ad2941a1-5e30-42b9-8513-62a142b48bbd" xml:space="preserve">
+          <source>With the introduction of Network Resource Providers, you can take advantage of the following benefits:</source>
+          <target state="new">With the introduction of Network Resource Providers, you can take advantage of the following benefits:</target>
+        </trans-unit>
+        <trans-unit id="b2f46de8-96fe-4d93-bb07-3e93e5450bcc" xml:space="preserve">
+          <source><bpt id="a5ebe984-8466-4fed-8ad4-23817ccf3b02">&lt;strong&gt;</bpt>Metadata<ept id="a5ebe984-8466-4fed-8ad4-23817ccf3b02">&lt;/strong&gt;</ept> – you can add information to resources using tags.</source>
+          <target state="new"><bpt id="a5ebe984-8466-4fed-8ad4-23817ccf3b02">&lt;strong&gt;</bpt>Metadata<ept id="a5ebe984-8466-4fed-8ad4-23817ccf3b02">&lt;/strong&gt;</ept> – you can add information to resources using tags.</target>
+        </trans-unit>
+        <trans-unit id="d1ae668d-2b1f-4489-8e88-d3828c42f795" xml:space="preserve">
+          <source>These tags can be used to track resource utilization across resource groups and subscriptions.</source>
+          <target state="new">These tags can be used to track resource utilization across resource groups and subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="3e981ec6-9b22-4c49-b99a-11a73145998a" xml:space="preserve">
+          <source><bpt id="ea4a9dbe-5209-4fc1-8d31-8fed4b9eea57">&lt;strong&gt;</bpt>Greater control of your network<ept id="ea4a9dbe-5209-4fc1-8d31-8fed4b9eea57">&lt;/strong&gt;</ept> - network resources are loosely coupled and you can control them in a more granular fashion.</source>
+          <target state="new"><bpt id="ea4a9dbe-5209-4fc1-8d31-8fed4b9eea57">&lt;strong&gt;</bpt>Greater control of your network<ept id="ea4a9dbe-5209-4fc1-8d31-8fed4b9eea57">&lt;/strong&gt;</ept> - network resources are loosely coupled and you can control them in a more granular fashion.</target>
+        </trans-unit>
+        <trans-unit id="51e20979-95d8-498d-9b20-0b717cc113ce" xml:space="preserve">
+          <source>This means you have more flexibility in managing the networking resources.</source>
+          <target state="new">This means you have more flexibility in managing the networking resources.</target>
+        </trans-unit>
+        <trans-unit id="5acb681f-6799-45cd-ba84-c51b60b704b3" xml:space="preserve">
+          <source><bpt id="70b0822c-3b2e-4cb8-9e26-46dd774a9b90">&lt;strong&gt;</bpt>Faster configuration<ept id="70b0822c-3b2e-4cb8-9e26-46dd774a9b90">&lt;/strong&gt;</ept> - because network resources are loosely coupled, you can create and orchestrate network resources in parallel.</source>
+          <target state="new"><bpt id="70b0822c-3b2e-4cb8-9e26-46dd774a9b90">&lt;strong&gt;</bpt>Faster configuration<ept id="70b0822c-3b2e-4cb8-9e26-46dd774a9b90">&lt;/strong&gt;</ept> - because network resources are loosely coupled, you can create and orchestrate network resources in parallel.</target>
+        </trans-unit>
+        <trans-unit id="3a367561-ebda-41aa-8086-5d638a52c54e" xml:space="preserve">
+          <source>This has drastically reduced configuration time.</source>
+          <target state="new">This has drastically reduced configuration time.</target>
+        </trans-unit>
+        <trans-unit id="4c75574c-61d1-48ea-aad5-690e2db984ef" xml:space="preserve">
+          <source><bpt id="680edfee-cd1a-4b15-a59d-5e10a5e346cd">&lt;strong&gt;</bpt>Role Based Access Control<ept id="680edfee-cd1a-4b15-a59d-5e10a5e346cd">&lt;/strong&gt;</ept> - RBAC provides default roles, with specific security scope, in addition to allowing the creation of custom roles for secure management.</source>
+          <target state="new"><bpt id="680edfee-cd1a-4b15-a59d-5e10a5e346cd">&lt;strong&gt;</bpt>Role Based Access Control<ept id="680edfee-cd1a-4b15-a59d-5e10a5e346cd">&lt;/strong&gt;</ept> - RBAC provides default roles, with specific security scope, in addition to allowing the creation of custom roles for secure management.</target>
+        </trans-unit>
+        <trans-unit id="c307f318-2514-4b8d-b39e-f1d666f55a7b" xml:space="preserve">
+          <source><bpt id="d7b90c9b-16c5-44e1-ae28-a37b46ed43de">&lt;strong&gt;</bpt>Easier management and deployment<ept id="d7b90c9b-16c5-44e1-ae28-a37b46ed43de">&lt;/strong&gt;</ept> - it’s easier to deploy and manage applications since you can can create an entire application stack as a single collection of resources in a resource group.</source>
+          <target state="new"><bpt id="d7b90c9b-16c5-44e1-ae28-a37b46ed43de">&lt;strong&gt;</bpt>Easier management and deployment<ept id="d7b90c9b-16c5-44e1-ae28-a37b46ed43de">&lt;/strong&gt;</ept> - it’s easier to deploy and manage applications since you can can create an entire application stack as a single collection of resources in a resource group.</target>
+        </trans-unit>
+        <trans-unit id="dcd4ea9b-f189-4515-9b56-8c418dacf149" xml:space="preserve">
+          <source>And faster to deploy, since you can deploy by simply providing a template JSON payload.</source>
+          <target state="new">And faster to deploy, since you can deploy by simply providing a template JSON payload.</target>
+        </trans-unit>
+        <trans-unit id="458af0b5-d334-4f57-8516-20c50f5d25e0" xml:space="preserve">
+          <source><bpt id="0c11c2c0-8331-47e7-86b2-ccfe965a1f92">&lt;strong&gt;</bpt>Rapid customization<ept id="0c11c2c0-8331-47e7-86b2-ccfe965a1f92">&lt;/strong&gt;</ept> - you can use declarative-style templates to enable repeatable and rapid customization of deployments.</source>
+          <target state="new"><bpt id="0c11c2c0-8331-47e7-86b2-ccfe965a1f92">&lt;strong&gt;</bpt>Rapid customization<ept id="0c11c2c0-8331-47e7-86b2-ccfe965a1f92">&lt;/strong&gt;</ept> - you can use declarative-style templates to enable repeatable and rapid customization of deployments.</target>
+        </trans-unit>
+        <trans-unit id="d5338913-7a38-4962-a0de-c512d5fd7bff" xml:space="preserve">
+          <source><bpt id="87f4b6ba-faef-482b-8db1-ee91da1ba00a">&lt;strong&gt;</bpt>Repeatable customization<ept id="87f4b6ba-faef-482b-8db1-ee91da1ba00a">&lt;/strong&gt;</ept> - you can use declarative-style templates to enable repeatable and rapid customization of deployments.</source>
+          <target state="new"><bpt id="87f4b6ba-faef-482b-8db1-ee91da1ba00a">&lt;strong&gt;</bpt>Repeatable customization<ept id="87f4b6ba-faef-482b-8db1-ee91da1ba00a">&lt;/strong&gt;</ept> - you can use declarative-style templates to enable repeatable and rapid customization of deployments.</target>
+        </trans-unit>
+        <trans-unit id="ff30e088-bb21-4734-b375-cefde1aeee89" xml:space="preserve">
+          <source>You can now manage network resources independently, instead of having them all managed through a single compute resource (a virtual machine).</source>
+          <target state="new">You can now manage network resources independently, instead of having them all managed through a single compute resource (a virtual machine).</target>
+        </trans-unit>
+        <trans-unit id="9d96d5fc-e7f8-476f-b613-392ebb2064c4" xml:space="preserve">
+          <source>This ensures a higher degree of flexibility and agility in composing a complex and large scale infrastructure in a resource group.</source>
+          <target state="new">This ensures a higher degree of flexibility and agility in composing a complex and large scale infrastructure in a resource group.</target>
+        </trans-unit>
+        <trans-unit id="1ea99ce2-b8f7-4fb4-b503-231472a150e8" xml:space="preserve">
+          <source>The diagram below illustrates a high-level view of the network resource model and its associations.</source>
+          <target state="new">The diagram below illustrates a high-level view of the network resource model and its associations.</target>
+        </trans-unit>
+        <trans-unit id="fd7c9964-a872-4fd6-b4fb-6257f3094c92" xml:space="preserve">
+          <source>Top level resources are colored with a blue outline.</source>
+          <target state="new">Top level resources are colored with a blue outline.</target>
+        </trans-unit>
+        <trans-unit id="ccd7fd09-c80f-4d62-be2b-e770b6b804c2" xml:space="preserve">
+          <source>In addition to top level resources, you can see child resources colored with a gray outline.</source>
+          <target state="new">In addition to top level resources, you can see child resources colored with a gray outline.</target>
+        </trans-unit>
+        <trans-unit id="52e90d16-f89d-4b92-803e-a4b5f967a0bb" xml:space="preserve">
+          <source>You can manage each resource individually.</source>
+          <target state="new">You can manage each resource individually.</target>
+        </trans-unit>
+        <trans-unit id="ed1e6992-bc3a-4556-a427-a5c47ecca6cb" xml:space="preserve">
+          <source><bpt id="6fa140aa-9c98-4788-9276-520f2197fe2d">&lt;linkText&gt;</bpt>Network resource model<ept id="6fa140aa-9c98-4788-9276-520f2197fe2d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6fa140aa-9c98-4788-9276-520f2197fe2d">&lt;linkText&gt;</bpt>Network resource model<ept id="6fa140aa-9c98-4788-9276-520f2197fe2d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94a47458-380c-40ec-b133-e1df1ce8cfb3" xml:space="preserve">
+          <source>A conceptual view of a sample deployment involving a multi-tiered application is presented below.</source>
+          <target state="new">A conceptual view of a sample deployment involving a multi-tiered application is presented below.</target>
+        </trans-unit>
+        <trans-unit id="6433badd-e6f7-4c9e-b189-83d734232b49" xml:space="preserve">
+          <source>All network resources are colored with a blue outline.</source>
+          <target state="new">All network resources are colored with a blue outline.</target>
+        </trans-unit>
+        <trans-unit id="6c3108b1-6e5a-4cb7-99f0-5c96f06422e2" xml:space="preserve">
+          <source><bpt id="60984ec3-72c0-4ab1-9f96-f223cf187833">&lt;linkText&gt;</bpt>Network resource model<ept id="60984ec3-72c0-4ab1-9f96-f223cf187833">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60984ec3-72c0-4ab1-9f96-f223cf187833">&lt;linkText&gt;</bpt>Network resource model<ept id="60984ec3-72c0-4ab1-9f96-f223cf187833">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85017317-2260-4105-8f10-1d54a18284cc" xml:space="preserve">
+          <source>As mentioned earlier, network resources can be managed via a variety of interfaces, including REST API,.NET SDK, Node.JS SDK, Java SDK, PowerShell, CLI, Azure Portal and templates.</source>
+          <target state="new">As mentioned earlier, network resources can be managed via a variety of interfaces, including REST API,.NET SDK, Node.JS SDK, Java SDK, PowerShell, CLI, Azure Portal and templates.</target>
+        </trans-unit>
+        <trans-unit id="64afadea-0edd-4d02-b8c4-7a4ded3b57d0" xml:space="preserve">
+          <source>The Rest API’s conform to the HTTP 1.1 protocol specification.</source>
+          <target state="new">The Rest API’s conform to the HTTP 1.1 protocol specification.</target>
+        </trans-unit>
+        <trans-unit id="f440d112-6592-4a9a-8690-2c0d004c8bcf" xml:space="preserve">
+          <source>The general URI structure of the API is presented below:</source>
+          <target state="new">The general URI structure of the API is presented below:</target>
+        </trans-unit>
+        <trans-unit id="d5bed3c5-7a53-4403-ad51-3986dca93a44" xml:space="preserve">
+          <source>And the parameters in braces represent the following elements:</source>
+          <target state="new">And the parameters in braces represent the following elements:</target>
+        </trans-unit>
+        <trans-unit id="23557875-57fa-4402-acfe-6329b2dd890f" xml:space="preserve">
+          <source><bpt id="5108b5eb-bc90-4be8-bebd-7c2a2caf08d6">&lt;strong&gt;</bpt>subscription-id<ept id="5108b5eb-bc90-4be8-bebd-7c2a2caf08d6">&lt;/strong&gt;</ept> - your Azure subscription id.</source>
+          <target state="new"><bpt id="5108b5eb-bc90-4be8-bebd-7c2a2caf08d6">&lt;strong&gt;</bpt>subscription-id<ept id="5108b5eb-bc90-4be8-bebd-7c2a2caf08d6">&lt;/strong&gt;</ept> - your Azure subscription id.</target>
+        </trans-unit>
+        <trans-unit id="0424e851-9650-4832-bfc1-084fa269bba5" xml:space="preserve">
+          <source><bpt id="c85598e9-8a3d-46b9-b224-a177672e4a02">&lt;strong&gt;</bpt>resource-provider-namespace<ept id="c85598e9-8a3d-46b9-b224-a177672e4a02">&lt;/strong&gt;</ept> - namespace for the provider being used.</source>
+          <target state="new"><bpt id="c85598e9-8a3d-46b9-b224-a177672e4a02">&lt;strong&gt;</bpt>resource-provider-namespace<ept id="c85598e9-8a3d-46b9-b224-a177672e4a02">&lt;/strong&gt;</ept> - namespace for the provider being used.</target>
+        </trans-unit>
+        <trans-unit id="f0dd5a94-622a-40a7-af48-56a1c394391e" xml:space="preserve">
+          <source>THe value for the network resource provider is <bpt id="4dbe9dfb-8beb-46f8-9e8c-dd1c4532f906">&lt;em&gt;</bpt>Microsoft.Network<ept id="4dbe9dfb-8beb-46f8-9e8c-dd1c4532f906">&lt;/em&gt;</ept>.</source>
+          <target state="new">THe value for the network resource provider is <bpt id="4dbe9dfb-8beb-46f8-9e8c-dd1c4532f906">&lt;em&gt;</bpt>Microsoft.Network<ept id="4dbe9dfb-8beb-46f8-9e8c-dd1c4532f906">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4e1536d-5c2d-4633-9ce4-8e8806aee7c9" xml:space="preserve">
+          <source><bpt id="b548229c-a7d8-49dc-9620-8c75f9e77826">&lt;strong&gt;</bpt>region-name<ept id="b548229c-a7d8-49dc-9620-8c75f9e77826">&lt;/strong&gt;</ept> - the Azure region name</source>
+          <target state="new"><bpt id="b548229c-a7d8-49dc-9620-8c75f9e77826">&lt;strong&gt;</bpt>region-name<ept id="b548229c-a7d8-49dc-9620-8c75f9e77826">&lt;/strong&gt;</ept> - the Azure region name</target>
+        </trans-unit>
+        <trans-unit id="c5e18608-43ed-4717-84f9-1244f2e60dff" xml:space="preserve">
+          <source>The following HTTP methods are supported when making calls to the REST API:</source>
+          <target state="new">The following HTTP methods are supported when making calls to the REST API:</target>
+        </trans-unit>
+        <trans-unit id="2aa975ae-5531-420a-8bc2-14cb1a1c0d7f" xml:space="preserve">
+          <source><bpt id="96878cda-feb1-40e4-9b9d-23a2a81a1af2">&lt;strong&gt;</bpt>PUT<ept id="96878cda-feb1-40e4-9b9d-23a2a81a1af2">&lt;/strong&gt;</ept> - used to create a resource of a given type, modify a resource property or change an association between resources.</source>
+          <target state="new"><bpt id="96878cda-feb1-40e4-9b9d-23a2a81a1af2">&lt;strong&gt;</bpt>PUT<ept id="96878cda-feb1-40e4-9b9d-23a2a81a1af2">&lt;/strong&gt;</ept> - used to create a resource of a given type, modify a resource property or change an association between resources.</target>
+        </trans-unit>
+        <trans-unit id="98fea7b5-70a7-4be6-865b-5137f1e2ab60" xml:space="preserve">
+          <source><bpt id="502b18f2-0903-4bf0-b113-8c699c9a30a1">&lt;strong&gt;</bpt>GET<ept id="502b18f2-0903-4bf0-b113-8c699c9a30a1">&lt;/strong&gt;</ept> - used to retrieve information for a provisioned resource.</source>
+          <target state="new"><bpt id="502b18f2-0903-4bf0-b113-8c699c9a30a1">&lt;strong&gt;</bpt>GET<ept id="502b18f2-0903-4bf0-b113-8c699c9a30a1">&lt;/strong&gt;</ept> - used to retrieve information for a provisioned resource.</target>
+        </trans-unit>
+        <trans-unit id="11fc7071-5c26-47dd-8f12-d0e21959dec6" xml:space="preserve">
+          <source><bpt id="dfe5c7fe-d9d6-44fd-814e-8a22fae46ddf">&lt;strong&gt;</bpt>DELETE<ept id="dfe5c7fe-d9d6-44fd-814e-8a22fae46ddf">&lt;/strong&gt;</ept> - used to delete an existing resource.</source>
+          <target state="new"><bpt id="dfe5c7fe-d9d6-44fd-814e-8a22fae46ddf">&lt;strong&gt;</bpt>DELETE<ept id="dfe5c7fe-d9d6-44fd-814e-8a22fae46ddf">&lt;/strong&gt;</ept> - used to delete an existing resource.</target>
+        </trans-unit>
+        <trans-unit id="3e6d6c62-4878-438c-8ba9-b9629c916380" xml:space="preserve">
+          <source>Both the request and response conform to a JSON payload format.</source>
+          <target state="new">Both the request and response conform to a JSON payload format.</target>
+        </trans-unit>
+        <trans-unit id="eef74b9c-7093-457b-832e-89e991774a95" xml:space="preserve">
+          <source>For more details, see <bpt id="2a031cf3-bbab-42bd-8f17-d90bc14bb449">&lt;linkText&gt;</bpt>Azure Resource Management APIs<ept id="2a031cf3-bbab-42bd-8f17-d90bc14bb449">&lt;/linkText&gt;</ept><bpt id="2a031cf3-bbab-42bd-8f17-d90bc14bb449">&lt;title&gt;</bpt><ept id="2a031cf3-bbab-42bd-8f17-d90bc14bb449">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="2a031cf3-bbab-42bd-8f17-d90bc14bb449">&lt;linkText&gt;</bpt>Azure Resource Management APIs<ept id="2a031cf3-bbab-42bd-8f17-d90bc14bb449">&lt;/linkText&gt;</ept><bpt id="2a031cf3-bbab-42bd-8f17-d90bc14bb449">&lt;title&gt;</bpt><ept id="2a031cf3-bbab-42bd-8f17-d90bc14bb449">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82d636fb-b326-4b13-bde8-e635c5d7bfbc" xml:space="preserve">
+          <source>In addition to managing resources imperatively (via APIs or SDK), you can also use a declarative programming style to build and manage network resources by using the ARM Template Language.</source>
+          <target state="new">In addition to managing resources imperatively (via APIs or SDK), you can also use a declarative programming style to build and manage network resources by using the ARM Template Language.</target>
+        </trans-unit>
+        <trans-unit id="62295593-b7e4-4ccb-8b75-cae99729abf5" xml:space="preserve">
+          <source>A sample representation of a template is provided below – </source>
+          <target state="new">A sample representation of a template is provided below – </target>
+        </trans-unit>
+        <trans-unit id="b3b2303d-e719-43d9-bf84-61f3c1b5c848" xml:space="preserve">
+          <source>The template is primarily a JSON description of the resources and the instance values injected via parameters.</source>
+          <target state="new">The template is primarily a JSON description of the resources and the instance values injected via parameters.</target>
+        </trans-unit>
+        <trans-unit id="0a8dfe12-dcbd-47ef-9f56-fa76367dbed9" xml:space="preserve">
+          <source>The example below can be used to create a virtual network with 2 subnets.</source>
+          <target state="new">The example below can be used to create a virtual network with 2 subnets.</target>
+        </trans-unit>
+        <trans-unit id="bcb4550c-0c8d-495f-b83f-4b120268406e" xml:space="preserve">
+          <source>You have the option of providing the parameter values manually when using a template, or you can use a parameter file.</source>
+          <target state="new">You have the option of providing the parameter values manually when using a template, or you can use a parameter file.</target>
+        </trans-unit>
+        <trans-unit id="cd4107f4-bd2d-4184-846a-16401511134a" xml:space="preserve">
+          <source>The example below shows a possible set of parameter values to be used with the template above:</source>
+          <target state="new">The example below shows a possible set of parameter values to be used with the template above:</target>
+        </trans-unit>
+        <trans-unit id="99452bc8-af82-4e71-8ce4-4996bccce158" xml:space="preserve">
+          <source>The main advantages of using templates are:</source>
+          <target state="new">The main advantages of using templates are:</target>
+        </trans-unit>
+        <trans-unit id="b0ea62e5-52cf-4d86-beaa-35ef18d1abcc" xml:space="preserve">
+          <source>You can build a complex infrastructure in a resource group in a declarative style.</source>
+          <target state="new">You can build a complex infrastructure in a resource group in a declarative style.</target>
+        </trans-unit>
+        <trans-unit id="09bd346f-5267-4938-a41a-988db8b1ec84" xml:space="preserve">
+          <source>The orchestration of creating the resources, including dependency management, is handled by ARM.</source>
+          <target state="new">The orchestration of creating the resources, including dependency management, is handled by ARM.</target>
+        </trans-unit>
+        <trans-unit id="d6e6dcac-a15f-4791-8630-97637e84fb3f" xml:space="preserve">
+          <source>The infrastructure can be created in a repeatable way across various regions and within a region by simply changing parameters.</source>
+          <target state="new">The infrastructure can be created in a repeatable way across various regions and within a region by simply changing parameters.</target>
+        </trans-unit>
+        <trans-unit id="e1fdc045-1c7d-4cd8-a90b-b333aa810fbb" xml:space="preserve">
+          <source>The declarative style leads to shorter lead time in building the templates and rolling out the infrastructure.</source>
+          <target state="new">The declarative style leads to shorter lead time in building the templates and rolling out the infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="bca7289d-606e-4a81-b0d6-2ac36b3ec6b5" xml:space="preserve">
+          <source>For sample templates, see <bpt id="c21ee04f-3af2-402e-88b3-195bec7fb387">&lt;linkText&gt;</bpt>Azure quickstart templates<ept id="c21ee04f-3af2-402e-88b3-195bec7fb387">&lt;/linkText&gt;</ept><bpt id="c21ee04f-3af2-402e-88b3-195bec7fb387">&lt;title&gt;</bpt><ept id="c21ee04f-3af2-402e-88b3-195bec7fb387">&lt;/title&gt;</ept>.</source>
+          <target state="new">For sample templates, see <bpt id="c21ee04f-3af2-402e-88b3-195bec7fb387">&lt;linkText&gt;</bpt>Azure quickstart templates<ept id="c21ee04f-3af2-402e-88b3-195bec7fb387">&lt;/linkText&gt;</ept><bpt id="c21ee04f-3af2-402e-88b3-195bec7fb387">&lt;title&gt;</bpt><ept id="c21ee04f-3af2-402e-88b3-195bec7fb387">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b952841-6253-4e15-9849-95b997bc3196" xml:space="preserve">
+          <source>For more information on the ARM Template Language, see <bpt id="7f04dad4-38fd-4158-8cc7-4fba7d938f8a">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="7f04dad4-38fd-4158-8cc7-4fba7d938f8a">&lt;/linkText&gt;</ept><bpt id="7f04dad4-38fd-4158-8cc7-4fba7d938f8a">&lt;title&gt;</bpt><ept id="7f04dad4-38fd-4158-8cc7-4fba7d938f8a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the ARM Template Language, see <bpt id="7f04dad4-38fd-4158-8cc7-4fba7d938f8a">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="7f04dad4-38fd-4158-8cc7-4fba7d938f8a">&lt;/linkText&gt;</ept><bpt id="7f04dad4-38fd-4158-8cc7-4fba7d938f8a">&lt;title&gt;</bpt><ept id="7f04dad4-38fd-4158-8cc7-4fba7d938f8a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33ebb4d9-bdc2-4274-b24c-6e529dc5f010" xml:space="preserve">
+          <source>The sample template above uses the virtual network and subnet resources.</source>
+          <target state="new">The sample template above uses the virtual network and subnet resources.</target>
+        </trans-unit>
+        <trans-unit id="542fa026-6d4f-47ca-b610-84a5da3ed6f7" xml:space="preserve">
+          <source>There are other network resources you can use as listed below:</source>
+          <target state="new">There are other network resources you can use as listed below:</target>
+        </trans-unit>
+        <trans-unit id="48df8a13-74c1-46f6-aea6-b5efea4247b4" xml:space="preserve">
+          <source>Network Interface Card, or NIC, represents a network interface that can be associated to a virtual machine (VM).</source>
+          <target state="new">Network Interface Card, or NIC, represents a network interface that can be associated to a virtual machine (VM).</target>
+        </trans-unit>
+        <trans-unit id="049e5f48-bd5c-4b44-8bdf-617897090226" xml:space="preserve">
+          <source>A VM can have one or more NICs.</source>
+          <target state="new">A VM can have one or more NICs.</target>
+        </trans-unit>
+        <trans-unit id="bc87b0b1-30e0-439a-9ead-7076edd9f821" xml:space="preserve">
+          <source><bpt id="e258782c-fdaf-4c18-84ec-2cfec955f60f">&lt;linkText&gt;</bpt>NIC's on a single VM<ept id="e258782c-fdaf-4c18-84ec-2cfec955f60f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e258782c-fdaf-4c18-84ec-2cfec955f60f">&lt;linkText&gt;</bpt>NIC's on a single VM<ept id="e258782c-fdaf-4c18-84ec-2cfec955f60f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a08eeb14-b028-426f-9531-f6024961ef0f" xml:space="preserve">
+          <source>Key properties of a NIC resource include:</source>
+          <target state="new">Key properties of a NIC resource include:</target>
+        </trans-unit>
+        <trans-unit id="442617bb-77ce-4247-b85e-796b2cd127fe" xml:space="preserve">
+          <source>IP settings</source>
+          <target state="new">IP settings</target>
+        </trans-unit>
+        <trans-unit id="ddc39c63-2e7d-4332-8faf-dfa26098f36c" xml:space="preserve">
+          <source>Internal DNS name</source>
+          <target state="new">Internal DNS name</target>
+        </trans-unit>
+        <trans-unit id="21f25079-0700-4a5e-acb5-d145a2e0b8d6" xml:space="preserve">
+          <source>DNS servers</source>
+          <target state="new">DNS servers</target>
+        </trans-unit>
+        <trans-unit id="013d87a6-c954-4d8a-b7fa-d5145710269e" xml:space="preserve">
+          <source>A NIC can also be associated with the following network resources:</source>
+          <target state="new">A NIC can also be associated with the following network resources:</target>
+        </trans-unit>
+        <trans-unit id="60c3a705-a824-40b8-91b8-341ee4fef7fd" xml:space="preserve">
+          <source>Network Security Group (NSG) </source>
+          <target state="new">Network Security Group (NSG) </target>
+        </trans-unit>
+        <trans-unit id="a38cce09-e892-4f8c-bbc1-05a69c174261" xml:space="preserve">
+          <source>Load balancer</source>
+          <target state="new">Load balancer</target>
+        </trans-unit>
+        <trans-unit id="c2b105f9-853a-4b06-8113-c0ef15d19784" xml:space="preserve">
+          <source>Virtual Networks (VNET) and subnets help define a security boundary for workloads running in Azure.</source>
+          <target state="new">Virtual Networks (VNET) and subnets help define a security boundary for workloads running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="d348833d-c18a-4f44-996f-8b88899f2635" xml:space="preserve">
+          <source>A VNET is characterized by an address space, also referred to as CIDR block.</source>
+          <target state="new">A VNET is characterized by an address space, also referred to as CIDR block.</target>
+        </trans-unit>
+        <trans-unit id="f6c583dd-b610-4d57-909c-1598cb4b5525" xml:space="preserve">
+          <source>A subnet is a child resource of a VNET, and helps define segments of address spaces within a CIDR block, using IP address prefixes.</source>
+          <target state="new">A subnet is a child resource of a VNET, and helps define segments of address spaces within a CIDR block, using IP address prefixes.</target>
+        </trans-unit>
+        <trans-unit id="a0ac47d7-ad87-45f9-aaf7-ec9530b4ddb8" xml:space="preserve">
+          <source>VMs that execute various workloads essentially operate in a subnet boundary.</source>
+          <target state="new">VMs that execute various workloads essentially operate in a subnet boundary.</target>
+        </trans-unit>
+        <trans-unit id="60edb0d8-c670-497b-b26a-d684eea70da7" xml:space="preserve">
+          <source><bpt id="a39f01af-9c14-4c09-82ae-61435d17da11">&lt;linkText&gt;</bpt>NIC's on a single VM<ept id="a39f01af-9c14-4c09-82ae-61435d17da11">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a39f01af-9c14-4c09-82ae-61435d17da11">&lt;linkText&gt;</bpt>NIC's on a single VM<ept id="a39f01af-9c14-4c09-82ae-61435d17da11">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0d30565-d522-4b67-bc61-163d87e9008e" xml:space="preserve">
+          <source>Key properties of a VNET resource include:</source>
+          <target state="new">Key properties of a VNET resource include:</target>
+        </trans-unit>
+        <trans-unit id="14697888-c1f9-445f-a7b6-d2dd0fc4d747" xml:space="preserve">
+          <source>IP address space (CIDR block) </source>
+          <target state="new">IP address space (CIDR block) </target>
+        </trans-unit>
+        <trans-unit id="75f35c74-a612-4db4-952a-23bff1961ab4" xml:space="preserve">
+          <source>VNET name</source>
+          <target state="new">VNET name</target>
+        </trans-unit>
+        <trans-unit id="a98da38e-961a-436f-8040-b06955656ca7" xml:space="preserve">
+          <source>subnets</source>
+          <target state="new">subnets</target>
+        </trans-unit>
+        <trans-unit id="4c374c5e-8cef-4adf-80c4-c5df8dead101" xml:space="preserve">
+          <source>DNS servers</source>
+          <target state="new">DNS servers</target>
+        </trans-unit>
+        <trans-unit id="042a8af6-a35e-4bbf-85a0-a13f803aefb1" xml:space="preserve">
+          <source>A VNET can also be associated with the following network resources:</source>
+          <target state="new">A VNET can also be associated with the following network resources:</target>
+        </trans-unit>
+        <trans-unit id="2d3d16a9-ee63-4d6a-9f58-323aa600dd5a" xml:space="preserve">
+          <source>VPN Gateway</source>
+          <target state="new">VPN Gateway</target>
+        </trans-unit>
+        <trans-unit id="90646f89-02b9-4e72-bf19-1629be2005f4" xml:space="preserve">
+          <source>Key properties of a subnet include:</source>
+          <target state="new">Key properties of a subnet include:</target>
+        </trans-unit>
+        <trans-unit id="8303d098-c914-4d28-8e47-8c91950f2624" xml:space="preserve">
+          <source>IP address prefix</source>
+          <target state="new">IP address prefix</target>
+        </trans-unit>
+        <trans-unit id="3c7ddb71-cb8c-45b8-b46e-82bb4d2e5908" xml:space="preserve">
+          <source>Subnet name</source>
+          <target state="new">Subnet name</target>
+        </trans-unit>
+        <trans-unit id="ef970994-7bd7-4117-8eb3-2f5309dec532" xml:space="preserve">
+          <source>A subnet can also be associated with the following network resources:</source>
+          <target state="new">A subnet can also be associated with the following network resources:</target>
+        </trans-unit>
+        <trans-unit id="9149bbfd-d1ed-480b-bce3-5f883d751b31" xml:space="preserve">
+          <source>NSG</source>
+          <target state="new">NSG</target>
+        </trans-unit>
+        <trans-unit id="d2add74b-af1e-4ff2-bf46-9e3e0d679443" xml:space="preserve">
+          <source>A load balancer is used when you want to scale your applications.</source>
+          <target state="new">A load balancer is used when you want to scale your applications.</target>
+        </trans-unit>
+        <trans-unit id="ef0be1b4-11c6-4f1e-8a65-af9537bf2bdd" xml:space="preserve">
+          <source>Typical deployment scenarios involve applications running on multiple VM instances.</source>
+          <target state="new">Typical deployment scenarios involve applications running on multiple VM instances.</target>
+        </trans-unit>
+        <trans-unit id="c4a088f4-aefc-4a7a-b319-15097170b433" xml:space="preserve">
+          <source>The VM instances are fronted by a load balancer that helps to distribute network traffic to the various instances.</source>
+          <target state="new">The VM instances are fronted by a load balancer that helps to distribute network traffic to the various instances.</target>
+        </trans-unit>
+        <trans-unit id="376a0f72-dacf-494f-84af-6fc446c8fa3e" xml:space="preserve">
+          <source><bpt id="b638ccf3-410f-4594-acf2-3d3417efd4c9">&lt;linkText&gt;</bpt>NIC's on a single VM<ept id="b638ccf3-410f-4594-acf2-3d3417efd4c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b638ccf3-410f-4594-acf2-3d3417efd4c9">&lt;linkText&gt;</bpt>NIC's on a single VM<ept id="b638ccf3-410f-4594-acf2-3d3417efd4c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecad357c-216a-4f22-84f7-5eb999834adb" xml:space="preserve">
+          <source>Load balancers contain the following child resources:</source>
+          <target state="new">Load balancers contain the following child resources:</target>
+        </trans-unit>
+        <trans-unit id="70f7e589-236f-409c-b3fe-4817e3cc11e1" xml:space="preserve">
+          <source><bpt id="c25f4ce2-90dc-477b-a057-b658233cbe81">&lt;strong&gt;</bpt>Front end IP configuration<ept id="c25f4ce2-90dc-477b-a057-b658233cbe81">&lt;/strong&gt;</ept> – a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs).</source>
+          <target state="new"><bpt id="c25f4ce2-90dc-477b-a057-b658233cbe81">&lt;strong&gt;</bpt>Front end IP configuration<ept id="c25f4ce2-90dc-477b-a057-b658233cbe81">&lt;/strong&gt;</ept> – a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs).</target>
+        </trans-unit>
+        <trans-unit id="c1b3c8d6-95cd-44c7-b3b7-6b73b50a2f19" xml:space="preserve">
+          <source>These IP addresses serve as ingress for the traffic.</source>
+          <target state="new">These IP addresses serve as ingress for the traffic.</target>
+        </trans-unit>
+        <trans-unit id="fb6b9423-6f67-4f6a-a8d0-eb78ef963be6" xml:space="preserve">
+          <source><bpt id="55355f63-2db7-4bf1-8919-cdad47945482">&lt;strong&gt;</bpt>Backend address pool<ept id="55355f63-2db7-4bf1-8919-cdad47945482">&lt;/strong&gt;</ept> – these are IP addresses associated with the VM NICs to which load will be distributed.</source>
+          <target state="new"><bpt id="55355f63-2db7-4bf1-8919-cdad47945482">&lt;strong&gt;</bpt>Backend address pool<ept id="55355f63-2db7-4bf1-8919-cdad47945482">&lt;/strong&gt;</ept> – these are IP addresses associated with the VM NICs to which load will be distributed.</target>
+        </trans-unit>
+        <trans-unit id="969995e7-c6a8-4b07-b673-2cf342516291" xml:space="preserve">
+          <source><bpt id="dbd3a37b-9c23-4766-8fa8-f9a1e59b9003">&lt;strong&gt;</bpt>Load balancing rules<ept id="dbd3a37b-9c23-4766-8fa8-f9a1e59b9003">&lt;/strong&gt;</ept> – a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination.</source>
+          <target state="new"><bpt id="dbd3a37b-9c23-4766-8fa8-f9a1e59b9003">&lt;strong&gt;</bpt>Load balancing rules<ept id="dbd3a37b-9c23-4766-8fa8-f9a1e59b9003">&lt;/strong&gt;</ept> – a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination.</target>
+        </trans-unit>
+        <trans-unit id="fca3d127-de61-43d5-8a11-e9b03d4701ea" xml:space="preserve">
+          <source>With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with VMs.</source>
+          <target state="new">With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with VMs.</target>
+        </trans-unit>
+        <trans-unit id="6f7883e1-0336-437d-aee0-db41af1651bd" xml:space="preserve">
+          <source><bpt id="2bd925ae-6c7b-4aad-a7dd-c547c5ddc15e">&lt;strong&gt;</bpt>Probes<ept id="2bd925ae-6c7b-4aad-a7dd-c547c5ddc15e">&lt;/strong&gt;</ept> – probes enable you to keep track of the health of VM instances.</source>
+          <target state="new"><bpt id="2bd925ae-6c7b-4aad-a7dd-c547c5ddc15e">&lt;strong&gt;</bpt>Probes<ept id="2bd925ae-6c7b-4aad-a7dd-c547c5ddc15e">&lt;/strong&gt;</ept> – probes enable you to keep track of the health of VM instances.</target>
+        </trans-unit>
+        <trans-unit id="bde674b7-f3bd-4ec0-a799-e301c4184823" xml:space="preserve">
+          <source>If a health probe fails, the VM instance will be taken out of rotation automatically.</source>
+          <target state="new">If a health probe fails, the VM instance will be taken out of rotation automatically.</target>
+        </trans-unit>
+        <trans-unit id="62cd8a60-2bda-4c3d-b964-fd4a2aa6bdd9" xml:space="preserve">
+          <source><bpt id="bb7860c5-5d15-4592-8882-f7795cf80710">&lt;strong&gt;</bpt>Inbound NAT rules<ept id="bb7860c5-5d15-4592-8882-f7795cf80710">&lt;/strong&gt;</ept> – NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP.</source>
+          <target state="new"><bpt id="bb7860c5-5d15-4592-8882-f7795cf80710">&lt;strong&gt;</bpt>Inbound NAT rules<ept id="bb7860c5-5d15-4592-8882-f7795cf80710">&lt;/strong&gt;</ept> – NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP.</target>
+        </trans-unit>
+        <trans-unit id="c25de66b-04cc-468b-8470-a687cf2eb44e" xml:space="preserve">
+          <source>Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing.</source>
+          <target state="new">Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing.</target>
+        </trans-unit>
+        <trans-unit id="a47f9075-588b-468e-a2af-b7be8ea30acb" xml:space="preserve">
+          <source>Application load balancing allows the use of routing rules for network traffic based on HTTP.</source>
+          <target state="new">Application load balancing allows the use of routing rules for network traffic based on HTTP.</target>
+        </trans-unit>
+        <trans-unit id="0f4fcd9d-e280-4ffa-b900-4bf0b7cd97e9" xml:space="preserve">
+          <source>Application Gateways contain the following child resources:</source>
+          <target state="new">Application Gateways contain the following child resources:</target>
+        </trans-unit>
+        <trans-unit id="aff6c6ca-c078-497d-8b7d-568d1f2fbeda" xml:space="preserve">
+          <source><bpt id="a6903868-bdbb-4074-a0f2-41885dee26fc">&lt;strong&gt;</bpt>Back end server pool<ept id="a6903868-bdbb-4074-a0f2-41885dee26fc">&lt;/strong&gt;</ept> - The list of IP addresses of the back end servers.</source>
+          <target state="new"><bpt id="a6903868-bdbb-4074-a0f2-41885dee26fc">&lt;strong&gt;</bpt>Back end server pool<ept id="a6903868-bdbb-4074-a0f2-41885dee26fc">&lt;/strong&gt;</ept> - The list of IP addresses of the back end servers.</target>
+        </trans-unit>
+        <trans-unit id="061bd368-f6a1-4ea5-a222-147ba9ba7cca" xml:space="preserve">
+          <source>The IP addresses listed should either belong to the virtual network subnet, or should be a public IP/VIP.</source>
+          <target state="new">The IP addresses listed should either belong to the virtual network subnet, or should be a public IP/VIP.</target>
+        </trans-unit>
+        <trans-unit id="6884e8d6-2e11-4a7d-be6d-52ca0c90c4d7" xml:space="preserve">
+          <source><bpt id="2c47df2c-3759-43ee-8b5f-d6f8c2697878">&lt;strong&gt;</bpt>Back end server pool settings<ept id="2c47df2c-3759-43ee-8b5f-d6f8c2697878">&lt;/strong&gt;</ept> - Every pool has settings like port, protocol, and cookie based affinity.</source>
+          <target state="new"><bpt id="2c47df2c-3759-43ee-8b5f-d6f8c2697878">&lt;strong&gt;</bpt>Back end server pool settings<ept id="2c47df2c-3759-43ee-8b5f-d6f8c2697878">&lt;/strong&gt;</ept> - Every pool has settings like port, protocol, and cookie based affinity.</target>
+        </trans-unit>
+        <trans-unit id="84c6e1cc-71cb-4ef3-a75b-61df83b23ed9" xml:space="preserve">
+          <source>These settings are tied to a pool and are applied to all servers within the pool.</source>
+          <target state="new">These settings are tied to a pool and are applied to all servers within the pool.</target>
+        </trans-unit>
+        <trans-unit id="50c079fd-6840-4ae9-bc16-b963d0eab951" xml:space="preserve">
+          <source><bpt id="8fc7d146-5e58-4502-a7ca-e26744351f9b">&lt;strong&gt;</bpt>Front end Port<ept id="8fc7d146-5e58-4502-a7ca-e26744351f9b">&lt;/strong&gt;</ept> - This port is the public port opened on the application gateway.</source>
+          <target state="new"><bpt id="8fc7d146-5e58-4502-a7ca-e26744351f9b">&lt;strong&gt;</bpt>Front end Port<ept id="8fc7d146-5e58-4502-a7ca-e26744351f9b">&lt;/strong&gt;</ept> - This port is the public port opened on the application gateway.</target>
+        </trans-unit>
+        <trans-unit id="fade8dfc-a23d-4130-ab93-c18a03423fd2" xml:space="preserve">
+          <source>Traffic hits this port, and then gets redirected to one of the back end servers.</source>
+          <target state="new">Traffic hits this port, and then gets redirected to one of the back end servers.</target>
+        </trans-unit>
+        <trans-unit id="0019b8e7-b676-4d68-a4fb-119225aff645" xml:space="preserve">
+          <source><bpt id="12e6c9aa-dc56-4bca-be43-8a2fcd78eeb0">&lt;strong&gt;</bpt>Listener<ept id="12e6c9aa-dc56-4bca-be43-8a2fcd78eeb0">&lt;/strong&gt;</ept> - listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).</source>
+          <target state="new"><bpt id="12e6c9aa-dc56-4bca-be43-8a2fcd78eeb0">&lt;strong&gt;</bpt>Listener<ept id="12e6c9aa-dc56-4bca-be43-8a2fcd78eeb0">&lt;/strong&gt;</ept> - listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).</target>
+        </trans-unit>
+        <trans-unit id="713fa9f4-b6d2-4bde-b1c7-cbd90ab78b43" xml:space="preserve">
+          <source><bpt id="f8b37d0e-c6b6-441b-827f-853590d95384">&lt;strong&gt;</bpt>Rule<ept id="f8b37d0e-c6b6-441b-827f-853590d95384">&lt;/strong&gt;</ept> - The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed to when it hits a particular listener.</source>
+          <target state="new"><bpt id="f8b37d0e-c6b6-441b-827f-853590d95384">&lt;strong&gt;</bpt>Rule<ept id="f8b37d0e-c6b6-441b-827f-853590d95384">&lt;/strong&gt;</ept> - The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed to when it hits a particular listener.</target>
+        </trans-unit>
+        <trans-unit id="27298eb0-c5f4-425d-bba8-d28ba57b2766" xml:space="preserve">
+          <source>Currently, only the basic rule is supported.</source>
+          <target state="new">Currently, only the basic rule is supported.</target>
+        </trans-unit>
+        <trans-unit id="b5d6522c-3727-40e7-8020-cad78592df52" xml:space="preserve">
+          <source>The basic rule is round-robin load distribution.</source>
+          <target state="new">The basic rule is round-robin load distribution.</target>
+        </trans-unit>
+        <trans-unit id="978b2c4d-720b-4c36-bd71-7fac820915fa" xml:space="preserve">
+          <source>A public IP address resource provides either a reserved or dynamic public IP address.</source>
+          <target state="new">A public IP address resource provides either a reserved or dynamic public IP address.</target>
+        </trans-unit>
+        <trans-unit id="eec3cce0-9083-41cc-a5b3-89a46f6ad526" xml:space="preserve">
+          <source>A Public IP address can be assigned to a load balancer, NAT, or associated with a private IP address on a NIC of a VM.</source>
+          <target state="new">A Public IP address can be assigned to a load balancer, NAT, or associated with a private IP address on a NIC of a VM.</target>
+        </trans-unit>
+        <trans-unit id="8472265c-3d62-4c85-a684-d80fc89f74d4" xml:space="preserve">
+          <source>Key properties of a public IP resource include:</source>
+          <target state="new">Key properties of a public IP resource include:</target>
+        </trans-unit>
+        <trans-unit id="7a5f32f3-e9ca-411d-85d3-dd5c070ec5f5" xml:space="preserve">
+          <source><bpt id="e2dcc556-b1dc-4a9f-90f6-035fd5c883b8">&lt;strong&gt;</bpt>IP allocation method<ept id="e2dcc556-b1dc-4a9f-90f6-035fd5c883b8">&lt;/strong&gt;</ept> – reserved or dynamic.</source>
+          <target state="new"><bpt id="e2dcc556-b1dc-4a9f-90f6-035fd5c883b8">&lt;strong&gt;</bpt>IP allocation method<ept id="e2dcc556-b1dc-4a9f-90f6-035fd5c883b8">&lt;/strong&gt;</ept> – reserved or dynamic.</target>
+        </trans-unit>
+        <trans-unit id="48de8b7b-6929-40d5-a868-b1bc9cba8a0a" xml:space="preserve">
+          <source>An NSG resource enables the creation of security boundary for workloads, by implementing allow and deny rules.</source>
+          <target state="new">An NSG resource enables the creation of security boundary for workloads, by implementing allow and deny rules.</target>
+        </trans-unit>
+        <trans-unit id="63f2f63e-6400-447d-87f5-d1ebfff1c75c" xml:space="preserve">
+          <source>Such rules can be applied at the NIC level (VM instance level) or at the subnet level (group of VMs).</source>
+          <target state="new">Such rules can be applied at the NIC level (VM instance level) or at the subnet level (group of VMs).</target>
+        </trans-unit>
+        <trans-unit id="1e481f96-ca08-4875-805b-b6a30710a5de" xml:space="preserve">
+          <source>Key properties of NSG resource include:</source>
+          <target state="new">Key properties of NSG resource include:</target>
+        </trans-unit>
+        <trans-unit id="64ee3288-ebe1-4e62-b15c-8a831ebab1ef" xml:space="preserve">
+          <source><bpt id="c04d86e2-3384-4155-9ae0-b5348fcde122">&lt;strong&gt;</bpt>Security rule<ept id="c04d86e2-3384-4155-9ae0-b5348fcde122">&lt;/strong&gt;</ept> - An NSG can have multiple security rules defined.</source>
+          <target state="new"><bpt id="c04d86e2-3384-4155-9ae0-b5348fcde122">&lt;strong&gt;</bpt>Security rule<ept id="c04d86e2-3384-4155-9ae0-b5348fcde122">&lt;/strong&gt;</ept> - An NSG can have multiple security rules defined.</target>
+        </trans-unit>
+        <trans-unit id="3e5e8b34-4c2d-410d-8df7-b5c58af74364" xml:space="preserve">
+          <source>Each rule can allow or deny different types of traffic.</source>
+          <target state="new">Each rule can allow or deny different types of traffic.</target>
+        </trans-unit>
+        <trans-unit id="e82ba276-cc9d-4975-a3e3-a962f1e636e0" xml:space="preserve">
+          <source>A security rule is a child resource of an NSG.</source>
+          <target state="new">A security rule is a child resource of an NSG.</target>
+        </trans-unit>
+        <trans-unit id="9b2e70a6-abfb-4e00-b031-9fcd66dff4e2" xml:space="preserve">
+          <source>Key properties of a Security rule include: </source>
+          <target state="new">Key properties of a Security rule include: </target>
+        </trans-unit>
+        <trans-unit id="733ac685-db6a-42ab-8308-40a3e1b70038" xml:space="preserve">
+          <source><bpt id="9181464c-43b2-4be4-a9e8-4eaa2b0bf4af">&lt;strong&gt;</bpt>Protocol<ept id="9181464c-43b2-4be4-a9e8-4eaa2b0bf4af">&lt;/strong&gt;</ept> – network protocol this rule applies to.</source>
+          <target state="new"><bpt id="9181464c-43b2-4be4-a9e8-4eaa2b0bf4af">&lt;strong&gt;</bpt>Protocol<ept id="9181464c-43b2-4be4-a9e8-4eaa2b0bf4af">&lt;/strong&gt;</ept> – network protocol this rule applies to.</target>
+        </trans-unit>
+        <trans-unit id="fd8bb472-f926-4a86-a139-3d1ae4212fa7" xml:space="preserve">
+          <source><bpt id="0fe8450d-90fc-4ea5-b968-d01a3a07f1f5">&lt;strong&gt;</bpt>Source Port Range<ept id="0fe8450d-90fc-4ea5-b968-d01a3a07f1f5">&lt;/strong&gt;</ept> - source port, or range from, 0 to 65535.</source>
+          <target state="new"><bpt id="0fe8450d-90fc-4ea5-b968-d01a3a07f1f5">&lt;strong&gt;</bpt>Source Port Range<ept id="0fe8450d-90fc-4ea5-b968-d01a3a07f1f5">&lt;/strong&gt;</ept> - source port, or range from, 0 to 65535.</target>
+        </trans-unit>
+        <trans-unit id="8d9d5eb7-f647-4a9d-b468-54e553c7b385" xml:space="preserve">
+          <source>A wildcard can be used to match all ports.</source>
+          <target state="new">A wildcard can be used to match all ports.</target>
+        </trans-unit>
+        <trans-unit id="d2b8cd44-1228-4475-b828-e51e79faca8a" xml:space="preserve">
+          <source><bpt id="517495c3-b850-4415-bd89-201d75bf656a">&lt;strong&gt;</bpt>Destination Port Range<ept id="517495c3-b850-4415-bd89-201d75bf656a">&lt;/strong&gt;</ept> - Destination port, or range, from 0 to 65535.</source>
+          <target state="new"><bpt id="517495c3-b850-4415-bd89-201d75bf656a">&lt;strong&gt;</bpt>Destination Port Range<ept id="517495c3-b850-4415-bd89-201d75bf656a">&lt;/strong&gt;</ept> - Destination port, or range, from 0 to 65535.</target>
+        </trans-unit>
+        <trans-unit id="2c1f18f3-8fdb-4eac-97af-c3648d1e4584" xml:space="preserve">
+          <source>A wildcard can be used to match all ports.</source>
+          <target state="new">A wildcard can be used to match all ports.</target>
+        </trans-unit>
+        <trans-unit id="6dab0673-cc53-48da-b3b4-82443e7d380d" xml:space="preserve">
+          <source><bpt id="e9515a1f-b8f7-4229-80aa-482eae585f74">&lt;strong&gt;</bpt>Source Address Prefix<ept id="e9515a1f-b8f7-4229-80aa-482eae585f74">&lt;/strong&gt;</ept> – source IP address range.</source>
+          <target state="new"><bpt id="e9515a1f-b8f7-4229-80aa-482eae585f74">&lt;strong&gt;</bpt>Source Address Prefix<ept id="e9515a1f-b8f7-4229-80aa-482eae585f74">&lt;/strong&gt;</ept> – source IP address range.</target>
+        </trans-unit>
+        <trans-unit id="bd2053a1-5a9b-4c00-b972-b945c9f8a8fd" xml:space="preserve">
+          <source><bpt id="87642203-c113-4da4-a165-113e5647c17f">&lt;strong&gt;</bpt>Destination Address Prefix<ept id="87642203-c113-4da4-a165-113e5647c17f">&lt;/strong&gt;</ept> – destination IP address range.</source>
+          <target state="new"><bpt id="87642203-c113-4da4-a165-113e5647c17f">&lt;strong&gt;</bpt>Destination Address Prefix<ept id="87642203-c113-4da4-a165-113e5647c17f">&lt;/strong&gt;</ept> – destination IP address range.</target>
+        </trans-unit>
+        <trans-unit id="e98fdced-3ff3-4cdf-9766-d5b0e4e67828" xml:space="preserve">
+          <source><bpt id="0a7aa5e7-e153-4f62-9214-b6d069fa6d45">&lt;strong&gt;</bpt>Access<ept id="0a7aa5e7-e153-4f62-9214-b6d069fa6d45">&lt;/strong&gt;</ept> – <bpt id="73a511be-b38c-4b22-af47-234da73eea6e">&lt;em&gt;</bpt>Allow<ept id="73a511be-b38c-4b22-af47-234da73eea6e">&lt;/em&gt;</ept> or <bpt id="bd0b4325-ea86-49e2-820f-6c9bc30e395c">&lt;em&gt;</bpt>Deny<ept id="bd0b4325-ea86-49e2-820f-6c9bc30e395c">&lt;/em&gt;</ept> traffic.</source>
+          <target state="new"><bpt id="0a7aa5e7-e153-4f62-9214-b6d069fa6d45">&lt;strong&gt;</bpt>Access<ept id="0a7aa5e7-e153-4f62-9214-b6d069fa6d45">&lt;/strong&gt;</ept> – <bpt id="73a511be-b38c-4b22-af47-234da73eea6e">&lt;em&gt;</bpt>Allow<ept id="73a511be-b38c-4b22-af47-234da73eea6e">&lt;/em&gt;</ept> or <bpt id="bd0b4325-ea86-49e2-820f-6c9bc30e395c">&lt;em&gt;</bpt>Deny<ept id="bd0b4325-ea86-49e2-820f-6c9bc30e395c">&lt;/em&gt;</ept> traffic.</target>
+        </trans-unit>
+        <trans-unit id="812c0646-a4b3-4c82-9e88-d513d2cfea8a" xml:space="preserve">
+          <source><bpt id="9ef3152c-5340-4edb-a06c-5a4bab0326cf">&lt;strong&gt;</bpt>Priority<ept id="9ef3152c-5340-4edb-a06c-5a4bab0326cf">&lt;/strong&gt;</ept> – a value between 100 and 4096.</source>
+          <target state="new"><bpt id="9ef3152c-5340-4edb-a06c-5a4bab0326cf">&lt;strong&gt;</bpt>Priority<ept id="9ef3152c-5340-4edb-a06c-5a4bab0326cf">&lt;/strong&gt;</ept> – a value between 100 and 4096.</target>
+        </trans-unit>
+        <trans-unit id="167743e8-2819-408b-acbe-7ca1f0c1608d" xml:space="preserve">
+          <source>The priority number must be unique for each rule in collection of security rules.</source>
+          <target state="new">The priority number must be unique for each rule in collection of security rules.</target>
+        </trans-unit>
+        <trans-unit id="32005861-e871-4ca8-b7d3-7717c7e28d27" xml:space="preserve">
+          <source>The lower the priority number, the higher the priority of the rule.</source>
+          <target state="new">The lower the priority number, the higher the priority of the rule.</target>
+        </trans-unit>
+        <trans-unit id="e207233a-b955-4ee0-8828-e6d5f5343ffb" xml:space="preserve">
+          <source><bpt id="911154ca-22bd-42a5-8095-5b3571085ae8">&lt;strong&gt;</bpt>Direction<ept id="911154ca-22bd-42a5-8095-5b3571085ae8">&lt;/strong&gt;</ept> – specifies if the rule will be applied to traffic in the <bpt id="ca298cd8-5150-4d50-8569-114a69bacdb7">&lt;em&gt;</bpt>Inbound<ept id="ca298cd8-5150-4d50-8569-114a69bacdb7">&lt;/em&gt;</ept> or <bpt id="1224feeb-7a11-4d15-b6df-0556285ba0d4">&lt;em&gt;</bpt>Outbound<ept id="1224feeb-7a11-4d15-b6df-0556285ba0d4">&lt;/em&gt;</ept> direction.</source>
+          <target state="new"><bpt id="911154ca-22bd-42a5-8095-5b3571085ae8">&lt;strong&gt;</bpt>Direction<ept id="911154ca-22bd-42a5-8095-5b3571085ae8">&lt;/strong&gt;</ept> – specifies if the rule will be applied to traffic in the <bpt id="ca298cd8-5150-4d50-8569-114a69bacdb7">&lt;em&gt;</bpt>Inbound<ept id="ca298cd8-5150-4d50-8569-114a69bacdb7">&lt;/em&gt;</ept> or <bpt id="1224feeb-7a11-4d15-b6df-0556285ba0d4">&lt;em&gt;</bpt>Outbound<ept id="1224feeb-7a11-4d15-b6df-0556285ba0d4">&lt;/em&gt;</ept> direction.</target>
+        </trans-unit>
+        <trans-unit id="a779cd57-ae89-4966-aad0-72d41bcfddcb" xml:space="preserve">
+          <source>A VPN gateway resource enables you to create a secure connection between their on-premises data center and Azure.</source>
+          <target state="new">A VPN gateway resource enables you to create a secure connection between their on-premises data center and Azure.</target>
+        </trans-unit>
+        <trans-unit id="e62aec93-bcfc-4825-afde-39577145f205" xml:space="preserve">
+          <source>A VPN gateway resource can be configured in three different ways:</source>
+          <target state="new">A VPN gateway resource can be configured in three different ways:</target>
+        </trans-unit>
+        <trans-unit id="938eec81-581e-46df-930a-3de8549d14de" xml:space="preserve">
+          <source><bpt id="529d4956-8901-491d-94ff-55100e8559f5">&lt;strong&gt;</bpt>Point to Site<ept id="529d4956-8901-491d-94ff-55100e8559f5">&lt;/strong&gt;</ept> – you can securely access your Azure resources hosted in a VNET by using a VPN client from any computer.</source>
+          <target state="new"><bpt id="529d4956-8901-491d-94ff-55100e8559f5">&lt;strong&gt;</bpt>Point to Site<ept id="529d4956-8901-491d-94ff-55100e8559f5">&lt;/strong&gt;</ept> – you can securely access your Azure resources hosted in a VNET by using a VPN client from any computer.</target>
+        </trans-unit>
+        <trans-unit id="fafd9a04-584b-4a75-80e5-2b88a256a038" xml:space="preserve">
+          <source><bpt id="8496cca6-8f09-47c2-ae86-ed32d0ddd2f3">&lt;strong&gt;</bpt>Multi-site connection<ept id="8496cca6-8f09-47c2-ae86-ed32d0ddd2f3">&lt;/strong&gt;</ept> – you can securely connect from your on-premises data centers to resources running in a VNET.</source>
+          <target state="new"><bpt id="8496cca6-8f09-47c2-ae86-ed32d0ddd2f3">&lt;strong&gt;</bpt>Multi-site connection<ept id="8496cca6-8f09-47c2-ae86-ed32d0ddd2f3">&lt;/strong&gt;</ept> – you can securely connect from your on-premises data centers to resources running in a VNET.</target>
+        </trans-unit>
+        <trans-unit id="9050da58-c8cb-4c98-b0de-bb8b22626f26" xml:space="preserve">
+          <source><bpt id="c0f35519-1e00-4b42-a8e6-00f6f291be19">&lt;strong&gt;</bpt>VNET to VNET<ept id="c0f35519-1e00-4b42-a8e6-00f6f291be19">&lt;/strong&gt;</ept> – you can securely connect across Azure VNETS within the same region, or across regions to build workloads with geo-redundancy.</source>
+          <target state="new"><bpt id="c0f35519-1e00-4b42-a8e6-00f6f291be19">&lt;strong&gt;</bpt>VNET to VNET<ept id="c0f35519-1e00-4b42-a8e6-00f6f291be19">&lt;/strong&gt;</ept> – you can securely connect across Azure VNETS within the same region, or across regions to build workloads with geo-redundancy.</target>
+        </trans-unit>
+        <trans-unit id="1af88457-95f9-4dd4-8a58-20499a65f656" xml:space="preserve">
+          <source>Key properties of a VPN gateway include:</source>
+          <target state="new">Key properties of a VPN gateway include:</target>
+        </trans-unit>
+        <trans-unit id="6d52f12b-46cc-4940-b557-201482515d3b" xml:space="preserve">
+          <source><bpt id="0e345a9c-62f3-4f9e-b8ce-1153adbf2354">&lt;strong&gt;</bpt>Gateway type<ept id="0e345a9c-62f3-4f9e-b8ce-1153adbf2354">&lt;/strong&gt;</ept> - dynamically routed or a static routed gateway.</source>
+          <target state="new"><bpt id="0e345a9c-62f3-4f9e-b8ce-1153adbf2354">&lt;strong&gt;</bpt>Gateway type<ept id="0e345a9c-62f3-4f9e-b8ce-1153adbf2354">&lt;/strong&gt;</ept> - dynamically routed or a static routed gateway.</target>
+        </trans-unit>
+        <trans-unit id="0e186a7a-8735-4e1c-b812-79393bedcd3f" xml:space="preserve">
+          <source><bpt id="87a00839-4519-40e7-ae7c-0b53dfc9376e">&lt;strong&gt;</bpt>VPN Client Address Pool Prefix<ept id="87a00839-4519-40e7-ae7c-0b53dfc9376e">&lt;/strong&gt;</ept> – IP addresses to be assigned to clients connecting in a point to site configuration.</source>
+          <target state="new"><bpt id="87a00839-4519-40e7-ae7c-0b53dfc9376e">&lt;strong&gt;</bpt>VPN Client Address Pool Prefix<ept id="87a00839-4519-40e7-ae7c-0b53dfc9376e">&lt;/strong&gt;</ept> – IP addresses to be assigned to clients connecting in a point to site configuration.</target>
+        </trans-unit>
+        <trans-unit id="fbe38cf6-0430-4763-a95a-ced1eb51e076" xml:space="preserve">
+          <source>Traffic manager and its child endpoint resource enable distribution of your traffic to endpoints in Azure and outside of Azure.</source>
+          <target state="new">Traffic manager and its child endpoint resource enable distribution of your traffic to endpoints in Azure and outside of Azure.</target>
+        </trans-unit>
+        <trans-unit id="82615225-4f56-4cc6-8e65-e1e3c67c5393" xml:space="preserve">
+          <source>Such traffic distribution is governed by policies.</source>
+          <target state="new">Such traffic distribution is governed by policies.</target>
+        </trans-unit>
+        <trans-unit id="5e9a19bb-4a4a-4d0b-a5a4-30a65cf51609" xml:space="preserve">
+          <source>Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint.</source>
+          <target state="new">Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint.</target>
+        </trans-unit>
+        <trans-unit id="969d30b3-e40a-4740-a7b0-2feb9b24ab38" xml:space="preserve">
+          <source>Key properties of a traffic manager profile include:</source>
+          <target state="new">Key properties of a traffic manager profile include:</target>
+        </trans-unit>
+        <trans-unit id="fc998b66-7069-4f2c-a0df-5f3053d06190" xml:space="preserve">
+          <source><bpt id="d7ac2dd9-340d-43dd-a9ee-cf69f6a54954">&lt;strong&gt;</bpt>Traffic routing method<ept id="d7ac2dd9-340d-43dd-a9ee-cf69f6a54954">&lt;/strong&gt;</ept> - possible values are <bpt id="dffd7498-5abb-437b-99c6-18281f1dae3c">&lt;em&gt;</bpt>Performance<ept id="dffd7498-5abb-437b-99c6-18281f1dae3c">&lt;/em&gt;</ept>, <bpt id="cfe04982-91c3-4bf0-a5cf-901e0e72d8b2">&lt;em&gt;</bpt>Weighted<ept id="cfe04982-91c3-4bf0-a5cf-901e0e72d8b2">&lt;/em&gt;</ept>, and <bpt id="eb5f229a-23f7-4bb9-aa5a-3b046b8d2cfa">&lt;em&gt;</bpt>Priority<ept id="eb5f229a-23f7-4bb9-aa5a-3b046b8d2cfa">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="d7ac2dd9-340d-43dd-a9ee-cf69f6a54954">&lt;strong&gt;</bpt>Traffic routing method<ept id="d7ac2dd9-340d-43dd-a9ee-cf69f6a54954">&lt;/strong&gt;</ept> - possible values are <bpt id="dffd7498-5abb-437b-99c6-18281f1dae3c">&lt;em&gt;</bpt>Performance<ept id="dffd7498-5abb-437b-99c6-18281f1dae3c">&lt;/em&gt;</ept>, <bpt id="cfe04982-91c3-4bf0-a5cf-901e0e72d8b2">&lt;em&gt;</bpt>Weighted<ept id="cfe04982-91c3-4bf0-a5cf-901e0e72d8b2">&lt;/em&gt;</ept>, and <bpt id="eb5f229a-23f7-4bb9-aa5a-3b046b8d2cfa">&lt;em&gt;</bpt>Priority<ept id="eb5f229a-23f7-4bb9-aa5a-3b046b8d2cfa">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55393c05-3016-4894-96a7-3ab198a3dfbc" xml:space="preserve">
+          <source><bpt id="d7f4a1b1-1cc6-4cd7-a171-1a7265e8fbd2">&lt;strong&gt;</bpt>DNS configuration<ept id="d7f4a1b1-1cc6-4cd7-a171-1a7265e8fbd2">&lt;/strong&gt;</ept> - FQDN for the profile.</source>
+          <target state="new"><bpt id="d7f4a1b1-1cc6-4cd7-a171-1a7265e8fbd2">&lt;strong&gt;</bpt>DNS configuration<ept id="d7f4a1b1-1cc6-4cd7-a171-1a7265e8fbd2">&lt;/strong&gt;</ept> - FQDN for the profile.</target>
+        </trans-unit>
+        <trans-unit id="0fa626e3-e9fe-440a-a7d4-0ddbd43a04ef" xml:space="preserve">
+          <source><bpt id="569e8ad4-ea08-4f9e-be9c-8db86f5df2af">&lt;strong&gt;</bpt>Protocol<ept id="569e8ad4-ea08-4f9e-be9c-8db86f5df2af">&lt;/strong&gt;</ept> - monitoring protocol, possible values are <bpt id="b643fa4b-0ad4-4432-a936-dc89e5b7c8ab">&lt;em&gt;</bpt>HTTP<ept id="b643fa4b-0ad4-4432-a936-dc89e5b7c8ab">&lt;/em&gt;</ept> and <bpt id="2a4c914a-a799-49de-a4f5-44e769b01236">&lt;em&gt;</bpt>HTTPS<ept id="2a4c914a-a799-49de-a4f5-44e769b01236">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="569e8ad4-ea08-4f9e-be9c-8db86f5df2af">&lt;strong&gt;</bpt>Protocol<ept id="569e8ad4-ea08-4f9e-be9c-8db86f5df2af">&lt;/strong&gt;</ept> - monitoring protocol, possible values are <bpt id="b643fa4b-0ad4-4432-a936-dc89e5b7c8ab">&lt;em&gt;</bpt>HTTP<ept id="b643fa4b-0ad4-4432-a936-dc89e5b7c8ab">&lt;/em&gt;</ept> and <bpt id="2a4c914a-a799-49de-a4f5-44e769b01236">&lt;em&gt;</bpt>HTTPS<ept id="2a4c914a-a799-49de-a4f5-44e769b01236">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0cf1a482-a5cc-401e-ba03-67f4a3c63170" xml:space="preserve">
+          <source><bpt id="04a95812-6485-4f48-a40a-f528e22a086f">&lt;strong&gt;</bpt>Port<ept id="04a95812-6485-4f48-a40a-f528e22a086f">&lt;/strong&gt;</ept> - monitoring port.</source>
+          <target state="new"><bpt id="04a95812-6485-4f48-a40a-f528e22a086f">&lt;strong&gt;</bpt>Port<ept id="04a95812-6485-4f48-a40a-f528e22a086f">&lt;/strong&gt;</ept> - monitoring port.</target>
+        </trans-unit>
+        <trans-unit id="198a4f71-8fe9-4641-a1fe-d662fb49224a" xml:space="preserve">
+          <source><bpt id="a103fc66-2e3e-4147-a88e-202839e6dc4b">&lt;strong&gt;</bpt>Path<ept id="a103fc66-2e3e-4147-a88e-202839e6dc4b">&lt;/strong&gt;</ept> - monitoring path.</source>
+          <target state="new"><bpt id="a103fc66-2e3e-4147-a88e-202839e6dc4b">&lt;strong&gt;</bpt>Path<ept id="a103fc66-2e3e-4147-a88e-202839e6dc4b">&lt;/strong&gt;</ept> - monitoring path.</target>
+        </trans-unit>
+        <trans-unit id="c90e47a2-90b8-4e58-b6ae-b9722c8df3fe" xml:space="preserve">
+          <source><bpt id="6877ee70-2a4d-424d-9d30-317baceddbbd">&lt;strong&gt;</bpt>Endpoints<ept id="6877ee70-2a4d-424d-9d30-317baceddbbd">&lt;/strong&gt;</ept> - container for endpoint resources.</source>
+          <target state="new"><bpt id="6877ee70-2a4d-424d-9d30-317baceddbbd">&lt;strong&gt;</bpt>Endpoints<ept id="6877ee70-2a4d-424d-9d30-317baceddbbd">&lt;/strong&gt;</ept> - container for endpoint resources.</target>
+        </trans-unit>
+        <trans-unit id="8d64fb8d-cd87-4bb0-909f-0bc1f0669291" xml:space="preserve">
+          <source>An endpoint is a child resource of a Traffic Manager Profile.</source>
+          <target state="new">An endpoint is a child resource of a Traffic Manager Profile.</target>
+        </trans-unit>
+        <trans-unit id="5c27d31d-185e-4ade-a55d-5594cafc6403" xml:space="preserve">
+          <source>It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource.</source>
+          <target state="new">It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource.</target>
+        </trans-unit>
+        <trans-unit id="0b335656-d196-4b40-8bdd-8fd32265a1b4" xml:space="preserve">
+          <source>Key properties of an endpoint include:</source>
+          <target state="new">Key properties of an endpoint include:</target>
+        </trans-unit>
+        <trans-unit id="c4f511b1-91b5-41bd-b5f8-f4f873f8f35f" xml:space="preserve">
+          <source><bpt id="978e9a70-0bdc-425d-8c5f-60a56000b6cd">&lt;strong&gt;</bpt>Type<ept id="978e9a70-0bdc-425d-8c5f-60a56000b6cd">&lt;/strong&gt;</ept> - the type of the endpoint, possible values are <bpt id="3d8d73e2-7005-47d1-8fad-6529d57589b2">&lt;em&gt;</bpt>Azure End point<ept id="3d8d73e2-7005-47d1-8fad-6529d57589b2">&lt;/em&gt;</ept>, <bpt id="fa24f1a2-c8cf-4a8f-a725-08ff3dff2b81">&lt;em&gt;</bpt>External Endpoint<ept id="fa24f1a2-c8cf-4a8f-a725-08ff3dff2b81">&lt;/em&gt;</ept>, and  <bpt id="a55dfcf5-c5d3-4194-82c7-e2e977bde1c0">&lt;em&gt;</bpt>Nested Endpoint<ept id="a55dfcf5-c5d3-4194-82c7-e2e977bde1c0">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="978e9a70-0bdc-425d-8c5f-60a56000b6cd">&lt;strong&gt;</bpt>Type<ept id="978e9a70-0bdc-425d-8c5f-60a56000b6cd">&lt;/strong&gt;</ept> - the type of the endpoint, possible values are <bpt id="3d8d73e2-7005-47d1-8fad-6529d57589b2">&lt;em&gt;</bpt>Azure End point<ept id="3d8d73e2-7005-47d1-8fad-6529d57589b2">&lt;/em&gt;</ept>, <bpt id="fa24f1a2-c8cf-4a8f-a725-08ff3dff2b81">&lt;em&gt;</bpt>External Endpoint<ept id="fa24f1a2-c8cf-4a8f-a725-08ff3dff2b81">&lt;/em&gt;</ept>, and  <bpt id="a55dfcf5-c5d3-4194-82c7-e2e977bde1c0">&lt;em&gt;</bpt>Nested Endpoint<ept id="a55dfcf5-c5d3-4194-82c7-e2e977bde1c0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62c4922d-f2e6-412a-a056-327e99be1f6a" xml:space="preserve">
+          <source><bpt id="ce4f9e23-f9b3-4904-96f0-34bb4bc2e49c">&lt;strong&gt;</bpt>Target Resource ID<ept id="ce4f9e23-f9b3-4904-96f0-34bb4bc2e49c">&lt;/strong&gt;</ept> – public IP address of a service or web endpoint.</source>
+          <target state="new"><bpt id="ce4f9e23-f9b3-4904-96f0-34bb4bc2e49c">&lt;strong&gt;</bpt>Target Resource ID<ept id="ce4f9e23-f9b3-4904-96f0-34bb4bc2e49c">&lt;/strong&gt;</ept> – public IP address of a service or web endpoint.</target>
+        </trans-unit>
+        <trans-unit id="f075aa9d-a7a7-4567-b0af-9b58c1695161" xml:space="preserve">
+          <source>This can be an Azure or external endpoint.</source>
+          <target state="new">This can be an Azure or external endpoint.</target>
+        </trans-unit>
+        <trans-unit id="c2eb3e6c-ca18-4ffd-83cc-6fffca802125" xml:space="preserve">
+          <source><bpt id="b6ea5bf7-9e42-47ac-bd79-30697f4c2182">&lt;strong&gt;</bpt>Weight<ept id="b6ea5bf7-9e42-47ac-bd79-30697f4c2182">&lt;/strong&gt;</ept> - endpoint weight used in traffic management.</source>
+          <target state="new"><bpt id="b6ea5bf7-9e42-47ac-bd79-30697f4c2182">&lt;strong&gt;</bpt>Weight<ept id="b6ea5bf7-9e42-47ac-bd79-30697f4c2182">&lt;/strong&gt;</ept> - endpoint weight used in traffic management.</target>
+        </trans-unit>
+        <trans-unit id="389b758e-6fdc-434c-9e98-bf1498bd872c" xml:space="preserve">
+          <source><bpt id="36198bad-7aaa-402d-bd95-1a144b2bfe9a">&lt;strong&gt;</bpt>Priority<ept id="36198bad-7aaa-402d-bd95-1a144b2bfe9a">&lt;/strong&gt;</ept> - priority of the endpoint, used to define a failover action.</source>
+          <target state="new"><bpt id="36198bad-7aaa-402d-bd95-1a144b2bfe9a">&lt;strong&gt;</bpt>Priority<ept id="36198bad-7aaa-402d-bd95-1a144b2bfe9a">&lt;/strong&gt;</ept> - priority of the endpoint, used to define a failover action.</target>
+        </trans-unit>
+        <trans-unit id="fca09671-4c57-4991-8ddf-db219b899534" xml:space="preserve">
+          <source>Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.</source>
+          <target state="new">Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="65266092-bcf2-4fdc-9921-5b9275f410fe" xml:space="preserve">
+          <source>Key properties of Azure DNS include:</source>
+          <target state="new">Key properties of Azure DNS include:</target>
+        </trans-unit>
+        <trans-unit id="a36f7f2a-26eb-46d3-9c48-8402fff753fb" xml:space="preserve">
+          <source><bpt id="30007353-0cdf-4b7c-be3c-3a6d29024517">&lt;em&gt;</bpt>* DNS zones<ept id="30007353-0cdf-4b7c-be3c-3a6d29024517">&lt;/em&gt;</ept>* - Domain zone information to host DNS records of a particular domain.</source>
+          <target state="new"><bpt id="30007353-0cdf-4b7c-be3c-3a6d29024517">&lt;em&gt;</bpt>* DNS zones<ept id="30007353-0cdf-4b7c-be3c-3a6d29024517">&lt;/em&gt;</ept>* - Domain zone information to host DNS records of a particular domain.</target>
+        </trans-unit>
+        <trans-unit id="863d41e8-86c6-4bba-a5c4-bbf430c93720" xml:space="preserve">
+          <source><bpt id="72de7e60-48b8-4e81-b59a-eab0e8d25076">&lt;em&gt;</bpt>* DNS record sets<ept id="72de7e60-48b8-4e81-b59a-eab0e8d25076">&lt;/em&gt;</ept>* - a collection of records of a specific type.</source>
+          <target state="new"><bpt id="72de7e60-48b8-4e81-b59a-eab0e8d25076">&lt;em&gt;</bpt>* DNS record sets<ept id="72de7e60-48b8-4e81-b59a-eab0e8d25076">&lt;/em&gt;</ept>* - a collection of records of a specific type.</target>
+        </trans-unit>
+        <trans-unit id="0d7118a6-ebb2-4bad-8bb3-24e0a54a5c94" xml:space="preserve">
+          <source>Supported types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT.</source>
+          <target state="new">Supported types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT.</target>
+        </trans-unit>
+        <trans-unit id="4e4076da-9592-4ed6-a65f-e5d63b018385" xml:space="preserve">
+          <source>You can deploy services to Azure from a template by using PowerShell, AzureCLI, or by performing a click to deploy from GitHub.</source>
+          <target state="new">You can deploy services to Azure from a template by using PowerShell, AzureCLI, or by performing a click to deploy from GitHub.</target>
+        </trans-unit>
+        <trans-unit id="a532d9ec-efb1-4e88-9d1d-b4bc584f338b" xml:space="preserve">
+          <source>To deploy services from a template in GitHub, execute the following steps:</source>
+          <target state="new">To deploy services from a template in GitHub, execute the following steps:</target>
+        </trans-unit>
+        <trans-unit id="6c33087a-e596-4995-bfb8-9e1ab58f27d1" xml:space="preserve">
+          <source>Open the template3 file from GitHub.</source>
+          <target state="new">Open the template3 file from GitHub.</target>
+        </trans-unit>
+        <trans-unit id="2f9b11a7-5a2f-46cf-a5af-edca29702c1c" xml:space="preserve">
+          <source>As an example, open <bpt id="368e21c4-40ab-402a-82d9-2f7499d30db4">&lt;linkText&gt;</bpt>Virtual network with two subnets<ept id="368e21c4-40ab-402a-82d9-2f7499d30db4">&lt;/linkText&gt;</ept><bpt id="368e21c4-40ab-402a-82d9-2f7499d30db4">&lt;title&gt;</bpt><ept id="368e21c4-40ab-402a-82d9-2f7499d30db4">&lt;/title&gt;</ept>.</source>
+          <target state="new">As an example, open <bpt id="368e21c4-40ab-402a-82d9-2f7499d30db4">&lt;linkText&gt;</bpt>Virtual network with two subnets<ept id="368e21c4-40ab-402a-82d9-2f7499d30db4">&lt;/linkText&gt;</ept><bpt id="368e21c4-40ab-402a-82d9-2f7499d30db4">&lt;title&gt;</bpt><ept id="368e21c4-40ab-402a-82d9-2f7499d30db4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e924a0f-b70a-4994-bccc-85f13306c5c9" xml:space="preserve">
+          <source>Click on <bpt id="d6b45f74-a455-432b-9aec-958d3e2cde9e">&lt;strong&gt;</bpt>Deploy to Azure<ept id="d6b45f74-a455-432b-9aec-958d3e2cde9e">&lt;/strong&gt;</ept>, and then sign in on to the Azure portal with your credentials.</source>
+          <target state="new">Click on <bpt id="d6b45f74-a455-432b-9aec-958d3e2cde9e">&lt;strong&gt;</bpt>Deploy to Azure<ept id="d6b45f74-a455-432b-9aec-958d3e2cde9e">&lt;/strong&gt;</ept>, and then sign in on to the Azure portal with your credentials.</target>
+        </trans-unit>
+        <trans-unit id="b2468dd1-e922-46a9-8c4b-8ca27d060540" xml:space="preserve">
+          <source>Verify the template, and then click <bpt id="289c300e-59ba-4f3c-becd-9f30c0821f68">&lt;strong&gt;</bpt>Save<ept id="289c300e-59ba-4f3c-becd-9f30c0821f68">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Verify the template, and then click <bpt id="289c300e-59ba-4f3c-becd-9f30c0821f68">&lt;strong&gt;</bpt>Save<ept id="289c300e-59ba-4f3c-becd-9f30c0821f68">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9018d71e-b1ca-435a-a5fd-59c2f36bf064" xml:space="preserve">
+          <source>Click <bpt id="594eb053-5c2f-4d27-9fbf-170825c78fef">&lt;strong&gt;</bpt>Edit parameters<ept id="594eb053-5c2f-4d27-9fbf-170825c78fef">&lt;/strong&gt;</ept> and select a location, such as <bpt id="bd35e172-3a75-4ca8-a5b5-4758ef588a2b">&lt;em&gt;</bpt>West US<ept id="bd35e172-3a75-4ca8-a5b5-4758ef588a2b">&lt;/em&gt;</ept>, for the vnet and subnets.</source>
+          <target state="new">Click <bpt id="594eb053-5c2f-4d27-9fbf-170825c78fef">&lt;strong&gt;</bpt>Edit parameters<ept id="594eb053-5c2f-4d27-9fbf-170825c78fef">&lt;/strong&gt;</ept> and select a location, such as <bpt id="bd35e172-3a75-4ca8-a5b5-4758ef588a2b">&lt;em&gt;</bpt>West US<ept id="bd35e172-3a75-4ca8-a5b5-4758ef588a2b">&lt;/em&gt;</ept>, for the vnet and subnets.</target>
+        </trans-unit>
+        <trans-unit id="12bf7e5c-2976-47f9-a35f-494956039250" xml:space="preserve">
+          <source>If necessary, change the <bpt id="02faec89-6133-40a5-b149-cf48b4a5dfb9">&lt;strong&gt;</bpt>ADDRESSPREFIX<ept id="02faec89-6133-40a5-b149-cf48b4a5dfb9">&lt;/strong&gt;</ept> and <bpt id="914c3dea-c1e0-4121-bc36-a4f78daefc2c">&lt;strong&gt;</bpt>SUBNETPREFIX<ept id="914c3dea-c1e0-4121-bc36-a4f78daefc2c">&lt;/strong&gt;</ept> parameters, and then click <bpt id="30a218f1-ad72-4f00-9f10-98f253916684">&lt;strong&gt;</bpt>OK<ept id="30a218f1-ad72-4f00-9f10-98f253916684">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If necessary, change the <bpt id="02faec89-6133-40a5-b149-cf48b4a5dfb9">&lt;strong&gt;</bpt>ADDRESSPREFIX<ept id="02faec89-6133-40a5-b149-cf48b4a5dfb9">&lt;/strong&gt;</ept> and <bpt id="914c3dea-c1e0-4121-bc36-a4f78daefc2c">&lt;strong&gt;</bpt>SUBNETPREFIX<ept id="914c3dea-c1e0-4121-bc36-a4f78daefc2c">&lt;/strong&gt;</ept> parameters, and then click <bpt id="30a218f1-ad72-4f00-9f10-98f253916684">&lt;strong&gt;</bpt>OK<ept id="30a218f1-ad72-4f00-9f10-98f253916684">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43048e6b-0f3a-4a5b-a10e-f7ea33acef47" xml:space="preserve">
+          <source>Click <bpt id="61257cad-f4ae-420e-a29a-fe5ecf3cb06d">&lt;strong&gt;</bpt>Select a resource group<ept id="61257cad-f4ae-420e-a29a-fe5ecf3cb06d">&lt;/strong&gt;</ept> and then click on the resource group you want to add the vnet and subnets to.</source>
+          <target state="new">Click <bpt id="61257cad-f4ae-420e-a29a-fe5ecf3cb06d">&lt;strong&gt;</bpt>Select a resource group<ept id="61257cad-f4ae-420e-a29a-fe5ecf3cb06d">&lt;/strong&gt;</ept> and then click on the resource group you want to add the vnet and subnets to.</target>
+        </trans-unit>
+        <trans-unit id="d504eb34-1319-49e3-848f-8c3a4ab96c52" xml:space="preserve">
+          <source>Alternatively, you can create a new resource group by clicking <bpt id="ff2422eb-9091-440b-92c6-287a8511f867">&lt;strong&gt;</bpt>Or create new<ept id="ff2422eb-9091-440b-92c6-287a8511f867">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Alternatively, you can create a new resource group by clicking <bpt id="ff2422eb-9091-440b-92c6-287a8511f867">&lt;strong&gt;</bpt>Or create new<ept id="ff2422eb-9091-440b-92c6-287a8511f867">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d19d7e7-c58c-44f3-9173-1f71016e67fe" xml:space="preserve">
+          <source>Click <bpt id="3546fbfd-3bdf-4f70-b651-3fc73d8d72dd">&lt;strong&gt;</bpt>Create<ept id="3546fbfd-3bdf-4f70-b651-3fc73d8d72dd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3546fbfd-3bdf-4f70-b651-3fc73d8d72dd">&lt;strong&gt;</bpt>Create<ept id="3546fbfd-3bdf-4f70-b651-3fc73d8d72dd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8863d03-3867-4f6a-a76e-b983723205bf" xml:space="preserve">
+          <source>Notice the tile displaying <bpt id="1c1fa9fa-7a4f-4cad-94fd-4320b3591a08">&lt;strong&gt;</bpt>Provisioning Template deployment<ept id="1c1fa9fa-7a4f-4cad-94fd-4320b3591a08">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice the tile displaying <bpt id="1c1fa9fa-7a4f-4cad-94fd-4320b3591a08">&lt;strong&gt;</bpt>Provisioning Template deployment<ept id="1c1fa9fa-7a4f-4cad-94fd-4320b3591a08">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6522d6d6-1f8b-42dd-8669-bbe0f1d65959" xml:space="preserve">
+          <source>Once the deployment is done, you will see a screen similar to one below.</source>
+          <target state="new">Once the deployment is done, you will see a screen similar to one below.</target>
+        </trans-unit>
+        <trans-unit id="c4e42087-8cb7-4961-8151-606913b7c088" xml:space="preserve">
+          <source><bpt id="ef8be3ef-9f9d-47f4-b94b-67c60066d782">&lt;linkText&gt;</bpt>Sample template deployment<ept id="ef8be3ef-9f9d-47f4-b94b-67c60066d782">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef8be3ef-9f9d-47f4-b94b-67c60066d782">&lt;linkText&gt;</bpt>Sample template deployment<ept id="ef8be3ef-9f9d-47f4-b94b-67c60066d782">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e298a64c-a808-4c95-8c13-1236640cfd21" xml:space="preserve">
+          <source><bpt id="4ff0921d-a1ff-4646-8b27-1d91da8df337">&lt;linkText&gt;</bpt>Azure Networking API reference<ept id="4ff0921d-a1ff-4646-8b27-1d91da8df337">&lt;/linkText&gt;</ept><bpt id="4ff0921d-a1ff-4646-8b27-1d91da8df337">&lt;title&gt;</bpt><ept id="4ff0921d-a1ff-4646-8b27-1d91da8df337">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4ff0921d-a1ff-4646-8b27-1d91da8df337">&lt;linkText&gt;</bpt>Azure Networking API reference<ept id="4ff0921d-a1ff-4646-8b27-1d91da8df337">&lt;/linkText&gt;</ept><bpt id="4ff0921d-a1ff-4646-8b27-1d91da8df337">&lt;title&gt;</bpt><ept id="4ff0921d-a1ff-4646-8b27-1d91da8df337">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0723ce96-55cf-4347-bd9f-325757f88546" xml:space="preserve">
+          <source><bpt id="2c6a6b95-9c4e-454c-9847-e40434f56cc5">&lt;linkText&gt;</bpt>Azure PowerShell reference for networking<ept id="2c6a6b95-9c4e-454c-9847-e40434f56cc5">&lt;/linkText&gt;</ept><bpt id="2c6a6b95-9c4e-454c-9847-e40434f56cc5">&lt;title&gt;</bpt><ept id="2c6a6b95-9c4e-454c-9847-e40434f56cc5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c6a6b95-9c4e-454c-9847-e40434f56cc5">&lt;linkText&gt;</bpt>Azure PowerShell reference for networking<ept id="2c6a6b95-9c4e-454c-9847-e40434f56cc5">&lt;/linkText&gt;</ept><bpt id="2c6a6b95-9c4e-454c-9847-e40434f56cc5">&lt;title&gt;</bpt><ept id="2c6a6b95-9c4e-454c-9847-e40434f56cc5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f881ea80-6f91-478e-aa94-6f3d16c1ccf6" xml:space="preserve">
+          <source><bpt id="1e16bffb-2bac-4bb8-bf0f-b375b1920fd1">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="1e16bffb-2bac-4bb8-bf0f-b375b1920fd1">&lt;/linkText&gt;</ept><bpt id="1e16bffb-2bac-4bb8-bf0f-b375b1920fd1">&lt;title&gt;</bpt><ept id="1e16bffb-2bac-4bb8-bf0f-b375b1920fd1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e16bffb-2bac-4bb8-bf0f-b375b1920fd1">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="1e16bffb-2bac-4bb8-bf0f-b375b1920fd1">&lt;/linkText&gt;</ept><bpt id="1e16bffb-2bac-4bb8-bf0f-b375b1920fd1">&lt;title&gt;</bpt><ept id="1e16bffb-2bac-4bb8-bf0f-b375b1920fd1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03bbdcf8-ea32-482b-9b1e-f615ed4091ae" xml:space="preserve">
+          <source><bpt id="bfe99881-16af-4a7a-9e81-0f7e7f64f07f">&lt;linkText&gt;</bpt>Azure Networking – commonly used templates<ept id="bfe99881-16af-4a7a-9e81-0f7e7f64f07f">&lt;/linkText&gt;</ept><bpt id="bfe99881-16af-4a7a-9e81-0f7e7f64f07f">&lt;title&gt;</bpt><ept id="bfe99881-16af-4a7a-9e81-0f7e7f64f07f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bfe99881-16af-4a7a-9e81-0f7e7f64f07f">&lt;linkText&gt;</bpt>Azure Networking – commonly used templates<ept id="bfe99881-16af-4a7a-9e81-0f7e7f64f07f">&lt;/linkText&gt;</ept><bpt id="bfe99881-16af-4a7a-9e81-0f7e7f64f07f">&lt;title&gt;</bpt><ept id="bfe99881-16af-4a7a-9e81-0f7e7f64f07f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01b3a5f1-1f95-435d-b31a-c11cd96e3f0f" xml:space="preserve">
+          <source><bpt id="27e80a9e-43cb-47ef-9699-7a47f6d86b92">&lt;linkText&gt;</bpt>Compute Resource Provider<ept id="27e80a9e-43cb-47ef-9699-7a47f6d86b92">&lt;/linkText&gt;</ept><bpt id="27e80a9e-43cb-47ef-9699-7a47f6d86b92">&lt;title&gt;</bpt><ept id="27e80a9e-43cb-47ef-9699-7a47f6d86b92">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="27e80a9e-43cb-47ef-9699-7a47f6d86b92">&lt;linkText&gt;</bpt>Compute Resource Provider<ept id="27e80a9e-43cb-47ef-9699-7a47f6d86b92">&lt;/linkText&gt;</ept><bpt id="27e80a9e-43cb-47ef-9699-7a47f6d86b92">&lt;title&gt;</bpt><ept id="27e80a9e-43cb-47ef-9699-7a47f6d86b92">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d59e92ed-3d43-4068-b389-644305c4f030" xml:space="preserve">
+          <source><bpt id="471d4d63-4d28-4032-b0df-4190507e435e">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="471d4d63-4d28-4032-b0df-4190507e435e">&lt;/linkText&gt;</ept><bpt id="471d4d63-4d28-4032-b0df-4190507e435e">&lt;title&gt;</bpt><ept id="471d4d63-4d28-4032-b0df-4190507e435e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="471d4d63-4d28-4032-b0df-4190507e435e">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="471d4d63-4d28-4032-b0df-4190507e435e">&lt;/linkText&gt;</ept><bpt id="471d4d63-4d28-4032-b0df-4190507e435e">&lt;title&gt;</bpt><ept id="471d4d63-4d28-4032-b0df-4190507e435e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc76a725-7954-4d3b-a48b-fd5a169ef1d6" xml:space="preserve">
+          <source><bpt id="f00a8e37-133e-426f-893b-b942fed13d8e">&lt;linkText&gt;</bpt>Role based access control in Azure Resource Manager<ept id="f00a8e37-133e-426f-893b-b942fed13d8e">&lt;/linkText&gt;</ept><bpt id="f00a8e37-133e-426f-893b-b942fed13d8e">&lt;title&gt;</bpt><ept id="f00a8e37-133e-426f-893b-b942fed13d8e">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="f00a8e37-133e-426f-893b-b942fed13d8e">&lt;linkText&gt;</bpt>Role based access control in Azure Resource Manager<ept id="f00a8e37-133e-426f-893b-b942fed13d8e">&lt;/linkText&gt;</ept><bpt id="f00a8e37-133e-426f-893b-b942fed13d8e">&lt;title&gt;</bpt><ept id="f00a8e37-133e-426f-893b-b942fed13d8e">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="9ce53bf9-3419-4246-a255-033fa1804513" xml:space="preserve">
+          <source><bpt id="98143601-0d53-4615-8d49-17b281c54912">&lt;linkText&gt;</bpt>Using Tags in Azure Resource Manager<ept id="98143601-0d53-4615-8d49-17b281c54912">&lt;/linkText&gt;</ept><bpt id="98143601-0d53-4615-8d49-17b281c54912">&lt;title&gt;</bpt><ept id="98143601-0d53-4615-8d49-17b281c54912">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="98143601-0d53-4615-8d49-17b281c54912">&lt;linkText&gt;</bpt>Using Tags in Azure Resource Manager<ept id="98143601-0d53-4615-8d49-17b281c54912">&lt;/linkText&gt;</ept><bpt id="98143601-0d53-4615-8d49-17b281c54912">&lt;title&gt;</bpt><ept id="98143601-0d53-4615-8d49-17b281c54912">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c4ab23d-f82b-41fd-a393-b92414b6b63d" xml:space="preserve">
+          <source><bpt id="1e83b548-c55f-457a-b097-bef59c10ada1">&lt;linkText&gt;</bpt>Template deployments<ept id="1e83b548-c55f-457a-b097-bef59c10ada1">&lt;/linkText&gt;</ept><bpt id="1e83b548-c55f-457a-b097-bef59c10ada1">&lt;title&gt;</bpt><ept id="1e83b548-c55f-457a-b097-bef59c10ada1">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="1e83b548-c55f-457a-b097-bef59c10ada1">&lt;linkText&gt;</bpt>Template deployments<ept id="1e83b548-c55f-457a-b097-bef59c10ada1">&lt;/linkText&gt;</ept><bpt id="1e83b548-c55f-457a-b097-bef59c10ada1">&lt;title&gt;</bpt><ept id="1e83b548-c55f-457a-b097-bef59c10ada1">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

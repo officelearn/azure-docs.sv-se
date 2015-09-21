@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c3656577-acca-4899-a6ef-408b144f5143" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c3656577-acca-4899-a6ef-408b144f5143" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="584908d3-2946-428b-903f-623e02209f7b">
+        <trans-unit id="0c644114-14da-4d1e-8e99-b66e4d871378" xml:space="preserve">
+          <source>Records of airplane flight arrivals and departures within United States from October 2011.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Predict flight delays. &lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; From US Dept. of Transportation &lt;a href="http://www.transtats.bts.gov/DL<bpt id="1f911e36-c815-428c-becd-bf2b2e7fddfc">&lt;em&gt;</bpt>SelectFields.asp?Table<ept id="1f911e36-c815-428c-becd-bf2b2e7fddfc">&lt;/em&gt;</ept>ID=236&amp;DB<bpt id="93c40c06-e909-47e6-bdbb-4c02028b40f3">&lt;em&gt;</bpt>Short<ept id="93c40c06-e909-47e6-bdbb-4c02028b40f3">&lt;/em&gt;</ept>Name=On-Time"&gt;http://www.transtats.bts.gov/DL<bpt id="5e483d4a-8af0-4a55-b412-b80c48a275d2">&lt;em&gt;</bpt>SelectFields.asp?Table<ept id="5e483d4a-8af0-4a55-b412-b80c48a275d2">&lt;/em&gt;</ept>ID=236&amp;DB<bpt id="bf4f1f18-0075-429a-81b3-297898deb92e">&lt;em&gt;</bpt>Short<ept id="bf4f1f18-0075-429a-81b3-297898deb92e">&lt;/em&gt;</ept>Name=On-Time&lt;/a&gt;.</source>
+          <target state="new">Records of airplane flight arrivals and departures within United States from October 2011.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Predict flight delays. &lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; From US Dept. of Transportation &lt;a href="http://www.transtats.bts.gov/DL<bpt id="1f911e36-c815-428c-becd-bf2b2e7fddfc">&lt;em&gt;</bpt>SelectFields.asp?Table<ept id="1f911e36-c815-428c-becd-bf2b2e7fddfc">&lt;/em&gt;</ept>ID=236&amp;DB<bpt id="93c40c06-e909-47e6-bdbb-4c02028b40f3">&lt;em&gt;</bpt>Short<ept id="93c40c06-e909-47e6-bdbb-4c02028b40f3">&lt;/em&gt;</ept>Name=On-Time"&gt;http://www.transtats.bts.gov/DL<bpt id="5e483d4a-8af0-4a55-b412-b80c48a275d2">&lt;em&gt;</bpt>SelectFields.asp?Table<ept id="5e483d4a-8af0-4a55-b412-b80c48a275d2">&lt;/em&gt;</ept>ID=236&amp;DB<bpt id="bf4f1f18-0075-429a-81b3-297898deb92e">&lt;em&gt;</bpt>Short<ept id="bf4f1f18-0075-429a-81b3-297898deb92e">&lt;/em&gt;</ept>Name=On-Time&lt;/a&gt;.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="005a9fdc-2916-4c86-8b95-c371727fec65" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="005a9fdc-2916-4c86-8b95-c371727fec65" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8f6c6d73-3ab7-43b5-8442-17b679b466c1">
+        <trans-unit id="69bbc5f7-b9ec-40ab-8128-2fba647d14c9" xml:space="preserve">
+          <source>On the on-premises machine, log on to the <bpt id="c6d9ecc3-c3b9-4f6b-b0c8-8863ebc43795">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="c6d9ecc3-c3b9-4f6b-b0c8-8863ebc43795">&lt;/linkText&gt;</ept><bpt id="c6d9ecc3-c3b9-4f6b-b0c8-8863ebc43795">&lt;title&gt;</bpt><ept id="c6d9ecc3-c3b9-4f6b-b0c8-8863ebc43795">&lt;/title&gt;</ept> (this is the old portal).</source>
+          <target state="new">On the on-premises machine, log on to the <bpt id="c6d9ecc3-c3b9-4f6b-b0c8-8863ebc43795">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="c6d9ecc3-c3b9-4f6b-b0c8-8863ebc43795">&lt;/linkText&gt;</ept><bpt id="c6d9ecc3-c3b9-4f6b-b0c8-8863ebc43795">&lt;title&gt;</bpt><ept id="c6d9ecc3-c3b9-4f6b-b0c8-8863ebc43795">&lt;/title&gt;</ept> (this is the old portal).</target>
+        </trans-unit>
+        <trans-unit id="a501e6be-14fc-4d48-aaa4-d2c3bd126c0c" xml:space="preserve">
+          <source>At the bottom of the navigation pane, select <bpt id="20f23e6b-27fa-452e-bbf6-5d7df2fdd411">&lt;strong&gt;</bpt>+NEW<ept id="20f23e6b-27fa-452e-bbf6-5d7df2fdd411">&lt;/strong&gt;</ept> &gt; <bpt id="7dbcecc9-bb33-4333-9047-b300bd7d066d">&lt;strong&gt;</bpt>App Services<ept id="7dbcecc9-bb33-4333-9047-b300bd7d066d">&lt;/strong&gt;</ept> &gt; <bpt id="edf54da4-2310-4a87-a764-1a43a172b4d9">&lt;strong&gt;</bpt>BizTalk Service<ept id="edf54da4-2310-4a87-a764-1a43a172b4d9">&lt;/strong&gt;</ept> &gt; <bpt id="0b2765a9-8641-46c9-95b2-abfe0c69b5ca">&lt;strong&gt;</bpt>Custom Create<ept id="0b2765a9-8641-46c9-95b2-abfe0c69b5ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the navigation pane, select <bpt id="20f23e6b-27fa-452e-bbf6-5d7df2fdd411">&lt;strong&gt;</bpt>+NEW<ept id="20f23e6b-27fa-452e-bbf6-5d7df2fdd411">&lt;/strong&gt;</ept> &gt; <bpt id="7dbcecc9-bb33-4333-9047-b300bd7d066d">&lt;strong&gt;</bpt>App Services<ept id="7dbcecc9-bb33-4333-9047-b300bd7d066d">&lt;/strong&gt;</ept> &gt; <bpt id="edf54da4-2310-4a87-a764-1a43a172b4d9">&lt;strong&gt;</bpt>BizTalk Service<ept id="edf54da4-2310-4a87-a764-1a43a172b4d9">&lt;/strong&gt;</ept> &gt; <bpt id="0b2765a9-8641-46c9-95b2-abfe0c69b5ca">&lt;strong&gt;</bpt>Custom Create<ept id="0b2765a9-8641-46c9-95b2-abfe0c69b5ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a72a00c-cf6d-4686-bac4-d88ad88dabdd" xml:space="preserve">
+          <source>Provide a <bpt id="85d6c4f4-60f4-400d-8aed-a2881bcde38a">&lt;strong&gt;</bpt>BizTalk Service Name<ept id="85d6c4f4-60f4-400d-8aed-a2881bcde38a">&lt;/strong&gt;</ept> and select an <bpt id="824ad86e-9e2a-422c-b852-0114dd701d60">&lt;strong&gt;</bpt>Edition<ept id="824ad86e-9e2a-422c-b852-0114dd701d60">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Provide a <bpt id="85d6c4f4-60f4-400d-8aed-a2881bcde38a">&lt;strong&gt;</bpt>BizTalk Service Name<ept id="85d6c4f4-60f4-400d-8aed-a2881bcde38a">&lt;/strong&gt;</ept> and select an <bpt id="824ad86e-9e2a-422c-b852-0114dd701d60">&lt;strong&gt;</bpt>Edition<ept id="824ad86e-9e2a-422c-b852-0114dd701d60">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22651751-d76b-48f1-80b0-d1a26af700c9" xml:space="preserve">
+          <source>This tutorial uses <bpt id="a57b625e-2f05-465e-8947-0cf099472d5a">&lt;strong&gt;</bpt>mobile1<ept id="a57b625e-2f05-465e-8947-0cf099472d5a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This tutorial uses <bpt id="a57b625e-2f05-465e-8947-0cf099472d5a">&lt;strong&gt;</bpt>mobile1<ept id="a57b625e-2f05-465e-8947-0cf099472d5a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30c020b2-6ab8-4c62-aee2-b8d014db14e1" xml:space="preserve">
+          <source>You will need to supply a unique name for your new BizTalk Service.</source>
+          <target state="new">You will need to supply a unique name for your new BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="141e5523-d345-445f-ad5c-e2fc11f659e7" xml:space="preserve">
+          <source>Once the BizTalk Service has been created, select the <bpt id="9ecf37d3-1f51-4b87-8513-6a7bc053fd88">&lt;strong&gt;</bpt>Hybrid Connections<ept id="9ecf37d3-1f51-4b87-8513-6a7bc053fd88">&lt;/strong&gt;</ept> tab, then click <bpt id="4113b0c6-718e-4f61-a565-9c70271ac855">&lt;strong&gt;</bpt>Add<ept id="4113b0c6-718e-4f61-a565-9c70271ac855">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the BizTalk Service has been created, select the <bpt id="9ecf37d3-1f51-4b87-8513-6a7bc053fd88">&lt;strong&gt;</bpt>Hybrid Connections<ept id="9ecf37d3-1f51-4b87-8513-6a7bc053fd88">&lt;/strong&gt;</ept> tab, then click <bpt id="4113b0c6-718e-4f61-a565-9c70271ac855">&lt;strong&gt;</bpt>Add<ept id="4113b0c6-718e-4f61-a565-9c70271ac855">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="935fd9be-a6d3-4860-9952-a9466de06f86" xml:space="preserve">
+          <source><bpt id="218ab040-597f-4453-a33f-7291dcb51329">&lt;linkText&gt;</bpt>Add Hybrid Connection<ept id="218ab040-597f-4453-a33f-7291dcb51329">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="218ab040-597f-4453-a33f-7291dcb51329">&lt;linkText&gt;</bpt>Add Hybrid Connection<ept id="218ab040-597f-4453-a33f-7291dcb51329">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62f8c85c-d216-4b37-8062-f7d7001e506d" xml:space="preserve">
+          <source>This creates a new hybrid connection.</source>
+          <target state="new">This creates a new hybrid connection.</target>
+        </trans-unit>
+        <trans-unit id="f4190650-a5b1-4be5-870e-7c4a19d73115" xml:space="preserve">
+          <source>Provide a <bpt id="410ba9a0-b37c-4c00-a148-00fc9109e226">&lt;strong&gt;</bpt>Name<ept id="410ba9a0-b37c-4c00-a148-00fc9109e226">&lt;/strong&gt;</ept> and <bpt id="72ad3f96-1a6c-4c86-9c06-d0ad22ee4280">&lt;strong&gt;</bpt>Host Name<ept id="72ad3f96-1a6c-4c86-9c06-d0ad22ee4280">&lt;/strong&gt;</ept> for your hybrid connection and set <bpt id="b648a738-966f-4181-ac1e-90fd25f1d571">&lt;strong&gt;</bpt>Port<ept id="b648a738-966f-4181-ac1e-90fd25f1d571">&lt;/strong&gt;</ept> to <bpt id="066a4ed2-061b-4974-bde4-4f56495f8d64">&lt;code&gt;</bpt>1433<ept id="066a4ed2-061b-4974-bde4-4f56495f8d64">&lt;/code&gt;</ept>.</source>
+          <target state="new">Provide a <bpt id="410ba9a0-b37c-4c00-a148-00fc9109e226">&lt;strong&gt;</bpt>Name<ept id="410ba9a0-b37c-4c00-a148-00fc9109e226">&lt;/strong&gt;</ept> and <bpt id="72ad3f96-1a6c-4c86-9c06-d0ad22ee4280">&lt;strong&gt;</bpt>Host Name<ept id="72ad3f96-1a6c-4c86-9c06-d0ad22ee4280">&lt;/strong&gt;</ept> for your hybrid connection and set <bpt id="b648a738-966f-4181-ac1e-90fd25f1d571">&lt;strong&gt;</bpt>Port<ept id="b648a738-966f-4181-ac1e-90fd25f1d571">&lt;/strong&gt;</ept> to <bpt id="066a4ed2-061b-4974-bde4-4f56495f8d64">&lt;code&gt;</bpt>1433<ept id="066a4ed2-061b-4974-bde4-4f56495f8d64">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57e3635e-95ab-49aa-8e36-1a319a8abd5f" xml:space="preserve">
+          <source><bpt id="583d2754-c438-4f75-afa0-21eb0a6281a6">&lt;linkText&gt;</bpt>Configure Hybrid Connection<ept id="583d2754-c438-4f75-afa0-21eb0a6281a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="583d2754-c438-4f75-afa0-21eb0a6281a6">&lt;linkText&gt;</bpt>Configure Hybrid Connection<ept id="583d2754-c438-4f75-afa0-21eb0a6281a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4999627-567b-40e7-8180-d5f67d26a235" xml:space="preserve">
+          <source>The host name is the name of the on-premises server.</source>
+          <target state="new">The host name is the name of the on-premises server.</target>
+        </trans-unit>
+        <trans-unit id="38226a8b-1452-4415-b10f-fb85bb192a5d" xml:space="preserve">
+          <source>This configures the hybrid connection to access SQL Server running on port 1433.</source>
+          <target state="new">This configures the hybrid connection to access SQL Server running on port 1433.</target>
+        </trans-unit>
+        <trans-unit id="91a5842a-5e12-4901-9f6f-8334bb5c2973" xml:space="preserve">
+          <source>If you are using a named SQL Server instance, instead use the static port you defined earlier.</source>
+          <target state="new">If you are using a named SQL Server instance, instead use the static port you defined earlier.</target>
+        </trans-unit>
+        <trans-unit id="2622bc5d-4fa7-4911-8a35-a9d90daa8122" xml:space="preserve">
+          <source>After the new connection is created, the status of the of the new connection shows <bpt id="2fa27cb9-9dce-4a4f-9640-db0ad81a3862">&lt;strong&gt;</bpt>On-premises setup incomplete<ept id="2fa27cb9-9dce-4a4f-9640-db0ad81a3862">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the new connection is created, the status of the of the new connection shows <bpt id="2fa27cb9-9dce-4a4f-9640-db0ad81a3862">&lt;strong&gt;</bpt>On-premises setup incomplete<ept id="2fa27cb9-9dce-4a4f-9640-db0ad81a3862">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a120d8f5-c915-4c9c-a8ca-7e5115dc22b1" xml:space="preserve">
+          <source>Navigate back to your mobile service, click <bpt id="00595c67-025c-4fe7-a980-c9c5d12bb804">&lt;strong&gt;</bpt>Configure<ept id="00595c67-025c-4fe7-a980-c9c5d12bb804">&lt;/strong&gt;</ept>, scroll down to <bpt id="f8bff3d2-0223-4cb8-80bc-26dd6eb64487">&lt;strong&gt;</bpt>Hybrid connections<ept id="f8bff3d2-0223-4cb8-80bc-26dd6eb64487">&lt;/strong&gt;</ept> and click <bpt id="2676ca18-8511-4efd-9645-289020982540">&lt;strong&gt;</bpt>Add hybrid connection<ept id="2676ca18-8511-4efd-9645-289020982540">&lt;/strong&gt;</ept>, then select the hybrid connection that you just created and click <bpt id="b2f57246-87f0-40d5-b976-aea68d79123d">&lt;strong&gt;</bpt>OK<ept id="b2f57246-87f0-40d5-b976-aea68d79123d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate back to your mobile service, click <bpt id="00595c67-025c-4fe7-a980-c9c5d12bb804">&lt;strong&gt;</bpt>Configure<ept id="00595c67-025c-4fe7-a980-c9c5d12bb804">&lt;/strong&gt;</ept>, scroll down to <bpt id="f8bff3d2-0223-4cb8-80bc-26dd6eb64487">&lt;strong&gt;</bpt>Hybrid connections<ept id="f8bff3d2-0223-4cb8-80bc-26dd6eb64487">&lt;/strong&gt;</ept> and click <bpt id="2676ca18-8511-4efd-9645-289020982540">&lt;strong&gt;</bpt>Add hybrid connection<ept id="2676ca18-8511-4efd-9645-289020982540">&lt;/strong&gt;</ept>, then select the hybrid connection that you just created and click <bpt id="b2f57246-87f0-40d5-b976-aea68d79123d">&lt;strong&gt;</bpt>OK<ept id="b2f57246-87f0-40d5-b976-aea68d79123d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b04c5e7f-377d-407d-b473-8fc6e57aa8c2" xml:space="preserve">
+          <source>This enables your mobile service to use your new hybrid connection.</source>
+          <target state="new">This enables your mobile service to use your new hybrid connection.</target>
+        </trans-unit>
+        <trans-unit id="75858c2a-515d-4d04-9927-d586c28fae22" xml:space="preserve">
+          <source>Next, you'll need to install the Hybrid Connection Manager on the on-premises computer.</source>
+          <target state="new">Next, you'll need to install the Hybrid Connection Manager on the on-premises computer.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

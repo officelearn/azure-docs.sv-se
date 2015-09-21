@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="998c176f-0141-4661-9f47-e5eaa56365fd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="998c176f-0141-4661-9f47-e5eaa56365fd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f8e64f74-9f0f-4ee4-9079-ad0dfc754b7e">
+        <trans-unit id="50372880-f4de-4dbd-a85b-290ce40d014d" xml:space="preserve">
+          <source>In this section, you'll write a Windows console app that sends events to your Event Hub.</source>
+          <target state="new">In this section, you'll write a Windows console app that sends events to your Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="414ee6f8-aded-4065-96ad-c6071c564156" xml:space="preserve">
+          <source>In Visual Studio, create a new Visual C# Desktop App project using the <bpt id="2b3bba0e-683f-4f71-865a-af6704cdc79a">&lt;strong&gt;</bpt>Console  Application<ept id="2b3bba0e-683f-4f71-865a-af6704cdc79a">&lt;/strong&gt;</ept> project template.</source>
+          <target state="new">In Visual Studio, create a new Visual C# Desktop App project using the <bpt id="2b3bba0e-683f-4f71-865a-af6704cdc79a">&lt;strong&gt;</bpt>Console  Application<ept id="2b3bba0e-683f-4f71-865a-af6704cdc79a">&lt;/strong&gt;</ept> project template.</target>
+        </trans-unit>
+        <trans-unit id="f47e7bb1-5fc1-4922-b15f-3ff0669c8eae" xml:space="preserve">
+          <source>Name the project <bpt id="abcd63d6-0f71-4131-8973-c31bb77680f7">&lt;strong&gt;</bpt>Sender<ept id="abcd63d6-0f71-4131-8973-c31bb77680f7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the project <bpt id="abcd63d6-0f71-4131-8973-c31bb77680f7">&lt;strong&gt;</bpt>Sender<ept id="abcd63d6-0f71-4131-8973-c31bb77680f7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8c10c79-0bff-4124-a9cc-ed68a87479ab" xml:space="preserve">
+          <source><bpt id="fe97958a-4062-4dd7-81ed-3fcb51547e84">&lt;linkText&gt;</bpt><ept id="fe97958a-4062-4dd7-81ed-3fcb51547e84">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe97958a-4062-4dd7-81ed-3fcb51547e84">&lt;linkText&gt;</bpt><ept id="fe97958a-4062-4dd7-81ed-3fcb51547e84">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee89613c-acf6-4da1-ab17-ee644e89fab1" xml:space="preserve">
+          <source>In Solution Explorer, right-click the solution, and then click <bpt id="ee3e6f2e-575e-4cf8-a177-495836b1273f">&lt;strong&gt;</bpt>Manage NuGet Packages for Solution...<ept id="ee3e6f2e-575e-4cf8-a177-495836b1273f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, right-click the solution, and then click <bpt id="ee3e6f2e-575e-4cf8-a177-495836b1273f">&lt;strong&gt;</bpt>Manage NuGet Packages for Solution...<ept id="ee3e6f2e-575e-4cf8-a177-495836b1273f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be4a89d3-3822-4883-abde-995cc20f7f4f" xml:space="preserve">
+          <source>This displays the Manage NuGet Packages dialog box.</source>
+          <target state="new">This displays the Manage NuGet Packages dialog box.</target>
+        </trans-unit>
+        <trans-unit id="02d8de27-ce5c-4684-bf6e-c2f779f31741" xml:space="preserve">
+          <source>Search for <bpt id="3af845b3-e549-4537-9769-c1e59a9cadc4">&lt;code&gt;</bpt>Microsoft Azure Service Bus<ept id="3af845b3-e549-4537-9769-c1e59a9cadc4">&lt;/code&gt;</ept>, click <bpt id="0eb2d24b-84e4-4b77-b306-108c36ba1c9b">&lt;strong&gt;</bpt>Install<ept id="0eb2d24b-84e4-4b77-b306-108c36ba1c9b">&lt;/strong&gt;</ept>, and accept the terms of use.</source>
+          <target state="new">Search for <bpt id="3af845b3-e549-4537-9769-c1e59a9cadc4">&lt;code&gt;</bpt>Microsoft Azure Service Bus<ept id="3af845b3-e549-4537-9769-c1e59a9cadc4">&lt;/code&gt;</ept>, click <bpt id="0eb2d24b-84e4-4b77-b306-108c36ba1c9b">&lt;strong&gt;</bpt>Install<ept id="0eb2d24b-84e4-4b77-b306-108c36ba1c9b">&lt;/strong&gt;</ept>, and accept the terms of use.</target>
+        </trans-unit>
+        <trans-unit id="aa127163-482e-48e9-a539-bd94a0aa4a87" xml:space="preserve">
+          <source><bpt id="71d8fedb-8d33-404a-adee-a21af518e0d2">&lt;linkText&gt;</bpt><ept id="71d8fedb-8d33-404a-adee-a21af518e0d2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="71d8fedb-8d33-404a-adee-a21af518e0d2">&lt;linkText&gt;</bpt><ept id="71d8fedb-8d33-404a-adee-a21af518e0d2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0033b901-c203-4172-9584-d2b209da5ab9" xml:space="preserve">
+          <source>This downloads, installs, and adds a reference to the &lt;a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/"&gt;Azure Service Bus library NuGet package&lt;/a&gt;.</source>
+          <target state="new">This downloads, installs, and adds a reference to the &lt;a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/"&gt;Azure Service Bus library NuGet package&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="12192476-1461-4f29-b022-ea711c3b0c57" xml:space="preserve">
+          <source>Add the following <bpt id="6b070227-803b-4de4-915c-a749429b559f">&lt;code&gt;</bpt>using<ept id="6b070227-803b-4de4-915c-a749429b559f">&lt;/code&gt;</ept> statement at the top of the <bpt id="0d729e8a-a3c5-4046-b698-43db239e088c">&lt;strong&gt;</bpt>Program.cs<ept id="0d729e8a-a3c5-4046-b698-43db239e088c">&lt;/strong&gt;</ept> file:</source>
+          <target state="new">Add the following <bpt id="6b070227-803b-4de4-915c-a749429b559f">&lt;code&gt;</bpt>using<ept id="6b070227-803b-4de4-915c-a749429b559f">&lt;/code&gt;</ept> statement at the top of the <bpt id="0d729e8a-a3c5-4046-b698-43db239e088c">&lt;strong&gt;</bpt>Program.cs<ept id="0d729e8a-a3c5-4046-b698-43db239e088c">&lt;/strong&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="dfd35961-961e-4ace-b926-7e2ffe2fb7d5" xml:space="preserve">
+          <source>Add the following fields to the <bpt id="bc5d0033-7711-45b7-9190-c090a4c83247">&lt;strong&gt;</bpt>Program<ept id="bc5d0033-7711-45b7-9190-c090a4c83247">&lt;/strong&gt;</ept> class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the connection string with <bpt id="7c059f69-b93a-4e19-be3d-a84713df0c8b">&lt;strong&gt;</bpt>Send<ept id="7c059f69-b93a-4e19-be3d-a84713df0c8b">&lt;/strong&gt;</ept> rights:</source>
+          <target state="new">Add the following fields to the <bpt id="bc5d0033-7711-45b7-9190-c090a4c83247">&lt;strong&gt;</bpt>Program<ept id="bc5d0033-7711-45b7-9190-c090a4c83247">&lt;/strong&gt;</ept> class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the connection string with <bpt id="7c059f69-b93a-4e19-be3d-a84713df0c8b">&lt;strong&gt;</bpt>Send<ept id="7c059f69-b93a-4e19-be3d-a84713df0c8b">&lt;/strong&gt;</ept> rights:</target>
+        </trans-unit>
+        <trans-unit id="4f25572e-cb62-40ec-bc18-8047a10dfb9c" xml:space="preserve">
+          <source>Add the following method to the <bpt id="cb460e25-35eb-48cd-9b45-34a6918d5e7c">&lt;strong&gt;</bpt>Program<ept id="cb460e25-35eb-48cd-9b45-34a6918d5e7c">&lt;/strong&gt;</ept> class:</source>
+          <target state="new">Add the following method to the <bpt id="cb460e25-35eb-48cd-9b45-34a6918d5e7c">&lt;strong&gt;</bpt>Program<ept id="cb460e25-35eb-48cd-9b45-34a6918d5e7c">&lt;/strong&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="f1ac285a-87e5-4ee9-bad5-f280ca96bb09" xml:space="preserve">
+          <source>This method continuously sends events to your Event Hub with a 200ms delay.</source>
+          <target state="new">This method continuously sends events to your Event Hub with a 200ms delay.</target>
+        </trans-unit>
+        <trans-unit id="6bcbfcaa-2726-4a38-9c6e-51e31dde68ce" xml:space="preserve">
+          <source>Finally, add the following lines to the <bpt id="a0f166ae-6888-4ff8-bac3-a9e461a25a10">&lt;strong&gt;</bpt>Main<ept id="a0f166ae-6888-4ff8-bac3-a9e461a25a10">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Finally, add the following lines to the <bpt id="a0f166ae-6888-4ff8-bac3-a9e461a25a10">&lt;strong&gt;</bpt>Main<ept id="a0f166ae-6888-4ff8-bac3-a9e461a25a10">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="5ac94617-dd47-4d4d-a239-b84918070c9d" xml:space="preserve">
+          <source>./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png</source>
+          <target state="new">./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png</target>
+        </trans-unit>
+        <trans-unit id="e733673f-34ab-4c6b-aa9a-05f960957fe4" xml:space="preserve">
+          <source>./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png</source>
+          <target state="new">./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png</target>
+        </trans-unit>
+      </group>
+      <group id="41fcf8fc-372e-4dd5-afde-f7a2ebea2ec0" />
+    </body>
+  </file>
+</xliff>

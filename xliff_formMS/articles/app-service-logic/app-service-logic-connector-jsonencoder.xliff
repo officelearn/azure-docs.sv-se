@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bb87c816-1114-4963-857e-541dcbe42ba3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bb87c816-1114-4963-857e-541dcbe42ba3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6d9276bc-e2a0-424e-a668-be76b9c197a5">
+        <trans-unit id="5f293d95-1c01-440d-9b72-98abcbc7236e" xml:space="preserve">
+          <source>Using the BizTalk JSON Encoder connector in Logic Apps | Microsoft Azure App Service </source>
+          <target state="new">Using the BizTalk JSON Encoder connector in Logic Apps | Microsoft Azure App Service </target>
+        </trans-unit>
+        <trans-unit id="a0e704d5-e0ae-4b5e-a887-363138909675" xml:space="preserve">
+          <source>How to create and configure the BizTalk JSON Encoder Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the BizTalk JSON Encoder Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="27019162-6856-49ad-aa06-a70bf965e47d" xml:space="preserve">
+          <source>BizTalk JSON Encode Decode connector helps your app interop between JSON and XML data.</source>
+          <target state="new">BizTalk JSON Encode Decode connector helps your app interop between JSON and XML data.</target>
+        </trans-unit>
+        <trans-unit id="adefbd9d-fff9-442a-957b-c0681155977b" xml:space="preserve">
+          <source>It can convert a given JSON instance to XML and vice versa.</source>
+          <target state="new">It can convert a given JSON instance to XML and vice versa.</target>
+        </trans-unit>
+        <trans-unit id="6d78f433-52d0-45cc-99c8-a496ccd913a1" xml:space="preserve">
+          <source>You can add the BizTalk JSON Encoder to your business workflow and process data as part of this workflow within a Logic App.</source>
+          <target state="new">You can add the BizTalk JSON Encoder to your business workflow and process data as part of this workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="a608dbfa-0ba5-479f-bde1-94633ec7cb2b" xml:space="preserve">
+          <source>To use the BizTalk JSON Encoder, you need to first create an instance of the BizTalk JSON Encoder API app.</source>
+          <target state="new">To use the BizTalk JSON Encoder, you need to first create an instance of the BizTalk JSON Encoder API app.</target>
+        </trans-unit>
+        <trans-unit id="64739131-6afd-4065-b4eb-82d63162f11d" xml:space="preserve">
+          <source>This can be done either inline while creating a logic app or by selecting the BizTalk JSON Encoder API app from the Azure Marketplace.</source>
+          <target state="new">This can be done either inline while creating a logic app or by selecting the BizTalk JSON Encoder API app from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="1b084a24-4f3f-4bd0-af18-502a487af904" xml:space="preserve">
+          <source>Follow steps for [Creating a Logic App].</source>
+          <target state="new">Follow steps for [Creating a Logic App].</target>
+        </trans-unit>
+        <trans-unit id="a040932c-f770-4d8a-a47f-8f474a226511" xml:space="preserve">
+          <source>BizTalk JSON Encoder can be used as an action.</source>
+          <target state="new">BizTalk JSON Encoder can be used as an action.</target>
+        </trans-unit>
+        <trans-unit id="553dd5cb-c742-4d9e-9c67-64f37f19e494" xml:space="preserve">
+          <source>It does not have any triggers.</source>
+          <target state="new">It does not have any triggers.</target>
+        </trans-unit>
+        <trans-unit id="92d50b43-cfad-4b42-9bb7-60af6e085512" xml:space="preserve">
+          <source>Click on BizTalk JSON Encoder from the right pane</source>
+          <target state="new">Click on BizTalk JSON Encoder from the right pane</target>
+        </trans-unit>
+        <trans-unit id="8544b9da-359c-405c-b04d-f3d5faec2b08" xml:space="preserve">
+          <source><bpt id="d1c94aa6-b93a-42a7-b729-5a097640aae2">&lt;linkText&gt;</bpt>Action settings<ept id="d1c94aa6-b93a-42a7-b729-5a097640aae2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d1c94aa6-b93a-42a7-b729-5a097640aae2">&lt;linkText&gt;</bpt>Action settings<ept id="d1c94aa6-b93a-42a7-b729-5a097640aae2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4097375-2077-4386-bd05-63f144b64343" xml:space="preserve">
+          <source>Click on -&gt;</source>
+          <target state="new">Click on -&gt;</target>
+        </trans-unit>
+        <trans-unit id="c2fd51a5-2c02-4fff-9dac-cebc193b35c4" xml:space="preserve">
+          <source><bpt id="b61e1b0f-fcde-44bd-aa32-f06c22501395">&lt;linkText&gt;</bpt>List of Actions<ept id="b61e1b0f-fcde-44bd-aa32-f06c22501395">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b61e1b0f-fcde-44bd-aa32-f06c22501395">&lt;linkText&gt;</bpt>List of Actions<ept id="b61e1b0f-fcde-44bd-aa32-f06c22501395">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36445ba4-baaa-46c3-bb01-e7667563fa08" xml:space="preserve">
+          <source>BizTalk JSON Encoder supports two actions.</source>
+          <target state="new">BizTalk JSON Encoder supports two actions.</target>
+        </trans-unit>
+        <trans-unit id="b7e69f83-0c06-44b0-bd7b-cdb138b00e13" xml:space="preserve">
+          <source>Select <bpt id="e7155b67-e28d-4b25-9cf6-b1ecb62e2653">&lt;em&gt;</bpt>Xml to JSON<ept id="e7155b67-e28d-4b25-9cf6-b1ecb62e2653">&lt;/em&gt;</ept></source>
+          <target state="new">Select <bpt id="e7155b67-e28d-4b25-9cf6-b1ecb62e2653">&lt;em&gt;</bpt>Xml to JSON<ept id="e7155b67-e28d-4b25-9cf6-b1ecb62e2653">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a121e04d-97c8-4841-840f-dfa0164d06a0" xml:space="preserve">
+          <source><bpt id="e7deb316-e132-4860-8a08-2ea823258274">&lt;linkText&gt;</bpt>Xml to JSON input<ept id="e7deb316-e132-4860-8a08-2ea823258274">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7deb316-e132-4860-8a08-2ea823258274">&lt;linkText&gt;</bpt>Xml to JSON input<ept id="e7deb316-e132-4860-8a08-2ea823258274">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4376af49-f762-4cbb-b899-a716b5af1ded" xml:space="preserve">
+          <source>Provide the inputs for the action and configure it</source>
+          <target state="new">Provide the inputs for the action and configure it</target>
+        </trans-unit>
+        <trans-unit id="e0128a47-2862-4442-8bcf-20a1b0254879" xml:space="preserve">
+          <source><bpt id="3093e473-a9f4-4d6f-b7ed-3d52539d578b">&lt;linkText&gt;</bpt>Encode and send configured<ept id="3093e473-a9f4-4d6f-b7ed-3d52539d578b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3093e473-a9f4-4d6f-b7ed-3d52539d578b">&lt;linkText&gt;</bpt>Encode and send configured<ept id="3093e473-a9f4-4d6f-b7ed-3d52539d578b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78c02a09-15e3-4882-81bc-d5033c67d059" xml:space="preserve">
+          <source>Parameter</source>
+          <target state="new">Parameter</target>
+        </trans-unit>
+        <trans-unit id="1476b4d0-afd5-4d38-8245-74193aea7e96" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="551155e2-47c3-4e2c-b702-31030ca0cbe5" xml:space="preserve">
+          <source>Description of the parameter</source>
+          <target state="new">Description of the parameter</target>
+        </trans-unit>
+        <trans-unit id="f7e5ae6b-0e7a-4fc1-b780-b08724d41722" xml:space="preserve">
+          <source>Input Xml</source>
+          <target state="new">Input Xml</target>
+        </trans-unit>
+        <trans-unit id="d802498a-64d5-4ded-ab33-a4ca3794ff43" xml:space="preserve">
+          <source>object</source>
+          <target state="new">object</target>
+        </trans-unit>
+        <trans-unit id="a1808de8-47ae-4a6e-aafc-440228a1268f" xml:space="preserve">
+          <source>Input Xml content</source>
+          <target state="new">Input Xml content</target>
+        </trans-unit>
+        <trans-unit id="abe76d6a-1f77-4505-ab87-6d019994cf3c" xml:space="preserve">
+          <source>Remove Outer Envelope</source>
+          <target state="new">Remove Outer Envelope</target>
+        </trans-unit>
+        <trans-unit id="6b5bef30-0dbe-4856-8b18-c174b7b8ead6" xml:space="preserve">
+          <source>string</source>
+          <target state="new">string</target>
+        </trans-unit>
+        <trans-unit id="c5f5b859-d3da-43f4-ac97-cbf6e2fd6a05" xml:space="preserve">
+          <source>Flag set to remove Root node from Xml content</source>
+          <target state="new">Flag set to remove Root node from Xml content</target>
+        </trans-unit>
+        <trans-unit id="9dd0c8f9-e089-4893-9e52-4b8fd4033a81" xml:space="preserve">
+          <source>The action returns a json representation of the input content.</source>
+          <target state="new">The action returns a json representation of the input content.</target>
+        </trans-unit>
+        <trans-unit id="f4107eeb-f35b-48bc-8273-2bde05c3e2cf" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business flow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business flow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="48742b15-05c6-4cd6-9cb6-4bb7eebfd02f" xml:space="preserve">
+          <source>See <bpt id="70ade582-7ef5-4f09-b22e-b01222cceb79">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="70ade582-7ef5-4f09-b22e-b01222cceb79">&lt;/linkText&gt;</ept><bpt id="70ade582-7ef5-4f09-b22e-b01222cceb79">&lt;title&gt;</bpt><ept id="70ade582-7ef5-4f09-b22e-b01222cceb79">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="70ade582-7ef5-4f09-b22e-b01222cceb79">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="70ade582-7ef5-4f09-b22e-b01222cceb79">&lt;/linkText&gt;</ept><bpt id="70ade582-7ef5-4f09-b22e-b01222cceb79">&lt;title&gt;</bpt><ept id="70ade582-7ef5-4f09-b22e-b01222cceb79">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="921d1ad3-607c-49c6-bd5d-0ab4878b1bda" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="07ec2dcc-edce-46d1-975b-4e378401e544">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="07ec2dcc-edce-46d1-975b-4e378401e544">&lt;/linkText&gt;</ept><bpt id="07ec2dcc-edce-46d1-975b-4e378401e544">&lt;title&gt;</bpt><ept id="07ec2dcc-edce-46d1-975b-4e378401e544">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="07ec2dcc-edce-46d1-975b-4e378401e544">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="07ec2dcc-edce-46d1-975b-4e378401e544">&lt;/linkText&gt;</ept><bpt id="07ec2dcc-edce-46d1-975b-4e378401e544">&lt;title&gt;</bpt><ept id="07ec2dcc-edce-46d1-975b-4e378401e544">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36fdcdb2-2e0a-4138-9314-c31eed908eef" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="9ac71665-6cd0-42fe-8d8f-9798a6cbb5df" xml:space="preserve">
+          <source>See <bpt id="4568a373-0e19-43d6-92d4-60f264baff44">&lt;linkText&gt;</bpt>Manage  and Monitor API apps and connector<ept id="4568a373-0e19-43d6-92d4-60f264baff44">&lt;/linkText&gt;</ept><bpt id="4568a373-0e19-43d6-92d4-60f264baff44">&lt;title&gt;</bpt><ept id="4568a373-0e19-43d6-92d4-60f264baff44">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="4568a373-0e19-43d6-92d4-60f264baff44">&lt;linkText&gt;</bpt>Manage  and Monitor API apps and connector<ept id="4568a373-0e19-43d6-92d4-60f264baff44">&lt;/linkText&gt;</ept><bpt id="4568a373-0e19-43d6-92d4-60f264baff44">&lt;title&gt;</bpt><ept id="4568a373-0e19-43d6-92d4-60f264baff44">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="939a40a5-3418-44b9-a7e1-5c7868948d8f" xml:space="preserve">
+          <source>app-service-logic-connector-tpm</source>
+          <target state="new">app-service-logic-connector-tpm</target>
+        </trans-unit>
+        <trans-unit id="64b49716-eb1c-4a9d-9ebe-922becf7bedd" xml:space="preserve">
+          <source>app-service-logic-create-a-trading-partner-agreement</source>
+          <target state="new">app-service-logic-create-a-trading-partner-agreement</target>
+        </trans-unit>
+        <trans-unit id="d74c7d04-cd03-45cd-9bec-7267d6d9815c" xml:space="preserve">
+          <source>./media/app-service-logic-json-encoder/ActionSettings.PNG</source>
+          <target state="new">./media/app-service-logic-json-encoder/ActionSettings.PNG</target>
+        </trans-unit>
+        <trans-unit id="c6cacc08-a146-4a24-942e-83e36322e217" xml:space="preserve">
+          <source>./media/app-service-logic-json-encoder/ListOfActions.PNG</source>
+          <target state="new">./media/app-service-logic-json-encoder/ListOfActions.PNG</target>
+        </trans-unit>
+        <trans-unit id="7caddcbc-61c5-4c69-ba40-848f2cbd7006" xml:space="preserve">
+          <source>./media/app-service-logic-json-encoder/EncodeInput.PNG</source>
+          <target state="new">./media/app-service-logic-json-encoder/EncodeInput.PNG</target>
+        </trans-unit>
+        <trans-unit id="caa139c0-5509-4dd7-9f3d-c6c8267c9de5" xml:space="preserve">
+          <source>./media/app-service-logic-json-encoder/EncodeConfigured.PNG</source>
+          <target state="new">./media/app-service-logic-json-encoder/EncodeConfigured.PNG</target>
+        </trans-unit>
+        <trans-unit id="66c73dab-8205-4a14-bc1a-5b53cc9f8d2a" xml:space="preserve">
+          <source>app-service-logic-create-a-logic-app.md</source>
+          <target state="new">app-service-logic-create-a-logic-app.md</target>
+        </trans-unit>
+      </group>
+      <group id="e635a5dd-2cf6-4a30-a1dd-7624f8d04b11" />
+    </body>
+  </file>
+</xliff>

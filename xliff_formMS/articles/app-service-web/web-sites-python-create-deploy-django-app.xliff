@@ -1,0 +1,873 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="85a876c6-b386-4a29-ad55-87efdc5a2435" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="85a876c6-b386-4a29-ad55-87efdc5a2435" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2e4569a6-81f2-4a68-a9f0-545a72c175ef">
+        <trans-unit id="07cd30a7-72e5-4232-a42e-e1718638b700" xml:space="preserve">
+          <source>Creating web apps with Django in Azure</source>
+          <target state="new">Creating web apps with Django in Azure</target>
+        </trans-unit>
+        <trans-unit id="28127690-4b45-4650-853f-8463d2abf3aa" xml:space="preserve">
+          <source>A tutorial that introduces you to running a Python web app in Azure App Service Web Apps.</source>
+          <target state="new">A tutorial that introduces you to running a Python web app in Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="e8222ecd-6bbd-415d-8eee-f966b1cdce0f" xml:space="preserve">
+          <source>This tutorial describes how to get started running Python on <bpt id="f4dd8f95-34ec-4e72-b6c7-5f5fa05316bd">&lt;linkText&gt;</bpt>Azure App Service Web Apps<ept id="f4dd8f95-34ec-4e72-b6c7-5f5fa05316bd">&lt;/linkText&gt;</ept><bpt id="f4dd8f95-34ec-4e72-b6c7-5f5fa05316bd">&lt;title&gt;</bpt><ept id="f4dd8f95-34ec-4e72-b6c7-5f5fa05316bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial describes how to get started running Python on <bpt id="f4dd8f95-34ec-4e72-b6c7-5f5fa05316bd">&lt;linkText&gt;</bpt>Azure App Service Web Apps<ept id="f4dd8f95-34ec-4e72-b6c7-5f5fa05316bd">&lt;/linkText&gt;</ept><bpt id="f4dd8f95-34ec-4e72-b6c7-5f5fa05316bd">&lt;title&gt;</bpt><ept id="f4dd8f95-34ec-4e72-b6c7-5f5fa05316bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65583ce2-30b9-47b4-b2e6-74ec6778e3d0" xml:space="preserve">
+          <source>Web Apps provides limited free hosting and rapid deployment, and you can use Python!</source>
+          <target state="new">Web Apps provides limited free hosting and rapid deployment, and you can use Python!</target>
+        </trans-unit>
+        <trans-unit id="0ab75013-2a05-458b-bf0c-29c3a7eac6ec" xml:space="preserve">
+          <source>As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.</source>
+          <target state="new">As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.</target>
+        </trans-unit>
+        <trans-unit id="a362e0b6-2f7a-40ba-8c15-cde5b3ece9cf" xml:space="preserve">
+          <source>You will create an application using the Django web framework (see alternate versions of this tutorial for <bpt id="c122f382-173b-4c03-8654-d89c86c088cb">&lt;linkText&gt;</bpt>Flask<ept id="c122f382-173b-4c03-8654-d89c86c088cb">&lt;/linkText&gt;</ept><bpt id="c122f382-173b-4c03-8654-d89c86c088cb">&lt;title&gt;</bpt><ept id="c122f382-173b-4c03-8654-d89c86c088cb">&lt;/title&gt;</ept> and <bpt id="727d6aea-6194-4e0f-89a0-e899bfecea96">&lt;linkText&gt;</bpt>Bottle<ept id="727d6aea-6194-4e0f-89a0-e899bfecea96">&lt;/linkText&gt;</ept><bpt id="727d6aea-6194-4e0f-89a0-e899bfecea96">&lt;title&gt;</bpt><ept id="727d6aea-6194-4e0f-89a0-e899bfecea96">&lt;/title&gt;</ept>).</source>
+          <target state="new">You will create an application using the Django web framework (see alternate versions of this tutorial for <bpt id="c122f382-173b-4c03-8654-d89c86c088cb">&lt;linkText&gt;</bpt>Flask<ept id="c122f382-173b-4c03-8654-d89c86c088cb">&lt;/linkText&gt;</ept><bpt id="c122f382-173b-4c03-8654-d89c86c088cb">&lt;title&gt;</bpt><ept id="c122f382-173b-4c03-8654-d89c86c088cb">&lt;/title&gt;</ept> and <bpt id="727d6aea-6194-4e0f-89a0-e899bfecea96">&lt;linkText&gt;</bpt>Bottle<ept id="727d6aea-6194-4e0f-89a0-e899bfecea96">&lt;/linkText&gt;</ept><bpt id="727d6aea-6194-4e0f-89a0-e899bfecea96">&lt;title&gt;</bpt><ept id="727d6aea-6194-4e0f-89a0-e899bfecea96">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="1417fe3e-f026-45cc-81d2-936d2c2e70f6" xml:space="preserve">
+          <source>You will create the web app from the Azure Marketplace, set up Git deployment, and clone the repository locally.</source>
+          <target state="new">You will create the web app from the Azure Marketplace, set up Git deployment, and clone the repository locally.</target>
+        </trans-unit>
+        <trans-unit id="34fedb4f-e807-495f-b707-62ce2b64d3fa" xml:space="preserve">
+          <source>Then you will run the application locally, make changes, commit and push them to Azure.</source>
+          <target state="new">Then you will run the application locally, make changes, commit and push them to Azure.</target>
+        </trans-unit>
+        <trans-unit id="72360724-59da-4bf3-a38d-ee73e5e1ef92" xml:space="preserve">
+          <source>The tutorial shows how to do this from Windows or Mac/Linux.</source>
+          <target state="new">The tutorial shows how to do this from Windows or Mac/Linux.</target>
+        </trans-unit>
+        <trans-unit id="5618fb3e-70a8-443b-a3fd-b8616d58448f" xml:space="preserve">
+          <source><bpt id="bfbc67c6-faf0-4a0b-a07f-1b7ca731b2c6">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="bfbc67c6-faf0-4a0b-a07f-1b7ca731b2c6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="bfbc67c6-faf0-4a0b-a07f-1b7ca731b2c6">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="bfbc67c6-faf0-4a0b-a07f-1b7ca731b2c6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dad47436-8da7-4b2e-bc64-b5c5530d075b" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="9e09147b-c769-4604-a6f3-2f65d0f88e02">&lt;linkText&gt;</bpt>Try App Service<ept id="9e09147b-c769-4604-a6f3-2f65d0f88e02">&lt;/linkText&gt;</ept><bpt id="9e09147b-c769-4604-a6f3-2f65d0f88e02">&lt;title&gt;</bpt><ept id="9e09147b-c769-4604-a6f3-2f65d0f88e02">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="9e09147b-c769-4604-a6f3-2f65d0f88e02">&lt;linkText&gt;</bpt>Try App Service<ept id="9e09147b-c769-4604-a6f3-2f65d0f88e02">&lt;/linkText&gt;</ept><bpt id="9e09147b-c769-4604-a6f3-2f65d0f88e02">&lt;title&gt;</bpt><ept id="9e09147b-c769-4604-a6f3-2f65d0f88e02">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="08e3756d-0bda-439f-9240-90e672488d2a" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="53819d77-0612-4292-b6b8-0d5e158079fa" xml:space="preserve">
+          <source>Windows, Mac or Linux</source>
+          <target state="new">Windows, Mac or Linux</target>
+        </trans-unit>
+        <trans-unit id="87682cec-c409-4d64-913e-db5ce004b88a" xml:space="preserve">
+          <source>Python 2.7 or 3.4</source>
+          <target state="new">Python 2.7 or 3.4</target>
+        </trans-unit>
+        <trans-unit id="6a29f002-ad9f-4a88-9629-245f15930c71" xml:space="preserve">
+          <source>setuptools, pip, virtualenv (Python 2.7 only)</source>
+          <target state="new">setuptools, pip, virtualenv (Python 2.7 only)</target>
+        </trans-unit>
+        <trans-unit id="e0bbeafe-fe94-4141-9017-0c267c5fbc05" xml:space="preserve">
+          <source>Git</source>
+          <target state="new">Git</target>
+        </trans-unit>
+        <trans-unit id="c79134b7-c1db-46a2-ab60-c697e9fe307d" xml:space="preserve">
+          <source><bpt id="7b02fe30-5361-4a44-bbd7-1f8f84079b02">&lt;linkText&gt;</bpt>Python Tools for Visual Studio<ept id="7b02fe30-5361-4a44-bbd7-1f8f84079b02">&lt;/linkText&gt;</ept><bpt id="7b02fe30-5361-4a44-bbd7-1f8f84079b02">&lt;title&gt;</bpt><ept id="7b02fe30-5361-4a44-bbd7-1f8f84079b02">&lt;/title&gt;</ept> (PTVS) - Note: this is optional</source>
+          <target state="new"><bpt id="7b02fe30-5361-4a44-bbd7-1f8f84079b02">&lt;linkText&gt;</bpt>Python Tools for Visual Studio<ept id="7b02fe30-5361-4a44-bbd7-1f8f84079b02">&lt;/linkText&gt;</ept><bpt id="7b02fe30-5361-4a44-bbd7-1f8f84079b02">&lt;title&gt;</bpt><ept id="7b02fe30-5361-4a44-bbd7-1f8f84079b02">&lt;/title&gt;</ept> (PTVS) - Note: this is optional</target>
+        </trans-unit>
+        <trans-unit id="009eca70-8c26-4d52-87cf-298b93903d0a" xml:space="preserve">
+          <source><bpt id="1607c912-703a-42a6-8a63-482a0cf5307e">&lt;strong&gt;</bpt>Note<ept id="1607c912-703a-42a6-8a63-482a0cf5307e">&lt;/strong&gt;</ept>: TFS publishing is currently not supported for Python projects.</source>
+          <target state="new"><bpt id="1607c912-703a-42a6-8a63-482a0cf5307e">&lt;strong&gt;</bpt>Note<ept id="1607c912-703a-42a6-8a63-482a0cf5307e">&lt;/strong&gt;</ept>: TFS publishing is currently not supported for Python projects.</target>
+        </trans-unit>
+        <trans-unit id="548e5da1-a36c-42b6-94b2-7d4dea1d7398" xml:space="preserve">
+          <source>If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7] or [Azure SDK for Python 3.4] using Web Platform Installer.</source>
+          <target state="new">If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7] or [Azure SDK for Python 3.4] using Web Platform Installer.</target>
+        </trans-unit>
+        <trans-unit id="9bd245bc-f051-474d-a200-2ec72b878f8b" xml:space="preserve">
+          <source>This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).</source>
+          <target state="new">This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).</target>
+        </trans-unit>
+        <trans-unit id="1abbad61-8dc9-45e9-b2ab-c4b7a224f04c" xml:space="preserve">
+          <source>Alternatively, you can get Python from [python.org].</source>
+          <target state="new">Alternatively, you can get Python from [python.org].</target>
+        </trans-unit>
+        <trans-unit id="2ae2981c-e1d9-46c8-b2f7-b43928f35785" xml:space="preserve">
+          <source>For Git, we recommend [Git for Windows] or [GitHub for Windows].</source>
+          <target state="new">For Git, we recommend [Git for Windows] or [GitHub for Windows].</target>
+        </trans-unit>
+        <trans-unit id="2c14ec19-6760-4b1d-b58e-0f1ea597b822" xml:space="preserve">
+          <source>If you use Visual Studio, you can use the integrated Git support.</source>
+          <target state="new">If you use Visual Studio, you can use the integrated Git support.</target>
+        </trans-unit>
+        <trans-unit id="ec2a64c4-13cf-4772-9e25-e4bdd7722ec0" xml:space="preserve">
+          <source>We also recommend installing [Python Tools 2.2 for Visual Studio].</source>
+          <target state="new">We also recommend installing [Python Tools 2.2 for Visual Studio].</target>
+        </trans-unit>
+        <trans-unit id="de6998db-d35b-4d75-b6de-69b07c1962e7" xml:space="preserve">
+          <source>This is optional, but if you have [Visual Studio], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.</source>
+          <target state="new">This is optional, but if you have [Visual Studio], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.</target>
+        </trans-unit>
+        <trans-unit id="a4dceba9-fa5e-47b0-9aba-fc27b08c2448" xml:space="preserve">
+          <source>You should have Python and Git already installed, but make sure you have either Python 2.7 or 3.4.</source>
+          <target state="new">You should have Python and Git already installed, but make sure you have either Python 2.7 or 3.4.</target>
+        </trans-unit>
+        <trans-unit id="09934a44-be05-4b44-b4ad-43fd2d25cdb5" xml:space="preserve">
+          <source>The first step in creating your app is to create the web app via the <bpt id="06600fd5-3ce0-43de-9380-ba461f06e784">&lt;linkText&gt;</bpt>Azure Portal<ept id="06600fd5-3ce0-43de-9380-ba461f06e784">&lt;/linkText&gt;</ept><bpt id="06600fd5-3ce0-43de-9380-ba461f06e784">&lt;title&gt;</bpt><ept id="06600fd5-3ce0-43de-9380-ba461f06e784">&lt;/title&gt;</ept>.</source>
+          <target state="new">The first step in creating your app is to create the web app via the <bpt id="06600fd5-3ce0-43de-9380-ba461f06e784">&lt;linkText&gt;</bpt>Azure Portal<ept id="06600fd5-3ce0-43de-9380-ba461f06e784">&lt;/linkText&gt;</ept><bpt id="06600fd5-3ce0-43de-9380-ba461f06e784">&lt;title&gt;</bpt><ept id="06600fd5-3ce0-43de-9380-ba461f06e784">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3bc60a5e-3b71-4376-8fa1-880aeef89bb6" xml:space="preserve">
+          <source>Log into the Azure Portal and click the <bpt id="e3226946-ad96-4cf4-9a1e-2c9255ef2fcc">&lt;strong&gt;</bpt>NEW<ept id="e3226946-ad96-4cf4-9a1e-2c9255ef2fcc">&lt;/strong&gt;</ept> button in the bottom left corner.</source>
+          <target state="new">Log into the Azure Portal and click the <bpt id="e3226946-ad96-4cf4-9a1e-2c9255ef2fcc">&lt;strong&gt;</bpt>NEW<ept id="e3226946-ad96-4cf4-9a1e-2c9255ef2fcc">&lt;/strong&gt;</ept> button in the bottom left corner.</target>
+        </trans-unit>
+        <trans-unit id="a1e34ca4-8e7b-465f-ac5d-6b60a48750d4" xml:space="preserve">
+          <source>Click <bpt id="d4f4402e-de88-43ff-a086-3a9a8a7ec3b9">&lt;strong&gt;</bpt>Web + Mobile<ept id="d4f4402e-de88-43ff-a086-3a9a8a7ec3b9">&lt;/strong&gt;</ept> &gt; <bpt id="49ebdbc7-274c-4bd9-9ead-4697933ae569">&lt;strong&gt;</bpt>Azure Marketplace<ept id="49ebdbc7-274c-4bd9-9ead-4697933ae569">&lt;/strong&gt;</ept> &gt; <bpt id="975bb08a-6a25-4109-968b-38f19e23be1a">&lt;strong&gt;</bpt>Web Apps<ept id="975bb08a-6a25-4109-968b-38f19e23be1a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d4f4402e-de88-43ff-a086-3a9a8a7ec3b9">&lt;strong&gt;</bpt>Web + Mobile<ept id="d4f4402e-de88-43ff-a086-3a9a8a7ec3b9">&lt;/strong&gt;</ept> &gt; <bpt id="49ebdbc7-274c-4bd9-9ead-4697933ae569">&lt;strong&gt;</bpt>Azure Marketplace<ept id="49ebdbc7-274c-4bd9-9ead-4697933ae569">&lt;/strong&gt;</ept> &gt; <bpt id="975bb08a-6a25-4109-968b-38f19e23be1a">&lt;strong&gt;</bpt>Web Apps<ept id="975bb08a-6a25-4109-968b-38f19e23be1a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44c3a568-1193-4c69-8590-d57563138ae1" xml:space="preserve">
+          <source>In the search box, type "python".</source>
+          <target state="new">In the search box, type "python".</target>
+        </trans-unit>
+        <trans-unit id="d1d7ec49-5fb9-48cc-97de-e6e1dd5e6319" xml:space="preserve">
+          <source>In the search results, select <bpt id="2c57250e-e71b-4fe6-a1c5-80cab551de7e">&lt;strong&gt;</bpt>Django<ept id="2c57250e-e71b-4fe6-a1c5-80cab551de7e">&lt;/strong&gt;</ept>, then click <bpt id="ba7e1c43-d1b3-427c-817b-b1ed6317aab1">&lt;strong&gt;</bpt>Create<ept id="ba7e1c43-d1b3-427c-817b-b1ed6317aab1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the search results, select <bpt id="2c57250e-e71b-4fe6-a1c5-80cab551de7e">&lt;strong&gt;</bpt>Django<ept id="2c57250e-e71b-4fe6-a1c5-80cab551de7e">&lt;/strong&gt;</ept>, then click <bpt id="ba7e1c43-d1b3-427c-817b-b1ed6317aab1">&lt;strong&gt;</bpt>Create<ept id="ba7e1c43-d1b3-427c-817b-b1ed6317aab1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="684b893b-ad4d-4023-a169-50f9cc3b31de" xml:space="preserve">
+          <source>Configure the new Django app, such as creating a new App Service plan and a new resource group for it.</source>
+          <target state="new">Configure the new Django app, such as creating a new App Service plan and a new resource group for it.</target>
+        </trans-unit>
+        <trans-unit id="7bedd4fd-efed-4eb4-bc5d-696e98a00199" xml:space="preserve">
+          <source>Then, click <bpt id="9e147fc2-cc10-472d-8216-b60f985bc76a">&lt;strong&gt;</bpt>Create<ept id="9e147fc2-cc10-472d-8216-b60f985bc76a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, click <bpt id="9e147fc2-cc10-472d-8216-b60f985bc76a">&lt;strong&gt;</bpt>Create<ept id="9e147fc2-cc10-472d-8216-b60f985bc76a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65a9021a-0c80-4dca-a0fb-b5ea786117c4" xml:space="preserve">
+          <source>Configure Git publishing for your newly created web app by following the instructions at <bpt id="34c2a275-f756-4396-aa17-cfb549d179bd">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="34c2a275-f756-4396-aa17-cfb549d179bd">&lt;/linkText&gt;</ept><bpt id="34c2a275-f756-4396-aa17-cfb549d179bd">&lt;title&gt;</bpt><ept id="34c2a275-f756-4396-aa17-cfb549d179bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">Configure Git publishing for your newly created web app by following the instructions at <bpt id="34c2a275-f756-4396-aa17-cfb549d179bd">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="34c2a275-f756-4396-aa17-cfb549d179bd">&lt;/linkText&gt;</ept><bpt id="34c2a275-f756-4396-aa17-cfb549d179bd">&lt;title&gt;</bpt><ept id="34c2a275-f756-4396-aa17-cfb549d179bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2505198d-b6bf-47f6-8c8a-7c9ba25c4c93" xml:space="preserve">
+          <source>Here's an overview of the files you'll find in the initial Git repository, which we'll clone in the next section.</source>
+          <target state="new">Here's an overview of the files you'll find in the initial Git repository, which we'll clone in the next section.</target>
+        </trans-unit>
+        <trans-unit id="ad2fee22-03c2-4218-9d39-f615ccf3a64a" xml:space="preserve">
+          <source>Main sources for the application.</source>
+          <target state="new">Main sources for the application.</target>
+        </trans-unit>
+        <trans-unit id="a01a34ee-9965-4e55-980e-07c45e5d6711" xml:space="preserve">
+          <source>Consists of 3 pages (index, about, contact) with a master layout.</source>
+          <target state="new">Consists of 3 pages (index, about, contact) with a master layout.</target>
+        </trans-unit>
+        <trans-unit id="796a1efd-0689-4977-a05b-04b1f89e21fd" xml:space="preserve">
+          <source>Static content and scripts include bootstrap, jquery, modernizr and respond.</source>
+          <target state="new">Static content and scripts include bootstrap, jquery, modernizr and respond.</target>
+        </trans-unit>
+        <trans-unit id="cfb83a79-090b-4783-b78b-e85419d3bbf7" xml:space="preserve">
+          <source>Local management and development server support.</source>
+          <target state="new">Local management and development server support.</target>
+        </trans-unit>
+        <trans-unit id="b1ed2a59-b43d-4a0d-87b2-e27f74ad7fc6" xml:space="preserve">
+          <source>Use this to run the application locally, synchronize the database, etc.</source>
+          <target state="new">Use this to run the application locally, synchronize the database, etc.</target>
+        </trans-unit>
+        <trans-unit id="179759d3-2b73-49fb-b585-91bbb7b169c6" xml:space="preserve">
+          <source>Default database.</source>
+          <target state="new">Default database.</target>
+        </trans-unit>
+        <trans-unit id="d437ffb8-84ba-4c2d-a813-46986616a8c7" xml:space="preserve">
+          <source>Includes the necessary tables for the application to run, but does not contain any users (synchronize the database to create a user).</source>
+          <target state="new">Includes the necessary tables for the application to run, but does not contain any users (synchronize the database to create a user).</target>
+        </trans-unit>
+        <trans-unit id="6b37800f-8a6e-4e7b-ba91-16ab8edada45" xml:space="preserve">
+          <source>Project files for use with [Python Tools for Visual Studio].</source>
+          <target state="new">Project files for use with [Python Tools for Visual Studio].</target>
+        </trans-unit>
+        <trans-unit id="7b978174-bd32-4d16-9d66-8caba429039f" xml:space="preserve">
+          <source>IIS proxy for virtual environments and PTVS remote debugging support.</source>
+          <target state="new">IIS proxy for virtual environments and PTVS remote debugging support.</target>
+        </trans-unit>
+        <trans-unit id="5a331195-1f9c-4217-b5ee-651bb601402d" xml:space="preserve">
+          <source>External packages needed by this application.</source>
+          <target state="new">External packages needed by this application.</target>
+        </trans-unit>
+        <trans-unit id="5c42c64c-5578-4e90-aec0-dd29c4162084" xml:space="preserve">
+          <source>The deployment script will pip install the packages listed in this file.</source>
+          <target state="new">The deployment script will pip install the packages listed in this file.</target>
+        </trans-unit>
+        <trans-unit id="9dd25eaa-7e19-4f0f-b6ef-39ee3bd44a91" xml:space="preserve">
+          <source>IIS configuration files.</source>
+          <target state="new">IIS configuration files.</target>
+        </trans-unit>
+        <trans-unit id="d9b05530-0d59-4e9f-852f-7fcc238f318f" xml:space="preserve">
+          <source>The deployment script will use the appropriate web.x.y.config and copy it as web.config.</source>
+          <target state="new">The deployment script will use the appropriate web.x.y.config and copy it as web.config.</target>
+        </trans-unit>
+        <trans-unit id="fa27afc4-83e7-4d09-990c-e40fddc2c575" xml:space="preserve">
+          <source><bpt id="7e58726d-caf0-4123-8103-3b2a8ff4fe80">&lt;token href="../../includes/web-sites-python-customizing-deployment.md"&gt;</bpt><ept id="7e58726d-caf0-4123-8103-3b2a8ff4fe80">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7e58726d-caf0-4123-8103-3b2a8ff4fe80">&lt;token href="../../includes/web-sites-python-customizing-deployment.md"&gt;</bpt><ept id="7e58726d-caf0-4123-8103-3b2a8ff4fe80">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b14dece6-dd2c-4146-a220-8ebb78f856c5" xml:space="preserve">
+          <source><bpt id="adf49150-e1b2-4ef9-8ffd-eef487d35775">&lt;token href="../../includes/web-sites-python-customizing-runtime.md"&gt;</bpt><ept id="adf49150-e1b2-4ef9-8ffd-eef487d35775">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="adf49150-e1b2-4ef9-8ffd-eef487d35775">&lt;token href="../../includes/web-sites-python-customizing-runtime.md"&gt;</bpt><ept id="adf49150-e1b2-4ef9-8ffd-eef487d35775">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d437916-954f-44eb-97cb-9cd3c207de32" xml:space="preserve">
+          <source>Some files exist on the server but are not added to the git repository.</source>
+          <target state="new">Some files exist on the server but are not added to the git repository.</target>
+        </trans-unit>
+        <trans-unit id="3ad5f6ab-1e77-4ce0-bd7a-f40c477e4ccb" xml:space="preserve">
+          <source>These are created by the deployment script.</source>
+          <target state="new">These are created by the deployment script.</target>
+        </trans-unit>
+        <trans-unit id="d280ebbb-3bca-4a8e-9bf5-f884a0abbc70" xml:space="preserve">
+          <source>IIS configuration file.</source>
+          <target state="new">IIS configuration file.</target>
+        </trans-unit>
+        <trans-unit id="e373ba25-6ed4-4684-83de-e48c96ee6a10" xml:space="preserve">
+          <source>Created from web.x.y.config on every deployment.</source>
+          <target state="new">Created from web.x.y.config on every deployment.</target>
+        </trans-unit>
+        <trans-unit id="3a793e18-62ae-42e6-8a7c-9440c6db1719" xml:space="preserve">
+          <source>Python virtual environment.</source>
+          <target state="new">Python virtual environment.</target>
+        </trans-unit>
+        <trans-unit id="ffc232d4-9cd6-418e-8626-8577dc825d65" xml:space="preserve">
+          <source>Created during deployment if a compatible virtual environment doesn't already exist on the web app.</source>
+          <target state="new">Created during deployment if a compatible virtual environment doesn't already exist on the web app.</target>
+        </trans-unit>
+        <trans-unit id="8fc7953e-6046-4a6d-a4b3-412e021bd3cb" xml:space="preserve">
+          <source>Packages listed in requirements.txt are pip installed, but pip will skip installation if the packages are already installed.</source>
+          <target state="new">Packages listed in requirements.txt are pip installed, but pip will skip installation if the packages are already installed.</target>
+        </trans-unit>
+        <trans-unit id="55e4c37d-2164-4a51-b6a0-9f082e5688f9" xml:space="preserve">
+          <source>The next 3 sections describe how to proceed with the web app development under 3 different environments:</source>
+          <target state="new">The next 3 sections describe how to proceed with the web app development under 3 different environments:</target>
+        </trans-unit>
+        <trans-unit id="08c12c69-ef16-4d26-ace9-8e25486add9a" xml:space="preserve">
+          <source>Windows, with Python Tools for Visual Studio</source>
+          <target state="new">Windows, with Python Tools for Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="06b537f1-87e2-4cd1-9ff7-1bcf5d1a734a" xml:space="preserve">
+          <source>Windows, with command line</source>
+          <target state="new">Windows, with command line</target>
+        </trans-unit>
+        <trans-unit id="3a4cc10f-a31e-44be-9ca4-8177ed717102" xml:space="preserve">
+          <source>Mac/Linux, with command line</source>
+          <target state="new">Mac/Linux, with command line</target>
+        </trans-unit>
+        <trans-unit id="5f72f070-002b-48dd-bc33-01c2d6246a4e" xml:space="preserve">
+          <source>First, clone the repository using the URL provided on the Azure Portal.</source>
+          <target state="new">First, clone the repository using the URL provided on the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="f08cd893-488e-4459-adea-5d569ad10ed7" xml:space="preserve">
+          <source>For more information, see <bpt id="dc343081-493b-45a6-9fe0-cce28889016b">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="dc343081-493b-45a6-9fe0-cce28889016b">&lt;/linkText&gt;</ept><bpt id="dc343081-493b-45a6-9fe0-cce28889016b">&lt;title&gt;</bpt><ept id="dc343081-493b-45a6-9fe0-cce28889016b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="dc343081-493b-45a6-9fe0-cce28889016b">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="dc343081-493b-45a6-9fe0-cce28889016b">&lt;/linkText&gt;</ept><bpt id="dc343081-493b-45a6-9fe0-cce28889016b">&lt;title&gt;</bpt><ept id="dc343081-493b-45a6-9fe0-cce28889016b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="845fa591-3242-4dc9-81e4-37f3af22fe4b" xml:space="preserve">
+          <source>Open the solution file (.sln) that is included in the root of the repository.</source>
+          <target state="new">Open the solution file (.sln) that is included in the root of the repository.</target>
+        </trans-unit>
+        <trans-unit id="ae6c4f6f-8679-4a1d-a17d-e9b170235450" xml:space="preserve">
+          <source><bpt id="3bc0fea1-24a7-4048-95bf-747096387ef3">&lt;linkText&gt;</bpt><ept id="3bc0fea1-24a7-4048-95bf-747096387ef3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3bc0fea1-24a7-4048-95bf-747096387ef3">&lt;linkText&gt;</bpt><ept id="3bc0fea1-24a7-4048-95bf-747096387ef3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03984020-9890-404a-a674-075443ea9471" xml:space="preserve">
+          <source>Now we'll create a virtual environment for local development.</source>
+          <target state="new">Now we'll create a virtual environment for local development.</target>
+        </trans-unit>
+        <trans-unit id="7fd47627-f959-4f00-aa88-e0fbc0d97d1b" xml:space="preserve">
+          <source>Right-click on <bpt id="d9dce677-9dd4-4f0e-b40e-bd1dfbbdf0fb">&lt;strong&gt;</bpt>Python Environments<ept id="d9dce677-9dd4-4f0e-b40e-bd1dfbbdf0fb">&lt;/strong&gt;</ept> select <bpt id="dbfc9be9-53de-4ec3-8e0b-e091b74cd7e0">&lt;strong&gt;</bpt>Add Virtual Environment...<ept id="dbfc9be9-53de-4ec3-8e0b-e091b74cd7e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click on <bpt id="d9dce677-9dd4-4f0e-b40e-bd1dfbbdf0fb">&lt;strong&gt;</bpt>Python Environments<ept id="d9dce677-9dd4-4f0e-b40e-bd1dfbbdf0fb">&lt;/strong&gt;</ept> select <bpt id="dbfc9be9-53de-4ec3-8e0b-e091b74cd7e0">&lt;strong&gt;</bpt>Add Virtual Environment...<ept id="dbfc9be9-53de-4ec3-8e0b-e091b74cd7e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="313280e7-7177-4d9d-8071-174321130c3f" xml:space="preserve">
+          <source>Make sure the name of the environment is <bpt id="9fd535f7-4d20-42de-a08a-ce09b9f047db">&lt;code&gt;</bpt>env<ept id="9fd535f7-4d20-42de-a08a-ce09b9f047db">&lt;/code&gt;</ept>.</source>
+          <target state="new">Make sure the name of the environment is <bpt id="9fd535f7-4d20-42de-a08a-ce09b9f047db">&lt;code&gt;</bpt>env<ept id="9fd535f7-4d20-42de-a08a-ce09b9f047db">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7dd27812-6a9a-455b-9e09-a3658819c8c0" xml:space="preserve">
+          <source>Select the base interpreter.</source>
+          <target state="new">Select the base interpreter.</target>
+        </trans-unit>
+        <trans-unit id="3a220206-07e0-49cb-8d3d-0557e54fd1cf" xml:space="preserve">
+          <source>Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the <bpt id="4a740bbe-66d7-415c-9021-0d54d8082dfe">&lt;strong&gt;</bpt>Application Settings<ept id="4a740bbe-66d7-415c-9021-0d54d8082dfe">&lt;/strong&gt;</ept> blade of your web app in the Azure Portal).</source>
+          <target state="new">Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the <bpt id="4a740bbe-66d7-415c-9021-0d54d8082dfe">&lt;strong&gt;</bpt>Application Settings<ept id="4a740bbe-66d7-415c-9021-0d54d8082dfe">&lt;/strong&gt;</ept> blade of your web app in the Azure Portal).</target>
+        </trans-unit>
+        <trans-unit id="4e40e8a4-f408-4a52-96f3-3d6f3bcf3a0c" xml:space="preserve">
+          <source>Make sure the option to download and install packages is checked.</source>
+          <target state="new">Make sure the option to download and install packages is checked.</target>
+        </trans-unit>
+        <trans-unit id="2833a4fd-d0ea-4180-8ceb-b3b6382dc5a1" xml:space="preserve">
+          <source><bpt id="efd6cedb-f3ab-43e3-b6b2-b038b5cba612">&lt;linkText&gt;</bpt><ept id="efd6cedb-f3ab-43e3-b6b2-b038b5cba612">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="efd6cedb-f3ab-43e3-b6b2-b038b5cba612">&lt;linkText&gt;</bpt><ept id="efd6cedb-f3ab-43e3-b6b2-b038b5cba612">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7aafe1c0-bc7e-48d1-a685-ae52b782deaf" xml:space="preserve">
+          <source>Click <bpt id="54f9114f-90db-4d76-af16-1ce36a85595e">&lt;strong&gt;</bpt>Create<ept id="54f9114f-90db-4d76-af16-1ce36a85595e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="54f9114f-90db-4d76-af16-1ce36a85595e">&lt;strong&gt;</bpt>Create<ept id="54f9114f-90db-4d76-af16-1ce36a85595e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="efa3bcfd-9d89-499d-b17e-9d04fd04bd62" xml:space="preserve">
+          <source>This will create the virtual environment, and install dependencies listed in requirements.txt.</source>
+          <target state="new">This will create the virtual environment, and install dependencies listed in requirements.txt.</target>
+        </trans-unit>
+        <trans-unit id="8d35a78f-32c4-48eb-b657-48643cfb7ec5" xml:space="preserve">
+          <source>The database included with the application does not have any superuser defined.</source>
+          <target state="new">The database included with the application does not have any superuser defined.</target>
+        </trans-unit>
+        <trans-unit id="3dc315e4-34a4-4180-a200-1418805194ce" xml:space="preserve">
+          <source>In order to use the sign-in functionality in the application, or the Django admin interface (if you decide to enable it), you'll need to create a superuser.</source>
+          <target state="new">In order to use the sign-in functionality in the application, or the Django admin interface (if you decide to enable it), you'll need to create a superuser.</target>
+        </trans-unit>
+        <trans-unit id="27ec18dc-48c2-42c7-a8ef-1246c1eabffe" xml:space="preserve">
+          <source>Run this from the command-line from your project folder:</source>
+          <target state="new">Run this from the command-line from your project folder:</target>
+        </trans-unit>
+        <trans-unit id="99f818b4-8d6f-4861-bd53-fc5e2e9bffec" xml:space="preserve">
+          <source>Follow the prompts to set the user name, password, etc.</source>
+          <target state="new">Follow the prompts to set the user name, password, etc.</target>
+        </trans-unit>
+        <trans-unit id="1160e185-c971-4bd2-903b-12fbbba661ac" xml:space="preserve">
+          <source>Press F5 to start debugging, and your web browser will open automatically to the page running locally.</source>
+          <target state="new">Press F5 to start debugging, and your web browser will open automatically to the page running locally.</target>
+        </trans-unit>
+        <trans-unit id="63cf7ad2-04b7-429d-a659-7c17fa46c11b" xml:space="preserve">
+          <source><bpt id="73b87c1d-50fd-413d-b308-646467c2e3da">&lt;linkText&gt;</bpt><ept id="73b87c1d-50fd-413d-b308-646467c2e3da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73b87c1d-50fd-413d-b308-646467c2e3da">&lt;linkText&gt;</bpt><ept id="73b87c1d-50fd-413d-b308-646467c2e3da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49c2fe76-71f9-42ec-b6b1-c9e87b3270c6" xml:space="preserve">
+          <source>You can set breakpoints in the sources, use the watch windows, etc. See the [Python Tools for Visual Studio Documentation] for more information on the various features.</source>
+          <target state="new">You can set breakpoints in the sources, use the watch windows, etc. See the [Python Tools for Visual Studio Documentation] for more information on the various features.</target>
+        </trans-unit>
+        <trans-unit id="4e01514e-f55b-4534-80b2-5a803c86c6a9" xml:space="preserve">
+          <source>Now you can experiment by making changes to the application sources and/or templates.</source>
+          <target state="new">Now you can experiment by making changes to the application sources and/or templates.</target>
+        </trans-unit>
+        <trans-unit id="0169778e-69a4-4923-b889-7935393af741" xml:space="preserve">
+          <source>After you've tested your changes, commit them to the Git repository:</source>
+          <target state="new">After you've tested your changes, commit them to the Git repository:</target>
+        </trans-unit>
+        <trans-unit id="f38dbc2e-8ef0-4fed-8ece-6a286a568362" xml:space="preserve">
+          <source><bpt id="66996c33-9bc7-4f8d-9094-02424bf52e78">&lt;linkText&gt;</bpt><ept id="66996c33-9bc7-4f8d-9094-02424bf52e78">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="66996c33-9bc7-4f8d-9094-02424bf52e78">&lt;linkText&gt;</bpt><ept id="66996c33-9bc7-4f8d-9094-02424bf52e78">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdde3048-da6c-450a-a1ee-88d159a4b911" xml:space="preserve">
+          <source>Your application may have dependencies beyond Python and Django.</source>
+          <target state="new">Your application may have dependencies beyond Python and Django.</target>
+        </trans-unit>
+        <trans-unit id="ff0313fd-f557-4bb0-b88a-3f6947282ed5" xml:space="preserve">
+          <source>You can install additional packages using pip.</source>
+          <target state="new">You can install additional packages using pip.</target>
+        </trans-unit>
+        <trans-unit id="f0f0f56a-e360-43fc-85b0-93ea0c3ef0b6" xml:space="preserve">
+          <source>To install a package, right-click on the virtual environment and select <bpt id="889f6408-54d1-4550-88d7-10de546aab2d">&lt;strong&gt;</bpt>Install Python Package<ept id="889f6408-54d1-4550-88d7-10de546aab2d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To install a package, right-click on the virtual environment and select <bpt id="889f6408-54d1-4550-88d7-10de546aab2d">&lt;strong&gt;</bpt>Install Python Package<ept id="889f6408-54d1-4550-88d7-10de546aab2d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1aa67003-17fa-4e2d-ada5-1d086ed3bacc" xml:space="preserve">
+          <source>For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, enter <bpt id="acaa84a9-4583-4d24-adef-44a2ed4d0afb">&lt;code&gt;</bpt>azure<ept id="acaa84a9-4583-4d24-adef-44a2ed4d0afb">&lt;/code&gt;</ept>:</source>
+          <target state="new">For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, enter <bpt id="acaa84a9-4583-4d24-adef-44a2ed4d0afb">&lt;code&gt;</bpt>azure<ept id="acaa84a9-4583-4d24-adef-44a2ed4d0afb">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="67e1a4f7-e688-41f2-acc9-097c56d70c48" xml:space="preserve">
+          <source><bpt id="be0c8970-bdbc-4b97-ad47-c14c91a02aae">&lt;linkText&gt;</bpt><ept id="be0c8970-bdbc-4b97-ad47-c14c91a02aae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be0c8970-bdbc-4b97-ad47-c14c91a02aae">&lt;linkText&gt;</bpt><ept id="be0c8970-bdbc-4b97-ad47-c14c91a02aae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4afebebb-d308-4fac-92d6-1e33161a13b6" xml:space="preserve">
+          <source>Right-click on the virtual environment and select <bpt id="bf4169a6-91e3-46fb-8b70-cff7973bc599">&lt;strong&gt;</bpt>Generate requirements.txt<ept id="bf4169a6-91e3-46fb-8b70-cff7973bc599">&lt;/strong&gt;</ept> to update requirements.txt.</source>
+          <target state="new">Right-click on the virtual environment and select <bpt id="bf4169a6-91e3-46fb-8b70-cff7973bc599">&lt;strong&gt;</bpt>Generate requirements.txt<ept id="bf4169a6-91e3-46fb-8b70-cff7973bc599">&lt;/strong&gt;</ept> to update requirements.txt.</target>
+        </trans-unit>
+        <trans-unit id="6fa64364-ac7f-4a1c-ae47-916c4b9baeb1" xml:space="preserve">
+          <source>Then, commit the changes to requirements.txt to the Git repository.</source>
+          <target state="new">Then, commit the changes to requirements.txt to the Git repository.</target>
+        </trans-unit>
+        <trans-unit id="f0c19e1b-2d60-4753-8a95-23ebb99085dc" xml:space="preserve">
+          <source>To trigger a deployment, click on <bpt id="e6b79990-6e86-4b71-848c-b834656ef7a2">&lt;strong&gt;</bpt>Sync<ept id="e6b79990-6e86-4b71-848c-b834656ef7a2">&lt;/strong&gt;</ept> or <bpt id="36d93962-6c96-4d0b-af9b-4e1a803dc837">&lt;strong&gt;</bpt>Push<ept id="36d93962-6c96-4d0b-af9b-4e1a803dc837">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To trigger a deployment, click on <bpt id="e6b79990-6e86-4b71-848c-b834656ef7a2">&lt;strong&gt;</bpt>Sync<ept id="e6b79990-6e86-4b71-848c-b834656ef7a2">&lt;/strong&gt;</ept> or <bpt id="36d93962-6c96-4d0b-af9b-4e1a803dc837">&lt;strong&gt;</bpt>Push<ept id="36d93962-6c96-4d0b-af9b-4e1a803dc837">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d00766d-3f09-4f54-b006-92a77f4abd8a" xml:space="preserve">
+          <source>Sync does both a push and a pull.</source>
+          <target state="new">Sync does both a push and a pull.</target>
+        </trans-unit>
+        <trans-unit id="c772a5e3-39f2-417c-a860-f8bcf48a59a5" xml:space="preserve">
+          <source><bpt id="a2c3871d-c367-41e9-9f8b-03feb6dd9178">&lt;linkText&gt;</bpt><ept id="a2c3871d-c367-41e9-9f8b-03feb6dd9178">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2c3871d-c367-41e9-9f8b-03feb6dd9178">&lt;linkText&gt;</bpt><ept id="a2c3871d-c367-41e9-9f8b-03feb6dd9178">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e1d50c7-2f1c-4bea-a420-c892529fea83" xml:space="preserve">
+          <source>The first deployment will take some time, as it will create a virtual environment, install packages, etc.</source>
+          <target state="new">The first deployment will take some time, as it will create a virtual environment, install packages, etc.</target>
+        </trans-unit>
+        <trans-unit id="041d187a-74d1-4538-a723-42628f9b5050" xml:space="preserve">
+          <source>Visual Studio doesn't show the progress of the deployment.</source>
+          <target state="new">Visual Studio doesn't show the progress of the deployment.</target>
+        </trans-unit>
+        <trans-unit id="fe1c07d5-4979-4691-b251-bd33ead52678" xml:space="preserve">
+          <source>If you'd like to review the output, see the section on <bpt id="0150f15a-c340-4254-8233-be00b388d8c0">&lt;linkText&gt;</bpt>Troubleshooting - Deployment<ept id="0150f15a-c340-4254-8233-be00b388d8c0">&lt;/linkText&gt;</ept><bpt id="0150f15a-c340-4254-8233-be00b388d8c0">&lt;title&gt;</bpt><ept id="0150f15a-c340-4254-8233-be00b388d8c0">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you'd like to review the output, see the section on <bpt id="0150f15a-c340-4254-8233-be00b388d8c0">&lt;linkText&gt;</bpt>Troubleshooting - Deployment<ept id="0150f15a-c340-4254-8233-be00b388d8c0">&lt;/linkText&gt;</ept><bpt id="0150f15a-c340-4254-8233-be00b388d8c0">&lt;title&gt;</bpt><ept id="0150f15a-c340-4254-8233-be00b388d8c0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbee4bf3-1e1d-4001-b097-83eca8fb8faf" xml:space="preserve">
+          <source>Browse to the Azure URL to view your changes.</source>
+          <target state="new">Browse to the Azure URL to view your changes.</target>
+        </trans-unit>
+        <trans-unit id="947a5196-43b5-46f5-bbe4-e4ed510c4e07" xml:space="preserve">
+          <source>First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote.</source>
+          <target state="new">First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote.</target>
+        </trans-unit>
+        <trans-unit id="80fc9653-b428-4a70-a533-01a7c944e6a2" xml:space="preserve">
+          <source>For more information, see <bpt id="74539468-09f4-4530-9e5b-d02f3d6e4c27">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="74539468-09f4-4530-9e5b-d02f3d6e4c27">&lt;/linkText&gt;</ept><bpt id="74539468-09f4-4530-9e5b-d02f3d6e4c27">&lt;title&gt;</bpt><ept id="74539468-09f4-4530-9e5b-d02f3d6e4c27">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="74539468-09f4-4530-9e5b-d02f3d6e4c27">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="74539468-09f4-4530-9e5b-d02f3d6e4c27">&lt;/linkText&gt;</ept><bpt id="74539468-09f4-4530-9e5b-d02f3d6e4c27">&lt;title&gt;</bpt><ept id="74539468-09f4-4530-9e5b-d02f3d6e4c27">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ac1e7f7-b654-437f-ad26-5f8db35e1c3d" xml:space="preserve">
+          <source>We'll create a new virtual environment for development purposes (do not add it to the repository).</source>
+          <target state="new">We'll create a new virtual environment for development purposes (do not add it to the repository).</target>
+        </trans-unit>
+        <trans-unit id="dc9c17f3-05f2-410d-abd7-57b4e67aeb39" xml:space="preserve">
+          <source>Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.</source>
+          <target state="new">Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.</target>
+        </trans-unit>
+        <trans-unit id="1948f499-3fd7-41d4-9a55-5e53d7a157fd" xml:space="preserve">
+          <source>Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Portal).</source>
+          <target state="new">Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Portal).</target>
+        </trans-unit>
+        <trans-unit id="69a519ea-00ca-4c50-943d-fd3a8cb6e6b8" xml:space="preserve">
+          <source>For Python 2.7:</source>
+          <target state="new">For Python 2.7:</target>
+        </trans-unit>
+        <trans-unit id="7d166c69-be06-4b22-a7a0-e16fa37225fc" xml:space="preserve">
+          <source>For Python 3.4:</source>
+          <target state="new">For Python 3.4:</target>
+        </trans-unit>
+        <trans-unit id="8863aa50-00bb-4504-a7ea-dd660449e523" xml:space="preserve">
+          <source>Install any external packages required by your application.</source>
+          <target state="new">Install any external packages required by your application.</target>
+        </trans-unit>
+        <trans-unit id="e6544de4-3866-498d-9a11-8ebfa9b252c8" xml:space="preserve">
+          <source>You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:</source>
+          <target state="new">You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:</target>
+        </trans-unit>
+        <trans-unit id="9901ec0c-3c2e-46b9-9c71-5c0a430faef0" xml:space="preserve">
+          <source>The database included with the application does not have any superuser defined.</source>
+          <target state="new">The database included with the application does not have any superuser defined.</target>
+        </trans-unit>
+        <trans-unit id="7642958c-156a-4727-a4cd-049134b25ee6" xml:space="preserve">
+          <source>In order to use the sign-in functionality in the application, or the Django admin interface (if you decide to enable it), you'll need to create a superuser.</source>
+          <target state="new">In order to use the sign-in functionality in the application, or the Django admin interface (if you decide to enable it), you'll need to create a superuser.</target>
+        </trans-unit>
+        <trans-unit id="2b2db844-bf08-4d5a-86e2-0b04b676be5b" xml:space="preserve">
+          <source>Run this from the command-line from your project folder:</source>
+          <target state="new">Run this from the command-line from your project folder:</target>
+        </trans-unit>
+        <trans-unit id="68a45ac5-433c-47b6-9cea-002c54f9e307" xml:space="preserve">
+          <source>Follow the prompts to set the user name, password, etc.</source>
+          <target state="new">Follow the prompts to set the user name, password, etc.</target>
+        </trans-unit>
+        <trans-unit id="e1da09c6-dc90-45c8-89ea-50b2887f3c0d" xml:space="preserve">
+          <source>You can launch the application under a development server with the following command:</source>
+          <target state="new">You can launch the application under a development server with the following command:</target>
+        </trans-unit>
+        <trans-unit id="5bbb35f7-c614-48f1-bf57-90ac009363d2" xml:space="preserve">
+          <source>The console will display the URL and port the server listens to:</source>
+          <target state="new">The console will display the URL and port the server listens to:</target>
+        </trans-unit>
+        <trans-unit id="b4bf58a1-3bae-4bfa-a499-22a17d196f7f" xml:space="preserve">
+          <source><bpt id="7dc47a4f-f102-4a7d-8109-cd00880e02ce">&lt;linkText&gt;</bpt><ept id="7dc47a4f-f102-4a7d-8109-cd00880e02ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7dc47a4f-f102-4a7d-8109-cd00880e02ce">&lt;linkText&gt;</bpt><ept id="7dc47a4f-f102-4a7d-8109-cd00880e02ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c33872b6-9577-45ac-ad25-f6e76de62c13" xml:space="preserve">
+          <source>Then, open your web browser to that URL.</source>
+          <target state="new">Then, open your web browser to that URL.</target>
+        </trans-unit>
+        <trans-unit id="f96d4275-c621-407d-a2a8-94e2ee54257d" xml:space="preserve">
+          <source><bpt id="1b25c8e2-d952-4b83-8ca8-ffe0855f7ec7">&lt;linkText&gt;</bpt><ept id="1b25c8e2-d952-4b83-8ca8-ffe0855f7ec7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b25c8e2-d952-4b83-8ca8-ffe0855f7ec7">&lt;linkText&gt;</bpt><ept id="1b25c8e2-d952-4b83-8ca8-ffe0855f7ec7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e02c6ef4-2be8-4b7c-8a90-84787e2e6025" xml:space="preserve">
+          <source>Now you can experiment by making changes to the application sources and/or templates.</source>
+          <target state="new">Now you can experiment by making changes to the application sources and/or templates.</target>
+        </trans-unit>
+        <trans-unit id="76ffe40b-8088-4b36-900a-b58bef2b9be8" xml:space="preserve">
+          <source>After you've tested your changes, commit them to the Git repository:</source>
+          <target state="new">After you've tested your changes, commit them to the Git repository:</target>
+        </trans-unit>
+        <trans-unit id="d8e0224b-4bcd-4818-8197-6eccf50826ec" xml:space="preserve">
+          <source>Your application may have dependencies beyond Python and Django.</source>
+          <target state="new">Your application may have dependencies beyond Python and Django.</target>
+        </trans-unit>
+        <trans-unit id="d0a0648e-4818-4184-818a-281740b0131c" xml:space="preserve">
+          <source>You can install additional packages using pip.</source>
+          <target state="new">You can install additional packages using pip.</target>
+        </trans-unit>
+        <trans-unit id="539bd10c-cf00-436d-a683-fc0b84ed9263" xml:space="preserve">
+          <source>For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, type:</source>
+          <target state="new">For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, type:</target>
+        </trans-unit>
+        <trans-unit id="e2cafbae-2310-4a47-8b03-fbd288395efb" xml:space="preserve">
+          <source>Make sure to update requirements.txt:</source>
+          <target state="new">Make sure to update requirements.txt:</target>
+        </trans-unit>
+        <trans-unit id="e14cd5aa-0fd5-4906-87d3-3e5c57927c17" xml:space="preserve">
+          <source>Commit the changes:</source>
+          <target state="new">Commit the changes:</target>
+        </trans-unit>
+        <trans-unit id="6d834c05-f984-46d4-9e45-7f4d07798fff" xml:space="preserve">
+          <source>To trigger a deployment, push the changes to Azure:</source>
+          <target state="new">To trigger a deployment, push the changes to Azure:</target>
+        </trans-unit>
+        <trans-unit id="8f645962-4ebe-4ca8-981a-37ea3b813a57" xml:space="preserve">
+          <source>You will see the output of the deployment script, including virtual environment creation, installation of packages, creation of web.config.</source>
+          <target state="new">You will see the output of the deployment script, including virtual environment creation, installation of packages, creation of web.config.</target>
+        </trans-unit>
+        <trans-unit id="0cc3843e-282a-4e97-8c53-3e2c387dbf94" xml:space="preserve">
+          <source>Browse to the Azure URL to view your changes.</source>
+          <target state="new">Browse to the Azure URL to view your changes.</target>
+        </trans-unit>
+        <trans-unit id="7c176f47-a8d3-43e8-8681-1e8bb8949fab" xml:space="preserve">
+          <source>First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote.</source>
+          <target state="new">First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote.</target>
+        </trans-unit>
+        <trans-unit id="76cf9dab-0c4b-4656-8761-001a1c5141da" xml:space="preserve">
+          <source>For more information, see <bpt id="09dd735d-d686-4dcc-a478-23da36816c3a">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="09dd735d-d686-4dcc-a478-23da36816c3a">&lt;/linkText&gt;</ept><bpt id="09dd735d-d686-4dcc-a478-23da36816c3a">&lt;title&gt;</bpt><ept id="09dd735d-d686-4dcc-a478-23da36816c3a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="09dd735d-d686-4dcc-a478-23da36816c3a">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="09dd735d-d686-4dcc-a478-23da36816c3a">&lt;/linkText&gt;</ept><bpt id="09dd735d-d686-4dcc-a478-23da36816c3a">&lt;title&gt;</bpt><ept id="09dd735d-d686-4dcc-a478-23da36816c3a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a245112b-369b-45db-ad7c-942173dda1b9" xml:space="preserve">
+          <source>We'll create a new virtual environment for development purposes (do not add it to the repository).</source>
+          <target state="new">We'll create a new virtual environment for development purposes (do not add it to the repository).</target>
+        </trans-unit>
+        <trans-unit id="25b8543f-ea93-4b7c-8ff2-8d0ed836103e" xml:space="preserve">
+          <source>Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.</source>
+          <target state="new">Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.</target>
+        </trans-unit>
+        <trans-unit id="72bae43c-d893-4466-9999-ff9aec461ba8" xml:space="preserve">
+          <source>Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Portal).</source>
+          <target state="new">Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Portal).</target>
+        </trans-unit>
+        <trans-unit id="b257543f-4cc3-4cca-8a70-beff10bba27d" xml:space="preserve">
+          <source>For Python 2.7:</source>
+          <target state="new">For Python 2.7:</target>
+        </trans-unit>
+        <trans-unit id="9f981e39-a935-4670-aaea-51833a49a8a2" xml:space="preserve">
+          <source>For Python 3.4:</source>
+          <target state="new">For Python 3.4:</target>
+        </trans-unit>
+        <trans-unit id="d35453ca-bb8d-4a9b-9d92-b6ce7f51d527" xml:space="preserve">
+          <source>Install any external packages required by your application.</source>
+          <target state="new">Install any external packages required by your application.</target>
+        </trans-unit>
+        <trans-unit id="4ac14be0-60e1-43de-bd8f-4532c1a11bc1" xml:space="preserve">
+          <source>You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:</source>
+          <target state="new">You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:</target>
+        </trans-unit>
+        <trans-unit id="7d7d3cb4-e88e-4d19-8315-4a6d637a2c4d" xml:space="preserve">
+          <source>The database included with the application does not have any superuser defined.</source>
+          <target state="new">The database included with the application does not have any superuser defined.</target>
+        </trans-unit>
+        <trans-unit id="d688937f-3283-4fb6-9695-e74472f721db" xml:space="preserve">
+          <source>In order to use the sign-in functionality in the application, or the Django admin interface (if you decide to enable it), you'll need to create a superuser.</source>
+          <target state="new">In order to use the sign-in functionality in the application, or the Django admin interface (if you decide to enable it), you'll need to create a superuser.</target>
+        </trans-unit>
+        <trans-unit id="1d1fa281-2067-4bb1-85e4-7d76b23d561b" xml:space="preserve">
+          <source>Run this from the command-line from your project folder:</source>
+          <target state="new">Run this from the command-line from your project folder:</target>
+        </trans-unit>
+        <trans-unit id="648bf14b-8796-48c3-8957-43aa24ebcf30" xml:space="preserve">
+          <source>Follow the prompts to set the user name, password, etc.</source>
+          <target state="new">Follow the prompts to set the user name, password, etc.</target>
+        </trans-unit>
+        <trans-unit id="20067cd2-26c9-402b-afdc-c8e47419cb51" xml:space="preserve">
+          <source>You can launch the application under a development server with the following command:</source>
+          <target state="new">You can launch the application under a development server with the following command:</target>
+        </trans-unit>
+        <trans-unit id="26ebc653-eb76-4573-a913-356d5c301e47" xml:space="preserve">
+          <source>The console will display the URL and port the server listens to:</source>
+          <target state="new">The console will display the URL and port the server listens to:</target>
+        </trans-unit>
+        <trans-unit id="b46f72f8-9c91-4de3-b266-dc9a7a9af774" xml:space="preserve">
+          <source><bpt id="be6a64ed-457a-4cfa-99b5-56843e35539d">&lt;linkText&gt;</bpt><ept id="be6a64ed-457a-4cfa-99b5-56843e35539d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be6a64ed-457a-4cfa-99b5-56843e35539d">&lt;linkText&gt;</bpt><ept id="be6a64ed-457a-4cfa-99b5-56843e35539d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20a3c2ae-15fd-47eb-8baf-15616750f7fe" xml:space="preserve">
+          <source>Then, open your web browser to that URL.</source>
+          <target state="new">Then, open your web browser to that URL.</target>
+        </trans-unit>
+        <trans-unit id="cd478d30-af25-4861-bdf7-adb544738577" xml:space="preserve">
+          <source><bpt id="6f4c5553-0858-4800-a7cf-3b801101dcf4">&lt;linkText&gt;</bpt><ept id="6f4c5553-0858-4800-a7cf-3b801101dcf4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f4c5553-0858-4800-a7cf-3b801101dcf4">&lt;linkText&gt;</bpt><ept id="6f4c5553-0858-4800-a7cf-3b801101dcf4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1738924f-5daf-424f-9cc9-f4acbaa9c9be" xml:space="preserve">
+          <source>Now you can experiment by making changes to the application sources and/or templates.</source>
+          <target state="new">Now you can experiment by making changes to the application sources and/or templates.</target>
+        </trans-unit>
+        <trans-unit id="ee236d5c-02eb-4b38-858a-f734fc0797d1" xml:space="preserve">
+          <source>After you've tested your changes, commit them to the Git repository:</source>
+          <target state="new">After you've tested your changes, commit them to the Git repository:</target>
+        </trans-unit>
+        <trans-unit id="9eb96a12-32fd-49a9-87d6-a5b4df3a8ef2" xml:space="preserve">
+          <source>Your application may have dependencies beyond Python and Django.</source>
+          <target state="new">Your application may have dependencies beyond Python and Django.</target>
+        </trans-unit>
+        <trans-unit id="09fec859-e7fa-4276-9216-554a012005d4" xml:space="preserve">
+          <source>You can install additional packages using pip.</source>
+          <target state="new">You can install additional packages using pip.</target>
+        </trans-unit>
+        <trans-unit id="2b9e2a04-21ca-426b-9005-9139159c94de" xml:space="preserve">
+          <source>For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, type:</source>
+          <target state="new">For example, to install the Azure SDK for Python, which gives you access to Azure storage, service bus and other Azure services, type:</target>
+        </trans-unit>
+        <trans-unit id="b7589961-13d7-4e4e-8820-c90da0716d15" xml:space="preserve">
+          <source>Make sure to update requirements.txt:</source>
+          <target state="new">Make sure to update requirements.txt:</target>
+        </trans-unit>
+        <trans-unit id="2b3d3458-27e2-4589-81d4-dd3f20718949" xml:space="preserve">
+          <source>Commit the changes:</source>
+          <target state="new">Commit the changes:</target>
+        </trans-unit>
+        <trans-unit id="5d659c52-b110-410a-9c6a-b982a4400808" xml:space="preserve">
+          <source>To trigger a deployment, push the changes to Azure:</source>
+          <target state="new">To trigger a deployment, push the changes to Azure:</target>
+        </trans-unit>
+        <trans-unit id="bff37023-5679-45a0-8637-572a843337b6" xml:space="preserve">
+          <source>You will see the output of the deployment script, including virtual environment creation, installation of packages, creation of web.config.</source>
+          <target state="new">You will see the output of the deployment script, including virtual environment creation, installation of packages, creation of web.config.</target>
+        </trans-unit>
+        <trans-unit id="ae0d219f-1ca0-4294-bfdb-2e6317162999" xml:space="preserve">
+          <source>Browse to the Azure URL to view your changes.</source>
+          <target state="new">Browse to the Azure URL to view your changes.</target>
+        </trans-unit>
+        <trans-unit id="ddac8cc0-d134-45a4-88b2-035c826a4833" xml:space="preserve">
+          <source><bpt id="ff766cf7-d39f-4059-b156-1d8f9ef2f924">&lt;token href="../../includes/web-sites-python-troubleshooting-package-installation.md"&gt;</bpt><ept id="ff766cf7-d39f-4059-b156-1d8f9ef2f924">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ff766cf7-d39f-4059-b156-1d8f9ef2f924">&lt;token href="../../includes/web-sites-python-troubleshooting-package-installation.md"&gt;</bpt><ept id="ff766cf7-d39f-4059-b156-1d8f9ef2f924">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="517b4f21-6c8c-4f12-a796-9111037ce02a" xml:space="preserve">
+          <source><bpt id="4ed84e9b-fb49-48b5-9e04-0fdb431899fc">&lt;token href="../../includes/web-sites-python-troubleshooting-virtual-environment.md"&gt;</bpt><ept id="4ed84e9b-fb49-48b5-9e04-0fdb431899fc">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4ed84e9b-fb49-48b5-9e04-0fdb431899fc">&lt;token href="../../includes/web-sites-python-troubleshooting-virtual-environment.md"&gt;</bpt><ept id="4ed84e9b-fb49-48b5-9e04-0fdb431899fc">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67b997d5-a122-4e2c-91a2-24f62fe73691" xml:space="preserve">
+          <source>Django has the concept of collecting static files.</source>
+          <target state="new">Django has the concept of collecting static files.</target>
+        </trans-unit>
+        <trans-unit id="6c726e54-a9e2-46de-8b09-0c4250a2bf0d" xml:space="preserve">
+          <source>This takes all the static files from their original location and copies them to a single folder.</source>
+          <target state="new">This takes all the static files from their original location and copies them to a single folder.</target>
+        </trans-unit>
+        <trans-unit id="d8401965-6a66-432d-978d-3ffebff65f74" xml:space="preserve">
+          <source>For this application, they are copied to <bpt id="6e143ab6-c9bf-45f7-adad-26dcc2eaf34d">&lt;code&gt;</bpt>/static<ept id="6e143ab6-c9bf-45f7-adad-26dcc2eaf34d">&lt;/code&gt;</ept>.</source>
+          <target state="new">For this application, they are copied to <bpt id="6e143ab6-c9bf-45f7-adad-26dcc2eaf34d">&lt;code&gt;</bpt>/static<ept id="6e143ab6-c9bf-45f7-adad-26dcc2eaf34d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de24d3b2-49b1-4326-886a-242109dc325c" xml:space="preserve">
+          <source>This is done because static files may come from different Django 'apps'.</source>
+          <target state="new">This is done because static files may come from different Django 'apps'.</target>
+        </trans-unit>
+        <trans-unit id="f99e5b69-3439-4491-9bff-eb30ce5890a7" xml:space="preserve">
+          <source>For example, the static files from the Django admin interfaces are located in a Django library subfolder in the virtual environment.</source>
+          <target state="new">For example, the static files from the Django admin interfaces are located in a Django library subfolder in the virtual environment.</target>
+        </trans-unit>
+        <trans-unit id="cd4f07e4-0f71-4b69-9497-3e7818d2bfb7" xml:space="preserve">
+          <source>Static files defined by this application are located in <bpt id="8ba07152-be68-45e6-b5f4-4f32d98ec797">&lt;code&gt;</bpt>/app/static<ept id="8ba07152-be68-45e6-b5f4-4f32d98ec797">&lt;/code&gt;</ept>.</source>
+          <target state="new">Static files defined by this application are located in <bpt id="8ba07152-be68-45e6-b5f4-4f32d98ec797">&lt;code&gt;</bpt>/app/static<ept id="8ba07152-be68-45e6-b5f4-4f32d98ec797">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc0382e8-516b-4709-a75d-0aa320757241" xml:space="preserve">
+          <source>As you use more Django 'apps', you'll have static files located in multiple places.</source>
+          <target state="new">As you use more Django 'apps', you'll have static files located in multiple places.</target>
+        </trans-unit>
+        <trans-unit id="dafc8be0-4d73-45d5-8218-8f16ba3a7a2e" xml:space="preserve">
+          <source>When running the application in debug mode, the application serves the static files from their original location.</source>
+          <target state="new">When running the application in debug mode, the application serves the static files from their original location.</target>
+        </trans-unit>
+        <trans-unit id="b12c28e8-09e2-4c69-9517-b1923f394c4a" xml:space="preserve">
+          <source>When running the application in release mode, the application does <bpt id="7d57c58e-8a8a-40cc-a2a3-232c2cbce326">&lt;strong&gt;</bpt>not<ept id="7d57c58e-8a8a-40cc-a2a3-232c2cbce326">&lt;/strong&gt;</ept> serve the static files.</source>
+          <target state="new">When running the application in release mode, the application does <bpt id="7d57c58e-8a8a-40cc-a2a3-232c2cbce326">&lt;strong&gt;</bpt>not<ept id="7d57c58e-8a8a-40cc-a2a3-232c2cbce326">&lt;/strong&gt;</ept> serve the static files.</target>
+        </trans-unit>
+        <trans-unit id="74bfe680-17dd-4e5e-89ff-01aec1328415" xml:space="preserve">
+          <source>It is the responsibility of the web server to serve the files.</source>
+          <target state="new">It is the responsibility of the web server to serve the files.</target>
+        </trans-unit>
+        <trans-unit id="2cb10824-561e-4ee9-881d-41b231ab1a3c" xml:space="preserve">
+          <source>For this application, IIS will serve the static files from <bpt id="7ce767b5-e54c-41b3-b73c-aa495ab0e5c1">&lt;code&gt;</bpt>/static<ept id="7ce767b5-e54c-41b3-b73c-aa495ab0e5c1">&lt;/code&gt;</ept>.</source>
+          <target state="new">For this application, IIS will serve the static files from <bpt id="7ce767b5-e54c-41b3-b73c-aa495ab0e5c1">&lt;code&gt;</bpt>/static<ept id="7ce767b5-e54c-41b3-b73c-aa495ab0e5c1">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="328dcf81-712d-4f8e-8b38-9098fa60431b" xml:space="preserve">
+          <source>The collection of static files is done automatically as part of the deployment script, clearing previously collected files.</source>
+          <target state="new">The collection of static files is done automatically as part of the deployment script, clearing previously collected files.</target>
+        </trans-unit>
+        <trans-unit id="b3db2ede-1f76-4e41-be77-2da28ae1e485" xml:space="preserve">
+          <source>This means the collection occurs on every deployment, slowing down deployment a bit, but it ensures that obsolete files won't be available, avoiding a potential security issue.</source>
+          <target state="new">This means the collection occurs on every deployment, slowing down deployment a bit, but it ensures that obsolete files won't be available, avoiding a potential security issue.</target>
+        </trans-unit>
+        <trans-unit id="f5a420dd-4e74-44e4-8ba3-3d744e26f03f" xml:space="preserve">
+          <source>If you want to skip collection of static files for your Django application:</source>
+          <target state="new">If you want to skip collection of static files for your Django application:</target>
+        </trans-unit>
+        <trans-unit id="9852709c-7470-42a6-a4f3-429e96598fb6" xml:space="preserve">
+          <source>Then you'll need to do the collection manually on your local machine:</source>
+          <target state="new">Then you'll need to do the collection manually on your local machine:</target>
+        </trans-unit>
+        <trans-unit id="7b85744e-fe81-4077-ab6d-d07ba4cddedd" xml:space="preserve">
+          <source>Then remove the <bpt id="a5887382-bdd7-4a03-8c4d-94dae600127d">&lt;code&gt;</bpt>\static<ept id="a5887382-bdd7-4a03-8c4d-94dae600127d">&lt;/code&gt;</ept> folder from <bpt id="dea53a53-2854-4604-9ed2-e9eba6c8d871">&lt;code&gt;</bpt>.gitignore<ept id="dea53a53-2854-4604-9ed2-e9eba6c8d871">&lt;/code&gt;</ept> and add it to the Git repository.</source>
+          <target state="new">Then remove the <bpt id="a5887382-bdd7-4a03-8c4d-94dae600127d">&lt;code&gt;</bpt>\static<ept id="a5887382-bdd7-4a03-8c4d-94dae600127d">&lt;/code&gt;</ept> folder from <bpt id="dea53a53-2854-4604-9ed2-e9eba6c8d871">&lt;code&gt;</bpt>.gitignore<ept id="dea53a53-2854-4604-9ed2-e9eba6c8d871">&lt;/code&gt;</ept> and add it to the Git repository.</target>
+        </trans-unit>
+        <trans-unit id="d3979e7c-4d50-42d3-bd01-b377a5d97690" xml:space="preserve">
+          <source>Various settings for the application can be changed in <bpt id="103820d1-3e24-4dfb-a206-bda3e089f9c7">&lt;code&gt;</bpt>DjangoWebProject/settings.py<ept id="103820d1-3e24-4dfb-a206-bda3e089f9c7">&lt;/code&gt;</ept>.</source>
+          <target state="new">Various settings for the application can be changed in <bpt id="103820d1-3e24-4dfb-a206-bda3e089f9c7">&lt;code&gt;</bpt>DjangoWebProject/settings.py<ept id="103820d1-3e24-4dfb-a206-bda3e089f9c7">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04152cf6-cd6c-4b47-9fc0-dc967d243249" xml:space="preserve">
+          <source>For developer convenience, debug mode is enabled.</source>
+          <target state="new">For developer convenience, debug mode is enabled.</target>
+        </trans-unit>
+        <trans-unit id="a86646cf-52d1-40e3-8fcb-17900aa7a9a8" xml:space="preserve">
+          <source>One nice side effect of that is you'll be able to see images and other static content when running locally, without having to collect static files.</source>
+          <target state="new">One nice side effect of that is you'll be able to see images and other static content when running locally, without having to collect static files.</target>
+        </trans-unit>
+        <trans-unit id="59c7b1c2-24bb-48a7-8ae3-72527536351e" xml:space="preserve">
+          <source>To disable debug mode:</source>
+          <target state="new">To disable debug mode:</target>
+        </trans-unit>
+        <trans-unit id="24e1c6c9-1278-4359-849e-da53306c3815" xml:space="preserve">
+          <source>When debug is disabled, the value for <bpt id="a0a77658-e8d7-40d5-a71b-c14c55656b46">&lt;code&gt;</bpt>ALLOWED_HOSTS<ept id="a0a77658-e8d7-40d5-a71b-c14c55656b46">&lt;/code&gt;</ept> needs to be updated to include the Azure host name.</source>
+          <target state="new">When debug is disabled, the value for <bpt id="a0a77658-e8d7-40d5-a71b-c14c55656b46">&lt;code&gt;</bpt>ALLOWED_HOSTS<ept id="a0a77658-e8d7-40d5-a71b-c14c55656b46">&lt;/code&gt;</ept> needs to be updated to include the Azure host name.</target>
+        </trans-unit>
+        <trans-unit id="b5d89ddb-bf39-4a68-9c19-388fa4d0d877" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="2f0f141b-489f-4973-91e3-279fa8947e7f" xml:space="preserve">
+          <source>or to enable any:</source>
+          <target state="new">or to enable any:</target>
+        </trans-unit>
+        <trans-unit id="7f958302-c225-44b4-ac86-904cf7bc1735" xml:space="preserve">
+          <source>In practice, you may want to do something more complex to deal with switching between debug and release mode, and getting the host name.</source>
+          <target state="new">In practice, you may want to do something more complex to deal with switching between debug and release mode, and getting the host name.</target>
+        </trans-unit>
+        <trans-unit id="ba45e3d2-d922-41f2-8727-49b2ba63bfff" xml:space="preserve">
+          <source>You can set environment variables through the Azure portal <bpt id="bf5efffa-7e8f-4ced-b96c-51cc6bf109e1">&lt;strong&gt;</bpt>CONFIGURE<ept id="bf5efffa-7e8f-4ced-b96c-51cc6bf109e1">&lt;/strong&gt;</ept> page, in the <bpt id="e17b816a-e92d-419b-ad61-48f4258c0032">&lt;strong&gt;</bpt>app settings<ept id="e17b816a-e92d-419b-ad61-48f4258c0032">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">You can set environment variables through the Azure portal <bpt id="bf5efffa-7e8f-4ced-b96c-51cc6bf109e1">&lt;strong&gt;</bpt>CONFIGURE<ept id="bf5efffa-7e8f-4ced-b96c-51cc6bf109e1">&lt;/strong&gt;</ept> page, in the <bpt id="e17b816a-e92d-419b-ad61-48f4258c0032">&lt;strong&gt;</bpt>app settings<ept id="e17b816a-e92d-419b-ad61-48f4258c0032">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="bed89117-66e6-42d5-8410-41e79a3b90d6" xml:space="preserve">
+          <source>This can be useful for setting values that you may not want to appear in the sources (connection strings, passwords, etc), or that you want to set differently between Azure and your local machine.</source>
+          <target state="new">This can be useful for setting values that you may not want to appear in the sources (connection strings, passwords, etc), or that you want to set differently between Azure and your local machine.</target>
+        </trans-unit>
+        <trans-unit id="8ef36e3c-d218-4582-b59c-97d4a6cf892c" xml:space="preserve">
+          <source>In <bpt id="03729384-aaea-41a7-97a3-9a563f9082db">&lt;code&gt;</bpt>settings.py<ept id="03729384-aaea-41a7-97a3-9a563f9082db">&lt;/code&gt;</ept>, you can query the environment variables using <bpt id="db19da66-e8cf-438e-9ead-1a65ebecf7fb">&lt;code&gt;</bpt>os.getenv<ept id="db19da66-e8cf-438e-9ead-1a65ebecf7fb">&lt;/code&gt;</ept>.</source>
+          <target state="new">In <bpt id="03729384-aaea-41a7-97a3-9a563f9082db">&lt;code&gt;</bpt>settings.py<ept id="03729384-aaea-41a7-97a3-9a563f9082db">&lt;/code&gt;</ept>, you can query the environment variables using <bpt id="db19da66-e8cf-438e-9ead-1a65ebecf7fb">&lt;code&gt;</bpt>os.getenv<ept id="db19da66-e8cf-438e-9ead-1a65ebecf7fb">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0dac0c37-dce2-4162-afad-544b759c5691" xml:space="preserve">
+          <source>The database that is included with the application is a sqlite database.</source>
+          <target state="new">The database that is included with the application is a sqlite database.</target>
+        </trans-unit>
+        <trans-unit id="e06e6201-73e0-4c1d-b185-3ab6c4de317b" xml:space="preserve">
+          <source>This is a convenient and useful default database to use for development, as it requires almost no setup.</source>
+          <target state="new">This is a convenient and useful default database to use for development, as it requires almost no setup.</target>
+        </trans-unit>
+        <trans-unit id="32645e6d-cd1d-4415-b94d-2445fbe01ed0" xml:space="preserve">
+          <source>The database is stored in the db.sqlite3 file in the project folder.</source>
+          <target state="new">The database is stored in the db.sqlite3 file in the project folder.</target>
+        </trans-unit>
+        <trans-unit id="2cdb6c3a-1059-49ed-a4a5-7ec26343783d" xml:space="preserve">
+          <source>Azure provides database services which are easy to use from a Django application.</source>
+          <target state="new">Azure provides database services which are easy to use from a Django application.</target>
+        </trans-unit>
+        <trans-unit id="e78ffa14-c2d4-492c-9709-513431511cd1" xml:space="preserve">
+          <source>Tutorials for using [SQL Database] and [MySQL] from a Django application show the steps necessary to create the database service, change the database settings in <bpt id="37198d31-cceb-4bb7-8b7a-65cfef0ba91d">&lt;code&gt;</bpt>DjangoWebProject/settings.py<ept id="37198d31-cceb-4bb7-8b7a-65cfef0ba91d">&lt;/code&gt;</ept>, and the libraries required to install.</source>
+          <target state="new">Tutorials for using [SQL Database] and [MySQL] from a Django application show the steps necessary to create the database service, change the database settings in <bpt id="37198d31-cceb-4bb7-8b7a-65cfef0ba91d">&lt;code&gt;</bpt>DjangoWebProject/settings.py<ept id="37198d31-cceb-4bb7-8b7a-65cfef0ba91d">&lt;/code&gt;</ept>, and the libraries required to install.</target>
+        </trans-unit>
+        <trans-unit id="c645d9ce-6e5d-403d-89a5-99fc2daa6cf3" xml:space="preserve">
+          <source>Of course, if you prefer to manage your own database servers, you can do so using Windows or Linux virtual machines running on Azure.</source>
+          <target state="new">Of course, if you prefer to manage your own database servers, you can do so using Windows or Linux virtual machines running on Azure.</target>
+        </trans-unit>
+        <trans-unit id="0fe2145a-da2c-43bf-8b25-1082a4f9b356" xml:space="preserve">
+          <source>Once you start building your models, you'll want to populate the database with some data.</source>
+          <target state="new">Once you start building your models, you'll want to populate the database with some data.</target>
+        </trans-unit>
+        <trans-unit id="7520c708-5326-4c88-8897-57c83a3952bf" xml:space="preserve">
+          <source>An easy way to do add and edit content interactively is to use the Django administration interface.</source>
+          <target state="new">An easy way to do add and edit content interactively is to use the Django administration interface.</target>
+        </trans-unit>
+        <trans-unit id="3a602098-8aa0-4187-b590-0c4939cc4de1" xml:space="preserve">
+          <source>The code for the admin interface is commented out in the application sources, but it's clearly marked so you can easily enable it (search for 'admin').</source>
+          <target state="new">The code for the admin interface is commented out in the application sources, but it's clearly marked so you can easily enable it (search for 'admin').</target>
+        </trans-unit>
+        <trans-unit id="35ab3c6e-64e5-4569-8505-dc28cdef7bf8" xml:space="preserve">
+          <source>After it's enabled, synchronize the database, run the application and navigate to <bpt id="61693335-7739-4ac4-858e-f01b5c66eb71">&lt;code&gt;</bpt>/admin<ept id="61693335-7739-4ac4-858e-f01b5c66eb71">&lt;/code&gt;</ept>.</source>
+          <target state="new">After it's enabled, synchronize the database, run the application and navigate to <bpt id="61693335-7739-4ac4-858e-f01b5c66eb71">&lt;code&gt;</bpt>/admin<ept id="61693335-7739-4ac4-858e-f01b5c66eb71">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="109c44b8-64da-4649-9561-020cbb9c4315" xml:space="preserve">
+          <source>Follow these links to learn more about Django and Python Tools for Visual Studio:</source>
+          <target state="new">Follow these links to learn more about Django and Python Tools for Visual Studio:</target>
+        </trans-unit>
+        <trans-unit id="e1b6cf5d-2dc3-4b03-874c-699e2a9c5c4e" xml:space="preserve">
+          <source>[Django Documentation]</source>
+          <target state="new">[Django Documentation]</target>
+        </trans-unit>
+        <trans-unit id="9db5a6e1-14c1-4127-b607-50d783543274" xml:space="preserve">
+          <source>[Python Tools for Visual Studio Documentation]</source>
+          <target state="new">[Python Tools for Visual Studio Documentation]</target>
+        </trans-unit>
+        <trans-unit id="4f46df54-1fcf-4e64-8049-54b101a72f7f" xml:space="preserve">
+          <source>For information on using SQL Database and MySQL:</source>
+          <target state="new">For information on using SQL Database and MySQL:</target>
+        </trans-unit>
+        <trans-unit id="c42a5879-1d2d-4966-a722-bcb297314bfa" xml:space="preserve">
+          <source>[Django and MySQL on Azure with Python Tools for Visual Studio]</source>
+          <target state="new">[Django and MySQL on Azure with Python Tools for Visual Studio]</target>
+        </trans-unit>
+        <trans-unit id="1ef6bfc8-2071-4f28-9b70-8db3505dd9dc" xml:space="preserve">
+          <source>[Django and SQL Database on Azure with Python Tools for Visual Studio]</source>
+          <target state="new">[Django and SQL Database on Azure with Python Tools for Visual Studio]</target>
+        </trans-unit>
+        <trans-unit id="7d4746a6-80e2-4196-99dc-4c6ba60cc59b" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="602aa473-9d6d-4ac2-ad49-b3fbd3811246">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="602aa473-9d6d-4ac2-ad49-b3fbd3811246">&lt;/linkText&gt;</ept><bpt id="602aa473-9d6d-4ac2-ad49-b3fbd3811246">&lt;title&gt;</bpt><ept id="602aa473-9d6d-4ac2-ad49-b3fbd3811246">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="602aa473-9d6d-4ac2-ad49-b3fbd3811246">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="602aa473-9d6d-4ac2-ad49-b3fbd3811246">&lt;/linkText&gt;</ept><bpt id="602aa473-9d6d-4ac2-ad49-b3fbd3811246">&lt;title&gt;</bpt><ept id="602aa473-9d6d-4ac2-ad49-b3fbd3811246">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10f247ed-78e8-4fa8-b652-eaeb38dced0c" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="c1bebe45-bf31-4334-93af-86f6a7e9fe98">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="c1bebe45-bf31-4334-93af-86f6a7e9fe98">&lt;/linkText&gt;</ept><bpt id="c1bebe45-bf31-4334-93af-86f6a7e9fe98">&lt;title&gt;</bpt><ept id="c1bebe45-bf31-4334-93af-86f6a7e9fe98">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="c1bebe45-bf31-4334-93af-86f6a7e9fe98">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="c1bebe45-bf31-4334-93af-86f6a7e9fe98">&lt;/linkText&gt;</ept><bpt id="c1bebe45-bf31-4334-93af-86f6a7e9fe98">&lt;title&gt;</bpt><ept id="c1bebe45-bf31-4334-93af-86f6a7e9fe98">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e477674f-5bb8-4495-b3c3-2291402aba49" xml:space="preserve">
+          <source>web-sites-python-ptvs-django-mysql.md</source>
+          <target state="new">web-sites-python-ptvs-django-mysql.md</target>
+        </trans-unit>
+        <trans-unit id="9a7b39e0-30f4-4ac4-baf8-dcfedc93a884" xml:space="preserve">
+          <source>web-sites-python-ptvs-django-sql.md</source>
+          <target state="new">web-sites-python-ptvs-django-sql.md</target>
+        </trans-unit>
+        <trans-unit id="e70d1339-e6e4-4bc6-b8be-3679f54fca55" xml:space="preserve">
+          <source>web-sites-python-ptvs-django-sql.md</source>
+          <target state="new">web-sites-python-ptvs-django-sql.md</target>
+        </trans-unit>
+        <trans-unit id="f37ff557-027c-497a-8998-1f8309c00516" xml:space="preserve">
+          <source>web-sites-python-ptvs-django-mysql.md</source>
+          <target state="new">web-sites-python-ptvs-django-mysql.md</target>
+        </trans-unit>
+        <trans-unit id="e7e2a80a-c75c-410a-a907-878deb885da1" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?linkid=254281</source>
+          <target state="new">http://go.microsoft.com/fwlink/?linkid=254281</target>
+        </trans-unit>
+        <trans-unit id="a4b5958b-e072-4a57-b808-a5ffb0855492" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?linkid=516990</source>
+          <target state="new">http://go.microsoft.com/fwlink/?linkid=516990</target>
+        </trans-unit>
+        <trans-unit id="94fcab12-2065-4e52-b132-5899cd30ed0c" xml:space="preserve">
+          <source>http://www.python.org/</source>
+          <target state="new">http://www.python.org/</target>
+        </trans-unit>
+        <trans-unit id="1a2e7f49-64e7-43fb-b62d-a6b43f2cb78d" xml:space="preserve">
+          <source>http://msysgit.github.io/</source>
+          <target state="new">http://msysgit.github.io/</target>
+        </trans-unit>
+        <trans-unit id="d710407a-5a89-4632-b3dc-7ba2db36d50c" xml:space="preserve">
+          <source>https://windows.github.com/</source>
+          <target state="new">https://windows.github.com/</target>
+        </trans-unit>
+        <trans-unit id="5b38592e-30d4-49b1-a753-4844ca74807a" xml:space="preserve">
+          <source>http://aka.ms/ptvs</source>
+          <target state="new">http://aka.ms/ptvs</target>
+        </trans-unit>
+        <trans-unit id="8ffb36ed-85fd-4e21-adce-876b92f8d8e7" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=624025</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=624025</target>
+        </trans-unit>
+        <trans-unit id="f219015b-2872-4c93-a95a-eda5a27f3a51" xml:space="preserve">
+          <source>http://www.visualstudio.com/</source>
+          <target state="new">http://www.visualstudio.com/</target>
+        </trans-unit>
+        <trans-unit id="44fe22d6-70a9-41a5-80e3-cf83e8d0e778" xml:space="preserve">
+          <source>http://aka.ms/ptvsdocs</source>
+          <target state="new">http://aka.ms/ptvsdocs</target>
+        </trans-unit>
+        <trans-unit id="2f375102-48a8-4ae2-b8bc-553a8177d45f" xml:space="preserve">
+          <source>https://www.djangoproject.com/</source>
+          <target state="new">https://www.djangoproject.com/</target>
+        </trans-unit>
+      </group>
+      <group id="23cb881f-566c-4b80-8dbd-3bfc991bb352" />
+    </body>
+  </file>
+</xliff>

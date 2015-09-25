@@ -18,7 +18,7 @@
 
 
 
-# 進一步了解 Azure AD Connect 認證和權限 
+# New HO New HO New HO New HO New HO New HO New HO New HO 進一步了解 Azure AD Connect 認證和權限 
 
 
 Azure AD Connect 精靈提供兩種權限需求相異的不同路徑：

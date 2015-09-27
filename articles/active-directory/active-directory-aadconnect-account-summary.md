@@ -22,6 +22,7 @@
 # Handoff 2  Handoff 2 Handoff 2 Handoff 2 Handoff 2 Handoff 2 Handoff 2進一步了解 Azure AD Connect 認證和權限 
 
 
+bug fix_HO2 bug fix_HO2 bug fix_HO2 bug fix_HO2 bug fix_HO2 
 Azure AD Connect 精靈提供兩種權限需求相異的不同路徑：
 
 * 在快速設定中，我們需要更多權限，以便輕鬆設定您的組態，而不需要您建立使用者或個別設定權限。 

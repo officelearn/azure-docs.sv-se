@@ -18,7 +18,8 @@
 
 
 
-# bugfix  bugfix  bugfix  bugfix  bugfix  bugfix  bugfix 進一步了解 Azure AD Connect 認證和權限 
+# bugfix  bugfix  bugfix  bugfix  bugfix  bugfix  bugfix 
+NewＨＯNewＨＯNewＨＯNewＨＯNewＨＯNewＨＯNewＨＯ 進一步了解 Azure AD Connect 認證和權限 
 
 
 Azure AD Connect 精靈提供兩種權限需求相異的不同路徑：

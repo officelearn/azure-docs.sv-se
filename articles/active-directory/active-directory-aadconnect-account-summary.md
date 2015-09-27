@@ -18,7 +18,7 @@
 
 
 
-# bugfix  bugfix  bugfix  bugfix  bugfix  bugfix  bugfix 
+# Bug fix Bug fix Bug fix Bug fix Bug fix Bug fix
 NewＨＯNewＨＯNewＨＯNewＨＯNewＨＯNewＨＯNewＨＯ 進一步了解 Azure AD Connect 認證和權限 
 
 

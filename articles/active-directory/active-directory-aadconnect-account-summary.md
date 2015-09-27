@@ -18,7 +18,7 @@
 
 
 
-# Bug fix Bug fix Bug fix Bug fix Bug fix Bug fix
+# Bug fix2 Bug fix2 Bug fix2 Bug fix2 Bug fix2 Bug fix2 
 NewＨＯNewＨＯNewＨＯNewＨＯNewＨＯNewＨＯNewＨＯ 進一步了解 Azure AD Connect 認證和權限 
 
 

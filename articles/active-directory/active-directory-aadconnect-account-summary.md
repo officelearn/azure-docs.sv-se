@@ -18,6 +18,7 @@
 
 
 
+
 # Handoff 2  Handoff 2 Handoff 2 Handoff 2 Handoff 2 Handoff 2 Handoff 2進一步了解 Azure AD Connect 認證和權限 
 
 

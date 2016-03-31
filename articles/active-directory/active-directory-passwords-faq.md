@@ -1,201 +1,208 @@
 <properties 
-	pageTitle="常見問題集：Azure AD 密碼管理 |Microsoft Azure" 
-	description="Azure AD 中密碼管理的相關常見問題集 (FAQ)，包括密碼重設、註冊、報告和回寫至內部部署 Active Directory。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+    pageTitle="FAQ: Azure AD-Kennwortverwaltung | Microsoft Azure" 
+    description="Häufig gestellte Fragen (FAQ) zur Kennwortverwaltung in Azure AD, einschließlich Kennwortzurücksetzung, Registrierung, Berichten und Rückschreibung in das lokale Active Directory." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="asteen" 
+    manager="kbrint" 
+    editor="billmath"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
-	ms.author="asteen"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="asteen"/>
 
-# 密碼管理常見問題集
-以下是與密碼管理相關之所有事項的一些常見問題。
+# Häufig gestellte Fragen zur Kennwortverwaltung
+Im Folgenden werden einige häufig gestellte Fragen rund um die Kennwortverwaltung aufgeführt. 
 
-如果您發現自己不知道答案的問題，或者要對所面臨到的問題尋求協助，您可以參閱下方資訊以查看我們是否已涵蓋該問題。如果我們尚未涵蓋該問題，不用擔心！ 請儘管對於 [Azure AD 論壇](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)上未涵蓋的問題提出疑問，我們會盡速回覆您。
+Wenn Sie eine Frage haben, die Sie nicht beantworten können, oder zu einem bestimmten Problem Hilfe benötigen, können Sie hier weiterlesen und nachsehen, ob wir das Thema bereits behandelt haben.  Falls dies nicht der Fall sein sollte: Gerne jede Frage, die hier nicht auf abgedeckt ist die [Azure AD-Foren](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD) und melden wir uns an Sie bald wie möglich.
 
-此常見問題集分成下列各節：
+Diese FAQ sind in folgende Abschnitte unterteilt:
 
-- [**密碼重設註冊的相關問題**](#password-reset-registration)
-- [**密碼重設的相關問題**](#password-reset)
-- [**密碼管理報告的相關問題**](#password-management-reports)
-- [**密碼回寫的相關問題**](#password-writeback)
+- [**Fragen zur Registrierung für die Kennwortzurücksetzung**](#password-reset-registration)
+- [**Fragen zum Zurücksetzen des Kennworts**](#password-reset)
+- [**Fragen zu Kennwortverwaltungsberichten**](#password-management-reports)
+- [**Fragen zur Kennwortrückschreibung**](#password-writeback)
 
-## 密碼重設註冊
- - **問：我的使用者是否可以註冊自己的密碼重設資料？**
+## Registrieren für die Kennwortzurücksetzung
+ - **F: registrieren können meine Benutzer ihre eigenen kennwortzurücksetzungsdaten?**
  
- > **答：**是，只要已啟用密碼重設並且獲得授權，他們可以移至位於 http://aka.ms/ssprsetup 的密碼重設註冊入口網站，註冊要用於密碼重設的驗證資訊。使用者也可以藉由前往位於 http://myapps.microsoft.com 的存取面板，按一下 [設定檔] 索引標籤，然後按一下 [註冊密碼重設] 選項，來進行註冊。深入了解如何讓您的使用者設定密碼重設，方法是閱讀如何讓使用者設定重設密碼。
+ > **A:** Ja, solange das Zurücksetzen des Kennworts aktiviert ist, und Benutzer lizenziert sind, gelangen, das Kennwort zurücksetzen registrierungsportal unter http://aka.ms/ssprsetup registrieren ihre Authentifizierungsinformationen, die beim Zurücksetzen des Kennworts verwendet werden. Benutzer können auch registrieren, um den Zugriffsbereich unter http://myapps.microsoft.com, klicken auf die profilregisterkarte, und Registrieren für die Option Kennwort zurückzusetzen. Weitere Informationen zur Konfiguration Ihrer Benutzer für die Kennwortzurücksetzung finden Sie unter "So konfigurieren Sie Benutzer für das Zurücksetzen von Kennwörtern".
  
- - **問：是否可以代表我的使用者定義密碼重設資料？**
+ - **F: definieren kann ich für meine Benutzer kennwortzurücksetzungsdaten?**
  
- > **答：**是，您可以使用 DirSync 或 PowerShell，或者透過 [Azure 管理入口網站](https://manage.windowsazure.com)或 Office Admin 入口網站來完成。藉由部落格文章「Azure AD MFA 和密碼重設電話號碼的改進隱私權」和閱讀「了解密碼重設如何使用資料」，來深入了解此功能。
+ > **A:** Ja, können Sie hierzu mit DirSync oder PowerShell oder über die [Azure-Verwaltungsportal](https://manage.windowsazure.com) oder Office Admin Portal. Weitere Informationen zu diesem Feature finden Sie im Blogbeitrag "Improved Privacy for Azure AD MFA and Password Reset Phone Numbers" (in englischer Sprache) und unter "Verwendung von Daten für die Kennwortzurücksetzung".
  
- - **問：是否可以從內部部署同步處理安全性問題的資料？**
+ - **F: synchronisieren kann ich Daten für Sicherheitsfragen vom lokalen?**
  
- > **答：**否，目前無法這麼做，但是我們會加以考量。
+ > **A:** Nein, dies ist heute nicht möglich, aber wir werden es berücksichtigen.
  
- - **問：我的使用者是否可以用其他使用者看不到此資料的方式來註冊資料？**
+ - **F: registrieren können meine Benutzer Daten so, dass andere Benutzer diese Daten nicht angezeigt?**
  
- > **答：**是，當使用者使用密碼重設註冊入口網站註冊資料時，會儲存到私密的驗證欄位，只有全域管理員和使用者自己看得到。藉由部落格文章「Azure AD MFA 和密碼重設電話號碼的改進隱私權」和閱讀「了解密碼重設如何使用資料」，來深入了解此功能。
+ > **A:** Ja, wenn Benutzer registrieren, Daten mithilfe der Registrierung Kennwortzurücksetzungsportals wird sie gespeichert in privaten Felder, die nur für globale Administratoren und der Benutzer selbst sichtbar sind. Weitere Informationen zu diesem Feature finden Sie im Blogbeitrag "Improved Privacy for Azure AD MFA and Password Reset Phone Numbers" (in englischer Sprache) und unter "Verwendung von Daten für die Kennwortzurücksetzung".
  
- - **問：我的使用者是否必須註冊才能使用密碼重設？**
+ - **F: müssen meine Benutzer registriert werden, bevor das Zurücksetzen von Kennwörtern verwendet werden kann?**
  
- > **答：**否，如果您代表使用者定義足夠的驗證資訊，使用者就不需要註冊。只要您已正確地格式化儲存在目錄中適當欄位的資料，密碼重設功能就會順利運作。藉由閱讀「了解密碼重設如何使用資料」以深入了解。
+ > **A:** nicht, wenn Sie genügend Authentifizierungsinformationen in ihrem Auftrag definieren, Benutzer keine registrieren. Das Zurücksetzen des Kennworts funktioniert, solange Sie in den entsprechenden Feldern im Verzeichnis ordnungsgemäß formatierte Daten gespeichert haben. Weitere Informationen finden Sie unter "Verwendung von Daten für die Kennwortzurücksetzung".
 
- - **問：我是否可以代表我的使用者同步處理驗證電話、驗證電子郵件或備用驗證電話欄位？**
+ - **F: kann ich synchronisieren oder Festlegen der Telefon für Authentifizierung und des E-Mail-Authentifizierung "oder" alternatives Telefon für Authentifizierung Felder im Namen meiner Benutzer?**
  
- > **答：**目前為否，但是我們考慮啟用這項功能。
+ > **A:** derzeit nicht, aber wir möchten diese Fähigkeit zu aktivieren.
 
- - **問：註冊入口網站如何得知要對我的使用者顯示那些選項？**
+ - **F: Wie weiß das registrierungsportal welche Optionen meinen Benutzern angezeigt?**
  
- > **答：**密碼重設註冊入口網站只會顯示您在您的目錄的 [設定] 索引標籤之 [使用者密碼重設原則] 區段下，為使用者啟用的選項。這表示如果您未啟用，例如安全性問題，則使用者無法註冊該選項。
+ > **A:** der Registrierung kennwortzurücksetzungsportal zeigt nur die Optionen, die für Ihre Benutzer unter dem Abschnitt Richtlinie zum Zurücksetzen Ihres Verzeichnisses-Registerkarte "konfigurieren" aktiviert ist. Wenn Sie also z. B. die Sicherheitsfragen nicht aktivieren, können Benutzer sich für diese Option nicht registrieren.
 
- - **問：使用者何時會被視為已註冊？**
+ - **Registriert f: wann gilt ein Benutzer als?**
  
- > **答：**當使用者至少有 N 個片段的已定義驗證資訊時，就會被視為已註冊，其中 N 是您在 [Azure 管理入口網站](https://manage.windowsazure.com)中設定的所需的驗證方法數。若要深入了解，請參閱「自訂使用者密碼重設原則」。
+ > **A:** ein Benutzer gilt als registriert, wenn er mindestens N Authentifizierungsdaten definiert, wobei N die Anzahl der erforderlichen Authentifizierungsmethoden ist, die Sie festgelegt haben, in der [Azure-Verwaltungsportal](https://manage.windowsazure.com). Weitere Informationen hierzu finden Sie unter "Anpassen der Richtlinie zum Zurücksetzen des Benutzerkennworts".
 
 
-## 密碼重設
+## Zurücksetzen des Kennworts
 
- - **問：密碼重設之後，我應該等待多久的時間才能接收電子郵件、SMS 或電話？**
+ - **F: wie lange muss ich warten, eine e-Mail, SMS oder Anruf von Zurücksetzen des Kennworts erhalten?**
  
- > **答：**電子郵件、SMS 訊息和電話應該會在 1 分鐘之內送達，正常的情形下為 5-20 秒。如果您在此時間範圍內沒有收到通知，請檢查垃圾郵件資料夾中連絡的號碼/電子郵件是您預期的，且目錄中的驗證資料已正確格式化。若要深入了解搭配格式化電話號碼和電子郵件地址使用密碼重設，請參閱「了解密碼重設如何使用資料」。
+ > **A:** E-Mail, SMS-Nachrichten und Telefonanrufe sollten in weniger als 1 Minute, im Normalfall 5-20 Sekunden eingehen. Wenn Sie in diesem Zeitraum keine Benachrichtigung erhalten, überprüfen Sie den Junk-Ordner, stellen Sie sicher, dass die Nummer / E-Mail-Adresse richtig ist und dass die Authentifizierungsdaten im Verzeichnis richtig formatiert sind. Weitere Informationen zur Formatierung von Telefonnummern und E-Mail-Adressen für die Kennwortzurücksetzung finden Sie unter "Verwendung von Daten für die Kennwortzurücksetzung".
 
- - **問：密碼重設支援哪些語言？**
+ - **F: unterstützt welche Sprachen werden durch das Zurücksetzen von Kennwörtern?**
  
- > **答：**密碼重設 UI、SMS 訊息以及語音通話都以 Office 365 中支援的相同 40 個語言當地語系化。這些語言為：阿拉伯文、保加利亞文、簡體中文、繁體中文、克羅埃西亞文、捷克文、丹麥文、荷蘭文、英文、愛沙尼亞文、芬蘭文、法文、德文、希臘文、希伯來文、印度文、匈牙利文、印尼文、義大利文、日文、哈薩克文、韓文、拉脫維亞文、立陶宛文、馬來文 (馬來西亞)、挪威文 (巴克摩)、波蘭文、葡萄牙文 (巴西)、葡萄牙文 (葡萄牙)、羅馬尼亞文、俄文、塞爾維亞文 (拉丁)、斯洛伐克文、斯洛維尼亞文、西班牙文、瑞典文、泰文、土耳其文、烏克蘭文和越南文。
+ > **A:** das Kennwort zurückzusetzen, UI, SMS-Nachrichten und Sprachanrufe sind in denselben 40 Sprachen, die in Office 365 unterstützt werden lokalisiert. Diese sind: Arabisch, Bulgarisch, vereinfachtes Chinesisch, traditionelles Chinesisch, Kroatisch, Tschechisch, Dänisch, Niederländisch, Englisch, Estnisch, Finnisch, Französisch, Deutsch, Griechisch, Hebräisch, Hindi, Ungarisch, Indonesisch, Italienisch, Japanisch, Kasachisch, Koreanisch, Lettisch, Litauisch, Malaiisch (Malaysia), Norwegisch (Bokmål), Polnisch, Portugiesisch (Brasilien), Portugiesisch (Portugal), Rumänisch, Russisch, Serbisch (Lateinisch), Slowakisch, Slowenisch, Spanisch, Schwedisch, Thai, Türkisch, Ukrainisch und Vietnamesisch.
 
- - **問：當我在目錄的 [設定] 索引標籤中設定組織商標時，哪個部份的密碼重設體驗會有商標？**
+ - **Konfigurieren f: welche Teile der Benutzeroberfläche für die kennwortzurücksetzung organisationsspezifisches beim Organisations-branding in Verzeichnis "Eigene" Festlegen der Registerkarte?**
  
- > **答：**密碼重設入口網站會顯示您的組織商標，也會讓您設定「連絡」您的系統管理員連結以指向自訂電子郵件或 URL。密碼重設所傳送的任何電子郵件都會包含您的組織商標、顏色 (此案例為紅色)、電子郵件內文中的名稱，以及自訂的寄件者名稱。請參閱下方具有所有商標項目的範例。若要深入了解，請閱讀「自訂密碼重設外觀」。
+ > **A:** kennwortzurücksetzungsportal zeigt das Logo Ihrer Organisation und erlaubt Ihnen zudem so konfigurieren Sie den Kontakt den Link "Administrator", zeigen Sie auf eine benutzerdefinierte e-Mail-Adresse oder URL. E-Mails, die von der Kennwortzurücksetzung gesendet werden, enthalten das Logo, die Farben (in diesem Fall rot) sowie den Namen Ihrer Organisation im Nachrichtentext der E-Mail. Zudem weisen sie einen angepassten "Von"-Namen auf. Unten sehen Sie ein Beispiel mit allen organisationsspezifisch angepassten Elementen. Weitere Informationen finden Sie unter "Anpassen des Aussehens und Verhaltens der Kennwortzurücksetzung".
 
   ![][001]
 
- - **問：如何教育我的使用者要在哪裡重設其密碼？**
+ - **F: wie Informiere ich meine Benutzer darüber, wo Sie ihre Kennwörter zurücksetzen?**
  
- > **答：**您可以直接將您的使用者帶往 https://passwordreset.microsoftonline.com，或者可以指示他們按一下任何學校或工作 ID 登入畫面上找到的「無法存取您的帳戶」連結。您可以放心地在使用者可以輕易存取的任何位置發佈這些連結 (或建立 URL 以重新導向至它們)。
+ > **A:** Sie können Ihre Benutzer direkt auf https://passwordreset.microsoftonline.com senden, oder Sie können anweisen, zu klicken die Ihrem Konto Link finden Sie auf der Anmeldeseite alle Schule oder Arbeit-ID kann nicht zugegriffen werden. Sie können diese Links an jeder Stelle veröffentlichen (oder URL-Umleitungen darauf erstellen), die für die Benutzer leicht zugänglich ist.
 
- - **問：我可以從行動裝置使用此頁面嗎？**
+ - **F: verwenden kann ich diese Seite von einem mobilen Gerät?**
  
- > **答：**是，此頁面在行動裝置上也可以運作。
+ > **A:** Ja, diese Seite funktioniert auf mobilen Geräten. 
 
- - **問：當使用者重設其密碼時，您是否支援解除鎖定本機 Active Directory 帳戶？**
+ - **F: unterstützt wird Entsperren der lokalen active Directory-Konten, wenn Benutzer ihre Kennwörter zurücksetzen?**
  
- > **答：**是，當使用者重設其密碼且密碼回寫已部署於所有版本的 Azure AD Connect 或 Azure AD Sync 1.0.0485.0222 版或更新版本，則當該使用者重設其密碼時，會自動解除鎖定該使用者的帳戶。
+ > **A:** Ja, wenn ein Benutzer sein eigenes Kennwort und das Rückschreiben von Kennwörtern wurde in allen Versionen von Azure AD Connect oder in Versionen von Azure AD Sync 1.0.0485.0222 oder höher bereitgestellt und dann das Konto des Benutzers wird automatisch entsperrt werden, wenn der Benutzer sein Kennwort zurücksetzt.
 
- - **問：我要如何將密碼重設直接整合到我的使用者的桌面登入體驗？**
+ - **F: wie kann ich die kennwortzurücksetzung direkt in meiner Benutzer desktop anmelden integrieren?**
  
- > **答：**目前還不可行。不過，如果您絕對需要這項功能，而且是 Azure AD Premium 客戶，您不需要額外成本即可安裝 Microsoft Identity Manager，並且部署內部部署密碼重設方案，以解決這項需求。
+ > **A:** Dies ist heute nicht möglich. Wenn Sie diese Funktion jedoch unbedingt benötigen und ein Azure AD Premium-Kunde sind, können Sie Microsoft Identity Manager ohne zusätzliche Kosten installieren und die darin enthaltene lokale Lösung zur Kennwortzurücksetzung bereitstellen, um diese Anforderung zu erfüllen.
 
- - **問：是否可以對不同的地區設定，設定不同的安全性問題？**
+ - **F: festlegen kann ich für verschiedene Gebietsschemas unterschiedliche Sicherheitsfragen?**
  
- > **答：**否，目前無法這麼做，但是我們會加以考量。
+ > **A:** Nein, dies ist heute nicht möglich, aber wir werden es berücksichtigen.
 
- - **問：我們可以對安全性問題驗證選項設定多少問題？**
+ - **F: Konfigurieren wie viele Fragen können wir für die Authentifizierungsoption mit Sicherheitsfragen?**
  
- > **答：**您可以在 [Azure 管理入口網站](https://manage.windowsazure.com)中設定多達 20 個自訂安全性問題。
+ > **A:** können Sie bis zu 20 benutzerdefinierte Sicherheitsfragen im Konfigurieren der [Azure-Verwaltungsportal](https://manage.windowsazure.com).
 
- - **問：安全性問題的長度限制為何？**
+ - **F: sein wie lang dürfen Sicherheitsfragen?**
  
- > **答：**安全性問題的長度可以介於 3 到 200 個字元之間。
+ > **A:** Sicherheitsfragen können zwischen 3 und 200 Zeichen lang sein.
 
- - **問：安全性問題之答案的長度限制為何？**
+ - **F: sein wie lang dürfen Antworten auf Sicherheitsfragen?**
  
- > **答：**答案的長度可以介於 3 到 40 個字元之間。
+ > **A:** Antworten können 3 bis 40 Zeichen lang sein.
 
- - **問：安全性問題的重複答案是否會遭到拒絕？**
+ - **F: werden doppelte Antworten auf Sicherheitsfragen abgelehnt?**
  
- > **答：**是，我們會拒絕安全性問題的重複答案。
+ > **A:** Ja, doppelte Antworten auf Sicherheitsfragen werden abgelehnt.
 
- - **問：使用者是否可以註冊一個以上的相同安全性問題？**
+ - **F: registrieren kann ein Benutzer mehrmals die gleiche Sicherheitsfrage?**
  
- > **答：**否，一旦使用者註冊特定的問題之後，他或她不可以註冊該問題第二次。
+ > **A:** Nein, sobald ein Benutzer eine bestimmte Frage registriert, er kann nicht registriert für diese Frage ein zweites Mal.
 
- - **問：是否可以針對註冊和重設設定安全性問題的最小限制？**
+ - **F: ist es möglich, eine Mindestanzahl von Sicherheitsfragen für Registrierung und Zurücksetzung festzulegen?**
  
- > **答：**是，可以針對註冊設定一個限制，針對重設設定另一個限制。註冊可能需要 3-5 個安全性問題，重設也需要 3-5 個安全性問題。
+ > **A:** Ja, ein Grenzwert für Registrierung und ein anderer für die Zurücksetzung festgelegt werden kann. Drei bis fünf Fragen können für die Registrierung und drei bis fünf Fragen für die Zurücksetzung verlangt werden.
 
- - **問：如果使用者已註冊超過重設所需的問題數目上限，如何在重設期間選取安全性問題？**
+ - **F: Wenn ein Benutzer mehr als die maximale Anzahl von Fragen zum Zurücksetzen registriert hat, wie werden Sicherheitsfragen beim Zurücksetzen ausgewählt?**
  
- > **答：**在使用者已註冊的問題總數當中隨機選取 N 個安全性問題，其中 N 是密碼重設所需的問題數目下限。例如，如果使用者已註冊 5 個安全性問題，但是重設只需要 3 個，則會在 5 個問題當中隨機選取 3 個，並且在重設時對使用者顯示。如果使用者回答問題的答案錯誤，則選取程序會重新發生以避免問題 hammering。
+ > **A:** N Sicherheitsfragen nach dem Zufallsprinzip ausgewählt sind, aus der Gesamtanzahl der Fragen, die für ein Benutzer registriert hat, wobei N die minimale Anzahl von Fragen, die für das Zurücksetzen des Kennworts erforderlich ist. Wenn für einen Benutzer beispielsweise fünf Sicherheitsfragen registriert wurden, aber nur drei für das Zurücksetzen erforderlich sind, werden aus diesen fünf nach dem Zufallsprinzip drei ausgewählt und dem Benutzer zum Zeitpunkt der Zurücksetzung angezeigt. Wenn der Benutzer die Fragen falsch beantwortet, wird der Auswahlvorgang erneut durchgeführt, um eine wiederholte Fragestellung zu verhindern.
 
- - **問：您會防止使用者在短時間之內嘗試密碼重設多次嗎？**
+ - **F: verhindern ich Sie, dass Benutzer versuchen, das Kennwort in kurzer Zeit mehrmals zurückzusetzen?**
  
- > **答：**是，有幾項安全性功能內建到密碼重設。使用者在一個小時之內只能嘗試 5 次密碼重設，否則會鎖定 24 小時。使用者在一個小時之內只能嘗試驗證電話號碼 5 次，否則會鎖定 24 小時。使用者在一個小時之內只能嘗試單一驗證方法 5 次，否則會鎖定 24 小時。
+ > **A:** Ja, es gibt verschiedene Sicherheitsfunktionen integriert das Zurücksetzen von Kennwörtern. Benutzer dürfen innerhalb einer Stunde nur fünfmal versuchen, das Kennwort zurückzusetzen, bevor sie für 24 Stunden gesperrt werden. Benutzer dürfen innerhalb einer Stunde nur fünfmal versuchen, eine Telefonnummer zu validieren, bevor sie für 24 Stunden gesperrt werden. Benutzer dürfen innerhalb einer Stunde nur fünfmal versuchen, die einmalige Anmeldung durchzuführen, bevor sie für 24 Stunden gesperrt werden.
 
- - **問：電子郵件和 SMS 單次密碼有效期限是多久？**
+ - **F: ist wie lange die e-Mail- und SMS-einmalkennung gültig?**
  
- > **答：**密碼重設的工作階段存留期為 105 分鐘。這表示從密碼重設作業開始，使用者有 105 分鐘可以重設其密碼。這段時間之後，電子郵件和 SMS 單次密碼就會無效。
+ > **A:** die Sitzungsdauer für das Zurücksetzen von Kennwörtern beträgt 105 Minuten. Dies bedeutet, dass der Benutzer vom Beginn des Vorgangs zur Kennwortzurücksetzung 105 Minuten Zeit hat, um das Kennwort zurückzusetzen. Die E-Mail- und SMS-Einmalkennungen sind nach Ablauf dieses Zeitraums ungültig.
 
 
-## 密碼管理報告
+## Berichte zur Kennwortverwaltung
 
- - **問：資料顯示在密碼管理報告上需要花費多久時間？**
+ - **F: werden wie lange dauert es für die Daten in den kennwortverwaltungsberichten angezeigt?**
  
- > **答：**資料應該會在 5-10 分鐘內顯示在密碼管理報告上。某些情況下，可能會花費多達一小時才顯示。
+ > **A:** Daten sollten auf den kennwortverwaltungsberichten innerhalb von 5 bis 10 Minuten angezeigt. In manchen Fällen kann es bis zu einer Stunde dauern.
 
- - **問：我要如何篩選密碼管理報告？**
+ - **F: wie kann ich die kennwortverwaltungsberichte filtern?**
  
- > **答：**您可以藉由按一下報告最上層資料行標籤最右邊的小放大鏡，來篩選密碼管理報告 (請參閱螢幕擷取畫面)。如果您想要做更豐富的篩選，您可以將報告下載到 excel，並建立樞紐分析表。
+ > **A:** können Sie die kennwortverwaltungsberichte durch Klicken auf das kleine Vergrößerungsglas ganz rechts neben den spaltenbeschriftungen am Anfang des Berichts Filtern (Siehe Screenshot). Wenn Sie umfangreichere Filterfunktionen benötigen, können Sie den Bericht in Excel exportieren und eine Pivottabelle erstellen. 
 
   ![][002]
 
- - **問：密碼管理報告可以回溯到多久時間？**
+ - **F: Wie hoch ist die maximale Anzahl der Ereignisse, die in den Kennwortverwaltungsberichten gespeichert werden?**
+
+ > **A:** bis zu 1.000 Kennwort zurücksetzen oder Ihr Kennwort zurücksetzen Registrierung Ereignisse in den kennwortverwaltungsberichten gespeichert werden.  Eine Erweiterung dieser Anzahl der Ereignisse ist in Arbeit.
+
+ - **F: wie weit die kennwortverwaltungsberichte zur?**
  
- > **答：**密碼管理報告會顯示過去 30 天內發生的作業。我們目前正在調查要如何讓這一段時間更長。現在，如果您需要封存這項資料，您可以定期下載報告並將它們儲存在不同的位置。
+ > **A:** die kennwortverwaltungsberichte zeigen Vorgänge innerhalb der letzten 30 Tage. Wir untersuchen gerade, wie wir diesen Zeitraum verlängern können. Wenn Sie diese Daten archivieren möchten, können Sie die Berichte in regelmäßigen Abständen herunterladen und an einem anderen Speicherort speichern.
 
- - **問：密碼管理報告可以顯示的資料列是否有數目上限？**
+ - **F: Gibt es eine maximale Anzahl von Zeilen, die auf den kennwortverwaltungsberichten angezeigt werden können?**
  
- > **答：**是，每個密碼管理報告可以顯示最多 1,000 個資料列，無論是顯示在 UI 中或是下載。我們目前正在調查要如何增加此限制。
+ > **A:** Ja, maximal 1.000 Zeilen kann entweder der Berichte zur Kennwortverwaltung, ob sie angezeigt in der Benutzeroberfläche oder heruntergeladen werden. Wir untersuchen gerade, wie dieser Grenzwert erhöht werden kann.
 
+ - **F: Gibt es eine API, um das Zurücksetzen des Kennworts oder Berichtsdaten Registrierung zugreifen?**
 
-## 密碼回寫
- - **問：密碼回寫如何在幕後運作？**
+ > **A:** Ja, finden Sie unter der folgenden Dokumentation erfahren, wie Sie das Zurücksetzen des Kennworts reporting Datenstrom zugreifen können.  [Erfahren Sie, wie das Zurücksetzen von Kennwörtern programmgesteuert Melden von Ereignissen auf](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+
+## Rückschreiben von Kennwörtern
+ - **F: wie funktioniert das Rückschreiben von Kennwörtern hinter den Kulissen?**
  
- > **答：**請參閱「密碼回寫如何運作」以取得當您啟用密碼回寫時發生之情形的詳細說明，以及資料如何透過系統回流到您的內部部署環境。請參閱「密碼回寫如何運作」中的「密碼回寫安全性模型」，以了解我們如何確保密碼回寫是高度安全的服務。
+ > **A:** finden Sie unter Rückschreiben von Kennwörtern für eine ausführliche Erläuterung dessen, was geschieht, wenn Sie das Rückschreiben von Kennwörtern, sowie zum Datenfluss durch das System wieder in Ihre lokale Umgebung aktivieren. Unter "Sicherheitsmodell für das Rückschreiben von Kennwörtern" im Abschnitt "Rückschreiben von Kennwörtern" erfahren Sie, wie wir sicherstellen, dass das Rückschreiben von Kennwörtern ein sehr sicherer Dienst ist.
 
- - **問：密碼回寫需要多久時間才會運作？ 是否有像是使用密碼雜湊同步處理的同步處理延遲？**
+ - **F: werden wie lange dauert das Rückschreiben von Kennwörtern arbeiten?  Gibt es eine Verzögerung der Synchronisierung wie bei der kennworthashsynchronisierung?**
  
- > **答：**密碼回寫是即時的。它是同步管線，基本上的運作與密碼雜湊同步處理不同。密碼回寫可以讓使用者即時取得密碼重設或變更作業成功的回應。成功回寫密碼的平均時間低於 500 毫秒。
+ > **A:** das Rückschreiben von Kennwörtern geschieht sofort. Sie ist eine synchrone Pipeline, die grundlegend anders funktioniert als die Kennworthashsynchronisierung. Durch die Kennwortrückschreibung erhalten Benutzer in Echtzeit Feedback über den Erfolg der Kennwortzurücksetzung oder -änderung. Die durchschnittliche Zeit für das erfolgreiche Rückschreiben eines Kennworts liegt bei unter 500 ms.
 
- - **問：密碼回寫適用於哪些類型的帳戶？**
+ - **F: funktioniert welche Arten von Konten das Rückschreiben von Kennwörtern?**
  
- > **答：**密碼回寫適用於同盟和密碼雜湊同步處理使用者。
+ > **A:** Rückschreiben von Kennwörtern für Verbundbenutzer und Kennworthashsynchronisierung verdächtigem Benutzer.
 
- - **問：密碼回寫是否會強制執行我的網域密碼原則？**
+ - **F: durchgesetzt werden für das Rückschreiben von Kennwörtern Kennwortrichtlinien meiner Domäne?**
  
- > **答：**是，密碼回寫會強制執行密碼使用期限、記錄、複雜度、篩選和其他任何您可能會放在本機網域中密碼上的限制。
+ > **A:** Ja, die Kennwortrückschreibung setzt das Kennwortalter, Verlauf, Komplexität, Filter und andere Einschränkungen kann für Kennwörter in der lokalen Domäne befinden.
 
- - **問：密碼回寫是否安全？ 我要如何確定不會受到駭客入侵？**
+ - **F: ist das Rückschreiben von Kennwörtern sicher?  Wie kann ich sicher sein, dass ich nicht gehackt werde?**
  
- > **答：**密碼回寫非常安全。若要進一步了解密碼回寫服務實作的 4 個層級的安全性，請參閱「密碼回寫如何運作」中的「密碼回寫安全性模型」。
+ > **A:** Ja, das Rückschreiben von Kennwörtern ist äußerst sicher. Weitere Informationen zu den vier Sicherheitsstufen, die durch den Dienst zur Kennwortrückschreibung implementiert werden, finden Sie unter "Sicherheitsmodell für das Rückschreiben von Kennwörtern" im Abschnitt "Rückschreiben von Kennwörtern".
 
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
-**其他資源**
+## Links zur Dokumentation für die Kennwortzurücksetzung
+Im Folgenden finden Sie Links zu allen Webseiten mit Informationen zur Kennwortzurücksetzung für Azure AD: 
 
-
-* [密碼管理是什麼](active-directory-passwords.md)
-* [密碼管理如何運作](active-directory-passwords-how-it-works.md)
-* [開始使用密碼管理](active-directory-passwords-getting-started.md)
-* [自訂密碼管理](active-directory-passwords-customize.md)
-* [密碼管理最佳作法](active-directory-passwords-best-practices.md)
-* [如何使用密碼管理報告取得 Operational Insights](active-directory-passwords-get-insights.md)
-* [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
-* [深入了解](active-directory-passwords-learn-more.md)
-* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Ihr eigenes Kennwort zurücksetzen**](active-directory-passwords-update-your-own-password.md) -erfahren Sie mehr über zurücksetzen oder ändern Ihr eigenes Kennwort als Benutzer des Systems
+* [**Funktionsweise**](active-directory-passwords-how-it-works.md) -erfahren Sie mehr über die sechs verschiedenen Komponenten der Dienst und die jeweilige
+* [**Erste Schritte**](active-directory-passwords-getting-started.md) -erfahren Sie, wie Sie Benutzern das Zurücksetzen und Ändern ihrer Cloud- oder lokalen Kennwörter erlauben
+* [**Anpassen von**](active-directory-passwords-customize.md) -erfahren Sie, wie das Aussehen und Verhalten des Diensts, um den Bedürfnissen Ihres Unternehmens anpassen.
+* [**Bewährte Methoden**](active-directory-passwords-best-practices.md) -erfahren Sie, wie schnell bereitstellen und effektiv verwalten von Kennwörtern in Ihrer Organisation
+* [**Einblicke**](active-directory-passwords-get-insights.md) -erfahren Sie mehr über unsere integrierten Berichtsfunktionen
+* [**Problembehandlung bei**](active-directory-passwords-troubleshoot.md) -erfahren Sie, wie Probleme mit dem Dienst schnell beheben
+* [**Erfahren Sie mehr**](active-directory-passwords-learn-more.md) – erhalten Sie tiefgehende technische Details zur Funktionsweise des Diensts
 
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
- 
 
-<!---HONumber=62-->
+

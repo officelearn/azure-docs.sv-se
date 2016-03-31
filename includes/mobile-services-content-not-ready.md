@@ -1,0 +1,2 @@
+>[AZURE.NOTE] Sie scheinen wir jetzt dieser Inhalt haben, aber wir wollten darüber informiert. Wenn Sie besonders an diesem Thema interessiert sind, teilen Sie uns von TWEETS [@AzureMobile](https://twitter.com/AzureMobile), oder Posten Sie in der [Foren](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuremobile), [Feedback](http://feedback.azure.com/forums/216254-mobile-services), oder im Disqus-Thread zu diesem Thema.
+

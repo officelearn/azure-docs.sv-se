@@ -1,48 +1,47 @@
-<properties 
-	pageTitle="使用條件式存取管理風險" 
-	description="此主題說明如何允許在任何地方從符合原則的已知裝置存取特定資源，以及不允許從遺失、遭竊、不符合原則的裝置來存取。" 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+    pageTitle="Verwalten von Risiken mit bedingtem Zugriff"
+    description="Ermöglichen Sie von überall innerhalb des Unternehmensnetzwerks den Zugriff auf bestimmte Ressourcen mit bekannten Geräten, die die erforderlichen Richtlinien erfüllen, und verhindern Sie den Zugriff für verlorene, gestohlene und nicht geeignete Geräte."
+    services="active-directory, virtual-network"
+    documentationCenter=""
+    authors="femila"
+    manager="stevenpo"
+    editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
+<tags
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+    ms.date="11/24/2015"
+    ms.author="femila"/>
 
 
-# 使用條件式存取管理風險
+# Verwalten von Risiken mit bedingtem Zugriff
 
-當前員工的工作方式、生產力如何提升及工作上使用的工具正快速變化。員工開始將個人裝置帶入工作中。這些個人裝置上，有他們在個人的數位生活中使用的應用程式。他們對這種自由和所帶來的功能習以為常。他們想要在工作上使用這些相同的應用程式，也想要在工作上享有他們在個人數位生活中同樣的彈性。現今的企業員工可能從任何地點，使用他們選擇的裝置來工作，並順暢地連接和存取商務應用程式。
+Die aktuellen Trends wie Mitarbeiter arbeiten wie sie produktiv sind, und die Möglichkeit, ihre Arbeit zu erledigen ist schnell ändern. Mitarbeiter bringen ihre eigenen Geräte mit zur Arbeit. Auf diesen eigenen Geräten nutzen sie Apps für ihr persönliches digitales Leben. Außerdem haben sich die Benutzer an die Freiheit und die vielen Funktionen gewöhnt, die damit möglich sind. Sie möchten dieselben Anwendungen auch bei der Arbeit nutzen und so flexibel vorgehen können, wie dies auch in ihrem persönlichen digitalen Leben der Fall ist. Die heutigen Mitarbeiter von Unternehmen erwarten, dass sie an jedem Ort mit Geräten ihrer Wahl arbeiten können und nahtlos auf Geschäftsanwendungen zugreifen und die erforderlichen Verbindungen herstellen können.
 
-讓使用者自由選擇工作地點、時間和方式的這種彈性，也帶來更高的風險。這些裝置的許多資料點經常遭竊、錯置或遺失。許多這些智慧型手機和平板電腦上，儲存著大量敏感性和機密性的客戶和企業內容。這是 IT 架構設計人員、安全性專家及 IT 系統管理員嘗試維持的一種微妙的平衡。這種平衡是一方面讓使用者在他們喜愛的所有裝置上發揮生產力，另一方面對存在於這些裝置上的企業內容提供適度的安全性和保護。
+Die Flexibilität, dass Benutzer überall und zu jeder Zeit auf die gewünschte Weise arbeiten können, ist mit einem erhöhten Risiko verbunden. Es kann vorkommen, dass diese Geräte gestohlen werden, verlegt werden oder verloren gehen. Auf vielen Smartphones und Tablets befindet sich eine große Menge an sensiblen und vertraulichen Kunden- und Unternehmensdaten. Dies ist der schmale Grat, auf dem sich IT-Architekten, Sicherheitsexperten und IT-Administratoren bewegen. Benutzer müssen auf allen von ihnen bevorzugten Geräten produktiv arbeiten können, und gleichzeitig müssen die Unternehmensdaten auf diesen Geräten ausreichend gesichert und geschützt sein.
 
-透過 Azure Active Directory、Office 365 和 Microsoft Intune 提供的多個條件式存取功能，IT 系統管理員可以解決下列問題：
+Mit den vielen Funktionen für den bedingten Zugriff, die mit Azure Active Directory, Office 365 und Microsoft Intune möglich sind, können IT-Administratoren folgende Aufgaben ausführen:
 
-- 允許員工從任何地方存取，但不對網際網路上的任何人敞開大門。
-- 允許在任何地方從符合原則的已知裝置存取特定資源。
-- 不允許從遺失、遭竊、不符合原則的裝置來存取。
+- Ermöglichen des Zugriffs für Mitarbeiter von jedem Ort aus, ohne dass über das Internet Zugriff für andere Personen besteht
+- Ermöglichen des Zugriffs auf bestimmte Ressourcen mit bekannten Geräten, die die entsprechenden Richtlinien erfüllen, von jedem Ort aus
+- Verweigern des Zugriffs von Geräten, die verloren gegangen sind, gestohlen wurden oder die Richtlinien nicht erfüllen
 
 ![][1]
 
-## 接下來
+## Nächste Schritte
 
-下列主題討論在組織中設定條件式存取原則的各種不同機制。
+In den folgenden Themen werden die unterschiedlichen Mechanismen beschrieben, die zum Festlegen von Richtlinien für den bedingten Zugriff in Ihrer Organisation verfügbar sind.
 
-- [Azure Active Directory 裝置註冊概觀](https://msdn.microsoft.com/library/azure/dn903763.aspx)
-- [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](https://msdn.microsoft.com/library/azure/dn788908.aspx)
-- [Office 365 服務的條件式存取裝置原則](https://msdn.microsoft.com/library/azure/dn903766.aspx)
-- [SaaS 應用程式的 Azure 條件式存取預覽](https://msdn.microsoft.com/library/azure/dn906877.aspx)
+- [Azure Active Directory-Geräteregistrierung – Übersicht](active-directory-conditional-access-device-registration-overview.md)
+- [Einrichten des lokalen bedingten Zugriffs mithilfe der Azure Active Directory-Geräteregistrierung](active-directory-conditional-access-on-premises-setup.md)
+- [Geräterichtlinien für den bedingten Zugriff für Office 365-Dienste](active-directory-conditional-access-device-policies.md)
+- [Bedingter Zugriff unter Azure – Vorschau für SaaS-Apps](active-directory-conditional-access-azuread-connected-apps.md)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
- 
 
-<!---HONumber=62-->
+

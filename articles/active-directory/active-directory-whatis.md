@@ -1,55 +1,108 @@
 <properties
-	pageTitle="什麼是 Azure Active Directory？"
-	description="使用 Azure Active Directory 將現有的內部部署身分識別延伸至雲端，或開發 Azure AD 整合式應用程式。"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="terrylan"
-	editor=""/>
+                pageTitle="Was ist Azure Active Directory?"
+                description="Verwenden Sie Azure Active Directory, um Ihre vorhandenen lokalen Identitäten in die Cloud zu erweitern oder in Azure AD integrierte Anwendungen zu entwickeln."
+                services="active-directory"
+                documentationCenter=""
+                authors="markusvi"
+                manager="stevenpo"
+                editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="curtand"/>
+                ms.service="active-directory"
+                ms.workload="identity"
+                ms.tgt_pltfrm="na"
+                ms.devlang="na"
+                ms.topic="article"
+                ms.date="10/30/2015"
+                ms.author="markusvi"/>
 
 
-# 什麼是 Azure Active Directory？
+# Was ist Azure Active Directory?
 
 
-###本主題的其他文章
-[什麼是 Azure AD？](active-directory-whatis.md)<br> [運作方式](active-directory-works.md)<br> [入門](active-directory-get-started.md)<br> [後續步驟](active-directory-next-steps.md)<br> [深入了解](active-directory-learn-map.md)
-
-Azure Active Directory (Azure AD) 為您的企業提供在雲端和內部部署中，輕鬆管理身分識別和存取的方式。您的使用者可以在他們最愛的裝置 (包括 iOS、Mac OS X、Android 和 Windows 裝置)，使用一個工作或學校帳戶來登入任何雲端和內部部署 Web 應用程式。您的組織可以使用整合的多因素驗證，保護在內部和雲端的機密資料和應用程式，以確保安全的本機和遠端存取。或是擴充您的內部部署目錄，讓資訊工作人員可以使用單一組織帳戶，安全且一致地存取他們的公司資源。Azure AD 也提供完整的報告、分析，以及降低成本並加強安全性的自我服務功能。而且有了 Azure AD 的企業規模和 SLA，您的企業在任何時刻都能持續運作。
-
-![][1]
 
 
-> [AZURE.NOTE]若要使用 Azure Active Directory，您需要 Azure 帳戶。如果您沒有帳戶，您可以[註冊免費的 Azure 帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+
+Azure Active Directory (Azure AD) ist der mehrinstanzenfähige cloudbasierte Verzeichnis- und Identitätsverwaltungsdienst von Microsoft.
+
+Für IT-Administratoren bietet Azure AD eine kostengünstige, benutzerfreundliche Lösung Mitarbeitern und Geschäftspartnern einmaliges Anmelden (SSO) auf Zugriffs [Tausende von Cloud-SaaS-Anwendungen](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx) wie Office 365, Salesforce.com, DropBox und Concur.
+
+Anwendungsentwickler können sich dank Azure AD vollständig auf die Erstellung von Anwendungen konzentrieren, da Azure AD die schnelle und einfache Integration in eine erstklassige Identitätsverwaltungslösung ermöglicht, die von Millionen von Unternehmen auf der ganzen Welt verwendet wird.
+
+Azure AD bietet auch einen vollständigen Satz von Identitätsverwaltungsfunktionen, wie z. B.: mehrstufige Authentifizierung, Geräteregistrierung, Self-Service-Kennwortverwaltung, Self-Service-Gruppenverwaltung, privilegierte Kontenverwaltung, rollenbasierte Zugriffssteuerung, Überwachung der Anwendungsnutzung, umfassende Auditfunktionen sowie Sicherheitsüberwachung und -warnungen. Mit diesen Funktionen können Sie cloudbasierte Anwendungen sichern, IT-Prozesse optimieren, Kosten senken und sicherstellen, dass unternehmensweite Complianceziele erreicht werden.
+
+Darüber hinaus bei nur [vier Klicks](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx), Azure AD in einer vorhandenen Windows Server Active Directory integriert werden kann, haben Organisationen die Möglichkeit, ihre vorhandenen lokalen nutzen Identität Investitionen, die für die Verwaltung des Zugriffs auf cloud-basierten SaaS-Anwendungen.
+
+Wenn Sie Office 365-, Azure- oder Dynamics CRM Online-Kunde sind, haben Sie möglicherweise noch nicht bemerkt, dass Sie bereits Azure AD verwenden. Jeder Azure-, Office 365- und Dynamics CRM-Mandant ist bereits ein Azure AD-Mandant. Sie können jederzeit damit beginnen, diesen  Mandanten zum Verwalten des Zugriffs auf Tausende anderer Cloudanwendungen zu verwenden, in die  Azure AD integriert ist!
 
 
-## Azure Active Directory 有何作用？
-瀏覽下列連結以取得 Azure Active Directory 功能的詳細資訊。
 
 
-- [單一登入](https://msdn.microsoft.com/library/azure/dn510976.aspx)
-- [報告 + 分析](active-directory-view-access-usage-reports.md)
-- [自助服務](http://aka.ms/ssproverview)
-- [內部部署應用程式](active-directory-application-proxy-configure.md)
-- [服務等級協定](https://msdn.microsoft.com/library/azure/dn532272.aspx)
-- [身分識別管理](fundamentals-identity.md)
-- [存取管理](https://msdn.microsoft.com/library/azure/dn906873.aspx)
+
+<center>![Azure AD Connect-Stapel](./media/active-directory-whatis/Azure_Active_Directory.png)
+</center>
 
 
-## 其他資源
+## Wie zuverlässig ist Azure AD?
 
-* [以組織身分註冊 Azure](sign-up-organization.md)
+Dank der mehrinstanzenfähigen, geografisch verteilten Azure AD-Struktur mit hoher Verfügbarkeit können Sie sich bei Ihren wichtigsten Geschäftsanforderungen auf Azure AD verlassen. Azure AD wird in 28 Datencentern auf der ganzen Welt mit automatischen Failover ausgeführt – so können Sie sicher sein, dass Azure AD hochgradig zuverlässig funktioniert. Selbst wenn einmal ein Datencenter ausfällt, befinden sich Kopien Ihrer Verzeichnisdaten in mindestens zwei weiteren regional verteilten Datencentern und stehen für den sofortigen Zugriff zur Verfügung.
 
-<!--Image references-->
-[1]: ./media/active-directory-whatis/Azure_Active_Directory.png
- 
+Weitere Informationen finden Sie unter [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
-<!---HONumber=62-->
+
+
+## Welche Vorteile bietet Azure AD?
+
+Ihr Unternehmen kann Azure AD verwenden, um in vielerlei Hinsicht die Mitarbeiterproduktivität zu verbessern, IT-Prozesse zu optimieren, die Sicherheit zu erhöhen und die Kosten zu senken:
+
+-   Führen Sie Clouddienste in kürzester Zeit ein, um Mitarbeitern und Partnern den Zugriff über die einmalige Anmeldung zu vereinfachen, und profitieren Sie von den vollständig automatisierten Azure AD-Funktionen für die SaaS-App-Zugriffsverwaltung und die Bereitstellung von Diensten.
+-   Bieten Sie Mitarbeitern Zugriff auf erstklassige Cloudanwendungen und -dienste sowie Self-Service-Funktionen – von jedem Ort der Welt und mit allen Geräten, die Ihre Mitarbeiter gerne nutzen.
+-   Verwalten Sie den Zugriff Ihrer Mitarbeiter und Lieferanten auf Ihre Unternehmenskonten für soziale Medien.
+-   Erhöhen Sie die Sicherheit von Anwendungen mit der mehrstufigen Authentifizierung und dem bedingten Zugriff von Azure AD.
+-   Implementieren Sie eine konsistente Self-Service-Verwaltung des Anwendungszugriffs, sodass Geschäftsinhaber schnell reagieren und gleichzeitig IT-Aufwand und -Kosten senken können.
+-   Überwachen Sie die Anwendungsnutzung, und schützen Sie Ihr Unternehmen mit Funktionen für Sicherheitsberichte und -überwachung vor Bedrohungen.
+-   Sichern Sie den mobilen bzw. Remotezugriff auf lokale Anwendungen.
+
+
+
+
+
+
+## Wie fange ich an?
+-   Wenn Sie IT-Administrator sind:
+ - [Probieren Sie es aus!](https://azure.microsoft.com/trial/get-started-active-directory/) -Sie können noch heute für eine kostenlose 30-Testversion registrieren und weniger als 5 Minuten mit dem folgenden Link Ihre erste Cloudlösung bereitstellen
+ - Lesen Sie den Artikel "Erste Schritte mit Azure AD" mit Tipps und Tricks zum schnellen Einrichten und Ausführen eines Azure AD-Mandanten.
+-   Wenn Sie Entwickler sind:
+ - Sehen Sie sich unsere [Developers Guide](active-directory-developers-guide.md) zu Azure Active Directory 
+ - [Starten Sie eine Testversion](https://azure.microsoft.com/trial/get-started-active-directory/) – Registrieren Sie sich noch heute für eine kostenlose 30-Tage-Testversion und erste Schritte zum Integrieren Ihrer app in Azure AD
+
+
+
+## Wo kann ich mehr erfahren?
+
+Wir haben viele hervorragende Ressourcen online gestellt, in denen Sie alles Wissenswerte über Azure AD erfahren. Hier finden Sie eine Liste mit wichtigen Artikeln, um Ihnen den Einstieg zu erleichtern:
+
+
+- [Aktivieren Sie Ihr Verzeichnis für das Hybrid-Management mit Azure AD Connect](active-directory-aadconnect.md)
+
+- [Mehr Sicherheit für eine allzeit vernetzte Welt](multi-factor-authentication.md)
+
+- [Automatisieren der Bereitstellung und Bereitstellungsaufhebung von Benutzern für SaaS-Anwendungen mit Azure Active Directory](active-directory-saas-app-provisioning.md)
+
+- [Erste Schritte mit Azure AD Reporting](active-directory-reporting-getting-started.md)
+
+- [Verwalten von Kennwörtern von einem beliebigen Ort aus](articles/active-directory-passwords.md)
+
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+- [Automatisieren der Bereitstellung und Bereitstellungsaufhebung von Benutzern für SaaS-Anwendungen mit Azure Active Directory](active-directory-saas-app-provisioning.md)
+
+- [Bereitstellen von sicherem Remotezugriff auf lokale Anwendungen](active-directory-application-proxy-get-started.md)
+
+- [Verwalten des Zugriffs auf Ressourcen mit Azure Active Directory-Gruppen](active-directory-manage-groups.md)
+
+- [Was ist Microsoft Azure Active Directory-Lizenzierung?](active-directory-licensing-what-is.md)
+
+- [Wie ermittle ich nicht genehmigte Cloud-Apps, die in meiner Organisation verwendet werden?](active-directory-cloudappdiscovery-whatis.md)
+
+

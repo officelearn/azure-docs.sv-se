@@ -1,29 +1,28 @@
 <properties
-	pageTitle="Azure 身分識別"
-	description="了解如何在 Azure 中使用 Active Directory。"
-	services="active-directory"
-	documentationCenter=".net"
-	authors="TerryLanfear"
-	manager="terrylan"
-	editor=""/>
+    pageTitle="Azure-Identität | Microsoft Azure"
+    description="Hier erhalten Sie Informationen zur Verwendung von Active Directory in Azure."
+    services="active-directory"
+    documentationCenter=".net"
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/02/2015"
-	ms.author="terrylan"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="curtand"/>
 
 
-# Azure 身分識別管理的基本概念
+# Grundlagen der Identitätsverwaltung in Azure
 
 
 
 
 
-[AZURE.INCLUDE [身分識別](../../includes/identity.md)]
- 
+[AZURE.INCLUDE [identity](../../includes/identity.md)]
 
-<!---HONumber=62-->
+

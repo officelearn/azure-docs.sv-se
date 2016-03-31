@@ -1,51 +1,50 @@
 <properties 
-	pageTitle="Azure VM 上的 Windows Server Active Directory" 
-	description="您可以在 Azure 虛擬機器上執行 Windows Server Active Directory 網域服務 (AD DS) 或 Active Directory 同盟服務 (AD FS)。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
-	editor="LisaToft"
-	tags="azure-classic-portal"/>
+    pageTitle="Windows Server Active Directory auf Azure-VMs | Microsoft Azure" 
+    description="Sie können Windows Server Active Directory-Domänendienste (AD DS) oder Active Directory-Verbunddienste (AD FS) auf virtuellen Azure-Computern ausführen." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="markusvi" 
+    manager="stevenpo" 
+    tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="04/27/2015" 
-	ms.author="justinha"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/20/2015" 
+    ms.author="markusvi"/>
 
 
-# Azure VM 上的 Windows Server Active Directory
+# Windows Server Active Directory auf Azure-VMs
 
 
-本導覽主題包含有關如何在 Azure 虛擬機器 (VM) 上部署 Windows Server Active Directory 網域服務 (AD DS) 或 Active Directory 同盟服務 (AD FS) 之其他主題的連結。
+Dieses Navigationsthema enthält Links zu anderen Themen zum Bereitstellen von Windows Server Active Directory-Domänendiensten (AD DS) oder Active Directory-Verbunddiensten (AD FS) auf einem virtuellen Azure-Computer (VM). 
 
-## 概念性指導方針
+## Konzeptionelle Richtlinien
 
-- [在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
+- [Richtlinien für die Bereitstellung von Windows Server Active Directory auf virtuellen Computern in Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
 
-## 影片
+## Video
 
-- [如何在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
+- [Installieren einer neuen Active Directory-Gesamtstruktur in einem virtuellen Azure-Netzwerk](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 
-## 做法文章
+## Artikel mit Anleitungen
 
-- [在 Azure 虛擬網路上安裝新的 Active Directory 樹系](active-directory-new-forest-virtual-machine.md)
-- [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站](../virtual-networks-install-replica-active-directory-domain-controller.md) 
-- [設定用於測試的混合式雲端環境](../virtual-networks-setup-hybrid-cloud-environment-testing.md)
+- [Installieren einer neuen Active Directory-Gesamtstruktur auf einem virtuellen Azure-Netzwerk](active-directory-new-forest-virtual-machine.md)
+- [Installieren eines Active Directory-Replikatdomänencontrollers in Azure Virtual Networks](../virtual-networks-install-replica-active-directory-domain-controller.md) 
+- [Einrichten einer Hybrid Cloud-Umgebung zu Testzwecken](../virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 
-## 其他資源
+## Zusätzliche Ressourcen
 
-- [以組織身分註冊 Azure](sign-up-organization.md)
-- [Azure 身分識別](fundamentals-identity.md)
+- [Anmelden bei Azure als Organisation](sign-up-organization.md)
+- [Azure-Identität](fundamentals-identity.md)
 
 
 
 
  
 
-<!---HONumber=62-->
+

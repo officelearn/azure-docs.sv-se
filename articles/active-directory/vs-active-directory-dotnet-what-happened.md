@@ -1,138 +1,174 @@
-<properties 
-	pageTitle="開始使用 Active Directory 驗證 - 發生什麼情形" 
-	description="描述 Azure Active Directory 專案在 Visual Studio 中的情況" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
-	editor="tglee"/>
-  
-<tags 
-	ms.service="active-directory" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/06/2015" 
-	ms.author="patshea123"/>
+<properties
+    pageTitle="Was ist mit dem MVC-Projekt passiert (verbundene Visual Studio-Dienste für Azure Active Directory)? | Microsoft Azure "
+    description="Beschreibt, was mit dem MVC-Projekt geschieht, wenn Sie mithilfe von verbundenen Visual Studio-Diensten eine Verbindung mit Azure AD herstellen "
+    services="active-directory"
+    documentationCenter="na"
+    authors="TomArcher"
+    manager="douge"
+    editor="tglee"/>
 
-# 我的專案發生什麼情形？
+<tags
+    ms.service="active-directory"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-what-happened"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/03/2015"
+    ms.author="tarcher"/>
+
+# Was ist mit dem MVC-Projekt passiert (verbundene Visual Studio-Dienste für Azure Active Directory)?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
-> - [What Happened](vs-active-directory-dotnet-what-happened.md)
-
-###<span id="whathappened">我的專案發生什麼情形？</span>
- 
-已加入參考。
-
-#####NuGet 封裝參考
-
-- `Microsoft.IdentityModel.Protocol.Extensions`
-- `Microsoft.Owin`
-- `Microsoft.Owin.Host.SystemWeb`
-- `Microsoft.Owin.Security`
-- `Microsoft.Owin.Security.Cookies`
-- `Microsoft.Owin.Security.OpenIdConnect`
-- `Owin`
-- `System.IdentityModel.Tokens.Jwt`
-
-#####.NET 參考
-
-- `Microsoft.IdentityModel.Protocol.Extensions`
-- `Microsoft.Owin`
-- `Microsoft.Owin.Host.SystemWeb`
-- `Microsoft.Owin.Security`
-- `Microsoft.Owin.Security.Cookies`
-- `Microsoft.Owin.Security.OpenIdConnect`
-- `Owin`
-- `System.IdentityModel`
-- `System.IdentityModel.Tokens.Jwt`
-- `System.Runtime.Serialization`
-
-#####程式碼檔案加入至專案 
-
-驗證啟動類別 (`App_Start/Startup.Auth.cs`) 已加入至您的專案，內含 Azure AD 驗證的啟動邏輯。另外也加入控制器類別 Controllers/AccountController.cs，內含 `SignIn()` 和 `SignOut()` 方法。最後，加入部分檢視 `Views/Shared/_LoginPartial.cshtml`，內含 SignIn/SignOut 的動作連結。
-
-#####啟動程式碼已加入至專案
- 
-如果專案中已有啟動類別，則已更新 **Configuration** 方法來包含 `ConfigureAuth(app)` 的呼叫。否則已將啟動類別加入至專案。
-
-#####app.config 或 web.config 有新的組態值 
-
-已加入下列組態項目。<pre> `<appSettings>
-	    <add key="ida:ClientId" value="ClientId from the new Azure AD App" /> 
-	    <add key="ida:AADInstance" value="https://login.windows.net/" /> 
-	    <add key="ida:Domain" value="The selected Azure AD Domain" />
-	    <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
-	    <add key="Ida:PostLogoutRedirectURI" value="Your project start page" /> 
-	</appSettings>` </pre>
-
-#####建立 Azure Active Directory (AD) 應用程式 
-已在您於精靈中選取的目錄中建立 Azure AD 應用程式。
-
-###我核取了 [讀取目錄資料] 會有其他怎樣的變更？
-已加入其他參考。
-
-#####其他 NuGet 封裝參考
-
-- `EntityFramework`
-- `Microsoft.Azure.ActiveDirectory.GraphClient`
-- `Microsoft.Data.Edm`
-- `Microsoft.Data.OData`
-- `Microsoft.Data.Services.Client`
-- `Microsoft.IdentityModel.Clients.ActiveDirectory`
-- `System.Spatial`
-
-#####其他 .NET 參考
-
-- `EntityFramework`
-- `EntityFramework.SqlServer`
-- `Microsoft.Azure.ActiveDirectory.GraphClient`
-- `Microsoft.Data.Edm`
-- `Microsoft.Data.OData`
-- `Microsoft.Data.Services.Client`
-- `Microsoft.IdentityModel.Clients.ActiveDirectory`
-- `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms`
-- `System.Spatial`
-
-#####其他程式碼檔案已加入至專案 
-
-兩個檔案已加入以支援權杖快取：`Models\ADALTokenCache.cs` 和 `Models\ApplicationDbContext.cs`。已加入其他控制器和檢視，以說明使用 Azure 圖形 API 存取使用者設定檔資訊。這些檔案是 `Controllers\UserProfileController.cs` 和 `Views\UserProfile\Index.cshtml`。
-
-#####其他啟動程式碼已加入至專案
- 
-在 `startup.auth.cs` 檔案中，新 `OpenIdConnectAuthenticationNotifications` 物件已新增至 `OpenIdConnectAuthenticationOptions` 的 `Notifications` 成員。這是為了啟用接收 OAuth 程式碼，並用它交換存取權杖。
-
-#####app.config 或 web.config 已進行其他變更
-
-已加入下列其他組態項目。<pre> `<appSettings>
-	    <add key="Ida:ClientSecret" value="Your Azure AD App's new client secret" /> 
-	</appSettings>` </pre>
-
-已加入下列組態區段和連接字串。 <pre> `<configSections>
-	    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
-	    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
-	</configSections>
-	<connectionStrings>
-	    <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" />
-	</connectionStrings>
-	<entityFramework>
-	    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
-	      <parameters>
-	        <parameter value="mssqllocaldb" />
-	      </parameters>
-	    </defaultConnectionFactory>
-	    <providers>
-	      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
-	    </providers>
-	</entityFramework>`</pre>
+> - [Erste Schritte](vs-active-directory-dotnet-getting-started.md)
+> - [Was ist passiert?](vs-active-directory-dotnet-what-happened.md)
 
 
-#####Azure Active Directory 應用程式已更新
-Azure Active Directory 應用程式已更新為包含「讀取目錄資料」權限，並已建立其他的金鑰做為 `web.config` 檔案中的 *ClientSecret*。
 
-[深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
- 
+## Verweise wurden hinzugefügt
 
-<!---HONumber=62-->
+### NuGet-Paketverweise
+
+- **Microsoft.IdentityModel.Protocol.Extensions**
+- **Microsoft.Owin**
+- **Microsoft.Owin.Host.SystemWeb**
+- **Microsoft.Owin.Security**
+- **Microsoft.Owin.Security.Cookies**
+- **Microsoft.Owin.Security.OpenIdConnect**
+- **Owin**
+- **System.IdentityModel.Tokens.Jwt**
+
+### .NET-Verweise
+
+- **Microsoft.IdentityModel.Protocol.Extensions**
+- **Microsoft.Owin**
+- **Microsoft.Owin.Host.SystemWeb**
+- **Microsoft.Owin.Security**
+- **Microsoft.Owin.Security.Cookies**
+- **Microsoft.Owin.Security.OpenIdConnect**
+- **Owin**
+- **System.IdentityModel**
+- **System.IdentityModel.Tokens.Jwt**
+- **System.Runtime.Serialization**
+
+## Code wurde hinzugefügt
+
+### Ihrem Projekt wurden Codedateien hinzugefügt
+
+Eine authentifizierungsstartklasse **App_Start/Startup.Auth.cs** wurde hinzugefügt, um das Projekt enthält Startlogik für Azure AD-Authentifizierung. Außerdem wurde eine Controllerklasse AccountController.cs enthält hinzugefügt **SignIn()"** und **SignOut()** Methoden. Schließlich eine Teilansicht **Views/Shared/_LoginPartial.cshtml** wurde hinzugefügt, die einen Aktionslink für SignIn/SignOut enthält.
+
+### Ihrem Projekt wurde Startcode hinzugefügt
+
+Wenn Sie bereits eine Startklasse in Ihrem Projekt die **Konfiguration** Methode wurde aktualisiert, um einen Aufruf von **verwendet**. Andernfalls wurde Ihrem Projekt eine Startklasse hinzugefügt.
+
+### Ihre Datei "app.config" oder "web.config" weist neue Konfigurationswerte auf
+
+Die folgenden Konfigurationseinträge wurden hinzugefügt.
+
+
+    <appSettings>
+        <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+        <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
+        <add key="ida:Domain" value="The selected Azure AD Domain" />
+        <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
+        <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
+    </appSettings>
+
+### Eine Azure Active Directory-App (AD) wurde erstellt
+Eine Azure AD-Anwendung wurde in dem Verzeichnis erstellt, das Sie im Assistenten ausgewählt haben.
+
+##Wenn ich habe *Deaktivieren der Authentifizierung einzelner Benutzerkonten*, welche zusätzlichen Änderungen wurden an meinem Projekt vorgenommen?
+NuGet-Paketverweise wurden entfernt, und die Dateien wurden entfernt und gesichert. Abhängig vom Status des Projekts müssen Sie möglicherweise manuell zusätzliche Verweise oder Dateien entfernen oder Code entsprechend ändern.
+
+### NuGet-Paketverweise entfernt (die vorhanden waren)
+
+- **Microsoft.AspNet.Identity.Core**
+- **Microsoft.AspNet.Identity.EntityFramework**
+- **Microsoft.AspNet.Identity.Owin**
+
+### Codedateien gesichert und entfernt (die vorhanden waren)
+
+Jede der folgenden Dateien wurde gesichert und aus dem Projekt entfernt. Sicherungsdateien befinden sich in einem Ordner "Backup" im Stammverzeichnis des Projektverzeichnisses.
+
+- **App_Start\IdentityConfig.cs**
+- **Controllers\ManageController.cs**
+- **Models\IdentityModels.cs**
+- **Models\ManageViewModels.cs**
+
+### Codedateien gesichert (die vorhanden waren)
+
+Jede der folgenden Dateien wurde gesichert, bevor sie ersetzt wurde. Sicherungsdateien befinden sich in einem Ordner "Backup" im Stammverzeichnis des Projektverzeichnisses.
+
+- **Startup.cs**
+- **App_Start\Startup.Auth.cs**
+- **Controllers\AccountController.cs**
+- **Views\Shared\_LoginPartial.cshtml**
+
+## Wenn ich habe *Lesen der Verzeichnisdaten*, welche zusätzlichen Änderungen wurden an meinem Projekt vorgenommen?
+
+Zusätzliche Verweise wurden hinzugefügt.
+
+###Zusätzliche NuGet-Paketverweise
+
+- **EntityFramework**
+- **Microsoft.Azure.ActiveDirectory.GraphClient**
+- **Microsoft.Data.Edm**
+- **Microsoft.Data.OData**
+- **Microsoft.Data.Services.Client**
+- **Microsoft.IdentityModel.Clients.ActiveDirectory**
+- **System.Spatial**
+
+###Zusätzliche .NET-Verweise
+
+- **EntityFramework**
+- **EntityFramework.SqlServer**
+- **Microsoft.Azure.ActiveDirectory.GraphClient**
+- **Microsoft.Data.Edm**
+- **Microsoft.Data.OData**
+- **Microsoft.Data.Services.Client**
+- **Microsoft.IdentityModel.Clients.ActiveDirectory**
+- **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms**
+- **System.Spatial**
+
+###Ihrem Projekt wurden zusätzliche Codedateien hinzugefügt
+
+Zur Unterstützung der tokenzwischenspeicherung wurden zwei Dateien hinzugefügt: **Models\ADALTokenCache.cs** und **Models\ApplicationDbContext.cs**.  Ein zusätzlicher Controller und eine Ansicht wurden hinzugefügt, um den Zugriff auf Benutzerprofilinformationen mithilfe von Azure Graph-APIs zu veranschaulichen.  Diese Dateien sind **Controllers\UserProfileController.cs** und **Views\UserProfile\Index.cshtml**.
+
+###Ihrem Projekt wurde zusätzlicher Startcode hinzugefügt
+
+In der **startup.auth.cs** eine neue Datei **OpenIdConnectAuthenticationNotifications** hinzugefügt wurde, die **Benachrichtigungen** Mitglied der **OpenIdConnectAuthenticationOptions**.  Auf diese Weise wird der Empfang des OAuth-Codes und dessen Austausch gegen ein Zugriffstoken aktiviert.
+
+###An "app.config" oder "web.config" wurden zusätzliche Änderungen vorgenommen
+
+Die folgenden zusätzlichen Konfigurationseinträge wurden hinzugefügt.
+
+    <appSettings>
+        <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
+    </appSettings>
+
+Die folgenden Konfigurationsabschnitte und eine Verbindungszeichenfolge wurden hinzugefügt.
+
+    <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    </configSections>
+    <connectionStrings>
+        <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    <entityFramework>
+        <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+          <parameters>
+            <parameter value="mssqllocaldb" />
+          </parameters>
+        </defaultConnectionFactory>
+        <providers>
+          <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+        </providers>
+    </entityFramework>
+
+
+###Ihre Azure Active Directory-App (AD) wurde aktualisiert
+Ihre Azure Active Directory-App wurde aktualisiert, um enthalten die *Lesen der Verzeichnisdaten* Berechtigung und ein zusätzlicher Schlüssel wurde erstellt, die dann als verwendet wurde die *Ida: ClientSecret* in der **web.config** Datei.
+
+[Weitere Informationen zu Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+
+

@@ -1,214 +1,218 @@
-<properties 
-	pageTitle="將您自己的網域名稱新增至 Azure AD" 
-	description="本主題說明如何將專屬網域名稱新增至 Azure AD 以及相關資訊。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+    pageTitle="Hinzufügen eines eigenen Domänennamens zu Azure Active Directory | Microsoft Azure"
+    description="Hier wird erläutert, wie Sie Ihren eigenen Domänennamen und zugehörige Informationen zu Azure Active Directory hinzufügen."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/12/2015" 
-	ms.author="Justinha"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
-# 將您自己的網域名稱新增至 Azure AD
+# Hinzufügen eines eigenen Domänennamens zu Azure Active Directory
 
-註冊 Microsoft 雲端服務時，會向您發出具有下列格式的網域名稱：contoso.onmicrosoft.com。您可以繼續使用該初始網域名稱，也可以將專屬自訂網域名稱新增至雲端服務。本主題說明如何新增專屬網域名稱和相關資訊。
+Wenn Sie sich für einen Microsoft Clouddienst anmelden, wird Ihnen ein Domänenname im folgenden Format ausgegeben: contoso.onmicrosoft.com. Sie können diesen anfänglichen Domänennamen weiterhin verwenden, oder Sie können Ihren eigenen benutzerdefinierten Domänennamen zum Clouddienst hinzufügen. In diesem Thema wird erläutert, wie Sie Ihren eigenen Domänennamen und zugehörige Informationen zu Azure Active Directory (Azure AD) hinzufügen.
 
-Office 365 使用者可能對以下相關主題有興趣：
+Für Office 365-Benutzer könnten folgende Themen ebenfalls von Interesse sein:
 
-- [DNS 基本概念](https://support.office.com/article/854b6b2b-0255-4089-8019-b765cff70377)
-- [尋找網域註冊機構或 DNS 主機服務提供者](https://support.office.com/article/Find-your-domain-registrar-or-DNS-hosting-provider-b5b633ba-1e56-4a98-8ff5-2acaac63a5c8/)
-- [在 Office 365 中使用網域名稱](https://support.office.com/article/Work-with-domain-names-in-Office-365-4f1bd681-337a-4bd3-a7b7-cf77b18d0870/)
+- [DNS-Grundlagen](https://support.office.com/article/854b6b2b-0255-4089-8019-b765cff70377)
+- [Suchen Sie Ihre Domänenregistrierungsstelle oder Ihren DNS-Hostinganbieter](https://support.office.com/article/Find-your-domain-registrar-or-DNS-hosting-provider-b5b633ba-1e56-4a98-8ff5-2acaac63a5c8/)
+- [Arbeiten mit Domänennamen in Office 365](https://support.office.com/article/Work-with-domain-names-in-Office-365-4f1bd681-337a-4bd3-a7b7-cf77b18d0870/)
 
-## 關於 onmicrosoft.com 網域
+## Zu Ihrer Domäne "onmicrosoft.com"
 
-您可以搭配使用 onmicrosoft.com 網域與其他服務。例如，您可以搭配使用網域與 Exchange Online 和 Lync Online 建立通訊群組清單和登入帳戶，讓使用者能夠存取 SharePoint Online 和網站集合。
+Sie können Ihre onmicrosoft.com-Domäne mit anderen Diensten verwenden. Beispielsweise können Sie die Domäne mit Exchange Online und Lync Online verwenden, um Verteilerlisten und Anmeldekonten zu erstellen, damit Benutzer auf SharePoint Online und Websitesammlungen zugreifen können.
 
-如果您將專屬網域名稱新增至目錄，則可以繼續使用您的 onmicrosoft.com 網域。
+Wenn Sie Ihren eigenen Domänennamen zu Ihrem Verzeichnis hinzufügen, können Sie weiterhin Ihre Domäne "onmicrosoft.com" verwenden.
 
-在註冊期間選擇與雲端服務搭配使用的名稱之後 (例如 contoso.onmicrosoft.com)，則無法變更名稱。
+Nachdem Sie bei der Registrierung den Namen für den Clouddienst ausgewählt haben, z. B. contoso.onmicrosoft.com, können Sie ihn nicht mehr ändern.
 
-## 如何新增專屬網域？
+## Wie kann ich meine eigene Domäne hinzufügen?
 
-如果您的組織已經有自訂網域名稱，則系統管理員可以將它新增至 Azure AD 目錄，以與所有已訂閱的 Microsoft Online 服務搭配使用。將網域名稱新增至 Azure AD 之後，即可開始將網域名稱與各種雲端服務產生關聯。
+Wenn Ihre Organisation bereits über einen benutzerdefinierten Domänennamen verfügt, können Sie ihn mit allen abonnierten Microsoft-Onlinediensten zu Ihrem Azure AD-Verzeichnis hinzufügen. Nachdem Sie Ihren Domänennamen in Azure AD hinzugefügt haben, können Sie die Zuordnung Ihres Domänennamens mit verschiedenen Clouddiensten starten.
 
-使用下列方式，最多可以將 900 個網域名稱新增至 Azure AD 租用戶：
+Sie können Ihrem Azure AD-Verzeichnis bis zu 900 Domänennamen hinzufügen. Dazu verwenden Sie:
 
-- Azure 管理入口網站、Office 365 入口網站或 Microsoft Intune 入口網站。
-- 適用於 Windows PowerShell 的 Azure Active Directory 模組。如需可用於此作業之 Cmdlet 的詳細資訊，請參閱[管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx)。
+- Das klassische Azure-Portal, das Office 365-Portal oder das Microsoft Intune-Portal.
+- Das Azure Active Directory-Modul für Windows PowerShell. Weitere Informationen zu den Cmdlets, die Sie dafür verwenden können, finden Sie unter [Verwalten von Domänen in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx).
 
-您必須已註冊網域名稱，以及擁有網域名稱註冊機構所需的登入認證 (例如，Go Daddy 或 Register.com)。
+Sie müssen bereits einen Domänennamen registriert und die Anmeldeinformationen für Ihre Domänennamen-Registrierungsstelle vorliegen haben (z. B. Go Daddy oder Register.com).
 
-您可以將多個網域新增至目錄。不過，您無法將相同的網域新增至不同的目錄。因此，例如，如果您將網域新增至目錄，則無法建立另一個 Azure AD 目錄，以及在其中新增相同的網域名稱。
+Sie können mehrere Domänen zu Ihrem Verzeichnis hinzufügen. Sie können jedoch nicht dieselbe Domäne zu verschiedenen Verzeichnissen hinzufügen. Wenn Sie also z. B. Ihre Domäne zu Ihrem Verzeichnis hinzufügen, können Sie kein weiteres Azure AD-Verzeichnis erstellen und den gleichen Domänennamen hinzufügen.
 
-如果您想要搭配使用單一登入與雲端服務，則建議執行 Microsoft Deployment Readiness Tool 來協助準備 Active Directory 環境。此工具會檢查 Active Directory 環境，並提供一份內含您是否準備好設定單一登入相關資訊的報告。如果沒有，它會列出您需要進行以準備單一登入的變更。例如，它會檢查使用者是否擁有 UPN，以及這些 UPN 的格式是否正確。若要下載此工具，請參閱 [Microsoft Deployment Readiness Tool](http://go.microsoft.com/fwlink/?linkid=235650)。
+Wenn Sie einmaliges Anmelden mit dem Clouddienst verwenden möchten, empfehlen wir, für die Active Directory-Umgebung das Microsoft-Bereitstellungsvorbereitungsprogramm auszuführen. Dieses Tool untersucht Ihre Active Directory-Umgebung und erstellt einen Bericht mit Informationen darüber, ob Sie für die Einrichtung des einmaligen Anmeldens bereit sind. Wenn dies nicht der Fall ist, werden die notwendigen Änderungen zur Vorbereitung des einmaligen Anmeldens aufgelistet. Beispielsweise überprüft das Tool, ob Ihre Benutzer über UPNs verfügen und ob diese UPNs das richtige Format aufweisen. Zum Herunterladen des Tools finden Sie unter [Microsoft-Bereitstellungsvorbereitungsprogramm](http://go.microsoft.com/fwlink/?linkid=235650).
 
-> [AZURE.NOTE]是否使用 Office 365？ 設定網域之後，就可以開始建立電子郵件地址、Lync Online 帳戶，以及使用自訂網域名稱的通訊群組清單。您也可以將網域名稱用於裝載於 SharePoint Online 的公開網站。
+> [AZURE.NOTE]
+> Sie verwenden Office 365? Sobald Sie Ihre Domäne eingerichtet haben, können Sie mit dem Erstellen von E-Mail-Adressen, Lync Online-Konten und Verteilergruppen beginnen, die Ihren benutzerdefinierten Domänennamen verwenden. Sie können auch Ihren Domänennamen für eine öffentliche, auf SharePoint Online gehostete Website verwenden.
 
-- [使用 Azure 管理入口網站新增和驗證網域](#add-and-verify-a-domain-using-the-azure-management-portal)
-- [編輯雲端服務的 DNS 記錄](#edit-dns-records-for-your-cloud-services)
-- [驗證任何網域名稱註冊機構上的網域](#verify-a-domain-at-any-domain-name-registrar)
+- [Hinzufügen und Überprüfen eines Domänennamens mithilfe des klassischen Azure-Portals](#add-and-verify-a-domain-using-the-azure-management-portal)
+- [Bearbeiten Sie DNS-Einträge für Ihre Clouddienste](#edit-dns-records-for-your-cloud-services)
+- [Überprüfen einer Domäne bei einer Domänennamen-Registrierungsstelle](#verify-a-domain-at-any-domain-name-registrar)
 
-### 使用 Azure 管理入口網站新增和驗證網域
+### Hinzufügen und Überprüfen eines Domänennamens mithilfe des klassischen Azure-Portals
 
-1. 在入口網站中，按一下 [**Active Directory**]，然後按一下您的組織目錄的名稱。您可以執行下列其中一項：
-    1. 在預設目錄頁面上，按一下 [**改善使用者登入經驗**] 區段中的 [**新增網域**]。2. 按一下 [**網域**]，然後按一下 [**新增客戶網域**] 或 [**新增**] 按鈕。
-2. 在 [**新增網域**] 頁面上，輸入您想要新增的網域名稱，並執行下列其中一項：
-    1. 如果您不想要整合內部部署 Active Directory 與 Azure AD，請執行下列動作：
-        1. 保留 [**我計劃將這個網域設定為可使用我的本機 Active Directory 進行單一登入**] 核取方塊的未核取狀態，然後按一下 [**新增**] 按鈕。
-        2. 看到網域已順利新增至 Azure AD 的訊息之後，請按一下箭頭移至下一頁，以驗證您的網域。
-        3. 遵循下一頁上的指示，確認您在先前步驟中所新增的網域名稱屬於您。如需逐步指示，請參閱＜驗證任何網域名稱註冊機構上的網域＞。
-    2. 如果您想要整合內部部署 Active Directory 與 Azure AD，請執行下列動作：
-        1. 一定要核取 [**我計劃將這個網域設定為可使用我的本機 Active Directory 進行單一登入**] 核取方塊，然後按一下 [**新增**] 按鈕。
-        2. 看到網域已順利新增至 Azure AD 的訊息之後，請按一下箭頭移至下一頁，然後遵循該頁面上的指示來設定您針對進行單一登入所新增的網域。
+1. Klicken Sie in der klassischen Azure-Portal auf **Active Directory**, und klicken Sie dann auf den Namen des Verzeichnisses Ihrer Organisation. Sie können eine der folgenden Aktionen ausführen:
+    1. Klicken Sie auf der standardverzeichnisseite auf **Domäne hinzufügen** in der ** Verbessern der Benutzerfunktionalität anmelden ** Abschnitt.
+    2. Klicken Sie auf **Domänen** und klicken Sie dann auf **Hinzufügen eine Kundendomäne** oder **Hinzufügen** Schaltfläche.
+2. Auf die **Domäne hinzufügen** Geben Sie den Domänennamen ein, den Sie hinzufügen möchten, und führen Sie dann eine der folgenden:
+    1. Wenn Sie Ihr lokales Active Directory nicht in Azure AD integrieren möchten, führen Sie folgende Schritte aus:
+        1. Lassen Sie die **ich plane die Konfiguration dieser Domäne für einmaliges Anmelden mit meinem lokalen Active Directory** Kontrollkästchen deaktiviert, und klicken Sie dann auf die **Hinzufügen** Schaltfläche.
+        2. Nachdem die Meldung angezeigt wird, dass Ihre Domäne erfolgreich in Azure AD hinzugefügt wurde, klicken Sie auf den Pfeil, um zur nächsten Seite zu gelangen, damit Sie Ihre Domäne überprüfen können.
+        3. Folgen Sie den Anweisungen auf der nächsten Seite, um sicherzustellen, dass der im vorherigen Schritt hinzugefügte Domänenname Ihnen gehört. Schrittweise Anleitungen finden Sie unter Überprüfen einer Domäne bei einer Domänennamen-Registrierungsstelle.
+    2. Wenn Sie Ihr lokales Active Directory in Azure AD integrieren möchten, führen Sie folgende Schritte aus:
+        1. Stellen Sie sicher, dass die **ich plane die Konfiguration dieser Domäne für einmaliges Anmelden mit meinem lokalen Active Directory** Kontrollkästchen und klicken Sie dann auf die **Hinzufügen** Schaltfläche.
+        2. Nachdem die Meldung angezeigt wird, dass Ihre Domäne erfolgreich in Azure AD hinzugefügt wurde, klicken Sie auf den Pfeil, um zur nächsten Seite zu wechseln, und folgen dann den Anweisungen auf der Seite, um die für einmaliges Anmelden hinzugefügte Domäne zu konfigurieren.
 
-> [AZURE.NOTE]將網域名稱新增至 Azure AD 之後，就可以變更新電子郵件地址的預設網域名稱。如需詳細資訊，請參閱[如何變更使用者的主要網域名稱？](#how-can-i-change-the-primary-domain-name-for-users?) 您也可以編輯現有使用者帳戶的設定檔，將電子郵件地址 (這也是您的使用者識別碼) 更新成使用自訂網域名稱，而非 onmicrosoft.com 網域。
+> [AZURE.NOTE]
+> Nachdem Sie Ihren Domänennamen in Azure AD hinzugefügt haben, können Sie den Standarddomänennamen für neue E-Mail-Adressen ändern. Weitere Informationen finden Sie unter [wie kann ich den primären Domänennamen für Benutzer ändern?](#how-can-i-change-the-primary-domain-name-for-users?) Sie können auch das Profil für ein vorhandenes Benutzerkonto bearbeiten, um die E-Mail-Adresse zu aktualisieren (die auch Ihre Benutzer-ID ist), damit Sie Ihren benutzerdefinierten Domänennamen anstelle der Domäne "onmicrosoft.com" verwenden können.
 
-### 編輯雲端服務的 DNS 記錄
+### Bearbeiten Sie DNS-Einträge für Ihre Clouddienste
 
-> [AZURE.NOTE]是否使用 Microsoft Intune？ 您不需要編輯 Microsoft Intune 雲端服務的 DNS 記錄。
+> [AZURE.NOTE]
+> Verwenden Sie Microsoft Intune? Sie müssen keine DNS-Einträge für den Microsoft Intune-Clouddienst bearbeiten.
 
-新增並驗證自訂網域名稱之後，下一步是編輯網域註冊機構或 DNS 主機服務提供者上將流量指向雲端服務的 DNS 記錄。Azure AD 提供您需要的 DNS 資訊。
+Nachdem Sie Ihren benutzerdefinierten Domänennamen hinzugefügt und überprüft haben, besteht der nächste Schritt darin, die DNS-Einträge bei Ihrer Domänenregistrierungsstelle oder Ihrem DNS-Hostinganbieter zu bearbeiten, die Datenverkehr auf den Clouddienst verweisen. Azure AD bietet die DNS-Informationen, die Sie benötigen.
 
-如果您剛剛完成 [**新增網域**] 精靈，請按一下 [**設定 DNS 記錄**]。否則，請遵循下列步驟。
+Wenn Sie gerade abgeschlossen haben die **Hinzufügen einer Domäne** -Assistenten klicken Sie auf **DNS-Einträge konfigurieren**. Gehen Sie andernfalls folgendermaßen vor:
 
-1. 在入口網站的左窗格中，按一下 [**網域**]。
-2. 根據您使用的入口網站，按一下您想要設定的網域名稱，然後按一下 [**DNS 設定**] 或 [**檢視 DNS 設定**]。[**DNS 設定**] 頁面會列出雲端服務的 DNS 記錄。
+1. Klicken Sie im Azure-Klasse-c-Portal im linken Bereich auf **Domänen**.
+2. Je nach verwendetem Portal, klicken Sie auf den Domänennamen, den Sie einrichten möchten, und klicken Sie dann auf **DNS-Einstellungen** oder **DNS-Einstellungen anzeigen**. Die **DNS-Einstellungen** Seite listet die DNS-Einträge für den Clouddienst.
 
-    如果您想要設定 [DNS 設定] 索引標籤上看不到的服務，請核取網域服務選項，確定您已針對此網域名稱選擇該服務。若要變更設定 (例如，新增 Lync Online)，請參閱＜指定要與網域搭配使用的服務＞。
+    Wenn Sie einen Dienst konfigurieren möchten, den Sie auf der Registerkarte "DNS-Einstellungen" nicht sehen, überprüfen Sie Ihre Auswahl der Domänendienste, um sicherzugehen, dass Sie diesen Dienst für diesen Domänennamen ausgewählt haben. Informationen zum Ändern der Einstellungen, z. B. zum Hinzufügen von Lync Online, finden Sie unter Festlegen der Dienste, die Sie mit Ihrer Domäne verwenden.
 
-3. 在您的網域名稱註冊機構網站上，請將必要記錄新增至 DNS 檔案。
+3. Auf der Website Ihrer Domänennamen-Registrierungsstelle fügen Sie Ihrer DNS-Datei die erforderlichen Datensätze hinzu.
 
-通常需要大約 15 分鐘，變更才會生效。但是，可能需要 72 個小時，才能將您建立的 DNS 記錄傳播至 DNS 系統。如果您需要再次檢視這些記錄設定，請在 [**網域**] 頁面上按一下網域，然後在 [**網域內容**] 頁面上按一下 [**DNS 設定**] 索引標籤。
+In der Regel dauert es ca. 15 Minuten, damit die Änderungen wirksam werden. Es kann jedoch bis zu 72 Stunden dauern, bis der erstellte DNS-Eintrag über das DNS-System weitergegeben wird. Wenn Sie diese eintragseinstellungen erneut anzeigen müssen auf die **Domänen** auf die Domäne, und klicken Sie dann auf die **Domäneneigenschaften** auf die **DNS-Einstellungen** Registerkarte.
 
-若要檢查網域的狀態，請在 [**網域**] 頁面上按一下網域，然後在 [**網域內容**] 頁面上按一下 [**疑難排解網域**]。
+Zum Überprüfen des Status Ihrer Domäne die **Domänen** auf die Domäne, und klicken Sie dann auf die **Domäneneigenschaften** auf **domänenproblembehandlung**.
 
-### 驗證任何網域名稱註冊機構上的網域
+### Überprüfen einer Domäne bei einer Domänennamen-Registrierungsstelle
 
-如果您已經向網域名稱註冊機構註冊網域，而且想要將它設定成使用 Azure AD，則需要進行網域驗證以確認您擁有該網域。若要驗證網域，請在網域名稱註冊機構或裝載 DNS 的任何位置上建立 DNS 記錄，Azure AD 接著會使用該記錄確認您擁有該網域。
+Wenn Sie bereits eine Domäne bei einer Domänennamen-Registrierungsstelle registriert haben und sie so konfiguriert werden soll, dass sie mit Azure AD funktioniert, dann ist die Überprüfung der Domäne erforderlich, um zu bestätigen, dass Sie die Domäne besitzen. Zum Überprüfen Ihrer Domäne erstellen Sie einen DNS-Eintrag bei der Domänennamen-Registrierungsstelle (oder dort, wo Ihr DNS gehostet wird), und Azure AD verwendet diesen Datensatz, um zu bestätigen, dass Sie die Domäne besitzen.
 
-驗證網域之前，您必須將自訂網域新增至 Azure AD。新增自訂網域但尚未驗證網域時，狀態會顯示為 [**按一下以驗證網域**] 或 [**未驗證**]。
+Bevor Sie Ihre Domäne überprüfen können, müssen Sie eine benutzerdefinierte Domäne in Azure AD hinzufügen. Wenn Sie eine benutzerdefinierte Domäne hinzugefügt haben, aber noch nicht die Domäne überprüft wurde, wird der Status entweder als **zum Überprüfen der Domäne klicken** oder **nicht überprüft**.
 
-#### 收集您的網域資訊 
+#### Zusammentragen der Domäneninformationen
 
-根據用來管理 Azure AD 目錄的入口網站，您需要收集網域的一些資訊，稍後即可建立將在驗證程序期間使用的 DNS 記錄。
+Je nach verwendetem Portal, das Sie zur Verwaltung Ihres Azure AD-Verzeichnisses verwenden, müssen Sie einige Informationen zu Ihrer Domäne sammeln, damit Sie später einen DNS-Eintrag erstellen können, der während der Überprüfung verwendet wird.
 
-如果您是使用 Microsoft Intune 或 Azure 帳戶入口網站：
+Wenn Sie Microsoft Intune oder das Azure-Kontoportal verwenden:
 
-1. 在 [**網域**] 頁面的網域名稱清單中，尋找您要驗證的網域。在 [**狀態**] 欄中，按一下 [**按一下以驗證網域**]。
-2. 在 [**驗證網域**] 頁面的 [**請參閱執行此步驟的指示**] 下拉式清單中，選擇 DNS 主機服務提供者。如果您的提供者未出現在清單中，請選擇 [**一般指示**]。
-3. 在 [**選取驗證方法**] 下拉式清單中，選擇 [**新增 TXT 記錄 (慣用方法)**] 或 [**新增 MX 記錄 (替代方法)**]。
+1. Auf der **Domänen** Seite finden Sie in der Liste der Domänennamen die Domäne, die Sie überprüfen möchten. In den **Status** Spalte, klicken Sie auf **Klicken Sie zum Überprüfen der Domäne**.
+2. Auf die **Domäne überprüfen** auf der Seite der **Anweisungen zur Durchführung dieses Schritts mit:** Dropdown-Liste, und wählen Sie Ihren DNS-Hostinganbieter. Wenn Ihr Anbieter in der Liste angezeigt wird, wählen Sie **Allgemeine Anweisungen**.
+3. In der **Bestätigungsmethode wählen:** Dropdown- Liste **hinzufügen einen TXT-Eintrag (bevorzugte Methode)** oder **MX-Datensatz (alternative Methode) hinzufügen**.
 
-    如果 DNS 主機服務提供者可讓您建立 TXT 記錄，則建議您使用 TXT 記錄來進行驗證。理由 TXT 記錄十分容易建立，而且在不小心輸入不正確的值時並不會干擾電子郵件傳遞。
+    Wenn Ihr DNS-Hostinganbieter das Erstellen von TXT-Datensätzen ermöglicht, empfehlen wir einen TXT-Eintrag zur Überprüfung. Warum? TXT-Einträge lassen sich einfach erstellen und bergen nicht die Gefahr, die E-Mail-Übermittlung zu beeinträchtigen, wenn versehentlich ein falscher Wert eingegeben wird.
 
-4. 從表格中，複製或記錄 [**目的地或指向位址**] 資訊。
+4. Aus der Tabelle kopieren oder notieren Sie die **Ziel oder verweisende Adresse** Informationen.
 
-如果您是使用管理入口網站：
+Wenn Sie das klassische Azure-Portal verwenden:
 
-1. 在入口網站中，按一下 [**Active Directory**]，並按一下目錄的名稱，然後按一下 [**網域**]。 
-2. 在 [**網域**] 頁面的網域名稱清單中，按一下您想要驗證的網域，然後按一下 [**驗證**]。
-2. 在 [**驗證**] 頁面的 [**記錄類型**] 下拉式清單中，選擇 [**TXT 記錄**] 或 [**MX 記錄**]。
-3. 複製或記錄其下的資訊。
+1. Klicken Sie in der klassischen Azure-Portal auf **Active Directory**, klicken Sie auf den Namen des Verzeichnisses, und klicken Sie dann auf **Domänen**.
+2. Auf der **Domänen** Seite in der Liste der Domänennamen, klicken Sie auf die Domäne, die Sie verwenden möchten, überprüfen, und klicken Sie dann auf **überprüfen**.
+2. Auf der **überprüfen** auf der Seite der **Datensatztyp** Dropdown-Liste, und wählen Sie entweder **TXT-Eintrag** oder **MX-Eintrag**.
+3. Kopieren oder notieren Sie die darunter angegebenen Informationen.
 
-#### 在網域名稱註冊機構上新增 DNS 記錄 
+#### Hinzufügen eines DNS-Eintrags bei Ihrer Domänennamen-Registrierungsstelle
 
-Azure AD 會使用您在網域名稱註冊機構上建立的 DNS 記錄，以確認您擁有該網域。使用下面的指示，建立註冊機構上所註冊網域的 TXT 或 MX 記錄類型。
+Azure AD verwendet einen DNS-Eintrag, den Sie bei Ihrer Domänennamen-Registrierungsstelle erstellen, um zu bestätigen, dass Sie die Domäne besitzen. Folgen Sie den Anweisungen unten, um entweder einen TXT- oder einen MX-Datensatztyp für eine Domäne zu erstellen, die bei Ihrer Registrierungsstelle registriert ist.
 
-如果您的網域註冊機構不接受 '@' 做為主機名稱，請連絡您的網域註冊機構，以了解如何代表「目前區域的父系」。
+Wenn Ihre Domänenregistrierungsstelle kein '@' als Hostnamen akzeptiert, wenden Sie sich an die Stelle, um herauszufinden, wie das 'übergeordnete Element der aktuellen Zone' dargestellt werden soll.
 
-Office 365 具有 [[常見網域註冊機構的特定指示](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)]。
+Office 365 hat [spezifische Anweisungen für häufige domänenregistrierungsstellen](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
-如需一般指示，請遵循下列步驟來新增 TXT 或 MX 記錄：
+Für allgemeine Anweisungen gehen Sie folgendermaßen vor, um einen TXT- oder MX-Datensatz hinzuzufügen:
 
-1. 登入網域名稱註冊機構的網站，然後選取您要驗證的網域。
-2. 在您帳戶的 DNS 管理區域中，選取新增您網域之 TXT 或 MX 記錄的選項。
-3. 在網域的 [**TXT**] 或 [**MX**] 方塊中，輸入下列項目：@
-4. 在 [**完整網域名稱 (FQDN)**] 或 [**指向**] 方塊中，輸入或貼上您在前一個步驟中所記錄的 [**目的地或指向位址**]。
-5. 對於 TXT 記錄，它會要求 **TTL** 資訊，因此輸入 **1** 將 TTL 設定為一個小時。 
+1. Melden Sie sich bei der Website Ihrer Domänennamen-Registrierungsstelle an, und wählen Sie dann die Domäne, die Sie überprüfen möchten.
+2. Im DNS-Verwaltungsbereich für Ihr Konto wählen Sie die Option zum Hinzufügen eines TXT- oder eines MX-Eintrags für Ihre Domäne.
+3. In der **TXT** oder **MX** Feld für die Domäne, geben Sie Folgendes ein: @
+4. In den **vollständig qualifizierten Domänennamen (FQDN)** oder **verweist auf** Geben oder fügen Sie der **Ziel oder verweisende Adresse** die Sie im vorherigen Schritt notiert haben.
+5. Für einen TXT-Eintrag, fordert er für **TTL** Geben **1** um die Gültigkeitsdauer auf eine Stunde festzulegen.
 
-    對於 MX 記錄，它會要求優先順序 (或喜好設定)，因此輸入大於針對現有 MX 記錄所指定的數目的數目。這有助於防止新的 MX 記錄干擾網域的郵件路由傳送。您可能會看到下列選項，而非優先順序：[**低**]、[**中**]、[**高**]。在此情況下，請選擇 [**低**]。
+    Für einen MX-Eintrag wird die Priorität (oder Einstellung) abgefragt. Geben Sie eine Zahl ein, die größer ist als die Zahl, die Sie für vorhandene MX-Einträge angegeben haben. Damit können Sie verhindern, dass der neue MX-Eintrag das E-Mail-Routing für die Domäne beeinträchtigt. Anstelle einer Priorität können Sie die folgenden Optionen angezeigt: **Niedrig**, **Mittel**, **hohe**. Wählen Sie in diesem Fall **Niedrig**.
 
-6. 儲存您的變更，然後登出網域名稱註冊機構的網站。
+6. Speichern Sie Ihre Änderungen, und melden Sie sich dann von der Website Ihrer Domänennamen-Registrierungsstelle ab.
 
-建立 TXT 記錄或 MX 記錄並登出網站之後，請返回雲端服務以驗證網域。通常需要大約 15 分鐘，變更才會生效。但是，可能需要 72 個小時，才能將您建立的記錄傳播至 DNS 系統。
+Nachdem Sie entweder den TXT- oder den MX-Eintrag erstellt und sich von der Website abgemeldet haben, kehren Sie für die Überprüfung der Domain zum Clouddienst zurück. In der Regel dauert es ca. 15 Minuten, damit die Änderungen wirksam werden. Es kann jedoch bis zu 72 Stunden dauern, bis der erstellte Eintrag über das DNS-System weitergegeben wird.
 
-#### 驗證網域 
+#### Überprüfen der Domäne
 
-您為網域所建立的記錄順利傳播至 DNS 系統之後，請執行下列動作完成驗證含 Azure AD 的網域。
+Nachdem der für Ihre Domäne erstellte Eintrag erfolgreich über das DNS-System weitergegeben wurde, führen Sie Folgendes zum Beenden der Überprüfung Ihrer Domäne mit Azure AD aus.
 
-1. 在入口網站中，按一下 [**網域**]。
-2. 在 [**網域**] 清單中，尋找您要驗證的網域，然後根據您使用的入口網站，按一下 [**按一下以驗證網域**] 或 [**驗證**]。
-3. 遵循提供的指示來完成驗證程序。
-    - 如果網域驗證成功，將會通知您：已將網域新增至帳戶。
-    - 如果網域驗證失敗，則您在網域註冊機構所做的變更可能需要更多時間進行傳播。取消驗證程序，稍後再重試驗證。
+1. Klicken Sie in Azure Active Directory im klassischen Azure-Portal, auf **Domänen**.
+2. In der **Domänen** auflisten, finden Sie die Domäne, die Sie überprüfen möchten, und klicken Sie dann je nach verwendetem Portal, die Sie verwenden, klicken Sie auf **Klicken Sie zum Überprüfen der Domäne** oder **überprüfen**.
+3. Befolgen Sie die Anweisungen zum Abschließen des Überprüfungsprozesses.
+    - Bei erfolgreicher Domänenüberprüfung werden Sie benachrichtigt, dass Ihre Domäne zu Ihrem Konto hinzugefügt wurde.
+    - Wenn die Domänenüberprüfung fehlschlägt, benötigen die bei der Domänenregistrierungsstelle vorgenommenen Änderungen unter Umständen mehr Zeit für die Verteilung. Brechen Sie die Überprüfung ab und versuchen Sie es zu einem späteren Zeitpunkt erneut.
 
-如果變更網域後已超過 72 個小時，請登入網域註冊機構的網站，並確認您已正確地輸入別名資訊。如果您錯誤地輸入資訊，則必須移除不正確的 DNS 記錄，並使用本主題中的程序建立一個具有正確資訊的新 DNS 記錄。
+Wenn seit den Änderungen an Ihrer Domäne mehr als 72 Stunden vergangen sind, melden Sie sich bei der Website der Domänenregistrierungsstelle an, und überprüfen Sie, ob Sie die Aliasinformationen korrekt eingegeben haben. Wenn die Angaben falsch eingegeben wurden, müssen Sie den fehlerhaften DNS-Eintrag entfernen und einen neuen mit den richtigen Informationen erstellen, indem Sie wie in diesem Thema beschrieben vorgehen.
 
-驗證網域之後，即可設定網域來使用帳戶。
+Nachdem Sie Ihre Domäne überprüft haben, können Sie sie so konfigurieren, dass sie mit Ihren Konten funktioniert.
 
-## 如何變更使用者的主要網域名稱？
+## Wie kann ich den primären Domänennamen für Benutzer ändern?
 
-將網域名稱新增至 Azure AD 之後，即可變更在建立新使用者帳戶時應該顯示為預設值的網域名稱。若要這樣做，請遵循下列步驟。
+Nachdem Sie Ihren Domänennamen in Azure AD hinzugefügt haben, können Sie den Domänennamen ändern, der standardmäßig bei der Erstellung eines neuen Benutzerkontos angezeigt wird. Gehen Sie dazu folgendermaßen vor:
 
-1. 在入口網站頁面的左上角，按一下您的組織名稱。
-2. 按一下 [**編輯**]。
-3. 選擇新的預設網域名稱 (例如所新增的自訂網域名稱)。
+1. Klicken Sie im klassischen Azure-Portal in der oberen linken Ecke auf den Namen Ihrer Organisation.
+2. Klicken Sie auf **Bearbeiten**.
+3. Wählen Sie einen neuen Standard-Domänennamen, wie z. B. den benutzerdefinierten Domänennamen, den Sie hinzugefügt haben.
 
-## 如何移除網域？
+## Wie kann ich eine Domäne entfernen?
 
-移除網域名稱之前，建議您閱讀下列資訊：
+Bevor Sie einen Domänennamen entfernen, wird empfohlen, dass Sie die folgende Informationen lesen:
 
-- 無法移除在註冊時為目錄所提供的原始 contoso.onmicrosoft.com 網域名稱。 
-- 除非移除子網域，否則無法移除任何具有與其相關聯的子網域的最上層網域。例如，如果您有 corp.adatum.com 或另一個使用最上層網域名稱的子網域，則無法移除 adatum.com。如需詳細資訊，請參閱此[支援文章](https://support.microsoft.com/kb/2787792/)。
-- 是否已啟用目錄同步處理？ 如果是，則會將網域自動新增至您的帳戶，如下所示：contoso.mail.onmicrosoft.com。無法移除此網域名稱。
-- 您必須先移除與網域相關聯的所有使用者或電子郵件帳戶中的網域名稱，才能移除網域名稱。您可以移除所有帳戶，也可以大量編輯使用者帳戶來變更其網域名稱資訊和電子郵件地址。如需詳細資訊，請參閱[在 Azure AD 中建立或編輯使用者](active-directory-create-users.md)。
-- 如果您是將 SharePoint Online 網站裝載於正用於 SharePoint Online 網站集合的網域名稱，則必須先刪除網站集合，才能移除網域名稱。
+- Der ursprüngliche Domänenname contoso.onmicrosoft.com, der bei der Registrierung für Ihr Verzeichnis bereitgestellt wurde, kann nicht entfernt werden.
+- Jede Domäne der obersten Ebene, denen Unterdomänen zugeordnet sind, werden nicht entfernt, bis die Unterdomänen entfernt wurden. Beispielsweise können Sie adatum.com nicht entfernen, wenn Sie corp.adatum.com oder eine andere Unterdomäne vorliegen haben, die den Namen der Domäne der obersten Ebene verwendet. Weitere Informationen finden Sie in diesem [Support-Artikel](https://support.microsoft.com/kb/2787792/).
+- Haben Sie die Verzeichnissynchronisierung aktiviert? Falls ja, wurde eine Domäne automatisch zu Ihrem Konto hinzugefügt. Sie sieht in etwa wie folgt aus: contoso.mail.onmicrosoft.com. Dieser Domänenname kann nicht entfernt werden.
+- Bevor Sie einen Domänennamen entfernen können, müssen Sie zuerst den Domänennamen aus allen Benutzer- oder E-Mail-Konten entfernen, die mit der Domäne verbunden sind. Sie können alle Konten entfernen, oder Sie können mehrere Benutzerkonten gleichzeitig bearbeiten, um deren Domänenameninformationen und E-Mail-Adressen zu ändern. Weitere Informationen finden Sie unter [Erstellen oder Bearbeiten von Benutzern in Azure AD](active-directory-create-users.md).
+- Wenn Sie eine SharePoint Online-Website auf einen Domänennamen hosten, der für eine SharePoint Online-Websitesammlung verwendet wird, müssen Sie die Websitesammlung löschen, bevor Sie den Domänennamen entfernen können.
 
-移除網域名稱：
+So entfernen Sie einen Domänennamen:
 
-1. 在入口網站頁面的左窗格中，按一下 [**網域**]。
-2. 在 [**網域**] 頁面上，選取您想要移除的網域名稱，然後按一下 [**移除網域**]。
-3. 在 [**移除網域**] 頁面上，按一下 [**是**]。
+1. Klicken Sie in Azure AD in der klassischen Azure-Portal im linken Bereich auf **Domänen**.
+2. Auf der **Domänen** Seite, wählen Sie den Domänennamen die zu entfernen, und klicken Sie dann auf **Domäne entfernen**.
+3. Auf die **Domäne entfernen** auf **Ja**.
 
-如果目前無法移除您的網域名稱，則 [網域] 頁面上的網域名稱狀態會顯示為 [待移除]。如果您持續看到此狀態，請再試一次移除網域名稱。
+Wenn Sie Ihren Domänennamen zu diesem Zeitpunkt nicht entfernen können, wird der Status für den Domänennamen als Ausstehende Entfernung auf der Seite Domänen angezeigt. Wenn dieser Status weiterhin angezeigt wird, versuchen Sie erneut, den Domänennamen zu entfernen.
 
-## 疑難排解變更網域名稱之後的問題 
+## Behandlung von Problemen nach Änderung des Domänennamens
 
-### 我已變更我的網域，但它尚未顯示變更。
+### Ich habe Änderungen an meiner Domäne vorgenommen, doch sie werden noch nicht angezeigt.
 
-因為更新在網域名稱系統 (DNS) 中的移動方式，所以可能需要 72 個小時，在網域註冊機構或主機服務提供者進行的變更才會完整傳播至網際網路，而且您可以開始搭配使用網域名稱與服務。
+Aufgrund der Art und Weise, wie Aktualisierungen durch das Domain Name System (DNS) verschoben werden, dauert es bis zu 72 Stunden, bevor die vorgenommenen Änderungen bei einer Domänenregistrierungsstelle oder einem Hostinganbieter vollständig über das Internet übertragen sind und Sie Ihre Dienste mit dem Domänennamen verwenden können.
 
-此外，您在網域註冊機構進行的編輯必須完全正確。如果您往回更正錯誤，則可能需要數天的時間，更新的設定才會出現在雲端服務入口網站上。
+Darüber hinaus müssen die Änderungen, die Sie bei der Domänenregistrierungsstelle vornehmen, vollständig korrekt sein. Wenn Sie zur Behebung eines Fehlers zurückgehen, dauert es möglicherweise mehrere Tage, bist die aktualisierte Einstellung auf der Portalwebsite des Clouddienstes angezeigt wird.
 
-需要多久的時間？ 這有一部分取決於您為所取代或更新的 DNS 記錄指定的存留時間 (TTL) 設定。除非 TTL 過期，否則已快取先前資料的網際網路伺服器不會查詢授權名稱伺服器來要求新的值。
+Wie lange dauert das? Dies hängt zum Teil von der Gültigkeitsdauer-(TTL-)Einstellung ab, die Sie für den DNS-Eintrag angegeben haben, den Sie ersetzen oder aktualisieren. Bis die Gültigkeitsdauer (TTL) abgelaufen ist, werden Internetserver, die die vorherigen Daten im Cache gespeichert haben, den autorisierenden Nameserver nicht zum Anfordern des neuen Werts abfragen.
 
-### 我已新增網域、驗證網域，並在網域註冊機構網站上設定 DNS 記錄。為什麼新的電子郵件帳戶尚未收到郵件？ 
+### Ich habe eine Domäne hinzugefügt, überprüft und die DNS-Einträge auf der Website der Registrierungsstelle konfiguriert. Warum erhalten neue E-Mail-Konten noch keine Nachrichten?
 
-完成新增或更新網域的 DNS 記錄之後，可能需要 72 個小時，變更才會生效。
+Wenn Sie das Hinzufügen oder Aktualisieren von DNS-Einträgen für Ihre Domäne abgeschlossen haben, dauert es bis zu 72 Stunden, bis die Änderungen wirksam werden.
 
-此外，網域註冊機構網站上的設定資訊必須完全正確。請仔細檢查您的設定，並確定有允許的足夠時間可將變更的 DNS 記錄傳播至系統。
+Darüber hinaus müssen die Einstellungsinformationen auf der Website der Registrierungsstelle genau stimmen. Überprüfen Sie Ihre Einstellungen erneut, und stellen Sie sicher, dass Sie genügend Zeit für die Weitergabe der geänderten DNS-Datensätze durch das System zugelassen haben.
 
-### 我無法驗證我的網域名稱。如何找到錯誤所在？ 
+### Ich kann meinen Domänennamen nicht überprüfen. Wie kann ich herausfinden, was falsch ist?
 
-追蹤問題的一種方法是使用網域疑難排解精靈。若要啟動精靈，請執行下列動作：在雲端服務入口網站的 [系統管理] 頁面上，按一下 [**網域**]，然後按兩下您想要驗證的網域名稱。然後，在 [**疑難排解**] 下，按一下 [**疑難排解網域**]。
+Eine Möglichkeit zum Identifizieren von Problemen ist die Verwendung des Problembehandlungs-Assistenten für Domänen. Gehen Sie folgendermaßen vor, um den Assistenten zu starten: Klicken Sie In der klassischen Azure-Portal auf der Seite Administrator auf **Domänen**, und doppelklicken Sie dann auf den Domänennamen, den Sie überprüfen möchten. Klicken Sie unter **Problembehandlung**, klicken Sie auf **domänenproblembehandlung**.
 
-疑難排解精靈會要求您提供處在驗證程序哪個位置的資訊，接著提供可協助您完成驗證的相關資訊。
+Der Assistent zur Problembehandlung fragt Sie ab, an welcher Stelle des Überprüfungsprozesses Sie sich befinden und gibt Ihnen dann Informationen, die Ihnen beim Abschließen der Überprüfung helfen.
 
-### 我已新增和驗證我的網域，但新的網域名稱未作用於現有使用者的電子郵件地址。 
+### Ich habe meine Domäne hinzugefügt und überprüft, aber der neue Domänenname funktioniert nicht für vorhandene E-Mail-Adressen von Benutzern.
 
-如果您已在新增使用者帳戶之後將自訂網域名稱新增至雲端服務，則可能需要更新成使用新的網域名稱。例如，您需要編輯您使用者的帳戶，以將其電子郵件地址設定成使用您的自訂網域。
+Wenn Sie Ihren benutzerdefinierten Domänennamen zum Clouddienst hinzufügen, nachdem Sie bereits Benutzerkonten hinzugefügt haben, müssen Sie möglicherweise Updates für den neuen Domänennamen durchführen. Beispielsweise müssen Sie die Konten Ihrer Benutzer so bearbeiten, dass ihre E-Mail-Adressen auf Ihre benutzerdefinierte Domäne festgelegt sind.
 
-## 接下來
+## Nächste Schritte
 
-- [Azure AD 論壇](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
+- [Azure AD-Forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
-- [以組織身分註冊 Azure](sign-up-organization.md)
-- [在 Azure AD 中管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
+- [Als Unternehmen für Azure registrieren](sign-up-organization.md)
+- [Verwalten von Domänen in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=62-->
+

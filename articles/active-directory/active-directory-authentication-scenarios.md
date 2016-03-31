@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Azure AD 的驗證案例"
-   description="Azure Active Directory (AAD) 五個最常見驗證案例的概觀"
+   pageTitle="Authentifizierungsszenarien für Azure AD | Microsoft Azure"
+   description="Eine Übersicht über die fünf am häufigsten verwendeten Authentifizierungsszenarien für Azure Active Directory (AAD)"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -14,456 +14,457 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/01/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
-# Azure AD 的驗證案例
+# Authentifizierungsszenarien für Azure AD
 
-Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發人員的驗證工作，支援業界標準通訊協定，例如 OAuth 2.0 和 OpenID Connect，以及適用於不同平台的開放原始碼程式庫，協助您開始快速撰寫程式碼。本文件將協助您了解 Azure AD 支援的各種案例，並示範如何開始著手。分成下列各節：
+Azure Active Directory (Azure AD) vereinfacht die Authentifizierung für Entwickler mittels Identity as a Service, durch Unterstützung branchenüblicher Protokolle wie OAuth 2.0 und OpenID Connect sowie durch offene Quellbibliotheken für verschiedene Plattformen, sodass Sie schnell mit der Programmierung beginnen können. Dieses Dokument enthält Informationen zu den verschiedenen, von Azure AD unterstützten Szenarien und vereinfacht den Einstieg. Es ist in folgende Abschnitte unterteilt:
 
-- [Azure AD 中的驗證基本概念](#basics-of-authentication-in-azure-ad)
+- [Grundlagen der Authentifizierung in Azure AD](#basics-of-authentication-in-azure-ad)
 
-- [Azure AD 安全性權杖中的宣告](#claims-in-azure-ad-security-tokens)
+- [Ansprüche in Sicherheitstoken von Azure AD](#claims-in-azure-ad-security-tokens)
 
-- [在 Azure AD 中登錄應用程式的基本概念](#basics-of-registering-an-application-in-azure-ad)
+- [Grundlagen der Anwendungsregistrierung in Azure AD](#basics-of-registering-an-application-in-azure-ad)
 
-- [應用程式類型和案例](#application-types-and-scenarios)
+- [Anwendungstypen und -szenarien](#application-types-and-scenarios)
 
-  - [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application)
+  - [Webbrowser zu Webanwendung](#web-browser-to-web-application)
 
-  - [單一頁面應用程式 (SPA)](#single-page-application-spa)
+  - [Single-Page-Anwendung (SPA)](#single-page-application-spa)
 
-  - [原生應用程式到 Web API](#native-application-to-web-api)
+  - [Systemeigene Anwendung zu Web-API](#native-application-to-web-api)
 
-  - [Web 應用程式到 Web API](#web-application-to-web-api)
+  - [Webanwendung zu Web-API](#web-application-to-web-api)
 
-  - [精靈或伺服器應用程式到 Web API](#daemon-or-server-application-to-web-api)
-
-
-
-## Azure AD 中的驗證基本概念
-
-如果您不熟悉 Azure AD 中的驗證基本概念，請閱讀本節。否則，您可以往下跳到[應用程式類型和案例](#application-types-and-scenarios)。
-
-我們來看一下需要身分識別的最基本案例：Web 瀏覽器使用者需要向 Web 應用程式驗證。此案例在 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application)一節中有更詳細的描述，但提供很好的起點來說明 Azure AD 的功能，並從概念上說明案例的運作方式。請針對此案例細想下圖：
-
-![登入 Web 應用程式概觀](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
-
-根據上圖，您對其中各種元件必須有所了解：
-
-- Azure AD 是身分識別提供者，負責驗證組織目錄中的使用者和應用程式的身分識別，最後在成功驗證那些使用者和應用程式時發行安全性權杖。
+  - [Daemon- oder Serveranwendung zu Web-API](#daemon-or-server-application-to-web-api)
 
 
-- 想要將驗證外包給 Azure AD 的應用程式必須在 Azure AD 中註冊，Azure AD 會在目錄中註冊並唯一識別此應用程式。
+
+## Grundlagen der Authentifizierung in Azure AD
+
+Lesen Sie diesen Abschnitt, falls Sie noch nicht mit den grundlegenden Authentifizierungskonzepten für Azure AD vertraut sind. Sie möchten, andernfalls überspringen [Anwendungstypen und-Szenarien](#application-types-and-scenarios).
+
+Betrachten wir das einfachste Szenario, bei dem eine Identität erforderlich ist: Ein Benutzer in einem Webbrowser muss sich gegenüber einer Webanwendung authentifizieren. Dieses Szenario wird ausführlich in beschrieben die [Webbrowser zu Webanwendung](#web-browser-to-web-application) näher, die ein guter Ausgangspunkt, um die Funktionen von Azure AD aufzuzeigen und das Konzept des Szenarios. Berücksichtigen Sie die folgenden Diagramme für dieses Szenario:
+
+![Übersicht über die Anmeldung bei Webanwendungen](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
+
+Im Anschluss folgen einige wichtige Informationen zu den Komponenten des obigen Diagramms:
+
+- Als Identitätsanbieter ist Azure AD zuständig für die Überprüfung der Identität von Benutzern und Anwendungen, die im Verzeichnis einer Organisation vorhanden sind, und bei erfolgreicher Authentifizierung dieser Benutzer und Anwendungen auch für die Ausgabe von Sicherheitstokens.
 
 
-- 開發人員可以使用開放原始碼 Azure AD 驗證程式庫，為您處理通訊協定的細節，以輕鬆完成驗證。如需詳細資訊，請參閱 [Azure Active Directory 驗證程式庫](https://msdn.microsoft.com/library/azure/dn151135.aspx)。
+- Eine Anwendung, deren Authentifizierung an Azure AD ausgelagert werden soll, muss in Azure AD registriert werden. Dadurch wird die App im Verzeichnis registriert und eindeutig identifiziert.
 
 
-• 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定相關各方的驗證成功。開發人員可以使用提供的驗證程式庫來驗證來自 Azure AD 的任何權杖，包括 JSON Web Token (JWT) 或 SAML 2.0。如果您想要手動執行驗證，請參閱 [JWT 權杖處理常式](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx)文件。
+- Mit den Open Source-Authentifizierungsbibliotheken von Azure AD können sich die Entwickler um die Protokolldetails kümmern und die Authentifizierung für Sie vereinfachen. Finden Sie unter [Azure Active Directory-Authentifizierungsbibliotheken](active-directory-authentication-libraries.md) Weitere Informationen.
 
 
-> [AZURE.IMPORTANT]Azure AD 使用公開金鑰密碼編譯來簽署權杖並驗證它們有效。如需有關應用程式中必要的邏輯以確保永遠以最新金鑰更新的相關資訊，請參閱 [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx)。
+• Nach der Authentifizierung eines Benutzers muss die Anwendung das Sicherheitstoken des Benutzers überprüfen, um sicherzustellen, dass die Authentifizierung der betreffenden Parteien erfolgreich war. Mithilfe der bereitgestellten Authentifizierungsbibliotheken können Entwickler die Validierung beliebiger Token von Azure AD behandeln – einschließlich JSON-Webtoken (JWT) und SAML 2.0. Wenn Sie die Überprüfung manuell durchführen möchten, finden Sie unter der [JWT-Tokenhandler](https://msdn.microsoft.com/library/dn205065.aspx) Dokumentation.
 
 
-• 驗證程序的要求和回應流程由使用的驗證通訊協定決定，例如 OAuth 2.0、OpenID Connect，WS-同盟或 SAML 2.0。[Azure Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)主題和下列各節中更詳細地討論這些通訊協定。
-
-> [AZURE.NOTE]Azure AD 支援 OAuth 2.0 和 OpenID Connect 標準，這些標準廣泛運用持有者權杖，包括以 JWT 表示的持有者權杖。持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。從這個意義上說，「持有者」是可出示權杖的任何一方。雖然某一方必須先向 Azure AD 驗證以收到持有者權杖，但如果傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。如果持有人權杖以純文字傳輸，惡意人士可能使用攔截式攻擊來取得權杖，然後未經授權存取受保護的資源。儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。務必確定您的應用程式以安全的方式傳輸和儲存持有者權杖。關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
+> [AZURE.IMPORTANT] Azure AD verwendet Kryptografie mit öffentlichem Schlüssel zum Signieren von Token, und stellen Sie sicher, dass sie gültig sind. Finden Sie unter [wichtige Informationen zum Signaturschlüsselrollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) Weitere Informationen zur erforderlichen Logik benötigen Sie in Ihrer Anwendung, um sicherzustellen, dass diese immer mit den neuesten Schlüsseln aktualisiert wird.
 
 
-既然您已有基本概念的概觀，請閱讀下列各節，了解 Azure AD 中的佈建運作方式，以及 Azure AD 支援的常見案例。
+• Der Fluss von Anforderungen und Antworten für den Authentifizierungsprozess ergibt sich aus dem verwendeten Authentifizierungsprotokoll (etwa OAuth 2.0, OpenID Connect, WS-Federation oder SAML 2.0). Diese Protokolle werden ausführlicher in der [Azure Active Directory-Authentifizierungsprotokolle](active-directory-authentication-protocols.md) Thema und in den folgenden Abschnitten.
+
+> [AZURE.NOTE] Azure AD unterstützt den OAuth 2.0 und OpenID Connect-Standards, die umfangreiche machen Verwenden von trägertoken, einschließlich trägertoken, die als JWTs dargestellt werden. Ein Trägertoken ist ein einfaches Sicherheitstoken, das dem „Träger“ den Zugriff auf eine geschützte Ressource ermöglicht. In diesem Kontext ist der „Träger“ jede beliebige Partei, die das Token vorweisen kann. Um das Trägertoken zu erhalten, muss sich die Partei zwar zunächst bei Azure AD authentifizieren, falls jedoch keine Maßnahmen ergriffen werden, um das Token bei der Übertragung und Speicherung zu schützen, kann das Token von einer fremden Partei abgefangen und verwendet werden. Einige Sicherheitstoken verfügen über einen integrierten Mechanismus, der eine unbefugte Verwendung durch nicht autorisierte Parteien verhindert. Trägertoken besitzen dagegen keinen solchen Mechanismus und müssen über einen sicheren Kanal wie etwa Transport Layer Security (HTTPS) übertragen werden. Wird ein Trägertoken als Klartext gesendet, kann eine böswillige Partei das Token mithilfe eines Man-in-the-Middle-Angriffs abfangen und damit unautorisiert auf eine geschützte Ressource zugreifen. Die gleichen Sicherheitsprinzipien gelten für die (Zwischen-)Speicherung von Trägertoken zur späteren Verwendung. Stellen Sie daher sicher, dass Ihre Anwendung Trägertoken immer sicher überträgt und speichert. Weitere sicherheitsüberlegungen zu trägertoken finden Sie unter [RFC 6750, Abschnitt 5](http://tools.ietf.org/html/rfc6750).
 
 
-## Azure AD 安全性權杖中的宣告
-
-Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相關資訊的判斷提示。這些宣告可以供應用程式用於執行各種工作。比方說，它們可以用來驗證權杖、識別主體的目錄租用戶、顯示使用者資訊、判斷主體的授權等。任何給定的安全性權杖中的宣告取決於權杖類型、用來驗證使用者的認證類型，以及應用程式組態。下表提供由 Azure AD 發出的每一種宣告的簡短描述。如需詳細資訊，請參閱[支援的權杖和宣告類型](https://msdn.microsoft.com/library/azure/dn195587.aspx)。
+Nachdem Sie nun mit den Grundlagen vertraut sind, finden Sie in den folgenden Abschnitten Informationen zur Funktionsweise der Bereitstellung in Azure AD sowie zu den gängigen, von Azure AD unterstützten Szenarien.
 
 
-| 宣告 | 說明 |
+## Ansprüche in Sicherheitstoken von Azure AD
+
+Von Azure AD ausgestellte Sicherheitstoken enthalten Ansprüche oder Assertionen von Informationen zum authentifizierten Antragsteller. Diese Ansprüche können von der Anwendung für unterschiedliche Aufgaben verwendet werden. Zu diesen Aufgaben zählen beispielsweise das Überprüfen des Tokens, das Ermitteln des Verzeichnismandanten des Antragstellers, das Anzeigen von Benutzerinformationen, das Bestimmen der Autorisierung des Antragstellers und vieles mehr. Welche Ansprüche in einem Sicherheitstoken enthalten sind, hängt von der Art des Tokens, von der Art der Anmeldeinformationen für die Benutzerauthentifizierung sowie von der Anwendungskonfiguration ab. Die folgende Tabelle enthält eine kurze Beschreibung der einzelnen Anspruchsarten, die von Azure AD ausgegeben werden. Weitere Informationen finden Sie unter [unterstützte Token und Anspruchstypen](active-directory-token-and-claims.md).
+
+
+| Anspruch | Beschreibung |
 |-------|-------------|
-| 應用程式識別碼 | 識別使用權杖的應用程式。
-| 對象 | 識別權杖針對的收件者資源。 |
-| 應用程式驗證內容類別參考 | 指出如何驗證用戶端 (公用用戶端與機密用戶端的比較)。 |
-| 驗證時刻 | 記錄驗證發生的日期和時間。 |
-| 驗證方法 | 指出如何驗證權杖的主體 (密碼、憑證等)。 |
-| 名字 | 提供 Azure AD 中設定的使用者名字。 |
-| 群組 | 包含使用者所屬的 Azure AD 群組的物件識別碼。 |
-| 身分識別提供者 | 記錄驗證權杖主體的身分識別提供者。 |
-| 發出時間 | 記錄核發權杖的時間，通常用於權杖有效期限。 |
-| 簽發者 | 識別發出權杖的 STS，以及 Azure AD 租用戶。 |
-| 姓氏 | 提供 Azure AD 中設定的使用者姓氏。 |
-| 名稱 | 提供人類看得懂的值，用以識別權杖的主體。 |
-| 物件識別碼 | 包含主體在 Azure AD 中不可變的唯一識別碼。 |
-| 角色 | 包含已授與使用者的 Azure AD 應用程式角色的易記名稱。 |
-| Scope | 指出授與用戶端應用程式的權限。 |
-| 主旨 | 指出權杖判斷提示相關資訊的主體。 |
-| 租用戶識別碼 | 包含發出權杖的目錄租用戶的不變唯一識別碼。 |
-| 權杖存留期 | 定義權杖有效的時間間隔。 |
-| 使用者主體名稱 | 包含主體的使用者主體名稱。 |
-| 版本 | 包含權杖的版本號碼。 |
+| Anwendungs-ID | Die Anwendung, die das Token verwendet.
+| Zielgruppe | Die Empfängerressource, für die das Token vorgesehen ist. |
+| Kontextklassenreferenz für die Anwendungsauthentifizierung | Die Art der Clientauthentifizierung (öffentlicher oder vertraulicher Client). |
+| Authentifizierungszeitpunkt | Datum und Uhrzeit der Authentifizierung. |
+| Authentifizierungsmethode | Die Authentifizierungsmethode für den Antragsteller des Tokens (Kennwort, Zertifikat oder Ähnliches). |
+| Vorname | Der Vorname des Benutzers gemäß Angabe in Azure AD. |
+| Gruppen | Objekt-IDs von Azure AD-Gruppen, denen der Benutzer angehört. |
+| Identitätsanbieter | Der Identitätsanbieter, der den Antragsteller des Tokens authentifiziert hat. |
+| Ausgestellt um | Die Zeit, zu der das Token ausgestellt wurde (wird häufig für die Tokenaktualität verwendet). |
+| Aussteller | Der STS, der das Token ausgestellt hat, sowie der Azure AD-Mandant. |
+| Nachname | Der Nachname des Benutzers gemäß Angabe in Azure AD. |
+| Name | Ein lesbarer Wert, der Aufschluss über den Antragsteller des Tokens gibt. |
+| Objekt-ID | Ein unveränderlicher, eindeutiger Bezeichner des Antragstellers in Azure AD. |
+| Roles | Anzeigenamen von Azure AD-Anwendungsrollen, die dem Benutzer erteilt wurden. |
+| Bereich | Die Berechtigungen, die der Clientanwendung gewährt wurden. |
+| Betreff | Der Prinzipal, für den das Token Informationen bestätigt. |
+| Mandanten-ID | Ein unveränderlicher, eindeutiger Bezeichner des Verzeichnismandanten, der das Token ausgestellt hat. |
+| Tokengültigkeitsdauer | Das Zeitintervall, für das ein Token gültig ist. |
+| Benutzerprinzipalname | Der Benutzerprinzipalname des Antragstellers. |
+| Version | Die Versionsnummer des Tokens. |
 
 
-## 在 Azure AD 中登錄應用程式的基本概念
+## Grundlagen der Anwendungsregistrierung in Azure AD
 
-將驗證外包給 Azure AD 的任何應用程式必須在目錄中註冊。此步驟涉及向 Azure AD 說明您的應用程式，包括它所在的 URL、驗證之後用來傳送回覆的 URL、用來識別應用程式的 URI 等。需要這項資訊有幾個主要理由：
+Jede Anwendung, deren Authentifizierung an Azure AD ausgelagert wird, muss in einem Verzeichnis registriert werden. Hierzu benötigt Azure AD Informationen zu Ihrer Anwendung – unter anderem die URL, an der sie sich befindet, die URL, an die nach der Authentifizierung Antworten gesendet werden sollen, sowie den URI zur Identifizierung Ihrer Anwendung. Diese Informationen sind aus folgenden Gründen erforderlich:
 
-- Azure AD 處理登入或交換權杖時，需要座標才能與應用程式通訊。其中包括：
+- Bei der Abwicklung von Anmeldungen oder beim Austausch von Token benötigt Azure AD Koordinaten für die Kommunikation mit der Anwendung. Dazu zählt Folgendes:
 
-  - 應用程式識別碼 URI：應用程式的識別碼。這個值會在驗證期間傳送至 Azure AD，以指出呼叫端想要哪一個應用程式的權杖。此外，這個值包含在權杖中，應用程式由此可知它就是預定的目標。
+  - Anwendungs-ID-URI: Der Bezeichner für eine Anwendung. Dieser Wert wird bei der Authentifizierung an Azure AD gesendet und gibt an, für welche Anwendung der Aufrufer ein Token benötigt. Der Wert ist auch im Token enthalten, um der Anwendung mitzuteilen, dass es sich bei ihr um die gewünschte Zielanwendung handelt.
 
 
-  - 回覆 URL 和重新導向 URI：在 Web API 或 Web 應用程式中，回覆 URL 是 Azure AD 傳送驗證回應的目標位置，包括驗證成功時的權杖。在原生應用程式中，重新導向 URI 是 Azure AD 在 OAuth 2.0 要求中將使用者代理程式重新導向的唯一識別碼。
+  - Antwort-URL und Umleitungs-URI: Bei einer Web-API oder Webanwendung ist die Antwort-URL der Ort, an den Azure AD die Authentifizierungsantwort sendet (einschließlich eines Tokens, sofern die Authentifizierung erfolgreich war). Bei einer systemeigenen Anwendung ist der Umleitungs-URI ein eindeutiger Bezeichner, an den Azure AD den Benutzer-Agent in einer OAuth 2.0-Anforderung umleitet.
 
 
-  - 用戶端識別碼：註冊應用程式時由 Azure AD 產生的應用程式識別碼。當要求授權碼或權杖時，用戶端識別碼和金鑰會在驗證期間傳送至 Azure AD。
+  - Client-ID: Die ID für eine Anwendung. Diese ID wird bei der Registrierung der Anwendung von Azure AD generiert. Bei der Anforderung eines Autorisierungscodes oder -tokens werden die Client-ID und der Schlüssel im Rahmen der Authentifizierung an Azure AD gesendet.
 
 
-  - 金鑰：向 Azure AD 驗證來呼叫 Web API 時，隨用戶端識別碼一起傳送的金鑰。
+  - Schlüssel: Der Schlüssel, der bei der Authentifizierung zusammen mit einer Client-ID an Azure AD gesendet wird, um eine Web-API aufzurufen.
 
 
-- Azure AD 需要確定應用程式具有存取目錄資料、您組織中其他應用程式等等的必要權限。
+- Azure AD muss sicherstellen, dass die Anwendung die erforderlichen Berechtigungen für den Zugriff auf Verzeichnisdaten, auf andere Anwendungen in Ihrer Organisation und Ähnliches besitzt.
 
-當您了解可以開發及與 Azure AD 整合的應用程式有兩種類別時，佈建就變得更清楚：
+Zum besseren Verständnis der Bereitstellung ist es hilfreich zu wissen, dass es zwei Kategorien von Anwendungen gibt, die entwickelt und in Azure AD integriert werden können:
 
-- 單一租用戶應用程式：單一租用戶應用程式適合在一個組織中使用。這些通常是由企業開發人員撰寫的企業營運 (LoB) 應用程式。單一租用戶應用程式只需要由一個目錄中的使用者存取，因此，它只需要佈建在一個目錄中。這些應用程式通常是由組織中的開發人員註冊。
+- Einzelinstanzanwendung: Eine Einzelinstanzanwendung ist für die Verwendung in einer einzelnen Organisation vorgesehen. Dies sind in der Regel von einem Unternehmensentwickler erstellte Branchenanwendungen. Auf eine Einzelinstanzanwendung greifen nur Benutzer aus einem einzelnen Verzeichnis zu. Daher muss sie auch nur in einem Verzeichnis bereitgestellt werden. Diese Anwendungen werden üblicherweise von einem Entwickler in der Organisation registriert.
 
 
-- 多租用戶應用程式：多租用戶應用程式適合在許多組織中使用，而不只一個組織。這些通常是由獨立軟體廠商 (ISV) 撰寫的軟體即服務 (SaaS) 應用程式。多租用戶應用程式需要佈建在將會用到它們的每個目錄中，而這需要使用者或系統管理員同意才能註冊。當應用程式目錄中已在目錄中註冊並獲權存取 Graph API 或其他 Web API 時，此同意程序會啟動。當不同組織的使用者或系統管理員註冊來使用應用程式時，他們會看到一個對話方塊顯示應用程式需要的權限。使用者或系統管理員可以同意應用程式，讓應用程式存取所述的資料，最後將應用程式註冊在他們的目錄中。如需詳細資訊，請參閱 [同意架構的概觀](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_Consent)。
+- Mehrinstanzenfähige Anwendung: Eine mehrinstanzenfähige Anwendung ist für die Verwendung in mehreren Organisationen vorgesehen. Hierbei handelt es sich in der Regel um SaaS-Anwendungen (Software as a Service), die von einem unabhängigen Softwarehersteller (Independent Software Vendor, ISV) geschrieben wurden. Mehrinstanzenfähige Anwendungen müssen in jedem Verzeichnis bereitgestellt werden, in dem sie verwendet werden. Für die Registrierung ist also jeweils die Zustimmung des Benutzers oder Administrators erforderlich. Dieser Zustimmungsprozess beginnt, wenn eine Anwendung im Verzeichnis registriert wurde und Zugriff auf die Graph-API (oder ggf. eine andere Web-API) erhält. Wenn sich ein Benutzer oder Administrator aus einer anderen Organisation für die Verwendung der Anwendung registriert, erscheint ein Dialogfeld mit den für die Anwendung erforderlichen Berechtigungen. Stimmt der Benutzer oder Administrator der Anwendung zu, erhält die Anwendung Zugriff auf die angegebenen Daten und wird schließlich im Verzeichnis des Benutzers oder Administrators registriert. Weitere Informationen finden Sie unter [Überblick über das Consent Framework](active-directory-integrating-applications.md#overview-of-the-consent-framework).
 
-開發多租用戶應用程式，而非單一租用戶應用程式時，有一些其他考量需要注意。例如，如果要讓您的應用程式供多個目錄中的使用者使用，您需要有機制來判斷他們所在的租用戶。單一租用戶應用程式只需要在它自己的目錄中查看使用者，但多租用戶應用程式需要從 Azure AD 的所有目錄中識別特定的使用者。為了完成這項工作，Azure AD 提供一個共同驗證端點，供任何多租用戶應用程式引導登入要求，而非提供租用戶特定的端點。對於 Azure AD 中的所有目錄，此端點為 https://login.microsoftonline.com/common而租用戶特定的端點可能是 https://login.microsoftonline.com/contoso.onmicrosoft.com開發您的應用程式時尤其必須考量共同端點，因為在登入、登出和權杖驗證期間，您需要必要的邏輯來處理多個租用戶。
+Bei der Entwicklung einer mehrinstanzenfähigen Anwendung müssen im Gegensatz zur Einzelinstanzanwendung einige zusätzliche Aspekte berücksichtigt werden. Ein Beispiel: Wenn Sie die Anwendung für Benutzer in mehreren Verzeichnissen verfügbar machen, müssen Sie ermitteln, in welchem Mandaten sich diese befinden. Eine Einzelinstanzanwendung muss nur im eigenen Verzeichnis nach einem Benutzer suchen. Eine mehrinstanzenfähige Anwendung muss dagegen einen bestimmten Benutzer in sämtlichen Verzeichnissen in Azure AD identifizieren. Für diese Aufgabe bietet Azure AD anstelle eines mandantenspezifischen Endpunkts einen gemeinsamen Authentifizierungsendpunkt, an den jede mehrinstanzenfähige Anwendung Anmeldeanforderungen richten kann. Dieser Endpunkt ist https://login.microsoftonline.com/common für alle Verzeichnisse in Azure AD, während ein mandantenspezifischer Endpunkt https://login.microsoftonline.com/contoso.onmicrosoft.com ist. Der gemeinsame Endpunkt muss insbesondere bei der Anwendungsentwicklung berücksichtigt werden, da Sie die Logik implementieren müssen, die die Verarbeitung mehrerer Mandanten bei der Anmeldung, Abmeldung und Tokenüberprüfung ermöglicht.
 
-如果您目前正在開發單一租用戶應用程式，但想要提供給許多組織使用，您可以在 Azure AD 中輕鬆地變更應用程式及其組態，將它變成具備多租用戶功能。此外，不論您是在單一租用戶或多租用戶應用程式中提供驗證，Azure AD 對所有目錄中的所有權杖都使用相同的簽署金鑰。
+Wenn Sie gerade eine Einzelinstanzanwendung entwickeln, diese aber für mehrere Organisationen verfügbar machen möchten, können Sie die Anwendung und deren Konfiguration problemlos in Azure AD ändern, um eine mehrinstanzenfähige Anwendung zu erhalten. Darüber hinaus verwendet Azure AD für alle Token in allen Verzeichnissen den gleichen Anmeldeschlüssel. Es spielt also keine Rolle, ob Sie die Authentifizierung in einer Einzelinstanzanwendung oder in einer mehrinstanzenfähigen Anwendung bereitstellen.
 
-本文件列出的每個案例都有一個小節來說明其佈建需求。如需在 Azure AD 中佈建應用程式的深入資訊，以及單一和多租用戶應用程式之間的差異，請參閱[新增、更新及移除應用程式](https://msdn.microsoft.com/library/azure/dn132599.aspx)，以取得詳細資訊。繼續閱讀來了解 Azure AD 中常見的應用程式案例。
+Jedes Szenario aus diesem Dokument enthält einen Unterabschnitt mit den entsprechenden Bereitstellungsanforderungen. Ausführlichere Informationen zur Bereitstellung einer Anwendung in Azure AD sowie zu den Unterschieden zwischen einzelinstanzanwendungen und mehrinstanzenfähigen Anwendungen finden Sie unter [Integration von Anwendungen mit Azure Active Directory](active-directory-integrating-applications.md) Weitere Informationen. Der nächste Abschnitt erläutert gängige Anwendungsszenarien in Azure AD.
 
-## 應用程式類型和案例
+## Anwendungstypen und -szenarien
 
-本文件所述的每個案例可用各種語言和平台來開發，而且每個案例在 [GitHub 上有完整的程式碼範例](https://github.com/AzureADSamples)。此外，如果您的應用程式需要端對端案例的特定片段或區段，在大部分情況下可以獨立加入這項功能。例如，如果您有一個呼叫 Web API 的原生應用程式，您可以輕鬆加入也會呼叫該 Web API 的 Web 應用程式。下圖說明這些案例和應用程式類型，以及如何加入不同的元件：
+Jedes der in diesem Dokument beschriebenen Szenarien kann mit verschiedenen Sprachen und Plattformen umgesetzt werden, und es gibt [abschließen Codebeispiele auf GitHub](https://github.com/AzureADSamples) für jede von ihnen. Sollte Ihre Anwendung einen bestimmten Teil oder ein Segment eines End-to-End-Szenarios benötigen, lässt sich diese Funktion in den meisten Fällen unabhängig hinzufügen. Wenn also beispielsweise Ihre systemeigene Anwendung eine Web-API aufruft, können Sie problemlos eine Webanwendung hinzufügen, die die Web-API ebenfalls aufruft. Das folgende Diagramm veranschaulicht die Szenarien und Anwendungstypen sowie das Hinzufügen verschiedener Komponenten:
 
-![應用程式類型和案例](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
+![Anwendungstypen und -szenarien](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
-以下是 Azure AD 支援的五個主要應用程式案例：
+Azure AD unterstützt die folgenden fünf Hauptanwendungsszenarien:
 
-- [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application)：使用者需要登入 Azure AD 所保護的 Web 應用程式。
+- [Webbrowser zu Webanwendung](#web-browser-to-web-application): ein Benutzer muss eine Web-Anwendung anmelden, die von Azure AD gesichert ist.
 
-- [單一頁面應用程式 (SPA)](#single-page-application-spa)：使用者需要登入 Azure AD 所保護的單一頁面應用程式。
+- [Single Page Application (SPA)](#single-page-application-spa): ein Benutzer muss eine single-Page-Anwendung anmelden, die von Azure AD gesichert ist.
 
-- [原生應用程式到 Web API](#native-application-to-web-api)：在電話、平板電腦或電腦執行的原生應用程式需要驗證使用者，以便從 Azure AD 所保護的 Web API 取得資源。
+- [Systemeigene Anwendung zu Web-API-](#native-application-to-web-api): eine systemeigene Anwendung, die auf einem Telefon, Tablet oder PC muss zum Authentifizieren eines Benutzers zum Abrufen von Ressourcen aus einer Web-API, die von Azure AD gesichert ist.
 
-- [Web 應用程式到 Web API](#web-application-to-web-api)：Web 應用程式需要從 Azure AD 所保護的 Web API 取得資源。
+- [Webanwendung zu Web-API](#web-application-to-web-api): eine Webanwendung muss Ressourcen von einer Web-API von Azure AD gesicherte abrufen.
 
-- [精靈或伺服器應用程式到 Web API](#daemon-or-server-application-to-web-api)：無 Web 使用者介面的精靈應用程式或伺服器應用程式，需要從 Azure AD 所保護的 Web API 取得資源。
+- [Daemon- oder Serveranwendung zu Web-API](#daemon-or-server-application-to-web-api): eine Daemon- oder Serveranwendung ohne Webbenutzeroberfläche muss Ressourcen von einer Web-API von Azure AD gesichert wird.
 
-### Web 瀏覽器到 Web 應用程式
+### Webbrowser zu Webanwendung
 
-本節描述一個應用程式向 Web 應用程式驗證 Web 瀏覽器中的使用者。在此案例中，Web 應用程式會引導使用者的瀏覽器，將他們登入 Azure AD。Azure AD 會透過使用者的瀏覽器傳回登入回應，其中包含關於安全性權杖中的使用者宣告。此案例支援使用 WS-同盟、SAML 2.0 和 OpenID Connect 通訊協定來登入。
+Dieser Abschnitt beschreibt eine Anwendung, die einen Benutzer in einem Webbrowser gegenüber einer Webanwendung authentifiziert. In diesem Szenario weist die Webanwendung den Browser des Benutzers an, diesen in Azure AD anzumelden. Azure AD gibt über den Browser des Benutzers eine Anmeldeantwort mit Benutzeransprüchen in einem Sicherheitstoken zurück. Dieses Szenario unterstützt Anmeldungen über WS-Federation, SAML 2.0 und OpenID Connect.
 
 
-#### 圖表
-![瀏覽器到 Web 應用程式的驗證流程](./media/active-directory-authentication-scenarios/web_browser_to_web_api.png)
+#### Diagramm
+![Authentifizierungsfluss für „Browser zu Webanwendung“](./media/active-directory-authentication-scenarios/web_browser_to_web_api.png)
 
 
-#### 通訊協定流程的描述
+#### Beschreibung des Protokollflusses
 
 
-1. 當使用者造訪應用程式且需要登入時，他們透過登入要求而重新導向 Azure AD 中的驗證端點。
+1. Wenn ein Benutzer die Anwendung aufruft und sich anmelden muss, wird er über eine Anmeldeanforderung an den Authentifizierungsendpunkt in Azure AD umgeleitet.
 
 
-2. 使用者在登入頁面上登入。
+2. Der Benutzer meldet sich auf der Anmeldeseite an.
 
 
-3. 如果驗證成功，Azure AD 會建立驗證權杖，並將登入回應傳回至 Azure 管理入口網站中設定的應用程式回覆 URL。對於實際執行應用程式，此回覆 URL 應該為 HTTPS。傳回的權杖包含應用程式驗證權杖所需的使用者與 Azure AD 宣告。
+3. Ist die Authentifizierung erfolgreich, erstellt Azure AD ein Authentifizierungstoken und gibt eine Anmeldeantwort an die im Azure-Verwaltungsportal konfigurierte Antwort-URL der Anwendung zurück. Bei Produktionsanwendungen empfiehlt sich die Verwendung einer Antwort-URL mit HTTPS. Das zurückgegebene Token enthält Ansprüche für den Benutzer und Azure AD, die die Anwendung zum Überprüfen des Tokens benötigt.
 
 
-4. 應用程式會使用 Azure AD 的同盟中繼資料文件可用的公開簽署金鑰和簽發者資訊來驗證權杖。應用程式驗證權杖之後，Azure AD 會對使用者啟動新的工作階段。此工作階段可讓使用者存取應用程式，直到過期為止。
+4. Die Anwendung überprüft das Token mithilfe eines öffentlichen Signaturschlüssels und der Ausstellerinformationen aus dem Verbundmetadatendokument für Azure AD. Nach der Überprüfung des Tokens durch die Anwendung startet Azure AD eine neue Sitzung mit dem Benutzer. Anschließend kann der Benutzer bis zum Ablauf der Sitzung auf die Anwendung zugreifen.
 
 
-#### 程式碼範例
+#### Codebeispiele
 
 
-請參閱「Web 瀏覽器到 Web 應用程式」案例的程式碼範例。請經常回來查看，我們會隨時加入新的範例。[Web 瀏覽器到 Web 應用程式](active-directory-code-samples.md#web-browser-to-web-application)。
+Sehen Sie sich die Codebeispiele für Szenarien vom Typ „Webbrowser zu Webanwendung“ an. Schauen Sie außerdem regelmäßig vorbei: Wir fügen immer wieder neue Beispiele hinzu. [Webbrowser zu Webanwendung](active-directory-code-samples.md#web-browser-to-web-application).
 
 
-#### 註冊
+#### Registrieren
 
 
-- 單一租用戶：如果您只是要為您的組織建置應用程式，則必須使用 Azure 管理入口網站，將它註冊在公司的目錄中。
+- Einzelinstanzanwendung: Wenn Sie eine Anwendung nur für Ihre Organisation erstellen, muss diese über das Azure-Verwaltungsportal im Verzeichnis Ihres Unternehmens registriert werden.
 
 
-- 多租用戶：如果您要建置的應用程式可供組織外的使用者使用，它必須註冊在公司的目錄中，但也必須在每個將會使用該應用程式的組織的目錄中註冊。若要讓您的應用程式出現在他們的目錄中，您可以為客戶加上註冊程序，讓他們同意應用程式。當他們註冊您的應用程式時，他們會看到對話方塊顯示應用程式所需的權限，以及是否同意的選項。根據所需的權限，其他組織的系統管理員可能必須同意。當使用者或系統管理員同意時，應用程式就會註冊在他們的目錄中。如需詳細資訊，請參閱[新增、更新及移除應用程式](https://msdn.microsoft.com/library/azure/dn132599.aspx)。
+- Mehrinstanzenfähige Anwendung: Wenn Sie eine Anwendung erstellen, die von Benutzern außerhalb Ihrer Organisation verwendet werden kann, muss diese ebenfalls im Verzeichnis Ihres Unternehmens registriert werden. Darüber hinaus muss sie aber auch im Verzeichnis jeder anderen Organisation registriert werden, von der die Anwendung verwendet wird. Um Ihre Anwendung in deren Verzeichnis verfügbar zu machen, können Sie einen Registrierungsprozess für Ihre Kunden einschließen, über den sie Ihrer Anwendung zustimmen können. Bei der Registrierung für Ihre Anwendung erscheint ein Dialogfeld mit den erforderlichen Berechtigungen für die Anwendung sowie mit einer Zustimmungsoption. Je nachdem, welche Berechtigungen erforderlich sind, wird unter Umständen die Zustimmung eines Administrators aus der anderen Organisation benötigt. Wenn der Benutzer oder Administrator seine Zustimmung gibt, wird die Anwendung in dessen Verzeichnis registriert. Weitere Informationen finden Sie unter [Integration von Anwendungen mit Azure Active Directory](active-directory-integrating-applications.md).
 
 
-#### 權杖到期
+#### Tokenablauf
 
-當 Azure AD 所簽發的權杖存留期到期時，使用者工作階段就過期。如有需要，您的應用程式可以縮短這段時間，例如因為一段時間沒有活動而將使用者登出。當工作階段到期時，會提示使用者重新登入。
+Die Sitzung des Benutzers läuft ab, wenn die Gültigkeitsdauer des von Azure AD ausgestellten Tokens abläuft. Ihre Anwendung kann diesen Zeitraum bei Bedarf verkürzen und Benutzer beispielsweise bei zu langer Inaktivität abmelden. Nach Ablauf der Sitzung wird der Benutzer aufgefordert, sich erneut anzumelden.
 
 
 
 
 
-### 單一頁面應用程式 (SPA)
+### Single-Page-Anwendung (SPA)
 
 
-本節描述單一頁面應用程式的驗證，此應用程式使用 Azure AD 保護其 Web API 後端。單一頁面應用程式通常建構為一個在瀏覽器執行的 JavaScript 展示層 (前端)，以及一個在伺服器上執行並實作應用程式商務邏輯的 Web API 後端。在此案例中，當使用者登入時，JavaScript 前端使用 [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) 預覽和 OAuth 2.0 隱含授與通訊協定，從 Azure AD 取得的識別碼權杖 (id_token)。權杖留在快取中，用戶端呼叫 Web API 後端時會將權杖附加至要求做為持有人權杖，並使用 OWIN 中介軟體來保護。
+Dieser Abschnitt beschreibt die Authentifizierung für eine Single-Page-Anwendung, deren Web-API-Back-End von Azure AD gesichert wird. Single-Page-Anwendungen setzen sich in der Regel aus einer im Browser ausgeführten JavaScript-Darstellungsschicht (Front-End) und einem Web-API-Back-End zusammen, das auf einem Server ausgeführt wird und die Geschäftslogik der Anwendung implementiert. In diesem Szenario wird beim Anmelden des Benutzers in der JavaScript-Front-End verwendet [Active Directory-Authentifizierungsbibliothek für JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) und der impliziten OAuth 2.0-Gewährung Protokoll um ein ID-Token (Id_token) von Azure AD zu erhalten. Das Token wird zwischengespeichert und der Anforderung als Trägertoken angefügt, wenn der Client Aufrufe an das durch die OWIN-Middleware gesicherte Web-API-Back-End sendet.
 
 
-#### 圖表
+#### Diagramm
 
-![單一頁面應用程式圖表](./media/active-directory-authentication-scenarios/single_page_app.png)
+![Single-Page-Anwendung – Diagramm](./media/active-directory-authentication-scenarios/single_page_app.png)
 
-#### 通訊協定流程的描述
+#### Beschreibung des Protokollflusses
 
-1. 使用者導覽至 Web 應用程式。
+1. Der Benutzer navigiert zu der Webanwendung.
 
 
-2. 應用程式將 JavaScript 前端 (展示層) 傳回至瀏覽器。
+2. Die Anwendung gibt das JavaScript-Front-End (Darstellungsschicht) an den Browser zurück.
 
 
-3. 使用者起始登入，例如按一下登入連結。瀏覽器傳送 GET 給 Azure AD 授權端點來要求識別碼權杖。此要求在查詢參數中包含用戶端識別碼和回覆 URL。
+3. Der Benutzer initiiert die Anmeldung (beispielsweise durch Klicken auf einen Anmeldelink). Der Browser sendet einen GET-Befehl an den Azure AD-Autorisierungsendpunkt, um ein ID-Token anzufordern. Diese Anforderung enthält die Client-ID und die Antwort-URL in den Abfrageparametern.
 
 
-4. Azure AD 根據 Azure 管理入口網站中設定的註冊回覆 URL，驗證回覆 URL。
+4. Azure AD überprüft die Antwort-URL anhand der registrierten Antwort-URL, die im Azure-Verwaltungsportal konfiguriert wurde.
 
 
-5. 使用者在登入頁面上登入。
+5. Der Benutzer meldet sich auf der Anmeldeseite an.
 
 
-6. 如果驗證成功，Azure AD 就會建立識別碼權杖，並當做 URL 片段 (#) 傳回至應用程式的回覆 URL。對於實際執行應用程式，此回覆 URL 應該為 HTTPS。傳回的權杖包含應用程式驗證權杖所需的使用者與 Azure AD 宣告。
+6. Bei erfolgreicher Authentifizierung erstellt Azure AD ein ID-Token und gibt es als URL-Fragment (#) an die Antwort-URL der Anwendung zurück. Bei Produktionsanwendungen empfiehlt sich die Verwendung einer Antwort-URL mit HTTPS. Das zurückgegebene Token enthält Ansprüche für den Benutzer und Azure AD, die die Anwendung zum Überprüfen des Tokens benötigt.
 
 
-7. 瀏覽器中執行的 JavaScript 用戶端程式碼從回應中擷取權杖，用以保護對應用程式 Web API 後端的呼叫。
+7. Der im Browser ausgeführte JavaScript-Clientcode extrahiert das Token aus der Antwort und verwendet es zur Absicherung von Aufrufen an das Web-API-Back-End der Anwendung.
 
 
-8. 瀏覽器使用授權標頭中的存取權杖，呼叫應用程式的 Web API 後端。
+8. Der Browser ruft das Web-API-Back-End der Anwendung auf und übermittelt dabei das Zugriffstoken im Autorisierungsheader.
 
-#### 程式碼範例
+#### Codebeispiele
 
 
-請參閱「單一頁面應用程式 (SPA)」案例的程式碼範例。請務必經常回來查看，我們會隨時加入新的範例。[單一頁面應用程式 (SPA)](active-directory-code-samples.md#single-page-application-spa)。
+Sehen Sie sich die Codebeispiele für Szenarien vom Typ „Single-Page-Anwendung (SPA)“ an. Schauen Sie regelmäßig vorbei: Wir fügen immer wieder neue Beispiele hinzu. [Single Page Application (SPA)](active-directory-code-samples.md#single-page-application-spa).
 
 
-#### 註冊
+#### Registrieren
 
 
-- 單一租用戶：如果您只是要為您的組織建置應用程式，則必須使用 Azure 管理入口網站，將它註冊在公司的目錄中。
+- Einzelinstanzanwendung: Wenn Sie eine Anwendung nur für Ihre Organisation erstellen, muss diese über das Azure-Verwaltungsportal im Verzeichnis Ihres Unternehmens registriert werden.
 
 
-- 多租用戶：如果您要建置的應用程式可供組織外的使用者使用，它必須註冊在公司的目錄中，但也必須在每個將會使用該應用程式的組織的目錄中註冊。若要讓您的應用程式出現在他們的目錄中，您可以為客戶加上註冊程序，讓他們同意應用程式。當他們註冊您的應用程式時，他們會看到對話方塊顯示應用程式所需的權限，以及是否同意的選項。根據所需的權限，其他組織的系統管理員可能必須同意。當使用者或系統管理員同意時，應用程式就會註冊在他們的目錄中。如需詳細資訊，請參閱[新增、更新及移除應用程式](https://msdn.microsoft.com/library/azure/dn132599.aspx)。
+- Mehrinstanzenfähige Anwendung: Wenn Sie eine Anwendung erstellen, die von Benutzern außerhalb Ihrer Organisation verwendet werden kann, muss diese ebenfalls im Verzeichnis Ihres Unternehmens registriert werden. Darüber hinaus muss sie aber auch im Verzeichnis jeder anderen Organisation registriert werden, von der die Anwendung verwendet wird. Um Ihre Anwendung in deren Verzeichnis verfügbar zu machen, können Sie einen Registrierungsprozess für Ihre Kunden einschließen, über den sie Ihrer Anwendung zustimmen können. Bei der Registrierung für Ihre Anwendung erscheint ein Dialogfeld mit den erforderlichen Berechtigungen für die Anwendung sowie mit einer Zustimmungsoption. Je nachdem, welche Berechtigungen erforderlich sind, wird unter Umständen die Zustimmung eines Administrators aus der anderen Organisation benötigt. Wenn der Benutzer oder Administrator seine Zustimmung gibt, wird die Anwendung in dessen Verzeichnis registriert. Weitere Informationen finden Sie unter [Integration von Anwendungen mit Azure Active Directory](active-directory-integrating-applications.md).
 
-註冊應用程式之後，它必須設定為使用 OAuth 2.0 隱含授權通訊協定。根據預設，應用程式都停用此通訊協定。若要對您的應用程式啟用 OAuth2 隱含授權通訊協定，請從 Azure 管理入口網站下載其應用程式資訊清單，將 "oauth2AllowImplicitFlow" 值設為 true，再將資訊清單上傳回到入口網站。如需詳細指示，請參閱[啟用單一頁面應用程式的 OAuth 2.0 隱含授權](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_ImplicitGrant)。
+Wenn die Anwendung registriert wurde, muss sie für die Verwendung des impliziten OAuth 2.0-Gewährungsprotokolls konfiguriert werden. Dieses Protokoll ist für Anwendungen standardmäßig deaktiviert. Um das implizite OAuth 2.0-Gewährungsprotokoll für die Anwendung zu aktivieren, müssen Sie das Anwendungsmanifest aus dem Azure-Verwaltungsportal herunterladen, den Wert „oauth2AllowImplicitFlow“ auf „true“ festlegen und das Manifest anschließend wieder an das Portal hochladen. Weitere Informationen finden Sie unter [Aktivieren OAuth 2.0 implizite Gewährung für Single Page Applications](active-directory-integrating-applications.md).
 
 
-#### 權杖到期
+#### Tokenablauf
 
-當您使用 ADAL.js 來管理向 Azure AD 驗證時，有數個功能可協助更新過期的權杖，並針對應用程式可能呼叫的其他 Web API 資源取得權杖。當使用者成功向 Azure AD 驗證時，瀏覽器與 Azure AD 之間會為使用者建立一個以 Cookie 保護的工作階段。請務必注意，工作階段存在於使用者與 Azure AD 之間，而不是在使用者與伺服器上執行的 Web 應用程式之間。當權杖過期時，ADAL.js 會使用此工作階段來自動取得另一個權杖。在作法上是使用隱藏的 iFrame 來傳送和接收要求，而且是透過 OAuth 隱含授權通訊協定。ADAL.js 也可以使用這個相同的機制，針對應用程式會呼叫的其他 Web API 資源，自動從 Azure AD 取得存取權杖，但這些資源必須支援跨原始資源共用 (CORS)、已註冊在使用者的目錄中，而且使用者在登入期間已做出任何必要的同意。
+Wenn Sie ADAL.js verwenden, um die Authentifizierung mit Azure AD zu verwalten, stehen Ihnen mehrere Features zur Verfügung, die das Aktualisieren abgelaufener Token sowie das Abrufen von Token für zusätzliche Web-API-Ressourcen erleichtern, die unter Umständen von der Anwendung aufgerufen werden. Wenn sich der Benutzer erfolgreich mit Azure AD authentifiziert, wird für den Benutzer eine durch ein Cookie gesicherte Sitzung zwischen Browser und Azure AD erstellt. Wichtig: Die Sitzung besteht zwischen dem Benutzer und Azure AD, nicht zwischen dem Benutzer und der auf dem Server ausgeführten Webanwendung. Wenn ein Token abläuft, ruft ADAL.js unter Verwendung dieser Sitzung automatisch ein weiteres Token ab. Die entsprechende Anforderung wird über ein verborgenes iFrame und unter Verwendung des impliziten OAuth-Gewährungsprotokolls gesendet und empfangen. Mit dem gleichen Mechanismus kann ADAL.js von Azure AD automatisch Zugriffstoken für andere Web-API-Ressourcen abrufen, die von der Anwendung aufgerufen werden. Dafür müssen die Ressourcen CORS (Cross-Origin Resource Sharing) unterstützen, im Verzeichnis des Benutzers registriert sein und bei der Anmeldung die erforderlichen Zustimmungen des Benutzers erhalten haben.
 
 
-### 原生應用程式到 Web API
+### Systemeigene Anwendung zu Web-API
 
 
-本節描述代表使用者呼叫 Web API 的原生應用程式。此案例是根據 OAuth 2.0 授權碼授與類型和公用用戶端，如 [OAuth 2.0 規格](http://tools.ietf.org/html/rfc6749)第 4.1 節所述。此原生應用程式使用 OAuth 2.0 通訊協定，為使用者取得存取權杖。接著，此存取權杖隨著要求傳送至 Web API，Web API 再授權使用者並傳回所需的資源。
+Dieser Abschnitt beschreibt eine systemeigene Anwendung, die im Auftrag eines Benutzers eine Web-API aufruft. Dieses Szenario basiert auf der OAuth 2.0 Authorization Code Grant mit einem öffentlichen Client, wie in Abschnitt 4.1 der beschrieben die [OAuth 2.0-Spezifikation](http://tools.ietf.org/html/rfc6749). Die systemeigene Anwendung ruft unter Verwendung des OAuth 2.0-Protokolls ein Zugriffstoken für den Benutzer ab. Dieses Zugriffstoken wird dann in der Anforderung an die Web-API gesendet, die den Benutzer autorisiert und die gewünschte Ressource zurückgibt.
 
-#### 圖表
+#### Diagramm
 
-![原生應用程式到 Web API 圖表](./media/active-directory-authentication-scenarios/native_app_to_web_api.png)
+![Systemeigene Anwendung zu Web-API – Diagramm](./media/active-directory-authentication-scenarios/native_app_to_web_api.png)
 
-#### 原生應用程式到 API 的驗證流程
+#### Authentifizierungsfluss für die systemeigene Anwendung zu API
 
-#### 通訊協定流程的描述
+#### Beschreibung des Protokollflusses
 
 
-如果您使用 AD 驗證程式庫，則會為您處理如下所述的大部分通訊協定細節，例如瀏覽器快顯視窗、權杖快取和重新整理權杖的處理。
+Bei Verwendung der AD-Authentifizierungsbibliotheken werden Ihnen die meisten der hier beschriebenen Protokolldetails abgenommen (so etwa das Browser-Popup, die Tokenzwischenspeicherung und die Behandlung von Aktualisierungstoken).
 
-1. 原生應用程式使用瀏覽器快顯視窗，對 Azure AD 中的授權端點提出要求。此要求包含用戶端識別碼和原生應用程式的重新導向 URI (如管理入口網站所示)，以及 Web API 的應用程式識別碼 URI。如果使用者尚未登入，系統會提示他們再次登入。
+1. Über ein Browser-Popup sendet die systemeigene Anwendung eine Anforderung an den Autorisierungsendpunkt in Azure AD. Diese Anforderung enthält die Client-ID und den Umleitungs-URI der systemeigenen Anwendung (gemäß Angabe im Verwaltungsportal) sowie den Anwendungs-ID-URI für die Web-API. Falls sich der Benutzer noch nicht angemeldet hat, wird er dazu aufgefordert.
 
 
-2. Azure AD 驗證使用者。如果是多租用戶應用程式，且需要同意才能使用應用程式，則會要求使用者同意 (如果他們還沒有同意)。表示同意且成功驗證之後，Azure AD 會發出授權碼回應傳回至用戶端應用程式的重新導向 URI。
+2. Azure AD authentifiziert den Benutzer. Wenn es sich um eine mehrinstanzenfähige Anwendung handelt und für die Verwendung der Anwendung eine Zustimmung erforderlich ist, muss der Benutzer zustimmen, sofern nicht bereits geschehen. Nach der Zustimmung und einer erfolgreichen Authentifizierung gibt Azure AD eine Antwort mit einem Autorisierungscode an den Umleitungs-URI der Clientanwendung zurück.
 
 
-3. 當 Azure AD 發出授權碼回應傳回至重新導向 URI 時，用戶端應用程式會停止瀏覽器互動，並從回應中擷取授權碼。用戶端應用程式會使用此授權碼，傳送要求至 Azure AD 的權杖端點，此要求包含授權碼、用戶端應用程式的詳細資料 (用戶端識別碼和重新導向 URI)，以及所需的資源 (Web API 的應用程式識別碼 URI)。
+3. Wenn Azure AD einen Autorisierungscode an den Umleitungs-URI zurückgibt, beendet die Clientanwendung die Interaktion mit dem Browser und extrahiert den Autorisierungscode aus der Antwort. Auf der Grundlage dieses Autorisierungscodes sendet die Clientanwendung eine Anforderung an den Token-Endpunkt von Azure AD. Diese Anforderung enthält den Autorisierungscode, Details zur Clientanwendung (Client-ID und Umleitungs-URI) sowie die gewünschte Ressource (Anwendungs-ID-URI für die Web-API).
 
 
-4. Azure AD 驗證授權碼及用戶端應用程式和 Web API 的相關資訊。成功驗證後，Azure AD 會傳回兩個權杖：JWT 存取權杖和 JWT 重新整理權杖。此外，Azure AD 會傳回使用者的基本資訊，例如其顯示名稱和租用戶識別碼。
+4. Der Autorisierungscode sowie die Informationen zu Clientanwendung und Web-API werden von Azure AD überprüft. Bei erfolgreicher Validierung gibt Azure AD zwei Token zurück: ein JWT-Zugriffstoken und ein JWT-Aktualisierungstoken. Darüber hinaus gibt Azure AD grundlegende Benutzerinformationen wie Anzeigename und Mandanten-ID zurück.
 
 
-5. 用戶端應用程式使用傳回的 JWT 存取權杖，透過 HTTPS，在對 Web API 的要求的 Authorization 標頭中加上 JWT 字串並指定 "Bearer"。接著，Web API 驗證 JWT 權杖，如果驗證成功，則傳回所需的資源。
+5. Die Clientanwendung fügt der Web-API über HTTPS und unter Verwendung des zurückgegebenen JWT-Zugriffstokens die JWT-Zeichenfolge mit der Angabe „Bearer“ (Träger) im Autorisierungsheader der Anforderung hinzu. Daraufhin überprüft die Web-API das JWT-Token und gibt bei erfolgreicher Validierung die gewünschte Ressource zurück.
 
 
-6. 當存取權杖到期時，用戶端應用程式會收到錯誤，指出使用者必須再次驗證。如果應用程式具有有效的重新整理權杖，它可用來取得新的存取權杖，不會提示使用者重新登入。如果重新整理權杖到期，應用程式必須再一次以互動方式驗證使用者。
+6. Wenn das Zugriffstoken abläuft, erhält die Clientanwendung eine Fehlermeldung mit dem Hinweis, dass sich der Benutzer erneut authentifizieren muss. Wenn die Anwendung über ein gültiges Aktualisierungstoken verfügt, kann damit ohne erneute Anmeldeaufforderung ein neues Zugriffstoken abgerufen werden. Wenn das Aktualisierungstoken abläuft, muss die Anwendung den Benutzer interaktiv neu authentifizieren.
 
 
-> [AZURE.NOTE]Azure AD 所簽發的重新整理權杖可用來存取多個資源。例如，如果您的用戶端應用程式有權限呼叫兩個 Web API，重新整理權杖也可用來取得其他 Web API 的存取權杖。
+> [AZURE.NOTE] Von Azure AD ausgestellte Aktualisierungstoken kann verwendet werden, um mehrere Ressourcen zuzugreifen. Wenn Sie beispielsweise über eine Clientanwendung verfügen, die zum Aufrufen zweier Web-APIs berechtigt ist, kann mit dem Aktualisierungstoken auch ein Zugriffstoken für die andere Web-API abgerufen werden.
 
 
-#### 程式碼範例
+#### Codebeispiele
 
 
-請參閱「原生應用程式到 Web API」案例的程式碼範例。請經常回來查看，我們會隨時加入新的範例。[原生應用程式到 Web API](active-directory-code-samples.md#native-application-to-web-api)。
+Sehen Sie sich die Codebeispiele für Szenarien vom Typ „Systemeigene Anwendung zu Web-API“ an. Schauen Sie außerdem regelmäßig vorbei: Wir fügen immer wieder neue Beispiele hinzu. [Systemeigene Anwendung zu Web-API-](active-directory-code-samples.md#native-application-to-web-api).
 
 
-#### 註冊
+#### Registrieren
 
 
-- 單一租用戶：原生應用程式和 Web API 必須註冊在 Azure AD 的相同目錄中。Web API 可以設定為公開一組權限，用以限制原生應用程式對其資源的存取權。然後，用戶端應用程式從 Azure 管理入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。
+- Einzelinstanzanwendung: Sowohl die systemeigene Anwendung als auch die Web-API müssen in Azure AD im gleichen Verzeichnis registriert werden. Die Web-API kann so konfiguriert werden, dass sie einen Satz von Berechtigungen verfügbar macht, die den Ressourcenzugriff der systemeigenen Anwendung beschränken. Die Clientanwendung wählt daraufhin die gewünschten Berechtigungen aus dem Dropdownmenü „Berechtigungen für andere Anwendungen“ des Azure-Verwaltungsportals aus.
 
 
-- 多租用戶：首先，原生應用程式僅註冊在開發人員或發行者的目錄中。第二，設定原生應用程式來指出它運作所需的權限。當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可同意應用程式。其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。只有目錄管理員才能對需要此權限層級的應用程式表示同意。當使用者或系統管理員同意時，只有 Web API 會註冊在他們的目錄中。如需詳細資訊，請參閱[新增、更新及移除應用程式](https://msdn.microsoft.com/library/azure/dn132599.aspx)。
+- Mehrinstanzenfähige Anwendung: Die systemeigene Anwendung wird zum einen immer nur im Verzeichnis des Entwicklers oder des Herausgebers registriert. Zum anderen ist die systemeigene Anwendung so konfiguriert, dass sie die Berechtigungen angibt, die für eine ordnungsgemäße Verwendung erforderlich sind. Die Liste mit den erforderlichen Berechtigungen wird in einem Dialogfeld angezeigt, wenn ein Benutzer oder Administrator im Zielverzeichnis der Anwendung zustimmt. Dadurch wird die Anwendung in ihrer Organisation verfügbar. Einige Anwendungen benötigen nur Berechtigungen auf Benutzerebene. Diesen kann jeder Benutzer in der Organisation zustimmen. Andere Anwendungen benötigen Berechtigungen auf Administratorebene. Diesen kann ein Benutzer in der Organisation nicht zustimmen. Nur ein Verzeichnisadministrator kann seine Zustimmung für Anwendungen geben, die diese Berechtigungsebene erfordern. Wenn der Benutzer oder Administrator seine Zustimmung gibt, wird nur die Web-API in seinem Verzeichnis registriert. Weitere Informationen finden Sie unter [Integration von Anwendungen mit Azure Active Directory](active-directory-integrating-applications.md).
 
 
-#### 權杖到期
+#### Tokenablauf
 
 
-當原生應用程式使用其授權碼來取得 JWT 存取權杖時，它也會收到 JWT 重新整理權杖。當存取權杖到期時，重新整理權杖可用來重新驗證使用者，而不需要他們再次登入。然後，此重新整理權杖用來驗證使用者，結果會產生新的存取權杖和重新整理權杖。
+Wenn die systemeigene Anwendung mithilfe ihres Autorisierungscodes ein JWT-Zugriffstoken abruft, erhält sie auch ein JWT-Aktualisierungstoken. Dank des Aktualisierungstokens kann der Benutzer bei Ablauf des Zugriffstokens erneut authentifiziert werden, ohne sich erneut anmelden zu müssen. Das Aktualisierungstoken wird dann zum Authentifizieren des Benutzers verwendet, und ein neues Zugriffstoken sowie ein neues Aktualisierungstoken werden erstellt.
 
 
 
 
 
-### Web 應用程式到 Web API
+### Webanwendung zu Web-API
 
 
-本節描述需要從 Web API 取得資源的 Web 應用程式。在此案例中，有兩個識別類型可供 Web 應用程式用來驗證和呼叫 Web API：應用程式識別或委派的使用者識別。以應用程式識別類型而言，此案例使用 OAuth 2.0 用戶端認證授與來驗證應用程式和存取 Web API。使用應用程式識別時，Web API 只能偵測到 Web 應用程式正在呼叫它，因為 Web API 沒有收到關於使用者的任何資訊。如果應用程式收到使用者的相關資訊，此資訊會透過應用程式通訊協定傳送，但未經過 Azure AD 簽署。Web API 信任 Web 應用程式已驗證使用者。基於這個理由，這種模式稱為受信任子系統。
+Dieser Abschnitt beschreibt eine Webanwendung, die Ressourcen von einer Web-API abruft. In diesem Szenario kann die Webanwendung für die Authentifizierung und den Aufruf der Web-API entweder eine Anwendungsidentität oder eine delegierte Benutzeridentität verwenden. Im Falle des Anwendungsidentitätstyps werden in diesem Szenario OAuth 2.0-Clientanmeldeinformationen verwendet, um die Anwendung zu authentifizieren und auf die Web-API zuzugreifen. Da die Web-API bei Verwendung einer Anwendungsidentität keine Informationen zum Benutzer erhält, kann sie nur erkennen, dass sie von der Webanwendung aufgerufen wird. Wenn die Anwendung Informationen zum Benutzer erhält, werden diese über das Anwendungsprotokoll gesendet und nicht von Azure AD signiert. Die Web-API vertraut darauf, dass die Webanwendung den Benutzer authentifiziert hat. Aus diesem Grund wird dieses Modell als vertrauenswürdiges Subsystem bezeichnet.
 
-以委派的使用者識別類型而言，有兩種方式可實現此案例：OpenID Connect 和搭配機密用戶端的 OAuth 2.0 授權碼授與。Web 應用程式會為使用者取得存取權杖，向 Web API 證明使用者已順利通過 Web 應用程式的驗證，而且 Web 應用程式能夠取得委派的使用者識別來呼叫 Web API。此存取權杖隨著要求傳送至 Web API，Web API 再授權使用者並傳回所需的資源。
+Bei Verwendung der delegierten Benutzeridentität lässt sich das Szenario auf zwei Arten realisieren: mit OpenID Connect oder mit OAuth 2.0-Autorisierungscodegewährung und einem vertraulichen Client. Die Webanwendung ruft ein Zugriffstoken für den Benutzer ab, um gegenüber der Web-API zu belegen, dass der Benutzer erfolgreich bei der Webanwendung authentifiziert wurde und die Webanwendung für den Aufruf der Web-API eine delegierte Benutzeridentität erhalten hat. Dieses Zugriffstoken wird in der Anforderung an die Web-API gesendet, die den Benutzer autorisiert und die gewünschte Ressource zurückgibt.
 
-#### 圖表
+#### Diagramm
 
-![Web 應用程式到 Web API 圖表](./media/active-directory-authentication-scenarios/web_app_to_web_api.png)
+![Webanwendung zu Web-API – Diagramm](./media/active-directory-authentication-scenarios/web_app_to_web_api.png)
 
 
 
-#### 通訊協定流程的描述
+#### Beschreibung des Protokollflusses
 
-下列流程中討論應用程式識別和委派的使用者識別類型。它們之間的主要差異是委派的使用者識別必須先取得授權碼，使用者才能登入並存取 Web API。
+Die Anwendungsidentität und die delegierte Benutzeridentität werden im folgenden Ablauf veranschaulicht. Der Hauptunterschied zwischen den beiden Typen besteht darin, dass bei der delegierten Benutzeridentität zuerst ein Autorisierungscode abgerufen werden muss, damit sich der Benutzer anmelden und auf die Web-API zugreifen kann.
 
-##### 採用 OAuth 2.0 用戶端認證授與的應用程式識別
+##### Anwendungsidentität mit OAuth 2.0-Clientanmeldeinformationen
 
-1. 使用者在 Web 應用程式中登入 Azure AD (請參閱上方「Web 瀏覽器到 Web 應用程式」一節)。
+1. Ein Benutzer angemeldet ist, Azure AD in der Webanwendung (finden Sie unter der [Webbrowser zu Webanwendung](#web-browser-to-web-application) oben).
 
 
-2. Web 應用程式需要取得存取權杖，才能向 Web API 驗證和擷取所需的資源。它向 Azure AD 的權杖端點提出要求，並提供認證、用戶端識別碼和 Web API 的應用程式識別碼 URI。
+2. Die Webanwendung muss ein Zugriffstoken abrufen, damit sie sich gegenüber der Web-API authentifizieren und die gewünschte Ressource abrufen kann. Sie sendet eine Anfrage an den Token-Endpunkt von Azure AD. Diese Anfrage enthält die Anmeldeinformationen, die Client-ID und den Anwendungs-ID-URI der Web-API.
 
 
-3. Azure AD 驗證應用程式，並傳回用來呼叫 Web API 的 JWT 存取權杖。
+3. Azure AD authentifiziert die Anwendung und gibt ein JWT-Zugriffstoken zurück, das zum Aufrufen der Web-API verwendet wird.
 
 
-4. Web 應用程式使用傳回的 JWT 存取權杖，透過 HTTPS，在對 Web API 的要求的 Authorization 標頭中加上 JWT 字串並指定 "Bearer"。接著，Web API 驗證 JWT 權杖，如果驗證成功，則傳回所需的資源。
+4. Die Webanwendung fügt der Web-API über HTTPS und unter Verwendung des zurückgegebenen JWT-Zugriffstokens die JWT-Zeichenfolge mit der Angabe „Bearer“ (Träger) im Autorisierungsheader der Anforderung hinzu. Daraufhin überprüft die Web-API das JWT-Token und gibt bei erfolgreicher Validierung die gewünschte Ressource zurück.
 
-##### 採用 OpenID Connect 的委派的使用者識別
+##### Delegierte Benutzeridentität mit OpenID Connect
 
-1. 使用者使用 Azure AD 登入 Web 應用程式 (請參閱上方 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application))。如果 Web 應用程式的使用者尚未同意允許 Web 應用程式代表他來呼叫 Web API，使用者必須同意。應用程式會顯示它需要的權限，如果其中任何一項是系統管理員層級權限，則目錄中的一般使用者將無法同意。此同意程序僅適用於多租用戶應用程式，而非單一租用戶應用程式，因為應用程式已具有必要的權限。使用者登入後，Web 應用程式會收到識別碼權杖和使用者相關資訊，以及授權碼。
+1. Ein Benutzer ist bei einer Web-Anwendung mithilfe von Azure AD angemeldet (finden Sie unter der [Webbrowser zu Webanwendung](#web-browser-to-web-application) oben). Wenn der Benutzer der Webanwendung noch keine Zustimmung für den Aufruf der Web-API erteilt hat, muss er diesen Schritt noch durchführen. Die Anwendung zeigt die erforderlichen Berechtigungen an. Handelt es sich bei einer dieser Berechtigungen um eine Berechtigung auf Administratorebene, kann die Zustimmung nicht durch einen normalen Benutzer im Verzeichnis erteilt werden. Dieser Zustimmungsprozess gilt nur für mehrinstanzenfähige Anwendungen. Einzelinstanzanwendungen verfügen bereits über die erforderlichen Berechtigungen. Bei der Anmeldung des Benutzers hat die Webanwendung ein ID-Token mit Benutzerinformationen sowie einen Autorisierungscode erhalten.
 
 
-2. Web 應用程式會使用 Azure AD 簽發的授權碼，傳送要求至 Azure AD 的權杖端點，此要求包含授權碼、用戶端應用程式的詳細資料 (用戶端識別碼和重新導向 URI)，以及所需的資源 (Web API 的應用程式識別碼 URI)。
+2. Auf der Grundlage des Autorisierungscodes von Azure AD sendet die Webanwendung eine Anforderung an den Token-Endpunkt von Azure AD. Diese Anforderung enthält den Autorisierungscode, Details zur Clientanwendung (Client-ID und Umleitungs-URI) sowie die gewünschte Ressource (Anwendungs-ID-URI für die Web-API).
 
 
-3. Azure AD 驗證授權碼及 Web 應用程式和 Web API 的相關資訊。成功驗證後，Azure AD 會傳回兩個權杖：JWT 存取權杖和 JWT 重新整理權杖。
+3. Der Autorisierungscode sowie die Informationen zu Webanwendung und Web-API werden von Azure AD überprüft. Bei erfolgreicher Validierung gibt Azure AD zwei Token zurück: ein JWT-Zugriffstoken und ein JWT-Aktualisierungstoken.
 
 
-4. Web 應用程式使用傳回的 JWT 存取權杖，透過 HTTPS，在對 Web API 的要求的 Authorization 標頭中加上 JWT 字串並指定 "Bearer"。接著，Web API 驗證 JWT 權杖，如果驗證成功，則傳回所需的資源。
+4. Die Webanwendung fügt der Web-API über HTTPS und unter Verwendung des zurückgegebenen JWT-Zugriffstokens die JWT-Zeichenfolge mit der Angabe „Bearer“ (Träger) im Autorisierungsheader der Anforderung hinzu. Daraufhin überprüft die Web-API das JWT-Token und gibt bei erfolgreicher Validierung die gewünschte Ressource zurück.
 
-##### 採用 OAuth 2.0 授權碼授與的委派的使用者識別
+##### Delegierte Benutzeridentität mit OAuth 2.0-Autorisierungscode
 
-1. 使用者已經登入 Web 應用程式，其驗證機制與 Azure AD 無關。
+1. Ein Benutzer ist bereits bei einer Webanwendung angemeldet, und der Authentifizierungsmechanismus ist von Azure AD unabhängig.
 
 
-2. Web 應用程式需要授權碼才能取得存取權杖，因此它透過瀏覽器向 Azure AD 授權端點發出要求，並提供用戶端識別碼和成功驗證之後的 Web 應用程式重新導向 URI。使用者登入 Azure AD。
+2. Die Webanwendung benötigt einen Autorisierungscode, um ein Zugriffstoken abzurufen. Daher sendet sie über den Browser eine Anforderung an den Autorisierungsendpunkt von Azure AD. Diese Anforderung enthält die Client-ID und den Umleitungs-URI für die Webanwendung nach erfolgreicher Authentifizierung. Der Benutzer meldet sich bei Azure AD an.
 
 
-3. 如果 Web 應用程式的使用者尚未同意允許 Web 應用程式代表他來呼叫 Web API，使用者必須同意。應用程式會顯示它需要的權限，如果其中任何一項是系統管理員層級權限，則目錄中的一般使用者將無法同意。此同意程序僅適用於多租用戶應用程式，而非單一租用戶應用程式，因為應用程式已具有必要的權限。
+3. Wenn der Benutzer der Webanwendung noch keine Zustimmung für den Aufruf der Web-API erteilt hat, muss er diesen Schritt noch durchführen. Die Anwendung zeigt die erforderlichen Berechtigungen an. Handelt es sich bei einer dieser Berechtigungen um eine Berechtigung auf Administratorebene, kann die Zustimmung nicht durch einen normalen Benutzer im Verzeichnis erteilt werden. Dieser Zustimmungsprozess gilt nur für mehrinstanzenfähige Anwendungen. Einzelinstanzanwendungen verfügen bereits über die erforderlichen Berechtigungen.
 
 
-4. 使用者同意之後，Web 應用程式會收到它取得存取權杖所需的授權碼。
+4. Wenn der Benutzer seine Zustimmung gegeben hat, erhält die Webanwendung den Autorisierungscode, den sie zum Abrufen eines Zugriffstokens benötigt.
 
 
-5. Web 應用程式會使用 Azure AD 簽發的授權碼，傳送要求至 Azure AD 的權杖端點，此要求包含授權碼、用戶端應用程式的詳細資料 (用戶端識別碼和重新導向 URI)，以及所需的資源 (Web API 的應用程式識別碼 URI)。
+5. Auf der Grundlage des Autorisierungscodes von Azure AD sendet die Webanwendung eine Anforderung an den Token-Endpunkt von Azure AD. Diese Anforderung enthält den Autorisierungscode, Details zur Clientanwendung (Client-ID und Umleitungs-URI) sowie die gewünschte Ressource (Anwendungs-ID-URI für die Web-API).
 
 
-6. Azure AD 驗證授權碼及 Web 應用程式和 Web API 的相關資訊。成功驗證後，Azure AD 會傳回兩個權杖：JWT 存取權杖和 JWT 重新整理權杖。
+6. Der Autorisierungscode sowie die Informationen zu Webanwendung und Web-API werden von Azure AD überprüft. Bei erfolgreicher Validierung gibt Azure AD zwei Token zurück: ein JWT-Zugriffstoken und ein JWT-Aktualisierungstoken.
 
 
-7. Web 應用程式使用傳回的 JWT 存取權杖，透過 HTTPS，在對 Web API 的要求的 Authorization 標頭中加上 JWT 字串並指定 "Bearer"。接著，Web API 驗證 JWT 權杖，如果驗證成功，則傳回所需的資源。
+7. Die Webanwendung fügt der Web-API über HTTPS und unter Verwendung des zurückgegebenen JWT-Zugriffstokens die JWT-Zeichenfolge mit der Angabe „Bearer“ (Träger) im Autorisierungsheader der Anforderung hinzu. Daraufhin überprüft die Web-API das JWT-Token und gibt bei erfolgreicher Validierung die gewünschte Ressource zurück.
 
-#### 程式碼範例
+#### Codebeispiele
 
-請參閱「Web 應用程式到 Web API」案例的程式碼範例。請經常回來查看，我們會隨時加入新的範例。Web [應用程式到 Web API](active-directory-code-samples.md#web-application-to-web-api)。
+Sehen Sie sich die Codebeispiele für Szenarien vom Typ „Webanwendung zu Web-API“ an. Schauen Sie außerdem regelmäßig vorbei: Wir fügen immer wieder neue Beispiele hinzu. Web [zu Web-API](active-directory-code-samples.md#web-application-to-web-api).
 
 
-#### 註冊
+#### Registrieren
 
-- 單一租用戶：無論是應用程式識別或委派的使用者識別的情況，Web 應用程式和 Web API 都必須註冊在 Azure AD 的相同目錄中。Web API 可以設定為公開一組權限，用以限制 Web 應用程式對其資源的存取權。如果使用委派的識別類型，Web 應用程式需要從 Azure 管理入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。如果使用應用程式識別類型，則不需要此步驟。
+- Einzelinstanzanwendung: Webanwendung und Web-API müssen sowohl bei Verwendung der Anwendungsidentität als auch bei Verwendung der delegierten Benutzeridentität im gleichen Verzeichnis in Azure AD registriert werden. Die Web-API kann so konfiguriert werden, dass sie einen Satz von Berechtigungen verfügbar macht, die den Ressourcenzugriff der Webanwendung beschränken. Bei Verwendung einer delegierten Benutzeridentität muss die Webanwendung die gewünschten Berechtigungen aus dem Dropdownmenü „Berechtigungen für andere Anwendungen“ des Azure-Verwaltungsportals auswählen. Bei Verwendung der Anwendungsidentität ist dieser Schritt nicht erforderlich.
 
 
-- 多租用戶：首先，設定 Web 應用程式來指出它運作所需的權限。當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可同意應用程式。其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。只有目錄管理員才能對需要此權限層級的應用程式表示同意。當使用者或系統管理員同意時，Web 應用程式和 Web API 都會註冊在他們的目錄中。
+- Mehrinstanzenfähige Anwendung: Die Webanwendung wird so konfiguriert, dass sie die Berechtigungen angibt, die für eine ordnungsgemäße Verwendung erforderlich sind. Die Liste mit den erforderlichen Berechtigungen wird in einem Dialogfeld angezeigt, wenn ein Benutzer oder Administrator im Zielverzeichnis der Anwendung zustimmt. Dadurch wird die Anwendung in ihrer Organisation verfügbar. Einige Anwendungen benötigen nur Berechtigungen auf Benutzerebene. Diesen kann jeder Benutzer in der Organisation zustimmen. Andere Anwendungen benötigen Berechtigungen auf Administratorebene. Diesen kann ein Benutzer in der Organisation nicht zustimmen. Nur ein Verzeichnisadministrator kann seine Zustimmung für Anwendungen geben, die diese Berechtigungsebene erfordern. Wenn der Benutzer oder Administrator seine Zustimmung gibt, werden die Webanwendung und die Web-API in dessen Verzeichnis registriert.
 
-#### 權杖到期
+#### Tokenablauf
 
-當 Web 應用程式使用其授權碼來取得 JWT 存取權杖時，它也會收到 JWT 重新整理權杖。當存取權杖到期時，重新整理權杖可用來重新驗證使用者，而不需要他們再次登入。然後，此重新整理權杖用來驗證使用者，結果會產生新的存取權杖和重新整理權杖。
+Wenn die Webanwendung mithilfe ihres Autorisierungscodes ein JWT-Zugriffstoken abruft, erhält sie auch ein JWT-Aktualisierungstoken. Dank des Aktualisierungstokens kann der Benutzer bei Ablauf des Zugriffstokens erneut authentifiziert werden, ohne sich erneut anmelden zu müssen. Das Aktualisierungstoken wird dann zum Authentifizieren des Benutzers verwendet, und ein neues Zugriffstoken sowie ein neues Aktualisierungstoken werden erstellt.
 
 
-### 精靈或伺服器應用程式到 Web API
+### Daemon- oder Serveranwendung zu Web-API
 
 
-本節描述需要從 Web API 取得資源的精靈或伺服器應用程式。有兩個子案例適用於本節：需要呼叫 Web API 且基於 OAuth 2.0 用戶端認證授與類型的精靈；需要呼叫 Web API 且基於 OAuth 2.0 On-Behalf-Of 草稿規格的伺服器應用程式 (例如 Web API)。
+Dieser Abschnitt beschreibt eine Daemon- oder Serveranwendung, die Ressourcen von einer Web-API abruft. Der Abschnitt beinhaltet zwei untergeordnete Szenarien: eine Daemon-Anwendung, die auf der Grundlage von OAuth 2.0-Anmeldeinformationen eine Web-API aufruft, und eine Serveranwendung (z. B. eine Web-API), die auf der Grundlage der OAuth 2.0-Entwurfsspezifikation „On-Behalf-Of“ eine Web-API aufruft.
 
-在精靈應用程式需要呼叫 Web API 的案例中，務必了解一些事情。首先，使用者無法與精靈應用程式互動，應用程式必須有自己的身分識別。像是批次工作，或在背景執行的作業系統服務，就是精靈應用程式的例子。這類應用程式會使用其應用程式識別，並向 Azure AD 出示其用戶端識別碼、認證 (密碼或憑證) 和應用程式識別碼 URI，以要求存取權杖。成功驗證之後，精靈會從 Azure AD 收到存取權杖，然後用來呼叫 Web API。
+Für das Szenario mit der Daemon-Anwendung, die eine Web-API aufruft, ist es wichtig, einige Dinge zu verstehen: Da mit einer Daemon-Anwendung keine Benutzerinteraktion möglich ist, benötigt die Anwendung ihre eigene Identität. Ein Beispiel für eine Daemon-Anwendung wäre ein Batchauftrag oder ein im Hintergrund ausgeführter Betriebssystemdienst. Diese Art von Anwendung fordert auf der Grundlage ihrer Anwendungsidentität ein Zugriffstoken an und gibt dabei gegenüber Azure AD ihre Client-ID, ihre Anmeldeinformationen (Kennwort oder Zertifikat) sowie ihren Anwendungs-ID-URI an. Nach erfolgreicher Authentifizierung erhält die Daemon-Anwendung ein Zugriffstoken von Azure AD, mit dem sie dann die Web-API aufrufen kann.
 
-在伺服器應用程式需要呼叫 Web API 的案例中，最好使用範例。假設使用者已在原生應用程式上驗證，而此原生應用程式需要呼叫 Web API。Azure AD 會發出 JWT 存取權杖來呼叫 Web API。如果 Web API 需要呼叫另一個下游 Web API，它可以使用代表流程來委派使用者的身分識別，並向第二層 Web API 驗證。
+Das Szenario mit der Serveranwendung, die eine Web-API aufruft, lässt sich am besten mit einem Beispiel verdeutlichen. Angenommen, ein Benutzer hat sich bei einer systemeigenen Anwendung authentifiziert, und diese systemeigene Anwendung muss eine Web-API aufrufen. Azure AD stellt ein JWT-Zugriffstoken für den Web-API-Aufruf aus. Wenn die Web-API ihrerseits eine nachgelagerte Web-API aufrufen muss, kann sie den On-Behalf-Of-Fluss verwenden, um die Identität des Benutzers zu delegieren und sich gegenüber der Web-API der zweiten Ebene zu authentifizieren.
 
-#### 圖表
+#### Diagramm
 
-![精靈或伺服器應用程式到 Web API 圖表](./media/active-directory-authentication-scenarios/daemon_server_app_to_web_api.png)
+![Daemon- oder Serveranwendung zu Web-API – Diagramm](./media/active-directory-authentication-scenarios/daemon_server_app_to_web_api.png)
 
-#### 通訊協定流程的描述
+#### Beschreibung des Protokollflusses
 
-##### 採用 OAuth 2.0 用戶端認證授與的應用程式識別
+##### Anwendungsidentität mit OAuth 2.0-Clientanmeldeinformationen
 
-1. 首先，伺服器應用程式本身必須向 Azure AD 驗證，沒有任何人為互動，例如互動式登入對話方塊。它向 Azure AD 的權杖端點提出要求，並提供認證、用戶端識別碼和應用程式識別碼 URI。
+1. Zuerst muss sich die Serveranwendung mit Azure AD ohne Benutzerinteraktion (also beispielsweise ohne interaktives Anmeldedialogfeld) als sie selbst authentifizieren. Sie sendet eine Anfrage an den Token-Endpunkt von Azure AD. Diese Anfrage enthält die Anmeldeinformationen, die Client-ID und den Anwendungs-ID-URI.
 
 
-2. Azure AD 驗證應用程式，並傳回用來呼叫 Web API 的 JWT 存取權杖。
+2. Azure AD authentifiziert die Anwendung und gibt ein JWT-Zugriffstoken zurück, das zum Aufrufen der Web-API verwendet wird.
 
 
-3. Web 應用程式使用傳回的 JWT 存取權杖，透過 HTTPS，在對 Web API 的要求的 Authorization 標頭中加上 JWT 字串並指定 "Bearer"。接著，Web API 驗證 JWT 權杖，如果驗證成功，則傳回所需的資源。
+3. Die Webanwendung fügt der Web-API über HTTPS und unter Verwendung des zurückgegebenen JWT-Zugriffstokens die JWT-Zeichenfolge mit der Angabe „Bearer“ (Träger) im Autorisierungsheader der Anforderung hinzu. Daraufhin überprüft die Web-API das JWT-Token und gibt bei erfolgreicher Validierung die gewünschte Ressource zurück.
 
 
-##### 採用 OAuth 2.0 On-Behalf-Of 草稿規格的委派的使用者識別
+##### Delegierte Benutzeridentität mit OAuth 2.0-Entwurfsspezifikation „On-Behalf-Of“
 
-下面討論的流程假設使用者已在另一個應用程式上驗證 (例如，原生應用程式)，且其使用者識別已用來取得第一層 Web API 的存取權杖。
+Im folgenden Ablauf wird davon ausgegangen, dass ein Benutzer in einer anderen Anwendung (beispielsweise in einer systemeigenen Anwendung) authentifiziert und auf der Grundlage der Benutzeridentität ein Zugriffstoken für die Web-API der ersten Ebene abgerufen wurde.
 
-1. 原生應用程式將存取權杖傳送到第一層 Web API。
+1. Die systemeigene Anwendung sendet das Zugriffstoken an die Web-API der ersten Ebene.
 
 
-2. 第一層 Web API 傳送要求至 Azure AD 的權杖端點，並提供其用戶端識別碼和認證，以及使用者的存取權杖。此外，傳送的要求包含 on_behalf_of 參數，指出 Web API 正在代表原始使用者要求新權杖來呼叫下游 Web API。
+2. Die Web-API der ersten Ebene sendet eine Anforderung an den Token-Endpunkt von Azure AD. Diese enthält die Client-ID und die Anmeldeinformationen sowie das Zugriffstoken des Benutzers. Die Anforderung wird zudem mit einem Parameter vom Typ „on_behalf_of“ versehen, der angibt, dass die Web-API neue Token anfordert, um im Auftrag des ursprünglichen Benutzers eine nachgelagerte Web-API aufzurufen.
 
 
-3. Azure AD 確認第一層 Web API 有權存取第二層 Web API，並驗證要求，然後傳回 JWT 存取權杖和 JWT 重新整理權杖給第一層 Web API。
+3. Azure AD überprüft, ob die Web-API der ersten Ebene über Zugriffsberechtigungen für die Web-API der zweiten Ebene verfügt, und validiert die Anforderung. Dabei werden an die Web-API der ersten Ebene ein JWT-Zugriffstoken und ein JWT-Aktualisierungstoken zurückgegeben.
 
 
-4. 接著，第一層 Web API 透過 HTTPS，在要求的 Authorization 標頭中附加權杖字串，以呼叫第二層 Web API。只要存取權杖和重新整理權杖有效，第一層 Web API 就可以繼續呼叫第二層 Web API。
+4. Anschließend ruft die Web-API der ersten Ebene per HTTPS die Web-API der zweiten Ebene auf, indem sie die Tokenzeichenfolge an den Autorisierungsheader der Anforderung anfügt. Die Web-API der ersten Ebene kann die Web-API der zweiten Ebene aufrufen, solange das Zugriffstoken und die Aktualisierungstoken gültig sind.
 
-#### 程式碼範例
+#### Codebeispiele
 
-請參閱「精靈或伺服器應用程式到 Web API」案例的程式碼範例。請經常回來查看，我們會隨時加入新的範例。[伺服器或精靈應用程式到 Web API](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
+Sehen Sie sich die Codebeispiele für Szenarien vom Typ „Daemon- oder Serveranwendung zu Web-API“ an. Schauen Sie außerdem regelmäßig vorbei: Wir fügen immer wieder neue Beispiele hinzu. [Server- oder Daemonanwendung zu Web-API](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
 
-#### 註冊
+#### Registrieren
 
-- 單一租用戶：無論是應用程式識別或委派的使用者識別的情況，精靈或伺服器應用程式都必須註冊在 Azure AD 的相同目錄中。Web API 可以設定為公開一組權限，用以限制精靈或伺服器應用程式對其資源的存取權。如果使用委派的識別類型，伺服器應用程式需要從 Azure 管理入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。如果使用應用程式識別類型，則不需要此步驟。
+- Einzelinstanzanwendung: Die Daemon- oder Serveranwendung muss sowohl bei Verwendung der Anwendungsidentität als auch bei Verwendung der delegierten Benutzeridentität im gleichen Verzeichnis in Azure AD registriert werden. Die Web-API kann so konfiguriert werden, dass sie einen Satz von Berechtigungen verfügbar macht, die den Ressourcenzugriff der Daemon- oder Serveranwendung beschränken. Bei Verwendung einer delegierten Benutzeridentität muss die Serveranwendung die gewünschten Berechtigungen aus dem Dropdownmenü „Berechtigungen für andere Anwendungen“ des Azure-Verwaltungsportals auswählen. Bei Verwendung der Anwendungsidentität ist dieser Schritt nicht erforderlich.
 
 
-- 多租用戶：首先，設定精靈或伺服器應用程式來指出它運作所需的權限。當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可同意應用程式。其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。只有目錄管理員才能對需要此權限層級的應用程式表示同意。當使用者或系統管理員同意時，這兩個 Web API 都會註冊在他們的目錄中。
+- Mehrinstanzenfähige Anwendung: Die Daemon- oder Serveranwendung wird so konfiguriert, dass sie die Berechtigungen angibt, die für eine ordnungsgemäße Verwendung erforderlich sind. Die Liste mit den erforderlichen Berechtigungen wird in einem Dialogfeld angezeigt, wenn ein Benutzer oder Administrator im Zielverzeichnis der Anwendung zustimmt. Dadurch wird die Anwendung in ihrer Organisation verfügbar. Einige Anwendungen benötigen nur Berechtigungen auf Benutzerebene. Diesen kann jeder Benutzer in der Organisation zustimmen. Andere Anwendungen benötigen Berechtigungen auf Administratorebene. Diesen kann ein Benutzer in der Organisation nicht zustimmen. Nur ein Verzeichnisadministrator kann seine Zustimmung für Anwendungen geben, die diese Berechtigungsebene erfordern. Wenn der Benutzer oder Administrator seine Zustimmung gibt, werden die beiden Web-APIs in seinem Verzeichnis registriert.
 
-#### 權杖到期
+#### Tokenablauf
 
-當第一個應用程式使用其授權碼來取得 JWT 存取權杖時，它也會收到 JWT 重新整理權杖。當存取權杖到期時，重新整理權杖可用來重新驗證使用者，而不會提示輸入認證。然後，此重新整理權杖用來驗證使用者，結果會產生新的存取權杖和重新整理權杖。
+Wenn die erste Anwendung mithilfe ihres Autorisierungscodes ein JWT-Zugriffstoken abruft, erhält sie auch ein JWT-Aktualisierungstoken. Dank des Aktualisierungstokens kann der Benutzer bei Ablauf des Zugriffstokens erneut authentifiziert werden, ohne zur Eingabe seiner Anmeldeinformationen aufgefordert zu werden. Das Aktualisierungstoken wird dann zum Authentifizieren des Benutzers verwendet, und ein neues Zugriffstoken sowie ein neues Aktualisierungstoken werden erstellt.
 
-## 另請參閱
+## Siehe auch
 
-[Azure Active Directory 程式碼範例](active-directory-code-samples.md)
+[Entwicklerhandbuch zu Azure Active Directory](active-directory-developers-guide.md)
 
-[Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx)
- 
-[Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
- 
+[Azure Active Directory-Codebeispiele](active-directory-code-samples.md)
 
-<!---HONumber=62-->
+[Wichtige Informationen zum Signaturschlüsselrollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
+
+[OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
+
+

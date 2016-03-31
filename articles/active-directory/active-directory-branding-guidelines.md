@@ -1,6 +1,6 @@
 <properties
-   pageTitle="應用程式的商標指導方針"
-   description="Azure Active Directory 開發人員導向資源的完整指南"
+   pageTitle="Brandingrichtlinien für Anwendungen | Microsoft Azure"
+   description="Eine umfassende Anleitung zu entwicklerorientierten Ressourcen für Azure Active Directory"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,87 +13,85 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
-# 應用程式的商標指導方針
+# Brandingrichtlinien für Anwendungen
 
 
-本主題討論使用 Azure Active Directory 開發應用程式時，您應該使用的商標指導方針。當客戶想要使用其工作或學校帳戶 (在 Azure AD 中管理) 來註冊和登入您的應用程式時，這些指導方針可協助引導客戶。
+Dieses Thema behandelt die empfohlenen Brandingrichtlinien für die Entwicklung von Anwendungen mit Azure Active Directory. Die Richtlinien stellen sicher, dass sich Kunden, die sich über ihr in Azure AD verwaltetes Geschäfts- oder Schulkonto bei Ihrer Anwendung registrieren und anmelden möchten, besser zurechtfinden.
 
-## 個人帳戶與 Microsoft 提供的工作或學校帳戶的比較
+## Gegenüberstellung von persönlichen Konten und Geschäfts- oder Schulkonten von Microsoft
 
-Microsoft 管理兩種類型的使用者帳戶：
+Microsoft verwaltet zwei Arten von Benutzerkonten:
 
-- **個人帳戶** (之前稱為 Windows Live ID)。這些帳戶代表*個別*使用者和 Microsoft 之間的關聯性，用於存取來自 Microsoft 的消費型裝置和服務。這些帳戶主要供個人使用。
+- **Persönliche Konten** (ehemals Windows Live ID). Diese Konten darstellen, die Beziehung zwischen *einzelne* Benutzer und Microsoft und werden verwendet, um Zugriff auf Verbrauchergeräte und Dienste von Microsoft. Konten dieser Art sind für den persönlichen Gebrauch vorgesehen.
 
-- **工作或學校帳戶。** 這些是使用 Azure Active Directory 的組織交由 Microsoft 代為管理的帳戶。這些帳戶用來從 Microsoft 登入 Office 365 和其他商務服務。
+- **Geschäfts- oder Schulkonten.** Diese Konten werden von Microsoft für Unternehmen verwaltet, die Azure Active Directory verwenden. Konten dieser Art dienen zur Anmeldung bei Office 365 und anderen Unternehmensdiensten von Microsoft.
 
-Microsoft 工作或學校帳戶通常由其組織 (公司、 學校、政府機構) 指派給使用者 (員工、學生、聯邦員工)。這些帳戶可能直接在雲端中管理 (在 Azure AD 平台)，或從內部部署目錄 (例如 Windows Server Active Directory) 同步處理到 Azure AD。Microsoft 是工作或學校帳戶的*保管者*，但這些帳戶由組織擁有和控制。
+Geschäfts- oder Schulkonten von Microsoft werden den Endbenutzern (Angestellten, Schülern/Studenten, Behördenmitarbeitern) üblicherweise von der jeweiligen Organisation (Unternehmen, Bildungseinrichtung, Behörde) zugewiesen. Diese Konten werden entweder direkt in der Cloud oder über die Azure AD-Plattform gemastert oder über ein lokales Verzeichnis (wie etwa Windows Server Active Directory) mit Azure AD synchronisiert. Microsoft ist die *Verwalter des* für die Arbeit oder Schule Konten, aber die Konten gehört und von der Organisation kontrolliert werden.
 
-## 在您的應用程式中提及 Azure AD 帳戶
+## Verweisen auf Azure AD-Konten in Ihrer Anwendung
 
-Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，所以您也不應該如此。
+Microsoft verwendet die Markennamen „Azure“ und „Active Directory“ nicht gegenüber Endbenutzern – eine Regel, an die auch Sie sich halten sollten.
 
-- 使用者登入之後，您應該盡可能使用組織的名稱和標誌。這比使用「您的組織」之類的通稱更好。
+- Nach der Anmeldung eines Benutzers sollten Sie möglichst häufig den Namen und das Logo der Organisation verwenden. Das ist besser als die Verwendung generischer Formulierungen wie „Ihre Organisation“.
 
-- 當使用者未登入時，您應該將他們的帳戶稱為「工作或學校帳戶」，並使用 Microsoft 標誌來表達這些帳戶由 Microsoft 管理。請勿使用「企業帳戶」、「商務帳戶」或「公司帳戶」之類的詞彙，這會造成使用者混淆。
+- Wenn der Benutzer nicht angemeldet sind, sollten Sie dessen Konto als „Geschäfts- oder Schulkonto“ bezeichnen und durch die Verwendung des Microsoft-Logos deutlich machen, dass das Konto von Microsoft verwaltet wird. Verwenden Sie keine Begriffe wie „Unternehmenskonto“, „Business-Konto“ oder „Firmenkonto“, um den Benutzer nicht zu verwirren.
 
-## 使用者帳戶象形圖
-在這些指導方針的較早版本中，我們建議使用「藍色徽章」象形圖。根據使用者和開發人員的意見反應，我們現在建議改用 Microsoft 標誌。這有助於使用者了解，他們用於 Office 365 或其他 Microsoft 商務服務的帳戶，也可以重複用來登入您的應用程式。
+## Piktogramm für Benutzerkonten
+In einer früheren Version dieser Richtlinien haben wir die Verwendung eines blauen Badge-Piktogramms empfohlen. Aufgrund von Benutzer- und Entwicklerfeedback empfehlen wir inzwischen aber stattdessen die Verwendung des Microsoft-Logos. Dadurch wird den Benutzern besser vermittelt, dass sie sich bei Ihrer App mit dem gleichen Konto anmelden können, das sie auch für Office 365 und andere Unternehmensdienste von Microsoft verwenden.
 
-## 使用 Azure AD 來註冊和登入
+## Registrieren und Anmelden mit Azure AD
 
-您的應用程式可能將註冊和登入劃分成不同的路徑，下列各節提供這兩個案例的視覺化導引。
+Ihre Anwendung verwendet möglicherweise separate Vorgehensweisen für Registrierung und Anmeldung. Dies wird in den folgenden Abschnitten berücksichtigt.
 
-**如果您的應用程式支援使用者註冊 (例如免費試用版或免費增值模式)**：您可以顯示 [**登入**] 按鈕，讓使用者利用 Microsoft 提供的工作或學校帳戶來存取您的應用程式。他們第一次存取您的應用程式時，Azure AD 會顯示同意提示。
+**Wenn Ihre app Endbenutzer unterstützt (z. B. bei einer kostenlosen Testversion oder Freemium-Modell)**: können Sie anzeigen eine **Anmelden** Schaltfläche, die Benutzer Ihrer app mit ihrem Geschäfts- oder schulkonto von Microsoft zugreifen kann. Beim ersten Zugriff auf Ihre App zeigt Azure AD eine Zustimmungsaufforderung an.
 
-**如果您的應用程式需要唯有系統管理員才能同意的權限，或您的應用程式需要組織授權**：您應該將系統管理員擷取與使用者登入分開。 **取得此應用程式] 按鈕**會將系統管理員重新導向登入，然後要求他們代表組織中使用者來表示同意。額外的好處是避免您的應用程式顯示使用者同意提示。
+**Wenn Ihre app benötigt Berechtigungen, die Zustimmung kann, oder Ihre app muss Organisation lizenziert**: Admin administratorzustimmung und Benutzeranmeldung sollten getrennt. Die **"Abrufen der app" Schaltfläche** leitet Administratoren zur Anmeldung weiter und bitten sie um Ihre Zustimmung im Auftrag von Benutzern in ihrer Organisation. Dies hat den zusätzlichen Vorteil, dass Zustimmungsaufforderungen für Endbenutzer Ihrer App unterdrückt werden.
 
-## 取得應用程式的視覺化導引
+## Darstellungsleitfaden für den App-Erwerb
 
-[取得應用程式] 連結必須將使用者重新導向 Azure AD 授與存取權 (授權) 頁面，讓組織的系統管理員可授權您的應用程式來存取由 Microsoft 管理的組織資料。[新增、更新及移除應用程式](https://msdn.microsoft.com/library/azure/dn132599.aspx)主題中討論如何要求存取權的詳細資料。
+Über den Link zum Abrufen der App muss der Benutzer auf die Zugriffsgewährungs- bzw. Autorisierungsseite von Azure AD weitergeleitet werden, damit ein Organisationsadministrator Ihrer App den Zugriff auf die von Microsoft gehosteten Organisationsdaten gewähren kann. Ausführliche Informationen zum Anfordern des Zugriffs werden im erläutert die [Integration von Anwendungen mit Azure Active Directory](active-directory-integrating-applications.md) Artikel.
 
-系統管理員同意您的應用程式之後，他們可以選擇將它加入使用者的 Office 365 應用程式啟動器體驗 (可從非正式管道和 [https://portal.office.com/myapps](https://portal.office.com/myapps) 存取)。如果您想要宣傳這項功能，您可以使用「將此應用程式加入至您的組織」之類的詞彙，並顯示如下的按鈕：
+Nachdem Ihre app Zustimmung festlegen, die Benutzer Office 365-Startprogramm Anwendungskomfort hinzufügen (Zugriff über das Startfeld oder über [https://portal.office.com/myapps](https://portal.office.com/myapps)). Wenn Sie auf diese Funktion hinweisen möchten, können Sie beispielsweise eine Formulierung wie „App zur Organisation hinzufügen“ und die folgende Schaltfläche verwenden:
 
-![應用程式類型和案例](./media/active-directory-branding-guidelines/add-to-my-org.png)
-  
-不過，我們建議您撰寫說明文字，而不要依賴按鈕。例如：
-> *如果您已經使用 Office 365 或 Microsoft 的其他商務服務，您可以直接授權 <your_app_name> 存取您的組織資料。這可讓使用者利用其現有的工作帳戶存取 <your_app_name>。*
+![Anwendungstypen und -szenarien](./media/active-directory-branding-guidelines/add-to-my-org.png)
+
+Es empfiehlt sich jedoch, eine Erläuterung in Textform zu verwenden, anstatt nur auf Schaltflächen zu setzen. Beispiel:
+> *Wenn Sie bereits Office 365 oder andere Unternehmensdienste von Microsoft verwenden, können Sie einfach < Your_app_name > Zugriff auf Daten Ihrer Organisation gewähren. Dadurch können die Benutzer mit ihren bereits vorhandenen Geschäftskonten < Your_app_name > zugreifen.*
 
 
-## 登入的視覺化導引
-您的應用程式應該顯示登入按鈕，將使用者重新導向登入端點，此端點符合您用來與 Azure AD 整合的通訊協定。下節提供該按鈕外觀的詳細資料。
+## Darstellungsleitfaden für die Anmeldung
+Ihre App sollte eine Anmeldeschaltfläche besitzen, über die der Benutzer an den Anmelde-Endpunkt mit dem Protokoll weitergeleitet wird, das Sie für die Azure AD-Integration verwenden. Im folgenden Abschnitt erfahren Sie, wie diese Schaltfläche auszusehen hat.
 
-### 象形圖和「公司或學校帳戶」 
-結合 Microsoft 標誌與通用的「工作或學校」詞彙，才能在應用程式可能支援的其他身分識別提供者之中，彰顯 Azure AD 的獨特性。如果沒有足夠的空間顯示「工作或學校帳戶」，可以縮短為「工作帳戶」。
- 
-![應用程式類型和案例](./media/active-directory-branding-guidelines/work-or-school-account.png)
+### Piktogramm und „Geschäfts- oder Schulkonto“
+Durch die Kombination aus Microsoft-Logo und generischer Terminologie (Geschäfts- oder Schulkonto) hebt sich Azure AD von den anderen Identitätsanbietern ab, die Ihre App möglicherweise unterstützt. Sollte für „Geschäfts- oder Schulkonto“ nicht genügen Platz zur Verfügung stehen, können Sie den Begriff zu „Geschäftskonto“ verkürzen.
 
-![應用程式類型和案例](./media/active-directory-branding-guidelines/work-account.png)
+![Anwendungstypen und -szenarien](./media/active-directory-branding-guidelines/work-or-school-account.png)
 
-您也可以提供其他說明，幫助使用者了解他們是否可使用此按鈕：
+![Anwendungstypen und -szenarien](./media/active-directory-branding-guidelines/work-account.png)
 
-![應用程式類型和案例](./media/active-directory-branding-guidelines/work-account-with-explaination.png)
- 
-## 商標的建議與禁忌
-**建議**使用「工作或學校帳戶」結合 Microsoft 標誌，以代表使用 Azure AD 登入。如果空間有限，您可以只顯示「工作帳戶」，但**禁止**使用「企業帳戶」、「商務帳戶」或「公司帳戶」之類的其他詞彙。
+Darüber hinaus können Sie zusätzlichen Text bereitstellen, damit Endbenutzer sofort wissen, ob sie diese Schaltfläche verwenden können:
 
-**禁止**使用 "Office 365 ID" 或 "Azure ID"。Office 365 也是 Microsoft 提供的消費型產品名稱，並不使用 Azure AD 進行驗證。
+![Anwendungstypen und -szenarien](./media/active-directory-branding-guidelines/work-account-with-explaination.png)
 
-**禁止**改變 Microsoft 標誌。
+## Brandingempfehlungen
+**Führen Sie** Verwenden Sie "Geschäfts- oder schulkonto" in Kombination mit dem Microsoft-Logo Anmeldungen mit Azure AD darstellen. Wenn Speicherplatz ein wichtiger Faktor ist, wird die begrenztem Platzangebot kann "Geschäftskonto", aber **nicht** Verwenden Sie die anderen Begriffe wie "Unternehmenskonto", "businesskonto" oder "Firmenkonto".
 
-**禁止**在 Azure 或 Active Directory 品牌上公開使用者。不過，對於開發人員、IT 專業人員和系統管理員，則可以使用這些詞彙。
+**Nicht** "Office 365-ID" oder "Azure-ID" verwenden. Office 365 ist auch der Name eines Verbraucherangebots von Microsoft, bei dem Azure AD nicht für die Authentifizierung verwendet wird.
 
-## 導覽的建議與禁忌
+**Nicht** das Microsoft-Logo ändern.
 
-**建議**提供方法讓使用者登出並切換至另一個使用者帳戶。雖然大部分的人只有一個 Microsoft/Facebook/Google/Twitter 個人帳戶，但往往與多個組織相關聯。我們即將支援多重登入使用者。
+**Nicht** Endbenutzer zu den Marken Azure und Active Directory. Gegenüber Entwicklern, IT-Experten und Administratoren können diese Begriffe dagegen problemlos verwendet werden.
 
-## 在您的應用程式中同時支援 Azure AD 與 Microsoft 帳戶
+## Navigationsempfehlungen
 
-如果您的應用程式同時支援 Azure AD 與 Microsoft 帳戶，則您的應用程式中需要包含兩個不同的登入按鈕。我們正在積極進行更新，將可讓您只需要整合一次，就能同時支援 Microsoft 提供的個人和工作帳戶。此更新推出時，您將能夠在應用程式中只顯示一個 [使用 Microsoft 登入] 按鈕。
+**Führen Sie** bieten eine Möglichkeit für Benutzer zum Abmelden, und wechseln Sie zu einem anderen Benutzerkonto. Die meisten Benutzer besitzen zwar nur ein einzelnes persönliches Konto von Microsoft/Facebook/Google/Twitter, gehören aber häufig mehreren Organisationen an. Die Unterstützung mehrerer angemeldeter Benutzer folgt in Kürze.
 
- 
+## Unterstützen von Azure AD- und Microsoft-Konten in Ihrer App
 
-<!---HONumber=62-->
+Wenn Ihre App sowohl Azure AD- als auch Microsoft-Konten unterstützt, müssen Sie in Ihrer App zwei separate Schaltflächen bereitstellen. Wir arbeiten derzeit an einem Update, durch das Sie nach einmaliger Integration sowohl persönliche Konten als auch Geschäftskonten von Microsoft unterstützen können. Nach dem Update können Sie in Ihrer App eine einzelne Microsoft-Anmeldeschaltfläche verwenden.
+
+

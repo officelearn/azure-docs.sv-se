@@ -1,546 +1,174 @@
 <properties 
-	pageTitle="取得深入了解：Azure AD 密碼管理報告 |Microsoft Azure" 
-	description="本文說明如何使用報告，在您的組織中取得密碼管理作業的深入了解。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+    pageTitle="Operative Einblicke: Kennwortverwaltung in Azure AD | Microsoft Azure" 
+    description="Dieser Artikel beschreibt, wie Sie Berichte verwenden, um einen Einblick in die Vorgänge zur Kennwortverwaltung in Ihrem Unternehmen zu erhalten." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="asteen" 
+    manager="kbrint" 
+    editor="billmath"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
-	ms.author="asteen"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="asteen"/>
 
-# 如何使用密碼管理報告取得 Operational Insights
-本章節描述如何使用 Azure Active Directory 的密碼管理報告，來檢視使用者如何使用密碼重設及您的組織中的變更。
+# Operative Einblicke durch Berichte zur Kennwortverwaltung
+In diesem Abschnitt wird beschrieben, wie Sie Berichte zur Kennwortverwaltung in Azure Active Directory verwenden können, um die Verwendung der Kennwortzurücksetzung und -änderung durch Benutzer in Ihrer Organisation zu verfolgen.
 
-- [**密碼管理報告概觀**](#overview-of-password-management-reports)
-- [**如何檢視密碼管理報告**](#how-to-view-password-management-reports)
-- [**在您的組織中檢視密碼重設註冊活動**](#view-password-reset-registration-activity)
-- [**在您的組織中檢視密碼重設活動**](#view-password-reset-activity)
+- [**Übersicht über Berichte zur Kennwortverwaltung**](#overview-of-password-management-reports)
+- [**Anzeigen von Berichten für die Kennwortverwaltung**](#how-to-view-password-management-reports)
+- [**Anzeigen der Registrierungsaktivität für die kennwortzurücksetzung in Ihrer Organisation**](#view-password-reset-registration-activity)
+- [**Ansicht Zurücksetzen des Kennworts in Ihrer Organisation**](#view-password-reset-activity)
 
-## 密碼管理報告概觀
-一旦部署密碼重設之後，其中一個最常見的下一步是查看它在您的組織中的使用情形。例如，您可能想要取得使用者如何註冊密碼重設，或過去幾天內已完成多少密碼重設等深入了解。以下是一些常見問題，您可以使用目前存在於 [Azure 管理入口網站](https://manage.windowsazure.com)的密碼管理報告來回答：
+## Übersicht über Berichte zur Kennwortverwaltung
+Sobald Sie die Kennwortzurücksetzung bereitgestellt haben, besteht einer der nächsten Schritte üblicherweise darin, herauszufinden, wie diese in Ihrer Organisation verwendet wird.  Beispielsweise möchten Sie einen Einblick gewinnen, wie Benutzer sich für die Kennwortzurücksetzung registrieren oder wie viele Kennwortzurücksetzungen in den letzten paar Tagen stattgefunden haben.  Hier sind einige der häufigen Fragen, die mit den kennwortverwaltungsberichten beantworten, die in vorhanden sind, können die [Azure-Verwaltungsportal](https://manage.windowsazure.com) heute:
 
-- 有多少人已註冊密碼重設？
-- 有誰已註冊密碼重設？
-- 什麼資料是人員註冊？
-- 有多少人在過去 7 天內重設其密碼？
-- 使用者或系統管理員用來重設其密碼最常見的方法是什麼？
-- 當使用者或系統管理員嘗試使用密碼重設時所面臨的常見問題是什麼？
-- 哪些系統管理員經常重設自己的密碼？
-- 密碼重設時是否有任何可疑的活動？
+- Wie viele Personen haben sich für die Kennwortzurücksetzung registriert?
+- Wer hat sich für das Zurücksetzen von Kennwörtern registriert?
+- Welche Daten registrieren die Benutzer?
+- Wie viele Personen haben ihre Kennwörter in den letzten 7 Tagen zurückgesetzt?
+- Welche Methoden werden von Benutzern und Administratoren am häufigsten zum Zurücksetzen von Kennwörtern eingesetzt?
+- Welche Probleme treten häufig für Benutzer oder Administratoren bei dem Versuch auf, das Kennwort zurückzusetzen?
+- Welche Administratoren setzen häufig ihre eigenen Kennwörter zurück?
+- Gibt es verdächtige Aktivitäten beim Zurücksetzen des Kennworts?
 
 
-## 如何檢視密碼管理報告
-若要尋找密碼管理報告，請遵循下列步驟：
+## Anzeigen von Berichten für die Kennwortverwaltung
+Zum Finden der Berichte für die Kennwortverwaltung führen Sie die folgenden Schritte aus:
 
-1.	按一下 [Azure 管理入口網站](https://manage.windowsazure.com)中的 [**Active Directory**] 延伸模組。
-2.	從入口網站顯示的清單中選取您的目錄。
-3.	按一下 [**報告**] 索引標籤。
-4.	查看 [**活動記錄檔**] 區段。
-5.	選取 [**密碼重設活動**] 報告或 [**密碼重設註冊活動**] 報告。
+1.  Klicken Sie auf die **Active Directory** -Erweiterung in der [Azure-Verwaltungsportal](https://manage.windowsazure.com).
+2.  Wählen Sie Ihr Verzeichnis aus der Liste aus, die im Portal angezeigt wird.
+3.  Klicken Sie auf die **Berichte** Registerkarte.
+4.  Suchen Sie unter den **Aktivitätsprotokolle** Abschnitt.
+5.  Wählen Sie entweder die **kennwortzurücksetzungsaktivität** Bericht oder die **Registrierungsaktivität für die kennwortzurücksetzung** Bericht.
 
     ![][001]
 
-## 檢視密碼重設註冊活動
+## Zugreifen auf Berichte zur Kennwortverwaltung über eine API
+Ab August 2015 unterstützen die Berichte und Ereignisse von Azure AD das Abrufen aller Informationen, die in den Berichten „Kennwortzurücksetzung“ und „Registrierung für Zurücksetzen des Kennworts“ enthalten sind.
 
-密碼重設註冊活動報告會顯示您的組織中發生的所有密碼重設註冊。當任何使用者已成功在密碼重設註冊入口網站 ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)) 註冊驗證資訊，則密碼重設註冊會顯示在此報告中。
+Zum Zugreifen auf diese Daten müssen Sie eine kleine App oder ein Skript schreiben, um sie von unseren Servern abzurufen. [Enthält Informationen zum Einstieg in die Azure AD Reporting-API](active-directory-reporting-api-getting-started.md).
 
-- **時間範圍最大值**：1 個月
-- **資料列數最大值**：無限
-- **可下載**：是，透過 CSV 檔案
+Nachdem Sie über ein funktionierendes Skript verfügen, sollten Sie sich als Nächstes mit den Kennwortzurücksetzungs- und Registrierungsereignissen befassen, die Sie zum Erfüllen Ihrer Szenarien abrufen können.
+
+- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): Listet die verfügbaren Spalten für das Zurücksetzen von Ereignissen
+- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): Listet die Spalten für das Zurücksetzen von Registrierungs-Ereignisse
+
+## Anzeigen der Aktivität "Registrierung für Zurücksetzen des Kennworts"
+
+Der Bericht "Aktivität "Registrierung für Zurücksetzen des Kennworts"" zeigt alle Registrierungen für die Kennwortzurücksetzung, die in Ihrer Organisation erfolgt sind.  In diesem Bericht wird eine Registrierung für die kennwortzurücksetzung angezeigt, jeder Benutzer, der erfolgreich Authentifizierungsinformationen beim den registriert wurde das Portal zur Registrierung für zurücksetzen ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
+
+- **Max. Zeitraum**: 1 Monat
+- **Maximale Anzahl von Zeilen**: unbegrenzt
+- **Herunterladbare**: Ja, über eine CSV-Datei
 
     ![][002]
 
-### 報告資料行說明
-下列清單詳細說明每個報告資料行：
+### Beschreibung der Berichtsspalten
+In der folgende Liste werden alle Berichtsspalten im Detail beschrieben:
 
-- **使用者** – 嘗試進行密碼重設註冊作業的使用者。
-- **角色** – 使用者在目錄中的角色。
-- **日期和時間** – 嘗試的日期和時間。
-- **已註冊資料** – 使用者在密碼重設註冊期間提供哪些驗證資料。
+- **Benutzer** – der Benutzer, der versucht hat kennwortzurücksetzung zu registrieren.
+- **Rolle** – die Rolle des Benutzers im Verzeichnis.
+- **Datum und Uhrzeit** – das Datum und die Uhrzeit des Versuchs.
+- **Registrierte Daten** – Authentifizierungsdaten, die vom Benutzer Kennwort während der bereitgestellten Registrierung zurückgesetzt.
 
-### 報告值說明
-下表描述每個資料行允許的不同值：
+### Beschreibung der Berichtswerte
+Die folgende Tabelle beschreibt die verschiedenen Werte, die für die einzelnen Spalten zulässig sind:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>資料行</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>允許的值及其意義</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>已註冊資料</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>備用電子郵件</strong> – 使用者用來驗證的備用電子郵件或驗證電子郵件<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>辦公室電話</strong> – 使用者用來驗證的辦公室電話<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>行動電話</strong> – 使用者用來驗證的行動電話或驗證電話<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>安全性問題</strong> – 使用者用來驗證的安全性問題<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>上述項目的任意組合 (例如，備用電子郵件 + 行動電話)</strong> – 發生時機為當指定 2 個閘道原則，且顯示使用者使用哪兩個方法來驗證其密碼重設要求時。<br><br></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody></table>
+Column|Zulässige Werte und ihre Bedeutung
+---|---
+Registrierte Daten| **Alternative e-Mail-Adresse** – Benutzer alternative e-Mail-Adresse oder Authentifizierung e-Mail-Adresse zur Authentifizierung verwendet.<p><p>**Telefon (Büro)**– Benutzer seine Bürotelefonnummer zur Authentifizierung<p>**Mobiltelefon** -Benutzer sein Mobiltelefon oder Telefon für Authentifizierung zum Authentifizieren<p>**Sicherheitsfragen** – Benutzer Sicherheitsfragen zur Authentifizierung verwendet.<p>**Eine beliebige Kombination der oben genannten (z. B. alternative e-Mail-Adresse und Mobiltelefon)** – tritt auf, wenn eine Richtlinie mit 2 Gates angegeben ist, und, welche zwei Methoden den Benutzer verwendet zeigt zur Authentifizierung seiner Anforderung Zurücksetzen des Kennworts.
 
-## 檢視密碼重設活動
+## Anzeigen der Aktivität "Zurücksetzen des Kennworts"
 
-此報告會顯示您的組織中發生的所有密碼重設嘗試。
+Dieser Bericht zeigt alle Versuche der Kennwortzurücksetzung an, die in Ihrer Organisation erfolgt sind.
 
-- **時間範圍最大值**：1 個月
-- **資料列數最大值**：無限
-- **可下載**：是，透過 CSV 檔案
+- **Max. Zeitraum**: 1 Monat
+- **Maximale Anzahl von Zeilen**: unbegrenzt
+- **Herunterladbare**: Ja, über eine CSV-Datei
 
     ![][003]
 
-### 報告資料行說明
-下列清單詳細說明每個報告資料行：
+### Beschreibung der Berichtsspalten
+In der folgende Liste werden alle Berichtsspalten im Detail beschrieben:
 
-1. **使用者** – 嘗試密碼重設作業的使用者 (根據使用者重設密碼時提供的 [使用者識別碼] 欄位)。
-2. **角色** – 使用者在目錄中的角色。
-3. **日期和時間** – 嘗試的日期和時間。
-4. **使用方法** – 使用者用於此重設作業的驗證方法。
-5. **結果** – 密碼重設作業的最終結果。
-6. **詳細資料** – 為什麼密碼重設會導致所產生的值的詳細資料。也包含任何防範措施，您可能會採取以解決未預期的錯誤。
+1. **Benutzer** – der Benutzer, der versucht ein Kennwort hat zurückzusetzen (basierend auf dem Feld Benutzer-ID bereitgestellt wird, wenn der Benutzer ein Kennwort zurückzusetzen).
+2. **Rolle** – die Rolle des Benutzers im Verzeichnis.
+3. **Datum und Uhrzeit** – das Datum und die Uhrzeit des Versuchs.
+4. **Verwendete Methode(n)** – die Authentifizierungsmethoden, die der Benutzer dazu verwendete zurückzusetzen.
+5. **Ergebnis** – das Endergebnis, das Kennwort zurückzusetzen.
+6. **Details** – die Details, warum die kennwortzurücksetzung führte den Wert hat.  Enthält auch alle Maßnahmen, die Sie ergreifen können, um einen unerwarteten Fehler zu beheben.
 
-### 報告值說明
-下表描述每個資料行允許的不同值：
+### Beschreibung der Berichtswerte
+Die folgende Tabelle beschreibt die verschiedenen Werte, die für die einzelnen Spalten zulässig sind:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>資料行</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>允許的值及其意義</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用方法</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>備用電子郵件</strong> – 使用者用來驗證的備用電子郵件或驗證電子郵件<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>辦公室電話</strong> – 使用者用來驗證的辦公室電話<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>行動電話</strong> – 使用者用來驗證的行動電話或驗證電話<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>安全性問題</strong> – 使用者用來驗證的安全性問題<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>上述項目的任意組合 (例如，備用電子郵件 + 行動電話)</strong> – 發生時機為當指定 2 個閘道原則，且顯示使用者使用哪兩個方法來驗證其密碼重設要求時。<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>結果</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Abandoned</strong> – 使用者開始重設密碼，但是又中途停止而未完成<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Blocked</strong> – 由於在 24 小時期間內嘗試使用密碼重設頁面或單一密碼重設閘道太多次，所以已防止使用者帳戶使用密碼重設<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Cancelled</strong> – 使用者開始重設密碼，但是隨後按一下 [取消] 按鈕，在中途取消工作階段 <br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Contacted Admin</strong> – 使用者在其工作階段期間有無法解決的問題，所以使用者按一下「連絡您的系統管理員」連結，而不是完成密碼重設流程<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Failed</strong> – 使用者無法重設密碼，可能是因為使用者未設定使用功能 (例如，沒有授權、遺失驗證資訊、在內部部署管理密碼但是回寫已關閉)。<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Succeeded</strong> – 密碼重設成功。<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>詳細資料</p>
-              </td>
-              <td>
-                <p>請參閱下表</p>
-              </td>
-            </tr>
-          </tbody></table>
+Column|Zulässige Werte und ihre Bedeutung
+---|---
+Verwendete Methoden|**Alternative e-Mail-Adresse** – Benutzer alternative e-Mail-Adresse oder Authentifizierung e-Mail-Adresse zur Authentifizierung verwendet.<p>**Telefon (Büro)** – Benutzer seine Bürotelefonnummer zur Authentifizierung<p>**Mobiltelefon** – Benutzer verwendete das Mobiltelefon oder Telefon für Authentifizierung zum Authentifizieren<p>**Sicherheitsfragen** – Benutzer Sicherheitsfragen zur Authentifizierung verwendet.<p>**Eine beliebige Kombination der oben genannten (z. B. alternative e-Mail-Adresse und Mobiltelefon)** – tritt auf, wenn eine Richtlinie mit 2 Gates angegeben ist, und, welche zwei Methoden den Benutzer verwendet zeigt zur Authentifizierung seiner Anforderung Zurücksetzen des Kennworts.
+Ergebnis|**Vorzeitig beendet** – Benutzer das Zurücksetzen des Kennworts gestartet, jedoch mittendrin beendet und nicht abgeschlossen<p>**Blockiert** -Konto des Benutzers konnte nicht zur kennwortzurücksetzung nicht verwenden, um die Seite "Kennwort zurücksetzen" zu verwenden oder ein Kennwort zurücksetzen Gate zu oft in einem Zeitraum von 24 Stunden<p>**Abgebrochen** – Benutzer das Zurücksetzen des Kennworts gestartet, aber dann auf die Schaltfläche "Abbrechen", um die Sitzung mittendrin abzubrechen geklickt <p>**Administrator kontaktiert** – Benutzer ist ein Problem aufgetreten, während seiner Sitzung, die er nicht auflösen konnte, sodass der Benutzer die "Administrator kontaktieren" Link geklickt, statt das Kennwort<p>**Fehler bei** – Benutzer konnte sich nicht um ein Kennwort zurückgesetzt, da der Benutzer nicht konfiguriert wurde, um die Funktion zu verwenden (z. B. keine Lizenz, fehlende Informationen für die Authentifizierung, lokal verwalteten Kennwort aber Rückschreiben ist deaktiviert).<p>**Erfolgreich** – das Zurücksetzen des Kennworts war erfolgreich.
+Details|Beachten Sie die folgende Tabelle.
 
-### 允許的詳細資料資料行的值
-以下是使用密碼重設活動報告時，您預期的結果類型清單：
+### Zulässige Werte für die Spalte "Details"
+Nachfolgend finden Sie die Liste der Ergebnistypen, die Sie im Bericht zur Aktivität "Zurücksetzen des Kennworts" erwarten können:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>詳細資料</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>結果類型</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在完成電子郵件驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在完成行動 SMS 驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在完成行動語音通話驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在完成辦公室語音通話驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在完成安全性問題選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在輸入其使用者識別碼之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在開始電子郵件驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在開始行動 SMS 驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在開始行動語音通話驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在開始辦公室語音通話驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在開始安全性問題選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>選取新密碼之前使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>選取新密碼之際使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者輸入太多無效的電子郵件驗證碼，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者輸入太多無效的 SMS 驗證碼，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者嘗試行動電話語音驗證太多次，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者嘗試辦公室電話語音驗證太多次，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者嘗試回答安全性問題太多次，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者嘗試驗證電話號碼太多次，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在傳遞必要的驗證方法之前使用者已取消</p>
-              </td>
-              <td>
-                <p>Cancelled</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在提交新密碼之前使用者已取消</p>
-              </td>
-              <td>
-                <p>Cancelled</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在嘗試電子郵件驗證選項之後使用者連絡系統管理員</p>
-              </td>
-              <td>
-                <p>Contacted admin</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在嘗試行動 SMS 驗證選項之後使用者連絡系統管理員</p>
-              </td>
-              <td>
-                <p>Contacted admin</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在嘗試行動語音通話驗證選項之後使用者連絡系統管理員</p>
-              </td>
-              <td>
-                <p>Contacted admin</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在嘗試辦公室語音通話驗證選項之後使用者連絡系統管理員</p>
-              </td>
-              <td>
-                <p>Contacted admin</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在嘗試安全性問題驗證選項之後使用者連絡系統管理員</p>
-              </td>
-              <td>
-                <p>Contacted admin</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>這位使用者未啟用密碼重設。在 [設定] 索引標籤底下啟用密碼重設以解決此問題</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者沒有授權。您可以新增授權給使用者以解決此問題</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者嘗試從未啟用 cookie 的裝置重設</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者的帳戶已定義驗證方法不足。新增驗證資訊以解決此問題</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者的密碼是在內部部署進行管理。您可以啟用密碼回寫以解決此問題</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>我們無法取得您的內部部署密碼重設服務。請檢查您的同步處理電腦的事件記錄檔</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>我們在重設使用者的內部部署密碼時發現問題。請檢查您的同步處理電腦的事件記錄檔</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>此使用者不是密碼重設使用者群組的成員。將此使用者加入至該群組中以解決此問題。</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>已針對此租用戶完全停用密碼重設。請參閱 <a href="http://aka.ms/ssprtroubleshoot">http://aka.ms/ssprtroubleshoot</a> 來解決這個問題。</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者成功重設密碼</p>
-              </td>
-              <td>
-                <p>Succeeded</p>
-              </td>
-            </tr>
-          </tbody></table>
+Details | Ergebnistyp
+----|----
+Benutzer hat nach Abschluss der Überprüfung per E-Mail vorzeitig beendet.  | Vorzeitig beendet
+Benutzer hat nach Abschluss der Überprüfung per Mobiltelefon-SMS vorzeitig beendet.|Vorzeitig beendet
+Benutzer hat nach Abschluss der Überprüfung per Mobiltelefon-Sprachanruf vorzeitig beendet. | Vorzeitig beendet
+Benutzer hat nach Abschluss der Überprüfung per Bürotelefon-Sprachanruf vorzeitig beendet. | Vorzeitig beendet
+Benutzer hat nach Abschluss der Überprüfung per Sicherheitsfragen vorzeitig beendet.|Vorzeitig beendet
+Benutzer hat nach Eingabe der Benutzer-ID vorzeitig beendet.| Vorzeitig beendet
+Benutzer hat nach dem Start der Überprüfung per E-Mail vorzeitig beendet.|Vorzeitig beendet
+Benutzer hat nach dem Start der Überprüfung per Mobiltelefon-SMS vorzeitig beendet.|Vorzeitig beendet
+Benutzer hat nach dem Start der Überprüfung per Mobiltelefon-Sprachanruf vorzeitig beendet.|Vorzeitig beendet
+Benutzer hat nach dem Start der Überprüfung per Bürotelefon-Sprachanruf vorzeitig beendet.|Vorzeitig beendet
+Benutzer hat nach dem Start der Überprüfung per Sicherheitsfragen vorzeitig beendet.| Vorzeitig beendet
+Benutzer hat vor Auswahl eines neuen Kennworts vorzeitig beendet.| Vorzeitig beendet
+Benutzer hat während Auswahl eines neuen Kennworts vorzeitig beendet.| Vorzeitig beendet
+Benutzer hat zu viele ungültige SMS-Überprüfungscodes eingegeben und ist für 24 Stunden blockiert.|Blockiert
+Benutzer hat die Überprüfung per Mobiltelefon-Sprachanruf zu oft versucht und ist für 24 Stunden blockiert.|Blockiert
+Benutzer hat die Überprüfung per Bürotelefon-Sprachanruf zu oft versucht und ist für 24 Stunden blockiert. |Blockiert
+Benutzer hat zu häufig versucht, die Sicherheitsfragen zu beantworten, und ist für 24 Stunden blockiert.| Blockiert
+Benutzer hat zu oft versucht, eine Telefonnummer zu überprüfen, und ist für 24 Stunden blockiert.|Blockiert
+Benutzer hat vor Übergabe der erforderlichen Authentifizierungsmethoden abgebrochen.|Abgebrochen
+Benutzer hat vor Übermittlung eines neuen Kennworts abgebrochen.|Abgebrochen
+Benutzer hat nach Versuch der Überprüfung per E-Mail den Administrator kontaktiert. |Administrator kontaktiert
+Benutzer hat nach Versuch der Überprüfung per Mobiltelefon-SMS den Administrator kontaktiert.|Administrator kontaktiert
+Benutzer hat nach Versuch der Überprüfung per Mobiltelefon-Sprachanruf den Administrator kontaktiert.|Administrator kontaktiert
+Benutzer hat nach Versuch der Überprüfung per Bürotelefon-Sprachanruf den Administrator kontaktiert. |Administrator kontaktiert
+Benutzer hat nach Versuch der Überprüfung per Sicherheitsfrage den Administrator kontaktiert.|Administrator kontaktiert
+Die Kennwortzurücksetzung ist für diesen Benutzer nicht aktiviert. Aktivieren Sie die Kennwortzurücksetzung auf der Konfigurationsregisterkarte, um dieses Problem zu beheben.|  Fehler
+ Der Benutzer hat keine Lizenz. Sie können dem Benutzer eine Lizenz hinzufügen, um dieses Problems zu beheben. |Fehler
+Benutzer hat versucht, die Zurücksetzung von einem Gerät ohne aktivierte Cookies durchzuführen.| Fehler
+Im Benutzerkonto sind nicht genügend Authentifizierungsmethoden definiert. Fügen Sie Authentifizierungsinformationen hinzu, um dieses Problem zu beheben.|Fehler
+Das Kennwort des Benutzers wird lokal verwaltet. Sie können die Kennwortrückschreibung aktivieren, um dieses Problem zu beheben.|Fehler
+Wir konnten den Dienst zum Zurücksetzen Ihres lokalen Kennworts nicht erreichen. Überprüfen Sie das Ereignisprotokoll des Synchronisierungscomputers.|Fehler
+Beim Zurücksetzen des lokalen Kennworts des Benutzers ist ein Problem aufgetreten. Überprüfen Sie das Ereignisprotokoll des Synchronisierungscomputers. | Fehler
+Der Benutzer ist kein Mitglied der Benutzergruppe für Kennwortzurücksetzung. Fügen Sie diesen Benutzer dieser Gruppe hinzu, um dieses Problem zu beheben.|Fehler
+Die Kennwortzurücksetzung wurde für diesen Mandanten vollständig deaktiviert. Finden Sie unter [hier](http://aka.ms/ssprtroubleshoot) zur Lösung des Problems. | Fehler
+Benutzer hat das Kennwort erfolgreich zurückgesetzt.|Succeeded
 
-<br/> <br/> <br/>
+## Links zu Informationen zur Kennwortzurücksetzung
+Im Folgenden finden Sie Links zu allen Webseiten mit Informationen zur Kennwortzurücksetzung für Azure AD: 
 
-**其他資源**
-
-
-* [密碼管理是什麼](active-directory-passwords.md)
-* [密碼管理如何運作](active-directory-passwords-how-it-works.md)
-* [開始使用密碼管理](active-directory-passwords-getting-started.md)
-* [自訂密碼管理](active-directory-passwords-customize.md)
-* [密碼管理最佳作法](active-directory-passwords-best-practices.md)
-* [密碼管理常見問題集](active-directory-passwords-faq.md)
-* [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
-* [深入了解](active-directory-passwords-learn-more.md)
-* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Ihr eigenes Kennwort zurücksetzen**](active-directory-passwords-update-your-own-password.md) -erfahren Sie mehr über zurücksetzen oder ändern Ihr eigenes Kennwort als Benutzer des Systems
+* [**Funktionsweise**](active-directory-passwords-how-it-works.md) -erfahren Sie mehr über die sechs verschiedenen Komponenten der Dienst und die jeweilige
+* [**Erste Schritte**](active-directory-passwords-getting-started.md) -erfahren Sie, wie Sie Benutzern das Zurücksetzen und Ändern ihrer Cloud- oder lokalen Kennwörter erlauben
+* [**Anpassen von**](active-directory-passwords-customize.md) -erfahren Sie, wie das Aussehen und Verhalten des Diensts, um den Bedürfnissen Ihres Unternehmens anpassen.
+* [**Bewährte Methoden**](active-directory-passwords-best-practices.md) -erfahren Sie, wie schnell bereitstellen und effektiv verwalten von Kennwörtern in Ihrer Organisation
+* [**Häufig gestellte Fragen zu**](active-directory-passwords-faq.md) – Hier erhalten Sie Antworten auf häufig gestellte Fragen
+* [**Problembehandlung bei**](active-directory-passwords-troubleshoot.md) -erfahren Sie, wie Probleme mit dem Dienst schnell beheben
+* [**Erfahren Sie mehr**](active-directory-passwords-learn-more.md) – erhalten Sie tiefgehende technische Details zur Funktionsweise des Diensts
 
 
 
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
- 
 
-<!---HONumber=62-->
+

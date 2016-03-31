@@ -1,151 +1,152 @@
-<properties 
-	pageTitle="管理 Azure AD 目錄" 
-	description="本主題說明 Azure AD 租用戶是什麼，以及如何管理 Azure AD 目錄。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	writer="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+    pageTitle="Verwalten Ihres Azure AD-Verzeichnisses | Microsoft Azure"
+    description="Bei diesem Thema wird erklärt, was ein Azure AD-Mandant ist und wie ein Azure AD-Verzeichnis verwaltet wird."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    writer="markvi"
+    manager="stevenpo"
+    editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/01/2015"
+    ms.author="markvi"/>
 
-# 管理 Azure AD 目錄
+# Verwalten Ihres Azure AD-Verzeichnisses
 
-## 什麼是 Azure AD 租用戶？
+## Was ist Azure AD-Mandant?
 
-在實際工作地點，「租用戶」這個字可以定義為進駐建築物的群組或公司。例如，您的組織可能擁有建築物中的辦公區域。這棟建築物可能位在有其他數個組織的街道上。您的組織將會視為該建築物的租用戶。這棟建築物是您組織的資產，以及提供安全性並確保您可以安全地執行業務。它也會與您所在街道上的其他企業分開。這確保您的組織和資產與其他組織隔離。
+In der physischen Arbeitswelt kann der Wort-Mandant als Gruppe oder Firma definiert werden, die in einem Gebäude angesiedelt sind. Ihre Organisation kann z. B. Büroräume in einem Gebäude besitzen. Dieses Gebäude kann sich auf einer Straße mit mehreren anderen Organisationen befinden. Ihr Unternehmen wird somit als Mandant dieses Gebäudes betrachtet. Dieses Gebäude ist ein Anlagegut Ihrer Organisation, bietet Sicherheit und sorgt dafür, dass Sie Ihre Geschäfte zuverlässig durchführen können. Es ist auch von anderen Unternehmen in Ihrer Straße getrennt. Dadurch wird sichergestellt, dass Ihre Organisation und die darin befindlichen Bestände von anderen Organisationen isoliert sind.
 
-在啟用雲端的工作地點，「租用戶」可以定義為擁有和管理該雲端服務之特定執行個體的用戶端或組織。運用 Microsoft Azure 所提供的身分識別平台，租用戶只是您組織在註冊 Microsoft 雲端服務 (例如 Azure 或 Office 365) 時所收到和擁有的專屬 Azure Active Directory (Azure AD) 執行個體。
+An einem cloudaktivierten Arbeitsplatz kann ein Mandant als ein Client oder eine Organisation definiert werden, die eine bestimmte Instanz dieses Clouddienstes besitzt und verwaltet. Mit der von Microsoft Azure bereitgestellten Identitätsplattform ist ein Mandant einfach eine dedizierte Instanz von Azure Active Directory (Azure AD), die Ihre Organisation erhält und besitzt, wenn sie sich für einen Microsoft-Clouddienst wie Azure oder Office 365 registriert.
 
-每個 Azure AD 目錄都不同，並與其他 Azure AD 目錄分開。就像公司辦公大樓是您組織特有的安全資產，Azure AD 目錄也是設計成僅供您組織使用的安全資產。Azure AD 架構會隔離客戶資料與身分識別資訊，避免兩者混淆。這表示某個 Azure AD 目錄的使用者和系統管理員無法意外或惡意存取另一個目錄中的資料。
+Jedes Azure AD-Verzeichnis ist eindeutig und von anderen Azure AD-Verzeichnissen getrennt. Genau so wie ein Bürogebäude, das ein sicherer Ort nur für Ihre Organisation ist, soll auch ein Azure AD-Verzeichnis ein sicheres Anlagegut nur für Ihre Organisation darstellen. Die Azure AD-Architektur isoliert Kundendaten und Identitätsinformationen und verhindert deren Vermischung. Dies bedeutet, dass Benutzer und Administratoren eines Azure AD-Verzeichnisses nicht versehentlich oder böswillig auf Daten in einem anderen Verzeichnis zugreifen können.
 
 ![][1]
 
-## 如何取得 Azure AD 目錄？
+## Wie bekomme ich ein Azure AD-Verzeichnis?
 
-Azure AD 提供大部分 Microsoft 雲端服務的核心目錄和身分識別管理功能，包括：
+Azure AD bietet die wichtigsten Unternehmensverzeichnis- und Verwaltungsfunktionen für die meisten Clouddienste von Microsoft, einschließlich:
 
 - Azure
 - Microsoft Office 365
 - Microsoft Dynamics CRM Online
 - Microsoft Intune
 
-註冊上述任何 Microsoft 雲端服務時，會收到 Azure AD 目錄。您可以視需要建立額外的目錄。例如，您可能會將第一個目錄維護為生產目錄，然後建立另一個目錄來進行測試或預備。
+Sie erhalten ein Azure AD-Verzeichnis, wenn Sie sich für einen dieser Clouddienste von Microsoft registrieren. Sie können je nach Bedarf weitere Verzeichnisse erstellen. Beispielsweise können Sie Ihr erstes Verzeichnis als Produktionsverzeichnis verwalten und dann ein anderes Verzeichnis für Testzwecke oder Staging erstellen.
 
-> [AZURE.NOTE]註冊第一個服務之後，建議您在註冊其他 Microsoft 雲端服務時使用與您組織相關聯的相同系統管理員帳戶。
+> [AZURE.NOTE]
+> Nach der Anmeldung für den ersten Dienst wird empfohlen, das gleiche Ihrer Organisation zugeordnete Administratorkonto zu verwenden, wenn Sie sich für andere Microsoft-Clouddienste registrieren.
 
-第一次註冊 Microsoft 雲端服務時，系統會提示您提供有關組織和組織網際網路網域名稱註冊機構的詳細資料。這項資訊之後會用來建立您組織的新 Azure AD 目錄執行個體。訂閱多個 Microsoft 雲端服務時，會使用該相同的目錄來驗證登入嘗試。
+Bei der ersten Registrierung für einen Microsoft-Clouddienst werden Sie aufgefordert, Details zu Ihrer Organisation und der Internet-Domänennamenregistrierung Ihrer Organisation bereitzustellen. Diese Informationen werden dann zum Erstellen einer neuen Azure AD-Verzeichnisinstanz für Ihre Organisation verwendet. Das gleiche Verzeichnis wird zum Authentifizieren von Anmeldeversuchen verwendet, wenn Sie mehrere Clouddienste von Microsoft abonnieren.
 
-額外的服務會完整運用您所設定的任何現有使用者帳戶、原則、設定或內部部署目錄整合，協助提升您組織的內部部署身分識別基礎結構與 Azure AD 之間的效率。
+Die zusätzlichen Dienste nutzen vollständig alle vorhandenen Benutzerkonten, Richtlinien, Einstellungen oder die lokale Verzeichnisintegration, die Sie zur Verbesserung der Effizienz zwischen der lokalen Identitätsinfrastruktur Ihrer Organisation und Azure AD konfigurieren.
 
-例如，如果您第一次註冊 Microsoft Intune 訂用帳戶，並完成透過部署目錄同步處理和 (或) 單一登入伺服器進一步整合內部部署 Active Directory 與 Azure AD 目錄所需的步驟，則可以註冊另一個 Microsoft 雲端服務 (例如 Office 365)，而此服務也可以利用您現在與 Microsoft Intune 搭配使用的相同目錄整合優勢。
+Wenn Sie sich z. B. ursprünglich für ein Microsoft Intune-Abonnement registriert haben und die erforderlichen Schritte zur weiteren Integration Ihres lokalen Active Directory mit Ihrem Azure AD-Verzeichnis unternommen haben, und zwar durch die Bereitstellung einer Verzeichnissynchronisierung und/oder eines Servers für Einmaliges Anmelden, können Sie sich für einen anderen Microsoft-Clouddienst wie z. B. Office 365 registrieren, wo Sie die gleichen Vorteile der Verzeichnisintegration nutzen können, die Ihnen jetzt Microsoft Intune bietet.
 
-如需整合內部部署目錄與 Azure AD 的詳細資訊，請參閱[目錄整合](active-directory-aadconnect.md)。
+Weitere Informationen zum Integrieren Ihres lokalen Verzeichnisses in Azure AD finden Sie unter [Verzeichnisintegration](active-directory-aadconnect.md).
 
-### 關聯 Azure AD 目錄與新的 Azure 訂用帳戶
+### Ordnen Sie ein Azure AD-Verzeichnis einem neuen Azure-Abonnement zu
 
-您可以關聯新的 Azure 訂用帳戶與驗證現有 Office 365 或 Microsoft Intune 訂用帳戶登入的相同目錄。使用您的工作或學校帳戶，登入 Azure 管理入口網站。管理入口網站會傳回一則訊息，指出找不到該帳戶的任何訂用帳戶。選取 [**註冊 Azure**]，而且您的目錄將可在入口網站內進行系統管理。如需詳細資訊，請參閱[在 Azure 中管理 Office 365 訂用帳戶的目錄](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure)。
+Sie können ein neues Azure-Abonnement dem gleichen Verzeichnis zuordnen, das die Anmeldung für ein vorhandenes Office 365- oder Microsoft Intune-Abonnement authentifiziert. Melden Sie sich mit Ihrem Geschäfts- oder Schulkonto beim Azure-Verwaltungsportal an. Das Verwaltungsportal gibt eine Meldung zurück, dass keine Abonnements für dieses Konto gefunden werden konnten. Wählen Sie **bei Azure registrieren**, und Ihr Verzeichnis für die Verwaltung innerhalb des Portals verfügbar. Weitere Informationen finden Sie unter [Verwalten des Verzeichnisses für Ihr Office 365-Abonnement in Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
 
-如需 Azure AD 常見使用問題的影片，請參閱 [Azure Active Directory - 常見註冊、登入和使用問題](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions)。
+Ein Video über allgemeine Fragen zur Verwendung von Azure AD, finden Sie unter [Azure Active Directory – Allgemeines, Registrierung, Anmeldung und Verwendung](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
 
-### 以組織身分註冊 Microsoft 雲端服務來建立 Azure AD 目錄
+### Erstellen Sie ein Azure AD-Verzeichnis, indem Sie sich für einen Microsoft Clouddienst als Organisation registrieren
 
-如果您還沒有 Microsoft 雲端服務的訂用帳戶，請使用下面的其中一個連結進行註冊。註冊第一個服務的動作將會自動建立 Azure AD 目錄。
+Wenn Sie noch nicht über ein Abonnement für einen Microsoft-Clouddienst verfügen, gehen Sie auf einen der untenstehenden Links, um sich zu registrieren. Wenn Sie sich für Ihren ersten Dienst registrieren, wird automatisch ein Azure AD-Verzeichnis erstellt.
 
 - [Microsoft Azure](https://account.windowsazure.com/organization)
 - [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 - [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### 管理 Azure 所佈建的預設目錄
+### Ein Standardverzeichnis mit Azure-Bereitstellung verwalten
 
-現在，如果註冊 Azure 而且您的訂用帳戶與該目錄相關聯，則會自動建立目錄。但是，如果您在 2013 年 10 月前第一次註冊 Azure，則不會自動建立目錄。在該情況下，Azure 可能已透過佈建您帳戶的預設目錄，以針對帳戶進行「回填」。您的訂用帳戶之後會與該預設目錄相關聯。
+Heute wird ein Verzeichnis automatisch erstellt, wenn Sie sich für Azure registrieren und Ihr Abonnement diesem Verzeichnis zugeordnet ist. Wenn Sie sich ursprünglich vor Oktober 2013 für Azure registriert haben, wurde ein Verzeichnis jedoch nicht automatisch erstellt. In diesem Fall hat Azure Ihr Konto möglicherweise "abgeglichen", indem ein Standardverzeichnis bereitgestellt wurde. Ihr Abonnement wurde dann diesem Standardverzeichnis zugeordnet.
 
-目錄的回填工作是在 2013 年 10 月於 Azure 安全性模型的整體改善期間完成。它可協助將組織身分識別功能提供給所有 Azure 客戶，並確保可在目錄中以使用者身分存取所有 Azure 資源。您必須要有目錄，才能使用 Azure。為了達到此目標，任何在 2013 年 7 月 7 日之前註冊但沒有目錄的使用者都必須建立目錄。如果您已經建立目錄，則訂用帳戶會與該目錄相關聯。
+Ein Abgleich der Verzeichnisse wurde im Oktober 2013 als Teil der generellen Verbesserung des Sicherheitsmodells für Azure durchgeführt. Dieser hilft, allen Azure-Kunden Identitätsfunktionen für die Organisation anzubieten und sicherzustellen, dass auf alle Azure-Ressourcen im Kontext eines Benutzers im Verzeichnis zugegriffen wird. Sie können Azure nicht ohne ein Verzeichnis verwenden. Um dies zu erreichen, musste für jeden Benutzer, der vor dem 7. Juli 2013 registriert wurde und über kein Verzeichnis verfügte, eines erstellt werden. Wenn Sie bereits ein Verzeichnis erstellt haben, wurde Ihr Abonnement mit diesem Verzeichnis verbunden.
 
-Azure AD 沒有任何使用成本。目錄是一個免費的資源。還有一個額外的 Azure Active Directory Premium 層分開授權並提供其他功能 (例如公司商標和自助式密碼重設)。
+Die Verwendung von Azure AD ist kostenlos. Das Verzeichnis ist eine kostenlose (free) Ressource. Zusätzlich gibt es Azure Active Directory Premium, das separat lizenziert ist und zusätzliche Funktionen wie Unternehmensbranding und Self-Service-Kennwortzurücksetzung bietet.
 
-若要變更目錄的顯示名稱，請按一下入口網站中的目錄，然後按一下 [**設定**]。如本主題稍後所說明，您可以新增目錄，或刪除您不再需要的目錄。若要關聯您的訂用帳戶與不同的目錄，請按一下左導覽中的 [**設定**] 延伸模組，並按一下 [**訂用帳戶**] 頁面底部的 [**編輯目錄**]。您也可以建立使用 DNS 名稱並註冊的自訂網域，而非預設 *.onmicrosoft.com 網域，但服務 (例如 SharePoint Online) 可能偏好使用後者。
+Um den Anzeigenamen des Verzeichnisses zu ändern, klicken Sie auf das Verzeichnis, in das Portal und auf **konfigurieren**. Wie später in diesem Thema erläutert wird, können Sie ein neues Verzeichnis hinzufügen oder ein nicht mehr benötigtes löschen. Um Ihr Abonnement mit einem anderen Verzeichnis zuzuordnen, klicken Sie auf die **Einstellungen** Erweiterung im linken Navigationsbereich, und klicken Sie am unteren Rand der **Abonnements** auf **Verzeichnis bearbeiten**. Sie können auch eine benutzerdefinierte Domäne mit einem DNS-Namen erstellen, die Sie anstelle der standardmäßigen *.onmicrosoft.com-Domäne registriert haben. Dies ist mit einem Dienst wie SharePoint Online möglicherweise empfehlenswert.
 
-## 如何管理目錄資料
+## Wie kann ich Verzeichnisdaten verwalten?
 
-身為一或多個 Microsoft 雲端服務訂用帳戶的系統管理員，您可以使用 Azure 管理入口網站、Microsoft Intune 帳戶入口網站或 Office 365 系統管理中心來管理組織的目錄資料。您也可以下載並執行 [[適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組](https://msdn.microsoft.com/library/azure/jj151815.aspx)] Cmdlet，協助您管理 Azure AD 中所儲存的資料。
+Als Administrator eines oder mehrerer Clouddienst-Abonnements von Microsoft können Sie entweder das Azure-Verwaltungsportal, das Microsoft Intune-Kontoportal oder das Office 365 Admin Center verwenden, um Verzeichnisdaten Ihrer Organisation zu verwalten. Sie können auch herunterladen und ausführen [Microsoft Azure Active Directory-Modul für Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) Cmdlets zum Verwalten von Daten in Azure AD gespeichert.
 
-從上述其中一個入口網站 (或 Cmdlet)，您可以：
+Von einem dieser Portale (oder Cmdlets) können Sie folgende Aktionen ausführen:
 
-- 建立和管理使用者和群組帳戶
-- 管理您組織所訂閱的相關雲端服務
-- 設定內部部署與目錄服務的整合
+- Erstellen und Verwalten von Benutzer- und Gruppenkonten
+- Verwalten des entsprechenden Clouddienstes oder der Clouddienste, die Ihre Organisation abonniert
+- Einrichten einer lokale Integration mit Ihrem Verzeichnisdienst
 
-Azure 管理入口網站、Office 365 系統管理中心、Microsoft Intune 帳戶入口網站和 Azure AD Cmdlet 全都會讀取和寫入與您組織的目錄相關聯的單一 Azure AD 共用執行個體 (如下圖所示)。因此，入口網站 (或 Cmdlet) 可做為提取和 (或) 修改您目錄資料的前端介面。
+Das Azure-Verwaltungsportal, das Office 365 Admin Center, das Microsoft Intune-Kontoportal und Azure AD-Cmdlets lesen aus und schreiben in eine einzelne freigegebene (shared) Instanz von Azure AD, die dem Verzeichnis Ihrer Organisation zugeordnet ist, wie in der folgenden Abbildung dargestellt. Auf diese Weise fungieren Portale (oder Cmdlets) als Front-End-Schnittstelle, die Ihre Verzeichnisdaten einholen und/oder ändern.
 
 ![][2]
 
-用來管理使用者和群組的這些帳戶入口網站和相關聯的 Azure AD PowerShell Cmdlet 建置於 Azure AD 平台上。
+Diese Kontoportale und die zugehörigen Azure AD PowerShell-Cmdlets zur Verwaltung von Benutzern und Gruppen setzen auf der Azure AD-Plattform auf.
 
-如果利用其中一個服務身分登入時使用任何入口網站 (或 Cmdlet) 變更組織資料，則變更也會在您下次使用該服務身分登入時顯示在其他入口網站中，因為這項資料會在您所訂閱的 Microsoft 雲端服務之間共用。例如，如果您已使用 Office 365 系統管理中心封鎖使用者登入，該動作將封鎖使用者登入您組織目前所訂閱的任何其他服務。如果您是使用 Microsoft Intune 帳戶入口網站身分提取該相同使用者的帳戶，則會封鎖該使用者。
+Beim Vornehmen von Änderungen an den Daten Ihrer Organisation mithilfe der Portale (oder Cmdlets) während der Anmeldung im Kontext mit einem dieser Dienste wird die Änderung bei der nächsten Anmeldung im Kontext mit diesem Dienst auch in den anderen Portalen angezeigt, da die Daten von allen abonnierten Microsoft-Clouddiensten gemeinsam verwendet werden (shared data).
+Wenn Sie z. B. das Office 365 Admin Center benutzt haben, um einen Benutzer von der Anmeldung zu blockieren, dann blockiert diese Aktion die Anmeldung bei jedem Dienst, den Ihre Organisation zurzeit abonniert hat. Wenn Sie das gleiche Benutzerkonto im Kontext des Microsoft Intune-Kontoportals ziehen, können Sie sehen, dass der Benutzer gesperrt ist.
 
-## 如何新增和管理多個目錄？
+## Wie kann ich mehrere Verzeichnisse hinzufügen und verwalten?
 
-您可以在 Azure 管理入口網站中新增 Azure AD 目錄。選取左方的 [**Active Directory**] 延伸模組，然後按一下 [**新增**]。
+Sie können ein Azure AD-Verzeichnis im Azure-Verwaltungsportal hinzufügen. Wählen Sie die **Active Directory** -Erweiterung auf der linken Seite und klicken Sie auf **Hinzufügen**.
 
-您可以管理每個目錄當做完全獨立的資源：每個目錄都是對等、全功能且邏輯上與您所管理的其他目錄無關；目錄之間沒有任何父子關聯性。目錄之間的這項獨立性包括資源獨立性、系統管理獨立性和同步處理獨立性。
+Sie können jedes Verzeichnis als vollständig unabhängige Ressource verwalten: Jedes Verzeichnis ist gleichberechtigt, voll funktionsfähig und logisch unabhängig von anderen Verzeichnissen, die Sie verwalten. Es ist keine unter- und übergeordnete Beziehung zwischen den Verzeichnissen vorhanden. Diese Unabhängigkeit zwischen den Verzeichnissen beinhaltet Ressourcen-, Verwaltungs- und Synchronisierungsunabhängigkeit.
 
-- **資源獨立性**。如果您在某個目錄中建立或刪除資源，則不會影響另一個目錄中的任何資源 (但外部使用者有部分例外狀況)，如下所述。如果您搭配使用自訂網域 'contoso.com' 與某個目錄，則它不能與任何其他目錄搭配使用。 
-- **系統管理獨立性**。如果是 'Contoso' 目錄的非系統管理使用者，請建立 'Test' 測試目錄，然後： 
-    - ◦目錄同步作業工具，以與單一 AD 樹系同步處理資料。 
-    - ◦'Contoso' 目錄的系統管理員沒有 'Test' 目錄的直接系統管理權限，除非 'Test' 的系統管理員特別將這些權限授與他們。'Contoso' 的系統管理員憑藉著其對已建立 'Test' 之使用者帳戶的控制而可以控制 'Test' 目錄的存取權。 
+- **Ressourcenunabhängigkeit**. Wenn Sie eine Ressource in einem Verzeichnis erstellen oder löschen, hat dies keine Auswirkungen auf Ressourcen in einem anderen Verzeichnis. Eine teilweise geltende Ausnahme bilden externe Benutzer, wie unten beschrieben. Wenn Sie eine benutzerdefinierte Domäne "contoso.com" in einem Verzeichnis verwenden, kann sie in keinem anderen Verzeichnis verwendet werden.
+- **Verwaltungsunabhängigkeit**.  Wenn ein Benutzer ohne Administratorrechte aus dem Verzeichnis "Contoso" ein Testverzeichnis "Test" erstellt, dann gibt es/geschieht Folgendes:
+    - ◦Das Verzeichnissynchronisierungstool zum Synchronisieren von Daten mit einer einzigen Active Directory-Gesamtstruktur.
+    - ◦Die Administratoren des Verzeichnisses "Contoso" haben keine direkten Administratorberechtigungen für das Verzeichnis "Test", sofern ihnen nicht ein Administrator diese Verzeichnisses die Berechtigungen gesondert erteilt. Die Administratoren von "Contoso" steuern den Zugriff auf das Verzeichnis "Test", da sie das Benutzerkonto steuern, mit dem dieses Verzeichnis erstellt wurde.
 
-    如果您變更 (新增或移除) 某個目錄中使用者的系統管理員角色，則變更不會影響另一個目錄中該使用者可能有的任何系統管理員角色。
-
-
-- **同步處理獨立性**。您可以單獨設定每個 Azure AD，以取得從任一項目的單一執行個體同步處理的資料：
-    - 目錄同步作業工具，以與單一 AD 樹系同步處理資料
-    - Azure Active Directory Connector for Forefront Identity Manager，以與一或多個內部部署樹系和 (或) 非 AD 資料來源同步處理資料。 
-
-也請注意，與其他 Azure 資源不同，您的目錄不是 Azure 訂用帳戶的子資源。因此，如果您取消或允許 Azure 訂用帳戶到期，則還是可以使用 Azure AD PowerShell、Azure Graph API 或其他介面 (例如 Office 365 系統管理中心) 存取目錄資料。您也可以關聯另一個訂用帳戶與目錄。
-
-## 如何刪除 Azure AD 目錄？
-全域管理員可以從入口網站刪除 Azure AD 目錄。刪除目錄時，也會一併刪除目錄中所含的所有資源；因此，您應該確定不需要該目錄之後再予以刪除。
-
-> [AZURE.NOTE]如果使用者以工作或學校帳戶登入，則使用者不得嘗試刪除其主目錄。例如，如果使用者以 joe@contoso.onmicrosoft.com 身分登入，則該使用者無法刪除預設網域為 contoso.onmicrosoft.com 的目錄。
-
-### 刪除 Azure AD 目錄必須符合的條件
-
-Azure AD 需要符合特定條件才能刪除目錄。這可降低刪除目錄對使用者或應用程式造成負面影響的風險 (例如使用者登入 Office 365 或存取 Azure 中資源的能力)。例如，如果不小心刪除訂用帳戶的目錄，則使用者無法存取該訂用帳戶的 Azure 資源。
-
-會檢查下列條件：
-
-- 目錄中的唯一使用者是將刪除目錄的全域管理員。必須先刪除任何其他使用者，才能刪除目錄。如果使用者是從內部部署進行同步處理，則需要關閉同步處理，而且必須使用管理入口網站或適用於 Windows PowerShell 的 Azure 模組來刪除雲端目錄中的使用者。不需要刪除群組或連絡人 (例如從 Office 365 系統管理中心新增的連絡人)。
-- 目錄中可能沒有任何應用程式。必須先刪除任何應用程式，才能刪除目錄。 
-- 任何 Microsoft Online Service 都沒有任何訂用帳戶 (例如與目錄相關聯 Microsoft Azure、Office 365 或 Azure AD Premium)。例如，在 Azure 中建立預設目錄時，如果您的 Azure 訂用帳戶仍然依賴此目錄來進行驗證，則無法刪除此目錄。同樣地，如果另一位使用者擁有與目錄相關聯的訂用帳戶，則您無法刪除目錄。若要關聯您的訂用帳戶與不同的目錄，請登入 Azure 管理入口網站，然後按一下左導覽中的 [**設定**]。然後，按一下 [**訂用帳戶**] 頁面底部的 [**編輯目錄**]。如需 Azure 訂用帳戶的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure AD 產生關聯](active-directory-how-subscriptions-associated-directory.md)。 
-
-    > [AZURE.NOTE]如果使用者以工作或學校帳戶登入，則使用者不得嘗試刪除其主目錄。例如，如果使用者以 joe@contoso.onmicrosoft.com 身分登入，則該使用者無法刪除預設網域為 contoso.onmicrosoft.com 的目錄。
-
-- 任何 Multi-Factor Authentication 提供者都無法連結至目錄。
+    Und wenn Sie eine Administratorrolle für einen Benutzer in einem Verzeichnis ändern (hinzufügen oder entfernen), hat die Änderung keine Auswirkungen auf Administratorrollen, die der Benutzer möglicherweise in einem anderen Verzeichnis besitzt.
 
 
-## 其他資源
+- **Synchronisierungsunabhängigkeit**. Sie können jedes Azure AD unabhängig voneinander konfigurieren, damit Sie synchronisierte Daten einer einzelnen Instanz erhalten, mit folgenden Möglichkeiten:
+    - Dem Verzeichnissynchronisierungstool zum Synchronisieren von Daten mit einer AD-Gesamtstruktur.
+    - Dem Azure Active Directory-Connector für Forefront Identity Manager zum Synchronisieren von Daten mit einer oder mehreren lokalen Gesamtstrukturen und/oder nicht-AD-Datenquellen.
 
-- [Azure AD 論壇](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-- [Azure Multi-Factor Authentication 論壇](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
+Beachten Sie außerdem, dass Ihre Verzeichnisse im Gegensatz zu anderen Azure-Ressourcen keine untergeordneten Ressourcen eines Azure-Abonnements sind. Wenn Sie also kündigen oder Ihr Azure-Abonnement ablaufen lassen, können Sie weiterhin auf Ihre Verzeichnisdaten mithilfe von Azure AD PowerShell, der Azure Graph-API oder anderen Schnittstellen wie Office 365 Admin Center zugreifen. Sie können dem Verzeichnis auch ein anderes Abonnement zuordnen.
+
+## Wie lösche ich ein Azure AD-Verzeichnis?
+Ein globaler Administrator kann ein Azure AD-Verzeichnis über das Portal löschen. Wenn ein Verzeichnis gelöscht wird, werden alle im Verzeichnis enthaltenen Ressourcen ebenfalls gelöscht. Sie sollten also vor dem Löschen sicher sein, dass Sie das Verzeichnis nicht mehr benötigen.
+
+> [AZURE.NOTE]
+> Wenn der Benutzer mit einem Geschäfts- oder Schulkonto angemeldet ist, darf er das Basisverzeichnis nicht löschen. Z. B. wenn der Benutzer als joe@contoso.onmicrosoft.com angemeldet ist, kann nicht der Benutzer das Verzeichnis löschen, das contoso.onmicrosoft.com als seine Standarddomäne.
+
+### Bedingungen, für das Löschen eines Azure AD-Verzeichnisses erfüllt sein müssen
+
+Bei Azure AD müssen bestimmte Bedingungen erfüllt sein, um ein Verzeichnis zu löschen. Dies reduziert das Risiko, dass das Löschen eines Verzeichnisses Benutzer oder Anwendungen beeinträchtigt, wie z. B. die Möglichkeit von Benutzern, sich bei Office 365 anzumelden oder auf Ressourcen in Azure zuzugreifen. Wenn z. B. ein Verzeichnis für ein Abonnement versehentlich gelöscht wurde, können Benutzer nicht mehr auf die Azure-Ressourcen für dieses Abonnement zugreifen.
+
+Die folgenden Bedingungen werden überprüft:
+
+- Der einzige Benutzer im Verzeichnis ist der globale Administrator, der das Verzeichnis löschen wird. Andere Benutzer müssen gelöscht werden, bevor das Verzeichnis gelöscht werden kann. Wenn Benutzer lokal synchronisiert werden, dann muss die Synchronisation deaktiviert werden und die Benutzer müssen über das Verwaltungsportal oder das Azure-Modul für Windows PowerShell im Cloudverzeichnis gelöscht werden. Es gibt keine Anforderung zum Löschen von Gruppen oder Kontakten, z. B. aus Office 365 Admin Center hinzugefügten Kontakten.
+- Es können keine Anwendungen im Verzeichnis vorhanden sein. Alle Anwendungen müssen gelöscht werden, bevor das Verzeichnis gelöscht werden kann.
+- Es können keine Abonnements für Microsoft-Onlinedienste wie Microsoft Azure, Office 365 oder Azure AD Premium mit dem Verzeichnis verknüpft sein. Wenn z. B. ein Standardverzeichnis für Sie in Azure erstellt wurde, können Sie es nicht löschen, wenn Ihr Azure-Abonnement noch für die Authentifizierung darauf zugreifen muss. Auf ähnliche Weise können Sie kein Verzeichnis löschen, wenn ein anderer Benutzer über ein Abonnement damit verbunden ist. Um Ihr Abonnement mit einem anderen Verzeichnis zuzuordnen, melden Sie sich beim Azure-Verwaltungsportal, und klicken Sie auf **Einstellungen** im linken Navigationsbereich. Klicken Sie dann am unteren Rand der **Abonnements** auf **Verzeichnis bearbeiten**. Weitere Informationen zu Azure-Abonnements finden Sie unter [wie Azure-Abonnements mit Azure AD verknüpft sind](active-directory-how-subscriptions-associated-directory.md).
+
+    > [AZURE.NOTE]
+    > Wenn der Benutzer mit einem Geschäfts- oder Schulkonto angemeldet ist, darf er das Basisverzeichnis nicht löschen. Z. B. wenn der Benutzer als joe@contoso.onmicrosoft.com angemeldet ist, kann nicht der Benutzer das Verzeichnis löschen, das contoso.onmicrosoft.com als seine Standarddomäne.
+
+- Kein Multi-Factor Authentication-Anbieter kann mit dem Verzeichnis verknüpft werden.
+
+
+## Zusätzliche Ressourcen
+
+- [Azure AD-Forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
+- [Azure Multi-Factor Authentication-Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
-- [以組織身分註冊 Azure](sign-up-organization.md)
-- [使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx)
-- [在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles.md)
+- [Als Unternehmen für Azure registrieren](sign-up-organization.md)
+- [Verwalten von Azure AD mithilfe von Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+- [Zuweisen von Administratorrollen in Azure AD](active-directory-assign-admin-roles.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
 
- 
-
-<!---HONumber=62-->

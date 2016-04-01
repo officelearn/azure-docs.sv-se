@@ -1,0 +1,4 @@
+> Sie können kein virtuelles Azure-Netzwerk der Version 1 (klassisch) mit Linux-basiertem HDInsight verwenden. Das virtuelle Netzwerk muss Version 2 aufweisen (Azure-Ressourcen-Manager), damit es beim Erstellen des Clusters im Azure-Vorschauportal als Option angezeigt wird bzw. beim Erstellen eines Clusters über die Azure-Befehlszeilenschnittstelle oder Azure PowerShell verwendet werden kann.
+> 
+> Wenn Sie Ressourcen in einem Netzwerk v1 haben, und Sie möchten, stellen HDInsight direkt auf diese Ressourcen über ein virtuelles Netzwerk zugegriffen werden kann, finden Sie unter [Verbinden klassischen VNets und neuen VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) Informationen zur Verbindung eines virtuellen Netzwerks von v2 zu einem virtuellen Netzwerk von v1. Nachdem diese Verbindung eingerichtet wurde, können Sie den HDInsight-Cluster im virtuellen v2-Netzwerk erstellen.
+

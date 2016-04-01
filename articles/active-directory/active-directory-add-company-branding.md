@@ -1,179 +1,181 @@
-<properties 
-	pageTitle="將公司商標新增至登入和存取面板頁面" 
-	description="本主題說明組織如何在所管理的所有網站和服務上套用一致的外觀及操作，讓使用者在需要使用這些網站時不致混淆。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+    pageTitle="Hinzufügen Ihres Unternehmensbranding zur Anmelde- und Zugriffsbereichsseite"
+    description="Bei diesem Thema wird erklärt, wie viele Unternehmen ein einheitliches Erscheinungsbild für all ihre verwalteten Websites und Dienste anstreben, damit ihre Endbenutzer beim Besuch dieser Websites nicht verwirrt werden."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/30/2015" 
+    ms.author="MarkVi"/>
 
-# 將公司商標新增至登入和存取面板頁面
-
-> [AZURE.NOTE]
-> 
-- 公司商標是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
-- Azure Active Directory Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。如需詳細資訊，請透過 [Azure Active Directory 論壇](http://feedback.azure.com/forums/169401-azure-active-directory)與我們連絡。
-
-許多公司想要在所管理的所有網站和服務上套用一致的外觀及操作，讓使用者在需要使用這些網站時不致混淆。Azure Active Directory 提供這項功能，讓您可以自訂下列使用者面向網頁的外觀，以納入您的公司標誌和色彩配置：
-
-- **登入頁面** - 此頁面是使用者在登入 Office 365 或使用 Azure AD 做為身分識別提供者的其他 Web 和現代應用程式時重新導向至其中的位置。不論是否透過首頁領域探索，大部分的使用者都會與此頁面互動，讓系統將同盟使用者重新導向至其內部部署 STS (例如 AD FS)，或輸入其認證。
-
-- **存取面板頁面** - [存取面板] 是一種 Web 入口網站，可讓 Azure AD 目錄中擁有工作或學校帳戶的使用者檢視並啟動 Azure AD 系統管理員已授與他們存取權的雲端應用程式。您組織中的所有使用者都可以在 myapps.microsoft.com 中存取 [存取面板]。
-
-## 登入頁面自訂
-
-[登入] 頁面通常是使用者最常使用的網頁，而使用者需要透過瀏覽器存取您組織所訂閱的雲端應用程式和服務，因此，確保它正確十分重要。如果您想要體驗預設無商標 [登入] 頁面，則不需要執行任何動作。
-
-### 在登入頁面上看見商標變更需要多久的時間？
-
-使用者最多需要一個小時的時間，才會看到您對登入頁面商標進行的任何新變更。
-
-### 使用者何時會看到加上商標的登入頁面？
-
-使用者會在造訪具有租用戶特定 URL (例如 https://outlook.com/**contoso**.com 或 https://mail.**contoso**.com (如果已建立 CNAME)) 的服務時看到加上商標的登入頁面。
-
-如果他們造訪具有非租用戶特定 URL (例如 https://mail.office365.com) 的服務，就會看到未加上商標的登入頁面。使用者輸入其使用者 ID 或選取使用者名稱之後，將會重新整理登入頁面以顯示您的商標。
+# Hinzufügen Ihres Unternehmensbranding zur Anmelde- und Zugriffsbereichsseite
 
 > [AZURE.NOTE]
-> 
-- 在已設定商標之 Azure Management Portal 的 [**Active Directory**] > [**目錄**] > [**網域**] 區段中，您的網域名稱必須為 [作用中]。
-- 登入頁面商標不會延續到 Microsoft 的消費者登入頁面。這表示使用個人 Microsoft 帳戶 (先前稱為 Windows Live ID) 登入的使用者可能會看到 Azure AD 所呈現並加上商標的使用者名稱清單，但是您組織的商標不會套用到 Microsoft 帳戶登入頁面。
+>
+- Unternehmensbranding ist ein Feature, das nur verfügbar ist, wenn Sie Ihr Azure Active Directory auf die Premium oder Basic Edition aktualisiert haben. Weitere Informationen finden Sie unter [Azure Active Directory-Editionen](active-directory-editions.md).
+- Die Azure Active Directory-Editionen Premium und Basic stehen für Kunden in China zur Verfügung, die mit der weltweit verfügbaren Instanz von Azure Active Directory arbeiten. Allerdings werden die Azure Active Directory-Editionen Premium und Basic derzeit durch den in China von 21Vianet betriebenen Microsoft Azure-Dienst nicht unterstützt. Weitere Informationen kontaktieren Sie uns die [Azure Active Directory-Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-### 使用者在我自訂 [登入] 頁面之後會看到什麼？
+Viele Unternehmen streben ein einheitliches Erscheinungsbild für all ihre verwalteten Websites und Dienste an, damit ihre Endbenutzer beim Besuch dieser Websites nicht verwirrt werden. Azure Active Directory ermöglicht dies, indem Sie die Anpassung der Darstellung folgender Websites für Endbenutzer vornehmen können, sodass Firmenlogo und Farbschemas enthalten sind:
 
-如果您想要在此頁面上顯示您的公司商標、色彩和其他可自訂的元素，請參閱下列影像以了解這兩種做法的差異。
+- **Anmeldeseite** -auf dieser Seite werden Benutzer weitergeleitet, wenn sie anmelden Office 365 oder anderen webbasierten und modernen Anwendungen, die Azure AD als Identitätsanbieter verwenden. Die meisten Benutzer interagieren mit dieser Seite entweder beim Durchlaufen der Startbereichserkennung, was dem System das Umleiten von Verbundbenutzern auf ihren lokalen STS (z. B. AD FS) ermöglicht, oder bei der Eingabe ihrer Anmeldeinformationen.
 
-使用者嘗試從桌上型電腦登入時，以下是他們在自訂「*之前*」於 Office 365 [登入] 頁面上所看到內容的範例：
+- **Seite "Zugriffsbereich" Zugriff** – der Zugriffsbereich ist ein webbasiertes Portal, das einem Endbenutzer mit Geschäfts-oder schulkonto in Azure AD-Verzeichnis anzuzeigen und zu starten Cloud-basierte Clientanwendungen ermöglicht, sie der Zugriff von Azure AD-Administrator gewährt wurde. Der Zugriffsbereich ist für alle Benutzer in Ihrer Organisation über myapps.microsoft.com zugänglich.
+
+## Anpassung der Anmeldeseite
+
+Die Anmeldeseite ist in der Regel die am häufigsten von Endbenutzern verwendete Webseite, die browserbasierten Zugriff auf die Cloudanwendungen und -dienste benötigen, die Ihre Organisation abonniert. Daher ist das Aussehen dieser Seite äußerst wichtig. Wenn Sie die Standardanmeldeseite ohne Branding verwenden möchten, ist keine weitere Aktion erforderlich.
+
+### Wie lange dauert es, bis die Brandingänderungen auf den Anmeldeseiten sichtbar werden?
+
+Es kann bis zu einer Stunde dauern, bis Benutzer Neuerungen sehen, die Sie am Branding der Anmeldeseite vorgenommen haben.
+
+### Wann wird den Benutzern eine Anmeldeseite mit Branding angezeigt?
+
+Benutzer wird eine Anmeldeseite mit Branding angezeigt, wenn sie einen Dienst mit einer mandantenspezifischen URL wie z. B. https://outlook.com/ besuchen**Contoso**.com oder https://mail.**Contoso**.com (Wenn Sie einen CNAME-Eintrag erstellt haben).
+
+Wenn sie einen Dienst ohne mandantenspezifische URLs (z. B. https://mail.office365.com) besuchen, sehen sie eine Anmeldeseite ohne Branding. Der Anmeldeseite wird aktualisiert, um Ihr Branding anzuzeigen, sobald die Benutzer ihre Benutzer-ID eingegeben oder eine Benutzerkachel ausgewählt haben.
+
+> [AZURE.NOTE]
+>
+- Ihr Domänenname muss als "Aktiv" angezeigt, dem **Active Directory** > **Verzeichnis** > **Domänen** Abschnitt der Azure-Verwaltungsportal, in dem Sie das branding konfiguriert haben.
+- Die Anmeldeseite mit dem Branding wird nicht auf die Verbraucheranmeldeseite von Microsoft übertragen. Dies bedeutet, dass Benutzer, die sich mit einem persönlichen Microsoft-Konto (früher Windows Live ID) anmelden, eine Liste an von Azure AD gerenderten Benutzerkacheln mit Branding sehen, aber das Branding Ihrer Organisation nicht auf die Microsoft-Kontoanmeldeseite übertragen wird.
+
+### Was wird meinen Endbenutzern angezeigt, nachdem ich die Anmeldeseite angepasst habe?
+
+Wenn Sie Ihre Unternehmensmarke, -farben und andere anpassbare Elemente auf dieser Seite anzeigen möchten, schauen Sie sich die folgenden Bilder an, um den Unterschied zwischen den beiden Eindrücken zu verstehen.
+
+Wenn ein Benutzer versucht, über einen desktop-Computer anzumelden, hier ist ein Beispiel für die der Benutzer auf die Office 365-Anmeldeseite würde *vor* anpassen:
 
 ![][1]
 
-以下是相同的使用者在自訂「*之後*」所看到的內容：
+Und hier sieht derselbe Benutzer *nach* anpassen:
 
 ![][2]
 
-使用者嘗試從行動裝置登入時，以下是他們在自訂「*之前*」於 Office 365 [登入] 頁面上所看到內容的範例：
+Wenn ein Benutzer versucht, über ein mobiles Gerät anzumelden, hier ist ein Beispiel für die der Benutzer auf die Office 365-Anmeldeseite würde *vor* anpassen:
 
 ![][3]
 
-以下是相同的使用者在自訂「*之後*」所看到的內容：
+Und hier sieht derselbe Benutzer *nach* anpassen:
 
 ![][4]
 
-### 我們可以自訂頁面上的哪些元素？
+### Welche Elemente auf der Seite können angepasst werden?
 
-您可以自訂 [登入] 頁面上的下列元素：
+Sie können die folgenden Elemente auf der Anmeldeseite anpassen:
 
 ![][5]
 
- 頁面元素 | 頁面上的位置
-	------------- | -------------
-橫幅標誌 | 顯示於頁面的右上方。取代您使用者所登入之目的地網站通常會顯示的標誌 (例如Office 365 或 Azure)。
-大型圖例/背景色彩 | 顯示於頁面的左方。取代您使用者所登入之目的地網站通常會顯示的影像。可能會顯示「背景色彩」，來替代低頻寬連線或極窄畫面上的「大型圖例」。
-登入頁面文字 | 需要在使用者使用其工作或學校帳戶登入之前傳達給他們的有用資訊時，顯示於頁尾上方。例如，您可能想要包括支援人員的電話號碼或法律聲明。
+ Seitenelement  | Position auf der Seite
+    ------------- | -------------
+Bannerlogo | Rechts oben auf der Seite angezeigt. Ersetzt das Logo, das normalerweise von der Zielwebsite angezeigt wird, bei der sich die Benutzer anmelden (z. B. Office 365 oder Azure).
+Große Abbildung / Hintergrundfarbe | Am linken Rand der Seite angezeigt. Ersetzt das Bild, das normalerweise von der Zielwebsite angezeigt wird, bei der sich die Benutzer anmelden. Die Hintergrundfarbe wird möglicherweise bei Verbindungen mit geringer Bandbreite oder auf sehr kleinen Bildschirmen anstelle der großen Abbildung angezeigt.
+Text der Anmeldeseite | Über dem Seitenfuß angezeigt, wenn Sie hilfreiche Informationen an Ihre Benutzer vermitteln wollen, bevor sie sich mit Ihrem Geschäfts- oder Schulkonto anmelden. Ein Beispiel: Sie möchten die Telefonnummer zu Ihrem Helpdesk oder einen rechtlichen Hinweis einfügen.
 
-> [AZURE.NOTE]所有元素都是選用的。例如，如果您指定 [橫幅標誌]，但未指定 [大型圖例]，則 [登入] 頁面會顯示您的標誌以及目的地網站的圖例 (即 Office 365 加州高速公路影像)。
+> [AZURE.NOTE]
+Alle Elemente sind optional. Wenn Sie z. B. ein Bannerlogo, jedoch keine große Abbildung angeben, wird die Anmeldeseite Ihr Logo und die Abbildung für den Zielstandort (d. h. das Office 365-Bild mit dem kalifornischen Highway) anzeigen.
 
-您也可以將此頁面上的所有元素都翻成當地使用語。設定一組「預設」自訂元素之後，就可以設定不同地區設定的其他版本。您也可以混合使用並符合各種元素。例如，您可以：
+Sie können auch alle Elemente auf dieser Seite lokalisieren. Sobald Sie einen "Standard"-Satz an Anpassungselementen konfiguriert haben, können Sie zusätzliche Versionen für verschiedene Gebietsschemas konfigurieren. Sie können auch verschiedene Elemente miteinander kombinieren. Dazu zählen z. B.:
 
-- 建立適用於所有文化的「預設」大型圖例，然後建立英文和法文的特定版本。瀏覽器設定為這兩種語言中其中一種的使用者會看到特定的影像，其他人則會看到預設值。
-- 為您的組織設定不同的標誌 (例如日文或希伯來文版本)。
+- Erstellen Sie eine große "Standard"-Abbildung, die für alle Kulturen funktioniert, und erstellen Sie dann spezifische Versionen für Englisch und Französisch. Benutzer mit Browsern, die auf eine dieser beiden Sprachen festgelegt sind, sehen das spezifische Bild, während allen anderen das Standardbild angezeigt wird.
+- Konfigurieren Sie verschiedene Logos für Ihre Organisation (z. B. japanische oder hebräische Versionen).
 
-### 調整瀏覽器大小之後，如何顯示圖例？
+### Wie wird die Abbildung angezeigt, nachdem die Größe des Browsers geändert wurde?
 
-在調整瀏覽器視窗大小期間，大型圖例 (例如先前所示的圖例) 幾乎一律會裁剪成符合不同的螢幕外觀比例。請記住，您應該嘗試保持圖例中的主要視覺元素，讓它們永遠顯示在左上角 (從右至左的語言，則顯示在右上角)。這十分重要，因為調整大小通常會從右下角往左上角，或從下方往上方。
+Während der Größenänderung eines Browserfensters wird die große Abbildung (wie die zuvor gezeigte) fast immer so zugeschnitten, dass verschiedene Bildschirm-Seitenverhältnisse möglich sind. Vor diesem Hintergrund sollten Sie die wichtigsten visuellen Elemente in der Abbildung beibehalten, sodass Sie immer in der oberen linken Ecke (oben rechts für Rechts-nach-links-Sprachen) erscheinen. Dies ist wichtig, da die Größenänderung normalerweise über die rechte untere Ecke nach oben links oder von unten nach oben erfolgt.
 
-下圖顯示將瀏覽器調整到左方時如何裁剪圖例：
+Die folgende Abbildung zeigt, wie die Abbildung zugeschnitten wird, wenn die Größe des Browsers nach links verschoben wird:
 
 ![][6]
 
-以下是將瀏覽器調整到上方之後，如何顯示圖例：
+Und hier wird deutlich, wie der Browser nach Verschiebung der Größe nach oben aussehen wird:
 
 ![][7]
 
-## 存取面板頁面自訂
+## Anpassung der Zugriffsbereichsseite
 
-[存取面板] 頁面基本上是所有使用者的入口網站頁面，而所有使用者需要透過可點選應用程式磚來快速存取已獲授與其存取權的各種雲端應用程式。如果您想要體驗預設無商標 [存取面板] 頁面，則不需要執行任何動作。
+Die Seite "Zugriffsbereich" ist im Wesentlichen eine Portalseite für alle Endbenutzer, die schnellen Zugriff über klickbare Anwendungskacheln auf verschiedene Cloud-Anwendungen benötigen, auf die Sie Zugriff erteilt haben. Wenn Sie die Standardzugriffsbereichsseite ohne Branding verwenden möchten, ist keine weitere Aktion erforderlich.
 
-### 使用者在我自訂 [存取面板] 頁面之後會看到什麼？
+### Was sehen die Endbenutzer, nachdem die Zugriffsbereichsseite angepasst wurde?
 
 ![][8]
 
-## 使用公司商標來設定目錄
+## Konfigurieren Sie Ihr Verzeichnis mit Unternehmensbranding
 
-您可以針對管理入口網站中的每個目錄，設定一組預設可自訂元素。儲存預設值之後，系統管理員也可以選擇針對不同的語言/地區設定，新增每個元素的當地語系化版本。所有可自訂元素都是選用的。
+Ein Standardsatz von anpassbaren Elementen kann pro Verzeichnis im Verwaltungsportal konfiguriert werden. Nachdem die Standardeinstellungen gespeichert wurden, hat ein Administrator auch die Möglichkeit, lokalisierte Versionen jedes Elements für verschiedene Sprachen/Gebietsschemas hinzuzufügen. Alle anpassbaren Elemente sind optional.
 
-例如，如果您設定預設 [橫幅標誌]，但未設定 [大型圖例]，則 [登入] 頁面會將您的標誌顯示在右上角，不過，會顯示網站的預設圖例。如果您設定預設 [橫幅標誌] 和英文 [登入頁面文字]，並設定語言特定 [德文登入頁面文字]，則具有德文語言喜好設定的使用者會看到您的預設 [橫幅標誌]，但看不到德文文字。技術上，雖然您可以針對 Azure AD 所支援的每種語言設定不同的一組，但是基於維護和效能考量，建議您保持低變化數目。
+Wenn Sie z. B. ein Standardbannerlogo konfigurieren, jedoch keine große Abbildung, so wird Ihr Logo auf der Anmeldeseite in der oberen rechten Ecke angezeigt und ansonsten die Standardabbildung. Wenn Sie ein Standardbannerlogo und den Text der Anmeldeseite auf Englisch konfigurieren sowie eine sprachspezifische Anmeldeseite für Deutsch, wird Benutzern mit einer deutscher Spracheinstellung das Standardbannerlogo und deutscher Text angezeigt. Während Sie technisch gesehen einen anderen Satz für jede von Azure AD unterstützte Sprache konfigurieren könnten, empfehlen wir, dass die Anzahl der Varianten aus Wartungs- und Leistungsgründen so klein wie möglich bleibt.
 
-將公司商標新增至您的目錄：
+So fügen Sie Ihrem Verzeichnis Unternehmensbranding hinzu:
 
-1. 以想要自訂之目錄的系統管理員身分，登入 [[Azure 管理入口網站](https://manage.windowsazure.com)]。
-2. 選取您想要自訂的目錄。
-3. 選取 [**設定**] 索引標籤，然後選取 [**自訂商標**]。
-4. 修改您想要自訂的元素。請注意，所有欄位都是選用的。
-5. 按一下 [儲存]。
+1. Melden Sie sich bei der [Azure-Verwaltungsportal](https://manage.windowsazure.com) als Administrator des Verzeichnisses, das Sie anpassen möchten.
+2. Wählen Sie das Verzeichnis, das Sie anpassen möchten.
+3. Wählen Sie die **konfigurieren** Registerkarte, und wählen Sie dann **Branding anpassen**.
+4. Ändern Sie die Elemente, die Sie anpassen möchten. Beachten Sie, dass alle Felder optional sind.
+5. Klicken Sie auf **Speichern**.
 
-使用者最多需要一個小時的時間，才會看到您對登入頁面商標進行的任何新變更。
+Es kann bis zu einer Stunde dauern, bis Benutzer Neuerungen sehen, die Sie am Branding der Anmeldeseite vorgenommen haben.
 
-新增語言特定公司商標：
+So fügen Sie sprachspezifisches Unternehmensbranding hinzu:
 
-1. 在 [[Azure 管理入口網站](https://manage.windowsazure.com)] 中，選取 [**設定**] 索引標籤下的 [**自訂商標**]。
-2. 選取 [**新增特定語言的商標**]，並選取您要自訂標誌的語言，然後按 [**下一步**]。
-3. 僅編輯您想要設定語言特定覆寫的元素。請注意，所有欄位都是選用的。如果欄位空白，則會改為顯示自訂預設值 (或者，如果未設定自訂預設值，則為 Microsoft 預設值)。
-4. 按一下 [儲存]。
+1. In der [Azure-Verwaltungsportal](https://manage.windowsazure.com), unter der **konfigurieren** Registerkarte **Branding anpassen**.
+2. Wählen Sie **Hinzufügen von branding für eine bestimmte Sprache**, wählen Sie die Sprache, die Sie verwenden möchten, das Logo anpassen, und klicken Sie dann auf **Weiter**.
+3. Bearbeiten Sie nur die Elemente, für die Sie sprachspezifische Überschreibungen konfigurieren möchten. Beachten Sie, dass alle Felder optional sind. Wenn ein Feld leer bleibt, wird stattdessen der benutzerdefinierte Standardwert angezeigt (oder die Microsoft-Standardeinstellung, wenn kein benutzerdefinierter Standardwert konfiguriert ist).
+4. Klicken Sie auf **Speichern**.
 
-移除您目錄中的公司商標：
+So entfernen Sie das Unternehmensbranding aus Ihrem Verzeichnis
 
-1. 在 [[Azure 管理入口網站](https://manage.windowsazure.com)] 中，選取 [**設定**] 索引標籤下的 [**自訂商標**]。
-2. 在 [自訂商標] 頁面上，選取 [**編輯現有商標設定**]，然後移至下一頁。
-3. 根據您想要移除的元素，執行下列一或多項動作：
-	1. 對於 [橫幅標誌]，按一下 [**移除上傳的標誌**] 核取方塊。
-    2. 對於 [磚標誌]，按一下 [**移除上傳的標誌**] 核取方塊。
-    3. 對於 [登入頁面使用者名稱標籤]，清除所有文字。
-    4. 對於 [登入頁面文字]，清除所有文字。
-    5. 對於 [登入頁面圖例]，按一下 [**移除圖例**] 核取方塊。
-    6. 對於 [登入頁面背景色彩]，清除所有文字。
-4. 按一下 [**儲存**] 移除元素。
-5. 如有必要，請再按一下 [**自訂商標**]，並針對需要移除的所有語言特定商標重複這些步驟。按一下 [**自訂商標**] 並看到未設定現有設定的 [**自訂預設商標**] 表單時，已移除所有商標設定。
+1. In der [Azure-Verwaltungsportal](https://manage.windowsazure.com), unter der **konfigurieren** Registerkarte **Branding anpassen**.
+2. Wählen Sie auf der Seite Branding anpassen **vorhandene Brandingeinstellungen bearbeiten** und wechseln Sie dann zur nächsten Seite.
+3. Abhängig von den Elementen, die Sie entfernen möchten, führen Sie eine oder mehrere der folgenden Aktionen aus:
+    1. Banner-Logo klicken Sie auf das Kontrollkästchen **hochgeladenes Logo entfernen**.
+    2. Kachel-Logo klicken Sie auf das Kontrollkästchen **hochgeladenes Logo entfernen**.
+    3. Für die Benutzernamenbezeichnung auf der Anmeldeseite löschen Sie den gesamten Text.
+    4. Für den Text auf der Anmeldeseite löschen Sie den gesamten Text.
+    5. Abbildung der Anmeldeseite, klicken Sie auf das Kontrollkästchen **Abbildung entfernen**.
+    6. Für die Hintergrundfarbe auf der Anmeldeseite löschen Sie den gesamten Text.
+4. Klicken Sie auf **Speichern** auf die Elemente zu entfernen.
+5. Klicken Sie gegebenenfalls auf **Branding anpassen** erneut, und wiederholen Sie diese Schritte für das gesamte sprachspezifische branding, das entfernt werden soll.
+    Alle Brandingeinstellungen wurden entfernt, wenn Sie auf **Branding anpassen** und finden Sie unter der **standardmäßiges Branding anpassen** Form ohne Einstellungen konfiguriert.
 
-## 測試和範例
+## Testen und Beispiele
 
-建議您先使用測試租用戶進行試驗，再於生產環境中進行變更。確認是否已套用您商標的最簡單方式是開啟 InPrivate 或 Incognito 瀏覽器工作階段，然後造訪 https://outlook.com/contoso.com，並將 contoso.com 取代為您已自訂的網域。請注意，這也適用於類似 contoso.onmicrosoft.com 的網域。
+Es wird empfohlen, dass Sie mit einem Testmandanten experimentieren, bevor Sie Änderungen in der Produktionsumgebung vornehmen. Die einfachste Möglichkeit zum Überprüfen, ob Ihr branding angewendet wurde, werden von einer InPrivate- oder Inkognito-Browsersitzung öffnen und dann auf https://outlook.com/contoso.com, und Ersetzen Sie contoso.com durch die Domäne, die Sie angepasst haben ab. Beachten Sie, dass dies auch für Domänen funktioniert, die wie contoso.onmicrosoft.com aussehen.
 
-為了協助您建立有效自訂集，我們已自訂下列兩個虛構的登入頁面：
+Um Ihnen bei der Erstellung effektiver Anpasssätze zu unterstützen, haben wir die folgenden beiden fiktiven Anmeldeseiten angepasst:
 
 - [http://aka.ms/aaddemo001](http://aka.ms/aaddemo001)
 - [http://aka.ms/aaddemo002](http://aka.ms/aaddemo002)
 
-若要測試語言特定設定，您需要將網頁瀏覽器中的預設語言喜好設定修改為已在自訂中所設定的語言。在 Internet Explorer 中，這設定於 [**網際網路選項**] 功能表。
+Um die sprachspezifischen Einstellungen zu testen, müssen Sie die Standard-Spracheinstellungen in Ihrem Webbrowser auf eine Sprache ändern, die Sie in Ihrer Anpassung festgelegt haben. In Internet Explorer wird dies in konfiguriert die **Internetoptionen** Menü.
 
-## 可自訂元素
+## Anpassbare Elemente
 
-Azure AD 中的部分可自訂元素有多個使用案例。公司標誌可以一個目錄設定一次，並用於 [登入] 和 [存取面板] 頁面，其中，部分可自訂元素只適用於 [登入] 頁面。下表提供不同可自訂元素的詳細資料。
+Einige anpassbare Elemente in Azure AD dienen mehreren Verwendungszwecken. Firmenlogos können einmal pro Verzeichnis konfiguriert werden und werden sowohl auf der Anmeldeseite als auch auf der Zugriffsbereichsseite verwendet, wobei einige anpassbare Elemente speziell auf der Anmeldeseite dargestellt werden. Die folgende Tabelle enthält die Details für die verschiedenen anpassbaren Elemente.
 
-名稱 | 說明 | 條件約束 | 建議
-	------------- | ------------- | ------------- | -------------
-橫幅標誌 | [橫幅標誌] 會顯示在 [登入] 頁面和 [存取面板] 上。 | <p>JPG 或 PNG</p><p>60x280 像素</p><p>10 KB</p> | <p>使用您組織的完整標誌 (包含 pictogram 和 logotype)</p><p>高度保持低於 30 個像素，避免行動裝置上出現捲軸</p><p>保持低於 4 KB</p><p>使用透明 PNG (不假設 [登入] 頁面的背景永遠是白色)</p>
-磚標誌 | (目前未用於 [登入] 頁面中) 未來，這段文字可能用來取代不同體驗位置中的泛用「工作或學校帳戶」pictogram。 | <p>JPG 或 PNG</p><p>120x120 像素</p><p>10 KB</p> | <p>保持簡單 (無小型文字)，因為此影像大小可能會調整為 50%
+Name | Beschreibung | Einschränkungen | Empfehlungen
+    ------------- | ------------- | ------------- | -------------
+Bannerlogo | Das Bannerlogo wird auf der Anmeldeseite und im Zugriffsbereich angezeigt. | <p>JPG oder PNG</p><p>60 x 280 Pixel</p><p>10 KB</p> | <p>Verwenden Sie das vollständige Logo Ihrer Organisation (einschließlich Piktogramm und firmenschriftzug)</p><p>Halten Sie es unter 30 Pixel hoch, um Bildlaufleisten auf mobilen Geräten zu vermeiden</p><p>Halten Sie es kleiner als 4 KB</p><p>Verwenden Sie eine transparente PNG-Datei (nicht davon aus, dass die Anmeldeseite immer einen weißen Hintergrund hat)</p>
+Kachellogo | (zurzeit nicht auf der Anmeldeseite verwendet) Dieser Text kann in Zukunft verwendet werden, um das generische "Geschäfts- oder Schulkonto"-Piktogramm an unterschiedlichen Stellen zu platzieren. | <p>JPG oder PNG</p><p>120 x 120 Pixel</p><p>10 KB</p> | <p>Halten Sie es einfach (kein kleiner Text), wie dieses Abbild um 50 % verkleinert werden kann
 </p> |
-登入頁面使用者名稱標籤 | (目前未用於 [登入] 頁面中) 未來，這段文字可能用來取代不同體驗位置中的泛用「工作或學校帳戶」字串。您可以將它設定為「Contoso 帳戶」或 “Contoso ID” 這類項目。 | <p>Unicode 文字，最多 50 個字元</p><p>僅純文字 (沒有連結或 HTML 標記)</p> | <p>保持簡短和簡單</p><p>詢問使用者通常如何參照您提供給他們的工作或學校帳戶。</p>
-登入頁面文字 | 此「重複使用」文字會出現在 [登入] 頁面表單下方，並且可以用來傳達其他指示或可在何處取得說明和支援。 | <p>Unicode 文字，最多 256 個字元</p><p>僅純文字 (沒有連結或 HTML 標記)</p> | 保持低於 250 個字元 (約 3 行文字)
-登入頁面圖例 | 圖例是顯示在 [登入] 頁面表單左邊之 [登入] 頁面中的大型影像。 | <p>JPG 或 PNG</p><p>1420x1200</p><p>500 KB</p> | <p>1420x1200 像素</p><p>重要事項：保持越小越好，最好低於 200 KB。如果此影像太大，則會在未快取影像時影響 [登入] 頁面的效能</p><p>此影像幾乎都會進行剪裁，以符合不同的螢幕外觀比例。將主要視覺元素保持在左上角 (RTL 語言，則顯示在右上角)，因為隨著瀏覽器視窗的縮小，調整大小會從右下角往左上方。</p>
-登入頁面背景色彩 | 登入頁面背景色彩用於 [登入] 頁面表單左方的區域。沒有 [登入] 頁面圖例時，就會顯示此項目。 | 必須是十六進位格式的 RGB 色彩 (範例: #FFFFFF) | <p>可能會顯示背景色彩，來替代低頻寬連線上的「大型圖例」</p><p>建議挑選 [橫幅標誌] 的主要色彩</p>
+Benutzernamenbezeichnung auf der Anmeldeseite | (zurzeit nicht auf der Anmeldeseite verwendet) Dieser Text kann in Zukunft verwendet werden, um die generische "Geschäfts- oder Schulkonto"-Zeichenfolge an unterschiedlichen Stellen zu platzieren. Sie können ihn beispielsweise auf "Contoso-Konto" oder "Contoso-ID" festlegen. | <p>Unicode-Text, bis zu 50 Zeichen</p><p>Als nur-Text (keine Links oder HTML-Tags)</p> | <p>Halten Sie es kurz und einfach</p><p>Bitten Sie die Benutzer an, wie sie in der Regel Geschäfts- oder schulkonto an, die Sie mit bereitstellen.</p>
+Text der Anmeldeseite | Dieser "Textbaustein" wird unter dem Anmeldeseitenformular angezeigt und kann verwendet werden, um zusätzliche Anweisungen zu kommunizieren oder mitzuteilen, wo es Hilfe und Support gibt. | <p>Unicode-Text, bis zu 256 Zeichen</p><p>Als nur-Text (keine Links oder HTML-Tags)</p> | Verwenden Sie maximal 250 Zeichen (ungefähr drei Zeilen Text)
+Abbildung auf der Anmeldeseite | Die Abbildung zeigt ein großes Bild, das auf der Anmeldeseite links neben dem Anmeldeseitenformular angezeigt wird. | <p>JPG oder PNG</p><p>1420 x 1200</p><p>500 KB</p> | <p>1420 x 1200 Pixel</p><p>Wichtig: Halten Sie es so klein wie möglich, idealerweise unter 200 KB. Wenn dieses Bild zu groß ist, beeinträchtigt es die Leistung der Anmeldeseite, wenn das Bild nicht zwischengespeichert wird</p><p>Dieses Bild wird fast immer zugeschnitten, um verschiedene Bildschirm-Seitenverhältnisse zu ermöglichen. Halten die visuellen Hauptelemente in der oberen linken Ecke (oben rechts für RTL-Sprachen), weil die Größe der Ecke unten rechts nach oben/links, erfolgt, wenn das Browserfenster verkleinert wird.</p>
+Hintergrundfarbe auf der Anmeldeseite | Die Hintergrundfarbe auf der Anmeldeseite wird im Bereich links neben dem Anmeldeseitenformular verwendet. Dies wird sichtbar, wenn keine Abbildung auf der Anmeldeseite vorhanden ist. | Muss eine RGB-Farbe im hexadezimalen Format sein (Beispiel: #FFFFFF) | <p>Die Hintergrundfarbe kann anstelle der großen Abbildung Verbindungen mit geringer Bandbreite angezeigt werden</p><p>Wir empfehlen, die Grundfarbe des Banner-Logo auszuwählen</p>
 
 
-## 接下來
+## Nächste Schritte
 
-- [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
-- [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
+- [Erste Schritte mit Azure Active Directory Premium](active-directory-get-started-premium.md)
+- [Anzeigen von Zugriffs- und Nutzungsberichten](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
@@ -185,6 +187,4 @@ Azure AD 中的部分可自訂元素有多個使用案例。公司標誌可以�
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
- 
 
-<!---HONumber=62-->

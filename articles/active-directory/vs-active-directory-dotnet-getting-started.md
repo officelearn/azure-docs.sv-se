@@ -1,36 +1,36 @@
 <properties 
-	pageTitle="開始使用 Azure Active Directory (.NET 專案)" 
-	description="如何開始使用 Visual Studio 中的 Azure Active Directory" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
-	editor="tglee"/>
+    pageTitle="Erste Schritte mit Azure Active Directory und verbundenen Visual Studio-Diensten (MVC-Projekte)" 
+    description="Erfahren Sie etwas über die ersten Schritte mit Azure Active Directory in MVC-Projekten nach dem Herstellen einer Verbindung oder dem Erstellen eines Azure AD mithilfe von verbundenen Visual Studio-Diensten." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="TomArcher" 
+    manager="douge" 
+    editor="tglee"/>
   
 <tags 
-	ms.service="active-directory" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/06/2015" 
-	ms.author="patshea123"/>
+    ms.service="active-directory" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="vs-getting-started" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/03/2015" 
+    ms.author="tarcher"/>
 
-# 開始使用 Azure Active Directory (.NET 專案)
+# Erste Schritte mit Azure Active Directory und verbundenen Visual Studio-Diensten (MVC-Projekte)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
-> - [What Happened](vs-active-directory-dotnet-what-happened.md)
+> - [Erste Schritte](vs-active-directory-dotnet-getting-started.md)
+> - [Was ist passiert?](vs-active-directory-dotnet-what-happened.md)
  
-#####存取控制器之前需要驗證 
+##Erfordern von Authentifizierung für den Zugriff auf Controller 
 
-專案中的所有控制器都加上 **Authorize** 屬性做裝飾。此屬性要求使用者必須經過驗證才能存取這些控制器。若要允許以匿名方式存取控制器，請從控制器中移除此屬性。如果您要以更精確地設定權限，請將此屬性套用至每一個需要授權的方法，而非套用至控制器類別。
+Alle Controller in Ihrem Projekt wurden mit versehen der **Autorisieren** Attribut. Dieses Attribut erfordert, dass der Benutzer vor dem Zugriff auf diese Controller authentifiziert werden muss. Wenn Sie anonymen Zugriff auf diesen Controller erlauben möchten, entfernen Sie dieses Attribut vom Controller. Wenn Sie die Berechtigungen präziser festlegen möchten, wenden Sie das Attribut auf jede Methode an, die Autorisierung erfordert, anstatt es auf die Controllerklasse anzuwenden.
  
-#####加入 SignIn / SignOut 控制項 
+##Hinzufügen von SignIn-/SignOut-Steuerelementen 
 
-若要將 SignIn/SignOut 控制項加入至檢視，您可以使用 **_LoginPartial.cshtml** 部分檢視將此功能加入至您的其中一個檢視。以下是加入至標準 **_Layout.cshtml** 檢視的功能範例(請注意 div 中具有類別 navbar-collapse 的最後一個元素)：
+Hinzufügen einer Ihrer Ansicht SignIn/SignOut-Steuerelemente, können Sie die **_LoginPartial.cshtml** Teilansicht die Funktionalität einer Ihrer Ansichten hinzufügen. Hier ist ein Beispiel für die Funktion hinzugefügt, mit dem Standard **_Layout.cshtml** anzeigen. (Beachten Sie das letzte Element in div mit der Klasse navbar-collapse):
 
-<PRE class="prettyprint">
+<pre>
     &lt;!DOCTYPE html&gt; 
      &lt;html&gt; 
      &lt;head&gt; 
@@ -73,8 +73,8 @@
         @RenderSection("scripts", required: false) 
     &lt;/body&gt; 
     &lt;/html&gt;
-</PRE>
+</pre>
 
-[深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Weitere Informationen zu Azure Active Directory](http://azure.microsoft.com/services/active-directory/) 
 
-<!---HONumber=62-->
+

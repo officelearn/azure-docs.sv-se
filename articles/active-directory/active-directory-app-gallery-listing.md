@@ -1,6 +1,6 @@
 <properties
-   pageTitle="在 Azure Active Directory 應用程式庫中列出您的應用程式"
-   description="Azure Active Directory 開發人員導向資源的完整指南"
+   pageTitle="Ihre Anwendung im Azure Active Directory-Anwendungskatalog auflisten"
+   description="Auflisten einer Anwendung, die einmaliges Anmelden unterstützt, im Azure Active Directory-Katalog | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,49 +13,88 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="10/29/2015"
    ms.author="mbaldwin"/>
 
 
-# 在 Azure Active Directory 應用程式庫中列出您的應用程式
+# Ihre Anwendung im Azure Active Directory-Anwendungskatalog auflisten
 
-為了列出 [Azure AD 應用程式庫](http://azure.microsoft.com/marketplace/active-directory/all/)和 Azure Marketplace 中支援單一登入與 Azure Active Directory 的應用程式，Azure AD 小組需要確認您的整合。這需要您將下列資訊傳送至 <waadpartners@microsoft.com>：
+Um eine Anwendung aufzulisten, die einmaliges Anmelden mit Azure Active Directory unterstützt die [Azure AD-Katalog](http://azure.microsoft.com/marketplace/active-directory/all/), muss die Anwendung zunächst einen der folgenden Modi Integration zu implementieren:
 
-- Azure Active Directory 測試執行個體中可以登入您應用程式之測試使用者帳戶的使用者名稱和密碼
-- URL 以及 (或) 此測試使用者應該如何登入應用程式的指示
-- 提供客戶如何建立您應用程式與 Azure AD 間之連線的簡短描述。這可以：
-  - 內建至使用 Azure AD 同意架構的應用程式
-  - 使用您應用程式的系統管理入口網站，設定 Azure AD 做為身分識別提供者 (SAML 2.0、WS-Federation 或 OpenID Connect)
-  - 連絡您組織中的某個人以手動建立連線
-- 如果您的應用程式支援透過自助系統管理入口網站來設定 Azure AD 做為身分識別提供者，則也請提供測試系統管理員帳戶來進行驗證。
+* **OpenID Connect** -die direkte Integration in Azure AD für Authentifizierung und Azure AD-API-Konfiguration zustimmen mit OpenID Connect. Wenn Sie gerade erst mit der Integration beginnen und Ihre Anwendung SAML nicht unterstützt, ist dies der empfohlene Modus.
 
-測試完成之後，應用程式可以列在 Azure Active Directory 應用程式庫和 Azure Marketplace 中。完成下面問題，並傳送至 <waadpartners@microsoft.com>。
+* **SAML** – die Anwendung bereits verfügt, können Drittanbieter-Identitätsanbieter mithilfe des SAML-Protokolls konfiguriert.
 
-> 公司名稱：
->
-> 公司網站：
->
-> 應用程式名稱：
->
-> 應用程式描述 (256 個字元的限制)：
->
-> 應用程式網站 (資訊)：
->
-> 應用程式技術支援網站或連絡資訊：
->
-> 是否已整合應用程式與 Azure AD 並進行過測試 (請參閱 [Azure Active Directory 驗證案例](active-directory-authentication-scenarios.md))？
->
-> 應用程式的用戶端識別碼 (如 https://manage.windowsazure.com 中的應用程式詳細資料所示)：
->
-> 客戶前往註冊和 (或) 購買應用程式的應用程式註冊 URL：
->
-> 選擇要為您的應用程式列出的最多三個類別 (如需可用的類別，請參閱 [Azure Active Directory Marketplace](http://go.microsoft.com/fwlink/?LinkId=327881))：
->
-> 附加應用程式小型圖示 (PNG 檔案、45px x 45px、背景純色)：
->
-> 附加應用程式大型圖示 (PNG 檔案、215px x 215px、背景純色)：
->
-> 附加應用程式標誌 (PNG 檔案、150px x 122px、透明背景色彩)：
- 
+Für die Auflistung bestehen je nach Modus folgende Anforderungen:
 
-<!---HONumber=62-->
+##Integration mithilfe von OpenID Connect
+
+Zur Integration Ihrer Anwendung in Azure AD, die nach dem [Developer Anweisungen](active-directory-authentication-scenarios.md). Schließen Sie die folgenden Fragen und an waadpartners@microsoft.com senden.
+
+* Stellen Sie Anmeldeinformationen für einen Testmandanten oder ein Testkonto mit Ihrer Anwendung bereit, die vom Azure AD-Team zum Testen der Integration verwendet werden können.  
+
+* Erhalten Sie Anweisungen wie die Azure AD-Team kann sich anmelden und Verbinden einer Instanz von Azure AD mit Ihrer Anwendung mithilfe der [Azure AD Consent Frameworks](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework). 
+
+* Stellen Sie alle weiteren notwendigen Anweisungen bereit, damit das Azure AD-Team das einmalige Anmelden mit Ihrer Anwendung testen kann. 
+
+* Stellen Sie folgende Informationen bereit:
+
+> Name des Unternehmens:
+> 
+> Website des Unternehmens:
+> 
+> Anwendungsname:
+> 
+> Anwendungsbeschreibung (max. 256 Zeichen):
+> 
+> Website der Anwendung (informativ):
+> 
+> Technische Support-Website für die Anwendung oder Kontaktinformationen:
+> 
+> Client-ID der Anwendung, wie in den Anwendungsdetails auf https://manage.windowsazure.com gezeigt:
+> 
+> Anmelde-URL, unter der sich die Kunden anmelden und/oder die Anwendung erwerben:
+> 
+> Wählen Sie bis zu drei Kategorien aus, unter denen Ihre Anwendung aufgelistet wird (verfügbare Kategorien finden Sie im Azure Active Directory Marketplace):
+> 
+> Kleines Anwendungssymbol einfügen (PNG-Datei, 45 px mal 45 px,  Volltonfarbe für den Hintergrund):
+> 
+> Großes Anwendungssymbol einfügen (PNG-Datei, 215 px mal 215 px,  Volltonfarbe für den Hintergrund):
+> 
+> Logo einfügen (PNG-Datei, 150 px mal 122 px, transparente Hintergrundfarbe):
+
+##Integration mithilfe von SAML
+
+Jede Anwendung, die SAML 2.0 unterstützt direkt in Azure AD-Mandant mit integriert werden kann [diesen Anweisungen zum Hinzufügen einer benutzerdefinierten Anwendung](active-directory-saas-custom-apps.md). Nachdem Sie getestet haben, dass Ihre Anwendungsintegration mit Azure AD funktioniert, senden Sie die folgende Informationen, um <waadpartners@microsoft.com>.
+
+* Stellen Sie Anmeldeinformationen für einen Testmandanten oder ein Testkonto mit Ihrer Anwendung bereit, die vom Azure AD-Team zum Testen der Integration verwendet werden können.  
+
+* SAML Anmelde-URL, Aussteller-URL (Entitäts-ID) und Antwort-URL (Assertion Consumer Service)-Werte für Ihre Anwendung bereitstellen, wie beschrieben [hier](active-directory-saas-custom-apps.md). Wenn Sie diese Werte in der Regel als Teil einer SAML-Metadatendatei zur Verfügung stellen, senden Sie uns diese ebenfalls.
+
+* Beschreiben Sie kurz, wie Azure AD als Identitätsanbieter in ihrer Anwendung mithilfe von SAML 2.0 konfiguriert wird. Wenn Ihre Anwendung die Konfiguration von Azure AD als Identitätsanbieter über ein Self-Service-Verwaltungsportal unterstützt, stellen Sie sicher, dass dies mit den oben angegebenen Anmeldeinformation eingerichtet werden kann.
+
+* Stellen Sie folgende Informationen bereit:
+
+> Name des Unternehmens:
+> 
+> Website des Unternehmens:
+> 
+> Anwendungsname:
+> 
+> Anwendungsbeschreibung (max. 256 Zeichen):
+> 
+> Website der Anwendung (informativ):
+> 
+> Technische Support-Website für die Anwendung oder Kontaktinformationen:
+> 
+> Anmelde-URL, unter der sich die Kunden anmelden und/oder die Anwendung erwerben:
+> 
+> Wählen Sie bis zu drei Kategorien für Ihre Anwendung unter aufgelistet werden (Verfügbare Kategorien finden Sie die [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))):
+> 
+> Kleines Anwendungssymbol einfügen (PNG-Datei, 45 px mal 45 px,  Volltonfarbe für den Hintergrund):
+> 
+> Großes Anwendungssymbol einfügen (PNG-Datei, 215 px mal 215 px,  Volltonfarbe für den Hintergrund):
+> 
+> Logo einfügen (PNG-Datei, 150 px mal 122 px, transparente Hintergrundfarbe):
+
+

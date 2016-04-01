@@ -1,90 +1,89 @@
-<properties 
-	pageTitle="在 Azure AD 中指派系統管理員角色" 
-	description="本主題說明 Azure AD 可用的系統管理員角色和其指派方式。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+    pageTitle="Zuweisen von Administratorrollen in Azure Active Directory | Microsoft Azure"
+    description="Erläutert, welche Administratorrollen in Azure Active Directory verfügbar sind und wie sie zugewiesen werden."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
-# 在 Azure AD 中指派系統管理員角色
+# Zuweisen von Administratorrollen in Azure Active Directory (Azure AD)
 
-根據公司的大小，您可能想要指定數個擁有不同功能的系統管理員。這些系統管理員可以存取 Azure 入口網站中的各種功能，此外，根據其角色，將可以建立或編輯使用者、將系統管理角色指派給其他人、重設使用者密碼、管理使用者授權，以及管理網域。
+Abhängig von der Größe Ihres Unternehmens möchten Sie möglicherweise mehrere Administratoren ernennen, die verschiedene Funktionen ausüben. Diese Administratoren haben Zugriff auf verschiedene Funktionen im Azure-Portal oder im klassischen Azure-Portal und können abhängig von ihrer Rolle unter anderem Benutzer erstellen oder bearbeiten, anderen administrative Rollen zuweisen, Benutzerkennwörter zurücksetzen, Benutzerlizenzen verwalten und Domänen verwalten.
 
-請務必了解，不論您是在 Office 365 入口網站還是 Azure 入口網站中指派角色，或是使用適用於 Windows PowerShell 的 Azure AD 模組指派角色，獲指派系統管理員角色的使用者在您組織所訂閱的所有雲端服務中都擁有相同的權限。
+Es ist wichtig zu verstehen, dass ein Benutzer eine Administratorrolle zugewiesen ist dieselben in allen Cloud-Dienste verfügen über die Berechtigungen, die Ihre Organisation abonniert hat, unabhängig davon, ob Sie die Rolle im Office 365-Portal oder im klassischen Azure-Portal oder mithilfe des Azure AD-Moduls für Windows PowerShell zuweisen.
 
-可用的系統管理員角色如下：
+Die folgenden Administratorrollen sind verfügbar:
 
-- **計費管理員**：進行採購、管理訂用帳戶、管理支援票證，以及監控服務健全狀況。
-- **全域管理員**：可以存取所有系統管理功能。註冊 Azure 帳戶的人員會變成全域管理員。只有全域管理員才能指派其他系統管理員角色。您的公司可以有多位全域管理員。
-- **密碼管理員**：重設密碼、管理服務要求，以及監控服務健全狀況。密碼管理員可以僅重設使用者和其他密碼管理員的密碼。
-- **服務管理員**：管理服務要求，以及監控服務健全狀況。
-    > [AZURE.NOTE] 
-- **使用者管理員**：重設密碼、監控服務健全狀況，以及管理使用者帳戶、使用者群組和服務要求。部分限制適用於使用者管理管理員的權限。例如，他們無法刪除全域管理員，或建立其他管理員。此外，他們無法重設計費、全域和服務管理員的密碼。
+- **Abrechnungsadministrator**: erledigt Käufe, verwaltet Abonnements, verwaltet supporttickets und überwacht den Dienststatus.
+- **Globaler Administrator**: hat Zugriff auf alle administrativen Funktionen. Die Person, die die Anmeldung für das Azure-Konto vornimmt, wird ein globaler Administrator. Nur globale Administratoren können weitere Administratorrollen zuweisen. In Ihrem Unternehmen können mehrere globale Administratoren vorhanden sein.
+- **Kennwortadministrator**: setzt Kennwörter zurück, verwaltet Serviceanfragen und überwacht den Dienststatus. Kennwortadministratoren können Kennwörter nur für Benutzer und andere Kennwortadministratoren zurücksetzen.
+- **Dienstadministrator**: verwaltet Serviceanfragen und überwacht den Dienststatus.
+> [AZURE.NOTE]
+> Um einem Benutzer die Dienstadministratorrolle zuzuweisen, muss der globale Administrator zunächst dem Benutzer Administratorberechtigungen im Dienst (z. B. Exchange Online) zuweisen, und anschließend die Dienstadministratorrolle im klassischen Azure-Portal.
 
-## 系統管理員權限
+- **Benutzeradministrator**: setzt Kennwörter zurück, überwacht den Dienststatus und verwaltet Benutzerkonten, Benutzergruppen und Serviceanfragen. Für die Berechtigungen eines Benutzerverwaltungsadministrators gelten einige Einschränkungen. Sie können z. B. keinen globalen Administrator löschen oder andere Administratoren erstellen. Sie können außerdem keine Kennwörter für Abrechnungs-, globale und Dienstadministratoren zurücksetzen.
 
-### 計費管理員
+## Administratorberechtigungen
 
-可以執行 | 無法執行
+### Abrechnungsadministrator
+
+Möglich | Nicht möglich
 ------------- | -------------
-<p>檢視公司和使用者資訊</p><p>管理 Office 支援票證</p><p>執行 Office 產品的計費和購買作業</p> | <p>重設使用者密碼</p><p>建立和管理使用者檢視</p><p>建立、編輯和刪除使用者和群組，以及管理使用者授權</p><p>管理網域</p><p>管理公司資訊</p><p>將系統管理角色委派給其他人</p><p>使用目錄同步處理</p>
+<p>Anzeigen von Unternehmens- und Benutzerinformationen Informationen</p><p>Verwalten von Office-Support-tickets</p><p>Abrechnung und Einkauf für Office-Produkte ausführen</p> | <p>Zurücksetzen von Benutzerkennwörtern</p><p>Erstellen und Verwalten von Benutzeransichten</p><p>Erstellen, bearbeiten und Löschen von Benutzern und Gruppen und Verwalten von Benutzerlizenzen</p><p>Verwalten von Domänen</p><p>Verwalten von Unternehmensinformationen</p><p>Delegieren von Administratorrollen an andere Benutzer</p><p>Verwenden der verzeichnissynchronisierung</p>
 
-### 全域管理員
+### Globaler Administrator
 
-可以執行 | 無法執行
+Möglich | Nicht möglich
 ------------- | -------------
-<p>檢視公司和使用者資訊</p><p>管理 Office 支援票證</p><p>執行 Office 產品的計費和購買作業</p> <p>重設使用者密碼</p><p>建立和管理使用者檢視</p><p>建立、編輯和刪除使用者和群組，以及管理使用者授權</p><p>管理網域</p><p>管理公司資訊</p><p>將系統管理角色委派給其他人</p><p>使用目錄同步處理</p> | N/A
+<p>Anzeigen von Unternehmens- und Benutzerinformationen Informationen</p><p>Verwalten von Office-Support-tickets</p><p>Abrechnung und Einkauf für Office-Produkte ausführen</p> <p>Zurücksetzen von Benutzerkennwörtern</p><p>Erstellen und Verwalten von Benutzeransichten</p><p>Erstellen, bearbeiten und Löschen von Benutzern und Gruppen und Verwalten von Benutzerlizenzen</p><p>Verwalten von Domänen</p><p>Verwalten von Unternehmensinformationen</p><p>Delegieren von Administratorrollen an andere Benutzer</p><p>Verwenden der verzeichnissynchronisierung</p><p>Aktivieren Sie oder deaktivieren Sie die mehrstufige Authentifizierung</p> | N/V
 
-### 密碼管理員
+### Kennwortadministrator
 
-可以執行 | 無法執行
+Möglich | Nicht möglich
 ------------- | -------------
-<p>檢視公司和使用者資訊</p><p>管理 Office 支援票證</p><p>重設使用者密碼</p> | <p>執行 Office 產品的計費和購買作業</p><p>建立和管理使用者檢視</p><p>建立、編輯和刪除使用者和群組，以及管理使用者授權</p><p>管理網域</p><p>管理公司資訊</p><p>將系統管理角色委派給其他人</p><p>使用目錄同步處理</p>
+<p>Anzeigen von Unternehmens- und Benutzerinformationen Informationen</p><p>Verwalten von Office-Support-tickets</p><p>Zurücksetzen von Benutzerkennwörtern</p> | <p>Abrechnung und Einkauf für Office-Produkte ausführen</p><p>Erstellen und Verwalten von Benutzeransichten</p><p>Erstellen, bearbeiten und Löschen von Benutzern und Gruppen und Verwalten von Benutzerlizenzen</p><p>Verwalten von Domänen</p><p>Verwalten von Unternehmensinformationen</p><p>Delegieren von Administratorrollen an andere Benutzer</p><p>Verwenden der verzeichnissynchronisierung</p>
 
-### 服務管理員
+### Dienstadministrator
 
-可以執行 | 無法執行
+Möglich | Nicht möglich
 ------------- | -------------
-<p>檢視公司和使用者資訊</p><p>管理 Office 支援票證</p> | <p>重設使用者密碼</p><p>執行 Office 產品的計費和購買作業</p><p>建立和管理使用者檢視</p><p>建立、編輯和刪除使用者和群組，以及管理使用者授權</p><p>管理網域</p><p>管理公司資訊</p><p>將系統管理角色委派給其他人</p><p>使用目錄同步處理</p>
+<p>Anzeigen von Unternehmens- und Benutzerinformationen Informationen</p><p>Verwalten von Office-Support-tickets</p> | <p>Zurücksetzen von Benutzerkennwörtern</p><p>Abrechnung und Einkauf für Office-Produkte ausführen</p><p>Erstellen und Verwalten von Benutzeransichten</p><p>Erstellen, bearbeiten und Löschen von Benutzern und Gruppen und Verwalten von Benutzerlizenzen</p><p>Verwalten von Domänen</p><p>Verwalten von Unternehmensinformationen</p><p>Delegieren von Administratorrollen an andere Benutzer</p><p>Verwenden der verzeichnissynchronisierung</p>
 
-### 使用者管理員
+### Benutzeradministrator
 
-可以執行 | 無法執行
+Möglich | Nicht möglich
 ------------- | -------------
-<p>檢視公司和使用者資訊</p><p>管理 Office 支援票證</p><p>重設使用者密碼 (具有限制)。他或她無法重設計費、全域和服務管理員的密碼。</p><p>建立和管理使用者檢視</p><p>建立、編輯和刪除使用者和群組，以及管理使用者授權 (具有限制)。他或她無法刪除全域管理員，或建立其他管理員。</p> | <p>執行 Office 產品的計費和購買作業</p><p>管理網域</p><p>管理公司資訊</p><p>將系統管理角色委派給其他人</p><p>使用目錄同步處理</p>
+<p>Anzeigen von Unternehmens- und Benutzerinformationen Informationen</p><p>Verwalten von Office-Support-tickets</p><p>Zurücksetzen von Benutzerkennwörtern, eingeschränkt. Er kann keine Kennwörter für rechnungsadministratoren, globale und Dienstadministratoren zurücksetzen.</p><p>Erstellen und Verwalten von Benutzeransichten</p><p>Erstellen, bearbeiten und Löschen von Benutzern und Gruppen und Verwalten von Benutzerlizenzen mit Einschränkungen. Er kann keinen globalen Administrator löschen und andere Administratoren erstellen.</p> | <p>Abrechnung und Einkauf für Office-Produkte ausführen</p><p>Verwalten von Domänen</p><p>Verwalten von Unternehmensinformationen</p><p>Delegieren von Administratorrollen an andere Benutzer</p><p>Verwenden der verzeichnissynchronisierung</p><p>Aktivieren Sie oder deaktivieren Sie die mehrstufige Authentifizierung</p>
 
-## 全域管理員角色的詳細資料
+## Details zur globalen Administratorrolle
 
-全域管理員可以存取所有系統管理功能。註冊 Azure 訂用帳戶的人員預設會獲指派目錄的全域管理員角色。只有全域管理員才能指派其他系統管理員角色。
+Der globale Administrator hat Zugriff auf alle administrativen Funktionen. Standardmäßig ist die Person, die für ein Azure-Abonnement registriert für das Verzeichnis die globalen Administratorrolle zugewiesen. Nur globale Administratoren können weitere Administratorrollen zuweisen.
 
-## 指派或移除系統管理員角色 
-
-
-1. 在管理入口網站中，按一下 [**Active Directory**]，然後按一下您組織目錄的名稱。
-2. 在 [**使用者**] 頁面上，按一下您想要編輯之使用者的顯示名稱。
-3. 選取 [**組織角色**] 下拉式功能表，然後選取您想要指派給這位使用者的系統管理員角色，或選取 [**使用者**] (如果您想要移除現有系統管理員角色)。 
-4. 在 [**替代電子郵件地址**] 方塊中，輸入電子郵件地址。此電子郵件地址用於重要通知 (包括密碼自行重設)，因此，不論使用者是否可以存取 Azure，使用者都必須可以存取電子郵件帳戶。
-5. 選取 [**允許**] 或 [**封鎖**] 指定是否允許使用者登入和存取服務。 
-6. 從 [**使用位置**] 下拉式清單中，指定位置。
-7. 完成時，請按一下 [**儲存**]。
-
-## 接下來
-
-- [管理使用者](../active-directory-manage-users.md)
-- [管理密碼](active-directory-manage-passwords.md)
-- [管理群組](active-directory-manage-groups.md)
+## Zuweisen oder Entfernen von Administratorrollen
 
 
- 
+1. Klicken Sie in der klassischen Azure-Portal auf **Active Directory**, und klicken Sie dann auf den Namen des Verzeichnisses Ihrer Organisation.
+2. Auf der **Benutzer** auf den Anzeigenamen des Benutzers, die Sie bearbeiten möchten.
+3. In der **Organisationsrolle** wählen Sie die Administratorrolle, die zu diesem Benutzer zugewiesen werden soll, oder wählen Sie **Benutzer** wenn Sie eine vorhandene Administratorrolle entfernen möchten.
+4. In der **Alternative e-Mail-Adresse** Geben Sie eine e-Mail-Adresse. Diese E-Mail-Adresse wird für wichtige Benachrichtigungen, einschließlich des automatischen Zurücksetzens des Kennworts verwendet, so dass der Benutzer Zugriff auf das E-Mail-Konto benötigt, und zwar unabhängig davon, ob er auf Azure zugreifen kann oder nicht.
+5. Wählen Sie **Zulassen** oder **Block** angeben, ob der Benutzer sich anmelden und den Zugriff auf Dienste.
+6. Geben Sie einen Speicherort aus der **Verwendungsort** Dropdown-Liste.
+7. Wenn Sie fertig sind, klicken Sie auf **Speichern**.
 
-<!---HONumber=62-->
+## Nächste Schritte
+
+- [Verwalten von Benutzern](../active-directory-manage-users.md)
+- [Verwalten von Kennwörtern](active-directory-manage-passwords.md)
+- [Gruppen verwalten](active-directory-manage-groups.md)
+
+

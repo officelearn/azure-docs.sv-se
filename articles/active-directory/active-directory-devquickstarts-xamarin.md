@@ -1,66 +1,74 @@
 <properties
-	pageTitle="開始使用 Azure AD Xamarin | Microsoft Azure"
-	description="如何建置 Xamarin 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。"
-	services="active-directory"
-	documentationCenter="xamarin"
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Erste Schritte in Azure AD Xamarin | Microsoft Azure"
+    description="In diesem Thema erfahren Sie, wie eine Xamarin-Anwendung erstellt wird, die sich für die Anmeldung in Azure AD integriert und über OAuth durch Azure AD geschützte APIs aufruft."
+    services="active-directory"
+    documentationCenter="xamarin"
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="mobile-xamarin"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="04/28/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="mobile-xamarin"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="dastrock"/>
 
 
-# 將 Azure AD 整合至 Xamarin 應用程式
+# Integrieren von Azure AD in eine Xamarin-Anwendung
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Xamarin 允許您以 C# 撰寫可在數個不同平台 (包括行動裝置和電腦之類) 上執行的應用程式。如果您正在建置使用 Xamarin 的應用程式，Azure AD 可讓您簡單又直截了當以 Active Directory 帳戶驗證您的使用者。它也可讓您的應用程式安全地使用任何受 Azure AD 保護的 Web API，例如 Office 365 API 或 Azure API。
+Mit Xamarin können Sie Anwendungen in C# schreiben, die auf verschiedenen Plattformen, mobilen Geräten und PCs gleichermaßen, ausgeführt werden können.  Bei der Entwicklung einer Anwendung mit Xamarin können Sie Ihre Benutzer mit Azure AD einfach und problemlos über deren Active Directory-Konten authentifizieren.  Außerdem ermöglicht es in Ihren Anwendungen die sichere Nutzung jeder durch Azure AD geschützten Web-API wie der Azure-API oder Office 365-APIs.
 
-對於需要存取受保護資源的 Xamarin 應用程式，Azure AD 提供 Active Directory 驗證程式庫 (ADAL)。ADAL 存在的唯一目的是為了讓您的應用程式輕鬆取得存取權杖。為了示範究竟有多麼簡單，我們將建置一個可執行下列動作的「目錄搜尋程式」應用程式：
+Für Xamarin-Apps, die auf geschützte Ressourcen zugreifen müssen, bietet Azure AD die Active Directory-Authentifizierungsbibliothek (ADAL).  Die einzige Aufgabe von ADAL besteht darin, Ihrer Anwendung das Abrufen von Zugriffstoken zu erleichtern.  Wir wollen Ihnen nun zeigen, wie einfach das geht. Dazu erstellen wir die Anwendung „DirectorySearcher“ mit folgenden Funktionen:
 
--	可在 iOS、Android、Windows 桌面、Windows Phone 和 Windows 市集上執行。
-- 使用單一可攜式類別庫 (PCL) 來驗證使用者並取得 Azure AD Graph API 的權杖
--	搜尋目錄以尋找具有指定 UPN 的使用者。
+-   Ausführung unter iOS, Android, Windows Desktop, Windows Phone und Windows Store
+- Verwendung einer einzigen portablen Klassenbibliothek (PCL) zur Authentifizierung der Benutzer und zum Abrufen der Tokens für die Azure AD Graph-API
+-   Durchsuchen eines Verzeichnisses nach Benutzern mit einem bestimmten UPN
 
-若要建立完整可用的應用程式，您必須：
+Zur Entwicklung der vollständigen Arbeitsanwendung müssen Sie folgende Schritte ausführen:
 
-2. 設定您的 Xamarin 開發環境
-2. 向 Azure AD 註冊您的應用程式。
-3. 安裝及設定 ADAL。
-5. 使用 ADAL 來取得 Azure AD 的權杖。
+2. Einrichten der Xamarin-Entwicklungsumgebung
+2. Registrieren Ihrer Anwendung bei Azure AD
+3. Installieren und Konfigurieren von ADAL
+5. Verwenden von ADAL zum Abrufen von Tokens aus Azure AD
 
-若要開始使用，請[下載基本架構專案](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip)或[下載完整的範例](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)。每一個都是 Visual Studio 2013 解決方案。您還需要一個可以建立使用者並註冊應用程式的 Azure AD 租用戶。如果您還沒有租用戶，[了解如何取得租用戶](active-directory-howto-tenant.md)。
+Um zu beginnen, [ein Projektgerüst](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) oder [das vollständige Beispiel herunterladen](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip).  Bei beidem handelt es sich um eine Visual Studio 2013-Lösung.  Außerdem benötigen Sie einen Azure AD-Mandanten, in dem Sie Benutzer erstellen und Ihre Anwendung registrieren können.  Wenn Sie noch keinen Mandanten haben [erfahren Sie, wie eine](active-directory-howto-tenant.md).
 
-## *0.設定您的 Xamarin 開發環境*
-設定 Xamarin 有幾種不同的方式，視您想要鎖定的特定平台而定。由於本教學課程包括適用於 iOS、Android 和 Windows 的專案，我們選擇使用 Visual Studio 2013 和 [Xamarin.iOS 組建主機](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/)，這將需要： - 一部可執行 Visual Studio 和 Windows 應用程式的 Windows 電腦 - 一部 OSX 電腦 (如果您希望能夠執行 iOS 應用程式) - Xamarin 企業訂用帳戶 ([免費試用](http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/)就已足夠) - [Xamarin for Windows](https://xamarin.com/download)，其中包括 Xamarin.iOS、Xamarin.Android，以及 Visual Studio 整合 (建議在此範例中使用)。 - [Xamarin for OS X](https://xamarin.com/download)，其中包括 Xamarin.iOS (和 Xamarin.iOS 組建主機)、Xamarin.Android、Xamarin.Mac 和 Xamarin Studio。
+## *0. Einrichten der Xamarin-Entwicklungsumgebung*
+Xamarin kann je nach Zielplattform unterschiedlich eingerichtet werden.  Da in diesem Lernprogramm Projekte für iOS, Android und Windows enthält, wir müssen auch mit Visual Studio 2013 und dem [Xamarin.iOS erstellen Host](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/), das erforderlich ist:
+- Einen Windows-Computer zum Ausführen von Visual Studio und der Windows-apps
+- Ein OSX-Computer (Wenn Sie die iOS-app ausführen möchten)
+- Ein Xamarin-Business-Abonnement (ein [kostenlose Testversion](http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/) ist ausreichend)
+- [Xamarin für Windows](https://xamarin.com/download), darunter Xamarin.iOS, Xamarin.Android und die Integration von Visual Studio (empfohlen für dieses Beispiel).
+- [Xamarin für OS X](https://xamarin.com/download), einschließlich Xamarin.iOS (und die Xamarin.iOS Host erstellen), Xamarin.Android, Xamarin.Mac und Xamarin Studio.
 
-建議您從 [Xamarin 下載頁面](https://xamarin.com/download)開始，在您的 Mac 和 PC 上安裝 Xamarin。如果您沒有兩部可以使用的 Mac 和 PC 電腦，您仍然可以執行此範例，但可能必須略過某些專案。若是 iOS 和 Android，請依照[詳細安裝指南](http://developer.xamarin.com/guides/cross-platform/getting_started/installation/)進行，如果您想要深入了解開發可用選項的詳細資訊，請查看[建置跨平台應用程式](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/part_1_-_understanding_the_xamarin_mobile_platform/)指南。您不需要在此階段中設定開發裝置，您也不需要 Apple 開發人員計劃訂用帳戶 (當然，除非您想要在裝置上執行 iOS 應用程式)。
+Es wird empfohlen, Sie beginnen mit der [Xamarin-Downloadseite](https://xamarin.com/download), Xamarin auf Ihrem Mac und PC zu installieren.  Auch wenn Ihnen nicht beide Computer zur Verfügung stehen, können Sie das Beispiel ausführen, müssen dabei aber bestimmte Projekte auslassen.  Führen Sie die [Installationshandbücher detaillierte](http://developer.xamarin.com/guides/cross-platform/getting_started/installation/) für iOS und Android, und wenn Sie mehr über die Optionen, die Sie für die Entwicklung verfügbar verstehen möchten, müssen Sie einen Blick auf die [Building Cross Platform Applications](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/part_1_-_understanding_the_xamarin_mobile_platform/) Handbuch.  Im Augenblick brauchen Sie noch kein Gerät für die Entwicklung einzurichten, ebenso benötigen Sie noch kein Abonnement für das Apple Developer Program (es sei denn, Sie möchten die iOS-App auf einem Gerät ausführen).
 
-完成必要設定之後，您可以在 Visual Studio 中開啟解決方案並開始使用。您會看到六個專案：五個平台特定專案和一個可跨所有平台共用的可攜式類別庫，`DirectorySearcher.cs`
+Nach Abschluss der erforderlichen Konfigurationsschritte öffnen Sie die Lösung in Visual Studio, um zu beginnen.  Sie finden dort sechs Projekte: fünf plattformspezifische Projekte und die portable Klassenbibliothek `DirectorySearcher.cs`, die auf allen Plattformen verwendet werden kann.
 
 
-## *1.註冊目錄搜尋應用程式*
-若要啟用您的應用程式以取得權杖，您必須先在 Azure AD 租用戶中進行註冊，並對其授與存取 Azure AD Graph API 的權限：
+## *1. Registrieren der Anwendung DirectorySearcher*
+Damit Ihre Anwendung Tokens abrufen kann, müssen Sie sie zunächst beim Azure AD-Mandanten registrieren und ihr die Berechtigung für den Zugriff auf die Azure AD Graph-API erteilen:
 
--	登入 [Azure 管理入口網站](https://manage.windowsazure.com)
--	在左側導覽中按一下 **Active Directory**
--	選取要在其中註冊應用程式的租用戶。
--	按一下 [**應用程式**] 索引標籤，然後按一下最下面抽屜的 [**新增**]。
--	遵照提示進行，並建立新的**原生用戶端應用程式**。
-    -	應用程式的 [**名稱**] 將對使用者說明您的應用程式
-    -	「**重新導向 Uri**」是配置和字串的組合，Azure AD 可用它來傳回權杖回應。輸入值，例如 `http://DirectorySearcher`。
--	完成註冊後，AAD 會為您的應用程式指派一個唯一用戶端識別碼。您在後續章節中將會用到這個值，所以請從 [**設定**] 索引標籤中複製此值。
-- 此外，在 [**設定**] 索引標籤上找到 [其他應用程式的權限] 區段。在 [**委派權限**] 下，為 [Azure Active Directory] 應用程式新增 [**存取您的組織目錄**] 權限。這樣做可讓您的應用程式查詢 Graph API 的使用者。
+-   Melden Sie sich bei der [Azure-Verwaltungsportal](https://manage.windowsazure.com)
+-   Klicken Sie in der linken Navigationsleiste auf **Active Directory**
+-   Wählen Sie den Mandanten aus, unter dem die Anwendung registriert werden soll.
+-   Klicken Sie auf die **Applikationen** Registerkarte, und klicken Sie auf **Hinzufügen** im unteren Bereich.
+-   Folgen Sie den Assistenten, und erstellen Sie ein neues **systemeigene Clientanwendung**.
+    -   Die **Namen** der Anwendung wird beschrieben, die Anwendung für Endbenutzer
+    -   Die **Redirect Uri** ist eine Schema und einer Zeichenfolge Kombination, die Azure AD für die Rückgabe der tokenantworten verwendet.  Geben Sie einen Wert ein, zum Beispiel `http://DirectorySearcher`.
+-   Nach Abschluss der Registrierung weist AAD Ihrer App eine eindeutige Client-ID zu.  Sie benötigen diesen Wert in den nächsten Abschnitten, kopieren Sie ihn daher aus dem **konfigurieren** Registerkarte.
+- Ebenso **konfigurieren** Registerkarte, suchen Sie den Abschnitt "Berechtigungen für andere Anwendungen".  Für die Anwendung "Azure Active Directory" Hinzufügen der **Zugriff Verzeichnis Ihrer Organisation** Berechtigung unter **delegierte Berechtigungen**.  Mit dieser Berechtigung kann die Anwendung die Graph-API nach Benutzern abfragen.
 
-## *2.安裝及設定 ADAL*
-既然您在 Azure AD 中已經擁有應用程式，您可以安裝 ADAL，並撰寫身分識別相關程式碼。為了讓 ADAL 能夠與 Azure AD 進行通訊，您必須提供一些應用程式註冊相關資訊。從使用封裝管理員主控台將 ADAL 加入解決方案中的每個專案開始。
+## *2. Installieren und Konfigurieren von ADAL*
+Nachdem Sie nun eine Anwendung in Azure AD erstellt haben, können Sie ADAL installieren und Ihren identitätsbezogenen Code schreiben.  Damit ADAL mit Azure AD kommunizieren kann müssen Sie ihm einige Informationen zu Ihrer app-Registrierung bereitstellen.
+-   Zunächst fügen Sie ADAL für die einzelnen Projekte in der Projektmappe mithilfe der Paket-Manager-Konsole.
 
 `
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib -IncludePrerelease
@@ -86,24 +94,24 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal.WindowsPhone -IncludePrerelease
 `
 
-- 您應該會注意到每個專案會新增兩個程式庫參考：ADAL 的 PCL 部份和平台特定部分。
+- Beachten Sie, dass jedem Projekt zwei Bibliotheksverweise hinzugefügt werden – der PCL-Teil von ADAL und ein plattformspezifischer Teil.
 
--	在 DirectorySearcherLib 專案中，開啟 `DirectorySearcher.cs`。變更類別成員值，以反映您在 Azure 入口網站中所輸入的值。每當使用 ADAL 時，您的程式碼便會參考這些值。
-    -	`tenant` 是指您的 Azure AD 租用戶網域，例如 contoso.onmicrosoft.com
-    -	`clientId` 是指您從入口網站複製的應用程式 clientId。
-    - `returnUri` 是指您在入口網站中輸入的 redirectUri，例如 `http://DirectorySearcher`。
+-   Öffnen Sie `DirectorySearcher.cs` im Projekt DirectorySearcherLib.  Ersetzen Sie die Klassenmember-Werte durch die Werte, die Sie im Azure-Portal eingegeben haben.  Sobald Ihr Code ADAL verwendet, verweist er auf diese Werte.
+    -   `tenant` ist die Domäne Ihres Azure AD-Mandanten, z. B. „contoso.onmicrosoft.com“.
+    -   `clientId` ist die Client-ID Ihrer Anwendung, die Sie aus dem Portal kopiert haben.
+    - `returnUri` ist die Umleitungs-URI, die Sie im Portal eingegeben haben, z. B. `http://DirectorySearcher`.
 
-## *3.使用 ADAL 來取得 AAD 的權杖*
-*幾乎*所有應用程式的驗證邏輯採用 `DirectorySearcher.SearchByAlias(...)`。平台特定專案所需的只是將內容參數傳遞至 `DirectorySearcher` PCL。
+## *3.  Verwenden von ADAL zum Abrufen von Tokens aus AAD*
+*Fast* gesamte Authentifizierungslogik der Anwendung befindet sich in `DirectorySearcher.SearchByAlias(...)`.  In den plattformspezifischen Projekten müssen Sie der PCL von `DirectorySearcher` daher nur noch einen kontextbezogenen Parameter übergeben.
 
-- 首先，開啟 `DirectorySearcher.cs` 並在 `SearchByAlias(...)` 方法中加入新的參數。`IPlatformParameters` 是個內容參數，其中包含 ADAL 必須執行驗證的平台特定物件。
+- Öffnen Sie zunächst das `DirectorySearcher.cs` und fügen Sie einen neuen Parameter für die `SearchByAlias(...)` Methode.  `IPlatformParameters` ist der kontextbezogene Parameter, die plattformspezifischen Objekte, die adal enthält für die Authentifizierung auszuführen.
 
 ```C#
 public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
 {
 ```
 
--	接下來，初始化 `AuthenticationContext` - ADAL 的主要類別。這裡是您將與 Azure AD 通訊所需座標傳遞給 ADAL 的位置。然後呼叫 `AcquireTokenAsync(...)`，它可接受 `IPlatformParameters` 物件，並叫用將權杖傳回應用程式所需的驗證流程。
+-   Als Nächstes initialisieren Sie den `AuthenticationContext` – die primäre Klasse von ADAL.  Dort übergeben Sie ADAL die zur Kommunikation mit Azure AD notwendigen Koordinaten.  Rufen Sie danach `AcquireTokenAsync(...)` auf, das das Objekt `IPlatformParameters` akzeptiert und die Authentifizierungsroutine aufruft, die erforderlich ist, damit die Anwendung ein Token erhält.
 
 ```C#
 ...
@@ -116,10 +124,10 @@ try
 }
 ...
 ```
-- `AcquireTokenAsync(...)` 會先嘗試為要求的資源 (在此範例中會是 Graph API) 傳回權杖，而不提示使用者輸入其認證 (透過快取或重新整理舊的權杖)。只有在必要時，它才會在取得要求的權杖之前，對使用者顯示 Azure AD 登入頁面。
+- `AcquireTokenAsync(...)` versucht zunächst, ein Token für die angeforderte Ressource (in diesem Fall die Graph-API) zurückzugeben, ohne den Benutzer zur Eingabe seiner Anmeldeinformationen aufzufordern (die Authentifizierung erfolgt dann über den Cache oder durch Aktualisierung alter Tokens).  Die Anmeldeseite von Azure AD wird nur angezeigt, wenn sich dies zum Abrufen des angeforderten Tokens nicht vermeiden lässt.
 
 
-- 您可以接著將存取權杖附加至 Graph API 要求的授權標頭中：
+- Sie können das Zugriffstoken dann der Graph-API-Anforderung im Autorisierungsheader anfügen:
 
 ```C#
 ...
@@ -127,15 +135,15 @@ request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResu
 ...
 ```
 
-`DirectorySearcher` PCL 和應用程式的身分識別相關程式碼到此告一段落。剩下的工作只是在每個平台檢視中呼叫 `SearchByAlias(...)` 方法，並在必要的地方加入程式碼以便正確地處理 UI 生命週期。
+Mehr ist für die PCL von `DirectorySearcher` und den identitätsbezogenen Code Ihrer Anwendung nicht zu tun.  Sie brauchen nun in den Ansichten der einzelnen Plattformen nur noch die `SearchByAlias(...)`-Methode aufzurufen und gegebenenfalls Code für die korrekte Handhabung des UI-Lebenszyklus hinzuzufügen.
 
-####Android：
-- 在 `MainActivity.cs` 中，在按鈕點擊處理常式中新增 `SearchByAlias(...)` 的呼叫：
+####Android:
+- Fügen Sie in `MainActivity.cs` im unteren Klick-Handler einen `SearchByAlias(...)`-Aufruf hinzu:
 
 ```C#
 List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
 ```
-- 您還必須覆寫 `OnActivityResult` 生命週期方法，將任何驗證重新導向轉送回到適當的方法。ADAL 針對 Android 中的此項作業提供協助程式方法：
+- Außerdem müssen Sie die Lebenszyklus-Methode für `OnActivityResult` überschreiben, wenn Authentifizierungsumleitungen zurück an die betreffende Methode geleitet werden sollen.  In Android stellt ADAL hierfür eine Hilfsmethode bereit:
 
 ```C#
 ...
@@ -147,8 +155,8 @@ protected override void OnActivityResult(int requestCode, Result resultCode, Int
 ...
 ```
 
-####Windows 桌面：
-- 在 `MainWindow.xaml.cs` 中，只需進行 `SearchByAlias(...)` 呼叫，即可在桌面的 `PlatformParameters` 物件中傳遞 `WindowInteropHelper`：
+####Windows Desktop:
+- Stellen Sie in `MainWindow.xaml.cs` einfach einen Aufruf an `SearchByAlias(...)`, der im `PlatformParameters`-Objekt des Desktops ein `WindowInteropHelper` übergibt:
 
 ```C#
 List<User> results = await DirectorySearcher.SearchByAlias(
@@ -156,8 +164,8 @@ List<User> results = await DirectorySearcher.SearchByAlias(
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
 ```
 
-####iOS：
-- 在 `DirSearchClient_iOSViewController.cs` 中，iOS `PlatformParameters` 物件只需參考檢視控制器：
+####iOS:
+- In `DirSearchClient_iOSViewController.cs` nimmt das `PlatformParameters`-Objekt von iOS lediglich einen Verweis auf den Ansichtscontroller an:
 
 ```C#
 List<User> results = await DirectorySearcher.SearchByAlias(
@@ -165,8 +173,8 @@ List<User> results = await DirectorySearcher.SearchByAlias(
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
 ```
 
-####Windows 市集
-- 在 Windows 市集中，開啟 `MainPage.xaml.cs` 並實作 `Search` 方法，這會視需要在共用專案中使用協助程式方法來更新 UI。
+####Windows Store
+- Öffnen Sie in Windows Store die Datei `MainPage.xaml.cs`, und implementieren Sie die Methode `Search`, die in einem freigegebenen Projekt zur bedarfsgerechten Aktualisierung der Benutzeroberfläche eine Hilfsmethode verwendet.
 
 ```C#
 await UnivDirectoryHelper.Search(
@@ -178,7 +186,7 @@ await UnivDirectoryHelper.Search(
 ```
 
 ####Windows Phone
-- 在 Windows Phone 中，開啟 `MainPage.xaml.cs` 並實作 `Search` 方法，這會在共用專案中使用相同的協助程式方法來更新 UI。
+- Öffnen Sie in Windows Phone die Datei `MainPage.xaml.cs`, und implementieren Sie die Methode `Search`, die zur Aktualisierung der Benutzeroberfläche in einem freigegebenen Projekt die gleiche Hilfsmethode verwendet.
 
 ```C#
 await UnivDirectoryHelper.Search(
@@ -189,15 +197,15 @@ await UnivDirectoryHelper.Search(
   new PlatformParameters());
 ```
 
-恭喜！ 您現在擁有一個能夠在五個不同平台之間驗證使用者並使用 OAuth 2.0 安全地呼叫 Web API 的運作中 Xamarin 應用程式。如果您還沒有這麼做，現在正是將一些使用者植入租用戶的好時機。執行 DirectorySearcher 應用程式，並使用其中一個使用者登入。根據 UPN 搜尋其他使用者。
+Glückwunsch! Damit haben Sie eine funktionsfähige Xamarin-Anwendung entwickelt, die Benutzer auf fünf verschiedenen Plattformen authentifizieren und Web-APIs über OAuth 2.0 sicher aufrufen kann.  Sofern nicht bereits geschehen, ist es nun an der Zeit, Ihren Mandanten mit Benutzern zu füllen.  Führen Sie danach Ihre DirectorySearcher-Anwendung aus, und melden Sie sich unter einem dieser Benutzer an.  Suchen Sie anhand des UPN nach anderen Benutzern.  
 
-ADAL 可讓您輕鬆地將常見的身分識別功能納入您的應用程式。它會為您處理一切麻煩的事，包括快取管理、OAuth 通訊協定支援、向使用者顯示登入 UI、重新整理過期權杖等等。您唯一需要知道的就是單一 API 呼叫，`authContext.AcquireToken*(…)`。
+ADAL erleichtert Ihnen die Integration allgemeiner Identitätsfunktionen in Ihrer Anwendung.  Es übernimmt die unangenehmen Verwaltungsarbeiten für Sie – die Cacheverwaltung, die Unterstützung des OAuth-Protokolls, die Anzeige einer Anmeldeschnittstelle für den Benutzer, die Aktualisierung abgelaufener Tokens und vieles mehr.  Das Einzige, womit Sie sich noch beschäftigen müssen, ist der API-Aufruf `authContext.AcquireToken*(…)`.
 
-[這裡](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)提供完成的範例供您參考 (不含您的設定值)。您現在可以繼續其他身分識別案例。您可以嘗試：
+Das vollständige Beispiel (ohne Ihre Konfigurationswerte) dient als Referenz [hier](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip).  Sie können sich nun weiteren Identitätsszenarien zuwenden.  Sie können beispielsweise Folgendes testen:
 
-[使用 Azure AD 保護 .NET Web API >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Schützen einer .NET Web-API mit Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+
  
 
-<!---HONumber=62-->

@@ -1,112 +1,112 @@
-<properties 
-	pageTitle="開始使用 Azure Active Directory Premium" 
-	description="說明如何註冊 Azure Active Directory Premium Edition 的主題。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	writer="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+    pageTitle="Erste Schritte mit Azure Active Directory Premium"
+    description="In diesem Thema wird die Registrierung für die Premium Edition von Azure Active Directory beschrieben."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo" 
+    editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/30/2015"
+    ms.author="markvi"/>
 
-# 開始使用 Azure Active Directory Premium
+# Erste Schritte mit Azure Active Directory Premium
 
-Azure Active Directory 有三種版本：免費、基本和進階。免費版本隨附於 Azure 或 Office 365 訂用帳戶。基本和進階版本可透過 [Microsoft Enterprise 合約](https://www.microsoft.com/zh-tw/licensing/licensing-programs/enterprise.aspx)或[開啟大量授權](https://www.microsoft.com/zh-tw/licensing/licensing-programs/open-license.aspx) 程式取得。Azure 和 Office 365 訂閱者也可以線上購買 Active Directory Premium。[在此登入](https://portal.office.com/Commerce/Catalog.aspx)購買。
+Azure Active Directory ist in drei Editions verfügbar: Free, Basic und Premium. Die kostenlose Free Edition ist in einem Azure- oder Office 365-Abonnement enthalten. Die Basic und Premium Editions sind über ein [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) oder [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) Programm. Azure- und Office 365-Abonnenten können Active Directory Premium auch online erwerben. [Melden Sie sich hier](https://portal.office.com/Commerce/Catalog.aspx) kaufen.
 
-> [AZURE.NOTE]Azure Active Directory Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。如需詳細資訊，請透過 [Azure Active Directory 論壇](http://feedback.azure.com/forums/169401-azure-active-directory)與我們連絡。
+> [AZURE.NOTE]
+Die Azure Active Directory-Editionen Premium und Basic stehen für Kunden in China zur Verfügung, die mit der weltweit verfügbaren Instanz von Azure Active Directory arbeiten. Allerdings werden die Azure Active Directory-Editionen Premium und Basic derzeit durch den in China von 21Vianet betriebenen Microsoft Azure-Dienst nicht unterstützt. Weitere Informationen kontaktieren Sie uns die [Azure Active Directory-Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-Azure Active Directory Premium 也包含在 **Enterprise Mobility Suite** 中。Enterprise Mobility Suite 是一個符合成本效益的方式，可供組織根據單一授權方案來搭配使用 Microsoft Intune、Azure 版權管理和 Active Directory Premium 服務。如需詳細資訊，請參閱 [Enterprise Mobility Suite](https://www.microsoft.com/zh-tw/server-cloud/enterprise-mobility/overview.aspx) 網站。
+Azure Active Directory Premium ist auch im enthalten die **Enterprise Mobility Suite**. Enterprise Mobility Suite ist eine kostengünstige Lösung für Unternehmen, die Microsoft Intune, Azure Rights Management und die Active Directory Premium-Dienste gemeinsam unter einem Lizenzplan verwenden möchten. Weitere Informationen finden Sie unter der [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) Website.
 
-若要立即開始使用 Azure Active Directory Premium 功能，請遵照下列步驟進行。相同的步驟適用於 Azure Active Directory Basic 版本。
+Wenn Sie die Azure Active Directory Premium-Features noch heute verwenden möchten, führen Sie die folgenden Schritte aus. Die gleichen Schritte gelten auch für die Azure Active Directory Basic Edition.
 
-## 步驟 1：註冊 Active Directory Premium
+## Schritt 1: Registrieren Sie sich für Active Directory Premium
 
-若要註冊，請參閱[大量授權](http://www.microsoft.com/zh-tw/licensing/how-to-buy/how-to-buy.aspx)網站。
+Zur Registrierung finden Sie unter der [Volumenlizenzierung](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) Website.
 
-## 步驟 2：啟用您的授權方案
+## Schritt 2: Aktivieren Sie Ihren Lizenzplan
 
-如果這是您第一次透過 Microsoft 的企業大量授權方案購買授權方案，則您必須先啟動您的授權方案，才能開始在 Azure Active Directory 目錄內指派授權。若要這樣做，您必須按一下 [登入] 或 [註冊] 連結，您可以在完成第一個授權方案購買之後所收到的確認電子郵件 (請參閱下文) 中找到這些連結。後續針對此目錄的任何購買，授權將會自動在相同的目錄中啟用。
+Wenn dies das erste Mal ist, dass Sie einen Lizenzplan über das Enterprise Volume Licensing-Programm von Microsoft erwerben, müssen Sie den Lizenzplan zuerst aktivieren, bevor Sie mit der Zuweisung von Lizenzen aus Ihrem Azure Active Directory-Verzeichnis beginnen können. Dazu müssen Sie in der Bestätigungs-E-Mail, die Sie nach dem Kauf Ihres ersten Lizenzplans erhalten, auf den Anmelde- bzw. Registrierungslink klicken (siehe unten). Bei jedem nachfolgenden Kauf für dieses Verzeichnis werden die Lizenzen automatisch im gleichen Verzeichnis aktiviert.
 
 ![][1]
 
-如果您有現有的租用戶，請選取 [**登入**] 連結並使用現有的系統管理員帳戶登入。請務必使用目錄的全域管理員認證進行登入，且目錄必須已啟用授權。
+Wenn Sie einen vorhandenen Mandanten verwenden, wählen Sie die **Anmeldung** Link, um sich mit Ihrem vorhandenen Administratorkonto anzumelden. Die Anmeldung muss über die Anmeldeinformationen des globalen Administrators des Verzeichnisses erfolgen, in dem die Lizenzen aktiviert werden sollen.
 
-如果您想要建立新的 Azure Active Directory 租用戶來與授權方案搭配使用，則您應該選取將會帶您到下列畫面的 [**註冊**] 連結。
+Wenn Sie einen neuen Azure Active Directory-Mandanten mit Ihrem Lizenzierungsplan erstellen möchten, und Sie wählen die **registrieren** Link dadurch Sie zum folgenden Bildschirm gelangen.
 
 ![][2]
 
-在完成從電子郵件啟動的註冊程序或登入程序之後，您將會看到下列畫面，確認已為您的租用戶啟動授權方案。
+Sobald Sie die aus der E-Mail veranlasste Anmeldung bzw. Registrierung abgeschlossen haben, sehen Sie folgenden Bildschirm, der Ihnen bestätigt, dass der Lizenzplan für Ihren Mandanten aktiviert wurde.
 
 ![][3]
 
-## 步驟 3：啟用 Azure Active Directory 存取
+## Schritt 3: Aktivieren Sie den Zugriff auf Azure Active Directory
 
-一旦授權佈建至您的目錄後，您將會收到一封歡迎使用電子郵件 (請見下文)，確認您已經可以開始管理 Azure Active Directory Premium 或 Enterprise Mobility Suite 的授權和功能。如果您之前用過 Microsoft Azure，您可以繼續執行 http://manage.windowsazure.com 以指派新的授權 (如需進一步的指示，請參閱下面的步驟 4)。如果您不熟悉 Microsoft Azure，請選取電子郵件上 [登入] 連結，或移至[存取 Azure Active Directory 啟用頁面](https://account.windowsazure.com/signup?offer=MS-AZR-0110P)，這將帶您完成一系列的步驟，並協助您透過 Azure 管理入口網站來存取您的目錄。
+Nach der Bereitstellung der Lizenzen in Ihrem Verzeichnis erhalten Sie eine Begrüßungs-E-Mail (siehe unten), die bestätigt, dass Sie nun mit der Verwaltung Ihrer Azure Active Directory Premium- oder Enterprise Mobility Suite-Lizenzen und Features beginnen können. Wenn Sie Microsoft Azure bereits verwendet haben, können Sie fortfahren http://Manage.windowsazure.com, um die neuen Lizenzen zuzuweisen (Weitere Informationen finden Sie nachfolgend in Schritt 4). Wenn Sie neu bei Microsoft Azure sind, den Anmeldelink der e-Mail, oder Sie die [Zugriff auf Azure Active Directory](https://account.windowsazure.com/signup?offer=MS-AZR-0110P) gelangen Sie über eine Reihe von Schritten können Sie den Zugriff auf Ihr Verzeichnis über das Azure-Verwaltungsportal.
 
 ![][4]
 
-登入成功之後，您必須提供行動電話號碼並加以驗證，才能完成第二個因素驗證畫面 (如下)。在此之後，您便能夠選取 [**註冊**] 來啟用您的 Azure Active directory 存取。
+Nach der erfolgreichen Anmeldung müssen Sie einen Bildschirm für eine zweistufige Authentifizierung ausfüllen (siehe unten). Hier geben Sie Ihre Mobiltelefonnummer ein und bestätigen diese. Danach werden Sie können Ihren Zugriff auf Azure Active Directory durch Auswahl aktivieren **registrieren**.
 
 ![][5]
 
-如下圖所示，啟用作業可能需要幾分鐘的時間，在啟用存取後，棕色列便會消失，且您將能夠按一下右上角的 [入口網站] 連結，或瀏覽至 [Azure 管理入口網站](http://manage.windowsazure.com)。
+Die Aktivierung kann einige Minuten dauern, wie unten dargestellt, sobald der Zugriff aktiv ist der braune Balken und Sie werden auf den Link "Portal" in der oberen rechten Ecke klicken, oder Navigieren zu der [Azure-Verwaltungsportal](http://manage.windowsazure.com).
 
 ![][6]
 
-在此案例中，您的 Azure 存取將僅限於 Azure Active Directory。
+In diesem Fall ist Ihr Azure-Zugriff auf Azure Active Directory beschränkt.
 
 ![][7]
 
-在先前的使用中，您可能已經存取過 Azure。此外，您可以透過啟用其他 Azure 訂用帳戶，將 Access Azure Active Directory 升級為完整 Azure 存取。在這些情況下，管理入口網站將會擁有更多功能，如下列所示。
+Möglicherweise hatten Sie aufgrund einer früheren Verwendung bereits Zugriff auf Azure. Außerdem können Sie Ihren Azure Active Directory-Zugriff durch Aktivierung weiterer Azure-Abonnements auf einen vollständigen Azure-Zugriff erweitern. In diesen Fällen bietet das Verwaltungsportal über die im Folgenden beschriebenen Funktionen hinaus weitere Funktionen.
 
 ![][8]
 
-如果您嘗試在收到上述歡迎使用電子郵件之前就先啟用 Azure Active Directory 存取，則您有可能會看到下列錯誤訊息。請在收到電子郵件的幾分鐘後再試一次。
+Wenn Sie versuchen, den Zugriff auf Azure Active Directory zu aktivieren, bevor Ihnen die oben erwähnte Begrüßungs-E-Mail zugestellt wurde, erhalten Sie möglicherweise folgende Fehlermeldung. Versuchen Sie die Aktivierung in diesem Fall erneut wenige Minuten nach Erhalt der E-Mail.
 
 ![][9]
 
-訂用帳戶中的新系統管理員也可透過此連結來啟用管理入口網站的存取。
+Innerhalb Ihres Abonnements neue Administratoren können ihren Zugriff auf das Verwaltungsportal ebenfalls über diesen Link aktivieren.
 
-## 步驟 4：將授權指派給使用者帳戶
+## Schritt 4: Weisen Sie die Lizenzen Benutzerkonten zu 
 
-在您可以開始使用所購買的方案之前，您必須以手動方式將授權指派給組織內的使用者帳戶，好讓他們可以使用 Premium 所提供的豐富功能。使用下列步驟來將授權指派給使用者，好讓他們可以使用 Azure Active Directory Premium 功能。
+Bevor Sie den erworbenen Plan verwenden können, müssen Sie die Lizenzen manuell Benutzerkonten Ihres Unternehmens zuweisen, damit diese das reichhaltige Feature-Angebot der Premium Edition nutzen können. Führen Sie zur Zuweisung von Lizenzen zu Benutzern die folgenden Schritte aus, so dass diese die Features der Premium Edition von Azure Active Directory nutzen können.
 
-將授權指派給使用者：
+Zuweisen von Lizenzen zu Benutzern:
 
-1. 以想要自訂之目錄的全域系統管理員身分登入管理入口網站。
-2. 按一下 [**Active Directory**]，然後選取您要指派授權的目錄。
-3. 選取 [**授權**] 索引標籤，選取 [**Active Directory Premium**] 或 [**Enterprise Mobility Suite**]，然後按一下 [**指派**]。
+1. Melden Sie sich beim Verwaltungsportal als globaler Administrator des Verzeichnisses an, das Sie anpassen möchten.
+2. Klicken Sie auf **Active Directory**, und wählen Sie das Verzeichnis, in dem Sie Lizenzen zuweisen möchten.
+3. Wählen Sie die **Lizenzen** Registerkarte **Active Directory Premium** oder **Enterprise Mobility Suite**, und klicken Sie dann auf **Zuweisen**.
 
     ![][10]
 
-4. 在對話方塊中，選取您要對其指派授權的使用者，然後按一下核取記號圖示，以儲存變更。
+4. Wählen Sie im Dialogfeld die Benutzer aus, denen Sie Lizenzen zuweisen möchten, und klicken Sie dann auf das Häkchen, um die Änderungen zu speichern.
 
     ![][11]
 
-## 授權限制
+## Lizenzeinschränkungen
 
-部分的授權方案屬於其他授權方案的子集或超集。在大部分的情況下，您無法將授權方案重複指派給使用者。如果您打算指派超集授權方案，則您必須先移除子集授權方案。
+Es gibt Lizenzpläne, die in anderen Lizenzplänen enthalten sind oder andere Lizenzpläne enthalten. In den meisten Fällen kann einem Benutzer kein Lizenzplan zugewiesen werden, der ihm bereits zugewiesen wurde. Wenn Sie einem Benutzer einen Lizenzplan zuweisen möchten, der andere Lizenzpläne enthält, die dem Benutzer bereits zugewiesen sind, müssen Sie die bereits zugewiesenen Lizenzpläne zunächst entfernen.
 
-## 授權需求
+## Lizenzanforderungen
 
-當您將授權指派給使用者時，您可以在他們的帳戶屬性中指定一個主要使用位置，如下所示。如果未指定使用位置，則系統會自動將租用戶的位置指派給使用者。
+Wenn Sie einem Benutzer eine Lizenz zuweisen, können Sie, wie unten gezeigt, in den Eigenschaften des Benutzerkontos einen primären Verwendungsort angeben. Wenn kein solcher Verwendungsort angegeben ist, wird dem Benutzer automatisch der Standort des Mandanten zugewiesen.
 
 ![][12]
 
-Microsoft 雲端服務的服務和功能可用性會依國家或地區而有所不同。服務 (例如網路電話，VoIP) 有可能在一個國家或地區可以使用，但在另一個國家或地區卻無法使用。基於某些國家或地區的法律問題，服務中的功能可能會受到限制。若要查看服務或功能在使用上有無限制，請到服務授權限制網站並尋找您的國家或地區。
+Die Verfügbarkeit der Dienste und Features eines Microsoft Clouddiensts variieren je nach Land und Region. Ein Dienst wie Voice over IP (VoIP) kann in einem Land bzw. einer Region verfügbar sein, in einem anderen hingegen nicht. Die Features eines Diensts können aus rechtlichen Gründen in einigen Ländern oder Regionen eingeschränkt sein. Um festzustellen, ob ein Dienst oder ein Feature für Sie uneingeschränkt oder mit Einschränkungen verfügbar ist, suchen Sie Ihr Land bzw. Ihre Region auf der Site mit den Lizenzeinschränkungen des jeweiligen Diensts.
 
-## 接下來
+## Nächste Schritte
 
-- [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
-- [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
+- [Hinzufügen Ihres Unternehmensbranding zur Anmelde- und Zugriffsbereichsseite](active-directory-add-company-branding.md)
+- [Anzeigen von Zugriffs- und Nutzungsberichten](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-get-started-premium/MOLSEmail.png
@@ -123,6 +123,3 @@ Microsoft 雲端服務的服務和功能可用性會依國家或地區而有所�
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
 
- 
-
-<!---HONumber=62-->

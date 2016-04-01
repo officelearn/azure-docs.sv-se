@@ -1,0 +1,17 @@
+
+1. Mit der rechten Maustaste in des Windows Store-Projekts, klicken Sie auf **Set as StartUp Project**, drücken Sie F5, um die Windows Store-app ausführen.
+    
+    Nach dem Start der App ist das Gerät für Pushbenachrichtigungen registriert.
+
+2. Beenden Sie die Windows Store-App, und führen Sie den obigen Schritt erneut für die Windows Phone Store-App aus.
+
+    Nun sind beide Geräte für den Empfang von Pushbenachrichtigungen registriert.
+
+3. Führen Sie die Windows Store-app erneut aus, und geben Sie Text in **Insert a TodoItem**, und klicken Sie dann auf **Speichern**.
+
+    Bitte beachten Sie, dass nach dem Einfügen sowohl die Windows Store-App als auch die Windows Phone-App eine Pushbenachrichtigung von WNS erhält. Die Benachrichtigung wird unter Windows Phone angezeigt, selbst wenn die App nicht ausgeführt wird.
+
+    ![](./media/app-service-mobile-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
+
+
+

@@ -1,44 +1,48 @@
 <properties
-	pageTitle="使用 Azure AD 的後續步驟是什麼？"
-	description="涵蓋使用 Azure AD 的進階工作。"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="terrylan"
-	editor=""/>
+    pageTitle="Was sind die nächsten Schritte, die ich mithilfe von Azure Active Directory unternehmen kann?"
+    description="Erweiterte Aufgaben wie das Verwalten von Kennwörtern, Benutzern und Gruppen sowie der bedingte Zugriff mithilfe von Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/02/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2015"
+    ms.author="curtand"/>
 
-# 使用 Azure AD 的後續步驟是什麼？
-
-
-###本主題的其他文章
-[什麼是 Azure AD？](active-directory-whatis.md)<br> [運作方式](active-directory-works.md)<br> [入門](active-directory-get-started.md)<br> [後續步驟](active-directory-next-steps.md)<br> [深入了解](active-directory-learn-map.md)
-
-## 在 Azure AD 中管理使用者
-管理使用者帳戶不只是建立或刪除使用者及指派權限而已。您可以產生存取和使用方式相關報告、設定密碼原則、啟用密碼自助式重設、設定多重要素驗證等等。[深入瞭解使用者的管理](active-directory-create-users.md)。
-
-## 同步處理和管理密碼
-同步處理使用者密碼，讓使用者可以使用用來登入內部部署網路的相同密碼登入 Microsoft 雲端服務 (如 Office 365、Dynamics CRM 和 Microsoft Intune)。[深入瞭解密碼的管理](active-directory-manage-passwords.md)。
-
-## 在 Azure AD 中管理群組
-使用群組一次將一組常用的權限和權利指派給許多帳戶，而不是每個帳戶個別指派。您也可以從本機內部部署 Windows Server Active Directory 同步處理群組。深入瞭解如何在 Azure Active Directory 中管理群組。[深入瞭解群組的管理](active-directory-manage-groups.md)。
-
-## 對已註冊的行動裝置強制執行條件式存取原則
-Azure AD 裝置註冊會利用當使用者登入時用來驗證裝置的身分識別佈建裝置。然後已驗證的裝置和裝置的屬性即可用來對裝載於雲端和內部部署的應用程式，強制執行條件式存取原則。[深入瞭解 Azure AD 裝置註冊](active-directory-conditional-access.md)。
+# Was sind die nächsten Schritte in Azure AD?
 
 
-## 其他資源
+### Weitere Artikel zu diesem Thema
+[Was ist Azure AD?](active-directory-whatis.md)<br>
+[Wie funktioniert Application Insights?](active-directory-works.md)<br>
+[Erste Schritte](active-directory-get-started.md)<br>
+[Nächste Schritte](active-directory-next-steps.md)<br>
+[Weitere Informationen](active-directory-learn-map.md)
 
-* [以組織身分註冊 Azure](sign-up-organization.md)
-* [Azure 身分識別](fundamentals-identity.md)
+## Verwalten von Benutzern in Azure AD
+Das Verwalten von Benutzerkonten umfasst mehr als nur das Erstellen oder Löschen von Benutzern und Zuweisen von Berechtigungen. Sie können Zugriffs- und Verwendungsberichte erstellen, Kennwortrichtlinien festlegen, das Self-Service-Zurücksetzen von Kennwörtern aktivieren, die Multi-Factor Authentication einrichten und vieles mehr. [Erfahren Sie mehr über das Verwalten von Benutzern](active-directory-create-users.md).
+
+## Synchronisieren und Verwalten von Kennwörtern
+Synchronisieren Sie Benutzerkennwörter, damit Ihre Benutzer sich bei Microsoft-Clouddiensten (z. B. Office 365, Dynamics CRM und Microsoft Intune) mit dem gleichen Kennwort anmelden können, mit dem sie sich bei Ihrem lokalen Netzwerk anmelden. [Erfahren Sie mehr über das Verwalten von Kennwörtern](active-directory-manage-passwords.md).
+
+## Verwalten von Gruppen in Azure AD
+Verwenden Sie Gruppen, um eine Zusammenstellung von Berechtigungen und Rechten vielen Konten auf einmal anstatt jedem Konto einzeln zuzuweisen. Sie können auch Gruppen aus Ihrem lokalen Windows Server Active Directory synchronisieren. Erfahren Sie mehr über das Verwalten von Gruppen in Azure Active Directory. [Erfahren Sie mehr über das Verwalten von Gruppen](active-directory-manage-groups.md).
+
+## Erzwingen bedingter Zugriffsrichtlinien für registrierte Mobilgeräte
+Die Azure AD-Geräteregistrierung versieht Geräte mit einer Identität, die verwendet wird, um das Gerät zu authentifizieren, wenn sich der Benutzer anmeldet. Das authentifizierte Gerät und die Attribute des Geräts können anschließend verwendet werden, um bedingte Zugriffsrichtlinien für Anwendungen zu erzwingen, die in der Cloud und lokal gehostet werden. [Erfahren Sie mehr über Azure AD-Geräteregistrierung](active-directory-conditional-access.md).
+
+
+## Zusätzliche Ressourcen
+
+* [Anmelden bei Azure als Organisation](sign-up-organization.md)
+* [Azure-Identität](fundamentals-identity.md)
  
 
-<!---HONumber=62-->
+

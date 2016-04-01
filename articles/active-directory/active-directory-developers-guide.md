@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Active Directory 開發人員指南"
-   description="Azure Active Directory 開發人員導向資源的完整指南"
+   pageTitle="Entwicklerhandbuch zu Azure Active Directory | Microsoft Azure"
+   description="Dieser Artikel enthält eine umfassende Übersicht über die für Entwickler wichtigen Ressourcen zu Azure Active Directory."
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,123 +13,129 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/10/2015"
+   ms.date="12/10/2015"
    ms.author="mbaldwin"/>
 
 
-# Azure Active Directory 開發人員指南
+# Entwicklerhandbuch zu Azure Active Directory
 
-## 概觀
-Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供有效的方法，協助開發人員將身分識別管理整合到他們的應用程式中。下列文章提供實作的概觀和 Azure Active Directory 的重要功能。我們建議您依序閱讀，如果您尚未準備好開始進行，請跳到[開始使用](#getting-started)。
-
-
-1. **[Azure AD 整合的優點](active-directory-how-to-integrate.md)**：探索為什麼與 Azure Active Directory 整合是提供安全登入和授權的最佳解決方案。
-
-1. **[使用 Azure AD 進行登入](active-directory-authentication-scenarios.md)**：利用 Azure Active Directory 的簡易驗證來提供登入功能給您的應用程式。
-
-1. **[查詢目錄](https://msdn.microsoft.com/library/azure/hh974476.aspx)**：使用 Azure Active Directory Graph API 以程式設計方式透過 REST API 端點存取 Azure AD。
-
-1. **[了解應用程式模型](https://msdn.microsoft.com/library/azure/dn151122.aspx)**：了解註冊您的應用程式和多租用戶應用程式的商標指導方針。
-
-1. **[程式庫](https://msdn.microsoft.com/library/azure/dn151135.aspx)**：使用 Azure 驗證程式庫輕鬆地驗證使用者以取得存取權杖。
-
-若要檢視在 Build 2015 會議發表的 AAD 概觀，請參閱下面的[影片](#videos)區段。
+## Übersicht
+Als Plattform vom Typ "Identity Management as a Service (IDMaaS)" stellt Azure Active Directory für Entwickler eine effektive Möglichkeit zum Integrieren der Identitätsverwaltung in ihre Anwendungen dar. Die folgenden Artikel enthalten Übersichten über die Implementierung sowie wichtige Features von Azure Active Directory. Es wird empfohlen, dass Sie in der Reihenfolge zu lesen, oder wechseln Sie zu [Getting started](#getting-started) Wenn Sie informieren möchten.
 
 
-## 開始使用
+1. [Die Vorteile der Integration von Azure Active Directory](active-directory-how-to-integrate.md): ermitteln, warum die Integration mit Azure Active Directory die beste Lösung für die sichere Anmeldung und Autorisierung ist.
 
-這些教學課程適用於多種平台，可讓您快速開始使用 Azure Active Directory 進行開發。先決條件是您必須[取得 Azure Active Directory 租用戶](active-directory-howto-tenant.md)。
+1. [Active Directory-Authentifizierungsszenarien](active-directory-authentication-scenarios.md): vereinfachte Authentifizierung in Azure Active Directory Anmelden an Ihre Anwendung nutzen.
 
-#### 行動裝置或電腦應用程式快速入門指南
+1. [Integrieren von Anwendungen in Azure Active Directory](active-directory-integrating-applications.md): erfahren Sie, wie hinzufügen, aktualisieren und Entfernen von Azure Active Directory und zu den Brandingrichtlinien für integrierte apps.
 
-- [iOS](active-directory-devquickstarts-ios.md)
-- [Android](active-directory-devquickstarts-android.md)
-- [.NET](active-directory-devquickstarts-dotnet.md)
-- [Windows Phone](active-directory-devquickstarts-windowsphone.md)
-- [Windows 市集](active-directory-devquickstarts-windowsstore.md)
-- [Xamarin](active-directory-devquickstarts-xamarin.md)
-- [Cordova](active-directory-devquickstarts-cordova.md)
+1. [Azure Active Directory Graph-API](active-directory-graph-api.md): Verwenden der Azure Active Directory Graph-API programmgesteuert auf Azure Active Directory über REST-API-Endpunkte zugreifen. Beachten Sie, dass Azure AD Graph-API auch über [Microsoft Graph](https://graph.microsoft.io/), eine einheitliche API, die Zugriff auf mehrere Microsoft Cloud-Dienst-APIs über einen einzelnen Endpunkt für den REST-API und mit einem einzelnen Token ermöglicht.
+
+1. [Azure Active Directory-authentifizierungsbibliotheken](active-directory-authentication-libraries.md): einfache Authentifizierung von Benutzern Zugriffstoken mithilfe der Azure-authentifizierungsbibliotheken zu erhalten.
 
 
-####Web 應用程式或 Web API 快速入門指南
+## Erste Schritte
 
-- [.NET Web 應用程式](active-directory-devquickstarts-webapp-dotnet.md)
-- [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
-- [Javascript](active-directory-devquickstarts-angular.md)
-- [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
+Diese Tutorials sind auf verschiedene Plattformen ausgelegt und ermöglichen Ihnen einen schnellen Einstieg in die Entwicklung mit Azure Active Directory. Voraussetzung ist, müssen Sie [Azure Active Directory-Mandanten](active-directory-howto-tenant.md).
 
+### Mobile Anwendung und PC-Anwendung – Schnellstartanleitungen
 
-## 作法
+|[![iBETRIEBSSYSTEM](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![ANdroid](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![WWindows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![WWindows Store](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![XAmarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![COrdova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:
+|[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
-這些文章描述如何使用 Azure Active Directory (AD) 執行特定工作。
+### Webanwendung – Schnellstartanleitungen
 
-- [如何取得 Azure AD 租用戶](active-directory-howto-tenant.md)
-- [如何在 Azure AD 應用程式庫中列出您的應用程式](active-directory-app-gallery-listing.md)
-- [如何在應用程式中開始使用 Office 365 API](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
-- [如何提交 Office 365 的 Web 應用程式到賣方儀表板](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![JAVA](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![JAvascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![NODE.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
+|:--:|:--:|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[JavaScript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)
 
+### Web-API – Schnellstartanleitungen
 
-## 參考
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![NODE.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
+|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapi-dotnet.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
-這些文章提供 REST 和驗證程式庫 API、通訊協定、錯誤、程式碼範例和端點的基礎參考。
+### Abfragen des Verzeichnisses – Schnellstartanleitung
 
-###  支援
-- **[何處取得支援](http://stackoverflow.com/questions/tagged/azure-active-directory)**：在 Stack Overflow 上搜尋標記 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 和 [adal](http://stackoverflow.com/questions/tagged/adal)，以尋找 Azure AD 解決方案。
+| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)|
+|:--:|
+|[Graph-API](active-directory-graph-api-quickstart.md)|
 
-### 代碼
+## Vorgehensweisen
 
-- **[Azure AD 開放原始碼程式庫](http://github.com/AzureAD)**：尋找程式庫原始碼最簡單的方式是使用我們的[程式庫清單](https://msdn.microsoft.com/library/azure/dn151135.aspx)。
+In diesen Artikeln wird beschrieben, wie Sie mit Azure Active Directory bestimmte Aufgaben ausführen:
 
-- **[Azure AD 範例](http://github.com/AzureADSamples)**：瀏覽範例清單最簡單的方式是使用 [程式碼範例索引](active-directory-code-samples.md)。
-
-
-### Graph API
-
-- **[Graph API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)**：Azure Active Directory Graph API 的 REST 參考。[檢視新的互動式 Graph API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
-
-- **[Graph API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)**：OAuth 2.0 權限範圍，用來控制應用程式對租用戶中的目錄資料有何存取權。
-
-
-### 驗證通訊協定
-
-- **[SAML 2.0 通訊協定參照](https://msdn.microsoft.com/library/azure/dn195591.aspx)**：SAML 2.0 通訊協定可讓應用程式提供單一登入體驗給使用者。
+- [Abrufen eines Azure Active Directory-Mandanten](active-directory-howto-tenant.md)
+- [Auflisten Ihrer Anwendung im Azure Active Directory-Anwendungskatalog](active-directory-app-gallery-listing.md)
+- [Grundlegendes zum Azure Active Directory-Anwendungsmanifest](active-directory-application-manifest.md)
+- [Erstellen einer App mit Office 365-APIs](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
+- [Übertragen von Web-Apps für Office 365 an das Verkäuferdashboard (in englischer Sprache)](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Vorschau: Erstellen von Apps, bei denen sich Benutzer sowohl mit persönlichen als auch mit Arbeits- oder Schulkonten anmelden können](active-directory-appmodel-v2-overview.md)
+- [Vorschau: Erstellen von Apps, die Kunden registrieren und anmelden](active-directory-b2c-overview.md)
 
 
-- **[OAuth 2.0 通訊協定參照](https://msdn.microsoft.com/library/azure/dn645545.aspx)**：OAuth 2.0 通訊協定可讓您授權存取 Azure AD 租用戶中的 Web 應用程式和 Web API。
+## Referenz
+
+Diese Artikel enthalten grundlegende Referenzen zu REST- und Authentifizierungsbibliothek-APIs, Protokollen, Fehlern, Codebeispielen und Endpunkten.  
+
+###  Support
+- [Markiert die Fragen](http://stackoverflow.com/questions/tagged/azure-active-directory): finden Sie durch Suchen nach den Tags Azure Active Directory-Lösungen bei Stack Overflow [Azure Active Directory](http://stackoverflow.com/questions/tagged/azure-active-directory) und [adal](http://stackoverflow.com/questions/tagged/adal).
+
+### Code
+
+- [Azure Active Directory-Open-Source-Bibliotheken](http://github.com/AzureAD): die einfachste Möglichkeit, die Quelle einer Bibliothek zu finden ist, in unserem [Bibliotheksliste](active-directory-authentication-libraries.md).
+
+- [Azure Active Directory – Beispiele](http://github.com/AzureADSamples): die einfachste Möglichkeit zum Navigieren in der Liste der Beispiele ist die Verwendung der [Index der Codebeispiele](active-directory-code-samples.md).
 
 
-- **[OpenID Connect 1.0 通訊協定參照](https://msdn.microsoft.com/library/azure/dn645541.aspx)**：OpenID Connect 1.0 通訊協定擴充 OAuth 2.0 以做為驗證通訊協定。
+### Graph-API
+
+- [Graph-API-Referenz](https://msdn.microsoft.com/library/azure/hh974476.aspx): REST-Referenz für die Azure Active Directory Graph-API. [Zeigen Sie die interaktive Umgebung für die Graph-API-Referenz](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+
+- [Graph-API-berechtigungsbereiche](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): OAuth 2.0-berechtigungsbereiche, die verwendet werden, um den Zugriff zu steuern, die eine app auf Verzeichnisdaten in einem Mandanten hat.
 
 
-- **[WS-同盟 1.2 通訊協定參照](https://msdn.microsoft.com/library/azure/dn903702.aspx)**：Web 服務同盟 1.2 版規格中所指定的 WS-同盟 1.2 通訊協定。
+### Authentifizierungsprotokolle
 
-- **[支援的安全性權杖與宣告](active-directory-token-and-claims.md)**：了解與評估 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告的指南。
+- [SAML 2.0-Protokoll – Referenz](https://msdn.microsoft.com/library/azure/dn195591.aspx): dem SAML 2.0-Protokoll kann Anwendungen für einmaliges Anmelden für die Benutzer bereitstellen.
 
-## 影片
+
+- [OAuth 2.0-Protokoll – Referenz](https://msdn.microsoft.com/library/azure/dn645545.aspx): können Sie das OAuth 2.0-Protokoll zum Autorisieren des Zugriffs auf Webanwendungen und web-APIs in Azure Active Directory-Mandanten.
+
+
+- [OpenID Connect 1.0-Protokoll – Referenz](https://msdn.microsoft.com/library/azure/dn645541.aspx): dem OpenID Connect 1.0-Protokoll wird OAuth 2.0 für die Verwendung als Authentifizierungsprotokoll erweitert.
+
+
+- [WS-Federation 1.2-Protokoll – Referenz](https://msdn.microsoft.com/library/azure/dn903702.aspx): das WS-Federation 1.2-Protokoll in der Spezifikation Web Services Federation Version 1.2 angegeben ist.
+
+- [Unterstützte Token und Anspruch Typen](active-directory-token-and-claims.md): Verwenden Sie dieses Handbuch zu verstehen und Auswerten der Ansprüche im Token SAML 2.0- und JSON Web Token (JWT).
+
+## Videos
 
 ### Build 2015
 
-這些關於配合 Azure Active Directory 開發應用程式的概觀簡報，是由直接參與工程團隊的演講者主講，並涵蓋基本主題，包括 IDMaaS、驗證、身分識別同盟和單一登入。
+In diesen Übersichtspräsentationen zur Entwicklung von Apps mithilfe von Azure Active Directory kommen Mitglieder des Entwicklungsteams zu Wort. In den Präsentationen werden grundlegende Themen abgedeckt, darunter IDMaaS, Authentifizierung, Identitätsverbund und einmaliges Anmelden.
 
-- **[Azure Active Directory：現代應用程式的「身分識別管理即服務」](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
-- **[使用 Azure Active Directory 開發現代 Web 應用程式](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
-- **[使用 Azure Active Directory 開發現代原生應用程式](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
+- [Azure Active Directory: Identitätsverwaltung als Dienst für moderne Anwendungen](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)
+- [Entwickeln von modernen Webanwendungen mit Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)
+- [Entwickeln von modernen systemeigenen Anwendungen mit Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 是每星期五的一對一影片系列，專門提供簡短的 10-15 分鐘訪談，由專家就各種 Azure 主題發表意見。請使用頁面上的 [服務篩選] 功能，查看所有 Azure Active Directory 影片。
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) ist eine Freitag 1:1-Videoreihe für die Interviews Short (10 bis 15 Minuten) mit Experten auf einer Vielzahl von Azure-Themen festgelegt ist.  Verwenden Sie die Dienstfilterfunktion auf der Seite, um alle Azure Active Directory-Videos anzuzeigen.
 
-- **[Azure 身分識別 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**
-- **[Azure 身分識別 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)**
-- **[Azure 身分識別 103](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)**
+- [Azure-Identität 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
+- [Azure-Identität 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
+- [Azure-Identität 103](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
 
-## 社交
+## Soziale Netzwerke
 
-- **[Active Directory 團隊部落格](http://blogs.technet.com/b/ad/)**：隨時掌握 Azure AD 領域的最新發展。
+- [Active Directory-Team-Blog](http://blogs.technet.com/b/ad/): die neuesten Entwicklungen in der Welt von Azure Active Directory.
 
-- **[Azure AD Graph 部落格](http://blogs.msdn.com/b/aadgraphteam)**：Azure AD Graph API 的特定資訊。
+- [Azure Active Directory Graph-Teamblog](http://blogs.msdn.com/b/aadgraphteam): Azure Active Directory-Informationen, die für die Graph-API spezifisch ist.
 
-- **[雲端識別](http://www.cloudidentity.net)**：一位主要 Azure Active Directory PM 對於「身分識別管理即服務」的見解。
+- [Cloud-Identität](http://www.cloudidentity.net): Gedanken zur identitätsverwaltung als Dienst aus einem Prinzipal Azure Active Directory-PM.  
 
-- **[Twitter 上的 Azure AD](https://twitter.com/azuread)**：140 個字元以內的 Azure AD 公告。
+- [Azure Active Directory auf Twitter](https://twitter.com/azuread): Azure Active Directory Ankündigungen in maximal 140 Zeichen.
 
-<!---HONumber=62-->
+

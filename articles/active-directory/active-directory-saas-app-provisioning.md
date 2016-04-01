@@ -1,6 +1,6 @@
 <properties
-   pageTitle="在 Azure AD 中自動化 SaaS 應用程式使用者佈建 |Microsoft Azure"
-   description="簡介如何使用 Azure AD 自動佈建、解除佈建，以及跨多個協力廠商 SaaS 應用程式持續更新使用者帳戶。"
+   pageTitle="Automatisierte SaaS-Benutzerbereitstellung in Azure AD | Microsoft Azure"
+   description="Einführung in die Verwendung von Azure AD für die automatisierte Bereitstellung, Bereitstellungsaufhebung und fortlaufende Aktualisierung von Benutzerkonten für verschiedene SaaS-Drittanbieteranwendungen."
    services="active-directory"
    documentationCenter=""
    authors="liviodlc"
@@ -13,98 +13,98 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/07/2015"
+   ms.date="09/08/2015"
    ms.author="liviodlc"/>
 
-#自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建
+#Automatisieren der Bereitstellung und Bereitstellungsaufhebung von Benutzern für SaaS-Anwendungen mit Azure Active Directory
 
-##SaaS 應用程式的自動化使用者佈建是什麼？
+##Was ist eine automatisierte Benutzerbereitstellung für SaaS-Anwendungen?
 
-Azure Active Directory (Azure AD) 可讓您自動化在雲端 (SaaS) 應用程式中建立、維護和移除使用者身分識別，例如 Dropbox、Salesforce、ServiceNow 等等。
+Azure Active Directory (Azure AD) ermöglicht Ihnen das automatisierte Erstellen, Warten und Entfernen von Benutzeridentitäten in Cloudanwendungen (SaaS), wie z. B. Dropbox, Salesforce, ServiceNow und weiteren.
 
-**以下是這項功能可讓您執行的一些範例：**
+**Nachstehend finden Sie einige Beispiele für Aufgaben, die Sie mit diesem Feature ausführen können:**
 
-- 當人員加入您的小組時，在正確的 SaaS 應用程式中為新的人員自動建立新帳戶。
-- 當人員離開小組時，自動從 SaaS 應用程式中移除帳戶。
-- 確保您的 SaaS 應用程式中的身分識別，根據目錄中的變更保持最新狀態。
-- 將支援的非使用者物件，例如群組，佈建至 SaaS 應用程式。
+- Automatisches Erstellen neuer Konten in den richtigen SaaS-Apps für neue Benutzer, wenn diese Ihr Team verstärken.
+- Automatisches Deaktivieren von Konten aus SaaS-Apps, wenn Benutzer das Team verlassen.
+- Sicherstellen, dass die Identitäten in Ihren SaaS-Apps basierend auf Änderungen im Verzeichnis auf dem aktuellen Stand gehalten werden.
+- Bereitstellen von Nicht-Benutzerobjekten, z. B. Gruppen, für SaaS-Apps, die diese unterstützen.
 
-**自動化使用者佈建也包含下列功能：**
+**Die automatisierte Benutzerbereitstellung bietet außerdem folgende Funktionalität:**
 
-- 比對 Azure AD 和 SaaS 應用程式之間現有身分識別的能力。
-- 自訂選項，協助 Azure AD 符合您目前使用之 SaaS 應用程式的目前組態。
-- 佈建錯誤的選用電子郵件警示。
-- 報告和活動記錄檔，協助監視與疑難排解。
+- Möglichkeit zum Abgleich vorhandener Identitäten zwischen Azure AD und SaaS-Apps.
+- Optionen zur Anpassung von Azure AD an die aktuellen Konfigurationen der SaaS-Apps, die Ihre Organisation zurzeit ausführt.
+- Optionale E-Mail-Warnungen zu Bereitstellungsfehlern.
+- Berichterstellung und Aktivitätsprotokolle unterstützen Sie bei der Überwachung und Problembehandlung.
 
-##為何要使用自動化佈建？
+##Warum sollte eine automatisierte Bereitstellung eingesetzt werden?
 
-一些使用這項功能的常見動機包括：
+Nachfolgend werden einige Gründe aufgeführt, die für die Verwendung dieser Funktion sprechen:
 
-- 為了避免成本、效率不彰，以及與手動佈建程序相關聯的人為錯誤。
-- 為了在使用者離開組織時，立即從主要 SaaS 應用程式移除使用者的身分識別以保護您的組織。
-- 為了輕鬆將大量使用者數目匯入特定 SaaS 應用程式。
-- 為了享受讓佈建方案以您針對 Azure AD 單一登入定義的相同應用程式存取原則執行的便利性。
+- Vermeiden von Kosten, Ineffizienz und Fehlern, die in Zusammenhang mit manuellen Bereitstellungsvorgängen auftreten.
+- Sicherstellen, dass Ihre Organisation Benutzeridentitäten sofort aus wichtigen SaaS-Apps entfernen kann, wenn Benutzer die Organisation verlassen.
+- Einfacher Massenimport von Benutzern in eine bestimmte SaaS-Anwendung.
+- Mit dieser Bereitstellungslösung werden dieselben App-Zugriffsrichtlinien angewendet wie diejenigen, die Sie für die einmalige Azure AD-Anmeldung (SSO) definiert haben.
 
-##常見問題集
+##Häufig gestellte Fragen
 
-**Azure AD 將目錄變更寫入至 SaaS 應用程式的頻率為何？**
+**Wie häufig schreibt Azure AD Verzeichnisänderungen in die SaaS-Apps?**
 
-Azure AD 每隔五到十分鐘就會檢查變更。如果 SaaS 應用程式傳回數個錯誤 (例如無效的系統管理認證)，則 Azure AD 會逐漸降低其頻率，最多每日一次直到修正錯誤為止。
+Azure AD prüft alle fünf bis zehn Minuten auf Änderungen. Wenn die SaaS-App mehrere Fehler zurückgibt (beispielsweise bei ungültigen Administratoranmeldeinformationen), verringert Azure AD die Häufigkeit auf eine Abfrage pro Tag, bis die Fehler behoben wurden.
 
-**佈建我的使用者需要多久時間？**
+**Wie lange dauert die Bereitstellung meiner Benutzer?**
 
-累加變更幾乎是立即發生，但是如果您嘗試佈建大部分的目錄，則取決於您擁有的使用者和群組數目。小型目錄只需要幾分鐘的時間，中型目錄可能需要數分鐘，而非常大型的目錄可能需要數小時。
+Inkrementelle Änderungen werden nahezu sofort angewendet, wenn Sie jedoch versuchen, den Großteil Ihres Verzeichnisses bereitzustellen, richtet sich die benötigte Zeit nach der Anzahl von Benutzern und Gruppen, über die Sie verfügen. Kleine Verzeichnisse erfordern nur einige wenige Minuten, Verzeichnisse mittlerer Größe erfordern mehrere Minuten, und für sehr große Verzeichnisse kann der Vorgang mehrere Stunden in Anspruch nehmen.
 
-**我要如何追蹤目前佈建作業的進度？**
+**Wie kann ich den Fortschritt des aktuellen Bereitstellungsauftrags verfolgen?**
 
-您可以檢閱目錄的 [報告] 區段底下的 [帳戶佈建報告]。另一個選項是造訪您的佈建目標之 SaaS 應用程式的 [儀表板] 索引標籤，並且查看頁面底部附近的 [整合狀態] 區段底下。
+Sie können den Bericht "Kontobereitstellung" im Abschnitt "Berichte" Ihres Verzeichnisses prüfen.  Eine weitere Option besteht darin, die Registerkarte "Dashboard" für die SaaS-Anwendung anzuzeigen, für die Sie die Bereitstellung durchführen. Sie finden die entsprechenden Informationen im Abschnitt "Integrationsstatus" im unteren Bereich der Seite.
 
-**如何得知使用者無法正確佈建？**
+**Woher weiß ich, dass Benutzer nicht ordnungsgemäß bereitgestellt wurden?**
 
-在佈建組態精靈的結尾，有一個選項可以訂閱佈建失敗的電子郵件通知。您也可以檢查佈建錯誤報告，以查看哪些使用者無法佈建及其原因。
+Auf der letzten Seite des Assistenten für die Bereitstellungskonfiguration können Sie eine Option aktivieren, um E-Mail-Benachrichtigungen zu Bereitstellungsfehlern zu erhalten. Sie können auch den Bericht zu Bereitstellungsfehlern prüfen um zu sehen, bei welchen Benutzern es zu Fehlern bei der Bereitstellung gekommen ist und warum.
 
-**Azure AD 是否可以將變更從 SaaS 應用程式寫回至目錄？**
+**Kann Azure AD Änderungen von der SaaS-App zurück in das Verzeichnis schreiben?**
 
-對於大多數 SaaS 應用程式，佈建僅限輸出，這表示使用者會從目錄寫入應用程式，而變更無法從應用程式寫回至目錄。但是，針對 [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx)，佈建僅限輸入，這表示使用者會從 Workday 匯入目錄，同樣地，目錄中的變更無法寫回至 Workday。
+Für diese meisten SaaS-Apps erfolgt die Bereitstellung ausschließlich ausgehend. Dies bedeutet, dass Benutzer vom Verzeichnis in die Anwendung geschrieben werden, Änderungen der Anwendung können jedoch nicht zurück in das Verzeichnis geschrieben werden. Für [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx), Bereitstellung ist jedoch nur eingehende, dies bedeutet, dass Benutzer von Workday in das Verzeichnis importiert werden, und ebenso Änderungen im Verzeichnis sind nicht abrufen zurück an Workday geschrieben.
 
-**我要如何提交意見反應給工程小組？**
+**Wie kann ich Feedback an das Entwicklerteam senden?**
 
-請透過 [Azure Active Directory 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)與我們連絡。
+Wenden Sie sich an uns über die [Feedback-Forum für Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-##自動化佈建如何運作？
+##Wie funktioniert die automatisierte Bereitstellung?
 
-Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，將使用者佈建至 SaaS 應用程式。這些端點可以讓 Azure AD 以程式設計方式建立、更新和移除使用者。以下是 Azure AD 進行自動化佈建的不同步驟的簡短概觀。
+Azure AD stellt Benutzer für SaaS-Apps bereit, indem eine Verbindung mit Bereitstellungsendpunkten hergestellt wird, die vom jeweiligen Anwendungsanbieter zur Verfügung gestellt werden. Diese Endpunkte ermöglichen Azure AD das programmgesteuerte Erstellen, Aktualisieren und Entfernen von Benutzern.  Nachstehend finden Sie einen kurzen Überblick über die verschiedenen Schritte, die Azure AD bei der automatisierten Bereitstellung ausführt.
 
-1. 當您第一次對應用程式啟用佈建時，會執行下列動作：
- - Azure AD 會嘗試比對 SaaS 應用程式中任何現有使用者與其在目錄中的對應身分識別。
- - 當使用者相符時，他們會自動指派應用程式的存取權，讓他們進行單一登入。
- - 如果您已經指定哪些使用者應指派給應用程式，且 Azure AD 無法找到這些使用者的現有帳戶，則 Azure AD 會在應用程式中為其佈建新帳戶。
-2. 一旦完成上述的初始同步處理之後，Azure AD 會每隔 10 分鐘檢查下列變更：
- - 如果新使用者已指派至應用程式 (直接或透過群組成員資格)，則系統會為他們在 SaaS 應用程式中佈建新的帳戶。
- - 如果已移除使用者的存取權，則其帳戶在 SaaS 應用程式中會標示為停用 (使用者永遠不會完全刪除，以保護您在錯誤設定時不會遺失資料)。
- - 如果使用者最近指派至應用程式，而且他們已經在 SaaS 應用程式中有帳戶，則該帳戶會標示為已啟用，如果相較於目錄是過時的，則可能會更新某些使用者屬性。
- - 如果使用者的資訊 (例如電話號碼、辦公室位置等等) 在目錄中已變更，則該資訊也會在 SaaS 應用程式中更新。
+1. Wenn Sie die Bereitstellung für eine Anwendung das erste Mal aktivieren, werden die folgenden Aktionen ausgeführt:
+ - Azure AD versucht, vorhandene Benutzer in der SaaS-App mit den entsprechenden Identitäten im Verzeichnis abzugleichen. Wenn ein Benutzer abgeglichen wird, werden *nicht* für einmaliges Anmelden automatisch aktiviert. Damit ein Benutzer auf die Anwendung zugreifen kann, muss er explizit in Azure AD der App zugewiesen werden, entweder direkt oder über eine Gruppenmitgliedschaft.
+ - Wenn Sie bereits angegeben haben, welche Benutzer der Anwendung zugewiesen werden sollen, aber Azure AD keine vorhandenen Konten für diese Benutzer findet, stellt Azure AD für die Benutzer neue Konten in der Anwendung bereit.
+2. Nachdem die anfängliche Synchronisierung wie oben beschrieben abgeschlossen wurde, prüft Azure AD alle 10 Minuten auf die folgenden Änderungen:
+ - Wenn der Anwendung neue Benutzer zugewiesen werden (entweder direkt oder über eine Gruppenmitgliedschaft), wird für diese ein neues Konto in der SaaS-App bereitgestellt.
+ - Wenn der Zugriff für einen Benutzer entfernt wurde, wird das zugehörige Konto in der SaaS-App als deaktiviert gekennzeichnet (Benutzer werden niemals vollständig gelöscht, um Sie im Falle einer Fehlkonfiguration vor einem Datenverlust zu schützen).
+ - Wenn ein Benutzer vor Kurzem der Anwendung zugewiesen wurde und bereits über ein Konto in der SaaS-App verfügt, wird das Konto als aktiviert gekennzeichnet, und bestimmte Benutzereigenschaften werden möglicherweise aktualisiert, wenn sie gegenüber dem Verzeichnis veraltet sind.
+ - Änderungen an Benutzerinformationen (beispielsweise Telefonnummer, Bürostandort usw.) im Verzeichnis werden auch in der SaaS-Anwendung entsprechend aktualisiert.
 
-如需有關如何在 Azure AD 和 SaaS 應用程式之間對應屬性的詳細資訊，請參閱[自訂屬性對應](https://msdn.microsoft.com/library/azure/dn872469.aspx)上的文章。
+Weitere Informationen zum Zuordnen von Attributen zwischen Azure AD und Ihrer SaaS-app, finden Sie die Artikel [Anpassen von Attributzuordnungen](active-directory-saas-customizing-attribute-mappings.md).
 
-##支援自動化使用者佈建的應用程式清單
+##Liste der Apps, die eine automatisierte Benutzerbereitstellung unterstützen
 
-按一下應用程式以查看如何為其設定自動化佈建的教學課程：
+Klicken Sie auf die App, um ein Lernprogramm zum Konfigurieren der automatisierten Bereitstellung für diese App anzuzeigen:
 
 - [Box](http://go.microsoft.com/fwlink/?LinkId=286016)
 - [Citrix GoToMeeting](http://go.microsoft.com/fwlink/?LinkId=309580)
 - [Concur](http://go.microsoft.com/fwlink/?LinkId=309575)
 - [Docusign](http://go.microsoft.com/fwlink/?LinkId=403254)
-- [Dropbox for Business](http://go.microsoft.com/fwlink/?LinkId=309581)
+- [Dropbox für Unternehmen](http://go.microsoft.com/fwlink/?LinkId=309581)
 - [Google Apps](http://go.microsoft.com/fwlink/?LinkId=309577)
 - [Jive](http://go.microsoft.com/fwlink/?LinkId=309591)
 - [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
 - [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
 - [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-- [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx) (輸入佈建)
+- [WORKDAY](http://go.microsoft.com/fwlink/?LinkId=690250) (eingehende Bereitstellung)
 
-為了讓應用程式支援自動化使用者佈建，它必須先提供必要的端點，讓外部程式自動化建立、維護及移除使用者。因此，並非所有 SaaS 應用程式都與此功能相容。針對支援此功能的應用程式，Azure AD 工程小組則是能夠建置與這些應用程式的佈建連接器，這項工作是以目前和潛在客戶的需求來排定優先順序。
+Damit eine Anwendung die automatisierte Benutzerbereitstellung unterstützt, müssen zunächst die erforderlichen Endpunkte bereitgestellt werden, die es externen Programmen erlauben, die Erstellung, Wartung und Entfernung von Benutzern zu automatisieren. Daher sind nicht alle SaaS-Apps mit diesem Feature kompatibel. Für Apps, die diese Unterstützung bieten, kann das Azure AD-Entwicklerteam anschließend einen Bereitstellungsconnector erstellen. Dieser Tätigkeit wird in Abhängigkeit von den Anforderungen bestehender und potenzieller Kunden Priorität eingeräumt.
 
-若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)提交訊息。
+Wenden Sie sich an den Azure AD engineering-Team, um bereitstellungsunterstützung für zusätzliche Anwendungen anzufordern, senden Sie uns eine Nachricht über die [Feedback-Forum für Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=62-->
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+

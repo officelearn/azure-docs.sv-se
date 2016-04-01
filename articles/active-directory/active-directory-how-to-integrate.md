@@ -1,6 +1,6 @@
 <properties
-   pageTitle="如何與 Azure Active Directory 整合"
-   description="與 Azure Active Directory 整合的優點和所需資源指南。"
+   pageTitle="Integration in Azure Active Directory | Microsoft Azure"
+   description="Eine Übersicht für die Vorteile und Ressourcen für die Integration in Azure Active Directory."
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,83 +13,81 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="11/17/2015"
    ms.author="mbaldwin"/>
 
-# 與 Azure Active Directory 整合
+# Integration in Azure Active Directory
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure Active Directory 為組織提供企業等級的雲端應用程式身分識別管理。Azure AD 整合提供使用者簡化的登入程序，並可協助您的應用程式符合 IT 原則。
+Azure Active Directory bietet Organisationen eine erstklassige Identitätsverwaltung für Cloudanwendungen.  Die Azure AD-Integration ermöglicht Ihren Benutzern eine optimierte Anmeldungsumgebung und hilft Ihrer Anwendung bei der Einhaltung von IT-Richtlinien.
 
-## 如何整合
+## Möglichkeiten der Integration
 
-整合應用程式與 Azure AD 的方式有幾種。充分利用適合您應用程式使用的這些案例。
+Es gibt mehrere Möglichkeiten, Ihre Anwendung in Azure AD zu integrieren.  Nutzen Sie diese den Anforderungen Ihrer Anwendung entsprechend.
 
-### 支援 Azure AD 作為登入應用程式的方式
+### Unterstützen von Azure AD als Möglichkeit zur Anmeldung bei Ihrer Anwendung
 
-**減少登入的不便，並降低支援成本。** 透過使用 Azure AD 來登入您的應用程式，您的使用者會少一個要記住的名稱和密碼。身為開發人員，您會少一個要儲存及保護的密碼。單單無需處理忘記密碼重設就可以省下大量時間與金錢。Azure AD 支援部分世界上最受歡迎雲端應用程式 (包括 Office 365 和 Microsoft Azure) 的登入。擁有幾乎 5 百萬個組織超過 4.3 億名使用者，很有可能您的使用者已經登入過 Azure AD。深入了解[新增 Azure AD 登入支援](active-directory-authentication-scenarios.md)。
+**Verringern von Anmeldeaufwand und Supportkosten.** Wenn sich Ihre Benutzer über Azure AD bei Ihrer Anwendung anmelden, müssen sie sich keinen weiteren Benutzernamen und kein weiteres Kennwort merken.  Als Entwickler müssen Sie ein Kennwort weniger speichern und schützen.  Allein dadurch, dass keine vergessenen Kennwörter zurückgesetzt werden müssen, kann es zu beträchtlichen Kosteneinsparungen kommen.  Azure AD unterstützt das Anmelden für einige der weltweit beliebtesten Cloudanwendungen wie Office 365 und Microsoft Azure.  Bei Hunderten Millionen Benutzern in Millionen Organisationen ist es wahrscheinlich, dass Ihr Benutzer bereits bei Azure AD angemeldet ist.  Erfahren Sie mehr über [Hinzufügen von Unterstützung für Azure AD-Anmeldung](active-directory-authentication-scenarios.md).
 
-**簡化應用程式的註冊程序。** 註冊應用程式的過程中，Azure AD 會寄出使用者的基本資訊，讓您可以預先填入註冊表單，或者完全不需要用到。使用者可以透過類似社交媒體和行動應用程式所使用的常見同意程序，使用其 Azure AD 帳戶來註冊應用程式。任何使用者都可以註冊並登入已與 Azure AD 整合的應用程式，而無需 IT 人員的介入。深入了解[註冊應用程式以進行 Azure AD 帳戶登入](../mobile-services-how-to-register-active-directory-authentication.md)。
+**Vereinfachen der Registrierung für Ihre Anwendung.**  Während der Registrierung für Ihre Anwendung kann Azure AD wichtige Informationen über einen Benutzer senden, sodass Sie Ihr Anmeldeformular vorab ausfüllen lassen oder vollständig entfernen können.  Benutzer können sich für Ihre Anwendung mit ihrem Azure AD-Konto in einer vertrauten Genehmigungsumgebung registrieren, die derjenigen in sozialen Medien und mobilen Anwendungen ähnelt.  Benutzer können sich ohne Beteiligung der IT bei einer Anwendung, die in Azure AD integriert ist, registrieren und anmelden.  Erfahren Sie mehr über [Registrieren Ihrer Anwendung für Azure AD-Anmeldung](../mobile-services-how-to-register-active-directory-authentication.md) .
 
-### 瀏覽以尋找使用者、管理使用者佈建，及控制存取應用程式
+### Suchen nach Benutzern, Verwalten der Benutzerbereitstellung und Steuern des Zugriffs auf Ihre Anwendung
 
-**瀏覽以尋找目錄中的使用者。** 邀請他人或授與存取權限時，與其要求使用者輸入電子郵件位址，您可以使用 Graph API 來協助使用者搜尋及瀏覽以尋找組織中的其他人。使用者可以使用常見的通訊錄樣式介面進行瀏覽，包括檢視組織階層的詳細資料。深入了解 [Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)。
+**Suchen nach Benutzern im Verzeichnis.**  Verwenden Sie die Graph-API, um Benutzern zu helfen, nach anderen andere Personen in ihrer Organisation zu suchen, wenn diese eingeladen werden sollen oder Zugriff gewährt werden soll, anstatt von ihnen zu verlangen, E-Mail-Adressen einzugeben.  Benutzer können auf einer vertrauten Adressbuchoberfläche suchen und beispielsweise Details der Organisationshierarchie anzeigen.  Erfahren Sie mehr über die [Graph-API](active-directory-graph-api.md).
 
-**重複使用您的客戶已經在管理的 Active Directory 群組與通訊群組清單。** Azure AD 包含您的客戶已經用於電子郵件通訊群組和管理存取的群組。使用 Graph API，與其要求您的客戶在應用程式中建立和管理一組個別的群組，您可以重複使用這些群組。群組資訊也可以透過登入權杖傳送至您的應用程式。深入了解 [Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)。
+**Wiederverwenden von Active Directory-Gruppen und Verteilerlisten, die Ihr Kunde bereits verwaltet.**  Azure AD enthält die Gruppen, die Ihr Kunde bereits für die E-Mail-Verteilung und das Verwalten des Zugriffs verwendet.  Verwenden Sie diese Gruppen mithilfe der Graph-API wieder, anstatt vom Kunden zu verlangen, eine getrennte Zusammenstellung von Gruppen in Ihrer Anwendung zu erstellen und zu nutzen.  Informationen zu Gruppen können auch in Anmeldetoken an Ihre Anwendung gesendet werden.  Erfahren Sie mehr über die [Graph-API](active-directory-graph-api.md).
 
-**使用 Azure AD 來控制有權存取應用程式的人員。** 系統管理員和 Azure AD 中的應用程式擁有者可以將應用程式的存取權限指派給特定使用者和群組。使用 Graph API，您可以讀取這份清單並用它來控制資源的佈建和取消佈建，以及應用程式內的存取。
+**Verwenden von Azure AD zum Steuern des Zugriffs auf Ihre Anwendung.**  Administratoren und Besitzer von Anwendungen in Azure AD können den Zugriff auf Anwendungen bestimmten Benutzern und Gruppen zuweisen.  Mithilfe der Graph-API können Sie diese Liste lesen und zum Steuern der Bereitstellung bzw. der Aufhebung der Bereitstellung von Ressourcen und des Zugriffs innerhalb Ihrer Anwendung verwenden.  
 
-**使用 Azure AD 進行角色型存取控制。** 系統管理員和應用程式擁有者可以將使用者和群組指派至您在 Azure AD 中註冊應用程式時所定義的角色。角色資訊會透過登入權杖傳送至您的應用程式，並可使用 Graph API 進行讀取。深入了解[使用 Azure AD 進行授權](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx)。
+**Verwenden von Azure AD für die auf Rollen basierende Zugriffskontrolle.**  Administratoren und Besitzer von Anwendungen können Benutzer und Gruppen Rollen zuweisen, die Sie definieren, wenn Sie Ihre Anwendung in Azure AD registrieren.  Rolleninformationen werden in Anmeldetoken an die Anwendung gesendet und können auch mithilfe der Graph-API gelesen werden.  Erfahren Sie mehr über [mithilfe von Azure AD für Autorisierung](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
 
-### 取得使用者設定檔、行事曆、電子郵件、連絡人、檔案及其他等存取權限
+### Gewähren des Zugriffs auf das Profil, den Kalender, Kontakte, E-Mails, Dateien und andere Informationen des Benutzers
 
-**Azure AD 是 Office 365 和其他 Microsoft 商務服務的授權伺服器。** 如果您的應用程式支援 Azure AD 登入，或支援使用 OAuth 2.0 將目前使用者帳戶連結至 Azure AD 使用者帳戶，則您可以要求使用者設定檔、行事曆、電子郵件、連絡人、檔案及其他資訊的讀取和寫入存取權限。您可以順利地將事件寫入使用者的行事曆，並讀取檔案或將檔案寫入使用者的 OneDrive。深入了解[存取 Office 365 API](https://msdn.microsoft.com/office/office365/howto/platform-development-overview)。
+**Azure AD ist der Autorisierungsserver für Office 365 und andere Microsoft-Unternehmensdienste.**  Wenn Sie Azure AD für die Anmeldung bei Ihrer Anwendung oder das Verknüpfen Ihrer aktuellen Benutzerkonten mit Azure AD-Benutzerkonten mithilfe von OAuth 2.0 unterstützen, können Sie einen Lese- und Schreibzugriff auf das Profil, den Kalender, Kontakte, E-Mails und Dateien und andere Informationen des Benutzers anfordern.  Sie können problemlos Ereignisse in den Kalender der Benutzer schreiben und Dateien auf ihrem OneDrive lesen oder schreiben.  Erfahren Sie mehr über [Zugriff auf die Office 365-APIs](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
 
-### 在 Azure 和 Office 365 Marketplace 中推廣您的應用程式
+### Werben für Ihre Anwendung im Azure und Office 365 Marketplace
 
-**將您的應用程式擴廣到數百萬個已使用 Azure AD 的組織。** 搜尋和瀏覽 Marketplace 的使用者已經使用一或多項雲端服務，讓他們成為合格的雲端服務客戶。深入了解如何在 [Azure Marketplace](http://azure.microsoft.com/marketplace/partner-program/) 中推廣您的應用程式。
+**Werben Sie für Ihre Anwendung bei Millionen von Organisationen, die Azure AD bereits verwenden.**  Benutzer, die diese Marketplaces durchsuchen bzw durchstöbern, nutzen bereits einen oder mehrere Clouddienste, sodass sie als potenzielle Kunden von Cloudlösungen in Frage kommen.  Erfahren Sie mehr über das werben für Ihre Anwendung in [Azure Marketplace](http://azure.microsoft.com/marketplace/partner-program/).
 
-**當使用者註冊您的應用程式時，它便會出現在其 Azure AD 存取面板和 Office 365 應用程式啟動程式中。** 使用者將能夠迅速且輕鬆地返回您的應用程式，以增加使用者參與度。深入了解 [Azure AD 存取面板](https://msdn.microsoft.com/library/azure/dn308586.aspx)。
+**Wenn sich Benutzer für Ihre Anwendung registrieren, wird sie in ihrem Azure AD-Zugriffsbereich und Office 365-App-Startfeld angezeigt.**  Benutzer können später schnell und einfach zu Ihrer Anwendung zurückkehren, was die Benutzerbindung verbessert.  Erfahren Sie mehr über die [Azure AD-Zugriffsbereich](active-directory-saas-access-panel-introduction.md).
 
-### 保護裝置對服務和服務對服務通訊的安全
+### Sichere Kommunikation von Gerät zu Dienst und von Dienst zu Dienst
 
-**使用 Azure AD 進行服務和裝置的身分識別管理，可減少您需要撰寫的程式碼，並可讓 IT 管理存取權限。** 服務與裝置可以使用 OAuth 取得 Azure AD 的權杖，並使用這些權杖來存取 Web API。使用 Azure AD，您可以避免撰寫複雜的驗證程式碼。因為服務和裝置的身分識別會儲存在 Azure AD 中，IT 可以在同一個地方管理金鑰和撤銷，而無需在您的應用程式中分別執行此動作。
+**Durch Verwenden von Azure AD für die Identitätsverwaltung von Diensten und Geräten verringert sich der Code, den Sie schreiben müssen, und der IT wird das Verwalten des Zugriffs ermöglicht.**  Dienste und Geräte können Token von Azure AD mithilfe von OAuth abrufen und diese Token für den Zugriff auf Web-APIs verwenden.  Mithilfe von Azure AD können Sie das Schreiben von komplexem Authentifizierungscode vermeiden.  Da die Identitäten der Dienste und Geräte in Azure AD gespeichert sind, kann die IT das Verwalten und Sperren von Schlüsseln zentral verwalten, sodass diese Aufgabe in Ihrer Anwendung nicht separat erfolgen muss.
 
-## 整合的優點
+## Vorteile der Integration
 
-與 Azure AD 整合帶來您無需撰寫額外程式碼的優點。
+Die Integration in Azure AD bietet den Vorteil, dass Sie keinen zusätzlichen Code schreiben müssen.
 
-### 與企業身分識別管理整合
+### Integration mit der Identitätsverwaltung des Unternehmens
 
-**協助您的應用程式符合 IT 原則。** 組織會將其企業身分識別管理系統與 Azure AD 整合，所以當某人離開組織時，它們會自動喪失對應用程式的存取權限，而且 IT 無需採取額外步驟。IT 可以管理誰可以存取您的應用程式，並判斷需要哪些存取原則 (例如，多因素驗證)，以降低撰寫程式碼以符合複雜公司原則的需求。Azure AD 提供系統管理員詳盡的稽核記錄，內容包括登入應用程式的使用者，以便 IT 可以追蹤使用情況。
+**Helfen Ihrer Anwendung bei der Einhaltung von IT-Richtlinien.**  Organisationen integrieren Identitätsverwaltungssysteme in Azure AD, sodass wenn eine Person eine Organisation verlässt, sie automatisch den Zugriff auf Ihre Anwendung verliert, ohne dass die IT eingreifen muss.  Die IT kann verwalten, wer Zugriff auf Ihre Anwendung hat und bestimmen, welche Zugriffsrichtlinien erfüllt werden müssen, z. B. Multi-Factor Authentication. Dadurch müssen Sie weniger Code schreiben, um komplexe Unternehmensrichtlinien einzuhalten.  Azure AD bietet Administratoren ein detailliertes Überwachungsprotokoll dazu, wer sich bei Ihrer Anwendung angemeldet hat, damit die IT die Nutzung nachverfolgen kann.
 
-**Azure AD 將 Active Directory 延伸到雲端，讓您的應用程式可以與 AD 整合。** 世界各地許多組織使用 Active Directory 作為其主要登入和身分識別管理系統，並要求他們的應用程式使用 AD。與 Azure AD 整合即可將 Active Directory 和您的應用程式整合。
+**Azure AD erweitert Active Directory in die Cloud, damit Ihre Anwendung in Active Directory integriert werden kann.**  Viele Organisationen auf der ganzen Welt nutzen Active Directory als primäres Anmeldungs- und Identitätsverwaltungssystem und verlangen, dass ihre Anwendungen mit AD zusammenarbeiten.  Durch die Integration in Azure AD wird Ihre App in Active Directory integriert.
 
-### 進階的安全性功能
+### Erweiterte Sicherheitsmerkmale
 
-**多因素驗證。** Azure AD 提供原生多因素驗證。IT 系統管理員可以要求多因素驗證才能存取應用程式，因此您無需自行撰寫這項支援的程式碼。深入了解[多因素驗證](http://azure.microsoft.com/documentation/services/multi-factor-authentication/)。
+**Multi-Factor Authentication.**  Azure AD bietet eine systemeigene Multi-Factor Authentication.  IT-Administratoren können für den Zugriff auf Ihre Anwendung die Multi-Factor Authentication anfordern, damit Sie diese Unterstützung nicht selbst programmieren müssen.  Erfahren Sie mehr über [Multi-Factor Authentication](http://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
-**登入偵測異常。** Azure AD 每天處理超過 10 億個登入，同時使用機器學習演算法來偵測可疑活動，並向 IT 系統管理員通知可能發生的問題。藉由支援 Azure AD 登入，您的應用程式便會獲得這項保護的好處。深入了解[檢視 Azure Active Directory 存取報告](active-directory-view-access-usage-reports.md)。
+**Erkennung anomaler Anmeldungen.**  Azure AD verarbeitet mehr als eine Milliarde Anmeldungen pro Tag. Dabei kommen Algorithmen für maschinelles Lernen zum Erkennen verdächtiger Aktivitäten zum Einsatz, die IT-Administratoren über mögliche Probleme informieren.  Durch die Unterstützung der Azure AD-Anmeldung kommt Ihre Anwendung in den Genuss dieses Schutzes. Erfahren Sie mehr über [Anzeigen von Azure Active Directory Access-Bericht](active-directory-view-access-usage-reports.md).
 
-**條件式存取。** 除了多因素驗證，系統管理員還可以要求使用者在登入您的應用程式之前必須符合特定條件。可以設定的條件包括用戶端裝置的 IP 位址範圍、指定群組的成員資格，以及用於存取的裝置狀態。深入了解 [Azure Active Directory 條件式存取](https://msdn.microsoft.com/library/azure/dn906873.aspx)。
+**Bedingter Zugriff.**  Zusätzlich zur Multi-Factor Authentication können Administratoren anfordern, dass bestimmte Bedingungen erfüllt sein müssen, ehe sich Benutzer bei Ihrer Anwendung anmelden können.  Bedingungen, die festgelegt werden können, sind u. a. der IP-Adressbereich von Clientgeräten, Mitgliedschaft in angegebenen Gruppen und den Status des Geräts, das für den Zugriff verwendet wird.  Erfahren Sie mehr über [bedingten Azure Active Directory-Zugriff](active-directory-conditional-access.md).
 
-### 容易開發
+### Einfache Entwicklung
 
-**業界標準通訊協定。** Microsoft 致力於支援業界標準。Azure AD 支援 SAML 2.0、OpenID Connect 1.0、OAuth 2.0 和 WS 同盟 1.2 驗證通訊協定。Graph API 屬於 OData 4.0 標準。如果您的應用程式已經支援 SAML 2.0 或 OpenID Connect 1.0 通訊協定的同盟登入，那新增 Azure AD 支援便相當直接。深入了解 [Azure AD 支援的驗證通訊協定](../authentication-protocols.md)。
+**Protokolle gemäß Branchenstandard.**  Microsoft ist bestrebt, Branchenstandards zu unterstützen.  Azure AD unterstützt die Authentifizierungsprotokolle SAML 2.0, OpenID Connect 1.0, OAuth 2.0 und WS-Federation 1.2.  Der Graph-API ist OData-4.0-kompatibel.  Wenn die Anwendung bereits das SAML 2.0- oder OpenID Connect 1.0-Protokoll für die Verbundanmeldung unterstützt, kann das Hinzufügen dieser Unterstützung für Azure AD einfach erfolgen.  Erfahren Sie mehr über [Azure AD unterstützte Authentifizierungsprotokolle](active-directory-authentication-protocols.md).
 
-**開放原始碼程式庫。** Microsoft 針對常用的語言和平台提供完整支援的開放原始碼程式庫，進而加快開發速度。原始碼採用 Apache 2.0 授權，您可以任何分岔以及貢獻回饋給專案。深入了解 [Azure AD 開放原始碼程式庫](https://msdn.microsoft.com/library/azure/dn151135.aspx)。
+**Open-Source-Bibliotheken.**  Microsoft bietet zur Beschleunigung der Entwicklung für gängige Sprachen und Plattformen vollständig unterstützte Open-Source-Bibliotheken.  Der Quellcode wird unter Apache 2.0 lizenziert, und Sie sind eingeladen, sich an den Projekten zu beteiligen.  Erfahren Sie mehr über [Azure AD-authentifizierungsbibliotheken](active-directory-authentication-libraries.md).
 
-### 全球的目前狀態和高可用性
+### Weltweite Präsenz und hohe Verfügbarkeit
 
-**Azure AD 會在世界各地的資料中心內進行部署，並受到全天候的管理和監控。** Azure AD 是適用於 Microsoft Azure 和 Office 365 的身分識別管理系統，並在世界各地的 28 個資料中心內進行部署。保證將目錄資料複寫到至少三個資料中心。全域負載平衡器會確保使用者可存取包含其資料的最接近 Azure AD 複本，並在偵測到問題時，自動將要求重新路由到其他資料中心。
+**Azure AD ist in Datencentern auf der ganzen Welt in Betrieb bereitgestellt und wird rund um die Uhr verwaltet und überwacht.**  Azure AD ist das Identitätsverwaltungssystem für Microsoft Azure und Office 365 und in 28 Datencentern auf der ganzen Welt im Einsatz.  Verzeichnisdaten werden garantiert in mindestens drei Datencenter repliziert.  Globale Lastenausgleichsfunktionen stellen sicher, dass Benutzer auf die nächstgelegene Kopie von Azure AD mit ihren Daten zugreifen, und leiten Anforderungen automatisch an andere Datencenter weiter, sobald ein Problem erkannt wird.
 
-## 後續步驟
+## Nächste Schritte
 
-[開始撰寫程式碼](active-directory-developers-guide.md#getting-started)。
+[Erste Schritte beim Schreiben von Code](active-directory-developers-guide.md#getting-started).
 
-[使用 Azure AD 登入使用者](active-directory-authentication-scenarios.md)
+[Anmelden von Benutzern über Azure AD](active-directory-authentication-scenarios.md)
 
- 
 
-<!---HONumber=62-->

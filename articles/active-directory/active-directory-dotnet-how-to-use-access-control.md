@@ -1,122 +1,133 @@
-<properties 
-	pageTitle="如何使用存取控制 (.NET) - Azure 功能指南" 
-	description="了解如何使用 Azure 應用程式中的存取控制服務 (ACS)，以在使用者嘗試存取 Web 應用程式時予以驗證。" 
-	services="active-directory" 
-	documentationCenter=".net" 
-	authors="msmbaldwin" 
-	manager="mbaldwin" 
-	editor=""/>
+<properties
+    pageTitle="Verwenden von Access Control (.NET) | Microsoft Azure"
+    description="Erfahren Sie, wie Sie Access Control Service (ACS) in Ihrer Azure-Anwendung zur Authentifizierung von Benutzern beim Zugriff auf eine Webanwendung verwenden können."
+    services="active-directory"
+    documentationCenter=".net"
+    authors="msmbaldwin"
+    manager="mbaldwin"
+    editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
-	ms.author="mbaldwin"/>
-
-
+<tags
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/05/2015" 
+    ms.author="mbaldwin"/>
 
 
-# 如何利用 Azure Active Directory 存取控制來驗證 Web 使用者
 
 
-本指南說明如何使用 Azure Active Directory 存取控制 (也稱為存取控制服務或 ACS)，在使用者嘗試取得 Web 應用程式的存取權時，從身分識別提供者 (例如 Microsoft、Google、Yahoo 和 Facebook) 驗證使用者。
+# Authentifizieren von Webbenutzern mit der Azure Active Directory-Zugriffssteuerung
 
 
-## 什麼是 ACS？
-
-大部分開發人員都不是身分識別專家，因而不想花時間為其應用程式和服務開發驗證與授權機制。ACS 是一項 Azure 服務，可讓您輕鬆驗證使用者是否能存取您的 Web 應用程式與服務，而不必新增複雜的驗證邏輯至您的程式碼。
-
-以下是 ACS 中提供的功能：
-
--   與 Windows Identity Foundation (WIF) 整合。
--   支援熱門的 Web 身分識別提供者 (IP)，包括 Microsoft 帳戶 (舊稱 Windows Live ID)、Google、Yahoo 和 Facebook。
--   支援 Active Directory Federation Services (AD FS) 2.0。
--   一項開放式資料通訊協定 (OData) 型管理服務，可用來對 ACS 設定進行程式設計存取。
--   一個管理入口網站，可用來對 ACS 設定進行系統管理存取。
-
-如需 ACS 的詳細資訊，請參閱＜[存取控制服務 2.0][]＞。
-
-## 概念
-
-ACS 是以宣告式身分識別為原則來打造，後者是為內部部署上或雲端中執行的應用程式建立驗證機制的一致方式。宣告式身分識別是應用程式與服務在遇到本身組織內、其他組織內與網際網路上的使用者時，常用來取得所需關於這些使用者之身分識別資訊的方式。
-
-若要完成本指南中的工作，您應該了解本指南中使用的下列術語及概念：
+Diese Anleitung zeigt, wie Sie mit der Azure Active Directory-Zugriffssteuerung (auch Access Control Service oder ACS genannt) Benutzer von Identitätsanbietern wie Microsoft, Google, Yahoo und Facebook authentifizieren, wenn sie versuchen, auf eine Webanwendung zuzugreifen.
 
 
-**用戶端** - 嘗試存取您 Web 應用程式的瀏覽器。
+## Was ist der ACS?
 
-**信賴憑證者 (RP) 應用程式** - 您的 Web 應用程式。RP 應用程式是一個將驗證工作交給外部授權單位負責的網站或服務。以身分識別的行話來說，就是 RP 信任該授權單位。本指南將說明如何設定您的應用程式來信任 ACS。
+Die meisten Entwickler sind keine Identitätsexperten und auch nicht bereit, ihre Zeit für die Entwicklung von Authentifizierungs- und Autorisierungsmechanismen für ihre Anwendungen und Dienste zu verschwenden. ACS ist ein Azure-Dienst, der Ihnen einfache Möglichkeiten bietet, Benutzer für den Zugriff auf Ihre Webanwendungen und -dienste zu authentifizieren, ohne eine komplexe Authentifizierungslogik in Ihren Code aufnehmen zu müssen.
 
-**權杖** - 使用者需要取得 RP 應用程式的存取權時，需出示由 RP 應用程式信任的授權單位所簽發的有效權杖。這是一組當用戶端經過驗證時所簽發的安全性資料。其包含一組宣告，也就是經驗證之使用者的屬性，例如使用者的名稱或年紀，或使用者角色的識別碼。權杖是以數位方式受到簽署，因此要識別其簽發者可以，但要變更其內容則不行。
+Folgende Funktionen stehen im ACS zur Verfügung:
 
-**身分識別提供者 (IP)** - 一個負責驗證使用者身分識別並簽發安全性權杖的授權單位，例如 Microsoft 帳戶 (Windows Live ID)、Facebook、Google、Twitter 和 Active Directory。當 ACS 是設定成信任某個 IP 時，它會接受並驗證該 IP 所簽發的權杖。因為 ACS 可以同時信任多個 IP，所以當您的應用程式信任 ACS 時，您和您的應用程式可以提供使用者一個選項，讓 ACS 所信任的任何 IP 代表您進行驗證。
+-   Integration mit Windows Identity Foundation (WIF).
+-   Unterstützung beliebter Anbieter von Webidentitäten (IPs) wie beispielsweise Microsoft-Konto (vormals Windows Live ID), Google, Yahoo und Facebook.
+-   Unterstützung von Active Directory Federation Services (AD FS) 2.0.
+-   Ein Open Data Protocol (OData)-basierten Verwaltungsdienst, bereitstellt
+    Programmgesteuerter Zugriff auf ACS-Einstellungen.
+-   Ein Verwaltungsportal, können administrativen Zugriff auf die ACS
+    löschen.
 
-**同盟提供者 (FP)** - 身分識別提供者 (IP) 直接有使用者的資料，並會使用使用者的認證來驗證使用者，以及簽發關於使用者身分的宣告。同盟提供者 (FP) 則是不同種類的授權單位。FP 不會直接驗證使用者，而是當驗證的代理人。它會擔任信賴憑證者應用程式與一個或多個 IP 之間的媒介。ACS 就是一種同盟提供者 (FP)。
+Weitere Informationen zu ACS finden Sie unter [Access Control Service 2.0][].
 
-**ACS 規則引擎** - 宣告轉換規則會將信任的 IP 所簽發之權杖中的宣告，轉換成可供 RP 使用。ACS 中有一個規則引擎會套用您為 RP 指定的宣告轉換規則。
+## Konzepte
 
-**存取控制命名空間** - 提供在您的應用程式內定址 ACS 資源的唯一範圍。命名空間包含您的設定 (例如您信任的 IP、您要供應的 RP 應用程式、您要對傳入之權杖套用的規則)，而且它會顯示應用程式和開發人員用來與 ACS 通訊的端點。
+ACS basiert auf den Prinzipien der anspruchsbasierten Identität -- einem konsistenten Ansatz zur Erstellung von Authentifizierungsmechanismen für Anwendungen, die entweder lokal oder in der Cloud ausgeführt werden. Die anspruchsbasierte Identität ist eine von Anwendungen und Diensten häufig genutzte Möglichkeit, sich benötigte Identitätsinformationen über Benutzer in ihren Unternehmen, in anderen Unternehmen und auf dem Internet zu beschaffen.
 
-下圖顯示 ACS 驗證與 Web 應用程式如何搭配運作：
+Damit Sie die in dieser Anleitung gestellten Aufgaben durchführen können, müssen Sie folgende Begriffe und Konzepte kennen und wissen, wie sie in dieser Anleitung verwendet werden:
+
+
+**Client** -ein Browser, der versucht, auf Ihre Anwendung zugreifen.
+
+**Anwendung vertrauenden Seite (RP)** -Ihrer Web-app. Eine RP-Anwendung ist eine Website oder ein Dienst, die/der die Authentifizierung an eine externe Stelle auslagert. Im Identitätskontext sagt man, dass die RP der Authentifizierungsstelle vertraut. In dieser Anleitung wird erklärt, wie Sie eine Anwendung so konfigurieren, dass sie dem ACS vertraut.
+
+**Token** -ein Benutzer erlangt Zugriff auf eine RP-Anwendung, indem er ein gültiges Token, die von einer Zertifizierungsstelle ausgestellt wurde, die RP-Anwendung vertraut. Eine Sammlung von Sicherheitsdaten, die bei Authentifizierung eines Clients ausgegeben werden. Sie enthält eine Reihe von Ansprüchen, bei denen es sich um Attribute des authentifizierten Benutzers handelt, beispielsweise den Namen oder das Alter eines Benutzers oder einen Bezeichner einer Benutzerrolle. Ein Token ist digital signiert, sodass der Aussteller identifiziert und der Inhalt nicht geändert werden kann.
+
+**(Identity Provider, IP)** - eine Stelle, die Benutzeridentitäten authentifiziert und Sicherheitstoken ausgibt, wie z. B. Microsoft-Konto (Windows Live ID), Facebook, Google, Twitter und Active Directory. Wenn zwischen ACS und einem IP ein Vertrauensverhältnis konfiguriert worden ist, akzeptiert und validiert ACS die von diesem IP vergebenen Token. Da ACS mehreren IPs gleichzeitig, vertrauen kann, wenn Ihre Anwendung ACS vertraut, können Sie Ihre Anwendung bietet Benutzern die Möglichkeit, die von einem der IPs authentifiziert werden, denen ACS in Ihrem Auftrag vertraut.
+
+**Verbundanbieter (FP)** -Identitätsanbieter (IPs) kennen die Benutzer, authentifizieren Benutzer anhand ihrer Anmeldeinformationen und geben Ansprüche zu Benutzern. Ein Verbundanbieter (FP) ist eine andere Art von Authentifizierungsstelle. Ein FP authentifiziert Benutzer nicht direkt, sondern fungiert als Authentifizierungsbroker. Er übernimmt die Funktion eines Vermittlers zwischen einer RP-Anwendung und einem oder mehreren IPs. ACS ist ein Verbundanbieter (FP).
+
+**ACS-Regelmodul** -Anspruchstransformationsregeln konvertieren die Ansprüche in Tokens vertrauenswürdiger IPS, sodass sie von einer RP verwendet werden können. ACS verfügt unter anderem ein Regelmodul, das die anspruchstransformationsregeln anwendet, die Sie für Ihre RP festlegen.
+
+**Access Control-Namespace** -stellt einen eindeutigen Bereich für die Adressierung von ACS-Ressourcen innerhalb Ihrer Anwendung. Der Namespace enthält Ihre Einstellungen, beispielsweise die IPs, denen Sie vertrauen, die RP-Anwendungen, die Sie bereitstellen wollen, und die Regeln, die Sie auf eingehende Tokens anwenden. Außerdem zeigt er die Endpunkte, über die die Anwendung und der Entwickler mit ACS kommunizieren.
+
+Die folgende Abbildung zeigt, wie die ACS-Authentifizierung bei einer Webanwendung abläuft:
 
 ![][0]
 
-1.  用戶端 (在此案例中是指瀏覽器) 向 RP 要求一個頁面。
-2.  因為要求尚未經過驗證，所以 RP 將使用者重新導向至信任的授權單位 (即 ACS)。ACS 列出已為此 RP 指定的 IP，供使用者選擇。使用者選取適當的 IP。
-3.  用戶端瀏覽至 IP 的驗證頁面，並提示使用者登入。
-4.  在用戶端經過驗證後 (例如，輸入了身分識別認證)，IP 即簽發安全性權杖。
-5.  在簽發安全性權杖後，IP 引導用戶端傳送 IP 所簽發的安全性權杖給 ACS。
-6.  ACS 驗證 IP 所簽發的安全性權杖、將此權杖中的身分識別宣告輸入至 ACS 規則引擎、計算輸出的身分識別宣告，然後簽發含有這些輸出宣告的新安全性權杖。
-7.  ACS 引導用戶端傳送 ACS 所簽發的安全性權杖給 RP。RP 驗證安全性權杖上的簽章、擷取要讓應用程式商務邏輯使用的宣告，然後傳回原先要求的頁面。
+1.  Der Client (in diesem Fall ein Browser) fordert von der RP eine Seite an.
+2.  Da die Anforderung noch nicht authentifiziert ist, verweist die RP den
+    die Benutzer an die Stelle, die sie vertraut, also an den ACS. Der ACS übermittelt
+    der Benutzer durch die Auswahl von IP-Adressen, die für diese RP definiert wurden. Die
+    Benutzer wählt einen passenden IP aus.
+3.  Der Client wechselt zur Seite "Authentifizierung" die IP-Adresse, und fordert die
+    Benutzer anmelden.
+4.  Wenn der Client (z. B. die Identität authentifiziert wird
+    Anmeldeinformationen eingegeben wurden), die IP-Adresse ein Sicherheitstoken ausstellt.
+5.  Nach der Ausgabe des Sicherheitstokens weist der IP den Client an, dieses Token an ACS zu senden.
+6.  ACS validiert das Token ausgestellt von Eingaben die IP-Adresse der
+    Identitätsansprüche in diesem Token in der ACS-Regelmodul berechnet
+    die Ausgabe Identität Ansprüche und gibt einem neues Sicherheitstoken, die
+    Diese Ansprüche enthält.
+7.  ACS weist den Client an, das von ACS ausgegebene Token an die RP zu senden. Die RP validiert die Signatur auf dem Sicherheitstoken, extrahiert die für die Geschäftslogik der Anwendung bestimmten Ansprüche und gibt die ursprünglich angeforderte Seite zurück.
 
-## 必要條件
+## Voraussetzungen
 
 
-若要完成本指南中的工作，您需要有下列項目：
+Damit Sie die in dieser Anleitung gestellten Aufgaben ausführen können, brauchen Sie Folgendes:
 
--	Azure 訂閱
--	Microsoft Visual Studio 2012 
--	Visual Studio 2012 的 Identity and Access Tool (若要下載，請參閱 [Identity and Access Tool][] (英文))
+-   Azure-Abonnement
+-   Microsoft Visual Studio 2012
+-   Identitäts- und Zugriffs-Tool für Visual Studio 2012 (download Siehe [Identitäts- und Zugriffs-Tool][])
 
 
-## 建立存取控制命名空間
+## Erstellen eines Access Control-Namespace
 
-若要使用 Azure 中的 Active Directory 存取控制，請建立存取控制命名空間。此命名空間可提供在您的應用程式內定址 ACS 資源的唯一範圍。
+Damit Sie den Active Directory-Zugriffssteuerungsdienst in Azure verwenden können, müssen Sie einen Access Control-Namespace anlegen. Der Namespace stellt einen eindeutigen Bereich für
+Adressierung von ACS-Ressourcen innerhalb Ihrer Anwendung.
 
-1.  登入 [Azure 管理入口網站][] (https://manage.WindowsAzure.com)。
-    
-2.  按一下 [Active Directory]。
+1.  Melden Sie sich bei der [Azure-Verwaltungsportal][] (https://manage.WindowsAzure.com).
 
-	![][1]
+2.  Klicken Sie auf **Active Directory**.  
 
-3.  若要建立新的存取控制命名空間，請按一下 [新增]。如此會選取 [App Services] 及 [存取控制]。按一下 [快速建立]。
+    ![][1]
 
-	![][2]
+3.  Um einen neuen Access Control-Namespace zu erstellen, klicken Sie auf **Neu**. **App-Dienste** und **Access Control** ausgewählt werden. Klicken Sie auf **Schnellerfassung**.
 
-4.  輸入命名空間的名稱。Azure 會確認名稱是否具唯一性。
+    ![][2]
 
-5.  選取使用命名空間的地區。為了獲得最佳效能，請使用您要在其中部署應用程式的地區，然後按一下 [建立]。
+4.  Geben Sie einen Namen für den Namespace ein. Azure prüft, ob der Name eindeutig ist.
 
-Azure 即會建立並啟動命名空間。
+5.  Wählen Sie die Region aus, in der der Namespace verwendet wird. Verwenden Sie für eine optimale Leistung die Region, in dem Sie Ihre Anwendung bereitstellen möchten, und klicken Sie dann auf **Erstellen**.
 
-## 建立 ASP.NET MVC 應用程式
+Azure erstellt und aktiviert den Namespace.
 
-在此步驟中，您將建立 ASP.NET MVC 應用程式。在後面的步驟中，我們會將這個簡易 Web 表單應用程式與 ACS 整合。
+## Erstellen einer ASP.NET MVC-Anwendung
 
-1.	啟動 Visual Studio 2012 或 Visual Studio Express for Web 2012 (舊版 Visual Studio 將不適用於這個教學課程)。
-1.	按一下 [檔案]，然後按一下 [新增專案]。
-1.	選取 Visual C#/Web 範本，然後選取 [ASP.NET MVC 4 Web 應用程式]。
+In diesem Schritt erstellen Sie eine ASP.NET MVC-Anwendung. In nachfolgenden Schritten wird diese einfache Anwendung für Webformulare mit ACS integriert.
 
-	在本指南中，我們將使用 MVC 應用程式，但是您可以使用任何類型的 Web 應用程式進行此工作。
+1.  Starten Sie Visual Studio 2012 oder Visual Studio Express für Web 2012 (Frühere Versionen von Visual Studio können mit diesem Lernprogramm nicht verwendet werden).
+1.  Klicken Sie auf **Datei**, und klicken Sie dann auf **Neues Projekt**.
+1.  Wählen Sie den Visual c# / Web-Vorlage, und wählen Sie dann **ASP.NET MVC 4 Web Application**.
 
-	![][3]
+    In dieser Anleitung arbeiten wir mit einer MVC-Anwendung. Sie können für diese Aufgabe allerdings eine beliebige Webanwendung verwenden.
 
-1. 在 [名稱] 中，輸入 **MvcACS**，然後按一下 [確定]。
-1. 在下一個對話方塊中，選取 [網際網路應用程式]，然後按一下 [確定]。
-1. 編輯 *Views\Shared_LoginPartial.cshtml* 檔案，並將其內容取代為下列程式碼：
+    ![][3]
+
+1. In **Namen**, Typ **MvcACS**, und klicken Sie dann auf **OK**.
+1. Wählen Sie im nächsten Dialogfeld **Internet Application**, und klicken Sie dann auf **OK**.
+1. Bearbeiten der *Views\Shared\_LoginPartial.cshtml* Datei, und Ersetzen Sie den Inhalt durch den folgenden Code:
 
         @if (Request.IsAuthenticated)
         {
@@ -124,7 +135,7 @@ Azure 即會建立並啟動命名空間。
             if (!String.IsNullOrEmpty(User.Identity.Name))
             {
                 name = User.Identity.Name;
-            }    
+            }
             <text>
             Hello, @Html.ActionLink(name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
@@ -142,90 +153,92 @@ Azure 即會建立並啟動命名空間。
             </ul>
         }
 
-目前，ACS 並未設定 User.Identity.Name，所以我們需要進行上述變更。
+Derzeit fügt ACS "User.Identity.Name" noch nicht ein, deshalb ist die obige Änderung notwendig.
 
-1. 按 F5 執行應用程式。預設的 ASP.NET MVC 應用程式隨即出現在您的網頁瀏覽器中。
+1. Drücken Sie die Taste F5, um die Anwendung auszuführen. Die Standardanwendung ASP.NET MVC erscheint in Ihrem Webbrowser.
 
-## 整合您的 Web 應用程式與 ACS
+## Integrieren der Webanwendung mit ACS
 
-在此工作中，您將整合 ASP.NET Web 應用程式與 ACS。
+In dieser Aufgabe werden Sie Ihre ASP.NET-Webanwendung mit ACS integrieren.
 
-1.	在 [方案總管] 中以滑鼠右鍵按一下 MvcACS 專案，然後選取 [Identity and Access]。
+1.  Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste des Projekts MvcACS, und wählen Sie dann **Identitäts- und**.
 
-	如果 [Identity and Access] 選項未出現在內容功能表上，請安裝 Identity and Access Tool。如需詳細資訊，請參閱[身分識別與存取工具] (英文)。
+    Wenn die **Identitäts- und** Option wird nicht angezeigt im Kontextmenü das Identitäts- und Zugriffs-Tool zu installieren. Weitere Informationen finden Sie unter [Identity and Access Tool].
 
-	![][4]
+    ![][4]
 
-2.	在 [提供者] 索引標籤上，選取 [使用 Azure Access Control Service]。
+2.  Auf der **Anbieter** Registerkarte **Azure Access Control Service verwenden**.
 
     ![][44]
 
-3.  按一下 [設定] 連結。
+3.  Klicken Sie auf die **konfigurieren** Link.
 
     ![][444]
 
-	Visual Studio 隨即要求獲得存取控制命名空間的有關資訊。請輸入您稍早建立的命名空間名稱 (在上圖中為 Test，但您將具有不同的命名空間)。切換回 Azure 管理入口網站，以取得對稱金鑰。
+    Visual Studio fordert Informationen über den Access Control-Namespace an. Geben Sie den Namen des Namespace ein, den Sie zuvor angelegt haben ("Test" in dem Beispiel oben, aber der Name Ihres Namespace wird anders lauten). Wechseln Sie zurück zum Azure-Verwaltungsportal, um den symmetrischen Schlüssel zu beschaffen.
 
-	![][17]
+    ![][17]
 
-4.  在 Azure 管理入口網站中，按一下存取控制命名空間，然後按一下 [管理]。
+4.  In der Azure-Verwaltungsportal auf den Access Control-Namespace, und klicken Sie dann auf **verwalten**.
 
-	![][8]
+    ![][8]
 
-5.	按一下 [Management Service]，然後按一下 [Management Client]。
+5.  Klicken Sie auf **Verwaltungsdienst** und klicken Sie dann auf **Verwaltungsclient**.
 
-	![][18]
+    ![][18]
 
-6.	按一下 [對稱金鑰]、再按一下 [Show Key]，然後複製金鑰值。然後，按一下 [取消] 以結束 [Edit Management Client] 頁面，而不進行變更。
+6.  Klicken Sie auf **symmetrischen Schlüssel**, klicken Sie auf **Schlüssel anzeigen**, und kopieren Sie den Schlüsselwert. Klicken Sie dann auf **Abbrechen** auf die Seite Edit Management Client zu beenden, ohne Änderungen vorzunehmen.
 
-	![][19]
+    ![][19]
 
-7.  在 Visual Studio 中，將金鑰貼入 [Enter the Management Key for the namespace] 欄位、按一下 [Save management key]，然後按一下 [確定]。
+7.  Fügen Sie in Visual Studio den Schlüssel in der **Geben Sie den Management-Schlüssel für den Namespace** ein, und klicken Sie auf **Save Management Key**, und klicken Sie dann auf **OK**.
 
-	![][20]
+    ![][20]
 
-	Visual Studio 會使用命名空間的相關資訊，來連線至 ACS 管理入口網站，並取得命名空間的設定，包括身分識別提供者、領域及傳回 URL。
+    Visual Studio verwendet die Information über den Namespace, um die Verbindung zum ACS-Verwaltungsportal herzustellen und die Einstellungen für Ihren Namespace abzurufen, unter anderem Identitätsanbieter, Bereich und Rückgabe-URL.
 
-8.	選取 [Windows Live ID] (Microsoft 帳戶)，並按一下 [確定]。
+8.  Wählen Sie **Windows Live ID** (Microsoft-Konto), und klicken Sie auf OK.
 
-	![][5]
+    ![][5]
 
-## 測試與 ACS 的整合
+## Testen der Integration mit ACS
 
-此工作說明如何測試 RP 應用程式與 ACS 的整合。
+In dieser Aufgabe wird erläutert, wie Sie die Integration Ihrer RP-Anwendung mit ACS testen.
 
--	在 Visual Studio 按 F5 執行應用程式。
+-   Drücken Sie in Visual Studio die Taste F5, um die Anwendung auszuführen.
 
-當您的應用程式已與 ACS 整合，而且您已選取 Windows Live ID (Microsoft 帳戶) 時，您的瀏覽器會被重新導向至 Microsoft 帳戶的登入頁面，而不是開啟預設的 ASP.NET Web Form 應用程式。當您以有效的使用者名稱和密碼登入後，您就會被重新導向至 MvcACS 應用程式。
+Wenn Ihre Anwendung mit ACS integriert ist und Sie "Windows Live ID" (Microsoft-Konto) ausgewählt haben, wird nicht die standardmäßige ASP.NET Web Forms-Anwendung geöffnet, sondern Ihr Browser auf die Anmeldeseite für Microsoft-Konten umgeleitet. Wenn Sie sich mit einem gültigen Benutzernamen und Kennwort anmelden, werden Sie zu der Anwendung MvcACS weitergeleitet.
 
 ![][6]
 
-恭喜！ 您已成功整合 ACS 與 ASP.NET Web 應用程式。ACS 現在會利用使用者的 Microsoft 帳戶認證來處理使用者的驗證。
+Glückwunsch! Sie haben ACS mit Ihrer ASP.NET-Webanwendung integriert. ACS authentifiziert Benutzer nun anhand der Anmeldeinformationen ihres Microsoft-Kontos.
 
-## 檢視 ACS 所傳送的宣告
+## Anzeigen der von ACS gesendeten Ansprüche
 
-在本節中，我們將修改應用程式來檢視 ACS 所傳送的宣告。Identity and Access 工具已建立一個規則群組，此規則群組會掃過所有從該 IP 傳遞至您應用程式的宣告。請注意，不同的身分識別提供者會傳送不同的宣告。
+In diesem Abschnitt werden wir die Anwendung ändern, sodass die von ACS gesendeten Ansprüche angezeigt werden.  Das Identitäts- und Zugriffstool hat eine Regelgruppe angelegt, die alle Ansprüche vom IP zu Ihrer Anwendung durchleitet.  Beachten Sie, dass unterschiedliche Anbieter unterschiedliche Ansprüche senden.
 
-1. 開啟 *Controllers\HomeController.cs* 檔案。對 **System.Threading** 新增 **using** 陳述式：
+1. Öffnen Sie die *Controllers\HomeController. cs* Datei. Hinzufügen einer **mit** -Anweisung für **System.Threading**:
 
- 	using System.Threading;
+    using System.Threading;
 
-1. 在 HomeController 類別中，新增 *Claims* 方法：
+1. In der HomeController-Klasse hinzufügen der *Ansprüche* Methode:
 
-    public ActionResult Claims() { ViewBag.Message = "Your claims page.";
+    Public ActionResult Claims()
+    {
+        ViewBag.Message = "Ihre Ansprüche Seite.";
 
         ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
 
         return View();
     }
 
-1. 在 *Claims* 方法上按一下滑鼠右鍵並選取 [加入檢視]。
+1. Klicken Sie mit der rechten Maustaste auf die *Ansprüche* Methode, und wählen **Ansicht hinzufügen**.
 
 ![][66]
 
-1. 按一下 [新增]。
+1. Klicken Sie auf **Hinzufügen**.
 
-1. 以下列程式碼取代 *Views\Home\Claims.cshtml* 檔案的內容：
+1. Ersetzen Sie den Inhalt der *Views\Home\Claims.cshtml* Datei durch den folgenden Code:
 
         @{
             ViewBag.Title = "Claims";
@@ -238,19 +251,19 @@ Azure 即會建立並啟動命名空間。
         <table>
             <tr>
                 <td>
-                    IsAuthenticated: 
+                    IsAuthenticated:
                 </td>
                 <td>
-                    @ViewBag.ClaimsIdentity.IsAuthenticated 
+                    @ViewBag.ClaimsIdentity.IsAuthenticated
                 </td>
             </tr>
             <tr>
                 <td>
-                    Name: 
-                </td>        
+                    Name:
+                </td>
                 <td>
                     @ViewBag.ClaimsIdentity.Name
-                </td>        
+                </td>
             </tr>
         </table>
         <h3>Claims from ClaimsIdentity</h3>
@@ -275,86 +288,86 @@ Azure 即會建立並啟動命名空間。
         }
         </table>
 
-1. 執行應用程式並瀏覽到 *Claims* 方法：
+1. Führen Sie die Anwendung, und navigieren Sie zu der *Ansprüche* Methode:
 
 ![][666]
 
-如需關於在應用程式中使用宣告的詳細資訊，請參閱 [Windows Identity Foundation 文件庫 (機器翻譯)](http://msdn.microsoft.com/library/hh377151.aspx)。
+Weitere Informationen zur Verwendung von Ansprüchen in Ihrer Anwendung finden Sie unter der [Windows Identity Foundation-Bibliothek](http://msdn.microsoft.com/library/hh377151.aspx).
 
-## 在 ACS 管理入口網站中檢視應用程式
+## Anzeigen der Anwendung im ACS-Verwaltungsportal
 
-Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 ACS 整合。
+Das Identitäts- und Zugriffstool in Visual Studio integriert Ihre Anwendung automatisch mit ACS.
 
-當您選取 [使用 Azure 存取控制] 選項，然後執行您的應用程式時，Identity and Access Tool 會新增您的應用程式作為信賴憑證者、將它設定為使用選取的身分識別提供者，然後產生並選取該應用程式的預設宣告轉換規則。
+Wenn Sie die Option "Use Azure Access Control" auswählen und dann Ihre Anwendung ausführen, fügt das Identitäts- und Zugriffstool Ihre Anwendung als vertrauende Seite (RP) hinzu, konfiguriert sie für die Verwendung der ausgewählten Identitätsanbieter, erzeugt die standardmäßigen Anspruchstransformationsregeln und wählt diese für die Anwendung aus.
 
-您可以在 ACS 管理入口網站中檢閱並變更這些組態設定。請使用下列步驟在入口網站中檢閱變更。
+Diese Konfigurationseinstellungen können Sie im ACS-Verwaltungsportal prüfen und ändern. Gehen Sie folgendermaßen vor, um die Änderungen im Portal zu überprüfen.
 
-1.	登入 Windows [Azure 管理入口網站](http://manage.WindowsAzure.com)。
+1.  Melden Sie sich bei Windows [Azure-Verwaltungsportal](http://manage.WindowsAzure.com).
 
-2.	按一下 [Active Directory]。
+2.  Klicken Sie auf **Active Directory**.
 
-	![][8]
+    ![][8]
 
-3.	選取存取控制命名空間，然後按一下 [管理]。此動作會開啟 ACS 管理入口網站。
+3.  Wählen Sie einen Access Control-Namespace, und klicken Sie dann auf **verwalten**. Daraufhin öffnet sich das ACS-Verwaltungsportal.
 
-	![][9]
-
-
-4.	按一下 [Relying party applications]。
-
-	新的 MvcACS 應用程式隨即出現在信賴憑證者應用程式清單中。領域會自動設為應用程式主頁面。
-
-	![][10]
+    ![][9]
 
 
-5.	按一下 [MvcACS]。
+4.  Klicken Sie auf **Relying Party Applications**.
 
-	[Edit Relying Party Application] 頁面包含 MvcACS Web 應用程式的組態設定。當您變更並儲存此頁面上的設定時，變更會立即套用到應用程式。
+    Die neue MvcACS-Anwendung wird in der Liste der Anwendungen der vertrauenden Seite aufgeführt. Unter "Bereich" wird automatisch die Hauptseite der Anwendung angezeigt.
 
-	![][11]
-
-6.	向下捲動頁面，以查看 MvcACS 應用程式的剩餘組態設定，包括身分識別提供者和宣告轉換規則。
-
-	![][12]
-
-在下一節中，我們將使用 ACS 管理入口網站的功能，對 Web 應用程式進行變更；這只是為了要證明要這麼做有多容易。
-
-## 新增身分識別提供者
-
-讓我們使用 ACS 管理入口網站來變更 MvcACS 應用程式的驗證。在此範例中，我們將新增 Google 作為 MvcACS 的身分識別提供者。
-
-1.	按一下 [識別提供者] (在導覽功能表中)，然後按一下 [新增]。
-
-	![][13]
-
-2.	按一下 [Google]，然後按 [下一步]。預設已選取 MvcACS 應用程式核取方塊。
-
-	![][14]
-
-3. 按一下 [儲存]。
-
-	![][15]
+    ![][10]
 
 
-完成！ 如果您回到 Visual Studio、開啟 MvcACS 應用程式的專案，然後按一下 [Identity and Access]，則工具會同時列出 Windows Live ID 與 Google 身分識別提供者。
+5.  Klicken Sie auf **MvcACS**.
+
+    Die Seite "Edit Relying Party Application" enthält Konfigurationseinstellungen für die MvcACS-Webanwendung. Wenn Sie die Einstellungen auf dieser Seite ändern und speichern, werden diese sofort in der Anwendung wirksam.
+
+    ![][11]
+
+6.  Führen Sie auf der Seite einen Bildlauf nach unten aus, damit die übrigen Konfigurationseinstellungen für die MvcACS-Anwendung, also unter anderem die Identitätsanbieter und die Anspruchstransformationsregeln, eingeblendet werden.
+
+    ![][12]
+
+Im nächsten Abschnitt werden wir mit den Funktionen des ACS-Verwaltungsportals eine Änderung in der Webanwendung vornehmen -- nur, um einmal zu zeigen, wie einfach das ist.
+
+## Hinzufügen eines Identitätsanbieters
+
+Auf dem ACS-Verwaltungsportal ändern wir nun die Authentifizierung der MvcACS-Anwendung. In diesem Beispiel werden wir Google als Identitätsanbieter für MvcACS hinzuzufügen.
+
+1.  Klicken Sie auf **Identitätsanbieter** (im Navigationsmenü) und klicken Sie dann auf **Hinzufügen**.
+
+    ![][13]
+
+2.  Klicken Sie auf **Google** und klicken Sie dann auf **Weiter**. Das Kontrollkästchen der MvcACS-App ist standardmäßig aktiviert.
+
+    ![][14]
+
+3. Klicken Sie auf "Speichern".
+
+    ![][15]
+
+
+Das war's! Wenn Sie zu Visual Studio zurückzukehren, öffnen Sie das Projekt für die MvcACS-app, und klicken Sie auf **Identitäts- und**, listet das Tools sowohl Windows Live ID als auch Google-Identitätsanbieter.  
 
 ![][16]
 
-因此，當您執行應用程式時，將看到效果。當應用程式支援多個身分識別提供者時，使用者的瀏覽器會先被重新導向至 ACS 主控的頁面，提示使用者選擇身分識別提供者。
+Wenn Sie dann die Anwendung ausführen, sehen Sie, was sich verändert hat. Wenn eine Anwendung mehr als einen Identitätsanbieter unterstützt, wird der Browser des Benutzers zuerst an eine von ACS gehostete Seite geleitet, die den Benutzer dann auffordert, einen Identitätsanbieter auszuwählen.
 
 ![][7]
 
-在使用者選取身分識別提供者後，瀏覽器即會移至身分識別提供者登入頁面。
+Sobald der Benutzer einen Identitätsanbieter ausgewählt hat, geht der Browser auf die Anmeldeseite dieses Anbieters.
 
-## 接下來
+## Nächste Schritte
 
-您已建立與 ACS 整合的 Web 應用程式。不過，這只是開始而已！ 您可以以此案例為基礎進行延伸。
- 
-例如，您可以為此 RP 新增更多身分識別提供者，或允許企業目錄 (例如 Active Directory 網域服務) 中註冊的使用者登入 Web 應用程式。
+Sie haben nun eine Webanwendung erstellt, die mit ACS integriert ist. Aber das ist erst der Anfang. Dieses Szenario können Sie noch weiter ausführen.
 
-您也可以新增規則至命名空間，來決定哪些宣告會傳送至應用程式以依應用程式商務邏輯進行處理。
+Sie können beispielsweise weitere Identitätsanbieter für diese vertrauende Seite hinzufügen oder Benutzern, die in Unternehmensverzeichnissen wie beispielsweise Active Directory-Domänendiensten registriert sind, die Anmeldung bei der Webanwendung gestatten.
 
-若要進一步探索 ACS 功能及試試其他案例，請參閱[存取控制服務 2.0] (英文)。
+Außerdem können Sie mit zusätzlichen Regeln in Ihrem Namespace festlegen, welche Ansprüche an eine Anwendung gesendet und in der Geschäftslogik der Anwendung verarbeitet werden.
+
+ACS-Funktionalität genauer erforschen und mit anderen Szenarien experimentieren möchten, finden Sie unter [Access Control Service 2.0].
 
 
 
@@ -371,10 +384,9 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [vcsb]: #bkmk_viewClaims
   [vpp]: #bkmk_VP
 
-  [存取控制服務 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
+  [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
   [Identity and Access Tool]: http://go.microsoft.com/fwlink/?LinkID=245849
-  [身分識別與存取工具]: http://go.microsoft.com/fwlink/?LinkID=245849
-  [Azure 管理入口網站]: http://manage.WindowsAzure.com
+  [Azure Management Portal]: http://manage.WindowsAzure.com
 
   [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
   [1]: ./media/active-directory-dotnet-how-to-use-access-control/acsCreateNamespace.png
@@ -401,6 +413,5 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
- 
 
-<!---HONumber=62-->
+

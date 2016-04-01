@@ -1,115 +1,116 @@
-<properties 
-	pageTitle="在 Azure AD 中建立或編輯使用者" 
-	description="說明如何在 Azure AD 中建立或編輯使用者帳戶的主題。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+    pageTitle="Erstellen oder Bearbeiten von Benutzern in Azure Active Directory | Microsoft Azure"
+    description="Erklärt, wie Sie Benutzerkonten unter Azure Active Directory erstellen oder bearbeiten."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
-# 在 Azure AD 中建立或編輯使用者
+# Erstellen oder Bearbeiten von Benutzern in Azure Active Directory
 
-您必須為每一個會存取 Microsoft 雲端服務的使用者建立帳戶。您也可以變更使用者帳戶，或在已不需要時將它們刪除。根據預設，使用者沒有系統管理員權限，但是您可以選擇性地指派給他們。
+Sie müssen in Azure Active Directory (Azure AD) für jeden Benutzer, der auf einen Microsoft-Clouddienst zugreifen soll, ein eigenes Konto erstellen. Sie können Benutzerkonten auch ändern oder löschen, wenn sie nicht mehr benötigt werden. Benutzer haben standardmäßig keine Administratorberechtigungen, aber Sie können ihnen diese erteilen.
 
-## 建立使用者
+## Erstellen eines Benutzers
 
-1. 按一下 [**Active Directory**]，然後按一下您的組織目錄的名稱。
-2. 在 [**使用者**] 頁面上，按一下 [**加入使用者**]。
-3. 在 [**告訴我們這位使用者**] 頁面上，針對 [**使用者類型**]，選取下列其中一項： 
-	1. **您組織中的新使用者** – 表示您想要在目錄中建立和管理新的使用者帳戶。
-	2. **現有 Microsoft 帳戶的使用者** – 表示您想要將現有的 Microsoft 帳戶加入至目錄，以便與使用 Microsoft 帳戶存取 Azure 的共同管理員，一起在 Azure 資源上共同作業。	
-	3. **另一個 Azure AD 目錄中的使用者** – 表示您想要將來自另一個 Azure AD 目錄的使用者帳戶加入至您的目錄。您必須是其他目錄的成員，才能選取其中的使用者。 
-4. 視您選取的選項而定，請輸入使用者名稱，或此使用者用來登入的 Microsoft 帳戶名稱。
-5. 在 [**使用者設定檔**] 頁面上，提供使用者的姓氏和名字、使用者易記名稱，並從 [角色] 下拉式選單中選擇使用者角色。如需有關使用者和系統管理員角色的詳細資訊，請參閱[在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles.md)。指定是否**啟用 Multi-Factor Authentication**。
-6. 在 [**取得暫時密碼**] 頁面上，按一下 [**建立**]。
+1. Klicken Sie auf **Active Directory**, und klicken Sie dann auf den Namen des Verzeichnisses Ihrer Organisation.
+2. Auf der **Benutzer** auf **Benutzer hinzufügen**.
+3. Auf der **Erzählen Sie uns dieses Benutzers** Seite für **Benutzertyp**, wählen Sie entweder:
+    1. **Neuer Benutzer in Ihrer Organisation** – Gibt an, dass Sie ein neues Benutzerkonto erstellt und in Ihrem Verzeichnis verwalten möchten.
+    2. **Benutzer mit einem vorhandenen Microsoft-Konto** – Gibt an, dass Sie ein vorhandenes Microsoft-Konto zu Ihrem Verzeichnis hinzufügen, um Azure-Ressourcen mit einem Co-Administrator zusammen arbeiten, die mit einem Microsoft-Konto auf Azure zugreift möchten.
+    3. **Benutzer in einem anderen Azure AD-Verzeichnis** – Gibt an, die aus einem anderen Azure AD-Verzeichnis das Verzeichnis ein Benutzerkonto hinzugefügt werden soll. Sie müssen Mitglied des anderen Verzeichnisses sein, um darin einen Benutzer auswählen zu können.
+4. Je nach ausgewählter Option geben Sie entweder einen Benutzernamen oder einen Microsoft-Kontonamen ein, mit dem sich der Benutzer anmeldet.
+5. Für den Benutzer **Profil** Seite, geben Sie den vor- und Nachname, einen Anzeigenamen und eine Benutzerrolle aus dem Rollen-Dropdown-Menü. Weitere Informationen zu Benutzer- und Administratorrollen finden Sie unter [Zuweisen von Administratorrollen in Azure AD](active-directory-assign-admin-roles.md). Geben Sie an, ob **mehrstufige Authentifizierung aktivieren**.
+6. Auf der **vorübergehendes Kennwort abrufen** auf **Erstellen**.
 
-如果您的組織使用多個網域，當您建立使用者帳戶時，請注意下列問題：
+Achten Sie auf die folgenden Probleme, die beim Erstellen eines Benutzerkontos auftreten können, wenn Ihre Organisation mehr als eine Domäne verwendet:
 
-- 如果您先建立 geoffgrisso@contoso.onmicrosoft.com再建立 geoffgrisso@contoso.com，則可以跨網域建立具有相同使用者主體名稱 (UPN) 的使用者帳戶。
-- 您無法先建立 geoffgrisso@contoso.com 再建立 geoffgrisso@contoso.onmicrosoft.com。
+- Sie können Benutzerkonten mit der gleichen Benutzerprinzipalnamen (UPN) domänenübergreifend erstellen, wenn Sie zunächst beispielsweise geoffgrisso@contoso.onmicrosoft.com gefolgt von geoffgrisso@contoso.com erstellen.
+- Sie können keine geoffgrisso@contoso.com gefolgt von geoffgrisso@contoso.onmicrosoft.com erstellen.
 
-## 編輯使用者
+## Bearbeiten eines Benutzers
 
-如果您嘗試編輯的使用者已經與內部部署 Active Directory 服務同步處理，則會出現錯誤訊息，您將無法使用此程序來編輯使用者。若要編輯此使用者，使用您的本機 Active Directory 管理工具。
- 
-在 Azure 管理入口網站中編輯使用者：
+Wenn der Benutzer, den Sie bearbeiten möchten, mit Ihrem lokalen Active Directory-Dienst synchronisiert wird, wird eine Fehlermeldung angezeigt. Sie können den Benutzer mit diesem Verfahren dann nicht bearbeiten. Verwenden Sie zum Bearbeiten des Benutzers Ihre lokalen Active Directory-Verwaltungstools.
 
-1. 按一下 [**Active Directory**]，然後按一下您的組織目錄的名稱。
-2. 在 [**使用者**] 頁面上，按一下您想要編輯之使用者的顯示名稱。
-3. 完成您的變更，然後按一下 [**儲存**]。
+So bearbeiten Sie einen Benutzer im klassischen Azure-Portal:
 
-## 重設使用者的密碼
+1. Klicken Sie auf **Active Directory**, und klicken Sie dann auf den Namen des Verzeichnisses Ihrer Organisation.
+2. Auf der **Benutzer** Seite, klicken Sie auf den Anzeigenamen des Benutzers, die Sie bearbeiten möchten.
+3. Geben Sie die Änderungen, und klicken Sie dann auf **Speichern**.
 
-1. 按一下 [**Active Directory**]，然後按一下您的組織目錄的名稱。
-2. 在 [**使用者**] 頁面上，按一下您想要編輯之使用者的顯示名稱。
-3. 在入口網站底部，按一下 [**重設密碼**]。
-4. 在 [重設密碼] 對話方塊中，按一下 [**重設**]。
-5. 按一下核取記號，以確認已重設密碼。
+## Zurücksetzen des Kennworts für einen Benutzer
 
-## 建立外部使用者
+1. Klicken Sie auf **Active Directory**, und klicken Sie dann auf den Namen des Verzeichnisses Ihrer Organisation.
+2. Auf der **Benutzer** Seite, klicken Sie auf den Anzeigenamen des Benutzers, die Sie bearbeiten möchten.
+3. Klicken Sie am unteren Rand des Portals, auf **Kennwort zurücksetzen**.
+4. Klicken Sie im Dialogfeld das Zurücksetzen des Kennworts auf **Zurücksetzen**.
+5. Klicken Sie auf das Häkchen, um zu bestätigen, dass das Kennwort zurückgesetzt wurde.
 
-在 Azure AD 中，您也可以在 Azure AD 目錄中加入來自另一個 Azure AD 目錄的使用者，或具有 Microsoft 帳戶的使用者。一位使用者最多可以是 20 個不同目錄的成員。
+## Erstellen eines externen Benutzers
 
-從另一個目錄新增的使用者是外部使用者。外部使用者可以與已存在於目錄中的使用者共同作業，例如在測試環境中，而不需要使用新的帳戶和認證登入。外部使用者登入時由其主目錄驗證，驗證結果適用於他們所屬的其他所有目錄。
+In Azure AD können Sie einem Azure AD-Verzeichnis auch Benutzer aus einem anderen Azure AD-Verzeichnis oder einen Benutzer mit einem Microsoft-Konto hinzufügen. Ein Benutzer kann Mitglied in bis zu 20 verschiedenen Verzeichnissen sein.
 
-若要建立外部使用者，請在入口網站中建立使用者，針對 [**使用者類型**]，選取 [**另一個 Azure AD 目錄中的使用者**]。
+Bei Benutzern, die aus einem anderen Verzeichnis hinzugefügt werden, handelt es sich um externe Benutzer. Externe Benutzer können mit Benutzern zusammenarbeiten, die einem Verzeichnis bereits vorhanden sind, z. B. in einer Testumgebung, ohne dass sie sich mit neuen Konten und Anmeldeinformationen anmelden müssen. Externe Benutzer sind über ihr Basisverzeichnis authentifiziert, wenn sie sich anmelden und die Authentifizierung für alle anderen Verzeichnisse funktioniert, denen deren Mitglied Sie sind.
 
-## 外部使用者管理和限制
+Um einen externen Benutzer erstellen möchten, erstellen Sie einen Benutzer in der klassischen Azure-Portal und für **Benutzertyp**, Option **Benutzer in einem anderen Azure AD-Verzeichnis**.
 
-當您將某一個目錄的使用者加入至新的目錄時，該使用者在新的目錄中就是外部使用者。最初會從使用者的「主目錄」複製顯示名稱和使用者名稱，並指定給其他目錄中的外部使用者。從那時起，外部使用者物件的這些和其他屬性就完全獨立：如果您在主目錄中對使用者做變更，例如變更使用者的名稱、新增職稱等，這些變更不會傳播至其他目錄中的外部使用者帳戶。
+## Verwaltung externer Benutzer und Einschränkungen
 
-兩個物件之間的唯一連結是，使用者永遠針對主目錄或使用其 Microsoft 帳戶進行驗證。這就是為什麼您沒有看到選項可對外部使用者帳戶重設密碼或啟用多重要素驗證：目前，使用者登入時，只會評估主目錄或 Microsoft 帳戶的驗證原則。
+Wenn Sie einen Benutzer aus einem Verzeichnis einem neuen Verzeichnis hinzufügen, ist dieser Benutzer im neuen Verzeichnis ein externer Benutzer. Zuerst werden der Anzeigename und der Benutzername aus dem so genannten „Basisverzeichnis“ des Benutzers kopiert und für den externen Benutzer in dem anderen Verzeichnis verwendet. Ab diesem Zeitpunkt sind diese und andere Eigenschaften des externen Benutzerobjekts vollständig unabhängig voneinander: Wenn Sie im Basisverzeichnis eine Änderung für diesen Benutzer vornehmen, also z. B. den Benutzernamen ändern, seine Position hinzufügen usw., werden die Änderungen nicht für das externe Benutzerkonto im anderen Verzeichnis übernommen.
 
-> [AZURE.NOTE]您仍然可以停用目錄中的外部使用者，這樣會阻止存取您的目錄。
+Die einzige Verbindung zwischen den beiden Objekten ist, dass der Benutzer immer anhand seines Basisverzeichnisses oder über sein Microsoft-Konto authentifiziert wird. Daher ist keine Option zum Zurücksetzen des Kennworts oder zum Aktivieren der Multi-Factor Authentication für ein externes Benutzerkonto vorhanden. Derzeit wird ausschließlich die Authentifizierungsrichtlinie des Basisverzeichnisses oder des Microsoft-Kontos verwendet, die beim Anmelden des Benutzers ausgewertet wird.
 
-如果使用者在其主目錄中被刪除，或取消其 Microsoft 帳戶，外部使用者仍存在目錄中。不過，該使用者無法存取目錄中的資源，因為使用者無法再向主目錄或 Microsoft 帳戶進行驗證。
+> [AZURE.NOTE]
+> Sie können den Benutzer im externen Verzeichnis aber trotzdem deaktivieren. Dadurch wird der Zugriff auf Ihr Verzeichnis blockiert.
 
-如果使用者是多個目錄的系統管理員，則可以在 Azure 管理入口網站中管理這些目錄。不過，其他應用程式 (例如 Office 365) 目前不支援以其他目錄中的外部使用者身分來指派和存取服務。未來，我們將提供指引給開發人員，指出他們的應用程式如何搭配屬於多個目錄的使用者。
+Wenn ein Benutzer in seinem Basisverzeichnis gelöscht wird oder sein Microsoft-Konto kündigt, ist der externe Benutzer weiterhin im Verzeichnis vorhanden. Er kann aber nicht mehr auf Ressourcen im Verzeichnis zugreifen, da die Authentifizierung über das Basisverzeichnis oder das Microsoft-Konto nicht mehr möglich ist.
 
-目前有限制，系統管理員只能對其主目錄中的多租用戶應用程式表示同意，且只能在其主目錄中透過 [存取面板] 佈建給 SaaS 應用程式和 SSO。Microsoft 帳戶使用者也有同樣的限制，他們目前無法同意多租用戶應用程式，或使用 [存取面板]。
+Ein Benutzer, der Administrator mehrerer Verzeichnisse ist, kann diese Verzeichnisse im klassischen Azure-Portal verwalten. Andere Anwendungen wie Office 365 enthalten derzeit keine Optionen zum Zuweisen von und Zugreifen auf Dienste als externer Benutzer in einem anderen Verzeichnis. Wir stellen demnächst Anleitungen für Entwickler bereit. Darin ist beschrieben, wie Apps für Benutzer bereitgestellt werden können, die Mitglieder mehrerer Verzeichnisse sind.
 
-## 來賓
+Derzeit gelten bestimmte Einschränkungen. Ein Administrator kann die Zustimmung für eine mehrinstanzenfähige Anwendung nur im Basisverzeichnis gewähren, und die Bereitstellung ist nur für SaaS-Apps und SSO per Zugriffsbereich im Basisverzeichnis möglich. Für Benutzer mit Microsoft-Konto gelten die gleichen Einschränkungen. Es ist momentan nicht möglich, die Zustimmung für eine mehrinstanzenfähige Anwendung zu gewähren oder den Zugriffsbereich zu verwenden.
 
-**來賓**是指您的目錄中將 [使用者類型] 設為 [來賓] 的使用者。一般使用者的 [使用者類型] 為 [成員]，表示他們是您目錄中的成員。當您與目錄之外的某人共用資源時，就會建立來賓，例如，將 Microsoft 帳戶加入至您的 Azure 訂用帳戶，或與外部使用者共用 SharePoint 中的文件。
+## Gäste
 
-來賓在目錄中有一組受限的權限。這些權限禁止「來賓」探索目錄中其他使用者的相關資訊，但對於與他們使用的資源相關聯的使用者和群組，仍然能夠互動。例如，指派給 Azure 訂用帳戶的來賓，將能夠看到與 Azure 訂用帳戶相關聯的其他使用者和群組。只要他們知道使用者的完整電子郵件地址，他們也可以在目錄中尋找其他使用者，以授權使用者存取訂用帳戶。來賓只能看到其他使用者的一組有限的屬性。這些屬性僅限於顯示名稱、電子郵件地址、使用者主體名稱 (UPN) 和相片縮圖。
+Ein **Gast** ist ein Benutzer in Ihrem Verzeichnis, Benutzertyp auf "Gast" festgelegt ist. Für normale Benutzer lautet der Benutzertyp „Mitglied“, um anzugeben, dass sie Mitglied Ihres Verzeichnisses sind. Gäste werden erstellt, wenn Sie eine Ressource für einen externen Benutzer Ihres Verzeichnisses freigeben. Beispiele hierfür sind das Hinzufügen eines Microsoft-Kontos zu Ihrem Azure-Abonnement oder das Freigeben eines Dokuments in SharePoint für einen externen Benutzer.
 
-## 設定使用者存取原則
+Gäste verfügen im Verzeichnis über eingeschränkte Berechtigungen. Diese Berechtigungen bewirken, dass Gäste nicht auf alle Informationen zu anderen Benutzern im Verzeichnis zugreifen können. Sie können mit den Benutzern und Gruppen, die den bearbeiteten Ressourcen zugeordnet sind, aber trotzdem interagieren. Ein Gast, der einem Azure-Abonnement zugewiesen ist, kann beispielsweise andere Benutzer und Gruppen sehen, die dem Azure-Abonnement zugeordnet sind. Außerdem können Gäste auch nach anderen Benutzern im Verzeichnis suchen, denen der Zugriff auf das Abonnement gewährt werden soll, sofern ihnen die vollständige E-Mail-Adresse des betreffenden Benutzers bekannt ist. Gäste können nur eingeschränkte Eigenschaften anderer Benutzer anzeigen. Diese Eigenschaften sind auf Anzeigename, E-Mail-Adresse, Benutzerprinzipalname (UPN) und Miniaturansicht (Foto) beschränkt.
 
-目錄內的 [設定] 索引標籤內含可控制外部使用者存取權限的選項。這些選項只可以由目錄全域管理員在完整 Azure 入口網站的 UI (沒有 Windows PowerShell 或 API 方法) 中進行變更。若要在 Azure 入口網站中開啟 [**設定**] 索引標籤，請按一下 [**Active Directory**]，然後按一下目錄的名稱。
+## Konfigurieren von Richtlinien für den Benutzerzugriff
+
+Die **konfigurieren** Registerkarte eines Verzeichnisses enthält Optionen zum Steuern des Zugriffs für externe Benutzer. Diese Optionen können nur über die Benutzeroberfläche (es gibt keine Windows PowerShell- oder API-Methode) im vollständigen klassischen Azure-Portal durch einen globalen Verzeichnisadministrator geändert werden.
+Zum Öffnen der **konfigurieren** Registerkarte im klassischen Azure-Portal **Active Directory**, und klicken Sie dann auf den Namen des Verzeichnisses.
 
 ![][1]
 
-接著您可以編輯選項來控制外部使用者的存取權限。
+Anschließend können Sie die Optionen zur Zugriffssteuerung für externe Benutzer ändern.
 
 ![][2]
 
-根據預設，來賓無法列舉目錄裡的內容，因此他們不會看到 [成員清單] 裡的任何使用者或群組。他們可以輸入使用者的完整電子郵件地址來搜尋使用者，然後授予存取權限。以下是預設的來賓限制集合：
+Standardmäßig Gäste können nicht aufgelistet werden der Inhalt des Verzeichnisses, damit sie keine Benutzer oder Gruppen in angezeigt werden der **Mitgliederliste**. Gäste können jedoch durch Eingabe der vollständigen E-Mail-Adresse nach einem Benutzer suchen und ihm dann Zugriff gewähren. Für Gäste gelten folgende allgemeine Beschränkungen:
 
-- 他們無法列舉目錄中的使用者與群組。
-- 他們可以查看有限的使用者詳細資料 (前提是他們知道使用者的電子郵件地址)。
-- 他們可以查看有限的群組詳細資料 (但必須知道群組名稱)。
+- Benutzer und Gruppen können nicht im Verzeichnis aufgelistet werden.
+- Wenn die E-Mail-Adresse des Benutzers bekannt ist, können nur eingeschränkte Informationen zu diesem Benutzer angezeigt werden.
+- Wenn der Name einer Gruppe bekannt ist, können nur eingeschränkte Informationen zu dieser Gruppe angezeigt werden.
 
-來賓得以查看使用者或群組有限之詳細資料的能力，可方便他們邀請其他人並查看與他們協同合作的人員詳細資料。
+Durch die Anzeige eingeschränkter Informationen zu einem Benutzer oder einer Gruppe können Gäste andere Personen einladen und Informationen zu Personen anzeigen, mit denen sie zusammenarbeiten.  
 
-## 接下來
+## Nächste Schritte
 
-- [管理 Azure AD](active-directory-administer.md)
-- [在 Azure AD 中管理密碼](active-directory-manage-passwords.md)
-- [在 Azure AD 中管理群組](active-directory-manage-groups.md)
+- [Verwalten von Azure AD](active-directory-administer.md)
+- [Verwalten von Kennwörtern in Azure AD](active-directory-manage-passwords.md)
+- [Verwalten von Gruppen in Azure AD](active-directory-manage-groups.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
- 
 
-<!---HONumber=62-->
+

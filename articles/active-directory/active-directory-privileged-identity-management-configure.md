@@ -1,101 +1,101 @@
-<properties 
-	pageTitle="Azure AD 特殊權限身分識別管理" 
-	description="說明何謂 Azure AD 特殊權限身分識別管理及其設定方式的主題" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+    pageTitle="Azure AD Privileged Identity Management"
+    description="Ein Thema, in dem erläutert wird, was Azure AD Privileged Identity Management ist und wie die Konfiguration erfolgt."
+    services="active-directory"
+    documentationCenter=""
+    authors="IHenkel"
+    manager="stevenpo"
+    editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="Justinha"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2015"
+    ms.author="inhenk"/>
 
-# Azure AD 特殊權限身分識別管理
+# Azure AD Privileged Identity Management
 
-Azure AD 特殊權限身分識別管理可讓您管理、控制和監視特殊權限身分識別，以及其在 Azure AD 和其他 Microsoft 線上服務 (如 Office 365 或 Microsoft Intune) 中的資源存取權。
+Mithilfe von Azure AD Privileged Identity Management können Sie Ihre privilegierten Benutzeridentitäten und deren Zugriff auf Ressourcen in Azure AD und anderen Microsoft-Onlinediensten wie Office 365 oder Microsoft Intune verwalten, steuern und überwachen.  
 
-若要讓使用者能夠執行特殊權限作業，組織通常需要賦予許多使用者在 Azure AD 中或對 Azure 或 Office 365 資源或其他 SaaS 應用程式的永久特殊權限存取權。對大多數客戶而言，這會使其雲端資源的安全性風險提高，因為他們無法充分監視這些使用者利用其管理員權限的所作所為。此外，擁有特殊權限存取權的使用者帳戶若遭到入侵，可能會影響其整體的雲端安全性。Azure AD 特殊權限身分識別管理有助於解決此風險。
+Damit Benutzer privilegierte Vorgänge ausführen konnten, mussten Organisationen häufig vielen ihrer Benutzer einen dauerhaften privilegierten Zugriff auf Azure AD oder auf Azure- oder Office 365-Ressourcen oder andere SaaS-Apps erteilen. Für viele Kunden stellt dies ein größer werdendes Sicherheitsrisiko für ihre in der Cloud gehosteten Ressourcen dar, da sie die Aktionen dieser Benutzer mit ihren Administratorberechtigungen nicht ausreichend überwachen können. Darüber hinaus kann ein gefährdetes Benutzerkonto mit privilegiertem Zugriff Auswirkungen auf die Gesamtsicherheit der Cloud haben. Mit Azure AD Privileged Identity Management können Sie dieses Risiko in den Griff bekommen.  
 
-本預覽版本中的 Azure AD 特殊權限身分識別管理可讓您：
+Azure AD Privileged Identity Management ermöglicht in dieser Vorschauversion Folgendes:  
 
-- 探索哪些使用者是 Azure AD 管理員
-- 啟用目錄資源的隨選、「即時」管理存取權
-- 取得有關管理員存取歷程記錄以及有關管理員指派變更的報告 
-- 取得有關特殊權限角色存取的警示 
+- Ermitteln, welche Benutzer Azure AD-Administratoren sind
+- Aktivieren eines bedarfsabhängigen administrativen Zugriffs auf Verzeichnisressourcen
+- Abrufen von Berichten zum Administratorzugriffsverlauf und zu Änderungen bei Zuweisungen von Administratoren
+- Aktivieren von Benachrichtigungen zum Zugriff auf eine privilegierte Rolle
 
-在本預覽版本中，Azure AD 特殊權限身分識別管理可以管理內建的 Azure Active Directory 組織角色：
+In dieser Vorschauversion kann Azure AD Privileged Identity Management die integrierten Azure Active Directory-Organisationsrollen verwalten:  
 
-- 全域管理員 
-- 計費管理員 
-- 服務管理員  
-- 使用者管理員 
-- 密碼管理員 
+- Globaler Administrator
+- Abrechnungsadministrator
+- Dienstadministrator  
+- Benutzeradministrator
+- Kennwortadministrator
 
-## 即時管理員存取權 
+## Bedarfsabhängiger Administratorzugriff
 
-在過去，您可以透過 Azure 管理入口網站或 Windows PowerShell 將使用者指派給管理員角色。因此，該使用者會成為**永久管理員**，其獲得指派的角色永遠處於作用狀態。此預覽版本新增了**暫時管理員**的支援，而這就是需要對指派的角色完成啟用程序的使用者。此啟用程序會將 Azure AD 中角色的使用者指派從非作用中變更為作用中。
+In der Vergangenheit konnten Sie einen Benutzer über das Azure-Verwaltungsportal oder Windows PowerShell einer Administratorrolle zuweisen. Daher wird der Benutzer zum **permanente Admin**, in seiner zugeordneten Rolle stets aktiv. Diese Vorschauversion bietet Unterstützung für eine **temporäre Administratoren**, dies ist ein Benutzer, der für die zugewiesene Rolle einen Aktivierungsprozess durchlaufen abschließen muss.  Der Aktivierungsprozess ändert die Zuweisung des Benutzers zu einer Rolle in Azure AD von "Inaktiv" in "Aktiv".
 
-## 針對目錄啟用特殊權限身分識別管理
+## Aktivieren von Privileged Identity Management für Ihr Verzeichnis
 
-存取 [Microsoft Azure 入口網站](https://portal.azure.com/)，即可開始使用 Azure AD 特殊權限身分識別管理。目前，Azure AD 特殊權限身分識別管理只會出現在 Microsoft Azure 入口網站中。您必須是全域的管理員才能針對目錄啟用 Azure AD 特殊權限身分識別管理。
+Starten Sie mithilfe von Azure AD Privileged Identitätsmanagement durch Zugreifen auf die [Microsoft Azure-Portal](https://portal.azure.com/). Im Moment wird Azure AD Privileged Identity Management nur im Microsoft Azure-Portal angezeigt. Sie müssen ein globaler Administrator sein, um Azure AD Privileged Identity Management für ein Verzeichnis zu aktivieren.
 
 ![][1]
 
-初始化此延伸模組之後，您就會自動成為目錄的第一個**安全性管理員**。只有安全性管理員可以存取此延伸模組來管理其他管理員的存取權。在初始化期間，Azure AD 特殊權限身分識別管理的動態磚會加入至 Azure 預覽入口網站的儀表板。
+Nach Initialisierung dieser Erweiterung werden Sie automatisch zum ersten **Sicherheitsadministrator** des Verzeichnisses. Nur ein Sicherheitsadministrator kann zur Verwaltung des Zugriffs für andere Administratoren auf diese Erweiterung zugreifen.  
+Während der Initialisierung wird eine Kachel mit Azure AD Privileged Identity Management dem Startmenü im Azure-Vorschauportal hinzugefügt.
 
-## 特殊權限身分識別管理儀表板 
+## Privileged Identity Management-Dashboard
 
-Azure AD 特殊權限身分識別管理員有一個儀表板可提供重要資訊，例如：
+Azure AD Privileged Identity Management bietet ein Dashboard, das wichtige Informationen enthält, wie z. B.:
 
-- 指派給每個特殊權限角色的使用者數目  
-- 暫時和永久管理員的數目 
-- 管理員的存取歷程記錄 
+- Die Anzahl der Benutzer, die jeder privilegierten Rolle zugewiesen sind  
+- Anzahl temporärer und permanenter Administratoren
+- Zugriffsverlauf des Administrators
 
 ![][2]
 
-## 特殊權限角色管理 
+## Verwaltung privilegierter Rollen
 
-利用 Azure AD 特殊權限身分識別管理，您可以藉由新增或移除每個角色的永久或暫存管理員來管理管理員。
+Mit Azure AD Privileged Identity Management können Sie die Administratoren verwalten, indem Sie jeder Rolle permanente oder temporäre Administratoren hinzufügen oder diese entfernen.
 
 ![][3]
 
-## 設定角色啟用設定 
+## Konfigurieren der Rollenaktivierungseinstellungen
 
-您可以使用角色啟用設定來設定暫時的角色啟用屬性，包括：
+Mithilfe der Rollenaktivierungseinstellungen können Sie die Eigenschaften der Aktivierung der temporären Rolle konfigurieren:
 
-- 角色啟用期間的持續時間
-- 角色啟用通知 
-- 使用者在角色啟用程序期間所需提供的資訊  
+- Dauer des Rollenaktivierungszeitraums
+- Benachrichtigung zur Rollenaktivierung
+- Informationen, die ein Benutzers während des Rollenaktivierungsprozesses bereitstellen muss  
 
 ![][4]
 
-## 角色啟用  
+## Rollenaktivierung  
 
-若要啟用角色，暫時管理員必須要求對角色進行有時效性的「啟用」。使用 Azure AD 特殊權限身分識別管理中的 [**啟用我的角色**] 選項，即可要求啟用。
+Um eine Rolle zu aktivieren, muss ein temporärer Administrator eine zeitgebundene "Aktivierung" für die Rolle anfordern. Die Aktivierung kann angefordert werden, mithilfe der **Meine Rolle aktivieren** -Option in Azure AD Privileged Identitätsmanagement.
 
-想要啟用角色的管理員必須在 Azure 預覽入口網站中初始化 Azure AD 特殊權限身分識別管理。
+Ein Administrator, der eine Rolle aktivieren möchte, muss Azure AD Privileged Identity Management im Azure-Vorschauportal initialisieren.
 
-任何類型的管理員均可使用 Azure AD 特殊權限身分識別管理來啟用自己的角色。
- 
-角色啟用是有時效性的。在 [角色啟用] 設定中，您可以設定啟用的長度，以及管理員必須提供才能啟用角色的必要資訊。
+Alle Administratortypen können Azure AD Privileged Identity Management zum Aktivieren ihrer Rolle nutzen.
+
+Die Rollenaktivierung ist zeitlich gebunden. In den Rollenaktivierungseinstellungen können Sie die Länge der Aktivierung und auch die erforderlichen Informationen konfigurieren, die der Administrator angeben muss, um die Rolle zu aktivieren.
 
 ![][5]
 
-## 角色啟用歷程記錄
+## Verlauf der Rollenaktivierung
 
-使用 Azure AD 特殊權限身分識別管理，也可以追蹤特殊權限角色指派和角色啟用歷程記錄的變更。使用稽核記錄選項即可進行：
+Mithilfe von Azure AD Privileged Identity Management können Sie auch Änderungen bei Zuweisungen privilegierter Rollen und den Rollenaktivierungsverlauf nachverfolgen. Dies kann mithilfe der Überwachungsprotokolloptionen erfolgen:
 
 ![][6]
 
-## 後續步驟
-
-[Microsoft Azure 部落格](http://azure.microsoft.com/blog/) [角色型存取控制](../role-based-access-control-configure.md)
+## Nächste Schritte
+[AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -105,6 +105,4 @@ Azure AD 特殊權限身分識別管理員有一個儀表板可提供重要資�
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
- 
 
-<!---HONumber=62-->

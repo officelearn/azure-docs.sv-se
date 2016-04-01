@@ -1,9 +1,9 @@
-<properties 
-   pageTitle="Azure Active Directory 驗證通訊協定"
-   description="Azure Active Directory (AD) 所支援驗證通訊協定的概觀"
+<properties
+   pageTitle="Azure Active Directory-Authentifizierungsprotokolle | Microsoft Azure"
+   description="Eine Übersicht über die von Azure Active Directory (AD) unterstützten Authentifizierungsprotokolle"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
-   services="active-directory" 
+   services="active-directory"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,47 +13,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/01/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
-# Azure Active Directory 驗證通訊協定
+# Azure Active Directory-Authentifizierungsprotokolle
 
-Azure Active Directory (Azure AD) 支援數個最常用的驗證和授權通訊協定。本節中的主題描述 Azure AD 中所支援的通訊協定和其實作。這些主題包括檢閱支援的宣告類型、同盟中繼資料的使用簡介、詳細的 OAuth 2.0 和 SAML 2.0 通訊協定參考文件，以及疑難排解小節。
+Azure Active Directory (Azure AD) unterstützt mehrere der am häufigsten verwendeten Protokolle zur Authentifizierung und Autorisierung. Die Themen in diesem Abschnitt beschreiben die unterstützten Protokolle und ihre Implementierung in Azure AD. Die Themen umfassen eine Beschreibung der unterstützten Anspruchstypen, eine Einführung in die Verwendung von Verbundmetadaten, ausführliche OAuth 2.0. und SAML 2.0-Protokoll-Referenzdokumentation und einen Abschnitt zur Problembehandlung.
 
-## 驗證通訊協定的文件和參考資料 
+## Authentifizierungsprotokolle, Artikel und Referenz
 
-- [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx) – 了解 Azure AD 的簽署金鑰變換模式、對自動更新金鑰進行的變更，以及如何更新最常見應用程式案例的討論。
-
-
-- [支援的權杖和宣告類型](active-directory-token-and-claims.md) - 了解權杖中 Azure AD 所發出的宣告。
+- [Wichtige Informationen zum Signaturschlüsselrollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) – erfahren Sie mehr über Azure AD zu signieren, Schlüssel-rolloverkadenz, die Änderungen den Schlüssel automatisch zu aktualisieren und die erläuterungen zum Aktualisieren der häufigsten Anwendungsszenarien.
 
 
-- [同盟中繼資料](https://msdn.microsoft.com/library/azure/dn195592.aspx) - 了解如何尋找並解譯 Azure AD 所產生的中繼資料文件。
+- [Unterstützte Token und Anspruchstypen](active-directory-token-and-claims.md) -erfahren Sie mehr über die Ansprüche im Token von Azure AD ausgegebenen.
 
 
-- [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx) - 了解 Azure AD 中的 OAuth 2.0 實作。
+- [Verbundmetadaten](https://msdn.microsoft.com/library/azure/dn195592.aspx) -erfahren Sie, wie Suchen und Interpretieren der Metadatendokumente, die Azure AD generiert.
 
 
-- [OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx) - 了解如何使用 OAuth 2.0 (授權通訊協定) 進行驗證。
+- [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) -erfahren Sie mehr über die Implementierung von OAuth 2.0 in Azure AD.
 
 
-- [SAML 通訊協定參照](https://msdn.microsoft.com/library/azure/dn195591.aspx) - 了解 Azure AD 的單一登入和單一登出 SAML 設定檔。
+- [OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx) -erfahren Sie, wie OAuth 2.0, einem Autorisierungsprotokoll, für die Authentifizierung zu verwenden.
 
 
-- [WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) - 了解 Azure AD 中的 WS-Federation 1.2。
+- [SAML-Protokollreferenz](https://msdn.microsoft.com/library/azure/dn195591.aspx) -erfahren Sie mehr über die Single Sign-On und Single Sign-out-SAML-Profile von Azure AD.
 
 
-- [疑難排解驗證通訊協定](https://msdn.microsoft.com/library/azure/dn195584.aspx) - 了解如何防止使用 Azure AD 時發生問題，以及解譯和解決發生的錯誤。
+- [WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) -WS-Federation 1.2 in Azure AD erfahren.
+
+
+- [Problembehandlung für Authentifizierungsprotokolle](https://msdn.microsoft.com/library/azure/dn195584.aspx) -erfahren Sie, wie Probleme verhindert und interpretieren und Beheben von Fehlern bei der Verwendung von Azure AD.
 
 
 
-## 另請參閱 
+## Siehe auch
 
-[Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
+[Entwicklerhandbuch zu Azure Active Directory](active-directory-developers-guide.md)
 
-[使用 Azure AD 進行驗證](https://msdn.microsoft.com/library/azure/dn385718.aspx)
+[Verwenden von Azure AD für Autorisierung](../app-service-web/web-sites-authentication-authorization.md)
 
-[Active Directory 程式碼範例](active-directory-code-samples.md)
- 
+[Active Directory-Codebeispiele](active-directory-code-samples.md)
 
-<!---HONumber=62-->
+

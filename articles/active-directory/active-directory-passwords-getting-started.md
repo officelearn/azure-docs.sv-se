@@ -1,310 +1,324 @@
 <properties 
-	pageTitle="開始使用：Azure AD 密碼管理 |Microsoft Azure" 
-	description="讓使用者重設自己的密碼、探索密碼重設的必要條件，以及啟用密碼回寫以管理 Active Directory 中的內部部署密碼。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+    pageTitle="Erste Schritte: Azure AD-Kennwortverwaltung | Microsoft Azure" 
+    description="Ermöglichen Sie es Benutzern, ihre eigenen Kennwörter zurückzusetzen, ermitteln Sie Voraussetzungen für die Kennwortzurücksetzung, und aktivieren Sie das Zurückschreiben von Kennwörtern zum Verwalten lokaler Kennwörter in Active Directory." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="asteen" 
+    manager="kbrint" 
+    editor="billmath"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
-	ms.author="asteen"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="asteen"/>
 
-# 開始使用密碼管理
-讓您的使用者管理他們自己的雲端 Azure Active Directory 或內部部署 Active Directory 密碼，只要採用幾個簡單的步驟。確定您符合幾個簡單的必要條件之後，您會在您知悉之前，對整個組織啟用密碼變更和重設。本文章將會逐步引導您完成下列概念：
+# Erste Schritte mit der Kennwortverwaltung
+Es sind lediglich einige einfache Schritte erforderlich, um Ihren Benutzern das Verwalten eigener Cloudkennwörter für Azure Active Directory oder lokaler Kennwörter für Active Directory zu ermöglichen. Nachdem Sie sichergestellt haben, dass einige wenige Voraussetzungen erfüllt sind, haben Sie im Handumdrehen eine Kennwortänderung und -zurücksetzung für Ihre gesamte Organisation eingerichtet. In diesem Artikel lernen Sie die folgenden Konzepte kennen:
 
-* [**如何讓使用者重設其雲端 Azure Active Directory 密碼**](#enable-users-to-reset-their-azure-ad-passwords)
- - [自助式密碼重設必要條件](#prerequisites)
- - [步驟 1：設定密碼重設原則](#step-1-configure-password-reset-policy)
- - [步驟 2：為您的測試使用者加入連絡人資料](#step-2-add-contact-data-for-your-test-user)
- - [步驟 3：以使用者的身分重設您的密碼](#step-3-reset-your-azure-ad-password-as-a-user)
-* [**如何讓使用者重設或變更其內部部署 Active Directory 密碼**](#enable-users-to-reset-or-change-their-ad-passwords)
- - [密碼回寫必要條件](#writeback-prerequisites)
- - [步驟 1：下載最新版本的 Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
- - [步驟 2：在 Azure AD Connect 中透過 UI 或 powershell 啟用密碼回寫並且確認](#step-2-enable-password-writeback-in-azure-ad-connect)
- - [步驟 3：設定您的防火牆](#step-3-configure-your-firewall)
- - [步驟 4：設定適當的權限](#step-4-set-up-the-appropriate-active-directory-permissions)
- - [步驟 5：以使用者的身分重設您的 AD 密碼並且確認](#step-5-reset-your-ad-password-as-a-user)
+* [**Vorgehensweise beim Zurücksetzen ihrer cloudkennwörter für Azure Active Directory-Benutzer können**](#enable-users-to-reset-their-azure-ad-passwords)
+ - [Voraussetzungen für die Self-Service-Kennwortzurücksetzung](#prerequisites)
+ - [Schritt 1: Konfigurieren der Richtlinie für die Kennwortzurücksetzung](#step-1-configure-password-reset-policy)
+ - [Schritt 2: Hinzufügen von Kontaktdaten für Ihren Testbenutzer](#step-2-add-contact-data-for-your-test-user)
+ - [Schritt 3: Zurücksetzen Ihres Kennworts als Benutzer](#step-3-reset-your-azure-ad-password-as-a-user)
+* [**Gewusst wie: Zurücksetzen oder ändern die Kennwörter ihrer lokalen Active Directory-Benutzer aktivieren**](#enable-users-to-reset-or-change-their-ad-passwords)
+ - [Voraussetzungen für das Zurückschreiben von Kennwörtern](#writeback-prerequisites)
+ - [Schritt 1: Herunterladen der aktuellen Version von Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
+ - [Schritt 2: Aktivieren der Kennwortrückschreibung in Azure AD Connect über die Benutzeroberfläche oder PowerShell mit anschließender Überprüfung](#step-2-enable-password-writeback-in-azure-ad-connect)
+ - [Schritt 3: Konfigurieren der Firewall](#step-3-configure-your-firewall)
+ - [Schritt 4: Einrichten der geeigneten Berechtigungen](#step-4-set-up-the-appropriate-active-directory-permissions)
+ - [Schritt 5: Zurücksetzen Ihres AD-Kennworts als Benutzer mit anschließender Überprüfung](#step-5-reset-your-ad-password-as-a-user)
 
-## 讓使用者重設其 Azure AD 密碼
-本節會逐步引導您對 AAD 雲端目錄啟用自助式密碼重設、註冊使用者進行自助式密碼重設，最後以使用者的身分執行自助式密碼重設測試。
+## Aktivieren von Benutzern für das  Zurücksetzen ihrer Azure AD-Kennwörter
+In diesem Abschnitt werden Sie durch den Vorgang zum Aktivieren der Self-Service-Kennwortzurücksetzung für Ihr AAD-Cloudverzeichnis, das Registrieren von Benutzern für die Self-Service-Kennwortzurücksetzung und das Testen einer Self-Service-Kennwortzurücksetzung als ein Benutzer geleitet.
 
-- [自助式密碼重設必要條件](#prerequisites)
-- [步驟 1：設定密碼重設原則](#step-1-configure-password-reset-policy)
-- [步驟 2：為您的測試使用者加入連絡人資料](#step-2-add-contact-data-for-your-test-user)
-- [步驟 3：以使用者的身分重設您的密碼](#step-3-reset-your-azure-ad-password-as-a-user)
+- [Voraussetzungen für die Self-Service-Kennwortzurücksetzung](#prerequisites)
+- [Schritt 1: Konfigurieren der Richtlinie für die Kennwortzurücksetzung](#step-1-configure-password-reset-policy)
+- [Schritt 2: Hinzufügen von Kontaktdaten für Ihren Testbenutzer](#step-2-add-contact-data-for-your-test-user)
+- [Schritt 3: Zurücksetzen Ihres Kennworts als Benutzer](#step-3-reset-your-azure-ad-password-as-a-user)
 
 
-###  必要條件
-在您可以啟用及使用自助式密碼重設之前，您必須完成下列必要條件：
+###  Voraussetzungen
+Bevor Sie die Self-Service-Kennwortzurücksetzung aktivieren und verwenden können, müssen Sie die folgenden Voraussetzungen erfüllen:
 
-- 建立 AAD 租用戶。如需詳細資訊，請參閱[開始使用 Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
-- 取得 Azure 訂用帳戶。如需詳細資訊，請參閱 [Azure AD 租用戶是什麼？](active-directory-administer.md#what-is-an-azure-ad-tenant)。
-- 將 AAD 租用戶與 Azure 訂用帳戶產生關聯。如需詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure AD 產生關聯](https://msdn.microsoft.com/library/azure/dn629581.aspx)。
-- 升級至 Azure AD Premium 或 Basic。如需詳細資訊，請參閱 [Azure Active Directory 版本](http://azure.microsoft.com/pricing/details/active-directory/)。
+- Erstellen Sie einen AAD-Mandanten. Weitere Informationen finden Sie unter [Erste Schritte mit Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
+- Schließen Sie ein Azure-Abonnement ab. Weitere Informationen finden Sie unter [Neuigkeiten von Azure AD-Mandant?](active-directory-administer.md#what-is-an-azure-ad-tenant).
+- Ordnen Sie Ihren AAD-Mandanten Ihrem Azure-Abonnement zu. Weitere Informationen finden Sie unter [wie Azure-Abonnements mit Azure AD verknüpft sind](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+- Führen Sie ein Upgrade auf Azure AD Premium oder Basic durch. Weitere Informationen finden Sie unter [Azure Active Directory-Editionen](http://azure.microsoft.com/pricing/details/active-directory/).
 
-  >[AZURE.NOTE]若要啟用自助式密碼重設，您必須升級至 Azure AD Premium 或 Azure AD Basic。如需詳細資訊，請參閱「Azure Active Directory 版本」。這項資訊包括如何註冊 Azure AD Premium 或 Basic、如何啟動您的授權方案並啟動您的 Azure AD 存取權，以及如何將存取權指派給系統管理員和使用者帳戶的詳細指示。
+  >[AZURE.NOTE] Um Self-service-kennwortzurücksetzung zu aktivieren, müssen Sie auf Azure AD Premium oder Basic Azure AD aktualisieren. Weitere Informationen finden Sie im Artikel zu den verschiedenen Azure Active Directory-Editionen. Hier finden Sie u. a. ausführliche Informationen dazu, wie Sie sich für Azure AD Premium oder Basic registrieren, wie Sie Ihren Lizenzplan und den Azure AD-Zugriff aktivieren, und wie Sie Administratoren und Benutzerkonten Zugriff gewähren.
   
-- 在 AAD 目錄中建立至少一個系統管理員帳戶和一個使用者帳戶。
-- 將 AAD Premium 或 Basic 授權指派給您所建立的系統管理員和使用者帳戶。
+- Erstellen Sie mindestens ein Administratorkonto und ein Benutzerkonto in Ihrem AAD-Verzeichnis.
+- Weisen Sie dem erstellten Administrator- und Benutzerkonto eine AAD Premium- oder Basic-Lizenz zu.
 
-### 步驟 1：設定密碼重設原則
-若要設定使用者密碼重設原則，請完成下列步驟：
+### Schritt 1: Konfigurieren der Richtlinie für die Kennwortzurücksetzung
+Führen Sie die folgenden Schritte aus, um die Richtlinie für das Zurücksetzen von Benutzerkennwörtern zu konfigurieren:
  
-1.	開啟您選擇的瀏覽器並瀏覽至 [Azure 管理入口網站](https://manage.windowsazure.com)。
-2.	在 [Azure 管理入口網站](https://manage.windowsazure.com)中，於左側導覽列上找到 [**Active Directory 延伸模組**]。
+1.  Öffnen Sie einen Browser Ihrer Wahl, und wechseln Sie zu der [Azure-Verwaltungsportal](https://manage.windowsazure.com).
+2.  In der [Azure-Verwaltungsportal](https://manage.windowsazure.com), suchen Sie die **Active Directory-Erweiterung** auf der Navigationsleiste auf der linken Seite.
 
     ![][001]
 
-3. 在 [**目錄**] 索引標籤底下，按一下您要設定使用者密碼重設原則的目錄，例如，Wingtip Toys。
+3. Unter dem **Verzeichnis** auf das Verzeichnis, in dem Sie die Richtlinie für die kennwortzurücksetzung, z. B. konfigurieren möchten, Wingtip Toys.
 
     ![][002]
 
-4.	按一下 [**設定**] 索引標籤。
+4.  Klicken Sie auf die **konfigurieren** Registerkarte.
 
     ![][003]
 
-5.	在 [**設定**] 索引標籤底下，向下捲動至 [**使用者密碼重設原則**] 區段。這是您設定指定目錄的使用者密碼重設原則各個層面的位置。
+5.  Unter den **konfigurieren** Registerkarte, führen Sie einen Bildlauf nach unten, um die **Richtlinie zum Zurücksetzen des Benutzerkennworts** Abschnitt.  Hier können Sie alle Aspekte der Richtlinie zum Zurücksetzen von Benutzerkennwörtern für ein vorgegebenes Verzeichnis konfigurieren.  
 
-    >[AZURE.NOTE]此**原則只適用於您的組織中的使用者，不適用於系統管理員**。基於安全性理由，Microsoft 會為系統管理員控制密碼重設原則。如果看不到此區段，請確定您已註冊 Azure Active Directory Premium 或 Basic，並且**指派授權**給設定此功能的系統管理員帳戶。
+    >[AZURE.NOTE] Diese **Richtlinie gilt nur für Endbenutzer in Ihrer Organisation, die nicht Administratoren**. Aus Sicherheitsgründen steuert Microsoft die Richtlinie zum Zurücksetzen von Administratorkennwörtern. Wenn Sie diesen Abschnitt nicht sehen, stellen Sie sicher, dass Sie für die Azure Active Directory Premium oder Basic registriert haben und **eine Lizenz zugewiesen** auf das Administratorkonto, das Konfigurieren dieser Funktion. 
 
     ![][004]
 
-6.	若要設定使用者密碼重設原則，滑動 [**使用者啟用密碼重設**] 以切換至 [**是**] 設定。這會顯示更多控制項，讓您設定這項功能如何在您的目錄中運作。放心地自訂您覺得適合的密碼重設。如果您想要深入了解關於每一項密碼重設原則控制項所執行的項目，請參閱[自訂：Azure AD 密碼管理](active-directory-passwords-customize)。
+6.  Schieben Sie zum Konfigurieren der Richtlinie für die kennwortzurücksetzung die **Benutzer, für das Zurücksetzen des Kennworts aktiviert** wechseln die **Ja** festlegen.  Es werden verschiedene weitere Steuerelemente angezeigt, mit deren Hilfe Sie die Funktionsweise dieses Features in Ihrem Verzeichnis konfigurieren können.  Passen Sie die Kennwortzurücksetzung nach Ihren Anforderungen an.  Wenn Sie mehr erfahren möchten zur Funktionsweise der einzelnen des Kennworts Steuerelemente kennwortzurücksetzungsrichtlinie, finden Sie unter [anpassen: Azure AD-Kennwortverwaltung](active-directory-passwords-customize).
 
     ![][005]
 
-7.	視需要為您的租用戶設定使用者密碼重設原則之後，請按一下畫面底部的 [**儲存**] 按鈕。
+7.  Nach dem Konfigurieren von Richtlinien wie gewünscht für Ihren Mandanten Zurücksetzen des Benutzerkennworts klicken Sie auf die **Speichern** am unteren Bildschirmrand.
 
-  >[AZURE.NOTE]建議使用兩個挑戰使用者密碼重設原則，這樣您就能看到在最複雜的情況下，功能如何運作。
+  >[AZURE.NOTE] Eine Überprüfung in zwei Schritten Kennwortrichtlinie Zurücksetzen wird empfohlen, damit Sie sehen, wie die Funktionalität in den komplexesten Fall funktioniert.
 
   ![][006]
 
-### 步驟 2：為您的測試使用者加入連絡人資料
-您有幾個選項可用於指定要用於密碼重設的組織中使用者資料。
+### Schritt 2: Hinzufügen von Kontaktdaten für Ihren Testbenutzer
+Sie haben mehrere Möglichkeiten, für Organisationsbenutzer Daten einzugeben, die für das Zurücksetzen von Kennwörtern verwendet werden.
 
--	在 [Azure 管理入口網站](https://manage.windowsazure.com)或 [Office 365 系統管理入口網站](https://portal.microsoftonline.com)編輯使用者
--	使用 AAD Connect 從內部部署 Active Directory 網域將使用者屬性同步處理至 Azure AD
--	使用 Windows PowerShell 以編輯使用者屬性
--	引導使用者至位於 [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) 的註冊入口網站，讓他們自行註冊資料
--	當使用者登入位於 [http://myapps.microsoft.com](http://myapps.microsoft.com) 的存取面板時，要求使用者註冊密碼重設，方法是將 [**要求使用者在登入存取面板時註冊**] SSPR 組態選項設定為 [**是**]。
+-   Bearbeiten von Benutzern in der [Azure-Verwaltungsportal](https://manage.windowsazure.com) oder [Verwaltungsportal von Office 365](https://portal.microsoftonline.com)
+-   Verwenden Sie AAD Connect, um Benutzereigenschaften aus einer lokalen Active Directory-Domäne mit Azure AD zu synchronisieren.
+-   Verwenden Sie Windows PowerShell zum Bearbeiten der Benutzereigenschaften.
+-   Ermöglicht es Benutzern, ihre eigenen Daten zu registrieren, auf dem registrierungsportal unter [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+-   Sollen Benutzer sich registrieren, für die kennwortzurücksetzung bei Anmeldung im Zugriffsbereich: [http://myapps.microsoft.com](http://myapps.microsoft.com) durch Festlegen der **Benutzer bei der Anmeldung im Zugriffsbereich registrieren müssen** sspr-Konfiguration auf **Ja**.
 
-如果您想要深入了解密碼重設使用哪些資料，以及此資料的任何格式需求，請參閱[密碼重設使用哪些資料？](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset)。
+Sie möchten erfahren Sie mehr darüber, welche Daten durch das Zurücksetzen von Kennwörtern als auch formatierungsanforderungen für diese Daten verwendet wird, finden Sie unter [welche Daten durch das Zurücksetzen von Kennwörtern verwendet werden?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
-#### 透過使用者註冊入口網站加入使用者連絡人資料
-1.	若要使用密碼重設註冊入口網站，您必須提供組織中的使用者這個頁面的連結 ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup))，或開啟選項要求使用者自動註冊。一旦使用者按一下此連結，系統會要求他們使用其組織帳戶登入。完成後，他們會看到下列頁面：
+#### So fügen Sie über das Benutzerregistrierungsportal Benutzerkontaktdaten hinzu
+1.  Um die Registrierung des kennwortzurücksetzungsportal zu verwenden, müssen Sie die Benutzer in Ihrer Organisation mit einem Link zu dieser Seite bereitstellen ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)) oder aktivieren Sie die Option zur automatischen Registrierung erforderlich sein.  Wenn die Benutzer auf diesen Link klicken, werden sie aufgefordert, sich mit ihrem Organisationskonto anzumelden.  Anschließend wird die folgende Seite angezeigt:
 
     ![][007]
 
-2.	在這裡，使用者可以提供並確認其行動電話、備用電子郵件地址或安全性問題。這是驗證行動電話的外觀。
+2.  Hier können Benutzer ihre Mobiltelefonnummer, eine alternative E-Mail-Adresse oder Sicherheitsfragen angeben.  Der folgende Screenshot zeigt Überprüfung mit einem Mobiltelefon.
 
     ![][008]
 
-3.	使用者指定這項資訊之後，頁面會更新以指出該資訊有效 (下方已模糊處理)。按一下 [**完成**] 或 [**取消**] 按鈕，使用者會被帶到存取面板。
+3.  Nachdem ein Benutzer diese Informationen angegeben hat, wird die Seite aktualisiert um anzuzeigen, dass die Informationen gültig sind (nachstehend geschwärzt).  Durch Klicken auf die **Fertig stellen** oder **Abbrechen** Schaltflächen, wird der Benutzer zum Zugriffsbereich geschaltet.
 
     ![][009]
 
-4.	一旦使用者驗證這兩項資訊，他或她的設定檔將會以他或她所提供的資料更新。在此範例中，[**辦公室電話**] 數目已手動指定，因此使用者也可以使用做為連絡方法，以重設其密碼。
+4.  Nachdem ein Benutzer die Informationen bestätigt hat, wird das Profil mit den bereitgestellten Daten aktualisiert.  In diesem Beispiel die **Telefon (Büro)** Anzahl angegeben wurde manuell, damit der Benutzer, die auch als Kontaktmethode für das Zurücksetzen des Kennworts verwenden kann.
 
     ![][010]
 
-### 步驟 3：以使用者的身分重設您的 Azure AD 密碼
-您已經設定使用者重設原則，並指定使用者的連絡人詳細資料，這位使用者可以執行自助式密碼重設。
+### Schritt 3: Zurücksetzen Ihres AD-Kennworts als Benutzer mit anschließender Überprüfung
+Nachdem Sie eine Richtlinie für die Kennwortzurücksetzung konfiguriert und Kontaktdaten für Ihren Benutzer angegeben haben, kann dieser Benutzer eine Self-Service-Kennwortzurücksetzung durchführen.
 
-#### 執行自助式密碼重設
-1.	如果您移至像是 [**portal.microsoftonline.com**](http://portal.microsoftonline.com) 的網站，您會看到如下的登入畫面。按一下 [**無法存取您的帳戶？**] 連結，以測試密碼重設 UI。
+#### So führen Sie eine Self-Service-Kennwortzurücksetzung durch
+1.  Wenn Sie eine Website wie z. B. [**portal.microsoftonline.com**](http://portal.microsoftonline.com), sehen Sie einen Anmeldebildschirm wie der unten.  Klicken Sie auf die **kann nicht auf Ihr Konto zugreifen?** Link zum Testen der zurücksetzen Benutzeroberfläche.
 
     ![][011]
 
-2.	按一下 [**無法存取您的帳戶？**] 之後，您會被帶往新頁面，詢問您要重設密碼的 [**使用者識別碼**]。在這裡輸入您的測試 [**使用者識別碼**]，通過 captcha，然後按 [**下一步**]。
+2.  Nach dem Klicken auf **kann nicht auf Ihr Konto zugreifen?**, Sie auf eine neue Seite, der Sie gefragt werden umgeleitet, ein **Benutzer-ID** für die ein Kennwort zurückgesetzt werden sollen.  Geben Sie Ihre **Benutzer-ID** hier die captchaprüfung aus, und klicken Sie auf **Weiter**.
 
     ![][012]
 
-3.	因為在此案例中，使用者已指定 [**辦公室電話**]、[**行動電話**] 和 [**備用電子郵件**]，所以您會看到系統給予他或她所有項目做為選項，以通過第一項挑戰。
+3.  Da der Benutzer angegeben hat eine **Telefon (Büro)**, **Mobiltelefon**, und **Alternative e-Mail-Adresse** Sie finden Sie in diesem Fall, dass er alle diese Optionen für die erste Abfrage zugewiesen wurde.
 
     ![][013]
 
-4.	在此情況下，首先選擇 [**呼叫**] [**辦公室電話**]。請注意，當選取以電話為基礎的方法時，系統會要求使用者 [**確認電話號碼**]，然後他們才可以重設其密碼。這是為了防止惡意的個人濫發垃圾郵件給組織中使用者的電話號碼。
+4.  In diesem Fall auch **Aufrufen** die **Telefon (Büro)** erste.  Beachten Sie, dass bei der Auswahl einer telefonbasierten Methode Benutzer gebeten werden **verifizieren Sie ihre Telefonnummer** bevor sie ihre Kennwörter zurücksetzen können.  Auf diese Weise wird verhindert, dass böswillige Benutzer die Telefonnummern von Benutzern in Ihrer Organisation nicht für ein Spamming missbrauchen.
 
     ![][014]
 
-5.	一旦使用者確認其電話號碼，按一下 [通話] 會顯示撥號畫面，且使用者的電話響鈴。使用者接聽電話之後，會播放訊息，指出 [**使用者應該按 "#"**] 以確認他或她的帳戶。按下此按鍵會自動確認使用者完成第一項挑戰，並前進到第二個驗證步驟的 UI。
+5.  Nachdem der Benutzer die Telefonnummer bestätigt hat, erscheint nach Auswahl der Anrufoption ein Drehfeld, und das Telefon des Benutzers klingelt.  Eine Nachricht wird wiedergegeben, sobald Ihr Telefon zeigt an, dass er übernimmt die **Benutzer # drücken "** um sein eigenes Konto zu überprüfen.  Durch das Drücken der #-Taste wird automatisch bestätigt, dass der Benutzer den ersten Überprüfungsschritt erfolgreich ausgeführt hat, und die Benutzeroberfläche wechselt zum zweiten Überprüfungsschritt. 
 
     ![][015]
 
-6.	一旦您通過第一項挑戰，UI 會自動更新，從使用者擁有的選擇清單中移除。在此情況下，因為您先使用您的 [**辦公室電話**]，所以還剩下 [**行動電話**] 和 [**備用電子郵件**] 是有效的選項，可以做為第二個驗證步驟的挑戰。按一下 [**寄電子郵件到我的備用電子郵件地址**] 電子郵件選項。完成這個動作之後，按下電子郵件將會以電子郵件將檔案寄送到備用電子郵件。
+6.  Nachdem Sie den ersten Überprüfungsschritt erfolgreich ausgeführt haben, wird die Benutzeroberfläche automatisch aktualisiert, um die erste Überprüfungsmethode aus der Auswahlliste zu entfernen.  In diesem Fall, da Sie verwendet die **Telefon (Büro)**nur erste **Mobiltelefon** und **Alternative e-Mail-Adresse** verbleiben als gültige Optionen, die Herausforderung für den zweiten Überprüfungsschritt verwendet.  Klicken Sie auf die **E-Mail an meine alternative** e-Mail-Option.  Nachdem Sie dies getan haben, wird beim Klicken auf "E-Mail" eine E-Mail an die alternative E-Mail-Adresse gesendet.
 
     ![][016]
 
-7.	以下是使用者會看到的電子郵件範例 – 請注意租用戶商標：
+7.  Nachstehend sehen Sie ein Beispiel für eine E-Mail, die der Benutzer erhält. Beachten Sie hierbei das Branding für den Mandanten:
 
     ![][017]
 
-8.	一旦電子郵件送達時，頁面會更新，而且您可以在如下所示的輸入方塊中輸入電子郵件中找到的驗證。輸入適當的代碼之後，[下一步] 按鈕會亮起，您可以通過第二個驗證步驟。
+8.  Nach dem Empfang der E-Mail wird die Seite aktualisiert, und Sie können den in der E-Mail enthaltenen Code in das nachstehend gezeigte Textfeld eingeben.  Nach der erfolgreichen Eingabe des Codes wird die Schaltfläche "Weiter" angezeigt, und Sie können den zweiten Überprüfungsschritt abschließen.
 
     ![][018]
 
-9.	一旦您符合組織原則的需求，您就可以選擇新密碼。密碼是根據其符合 AAD「強式」密碼需求而經過驗證的 (請參閱 [Azure AD 中的密碼原則](https://msdn.microsoft.com/library/azure/jj943764.aspx))，強度驗證器會出現，向使用者表示輸入的密碼是否符合該原則。
+9.  Nachdem Sie die Anforderungen der Organisationsrichtlinie erfüllt haben, sind Sie jetzt berechtigt, ein neues Kennwort auszuwählen.  Das Kennwort überprüft anhand der erfüllt AAD-Anforderungen für die "sichere" Kennwörter (finden Sie unter [Kennwortrichtlinie in Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx)), und eine Kennwortstärke zeigt dem Benutzer an, ob das eingegebene Kennwort dieser Richtlinie entspricht.
 
     ![][019]
 
-10.	一旦您提供符合組織原則的相符密碼，您的密碼就會重設，您可以立即使用您的新密碼登入。
+10. Nachdem Sie übereinstimmende Kennwörter eingegeben haben, die der Organisationsrichtlinie entsprechen, wird das Kennwort zurückgesetzt, und Sie können sich sofort mit dem neuen Kennwort anmelden.
 
     ![][020]
 
 
-## 讓使用者重設或變更其 AD 密碼
+## Aktivieren von Benutzern für das Zurücksetzen ihrer AD-Kennwörter
 
-本章節會引導您透過設定密碼重設，將密碼回寫至內部部署 Active Directory。
+In diesem Abschnitt werden Sie durch den Vorgang zum Konfigurieren der Kennwortzurücksetzung für das Zurückschreiben von Kennwörtern in ein lokales Active Directory-Verzeichnis geleitet.
 
-- [密碼回寫必要條件](#writeback-prerequisites)
-- [步驟 1：下載最新版本的 Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
-- [步驟 2：在 Azure AD Connect 中透過 UI 或 powershell 啟用密碼回寫並且確認](#step-2-enable-password-writeback-in-azure-ad-connect)
-- [步驟 3：設定您的防火牆](#step-3-configure-your-firewall)
-- [步驟 4：設定適當的權限](#step-4-set-up-the-appropriate-active-directory-permissions)
-- [步驟 5：以使用者的身分重設您的 AD 密碼並且確認](#step-5-reset-your-ad-password-as-a-user)
+- [Voraussetzungen für das Zurückschreiben von Kennwörtern](#writeback-prerequisites)
+- [Schritt 1: Herunterladen der aktuellen Version von Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
+- [Schritt 2: Aktivieren der Kennwortrückschreibung in Azure AD Connect über die Benutzeroberfläche oder PowerShell mit anschließender Überprüfung](#step-2-enable-password-writeback-in-azure-ad-connect)
+- [Schritt 3: Konfigurieren der Firewall](#step-3-configure-your-firewall)
+- [Schritt 4: Einrichten der geeigneten Berechtigungen](#step-4-set-up-the-appropriate-active-directory-permissions)
+- [Schritt 5: Zurücksetzen Ihres AD-Kennworts als Benutzer mit anschließender Überprüfung](#step-5-reset-your-ad-password-as-a-user)
 
 
-### 回寫必要條件
-在您可以啟用及使用密碼回寫之前，您必須確定完成下列必要條件：
+### Voraussetzungen für das Zurückschreiben von Kennwörtern
+Bevor Sie das Zurückschreiben von Kennwörtern aktivieren und verwenden können, müssen Sie die folgenden Voraussetzungen erfüllen:
 
-- 您有 Azure AD 租用戶且啟用 Azure AD Premium。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
-- 已經在您的租用戶中設定和啟用密碼重設。如需詳細資訊，請參閱[讓使用者重設其 Azure AD 密碼](#enable-users-to-reset-their-azure-ad-passwords)
-- 您必須擁有至少一個系統管理員帳戶和一個測試使用者帳戶，且具有 Azure AD Premium 授權，可讓您用來測試這項功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+- Sie verfügen über einen Azure AD-Mandanten, für den Azure AD Premium aktiviert ist.  Weitere Informationen finden Sie unter [Azure Active Directory-Editionen](active-directory-editions.md).
+- Für Ihren Mandanten wurde die Kennwortzurücksetzung konfiguriert und aktiviert.  Weitere Informationen finden Sie unter [können Benutzer ihre Azure AD-Kennwörter zurücksetzen](#enable-users-to-reset-their-azure-ad-passwords)
+- Sie verfügen über mindestens ein Administratorkonto und ein Testbenutzerkonto mit einer Azure AD Premium-Lizenz zum Testen dieser Funktion.  Weitere Informationen finden Sie unter [Azure Active Directory-Editionen](active-directory-editions.md).
 
-  >[AZURE.NOTE]請確定您用來啟用密碼回寫的系統管理員帳戶是雲端系統管理員帳戶 (在 Azure AD 中建立)，不是同盟帳戶 (在內部部署 AD 中建立並同步處理至 Azure AD)。
+  > [AZURE.NOTE] Stellen Sie sicher, dass das Administratorkonto, das Sie verwenden, um das Rückschreiben von Kennwörtern zu aktivieren, ein cloudadministratorkonto (erstellt in Azure AD), kein verbundkonto ist (erstellt im lokalen Active Directory und in Azure AD synchronisiert).
   
-- 您擁有單一或多樹系 AD 內部部署執行 Windows Server 2008、Windows Server 2008 R2、Windows Server 2012 或 Windows Server 2012 R2，且安裝最新的 Service Pack。
+- Sie verfügen über eine lokale AD-Bereitstellung mit einer oder mehreren Gesamtstrukturen, in der Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 oder Windows Server 2012 R2 mit den aktuellen Service Packs ausgeführt wird.
 
-  >[AZURE.NOTE]如果您執行舊版 Windows Server 2008 或 2008 R2，您仍然可以使用此功能，但是需要先[下載及安裝 KB 2386717](https://support.microsoft.com/kb/2386717)，才能在雲端中強制執行您的本機 AD 密碼原則。
+  > [AZURE.NOTE] Wenn Sie eine ältere Version von Windows Server 2008 oder 2008 R2 ausführen, Sie können diese Funktion verwenden, jedoch müssen [KB 2386717 herunterladen und installieren](https://support.microsoft.com/kb/2386717) damit Sie Ihre lokale AD-Kennwortrichtlinie in der Cloud zu erzwingen.
   
-- 您已安裝 Azure AD Connect 工具，且已備妥 AD 環境進行同步處理至雲端。如需詳細資訊，請參閱[在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
-- 如果您使用 DirSync，您必須確定您組織的防火牆設定為封鎖輸出連線和解除封鎖 **TCP 連接埠 828 或 818**，才能啟用及使用密碼回寫。如果您使用 Azure AD Sync 或 Azure AD Connect，此步驟並非必要，因為只有 **TCP 443** 輸出 (在某些情況下 **TCP 9350-9354**) 必須開啟。
+- Sie haben Azure AD Connect installiert und Ihre AD-Umgebung für eine Synchronisierung mit der Cloud vorbereitet.  Weitere Informationen finden Sie unter [Verwenden Ihrer lokalen Identitätsinfrastruktur in der Cloud](active-directory-aadconnect.md).
 
-  >[AZURE.NOTE]我們強烈建議使用 Azure AD Sync 或 DirSync 工具的任何人升級至最新版的 Azure AD Connect，以確保擁有最佳使用經驗和發行的新功能。
+  > [AZURE.NOTE] Bevor Sie das Rückschreiben von Kennwörtern testen, stellen Sie sicher, dass Sie zunächst einen vollständigen Import und eine vollständige Synchronisierung von Active Directory und Azure AD in Azure AD Connect.
+
+- Wenn Sie Azure AD Sync oder Azure AD Connect verwenden  **TCP 443** ausgehend (und in einigen Fällen **TCP 9350-9354**) geöffnet sein.  Finden Sie unter [Schritt 3: Konfigurieren der Firewall](#step-3-configure-your-firewall) Weitere Informationen. Die Verwendung von DirSync für dieses Szenario wird nicht mehr unterstützt.  Wenn Sie DirSync weiterhin verwenden möchten, aktualisieren Sie auf die neueste Version von Azure AD Connect,  bevor Sie das Zurückschreiben von Kennwörtern bereitstellen.
+
+  > [AZURE.NOTE] Es wird dringend empfohlen die Azure AD Sync oder Dirsync-Upgrade auf die neueste Version von Azure AD Connect verwenden, um die bestmögliche Umgebung und die neuen Funktionen zu gewährleisten, sobald sie freigegeben werden.
   
 
-### 步驟 1：下載最新版本的 Azure AD Connect
-密碼回寫可以在 Azure AD Connect 版本或具有版本號碼 **1.0.0419.0911** 或更高版本的 Azure AD Sync 工具中使用。具有自動帳戶解除鎖定的密碼回寫可以在 Azure AD Connect 版本或具有版本號碼 **1.0.0485.0222** 或更高版本的 Azure AD Sync 工具中使用。如果您執行較舊的版本，請至少升級至此版本，再繼續作業。[按一下這裡以下載最新版本的 Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect)。
+### Schritt 1: Herunterladen der aktuellen Version von Azure AD Connect
+Das Rückschreiben von Kennwörtern steht in Versionen von Azure AD Connect oder im Azure AD Sync-Tool mit Versionsnummer **1.0.0419.0911** oder höher.  Entsperren Sie das Rückschreiben von Kennwörtern mit automatischer steht in Versionen von Azure AD Connect oder im Azure AD Sync-Tool mit Versionsnummer **1.0.0485.0222** oder höher. Wenn Sie eine ältere Version verwenden, führen Sie ein Upgrade auf diese oder eine höhere Version durch, bevor Sie fortfahren. [Klicken Sie hier, um die neueste Version von Azure AD Connect herunterzuladen](active-directory-aadconnect.md#download-azure-ad-connect).
 
-#### 檢查 Azure AD Sync 的版本
-1.	瀏覽至 **%ProgramFiles%\Azure Active Directory Sync**。2.	尋找 **ConfigWizard.exe** 可執行檔。
-3.	以滑鼠右鍵按一下可執行檔，然後從內容功能表選取 [**屬性**] 選項。
-4.	按一下 [**詳細資料**] 索引標籤。
-5.	尋找 [**檔案版本**] 欄位。
+#### So überprüfen Sie die Version von Azure AD Sync
+1.  Navigieren Sie zu **%ProgramFiles%\Azure Active Directory Sync\ **.
+2.  Suchen Sie die **ConfigWizard.exe** ausführbare Datei.
+3.  Mit der rechten Maustaste in der ausführbare Datei, und wählen Sie die **Eigenschaften** Option im Kontextmenü.
+4.  Klicken Sie auf die **Details** Registerkarte.
+5.  Suchen Sie die **Dateiversion** Feld.
 
     ![][021]
 
-如果此版本號碼大於或等於 **1.0.0419.0911**，或您安裝 Azure AD Connect，您可以跳到[步驟 2：在 Azure AD Connect 中透過 UI 或 powershell 啟用密碼回寫並且確認](#step-2-enable-password-writeback-in-azure-ad-connect)。
+Ist diese Versionsnummer größer als oder gleich **1.0.0419.0911**, oder Sie Azure AD Connect installieren, können Sie fortfahren mit [Schritt2: Aktivieren der Kennwortrückschreibung in Azure AD Connect über die Benutzeroberfläche oder Powershell, und vergewissern Sie sich](#step-2-enable-password-writeback-in-azure-ad-connect). 
 
- >[AZURE.NOTE]如果這是您第一次安裝 Azure AD Connect 工具，建議您依照一些最佳作法以準備環境進行目錄同步處理。安裝 Azure AD Connect 工具之前，您必須在 [Office 365 系統管理入口網站](https://portal.microsoftonline.com)或 [Azure 管理入口網站](https://manage.windowsazure.com)中啟動目錄同步作業。如需詳細資訊，請參閱[管理 Azure AD Connect](active-directory-aadconnect-whats-next.md)。
+ > [AZURE.NOTE] Ist dies zum ersten Mal mit dem Azure AD Connect installieren, wird empfohlen, dass Sie einige bewährte Methoden zur Vorbereitung der Umgebung für die Verzeichnissynchronisation folgen.  Vor der Installation des Azure AD Connect-Tools müssen Sie verzeichnissynchronisierung entweder in Aktivieren der [Verwaltungsportal von Office 365](https://portal.microsoftonline.com) oder [Azure-Verwaltungsportal](https://manage.windowsazure.com).  Weitere Informationen finden Sie unter [Verwalten von Azure AD Connect](active-directory-aadconnect-whats-next.md).
 
 
-### 步驟 2：在 Azure AD Connect 中啟用密碼回寫
-您已下載 Azure AD Connect 工具，已準備就緒可以啟用密碼回寫。您可以使用下列兩種方式之一來執行這個動作。您可以在 Azure AD Connect 安裝精靈的選用功能畫面中啟用密碼回寫，或者您可以透過 Windows PowerShell 啟用它。
+### Schritt 2: Aktivieren der Kennwortrückschreibung in Azure AD Connect
+Nun, da Sie das Azure AD Connect-Tool heruntergeladen haben, können Sie das Zurückschreiben von Kennwörtern aktivieren.  Hierzu stehen zwei Möglichkeiten zur Verfügung.  Sie können das Zurückschreiben von Kennwörtern entweder im Bildschirm für die optionalen Features im Setup-Assistenten für Azure AD Connect aktivieren, oder Sie verwenden zur Aktivierung Windows PowerShell.
 
-#### 在組態精靈中啟用密碼回寫
-1.	在您的 [**目錄同步處理電腦**] 中，開啟 [**Azure AD Connect**] 組態精靈。
-2.	按一下各個步驟，直到您到達 [**選用功能**] 組態畫面。
-3.	勾選 [**密碼回寫**] 選項。
+#### So aktivieren Sie das Zurückschreiben von Kennwörtern im Konfigurations-Assistenten
+1.  Auf der **verzeichnissynchronisierungscomputer**, öffnen Sie die **Azure AD Connect** Konfigurations-Assistenten.
+2.  Klicken Sie auf die Schritte, bis zu der **optionale Features** Konfigurationsbildschirm.
+3.  Überprüfen Sie die **Kennwort Zurückschreiben** Option.
 
     ![][022]
 
-4.	完成精靈，最後一頁將會摘要說明變更，並且會包含密碼回寫組態變更。
+4.  Schließen Sie den Assistenten ab. Auf der letzten Seite werden die Änderungen zusammengefasst. Dort wird auch die Änderung zur Aktivierung der Kennwortrückschreibung angezeigt.
 
-> [AZURE.NOTE]您可以隨時停用密碼回寫，方法是重新執行此精靈，並且取消選取此功能，或是將 [Azure 管理入口網站](https://manage.windowsazure.com)中目錄的 [**設定**] 索引標籤的 [**使用者密碼重設原則**] 中的 [**將密碼回寫至內部部署目錄**] 設定設為 [**否**]。如需有關自訂您的密碼重設體驗的詳細資訊，請參閱[自訂：Azure AD 密碼管理](active-directory-passwords-customize.md)。
+> [AZURE.NOTE] Sie können das Rückschreiben von Kennwörtern jederzeit deaktivieren, indem Sie entweder diesen Assistenten erneut ausführen und die Funktion oder durch Festlegen der **Kennwörter zurück zum lokalen Verzeichnis schreiben** auf **keine** in der **Richtlinie zum Zurücksetzen des** Teil Ihres Verzeichnisses **konfigurieren** Registerkarte der [Azure-Verwaltungsportal](https://manage.windowsazure.com).  Weitere Informationen zum Anpassen Ihrer Erfahrung zurücksetzen, Auschecken [anpassen: Azure AD-Kennwortverwaltung](active-directory-passwords-customize.md).
 
-#### 使用 Windows PowerShell 啟用密碼回寫
-1.	在您的 [**目錄同步處理電腦**] 中，開啟新的 [**提升權限的 Windows PowerShell 視窗**]。
-2.	如果尚未載入模組，輸入 `Import-Module ADSync` 命令以將 Azure AD Connect Cmdlet 載入到您目前的工作階段。
-3.	取得您的系統中的 AAD 連接器清單，方法是執行 `Get-ADSyncConnector` Cmdlet，並將結果儲存在 `$aadConnectorName`
-4.	若要取得目前連接器的回寫的目前狀態，請執行下列 Cmdlet：`Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
-5.	執行下列 Cmdlet，以啟用密碼回寫：`Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
+#### So aktivieren Sie das Zurückschreiben von Kennwörtern mithilfe von Windows PowerShell
+1.  Auf der **verzeichnissynchronisierungscomputer**, öffnen Sie eine neue **Windows PowerShell-Fenster mit erhöhten Rechten**.
+2.  Wenn das Modul nicht bereits geladen ist, geben Sie den `Import-Module ADSync`-Befehl ein, um die Azure AD Connect-Cmdlets in Ihre aktuelle Sitzung zu laden.
+3.  Rufen Sie eine Liste der AAD-Connectors in Ihrem System ab, indem Sie das `Get-ADSyncConnector`-Cmdlet ausführen und die Ergebnisse in `$aadConnectorName` speichern.
+4.  Rufen Sie den aktuellen Status der Rückschreibung für den aktuellen Connector ab, indem Sie das folgende Cmdlet ausführen: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
+5.  Aktivieren Sie das Zurückschreiben von Kennwörtern, indem Sie dieses Cmdlet ausführen: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
-> [AZURE.NOTE]如果系統提示輸入認證，請確定您為 AzureADCredential 指定的系統管理員帳戶是**雲端系統管理員帳戶 (在 Azure AD 中建立)**，不是同盟帳戶 (在內部部署 AD 中建立並且同步處理至 Azure AD。[AZURE.NOTE]您可以透過 PowerShell 停用密碼回寫，方法是重複上述的相同指示，但是在步驟中傳遞 `$false`，或者將 [Azure 管理入口網站](https://manage.windowsazure.com)中目錄的 [**設定**] 索引標籤的 [**使用者密碼重設原則**] 區段的 [**將密碼回寫至內部部署目錄**] 設為 [**否**]。
+> [AZURE.NOTE] Nach Anmeldeinformationen gefragt werden, stellen sicher, dass das Administratorkonto, das für AzureADCredential angegeben ist eine **cloudadministratorkonto (erstellt in Azure AD)**, kein verbundkonto (erstellt im lokalen AD und in Azure AD synchronisiert.
+> [AZURE.NOTE] Sie können das Rückschreiben von Kennwörtern über PowerShell deaktivieren, indem Sie die gleichen Schritte wiederholen, oben, aber das Übergeben von `$false` oder durch Festlegen der **Kennwörter zurück zum lokalen Verzeichnis schreiben** auf **keine** in der **Richtlinie zum Zurücksetzen des Abschnitts** Ihres Verzeichnisses **konfigurieren** Registerkarte der [Azure-Verwaltungsportal](https://manage.windowsazure.com).
 
-#### 確認組態是否成功
-一旦組態成功，您會在 Windows PowerShell 視窗中看到密碼重設回寫已啟用的訊息，或者在組態 UI 中看到成功訊息。
+#### Überprüfen, ob die Konfiguration erfolgreich war
+Nachdem Sie die Konfiguration abgeschlossen haben, wird im Windows PowerShell-Fenster die Meldung "Das Zurückschreiben der Kennwortzurücksetzung ist aktiviert" angezeigt, in der Konfigurationsoberfläche wird eine Erfolgsmeldung eingeblendet. 
 
-您也可以藉由開啟 [事件檢視器]、瀏覽至應用程式事件記錄檔，並且從來源 **PasswordResetService** 尋找事件 **31005 - OnboardingEventSuccess**，以確認服務是否正確安裝。
+Sie können auch überprüfen, der Dienst ordnungsgemäß installiert wurde, durch Öffnen der Ereignisanzeige, zum Anwendungsereignisprotokoll navigieren und Suchen nach Ereignis **31005 - OnboardingEventSuccess** von der Quelle **PasswordResetService**.
 
   ![][023]
 
-### 步驟 3：設定您的防火牆
-您已在 Azure AD Connect 工具中啟用密碼回寫之後，您必須確定服務可以連線至雲端。
+### Schritt 3: Konfigurieren der Firewall
+Nachdem Sie das Zurückschreiben von Kennwörtern in Azure AD Connect aktiviert haben, müssen Sie sicherstellen, dass der Dienst eine Verbindung mit der Cloud herstellen kann.
 
-1.	一旦安裝完成之後，如果您在環境中封鎖不明的輸出連線，您也必須將下列規則加入至您的防火牆。請確定重新啟動 AAD Connect 電腦，再進行這些變更：
-   - 允許透過連接埠 443 TCP 的輸出連線
-   - 允許對 https://ssprsbprodncu-sb.accesscontrol.windows.net/的輸出連線 
-   - 當使用 proxy 或有一般連線問題時，允許透過連接埠 9350-9534 TCP 的輸出連線
+1.  Wenn Sie nach dem Abschluss der Installation in Ihrer Umgebung unbekannte ausgehende Verbindungen blockieren, müssen Sie außerdem Änderungen an den folgenden Regeln Ihrer Firewall vornehmen. Stellen Sie sicher, dass Sie Ihren AAD Connect-Computer nach dem Durchführen dieser Änderungen neu starten:
+   - Lassen Sie ausgehende Verbindungen über TCP-Port 443 zu.
+   - Ausgehende Verbindungen auf https://ssprsbprodncu-sb.accesscontrol.windows.net/ zulassen 
+   - Wenn Sie einen Proxy verwenden oder allgemeine Verbindungsprobleme vorliegen, lassen Sie ausgehende Verbindungen über TCP-Port 9350-9354 zu.
 
-### 步驟 4：設定適當的 Active Directory 權限
-對於包含使用者 (其密碼將會重設) 的每個樹系，如果 X 為組態精靈 (初始組態期間) 中針對該樹系指定的帳戶，則必須為 X 指定**重設密碼**、**變更密碼**、`lockoutTime` 的 **寫入權限** 和 `pwdLastSet` 的 **寫入權限**、該樹系中每個網域之根物件的擴充權限。權限應該標示為由所有使用者物件繼承。
+### Schritt 4: Einrichten der geeigneten Active Directory-Berechtigungen
+Für jede Gesamtstruktur, die Benutzer enthält, deren Kennwörter zurückgesetzt werden, wenn X das Konto ist, die für diese Gesamtstruktur im Konfigurations-Assistenten (während der Erstkonfiguration) angegeben wurde, und dann X muss angegeben werden die **Kennwort zurücksetzen**, **Kennwort ändern**, **Schreibberechtigungen** auf `lockoutTime`, und **Schreibberechtigungen** auf `pwdLastSet`, erweiterten Rechte für das Stammobjekt jeder Domäne in der Gesamtstruktur. Die Rechte müssen hierbei so festgelegt werden, dass sie an alle Benutzerobjekte vererbt werden.  
 
-設定這些權限將會允許每個樹系的 MA 服務帳戶代表該樹系內的使用者帳戶管理密碼。如果您沒有指定這些權限，則即使回寫看起來設定正確，使用者在嘗試從雲端管理其內部部署密碼時還是會遇到錯誤。以下是您如何使用 [**Active Directory 使用者和電腦**] 管理嵌入式管理單元以進行作業的詳細步驟：
+Wenn Sie nicht sicher sind wie die oben genannten Konto bezieht sich auf, öffnen die Azure Active Directory Connect-Konfigurationsbenutzeroberfläche, und klicken auf die **Überprüfung der Lösung** Option.  Das Konto, dem Sie die Berechtigung hinzufügen müssen, ist im Screenshot unten rot unterstrichen.
 
->[AZURE.NOTE]最多可能需要一小時讓這些權限複寫至您的目錄中的所有物件。
+**<font color="red">Stellen sicher, dass dieser Berechtigungssatz für die einzelnen Domänen in jeder Gesamtstruktur in Ihrem System, andernfalls das Rückschreiben von Kennwörtern nicht ordnungsgemäß funktionieren.</font>**
 
-#### 設定正確權限以執行回寫
+  ![][032]
 
-1.	以具有適當網域管理權限的帳戶開啟 [**Active Directory 使用者和電腦**]。
-2.	在 [**檢視功能表**] 選項中，確定 [**進階功能**] 已開啟。
-3.	在左面板中，以滑鼠右鍵按一下代表網域根目錄的物件。
-4.	按一下 [**安全性**] 索引標籤。
-5.	然後按一下 [**進階**]。
+  Durch das Festlegen dieser Berechtigungen kann das MA-Dienstkonto für jede Gesamtstruktur Kennwörter im Namen der Benutzerkonten innerhalb dieser Gesamtstruktur verwalten. Wenn Sie diese Berechtigungen nicht gewähren, erhalten die Benutzer – obwohl das Zurückschreiben scheinbar ordnungsgemäß konfiguriert ist – Fehler bei dem Versuch, ihre lokalen Kennwörter über die Cloud verwalten. Hier sind die einzelnen Schritte zum Sie diese mit der **Active Directory-Benutzer und-Computer** Verwaltungs-Snap-in:
+
+>[AZURE.NOTE] Es kann bis zu einer Stunde für diese Berechtigungen für alle Objekte in Ihrem Verzeichnis repliziert dauern.
+
+#### So richten Sie die geeigneten Berechtigungen für das Zurückschreiben von Kennwörtern ein
+
+1.  Öffnen Sie **Active Directory-Benutzer und-Computer** mit einem Konto an, die über die entsprechenden administrativen Domänenberechtigungen verfügt.
+2.  In der **im Ansichtsmenü** option, stellen Sie sicher, dass **Erweiterte Funktionen** eingeschaltet ist.
+3.  Klicken Sie im linken Bereich mit der rechten Maustaste auf das Objekt, das den Stamm der Domäne repräsentiert.
+4.  Klicken Sie auf die **Sicherheit** Registerkarte.
+5.  Klicken Sie dann auf **Erweitert**.
 
     ![][024]
 
-6.	按一下 [**權限**] 索引標籤上的 [**新增**]。
+6.  Auf der **Berechtigungen** auf **Hinzufügen**.
 
     ![][025]
 
-7.	選取您想要授與權限的帳戶 (這是與設定該樹系同步處理時所指定的相同帳戶)。
-8.	在最上層的下拉式清單中選取 [**下階使用者物件**]。
-9.	在顯示的 [**權限項目**] 對話方塊中，勾選 [**重設密碼**]、[**變更密碼**]、[`lockoutTime` 的**寫入權限**] 和 [`pwdLastSet` 的**寫入權限**] 的方塊。
+7.  Wählen Sie das Konto aus, dem Sie Berechtigungen hinzufügen möchten (es sollte sich um dasselbe Konto handeln, das beim Einrichten der Synchronisierung für diese Gesamtstruktur angegeben wurde).
+8.  Wählen Sie in der Dropdownliste am oberen Rand, **nachfolgerbenutzerobjekt**.
+9.  In der **Berechtigungseintrag** (Dialogfeld), das anzeigt, aktivieren Sie das Kontrollkästchen für **Kennwort zurücksetzen**, **Kennwort ändern**, **Schreibberechtigungen** auf `lockoutTime`, und **Schreibberechtigungen** auf `pwdLastSet`.
 
-    ![][026] ![][027] ![][028]
+    ![][026]
+    ![][027]
+    ![][028]
 
-10.	然後在所有開啟的對話方塊中按一下 [**套用/確定**]。
+10. Klicken Sie dann auf **anwenden/Ok** in allen geöffneten Dialogfeldern.
 
-### 步驟 5：以使用者的身分重設您的 AD 密碼
-現在已啟用密碼回寫，您可以測試它是否正常運作，方法是對已同步處理至您的雲端租用戶的使用者帳戶重設密碼。
+### Schritt 5: Zurücksetzen Ihres AD-Kennworts als Benutzer
+Jetzt, da das Zurückschreiben von Kennwörtern aktiviert ist, können Sie die ordnungsgemäße Funktion testen, indem Sie das Kennwort eines Benutzers zurücksetzen, dessen Konto mit Ihrem Cloudmandanten synchronisiert wurde.
  
-#### 確認密碼回寫是否正常運作
-1.	瀏覽至 [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com)，或前往任何組織識別碼登入畫面，然後按一下 [**無法存取您的帳戶？**] 連結。
+#### So prüfen Sie, ob das Zurückschreiben von Kennwörtern ordnungsgemäß funktioniert
+1.  Navigieren Sie zu [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com) oder wechseln Sie zu einem beliebigen Organisations-ID-Anmeldebildschirm, und klicken Sie auf die **kann nicht auf Ihr Konto zugreifen?** Link.
 
     ![][029]
 
-2.	您現在應該會看到新的頁面，向您要求提供您想要重設密碼的使用者識別碼。輸入您的測試使用者識別碼，然後繼續完成密碼重設流程。
-3.	重設密碼之後，您會看到如下的畫面。這表示您已成功在您的內部部署和/或雲端目錄中重設您的密碼。
+2.  Sie sollten jetzt eine neue Seite sehen, in der Sie nach der Benutzer-ID gefragt werden, für die Sie ein Kennwort zurücksetzen möchten. Geben Sie die ID des Testbenutzers ein, und führen Sie die Schritte zur Kennwortzurücksetzung aus.
+3.  Nachdem Sie Ihr Kennwort zurückgesetzt haben, wird ein Bildschirm angezeigt, der dem folgenden ähnelt. Diese Anzeige weist darauf hin, dass Sie Ihr Kennwort im lokalen Verzeichnis und/oder in den Cloudverzeichnissen erfolgreich zurückgesetzt haben.
 
     ![][030]
 
-4.	若要確認作業是否成功或診斷任何錯誤，請移至您的 [**目錄同步處理電腦**]、開啟 [**事件檢視器**]、瀏覽至 [**應用程式事件記錄檔**]，並針對您的測試使用者從來源 **PasswordResetService** 尋找事件 **31002 - PasswordResetSuccess**。
+4.  Um zu überprüfen, ob der Vorgang erfolgreich war oder Fehler, wechseln Sie zu Ihrer **verzeichnissynchronisierungscomputer**, Öffnen **Ereignisanzeige**, navigieren Sie zu der **Anwendungsereignisprotokoll**, und suchen Sie nach Ereignis **31002 - PasswordResetSuccess** aus der Quelle **PasswordResetService** für Ihren Testbenutzer.
 
     ![][031]
 
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
-**其他資源**
+## Links zur Dokumentation für die Kennwortzurücksetzung
+Im Folgenden finden Sie Links zu allen Webseiten mit Informationen zur Kennwortzurücksetzung für Azure AD: 
 
-
-* [密碼管理是什麼](active-directory-passwords.md)
-* [密碼管理如何運作](active-directory-passwords-how-it-works.md)
-* [自訂密碼管理](active-directory-passwords-customize.md)
-* [密碼管理最佳作法](active-directory-passwords-best-practices.md)
-* [如何使用密碼管理報告取得 Operational Insights](active-directory-passwords-get-insights.md)
-* [密碼管理常見問題集](active-directory-passwords-faq.md)
-* [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
-* [深入了解](active-directory-passwords-learn-more.md)
-* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Ihr eigenes Kennwort zurücksetzen**](active-directory-passwords-update-your-own-password.md) -erfahren Sie mehr über zurücksetzen oder ändern Ihr eigenes Kennwort als Benutzer des Systems
+* [**Funktionsweise**](active-directory-passwords-how-it-works.md) -erfahren Sie mehr über die sechs verschiedenen Komponenten der Dienst und die jeweilige
+* [**Anpassen von**](active-directory-passwords-customize.md) -erfahren Sie, wie das Aussehen und Verhalten des Diensts, um den Bedürfnissen Ihres Unternehmens anpassen.
+* [**Bewährte Methoden**](active-directory-passwords-best-practices.md) -erfahren Sie, wie schnell bereitstellen und effektiv verwalten von Kennwörtern in Ihrer Organisation
+* [**Einblicke**](active-directory-passwords-get-insights.md) -erfahren Sie mehr über unsere integrierten Berichtsfunktionen
+* [**Häufig gestellte Fragen zu**](active-directory-passwords-faq.md) – Hier erhalten Sie Antworten auf häufig gestellte Fragen
+* [**Problembehandlung bei**](active-directory-passwords-troubleshoot.md) -erfahren Sie, wie Probleme mit dem Dienst schnell beheben
+* [**Erfahren Sie mehr**](active-directory-passwords-learn-more.md) – erhalten Sie tiefgehende technische Details zur Funktionsweise des Diensts
 
 
 
@@ -339,7 +353,6 @@
 [029]: ./media/active-directory-passwords-getting-started/029.jpg "Image_029.jpg"
 [030]: ./media/active-directory-passwords-getting-started/030.jpg "Image_030.jpg"
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
+[032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
- 
 
-<!---HONumber=62-->

@@ -1,65 +1,68 @@
 <properties
-	pageTitle="開始使用 Azure AD .NET | Microsoft Azure"
-	description="如何建立可整合 Azure AD 以進行驗證和授權的 .NET MVC Web API。"
-	services="active-directory"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Erste Schritte in Azure AD .NET | Microsoft Azure"
+    description="In diesem Thema erfahren Sie, wie eine .NET-MVC-Web-API erstellt wird, die sich für die Authentifizierung und Autorisierung in Azure AD integriert."
+    services="active-directory"
+    documentationCenter=".net"
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="04/28/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="dastrock"/>
 
 
-# 使用 Azure AD 的持有者權杖來保護 Web API
+# Schützen einer Web-API mit Bearer-Tokens aus Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-如果您要建置可讓您存取受保護資源的應用程式，您必須知道如何保護這些資源以防止遭受不當存取。只需幾行的程式碼，Azure AD 便可讓使用 OAuth Bearer 2.0 存取權杖來保護 Web API 變得既簡單又直接。
+Wenn Sie eine Anwendung erstellen, die Zugriff auf geschützte Ressourcen bietet, müssen Sie wissen, wie Sie diese Ressourcen vor unbefugtem Zugriff schützen.
+Mit Azure AD lässt sich eine Web-API mit nur wenigen Codezeilen unkompliziert und einfach mithilfe von OAuth Bearer 2.0-Zugriffstokens schützen.
 
-在 Asp.NET Web 應用程式中，您可以使用 Microsoft 的社群導向 OWIN 中介軟體 (隨附於 .NET Framework 4.5) 實作來完成這個作業。在這裡，我們將使用 OWIN 來建置待辦事項清單 Web API：指定哪一個 API 會受到保護。驗證 Web API 呼叫是否包含有效的存取權杖。
+Für Asp.NET-Webanwendungen erreichen Sie das Gleiche durch die Microsoft-Implementierung der Community-gestützten und in .NET Framework 4.5 enthaltenen OWIN-Middleware.  Hier verwenden wir OWIN zum Erstellen einer "Aufgabenliste" Webs-API, die:
+-   Legt fest, welche APIs geschützt sind.
+-   Überprüft, dass die Web-API-Aufrufe ein gültiges Zugriffstoken enthalten.
 
-若要執行此作業，您需要執行下列動作：
+Dazu müssen Sie folgende Schritte ausführen:
 
-1. 向 Azure AD 註冊應用程式
-2. 設定您的應用程式使用 OWIN 驗證管線。
-3. 設定用戶端應用程式呼叫待辦事項清單 Web API
+1. Registrieren einer Anwendung in Azure AD
+2. Konfigurieren Ihrer Anwendung für die Verwendung der OWIN-Authentifizierungspipeline
+3. Konfigurieren einer Clientanwendung für den Aufruf der Web-API „To Do List“
 
-若要開始使用，請[下載應用程式基本架構](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip)或[下載完整的範例](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip)。每一個都是 Visual Studio 2013 解決方案。您還需要一個可以註冊應用程式的 Azure AD 租用戶。如果您還沒有租用戶，[了解如何取得租用戶](active-directory-howto-tenant.md)。
+Um zu beginnen, [das Anwendungsgerüst](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) oder [das vollständige Beispiel herunterladen](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip).  Bei beidem handelt es sich um eine Visual Studio 2013-Lösung.  Außerdem benötigen Sie einen Azure AD-Mandanten, bei dem Sie Ihre Anwendung registrieren.  Wenn Sie eine bereits haben [erfahren Sie, wie eine](active-directory-howto-tenant.md).
 
 
-## *1.向 Azure AD 註冊應用程式*
-若要保護您的應用程式，您首先必須在您的租用戶中建立應用程式，並提供 Azure AD 幾個重要的關鍵資訊。
+## *1.  Registrieren einer Anwendung in Azure AD*
+Zum Schutz Ihrer Anwendung müssen Sie in Ihrem Mandanten zunächst eine Anwendung erstellen und Azure AD einige wichtige Informationen bereitstellen.
 
--	登入 [Azure 管理入口網站](https://manage.windowsazure.com)
--	在左側導覽中按一下 **Active Directory**
--	選取要在其中註冊應用程式的租用戶。
--	按一下 [**應用程式**] 索引標籤，然後按一下最下面抽屜的 [**新增**]。
--	遵照提示進行，並建立新的 **Web 應用程式和/或 WebAPI**。
-    -	應用程式的 [**名稱**] 將對使用者說明您的應用程式。輸入「待辦事項清單服務」。
-    -	「**重新導向 Uri**」是配置和字串的組合，Azure AD 可用它來傳回應用程式要求的任何權杖。請為此值輸入 `https://localhost:44321/`。
--	完成註冊後，請瀏覽至 [**設定**] 索引標籤，並找到 [**應用程式識別碼 URI**] 欄位。為此值輸入租用戶特定識別碼，例如 `https://contoso.onmicrosoft.com/TodoListService`
-- 儲存組態。讓入口網站保持在開啟狀態，您也必須在短時間內註冊用戶端應用程式。
+-   Melden Sie sich bei der [Azure-Verwaltungsportal](https://manage.windowsazure.com)
+-   Klicken Sie in der linken Navigationsleiste auf **Active Directory**
+-   Wählen Sie den Mandanten aus, unter dem die Anwendung registriert werden soll.
+-   Klicken Sie auf die **Applikationen** Registerkarte, und klicken Sie auf **Hinzufügen** im unteren Bereich.
+-   Folgen Sie den Assistenten, und erstellen Sie ein neues **Web Application and/or WebAPI**.
+    -   Die **Namen** der Anwendung beschreiben Anwendung ablesen können.  Geben Sie „To Do List Service“ ein.
+    -   Die **Redirect Uri** ist eine Schema und einer Zeichenfolge eine Kombination aus, die Azure AD Rückgabe der der Anforderung angeforderten Tokens verwendet. Geben Sie hier `https://localhost:44321/` ein.
+-   Nachdem Sie die Registrierung abgeschlossen haben, navigieren Sie zu **konfigurieren** Registerkarte, und suchen Sie die **App-ID-URI** Feld.  Geben Sie hier eine mandantenspezifische Kennung ein, zum Beispiel `https://contoso.onmicrosoft.com/TodoListService`.
+- Speichern Sie die Konfiguration.  Lassen Sie das Portal geöffnet – schließlich müssen Sie gleich auch Ihre Clientanwendung registrieren.
 
-## *2.設定您的應用程式使用 OWIN 驗證管線*
+## *2. Konfigurieren Ihrer Anwendung für die Verwendung der OWIN-Authentifizierungspipeline*
 
-既然您已經向 Azure AD 註冊應用程式，您必須設定應用程式與 Azure AD 進行通訊以便驗證連入要求和權杖。
+Nachdem Sie eine Anwendung in Azure AD registriert haben, müssen Sie die Anwendung für die Kommunikation mit Azure AD konfigurieren, damit eingehende Anforderungen und Tokens überprüft werden können.
 
--	若要開始，請開啟解決方案，並將 OWIN 中介軟體 NuGet 封裝加入至使用封裝管理員主控台的 TodoListService 專案。
+-   Öffnen Sie dazu zunächst die Projektmappe, und fügen Sie dem Projekt „TodoListService“ über die Paket-Manager-Konsole die NuGet-Pakete der OWIN-Middleware hinzu.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.ActiveDirectory -ProjectName TodoListService
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
 ```
 
--	將 OWIN 啟動類別加入至名為 `Startup.cs` 的 TodoListService 專案。以滑鼠右鍵按一下專案 --> [**新增**] -->[ **新增項目**] --> 搜尋 "OWIN"。OWIN 中介軟體將會在應用程式啟動時叫用 `Configuration(…)` 方法。
--	將類別宣告變更為 `public partial class Startup`，我們已為您在另一個檔案中實作了此類別的一部分。在 `Configuration(…)` 方法中，請呼叫 ConfgureAuth(...) 以設定您的 Web 應用程式驗證。
+-   Fügen Sie dem Projekt „TodoListService“ eine OWIN-Startklasse mit dem Namen `Startup.cs` hinzu.  Rechtsklick auf das Projekt--> **Hinzufügen** --> **Neues Element** aus, und suchen Sie nach "OWIN".  Die OWIN-Middleware ruft beim Starten Ihrer Anwendung die Methode `Configuration(…)` auf.
+-   Ändern Sie die Klassendeklaration in `public partial class Startup` – einen Teil dieser Klasse haben wir bereits für Sie in einer anderen Datei implementiert.  Rufen Sie in der Methode `Configuration(…)` „ConfigureAuth(...)“ auf, um die Authentifizierung für Ihre Webanwendung einzurichten.
 
 ```C#
 public partial class Startup
@@ -71,7 +74,7 @@ public partial class Startup
 }
 ```
 
--	開啟檔案 `App_Start\Startup.Auth.cs` 並實作 `ConfigureAuth(…)` 方法。您在 `WindowsAzureActiveDirectoryBearerAuthenticationOptions` 中所提供的參數將會做為您的應用程式與 Azure AD 進行通訊的座標使用。
+-   Öffnen Sie die Datei `App_Start\Startup.Auth.cs`, und implementieren Sie die Methode `ConfigureAuth(…)`.  Die Parameter, die Sie in `WindowsAzureActiveDirectoryBearerAuthenticationOptions` bereitstellen, dienen als Koordinaten für Ihre Anwendung zur Kommunikation mit Azure AD.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
@@ -85,7 +88,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
--	現在，您可以使用 `[Authorize]` 屬性並搭配 JWT 承載驗證來保護您的控制器和動作。使用授權標記裝飾 `Controllers\TodoListController.cs` 類別。這樣會強制使用者在存取該頁面之前必須先登入。
+-   Nun können Sie Ihre Controller und Aktionen mit `[Authorize]`-Attributen durch eine JWT-Bearer-Authentifizierung schützen.  Geben Sie für die Klasse `Controllers\TodoListController.cs` ein Autorisierungstag an.  Dadurch wird der Benutzer gezwungen, sich vor dem Zugriff auf diese Seite anzumelden.
 
 ```C#
 [Authorize]
@@ -93,8 +96,8 @@ public class TodoListController : ApiController
 {
 ```
 
-- 當授權的呼叫者成功叫用其中一個 `TodoListController` API 時，此動作可能需要存取呼叫者的相關資訊。OWIN 可讓您透過 `ClaimsPrincpal` 物件存取持有人權杖內部的宣告。  
-- Web API 的一個常見需求是驗證權杖中是否有「範圍」存在，這可確保使用者已經取得存取 Todo 清單服務所需權限的同意：
+- Wenn ein autorisierter Aufrufer eine der `TodoListController`-APIs erfolgreich aufruft, muss die Aktion möglicherweise auf Informationen über den Aufrufer zugreifen können.  OWIN stellt über das Objekt `ClaimsPrincpal` Zugriff auf die Ansprüche innerhalb des Bearer-Tokens bereit.  
+- Im Allgemeinen müssen Web-APIs jedoch die „Bereiche“ innerhalb des Tokens überprüfen – dadurch wird sichergestellt, dass der Endbenutzer den für den Zugriff auf den Dienst „TodoListService“ erforderlichen Berechtigungen zugestimmt hat:
 
 ```C#
 public IEnumerable<TodoItem> Get()
@@ -111,34 +114,32 @@ public IEnumerable<TodoItem> Get()
 }
 ```
 
--	最後，請開啟 TodoListService 專案根目錄中的 `web.config` 檔案，並在 [`<appSettings>`] 區段中輸入您的設定值。
-  -	`ida:Tenant` 是指您的 Azure AD 租用戶名稱，例如 "contoso.onmicrosoft.com"。
-  -	您的 `ida:Audience` 是指您在 Azure 入口網站中為應用程式輸入的應用程式識別碼 URI。
+-   Öffnen Sie abschließend die Datei `web.config` aus dem Stammverzeichnis des Projekts „TodoListService“, und geben Sie Ihre Konfigurationswerte im Abschnitt `<appSettings>` ein.
+  - `ida:Tenant` ist der Name Ihres Azure AD-Mandanten, z. B. „contoso.onmicrosoft.com“.
+  - `ida:Audience` ist die App-ID-URI der Anwendung, die Sie in das Azure-Verwaltungsportal eingegeben haben.
 
-## *3.設定用戶端應用程式及執行服務*
-在看到 Todo 清單服務運作之前，您需要設定 Todo 清單用戶端，以便它可以取得 AAD 的權杖，並對服務進行呼叫。
+## *3.  Konfigurieren einer Clientanwendung und Ausführen des Diensts*
+Um den Dienst „TodoListService“ in Aktion sehen zu können, müssen Sie den TodoList-Client so konfigurieren, dass er Tokens von AAD erhält und Aufrufe an den Dienst stellen kann.
 
-- 瀏覽回到 [Azure 管理入口網站](https://manage.windowsazure.com)
-- 在 Azure AD 租用戶中建立新的應用程式，然後在產生的提示中選取 [**原生用戶端應用程式**]。
-    -	應用程式的 [**名稱**] 將對使用者說明您的應用程式
-    -	請為 [**重新導向 Uri**] 值輸入 `http://TodoListClient/`。
-- 完成註冊後，AAD 會為您的應用程式指派一個唯一 [**應用程式識別碼**]。您在後續步驟中將會用到這個值，所以請從 [設定] 索引標籤中複製此值。
--	完成註冊後，請瀏覽至 [**設定**] 索引標籤，並找到 [**應用程式識別碼 URI**] 欄位。為此值輸入租用戶特定識別碼，例如 `https://contoso.onmicrosoft.com/TodoListService`
-- 此外，在 [**設定**] 索引標籤上找到 [其他應用程式的權限] 區段。按一下 [新增應用程式]。 在 [顯示] 下拉式清單中選取 [其他]，然後按一下上方的核取記號。找到並按一下您的待辦事項清單服務，然後按一下底部的核取記號以加入應用程式。從 [委派的權限] 下拉式清單中選取 [存取待辦事項清單服務]，並儲存設定。
+- Navigieren Sie zurück zu den [Azure-Verwaltungsportal](https://manage.windowsazure.com)
+- Erstellen einer neuen Anwendung in Azure AD-Mandanten, und wählen Sie **systemeigene Clientanwendung** an der Eingabeaufforderung.
+    -   Die **Namen** der Anwendung wird beschrieben, die Anwendung für Endbenutzer
+    -   Geben Sie `http://TodoListClient/` für die **Redirect Uri** Wert.
+- Nach Abschluss der Registrierung, weist AAD Ihrer app eine eindeutige **App-Id**. Diesen Wert benötigen Sie in den nächsten Schritten, weswegen Sie ihn aus der Registerkarte „Konfigurieren“ kopieren sollten.
+-   Nachdem Sie die Registrierung abgeschlossen haben, navigieren Sie zu **konfigurieren** Registerkarte, und suchen Sie die **App-ID-URI** Feld.  Geben Sie hier eine mandantenspezifische Kennung ein, zum Beispiel `https://contoso.onmicrosoft.com/TodoListService`.
+- Ebenso **konfigurieren** Registerkarte, suchen Sie den Abschnitt "Berechtigungen für andere Anwendungen". Klicken Sie auf „Anwendung hinzufügen“. Wählen Sie „Sonstiges“ in der Dropdownliste „Anzeigen“ aus, und klicken Sie auf das obere Häkchen. Suchen Sie Ihren „TodoListService“-Dienst, klicken Sie darauf, und klicken Sie auf das untere Häkchen, um die Anwendung hinzuzufügen. Wählen Sie „Auf TodoListService zugreifen“ in der Dropdownliste „Delegierte Berechtigungen“ aus, und speichern Sie die Konfiguration.
 
 
-- 在 Visual Studio 中，請開啟 TodoListClient 專案中的 `App.config`，並在 [`<appSettings>`] 區段中輸入您的設定值。
-  -	`ida:Tenant` 是指您的 Azure AD 租用戶名稱，例如 "contoso.onmicrosoft.com"。
-  -	您從 Azure 入口網站複製的 `ida:ClientId` 應用程式識別碼。
-  -	您的 `todo:TodoListResourceId` 是指您在 Azure 入口網站中為待辦事項清單服務應用程式輸入的應用程式識別碼 URI。
+- Öffnen Sie in Visual Studio im Projekt „TodoListClient“ die Datei `App.config`, und geben Sie Ihre Konfigurationswerte im Abschnitt `<appSettings>` ein.
+  - `ida:Tenant` ist der Name Ihres Azure AD-Mandanten, z. B. „contoso.onmicrosoft.com“.
+  - `ida:ClientId` ist die App-ID, die Sie aus dem Azure-Portal kopiert haben.
+  - `todo:TodoListResourceId` ist die App-ID-URI der Anwendung „TodoListService“, die Sie im Azure-Verwaltungsportal eingegeben haben.
 
-最後，清除、建置並執行每個專案！ 如果您還沒有這麼做，現在正是使用 *.onmicrosoft.com 網域在租用戶中建立新使用者的好時機。使用該名使用者登入待辦事項清單用戶端，並在使用者的待辦清單中加入一些工作。
+Bereinigen, erstellen und führen Sie zum Schluss alle Projekte aus!  Falls noch nicht geschehen, ist es nun Zeit, in Ihrem Mandanten einen neuen Benutzer mit einer *.onmicrosoft.com-Domäne zu erstellen.  Melden Sie sich unter diesem Benutzer beim TodoList-Client an, und fügen Sie der Aufgabenliste des Benutzers einige Aufgaben hinzu.
 
-[這裡](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip)提供完成的範例供您參考 (不含您的設定值)。您現在可以繼續您想要嘗試的更多其他身分識別案例：
+Das vollständige Beispiel (ohne Ihre Konfigurationswerte) dient als Referenz [hier](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip).  Sie können sich nun auf Weitere identitätsszenarien zuwenden, die Sie versuchen möchten:
 
-[使用 Azure AD 建置 .NET 原生用戶端 >>](../active-directory-devquickstarts-native-dotnet.md)
+[Erstellen eines systemeigenen .NET-Clients in Azure AD >>](../active-directory-devquickstarts-native-dotnet.md)
 
-如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
- 
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=62-->

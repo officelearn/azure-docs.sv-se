@@ -1,100 +1,98 @@
 <properties 
-	pageTitle="驗證偵測期間發生錯誤" 
-	description="Active directory 連線精靈偵測到不相容的驗證類型" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
-	editor="tglee"/>
+    pageTitle="Fehler während der Authentifizierungserkennung" 
+    description="Der Verbindungs-Assistent für Active Directory hat einen inkompatiblen Authentifizierungstyp erkannt." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="TomArcher" 
+    manager="douge" 
+    editor=""/>
   
 <tags 
-	ms.service="active-directory" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/06/2015" 
-	ms.author="patshea123"/>
+    ms.service="active-directory" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="vs-getting-started" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/10/2015" 
+    ms.author="tarcher"/>
 
-# 驗證偵測期間發生錯誤
+# Fehler während der Authentifizierungserkennung
 
-偵測先前的驗證程式碼時，精靈偵測到不相容的驗證類型。
+Beim Erkennen des vorherigen Authentifizierungscodes hat der Assistent einen nicht kompatiblen Authentifizierungstyp erkannt.   
 
-###檢查什麼？
+##Was wird überprüft?
 
-**注意：**必須建置專案，才能正確偵測專案中先前的認證程式碼。如果遇到這個錯誤，且您的專案中沒有先前的驗證碼，請重建並再試一次。
+**Hinweis:** um vorherigen Authentifizierungscode in einem Projekt ordnungsgemäß erkennen zu können, muss das Projekt erstellt werden.  Wenn dieser Fehler auftritt und in Ihrem Projekt kein vorheriger Authentifizierungscode enthalten ist, erstellen Sie Ihr Projekt neu, und versuchen Sie es nochmals.
 
-####專案類型
+###Projekttypen
 
-精靈會檢查您正在開發的專案類型，以便可以將正確的驗證邏輯插入專案。如果有衍生自專案中 `ApiController` 的任何控制器，則會將它視為 WebAPI 專案。如果只有衍生自專案中 `MVC.Controller` 的控制器，則會將它視為 MVC 專案。任何其他項目則會被精靈視為不支援。目前不支援 WebForms 專案。
+Der Assistent überprüft, welche Art von Projekt Sie entwickeln, um die richtige Authentifizierungslogik in das Projekt einzufügen.  Wenn ein Controller im Projekt von `ApiController` abgeleitet wird, gilt das Projekt als WebAPI-Projekt.  Wenn alle Controller im Projekt von `MVC.Controller` abgeleitet werden, gilt das Projekt als MVC-Projekt.  Alles andere wird vom Assistenten nicht unterstützt.  WebForms-Projekte werden derzeit nicht unterstützt.
 
-#####相容的驗證碼
+###Kompatibler Authentifizierungscode
 
-精靈也會檢查先前對精靈設定或與精靈相容的驗證設定。如果所有設定皆存在，則會將它視為可重新進入的情況，而精靈將會開啟並顯示設定。如果只有部分設定存在，則會將它視為錯誤情況。
+Der Assistent überprüft auch Authentifizierungseinstellungen, die zuvor mit dem Assistenten konfiguriert wurden oder mit dem Assistenten kompatibel sind.  Wenn alle Einstellungen vorhanden sind, gilt dies als eintrittsinvarianter Fall, und der Assistent wird geöffnet und zeigt die Einstellungen an.  Wenn nur einige der Einstellungen vorhanden sind, wird es als Fehlerfall betrachtet.
 
-在 MVC 專案中，精靈會檢查先前使用此精靈所產生的以下任何設定：
+In einem MVC-Projekt überprüft der Assistent die folgenden Einstellungen, die aus der vorherigen Verwendung des Assistenten resultieren:
 
-	<add key="ida:ClientId" value="" />
-	<add key="ida:Tenant" value="" />
-	<add key="ida:AADInstance" value="" />
-	<add key="ida:PostLogoutRedirectUri" value="" />
+    <add key="ida:ClientId" value="" />
+    <add key="ida:Tenant" value="" />
+    <add key="ida:AADInstance" value="" />
+    <add key="ida:PostLogoutRedirectUri" value="" />
 
-此外，精靈會檢查先前使用此精靈所產生 Web API 專案中的以下任何設定：
+Außerdem überprüft der Assistent die folgenden Einstellungen in einem Web-API-Projekt, die aus der vorherigen Verwendung des Assistenten resultieren:
 
-	<add key="ida:ClientId" value="" />
-	<add key="ida:Tenant" value="" />
-	<add key="ida:Audience" value="" />
+    <add key="ida:ClientId" value="" />
+    <add key="ida:Tenant" value="" />
+    <add key="ida:Audience" value="" />
 
-#####不相容的驗證碼
+###Nicht kompatibler Authentifizierungscode
 
-最後，精靈會嘗試偵測舊版 Visual Studio 所設定的驗證碼版本。如果收到此錯誤，表示您的專案包含不相容的驗證類型。精靈會從舊版 Visual Studio 中偵測下列驗證類型：
+Der Assistent versucht schließlich, Versionen von Authentifizierungscode zu erkennen, die mit früheren Versionen von Visual Studio konfiguriert wurden. Wenn Sie diesen Fehler erhalten, ist ein nicht kompatibler Authentifizierungstyp in Ihrem Projekt vorhanden. Der Assistent erkennt die folgenden Authentifizierungstypen aus früheren Versionen von Visual Studio:
 
-* Windows 驗證 
-* 個別使用者帳戶 
-* 組織帳戶 
+* Windows-Authentifizierung 
+* Einzelne Benutzerkonten 
+* Organisationskonten 
  
 
-為偵測 MVC 專案中的「Windows 驗證」，精靈會在您的 **web.config** 檔案中尋找 `authentication` 元素。
+Zum Erkennen der Windows-Authentifizierung in einem MVC-Projekt sucht der Assistent nach dem `authentication` Element aus der **web.config** Datei.
 
-<PRE class="prettyprint">
-	&lt;configuration&gt;
-	    &lt;system.web&gt;
-	        <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-	    &lt;/system.web&gt;
-	&lt;/configuration&gt;
+<pre>
+    &lt;configuration&gt;
+        &lt;system.web&gt;
+            <span style="background-color: yellow">& Lt; Authentication Mode = "Windows" / & Gt;</span>
+        &lt;/system.web&gt;
+    &lt;/configuration&gt;
 </pre>
 
-為偵測 Web API 專案中的「Windows 驗證」，精靈會在您專案的 **.csproj** 檔案中尋找 `IISExpressWindowsAuthentication` 元素：
+Zum Erkennen der Windows-Authentifizierung in einem Web-API-Projekt sucht der Assistent nach dem `IISExpressWindowsAuthentication` Element aus des Projekts **.csproj** Datei:
 
-<PRE class="prettyprint">
-	&lt;Project&gt;
-	    &lt;PropertyGroup&gt;
-	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-	    &lt;/PropertyGroup>
-	&lt;/Project&gt;
-</PRE>
+<pre>
+    &lt;Project&gt;
+        &lt;PropertyGroup&gt;
+            <span style="background-color: yellow">& Lt; IISExpressWindowsAuthentication & Gt; aktiviert & Lt; / IISExpressWindowsAuthentication & Gt;</span>
+        &lt;/PropertyGroup>
+    &lt;/Project&gt;
+</pre>
 
-為偵測「個別使用者帳戶」驗證，精靈會在您的 **Packages.config** 檔案中尋找 package 元素。
+Zum Erkennen der Authentifizierung einzelner Benutzerkonten sucht der Assistent nach dem Paketelement aus Ihrer **Packages.config** Datei.
 
-<PRE class="prettyprint">
-	&lt;packages&gt;
-	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-	&lt;/packages&gt;
-</PRE>
+<pre>
+    &lt;packages&gt;
+        <span style="background-color: yellow">& Lt; id="Microsoft.AspNet.Identity.EntityFramework-Paket" Version = "2.1.0" TargetFramework = "net45" / & Gt;</span>
+    &lt;/packages&gt;
+</pre>
 
-為偵測舊式「組織帳戶」驗證，精靈會在 **web.config** 中尋找下列元素：
+Zum Erkennen der alten Formulars von organisationskontoauthentifizierung sucht der Assistent nach dem folgenden Element aus **web.config**:
 
-<PRE class="prettyprint">
-	&lt;configuration&gt;
-	    &lt;appSettings&gt;
-	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-	    &lt;/appSettings&gt;
-	&lt;/configuration&gt;
-</PRE>
+<pre>
+    &lt;configuration&gt;
+        &lt;appSettings&gt;
+            <span style="background-color: yellow">& Lt; fügen Sie Key = "Ida: Bereich" Value = "***" / & Gt;</span>
+        &lt;/appSettings&gt;
+    &lt;/configuration&gt;
+</pre>
 
-若要變更驗證類型，請移除不相容的驗證類型，然後重新執行精靈。
+Wenn Sie den Authentifizierungstyp ändern möchten, entfernen Sie den inkompatiblen Authentifizierungstyp, und führen Sie den Assistenten dann erneut aus.
 
-如需詳細資訊，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
- 
+Weitere Informationen finden Sie unter [Authentifizierungsszenarien für Azure AD](active-directory-authentication-scenarios.md).
 
-<!---HONumber=62-->

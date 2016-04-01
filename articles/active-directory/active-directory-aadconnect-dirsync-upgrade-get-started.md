@@ -1,208 +1,217 @@
-<properties 
-   pageTitle="Microsoft Azure AD Connect - 從 Windows Azure AD 同步作業工具 (DirSync) 升級" 
-   description="了解如何從 DirSync 升級至 Azure AD Connect。本文說明如何將目前 Windows Azure AD 同步作業工具 (DirSync) 升級至 Azure AD Connect 的步驟。" 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="shoatman" 
-   manager="terrylanfear" 
-   editor="billmath"/>
+<properties
+   pageTitle="Microsoft Azure AD Connect – Upgrade vom Windows Azure AD-Synchronisierungstool (DirSync)"
+   description="Informationen Sie zum Aktualisieren von DirSync auf Azure AD Connect.  Dieser Artikel beschreibt die Schritte zur Aktualisierung Ihres aktuellen Windows Azure AD-Synchronisierungstools (DirSync) auf Azure AD Connect."
+   services="active-directory"
+   documentationCenter=""
+   authors="andkjell"
+   manager="stevenpo"
+   editor=""/>
+
+<tags
+   ms.service="active-directory"
+   ms.workload="identity"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="12/16/2015"
+   ms.author="shoatman;billmath"/>
 
-<tags 
-   ms.service="active-directory" 
-   ms.workload="identity" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="05/26/2015" 
-   ms.author="shoatman"/>
+# Aktualisieren des Windows Azure Active Directory-Synchronisierungstools (DirSync) auf Azure AD Connect
 
-# 將 Windows Azure Active Directory 同步作業 (DirSync) 升級至 Azure Active Directory Connect
+Die folgende Dokumentation hilft Ihnen beim Upgrade Ihrer vorhandenen DirSync-Installation auf Azure AD Connect.
 
-下列文件將協助您將現有的 DirSync 安裝升級至 Azure AD Connect
+## Verwandte Dokumentation
+Wenn Sie die Dokumentation auf nicht lesen [Integrieren Ihrer lokalen Identitäten in Azure Active Directory](active-directory-aadconnect.md), die folgende Tabelle enthält Links zu verwandten Themen. Sie müssen die ersten beiden fett hervorgehobenen Themen gelesen haben, bevor Sie mit dem Upgrade von DirSync beginnen.
 
-## 下載 Azure AD Connect
+| Thema |  |
+| --------- | --------- |
+| **Azure AD Connect herunterladen** | [Azure AD Connect herunterladen](http://go.microsoft.com/fwlink/?LinkId=615771) |
+| **Hardware und Voraussetzungen** | [Azure AD Connect: Hardware und Voraussetzungen](active-directory-aadconnect-prerequisites.md) |
+| **Für die Installation verwendete Konten** | [Weitere Informationen zu Azure AD Connect-Konten und -Berechtigungen](active-directory-aadconnect-accounts-permissions.md) |
 
-若要開始使用 Azure AD Connect，您可以使用下列項目下載最新版本：[下載 Azure AD Connect Public Preview](http://connect.microsoft.com/site1164/program8612)
+## Upgrade von DirSync
+Je nach Ihrer aktuellen DirSync-Bereitstellung gibt es unterschiedliche Optionen für das Upgrade. Falls die erwartete Upgradezeit weniger als drei Stunden beträgt, lautet die Empfehlung, ein direktes Upgrade durchzuführen. Wenn die erwartete Upgradezeit mehr als drei Stunden beträgt, empfehlen wir Ihnen die Durchführung einer parallelen Bereitstellung auf einem anderen Server. Die Schätzung lautet, dass das Upgrade länger als drei Stunden dauert, wenn Sie über mehr als 50.000 Objekte verfügen.
 
-## 安裝 Azure AD Connect 之前
-安裝 Azure AD Connect 並從 DirSync 升級之前，這裡是您需要的一些事項。
+| Szenario | |
+| ---- | ---- |
+| [Direktes Upgrade](#in-place-upgrade)  | Die ist die bevorzugte Option, wenn das Upgrade voraussichtlich weniger als drei Stunden in Anspruch nimmt. |
+| [Parallele Bereitstellung](#parallel-deployment) | Die ist die bevorzugte Option, wenn das Upgrade voraussichtlich mehr als drei Stunden in Anspruch nimmt. |
 
-- Azure AD 執行個體之現有全域管理員帳戶的密碼 (安裝將會提醒您使用哪一個帳戶)
-- 本機 Active Directory 的企業系統管理員帳戶
-- 選用：如果您已設定 DirSync 使用完整版的 SQL Server - 該資料庫執行個體的資訊。
+>[AZURE.NOTE] Bei der Planung zum Aktualisieren von DirSync auf Azure AD Connect deinstallieren Sie nicht DirSync selbst vor dem Upgrade. Azure AD Connect liest und migriert die Konfiguration aus DirSync und führt die Deinstallation nach der Untersuchung des Servers durch.
 
-### 平行部署
+**Direktes Upgrade**
 
-如果您目前正在同步處理超過 5 萬個物件，則可以選擇執行平行部署。平行部署需要不同的伺服器或一組伺服器 (如果您需要不同的伺服器做為 SQL Server)。平行部署的好處是避免同步處理停機的機會。Azure AD Connect 安裝將嘗試估計我們預期的停機，但是，如果您過去升級過 DirSync，則您自己的經驗可能就是最佳指南。
+Die erwartete Zeit zum Durchführen des Upgrades wird vom Assistenten angezeigt.  Diese Schätzung basiert auf der Annahme, dass ein Upgrade für eine Datenbank mit 50.000 Objekten (Benutzern, Kontakten und Gruppen) drei Stunden dauert.  Azure AD Connect analysiert Ihre aktuellen DirSync-Einstellungen und empfiehlt ein direktes Upgrade, sofern die Anzahl von Objekten in der Datenbank unter 50.000 liegt.  Wenn Sie den Vorgang fortsetzen, werden Ihre aktuellen Einstellungen während des Upgrades automatisch angewendet, und Ihr Server setzt die aktive Synchronisierung automatisch fort.
 
-## 安裝 Azure AD Connect
+Falls Sie eine Konfigurationsmigration und eine parallele Bereitstellung durchführen möchten, können Sie die Empfehlung des direkten Upgrades ignorieren. Beispielsweise können Sie die Gelegenheit nutzen, um die Hardware und das Betriebssystem zu aktualisieren. Finden Sie unter der [parallele Bereitstellung](#parallel-deployment) Weitere Informationen.
 
-下載 Azure AD Connect 並將其複製至現有 DirSync 伺服器。
+**Parallele Bereitstellung**
 
-1. 瀏覽並按兩下 AzureADConnect.msi
-2. 開始逐步執行精靈
+Eine parallele Bereitstellung wird empfohlen, wenn Sie über mehr als 50.000 Objekte verfügen. So vermeiden Sie Verzögerungen des Betriebs für Ihre Benutzer. Bei der Azure AD Connect-Installation wird die erwartete Ausfallzeit in Verbindung mit dem Upgrade geschätzt, aber wenn Sie DirSync in der Vergangenheit bereits aktualisiert haben, ist Ihre eigene Erfahrung vermutlich ausschlaggebender.
 
-在就地升級中，會發生下列高階步驟：
+### Unterstützte zu aktualisierende DirSync-Konfigurationen
+Die folgenden Konfigurationsänderungen werden für DirSync unterstützt und sind Teil des Upgrades:
 
-1. 歡迎使用 Azure AD Connect
-2. 目前 DirSync 組態的分析
-3. 收集 Azure AD 全域管理員密碼
-4. 收集企業系統管理員帳戶的認證 (僅在 Azure AD Connect 安裝期間使用)
-5. AAD Connect 的安裝
-    * 解除安裝 DirSync
-	* 安裝 AAD Connect
-	* 選擇性地開始同步處理
+- Filterung von Domänen und Organisationseinheiten
+- Alternative ID (UPN)
+- Kennwortsynchronisierung und Exchange-Hybrideinstellungen
+- Gesamtstruktur-/Domäneneinstellungen und Azure AD-Einstellungen
+- Filterung basierend auf Benutzerattributen
 
-發生下列情況時，需要其他步驟/資訊：
+Die folgenden Änderungen können im Rahmen des Upgrades nicht aktualisiert werden. Wenn Sie eine oder mehrere dieser Änderungen vorgenommen haben, wird das Upgrade blockiert.
 
-* 您目前正在使用完整 SQL Server - 本機或遠端
-* 您擁有超過 5 萬個物件的規模可進行同步處理
+![Upgrade gesperrt](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-## 就地升級 - 少於 5 萬個物件 - SQL Express (逐步解說)
+In diesen Fällen wird empfohlen, installieren Sie einen neuen Azure AD Connect-Server in [stagingmodus](active-directory-aadconnectsync-operations.md#staging-mode) und überprüfen Sie die DirSync alten und neuen Azure AD Connect-Konfiguration. Alle Änderungen, die mit der benutzerdefinierten Konfiguration erneut anzuwenden, wie in beschrieben [benutzerdefinierte Konfiguration von Azure AD Connect-Synchronisierung](active-directory-aadconnectsync-whatis.md).
 
-0. 啟動 Azure AD Connect Installer (MSI)
+- Nicht unterstützte DirSync-Änderungen, z. B. entfernte Attribute und die Verwendung einer benutzerdefinierten Erweiterungs-DLL
 
-1. 檢閱並同意授權條款和隱私權注意事項。
+Die Kennwörter, die von DirSync für die Dienstkonten verwendet werden, können nicht abgerufen werden und werden nicht migriert. Diese Kennwörter werden während des Upgrades zurückgesetzt.
 
-![歡迎使用 Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
+### Allgemeine Schritte des Upgrades von DirSync auf Azure AD Connect
 
-2. 按 [下一步] 分析現有的 DirSync 安裝
+1. Willkommen bei Azure AD Connect
+2. Analyse der aktuellen DirSync-Konfiguration
+3. Sammeln des globalen Azure AD-Administratorkennworts
+4. Sammeln der Anmeldeinformationen für ein Enterprise-Administratorkonto (nur während der Installation von Azure AD Connect verwendet)
+5. Installation von Azure AD Connect
+    * Deinstallation von DirSync
+    * Installieren von Azure AD Connect
+    * Optionales Starten der Synchronisierung
 
-![分析現有目錄同步作業安裝](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
+Zusätzliche Schritte sind in folgenden Fällen erforderlich:
 
-3. 分析完成時，我們將提出如何繼續的建議。在使用 SQL Express 且少於 5 萬個物件的情況下，會顯示下列畫面。
+* Sie verwenden derzeit eine vollständige SQL Server-Version (lokal oder remote)
+* Sie verfügen über mehr als 50.000 Objekte für die Synchronisierung
 
-![分析已完成，準備好從 DirSync 升級](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
+## Direktes Upgrade
 
-4. 提供您目前用來連線到 Azure AD 之帳戶的密碼。
+1. Starten Sie den Azure AD Connect-Installer (MSI).
+2. Lesen Sie die Lizenzbedingungen und den Datenschutzhinweis und stimmen Sie diesen zu.
+![Willkommen bei Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
+3. Klicken Sie auf "Weiter", um die Analyse der vorhandenen DirSync-Installation zu beginnen.
+![Analysieren der vorhandenen Installation der Verzeichnissynchronisierung](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
+4. Nach Abschluss der Analyse erhalten Sie Empfehlungen dazu, wie Sie fortfahren.  
+    - Wenn Sie SQL Server Express verwenden, haben weniger als 50.000 Objekten wird der folgende Bildschirm angezeigt:
+![Abgeschlossene Analyse bereit für die Aktualisierung von DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
+    - Wenn Sie eine Vollversion von SQL Server für DirSync verwenden sehen Sie stattdessen auf dieser Seite:
+![Abgeschlossene Analyse bereit für das upgrade von DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)<BR/>
+Die Informationen in Bezug auf die vorhandenen SQL Server-Datenbankserver von DirSync verwendet wird, wird angezeigt. Führen Sie bei Bedarf die entsprechenden Anpassungen durch. Klicken Sie auf **Weiter** um die Installation fortzusetzen.
+    - Wenn mehr als 50.000 Objekte sehen Sie stattdessen diesen Bildschirm:
+![Abgeschlossene Analyse bereit für das upgrade von DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)<BR/>
+Um eine in-Place-Aktualisierung fortzusetzen, klicken Sie auf das Kontrollkästchen neben dieser Nachricht: **Aktualisierung von DirSync auf diesem Computer fortzusetzen.**
+Soll ein [parallele Bereitstellung](#parallel-deployment) stattdessen Sie die Einstellungen des Dirsync-Konfiguration exportieren und diese an den neuen Server verschieben.
+5. Geben Sie das derzeit verwendete Kennwort für das Konto ein, um eine Verbindung zu Azure AD herzustellen. Dies muss das Konto sein, das momentan von DirSync verwendet wird.
+![Geben Sie Ihre Azure AD-Anmeldeinformationen ein.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)
+6. Geben Sie ein Enterprise-Administratorkonto für Active Directory ein.
+![Geben Sie Ihre ADDS-Anmeldeinformationen ein.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
+7. Sie können nun mit der Konfiguration loslegen.  Beim Klicken auf **Upgrade**, DirSync deinstalliert und Azure AD Connect konfiguriert und Synchronisierung.
+![Bereit zur Konfiguration](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
 
-![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)
 
-5. 提供 Active Directory 的企業系統管理員帳戶。
+## Parallele Bereitstellung
 
-![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
+### Exportieren der DirSync-Konfiguration
+**Parallele Bereitstellung mit mehr als 50.000 Objekten**
 
-6. 您現在已經可以進行設定。按 [下一步] 時，將會解除安裝 DirSync，而 Azure AD Connect 將會設定並開始同步處理。  
+Wenn Sie über mehr als 50.000 Objekte verfügen, wird von der Azure AD Connect-Installation eine parallele Bereitstellung empfohlen.
 
-![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
+Ein Bildschirm ähnlich dem folgenden wird angezeigt:
 
+![Analyse abgeschlossen](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
 
-## 就地升級 - 超過 5 萬個物件
-如果您擁有超過 5 萬個物件的規模可進行同步處理，則會在步驟 #3 中看到不同的訊息。將會顯示與下面類似的畫面：
+Wenn Sie die parallele Bereitstellung fortsetzen möchten, müssen Sie die folgenden Schritte ausführen:
 
-![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
+- Klicken Sie auf die **Exporteinstellungen** Schaltfläche.  Bei der Installation von Azure AD Connect auf einem separaten Server werden diese Einstellungen importiert, um Einstellungen von Ihrem aktuellen DirSync zur neuen Azure AD Connect-Installation zu migrieren.
 
-在此情況下，建議您考慮在不同的伺服器上進行平行升級。這項建議的原因是，根據您組織的大小，在有關本機 Active Directory 中的變更有多快反映在 Azure AD/Office 365 中的部分，就地升級可能會影響您企業的服務等級協定。我們嘗試估計使用 Azure AD Connect 進行第一次同步處理時所需的時間。如上所述，您自己的 DirSync 原始安裝或升級至 DirSync 的經驗可能是最佳的指標。
+Sobald Sie Ihre Einstellungen erfolgreich exportiert haben, können Sie den Azure AD Connect-Assistenten auf dem DirSync-Server beenden. Der nächste Schritt zum Fortsetzen [Azure AD Connect auf einem separaten Server installieren](#installation-of-azure-ad-connect-on-separate-server)
 
-平行部署需要一部或多部不同的伺服器 (如果您需要從 Azure AD Connect 在不同的伺服器上執行 SQL Server)。因此，如果就地升級可以排定成避免組織內的影響，則可以完全合理地考慮進行就地升級。
+**Parallele Bereitstellung mit weniger als 50.000 Objekten**
 
-若要繼續進行就地升級，請按一下訊息旁的核取方塊：[繼續在此電腦上升級 DirSync]。
+Gehen Sie wie folgt vor, falls Sie über weniger als 50.000 Objekte verfügen, aber trotzdem eine parallele Bereitstellung durchführen möchten:
 
-## 就地升級 - 完整 SQL Server
+1. Führen Sie den Azure AD Connect-Installer aus (MSI).
+2. Wenn Sie sehen, dass die **Willkommen bei Azure AD Connect** Bildschirm, beenden Sie den Installations-Assistenten, indem Sie auf das "X" in der oberen rechten Ecke des Fensters.
+3. Öffnen Sie eine Eingabeaufforderung.
+4. Führen Sie aus dem Installationsordner von Azure AD Connect (Standard: C:\Program Files\Microsoft Azure Active Directory Connect) den folgenden Befehl aus:
+    `AzureADConnect.exe /ForceExport`.
+5. Klicken Sie auf die **Exporteinstellungen** Schaltfläche.  Bei der Installation von Azure AD Connect auf einem separaten Server werden diese Einstellungen importiert, um Einstellungen von Ihrem aktuellen DirSync zur neuen Azure AD Connect-Installation zu migrieren.
 
-如果 DirSync 安裝使用本機或遠端完整版的 SQL Server，則會在步驟 #3 中看到不同的訊息。將會顯示與下面類似的畫面：
+![Analyse abgeschlossen](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
 
-![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)
+Sobald Sie Ihre Einstellungen erfolgreich exportiert haben, können Sie den Azure AD Connect-Assistenten auf dem DirSync-Server beenden. Der nächste Schritt zum Fortsetzen [Azure AD Connect auf einem separaten Server installieren](#installation-of-azure-ad-connect-on-separate-server)
 
-系統會向您顯示有關 DirSync 所使用之現有 SQL Server 資料庫伺服器的資訊。如果需要，請進行適當的調整。按 [下一步] 將會繼續安裝。
+### Installieren von Azure AD Connect auf einem separaten Server
 
-## 平行部署 - 超過 5 萬個物件
+Bei der Installation von Azure AD Connect auf einem neuen Server wird davon ausgegangen, dass Sie Azure AD Connect neu installieren möchten. Da Sie die DirSync-Konfiguration verwenden möchten, müssen Sie einige zusätzliche Schritte ausführen:
 
-在步驟 #3，如果您擁有超過 5 萬個物件，則 Azure AD Connect 安裝會建議進行平行部署。如需選擇對 Azure AD Connect 進行就地還是平行部署的詳細資訊，請參閱上面的＜就地升級 - 超過 5 萬個物件＞。將會顯示與下面類似的畫面：
+1. Führen Sie den Azure AD Connect-Installer aus (MSI).
+2. Wenn Sie sehen, dass die **Willkommen bei Azure AD Connect** Bildschirm, beenden Sie den Installations-Assistenten, indem Sie auf das "X" in der oberen rechten Ecke des Fensters.
+3. Öffnen Sie eine Eingabeaufforderung.
+4. Führen Sie aus dem Installationsordner von Azure AD Connect (Standard: C:\Program Files\Microsoft Azure Active Directory Connect) den folgenden Befehl aus:
+    `AzureADConnect.exe /migrate`.
+    Azure AD Connect-Installations-Assistenten startet, und bietet Ihnen der folgende Bildschirm angezeigt:
+![Geben Sie Ihre Azure AD-Anmeldeinformationen](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
+5. Wählen Sie die Datei mit den Einstellungen, die von Ihrer DirSync-Installation exportiert wurde.
+6. Konfigurieren Sie alle erweiterten Optionen, einschließlich:
+    - Einen benutzerdefinierten Speicherort für Azure AD Connect.
+    - Eine vorhandene Instanz von SQL Server (Standard: Azure AD Connect installiert SQL Server 2012 Express). Verwenden Sie nicht dieselbe Datenbankinstanz wie für Ihren DirSync-Server.
+    - Ein Dienstkonto für die Verbindung zu SQL Server (wenn Ihre SQL Server-Datenbank remotegesteuert ist, muss dieses Konto ein Domänendienstkonto sein).
+Diese Optionen können auf diesem Bildschirm angezeigt werden:
+![Geben Sie Ihre Azure AD-Anmeldeinformationen ein.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
+7. Klicken Sie auf **Weiter**.
+8. Auf der **konfiguriert** Seite, lassen Sie die **den Synchronisierungsvorgang starten, sobald die Konfiguration abgeschlossen ist** überprüft. Der Server kann in [stagingmodus](active-directory-aadconnectsync-operations.md#staging-mode) damit Änderungen in Azure AD zu diesem Zeitpunkt nicht exportiert werden.
+9. Klicken Sie auf **Installieren**.
 
-![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
+>[AZURE.NOTE] Die Synchronisierung zwischen Windows Server Active Directory und Azure Active Directory beginnt, jedoch keine Änderungen an Azure AD exportiert werden.  Nur ein Synchronisierungstool kann jeweils aktiv Änderungen exportieren. Dies wird als [stagingmodus](active-directory-aadconnectsync-operations.md#staging-mode).
 
-如果您想要繼續進行平行部署，則需要執行下列步驟：
+### Überprüfen, ob Azure AD Connect bereit für den Beginn der Synchronisierung ist
 
-- 按一下 [匯出設定] 按鈕。在不同的伺服器上安裝 Azure AD Connect 時，會匯入這些設定，以將目前 DirSync 中的任何設定移轉到新的 AAD Connect 安裝。
+Um sicherzustellen, dass Azure AD Connect bereit ist, die von DirSync übernehmen, Sie öffnen müssen  **Synchronisierungsdienst-Manager** in der Gruppe **Azure AD Connect** aus dem Startmenü.
 
-順利匯出設定之後，即可結束 DirSync 伺服器上的 Azure AD Connect 精靈。
+In der Anwendung müssen Sie hier die **Vorgänge** Registerkarte. In dieser Registerkarte überprüfen Sie, dass die folgenden Vorgänge abgeschlossen wurden:
 
-### 不同伺服器上的 Azure AD Connect 安裝
+- Import auf den AD-Connector
+- Import auf den Azure AD-Connector
+- Vollständige Synchronisierung auf dem AD-Connector
+- Vollständige Synchronisierung auf dem Azure AD-Connector
 
-在新的伺服器上安裝 Azure AD Connect 時，會找不到 DirSync，並假設您想要執行 Azure AD Connect 的全新安裝。這裡提供數個特殊步驟：
+![Import und Synchronisierung abgeschlossen](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsynccompleted.png)
 
-1. 執行 Azure AD Connect Installer (MSI)
-2. 當您看到 [歡迎使用 Azure AD Connect] 畫面時。按一下視窗右上角的 "X"，以結束精靈。
-3. 開啟命令提示字元
-4. 從 Azure AD Connect 的安裝位置 (預設值：C:\Program Files\Microsoft Azure Active Directory Connect)，執行下列命令：
-    * AzureADConnect.exe /migrate
+Sehen Sie sich die Ergebnisse dieser Vorgänge an, und stellen Sie sicher, dass keine Fehler vorhanden sind.
 
-Azure AD Connect 會連線並向您呈現下列 UI：
+Wenn finden Sie unter, und überprüfen, welche Änderungen sind im Begriff, die in Azure AD exportiert werden sollen, lesen Sie überprüfen, ob die Konfiguration unter [stagingmodus](active-directory-aadconnectsync-operations.md#staging-mode). Nehmen Sie die erforderlichen Konfigurationsänderungen vor, bis nichts Unerwartetes mehr angezeigt wird.
 
-![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
+Wenn nach Abschluss dieser vier Vorgänge keine Fehler mehr vorhanden und Sie mit den zu exportierenden Änderungen zufrieden sind, können Sie DirSync deinstallieren und die Azure AD Connect-Synchronisierung aktivieren. Führen Sie die beiden nächsten Schritte aus, um die Migration abzuschließen.
 
-5. 選取從 DirSync 安裝所匯出的設定檔案。
-6. 設定任何進階選項，包括：
-    * Azure AD Connect 的自訂安裝位置
-	* 現有 SQL Server 執行個體 (預設值：Azure AD Connect 會安裝 SQL Server 2012 Express)
-	* 用來連線到 SQL Server 的服務帳戶 (如果您的 SQL Server 資料庫位於遠端，則此帳戶必須是網域服務帳戶)
+### Deinstallieren von DirSync (alter Server)
 
-請看到下列 UI 中的這些選項：
+- Aus **Programme und Funktionen** Suchen **Windows Azure Active Directory-Synchronisierungstools**
+- Deinstallieren Sie **Windows Azure Active Directory-Synchronisierungstools**
+- Beachten Sie, dass die Deinstallation bis zu 15 Minuten dauern kann.
 
-![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
+Wenn DirSync deinstalliert wird, ist kein aktiver Server vorhanden, der den Export nach Azure AD durchführt. Der nächste Schritt muss abgeschlossen werden, bevor Änderungen in der lokalen Active Directory-Instanz weiter mit Azure AD synchronisiert werden.
 
-7. 按 [下一步]。 
-8. 在 [準備好設定] 頁面上，保持核取 [設定一完成，即開始同步處理程序]。[AZURE.NOTE]將會開始 Windows Server Active Directory 和 Azure Active Directory 之間的同步處理作業，但沒有變更會匯出到 Azure AD。一次只能有一個作用中的同步處理工具匯出變更。
-9. 按一下 [安裝]。
+### Aktivieren von Azure AD Connect (neuer Server)
+Wenn Sie Azure AD Connect nach Abschluss der Installation wieder öffnen, können Sie weitere Konfigurationsänderungen vornehmen. Starten Sie **Azure AD Connect** über das Startmenü oder über die Verknüpfung auf dem Desktop. Achten Sie darauf, die MSI-Datei für die Installation nicht erneut auszuführen.
 
-[AZURE.NOTE]取消核取開始同步處理核取方塊，確保 DirSync (其仍安裝並執行中) 和 Azure AD Connect 未嘗試同時寫入到 AAD。
+Daraufhin sollte Folgendes angezeigt werden:
 
-### 確認 Azure AD Connect 已準備好開始同步處理
+![Zusätzliche Aufgaben](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AdditionalTasks.png)
 
-若要判斷 Azure AD Connect 是否準備好接收自 DirSync，您需要開啟 Azure AD Connect Synchronization Service Manager。在 Windows [開始] 功能表使用「同步處理」進行搜尋，將會顯示此應用程式。
+- Wählen Sie **stagingmodus konfigurieren**.
+- Deaktivieren von Staging durch Deaktivieren der **stagingmodus aktiviert** Kontrollkästchen.
 
-在應用程式內，您需要檢視 [作業] 索引標籤。在此索引標籤上，您想要確認已完成下列作業：
+![Geben Sie Ihre Azure AD-Anmeldeinformationen ein.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/configurestaging.png)
 
-- AD 管理代理程式上的匯入
-- Azure AD 管理代理程式上的匯入
-- AD 管理代理程式上的完整同步處理
-- Azure AD 管理代理程式上的完整同步處理
+- Klicken Sie auf die **Weiter** Schaltfläche
+- Klicken Sie auf der Bestätigungsseite auf die **Installieren** Schaltfläche.
 
-這 4 項作業完成之後，即準備好解除安裝 DirSync，並啟用 Azure AD Connect 同步處理。
+Azure AD Connect ist jetzt der aktive Server.
 
-### 解除安裝 DirSync (舊伺服器)
+## Nächste Schritte
+Nachdem Sie Azure AD Connect installiert haben können Sie [Überprüfen Sie die Installation und Zuweisen von Lizenzen](active-directory-aadconnect-whats-next.md).
 
-- 從 [新增或移除程式] 中，尋找 [Windows Azure Active Directory 同步作業工具]
-- 解除安裝 [Windows Azure Active Directory 同步作業工具]
+Erfahren Sie mehr über [Integrieren Ihrer lokalen Identitäten in Azure Active Directory](active-directory-aadconnect.md).
 
-### 開啟 Azure AD Connect (新伺服器)
-安裝之後，重新開啟 Azure AD Connect 時會提供您的組態體驗。開啟 Azure AD Connect。
 
-您應該會看見下列內容：
-
-![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AdditionalTasks.png)
-
-* 選取 [設定預備模式]
-    * 使用匯出的設定自動從 DirSync 升級時，會讓 Azure AD Connect 進入預備模式。預備模式基本上表示將在 Azure AD Connect 內進行同步處理，但是變更將不會匯出至 Azure AD 或 AD。
-* 取消核取 [啟用預備模式] 核取方塊，即會關閉預備。
-
-![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/configurestaging.png)
-
-* 按一下 [安裝] 按鈕
-
-恭喜，您已使用平行部署順利移轉至 Azure AD Connect。
-
-## Azure AD Connect 支援元件
-
-下列是每個必要條件和支援元件的清單，而 Azure AD Connect 將這些必要條件和支援元件安裝於在其上設定 Azure AD Connect 的伺服器。此清單適用於基本快速安裝。如果您選擇在 [安裝同步處理服務] 頁面上使用不同的 SQL Server，則不會安裝下面所列的 SQL Server 2012 元件。
-
-- Forefront Identity Manager Azure Active Directory Connector
-- Microsoft SQL Server 2012 命令列公用程式
-- Microsoft SQL Server 2012 Native Client
-- Microsoft SQL Server 2012 Express LocalDB
-- Azure Active Directory Module for Windows PowerShell
-- Microsoft Online Services Sign-In Assistant for IT Professionals
-- Microsoft Visual C++ 2013 Redistribution Package
-
-
-**其他資源**
-
-* [在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
-* [Azure AD Connect 運作方式](active-directory-aadconnect-how-it-works.md)
-* [使用 Azure AD Connect 的下一步](active-directory-aadconnect-whats-next.md)
-* [深入了解](active-directory-aadconnect-learn-more.md)
-* [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
- 
-
-<!---HONumber=62-->

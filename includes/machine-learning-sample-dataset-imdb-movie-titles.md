@@ -1,0 +1,2 @@
+Das DataSet enthält Informationen über Filme, die in Tweets auf Twitter bewertet wurden: Film-ID in der IMDB, Filmname und Genre, Produktionsjahr. Das DataSet enthält 17.000 Filme. Das Dataset wurde in dem Dokument "S. eingeführt. Dooms, T. De Pessemier und L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013“ eingeführt.
+

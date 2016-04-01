@@ -1,0 +1,2 @@
+>[AZURE.IMPORTANT]Bevor Sie mit Azure-Ressourcen arbeiten, es ist wichtig, zu verstehen, dass Azure derzeit zwei Bereitstellungsmodelle hat: Ressourcen-Manager und Classic. Stellen Sie sicher, dass Sie verstehen, [Bereitstellungsmodelle und Tools](azure-classic-rm.md) vor dem Arbeiten mit Azure-Ressourcen. Zum Anzeigen der Dokumentation für verschiedene Tools klicken Sie auf die Registerkarten oben in diesem Artikel.
+

@@ -1,239 +1,238 @@
-<properties 
-	pageTitle="什麼是 Azure 的自助式註冊？" 
-	description="Azure 的自助式註冊、如何管理註冊程序及其作法的概觀。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+    pageTitle="Was ist die Self-Service-Registrierung für Azure? | Microsoft Azure"
+    description="Eine Übersicht über die Self-Service-Registrierung für Azure und die Verwaltung des Registrierungsprozesses."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="identity" 
-	ms.date="05/13/2015" 
-	ms.author="Justinha"/>
+<tags
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="09/21/2015"
+    ms.author="stevenpo"/>
 
 
-# 什麼是 Azure 的自助式註冊？
+# Was ist die Self-Service-Registrierung für Azure?
 
-本主題說明自助式註冊程序 (有時稱為爆紅註冊)，以及如何接管 DNS 網域名稱。
+In diesem Thema wird der Self-Service-Registrierungsvorgang und das Übernehmen eines DNS-Domänennamens erläutert.  
 
-## 為何使用自助式註冊？
+## Gründe für das Verwenden der Self-Service-Registrierung
 
-- 讓客戶更快取得他們想要的服務。
-- 建立服務的電子郵件型 (爆紅) 供應項目。
-- 建立以電子郵件為基礎的註冊流程，讓使用者使用其易記的工作電子郵件別名快速地建立身分識別。
-- 未受管理的 Azure 租用戶可以成長而成為受管理的租用戶，並重複用於其他服務。 
+- Kunden erhalten schneller die gewünschten Dienste.
+- E-Mail-basierte Angebote für einen Dienst lassen sich rasch erstellen.
+- E-Mail-basierte Registrierungsabläufe lassen sich schnell erstellen, um Benutzern das Erstellen von Identitäten mithilfe ihrer einfach zu merkenden geschäftlichen E-Mail-Aliase zu ermöglichen.
+- Nicht verwaltete Azure-Mandanten können wachsen und später verwaltete Mandanten werden und für andere Dienste wiederverwendet werden.
 
-## 詞彙和定義
+## Begriffe und Definitionen
 
-+ **自助式註冊**：這是使用者用以註冊雲端服務的方法，系統會根據其電子郵件網域在 Azure Active Directory 中自動建立身分識別。 
-+ **未受管理的 Azure 租用戶**： 這是該身分識別建立所在的目錄。未受管理的租用戶是沒有全域管理員的目錄。 
-+ **電子郵件驗證的使用者**：這是 Azure AD 中的使用者帳戶類型。在註冊自助式供應項目後自動建立身分識別的使用者，就是所謂的電子郵件驗證的使用者。電子郵件驗證的使用者是加上 creationmethod=EmailVerified 標記之目錄的一般成員。
++ **Self-service-Registrierung**: Dies ist die Methode, mit dem ein Benutzer für einen Clouddienst angemeldet, und verfügt über eine Identität, die automatisch für sie erstellt in Azure Active Directory (AD) basierend auf ihrer e-Mail-Domäne.
++ **Nicht verwaltete Azure-Mandanten**: Dies ist das Verzeichnis, in dem diese Identität erstellt wird. Ein nicht verwalteter Mandant ist ein Verzeichnis ohne globalen Administrator.
++ **E-Mail verifizierter Benutzer**: Dies ist ein Typ von Benutzerkonto in Azure AD. Ein Benutzer, für den nach der Registrierung für ein Self-Service-Angebot automatisch eine Identität erstellt wird, wird als über E-Mail verifizierter Benutzer bezeichnet. Ein über E-Mail verifizierter Benutzer ist ein normales Mitglied eines Verzeichnisses mit der Kennzeichnung "creationmethod=EmailVerified".
 
-## 客戶體驗
+## Benutzererfahrung
 
-### 使用者體驗
+Zum Beispiel nehmen wir an, dass ein Benutzer, dessen e-Mail-Adresse Dan@BellowsCollege.com vertrauliche Dateien per e-Mail empfangen. Die Dateien wurden durch Azure Rights Management (Azure RMS) geschützt. Doch die Organisation von Dan, das Bellows College, hat sich nicht für Azure RMS registriert und auch nicht Active Directory RMS bereitgestellt. In diesem Fall kann Dan sich für ein kostenloses Abonnement für RMS für Einzelpersonen registrieren, um die geschützten Dateien lesen zu können.
 
-例如，假設電子郵件為 Dan@BellowsCollege.com 的使用者會透過電子郵件接收機密檔案。檔案已受 Azure 版權管理 (Azure RMS) 保護。但是 Dan 的組織 (Bellows College) 尚未註冊 Azure RMS，也未部署 Active Directory RMS。在此情況下，Dan 可以註冊個人版 RMS 的免費訂閱，以便讀取受保護的檔案。
+Wenn Dan der erste Benutzer mit einer E-Mail-Adresse von "BellowsCollege.com" ist, der sich für dieses Self-Service-Angebot registriert, wird in Azure AD ein nicht verwalteter Mandant für "BellowsCollege.com" erstellt. Wenn sich andere Benutzer aus der Domäne "BellowsCollege.com" für dieses Angebot oder ein ähnliches Self-Service-Angebot registrieren, haben sie über E-Mail verifizierte Benutzerkonten, die im gleichen nicht verwalteten Mandanten in Azure erstellt wurden.
 
-如果 Dan 是第一個使用 BellowsCollege.com 的電子郵件地址註冊此自助式供應項目的使用者，則會在 Azure AD 中針對 BellowsCollege.com 建立未受管理的租用戶。如果來自 BellowsCollege.com 網域的其他使用者註冊此提供項目或類似的自助式供應項目，他們也會有在 Azure 中相同的未受管理租用戶中建立的電子郵件驗證的使用者帳戶。
+## Administratorerfahrung
 
-### 管理員體驗
+Ein Administrator, der Besitzer des DNS-Domänennamens eines nicht verwalteten Azure-Mandanten ist, kann den Mandanten nach dem Nachweis des Besitzes übernehmen oder zusammenführen. In den nächsten Abschnitten wird die Administratorerfahrung im Detail erläutert. Hier zunächst eine Zusammenfassung:
 
-擁有未受管理 Azure 租用戶之 DNS 網域名稱的管理員，可以在證明擁有權後接管或合併租用戶。下一節會更詳細地說明管理員體驗，但其摘要如下：
+- Wenn Sie einen nicht verwalteten Azure-Mandanten übernehmen, werden Sie zum globalen Administrator des nicht verwalteten Mandanten. Dies wird mitunter als interne Übernahme bezeichnet.
+- Wenn Sie einen nicht verwalteten Azure-Mandanten zusammenführen, fügen Sie den DNS-Domänennamen des nicht verwalteten Mandanten Ihrem verwalteten Azure-Mandanten hinzu. Eine Zuordnung von Benutzern zu Ressourcen wird erstellt, damit Benutzer weiterhin ohne Unterbrechung auf Dienste zugreifen können. Dies wird mitunter als externe Übernahme bezeichnet.
 
-- 當您接管未受管理的 Azure 租用戶時，您只會變成未受管理租用戶的全域管理員。這有時候稱為內部接管。 
-- 當您合併未受管理的 Azure 租用戶時，您會將未受管理租用戶的 DNS 網域名稱新增至受管理的 Azure 租用戶，而且會建立使用者與資源的對應，以便使用者繼續存取服務而不中斷。這有時候稱為外部接管。 
+## Was wird in Azure Active Directory erstellt?
 
-### Microsoft Azure 目錄中會建立什麼？
+#### Mandant
 
-#### 租用戶
+- Für die Domäne wird ein Azure Active Directory-Mandant erstellt, ein Mandant pro Domäne.
+- Das Azure AD-Mandantenverzeichnis hat keinen globalen Administrator.
 
-- 針對網域建立 Azure 租用戶 (每個網域一個租用戶)。
-- Azure 租用戶目錄沒有全域管理員。
+#### Benutzer
 
-#### 使用者
+- Für jeden Benutzer, der sich registriert, wird ein Benutzerobjekt im Azure AD-Mandanten erstellt.
+- Jedes Benutzerobjekt wird als "viral" markiert.
+- Jeder Benutzer erhält Zugriff auf den Dienst, für den er sich registriert hat.
 
-- 針對註冊的每位使用者，在 Azure 租用戶中建立使用者物件。
-- 每個使用者物件都會標示為爆紅。
-- 每一位使用者都可以存取他們所註冊的服務。
+### Wie beanspruche ich einen Self-Service-Azure AD-Mandanten für eine Domäne, die ich besitze?
 
-### 如何針對我擁有的網域宣告自助式 Azure 租用戶？
+Sie können einen Self-Service-Azure AD-Mandanten beanspruchen, indem Sie eine Domänenüberprüfung ausführen. Die Domänenüberprüfung weist nach, dass Sie die Domäne besitzen, indem DNS-Einträge erstellt werden.
 
-您可藉由執行網域驗證來宣告自助式 Azure 租用戶。網域驗證會藉由建立 DNS 記錄來證明您擁有該網域。
+Für eine DNS-Übernahme eines Azure AD-Mandanten gibt es zwei Möglichkeiten:
 
-有兩種方式可進行 Azure 租用戶的 DNS 接管：
+- interne Übernahme (der Administrator ermittelt einen nicht verwalteten Azure-Mandanten, den er in einen verwalteten Mandanten umwandeln möchte)
+- externe Übernahme (der Administrator versucht, seinem verwalteten Azure-Mandanten eine neue Domäne hinzufügen)
 
-- 內部接管 (管理員會探索未受管理的 Azure 租用戶，並且想要轉換成受管理的租用戶)
-- 外部接管 (管理員會嘗試將新的網域新增至其受管理的 Azure 租用戶)
+Möglicherweise möchten Sie überprüfen, ob Sie eine Domäne besitzen, da Sie einen nicht verwalteten Mandanten übernehmen, nachdem ein Benutzer eine Self-Service-Registrierung ausgeführt hat. Oder Sie möchten einem vorhandenen verwalteten Mandanten eine neue Domäne hinzufügen. Angenommen, Sie haben die Domäne "contoso.com" und möchten eine neue Domäne mit dem Namen "contoso.co.uk" oder "contoso.uk" hinzufügen.
 
-您可能會想要驗證您擁有的網域，因為您在使用者執行自助式註冊後接管未受管理的租用戶，或您可能在將新網域加入至現有的受管理租用戶。例如，您擁有名為 contoso.com 的網域，而您想要加入名為 contoso.co.uk 或 contoso.uk 的新網域。
+## Was bedeutet Domänenübernahme?  
 
-## 什麼是網域接管？  
+In diesem Abschnitt wird beschrieben, wie Sie bestätigen, dass Sie eine Domäne besitzen.
 
-本節說明如何驗證您擁有的網域。
+### Was ist die Domänenüberprüfung, und warum wird sie verwendet?
 
-### 什麼是網域驗證，以及為何使用？
+Zum Anwenden von Vorgängen auf einen Mandanten fordert Azure AD an, dass Sie den Besitz der DNS-Domäne überprüfen.  Die Überprüfung der Domäne ermöglicht Ihnen, den Mandanten zu beanspruchen und entweder den Self-Service-Mandanten zu einem verwalteten Mandanten hochzustufen oder den Self-Service-Mandanten mit einem vorhandenen verwalteten Mandanten zusammenführen.
 
-為了在租用戶上執行作業，Azure AD 會要求您驗證 DNS 網域的擁有權。網域驗證可讓您宣告租用戶，將自助式租用戶提升為受管理的租用戶，或將自助式租用戶合併到現有受管理的租用戶中。
+## Beispiele für die Domänenüberprüfung
 
-## 網域驗證範例
+Für eine DNS-Übernahme eines Mandanten gibt es zwei Möglichkeiten:
 
-有兩種方式可進行租用戶的 DNS 接管：
++ interne Übernahme (z. B. ein Administrator einen Self-service nicht verwalteten Mandanten ermittelt und in verwalteten Mandanten umwandeln möchte)
++ externe Übernahme (der Administrator versucht beispielsweise, einem verwalteten Mandanten eine neue Domäne hinzufügen)
 
-+ 內部接管 (例如，管理員會探索未受管理的自助式租用戶，並且想要轉換成受管理的租用戶)
-+ 外部接管 (例如，管理員會嘗試將新的網域新增至受管理的租用戶)
+### Interne Übernahme – Hochstufen eines nicht verwalteten Self-Service-Mandanten zu einem verwalteten Mandanten
 
-### 內部接管 - 將未受管理的自助式租用戶提升為受管理的租用戶
+Bei einer internen Übernahme wird der Mandant von einem nicht verwalteten Mandanten in einen verwalteten Mandanten umgewandelt. Sie müssen eine Überprüfung des DNS-Domänennamens ausführen, bei der Sie einen MX-Eintrag oder TXT-Eintrag in der DNS-Zone erstellen. Diese Aktion bewirkt Folgendes:
 
-當您執行內部接管時，租用戶會從未受管理的租用戶轉換為受管理的租用戶。您需要完成 DNS 網域名稱驗證，驗證時您會在 DNS 區域中建立 MX 記錄或 TXT 記錄。該動作：
++ Überprüft, ob Sie die Domäne besitzen
++ Macht den Mandanten zum verwalteten Mandanten
++ Macht Sie zum globalen Administrator des Mandanten
 
-+ 驗證您是否擁有此網域
-+ 讓租用戶成為受管理的租用戶
-+ 讓您成為租用戶的全域管理員
+Angenommen, ein IT-Administrator am Bellows College ermittelt, dass Benutzer in der Hochschule sich für Self-Service-Angebote registriert haben. Als registrierter Besitzer des DNS-Namens "BellowsCollege.com" kann der IT-Administrator den Besitz des DNS-Namens in Azure überprüfen und dann den nicht verwalteten Mandanten übernehmen. Der Mandant wird dann zu einem verwalteten Mandanten, und dem IT-Administrator wird für das Verzeichnis "BellowsCollege.com" die globale Administratorrolle zugewiesen.
 
-假設 Bellows College 的 IT 管理員發現學校的使用者已註冊自助式供應項目。身為 DNS 名稱 BellowsCollege.com 的註冊擁有者，IT 管理員可以在 Azure 中驗證 DNS 名稱的擁有權，然後接管未受管理的租用戶。租用戶接著會變成受管理的租用戶，而 IT 管理員會被指派 BellowsCollege.com 目錄的全域管理員角色。
+### Externe Übernahme – Zusammenführen eines Self-Service-Mandanten mit einem verwalteten Mandanten
 
-### 外部接款 - 將自助式租用戶合併到現有的受管理租用戶中
+Bei einer externen Übernahme verfügen Sie bereits über einen verwaltete Mandanten und möchten, dass alle Benutzer und Gruppen in einem nicht verwalteten Mandanten diesem verwalteten Mandanten beitreten, anstatt zwei separate Mandanten einzurichten.
 
-在外部接管中，您已有受管理的租用戶，而您希望來自未受管理租用戶的所有使用者和群組都能加入該受管理的租用戶，而非擁有兩個個別的租用戶。
+Als Administrator eines verwalteten Mandanten fügen Sie eine Domäne hinzu, und dieser Domäne ist zufällig ein nicht verwalteter Mandant zugeordnet.
 
-身為受管理租用戶的管理員，您會新增網域，而該網域剛好有與其相關聯的未受管理租用戶。
-	
-例如，假設您是 IT 管理員，而且已有 Contoso.com (貴組織註冊的網域名稱) 的受管理租用戶。您會發現貴組織的使用者已使用電子郵件網域名稱 user@contoso.co.uk (這是貴組織擁有的另一個網域名稱) 執行供應項目的自助式服務。這些使用者目前在 contoso.co.uk 的未受管理租用戶中有帳戶。
+Angenommen, Sie sind IT-Administrator und verfügen bereits über einen verwalteten Mandanten für "Contoso.com", einen Domänennamen, der für Ihre Organisation registriert ist. Sie ermitteln, die Benutzer in Ihrer Organisation Self-Service einrichten durchgeführt haben für ein Angebot mit e-Mail-Domäne namens user@contoso.co.uk, einem anderen Domänennamen handelt, der im Besitz der Organisation. Diese Benutzer haben derzeit Konten in einem nicht verwalteten Mandanten für "contoso.co.uk".
 
-您不想管理兩個不同的租用戶，所以將 contoso.co.uk 的未受管理租用戶合併到 contoso.com 現有的 IT 受管理租用戶。
-	
-外部接管會遵循與內部接管相同的 DNS 驗證程序。差異是：使用者和服務會重新對應至 IT 受管理的租用戶。
-	
-#### 執行外部接管的影響為何？
+Sie möchten nicht zwei separate Mandanten verwalten, weshalb Sie den nicht verwalteten Mandanten für "contoso.co.uk" mit Ihrem vorhandenen von der IT-Abteilung verwalteten Mandanten für "contoso.com" zusammenführen.
 
-外部接管時會建立使用者與資源的對應，以便使用者繼續存取服務而不中斷。許多應用程式 (包括個人的 RMS) 會妥善處理使用者與資源的對應，而使用者不需變更即可繼續存取這些服務。如果應用程式未有效地處理使用者與資源的對應，外部接管可能會明確遭到封鎖，以免使用者發生不佳的體驗。
+Bei der externen Übernahme erfolgt der gleiche DNS-Überprüfungsprozess wie bei der internen Übernahme.  Der Unterschied ist, dass Benutzer und Dienste dem von der IT verwalteten Mandanten neu zugeordnet werden.
 
-#### 服務的租用戶接管支援
+#### Was sind die Auswirkungen einer externen Übernahme?
 
-目前下列服務支援接管：
+Mit einer externen Übernahme erfolgt eine Zuordnung von Benutzern zu Ressourcen, damit Benutzer weiter ohne Unterbrechung auf Dienste zugreifen können. Viele Anwendungen, einschließlich RMS für Einzelpersonen, führen die Zuordnung von Benutzern zu Ressourcen ordnungsgemäß durch, sodass Benutzer ohne Änderungen weiterhin Zugriff auf diese Dienste haben. Wenn eine Anwendung die Zuordnung von Benutzern zu Ressourcen nicht effizient durchführt, kann die externe Übernahme explizit blockiert werden, um eine schlechte Benutzererfahrung zu verhindern.
+
+#### Dienste mit Unterstützung der Mandantenübernahme
+
+Derzeit unterstützen die folgenden Dienste die Übernahme:
 
 - RMS
 
 
-下列服務很快就會支援接管：
+Die folgenden Dienste werden die Übernahme in Kürze unterstützen:
 
 - PowerBI
 
-在外部接管之後，下列項目不需要管理員採取行動來移轉使用者資料。
+Die folgenden Dienste unterstützen die Übernahme nicht und erfordern zusätzliche Administratoraktionen für die Migration von Benutzerdaten nach einer externen Übernahme.
 
 - SharePoint/OneDrive
 
 
-## 如何執行 DNS 網域名稱接管
+## Ausführen der Übernahme eines DNS-Domänennamens
 
-您有幾個選項可用來執行網域驗證 (如果您想要，可執行接管)：
+Sie haben verschiedene Möglichkeiten zum Ausführen einer Domänenüberprüfung (und einer Übernahme, falls gewünscht):
 
-1.  Azure 管理入口網站
+1.  Azure-Verwaltungsportal
 
-	接管是由執行網域新增所觸發。如果網域已存在租用戶，您將會有執行外部接管的選項。
+    Eine Übernahme wird ausgelöst, indem Sie eine Domäne hinzufügen.  Wenn für die Domäne bereits ein Mandant vorhanden ist, können Sie eine externe Übernahme durchführen.
 
-	使用您的認證登入 Azure 入口網站。瀏覽至現有的租用戶，然後瀏覽至 [**新增網域**]。
+    Melden Sie sich mit Ihren Anmeldedaten am Azure-Portal an.  Navigieren Sie zu Ihrem vorhandenen Mandanten, und klicken Sie dann auf **Domäne hinzufügen**.
 
 2.  Office 365
 
-	您可以在 Office 365 中使用[管理網域](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/)頁面上的選項來處理您的網域和 DNS 記錄。請參閱[在 Office 365 中驗證您的網域](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/)。
+    Sie können die Optionen auf der [Verwalten von Domänen](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) Seite in Office 365, um die Arbeit mit Ihren Domänen und DNS-Einträgen. Finden Sie unter [Überprüfen Sie Ihre Domäne in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/).
 
 3.  Windows PowerShell
 
-	下列步驟是使用 Windows PowerShell 執行驗證的必要步驟。
+    Die folgenden Schritte sind für die Validierung mithilfe von Windows PowerShell erforderlich.
 
-	步驟 |	要使用的 Cmdlet
-	-------	| -------------
-	建立認證物件 | Get-Credential
-	連接至 Azure AD | Connect-MsolService
-	取得網域清單 | Get-MsolDomain
-	建立挑戰 | Get-MsolDomainVerificationDns
-	建立 DNS 記錄 | 在您的 DNS 伺服器上執行這項操作
-	驗證挑戰 | Confirm-MsolEmailVerifiedDomain
+    Schritt    |   Zu verwendendes Cmdlet
+    ------- | -------------
+    Erstellen eines Objekts mit Anmeldeinformationen | Get-Credential
+    Herstellen einer Verbindung mit Azure AD | Connect-MsolService
+    Abrufen einer Liste von Domänen   | Get-MsolDomain
+    Erstellen einer Abfrage  | Get-MsolDomainVerificationDns
+    Erstellen eines DNS-Eintrags   | Erfolgt auf Ihrem DNS-Server
+    Überprüfen der Abfrage    | Confirm-MsolEmailVerifiedDomain
 
-例如：
+Beispiel:
 
-1. 使用用來回應自助式供應項目的認證來連接至 Azure AD：import-module MSOnline $msolcred = get-credential connect-msolservice -credential $msolcred
-		
-2. 取得網域清單：
+1. Verbinden Sie mit Azure AD mit den Anmeldeinformationen, die verwendet wurden, um auf das Self-service-Angebot zu reagieren:
+        Import-Module MSOnline
+        $msolcred = Get-Credential
+        Connect-Msolservice-credential $msolcred
 
-	Get-MsolDomain
+2. Rufen Sie eine Liste von Domänen ab:
 
-3. 然後執行 Get-MsolDomainVerificationDns Cmdlet 來建立挑戰：
+    Get-MsolDomain
 
-	Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+3. Führen Sie dann das Cmdlet "Get-MsolDomainVerificationDns" aus, um eine Abfrage zu erstellen:
 
-	例如：
+    Get-MsolDomainVerificationDns – DomainName *name_ihrer_domäne* – Mode DnsTxtRecord
 
-	Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+    Beispiel:
 
-4. 複製從此命令傳回的值 (挑戰)。
+    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
 
-	例如：
+4. Kopieren Sie den Wert (die Abfrage), der von diesem Befehl zurückgegeben wird.
 
-	MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+    Beispiel:
 
-5. 在公用 DNS 命名空間中，建立 DNS txt 記錄，其中包含您在上一個步驟中複製的值。
+    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
 
-	此記錄的名稱是父系網域的名稱，所以如果您使用 Windows Server 的 DNS 角色建立此資源記錄，請將記錄名稱空白，只要將此值貼入文字方塊即可。
+5. Erstellen Sie in Ihrem öffentlichen DNS-Namespace einen "DnsTxt"-Eintrag, der den Wert enthält, den Sie im vorherigen Schritt kopiert haben.
 
-6. 執行 onfirm-MsolDomain Cmdlet 來驗證挑戰：
+    Der Name für diesen Eintrag ist der Name der übergeordneten Domäne. Wenn Sie also diesen Ressourceneintrag mithilfe der DNS-Rolle von Windows Server erstellen, sollten Sie den Eintragsnamen leer lassen und bloß den Wert in das Textfeld kopieren.
 
-	Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+6. Führen Sie das Cmdlet "Confirm-MsolDomain" aus, um die Abfrage zu überprüfen:
 
-	例如：
+    Confirm-MsolEmailVerifiedDomain-domainname *name_ihrer_domäne*
 
-	Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+    Beispiel:
 
-成功挑戰會讓您回到提示，但不會產生錯誤。
+    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
 
-## 如何控制自助式設定？
+Bei einer erfolgreichen Abfrage kehren Sie ohne Fehler zur Eingabeaufforderung zurück.
 
-系統管理員目前有兩個自助式控制項。可以控制：
+## Wie steuere ich Self-Service-Einstellungen?
 
-- 使用者是否可以透過電子郵件加入租用戶。
-- 使用者是否可以自行授權應用程式和服務。
+Administratoren stehen derzeit zwei Self-Service-Steuerungsmöglichkeiten zur Verfügung. Sie können steuern:
 
-
-### 如何控制這些功能？
-
-系統管理員可以使用下列 Azure AD Cmdlet Set-MsolCompanySettings 參數設定這些功能：
-
-+ **AllowEmailVerifiedUsers** 控制使用者是否可以建立或加入未受管理的租用戶。如果您將該參數設定為 $false，則沒有任何電子郵件驗證的使用者可以加入租用戶。 
-+ **AllowAdHocSubscriptions** 控制使用者執行自助式註冊的能力。如果您將該參數為 $false，則沒有任何使用者可以執行自助式註冊。 
+- Ob Benutzer dem Mandanten per E-Mail beitreten können.
+- Ob Benutzer sich selbst für Anwendungen und Dienste lizenzieren können.
 
 
-### 這些控制項如何一起運作？
+### Wie können diese Funktionen gesteuert werden?
 
-這兩個參數可合併使用，以定義更精確的自助式註冊控制項。例如，下列命令可讓使用者執行自助式註冊，但僅限於在 Azure AD 中已有帳戶的使用者 (換句話說，需要建立電子郵件驗證帳戶的使用者無法執行自助式註冊)：
+Ein Administrator kann diese Funktionen mit den Parametern des Azure AD-Cmdlets "Set-MsolCompanySettings" konfigurieren:
 
-	Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
++ **AllowEmailVerifiedUsers** steuert, ob ein Benutzer erstellen oder einen nicht verwalteten Mandanten beitreten kann. Wenn Sie diesen Parameter auf "$false" festlegen, können keine über E-Mail verifizierten Benutzer dem Mandanten beitreten.
++ **AllowAdHocSubscriptions** steuert, ob Benutzern das Self-service-Registrierung ausführen. Wenn Sie diesen Parameter auf "$false" festlegen, können Benutzer keine Self-Service-Registrierung ausführen.
 
-下列流程圖說明這些參數的各種不同組合以及租用戶和自助式註冊產生的條件。
+
+### Wie funktionieren diese Steuerungsmöglichkeiten zusammen?
+
+Diese beiden Parameter können zusammen verwendet werden, um eine genauere Steuerung der Self-Service-Registrierung zu erreichen. Der folgende Befehl erlaubt Benutzern beispielsweise die Self-Service-Registrierung, jedoch nur, wenn die Benutzer bereits über ein Konto in Azure AD verfügen (d. h. dass Benutzer, für die ein über E-Mail verifiziertes Konto erstellt werden müsste, die Self-Service-Registrierung nicht erlaubt ist):
+
+    Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
+
+Im folgenden Flussdiagramm werden der verschiedenen Kombinationen für diese Parameter und die resultierenden Bedingungen für den Mandanten und die Self-Service-Registrierung erläutert.
 
 ![][1]
 
-如需如何使用這些參數的詳細資訊和相關範，請參閱 [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)。
+Weitere Informationen und Beispiele zum Verwenden dieser Parameter finden Sie unter [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
 
-## 另請參閱
+## Siehe auch
 
--  [如何安裝和設定 Azure PowerShell](../powershell-install-configure/)
+-  [Installieren und Konfigurieren von Azure PowerShell](../powershell-install-configure/)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
--  [Azure Cmdlet 參考](https://msdn.microsoft.com/library/azure/jj554330.aspx)
+-  [Azure-Cmdlet-Referenz](https://msdn.microsoft.com/library/azure/jj554330.aspx)
 
 -  [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
- 
 
-<!---HONumber=62-->

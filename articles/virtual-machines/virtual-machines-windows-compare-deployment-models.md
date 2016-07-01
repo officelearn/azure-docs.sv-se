@@ -1,0 +1,30 @@
+<properties
+   pageTitle="Compute-, Network- och Storage-providers | Microsoft Azure"
+   description="Konceptuell översikt över Compute-, Network- och Storage-resursproviders (CRP, NRP och SRP) för Windows-program i Azure Resource Manager-distributionsmodellen"
+   services="virtual-machines-windows"
+   documentationCenter=""
+   authors="mahthi"
+   manager="timlt"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
+
+<tags
+   ms.service="virtual-machines-windows"
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="vm-windows"
+   ms.workload="infrastructure-services"
+   ms.date="04/29/2015"
+   ms.author="mahthi"/>
+
+# Azures Compute-, Network- och Storage-providers för Windows-program med Azure Resource Manager-distributionsmodellen
+
+Implementeringen av Compute-, Network- och Storage-funktioner med Azure Resource Manager-distributionsmodellen förenklar kraftigt distributionen och hanteringen av komplexa program som körs med IaaS. Många program kräver en kombination av resurser, inklusive ett virtuellt nätverk, Storage-konto, en virtuell dator och ett nätverksgränssnitt. Azure Resource Manager-distributionsmodellen ger dig möjlighet att skapa en JSON-mall för att distribuera och hantera de här resurserna tillsammans som ett enda program.
+
+[AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

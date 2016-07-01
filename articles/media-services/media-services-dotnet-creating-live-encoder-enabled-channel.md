@@ -1,0 +1,537 @@
+<properties 
+    pageTitle="Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET" 
+    description="Den här självstudien visar dig stegen för att skapa en kanal som tar emot en direktsänd dataström med enkel bithastighet och kodar den till en dataström med multibithastighet med hjälp av .NET SDK." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako,anilmur" 
+    manager="erikre" 
+    editor=""/>
+
+<tags 
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article"
+    ms.date="05/05/2016"
+    ms.author="juliako"/>
+
+
+#Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST-API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+
+>[AZURE.NOTE]
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+
+##Översikt
+
+Den här självstudien visar dig stegen för att skapa en **kanal** som tar emot en  direktsänd dataström med enkel bithastighet och kodar den till en dataström med multibithastighet.
+
+Mer konceptinformation relaterad till kanaler som är aktiverade för Live Encoding finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
+
+
+##Vanligt scenario för direktsänd strömning
+
+Följande steg beskriver uppgifter som ingår i att skapa vanliga program för direktsänd strömning.
+
+>[AZURE.NOTE] Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under längre tidsperioder.
+
+1. Anslut en videokamera till en dator. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP, Smooth Streaming eller RTP (MPEG TS). Mer information finns i [Support och livekodare för Azure Media Services RTMP](http://go.microsoft.com/fwlink/?LinkId=532824).
+
+    Det här steget kan också utföras när du har skapat din kanal.
+
+1. Skapa och starta en kanal.
+
+1. Hämta kanalens infognings-URL.
+
+    Infognings-URL:en används av livekodaren för att skicka dataströmmen till kanalen.
+
+1. Hämta kanalens förhandsgransknings-URL.
+
+    Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
+
+2. Skapa en tillgång.
+3. Om du vill att tillgången ska vara dynamiskt krypterad under uppspelningen gör du följande:
+1. Skapa en innehållsnyckel.
+1. Konfigurera en auktoriseringsprincip  för innehållsnyckeln.
+1. Konfigurera en princip för tillgångsleveranser (används av dynamisk paketering och dynamisk kryptering).
+3. Skapa ett program och ange att den tillgång som du skapade ska användas.
+1. Publicera tillgången som är associerad till programmet genom att skapa en OnDemand-positionerare.
+
+    Se till att ha minst en reserverad enhet för strömning på den strömningsslutpunkt från vilken du vill strömma innehåll.
+
+1. Starta programmet när du är redo att påbörja strömning och arkivering.
+2. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
+1. Stoppa programmet när du vill stoppa strömningen och arkiveringen av händelsen.
+1. Ta bort programmet (och ta eventuellt bort tillgången).
+
+## Detta får du får lära dig
+
+I det här avsnittet visas hur du utför olika åtgärder i kanaler och program med hjälp av Media Services .NET SDK. Eftersom många åtgärder är långvariga används .NET-API:er som hanterar långvariga åtgärder.
+
+I avsnittet visas hur du gör följande:
+
+1. Skapa och starta en kanal. Långvariga API:er används.
+1. Hämta kanalernas infogningsslutpunkter (indata). Den här slutpunkten ska tillhandahållas till den kodare som kan skicka en direktsänd dataström med enkel bithastighet.
+1. Hämta förhandsgranskningsslutpunkten. Den här slutpunkten används för att förhandsgranska dataströmmen.
+1. Skapa en tillgång som ska användas för att lagra innehållet. Principerna för tillgångsleverans ska också konfigureras, så som visas i det här exemplet.
+1. Skapa ett program och ange att den tillgång som du skapade tidigare ska användas. Starta programmet. Långvariga API:er används.
+1. Skapa en positionerare för tillgången, så att innehållet publiceras och kan strömmas till dina klienter.
+1. Visa eller dölj pekdatorer. Starta och stoppa annonser. Långvariga API:er används.
+1. Rensa din kanal och alla associerade resurser.
+
+
+##Krav
+
+Följande krävs för att kunna genomföra självstudien.
+
+- Du behöver ett Azure-konto för att slutföra den här självstudien. 
+    
+    Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
+- Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-create-account.md).
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate eller Express) eller senare versioner.
+- Du måste använda Media Services .NET SDK version 3.2.0.0 eller senare.
+- En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
+
+##Överväganden
+
+- Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under längre tidsperioder.
+- Se till att ha minst en reserverad enhet för strömning på den strömningsslutpunkt från vilken du vill strömma innehåll.
+
+##Hämta exempel
+
+Hämta och kör ett exempel [här](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
+
+
+##Konfigurera för utveckling med Media Services SDK för .NET
+
+1. Skapa en konsoltillämpning med Visual Studio.
+1. Lägga till Media Services SDK för .NET i konsoltillämpning med Media Services NuGet-paketet.
+
+##Ansluta till Media Services
+Bästa praxis är att använda en app.config-fil för att lagra Media Services-namnet och kontonyckeln.
+
+>[AZURE.NOTE]Gå till den klassiska Azure-portalen för att söka efter namn och nyckel, välj Media Service-konto och klicka på ikonen ”HANTERA NYCKLAR” längst ned i portalfönstret. Klicka på ikonen bredvid varje textruta för att kopiera värdet till Urklipp.
+
+Lägg till avsnittet appSettings i filen app.config och ange Media Services-kontots namn och kontonyckel.
+
+
+    <?xml version="1.0"?>
+    <configuration>
+      <appSettings>
+          <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
+          <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
+      </appSettings>
+    </configuration>
+     
+    
+##Kodexempel
+
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.IO;
+    using System.Linq;
+    using System.Net;
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+    
+    namespace EncodeLiveStreamWithAmsClear
+    {
+        class Program
+        {
+            private const string ChannelName = "channel001";
+            private const string AssetlName = "asset001";
+            private const string ProgramlName = "program001";
+    
+            // Read values from the App.config file.
+            private static readonly string _mediaServicesAccountName =
+                ConfigurationManager.AppSettings["MediaServicesAccountName"];
+            private static readonly string _mediaServicesAccountKey =
+                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+    
+            // Field for service context.
+            private static CloudMediaContext _context = null;
+            private static MediaServicesCredentials _cachedCredentials = null;
+    
+    
+            static void Main(string[] args)
+            {
+                // Create and cache the Media Services credentials in a static class variable.
+                _cachedCredentials = new MediaServicesCredentials(
+                                _mediaServicesAccountName,
+                                _mediaServicesAccountKey);
+                // Used the cached credentials to create CloudMediaContext.
+                _context = new CloudMediaContext(_cachedCredentials);
+    
+                IChannel channel = CreateAndStartChannel();
+    
+                // The channel's input endpoint:
+                string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
+    
+                Console.WriteLine("Intest URL: {0}", ingestUrl);
+    
+    
+                // Use the previewEndpoint to preview and verify 
+                // that the input from the encoder is actually reaching the Channel. 
+                string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
+    
+                Console.WriteLine("Preview URL: {0}", previewEndpoint);
+    
+                // When Live Encoding is enabled, you can now get a preview of the live feed as it reaches the Channel. 
+                // This can be a valuable tool to check whether your live feed is actually reaching the Channel. 
+                // The thumbnail is exposed via the same end-point as the Channel Preview URL.
+                string thumbnailUri = new UriBuilder
+                {
+                    Scheme = Uri.UriSchemeHttps,
+                    Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
+                    Path = "thumbnails/input.jpg"
+                }.Uri.ToString();
+    
+                Console.WriteLine("Thumbain URL: {0}", thumbnailUri);
+    
+                // Once you previewed your stream and verified that it is flowing into your Channel, 
+                // you can create an event by creating an Asset, Program, and Streaming Locator. 
+                IAsset asset = CreateAndConfigureAsset();
+    
+                IProgram program = CreateAndStartProgram(channel, asset);
+    
+                ILocator locator = CreateLocatorForAsset(program.Asset, program.ArchiveWindowLength);
+    
+                // You can use slates and ads only if the channel type is Standard.  
+                StartStopAdsSlates(channel);
+    
+                // Once you are done streaming, clean up your resources.
+                Cleanup(channel);
+    
+            }
+    
+            public static IChannel CreateAndStartChannel()
+            {
+                var channelInput = CreateChannelInput();
+                var channePreview = CreateChannelPreview();
+                var channelEncoding = CreateChannelEncoding();
+    
+    
+                ChannelCreationOptions options = new ChannelCreationOptions
+                {
+                    EncodingType = ChannelEncodingType.Standard,
+                    Name = ChannelName,
+                    Input = channelInput,
+                    Preview = channePreview,
+                    Encoding = channelEncoding
+                };
+    
+                Log("Creating channel");
+                IOperation channelCreateOperation = _context.Channels.SendCreateOperation(options);
+                string channelId = TrackOperation(channelCreateOperation, "Channel create");
+    
+                IChannel channel = _context.Channels.Where(c => c.Id == channelId).FirstOrDefault();
+    
+                Log("Starting channel");
+                var channelStartOperation = channel.SendStartOperation();
+                TrackOperation(channelStartOperation, "Channel start");
+    
+                return channel;
+            }
+    
+            /// <summary>
+            /// Create channel input, used in channel creation options. 
+            /// </summary>
+            /// <returns></returns>
+            private static ChannelInput CreateChannelInput()
+            {
+                return new ChannelInput
+                {
+                    StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
+                    AccessControl = new ChannelAccessControl
+                    {
+                        IPAllowList = new List<IPRange>
+                        {
+                            new IPRange
+                            {
+                                Name = "TestChannelInput001",
+                                Address = IPAddress.Parse("0.0.0.0"),
+                                SubnetPrefixLength = 0
+                            }
+                        }
+                    }
+                };
+            }
+    
+            /// <summary>
+            /// Create channel preview, used in channel creation options. 
+            /// </summary>
+            /// <returns></returns>
+            private static ChannelPreview CreateChannelPreview()
+            {
+                return new ChannelPreview
+                {
+                    AccessControl = new ChannelAccessControl
+                    {
+                        IPAllowList = new List<IPRange>
+                        {
+                            new IPRange
+                            {
+                                Name = "TestChannelPreview001",
+                                Address = IPAddress.Parse("0.0.0.0"),
+                                SubnetPrefixLength = 0
+                            }
+                        }
+                    }
+                };
+            }
+    
+            /// <summary>
+            /// Create channel encoding, used in channel creation options. 
+            /// </summary>
+            /// <returns></returns>
+            private static ChannelEncoding CreateChannelEncoding()
+            {
+                return new ChannelEncoding
+                {
+                    SystemPreset = "Default720p",
+                    IgnoreCea708ClosedCaptions = false,
+                    AdMarkerSource = AdMarkerSource.Api,
+                    // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
+                    AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
+                };
+            }
+    
+            /// <summary>
+            /// Create an asset and configure asset delivery policies.
+            /// </summary>
+            /// <returns></returns>
+            public static IAsset CreateAndConfigureAsset()
+            {
+                IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
+    
+                IAssetDeliveryPolicy policy =
+                    _context.AssetDeliveryPolicies.Create("Clear Policy",
+                    AssetDeliveryPolicyType.NoDynamicEncryption,
+                    AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
+    
+                asset.DeliveryPolicies.Add(policy);
+    
+                return asset;
+            }
+    
+            /// <summary>
+            /// Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
+            /// however each Program must have a unique name within your Media Services account.
+            /// </summary>
+            /// <param name="channel"></param>
+            /// <param name="asset"></param>
+            /// <returns></returns>
+            public static IProgram CreateAndStartProgram(IChannel channel, IAsset asset)
+            {
+                IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
+                Log("Program created", program.Id);
+    
+                Log("Starting program");
+                var programStartOperation = program.SendStartOperation();
+                TrackOperation(programStartOperation, "Program start");
+    
+                return program;
+            }
+    
+            /// <summary>
+            /// Create locators in order to be able to publish and stream the video.
+            /// </summary>
+            /// <param name="asset"></param>
+            /// <param name="ArchiveWindowLength"></param>
+            /// <returns></returns>
+            public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
+            {
+                // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+                var locator = _context.Locators.CreateLocator
+                    (
+                        LocatorType.OnDemandOrigin,
+                        asset,
+                        _context.AccessPolicies.Create
+                            (
+                                "Live Stream Policy",
+                                ArchiveWindowLength,
+                                AccessPermissions.Read
+                            )
+                    );
+    
+                return locator;
+            }
+    
+            /// <summary>
+            /// Perform operations on slates.
+            /// </summary>
+            /// <param name="channel"></param>
+            public static void StartStopAdsSlates(IChannel channel)
+            {
+                int cueId = new Random().Next(int.MaxValue);
+                var path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\..\\SlateJPG\\DefaultAzurePortalSlate.jpg"));
+    
+                Log("Creating asset");
+                var slateAsset = _context.Assets.Create("Slate test asset " + DateTime.Now.ToString("yyyy-MM-dd HH-mm"), AssetCreationOptions.None);
+                Log("Slate asset created", slateAsset.Id);
+    
+                Log("Uploading file");
+                var assetFile = slateAsset.AssetFiles.Create("DefaultAzurePortalSlate.jpg");
+                assetFile.Upload(path);
+                assetFile.IsPrimary = true;
+                assetFile.Update();
+    
+                Log("Showing slate");
+                var showSlateOpeartion = channel.SendShowSlateOperation(TimeSpan.FromMinutes(1), slateAsset.Id);
+                TrackOperation(showSlateOpeartion, "Show slate");
+    
+                Log("Hiding slate");
+                var hideSlateOperation = channel.SendHideSlateOperation();
+                TrackOperation(hideSlateOperation, "Hide slate");
+    
+                Log("Starting ad");
+                var startAdOperation = channel.SendStartAdvertisementOperation(TimeSpan.FromMinutes(1), cueId, false);
+                TrackOperation(startAdOperation, "Start ad");
+    
+                Log("Ending ad");
+                var endAdOperation = channel.SendEndAdvertisementOperation(cueId);
+                TrackOperation(endAdOperation, "End ad");
+    
+                Log("Deleting slate asset");
+                slateAsset.Delete();
+            }
+    
+            /// <summary>
+            /// Clean up resources associated with the channel.
+            /// </summary>
+            /// <param name="channel"></param>
+            public static void Cleanup(IChannel channel)
+            {
+                IAsset asset;
+                if (channel != null)
+                {
+                    foreach (var program in channel.Programs)
+                    {
+                        asset = _context.Assets.Where(se => se.Id == program.AssetId)
+                                                .FirstOrDefault();
+    
+                        Log("Stopping program");
+                        var programStopOperation = program.SendStopOperation();
+                        TrackOperation(programStopOperation, "Program stop");
+    
+                        program.Delete();
+    
+                        if (asset != null)
+                        {
+                            Log("Deleting locators");
+                            foreach (var l in asset.Locators)
+                                l.Delete();
+    
+                            Log("Deleting asset");
+                            asset.Delete();
+                        }
+                    }
+    
+                    Log("Stopping channel");
+                    var channelStopOperation = channel.SendStopOperation();
+                    TrackOperation(channelStopOperation, "Channel stop");
+    
+                    Log("Deleting channel");
+                    var channelDeleteOperation = channel.SendDeleteOperation();
+                    TrackOperation(channelDeleteOperation, "Channel delete");
+                }
+            }
+    
+    
+            /// <summary>
+            /// Track long running operations.
+            /// </summary>
+            /// <param name="operation"></param>
+            /// <param name="description"></param>
+            /// <returns></returns>
+            public static string TrackOperation(IOperation operation, string description)
+            {
+                string entityId = null;
+                bool isCompleted = false;
+    
+                Log("starting to track ", null, operation.Id);
+                while (isCompleted == false)
+                {
+                    operation = _context.Operations.GetOperation(operation.Id);
+                    isCompleted = IsCompleted(operation, out entityId);
+                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
+                }
+                // If we got here, the operation succeeded.
+                Log(description + " in completed", operation.TargetEntityId, operation.Id);
+    
+                return entityId;
+            }
+    
+            /// <summary> 
+            /// Checks if the operation has been completed. 
+            /// If the operation succeeded, the created entity Id is returned in the out parameter.
+            /// </summary> 
+            /// <param name="operationId">The operation Id.</param> 
+            /// <param name="channel">
+            /// If the operation succeeded, 
+            /// the entity Id associated with the sucessful operation is returned in the out parameter.</param>
+            /// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
+            private static bool IsCompleted(IOperation operation, out string entityId)
+            {
+    
+                bool completed = false;
+    
+                entityId = null;
+    
+                switch (operation.State)
+                {
+                    case OperationState.Failed:
+                        // Handle the failure. 
+                        // For example, throw an exception. 
+                        // Use the following information in the exception: operationId, operation.ErrorMessage.
+                        Log("operation failed", operation.TargetEntityId, operation.Id);
+                        break;
+                    case OperationState.Succeeded:
+                        completed = true;
+                        entityId = operation.TargetEntityId;
+                        break;
+                    case OperationState.InProgress:
+                        completed = false;
+                        Log("operation in progress", operation.TargetEntityId, operation.Id);
+                        break;
+                }
+                return completed;
+            }
+    
+    
+            private static void Log(string action, string entityId = null, string operationId = null)
+            {
+                Console.WriteLine(
+                    "{0,-21}{1,-51}{2,-51}{3,-51}",
+                    DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss"),
+                    action,
+                    entityId ?? string.Empty,
+                    operationId ?? string.Empty);
+            }
+        }
+    }   
+
+
+##Nästa steg: Utbildningsvägar för Media Services
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Ge feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+### Letar du efter något annat?
+
+Om inte det här ämnet innehåller det som du väntade dig, saknar något eller på något annat sätt inte motsvarade dina behov, får du gärna ge oss feedback i Disqus-tråden nedan.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

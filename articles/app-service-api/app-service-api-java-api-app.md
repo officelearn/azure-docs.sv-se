@@ -271,7 +271,7 @@ I det här avsnittet får du information om hur du skapar en ny API-App i Azure-
 
     ![Ange autentiseringsuppgifter för distribution][deployment-credentials]
 
-1. Klicka på menyalternativet för inställningar till **Distributionskälla**. När du är där klickar du på knappen **Välj källa**. Välj alternativet **Lokal Git-lagringsplats** och klicka sedan på **OK**. Detta skapar en Git-lagringsplats som körs i Azure och som är kopplad till din API-app. Varje gång du kopplar kod till *huvud*grenen av Git-lagringsplatsen publiceras koden till den instans för API-appen som är live. 
+1. Klicka på menyalternativet för inställningar till **Distributionskälla**. När du är där klickar du på knappen **Välj källa**. Välj alternativet **Lokal Git-lagringsplats** och klicka sedan på **OK**. Detta skapar en Git-lagringsplats som körs i Azure och som är kopplad till din API-app. Varje gång du kopplar kod till *huvud* grenen av Git-lagringsplatsen publiceras koden till den instans för API-appen som är live. 
 
     ![Skapa en ny lokal Git-lagringsplats][select-git-repo]
 
@@ -340,6 +340,6 @@ Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

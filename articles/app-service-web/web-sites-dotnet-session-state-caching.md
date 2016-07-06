@@ -43,7 +43,7 @@ Med NuGet-paketet skapas inte bara sammansättningsreferenser för cachen, med d
 
 1. Öppna *web.config* och leta reda på elementet **sessionState**.
 
-1. Ange värden för `host`, `accessKey` och `port` (SSL-porten ska vara 6380), och ange `SSL` till `true`. Du kan hämta de här värdena från bladet för [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) för cacheinstansen. Mer information finns i [Ansluta till cacheminnet](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Mer information om hur du aktiverar icke-SSL-porten finns i avsnittet [Åtkomstportar](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) i artikeln [Konfigurera en cache i Azure Redis-cache](https://msdn.microsoft.com/library/azure/dn793612.aspx). Följande markering visar ändringarna i filen *web.config*, särskilt ändringarna av *port*, *värd*, åtkomstnyckel* och *ssl *.
+1. Ange värden för `host`, `accessKey` och `port` (SSL-porten ska vara 6380), och ange `SSL` till `true`. Du kan hämta de här värdena från bladet för [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) för cacheinstansen. Mer information finns i [Ansluta till cacheminnet](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Mer information om hur du aktiverar icke-SSL-porten finns i avsnittet [Åtkomstportar](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) i artikeln [Konfigurera en cache i Azure Redis-cache](https://msdn.microsoft.com/library/azure/dn793612.aspx). Följande markering visar ändringarna i filen *web.config*, särskilt ändringarna av *port*, *värd*, *åtkomstnyckel* och *ssl.
 
           <system.web>;
             <customErrors mode="Off" />;
@@ -111,6 +111,6 @@ Mer information om hur du använder sessionstillståndet ASP.NET finns i [Övers
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

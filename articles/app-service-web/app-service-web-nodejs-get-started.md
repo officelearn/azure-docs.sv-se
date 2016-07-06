@@ -152,7 +152,7 @@ Använd följande steg om du vill läsa iisnode-loggar.
         loggingEnabled: true
         logDirectory: iisnode
     
-    Tillsammans anger de att iisnode i Apptjänst ska lägga stdout- och stderror-utdata i katalogen D:\home\site\wwwroot\**iisnode*.*
+    Tillsammans anger de att iisnode i Apptjänst ska lägga stdout- och stderror-utdata i katalogen D:\home\site\wwwroot\**iisnode**.
 
 3. Spara ändringarna och push-överför sedan ändringarna till Azure med följande Git-kommandon:
 
@@ -244,6 +244,6 @@ Följ de här stegen om du vill aktivera Node-Inspector:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -1,23 +1,29 @@
-1. In the Azure Portal, navigate to **New** **>** **Networking** **>** **Local network gateway**.
+1. I Azure Portal, navigerar du till **Ny** **>** **Nätverk** **>** **Lokal nätverksgateway**.
 
-	![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+    ![skapa lokal nätverksgateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
+2. På **Skapa lokal nätverksgateway-bladet**, anger du ett **Namn** för ditt lokala gateway-objekt.
  
-3. Specify an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.
+3. Ange en **IP-adress** för din gateway. Det här är IP-adressen för den externa VPN-enhet som du vill ansluta till. Den får inte vara bakom en NAT och måste kunna nås av Azure.
 
-4. **Address Space** refers to the address ranges on your local (typically on-premises) network. You can add multiple address space ranges. The ranges that you enter here cannot overlap any of the address space ranges that you are using for any of the virtual networks that will communicate through the gateway.  You will need to coordinate with your on-premises configuration as well as with your Azure virtual network address spaces.
+4. **Adressutrymmet** är adressintervallen på ditt lokala nätverk (vanligtvis på plats). Du kan lägga till flera adressintervall. Intervall som du anger här får inte överlappa adressutrymmen som du använder för någon av de virtuella nätverk som kommer att kommunicera via gatewayen.  Du kommer att behöva koordinera med din lokala konfiguration samt med adressutrymmena för ditt virtuella Azure-nätverk.
  
-5. For **Subscription**, verify that the correct subscription is showing.
+5. För **Prenumeration** verifierar du att korrekt prenumeration visas.
 
-6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created. To create a new resource group, type the name in the box. To select a resource group that you've already created, click **Resource Group** to open the **Resource group** blade, and then select the resource group that you want to use.
+6. För **resursgruppen** väljer du den resursgrupp som du vill använda. Du kan antingen skapa en ny resursgrupp eller välja en som du redan har skapat. Om du vill skapa en ny resursgrupp skriver du in namnet i rutan. Om du vill välja en resursgrupp som du redan skapat klickar du på **Resursgrupp** för att öppna **Resursgrupp**-bladet och väljer sedan den resursgrupp som du vill använda.
 
-7. For **Location**, if you are creating a new local network gateway, you can use the same location as the virtual network gateway. But, this is not required. The local network gateway can be in a different location. 
+7. Om du skapar en ny lokal nätverksgateway, kan du använda samma plats som den virtuella nätverksgatewayen för **Plats**. Men det krävs inte. Den lokala nätverksgatewayen kan vara på en annan plats. 
 
-8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
+8. Lämna "Fäst på instrumentpanelen" markerad om du vill hitta den här lokala nätverksgatewayen direkt på instrumentpanelen.
 
-9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard.
+9. Klicka på **Skapa** för att skapa den lokala nätverksgatewayen. Du kommer att se "Distribuerar lokal nätverksgateway" på din instrumentpanel.
 
-10. When the local network gateway has been created, it will open in the portal for you to view.
+10. När den lokala nätverksgatewayen har skapats, öppnas den i portalen så du kan se den.
 
-	
+    
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

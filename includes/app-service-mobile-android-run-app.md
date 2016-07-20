@@ -1,12 +1,18 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **Android)**. Under **Configure your client application**, click **Download**. This downloads a complete Android project for an app pre-configured to connect to your backend. 
+1. Besök [Azure Portal]. Klicka på **Bläddra alla** > **Mobile Apps** > serverdelen som du nyss skapade. I inställningarna för mobilappar klickar du på **Snabbstart** > **Android)**. Under **Konfigurera klientprogrammet** klickar du på **Hämta**. Då hämtas ett fullständigt Android-projekt för en app som är förkonfigurerad att ansluta till din serverdel. 
 
-2. Open the project using **Android Studio**, using **Import project (Eclipse ADT, Gradle, etc.)**. Make sure you make this import selection to avoid any JDK errors.
+2. Öppna projektet med **Android Studio** med hjälp av **Importera projekt (Eclipse ADT, Gradle, osv.)**. Kontrollera att du har gjort det här importvalet för att undvika eventuella JDK-fel.
 
-3. Press the **Run 'app'** button to build the project and start the app in the Android simulator.
+3. Tryck på knappen **Kör app** för att skapa projektet och starta appen i Android-simulatorn.
 
-4. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list. 
+4. Ange en beskrivande text i appen, till exempel _Slutför guiden_, och klicka sedan på Lägg till-knappen. Detta skickar en POST-begäran till den Azure-serverdel som du distribuerade tidigare. Serverdelen infogar data från begäran i TodoItem-SQL-tabellen och returnerar information om det nyligen lagrade objektet tillbaka till mobilappen. Mobilappen visar dessa data i listan. 
 
     ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
 [Azure Portal]: https://portal.azure.com/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

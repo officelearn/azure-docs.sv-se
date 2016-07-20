@@ -1,10 +1,16 @@
-You are billed for Azure Storage usage based on your storage account. Storage costs are based on the following factors: region/location, account type, storage capacity, replication scheme, storage transactions, and data egress.
+Du debiteras för användningen av Azure Storage baserat på ditt lagringskonto. Lagringskostnader baseras på följande faktorer: region/plats, kontotyp, lagringskapacitet, replikeringsschema, lagringstransaktioner och utgående datatrafik.
 
-- Region refers to the geographical region in which your account is based.
-- Account type refers to whether you are using a general-purpose storage account or a Blob storage account. With a Blob storage account, the access tier also determines the billing model for the account.
-- Storage capacity refers to how much of your storage account allotment you are using to store data.
-- Replication determines how many copies of your data are maintained at one time, and in what locations.
-- Transactions refer to all read and write operations to Azure Storage.
-- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)
+- Region syftar på den geografiska region där ditt konto är baserat.
+- Kontotyp syftar på om du använder ett allmänt lagringskonto eller ett Blob-lagringskonto. Med ett Blob-lagringskonto avgör också åtkomstnivån vilken faktureringsmodell som tillämpas för kontot.
+- Lagringskapacitet syftar på hur mycket av lagringskontots tilldelade utrymme som du använder för att lagra data.
+- Replikering anger hur många kopior av dina data som finns vid ett givet tillfälle och var de befinner sig.
+- Transaktioner avser alla läs- och skrivåtgärder till Azure Storage.
+- Utgående datatrafik (egress) syftar på data som överförs ut från en Azure-region. När data på ditt lagringskonto används av ett program som inte är i samma region så debiteras du för utgående data. (För Azure-tjänster kan du gruppera dina data och tjänster i samma datacenter för att därigenom minska eller eliminera kostnaderna för utgående datatrafik.)
 
-The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
+Sidan [Pris för Azure Storage](https://azure.microsoft.com/pricing/details/storage/) innehåller detaljerad prisinformation baserat på kontotyp, lagringskapacitet, replikering och transaktioner. Sidan [Prisinformation för dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/) innehåller detaljerad prisinformation för utgående datatrafik. Du kan använda [priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) för att hjälpa att uppskatta dina kostnader.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

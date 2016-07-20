@@ -1,27 +1,33 @@
-There are two types of storage accounts:
+Det finns två typer av lagringskonton:
 
-### General-purpose Storage Accounts
+### Allmänna lagringskonton
 
-A general-purpose storage account gives you access to Azure Storage services such as Tables, Queues, Files, Blobs and Azure virtual machine disks under a single account. This type of storage account has two performance tiers:
+Ett allmänt lagringskonto ger dig åtkomst till Azure Storage-tjänster som tabeller, köer, filer, blobbar och virtuella Azure-datordiskar, allt med ett enda konto. Den här typen av lagringskonto har två prestandanivåer:
 
-- A standard storage performance tier which allows you to store Tables, Queues, Files, Blobs and Azure virtual machine disks.
-- A premium storage performance tier which currently only supports Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/storage-premium-storage.md) for an in-depth overview of Premium storage.
+- Standardnivå för lagringsprestanda som låter dig lagra tabeller, köer, filer, blobbar och virtuella Azure-datordiskar.
+- Premiumnivån för lagringsprestanda som för närvarande bara stöder virtuella Azure-datordiskar. En detaljerad översikt över Premium-lagring finns i [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../articles/storage/storage-premium-storage.md).
 
-### Blob Storage Accounts
+### Blob Storage-konton
 
-A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
+Ett Blob-lagringskonto är ett specialiserat lagringskonto för lagring av ostrukturerad data som blobbar (objekt) i Azure Storage. Blob-lagringskonton liknar dina befintliga allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton.
 
-> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
+> [AZURE.NOTE] Blob Storage-konton stöder endast block- och tilläggsblobar, inte sidblobar.
 
-Blob storage accounts expose the **Access Tier** attribute which can be specified during account creation and modified later as needed. There are two types of access tiers that can be specified based on your data access pattern:
+Blob-lagringskonton exponerar **Åtkomstnivå**-attributet som kan anges vid kontoskapandet och ändras senare vid behov. Det finns två typer av åtkomstnivåer som kan anges baserat på dina mönster för dataåtkomst:
 
-- A **Hot** access tier which indicates that the objects in the storage account will be more frequently accessed. This allows you to store data at a lower access cost.
-- A **Cool** access tier which indicates that the objects in the storage account will be less frequently accessed. This allows you to store data at a lower data storage cost.
+- En nivå för **frekvent** åtkomst, vilket indikerar att objekten på lagringskontot kommer att användas oftare. På så sätt kan du lagra data med en lägre åtkomstkostnad.
+- En nivå för **lågfrekvent** åtkomst, vilket indikerar att objekten på lagringskontot kommer att användas mindre ofta. På så sätt kan du lagra data med en lägre lagringskostnad.
 
-If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+Du kan när som helst växla mellan de olika nivåerna om användningsmönstret förändras. Observera att ytterligare kostnader kan tillkomma om du ändrar åtkomstnivå. Mer information finns i [Priser och fakturering för Blob-lagringskonton](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing).
 
-For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/storage-blob-storage-tiers.md).
+Mer information om Blob-lagringskonton finns i [Azure Blob Storage: frekvent och lågfrekvent nivå](../articles/storage/storage-blob-storage-tiers.md).
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+Innan du kan skapa ett lagringskonto, måste du ha en Azure-prenumeration, som är en plan vilken ger dig tillgång till en mängd olika Azure-tjänster. Du kan komma igång med Azure med ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/). När du väl bestämt dig att köpa ett prenumerationsavtal, kan du välja från en rad olika [köpalternativ](https://azure.microsoft.com/pricing/purchase-options/). Om du är en [MSDN-prenumerant](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), får du kostnadsfria, månatliga krediter som kan användas med Azure-tjänster, inklusive Azure Storage. Se [Azure Storage-priser ](https://azure.microsoft.com/pricing/details/storage/) för information om volympriser.
 
-To learn how to create a storage account, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more details. You can create up to 100 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account limits.
+Se [Skapa ett lagringskonto](../articles/storage/storage-create-storage-account.md#create-a-storage-account) för mer information om hur du skapar ett lagringskonto. Du kan skapa upp till 100 unikt namngivna lagringskonton med en enda prenumeration. Se [Skalbarhets- och prestandamål för Azure Storage](../articles/storage/storage-scalability-targets.md) för information om begränsningar för lagringskonton.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

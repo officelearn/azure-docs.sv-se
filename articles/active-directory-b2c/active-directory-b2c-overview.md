@@ -1,0 +1,74 @@
+<properties
+    pageTitle="Azure Active Directory B2C Preview: Översikt | Microsoft Azure"
+    description="Utveckla konsumentinriktade program med Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="bryanla"/>
+
+<tags
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="06/06/2016"
+    ms.author="swkrish"/>
+
+# Azure Active Directory B2C Preview: Registrera och logga in användare i dina program
+
+Azure Active Directory B2C är en heltäckande lösning för identitetshantering i molnet för konsumentinriktade webb- och mobilprogram. Det är en global tjänst med hög tillgänglighet som kan skalas till flera hundra miljoner konsumentidentiteter. Azure Active Directory B2C bygger på en säker plattform i företagsklass och ser till att dina program, ditt företag och dina användare är skyddade.
+
+Tidigare var programutvecklare som ville registrera och logga in användare i sina program tvungna att skriva egen kod. Och de använde lokala databaser eller system för att lagra användarnamn och lösenord. Azure Active Directory B2C erbjuder utvecklare ett bättre sätt att integrera identitetshanteringen för användare i deras program med hjälp av en säker, standardbaserad plattform och en omfattande uppsättning utökningsbara principer. När du använder Azure Active Directory B2C kan dina användare registrera sig för dina program genom att använda sina befintliga sociala konton (Facebook, Google, Amazon, LinkedIn osv.) eller genom att skapa nya autentiseringsuppgifter (e-postadress och lösenord eller användarnamn och lösenord). Det sistnämnda kallar vi för ”lokala konton”.
+
+Den aktuella versionen av Azure Active Directory B2C är en förhandsversion. I den här fasen vill vi gärna få dina synpunkter och feedback när du provar olika funktioner. Baserat på den feedback vi får kan vi göra viktiga förändringar för att förbättra tjänsten.  Du bör inte släppa ett produktionsprogram som använder förhandsversionen under den här fasen. Lämna din feedback via [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/).
+
+## Komma igång
+
+Om du vill skapa ett program som stöder registrering och inloggning av användare måste du först registrera programmet med en Azure Active Directory B2C-klient. Skaffa en egen klient genom att följa stegen i [Skapa en Azure AD B2C-klient](active-directory-b2c-get-started.md).
+
+Du kan skriva ditt program mot Azure Active Directory B2C-tjänsten antingen genom att skicka protokollmeddelanden direkt, med hjälp av [OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-authorization-code-flow) eller [Öppna ID Connect](active-directory-b2c-reference-protocols.md#openid-connect-sign-in-flow), eller genom att använda våra bibliotek och låta dem göra arbetet åt dig. Välj din favoritplattform i följande tabell och kom igång.
+
+[AZURE.INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
+
+## Nyheter
+
+Kom tillbaka ofta om du är nyfiken på framtida ändringar i Azure Active Directory B2C Preview. Vi kommer även att twittra om eventuella uppdateringar med @AzureAD.
+
+- Lär dig mer om vårt [expanderbara principramverk](active-directory-b2c-reference-policies.md) och om vilka typer av principer som du kan skapa och använda i dina program.
+- Aktuella [begränsningar, restriktioner och villkor i förhandsversionen](active-directory-b2c-limitations.md).
+
+## Instruktionsartiklar
+
+Lär dig hur du använder specifika funktioner i Azure Active Directory B2C Preview:
+
+- Konfigurera [Facebook-](active-directory-b2c-setup-fb-app.md), [Google+-](active-directory-b2c-setup-goog-app.md), [Microsoft-](active-directory-b2c-setup-msa-app.md), [Amazon-](active-directory-b2c-setup-amzn-app.md) och [LinkedIn-](active-directory-b2c-setup-li-app.md)konton för användning i dina konsumentinriktade program.
+- [Använd anpassade attribut för att samla in information om dina användare](active-directory-b2c-reference-custom-attr.md).
+- [Aktivera Azure Multi-Factor Authentication i dina konsumentinriktade program](active-directory-b2c-reference-mfa.md).
+- [Konfigurera lösenordsåterställning via självbetjäning för dina användare](active-directory-b2c-reference-sspr.md).
+- [Anpassa utseende på registrerings- och inloggningssidorna och på andra konsumentinriktade sidor](active-directory-b2c-reference-ui-customization.md) som hanteras av Azure Active Directory B2C.
+- [Använd Azure Active Directory Graph API för att skapa, läsa, uppdatera och ta bort användare via programmering](active-directory-b2c-devquickstarts-graph-dotnet.md) i din Azure Active Directory B2C-klient.
+
+## Nästa steg
+
+Använd dessa länkar om du vill utforska tjänsten mer i detalj:
+
+- Ta del av [Active Directory B2C-prisinformation](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+- Få hjälp på Stack Overflow genom att använda taggarna [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) eller [adal](http://stackoverflow.com/questions/tagged/adal).
+- Lämna feedback om förhandsversionen via [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) – vi vill veta vad du tycker! Använd frasen ”AzureADB2C:” i rubriken på ditt inlägg så att vi kan hitta den.
+- Azure Active Directory B2C stöder branschstandardprotokollen OpenID Connect och OAuth 2.0 genom en programregistreringsmodell som vi kallar för ”App Model v2.0”.
+  - [Protokollreferens för App Model v2.0](active-directory-b2c-reference-protocols.md)
+  - [Tokenreferens för App Model v2.0](active-directory-b2c-reference-tokens.md)
+- Läs [vanliga frågor och svar om Azure Active Directory B2C](active-directory-b2c-faqs.md).
+- [Skapa supportförfrågningar för Azure Active Directory B2C](active-directory-b2c-support.md).
+
+## Hämta säkerhetsuppdateringar för våra produkter
+
+Vi rekommenderar att du aktiverar aviseringar om säkerhetsincidenter genom att gå till [den här sidan](https://technet.microsoft.com/security/dd252948) och prenumerera på Microsoft Security Advisory-aviseringar.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

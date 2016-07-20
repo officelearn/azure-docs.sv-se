@@ -1,34 +1,40 @@
-Azure will determine that your application uses Python **if both of these conditions are true**:
+Azure kommer att fastställa att ditt program använder Python **om bägge följande villkor stämmer**:
 
-- requirements.txt file in the root folder
-- any .py file in the root folder OR a runtime.txt that specifies python
+- requirements.txt filen i rotmappen
+- någon .py-fil i rotmappen ELLER en runtime.txt som specificerar python
 
-When that's the case, it will use a Python specific deployment script, which performs the standard synchronization of files, as well as additional Python operations such as:
+När så är fallet så kommer det att använda ett Python-specifikt distributionsskript vilket utför standardsynkronisering av filer såväl som ytterligare Python-åtgärder som:
 
-- Automatic management of virtual environment
-- Installation of packages listed in requirements.txt using pip
-- Creation of the appropriate web.config based on the selected Python version.
-- Collect static files for Django applications
+- Automatisk hantering av virtuell miljö
+- Installation av paket som listas i requirements.txt med pip
+- Skapa en lämplig web.config baserat på den valda Python-versionen.
+- Samla in statiska filer för Django-program
 
-You can control certain aspects of the default deployment steps without having to customize the script.
+Du kan kontrollera vissa aspekter av standard-distributionsstegen utan att behöva anpassa skriptet.
 
-If you want to skip all Python specific deployment steps, you can create this empty file:
+Om du vill hoppa över alla Python-specifika distributionssteg så kan du skapa den här tomma filen:
 
     \.skipPythonDeployment
 
-If you want to skip collection of static files for your Django application:
+Om du vill hoppa över insamlingen av statiska filer för Django-programmet:
 
     \.skipDjango 
 
-For more control over deployment, you can override the default deployment script by creating the following files:
+För ytterligare kontroll över distributionen så kan du även åsidosätta standard-distributionsskriptet genom att skapa följande filer:
 
     \.deployment
     \deploy.cmd
 
-You can use the [Azure command-line interface][] to create the files.  Use this command from your project folder:
+Du kan använda [Azure-kommandoradsgränssnittet][] för att skapa filerna.  Använd det här kommandot från din projektmapp:
 
     azure site deploymentscript --python
 
-When these files don't exist, Azure creates a temporary deployment script and runs it.  It is identical to the one you create with the command above.
+Om de här filerna inte finns så skapar Azure ett tillfälligt distributionsskript och kör det.  Det är identiskt med det som du skapar med kommandot ovan.
 
-[Azure command-line interface]: http://azure.microsoft.com/downloads/
+[Azure-kommandoradsgränssnittet]: http://azure.microsoft.com/downloads/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

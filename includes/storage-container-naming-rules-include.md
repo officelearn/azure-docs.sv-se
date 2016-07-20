@@ -1,13 +1,18 @@
-Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
+Varje blobb i Azure-lagring måste befinna sig i en behållare. Behållaren utgör en del av blobbnamnet. `mycontainer` är till exempel namnet på behållaren i de här exempelblobb-URI:erna:
 
-	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
-	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+    https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+    https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
 
-A container name must be a valid DNS name, conforming to the following naming rules:
+Ett behållarnamn måste vara ett giltigt DNS-namn som överensstämmer med följande namngivningsregler:
 
-1. Container names must start with a letter or number, and can contain only letters, numbers, and the dash (-) character.
-1. Every dash (-) character must be immediately preceded and followed by a letter or number; consecutive dashes are not permitted in container names.
-1. All letters in a container name must be lowercase.
-1. Container names must be from 3 through 63 characters long.
+1. Behållarnamnet måste börja med en bokstav eller en siffra och får bara innehålla bokstäver, siffror och bindestreck (-).
+1. Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. Flera bindestreck i följd är inte tillåtna i behållarnamn.
+1. Alla bokstäver i ett behållarnamn måste vara gemener.
+1. Behållarnamn måste vara mellan 3 och 63 tecken långa.
 
-> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. If you include an upper-case letter in a container name, or otherwise violate the container naming rules, you may receive a 400 error (Bad Request). 
+> [AZURE.IMPORTANT] Observera att behållarnamn får innehålla endast gemener. Om du tar med en versal i ett behållarnamn, eller på annat sätt bryter mot namngivningsreglerna, kan du få ett 400-fel (felaktig begäran). 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

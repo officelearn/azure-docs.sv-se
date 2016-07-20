@@ -1,23 +1,29 @@
 
 
-## Grant new database user db_owner permissions
+## Ge den nya databasanvändaren db_owner-behörigheter
 
-Use the following steps to grant an existing database user db_owner permissions
+Använd följande steg för att ge en befintlig databasanvändare db_owner-behörigheter
 
-Theses steps assume that you are connected to SQL Database in Object Explorer in SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to grant user permissions. 
+De här stegen förutsätter att du är ansluten till SQL Database i Object Explorer i SSMS och är ansluten till din logiska SQL Database-server som en huvudsaklig administratör på servernivå eller med ett användarkonto med behörigheter att ge användarbehörigheter. 
 
-1. In Object Explorer, expand the Databases node and select the database with the user to which you wish to grant dbo permissions.
+1. Expandera noden Databaser i Object Explorer och markera den databas som innehåller användaren som du vill ge dbo-behörigheter till.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
+     ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
 
-2. Right-click the selected database and then click **Query**.
+2. Högerklicka på den valda databasen och klicka sedan på **Fråga**.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
+     ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
 
-3. In the query window, edit and use the following Transact-SQL statement to grant dbo permissions to a specified user. 
+3. I frågefönstret redigerar du och använder följande Transact-SQL-instruktion för att ge dbo-behörigheter till en specifik användare. 
 
     '''ALTER ROLE db_owner ADD MEMBER user1;
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
+     ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

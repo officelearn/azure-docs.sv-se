@@ -1,30 +1,36 @@
-## About records
+## Om poster
 
-Each DNS record has a name and a type. Records are organized into various types according to the data they contain. The most common type is an "A" record, which maps a name to an IPv4 address. Another type is an "MX" record, which maps a name to a mail server.
+Varje DNS-post har ett namn och en typ. Posterna är indelade i olika typer beroende på den data de innehåller. Den vanligaste typen är en A-post som mappar ett namn till en IPv4-adress. En annan typ är en MX-post som mappar ett namn till en e-postserver.
 
-Azure DNS supports all common DNS record types, including A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT. SOA record sets  are created automatically with each zone. They cannot be created separately. Note that SPF records should be created by using the TXT record type. For more information, see [this page](http://tools.ietf.org/html/rfc7208#section-3.1).
+Azure DNS stöder alla vanliga DNS-posttyper, inklusive A, AAAA, CNAME, MX, NS, SOA, SRV och TXT. SOA-postuppsättningar skapas automatiskt med varje zon. De kan inte skapas separat. Observera att SPF-poster ska skapas med hjälp av TXT-posttypen. Mer information finns på [den här sidan](http://tools.ietf.org/html/rfc7208#section-3.1).
 
-In Azure DNS, records are specified by using relative names. A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name www.contoso.com.
+DNS-poster i Azure anges med relativa namn. Ett fullständigt kvalificerat domännamn (FQDN), inkluderar zonnamnet, medan ett relativt namn inte gör det. Det relativa postnamnet www i zonen contoso.com, skapar till exempel det fullständigt kvalificerade postnamnet www.contoso.com.
 
-## About record sets
+## Om postuppsättningar
 
-Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the "www.contoso.com" web site is hosted on two different IP addresses. The website requires two different A records, one for each IP address. This is an example of a record set:
+Ibland måste du skapa fler än en DNS-post av ett visst namn och typ. Anta exempelvis att webbplatsen www.contoso.com finns på två olika IP-adresser. Webbplatsen kräver då två olika A-poster, en för varje IP-adress. Här är ett exempel på en postuppsättning:
 
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
+    www.contoso.com.        3600    IN  A   134.170.185.46
+    www.contoso.com.        3600    IN  A   134.170.188.221
 
-Azure DNS manages DNS records by using record sets. A record set is the collection of DNS records in a zone that have the same name and are the same type. Most record sets contain a single record, but examples like this one, in which a record set contains more than one record, are not uncommon.
+Azure DNS hanterar DNS-poster med hjälp av postuppsättningar. En postuppsättning är en samling DNS-poster i en zon som har samma namn och är av samma typ. De flesta postuppsättningar innehåller en enda post, men exempel som det här, där en postuppsättning innehåller fler än en post, är inte ovanliga.
 
-SOA and CNAME record sets are exceptions. The DNS standards don't permit multiple records with the same name for these types.
+SOA- och CNAME-postuppsättningar är undantag. DNS-standarden tillåter inte flera poster med samma namn för de här typerna.
 
-The time to live, or TTL, specifies how long each record is cached by clients before being re-queried. In this example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
+Livslängd, eller TTL, anger hur länge varje post ska cachelagras av klienter innan den efterfrågas på nytt. I det här exemplet är TTL 3600 sekunder eller 1 timme. TTL anges för postuppsättningen, inte för varje post, så samma värde används för alla poster inom den postuppsättningen.
 
-#### Wildcard record sets
+#### Postuppsättningar med jokertecken
 
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set). Wildcard record sets are supported for all record types except NS and SOA.  
+Azure DNS stöder [poster med jokertecken](https://en.wikipedia.org/wiki/Wildcard_DNS_record). De returneras för alla frågor med ett matchande namn (om det inte finns en bättre matchning från en postuppsättning utan jokertecken). Postuppsättningar med jokertecken stöds för alla postuppsättningar utom NS och SOA.  
 
-To create a wildcard record set, use the record set name "\*". Or, use a name with the label "\*", for example, "\*.foo".
+Om du vill skapa en postuppsättning med jokertecken, använder du postuppsättningsnamnet "\*". Eller använd ett namn med etiketten \*, till exempel \*.foo.
 
-#### CNAME record sets
+#### CNAME-postuppsättningar
 
-CNAME record sets cannot coexist with other record sets with the same name. For example, you cannot create a CNAME record set with the relative name "www" and an A record with the relative name "www" at the same time. Because the zone apex (name = ‘@’) always contains the NS and SOA record sets that were created when the zone was created, you can't create a CNAME record set at the zone apex. These constraints arise from the DNS standards and aren't limitations of Azure DNS.
+CNAME-postuppsättningar kan inte samexistera med andra postuppsättningar med samma namn. Du kan till exempel inte skapa en CNAME-postuppsättning med det relativa namnet www och en A-post med det relativa namnet www på samma gång. Eftersom zonens apex (namn = @) alltid innehåller NS- och SOA-postuppsättningar som skapades när zonen skapades, du kan inte skapa en CNAME-postuppsättning på zonens apex. Den här begränsningarna kommer sig av DNS-standarderna och är inte begränsningar i Azure DNS.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

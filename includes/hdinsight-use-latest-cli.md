@@ -1,5 +1,11 @@
-> [AZURE.IMPORTANT] Azure CLI support for managing HDInsight resources using Azure Service Manager (ASM) is __deprecated__, and will be removed by January 1, 2017. The steps in this document use the new Azure CLI commands that work with Azure Resource Manager (ARM).
+> [AZURE.IMPORTANT] Azure CLI-stöd för hantering av HDInsight-resurser med hjälp av Azure Service Manager (ASM) __är föråldrat__ och kommer inte längre att kunna användas från och med 1 januari 2017. Stegen i det här dokumentet använder de nya Azure CLI-kommandona som fungerar med Azure Resource Manager (ARM).
 >
-> Please follow the steps in [Install and configure Azure CLI](../articles/xplat-cli-install.md) to install the latest version of the Azure CLI. If you have scripts that need to be modified to use the new commands that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
+> Följ stegen i [Installera och konfigurera Azure CLI](../articles/xplat-cli-install.md) för att installera den senaste versionen av Azure CLI. Om du har skript som behöver ändras för att använda de nya kommandona som fungerar med Azure Resource Manager, hittar du mer information i [Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md).
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

@@ -1,25 +1,31 @@
-> [AZURE.IMPORTANT] To receive Push Notifications from Mobile Engagement, you need to enable `Silent Remote Notifications` in your application. You need to add the remote-notification value to the UIBackgroundModes array in your Info.plist file.
+> [AZURE.IMPORTANT] För att kunna ta emot push-meddelanden från Mobile Engagement måste du aktivera `Silent Remote Notifications` i ditt program. Du måste lägga till värdet remote-notification i UIBackgroundModes-matrisen i din Info.plist-fil.
 
-1. Open `info.plist` file in the project
-2. Right click on the top item in the list (`Information Property List`) and add a new row
+1. Öppna `info.plist`-filen i projektet
+2. Högerklicka på det översta objektet i listan (`Information Property List`) och lägg till en ny rad
 
-	![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png)
+    ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png)
 
-3. In the new row enter `Required background modes`
+3. På den nya raden anger du `Required background modes`
 
-	![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png)
+    ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png)
 
-4. Click on the left arrow to expand the row
-5. Add the following value to the item 0 `App downloads content in response to push notifications`
+4. Klicka på vänsterpilen för att expandera raden
+5. Lägg till följande värde till objektet 0 `App downloads content in response to push notifications`
 
-	![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png)
+    ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png)
 
-6. Once you make the change, the info.plist XML should contain the following key and value:
+6. När du gjort ändringen borde XML-filen info.plist innehålla följande nyckel och värde:
 
-	    <key>UIBackgroundModes</key>
-	    <array>
-	    <string>remote-notification</string>
-	    </array>
+        <key>UIBackgroundModes</key>
+        <array>
+        <string>remote-notification</string>
+        </array>
 
-7. If you are using **Xcode 7+** and **iOS 9+**:
-	- Enable **Push Notifications** in Targets > Your Target Name > Capabilities.
+7. Om du använder **Xcode 7+** och **iOS 9+**:
+    - Aktivera **Push-meddelanden** i Mål > Ditt målnamn > Funktioner.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

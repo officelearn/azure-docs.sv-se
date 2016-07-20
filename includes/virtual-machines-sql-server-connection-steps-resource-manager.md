@@ -1,33 +1,39 @@
-### Configure a DNS Label for the public IP address
+### Konfigurera en DNS-etikett för den offentliga IP-adressen
 
-To connect to the SQL Server Database Engine from the Internet, first configure a DNS Label for your public IP address.
+För att ansluta till SQL Server Database Engine från Internet, behöver du först konfigurera en DNS-etikett för din offentliga IP-adress.
 
-> [AZURE.NOTE] DNS Labels are not required if you plan to only connect to the SQL Server instance within the same Virtual Network or only locally.
+> [AZURE.NOTE] DNS-etiketter krävs inte om du planerar att endast ansluta till SQL Server-instansen inom samma virtuella nätverk eller bara lokalt.
 
-To create a DNS Label, first select **Virtual machines** in the portal. Select your SQL Server VM to bring up its properties.
+För att skapa en DNS-etikett, väljer du först **Virtuella datorer** i portalen. Välj din SQL Server-VM för att få fram egenskaperna.
 
-1. In the virtual machine blade, select your **Public IP address.**
+1. I bladet för den virtuella datorn, väljer du din **offentliga IP-adress.**
 
-	![public ip address](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
+    ![offentlig IP-adress](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
 
-2. In the properties for your Public IP address, expand **Configuration**.
+2. I egenskaperna för din offentliga IP-adress, expanderar du **Konfiguration**.
 
-3. Enter a DNS Label name. This name is an A Record that can be used to connect to your SQL Server VM by name instead of by IP Address directly.
+3. Ange ett namn för DNS-etiketten. Det här namnet är en A-post som kan användas för att ansluta till din SQL Server-VM via namn istället för direkt via IP-adress.
 
-	![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
+    ![dns-etikett](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### Connect to the Database Engine from another computer
+### Anslut till databasmotorn från en annan dator
 
-1. On a computer connected to the internet, open SQL Server Management Studio (SSMS).
+1. Öppna SQL Server Management Studio (SSMS) från en dator som är ansluten till Internet.
 
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter the full DNS name of the virtual machine (determined in the previous task).
+2. I dialogrutan **Anslut till server** eller **Anslut till databasmotor**, redigerar du värdet för **Servernamn**. Ange det fullständiga DNS-namnet för den virtuella datorn (bestäms i föregående åtgärd).
 
-3. In the **Authentication** box, select **SQL Server Authentication**.
+3. I rutan **Autentisering**, markerar du **SQL Server-autentisering**.
 
-5. In the **Login** box, type the name of a valid SQL login.
+5. I rutan **Inloggning**, skriver du namnet på en giltig SQL-inloggning.
 
-6. In the **Password** box, type the password of the login.
+6. I rutan **Lösenord**, skriver du lösenordet för inloggningen.
 
-7. Click **Connect**.
+7. Klicka på **Anslut**.
 
-	![ssms connect](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+    ![ssms anslut](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

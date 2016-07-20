@@ -1,16 +1,22 @@
 
-*Application Insights is in preview.*
+*Application Insights finns endast som förhandsversion.*
 
 <a name="selector1"></a>
 
-[Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](../articles/application-insights/app-insights-detect-triage-diagnose.md), and [discover how your app is used](../articles/application-insights/app-insights-overview-usage.md). 
+[Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md) övervakar ditt liveprogram och hjälper dig att [identifiera och diagnostisera prestandaproblem och undantag](../articles/application-insights/app-insights-detect-triage-diagnose.md) samt [se hur din app används](../articles/application-insights/app-insights-overview-usage.md). 
 
-Install the SDK and then add monitoring for other data:
+Installera SDK:n och lägg sedan till övervakning för andra data:
 
 > [AZURE.SELECTOR]
-- [Install the SDK](../articles/application-insights/app-insights-asp-net.md#selector1)
-- [User & page data](../articles/application-insights/app-insights-javascript.md#selector1)
-- [Exceptions](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
-- [Dependencies](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
-- [Availability](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [Installera SDK:n](../articles/application-insights/app-insights-asp-net.md#selector1)
+- [Användar- och siddata](../articles/application-insights/app-insights-javascript.md#selector1)
+- [Undantag](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
+- [Beroenden](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
+- [Tillgänglighet](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

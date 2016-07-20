@@ -1,7 +1,12 @@
-#### To delete a virtual device
+#### Ta bort en virtuell enhet
 
-1. Sign in to the Azure classic portal.
+1. Logga in på den klassiska Azure-portalen.
 
-- Click **Virtual Machines**, and then select the virtual device.
+- Klicka på **Virtual Machines** och välj sedan den virtuella enheten.
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+- Klicka på **Ta bort** och välj att ta bort alla virtuella diskar.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,41 +1,47 @@
 <a name="tellmevm"></a>
-## Tell me about virtual machines
+## Om virtuella datorer
 
-Azure Virtual Machines lets you create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, virtual machine technology can be used in variety of ways. Some examples are:
+Azure Virtual Machines låter dig skapa och använda virtuella datorer i molnet. Virtuell datorteknologi tillhandahåller något som kallas *infrastruktur som en tjänst (IaaS)* och kan användas på en rad olika sätt. Några exempel är:
 
-- **Virtual machines (VMs) for development and test.** Development groups commonly use VMs because they offer a quick, easy way to create a computer with specific configurations required to code and test an application. Azure Virtual Machines provides a straightforward and economical way to create these VMs, use them, then delete them when they're no longer needed.
-- **Running applications in the cloud.** It makes economic sense to run some applications in the public cloud. One example is an application that has large spikes in demand. Although you could equip your own data center with enough hardware to handle peak demand, that hardware might be underutilized much of the time. Running this application on Azure lets you pay for extra VMs only when you need them and shut them down when you don't. Or, suppose you're a start-up that needs on-demand computing resources quickly and with no commitment. Once again, Azure can be the right choice.
-- **Extending your own datacenter into the public cloud.** When you use Azure Virtual Network, your organization can create a virtual network (VNET) that's an extension of your own on-premises network and add VMs to that VNET. This allows running applications such as [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) and others on an Azure VM. This approach might be easier to deploy or less expensive than running them in VMs your own datacenter.   
-- **Disaster recovery.** Rather than paying continuously for a backup datacenter that's rarely used, IaaS-based disaster recovery lets you pay for the computing resources you need only when you really need them.  For example, if your primary datacenter goes down, you can create VMs running on Azure to run essential applications, then shut them down when they're no longer needed.
+- **Virtuella datorer (VM) för testning och utveckling.** Utvecklingsgrupper använder ofta VM:ar eftersom de erbjuder ett snabbt, enkelt sätt att skapa en dator med specifika konfigurationer som krävs för att koda och testa ett program. Azure Virtual Machines erbjuder ett enkelt och ekonomiskt sätt att skapa VM:ar, använda dem och sedan ta bort dem när de inte längre behövs.
+- **Köra program i molnet.** Det är ekonomiskt meningsfullt att köra vissa program i det offentliga molnet. Ett exempel är ett program där efterfrågan ökar kraftigt och tillfälligt. Även om du skulle kunna utrusta ett eget datacenter med tillräckligt med maskinvara för att hantera efterfrågan vid en kraftig, tillfällig ökning, skulle maskinvaran vara underutnyttjad den mesta tiden. Om du kör programmet på Azure, kan du betala för extra VM:ar bara när du behöver dem och stänga ner dem när de inte behövs längre. Eller, om vi antar att du är en startup som behöver dataresurser på begäran, snabbt och utan bindning. Azure kan då återigen vara rätt val.
+- **Utöka ditt eget datacenter till det offentliga molnet.** Med Azure Virtual Network kan organisationen skapa ett virtuellt nätverk (VNET) som agerar som en utökning av det egna nätverket på plats och sedan lägga till VM:ar till det virtuella nätverket. Det gör att program som [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) och fler, kan köras direkt på en Azure-VM. Den här metoden kan visa sig lättare att distribuera och mindre kostsam, än att köra dem i VM:ar på ditt eget datacenter.   
+- **Haveriberedskap.** Istället för att kontinuerligt behöva betala för ett datacenter för säkerhetskopiering som sällan används, låter IaaS-baserad haveriberedskap dig betala för de dataresurser du behöver bara när du verkligen behöver dem.  Om ditt primära datacenter exempelvis skulle krascha, kan du skapa VM:ar som körs på Azure för att hantera nödvändiga program och stänga dem när de inte längre behövs.
 
-Like other virtual machines, a VM in Azure has an operating system, storage and networking capabilities and can run a wide variety of applications. You can use an image provided by Azure or one of it's partners, or use your own. Examples include various versions, editions and configurations of:
+Precis som andra virtuella datorer, består en VM i Azure av ett operativsystem, ett lagringsutrymme och nätverksfunktioner och kan köra en rad olika program. Du kan använda en avbildning från Azure, eller någon av dess partners, eller använda din egen. Exempel inkluderar olika versioner, utgåvor och konfigurationer av:
  
-- Linux servers such as Suse, Ubuntu and CentOS
+- Linux-servrar som Suse, Ubuntu och CentOS
 - Windows Server 
 - SQL Server
 - BizTalk Server 
 - SharePoint Server
 
-Virtual machines use virtual hard disks (VHDs) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. The following figure shows this, as well as two of the tools for creating and managing your VMs.
+Virtuella datorer använder virtuella hårddiskar (VHD:ar) för att lagra sitt operativsystem (OS) och sin data. VHD:ar används också för de avbildningar du kan välja mellan för att installera ett operativsystem. Följande bild visar det, samt två verktyg för att skapa och hantera dina VM:ar.
 
 <a name="fig_createvms"></a>
 ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
-**Figure: Azure Virtual Machines provides Infrastructure as a Service.**
+**Bild: Azure Virtual Machines erbjuder infrastruktur som en tjänst.**
 
-VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through the REST API. Microsoft partners such as RightScale and ScaleXtreme also provide management services that rely on the REST API. 
+VM:ar kan hanteras från en webbläsarbaserad portal, kommandoradsverktyg med skriptstöd, eller direkt från REST-API:n. Microsoft-partners som RightScale och ScaleXtreme erbjuder också hanteringstjänster som förlitar sig på REST API. 
 
-Along with the OS, other configuration choices you have with VMs include:
+Förutom operativsystemet, finns det andra konfigurationsval med VM:ar:
 
-- The size, which determines factors such as how many disks you can attach and the processing power. Azure offers a wide variety of sizes to support many types of uses. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
-- The Azure region where your new VM will be hosted, such as in the US, Europe, or Asia. 
-- VM extensions, which give your virtual machine additional capabilities, such as running anti-virus or using the Desired State Configuration feature of Windows PowerShell.
+- Storleken, vilket avgör faktorer som hur många diskar du kan ansluta och processorkraften. Azure erbjuder en rad olika storlekar för att passa en mängd olika användningar. Mer information finns i [Storlekar för virtuella datorer](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
+- Azure-regionen där din nya VM ska ligga, exempelvis USA, Europa eller Asien. 
+- VM-tillägg som ger din virtuella dator ytterligare funktioner, som att köra antivirus eller använda sig av Desired State Configuration-funktionen i Windows PowerShell.
 
-Other benefits to consider for VMs include:
+Andra fördelar med att använda VM:ar är:
 
-**Pay-as-you-go** -- Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. Storage is priced and charged separately. For details, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+**Betala per användning** – Azure debiterar ett pris per timme baserat på storleken och operativsystemet för den virtuella datoren. För delar av timmar tar Azure bara betalt för användning per minut. Lagringsutrymme prissätts och debiteras separat. Mer information finns i [Prissättning för Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-**Resiliency** -- Azure monitors the physical hardware that hosts each running VM. If a physical server running a VM fails, Azure notices this, moves the VM to new hardware and restarts the VM. This process is sometimes called service healing. Azure also protects a virtual machine's data, by keeping redundant copies of the VHDs in blob storage. 
+**Återhämtning** – Azure övervakar den fysiska maskinvara som är värd för varje VM som körs. Om en fysisk server som kör en VM skulle krascha, märker Azure det och flyttar din VM till ny maskinvara och startar om den. Den här processen kallas ibland tjänsteläkning. Azure skyddar också data i virtuella datorer genom att ha redundanta kopior av VHD:ar i blobblagring. 
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

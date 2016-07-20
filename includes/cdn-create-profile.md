@@ -1,21 +1,26 @@
-**To create a new CDN profile**
+**Skapa en ny CDN-profil**
 
-1. In the [Azure Portal](https://portal.azure.com), in the upper left, click **New**.  In the **New** blade, select **Media + CDN**, then **CDN**.
+1. I [Azure Portal](https://portal.azure.com), i det övre vänstra hörnet, klickar du på **Ny**.  På det **nya** bladet väljer du **Media + CDN** och sedan **CDN**.
 
-    The new CDN profile blade appears.
+    Det nya CDN-profilbladet visas.
 
-    ![New CDN Profile](./media/cdn-create-profile/new-cdn-profile.png)
+    ![Ny CDN-profil](./media/cdn-create-profile/new-cdn-profile.png)
 
-2. Enter a name for your CDN profile.
+2. Ange ett namn för din CDN-profil.
 
-3. Select a **Location**.  This is the Azure location where your CDN profile information will be stored.  It has no impact on CDN endpoint locations.
+3. Välj en **Plats**.  Det här är den Azure-plats där din CDN-profilinformation kommer att lagras.  Den påverkar inte CDN-slutpunktsplatser.
 
-4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
+4. Välj eller skapa en **Resursgrupp**.  Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](resource-group-overview.md#resource-groups).
 
-5. Select a **Pricing tier**.  See the [CDN Overview](cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers.
+5. Välj en **Prisnivå**.  Se [CDN-översikt](cdn-overview.md#azure-cdn-features) för en jämförelse mellan prisnivåer.
     
-    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![Val av CDN-prisnivå](./media/cdn-create-profile/cdn-choose-sku.png)
 
-6. Select the **Subscription** for this CDN profile.
+6. Välj **Prenumeration** för den här CDN-profilen.
 
-7. Click the **Create** button to create the new profile. 
+7. Klicka på **Skapa**-knappen för att skapa den nya profilen. 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

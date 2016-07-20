@@ -8,41 +8,46 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Create a new Azure SQL database
+## Skapa en ny Azure SQL-databas
 
-Use the following steps in the Azure portal to create a new Azure SQL database on a new or existing Azure SQL Database logical server.
+Använd följande steg i Azure-portalen om du vill skapa en ny Azure SQL-databas på en ny eller befintlig logisk Azure SQL Database-server.
 
-1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. Click **New** , type **SQL Database** and then click **SQL Database (new database)**
+1. Om du inte är ansluten ansluter du till [Azure-portalen](http://portal.azure.com).
+2. Klicka på **Ny**, skriv **SQL Database** och klicka sedan på **SQL Database (ny databas)**
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
+     ![ny databas](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
 
-3. Click SQL Database (new database).
+3. Klicka på SQL Database (ny databas).
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
+     ![ny databas](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
    
-4. Click **Create** to create a new database in the SQL Database service.
+4. Klicka på **Skapa** för att skapa en ny databas i SQL Database-tjänsten.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
+     ![ny databas](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
 
-5. Provide the values for the following server properties:
+5. Ange värden för följande serveregenskaper:
 
- - Database name
- - Subscription (only if you have multiple subscriptions)
- - Resource group (if just getting started, use the resource group of the logical server)
- - Select source (you can choose a blank database, sample data or a database backup)
- - Server (a new or existing logical server)
- - Server admin password
- - Password
- - Pricing tier (if just getting started, use the default value S0)
- - Collation (only if blank database chosen)
+ - Databasnamn
+ - Prenumeration (bara om du har flera prenumerationer)
+ - Resursgrupp (om du precis kommit igång kan du använda resursgruppen för den logiska servern)
+ - Välj källa (du kan välja en tom databas, exempeldata eller en säkerhetskopia av en databas)
+ - Server (en ny eller befintlig logisk server)
+ - Administratörslösenord för servern
+ - Lösenord
+ - Prisnivå (om du precis kommit igång, kan du använda standardvärdet S0)
+ - Sortering (bara om du väljer en tom databas)
 
         ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 
-6.  Click **Create** and in the notification area, you can see that deployment has started.
+6.  Klicka på **Skapa**. I meddelandefältet ser du att distributionen har startats.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
+     ![ny databas](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
 
-7. Wait for deployment to finish before continuing to the next step.
+7. Vänta tills distributionen har slutförts innan du fortsätter till nästa steg.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
+     ![ny databas](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

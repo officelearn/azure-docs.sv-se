@@ -1,29 +1,34 @@
 <!--author=alkohli last changed:01/14/2016-->
 
 
-#### To create a new service
+#### Skapa en ny tjänst
 
-1. Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
+1. Logga in på den klassiska Azure-portalen med dina Microsoft-kontouppgifter på den här URL:en: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
-2. In the Azure classic portal , click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
+2. I den klassiska Azure-portalen klickar du på **Ny** > **Data Services** > **StorSimple Manager** > **Snabbregistrering**.
 
-3. In the form that is displayed, do the following:
-  1. Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
-  2. Supply a **Location** for your service. In general, choose a Location closest to the geographical region where you want to deploy your device. You may also want to factor in the following: 
-	 
-		- If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, you should use that datacenter.
-		- Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Azure classic portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After you create this account, add it to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
-		 
-  3. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
-  4. Select **Create a new storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf." If you need your data in a different location, uncheck this box. 
-  5. Click **Create StorSimple Manager** to create the service.
+3. I formuläret som visas gör du följande:
+  1. Ange ett unikt **namn** för din tjänst. Det är ett eget namn som kan användas för att identifiera tjänsten. Namnet kan innehålla mellan 2 och 50 tecken som kan vara bokstäver, siffror och bindestreck. Namnet måste börja och sluta med en bokstav eller en siffra.
+  2. Ange en **plats** för din tjänst. I allmänhet ska du välja en plats som är närmast den geografiska region där du vill distribuera din enhet. Du kan också ta med följande i beräkningarna: 
+     
+        - Om du har befintliga arbetsbelastningar i Azure som du också tänker distribuera med din StorSimple-enhet, bör du använda det datacentret.
+        - Din StorSimple Manager-tjänst och Azure-lagring kan finnas på två olika platser. I sådana fall måste du skapa StorSimple Manager-kontot och Azure-lagringskontot separat. För att skapa ett Azure-lagringskonto går du till Azure Storage-tjänsten i den klassiska Azure-portalen och följer stegen i [Skapa ett Azure Storage-konto](storage-create-storage-account.md#create-a-storage-account). När du skapat det här kontot, lägger du till det till StorSimple Manager-tjänsten genom att följa stegen i [konfigurera ett nytt lagringskonto för tjänsten](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
+         
+  3. Välj en **prenumeration** från listrutan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet syns inte om du bara har en prenumeration.
+  4. Välj **Skapa ett nytt lagringskonto**, för att automatiskt skapa ett lagringskonto med tjänsten. Det här lagringskontot har ett särskilt namn, till exempel "storsimplebwv8c6dcnf." Avmarkera kryssrutan om du behöver ha din data på en annan plats. 
+  5. Klicka på **Skapa StorSimple Manager** för att skapa tjänsten.
 
-   ![Create StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![Skapa StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
-  You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+  Du kommer nu omdirigeras till **Tjänst**-landningssidan. Det tar några minuter att skapa tjänsten. När tjänsten har skapats, kommer du att meddelas och tjänstens status kommer att ändras till **Aktiv**.
  
-   ![Service creation](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+   ![Skapa en tjänst](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-![Video available](./media/storsimple-create-new-service/Video_icon.png) **Video available**
+![Video tillgänglig](./media/storsimple-create-new-service/Video_icon.png) **Video tillgänglig**
 
-To watch a video that demonstrates how to create a new StorSimple Manager service, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+Om du vill se en video som visar hur du skapar en ny StorSimple Manager-tjänst klickar du [här](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

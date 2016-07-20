@@ -1,24 +1,30 @@
 
 
-## Create new database user using SSMS
+## Skapa en ny databasanvändare med hjälp av SSMS
 
-Use the following steps to create a new database user in an existing database using SSMS. 
+Använd följande steg för att skapa en ny databasanvändare i en befintlig databas med hjälp av SSMS. 
 
-These steps assume that you are connected to SQL Database in Object Explorer using SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to create a new user. 
+De här stegen förutsätter att du är ansluten till SQL Database i Object Explorer med hjälp av SSMS och är ansluten till din logiska SQL Database-server som en huvudsaklig administratör på servernivå eller med ett användarkonto med behörighet att skapa en ny användare. 
 
-1. In Object Explorer, expand the Databases node and select the database in which you wish to create a new user account.
+1. Expandera noden Databaser i Object Explorer och markera den databas som du vill skapa ett nytt användarkonto i.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
+     ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
 
-2. Right-click the selected database and then click **Query**.
+2. Högerklicka på den valda databasen och klicka sedan på **Fråga**.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
+     ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
 
-3. In the query window, edit and use the following Transact-SQL statement to create a contained user in your user database. 
+3. I frågefönstret redigerar du och använder följande Transact-SQL-instruktion för att skapa en innesluten användare i din användardatabas. 
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
+     ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

@@ -1,31 +1,36 @@
-We will now create a simple push notification campaign that sends a push notification to our app.
+Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push-meddelande till vår app.
 
-1. Navigate to the **REACH** tab in your Mobile Engagement portal.
+1. Gå till **REACH**-fliken i din Mobile Engagement-portal.
 
-2. Click **New announcement** to create your push notification campaign.
+2. Klicka på **Nytt meddelande** för att skapa din push-meddelandekampanj.
 
-	![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
+    ![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
 
-3. Set up the first field of your campaign through the following steps:
+3. Ställ in det första fältet i din kampanj med följande steg:
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
 
-	a. Provide a **Name** for your campaign.
+    a. Ge kampanjen ett **namn**.
 
-	b. Select **Delivery time** as *Any time*.
+    b. Ställ in **Leveranstid** som *När som helst*.
 
-	d. In the notification text - type the **Title** which will be in bold in the push.
+    d. I meddelandetexten skriver du **rubriken** som kommer att vara i fetstil i push-meddelandet.
 
-	e. Then type your **Message**
+    e. Sedan skriver du ditt **meddelande**
 
-4. Scroll down, and in the **Content** section, select **Notification only**.
+4. Bläddra ned till avsnittet **Innehåll** och välj **Endast meddelande**.
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
 
-5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
+5. Nu har du ställt in den mest grundläggande kampanjen som går. Bläddra ned igen och klicka på **Skapa**-knappen om du vill spara din kampanj.
 
-6. Last step: Click **Activate** to activate your campaign and to send push notifications.
+6. Sista steget: klicka på **Aktivera** om du vill aktivera din kampanj och skicka push-meddelanden.
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

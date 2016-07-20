@@ -1,19 +1,25 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To add a new storage account in StorSimple Release version (GA)
+#### Så här lägger du till ett nytt lagringskonto i StorSimple Release-versionen (GA)
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. På StorSimple Manager-tjänstens startsida väljer du din tjänst och dubbelklickar på den. Då kommer du till **Snabbstart**-sidan. Välj fliken **Konfigurera**.
 
-2. Click **Add/edit storage account**.
+2. Klicka på **Lägg till/redigera lagringskonto**.
 
-3. In the **Add/Edit Storage Account** dialog box, do the following:
+3. I dialogrutan **lägg till/redigera lagringskonto**, gör du följande:
 
-  1. Click **Add new**.
-  2. Provide a name for your storage account.
-  3. Supply the primary **Access Key** for your Microsoft Azure storage account.
-  4. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
-  5. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+  1. Klicka på **lägg till ny**.
+  2. Ange ett namn för ditt lagringskonto.
+  3. Ange den primära **åtkomstnyckeln** för ditt Microsoft Azure-lagringskonto.
+  4. Välj **Aktivera SSL-läge** om du vill skapa en säker kanal för nätverkskommunikation mellan din enhet och molnet. Avmarkera kryssrutan **Aktivera SSL-läge** endast om du arbetar inom ett privat moln.
+  5. Klicka på kryssikonen ![kryssikon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Du meddelas när lagringskontot har skapats.
 
-    ![Add storage account](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
+    ![Lägg till lagringskonto](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 
-4. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the newly created storage account. Click **OK** when prompted for confirmation.
+4. Det nyligen skapade lagringskontot kommer att visas på sidan **Konfigurera**, under **Lagringskonton**. Klicka på **Spara** för att spara det nyligen skapade lagringskontot. Klicka på **OK** när du uppmanas att bekräfta.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

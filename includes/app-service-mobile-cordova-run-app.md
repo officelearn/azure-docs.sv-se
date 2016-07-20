@@ -1,23 +1,24 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile
-app settings, click **Quickstart** > **Cordova**. Under **Configure your client application**, select **Create a New App**,
-then click **Download**. This downloads a complete Cordova project for an app pre-configured to connect to your backend.
+1. Besök [Azure Portal]. Klicka på **Bläddra alla** > **Mobile Apps** > serverdelen som du nyss skapade. I inställningarna för mobilappar, klickar du på **Snabbstart** > **Cordova**. Under **Konfigurera klientprogrammet**, väljer du **Skapa en ny app**, och klickar sedan på **Hämta**. Då hämtas ett fullständigt Cordova-projekt för en app som är förkonfigurerad att ansluta till din serverdel.
 
-2. Unpack the downloaded ZIP file to a directory on your hard drive.
+2. Packa upp den hämtade ZIP-filen till en katalog på din hårddisk.
 
-3. Open the project using **Visual Studio**.  Click on **Open** > **Project/Solution...**.
+3. Öppna projektet med **Visual Studio**.  Klicka på **Öppna** > **Projekt/lösning...**.
 
-4. Find the _sitename_.sln file and click **Open**.
+4. Sök efter filen _sitename_.sln och klicka på **Öppna**.
 
-5. The default emulator is **Ripple - Nexus (Galaxy)**.  Click the drop-down arrow next to the emulator and select **Google Android Emulator**.
+5. Standard-emulatorn är **Ripple – Nexus (Galaxy)**.  Klicka på listrutepilen bredvid emulatorn och välj **Google Android-emulator**.
 
-6. Click on **Google Android Emulator**.  The project will be built and then run.  You may see a network security warning from the
-Google Android Emulator requesting access to the network.  Eventually, the Google Android Emulator will be shown and your application will run.
+6. Klicka på **Google Android-emulator**.  Projektet kommer att skapas och sedan köras.  Det är möjligt att en nätverkssäkerhetsvarning visas från Google Android-emulatorn som ber om åtkomst till nätverket.  Till slut kommer Google Android-emulatorn att visas och ditt program kommer att köras.
 
-7. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the
-Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information
-about the newly stored items back to the mobile app. The mobile app displays this data in the list.
+7. Ange en beskrivande text i appen, till exempel _Slutför guiden_, och klicka sedan på Lägg till-knappen. Detta skickar en POST-begäran till den Azure-serverdel som du distribuerade tidigare. Serverdelen infogar data från begäran i TodoItem-SQL-tabellen och returnerar information om det nyligen lagrade objektet tillbaka till mobilappen. Mobilappen visar dessa data i listan.
 
     ![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
 
 [Azure Portal]: https://portal.azure.com/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

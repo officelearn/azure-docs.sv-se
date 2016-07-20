@@ -1,45 +1,51 @@
 <!--author=SharS last changed: 02/29/2016-->
 
-#### To create a volume
+#### Skapa en volym
 
-1. On the device **Quick Start** page, click **Add a volume**. This starts the Add a volume wizard.
+1. På enhetens **snabbstart**-sida, klickar du på **lägg till en volym**. Det startar guiden lägg till en volym.
 
-2. In the Add a volume wizard, under **Basic Settings**:
+2. I guiden lägg till en volym, i **grundläggande inställningar**:
 
-	4. Type a **Name** for your volume.
-	5. On the drop-down list, select the **Usage Type** for your volume. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** volume. For all other data, select a **Tiered** volume. If you are using this volume for archival data, check **Use this volume for less frequently accessed archival data**. 
-	
-		A locally pinned volume is thickly provisioned and ensures that the primary data on the volume stays local to the device and does not spill to the cloud.  If you create a locally pinned volume, the device will check for available space on the local tiers to provision the volume of the requested size. The operation of creating a locally pinned volume may involve spilling existing data from the device to the cloud and the time taken to create the volume may be long. The total time depends on the size of the provisioned volume, available network bandwidth, and the data on your device. 
+    4. Anger du ett **namn** för volymen.
+    5. I listrutan väljer du **användningstyp** för volymen. För arbetsbelastningar som kräver lokala garantier, låg latens och hög prestanda, väljer du en **lokalt fäst** volym. För all övrig data, väljer du en **nivåindelad** volym. Om du använder volymen för arkiveringsdata, markerar du **Använd volymen för arkiveringsdata med låg åtkomstfrekvens**. 
+    
+        En lokalt fäst volym etableras tjockt, vilket försäkrar att primärdata på volymen är lokalt belägen för enheten och inte läcker över till molnet.  Om du skapar en lokalt fäst volym, kommer enheten att leta efter ledigt utrymme på de lokala nivåerna för att etablera volymen med önskad storlek. Att skapa en lokalt fäst volym kan innebära att läcka befintlig data från enheten till molnet och volymen kan ta lång tid att skapa. Den totala tiden beror på den etablerade volymens storlek, tillgänglig nätverksbandbredd och den data som finns på din enhet. 
 
-		A tiered volume is thinly provisioned and can be created very quickly. If you are using the tiered volume for archival data, selecting **Use this volume for less frequently accessed archival data** changes the deduplication chunk size for your volume to 512 KB. If this field is not checked, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
+        En nivåindelad volym är tunt etablerad och kan skapas väldigt snabbt. Om du använder den nivåindelade volymen för arkivdata och väljer **Använd volymen för arkiveringsdata med låg åtkomstfrekvens** så ändras segmentstorleken för deduplicering för din volym till 512 KB. Om fältet inte är markerat använder den motsvarande nivåindelade volymen en segmentstorlek på 64 kB. En större segmentstorlek för deduplicering låter enheten snabba på överföring av segmentstorleken tillåter enheten att påskynda överföringen av stora mängder arkiveringsdata till molnet.
 
-	3. Specify the **Provisioned Capacity** for your volume. Make a note of the capacity that is available based on the volume type selected. The specified volume size must not exceed the available space.
+    3. Ange **etableringskapacitet** för volymen. Anteckna kapaciteten som finns tillgänglig baserat på den volymtyp som valts. Den angivna volymstorleken får inte överskrida det tillgängliga utrymmet.
 
-		You can provision locally pinned volumes up to 8 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 20 TB or tiered volumes up to 500 TB. As local space on the device is required to host the working set of tiered volumes, creation of locally pinned volumes will impact the space available for provisioning tiered volumes. Therefore, if you create a locally pinned volume, space available for creation of tiered volumes will be reduced. Similarly, if a tiered volume is created, the available space for creation of  locally pinned volumes will be reduced. 
+        Du kan etablera lokalt fästa volymer upp till 8 TB, eller nivåindelade volymer upp till 200 TB på 8100-enheten. På den större 8600-enheten, kan du etablera lokalt fästa volymer upp till 20 TB, eller nivåindelade volymer på upp till 500 TB. Eftersom det krävs lokalt utrymme på enheten för att hålla arbetsuppsättningen med nivåindelade volymer, kommer skapandet av fästa volymer att påverka mängden utrymme som finns tillgängligt för att etablera nivåindelade volymer. Om du skapar en lokalt fäst volym, kommer därmed utrymmet som finns tillgängligt för att skapa nivåindelade volymer att minska. Likaså om du skapar en nivåindelad volym, kommer tillgängligt utrymme för att skapa en lokalt fäst volym att minska. 
 
-		If you provision a locally pinned volume of 8 TB (maximum allowable size) on your 8100 device, then you will have exhausted all the local space available on the device. You will not be able to create any tiered volume from that point onwards as there is no local space on the device to host the working set of the tiered volume. Existing tiered volumes also affect the space available. For example, if you have an 8100 device that already has tiered volumes of 100 TB, only 4 TB of space will be available for locally pinned volumes.
+        Om du etablerar en lokalt fast volym på 8 TB (största tillåtna storleken) på din 8100-enhet, kommer du att ha använt upp allt lokalt tillgängligt utrymme för enheten. Du kommer inte kunna skapa någon nivåindelad volym därefter, eftersom det inte finns något lokalt utrymme ledigt på enheten för att hålla arbetsuppsättningen för den nivåindelade volymen. Befintliga nivåindelade volymer påverkar också tillgängligt utrymme. Om du exempelvis har en 8100-enhet som redan har nivåindelade volymer på 100 TB, kommer det bara finnas 4 TB utrymme tillgängligt för lokalt fästa volymer.
 
-        The following image shows the **Basic Settings** dialog box for a locally pinned volume.
+        Följande bild visar dialogrutan **Grundläggande inställningar** för en lokalt fäst volym.
 
-         ![Add local volume](./media/storsimple-create-volume-u2/add-local-volume-include.png)
+         ![Lägg till lokal volym](./media/storsimple-create-volume-u2/add-local-volume-include.png)
 
-        The following image shows the **Basic Settings** dialog box for a tiered volume.
+        Följande bild visar dialogrutan **Grundläggande inställningar** för en nivåindelad volym.
 
-         ![Add local volume](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
+         ![Lägg till lokal volym](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
 
-   4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) to go to the next page.
+   4. Klicka på pilikonen ![pilikon](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) för att gå till nästa sida.
 
 
-3. In the **Additional Settings** dialog box, add a new access control record (ACR):
+3. I dialogrutan **Ytterligare inställningar**, lägger du till en ny åtkomstkontrollpost (ACR):
 
-	1. Supply a **Name** for your ACR.
-	2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
-	3. Under **Default backup for this volume?**, select the **Enable** check box. The default backup will create a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.
-	 
-     > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
+    1. Ange ett **namn** för din ACR.
+    2. Som **iSCSI-initierarnamn**, anger du det iSCSI-kvalificerade namnet (IQN) för din Windows-värd. Om du inte har en IQN, går du till [Hämta IQN för en Windows Server-värd](#get-the-iqn-of-a-windows-server-host).
+    3. Som **Standard säkerhetskopiering för den här volymen?**, markerar du kryssrutan **Aktivera**. Standard säkerhetskopieringen skapar en princip som körs klockan 22.30 varje dag (enhetens tid) och skapar en ögonblicksbild i molnet av den här volymen.
+     
+     > [AZURE.NOTE] När säkerhetskopieringen har aktiverats här, kan den inte återställas. För att ändra inställningen, behöver du redigera volymen.
 
-     ![Add volume](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
+     ![Lägg till volym](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
-4. Click the check icon ![check icon](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). A volume will be created with the specified settings.
+4. Klicka på kryssikonen ![kryssikon](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). En volym skapas med de angivna inställningarna.
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

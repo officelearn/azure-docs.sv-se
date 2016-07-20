@@ -1,11 +1,17 @@
-- [Get started with Azure Privileged Identity Management](../articles/active-directory/active-directory-privileged-identity-management-getting-started.md)
-- [Roles in Azure PIM](../articles/active-directory/active-directory-privileged-identity-management-roles.md)
-- [The security wizard](../articles/active-directory/active-directory-privileged-identity-management-security-wizard.md)
-- [How to add or remove a user role](../articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
-- [How to activate or deactivate a role](../articles/active-directory/active-directory-privileged-identity-management-how-to-activate-role.md)
-- [How to change or view the default activation settings for a role](../articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md)
-- [How to configure security alerts](../articles/active-directory/active-directory-privileged-identity-management-how-to-configure-security-alerts.md)
-- [How to start a security review](../articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md)
-- [How to perform a security review](../articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md)
-- [How to require MFA](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
-- [How to use the audit log](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
+- [Kom igång med Azure Privileged Identity Management](../articles/active-directory/active-directory-privileged-identity-management-getting-started.md)
+- [Roller i Azure PIM](../articles/active-directory/active-directory-privileged-identity-management-roles.md)
+- [Säkerhetsguiden](../articles/active-directory/active-directory-privileged-identity-management-security-wizard.md)
+- [Lägga till eller ta bort en användarroll](../articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
+- [Aktivera eller inaktivera en roll](../articles/active-directory/active-directory-privileged-identity-management-how-to-activate-role.md)
+- [Ändra eller visa standardinställningar för aktivering för en roll](../articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md)
+- [Konfigurera säkerhetsaviseringar](../articles/active-directory/active-directory-privileged-identity-management-how-to-configure-security-alerts.md)
+- [Starta en säkerhetsgranskning](../articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Genomföra en säkerhetsgranskning](../articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md)
+- [Kräva MFA](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
+- [Använda spårningsloggen](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

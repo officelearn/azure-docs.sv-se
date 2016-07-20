@@ -1,14 +1,20 @@
-This section shows you how to connect your app to the Mobile Engagement backend by using the Mobile Engagement's real-time monitoring feature. 
+Det här avsnittet visar hur du ansluter din app till Mobile Engagement-serverdelen med hjälp av funktionen för realtidsövervakning i Mobile Engagement. 
 
-1. In your **Azure Mobile Engagement** account, make sure you select the app you wish to monitor and manage in the **Mobile Engagement** portal. Navigate to your Mobile Engagement portal by clicking the **Engage** button at the bottom. 
+1. I ditt **Azure Mobile Engagement**-konto ser du till att du har valt den app som du vill övervaka och hantera i **Mobile Engagement**-portalen. Gå till din Mobile Engagement-portal genom att klicka på **Starta**-knappen längst ned. 
 
-	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
+     ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 
-2. You will land in the Mobile Engagement portal. If the Monitor tab is not selected, click on the **Monitor**.
+2. Du tas till Mobile Engagement-portalen. Om övervakningsfliken inte är vald, klickar du på **Övervakaren**.
 
-3. The monitor is ready to show you any device in real time, which will start your app.
-	 
-4. Start your app either in the emulator/simulator or on a connected device. You should see one session in the monitor if your integration is correct which means that your app is now connected to the Mobile Engagement backend and is sending data to it.  
-	
-	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+3. Övervakaren är redo att visa dig valfri enhet i realtid, vilket startar din app.
+     
+4. Starta din app antingen i emulatorn/simulatorn eller på en ansluten enhet. Om integreringen är korrekt, bör du se en session i övervakaren, vilket innebär att din app nu är ansluten till Mobile Engagement-serverdelen och skickar data till den.  
+    
+     ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

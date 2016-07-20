@@ -1,13 +1,18 @@
-Caches can be accessed in the [Azure Portal](https://portal.azure.com) using the **Browse** blade.
+Cacheminnen kan kommas åt i [Azure Portal](https://portal.azure.com) med hjälp av **Bläddra**-bladet.
 
-![Azure Redis Cache Browse Blade](media/redis-cache-browse/redis-cache-browse.png)
+![Azure Redis-cache, Bläddra-bladet](media/redis-cache-browse/redis-cache-browse.png)
 
-Click **Browse > Redis Caches** to view your caches. If you have recently browsed to a Redis Cache, you can click **Redis Caches** directly from the list without clicking **Browse**.
+Klicka på **Bläddra > Redis-cache** om du vill se dina cacheminnen. Om du nyligen har bläddrat till ett Redis-cache, kan du klicka på **Redis-cache** direkt från listan utan att klicka på **Bläddra**.
 
-Select the desired cache to view the properties for that cache.
+Välj önskat cacheminne om du vill granska egenskaperna för det.
 
-![Azure Redis Cache Browse Cache List](media/redis-cache-browse/redis-caches.png)
+![Azure Redis-cache, Bläddra cachelista](media/redis-cache-browse/redis-caches.png)
 
-Click **Settings** or **All settings** to view and configure your cache.
+Klicka på **Inställningar** eller **Alla inställningar** om du vill visa och konfigurera din cache.
 
-![Redis Cache All Settings](media/redis-cache-browse/redis-cache-blade.png)
+![Alla inställningar för Redis-cache](media/redis-cache-browse/redis-cache-blade.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

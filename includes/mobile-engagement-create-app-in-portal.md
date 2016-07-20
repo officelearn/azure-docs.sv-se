@@ -1,25 +1,31 @@
-1. Log on to the [Azure Classic Portal](https://manage.windowsazure.com), and then click **+NEW** at the bottom of the screen.
+1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com) och klicka sedan på **+NY** längst ner på skärmen.
 
-2. Click on **App Services**, then **Mobile Engagement**, and then **Create**.
+2. Klicka på **Apptjänster**, **Mobile Engagement** och sedan på **Skapa**.
 
-   	![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
+    ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
 
-3. In the popup that appears, enter the following information:
+3. I popup-fönstret som visas anger du följande information:
 
-   	![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
+    ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
 
-	- **Application Name**: Name of your application. 
-	- **Platform**: Target platform for the app. You must create one Mobile Engagement app per platform that you are targeting for your mobile application. 
-	- **Application Resource Name**: Name by which this application will be accessible via APIs and URLs. 
-	- **Location**: Region/Data center where this app and app collection will be hosted.
-	- **Collection**: Select a previously created Collection or select 'New Collection'.
-	- **Collection Name**: Represents your group of applications. This will also ensure all your apps are in a group that will allow aggregated calculations of metrics. You should use your company name or department here if applicable.
+    - **Programnamn**: namnet på ditt program. 
+    - **Plattform**: målplattform för appen. Du måste skapa en Mobile Engagement-app per plattform som din mobila app riktar sig till. 
+    - **Programmets resursnamn**: det namn som programmet kommer att vara nåbart via API:er och URL:er. 
+    - **Plats**: Region/datacenter där appen och appsamlingen kommer att finnas.
+    - **Samling**: Välj en samling som skapats tidigare eller välj Ny samling.
+    - **Samlingsnamn**: representerar din programgrupp. Detta säkerställer också att alla dina appar finns i en grupp som tillåter aggregerade måttberäkningar. Du bör använda ditt företagsnamn eller din avdelning här om det är tillämpligt.
 
-4. Select the app you just created in the **Applications** tab.
+4. Välj appen som du nyss skapade i **Program**-fliken.
 
-5. Click on **CONNECTION INFO** in order to display the connection settings to put into your SDK integration in your mobile app.
+5. Klicka på **ANSLUTNINGSINFORMATION** för att visa anslutningsinställningarna som du lägger till i din SDK-integrering i din mobilapp.
 
-6. Copy the **CONNECTION STRING** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your App.
+6. Kopiera **ANSLUTNINGSSTRÄNGEN**. Det här är vad du behöver för att identifiera appen i din programkod och ansluta med Mobile Engagement från din app.
 
-   	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
+    ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

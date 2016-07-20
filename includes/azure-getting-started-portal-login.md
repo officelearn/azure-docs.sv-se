@@ -8,26 +8,32 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Connecting to the Microsoft Azure portal with a subscription
+## Anslut till Microsoft Azure-portalen med en prenumeration
 
-To connect to the Microsoft Azure portal, you must have a subscription. 
+Du måste ha en prenumeration för att ansluta till Microsoft Azure-portalen. 
 
-### Get a new account
+### Skaffa ett nytt konto
 
-If you do not have an existing Microsoft Azure account, follow one of the links below to obtain an account:
+Om du inte har ett befintligt Microsoft Azure-konto, kan du följa en av länkarna nedan för att skaffa ett konto:
 
-- Get a [free account](https://azure.microsoft.com/get-started/)
-- Use an [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)
+- Skaffa ett [kostnadsfritt konto](https://azure.microsoft.com/get-started/)
+- Använd en [MSDN-prenumeration](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)
 
-###Sign in using your existing account
+###Logga in med ditt befintliga konto
 
-Using your [existing subscription]( https://account.windowsazure.com/Home/Index), follow the steps below to connect to the Azure portal. 
+Använd din [befintliga prenumeration]( https://account.windowsazure.com/Home/Index) och följ stegen nedan för att ansluta till Azure-portalen. 
 
-1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
+1. Öppna din webbläsare och anslut till [Azure-portalen](https://portal.azure.com/).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. When the sign in page appears, provide the credentials for your subscription
+1. Ange autentiseringsuppgifterna för din prenumeration på inloggningssidan
 
-   ![sign in](./media/azure-getting-started-portal-login/login.png)
+   ![logga in](./media/azure-getting-started-portal-login/login.png)
    
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

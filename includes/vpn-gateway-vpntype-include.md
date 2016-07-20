@@ -1,3 +1,8 @@
-- **Policy-based VPN type:** Policy-based VPNs were previously called static routing gateways in the classic deployment model. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies configured with the combinations of address prefixes between your on premises network and the Azure VNet. The policy (or traffic selector) is usually defined as an access list in the VPN device configuration. The value for a policy-based VPN type is *PolicyBased*.
+- **Principbaserad VPN-typ:** Principbaserade VPN:er kallades innan för statiska routnings-gatewayer i den klassiska distributionsmodellen. Principbaserade VPN:er krypterar och dirigerar paket via IPSec-tunnlar baserat på IPsec-principer som konfigureras med kombinationer av adressprefix mellan ditt lokala nätverk och Azure VNet. Principen (eller trafikväljaren) definieras vanligtvis som en åtkomstlista i VPN-enhetens konfiguration. Värdet för en principbaserad VPN-typ är *PolicyBased*.
 
-- **Route-based VPN type**: Route-based VPNs were previously called dynamic routing gateways in the classic deployment model. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy (or traffic selector) for route-based VPNs are configured as any-to-any (or wild cards). The value for a route-based VPN type is *RouteBased*.
+- **Ruttbaserad VPN-typ:** Ruttbaserade VPN:er kallades tidigare för dynamiska routnings-gatewayer i den klassiska distributionsmodellen. Ruttbaserade VPN:er använder "rutter" i IP-vidarebefordrings- eller routningstabeller för att dirigera paket till sina motsvarande tunnelgränssnitt. Tunnelgränssnitten krypterar eller dekrypterar sedan paketen in och ut tunnlarna. Principen (eller trafikväljaren) för ruttbaserade VPN:er konfigureras som alla-till-alla (eller jokertecken). Värdet för en ruttbaserad VPN-typ är *RouteBased*.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

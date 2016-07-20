@@ -1,29 +1,35 @@
-## Defining a backup policy
+## Definiera en princip för säkerhetskopiering
 
-A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
+En princip för säkerhetskopiering definierar en matris över när ögonblicksbilder av data tas och hur länge de kvarhålls. När du definierar en princip för säkerhetskopiering av en VM, kan du utlösa ett säkerhetskopieringsjobb *en gång per dag*. När du skapar en ny princip, tillämpas den för valvet. Gränssnittet för säkerhetskopieringsprincipen ser ut så här:
 
-![Backup policy](./media/backup-create-policy-for-vms/backup-policy.png)
+![Princip för säkerhetskopiering](./media/backup-create-policy-for-vms/backup-policy.png)
 
-To create a policy:
+Så här skapar du en princip:
 
-1. Enter a name for the **Policy name**.
+1. Ange ett namn för **Principnamn**.
 
-2. Snapshots of your data can be taken at Daily or Weekly intervals. Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.
+2. Ögonblicksbilder av data kan tas med dags- eller veckointervall. Använd menyn **Säkerhetskopieringsfrekvens** för att välja om ögonblicksbilder av data ska tas dagligen eller veckovis.
 
-    - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
+    - Använd den markerade kontrollen för att välja tid på dygnet för ögonblicksbilden, om du väljer dagsintervall. Om du vill ändra timme så avmarkerar du timmen och väljer en ny timme.
 
-    ![Daily backup policy](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
+    ![Princip för daglig säkerhetskopiering](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
 
-    - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the selected hour, and select the new hour.
+    - Använd de markerade kontrollerna för att välja dag i veckan och tid på dygnet att ta ögonblicksbilden, om du väljer veckointervall. Välj en eller flera dagar i dagmenyn. Välj en timme i timmenyn. Om du vill ändra timme så avmarkerar du timmen och väljer en ny timme.
 
-    ![Weekly backup policy](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
+    ![Princip för veckovis säkerhetskopiering](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
 
-3. By default, all **Retention Range** options are selected. Uncheck any retention range limit you do not want to use. Then, specify the interval(s) to use.
+3. Som standard är alla alternativ för **Kvarhållningsintervall** markerade. Avmarkera alla begränsningar i kvarhållningsintervallet som du inte vill använda. Ange sedan de intervall som ska användas.
 
-    Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
+    Månatliga och årliga kvarhållningsintervall låter dig ange ögonblicksbilderna baserat på veckovisa eller dagliga inkrement.
 
-    >[AZURE.NOTE] When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
+    >[AZURE.NOTE] Ett säkerhetskopieringsjobb körs en gång per dag när du skyddar en VM. Säkerhetskopieringen körs vid samma tidpunkt för varje kvarhållningsintervall.
 
-4. After setting all options for the policy, at the top of the blade click **Save**.
+4. När du har angett alla alternativ för principen överst på bladet, klickar du på **Spara**.
 
-    The new policy is immediately applied to the vault.
+    Den nya principen tillämpas omedelbart på valvet.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

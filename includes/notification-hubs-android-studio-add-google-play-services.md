@@ -1,30 +1,36 @@
-1. Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio or by clicking **Tools** -> **Android** -> **SDK Manager** on the menu. Locate the target version of the Android SDK that is used in your project , open it by clicking **Show Package Details**, and choose **Google APIs**, if it is not already installed.
+1. Öppna Android SDK Manager genom att klicka på ikonen i verktygsfältet för Android Studio eller genom att klicka på **Verktyg** -> **Android** -> **SDK Manager** i menyn. Hitta målversionen av Android SDK:n som används i ditt projekt, öppna den genom att klicka på **Visa paketinformation** och välj **Google API:er** om det inte redan har installerats.
 
-2. Click the **SDK Tools** tab. If you haven't already installed Google Play Service, click **Google Play Services** as shown below. Then click **Apply** to install. 
+2. Klicka på fliken **SDK-verktyg**. Om du inte redan har installerat Google Play-tjänsten klickar du på **Google Play Services** enligt nedan. Klicka sedan på **Tillämpa** för att installera. 
  
-	Note the SDK path, for use in a later step. 
+    Anteckna SDK-sökvägen för användning i ett senare steg. 
 
-   	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 
 
-3. Open the **build.gradle** file in the app directory.
+3. Öppna filen **build.gradle** i appkatalogen.
 
-	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 
-4. Add this line under *dependencies*: 
+4. Lägg till följande rad under *beroenden*: 
 
-   		compile 'com.google.android.gms:play-services-gcm:8.4.0'
+        compile 'com.google.android.gms:play-services-gcm:8.4.0'
 
-5. Under *defaultConfig*, change *minSdkVersion* to 9.
+5. Under *defaultConfig* ändrar du *minSdkVersion* till 9.
  
-6. Click the **Sync Project with Gradle Files** icon in the tool bar.
+6. Klicka på ikonen **Synkronisera projektet med Gradle-filer** i verktygsfältet.
 
-7. Open **AndroidManifest.xml** and add this tag to the *application* tag.
+7. Öppna **AndroidManifest.xml** och lägg till den här taggen till *program*-taggen.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
  
 
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

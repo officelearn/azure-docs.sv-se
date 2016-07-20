@@ -1,31 +1,37 @@
 <!--author=SharS last changed: 02/04/2016-->
 
-#### To create a volume
+#### Skapa en volym
 
-1. On the device **Quick Start** page, click **Add a volume**. This starts the Add a volume wizard.
+1. På enhetens **Snabbstart**-sida, klickar du på **Lägg till en volym**. Det startar guiden lägg till en volym.
 
-2. In the Add a volume wizard, under **Basic Settings**, do the following:
-   1. Supply a **Name** for your volume.
-   2. Specify the **Provisioned Capacity** for your volume in GB or TB. The volume capacity must be between 1 GB and 64 TB for a physical device.
-   3. On the drop-down list, select the **Usage Type** for your volume. 
-   4. If you are using this volume for archival data, select the **Use this volume for less frequently accessed archival data** check box. For all other use cases, simply select **Tiered Volume**. (Tiered volumes were formerly called primary volumes).
+2. I guiden Lägg till en volym, i **Grundläggande inställningar**, gör du följande:
+   1. Ange ett **namn** för volymen.
+   2. Ange **etablerad kapacitet** för volymen i GB eller TB. Volymens kapacitet måste vara mellan 1 GB och 64 TB för en fysisk enhet.
+   3. I listrutan väljer du **användningstyp** för volymen. 
+   4. Om du använder volymen för arkiveringsdata, markerar du **Använd volymen för arkiveringsdata med låg åtkomstfrekvens**. För alla andra användningsfall, väljer du helt enkelt **Nivåindelad volym**. (Nivåindelade volymer kallades förut för primära volymer).
 
-        ![Add volume](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
+        ![Lägg till volym](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
 
-    4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) to go to the next page.
+    4. Klicka på pilikonen ![pilikon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) för att gå till nästa sida.
 
-3. In the **Additional Settings** dialog box, add a new access control record (ACR):
-   1. Supply a **Name** for your ACR.
-   2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
-   3. We recommend that you enable a default backup by selecting the **Enable a default backup for this volume** check box. The default backup will create a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.
+3. I dialogrutan **Ytterligare inställningar**, lägger du till en ny åtkomstkontrollpost (ACR):
+   1. Ange ett **namn** för din ACR.
+   2. Som **iSCSI-initierarnamn**, anger du det iSCSI-kvalificerade namnet (IQN) för din Windows-värd. Om du inte har en IQN, går du till [Hämta IQN för en Windows Server-värd](#get-the-iqn-of-a-windows-server-host).
+   3. Vi rekommenderar att du aktiverar en standard säkerhetskopiering genom att markera kryssrutan **Aktivera en standard säkerhetskopiering för den här volymen**. Standard säkerhetskopieringen skapar en princip som körs klockan 22.30 varje dag (enhetens tid) och skapar en ögonblicksbild i molnet av den här volymen.
 
-        > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
+        > [AZURE.NOTE] När säkerhetskopieringen har aktiverats här, kan den inte återställas. För att ändra inställningen, behöver du redigera volymen.
 
-        ![Add volume](./media/storsimple-create-volume/AddVolume2-include.png)
+        ![Lägg till volym](./media/storsimple-create-volume/AddVolume2-include.png)
 
-4. Click the check icon ![check icon](./media/storsimple-create-volume/HCS_CheckIcon-include.png). A volume will be created with the specified settings.
+4. Klicka på kryssikonen ![kryssikon](./media/storsimple-create-volume/HCS_CheckIcon-include.png). En volym skapas med de angivna inställningarna.
 
-![Video available](./media/storsimple-create-volume/Video_icon.png) **Video available**
+![Video tillgänglig](./media/storsimple-create-volume/Video_icon.png) **Video tillgänglig**
 
-To watch a video that demonstrates how to create a StorSimple volume, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+Om du vill se en video som visar hur du skapar en StorSimple-volym klickar du [här](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

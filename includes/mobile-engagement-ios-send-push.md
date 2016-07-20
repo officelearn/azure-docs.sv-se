@@ -1,57 +1,62 @@
-###Grant access to your Push Certificate to Mobile Engagement
+###Bevilja Mobile Engagement åtkomst till ditt Push-certifikat
 
-To allow Mobile Engagement to send Push Notifications on your behalf, you need to grant it access to your certificate. This is done by configuring and entering your certificate into the Mobile Engagement portal. Make sure you obtain your .p12 certificate as explained in [Apple's documentation](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+Om du vill låta Mobile Engagement skicka push-meddelanden för dig, måste du bevilja Mobile Engagement åtkomst till ditt certifikat. Det görs genom att konfigurera och ange ditt certifikat i Mobile Engagement-portalen. Kontrollera att du har fått ditt .p12-certifikat enligt beskrivningen i [Apples dokumentation](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
-1. Navigate to your Mobile Engagement portal. Ensure you're in the correct and then click on the **Engage** button at the bottom:
+1. Gå till din Mobile Engagement-portal. Se till att du befinner dig i rätt och klicka sedan på **Engage**-knappen längst ned:
 
-	![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
 
-2. Click on the **Settings** page in your Engagement Portal. From there click on the **Native Push** section to upload your p12 certificate:
+2. Klicka på **Inställningar**-sidan i din Engagement-portal. Därifrån klickar du på avsnittet **Systemspecifik push-avisering** för att överföra ditt p12-certifikat:
 
-	![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
+    ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
 
-3. Select your p12, upload it and type your password:
+3. Välj ditt p12, överför det och ange ditt lösenord:
 
-	![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
+    ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-##<a id="send"></a>Send a notification to your app
+##<a id="send"></a>Skicka ett meddelande till din app
 
-We will now create a simple Push Notification campaign that will send a push to our app:
+Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push till vår app:
 
-1. Navigate to the **Reach** tab in your Mobile Engagement portal.
+1. Gå till **Reach**-fliken i din Mobile Engagement-portal.
 
-2. Click **New Announcement** to create your push campaign
+2. Klicka på **nytt meddelande** för att skapa din push-kampanj
 
-	![](./media/mobile-engagement-ios-send-push/new-announcement.png)
+    ![](./media/mobile-engagement-ios-send-push/new-announcement.png)
 
-3. Setup the first fields of your campaign:
+3. Ställ in de första fälten i din kampanj:
 
-	![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
 
-	- 	Provide a **Name** for your campaign 
-	- 	Select the **Delivery time** as **Out of app only**: this is the simple Apple push notification type that features some text.
-	- 	In the notification text, type first the **Title** which will be the first line in the push.
-	- 	Then type your **Message** which will be the second line
+    -   Ge din kampanj ett **namn** 
+    -   Ställ in **Leveranstid** som **Endast utanför appen**: det är den enkla Apple-push-meddelandetypen som innehåller text.
+    -   I meddelandetexten skriver du först **rubriken** som kommer att vara den första raden i push-meddelandet.
+    -   Sedan skriver du ditt **meddelande** som kommer att vara den andra raden
 
-4. Scroll down, and in the content section select **Notification only**
+4. Bläddra ned och välj **Endast meddelande** i innehållssektionen
 
-	![](./media/mobile-engagement-ios-send-push/campaign-content.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-content.png)
 
-5. You're done setting the most basic campaign. Now scroll down and click on **Create** button to save your push notification campaign. 
+5. Nu har du ställt in den mest grundläggande kampanjen. Bläddra nedåt och klicka på **Skapa**-knappen för att spara din push-meddelandekampanj. 
 
-6. Finally - click on **Activate** to send push notification. 
+6. Slutligen klickar du på **Aktivera** för att skicka push-meddelandet. 
 
-	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
-7. You will be able receive the notification on your iOS device in the notification center like the following:
+7. Du kommer att kunna ta emot meddelandet på din iOS-enhet i meddelandecentret på följande vis:
 
-	![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
+    ![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
 
-8. If you have an Apple Watch paired with this iOS device then you will see the notification on your Apple Watch:
+8. Om du har en Apple Watch parad med iOS-enheten så kommer du att se meddelandet på din Apple Watch:
 
-	![](./media/mobile-engagement-ios-send-push/apple-watch.png)
+    ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
+
+ 
 
  
 
- 
+
+<!--HONumber=Jun16_HO2-->
+
+

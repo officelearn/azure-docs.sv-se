@@ -1,48 +1,54 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### To add a storage account in StorSimple 8000 Series Update 1.0
+#### Så här lägger du till ett lagringskonto i StorSimple 8000 Series uppdatering 1.0
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. På StorSimple Manager-tjänstens startsida väljer du din tjänst och dubbelklickar på den. Då kommer du till **Snabbstart**-sidan. Välj fliken **Konfigurera**.
 
-2. Click **Add/edit storage account**.
+2. Klicka på **Lägg till/redigera lagringskonto**.
 
-3. In the **Add/Edit Storage Account** dialog box, click **Add new**.
+3. I dialogrutan **Lägg till/redigera lagringskonto**, klickar du på **Lägg till ny**.
 
-4. In the **Provider** field, select the appropriate cloud service provider. The supported providers are Azure, Amazon S3, Amazon S3 with RRS, HP and OpenStack. Specify the credentials and the location associated with the storage account of your cloud service providers. The fields presented for credentials will be different depending upon the cloud service provider you have specified. 
-  - If you have selected Azure as your cloud service provider, supply the **Name** and the primary **Access Key** for your Microsoft Azure storage account. For an Azure account, the location will be automatically populated.
+4. I **Leverantör**-fältet väljer du lämplig molntjänstleverantör. De leverantörer som stöds är Azure, Amazon S3, Amazon S3 med RRS, HP och OpenStack. Ange autentiseringsuppgifter och plats som associeras med lagringskontot för dina molntjänstleverantörer. Fälten som visas för autentiseringsuppgifter kommer att skilja sig åt beroende på vilken molntjänstleverantör du angett. 
+  - Om du har valt Azure som molntjänstleverantör, anger du **namn** och primär **åtkomstnyckel** för ditt Microsoft Azure-lagringskonto. För ett Azure-konto fylls platsen automatiskt i.
 
         ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
 
- - If you have selected Amazon S3 or Amazon S3 with RRS, provide a friendly **Storage Account name**, **Access Key**, and **Secret Key**. For Amazon S3 and Amazon S3 with RRS, the following locations are supported:
+ - Om du har valt Amazon S3 eller Amazon S3 med RRS, anger du ett eget **namn på lagringskonto**, **åtkomstnyckel** och **hemlig nyckel**. För Amazon S3 och Amazon S3 med RRS, stöds följande platser:
 
-		- US Standard
-		- US West (Oregon)
-		- US West (Northern California)
-		- EU (Ireland)
-		- Asia Pacific (Singapore)
-		- Asia Pacific (Sydney)
-		- Asia Pacific (Tokyo)
-		- South America (Sao Paulo)
+        - US Standard
+        - US West (Oregon)
+        - US West (Northern California)
+        - EU (Ireland)
+        - Asia Pacific (Singapore)
+        - Asia Pacific (Sydney)
+        - Asia Pacific (Tokyo)
+        - South America (Sao Paulo)
 
         ![Add Amazon storage account](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
-	  		
- - If you have selected HP as your cloud service provider, supply a friendly **Storage Account Name**, **Tenant ID**, **Username**, and **Password**. For HP, the following locations are supported:
+            
+ - Om du valt HP som din molntjänstleverantör, anger du ett eget **namn på lagringskonto**, **klient-ID**, **användarnamn** och **lösenord**. Följande platser stöds för HP:
 
-		- US East
-		- US West
-	  
+        - US East
+        - US West
+      
         ![Add HP storage account](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
-	  		
- - If you have selected **Openstack** as your cloud service provider, provide a **Hostname**, **Access Key**, and **Secret Key**.
+            
+ - Om du har valt **Openstack** som din molntjänstleverantör, anger du **värdnamn**, **åtkomstnyckel** och **hemlig nyckel**.
 
-        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
+        > [AZURE.NOTE] Ett eget namn är tillåtet för alla molntjänstleverantörer förutom Azure. Du kan använda olika egna namn och skapa mer än ett lagringskonto med samma uppsättning autentiseringsuppgifter.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
-5. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
+5. Välj **Aktivera SSL-läge** om du vill skapa en säker kanal för nätverkskommunikation mellan din enhet och molnet. Avmarkera kryssrutan **Aktivera SSL-läge** endast om du arbetar inom ett privat moln.
 
-      > [AZURE.NOTE] If you are using HP as your provider, SSL will always be enabled.
-  		
-6. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+      > [AZURE.NOTE] Om du använder HP som leverantör är SSL alltid aktiverat.
+        
+6. Klicka på kryssikonen ![kryssikon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Du meddelas när lagringskontot har skapats.
 
-7. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the new storage account. Click **OK** when prompted for confirmation.
+7. Det nyligen skapade lagringskontot kommer att visas på sidan **Konfigurera**, under **Lagringskonton**. Klicka på **spara** för att spara det nya lagringskontot. Klicka på **OK** när du uppmanas att bekräfta.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

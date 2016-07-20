@@ -1,1 +1,7 @@
-It's important to know that Azure currently works with two deployment models: Resource Manager and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. You'll need to know which model that you want to work in. Not all networking features are supported yet for both models. For information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../articles/resource-manager-deployment-model.md).
+Det är viktigt att känna till att Azure för nuvarande fungerar med två distributionsmodeller: Resource Manager och klassisk. Innan du börjar din konfiguration, se till att du förstår distributionsmodellerna och verktygen. Du behöver veta vilken modell som du vill arbeta i. Alla nätverksfunktioner stöds inte än i bägge modellerna. Mer information om distributionsmodellerna finns i [Förstå Resource Manager-distribution och klassisk distribution](../articles/resource-manager-deployment-model.md).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,1 +1,7 @@
->[AZURE.IMPORTANT] Your storage account key is similar to the root password for your storage account. Always be careful to protect your account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your account key using the Azure Portal if you believe it may have been compromised. To learn how to regenerate your account key, see [How to create, manage, or delete a storage account in the Azure Portal](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
+>[AZURE.IMPORTANT] Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Var alltid noga med att skydda din kontonyckel. Undvik att dela ut den till andra användare, hårdkoda den eller spara den i en oformaterad textfil som andra har åtkomst till. Återskapa din kontonyckel med hjälp av Azure Portal om du misstänker att den komprometterats. Information om hur du återskapar din kontonyckel finns i [Skapa, hantera eller ta bort ett lagringskonto i Azure Portal](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

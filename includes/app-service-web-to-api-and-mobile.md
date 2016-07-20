@@ -1,1 +1,7 @@
-> [AZURE.NOTE] Although this article refers to web apps, it also applies to API apps and mobile apps.
+> [AZURE.NOTE] Även om den här artikeln handlar om webbappar, så gäller den även för API-appar och mobilappar.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

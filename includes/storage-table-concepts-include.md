@@ -1,56 +1,40 @@
-## What is the Table Service
+## Vad är Tabelltjänsten
 
-The Azure Table storage service stores large amounts of
-structured data. The service is a NoSQL datastore which accepts
-authenticated calls from inside and outside the Azure cloud. Azure
-tables are ideal for storing structured, non-relational data. Common
-uses of the Table service include:
+Azure Table Storage-tjänsten lagrar stora mängder strukturerade data. Tjänsten är ett NoSQL-datalager som tar emot autentiserade anrop inuti och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data. Vanliga användningsområden för Tabelltjänsten är:
 
--   Storing TBs of structured data capable of serving web scale
-    applications
--   Storing datasets that don't require complex joins, foreign keys, or
-    stored procedures and can be denormalized for fast access
--   Quickly querying data using a clustered index
--   Accessing data using the OData protocol and LINQ queries with WCF
-    Data Service .NET Libraries
+-   Lagring av flera TB med strukturerade data som kan serva webbaserade skalningsbara program
+-   Lagring av datauppsättningar som inte kräver komplexa kopplingar, sekundärnycklar eller lagrade procedurer som kan avnormaliseras för snabb åtkomst
+-   Ställa snabba datafrågor med hjälp av ett klustrat index
+-   Komma åt data med OData-protokollet och LINQ-frågor med WCF Data Service .NET-bibliotek
 
-You can use the Table service to store and query huge sets of
-structured, non-relational data, and your tables will scale as demand
-increases.
+Du kan använda Tabelltjänsten för att lagra och fråga stora mängder strukturerad, icke-relationell data och dina tabeller skalar upp efter behov.
 
-## Table Service Concepts
+## Tabelltjänst-koncept
 
-The Table service contains the following components:
+Tabelltjänsten består av följande komponenter:
 
-![Table1][Table1]
+![Tabell1][Table1]
 
--   **URL format:** Code addresses tables in an account using this
-    address format:   
+-   **URL-format:** kod adresserar tabeller i ett konto med det här adressformatet:   
     http://`<storage account>`.table.core.windows.net/`<table>`  
       
-    You can address Azure tables directly using this address with the
-    OData protocol. For more information, see [OData.org][]
+    Du kan adressera Azure-tabeller direkt med den här adressen med OData-protokollet. Mer information finns på [OData.org][]
 
--   **Storage Account:** All access to Azure Storage is done
-    through a storage account. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details about storage account capacity.
+-   **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Se [Skalbarhets- och prestandamål för Azure Storage](storage-scalability-targets.md) för information om kapacitet för lagringskonton.
 
--   **Table**: A table is a collection of entities. Tables don't enforce
-    a schema on entities, which means a single table can contain
-    entities that have different sets of properties. The number of tables that a 
-	storage account can contain is limited only by the 
-    storage account capacity limit.
+-   **Tabell**: en tabell är en samling entiteter. Tabeller framtvingar inte något schema på entiteter, vilket innebär att en enda tabell kan innehålla entiteter med olika egenskapsuppsättningar. Antalet tabeller som ett lagringskonto kan innehålla begränsas bara av lagringskontots kapacitet.
 
--   **Entity**: An entity is a set of properties, similar to a database
-    row. An entity can be up to 1MB in size.
+-   **Entitet**: en entitet är en uppsättning egenskaper, liknande en databasrad. En entitet kan vara upp till 1MB.
 
--   **Properties**: A property is a name-value pair. Each entity can
-    include up to 252 properties to store data. Each entity also has 3
-    system properties that specify a partition key, a row key, and a
-    timestamp. Entities with the same partition key can be queried more
-    quickly, and inserted/updated in atomic operations. An entity's row
-    key is its unique identifier within a partition.
+-   **Egenskaper**: en egenskap är ett namn-värde-par. Varje entitet kan innehålla upp till 252 egenskaper för att lagra data. Varje entitet har också 3 systemegenskaper som anger en partitionsnyckel, en radnyckel och en tidsstämpel. Entiteter med samma partitionsnyckel kan frågas snabbare och kan infogas/uppdateras i atomiska åtgärder. En entitets radnyckel är dess unika identifierare inom en partition.
 
-For details about naming tables and properties, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Mer information om namngivning av tabeller och egenskaper finns i [Förstå Tabelltjänst-datamodellen](https://msdn.microsoft.com/library/azure/dd179338.aspx).
   
-  [Table1]: ./media/storage-table-concepts-include/table1.png
+  [Tabell1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,21 +1,27 @@
-#### To stop and start a virtual device
-To stop a virtual device, click its name, and then click **Shutdown**. While the virtual device is shutting down, its status is **Stopping**. After the virtual device is stopped, its status is **Stopped**.
+#### Stoppa och starta en virtuell enhet
+Om du vill stoppa en virtuell enhet, klickar du på namnet och klickar sedan på **Stäng av**. När den virtuella enheten stängs av, är dess status **Stoppar**. När den virtuella enheten har stängts av, är dess status **Stoppad**.
 
-Use the following cmdlets to stop and start a virtual device.
+Du kan använda följande cmdletar för att stoppa och starta en virtuell enhet.
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
     
-#### To restart a virtual device
+#### Starta om en virtuell enhet
 
-When a virtual device is running and you want to restart it, click its name, and then click **Restart**. While the virtual device is restarting, its status is **Restarting**. When the virtual device is ready for you to use, its status is **Running**.
+När en virtuell enhet är igång och du vill starta om den, klickar du på dess namn och klickar sedan på **Starta om**. Medan den virtuella enheten startas om är dess status **Startar om**. När den virtuella enheten är klar för användning, är dess status **Igång**.
 
-Use the following cmdlet to restart a virtual device.
+Du kan använda följande cmdletar för att starta om en virtuell enhet.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

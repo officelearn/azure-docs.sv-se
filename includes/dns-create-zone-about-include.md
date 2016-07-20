@@ -1,12 +1,17 @@
-A DNS zone is used to host the DNS records for a particular domain. In order to start hosting your domain, you need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain. 
+En DNS-zon används som värd åt DNS-posterna för en viss domän. För att kunna börja vara värd för din domän så måste du skapa en DNS-zon. DNS-poster som skapats för en viss domän kommer att finnas inuti DNS-zonen för domänen. 
 
-For example, the domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site). 
+Domänen "contoso.com" kan till exempel innehålla flera DNS-poster, till exempel "mail.contoso.com" (för en e-postserver) och "www.contoso.com" (för en webbplats). 
 
 
-## <a name="names"></a>About DNS zone names
+## <a name="names"></a>Om DNS-zonnamn
  
-- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
+- Namnet på zonen måste vara unikt inom resursgruppen och zonen får inte redan finnas. Annars misslyckas åtgärden.
 
-- The same zone name can be re-used in a different resource group or a different Azure subscription. 
+- Samma zonnamn kan återanvändas i en annan resursgrupp eller Azure-prenumeration. 
 
-- Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. For more information, see [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md).
+- Då flera zoner delar samma namn, kommer varje instans att tilldelas olika adresser för namnservern och bara en instans kan delegeras från den överordnade domänen. Mer information finns i [Delegera en domän till Azure DNS](../articles/dns/dns-domain-delegation.md).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

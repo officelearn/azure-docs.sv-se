@@ -1,33 +1,33 @@
-## Create an IoT hub
+## Skapa en IoT-hubb
 
-Create an IoT hub for your simulated device to connect to. The following steps show you how to complete this task by using the Azure portal.
+Skapa en IoT-hubb som din simulerade enhet kan ansluta till. Följande steg visar hur du kan slutföra den här åtgärden med hjälp av Azure-portalen.
 
-1. Sign in to the [Azure portal][lnk-portal].
+1. Logga in på [Azure-portalen][lnk-portal].
 
-2. In the Jumpbar, click **New** > **Internet of Things** > **Azure IoT Hub**.
+2. I Jumpbar klickar du på **Ny** > **Sakernas Internet** > **Azure IoT Hub**.
 
-    ![Azure portal Jumpbar][1]
+    ![Jumpbar i Azure-portalen][1]
 
-3. In the **IoT hub** blade, choose the configuration for your IoT hub.
+3. Välj konfigurationen för din IoT-hubb i **IoT-hubb**-bladet.
 
-    ![IoT hub blade][2]
+    ![IoT-hubb-bladet][2]
 
-    * In the **Name** box, enter a name for your IoT hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
-    * Select a [pricing and scale tier][lnk-pricing]. This tutorial does not require a specific tier. For this tutorial, use the free F1 tier.
-    * In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources][lnk-resource-groups].
-    * In **Location**, select the location to host your IoT hub. For this tutorial, choose your nearest location.
+    * I **Namn**-rutan anger du ett namn för din IoT-hubb. Om **namnet** är giltigt och tillgängligt, visas en grön kryssmarkering i **Namn**-rutan.
+    * Välj en [prissättnings- och skalningsnivå][lnk-pricing]. Den här guiden kräver inte en specifik nivå. Använd den kostnadsfria F1-nivån för den här guiden.
+    * I **Resursgrupp** skapar du en ny resursgrupp eller väljer en befintlig. Mer information finns i [Hantera Azure-resurser med hjälp av resursgrupper][lnk-resource-groups].
+    * I **Plats** väljer du platsen som ska vara som värd för din IoT-hubb. Välj den plats som är närmast dig för den här guiden.
 
-4. When you have chosen your IoT hub configuration options, click **Create**.  It can take a few minutes for Azure to create your IoT hub. To check the status, you can monitor the progress on the Startboard or in the Notifications panel.
+4. När du har valt dina konfigurationsalternativ för IoT-hubben, klickar du på **Skapa**.  Det kan ta några minuter för Azure för att skapa din IoT-hubb. Du kan kontrollera statusen genom att övervaka förloppet på Startsidan eller i Meddelandepanelen.
 
-    ![New IoT hub status][3]
+    ![Status för ny IoT-hubb][3]
 
-5. When the IoT hub has been created successfully, click the new tile for your IoT hub in the portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click the **Keys** icon.
+5. När IoT-hubben har skapats, klickar du på den nya ikonen för din IoT-hubb i portalen för att öppna bladet för den. Anteckna **värdnamnet** och klicka sedan på **Nycklar**-ikonen.
 
-    ![New IoT hub blade][4]
+    ![Ny IoT-hubb-blad][4]
 
-6. In the **Shared access policies** blade, click the **iothubowner** policy, and then copy and make note of the connection string in the **iothubowner** blade. For more information, see [Access control][lnk-access-control] in the "Azure IoT Hub developer guide."
+6. I bladet **Principer för delad åtkomst** klickar du på **iothubowner**-principen och kopierar samt antecknar anslutningssträngen i **iothubowner**-bladet. Mer information finns i [Åtkomstkontroll][lnk-access-control] i "Utvecklarguide för Azure IoT Hub."
 
-    ![Shared access policies blade][5]
+    ![Bladet Principer för delad åtkomst][5]
 
 
 <!-- Images. -->
@@ -42,3 +42,9 @@ Create an IoT hub for your simulated device to connect to. The following steps s
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

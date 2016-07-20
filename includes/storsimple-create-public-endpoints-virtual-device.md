@@ -1,21 +1,26 @@
-#### To create public endpoints on the virtual device
+#### Skapa offentliga slutpunkter på den virtuella enheten
 
-1. Sign in to the Azure classic portal.
+1. Logga in på den klassiska Azure-portalen.
 
-- Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.
+- Klicka på **Virtual Machines** och välj sedan den virtuella datorn som används som din virtuella enhet.
 
-- Click **Endpoints**. The **Endpoints** page lists all endpoints for the virtual machine.
+- Klicka på **Slutpunkter**. **Slutpunkter**-sidan listar alla slutpunkter för den virtuella datorn.
 
-- Click **Add**. The **Add Endpoint** dialog box appears. Click the arrow to continue.
+- Klicka på **Lägg till**. Dialogrutan **Lägg till slutpunkt** visas. Klicka på pilen för att fortsätta.
 
-- For the **Name**, type the following name for the endpoint: **WinRMHttps**.
+- Som **namn** anger du följande namn för slutpunkten: **WinRMHttps**.
 
-- For the **Protocol**, specify **TCP**.
+- Som **protokoll**, anger du **TCP**.
 
-- For the **Public Port**, type the port numbers that you want to use for the connection.
+- Som **offentlig port**, anger du de portnummer som du vill använda för anslutningen.
 
-- For the **Private Port**, type **5986**.
+- Som **privat port**, anger du **5986**.
 
-- Click the check mark to create the endpoint.
+- Klicka på kryssmarkeringen för att skapa slutpunkten.
 
-After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address. Record this address.
+När slutpunkten har skapats kan du se information om den för att avgöra den offentliga virtuella IP-adressen (VIP). Anteckna den adressen.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

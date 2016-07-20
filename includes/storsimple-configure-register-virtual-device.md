@@ -1,21 +1,26 @@
 <!---author: alkohli, last updated: 11/05/2015 --->
 
-#### To configure and register the virtual device
+#### Konfigurera och registrera den virtuella enheten
 
-1. Select the StorSimple virtual device you just created in the **Devices** page. 
+1. Välj den virtuella StorSimple-enhet som du just skapade på **Enheter**-sidan. 
 
-2. Click **complete device setup**. This starts the Configure device wizard.
+2. Klicka på **Slutför enhetskonfiguration**. Guiden Konfigurera enhet startas.
 
-    ![StorSimple complete device setup in Devices page](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    ![Slutför enhetskonfiguration på Enheter-sidan i StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
-3. Enter the **Service Data Encryption Key** in the space provided.
+3. Ange **krypteringsnyckel för tjänstdata** i det avsedda området.
 
-4. Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.
+4. Ange lösenord för Snapshot Manager och enhetsadministratör av den längd och inställningar som specificerades.
 
-5. Click the check mark to finish the initial configuration and registration of the virtual device. 
+5. Klicka på kryssmarkeringen för att slutföra den inledande konfiguration och registrering av den virtuella enheten. 
 
-    ![StorSimple virtual device settings](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
+    ![Inställningar för virtuell StorSimple-enhet](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
-After the configuration and registration is complete, the device will come online. (It may take several minutes for the device to come online.)
+När konfigurationen och registreringen är klar, kommer enheten online. (Det kan ta flera minuter för enheten att komma online.)
 
-![StorSimple virtual device online stage](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+![Onlinefas för virtuell StorSimple-enhet](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

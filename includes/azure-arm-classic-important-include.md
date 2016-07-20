@@ -1,1 +1,7 @@
->[AZURE.IMPORTANT]Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](../articles/azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.
+>[AZURE.IMPORTANT]Innan du börjar jobba med Azure-resurser, är det viktigt att förstå att Azure har två distributionsmodeller för tillfället: Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../articles/azure-classic-rm.md) innan du börjar arbeta med Azure-resurser. Du kan granska dokumentationen för olika verktyg genom att klicka på flikarna överst i den här artikeln.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

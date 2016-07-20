@@ -1,4 +1,9 @@
-You can view AMS learning paths here:
+Du kan visa sökvägar för AMS-utbildning här:
 
-- [AMS Live Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [Arbetsflöde för AMS-strömning live](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Arbetsflöde för AMS-strömning på begäran](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

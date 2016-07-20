@@ -1,9 +1,15 @@
-|  | **Classic Deployment** | **Resource Manager Deployment** | **Classic to Resource Manager Deployments** |
+|  | **Klassisk distribution** | **Resource Manager-distribution** | **Klassisk till Resource Manager distributioner** |
 |----------------------------------------|-------------|----------------------|---------------------------------|
-| **Classic Portal** | [Article](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)  |  Not Supported |  Not Supported |
-| **Azure Portal** |  Not Supported | Supported+ |  Not Supported |
-| **PowerShell** | Supported | [Article](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Article](../articles/virtual-network/virtual-networks-arm-asm-s2s.md)
+| **Klassisk portal** | [Artikel](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)  |  Stöds inte |  Stöds inte |
+| **Azure-portalen** |  Stöds inte | Stöds+ |  Stöds inte |
+| **PowerShell** | Stöds | [Artikel](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Artikel](../articles/virtual-network/virtual-networks-arm-asm-s2s.md)
 
-(+) denotes this deployment method is available only for VNets in the same subscription.
+(+) anger att distributionsmetoden bara finns tillgänglig för VNets i samma prenumeration.
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

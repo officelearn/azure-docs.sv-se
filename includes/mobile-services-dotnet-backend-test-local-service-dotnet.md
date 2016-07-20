@@ -1,20 +1,25 @@
 
-The mobile service project that you download lets you to run your new mobile service right on your local computer or virtual machine. This makes it easy to debug your service code before you even publish it to Azure.
+Mobiltjänstens projekt som du hämtar låter dig köra din nya mobiltjänst direkt på din lokala dator eller virtuella dator. Detta gör det enkelt att felsöka koden för tjänsten innan du publicerar den till Azure.
 
-In this section, you will test your new app against the mobile service running locally.
+I det här avsnittet testar du din nya app mot den mobiltjänst som körs lokalt.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.
+1. Bläddra till den plats där du sparade de komprimerade projektfilerna, expandera filerna på datorn och öppna lösningsfilen i Visual Studio.
 
-2. In the Solution Explorer in Visual Studio, right-click your service project, click **Set as StartUp Project**, and then press the **F5** key to build the project and start the mobile service locally.
+2. I Solution Explorer i Visual Studio högerklickar du på tjänstens projekt, klickar på **Ställ in som startprojekt** och trycker sedan på **F5** för att skapa projektet och starta mobiltjänsten lokalt.
 
-	![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
+    ![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
 
-	A web page is displayed after the mobile service starts successfully.
+    En webbsida visas när mobiltjänsten startats.
 
-3. To test the store app, right-click your client app project, click **Set as StartUp Project**, and then press the **F5** key to rebuild the project and start the app.
+3. För att testa butiksappen högerklickar du på projektet för klientappen, klickar på **Ställ in som startprojekt** och trycker sedan på **F5** för att omkompilera projektet och starta appen.
 
-	This starts the app, which connects to the local mobile service instance.	
+    Detta startar appen, som ansluter till den lokala mobiltjänstinstansen.   
 
-4. In the app, type meaningful text, such as _Complete the tutorial_, in **Insert a TodoItem**, and then click **Save**.
+4. I appen anger du beskrivande text, som till exempel _Slutför guiden_, i **Infoga en TodoItem** och klickar sedan på **Spara**.
 
-	This sends a POST request to the local mobile service. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+    Detta skickar en POST-begäran till den lokala mobiltjänsten. Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobiltjänsten. Data visas i den andra kolumnen i appen.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

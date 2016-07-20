@@ -1,4 +1,10 @@
-To enable the non-SSL port, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal](https://portal.azure.com) and click **Settings > Access Ports**. Click **No** to enable the non-SSL port, and click **Save**.
+Om du vill aktivera porten utan SSL [bläddrar](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) du till ditt cacheminne i [Azure-portalen](https://portal.azure.com) och klickar på **Inställningar > Åtkomstportar**. Klicka på **Nej** för att aktivera porten utan SSL och klicka sedan på **Spara**.
 
-![Redis cache settings](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
+![Inställningar för Redis-cache](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

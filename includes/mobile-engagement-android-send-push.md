@@ -1,96 +1,102 @@
 
-###Update manifest file to enable notifications
+###Uppdatera manifestfilen om du vill aktivera meddelanden
 
-Copy the in-app messaging resources below into your Manifest.xml between the `<application>` and `</application>` tags.
+Kopiera resurserna för aviseringar via app nedan och klistra in dem i din Manifest.xml-fil mellan taggarna `<application>` och `</application>`.
 
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
-  			<intent-filter>
-    			<action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-    			<category android:name="android.intent.category.DEFAULT" />
-    			<data android:mimeType="text/plain" />
-  			</intent-filter>
-		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-				<category android:name="android.intent.category.DEFAULT" />
-				<data android:mimeType="text/html" />
-			</intent-filter>
-		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light" android:exported="false">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog" android:exported="false">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
-				<category android:name="android.intent.category.DEFAULT"/>
-			</intent-filter>
-		</activity>
-		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
-			<intent-filter>
-				<action android:name="android.intent.action.BOOT_COMPLETED"/>
-				<action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
-				<action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
-			</intent-filter>
-		</receiver>
-		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
-			<intent-filter>
-				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-			</intent-filter>
-		</receiver>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/html" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog" android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
 
-###Specify an icon for notifications
+###Ange en ikon för meddelanden
 
-Paste the following XML snippet in your Manifest.xml between the `<application>` and `</application>` tags.
+Klistra in följande XML-kodstycke i din Manifest.xml-fil mellan taggarna `<application>` och `</application>`.
 
-		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
+        <meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
 
-This defines the icon that is displayed both in system and in-app notifications. It is optional for in-app notifications however mandatory for system notifications. Android will rejects system notifications with invalid icons.
+Detta definierar ikonen som visas både i systemmeddelanden och aviseringar via appen. Det är valfritt för aviseringar via app men obligatoriskt för systemmeddelanden. Android avvisar systemmeddelanden med ogiltiga ikoner.
 
-Make sure you are using an icon that exists in one of the **drawable** folders (like ``engagement_close.png``). **mipmap** folder isn't supported.
+Se till att du använder en ikon som finns i en av **drawable**-mapparna (t.ex. ``engagement_close.png``). **mipmap**-mappen stöds inte.
 
->[AZURE.NOTE] You should not use the **launcher** icon. It has a different resolution and is usually in the mipmap folders, which we don't support.
+>[AZURE.NOTE] Du bör inte använda **launcher**-ikonen. Den har en annan upplösning och ligger vanligtvis i mipmap-mapparna som inte stöds.
 
-For real apps, you can use an icon that is suitable for notifications per [Android design guidelines](http://developer.android.com/design/patterns/notifications.html).
+För riktiga appar kan du använda en ikon som passar för aviseringar enligt [designriktlinjerna för Android](http://developer.android.com/design/patterns/notifications.html).
 
->[AZURE.TIP] To be sure to use correct icon resolutions, you can look at [these examples](https://www.google.com/design/icons).
-Scroll down to the **Notification** section, click an icon, and then click `PNGS` to download the icon drawable set. You can see what drawable folders with which resolution to use for each version of the icon.
+>[AZURE.TIP] För att vara säker på att du använder rätt ikonupplösning, kan du kolla på [de här exemplen](https://www.google.com/design/icons).
+Bläddra ned till **Notification**-avsnittet, klicka på en ikon och klicka sedan på `PNGS` för att hämta drawable-ikonuppsättningen. Du kan se vilka drawable-mappar med vilken upplösning som ska användas för varje version av ikonen.
 
-###Enable your app to receive GCM push notifications
+###Konfigurera appen för att ta emot push-meddelanden med GCM
 
-1. Paste the following into your Manifest.xml between the `<application>` and `</application>` tags after replacing the `project number` obtained from your Google Play console. The \n is intentional so make sure that you end the project number with it.
+1. Klistra in följande i din Manifest.xml-fil mellan taggarna `<application>` och `</application>` när du har ersatt `project number` som hämtats från din Google Play-konsol. Markeringen ”\n” är avsiktlig, så se till att du avslutar projektnumret med det.
 
-		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
+        <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
-2. Paste the code below into your Manifest.xml between the `<application>` and `</application>` tags. Replace the package name <Your package name>.
+2. Klistra in koden nedan i din Manifest.xml-fil mellan taggarna `<application>` och `</application>`. Ersätt paketnamnet <Your package name>.
 
-		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
-		android:exported="false">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
-			</intent-filter>
-		</receiver>
+        <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
+        android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
+            </intent-filter>
+        </receiver>
 
-		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-			<intent-filter>
-				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				<category android:name="<Your package name>" />
-			</intent-filter>
-		</receiver>
+        <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="<Your package name>" />
+            </intent-filter>
+        </receiver>
 
-3. Add the last set of permissions that are highlighted before the `<application>` tag. Replace `<Your package name>` by the actual package name of your application.
+3. Lägg till den sista uppsättningen behörigheter som är markerade innan `<application>`-taggen. Ersätt `<Your package name>` med det faktiska paketnamnet för programmet.
 
-		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-		<uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
-		<permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+        <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
+        <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

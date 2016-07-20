@@ -1,15 +1,20 @@
-To connect to the cache, your cache clients need the host name, ports, and keys. Some clients may refer to these items by slightly different names. To retrieve these items, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal](https://portal.azure.com) and click **Settings** or **All settings**.
+För att ansluta till cacheminnet behöver dina cacheklienter värdnamnet, portarna och nycklarna. Vissa klienter kan referera till de här objekten med något annorlunda namn. För att hämta de här objekten [bläddrar](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) du till ditt cacheminne i [Azure-portalen](https://portal.azure.com) och klickar på **Inställningar** eller **Alla inställningar**.
 
-![Redis cache settings](media/redis-cache-access-keys/redis-cache-settings.png)
+![Inställningar för Redis-cache](media/redis-cache-access-keys/redis-cache-settings.png)
 
-### Host name and ports
+### Värdnamn och portar
 
-To access the host name and ports click **Properties**.
+För att komma åt värdnamn och portar klickar du på **Egenskaper**.
 
-![Redis cache properties](media/redis-cache-access-keys/redis-cache-properties.png)
+![Egenskaper för Redis-cache](media/redis-cache-access-keys/redis-cache-properties.png)
 
-### Access keys
+### Åtkomstnycklar
 
-To retrieve the access keys, click **Access keys**.
+För att komma åt åtkomstnycklarna klickar du på **Åtkomstnycklar**.
 
-![Redis cache access keys](media/redis-cache-access-keys/redis-cache-access-keys.png)
+![Åtkomstnycklar för Redis-cache](media/redis-cache-access-keys/redis-cache-access-keys.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

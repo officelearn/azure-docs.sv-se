@@ -1,7 +1,13 @@
 
 
-The mobile app project lets you to run your new mobile app backend locally. This makes it easy to debug your service code before you even publish it to Azure.
+Mobilapp-projektet låter dig köra din nya serverdel för mobilappen lokalt. Detta gör det enkelt att felsöka koden för tjänsten innan du publicerar den till Azure.
 
-1. On your Windows PC, extract project you downloaded earlier, and then open it in Visual Studio.
+1. Extrahera projektet du hämtade tidigare på din Windows-dator och öppna det i Visual Studio.
 
-2. Select the bottom project which should be your Mobile App name with Service at the end of it. Press **CTRL-F5** to download the nuget packages, build the project and start the mobile app backend locally. When you run your mobile app client, pointed at localhost, it will talk to your local backend. 
+2. Välj det nedersta projektet, vilket borde vara namnet på din mobilapp med Service på slutet. Tryck **Ctrl-F5** för att hämta nuget-paketen, skapa projektet och starta serverdelen för mobilappen lokalt. När du kör din mobilappklient riktad mot localhost, kommer den att kommunicera med din lokala serverdel. 
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

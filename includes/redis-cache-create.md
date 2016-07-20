@@ -1,29 +1,35 @@
-To create a cache, first sign in to the [Azure Portal](https://portal.azure.com), and click **New**, **Data + Storage**, **Redis Cache**.
+Om du vill skapa ett cacheminne loggar du först in på [Azure Portal](https://portal.azure.com) och klickar på **Ny**, **Data + lagring**, **Redis-cache**.
 
->[AZURE.NOTE] If you don't have an Azure account, you can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
+>[AZURE.NOTE] Om du inte har något Azure-konto så kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) på bara några minuter.
 
-![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
+![Nytt cacheminne](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
->[AZURE.NOTE] In addition to creating caches in the Azure Portal, you can also create them using ARM templates, PowerShell, or Azure CLI.
+>[AZURE.NOTE] Förutom att skapa cacheminnen i Azure-portalen kan du också skapa dem med hjälp av ARM-mallar, PowerShell eller Azure CLI.
 >
->-	To create a cache using ARM templates, see [Create a Redis cache using a template](../articles/redis-cache/cache-redis-cache-arm-provision.md).
->-	To create a cache using Azure PowerShell, see [Manage Azure Redis Cache with Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
->-	To create a cache using Azure CLI, see [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
+>-  Information om att skapa ett cacheminne med hjälp av ARM-mallar finns i[Skapa ett Redis-cache med hjälp av en mall](../articles/redis-cache/cache-redis-cache-arm-provision.md).
+>-  Information om att skapa ett cacheminne med hjälp av Azure PowerShell finns i[Hantera Azure Redis-cache med hjälp av Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
+>-  Information om att skapa ett cacheminne med hjälp av Azure CLI finns i [Skapa och hantera Azure Redis-cache med hjälp av Azure-kommandoradsgränssnittet (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
 
-In the **New Redis Cache** blade, specify the desired configuration for the cache.
+På **Nytt Redis-cache**-bladet, anger du önskad konfiguration för cacheminnet.
 
-![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
+![Skapa ett cacheminne](media/redis-cache-create/redis-cache-cache-create.png) 
 
--	In **Dns name**, enter a cache name to use for the cache endpoint. The cache name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The cache name cannot start or end with the `-` character, and consecutive `-` characters are not valid.
--	For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
--	In **Resource group**, select or create a resource group for your cache. For more information, see [Using Resource groups to manage your Azure resources](../articles/resource-group-overview.md). 
--	Use **Location** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
--	Use **Pricing Tier** to select the desired cache size and features.
--	**Redis cluster** allows you to create caches larger than 53 GB and to shard data across multiple Redis nodes. For more information, see [How to configure clustering for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-clustering.md).
--	**Redis persistence** offers the ability to persist your cache to an Azure Storage account. For instructions on configuring persistence, see [How to configure persistence for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-persistence.md).
--	**Virtual Network** provides enhanced security and isolation by restricting access to your cache to only those clients within the specified Azure Virtual Network. You can use all the features of VNet such as subnets, access control policies, and other features to further restrict access to Redis. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-vnet.md).
+-   I **Dns-namn** anger du ett cachenamn att använda för cache-slutpunkten. Cachenamnet måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och `-`-tecknet. Cachenamnet får inte inledas eller avslutas med `-`-tecknet eller ha flera `-`-tecken i följd.
+-   Som **prenumeration** anger du den Azure-prenumeration som du vill använda för cacheminnet. Om ditt konto bara har en prenumeration, kommer den att väljas automatiskt och listrutan **Prenumeration** visas inte.
+-   I **Resursgrupp** väljer eller skapar du en resursgrupp för ditt cacheminne. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../articles/resource-group-overview.md). 
+-   Använd **Plats** för att ange den geografiska plats där du vill ha ditt cacheminne. För bästa prestanda rekommenderar Microsoft att du skapar cacheminnet i samma region som cacheklientprogrammet.
+-   Använd **Prisnivå** för att välja önskad cachestorlek och funktioner.
+-   **Redis-kluster** låter dig skapa cacheminnen större än 53 GB och fragmentera data över flera Redis-noder. Mer information finns i [Konfigurera klustring för premium Azure Redis-cache](../articles/redis-cache/cache-how-to-premium-clustering.md).
+-   **Redis-persistence** låter dig spara ditt cacheminne till ett Azure Storage-konto. Instruktioner om hur du konfigurerar persistence finns i [Konfigurera persistence för premium Azure Redis-cache](../articles/redis-cache/cache-how-to-premium-persistence.md).
+-   **Virtuella nätverk** ger förbättrad säkerhet och isolering genom att begränsa åtkomsten till cacheminnet till de klienter som befinner sig inom angivet Azure Virtual Network. Du kan använda alla VNet-funktioner, till exempel undernät, principer för åtkomstkontroll och andra funktioner för att ytterligare begränsa åtkomsten till Redis. Mer information finns i [Konfigurera Virtual Network-stöd för premium Azure Redis-cache](../articles/redis-cache/cache-how-to-premium-vnet.md).
 
-Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the startboard. After the cache has been created, your new cache has a **Running** status and is ready for use with default settings.
+När de nya cachealternativen har konfigurerats klickar du på **Skapa**. Det kan ta några minuter för cacheminnet att skapas. Du kan kontrollera statusen genom att övervaka förloppet på Startsidan. När cachen har skapats, har ditt nya cacheminne statusen **Körs** och är redo för användning med standardinställningarna.
 
-![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
+![Cachen har skapats](media/redis-cache-create/redis-cache-cache-created.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

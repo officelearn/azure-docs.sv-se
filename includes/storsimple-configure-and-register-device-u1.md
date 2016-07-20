@@ -1,69 +1,75 @@
 <!--author=alkohli last changed: 02/22/2016-->
 
 
-### To configure and register the device
+### Konfigurera och registrera enheten
 
-1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
+1. Gå in i Windows PowerShell-gränssnittet på din StorSimple-enhets seriekonsol. Mer instruktioner finns i [Använd PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console). **Se till att följa proceduren exakt för att du ska få åtkomst till konsolen.**
 
-2. In the session that opens up, press Enter one time to get a command prompt. 
+2. I sessionen som öppnas, trycker du på Retur en gång för att få fram en kommandotolk. 
 
-3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press Enter. 
+3. Du kommer att uppmanas att välja det språk som du vill ställa in för din enhet. Ange språk och tryck på Retur. 
 
-    ![StorSimple configure and register device 1](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice1-U1-include.png)
+    ![StorSimple konfigurera och registrera enhet 1](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice1-U1-include.png)
 
-4. In the serial console menu that is presented, choose option 1 to log on with full access. 
+4. I menyn för seriekonsolen som visas, väljer du alternativ 1 för att logga in med fullständig åtkomst. 
 
-    ![StorSimple register device 2](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
+    ![StorSimple registrera enhet 2](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
   
-     Complete steps 5-12 to configure the minimum required network settings for your device. **These configuration steps need to be performed on the active controller of the device.** The serial console menu indicates the controller state in the banner message. If you are not connected to the active controller, disconnect and then connect to the active controller.
+     Slutför steg 5 – 12 för att konfigurera de minsta nödvändiga nätverksinställningarna för din enhet. **De här konfigurationsstegen behöver genomföras på den aktiva styrenheten för enheten.** Menyn för seriekonsolen indikerar status för styrenheten i banderollmeddelandet. Om du inte är ansluten till den aktiva styrenheten, kopplar du från och ansluter till den aktiva styrenheten.
 
-5. At the command prompt, type your password. The default device password is **Password1**.
+5. Ange ditt lösenord i kommandotolken. Enheten standardlösenord är **Password1**.
 
-6. Type the following command: `Invoke-HcsSetupWizard`. 
+6. Ange följande kommando: `Invoke-HcsSetupWizard`. 
 
-7. A setup wizard will appear to help you configure the network settings for the device. Supply the the following information: 
-   - IP address for the DATA 0 network interface
-   - Subnet mask
+7. En installationsguide kommer visas och hjälpa dig att konfigurera nätverksinställningarna för enheten. Ange följande information: 
+   - IP-adress för DATA 0-nätverksgränssnittet
+   - Nätmask
    - Gateway
-   - IP address for Primary DNS server
+   - IP-adress för primär DNS-server
     
-		Note that the system is validating network settings after each step in the process.
+        Observera att systemet validerar nätverksinställningarna efter varje steg i processen.
    
-      > [AZURE.NOTE] You may have to wait for a few minutes for the subnet mask and the DNS settings to be applied. If you get a "Check the network connectivity to Data 0" error message, check the physical network connection on the DATA 0 network interface of your active controller.
+      > [AZURE.NOTE] Du kan behöva vänta några minuter för att nätmask- och DNS-inställningarna ska appliceras. Om du får ett felmeddelande om att "kontrollera nätverksanslutningen till Data 0", kontrollera den fysiska nätverksanslutningen på DATA 0-nätverksgränssnittet för din aktiva styrenhet.
 
-8. (Optional) configure your web proxy server. Although web proxy configuration is optional, **be aware that if you use a web proxy, you can only configure it here**. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md).
+8. (Valfritt) konfigurera din webbproxyserver. Även om webbproxykonfigurationen är valfri, **var medveten om att om du använder en webbproxy så kan du bara konfigurera den här**. Mer information finns i [Konfigurera en webbproxy för din enhet](../articles/storsimple/storsimple-configure-web-proxy.md).
 
-9. Configure a Primary NTP server for your device. NTP servers are required, as your device must synchronize time so that it can authenticate with your cloud service providers. Ensure that your network allows NTP traffic to pass from your datacenter to the Internet. If this is not possible, specify an internal NTP server. 
+9. Konfigurera en primär NTP-server för din enhet. NTP-servrar krävs, eftersom din enhet måste synkronisera tiden så att den kan autentisera med molntjänstleverantören. Kontrollera att ditt nätverk tillåter att NTP-trafik skickas från ditt datacenter till Internet. Om det inte är möjligt anger du en intern NTP-server. 
  
-10. For security reasons, the device administrator password expires after the first session, and you will need to change it now. When prompted, provide a device administrator password. A valid device administrator password must be between 8 and 15 characters. The password must contain three of the following: lowercase, uppercase, numeric, and special characters.
+10. Av säkerhetsskäl upphör enhetens administratörslösenord att gälla efter den första sessionen. Du måste ändra lösenordet nu. Ange ett administratörslösenord för enheten när du ombes göra det. Ett giltigt enhetsadministratörslösenord för enheten måste vara mellan 8 och 15 tecken. Lösenordet måste innehålla tre av följande: gemener, versaler, siffror och specialtecken.
 
-	<br/>![StorSimple register device 5](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice5_U1-include.png)
+    <br/>![StorSimple registrera enhet 5](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice5_U1-include.png)
 
-11. The final step in the setup wizard registers your device with the StorSimple Manager service. For this, you will need the service registration key that you obtained in step 2. After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
+11. Det sista steget i installationsguiden registrerar din enhet med StorSimple Manager-tjänsten. För det här behöver du tjänstens registreringsnyckel som du fick i steg 2. Efter att du angett registreringsnyckeln kan du behöva vänta 2-3 minuter innan enheten är registrerad.
 
-      > [AZURE.NOTE] You can press Ctrl + C at any time to exit the setup wizard. If you have entered all the network settings (IP address for Data 0, Subnet mask, and Gateway), your entries will be retained.
+      > [AZURE.NOTE] Du kan trycka på Ctrl + C när som helst för att avsluta installationsguiden. Om du har angett alla nätverksinställningar (IP-adress för Data 0, nätmask och Gateway), kommer informationen att sparas.
 
-	![StorSimple register device 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
+    ![StorSimple registrera enhet 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
 
-12. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
-	
-	![StorSimple register device 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)    
+12. När enheten är registrerad visas en krypteringsnyckel för tjänstdata. Kopiera den här nyckeln och spara den på säker plats. **Den här nyckeln kommer att krävas med registreringsnyckeln för tjänsten för att registrera ytterligare enheter med StorSimple Manager-tjänsten.** Referera till [StorSimple-säkerhet](../articles/storsimple/storsimple-security.md) för ytterligare information om den här nyckeln.
+    
+    ![StorSimple registrera enhet 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)    
 
-      > [AZURE.NOTE] To copy the text from the serial console window, simply select the text. You should then be able to paste it in the clipboard or any text editor. DO NOT use Ctrl + C to copy the service data encryption key. Using Ctrl + C will cause you to exit the setup wizard. As a result, the device administrator password will not be changed and the device will revert to the default password.
+      > [AZURE.NOTE] Om du vill kopiera text från seriekonsolfönstret, markerar du bara texten. Sedan ska du kunna klistra in den i urklipp eller valfri textredigerare. ANVÄND INTE Ctrl + C för att kopiera krypteringsnyckeln för tjänstdata. Ctrl + C avslutar installationsguiden. Som ett resultat, kommer enhetens administratörslösenord inte att ändras och enheten kommer återgå till standardlösenordet.
 
-13. Exit the serial console.
+13. Avsluta seriekonsolen.
 
-14. Return to the Azure classic portal, and complete the following steps:
-  1. Double-click your StorSimple Manager service to access the **Quick Start** page.
-  2. Click **View connected devices**.
-  3. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
+14. Gå tillbaka till den klassiska Azure-portalen och utför följande steg:
+  1. Dubbelklicka på StorSimple Manager-tjänsten för att komma in på **Snabbstart**-sidan.
+  2. Klicka på **Visa anslutna enheter**.
+  3. På sidan **Enheter** kontrollerar du att enheten har lyckats ansluta till tjänsten genom att kontrollera dess status. Enhetens status ska vara **Online**.
    
-    	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
+        ![StorSimple-enhetssidan](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        Om enhetens status är **Offline**, väntar du några minuter på att enheten ska ansluta. 
 
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+        Om enheten fortfarande är offline efter några minuter, måste du kontrollera att ditt brandväggsnätverk har konfigurerats enligt beskrivningen i [nätverkskraven för din StorSimple-enhet](../articles/storsimple/storsimple-system-requirements.md). 
 
-		Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Manager Service-to-device communication.
+        Kontrollera att port 9354 är öppen för utgående kommunikation eftersom den används av service bus för StorSimple Manager-tjänsten för kommunikation till enheten.
      
        
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

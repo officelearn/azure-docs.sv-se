@@ -1,14 +1,19 @@
 
-1. Press the F5 key to rebuild the project and start the Windows Store app.
+1. Tryck på F5 för att omkompilera projektet och starta Windows Store-appen.
 
-2. In the app, type meaningful text, such as *Complete the tutorial*, in **Insert a TodoItem**, and then click **Save**.
+2. Ange en beskrivande text i **Infoga ett TodoItem**, till exempel *Slutföra kursen*, och klicka sedan på **Spara**.
 
-	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
+    ![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
 
-	This sends a POST request to the new mobile service hosted in Azure.
+    Därmed skickas en POST-begäran till den nya mobiltjänsten som finns på Azure.
 
-3. Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app and press F5 again.
+3. Stoppa felsökningen och ändra standard-startprojektet i den universella Windows-lösningen för Windows Phone Store-appen och tryck F5 igen.
 
-	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
-	
-	Notice that data saved from the previous step is loaded from the mobile service after the app starts.
+    ![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
+    
+    Observera att data som sparats i föregående steg läses in från mobiltjänsten när appen startar.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

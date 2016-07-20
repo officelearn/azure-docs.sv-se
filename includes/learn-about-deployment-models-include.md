@@ -1,1 +1,6 @@
-> [AZURE.IMPORTANT] Before you work with Azure resources, get familiar with the deployment models: [Resource Manager, and classic](../articles/resource-manager-deployment-model.md).
+> [AZURE.IMPORTANT] Innan du börjar arbeta med Azure-resurser, bekanta dig med distributionsmodellerna: [Resource Manager och klassisk](../articles/resource-manager-deployment-model.md).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

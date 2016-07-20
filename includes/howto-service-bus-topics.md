@@ -1,63 +1,68 @@
-## What are Service Bus topics and subscriptions?
+## Vad är Service Bus-ämnen och -prenumerationer?
 
-Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When using topics and subscriptions, components of a distributed application do not communicate directly with each other; instead they exchange messages via a topic, which acts as an intermediary.
+Service Bus-ämnen och -prenumerationer stöder en *publicera/prenumerera*-modell för meddelandekommunikation. När du använder ämnen och prenumerationer så kommunicerar inte komponenterna i ett distribuerat program direkt med varandra. Istället så utbyter de meddelanden via ett ämne, som agerar mellanhand.
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
 
-In contrast with Service Bus queues, in which each message is processed by a single consumer, topics and subscriptions provide a "one-to-many" form of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently.
+Till skillnad från Service Bus-köer, där varje meddelande bearbetas av en enskild konsument så ger ämnen och prenumerationer en ”ett till många”-kommunikation med hjälp av ett publicera/prenumerera-mönster. Det är möjligt att registrera flera prenumerationer för ett ämne. När ett meddelande skickas till ett ämne så görs det tillgängligt för varje prenumeration för oberoende hantering/bearbetning.
 
-A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which enables you to filter or restrict which messages to a topic are received by which topic subscriptions.
+En prenumeration på ett ämne liknar en virtuell kö som tar emot kopior av meddelanden som har skickats till ämnet. Alternativt kan du registrera filterregler för ett ämne på prenumerationsbasis, vilket låter dig filtrera eller begränsa vilka meddelanden till ett ämne som tas emot av vilka ämnesprenumerationer.
 
-Service Bus topics and subscriptions enable you to scale and process a very large number of messages across many users and applications.
+Service Bus-ämnen och -prenumerationer låter dig skala och bearbeta ett stort antal meddelanden för många användare och program.
 
-## Create a namespace
+## Skapa ett namnområde
 
-To begin using Service Bus topics and subscriptions in Azure, you must first create a *service namespace*. A namespace provides a scoping container for addressing Service Bus resources within your application.
+För att komma igång med Service Bus-ämnen och -prenumerationer så måste du först skapa ett *namnområde för tjänsten*. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program.
 
-To create a namespace:
+Så här skapar du ett namnområde:
 
-1.  Log on to the [Azure classic portal][].
+1.  Logga in på den [klassiska Azure-portalen][].
 
-2.  In the left navigation pane of the portal, click **Service Bus**.
+2.  I portalens vänstra navigationsfält klickar du på **Service Bus**.
 
-3.  In the lower pane of the portal, click **Create**.   
+3.  I den understa rutan i portalen klickar du på **Skapa**.   
     ![][0]
 
-4.  In the **Add a new namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.   
+4.  I dialogrutan **Lägg till ett nytt namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.   
     ![][2]
 
-5.  After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).
+5.  Efter att du kontrollerat att namnet är tillgängligt, väljer du land eller region där namnområdet ska vara beläget (se till att använda samma land/region som du distribuerar dina beräkningsresurser i).
 
-	> [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
+    > [AZURE.IMPORTANT] Välj **samma region** som du tänker välja när du distribuerar ditt program. Så får du bäst prestanda.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the OK check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.  Lämna de andra fälten i dialogrutan med sina standardvärden (**Meddelandetjänst** och **Standardnivå**) och klicka sedan på OK-kryssmarkeringen. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
 
-	![][6]
+    ![][6]
 
-## Obtain the default management credentials for the namespace
+## Skaffa standardautentiseringuppgifter för hantering av namnområdet
 
-In order to perform management operations, such as creating a topic or subscription on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the portal.
+För att kunna utföra hanteringsåtgärder, som att skapa ett ämne eller en prenumeration i det nya namnområdet, så måste du skaffa autentiseringsuppgifter för hantering av namnområdet. Du kan hämta dessa autentiseringsuppgifter från portalen.
 
-### Obtain management credentials from the portal
+### Hämta autentiseringsuppgifter för hantering från portalen
 
-1.  In the left navigation pane, click the **Service Bus** node to display the list of available namespaces:   
+1.  I det vänstra navigationsfönstret klickar du på **Service Bus**-noden för att visa listan över tillgängliga namnområden:   
     ![][0]
 
-2.  Select the namespace you just created from the list shown:   
+2.  Välj namnområdet som du nyss skapat från listan som visas:   
     ![][3]
 
-3.  Click **Connection Information**.   
+3.  Klicka på **Anslutningsinformation**.   
     ![][4]
 
-4.  In the **Access connection information** dialog, find the connection string that contains the SAS key and key name. Make a note of these values, as you will use this information later to perform operations with the namespace. 
+4.  I dialogrutan **Anslutningsinformation för åtkomst** hittar du den anslutningssträng som innehåller SAS-nyckeln och nyckelnamnet. Anteckna de här värdena, då du kommer att använda den här informationen senare för att genomföra åtgärder med namnområdet. 
 
 
-  [Azure classic portal]: http://manage.windowsazure.com
+  [klassiska Azure-portalen]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
   [4]: ./media/howto-service-bus-topics/sb-queues-06.png
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

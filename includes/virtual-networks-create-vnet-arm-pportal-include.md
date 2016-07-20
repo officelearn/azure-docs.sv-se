@@ -1,36 +1,41 @@
-## How to create a VNet in the Azure portal
+## Skapa ett VNet i Azure-portalen
 
-To create a VNet based on the scenario above by using the Azure preview portal, follow the steps below.
+Följ stegen nedan för att skapa ett VNet baserat på scenariot ovan med hjälp av Azure Preview Portal.
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**, as seen in the figure below.
+1. Från en webbläsare, navigerar du till http://portal.azure.com och loggar, vid behov, in med ditt Azure-konto.
+2. Klicka på **NY** > **Nätverk** > **Virtuellt nätverk** och välj sedan **Resource Manager** från listan **Välj en distributionsmodell**. Klicka sedan på **Skapa** enligt bilden nedan.
 
-	![Create VNet in Azure portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
+    ![Skapa VNet i Azure-portalen](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
 
-3. On the **Create virtual network** blade, configure the VNet settings as shown in the figure below.
+3. På bladet **Skapa virtuellt nätverk**, konfigurerar du VNet-inställningarna som det visas i bilden nedan.
 
-	![Create virtual network blade](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
+    ![Skapa ett virtuellt nätverksblad](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/resource-group-overview.md/#resource-groups).
+4. Klicka på **Resursgrupp** och välj en resursgrupp att lägga till VNet till, eller klicka på **Skapa ny** för att lägga till VNet till en ny resursgrupp. Bilden nedan visar resursgruppsinställningarna för en ny resursgrupp med namnet **TestRG**. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md/#resource-groups).
 
-	![Resource group](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
+    ![Resursgrupp](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
+5. Ändra vid behov inställningarna för **Prenumeration** och **Plats** för din VNet. 
 
-6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**. 
+6. Om du inte vill se VNet som en ikon på **Startsidan**, inaktiverar du **Fäst på startsidan**. 
 
-7. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
+7. Klicka på **Skapa** och notera ikonen som heter **Skapar virtuellt nätverk** som visas i bilden nedan.
 
-	![Creating virtual network tile](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
+    ![Skapa en virtuell nätverksikon](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
 
-8. Wait for the VNet to be created, then in the **Virtual network** blade, click **All settings** > **Subnets** > **Add** as seen below.
+8. Vänta tills VNet har skapats och i bladet **Virtuellt nätverk** klickar du sedan på **Alla inställningar** > **Undernät** > **Lägg till** enligt nedan.
 
-	![Adding subnet in the Azure portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
+    ![Lägg till undernät i Azure-portalen](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
 
-9. Specify the subnet settings for the *BackEnd* subnet, as shown below, and then click **OK**. 
+9. Ange undernätsinställningar för *BackEnd*-undernätet, enligt nedan och klicka sedan på **OK**. 
 
-	![Subnet settings](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
+    ![Undernätsinställningar](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
 
-10. Notice the list of subnets, as shown in the figure below.
+10. Lägg märke till listan med undernät, som visas i bilden nedan.
 
-	![List of subnets in VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
+    ![Lista med undernät i VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

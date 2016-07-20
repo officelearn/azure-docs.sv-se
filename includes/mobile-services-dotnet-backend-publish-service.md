@@ -1,4 +1,10 @@
 
-1. In Visual Studio, right-click the project, click **Publish** > **Microsoft Azure Mobile Services**. Instead of using Visual Studio, [you may also use Git](../articles/mobile-services/mobile-services-dotnet-backend-store-code-source-control.md).
+1. I Visual Studio högerklickar du på projektet och klickar på **Publicera** > **Microsoft Azure Mobile Services**. Istället för att använda Visual Studio [kan du också använda Git](../articles/mobile-services/mobile-services-dotnet-backend-store-code-source-control.md).
 
-2. Sign in with Azure credentials and select your service from **Existing Mobile Services**. Visual Studio downloads your publish settings directly from Azure. Finally, click **Publish**.
+2. Logga in med autentiseringsuppgifter för Azure och välj tjänsten från **Befintliga mobiltjänster**. Visual Studio hämtar dina publiceringsinställningar direkt från Azure. Klicka slutligen på **Publicera**.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

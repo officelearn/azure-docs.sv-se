@@ -1,36 +1,42 @@
 
-###Create a Google Cloud Messaging project with API key
+###Skapa ett Google Cloud Messaging-projekt med API-nyckel
 
->[AZURE.NOTE] To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE] För att kunna slutföra den här proceduren behöver du ett Google-konto med en verifierad e-postadress. Gå till <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a> om du vill skapa ett nytt Google-konto.
 
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials.
+1. Navigera till [Google Cloud-konsolen](https://console.developers.google.com/project) och logga in med dina Google-kontouppgifter.
 
-2. Click **Go to project**, and then click **Create Project**.
+2. Klicka på **Gå till projekt** och sedan på **Skapa projekt**.
 <!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
 -->
-3. Enter a project name.
+3. Ange ett projektnamn.
 
-4. Make a note of the project number which appears under the **Project name** text box. You will need it later in the tutorial to populate in the Android Manifest file.
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
-5. Click **Create**.
+4. Anteckna projektnumret som visas under textrutan **Projektnamn**. Du behöver numret senare i guiden för att fylla i Android-manifestfilen.
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
+5. Klicka på **Skapa**.
 
-6. In the left column, make sure **Overview** is selected, and under Mobile APIs click **Google Cloud Messaging**. Then on the next page click **Enable**.
+6. Kontrollera i den vänstra kolumnen att **Översikt** är markerad och klicka på **Google Cloud Messaging** under mobila API:er. På nästa sida klickar du på **Aktivera**.
 
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
 <!--
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
 -->
-7. On the next page, click **Go to Credentials**, and on the following page, select **Google Cloud Messaging** from the first dropdown box and **Web server** from the second one, and then click **What credentials do I need?**
+7. På nästa sida klickar du på **Gå till autentiseringsuppgifter** och på sidan därefter väljer du **Google Cloud Messaging** i den första listrutan och **Webbserver** i den andra och klickar på **Vilka autentiseringsuppgifter behöver jag?**
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 
-8. In **Add credentials to your project** page, click **Create API key**.
+8. På sidan **Lägg till autentiseringsuppgifter till ditt projekt** klickar du på **Skapa API-nyckel**.
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
 <!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
 -->
-9. Make a note of the **API KEY** value. You will use this API key value later to configure in the "Native Push" section. Now click **Done**.
+9. Anteckna **API-NYCKEL**-värdet. Du använder API-nyckelvärdet senare för att konfigurera i avsnittet ”Systemspecifik push-avisering”. Klicka på **Klar**.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

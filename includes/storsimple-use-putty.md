@@ -1,31 +1,36 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To connect through the serial console
+#### Anslut via seriekonsolen
 
-1. Connect your serial cable to the device (directly or through a USB-serial adapter).
+1. Ansluta din seriekabel till enheten (direkt eller via en USB-serieadapter).
 
-2. Open the **Control Panel**, and then open the **Device Manager**.
+2. Öppna **Kontrollpanelen** och öppna sedan **Enhetshanteraren**.
 
-3. Identify the COM port as shown in the following illustration.
+3. Identifiera COM-portarna som det visas i följande bild.
 
-     ![Connecting through serial console](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
+     ![Anslut via seriekonsol](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 
-4. Start PuTTY. 
+4. Starta PuTTY. 
 
-5. In the right pane, change the **Connection type** to **Serial**.
+5. I den högra rutan, ändrar du **Anslutningstyp** till **Seriell**.
 
-6. In the right pane, type the appropriate COM port. Make sure that the serial configuration parameters are set as follows:
-  - Speed: 115,200
-  - Data bits: 8
-  - Stop bits: 1
-  - Parity: None
-  - Flow control: None
+6. I den högra rutan, skriver du in lämplig COM-port. Kontrollera att de parametrarna för seriekonfigurationen är inställda på följande sätt:
+  - Hastighet: 115 200
+  - Databitar: 8
+  - Stoppbitar: 1
+  - Paritet: ingen
+  - Flödeskontroll: ingen
 
-    These settings are shown in the following illustration.
+    Inställningarna visas i följande bild.
 
-     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
+     ![PuTTY-inställningar](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
 
-    > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
+    > [AZURE.NOTE] Om standardinställningen för flödeskontroll inte fungerar, testa att ställa in flödeskontrollen på XON/XOFF.
 
-7. Click **Open** to start a serial session.
+7. Klicka på **Öppna**, för att starta en seriesession.
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

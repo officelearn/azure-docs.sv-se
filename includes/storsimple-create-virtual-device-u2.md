@@ -1,36 +1,42 @@
-#### To create a virtual device
+#### Skapa en virtuell enhet
 
-1.  In the Azure portal, go to the **StorSimple Manager** service.
+1.  I Azure-portalen går du till **StorSimple Manager**-tjänsten.
 
-2. Go to the **Devices** page. Click **Create virtual device** at the bottom of the **Devices** page.
+2. Gå till **Enheter**-sidan. Klicka på **Skapa virtuell enhet** längst ned på **Enheter**-sidan.
 
-3. In the **Create Virtual Device dialog box**, specify the following details.
+3. I **dialogrutan Skapa virtuell enhet** anger du följande information.
 
-     ![StorSimple create virtual device](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+     ![StorSimple skapa virtuell enhet](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
 
-	1. **Name** – A unique name for your virtual device.
+    1. **Namn** – ett unikt namn för din virtuella enhet.
 
 
-	2. **Model** - Choose the model of the virtual device. This field is presented only if you are running Update 2 or later. An 8010 device model offers 30 TB of Standard Storage whereas 8020 has 64 TB of Premium Storage. Specify 8010
-	3.  to deploy item level retrieval  scenarios from backups. Select 8020 to deploy high performance, low latency workloads or used as a secondary device for disaster recovery.
-	 
-	4. **Version** - Choose the version of the virtual device. If an 8020 device model is selected, then the version field will not be presented to the user. This option is absent if all the physical devices registered with this service are running Update 1 (or later). This field is presented only if you have a mix of pre-Update 1 and Update 1 physical devices registered with the same service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
+    2. **Modell** – välj modell för den virtuella enheten. Det här fältet visas bara om du kör uppdatering 2 eller senare. Enhetsmodellen 8010 erbjuder 30 TB standardlagring medan 8020 har 64 TB premiumlagring. Välj 8010
+    3.  för att distribuera hämtningsscenarier på objektsnivå från säkerhetskopior. Välj 8020 för att distribuera högpresterande arbetsbelastningar med låg latens eller som en sekundär enhet för haveriberedskap.
+     
+    4. **Version** – ange den virtuella enhetens version. Om en 8020 enhetsmodell väljs, visas inte versionsfältet för användaren. Det här alternativet kommer inte fram om alla fysiska enheter som är registrerade med den här tjänsten kör uppdatering 1 (eller senare). Det här fältet visas bara om du har en blandning av fysiska enheter registrerade från innan och efter uppdatering 1 på samma tjänst. Versionen av den virtuella enheten anger vilken fysisk enhet som du kan växla till eller klona från så det är viktigt att du skapar lämplig version av den. Välj:
 
-	   - Version Update 0.3 if you will fail over or DR from a physical device running Update 0.3 or earlier. 
-	   - Version Update 1 if you will fail over or clone from a physical device running Update 1 (or later). 
-	   
-	
-	5. **Virtual Network** – Specify a virtual network that you want to use with this virtual device. If using Premium Storage (Update 2 or later), you must select a virtual network that is supported with the Premium Storage account. The unsupported virtual networks will be grayed out in the dropdown list. You will be warned if you select an unsupported virtual network. 
+       - Versionsuppdatering 0.3 om du växlar eller katastrofåterställer från en fysisk enhet som kör uppdatering 0.3 eller tidigare. 
+       - Versionsuppdatering 1 om du växlar eller klonar från en fysisk enhet som kör uppdatering 1 (eller senare). 
+       
+    
+    5. **Virtuellt nätverk** – Ange ett virtuellt nätverk som du vill använda med den här virtuella enheten. Om du använder premiumlagring (uppdatering 2 eller senare), måste du välja ett virtuellt nätverk som stöds av premium-lagringskontot. Virtuella nätverk som inte stöds är nedtonade i listrutan. Du får en varning om du väljer ett virtuellt nätverk som inte stöds. 
 
-	5. **Storage Account for Virtual Device Creation** – Select a storage account to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. If creating a premium virtual device, the dropdown list will only display Premium Storage accounts. 
+    5. **Lagringskonto för skapande av virtuell enhet** – välj ett lagringskonto som ska lagra avbildningen av den virtuella enheten under etableringen. Lagringskontot ska vara i samma region som den virtuella enheten och virtuella nätverket. Det ska inte användas för datalagring av vare sig den fysiska eller virtuella enheten. Ett nytt lagringskonto kommer som standard att skapas för det här ändamålet. Men om du vet att du redan har ett lagringskonto som är lämpligt, kan du välja det från listan. Om du skapar en premium virtuell enhet så kommer listmenyn bara att visa premium-lagringskonton. 
 
-    	>[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP, and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
-	
-	1. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. 
-	 
-		When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a virtual device](storsimple-security/#storsimple-virtual-device-security).
-	2. Click the check icon to create the virtual device. The device may take around 30 minutes to be provisioned.
+        >[AZURE.NOTE] Den virtuella enheten fungerar bara med Azure Storage-konton. Andra molntjänstleverantörer som Amazon, HP och OpenStack (som stöds för den fysiska enheten) stöds inte för den virtuella StorSimple-enheten.
+    
+    1. Klicka på kryssmarkeringen för att ange att du förstår att den data som lagras på den virtuella enheten kommer att finnas i ett Microsoft-datacenter. När du bara använder en fysisk enhet så sparas krypteringsnyckeln med din enhet. Microsoft kan därmed inte dekryptera den. 
+     
+        När du använder en virtuell enhet så lagras både krypteringsnyckeln och dekrypteringsnyckeln i Microsoft Azure. Mer information finns i [Säkerhetsöverväganden vid användning av en virtuell enhet](storsimple-security/#storsimple-virtual-device-security).
+    2. Klicka på kryssikonen för att skapa den virtuella enheten. Enheten kan ta runt 30 minuter för att etableras.
 
-	![StorSimple virtual device creating stage](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
+    ![Skapandefas för virtuell StorSimple-enhet](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
     
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

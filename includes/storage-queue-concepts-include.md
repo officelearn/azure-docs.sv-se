@@ -1,28 +1,34 @@
-## What is Queue Storage?
+## Vad är Queue Storage?
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
+Azure Queue Storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via autentiserade anrop med HTTP eller HTTPS. Ett enda kömeddelande kan vara upp till 64 KB stort och en kö kan innehålla miljontals meddelanden, upp till den totala kapacitetsgränsen för ett lagringskonto.
 
-Common uses of Queue storage include:
+Vanliga användningsområden för Queue Storage är:
 
--   Creating a backlog of work to process asynchronously
--   Passing messages from an Azure web role to an Azure worker role
+-   Skapa en lista med kvarvarande uppgifter att bearbeta asynkront
+-   Skicka meddelanden från en Azure-webbroll till en Azure-arbetsroll
 
-## Queue Service Concepts
+## Kötjänst-koncept
 
-The Queue service contains the following components:
+Kötjänsten består av följande komponenter:
 
-![Queue1](./media/storage-queue-concepts-include/queue1.png)
+![Kö1](./media/storage-queue-concepts-include/queue1.png)
 
 
-- **URL format:** Queues are addressable using the following URL format:   
-	http://`<storage account>`.queue.core.windows.net/`<queue>` 
+- **URL-format:** köer är adresserbara via följande URL-format:   
+    http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
-	The following URL addresses a queue in the diagram:  
-		
-		http://myaccount.queue.core.windows.net/images-to-download
+    Följande URL adresserar en kö i diagrammet:  
+        
+        http://myaccount.queue.core.windows.net/images-to-download
 
-- **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
+- **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Se [Skalbarhets- och prestandamål för Azure Storage](../articles/storage/storage-scalability-targets.md) för information om kapacitet för lagringskonton.
 
-- **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+- **Kö:** en kö innehåller en uppsättning meddelanden. Alla meddelanden måste vara i en kö. Observera att könamnet måste vara helt i gemener. Mer information om namngivning av köer finns i [namngivning av köer och metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-- **Message:** A message, in any format, of up to 64 KB. The maximum time that a message can remain in the queue is 7 days.
+- **Meddelande:** ett meddelande i valfritt format, som är upp till 64 KB. Den maximala tid som ett meddelande kan finnas i kön är 7 dagar.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,41 +1,46 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### To complete the minimum StorSimple device setup
+#### Slutför den minimala StorSimple-enhetsinställningen
 
-1. In the **Devices** page, select the device, click the arrow against the device name to go to the specific device page. 
+1. På sidan **Enheter**, väljer du enheten, klicka på pilen mot enhetsnamnet för att gå till den specifika enhetens sida. 
 
-	![Devices page with device online](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
+    ![Enhetssida med enhet online](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
 
-2. Click quick start icon ![Quick Start Icon](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) to access the device quick start page. Click **Complete device setup** to start the **Configure device** wizard.
+2. Klicka på snabbstartsikonen ![Snabbstart-ikon](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) för att komma åt enhetens snabbstartsida. Klicka på **Slutför enhetsinställningar** för att starta guiden **Enhetskonfiguration**.
 
-	![Device quick start page](./media/storsimple-complete-minimum-device-setup/Device_Quick_Start_page_1M.png)
+    ![Snabbstartsida för enheten](./media/storsimple-complete-minimum-device-setup/Device_Quick_Start_page_1M.png)
 
-2. On the **Basic Settings** page, do the following:
-  1. Supply a **friendly name** for your device. The default device name reflects information such as the device model and serial number. You can assign a friendly name of up to 64 characters to manage your device.
-  2. Set the **time zone** based on the geographic location in which the device is being deployed. Your device will use this time zone for all scheduled operations.
-  3. Under **DNS Settings**, provide an address for your **Secondary DNS Server**. If you are using IPv6, the field will be populated based on the IPv6 prefix provided in the Windows PowerShell interface. 
-  If the secondary DNS server is not configured, you will not be allowed to save your device configuration.
-  4. Under iSCSI enabled interfaces, enable at least one network for iSCSI. At least one network interface needs to be cloud-enabled and one interface needs to be iSCSI-enabled. DATA 0 is automatically cloud-enabled.
+2. På sidan **Grundläggande inställningar**, gör du följande:
+  1. Ange ett **eget namn** för din enhet. Standard-enhetsnamnet har information som enhetsmodell serienummer. Du kan tilldela ett eget namn på upp till 64 tecken för att hantera din enhet.
+  2. Ange **tidszon** baserat på den geografiska plats där enheten ska distribueras. Enheten använder den här tidszonen för alla schemalagda åtgärder.
+  3. Under **DNS-inställningar**, anger du en adress för din **sekundära DNS-server**. Om du använder IPv6, fylls fältet i baserat på det IPv6-prefix som ges i Windows PowerShell-gränssnittet. 
+  Om den sekundära DNS-servern inte är konfigurerad, kommer du inte att kunna spara din enhetskonfiguration.
+  4. Aktivera minst ett nätverk för iSCSI under iSCSI-aktiverade gränssnitt. Minst ett nätverksgränssnitt måste vara moln-aktiverat och ett måste vara iSCSI-aktiverat. DATA 0 är automatiskt moln-aktiverat.
  
-      ![StorSimple minimum device setup basic settings](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupBasicSettings1-include.png)
+      ![Grundläggande inställningar för minimala StorSimple-enhetsinställningar](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupBasicSettings1-include.png)
 
-3. Click the arrow icon. ![StorSimple arrow icon](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
+3. Klicka på pilikonen. ![StorSimple-pilikonen](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 
-4. On the **Network Interfaces** page, provide the fixed IP addresses for Controller 0 and Controller 1. If the DATA 0 interface was configured for IPv4, the fixed IP addresses need to be provided in the IPv4 format. If you provided a prefix for IPv6 configuration, the fixed IP addresses will be populated automatically in these fields.
+4. På sidan **Nätverksgränssnitt**, anger du den fasta IP-adressen för Styrenhet 0 och 1. Om DATA 0-gränssnittet har konfigurerats för IPv4, måste de fasta IP-adresserna anges i IPv4-format. Om du angav ett prefix för IPv6-konfigurationen, fylls de fasta IP-adresserna automatiskt in i fälten.
 
 
-	> [AZURE.NOTE] 
- 	> 
- 	> - The controller fixed IP addresses need to be free IPs within the subnet accessible by the device IP address.
- 	> - The fixed IP addresses for the controller are used for servicing the updates to the device, and therefore the fixed IPs must be routable and able to connect to the Internet.
+    > [AZURE.NOTE] 
+    > 
+    > - De styrenhets-fästa IP-adresserna måste vara fria IP-adresser i undernätet som är åtkomliga från enhetens IP-adress.
+    > - De fasta IP-adresserna för styrenheten används för att underhålla uppdateringarna till enheten och därför måste de vara dirigerbara och kunna ansluta till Internet.
 
-    ![StorSimple minimum device setup network interfaces](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
+    ![Nätverksgränssnitt för minimala StorSimple-enhetsinställningar](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-5. Click the check icon ![StorSimple check icon](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
-  You will return to the device **Quick Start** page.
+5. Klicka på kryssikonen ![StorSimple-kryssikon](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
+  Du återgår då till enhetens **Snabbstart**-sida.
 
- > [AZURE.NOTE] You can modify all the other device settings at any time by accessing the **Configure** page.
+ > [AZURE.NOTE] Du kan ändra alla andra enhetsinställningar när som helst genom att öppna **Konfigurera**-sidan.
 
-![Video available](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Video available**
+![Video tillgänglig](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Video tillgänglig**
 
-To watch a video that demonstrates how to complete the minimum device setup, click [here](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+Klicka [här](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/) för att se en video som visar hur man slutför den minimala enhetsinstallationen.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

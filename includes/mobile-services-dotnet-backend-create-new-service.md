@@ -1,21 +1,27 @@
 
-Follow these steps to create a new mobile service.
+Följ de här stegen om du vill skapa en ny mobiltjänst.
 
-1.	Log into the [Azure classic portal](https://manage.windowsazure.com/). At the bottom of the navigation pane, click **+NEW**. Expand **Compute** and **Mobile Service**, then click **Create**.
-	
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
+1.  Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com/). Längst ned i navigationsfönstret klickar du på **+NY**. Expandera **Compute** och **Mobiltjänst** och klicka sedan på **Skapa**.
+    
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
 
-	This displays the **Create a Mobile Service** dialog.
+    Dialogrutan **Skapa en mobiltjänst** visas.
 
-2.	In the **Create a Mobile Service** page, select **Create a free 20 MB SQL Database**, select **.NET** runtime, then type a subdomain name for the new mobile service in the **URL** textbox. Click the right arrow button to go to the next page.
-	
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png)
+2.  I dialogrutan **Skapa en mobiltjänst** väljer du **Skapa en kostnadsfri 20 MB SQL Database** och **.NET**-runtime och anger sedan ett namn på underdomänen för den nya mobiltjänsten i **URL**-textrutan. Klicka på högerpilen för att gå till nästa sida.
+    
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png)
 
-	This displays the **Specify database settings** page.
+    Sidan **Ange databasinställningar** visas.
 
-	> [AZURE.NOTE] As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose **Use existing Database** and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.
+    > [AZURE.NOTE] Som en del av den här guiden kommer du att skapa en ny SQL Database-instans och -server. Du kan återanvända den nya databasen och administrera den som vilken som helst annan SQL Database-instans. Om du redan har en databas i samma region som den nya mobiltjänsten, kan du istället välja **Använd befintlig databas** och sedan välja den databasen. Det är inte rekommenderat att använda en databas i en annan region på grund av ökade kostnader för bandbredd och ökad latens.
 
-3.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png)
+3.  I **Namn** skriver du namnet på den nya databasen och skriver sedan **Inloggningsnamn**, vilket är inloggningsnamnet för administratören för den nya SQL Database-servern. Skriv och bekräfta lösenordet och klicka på knappen med en bock för att slutföra processen.
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png)
 
-You have now created a new mobile service that can be used by your mobile apps.
+Nu har du skapat en ny mobiltjänst som kan användas av dina mobilappar.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

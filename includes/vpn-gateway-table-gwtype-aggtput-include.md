@@ -1,8 +1,13 @@
-|    | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+|    | **VPN Gateway-genomströmning (1)** | **VPN Gateway, max. IPsec-tunnlar (2)** | **ExpressRoute-gateway, genomflöde** | **VPN Gateway och ExpressRoute samexisterar**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
-| **Standard SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
-| **High Performance SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
+| **Grundläggande SKU**              |  100 Mbps | 10                         |  500 Mbps                           | Nej   |
+| **Standard-SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Ja  |
+| **Högpresterande SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Ja  |
 
-- (1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
-- (2) The number of tunnels refer to route-based VPN below. A policy-based VPN can only support one Site-to-Site VPN tunnel
+- (1) VPN-genomströmning är en grov uppskattning baserat på mätningar mellan VNet i samma Azure-region. Det är ingen garanti på vad du kan uppnå med anslutningar mellan platser över Internet, men bör användas som ett högsta möjliga mått.
+- (2) Antalet tunnlar innebär ruttbaserad VPN nedan. En principbaserad VPN stöder bara en plats-till-plats-VPN tunnel
+
+
+<!--HONumber=Jun16_HO2-->
+
+

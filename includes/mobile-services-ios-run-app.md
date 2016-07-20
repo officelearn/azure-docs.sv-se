@@ -1,16 +1,22 @@
 
 
 
-The final stage of this tutorial is to build and run your new app.
+Det sista steget i den här kursen är att skapa och köra den nya appen.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the project file using Xcode.
+1. Bläddra till platsen där du sparade de komprimerade projektfilerna, expandera filerna på din dator och öppna projektfilen med hjälp av Xcode.
 
-2. Press the **Run** button to build the project and start the app in the iPhone emulator.
+2. Tryck på **Kör**-knappen för att skapa projektet och starta appen i iPhone-emulatorn.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
+3. Ange en beskrivande text i appen, till exempel _Slutföra kursen_, och klicka sedan på plustecknet (**+**).
 
-   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+    Därmed skickas en POST-begäran till den nya mobiltjänsten som finns på Azure. Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobiltjänsten och data visas i listan.
 
- 	</div>
+    </div>
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

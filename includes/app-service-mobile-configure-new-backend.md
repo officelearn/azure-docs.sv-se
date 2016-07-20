@@ -1,16 +1,22 @@
 
-1. Back in the Mobile App backend, click **Settings** > **Quick start** > your client platform. 
+1. I serverdelen för mobilappen klickar du på **Inställningar** > **Snabbstart** > din klientplattform. 
 
-2. Under **Create a table API**, select your **Backend language**, either C# or Node.js:
+2. Under **Skapa ett tabell-API** väljer du ditt **Språk för serverdel**, antingen C# eller Node.js:
 
-	+ **Node.js backend**:  
-	Accept the acknowledgment and click **Create TodoItem table**. This creates a new *TodoItem* table in your database. Remember that switching an existing backend to Node.js will overwrite all contents!
+    + **Node.js-serverdel**:  
+    Godkänn bekräftelsen och klicka på **Skapa TodoItem-tabell**. En ny *TodoItem*-tabell skapas i din databas. Kom ihåg att när du byter en befintlig serverdel till Node.js, så skrivs allt innehåll över!
 
-	+ **C# (.NET Backend)**:  
-		1. Click **Download**,
-		2. Open the extracted solution in Visual Studio,
-		3. Build the project to restore the NuGet packages, and 
-		4. Deploy the project to Azure. 
-	
-		For detailed, step-by-step instructions on deploying the C# project to Azure, see [How to: Publish Backend Project with Visual Studio](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#publish-server-project). 
+    + **C# (.NET-serverdel)**:  
+        1. Klicka på **Hämta**.
+        2. Öppna den extraherade lösningen i Visual Studio.
+        3. Skapa projektet för att återställa NuGet-paketen. 
+        4. Distribuera projektet till Azure. 
+    
+        Detaljerade instruktioner om att distribuera C#-projektet till Azure finns i [Så här publicerar du serverdelsprojekt med Visual Studio](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#publish-server-project). 
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

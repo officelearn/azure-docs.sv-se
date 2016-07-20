@@ -1,32 +1,38 @@
-## What is Blob Storage?
+## Vad är Blob Storage?
 
-Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.
+Azure Blob Storage är en tjänst för att lagra stora mängder ostrukturerad objektdata, exempelvis text eller binär data som kan nås från var som helst i världen via HTTP eller HTTPS. Du kan använda Blob-lagring för att exponera data offentligt eller för privat lagring av programdata.
 
-Common uses of Blob storage include:
+Vanliga användningsområden för Blob-lagring är:
 
-- Serving images or documents directly to a browser
-- Storing files for distributed access
-- Streaming video and audio
-- Storing data for backup and restore, disaster recovery, and archiving
-- Storing data for analysis by an on-premises or Azure-hosted service
+- Leverera bilder eller dokument direkt till en webbläsare
+- Lagra filer för distribuerad åtkomst
+- Direktuppspelning av video och ljud
+- Lagra data för säkerhetskopiering och återställning, haveriberedskap och arkivering
+- Lagra data för analys av en tjänst som kan vara lokal eller Azure-baserad
 
-## Blob service concepts
+## Blob-tjänstkoncept
 
-The Blob service contains the following components:
+Blob-tjänsten innehåller följande komponenter:
 
 ![Blob1][Blob1]
 
-- **Storage Account:** All access to Azure Storage is done through a storage account. This storage account can be a **General-purpose storage account** or a **Blob storage account** which is specialized for storing objects/blobs. For more information about storage accounts, see [Azure storage account](../articles/storage/storage-create-storage-account.md).
+- **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Lagringskontot kan vara ett **allmänt lagringskonto** eller ett **Blob-lagringskonto** som är specialiserat för lagring av objekt/blobbar. Mer information om lagringskonton finns i [Azure-lagringskonton](../articles/storage/storage-create-storage-account.md).
 
-- **Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. Note that the container name must be lowercase.
+- **Behållare:** En behållare grupperar en uppsättning blobbar. Alla blobbar måste vara i en behållare. Ett konto kan innehålla ett obegränsat antal behållare. En behållare kan lagra ett obegränsat antal blobbar. Observera att behållarens namn får innehålla endast gemener.
 
-- **Blob:** A file of any type and size. Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.
+- **Blob:** en fil av valfri typ och storlek. Azure Storage erbjuder tre typer av blobbar: blockblobbar, sidblobbar och tilläggsblobbar.
 
-    *Block blobs* are ideal for storing text or binary files, such as documents and media files. *Append blobs* are similar to block blobs in that they are made up of blocks, but they are optimized for append operations, so they are useful for logging scenarios. A single block blob or append blob can contain up to 50,000 blocks of up to 4 MB each, for a total size of slightly more than 195 GB (4 MB X 50,000).
+    *Blockblobbar* lämpar sig för lagring av text eller binära filer, exempelvis dokument och mediafiler. *Tilläggsblobbar* liknar blockblobbar i det avseendet att de består av block, men de är optimerade för tilläggsåtgärder, så de lämpar sig väl för loggningsscenarier. En enda blockblobb eller tilläggsblobb kan innehålla upp till 50 000 block med upp till 4 MB vardera, vilket ger en total storlek på lite över 195 GB (4 MB X 50 000).
 
-    *Page blobs* can be up to 1 TB in size, and are more efficient for frequent read/write operations. Azure Virtual Machines use page blobs as OS and data disks.
+    *Sidblobbar* kan vara upp till 1 TB stora och är bäst för frekventa läs-/skrivåtgärder. Azure Virtual Machines använder sig av sidblobbar som operativsystem- och datadiskar.
 
-    For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
+    Mer information om namngivning av behållare och blobbar finns i [Namngivning och referens av behållare, blobbar och metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,8 +1,13 @@
-## Create an Azure storage account
+## Skapa ett Azure-lagringskonto
 
-The easiest way to create your first Azure storage account is by using the [Azure Portal](https://portal.azure.com). To learn more, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
+Det enklaste sättet att skapa ditt första Azure-lagringskonto är genom att använda [Azure Portal](https://portal.azure.com). Läs mer i [Skapa ett lagringskonto](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
 
-You can also create an Azure storage account by using [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
+Du kan också skapa ett Azure-lagringskonto med hjälp av [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/storage-azure-cli.md), eller [Lagringsresursprovider-klientbiblioteket för .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
 
-If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md).
+Om du föredrar att inte skapa ett lagringskonto just nu så kan du också använda Azure-lagringsemulatorn för att köra och testa din kod i en lokal miljö. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../articles/storage/storage-use-emulator.md).
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

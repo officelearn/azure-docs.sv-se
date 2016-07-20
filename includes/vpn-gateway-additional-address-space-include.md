@@ -1,16 +1,22 @@
-### To add address space
+### Så här lägger du till adressutrymme
 
-1. To add additional address space, click **All settings** to open the **Settings** blade. 
+1. Om du vill lägga till ytterligare adressutrymme, klickar du på **Alla inställningar** för att öppna **Inställningar**-bladet. 
 
-2. On the **Settings** blade, click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+2. På **Inställningar**-bladet klickar du på **Adressutrymme** för att öppna Adressutrymme-bladet. Lägg till ytterligare adressutrymme i det här bladet och klicka sedan på **Spara** högst upp på bladet.
 
-	![Add address space](./media/vpn-gateway-additional-address-space-include/address400.png)
+    ![Lägg till adressutrymme](./media/vpn-gateway-additional-address-space-include/address400.png)
 
-### To add subnets 
+### Så här lägger du till undernät 
 
-1. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the **Subnets** blade. 
+1. Om du vill lägga till ytterligare undernät i dina adressutrymmen, klickar du på **Undernät** i **Inställningar**-bladet för att öppna **Undernät**-bladet. 
 
-2. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
+2. På Undernät-bladet klickar du på **Lägg till** för att öppna bladet **Lägg till undernät**. Namnge ditt nya undernät, ange adressintervallet och klicka på **OK** längst ned på bladet. När ett undernät väl har skapats, kan du använda undernätsbladet för att se alla dina undernät för ett VNet.
 
 
-	![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)		
+    ![Undernätsinställningar](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

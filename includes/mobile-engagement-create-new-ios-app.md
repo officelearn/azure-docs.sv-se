@@ -1,16 +1,22 @@
-1. Start **Xcode** and in the pop-up, select **Create a new Xcode project**.
+1. Starta **Xcode** och välj **Skapa ett nytt Xcode-projekt** i popup-fönstret.
 
-	![](./media/mobile-engagement-create-new-ios-app/xcode-new-project.png)
+    ![](./media/mobile-engagement-create-new-ios-app/xcode-new-project.png)
 
-2. Select **Single View Application**, and then click **Next**.
+2. Välj **Program enkel vy** och klicka sedan på **Nästa**.
 
-	![](./media/mobile-engagement-create-new-ios-app/xcode-simple-view.png)
+    ![](./media/mobile-engagement-create-new-ios-app/xcode-simple-view.png)
 
-3. Fill in the **Product Name**, **Organization Name**, and **Organization Identifier**. Select **Objective-C** or **Swift** in the **Language** selection based on your app.
+3. Fyll i **Produktnamn**, **Organisationsnamn** och **Organisations-ID**. Välj **Objective-C** eller **Swift** i **Språk**-markeringen baserat på din app.
 
-	![](./media/mobile-engagement-create-new-ios-app/xcode-project-props.png)
+    ![](./media/mobile-engagement-create-new-ios-app/xcode-project-props.png)
 
-> [AZURE.IMPORTANT] Make sure that the Bundle Identifier matches with what you have defined in the Apple Developer console for AppId and that you have a corresponding certificate for it. 
+> [AZURE.IMPORTANT] Se till att paketidentifieraren matchar det du har definierat i Apple Developer-konsolen för AppId och att du har motsvarande certifikat för den. 
 
-Xcode will create the demo app into which we integrate Mobile Engagement.
+Xcode skapar sedan demo-appen som vi integrerar Mobile Engagement i.
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

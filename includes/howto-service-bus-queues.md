@@ -1,63 +1,69 @@
-## What are Service Bus queues?
+## Vad är Service Bus-köer?
 
-Service Bus queues support a **brokered messaging** communication model. When using queues, components of a distributed application do not communicate directly with each other; instead they exchange messages via a queue, which acts as an intermediary (broker). A message producer (sender) hands off a message to the queue and then continues its processing. Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it. The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages. Queues offer **First In, First Out (FIFO)** message delivery to one or more competing consumers. That is, messages are typically received and processed by the receivers in the order in which they were added to the queue, and each message is received and processed by only one message consumer.
+Service Bus-köer stöder kommunikation med hjälp av en **asynkron meddelandetjänst**. När du använder köer kommunicerar komponenter i ett distribuerat program inte direkt med varandra. De utbyter istället meddelanden via en kö som fungerar som en mellanhand (asynkron meddelandekö). En meddelandeproducent (avsändare) lämnar meddelandet till kön och fortsätter sedan dess bearbetning. En meddelandekonsument (mottagare) hämtar asynkront meddelandet från kön och bearbetar det. Producenten behöver inte vänta på ett svar från konsumenten för att kunna fortsätta bearbetningen och skicka fler meddelanden. Köer erbjuder **FIFO (First in, first out)**-leverans av meddelanden till en eller flera konkurrerande konsumenter. Det betyder att meddelanden mottas och bearbetas vanligtvis av mottagarna i den ordning som de lagts till i kön, och varje meddelande tas bara emot och bearbetas av en meddelandekonsument.
 
 ![QueueConcepts](./media/howto-service-bus-queues/sb-queues-08.png)
 
-Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:
+Service Bus-köer är en mångsidig teknologi som kan användas för en mängd olika scenarier:
 
--   Communication between web and worker roles in a multi-tier Azure application.
--   Communication between on-premises apps and Azure-hosted apps in a hybrid solution.
--   Communication between components of a distributed application running on-premises in different organizations or departments of an organization.
+-   Kommunikation mellan webb- och arbetsroller i ett Azure-program med flera nivåer.
+-   Kommunikation mellan lokala appar och appar med Azure som värd, i en hybridlösning.
+-   Kommunikation mellan komponenter i ett distribuerat program som körs lokalt i olika organisationer eller avdelningar i en organisation.
 
-Using queues enables you to scale your applications more easily, and enable more resiliency to your architecture.
+Med hjälp av köer kan du skala ditt program enklare och med bättre återhämtning i din arkitektur.
 
-## Create a service namespace
+## Skapa ett namnområde för tjänsten
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
+För att komma igång med Service Bus-köer i Azure, måste du först skapa ett namnområde för tjänsten. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program.
 
-To create a namespace:
+Så här skapar du ett namnområde:
 
-1.  Log on to the [Azure classic portal][].
+1.  Logga in på den [klassiska Azure-portalen][].
 
-2.  In the left navigation pane of the portal, click **Service Bus**.
+2.  I portalens vänstra navigationsfält klickar du på **Service Bus**.
 
-3.  In the lower pane of the portal, click **Create**.
-	![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  I den understa rutan i portalen klickar du på **Skapa**.
+    ![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  In the **Add a new namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.   
-	![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  I dialogrutan **Lägg till ett nytt namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.   
+    ![](./media/howto-service-bus-queues/sb-queues-04.png)
 
-5.  After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).
+5.  Efter att du kontrollerat att namnet är tillgängligt, väljer du land eller region där namnområdet ska vara beläget (se till att använda samma land/region som du distribuerar dina beräkningsresurser i).
 
-	 > [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
+     > [AZURE.IMPORTANT] Välj **samma region** som du tänker välja när du distribuerar ditt program. Så får du bäst prestanda.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the OK check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.  Lämna de andra fälten i dialogrutan med sina standardvärden (**Meddelandetjänst** och **Standardnivå**) och klicka sedan på OK-kryssmarkeringen. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
 
-	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
+    ![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
-The namespace you created takes a moment to activate, and will then appear in the portal. Wait until the namespace status is **Active** before continuing.
+Det tar ett tag för namnområdet du skapat att aktiveras och synas i portalen. Vänta tills statusen för namnområdet är **Aktiv** innan du fortsätter.
 
-## Obtain the default management credentials for the namespace
+## Skaffa standardautentiseringuppgifter för hantering av namnområdet
 
-In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the [Azure classic portal][].
+För att kunna utföra hanteringsåtgärder, som att skapa en kö i det nya namnområdet så måste du skaffa autentiseringsuppgifter för hantering av namnområdet. Du kan hämta dessa autentiseringsuppgifter från den [klassiska Azure-portalen][].
 
-###To obtain management credentials from the portal
+###Så här hämtar du autentiseringsuppgifter för hantering från portalen
 
-1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:   
-	![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  I det vänstra navigationsfönstret klickar du på **Service Bus**-noden för att visa listan över tillgängliga namnområden:   
+    ![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Select the namespace you just created from the list shown:   
-	![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  Välj namnområdet som du nyss skapat från listan som visas:   
+    ![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Click **Connection Information**.   
-	![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  Klicka på **Anslutningsinformation**.   
+    ![](./media/howto-service-bus-queues/sb-queues-06.png)
 
-4.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.   
+4.  I fönstret **Anslutningsinformation för åtkomst** hittar du den anslutningssträng som innehåller SAS-nyckeln och nyckelnamnet.   
 
-	![](./media/howto-service-bus-queues/multi-web-45.png)
+    ![](./media/howto-service-bus-queues/multi-web-45.png)
     
-5.  Make a note of the key, or copy it to the clipboard.
+5.  Anteckna nyckeln eller kopiera den till Urklipp.
 
-  [Azure classic portal]: http://manage.windowsazure.com
+  [klassiska Azure-portalen]: http://manage.windowsazure.com
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

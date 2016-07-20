@@ -1,22 +1,28 @@
-The deployment script will skip creation of the virtual environment on Azure if it detects that a compatible virtual environment already exists.  This can speed up deployment considerably.  Packages that are already installed will be skipped by pip.
+Distributions-skriptet hoppar över att skapa den virtuella miljön i Azure om den identifierar att det redan finns en kompatibel virtuell miljö.  Det kan påskynda distributionen avsevärt.  Paket som redan är installerade kommer att hoppas över av pip.
 
-In certain situations, you may want to force delete that virtual environment.  You'll want to do this if you decide to include a virtual environment as part of your repository.  You may also want to do this if you need to get rid of certain packages, or test changes to requirements.txt.
+I vissa situationer kan du vilja framtvinga borttagning av den virtuella miljön.  Det vill du göra om du bestämmer du bestämmer dig för att inkludera en virtuell miljö som en del av ditt centrallager.  Det är också möjligt att du vill göra det om du behöver bli av med vissa paket, eller testa ändringar i requirements.txt.
 
-There are a few options to manage the existing virtual environment on Azure:
+Det finns några alternativ för att hantera den befintliga virtuella miljön i Azure:
 
-### Option 1: Use FTP
+### Alternativ 1: Använd FTP
 
-With an FTP client, connect to the server and you'll be able to delete the env folder.  Note that some FTP clients (such as web browsers) may be read-only and won't allow you to delete folders, so you'll want to make sure to use an FTP client with that capability.  The FTP host name and user are displayed in your web app's blade on the [Azure Portal](https://portal.azure.com).
+Anslut till servern med en FTP-klient så kan du ta bort env-mappen.  Observera att vissa FTP-klienter (till exempel webbläsare) bara erbjuder läsning och inte tillåter att du tar bort mappar så du får se till att använda en FTP-klient med den funktionen.  FTP-värdnamnet och användaren, visas i din webbapps blad på [Azure-portalen](https://portal.azure.com).
 
-### Option 2: Toggle runtime
+### Alternativ 2: Växla körning
 
-Here's an alternative that takes advantage of the fact that the deployment script will delete the env folder when it doesn't match the desired version of Python.  This will effectively delete the existing environment, and create a new one.
+Det här är ett alternativ som drar nytta av det faktum att distributionsskriptet tar bort env-mappen när den inte matchar den önskade versionen av Python.  Det här tar effektivt bort den befintliga miljön och skapar en ny sådan.
 
-1. Switch to a different version of Python (via runtime.txt or the **Application Settings** blade in the Azure Portal)
-1. git push some changes (ignore any pip install errors if any)
-1. Switch back to initial version of Python
-1. git push some changes again
+1. Växla till en annan version av Python (via runtime.txt eller **Programinställningar**-bladet i Azure Portal)
+1. git-pusha några ändringar (ignorera eventuella pip-installationsfel)
+1. Växla tillbaka till den första versionen av Python
+1. git-pusha några ändringar igen
 
-### Option 3: Customize deployment script
+### Alternativ 3: Anpassa distributionsskriptet
 
-If you've customized the deployment script, you can change the code in deploy.cmd to force it to delete the env folder.
+Om du har anpassat distributionsskriptet, kan du ändra koden i deploy.cmd för att tvinga den att ta bort env-mappen.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

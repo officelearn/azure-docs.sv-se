@@ -1,24 +1,30 @@
-1. Locate your virtual network gateway and click **All settings** to open the **Settings** blade.
+1. Leta upp din lokala virtuella nätverksgateway och klicka på **Alla inställningar** för att öppna **Inställningar**-bladet.
 
-2. On the **Settings** blade, click **Connections**, and then click **Add** at the top of the blade to open the **Add connection** blade.
+2. På **Inställningar**-bladet, klickar du på **Anslutningar** och sedan på **Lägg till** överst på bladet för att öppna **Lägg till anslutning**-bladet.
 
-	![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
+    ![Skapa en plats-till-plats-anslutning](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
 
-3. On the **Add connection** blade, **Name** your connection. 
+3. Ge din anslutning ett **Namn** på **Lägg till anslutning**-bladet. 
 
-4. For **Connection type**, select **Site-to-site(IPSec)**.
+4. För **Anslutningstyp**, väljer du **Plats-till-plats(IPSec)**.
 
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
+5. För **Virtuell nätverksgateway** är värdet låst eftersom du ansluter från den här gatewayen.
 
-6. For **Local network gateway**, click **Choose a local network gateway** and select the local network gateway that you want to use. 
+6. För **Lokala nätverksgateway**, klickar du på **Välj en lokal nätverksgateway** och väljer den lokala nätverksgateway som du vill använda. 
 
-7. For **Shared Key**, the value here must match the value that you are using for your local VPN device. If your VPN device on your local network doesn't provide a shared key, you can make one up and input it here and on your local device. The important thing is that they both match.
+7. För **Delad nyckel**, måste värdet matcha det värde som du använder för din lokala VPN-enhet. Om VPN-enheten på ditt lokala nätverk inte ger en delad nyckel, kan du hitta på en och ange den här och på din lokala enhet. Det viktiga är att de båda matchar.
 
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
+8. De återstående värdena för **Prenumeration**, **Resursgrupp** och **Plats** är låsta.
 
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
+9. Klicka på **OK** för att skapa din anslutning. Du kommer att se *Skapar anslutningen* blinka fram på skärmen.
 
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+10. När anslutningen är skapad, kommer du att se den på **Anslutningar**-bladet för din Gateway.
 
-	![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
+    ![Skapa en plats-till-plats-anslutning](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

@@ -1,7 +1,13 @@
-#### To shut down a virtual device
+#### Stäng av en virtuell enhet
 
-1. Sign in to the Management Portal.
+1. Logga in på hanteringsportalen.
 
-2. Click **Virtual Machines**, and then select the virtual device.
+2. Klicka på **Virtual Machines** och välj sedan den virtuella enheten.
 
-3. Click **Shutdown**.
+3. Klicka på **Stäng av**.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

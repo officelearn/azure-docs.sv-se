@@ -1,14 +1,19 @@
 
-####To configure remote management on the device
+####Konfigurera fjärrhantering på enheten
 
-1. On your virtual device, go to **Devices > Configure**.
+1. På din virtuella enhet går du till **Enheter > Konfigurera**.
 
-2. Scroll down to the **Remote Management** section.
+2. Bläddra ned till avsnittet **Fjärrhantering**.
 
-3. Set **Enable Remote Management** to **Yes**.
+3. Ställ in **Aktivera fjärrhantering** på **Ja**.
 
-4. You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
+4. Nu kan du välja att ansluta med HTTP. Standard är att ansluta via HTTPS. Det är bara acceptabelt att ansluta över HTTP på betrodda nätverk.
 
-5. Click **Download Remote Management Certificate** to download a remote management certificate. You will specify a location in which to save this file. This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.
+5. Klicka på **Hämta certifikat för fjärrhantering** för att hämta ett certifikat för fjärrhantering. Du kommer att ange en plats där du kan spara den här filen. Certifikatet behöver sen installeras på klienten eller värddatorn som du kommer att använda för att ansluta till den virtuella enheten.
 
-6. Click **Save** at the bottom of the page.
+6. Klicka på **Spara** längst ned på sidan.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

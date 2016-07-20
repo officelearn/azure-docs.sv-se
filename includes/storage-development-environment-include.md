@@ -1,70 +1,76 @@
-## Set up your development environment
+## Ställ in din utvecklingsmiljö
 
-Next, set up your development environment in Visual Studio so that you are ready to try the code examples provided in this guide.
+Härnäst ska du ställa in din utvecklingsmiljö i Visual Studio så att du är redo att testa kodexemplen i den här guiden.
 
-### Create a Windows console application project
+### Skapa ett Windows-konsolprogramprojekt
 
-In Visual Studio, create a new Windows console application, as shown:
+Skapa ett nytt Windows-konsolprogram i Visual Studio så här:
 
-![Create Windows console application](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Skapa ett Windows-konsolprogram](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-All of the code examples in this tutorial can be added to the **Main()** method in `program.cs` in your console application.
+Alla kodexempel i den här guiden kan läggas till i **Main()**-metoden i `program.cs` i konsolprogrammet.
 
-Note that you can use the Azure Storage Client Library from any type of .NET application, including an Azure cloud service, an Azure web app, a desktop application, or a mobile application. In this guide, we use a console application for simplicity.
+Observera att du kan använda Azure Storage-klientbiblioteket från valfri typ av .NET-program, inklusive en Azure-molntjänst, en Azure-webbapp, ett skrivbordsprogram eller ett mobilprogram. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
-### Use NuGet to install the required packages
+### Använd NuGet för att installera de paket som behövs
 
-There are two packages that you'll need to install to your project to complete this tutorial:
+Du kommer att behöva installera två paket till ditt projekt för att slutföra den här guiden:
 
-- [Microsoft Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): This package provides programmatic access to data resources in your storage account.
-- [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string from a configuration file, regardless of where your application is running.
+- [Microsoft Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): det här paketet ger programmatisk åtkomst till dataresurser i ditt lagringskonto.
+- [Microsoft Azure-konfigurationshanterarens bibliotek för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) erbjuder en klass för parsning av en anslutningssträng från en konfigurationsfil, oavsett vart ditt program körs.
 
-You can use NuGet to obtain both packages. Follow these steps:
+Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 
-1. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.
-2. Search online for "WindowsAzure.Storage" and click **Install** to install the Storage Client Library and its dependencies.
-3. Search online for "ConfigurationManager" and click **Install** to install the Azure Configuration Manager.
+1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket**.
+2. Sök online efter ”WindowsAzure.Storage” och klicka på **Installera** för att installera Storage-klientbiblioteket och alla dess beroenden.
+3. Sök online efter ”ConfigurationManager” och klicka på **installera** för att installera Azure-konfigurationshanteraren.
 
->[AZURE.NOTE] The Storage Client Library package is also included in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/). However, we recommend that you also install the Storage Client Library from NuGet to ensure that you always have the latest version of the client library.
+>[AZURE.NOTE] Storage-klientbibliotekspaketet finns också inkluderat i [Azure SDK för .NET](https://azure.microsoft.com/downloads/). Vi rekommenderar dock att du även installerar Storage-klientbiblioteket från NuGet för att säkerställa att du alltid har den senaste versionen av klientbiblioteket.
 >
->The ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2 and greater) packages available through NuGet, and not through WCF Data Services. The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage Client Library are [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2), and [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage Client Library.
+>ODataLib-beroenden i Storage-klientbiblioteket för .NET matchas via ODataLib-paket (version 5.0.2 och nyare) som finns tillgängliga via NuGet och inte via WCF Data Services. ODataLib-biblioteken kan hämtas direkt eller refereras till i ditt kodprojekt via NuGet. De specifika ODataLib-paket som används av Storage-klientbiblioteket är [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) och [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Även om de här biblioteken används av Azure-tabellagringsklasserna så är de nödvändiga beroenden för programmering med Storage-klientbiblioteket.
 
 
-### Determine your target environment
+### Fastställ målmiljön
 
-You have two environment options for running the examples in this guide:
+Du har två miljöalternativ för att köra exemplen i den här guiden:
 
-- You can run your code against an Azure Storage account in the cloud. 
-- You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more details, see [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md)
+- Du kan köra din kod mot ett Azure Storage-konto i molnet. 
+- Du kan köra din kod mot en Azure-lagringsemulator. Lagringsemulatorn är en lokal miljö som emulerar ett Azure Storage-konto i molnet. Emulatorn är ett kostnadsfritt alternativ för att testa och felsöka din kod medan ditt program är under utveckling. Emulatorn använder sig av ett välkänt konto och nyckel. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../articles/storage/storage-use-emulator.md)
 
-If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure Portal. For more information, see [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Om målet är ett lagringskonto i molnet, kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Visa och kopiera åtkomstnycklar för lagring](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-> [AZURE.NOTE] You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
+> [AZURE.NOTE] Du kan använda lagringsemulatorn för att undvika kostnader associerade med Azure Storage. Men även om du väljer att använda ett Azure-lagringskonto i molnet, kommer kostnaderna för att genomföra den här guiden vara minimala.
 
-### Configure your storage connection string
+### Konfigurera anslutningssträngen för lagring
 
-The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. The best way to maintain your storage connection string is in a configuration file. 
+Azure Storage-klientbiblioteket för .NET stöder användning av en anslutningssträng för lagring för att konfigurera slutpunkter och autentiseringsuppgifter för åtkomst till lagringstjänster. Det bästa sättet att underhålla anslutningssträngen för lagring är i en konfigurationsfil. 
 
-For more information about connection strings, see [Configure a Connection String to Azure Storage](../articles/storage/storage-configure-connection-string.md).
+Mer information om anslutningssträngar finns i [Konfigurera en anslutningssträng för Azure Storage](../articles/storage/storage-configure-connection-string.md).
 
-> [AZURE.NOTE] Your storage account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key using the Azure Portal if you believe it may have been compromised.
+> [AZURE.NOTE] Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Var alltid noga med att skydda din lagringskontonyckel. Undvik att dela ut den till andra användare, hårdkoda den eller spara den i en oformaterad textfil som andra har åtkomst till. Återskapa din nyckel med hjälp av Azure Portal om du misstänker att den komprometterats.
 
-To configure your connection string, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `account-name` with the name of your storage account, and `account-key` with your account access key:
+För att konfigurera din anslutningssträng öppnar du `app.config`-filen i Solutions Explorer i Visual Studio. Lägg till innehållet i `<appSettings>`-elementet enligt nedan. Ersätt `account-name` med namnet på ditt lagringskonto och `account-key` med din åtkomstnyckel:
 
-	<configuration>
-	    <startup> 
-	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-	    </startup>
-  		<appSettings>
-    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-  		</appSettings>
-	</configuration>
+    <configuration>
+        <startup> 
+            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+        </startup>
+        <appSettings>
+            <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+        </appSettings>
+    </configuration>
 
-For example, your configuration setting will be similar to:
+Konfigurationsinställningen kan till exempel likna följande:
 
-	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
 
-To target the storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting will be:
+För att använda lagringsemulatorn kan du använda ett kortkommando som mappar till det välkända kontonamnet och nyckeln. I så fall kommer inställningen för anslutningssträngen att vara:
 
-	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+    <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

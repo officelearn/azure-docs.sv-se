@@ -1,28 +1,33 @@
-## Deploy the ARM template by using click to deploy
+## Distribuera ARM-mallen med klicka för att distribuera
 
-You can reuse pre-defined ARM templates upload to a github repository maintained by Microsoft and open to the community. THese templates can be deployed straight out of github, or downloaded and modified to fit your needs. To deploy a template that creates a VNet with two subnets, follow the steps below.
+Du kan återanvända fördefinierade ARM-mallar som finns i en github-databas som hanteras av Microsoft och är öppen för allmänheten. De här mallarna kan distribueras direkt från github, eller hämtas och ändras för att passa dina behov. Följ stegen nedan om du vill distribuera en mall som skapar ett VNet med två undernät.
 
-1. From a browser, navigate to [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Scroll down the list of templates, and click **101-vnet-two-subnets**. Check the **README.md** file, as shown below.
+1. Från en webbläsare, navigerar du till [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
+2. Bläddra ned i mallistan och klicka på **101-vnet-two-subnets**. Kontrollera **README.md**-filen enligt nedan.
 
-	![READEME.md file in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
+    ![README.md-filen i GitHub](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
-3. Click **Deploy to Azure**. If necessary, enter your Azure login credentials. 
-4. In the **Parameters** blade, enter the values you want to use to create your new VNet, and then click **OK**. The figure below shows the values for our scenario.
+3. Klicka på **Distribuera till Azure**. Ange dina inloggningsuppgifter för Azure vid behov. 
+4. I bladet **Parametrar** anger du de värden som du vill använda för att skapa ditt nya VNet och klickar sedan på **OK**. I bilden nedan visas värdena för vårt scenario.
 
-	![ARM template parameters](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
+    ![ARM-mallparametrar](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**.
+4. Klicka på **Resursgrupp** och välj en resursgrupp att lägga till VNet till, eller klicka på **Skapa ny** för att lägga till VNet till en ny resursgrupp. Bilden nedan visar resursgruppsinställningarna för en ny resursgrupp med namnet **TestRG**.
 
-	![Resource group](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
+    ![Resursgrupp](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet.
-6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**.
-5. Click **Leagl terms**, read the terms, and click **Buy** to agree. 
-6. Click **Create** to create the VNet.
+5. Ändra vid behov inställningarna för **Prenumeration** och **Plats** för din VNet.
+6. Om du inte vill se VNet som en ikon på **Startsidan**, inaktiverar du **Fäst på startsidan**.
+5. Klicka på **Juridiska villkor**, läs igenom villkoren och klicka på **Köp** för att godkänna. 
+6. Skapa VNet genom att klicka på **Skapa**.
 
-	![Submitting deployment tile in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
+    ![Ikonen för Skicka in distribution i preview-portalen](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-7. Once the deployment is done, click **TestVNet** > **All settings** > **Subnets** to see the subnet properties, as shown below.
+7. När distributionen är klar, klickar du på **TestVNet** > **Alla inställningar** > **Undernät** för att se undernätsegenskaperna, enligt nedan.
 
-	![Create VNet in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+    ![Skapa VNet i preview-portalen](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

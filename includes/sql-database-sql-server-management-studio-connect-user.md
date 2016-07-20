@@ -1,40 +1,46 @@
-## Connect to Azure SQL Database as a user
+## Anslut till SQL Database som en användare
 
-Use the following steps to connect to Azure SQL Database with SSMS as a user.
+Använd följande steg för att ansluta till Azure SQL Database med SSMS som en användare.
 
-1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
+1. Skriv ”Microsoft SQL Server Management Studio” i Windows-sökrutan och klicka sedan på skrivbordsappen för att starta SSMS.
 
-2. In the Connect to Server window, enter the following information:
+2. I Anslut till server-fönstret anger du följande information:
 
-- **Server type**: The default is database engine; do not change this value.
- - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
- - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
- - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
+- **Servertyp**: standardvärdet är databasmotor, ändra inte det värdet.
+ - **Servernamn**: Ange namnet på servern som är värd för din SQL-databas i följande format: *&lt;servernamn>*.**database.windows.net**
+ - **Autentiseringstyp**: om du precis har kommit igång, välj SQL-autentisering. Om du har aktiverat Active Directory för din logiska SQL Database-server, kan du antingen välja Active Directory-lösenordsautentisering eller Active Directory-integrerad autentisering.
+ - **Användarnamn**: om du antingen valt SQL-autentisering eller Active Directory-lösenordsautentisering, anger du namnet på en användare med åtkomst till en databas på servern.
+ - **Lösenord**: om du valt antingen SQL-autentisering eller Active Directory-lösenordsautentisering, anger du lösenordet för den angivna användaren.
    
        ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
-3. Click **Options** to specify the database to which you want to connect.
+3. Klicka på **Alternativ** för att ange vilken databas du vill ansluta till.
 
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
+      ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
  
-4. In the **Connect to Database**, select the database to which you wish to connect.
+4. I **Anslut till databas**-fönstret väljer du den databas du vill ansluta till.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
+     ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
 
-5. Click **Connect**.
+5. Klicka på **Anslut**.
  
-6. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, Click **Sign in** to create a server-level firewall rule. If not, have an administrator create either a server-level firewall rule or a database-level firewall rule in the database to which you are trying to connect.
+6. Om din klients IP-adress inte har åtkomst till den logiska SQL Database-servern, ombes du logga in på ett Azure-konto och skapa en brandväggsregel på servernivå. Om du är administratör för en Azure-prenumeration, klickar du på **Logga in** för att skapa en brandväggsregel på servernivå. Om så inte är fallet, be en administratör att antingen skapa en brandväggsregel på servernivå eller en brandväggsregel på databasnivå i den databas som du försöker ansluta till.
  
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
+      ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
  
-7. If your credentials grant you access to the specified database, Object Explorer opens and you can now perform administrative tasks or query data, depending upon the user permissions.
+7. Om dina autentiseringsuppgifter ger dig åtkomst till den angivna databasen, öppnas Object Explorer och du kan utföra administrativa åtgärder eller fråga efter data beroende på användarbehörigheter.
   
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
+      ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Troubleshoot connection failures
+ ## Felsök anslutningsfel
 
-The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
+Den vanligaste orsaken för anslutningsfel är fel i servernamnet (kom ihåg att <*servernamn*> är namnet på den logiska servern, inte databasen), användarnamnet eller lösenordet, eller att servern inte tillåter anslutningar av säkerhetsskäl. 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

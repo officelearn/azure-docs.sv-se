@@ -1,12 +1,17 @@
-The table below lists the requirements for policy-based and route-based VPN gateways. This table applies to both the Resource Manager and classic deployment models. For the classic model, Policy-based VPN gateways are the same as Static gateways, and Route-based gateways are the same as Dynamic gateways.
+Tabellen nedan listar kraven för principbaserade och ruttbaserade VPN-gatewayer. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen. För den klassiska modellen, är principbaserade VPN-gatewayer detsamma som statiska gatewayer och ruttbaserade gatewayer är detsamma som dynamiska gatewayer.
 
 
-|   | **Policy-based Basic VPN Gateway** | **Route-based Basic VPN Gateway** | **Route-based Standard VPN Gateway**   | **Route-based High Performance VPN Gateway** |
+|   | **Principbaserad grundläggande VPN-gateway** | **Ruttbaserad grundläggande VPN-gateway** | **Ruttbaserad standard VPN-gateway**   | **Ruttbaserad högpresterande VPN-Gateway** |
 |---|---------------------------------------|---------------------------------------|----------------------------|----------------------------------|
-|    **Site-to-Site connectivity   (S2S)**  | Policy-based VPN configuration        | Route-based VPN configuration  | Route-based VPN configuration     | Route-based VPN configuration    |
-| **Point-to-Site connectivity (P2S**)      | Not supported   | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| **Authentication method**                 |    Pre-shared key  | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
-| **Maximum number of S2S connections**       | 1                              | 10                                                                    | 10                                | 30                               |
-| **Maximum number of P2S connections**       | Not supported                  | 128                                                                   | 128                               | 128                              |
-|**Active routing support (BGP)**           | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
+|    **Plats-till-plats-anslutning   (S2S)**  | Principbaserad VPN-konfiguration        | Ruttbaserad VPN-konfiguration  | Ruttbaserad VPN-konfiguration     | Ruttbaserad VPN-konfiguration    |
+| **Punkt-till-plats-anslutning (P2S**)      | Stöds inte   | Stöds (Kan samexistera med S2S)  | Stöds (Kan samexistera med S2S)  | Stöds (Kan samexistera med S2S) |
+| **Autentiseringsmetod**                 |    I förväg delad nyckel  | I förväg delad nyckel för S2S-anslutning, certifikat för P2S-anslutning | I förväg delad nyckel för S2S-anslutning, certifikat för P2S-anslutning | I förväg delad nyckel för S2S-anslutning, certifikat för P2S-anslutning |
+| **Maximalt antal S2S-anslutningar**       | 1                              | 10                                                                    | 10                                | 30                               |
+| **Maximalt antal P2S-anslutningar**       | Stöds inte                  | 128                                                                   | 128                               | 128                              |
+|**Stöd för aktiv routning (BGP)**           | Stöds inte                  | Stöds inte                                                         | Stöds inte                     | Stöds inte                    |
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

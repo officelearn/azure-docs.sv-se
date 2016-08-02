@@ -1,0 +1,44 @@
+<properties
+    pageTitle="Översikt över den vidarebefordrande meddelandetjänsten i Service Bus | Microsoft Azure"
+    description="Översikt över Service Bus-vidarebefordran"
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
+
+<tags
+    ms.service="service-bus"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.date="05/06/2016"
+    ms.author="sethm"/>
+
+
+# Den vidarebefordrande meddelandetjänsten i Service Bus
+
+Den centrala komponenten i Service Bus är en centraliserad (men med hög belastningsutjämning) vidarebefordrande tjänst som gör att du kan skapa hybridprogram som körs i ett Azure-datacenter och i din egen lokala företagsmiljö.  Den vidarebefordrande tjänsten stöder en mängd olika transportprotokoll och webbtjänststandarder. Detta inkluderar SOAP, WS-*, och även REST. Service Bus Relay underlättar för dina hybridprogram genom att på ett säkert sätt exponera tjänster för Windows Communication Foundation (WCF) i ett företagsnätverk mot det offentliga molnet, utan att behöva öppna en brandväggsanslutning eller kräva störande ändringar i företagets nätverksinfrastruktur. 
+
+![Vidarebefordran-begrepp](./media/service-bus-relay-overview/sb-relay-01.png)
+
+Den vidarebefordrande tjänsten stöder traditionella envägsmeddelanden, fråga-och-svar-meddelanden och peer-to-peer-meddelanden. Den stöder även händelsedistribution på Internet-skala för att möjliggöra publicerings- och prenumerationsscenarier och dubbelriktad socketkommunikation för ökad effektivitet punkt till punkt. 
+
+I mönstret vidarebefordrande meddelandetjänster ansluter en lokal tjänst till den vidarebefordrande tjänsten via en utgående port och skapar en dubbelriktad socket för kommunikation som är kopplad till en viss rendezvous-adress. Klienten kan sedan kommunicera med den lokala tjänsten genom att skicka meddelanden till den vidarebefordrande tjänsten med rendezvous-adressen som mål. Den vidarebefordrande tjänsten kommer sedan att ”vidarebefordra” meddelanden till den lokala tjänsten via den dubbelriktade socketen som redan är upprättad. Klienten behöver ingen direkt anslutning till den lokala tjänsten och behöver inte heller veta var den finns. Den lokala tjänsten behöver inte ha några öppna ingående portar i brandväggen.
+
+Du upprättar anslutningen mellan din lokala tjänst och den vidarebefordrande tjänsten med hjälp av en uppsättning ”vidarebefordrande” WCF-bindningar. I bakgrunden mappas vidarebefordringsbindningarna till nya transportbindningselement som är utformade för att skapa WCF-kanalkomponenter som integreras med Service Bus i molnet. 
+
+## Nästa steg
+
+Mer information om Service Bus-vidarebefordran finns i följande avsnitt.
+
+- [Översikt över arkitekturen i Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Så här använder du tjänsten Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
+
+ 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

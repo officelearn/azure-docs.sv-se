@@ -1,0 +1,7 @@
+﻿Upphovsrättsskyddat (c) Microsoft Corporation.  Distribueras i enlighet med följande villkor:
+ 
+1. Microsoft och alla medarbetare i detta projekt beviljar dig en licens, enligt sina respektive upphovsrätter, till Microsoft Azure-dokumentationen enligt [licensen Creative Commons Attribution 3.0 United States] (http://creativecommons.org/licenses/by/3.0/us/legalcode).  Dessutom beviljar Microsoft och eventuella medarbetare dig ytterligare en licens, med avseende på eventuell exempelkod i dokumentationen, enligt sina respektive immateriella rättigheter, att använda koden för att utveckla eller utforma din programvara för Microsoft Azure.
+ 
+2.  Microsoft, Windows, Microsoft Azure och/eller andra Microsoft-produkter och -tjänster som omnämns i dokumentationen kan också vara antingen varumärken eller registrerade varumärken som tillhör Microsoft i USA och/eller andra länder. Denna licens ger dig inte rätt att använda några namn, logotyper eller varumärken. Mer information om Microsofts allmänna riktlinjer för varumärken finns på [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
+ 
+3.  Microsoft och alla medarbetare förbehåller sig alla andra rättigheter, oavsett om dessa innehas i enlighet med upphovsrätt, patent eller varumärken, eller indirekt, med estoppel eller på annat sätt.

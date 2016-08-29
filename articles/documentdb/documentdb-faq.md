@@ -92,7 +92,7 @@ Du kan skapa användare och behörigheter via ett [DocumentDB-SDK](documentdb-sd
 Exempel på [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), och [Python](documentdb-python-samples.md) SDK:er för DocumentDB finns på GitHub.
 
 ### Stöder DocumentDB SQL?
-SQL-frågespråket i DocumentDB är en förbättrad underuppsättning av de frågefunktioner som stöds av SQL. SQL-frågespråket i DocumentDB ger omfattande hierarki- och relationsoperatorer och kan utvidgas via JavaScript-baserade användardefinierade funktioner (UDF:er). JSON-grammatik gör det möjligt att modellera JSON-dokument som träd med etiketter som trädnoder, vilket används av både DocumentDB:s automatiska indexeringstekniker och DocumentDB:s SQL-frågedialekt.  Mer information om hur du använder SQL-grammatik finns i artikeln [Förfrågningar] i [DocumentDB].
+SQL-frågespråket i DocumentDB är en förbättrad underuppsättning av de frågefunktioner som stöds av SQL. SQL-frågespråket i DocumentDB ger omfattande hierarki- och relationsoperatorer och kan utvidgas via JavaScript-baserade användardefinierade funktioner (UDF:er). JSON-grammatik gör det möjligt att modellera JSON-dokument som träd med etiketter som trädnoder, vilket används av både DocumentDB:s automatiska indexeringstekniker och DocumentDB:s SQL-frågedialekt.  Mer information om hur du använder SQL-grammatik finns i artikeln [Förfrågningar][DocumentDB].
 
 ### Vilka datatyper stöds av DocumentDB?
 De primitiva datatyper som stöds i DocumentDB är desamma som i JSON. JSON har ett enkelt typsystem som består av strängar, siffror (IEEE754 dubbel precision) och booleska värden – SANT, FALSKT och null-värden.  Mer komplexa datatyper som DateTime, Guid, Int64 och Geometry kan representeras både i JSON och DocumentDB genom att skapa kapslade objekt med operatorn { } och matriser med operatorn [ ]. 
@@ -117,10 +117,10 @@ Ja, eftersom DocumentDB är en RESTful-tjänst ändras resurslänkar inte och ka
 
 
 [azure-portal]: https://portal.azure.com
-[fråga]: documentdb-sql-query.md
+[DocumentDB]: documentdb-sql-query.md
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

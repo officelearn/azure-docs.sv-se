@@ -62,9 +62,9 @@ När ditt SQL Data Warehouse är färdigetablerat, kan du [läsa in exempeldata]
 <!--Article references-->
 [så här skapar du ett SQL Data Warehouse från Azure-portalen]: ./sql-data-warehouse-get-started-provision.md
 [anslut till SQL Data Warehouse med Visual Studio]: ./sql-data-warehouse-get-started-connect.md
-[migrera]: ./sql-data-warehouse-overview-migrate.md
-[utveckla]: ./sql-data-warehouse-overview-develop.md
-[läs in]: ./sql-data-warehouse-overview-load.md
+[migrerar]: ./sql-data-warehouse-overview-migrate.md
+[utvecklar]: ./sql-data-warehouse-overview-develop.md
+[läser in]: ./sql-data-warehouse-overview-load.md
 [läsa in exempeldata]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Skapa en logisk Azure SQL Database-server med Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Skapa en logisk Azure SQL Database-server med PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
@@ -82,6 +82,6 @@ När ditt SQL Data Warehouse är färdigetablerat, kan du [läsa in exempeldata]
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

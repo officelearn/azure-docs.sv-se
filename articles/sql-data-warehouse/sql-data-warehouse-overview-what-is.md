@@ -162,8 +162,8 @@ Nu när du vet lite om SQL Data Warehouse, läs mer om [arbetsbelastningen för 
 <!--Article references-->
 [Skapa ett supportärende]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [arbetsbelastningen för informationslager]: ./sql-data-warehouse-overview-workload.md
-[så här läser du in exempeldata]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[så här etablerar du]: ./sql-data-warehouse-get-started-provision.md
+[hur man läser in exempeldata]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[hur man etablerar]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -178,6 +178,6 @@ Nu när du vet lite om SQL Data Warehouse, läs mer om [arbetsbelastningen för 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!-----HONumber=Jun16_HO2-->
 
 

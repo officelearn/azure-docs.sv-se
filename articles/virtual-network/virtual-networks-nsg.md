@@ -278,12 +278,12 @@ Eftersom vissa av de ovanstående NSG:erna måste kopplas till individuella nät
 - [Distribuera NSG:er i Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [Hantera NSG-loggar](virtual-network-nsg-manage-log.md).
 
-[grön]: ./media/virtual-network-nsg-overview/green.png
+[green]: ./media/virtual-network-nsg-overview/green.png
 [gul]: ./media/virtual-network-nsg-overview/yellow.png
-[röd]: ./media/virtual-network-nsg-overview/red.png
+[red]: ./media/virtual-network-nsg-overview/red.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

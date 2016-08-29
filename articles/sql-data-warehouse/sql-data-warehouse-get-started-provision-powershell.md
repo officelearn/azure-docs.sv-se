@@ -72,9 +72,9 @@ Om du vill veta mer om hur du hanterar SQL Data Warehouse programmässigt, kan d
 <!--Image references-->
 
 <!--Article references-->
-[migrera]: ./sql-data-warehouse-overview-migrate.md
-[utveckla]: ./sql-data-warehouse-overview-develop.md
-[läs in]: ./sql-data-warehouse-load-with-bcp.md
+[migrerar]: ./sql-data-warehouse-overview-migrate.md
+[utvecklar]: ./sql-data-warehouse-overview-develop.md
+[läser in]: ./sql-data-warehouse-load-with-bcp.md
 [läsa in exempeldata]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [PowerShell-cmdletar och REST-API:er]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [brandväggsregler]: ./sql-database-configure-firewall-settings.md
@@ -97,6 +97,6 @@ Om du vill veta mer om hur du hanterar SQL Data Warehouse programmässigt, kan d
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

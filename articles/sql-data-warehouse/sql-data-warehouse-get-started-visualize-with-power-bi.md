@@ -107,7 +107,7 @@ Nu när du har värmt upp med exempeldata, kan du se mer information om att [utv
 <!--Article references-->
 [migrera]: ./sql-data-warehouse-overview-migrate.md
 [utveckla]: ./sql-data-warehouse-overview-develop.md
-[läs in]: ./sql-data-warehouse-overview-load.md
+[läsa in]: ./sql-data-warehouse-overview-load.md
 [läsa in exempeldata manuellt]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [ansluta till SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Skapa ett SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
@@ -120,6 +120,6 @@ Nu när du har värmt upp med exempeldata, kan du se mer information om att [utv
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

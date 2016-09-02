@@ -616,10 +616,10 @@ Om du vill återställa referenser till .NET DocumentDB SDK i Visual Studio hög
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-[nycklar]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

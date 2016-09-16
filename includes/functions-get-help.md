@@ -5,6 +5,6 @@ Ställ dina frågor i Azure-forumen. – [Besök MSDN](http://go.microsoft.com/f
 Tagga frågorna med nyckelordet `azure-functions`. – [Besök Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep12_HO2-->
 
 

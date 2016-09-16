@@ -13,92 +13,102 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/03/2016"
+   ms.date="09/08/2016"
    ms.author="v-livech"/>
 
 
 # Skapa en virtuell Linux-dator i Azure med hjälp av CLI
 
-I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator i Azure med hjälp av kommandot `azure vm quick-create` i Azure CLI. Kommandot `quick-create` distribuerar en virtuell dator med en grundläggande omgivande infrastruktur som du kan använda som prototyp eller för att snabbt testa ett koncept (se det som den snabbaste vägen till ett bash-gränssnitt för Linux).  Artikeln kräver ett Azure-konto ([skaffa en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/)) och [Azure CLI](../xplat-cli-install.md) inloggad (`azure login`) och i resurshanteringsläge (`azure config mode arm`).  Du kan också snabbt distribuera en virtuell Linux-dator med hjälp av [Azure Portal](virtual-machines-linux-quick-create-portal.md).
+I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator (VM) i Azure med hjälp av kommandot `azure vm quick-create` i Azures kommandoradsgränssnitt (CLI). Kommandot `quick-create` distribuerar en virtuell dator inuti en grundläggande, säker infrastruktur som du kan använda som prototyp eller för att snabbt testa ett koncept. Artikeln kräver
 
-## Snabb kommandosammanfattning
+- ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/))
 
-Ett kommando för att distribuera en virtuell CoreOS-dator och koppla SSH-nyckeln:
+- [Azure CLI](../xplat-cli-install.md) inloggad med `azure login`.
+
+- Azure CLI _måste vara i_ Azure Resource Manager-läge `azure config mode arm`.  
+
+Du kan också snabbt distribuera en virtuell Linux-dator med hjälp av [Azure Portal](virtual-machines-linux-quick-create-portal.md).
+
+## Snabbkommandon
+
+I följande exempel visas hur du distribuerar en CoreOS VM och kopplar din SSH(Secure Shell)-nyckel (dina argument kan vara annorlunda).
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 ```
 
-## Distribuera den virtuella Linux-datorn
+I följande avsnitt beskrivs kommandot och dess krav med Ubuntu Server 14.04 LTS som Linux-distribution.  
 
-Följande exempel använder samma kommando som ovan och visar varje kommandoprompt jämte det förväntade resultatet, men använder RHEL-aliaset för att skapa en virtuell dator med RedHat Enterprise Linux 7.2.  
+## VM-snabbregistrering av alias
 
-## Använda ett ImageURN-alias
-
-Kommandot `quick-create` i Azure CLI har alias som är mappade till de vanligaste operativsystemdistributioner. I följande tabell visas alla tillgängliga distributionsalias (från och med Azure CLI version 0.10).  Alla distributioner som kör `quick-create` använder som standard SSD-lagring för virtuella datorer, vilket ger en miljö med höga prestanda.
+Ett snabbt sätt att välja en distribution är att använda Azure CLI-alias som mappas till de vanligaste OS-distributionerna. I följande tabell visas tillgängliga alias (från och med Azure CLI version 0.10). Alla distributioner som använder `quick-create` virtuella datorer som backas upp av lagring på solid state-hårddisk (SSD), som ger snabbare etablering och högpresterande åtkomst till disken som standard. (Dessa alias representerar en bråkdel av de tillgängliga distributionerna i Azure. Du kan hitta fler bilder på Azure Marketplace genom att [söka efter en bild](virtual-machines-linux-cli-ps-findimage.md), eller [ladda upp en egen anpassad bild](virtual-machines-linux-create-upload-generic.md).)
 
 | Alias     | Utgivare | Erbjudande        | SKU         | Version |
 |:----------|:----------|:-------------|:------------|:--------|
-| CentOS    | OpenLogic | Centos       | 7.2         | senaste  |
+| CentOS    | OpenLogic | CentOS       | 7.2         | senaste  |
 | CoreOS    | CoreOS    | CoreOS       | Stable      | senaste  |
 | Debian    | credativ  | Debian       | 8           | senaste  |
 | openSUSE  | SUSE      | openSUSE     | 13.2        | senaste  |
-| RHEL      | Redhat    | RHEL         | 7.2         | senaste  |
-| SLES      | SLES      | SLES         | 12-SP1      | senaste  |
-| UbuntuLTS | Canonical | UbuntuServer | 14.04.4-LTS | senaste  |
+| RHEL      | Red Hat    | RHEL         | 7.2         | senaste  |
+| UbuntuLTS | Canonical | Ubuntu Server | 14.04.4-LTS | senaste  |
 
+I de följande avsnitten används `UbuntuLTS` alias för **ImageURN**-alternativet (`-Q`) för att distribuera en Ubuntu 14.04.4 LTS Server.
 
+## Detaljerad genomgång
 
-För alternativet **ImageURN** (`-Q`) använder vi `RHEL` för att distribuera en virtuell dator med RedHat Enterprise Linux 7.2. (Dessa sju alias representerar ett fåtal av de tillgängliga operativsystemen i Azure. Om du vill hitta andra avbildningar kan du [söka efter en avbildning](virtual-machines-linux-cli-ps-findimage.md) på Marketplace. Du kan också [ladda upp en egen anpassad avbildning](virtual-machines-linux-create-upload-generic.md).)
+Det tidigare `quick-create` exemplet anropade bara `-M` flaggan för att identifiera den offentliga SSH-nyckeln att överföra vid inaktivering av SSH-lösenord, så uppmanas du ange
 
-I följande kommandogenomgång ersätter du prompterna med värden från din miljö. Vi använder exempelvärden.  
+- resursgruppens namn (valfri sträng är vanligtvis bra för din första Azure-resursgrupp)
+- VM-namn
+- plats (westus eller westeurope är bra standardvärden)
+- linux (så att Azure vet vilka operativsystem du vill ha)
+- användarnamn
 
-Följ anvisningarna och ange egna namn
+Följande anger alla värden så att ingen ytterligare uppmaning krävs. Så länge som du har en `~/.ssh/id_rsa.pub` som offentlig nyckelfil i ssh-rsaformat, fungerar det.
 
 ```bash
-azure vm quick-create -M ~/.ssh/id_rsa.pub -Q RHEL
+azure vm quick-create \
+-g exampleResourceGroup \
+-n exampleVMName \
+-l westus \
+-y Linux \
+-u exampleAdminUser \
+-M ~/.ssh/id_rsa.pub \
+-Q UbuntuLTS
 ```
 
 Resultatet bör likna följande utdata.
 
 ```bash
 info:    Executing command vm quick-create
-Resource group name: rhel-quick
-Virtual machine name: rhel
-Location name: westus
-Operating system Type [Windows, Linux]: linux
-User name: ops
 + Listing virtual machine sizes available in the location "westus"
-+ Looking up the VM "rhel"
-info:    Verifying the public key SSH file: /Users/ops/.ssh/id_rsa.pub
++ Looking up the VM "exampleVMName"
+info:    Verifying the public key SSH file: /Users/ahmet/.ssh/id_rsa.pub
 info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
-+ Looking up the storage account cli1630678171193501687
-info:    Could not find the storage account "cli1630678171193501687", trying to create new one
-+ Creating storage account "cli1630678171193501687" in "westus"
-+ Looking up the storage account cli1630678171193501687
-+ Looking up the NIC "rhel-westu-1630678171-nic"
-info:    An nic with given name "rhel-westu-1630678171-nic" not found, creating a new one
-+ Looking up the virtual network "rhel-westu-1630678171-vnet"
++ Looking up the storage account cli16330708391032639673
++ Looking up the NIC "examp-westu-1633070839-nic"
+info:    An nic with given name "examp-westu-1633070839-nic" not found, creating a new one
++ Looking up the virtual network "examp-westu-1633070839-vnet"
 info:    Preparing to create new virtual network and subnet
-+ Creating a new virtual network "rhel-westu-1630678171-vnet" [address prefix: "10.0.0.0/16"] with subnet "rhel-westu-1630678171-snet" [address prefix: "10.0.1.0/24"]
-+ Looking up the virtual network "rhel-westu-1630678171-vnet"
-+ Looking up the subnet "rhel-westu-1630678171-snet" under the virtual network "rhel-westu-1630678171-vnet"
+/ Creating a new virtual network "examp-westu-1633070839-vnet" [address prefix: "10.0.0.0/16"] with subnet "examp-westu-1633070839-snet" [address prefix: "10.+.1.0/24"]
++ Looking up the virtual network "examp-westu-1633070839-vnet"
++ Looking up the subnet "examp-westu-1633070839-snet" under the virtual network "examp-westu-1633070839-vnet"
 info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "rhel-westu-1630678171-pip"
-info:    PublicIP with given name "rhel-westu-1630678171-pip" not found, creating a new one
-+ Creating public ip "rhel-westu-1630678171-pip"
-+ Looking up the public ip "rhel-westu-1630678171-pip"
-+ Creating NIC "rhel-westu-1630678171-nic"
-+ Looking up the NIC "rhel-westu-1630678171-nic"
-+ Looking up the storage account clisto909893658rhel
-+ Creating VM "rhel"
-+ Looking up the VM "rhel"
-+ Looking up the NIC "rhel-westu-1630678171-nic"
-+ Looking up the public ip "rhel-westu-1630678171-pip"
-data:    Id                              :/subscriptions/<guid>/resourceGroups/rhel-quick/providers/Microsoft.Compute/virtualMachines/rhel
++ Looking up the public ip "examp-westu-1633070839-pip"
+info:    PublicIP with given name "examp-westu-1633070839-pip" not found, creating a new one
++ Creating public ip "examp-westu-1633070839-pip"
++ Looking up the public ip "examp-westu-1633070839-pip"
++ Creating NIC "examp-westu-1633070839-nic"
++ Looking up the NIC "examp-westu-1633070839-nic"
++ Looking up the storage account clisto1710997031examplev
++ Creating VM "exampleVMName"
++ Looking up the VM "exampleVMName"
++ Looking up the NIC "examp-westu-1633070839-nic"
++ Looking up the public ip "examp-westu-1633070839-pip"
+data:    Id                              :/subscriptions/2<--snip-->d/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMName
 data:    ProvisioningState               :Succeeded
-data:    Name                            :rhel
+data:    Name                            :exampleVMName
 data:    Location                        :westus
 data:    Type                            :Microsoft.Compute/virtualMachines
 data:
@@ -107,22 +117,22 @@ data:      Size                          :Standard_DS1
 data:
 data:    Storage Profile:
 data:      Image reference:
-data:        Publisher                   :RedHat
-data:        Offer                       :RHEL
-data:        Sku                         :7.2
+data:        Publisher                   :Canonical
+data:        Offer                       :UbuntuServer
+data:        Sku                         :14.04.4-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
 data:        OSType                      :Linux
-data:        Name                        :clic5abbc145c0242c1-os-1462425492101
+data:        Name                        :clic7fadb847357e9cf-os-1473374894359
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://cli1630678171193501687.blob.core.windows.net/vhds/clic5abbc145c0242c1-os-1462425492101.vhd
+data:          Uri                       :https://cli16330708391032639673.blob.core.windows.net/vhds/clic7fadb847357e9cf-os-1473374894359.vhd
 data:
 data:    OS Profile:
-data:      Computer Name                 :rhel
-data:      User Name                     :ops
+data:      Computer Name                 :exampleVMName
+data:      User Name                     :exampleAdminUser
 data:      Linux Configuration:
 data:        Disable Password Auth       :true
 data:
@@ -130,49 +140,73 @@ data:    Network Profile:
 data:      Network Interfaces:
 data:        Network Interface #1:
 data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-32-0F-DD
+data:          MAC Address               :00-0D-3A-33-42-FB
 data:          Provisioning State        :Succeeded
-data:          Name                      :rhel-westu-1630678171-nic
+data:          Name                      :examp-westu-1633070839-nic
 data:          Location                  :westus
-data:            Public IP address       :104.42.236.196
-data:            FQDN                    :rhel-westu-1630678171-pip.westus.cloudapp.azure.com
+data:            Public IP address       :138.91.247.29
+data:            FQDN                    :examp-westu-1633070839-pip.westus.cloudapp.azure.com
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
-data:      BootDiagnostics StorageUri    :https://clisto909893658rhel.blob.core.windows.net/
+data:      BootDiagnostics StorageUri    :https://clisto1710997031examplev.blob.core.windows.net/
 data:
 data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Nu kan du koppla SSH till den virtuella datorn med SSH-standardporten 22 och det fullständigt kvalificerade domännamnet (FQDN) som anges i resultatet ovan. (Du kan också använda IP-adressen som anges.)
+Logga in på din virtuella dator med den offentliga IP-adressen listad i utdata. Du kan också använda det fullständigt kvalificerade domännamnet (FQDN) som är listat.
 
 ```bash
-ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
+ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
+
 Inloggningen bör se ut ungefär så här:
 
 ```bash
-The authenticity of host 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com (104.42.236.196)' can't be established.
-RSA key fingerprint is 0e:81:c4:36:2d:eb:3c:5a:dc:7e:65:8a:3f:3e:b0:cb.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,104.42.236.196' (RSA) to the list of known hosts.
-[ops@rhel ~]$ ls -a
-.  ..  .bash_logout  .bash_profile  .bashrc  .cache  .config  .ssh
+Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Thu Sep  8 22:50:57 UTC 2016
+
+  System load: 0.63              Memory usage: 2%   Processes:       81
+  Usage of /:  39.6% of 1.94GB   Swap usage:   0%   Users logged in: 0
+
+  Graph this data and manage this system at:
+    https://landscape.canonical.com/
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+exampleAdminUser@exampleVMName:~$
 ```
 
 ## Nästa steg
 
-`azure vm quick-create` är ett sätt att snabbt distribuera en virtuell dator så att du kan logga in i ett bash-gränssnitt och komma igång med ditt arbete. `vm quick-create` ger inte de ytterligare fördelarna med en komplex miljö.  Om du vill distribuera en virtuell Linux-dator som är anpassad efter din infrastruktur följer du relevant artikel nedan.
+`azure vm quick-create`-kommandot är ett sätt att snabbt distribuera en virtuell dator så att du kan logga in i ett bash-gränssnitt och komma igång med ditt arbete. Men att använda `vm quick-create` ger dig inte omfattande kontroll eller gör det möjligt för dig att skapa en mer komplex miljö.  Om du vill distribuera en virtuell Linux-dator som är anpassad efter din infrastruktur kan du följa vilken som helst av dessa artiklar:
 
 - [Skapa en specifik distribution med hjälp av en Azure Resource Manager-mall](virtual-machines-linux-cli-deploy-templates.md)
-- [Skapa en egen anpassad miljö för en virtuell Linux-dator med hjälp av Azure CLI-kommandon](virtual-machines-linux-create-cli-complete.md).
+- [Skapa en egen anpassad miljö för en virtuell Linux-dator med hjälp av Azure CLI-kommandon](virtual-machines-linux-create-cli-complete.md)
 - [Skapa en SSH-skyddad virtuell Linux-dator i Azure med hjälp av mallar](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-Dessa artiklar hjälper dig att komma igång med att skapa en Azure-infrastruktur och valfritt antal distributions-, konfigurations- och hanteringsverktyg, såväl proprietära som med öppen källkod.
+Du kan också [använda `docker-machine` Azure-drivrutinen med olika kommandon för att snabbt skapa en virtuell Linux-dator som Docker-värd](virtual-machines-linux-docker-machine.md).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep12_HO2-->
 
 

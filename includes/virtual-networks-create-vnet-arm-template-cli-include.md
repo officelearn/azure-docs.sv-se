@@ -7,15 +7,15 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
 
         azure config mode arm
 
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
 
         info:    New mode is arm
 
-3. Vid behov kan du köra **`azure group create`** för att skapa en ny resursgrupp, enligt nedan. Notera kommandots utdata. Listan som visas efter utdatan beskriver de parametrar som används. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md).
+3. Vid behov kan du köra **`azure group create`** för att skapa en ny resursgrupp, enligt nedan. Notera kommandots utdata. Listan som visas efter alla utdata förklarar parametrarna som använts. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md).
 
         azure group create -n TestRG -l centralus
 
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
 
         info:    Executing command group create
         + Getting resource group TestRG
@@ -36,7 +36,7 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
 
         azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
 
         info:    Executing command group deployment create
         + Initializing template configurations and parameters
@@ -69,7 +69,7 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
 
         azure network vnet show -g TestRG -n TestVNet
 
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
 
         info:    Executing command network vnet show
         + Looking up virtual network "TestVNet"
@@ -91,6 +91,6 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

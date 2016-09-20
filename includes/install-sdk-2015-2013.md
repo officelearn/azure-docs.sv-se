@@ -4,10 +4,10 @@ För att komma igång så ställer du in din utvecklingsmiljö genom att install
 
 Om du inte har Visual Studio installerat, kan du använda länken för Visual Studio 2015 och installera Visual Studio tillsammans med SDK:n.
 
->[AZURE.NOTE] Beroende på hur många av SDK-beroendena du redan har på datorn kan det ta en lång stund att installera SDK, från några minuter till drygt en halvtimme.
+>[AZURE.NOTE] Beroende på hur många av SDK-beroendena du redan har på datorn kan det ta lång tid att installera SDK, från några minuter till drygt en halvtimme.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

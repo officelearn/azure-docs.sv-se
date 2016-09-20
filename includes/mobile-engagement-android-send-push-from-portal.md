@@ -46,13 +46,13 @@ Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push-meddelande 
 
     ![](./media/mobile-engagement-android-send-push/campaign-content.png)
 
-5. Nu har du ställt in den mest grundläggande kampanjen som går. Bläddra ned igen och klicka på **Skapa**-knappen om du vill spara din kampanj.
+5. Nu har du ställt in den mest grundläggande kampanjen som går. Rulla nedåt igen och klicka på **skapa**-knappen för att spara din kampanj.
 
 6. Sista steget: klicka på **Aktivera** om du vill aktivera din kampanj för att skicka push-meddelanden.
 
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

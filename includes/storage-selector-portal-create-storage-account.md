@@ -1,9 +1,9 @@
 > [AZURE.SELECTOR]
-- [Azure-portalen](../articles/storage/storage-create-storage-account.md)
-- [Den klassiska Azure-portalen](../articles/storage/storage-create-storage-account-classic-portal.md)
+- [Azure Portal](../articles/storage/storage-create-storage-account.md)
+- [Klassisk Azure-portal](../articles/storage/storage-create-storage-account-classic-portal.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

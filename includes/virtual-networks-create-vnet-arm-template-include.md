@@ -28,7 +28,7 @@ Du kan hämta den befintliga ARM-mallen för att skapa ett VNet och två undern�
 
 7. Gå tillbaks till [exempelmallsidan](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Klicka på **azuredeploy-parameters.json** och klicka sedan på **RAW**.
-9. Spara filen på en lokal mapp på datorn.
+9. Spara filen i en lokal mapp på datorn.
 10. Öppna filen som du just har sparat och redigera värdena för parametrarna. Använd värdena nedan för att distribuera det VNet som beskrivs i vårt scenario.
 
         {
@@ -59,6 +59,6 @@ Du kan hämta den befintliga ARM-mallen för att skapa ett VNet och två undern�
   
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Översikt av händelsehubbar i Azure
@@ -21,9 +21,9 @@ Många moderna lösningar strävar efter att ge anpassningsbara kundupplevelser 
 
 ![Händelsehubbar](./media/event-hubs-overview/IC759856.png)
 
-Händelsehubbar i Azure är en tjänst för händelsebearbetning som ger händelse- och telemetriingång till molnet i massiv skala med kort svarstid och hög tillförlitlighet. Den här tjänsten, som används med andra nedströms tjänster, är särskilt användbar inom programinstrumentering, bearbetning av användarupplevelser eller arbetsflöden samt scenarier i sakernas internet. Händelsehubbar har funktioner för att hantera meddelandeströmmar,  och även om händelsehubbar påminner om köer och ämnen har de egenskaper som skiljer sig väldigt mycket från traditionella meddelandetjänster för företag. Meddelandetjänstscenarier för företag kräver vanligtvis ett antal avancerade funktioner som sekvensering, dead-lettering, stöd för transaktioner och starka leveransgarantier. Det största problemet för händelseintag är däremot ett högt genomflöde och flexibilitet vid bearbetningen av händelseströmmar. Funktionerna i händelsehubbar skiljer sig därför från Service Bus-ämnen på det sättet att de fokuserar på ett högt genomflöde och händelsebearbetningsscenarier. Därför implementerar händelsehubbar inte en del av de meddelandefunktioner som är tillgängliga för ämnen. Om du behöver de funktionerna är ämnen fortfarande att föredra.
+Händelsehubbar i Azure är en tjänst för händelsebearbetning som ger händelse- och telemetriingång till molnet i massiv skala med kort svarstid och hög tillförlitlighet. Den här tjänsten, som används med andra nedströms tjänster, är särskilt användbar inom programinstrumentering, bearbetning av användarupplevelser eller arbetsflöden samt scenarier i sakernas internet. Händelsehubbar har funktioner för att hantera meddelandeströmmar,  och även om händelsehubbar påminner om köer och ämnen har de egenskaper som skiljer sig väldigt mycket från traditionella meddelandetjänster för företag. Meddelandetjänstscenarier för företag kräver vanligtvis avancerade funktioner som sekvensering, dead-lettering, stöd för transaktioner och starka leveransgarantier. Det största problemet för händelseintag är däremot ett högt genomflöde och flexibilitet vid bearbetningen av händelseströmmar. Funktionerna i händelsehubbar skiljer sig därför från Service Bus-ämnen på det sättet att de fokuserar på ett högt genomflöde och händelsebearbetningsscenarier. Därför implementerar händelsehubbar inte en del av de meddelandefunktioner som är tillgängliga för ämnen. Om du behöver de funktionerna är ämnen fortfarande att föredra.
 
-En händelsehubb skapas på namnområdesnivån  i Service Bus, ungefär som köer och ämnen. Händelsehubbar använder AMQP och HTTP som sina primära API-gränssnitt. Följande diagram visar relationen mellan händelsehubbar och Service Bus.
+En händelsehubb skapas på namnområdesnivån i för händelsehubben, ungefär som köer och ämnen i Service Bus. Händelsehubbar använder AMQP och HTTP som sina primära API-gränssnitt. Följande diagram visar relationen mellan händelsehubbar och Service Bus.
 
 ![Händelsehubbar](./media/event-hubs-overview/IC741188.png)
 
@@ -43,7 +43,7 @@ Partitioner behåller data under en konfigurerad kvarhållningstid som anges på
 
 Antalet partitioner specificeras vid tidpunkten då händelsehubben skapas och måste vara mellan 2 och 32 (standard är 4). En partition är en mekanism för organisation av data och är mer relaterad till den grad av nedströms parallellism som krävs inom användarprogram än med genomflödet i händelsehubbar. Det gör att valet av antalet partitioner i en händelsehubb är direkt relaterat till det antal samtidiga läsare du förväntar dig. När en händelsehubb har skapats kan antalet partitioner inte ändras. Du bör därför bestämma antalet med tanke på förväntad storlek på lång sikt. Du kan överskrida gränsen på 32 partitioner genom att kontakta Service Bus-teamet.
 
-Partitioner kan identifieras och det går att skicka till dem direkt, men det är oftast bäst att undvika att skicka data till specifika partitioner. Du kan i stället använda de konstruktioner på högre nivå som presenterades i avsnitten [Händelseutfärdare](#event-publisher) och [Utgivarprinciper](#capacity-and-security).
+Partitioner kan identifieras och det går att skicka till dem direkt, men det är bäst att undvika att skicka data till specifika partitioner. Du kan i stället använda de konstruktioner på högre nivå som presenterades i avsnitten [Händelseutfärdare](#event-publisher) och [Utgivarprinciper](#capacity-and-security).
 
 När man pratar om händelsehubbar kallar man meddelanden *händelsedata*. Händelsedata innehåller händelsens brödtext, en användardefinierad egenskapsuppsättning och olika metadata om händelsen, till exempel dess offset i partitionen och dess nummer i dataströmsekvensen. Partitioner är fyllda med en sekvens av händelsedata.
 
@@ -118,11 +118,11 @@ När en AMQP 1.0-session och -länk har öppnats för en specifik partition, lev
 
 ![Händelsehubbar](./media/event-hubs-overview/IC759862.png)
 
-Det är användarens ansvar att hantera denna offset på ett sätt som på bästa sätt gör det möjligt att hantera förloppet vid bearbetning av dataströmmen.
+Det är ditt ansvar att hantera denna offset på ett sätt som på bästa sätt gör det möjligt att hantera förloppet vid bearbetning av dataströmmen.
 
 ## Kapacitet och säkerhet
 
-Händelsehubbar är en mycket skalbar parallell arkitektur för ingång av dataströmmar. Därför finns det flera viktiga aspekter att tänka på när du ska bestämma storleken på och skala en lösning som baseras på händelsehubbar. Den första av dessa kapacitetskontroller är *genomflödesenheter*, vilka beskrivs i följande avsnitt.
+Händelsehubbar är en mycket skalbar parallell arkitektur för ingång av dataströmmar. Därför finns det flera viktiga aspekter att tänka på när du ska bestämma storleken på och skala en lösning som baseras på händelsehubbar. Den första av dessa kapacitetskontroller kallas för *genomflödesenheter* och beskrivs i följande avsnitt.
 
 ### Genomflödesenheter
 
@@ -134,9 +134,9 @@ Genomflödeskapaciteten i händelsehubbar styrs av genomflödesenheter. Genomfl�
 
 Ingången begränsas till storleken på den kapacitet som antalet inköpta genomflödesenheter ger. Om du skickar data som överskrider den mängden resulterar det i felmeddelandet ”kvoten har överskridits”. Den här mängden är antingen 1 MB per sekund eller 1 000 händelser per sekund, beroende på vilket som kommer först. Utgången skapar inte begränsningsfel, men är begränsad till den mängd av dataöverföring som genomflödesenheterna ger: 2 MB per sekund per genomflödesenhet. Om du får felmeddelanden om publiceringsfrekvensen eller förväntar dig större utgång måste du kontrollera hur många genomflödesenheter du har köpt för det namnområde där händelsehubben skapades. För att skaffa fler genomflödesenheter kan du justera inställningen på sidan **namnområden** på fliken **Skala** i den [klassiska Azure-portalen][]. Du kan också ändra den här inställningen med hjälp av Azure-API:erna.
 
-Partitioner är ett koncept för organisering av data men genomflödesenheter är helt och hållet ett koncept för kapacitet. Genomflödesenheter debiteras per timme och köps i förväg. När de väl har köpts debiteras de för minst en timme. Upp till 20 genomflödesenheter kan köpas för ett Service Bus-namnområde, och det finns en gräns för ett Azure-konto på högst 20 genomflödesenheter. Genomflödesenheterna är gemensamma för alla händelsehubbar i ett visst namnområde.
+Partitioner är ett koncept för organisering av data men genomflödesenheter är helt och hållet ett koncept för kapacitet. Genomflödesenheter debiteras per timme och köps i förväg. När de väl har köpts debiteras de för minst en timme. Upp till 20 genomflödesenheter kan köpas för ett händelsehubb-namnområde och det finns en gräns för ett Azure-konto på högst 20 genomflödesenheter. Genomflödesenheterna är gemensamma för alla händelsehubbar i ett visst namnområde.
 
-Genomflödesenheter allokeras på basis av tillgänglighet och det kan hända att de inte finns tillgängliga för omedelbart köp. Om du behöver en specifik kapacitet bör du köpa dessa enheter i förväg. Om du behöver fler än 20 genomflödesenheter kan du kontakta Service Bus-supporten och köpa fler enheter i block på 20, upp till de första 100 enheterna. Utöver det kan du också köpa block med 100 genomflödesenheter.
+Genomflödesenheter allokeras på basis av tillgänglighet och det kan hända att de inte finns tillgängliga för omedelbart köp. Om du behöver en specifik kapacitet bör du köpa dessa enheter i förväg. Om du behöver fler än 20 genomflödesenheter kan du kontakta Azures support och köpa fler enheter i block om 20, upp till de första 100 enheterna. Utöver det kan du också köpa block med 100 genomflödesenheter.
 
 Du bör noggrant väga genomflödesenheter och partitioner för att uppnå bästa skala med händelsehubbar. En enstaka partition har en maximal skala på en genomflödesenhet. Antalet genomflödesenheter ska vara mindre än eller lika med antalet partitioner i en händelsehubb.
 
@@ -170,6 +170,6 @@ Nu när du har lärt känna en del koncept inom händelsehubbar kan du gå vidar
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

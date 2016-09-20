@@ -1,7 +1,7 @@
 <properties
     pageTitle="Apache Storm-kurs: Komma igång med Linux-baserat Storm på HDInsight | Microsoft Azure"
     description="Kom igång med analyser av stordata med Apache Storm och Storm Starter-exempel på Linux-baserade HDInsight. Ta reda på hur du använder Storm till att bearbeta data i realtid."
-    keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+    keywords="apache storm, apache storm självstudier, stordata-analys, storm starter"
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="larryfr"/>
 
 
@@ -40,13 +40,13 @@ För den här kursen om Apache Storm krävs:
 
 ## Skapa ett Storm-kluster
 
-I det här avsnittet skapar du ett HDInsight-kluster av version 3.2 (Storm-version 0.9.3) med hjälp av en Azure ARM-mall. Information om HDInsight-versioner och deras serviceavtal finns i [Versionshantering för HDInsight-komponenter](hdinsight-component-versioning.md). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
+I det här avsnittet skapar du ett HDInsight-kluster av version 3.2 (Storm-version 0.9.3) med hjälp av en Azure Resource Manager-mall. Information om HDInsight-versioner och deras serviceavtal finns i [Versionshantering för HDInsight-komponenter](hdinsight-component-versioning.md). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Klicka på följande bild för att öppna en ARM-mall i Azure Portal.         
+1. Klicka på följande bild för att öppna mallen i Azure Portal.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    ARM-mallen finns i den offentliga Blob-behållaren *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
+    Mallen finns i den offentliga blob-behållaren *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
    
 2. Skriv följande i bladet Parametrar:
 
@@ -54,9 +54,9 @@ I det här avsnittet skapar du ett HDInsight-kluster av version 3.2 (Storm-versi
     - **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard ”admin”.
     - **SSH-användarnamn och lösenord**.
     
-    Skriv ned de här värdena.  Du behöver dem senare under kursen.
+    Skriv ned dessa värden.  Du behöver dem senare under kursen.
 
-    > [AZURE.NOTE] SSH används för att få fjärråtkomst till HDInsight-kluster med hjälp av en kommandorad. Det användarnamn och lösenord du använder här används när du ansluter till klustret via SSH. Användarnamnet för SSH måste dessutom vara unikt, eftersom det skapar ett användarkonto på alla HDInsight-klusternoder. Nedan följer några av de kontonamn som är reserverade för användning av tjänsterna i klustret och inte kan användas som SSH-användarnamn:
+    > [AZURE.NOTE] SSH används för att få fjärråtkomst till HDInsight-klustret med hjälp av en kommandorad. Det användarnamn och lösenord du använder här används när du ansluter till klustret via SSH. Användarnamnet för SSH måste dessutom vara unikt, eftersom det skapar ett användarkonto på alla HDInsight-klusternoder. Nedan följer några av de kontonamn som är reserverade för användning av tjänsterna i klustret och inte kan användas som SSH-användarnamn:
     >
     > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
@@ -93,9 +93,9 @@ Exemplen i [storm-starter](https://github.com/apache/storm/tree/master/examples/
 
 2. Använd följande kommando för att starta en exempeltopologi:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
         
-    > [AZURE.NOTE] Delen `0.9.3.2.2.4.9-1` av filnamnet kan ändras när HDinsight uppdateras med nyare versioner av Storm.
+    > [AZURE.NOTE] Delen `0.10.0.2.4.2.4-5` av filnamnet kan ändras när HDInsight uppdateras med nyare versioner av Storm.
 
     Exempeltopologin för WordCount (ordräkning) startas i klustret, med ett eget namn för 'wordcount'. Den genererar meningar slumpmässigt och räknar antal förekomster av varje ord i meningarna.
 
@@ -193,6 +193,6 @@ Om du redan är bekant med att utveckla Java-baserad topologier och vill distrib
 [preview-portal]: https://portal.azure.com/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

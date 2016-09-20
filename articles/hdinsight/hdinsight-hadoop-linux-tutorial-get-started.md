@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="03/16/2016"
+    ms.date="06/13/2016"
     ms.author="jgao"/>
 
 # Hadoop-vägledning: Komma igång med Linux-baserat Hadoop i HDInsight
@@ -23,7 +23,7 @@
 - [Linux-baserat](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Windows-baserat](hdinsight-hadoop-tutorial-get-started-windows.md)
 
-Lär dig att skapa Linux-baserade [Hadoop](http://hadoop.apache.org/)-kluster i HDInsight och hur du kör Hive-jobb i HDInsight. [Apache Hive](https://hive.apache.org/) är den populäraste komponenten i Hadoop-ekosystemet. För närvarande finns HDInsight med fyra olika klustertyper: [Hadoop](hdinsight-hadoop-introduction), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) och [Storm](hdinsight-storm-overview.md).  Varje typ av kluster har stöd för olika komponentuppsättningar. Samtliga fyra klustertyper stöder Hive. En lista över stödda komponenter som hanteras i HDInsight finns i [Vad är nytt i de Hadoop-klusterversioner som tillhandahålls av HDInsight?](hdinsight-component-versioning.md)  
+Lär dig att skapa Linux-baserade [Hadoop](http://hadoop.apache.org/)-kluster i HDInsight och hur du kör Hive-jobb i HDInsight. [Apache Hive](https://hive.apache.org/) är den populäraste komponenten i Hadoop-ekosystemet. För närvarande finns HDInsight med fyra olika klustertyper: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) och [Storm](hdinsight-storm-overview.md).  Varje typ av kluster har stöd för olika komponentuppsättningar. Samtliga fyra klustertyper stöder Hive. En lista över stödda komponenter som hanteras i HDInsight finns i [Vad är nytt i de Hadoop-klusterversioner som tillhandahålls av HDInsight?](hdinsight-component-versioning.md)  
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -41,7 +41,7 @@ De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. Skriv följande på bladet **Parametrar**:
+2. Skriv följande i bladet **Parametrar**:
 
     ![HDInsight Linux komma igång ARM-mall i portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
 
@@ -163,6 +163,6 @@ Mer information om att skapa eller hantera HDInsight-kluster hittar du här:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

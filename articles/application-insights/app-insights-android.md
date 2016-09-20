@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Analytics för Android-appar"
+    pageTitle="Analytics öor Android-appar | Microsoft Azure"
     description="Analysera användning och prestanda i din Android-app."
     services="application-insights"
     documentationCenter="android"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/17/2016"
+    ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Analytics för Android-appar
@@ -26,16 +26,25 @@ Gå till:
 * [HockeyApp](http://support.hockeyapp.net/kb)
 * [Komma igång med HockeyApp för Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk).
 * [HockeyApp-blogg](http://hockeyapp.net/blog/)
-* Gå med i [Hockeyapp Preseason](http://hockeyapp.net/preseason/) och få tillgång till nya, tidiga versioner.
+* Registrera dig för [Hockeyapp Preseason](http://hockeyapp.net/preseason/) och få tillgång till de senaste funktionerna och versionerna.
 
 Om din app har en serversida använder du [Application Insights](app-insights-overview.md) för att övervaka webbserverdelen av din app på [ASP.NET](app-insights-asp-net.md) eller [J2EE](app-insights-java-get-started.md). 
 
-> [AZURE.NOTE] Den 15 juni 2016 slutar vi att tillhandahålla data i Application Insights för iOS-, Android-, Windows Store- och Windows Phone-appar.
->
-> [Mer information om den här ändringen.](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+
+## Analys, export och API-åtkomst till HockeyApp-data 
+
+[Skapa en brygga HockeyApp-brygga](app-insights-hockeyapp-bridge-app.md) i Application Insights. Detta innebär att du kan:
+
+* Använd det kraftfulla [Analytics](app-insights-analytics.md)-frågespråket via din telemetri. 
+* [Exportera telemetri](app-insights-export-telemetry.md) till Azure Blob Storage.
+
+## Nästa steg
+
+* [Komma igång med HockeyApp för Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
 
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

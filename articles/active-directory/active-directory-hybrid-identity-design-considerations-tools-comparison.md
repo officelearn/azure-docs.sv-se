@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/08/2016"
     ms.author="billmath"/>
 
 # Hybrididentitet: Jämförelse av katalogintegreringsverktyg
@@ -24,7 +24,7 @@ Katalogintegreringsverktygen har vuxit och utvecklats med åren.  Avsikten med d
 
 >[AZURE.NOTE] Azure AD Connect innehåller komponenter och funktioner som tidigare gavs ut som DirSync och AAD Sync. Dessa verktyg ges inte längre ut individuellt. Alla framtida förbättringar tas med i Azure AD Connect-uppdateringarna så att du alltid vet var de senaste funktionerna finns.
 >
->DirSync och Azure AD Sync är föråldrade. Mer information finns i [Uppgradera Windows Azure Active Directory Sync (”DirSync”) och Azure Active Directory Sync (”Azure AD Sync”)](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
+>DirSync och Azure AD Sync är föråldrade. Mer information finns [här](active-directory-aadconnect-dirsync-deprecated.md).
 
 
 Följande förkortningar och symboler används i tabellerna.
@@ -98,6 +98,6 @@ Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Director
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

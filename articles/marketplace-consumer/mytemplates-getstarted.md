@@ -33,7 +33,7 @@ Följande rekommendationer hjälper dig att dra full nytta av **Mallar** när du
 - En **Mall** är en inkapslande resurs som innehåller en Resource Manager-mall och ytterligare metadata. Den fungerar väldigt likt ett objekt i Marketplace. Den viktigaste skillnaden är att det är ett privat objektet i stället för de offentliga Marketplace-objekten.
 - Biblioteket för **Mallar** fungerar bra för användare som behöver anpassa sina distributioner.
 - **Mallar** fungerar bra för användare som behöver en enkel lagringsplats i Azure.
-- Börja med en befintlig Resource Manager-mall Hitta mallar i [github](https://github.com/Azure/azure-quickstart-templates) eller [Exportera mallen](https://azure.microsoft.com/blog/export-template/) från en befintlig resursgrupp.
+- Börja med en befintlig Resource Manager-mall Hitta mallar i [github](https://github.com/Azure/azure-quickstart-templates) eller [Exportera mallen](../resource-manager-export-template.md) från en befintlig resursgrupp.
 - **Mallar** är knutna till den användare som publicerar dem. Utgivarens namn är synligt för alla som har läsbehörighet till den.
 - **Mallar** är Resource Manager-resurser och det går inte att byta namn på dem efter att de publicerats.
 
@@ -44,7 +44,7 @@ Det finns två sätt att skapa en **Mall**-resurs i Azure-portalen.
 ### Metod 1: Skapa en ny mallresurs från en resursgrupp som körs
 
 1. Navigera till en befintlig resursgrupp i Azure-portalen. Välj **Exportera mall** i **Inställningar**.
-2. När Resource Manager-mallen för filserverresurser exporteras, kan du använda **Spara mall** för att spara den till **Mallar**-lagringsplatsen. Hitta komplett information för att Exportera mall [här](https://azure.microsoft.com/blog/export-template/).
+2. När Resource Manager-mallen för filserverresurser exporteras, kan du använda **Spara mall** för att spara den till **Mallar**-lagringsplatsen. Hitta komplett information för att Exportera mall [här](../resource-manager-export-template.md).
 <br /><br />
 ![Exportera resursgrupp](media/rg-export-portal1.PNG)  <br />
 
@@ -116,7 +116,7 @@ Välj **Dela** för objektet genom att högerklicka eller på vybladet för ett 
 
 ![Dela mall](media/share-template-portal1a.png)  <br />
 
- Nu kan du välja en roll och en användare eller grupp för att ge åtkomst till en viss **mall**. Tillgängliga roller är Ägare, Läsare och Deltagare. Mer information finns i avsnittet [åtkomstkontroll](#access-control-for-a-tenant-resource-provider) nedan.
+ Nu kan du välja en roll och en användare eller grupp för att ge åtkomst till en viss **mall**. Tillgängliga roller är Ägare, Läsare och Deltagare. Mer information finns i avsnittet [åtkomstkontroll](#access-control-for-a-tenant-resource-provider) ovan.
 
 ![Dela mall](media/share-template-portal2b.png)  <br />
 
@@ -136,6 +136,6 @@ Klicka på **Välj** och **Ok**. Du kan nu se användare eller grupper som du la
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

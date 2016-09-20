@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/20/2016"
     ms.author="sethm"/>
 
 
 # Service Bus-meddelanden: flexibel dataöverföring i molnet
 
-Azure Service Bus-meddelanden är en tillförlitlig tjänst för informationsleverans. Syftet med den här tjänsten är att underlätta kommunikation. När två eller flera parter vill utbyta information behöver de en kommunikationsmekanism. Service Bus-meddelanden är en asynkron kommunikationsmekanism, det vill säga via en tredje part. Den liknar posttjänster i den fysiska världen. Med posttjänster är det mycket enkelt att skicka olika typer av brev och paket med en rad olika leveransgarantier vart som helst i världen.
+Microsoft Azure Service Bus-meddelanden är en tillförlitlig tjänst för informationsleverans. Syftet med den här tjänsten är att underlätta kommunikation. När två eller flera parter vill utbyta information behöver de en kommunikationsmekanism. Service Bus-meddelanden är en asynkron kommunikationsmekanism, det vill säga via en tredje part. Den liknar posttjänster i den fysiska världen. Med posttjänster är det mycket enkelt att skicka olika typer av brev och paket med en rad olika leveransgarantier vart som helst i världen.
 
 På ett liknande sätt som posttjänster levererar brev är Service Bus-meddelanden flexibel informationsleverans från både avsändaren och mottagaren. Meddelandetjänsten säkerställer att informationen levereras även om båda parterna aldrig är online samtidigt, eller om de inte är tillgängliga i exakt samma ögonblick. På så vis liknar meddelanden brev, medan icke asynkron kommunikation liknar att ringa ett telefonsamtal (eller hur telefonsamtal brukade vara innan vi hade väntande samtal och nummerpresentatörer, som är mycket mer likt asynkrona meddelanden).
 
@@ -39,7 +39,7 @@ Vidarebefordrande meddelandetjänster ger många fördelar men kräver att både
 
 ## Asynkron meddelandetjänst
 
-Till skillnad från det vidarebefordrande meddelandetjänstschemat kan [asynkrona meddelandetjänster](service-bus-fundamentals-hybrid-solutions.md) betraktas som icke-synkroniserade, eller ”tillfälligt frånkopplade”. Producenter (avsändare) och konsumenter (mottagare) behöver inte vara online samtidigt. Meddelandeinfrastrukturen lagrar meddelanden på ett tillförlitligt sätt hos en ”mellanhand” (till exempel en kö) tills konsumentparten är redo att ta emot dem. Detta gör att komponenterna i den distribuerade appen kan frikopplas, antingen frivilligt, till exempel för underhåll, eller på grund av en komponentkrasch, utan att detta påverkar hela systemet. Dessutom behöver det mottagande programmet bara vara anslutet vid vissa tidpunkter på dagen, till exempel ett lagersystem som endast behöver köras i slutet av arbetsdagen.
+Till skillnad från det vidarebefordrande meddelandetjänstschemat kan [asynkrona meddelandetjänster](service-bus-queues-topics-subscriptions.md) betraktas som icke-synkroniserade, eller ”tillfälligt frånkopplade”. Producenter (avsändare) och konsumenter (mottagare) behöver inte vara online samtidigt. Meddelandeinfrastrukturen lagrar meddelanden på ett tillförlitligt sätt hos en ”mellanhand” (till exempel en kö) tills konsumentparten är redo att ta emot dem. Detta gör att komponenterna i den distribuerade appen kan frikopplas, antingen frivilligt, till exempel för underhåll, eller på grund av en komponentkrasch, utan att detta påverkar hela systemet. Dessutom behöver det mottagande programmet bara vara anslutet vid vissa tidpunkter på dagen, till exempel ett lagersystem som endast behöver köras i slutet av arbetsdagen.
 
 Kärnkomponenterna i infrastrukturen för den asynkrona meddelandetjänsten i Service Bus är köer, ämnen och prenumerationer.  Den viktigaste skillnaden är att avsnitt stöder funktioner för publicering/prenumereration som kan användas för avancerad innehållsbaserad routning och leveranslogik, inklusive sändning till flera mottagare. De här komponenterna möjliggör nya asynkrona meddelandescenarier, till exempel temporär frikoppling, publicera/prenumerera och belastningsutjämning. Mer information om dessa meddelandeenheter finns på [Service Bus-köer, -ämnen och -prenumerationer](service-bus-queues-topics-subscriptions.md).
 
@@ -47,17 +47,17 @@ Som med infrastrukturen för vidarebefordrande meddelandetjänster har den asynk
 
 ## Nästa steg
 
-I följande avsnitt kan du lära dig mer om Service Bus-meddelanden.
+I följande ämnen kan du lära dig mer om Service Bus-meddelanden.
 
-- [Service Bus-köer, -ämnen och -prenumerationer](service-bus-queues-topics-subscriptions.md)
 - [Grunderna i Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus-köer, -ämnen och -prenumerationer](service-bus-queues-topics-subscriptions.md)
 - [Service Bus-arkitektur](service-bus-architecture.md)
-- [Använda Service Bus-köer](service-bus-dotnet-how-to-use-queues.md)
-- [Använda Service Bus-ämnen](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Använda Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
+- [Använda Service Bus-ämnen och -prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

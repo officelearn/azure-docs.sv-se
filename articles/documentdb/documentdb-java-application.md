@@ -1,10 +1,10 @@
 <properties
     pageTitle="Självstudie om apputveckling i Java med DocumentDB | Microsoft Azure"
     description="Den här självstudien om apputveckling i Java visar hur Azure DocumentDB-tjänsten kan användas för lagring av och åtkomst till data från en Java-app på Azure Websites."
-    keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
+    keywords="Programutveckling, självstudier för databas, java-program, självstudier för java-webbprogram, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="java"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -14,8 +14,8 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="03/10/2016"
-    ms.author="andrl"/>
+    ms.date="08/24/2016"
+    ms.author="anhoh"/>
 
 # Skapa en webbapp i Java med DocumentDB
 
@@ -39,7 +39,7 @@ I den här självstudien om Java visar vi hur du skapar en webbaserad aktivitets
 ##<a id="Prerequisites"></a>Förutsättningar för självstudien om Java-webbappen
 Innan du påbörjar den här självstudien om apputveckling måste du ha följande:
 
-- Ett aktivt Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/).
+- Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Eclipse IDE för Java EE-utvecklare.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 - [En Azure-webbplats med Java Runtime Environment (t.ex. Tomcat eller Jetty) aktiverat.](../app-service-web/web-sites-java-get-started.md)
@@ -216,13 +216,9 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
                             DocumentCollection collectionDefinition = new DocumentCollection();
                             collectionDefinition.setId(COLLECTION_ID);
 
-                            // Configure the new collection performance tier to S1.
-                            RequestOptions requestOptions = new RequestOptions();
-                            requestOptions.setOfferType("S1");
-
                             collectionCache = documentClient.createCollection(
                                     getTodoDatabase().getSelfLink(),
-                                    collectionDefinition, requestOptions).getResource();
+                                    collectionDefinition, null).getResource();
                         } catch (DocumentClientException e) {
                             // TODO: Something has gone terribly wrong - the app wasn't
                             // able to query or create the collection.
@@ -786,6 +782,6 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

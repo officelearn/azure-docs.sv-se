@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/24/2016"
+   ms.date="07/14/2016"
    ms.author="magoedte" />
 
 # Azure Automation-integreringsmoduler
@@ -26,7 +26,9 @@ En PowerShell-modul är en grupp med PowerShell-cmdlets som **Get-Date** eller *
 
 ## Vad är en Azure Automation-integreringsmodul?
 
-En integreringsmodul skiljer sig inte så mycket från en PowerShell-modul. Det är bara en PowerShell-modul som kan innehålla ytterligare en fil – en metadatafil som anger en Azure Automation-anslutningstyp som ska användas med modulens cmdlets i runbooks. Oavsett om det gäller valfria filer eller inte kan dessa PowerShell-moduler importeras till Azure Automation så att deras cmdlets kan användas i runbooks och deras DSC-resurser i DSC-konfigurationer. Azure Automation lagrar dessa moduler i bakgrunden och när runbook-jobben och DSC-kompileringsjobben körs läser tjänsten in dem i begränsade Azure Automation-lägen där runbooks körs och DSC-konfigurationer kompileras.  DSC-resurser i moduler placeras också automatiskt på Automation DSC-hämtningsservern så att de kan hämtas av datorer som försöker använda DSC-konfigurationer.  Vi levererar ett antal färdiga Azure PowerShell-moduler med Azure Automation som du kan använda för att snabbt komma igång med automatiseringen av Azure-hanteringen, men du kan enkelt importera PowerShell-moduler för det system, den tjänst eller det verktyg som du vill integrera med. 
+En integreringsmodul skiljer sig inte så mycket från en PowerShell-modul. Det är bara en PowerShell-modul som kan innehålla ytterligare en fil – en metadatafil som anger en Azure Automation-anslutningstyp som ska användas med modulens cmdletar i runbooks. Oavsett om det gäller valfria filer eller inte kan dessa PowerShell-moduler importeras till Azure Automation så att deras cmdlets kan användas i runbooks och deras DSC-resurser i DSC-konfigurationer. Azure Automation lagrar dessa moduler i bakgrunden och när runbook-jobben och DSC-kompileringsjobben körs läser tjänsten in dem i begränsade Azure Automation-lägen där runbooks körs och DSC-konfigurationer kompileras.  DSC-resurser i moduler placeras också automatiskt på Automation DSC-hämtningsservern så att de kan hämtas av datorer som försöker använda DSC-konfigurationer.  Vi levererar ett antal färdiga Azure PowerShell-moduler med Azure Automation som du kan använda för att snabbt komma igång med automatiseringen av Azure-hanteringen, men du kan enkelt importera PowerShell-moduler för det system, den tjänst eller det verktyg som du vill integrera med. 
+
+>[AZURE.NOTE] Vissa moduler levereras som ”globala moduler” i Automation-tjänsten. De här globala modulerna är tillgängliga för dig direkt när du skapar ett Automation-konto och vi uppdaterar dem ibland, varpå de skickas ut automatiskt till ditt Automation-konto. Om du inte vill att de ska uppdateras automatiskt kan du alltid importera samma modul själv och den modulen äger företräde framför den globala modulversionen av den modul som vi leverererar automatiskt i tjänsten. 
 
 Formatet som du importerar ett integreringsmodulpaket i är en komprimerad fil med samma namn som modulen och filnamnstillägget .zip. Det innehåller Windows PowerShell-modulen och eventuella stödfiler, inklusive en manifestfil (.psd1) om modulen har en.
 
@@ -179,7 +181,7 @@ Att integreringsmodulerna i stort sett är PowerShell-moduler betyder inte att d
     }
     ```
 <br>
- Anslutningstillgångar i runbooks är hash-tabeller, som är en komplex typ, och ändå verkar dessa hash-tabeller kunna användas utan problem i cmdlets för deras -Connection-parameter, utan typkonverteringsundantag. Rent tekniskt kan vissa PowerShell-typer konverteras korrekt från deras serialiserade form till deras avserialiserade form och kan därför skickas till cmdlets för parametrar som accepterar den icke-avserialiserade typen. Hashtable är ett exempel. Modulförfattarens definierade typer kan implementeras på ett sätt så att de även kan deserialiseras korrekt, men det finns några nackdelar som du bör vara medveten om. Typen måste ha en standardkonstruktor och en PSTypeConverter, och alla dess egenskaper måste vara offentliga. Men för redan definierade typer som modulägaren inte äger finns det inget sätt att ”åtgärda” dem, därav rekommendationen att undvika komplexa typer för parametrar helt och hållet. Redigeringstips för runbook! Om dina cmdlets av någon anledning behöver använda en komplex parametertyp, eller om du använder någon annans modul som kräver det, kan du kringgå problemet i PowerShell Workflow-runbooks och PowerShell-arbetsflöden i lokala PowerShell genom att innesluta cmdleten som genererar den komplexa typen och cmdleten som använder den komplexa typen i samma InlineScript-aktivitet. Eftersom InlineScript kör sitt innehåll som PowerShell i stället för som ett PowerShell-arbetsflöde kommer cmdleten som genererar den komplexa typen att generera rätt typ, inte den avserialiserade komplexa typen.
+ Anslutningstillgångar i runbooks är hash-tabeller, som är en komplex typ, och ändå verkar dessa hash-tabeller kunna användas utan problem i cmdlets för deras -Connection-parameter, utan typkonverteringsundantag. Rent tekniskt kan vissa PowerShell-typer konverteras korrekt från deras serialiserade form till deras avserialiserade form och kan därför skickas till cmdlets för parametrar som accepterar den icke-avserialiserade typen. Hashtable är ett exempel. Modulförfattarens definierade typer kan implementeras på ett sätt så att de även kan deserialiseras korrekt, men det finns några nackdelar som du bör vara medveten om. Typen måste ha en standardkonstruktor och en PSTypeConverter, och alla dess egenskaper måste vara offentliga. Men för redan definierade typer som modulägaren inte äger finns det inget sätt att ”åtgärda” dem, därav rekommendationen att undvika komplexa typer för parametrar helt och hållet. Redigeringstips för runbook! Om dina cmdletar av någon anledning behöver använda en komplex parametertyp, eller om du använder någon annans modul som kräver det, kan du kringgå problemet i PowerShell Workflow-runbooks och PowerShell-arbetsflöden i lokala PowerShell genom att innesluta cmdleten som genererar den komplexa typen och cmdleten som använder den komplexa typen i samma InlineScript-aktivitet. Eftersom InlineScript kör sitt innehåll som PowerShell i stället för som ett PowerShell-arbetsflöde kommer cmdleten som genererar den komplexa typen att generera rätt typ, inte den avserialiserade komplexa typen.
 5. Gör alla cmdlets i modulen tillståndslösa. PowerShell Workflow kör alla cmdlets som anropas i arbetsflödet i en annan session. Det innebär att cmdlets som är beroende av sessionstillstånd som skapas/ändras av andra cmdlets i samma modul inte fungerar i PowerShell Workflow-runbooks.  Här är ett exempel på vad du inte ska göra.
 
     ```
@@ -203,10 +205,9 @@ Att integreringsmodulerna i stort sett är PowerShell-moduler betyder inte att d
 ## Nästa steg
 
 - Se hur du kommer igång med runbooks baserade på PowerShell-arbetsflöden i [Min första PowerShell-arbetsflödesbaserade runbook](automation-first-runbook-textual.md)
-- Mer information om hur du skapar PowerShell-moduler finns i [Skriva en Windows PowerShell-modul](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
+- Mer information om hur du skapar PowerShell-moduler finns i [Skriva en Windows PowerShell-modul](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
 
 
-
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

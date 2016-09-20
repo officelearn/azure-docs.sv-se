@@ -3,7 +3,7 @@
    description="Den här artikeln beskriver hur du skapar, inaktiverar, aktiverar, tar bort och visar historiken för en Azure Traffic Manager-profil."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Hantera en Azure Traffic Manager-profil
 
@@ -86,6 +86,6 @@ Du kan visa ändringshistoriken för din Traffic Manager-profil på den klassisk
 [Felsöka degraderat Traffic Manager-tillstånd](traffic-manager-troubleshooting-degraded.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

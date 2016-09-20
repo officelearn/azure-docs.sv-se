@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/25/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Använda SSH med Linux-baserat Hadoop i HDInsight från Windows
@@ -26,6 +26,8 @@
 Med [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) kan du via fjärranslutning utföra åtgärder för dina Linux-baserade HDInsight-kluster med ett kommandoradsgränssnitt. Det här dokumentet innehåller information om hur du ansluter till HDInsight från Windows-baserade klienter med PuTTY SSH-klienten.
 
 > [AZURE.NOTE] Stegen i den här artikeln förutsätter att du använder en Windows-baserad klient. Om du använder en Linux-, Unix- eller OS X-klient hittar du mer information i [Använda SSH med Linux-baserat Hadoop i HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+>
+> Om du har Windows 10 och använder [Bash på Ubuntu på Windows](https://msdn.microsoft.com/commandline/wsl/about) kan du använda stegen i dokumentet [Använda SSH med Linux-baserat Hadoop på HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ##Krav
 
@@ -45,13 +47,13 @@ SSH är ett verktyg för att logga in till och från en annan dator fjärrstyra 
 
 ###SSH-användarnamn
 
-Ett SSH-användarnamn är det namn som du använder för att autentisera för HDInsight-klustret. När du anger ett SSH-användarnamn under skapandet av klustret skapas den här användaren i alla noder i klustret. Du kan använda det här användarnamnet för att ansluta till HDInsight-klustrets huvudnoder när klustret har skapats. Från huvudnoderna kan du därefter ansluta till de enskilda arbetsnoderna.
+Ett SSH-användarnamn är det namn som du använder för att autentisera för HDInsight-klustret. Om du anger ett SSH-användarnamn när klustret skapas kommer den här användaren att skapas på alla noder i klustret. Du kan använda det här användarnamnet för att ansluta till HDInsight-klustrets huvudnoder när klustret har skapats. Från huvudnoderna kan du därefter ansluta till de enskilda arbetsnoderna.
 
 ###SSH-lösenord eller offentlig nyckel
 
-En SSH-användare kan antingen använda ett lösenord eller en offentlig nyckel för autentisering. Ett lösenord är bara en textsträng som du hittar på medan en offentlig nyckel är en del av ett krypterat nyckelpar som genereras för att unikt identifiera dig.
+En SSH-användare kan använda ett lösenord eller en offentlig nyckel för autentisering. Ett lösenord är bara en textsträng som du hittar på medan en offentlig nyckel är en del av ett krypterat nyckelpar som genereras för unik identifiering av dig.
 
-En nyckel är säkrare än ett lösenord, men det krävs fler steg för att generera nyckeln och du måste spara de filer som innehåller nyckeln på en säker plats. Om någon får tillgång till nyckelfilerna får de tillgång till ditt konto. Och om du förlorar nyckelfilerna kan du inte logga in på ditt konto.
+En nyckel är säkrare än ett lösenord, men det krävs ytterligare steg för att generera nyckeln och du måste lagra filerna som innehåller nyckeln på en säker plats. Om någon får tillgång till nyckelfilerna får de tillgång till ditt konto. Och om du förlorar nyckelfilerna kan du inte kan logga in på ditt konto.
 
 Ett nyckelpar består av en offentlig nyckel (som skickas till HDInsight-servern) och en privat nyckel (som sparas på klientdatorn.) När du ansluter till HDInsight-servern med SSH använder SSH-klienten den privata nyckeln på datorn för att autentisera med servern.
 
@@ -95,7 +97,7 @@ När du skapar ett Linux-baserat HDInsight-kluster måste du ange den offentliga
 
 Var och en av dessa metoder kräver den offentliga nyckeln. Fullständig information om hur du skapar ett Linux-baserat HDInsight-kluster finns i [Etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Azure-portalen
+###Azure Portal
 
 När du använder [Azure-portalen][Preview Portal] för att skapa ett Linux-baserat HDInsight-kluster, måste du ange ett **SSH-användarnamn** och välja att ange ett **LÖSENORD** eller en **OFFENTLIG SSH-NYCKEL**.
 
@@ -181,7 +183,7 @@ Om du har angett en SSH-nyckel när du skapade ditt användarkonto, måste du ut
 
     Ersätt *USERNAME* med ditt SSH-användarnamn och *FQDN* med FQDN för arbetsnoden. Till exempel `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`.
 
-    > [AZURE.NOTE] Om du använder ett lösenord för att autentisera din SSH-session uppmanas du att ange lösenordet igen. Om du använder en SSH-nyckel ska anslutningen slutföras utan några frågor.
+    > [AZURE.NOTE] Om du använder ett lösenord för att autentisera SSH-sessionen uppmanas du att ange lösenordet igen. Om du använder en SSH-nyckel ska anslutningen slutföras utan några frågor.
 
 9. När sessionen har upprättats ändras tolken för din PuTTY-session från `username@hn0-clustername` till `username@wn0-clustername` för att indikera att du är ansluten till arbetsnoden. Alla kommandon som du kör nu kommer att köras på arbetsnoden.
 
@@ -197,7 +199,7 @@ Om du behöver lägga till fler konton i klustret utför du följande steg:
 
         sudo adduser --disabled-password <username>
 
-    Detta skapar ett nytt användarkonto men inaktiverar lösenordsautentisering.
+    Detta skapar ett nytt konto men inaktiverar lösenordsautentisering.
 
 3. Skapa katalogen och filerna för nyckeln med hjälp av följande kommandon:
 
@@ -205,15 +207,15 @@ Om du behöver lägga till fler konton i klustret utför du följande steg:
         sudo touch /home/<username>/.ssh/authorized_keys
         sudo nano /home/<username>/.ssh/authorized_keys
 
-4. När nanoredigeraren öppnas kopierar och klistrar du in innehållet för den offentliga nyckeln för det nya användarkontot. Använd slutligen **Ctrl + X** för att spara filen och avsluta redigeraren.
+4. När nanoredigeraren öppnas kopierar du och klistrar in innehållet i den offentliga nyckeln för det nya användarkontot. Använd slutligen **Ctrl + X** för att spara filen och avsluta redigeraren.
 
     ![bild av nanoredigerare med exempelnyckel](./media/hdinsight-hadoop-linux-use-ssh-windows/nano.png)
 
-5. Använd följande kommando för att ändra ägarskapet för .ssh-mappen och innehållet till det nya användarkontot:
+5. Använd följande kommando för att ändra ägarskap för .ssh-mappen och innehåll till det nya användarkontot:
 
         sudo chown -hR <username>:<username> /home/<username>/.ssh
 
-6. Du bör nu kunna autentisera för servern med det nya användarkontot och den privata nyckeln.
+6. Du bör nu kunna autentisera till servern med det nya användarkontot och den privata nyckeln.
 
 ##<a id="tunnel"></a>SSH-tunnel
 
@@ -221,11 +223,11 @@ SSH kan användas för lokala tunnelbegäranden, till exempel webbegäranden, ti
 
 > [AZURE.IMPORTANT] En SSH-tunnel är ett krav för att komma åt webbgränssnittet för vissa Hadoop-tjänster. Till exempel kan både jobbhistorikgränssnittet eller resurshanterargränssnittet bara användas med en SSH-tunnel.
 
-Mer information om hur du skapar och använder en SSH-tunnel finns i [Använda SSH-tunnlar för att få åtkomst till Ambari-webbgränssnittet ResourceManager, JobHistory, NameNode, Oozie och andra webbgränssnitt](hdinsight-linux-ambari-ssh-tunnel.md).
+Mer information om hur du skapar och använder en SSH-tunnel finns i [Använda SSH-tunnlar för att komma åt Ambari-webbgränssnittet, resurshanteraren, jobbhistorik, NameNode, Oozie och andra webbgränssnitt](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Nästa steg
 
-Nu när du vet hur du kan autentisera genom att använda en SSH-nyckel kan du lära dig hur du använder MapReduce med Hadoop i HDInsight.
+Nu när du vet hur du autentiserar genom att använda en SSH-nyckel kan du lära dig hur du använder MapReduce med Hadoop på HDInsight.
 
 * [Använda Hive med HDInsight](hdinsight-use-hive.md)
 
@@ -237,6 +239,6 @@ Nu när du vet hur du kan autentisera genom att använda en SSH-nyckel kan du l�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

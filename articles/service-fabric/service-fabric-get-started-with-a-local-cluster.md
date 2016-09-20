@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/12/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Komma igång med att distribuera och uppgradera program i det lokala klustret
-Azure Service Fabric SDK innehåller en fullständig lokal utvecklingsmiljö som du kan använda för att snabbt komma igång med att distribuera och hantera program i ett lokalt kluster. I den här artikeln ska du skapa ett lokalt kluster, distribuera ett befintligt program till det och sedan uppgradera programmet till en ny version, allt från Windows PowerShell.
+Azure Service Fabric SDK innehåller en fullständig lokal utvecklingsmiljö som du kan använda för att snabbt komma igång med att distribuera och hantera program i ett lokalt kluster. I den här artikeln skapar du ett lokalt kluster, distribuerar ett befintligt program till det och uppgraderar sedan programmet till en ny version, allt från Windows PowerShell.
 
 > [AZURE.NOTE] I den här artikeln förutsätter vi att du redan har [konfigurerat utvecklingsmiljön](service-fabric-get-started.md).
 
@@ -26,7 +26,7 @@ Ett Service Fabric-kluster representerar en uppsättning maskinvaruresurser som 
 
 Det är viktigt att förstå att det lokala Service Fabric-klustret inte är en emulator eller simulator. Det kör samma plattformskod som finns i kluster med flera datorer. Den enda skillnaden är att det kör plattformsprocesserna som normalt är fördelade mellan fem datorer på en enda dator.
 
-Med SDK kan du konfigurera ett lokalt kluster på två sätt: Windows PowerShell-skript och appen Local Cluster Manager i systemfältet. I den här självstudiekursen ska vi använda PowerShell-skriptet.
+Med SDK kan du konfigurera ett lokalt kluster på två sätt: Windows PowerShell-skript och appen Local Cluster Manager i systemfältet. I den här självstudien använder vi PowerShell-skriptet.
 
 > [AZURE.NOTE] Om du redan har skapat ett lokalt kluster genom att distribuera ett program från Visual Studio kan du hoppa över det här avsnittet.
 
@@ -39,7 +39,7 @@ Med SDK kan du konfigurera ett lokalt kluster på två sätt: Windows PowerShell
     & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
     ```
 
-    Klusterinstallationen tar en stund. När installationen är klar bör följande visas på skärmen:
+    Klusterinstallationen tar en stund. När installationen är klar bör skärmen visa något som liknar detta:
 
     ![Utdata efter klusterinstallationen][cluster-setup-success]
 
@@ -59,14 +59,14 @@ I den här självstudiekursen använder vi ett befintligt exempelprogram (kallat
     Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
     ```
 
-3. Skapa en katalog för att lagra programmet som du ska ladda ned och distribuera, till exempel C:\ServiceFabric.
+3. Skapa en katalog för att lagra programmet som du hämtar och distribuerar, till exempel C:\ServiceFabric.
 
     ```powershell
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
 
-4. [Ladda ned programmet WordCount](http://aka.ms/servicefabric-wordcountapp) till den plats som du har skapat.
+4. [Ladda ned programmet WordCount](http://aka.ms/servicefabric-wordcountapp) till den plats som du har skapat.  Obs! Microsoft Edge-webbläsaren sparar filen med ett *.zip*-tillägg.  Ändra filnamnstillägget till *.sfpkg*.
 
 5. Anslut till det lokala klustret:
 
@@ -74,7 +74,7 @@ I den här självstudiekursen använder vi ett befintligt exempelprogram (kallat
     Connect-ServiceFabricCluster localhost:19000
     ```
 
-6. Anropa SDK-distributionskommandot för att skapa ett nytt program genom att ange ett namn och en sökväg till programpaketet.
+6. Skapa ett nytt program med SDK:s distributionskommando med ett namn och en sökväg till programpaketet.
 
     ```powershell  
   Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
@@ -84,11 +84,11 @@ I den här självstudiekursen använder vi ett befintligt exempelprogram (kallat
 
     ![Distribuera ett program till det lokala klustret][deploy-app-to-local-cluster]
 
-7. Om du vill se programmet startar du webbläsaren och går till [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Du bör se något liknande följande:
+7. Om du vill se programmet startar du webbläsaren och går till [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Du bör se:
 
     ![Distribuerat programgränssnitt][deployed-app-ui]
 
-    Programmet WordCount är väldigt enkelt. Det innehåller JavaScript-kod på klientsidan för att generera slumpmässiga ”ord” med fem tecken, som sedan vidarebefordras till programmet via ASP.NET Web API. En tillståndskänslig tjänst håller reda på antalet ord som räknats. De partitioneras baserat på det första tecknet i ordet.
+    Programmet WordCount är väldigt enkelt. Det innehåller JavaScript-kod på klientsidan för att generera slumpmässiga ”ord” med fem tecken, som sedan vidarebefordras till programmet via ASP.NET Web API. En tillståndskänslig tjänst spårar antalet ord som räknats. De partitioneras baserat på det första tecknet i ordet. Du hittar källkoden för WordCount-appen bland [exemplen för att komma igång](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
 
     Programmet som vi distribuerade innehåller fyra partitioner. Så ord som börjar med A till och med G lagras i den första partitionen, ord som börjar med H till och med N lagras i den andra partitionen och så vidare.
 
@@ -101,7 +101,7 @@ Nu när vi har distribuerat programmet ska vi titta på några appdetaljer i Pow
     Get-ServiceFabricApplication
     ```
 
-    Om vi antar att du endast har distribuerat WordCount-appen visas något liknande följande:
+    Om vi antar att du endast har distribuerat WordCount-appen visas något som liknar följande:
 
     ![Fråga alla distribuerade program i PowerShell][ps-getsfapp]
 
@@ -113,7 +113,7 @@ Nu när vi har distribuerat programmet ska vi titta på några appdetaljer i Pow
 
     ![Visa en lista över tjänsterna för programmet i PowerShell][ps-getsfsvc]
 
-    Observera att programmet består av två tjänster: frontwebbtjänsten och den tillståndskänsliga tjänsten som hanterar orden.
+    Programmet består av två tjänster: frontwebbtjänsten och den tillståndskänsliga tjänsten som hanterar orden.
 
 3. Ta också en titt på listan över partitioner för WordCountService:
 
@@ -123,7 +123,7 @@ Nu när vi har distribuerat programmet ska vi titta på några appdetaljer i Pow
 
     ![Visa tjänstpartitionerna i PowerShell][ps-getsfpartitions]
 
-    Den uppsättning kommandon som du nyss använt är, precis som alla PowerShell-kommandon för Service Fabric, tillgänglig för alla kluster som du ansluter till, både lokala och fjärranslutna.
+    Den uppsättning kommandon som du använde är, precis som alla PowerShell-kommandon för Service Fabric, tillgänglig för alla kluster som du ansluter till, både lokala och fjärranslutna.
 
     Ett mer visuellt sätt att interagera med klustret är att använda det webbaserade verktyget Service Fabric Explorer som du hittar på [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
 
@@ -134,7 +134,7 @@ Nu när vi har distribuerat programmet ska vi titta på några appdetaljer i Pow
 ## Uppgradera ett program
 Service Fabric tillhandahåller uppgraderingar utan någon nedtid genom att övervaka programmets hälsa medan det distribueras i klustret. Vi ska utföra en enkel uppgradering av WordCount-programmet.
 
-Den nya versionen av programmet ska bara räkna ord som börjar med en vokal. När uppgraderingen distribueras ser vi två ändringar i programmets beteende. För det första bör antalet växa långsammare eftersom färre ord räknas. För det andra bör den första partitionen så småningom gå om de andra eftersom den har två vokaler (A och E) medan alla andra partitioner endast innehåller en var.
+Den nya versionen av programmet räknar bara ord som börjar med en vokal. När uppgraderingen distribueras ser vi två ändringar i programmets beteende. För det första bör antalet växa långsammare eftersom färre ord räknas. För det andra bör den första partitionen så småningom gå om de andra eftersom den har två vokaler (A och E) medan alla andra partitioner endast innehåller en var.
 
 1. [Ladda ned WordCount v2-paketet](http://aka.ms/servicefabric-wordcountappv2) till samma plats som du laddade ned v1-paketet till.
 
@@ -144,7 +144,7 @@ Den nya versionen av programmet ska bara räkna ord som börjar med en vokal. N�
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
 
-    Du bör se utdata i PowerShell som ser ut ungefär så här när uppgraderingen börjar.
+    Du bör se utdata i PowerShell som liknar följande när uppgraderingen börjar.
 
     ![Uppgraderingsförlopp i PowerShell][ps-appupgradeprogress]
 
@@ -154,7 +154,7 @@ Den nya versionen av programmet ska bara räkna ord som börjar med en vokal. N�
 
     Allteftersom uppgraderingen fortsätter genom domänerna utförs hälsokontroller för att säkerställa att programmet fungerar korrekt.
 
-4. Om du kör om den tidigare frågan för tjänsterna som ingår i fabric:/WordCount-programmet ser du att versionen av WordCountService ändras, men inte versionen av WordCountWebService:
+4. Om du kör om den tidigare frågan för tjänsterna i fabric:/WordCount-programmet ser du att versionen av WordCountService ändras, men inte versionen av WordCountWebService:
 
     ```powershell
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
@@ -168,10 +168,37 @@ Den nya versionen av programmet ska bara räkna ord som börjar med en vokal. N�
 
     ![Visa den nya versionen av programmet i webbläsaren][deployed-app-ui-v2]
 
+## Rensa
+
+Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. Programmen fortsätter att köras i bakgrunden tills du tar bort dem.  Beroende på typen av program kan ett program som körs ta betydande resurser i anspråk på datorn. Du kan hantera program och klustret på flera sätt:
+
+1. Ta bort ett enskilt program och dess data genom att köra följande:
+
+    ```powershell
+    Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
+    ```
+
+    Du kan även ta bort programmet från menyn **ÅTGÄRDER** i Service Fabric Explorer eller snabbmenyn i programmets listvy i den vänstra rutan.
+
+    ![Ta bort ett program i Service Fabric Explorer][sfe-delete-application]
+
+2. När du har tagit bort programmet från klustret kan du avregistrera versionerna 1.0.0 och 2.0.0 av WordCount-programtypen. Raderingen ta bort programpaket, inklusive dess kod och konfiguration, från klustrets avbildningsarkiv.
+
+    ```powershell
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0
+    ```
+
+    Du kan även välja att **avetablera typen** för programmet i Service Fabric Explorer.
+
+3. Om du vill stänga av klustret, men behålla programdata och spårningar, klickar du på **Stoppa lokalt kluster** i appen i systemfältet.
+
+4. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Observera att det här alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Ta bara bort det lokala klustret om du inte avser att använda det under en tid eller om du behöver frigöra resurser.
+
 ## Nästa steg
 - Nu när du har distribuerat och uppgraderat vissa fördefinierade program kan du [skapa ett eget program i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - Alla åtgärder som utförts i det lokala klustret i den här artikeln kan även utföras i ett [Azure-kluster](service-fabric-cluster-creation-via-portal.md).
-- Uppgraderingen som vi utförde i den här artikeln var väldigt grundläggande. Mer information om kraften och flexibiliteten i Service Fabric-uppgraderingar finns i [uppgraderingsdokumentationen](service-fabric-application-upgrade.md).
+- Uppgraderingen som vi utförde i den här artikeln var grundläggande. Mer information om kraften och flexibiliteten i Service Fabric-uppgraderingar finns i [uppgraderingsdokumentationen](service-fabric-application-upgrade.md).
 
 <!-- Images -->
 
@@ -189,9 +216,10 @@ Den nya versionen av programmet ska bara räkna ord som börjar med en vokal. N�
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
+[sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

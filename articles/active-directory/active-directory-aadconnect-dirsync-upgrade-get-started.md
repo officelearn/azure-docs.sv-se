@@ -13,18 +13,22 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/31/2016"
+   ms.date="08/19/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: Uppgradera från DirSync
 Azure AD Connect är efterföljaren till DirSync. I det här avsnittet lär du dig hur du kan uppgradera från DirSync på olika sätt. Stegen fungerar inte om du ska uppgradera från en annan version av Azure AD Connect eller från Azure AD Sync.
 
-Innan du börjar installera Azure AD Connect [laddar du ned Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) och kontrollerar att du uppfyller kraven i [Azure AD Connect: Maskinvara och krav](active-directory-aadconnect-prerequisites.md).
+Innan du börjar installera Azure AD Connect [laddar du ned Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) och kontrollerar att du uppfyller kraven i [Azure AD Connect: Maskinvara och krav](active-directory-aadconnect-prerequisites.md). Du bör särskilt läsa om följande, eftersom dessa områden skiljer sig från DirSync:
+
+- Den version av .Net och PowerShell som krävs. Nyare versioner krävs på servern än vad DirSync krävde.
+- Proxyserverkonfigurationen. Om du använder en proxyserver för att nå Internet måste den här inställningen konfigureras innan du uppgraderar. DirSync använde alltid proxyservern som konfigurerats för användaren som installerar den, men Azure AD Connect använder datorinställningar i stället.
+- URL:erna måste vara öppna i proxyservern. För grundläggande scenarier, de som även stöds av DirSync, är kraven desamma. Om du vill använda de nya funktionerna som ingår i Azure AD Connect måste några nya URL:er vara öppna.
 
 Om du inte uppgraderar från DirSync läser du [relaterad dokumentation](#related-documentation) för andra scenarier.
 
 ## Uppgradera från DirSync
-Beroende på din aktuella DirSync-distribution finns det olika alternativ för uppgraderingen. Om den förväntade tiden för uppgraderingen är mindre än tre timmar rekommenderar vi att du gör en uppgradering på plats. Om den förväntade tiden för uppgraderingen är mer än tre timmar rekommenderar vi att du gör en parallell distribution på en annan server. Uppskattningsvis tar uppgraderingen mer än tre timmar om du har mer än 50 000 objekt.
+Beroende på din aktuella DirSync-distribution finns det olika alternativ för uppgraderingen. Om den förväntade tiden för uppgraderingen är mindre än tre timmar rekommenderar vi att du gör en uppgradering på plats. Om den förväntade tiden för uppgraderingen är mer än tre timmar rekommenderar vi att du gör en parallell distribution på en annan server. Uppskattningsvis tar uppgraderingen mer än tre timmar om du har mer än 50 000 objekt.
 
 Scenario |  
 ---- | ----
@@ -34,15 +38,15 @@ Scenario |
 >[AZURE.NOTE] När du planerar att uppgradera från DirSync till Azure AD Connect ska du inte avinstallera DirSync själv före uppgraderingen. Azure AD Connect läser och migrerar konfigurationen från DirSync och avinstallerar efter att ha inspekterat servern.
 
 **Uppgradering på plats**  
-Den förväntade tiden för att slutföra uppgraderingen visas i guiden. Den här uppskattningen baseras på antagandet att det tar tre timmar att slutföra en uppgradering för en databas med 50 000 objekt (användare, kontakter och grupper). Azure AD Connect analyserar dina aktuella DirSync-inställningar och rekommenderar en uppgradering på plats om antalet objekt i databasen är färre än 50 000. Om du väljer att fortsätta tillämpas dina aktuella inställningar automatiskt under uppgraderingen och servern återupptar automatiskt den aktiva synkroniseringen.
+Den förväntade tiden för att slutföra uppgraderingen visas i guiden. Den här uppskattningen baseras på antagandet att det tar tre timmar att slutföra en uppgradering för en databas med 50 000 objekt (användare, kontakter och grupper). Azure AD Connect rekommenderar en uppgradering på plats om antalet objekt i databasen är färre än 50 000. Om du väljer att fortsätta tillämpas dina aktuella inställningar automatiskt under uppgraderingen och servern återupptar automatiskt den aktiva synkroniseringen.
 
 Om du vill utföra en konfigurationsmigrering och en parallell distribution kan du åsidosätta rekommendationen om en uppgradering på plats. Du kan till exempel passa på att uppdatera maskinvaran och operativsystemet. Mer information finns i avsnittet om [parallell distribution](#parallel-deployment).
 
 **Parallell distribution**  
-En parallell distribution rekommenderas om du har fler än 50 000 objekt. På så sätt undviker du risken för fördröjningar för andra användare. Azure AD Connect-installationen försöker beräkna avbrottstiden för uppgraderingen, men om du har uppgraderat DirSync tidigare är din egen erfarenheter antagligen den bästa riktlinjen.
+En parallell distribution rekommenderas om du har fler än 50 000 objekt. På så sätt undviker du risken för fördröjningar för dina användare. Azure AD Connect-installationen försöker beräkna avbrottstiden för uppgraderingen, men om du har uppgraderat DirSync tidigare är din egen erfarenheter antagligen den bästa riktlinjen.
 
 ### DirSync-konfigurationer som stöds som ska uppgraderas
-Följande konfigurationsändringar stöds med DirSync och kommer att uppgraderas:
+Följande konfigurationsändringar stöds med DirSync och uppgraderas:
 
 - Domän- och organisationsenhetsfiltrering
 - Alternativt ID (UPN)
@@ -50,7 +54,7 @@ Följande konfigurationsändringar stöds med DirSync och kommer att uppgraderas
 - Din skog/domän och dina Azure AD-inställningar
 - Filtrering baserat på användarattribut
 
-Följande ändring kan inte uppgraderas. Om du har gjort den här ändringen blockeras uppgraderingen:
+Följande ändring kan inte uppgraderas. Uppgraderingen blockeras om du har den här konfigurationen:
 
 - DirSync-ändringar som inte stöds, t.ex. borttagna attribut och användningen av ett anpassat tilläggs-DLL
 
@@ -67,7 +71,7 @@ Lösenorden som används av DirSync för tjänstkontona kan inte hämtas och mig
 3. Samla in lösenordet för globala Azure AD-administratörer
 4. Samla in autentiseringsuppgifterna för ett konto för företagsadministratörer (används endast under installationen av Azure AD Connect)
 5. Installation av Azure AD Connect
-    * Avinstallera DirSync
+    * Avinstallera DirSync (eller inaktivera det tillfälligt)
     * Installera Azure AD Connect
     * Starta en synkronisering om det behövs
 
@@ -89,7 +93,7 @@ Ytterligare steg krävs om:
 Informationen om den befintliga SQL Server-databasservern som används av DirSync visas. Gör relevanta justeringar om det behövs. Klicka på **Nästa** när du vill fortsätta med installationen.
     - Om du har fler än 50 000 objekt visas den här skärmen i stället: ![Analysen är klar och du kan uppgradera från DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
 Om du vill fortsätta med en uppgradering på plats klickar du på kryssrutan bredvid det här meddelandet: **Fortsätt att uppgradera DirSync på den här datorn.**
-Om du vill utföra en [parallell distribution](#parallel-deployment) i stället exporterar du DirSync-konfigurationsinställningarna och flyttar dem till den nya servern.
+Om du vill utföra en [parallell distribution](#parallel-deployment) i stället exporterar du DirSync-konfigurationsinställningarna och flyttar konfigurationen till den nya servern.
 5. Ange lösenordet för det konto som du för närvarande använder för att ansluta till Azure AD. Det här måste vara det konto som för närvarande används av DirSync.
 ![Ange dina autentiseringsuppgifter för Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)  
 Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutningsproblem](active-directory-aadconnect-troubleshoot-connectivity.md).
@@ -112,7 +116,7 @@ En skärm liknande följande visas:
 
 Om du vill fortsätta med den parallella distributionen måste du utföra följande steg:
 
-- Klicka på knappen **Exportera inställningar**. När du installerar Azure AD Connect på en separat server importeras dessa inställningar för migrering av eventuella inställningar från din aktuella DirSync till den nya Azure AD Connect-installationen.
+- Klicka på knappen **Exportera inställningar**. När du installerar Azure AD Connect på en separat server migreras dessa inställningar från din aktuella DirSync till den nya Azure AD Connect-installationen.
 
 När inställningarna har exporterats kan du avsluta Azure AD Connect-guiden på DirSync-servern. Fortsätt med nästa steg för att [installera Azure AD Connect på en separat server](#installation-of-azure-ad-connect-on-separate-server)
 
@@ -124,7 +128,7 @@ Om du har färre än 50 000 objekt, men ändå vill utföra en parallell distri
 2. När du ser skärmen **Välkommen till Azure AD Connect** avslutar du installationsguiden genom att klicka på ”X” i det övre högra hörnet i fönstret.
 3. Öppna en kommandotolk.
 4. Kör följande kommando från installationsplatsen för Azure AD Connect (som standard C:\Program Files\Microsoft Azure Active Directory Connect):  `AzureADConnect.exe /ForceExport`.
-5. Klicka på knappen **Exportera inställningar**.  När du installerar Azure AD Connect på en separat server importeras dessa inställningar för migrering av eventuella inställningar från din aktuella DirSync till den nya Azure AD Connect-installationen.
+5. Klicka på knappen **Exportera inställningar**.  När du installerar Azure AD Connect på en separat server migreras dessa inställningar från din aktuella DirSync till den nya Azure AD Connect-installationen.
 
 ![Analysen är klar](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
 
@@ -132,7 +136,7 @@ När inställningarna har exporterats kan du avsluta Azure AD Connect-guiden på
 
 ### Installera Azure AD Connect på en separat server
 
-När du installerar Azure AD Connect på en ny server förutsätts det att du vill utföra en ren installation av Azure AD Connect. Eftersom du vill använda DirSync-konfigurationen måste du utföra några extra steg:
+När du installerar Azure AD Connect på en ny server antas det att du vill utföra en ren installation av Azure AD Connect. Eftersom du vill använda DirSync-konfigurationen måste du utföra några extra steg:
 
 1. Kör Azure AD Connect-installationsprogrammet (MSI).
 2. När du ser skärmen **Välkommen till Azure AD Connect** avslutar du installationsguiden genom att klicka på ”X” i det övre högra hörnet i fönstret.
@@ -145,18 +149,18 @@ När du installerar Azure AD Connect på en ny server förutsätts det att du vi
     - En befintlig instans av SQL Server (SQL Server 2012 Express installeras som standard av Azure AD Connect). Använd inte samma databasinstans som DirSync-servern.
     - Ett tjänstkonto som används för att ansluta till SQL Server (om SQL Server-databasen är en fjärrplats måste det här kontot vara ett domäntjänstkonto).
 Dessa alternativ visas på skärmen: ![Ange dina autentiseringsuppgifter för Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
-7. Klicka på **Nästa**.
-8. På sidan **Klart att konfigurera** lämnar du kryssrutan **Starta synkroniseringsprocessen så snart som konfigurationen är klar** markerad. Eftersom servern är i [mellanlagringsläge](active-directory-aadconnectsync-operations.md#staging-mode) exporteras inga ändringar till Azure AD just nu.
+7. Klicka på **Next**.
+8. På sidan **Klart att konfigurera** lämnar du kryssrutan **Starta synkroniseringsprocessen så snart som konfigurationen är klar** markerad. Nu är servern i [mellanlagringsläge](active-directory-aadconnectsync-operations.md#staging-mode) och ändringarna exporteras inte till Azure AD.
 9. Klicka på **Installera**.
 10. När installationen är klar loggar du ut och loggar sedan in igen i Windows innan du använder Synchronization Service Manager eller Synchronization Rule Editor eller innan du försöker göra andra konfigurationsändringar.
 
->[AZURE.NOTE] Synkroniseringen mellan Windows Server Active Directory och Azure Active Directory börjar, men inga ändringar exporteras till Azure AD.  Endast ett synkroniseringsverktyg i taget kan aktivt exportera ändringar. Detta kallas [mellanlagringsläge](active-directory-aadconnectsync-operations.md#staging-mode).
+>[AZURE.NOTE] Synkroniseringen mellan Windows Server Active Directory och Azure Active Directory börjar, men inga ändringar exporteras till Azure AD. Endast ett synkroniseringsverktyg i taget kan aktivt exportera ändringar. Det här tillståndet kallas för [mellanlagringsläge](active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### Kontrollera att Azure AD Connect är redo att påbörja synkroniseringen
 
 För att bekräfta att Azure AD Connect är redo att ta över från DirSync måste du öppna **Synchronization Service Manager** i gruppen **Azure AD Connect** från startmenyn.
 
-I programmet öppnar du fliken **Åtgärder**. På den här fliken bekräftar du att följande åtgärder har slutförts:
+Gå till fliken **Åtgärder** i programmet. Kontrollera att följande åtgärder har slutförts på den här fliken:
 
 - Import i AD-anslutningen
 - Import i Azure AD Connector
@@ -169,15 +173,17 @@ Granska resultatet från dessa åtgärder och kontrollera att det inte finns nå
 
 Om du vill visa och inspektera de ändringar som är på väg att exporteras till Azure AD läser du hur du verifierar konfigurationen under [mellanlagringsläge](active-directory-aadconnectsync-operations.md#staging-mode). Gör nödvändiga konfigurationsändringar tills du inte ser något oväntat.
 
-När dessa fyra åtgärder har utförts och det inte finns några fel och du är nöjd med ändringarna som ska exporteras är du redo att avinstallera DirSync och aktivera Azure AD Connect-synkroniseringen. Slutför migreringen gnom att utföra nästa två steg.
+Du är redo att byta från DirSync till Azure AD när du har utfört dessa åtgärder och är nöjd med resultatet.
 
 ### Avinstallera DirSync (den gamla servern)
 
-- Leta upp **Synkroniseringsverktyget för Microsoft Azure Active Directory** i **Program och funktioner**
+- Leta upp **Synkroniseringsverktyget för Microsoft Azure Active Directory**i **Program och funktioner**
 - Avinstallera **Synkroniseringsverktyget för Microsoft Azure Active Directory**
-- Observera att avinstallationen kan ta upp till 15 minuter att slutföra.
+- Avinstallationen kan ta upp till 15 minuter.
 
-När DirSync har avinstallerats finns det ingen aktiv server som exporterar till Azure AD. Nästa steg måste slutföras innan ändringar i din lokala Active Directory fortsätter att synkroniseras till Azure AD.
+Om du vill avinstallera DirSync senare kan du också tillfälligt stänga av servern eller inaktivera tjänsten. Om något går fel kan du aktivera den igen med hjälp av den här metoden. Dock är det inte troligt att nästa steg misslyckas så detta bör inte vara nödvändigt.
+
+När DirSync har avinstallerats eller inaktiverats finns det ingen aktiv server som exporterar till Azure AD. Nästa steg, då du aktiverar Azure AD Connect, måste slutföras innan ändringar i din lokala Active Directory fortsätter att synkroniseras till Azure AD.
 
 ### Aktivera Azure AD Connect (den nya servern)
 Efter installationen kan du öppna Azure AD Connect igen om du vill göra ytterligare konfigurationsändringar. Starta **Azure AD Connect** från Start-menyn eller genvägen på skrivbordet. Var försiktig så att du inte råkar köra MSI-installationsfilen igen.
@@ -217,6 +223,6 @@ Konton som används för installation | [Mer information om konton och behörigh
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

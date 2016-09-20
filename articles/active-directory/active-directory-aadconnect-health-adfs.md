@@ -14,11 +14,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/21/2016"
+    ms.date="07/14/2016"
     ms.author="vakarand"/>
 
 # Använda Azure AD Connect Health med AD FS
-Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health.
+Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Mer information om övervakning av Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md). 
 
 ## AD FS-aviseringar
 Avsnittet om Azure AD Connect Health-aviseringar innehåller en lista över aktiva aviseringar. För varje avisering finns relevant information, lösningssteg och länkar till relaterad dokumentation. Om du väljer en aktiv eller åtgärdad avisering visas ett nytt blad med ytterligare information, samt de steg som du kan utföra för att åtgärda aviseringen liksom länkar till ytterligare dokumentation. Du kan också visa historiska data för tidigare åtgärdade aviseringar.
@@ -110,11 +110,12 @@ Rapporten innehåller följande:
 * [Installation av Azure AD Connect Health Agent](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health-åtgärder](active-directory-aadconnect-health-operations.md)
 * [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md)
+* [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versionshistorik för Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

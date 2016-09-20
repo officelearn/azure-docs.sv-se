@@ -14,23 +14,31 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.date="08/25/2016"
+   ms.author="barbkess;lodipalm;sonyama"/>
 
 # Skapa ett Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-get-started-provision.md)
+- [Azure-portalen](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-I de här självstudierna kommer du att använda Azure Portal för att skapa ett SQL Data Warehouse som innehåller en AdventureWorksDW-exempeldatabas.
+I den här självstudien kommer du att använda Azure Portal för att skapa ett SQL Data Warehouse som innehåller en AdventureWorksDW-exempeldatabas.
 
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+## Krav
 
+Du behöver följande för att komma igång:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+- **Azure-konto**: gå till [Kostnadsfri utvärderingsversion av Azure][] eller [MSDN Azure-krediter][] för att skapa ett konto.
+- **Azure SQLK-server**: Mer information finns i [Skapa en logisk Azure SQL Database-server med Azure Portal][].
+
+> [AZURE.NOTE] Att skapa ett SQL Data Warehouse kan resultera i en ny fakturerbar tjänst.  Mer information finns i [Priser för SQL Data Warehouse][].
+
+## Skapa ett SQL Data Warehouse
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Klicka på **+ Ny** > **Data + lagring** > **SQL Data Warehouse**.
 
@@ -40,37 +48,62 @@ I de här självstudierna kommer du att använda Azure Portal för att skapa ett
 
     ![Skapa databas](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-    - **Server**: Vi rekommenderar att du först väljer server.  Du kan välja en befintlig server eller [skapa en ny](./sql-data-warehouse-get-started-new-server.md). 
+    - **Server**: Vi rekommenderar att du först väljer server.  
 
-    - **Databasnamn**: Namnet som kommer användas för att referera till ditt SQL Data Warehouse.  Det måste vara unikt för servern.
+    - **Databasnamn**: Namnet som används för att referera till ditt SQL Data Warehouse.  Det måste vara unikt för servern.
     
-    - **Prestanda**: Vi rekommenderar att börja med 400 DWU:er. Du kan flytta skjutreglaget till vänster eller höger för att justera prestanda för ditt informationslager, eller skala upp eller ner efter det har skapats.  Läs mer om DWU:er i vår dokumentation om [skalning](./sql-data-warehouse-manage-compute-overview.md) eller på vår [prissida](https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/). 
+    - **Prestanda**: Vi rekommenderar att börja med 400 [DWU:er][DWU]. Du kan flytta skjutreglaget till vänster eller höger för att justera prestanda för ditt informationslager, eller skala upp eller ner efter det har skapats.  Läs mer om DWU:er i vår dokumentation om [skalning](./sql-data-warehouse-manage-compute-overview.md) eller på vår [prissida][Priser för SQL Data Warehouse]. 
 
-    - **Prenumeration**: Välj den prenumeration som det här SQL Data Warehouse kommer faktureras till.
+    - **Prenumeration**: Välj den [prenumeration] som detta SQL Data Warehouse kommer faktureras till.
 
-    - **Resursgrupp**: Resursgrupper är behållare som hjälper dig att hantera en samling Azure-resurser. Läs mer om [resursgrupper](../azure-portal/resource-group-portal.md).
+    - **Resursgrupp**: [Resursgrupper][Resursgrupp] är behållare som hjälper dig att hantera en samling Azure-resurser. Läs mer om [resursgrupper](../resource-group-overview.md).
 
-    - **Välj källa**: Klicka på **Välj källa** > **Exempel**. Eftersom det bara finns en exempeldatabas just nu, kommer Azure att automatiskt fylla i **Välj exempel**-alternativet med AdventureWorksDW när du väljer Exempel.
+    - **Välj källa**: Klicka på **Välj källa** > **Exempel**. Azure fyller automatiskt i alternativet **Välj exempel** med AdventureWorksDW.
+
+> [AZURE.NOTE] Standardsortering för ett SQL Data Warehouse är SQL_Latin1_General_CP1_CI_AS. Om en annan sortering behövs kan [T-SQL][] användas för att skapa databasen med en annan sortering.
 
 4. Klicka på **Skapa**, för att skapa ditt SQL Data Warehouse.
 
-5. Vänta några minuter så är ditt SQL Data Warehouse klart. När det är klart, ska du komma tillbaka till [Azure-portalen](https://portal.azure.com). Du hittar ditt SQL Data Warehouse på instrumentpanelen, listat under dina SQL-databaser, eller i den resursgrupp som du skapade den i. 
+5. Vänta några minuter. När datalagret är klart bör du komma tillbaka till [Azure Portal](https://portal.azure.com). Du hittar ditt SQL Data Warehouse på instrumentpanelen, listat under dina SQL-databaser, eller i den resursgrupp som du skapade den i. 
 
     ![Portal-vy](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
-[AZURE.INCLUDE [SQL DataBase create server](../../includes/sql-database-create-new-server-firewall-portal.md)] 
+[AZURE.INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)] 
 
 ## Nästa steg
 
-Nu när du har skapat ett SQL Data Warehouse, är du redo att [Ansluta](./sql-data-warehouse-get-started-connect.md) och börja ställa frågor.
+Nu när du har skapat ett SQL Data Warehouse är du redo att [ansluta](./sql-data-warehouse-connect-overview.md) och börja ställa frågor.
 
 Se [översikt över inläsning](./sql-data-warehouse-overview-load.md) för att läsa in data i SQL Data Warehouse.
 
 Om du försöker migrera en befintlig databas till SQL Data Warehouse, kan du se [Migreringsöversikt](./sql-data-warehouse-overview-migrate.md) eller använda dig av [Migreringsverktyget](./sql-data-warehouse-migrate-migration-utility.md).
 
+Brandväggsregler kan också konfigureras med hjälp av Transact-SQL. Mer information finns i [sp_set_firewall_rule][] och [sp_set_database_firewall_rule][].
+
+Det är en bra idé att titta på [Bästa praxis][].
+
+<!--Article references-->
+[Skapa en logisk Azure SQL Database-server med Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Skapa en logisk Azure SQL Database-server med PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resursgrupper]: ../resource-group-template-deploy-portal.md
+[Bästa praxis]: sql-data-warehouse-best-practices.md
+[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[prenumeration]: ../azure-glossary-cloud-terminology.md#subscription
+[Resursgrupp]: ../azure-glossary-cloud-terminology.md#resource-group
+[T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
+ 
+<!--MSDN references-->
+[sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
+
+<!--Other Web references-->
+[Priser för SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Kostnadsfri utvärderingsversion av Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure-krediter]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

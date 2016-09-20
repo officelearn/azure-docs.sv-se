@@ -1,48 +1,51 @@
 
 
-## Anslut till Azure SQL Database med en huvudsaklig inloggning på servernivå
+## Anslut till Azure SQL-databasen med SQL Server-autentisering
 
-Använd följande steg för att ansluta till Azure SQL Database med SSMS med en huvudsaklig inloggning på servernivå.
+Följande steg visar hur du ansluter till en Azure SQL-server och -databas med SSMS. Om du inte har en server och databas, se [Skapa en SQL-databas på bara några minuter](../articles/sql-database/sql-database-get-started.md) för att skapa en.
 
-1. Skriv ”Microsoft SQL Server Management Studio” i Windows-sökrutan och klicka sedan på skrivbordsappen för att starta SSMS.
 
-2. I Anslut till server-fönstret anger du följande information:
+1. Starta SSMS genom att skriva **Microsoft SQL Server Management Studio** i Windows-sökrutan och klicka sedan på skrivbordsappen.
+
+2. I fönstret **Anslut till server** anger du följande information (om SSMS redan körs, klickar du på **Anslut > Databasmotor** för att öppna fönstret **Anslut till server**):
 
  - **Servertyp**: standardvärdet är databasmotor, ändra inte det värdet.
- - **Servernamn**: Ange namnet på servern som är värd för din SQL-databas i följande format: *&lt;servernamn>*.**database.windows.net**
- - **Autentiseringstyp**: om du precis har kommit igång, välj SQL-autentisering. Om du har aktiverat Active Directory för din logiska SQL Database-server, kan du antingen välja Active Directory-lösenordsautentisering eller Active Directory-integrerad autentisering.
- - **Användarnamn**: om du antingen valt SQL-autentisering eller Active Directory-lösenordsautentisering, anger du namnet på en användare med åtkomst till en databas på servern.
- - **Lösenord**: om du valt antingen SQL-autentisering eller Active Directory-lösenordsautentisering, anger du lösenordet för den angivna användaren.
+ - **Servernamn**: Ange det fullständigt kvalificerade namnet på din Azure SQL Database-server i följande format: *&lt;servernamn >*.**database.windows.net**
+ - **Autentiseringstyp**: Den här artikeln visar hur du ansluter via **SQL Server-autentisering**. Mer information om hur du ansluter med Azure Active Directory finns i [Anslut med Active Directory-integrerad autentisering](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-integrated-authentication), [Anslut med Active Directory-lösenordsautentisering](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-password-authentication) och [Anslut med Active Directory Universal-autentisering](../articles/sql-database/sql-database-ssms-mfa-authentication.md).
+ - **Användarnamn**: Ange namnet på en användare med åtkomst till en databas på servern (till exempel den *serveradministratör* du ställer in när du skapar servern). 
+ - **Lösenord**: Ange lösenordet för den angivna användaren (till exempel det *lösenord* du ställer in när du skapar servern).
    
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-1.png)
+       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
 
 3. Klicka på **Anslut**.
  
-4. Om din klients IP-adress inte har åtkomst till den logiska SQL Database-servern, ombes du logga in på ett Azure-konto och skapa en brandväggsregel på servernivå. Om du är administratör för en Azure-prenumeration, klickar du på **Logga in** för att skapa en brandväggsregel på servernivå. I annat fall måste du be en Azure-administratör att skapa en brandväggsregel på servernivå.
- 
-      ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-2.png)
- 
-1. Om du är administratör för en Azure-prenumeration och behöver logga in, anger du autentiseringsuppgifterna för din prenumeration och loggar in när inloggningssidan visas.
+4. Som standard har nya servrar inga definierade [brandväggsregler](../articles/sql-database/sql-database-firewall-configure.md) så att klienter blockeras ursprungligen från att ansluta. Om servern ännu inte har en brandväggsregel som tillåter din specifika IP-adress att ansluta uppmanas SSMS att skapa en brandväggsregel på servernivå för dig.
 
-      ![logga in](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
+    Klicka på **Logga in** och skapa en brandväggsregel på servernivå. Du måste vara en Azure-administratör för att skapa en brandväggsregel på servernivå.
  
-1. Efter att du loggat in på Azure, kan du granska den föreslagna brandväggsregeln på servernivå (du kan ändra den så den tillåter ett IP-adressintervall). Klicka sedan på **OK** för att skapa brandväggsregeln och slutföra anslutningen till SQL Database.
+       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/newfirewallrule.png)
  
-      ![ny brandvägg på servernivå](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-4.png)
- 
-5. Om dina autentiseringsuppgifter ger dig åtkomst, öppnas Object Explorer och du kan utföra administrativa åtgärder eller fråga efter data. 
+
+5. När du har lyckats ansluta till din Azure SQL-databas öppnas **Object Explorer** och du kan nu komma åt databasen för att [utföra administrativa uppgifter eller fråga data](../articles/sql-database/sql-database-manage-azure-ssms.md).
  
      ![ny brandvägg på servernivå](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
  
      
 ## Felsök anslutningsfel
 
-Den vanligaste orsaken för anslutningsfel är fel i servernamnet (kom ihåg att <*servernamn*> är namnet på den logiska servern, inte databasen), användarnamnet eller lösenordet, eller att servern inte tillåter anslutningar av säkerhetsskäl. 
+De vanligaste orsakerna till anslutningsfel är fel i servernamnet och problem med nätverksanslutningen. Kom ihåg att <*servernamn*> är namnet på servern, inte på databasen, och du måste ange det fullständigt kvalificerade servernamnet: `<servername>.database.windows.net`
+
+Kontrollera att användarnamn och lösenord inte innehåller några skrivfel eller extra blanksteg (användarnamn är inte skiftlägeskänsliga, men lösenord). 
+
+Du kan också uttryckligen ange protokoll och portnummer med servernamnet enligt följande: `tcp:servername.database.windows.net,1433`
+
+Problem med nätverksanslutningen kan även orsaka anslutningsfel och timeout. Att försöka ansluta igen (när du vet att servernamnet, autentiseringsuppgifterna och brandväggsregler är korrekta) kan leda till att det lyckas.
 
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

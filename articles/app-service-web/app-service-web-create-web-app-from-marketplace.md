@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="07/11/2016"
     ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -26,13 +26,13 @@ Via Azure Marketplace får du tillgång till en mängd olika populära webbappar
 
 I den här kursen får du lära du dig att:
 
-* hitta en programmall i Azure Marketplace
-* skapa en webbapp i Azure Apptjänst utifrån mallen
-* konfigurera inställningarna i Azure Apptjänst för den nya webbappen och databasen.
+* Hitta och skapa en webbapp i Azure App Service som baseras på en Azure Marketplace-mall.
+* Konfigurera Azure App Service-inställningarna för den nya webbappen.
+* Starta och hantera webbappen.
 
 I den här kursen distribuerar du en WordPress-bloggwebbplats från Azure Marketplace. När du har gått igenom alla stegen i kursen har du en egen WordPress-webbplats igång i molnet.
 
-![Exempel på instrumentpanelen i WordPress-webbappen][WordPressDashboard]
+![Exempel på instrumentpanelen i WordPress-webbappen][WordPressDashboard1]
 
 För WordPress-webbplatsen du distribuerar under den här kursen används MySQL som databas. Om du istället vill använda SQL Database som databas kan du använda [Project Nami], som också är tillgänglig via Azure Marketplace.
 
@@ -41,7 +41,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
 >
 > Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst]. Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort behövs och du gör inga åtaganden.
 
-## Välja WordPress och konfigurera för Azure Apptjänst
+## Hitta och skapa en webbapp i Azure App Service
 
 1. Logga in på [Azure Portal].
 
@@ -57,7 +57,9 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
 
     ![Skapa WordPress-webbapp][MarketplaceCreate]
 
-1. Bladet med inställningar för WordPress visas. Här gör du följande:
+## Konfigurera Azure App Service-inställningarna för din nya webbapp.
+
+1. När du har skapat en ny webbapp, visas bladet med inställningar för WordPress som du använder för att genomföra följande steg:
 
     ![Konfigurera inställningar för WordPress-webbappen][ConfigStart]
 
@@ -73,7 +75,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
 
 1. Välj en **Resursgrupp** eller skapa en ny.
 
-    Mer information om resursgrupper finns i [Hantera Azure-resurser med hjälp av Azure Portal][Resursgrupper].
+    Mer information om resursgrupper finns i [Översikt över Azure Resource Manager][ResourceGroups].
 
     ![Konfigurera resursgruppen för webbappen][ConfigResourceGroup]
 
@@ -131,7 +133,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
 
 1. Instrumentpanelen för din webbplats öppnas och de uppgifter du angav tidigare visas.    
 
-    ![Öppna instrumentpanelen i WordPress][WordPressDashboard]
+    ![Öppna instrumentpanelen i WordPress][WordPressDashboard2]
 
 ## Nästa steg
 
@@ -151,7 +153,7 @@ Mer information om att utveckla WordPress-webbappar på Azure Apptjänst finns [
 [aktivera]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [kostnadsfri utvärderingsversion]: https://azure.microsoft.com/pricing/free-trial/
 [Prova Apptjänst]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Resursgrupper]: ../azure-portal/resource-group-portal.md
+[ResourceGroups]: ../resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure Portal]: https://portal.azure.com/
@@ -174,11 +176,12 @@ Mer information om att utveckla WordPress-webbappar på Azure Apptjänst finns [
 [WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
 [WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
 [WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
+[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

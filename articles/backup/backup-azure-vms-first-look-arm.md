@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Skydda Resource Manager-distribuerade virtuella datorer med Azure Backup | Microsoft Azure"
-    description="Skydda Resource Manager-distribuerade virtuella datorer med tjänsten Azure Backup. Använd säkerhetskopior av Resource Manager-distribuerade virtuella datorer och virtuella datorer i Premium Storage för att skydda dina data. Skapa och registrera ett Recovery Services-valv. Registrera virtuella datorer, skapa en princip och skydda virtuella datorer i Azure."
+    pageTitle="En första titt: Skydda virtuella datorer i Azure med ett Recovery Services-valv | Microsoft Azure"
+    description="Skydda virtuella datorer i Azure med ett Recovery Services-valv. Använd säkerhetskopior av Resource Manager-distribuerade virtuella datorer och klassiskt distribuerade virtuella datorer samt virtuella datorer i Premium Storage för att skydda dina data. Skapa och registrera ett Recovery Services-valv. Registrera virtuella datorer, skapa en princip och skydda virtuella datorer i Azure."
     services="backup"
     documentationCenter=""
     authors="markgalioto"
@@ -18,18 +18,19 @@
     ms.author="markgal; jimpark"/>
 
 
-# En första titt: Säkerhetskopiera Resource Manager-distribuerade virtuella datorer till ett Recovery Services-valv
+# En första titt: Skydda virtuella datorer i Azure med ett Recovery Services-valv
 
 > [AZURE.SELECTOR]
-- [Säkerhetskopiera Resource Manager-distribuerade virtuella datorer](backup-azure-vms-first-look-arm.md)
-- [Säkerhetskopiera virtuella datorer i klassiskt läge](backup-azure-vms-first-look.md)
+- [En första titt: Skydda virtuella datorer med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md)
+- [En första titt: Skydda virtuella datorer i Azure med ett säkerhetskopieringsvalv](backup-azure-vms-first-look.md)
 
-Den här självstudiekursen beskriver steg för steg hur du skapar ett Recovery Services-valv och säkerhetskopierar en virtuell Azure-dator (VM). Recovery Services-valv skyddar:
+Den här självstudierna beskriver steg för steg hur du skapar ett Recovery Services-valv och säkerhetskopierar en virtuell Azure-dator (VM). Recovery Services-valv skyddar:
 
 - Azure Resource Manager-distribuerade virtuella datorer
 - Klassiska virtuella datorer
 - Virtuella datorer i standardlagring
 - Virtuella datorer i Premium Storage
+- Virtuella datorer som har krypterats med Azure Disk Encryption, med BEK och KEK (stöds med hjälp av Powershell)
 
 Mer information om hur du skyddar virtuella datorer i Premium Storage finns i [Säkerhetskopiera och återställa virtuella datorer i Premium Storage](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
@@ -43,7 +44,7 @@ Här är de generella steg som du utför.
 
 
 
-## Steg 1 – Skapa ett Recovery Services-valv för en virtuell dator.
+## Steg 1 – Skapa ett Recovery Services-valv för en virtuell dator
 
 Ett Recovery Services-valv är en entitet som lagrar alla säkerhetskopior och återställningspunkter som har skapats med tiden. Recovery Services-valvet innehåller också säkerhetskopieringspolicyn som tillämpas på de skyddade virtuella datorerna.
 
@@ -66,13 +67,13 @@ Så här skapar du ett Recovery Services-valv:
 
     Bladet Recovery Services-valv öppnas och du uppmanas att ange **namn**, **prenumeration**, **resursgrupp** och **plats**.
 
-    ![Skapa Recovery Services-valv (steg 5)](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
+    ![Skapa ett Recovery Services-valv (steg 5)](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
 4. I **Namn** anger du ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Skriv ett namn som innehåller mellan 2 och 50 tecken. Det måste börja med en bokstav och får endast innehålla bokstäver, siffror och bindestreck.
 
 5. Klicka på **Prenumeration** för att visa listan över prenumerationer. Om du inte är säker på vilken prenumeration du ska använda använder du standardprenumerationen (eller den föreslagna). Du kan bara välja mellan flera alternativ om ditt organisationskonto är associerat med flera Azure-prenumerationer.
 
-6. Klicka på **Resursgrupp** för att visa listan över resursgrupper eller klicka på **Nytt** för att skapa en ny resursgrupp. Fullständig information om resursgrupper finns i [Hantera Azure-resurser med hjälp av Azure Portal](../azure-portal/resource-group-portal.md)
+6. Klicka på **Resursgrupp** för att visa listan över resursgrupper eller klicka på **Nytt** för att skapa en ny resursgrupp. För komplett information om resursgrupper, se [Översikt över Azure Resource Manager](../resource-group-overview.md).
 
 7. Klicka på **Plats** för att välja en geografisk region för valvet. Valvet **måste** finnas i samma region som de virtuella datorer som du vill skydda.
 
@@ -102,7 +103,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 Innan du registrerar en virtuell dator med ett valv kör du identifieringsprocessen för att säkerställa att nya virtuella datorer som har lagts till i prenumerationen identifieras. Under processen uppmanas Azure att returnera listan med virtuella datorer i prenumerationen, tillsammans med ytterligare information som molntjänstens namn och regionen. På Azure-portalen refererar scenariot till vad du ska lägga till i Recovery Services-valvet. Principen är schemat för hur ofta återställningspunkter skapas. Principen omfattar också kvarhållningsintervallet för återställningspunkterna.
 
-1. Om du redan har ett öppet Recovery Services-valv går du vidare till steg 2. Om inget Recovery Services-valv är öppet, men du befinner dig på Azure-portalen klickar du på **Bläddra** på navmenyn.
+1. Om du redan har ett öppet Recovery Services-valv går du vidare till steg 2. Om inget Recovery Services-valv är öppet, men du befinner dig på Azure Portal klickar du på **Bläddra** på hubbmenyn.
 
   - I listan över resurser skriver du **Recovery Services**.
   - När du börjar skriva filtreras listan baserat på det du skriver. När du ser **Recovery Services-valv** klickar du på det.
@@ -222,6 +223,6 @@ Om du har frågor eller om du saknar en funktion är du välkommen att [lämna f
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

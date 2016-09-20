@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/08/2016"
+    ms.date="07/14/2016"
     ms.author="evboyle"/>
 
 # Komma igång med Azure Search i NodeJS
@@ -54,12 +54,11 @@ När du har skapat tjänsten går du tillbaka till portalen för att hämta URL:
 
 Använd någon av följande metoder för att hämta exemplet.
 
-1. Gå till [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
+1. Gå till [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
 2. Klicka på **Ladda ned ZIP**, spara ZIP-filen och extrahera sedan alla filer som den innehåller.
 
 Alla efterföljande filändringar och körningsinstruktioner görs mot filer i den här mappen.
 
-Alternativt, om GIT finns i sökvägsinstruktionen, kan du öppna ett PowerShell-fönster och skriva `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
 ## Uppdatera config.js. med Search-tjänstens URL och API-nyckel
 
@@ -123,6 +122,6 @@ Har du inte provat Azure Search än? Vi rekommenderar att du går andra självst
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

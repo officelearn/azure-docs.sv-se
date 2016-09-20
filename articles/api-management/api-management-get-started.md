@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/25/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Hantera ditt första API i Azure API Management
@@ -65,7 +65,7 @@ Det första steget när du arbetar med API Management är att skapa en tjänstin
 
 ![Ny API Management-instans][api-management-create-instance-menu]
 
-För **URL** anger du ett unikt underdomännamn  som ska användas för tjänst-URL:en.
+För **URL** anger du ett unikt underdomännamn som ska användas för tjänst-URL:en.
 
 Välj önskad **prenumeration** och **region** för din tjänstinstans. När du har gjort dina val klickar du på knappen **Nästa**.
 
@@ -149,7 +149,7 @@ Ange egna värden för parametrarna eller behåll standardvärdena och klicka se
 
 ![HTTP Get][api-management-invoke-get]
 
-När en åtgärd har anropats visas **svarsstatus**,  **svarshuvuden** och eventuellt **svarsinnehåll** på utvecklarportalen.
+När en åtgärd har anropats visas **svarsstatus**, **svarshuvuden** och eventuellt **svarsinnehåll** på utvecklarportalen.
 
 ![Svar][api-management-invoke-get-response]
 
@@ -186,7 +186,7 @@ Avsnittet **Analys** innehåller följande fyra flikar:
 
 ## <a name="next-steps"> </a>Nästa steg
 
--   Titta gärna igenom avsnitten i självstudiekursen [Komma igång med avancerad API-konfiguration][].
+- Läs mer om hur du [skyddar ditt API med hastighetsbegränsningar](api-management-howto-product-with-rules.md).
 
 [kostnadsfria utvärderingsversionen av Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -205,7 +205,6 @@ Avsnittet **Analys** innehåller följande fyra flikar:
 [Konfigurera meddelanden och e-postmallar i Azure API Management]: api-management-howto-configure-notifications.md
 [Svar]: api-management-howto-add-operations.md#responses
 [Skapa och publicera en produkt]: api-management-howto-add-products.md
-[Komma igång med avancerad API-konfiguration]: api-management-get-started-advanced.md
 [API Management-priser]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Klassisk Azure-portal]: https://manage.windowsazure.com/
@@ -247,6 +246,6 @@ Avsnittet **Analys** innehåller följande fyra flikar:
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

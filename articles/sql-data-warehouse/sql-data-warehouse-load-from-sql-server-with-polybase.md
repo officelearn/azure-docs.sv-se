@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -109,7 +109,7 @@ Kopiera dina data till Azure-blobblagring:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Mer information finns i [Kom igång med kommandoradsverktyget AzCopy][].
+Mer information finns i [Komma igång med kommandoradsverktyget][senaste versionen av AzCopy].
 
 ### E. Utforska din blobblagringsbehållare
 
@@ -256,13 +256,10 @@ Se [PolyBase-guiden][] för ytterligare information som du bör känna till när
 
 
 <!--Article references-->
-[Självstudier för PolyBase i SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
-[Läs in data med bcp]: sql-data-warehouse-load-with-bcp.md
-[lösningspartners]: sql-data-warehouse-solution-partners.md
-[utvecklingsöversikt]: sql-data-warehouse-overview-develop.md
-[Statistik]: sql-data-warehouse-develop-statistics.md
-[PolyBase-guiden]: sql-data-warehouse-load-polybase-guide.md
-[Kom igång med kommandoradsverktyget AzCopy]: ../storage/storage-use-azcopy.md
+[Självstudier för PolyBase i SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Läs in data med bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistik]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase-guiden]: ./sql-data-warehouse-load-polybase-guide.md
 [senaste versionen av AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
@@ -272,9 +269,9 @@ Se [PolyBase-guiden][] för ytterligare information som du bör känna till när
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
-[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
+[Skapa extern datakälla (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
+[Skapa externt filformat (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
+[Skapa extern tabell (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
 
 [DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
 [DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
@@ -282,13 +279,13 @@ Se [PolyBase-guiden][] för ytterligare information som du bör känna till när
 
 [CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
 [INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
-[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
+[Skapa huvudnyckel (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
-[CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
+[Skapa databasomfattande autentisering (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

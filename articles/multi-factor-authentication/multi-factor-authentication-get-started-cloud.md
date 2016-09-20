@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Komma igång med Azure Multi-Factor Authentication i molnet
@@ -63,7 +63,7 @@ Följ stegen nedan om du vill aktivera MFA för dina användare.
 
 ## Automatisera aktiveringen av Multi-Factor Authentication med PowerShell
 
-Du kan ändra [status](multi-factor-authentication-whats-next.md) med [Azure AD PowerShell](powershell-install-configuremd) genom att använda följande.  Du kan ändra `$st.State` till någon av följande statusar:
+Du kan ändra [status](multi-factor-authentication-whats-next.md) med [Azure AD PowerShell](../powershell-install-configure.md) genom att använda följande.  Du kan ändra `$st.State` till någon av följande statusar:
 
 
 - Enabled
@@ -98,6 +98,6 @@ Nu när du har konfigurerat Multi-Factor Authentication i molnet kan du konfigur
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

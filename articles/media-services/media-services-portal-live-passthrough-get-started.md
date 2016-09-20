@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/05/2016" 
+    ms.date="08/30/2016" 
     ms.author="juliako"/>
 
 
@@ -21,14 +21,12 @@
 
 Den här vägledningen visar dig stegen för att använda Azure-portalen för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
 
-Azure Media Services i Azure-portalen är för närvarande under förhandsgranskning.   
-
 
 ##Krav
 
 Följande krävs för att kunna genomföra vägledningen:
 
-- Ett Azure-konto. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-create-account.md).
 - En webbkamera. Till exempel [Telestream Wirecast-kodaren](http://www.telestream.net/wirecast/overview.htm).
 
@@ -50,7 +48,7 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för dir
 1. Skapa och starta en genomströmningskanal
 1. Hämta kanalens infognings-URL. 
 
-    Infognings-URL:en används av den direktsända kodaren för att skicka dataströmmen till kanalen.
+    Infognings-URL:en används av livekodaren för att skicka dataströmmen till kanalen.
 1. Hämta kanalens förhandsgransknings-URL. 
 
     Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
@@ -59,7 +57,7 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för dir
 
     När du använder Azure-portalen, skapas även en tillgång då du skapar en direktsänd händelse. 
       
-    >[AZURE.NOTE]Se till att ha minst en reserverad enhet för strömning på den strömningsslutpunkt från vilken du vill strömma innehåll.
+    >[AZURE.NOTE]Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
 1. Starta händelsen eller programmet när du är redo att påbörja strömning och arkivering.
 2. Som alternativ kan den direktsända kodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
 1. Stoppa händelsen eller programmet när du vill stoppa strömningen och arkiveringen av händelsen.
@@ -103,7 +101,7 @@ Du kan ange det antal timmar som du vill behålla inspelat innehåll för progra
 
 Varje händelse är associerad till en tillgång. För att publicera händelsen måste du skapa en OnDemand-lokaliserare för den associerade tillgången. Med den här lokaliseraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
 
-En kanal har stöd för upp till tre händelser som körs samtidigt så du kan skapa flera arkiv för samma inkommande dataström. På så sätt kan du publicera och arkivera olika delar av en händelse efter behov. Ditt verksamhetsbehov kan till exempel vara att arkivera 6 timmar av ett program, men bara sända 10 minuter. För att åstadkomma detta måste du skapa två program som körs samtidigt. Ett program ställs in för att arkivera 6 timmar av händelsen men programmet publiceras inte. Det andra programmet ställs in för att arkivera i 10 minuter och det här programmet publiceras.
+En kanal har stöd för upp till tre händelser som körs samtidigt så du kan skapa flera arkiv för samma inkommande dataström. På så sätt kan du publicera och arkivera olika delar av en händelse efter behov. Ditt verksamhetsbehov kan till exempel vara att arkivera 6 timmar av ett program, men bara sända 10 minuter. För att åstadkomma detta måste du skapa två program som körs samtidigt. Ett program ställs in för att arkivera 6 timmar av händelsen, men programmet publiceras inte. Det andra programmet ställs in för att arkivera i 10 minuter och det här programmet publiceras.
 
 Du bör inte återanvända befintliga direktsända händelser. Skapa och starta istället en ny händelse för varje händelse.
 
@@ -140,7 +138,7 @@ Mer information om genomströmningskanaler finns i [Direktsänd strömning med l
 
 ##Hämta infognings-URL:er
 
-När kanalen har skapats kan du få infognings-URL:er som du tillhandahåller till den direktsända kodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
+När kanalen har skapats kan du få infognings-URL:er som du tillhandahåller till livekodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
 
 ![Skapad](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
@@ -167,7 +165,7 @@ För att hantera dina tillgångar väljer du **Inställning** och klickar på **
 
 ![Tillgångar](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Utbildningsvägar för Media Services
+##Sökvägar för Media Services-utbildning
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -177,6 +175,6 @@ För att hantera dina tillgångar väljer du **Inställning** och klickar på **
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

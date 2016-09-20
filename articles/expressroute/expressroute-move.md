@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="06/20/2016"
    ms.author="ganesr"/>
 
 # Flytta ExpressRoute-kretsar från den klassiska till Resource Manager-distributionsmodellen
@@ -112,6 +112,6 @@ Följ anvisningarna som beskrivs i [Flytta en ExpressRoute-krets från den klass
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -11,7 +11,7 @@ Följ stegen nedan för att skapa ett VNet baserat på scenariot ovan med hjälp
 
     ![Skapa ett virtuellt nätverksblad](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Klicka på **Resursgrupp** och välj en resursgrupp att lägga till VNet till, eller klicka på **Skapa ny** för att lägga till VNet till en ny resursgrupp. Bilden nedan visar resursgruppsinställningarna för en ny resursgrupp med namnet **TestRG**. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md/#resource-groups).
+4. Klicka på **Resursgrupp** och välj en resursgrupp att lägga till VNet till, eller klicka på **Skapa ny** för att lägga till VNet till en ny resursgrupp. Bilden nedan visar resursgruppsinställningarna för en ny resursgrupp med namnet **TestRG**. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md#resource-groups).
 
     ![Resursgrupp](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
@@ -36,6 +36,7 @@ Följ stegen nedan för att skapa ett VNet baserat på scenariot ovan med hjälp
     ![Lista med undernät i VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

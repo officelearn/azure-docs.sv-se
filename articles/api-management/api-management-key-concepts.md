@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/24/2016" 
+    ms.date="08/09/2016" 
     ms.author="sdanie"/>
 
 #Vad är API Management?
@@ -124,6 +124,6 @@ Om du vill veta mer om API Management tittar du på följande presentation från
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

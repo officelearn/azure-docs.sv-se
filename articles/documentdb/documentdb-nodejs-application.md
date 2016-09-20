@@ -1,10 +1,10 @@
 <properties 
     pageTitle="Lär dig använda Node.js – självstudie om DocumentDB Node.js | Microsoft Azure" 
     description="Lär dig Node.js! I den här självstudien får du lära dig använda Microsoft Azure DocumentDB för att lagra och komma åt data från Node.js Express-webbappar på Azure Websites." 
-    keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+    keywords="Programutveckling, självstudier för databas, läs om node.js, självstudier för node.js, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
-    ms.date="04/18/2016" 
-    ms.author="andrl"/>
+    ms.date="08/25/2016" 
+    ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Skapa en Node.js-webbapp med DocumentDB
 
@@ -42,13 +42,13 @@ Genom att följa stegen i den här självstudien om databaser kommer du att skap
 
 Har du inte tid att gå igenom självstudien, men vill ha hela lösningen? Inga problem, du kan hämta den fullständiga exempellösningen från [GitHub][].
 
-## <a name="_Toc395783176"></a>Förutsättningar
+## <a name="_Toc395783176"></a>Krav
 
 > [AZURE.TIP] Den här Node.js-självstudien förutsätter att du har tidigare erfarenhet av Node.js och Azure Websites.
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande:
 
-- Ett aktivt Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/).
+- Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js][] version 0.10.29 eller högre.
 - [Express generator](http://www.expressjs.com/starter/generator.html) (kan installeras via `npm install express-generator -g`)
 - [Git][].
@@ -165,11 +165,7 @@ När vi har slutfört den första installationen och konfigurationen är det dag
                                 id: collectionId
                             };
                             
-                            var requestOptions = {
-                                offerType: 'S1'
-                            };
-                            
-                            client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+                            client.createCollection(databaseLink, collectionSpec, function (err, created) {
                                 callback(null, created);
                             });
         
@@ -183,8 +179,9 @@ När vi har slutfört den första installationen och konfigurationen är det dag
                 
         module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection använder en valfri requestOptions-parameter som kan användas för att ange erbjudandetyp för samlingen. Om inget värde anges för requestOptions.offerType skapas samlingen med standardtypen för erbjudande.
-> Mer information om erbjudandetyper i DocumentDB finns i [Prestandanivåer i DocumentDB](documentdb-performance-levels.md) 
+    > [AZURE.TIP] createCollection använder en valfri requestOptions-parameter som kan användas för att ange erbjudandetyp för samlingen. Om inget värde anges för requestOptions.offerType skapas samlingen med standardtypen för erbjudande.
+    >
+    > Mer information om erbjudandetyper i DocumentDB finns i [Prestandanivåer i DocumentDB](documentdb-performance-levels.md) 
         
 3. Spara och stäng filen **docdbUtils.js**.
 
@@ -549,7 +546,7 @@ Nu är det dags att skapa användargränssnittet, så att användaren faktiskt k
 
 ## <a name="_Toc395783182"></a>Steg 7: Distribuera ditt programutvecklingsprojekt till Azure Websites
 
-1. Om du inte redan gjort det aktiverar du en git-databas för Azure-webbplatsen. Information om hur du gör det finns under ämnet [Kontinuerlig distribution med GIT i Azure App Service](../app-service-web/web-sites-publish-source-control.md).
+1. Om du inte redan gjort det aktiverar du en git-databas för Azure-webbplatsen. Information om hur du gör det finns i artikeln [Lokal Git-distribuering på Azure App Service](../app-service-web/app-service-deploy-local-git.md).
 
 2. Lägg till Azure-webbplatsen som en fjärransluten git.
 
@@ -576,6 +573,6 @@ Mer information finns i [Node.js Developer Center](https://azure.microsoft.com/d
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

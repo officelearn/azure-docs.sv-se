@@ -8,13 +8,13 @@ Det här avsnittet visar hur du ansluter din app till Mobile Engagement-serverde
 
 3. Övervakaren är redo att visa dig valfri enhet i realtid, vilket startar din app.
      
-4. Starta din app antingen i emulatorn/simulatorn eller på en ansluten enhet. Om integreringen är korrekt, bör du se en session i övervakaren, vilket innebär att din app nu är ansluten till Mobile Engagement-serverdelen och skickar data till den.  
+4. Starta din app nu. Om integreringen är korrekt, bör du se en session i övervakaren, vilket innebär att din app nu är ansluten till Mobile Engagement-serverdelen och skickar data till den.  
     
      ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

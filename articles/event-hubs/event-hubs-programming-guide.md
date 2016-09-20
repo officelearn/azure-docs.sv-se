@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="tbd"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Programmeringsguide för händelsehubbar
@@ -23,7 +23,7 @@ Den här artikeln beskriver programmering med händelsehubbar i Azure med Azure 
 
 Man skickar händelser till en händelsehubb antingen med hjälp av HTTP POST eller via en AMQP 1.0-anslutning. Valet av vilken du ska använda beror på det specifika scenario du står inför. AMQP 1.0-anslutningar är avgiftsbelagda som asynkrona anslutningar i Service Bus och är mer lämpliga i scenarier med ofta högre meddelandevolymer och lägre svarstidskrav, eftersom de tillhandahåller en permanent meddelandekanal.
 
-Händelsehubbar skapas och hanteras med hjälp av klassen [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). När du använder de .NET-hanterade API:erna är de primära konstruktionerna för att publicera data i händelsehubbar klasserna [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) och [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) innehåller kommunikationskanalen AMQP som används för att skicka händelser till händelsehubben. Klassen [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) representerar en händelse och används för att publicera meddelanden i en händelsehubb. Den här klassen innehåller brödtexten, vissa metadata och rubrikinformation om händelsen. Andra egenskaper läggs till i objektet [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) när det överförs via en händelsehubb.
+Du skapar och hanterar händelsehubbar med hjälp av klassen [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). När du använder de .NET-hanterade API:erna är de primära konstruktionerna för att publicera data i händelsehubbar klasserna [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) och [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) innehåller kommunikationskanalen AMQP som används för att skicka händelser till händelsehubben. Klassen [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) representerar en händelse och används för att publicera meddelanden i en händelsehubb. Den här klassen innehåller brödtexten, vissa metadata och rubrikinformation om händelsen. Andra egenskaper läggs till i objektet [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) när det överförs via en händelsehubb.
 
 ## Kom igång
 
@@ -35,14 +35,14 @@ Install-Package WindowsAzure.ServiceBus
 
 ## Skapa en händelsehubb
 
-Du kan använda klassen [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) för att skapa händelsehubbar. Till exempel:
+Du kan använda klassen [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) för att skapa händelsehubbar. Exempel:
 
 ```
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
 var description = manager.CreateEventHub("MyEventHub");
 ```
 
-I de flesta fall bör du använda metoderna [CreateEventHubIfNotExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createeventhubifnotexists.aspx) för att undvika att generera fel om tjänsten startas om. Till exempel:
+I de flesta fall bör du använda metoderna [CreateEventHubIfNotExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createeventhubifnotexists.aspx) för att undvika att generera fel om tjänsten startas om. Exempel:
 
 ```
 var description = manager.CreateEventHubIfNotExists("MyEventHub");
@@ -62,7 +62,7 @@ var client = EventHubClient.Create(description.Path);
 
 Den här metoden använder anslutningsinformationen för Service Bus i App.config-filen i `appSettings`-avsnittet. Ett exempel på den `appSettings`-XML som används för att lagra informationen om Service Bus-anslutningen finns i dokumentationen för metoden [Microsoft.ServiceBus.Messaging.EventHubClient.Create(System.String)](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.create.aspx).
 
-Ett annat alternativ är att skapa klienten från en anslutningssträng. Det här alternativet fungerar bra när du använder arbetsroller i Azure, eftersom du kan lagra strängen i konfigurationsegenskaperna för arbetaren. Till exempel:
+Ett annat alternativ är att skapa klienten från en anslutningssträng. Det här alternativet fungerar bra när du använder arbetsroller i Azure, eftersom du kan lagra strängen i konfigurationsegenskaperna för arbetaren. Exempel:
 
 ```
 EventHubClient.CreateFromConnectionString("your_connection_string");
@@ -111,7 +111,7 @@ Du kan även skicka händelser till en händelsehubb asynkront. Att skicka asynk
 
 ## Skapa en partitionsavsändare
 
-Det vanligaste är att man skickar händelser till en händelsehubb med en partitionsnyckel, men i vissa fall kanske du vill skicka händelser direkt till en viss partition. Till exempel:
+Det vanligaste är att man skickar händelser till en händelsehubb med en partitionsnyckel, men i vissa fall kanske du vill skicka händelser direkt till en viss partition. Exempel:
 
 ```
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
@@ -132,7 +132,7 @@ EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
 var receiver = group.CreateReceiver(client.GetRuntimeInformation().PartitionIds[0]);
 ```
 
-Metoden [CreateReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubconsumergroup.createreceiver.aspx) har flera överlagringar som  underlättar kontroll över den läsare som skapas. De här metoderna omfattar att ange en offset antingen som en sträng eller en tidsstämpel, och möjligheten att ange om du ska ta med den här angivna offseten i den returnerade strömmen eller starta efter den. När du har skapat mottagaren kan du börja ta emot händelser på det returnerade objektet. Metoden [Receive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubreceiver.receive.aspx) har fyra överlagringar som styr parametrarna för mottagningsåtgärden, t.ex. batchstorlek och väntetid. Du kan använda de asynkrona versionerna av de här metoderna för att öka genomflödet av en konsument. Till exempel:
+Metoden [CreateReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubconsumergroup.createreceiver.aspx) har flera överlagringar som  underlättar kontroll över den läsare som skapas. De här metoderna omfattar att ange en offset antingen som en sträng eller en tidsstämpel, och möjligheten att ange om du ska ta med den här angivna offseten i den returnerade strömmen eller starta efter den. När du har skapat mottagaren kan du börja ta emot händelser på det returnerade objektet. Metoden [Receive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubreceiver.receive.aspx) har fyra överlagringar som styr parametrarna för mottagningsåtgärden, t.ex. batchstorlek och väntetid. Du kan använda de asynkrona versionerna av de här metoderna för att öka genomflödet av en konsument. Exempel:
 
 ```
 bool receive = true;
@@ -187,6 +187,6 @@ Mer information om scenarier i händelsehubbar finns i följande länkar:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

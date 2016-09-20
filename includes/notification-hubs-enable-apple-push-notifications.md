@@ -43,13 +43,9 @@ För att kunna skicka push-meddelanden till en iOS-app måste du registrera prog
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    Detta genererar din App-ID och ber dig att bekräfta informationen. Klicka på **Skicka**
+    Detta genererar ditt app-ID och ber dig att bekräfta informationen. Klicka på **Registrera** för att bekräfta det nya app-ID:et.
 
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-confirm-new-appid.png)
-
-
-    När du klickar på **Skicka** visas skärmen **Registreringen har slutförts** enligt nedan. Klicka på **Klar**.
+    När du klickar på **Registrera** visas skärmen **Registreringen har slutförts** enligt nedan. Klicka på **Klar**.
 
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
@@ -139,6 +135,6 @@ För att kunna skicka push-meddelanden till en iOS-app måste du registrera prog
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

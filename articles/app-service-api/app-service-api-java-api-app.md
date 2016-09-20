@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="java"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
-    ms.author="bradygaster"/>
+    ms.date="08/31/2016"
+    ms.author="rachelap"/>
 
 # Skapa och distribuera en Java API-app i Azure Apptjänst
 
@@ -22,7 +22,7 @@
 
 I de här självstudierna får du veta hur du skapar en Java-applikation och distribuerar den till API Apps i Azure Apptjänst med hjälp av [Git]. Anvisningarna i den här kursen kan tillämpas på alla operativsystem som kan köra Java. Koden i självstudierna byggs med [Maven]. [Jax RS] används för att skapa tjänsten RESTful och genereras baserat på [Swagger]-metadataspecifikationerna med hjälp av [Swagger Editor].
 
-## Förutsättningar
+## Krav
 
 1. [Java Developer Kit 8] (eller senare)
 1. [Maven] installerat på utvecklingsdatorn
@@ -317,7 +317,7 @@ Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter
 [Postman]: https://www.getpostman.com/
 [Lagrings-SDK för Java]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
-[Swagger-redigerare]: http://editor.swagger.io/
+[Swagger Editor]: http://editor.swagger.io/
 [Visual Studio-koden]: https://code.visualstudio.com
 
 <!-- IMG List -->
@@ -340,6 +340,6 @@ Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

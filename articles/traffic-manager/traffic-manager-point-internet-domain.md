@@ -3,7 +3,7 @@
    description="Den här artikeln beskriver hur du pekar ditt företags domännamn på ett Traffic Manager-domännamn."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Peka företagets Internetdomän på en Azure Traffic Manager-domän
 
@@ -37,6 +37,6 @@ Alla trafikförfrågningar till *www.contoso.com* kommer nu att dirigeras till *
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

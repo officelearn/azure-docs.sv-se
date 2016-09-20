@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/05/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Vad finns i Azure RemoteApp-mallavbildningarna?
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 
 Din Azure RemoteApp-prenumeration innehåller tre mallavbildningar:
 
@@ -57,11 +60,11 @@ Office 365 är det mest efterfrågade programmet så vi har skapat en ”anpassa
 Den här avbildningen är en utökning av den vanliga avbildningen, och innehåller följande komponenter från Microsoft Office 365 ProPlus utöver de komponenter som beskrivs i Windows Server 2012 R2-avbildningen:
 
 
-- Access
+- Åtkomst
 - Excel
 - Lync
 - OneNote
-- OneDrive för företag
+- OneDrive för företag (observera att synkroniseringsagenten inte stöds för användning med Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Word
@@ -94,7 +97,7 @@ Den här avbildningen är en utökning av den vanliga avbildningen, och innehål
 - Excel
 - Lync
 - OneNote
-- OneDrive för företag
+- OneDrive för företag (observera att synkroniseringsagenten inte stöds för användning med Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Project
@@ -106,6 +109,6 @@ Den här avbildningen är en utökning av den vanliga avbildningen, och innehål
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

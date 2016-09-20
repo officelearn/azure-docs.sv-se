@@ -12,15 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/20/2016"
+    ms.date="08/10/2016"
     ms.author="awills"/>
 
 # Övervaka tillgänglighet och svarstider på valfri webbplats
 
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
-När du har distribuerat din webbapp kan du konfigurera webbtester för att övervaka appens tillgänglighet och svarstider. Application Insights skickar webbbförfrågningar med jämna mellanrum från platser runtom i världen och kan varna dig om programmet svarar långsamt eller inte alls.
+När du har distribuerat din webbapp till en värd kan du konfigurera webbtester för att övervaka appens tillgänglighet och svarstider. [Visual Studio Application Insights](app-insights-overview.md) skickar webbförfrågningar med jämna mellanrum från platser runtom i världen och kan varna dig om programmet svarar långsamt eller inte alls.
 
 ![Exempel på webbtest](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -40,7 +37,7 @@ Du kan skapa upp till tio webbtester per programresurs.
 
 Hoppa över det här steget om du redan har [konfigurerat en Application Insights-resurs][start] för det här programmet och om du vill visa tillgänglighetsdata på samma plats.
 
-Registrera dig för [Microsoft Azure](http://azure.com), gå till [Azure-portalen](https://portal.azure.com) och skapa en ny Application Insights-resurs.
+Registrera dig för [Microsoft Azure](http://azure.com), gå till [Azure-portalen](https://portal.azure.com) och skapa en Application Insights-resurs.
 
 ![Nytt > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
@@ -60,16 +57,16 @@ Leta upp panelen Tillgänglighet i Application Insights-resursen. Klicka på pan
 
 - **Villkor för lyckad test**:
 
-    **Timeout för test**: Minska det här värdet om du vill få aviseringar om långsamma svar. Testet räknas som misslyckat om svaren från din webbplats inte har tagits emot inom denna period. Om du valde **Dela upp beroende begäranden** måste alla bilderna, formatfilerna, skripten och andra beroende resurser ha tagits emot inom denna period.
+    **Timeout för test**: Minska det här värdet om du vill få aviseringar om långsamma svar. Testet räknas som misslyckat om svaren från din webbplats inte har tagits emot inom denna period. Om du valde **Parsa beroende begäranden** måste alla bilder, formatfiler, skript och andra beroende resurser ha tagits emot inom denna period.
 
     **HTTP-svar**: Den returnerade statuskoden som räknas som ett lyckat test. 200 är koden som anger att en normal webbsida har returnerats.
 
-    **Innehållsmatchning**: en sträng, t.ex. ”Välkommen!”. Vi ska testa att den förekommer i varje svar. Den måste vara en enkel sträng utan jokertecken. Glöm inte att du kan behöva uppdatera sidan om innehållet ändras.
+    **Innehållsmatchning**: en sträng, t.ex. ”Välkommen!”. Vi testar att den finns med i varje svar. Den måste vara en enkel sträng utan jokertecken. Glöm inte att du kan behöva uppdatera sidan om innehållet ändras.
 
 
 - **Aviseringar** skickas som standard till dig om det uppstår fel på tre platser under en femminutersperiod. Ett fel på en enda plats är ofta ett nätverksproblem och inte ett problem med din webbplats. Men du kan ändra tröskelvärdet så att det är mer eller mindre känsligt, och du kan också ändra vem e-postmeddelandena ska skickas till.
 
-    Du kan konfigurera en [webhook](../azure-portal/insights-webhooks-alerts.md) som anropas när en avisering genereras.
+    Du kan konfigurera en [webhook](../azure-portal/insights-webhooks-alerts.md) som anropas när en avisering genereras. (Observera dock att frågeparametrar inte skickas som egenskaper för närvarande.)
 
 #### Testa fler URL:er
 
@@ -82,13 +79,13 @@ Klicka på **Uppdatera** på tillgänglighets-/webbtestbladet efter 1–2 minute
 
 ![Sammanfattningsresultat på startbladet](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-Klicka på valfri stapel i sammanfattningsdiagrammet överst om du vill visa en mer detaljerad vy av den tidsperioden.
+Klicka på valfri stapel i sammanfattningsdiagrammet om du vill visa en mer detaljerad vy av den aktuella tidsperioden.
 
 Dessa diagram kombinerar resultaten för alla webbtester för det här programmet.
 
 #### Komponenter på din webbsida
 
-Bilder, formatmallar och skript och andra statiska komponenter på webbsidan som du testar begärs som en del av testet.  
+Bilder, formatmallar, skript och andra statiska komponenter på webbsidan som du testar begärs som en del av testet.  
 
 Den registrerade svarstiden är den tid det tar för alla komponenter att slutföra inläsningen.
 
@@ -104,7 +101,7 @@ Eller rulla ned och klicka på ett test där du ser ett resultat som är mindre 
 
 ![Klicka på ett specifikt webbtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
-Nu visas resultaten för testet.
+Testresultatet öppnas.
 
 ![Klicka på ett specifikt webbtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
@@ -131,7 +128,7 @@ Du kan också hämta resultatfilen och granska den i Visual Studio.
 
 Du kan övervaka ett scenario med en serie URL:er. Om du till exempel övervakar en försäljningswebbplats kan du testa att det går att lägga till objekt i kundvagnen korrekt.
 
-Om du vill skapa ett test med flera steg spelar du in scenariot med hjälp av Visual Studio och laddar sedan upp inspelningen till Application Insights. Application Insights spelar upp scenariot i intervall och kontrollerar svaren.
+Om du vill skapa ett test med flera steg spelar du in scenariot med hjälp av Visual Studio och laddar sedan upp inspelningen till Application Insights. Application Insights spelar upp scenariot i intervall och verifierar svaren.
 
 Observera att du inte kan använda kodade funktioner i tester: stegen i scenariot måste finnas som ett skript i filen .webtest.
 
@@ -141,7 +138,7 @@ Spela in en webbsession med Visual Studio Enterprise eller Ultimate.
 
 1. Skapa ett testprojekt för webbprestanda.
 
-    ![Skapa ett nytt projekt i Visual Studio från mallen Webbprestanda- och inläsningstest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Skapa ett projekt i Visual Studio från mallen Webbprestanda- och inläsningstest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
 2. Öppna filen .webtest och börja inspelningen.
 
@@ -195,7 +192,7 @@ Anta att du testar ett verktyg som hämtar tidsberoende data, till exempel aktie
 
 När du kör testet vill du att EndTime alltid ska vara den aktuella tiden, och StartTime 15 minuter tidigare.
 
-Du kan göra detta på två sätt i plugin-program för webbtester.
+Du kan parameterisera tider med hjälp av webbtest-plugin-program.
 
 1. Lägg till ett plugin-program för webbtester för varje variabelt parametervärde som du behöver. I verktygsfältet Webbtest väljer du **Lägg till plugin-program för webbtest**.
 
@@ -211,18 +208,42 @@ Du kan göra detta på två sätt i plugin-program för webbtester.
 
     ![Använd {{plugin-name}} i testparametern.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Ladda upp testet till portalen. De dynamiska värdena används i varje körning av testet.
+Ladda upp testet till portalen. De dynamiska värdena används i varje testkörning.
 
 ## Hantera inloggning
 
 Om användarna måste logga in i din app kan du välja mellan olika alternativ för att simulera inloggningen, så att du kan testa sidorna bakom inloggningen. Vilken metod du använder beror på vilken typ av säkerhet som tillhandahålls av appen.
 
-I samtliga fall bör du skapa ett konto som endast är avsett för testning. Om möjligt begränsar du kontots behörigheter så att det är skrivskyddat.
+I samtliga fall bör du skapa ett konto i ditt program som endast används för testning. Om möjligt begränsar du behörigheterna för det här testkontot så att webbtestningen inte påverkar riktiga användare.
 
-* Enkelt användarnamn och lösenord: Spela bara in ett webbtest som vanligt. Ta bort cookies först.
-* SAML-autentisering. För detta kan du använda SAML-plugin-programmet som är tillgängligt för webbtester.
-* Klienthemlighet: Om din app kräver inloggning med en klienthemlighet använder du den. Detta tillhandahålls av Azure Active Directory. 
-* Öppen autentisering, t.ex. inloggning med ditt Microsoft- eller Google-konto. Många appar som använder OAuth erbjuder möjligheten att använda en klienthemlighet, så det första du bör göra är att ta reda på detta. Om testet måste logga in med OAuth är den allmänna riktlinjen att:
+### Enkelt användarnamn och lösenord
+
+Spela in ett webbtest som vanligt. Ta bort cookies först.
+
+### SAML-autentisering
+
+Använd SAML-plugin-programmet som är tillgängligt för webbtester.
+
+### Klienthemlighet
+
+Om din app kräver inloggning med en klienthemlighet använder du det. Azure Active Directory (AAD) är ett exempel på en tjänst som erbjuder inloggning med klienthemligheter. I AAD är klienthemligheten appnyckeln. 
+
+Här är ett exempel på ett webbtest för en Azure-webbapp som använder en appnyckel:
+
+![Exempel med en klienthemlighet](./media/app-insights-monitor-web-app-availability/110.png)
+
+1. Hämta en token från AAD med hjälp av en klienthemlighet (AppKey).
+2. Extrahera ägartoken från svaret.
+3. Anropa API:et med hjälp av ägartoken i auktoriseringshuvudet.
+
+Kontrollera att webbtestet är en riktig klient, dvs. att det har en egen app i AAD, och använd dess klient-ID och appnyckel. Tjänsten som testas har också sin egen app i AAD: appID-URI:n för den här appen visas i webbtestet i fältet ”resource”. 
+
+### Öppen autentisering
+
+Ett exempel på öppen autentisering är inloggning med ett Microsoft- eller Google-konto. Många appar som använder OAuth erbjuder möjligheten att använda en klienthemlighet, så det första du bör göra är att ta reda på detta. 
+
+Om testet måste logga in med OAuth är den allmänna riktlinjen att:
+
  * Använda ett verktyg som Fiddler för att undersöka trafiken mellan webbläsaren, autentiseringswebbplatsen och din app. 
  * Utföra två eller flera inloggningar med olika datorer eller webbläsare, eller med långa intervall (så att token upphör att gälla).
  * Genom att jämföra olika sessioner identifiera den token som skickas tillbaka från autentiseringswebbplatsen, som sedan skickas till din appserver efter inloggningen. 
@@ -239,6 +260,15 @@ I samtliga fall bör du skapa ett konto som endast är avsett för testning. Om 
 
 Du kanske vill inaktivera webbtesterna när du utför underhåll av tjänsten.
 
+## Prestandatester
+
+Du kan köra ett inläsningstest på din webbplats. Som med tillgänglighetstestet kan du skicka antingen enkla begäranden eller begäranden med flera steg från våra platser runtom i världen. Till skillnad från ett tillgänglighetstest skickas många begäranden, som simulerar flera samtidiga användare.
+
+Öppna **Inställningar**, **Prestandatest** från bladet Översikt. När du skapar ett test uppmanas du att ansluta till eller att skapa ett konto för Visual Studio Team Services. 
+
+När testet är klart visas svarstiderna och slutförandefrekvens.
+
+
 ## Automation
 
 * [Konfigurera ett webbtest automatiskt med hjälp av PowerShell-skript](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/). 
@@ -248,11 +278,11 @@ Du kanske vill inaktivera webbtesterna när du utför underhåll av tjänsten.
 
 * *Kan jag anropa kod från mitt webbtest?*
 
-    Nej. Stegen i testet måste finnas i filen .webtest. Och du kan inte anropa andra webbtester eller använda loopar. Men det finns ett antal plugin-program som kan vara användbara.
+    Nej. Stegen i testet måste finnas i filen .webtest. Och du kan inte anropa andra webbtester eller använda loopar. Men det finns flera plugin-program som kan vara användbara.
 
 * *Stöds HTTPS?*
 
-    För närvarande stöds SSL 3.0 och TLS 1.0.
+    Vi stöder TLS 1.1 och TLS 1.2.
 
 * *Är det någon skillnad mellan ”webbtester” och ”tillgänglighetstester”?*
 
@@ -260,7 +290,7 @@ Du kanske vill inaktivera webbtesterna när du utför underhåll av tjänsten.
 
 * *Jag vill använda tillgänglighetstester på vår interna server som körs bakom en brandvägg.*
 
-    Konfigurera brandväggen så att den tillåter förfrågningar från IP-adresserna i listan i slutet av den här artikeln.
+    Konfigurera din brandvägg att tillåta förfrågningar från [IP-adresserna för webbtestagenter](app-insights-ip-addresses.md#availability).
 
 * *Det går inte att överföra ett webbtest med flera steg*
 
@@ -277,7 +307,7 @@ Du kanske vill inaktivera webbtesterna när du utför underhåll av tjänsten.
 
     Det finns en gräns på 100 förfrågningar per test.
 
-    Testet stoppas om det körs längre än två minuter.
+    Testet stoppas om den körs längre än två minuter.
 
 * *Hur kan jag köra ett test med klientcertifikat?*
 
@@ -294,125 +324,7 @@ Du kanske vill inaktivera webbtesterna när du utför underhåll av tjänsten.
 
 [Felsökning][qna]
 
-
-## IP-adresser för webbtester
-
-Om du behöver öppna en brandvägg för att tillåta webbtester är det här den aktuella listan över IP-adresser. Den kan ändras då och då.
-
-Öppna portarna 80 (http) och 443 (https).
-
-```
-
-213.199.178.54
-213.199.178.55
-213.199.178.56
-213.199.178.61
-213.199.178.57
-213.199.178.58
-213.199.178.59
-213.199.178.60
-213.199.178.63
-213.199.178.64
-207.46.98.158
-207.46.98.159
-207.46.98.160
-207.46.98.157
-207.46.98.152
-207.46.98.153
-207.46.98.156
-207.46.98.162
-207.46.98.171
-207.46.98.172
-65.55.244.40
-65.55.244.17
-65.55.244.42
-65.55.244.37
-65.55.244.15
-65.55.244.16
-65.55.244.44
-65.55.244.18
-65.55.244.46
-65.55.244.47
-207.46.14.60
-207.46.14.61
-207.46.14.62
-207.46.14.55
-207.46.14.63
-207.46.14.64
-207.46.14.51
-207.46.14.52
-207.46.14.56
-207.46.14.65
-157.55.14.60
-157.55.14.61
-157.55.14.62
-157.55.14.47
-157.55.14.64
-157.55.14.65
-157.55.14.43
-157.55.14.44
-157.55.14.49
-157.55.14.50
-65.54.66.56
-65.54.66.57
-65.54.66.58
-65.54.66.61
-207.46.71.54
-207.46.71.52
-207.46.71.55
-207.46.71.38
-207.46.71.51
-207.46.71.57
-207.46.71.58
-207.46.71.37
-202.89.228.67
-202.89.228.68
-202.89.228.69
-202.89.228.57
-65.54.78.49
-65.54.78.50
-65.54.78.51
-65.54.78.54
-94.245.82.32
-94.245.82.33
-94.245.82.37
-94.245.82.38
-94.245.72.44
-94.245.72.45
-94.245.72.46
-94.245.72.49
-207.46.56.57
-207.46.56.58
-207.46.56.59
-207.46.56.67
-207.46.56.61
-207.46.56.62
-207.46.56.63
-207.46.56.64
-65.55.82.84
-65.55.82.85
-65.55.82.86
-65.55.82.81
-65.55.82.87
-65.55.82.88
-65.55.82.89
-65.55.82.90
-65.55.82.91
-65.55.82.92
-94.245.78.40
-94.245.78.41
-94.245.78.42
-94.245.78.45
-70.37.147.43
-70.37.147.44
-70.37.147.45
-70.37.147.48
-94.245.66.43
-94.245.66.44
-94.245.66.45
-94.245.66.48
-
-```
+[IP-adresser för webbtestagenter](app-insights-ip-addresses.md)
 
 
 <!--Link references-->
@@ -424,6 +336,6 @@ Om du behöver öppna en brandvägg för att tillåta webbtester är det här de
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

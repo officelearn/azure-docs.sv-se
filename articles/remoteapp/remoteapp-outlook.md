@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Använda Microsoft Outlook i Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 
 Azure RemoteApp stöder Microsoft Outlook O365. Läs mer om hur [Office fungerar i Azure RemoteApp](remoteapp-officesubscription.md). Det finns några rekommenderade inställningar för Outlook när det används i Azure RemoteApp.
 
@@ -27,12 +30,12 @@ Användaren kan välja **cachelagrat Exchange-läge** eller **onlineläge** unde
 Läs [steg för steg-instruktionerna om hur du aktiverar cachelagrat läge](https://technet.microsoft.com/library/c6f4cad9-c918-420e-bab3-8b49e1885034#proc).
 
 ## Söka
-Sökningen i Outlook har begränsningar i Azure RemoteApp. Azure RemoteApp använder delade virtuella datorer för att hantera användarsessioner. Sökindexeringen beror på dator-ID:t, som skiljer sig mellan olika virtuella datorer. Det är möjligt att en användare dirigeras till en ny virtuell dator varje gång de loggar in på Azure RemoteApp. Det betyder att om vi aktiverar lokal sökning körs indexeraren varje gång dator-ID:t ändras (när användaren arbetar från en annan virtuell dator). Beroende på hur stor .OST-filen är kan det ta lång tid för indexeraren att slutföra, vilket betyder att den använder upp resurser som krävs för andra appar. Sökningen blir inte bara långsam, den kanske inte heller ger resultat. Ett sätt att komma runt problemet är att aktivera onlinesökning som standard. Tyvärr går det inte att inaktivera indexerad/lokal sökning, och onlinesökning kan inte aktiveras som standard i Outlook 2013.
+Sökningen i Outlook har begränsningar i Azure RemoteApp. Azure RemoteApp använder delade virtuella datorer för att hantera användarsessioner. Sökindexeringen beror på dator-ID:t, som skiljer sig mellan olika virtuella datorer. Det är möjligt att en användare dirigeras till en ny virtuell dator varje gång de loggar in på Azure RemoteApp. Det betyder att om vi aktiverar lokal sökning körs indexeraren varje gång dator-ID:t ändras (när användaren arbetar från en annan virtuell dator). Beroende på hur stor .OST-filen är kan det ta lång tid för indexeraren att slutföra, vilket betyder att den använder upp resurser som krävs för andra appar. Sökningen blir inte bara långsam, den kanske inte heller ger resultat. Det går att komma runt detta genom att använda kontoprofil med onlineläge, men den allmänna prestandan skulle bli sämre på grund av brist på lokalt cacheminne (mer information om skillnaden mellan cacheläge och onlineläge kommer du till via länken ovan). Tyvärr går det inte att inaktivera indexerad/lokal sökning, och onlinesökning kan inte aktiveras som standard i Outlook 2013.
 
-I Outlook 2016 går det att lösa med hjälp av den nya onlinesökningen för postlådor i Exchange 2016 (eller i Office 365). Då används sökresultat på servern mot det lokala cacheminnet (OST). Outlook kanske återgår till att använda sökindexeraren i vissa fall, men för de flesta sökningar används onlineläget. Rekommendationen från Azure RemoteApp är att använda Outlook 2016 om e-postsökningen är mycket viktig.
+I Outlook 2016 går det att lösa i cacheläge med hjälp av den nya söktjänsten för postlådor i Exchange 2016 (eller i Office 365). Då används tjänstens sökresultat mot det lokala cacheminnet (OST). Outlook kanske återgår till att använda den lokala sökindexeraren i vissa fall, men för de flesta sökningar används denna nya tjänst med sökfunktion. Rekommendationen från Azure RemoteApp är att använda Outlook 2016 om e-postsökningen är mycket viktig.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

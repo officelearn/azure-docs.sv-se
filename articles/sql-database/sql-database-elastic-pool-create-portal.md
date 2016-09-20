@@ -1,7 +1,7 @@
 <properties
     pageTitle="Skapa en ny elastisk pool med Azure-portalen | Microsoft Azure"
     description="Så här lägger du till en skalbar elastisk databaspool till din SQL-databaskonfiguration för enklare administration och resursdelning över flera databaser."
-    keywords="scalable database,database configuration"
+    keywords="skalbar databas, databaskonfiguration"
     services="sql-database"
     documentationCenter=""
     authors="ninarn"
@@ -11,7 +11,7 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.date="05/06/2016"
+    ms.date="07/20/2016"
     ms.author="ninarn"
     ms.workload="data-management"
     ms.topic="get-started-article"
@@ -33,9 +33,11 @@ Du kan lägga till flera pooler till en server, men du kan inte lägga till data
 
 ## Steg 1: Skapa en ny pool
 
-Skapa en elastisk databaspool genom att lägga till en ny pool till en server. Du kan lägga till flera pooler till en server, men du kan inte lägga till databaser från olika servrar i samma pool.
+Den här artikeln visar hur du skapar en ny pool på ett befintligt **serverblad** i portalen, vilket är det enklaste sättet för att flytta befintliga databaser till en pool. 
 
-1. I [Azure-portalen](http://portal.azure.com/) klickar du på **SQL-servrar** och klickar sedan på den server som innehåller databaserna som du vill lägga till i en poolen.
+> [AZURE.NOTE] Oavsett om du redan har en server eller inte, kan du också skapa en ny pool på bladet **Elastiska SQL-pooler** (under listan till vänster i portalen klickar du på **Bläddra** **>** **Elastiska SQL-pooler**). Klicka på **+ Lägg till** på bladet **Elastiska SQL-pooler** för att skapa en ny server under arbetsflödet för pooldistribution.
+
+1. I [Azure Portal](http://portal.azure.com/) nedanför listan till vänster, klickar du på **Bläddra** **>** **SQL-servrar** och klickar sedan på den server som innehåller databaserna som du vill lägga till i en poolen.
 2. Klicka på **Ny pool**.
 
     ![Lägg till poolen till en server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
@@ -115,6 +117,6 @@ Efter att databaserna lagts till i poolen, kommer rekommendationer att genereras
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

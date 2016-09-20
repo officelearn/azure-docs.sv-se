@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-phonegap"
     ms.devlang="js"
     ms.topic="hero-article" 
-    ms.date="04/04/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Komma igång med Azure Mobile Engagement för Cordova/Phonegap
@@ -24,9 +24,9 @@ I det här avsnittet beskrivs hur du använder Azure Mobile Engagement för att 
 
 I den här självstudiekursen skapar vi en tom Cordova-app med Mac och integrerar sedan Mobile Engagement SDK. Den samlar in grundläggande analysdata och tar emot push-meddelanden via Apple Push Notification System (APNS) för iOS och Google Cloud Messaging (GCM) för Android. Vi distribuerar sedan appen till en iOS- eller Android-enhet och testar den. 
 
-> [AZURE.NOTE] Du måste ha ett aktivt Azure-konto för att slutföra den här självstudiekursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
+> [AZURE.NOTE] Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
 
-Följande krävs för den här kursen:
+För den här kursen behöver du följande:
 
 + XCode som kan laddas ned och installeras från Mac App Store (för att distribuera till iOS)
 + [Android SDK & Emulator](http://developer.android.com/sdk/installing/index.html) (för att distribuera till Android)
@@ -180,7 +180,7 @@ Du behöver bara använda emulatorn för att köra Android-appen eftersom GCM-me
 
     cordova run android
 
-##<a id="send"></a>Skicka ett meddelande till appen
+##<a id="send"></a>Skicka ett meddelande till din app
 
 Nu skapar vi en enkel kampanj med push-meddelanden till den app som körs på enheten:
 
@@ -241,6 +241,6 @@ Nu skapar vi en enkel kampanj med push-meddelanden till den app som körs på en
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

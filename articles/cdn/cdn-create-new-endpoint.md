@@ -1,5 +1,5 @@
 <properties
-     pageTitle="Använda Azure CDN"
+     pageTitle="Använda Azure CDN | Microsoft Azure"
      description="Det här avsnittet beskriver hur du aktiverar CDN (Content Delivery Network) för Azure. Självstudiekursen beskriver steg för steg hur du skapar en ny CDN-profil och CDN-slutpunkt."
      services="cdn"
      documentationCenter=""
@@ -12,7 +12,7 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="05/24/2016" 
+     ms.date="07/28/2016" 
      ms.author="casoper"/>
 
 # Använda Azure CDN  
@@ -67,7 +67,7 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
     
     > [AZURE.NOTE] **Ursprungsporten** påverkar endast vilken port som slutpunkten använder för att hämta information från ursprunget.  Själva slutpunkten är bara tillgänglig för slutklienter via HTTP- och HTTPS-standardportarna (80 och 443), oavsett **ursprungsporten**.  
     >
-    > Slutpunkter av typen **Azure CDN från Akamai** tillåter inte det fullständiga TCP-portintervallet för ursprung.  En lista över ursprungsportar som inte tillåts finns i artikeln om [beteenden i Azure CDN från Akamai](cdn-akamai-behavior-details.md).  
+    > Slutpunkter av typen **Azure CDN från Akamai** tillåter inte det fullständiga TCP-portintervallet för ursprung.  En lista över ursprungsportar som inte tillåts finns i [Azure CDN från Akamai-tillåtna ursprungsportar](https://msdn.microsoft.com/library/mt757337.aspx).  
     >
     > Följande begränsningar gäller för åtkomst till CDN-innehåll via HTTPS:
     > 
@@ -99,6 +99,6 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

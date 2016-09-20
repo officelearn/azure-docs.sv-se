@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/26/2016"
+    ms.date="06/27/2016"
     ms.author="billmath;andkjell"/>
 
 # Komma igång med Azure AD Connect med standardinställningar
@@ -31,9 +31,9 @@ Du kan se dessa steg i praktiken i avsnittet med [videoklipp](#videos).
 3. På välkomstskärmen markerar du kryssrutan för att acceptera licensvillkoren och klickar sedan på **Fortsätt**.  
 4. På skärmen Standardinställningar klickar du på **Använd standardinställningar**.  
 ![Välkommen till Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
-5. På sidan Anslut till Azure AD anger du användarnamnet och lösenordet för en global administratör för din Azure AD. Klicka på **Nästa**.  
+5. På sidan Anslut till Azure AD anger du användarnamnet och lösenordet för en global administratör för din Azure AD. Klicka på **Next**.  
 ![Anslut till Azure AD ](./media/active-directory-aadconnect-get-started-express/connectaad.png) Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutningsproblem](active-directory-aadconnect-troubleshoot-connectivity.md).
-6. På skärmen Anslut till AD DS anger du användarnamnet och lösenordet för ett företagsadministratörskonto. Du kan ange domändelen i NetBios- eller FQDN-format, d.v.s. FABRIKAM\administrator eller fabrikam.com\administrator. Klicka på **Nästa**.  
+6. På skärmen Anslut till AD DS anger du användarnamnet och lösenordet för ett företagsadministratörskonto. Du kan ange domändelen i NetBios- eller FQDN-format, d.v.s. FABRIKAM\administrator eller fabrikam.com\administrator. Klicka på **Next**.  
 ![Anslut till AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. Sidan [**Konfigurera Azure AD-inloggning**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) visas bara om du inte slutförde [domänverifieringen](active-directory-add-domain.md) under [kravfasen](active-directory-aadconnect-prerequisites.md).
 ![Overifierade domäner](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
@@ -71,6 +71,6 @@ Konton som används för installation | [Mer information om konton och behörigh
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

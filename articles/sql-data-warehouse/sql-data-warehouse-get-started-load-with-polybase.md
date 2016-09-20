@@ -3,7 +3,7 @@
    description="Läs mer om vad PolyBase är och hur man använder det för informationslagerscenarier."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="happynicolle"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/18/2016"
-   ms.author="sahajs;barbkess;jrj;sonyama"/>
+   ms.date="06/30/2016"
+   ms.author="nicw;barbkess;jrj;sonyama"/>
 
 
 # Läs in data med PolyBase i SQL Data Warehouse
@@ -256,12 +256,10 @@ Se [PolyBase-guiden][] för ytterligare information som du bör känna till när
 
 
 <!--Article references-->
-[Självstudier för PolyBase i SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
-[Läs in data med bcp]: sql-data-warehouse-load-with-bcp.md
-[lösningspartners]: sql-data-warehouse-solution-partners.md
-[utvecklingsöversikt]: sql-data-warehouse-overview-develop.md
-[Statistik]: sql-data-warehouse-develop-statistics.md
-[PolyBase-guiden]: sql-data-warehouse-load-polybase-guide.md
+[Självstudier för PolyBase i SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Läs in data med bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistik]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase-guiden]: ./sql-data-warehouse-load-polybase-guide.md
 [Kom igång med kommandoradsverktyget AzCopy]: ../storage/storage-use-azcopy.md
 [senaste versionen av AzCopy]: ../storage/storage-use-azcopy.md
 
@@ -289,6 +287,6 @@ Se [PolyBase-guiden][] för ytterligare information som du bör känna till när
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Skapa en Java-webbapp i Azure App Service
@@ -103,7 +103,7 @@ I det här avsnittet får du veta hur du skapar en webbapp och konfigurerar den 
 
 ## <a name="marketplace"></a> Använda en Java-mall från Azure Marketplace
 
-I det här avsnittet får du veta hur du använder Azure Marketplace till att skapa en Java-webbapp. Med samma grundläggande metod kan du också skapa Java-baserade mobilappar och API-appar. 
+I det här avsnittet får du veta hur du använder Azure Marketplace till att skapa en Java-webbapp. Med samma grundläggande metod kan du också skapa Java-baserade mobilappar och API Apps. 
 
 1. Logga in på [Azure Portal]
 
@@ -194,6 +194,6 @@ Mer information om hur du utvecklar Java-program i Azure finns i [Java-utvecklin
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

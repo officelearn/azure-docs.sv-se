@@ -13,26 +13,12 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/16/2016"
      ms.author="dobett"/>
 
 # Komma igång med Azure IoT Hub för .NET
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
-
-## Introduktion
-
-Azure IoT Hub är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och som tillhandahåller serverdelen för lösningar av den här typen. En av de största utmaningarna i ett IoT-projekt är att på ett tillförlitligt och säkert sätt kunna ansluta enheter till lösningens serverdel. IoT Hub löser detta problem genom att:
-
-- Erbjuda tillförlitlig meddelandehantering i hög skala från enhet till moln och från moln till enhet.
-- Skydda kommunikationen med autentiseringsuppgifter och åtkomstkontroll för varje enhet.
-- Tillhandahålla enhetsbibliotek för de mest populära språken och plattformarna.
-
-I den här självstudiekursen lär du dig att:
-
-- Använda Azure-portalen för att skapa en IoT-hubb.
-- Skapa en enhetsidentitet i din IoT-hubb.
-- Skapa en simulerad enhet som skickar telemetri till serverdelen i molnet och som tar emot kommandon från serverdelen i molnet.
 
 I slutet av den här självstudiekursen har du tre Windows-konsolprogram:
 
@@ -74,7 +60,7 @@ I det här avsnittet ska du skapa en Windows-konsolapp som skapar en ny enhetsid
 5. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med anslutningssträngen för IoT-hubben som du skapade i föregående avsnitt.
 
         static RegistryManager registryManager;
-        static string connectionString = "{iothub connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. Lägg till följande metod i klassen **Program**:
 
@@ -243,11 +229,11 @@ Den här självstudiekursen beskriver steg för steg hur du skapar en IoT Hub-kl
 
 Nu är det dags att köra programmen.
 
-1.  Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt**. Välj **Flera startprojekt** och välj sedan **Start** som åtgärden för både **ProcessDeviceToCloudMessages**- och **SimulatedDevice**-projektet.
+1.  Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt**. Välj **Flera startprojekt** och välj sedan **Start** som åtgärden för både **ReadDeviceToCloudMessages**- och **SimulatedDevice**-projektet.
 
     ![Egenskaper för startprojekt][41]
 
-2.  Starta båda apparna genom att trycka på **F5**. Konsolens utdata från appen **SimulatedDevice** visar meddelandena som din simulerade enhet skickar till IoT-hubben. Konsolens utdata från appen **ProcessDeviceToCloudMessages** visar meddelandena som din IoT-hubb tar emot.
+2.  Starta båda apparna genom att trycka på **F5**. Konsolens utdata från appen **SimulatedDevice** visar meddelandena som din simulerade enhet skickar till IoT-hubben. Konsolens utdata från appen **ReadDeviceToCloudMessages** visar meddelandena som din IoT-hubb tar emot.
 
     ![Konsolens utdata från appar][42]
 
@@ -258,11 +244,15 @@ Nu är det dags att köra programmen.
 
 ## Nästa steg
 
-I den här självstudiekursen konfigurerade du en ny IoT-hubb på portalen och skapade sedan en enhetsidentitet i hubbens identitetsregister. Du använde den här enhetsidentiteten så att den simulerade enhetsappen kunde skicka ”enhet till molnet”-meddelanden till hubben. Du skapade också en app som visar meddelandena som tagits emot av hubben. Du kan fortsätta att utforska IoT Hub-funktionerna och andra IoT-scenarier i följande självstudiekurser:
+I den här självstudiekursen konfigurerade du en ny IoT-hubb på portalen och skapade sedan en enhetsidentitet i hubbens identitetsregister. Du använde den här enhetsidentiteten så att den simulerade enhetsappen kunde skicka ”enhet till molnet”-meddelanden till hubben. Du skapade också en app som visar meddelandena som tagits emot av hubben. 
 
-- [Skicka meddelanden från molnet till enheten med IoT Hub][lnk-c2d-tutorial] beskriver hur du skickar meddelanden till enheter och hur du bearbetar leveransfeedback från IoT Hub.
-- [Behandla meddelanden från enheten till molnet][lnk-process-d2c-tutorial] beskriver hur du med hög tillförlitlighet bearbetar telemetri och interaktiva meddelanden som kommer från enheter.
-- [Överföra filer från enheter][lnk-upload-tutorial] beskriver ett mönster som använder ”molnet till enhet”-meddelanden för att underlätta filöverföringar från enheter.
+För att fortsätta komma igång med IoT-hubb och utforska andra IoT-scenarier, se:
+
+- [Ansluta din enhet][lnk-connect-device]
+- [Komma igång med enhetshantering][lnk-device-management]
+- [Komma igång med Gateway-SDK][lnk-gateway-SDK]
+
+I självstudien [Behandla meddelanden från enheten till molnet][lnk-process-d2c-tutorial] lär du dig hur du utökar din IoT-lösning och behandlar ”enhet till molnet”-meddelanden i hög skala.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
@@ -273,9 +263,7 @@ I den här självstudiekursen konfigurerade du en ny IoT-hubb på portalen och s
 [12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 
 <!-- Links -->
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -290,9 +278,12 @@ I den här självstudiekursen konfigurerade du en ny IoT-hubb på portalen och s
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
+[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 
@@ -33,7 +33,7 @@ Andra självstudier finns i:
 - [Kom igång med Data Lake Analytics med hjälp av NET SDK](data-lake-analytics-get-started-net-sdk.md)
 - [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) 
 
-**Förutsättningar**
+**Krav**
 
 Innan du påbörjar de här självstudierna måste du ha:
 
@@ -91,6 +91,6 @@ Varje Data Lake Analytics-konto har ett kontoberoende för [Azure Data Lake Stor
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

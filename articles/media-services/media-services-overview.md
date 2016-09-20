@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/03/2016" 
+    ms.date="08/07/2016"
     ms.author="juliako;anilmur"/>
 
 #Översikt över Azure Media Services och vanliga scenarier
@@ -35,7 +35,7 @@ Bygg Media Services-lösningar genom att använda:
     - [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
     - [Azure Media Services för Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (detta är en icke-Microsoft-version av en Node.js SDK. Den underhålls av ett community och har för närvarande inte en 100-procentig täckning av AMS API:er). 
 - Befintliga verktyg: 
-    - [Den klassiska Azure-portalen](http://manage.windowsazure.com/) 
+    - [Klassisk Azure-portal](http://manage.windowsazure.com/) 
     - [Azure-Media Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) är ett Winforms/C#-program för Windows)
 
 ##Sökvägar för Media Services-utbildning
@@ -49,7 +49,7 @@ Du kan visa sökvägar för AMS-utbildning här:
 
 Om du vill börja använda Azure Media Services ska du ha följande:
  
-3. Ett Azure-konto. Om du inte har ett konto kan skapa du ett kostnadsfritt provkonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](azure.microsoft.com).
+3. Ett Azure-konto. Om du inte har ett konto kan skapa du ett kostnadsfritt provkonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com).
 2. Ett Azure Media Services-konto. Använd den klassiska Azure-portalen, .NET eller REST API för att skapa ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-create-account.md).
 3. (Valfritt) Konfigurera utvecklingsmiljön. Välj .NET eller REST API för din utvecklingsmiljö. Mer information finns i [Ställa in miljön](media-services-dotnet-how-to-use.md). 
 
@@ -60,7 +60,7 @@ Om du vill börja använda Azure Media Services ska du ha följande:
 
 Azure Media Services-koncepten finns i [Koncept](media-services-concepts.md).
 
-En instruktionsserie som ger en introduktion till huvudkomponenterna i Azure Media Services finns i [Azure Media Services stegvisa självstudier](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Den här serien ger en bra översikt över koncepten och använder verktyget AMSE för att demonstrera AME-uppgifter. Observera att AMSE-verktyget är ett verktyg i Windows. Det här verktyget stöder de flesta av de uppgifter som du kan göra programmässigt med [AMS SDK för .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java) eller  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
+En instruktionsserie som ger en introduktion till huvudkomponenterna i Azure Media Services finns i [Azure Media Services stegvisa självstudier](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Den här serien ger en bra översikt över koncepten och använder verktyget AMSE för att demonstrera AMS-uppgifter. Observera att AMSE-verktyget är ett verktyg i Windows. Det här verktyget stöder de flesta av de uppgifter som du kan göra programmässigt med [AMS SDK för .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java) eller  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Leverera Media på begäran med Azure Media Services: vanliga scenarier och uppgifter
 
@@ -222,6 +222,6 @@ Mer information finns i [Microsoft Azure SLA](https://azure.microsoft.com/suppor
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

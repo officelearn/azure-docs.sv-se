@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="07/26/2016"
     ms.author="robinsh"/>
 
 
 # Om Azure-lagringskonton
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Översikt
 
@@ -45,7 +47,7 @@ Detaljerad information om ett lagringskontos kapacitets- och prestandamål finns
 
 > [AZURE.NOTE] När du skapar en virtuell dator i Azure skapas ett lagringskonto automatiskt åt dig på distributionsplatsen om du inte redan har ett lagringskonto på den platsen. Du behöver alltså inte följa stegen nedan för att skapa ett lagringskonto för dina virtuella datorer. Namnet på lagringskontot baseras på den virtuella datorns namn. Mer information finns i [dokumentationen för Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## Skapa ett lagringskonto
+## skapar ett lagringskonto
 
 1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
 
@@ -177,6 +179,6 @@ Om du vill ta bort ett lagringskonto som du inte längre använder klickar du p�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

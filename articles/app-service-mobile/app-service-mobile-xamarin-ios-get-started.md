@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Kom igång med Azure Apptjänst Mobilappar för Xamarin.iOS-appar | Microsoft Azure"
-    description="I den här kursen får du hjälp att komma igång med Mobilappar för Xamarin.iOS-utveckling"
+    pageTitle="Kom igång med Azure Apptjänst Mobile Apps för Xamarin.iOS-appar | Microsoft Azure"
+    description="I den här kursen får du hjälp att komma igång med Mobile Apps för Xamarin.iOS-utveckling."
     services="app-service\mobile"
     documentationCenter="xamarin"
     authors="wesmc7777"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="02/13/2016"
+    ms.date="08/04/2016"
     ms.author="normesta"/>
 
 
@@ -25,15 +25,15 @@
 
 I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Xamarin.iOS-mobilapp med hjälp av en mobilappsserverdel i Azure.  Du skapar både en ny mobilappsserverdel och en enkel _Todo list_ Xamarin.iOS-app där appdata lagras hos Azure.
 
-Du måste slutföra den här kursen innan du påbörjar någon annan  Xamarin.iOS-kurs om att använda funktionen Mobilappar i Azure Apptjänst.
+Du måste slutföra den här kursen innan du påbörjar någon annan Xamarin.iOS-kurs om att använda funktionen Mobile Apps i Azure Apptjänst.
 
 ##Nödvändiga komponenter
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/).
+* Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
+* Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 * En Mac med Xcode v7.0 eller senare och Xamarin Studio Community installerat. Se avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) och om [konfiguration, installation och verifieringar för Mac-användare](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
@@ -52,15 +52,6 @@ Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilk
 Följ instruktionerna nedan för att ställa in om serverprojektet ska använda en Node.js- eller .NET-serverdel.
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
-
-
-## (Valfritt) Testa serverdelsprojektet lokalt
-
-Om du väljer .NET-serverdelsalternativet ovan kan du, om du vill, testa serverdelen lokalt.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-
 
 ## Hämta och kör Xamarin.iOS-appen
 
@@ -112,6 +103,6 @@ Om du väljer .NET-serverdelsalternativet ovan kan du, om du vill, testa serverd
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

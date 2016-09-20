@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="jeffsta"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,23 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/20/2016"
+    ms.date="07/18/2016"
     ms.author="curtand;jeffsta"/>
 
-# Lägga till ett eget domännamn i Azure Active Directory
+# Lägga till ett anpassat domännamn i Azure Active Directory
 
 Din organisation använder ett eller flera domännamn för att göra affärer och dina användare loggar in i företagsnätverket med företagets domännamn. Nu när du använder Azure Active Directory (AD Azure) kan du även lägga till företagets domännamn i Azure AD. På så sätt kan du tilldela användarnamn i katalogen som dina användare känner igen, t.ex. ”alice@contoso.com”. Processen är enkel:
 
-- Lägg till domännamnet i guiden **Lägg till domän** på den klassiska Azure-portalen.
+1. Lägga till det anpassade domännamnet i din katalog
+2. Lägga till en DNS-post för domännamnet hos domännamnsregistratorn
+3. Verifiera det anpassade domännamnet i Azure AD
 
-- Hämta DNS-posten på den klassiska Azure AD-portalen eller med verktyget Azure AD Connect.
-
-- Lägg till DNS-posten för domännamnet i DNS-zonfilen på DNS-registratorns webbplats.
-
-- Verifiera domännamnet på den klassiska Azure AD-portalen eller med Azure AD Connect.
-
-
-Innan du verifierar ditt domännamn måste användarna logga in med användarnamn som ”alice@contoso.onmicrosoft.com”, som använder det ursprungliga domännamnet för din katalog. Om du behöver flera anpassade domännamn, till exempel ”contoso.com” och ”contosobank.com”, kan du lägga till dem. Du kan lägga till upp till 900 domännamn. Följ samma steg i den här artikeln för att lägga till alla domännamnen.
+> [AZURE.NOTE] Om du planerar att konfigurera det anpassade domännamn som ska användas med Active Directory Federation Services (AD FS) eller en annan säkerhetstokentjänst (STS) på företagets nätverk så följ anvisningarna i [Lägg till och konfigurera en domän för federation med Azure Active Directory](active-directory-add-domain-federated.md). Detta är användbart om du tänker synkronisera användare från din företagskatalog med Azure AD och [hash-synkronisering av lösenord](active-directory-aadconnectsync-implement-password-synchronization.md) inte uppfyller dina krav.
 
 ## Lägga till ett eget domännamn i katalogen
 
@@ -37,33 +32,29 @@ Innan du verifierar ditt domännamn måste användarna logga in med användarnam
 
 2. I **Active Directory** öppnar du din katalog och väljer fliken **Domäner**.
 
-3. Välj **Lägg till** i kommandofältet och ange sedan namnet på din domän, till exempel ”contoso.com”. Glöm inte att ta med .com, .net eller ett annat tillägg för toppnivån.
+3. Välj **Lägg till** i kommandofältet. Ange den anpassade domänens namn, t.ex. contoso.com. Glöm inte att inkludera .com, .net eller något annat toppnivåtillägg, och låt kryssrutan för enkel inloggning (federation) vara avmarkerad.
 
-4. Markera kryssrutan om du planerar att konfigurera den här domänen för [federerad inloggning](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) med din lokala Active Directory.
+4. Välj **Lägg till**.
 
-5. Välj **Lägg till**.
+5. Gå till den andra sidan i guiden Lägg till domän och hämta den DNS-post som Azure AD ska använda för att verifiera att din organisation äger det anpassade domännamnet .
 
 Nu när du har lagt till domännamnet måste Azure AD kontrollera att din organisation äger domännamnet. Innan Azure AD kan utföra den här kontrollen måste du lägga till en DNS-post i DNS-zonfilen för domännamnet. Den här uppgiften utförs på webbplatsen för domännamnsregistratorn för domännamnet.
 
-## Hämta DNS-posterna för domännamnet
+## Lägg till DNS-posten hos domänens domännamnsregistrator
 
-DNS-posterna finns på den andra sidan i guiden **Lägg till domän** om du inte federerar med en lokal Windows Server Active Directory.
+Nästa steg mot att kunna använda ditt anpassade domännamn med Azure AD är att du uppdaterar domänens DNS-zonfil. Detta gör det möjligt för Azure AD att verifiera att din organisation äger det anpassade domännamnet.
 
-Om du konfigurerar domänen för federation uppmanas du att ladda ned verktyget Azure AD Connect Kör verktyget Azure AD Connect för att [hämta DNS-posterna som du behöver lägga till hos domännamnsregistratorn](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). Azure AD Connect kontrollerar också domännamnet för Azure AD.
+1.  Logga in hos domännamnsregistratorn för domänen. Om du inte har den åtkomst som krävs för att uppdatera DNS-posten så be den person eller grupp i din organisation som har denna åtkomst att utföra steg 2 och att meddela dig när det är klart.
 
-## Lägga till DNS-posten i DNS-zonfilen
+2.  Uppdatera DNS-zonfilen för domänen genom att lägga till DNS-posten som du fått från Azure AD. Den här DNS-posten gör att Azure AD kan verifiera ditt ägarskap för domänen. DNS-posten ändrar inga beteenden, till exempel e-postdirigering eller webbhosting.
 
-1.  Logga in hos domännamnsregistratorn för domänen. Om du inte har tillräcklig behörighet för att uppdatera DNS-posten ber du den person eller det team som har nödvändig behörighet att lägga till DNS-posten.
-
-2.  Uppdatera DNS-zonfilen för domänen genom att lägga till DNS-posten som du fått från Azure AD. Den här DNS-posten gör att Azure AD kan verifiera ditt ägarskap för domänen. DNS-posten ändrar inga beteenden, till exempel e-postdirigering eller webbhosting. Det kan ta upp till en timme för DNS-posterna att spridas.
-
-[Instruktioner för hur du lägger till en DNS-post hos populära DNS-registratorer](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
+Om du behöver hjälp med att lägga till DNS-posten kan du läsa [Anvisningar om hur man lägger till en DNS-post hos en vanlig DNS-registrator](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
 
 ## Verifiera domännamnet med Azure AD
 
-När du har lagt till DNS-posten måste du kontrollera att domännamnet har verifierats av Azure AD. Detta är det sista steget.
+När du har lagt till DNS-posten kan du verifiera domännamnet med Azure AD.
 
-Om guiden **Lägg till domän** fortfarande är öppen väljer du **Verifiera** på den tredje sidan i guiden. Du kan behöva vänta upp till en timme på att DNS-posten ska spridas innan du får bekräftelsen.
+Om guiden **Lägg till domän** fortfarande är öppen väljer du **Verifiera** på den tredje sidan i guiden. När du väljer **Verifiera** söker Azure AD efter DNS-posten i domänens DNS-zonfil. Azure AD kan bara verifiera domännamnet efter det att DNS-posterna har spritts. Spridningen tar ofta bara några sekunder, men kan ibland ta en timme eller mer. Om verifieringen inte fungerar första gången så försök igen lite senare.
 
 Om guiden **Lägg till domän** inte är öppen kan du verifiera domänen på [den klassiska Azure-portalen](https://manage.windowsazure.com/):
 
@@ -71,25 +62,26 @@ Om guiden **Lägg till domän** inte är öppen kan du verifiera domänen på [d
 
 2.  Öppna katalogen och välj fliken **Domäner**.
 
-3.  Välj den domän som du vill verifiera.
+3.  Markera det domännamn som du vill verifiera och välj **Kontrollera** i kommandofältet.
 
-4.  Välj **Verifiera** på kommandoraden och välj **Verifiera** i dialogrutan.
+4. Slutför verifieringen genom att välja **Verifiera** i dialogrutan.
 
-Grattis! Nu kan du [tilldela användarnamn som innehåller ditt domännamn](active-directory-add-domain-add-users.md). Om du hade problem med att verifiera domännamnet läser du avsnittet [Felsökning](#troubleshooting).
+Nu kan du [tilldela användarnamn som innehåller ditt domännamn](active-directory-add-domain-add-users.md).
 
 ## Felsökning
-Om du inte kan verifiera ett eget domännamn kan det bero på några möjliga orsaker. Vi börjar med de vanligaste och arbetar oss vidare till de minst vanliga.
 
-- Du försökte verifiera domännamnet innan DNS-posten hade spridits. Vänta en stund och försök igen.
+Om du inte kan verifiera ett anpassat domännamn så pröva med följande. Vi börjar med de vanligaste och arbetar oss vidare till de minst vanliga.
 
-- DNS-posten registrerades inte över huvud taget. Verifiera DNS-posten, vänta tills den har spridits och försök igen.
+1.  **Vänta en timma**. DNS-posterna måste spridas innan Azure AD kan verifiera domänen. Detta kan ta en timma eller mer.
 
-- Domännamnet har redan verifierats i en annan katalog. Leta upp domännamnet, ta bort den från den andra katalogen och försök igen.
+2.  **Kontrollera att DNS-posten har angetts och att den är korrekt**. Utför det här steget på webbplatsen för domänens domännamnsregistrator. Azure AD kan inte verifiera domännamnet om DNS-posten inte finns i DNS-zonfilen, eller om den inte exakt matchar DNS-posten från Azure AD. Om du inte har den åtkomst som krävs för att uppdatera DNS-poster för domänen hos domännamnsregistratorn så dela DNS-posten med den person eller grupp i din organisation som har den åtkomst som krävs och be dem att lägga till DNS-posten.
 
-- DNS-posten innehåller ett fel. Åtgärda felet och försök igen.
+3.  **Ta bort domännamnet från en annan katalog i Azure AD**. Ett domännamn kan bara verifieras i en enskild katalog. Om ett domännamn tidigare verifierades i en annan katalog måste du ta bort det därifrån innan du kan verifiera det i din nya katalog. Mer information om hur du tar bort domännamn finns i [Hantera anpassade domännamn](active-directory-add-manage-domain-names.md).
 
-- Du saknar behörighet att uppdatera DNS-poster. Dela DNS-posterna med den person eller det team i din organisation som har nödvändig behörighet och be dem att lägga till DNS-posten.
 
+## Lägga till fler anpassade domännamn
+
+Om din organisation använder flera anpassade domännamn, t.ex. contoso.com och contosobank.com, kan du lägga till dem. Du kan lägga till upp till 900 domännamn. Lägg till vart och ett av dina domännamn genom att följa samma steg i den här artikeln.
 
 ## Nästa steg
 
@@ -101,6 +93,6 @@ Om du inte kan verifiera ett eget domännamn kan det bero på några möjliga or
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

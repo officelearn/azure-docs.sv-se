@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/21/2016"
+    ms.date="06/10/2016"
     ms.author="adegeo"/>
 
 # Kom igång med Azure Cloud Services och ASP.NET
@@ -49,7 +49,7 @@ Under den här kursen får du lära dig hur du kör både klient- och serverdele
 * Hur du laddar upp filer och lagrar dem i Azure Blob-tjänsten.
 * Hur du använder Azure-kötjänsten för kommunikation mellan nivåer.
 
-## Nödvändiga komponenter
+## Krav
 
 Kursen förutsätter att du förstår [grundläggande koncept om Azure-molntjänster](cloud-services-choose-me.md), t.ex. termerna *webbroll* och *arbetsroll*.  Det förutsätts även att du kan använda [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- eller [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projekt i Visual Studio. Exempelprogrammet använder MVC, men större delen av kursen gäller också Web Forms.
 
@@ -60,7 +60,7 @@ Anvisningarna i kursen gäller båda följande produkter:
 * Visual Studio 2013
 * Visual Studio 2015
 
-Om du inte har någon av dessa kommer Visual Studio 2015 att installeras automatiskt när du installerar Azure SDK. 
+Om du inte har någon av dessa kommer Visual Studio 2015 att installeras automatiskt när du installerar Azure SDK.
 
 ## Programarkitektur
 
@@ -229,7 +229,7 @@ Du kommer att använda en [Web.config-transformering](http://www.asp.net/mvc/tut
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
     Lämna filen öppen för redigering.
 
 2. I den [klassiska Azure-portalen](http://manage.windowsazure.com) klickar du på **SQL Databases** i den vänstra rutan, klickar på databasen som du skapade för den här kursen, klickar på fliken **Dashboard** (Instrumentpanel) och sedan på **Show connection strings** (Visa anslutningssträngar).
@@ -314,10 +314,10 @@ Filen *ServiceConfiguration.Cloud.cscfg* innehåller värdena du angav för de i
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -442,7 +442,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
     Om du använder Visual Studio 2015 ersätter du ”v11.0” med ”MSSQLLocalDB”.
 
 2. Spara ändringarna.
@@ -868,9 +868,10 @@ Mer information finns i följande resurser:
 * [Azure Cloud Services, del 1: Inledning](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Hantera molntjänster](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
+* [Hur man väljer molntjänstleverantör](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

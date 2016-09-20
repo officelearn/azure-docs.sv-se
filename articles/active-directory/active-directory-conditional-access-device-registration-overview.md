@@ -2,10 +2,10 @@
     pageTitle="Översikt över Azure Active Directory Device Registration | Microsoft Azure"
     description="är grunden för scenarier med enhetsbaserad villkorlig åtkomst. När en enhet registreras tilldelar Azure Active Directory Device Registration en identitet till enheten som används för att autentisera enheten när användaren loggar in."
     services="active-directory"
-    keywords="device registration, enable device registration, device registration and MDM"
+    keywords="enhetsregistrering, aktivera enhetsregistrering, enhetsregistrering och MDM"
     documentationCenter=""
     authors="femila"
-    manager="stevenpo"
+    manager="swadhwa"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/29/2016"
+    ms.date="06/23/2016"
     ms.author="femila"/>
 
 # Komma igång med Azure Active Directory Device Registration
@@ -90,6 +90,6 @@ Du kan registrera dina Windows 7- och Windows 8.1-domänanslutna enheter med Azu
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

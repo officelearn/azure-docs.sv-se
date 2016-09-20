@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Skydda ditt API med frekvensbegränsningar med hjälp av Azure API Management
@@ -238,7 +238,6 @@ När frekvensbegränsningsprincipen som begränsar antalet anrop till 10 per min
 
 ## <a name="next-steps"> </a>Nästa steg
 
--   Titta gärna igenom avsnitten i självstudiekursen [Komma igång med avancerad API-konfiguration][].
 -   Titta på en demonstration om hur du ställer in frekvensbegränsningar och kvoter i följande videoklipp.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -289,13 +288,12 @@ När frekvensbegränsningsprincipen som begränsar antalet anrop till 10 per min
 [Publicera produkten]: #publish-product
 [Prenumerera på ett utvecklarkonto för produkten]: #subscribe-account
 [Anropa en åtgärd och testa frekvensbegränsningen]: #test-rate-limit
-[Komma igång med avancerad API-konfiguration]: api-management-get-started-advanced.md
 
 [Begränsa anropsfrekvensen]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Ange användningskvoter]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

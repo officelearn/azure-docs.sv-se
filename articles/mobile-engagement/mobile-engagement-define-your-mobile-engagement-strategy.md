@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/01/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Definiera en strategi för Mobile Engagement
@@ -138,6 +138,6 @@ Data av den här typen kan förstärkas med parametrar (*extra information* i Mo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

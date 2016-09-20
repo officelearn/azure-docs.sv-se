@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-html5"
     ms.devlang="javascript"
     ms.topic="get-started-article" 
-    ms.date="11/30/2015"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 
@@ -49,7 +49,7 @@ Följande krävs för att kunna genomföra kursen:
     Du kan ha din app på valfri webbserver, men det är dessa webbservrar som stöds av de skript som laddas ned.  
 
 + En webbläsare som stöder HTML5.
-+ Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Ett Azure-konto. Om du inte har ett konto kan skapa du ett kostnadsfritt provkonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Skapa en ny mobiltjänst
@@ -118,9 +118,9 @@ Det sista steget i den här kursen är att konfigurera datorn som värd och kör
     ![][12]
 
 ## <a name="next-steps"> </a>Nästa steg
-Nu när du har slutfört guiden kan du lära dig fler viktiga uppgifter i Mobile Services:
+Nu när du har slutfört guiden kan du gå vidare och lära dig fler viktiga uppgifter i Mobile Services:
 
-* **[Lägga till autentisering i appen]**  
+* **[Lägg till autentisering i appen]**  
   Läs om hur du autentiserar användare i appen med en identitetsprovider.
 
 * **[HTML- och JavaScript-kodexempel för Mobile Services]**  
@@ -159,6 +159,6 @@ Nu när du har slutfört guiden kan du lära dig fler viktiga uppgifter i Mobile
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

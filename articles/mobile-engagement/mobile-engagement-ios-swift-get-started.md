@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="swift"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Komma igång med Azure Mobile Engagement för iOS-appar i Swift
@@ -33,7 +33,7 @@ Följande krävs för den här kursen:
 
 Du måste slutföra den här självstudiekursen innan du påbörjar någon annan kurs om Mobile Engagement och iOS-appar.
 
-> [AZURE.NOTE] Du måste ha ett aktivt Azure-konto för att slutföra den här självstudiekursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
+> [AZURE.NOTE] Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
 
 ##<a id="setup-azme"></a>Konfigurera Mobile Engagement för din iOS-app
 
@@ -41,7 +41,7 @@ Du måste slutföra den här självstudiekursen innan du påbörjar någon annan
 
 ##<a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 
-I den här självstudien anges en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. Den fullständiga integrationsdokumentationen finns i [Mobile Engagement iOS SDK-integration](mobile-engagement-ios-sdk-overview.md)
+I den här kursen behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. Den fullständiga integrationsdokumentationen finns i [Mobile Engagement iOS SDK-integration](mobile-engagement-ios-sdk-overview.md)
 
 Vi skapar en grundläggande app i XCode för att demonstrera integrationen:
 
@@ -49,7 +49,7 @@ Vi skapar en grundläggande app i XCode för att demonstrera integrationen:
 
 [AZURE.INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-###Anslut appen till Mobile Engagement-serverdelen
+###Ansluta appen till Mobile Engagement-serverdelen
 
 1. Ladda ned [Mobile Engagement iOS SDK]
 2. Extrahera .tar.gz-filen till en mapp på datorn
@@ -207,6 +207,6 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

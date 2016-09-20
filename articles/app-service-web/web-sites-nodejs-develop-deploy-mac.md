@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Skapa en Node.js-webbapp i Azure App Service
@@ -28,7 +28,7 @@
 
 I den här kursen får du veta hur du skapar ett enkelt [Node.js](http://nodejs.org)-program och distribuerar det till en [webbapp](app-service-web-overview.md) i [Azure App Service](../app-service/app-service-value-prop-what-is.md) med hjälp av [Git](http://git-scm.com). Anvisningarna i den här kursen kan tillämpas på alla operativsystem som kan köra Node.js.
 
-Du får lära dig att:
+Du får lära dig:
 
 * skapa en webbapp i Azure App Service med hjälp av Azure Portal.
 * distribuera ett Node.js-program till webbappen genom push-överföring till webbappens Git-lagringsplats.
@@ -66,7 +66,7 @@ Följ de här anvisningarna för att skapa en webbapp i Azure App Service och ak
 
 6. Välj en **Resursgrupp** eller skapa en ny.
 
-    Mer information om resursgrupper finns i [Hantera Azure-resurser med hjälp av Azure Portal](../resource-group-portal.md).
+    Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../resource-group-overview.md).
 
 7. Välj en **App Service-plan/plats** eller skapa en ny.
 
@@ -227,6 +227,6 @@ Mer information om hur du utvecklar Node.js-program i Azure finns i [Node.js Dev
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

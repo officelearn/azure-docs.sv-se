@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
 # Komma igång med PowerShell för Azure Batch
-Det här är en snabb introduktion till de Azure PowerShell-cmdlets som du kan använda för att hantera Batch-konton och arbeta med Batch-resurser, till exempel pooler, jobb och aktiviteter. Många av aktiviteterna som du kan utföra med Batch-API:er, Azure-portalen och Azure-kommandoradsgränssnitt (CLI) kan du även utföra med Batch-cmdlets. Den här artikeln baseras på cmdlets i Azure PowerShell-version 1.3.2 eller senare.
+Med Azure Batch PowerShell-cmdletarna kan du genomföra och skriva många av de uppgifter som du utför med Batch-API:erna, Azure Portal och Azures kommandoradsgränssnitt (CLI). Det här är en snabb introduktion till de cmdletar som du kan använda för att hantera Batch-konton och arbeta med Batch-resurser, t.ex. pooler, jobb och uppgifter. Den här artikeln baseras på cmdletar i Azure PowerShell, version 1.6.0 eller senare.
 
 En fullständig lista över alla Batch-cmdlets och en detaljerad cmdlet-syntax finns i [Cmdlet-referens för Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx). 
 
@@ -39,13 +39,13 @@ En fullständig lista över alla Batch-cmdlets och en detaljerad cmdlet-syntax f
 
 ### Skapa ett Batch-konto
 
-**New-AzureRmBatchAccount** skapar ett nytt Batch-konto i en angiven resursgrupp. Om du inte redan har en resursgrupp skapar du en genom att köra cmdleten [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) och anger någon av Azure-regionerna i parametern **Location**, till exempel ”Central US”. Till exempel:
+**New-AzureRmBatchAccount** skapar ett nytt Batch-konto i en angiven resursgrupp. Om du inte redan har en resursgrupp skapar du en genom att köra cmdleten [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) och anger någon av Azure-regionerna i parametern **Location**, till exempel ”Central US”. Exempel:
 
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-Skapa sedan ett nytt Batch-konto i resursgruppen och ange även ett kontonamn för <*account_name*> och en plats där Batch-tjänsten är tillgänglig. Det kan ta flera minuter innan kontot har skapats. Till exempel:
+Skapa sedan ett nytt Batch-konto i resursgruppen och ange ett namn för kontot i <*account_name*> och din resursgrupps namn och plats. Det kan ta en stund innan skapandet av Batch-kontot har slutförts. Exempel:
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -92,18 +92,24 @@ Du skickar BatchAccountContext-objektet till cmdlets som använder parametern **
 
 
 ## Skapa och ändra Batch-resurser
-Använd cmdlets som **New-AzureBatchPool**, **New-AzureBatchJob** och **New-AzureBatchTask** för att skapa resurser under ett Batch-konto. Det finns motsvarande cmdlets för **Get-** och **Set-** som du kan använda för att uppdatera egenskaperna för befintliga resurser, och cmdlets för **Remove-** som du använder om du vill ta bort resurser under ett Batch-konto. 
+Skapa resurser under ett Batch-konto genom att använda cmdletar som **New-AzureBatchPool**, **New-AzureBatchJob** och **New-AzureBatchTask**. Det finns motsvarande cmdlets för **Get-** och **Set-** som du kan använda för att uppdatera egenskaperna för befintliga resurser, och cmdlets för **Remove-** som du använder om du vill ta bort resurser under ett Batch-konto. 
+
+När du använder många av dessa cmdletar måste du, förutom att skicka ett BatchContext-objekt, skapa eller skicka objekt som innehåller detaljerade resursinställningar, så som visas i följande exempel. Visa den detaljerade hjälpinformationen för respektive cmdlet om du vill ha fler exempel.
 
 ### Skapa en Batch-pool
 
-Följande cmdlet skapar till exempel en ny Batch-pool, som konfigurerats att använda virtuella datorer med storleken Small med en avbildning av den senaste operativsystemversionen i familj 3 (Windows Server 2012) och vars beräkningsnoder bestäms av en formel för automatisk skalning. I det här fallet är formeln bara **$TargetDedicated=3**, som anger att antalet beräkningsnoder i poolen är tre som mest. Parametern **BatchContext** anger en tidigare definierad variabel, *$context*, som BatchAccountContext-objektet.
+När du skapar eller uppdaterar en Batch-pool väljer du en molntjänstkonfiguration eller en konfiguration för virtuell dator för beräkningsnodernas operativsystem (se [Översikt över Batch-funktioner](batch-api-basics.md#pool)). Ditt val avgör om dina beräkningsnoder utrustas med någon av [Azure Guest OS-versionerna](../cloud-services/cloud-services-guestos-update-matrix.md#releases) eller någon av VM-avbildningarna för Linux eller Windows VM som stöds i Azure Marketplace. 
+
+När du kör **New-AzureBatchPool**, så överför operativsystemsinställningarna i en PSCloudServiceConfiguration eller ett PSVirtualMachineConfiguration-objekt. Följande cmdlet skapar t.ex. en ny Batch-pool med små beräkningsnoder i molntjänstkonfigurationen, avbildade med den senaste operativsystemsversionen för familj 3 (Windows Server 2012). Här anger parametern **CloudServiceConfiguration** variabeln *$configuration* som PSCloudServiceConfiguration-objektet. Parametern **BatchContext** anger en tidigare definierad variabel, *$context*, som BatchAccountContext-objektet.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]För närvarande stöder Batch PowerShell-cmdlets endast Cloud Services-konfigurationen för beräkningsnoder. Det betyder att du kan välja att en av Azure-gästoperativsystemversionerna av Windows Server-operativsystemet ska köra på beräkningsnoderna. För andra konfigurationsalternativ för beräkningsnoder för Batch-pooler använder du Batch-SDK:er eller CLI Azure.
+Beräkningsnodernas målantal i den nya poolen bestäms av en autoskalningsformel. I det här fallet är formeln helt enkelt **$TargetDedicated=4**, vilket indikerar att antalet beräkningsnoder i poolen som mest är 4. 
 
-## Köra frågor mot pooler, jobb, aktiviteter eller för annan information
+## Fråga avseende pooler, jobb, uppgifter och annan information
 
 Använd cmdlets som **Get-AzureBatchPool**, **Get-AzureBatchJob** och **Get-AzureBatchTask** om du vill fråga efter entiteter som skapats under ett Batch-konto.
 
@@ -163,6 +169,6 @@ Batch-cmdlets kan utnyttja PowerShell-pipelinen för att skicka data mellan cmdl
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

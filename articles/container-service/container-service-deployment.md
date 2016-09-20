@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, behållare, Micro-tjänster, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -26,63 +26,63 @@ Det här dokumentet innehåller anvisningar för att distribuera ett Azure Conta
 
 ## Skapa en tjänst med Azure Portal
 
-Logga in på Azure Portal, välj ny och sök i Azure-marknadsplatsen efter **Azure Container Service**.
+Logga in på Azure Portal, välj **Ny** och sök på Azure Marketplace efter **Azure Container Service**.
 
-![Skapa distribution](media/acs-portal1.png)  <br /> 
+![Skapa distribution 1](media/acs-portal1.png)  <br />
 
 Välj **Azure Container Service** och klicka på **Skapa**.
 
-![Skapa distribution](media/acs-portal2.png)  <br /> 
+![Skapa distribution 2](media/acs-portal2.png)  <br />
 
 Ange följande information:
 
-- Användarnamn – Det här är det användarnamn som ska sättas på ett konto på var och en av de virtuella datorerna och skalningsuppsättningarna för virtuella datorer i Azure Container Service-klustret.
-- Prenumeration – Välj en Azure-prenumeration.
-- Resursgrupp – Välj en befintlig resursgrupp eller skapa en ny.
-- Plats – Välj en Azure-region för Azure Container Service-distributionen.
-- Offentlig SSH-nyckel – Lägg till den offentliga nyckel som ska användas för autentisering mot Azure Container Service Virtual Machines. Det är viktigt att den här nyckeln inte innehåller några radbrytningar och att den innehåller prefixet ”ssh-rsa” och postfixet ”username@domain”. Den ska se ut ungefär så här ”**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**”. Mer information om att skapa SSH-nycklar finns i artiklarna om [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) och [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- **Användarnamn**: Det här är det användarnamn som ska sättas på ett konto på var och en av de virtuella datorerna och skalningsuppsättningarna för virtuella datorer i Azure Container Service-klustret.
+- **Prenumeration**: Välj en Azure-prenumeration.
+- **Resursgrupp**: Välj en befintlig resursgrupp eller skapa en ny.
+- **Plats**: Välj en Azure-region för Azure Container Service-distributionen.
+- **Offentlig SSH-nyckel**: Lägg till den offentliga nyckel som ska användas för autentisering mot Azure Container Service Virtual Machines. Det är viktigt att den här nyckeln inte innehåller några radbrytningar och att den innehåller prefixet ”ssh-rsa” och postfixet ”username@domain”. Det bör likna följande: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Anvisningar om hur du skapar Secure Shell-nycklar finns i [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/)- och [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/)-artiklarna.
 
-Klicka på **OK** när det är dags att gå vidare.
+Klicka på **OK** när du är redo att gå vidare.
 
-![Skapa distribution](media/acs-portal3.png)  <br /> 
+![Skapa distribution 3](media/acs-portal3.png)  <br />
 
 Välj en Orchestration-typ. Alternativen är:
 
-- DC/OS – distribuerar ett DC/OS-kluster.
-- Swarm – distribuerar ett Docker Swarm-kluster.
+- **DC/OS**: distribuerar ett DC/OS-kluster.
+- **Swarm**: distribuerar ett Docker Swarm-kluster.
 
-Klicka på **OK** när det är dags att gå vidare.
+Klicka på **OK** när du är redo att gå vidare.
 
-![Skapa distribution](media/acs-portal4.png)  <br /> 
+![Skapa distribution 4](media/acs-portal4.png)  <br />
 
 Ange följande information:
 
-- Antal huvudservrar – antal huvudservrar i klustret.
-- Antal agenter – för Docker Swarm utgör det här det inledande antalet agenter i agentskalningsuppsättningen. När det gäller DC/OS utgör det här det inledande antalet agenter i en privat skalningsuppsättning. Dessutom skapas en offentlig skalningsuppsättning som innehåller ett förinställt antal agenter. Antalet agenter i den här offentliga skalningsuppsättningen avgörs av hur många huvudservrar som har skapats i klustret, 1 offentlig agent för 1 huvudserver och 2 offentliga agenter för 3 eller 5 huvudservrar.
-- Storlek på agentens virtuella dator – storleken på agentens virtuella datorer.
-- DNS-prefix – ett helt unikt namn som ska användas som prefix i viktiga delar i de fullständigt kvalificerade domännamnen för tjänsten. 
+- **Antal huvudservrar**: antal huvudservrar i klustret.
+- **Antal agenter**: för Docker Swarm utgör det här det inledande antalet agenter i agentskalningsuppsättningen. När det gäller DC/OS utgör det här det inledande antalet agenter i en privat skalningsuppsättning. Dessutom skapas en offentlig skalningsuppsättning som innehåller ett förinställt antal agenter. Antalet agenter i den här offentliga skalningsuppsättningen avgörs av hur många huvudservrar som har skapats i klustret, 1 offentlig agent för 1 huvudserver och 2 offentliga agenter för 3 eller 5 huvudservrar.
+- **Storlek på agentens virtuella dator**: storleken på agentens virtuella datorer.
+- **DNS-prefix**: ett helt unikt namn som ska användas som prefix i viktiga delar i de fullständigt kvalificerade domännamnen för tjänsten.
 
-Klicka på **OK** när det är dags att gå vidare.
+Klicka på **OK** när du är redo att gå vidare.
 
-![Skapa distribution](media/acs-portal5.png)  <br /> 
+![Skapa distribution 5](media/acs-portal5.png)  <br />
 
 Klicka på **OK** när tjänsteverifieringen är klar.
 
-![Skapa distribution](media/acs-portal6.png)  <br /> 
+![Skapa distribution 6](media/acs-portal6.png)  <br />
 
 Klicka på **Skapa** för att starta distributionsprocessen.
 
-![Skapa distribution](media/acs-portal7.png)  <br /> 
+![Skapa distribution 7](media/acs-portal7.png)  <br />
 
-Om du har valt att fästa distributionen till Azure Portal visas distributionens status.
+Om du har valt att fästa distributionen på Azure Portal, visas distributionsstatusen.
 
-![Skapa distribution](media/acs-portal8.png)  <br /> 
+![Skapa distribution 8](media/acs-portal8.png)  <br />
 
 När distributionen är klar kan Azure Container Service-klustret användas.
 
 ## Skapa en tjänst med Azure CLI
 
-Du måste ha en Azure-prenumeration för att kunna skapa en instans av Azure Container Service med kommandoraden. Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Du måste också ha installerat och konfigurerat Azure CLI.
+Du måste ha en Azure-prenumeration för att kunna skapa en instans av Azure Container Service med kommandoraden. Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Du måste också ha [installerat](../xplat-cli-install.md) och [konfigurerat](../xplat-cli-connect.md) Azure CLI.
 
 Om du vill distribuera ett DC/OS- eller Docker Swarm-kluster väljer du en av nedanstående mallar från GitHub. Observera att båda de här mallarna är likadana, med undantag för standardvalet av orchestrator.
 
@@ -106,14 +106,14 @@ Konfigurera därefter Azure CLI-verktygen för att använda Azure Resource Manag
 azure config mode arm
 ```
 
-Skapa en Azure-resursgrupp och Container Service-kluster med följande kommando, där:
+Skapa en Azure-resursgrupp och ett Container Service-kluster med följande kommando, där:
 
 - **RESOURCE_GROUP** är namnet på resursgruppen som du vill använda för den här tjänsten.
 - **LOCATION** är Azure-regionen där resursgruppen och Azure Container Service-distributionen skapas.
-- **TEMPLATE_URI** är platsen för distributionsfilen. **Observera**! Det här måste vara RAW-filen, inte en pekare till GitHub-gränssnittet. Du kan hitta den här URL:en genom att markera filen azuredeploy.json i GitHub och klicka på RAW-knappen:
+- **TEMPLATE_URI** är platsen för distributionsfilen. Observera att det här måste vara Raw-filen, inte en pekare till GitHub-gränssnittet. Du kan hitta den här URL:en genom att markera filen azuredeploy.json i GitHub och klicka på **Raw**-knappen.
 
-> Observera! När du kör det här kommandot uppmanar gränssnittet dig att ange parametervärden för distributionen.
- 
+> [AZURE.NOTE] När du kör det här kommandot uppmanar gränssnittet dig att ange parametervärden för distributionen.
+
 ```bash
 # sample deployment
 
@@ -188,15 +188,15 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 ```
 
 ## Nästa steg
- 
-Nu när du har ett fungerande kluster kan du läsa nedanstående dokument där du hittar anslutnings- och hanteringsinformation.
- 
-[Ansluta till ett Azure Container Service-kluster](container-service-connect.md)
-[Arbeta med Azure Container Service och DC/OS](container-service-mesos-marathon-rest.md)
-[Arbeta med Azure Container Service och Docker Swarm](container-service-docker-swarm.md)
+
+Nu när du har ett fungerande kluster kan du visa dessa dokument för anslutnings- och hanteringsinformation:
+
+- [Ansluta till ett Azure Container Service-kluster](container-service-connect.md)
+- [Arbeta med Azure Container Service och DC/OS](container-service-mesos-marathon-rest.md)
+- [Arbeta med Azure Container Service och Docker Swarm](container-service-docker-swarm.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

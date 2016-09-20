@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/16/2016"
     ms.author="markvi"/>
 
 # Komma igång med Azure Active Directory Premium
@@ -23,7 +23,7 @@ Om du vill registrera dig för Active Directory Premium kan du välja mellan fle
 
 **Azure eller Office 365** – Som prenumerant på Azure eller Office 365 kan du köpa Active Directory Premium online. Detaljerade anvisningar finns i [Köpa Azure Active Directory Premium – befintliga kunder](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) eller [Köpa Azure Active Directory Premium – nya kunder](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
 
-**Enterprise Mobility Suite** – Enterprise Mobility Suite är ett kostnadseffektivt sätt för organisationer att använda följande tjänster tillsammans i samma licensieringsplan: Active Directory Premium, Azure Rights Management och Microsoft Intune. Mer information finns på webbplatsen för [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Om du vill skaffa en kostnadsfri 30-dagars utvärderingsversion klickar du [här](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
+**Enterprise Mobility + Security** – Enterprise Mobility + Security (tidigare Enterprise Mobility Suite) är ett kostnadseffektivt sätt för organisationer att använda följande tjänster tillsammans i samma licensieringsplan: Active Directory Premium, Azure Rights Management och Microsoft Intune. Mer information finns på webbplatsen för [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Om du vill skaffa en kostnadsfri 30-dagars utvärderingsversion klickar du [här](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 
 **Microsoft Volymlicensiering** –Azure Active Directory Premium är tillgängligt genom ett [Microsoft Enterprise-avtal](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 eller fler licenser) eller genom [Open Volume-licensprogrammet](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenser).
@@ -164,6 +164,6 @@ Tillgängligheten av tjänster och funktioner för en Microsoft-molntjänst vari
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

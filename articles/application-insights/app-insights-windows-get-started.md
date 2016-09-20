@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Analytics för Windows Phone- och Store-appar"
+    pageTitle="Analytics för Windows Phone- och Store-appar | Microsoft Azure"
     description="Analysera användningen och krascher i din Windows-enhetsapp."
     services="application-insights"
     documentationCenter="windows"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/17/2016"
+    ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Analytics för Windows Phone- och Store-appar
@@ -20,6 +20,8 @@
 Microsoft tillhandahåller två DevOps-lösningar för enheter: [HockeyApp](http://hockeyapp.net/) för analys på klientsidan och [Application Insights](app-insights-overview.md) för serversidan.
 
 [HockeyApp](http://hockeyapp.net/) är vår mobila DevOps-lösning för appar på iOS-, OS X-, Android- eller Windows-enheter och för plattformsoberoende appar som baseras på Xamarin, Cordova och Unity. Med den här lösningen kan du distribuera versioner till betatestare, samla in kraschdata och få mätvärden om och feedback från användare. Lösningen är integrerad med Visual Studio Team Services och gör det enkelt att skapa distributioner och integreringar med arbetsobjekt. 
+
+## Komma igång med HockeyApp
 
 Gå till:
 
@@ -33,13 +35,19 @@ Om din app har en serversida använder du [Application Insights](app-insights-ov
 
 Du kan också använda [Application Insights för Windows-skrivbordsappar](app-insights-windows-desktop.md).
 
-> [AZURE.NOTE] Den 15 juni 2016 slutar vi att tillhandahålla data i Application Insights för iOS-, Android-, Windows Store- och Windows Phone-appar.
-> 
-> [Mer information om den här ändringen](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
+## Analys, export och API-åtkomst till HockeyApp-data 
+
+[Skapa en brygga HockeyApp-brygga](app-insights-hockeyapp-bridge-app.md) i Application Insights. Detta innebär att du kan:
+
+* Använd det kraftfulla [Analytics](app-insights-analytics.md)-frågespråket via din telemetri. 
+* [Exportera telemetri](app-insights-export-telemetry.md) till Azure Blob Storage.
+
+## Nästa steg
+
+* [Komma igång med HockeyApp för Windows](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)
 
 
 
-
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #Introduktion till Apache Storm på HDInsight: analys i realtid för Hadoop
@@ -109,7 +109,7 @@ Storm på HDInsight levereras med fullständig support på företagsnivå, dygne
 
 ##Vanliga användning för realtidsanalys
 
-Nedan följer några vanliga scenarier där du kan använda Apache storm på HDInsight. Information om verkliga scenarier finns i [Hur företag använder Storm](https://storm.incubator.apache.org/documentation/Powered-By.html).
+Nedan följer några vanliga scenarier där du kan använda Apache storm på HDInsight. Information om verkliga scenarier finns i [Hur företag använder Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Sakernas Internet (IoT)
 * Upptäckt av bedrägerier
@@ -162,7 +162,7 @@ Mer information finns i [Utveckla C#-topologier för Apache Storm på HDInsight 
 
 De flesta Java-exempel du ser är vanlig Java eller Trident. Trident är en abstraktion på hög nivå som gör det enklare att göra sådant som kopplingar, aggregeringar, gruppering och filtrering. Trident fungerar dock på batchar av tupplar, medan en rå Java-lösning bearbetar en ström med en tuppel i taget.
 
-Mer information om Trident finns i [Trident-självstudierna](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) på apache.org.
+Mer information om Trident finns i [Trident-självstudierna](https://storm.apache.org/documentation/Trident-tutorial.html) på apache.org.
 
 Exempel på Java- och Trident-topologier finns i [listan över exempel på Storm-topologier](hdinsight-storm-example-topology.md) eller de storm-startexempel som finns på ditt HDInsight-kluster.
 
@@ -206,6 +206,12 @@ När topologin beror på att beräkna ett värde för ”högsta N”, t.ex. de 
 
 Ett exempel på detta finns i [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java).
 
+##Vilken typ av loggning använder Storm?
+
+Storm använder Apache Log4j för att logga information. Stora mängder data loggas som standard och det kan vara svårt att gå igenom informationen. Du kan ta med en konfigurationsfil för loggning som en del av Storm-topologin för att styra loggningsbeteendet.
+
+En exempeltopologi som visar hur du konfigurerar loggning finns i ett exempel på [Java-baserad WordCount](hdinsight-storm-develop-java-topology.md) för Storm på HDInsight.
+
 ##Nästa steg
 
 Läs mer om lösningarna för realtidsanalys med Apache Storm i HDInsight:
@@ -214,13 +220,13 @@ Läs mer om lösningarna för realtidsanalys med Apache Storm i HDInsight:
 
 * [Exempeltopologier för Storm på HDInsight](hdinsight-storm-example-topology.md)
 
-[stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
+[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
+[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

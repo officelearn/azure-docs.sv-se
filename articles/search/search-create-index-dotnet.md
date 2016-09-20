@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Skapa ett Azure Search-index med hjälp av .NET SDK
@@ -125,6 +125,6 @@ När du har skapat ett Azure Search-index är det dags att [ladda upp innehålle
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

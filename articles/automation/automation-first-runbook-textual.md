@@ -6,14 +6,14 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="powershell workflow, powershell workflow examples, workflow powershell"/>
+    keywords="powershell-arbetsflöde, powershell-arbetsflödesexempel, arbetsflöde powershell"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/19/2016"
     ms.author="magoedte;bwren"/>
 
 # Min första PowerShell Workflow-runbook
@@ -110,7 +110,7 @@ Vi har testat och publicerat vår runbook, men hittills gör den egentligen inge
     ```
 
 5.  Klicka på **Testfönster** så att vi kan testa runbooken.
-6.  Starta testet genom att klicka på **Starta**. När testet är klart visas utdata med grundläggande information från ditt konto. Detta bekräftar att autentiseringsuppgifterna är giltiga. <br> ![Autentisera](media/automation-first-runbook-textual/runbook-auth-results.png)
+6.  Starta testet genom att klicka på **Starta**. När testet är klart visas utdata som liknar de nedan, med grundläggande information från ditt konto. Detta bekräftar att autentiseringsuppgifterna är giltiga.<br> ![Autentisera](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## Steg 6 – Lägga till kod för att starta en virtuell dator
 
@@ -121,12 +121,11 @@ Nu när våra runbook autentiseras med vår Azure-prenumeration kan vi hantera r
     ```
     workflow MyFirstRunbook-Workflow
     {
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-     Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+      $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
-    ```
+    ``` 
 
 2.  Spara runbooken och klicka sedan på **Testfönster** så att vi kan testa den.
 3.  Starta testet genom att klicka på **Starta**. När testet är klart kontrollerar du att den virtuella datorn har startat.
@@ -145,8 +144,7 @@ Vår runbook startar för närvarande den virtuella datorn som vi hårdkodade i 
         [string]$ResourceGroupName
        )  
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -162,12 +160,11 @@ Vår runbook startar för närvarande den virtuella datorn som vi hårdkodade i 
 ## Nästa steg
 
 -  Information om hur du kommer igång med grafiska runbooks finns i [Min första grafisk runbook](automation-first-runbook-graphical.md)
--   Se hur du kommer igång med PowerShell-runbooks i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md)
+-  Se hur du kommer igång med PowerShell-runbooks i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md)
 -  Mer information om typer av runbooks, och om deras fördelar och begränsningar, finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
--   Mer information om PowerShell-skriptstöd finns i [Inbyggt PowerShell-skriptstöd i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+-  Mer information om PowerShell-skriptstöd finns i [Inbyggt PowerShell-skriptstöd i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
 
-
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -3,7 +3,7 @@
     description="Använd utvecklingstekniker för C#-databaser, för att skapa en skalbar elastisk databaspool i Azure SQL Database så att du kan dela resurser över flera databaser."
     services="sql-database"
     documentationCenter=""
-    authors="srinia"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="05/27/2016"
-    ms.author="srinia"/>
+    ms.date="08/18/2016"
+    ms.author="sstein"/>
 
 # Skapa en ny elastisk databaspool med C&#x23;
 
@@ -24,19 +24,17 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Lär dig hur du skapar en [elastisk databaspool](sql-database-elastic-pool.md) med C&#x23;. 
+Lär dig hur du skapar en [elastisk databaspool](sql-database-elastic-pool.md) med C&#.
 
 Vanliga felkoder finns i [SQL-felkoder för SQL Database-klientprogram: anslutningsfel för databasen och andra problem](sql-database-develop-error-messages.md).
 
-Elastiska databaspooler är för närvarande i förhandsvisning och finns bara för SQL Database V12-servrar. Om du har en SQL Database V11-server, kan du [använda PowerShell för att uppgradera till V12 och skapa en pool](sql-database-upgrade-server-portal.md) i ett enda steg.
+I exemplen används [SQL Database-biblioteket för .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), så om det inte redan är installerat, måste du installera det innan du fortsätter. Du kan installera det här biblioteket genom att köra följande kommando i [pakethanterarkonsolen](http://docs.nuget.org/Consume/Package-Manager-Console) i Visual Studio (**Verktyg** > **NuGet-pakethanteraren** > **Pakethanterarkonsolen**):
 
-Exemplen använder sig av [SQL Database-biblioteket för .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) så du behöver installera biblioteket. Du kan installera det genom att köra följande kommando i [pakethanterarkonsolen](http://docs.nuget.org/Consume/Package-Manager-Console) i Visual Studio (**Verktyg** > **NuGet-pakethanteraren** > **Pakethanterarkonsolen**):
+    Install-Package Microsoft.Azure.Management.Sql –Pre
 
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
+## Skapa en pool
 
-## Skapa en ny pool
-
-Skapa en [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient)-instans med värden från [Azure Active Directory](sql-database-client-id-keys.md). Skapa en [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters)-instans och anropa [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate)-metoden. Värdena för eDTU per pool, min och max Dtu:er, är begränsade av tjänstnivåvärdet (basic, standard eller premium). Se [eDTU och lagringsgränser för elastiska pooler och elastiska databaser](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Skapa en [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient)-instans med värden från [Azure Active Directory](sql-database-client-id-keys.md). Skapa en [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters)-instans och anropa [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate)-metoden. Värdena för eDTU per pool, min och max DTU:er, är begränsade av tjänstnivåvärdet (basic, standard eller premium). Se [eDTU och lagringsgränser för elastiska pooler och elastiska databaser](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
     ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
@@ -54,7 +52,7 @@ Skapa en [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azur
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Skapa en ny databas i en pool
+## Skapa en databas i en pool
 
 Skapa en [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties)-instans och ange egenskaper för den nya databasen. Sedan anropar du metoden CreateOrUpdate med resursgrupp, servernamn och namn på ny databas.
 
@@ -76,22 +74,22 @@ Skapa en [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/m
 
 För att flytta en befintlig databas till en pool, se [Flytta en databas till en elastisk pool](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
-## Exempel: Skapa en pool med C&#x23
+## Exempel: Skapa en pool med C&#x23;
 
-Det här exemplet skapar en ny Azure resursgrupp, en ny Azure SQL Server-instans och en ny elastisk pool. 
+Det här exemplet skapar en Azure-resursgrupp, en Azure SQL Server-instans och en elastisk pool. 
  
 
 Följande bibliotek krävs för att köra det här exemplet. Du kan installera genom att köra följande kommandon i [pakethanterarkonsolen](http://docs.nuget.org/Consume/Package-Manager-Console) i Visual Studio (**Verktyg** > **NuGet-pakethanteraren** > **Pakethanterarkonsolen**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Skapa en konsolapp och ersätt innehållet i Program.cs med följande. För att få fram den nödvändiga klient-ID:n och andra relaterade värden, se [Registrera din app och hämta nödvändiga klientvärden för att ansluta din app till SQL Database](sql-database-client-id-keys.md). Använd cmdleten [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) för att hämta värdet för subscriptionId.
+Skapa en konsolapp och ersätt innehållet i Program.cs med följande. För att få fram nödvändigt klient-ID och relaterade värden skapar du en inbyggd app med hjälp av följande artikel: [Registrera din app och hämta nödvändiga klientvärden för att ansluta din app till SQL Database](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -243,7 +241,7 @@ Skapa en konsolapp och ersätt innehållet i Program.cs med följande. För att 
 ## Nästa steg
 
 - [Hantera din pool](sql-database-elastic-pool-manage-csharp.md)
-- [Skapa elastiska jobb](sql-database-elastic-jobs-overview.md): Elastiska jobb låter dig köra T-SQL-skript mot valfritt antal databaser i poolen.
+- [Skapa elastiska jobb](sql-database-elastic-jobs-overview.md): Elastiska jobb låter dig köra T-SQL-skript mot valfritt antal databaser i en pool.
 - [Skala ut med Azure SQL Database](sql-database-elastic-scale-introduction.md): Använd elastisk databasverktyg för att skala ut.
 
 ## Ytterligare resurser
@@ -252,6 +250,7 @@ Skapa en konsolapp och ersätt innehållet i Program.cs med följande. För att 
 - [Azure Resource Manager API:er](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

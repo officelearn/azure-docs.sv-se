@@ -2,7 +2,7 @@
     pageTitle="Azure AD Connect: Anpassad installation | Microsoft Azure"
     description="Det här dokumentet beskriver de anpassade installationsalternativen för Azure AD Connect. Följ dessa instruktioner om du ska installera Active Directory via Azure AD Connect."
     services="active-directory"
-    keywords="what is Azure AD Connect, install Active Directory, required components for Azure AD"
+    keywords="vad är Azure AD Connect, installera Active Directory, komponenter som krävs för Azure AD"
     documentationCenter=""
     authors="andkjell"
     manager="stevenpo"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="06/27/2016"
     ms.author="billmath;andkjell"/>
 
 # Anpassad installation av Azure AD Connect
@@ -266,6 +266,6 @@ Konton som används för installation | [Mer information om konton och behörigh
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,6 +1,6 @@
 <properties
     pageTitle="Komma igång med Azure Queue Storage med hjälp av .NET | Microsoft Azure"
-    description="Skicka och ta emot meddelanden asynkront mellan programkomponenter med hjälp av Azure Queue Storage. Kom igång med enkla Queue Storage-åtgärder och lär dig hur du skapar och tar bort köer och hur du lägger till, läser och tar bort kömeddelanden."
+    description="Azure Queues ger tillförlitliga, asynkrona meddelandefunktioner mellan programkomponenter. Med hjälp av molnmeddelanden kan programkomponenter skalas separat."
     services="storage"
     documentationCenter=".net"
     authors="robinsh"
@@ -13,16 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/07/2016"
+    ms.date="07/26/2016"
     ms.author="gusapost"/>
 
 # Komma igång med Azure Queue Storage med hjälp av .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Översikt
 
-Azure Queue Storage är en tjänst som tillhandahåller meddelandeköer i molnet. När program utformas för skalning är programkomponenterna ofta fristående, så att de kan skalas oberoende av varandra.  Queue Storage är en tillförlitlig meddelandelösning för asynkron kommunikation mellan programkomponenter, oavsett om de körs i molnet, på skrivbordet, på en lokal server eller på en mobil enhet. Queue Storage har också stöd för hantering av asynkrona åtgärder och utveckling av processarbetsflöden.
+Azure Queue Storage innehåller molnmeddelandehantering mellan programkomponenter. När program utformas för skalning är programkomponenterna ofta fristående, så att de kan skalas oberoende av varandra. Queue Storage är en asynkron meddelandelösning för kommunikation mellan programkomponenter, oavsett om de körs i molnet, på skrivbordet, på en lokal server eller på en mobil enhet. Queue Storage har också stöd för hantering av asynkrona åtgärder och utveckling av processarbetsflöden.
 
 ### Om den här självstudiekursen
 
@@ -278,6 +280,6 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar f
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

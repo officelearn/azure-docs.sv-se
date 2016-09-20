@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av Azure PowerShell
@@ -26,7 +26,7 @@ I de här självstudierna utvecklar du ett jobb som läser en fil med tabbavgrä
 
 [AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-##Förutsättningar
+##Krav
 
 Innan du påbörjar de här självstudierna måste du ha:
 
@@ -212,6 +212,6 @@ När jobbet har slutförts kan du använda följande cmdletar för att visa och 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

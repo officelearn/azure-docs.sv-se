@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/21/2016"
+   ms.date="06/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -41,7 +41,7 @@ De här självstudierna visar hur du:
 
 >[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
 
-## Förutsättningar
+## Krav
 
 För att gå igenom de här självstudierna, behöver du:
 
@@ -75,7 +75,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Se [Tabelldesign][] eller [CREATE TABLE-syntax][] för ytterligare information om hur man skapar en tabell i SQL Data Warehouse och alternativen som finns i WITH-satsen.
+>[AZURE.NOTE] Se [Tabellöversikt][] eller [CREATE TABLE-syntax][] för ytterligare information om hur man skapar en tabell i SQL Data Warehouse och alternativen som finns i WITH-satsen.
 
 ### Steg 2: Skapa en källdatafil
 
@@ -179,10 +179,10 @@ För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][].
 
 <!--Article references-->
 
-[Läs in data till SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Översikt över SQL Data Warehouse-utveckling]: sql-data-warehouse-overview-develop.md
-[Tabelldesign]: sql-data-warehouse-develop-table-design.md
-[Statistik]: sql-data-warehouse-develop-statistics.md
+[Läs in data till SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Översikt över SQL Data Warehouse-utveckling]: ./sql-data-warehouse-overview-develop.md
+[Tabellöversikt]: ./sql-data-warehouse-tables-overview.md
+[Statistik]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -193,6 +193,6 @@ För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][].
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

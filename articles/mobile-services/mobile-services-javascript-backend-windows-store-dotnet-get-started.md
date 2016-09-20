@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="get-started-article" 
-    ms.date="05/11/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Komma igång med Mobile Services
@@ -69,15 +69,15 @@ I det här avsnittet skapar du en ny universell Windows-app som är ansluten til
 >[AZURE.NOTE]Du kan granska koden som ansluter till mobiltjänsten för att fråga efter och infoga data i filen MainPage.xaml.cs.
 
 ## Nästa steg
-Nu när du har slutfört guiden kan du gå vidare och lära dig fler viktiga uppgifter i Mobile Services:
+Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur du utför fler viktiga uppgifter i Mobile Services:
 
 * [Komma igång med datasynkronisering offline] Läs om hur du kan använda datasynkronisering offline för att ge appen kortare svarstid och göra den mer robust. 
 
 * [Lägga till autentisering i Mobile Services-appen ][Komma igång med autentisering]  
-  Läs om hur du autentiserar användare i appen med en identitetsprovider.
+  Läs om hur du autentiserar användare i appen med en identitetsleverantör.
 
 * [Lägga till push-meddelanden i appen][Komma igång med push-meddelanden]  
-  Läs om hur du skickar grundläggande push-meddelanden till appen.
+  Läs om hur du skickar väldigt enkla push-meddelanden till appen.
 
 * [Använda .NET-klientbiblioteket](mobile-services-dotnet-how-to-use-client-library.md)  
  Läs om hur du frågar mobiltjänsten, arbetar med data och kommer åt anpassade API: er.
@@ -104,6 +104,6 @@ Nu när du har slutfört guiden kan du gå vidare och lära dig fler viktiga upp
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

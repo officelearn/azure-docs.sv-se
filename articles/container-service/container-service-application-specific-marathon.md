@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Containers, Marathon, Micro-services, DC/OS, Azure"/>
+   keywords="Behållare, Marathon, Micro-tjänster, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -20,15 +20,19 @@
 
 # Skapa en program- eller användarspecifik Marathon-tjänst
 
-Genom Azure Container Service tillhandahålls en uppsättning huvudservrar där Apache Mesos och Marathon förkonfigureras. Servrarna kan användas för att dirigera dina program i klustret, men det är bäst att inte använda huvudservrarna för det här ändamålet. Om du till exempel vill justera konfigurationen av Marathon måste du logga in på själva huvudservrarna och göra ändringar. Det leder lätt till att du får unika huvudservrar som skiljer sig lite från standarden, vilket betyder att de måste skötas och hanteras var för sig. Dessutom kanske konfigurationen som krävs av ett team inte är den bästa konfigurationen för ett annat team. I den här artikeln förklarar vi hur du lägger till en användar- eller programspecifik Marathon-tjänst.
+Genom Azure Container Service tillhandahålls en uppsättning huvudservrar där Apache Mesos och Marathon förkonfigureras. Servrarna kan användas för att dirigera dina program i klustret, men det är bäst att inte använda huvudservrarna för det här ändamålet. Om du till exempel vill justera konfigurationen av Marathon måste du logga in på själva huvudservrarna och göra ändringar. Det leder lätt till att du får unika huvudservrar som skiljer sig lite från standarden, vilket betyder att de måste skötas och hanteras var för sig. Dessutom kanske konfigurationen som krävs av ett team inte är den bästa konfigurationen för ett annat team.
 
-Eftersom den här tjänsten tillhör en enskild användare eller ett enskilt team kan den konfigureras på önskat sätt. Dessutom säkerställer Azure Container Service att tjänsten fortsätter att köras. Om det skulle bli avbrott i tjänsten startar Azure Container Service om den. I de flesta fall märker du inte ens att det varit driftstopp.
+I den här artikeln förklarar vi hur du lägger till en användar- eller programspecifik Marathon-tjänst.
+
+Eftersom den här tjänsten tillhör en enskild användare eller ett enskilt team kan den konfigureras på önskat sätt. Azure Container Service säkerställer också att tjänsten fortsätter att köras. Om tjänsten slutar att fungera, startar Azure Container Service om den åt dig. I de flesta fall märker du inte ens att det varit driftstopp.
 
 ## Krav
 
-[Distribuera en Azure Container Service-instans](container-service-deployment.md) med orchestrator-typ DC/OS, [kontrollera att klienten kan ansluta till klustret](container-service-connect.md) och [AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)].
+[Distribuera en instans av Azure Container Service](container-service-deployment.md) med orchestrator-typ DC/OS och [kontrollera att klienten kan ansluta till klustret](container-service-connect.md). Utför följande steg.
 
-## Skapa en program- eller användarspecifik Marathon-tjänst.
+[AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)]
+
+## Skapa en program- eller användarspecifik Marathon-tjänst
 
 Börja med att skapa en JSON-konfigurationsfil som definierar namnet på den programtjänst du vill skapa. I det här exemplet använder vi `marathon-alice` som ramverksnamn. Spara filen med något som liknar `marathon-alice.json`:
 
@@ -52,9 +56,10 @@ Du kan även konfigurera DC/OS CLI för att komma åt den här nya tjänsten gen
 dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
-Du kan bekräfta vilken Marathon-instans som CLI fungerar med genom att ange kommandot `dcos config show`, och du kan återgå till att använda Marathon-huvudtjänsten med kommandot `dcos config unset marathon.url`.
+Du kan kontrollera vilken instans av Marathon som din CLI arbetar mot med `dcos config show`-kommandot. Du kan återgå till att använda din huvudsakliga Marathon-tjänst med kommandot `dcos config unset marathon.url`.
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

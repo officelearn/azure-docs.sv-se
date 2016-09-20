@@ -20,13 +20,20 @@
 
 Välkommen till Azure Site Recovery! Börja med den här artikeln för att få en snabb överblick över Site Recovery-tjänsten och hur den kan bidra till din BCDR-strategi för affärskontinuitet och haveriberedskap.
 
-Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../resource-manager-deployment-model.md). Den här artikeln gäller för båda modellerna. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
-
 ## Översikt
 
-En viktig del av din organisations BCDR-strategi är att komma fram till vad som krävs för att företagets arbetsbelastningar och appar ska fortsätta köra vid planerade och oplanerade driftavbrott.
+Organisationer behöver en BCDR-strategi som beskriver hur appar, arbetsbelastningar och data fungerar och är tillgängliga under planerade och oplanerade driftavbrott och som ser till att systemets normala drifttillstånd återställs så fort som möjligt. Avsikten med en BCDR-strategi är att skydda affärsdata och se till att de kan återställas samt att säkerställa att arbetsbelastningar förblir tillgängliga i händelse av allvarliga fel. 
 
-Site Recovery kan göra detta genom att samordna replikering, redundans och återställning av arbetsbelastningar och appar så att de är tillgängliga från en sekundär plats om din primära plats kraschar. 
+Site Recovery är en Azure-tjänst som stödjer din BCDR-strategi genom att dirigera replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till ett sekundärt datacenter. Vid driftstopp på den primära platsen växlar du över till den sekundära platsen så att program och arbetsbelastningar fortsätter att vara tillgängliga. Du växlar tillbaka till den primära platsen när den har återgått till normal drift. Läs mer i [Vad är Site Recovery?](site-recovery-overview.md)
+
+## Site Recovery på Azure Portal
+
+Azure har två olika [distributionsmodeller](../resource-manager-deployment-model.md) för att skapa och arbeta med resurser: Azure Resource Manager-modellen och den klassiska tjänsthanteringsmodellen. Azure har också två portaler – den [klassiska Azure-portalen](https://manage.windowsazure.com/) som stöder den klassiska distributionsmodellen och [Azure Portal](https://portal.azure.com) som stöder båda distributionsmodellerna.
+
+Site Recovery är tillgängligt både på den klassiska portalen och på Azure Portal. På den klassiska Azure-portalen kan du använda Site Recovery med den klassiska tjänsthanteringsmodellen. På Azure Portal kan du använda den klassiska modellen eller Resource Manager-distributioner. [Läs mer](site-recovery-overview.md#site-recovery-in-the-azure-portal) om hur du distribuerar med Azure Portal.
+
+Informationen i den här artikeln gäller både klassiska distributioner och distributioner via Azure Portal. Skillnaderna beskrivs i förekommande fall.
+
 
 ## Varför ska jag använda Site Recovery? 
 
@@ -40,20 +47,20 @@ Här är exempel på hur Site Recovery kan hjälpa ditt företag:
 
 ## Vad kan jag replikera?
 
-Här är en sammanfattning av vad Site Recovery kan replikera.
+Här är en sammanfattning av vad du kan replikera med Site Recovery.
 
 ![Lokal till lokal](./media/site-recovery-overview/asr-overview-graphic.png)
 
-**REPLIKERA** | **REPLIKERA FRÅN** | **REPLIKERA TILL** | **ARTIKEL**
+**REPLIKERA** | **REPLIKERA FRÅN (LOKAL)** | **REPLIKERA TILL** | **ARTIKEL**
 ---|---|---|---
-Arbetsbelastningar som körs på virtuella VMware-datorer | Lokal VMware-server | Azure-lagring | [Distribuera](site-recovery-vmware-to-azure-classic.md)
-Arbetsbelastningar som körs på virtuella VMware-datorer | Lokal VMware-server | Sekundär VMware-plats | [Distribuera](site-recovery-vmware-to-vmware.md) 
-Arbetsbelastningar som körs på virtuella Hyper-V-datorer | Lokal Hyper-V-värdserver i VMM-moln | Azure-lagring | [Distribuera](site-recovery-vmm-to-azure.md)
-Arbetsbelastningar som körs på virtuella Hyper-V-datorer | Lokal Hyper-V-värdserver i VMM-moln | Sekundär VMM-plats | [Distribuera](site-recovery-vmm-to-vmm.md)
-Arbetsbelastningar som körs på virtuella Hyper-V-datorer | Lokal Hyper-V-värdserver i VMM-moln med SAN-lagring| Sekundär VMM-plats med SAN-lagring | [Distribuera](site-recovery-vmm-san.md)
-Arbetsbelastningar som körs på virtuella Hyper-V-datorer | Lokal Hyper-V-plats (ingen VMM) | Azure-lagring | [Distribuera](site-recovery-hyper-v-site-to-azure.md)
-Arbetsbelastningar som körs på fysiska Windows-/Linux-servrar | Lokal fysisk server | Azure-lagring | [Distribuera](site-recovery-vmware-to-azure-classic.md)
-Arbetsbelastningar som körs på fysiska Windows-/Linux-servrar | Lokal fysisk server | Sekundärt datacenter | [Distribuera](site-recovery-vmware-to-vmware.md) 
+VMwares virtuella datorer | VMware-server | Azure | [Läs mer](site-recovery-vmware-to-azure-classic.md)
+VMwares virtuella datorer | VMware-server | Sekundär VMware-plats | [Läs mer](site-recovery-vmware-to-vmware.md) 
+Hyper-V:s virtuella datorer | Hyper-V-värd i VMM-moln | Azure | [Läs mer](site-recovery-vmm-to-azure.md) 
+Hyper-V:s virtuella datorer | Hyper-V-värd i VMM-moln | Sekundär VMM-plats | [Läs mer](site-recovery-vmm-to-vmm.md)
+Hyper-V:s virtuella datorer | Hyper-V-värds i VMM-moln med SAN-lagring| Sekundär VMM-plats med SAN-lagring | [Läs mer](site-recovery-vmm-san.md)
+Hyper-V:s virtuella datorer | Hyper-V-värd (ingen VMM) | Azure | [Läs mer](site-recovery-hyper-v-site-to-azure.md)
+Fysiska Windows-/Linux-servrar | Fysisk server | Azure | [Läs mer](site-recovery-vmware-to-azure-classic.md)
+Arbetsbelastningar som körs på fysiska Windows-/Linux-servrar | Fysisk server | Sekundärt datacenter | [Läs mer](site-recovery-vmware-to-vmware.md) 
 
 
 ## Vilka arbetsbelastningar kan jag skydda?
@@ -61,11 +68,11 @@ Arbetsbelastningar som körs på fysiska Windows-/Linux-servrar | Lokal fysisk s
 Site Recovery kan hjälpa dig med programmedveten affärskontinuitet och haveriberedskap så att arbetsbelastningar och appar fortsätter att köra på ett konsekvent sätt när avbrott uppstår. Site Recovery tillhandahåller: 
 
 - **Programkonsekventa ögonblicksbilder** – Replikering med programkonsekventa ögonblicksbilder för appar med en eller flera nivåer.
-**Nästintill synkron replikering** – En replikeringsfrekvens så låg som 30 sekunder för Hyper-V och kontinuerlig replikering för VMware.
-**Integrering med SQL Server AlwaysOn** – Du kan hantera redundans för tillgänglighetsgrupper i Site Recovery-återställningsplaner. 
+- **Nästintill synkron replikering** – En replikeringsfrekvens så låg som 30 sekunder för Hyper-V och kontinuerlig replikering för VMware.
+- **Integrering med SQL Server AlwaysOn** – Du kan hantera redundans för tillgänglighetsgrupper i Site Recovery-återställningsplaner. 
 - **Flexibla återställningsplaner** – Du kan skapa och anpassa återställningsplaner med externa skript, manuella åtgärder och Azure Automation Runbook-rutiner som gör att du kan återställa en hel programstack med en enda klickning.
-- **Automation-bibliotek** – Ett omfattande Azure Automation-bibliotek med produktionsklara, programspecifika skript som kan hämtas och integrerats med Site Recovery. 
--**Enkel nätverkshantering** – Avancerad nätverkshantering i Site Recovery och Azure förenklar nätverkskraven för program, inklusive reservation av IP-adresser, konfiguration av belastningsutjämnare och integration av Azure Traffic Manager för effektiv nätverksväxling.
+- **Automation-bibliotek** – Ett omfattande Azure Automation-bibliotek med produktionsklara, programspecifika skript som kan hämtas och integrerats med Site Recovery.
+- **Enkel nätverkshantering** – Avancerad nätverkshantering i Site Recovery och Azure förenklar nätverkskraven för program, inklusive reservation av IP-adresser, konfiguration av belastningsutjämnare och integration av Azure Traffic Manager för effektiv nätverksväxling.
 
 
 ## Nästa steg
@@ -76,6 +83,6 @@ Site Recovery kan hjälpa dig med programmedveten affärskontinuitet och haverib
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

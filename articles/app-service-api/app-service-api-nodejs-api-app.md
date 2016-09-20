@@ -14,7 +14,7 @@
     ms.devlang="node"
     ms.topic="get-started-article"
     ms.date="05/26/2016"
-    ms.author="bradygaster"/>
+    ms.author="rachelap"/>
 
 # Skapa en Node.js RESTful-API och distribuera den till en API-app i Azure
 
@@ -193,7 +193,7 @@ I det här avsnittet använder du Azure-portalen för att skapa en ny API-app i 
 
 6. I listrutan **Resursgrupp** klickar du på **Ny**. I **Namn på ny resursgrupp** anger du sedan "NodejsAPIAppGroup" eller ett annat namn. 
 
-    En [resursgrupp](../azure-portal/resource-group-portal.md) är en samling Azure-resurser, till exempel API Apps, databaser och virtuella datorer. För denna kurs är det bäst att skapa en ny resursgrupp eftersom det gör att du med bara ett steg enkelt kan ta bort alla Azure-resurser som du skapar under kursen.
+    En [resursgrupp](../resource-group-overview.md) är en samling Azure-resurser, t.ex. API-appar, databaser och virtuella datorer. För denna kurs är det bäst att skapa en ny resursgrupp eftersom det gör att du med bara ett steg enkelt kan ta bort alla Azure-resurser som du skapar under kursen.
 
 4. Klicka på **Apptjänstplan/plats** och klicka sedan på **Skapa ny**
 
@@ -204,6 +204,7 @@ I det här avsnittet använder du Azure-portalen för att skapa en ny API-app i 
 5. I bladet **Apptjänstplan** anger du "NodejsAPIAppPlan" eller ett annat namn om du föredrar det.
 
 5. I listrutan **Plats** väljer du den plats som är närmast dig.
+
 
     Den här inställningen anger vilket Azure-datacenter appen ska köras i. I den här kursen kan du välja en region utan att det gör någon märkbar skillnad. Men för en produktionsapp är det bra om servern finns så nära klienterna som använder den som möjligt för att minimera [fördröjningen](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
@@ -314,6 +315,6 @@ Vid det här laget har du skapat en API-app och distribuerat Node.js API-kod til
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

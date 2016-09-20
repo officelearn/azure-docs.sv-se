@@ -42,7 +42,7 @@ Följande anslutningar mellan flera platser stöds:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute är en direkt anslutning till Azure från ditt WAN, i stället för över offentligt Internet. Mer information finns i [Teknisk översikt för ExpressRoute](../expressroute/expressroute-introduction.md) och [Vanliga frågor och svar om ExpressRoute](../expressroute/expressroute-faqs.md).
 
-Mer information om anslutningar mellan flera platser finns i [Om säker anslutning mellan flera platser](vpn-gateway-cross-premises-options.md).
+Mer information om anslutningar finns i [Om VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 ### Vad är skillnaden mellan en plats-till-plats-anslutning och en punkt-till-plats-anslutning?
 
@@ -52,11 +52,9 @@ Med **punkt-till-plats**-anslutningar kan du ansluta från en enda dator varifr�
 
 Du kan konfigurera ditt virtuella nätverk till att använda både plats-till-plats och punkt-till-plats samtidigt, förutsatt att du skapar din plats-till-plats-anslutning med en routningsbaserad VPN-typ för din gateway. Routningsbaserade VPN-typer kallas för dynamiska gateways i den klassiska distributionsmodellen.
 
-Mer information finns i [Om säker anslutning mellan flera platser för virtuella nätverk](vpn-gateway-cross-premises-options.md).
-
 ### Vad är ExpressRoute?
 
-Med ExpressRoute kan du skapa privata anslutningar mellan Microsofts datacenter och infrastruktur som finns lokalt eller i en samplaceringsmiljö. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, t.ex. Microsoft Azure och Office 365 i en ExpressRoute-partners samplaceringsmiljö, eller ansluta direkt till Azure från ditt befintliga WAN-nätverk (t.ex ett MPLS VPN som tillhandahålls av en nätverkstjänstleverantör). 
+Med ExpressRoute kan du skapa privata anslutningar mellan Microsofts datacenter och infrastruktur som finns lokalt eller i en samplaceringsmiljö. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, t.ex. Microsoft Azure och Office 365 i en ExpressRoute-partners samplaceringsmiljö, eller ansluta direkt till Azure från ditt befintliga WAN-nätverk (t.ex ett MPLS VPN som tillhandahålls av en nätverkstjänstleverantör).
 
 ExpressRoute-anslutningar har bättre säkerhet, är tillförlitligare, har större bandbredd och kortare svarstider än normala anslutningar över Internet. I vissa fall kan användningen av ExpressRoute-anslutningar för att överföra data mellan ditt lokala nätverk och Azure även ge betydande kostnadsfördelar. Om du redan har skapat en anslutning för flera platser från ditt lokala nätverk till Azure, kan du migrera till en ExpressRoute-anslutning samtidigt som det virtuella nätverket är oförändrat.
 
@@ -70,11 +68,11 @@ Vi har verifierat en uppsättning VPN-standardenheter för plats-till-plats till
 
 ### Vad gör jag om jag har en VPN-enhet som inte finns med i listan över kända kompatibla enheter?
 
-Om inte din enhet anges som en känd kompatibel VPN-enhet och du vill använda den till VPN-anslutningen, måste du kontrollera att den uppfyller IPsec/IKE-konfigurationsalternativen och parametrarna som visas [här](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Enheter som uppfyller minimikraven bör fungera med VPN-gatewayer. Kontakta enhetstillverkaren för ytterligare information om support och konfiguration.
+Om inte din enhet anges som en känd kompatibel VPN-enhet och du vill använda den till VPN-anslutningen måste du kontrollera att den uppfyller IPsec/IKE-konfigurationsalternativen och parametrarna som visas [här](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Enheter som uppfyller minimikraven bör fungera med VPN-gatewayer. Kontakta enhetstillverkaren för ytterligare information om support och konfiguration.
 
 ### Varför stängs min principbaserade VPN-tunnel när trafiken är inaktiv?
 
-Detta är ett förväntat beteende för principbaserade VPN-gatewayer (även kallat statisk routning). När trafiken i tunneln varit inaktiv i mer än 5 minuter kommer tunneln att stängas. Men så snart trafik börjar flöda i båda riktningarna, upprättas tunneln på nytt omedelbart. Om du har en routningsbaserad VPN-gateway (även kallad dynamisk), kommer det här problemet inte att uppstå.
+Detta är ett förväntat beteende för principbaserade VPN-gatewayer (även kallat statisk routning). När trafiken i tunneln varit inaktiv i mer än 5 minuter kommer tunneln att stängas. När trafik börjar flöda i båda riktningarna, upprättas tunneln på nytt omedelbart. Om du har en routningsbaserad VPN-gateway (även kallad dynamisk), kommer det här problemet inte att uppstå.
 
 ### Kan jag använda programvaru-VPN:er för att ansluta till Azure?
 
@@ -88,13 +86,17 @@ Andra VPN-programlösningar bör fungera med vår gateway så länge de uppfylle
 
 Följande operativsystem stöds:
 
-- Windows 7 (endast 64-bitars version)
+- Windows 7 (32-bitars och 64-bitars)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2 (endast 64-bitars)
 
-- Windows 8 (endast 64-bitars version)
+- Windows 8 (32-bitars och 64-bitars)
 
-- Windows Server 2012
+- Windows 8.1 (32-bitars och 64-bitars)
+
+- Windows Server 2012 (endast 64-bitars)
+
+- Windows Server 2012 R2 (endast 64-bitars)
 
 - Windows 10
 
@@ -164,11 +166,11 @@ Vi är begränsade till att använda PSK (I förväg delad nyckel) vid autentise
 
 Vi har en gateway-tjänst som vi kör för att aktivera anslutning mellan flera platser. 
 
-Om du vill konfigurera en VPN-gateway, måste du först skapa ett gateway-undernät för ditt VNet. Gateway-undernätet måste ha namnet GatewaySubnet för att fungera korrekt. Ge inte något annat namn till gateway-undernätet. Och distribuera inte virtuella datorer eller något annat till gateway-undernätet.
+Om du vill konfigurera en VPN-gateway, måste du först skapa ett gateway-undernät för ditt VNet. Alla gateway-undernät måste ha namnet GatewaySubnet för att fungera korrekt. Ge inte något annat namn till gateway-undernätet. Och distribuera inte virtuella datorer eller något annat till gateway-undernätet.
 
 Den minsta storleken för gateway-undernätet beror helt på den konfiguration som du vill skapa. Även om det är möjligt att skapa ett gateway-undernät som är så litet som /29 för vissa konfigurationer, rekommenderar vi att du skapar ett gateway-undernät på /28 eller större (/28, /27, /26, etc.). 
 
-## Kan jag distribuera virtuella datorer eller rollinstanser till mitt gateway-undernät?
+### Kan jag distribuera virtuella datorer eller rollinstanser till mitt gateway-undernät?
 
 Nej.
 
@@ -193,7 +195,7 @@ En VPN-gateway är i grunden en multihomed-enhet med ett nätverkskort för kund
 
 ### Mer information om gateway-typer, krav och dataflöde
 
-Mer information finns i [Om VPN Gateway](vpn-gateway-about-vpngateways.md).
+Mer information finns i [Om VPN Gateway-inställningar](vpn-gateway-about-vpn gateway-settings.md).
 
 ## Multisite- och VNet-till-VNet-anslutning
 
@@ -201,7 +203,7 @@ Mer information finns i [Om VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 Endast routningsbaserade VPN:er (dynamisk routning).
 
-### Kan jag ansluta ett VNet med VPN-typen RouteBased till ett annat VNet med VPN-typen PolicyBased?
+### Kan jag ansluta ett VNet med en routningsbaserad VPN-typ till ett annat VNet med en policybaserad VPN-typ?
 
 Nej, båda virtuella nätverken MÅSTE använda routningsbaserade VPN-anslutningar (dynamisk routning).
 
@@ -227,7 +229,7 @@ Nej, redundanta tunnlar mellan ett virtuellt Azure-nätverk och en lokal plats s
 
 ### Kan det finnas överlappande adressutrymmen i anslutna virtuella nätverk och lokala platser?
 
-Nej. Överlappande adressutrymmen innebär att överföringen av netcfg-filen eller Skapa virtuella nätverk misslyckas.
+Nej. Överlappande adressutrymmen innebär att överföringen av nätverkskonfigurationsfilen eller ”Skapa virtuella nätverk” misslyckas.
 
 ### Får jag mer bandbredd med fler plats-till-plats-VPN:er än med ett enda virtuellt nätverk?
 
@@ -235,7 +237,10 @@ Nej, alla VPN-tunnlar, inklusive punkt-till-plats-VPN:er, delar samma Azure VPN-
 
 ### Kan jag använda Azures VPN-gateway till att överföra trafik mellan mina lokala platser eller till ett annat virtuellt nätverk?
 
-Överföringstrafik via Azures VPN-gateway är möjlig, men den förlitar sig på statiska definierade adressutrymmen i konfigurationsfilen netcfg. BGP stöds inte ännu med virtuella Azure-nätverk och VPN-gatewayer. Utan BGP är manuellt definierade överföringsadressutrymmen mycket felbenägna och rekommenderas inte.
+**Klassisk distributionsmodell**<br>
+Överföringstrafik via Azures VPN-gateway är möjlig med den klassiska distributionsmodellen, men den förlitar sig på statiska definierade adressutrymmen i nätverkskonfigurationsfilen. BGP stöds inte ännu med virtuella Azure-nätverk och VPN-gatewayer som använder den klassiska distributionsmodellen. Utan BGP är manuellt definierade överföringsadressutrymmen mycket felbenägna och rekommenderas inte.<br>
+**Distributionsmodell med Resource Manager**<br>
+Om du använder distributionsmodellen med Resource Manager finns det mer information i avsnittet [BGP](#bgp).
 
 ### Genererar Azure samma i förväg delade IPsec/IKE-nyckel för alla mina VPN-anslutningar för samma virtuella nätverk?
 
@@ -250,7 +255,7 @@ Vid trafik mellan olika virtuella Azure-nätverk debiterar Azure endast trafiken
 
 Ja, det stöds. Mer information finns i [Konfigurera ExpressRoute och VPN-anslutningar för plats till plats som kan samexistera](../expressroute/expressroute-howto-coexist-classic.md)
 
-## BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 
@@ -272,15 +277,10 @@ Nej. Bara den trafik som har ett mål-IP som finns i det virtuella nätverkets l
 ## Vanliga frågor och svar om Virtual Network
 
 Du kan se mer information om virtuella nätverk i [Vanliga frågor och svar om Virtual Network](../virtual-network/virtual-networks-faq.md).
-
-## Nästa steg
-
-Du kan se mer information om VPN Gateway på [sidan VPN Gateway-dokumentation](https://azure.microsoft.com/documentation/services/vpn-gateway/).
-
  
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

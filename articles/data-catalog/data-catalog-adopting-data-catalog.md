@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-catalog"
-    ms.date="05/09/2016"
+    ms.date="07/25/2016"
     ms.author="spelluru"/>
 
 # Börja använda Azure Data Catalog
@@ -175,6 +175,6 @@ Den här artikeln handlar om att komma igång med **Azure Data Catalog** i din o
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

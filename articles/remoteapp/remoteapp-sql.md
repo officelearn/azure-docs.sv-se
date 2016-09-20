@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # SQL Azure med Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 
 Ofta när kunder väljer att lagra sina Windows-program i molnet med Azure RemoteApp vill de också migrera data, till exempel SQL-servrar, till molnet för en hel molndistribution. Det gör att hela den molnbaserade lösningen kan användas när och var som helst av alla enheter, med Azure RemoteApp. Nedan visas länkar och referenser tillsammans med riktlinjer som hjälper dig med den här processen.  
 
@@ -53,6 +56,6 @@ Det kan finnas flera skäl till att det verkar gå långsamt att använda ett kl
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

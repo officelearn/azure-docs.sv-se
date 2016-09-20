@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="06/16/2016"
    ms.author="yushwang"/>
 
 # Översikt över BGP med Azures VPN-gatewayer
@@ -35,7 +35,9 @@ Det finns flera fördelar och nya funktioner med BGP:
 
 Med BGP behöver du bara deklarera ett minsta prefix till en specifik BGP-peer via IPsec S2S VPN-tunneln. Det kan vara så litet som ett värdprefix (/32) för BGP-peerens IP-adressen till din lokala VPN-enhet. Du kan styra vilka lokala nätverksprefix som du vill annonsera till Azure för att tillåta åtkomst för Azure Virtual Network.
     
-Du kan också annonsera ett större prefix som kan innehålla några av dina VNet-adressprefix, som t.ex. standardväg (0.0.0.0/0) eller ett stort privat IP-adressutrymme (t.ex. 10.0.0.0/8). Observera att prefixen inte får vara identiska med några av dina VNet-prefix. De vägar som är identiska med dina VNet-prefix kommer att avvisas.
+Du kan också annonsera ett större prefix som kan innehålla några av dina VNet-adressprefix, som t.ex. ett stort privat IP-adressutrymme (t.ex. 10.0.0.0/8). Observera att prefixen inte får vara identiska med några av dina VNet-prefix. De vägar som är identiska med dina VNet-prefix kommer att avvisas.
+
+>[AZURE.IMPORTANT] För närvarande kommer annonsering av standardvägen (0.0.0.0/0) till Azure VPN-gatewayer att blockeras. Ytterligare uppdatering tillhandahålls när funktionen aktiveras.
 
 #### Stöd för flera tunnlar mellan ett VNet och en lokal plats med automatisk redundans baserat på BGP
 
@@ -68,6 +70,6 @@ Se i [Komma igång med BGP på Azures VPN-gatewayer](./vpn-gateway-bgp-resource-
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

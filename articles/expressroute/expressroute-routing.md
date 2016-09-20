@@ -3,8 +3,8 @@
    description="Den här sidan innehåller detaljerade krav för att konfigurera och hantera routning för ExpressRoute-kretsar."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,15 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/10/2016"
+   ms.author="ganesr"/>
 
 
 # ExpressRoute-routningskrav  
 
-För att kunna ansluta till Microsofts molntjänster med ExpressRoute, måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte, måste du följa kraven som beskrivs nedan. 
+För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte, måste du följa kraven som beskrivs nedan. 
 
-Se [Kretsar och routningsdomäner](expressroute-circuit-peerings.md) för en beskrivning av routningssessioner som måste konfigureras för att underlätta anslutningen.
+I [Kretsar och routningsdomäner](expressroute-circuit-peerings.md) finns en beskrivning av de routningssessioner som måste konfigureras för att möjliggöra anslutningen.
 
 **Obs:** Microsoft stöder inte några routerredundansprotokoll (t.ex. HSRP, VRRP) för konfigurationer med hög tillgänglighet. Vi förlitar oss på ett redundant par med BGP-sessioner per peering för hög tillgänglighet.
 
@@ -42,7 +42,7 @@ Du kan antingen använda privata IP-adresser eller offentliga IP-adresser för a
 
 #### Exempel på privat peering
 
-Om du väljer att använda a.b.c.d/29 för att konfigurera peeringen, delas den upp i två /30-undernät. I exemplet nedan beskrivs hur a.b.c.d/29-undernätet används. 
+Om du väljer att använda a.b.c.d/29 för att konfigurera peeringen delas den upp i två /30-undernät. I exemplet nedan beskrivs hur a.b.c.d/29-undernätet används. 
 
 a.b.c.d/29 kommer att delas upp till a.b.c.d/30 och a.b.c.d+4/30 samt skickas till Microsoft via etablerings-API: er. Du kommer att använda a.b.c.d+1 som VRF IP för din primära PE och Microsoft kommer att använda a.b.c.d+2 som VRF IP för den primära MSEE:n. Du kommer att använda a.b.c.d+5 som VRF IP för din sekundära PE och Microsoft kommer att använda a.b.c.d+6 som VRF IP för den sekundära MSEE:n.
 
@@ -78,15 +78,15 @@ Routningsutbytet kommer att ske via EBGP-protokollet. EBGP-sessioner upprättas 
 
 ## Autonoma systemnummer
 
-Microsoft använder AS 12076 för Azures offentliga, Azures privata och Microsofts peering. Vi har reserverat ASN:er från 65515 till 65520 för intern användning. Både 16- och 32-bitars AS-nummer stöds.
+Microsoft använder AS 12076 för Azures offentliga, Azures privata och Microsofts peering. Vi har reserverat ASN:er från 65515 till 65520 för intern användning. Både 16- och 32-bitars AS-nummer stöds. På peering-sidan (kund eller leverantör) kan AS vara en offentlig ASN om den kan verifieras som ägd av dig, eller ett privat ASN-nummer för privat peering och kräver en offentlig ASN för offentliga peerings och Microsoft-peerings. 
 
-Det finns inga krav på symmetri vid dataöverföring. Sökvägar vid vidarebefordran och retur kan passera olika routerpar. Identiska vägar måste annonseras från någon av sidorna över flera kretspar som du äger. Vägmåtten behöver inte vara identiska.
+Det finns inga krav på dataöverföringssymmetri på de primära och sekundära sökvägarna i alla angivna kretsar. Sökvägar vid vidarebefordran och retur kan passera olika routerpar. Identiska vägar måste annonseras från antingen den primära eller den sekundära sidan över alla angivna kretspar som du äger. Vägmåtten behöver inte vara identiska.
 
 ## Vägsammanställning och begränsningar för prefix
 
 Vi stöder upp till 4 000 prefix som annonseras till oss via Azures privata peering. Detta kan utökas upp till 10 000 prefix om ExpressRoute-premiumtillägget är aktiverat. Vi kan acceptera upp till 200 prefix per BGP-session för Azures offentliga och Microsofts peering. 
 
-BGP-sessionen kommer att tas bort om antalet prefix överskrider gränsen. Vi kommer endast att acceptera standardvägar på den privata peeringlänken. Leverantören måste filtrera ut standardvägen och privata IP-adresser (RFC 1918) från Azures offentliga och Microsofts peeringsökvägar. 
+BGP-sessionen kommer att tas bort om antalet prefix överskrider gränsen. Vi kommer endast att acceptera standardvägar på den privata peeringlänken. Leverantören eller kunden måste filtrera ut standardvägen och privata IP-adresser (RFC 1918) från BGP-annonserna till Azures offentliga och Microsofts peeringsökvägar. 
 
 ## Överföringsroutning och routning mellan regioner
 
@@ -124,6 +124,8 @@ Microsoft taggar prefix som annonseras via offentlig peering och Microsofts peer
 |    | Östra USA | 12076:51004 |
 |    | Östra USA 2 | 12076:51005 |
 |    | Västra USA | 12076:51006 |
+|    | Västra USA 2 | 12076:51026 |
+|    | Västra centrala USA | 12076:51027 |
 |    | Norra centrala USA | 12076:51007 |
 |    | Södra centrala USA | 12076:51008 |
 |    | Centrala USA | 12076:51009 |
@@ -177,6 +179,6 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

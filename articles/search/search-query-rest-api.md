@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Skicka frågor mot ditt Azure Search-index med hjälp av REST-API:et
@@ -161,6 +161,6 @@ Om du vill veta mer går du till avsnittet ”Svar” i [Söka efter dokument](h
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

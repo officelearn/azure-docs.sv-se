@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-sencha"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Komma igång med Mobile Services och Sencha Touch
@@ -68,7 +68,7 @@ När du har skapat din mobiltjänst finns en snabbguide i den klassiska Azure-po
 
     ![Snabbstartsguide för HTML-appar](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
 
-3. Klicka på **Create TodoItems table** för att skapa en tabell för lagring av appdata.
+3. Klicka på **Create TodoItems table** (Skapa TodoItems-tabell) för att skapa en tabell för lagring av appdata.
 
     > [AZURE.NOTE] Ladda INTE ned HTML-appen från den klassiska Azure-portalen. Vi skapar i stället en Sencha Touch-app manuellt i avsnittet nedan.
 
@@ -199,7 +199,7 @@ Nu när Azure-tillägget har hämtats och installerats i programkatalogen är n�
     Mer information om konfigurationsalternativen för Azure finns i Ext.Azure API-dokumentationen.
 
 
-Gratulerar! Nu har din app åtkomst till din mobiltjänst.
+Grattis! Nu har din app åtkomst till din mobiltjänst.
 
 ##Skapa ToDo-appen
 
@@ -726,6 +726,6 @@ Mer information om hur du kommer igång med Sencha Touch finns den fullständiga
 [Klassisk Azure-portal]: https://manage.windowsazure.com/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

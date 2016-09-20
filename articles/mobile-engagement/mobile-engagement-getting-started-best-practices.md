@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="mobile-multiple"
     ms.workload="mobile" 
-    ms.date="03/28/2016"
-    ms.author="wesmc"/>
+    ms.date="07/07/2016"
+    ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement – Komma igång med bästa praxis
 
@@ -409,6 +409,6 @@ När du har fått en viss erfarenhet bör du överväga att lägga till följand
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

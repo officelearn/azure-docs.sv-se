@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="markusvi"
     writer="markvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/07/2016"
+    ms.date="07/13/2016"
     ms.author="markvi"/>
 
 # Administrera Azure AD-katalogen
@@ -40,7 +40,8 @@ Azure AD innehåller de grundläggande katalog- och identitetshanteringsfunktion
 
 Du får en Azure AD-katalog när du registrerar dig för någon av dessa Microsoft-molntjänster. Du kan skapa ytterligare kataloger efter behov. Du kan till exempel skapa din första katalog som en produktionskatalog och sedan skapa en annan katalog för testning eller mellanlagring.
 
-> [AZURE.NOTE] När du har registrerat dig för din första tjänst rekommenderar vi att du använder samma administratörskonto som är associerat med din organisation när du registrerar dig för andra Microsoft-molntjänster.
+> [AZURE.NOTE]
+> När du har registrerat dig för din första tjänst rekommenderar vi att du använder samma administratörskonto som associerats med din organisation när du registrerar dig för andra Microsoft-molntjänster.
 
 Första gången du registrerar dig för en Microsoft-molntjänst uppmanas du att ange information om din organisation och din organisations domännamnsregistrering på Internet. Den här informationen används sedan för att skapa en ny Azure AD-kataloginstans för din organisation. Samma katalog används för att autentisera inloggningsförsök när du prenumererar på flera Microsoft-molntjänster.
 
@@ -101,8 +102,8 @@ Du kan hantera alla kataloger som helt oberoende resurser. Varje katalog är en 
 
 - **Resursoberoende**. Om du skapar eller tar bort en resurs i en katalog påverkas inte resurser i andra kataloger, delvis med undantag av externa användare, som beskrivs nedan. Om du använder en anpassad ”contoso.com”-domän med en katalog kan den inte användas med någon annan katalog.
 - **Administrativt oberoende**.  Om en icke-administrativ användare av katalogen ”Contoso” skapar testkatalogen ”Test”:
-    - ◦ Katalogsynkroniseringsverktyget används för att synkronisera data med en enda AD-skog.
-    - ◦ ”Contoso”-administratörerna har ingen direkt administratörsbehörighet till katalogen ”Test” om inte en ”Test”-administratör uttryckligen beviljar dem sådan behörighet. ”Contoso”-administratörerna kan kontrollera åtkomsten till katalogen ”Test” tack vare deras kontroll över användarkontot som skapade ”Test”.
+    - Använd katalogsynkroniseringsverktyget om du vill synkronisera data med en enda AD-skog.
+    - Administratörerna av Contoso-katalogen har inte någon direkt administratörsbehörighet till katalogen Test såvida inte någon av administratörerna av Test-katalogen uttryckligen beviljar dem sådan behörighet. ”Contoso”-administratörerna kan kontrollera åtkomsten till katalogen ”Test” tack vare deras kontroll över användarkontot som skapade ”Test”.
 
     Om du ändrar (lägger till eller tar bort) en administratörsroll för en användare i en katalog så påverkar inte ändringen administratörsrollen som användaren kan ha i en annan katalog.
 
@@ -129,8 +130,8 @@ Följande villkor kontrolleras:
 - Det får inte finnas några program i katalogen. Alla program måste tas bort innan katalogen kan tas bort.
 - Det får inte finnas några prenumerationer för Microsoft Online Services, till exempel Microsoft Azure, Office 365 eller Azure AD Premium, som är kopplade till katalogen. Om en standardkatalog skapades för dig i Azure kan du inte ta bort den katalogen om din Azure-prenumeration fortfarande är beroende av den här katalogen för autentisering. På liknande sätt kan du inte ta bort en katalog om en annan användare har associerat en prenumeration med den. Om du vill associera din prenumeration med en annan katalog loggar du in på Azure-hanteringsportalen och klickar på **Inställningar** i det vänstra navigeringsfönstret. Klicka sedan på **Redigera katalog** längst ned på sidan **Prenumerationer**. Mer information om Azure-prenumerationer finns i [Hur Azure-prenumerationer är kopplade till Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]
-    > Om användaren har loggat in med ett arbets- eller skolkonto kan han eller hon inte ta bort sin hemkatalog. Om användaren till exempel är inloggad som joe@contoso.onmicrosoft.com kan han inte ta bort katalogen som har contoso.onmicrosoft.com som standarddomän.
+> [AZURE.NOTE]
+> Om användaren har loggat in med ett arbets- eller skolkonto kan han eller hon inte ta bort sin hemkatalog. Om användaren till exempel är inloggad som joe@contoso.onmicrosoft.com kan han inte ta bort katalogen som har contoso.onmicrosoft.com som standarddomän.
 
 - Inga Multi-Factor Authentication-providers får vara kopplade till katalogen.
 
@@ -150,6 +151,6 @@ Följande villkor kontrolleras:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

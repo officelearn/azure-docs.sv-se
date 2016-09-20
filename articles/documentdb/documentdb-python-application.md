@@ -1,10 +1,10 @@
 <properties
     pageTitle="Utveckling av webbappar i Python Flask med DocumentDB | Microsoft Azure"
     description="Det här är en självstudie om databaser och användning av DocumentDB för lagring av och åtkomst till data från en Python Flask-webbapp på Azure. Hitta apputvecklingslösningar." 
-    keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
+    keywords="Programutveckling, självstudier för databas, python flask, python webbprogram, python webbutveckling, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.date="08/25/2016"
+    ms.author="anhoh"/>
 
 # Utveckling av webbappar i Python Flask med DocumentDB
 
@@ -43,7 +43,7 @@ Genom att följa den här självstudien skapar du en enkel röstningsapp där du
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande installerat:
 
-- Ett aktivt Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/).
+- Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) eller senare, eller [Visual Studio Express](), vilket är den kostnadsfria versionen. Anvisningarna i den här självstudien är skrivna specifikt för Visual Studio 2015. 
 - Python Tools för Visual Studio från [GitHub](http://microsoft.github.io/PTVS/). I den här självstudien används Python Tools för VS 2015. 
 - Azure Python SDK för Visual Studio, version 2.4 eller senare från [azure.com](https://azure.microsoft.com/downloads/). Vi använde Microsoft Azure SDK för Python 2.7.
@@ -182,7 +182,7 @@ def create():
     db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
 
     # Create collection
-    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
+    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
 
     # Create document
     document = client.CreateDocument(collection['_self'],
@@ -432,10 +432,10 @@ Ytterligare självstudier om Python Flask finns i [Ingående självstudie om Fla
   [2]: https://www.python.org/downloads/windows/
   [3]: https://www.microsoft.com/download/details.aspx?id=44266
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-  [Azure Portal]: http://portal.azure.com
+  [Azure-portalen]: http://portal.azure.com
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

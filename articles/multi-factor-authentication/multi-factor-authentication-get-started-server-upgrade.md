@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server
@@ -70,6 +70,7 @@ Uppgraderingen från PhoneFactor Agent v5.x eller äldre till Azure Multi-Factor
  
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

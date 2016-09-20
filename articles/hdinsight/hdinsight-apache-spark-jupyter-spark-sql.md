@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/06/2016"
+    ms.date="07/25/2016"
     ms.author="nitinme"/>
 
 
@@ -38,12 +38,14 @@ Lär dig hur du skapar ett Apache Spark-kluster i HDInsight och sedan använder 
     
     -  Från en Windows-dator – [Använd SSH med Linux-baserat HDInsight (Hadoop) från Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
+>[AZURE.NOTE]  Den här artikeln använder en ARM-mall för att skapa ett Spark-kluster som använder [Azure Storage-blobar som klusterlagring](hdinsight-hadoop-use-blob-storage.md). Du kan också skapa ett Spark-kluster som använder [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) som ett ytterligare lagringsutrymme, utöver Azure Storage-blobar som standardlagring. Instruktioner finns i [Skapa ett HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
 
 ## Skapa Spark-kluster
 
 I det här avsnittet skapar du ett HDInsight-kluster av version 3.4 (Spark-version 1.6.1) med hjälp av en Azure ARM-mall. Information om HDInsight-versioner och deras serviceavtal finns i [Versionshantering för HDInsight-komponenter](hdinsight-component-versioning.md). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Klicka på följande bild för att öppna en ARM-mall i Azure-portalen.         
+1. Klicka på följande bild för att öppna en ARM-mall i Azure Portal.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
@@ -51,13 +53,13 @@ I det här avsnittet skapar du ett HDInsight-kluster av version 3.4 (Spark-versi
    
 2. Skriv följande på bladet Parametrar:
 
-    - **Klusternamn**: Ange ett namn för det Hadoop-kluster som du vill skapa.
+    - **Klusternamn**: Ange ett namn för det Hadoop-kluster du vill skapa.
     - **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard ”admin”.
     - **SSH-användarnamn och lösenord**.
     
-    Skriv ned dessa värden.  Du behöver dem senare under vägledningen.
+    Skriv ned dessa värden.  Du behöver dem senare under kursen.
 
-    > [AZURE.NOTE] SSH används för att få fjärråtkomst till HDInsight-klustret med hjälp av en kommandorad. Det användarnamn och lösenord som du använder här används när du ansluter till klustret via SSH. Användarnamnet för SSH måste dessutom vara unikt, eftersom det skapar ett användarkonto på alla  HDInsight-klusternoder. Nedan följer några av de kontonamn som är reserverade för användning av tjänsterna i klustret och inte kan användas som SSH-användarnamn:
+    > [AZURE.NOTE] SSH används för att få fjärråtkomst till HDInsight-klustret med hjälp av en kommandorad. Det användarnamn och lösenord du använder här används när du ansluter till klustret via SSH. Användarnamnet för SSH måste dessutom vara unikt, eftersom det skapar ett användarkonto på alla HDInsight-klusternoder. Nedan följer några av de kontonamn som är reserverade för användning av tjänsterna i klustret och inte kan användas som SSH-användarnamn:
     >
     > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
@@ -69,7 +71,7 @@ I det här avsnittet skapar du ett HDInsight-kluster av version 3.4 (Spark-versi
     
 3. Spara parametrarna genom att klicka på **OK**.
 
-4. På bladet **Anpassad distribution** klickar du på listrutan **Resursgrupp** och sedan på **Ny** för att skapa en ny resursgrupp. Resursgruppen är en behållare som grupperar klustret, det beroende lagringskontot och andra länkade resurser.
+4. I bladet **Anpassad distribution** klickar du på listrutan **Resursgrupp** och sedan på **Ny** för att skapa en ny resursgrupp. Resursgruppen är en behållare som grupperar klustret, det beroende lagringskontot och andra länkade resurser.
 
 5. Klicka på **Juridiska villkor** och sedan på **Skapa**.
 
@@ -121,7 +123,7 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
     Klistra in följande kodexempel i en tom cell och tryck på **SKIFT + RETUR**. Den här kodexemplet registrerar data i en tillfällig tabell som kallas **hvac**.
 
         # Load the data
-        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
         
         # Create the schema
         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
@@ -167,27 +169,29 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 
 * [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark med Machine Learning: Använda Spark i HDInsight för att förutse resultat av livsmedelsinspektion](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Spark Streaming: Använda Spark i HDInsight för att bygga appar för strömning i realtid](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](hdinsight-apache-spark-eventhub-streaming.md)
 
 * [Webbplatslogganalys med Spark i HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### Skapa och köra appar
+* [Application Insight-telemetridataanalys i HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
 
-* [Skapa en fristående app med hjälp av Scala](hdinsight-apache-spark-create-standalone-application.md)
+### Skapa och köra program
+
+* [Skapa ett fristående program med hjälp av Scala](hdinsight-apache-spark-create-standalone-application.md)
 
 * [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Verktyg och tillägg
 
-* [Använda HDInsight Tools-plugin för IntelliJ IDEA för att skapa och skicka Spark Scala-appar](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Använda HDInsight Tools-plugin för IntelliJ IDEA för att felsöka Spark-appar via fjärranslutning](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda HDInsight Tools-plugin för IntelliJ IDEA till att felsöka Spark-program via fjärranslutning](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernlar som är tillgängliga för Jupyter-anteckningsboken i Spark-klustret för HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 * [Använda externa paket med Jupyter-anteckningsböcker](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
@@ -212,6 +216,6 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

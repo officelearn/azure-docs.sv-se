@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Anpassa utvecklarportalen i Azure API Management
@@ -78,7 +78,7 @@ Klicka på **välkomstsidan** om du vill ändra vad som visas på utvecklarporta
 
 ## <a name="next-steps"> </a>Nästa steg
 
--   Titta gärna igenom avsnitten i självstudiekursen [Komma igång med avancerad API-konfiguration][].
+-   Läs om hur du kan anpassa innehållet på utvecklarportalens sidor med [utvecklarportalsmallar](api-management-developer-portal-templates.md).
 
 [Ändra texten/logotypen i sidhuvudena]: #change-page-headers
 [Ändra formateringen i sidhuvudena]: #change-headers-styling
@@ -95,12 +95,11 @@ Klicka på **välkomstsidan** om du vill ändra vad som visas på utvecklarporta
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Komma igång med avancerad API-konfiguration]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [LESS-variabler]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

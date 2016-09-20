@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/29/2016"
    ms.author="kgremban"/>
 
 # Komma igång med Azure Privileged Identity Management
@@ -29,15 +29,16 @@ Innan du använder Azure AD Privileged Identity Management måste du lägga till
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som global administratör för din katalog.
 2. Om din organisation har mer än en katalog klickar du på ditt användarnamn längst upp till höger på Azure-portalen och väljer den katalog där du ska använda PIM.
-3. Välj ikonen **Nytt** i det vänstra navigeringsfönstret.
-4. Välj **Säkerhet + identitet**.
-5. Välj **Azure AD Privileged Identity Management**.
-6. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Programmet Privileged Identity Management öppnas.
+3. Välj **Ny** > **Säkerhet + Identitet** > **Azure AD Privileged Identity Management**.
+
+    ![Aktivera PIM på portalen][1]
+
+4. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Programmet Privileged Identity Management öppnas.
 
 
-Om du är den första personen som använder Azure AD Privileged Identity Management i din katalog vägleds du genom din första tilldelningsupplevelse i [säkerhetsguiden](active-directory-privileged-identity-management-security-wizard.md). Därefter blir du automatiskt katalogens första **säkerhetsadministratör** och **administratör av privilegierade roller**. Endast en administratör av privilegierade roller kan komma åt det här programmet för att hantera åtkomsten för andra administratörer.  
+Om du är den första personen som använder Azure AD Privileged Identity Management i din katalog vägleds du genom din första tilldelningsupplevelse i [säkerhetsguiden](active-directory-privileged-identity-management-security-wizard.md). Därefter blir du automatiskt katalogens första **säkerhetsadministratör** och **privilegierade rolladministratör**. Endast en administratör av privilegierade roller kan komma åt det här programmet för att hantera åtkomsten för andra administratörer.  
 
-Om du i stället har tilldelats en eller flera roller av en annan administratör för privilegierade roller kan du välja vilken roll som ska aktiveras. Om du själv är administratör av privilegierade roller kan du även välja att **hantera identiteter**.  
+Om du har tilldelats en eller flera roller visas alternativet **Aktivera mina roller**. Om du är privilegierad rolladministratör visas även alternativet **Hantera privilegierade roller**.  
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -47,8 +48,12 @@ Om du i stället har tilldelats en eller flera roller av en annan administratör
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

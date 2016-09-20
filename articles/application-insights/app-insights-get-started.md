@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="03/31/2016"
+    ms.date="06/06/2016"
     ms.author="awills"/>
 
 # Komma igång med Visual Studio Application Insights
@@ -52,8 +52,6 @@ Vad du vill ha | Vad du gör | Vad du får
  * [Felsökning][qna]
  * [MSDN-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Buggar:
- * [Anslut](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Förslag:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Kodexempel
@@ -61,8 +59,9 @@ Vad du vill ha | Vad du gör | Vad du får
 
 
 
-## <a name="video"></a>Videoklipp
+## <a name="video"></a>Video
 
+[![Animerad introduktion](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 
@@ -78,6 +77,6 @@ Vad du vill ha | Vad du gör | Vad du får
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

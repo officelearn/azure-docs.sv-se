@@ -1,7 +1,7 @@
 <properties
     pageTitle="Vad är SQL Database? Introduktion till SQL Database | Microsoft Azure"
     description="Få en introduktion till SQL Database: teknisk information och funktioner i Microsofts relationella databashanteringssystem (RDBMS) i molnet."
-    keywords="introduction to sql,intro to sql,what is sql database"
+    keywords="introduktion till sql, sql-introduktion, vad är sql-databas"
     services="sql-database"
     documentationCenter=""
     authors="shontnew"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
 # Vad är SQL Database? Introduktion till SQL Database
@@ -61,6 +61,6 @@ Nu när du har läst en introduktion till SQL Database och besvarat frågan "Vad
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

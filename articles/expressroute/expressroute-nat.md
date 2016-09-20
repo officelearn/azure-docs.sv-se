@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoutes NAT-krav
@@ -23,7 +23,7 @@ Läs sidan [ExpressRoute-kretsar och routningsdomäner](expressroute-circuit-pee
 
 ## NAT-krav för Azures offentliga peering
 
-Med Azures offentliga peeringsökväg kan du ansluta till alla tjänster som finns i Azure med deras offentliga IP-adresser. Det inkluderar alla tjänster som finns i listan [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md) och tjänster med ISV:er i Microsoft Azure. Anslutningen till Microsoft Azure-tjänster vid offentlig peering initieras alltid från ditt nätverk till Microsoft-nätverket. Trafik till Microsoft Azure vid offentlig peering måste vara SNATed till giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket. I bilden nedan ges en översiktlig bild av hur NAT kan vara konfigurerat för att uppfylla ovanstående krav.
+Med Azures offentliga peeringsökväg kan du ansluta till alla tjänster som finns i Azure med deras offentliga IP-adresser. Det inkluderar tjänster som finns i listan [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md) och tjänster med ISV:er i Microsoft Azure. Anslutningen till Microsoft Azure-tjänster vid offentlig peering initieras alltid från ditt nätverk till Microsoft-nätverket. Trafik till Microsoft Azure vid offentlig peering måste vara SNATed till giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket. I bilden nedan ges en översiktlig bild av hur NAT kan vara konfigurerat för att uppfylla ovanstående krav.
 
 ![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
@@ -69,6 +69,6 @@ Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

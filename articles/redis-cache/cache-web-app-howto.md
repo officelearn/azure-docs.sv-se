@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/18/2016" 
+    ms.date="07/22/2016" 
     ms.author="sdanie"/>
 
 # Så här skapar du en webbapp med Redis Cache
@@ -802,6 +802,8 @@ När du har valt eller skapat cacheminnet du ska använda, bläddrar du till cac
 ## Nästa steg
 
 -   Lär dig mer om [Komma igång med ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) på [ASP.NET](http://asp.net/)-webbplatsen.
+-   Fler exempel på hur du skapar en ASP.NET-webbapp i App Service finns i [Skapa och distribuera en ASP.NET-webbapp i Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) i [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz), 2015 års [anslutningsdemo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
+    -   Fler snabbstartsguider från HealthClinic.biz-demonstrationen finns i [Snabbstartsguider för Azure Developer Tools](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 -   Läs mer om [Kod först till en ny databas](https://msdn.microsoft.com/data/jj193542) för Entity Framework som används i den här självstudien.
 -   Läs mer om [webbappar i Azure Apptjänst](../app-service-web/app-service-web-overview.md).
 -   Lär dig hur du [övervakar](cache-how-to-monitor.md) cacheminnet i Azure-portalen.
@@ -811,6 +813,7 @@ När du har valt eller skapat cacheminnet du ska använda, bläddrar du till cac
     -   [Så här konfigurerar du klustring för Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
     -   [Så här konfigurerar du Virtual Network-stöd för Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
     -   Se [Vanliga frågor och svar om Azure Redis Cache](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) för mer information om storlek, dataflöde och bandbredd med premium-cacheminnen.
+
 
 
 <!-- IMAGES -->
@@ -849,6 +852,6 @@ När du har valt eller skapat cacheminnet du ska använda, bläddrar du till cac
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

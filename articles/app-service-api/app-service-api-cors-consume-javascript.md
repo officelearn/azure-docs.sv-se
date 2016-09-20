@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
-    ms.author="tdykstra"/>
+    ms.date="08/27/2016"
+    ms.author="rachelap"/>
 
 # Använda en API-app från JavaScript med CORS
 
@@ -80,8 +80,7 @@ I [exempelappen ToDoList](https://github.com/Azure-Samples/app-service-api-dotne
 
         angular.module('todoApp')
         .factory('todoListSvc', ['$http', function ($http) {
-            var apiEndpoint = "http://localhost:46439";
-        
+
             $http.defaults.useXDomain = true;
             delete $http.defaults.headers.common['X-Requested-With']; 
         
@@ -287,6 +286,6 @@ I den här artikeln har du sett hur du aktiverar stöd för Apptjänst-CORS så 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

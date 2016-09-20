@@ -2,10 +2,10 @@
     pageTitle="Komma igång med Azure Multi-Factor Authentication Server" 
     description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA Server." 
     services="multi-factor-authentication"
-    keywords="authentication server, azure multi factor authentication app activation page, authentication server download" 
+    keywords="autentiseringsserver, azure multifaktor autentisering appaktiveringssida, hämtning autentiseringsserver" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Komma igång med Azure Multi-Factor Authentication Server
@@ -192,6 +192,6 @@ Metod|Beskrivning
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

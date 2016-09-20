@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="05/31/2016" 
+    ms.date="08/25/2016" 
     ms.author="sdanie"/>
 
 # Så här använder du Azure Redis Cache
@@ -59,21 +59,7 @@ Mer information om hur du konfigurerar din cache finns i [Så här konfigurerar 
 <a name="NuGet"></a>
 ## Konfigurera cacheklienterna
 
-Ett cacheminne som har skapats med Azure Redis Cache är tillgängligt från alla Azure-program. .NET-program som är utvecklade i Visual Studio kan använda cacheklienten **StackExchange.Redis**. Den kan konfigureras med ett NuGet-paket som förenklar konfigurationen av cacheklientprogram. 
-
->[AZURE.NOTE] Mer information finns på GitHub-sidan [StackExchange.Redis][] och i [Cacheklientdokumentation för StackExchange.Redis][].
-
-Om du vill konfigurera ett klientprogram i Visual Studio med hjälp av NuGet-paketet för StackExchange.Redis, högerklickar du på projektet i **Solution Explorer** och väljer **Hantera NuGet-paket**. 
-
-![Hantera NuGet-paket][NuGetMenu]
-
-Skriv **StackExchange.Redis** eller **StackExchange.Redis.StrongName** i sökrutan, markera den önskade versionen i resultaten och klicka på **Installera**.
-
->[AZURE.NOTE] Om du vill använda en starkt krypterad version av klientbiblioteket **StackExchange.Redis** väljer du **StackExchange.Redis.StrongName**, annars väljer du **StackExchange.Redis**.
-
-![NuGet-paket för StackExchange.Redis][StackExchangeNuget]
-
-NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferenserna för klientprogrammet för att få åtkomst till Azure Redis Cache med cacheklienten StackExchange.Redis.
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 När klientprojektet är konfigurerat för cachelagring kan du använda de metoder som beskrivs i följande avsnitt för att arbeta med din cache.
 
@@ -207,7 +193,9 @@ Nu när du har lärt dig grunderna kan du följa dessa länkar för att lära di
 -   [Aktivera cachediagnostik](cache-how-to-monitor.md#enable-cache-diagnostics) så att du kan [övervaka](cache-how-to-monitor.md) hälsotillståndet för cacheminnet. Du kan visa värdena i Azure Portal och du kan också [ladda ned och granska](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) dem med hjälp av de verktyg du väljer.
 -   Lär dig mer om [Cacheklientdokumentation för StackExchange.Redis][].
     -   Azure Redis Cache kan nås från många Redis-klienter och programmeringsspråk. Mer information finns i [http://redis.io/clients][].
-    -   Azure Redis Cache kan också användas med tjänster som t.ex. Redsmin. Mer information finns i [Så här hämtar du en anslutningssträng för Azure Redis och använder den med Redsmin][].
+-   Azure Redis Cache kan också användas med tjänster och verktyg från tredje part som Redsmin och Redis Desktop Manager.
+    -   Mer information om Redsmin finns i [Så här hämtar du en anslutningssträng för Azure Redis och använder den med Redsmin][].
+    -   Komma åt och granska dina data i Azure Redis Cache med ett grafiskt användargränssnitt med hjälp av [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
 -   Se [Redis][]-dokumentationen, läs om [Redis-datatyper][] och få [en 15 minuters introduktion till Redis-datatyper][].
 
 
@@ -302,6 +290,6 @@ Nu när du har lärt dig grunderna kan du följa dessa länkar för att lära di
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

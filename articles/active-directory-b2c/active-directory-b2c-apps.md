@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure AD B2C Preview | Microsoft Azure"
-    description="De typer av program som du kan skapa i Azure Active Directory B2C Preview."
+    pageTitle="Azure AD B2C | Microsoft Azure"
+    description="De typer av program som du kan skapa i Azure Active Directory B2C."
     services="active-directory-b2c"
     documentationCenter=""
     authors="dstrockis"
@@ -13,14 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/31/2016"
+    ms.date="07/22/2016"
     ms.author="dastrock"/>
 
-# Azure Active Directory B2C Preview: Typer av program
+# Azure Active Directory B2C: Typer av program
 
 Azure AD (Active Directory Azure) B2C stöder autentisering för en rad olika moderna apparkitekturer. Alla baseras på standardprotokollen [OAuth 2.0](active-directory-b2c-reference-protocols.md) och [OpenID Connect](active-directory-b2c-reference-protocols.md). I det här dokumentet beskrivs kortfattat de olika typer av appar som du kan skapa, oberoende av plattform eller språk. Du får också förståelse för de övergripande scenarierna innan du [börjar utveckla program](active-directory-b2c-overview.md#getting-started).
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Grunderna
 Alla appar som använder Azure AD B2C måste vara registrerade i din [B2C-katalog](active-directory-b2c-get-started.md) via [Azure Portal](https://portal.azure.com/). Registreringsprocessen samlar in och tilldelar några värden till din app:
@@ -81,7 +79,7 @@ Förutom att underlätta enkel inloggning kan en webbserverapp också behöva å
 <!--, and in our [WebApp-WebAPI Getting started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
 
 ## Webb-API:er
-Du kan använda Azure AD B2C för att skydda webbtjänster, till exempel appens RESTful-webb-API. Webb-API:er kan använda OAuth 2.0 för att skydda sina data. De kan också autentisera inkommande HTTP-begäranden med hjälp av token. Anroparen av ett webb-API lägger till en token i auktoriseringshuvudet för en HTTP-begäran:
+Du kan använda Azure AD B2C för att skydda webbtjänster, till exempel appens RESTful-webb-API. Web API:er kan använda OAuth 2.0 för att skydda sina data genom att autentisera inkommande HTTP-begäranden med hjälp av token. Anroparen av ett webb-API lägger till en token i auktoriseringshuvudet för en HTTP-begäran:
 
 ```
 GET /api/items HTTP/1.1
@@ -94,7 +92,7 @@ Accept: application/json
 Webb-API:et kan sedan använda token för att verifiera API-anroparens identitet och för att extrahera information om anroparen från anspråk som är kodade i token. Mer information om vilka typer av token och anspråk som är tillgängliga för en app finns i [referens för Azure AD B2C-token](active-directory-b2c-reference-tokens.md).
 
 > [AZURE.NOTE]
-    Azure AD B2C Preview stöder för närvarande endast webb-API:er som används av egna välkända klienter. Din fullständiga app kan exempelvis omfatta en iOS-app, en Android-app och ett backend-webb-API. Den här arkitekturen stöds fullt ut. För närvarande kan du inte ge en partnerklient, till exempel en annan iOS-app, åtkomst till samma webb-API. Alla komponenter i en fullständig app måste dela samma program-ID.
+    Azure AD B2C stöder för närvarande endast webb-API:er som används av egna välkända klienter. Din fullständiga app kan exempelvis omfatta en iOS-app, en Android-app och ett backend-webb-API. Den här arkitekturen stöds fullt ut. För närvarande kan du inte ge en partnerklient, till exempel en annan iOS-app, åtkomst till samma webb-API. Alla komponenter i en fullständig app måste dela samma program-ID.
 
 Ett webb-API kan ta emot token från många typer av klienter, inklusive webbappar, skrivbordsappar och mobilappar, appar med en enda sida, server-deamon och andra webb-API:er. Här är ett exempel på det fullständiga flödet för en webbapp som anropar ett webb-API:
 
@@ -110,28 +108,28 @@ Appar som installeras på enheter, till exempel mobilappar och skrivbordsappar, 
 I det här flödet kör appen [principer](active-directory-b2c-reference-policies.md) och tar emot en `authorization_code` från Azure AD när användaren uppfyller principen. `authorization_code` representerar appens behörighet att anropa backend-tjänster för den inloggade användaren. Appen kan sedan byta `authorization_code` i bakgrunden mot en `id_token` och en `refresh_token`.  Appen kan använda `id_token` för att autentisera mot ett backend-webb-API i HTTP-förfrågningar. Den kan också använda `refresh_token` för att hämta en ny `id_token` när en äldre upphör att gälla.
 
 > [AZURE.NOTE]
-    Azure AD B2C Preview stöder för närvarande endast ID-token som används för att komma åt en apps egen backend-webbtjänst. Din fullständiga app kan exempelvis omfatta en iOS-app, en Android-app och ett backend-webb-API. Den här arkitekturen stöds fullt ut. För närvarande går det inte att ge en iOS-app åtkomst till ett partnerwebb-API med hjälp av OAuth 2.0-åtkomsttoken. Alla komponenter i en fullständig app måste dela samma program-ID.
+    Azure AD B2C stöder för närvarande endast token som används för att komma åt en apps egen backend-webbtjänst. Din fullständiga app kan exempelvis omfatta en iOS-app, en Android-app och ett backend-webb-API. Den här arkitekturen stöds fullt ut. För närvarande går det inte att ge en iOS-app åtkomst till ett partnerwebb-API med hjälp av OAuth 2.0-åtkomsttoken. Alla komponenter i en fullständig app måste dela samma program-ID.
 
 ![Bild i spaltformat som illustrerar en intern app](./media/active-directory-b2c-apps/native.png)
 
-## Aktuella begränsningar i förhandsversionen
-För närvarande stöder inte Azure AD B2C Preview följande typer av appar, men stöd för dem kommer att finnas när Azure AD B2C blir offentligt tillgängligt. Övriga begränsningar och restriktioner relaterade till Azure AD B2C Preview beskrivs i [Begränsningar och restriktioner](active-directory-b2c-limitations.md).
+## Aktuella begränsningar
+Azure AD-B2C stöder för närvarande inte följande typer av appar, men det är på gång. Övriga begränsningar och restriktioner relaterade till Azure AD B2C beskrivs i [Begränsningar och restriktioner](active-directory-b2c-limitations.md).
 
 ### Appar med enstaka sidor (JavaScript)
-Klientdelen i många moderna appar innehåller en app med en enda sida som främst är skriven i JavaScript. De använder ofta ett ramverk som AngularJS, Ember.js eller Durandal. Den allmänt tillgängliga Azure AD-tjänsten har stöd för dessa appar genom det implicita flödet för OAuth 2.0. Detta flöde är dock inte tillgängligt i Azure AD B2C än. Men det bör inte dröja länge.
+Klientdelen i många moderna appar innehåller en app med en enda sida som främst är skriven i JavaScript. De använder ofta ett ramverk som AngularJS, Ember.js eller Durandal. Den allmänt tillgängliga Azure AD-tjänsten har stöd för dessa appar genom det implicita flödet för OAuth 2.0. Detta flöde är dock inte tillgängligt i Azure AD B2C än.
 
 ### Daemon/appar på serversidan
 Appar som innehåller tidskrävande processer eller som fungerar utan närvaron av en användare måste också kunna komma åt skyddade resurser, till exempel webb-API:er. Dessa appar kan autentisera och hämta token genom att använda appens identitet (i stället för en användares delegerade identitet) och genom att använda flödet för OAuth 2.0-klientautentiseringsuppgifter.
 
-För närvarande stöds inte detta flöde av Azure AD B2C. De här apparna kan bara hämta token efter ett interaktivt användarflöde. Vi planerar att lägga till flödet för klientautentiseringsuppgifter inom en snar framtid.
+För närvarande stöds inte detta flöde av Azure AD B2C. De här apparna kan bara hämta token efter ett interaktivt användarflöde.
 
 ### Webb-API-länkar (On-Behalf-Of-flöde)
 Många arkitekturer har ett webb-API som måste anropa ett annat underordnat webb-API, där både skyddas av Azure AD B2C. Det här scenariot är vanligt i interna klienter som har ett webb-API på serversidan. Detta anropar sedan en Microsoft-onlinetjänst som Azure AD Graph API.
 
-Det här scenariot med länkade webb-API:er kan användas genom en tilldelning av OAuth 2.0 JWT-ägarautentiseringsuppgifter, även kallat On-Behalf-Of-flöde.  Detta flöde är emellertid inte implementerat i Azure AD B2C Preview.
+Det här scenariot med länkade webb-API:er kan användas genom en tilldelning av OAuth 2.0 JWT-ägarautentiseringsuppgifter, även kallat On-Behalf-Of-flöde.  Detta flöde är emellertid inte implementerat i Azure AD B2C.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

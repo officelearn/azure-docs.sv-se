@@ -33,7 +33,7 @@ Använd följande steg för att ansluta till Azure SQL Database med SSMS som en 
       ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Felsök anslutningsfel
+## Felsök anslutningsfel
 
 Den vanligaste orsaken för anslutningsfel är fel i servernamnet (kom ihåg att <*servernamn*> är namnet på den logiska servern, inte databasen), användarnamnet eller lösenordet, eller att servern inte tillåter anslutningar av säkerhetsskäl. 
 
@@ -41,6 +41,6 @@ Den vanligaste orsaken för anslutningsfel är fel i servernamnet (kom ihåg att
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -12,13 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 
 # ExpressRoute-krav och checklista  
 
 Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kontrollera att följande krav som anges i avsnitten nedan är uppfyllda.
+
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## Azure-konto
 
@@ -66,6 +68,6 @@ Om du planerar att aktivera CRM Online på ExpressRoute, läser du följande dok
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

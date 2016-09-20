@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/26/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Koncept i Azure Mobile Engagement
@@ -87,6 +87,6 @@ Hela trädet med nyckel-/värdepar lagras som ett JSON-objekt. Endast den först
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

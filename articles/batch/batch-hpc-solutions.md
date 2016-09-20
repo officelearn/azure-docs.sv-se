@@ -1,6 +1,6 @@
 <properties
    pageTitle="Batch- och HPC-lösningar i molnet | Microsoft Azure"
-   description="Introducerar scenarier och lösningsalternativ för Batch och HCP (High Performance Computing – databehandling med höga prestanda) i Azure"
+   description="Läs mer om scenarier och lösningsalternativ för databehandling med höga prestanda (HCP och Big Compute) i Azure"
    services="batch, virtual-machines, cloud-services"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/27/2016"
    ms.author="danlep"/>
 
 # Batch- och HPC-lösningar i Azure-molnet
@@ -62,7 +62,7 @@ Du kan lätt migrera många program som är utformade att köras i lokala HPC-kl
 
 Skillnaden mellan Big Compute- och stordataprogram är inte alltid tydlig, och vissa program kan ha egenskaper från båda. Båda involverar beräkningar i hög skala, oftast i datorkluster. Men lösningens metoder och stödverktyg kan skilja sig åt.
 
-• **Big Compute** omfattar ofta program som förlitar sig på processorkraft och minne, till exempel tekniska simuleringar, finansiell riskmodellering och digital rendering. Klustren som driver en Big Compute-lösning kan innehålla datorer med särskilda flerkärniga processorer som utför rådataberäkningar, och särskild maskinvara för höghastighetsnätverk som ansluter datorer.
+• **Big Compute** omfattar ofta program som förlitar sig på processorkraft och minne, till exempel tekniska simuleringar, finansiell riskmodellering och digital rendering. Infrastrukturen för en Big Compute-lösning kan innehålla datorer med särskilda flerkärniga processorer som utför rådataberäkningar, och särskild maskinvara för höghastighetsnätverk som ansluter datorerna.
 
 • **Stordata** löser dataanalysproblem som omfattar stora mängder data som inte kan hanteras av en enskild dator eller ett enskilt databashanteringssystem, till exempel stora mängder webbloggar eller andra BI-data (Business Intelligence). Stordata är ofta mer beroende av diskkapacitet och I/O-prestanda än processorkraft, och kan använda särskilda verktyg som Apache Hadoop för att hantera klustret och partitionera data. (Information om Azure HDInsight och andra Azure Hadoop-lösningar finns i [Hadoop](https://azure.microsoft.com/solutions/hadoop/).)
 
@@ -74,7 +74,7 @@ När Batch- och HPC-program körs används ofta en *klusterhanterare* och ett *j
 
 * **Jobbschema** – Anger vilka resurser (t.ex. processorer eller minne) som ett program behöver och villkoren då det körs. En jobbschemat har en kö med jobb och tilldelar resurser till dem utifrån en tilldelad prioritet eller andra egenskaper.
 
-Kluster- och schemaläggningsverktyg för Windows- och Linux-baserade kluster kan migreras till Azure. Exempelvis har [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), Microsofts kostnadsfria beräkningsklusterlösning för Windows- och Linux HPC-arbetsbelastningar, flera alternativ för körning i Azure. Du kan också skapa Linux-kluster för att köra verktyg med öppen källkod, till exempel Torque och SLURM, eller köra kommersiella verktyg som [TIBCO DataSynapse GridServer](http://www.tibco.com/products/automation/application-development/grid-computing/gridserver) och [Univa Grid Engine](http://www.univa.com/products/grid-engine) i Azure.
+Kluster- och schemaläggningsverktyg för Windows- och Linux-baserade kluster kan migreras till Azure. Exempelvis har [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), Microsofts kostnadsfria beräkningsklusterlösning för Windows- och Linux HPC-arbetsbelastningar, flera alternativ för körning i Azure. Du kan också skapa Linux-kluster för att köra verktyg med öppen källkod, t.ex. Torque och SLURM, eller köra kommersiella verktyg som [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) och [Univa Grid Engine](http://www.univa.com/products/grid-engine) i Azure.
 
 Som du ser i följande avsnitt kan du också dra nytta av Azure-tjänster för att hantera beräkningsresurser och schemalägga jobb utan (eller förutom) traditionella klusterhanteringsverktyg.
 
@@ -85,9 +85,9 @@ Här är tre vanliga scenarier som illustrerar hur du kan köra Big Compute-arbe
 
   | Scenario | Varför ska jag välja det?
 ------------- | ----------- | ---------------
-**Burst- och HPC-kluster till Azure**<br/><br/>[![Cluster burst][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> Läs mer:<br/>• [Burst-överföring till Azure med Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Konfigurera ett hybridberäkningskluster med Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>|• Kombinera [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) eller andra lokala kluster med ytterligare Azure-resurser i en hybridlösning.<br/><br/>• Utöka dina Big Compute-arbetsbelastningar att köra på instanser av virtuella PaaS-datorer (Platform as a Service) (för närvarande endast Windows Server).<br/><br/>• Kom åt en lokal licensserver eller databas genom att använda ett valfritt virtuellt Azure-nätverk.|• Du har ett befintligt HPC-kluster och behöver mer resurser. <br/><br/>• Du vill inte köpa och hantera ytterligare HPC-klusterinfrastruktur.<br/><br/>• Du har tillfälliga perioder med många förfrågningar eller särskilda projekt.
+**Burst- och HPC-kluster till Azure**<br/><br/>[![Cluster burst][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> Läs mer:<br/>• [Burst to Azure worker-instanser med HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Konfigurera ett hybridberäkningskluster med HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>• [Burst-överför till Azure Batch med HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)<br/><br/>|• Kombinera [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) eller andra lokala kluster med ytterligare Azure-resurser i en hybridlösning.<br/><br/>• Utöka dina Big Compute-arbetsbelastningar att köra på instanser av virtuella PaaS-datorer (Platform as a Service) (för närvarande endast Windows Server).<br/><br/>• Kom åt en lokal licensserver eller databas genom att använda ett valfritt virtuellt Azure-nätverk.|• Du har ett befintligt HPC-kluster och behöver mer resurser. <br/><br/>• Du vill inte köpa och hantera ytterligare HPC-klusterinfrastruktur.<br/><br/>• Du har tillfälliga perioder med många förfrågningar eller särskilda projekt.
 **Skapa ett HPC-kluster helt och hållet i Azure**<br/><br/>[![Cluster in IaaS][iaas_cluster]](./media/batch-hpc-solutions/iaas_cluster.png)<br/><br/>Läs mer:<br/>• [HPC-klusterlösningar i Azure](./big-compute-resources.md)<br/><br/>|• Distribuera snabbt och konsekvent program och klusterverktyg på standardiserade eller anpassade Windows- eller Linux-baserade virtuella IaaS-datorer (Infrastructure as a Service).<br/><br/>• Kör flera olika Big Compute-arbetsbelastningar med hjälp av valfri jobbschemalösning.<br/><br/>• Använd ytterligare Azure tjänster, inklusive nätverk och lagring för att skapa fullständiga molnbaserade lösningar. |• Du vill inte köpa och hantera ytterligare Linux- eller Windows-baserad HPC-klusterinfrastruktur.<br/><br/>• Du har tillfälliga perioder med många förfrågningar eller särskilda projekt.<br/><br/>• Du behöver ytterligare ett kluster under en viss tidsperiod men vill inte investera i datorer och utrymme för att distribuera det.<br/><br/>• Du vill avlasta ett beräkningsintensivt program så att det körs som en tjänst helt och hållet i molnet.
-**Skala ut ett parallellt program till Azure**<br/><br/>[![Azure Batch][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>Läs mer:<br/>• [Grunderna i Azure Batch](./batch-technical-overview.md)<br/><br/>• [Komma igång med Azure Batch-biblioteket för .NET](./batch-dotnet-get-started.md)|• Utveckla med [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)-API:er för att skala ut en rad olika Big Compute-arbetsbelastningar som ska köras i pooler med virtuella datorer med Windows eller Linux.<br/><br/>• Använd en Azure-tjänst för att hantera distributionen och den automatiska skalningen av virtuella datorer, schemaläggning av jobb, haveriberedskap, dataflyttning, beroendehantering och programdistribution – utan att ett separat HPC-kluster eller jobbschema krävs.|• Du vill inte hantera beräkningsresurser eller ett jobbschema utan fokusera på att köra dina program.<br/><br/>• Du vill avlasta ett beräkningsintensivt program så att det körs som en tjänst i molnet.<br/><br/>• Du vill att dina beräkningsresurser ska skalas automatiskt så att de matchar beräkningsarbetsbelastningen.
+**Skala ut ett parallellt program till Azure**<br/><br/>[![Azure Batch][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>Läs mer:<br/>• [Grunderna i Azure Batch](./batch-technical-overview.md)<br/><br/>• [Komma igång med Azure Batch-biblioteket för .NET](./batch-dotnet-get-started.md)|• Utveckla med [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) och skala ut en rad olika Big Compute-arbetsbelastningar för körning i pooler på virtuella Windows eller Linux-datorer.<br/><br/>• Använd en Azure-tjänst för att hantera distributionen och den automatiska skalningen av virtuella datorer, schemaläggning av jobb, haveriberedskap, dataflyttning, beroendehantering och programdistribution – utan att ett separat HPC-kluster eller jobbschema krävs.|• Du vill inte hantera beräkningsresurser eller ett jobbschema utan fokusera på att köra dina program.<br/><br/>• Du vill avlasta ett beräkningsintensivt program så att det körs som en tjänst i molnet.<br/><br/>• Du vill att dina beräkningsresurser ska skalas automatiskt så att de matchar beräkningsarbetsbelastningen.
 
 
 ## Azure-tjänster för Big Compute
@@ -100,19 +100,19 @@ Här finns mer information om beräkningar, data, nätverk och relaterade tjäns
 
 Azures beräkningstjänster är kärnan i en Big Compute-lösning och olika beräkningstjänster har olika fördelar för olika scenarier. På en grundläggande nivå erbjuder dessa tjänster olika lägen som program kan köras i på VM-baserade beräkningsinstanser som Azure tillhandahåller med hjälp av Windows Server Hyper-V-teknik. Dessa instanser kan köra olika standardiserade eller anpassade Linux- och Windows-baserade operativsystem och verktyg. Azure ger dig möjlighet att välja [instansstorlekar](../virtual-machines/virtual-machines-windows-sizes.md) med olika konfigurationer av CPU-kärnor, minne, diskutrymme och andra egenskaper. Beroende på dina behov kan du skala instanser till flera tusen kärnor och sedan skala ned när du behöver färre resurser.
 
->[AZURE.NOTE] Dra nytta av A8–A11-instanser för att förbättra prestanda för vissa HPC-arbetsbelastningar, inklusive parallella MPI-program som kräver ett programnätverk med låg fördröjning och hög genomströmning. Mer information finns i [Om beräkningsintensiva instanser: A8, A9, A10 och A11](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).  
+>[AZURE.NOTE] Dra nytta av Azures beräkningsintensiva instanser så att du kan förbättra prestanda för vissa HPC-arbetsbelastningar, däribland parallella MPI-program som kräver ett programnätverk med låg fördröjning och hög genomströmning. Mer information finns i [Om beräkningsintensiva instanser: A8, A9, A10 och A11](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).  
 
 Tjänst | Beskrivning
 ------------- | -----------
+**[Virtuella datorer](https://azure.microsoft.com/documentation/services/virtual-machines/)**<br/><br/> |• Tillhandahåller beräkning i en IaaS-modell (Infrastructure as a Service) med hjälp av Microsoft Hyper-V-teknik.<br/><br/>• Gör att du kan etablera och hantera beständiga molndatorer från Windows Server- eller Linux-standardavbildningar från [Azure Marketplace](https://azure.microsoft.com/marketplace/), eller avbildningar och datadiskar som du tillhandahåller<br/><br/>• Kan distribueras och hanteras som [VM-skalningsuppsättningar](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/) för att skapa storskaliga tjänster från identiska virtuella datorer, med automatisk skalning som ökar eller minskar kapaciteten automatiskt.<br/><br/>• Kör verktyg och program för lokala beräkningskluster helt i molnet.<br/><br/>
 **[Molntjänster](https://azure.microsoft.com/documentation/services/cloud-services/)**<br/><br/> |• Kan köra Big Compute-program i arbetarrollinstanser, som är virtuella datorer som kör en version av Windows Server och som hanteras helt av Azure.<br/><br/>• Ger möjlighet att använda skalbara och tillförlitliga program med mycket lite administrativt arbete som körs i en PaaS-modell (Platform as a Service).<br/><br/>• Kan kräva ytterligare verktyg eller utveckling för att integrera med lokala HPC-klusterlösningar.
-**[Virtuella datorer](https://azure.microsoft.com/documentation/services/virtual-machines/)**<br/><br/> |• Tillhandahåller beräkning i en IaaS-modell (Infrastructure as a Service) med hjälp av Microsoft Hyper-V-teknik.<br/><br/>• Gör att du kan etablera och hantera beständiga molndatorer från Windows Server- eller Linux-standardavbildningar, avbildningar och datadiskar som du väljer eller som du hämtar från [Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Kan distribueras och hanteras som [VM-skalningsuppsättningar](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/) för att skapa storskaliga tjänster från identiska virtuella datorer, med automatisk skalning som ökar eller minskar kapaciteten automatiskt.<br/><br/>• Kör verktyg och program för lokala beräkningskluster helt i molnet.<br/><br/>
 **[Batch](https://azure.microsoft.com/documentation/services/batch/)**<br/><br/> |• Kör storskaliga parallella arbetsbelastningar och batch-arbetsbelastningar i en helt hanterad tjänst.<br/><br/>• Tillhandahåller schemaläggning av jobb och automatisk skalning av en hanterad pool med virtuella datorer.<br/><br/>• Gör att utvecklare kan skapa och köra program som en tjänst eller aktivera befintliga program för molnet.<br/>
 
 ### Lagringstjänster
 
 En Big Compute-lösning fungerar vanligtvis med en uppsättning indata och genererar data som resultat. Här är exempel på några Azure Storage-tjänster som används i Big Compute-lösningar:
 
-* [Blob Storage, Table Storage och Queue Storage](https://azure.microsoft.com/documentation/services/storage/) – Hantera stora mängder ostrukturerade data, NoSQL-data och meddelanden för arbetsflöden respektive kommunikation. Du kan exempelvis använda Blob Storage för stora mängder tekniska data eller för indatabilderna eller mediefilerna som ditt program bearbetar. Du kan använda köer för asynkron kommunikation i en lösning. Mer information finns i [Introduktion till Microsoft Azure Storage](../storage/storage-introduction.md).
+* [Blob Storage, Table Storage och Queue Storage](https://azure.microsoft.com/documentation/services/storage/) – Hantera stora mängder ostrukturerade data, NoSQL-data och meddelanden för arbetsflöden respektive kommunikation. Du kan exempelvis använda Blob Storage för stora mängder tekniska data eller för de indatabilder eller mediefiler som ditt program bearbetar. Du kan använda köer för asynkron kommunikation i en lösning. Mer information finns i [Introduktion till Microsoft Azure Storage](../storage/storage-introduction.md).
 
 * [Azure File Storage](https://azure.microsoft.com/services/storage/files/) – Delar vanliga filer och data i Azure med SMB-standardprotokollet, som krävs för vissa HPC-klusterlösningar.
 
@@ -134,7 +134,7 @@ Vissa Big Compute-scenarier omfattar storskaliga dataflöden eller genererar dat
 
 Din Big Compute-lösning kan behöva andra Azure-tjänster för att ansluta till resurser lokalt eller i andra miljöer. Exempel:
 
-* [Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) – Skapar ett logiskt isolerat område i Azure för att ansluta Azure-resurser till ditt lokala datacenter eller till en enskild klientdator med hjälp av IPSec. Tjänsten gör att Big Compute-program kan komma åt lokala data, Active Directory-tjänster och licensservrar.
+* [Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) – Skapar ett logiskt isolerat område i Azure för anslutning av Azure-resurser till varandra eller till ditt lokala datacenter. Tjänsten gör att Big Compute-program kan komma åt lokala data, Active Directory-tjänster och licensservrar
 
 * [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) – Skapar en privat anslutning mellan Microsoft-datacenter och infrastrukturen som är lokal eller i en samlokaliseringsmiljö, med högre säkerhet, bättre tillförlitlighet, högre hastighet och lägre svarstider än vanliga anslutningar över Internet.
 
@@ -146,7 +146,7 @@ Din Big Compute-lösning kan behöva andra Azure-tjänster för att ansluta till
 
 * Diskutera dina Azure-alternativ med partner, inklusive Cycle Computing och UberCloud.
 
-* Läs mer om Big Compute-lösningar i Azure från [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/) och [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088).
+* Läs mer om Big Compute-lösningar i Azure från [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), [ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/) och [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088).
 
 * Du hittar den senaste informationen i [Microsoft HPC- och Batch-bloggen](http://blogs.technet.com/b/windowshpc/) och i [Azure-bloggen](https://azure.microsoft.com/blog/tag/hpc/).
 
@@ -159,6 +159,6 @@ Din Big Compute-lösning kan behöva andra Azure-tjänster för att ansluta till
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

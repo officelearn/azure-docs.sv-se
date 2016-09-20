@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/14/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Komma igång med Mobile Services
@@ -34,7 +34,7 @@ En skärmbild från den färdiga appen:
 
 Du måste slutföra den här kursen innan du kan göra de andra kurserna i Mobile Services för Xamarin iOS-appar.
 
->[AZURE.NOTE]För den här kursen behöver du ett Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started).
+>[AZURE.NOTE]Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started).
 >För kursen krävs att du har [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546). Det finns en kostnadsfri utvärderingsversion.
 
 ## Skapa en ny mobiltjänst
@@ -47,7 +47,7 @@ När du har skapat din mobiltjänst finns en snabbstartsguide i den klassiska po
 
 I det här avsnittet laddar du ned en ny Xamarin Android-app och ett tjänstprojekt för din mobiltjänst.
 
-1. Installera Visual Studio med Xamarin, om du inte redan gjort det. Instruktioner finns i avsnittet [Konfiguration och installation för Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). Du kan också använda Xamarin Studio på en Mac OS X-dator. Mer information finns i avsnittet [Konfiguration, installation och verifiering för Mac-användare](https://msdn.microsoft.com/library/mt488770.aspx).  
+1. Installera Visual Studio med Xamarin, om du inte redan gjort det. Instruktioner finns i avsnittet om [konfiguration och installation](https://msdn.microsoft.com/library/mt613162.aspx) för Visual Studio och Xamarin. Du kan också använda Xamarin Studio på en Mac OS X-dator. Mer information finns i avsnittet [Konfiguration, installation och verifiering för Mac-användare](https://msdn.microsoft.com/library/mt488770.aspx).  
 
 2. Gå till den [klassisk portal], klicka på **Mobile Services** och sedan på den mobiltjänst som du nyss skapade.
 
@@ -89,7 +89,8 @@ Det sista steget i den här kursen är att skapa och köra den nya appen.
 
     Därmed skickas en POST-begäran till den nya mobiltjänsten som finns på Azure. Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobiltjänsten och data visas i listan.
 
-    > [AZURE.NOTE] Du kan granska koden som ansluter till mobiltjänsten för att fråga efter och infoga data i C#-filen ToDoActivity.cs.
+    > [AZURE.NOTE]
+    > Du kan granska koden som ansluter till mobiltjänsten för att fråga efter och infoga data som finns i C#-filen ToDoActivity.cs.
 
 ## Nästa steg
 Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur du utför fler viktiga uppgifter i Mobile Services:
@@ -98,10 +99,10 @@ Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur d
   <br/>Läs om hur datasynkronisering offline används i guiden för att ge appen kortare svarstid och göra den mer robust.
 
 * [Komma igång med autentisering]
-  <br/>Läs om hur du autentiserar användare i appen med en identitetsprovider.
+  <br/>Läs om hur du autentiserar användare i appen med en identitetsleverantör.
 
 * [Komma igång med push-meddelanden]
-  <br/>Läs om hur du skickar grundläggande push-meddelanden till appen.
+  <br/>Läs om hur du skickar väldigt enkla push-meddelanden till appen.
 
 * [Felsöka en Mobile Services .NET-serverdel]
   <br/> Läs om hur du diagnostiserar och åtgärdar problem som kan uppstå med Mobile Services .NET-serverdelen.
@@ -130,12 +131,12 @@ Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur d
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript och HTML]: mobile-services-win8-javascript/
-[Klassisk Azure-portal]: https://manage.windowsazure.com/
+[klassiska Azure-portalen]: https://manage.windowsazure.com/
 [klassisk portal]: https://manage.windowsazure.com/
 [JavaScript-serverdelsversion]: mobile-services-android-get-started.md
 [Felsöka en Mobile Services .NET-serverdel]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

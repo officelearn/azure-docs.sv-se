@@ -1,10 +1,10 @@
 <properties 
     pageTitle="Självstudiekurs om ASP.NET MVC för DocumentDB: utveckling av webbappar | Microsoft Azure" 
     description="Självstudiekurs om ASP.NET MVC för att skapa en MVC-webbapp med DocumentDB. Du kommer att lagra JSON- och åtkomstdata från en ”att göra”-app på Azure Websites – stegvis självstudiekurs om ASP NET MVC." 
-    keywords="asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step"
+    keywords="asp.net mvc självstudier, webbprogramsutveckling, mvc-webbprogram, asp net mvc självstudier steg för steg"
     services="documentdb" 
     documentationCenter=".net" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -15,10 +15,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="05/18/2016" 
-    ms.author="andrl"/>
+    ms.date="08/25/2016" 
+    ms.author="anhoh"/>
 
-#<a name="_Toc395809351"></a>Självstudiekurs om ASP.NET MVC: utveckling av webbappar med DocumentDB
+# <a name="_Toc395809351"></a>Självstudiekurs om ASP.NET MVC: utveckling av webbappar med DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -38,8 +38,8 @@ I den här beskrivningen visas hur du använder DocumentDB-tjänsten som tillhan
 
 Se till att du har följande innan du börjar följa anvisningarna i den här artikeln:
 
-- Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013](http://www.visualstudio.com/), uppdatering 4 eller senare.
+- Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+- [Visual Studio 2015](http://www.visualstudio.com/) eller Visual Studio 2013 uppdatering 4 eller högre. Om du använder Visual Studio 2013 måste du installera [Microsoft.Net.Compilers nuget-paketet](https://www.nuget.org/packages/Microsoft.Net.Compilers/) för att lägga till stöd för C# 6.0. 
 - Azure SDK för .NET, version 2.5.1 eller senare, tillgängligt via [Microsoft Web Platform Installer][].
 
 Alla skärmdumpar i den här artikeln har tagits med Visual Studio 2013, uppdatering 4, och Azure SDK för .NET version 2.5.1. Om ditt system är konfigurerat med andra versioner kan det hända att skärmbilder och alternativ inte ser riktigt likadana ut, men om ovanstående förutsättningar är uppfyllda ska lösningen fungera.
@@ -410,7 +410,7 @@ Om du kör appen nu anropar den **ItemController**, som anropar till centrallage
 
 Om du bygger och kör det här projektet nu bör det se ut ungefär så här.    
 
-![Skärmdump av den webbapp med att göra-lista som skapats i denna självstudiekurs om databaser](./media/documentdb-dotnet-application/image23.png)
+![Skärmdump av den webbapp med att göra-lista som skapats i denna självstudie om databaser](./media/documentdb-dotnet-application/image23.png)
 
 ### <a name="_Toc395637771"></a>Lägga till objekt
 
@@ -544,9 +544,9 @@ Testa appen på din lokala dator enligt nedanstående:
 
 1. Tryck på F5 i Visual Studio för att bygga appen i felsökningsläge. Den ska bygga appen och starta en webbläsare med den tomma rutnätssidan vi såg tidigare:
 
-    ![Skärmdump av den webbapp med att göra-lista som skapats i denna självstudiekurs om databaser](./media/documentdb-dotnet-application/image24.png)
+    ![Skärmdump av den webbapp med att göra-lista som skapats i denna självstudie om databaser](./media/documentdb-dotnet-application/image24.png)
 
-    Om du stöter på fel i det här skedet kan du jämföra koden med exempelprojektet på [GitHub][]
+    Om du använder Visual Studio 2013 och får felmeddelandet "Det går inte att vänta i texten i en catch-sats." måste du installera [Microsoft.Net.Compilers nuget-paketet](https://www.nuget.org/packages/Microsoft.Net.Compilers/). Du kan också jämföra koden mot exempelprojektet på [GitHub][]. 
 
 2. Klicka på länken **Skapa nytt** och lägg till värden i fälten **Namn** och **Beskrivning**. Markera inte kryssrutan **Slutförd**, annars kommer det nya **objektet** att läggas till i slutfört tillstånd och visas inte i den inledande listan.
 
@@ -564,7 +564,7 @@ Testa appen på din lokala dator enligt nedanstående:
 
 4. När du har testat appen trycker du på Ctrl + F5 för att avsluta felsökningen. Nu är du redo att distribuera!
 
-##<a name="_Toc395637774"></a>Steg 7: Distribuera appen till Azure Websites
+## <a name="_Toc395637774"></a>Steg 7: Distribuera appen till Azure Websites
 
 När hela appen fungerar som den ska med DocumentDB är det dags att distribuera webbappen till Azure Websites. Om du valde **Värd i molnet** när du skapade det tomma ASP.NET MVC-projektet, behöver du knappt göra något eftersom Visual Studio gör största delen av arbetet. 
 
@@ -578,11 +578,11 @@ När hela appen fungerar som den ska med DocumentDB är det dags att distribuera
 
 Efter några sekunder har Visual Studio publicerat din webbapp och öppnar en webbläsare där du kan se ditt arbete köras i Azure!
 
-##<a name="_Toc395637775"></a>Nästa steg
+## <a name="_Toc395637775"></a>Nästa steg
 
 Grattis! Du har precis skapat din första ASP.NET MVC-webbapp med Azure DocumentDB och publicerat den på Azure Websites. Källkoden för hela appen, inklusive detalj- och ta bort-funktionerna som inte fanns med i den här självstudiekursen, kan hämtas eller klonas från [GitHub][]. Om du vill lägga till det i din app hämtar du koden och lägger till den i appen.
 
-Om du vill lägga till ytterligare funktioner i appen tar du en titt på de API:er som finns i[Document DB .NET-biblioteket](https://msdn.microsoft.com/library/azure/dn948556.aspx). Lägg gärna till bidrag i DocumentDB-.NET-biblioteket på [GitHub][]! 
+Om du vill lägga till ytterligare funktioner i appen tar du en titt på de API:er som finns i [Document DB .NET-biblioteket](https://msdn.microsoft.com/library/azure/dn948556.aspx). Lägg gärna till bidrag i DocumentDB-.NET-biblioteket på [GitHub][]. 
 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
@@ -594,6 +594,6 @@ Om du vill lägga till ytterligare funktioner i appen tar du en titt på de API:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

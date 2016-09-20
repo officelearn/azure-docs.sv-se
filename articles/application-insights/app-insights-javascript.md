@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="awills"/>
 
 # Application Insights för webbsidor
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Visa prestanda och användning för webbsidor eller appar. Lägg till Visual Studio Application Insights i webbsidans skript och visa information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan också ställa in varningar för antal fel eller långsam sidinläsning.
+Visa prestanda och användning för webbsidor eller appar. Om du lägger till Visual Studio Application Insights i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan också ställa in varningar för antal fel eller långsam sidinläsning.
 
 Du kan använda Application Insights med valfria webbsidor – du lägger bara till ett stycke JavaScript-kod. Om webbtjänsten är [Java](app-insights-java-get-started.md) eller [ASP.NET](app-insights-asp-net.md) kan du integrera telemetri från dina servrar och klienter.
 
@@ -29,7 +29,7 @@ Du behöver en prenumeration på [Microsoft Azure](https://azure.com). Om ditt t
 
 ## Konfigurera Application Insights för din webbsida
 
-Du kanske redan har det. Om din app är ett nytt ASP.NET-projekt och du valde att lägga till Application Insights i dialogrutan Nytt projekt i Visual Studio så har skriptet redan lagts till och allt är klart.
+Till att börja med, behöver du lägga till Application Insights till dina webbsidor? Du kanske redan har gjort det. Om du valde att lägga till Application Insights till din webbapp i dialogrutan Nytt projekt i Visual Studio, så lades skriptet till då. Om så är fallet behöver du inte göra något mer.
 
 Om inte måste du lägga till ett kodfragment till dina webbsidor genom att följa anvisningarna nedan.
 
@@ -57,7 +57,7 @@ Hämta skriptet för webbsidor i Snabbstart:
 
 ![På översiktsbladet för appen väljer du Snabbstart, Hämta kod för att övervaka webbplatser. Kopiera skriptet.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Infoga skriptet precis före `<head>`-taggen för alla sidor som du vill spåra. Om din webbplats har en huvudsida kan du placera skriptet där. Till exempel:
+Infoga skriptet precis före `</head>`-taggen för alla sidor som du vill spåra. Om din webbplats har en huvudsida kan du placera skriptet där. Till exempel:
 
 * I ett ASP.NET MVC-projekt lägger du till det i `View\Shared\_Layout.cshtml`
 * På en SharePoint-plats öppnar du [Webbplatsinställningar/Huvudsida](app-insights-sharepoint.md) på kontrollpanelen.
@@ -71,7 +71,7 @@ Skriptet innehåller instrumenteringsnyckeln som dirigerar data till din Applica
 
 ## Detaljerad konfiguration
 
-Det finns flera [Parametrar](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) som du kan ange, men i de flesta fall behöver du inte göra det. Du kan till exempel inaktivera eller begränsa antalet Ajax-anrop som rapporteras per sidvy (för att minska trafiken) eller ställa in felsökningsläge så att telemetri snabbt går genom pipelinen utan att skickas i batchar.
+Det finns flera [Parametrar](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) som du kan ange, men i de flesta fall behöver du inte göra det. Du kan t.ex. inaktivera eller begränsa antalet Ajax-anrop som rapporteras per sidvy (om du vill minska trafiken). Eller så kan du ställa in felsökningsläge så att telemetrin rör sig snabbt genom pipelinen utan att batchhanteras.
 
 Du anger dessa parametrar genom att leta upp den här raden i kodfragmentet och lägga till fler kommaavgränsade poster efter den:
 
@@ -85,10 +85,10 @@ Exempel på [tillgängliga parametrar](https://github.com/Microsoft/ApplicationI
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
     // can affect browser performance.
-    enableDebug: true,
+    enableDebug: boolean,
 
     // Don't log browser exceptions.
-    disableExceptionTracking: true,
+    disableExceptionTracking: boolean,
 
     // Don't log ajax calls.
     disableAjaxTracking: boolean,
@@ -205,9 +205,9 @@ Ställ in Filter till Sidvy på bladet Diagnostiksökning.
 
 Välj en händelse om du vill visa mer information. Klicka på ”...” på detaljsidan om du vill visa ännu fler detaljer.
 
-> [AZURE.NOTE] Om du använder [Sök](app-insights-diagnostic-search.md) är det viktigt att du matchar hela ord: ”Info” och ”formation” matchar inte ”Information”, men det gör ”Info*”. Tänk också på att du inte kan börja en sökterm med jokertecken. Exempelvis returnerar en sökning efter ”*formation” inte ”Information”.
+> [AZURE.NOTE] Om du använder [Sök](app-insights-diagnostic-search.md) är det viktigt att du matchar hela ord: ”Info” och ”formation” matchar inte ”Information”.
 
-> [Lär dig mer om diagnostiksökning](app-insights-diagnostic-search.md)
+Du kan också använda de kraftfulla [Analytics-frågespråket](app-insights-analytics-tour.md) när du söker efter sidvyer.
 
 ### Egenskaper för sidvisning
 
@@ -215,7 +215,7 @@ Välj en händelse om du vill visa mer information. Klicka på ”...” på det
 
  * Som standard den tid det tar att läsa in sidan, från klientbegäran till full inläsning (inklusive extra filer men exklusive asynkrona åtgärder som Ajax-anrop). 
  * Intervallet mellan klientbegäran till körningen av den första `trackPageView` om du anger `overridePageViewDuration` i [sidkonfigurationen](#detailed-configuration). Om du har flyttat trackPageView från dess normala position efter initieringen av skriptet visas ett annat värde.
- * Om `overridePageViewDuration` har angetts och ett varaktighetsargument anges i `trackPageView()`-anropet så används argumentvärdet i stället. 
+ * Om du har angett `overridePageViewDuration` och ett varaktighetsargument anges i `trackPageView()`-anropet, så används argumentvärdet istället. 
 
 
 ## Anpassade sidräkningar
@@ -253,6 +253,6 @@ Vill du veta vad användarna gör med din app?
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

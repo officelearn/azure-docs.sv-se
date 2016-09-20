@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Skapa appar med den universella Windowsplattformen (UWP) och Azure Apptjänst Mobilappar | Microsoft Azure"
+    pageTitle="Skapa en universell Windowsplattform (UWP) som använder Mobile Apps | Microsoft Azure"
     description="Följ den här kursen och kom igång med att använda serverdelar för mobilappar i Azure för utveckling av appar med den universella Windowsplattformen (UWP) i C#, Visual Basic eller JavaScript."
     services="app-service\mobile"
     documentationCenter="windows"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Skapa en Windows-app
@@ -22,7 +22,7 @@
 
 ##Översikt
 
-I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en app i den universella Windowsplattformen (UWP). Mer information om Mobilappar finns [här](app-service-mobile-value-prop.md). Nedan visas skärmdumpar från den färdiga appen:
+I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en app i den universella Windowsplattformen (UWP). Mer information om Mobile Apps finns [här](app-service-mobile-value-prop.md). Nedan visas skärmdumpar från den färdiga appen:
 
 ![Färdig skrivbordsapp](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
 Visad på ett skrivbord 
@@ -32,7 +32,7 @@ Visad på en telefon
 
 Du måste slutföra den här kursen innan du går någon annan kurs om Mobilappar för UWP-appar. 
 
-##Nödvändiga komponenter
+##Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -44,11 +44,11 @@ För att kunna genomföra den här kursen behöver du följande:
 
 ##Skapa en ny mobilappsserverdel i Azure
 
-Du skapar en ny mobilappsserverdel i Azure genom att följa instruktionerna nedan.
+Skapa en ny mobilappsserverdel genom att följa instruktionerna nedan.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilklientprogram. I nästa steg får du ladda du ned ett serverprojekt för en enkel todo-list-serverdel och publicera den på Azure.
+Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilklientprogram. I nästa steg får du ladda ned ett serverprojekt för en enkel todo-list-serverdel och publicera den på Azure.
 
 ## Konfigurera serverprojektet
 
@@ -80,13 +80,13 @@ När du har konfigurerat serverdelen för mobilappen kan du antingen skapa en ny
 
 ##Nästa steg
 
-* [Lägg till autentisering i appen ](app-service-mobile-windows-store-dotnet-get-started-users.md)  
+* [Lägg till autentisering i appen](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Läs om hur du autentiserar användare i appen med en identitetsleverantör.
 
 * [Lägg till push-meddelanden i appen](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   Läs om hur du lägger till stöd för push-meddelanden i appen och konfigurerar serverdelen för mobilappen så att Azure Notification Hubs används för att skicka push-meddelanden.
 
-* [Aktivera offlinesynkronisering av Windows-appen](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+* [Aktivera offlinesynkronisering av appen](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   Läs om hur du lägger till offlinestöd i appen genom en mobilappsserverdel. Med offlinesynkronisering kan slutanvändarna interagera med mobilappen och &mdash;se, lägga till och ändra data&mdash; även när det inte finns någon nätverksanslutning.
 
 <!-- Anchors. -->
@@ -98,6 +98,6 @@ När du har konfigurerat serverdelen för mobilappen kan du antingen skapa en ny
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

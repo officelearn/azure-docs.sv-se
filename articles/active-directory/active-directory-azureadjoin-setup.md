@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="femila"
-    manager="stevenpo"
+    manager="swadhwa"
     editor=""
     tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/26/2016"
+    ms.date="06/23/2016"
     ms.author="femila"/>
 
 # Konfigurera Azure AD Join i din organisation
@@ -34,7 +34,7 @@ Om du vill skapa och hantera användare manuellt i Azure AD läser du [Användar
 5. Gå till avsnittet **Enheter**.
 6. Ange följande på fliken **Enheter**:  
    * **Högsta antal tillåtna enheter per användare**: Välj det högsta antalet enheter som en användare kan ha i Azure AD.  Om användarna når den här kvoten kan de inte lägga till fler enheter förrän en eller flera av deras befintliga enheter tagits bort.
-   * **Kräv Multi-Factor Authentication för att ansluta enheter**: Ange om användarna måste ange en andra autentiseringsfaktor för att ansluta deras enhet till Azure AD. Mer information om Azure Multi-Factor Authentication finns i [Komma igång med Azure Multi-Factor Authentication i molnet](multi-factor-authentication-get-started-cloud/).
+   * **Kräv Multi-Factor Authentication för att ansluta enheter**: Ange om användarna måste ange en andra autentiseringsfaktor för att ansluta deras enhet till Azure AD. Mer information om Azure Multi-Factor Authentication finns i [Komma igång med Azure Multi-Factor Authentication i molnet](..\multi-factor-authentication\multi-factor-authentication-get-started-cloud.md).
    * **Användare kan ansluta enheter till Azure AD**: Välj användare och grupper som ska kunna ansluta enheter till Azure AD.
    * **Ytterligare administratörer för Azure AD-anslutna enheter**: Med Azure AD Premium eller Enterprise Mobility Suite (EMS) kan du välja vilka användare som beviljas lokal administratörsbehörighet på enheten. Globala administratörer och enhetsägare beviljas lokal administratörsbehörighet som standard.
 
@@ -57,6 +57,6 @@ Följande är de tre scenarier som du kan använda om du vill att dina användar
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

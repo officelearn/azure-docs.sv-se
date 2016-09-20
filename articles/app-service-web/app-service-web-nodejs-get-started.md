@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="07/01/2016"
     ms.author="cephalin"/>
 
 # Kom igång med Node.js-webbappar i Azure Apptjänst
@@ -70,7 +70,7 @@ I den här kursen får du lära dig hur du skapar ett enkelt [Node.js][NODEJS]-p
 
     Följ anvisningarna för att välja en Azure-region för distribution. Om du aldrig har konfigurerat autentiseringsuppgifter för Git/FTP-distribution i din Azure-prenumeration uppmanas du även att skapa sådana.
 
-3. Öppna filen ./config/config.js från roten för ditt program och ändra produktionsporten till `process.env.port`. JSON-objektet för produktionen ska se ut som i följande exempel. Om den här sökvägen för mappen/filen inte finns i rotkatalogen för programmet, skapar du en mapp med namnet **config** i rotkatalogen för programmet och kopierar följande JSON-kod till den.
+3. Öppna filen ./config/config.js från roten för ditt program och ändra produktionsporten till `process.env.port`; din `production`-egenskap i `config`-objektet ska se ut som i följande exempel.
 
         production: {
             root: rootPath,
@@ -152,7 +152,7 @@ Använd följande steg om du vill läsa iisnode-loggar.
         loggingEnabled: true
         logDirectory: iisnode
     
-    Tillsammans anger de att iisnode i Apptjänst ska lägga stdout- och stderror-utdata i katalogen D:\home\site\wwwroot\**iisnode**.
+    Tillsammans anger de att iisnode i Apptjänst ska lägga stdout- och stderror-utdata i katalogen D:\home\site\wwwroot\**iisnode*.*
 
 3. Spara ändringarna och push-överför sedan ändringarna till Azure med följande Git-kommandon:
 
@@ -208,6 +208,7 @@ Följ de här stegen om du vill aktivera Node-Inspector:
 ## Fler resurser
 
 - [Ange en Node.js-version i ett Azure-program](../nodejs-specify-node-version-azure-apps.md)
+- [Bästa praxis och felsökningsguide för Node.js-program om Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [Felsöka en Node.js-webbapp i Azure Apptjänst](web-sites-nodejs-debug.md)
 - [Använda Node.js-moduler med Azure-program](../nodejs-use-node-modules-azure-apps.md)
 - [Webbappar i Azure Apptjänst: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
@@ -244,6 +245,6 @@ Följ de här stegen om du vill aktivera Node-Inspector:
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="07/26/2016"
     ms.author="robinsh"/>
 
 
 # Om Azure-lagringskonton
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Översikt
 
@@ -51,11 +53,11 @@ Om ditt lagringskonto till exempel heter *mittlagringskonto*, så är standardsl
 
 URL:en för att komma åt ett objekt i ett lagringskonto skapas genom att objektets plats i lagringskontot läggs till i slutpunkten. En blobbadress kan till exempel ha följande format: http://*mittlagringskonto*.blob.core.windows.net/*minbehållare*/*minblobb*.
 
-Du kan också konfigurera ett eget domännamn som ska användas med ditt lagringskonto. Information om klassiska lagringskonton finns i [Konfigurera ett eget domännamn för din slutpunkt för Blob Storage](storage-custom-domain-name.md). För ARM-lagringskonton har den här funktionen inte lagts till på [Azure Portal](https://portal.azure.com) ännu, men du kan konfigurera den med PowerShell. För mer information, se cmdleten [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).  
+Du kan också konfigurera ett eget domännamn som ska användas med ditt lagringskonto. Information om klassiska lagringskonton finns i [Konfigurera ett eget domännamn för din slutpunkt för Blob Storage](storage-custom-domain-name.md). För Resource Manager-lagringskonton har den här funktionen inte lagts till på [Azure Portal](https://portal.azure.com) ännu, men du kan konfigurera den med PowerShell. För mer information, se cmdleten [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).  
 
-## Skapa ett lagringskonto
+## skapar ett lagringskonto
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. På navmenyn väljer du **Nytt** -> **Data + Storage** -> **Storage-konto**.
 
@@ -79,9 +81,9 @@ Du kan också konfigurera ett eget domännamn som ska användas med ditt lagring
 
 7. Välj den prenumeration som du vill skapa det nya lagringskontot i.
 
-8. Ange en ny resursgrupp eller välj en befintlig resursgrupp. Mer information om resursgrupper finns i [Hantera Azure-resurser med hjälp av Azure Portal](../azure-portal/resource-group-portal.md).
+8. Ange en ny resursgrupp eller välj en befintlig resursgrupp. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../resource-group-overview.md).
 
-9. Välj den geografiska platsen för ditt lagringskonto.
+9. Välj den geografiska platsen för ditt lagringskonto. Mer information om vilka tjänster som är tillgängliga i vilken region finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
 10. Skapa lagringskontot genom att klicka på **Skapa**.
 
@@ -141,7 +143,7 @@ Om du vill ta bort ett lagringskonto som associeras med en virtuell Azure-dator 
 
 Om lagringskontot använder den klassiska distributionsmodellen kan du ta bort den virtuella disken genom att följa dessa steg på [Azure Portal](https://manage.windowsazure.com):
 
-1. Navigera till den [klassiska portalen](https://manage.windowsazure.com).
+1. Navigera till den [klassiska Azure-portalen](https://manage.windowsazure.com).
 2. Gå till fliken Virtual Machines.
 3. Klicka på fliken Diskar.
 4. Välj din datadisk och klicka sedan på Ta bort disk.
@@ -159,6 +161,6 @@ Mer information finns i [dokumentationen för Azure Virtual Machines](http://azu
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

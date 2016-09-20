@@ -13,16 +13,16 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/27/2016"
-    ms.author="tdykstra"/>
+    ms.date="08/19/2016"
+    ms.author="rachelap"/>
 
 # Kom igång med API Apps, ASP.NET och Swagger i Azure Apptjänst
 
 [AZURE.INCLUDE [selector](../../includes/app-service-api-get-started-selector.md)]
 
-Det här är den första i en serie kurser som visar hur du använder funktioner i Azure Apptjänst som är till hjälp för att utveckla och vara värd för RESTful-API:er.  I den här kursen ingår stöd för  API-metadata i Swagger-format.
+Det här är den första i en serie kurser som visar hur du använder funktioner i Azure Apptjänst som är till hjälp för att utveckla och vara värd för RESTful-API:er.  I den här kursen ingår stöd för API-metadata i Swagger-format.
 
-Du får lära dig att:
+Du får lära dig:
 
 * Skapa och distribuera [API Apps](app-service-api-apps-why-best-platform.md) i Azure Apptjänst med hjälp av verktyg som är inbyggda i Visual Studio 2015.
 * Automatisera API-identifiering med paketet Swashbuckle NuGet för att dynamiskt generera Swagger API-metadata.
@@ -233,13 +233,13 @@ I det här avsnittet använder du Azure-verktyg som är inbyggda i Visual Studio
 
     Om du anger ett namn som någon annan redan har använt visas ett rött utropstecken till höger.
 
-    URL:en för API-appen blir `{APi app name}.azurewebsites.net`.
+    URL:en för API-appen blir `{API app name}.azurewebsites.net`.
 
 6. I listrutan **Resursgrupp** klickar du på **Ny** och anger sedan "ToDoListGroup" eller ett annat namn om du föredrar det. 
 
     En resursgrupp är en samling Azure-resurser, till exempel API Apps, databaser eller virtuella datorer. När du jobbar med den här kursen är det bäst att skapa en ny resursgrupp eftersom du då i bara ett steg kan ta bort alla Azure-resurser som du skapar för kursen.
 
-    I den här rutan kan du välja en befintlig [resursgrupp](../azure-portal/resource-group-portal.md) eller skapa en ny genom att skriva in ett namn som skiljer sig från befintliga resursgrupper i din prenumeration.
+    I den här rutan kan du välja en befintlig [resursgrupp](../resource-group-overview.md) eller skapa en ny genom att skriva in ett namn som skiljer sig från befintliga resursgrupper i din prenumeration.
 
 4. Klicka på knappen **Ny** bredvid listrutan **Apptjänstplan**.
 
@@ -286,7 +286,7 @@ I det här avsnittet använder du Azure-verktyg som är inbyggda i Visual Studio
 
     Under den här kursen behöver du ingen av dem. Utförliga förklaringar av vad de gör finns i [Så här distribuerar du ett webbprojekt med Publicera med ett klick i Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 
-14. Klicka på **Nästa**.
+14. Klicka på **Next**.
 
     ![Klicka på Nästa på fliken Inställningar i Publicera webbplats](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
@@ -392,7 +392,7 @@ ToDoListAPI-projektet har redan genererat klientkoden, men i följande steg ska 
 
     Konstruktorparametern hämtar slutpunkts-URL:en från `toDoListDataAPIURL` appinställningen. I Web.config-filen anges det värdet till den lokala IIS Express-URL:en i API-projektet så att du kan köra programmet lokalt. Om du utelämnar konstruktorparametern är standardslutpunkten den URL som du skapade koden från.
 
-6. Klientklassen kommer att genereras med ett annat namn baserat på namnet på din API-app. Ändra koden i *Controllers\ToDoListController.cs* så att typnamnet matchar det som har genererats i projektet. Om du till exempel har gett din API-app namnet ToDoListDataAPI0121 ändrar du den här koden:
+6. Klientklassen kommer att genereras med ett annat namn baserat på namnet på din API-app. Ändra koden i *Controllers\ToDoListController.cs* så att typnamnet matchar det som har genererats i projektet. Om du till exempel har gett din API-app namnet ToDoListDataAPI071316 ändrar du den här koden:
 
         private static ToDoListDataAPI NewDataAPIClient()
         {
@@ -400,9 +400,9 @@ ToDoListAPI-projektet har redan genererat klientkoden, men i följande steg ska 
 
 till denna:
 
-        private static ToDoListDataAPI0121 NewDataAPIClient()
+        private static ToDoListDataAPI071316 NewDataAPIClient()
         {
-            var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+            var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
 ## Skapa en API-app som är värd för mellannivån
@@ -446,7 +446,7 @@ Om du nu anropade mellannivå-API-appen skulle den försöka anropa datanivån m
   	| **Nyckel** | toDoListDataAPIURL |
   	|---|---|
   	| **Värde** | https://{namnet på din API på datanivå}.azurewebsites.net |
-  	| **Exempel** | https://todolistdataapi0121.azurewebsites.net |
+  	| **Exempel** | https://todolistdataapi.azurewebsites.net |
 
 4. Klicka på **Spara**.
 
@@ -494,6 +494,6 @@ Projektmallen för **Azure API Apps** motsvarar att välja den **tomma** ASP.NET
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

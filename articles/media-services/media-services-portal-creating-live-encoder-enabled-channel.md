@@ -13,16 +13,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="05/05/2016" 
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
 #Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med den klassiska Azure-portalen
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST-API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 Den här självstudien visar dig stegen för att skapa en **kanal** som tar emot en  direktsänd dataström med enkel bithastighet och kodar den till en dataström med multibithastighet.
 
@@ -50,7 +50,7 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 3. Skapa ett program (som också kommer att skapa en tillgång). 
 1. Publicera programmet (som skapar en OnDemand-positionerare för den associerade tillgången).  
 
-    Se till att ha minst en reserverad enhet för strömning på den strömningsslutpunkt från vilken du vill strömma innehåll.
+    Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
 1. Starta programmet när du är redo att påbörja strömning och arkivering.
 2. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
 1. Stoppa programmet när du vill stoppa strömningen och arkiveringen av händelsen.
@@ -71,23 +71,23 @@ I den här självstudien används den klassiska Azure-portalen för att utföra 
 ##Krav
 Följande krävs för att kunna genomföra självstudien.
 
-- Du behöver ett Azure-konto för att genomföra den här självstudien. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-create-account.md).
 - En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
 
 ##Konfigurera strömningsslutpunkter med portalen
 
-När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Med strömning med anpassad bithastighet kan klienten växla till en dataström med högre eller lägre bithastighet då videon visas baserat på den aktuella nätverksbandbredden, processoranvändningen och andra faktorer. Media Services stöder följande tekniker för strömning med anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenser). 
+När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Med strömning med anpassad bithastighet kan klienten växla till en dataström med högre eller lägre bithastighet då videon visas baserat på den aktuella nätverksbandbredden, processoranvändningen och andra faktorer. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare). 
 
 När du arbetar med direktsänd strömning infogar en lokal livekodare (i vårt fall Wirecast) en direktsänd dataström i multibithastighet i din kanal. När dataströmmen har begärts av en användare, använder Media Services dynamisk paketering för att packa om källströmmen till den begärda anpassade bithastighetsströmmen (HLS, DASH eller Smooth). 
 
 Om du vill dra nytta av dynamisk paketering behöver du minst en enhet för strömning för den **strömningsslutpunkt** från vilken du planerar att leverera ditt innehåll.
 
-Om du vill ändra antalet reserverade enheter för strömning gör du följande:
+Om du vill ändra antalet enheter som är reserverade för strömning gör du följande:
 
 1. På den [klassiska Azure-portalen](https://manage.windowsazure.com/) klickar du på **Media Services**. Klicka därefter på namnet på medietjänsten.
 
-2. Välj sidan för STRÖMNINGSSLUTPUNKTER. Klicka därefter på den strömningsslutpunkt som du vill ändra.
+2. Välj sidan STRÖMMANDE SLUTPUNKTER. Klicka därefter på den strömningsslutpunkt som du vill ändra.
 
 3. För att specificera antalet strömningsenheter väljer du fliken SKALA och flyttar på skjutreglaget för **reserverad kapacitet**.
 
@@ -256,10 +256,10 @@ Följ stegen nedan om du är klar med strömningen av händelser och vill rensa 
 ##Överväganden
 
 - Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under längre tidsperioder.
-- Se till att ha minst en reserverad enhet för strömning på den strömningsslutpunkt från vilken du vill strömma innehåll.
+- Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
 
 
-##Utbildningsvägar för Media Services
+##Sökvägar för Media Services-utbildning
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -277,6 +277,6 @@ Följ stegen nedan om du är klar med strömningen av händelser och vill rensa 
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

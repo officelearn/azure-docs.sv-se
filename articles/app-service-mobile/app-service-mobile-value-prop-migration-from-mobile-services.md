@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/03/2016"
+    ms.date="06/30/2016"
     ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Jag använder Mobile Services. Vad bidrar Apptjänst med?
@@ -64,6 +64,6 @@ Du kan komma igång och utnyttja alla fördelarna med *Apptjänst* för din befi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

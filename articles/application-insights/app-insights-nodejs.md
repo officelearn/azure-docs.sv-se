@@ -54,7 +54,7 @@ Nyckeln identifierar resursen och du ska snart installera den i SDK för att dir
 ## <a name="sdk"></a> Installera SDK i ditt program
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Användning
@@ -63,7 +63,7 @@ Med SDK kan du övervaka förfrågningar, spåra ohanterade undantag och överva
 
 ```javascript
 
-import appInsights = require("applicationinsights");
+var appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>").start();
 ```
 
@@ -92,7 +92,7 @@ Klicka dig vidare i diagrammet om du vill visa mer detaljerade mätvärden. [Lä
 
 * Använd programmet och öppna olika sidor så att det genererar telemetri.
 * Öppna panelen [Sök](app-insights-diagnostic-search.md) om du vill visa enskilda händelser. Ibland tar det lite längre tid för händelser att passera genom pipelinen för mätvärden.
-* Vänta några sekunder och klicka på **Uppdatera**. Diagram uppdateras automatiskt med jämna mellanrum, men du kan uppdatera dem manuellt om du väntar på att vissa data ska visas.
+* Vänta några sekunder och klicka på **Uppdatera**. Diagrammen uppdateras automatiskt med jämna mellanrum, men du kan uppdatera dem manuellt om du väntar på att vissa data ska visas.
 * Mer information finns i [Felsökning][qna].
 
 ## Publicera appen
@@ -226,6 +226,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

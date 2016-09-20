@@ -14,9 +14,9 @@
 
 4. I instrumentpanelen för projektet under **Mobila API:er** klickar du på **Google Cloud Messaging** och på nästa sida klickar du på **Aktivera API** och accepterar villkoren. 
 
-    ![](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+    ![Aktivera GCM](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
 
-    ![](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
+    ![Aktivera GCM](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
 
 5. I instrumentpanelen för projektet klickar du på **Autentiseringsuppgifter** > **Skapa autentiseringsuppgifter** > **API-nyckel**. 
 
@@ -31,6 +31,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

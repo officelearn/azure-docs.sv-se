@@ -12,7 +12,7 @@
     ms.workload="identity" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Komma igång med Azure Multi-Factor Authentication och Active Directory Federation Services
@@ -55,6 +55,7 @@ Information om hur du konfigurerar Azure Multi-Factor Authentication eller Azure
  
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

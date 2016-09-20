@@ -3,7 +3,7 @@
    description="Den här sidan innehåller anvisningar för hur du skapar, konfigurerar, startar och tar bort en programgateway i Azure"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags
@@ -12,18 +12,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Skapa, starta eller ta bort en programgateway
 
 Azure Application Gateway är en Layer 7-belastningsutjämnare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Application Gateway tillhandahåller följande funktioner för programleverans: HTTP-belastningsutjämning, cookiebaserad sessionstillhörighet och SSL-avlastning (Secure Sockets Layer).
 
 > [AZURE.SELECTOR]
-- [PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
+- [Azure Portal](application-gateway-create-gateway-portal.md)
 - [PowerShell och Azure Resource Manager](application-gateway-create-gateway-arm.md)
+- [PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
 - [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
-
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -33,13 +34,14 @@ Den här artikeln beskriver steg för steg hur du skapar, konfigurerar, startar 
 ## Innan du börjar
 
 1. Installera den senaste versionen av Azure PowerShell-cmdlets med hjälp av installationsprogrammet för webbplattform. Du kan hämta och installera den senaste versionen från avsnittet om **Windows PowerShell** på [hämtningssidan](https://azure.microsoft.com/downloads/).
-2. Kontrollera att du har ett fungerande virtuellt nätverk med ett giltigt undernät. Kontrollera att inga virtuella datorer eller molndistributioner använder undernätet. Programgatewayen måste vara fristående i ett virtuellt nätverks undernät.
-3. De servrar som du ska konfigurera för användning av programgatewayen måste redan finnas eller ha slutpunkter som skapats i antingen det virtuella nätverket eller med en tilldelad offentlig IP-/VIP-adress.
+2. Om du har ett befintligt virtuellt nätverk väljer du antingen ett befintligt tomt undernät eller skapar ett nytt undernät i det befintliga virtuella nätverket som enbart avsett för att användas av programgatewayen. Du kan inte distribuera programgatewayen till något annat virtuellt nätverk än vad de resurser som du avser att distribuera bakom programgatewayen tillåter.
+3. Kontrollera att du har ett fungerande virtuellt nätverk med ett giltigt undernät. Kontrollera att inga virtuella datorer eller molndistributioner använder undernätet. Programgatewayen måste vara fristående i ett virtuellt nätverks undernät.
+3. De servrar som du konfigurerar för användning av programgatewayen måste finnas i det virtuella nätverket eller ha slutpunkter som skapats där eller tilldelats en offentlig IP-/VIP-adress.
 
 ## Vad krävs för att skapa en programgateway?
 
 
-När du använder kommandot **New-AzureApplicationGateway** för att skapa programgatewayen görs ingen konfiguration vid denna tidpunkt och den nyligen skapade resursen måste konfigureras antingen med hjälp av XML eller med ett konfigurationsobjekt.
+När du använder kommandot **New-AzureApplicationGateway** för att skapa programgatewayen görs ingen konfiguration vid denna tidpunkt och den nyligen skapade resursen konfigureras antingen med hjälp av XML eller med ett konfigurationsobjekt.
 
 
 Värdena är:
@@ -47,11 +49,11 @@ Värdena är:
 - **Backend-serverpool:** Listan med IP-adresser för backend-servrarna. IP-adresserna som anges bör antingen tillhöra det virtuella undernätet eller vara en offentlig IP-/VIP-adress.
 - **Inställningar för backend-serverpool:** Varje pool har inställningar som port, protokoll och cookiebaserad tillhörighet. Dessa inställningar är knutna till en pool och tillämpas på alla servrar i poolen.
 - **Frontend-port:** Den här porten är den offentliga porten som är öppen på programgatewayen. Trafiken kommer till den här porten och omdirigeras till en av backend-servrarna.
-- **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning).
+- **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning).
 - **Regel:** Regeln binder lyssnaren och backend-serverpoolen och definierar vilken backend-serverpool som trafiken ska dirigeras till när den når en viss lyssnare.
 
 
-## Skapa en ny programgateway
+## Skapa en programgateway
 
 Så här skapar du en programgateway:
 
@@ -64,7 +66,7 @@ Så här skapar du en programgateway:
 
 ### Skapa en resurs för en programgateway
 
-När du skapar en gateway använder du cmdleten **New-AzureApplicationGateway** och ersätter värdena med dina egna. Observera att faktureringen för gatewayen inte startar i det här läget. Faktureringen börjar i ett senare skede när gatewayen har startats.
+När du skapar en gateway använder du cmdleten **New-AzureApplicationGateway** och ersätter värdena med dina egna. Faktureringen för gatewayen startar inte i det här läget. Faktureringen börjar i ett senare skede när gatewayen har startats.
 
 I följande exempel skapar vi en ny programgateway genom att använda ett virtuellt nätverk med namnet ”testvnet1” och undernätet ”subnet-1”.
 
@@ -100,7 +102,7 @@ Du kan kontrollera att gatewayen har skapats med cmdleten **Get-AzureApplication
 >[AZURE.NOTE]  Standardvärdet för *InstanceCount* är 2, och det högsta värdet är 10. Standardvärdet för *GatewaySize* är Medium. Du kan välja mellan Small, Medium eller Large.
 
 
- *VirtualIPs* och *DnsName* är tomma eftersom gatewayen inte har startat än. Dessa skapas när gatewayen är i körläge.
+ *VirtualIPs* och *DnsName* är tomma eftersom gatewayen inte har startat än. De skapas när gatewayen är i körläge.
 
 ## Konfigurera progamgatewayen
 
@@ -161,7 +163,7 @@ Redigera värdena mellan parenteserna för konfigurationsobjekten. Spara filen m
 
 >[AZURE.IMPORTANT] Protokollobjekten Http och Https är skiftlägeskänsliga.
 
-Följande exempel visar hur du använder en konfigurationsfil för att konfigurera programgatewayen så att den belastningsutjämnar HTTP-trafiken på den offentliga porten 80 och skickar nätverkstrafik till backend-port 80 mellan två IP-adresser.
+I följande exempel visas hur du kan konfigurera programgatewayen med en konfigurationsfil. Exempelbelastningen balanserar HTTP-trafiken via den offentliga porten 80 och skickar nätverkstrafik till backend-porten 80 mellan två IP-adresser.
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -222,9 +224,9 @@ Nu ska vi konfigurera programgatewayen. Använd cmdleten **Set-AzureApplicationG
 
 ## Konfigurera programgatewayen med hjälp av ett konfigurationsobjekt
 
-Följande exempel visar hur du konfigurerar programgatewayen med hjälp av konfigurationsobjekt. Alla konfigurationsobjekt måste konfigureras individuellt och sedan läggas till i ett konfigurationsobjekt för programgatewayen. När du har skapat konfigurationsobjektet använder du kommandot **Set-AzureApplicationGateway** för att tillämpa konfigurationen på programgatewayresursen som du skapade tidigare.
+Följande exempel visar hur du konfigurerar programgatewayen med hjälp av konfigurationsobjekt. Alla konfigurationsobjekt måste konfigureras individuellt och sedan läggas till i ett konfigurationsobjekt för programgatewayen. När du har skapat konfigurationsobjektet använder du kommandot **Set-AzureApplicationGateway** för att tillämpa konfigurationen på den programgatewayresurs som du skapade tidigare.
 
->[AZURE.NOTE] Innan du tilldelar ett värde till konfigurationsobjekten måste du deklarera vilken typ av objekt PowerShell använder för lagring. Den första raden för att skapa enskilda objekt definierar vilket Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(objektnamn) som ska användas.
+>[AZURE.NOTE] Innan du tilldelar ett värde till konfigurationsobjekten måste du deklarera vilken typ av objekt PowerShell använder för lagring. Den första raden för att skapa enskilda objekt definierar vilket Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(objektnamn) som används.
 
 ### Steg 1
 
@@ -245,7 +247,7 @@ Skapa frontend-porten (se exemplet nedan).
 
 Skapa backend-serverpoolen.
 
- Definiera IP-adresserna som ska läggas till i backend-serverpoolen som du ser i nästa exempel.
+ Definiera de IP-adresser som läggs till i backend-serverpoolen så som visas i nästa exempel.
 
 
     PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
@@ -415,6 +417,6 @@ Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet l
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

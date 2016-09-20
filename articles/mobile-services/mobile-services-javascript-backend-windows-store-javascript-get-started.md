@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="javascript"
     ms.topic="get-started-article"
-    ms.date="03/06/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 # Komma igång med Mobile Services
@@ -27,9 +27,9 @@
 
 Den här kursen visar hur du lägger till en molnbaserad serverdelstjänst för en Windows Store JavaScript-app med Azure Mobile Services. I kursen får du skapa både en ny mobiltjänst och en enkel *To do list*-app (att göra-lista) som lagrar appdata i den nya mobiltjänsten. I mobiltjänsten du skapar används JavaScript för affärslogik på serversidan. 
 
-Följande krävs för att kunna genomföra kursen:
+För att kunna genomföra den här kursen behöver du följande:
 
-* Ett aktivt Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express för Windows]
 
 ## Skapa en ny mobiltjänst
@@ -93,6 +93,6 @@ Nu när du har slutfört guiden kan du gå vidare med att lära dig att arbeta m
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

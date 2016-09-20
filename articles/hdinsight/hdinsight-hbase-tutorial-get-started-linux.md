@@ -1,7 +1,7 @@
 <properties
     pageTitle="Självstudier för HBase: Komma igång med Linux-baserade HBase-kluster i Hadoop | Microsoft Azure"
     description="Följ denna HBase-självstudie för att komma igång med Apache HBase med Hadoop i HDInsight. Skapa tabeller från HBase-gränssnittet och ställ frågor för dem med Hive."
-    keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+    keywords="apache hbase, hbase, hbase shell, självstudier för hbase"
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/04/2016"
+    ms.date="07/25/2016"
     ms.author="jgao"/>
 
 
@@ -61,7 +61,7 @@ Följande procedur använder en Azure ARM-mall för att skapa ett HBase-kluster.
 6. Klicka på **Skapa**. Det tar cirka 20 minuter att skapa ett kluster.
 
 
->[AZURE.NOTE] När ett HBase-kluster har tagits bort kan du skapa ett annat HBase-kluster med hjälp av samma standard-blob-behållare. Det nya klustret hämtar de HBase-tabeller som du skapade i det ursprungliga klustret.
+>[AZURE.NOTE] När ett HBase-kluster har tagits bort kan du skapa ett annat HBase-kluster med hjälp av samma standard-blob-behållare. Det nya klustret hämtar de HBase-tabeller som du skapade i det ursprungliga klustret. Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret.
 
 ## Skapa tabeller och infoga data
 
@@ -111,12 +111,14 @@ Det kommer att klarna mer efter att du har avslutat nästa procedur.
 
         exit
 
+
+
 **Masskopiera data till HBase-tabellen för kontakter**
 
 HBase innehåller flera metoder för att läsa in data i tabeller.  Mer information finns i [Massinläsning](http://hbase.apache.org/book.html#arch.bulk.load).
 
 
-En exempeldatafil har överförts till den offentliga blob-behållaren *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Innehållet i datafilen är:
+En exempeldatafil har överförts till den offentliga blob-behållaren, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Innehållet i datafilen är:
 
     8396    Calvin Raji     230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu        646-555-0113    230-555-0192    9265 La Paz
@@ -135,7 +137,7 @@ Du kan skapa en textfil och överföra filen till ditt eget lagringskonto om du 
 
 1. Kör följande kommando från SSH för att omvandla datafilen till StoreFiles och lagra vid en relativ sökväg som anges av Dimporttsv.bulk.output:.  Om du är i HBase Shell använder du avslutningskommandot för att avsluta.
 
-        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 4. Kör följande kommando för att överföra data från /example/data/storeDataFileOutput till  HBase-tabellen:
 
@@ -174,34 +176,59 @@ Du kan fråga efter data i HBase-tabeller med hjälp av Hive. I det här avsnitt
 
 1. Använd följande kommando från en kommandorad för att verifiera att du kan ansluta till ditt HDInsight-kluster:
 
-        curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+        curl -u <UserName>:<Password> \
+        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
 
     Du bör få ett svar som liknar följande:
 
-    {"status": "ok", "version": "v1"}
+        {"status":"ok","version":"v1"}
 
-  De parametrar som används i det här kommandot är följande:
+    De parametrar som används i det här kommandot är följande:
 
     * **-u** – Det användarnamn och lösenord som används för att autentisera begäran.
     * **-G** – Anger att detta är en GET-begäran.
 
 2. Använd följande kommando för att lista de befintliga HBase-tabellerna:
 
-        curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+        curl -u <UserName>:<Password> \
+        -G https://<ClusterName>.azurehdinsight.net/hbaserest/
 
 3. Använd följande kommando för att skapa en ny HBase-tabell med två kolumnserier:
 
-        curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
+        curl -u <UserName>:<Password> \
+        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
+        -v
 
     Schemat tillhandahålls i JSon-format.
 
 4. Använd följande kommando för att infoga vissa data:
 
-        curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
+        curl -u <UserName>:<Password> \
+        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -v
+
+    Du måste base64-koda de värden som anges i switchen -d.  I exemplet:
+
+    - MTAwMA ==: 1000
+    - UGVyc29uYWw6TmFtZQ==: Personal:Name
+    - Sm9obiBEb2xl: John Dole
+
+    [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) gör att du kan infoga flera (gruppbaserade) värden.
 
 5. Använd följande kommando för att få en rad:
 
-        curl -u <UserName>:<Password> -v -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" -H "Accept: application/json"
+        curl -u <UserName>:<Password> \
+        -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
+        -H "Accept: application/json" \
+        -v
+
+Mer information om HBase Rest finns i [Referensguiden för Apache HBase](https://hbase.apache.org/book.html#_rest).
 
 ## Kontrollera klusterstatus
 
@@ -252,15 +279,18 @@ SSH kan även användas för lokala tunnelbegäranden, till exempel webbegärand
     - **SOCKS v5**: (valt)
     - **Fjärr-DNS**: (valt)
 7. Spara ändringarna genom att klicka på **OK**.
-8. Bläddra till http://<TheFQDN of a ZooKeeper>: 60010/master-status
+8. Bläddra till http://&lt;det fullständiga domännamnet för en ZooKeeper >: 60010/master-status.
 
 I ett kluster med hög tillgänglighet hittar du en länk till den aktuella aktiva överordnade HBase-nod som är värd för webbgränssnittet.
 
 ##Ta bort klustret
 
+Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret.
+
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Nästa steg?
+## Nästa steg
+
 I den här HBase-självstudien för HDInsight har du fått lära dig att skapa ett HBase-kluster och hur du skapar tabeller och visar data i dessa tabeller från HBase-gränssnittet. Du har också fått lära dig hur du använder en Hive-fråga på data i HBase-tabeller och hur du använder HBase C# REST-API:er för att skapa en HBase-tabell och hämta data från tabellen.
 
 Du kan läsa mer här:
@@ -297,6 +327,6 @@ Du kan läsa mer här:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

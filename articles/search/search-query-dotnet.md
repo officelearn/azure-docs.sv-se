@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/23/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Skicka frågor till ditt Azure Search-index med hjälp av .NET-SDK
@@ -164,6 +164,6 @@ Exempelkoden ovan använder konsolen för att mata ut sökresultat. Du behöver 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

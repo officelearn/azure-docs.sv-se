@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="07/15/2016"
     ms.author="cabailey"/>
 
 # Azure Key Vault-loggning #
@@ -33,6 +33,8 @@ Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault-lo
 >[AZURE.NOTE]  Självstudiekursen innehåller inte instruktioner för hur du skapar nyckelvalv, nycklar eller hemligheter. Den här informationen finns i [Komma igång med Azure Key Vault](key-vault-get-started.md). Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [den här självstudiekursen](key-vault-manage-with-cli.md).
 >
 >För närvarande kan du inte konfigurera Azure Key Vault på Azure-portalen. I stället använder du dessa Azure PowerShell-instruktioner.
+
+Loggarna som du samlar in kan visualiseras med hjälp av Log Analytics från Operations Management Suite. Mer information finns i [Azure Key Vault (förhandsversion) i Log Analytics](../log-analytics/log-analytics-azure-key-vault.md).
 
 Översiktlig information om Azure Key Vault finns i [Vad är Azure Key Vault?](key-vault-whatis.md)
 
@@ -269,12 +271,10 @@ En självstudiekurs där Azure Key Vault används i en webbapp finns i [Använda
 Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](key-vault-developers-guide.md).
 
 En lista med Azure PowerShell 1.0-cmdlets för Azure Key Vault finns i [Cmdlets för Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx). 
- 
+
+Självstudierna om nyckelrotering och logggranskning med Azure Key Vault finns i [Ställa in Key Vault med heltäckande nyckelrotering och granskning](key-vault-key-rotation-log-monitoring.md).
 
 
-
-
-
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

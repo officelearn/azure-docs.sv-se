@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # LDAP-autentisering och Azure Multi-Factor Authentication Server 
@@ -67,6 +67,6 @@ Följ dessa riktlinjer när du konfigurerar LDAP-klienten:
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

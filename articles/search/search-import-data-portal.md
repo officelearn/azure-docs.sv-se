@@ -14,14 +14,14 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="06/08/2016"
     ms.author="heidist"/>
 
 # Importera data till Azure Search med hjälp av portalen
 
-Azure Portal innehåller kommandot **Importera data** på instrumentpanelen för Azure Search som hjälper dig att lägga in data i Azure Search. Kommandot är beroende av de inbyggda indexerarfunktionerna som söker igenom en befintlig datakälla och som skapar och laddar upp dokument baserat på raduppsättningen som hittas i datakällan.
+Azure Portal innehåller kommandot **Importera data** på instrumentpanelen för Azure Search för att läsa in data i ett index. Kommandot är beroende av de inbyggda indexerarfunktionerna som söker igenom en befintlig datakälla och som skapar och överför dokument baserat på en raduppsättning som hämtats från datakällan.
 
-I guiden består dataimporten av tre delar:
+Dataimporten i guiden består av tre delar:
 
 - en anslutning till en datakälla
 - ett målindex som data laddas upp till (guiden kan ofta generera detta åt dig)
@@ -68,10 +68,16 @@ Dataimporten som du precis har slutfört skapade en indexerare i bakgrunden. Nu 
 
 ##Redigera en befintlig indexerare
 
-Dubbelklicka på panelen Indexerare på instrumentpanelen för tjänsten för att visa en lista med alla indexerare som skapats för din prenumeration. Dubbelklicka på en av indexerarna för att köra, redigera eller ta bort den.
+Dubbelklicka på panelen Indexerare på instrumentpanelen för tjänsten för att visa en lista med alla indexerare som skapats för din prenumeration. Dubbelklicka på en av indexerarna för att köra, redigera eller ta bort den. Du kan ersätta indexet med ett annat befintligt index, ändra datakällan och ange alternativ för tröskelvärden för fel vid indexering.
+
+##Redigera ett befintligt index
+
+I Azure Search kräver strukturella uppdateringar av ett index att det aktuella indexet återskapas, vilket innebär att man tar bort indexet, återskapar indexet och läser in data igen. Strukturella uppdateringar innebär att man ändrar datatypen och byter namn på eller tar bort ett fält.
+
+Ändringar som inte kräver att indexet återskapas omfattar att lägga till ett nytt fält, ändra bedömningsprofil, ändra förslagsställare eller ändra språkanalys. Mer information finns i [Uppdatera index](https://msdn.microsoft.com/library/azure/dn800964.aspx).
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

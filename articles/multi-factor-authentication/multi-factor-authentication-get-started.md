@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtland"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 #Välj rätt Multi-Factor Authentication-säkerhetslösning för dig
@@ -91,6 +91,6 @@ Nu när vi har fastställt om Multi-Factor Authentication i molnet eller lokala 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

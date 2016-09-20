@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/17/2016"
     ms.author="awills"/>
 
 # Komma igång med Application Insights i ett Java-webbprojekt
@@ -38,13 +38,10 @@ Du behöver:
 ## 1. Hämta en Application Insights-instrumenteringsnyckel
 
 1. Logga in på [Microsoft Azure-portalen](https://portal.azure.com).
-2. Skapa en ny Application Insights-resurs.
-
-    ![Klicka på + och välj Application Insights](./media/app-insights-java-get-started/01-create.png)
-3. Ange programtypen till Java-webbapp.
+2. Skapa en Application Insights-resurs. Ange programtypen till Java-webbapp.
 
     ![Fyll i ett namn, välj Java-webbapp och klicka på Skapa](./media/app-insights-java-get-started/02-create.png)
-4. Leta upp instrumenteringsnyckeln för den nya resursen. Du ska snart klistra in den i projektkoden.
+4. Leta upp instrumenteringsnyckeln för den nya resursen. Du kommer att behöva klistra in den här nyckeln i projektkoden inom kort.
 
     ![I den nya resursöversikten klickar du på Egenskaper och kopierar instrumenteringsnyckeln.](./media/app-insights-java-get-started/03-key.png)
 
@@ -106,18 +103,18 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
 
 Lägg till SDK manuellt:
 
-1. Ladda ned [Application Insights SDK för Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
+1. Ladda ned [Application Insights SDK för Java](https://aka.ms/aijavasdk).
 2. Extrahera binärfilerna från ZIP-filen och lägg till dem i projektet.
 
 ### Frågor …
 
 * *Vad är relationen mellan `-core`- och `-web`-komponenterna i ZIP-filen?*
 
- * `applicationinsights-core` ger dig det avskalade API:et. Du behöver alltid detta.
- * `applicationinsights-web` ger dig mått som spårar antalet HTTP-förfrågningar och svarstider. Du kan utelämna detta om du inte vill att den här telemetrin ska samlas in automatiskt. Till exempel om du vill skriva din egen.
+ * `applicationinsights-core` ger dig det avskalade API:et. Du behöver alltid ha den här komponenten.
+ * `applicationinsights-web` ger dig mått som spårar antalet HTTP-förfrågningar och svarstider. Du kan utelämna den här komponenten om du inte vill att den här telemetrin ska samlas in automatiskt. Till exempel om du vill skriva din egen.
 
 * *Så här uppdaterar du SDK när du publicerar ändringar*
- * Ladda ned senaste [Application Insigths SDK för Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) och ersätt det gamla.
+ * Ladda ned senaste [Application Insigths SDK för Java](https://aka.ms/qqkaq6) och ersätt det gamla.
  * Ändringar beskrivs i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
@@ -161,7 +158,21 @@ Ersätt instrumenteringsnyckeln som du fick från Azure-portalen.
 
 * Instrumenteringsnyckeln skickas tillsammans med alla element i telemetrin och uppmanar Application Insights att visa den i din resurs.
 * Komponenten HTTP-begäran är valfri. Den skickar automatiskt telemetri om förfrågningar och svarstider till portalen.
-* Händelsekorrelation är ett tillägg till komponenten HTTP-begäran. Det tilldelar en identifierare för varje begäran som tas emot av servern och lägger till den som en egenskap för alla objekt i telemetrin som egenskapen ”Operation.Id”. Detta gör att du kan korrelera telemetrin som är associerad med varje begäran genom att ange ett filter i [Diagnostiksökning][diagnostic].
+* Händelsekorrelation är ett tillägg till komponenten HTTP-begäran. Det tilldelar en identifierare för varje förfrågan som tas emot av servern och lägger till denna identifierare som en egenskap för alla objekt i telemetrin som egenskapen Operation.Id. Detta gör att du kan korrelera telemetrin som är associerad med varje begäran genom att ange ett filter i [Diagnostiksökning][diagnostic].
+* Application Insights-nyckeln kan skickas dynamiskt från Azure-portalen som en systemegenskap (-DAPPLICATION_INSIGHTS_IKEY = your_ikey). Om det finns inte någon definierad sker sökning efter miljövariabeln (APPLICATION_INSIGHTS_IKEY) i Azure App-inställningarna. Om båda egenskaperna är odefinierade används som standard InstrumentationKey från ApplicationInsights.xml. Med hjälp av den här sekvensen kan du på ett dynamiskt sätt hantera olika InstrumentationKeys för olika miljöer.
+
+### Olika sätt att konfigurera instrumenteringsnyckeln på
+
+Application Insights SDK:n söker efter nyckeln i följande ordning:
+
+1. Systemegenskap: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
+2. Miljövariabel: APPLICATION_INSIGHTS_IKEY
+3. Konfigurationsfil: ApplicationInsights.xml
+
+Du kan också [ange den i koden](app-insights-api-custom-events-metrics.md#ikey):
+
+    telemetryClient.InstrumentationKey = "...";
+
 
 ## 4. Lägga till ett HTTP-filter
 
@@ -182,7 +193,7 @@ För bästa resultat bör filtret mappas före alla andra filter.
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-#### Om du använder MVC 3.1 eller senare
+#### Om du använder Spring Web MVC 3.1 or later
 
 Redigera dessa element så att Application Insights-paketet tas med:
 
@@ -217,7 +228,7 @@ Kör programmet i felsökningsläge på utvecklingsdatorn eller publicera det ti
 
 Gå tillbaka till Application Insights-resursen på [Microsoft Azure-portalen](https://portal.azure.com).
 
-Data om HTTP-begäranden visas på översiktsbladet. (Om informationen inte visas väntar du några sekunder och klickar på Uppdatera.)
+Data om HTTP-förfrågningar visas på översiktsbladet. (Om informationen inte visas väntar du några sekunder och klickar på Uppdatera.)
 
 ![exempeldata](./media/app-insights-java-get-started/5-results.png)
 
@@ -227,7 +238,7 @@ Klicka dig vidare i diagrammen om du vill visa mer detaljerade aggregerade mätv
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights förutsätter att formatet för HTTP-begäranden för MVC-program är: `VERB controller/action`. Till exempel grupperas `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` och `GET Home/Product/sdf96vws` till `GET Home/Product`. Detta gör det möjligt att skapa meningsfulla aggregeringar av begäranden, till exempel antalet begäranden och genomsnittlig körningstid för begäranden.
+> Application Insights förutsätter att formatet för HTTP-begäranden för MVC-program är: `VERB controller/action`. `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` och `GET Home/Product/sdf96vws` grupperas t.ex. i `GET Home/Product`. Denna gruppering gör det möjligt att skapa meningsfulla förfrågningsaggregeringar, t.ex. antal förfrågningar och genomsnittlig körningstid för förfrågningarna.
 
 
 ### Instansdata 
@@ -248,29 +259,27 @@ Allt eftersom du ackumulerar mer data kan du köra frågor både för att aggreg
 ![Exempel med Analytics](./media/app-insights-java-get-started/025.png)
 
 
-## 5. Installera din app på servern
+## 7. Installera din app på servern
 
 Publicera appen på servern, låt användarna använda den och se hur telemetrin visas på portalen.
 
 * Kontrollera att din brandvägg tillåter programmet att skicka telemetri till följande portar:
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * Installera följande på Windows-servrar:
 
  * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
 
-    (Gör att du kan använda prestandaräknare.)
+    (Den här komponenten gör det möjligt att använda prestandaräknare.)
 
 ## Fel relaterade till begäranden och undantag
 
 Ohanterade undantag samlas in automatiskt:
 
-![Rulla nedåt och klicka på panelen Fel](./media/app-insights-java-get-started/21-exceptions.png)
+![Öppna Inställningar, Fel](./media/app-insights-java-get-started/21-exceptions.png)
 
 Om du vill samla in data om andra undantag kan du välja mellan två alternativ:
 
@@ -285,7 +294,7 @@ Om du vill samla in data om andra undantag kan du välja mellan två alternativ:
 
 ## Prestandaräknare
 
-Klicka på panelen **Servrar** så ser du ett antal prestandaräknare.
+Öppna **Inställningar**, **Servrar**, om du vill se ett utbud av prestandaräknare.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -355,7 +364,7 @@ Du skickar telemetri från webbservern. Men för att få en heltäckande bild av
 
 ## Samla in loggspårningar
 
-Du kan använda Application Insights för att arbeta med loggar från Log4J, Logback eller andra loggningsramverk. Du kan korrelera loggarna med HTTP-förfrågningar och annan telemetri. [Lär dig hur du gör][javalogs].
+Du kan använda Application Insights om du vill arbeta med loggar från Log4J, Logback eller andra loggningsramverk. Du kan korrelera loggarna med HTTP-förfrågningar och annan telemetri. [Lär dig hur du gör][javalogs].
 
 ## Skicka din egen telemetri
 
@@ -367,17 +376,15 @@ Nu när du har installerat SDK kan du använda API:et för att skicka din egen t
 
 ## Webbtester för tillgänglighet
 
-Application Insights kan testa din webbplats med jämna mellanrum för att kontrollera att tjänsten är tillgänglig och att den svarar. [Konfigurera ][availability] genom att rulla ned och klicka på Tillgänglighet.
+Application Insights kan testa din webbplats med jämna mellanrum för att kontrollera att tjänsten är tillgänglig och att den svarar. [Om du vill konfigurera][availability], klickar du på Webbtester.
 
-![Rulla ned, klicka på Tillgänglighet och sedan på Lägg till webbtest.](./media/app-insights-java-get-started/31-config-web-test.png)
+![Klicka först på Webbtester och sedan på Lägg till webbtest](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Du kan visa diagram över svarstider, samt få e-postaviseringar om platsen kraschar.
 
 ![Exempel på webbtest](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Läs mer om webbtester för tillgänglighet.][availability] 
-
-
 
 
 
@@ -403,6 +410,6 @@ Mer information finns på [Java Developer Center](/develop/java/).
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

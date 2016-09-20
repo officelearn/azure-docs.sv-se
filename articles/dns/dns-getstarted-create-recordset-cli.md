@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Skapa DNS-postuppsättningar och poster med hjälp av CLI
@@ -68,6 +68,6 @@ Mer information om Azure DNS finns i [Översikt över Azure DNS](dns-overview.md
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

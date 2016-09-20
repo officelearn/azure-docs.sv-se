@@ -1,7 +1,7 @@
 <properties
     pageTitle="Vanliga frågor och svar om Azure Machine Learning | Microsoft Azure"
     description="Introduktion till Azure Machine Learning: Vanliga frågor och svar om fakturering, funktioner och begränsningar i en molntjänst för effektiv förutsägelsemodellering."
-    keywords="machine learning introduction,predictive modeling,what is machine learning"
+    keywords="introduktion till maskininlärning, förutsägelsemodellering, vad är maskininlärning, machine learning"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/18/2016"
+    ms.date="07/14/2016"
     ms.author="garye"/>
 
 # Vanliga frågor och svar om Azure Machine Learning: Fakturering, funktioner, begränsningar och support
@@ -26,7 +26,6 @@ I det här avsnittet får du svar på frågor om Azure Machine Learning, en moln
 **Vad är Azure Machine Learning?**
 
 Azure Machine Learning är en helt hanterad tjänst som du kan använda för att skapa, testa, tillämpa och hantera förutsägelseanalyslösningar i molnet. Med bara en webbläsare kan du logga in, ladda upp data och genast starta maskininlärningsexperiment. Förutsägelsemodellering med dra-och-släpp-funktioner, ett stort utbud av modeller och ett bibliotek med startmallar gör det enkelt att snabbt utföra vanliga maskininlärningsaktiviteter.  Mer information finns i [Översikt över tjänsten Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). En introduktion till maskininlärning där viktiga termer och begrepp beskrivs finns i [Introduktion till Azure Machine Learning](machine-learning-what-is-machine-learning.md).
-
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -42,16 +41,26 @@ Med Machine Learning API kan du distribuera förutsägelsemodeller, som de som s
 
 Mer information finns i [Ansluta till en Machine Learning-webbtjänst](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
+**Var visas mina klassiska webbtjänster? Var visas mina nya ARM-baserade webbtjänster?**
 
-## Frågor om fakturering
+En lista med de klassiska webbtjänsterna finns på fliken Webbtjänster i [Machine Learning Studio](http://studio.azureml.net). En lista med de nya ARM-baserade webbtjänsterna finns på [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/)-portalen. Det finns ingen lista som innehåller båda typerna av tjänster.
 
-**Hur fungerar faktureringen av Machine Learning?**
+## Frågor om Microsoft Azure Machine Learning-webbtjänster
 
-Information om fakturering och priser finns i avsnittet om [Machine Learning-priser](https://azure.microsoft.com/pricing/details/machine-learning/).
+**Vad är Azure ML Web Services?**
 
-**Finns det någon kostnadsfri utvärderingsversion för Machine Learning?**
+Med Azure Machine Learning-webbtjänsten kommunicerar ett externt program i realtid med en arbetsflödesbaserad poängmodell i Machine Learning. Ett Machine Learning-webbtjänstanrop returnerar förutsägelser till ett externt program. Om du vill göra ett Machine Learning-webbtjänstanrop skickar du en API-nyckel som skapades när du distribuerade webbtjänsten. Machine Learning-webbtjänsten baseras på REST, ett populärt arkitekturval för programmeringsprojekt.
 
- När du registrerar dig för en kostnadsfri utvärderingsversion av Azure kan du prova alla Azure-tjänster i en månad. Om du vill ha mer information om den kostnadsfria utvärderingsversionen av Azure läser du avsnittet med [vanliga frågor och svar om den kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial-faq/).
+Azure Machine Learning har två typer av tjänster:
+
+* RRS (Request-Response Service) – En tjänst med korta svarstider och hög skalbarhet som tillhandahåller ett gränssnitt för de tillståndslösa modeller som skapas och distribueras från Machine Learning Studio.
+* BES (Batch Execution Service) – En asynkron tjänst som poängsätter en batch med dataposter.
+
+Du kan använda REST-API:et och komma åt webbtjänsten på flera sätt. Du kan till exempel skriva ett program i C#, R eller Python med exempelkoden som genererades automatiskt när du distribuerade webbtjänsten (finns på API:ets hjälpsida på instrumentpanelen för webbtjänsten i Machine Learning Studio). Du kan också använda Microsoft Excel-exempelarbetsboken som skapas åt dig (finns också på instrumentpanelen för webbtjänsten i Studio).
+
+**Vilka är de viktigaste uppdateringarna i de nya Azure ML-webbtjänsterna?**
+
+Mer information om de nya Azure Machine Learning-webbtjänsterna finns i [dokumentationen](machine-learning-whats-new.md). 
 
 ## Frågor om Machine Learning Studio
 
@@ -61,6 +70,14 @@ Information om fakturering och priser finns i avsnittet om [Machine Learning-pri
 
 Nej, men Machine Learning Studio behåller varje iteration av ett experiment, som inte kan ändras av andra användare.
 Mer information finns i [Hantera iterationer av experiment i Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
+
+
+### Distribuera ett experiment
+
+**Kan jag distribuera ett förutsägelseexperiment som en ny (ARM-baserad) webbtjänst om jag redan har distribuerat det som en klassisk webbtjänst?**
+
+Nej, du kan inte distribuera ett experiment som tidigare har distribuerats som en klassiska webbtjänst. Du måste skapa ett nytt förutsägelseexperiment och distribuera det i stället.
+
 
 ### Importera och exportera data för Machine Learning
 
@@ -226,7 +243,7 @@ Mer information finns i [Träna om Machine Learning-modeller via programmering](
 
 **Hur övervakar jag min webbtjänst när den har distribuerats i produktionsmiljön?**
 
-När en förutsägelsemodell har distribuerats kan du övervaka den från den klassiska Azure-portalen. Varje distribuerad tjänst har sin egen instrumentpanel där du kan se övervakningsinformation för tjänsten.
+När en förutsägelsemodell har distribuerats kan du övervaka den från den klassiska Azure-portalen. Varje distribuerad tjänst har sin egen instrumentpanel där du kan se övervakningsinformation för tjänsten. Mer information om hur du hanterar distribuerade webbtjänster finns i [Hantera en Azure Machine Learning-arbetsyta](machine-learning-manage-workspace.md).
 
 **Finns det någon plats där jag kan se utdata för min RRS-/BES-tjänst?**
 
@@ -323,6 +340,240 @@ Om du behöver teknisk support för Azure Machine Learning går du till [Azure-s
 
 Azure Machine Learning har även ett community-forum på MSDN där du kan ställa frågor som rör Azure Machine Learning. Forumet övervakas av Azure Machine Learning-teamet. Besök [Azure-forumet](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
+## Frågor om fakturering
+
+**Hur fungerar faktureringen av Machine Learning?**
+
+Azure Machine Learning-tjänsten består av två komponenter. Machine Learning Studio och Machine Learning Web Services.
+
+När du utvärderar Machine Learning Studio kan du använda den kostnadsfria faktureringsnivån.  På den kostnadsfria nivån kan du distribuera en klassiska webbtjänst med begränsad kapacitet.
+
+När du har bekräftat att Azure Machine Learning uppfyller dina behov kan du registrera dig för standardnivån. Du måste ha en Microsoft Azure-prenumeration för att registrera dig.
+
+På standardnivån debiteras du en månadsavgift per klient för användning av Machine Learning Studio. När du kör ett experiment i Studio debiteras du för beräkningsresurser när du kör ett experiment. När du distribuerar en klassisk webbtjänst debiteras du för transaktioner och beräkningstimmar enligt en ”betala per användning”-modell. 
+
+Nytt i de nya Machine Learning-webbtjänsterna är faktureringsplaner som gör det lättare att förutse kostnaderna. Den nivåbaserade prismodellen är avsedd för kunder som behöver stor kapacitet, men erbjuder även rabattmöjligheter.
+
+När du skapar en plan förbinder du dig att betala en fast kostnad som inkluderar ett antal API-beräkningstimmar och API-transaktioner. Om du behöver ytterligare kapacitet kan du lägga till ytterligare instanser i din faktureringsplan. Om du behöver betydligt större kapacitet kan du välja en plan på en högre nivå med avsevärt mycket större kapacitet och rabatt.
+
+När det inkluderade antalet beräkningstimmar och transaktioner i befintliga instanser har förbrukats debiteras du för ytterligare användning enligt överförbrukningstaxan för faktureringsplanen på relevant nivå.
+
+Obs! Det inkluderade antalet tilldelas på nytt var 30:e dag och eventuell outnyttjad användning förs inte över till nästa period.
+
+Mer information om fakturering och priser finns i [Machine Learning-priser](https://azure.microsoft.com/pricing/details/machine-learning/).
+
+**Finns det någon kostnadsfri utvärderingsversion för Machine Learning?**
+
+ Azure Machine Learning erbjuder ett alternativ för en kostnadsfri prenumeration (mer information finns i [Machine Learning-priser](https://azure.microsoft.com/pricing/details/machine-learning/)) och Machine Learning Studio erbjuder en snabbutvärdering på åtta timmar (logga in i [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) om du är intresserad av den här utvärderingsversionen).
+ 
+ När du registrerar dig för en kostnadsfri utvärderingsversion av Azure kan du dessutom prova alla Azure-tjänster i en månad. Om du vill ha mer information om den kostnadsfria utvärderingsversionen av Azure läser du avsnittet med [vanliga frågor och svar om den kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial-faq/).
+
+**Vad är en transaktion?**
+
+En transaktion representerar ett API-anrop som Azure Machine Learning svarar på. Transaktioner från RRS- (Request-Response Service) och BES-anrop (Batch Execution Service) aggregeras och debiteras mot din faktureringsplan.
+
+**Kan jag använda det inkluderade transaktionsantalet i en plan för både RRS- och BES-transaktioner?**
+
+Ja, dina transaktioner från RRS och BES summeras och debiteras mot din faktureringsplan.
+
+**Vad är en API-beräkningstimme?**
+
+En API-beräkningstimme är faktureringsenheten för den tid det tar att köra API-anrop med hjälp av ML-beräkningsresurserna. Alla dina anrop summeras för faktureringsändamål. 
+
+**Hur lång tid tar ett typiskt API-anrop i produktionsmiljön?**
+
+Hur lång tid ett API-anrop tar kan variera kraftigt, från hundradels millisekunder till några få sekunder, men det kan också ta flera minuter beroende på databearbetningens komplexitet och vilken maskininlärningsmodell som används. Det bästa sättet att uppskatta tidsåtgången för API-anrop i produktionsmiljön är att mäta prestanda för en modell i Machine Learning-tjänsten.
+
+**Vad är en Studio-beräkningstimme?**
+
+En Studio-beräkningstimme är faktureringsenheten för den sammanlagda tid du experimenterar med beräkningsresurser i Studio. 
+
+**Vad är avsikten med utvecklings- och testnivån i de nya webbtjänsterna?**
+
+De nya webbtjänsterna i Azure ML tillhandahåller flera nivåer som du kan använda för att etablera lämplig faktureringsplan. Utvecklings- och testnivån är en nivå med ett begränsat inkluderat antal så att du kan testa ditt experiment som en ny webbtjänst utan att dra på dig kostnader. Du har möjlighet att testa och se hur det fungerar.
+
+**Finns det separata lagringskostnader?** 
+
+På den kostnadsfria nivån för Machine Learning varken krävs eller tillåts separat lagring. På standardnivån för Machine Learning måste användaren ha ett Azure-lagringskonto. Azure-lagring [faktureras separat](https://azure.microsoft.com/pricing/details/storage/).
+
+**Hur stöder Machine Learning arbete som kräver hög tillgänglighet?** 
+
+Hur lång tid ett API-anrop tar kan variera kraftigt, från hundradels millisekunder till några få sekunder, men det kan också ta flera minuter beroende på databearbetningens komplexitet och vilken maskininlärningsmodell som används. Det bästa sättet att uppskatta tidsåtgången för API-anrop i produktionsmiljön är att mäta prestanda för en modell i Machine Learning-tjänsten.
+
+**Vilka specifika beräkningsresurser körs mina API-anrop på i produktionsmiljön?**
+
+Machine Learning-tjänsten är en multitenant-tjänst och de faktiska beräkningsresurser som används på serverdelen varierar och är optimerade för prestanda och förutsägbarhet.
+
+### Hantering av de nya webbtjänsterna 
+
+**Vad händer om jag bort tar bort min plan?**
+
+Planen tas bort från din prenumeration och du debiteras för en proportionellt beräknad förbrukning.
+
+Obs! Du kan inte ta bort en plan som används av en webbtjänst. Om du vill ta bort planen måste du tilldela en ny plan till webbtjänsten eller ta bort webbtjänsten.
+
+**Vad är en planinstans?**
+
+En planinstans är en enhet med ett inkluderat antal som du kan lägga till i din faktureringsplan. När du väljer en faktureringsnivå för din faktureringsplan medföljer en instans. Om du behöver ett större inkluderat antal kan du lägga till instanser på den valda faktureringsnivån i din plan. 
+
+**Hur många planinstanser kan jag lägga till?**
+
+Du kan ha en instans av utvecklings- och textnivån i en prenumeration.
+
+För nivåerna S1, S2 och S3 kan du lägga till så många du behöver. 
+
+Obs! Beroende på din förväntade användning kan det vara mer kostnadseffektivt att uppgradera till en högre nivå med ett större inkluderat antal i stället för att lägga till instanser på den nuvarande nivån.
+
+**Vad händer om jag byter till en betalningsplan på en annan nivå (uppgraderar/nedgraderar)?**
+
+Den gamla planen tas bort och den aktuella förbrukningen faktureras baserat på en proportionell beräkning. En ny plan med hela det inkluderade antalet för nivån som du uppgraderar eller nedgraderar till skapas för resten av perioden. 
+
+Obs! Det inkluderade antalet tilldelas per period och eventuell outnyttjad användning förs inte över till nästa period.
+
+**Vad händer om jag öka antalet instanser i en plan?**
+
+Det inkluderade antalet inkluderas baserat på en proportionell beräkning och det kan ta 24 timmar innan ändringen tillämpas. 
+
+**Vad händer om jag tar bort en instans i en plan?**
+
+Instansen tas bort från din prenumeration och du debiteras för en proportionellt beräknad förbrukning. 
+
+
+### Registrera dig för planerna i de nya webbtjänsterna
+
+**Hur registrera jag mig för en plan?**
+
+Du kan skapa faktureringsplaner på två sätt.
+
+Första gången du distribuerar en ny webbtjänst kan du välja en befintlig plan eller skapa en ny plan. 
+
+Planer som skapas på det här sättet finns i din standardregion och din webbtjänst distribueras till den regionen. 
+
+Du kanske vill definiera dina faktureringsplaner innan du distribuerar din tjänst, till exempel om du vill distribuera tjänster till andra regioner än din standardregion.
+
+I så fall kan du logga in på portalen för Azure Machine Learning Web Services och gå till sidan för betalningsplaner. Där kan du lägga till och ta bort planer och ändra befintliga planer.
+
+**Vilken plan ska jag börja med?**
+
+Vi rekommenderar att du börjar med standardnivån S1 och övervakar hur tjänsten används. Om du märker att du snabbt förbrukar det inkluderade antalet kan du lägga till instanser eller byta till en högre nivå med bättre rabatt. Du kan justera din faktureringsplan efter behov genom faktureringscykeln. 
+
+**I vilka regioner är de nya planerna tillgängliga?**
+
+De nya faktureringsplanerna är tillgängliga i de tre produktionsregioner där vi stöder de nya webbtjänsterna:
+
+* Södra centrala USA
+* Västra Europa
+* Sydostasien
+
+**Jag har webbtjänster i flera regioner. Behöver jag en plan för varje region?**
+
+Ja. Priserna för planer varierar beroende på region. När du distribuerar en webbtjänst till en annan region måste du associera den med en plan som är specifik för den regionen.
+
+### De nya webbtjänsterna – överförbrukning
+
+**Hur kontrollerar jag om min webbtjänstanvändning överförbrukas?**
+
+Du kan visa förbrukningen för alla dina planer på sidan för faktureringsplaner på Azure Machine Learning Web Services-portalen. Logga in på portalen och klicka på menyalternativet för planer. 
+
+I transaktions- och beräkningskolumnerna i tabellen ser du det inkluderade antalet för planen och förbrukningen i procent. 
+
+**Vad händer om jag förbrukar det inkluderade antalet på utvecklings-/testnivån?**
+
+Tjänster som är kopplade till en utvecklings-/testnivå stoppas fram till nästa period eller så flyttar du dem till en betalnivå.
+
+**Hur beräknas priser för RRS- och BES-arbetsbelastningar för de klassiska webbtjänsterna och överförbrukning för de nya webbtjänsterna?** 
+
+För en RRS-arbetsbelastning debiteras du för varje API-transaktionsanrop som du gör samt för beräkningstiden som associeras med dessa förfrågningar. Dina API-transaktionskostnader för RRS i produktionsnivån beräknas därför som det sammanlagda antalet API-anrop som du gör multiplicerat med priset per 1 000 transaktioner (proportionellt beräknat baserat på enskilda transaktioner). Dina kostnader för API-beräkningstimmar för RRS i produktionsmiljön beräknas som den mängd tid som krävs för att köra varje API-anrop multiplicerat med det totala antalet API-transaktioner multiplicerat med priset per API-beräkningstimme i produktionsmiljön. För överförbrukning på standardnivån S1 resulterar exempelvis 1 000 000 API-transaktioner som tar 0,72 sekunder vardera att köra (1 000 000 * 0,50 USD/1K API-transaktioner) i 500 USD i API-transaktionskostnader i produktionsmiljön och (1 000 000 * 0,72 sek * 2 USD/h) 400 USD i API-beräkningstimmar i produktionsmiljön, vilket ger en summa på 900 USD.
+
+För en BES-arbetsbelastning debiteras du på samma sätt, men API-transaktionskostnaderna representerar antalet batch-jobb som du skickar och beräkningskostnaderna representerar beräkningstiden som associeras med batch-jobben. Dina API-transaktionskostnader för BES i produktionsmiljön beräknas därför som det sammanlagda antalet jobb som skickats multiplicerat med priset per 1 000 transaktioner (proportionellt beräknat baserat på enskilda transaktioner). Dina kostnader för API-beräkningstimmar för BES i produktionsmiljön beräknas som den mängd tid som krävs för att köra varje rad i jobbet multiplicerat med det sammanlagda antalet rader i jobbet multiplicerat med det sammanlagda antalet jobb multiplicerat med priset per API-beräkningstimme i produktionsmiljön. När du använder Machine Learning-kalkylatorn representerar transaktionsmätaren antalet jobb som du planerar att skicka och fältet för tid per transaktion representerar den kombinerade tid som krävs för att köra alla rader i varje jobb. För överförbrukning på standardnivån S1 resulterar exempelvis en överföring på 100 jobb per dag som består av 500 rader som tar 0,72 sekunder vardera i månatliga överförbrukningskostnader (100 jobb per dag = 3 100 jobb/månad * 0,50 USD/1K API-transaktioner) på 1,55 USD i API-transaktionskostnader i produktionsmiljön och (500 rader * 0,72 sek * 3 100 jobb * 2 USD/h) 620 USD i API-beräkningstimmar i produktionsmiljön, vilket ger en totalsumma på 621,55 USD.
+
+### De klassiska Azure ML-webbtjänsterna
+
+**Kan jag betala per användning?**
+Ja, de klassiska webbtjänsterna finns kvar i Azure Machine Learning.  
+
+### Den kostnadsfria nivån och standardnivån för Azure Machine Learning
+
+**Vad ingår i den kostnadsfria Azure Machine Learning-nivån?**
+
+Den kostnadsfria Azure Machine Learning-nivån är avsedd att ge en detaljerad introduktion till Azure Machine Learning Studio. Allt du behöver är ett Microsoft-konto för att registrera dig. Den kostnadsfria nivån tillhandahåller gratis åtkomst till en Azure Machine Learning Studio-arbetsyta per [Microsoft-konto](https://www.microsoft.com/account/default.aspx). Du kan använda upp till 10 GB lagringsutrymme och har möjlighet att operationalisera modeller som mellanlagrings-API:er. Arbetsbelastningar på den kostnadsfria nivån omfattas inte av något SLA och är endast avsedda för utveckling och personligt bruk. Arbetsbelastningar på den kostnadsfria nivån kan inte komma åt data genom att ansluta till en lokal SQL-server. I tabellen ovan beskrivs många skillnader mellan gratis- och standardnivåerna, men det kan finnas andra skillnader och funktioner på den kostnadsfria nivån kan ändras när som helst.
+
+**Vad ingår i standardnivån och standardplanerna för Azure Machine Learning?**
+
+Standardnivån för Azure Machine Learning är en betald produktionsversion av Azure Machine Learning Studio. Avgiften för Azure ML Studio faktureras månadsvis per klient och beräknas proportionellt för ofullständiga månader. Azure ML Studio-experimenttimmar debiteras per beräkningstimme för aktiva experiment. Faktureringen beräknas proportionellt för ofullständiga timmar.  
+
+Azure ML API-tjänsten debiteras beroende på om det rör sig om en klassisk webbtjänst eller en ny webbtjänst. 
+
+Avgifterna nedan beräknas per arbetsyta för din prenumeration. 
+
+* Prenumerationen per ML-klient: Den här typen av prenumeration är en månadsavgift som ger åtkomst till en ML Studio-arbetsyta. Prenumerationen krävs för att köra experiment i Studio och för att använda API:er i produktionsmiljön.
+* Experimenttimmar i Studio: Den här mätaren räknar ihop alla beräkningsrelaterade avgifter som ackumuleras när du kör experiment i ML Studio och API-anrop för produktion i mellanlagringsmiljön.
+* Kom åt data genom att ansluta till en lokal SQL-server i dina modeller för utbildning och bedömning.
+* För de klassiska webbtjänsterna: 
+    * Beräkningstimmar för produktions-API: Den här mätaren visar beräkningsrelaterade avgifter som ackumuleras av webbtjänster som körs i produktionsmiljön.
+    * Transaktioner i produktions-API (i tusental): Den här mätaren visar kostnader som ackumuleras per anrop till din webbtjänst i produktionsmiljön.
+
+Förutom ovanstående kostnader räknas avgifter för den valda planen in för nya webbtjänster: 
+
+* Standard S1/S2/S3 – API-plan (enheter): Den här mätaren representerar den typ av instans som valts för nya webbtjänster.
+* Standard S1/S2/S3 – överförbrukning av API-beräkningstimmar: Den här mätaren visar beräkningsrelaterade avgifter som ackumuleras av de nya webbtjänsterna som körs i produktionsmiljön när det inkluderade antalet i befintliga instanser har förbrukats. Den ytterligare användningen debiteras enligt överförbrukningstaxan för plannivå S3/S1/S2.
+* Standard S1/S2/S3 – överförbrukning av API-transaktioner (i tusental): Den här mätaren visar avgifter som ackumuleras per anrop till din nya webbtjänst i produktionsmiljön när det inkluderade antalet i befintliga instanser har förbrukats. Den ytterligare användningen debiteras enligt överförbrukningstaxan för plannivå S3/S1/S2.
+* Inkluderade API-beräkningstimmar: Med de nya webbtjänsterna representerar den här mätaren det inkluderade antalet API-beräkningstimmar. 
+* Inkluderade API-transaktioner (i 1 000-tal): Med de nya webbtjänsterna representeras den här mätaren det inkluderade antalet API-transaktioner. 
+
+
+**Hur jag registrerar jag mig för den kostnadsfria Azure ML-nivån?**
+
+Allt du behöver är ett Microsoft-konto. Gå till [startsidan för Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) och klicka på Starta nu. Logga in med ditt Microsoft-konto så skapas en arbetsyta på den kostnadsfria nivån. Du kan börja utforska och skapa Machine Learning-experiment direkt.
+
+**Hur registrerar jag mig för Azure ML-standardnivån?**
+
+Du måste först ha åtkomst till en Azure-prenumeration för att kunna skapa en ML-arbetsyta på standardnivån. Du kan registrera dig för en 30-dagars kostnadsfri utvärderingsversion av en Azure-prenumeration och senare uppgradera till en Azure-betalprenumeration eller köpa en betald Azure-prenumeration direkt. När du har fått tillgång till prenumerationen kan du skapa en Machine Learning-arbetsyta från den klassiska Microsoft Azure-portalen. Se [de stegvisa anvisningarna](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+
+Du kan också bli inbjuden till en ML-arbetsyta på standardnivån av arbetsytans ägare.
+
+**Kan jag välja att använda mitt eget Azure Blob Storage-konto på den kostnadsfria nivån?**
+
+Nej, standardnivån motsvarar den version av Machine Learning-tjänsten som var tillgänglig innan nivåerna introducerades.
+
+**Kan jag distribuera mina maskininlärningsmodeller som API:er på den kostnadsfria nivån?**
+
+Ja, du kan operationalisera maskininlärningsmodeller till API-tjänster i mellanlagringsmiljön som en del av den kostnadsfria nivån. Du måste använda standardnivån för att flytta API-mellanlagringstjänsten till produktionsmiljön och få en produktionsslutpunkt för operationaliseringstjänsten. 
+
+**Vad är skillnaden mellan den kostnadsfria Azure-utvärderingen och den kostnadsfria Azure Machine Learning-nivån?**
+
+Den [kostnadsfria utvärderingen av Microsoft Azure](https://azure.microsoft.com/free/) ger en kredit som kan utnyttjas för valfri Azure-tjänst i en månad. Den kostnadsfria Azure Machine Learning-nivån ger kontinuerlig åtkomst till Azure Machine Learning-tjänsten för arbetsbelastningar utanför produktionsmiljön.
+
+**Hur flyttar jag ett experiment från den kostnadsfria nivån till standardnivån?**
+
+Kopiera dina experiment från den kostnadsfria nivån till standardnivån genom att följa stegen nedan.
+
+1.  Logga in i Azure Machine Learning Studio och kontrollera att både den kostnadsfria arbetsytan och standardarbetsytan visas i arbetsyteväljaren i det övre navigeringsfältet.
+2.  Växla till den kostnadsfria arbetsytan om du befinner dig på standardarbetsytan.
+3.  Välj ett experiment som du vill kopiera i experimentlistevyn och klicka på kommandoknappen Kopiera.
+4.  Välj arbetsytan Standard i popup-dialogrutan och klicka på knappen Kopiera.
+5.  Observera att alla associerade datauppsättningar, tränade modeller osv. kopieras tillsammans med experimentet till standardarbetsytan.
+6.  Du måste köra om experimentet och publicera om webbtjänsten på standardarbetsytan.
+
+### Studio-arbetsytan
+
+**Vad är en Machine Learning-prenumeration per klient och när behöver jag en?**
+
+En Machine Learning-klient representerar en arbetsyta. Vi rekommenderar att användare som kör experiment i ML Studio eller en API-tjänst i produktionsmiljön har en klientbaserad Machine Learning-prenumeration.
+
+**Får jag olika fakturor för olika arbetsytor?**
+
+Avgifterna för en arbetsyta visas separat för varje tillämplig mätare på samma faktura.
+
+**Vilka specifika typer av beräkningsresurser körs mina experiment på?**
+
+Machine Learning-tjänsten är en multitenant-tjänst och de faktiska beräkningsresurser som används på serverdelen varierar och är optimerade för prestanda och förutsägbarhet.
+
+### Gäståtkomst
+
+**Vad är gäståtkomst i Azure Machine Learning Studio?**
+
+Gäståtkomst är en begränsad utvärderingsmiljö där du kan skapa och köra experiment i Azure Machine Learning Studio utan kostnad och utan autentisering. Gästsessioner är icke-beständiga (går inte att spara) och begränsade till åtta timmar. Exempel på andra begränsningar är avsaknaden av stöd för R och Python, frånvaron av mellanlagrings-API:er samt storleksbegränsningar för datauppsättningar och lagringskapacitet. Jämförelsevis har användare som väljer att logga in med ett Microsoft-konto fullständig åtkomst till den kostnadsfria Machine Learning Studio-nivån som beskrivs ovan, som innehåller en beständig arbetsyta och mer omfattande funktioner. Välj din kostnadsfria Machine Learning-miljö genom att klicka på knappen ”Kom igång” på [https://studio.azureml.net](https://studio.azureml.net) och välj sedan Gästbehörighet eller Logga in med ditt Microsoft-konto.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/
@@ -337,6 +588,6 @@ Azure Machine Learning har även ett community-forum på MSDN där du kan ställ
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="get-started-article" 
-    ms.date="05/23/2016"
+    ms.date="07/21/2016"
     ms.author="tamram"/>
 
 # Komma igång med Azure Storage på fem minuter 
@@ -103,6 +103,7 @@ Kör exempelprogrammet i Azure Storage-emulatorn:
 Se dessa resurser om du vill lära dig mer om Azure Storage:
 
 * [Introduktion till Microsoft Azure Storage](storage-introduction.md)
+* [Komma igång med Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Komma igång med Azure Blob Storage med hjälp av .NET](storage-dotnet-how-to-use-blobs.md)
 * [Komma igång med Azure Table Storage med hjälp av .NET](storage-dotnet-how-to-use-tables.md)
 * [Komma igång med Azure Queue Storage med hjälp av .NET](storage-dotnet-how-to-use-queues.md)
@@ -117,6 +118,6 @@ Se dessa resurser om du vill lära dig mer om Azure Storage:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

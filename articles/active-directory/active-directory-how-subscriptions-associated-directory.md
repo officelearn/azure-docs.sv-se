@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/26/2016"
+    ms.date="08/15/2016"
     ms.author="curtand"/>
 
 # Hur Azure-prenumerationer är associerade med Azure Active Directory
@@ -141,6 +141,6 @@ Följ stegen nedan för att hantera både kataloger på den klassiska Azure-port
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

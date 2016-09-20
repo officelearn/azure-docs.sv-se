@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, DC/OS, Azure"/>
+   keywords="Docker, behållare, Micro-tjänster, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -21,7 +21,7 @@
 
 # Ansluta till ett Azure Container Service-kluster
 
-DC/OS- och Swarm-kluster som distribueras med Azure Container Service exponerar REST-slutpunkter. De här slutpunkterna är dock inte öppna för allmänheten. Du måste skapa en SSH-tunnel (Secure Shell) för att kunna hantera de här slutpunkterna. När en SSH-tunnel har upprättats kan du köra kommandon mot klusterslutpunkter och visa klustergränssnittet via en webbläsare i ditt system. I det här dokumentet får du anvisningar om hur du skapar en SSH-tunnel i Linux, OS X och Windows.
+DC/OS- och Docker Swarm-kluster som distribueras med Azure Container Service exponerar REST-slutpunkter. De här slutpunkterna är dock inte öppna för allmänheten. Du måste skapa en SSH-tunnel (Secure Shell) för att kunna hantera de här slutpunkterna. När en SSH-tunnel har upprättats kan du köra kommandon mot klusterslutpunkter och visa klustergränssnittet via en webbläsare i ditt system. I det här dokumentet får du anvisningar om hur du skapar en SSH-tunnel i Linux, OS X och Windows.
 
 >[AZURE.NOTE] Du kan skapa en SSH-session med ett klusterhanteringssystem. Men vi det rekommenderar inte. Om du arbetar direkt i ett hanteringssystem finns det en risk att konfigurationsändringar görs oavsiktligt.   
 
@@ -45,7 +45,7 @@ Det första du ska göra när du ska skapa en SSH-tunnel i Linux eller OS X är 
 
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
-> SSH-anslutningsporten är 2200 och inte standardporten 22.
+> SSH-anslutningsporten är 2200, inte standardporten 22.
 
 ## DC/OS-tunnel
 
@@ -75,7 +75,7 @@ Om du vill öppna en tunnel till Swarm-slutpunkten kör du ett kommando som likn
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-Nu kan du ange miljövariabeln DOCKER_HOST enligt nedanstående information och fortsätta att använda Docker-kommandoradsgränssnittet (CLI) som vanligt.
+Du kan nu ange din DOCKER_HOST-miljövariabel på följande sätt. Du kan fortsätta att använda ditt Docker-kommandoradsgränssnitt (CLI) som vanligt.
 
 ```bash
 export DOCKER_HOST=:2375
@@ -91,11 +91,11 @@ Ange ett värdnamn som består av klustrets adminanvändarnamn och det offentlig
 
 ![PuTTY-konfiguration 1](media/putty1.png)
 
-Välj `SSH` och `Authentication`. Lägg till filen för privat nyckel för autentisering.
+Välj **SSH** och **Autentisering**. Lägg till filen för privat nyckel för autentisering.
 
 ![PuTTY-konfiguration 2](media/putty2.png)
 
-Välj `Tunnels` och konfigurera följande vidarebefordrade portar:
+Välj **Tunnlar** och konfigurera följande vidarebefordrade portar:
 - **Källport:** Enligt önskemål – använd 80 för DC/OS eller 2375 för Swarm.
 - **Mål:** Använd localhost:80 för DC/OS eller localhost:2375 för Swarm.
 
@@ -119,13 +119,13 @@ När du har konfigurerat tunneln för Docker Swarm kan du komma åt Swarm-klustr
 
 ## Nästa steg
 
-Distribuera och hantera behållare med DC/OS eller Swarm.
+Distribuera och hantera behållare med DC/OS eller Swarm:
 
-[Arbeta med Azure Container Service och DC/OS](container-service-mesos-marathon-rest.md)
-[Arbeta med Azure Container Service och Docker Swarm](container-service-docker-swarm.md)
+- [Arbeta med Azure Container Service och DC/OS](container-service-mesos-marathon-rest.md)
+- [Arbeta med Azure Container Service och Docker Swarm](container-service-docker-swarm.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

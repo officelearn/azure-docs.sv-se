@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Distribuera din lokala StorSimple-enhet (uppdatering 1)
@@ -48,7 +48,7 @@ Utför de här obligatoriska stegen för att konfigurera din StorSimple-enhet oc
 |                                                                                        |                                                                                                                                                               |
 | **STEG FÖR STEG-DISTRIBUTION**                                                                   | De här stegen måste utföras för att distribuera StorSimple-enheten i produktionen.                                                                                      |
 | Steg 1: Skapa en ny tjänst.                                                         | Ställ in hantering och lagring i molnet för din StorSimple-enhet. Hoppa över det här steget om du har en befintlig tjänst för andra StorSimple-enheter.                |
-| Steg 2: Hämta nyckel för tjänstregistrering.                                               | Använd nyckeln för att registrera och ansluta din StorSimple-enhet till hanteringstjänsten.                                                                         |
+| Steg 2: Hämta nyckeln för tjänstregistrering.                                               | Använd nyckeln för att registrera och ansluta din StorSimple-enhet till hanteringstjänsten.                                                                         |
 | Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple.    | Anslut enheten till nätverket och registrera den med Azure för att slutföra installationen med hjälp av hanteringstjänsten.                                            |
 | Steg 4: Slutför de inställningar som krävs som minimum</br>Valfritt: Uppdatera din StorSimple-enhet.      | Använd hanteringstjänsten för att slutföra installationen av enheten och aktivera den för att tillhandahålla lagring.                                                                      |
 | Steg 5: Skapa en volymbehållare.                                                      | Skapa en behållare för att etablera volymer. En volymbehållare har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den.    |
@@ -126,12 +126,12 @@ Innan du konfigurerar enheten bör du kontrollera att:
 - Din enhet är helt uppackad, rackmonterad och helt kabelansluten till ström, nätverk och serieåtkomst enligt beskrivningen i:
 
     -  [Packa upp, rackmontera och kabelanslut din 8100-enhet](storsimple-8100-hardware-installation.md)
-    -  [Packa upp, montera rack och kabelanslut din 8600-enhet](storsimple-8600-hardware-installation.md)
+    -  [Packa upp, rackmontera och kabelanslut din 8600-enhet](storsimple-8600-hardware-installation.md)
 
 
 ### För nätverket i datacentret
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 - Portarna i ditt datacenters brandvägg är öppna för att möjliggöra iSCSI- och molntrafik enligt beskrivningen i [Nätverkskrav för din StorSimple-enhet](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
@@ -172,7 +172,7 @@ Som minimikrav för konfigurationen av din StorSimple-enhet måste du:
 
 - Ställa in den sekundära DNS-servern.
 - Aktivera iSCSI i minst ett nätverksgränssnitt.
-- Tilldela båda domänkontrollanterna fasta IP-adresser.
+- Tilldela båda domänkontrollanterna statiska IP-adresser.
 
 Utför nedanstående steg i den klassiska Azure-portalen för att uppfylla minimikraven för konfiguration av enheten.
 
@@ -292,6 +292,6 @@ Anvisningar för MPIO-installation på en StorSimple-enhet som är ansluten till
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

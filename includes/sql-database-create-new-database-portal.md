@@ -30,7 +30,7 @@ Använd följande steg i Azure-portalen om du vill skapa en ny Azure SQL-databas
  - Databasnamn
  - Prenumeration (bara om du har flera prenumerationer)
  - Resursgrupp (om du precis kommit igång kan du använda resursgruppen för den logiska servern)
- - Välj källa (du kan välja en tom databas, exempeldata eller en säkerhetskopia av en databas)
+ - Välj källa (du kan välja en tom databas, exempeldata eller säkerhetskopia av databas i Azure – för att migrera en lokal SQL Server-databas eller läsa in data med hjälp av BCP, se länkarna i slutet av den här artikeln)
  - Server (en ny eller befintlig logisk server)
  - Administratörslösenord för servern
  - Lösenord
@@ -48,6 +48,7 @@ Använd följande steg i Azure-portalen om du vill skapa en ny Azure SQL-databas
      ![ny databas](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

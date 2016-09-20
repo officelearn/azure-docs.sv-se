@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article" 
-    ms.date="05/03/2016" 
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -609,7 +609,7 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
         }
 
 
-##Utbildningsvägar för Media Services
+##Sökvägar för Media Services-utbildning
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -628,6 +628,6 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

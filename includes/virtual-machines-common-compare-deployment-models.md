@@ -85,16 +85,12 @@ Kvoterna för virtuella datorer, virtuella nätverk och lagringskonton som skapa
 
 All automatisering och skript som du skapat kommer att fortsätta fungera för befintliga virtuella datorer och virtuella nätverk som skapats i Azure Service Management-läge. Skripten måste dock uppdateras för att använda det nya schemat för att skapa samma resurser i det nya Azure Resource Manager-läget.
 
-**Kan de virtuella nätverk som har skapats med de nya Azure Resource Manager-API:erna anslutas till min Express Route-krets?**
-
-Detta stöds inte för närvarande. Du kan inte ansluta virtuella nätverk som skapats med de nya Azure Resource Manager-API:erna med en Express Route-krets. Detta kommer att stödjas framöver.
-
 **Var hittar jag exempel på Azure Resource Manager-mallar?**
 
 Du hittar en omfattande uppsättning startmallar på [Azure Resource Manager-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

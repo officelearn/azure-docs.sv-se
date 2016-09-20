@@ -13,11 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="08/15/2016"
    ms.author="guscatal;elizapo"/>
 
 
 # Få samma Office 365-upplevelse på alla enheter med Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 
 Den här artikeln beskriver hur du distribuerar Office 365 på alla enheter i företaget. Användarna kan få samma funktioner och användargränssnitt på Android, Apple och Windows.
 
@@ -69,6 +72,6 @@ När du klickar på någon av dessa bör programmet startas på den virtuella Az
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

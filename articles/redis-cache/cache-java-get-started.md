@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="05/31/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Så här använder du Azure Redis Cache med Java
@@ -82,6 +82,6 @@ Vissa Redis-klienter stöder inte SSL, och som standard är [icke-SSL-porten ina
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

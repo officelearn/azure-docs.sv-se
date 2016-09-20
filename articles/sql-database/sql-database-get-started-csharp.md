@@ -1,7 +1,7 @@
 <properties
     pageTitle="Testa SQL Database: Använd C# för att skapa en SQL-databas | Microsoft Azure"
     description="Testa SQL Database för att utveckla SQL- och C#-appar och skapa en Azure SQL Database med C# med hjälp av SQL Database-biblioteket för .NET."
-    keywords="try sql, sql c#"   
+    keywords="försök sql, sql-c#"   
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -46,7 +46,7 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 För att ställa in en SQL-databas med C#, hämtar du de hanteringsbibliotek som behövs genom att installera följande paket med [pakethanterarkonsolen](http://docs.nuget.org/Consume/Package-Manager-Console) i Visual Studio (**Verktyg** > **NuGet-pakethanteraren** > **pakethanterarkonsolen**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -458,6 +458,6 @@ När du nu har testat SQL Database och ställt in en databas med C#, är du redo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

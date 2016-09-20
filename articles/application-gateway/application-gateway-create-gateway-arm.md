@@ -3,7 +3,7 @@
    description="Den här sidan innehåller anvisningar för hur du skapar, konfigurerar, startar och tar bort en programgateway i Azure med hjälp av Azure Resource Manager"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,8 +12,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 
 # Skapa, starta eller ta bort en programgateway med Azure Resource Manager
@@ -22,10 +22,11 @@ Azure Application Gateway är en Layer 7-belastningsutjämnare. Den tillhandahå
 
 
 > [AZURE.SELECTOR]
-- [Steg för PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
+- [Azure-portalen](application-gateway-create-gateway-portal.md)
 - [PowerShell och Azure Resource Manager](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager-mall ](application-gateway-create-gateway-arm-template.md)
-
+- [PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
+- [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -33,15 +34,15 @@ Azure Application Gateway är en Layer 7-belastningsutjämnare. Den tillhandahå
 Den här artikeln beskriver steg för steg hur du skapar, konfigurerar, startar och tar bort en programgateway.
 
 
->[AZURE.IMPORTANT] Innan du börjar arbeta med Azure-resurser är det viktigt att du förstår att Azure för närvarande har två distributionsmodeller: Resource Manager och klassisk. Det är viktigt att du förstår [distributionsmodellerna och verktygen](../azure-classic-rm.md) innan du börjar arbeta med Azure-resurser. Du kan granska dokumentationen för olika verktyg genom att klicka på flikarna överst i den här artikeln. Det här dokumentet beskriver hur du skapar en programgateway med hjälp av Azure Resource Manager. Om du vill använda den klassiska versionen går du till [Skapa en programgateway med den klassiska programdistributionen med hjälp av PowerShell](application-gateway-create-gateway.md).
+>[AZURE.IMPORTANT] Innan du börjar arbeta med Azure-resurser är det viktigt att du förstår att Azure för närvarande har två distributionsmodeller: Resource Manager och klassisk. Det är viktigt att du förstår [distributionsmodellerna och verktygen](../azure-classic-rm.md) innan du börjar arbeta med Azure-resurser. Du kan granska dokumentationen för olika verktyg genom att klicka på flikarna överst i den här artikeln. I det här dokumentet beskrivs hur du kan skapa en programgateway med hjälp av Azure Resource Manager. Om du vill använda den klassiska versionen går du till [Skapa en programgateway med den klassiska programdistributionen med hjälp av PowerShell](application-gateway-create-gateway.md).
 
 
 
 ## Innan du börjar
 
 1. Installera den senaste versionen av Azure PowerShell-cmdlets med hjälp av installationsprogrammet för webbplattform. Du kan hämta och installera den senaste versionen från avsnittet om **Windows PowerShell** på [hämtningssidan](https://azure.microsoft.com/downloads/).
-2. Du ska skapa ett virtuellt nätverk och undernät för Application Gateway. Kontrollera att inga virtuella datorer eller molndistributioner använder undernätet. Programgatewayen måste vara fristående i ett virtuellt nätverks undernät.
-3. De servrar som du ska konfigurera för användning av programgatewayen måste redan finnas eller ha slutpunkter som skapats i antingen det virtuella nätverket eller med en tilldelad offentlig IP-/VIP-adress.
+2. Om du har ett befintligt virtuellt nätverk väljer du antingen ett befintligt tomt undernät eller skapar ett undernät i det befintliga virtuella nätverket som enbart är avsett för att användas av programgatewayen. Du kan inte distribuera programgatewayen till något annat virtuellt nätverk än vad de resurser som du avser att distribuera bakom programgatewayen tillåter. 
+3. De servrar som du konfigurerar för användning av programgatewayen måste finnas i det virtuella nätverket eller ha slutpunkter som skapats där eller tilldelats en offentlig IP-/VIP-adress.
 
 ## Vad krävs för att skapa en programgateway?
 
@@ -49,25 +50,19 @@ Den här artikeln beskriver steg för steg hur du skapar, konfigurerar, startar 
 - **Backend-serverpool:** Listan med IP-adresser för backend-servrarna. IP-adresserna som anges bör antingen tillhöra det virtuella undernätet eller vara en offentlig IP-/VIP-adress.
 - **Inställningar för backend-serverpool:** Varje pool har inställningar som port, protokoll och cookiebaserad tillhörighet. Dessa inställningar är knutna till en pool och tillämpas på alla servrar i poolen.
 - **Frontend-port:** Den här porten är den offentliga porten som är öppen på programgatewayen. Trafiken kommer till den här porten och omdirigeras till en av backend-servrarna.
-- **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning).
+- **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning).
 - **Regel:** Regeln binder lyssnaren och backend-serverpoolen och definierar vilken backend-serverpool som trafiken ska dirigeras till när den når en viss lyssnare. 
 
 
 
-## Skapa en ny programgateway
+## Skapa en programgateway
 
 Skillnaden mellan att använda den klassiska Azure-portalen och Azure Resource Manager är i vilken ordning du skapar programgatewayen och de objekt som ska konfigureras.
 
-Med Resource Manager konfigureras alla objekt som bildar en programgateway separat och sätts sedan ihop för att skapa programgatewayresursen.
+Med Resource Manager konfigureras alla objekt som bildar en programgateway separat och sätts sedan ihop för att skapa en programgatewayresurs.
 
 
-Här följer de steg som krävs för att skapa en programgateway:
-
-1. Skapa en resursgrupp för Resource Manager.
-2. Skapa ett virtuellt nätverk, ett undernät och en offentlig IP för programgatewayen.
-3. Skapa ett konfigurationsobjekt för programgatewayen.
-4. Skapa en resurs för en programgateway.
-
+I det följande anges de steg som krävs för att skapa en programgateway.
 
 ## Skapa en resursgrupp för Resource Manager
 
@@ -76,7 +71,7 @@ Kontrollera att du använder den senaste versionen av Azure PowerShell. Mer info
 ### Steg 1
 Logga in till Azure Login-AzureRmAccount
 
-Du uppmanas att autentisera dig med dina autentiseringsuppgifter.<BR>
+Du ombeds att autentisera dig med dina autentiseringsuppgifter.<BR>
 ### Steg 2
 Kontrollera prenumerationerna för kontot.
 
@@ -92,7 +87,7 @@ Skapa en ny resursgrupp (hoppa över detta steg om du använder en befintlig res
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager kräver att alla resursgrupper definierar en plats. Den här platsen används som standardplats för resurser i resursgruppen. Se till att alla kommandon för att skapa en programgateway använder samma resursgrupp.
+Azure Resource Manager kräver att alla resursgrupper definierar en plats. Den här platsen används som standardplats för resurserna i den resursgruppen. Se till att alla kommandon du använder för att skapa en programgateway använder samma resursgrupp.
 
 I exemplet ovan skapade vi resursgruppen ”appgw-RG” och platsen ”West US”.
 
@@ -145,7 +140,7 @@ Skapa en IP-konfiguration för programgatewayen med namnet ”gatewayIP01”. N�
 
 ### Steg 2
 
-Konfigurera backend-IP-adresspoolen med namnet ”pool01” med IP-adresserna ”134.170.185.46, 134.170.188.221,134.170.185.50”. Det här är IP-adresserna som tar emot nätverkstrafiken som kommer från frontend-IP-slutpunkten. Ersätt IP-adresserna ovan och lägg till dina egna IP-adresslutpunkter för ditt program.
+Konfigurera backend-IP-adresspoolen med namnet ”pool01” med IP-adresserna ”134.170.185.46, 134.170.188.221,134.170.185.50”. De här IP-adreserna är de IP-adresser som tar emot den nätverkstrafik som kommer från frontend-IP-slutpunkten. Du ersätter de omnämnda IP-adresserna och lägger till ditt eget programs IP-adresslutpunkter.
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -193,18 +188,38 @@ Konfigurera programgatewayens instansstorlek.
 
 ## Skapa en programgateway med hjälp av New-AzureRmApplicationGateway
 
-Skapa en programgateway med alla konfigurationsobjekt från stegen ovan. I det här exemplet heter programgatewayen ”appgwtest”.
+Skapa en programgateway med alla konfigurationsobjekt från föregående steg. I det här exemplet heter programgatewayen ”appgwtest”.
 
     $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+
+### Steg 9
+Hämta DNS- och VIP-information för programgatewayen från den offentliga IP-resurs som är kopplad till programgatewayen.
+
+    Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
+
+    Name                     : publicIP01
+    ResourceGroupName        : appgwtest 
+    Location                 : westus
+    Id                       : /subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/publicIPAddresses/publicIP01
+    Etag                     : W/"12302060-78d6-4a33-942b-a494d6323767"
+    ResourceGuid             : ee9gd76a-3gf6-4236-aca4-gc1f4gf14171
+    ProvisioningState        : Succeeded
+    Tags                     : 
+    PublicIpAllocationMethod : Dynamic
+    IpAddress                : 137.116.26.16
+    IdleTimeoutInMinutes     : 4
+    IpConfiguration          : {
+                                 "Id": "/subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fipconfig01"
+                               }
+    DnsSettings              : {
+                                 "Fqdn": "ee7aca47-4344-4810-a999-2c631b73e3cd.cloudapp.net"
+                               } 
+
 
 
 ## Ta bort en programgateway
 
 Följ dessa anvisningar om du vill ta bort en programgateway:
-
-1. Använd cmdleten **Stop-AzureRmApplicationGateway** om du vill stoppa gatewayen.
-2. Använd cmdleten **Remove-AzureRmApplicationGateway** om du vill ta bort gatewayen.
-3. Kontrollera att gatewayen har tagits bort med hjälp av cmdleten **Get-AzureRmApplicationGateway**.
 
 ### Steg 1
 
@@ -248,6 +263,6 @@ Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet l
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

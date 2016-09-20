@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/31/2016"
+   ms.date="08/15/2016"
    ms.author="piotrci"/>
 
 # Publicera program till enskilda användare i en Azure RemoteApp-samling (förhandsgranskning)
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 
 Den här artikeln beskriver hur du publicerar program till enskilda användare i en Azure RemoteApp-samling. Det här är en ny funktion i Azure RemoteApp. För tillfället är den i ”privat förhandsgranskning” och finns bara tillgänglig för tidiga efterföljare i utvärderingssyfte.
 
@@ -104,6 +107,6 @@ Om du ännu inte har deltagit i förhandsgranskningen använder du denna [unders
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

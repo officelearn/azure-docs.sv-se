@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Förbättra prestanda i Azure API Management med cachelagring
@@ -129,7 +129,6 @@ Observera att värdet för **sampleheader** i svaret nu är **value2**. Eftersom
 
 ## <a name="next-steps"> </a>Nästa steg
 
--   Titta gärna igenom avsnitten i självstudiekursen [Komma igång med avancerad API-konfiguration][].
 -   Mer information om cachelagringsprinciper finns i [Cachelagringsprinciper][] i [Principreferens för API Management][].
 -   Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).
 
@@ -151,7 +150,6 @@ Observera att värdet för **sampleheader** i svaret nu är **value2**. Eftersom
 [Lägga till API:er till en produkt]: api-management-howto-add-products.md#add-apis
 [Publicera en produkt]: api-management-howto-add-products.md#publish-product
 [Komma igång med Azure API Management]: api-management-get-started.md
-[Komma igång med avancerad API-konfiguration]: api-management-get-started-advanced.md
 
 [Principreferens för API Management]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Cachelagringsprinciper]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -165,6 +163,6 @@ Observera att värdet för **sampleheader** i svaret nu är **value2**. Eftersom
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

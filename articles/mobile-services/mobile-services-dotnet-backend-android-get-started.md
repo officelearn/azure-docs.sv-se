@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="get-started-article"
-    ms.date="03/05/2016"
+    ms.date="07/21/2016"
     ms.author="ricksal"/>
 
 
@@ -37,7 +37,7 @@ För den här kursen krävs [Android Developer Tools] (utvecklingsverktyg för A
 
 Det nedladdade snabbstartsprojektet innehåller Mobile Services SDK för Android.
 
-> [AZURE.IMPORTANT] För den här kursen behöver du ett Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+> [AZURE.IMPORTANT] Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 
 ## <a name="create-new-service"> </a>Skapa en ny mobiltjänst
@@ -89,10 +89,10 @@ I det här avsnittet får du skapa en ny Android-app som är ansluten till mobil
 ## <a name="next-steps"> </a>Nästa steg
 Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur du utför fler viktiga uppgifter i Mobile Services:
 
-* [Lägga till push-meddelanden för appen]
-  <br/>Läs om hur du skickar grundläggande push-meddelanden till appen.
+* [Lägg till push-meddelanden i appen]
+  <br/>Läs om hur du skickar väldigt enkla push-meddelanden till appen.
 
-* [Lägga till autentisering i appen]
+* [Lägg till autentisering i appen]
   <br/>Läs om hur du begränsar åtkomsten till serverdelsdata till specifika registrerade användare för appen.
 
 * [Felsöka en Mobile Services .NET-serverdel]
@@ -124,7 +124,7 @@ Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur d
 <!-- URLs. -->
 [Komma igång (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
 [Lägga till push-meddelanden för appen]: mobile-services-dotnet-backend-android-get-started-push.md
-[Lägga till autentisering i appen]: mobile-services-dotnet-backend-android-get-started-auth.md
+[Lägg till autentisering i appen]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -134,6 +134,6 @@ Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur d
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="08/22/2016"
     ms.author="marsma"/>
 
 # Grunderna i Azure Batch
@@ -46,9 +46,11 @@ En jämförelse mellan Batch och andra HPC-lösningsalternativ i Azure finns i [
 
 ## Utveckla med Batch
 
-Du skapar lösningar som använder Azure Batch för bearbetning av parallella arbetsbelastningar via programmering med hjälp av API:erna för Batch. Med Batch-API:erna skapar du och hanterar pooler för beräkningsnoder (virtuella datorer) och schemalägger jobb och aktiviteter som ska köras på dessa noder. Ett klientprogram eller en tjänst som du skapar använder Batch-API:erna för att kommunicera med Batch-tjänsten. Du kan effektivt bearbeta storskaliga arbetsbelastningar för din organisation eller tillhandahålla en tjänstportal för dina kunder så att de kan köra jobb och aktiviteter (på begäran eller enligt ett schema) på en eller flera hundra tusen noder. Du kan också använda Batch som en del av ett större arbetsflöde, med verktyg som [Azure Data Factory][data_factory].
+Bearbetning av parallella arbetsbelastningar med Batch normalt görs programmässigt med någon av [Batch-API:erna](#batch-development-apis). Med Batch-API:erna skapar du och hanterar pooler för beräkningsnoder (virtuella datorer) och schemalägger jobb och aktiviteter som ska köras på dessa noder. Ett klientprogram eller en tjänst som du skapar använder Batch-API:erna för att kommunicera med Batch-tjänsten.
 
-> [AZURE.TIP] När du är redo att fördjupa dig i Batch-API:et rekommenderar vi att du börjar med [Azure Batch-funktionsöversikten](batch-api-basics.md).
+Du kan effektivt bearbeta storskaliga arbetsbelastningar för din organisation eller tillhandahålla en tjänstportal för dina kunder så att de kan köra jobb och aktiviteter (på begäran eller enligt ett schema) på en eller flera hundra tusen noder. Du kan också använda Batch som en del av ett större arbetsflöde, med verktyg som [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
+
+> [AZURE.TIP] När du är redo att fördjupa dig i Batch-API:et rekommenderar vi att du börjar med [Batch-funktionsöversikten för utvecklare](batch-api-basics.md).
 
 ### Azure-konton som du behöver
 
@@ -56,7 +58,7 @@ När du utvecklar Batch-lösningar använder du följande konton i Microsoft Azu
 
 - **Azure-konto och Azure-prenumeration** – Om du inte redan har en Azure-prenumeration kan du aktivera din [MSDN-prenumerantförmån][msdn_benefits] eller registrera dig för ett [kostnadsfritt Azure-konto][free_account]. När du skapar ett konto skapas en standardprenumeration åt dig.
 
-- **Batch-konto** – När dina program interagerar med Batch-tjänsten används kontonamnet, URL:en för kontot och åtkomstnyckeln som autentiseringsuppgifter. Alla Batch-resurser, till exempel pooler, beräkningsnoder, jobb och aktiviteter är associerade med ett Batch-konto. Du kan [skapa och hantera ett Batch-konto](batch-account-create-portal.md) på Azure-portalen.
+- **Batch-konto** – När dina program interagerar med Batch-tjänsten används kontonamnet, URL:en för kontot och åtkomstnyckeln som autentiseringsuppgifter. Alla dina Batch-resurser, som pooler, beräkningsnoder, jobb och aktiviteter, är associerade med ett Batch-konto. Du kan [skapa ett Batch-konto](batch-account-create-portal.md) i Azure Portal.
 
 - **Storage-konto** – Batch innehåller inbyggt stöd för att arbeta med filer i [Azure Storage][azure_storage]. Nästan alla Batch-scenarier använder Azure Storage, dels för att mellanlagra programmen som dina aktiviteter kör och de data som de bearbetar, dels för att lagra de utdata som de genererar. Om du vill skapa ett Storage-konto läser du [Om Azure-lagringskonton](./../storage/storage-create-storage-account.md).
 
@@ -70,7 +72,7 @@ Dina program och tjänster kan skicka direkta REST-API-anrop, använda ett eller
 | **.NET för Batch**    | [MSDN][api_net] | [NuGet ][api_net_nuget] | [GitHub][api_sample_net] |
 | **Python för Batch**  | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
 | **Node.js för Batch** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
-| **Java för Batch** (förhandsversion) | [github.IO][api_java] | [Maven snapshot repo][api_java_jar] | - |
+| **Java för Batch** (förhandsversion) | [github.IO][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Resurshantering med Batch
 
@@ -84,11 +86,13 @@ Förutom att använda klient-API:erna kan du även hantera resurser i ditt Batch
 
 ### Batch-verktyg
 
-Du måste inte skapa lösningar med hjälp av Batch, men dessa verktyg kan vara mycket användbara när du utvecklar och felsöker Batch-baserade program och tjänster.
+Du måste inte skapa lösningar med hjälp av Batch, men det finns några värdefulla verktyg du kan använda när du utvecklar och felsöker Batch-baserade program och tjänster.
 
-- [Azure Batch Explorer][batch_explorer]: Batch Explorer är ett av Batch .NET-programexemplen som är tillgängliga på [GitHub][github_samples]. Skapa det här WPF-programmet (Windows Presentation Foundation) med Visual Studio 2013 eller 2015 och använd det för att bläddra igenom och hantera resurserna i ditt Batch-konto när du utvecklar och felsöker dina Batch-lösningar. Visa information om jobb, pooler och aktiviteter från beräkningsnoder eller fjärranslut till noder med RDP-filer (Fjärrskrivbord) som du får tag på med bara några klick i Batch Explorer-gränssnittet.
+ - [Azure Portal][portal]: Du kan skapa, övervaka och ta bort Batch-pooler, jobb och aktiviteter på Batch-bladet i Azure Portal. Du kan visa statusinformation för dessa och andra resurser när du kör dina jobb, och även ladda ned filer från beräkningsnoderna i din pooler (t.ex. ladda ned en misslyckad uppgifts `stderr.txt` vid felsökning). Du kan också hämta fjärrskrivbordsfiler (RDP) som du kan använda för att logga in till beräkningsnoder.
 
-- [Microsoft Azure Storage Explorer][storage_explorer]: Även om det strikt sett inte är ett Azure Batch-verktyg är Storage Explorer ett annat värdefullt verktyg som du kan använda när du utvecklar och felsöker dina Batch-lösningar.
+ - [Azure Batch Explorer][batch_explorer]: Batch Explorer tillhandahåller Batch-resurshanteringsfunktioner som liknar dem som Azure-portalen tillhandahåller, men i ett fristående WPF-klientprogram (Windows Presentation Foundation). Ett av de Batch .NET-exempelprogram som är tillgängliga på [GitHub][github_samples] kan du skapa med Visual Studio 2015 eller senare och använda för att söka efter och hantera resurserna i ditt Batch-konto när du utvecklar och felsöker dina Batch-lösningar. Visa information om jobb, pooler och uppgifter från beräkningsnoder, och fjärranslut till noder med fjärrskrivbordsfiler (RDP) som du kan ladda ned med Batch Explorer.
+
+ - [Microsoft Azure Storage Explorer][storage_explorer]: Även om det strikt sett inte är ett Azure Batch-verktyg är Storage Explorer ett annat värdefullt verktyg som du kan använda när du utvecklar och felsöker dina Batch-lösningar.
 
 ## Scenario: Skala ut en parallell arbetsbelastning
 
@@ -102,7 +106,7 @@ I det här vanliga scenariot bearbetar programmet eller tjänsten en beräknings
 
 1. Ladda upp **indatafilerna** och **programmen** som ska bearbeta dessa filer till ditt Azure Storage-konto. Indatafilerna kan vara data som ska bearbetas i ditt program, till exempel modellering av finansdata eller videofiler som ska kodas. Programfilerna kan vara program som används för databearbetning, till exempel ett program för 3D-rendering eller ett mediekodningsprogram.
 
-2. Skapa en Batch-**pool** med beräkningsnoder i ditt Batch-konto – det här är de virtuella datorer som ska köra dina aktiviteter. Du kan ange egenskaper som [nodstorlek](./../cloud-services/cloud-services-sizes-specs.md), operativsystem och platsen i Azure Storage för programmet som ska installeras när noderna ansluter till poolen (det program som du överförde i steg 1). Du kan också konfigurera poolen så att den [skalas automatiskt](batch-automatic-scaling.md) (dvs. så att antalet beräkningsnoder i poolen justeras automatiskt) baserat på arbetsbelastningen som dina aktiviteter genererar.
+2. Skapa en Batch-**pool** med beräkningsnoder i ditt Batch-konto. Dessa noder är de virtuella datorer som ska köra dina uppgifter. Du kan ange egenskaper som [nodstorlek](./../cloud-services/cloud-services-sizes-specs.md), operativsystem och platsen i Azure Storage för programmet som ska installeras när noderna ansluter till poolen (det program som du överförde i steg 1). Du kan också konfigurera poolen så att den [skalas automatiskt](batch-automatic-scaling.md) (dvs. så att antalet beräkningsnoder i poolen justeras automatiskt) baserat på arbetsbelastningen som dina aktiviteter genererar.
 
 3. Skapa ett Batch-**jobb** som ska köra arbetsbelastningen i poolen med beräkningsnoder. När du skapar ett jobb kan du associera det med en Batch-pool.
 
@@ -116,23 +120,23 @@ I det här vanliga scenariot bearbetar programmet eller tjänsten en beräknings
 
 7. När övervakningen upptäcker att aktiviteterna i jobbet har slutförts kan klientprogrammet eller tjänsten hämta utdata för vidare bearbetning eller utvärdering.
 
-Tänk på att det här bara är ett sätt att använda Batch, och det här scenariot beskriver bara några få av de tillgängliga funktionerna. Du kan till exempel köra [flera aktiviteter parallellt](batch-parallel-node-tasks.md) på varje beräkningsnod och du kan [köra särskilda aktiviteter](batch-job-prep-release.md) som förbereder noderna för jobben och som rensar upp när allt är klart.
+Tänk på att det här bara är ett av många sätt att använda Batch på, och att det här scenariot bara beskriver några få av alla de tillgängliga funktionerna. Du kan till exempel köra [flera aktiviteter parallellt](batch-parallel-node-tasks.md) på varje beräkningsnod och du kan [köra särskilda aktiviteter](batch-job-prep-release.md) som förbereder noderna för jobben och som rensar upp när allt är klart.
 
 ## Nästa steg
 
-Nu när du har sett ett exempel på ett Batch-scenario är det dags att fördjupa oss i tjänsten och se hur du kan använda den för att bearbeta beräkningsintensiva parallella arbetsbelastningar.
+Nu när du har en högnivåöversikt över Batch-tjänsten är det dags att gå vidare och se hur du kan använda den för att bearbeta dina beräkningsintensiva parallella arbetsbelastningar.
 
-- [Komma igång med Azure Batch-biblioteket för .NET](batch-dotnet-get-started.md) innehåller information om hur du använder C# och Batch .NET-biblioteket för att utföra de metoder som beskrivs ovan. Vi rekommenderar att du börjar här när du vill lära dig hur du använder Batch-tjänsten.
+- Läs [Översikt över Batch-funktioner för utvecklare](batch-api-basics.md). Här finns viktig information för alla som tänker använda Batch. Artikeln innehåller mer detaljerad information om Batch-tjänstresurser som pooler, noder, jobb och uppgifter, och de många API-funktioner som du kan använda när du skapar ett Batch-program.
 
-- [Batch-funktionsöversikten](batch-api-basics.md) innehåller mer detaljerad information om API-funktionerna i Batch som kan användas för att bearbeta beräkningsintensiva arbetsbelastningar.
+- [Komma igång med Azure Batch-biblioteket för .NET](batch-dotnet-get-started.md) innehåller information om hur du använder C# och Batch .NET-biblioteket för att köra en enkel arbetsbelastning med ett vanligt Batch-arbetsflöde. Den här artikeln bör vara en av dina självklara utgångspunkter när du lär dig hur man använder Batch-tjänsten. Det finns även en [Python-version](batch-python-tutorial.md) av självstudien.
 
-- Förutom Batch Explorer demonstrerar de andra [kodexemplen på GitHub][github_samples] hur du använder många av Batch-funktionerna med Batch .NET-biblioteket.
+- Hämta [kodexemplet på GitHub][github_samples] om du vil se hur både C# och Python kan användas med Batch för att schemalägga och bearbeta exempelarbetsbelastningar.
 
 - Ta en titt på [utbildningsvägen för Batch][learning_path] om du vill veta mer om de tillgängliga resurserna när du lär dig hur du arbetar med Batch.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: http://azure.github.io/azure-sdk-for-java/
-[api_java_jar]: http://adxsnapshots.azurewebsites.net/?dir=com%5cmicrosoft%5cazure%5cazure-batch
+[api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -143,21 +147,22 @@ Nu när du har sett ett exempel på ett Batch-scenario är det dags att fördjup
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [storage_explorer]: http://storageexplorer.com/
+[portal]: https://portal.azure.com
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

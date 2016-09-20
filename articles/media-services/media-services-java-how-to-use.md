@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Så här använder du Azure Media Services med Java" 
+    pageTitle="Komma igång med att leverera innehåll på begäran med hjälp av Java | Microsoft Azure" 
     description="Beskriver hur du använder Azure Media Services för att utföra vanliga aktiviteter som kodning, kryptering och strömning av resurser." 
     services="media-services" 
     documentationCenter="java" 
@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="04/18/2016"  
+    ms.date="08/17/2016"   
     ms.author="robmcm"/>
 
-#Så här använder du Media Services med Java
+# Komma igång med att leverera innehåll på begäran med hjälp av Java
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -39,7 +39,7 @@ Följande kod visar hur du skapar en tillgång, överför en mediefil till tillg
 
 Du måste upprätta ett Media Services-konto innan du använder den här koden. Information om hur du konfigurerar ett konto finns i [Så här skapar du ett Media Services-konto](media-services-create-account.md).
 
-Ersätt värdena för variablerna `clientId` och `clientSecret`. Koden förlitar sig även på en lokalt lagrad fil. Du måste ange en egen fil som ska användas.
+Ersätt värdena för variablerna 'clientId' och 'clientSecret'. Koden förlitar sig även på en lokalt lagrad fil. Du måste ange en egen fil som ska användas.
     
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
@@ -255,7 +255,7 @@ Ersätt värdena för variablerna `clientId` och `clientSecret`. Koden förlitar
     }
 
 
-##Utbildningsvägar för Media Services
+##Sökvägar för Media Services-utbildning
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -278,6 +278,6 @@ Mer Media Services Javadoc-dokumentation finns i [Azure-bibliotek för Java-doku
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

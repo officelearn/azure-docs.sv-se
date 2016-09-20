@@ -12,7 +12,7 @@ authors="ashmaka"
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Skapa ett Azure Search-index
@@ -72,6 +72,6 @@ Om datalagringsbehovet ändras med tiden kan du öka eller minska kapaciteten ge
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,28 +13,33 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualisera data med Power BI
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
 De här självstudierna visar hur du använder Power BI för att ansluta till SQL Data Warehouse och skapa några grundläggande visualiseringar.
 
-> [AZURE.NOTE] Du behöver en SQL Data Warehouse-databas som redan har lästs in med AdventureWorksDW som exempeldatabas för att slutföra självstudierna. [Skapa ett SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) visar hur det går till.
->
-> Om du redan har en SQL Data Warehouse-databas men inte har exempeldata, kan du [läsa in exempeldata manuellt][].
-
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
-## Anslut till AdventureWorksDW
+## Krav
+
+För att gå igenom de här självstudierna, behöver du:
+
+- En SQL Data Warehouse förinstallerad med AdventureWorksDW-databasen. Om du vill distribuera detta, se [Skapa ett SQL Data Warehouse][] och välj att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt][].
+
+
+## 1. Ansluta till databasen
 
 Om du vill öppna Power BI och ansluta till databasen AdventureWorksDW:
 
-1. Logga in på [Azure Portal][].
+1. Logga in på [Azure-portalen][].
 2. Klicka på **SQL-databaser** och välj din AdventureWorks SQL Data Warehouse-databas.
 
     ![Hitta din databas][1]
@@ -51,13 +56,13 @@ Om du vill öppna Power BI och ansluta till databasen AdventureWorksDW:
 
     ![Power BI-inloggning][4]
 
-1. Klicka på AdventureWorksDW-datauppsättningen på det vänstra bladet när du har loggat in på Power BI. Databasen öppnas.
+7. Klicka på AdventureWorksDW-datauppsättningen på det vänstra bladet när du har loggat in på Power BI. Databasen öppnas.
 
     ![Power BI öppna AdventureWorksDW][5]
 
 
 
-## Skapa en Power BI-rapport för att analysera exempeldata
+## 2. Skapa en rapport
 
 Du är nu redo att använda Power BI för att analysera dina AdventureWorksDW-exempeldata. För att utföra analysen har AdventureWorksDW en vy som heter AggregateSales. Vyn innehåller några nyckelvärden för att analysera företagets försäljning.
 
@@ -91,35 +96,33 @@ Du kan spara ditt arbete när som helst genom att klicka på **Arkiv** och välj
 Nu när du har värmt upp med exempeldata, kan du se mer information om att [utveckla][], [läsa in][] eller [migrera][]. Eller ta en titt på [Power BI-webbplatsen][].
 
 <!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
-[2]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
-[3]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
-[4]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
-[5]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
-[6]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
-[7]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
-[8]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
-[9]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
-[10]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
-[11]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
-[12]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
+[1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
+[2]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
+[3]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
+[4]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
+[5]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
+[6]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
+[7]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
+[8]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
+[9]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
+[10]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
+[11]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
+[12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrera]: ./sql-data-warehouse-overview-migrate.md
-[utveckla]: ./sql-data-warehouse-overview-develop.md
-[läsa in]: ./sql-data-warehouse-overview-load.md
-[läsa in exempeldata manuellt]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[ansluta till SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
-[Skapa ett SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+[migrera]: sql-data-warehouse-overview-migrate.md
+[utveckla]: sql-data-warehouse-overview-develop.md
+[läsa in]: sql-data-warehouse-overview-load.md
+[läsa in exempeldata manuellt]: sql-data-warehouse-load-sample-databases.md
+[ansluta till SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[Skapa ett SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [Power BI-webbplatsen]: http://www.powerbi.com/
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

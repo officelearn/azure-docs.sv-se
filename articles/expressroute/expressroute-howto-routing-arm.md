@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="06/29/2016"
    ms.author="ganesr"/>
 
 # Skapa och ändra routning för en ExpressRoute-krets
@@ -149,7 +149,7 @@ Du kan hämta information om konfigurationen med följande cmdlet
 
 Du kan uppdatera någon del av konfigurationen med följande cmdlet. I exemplet nedan uppdateras VLAN-ID för kretsen från 100 till 500.
 
-    Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+    Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
@@ -406,6 +406,6 @@ Nästa steg [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-link
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

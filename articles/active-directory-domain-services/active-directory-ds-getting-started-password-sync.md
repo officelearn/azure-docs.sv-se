@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Domain Services *(förhandsversion)* – Aktivera lösenordssynkronisering till Azure AD DS
@@ -65,6 +65,6 @@ När användaren har ändrat sitt lösenord kan det nya lösenordet användas i 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

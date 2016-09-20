@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
-    ms.author="curtand;viviali"/>
+    ms.date="08/02/2016"
+    ms.author="curtand"/>
 
 # Lägga till användare från andra kataloger eller partnerföretag i Azure Active Directory
 
-Lägg till användare i din katalog. Den här artikeln förklarar hur du lägger till användare från andra kataloger i Azure Active Directory och hur du lägger till användare från partnerföretag. Information om hur du lägger till nya användare i din organisation och hur du lägger till användare som har Microsoft-konton finns i [Lägga till nya användare i Azure Active Directory](active-directory-create-users.md). Tillagda användare har inte administratörsbehörighet som standard, men du kan tilldela roller till dem när som helst.
+Den här artikeln förklarar hur du lägger till användare från andra kataloger i Azure Active Directory och hur du lägger till användare från partnerföretag. Information om hur du lägger till nya användare i din organisation och hur du lägger till användare som har Microsoft-konton finns i [Lägga till nya användare i Azure Active Directory](active-directory-create-users.md). Tillagda användare har inte administratörsbehörighet som standard, men du kan tilldela roller till dem när som helst.
 
 ## Lägga till en användare
 
@@ -56,7 +56,8 @@ När du lägger till en användare från en annan katalog till din katalog är d
 
 Den enda kopplingen mellan de två kontona är att användaren alltid autentiseras mot hans eller hennes hemkatalog eller Microsoft-konto. Det är därför du inte ser något alternativ för att återställa lösenordet eller aktivera Multi-Factor Authentication för en extern användare. För närvarande är autentiseringsprincipen för hemkatalogen eller Microsoft-kontot det enda som utvärderas när användaren loggar in.
 
-> [AZURE.NOTE] Du kan dock inaktivera den externa användaren i katalogen, vilket blockerar åtkomsten till din katalog.
+> [AZURE.NOTE]
+> Du kan dock inaktivera den externa användaren i katalogen, vilket blockerar åtkomsten till din katalog.
 
 Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt Microsoft-konto finns den externa användaren fortfarande kvar i din katalog. Dock kan användare i katalogen inte komma åt resurser eftersom de inte kan autentiseras med en hemkatalog eller ett Microsoft-konto.
 
@@ -85,6 +86,6 @@ Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

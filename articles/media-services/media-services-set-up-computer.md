@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/18/2016"  
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 # Konfigurera din miljö
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [Portalen](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
@@ -56,6 +56,6 @@ Välj .NET eller REST API för att genom programmering ansluta till Azure Media 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

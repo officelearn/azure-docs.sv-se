@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="06/30/2016"
    ms.author="cherylmc"/>
 
 
@@ -46,6 +46,10 @@ Det finns två typer av DNS-servrar:
 
 - En _auktoritativ_ DNS-server är värd för DNS-zoner. Den svarar på DNS-frågor om poster i just dessa zoner.
 - En _rekursiv_ DNS-server är inte värd för DNS-zoner. Den svarar på alla DNS-frågor genom att anropa auktoritativa DNS-servrar för att samla in de data som den behöver.
+
+>[AZURE.NOTE] Azure DNS tillhandahåller en auktoritativ DNS-tjänst.  Någon rekursiv DNS-tjänst tillhandahålls inte.
+
+> Cloud Services och virtuella datorer i Azure konfigureras automatiskt för användning av rekursiva DNS-tjänster som tillhandahålls separat som en del av Azures infrastruktur.  Information om hur du ändrar dessa DNS-inställningar finns i [Namnmatchning i Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 DNS-klienter på datorer eller mobila enheter anropar vanligtvis en rekursiv DNS-server för att utföra DNS-frågor som klientprogrammen behöver.
 
@@ -116,7 +120,9 @@ Du kan också använda plattformsoberoende Azure CLI för att hämta de auktorit
 
 Varje registrator har sina egna DNS-hanteringsverktyg för att ändra namnserverposterna för en domän. På registratorns DNS-hanteringssida redigerar du NS-posterna och ersätter NS-posterna med dem som Azure DNS skapat.
 
-När du delegerar en domän till Azure DNS måste du använda namnservernamnen som tillhandahålls av Azure DNS. Använd inte ”fästposter” för att peka på IP-adresser för Azure DNS-namnservrar eftersom dessa IP-adresser kan komma att ändras i framtida. Delegering med hjälp av namnservernamn i din egen zon, även kallat ”vanity name servers”, stöds inte i Azure DNS.
+När du delegerar en domän till Azure DNS måste du använda namnservernamnen som tillhandahålls av Azure DNS.  Du bör alltid använda alla fyra namnservernamn, oavsett vilket namn din domän har.  Domändelegering kräver inte att namnservernamnet använder samma toppnivådomän som din domän.
+
+Använd inte ”fästposter” för att peka på IP-adresser för Azure DNS-namnservrar eftersom dessa IP-adresser kan komma att ändras i framtida. Delegering med hjälp av namnservernamn i din egen zon, även kallat ”vanity name servers”, stöds inte i Azure DNS.
 
 ### Så här kontrollerar du att namnmatchningen fungerar
 
@@ -202,6 +208,6 @@ Du kan kontrollera att allt är korrekt konfigurerat genom att leta upp SOA-post
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

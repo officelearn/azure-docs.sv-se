@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/02/2016"
+    ms.date="06/07/2016"
     ms.author="davidmu"/>
 
 # Skapa en virtuell Windows-dator med hjälp av Resource Manager och PowerShell
@@ -33,34 +33,36 @@ Först måste du skapa en resursgrupp.
 
 1. Hämta en lista över tillgängliga platser där resurser kan skapas.
 
-        Get-AzureLocation | sort Name | Select Name
+        Get-AzureRmLocation | sort Location | Select Location
         
     Du bör se något liknande följande:
     
-        Name
-        ----
-        Australia East
-        Australia Southeast
-        Brazil South
-        Central India
-        Central US
-        East Asia
-        East US
-        East US 2
-        Japan East
-        Japan West
-        North Central US
-        North Europe
-        South Central US
-        South India
-        Southeast Asia
-        West Europe
-        West India
-        West US
+        Location
+        --------
+        australiaeast
+        australiasoutheast
+        brazilsouth
+        canadacentral
+        canadaeast
+        centralindia
+        centralus
+        eastasia
+        eastus
+        eastus2
+        japaneast
+        japanwest
+        northcentralus
+        northeurope
+        southcentralus
+        southeastasia
+        southindia
+        westeurope
+        westindia
+        westus
 
 2. Ersätt värdet för **$locName** med en plats från listan. Skapa variabeln.
 
-        $locName = "Central US"
+        $locName = "centralus"
         
 3. Ersätt värdet för **$rgName** med ett namn för den nya resursgruppen. Skapa variabeln och resursgruppen.
 
@@ -74,13 +76,13 @@ Ett [lagringskonto](../storage/storage-introduction.md) behövs för att lagra d
 1. Ersätt värdet för **$stName** med ett namn för lagringskontot. Testa namnet för att se om det är unikt.
 
         $stName = "mystorage1"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Om det här kommandot returnerar **False** är ditt föreslagna namn unikt i Azure. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
+    Om det här kommandot returnerar **True** är ditt föreslagna namn unikt i Azure. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
     
 2. Kör nu kommando för att skapa lagringskontot.
     
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 ## Steg 4: Skapa ett virtuellt nätverk
 
@@ -120,7 +122,7 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Lösenordet måste vara mellan 8 och 123 tecken långt och innehålla minst tre av följande: en gemen, en versal, en siffra och ett specialtecken. 
+    Lösenordet måste bestå av mellan 8 och 123 tecken och uppfylla tre av fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Läs mer om [krav för användarnamn och lösenord](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
         
 2. Ersätt värdet för **$vmName** med ett namn för den virtuella datorn. Skapa variabeln och konfigurationen av den virtuella datorn.
 
@@ -172,6 +174,6 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

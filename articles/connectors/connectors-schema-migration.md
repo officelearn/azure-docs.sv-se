@@ -1,7 +1,7 @@
 <properties
     pageTitle="Så här migrerar du logikappar till förhandsschemaversionen från 2015-08-01 | Microsoft Azure Apptjänst"
     description="Du kan enkelt migrera dina logikappar till den senaste schemaversionen. Följ bara de här stegen."
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""
     authors="MSFTMAN"
     manager="erikre"
@@ -9,12 +9,12 @@
     tags="connectors"/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="integration"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/20/2016"
+    ms.date="08/23/2016"
     ms.author="deonhe"/>
 
 # Så här migrerar du logikappar till förhandsschemaversionen från 2015-08-01
@@ -51,6 +51,6 @@ Sidan Uppdatera schema visas och där finns en länk till ett dokument som inneh
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

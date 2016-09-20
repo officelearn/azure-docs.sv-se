@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""
-   keywords="how to backup; how to back up"/>
+   keywords="så här säkerhetskopierar du, säkerhetskopiera så här"/>
 
 <tags
    ms.service="backup"
@@ -14,10 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="05/10/2016"
+   ms.date="06/27/2016"
    ms.author="jimpark;"/>
 
-# En första titt: Säkerhetskopiera filer och mappar från Windows Server eller en klient till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen
+# En första titt: Säkerhetskopiera filer och mappar med Azure Backup och med hjälp av Resource Manager-distributionsmodellen
 
 Den här artikeln förklarar hur du säkerhetskopierar filer och mappar i Windows Server (eller en Windows-klient) till Azure med Azure Backup med hjälp av Resource Manager. I den här självstudiekursen går vi igenom grunderna. Om du vill komma igång med Azure Backup är du på rätt ställe.
 
@@ -209,6 +209,6 @@ Om du har frågor eller om du saknar en funktion är du välkommen att [lämna f
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

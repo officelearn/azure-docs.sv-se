@@ -1,23 +1,25 @@
 <properties
-            pageTitle="Komma igång med Azure File Storage i Windows | Microsoft Azure"
-            description="Lagra fildata i molnet med Azure File Storage och montera din molnbaserade filresurs från en virtuell Azure-dator eller från ett lokalt program som kör Windows."
-            services="storage"
-            documentationCenter=".net"
-            authors="mine-msft"
-            manager="aungoo"
-            editor="tysonn" />
+    pageTitle="Komma igång med Azure File Storage i Windows | Microsoft Azure"
+    description="Lagra fildata i molnet med Azure File Storage och montera din molnbaserade filresurs från en virtuell Azure-dator eller från ett lokalt program som kör Windows."
+    services="storage"
+    documentationCenter=".net"
+    authors="mine-msft"
+    manager="aungoo"
+    editor="tysonn" />
 
 <tags ms.service="storage"
-      ms.workload="storage"
-      ms.tgt_pltfrm="na"
-      ms.devlang="dotnet"
-      ms.topic="hero-article"
-      ms.date="04/11/2016"
-      ms.author="minet" />
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="07/26/2016"
+    ms.author="minet" />
 
 # Kom igång med Azure File Storage i Windows
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Översikt
 
@@ -669,6 +671,6 @@ Mer information om Azure File Storage finns på följande länkar.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

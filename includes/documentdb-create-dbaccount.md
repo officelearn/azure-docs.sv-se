@@ -1,9 +1,9 @@
-1.  Logga in på [Microsoft Azure Portal](https://portal.azure.com/) online.
-2.  I Jumpbar klickar du på **Ny**, **Data + lagring** och sedan på **Azure DocumentDB**.
+1.  Logga in på [Azure-portalen](https://portal.azure.com/).
+2.  I Jumpbar klickar du på **Ny**, **Data + lagring** och sedan på **DocumentDB (NoSQL)**.
 
-    ![Skärmbild av Azure-portalen för att skapa en databas, med Ny-knappen, Data + lagring på Skapa-bladet och Azure DocumentDB i Data + lagring-bladet markerade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
+    ![Skärmbild av Azure Portal, med fokus på Fler tjänster och DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 
-3. På **Nytt DocumentDB-konto**-bladet anger du önskad konfiguration för DocumentDB-kontot.
+3. På **Nytt konto**-bladet anger du önskad konfiguration för DocumentDB-kontot.
 
     ![Skärmbild av Nytt DocumentDB-bladet](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
@@ -12,11 +12,13 @@
 
     - För **Prenumeration** väljer du den Azure-prenumeration som du vill ange för DocumentDB-kontot. Om ditt konto bara har en prenumeration så väljs det kontot som standard.
 
-    - I **Resursgrupp** väljer eller skapar du en resursgrupp för ditt DocumentDB-konto.  Som standard väljs en befintlig resursgrupp under Azure-prenumerationen.  Du kan dock välja att skapa en ny resursgrupp som du vill lägga till till DocumentDB-kontot. Mer information finns i [Hantera Azure-resurser med hjälp av Azure-portalen](resource-group-portal.md).
+    - I **Resursgrupp** väljer eller skapar du en resursgrupp för ditt DocumentDB-konto.  Som standard skapas en ny resursgrupp. Mer information finns i [Using the Azure portal to manage your Azure resources](../articles/azure-portal/resource-group-portal.md) (Hantera Azure-resurser med hjälp av Azure Portal).
 
-    - Använd **Plats** för att ange den geografiska platsen där du vill att DocumentDB-kontots värd finns.   
+    - Använd **Plats** för att ange den geografiska platsen där du vill att DocumentDB-kontots värd finns. 
+    
+    - För att ge bekväm åtkomst till ditt konto och de resurser som du skapar i framtiden, kan du markera **Fäst på instrumentpanelen**.  
 
-4.  När de nya DocumentDB-kontoalternativen har konfigurerats, klickar du på **Skapa**.  Det kan ta några minuter att skapa DocumentDB-kontot.  Du kan kontrollera statusen genom att övervaka förloppet på Startsidan.  
+4.  När de nya DocumentDB-kontoalternativen har konfigurerats, klickar du på **Skapa**. Du kan kontrollera distributionens status genom att övervaka förloppet på Startsidan.  
     ![Skärmbild som visar Skapa-panelen på Startsidan – online-databasskaparen](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
 
     Du kan också övervaka förloppet från Meddelandehubben.  
@@ -25,7 +27,7 @@
 
     ![Skärmbild av Meddelandehubben som visar att DocumentDB-kontot har skapats och distribuerats till en resursgrupp – Meddelande från online-databasskaparen](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.  När du har skapat DocumentDB-kontot, är det redo för användning med standardinställningarna i onlineportalen. Observera att standardkonsekvensen för DocumentDB-kontot har ställts in på **Session**.  Du kan justera standardinställningen för konsekvens genom att klicka på ikonen **Inställningar** överst i kommandofältet och sedan klicka på **Standardkonsekvens**-posten under **Funktion** på bladet **Alla inställningar**.
+5.  När DocumentDB-kontot har skapats är det redo att användas med standardinställningarna. Observera att standardkonsekvensen för DocumentDB-kontot har ställts in på **Session**.  Du kan justera standardkonsekvensen genom att klicka på **Standardkonsekvens** på resursmenyn. Mer information om de konsekvensnivåer som finns för DocumentDB finns i [Konsekvensnivåer i DocumentDB](../articles/azure-portal/resource-group-portal.md).
 
     ![Skärmbild av Resursgrupp-bladet – starta apputveckling](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
@@ -37,6 +39,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

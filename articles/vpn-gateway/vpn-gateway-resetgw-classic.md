@@ -14,13 +14,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Återställa en Azure VPN Gateway med PowerShell
 
 
-Den här artikeln visar hur du återställer din Azure VPN Gateway med PowerShell-cmdletar. Dessa anvisningar gäller den klassiska distributionsmodellen.  Vi behöver ännu inte någon cmdlet eller REST API för att återställa en VPN-gateway för virtuella nätverk som har skapats med hjälp av Resource Manager-distributionsmodellen. Detta finns i processen. Du kan se om din VPN-gateway har skapats med hjälp av den klassiska distributionsmodellen genom att granska ditt virtuella nätverk i Azure Portal. Virtuella nätverk som har skapats med den klassiska distributionsmodellen visas i avsnittet Virtuellt nätverk (klassiskt) i Azure Portal.
+Den här artikeln visar hur du återställer din Azure VPN Gateway med PowerShell-cmdletar. Dessa anvisningar gäller den klassiska distributionsmodellen. För närvarande kan inte virtuella nätverks-gatewayar som skapas i Resource Manager-distributionsmodellen återställas.
 
 Att återställa Azures VPN-gateway är användbart om du tappar VPN-anslutningen mellan flera platser i en eller flera S2S VPN-tunnlar. I det här fallet fungerar de lokala VPN-enheterna korrekt, men de kan inte upprätta IPSec-tunnlar med Azures VPN-gatewayer. När du använder cmdleten *Reset-AzureVNetGateway* startar den om gatewayen. Därefter tillämpar den konfigurationerna för flera platser igen. Gatewayen behåller den offentliga IP-adress den redan har. Det innebär att du inte behöver uppdatera VPN-routerkonfigurationen med en ny offentlig IP-adress för Azure VPN-gatewayen.  
 
@@ -66,6 +66,6 @@ Se [PowerShell-referens](https://msdn.microsoft.com/library/azure/mt270366.aspx)
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

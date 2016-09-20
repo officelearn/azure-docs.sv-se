@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="06/06/2016" 
+    ms.date="08/25/2016" 
     ms.author="nitinme"/>
 
 # Översikt: Apache Spark i HDInsight Linux
@@ -39,7 +39,7 @@ Med Azure HDInsight får du tillgång till en helt hanterad Spark-tjänst. Förd
 |-------------------------------------|-------------------|
 | Enkelt att skapa kluster            | Du kan skapa ett nytt Spark-kluster i HDInsight på bara några minuter när du använder Azure-hanteringsportalen, Azure PowerShell eller HDInsight .NET SDK. Se [Komma igång med Spark-kluster i HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | Användbarhet                     | Spark i HDInsight-kluster innehåller förkonfigurerade Jupyter-anteckningsböcker. Du kan använda dem för interaktiv databehandling och visualisering. Webbadressen är https://CLUSTERNAME.azurehdinsight.net/jupyter. Ersätt __CLUSTERNAME__ med namnet på Spark HDInsight-klustret:|
-| REST-API:er                       | HDInsight Spark innehåller [Livius](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), en REST-API-baserad Spark-jobbserver för fjärrsändning och -övervakning av jobb som körs. |
+| REST API:er                       | HDInsight Spark innehåller [Livius](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), en REST-API-baserad Spark-jobbserver för fjärrsändning och -övervakning av jobb som körs. |
 | Stöd för Azure Data Lake Store | Spark i HDInsight kan konfigureras att använda Azure Data Lake Store som ett ytterligare lagringsutrymme. Mer information om Data Lake Store finns i [Översikt över Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
 | Integrering med Azure-tjänster | Spark i HDInsight levereras med en anslutningsapp för Azure Event Hubs. Med Event Hubs kan kunderna skapa strömmade program utöver [Kafka](http://kafka.apache.org/) som redan ingår i Spark. |
 | Stöd för R Server  | Du kan konfigurera en R Server med HDInsight Spark-klustret och köra distribuerade R-beräkningar i de hastigheter Spark-klustret har kapacitet för. Mer information finns i [Komma igång med R Server på HDInsight](hdinsight-hadoop-r-server-get-started.md).   |
@@ -96,7 +96,7 @@ Börja med att skapa ett Spark-kluster i HDInsight Linux. Se [Snabbstart: skapa 
 
 ### Scenarier
 
-* [Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](hdinsight-apache-spark-use-bi-tools.md)
 
 * [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
@@ -137,6 +137,6 @@ Börja med att skapa ett Spark-kluster i HDInsight Linux. Se [Snabbstart: skapa 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

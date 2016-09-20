@@ -1,52 +1,43 @@
 <properties
     pageTitle="Skapa en logikapp | Microsoft Azure"
     description="Lär dig hur du skapar en logikapp genom att koppla SaaS-tjänster"
-    authors="stepsic-microsoft-com"
+    authors="jeffhollan"
     manager="dwrede"
     editor=""
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/16/2016"
-    ms.author="stepsic"/>
+    ms.date="07/16/2016"
+    ms.author="jehollan"/>
 
 # Skapa en ny logikapp genom att koppla SaaS-tjänster
 
-| Snabbreferens |
-| --------------- |
-| [Definitionsspråk för Logic Apps](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
-| [Dokumentation om logikappskopplingar](../connectors/apis-list.md) |
-| [Forum för Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
-
-Det här avsnittet visar hur du på bara några minuter kan komma igång med [Logic Apps i Apptjänst](app-service-logic-what-are-logic-apps.md). Vi går igenom ett arbetsflöde som gör att du kan skicka en uppsättning tweets som du är intresserad av till en postlåda.
+I det här avsnittet visas hur du på bara några minuter kan komma igång med [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). Vi går igenom ett enkelt arbetsflöde genom vilket du kan skicka intressanta tweets till din e-post.
 
 Om du vill använda det här scenariot behöver du ha:
 
 - En Azure-prenumeration
 - Ett Twitter-konto
-- Ett Office 365-konto
+- En e-postlåda i Outlook.com eller värdbaserat Office 365
 
 ## Skapa en ny logikapp för att skicka dina tweets via e-post
 
-1. På instrumentpanelen i Azure-portalen markerar du  **Marketplace**. 
-2. Sök efter Logic Apps under Allt och välj sedan **Logikapp (förhandsgranskning)**. Du kan också välja **Ny**, **Webb + mobilt** och sedan **Logikapp (förhandsgranskning)**. 
-3. Ange ett namn för din logikapp, välj apptjänstplan och välj sedan **Skapa**.  
-    I det här steget förutsätter vi att du har en apptjänstplan och att du är bekant med de obligatoriska egenskaperna. Oroa dig inte om det inte är så – du kan starta vid [Djupgående översikt över Azure Apptjänstplaner](azure-web-sites-web-hosting-plans-in-depth-overview.md). 
-
-4. När logikappen öppnas för första gången behöver du en utlösare. Sök efter **Twitter** i sökrutan för utlösare och välj den.
-
-7. Nu ska du ange vilka nyckelord som du vill söka efter på Twitter. 
+1. Välj **Ny** på [instrumentpanelen i Azure Portal](https://portal.azure.com). 
+2. Sök efter ”logikapp” i sökfältet och välj sedan **Logikapp**. Du kan också välja **Ny**, **Webb + mobilt** och sedan **Logikapp**. 
+3. Ange ett namn för din logikapp, välj en plats, en resursgrupp och sedan **Skapa**.  Om du väljer **Fäst på instrumentpanelen** öppnas logikappen automatiskt när den har distribuerats.  
+4. Efter det att du har öppnat din logikapp första gången kan du välja att starta från en mall.  Skapa denna från grunden genom att klicka på **Tom logikapp**. 
+1. Det första objektet du måste skapa är utlösaren.  Detta är den händelse som startar logikappen.  Sök efter **Twitter** i sökrutan för utlösare och välj den.
+7. Skriv sedan in den sökterm som ska aktivera utlösaren.  Alternativen **Frekvens** och **Intervall** anger hur ofta din logikapp ska söka efter nya tweets (och att den ska returnera alla tweets under det angivna tidsintervallet).
     ![Twitter-sökning](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
-5. Klicka på plustecknet och välj sedan **Lägg till en åtgärd** eller **Lägg till ett villkor**:  
-    ![Plus](./media/app-service-logic-create-a-logic-app/plus.png)
-6. När du väljer **Lägg till en åtgärd** visas alla kopplingar med sina tillgängliga åtgärder. Du kan sedan välja vilka kopplingar och åtgärder du ska lägga till i din logikapp. Du kan till exempel välja **Office 365 – skicka e-post** och fler Office 365-åtgärder:  
+5. Klicka på knappen **Nytt steg** och välj sedan **Lägg till en åtgärd** eller **Lägg till ett villkor**
+6. När du väljer **Lägg till en åtgärd** kan du söka via [tillgängliga anslutningar](../connectors/apis-list.md) och välja en åtgärd. Du kan t.ex. välja **Outlook.com – Skicka e-post** om du vill skicka e-post från en outlook.com-adress:  
     ![Åtgärder](./media/app-service-logic-create-a-logic-app/actions.png)
 
 7. Nu måste du fylla i de e-postparametrarna som du vill ha:  ![Parametrar](./media/app-service-logic-create-a-logic-app/parameters.png)
@@ -55,15 +46,19 @@ Om du vill använda det här scenariot behöver du ha:
 
 ## Hantera logikappen när den har skapats
 
-Nu är din logikapp igång. Varje gång det schemalagda arbetsflödet körs söker den efter tweets med specifika hashtaggar. När den hittar en matchande tweet placeras den i din Dropbox. Slutligen kan du se hur du inaktiverar appen eller hur det går för den.
+Nu är din logikapp igång. Den söker regelbundet efter tweets med den angivna söktermen. När appen hittar en matchande tweet skickar den ett e-postmeddelande till dig. Slutligen kan du se hur du inaktiverar appen eller hur det går för den.
+
+1. Gå till [Azure Portal](https://portal.azure.com)
 
 1. Klicka på **Bläddra** på vänster sida av skärmen och välj **Logic Apps**.
 
 2. Klicka på den nya logikappen som du nyss skapade om du vill visa aktuell status och allmän information.
 
-3. Om du vill redigera den nya logikappen klickar du på **Utlösare och åtgärder**.
+3. Om du vill redigera din nya logikapp klickar du på **Redigera**.
 
 5. Om du vill inaktivera appen klickar du på **Inaktivera** i kommandofältet.
+
+1. Visa körnings- och utlösningshistoriker om du vill övervaka hur din logikapp körs.  Du kan visa den senaste informationen genom att klicka på **Uppdatera**.
 
 På mindre än 5 minuter har du ställt in en enkel logikapp som körs i molnet. Mer information om att använda funktioner i Logic Apps finns i [Använda funktioner i Logic Apps]. Mer information om själva definitionerna för Logic Apps finns i [Redigera definitioner för Logic Apps](app-service-logic-author-definitions.md).
 
@@ -73,6 +68,6 @@ På mindre än 5 minuter har du ställt in en enkel logikapp som körs i molnet.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

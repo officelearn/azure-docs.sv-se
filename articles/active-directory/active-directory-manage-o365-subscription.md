@@ -13,22 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/26/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Hantera katalogen för din Office 365-prenumeration i Azure
 
-Den här artikeln beskriver hur du hanterar en katalog som har skapats för en Office 365-prenumeration, men vi ska använda den klassiska Azure-portalen. Du måste antingen vara tjänstadministratör eller en medadministratör för Azure-prenumeration för att kunna logga in på den klassiska Azure-portalen. Om du inte har någon Azure-prenumeration än
+I den här artikeln beskrivs hur du hanterar en katalog som har skapats för en Office 365-prenumeration, med hjälp av den klassiska Azure-portalen. Du måste antingen vara tjänstadministratör eller en medadministratör för en Azure-prenumeration för att kunna logga in på den klassiska Azure-portalen. Om du ännu inte har någon Azure-prenumeration kan du registrera dig för en [kostnadsfria 30-dagars utvärderingsversion](https://azure.microsoft.com/trial/get-started-active-directory/) och redan idag distribuera din första molnlösning inom 5 minuter med hjälp av den här länken. Använd det arbets- eller skolkonto som du använder för att logga in till Office 365.
 
-1. Du kan registrera dig med arbets- eller skolkontot som du använder för att logga in i Office 365.
-
-![Inmatningsfält för e-postadress](./media/active-directory-manage-o365-subscription/AAD_O365_01.png)
-
-Ingen tillhörande Azure-prenumeration kommer att hittas men du kan klicka på **Registrera dig för Azure** så fylls registreringsformuläret i med relevant information från Office 365-kontot. Kontot tilldelas tjänstadministratörsrollen som standard.
-
-![Länk för att registrera dig för en Azure-prenumeration](./media/active-directory-manage-o365-subscription/AAD_O365_02.png)
-
-När du har slutfört Azure-prenumerationen kan du logga in på den klassiska Azure-portalen och komma åt Azure-tjänster. Klicka på Active Directory-tillägget för att hantera samma katalog som autentiserar dina Office 365-användare.
+När du har slutfört Azure-prenumerationen kan du logga in på den klassiska Azure-portalen och komma åt Azure-tjänster. Klicka på Active Directory-tillägget om du vill hantera samma katalog som autentiserar dina Office 365-användare.
 
 Om du redan har en Azure-prenumeration är processen lika enkel om du vill hantera ytterligare en katalog. Anta till exempel att Michael Smith har en prenumeration på Office 365 för Contoso.com. Han har också en Azure-prenumeration som han har registrerat sig för med sitt Microsoft-konto, msmith@hotmail.com. I detta fall hanterar han två kataloger.
 
@@ -47,7 +39,7 @@ I det här fallet är de två katalogerna oberoende av varandra.
 För att Michael Smith ska kunna hantera båda katalogerna när han är inloggad i Azure som msmith@hotmail.com måste han utföra följande steg:
 
 > [AZURE.NOTE]
-> Dessa steg kan endast utföras när en användare är inloggad med ett Microsoft-konto. Om användaren har loggat in med ett arbets- eller skolkonto är inte alternativet **Använd befintlig katalog** tillgängligt eftersom ett arbets- eller skolkonto endast kan autentiseras av sin hemkatalog (dvs. den katalog där arbets- eller skolkontot lagras och som ägs av arbetet eller skolan).
+> Dessa steg kan endast utföras när en användare är inloggad med ett Microsoft-konto. Om användaren har loggat in med ett arbets eller skolkonto, så är alternativet **Använd befintlig katalog** inte tillgängligt. Ett arbets- eller skolkonto konto kan bara autentiseras genom sin hemkatalog (dvs den katalog där arbets- eller skolkontot lagras, och som företaget eller skolan äger).
 
 1.  Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som msmith@hotmail.com.
 2.  Klicka på **Nytt** > **Apptjänster** > **Active Directory** > **Katalog** > **Skapa anpassade**.
@@ -60,17 +52,17 @@ För att Michael Smith ska kunna hantera båda katalogerna när han är inloggad
 När dessa steg har slutförts är msmith@hotmail.com en global administratör i Contoso-katalogen.
 
 ## Så här administrerar du resurser som den globala administratören
-Anta nu att Jane Doe behöver logga in på den klassiska Azure-portalen och administrera webbplatser och databasresurser som är associerade med Azure-prenumerationen för msmith@hotmail.com. Innan hon kan göra det måste Michael Smith utföra dessa steg:
+Anta nu att Jane Doe behöver administrera webbplatser och databasresurser som är associerade med Azure-prenumerationen för msmith@hotmail.com. Innan hon kan göra det måste Michael Smith utföra dessa steg:
 
 1.  Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) med tjänstadministratörskontot för Azure-prenumerationen (i det här exemplet msmith@hotmail.com).
 2.  Överföra prenumerationen till Contoso-katalogen: klicka på **Inställningar** > **Prenumerationer** > välj prenumerationen > **Redigera katalog** > välj **Contoso (Contoso.com)**. Som en del av överföringen tas alla arbets- eller skolkonton som är medadministratörer i prenumerationen bort.
 3.  Lägga till Jane Doe som medadministratör för prenumerationen: klicka på **Inställningar** > **Administratörer** > välj prenumerationen > **Lägg till** > skriv **JaneDoe@Contoso.com**.
 
-##Nästa steg
+## Nästa steg
 Mer information om relationen mellan prenumerationer och kataloger finns i [Hur en prenumeration är associerad med en katalog](active-directory-how-subscriptions-associated-directory.md).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

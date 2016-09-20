@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/03/2016" 
-    ms.author="tdykstra"/>
+    ms.date="08/23/2016" 
+    ms.author="rachelap"/>
 
 # Översikt över API Apps
 
@@ -65,6 +65,6 @@ Starta en tråd [forumet för API Apps](https://social.msdn.microsoft.com/Forums
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

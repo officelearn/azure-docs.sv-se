@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
@@ -26,7 +26,7 @@ I de här självstudierna utvecklar du ett jobb som läser en fil med tabbavgrä
 
 [AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-##Förutsättningar
+##Krav
 
 Innan du påbörjar de här självstudierna måste du ha:
 
@@ -155,9 +155,9 @@ När du har förberett källdata kan du börja utveckla ett U-SQL-skript.
 - Information om hanteringsuppgifter finns i [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md).
 - Om du vill få en översikt över Data Lake Analytics, se [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
 - Klicka på flikväljarna överst på sidan om du vill se samma självstudier med andra verktyg.
+- Information om hur du loggar diagnostikinformation finns i [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Skapa din första datafabrik (ARM-mall) | Microsoft Azure"
+    pageTitle="Skapa din första datafabrik (Resource Manager-mall) | Microsoft Azure"
     description="I den här självstudien skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en mall i Azure Resource Manager."
     services="data-factory"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/01/2016"
     ms.author="spelluru"/>
 
 # Självstudie: Skapa din första Azure-datafabrik med hjälp av en Azure Resource Manager-mall
@@ -23,29 +23,31 @@
 - [Använda PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Använda Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Använda Resource Manager-mallen](data-factory-build-your-first-pipeline-using-arm.md)
+- [Använda REST-API:et](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-I den här artikeln får du lära dig hur du använder en mall i Azure Resource Manager (ARM) till att skapa din första Azure-datafabrik. 
+I den här artikeln får du lära dig hur du använder en Azure Resource Manager-mall för att skapa din första Azure-datafabrik. 
 
 
-## Förutsättningar
+## Krav
 Förutom de förutsättningar som anges i översiktsavsnittet för självstudien, måste du installera följande:
 
-- Du **måste** läsa igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutföra nödvändiga steg innan du fortsätter. 
+- Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför nödvändiga steg innan du fortsätter. 
 - **Installera Azure PowerShell**. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera den senaste versionen av Azure PowerShell på datorn.
 - Den här artikeln ger inte någon konceptuell översikt över Azure Data Factory-tjänsten. En detaljerad översikt över tjänsten finns i [Introduktion till Azure Data Factory](data-factory-introduction.md). 
-- Se [Redigera Azure Resource Manager-mallar](../resource-group-authoring-templates.md) om du vill lära dig mer om mallar i Azure Resource Manager (ARM). 
+- Se [Redigera Azure Resource Manager-mallar](../resource-group-authoring-templates.md) om du vill lära dig mer om mallar i Azure Resource Manager. 
 
-> [AZURE.IMPORTANT] Du måste utföra nödvändiga steg i [Självstudier – översikt](data-factory-build-your-first-pipeline.md) i den här artikeln. 
+> [AZURE.IMPORTANT]
+> Utför de nödvändiga stegen i [Självstudier – översikt](data-factory-build-your-first-pipeline.md) i den här artikeln. 
 
-## Skapa en ARM-mall
+## Skapa en Azure Resource Manager-mall
 
 Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFGetStarted** med följande innehåll: 
 
 Med mallen kan du skapa följande Data Factory-entiteter.
 
 1. En **datafabrik** med namnet **TutorialDataFactoryARM**. En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Det kan exempelvis vara en kopieringsaktivitet som kopierar data från en källa till ett måldataarkiv och en HDInsight Hive-aktivitet som kör Hive-skript för att transformera indata till produktutdata. 
-2. Två **länkade tjänster**: **StorageLinkedService** och **HDInsightOnDemandLinkedService**. Dessa länkade tjänster länkar ditt Azure-lagringskonto och ett Azure HDInsight-kluster på begäran till din datafabrik. Azure-lagringskontot kommer att innehålla in- och utdata för pipelinen i det här exemplet. En länkad HDInsight-tjänst används för att köra Hive-skriptet som anges i pipeline-aktiviteten i det här exemplet. Du behöver identifiera vilka datalager/beräkningstjänster som används i scenariot och länka dessa tjänster till datafabriken genom att skapa länkade tjänster. 
+2. Två **länkade tjänster**: **StorageLinkedService** och **HDInsightOnDemandLinkedService**. Dessa länkade tjänster länkar ditt Azure-lagringskonto och ett Azure HDInsight-kluster på begäran till din datafabrik. In- och utdata för pipelinen i det här exemplet lagras i Azure Storage-kontot. En länkad HDInsight-tjänst används för att köra Hive-skriptet som anges i pipeline-aktiviteten i det här exemplet. Du behöver identifiera vilka datalager/beräkningstjänster som används i scenariot och länka dessa tjänster till datafabriken genom att skapa länkade tjänster. 
 3. Två (indata/utdata) **datauppsättningar**: **AzureBlobInput** och **AzureBlobOutput**. Dessa datauppsättningar representerar in- och utdata för Hive-bearbetning. Dessa datauppsättningar finns i den **StorageLinkedService** som du skapade tidigare i självstudien. Den länkade tjänsten pekar på ett Azure-lagringskonto och datauppsättningarna anger behållare, mapp och filnamn i det lagringsutrymme som innehåller indata och utdata.   
 
 Klicka på fliken **Använda Data Factory-redigeraren** för att växla till artikeln med information om de JSON-egenskaper som används i mallen.
@@ -221,21 +223,21 @@ Observera följande:
 
 - Data Factory skapar ett **Windows-baserat** HDInsight-kluster med ovanstående JSON. Du hade också kunnat skapa ett **Linux-baserat** HDInsight-kluster. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information. 
 - Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
-- HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar.
+- HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar.
 
-    Vartefter fler sektorer bearbetas visas fler behållare i din Azure blobblagring. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnet på de här behållarna följer ett mönster: ”adf**yourdatafactoryname**-**linkedservicename**- datetimestamp”. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort behållare i din Azure blobblagring.
+    Allteftersom fler sektorer bearbetas kan du se mång behållare i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här behållarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort behållare i din Azure blobblagring.
 
 Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
 
-> [AZURE.NOTE] Du kan se ett annat exempel på en ARM-mall för att skapa en Azure-datafabrik på [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
+> [AZURE.NOTE] Du kan se ett annat exempel på en Resource Manager-mall för att skapa en Azure-datafabrik på [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
 
 ## Skapa en datafabrik
 
 1. Starta **Azure PowerShell** och kör följande kommando. 
-    - Kör **Login-AzureRmAccount** och ange det användarnamn och lösenord som användes för att logga in på Azure Portal.  
+    - Kör **Login-AzureRmAccount** och ange det användarnamn och lösenord som du använder för att logga in på Azure Portal.  
     - Kör följande kommando för att välja en prenumeration där du vill skapa datafabriken.
             Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
-1. Kör följande kommando för att distribuera Data Factory-entiteter med hjälp av ARM-mallen som du skapade i steg 1. 
+1. Kör följande kommando för att distribuera Data Factory-entiteter med hjälp av Resource Manager-mallen som du skapade i steg 1. 
 
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
@@ -252,7 +254,7 @@ Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services
 8. Dubbelklicka på datauppsättningen **AzureBlobOutput** i diagramvyn. Den sektor som för närvarande bearbetas visas.
 
     ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. När bearbetningen är klar visas sektorn med statusen **Klar**. Observera att om du skapat ett HDInsight-kluster på begäran, kan det ta lite längre tid (cirka 20 minuter). 
+9. När bearbetningen är klar visas sektorn med statusen **Klar**. Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). 
 
     ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
 10. När sektorn har statusen **Klar**, kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i blobblagringen för utdatan.  
@@ -263,8 +265,8 @@ Du kan också använda appen Övervaka och hantera till att övervaka dina datap
 
 > [AZURE.IMPORTANT] Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen överför du därför indatafilen (input.log) till indatamappen i behållaren adfgetstarted.
 
-## ARM-mall för att skapa en gateway
-Här är ett exempel på en ARM-mall för att skapa en logisk gateway i bakgrunden. Observera att du måste installera en gateway på din lokala dator eller virtuella Azure IaaS-dator och registrera gatewayen med Data Factory-tjänsten med hjälp av en nyckel. Se [Flytta data mellan lokalt system och moln](data-factory-move-data-between-onprem-and-cloud.md) för mer information.
+## Resource Manger-mall för att skapa en gateway
+Här är ett exempel på en Resource Manager-mall för att skapa en logisk gateway i bakgrunden. Du måste installera en gateway på din lokala dator eller virtuella Azure IaaS-dator och registrera gatewayen med Data Factory-tjänsten med hjälp av en nyckel. Se [Flytta data mellan lokalt system och moln](data-factory-move-data-between-onprem-and-cloud.md) för mer information.
 
     {
         "contentVersion": "1.0.0.0",
@@ -304,8 +306,8 @@ Den här mallen skapar en datafabrik som heter GatewayUsingArmDF med en gateway 
 | :---- | :---- |
 | [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) | Den här artikeln innehåller en lista med de datatransformeringsaktiviteter (till exempel HDInsight Hive-transformeringen som du använde i självstudien) som stöds av Azure Data Factory. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) | I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
-| [Pipelines](data-factory-create-pipelines.md) | Den här artikeln hjälper dig förstå pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
-| [Datauppsättningar](data-factory-create-datasets.md) | Den här artikeln hjälper dig att förstå datauppsättningar i Azure Data Factory.
+| [Pipelines](data-factory-create-pipelines.md) | I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
+| [Datauppsättningar](data-factory-create-datasets.md) | I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory.
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) | Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. 
 
   
@@ -313,6 +315,6 @@ Den här mallen skapar en datafabrik som heter GatewayUsingArmDF med en gateway 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

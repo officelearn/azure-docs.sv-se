@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/10/2016"
     ms.author="garye"/>
 
 # Vad är Azure Machine Learning Studio?
@@ -47,6 +47,7 @@ Det finns tre flikar högst upp på sidan: **Start** (dit du kommer först), **S
 
 Klicka på fliken **Studio** och du uppmanas att logga in med ditt Microsoft-konto eller ditt arbets- eller skolkonto. När du har loggat in visas följande flikar till vänster:
 
+- **PROJEKT** – Samlingar med experiment, datauppsättningar, anteckningsböcker och andra resurser som representerar ett enskilt projekt
 - **EXPERIMENT** – Experiment som har skapats, körts och sparats som utkast
 - **WEBBTJÄNSTER** – Webbtjänster som du har distribuerat från dina experiment
 - **NOTEBOOKS** – Jupyter-anteckningsböcker som du har skapat
@@ -117,6 +118,6 @@ När din prediktiva analysmodell är färdig kan du distribuera den som en webbt
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -5,7 +5,7 @@
     documentationCenter=".net" 
     authors="Rick-Anderson" 
     manager="wpickett" 
-    editor="jimbe"/>
+    editor="none"/>
 
 <tags 
     ms.service="app-service-web" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="get-started-article" 
-    ms.date="02/27/2016" 
+    ms.date="06/27/2016" 
     ms.author="riande"/>
 
 
@@ -43,7 +43,7 @@ Med NuGet-paketet skapas inte bara sammansättningsreferenser för cachen, med d
 
 1. Öppna *web.config* och leta reda på elementet **sessionState**.
 
-1. Ange värden för `host`, `accessKey` och `port` (SSL-porten ska vara 6380), och ange `SSL` till `true`. Du kan hämta de här värdena från bladet för [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) för cacheinstansen. Mer information finns i [Ansluta till cacheminnet](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Mer information om hur du aktiverar icke-SSL-porten finns i avsnittet [Åtkomstportar](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) i artikeln [Konfigurera en cache i Azure Redis-cache](https://msdn.microsoft.com/library/azure/dn793612.aspx). Följande markering visar ändringarna i filen *web.config*, särskilt ändringarna av *port*, *värd*, *åtkomstnyckel* och *ssl.
+1. Ange värden för `host`, `accessKey` och `port` (SSL-porten ska vara 6380), och ange `SSL` till `true`. Du kan hämta de här värdena från bladet för [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) för cacheinstansen. Mer information finns i [Ansluta till cacheminnet](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Mer information om hur du aktiverar icke-SSL-porten finns i avsnittet [Åtkomstportar](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) i artikeln [Konfigurera en cache i Azure Redis-cache](https://msdn.microsoft.com/library/azure/dn793612.aspx). Följande markering visar ändringarna i filen *web.config*, särskilt ändringarna av *port*, *värd*, åtkomstnyckel* och *ssl *.
 
           <system.web>;
             <customErrors mode="Off" />;
@@ -89,7 +89,7 @@ Följande kod hämtar värdet från sessionstillstånd.
 Du kan också använda Redis-cache för cacheobjekt i webbappen. Mer information finns i [MVC-filmapp med Azure Redis-cache på 15 minuter](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
 Mer information om hur du använder sessionstillståndet ASP.NET finns i [Översikt över sessionstillståndet ASP.NET][].
 
->[AZURE.NOTE] Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
+>[AZURE.NOTE] Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inget kreditkort krävs, och du gör inga åtaganden.
 
 ## Nyheter
 * En guide till övergången från Webbplatser till App Service finns i: [Azure App Service och dess påverkan på befintliga Azure-tjänster](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -111,6 +111,6 @@ Mer information om hur du använder sessionstillståndet ASP.NET finns i [Övers
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -2,11 +2,11 @@
     pageTitle="Komma igång: Lösenordshantering i Azure AD | Microsoft Azure"
     description="Hantera lokala lösenord i Active Directory: konfigurera systemet så att användarna kan återställa sina lösenord, identifiera kraven för lösenordsåterställning och aktivera tillbakaskrivning av lösenord."
     services="active-directory"
-    keywords="Active directory password management, password management, reset Azure AD password"
+    keywords="Active Directory-lösenordshantering, lösenordshantering, återställa Azure AD-lösenord"
     documentationCenter=""
     authors="asteen"
-    manager="kbrint"
-    editor="billmath"/>
+    manager="femila"
+    editor="curtand"/>
 
 <tags
     ms.service="active-directory"
@@ -14,11 +14,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/16/2016" 
+    ms.date="07/12/2016"
     ms.author="asteen"/>
 
 # Komma igång med lösenordshantering
-Konfigurera systemet i några få enkla steg så att användarna kan hantera sina Azure Active Directory-lösenord i molnet eller sina lokala Active Directory-lösenord. När du har kontrollerat att du uppfyller några enkla krav kan du snabbt implementera funktioner för  lösenordsändring och lösenordsåterställning för hela organisationen. I den här artikeln går vi igenom följande:
+
+> [AZURE.IMPORTANT] **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md).
+
+Konfigurera systemet i några få enkla steg så att användarna kan hantera sina Azure Active Directory-lösenord i molnet eller sina lokala Active Directory-lösenord. När du har kontrollerat att du uppfyller några enkla krav kan du snabbt implementera funktioner för lösenordsändring och lösenordsåterställning för hela organisationen. I den här artikeln går vi igenom följande:
 
 * [**Hur du konfigurerar systemet så att användarna kan återställa sina Azure Active Directory-lösenord i molnet**](#enable-users-to-reset-their-azure-ad-passwords)
  - [Krav för lösenordsåterställning via självbetjäning](#prerequisites)
@@ -42,7 +45,7 @@ Det här avsnittet beskriver hur du aktiverar lösenordsåterställning via sjä
 - [Steg 3: Återställa ditt lösenord som en användare](#step-3-reset-your-azure-ad-password-as-a-user)
 
 
-###  Nödvändiga komponenter
+###  Krav
 Innan du kan aktivera och använda lösenordsåterställning via självbetjäning måste du uppfylla följande krav:
 
 - Skapa en AAD-klient. Mer information finns i [Komma igång med Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
@@ -195,7 +198,7 @@ Innan du kan aktivera och använda tillbakaskrivning av lösenord måste du kont
 
 
 ### Steg 1: Ladda ned den senaste versionen av Azure AD Connect
-Tillbakaskrivning av lösenord är tillgängligt i versioner av Azure AD Connect eller i Azure AD Sync med versionsnummer **1.0.0419.0911** eller högre.  Tillbakaskrivning av lösenord med automatisk kontoupplåsning är tillgängligt i versioner av Azure AD Connect eller i Azure AD Sync med versionsnummer **1.0.0485.0222** eller högre. Om du kör en äldre version uppgraderar du till minst den här versionen innan du fortsätter. [Klicka här om du vill ladda ned den senaste versionen av Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
+Tillbakaskrivning av lösenord är tillgängligt i versioner av Azure AD Connect eller i Azure AD Sync med versionsnummer **1.0.0419.0911** eller högre.  Tillbakaskrivning av lösenord med automatisk kontoupplåsning är tillgängligt i versioner av Azure AD Connect eller i Azure AD Sync med versionsnummer **1.0.0485.0222** eller högre. Om du kör en äldre version uppgraderar du till minst den här versionen innan du fortsätter. [Klicka här om du vill ladda ned den senaste versionen av Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### Så här kontrollerar du versionen av Azure AD Sync
 1.  Gå till **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -312,7 +315,7 @@ Nu när tillbakaskrivning av lösenord har aktiverats kan du testa att det funge
 ## Länkar till dokumentation om lösenordsåterställning
 Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställning i Azure AD:
 
-* [**Återställa ditt eget lösenord**](active-directory-passwords-update-your-own-password.md) – lär dig hur du återställer eller ändrar ditt eget lösenord som en användare i systemet
+* **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md).
 * [**Så här fungerar det**](active-directory-passwords-how-it-works.md) – lär dig om de sex olika komponenterna i tjänsten och vad de gör
 * [**Anpassa**](active-directory-passwords-customize.md) – lär dig hur du anpassar tjänstens utseende, känsla och beteende efter din organisations behov
 * [**Metodtips**](active-directory-passwords-best-practices.md) – lär dig hur du snabbt distribuerar och effektivt hanterar lösenord i din organisation
@@ -358,6 +361,6 @@ Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställni
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

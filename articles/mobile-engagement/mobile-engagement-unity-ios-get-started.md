@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-unity-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Kom igång med Azure Mobile Engagement för Unity iOS-distribution
@@ -108,7 +108,7 @@ För den här kursen behöver du följande:
 
 10. Kör appen i XCode så att paketet distribueras till den anslutna enheten. Sedan kan du se Unity-spelet på din mobil. 
 
-##<a id="monitor"></a>Ansluta appen med realtidsövervakning
+##<a id="monitor"></a>Anslut appen med realtidsövervakning
 
 [AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
@@ -134,6 +134,7 @@ Du behöver inte konfigurera något annat i appen för att ta emot meddelanden u
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

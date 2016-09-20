@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/16/2016"
+    ms.date="07/21/2016"
     ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Komma igång med Mobile Services
@@ -37,7 +37,7 @@ En skärmbild från den färdiga appen:
 
 Den här kursen kräver XCode och Xamarin Studio för OS X eller Visual Studio i Windows med en nätverksansluten Mac. Fullständiga instruktioner finns i avsnittet om [konfiguration och installation](https://msdn.microsoft.com/library/mt613162.aspx) för Visual Studio och Xamarin. 
 
-> [AZURE.IMPORTANT] Du behöver ett Azure-konto för att genomföra kursen. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.IMPORTANT] Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-new-service"> </a>Skapa en ny mobiltjänst
 
@@ -97,7 +97,7 @@ Det sista steget i den här kursen är att skapa och köra den nya appen.
 
 
 ## Nästa steg
-Nu när du har slutfört guiden kan du gå vidare och lära dig fler viktiga uppgifter i Mobile Services:
+Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur du utför fler viktiga uppgifter i Mobile Services:
 
 * [Komma igång med datasynkronisering offline] Läs om hur du kan använda datasynkronisering offline för att ge appen kortare svarstid och göra den mer robust. 
 
@@ -139,6 +139,6 @@ Nu när du har slutfört guiden kan du gå vidare och lära dig fler viktiga upp
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

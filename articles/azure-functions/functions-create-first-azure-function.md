@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />
+/>
 
 <tags
    ms.service="functions"
@@ -15,10 +15,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/05/2016"
+   ms.date="08/22/2016"
    ms.author="glenga"/>
 
-# Skapa din första Azure-funktion
+#Skapa din första Azure-funktion
 
 ##Översikt
 Azure Functions är en händelsedriven beräkna-på-begäran-upplevelse som utökar den befintliga Azure-programplattformen med funktioner för att implementera kod som utlöses av händelser i andra Azure-tjänster, SaaS-produkter och lokala system. Med Azure Functions skalas dina program baserat på efterfrågan och du betalar bara för de resurser som du använder. Med Azure Functions kan du skapa schemalagda eller utlösta kodenheter som implementerats med många olika programmeringsspråk. Läs mer om Azure Functions i [Översikt över Azure Functions](functions-overview.md).
@@ -70,6 +70,6 @@ Azure Functions utnyttjar plattformen Azure App Service för grundläggande funk
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

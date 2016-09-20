@@ -39,42 +39,7 @@ Om du vill börja använda Service Bus Relay i Azure, måste du först skapa ett
 
 Gör så här för att skapa ett namnområde för tjänsten:
 
-1.  Logga in på den [klassiska Azure-portalen][].
-
-2.  I portalens vänstra navigationsfält klickar du på **Service Bus**.
-
-3.  I den understa rutan i portalen klickar du på **Skapa**.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-4.  I dialogrutan **Lägg till ett nytt namnområde** anger du ett namn för namnområdet.
-    Systemet kontrollerar omedelbart om namnet är tillgängligt.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
-
-5.  Efter att du kontrollerat att namnet är tillgängligt, väljer du land eller region där namnområdet ska vara beläget (se till att använda samma land/region som du distribuerar dina beräkningsresurser i).
-
-    > [AZURE.IMPORTANT] Välj *samma region* som du tänker välja när du distribuerar ditt program. Så får du bäst prestanda.
-
-6.  Lämna de andra fälten i dialogrutan med sina standardvärden (**Meddelandetjänst** och **Standardnivå**) och klicka sedan på kryssmarkeringen. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
-
-    Det namnområde som du skapat visas sedan i portalen. Det tar dock en stund innan det aktiveras. Vänta tills statusen blir **Aktiv** innan du fortsätter.
-
-## Skaffa standardautentiseringsuppgifter för hantering av namnområdet
-
-För att kunna utföra hanteringsåtgärder – till exempel skapa en relay-anslutning – på det nya namnområdet måste du konfigurera auktoriseringsregeln för SAS (signatur för delad åtkomst) för namnområdet. Mer information om SAS finns i [Autentisering med signatur för delad åtkomst med Service Bus][].
-
-1.  I det vänstra navigationsfönstret klickar du på **Service Bus**-noden för att visa listan över tillgängliga namnområden.
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-2.  Dubbelklicka på namnet för det namnområde som du nyss skapat från listan som visas.
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
-
-3.  Klicka på fliken **Konfigurera** högst upp på sidan.
-
-4.  När ett namnområde för Service Bus etableras, skapas en **SharedAccessAuthorizationRule**, med **KeyName** inställt på **RootManageSharedAccessKey**, som standard. Den här sidan visar denna nyckel, samt även de primära och sekundära nycklarna för standardregeln.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Hämta Service Bus-NuGet-paketet
 
@@ -271,12 +236,11 @@ Nu när du har lärt dig grunderna om tjänsten Service Bus Relay, kan du följa
 - [Översikt över arkitekturen i Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - Hämta Service Bus-exempel från [Azure-exempel][] eller gå till [översikt över Service Bus-exempel][].
 
-  [klassiska Azure-portalen]: http://manage.windowsazure.com
   [Autentisering med signatur för delad åtkomst med Service Bus]: service-bus-shared-access-signature-authentication.md
   [Azure-exempel]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [översikt över Service Bus-exempel]: service-bus-samples.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

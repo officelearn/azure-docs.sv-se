@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/05/2016"
+    ms.date="07/28/2016"
     ms.author="cynthn"/>
 
 # Ansluta till och logga in på en virtuell Azure-dator som kör Windows 
@@ -34,7 +34,7 @@ Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivb
 
     ![Skärmbild av Azure Portal som visar hur du ansluter till den virtuella datorn.](./media/virtual-machines-windows-connect-logon/connect.png)
     
- > [AZURE.TIP] Om knappen Anslut på portalen är nedtonad och du inte är ansluten till Azure via [Express Route](../expressroute/expressroute-introduction.md) eller en [VPN-anslutning för plats till plats](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) måste du skapa och tilldela den virtuella datorn en offentlig IP-adress innan du kan använda RDP. Du kan läsa mer om [offentliga IP-adresser i Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+ > [AZURE.TIP] Om knappen **Anslut** på portalen är nedtonad och du inte är ansluten till Azure via [Express Route](../expressroute/expressroute-introduction.md) eller en [VPN-anslutning för plats till plats](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) måste du skapa och tilldela den virtuella datorn en offentlig IP-adress innan du kan använda RDP. Du kan läsa mer om [offentliga IP-adresser i Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 ## Logga in på den virtuella datorn
 
@@ -43,10 +43,10 @@ Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivb
 
 ## Nästa steg
 
-Om du får problem när du försöker ansluta läser du [Felsöka anslutningar till fjärrskrivbord till en Windows-baserad virtuell dator i Azure](virtual-machines-windows-troubleshoot-rdp-connection.md). Den här artikeln beskriver hur du diagnostiserar och löser vanliga problem.
+Om du får problem när du försöker ansluta läser du [Felsöka anslutningar till fjärrskrivbord](virtual-machines-windows-troubleshoot-rdp-connection.md). Den här artikeln beskriver hur du diagnostiserar och löser vanliga problem.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

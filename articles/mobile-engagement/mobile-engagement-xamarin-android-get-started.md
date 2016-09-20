@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="06/16/2016"
     ms.author="piyushjo" />
 
 # Kom igång med Azure Mobile Engagement för Xamarin.Android-appar
@@ -109,14 +109,28 @@ Xamarin Studio skapar appen där Mobile Engagement ska integreras.
 För att kunna börja skicka data och försäkra dig om att användarna är aktiva måste du skicka minst en skärm till Mobile Engagement-serverdelen. Kontrollera att `MainActivity` ärver från `EngagementActivity` istället för från `Activity` för att göra detta.
 
     public class MainActivity : EngagementActivity
+    
+Som alternativ, om du inte kan ärva från `EngagementActivity`, måste du lägga till `.StartActivity`- och `.EndActivity`-metoder i `OnResume` respektive `OnPause`.  
 
-##<a id="monitor"></a>Ansluta appen med realtidsövervakning
+        protected override void OnResume()
+            {
+                EngagementAgent.StartActivity(EngagementAgentUtils.BuildEngagementActivityName(Java.Lang.Class.FromType(this.GetType())), null);
+                base.OnResume();             
+            }
+    
+            protected override void OnPause()
+            {
+                EngagementAgent.EndActivity();
+                base.OnPause();            
+            }
+
+##<a id="monitor"></a>Anslut appen med realtidsövervakning
 
 [AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ##<a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 
-Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
+Med Mobile Engagement kan du samverka med användarna, nå ut till dem och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
 I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 [AZURE.INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
@@ -134,6 +148,7 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Domain Services *(förhandsversion)* – Aktivera lösenordssynkronisering till Azure AD DS
@@ -40,7 +40,7 @@ Du måste installera den senaste rekommenderade versionen av Azure AD Connect p�
 
 **[Ladda ned Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Rekommenderad version: **1.1.130.0** – publicerades 12 april 2016.
+Rekommenderad version: **1.1.189.0** – publicerades 3 juni 2016.
 
   > [AZURE.WARNING] Du MÅSTE installera den senaste rekommenderade versionen av Azure AD Connect för att äldre lösenordsinformation (som krävs för NTLM- och Kerberos-autentisering) ska kunna synkroniseras till din Azure AD-klient. Den här funktionen är inte tillgänglig i tidigare versioner av Azure AD Connect eller med det äldre DirSync-verktyget.
 
@@ -82,6 +82,6 @@ Beroende på storleken på din katalog (antal användare, grupper osv.) kan synk
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

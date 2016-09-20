@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-phone"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Kom igång med Azure Mobile Engagement för Windows Phone Silverlight-appar
@@ -111,7 +111,7 @@ För att kunna börja skicka data och försäkra dig om att användarna är akti
 
     b. Ersätt `phone:PhoneApplicationPage` i XML-taggnamnet med `engagement:EngagementPage`.
 
-##<a id="monitor"></a>Ansluta appen med realtidsövervakning
+##<a id="monitor"></a>Anslut appen med realtidsövervakning
 
 [AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
@@ -149,7 +149,7 @@ Lägg till nya funktioner i filen `WMAppManifest.xml`:
 
 Då var allt klart. Nu är det dags att kontrollera att den grundläggande integrationen har genomförts.
 
-##<a id="send"></a>Skicka ett meddelande till appen
+##<a id="send"></a>Skicka ett meddelande till din app
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
@@ -170,6 +170,6 @@ Du bör nu se ett meddelande på enheten som visas som en avisering via app om a
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

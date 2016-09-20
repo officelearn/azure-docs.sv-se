@@ -3,7 +3,7 @@
    description="Den här sidan innehåller anvisningar för hur du skapar en programgateway med SSL-avlastning med hjälp av Azure Resource Manager"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,14 +12,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Konfigurera en programgateway för SSL-avlastning med hjälp av Azure Resource Manager
 
 > [AZURE.SELECTOR]
--[PowerShell och den klassiska Azure-portalen](application-gateway-ssl.md)
--[PowerShell och Azure Resource Manager](application-gateway-ssl-arm.md)
+-[Azure Portal](application-gateway-ssl-portal.md)
+-[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+-[Azure Classic PowerShell](application-gateway-ssl.md)
 
  Azure Application Gateway kan konfigureras att avsluta SSL-sessionen (Secure Sockets Layer) på gatewayen så att du undviker kostsamma SSL-dekrypteringsaktiviteter i webbservergruppen. SSL-avlastning förenklar också frontend-serverkonfigurationen och hanteringen av webbappen.
 
@@ -27,8 +28,8 @@
 ## Innan du börjar
 
 1. Installera den senaste versionen av Azure PowerShell-cmdlets med hjälp av installationsprogrammet för webbplattform. Du kan hämta och installera den senaste versionen från avsnittet om **Windows PowerShell** på [hämtningssidan](https://azure.microsoft.com/downloads/).
-2. Du ska skapa ett virtuellt nätverk och ett undernät för programgatewayen. Kontrollera att inga virtuella datorer eller molndistributioner använder undernätet. Application Gateway måste vara fristående i ett virtuellt nätverks undernät.
-3. De servrar som du ska konfigurera för användning av programgatewayen måste finnas eller ha slutpunkter som skapats i antingen det virtuella nätverket eller med en tilldelad offentlig IP-/VIP-adress.
+2. Du skapar ett virtuellt nätverk och ett undernät för programgatewayen. Kontrollera att inga virtuella datorer eller molndistributioner använder undernätet. Application Gateway måste vara fristående i ett virtuellt nätverks undernät.
+3. De servrar som du konfigurerar för användning av programgatewayen måste finnas eller ha slutpunkter som skapats i antingen det virtuella nätverket eller med en tilldelad offentlig IP-/VIP-adress.
 
 ## Vad krävs för att skapa en programgateway?
 
@@ -36,17 +37,17 @@
 - **Backend-serverpool:** Listan med IP-adresser för backend-servrarna. IP-adresserna som anges bör antingen tillhöra det virtuella undernätet eller vara en offentlig IP-/VIP-adress.
 - **Inställningar för backend-serverpool:** Varje pool har inställningar som port, protokoll och cookiebaserad tillhörighet. Dessa inställningar är knutna till en pool och tillämpas på alla servrar i poolen.
 - **Frontend-port:** Den här porten är den offentliga porten som är öppen på programgatewayen. Trafiken kommer till den här porten och omdirigeras till en av backend-servrarna.
-- **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning).
+- **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa inställningar är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning).
 - **Regel:** Regeln binder lyssnaren och backend-serverpoolen och definierar vilken backend-serverpool som trafiken ska dirigeras till när den når en viss lyssnare. För närvarande stöds endast regeln *basic*. Regeln *basic* använder belastningsutjämning med resursallokering.
 
 **Ytterligare konfigurationsanmärkningar**
 
-För konfiguration av SSL-certifikat bör protokollet i **HttpListener** ändras till *Https* (skiftlägeskänsligt). Elementet **SslCertificate** måste läggas till i **HttpListener** med variabelvärdet som har konfigurerats för SSL-certifikatet. Frontend-porten måste uppdateras till 443.
+För konfiguration av SSL-certifikat bör protokollet i **HttpListener** ändras till *Https* (skiftlägeskänsligt). Elementet **SslCertificate** läggs till i **HttpListener** med variabelvärdet som har konfigurerats för SSL-certifikatet. Frontend-porten måste uppdateras till 443.
 
 **Aktivera cookiebaserad tillhörighet**: En programgateway kan konfigureras att säkerställa att en begäran från en klientsession alltid dirigeras till samma virtuella dator i webbservergruppen. Detta görs med en sessions-cookie som ser till att gatewayen dirigerar trafiken på rätt sätt. Du kan aktivera cookiebaserad tillhörighet genom att ange **CookieBasedAffinity** till *Enabled* i elementet **BackendHttpSettings**.
 
 
-## Skapa en ny programgateway
+## Skapa en programgateway
 
 Skillnaden mellan att använda den klassiska Azure-distributionsmodellen och Azure Resource Manager är i vilken ordning du skapar en programgateway och de objekt som måste konfigureras.
 
@@ -67,7 +68,7 @@ Glöm inte att byta PowerShell-läge så att du kan använda cmdlets för Azure 
 
 ### Steg 1
 
-        PS C:\> Login-AzureRmAccount
+    Login-AzureRmAccount
 
 
 
@@ -75,25 +76,25 @@ Glöm inte att byta PowerShell-läge så att du kan använda cmdlets för Azure 
 
 Kontrollera prenumerationerna för kontot.
 
-        PS C:\> get-AzureRmSubscription
+    Get-AzureRmSubscription
 
-Du uppmanas att autentisera dig med dina autentiseringsuppgifter.<BR>
+Du ombeds att autentisera dig med dina autentiseringsuppgifter.<BR>
 
 ### Steg 3
 
 Välj vilka av dina Azure-prenumerationer som du vill använda. <BR>
 
 
-        PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Steg 4
 
-Skapa en ny resursgrupp (hoppa över detta steg om du använder en befintlig resursgrupp).
+Skapa en resursgrupp (hoppa över detta steg om du använder en befintlig resursgrupp).
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
-Azure Resource Manager kräver att alla resursgrupper definierar en plats. Den här platsen används som standardplats för resurser i resursgruppen. Se till att alla kommandon för att skapa en programgateway använder samma resursgrupp.
+Azure Resource Manager kräver att alla resursgrupper definierar en plats. Denna inställning används som standardplatsen för resurser i resursgruppen. Se till att alla kommandon du använder för att skapa en programgateway använder samma resursgrupp.
 
 I exemplet ovan skapade vi resursgruppen ”appgw-RG” och platsen ”West US”.
 
@@ -114,7 +115,7 @@ Den här koden skapar ett virtuellt nätverk med namnet ”appgwvnet” i resurs
 
 ### Steg 3
 
-    $subnet=$vnet.Subnets[0]
+    $subnet = $vnet.Subnets[0]
 
 Den här koden tilldelar undernätsobjektet till variabeln $subnet för nästa steg.
 
@@ -201,6 +202,6 @@ Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet l
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

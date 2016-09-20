@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Översikt över Azure Data Lake Store
@@ -65,7 +65,7 @@ Azure Data Lake Store använder Azure Active Directory för autentisering och å
 | Funktion                                 | Beskrivning                              |
 |-----------------------------------------|------------------------------------------|
 | Autentisering | Azure Data Lake Store integreras med Azure Active Directory (AAD) för identitets- och åtkomsthantering för alla data som lagras i Azure Data Lake Store. Med integrationen drar Azure Data Lake fördelar från alla AAD-funktioner, inklusive multifaktorautentisering, villkorlig åtkomst, rollbaserad åtkomstkontroll, övervakning av programanvändning, säkerhetsövervakning och -avisering, osv. Azure Data Lake Store stöder OAuth 2.0-protokollet för autentisering i REST-gränssnittet. |
-| Åtkomstkontroll                          | Azure Data Lake Store ger åtkomstkontroll genom att stödja behörigheter av POSIX-typ som exponeras av WebHDFS-protokollet. I den aktuella versionen kan behörigheter anges i datasjönivån och kommer att gälla för alla filer och mappar i datasjön. Framtida uppdateringar kommer att aktivera detaljerad åtkomstkontroll genom att tillåta att behörigheter anges för enskilda filer och mappar.|
+| Åtkomstkontroll                          | Azure Data Lake Store ger åtkomstkontroll genom att stödja behörigheter av POSIX-typ som exponeras av WebHDFS-protokollet. I den aktuella versionen kan ACL: er aktiveras i rotmappen, undermappar och enskilda filer. De ACL: er som du använder till rotmappen kommer också att gälla för alla underordnade mappar/filer.|
 
 Mer information om hur du skyddar data i Data Lake Store: Följ länkarna nedan.
 
@@ -115,6 +115,6 @@ Om du vill titta på videor för att lära dig, har Data Lake Store videor om en
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

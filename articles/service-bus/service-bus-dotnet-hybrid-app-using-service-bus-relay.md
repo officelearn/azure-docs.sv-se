@@ -67,45 +67,7 @@ Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som kräv
 
 För att komma igång med Service Bus-funktionerna i Azure måste du först skapa ett namnområde för tjänsten. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program.
 
-1.  Logga in på den [klassiska Azure-portalen][].
-
-2.  I portalens vänstra navigationsfält klickar du på **Service Bus**.
-
-3.  I den understa rutan i portalen klickar du på **Skapa**.
-
-    ![][5]
-
-4.  I dialogrutan **Lägg till ett nytt namnområde** anger du ett namn för namnområdet.
-    Systemet kontrollerar omedelbart om namnet är tillgängligt.
-    ![][6]
-
-5.  Efter att du kontrollerat att namnet är tillgängligt, väljer du land eller region där namnområdet ska vara beläget (se till att använda samma land/region som du distribuerar dina beräkningsresurser i).
-
-    > [AZURE.IMPORTANT] Välj *samma region* som du tänker välja när du distribuerar ditt program. Så får du bäst prestanda.
-
-6.  Lämna de andra fälten i dialogrutan med sina standardvärden och klicka sedan på OK-kryssmarkeringen. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
-
-Det namnområde som du har skapat kommer att visas i portalen, även om det kan ta en stund innan det aktiveras. Vänta tills statusen blir **Aktiv** innan du fortsätter.
-
-## Skaffa standardautentiseringsuppgifter för hantering av namnområdet
-
-För att kunna utföra hanteringsåtgärder på det nya namnområdet, som att skapa meddelandeentiteter, måste du skaffa autentiseringsuppgifter för hantering av namnområdet.
-
-1.  Klicka på namnområdet som du skapade under det förra steget i huvudfönstret.
-
-2.  Längst ner på sidan klickar du på **Anslutningsinformation**.
-
-3.  I fönstret **Anslutningsinformation för åtkomst** hittar du den anslutningssträng som innehåller SAS-nyckeln och nyckelnamnet.
-
-    ![][45]
-
-4.  Kopiera anslutningssträngen och klistra in den någonstans för att kunna använda den senare i den här självstudiekursen.
-
-5. Klicka på fliken **Konfigurera** högst upp på samma portalsida.
-
-6. Kopiera den primära nyckeln för principen **RootManageSharedAccessKey** till Urklipp eller klistra in den i Anteckningar. Du kommer att använda det här värdet senare under självstudiekursen.
-
-    ![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Skapa en lokal server
 
@@ -541,11 +503,6 @@ Om du vill lära dig mer om Service Bus kan du använda följande resurser:
   [Hämta verktyg och SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [klassiska Azure-portalen]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -567,15 +524,14 @@ Om du vill lära dig mer om Service Bus kan du använda följande resurser:
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

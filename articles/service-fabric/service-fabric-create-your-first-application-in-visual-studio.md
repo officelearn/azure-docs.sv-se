@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Skapa ditt första Azure Service Fabric-program i Visual Studio
@@ -42,11 +42,11 @@ Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och 
 
     ![Dialogrutan Nytt projekt i Visual Studio][1]
 
-4. På nästa sida uppmanas du att välja den första tjänsttypen som du vill ta med i programmet. I den här självstudiekursen väljer vi **Tillståndskänslig**. Skriv ett namn och klicka på **OK**.
+4. På nästa sida uppmanas du att välja **Tillståndskänslig** som den första tjänsttypen som du vill ta med i programmet. Skriv ett namn och klicka på **OK**.
 
     ![Dialogrutan Ny tjänst i Visual Studio][2]
 
-    >[AZURE.NOTE] Mer information om alternativen finns i [Välja ett ramverk](service-fabric-choose-framework.md).
+    >[AZURE.NOTE] Mer information om alternativen finns i [Översikt över Service Fabric-programmeringsmodell](service-fabric-choose-framework.md).
 
     Visual Studio skapar programprojektet och det tillståndskänsliga tjänstprojektet och visar dem i Solution Explorer.
 
@@ -56,9 +56,9 @@ Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och 
 
     - **Publiceringsprofiler**: Används för att hantera verktygsinställningar för olika miljöer.
 
-    - **Skript**: Här ingår bland annat ett PowerShell-skript för distribution/uppgradering av program. Det här skriptet körs i bakgrunden av Visual Studio och kan anropas direkt på en kommandorad.
+    - **Skript**: Här ingår bland annat ett PowerShell-skript för distribution/uppgradering av program. Skriptet körs i bakgrunden av Visual Studio. Det kan också anropas direkt på kommandoraden.
 
-    - **Programdefinition**: Här ingår applikationsmanifestet under *ApplicationPackageRoot* och tillhörande filer för programparametrar under *ApplicationParameters* som definierar programmet och som gör att du kan konfigurera det specifikt för en viss miljö.
+    - **Programdefinition**: innehåller programmanifestet under *ApplicationPackageRoot*. Associerade parameterfiler för programmet finns under *ApplicationParameters*, som definierar programmet och gör att du kan konfigurera det specifikt för en given miljö.
 
     En översikt över innehållet i tjänstprojektet finns i [Komma igång med Reliable Services](service-fabric-reliable-services-quick-start.md).
 
@@ -68,9 +68,9 @@ Nu när du har ett program kan du prova att köra det.
 
 1. Tryck på F5 i Visual Studio för att distribuera programmet för felsökning.
 
-    >[AZURE.NOTE] Det kan ta en liten stund första gången Visual Studio skapar ett lokalt kluster för utveckling. Ett lokalt kluster kör samma plattformskod som du skapar i ett kluster med flera datorer, men på en enda dator. Statusen för klustergenereringen visas i utdatafönstret i Visual Studio.
+    >[AZURE.NOTE] Distributionen kan ta en liten stund första gången Visual Studio skapar ett lokalt kluster för utveckling. Ett lokalt kluster kör samma plattformskod som du skapar i ett kluster med flera datorer, men på en enda dator. Statusen för klustergenereringen visas i utdatafönstret i Visual Studio.
 
-    När klustret är klart får du ett meddelande från programmet Local Cluster Manager i systemfältet, som ingår i SDK.
+    När klustret är klart får du ett meddelande från programmet Local Cluster Manager i systemfältet som ingår i SDK.
 
     ![Meddelande från Local Cluster Manager i systemfältet][4]
 
@@ -88,7 +88,7 @@ Nu när du har ett program kan du prova att köra det.
 
     >[AZURE.NOTE] Diagnostikhändelserna för programmet som rapporteras av projektmallen använder den medföljande klassen `ServiceEventSource`. Mer information finns i [Övervaka och felsöka tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
-4. Leta upp klassen i ditt tjänstprojekt som kommer från StatefulService (t.ex. MyStatefulService) och ange en brytpunkt på den första raden i `RunAsync`-metoden.
+4. Leta upp klassen i ditt tjänstprojekt som kommer från StatefulService (till exempel MyStatefulService) och ange en brytpunkt på den första raden i `RunAsync`-metoden.
 
     ![Brytpunkt i den tillståndskänsliga tjänstens RunAsync-metod][7]
 
@@ -96,11 +96,11 @@ Nu när du har ett program kan du prova att köra det.
 
     ![Starta Service Fabric Explorer från Local Cluster Manager][systray-launch-sfx]
 
-    Service Fabric Explorer tillhandahåller en visuell representation av ett kluster, inklusive uppsättningen distribuerade program som distribuerats till det och den samling fysiska noder som det består av. Mer information om Service Fabric Explorer finns i [Visualisera klustret](service-fabric-visualizing-your-cluster.md).
+    Service Fabric Explorer tillhandahåller en visuell representation av ett kluster, inklusive uppsättningen program som distribuerats till det och den samling fysiska noder som det består av. Mer information om Service Fabric Explorer finns i [Visualisera klustret](service-fabric-visualizing-your-cluster.md).
 
 6. I den vänstra rutan expanderar du **Kluster > Noder** och letar upp noden där koden körs.
 
-7. Klicka på **Åtgärder > Inaktivera (omstart)** för att simulera omstarten av en dator. (Observera att du även kan göra detta på en snabbmeny i listvyn för noder i det vänstra fönstret genom att välja de tre punkterna.)
+7. Klicka på **Åtgärder > Inaktivera (omstart)** för att simulera omstarten av en dator. (Observera att du också kan inaktivera snabbmenyn i nodlistvyn i det vänstra fönstret.)
 
     ![Stoppa en nod i Service Fabric Explorer][sfx-stop-node]
 
@@ -110,31 +110,20 @@ Nu när du har ett program kan du prova att köra det.
 
     ![Loggboken Diagnostik efter en redundansväxling][diagnostic-events-viewer-detail-post-failover]
 
-### Rensa
+## Rensa
 
-  Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. När du stoppar felsökningsverktyget och stänger Visual Studio fortsätter dina program att köras i bakgrunden. Beroende på typen av appar kan den här bakgrundsaktiviteten ta betydande resurser i anspråk på datorn. Du kan hantera detta på flera sätt:
+  Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. Om du stoppar felsökningen tar du bort din instans av programmet och avregistrerar programtypen. Klustret fortsätter dock att köras i bakgrunden. Du kan hantera klustret på flera sätt:
 
-  1. Om du vill ta bort ett enskilt program och alla programmets data använder du åtgärden **Ta bort program** i Service Fabric Explorer antingen via **Åtgärder**-menyn eller från snabbmenyn i listvyn för program i det vänstra fönstret.
+  1. Om du vill stänga av klustret, men behålla programdata och spårningar, klickar du på **Stoppa lokalt kluster** i appen i systemfältet.
 
-    ![Ta bort ett program i Service Fabric Explorer][sfe-delete-application]
-
-  2. När du har tagit bort programmet från klustret kan du välja att **avetablera typen** för programmet, vilket gör att programpaketet tas bort (inklusive dess kod och konfiguration) från klustrets avbildningsarkiv.
-  3. Om du vill stänga av klustret, men behålla programdata och spårningar, klickar du på **Stoppa lokalt kluster** i appen i systemfältet.
-
-  4. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Observera att det här alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Använd bara det här alternativet om du inte planerar att använda det lokala klustret under en tid eller om du behöver frigöra resurser.
-
-
+  2. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Observera att det här alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Ta bara bort klustret om du inte planerar att använda det lokala klustret under en tid eller om du behöver frigöra resurser.
 
 ## Nästa steg
 
-<!--
-Temporarily removing this link because we have removed the ASP.NET template.
-
- - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
--->
-- [Lär dig hur du skapar ett kluster i Azure](service-fabric-cluster-creation-via-portal.md)
-- [Mer information om Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [Prova att skapa en tjänst med hjälp av Reliable Actors-programmeringsmiljön](service-fabric-reliable-actors-get-started.md)
+- Lär dig hur du skapar ett [kluster i Azure](service-fabric-cluster-creation-via-portal.md) eller ett [fristående kluster i Windows](service-fabric-cluster-creation-for-windows-server.md).
+- Prova att skapa en tjänst med hjälp av programmeringsmodellerna [Reliable Services](service-fabric-reliable-services-quick-start.md) eller [Reliable Actors](service-fabric-reliable-actors-get-started.md).
+- Lär dig hur du kan exponera dina tjänster för Internet med en [frontwebbtjänst](service-fabric-add-a-web-frontend.md).
+- Gå igenom en [praktisk övning](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) och skapa en tillståndslös tjänst, konfigurera övervakning och hälsorapporter och utför en uppgradering av programmet.
 
 <!-- Image References -->
 
@@ -152,6 +141,6 @@ Temporarily removing this link because we have removed the ASP.NET template.
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

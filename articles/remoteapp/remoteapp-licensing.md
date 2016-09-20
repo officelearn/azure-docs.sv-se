@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
-# Hur fungerar det med licensiering i Azure RemoteApp?
+# Så här fungerar det med licensiering i Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 
 Du har nu konfigurerat Azure RemoteApp-tjänsten, skapat mallar och är redo att publicera appar till användarna. Men det finns fortfarande en liten detalj som behöver redas ut: licensiering. Hur fungerar det med licensiering för RemoteApp och för de appar som du delar via RemoteApp?
 
@@ -37,6 +39,6 @@ Observera att du inte kan använda en klientåtkomstlicens eller ett volymlicens
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

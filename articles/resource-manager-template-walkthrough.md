@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
 # Genomgång av en Resource Manager-mall
@@ -53,7 +53,7 @@ Låt oss börja med den enklaste mallen:
 
 Spara den här filen som **azuredeploy.json**. (Mallen kan ha vilket namn som helst, men det måste vara en JSON-fil).
 
-## Skapa ett lagringskonto
+## skapar ett lagringskonto
 I avsnittet **resources** lägger du till ett objekt som definierar lagringskontot, som du ser nedan. 
 
 ```json
@@ -583,6 +583,6 @@ Du kan omdistribuera mallen med hjälp av samma kommandon som du använde när d
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/18/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
 # Vad är Azure RemoteApp?
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 
 Med Azure RemoteApp får du genom fjärrskrivbordstjänster samma funktioner i Azure som du får med ett lokalt Microsoft RemoteApp-program. Med Azure RemoteApp kan användarna få säker fjärråtkomst till program från olika typer av enheter. På Azure RemoteApp körs tillfälliga terminalserversessioner i molnet, och du kan använda dem och dela dem med användarna.
 
@@ -78,9 +81,9 @@ Sätt igång och prova! I de här artiklarna får du hjälp med att komma igång
  
 
 ### Hjälp oss att hjälpa 
-Visste du att du förutom att betygsätta den här artikeln och skriva kommentarer nedan även kan göra ändringar i själva artikeln? Fattas det något? Är det något som är fel? Har jag skrivit något som helt enkelt bara är förvirrande? Då kan du gå tillbaka till början av sidan och klicka på **Edit on GitHub (Redigera på GitHub)** eller **Edit (Redigera)** och ändra i texten. Ändringarna skickas till oss och när vi har godkänt dem kan du se dina ändringar och förbättringar här.
+Visste du att du förutom att betygsätta den här artikeln och skriva kommentarer nedan även kan göra ändringar i själva artikeln? Saknar du något i artikeln? Är det något som är fel? Har jag skrivit något som helt enkelt bara är förvirrande? Då kan du gå tillbaka till början av sidan och klicka på **Edit on GitHub (Redigera på GitHub)** eller **Edit (Redigera)** och ändra i texten. Ändringarna skickas till oss och när vi har godkänt dem kan du se dina ändringar och förbättringar här.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

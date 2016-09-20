@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, behållare, Micro-tjänster, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -98,8 +98,12 @@ När skalningsåtgärden har slutförts visas flera instanser av samma aktivitet
 
 - [Arbeta med API för DC/OS och Marathon API](container-service-mesos-marathon-rest.md)
 
+Ingående om Azure Container Service med Mesos
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

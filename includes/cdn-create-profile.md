@@ -4,7 +4,7 @@
 
     Det nya CDN-profilbladet visas.
 
-    ![Ny CDN-profil](./media/cdn-create-profile/new-cdn-profile.png)
+    ![Ny CDN-profil](./media/cdn-create-profile/new-cdn-profile-include.png)
 
 2. Ange ett namn för din CDN-profil.
 
@@ -14,13 +14,13 @@
 
 5. Välj en **Prisnivå**.  Se [CDN-översikt](cdn-overview.md#azure-cdn-features) för en jämförelse mellan prisnivåer.
     
-    ![Val av CDN-prisnivå](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![Val av CDN-prisnivå](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
 6. Välj **Prenumeration** för den här CDN-profilen.
 
 7. Klicka på **Skapa**-knappen för att skapa den nya profilen. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

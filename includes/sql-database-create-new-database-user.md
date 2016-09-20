@@ -17,14 +17,15 @@ De här stegen förutsätter att du är ansluten till SQL Database i Object Expl
 3. I frågefönstret redigerar du och använder följande Transact-SQL-instruktion för att skapa en innesluten användare i din användardatabas. 
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
+    ```
 
-     ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
-
-
-
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+
+
+<!--HONumber=sep16_HO1-->
 
 

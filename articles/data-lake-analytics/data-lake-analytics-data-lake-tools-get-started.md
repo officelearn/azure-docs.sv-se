@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Självstudier: Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio
@@ -26,7 +26,7 @@ Lär dig hur du installerar Data Lake-verktyg för Visual Studio och använder D
 U-SQL är ett hyperskalbart, mycket utökningsbart språk för att förbereda, transformera och analysera alla data i Data Lake och andra lagringsplatser. Mer information finns i [U-SQL-referens] (http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 
-###Förutsättningar
+###Krav
 
 - **Visual Studio 2015, Visual Studio 2013 update 4 eller Visual Studio 2012. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte. Visual Studio "15" stöds inte för närvarande och vi arbetar på detta.**
 - **Microsoft Azure SDK för .NET version 2.7.1 eller senare**.  Installera den med hjälp av [installationsprogrammet för webbplattformen](http://www.microsoft.com/web/downloads/platform.aspx).
@@ -86,7 +86,7 @@ Data Lake Analytics-jobb skrivs på U-SQL-språket. Läs mer om U-SQL i [Kom ig�
 
     ![nytt U-SQL Visual Studio-projekt](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-3. Klicka på **OK** Visual Studio skapar en lösning med en **Script.usql**-fil.
+3. Klicka på **OK**. Visual Studio skapar en lösning med en **Script.usql**-fil.
 4. Ange följande skript i **Script.usql**:
 
         @searchlog =
@@ -139,7 +139,7 @@ Data Lake Analytics-jobb skrivs på U-SQL-språket. Läs mer om U-SQL i [Kom ig�
 
     - **Automatisk formatering**
 
-        Användarna kan ändra indrag av omfångsskriptet baserat på kodstrukturen under Redigera -> Avancerat:
+        Användarna kan ändra indraget i U-SQL-skriptet baserat på kodstrukturen under Redigera -> Avancerat:
 
         - Formatera dokument (Ctrl + E, D): Formaterar hela dokumentet   
         - Formatval (Ctrl + K, Ctrl + F): Formaterar markeringen. Om ingen markering har gjorts, formateras den rad markören står på.  
@@ -176,7 +176,7 @@ Data Lake Analytics-jobb skrivs på U-SQL-språket. Läs mer om U-SQL i [Kom ig�
     * Jobbsammanfattning. Visa sammanfattningsinformation för aktuella jobb, t.ex.: tillstånd, status, körningstid, runtimenamn, skickat av osv.   
     * Jobbinformation. Detaljerad information om det här jobbet anges, inklusive vy för skript, resurs, brytpunktskörning.
     * Jobbdiagram. Fyra diagram tillhandahålls för att visualisera jobbets information: Förlopp, Lästa data, Skrivna data, Körningstid, Genomsnittlig körningstid per nod, Indatagenomflöde, Utdatagenomflöde.
-    * Åtgärder för MetaData. Visar alla metadataåtgärder.
+    * Åtgärder för metadata. Visar alla metadataåtgärder.
     * Tillståndshistorik.
     * Diagnostik. Data Lake-verktyg för Visual Studio kommer automatiskt att diagnostisera jobbkörningen. Du får aviseringar när det finns några fel eller prestandaproblem i arbetet. Det finns mer information i Jobbdiagnostik (länka TBD).
 
@@ -236,8 +236,8 @@ Följande videoklipp visar funktioner för lokal U-SQL-körning:
 
     - I skriptdata (EXTRAHERA * FRÅN "/sökväg/abc") - söks både DataRoot-sökvägen och skriptsökvägen igenom.
     - I skriptutada (UTDATA TILL "sökväg/abc"): kommer DataRoot-sökvägen att användas som utdatamapp.
-    - I sammansättningsregistreringen (SKAPA SAMMANSÄTTNING xyz från "/sökväg/abc"): söks skriptsökvägen igenom, men inte DataRoot.
-    - I registrerad tabellvärdesfunktion/vy eller andra metadataentiteter: söks DataRoot-sökvägen igenom, men inte skriptets sökväg.
+    - I sammansättningsregistreringen (SKAPA SAMMANSÄTTNING xyz FRÅN "/sökväg/abc"): söks skriptsökvägen igenom, men inte DataRoot.
+    - I registrerad tabellvärdesfunktion/vy eller andra metadataentiteter söks DataRoot-sökvägen igenom, men inte skriptets sökväg.
 
     För skript som kördes på Data Lake-tjänsten, ska standardkontot för lagring användas som rotmapp och genomsöks därmed.
 
@@ -364,6 +364,6 @@ Följande PowerShell-skript förbereder ett Azure Data Lake Analytics-konto och 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

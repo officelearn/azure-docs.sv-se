@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/23/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Ladda upp data till Azure Search med hjälp av .NET SDK
@@ -51,7 +51,7 @@ För att importera data med .NET SDK måste du paketera dessa data i ett `IndexB
 
 Åtgärd | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar
 --- | --- | --- | ---
-`Upload` | En `Upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det redan finns. | nyckel plus eventuella andra fält som du vill definiera | När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null.
+`Upload` | En `Upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. | nyckel plus eventuella andra fält som du vill definiera | När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null.
 `Merge` | Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. | nyckel plus eventuella andra fält som du vill definiera | Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. Detta gäller även fält av typen `DataType.Collection(DataType.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags` `["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`.
 `MergeOrUpload` | Den här åtgärden fungerar som `Merge` om ett dokument med den angivna nyckeln redan finns i indexet. Om dokumentet inte finns fungerar den som `Upload` med ett nytt dokument. | nyckel plus eventuella andra fält som du vill definiera | -
 `Delete` | Tar bort det angivna dokumentet från indexet. | endast nyckel | Andra fält som du anger än nyckelfältet ignoreras. Om du vill ta bort ett enstaka fält från ett dokument använder du `Merge` i stället och anger bara fältet till null.
@@ -207,6 +207,6 @@ När du har fyllt Azure Search-indexet kan du börja skicka frågor för att sö
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

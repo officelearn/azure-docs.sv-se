@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/25/2016" 
+    ms.date="06/21/2016" 
     ms.author="awills"/>
 
 
@@ -26,7 +26,7 @@ Om du inte har [installerat Application Insights i din app](app-insights-asp-net
 
 Kör ditt program med F5 och prova det: öppna olika sidor för att generera telemetri.
 
-I Visual Studio ser du antalet händelser som har loggats.
+Du ser hur många händelser som har loggats i Visual Studio.
 
 ![I Visual Studio visas knappen Application Insights när du felsöker.](./media/app-insights-visual-studio/appinsights-09eventcount.png)
 
@@ -65,7 +65,11 @@ Om du har [konfigurerat undantagsövervakning](app-insights-asp-net-exceptions.m
 Klicka på ett undantag för att visa en stackspårning. Om koden för appen är öppen i Visual Studio kan du klicka dig igenom från stackspårningen till relevant kodrad.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Undantag för stackspårning](./media/app-insights-visual-studio/17.png)
+
+Dessutom visas antalet undantag som loggats av Application Insights de senaste 24 timmarna på CodeLens-raden ovanför varje metod.
+
+![Undantag för stackspårning](./media/app-insights-visual-studio/21.png)
 
 
 ## Lokal övervakning
@@ -84,17 +88,17 @@ Det är också användbart om du har [anpassad telemetri](app-insights-api-custo
  * I sökfönstrets inställningar finns det ett alternativ för att söka i lokal diagnostik även om din app skickar telemetri till portalen.
  * Om du inte vill att telemetri ska skickas till portalen längre kommenterar du bort raden `<instrumentationkey>...` i ApplicationInsights.config. När du vill skicka telemetri till portalen igen avkommenterar du raden.
 
+## Trends
 
+Trends är ett verktyg för visualisering av hur din app ska bete sig över tiden. 
 
+Välj **Utforska telemetritrender** med verktygsfältsknappen eller sökfönstret för Application Insights. Välj en av fem vanliga frågor för att komma igång. Du kan analysera olika datauppsättningar baserat på telemetrityper, tidsintervall och andra egenskaper. 
 
+För att hitta avvikelser i dina data väljer du ett av avvikelsealternativen i listrutan ”Vytyp”. Filtreringsalternativen längst ned i fönstret gör det lättare att justera efter specifika delmängder av dina telemetri.
 
-## Så här uppgraderar du till framtida SDK-versioner
+![Trends](./media/app-insights-visual-studio/51.png)
 
-Om du vill uppgradera till en [ny SDK-version](app-insights-release-notes-dotnet.md) öppnar du NuGet-pakethanteraren igen och filtrerar på installerade paket. Markera Microsoft.ApplicationInsights.Web och välj Uppgradera.
-
-Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av filen innan du uppgraderar och sammanfogar sedan dina ändringar i den nya versionen.
-
-
+[Mer om Trends](app-insights-visual-studio-trends.md).
 
 ## Nästa steg
 
@@ -108,6 +112,6 @@ Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

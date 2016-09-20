@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Introduktion till DocumentDB, en JSON-databas | Microsoft Azure" 
     description="Läs mer om Azure DocumentDB, en NoSQL JSON-databas. Den här dokumentdatabasen har skapats för stordata, elastisk skalbarhet och hög tillgänglighet." 
-    keywords="json database, document database"
+    keywords="json-databas, dokumentdatabas"
     services="documentdb" 
     authors="mimig1" 
     manager="jhubbard" 
@@ -14,12 +14,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="03/30/2016" 
+    ms.date="07/01/2016" 
     ms.author="mimig"/>
 
 # Introduktion till DocumentDB, en NoSQL JSON-databas
 
-Azure DocumentDB är en helt hanterad NoSQL-databas för snabb och förutsägbar prestanda, hög tillgänglighet, automatisk skalning och enkel utveckling. Tack vare den flexibla datamodellen, de genomgående korta svarstiderna och de omfattande frågefunktionerna är den utmärkt för webb-, mobil-, spel- och IoT-appar, liksom många andra appar som kräver smidig skalning.
+Azure DocumentDB är en helt hanterad NoSQL-databas för snabb och förutsägbar prestanda, hög tillgänglighet, automatisk skalning, global distribuering och enkel utveckling. Tack vare den flexibla datamodellen, de genomgående korta svarstiderna och de omfattande frågefunktionerna är den utmärkt för webb-, mobil-, spel- och IoT-appar, liksom många andra appar som kräver smidig skalning.
 
 Du kan snabbt lära dig mer om JSON-databasen och se hur den fungerar med följande tre steg: 
 
@@ -38,13 +38,15 @@ Du kan snabbt lära dig mer om JSON-databasen och se hur den fungerar med följa
 
 Moderna appar skapar, använder och reagerar snabbt på mycket stora mängder data. Apparna utvecklas snabbt och det gör även det underliggande dataschemat. Därför väljer utvecklare allt oftare schemafria NoSQL-dokumentdatabaser som enkla, snabba och skalbara lösningar för lagring och bearbetning av data medan man behåller möjligheten att snabbt iterera över appdatamodeller och ostrukturerade dataflöden. Många schemafria databaser tillåter däremot inte komplexa frågor och transaktionell bearbetning, vilket gör avancerad datahantering svårt. Det här är här DocumentDB kommer in. Microsoft har utvecklat DocumentDB för att uppfylla dessa datahanteringskrav för dagens appar.
 
-DocumentDB är en verkligt schemafri NoSQL-databastjänst för moderna mobil-, webb-, spel- och IoT-appar. DocumentDB ger genomgående snabb läsning och skrivning, flexibelt schema och möjlighet att enkelt skala upp eller ned en databas på begäran. Den varken antar eller kräver ett schema för de JSON-dokument som indexeras. Som standard indexerar den automatiskt alla dokument i databasen och varken förväntar sig eller kräver något schema eller att sekundärindex skapas. DocumentDB möjliggör avancerade ad hoc-frågor med SQL-språk, stöder väldefinierade konsekvensnivåer och erbjuder språkintegrerad transaktionsbearbetning av flera dokument i JavaScript med den välbekanta programmeringsmiljön med lagrade procedurer, utlösare och UDF:er. 
+DocumentDB är en verkligt schemafri NoSQL-databastjänst för moderna mobil-, webb-, spel- och IoT-appar. DocumentDB säkerställer att 99 % av dina läsåtgärder behandlas på under 10 millisekunder och 99 % av dina skrivåtgärder behandlas på under 15 millisekunder. Det ger också ett flexibelt schema och möjlighet att enkelt skala upp eller ned en databas på begäran. Den varken antar eller kräver ett schema för de JSON-dokument som indexeras. Som standard indexerar den automatiskt alla dokument i databasen och varken förväntar sig eller kräver något schema eller att sekundärindex skapas. DocumentDB möjliggör avancerade ad hoc-frågor med SQL-språk, stöder väldefinierade konsekvensnivåer och erbjuder språkintegrerad transaktionsbearbetning av flera dokument i JavaScript med den välbekanta programmeringsmiljön med lagrade procedurer, utlösare och UDF:er. 
 
 Som JSON-databas har DocumentDB internt stöd för JSON-dokument vilket möjliggör enkel iterering av appscheman och stöder appar som behöver nyckelvärde, dokument eller tabelldatamodeller. DocumentDB stöder populära JSON och JavaScript, vilket eliminerar matchningsfel mellan programdefinierade objekt och databasscheman. Tack vare djupgående integration av JavaScript kan utvecklarna dessutom köra programlogiken effektivt och direkt, inom databasmotorn i en databastransaktion. 
 
 Azure DocumentDB erbjuder följande viktiga funktioner och fördelar:
 
 -   **Elastiska och skalbara dataflöden och lagringsutrymmen:** Det är enkelt att skala upp eller ned en DocumentDB-JSON-databas så att den passar behoven för ditt program. Dina data lagras på SSD-diskar (Solid State Disk) för korta och förutsägbara svarstider. DocumentDB stöder behållare för lagring av anropade samlingar JSON-data som kan skalas till praktiskt taget obegränsade lagringsstorlekar och etablerade dataflöden. Du kan skala DocumentDB elastiskt och smidigt med förutsägbar prestanda när programmet växer. 
+
+-   **Replikering av flera regioner:** DocumentDB replikerar på ett transparent sätt data till alla regioner som du har kopplat till DocumentDB-kontot, så att du kan utveckla program som kräver global åtkomst till data samtidigt som man kompromissar mellan konsekvens, tillgänglighet och prestanda med motsvarande garantier. DocumentDB ger transparent regional redundans med flera API: er och möjlighet att på ett elastiskt sätt skala dataflöde och lagring i hela världen. Läs mer i [Distribuera data globalt med DocumentDB](documentdb-distribute-data-globally.md).
 
 -   **Ad hoc-frågor med välbekant SQL-syntax:** Lagra heterogena JSON-dokument inom DocumentDB och skicka förfrågningar till dokumenten via en välbekant SQL-syntax. DocumentDB använder en samtidig, låsfri, loggstrukturerad indexeringsteknik som automatiskt indexerar allt dokumentinnehåll. På så vis kan du skicka omfattande förfrågningar i realtid utan att behöva ange schematips, sekundärindex eller vyer. Läs mer i [Förfrågningar i DocumentDB](documentdb-sql-query.md). 
 
@@ -102,7 +104,7 @@ Om du redan har ett Azure-konto kan du komma igång med DocumentDB i [Azure Port
 
 Om du inte har något Azure-konto kan du
 
-- registrera dig för ett [en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/) som ger dig 30 dagar och 200 USD i rabatt för att prova alla Azure-tjänster. 
+- Registrera dig för ett [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/free/) som ger dig 30 dagar och 200 USD i rabatt för att prova alla Azure-tjänster. 
 - Om du har en prenumeration på MSDN är du berättigad till [150 USD i kostnadsfria Azure-krediter per månad](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) att använda i valfria Azure-tjänster. 
 
 Sedan, när du vill veta mer, finns våra [utbildningsvägar](https://azure.microsoft.com/documentation/learning-paths/documentdb/) där du hittar alla tillgängliga utbildningsresurser. 
@@ -113,6 +115,6 @@ Sedan, när du vill veta mer, finns våra [utbildningsvägar](https://azure.micr
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

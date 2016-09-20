@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/08/2016"
+    ms.date="07/14/2016"
     ms.author="evboyle"/>
 
 # Komma igång med Azure Search i Java
@@ -69,7 +69,7 @@ Alla REST API-anrop till Azure Search kräver att du anger tjänstens URL och en
 
 ## Ladda ned exempelfilerna
 
-1. Gå till [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197) på Github.
+1. Gå till [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) på Github.
 
 2. Klicka på **Ladda ned ZIP**, spara ZIP-filen på disk och extrahera sedan alla filer som den innehåller. Om du vill kan du extrahera filerna till Java-arbetsytan så att det blir lättare att hitta projektet senare.
 
@@ -205,6 +205,6 @@ Har du inte provat Azure Search än? Vi rekommenderar att du går andra självst
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

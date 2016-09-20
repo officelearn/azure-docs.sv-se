@@ -72,7 +72,7 @@ I Apptjänst får du en nyckelfärdig lösning som passar för de flesta vanliga
 
 ## Automatisk skalning av appen utifrån efterfrågan
 
-Nu ska vi ställa in automatisk skalning av appen så att den anpassar sig efter efterfrågan från användarna (du kan läsa mer om skalningsprisnivåer i Azure Apptjänst [här](app-service-scale) och om att skala antalet instanser manuellt eller automatiskt [här](../azure-portal/insights-how-to-scale.md)). 
+Nu ska vi ställa in automatisk skalning av appen så att den anpassar sig efter efterfrågan från användarna (du kan läsa mer i [Skala upp din app i Azure](web-sites-scale.md) och [Skala antalet instanser manuellt eller automatiskt](../azure-portal/insights-how-to-scale.md)). 
 
 Webbappar kan i princip skalas på två sätt:
 
@@ -112,7 +112,7 @@ Kanske såg du på bladet **Skalningsinställningar** att det finns mycket mer d
 - autoskala enligt schema
 - ställa in autoskalningsuppförande för framtida händelser
 
-Mer information om att skala upp appar finns i avsnittet om [skalningsprisnivåer i Azure Apptjänst ](../app-service/app-service-scale.md). Mer information om att skala ut finns i avsnittet om att [skala antalet instanser manuellt eller automatiskt ](../azure-portal/insights-how-to-scale.md).
+Mer information om att skala upp appar finns i [Skala upp din app i Azure](../app-service-web/web-sites-scale.md). Mer information om att skala ut finns i avsnittet om att [skala antalet instanser manuellt eller automatiskt ](../azure-portal/insights-how-to-scale.md).
 
 ## Varningar om appen
 
@@ -147,7 +147,7 @@ Det finns så mycket mer du kan göra med den distribuerade appen. Här är bara
 
 - [Köpa och konfigurera ett eget domännamn](custom-dns-web-site-buydomains-web-app.md) – Du kan köpa en snygg domän för din webbapp att använda istället för domänen *.azurewebsites.net. Eller så kan du använda en domän som du redan har.
 - [Skapa mellanlagringsmiljöer](web-sites-staged-publishing.md) – Du kan distribuera appar till en mellanlagrings-URL innan du lägger ut dem i produktion. På så sätt kan du uppdatera livewebbappar utan att behöva oroa dig. Du kan skapa en utförlig DevOps-lösning med flera olika distributionsplatser. 
-- [Ställa in kontinuerlig distribution](web-sites-publish-source-control.md) – Du kan integrera appdistribution i ditt källkontrollsystem. Distribution till Azure sker vid varje incheckning.
+- [Ställa in kontinuerlig distribution](app-service-continuous-deployment.md) – Du kan integrera appdistribution i ditt källkontrollsystem. Distribution till Azure sker vid varje incheckning.
 - [Få tillgång till lokala resurser](web-sites-hybrid-connection-get-started.md) – Du kan nå en befintlig lokal databas eller lokalt CRM-system.
 - [Säkerhetskopiera appar](web-sites-backup.md) – Du kan ställa in säkerhetskopiering och återställning av webbappar. På så sätt är du förberedd för oväntade fel och kan återställa vid behov.
 - [Aktivera diagnostikloggar](web-sites-enable-diagnostic-log.md) – Du kan läsa IIS-loggar från Azure eller programspår. Du kan läsa dem i ett flöde, ladda ned dem eller portera dem till [Application Insights](../application-insights/app-insights-overview.md) för nyckelfärdig analys.
@@ -157,6 +157,6 @@ Det finns så mycket mer du kan göra med den distribuerade appen. Här är bara
 - [Lära dig hur Apptjänst fungerar](../app-service/app-service-how-works-readme.md) 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

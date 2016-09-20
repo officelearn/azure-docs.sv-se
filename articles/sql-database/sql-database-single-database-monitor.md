@@ -1,10 +1,10 @@
 <properties
     pageTitle="Övervaka databasprestanda i Azure SQL Database | Microsoft Azure"
     description="Läs mer om alternativ för att övervaka din databas med Azure-verktyg och dynamiska hanteringsvyer."
-    keywords="database monitoring, cloud database performance"
+    keywords="databasövervakning, molndatabasprestanda"
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="data-management"
-    ms.date="03/25/2016"
+    ms.date="07/06/2016"
     ms.author="carlrab"/>
 
 # Övervaka databasprestanda i Azure SQL Database
@@ -27,7 +27,7 @@ I [Azure-portalen](https://portal.azure.com/), kan du övervaka en enskild datab
 - CPU-procent
 - DTU-procent
 - Data IO-procent
-- Lagringsprocent
+- Databasstorlek i procent
 
 När du väl lagt till de här måtten, kan du fortsätta att se dem i **Övervaknings**-diagrammet med mer information i **Mått**-fönstret. Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er**. Se artikeln [tjänstnivåer](sql-database-service-tiers.md) för mer information om DTU:er.
 
@@ -49,6 +49,6 @@ För elastiska databaspooler, kan du övervaka individuella databaser i poolen m
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,19 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="05/05/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
 #Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST-API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 ##Översikt
 
@@ -62,7 +62,7 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga program för d
 3. Skapa ett program och ange att den tillgång som du skapade ska användas.
 1. Publicera tillgången som är associerad till programmet genom att skapa en OnDemand-positionerare.
 
-    Se till att ha minst en reserverad enhet för strömning på den strömningsslutpunkt från vilken du vill strömma innehåll.
+    Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
 
 1. Starta programmet när du är redo att påbörja strömning och arkivering.
 2. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
@@ -91,7 +91,7 @@ Följande krävs för att kunna genomföra självstudien.
 
 - Du behöver ett Azure-konto för att slutföra den här självstudien. 
     
-    Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
+    Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
 - Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-create-account.md).
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate eller Express) eller senare versioner.
 - Du måste använda Media Services .NET SDK version 3.2.0.0 eller senare.
@@ -532,6 +532,6 @@ Om inte det här ämnet innehåller det som du väntade dig, saknar något eller
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

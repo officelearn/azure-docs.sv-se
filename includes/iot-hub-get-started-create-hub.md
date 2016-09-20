@@ -21,7 +21,7 @@ Skapa en IoT-hubb som din simulerade enhet kan ansluta till. Följande steg visa
 
     ![Status för ny IoT-hubb][3]
 
-5. När IoT-hubben har skapats, klickar du på den nya ikonen för din IoT-hubb i portalen för att öppna bladet för den. Anteckna **värdnamnet** och klicka sedan på **Nycklar**-ikonen.
+5. När IoT-hubben har skapats, klickar du på den nya ikonen för din IoT-hubb i portalen för att öppna bladet för den. Anteckna **värdnamnet** och klicka sedan på **Principer för delad åtkomst**.
 
     ![Ny IoT-hubb-blad][4]
 
@@ -45,6 +45,6 @@ Skapa en IoT-hubb som din simulerade enhet kan ansluta till. Följande steg visa
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

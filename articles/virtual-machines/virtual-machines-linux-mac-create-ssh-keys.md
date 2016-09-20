@@ -14,12 +14,12 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/16/2016"
+    ms.date="08/08/2016"
     ms.author="v-livech"/>
 
 # Skapa SSH-nycklar för Linux och Mac för virtuella Linux-datorer i Azure
 
-För att kunna skapa en lösenordsskyddad offentlig och privat SSH-nyckel måste du ha en öppen terminal på din arbetsstation.  När du har skapat SSH-nycklar kan du skapa nya virtuella datorer med nycklarna som standard eller lägga till den offentliga nyckeln till befintliga virtuella datorer med hjälp av både Azure CLI och Azure-mallar.  Detta gör att du kan använda inloggningar utan lösenord via SSH och använda den mycket säkrare autentiseringsmetoden med nycklar i stället för lösenord.
+Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering som standard, vilket gör att inga lösenord krävs för att logga in.  Det går att gissa sig fram till lösenord och dina virtuella datorer blir sårbara för råstyrkeattacker som försöker gissa ditt lösenord. Virtuella datorer som skapas med Azure-mallar eller `azure-cli` kan inkludera din offentliga SSH-nyckel som en del av distributionen, så att ingen distributionskonfiguration krävs i efterhand.  Om du ansluter till en virtuell Linux-dator från Windows läser du [det här dokumentet.](virtual-machines-linux-ssh-from-windows.md)
 
 ## Snabb kommandolista
 
@@ -29,7 +29,7 @@ I följande kommandoexempel ersätter du värdena mellan &lt; och &gt; med värd
 ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
 ```
 
-Ange namnet på filen som ska sparas i `~/.ssh/`-katalogen:
+Ange namnet på filen som sparas i `~/.ssh/`-katalogen:
 
 ```bash
 <azure_fedora_id_rsa>
@@ -64,19 +64,21 @@ $
 
 ## Introduktion
 
-Det enklaste sättet att logga in på Linux-servrar är att använda offentliga och privata SSH-nycklar, men [kryptografi med offentliga nycklar](https://en.wikipedia.org/wiki/Public-key_cryptography) är också ett mycket säkrare sätt att logga in på din virtuella Linux- eller BSD-dator i Azure än med lösenord, som mycket enklare kan knäckas med nyckelsökningsattacker. Din offentliga nyckel kan delas med alla, men bara du (eller din lokala säkerhetsinfrastruktur) har tillgång till den privata nyckeln.  Den privata SSH-nyckeln som skapas skyddas med ett [säkert lösenord](https://www.xkcd.com/936/). Detta lösenord är bara avsett för att få åtkomst till den privata SSH-nyckeln och **är inte** användarkontots lösenord.  När du lägger till ett lösenord för SSH-nyckeln krypteras den privata nyckeln så att den inte kan användas utan lösenordet som krävs för att låsa upp den.  Om en angripare lyckas stjäla din privata nyckel och nyckeln saknar lösenord skulle angriparen kunna använda den privata nyckeln för att logga in på dina servrar där tillhörande offentliga nyckel är installerad.  Om den privata nyckeln är lösenordsskyddad kan den inte användas av angriparen, vilket ger ett extra säkerhetslager för infrastrukturen i Azure.
+Användningen av offentliga och privata SSH-nycklar är det enklaste sättet att logga in på dina Linux-servrar. [Kryptografi med offentliga nycklar](https://en.wikipedia.org/wiki/Public-key_cryptography) är ett säkrare sätt att logga in på en Linux- eller BSD-baserad virtuell dator i Azure än lösenord, som är mer sårbara för råstyrkeattacker. Din offentliga nyckel kan delas med alla, men bara du (eller din lokala säkerhetsinfrastruktur) har tillgång till den privata nyckeln.  Den privata SSH-nyckeln bör ha ett [mycket säkert lösenord ](https://www.xkcd.com/936/) (källa:[xkcd.com](https://xkcd.com)) som skyddar den.  Det här lösenordet används bara för att få åtkomst till den privata SSH-nyckeln och **är inte** lösenordet för användarkontot.  När du lägger till ett lösenord för SSH-nyckeln krypteras den privata nyckeln så att den inte kan användas utan lösenordet som krävs för att låsa upp den.  Om en angripare stjäl din privata nyckel och om nyckeln inte skyddas med ett lösenord, kan angriparen använda den privata nyckeln för att logga in på alla servrar som den offentliga nyckeln används för.  Om den privata nyckeln är lösenordsskyddad kan den inte användas av angriparen, vilket ger infrastrukturen i Azure ett extra säkerhetslager.
 
 
-I den här artikeln skapar vi nyckelfiler med *ssh-rsa*-format eftersom dessa rekommenderas för distributioner med Resource Manager och krävs på [portalen](https://portal.azure.com) för både klassiska distributioner och Resource Manager-distributioner.
+
+Den här artikeln skapar *ssh-rsa*-formaterade nyckelfiler, vilket rekommenderas för distributioner i Resource Manager.  *SSH-rsa*-nycklar krävs på [portalen](https://portal.azure.com) för både klassiska distributioner och Resource Manager-distributioner.
 
 
 ## Skapa SSH-nycklarna
 
-Azure kräver offentliga och privata nycklar med minst 2048 bitar i ssh-rsa-format. För att skapa paret ska vi använda `ssh-keygen`, som ställer ett antal frågor och sedan skriver en privat nyckel och en matchande offentlig nyckel. När du skapar din virtuella Azure-dator överför du innehållet i den offentliga nyckeln, som kopieras till den virtuella Linux-datorn och som används med din lokala och säkert lagrade privata nyckel för att autentisera dig när du loggar in.
+Azure kräver offentliga och privata nycklar med minst 2048 bitar i ssh-rsa-format. Skapa nycklarna med `ssh-keygen`, som ställer ett antal frågor och sedan skriver en privat nyckel och en matchande offentlig nyckel. När en virtuell Azure-dator skapas kopieras den offentliga nyckeln till `~/.ssh/authorized_keys`.  SSH-nycklar i `~/.ssh/authorized_keys` används för att tvinga klienten att matcha motsvarande privata nyckel vid en SSH-inloggningsanslutning.
+
 
 ## Använda ssh-keygen
 
-Med det här kommandot skapas ett lösenordsskyddat (krypterat) SSH-nyckelpar med 2 048 bitars RSA. Kommentarer har lagts till som gör det lättare att identifiera det.
+Med det här kommandot skapas ett lösenordsskyddat (krypterat) SSH-nyckelpar med 2048 bitars RSA. Kommentarer har lagts till som gör det lättare att identifiera det.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -91,6 +93,16 @@ _Kommandot förklarat_
 `-b 2048` = bitar i nyckeln
 
 `-C "ahmet@fedoraVMAzure"` = en kommentar i slutet av filen för den offentliga nyckeln som gör det lätt att identifiera den.  Normalt används en e-postadress som kommentaren, men du kan använda det som fungerar bäst för din infrastruktur.
+
+### Använda PEM-nycklar
+
+Om du använder den klassiska distributionsmodellen (den klassisk Azure-portalen eller Azure Service Management CLI `asm`) kan du behöva använda PEM-formaterade SSH-nycklar för att komma åt dina virtuella Linux-datorer.  Så här skapar du en PEM-nyckel från en befintlig offentlig SSH-nyckel och ett befintligt x509-certifikat.
+
+Så här skapar du en PEM-formaterad nyckel från en befintlig offentlig SSH-nyckel:
+
+```bash
+ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pem
+```
 
 ## Genomgång av ssh-keygen
 
@@ -124,24 +136,24 @@ Sparade nyckelfiler:
 
 `Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa`
 
-Namnet på nyckelparet i den här artikeln.  Ett nyckelpar med namnet **id_rsa** är standard och vissa verktyg kan förvänta sig att namnet på filen för den privata nyckeln är **id_rsa**. Därför är det en bra idé att använda det. (`~/.ssh/` är den typiska standardplatsen för alla dina SSH-nyckelpar och SSH-konfigurationsfilen.)
+Namnet på nyckelparet i den här artikeln.  Ett nyckelpar med namnet **id_rsa** är standard och vissa verktyg kan förvänta sig att namnet på filen för den privata nyckeln är **id_rsa**. Därför är det en bra idé att använda det. Katalogen `~/.ssh/` är standardplatsen för SSH-nyckelpar och SSH-konfigurationsfilen.
 
 ```bash
 ahmet@fedora$ ls -al ~/.ssh
 -rw------- 1 ahmet staff  1675 Aug 25 18:04 azure_fedora_id_rsa
 -rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
-Detta visar dina nya nyckelpar och deras behörigheter. `ssh-keygen` skapar `~/.ssh`-katalogen om den inte finns och anger även rätt ägarskap och fillägen.
+En lista över `~/.ssh`-katalogen. `ssh-keygen` skapar `~/.ssh`-katalogen om den inte finns och anger även rätt ägarskap och fillägen.
 
 Nyckellösenord:
 
 `Enter passphrase (empty for no passphrase):`
 
-Vi rekommenderar starkt att du lägger till ett lösenord (`ssh-keygen` kallar det för en ”lösenfras”) till dina nyckelpar. Utan ett lösenord som skyddar nyckelparet kan alla med en kopia av filen med den privata nyckeln använda den för att logga in på dina servrar, där den tillhörande offentliga nyckeln är installerad. Genom att lägga till ett lösenord har du därför mycket bättre skydd om någon lyckas få åtkomst till filen med din privata nyckel, så att du har tid att ändra nycklarna som används för att autentisera dig.
+`ssh-keygen` refererar till ett lösenord som ”en lösenfras”.  Vi rekommenderar *starkt* att du skapar ett lösenord för dina nyckelpar. Utan ett lösenord som skyddar nyckelparet kan vem som helst som har tillgång till filen med den privata nyckeln använda den för att logga in på en server som har motsvarande offentliga nyckel. Genom att lägga till ett lösenord har du därför bättre skydd om någon lyckas få åtkomst till filen med din privata nyckel, så att du har tid att ändra nycklarna som används för att autentisera dig.
 
 ## Lagra lösenordet för din privata nyckel med hjälp av ssh-agent
 
-Om du vill undvika att skriva lösenordet till filen med din privata nyckel vid varje SSH-inloggning kan du använda `ssh-agent` för att cachelagra lösenordet till filen med din privata nyckel så att du snabbt och säkert kan logga in på din virtuella Linux-dator.  Om du använder OS X lagrar nyckelringen lösenordet för din privata nyckel på ett säkert sätt när du anropar `ssh-agent`.
+Om du inte vill skriva lösenordet för filen med den privata nyckeln vid varje SSH-inloggning kan du cachelagra lösenordet med hjälp av `ssh-agent`. Om du använder en Mac skyddas lösenorden för privata nycklar i OSX-nyckelringen när du anropar `ssh-agent`.
 
 Kontrollera först att `ssh-agent` körs
 
@@ -149,17 +161,17 @@ Kontrollera först att `ssh-agent` körs
 eval "$(ssh-agent -s)"
 ```
 
-Lägg nu till den privata nyckeln till `ssh-agent` med hjälp av kommandot `ssh-add`. (I OSX startar nyckelringen som lagrar autentiseringsuppgifterna.)
+Lägg nu till den privata nyckeln i `ssh-agent` med hjälp av kommandot `ssh-add`.
 
 ```bash
 ssh-add ~/.ssh/azure_fedora_id_rsa
 ```
 
-Nu lagras lösenordet för den privata nyckeln och du behöver inte ange det vid varje SSH-inloggning.
+Nu lagras lösenordet för den privata nyckeln i `ssh-agent`.
 
 ## Skapa och konfigurera en SSH-konfigurationsfil
 
-Även om det inte är absolut nödvändigt för att komma igång med en virtuell Linux-dator är det en bra idé att skapa och konfigurera en `~/.ssh/config`-fil så att du inte oavsiktligt använder lösenord för att logga in med dina virtuella datorer, att automatisera användningen av olika nyckelpar för olika virtuella Azure-datorer samt att konfigurera andra program, till exempel **git**, mot flera servrar.
+Som bästa praxis bör du skapa och konfigurera en `~/.ssh/config`-fil för att påskynda inloggningar och för att optimera SSH-klientbeteendet.
 
 Följande exempel illustrerar en standardkonfiguration.
 
@@ -182,42 +194,38 @@ vim ~/.ssh/config
 Host fedora22
   Hostname 102.160.203.241
   User ahmet
-  PubkeyAuthentication yes
-  IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa
 # ./Azure Keys
 # Default Settings
 Host *
-  PubkeyAuthentication=no
+  PubkeyAuthentication=yes
   IdentitiesOnly=yes
   ServerAliveInterval=60
   ServerAliveCountMax=30
   ControlMaster auto
-  ControlPath /home/ahmet/.ssh/Connections/ssh-%r@%h:%p
+  ControlPath ~/.ssh/SSHConnections/ssh-%r@%h:%p
   ControlPersist 4h
-  StrictHostKeyChecking=no
-  IdentityFile /home/ahmet/.ssh/id_rsa
-  UseRoaming=no
+  IdentityFile ~/.ssh/id_rsa
 ```
 
-Denna SSH-config innehåller avsnitt för varje tjänst och aktiverar var och en så att de har sitt eget dedikerade nyckelpar. Standardinställningarna är avsedda för alla värdar som du är inloggad på som inte matchar någon av grupperna ovan.
+Den här SSH-konfigurationsfilen innehåller avsnitt för varje server så att var och en kan ha ett eget dedikerat nyckelpar. Standardinställningarna (`Host *`) är avsedda för värdar som inte matchar någon av de specifika värdarna högre upp i konfigurationsfilen.
 
 
 ### Konfigurationsfilen förklarad
 
 `Host` = namnet på värddatorn som anropas på terminalen.  `ssh fedora22` beordrar `SSH` att använda värdena i inställningsblocket med etiketten `Host fedora22`  Obs! Detta kan vara vilken etikett som helst som är logisk för din användning och som inte representerar själva värdnamnet för en server.
 
-`Hostname 102.160.203.241` = IP-adressen eller DNS-namnet för servern som du loggar in till. Detta används för dirigering till servern och kan vara en extern IP-adress som mappar till en intern IP-adress.
+`Hostname 102.160.203.241` = IP-adressen eller DNS-namnet för servern som du ansluter till.
 
-`User git` = fjärranvändarkontot som ska användas när du loggar in på den virtuella Azure-datorn.
+`User git` = fjärranvändarkontot som ska användas.
 
-`PubKeyAuthentication yes` = detta meddelar SSH att du vill använda en SSH-nyckeln för att logga in.
+`PubKeyAuthentication yes` = meddelar SSH att du vill använda en SSH-nyckel för att logga in.
 
-`IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa` = detta meddelar SSH vilket nyckelpar som ska presenteras för servern för att autentisera inloggningen.
+`IdentityFile /home/ahmet/.ssh/id_id_rsa` = den privata SSH-nyckeln och motsvarande offentliga nyckel som ska användas för autentisering.
 
 
 ## SSH i Linux utan lösenord
 
-Nu när du har en SSH-nyckel och en konfigurerad SSH-konfigurationsfil kan du logga in på din virtuella Linux-dator snabbt och säkert. Första gången du loggar in till en server med en SSH-nyckel frågar kommandot efter lösenfrasen för nyckelfilen.
+Nu när du har ett SSH-nyckelpar och en konfigurerad SSH-konfigurationsfil kan du snabbt och säkert logga in på din virtuella Linux-dator. Första gången du loggar in till en server med en SSH-nyckel frågar kommandot efter lösenfrasen för nyckelfilen.
 
 ```bash
 ssh fedora22
@@ -229,14 +237,14 @@ När `ssh fedora22` körs letar SSH först upp och läser in inställningarna fr
 
 ## Nästa steg
 
-Nästa uppgift är att skapa virtuella Azure Linux-datorer med den nya offentliga SSH-nyckeln.  Virtuella Azure-datorer som skapas med en offentlig SSH-nyckel för inloggning är bättre skyddade än de som skapas med vanliga lösenordsbaserade inloggningsmetoder.  Virtuella Azure-datorer som använder SSH-nycklar för inloggning är som standard konfigurerade att inaktivera lösenordsinloggning för att undvika nyckelsökningsattacker.
+Nästa uppgift är att skapa virtuella Azure Linux-datorer med den nya offentliga SSH-nyckeln.  Virtuella Azure-datorer som skapas med en offentlig SSH-nyckel för inloggning är bättre skyddade än virtuella datorer som skapas med vanliga lösenordsbaserade inloggningsmetoder.  Lösenord är som standard inaktiverade för Virtuella Azure-datorer som skapas med SSH-nycklar för att undvika råstyrkeattacker som försöker gissa lösenord.
 
 - [Skapa en säker virtuell Linux-dator med hjälp av en Azure-mall](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Skapa en säker virtuell Linux-dator med hjälp av Azure Portal](virtual-machines-linux-quick-create-portal.md)
+- [Skapa en säker virtuell Linux-dator med hjälp av Azure-portalen](virtual-machines-linux-quick-create-portal.md)
 - [Skapa en säker virtuell Linux-dator med hjälp av Azure CLI](virtual-machines-linux-quick-create-cli.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

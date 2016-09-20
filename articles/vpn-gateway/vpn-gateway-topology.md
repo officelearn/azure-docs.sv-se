@@ -13,18 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc" />
 
-# Anslutningstopologier för Azure VPN Gateway
+# Anslutningar för Azure VPN Gateway
 
 Den här artikeln visar grundläggande anslutningstopologier för VPN Gateway. Du kan använda figurer och beskrivningar för att välja den konfigurationstopologi som motsvarar dina behov. Även om den här artikeln i huvudsak beskriver grundläggande topologier, går det att skapa mer komplexa topologier med diagrammen som en riktlinje.
 
 Varje topologi innehåller en tabell som visar vilken distributionsmodell topologin är tillgänglig för, distributionsverktyg som du kan använda för att konfigurera varje topologi, samt länkar direkt till en artikel om det finns någon. Vi uppdaterar tabellerna när det finns nya artiklar och distributionsverktyg som du kan använda.
 
-Mer information om VPN-gatewayer finns i [Om VPN Gateway](vpn-gateway-about-vpngateways.md).
-
-
+När du har bestämt dig för den anslutning som du vill skapa, beror de anvisningar som du använder för att skapa din VPN-gateway på vilken distributionsmodell som användes för att skapa det virtuella nätverket. Om du exempelvis har skapat ditt VNet med den klassiska distributionsmodellen, ska du använda riktlinjer och instruktioner för den modellen när du skapar och konfigurerar din VPN-gateway. Du kan inte skapa en VPN-gateway i Resource Manager för ett virtuellt nätverk med den klassiska distributionsmodellen. Mer information om distributionsmodellerna finns i [Förstå Resource Manager- och klassiska distributionsmodeller](../resource-manager-deployment-model.md).
 
 ## Plats-till-plats och flera platser
 
@@ -64,6 +62,28 @@ Azure har två distributionsmodeller: Azure Service Management (kallas för klas
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
 
+## Punkt-till-plats
+
+Med en punkt-till-plats-konfiguration kan du skapa en säker anslutning till ditt virtuella nätverk från en klientdator separat. VPN-anslutningen upprättas genom att du startar anslutningen från klientdatorn. Detta är en användbar lösning när du vill ansluta till ditt VNet från en annan plats, t.ex. hemifrån eller från en konferens, eller när du bara har ett fåtal klienter som behöver kunna ansluta till ett virtuellt nätverk. 
+
+En punkt-till-plats-anslutning är en VPN-anslutning över SSTP (Secure Socket Tunneling Protocol). Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress för att fungera. 
+
+**P2S-diagram**
+
+![Punkt-till-plats-anslutning](./media/vpn-gateway-topology/point2site.png "point-to-site")
+
+**Tillgängliga distributionsmodeller och metoder**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+
+##ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+Mer information om ExpressRoute finns i [Teknisk översikt över ExpressRoute](../expressroute/expressroute-introduction.md).
+
+
 
 ## Plats-till-plats- och samexisterande ExpressRoute-anslutningar
 
@@ -80,23 +100,11 @@ ExpressRoute är en direkt, dedikerad anslutning till Microsoft Services, inklus
 [AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)] 
 
 
-## Punkt-till-plats
 
-Med en punkt-till-plats-konfiguration kan du skapa en säker anslutning till ditt virtuella nätverk från en klientdator separat. VPN-anslutningen upprättas genom att du startar anslutningen från klientdatorn. Detta är en användbar lösning när du vill ansluta till ditt VNet från en annan plats, t.ex. hemifrån eller från en konferens, eller när du bara har ett fåtal klienter som behöver kunna ansluta till ett virtuellt nätverk. 
-
-En punkt-till-plats-anslutning är en VPN-anslutning över SSTP (Secure Socket Tunneling Protocol). Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress för att fungera. 
-
-**P2S-diagram**
-
-![Punkt-till-plats-anslutning](./media/vpn-gateway-topology/point2site.png "point-to-site")
-
-**Tillgängliga distributionsmodeller och metoder**
-
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
 ## Nästa steg
 
-Bekanta dig med objekten i artiklarna [Om VPN Gateway](vpn-gateway-about-vpngateways.md) och [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md) för att bättre förstå VPN-gatewayer innan du går vidare med planering och utformning av anslutningen.
+Bekanta dig med objekten i artiklarna [Om VPN Gateway](vpn-gateway-about-vpngateways.md) och [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md) för att bättre förstå inställningarna för VPN-gatewayer.
 
 
 
@@ -106,6 +114,6 @@ Bekanta dig med objekten i artiklarna [Om VPN Gateway](vpn-gateway-about-vpngate
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

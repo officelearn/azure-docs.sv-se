@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Komma igång med Microsoft Power BI Embedded Preview"
+   pageTitle="Komma igång med Microsoft Power BI Embedded"
    description="Power BI Embedded lägger till interaktiva Power BI-rapporter i dina Business Intelligence-appar"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,16 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/24/2016"
-   ms.author="derrickv"/>
+   ms.date="07/05/2016"
+   ms.author="owend"/>
 
-# Komma igång med Microsoft Power BI Embedded Preview
+# Komma igång med Microsoft Power BI Embedded
 
-**Microsoft Power BI Embedded** är en Azure-tjänst som gör det möjligt för apputvecklare att lägga till interaktiva Power BI-rapporter till sina egna appar. **Power BI Embedded** fungerar med befintliga appar utan att man behöver ändra designen på apparna eller ändra hur användarna loggar in.
+**Power BI Embedded** är en Azure-tjänst som gör det möjligt för apputvecklare att lägga till interaktiva Power BI-rapporter till sina egna appar. **Power BI Embedded** fungerar med befintliga program utan att behöva designa om eller ändra hur användarna loggar in.
 
-Mer information om Power BI Embedded finns i [Vad är Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md).
-
-Enligt beskrivningen i [Vad är Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md) etableras resurser för **Microsoft Power BI Embedded** via [Azure ARM-API:erna](https://msdn.microsoft.com/library/mt712306.aspx). I det här fallet är den resurs som du etablerar en **Power BI-arbetsytesamling**. I nästa avsnitt beskrivs hur du skapar en arbetsytesamling.
+Resurser för **Microsoft Power BI Embedded** distribueras via [Azure ARM-API:er](https://msdn.microsoft.com/library/mt712306.aspx). I det här fallet är den resurs som du etablerar en **Power BI-arbetsytesamling**.
 
 ![](media\power-bi-embedded-get-started\introduction.png)
 
@@ -47,18 +45,16 @@ Låt oss gå igenom stegen för att skapa en **arbetsytesamling** i Azure-portal
 
    5. Klicka på **Skapa**.
 
-Det tar en liten stund att etablera **arbetsytesamlingen**. När den har slutförts förs du till  **arbetsytesamlingsbladet**.
+Det tar en liten stund att etablera **arbetsytesamlingen**. När den har slutförts förs du till **arbetsytesamlingsbladet**.
 
    ![](media\power-bi-embedded-get-started\create-workspace-3.png)
 
 Bladet **Skapa** innehåller den information du behöver för att anropa de API:er som skapar arbetsytor och distribuera innehåll till dem.
 
-I nästa avsnitt beskrivs hur **åtkomstnycklar** används för att generera **apptoken** som används för att autentisera dina API-begäranden.
-
 <a name="view-access-keys"/>
 ## Visa API-åtkomstnycklar för Power BI 
 
-En av de viktigaste informationsdelarna som krävs för att anropa Power BI REST-API:er är  **åtkomstnycklarna**. Dessa används för att generera de **apptoken** som används för att autentisera dina API-begäranden. För att visa dina **åtkomstnycklar**, klickar du på **Åtkomstnycklar** på bladet **Inställningar**. Mer information om **apptoken** finns i [Så fungerar apptokenflödet](power-bi-embedded-app-token-flow.md).
+En av de viktigaste informationsdelarna som krävs för att anropa Power BI REST-API:er är  **åtkomstnycklarna**. Dessa används för att generera de **apptoken** som används för att autentisera dina API-begäranden. För att visa dina **åtkomstnycklar**, klickar du på **Åtkomstnycklar** på bladet **Inställningar**. Mer information om **apptoken**, finns i [Autentisering och auktorisering med Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -102,13 +98,11 @@ I de föregående stegen skapade du en arbetsytesamling, din första rapport och
 
 ## Se även
 - [Komma igång med exemplet](power-bi-embedded-get-started-sample.md)
-- [Vad är Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Komma igång med Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Autentisering och auktorisering med Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Priser för Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

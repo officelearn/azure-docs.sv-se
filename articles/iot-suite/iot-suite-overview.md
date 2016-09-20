@@ -14,7 +14,7 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/23/2016"
+     ms.date="08/09/2016"
      ms.author="dobett"/>
 
 # Vad är Azure IoT Suite?
@@ -53,14 +53,7 @@ IoT Suite erbjuder förkonfigurerade lösningar som hjälper dig att snabbt komm
 
 ## Nästa steg
 
-Nu när du har en översikt över vad IoT Suite kan göra och vilka dess huvudkomponenter är kan du:
-
-- Lära dig mer om de förkonfigurerade lösningarna i IoT Suite i avsnittet om [förkonfigurerade Azure IoT-lösningar][lnk-what-are-preconfig]
-
-- Sätta igång och använda någon av de förkonfigurerade lösningarna i [Komma igång med förkonfigurerade IoT-lösningar][lnk-preconfig-start].
-
-- Läsa mer om tjänsten Azure IoT Hub i [dokumentationen för IoT Hub][lnk-iot-hub].
-
+Nu när du har en översikt över vad IoT Suite kan göra och dess huvudkomponenter kan du lära dig mer om de förinställda lösningarna i IoT Suite genom att läsa [Vad är förkonfigurerade lösningar i Azure IoT?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -71,11 +64,9 @@ Nu när du har en översikt över vad IoT Suite kan göra och vilka dess huvudko
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

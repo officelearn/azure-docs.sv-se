@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-phonegap"
     ms.devlang="multiple"
     ms.topic="get-started-article" 
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="ggailey777"/>
 
 # Komma igång med Mobile Services
@@ -155,10 +155,10 @@ Det sista steget i den här kursen är att skapa och köra den nya appen.
 ## Nästa steg
 Nu när du har slutfört guiden kan du gå vidare och lära dig fler viktiga uppgifter i Mobile Services:
 
-* **[Lägga till autentisering i appen]**  
-  Läs om hur du autentiserar användare i appen med en identitetsprovider.  
+* **[Lägg till autentisering i appen]**  
+  Läs om hur du autentiserar användare i appen med en identitetsleverantör.  
 
-* **[Lägga till push-meddelanden för appen](https://msdn.microsoft.com/magazine/dn879353.aspx)**  
+* **[Lägg till push-meddelanden i appen](https://msdn.microsoft.com/magazine/dn879353.aspx)**  
   Läs om hur du registrerar dig för och skickar push-meddelanden till din app.
 
 * **[HTML- och JavaScript-kodexempel för Mobile Services](mobile-services-html-how-to-use-client-library.md)**  
@@ -174,7 +174,7 @@ Nu när du har slutfört guiden kan du gå vidare och lära dig fler viktiga upp
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Lägga till autentisering i appen]: mobile-services-html-get-started-users.md
+[Lägg till autentisering i appen]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Klassisk Azure-portal]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
@@ -182,6 +182,6 @@ Nu när du har slutfört guiden kan du gå vidare och lära dig fler viktiga upp
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

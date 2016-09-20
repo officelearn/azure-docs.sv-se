@@ -1,6 +1,6 @@
 ## Skapa en händelsehubb
 
-1. Logga in på den [klassiska Azure-portalen][] och klicka på **NY** längst ner på skärmen.
+1. Logga in på den [klassiska Azure-portalen][] och klicka på **NY** längst ned på skärmen.
 
 2. Klicka på **Apptjänster**, sedan **Service Bus**, sedan **Händelsehubb** och sedan **Snabbregistrering**.
 
@@ -25,7 +25,9 @@ Din händelsehubb har nu skapats och du har de anslutningssträngar som du behö
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
 
+[klassiska Azure-portalen]: https://manage.windowsazure.com/
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

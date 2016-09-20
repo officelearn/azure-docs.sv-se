@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="08/10/2016"
  ms.author="krisragh"/>
 
 # Komma igång med Azure Scheduler på Azure-portalen
@@ -25,7 +25,7 @@ Det är enkelt att skapa schemalagda jobb i Azure Scheduler. I den här självst
 
 2.  Klicka på **+Nytt** > skriv _Scheduler_ i sökrutan >  välj **Scheduler** i resultatet > klicka på **Skapa**.
 
-   ![][marketplace-create]
+     ![][marketplace-create]
 
 3.  Vi ska skapa ett jobb som bara skickar en GET-begäran mot http://www.microsoft.com/. Ange följande information på skärmen **Scheduler-jobb**:
 
@@ -43,7 +43,7 @@ Det är enkelt att skapa schemalagda jobb i Azure Scheduler. I den här självst
 
     3.  **URL:** ` http://www.microsoft.com`  
 
-   ![][action-settings]
+      ![][action-settings]
 
 5.  Till sist ska vi definiera ett schema. Jobbet kan definieras som ett engångsjobb, men vi väljer ett upprepningsschema:
 
@@ -55,7 +55,7 @@ Det är enkelt att skapa schemalagda jobb i Azure Scheduler. I den här självst
 
     4. **Sluta**: Två dagar från dagens datum  
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  Klicka på **Skapa**
 
@@ -73,7 +73,7 @@ När ett jobb har skapats visas det på den primära Azure-instrumentpanelen. Kl
 
 5.  Användare
 
-   ![][job-overview]
+    ![][job-overview]
 
 ### Egenskaper
 
@@ -184,6 +184,6 @@ Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkoms
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

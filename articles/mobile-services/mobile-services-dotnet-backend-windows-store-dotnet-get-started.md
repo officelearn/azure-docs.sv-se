@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/11/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 
@@ -36,9 +36,9 @@ I kursen får du skapa både en ny mobiltjänst och en enkel *To do list*-app (a
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
 
-Följande krävs för att kunna genomföra kursen:
+För att kunna genomföra den här kursen behöver du följande:
 
-* Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F).
+* Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F).
 * [Visual Studio 2013].
 
 ## Skapa en ny mobiltjänst
@@ -53,7 +53,7 @@ I det här avsnittet skapar du en ny universell Windows-app som är ansluten til
 
 1. Gå till den [Klassisk Azure-portal], klicka på **Mobile Services** och sedan på den mobiltjänst som du nyss skapade.
 
-2. Välj fliken quickstart, klicka på **Windows** under **Choose platform** (Välj plattform) och expandera **Create a new Windows Store app** (Skapa en ny app för Windows Store).
+2. Välj snabbstartsfliken, klicka på **Windows** under **Choose platform** (Välj plattform) och expandera **Create a new Windows Store app** (Skapa en ny app för Windows Store).
 
     Därmed visas tre enkla steg för att skapa en Windows Store-app som är ansluten till din mobiltjänst.
 
@@ -84,7 +84,7 @@ I det här avsnittet skapar du en ny universell Windows-app som är ansluten til
             "https://todolist.azure-mobile.net/",
             "XXXX-APPLICATION-KEY-XXXXX");</code></pre>
 
-    <p>The client will now access the mobile service published to Azure.</p></li>
+    <p>Klienten har nu åtkomst till den mobila tjänst som publicerats till Azure.</p></li>
 </ol>
 
 ## Testa appen mot den lokala mobila tjänsten i Azure
@@ -104,10 +104,10 @@ Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur d
   <br/>Läs om hur du kan använda datasynkronisering offline för att ge appen kortare svarstid och göra den mer robust.
 
 * [Lägga till autentisering i Mobile Services-appen ][Komma igång med autentisering]
-  <br/>Läs om hur du autentiserar användare i appen med en identitetsprovider.
+  <br/>Läs om hur du autentiserar användare i appen med en identitetsleverantör.
 
 * [Lägga till push-meddelanden i appen][Komma igång med push-meddelanden]
-  <br/>Läs om hur du skickar grundläggande push-meddelanden till appen.
+  <br/>Läs om hur du skickar väldigt enkla push-meddelanden till appen.
 
 * [Felsöka en Mobile Services .NET-serverdel]
   <br/> Läs om hur du diagnostiserar och åtgärdar problem som kan uppstå med Mobile Services .NET-serverdelen.
@@ -136,6 +136,6 @@ Mer information om universella Windows-appar finns i [Stödja flera enhetsplattf
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

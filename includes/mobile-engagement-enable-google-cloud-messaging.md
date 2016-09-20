@@ -5,38 +5,34 @@
 
 1. Navigera till [Google Cloud-konsolen](https://console.developers.google.com/project) och logga in med dina Google-kontouppgifter.
 
-2. Klicka på **Gå till projekt** och sedan på **Skapa projekt**.
-<!--
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
+2. Gå till **Alla projekt** och klicka sedan på **Skapa projekt**.
 
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
--->
-3. Ange ett projektnamn.
+3. Ange ett **Projektnamn** och klicka på **Skapa**
 
-4. Anteckna projektnumret som visas under textrutan **Projektnamn**. Du behöver numret senare i guiden för att fylla i Android-manifestfilen.
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
-5. Klicka på **Skapa**.
+4. När projektet har skapats se till att du noterar **Projektnummer** som kommer att vara ett långt numeriskt värde. Du hittar det under **avsnittet IAM & Admin** i **Inställningar** i projektet och du kommer att behöva detta senare. 
+ 
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)
 
-6. Kontrollera i den vänstra kolumnen att **Översikt** är markerad och klicka på **Google Cloud Messaging** under mobila API:er. På nästa sida klickar du på **Aktivera**.
+5. Nu skapar vi en nyckel för Google Cloud Messaging-plattformen som ska användas av vår plattform för att skicka meddelanden till Android-enheter. Gå till avsnittet **API-hanterare** och klicka på **Google Cloud Messaging** under **Mobila API:er**. 
+
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/gcm.png)
+
+6. På nästa sida klickar du på knappen **Aktivera**. Du uppmanas via instrumentpanelen att skapa autentiseringsuppgifter. Klicka på knappen **Gå till autentiseringsuppgifter**. 
 
     ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
-<!--
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
--->
-7. På nästa sida klickar du på **Gå till autentiseringsuppgifter** och på sidan därefter väljer du **Google Cloud Messaging** i den första listrutan och **Webbserver** i den andra och klickar på **Vilka autentiseringsuppgifter behöver jag?**
+
+6. Välj **Google Cloud Messaging** från den första listrutan och **Webbserver** från den andra, och klicka sedan på **Vilka autentiseringsuppgifter behöver jag?**
 
     ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 
-8. På sidan **Lägg till autentiseringsuppgifter till ditt projekt** klickar du på **Skapa API-nyckel**.
+7. På sidan **Lägg till autentiseringsuppgifter till ditt projekt** klickar du på **Skapa API-nyckel**.
 
     ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
-<!--
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
--->
-9. Anteckna **API-NYCKEL**-värdet. Du använder API-nyckelvärdet senare för att konfigurera i avsnittet ”Systemspecifik push-avisering”. Klicka på **Klar**.
+
+8. Anteckna **API-NYCKEL**-värdet. Du använder API-nyckelvärdet senare för att konfigurera i avsnittet ”Systemspecifik push-avisering”. Klicka på **Klar**.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

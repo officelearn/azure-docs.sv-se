@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Kom igång med Azure Data Lake Store med Azure Command Line
 
 > [AZURE.SELECTOR]
-- [Portal](data-lake-store-get-started-portal.md)
+- [Portalen](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -32,7 +32,7 @@ Lär dig mer om att använda Azure-kommandoradsgränssnitt för att skapa ett Az
 Azure CLI är implementerat i Node.js. Det kan användas på alla plattformar som har stöd för Node.js, inklusive Windows, Mac- och Linux. Azure CLI är öppen källkod. Källkoden hanteras i GitHub på <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Den här artikeln beskriver bara hur man använder Azure CLI med hjälp av Data Lake Store. En allmän vägledning om hur du använder Azure CLI finns i [Så här använder du Azure CLI] [azure-command-line-tools].
 
 
-##Förutsättningar
+##Krav
 
 Innan du påbörjar den här artikeln måste du ha:
 
@@ -191,6 +191,6 @@ När du uppmanas, anger du **Y** för att ta bort kontot.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

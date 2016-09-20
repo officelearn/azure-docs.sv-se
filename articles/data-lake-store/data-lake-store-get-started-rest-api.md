@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/29/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Kom igång med Azure Data Lake Store med hjälp av REST API:er
 
 > [AZURE.SELECTOR]
-- [Portal](data-lake-store-get-started-portal.md)
+- [Portalen](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig hur du använder WebHDFS REST API:er och D
 
 >[AZURE.NOTE] Mer detaljerad information om REST API-stöd för Data Lake Store finns i [Azure Data Lake Store REST API-referens](https://msdn.microsoft.com/library/mt693424.aspx).
 
-## Förutsättningar
+## Krav
 
 - **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Aktivera din Azure-prenumeration** för en förhandsversion av Data Lake Store. Se [instruktioner](data-lake-store-get-started-portal.md#signup).
@@ -278,6 +278,6 @@ Du bör se utdata som liknar följande:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -51,7 +51,7 @@ Det här behöver du i Azure.
 **Krav** | **Detaljer**
 --- | ---
 **Azure-konto**| Du behöver ett [Microsoft Azure](https://azure.microsoft.com/)-konto. Du kan börja med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/). [Lär dig mer](https://azure.microsoft.com/pricing/details/site-recovery/) om priserna för Site Recovery.
-**Azure-lagring** | Du behöver ett Azure-lagringskonto för att lagra replikerade data. Replikerade data lagras i Azure och virtuella Azure-datorer skapas i samband med redundansväxlingen. <br/><br/>Du behöver ett [geo-redundant standardlagringskonto](../storage/storage-redundancy.md#geo-redundant-storage). Kontot måste finnas i samma region som Site Recovery-tjänsten och vara associerat med samma prenumeration. Observera att replikeringen till Premium-lagringskonton inte stöds för närvarande och därför inte bör användas.<br/><br/>[Läs om](../storage/storage-introduction.md) Azure-lagring.
+**Azure Storage** | Du behöver ett Azure-lagringskonto för att lagra replikerade data. Replikerade data lagras i Azure och virtuella Azure-datorer skapas i samband med redundansväxlingen. <br/><br/>Du behöver ett [geo-redundant standardlagringskonto](../storage/storage-redundancy.md#geo-redundant-storage). Kontot måste finnas i samma region som Site Recovery-tjänsten och vara associerat med samma prenumeration. Observera att replikeringen till Premium-lagringskonton inte stöds för närvarande och därför inte bör användas.<br/><br/>[Läs om](../storage/storage-introduction.md) Azure-lagring.
 **Azure-nätverk** | Du behöver ett virtuellt Azure-nätverk som virtuella Azure-datorer ansluter till vid en redundansväxling. Det virtuella Azure-nätverket måste finnas i samma region som Site Recovery-valvet.
 
 ## Krav för det lokala systemet
@@ -134,9 +134,13 @@ Generera en registreringsnyckel i valvet. När du har laddat ned Azure Site Reco
 
     ![InstallComplete](./media/site-recovery-vmm-to-azure-classic/install-complete.png)
 
-7. I **Internetanslutning** anger du hur providern som körs på VMM-servern ansluter till Internet. Välj **Använd standardproxyinställningar** för att använda standardinställningarna för Internet som konfigurerats på servern.
+9. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i. Klicka på *Next*.
 
-    ![Internetinställningar](./media/site-recovery-vmm-to-azure-classic/proxy.png)
+    ![Serverregistrering](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
+
+7. I **Internetanslutning** anger du hur providern som körs på VMM-servern ansluter till Internet. Välj **Anslut med befintliga proxyinställningar** för att använda standardinställningarna för Internet som konfigurerats på servern.
+
+    ![Internetinställningar](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
 
     - Om du vill använda en anpassad proxy konfigurerar du den innan du installerar providern. När du konfigurerar anpassade proxyinställningar körs ett test för att kontrollera proxyanslutningen.
     - Om du använder en anpassad proxy eller om din standardproxy kräver autentisering måste du ange proxyinformationen, inklusive proxyadress och port.
@@ -146,26 +150,23 @@ Generera en registreringsnyckel i valvet. När du har laddat ned Azure Site Reco
         - *.backup.windowsazure.com
         - *.blob.core.windows.net
         - *.store.core.windows.net
-    - Tillåt IP-adresserna som beskrivs i [IP-intervall för Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653) och HTTPS-protokollet (443). Du bör också vitlista IP-intervall för den Azure-region som du planerar att använda samt för regionen USA, västra.
+    - Tillåt IP-adresserna som beskrivs i [IP-intervall för Azure-datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653) och HTTPS-protokollet (443). Du bör också vitlista IP-intervall för den Azure-region som du planerar att använda samt för regionen USA, västra.
+    - Om du använder en anpassad proxyserver skapas ett RunAs-konto (DRAProxyAccount) i VMM automatiskt med de angivna proxyautentiseringsuppgifterna. Konfigurera proxyservern så att det här kontot kan autentiseras. Du kan ändra inställningarna för RunAs-kontot i VMM i VMM-konsolen. Du gör det genom att öppna arbetsytan **Inställningar**, expandera **Säkerhet**, klicka på **Kör som-konton** och sedan ändra lösenordet för DRAProxyAccount. Du måste starta om VMM-tjänsten så att den här inställningen börjar gälla.
 
-    - Om du använder en anpassad proxyserver skapas ett RunAs-konto (DRAProxyAccount) i VMM automatiskt med de angivna proxyautentiseringsuppgifterna. Konfigurera proxyservern så att det här kontot kan autentiseras. Du kan ändra inställningarna för RunAs-kontot i VMM i VMM-konsolen. Du gör det genom att öppna arbetsytan Inställningar, expandera Säkerhet, klicka på Kör som-konton och sedan ändra lösenordet för DRAProxyAccount. Du måste starta om VMM-tjänsten så att den här inställningen börjar gälla.
 
-8. I **Registreringsnyckel** anger du att du har laddat ned från Azure Site Recovery och kopierat till VMM-servern.
-9. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i.
+8. I **Registreringsnyckel** väljer du den nyckel som du laddade ned från Azure Site Recovery och kopierade till VMM-servern.
 
-    ![Serverregistrering](./media/site-recovery-vmm-to-azure-classic/credentials.png)
 
-10. Du kan ange en plats för att spara SSL-certifikatet som genereras automatiskt för datakryptering. Det här certifikatet används om du aktiverar datakryptering för ett VMM-moln under distributionen av Site Recovery. Skydda det här certifikatet. När du kör en redundansväxling till Azure måste du använda det för att dekryptera krypterade data.
+10.  Krypteringsinställningen används bara när du replikerar virtuella Hyper-V-datorer i VMM-moln till Azure. Om du replikerar till en sekundär plats används den inte.
 
-    ![Serverregistrering](./media/site-recovery-vmm-to-azure-classic/encryption.png)
+11.  I **Servernamn** anger du ett eget namn som identifierar VMM-servern i valvet. I en klusterkonfiguration anger du namnet på VMM-klusterrollen.
+12.  I **Synkronisera molnmetadata** väljer du om du vill synkronisera metadata för alla moln på VMM-servern med valvet. Den här åtgärden behöver bara göras en gång på varje server. Om du inte vill synkronisera alla moln kan du lämna den här inställningen avmarkerad och synkronisera varje moln individuellt i molnegenskaperna i VMM-konsolen.
 
-11. I **Servernamn** anger du ett eget namn som identifierar VMM-servern i valvet. I en klusterkonfiguration anger du namnet på VMM-klusterrollen.
+13.  Slutför processen genom att klicka på **Nästa**. Efter registreringen hämtas metadata från VMM-servern av Azure Site Recovery. Servern visas på fliken **VMM-servrar** på sidan **Servrar** i valvet.
+    
+    ![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
-12. I **Inledande synkronisering av molnmetadata** väljer du om du vill synkronisera metadata för alla moln på VMM-servern med valvet. Den här åtgärden behöver bara göras en gång på varje server. Om du inte vill synkronisera alla moln kan du lämna den här inställningen avmarkerad och synkronisera varje moln individuellt i molnegenskaperna i VMM-konsolen.
-
-    ![Serverregistrering](./media/site-recovery-vmm-to-azure-classic/friendly.png)
-
-13. Slutför processen genom att klicka på **Nästa**. Efter registreringen hämtas metadata från VMM-servern av Azure Site Recovery. Servern visas på fliken **VMM-servrar** på sidan **Servrar** i valvet.
+Efter registreringen hämtas metadata från VMM-servern av Azure Site Recovery. Servern visas på fliken **VMM-servrar** på sidan **Servrar** i valvet.
 
 ### Kommandoradsinstallation
 
@@ -204,6 +205,8 @@ Med följande parametrar:
 2. Skapa ett konto med geo-replikering aktiverat. Kontot måste finnas i samma region som Azure Site Recovery-tjänsten och vara associerat med samma prenumeration.
 
     ![Lagringskonto](./media/site-recovery-vmm-to-azure-classic/storage.png)
+
+> [AZURE.NOTE] [Migrering av lagringskonton](../resource-group-move-resources.md) mellan resursgrupper i samma prenumeration eller mellan prenumerationer stöds inte för lagringskonton som används för att distribuera Site Recovery.
 
 ## Steg 5: Installera Azure Recovery Services-agenten
 
@@ -267,9 +270,11 @@ När du har sparat inställningarna börjar ett jobb spåra mappningsförloppet.
 
 Observera att om målnätverket har flera undernät och ett av dessa undernät har samma namn som undernätet där den virtuella källdatorn finns så ansluts den virtuella replikdatorn till det målundernätverket efter en redundansväxling. Om det inte finns något målundernät med ett matchande namn ansluts den virtuella datorn till det första undernätet i nätverket.
 
+> [AZURE.NOTE] [Migrering av nätverk](../resource-group-move-resources.md) mellan resursgrupper i samma prenumeration eller mellan prenumerationer stöds inte för nätverk som används för att distribuera Site Recovery.
+
 ## Steg 8: Aktivera skydd för virtuella datorer
 
-När du har konfigurerar servrar, moln och nätverk kan du aktivera skydd för virtuella datorer i molnet. Tänk på följande:
+När du har konfigurerar servrar, moln och nätverk kan du aktivera skydd för virtuella datorer i molnet. Observera följande:
 
 - Virtuella datorer måste uppfylla [kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 - För att kunna aktivera skydd måste du ange egenskaperna för operativsystemet och operativsystemdisken för den virtuella datorn. Du kan ange egenskapen när du skapar en virtuell dator i VMM med hjälp av en mall för virtuella datorer. Du kan också ange dessa egenskaper för befintliga virtuella datorer på flikarna **Allmänt** och **Maskinvarukonfiguration** i egenskaperna för de virtuella datorerna. Om du inte anger dessa egenskaper i VMM kan du konfigurera dem på Azure Site Recovery-portalen.
@@ -333,9 +338,8 @@ Ett redundanstest simulerar redundans- och återställningsmekanismen i ett isol
 
 2. På sidan **Välj virtuella datorer** väljer du de virtuella datorer som du vill lägga till i återställningsplanen. Dessa virtuella datorer läggs till i standardgruppen för återställningsplaner – Grupp 1. Upp till högst 100 virtuella datorer i en enda återställningsplan testas.
 
-    - Om du vill kontrollera egenskaperna för virtuella datorer innan du lägger till dem i planen klickar du på den virtuella datorn på egenskapssidan för det moln som den finns i. Du kan också konfigurera egenskaper för virtuella datorer i VMM-konsolen.
-    - Skydd har aktiverats för alla virtuella datorer som visas. Listan innehåller både virtuella datorer som skydd har aktiverats för och vars inledande replikering har slutförts, och virtuella datorer som skydd har aktiverats för men vars inledande replikering har väntande status. Endast virtuella datorer vars inledande replikering har slutförts kan redundansväxlas som en del av en återställningsplan.
-
+- Om du vill kontrollera egenskaperna för virtuella datorer innan du lägger till dem i planen klickar du på den virtuella datorn på egenskapssidan för det moln som den finns i. Du kan också konfigurera egenskaper för virtuella datorer i VMM-konsolen.
+- Skydd har aktiverats för alla virtuella datorer som visas. Listan innehåller både virtuella datorer som skydd har aktiverats för och vars inledande replikering har slutförts, och virtuella datorer som skydd har aktiverats för men vars inledande replikering har väntande status. Endast virtuella datorer vars inledande replikering har slutförts kan redundansväxlas som en del av en återställningsplan.
 
     ![Skapa en återställningsplan](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
@@ -381,6 +385,6 @@ Lär dig mer om hur du [konfigurerar återställningsplaner](site-recovery-creat
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

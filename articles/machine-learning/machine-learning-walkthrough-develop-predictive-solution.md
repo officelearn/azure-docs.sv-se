@@ -1,7 +1,7 @@
 <properties
     pageTitle="Förutsägelseanalys för kreditrisk med Machine Learning | Microsoft Azure"
     description="En detaljerad genomgång av hur du skapar en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning Studio."
-    keywords="credit risk, predictive analytics solution,risk assessment"
+    keywords="kreditrisk, lösning för förutsägelseanalys, riskbedömning"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/10/2016"
     ms.author="garye"/>
 
 
@@ -27,6 +27,8 @@ Kreditriskbedömning är förstås komplicerat, men vi kan förenkla frågeparam
 I den här detaljerade genomgången följer vi processen när en modell för förutsägelseanalys utvecklas i Machine Learning Studio och sedan distribueras som en Azure Machine Learning-webbtjänst. Vi börjar med offentligt tillgängliga kreditriskuppgifter, utvecklar och tränar en förutsägelsemodell baserat på dessa data och distribuerar sedan modellen som en webbtjänst som andra kan använda för kreditriskbedömning.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+<!-- -->
 
 >[AZURE.TIP] Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
 
@@ -43,6 +45,6 @@ Den här genomgången är baserad på en förenklad version av exempelexperiment
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

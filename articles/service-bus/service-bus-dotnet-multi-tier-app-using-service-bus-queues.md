@@ -61,7 +61,7 @@ I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 
 ## Konfigurera utvecklingsmiljön
 
-Innan du kan börja utveckla Azure-appar måste du hämta verktyg och konfigurera din utvecklingsmiljö.
+Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som krävs och ställa in din utvecklingsmiljö.
 
 1.  Installera Azure SDK för .NET på [Hämta verktyg och SDK][].
 
@@ -71,47 +71,13 @@ Innan du kan börja utveckla Azure-appar måste du hämta verktyg och konfigurer
 
 5.  I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
 
-6.  När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-appar i Visual Studio på ett enkelt sätt. Om du inte har Visual Studio installerat på din dator, kommer SDK även att installera den kostnadsfria versionen Visual Studio Express.
+6.  När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt. Om du inte har Visual Studio installerat på din dator kommer SDK även att installera den kostnadsfria versionen Visual Studio Express.
 
-## Skapa ett namnområde för Service Bus
+## Skapa ett namnområde
 
-Nästa steg är att skapa ett namnområde för tjänsten och få en nyckel till signatur för delad åtkomst (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet och SAS-nyckeln ger referensen för Service Bus som används för att tillåta åtkomst till ett program.
+Nästa steg är att skapa ett namnområde för tjänsten och få en nyckel till signatur för delad åtkomst (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnområdet och SAS-nyckeln ger referensen för Service Bus som används för att tillåta åtkomst till ett program.
 
-### Konfigurera namnområdet med hjälp av den klassiska Azure-portalen
-
-1.  Logga in på den [klassiska Azure-portalen][].
-
-2.  I portalens vänstra navigationsfält klickar du på **Service Bus**.
-
-3.  I den understa rutan i portalen klickar du på **Skapa**.
-
-    ![][6]
-
-4.  På sidan **Lägg till ett nytt namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-
-    ![][7]
-
-5.  Efter att du kontrollerat att namnet är tillgängligt, väljer du land eller region där namnområdet ska vara beläget (se till att använda samma land/region som du distribuerar dina beräkningsresurser i). Kontrollera också att du väljer **Meddelandefunktion** i fältet **Typ** för namnområdet och **Standard** i fältet **Nivå för meddelandefunktion**.
-
-    > [AZURE.IMPORTANT] Välj **samma region** som du tänker välja för att distribuera ditt program. Så får du bäst prestanda.
-
-6.  Klicka på kryssmarkeringen OK. Systemet skapar namnområdet för tjänsten och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
-
-7.  Klicka på namnet för tjänstens namnområde i huvudfönstret.
-
-8. Klicka på **Anslutningsinformation**.
-
-9.  I fönstret **Anslutningsinformation för åtkomst** hittar du den anslutningssträng som innehåller SAS-nyckeln och nyckelnamnet.
-
-    ![][35]
-
-10.  Skriv ned dessa autentiseringsuppgifter, eller kopiera dem till Urklipp.
-
-11. Klicka på fliken **Konfigurera** högst upp på samma portalsida.
-
-12. Kopiera den primära nyckeln för principen **RootManageSharedAccessKey** till Urklipp eller klistra in den i Anteckningar. Du kommer att använda det här värdet senare under självstudiekursen.
-
-    ![][36]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Skapa en webbroll
 
@@ -272,7 +238,7 @@ Nu ska du lägga till kod för att skicka objekt till en kö. Först måste du s
 
 2.  Ge klassen namnet **QueueConnector.cs**. Klicka på **Lägg till** för att skapa klassen.
 
-3.  Lägg nu till kod som innehåller anslutningsinformationen och initierar anslutningen till en Service Bus-kö. Ersätt hela innehållet i QueueConnector.cs med följande kod och ange värden för `your Service Bus namespace` (namnet på ditt namnområde) och `yourKey`, som är den **primärnyckel** som du tidigare hämtade från den [klassiska Azure-portalen][] i steg 12 i avsnittet ”Skapa ett namnområde för Service Bus”.
+3.  Lägg nu till kod som innehåller anslutningsinformationen och initierar anslutningen till en Service Bus-kö. Ersätt hela innehållet i QueueConnector.cs med följande kod och ange värden för `your Service Bus namespace` (namnet på ditt namnområde) och `yourKey`, som är den **primärnyckel** som du tidigare hämtade från Azure Portal.
 
     ```
     using System;
@@ -473,9 +439,6 @@ Mer information om flernivåscenarier finns i:
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [klassiska Azure-portalen]: http://manage.windowsazure.com
-  [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-  [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -493,16 +456,14 @@ Mer information om flernivåscenarier finns i:
   [25]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-  [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-  [36]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/service-bus-policies.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md  
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

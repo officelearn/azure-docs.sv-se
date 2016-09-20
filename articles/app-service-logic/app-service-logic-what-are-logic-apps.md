@@ -4,85 +4,86 @@
     authors="kevinlam1" 
     manager="dwrede" 
     editor="" 
-    services="app-service\logic" 
+    services="logic-apps" 
     documentationCenter=""/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article" 
-    ms.date="04/07/2016"
+    ms.date="07/12/2016"
     ms.author="klam"/>
 
 #Vad är Logic Apps?
 
-| Snabbreferens |
-| --------------- |
-| [Definitionsspråk för Logic Apps](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
-| [Dokumentation om logikappskopplingar](../connectors/apis-list.md) |
-| [Forum för Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
+Logic Apps är ett sätt att förenkla och implementera skalbara integreringar och arbetsflöden i molnet. Tjänsten tillhandahåller ett visuellt designverktyg för modellering och automatisering av processer som en serie steg kallade ett arbetsflöde.  Det finns [många anslutningsappar](../connectors/apis-list.md) för molnet och lokala infrastrukturer för snabb integrering mellan tjänster och protokoll.  En logikapp börjar med en utlösare (t.ex. ”när ett konto läggs till i Dynamics CRM”) och kan när den utlösts starta många kombinationer av åtgärder, konverteringar och villkorslogik.
 
-Azure Apptjänst är en helt hanterad PaaS (plattform som en tjänst) för utvecklare som gör det enklare att skapa webb-, mobil- och integrationsappar. Logic Apps är en del av den här sviten och de gör det möjligt för tekniska användare och utvecklare att automatisera affärsprocesskörningar och arbetsflöden med hjälp av en lättanvänd visuell designer.
+Här är några exempel på fördelarna med att använda Logic Apps:  
 
-Det bästa är att Logic Apps kan kombineras med inbyggda [hanterade API:er][managedapis] så att du enkelt kan komma till rätta med komplicerade integrationsscenarier: 
+- Spara tid genom att skapa komplexa processer med användarvänliga designverktyg.
+- Implementera mönster och arbetsflöden sömlöst som annars skulle vara svåra att implementera i kod.
+- Kom snabbt igång med hjälp av mallar.
+- Anpassa din logikapp med egna anpassade API:er, kod och åtgärder.
+- Anslut och synkronisera separata system i den lokala infrastrukturen och i molnet.
+- Utveckla med BizTalk Server, API Management, Azure Functions och Azure Service Bus med förstklassigt integrationsstöd.
+
+Logic Apps är en helt hanterad iPaaS (integration Platform as a Service) som gör att utvecklare slipper bekymra sig om värdhantering, skalbarhet, tillgänglighet och hantering.  Logic Apps skalas upp automatiskt baserat på efterfrågan.
 
 ![Designer för flödesappar](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
 
-Som tidigare nämnts kan du med hjälp av Logic Apps automatisera affärsprocesser. Här följer några exempel:  
+Som vi redan nämnt kan du automatisera affärsprocesser med Logic Apps. Här följer några exempel:  
  
-* Du kan automatiskt replikera nya poster i din SQL-databas och sedan skicka e-post till receptionen.   
-* Automatiskt hitta negativa tweets och skicka dem till en Slack-kanal.
+* Flytta filer som laddats upp till en FTP-server till Azure Storage.
+* Behandla och dirigera order i lokala system och molnsystem.
+* Övervaka alla tweets om ett visst ämne, analysera sentiment och skapa aviseringar och aktiviteter för objekt som kräver uppföljning.
 
-Alla scenarier av den här typen kan konfigureras från den visuella designern utan att du behöver skriva en enda rad kod. Kom igång med att [skapa din logikapp nu][skapa].
+Alla scenarier av den här typen kan konfigureras från den visuella designern utan att du behöver skriva en enda rad kod. Kom igång med att [skapa din logikapp nu][skapa].  När den har skrivits kan en logikapp [snabbt distribueras och konfigureras om](app-service-logic-create-deploy-template.md) i flera miljöer och områden.
 
 ## Vad är Logic Apps till för?
 
-Logic Apps gör det möjligt för utvecklare att utforma arbetsflöden som startar från en utlösare och sedan kör en serie steg. Varje steg anropar en API och tar samtidigt på ett säkert sätt hand om autentisering och bästa praxis, till exempel kontrollpunkter och varaktig körning.
+Logic Apps levererar hastighet och skalbarhet för företagsintegreringar.  Det användarvänliga designverktyget, de många tillgängliga utlösarna och åtgärderna och de kraftfulla hanteringsverktygen gör det enklare än någonsin att centralisera dina API:er.  Företag som rör sig mot digitalisering kan använda Logic Apps för att koppla ihop äldre och moderna system.
 
-Om du vill automatisera en affärsprocess (t.ex. hitta negativa tweets och skicka dem till din interna Slack-kanal eller replikera nya kundposter från SQL till CRM-systemet samtidigt som de kommer in) blir det med Logic Apps enkelt att integrera olika datakällor, från molnet till lokala källor. Kolla in våra [hanterade API:er][managedapis] för mer inspiration och [kom igång][skapa] nu och se vad du kan göra. 
+Med vårt [Enterprise-integrationskonto][biztalk] kan du dessutom skala till mogna integrationsscenarier med kraften i [XML-meddelanden][xml], [partnerhantering][tpm] och mer.
 
-Med våra [BizTalk-hanterade API:er][biztalk] kan du skala till mogna integrationsscenarier med kraften i en [regelmotor][regler], i [hantering av handelspartners][tpm] och mycket mer.
+- **Användarvänligt designverktyg** – Logic Apps kan konfigureras från slutpunkt till slutpunkt i webbläsaren eller med Visual Studio-verktyg. Börja med en utlösare – från ett enkelt schema till uppkomsten av ett GitHub-problem. Sedan kan du dirigera valfritt antal åtgärder med hjälp av det utförliga galleriet med kopplingar.
 
-- **Lättanvända designverktyg** – Logic Apps kan skapas från grunden till färdig produkt i webbläsaren. Starta med en utlösare – från ett enkelt schema till när en tweet om ditt företag dyker upp. Sedan kan du dirigera valfritt antal åtgärder med hjälp av det utförliga galleriet med kopplingar.
+- **API-anslutning** – Till och med skrivuppgifter som är lätta att beskriva är svåra att implementera i kod. Logic Apps gör det enkelt att ansluta olika system. Vill du ansluta din marknadsföringslösning i molnet till ditt lokala faktureringssystem? Vill du centralisera meddelandehanteringen mellan API:er och system med en Enterprise Service Bus? Logic Apps är det snabbaste och mest tillförlitliga sättet att leverera lösningar på sådana här problem.
 
-- **Skriv SaaS enkelt** – Till och med skrivuppgifter som är lätta att beskriva är svåra att implementera i kod. Logic Apps gör det lätt att ansluta olika system. Vill du skapa en uppgift i din CRM-programvara som baseras på aktiviteten i dina Facebook- eller Twitter-konton? Vill du ansluta din marknadsföringslösning i molnet till ditt lokala faktureringssystem? Logic Apps är det snabbaste och mest tillförlitliga sättet att leverera lösningar på sådana här problem.
+- **Kom igång snabbt med mallar** – För att hjälpa dig att komma igång har vi skapat ett [galleri med mallar][mallar] med vars hjälp du snabbt kan skapa ett antal vanliga lösningar. Med allt från avancerade B2B-lösningar till enkla SaaS-anslutningar, och några lösningar bara för skojs skull, är galleriet det snabbaste sättet att komma igång med och utnyttja kraften i Logic Apps.
 
-- **Kom igång snabbt med mallar** – För att hjälpa dig att komma igång har vi skapat ett [galleri med mallar][mallar] med vars hjälp du snabbt kan skapa ett antal vanliga lösningar. Med allt från avancerade BizTalk-lösningar till enkel SaaS-anslutningsbarhet, och till och med några lösningar bara för skojs skull, är galleriet det snabbaste sättet att förstå hur kraftfulla Logic Apps är.
+- **Inbyggd skalbarhet** – Ser du inte den anslutningsapp som du behöver? Logic Apps är utformat att fungera med dina API:er och din kod. Du kan enkelt skapa en egen API-app och använda som en anpassad anslutningsapp eller göra ett anrop till en [Azure-funktion](https://functions.azure.com) för att köra kodfragment på begäran. 
 
-- **Inbyggd utökningsbarhet** – Hittar du inte den API du behöver? Logic Apps är utformade för att fungera med API Apps. Du kan enkelt skapa din egen API-app och använda den som en anpassad API. Skapa en ny app som bara du använder, eller dela och tjäna pengar på marknadsplatsen.
-
-- **Verklig integrationskraft** – Starta enkelt och utöka i takt med dina behov. Logic Apps kan enkelt utnyttja kraften i BizTalk, Microsofts branschledande integrationslösning, och gör det möjligt för integrationstekniker att skapa de lösningar de behöver. Lär dig mer om [BizTalk-funktionerna som finns i Logic Appsna][biztalk].
+- **Verklig integrationskraft** – Starta enkelt och utöka i takt med dina behov. Logic Apps kan enkelt utnyttja kraften i BizTalk, Microsofts branschledande integrationslösning, och gör det möjligt för integrationstekniker att skapa de lösningar de behöver. Lär dig mer om [Enterprise-integrationspaketet](./app-service-logic-enterprise-integration-overview.md).
 
 ## Logikappkoncept
 
 Följande är några av de viktiga punkter som ingår i logikappupplevelsen. 
 
 - **Arbetsflöde** – Med Logic Apps kan du på ett grafiskt sätt beskriva dina affärsprocesser som en serie steg eller ett arbetsflöde.
-- **Hanterade API:er** – Dina Logic Apps behöver åtkomst till data och tjänster. Hanterade API:er är speciellt utformade för att hjälpa dig när du ansluter till och arbetar med dina data. Se en lista över API:er som för tillfället finns tillgängliga i [hanterade API:er][managedapis].
-- **Utlösare** – Vissa hanterade API:er kan också fungera som utlösare. En utlösare startar en ny instans av ett arbetsflöde baserat på en händelse som till exempel ankomsten av ett mejl eller en ändring i ditt Azure Storage-konto.
--  **Åtgärder** – Alla steg efter utlösaren i ett arbetsflöde kallas för åtgärder. Alla åtgärder mappar vanligtvis till en åtgärd i dina hanterade eller anpassade API Apps.
-- **BizTalk** – För mer avancerade integrationsscenarier innehåller Logic Apps funktioner från Biztalk. BizTalk är Microsofts branschledande integrationsplattform. Med BizTalk-API Appsna kan du enkelt inkludera verifiering, transformation, regler och mycket mer i dina logikappsarbetsflöden. Läs mer i [Vad är BizTalk-API Apps][biztalk].
+- **Hanterade anslutningsappar** – Dina logikappar behöver åtkomst till data och tjänster. Hanterade anslutningsappar är speciellt utformade för att hjälpa dig när du ansluter till och arbetar med dina data. En lista över tillgängliga anslutningsappar finns i [Hanterade anslutningsappar][managedapis].
+- **Utlösare** – Vissa hanterade anslutningsappar kan också fungera som utlösare. En utlösare startar en ny instans av ett arbetsflöde baserat på en händelse som till exempel ankomsten av ett mejl eller en ändring i ditt Azure Storage-konto.
+-  **Åtgärder** – Alla steg efter utlösaren i ett arbetsflöde kallas för åtgärder. En åtgärd mappar vanligtvis till en åtgärd i dina hanterade anslutningsappar eller anpassade API-appar.
+- **Enterprise-integrationspaket** – Logic Apps innehåller funktioner från BizTalk för mer avancerade integrationsscenarier. BizTalk är Microsofts branschledande integrationsplattform. Med anslutningsapparna för Enterprise-integrationspaketet kan du enkelt integrera verifiering, transformering och mer i dina Logic Apps-arbetsflöden.
 
 ## Komma igång  
 
- - Kom igång med Logic Apps genom att följa kursen [skapa en logikapp][skapa].  
- - [Visa vanliga exempel och scenarier](app-service-logic-examples-and-scenarios.md)
- - [Du kan automatisera affärsprocesser med hjälp av Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
- - [Lär dig hur du integrerar dina system med Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
-- Mer information om Azure Apptjänst-plattformen finns på [Azure Apptjänst][appservice].
+- Kom igång med Logic Apps genom att följa kursen [skapa en logikapp][skapa].  
+- [Visa vanliga exempel och scenarier](app-service-logic-examples-and-scenarios.md)
+- [Du kan automatisera affärsprocesser med hjälp av Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
+- [Lär dig hur du integrerar dina system med Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
-[biztalk]: app-service-logic-what-are-biztalk-api-apps.md
+[biztalk]: app-service-logic-enterprise-integration-accounts.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [skapa]: app-service-logic-create-a-logic-app.md
 [managedapis]: ../connectors/apis-list.md
-[tpm]: app-service-logic-create-a-trading-partner-agreement.md
-[regler]: app-service-logic-use-biztalk-rules.md
+[tpm]: app-service-logic-enterprise-integration-accounts.md
+[xml]: app-service-logic-enterprise-integration-b2b.md
 [mallar]: app-service-logic-use-logic-app-templates.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

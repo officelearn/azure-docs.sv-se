@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Komma igång med webbtjänsten MFA Server Mobile App
@@ -91,6 +91,7 @@ Nu när Mobile App-webbtjänsten är installerad måste du konfigurera Azure Mul
  
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

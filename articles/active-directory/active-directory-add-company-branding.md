@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/16/2016" 
+    ms.date="07/13/2016"
     ms.author="MarkVi"/>
 
 # Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag
@@ -46,9 +46,7 @@ När du besöker en tjänst med en URL som inte är specifik för en klientorgan
 
 > [AZURE.NOTE]
 >
-
 - Domännamnet måste visas som ”Aktiv” i avsnittet **Active Directory** > **Katalog** > **Domäner** på den klassiska Azure-portalen där du har konfigurerat anpassningen.
-
 - Anpassningen av inloggningssidan överförs inte till Microsofts konsumentinloggningssida. Om du loggar in med ett personligt Microsoft-konto kan du se en företagsanpassad lista över användarikoner som återges av Azure AD, men organisationens företagsanpassning används inte på inloggningssidan för Microsoft-konton.
 
 
@@ -107,7 +105,7 @@ Du kan också lokalisera alla element på den här sidan. När du har konfigurer
 
 ## Anpassning av åtkomstpanelsidan
 
-Åtkomstpanelsidan är i grunden en portalsida för snabb åtkomst till molnappar som du har beviljats åtkomst till av administratören. På den här sidan visas dina appar som klickbara programpaneler. 
+Åtkomstpanelsidan är i grunden en portalsida för snabb åtkomst till molnappar som du har beviljats åtkomst till av administratören. På den här sidan visas dina appar som klickbara programpaneler.
 
 
 Följande skärmbild visar ett exempel på en åtkomstpanelsida efter anpassningen.
@@ -118,14 +116,14 @@ Följande skärmbild visar ett exempel på en åtkomstpanelsida efter anpassning
 
 Du kan konfigurera en standarduppsättning med anpassningsbara element för varje katalog på den klassiska Azure-portalen. När standardinställningarna har sparats kan en administratör lägga till lokaliserade versioner av varje element för olika språk. Alla anpassningsbara element är valfria.
 
-Om du till exempel konfigurerar en standardbanderollslogotyp men ingen stor bild så visas din logotyp längst upp till höger på inloggningssidan. Dock visas webbplatsens standardbild. 
+Om du till exempel konfigurerar en standardbanderollslogotyp men ingen stor bild så visas din logotyp längst upp till höger på inloggningssidan. Dock visas webbplatsens standardbild.
 
 Föreställ dig följande konfiguration:
 
-- En standardbanderollslogotyp och text på engelska på en inloggningssida 
-- Text på tyska på en språkspecifik inloggningssida 
+- En standardbanderollslogotyp och text på engelska på en inloggningssida
+- Text på tyska på en språkspecifik inloggningssida
 
-Om din språkinställning är tyska visas standardbanderollslogotypen men med den tyska texten. 
+Om din språkinställning är tyska visas standardbanderollslogotypen men med den tyska texten.
 
 Tekniskt sett kan du konfigurera olika uppsättningar för varje språk som stöds av Azure AD, men av prestanda- och underhållsskäl rekommenderar vi att du nöjer dig med några få varianter.
 
@@ -166,7 +164,7 @@ Det kan ta upp till en timme innan nya ändringar som du har gjort på inloggnin
 
     c. Ta bort texten från alla textrutor.
 
-    d. Klicka på **Nästa**.
+    d. Klicka på **Next**.
 
     e. Ta bort texten från alla textrutor.
 
@@ -180,8 +178,8 @@ Vi rekommenderar att du experimenterar med en testklient innan du gör ändringa
 
 **Så här kontrollerar du om din företagsanpassning har tillämpats:**
 
-1. Öppna en InPrivate- eller Incognito-webbläsarsession. 
-2. Besök https://outlook.com/contoso.com och ersätt contoso.com med den domän som du har anpassat. 
+1. Öppna en InPrivate- eller Incognito-webbläsarsession.
+2. Besök https://outlook.com/contoso.com och ersätt contoso.com med den domän som du har anpassat.
 
 Detta fungerar även med domäner som ser ut som contoso.onmicrosoft.com.
 
@@ -224,6 +222,6 @@ Bakgrundsfärg på inloggningssidan | Bakgrundsfärgen på inloggningssidan anv�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

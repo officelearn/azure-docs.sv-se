@@ -2,7 +2,7 @@
     pageTitle="Anslut Excel till SQL Database | Microsoft Azure"
     description="Lär dig hur man ansluter Microsoft Excel till en Azure SQL-databas i molnet. Importera data till Excel för rapportering och dataundersökning."
     services="sql-database"
-    keywords="connect excel to sql, import data to excel"
+    keywords="ansluta excel till sql, importera data till excel"
     documentationCenter=""
     authors="joseidz"
     manager="jhubbard"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/25/2016"
+    ms.date="07/05/2016"
     ms.author="joseidz"/>
 
 
@@ -86,6 +86,6 @@ Nu när du har etablerat anslutningen och skapat filen med data och anslutningsi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

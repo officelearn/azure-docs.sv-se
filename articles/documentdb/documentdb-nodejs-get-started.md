@@ -1,7 +1,7 @@
 <properties
   pageTitle="Självstudie om NoSQL Node.js för DocumentDB | Microsoft Azure"
   description="En självstudie om NoSQL Node.js där du skapar en Node-databas och ett konsolprogram med DocumentDB Node.js SDK. DocumentDB är en NoSQL-databas för JSON."
-    keywords="node.js tutorial, node database"
+    keywords="självstudier för node.js, noddatabas"
   services="documentdb"
   documentationCenter="node.js"
   authors="AndrewHoh"
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="node"
   ms.topic="hero-article"
-  ms.date="04/26/2016"
+  ms.date="08/11/2016"
   ms.author="anhoh"/>
 
 # Självstudie om NoSQL Node.js: DocumentDB Node.js-konsolprogram  
@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Välkommen till självstudien om Node.js för DocumentDB Node.js SDK! När du har följt den här självstudien har du ett konsolprogram som skapar och skickar frågor till DocumentDB-resurser, inklusive en Node-databas.
+Välkommen till självstudien om Node.js för Azure DocumentDB Node.js SDK! När du har följt den här självstudien har du ett konsolprogram som skapar och skickar frågor till DocumentDB-resurser, inklusive en Node-databas.
 
 Vi tar upp följande:
 
@@ -56,7 +56,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> Steg 2: Konfigurera Node.js-programmet
+## <a id="SetupNode"></a>Steg 2: Konfigurera Node.js-programmet
 
 1. Öppna valfri terminal.
 2. Leta reda på mappen eller katalogen där du vill spara Node.js-programmet.
@@ -72,7 +72,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
 
 Bra! Nu när vi har slutfört installationen kan vi börja skriva kod.
 
-##<a id="Config"></a> Steg 3: Ange appkonfigurationer
+## <a id="Config"></a>Steg 3: Ange appkonfigurationer
 
 Öppna ```config.js``` i valfri textredigerare.
 
@@ -598,7 +598,7 @@ Du bör nu se utdata från din kom-igång-app. Dina utdata bör motsvara exempel
 
 Grattis! Du har slutfört självstudien om Node.js och skapat ditt första DocumentDB-konsolprogram!
 
-##<a id="GetSolution"></a> Hämta den fullständiga lösningen till Node.js-självstudien
+## <a id="GetSolution"></a>Hämta den fullständiga lösningen till Node.js-självstudien
 För att bygga GetStarted-lösningen med alla exempel i den här artikeln behöver du följande:
 
 -   [DocumentDB-konto][documentdb-create-account].
@@ -623,6 +623,6 @@ Sedan uppdaterar du värdena config.endpoint och config.authKey i filen ```confi
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

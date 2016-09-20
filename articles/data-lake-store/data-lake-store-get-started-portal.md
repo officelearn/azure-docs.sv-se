@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Kom igång med Azure Data Lake Store med hjälp av Azure Portal
@@ -29,7 +29,7 @@
 
 Lär dig mer om att använda Azure Portal för att skapa ett Azure Data Lake Store-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta filer, ta bort ditt konto, osv. Mer information om Data Lake Store finns i [Översikt över Azure Data Lake Store](data-lake-store-overview.md).
 
-## Förutsättningar
+## Krav
 
 Innan du påbörjar de här självstudierna måste du ha:
 
@@ -136,9 +136,10 @@ Om du vill ta bort ett Azure Data Lake Store-konto från dina Data Lake Store-bl
 - [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
 - [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Använd Azure HDInsight med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Åtkomst till diagnostikloggar för Data Lake Store](data-lake-store-diagnostic-logs.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

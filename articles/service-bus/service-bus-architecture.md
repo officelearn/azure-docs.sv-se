@@ -1,23 +1,23 @@
 <properties 
     pageTitle="Service Bus-arkitektur | Microsoft Azure"
-    description="Här beskrivs arkitekturen för meddelandebehandling i Azure Service Bus."
+    description="Här beskrivs arkitekturen för behandling av meddelanden och vidarebefordran i Azure Service Bus."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Service Bus-arkitektur
 
-I den här artikeln beskrivs arkitekturen för meddelandebehandling i Azure Service Bus.
+I den här artikeln beskrivs arkitekturen för behandling av meddelanden och vidarebefordran i Azure Service Bus.
 
 ## Service Bus-skalningsenheter
 
@@ -53,14 +53,14 @@ Klienterna kan utbyta meddelanden via gateway-noden som används för rendezvous
 
 ## Nästa steg
 
-Nu när du har läst en översikt över hur Service Bus fungerar kan du använda följande länkar för att komma igång:
+Nu när du har läst en översikt över arkitekturen i Service Bus kan du använda följande länkar för att komma igång:
 
-- [Översikt över Service Bus-meddelanden](service-bus-messaging-overview.md)
+- [Översikt över meddelandetjänsten i Service Bus](service-bus-messaging-overview.md)
 - [Grunderna om Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [En lösning för köade meddelanden som använder Service Bus-köer.](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Kom igång med Azure Data Lake Store med hjälp av Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal](data-lake-store-get-started-portal.md)
+- [Portalen](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -29,7 +29,7 @@
 
 Lär dig mer om att använda Azure PowerShell för att skapa ett Azure Data Lake Store-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta filer, ta bort ditt konto, osv. Mer information om Data Lake Store finns i [Översikt över Data Lake Store](data-lake-store-overview.md).
 
-## Förutsättningar
+## Krav
 
 Innan du påbörjar de här självstudierna måste du ha:
 
@@ -43,7 +43,7 @@ Se avsnittet Förutsättningar i [Använda Azure PowerShell med hjälp av Azure 
 
 ## Skapa ett Azure Data Lake Store-konto
 
-1. Öppna ett nytt Azure PowerShell-fönster på skrivbordet och ange följande fragment för att logga in på kontot, ställ in prenumerationen och registrera Data Lake Store-providern. När du uppmanas att logga in, se till att logga in som en av prenumerationens admininistratörer/ägare:
+1. Öppna ett nytt Windows PowerShell-fönster på skrivbordet och ange följande fragment för att logga in på kontot, ställ in prenumerationen och registrera Data Lake Store-providern. När du uppmanas att logga in, se till att logga in som en av prenumerationens admininistratörer/ägare:
 
         # Log in to your Azure account
         Login-AzureRmAccount
@@ -143,6 +143,6 @@ När du uppmanas, anger du **Y** för att ta bort kontot.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

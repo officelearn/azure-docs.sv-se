@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/31/2016"
+    ms.date="08/15/2016"
     ms.author="mbaldwin" />
 
 
 
 # Testa Azure RemoteApp på din enhet i 3 minuter eller mindre
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 
 Vill du se Azure RemoteApp på enheten? Du kan komma åt vår demodistribution i 10 minuter om du har ett Microsoft-konto. Office och några andra program finns tillgängliga. Det är ett bra sätt att testa användarupplevelsen för Azure RemoteApp på mindre än 3 minuter.
 
@@ -37,6 +40,6 @@ Din åsikt är viktig. I slutet av varje session visas en dialogruta för din fe
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

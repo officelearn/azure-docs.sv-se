@@ -11,11 +11,11 @@ Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotol
 
         info:    New mode is arm
 
-3. Kör vid behov **azure group create** för att skapa en ny resursgrupp som det visas nedan. Notera kommandots utdata. Listan som visas efter utdatan beskriver de parametrar som används. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/virtual-network/resource-group-overview.md/#resource-groups).
+3. Kör vid behov **azure group create** för att skapa en ny resursgrupp som det visas nedan. Observera kommandots utdata. Listan som visas efter alla utdata förklarar parametrarna som använts. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/virtual-network/resource-group-overview.md#resource-groups).
 
         azure group create -n TestRG -l centralus
 
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
 
         info:    Executing command group create
         + Getting resource group TestRG
@@ -36,7 +36,7 @@ Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotol
 
         azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
 
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
 
         info:    Executing command network vnet create
         + Looking up virtual network "TestVNet"
@@ -56,11 +56,11 @@ Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotol
     - **-a (eller --address-prefixes)**. Lista över CIDR-block som används för VNet-adressutrymmet. I vårt scenario, *192.168.0.0/16*
     - **-l (eller --location)**. Azure-region där VNet kommer att skapas. I vårt scenario, *centralus*.
 
-5. Kör kommandot **azure network vnet subnet create** för att skapa ett undernät som det visas nedan. Notera kommandots utdata. Listan som visas efter utdatan beskriver de parametrar som används.
+5. Kör kommandot **azure network vnet subnet create** för att skapa ett undernät som det visas nedan. Observera kommandots utdata. Listan som visas efter alla utdata förklarar parametrarna som använts.
 
         azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
 
         info:    Executing command network vnet subnet create
         + Looking up the subnet "FrontEnd"
@@ -86,7 +86,7 @@ Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotol
 
         azure network vnet show -g TestRG -n TestVNet
 
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
 
         info:    Executing command network vnet show
         + Looking up virtual network "TestVNet"
@@ -108,6 +108,6 @@ Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotol
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

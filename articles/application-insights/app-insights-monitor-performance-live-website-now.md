@@ -12,39 +12,41 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="08/24/2016"
     ms.author="awills"/>
 
 
-# Installera Application Insights Status Monitor och övervaka prestanda på webbplatser
+# Instrumentera webbappar vid körning med Application Insights
 
 *Application Insights finns endast som förhandsversion.*
 
-Med Status Monitor i Visual Studio Application Insights kan du diagnostisera undantag och prestandaproblem i ASP.NET-program. 
+Du kan instrumentera en live-webbapp med Visual Studio Application Insights utan att behöva ändra eller omdistribuera din kod. Om dina appar finns på en lokal IIS-server installerar du Statusövervakare. Om de är Azure-webbappar eller körs i en virtuell Azure-dator kan du installera Application Insights-tillägget. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).)
 
 ![exempeldiagram](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP] Det finns olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).
+Du kan tillämpa Application Insights på dina .NET-webbprogram på tre sätt:
+
+* **Under utvecklingen:** [Lägg till Application Insights SDK][greenbrown] i webbappens kod. 
+* **Körtid:** Instrumentera din webbapp på servern, så som beskrivs nedan, utan att behöva bygga om och omdistribuera koden.
+* **Båda:** Skapa SDK:n i din webbappskod, och tillämpa även körningstilläggen. Få ut det bästa av två världar. 
+
+Här är en sammanfattning av vad du får i de respektive fallen:
+
+||Byggtid|Körtid|
+|---|---|---|
+|Förfrågningar och undantag|Ja|Ja|
+|[Mer detaljerade undantag](app-insights-asp-net-exceptions.md)||Ja|
+|[Beroendediagnostik](app-insights-asp-net-dependencies.md)|Om .NET 4.6 +|Ja|
+|[Systemprestandaräknare](app-insights-web-monitor-performance.md#system-performance-counters)||IIS- eller Azure-molntjänster, inte Azure webbapp|
+|[API för anpassad telemetri-][api]|Ja||
+|[Spårningsloggsintegrering](app-insights-asp-net-trace-logs.md)|Ja||
+|[Sidvy och användardata](app-insights-javascript.md)|Ja||
+|Du behöver inte återskapa kod|Nej||
 
 
-Du kan tillämpa Application Insights på IIS-webbprogram på tre sätt:
-
-* **Under utvecklingen:** [Lägg till Application Insights SDK][greenbrown] i webbappens kod. Detta ger tillgång till:
- * En uppsättning diagnostik- och användningstelemetri.
- * Med [Application Insights API][api] kan du skriva egen telemetri för att spåra detaljerade användnings- och diagnostikproblem.
-* **Under körningen:** Använd Status Monitor för att instrumentera webbappen på servern.
- * Övervaka webbprogram som redan körs: du behöver inte återskapa eller publicera dem igen.
- * En uppsättning diagnostik- och användningstelemetri.
- * Beroendediagnostik – identifiera fel eller låga prestanda där din app använder andra komponenter, t.ex databaser, REST-API:er eller andra tjänster.
- * Felsök eventuella problem med telemetri.
-* **Under utvecklingen och körningen:** Kompilera SDK i webbappens kod och kör Status Monitor på webbservern.  Det bästa av två världar:
- * Enkel diagnostik- och användningstelemetri.
- * Beroendediagnostik.
- * Med API:et kan du skriva anpassad telemetri.
- * Felsök eventuella problem med SDK och telemetri.
 
 
-## Installera Application Insights Status Monitor
+## Instrumentera din webbapp under körning
 
 Du behöver en [Microsoft Azure](http://azure.com)-prenumeration.
 
@@ -87,9 +89,15 @@ När du har slutfört guiden kan du konfigurera agenten igen när du vill. Du ka
 
 ### Om din app körs som en Azure-webbapp
 
-Lägg till Application Insights-tillägget på kontrollpanelen för din Azure-webbapp.
+1. Skapar en Application Insights-resurs av typen ASP.NET på [Azure Portal](https://portal.azure.com). Det är här som din programtelemetri lagras, analyseras och visas.
 
-![I webbappen går du till Inställningar, Tillägg, Lägg till, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+    ![Lägg till, Application Insights. Välj ASP.NET-typ.](./media/app-insights-monitor-performance-live-website-now/01-new.png)
+     
+2. Öppna kontrollbladet i din Azure-webbapp, öppna **Verktyg > Prestandaövervakning** och lägg till Application Insights-tillägget.
+
+    ![Gå till Inställningar, Verktyg, Tillägg, Lägg till, Application Insights i din webbapp](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+    Välj den Application Insights-resurs som du just har skapat.
 
 
 ### Om det är ett Azure-molntjänstprojekt
@@ -107,26 +115,28 @@ Logga in på [Azure-portalen](https://portal.azure.com), bläddra till Applicati
 
 ![Prestanda](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Klicka om du vill justera detaljerna för det som visas, eller om du vill lägga till ett nytt diagram.
+Klicka på ett valfritt diagram om du vill öppna en mer detaljerad vy.
 
-
-![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
+Du kan [redigera, ändra, spara](app-insights-metrics-explorer.md) och fästa diagram eller hela bladet på en [instrumentpanel](app-insights-dashboards.md).
 
 ## Beroenden
 
 Diagrammet Beroendevaraktighet visar hur lång tid anropen tar från din app till externa komponenter, t.ex databaser, REST-API: er eller Azure Blob Storage.
 
-Om du vill dela in diagrammet efter anrop till olika beroenden markerar du diagrammet, aktiverar Gruppering och väljer sedan Beroende, Beroendetyp eller Beroendeprestanda.
+Så här delar du in diagrammet efter anrop till olika beroenden: Redigera diagrammet, aktivera Gruppering och gruppera sedan efter beroende, beroendetyp eller beroendeprestanda.
 
-Du kan också filtrera diagrammet om du vill titta på en specifik beroende-, typ- eller prestandaenhet. Klicka på Filter.
+![Beroende](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
-## Prestandaräknare
+## Prestandaräknare 
 
 (Inte för Azure-webbappar.) Klicka på Servrar på översiktsbladet om du vill visa diagram över serverprestandaräknare, till exempel processor- och minnesanvändning.
 
-Lägg till ett nytt schema eller klicka på ett diagram om du vill ändra vad som visas. 
+Om du har flera serverinstanser vill du kanske redigera de diagram som ska grupperas efter rollinstans.
+
+![Servrar](./media/app-insights-monitor-performance-live-website-now/22-servers.png)
 
 Du kan också [ändra uppsättningen prestandaräknare som rapporteras av SDK](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3). 
+
 
 ## Undantag
 
@@ -143,24 +153,7 @@ Om programmet skickar stora mängder data och du använder Application Insights 
 
 ### Anslutningsfel
 
-Du måste öppna vissa utgående portar i serverns brandvägg för att Status Monitor ska fungera:
-
-+ Telemetri – behövs hela tiden:
- +  `dc.services.visualstudio.com:80`
- +  `dc.services.visualstudio.com:443`
- +  `dc.applicationinsights.microsoft.com`
-+ Konfiguration – behövs bara när du gör ändringar:
- -  `management.core.windows.net:443`
- -  `management.azure.com:443`
- -  `login.windows.net:443`
- -  `login.microsoftonline.com:443`
- -  `secure.aadcdn.microsoftonline-p.com:443`
- -  `auth.gfx.ms:443`
- -  `login.live.com:443`
-+ Installation:
- +  `packages.nuget.org:443`
-
-Den här listan kan ändras då och då.
+Du måste öppna [vissa utgående portar](app-insights-ip-addresses.md#outgoing-ports) i serverns brandvägg för att Statusövervakare ska fungera.
 
 ### Ser du ingen telemetri?
 
@@ -169,7 +162,7 @@ Den här listan kan ändras då och då.
   * Öppna Diagnostiksökning (panelen Sök) om du vill visa enskilda händelser. Händelser visas ofta i Diagnostiksökning innan sammanställda data visas i diagrammen.
   * Öppna Status Monitor och välj ditt program i den vänstra rutan. Kontrollera om det finns några diagnostikmeddelanden för det här programmet i avsnittet ”Konfigurationsmeddelanden”:
 
-  ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  ![Öppna bladet Prestanda om du vill visa information om förfrågningar, svarstider, beroenden och andra data](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
   * Kontrollera att serverbrandväggen tillåter utgående trafik på de portar som anges ovan.
   * Om du ser ett meddelande om ”otillräcklig behörighet” på servern provar du följande:
@@ -196,6 +189,12 @@ IIS-stöd: IIS 7, 7.5, 8, 8.5 (IIS krävs)
 ## Automatisering med PowerShell
 
 Du kan starta och stoppa övervakningen med hjälp av PowerShell.
+
+Importera först Application Insights-modulen:
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+Ta reda på vilka appar som övervakas:
 
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
@@ -303,6 +302,6 @@ Om webbappen finns i Azure och du skapar dina resurser med hjälp av en Azure Re
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

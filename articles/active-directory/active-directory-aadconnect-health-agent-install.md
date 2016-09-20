@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/29/2016"
+    ms.date="08/05/2016"
     ms.author="vakarand"/>
 
 
@@ -28,7 +28,7 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 | ----------- | ---------- |
 |Azure AD Premium| Azure AD Connect Health är en Azure AD Premium-funktion som kräver Azure AD Premium. </br></br>Mer information finns i [Komma igång med Azure AD Premium](active-directory-get-started-premium.md) </br>Information om hur du startar en kostnadsfria 30-dagars utvärderingsversion finns i [Starta en utvärderingsversion](https://azure.microsoft.com/trial/get-started-active-directory/).|
 |Du måste vara en global administratör i din Azure AD för att komma igång med Azure AD Connect Health|Som standard kan endast globala administratörer installera och konfigurera hälsoagenter för att sätta igång, få åtkomst till portalen och utföra åtgärder i Azure AD Connect Health. Mer information finns i [Administrera Azure AD-katalogen](active-directory-administer.md). <br><br> Du kan använda rollbaserad åtkomstkontroll för att ge andra användare i organisationen åtkomst till Azure AD Connect Health. Mer information finns i [Rollbaserad åtkomstkontroll för Azure AD Connect Health.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Viktigt!** Det konto som du använder när du installerar agenter måste vara ett arbets- eller skolkonto och kan inte vara ett Microsoft-konto. Mer information finns i [Registrera dig för Azure som en organisation](sign-up-organization.md)
-|Azure AD Connect Health Agent installeras på varje målserver| Azure AD Connect Health kräver att en agent installeras på målservrarna för att kunna tillhandahålla de data som visas på portalen. </br></br>Exempelvis måste agenten installeras på AD FS-servrarna, AD FS-proxyservrarna och AD FS-webbprogramproxyservrarna för att kunna hämta data i din lokala AD FS-infrastruktur. </br></br>**Viktigt!** Det konto som du använder när du installerar agenter måste vara ett arbets- eller skolkonto och kan inte vara ett Microsoft-konto.   Mer information finns i [Registrera dig för Azure som en organisation](sign-up-organization.md)|
+|Azure AD Connect Health Agent installeras på varje målserver| Azure AD Connect Health kräver att en agent installeras på målservrarna för att kunna tillhandahålla de data som visas på portalen. </br></br>Exempelvis måste agenten installeras på AD FS-servrarna, AD FS-proxyservrarna och AD FS-webbprogramproxyservrarna för att kunna hämta data i din lokala AD FS-infrastruktur. På samma sätt måste agenten installeras på domänkontrollanterna för att hämta data i din lokala AD DS-infrastruktur. </br></br>**Viktigt!** Det konto som du använder när du installerar agenter måste vara ett arbets- eller skolkonto och kan inte vara ett Microsoft-konto.   Mer information finns i [Registrera dig för Azure som en organisation](sign-up-organization.md)|
 |Utgående anslutning till Azure-tjänstens slutpunkter|Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter (se nedan). Om du har blockerat utgående anslutningar kontrollerar du att följande finns med i listan över tillåtna anslutningar: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Brandväggsportar på servern som agenten körs på.| Följande brandväggsportar måste vara öppna för att agenten ska kunna kommunicera med Azure AD Health-tjänstens slutpunkter.</br></br><li>TCP/UDP-port 443</li><li>TCP/UDP-port 5671</li>
 |Tillåt följande webbplatser om Förbättrad säkerhet i Internet Explorer är aktiverat|Följande webbplatser måste tillåtas om Förbättrad säkerhet i Internet Explorer är aktiverat på servern som agenten ska installeras på.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Federationsservern för din organisation måste vara betrodd av Azure Active Directory. Exempel: https://sts.contoso.com</li>
@@ -155,7 +155,38 @@ Kommandot stöder följande parametrar:
 
 När du uppmanas att autentisera använder du samma globala administratörskonto (till exempel admin@domain.onmicrosoft.com) som användes för att konfigurera Azure AD Connect.
 
+## Installera Azure AD Connect Health Agent för AD FS
+Starta agentinstallationen genom att dubbelklicka på EXE-filen som du laddade ned. Klicka på Installera på den första skärmen.
 
+![Verifiera Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install1.png)
+
+Klicka på Konfigurera nu när installationen är klar.
+
+![Verifiera Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install2.png)
+
+Nu öppnas en kommandotolk följd av PowerShell-kod som kör Register-AzureADConnectHealthADDSAgent. Du uppmanas att logga in i Azure. Gå vidare och logga in.
+
+![Verifiera Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install3.png)
+
+PowerShell fortsätter efter inloggningen. När den är klar kan du stänga PowerShell så är konfigurationen klar.
+
+Nu bör tjänsterna starta automatiskt och agenten övervakar och samlar in data. Skärmbilden nedan visar exempel på utdata. Tänk på att du ser varningar i PowerShell-fönstret om du inte uppfyller alla krav som beskrevs i föregående avsnitt. Kontrollera att du uppfyller kraven [här](active-directory-aadconnect-health-agent-install.md#requirements) innan du installerar agenten. 
+
+![Verifiera Azure AD Connect Health för AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
+
+Kontrollera att agenten har installerats genom att öppna tjänster och leta efter följande:
+
+- Azure AD Connect Health AD DS Insights Service
+- Azure AD Connect Health AD DS Monitoring Service
+
+Dessa två tjänster startar de inte förrän konfigurationen är klar.
+
+![Verifiera Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
+
+## Installera Azure AD Connect Health Agent för AD DS på Server Core. 
+När du har installerat .exe-filen kan du slutföra registreringen genom att använda följande PowerShell-kommando:
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred
 
 ## Konfigurera Azure AD Connect Health-agenter att använda HTTP-proxy
 Du kan konfigurera Azure AD Connect Health-agenter att fungera med en HTTP-proxy.
@@ -216,6 +247,7 @@ Rollparametern har för närvarande följande värden:
 
 - Adfs
 - Sync
+- ADDS
 
 Du kan använda flaggan -ShowResults i kommandot om du vill visa detaljerade loggar.  Använd följande exempel:
 
@@ -231,11 +263,12 @@ Du kan använda flaggan -ShowResults i kommandot om du vill visa detaljerade log
 * [Azure AD Connect Health-åtgärder](active-directory-aadconnect-health-operations.md)
 * [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adfs.md)
 * [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md)
+* [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versionshistorik för Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

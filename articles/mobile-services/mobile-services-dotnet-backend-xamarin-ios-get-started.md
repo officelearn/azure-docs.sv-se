@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="03/16/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Komma igång med Mobile Services
@@ -35,7 +35,7 @@ En skärmbild från den färdiga appen:
 
 Att slutföra den här kursen är en förutsättning för alla andra kurser i Mobile Services för Xamarin iOS-appar.
 
->[AZURE.NOTE]Du behöver ett Azure-konto för att genomföra kursen. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Kostnadsfri utvärderingsversion av Azure</a>.<br />För kursen krävs att du har <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Det finns en kostnadsfri utvärderingsversion.
+>[AZURE.NOTE]Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Kostnadsfri utvärderingsversion av Azure</a>.<br />För kursen krävs att du har <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Det finns en kostnadsfri utvärderingsversion.
 
 ## Skapa en ny mobiltjänst
 
@@ -95,16 +95,16 @@ Det sista steget i den här kursen är att skapa och köra den nya appen.
 
 
 ## Nästa steg
-Nu när du har slutfört guiden kan du lära dig fler viktiga uppgifter i Mobile Services:
+Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur du utför fler viktiga uppgifter i Mobile Services:
 
 * [Komma igång med datasynkronisering offline]
-  <br/>Läs om hur datasynkronisering offline används i guiden för att ge appen kortare svarstid och göra den mer robust. 
+  <br/>Läs om hur datasynkronisering offline används i guiden för att ge appen kortare svarstid och göra den mer robust.
 
 * [Komma igång med autentisering]
-  <br/>Läs om hur du autentiserar användare i appen med en identitetsprovider.
+  <br/>Läs om hur du autentiserar användare i appen med en identitetsleverantör.
 
 * [Komma igång med push-meddelanden]
-  <br/>Läs om hur du skickar grundläggande push-meddelanden till appen.
+  <br/>Läs om hur du skickar väldigt enkla push-meddelanden till appen.
 
 * [Felsöka en Mobile Services .NET-serverdel]
   <br/> Läs om hur du diagnostiserar och åtgärdar problem som kan uppstå med Mobile Services .NET-serverdelen.
@@ -138,6 +138,6 @@ Nu när du har slutfört guiden kan du lära dig fler viktiga uppgifter i Mobile
 [Felsöka en Mobile Services .NET-serverdel]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

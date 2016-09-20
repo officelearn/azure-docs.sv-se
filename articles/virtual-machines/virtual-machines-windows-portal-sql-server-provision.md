@@ -13,13 +13,13 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="05/24/2016"
+    ms.date="06/21/2016"
     ms.author="jroth" />
 
 # Etablera en virtuell dator med SQL Server på Azure Portal
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-windows-portal-sql-server-provision.md)
+- [Portalen](virtual-machines-windows-portal-sql-server-provision.md)
 - [PowerShell](virtual-machines-windows-ps-sql-create.md)
 
 Den här heltäckande självstudiekursen beskriver hur du etablera en virtuell dator som kör SQL Server med hjälp av Azure Portal.
@@ -53,7 +53,9 @@ I den här kursen ska du:
 
 1. Varje mall identifierar en version av SQL Server och ett operativsystem. Välj någon av dessa avbildningar i listan. Gå sedan igenom informationsbladet som innehåller en beskrivning av avbildningen av den virtuella datorn.
 
-1. Under **Välj en distributionsmodell** kontrollerar du att **Resource Manager** är valt och klickar på **Skapa**.
+    >[AZURE.NOTE] SQL VM-avbildningarna inkluderar licensieringskostnaderna för SQL Server i per minut-priset för den virtuella dator som du skapar. Ett annat alternativ är att använda en egen licens (BYOL, bring-your-own-license) och endast betala för den virtuella datorn. Dessa avbildningsnamn föregås av {BYOL}. Mer information om det här alternativet finns i [Komma igång med SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+
+1. Under **Välj en distributionsmodell** kontrollerar du att **Resource Manager** är valt. Resource Manager är den rekommenderade distributionsmodellen för nya virtuella datorer. Klicka på **Skapa**.
 
     ![Skapa den virtuella SQL-datorn med Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -251,8 +253,10 @@ Mer information om hur du använder SQL Server i Azure finns i [SQL Server på A
 
 Om du vill titta på en videoöversikt över SQL Server på Azure Virtual Machines tittar du på [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Azure VM är den bästa plattformen för SQL Server 2016).
 
+[Utforska utbildningsvägen](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) för SQL Server på virtuella datorer i Azure.
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

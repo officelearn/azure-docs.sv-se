@@ -3,10 +3,10 @@
     description="Du kan säkerhetskopiera och återställa data och program från Windows-servrar, Windows-klientdatorer, System Center DPM-servrar och virtuella datorer i Azure med Azure Backup och Recovery Services."
     services="backup"
     documentationCenter=""
-    authors="Jim-Parker"
-    manager="jwhit"
+    authors="markgalioto"
+    manager="cfreeman"
     editor="tysonn"
-    keywords="backup and restore; recovery services; backup solutions"/>
+    keywords="säkerhetskopiering och återställning, återställningstjänster, lösningar för säkerhetskopiering"/>
 
 <tags
     ms.service="backup"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="07/21/2016"
     ms.author="jimpark; trinadhk"/>
 
 # Vad är Azure Backup?
@@ -80,7 +80,7 @@ Eftersom Backup är en hybridlösning för säkerhetskopiering består tjänsten
 | Azure Backup-agent (MARS) | Ja | Nej (endast Windows-baserad agent) |
 | System Center Data Protection Manager | Ja (agent i gäst) | Endast Hyper-V (inte Azure-VM): Endast filkonsekvent säkerhetskopiering stöds |
 | Azure Backup Server (MABS) | Ja (agent i gäst) | Endast Hyper-V (inte Azure-VM): Endast filkonsekvent säkerhetskopiering stöds (samma som DPM) |
-| Säkerhetskopiering av virtuella IaaS-datorer i Azure | Offentlig förhandsversion | Offentlig förhandsversion – virtuella Linux-datorer i Resource Manager-distributionsmodellen <br>(Konsekvens på filsystemnivå)<br><br>Ja för virtuella Linux-datorer i den klassiska distributionsmodellen |
+| Säkerhetskopiering av virtuella IaaS-datorer i Azure | Ja | Ja |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -99,7 +99,7 @@ När säkerhetskopieringen är klar tas mellanlagringsplatsen bort. Priset för 
 
 ### Återställa virtuella datorer i Premium Storage
 
-I en typisk återställningsprocess återställs en återställningspunkt för virtuella datorer i Premium Storage till Premium Storage. Det kan dock vara kostnadseffektivt att återställa en återställningspunkt för virtuella datorer i Premium Storage till standardlagring. Den här typen av återställning kan vara praktisk om du behöver en delmängd av filerna från den virtuella datorn.
+Virtuell dator för Premium Storage VM kan återställas till antingen Premium Storage-lagring eller normal lagring. I en typisk återställningsprocess återställs en återställningspunkt för virtuella datorer i Premium Storage till Premium Storage. Det kan dock vara kostnadseffektivt att återställa en återställningspunkt för virtuella datorer i Premium Storage till standardlagring. Den här typen av återställning kan vara praktisk om du behöver en delmängd av filerna från den virtuella datorn.
 
 ## Funktioner
 Dessa fem tabeller sammanfattar hur säkerhetskopieringsfunktionerna hanteras i varje komponent.
@@ -227,10 +227,10 @@ Eftersom dessa självstudiekurser är avsedda att snabbt hjälpa dig att komma i
 
 [grön]: ./media/backup-introduction-to-azure-backup/green.png
 [gul]: ./media/backup-introduction-to-azure-backup/yellow.png
-[röd]: ./media/backup-introduction-to-azure-backup/red.png
+[red]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

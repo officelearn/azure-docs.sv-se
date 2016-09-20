@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Skapa en Cordova-app i Azure Apptjänst Mobilappar | Microsoft Azure"
+    pageTitle="Skapa en Cordova-app i Azure Apptjänst Mobile Apps | Microsoft Azure"
     description="Följ den här kursen och kom igång med att använda mobilappserverdelar i Azure för Apache Cordova-utveckling"
     services="app-service\mobile"
     documentationCenter="javascript"
@@ -7,7 +7,7 @@
     manager="erikre"
     editor=""
     tags=""
-    keywords="cordova,javascript,mobile,client" />
+    keywords="cordova, javascript, mobil, klient" />
 
 <tags
     ms.service="app-service-mobile"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="05/02/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Skapa en Apache Cordova-app
@@ -27,9 +27,9 @@
 
 I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Apache Cordova-mobilapp med hjälp av en mobilappserverdel i Azure.  Du skapar både en ny mobilappserverdel och en enkel  Apache Cordova-app med en _att göra-lista_ som lagrar appdata i Azure.
 
-Du måste slutföra den här kursen innan du påbörjar någon annan Apache Cordova-kurs om att använda funktionen Mobilappar i Azure Apptjänst.
+Du måste slutföra den här kursen innan du påbörjar någon annan Apache Cordova-kurs om att använda funktionen Mobile Apps i Azure Apptjänst.
 
-## Förutsättningar
+## Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -42,6 +42,8 @@ Du kan också kringgå Visual Studio och direkt använda kommandoraden i Apache 
 ## Skapa en ny mobilappserverdel i Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+[Titta på en video som visar liknande steg](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
 
 ## Konfigurera serverprojektet
 
@@ -72,7 +74,7 @@ Lär dig hur du använder SDK: er.
 <!-- Images. -->
 
 <!-- URLs -->
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools för Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Lägg till autentisering]: app-service-mobile-cordova-get-started-users.md
@@ -85,7 +87,6 @@ Lär dig hur du använder SDK: er.
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

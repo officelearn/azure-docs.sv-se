@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="06/03/2016"
+    ms.date="08/17/2016"
     ms.author="marsma"/>
 
 # Komma igång med Python-klienten för Azure Batch
@@ -40,7 +40,7 @@ Den här artikeln förutsätter att du har kunskaper om Python och att du är be
 
 ### Kodexempel
 
-Kodexemplet i Python-självstudiekursen är ett av de många Batch-kodexemplen i [azure-batch-samples][github_samples]-arkivet på GitHub. Du kan ladda ned alla exempel genom att klicka på  **Klona eller ladda ned > Ladda ned ZIP** på startsidan för arkivet eller genom att klicka på direktnedladdningslänken för [azure-batch-samples-master.zip][github_samples_zip]. När du har extraherat innehållet i ZIP-filen hittar du de två skripten för den här självstudiekursen i katalogen `article_samples`:
+[Kodexemplet] ][github_article_samples] i Python-självstudierna är ett av de många Batch-kodexemplen i [azure-batch-samples][github_samples]-databasen i GitHub. Du kan ladda ned alla exempel genom att klicka på **Klona eller ladda ned > Ladda ned ZIP** på startsidan för databasen eller genom att klicka på direktnedladdningslänken för [azure-batch-samples-master.zip][github_samples_zip]. När du har extraherat innehållet i ZIP-filen hittar du de två skripten för den här självstudiekursen i katalogen `article_samples`:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
@@ -49,7 +49,7 @@ Kodexemplet i Python-självstudiekursen är ett av de många Batch-kodexemplen i
 
 För att köra *python_tutorial_client.py*-exempelskriptet på den lokala arbetsstationen behöver du en **Python-tolk** som är kompatibel med version **2.7** eller **3.3 3.5**. Skriptet har testats på både Linux och Windows.
 
-Du måste också installera Python-paketet för **Azure Batch** och **Azure Storage**. Detta kan göras med hjälp av *requirements.txt* som finns här:
+Du måste också installera Python-paketet för **Azure Batch** och **Azure Storage**. Du kan göra detta med **pip** och *requirements.txt* som du hittar här:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -57,13 +57,12 @@ Skicka följande **pip**-kommando för att installera Batch- och Storage-paketen
 
 `pip install -r requirements.txt`
 
-Du kan också installera Python-paketen för [azure-batch][pypi_batch] och [azure-storage][pypi_storage] manuellt.
+Du kan också installera Python-paketen för [azure-batch][pypi_batch] och [azure-storage][pypi_storage] manuellt:
 
-> [AZURE.TIP] Du kan behöva lägga till prefixet `sudo` till dina kommandon, t.ex. `sudo pip install -r requirements.txt`, om du använder ett konto utan privilegier (rekommenderas). Mer information om hur du installerar Python-paket finns i [Installera paket][pypi_install] på readthedocs.io.
+`pip install azure-batch==0.30.0rc4`<br/>
+`pip install azure-storage==0.30.0`
 
-### Azure Batch Explorer (valfritt)
-
-[Azure Batch Explorer][github_batchexplorer] är ett kostnadsfritt verktyg som ingår i [azure-batch-samples][github_samples]-arkivet på GitHub. Det krävs inte för att slutföra den här kursen men kan vara praktiskt när du skapar och felsöker Batch-lösningar.
+> [AZURE.TIP] Du kan behöva lägga till prefixet `sudo` till dina kommandon om du använder ett konto utan privilegier. Till exempel `sudo pip install -r requirements.txt`. Mer information om hur du installerar Python-paket finns i [Installera paket][pypi_install] på readthedocs.io.
 
 ## Kodexempel från självstudiekursen om Python i Batch
 
@@ -130,7 +129,7 @@ if __name__ == '__main__':
 ![Skapa behållare i Azure Storage][1]
 <br/>
 
-Batch innehåller inbyggt stöd för att interagera med Azure Storage. Behållare i ditt Storage-konto tillhandahåller de filer som behövs av aktiviteterna som körs i ditt Batch-konto. Behållarna tillhandahåller även en plats för att lagra utdata som genereras av aktiviteterna. Det första som *python_tutorial_client.py*-skriptet gör är att skapa tre behållare i [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
+Batch har inbyggt stöd för integrering med Azure Storage. Behållare i ditt Storage-konto tillhandahåller de filer som behövs av aktiviteterna som körs i ditt Batch-konto. Behållarna tillhandahåller även en plats för att lagra utdata som genereras av aktiviteterna. Det första som *python_tutorial_client.py*-skriptet gör är att skapa tre behållare i [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
 
 - **application**: Den här behållaren lagrar Python-skriptet som körs av aktiviteterna, *python_tutorial_task.py*.
 - **input**: Aktiviteterna hämtar datafilerna som ska bearbetas från *input*-behållaren.
@@ -265,9 +264,8 @@ När aktivitetsskriptet och datafilerna har laddats upp till Storage-kontot bör
                                               _BATCH_ACCOUNT_KEY)
 
  batch_client = batch.BatchServiceClient(
-     batch.BatchServiceClientConfiguration(
-         credentials,
-         base_url=_BATCH_ACCOUNT_URL))
+     credentials,
+     base_url=_BATCH_ACCOUNT_URL)
 ```
 
 Därefter skapas en pool med beräkningsnoder i Batch-kontot med ett anrop till `create_pool`.
@@ -337,9 +335,9 @@ När du skapar en pool definierar du en [PoolAddParameter][py_pooladdparam] som 
 
 - **ID** för adresspoolen (*id* – krävs)<p/>Som med de flesta entiteter i Batch måste din nya pool ha ett unikt ID i Batch-kontot. Din kod refererar till den här poolen med dess ID och du använder också ID:t för att identifiera poolen på Azure-[portalen][azure_portal].
 
-- **Antal beräkningsnoder** (*target_dedicated* – krävs)<p/>Detta anger hur många virtuella datorer som ska distribueras i poolen. Det är viktigt att notera att alla Batch-konton har en **standardkvot** som begränsar antalet **kärnor** (och därför antalet beräkningsnoder) i ett Batch-konto. Du hittar standardkvoterna och instruktioner om hur du [ökar en kvot](batch-quota-limit.md#increase-a-quota) (t.ex det högsta antalet kärnor i Batch-kontot) i [Kvoter och gränser för Azure Batch-tjänsten](batch-quota-limit.md). Om du undrar varför din pool inte når mer än X noder kan orsaken vara kärnkvoten.
+- **Antal beräkningsnoder** (*target_dedicated* – krävs)<p/>Denna egenskap anger hur många virtuella datorer som ska distribueras i poolen. Det är viktigt att notera att alla Batch-konton har en **standardkvot** som begränsar antalet **kärnor** (och därför antalet beräkningsnoder) i ett Batch-konto. Du hittar standardkvoterna och instruktioner om hur du [ökar en kvot](batch-quota-limit.md#increase-a-quota) (t.ex det högsta antalet kärnor i Batch-kontot) i [Kvoter och gränser för Azure Batch-tjänsten](batch-quota-limit.md). Om du undrar varför din pool inte når mer än X noder kan orsaken vara kärnkvoten.
 
-- **Operativsystem** för noder (*virtual_machine_configuration* **eller** *cloud_service_configuration* – krävs)<p/>I *python_tutorial_client.py* skapar vi en pool med Linux-noder med en [VirtualMachineConfiguration][py_vm_config] som vi hämtat med `get_vm_config_for_distro`-hjälpfunktionen. Den här hjälpfunktionen använder [list_node_agent_skus][py_list_skus] för att hämta och välja en avbildning från en lista med kompatibla avbildningar för [Azure Virtual Machines Marketplace][vm_marketplace]. Du kan välja att i stället ange en [CloudServiceConfiguration][py_cs_config] och skapa en pool med Windows-noder från Cloud Services. Mer information om de två konfigurationerna finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md).
+- **Operativsystem** för noder (*virtual_machine_configuration* **eller** *cloud_service_configuration* – krävs)<p/>I *python_tutorial_client.py* skapar vi en pool med Linux-noder med en [VirtualMachineConfiguration][py_vm_config] som vi hämtat med `get_vm_config_for_distro`-hjälpfunktionen. Den här hjälpfunktionen använder [list_node_agent_skus][py_list_skus] för att hämta och välja en avbildning från en lista med kompatibla avbildningar för [Azure Virtual Machines Marketplace][vm_marketplace]. Du kan i stället ange en [CloudServiceConfiguration][py_cs_config] och skapa en pool med Windows-noder från Cloud Services. Mer information om de två konfigurationerna finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md).
 
 - **Storlek på beräkningsnoder** (*vm_size* – krävs)<p/>Eftersom vi anger Linux-noder för vår [VirtualMachineConfiguration][py_vm_config] anger vi en VM-storlek (`STANDARD_A1` i det här exemplet) från [Storlekar för virtuella datorer i Azure](../virtual-machines/virtual-machines-linux-sizes.md). Mer information finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md).
 
@@ -359,7 +357,7 @@ Ett Batch-**jobb** är en samling aktiviteter och associeras med en pool av ber�
 
 Förutom att använda ett jobb för att ordna och spåra uppgifter i relaterade arbetsbelastningar kan du använda det för att tillämpa vissa begränsningar, t.ex. jobbets (och därmed även aktiviteternas) maximala körtid, samt jobbprioritet i förhållande till andra jobb i Batch-kontot. I det här exemplet är jobbet dock associerat endast med poolen som skapades i steg 3. Inga ytterligare egenskaper har konfigurerats.
 
-Alla Batch-jobb är associerade med en specifik pool. Den här associationen anger vilka noder som jobbets aktiviteter ska köras på. Du anger detta med egenskapen [PoolInformation][py_poolinfo] som du ser i kodfragmentet nedan.
+Alla Batch-jobb är associerade med en specifik pool. Den här associationen anger vilka noder som jobbets aktiviteter ska köras på. Du anger denna pool med egenskapen [PoolInformation][py_poolinfo] som du ser i kodfragmentet nedan.
 
 ```python
 def create_job(batch_service_client, job_id, pool_id):
@@ -437,7 +435,7 @@ def add_tasks(batch_service_client, job_id, input_files,
     batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-> [AZURE.IMPORTANT] När kommandorader för aktiviteter ska komma åt miljövariabler som `$AZ_BATCH_NODE_SHARED_DIR` eller köra ett program som inte finns i nodens `PATH` måste de föregås av prefixet `/bin/bash` (Linux) eller `cmd /c` (Windows). Detta utlöser kommandotolken och instruerar den att avsluta när kommandot har körts. Du kan bortse från det här kravet om aktiviteterna kör ett program i nodens `PATH` (t.ex. *python* i kodfragmentet ovan).
+> [AZURE.IMPORTANT] När de får åtkomst till miljövariabler som `$AZ_BATCH_NODE_SHARED_DIR` eller kör ett program som inte finns i nodens `PATH`, måste kommandoraderna för aktiviteter anropa gränssnittet explicit, som med `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Det här kravet är inte nödvändigt om aktiviteterna kör ett program i nodens `PATH` och inte refererar till några miljövariabler.
 
 I loopen `for` i kodfragmentet ovan ser du att kommandoraden för aktiviteten har konstruerats med fem kommandoradsargument som skickas till *python_tutorial_task.py*:
 
@@ -543,7 +541,7 @@ def download_blobs_from_container(block_blob_client,
     print('  Download complete!')
 ```
 
-> [AZURE.NOTE] Anropet till `download_blobs_from_container` i *python_tutorial_client.py* anger att filerna ska laddas ned till användarens hemkatalog. Ändra platsen för utdata om du vill.
+> [AZURE.NOTE] Anropet till `download_blobs_from_container` i *python_tutorial_client.py* anger att filerna ska laddas ned till din hemkatalog. Ändra platsen för utdata om du vill.
 
 ## Steg 8: Ta bort behållare
 
@@ -559,9 +557,9 @@ blob_client.delete_container(output_container_name)
 
 ## Steg 9: Ta bort jobbet och poolen
 
-I det sista steget uppmanas du att ta bort jobbet och poolen som skapades med *python_tutorial_client.py*-skriptet. Även om du inte debiteras för själva jobben och aktiviteterna *debiteras du för beräkningsnoder*. Vi rekommenderar därför att du endast allokerar noder efter behov. Borttagning av oanvända pooler kan ingå i din underhållsrutin.
+I det sista steget uppmanas du att ta bort jobbet och poolen som skapades med *python_tutorial_client.py*-skriptet. Även om du inte debiteras för själva jobben och aktiviteterna debiteras *du* för beräkningsnoder. Vi rekommenderar därför att du endast allokerar noder efter behov. Borttagning av oanvända pooler kan ingå i din underhållsrutin.
 
-BatchServiceClients [JobOperations][py_job] och [PoolOperations][py_pool] har båda tillhörande borttagningsmetoder, som anropas om användaren bekräftar borttagningen:
+BatchServiceClients [JobOperations][py_job] och [PoolOperations][py_pool] har båda tillhörande borttagningsmetoder, som anropas om du bekräftar borttagningen:
 
 ```python
 # Clean up Batch resources (if the user so chooses).
@@ -576,7 +574,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Kör exempelskriptet
 
-När du kör *python_tutorial_client.py*-skriptet returnerar konsolen utdata som ser ut ungefär så här: Du ser en paus vid `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` när poolens beräkningsnoder skapas, startas och när kommandona i poolens startuppgift körs. Använd [Azure-portalen][azure_portal] eller [Batch Explorer][github_batchexplorer] för att övervaka poolen, beräkningsnoderna, jobben och aktiviteterna under och efter körningen. Använd [Azure-portalen][azure_portal] eller [Microsoft Azure Storage Explorer][storage_explorer] för att visa de Storage-resurser (behållare och blobbar) som skapas av programmet.
+När du kör *python_tutorial_client.py*-skriptet från självstudierna [kodexempel][github_article_samples], liknar konsolens utdata följande. Det är en paus vid `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` när poolens beräkningsnoder skapas, startas och när kommandona i poolens startuppgift körs. Använd [Azure-portalen][azure_portal] när du vill övervaka poolen, beräkningsnoderna, jobbet och aktiviteterna under och efter körningen. Använd [Azure-portalen][azure_portal] eller [Microsoft Azure Storage Explorer][storage_explorer] för att visa de Storage-resurser (behållare och blobbar) som skapas av programmet.
 
 Körningen tar normalt **5–7 minuter** när du kör programmet med standardkonfigurationen.
 
@@ -610,7 +608,7 @@ Press ENTER to exit...
 
 ## Nästa steg
 
-Experimentera gärna med olika beräkningsscenarier genom att göra ändringar i *python_tutorial_client.py* och *python_tutorial_task.py*. Prova till exempel att lägga till en körningsfördröjning till *python_tutorial_task.py* för att simulera långvariga aktiviteter och övervaka dem med *heatmap*-funktionen i Batch Explorer. Prova att lägga till fler uppgifter eller att justera antalet beräkningsnoder. Lägg till logik för att söka efter och tillåta användningen av en befintlig pool som kan påskynda körningen.
+Experimentera gärna med olika beräkningsscenarier genom att göra ändringar i *python_tutorial_client.py* och *python_tutorial_task.py*. Prova till exempel att lägga till en körningsfördröjning till *python_tutorial_task.py* för att simulera långvariga aktiviteter och övervaka dem i portalen. Prova att lägga till fler aktiviteter eller att justera antalet beräkningsnoder. Lägg till logik för att söka efter och tillåta användningen av en befintlig pool som kan påskynda körningen.
 
 Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lösning är det dags att titta närmare på de andra funktionerna i Batch-tjänsten.
 
@@ -621,14 +619,12 @@ Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lös
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
-[batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
+[github_article_samples]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch/article_samples
 
 [nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
@@ -670,20 +666,20 @@ Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lös
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-[1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Skapa behållare i Azure Storage"
-[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Ladda upp filer för aktivitetsprogram och indata till behållare"
-[3]: ./media/batch-dotnet-get-started/batch_workflow_03_sm.png "Skapa en Batch-pool"
-[4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "Skapa ett Batch-jobb"
-[5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "Lägga till aktiviteter till ett jobb"
-[6]: ./media/batch-dotnet-get-started/batch_workflow_06_sm.png "Övervaka aktiviteter"
-[7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "Hämta aktivitetsutdata från Storage"
-[8]: ./media/batch-dotnet-get-started/batch_workflow_sm.png "Arbetsflödet i en Batch-lösning (fullständigt diagram)"
-[9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Batch-autentiseringsuppgifter på portalen"
-[10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Storage-autentiseringsuppgifter på portalen"
-[11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Arbetsflödet i en Batch-lösning (minimalt diagram)"
+[1]: ./media/batch-python-tutorial/batch_workflow_01_sm.png "Skapa behållare i Azure Storage"
+[2]: ./media/batch-python-tutorial/batch_workflow_02_sm.png "Ladda upp filer för aktivitetsprogram och indata till behållare"
+[3]: ./media/batch-python-tutorial/batch_workflow_03_sm.png "Skapa en Batch-pool"
+[4]: ./media/batch-python-tutorial/batch_workflow_04_sm.png "Skapa ett Batch-jobb"
+[5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "Lägga till aktiviteter till ett jobb"
+[6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "Övervaka aktiviteter"
+[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Hämta aktivitetsutdata från Storage"
+[8]: ./media/batch-python-tutorial/batch_workflow_sm.png "Arbetsflödet i en Batch-lösning (fullständigt diagram)"
+[9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Batch-autentiseringsuppgifter på portalen"
+[10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Storage-autentiseringsuppgifter på portalen"
+[11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Arbetsflödet i en Batch-lösning (minimalt diagram)"
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

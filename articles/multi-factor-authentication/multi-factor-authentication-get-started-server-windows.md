@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Windows-autentisering och Azure Multi-Factor Authentication Server
@@ -51,6 +51,7 @@ I avsnittet Windows-autentisering kan administratören aktivera och konfigurera 
 11. Klicka på OK.
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

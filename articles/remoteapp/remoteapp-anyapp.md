@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Köra en Windows-app på valfri enhet med Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 
 Du kan köra ett Windows-program var som helst på valfri enhet genom att helt enkelt använda Azure RemoteApp. Vare sig det gäller ett anpassat program som skrevs för 10 år sedan eller en Office-app, behöver användarna inte längre vara bundna till ett visst operativsystem (som Windows XP) för några få program.
 
@@ -28,7 +31,9 @@ I den här artikeln ska vi dela Access med alla våra användare. Men du kan anv
 
 Observera att eftersom Access är en databas, och vi vill att databasen ska vara användbar, går vi igenom några extra steg för att låta användarna få tillgång till Access-dataresursen. Om din app inte är en databas, eller om användarna inte behöver komma åt en filresurs, kan du hoppa över de stegen i den här kursen.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+> [AZURE.NOTE] <a name="note"></a>Du behöver ett Azure-konto för att kunna slutföra den här guiden:
+> - Du kan [kostnadsfritt registrera ett Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F): du får då krediter som kan användas för att pröva Azure-betaltjänster och när du har använt upp dem så kan du behålla kontot och använda kostnadsfria Azure-tjänster, till exempel Websites. Ditt kreditkort kommer aldrig att debiteras om du inte specifikt ändrar dina inställningar och ber om det.
+> - Du kan [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): din MSDN-prenumeration ger dig krediter varje månad som kan användas för Azure-betaltjänster.
 
 
 ## Skapa en samling i RemoteApp
@@ -120,6 +125,6 @@ Nu när du har lärt dig att skapa en samling kan du försöka skapa en [samling
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

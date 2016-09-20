@@ -12,7 +12,7 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
 
     ![][8]
 
-    <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure Service Bus-bibliotekets NuGet-paket</a> hämtas och installeras, och en referens till det läggs till.
+    Visual Studio laddar ned, installerar och lägger till en referens till [Azure Service Bus-bibliotekets NuGet-paket](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
 
@@ -28,7 +28,7 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
     static string connectionString = "{send connection string}";
     ```
 
-6. Lägg till följande metod till **Program**-klassen:
+6. Lägg till följande metod i klassen **Program**:
 
     ```
     static void SendingRandomMessages()
@@ -71,6 +71,6 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

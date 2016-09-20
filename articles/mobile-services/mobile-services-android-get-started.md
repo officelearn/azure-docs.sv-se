@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="07/21/2016"
     ms.author="ricksal"/>
 
 # Komma igång med Mobile Services för Android (JavaScript-serverdel)
@@ -39,7 +39,7 @@ För den här kursen krävs [Android Developer Tools](https://developer.android.
 
 Det nedladdade snabbstartsprojektet innehåller Azure Mobile Services SDK för Android.
 
-> [AZURE.IMPORTANT] För den här kursen behöver du ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+> [AZURE.IMPORTANT] För den här kursen behöver du ett Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 
 ## Skapa en ny mobiltjänst
@@ -81,10 +81,10 @@ Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur d
   <br/>Läs mer om lagring och hämtning av data med Mobile Services.
 
 * [Komma igång med autentisering]
-  <br/>Läs om hur du autentiserar användare i appen med en identitetsprovider.
+  <br/>Läs om hur du autentiserar användare i appen med en identitetsleverantör.
 
 * [Komma igång med push-meddelanden]
-  <br/>Läs om hur du skickar grundläggande push-meddelanden till appen.
+  <br/>Läs om hur du skickar väldigt enkla push-meddelanden till appen.
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -100,6 +100,6 @@ Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur d
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -184,16 +184,16 @@ Du kan använda bcp-funktionen **queryout** för att exportera resultaten av en 
 ## Nästa steg
 Se [Läs in data till SQL Data Warehouse][] för en översikt över inläsning.
 För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][].
-Se [Tabelldesign][] eller [CREATE TABLE-syntax][] för ytterligare information om hur man skapar en tabell i SQL Data Warehouse.
+Se [Tabellöversikt][] eller [CREATE TABLE-syntax][] för ytterligare information om hur man skapar en tabell i SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Läs in data till SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Översikt över SQL Data Warehouse-utveckling]: sql-data-warehouse-overview-develop.md
-[Tabelldesign]: sql-data-warehouse-develop-table-design.md
-[Statistik]: sql-data-warehouse-develop-statistics.md
+[Läs in data till SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Översikt över SQL Data Warehouse-utveckling]: ./sql-data-warehouse-overview-develop.md
+[Tabellöversikt]: ./sql-data-warehouse-tables-overview.md
+[Statistik]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -204,6 +204,6 @@ Se [Tabelldesign][] eller [CREATE TABLE-syntax][] för ytterligare information o
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

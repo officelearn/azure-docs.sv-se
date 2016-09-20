@@ -14,6 +14,8 @@ För att skapa en DNS-etikett, väljer du först **Virtuella datorer** i portale
 
 3. Ange ett namn för DNS-etiketten. Det här namnet är en A-post som kan användas för att ansluta till din SQL Server-VM via namn istället för direkt via IP-adress.
 
+4. Klicka på knappen **Spara**.
+
     ![dns-etikett](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### Anslut till databasmotorn från en annan dator
@@ -34,6 +36,6 @@ För att skapa en DNS-etikett, väljer du först **Virtuella datorer** i portale
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

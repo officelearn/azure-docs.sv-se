@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
   authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""
     />
 
@@ -14,34 +14,42 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/26/2016"
+    ms.date="08/10/2016"
     ms.author="curtand"/>
 
 # Konfigurera Azure Active Directory för grupphantering via självbetjäning
 
-Med grupphantering via självbetjäning kan användare skapa och hantera säkerhetsgrupper eller Office 365-grupper i Azure Active Directory (AD Azure) och begära medlemskap i säkerhetsgrupper eller Office 365-grupper, som sedan kan godkännas eller avvisas av gruppens ägare. Med funktioner för grupphantering via självbetjäning kan den dagliga kontrollen av gruppmedlemskap delegeras till dem som förstår affärskontexten för medlemskapet. Funktioner för grupphantering via självbetjäning är bara tillgängliga för säkerhetsgrupper och Office 365-grupper, inte för e-postaktiverade säkerhetsgrupper eller distributionslistor.
+Med självbetjäningsgrupphantering kan du skapa och hantera säkerhetsgrupper eller Office 365-grupper i Azure Active Directory (Azure AD). Användare kan även begära säkerhetsgruppsmedlemskap eller Office 365-gruppmedlemskap, och sedan kan gruppens ägare godkänna eller neka medlemskap. På så vis kan den dagliga kontrollen av gruppmedlemskap delegeras till dem som förstår medlemskapets affärskontext. Funktioner för grupphantering via självbetjäning är bara tillgängliga för säkerhetsgrupper och Office 365-grupper, men inte för e-postaktiverade säkerhetsgrupper eller distributionslistor.
 
 Grupphantering via självbetjäning består för närvarande av två viktiga scenarier: delegerad grupphantering och grupphantering via självbetjäning.
 
-- **Delegerad grupphantering** – Ett exempel är en administratör som hanterar åtkomsten till ett SaaS-program som hennes företag använder. Eftersom det börjar bli svårt att hantera dessa åtkomstbehörigheter ber administratören företagsägaren att skapa en ny grupp. Administratören tilldelar nu åtkomst till programmet till en ny grupp som företagets ägare precis har skapat och lägger till alla användare som för närvarande har åtkomst till programmet i den här gruppen. Företagsägaren kan sedan lägga till fler användare, som automatiskt tilldelas programmet en liten stund senare. Företagsägaren behöver inte vänta på att administratören ska utföra arbetet utan kan själva hantera åtkomsten för sina användare. Administratören kan göra samma sak för en administrativ assistent för en annan affärsgrupp, så kan både företagsägaren och assistenten hantera åtkomsten för sina användare – utan att kunna röra eller se varandras användare. Administratören kan fortfarande se alla användare som har åtkomst till programmet och blockera behörigheten om det behövs.
+- **Delegerad grupphantering**
+   Ett exempel är en administratör som hanterar åtkomsten till ett SaaS-program som hennes företag använder. Eftersom det börjar bli svårt att hantera dessa åtkomstbehörigheter ber administratören företagsägaren att skapa en ny grupp. Administratören tilldelar åtkomst för programmet till den nya gruppen och lägger till alla personer som redan har åtkomst till programmet till gruppen. Företagsägaren kan sedan lägga till fler användare, som automatiskt tilldelas programmet. Företagsägaren behöver inte vänta på administratören för att kunna hantera åtkomst för användarna. Om administratören tilldelar en chef samma behörighet i en annan affärsgrupp, så kan den personen även hantera sina egna användare åtkomst. Varken företagsägaren eller chefen kan visa eller hantera varandras användare. Administratören kan fortfarande se alla användare som har åtkomst till programmet och blockera behörigheten om det behövs.
 
-- **Grupphantering via självbetjäning** – Ett exempel på det här scenariot är två användare som båda har SharePoint Online-platser som de har konfigurerat oberoende av varandra, men som vill ge varandras team åtkomst till deras platser. För att åstadkomma detta kan de skapa en grupp i Azure AD, och sedan väljer båda två i SharePoint Online samma grupp för att ge åtkomst till varandras platser. När någon vill ha åtkomst begär de det från åtkomstpanelen och efter godkännande får de automatiskt åtkomst till båda SharePoint Online-platserna. Senare beslutar den ena av dem att alla användare som har åtkomst till hans plats även ska få åtkomst till ett visst SaaS-program. Han ber administratören för SaaS-programmet att lägga till åtkomstbehörigheter för programmet till hans plats. När det är gjort kommer alla begäranden som han godkänner att ge åtkomst till de två SharePoint Online-platserna och även till SaaS-programmet.
+- **Grupphantering via självbetjäning**
+   Ett exempel på det här scenariot är två användare som båda har SharePoint Online-platser som de har konfigurerat oberoende av varandra. De vill ge varandras grupper åtkomst till sina respektive webbplatser. De kan åstadkomma detta genom att först skapa en grupp i Azure AD och därefter var och en välja samma grupp i SharePoint Online, vilket ger dem åtkomst till varandras webbplatser. När någon vill ha åtkomst begär de det från åtkomstpanelen och efter godkännande får de automatiskt åtkomst till båda SharePoint Online-platserna. Senare beslutar den ena av dem att alla användare som har åtkomst till webbplatsen även ska få åtkomst till ett visst SaaS-program. SaaS-programmets administratör kan lägga till åtkomstbehörighet för programmet till SharePoint Online-webbplatsen. När det är gjort kommer alla förfrågningar som han godkänner att ge åtkomst till de två SharePoint Online-webbplatserna och även till SaaS-programmet.
 
 ## Göra en grupp tillgänglig för självbetjäning av slutanvändare
 
-Gå till fliken **Konfigurera** på [den klassiska Azure-portalen](https://manage.windowsazure.com), välj Aktiverat för **Delegerad grupphantering** och välj sedan Aktiverat för **Användare kan skapa säkerhetsgrupper** eller **Användare kan skapa Office-grupper**.
+1. Öppna din Azure AD-katalog i den [klassiska Azure-portalen](https://manage.windowsazure.com).
 
-När **Användare kan skapa säkerhetsgrupper** är aktiverat kan alla användare i katalogen skapa nya säkerhetsgrupper och lägga till medlemmar i dessa grupper. Dessa nya grupper visas också på åtkomstpanelen för alla andra användare och andra användare kan skapa förfrågningar för att gå med i dessa grupper om principinställningen för gruppen tillåter det. Om **Användare kan skapa säkerhetsgrupper** är inaktiverat kan användare inte skapa grupper och kan inte ändra befintliga grupper som de äger, men de kan fortfarande hantera medlemskap i dessa grupper och godkänna förfrågningar från andra som vill bli medlemmar i deras grupper.
+2. Gå till fliken **Konfigurera** och ställ in **Delegerad grupphantering** på Aktiverad.
 
-Du kan också använda **Användare som kan använda självbetjäning för säkerhetsgrupper** om du vill ha mer detaljerad åtkomstkontroll över funktionerna för grupphantering via självbetjäning för dina användare. När **Användare kan skapa grupper** är aktiverat kan alla användare i katalogen skapa nya grupper och lägga till medlemmar i dessa grupper. Genom att även ange **Användare som kan använda självbetjäning för säkerhetsgrupper** till Vissa begränsar du grupphanteringen till endast en begränsad grupp användare. När den här växeln har angetts till Vissa skapas en grupp med namnet SSGMSecurityGroupsUsers i din katalog och endast de användare som du har gjort till medlemmar i den här gruppen kan skapa nya säkerhetsgrupper och lägga till medlemmar i dessa grupper i din katalog. Om du väljer Alla för **Användare som kan använda självbetjäning för säkerhetsgrupper** kan alla användare i katalogen skapa nya grupper.
+3. Ställ in **Användare kan skapa säkerhetsgrupper** eller **Användare kan skapa Office-grupper** på Aktiverad.
 
-Du kan också använda rutan **Grupp som kan använda självbetjäning för säkerhetsgrupper** (som standard SSGMSecurityGroupsUsers) och ange ditt eget anpassade namn för en grupp som ska innehålla alla användare som kan använda självbetjäning och skapa nya grupper i katalogen.
+När **Användare kan skapa säkerhetsgrupper** är aktiverat kan alla användare i katalogen skapa nya säkerhetsgrupper och lägga till medlemmar i dessa grupper. Dessa nya grupper visas även på åtkomstpanelen för alla andra användare. Om gruppens principinställningar så tillåter kan andra användare skapa förfrågningar om att ansluta till dessa grupper. Om du har inaktiverat **Användare kan skapa säkerhetsgrupper** så kan användarna inte skapa grupper eller ändra de befintliga grupper som de äger. De kan dock fortfarande hantera medlemskap i dessa grupper och godkänna förfrågningar från andra användare om att ansluta till grupperna.
+
+Genom **Användare som kan använda självbetjäning för säkerhetsgrupper** kan du även få mer detaljerad åtkomstkontroll över dina användares grupphantering via självbetjäning. När **Användare kan skapa grupper** är aktiverat kan alla användare i katalogen skapa nya grupper och lägga till medlemmar i dessa grupper. Genom att även ange **Användare som kan använda självbetjäning för säkerhetsgrupper** till Vissa begränsar du grupphanteringen till endast en begränsad grupp användare. När du har angett den här växeln till Vissa måste du lägga till användare i gruppen SSGMSecurityGroupsUsers innan de kan skapa nya grupper och lägga till medlemmar i dem. Om du väljer Alla för **Användare som kan använda självbetjäning för säkerhetsgrupper** kan alla användare i katalogen skapa nya grupper.
+
+Du kan också använda rutan **Grupp som kan använda självbetjäning för säkerhetsgrupper** om du vill ange ett eget namn för en grupp vars medlemmar kan använda självbetjäning.
 
 ## Ytterligare information
 
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md)
+
+* [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
 * [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
 
@@ -51,6 +59,6 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,7 +1,7 @@
 <properties
     pageTitle="Fråga efter data i HDFS-kompatibla Blob Storage | Microsoft Azure"
     description="HDInsight använder Azure Blob Storage som stordataarkiv för HDFS. Lär dig mer om hur du frågar efter data från Blob Storage och lagrar resultatet av dina analyser."
-    keywords="blob storage,hdfs,structured data,unstructured data"
+    keywords="blob-lagring, hdf, strukturerade data, ostrukturerade data"
     services="hdinsight,storage"
     documentationCenter=""
     tags="azure-portal"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/10/2016"
     ms.author="jgao"/>
 
 
@@ -27,11 +27,7 @@ Azure Blob Storage är en robust lagringslösning för allmänna ändamål som s
 
 Om du lagrar data i Blob Storage kan du ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
 
-> [AZURE.NOTE]  Syntaxen för*asv://* stöds inte i HDInsight-kluster av version 3.0. Detta innebär att alla jobb som skickats till ett HDInsight-kluster av version 3.0 och som använder *asv://*-syntaxen misslyckas. Använd i stället syntaxen för *wasb://*. Även jobb som skickas till HDInsight-kluster av version 3.0 som skapats med en befintlig metastore som innehåller explicita referenser till resurser som använder asv://-syntaxen misslyckas. Dessa metastores behöver skapas på nytt med hjälp av wasb://-syntaxen för att kunna adressera resurser.
-
-> HDInsight stöder för närvarande endast blockblobar.
-
-> De flesta HDFS-kommandon (till exempel <b>ls</b>, <b>copyFromLocal</b> och <b>mkdir</b>) fungerar fortfarande som förväntat. Endast de kommandon som är specifika för den interna HDFS-implementeringen (så kallade DFS-kommandon) som <b>fschk</b> och <b>dfsadmin</b> har ett avvikande beteende i Azure Blob Storage.
+> [AZURE.IMPORTANT] HDInsight stöder endast blockblobar. Det stöder inte sid- eller tilläggsblobar.
 
 Information om hur du skapar ett HDInsight-kluster finns i [Komma igång med HDInsight][hdinsight-get-started] eller [Skapa HDInsight-kluster][hdinsight-creation].
 
@@ -49,6 +45,7 @@ Dessutom ger HDInsight möjlighet att komma åt data som är lagrade i Azure Blo
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
+> [AZURE.NOTE] I tidigare versioner av HDInsight än 3.0 användes `asv://` i stället för `wasb://`. `asv://` ska inte användas med HDInsight-kluster 3.0 eller senare, eftersom det kommer att orsaka fel.
 
 Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under processen med att skapa HDInsight utses ett Azure Storage-konto och en specifik Azure Blob Storage-behållare från detta konto till standardfilsystem.
 
@@ -83,7 +80,7 @@ Det finns flera fördelar med att lagra data i Azure Blob Storage i stället fö
 
 Vissa MapReduce-jobb och -paket kan skapa mellanresultat som du inte egentligen vill lagra i Azure Blob Storage. I så fall kan du välja att lagra data i ditt lokala HDFS. Faktum är att HDInsight använder DFS för flera av dessa mellanresultat i Hive-jobb och andra processer.
 
-
+> [AZURE.NOTE] De flesta HDFS-kommandon (till exempel <b>ls</b>, <b>copyFromLocal</b> och <b>mkdir</b>) fungerar fortfarande som förväntat. Endast de kommandon som är specifika för den interna HDFS-implementeringen (så kallade DFS-kommandon) som <b>fschk</b> och <b>dfsadmin</b> har ett avvikande beteende i Azure Blob Storage.
 
 ## Skapa blob-behållare
 
@@ -155,10 +152,6 @@ Följande URI-schema används för att komma åt filer i Blob Storage från HDIn
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
 
-> [AZURE.NOTE] Syntaxen för att adressera filerna i lagringsemulatorn (som körs på HDInsight-emulator) är <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
-
-
-
 URI-schemat ger okrypterad åtkomst (med prefixet *wasb:*) och SSL-krypterad åtkomst (med *wasbs*). Vi rekommenderar att du använder *wasbs* när det är möjligt, även för åtkomst till data som finns i samma region i Azure.
 
 &lt;BlobStorageContainerName&gt; identifierar namnet på behållaren i Azure Blob Storage.
@@ -166,8 +159,8 @@ URI-schemat ger okrypterad åtkomst (med prefixet *wasb:*) och SSL-krypterad åt
 
 Om varken &lt;BlobStorageContainerName&gt; eller &lt;StorageAccountName&gt; har angetts används standardfilsystemet. För filer i filsystemet kan du använda en relativ sökväg eller en absolut sökväg. Till exempel kan du referera till den *hadoop-mapreduce-examples.jar*-fil som medföljer HDInsight-kluster på något av följande sätt:
 
-    wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-    wasb:///example/jars/hadoop-mapreduce-examples.jar
+    wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+    wasbs:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
 > [AZURE.NOTE] Filnamnet är <i>hadoop examples.jar</i> i HDInsight-kluster av version 2.1 och 1.6.
@@ -277,7 +270,7 @@ $clusterName = "<HDInsightClusterName>"
     $defines = @{}
     $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ## Nästa steg
 
@@ -308,6 +301,6 @@ Mer information finns i:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

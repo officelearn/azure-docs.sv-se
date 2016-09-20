@@ -1,7 +1,7 @@
 <properties
     pageTitle="Självstudiekurs om NoSQL: DocumentDB .NET SDK | Microsoft Azure"
     description="En självstudiekurs om NoSQL som skapar en onlinedatabas och en C#-konsolapp med .NET DocumentDB SDK. DocumentDB är en NoSQL-databas för JSON."
-    keywords="nosql tutorial, online database, c# console application"
+    keywords="självstudier för nosql, onlinedatabas, c#-konsolprogram"
     services="documentdb"
     documentationCenter=".net"
     authors="AndrewHoh"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/29/2016"
     ms.author="anhoh"/>
 
 # Självstudiekurs om NoSQL: skapa en DocumentDB C#-konsolapp
@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Välkommen till självstudiekursen om NoSQL  för .NET DocumentDB SDK! När du har genomfört den här självstudiekursen har du en konsolapp som skapar och skickar frågor till DocumentDB-resurser.
+Välkommen till NoSQL-självstudier för Azure DocumentDB .NET SDK! När du har genomfört den här självstudiekursen har du en konsolapp som skapar och skickar frågor till DocumentDB-resurser.
 
 Vi tar upp följande:
 
@@ -32,7 +32,7 @@ Vi tar upp följande:
 - Skapa en onlinedatabas
 - Skapa en samling
 - Skapa JSON-dokument
-- Förfrågningar till samlingen
+- Skicka frågor till samlingen
 - Ersätta ett dokument
 - Ta bort ett dokument
 - Ta bort databasen
@@ -43,7 +43,7 @@ Ge oss sedan feedback med röstningsknapparna högst uppe och nere på den här 
 
 Nu sätter vi igång!
 
-## Förutsättningar
+## Krav
 
 Kontrollera att du har följande:
 
@@ -57,7 +57,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> Steg 2: Konfigurera en lösning i Visual Studio
+## <a id="SetupVS"></a>Steg 2: Konfigurera en lösning i Visual Studio
 
 1. Öppna **Visual Studio 2015** på datorn.
 2. I menyn **Arkiv** väljer du **Nytt** och sedan **Projekt**.
@@ -73,7 +73,7 @@ Paket-ID för klientbiblioteket i DocumentDB är [Microsoft.Azure.DocumentDB](ht
 
 Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Det finns ett färdigt kodprojekt för den här självstudiekursen i [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-##<a id="Connect"></a> Steg 3: Anslut till ett DocumentDB-konto
+## <a id="Connect"></a>Steg 3: Anslut till ett DocumentDB-konto
 
 Lägg först till dessa referenser till början av C#-appen, i filen Program.cs:
 
@@ -100,11 +100,9 @@ Lägg till nedanstående två konstanter och *klientvariabeln* under den offentl
 
 Öppna sedan [Azure Portal](https://portal.azure.com) och hämta din URI och primärnyckel. URI och primärnyckel från DocumentDB är nödvändiga för att appen ska veta var du vill ha anslutningen och för att DocumentDB ska lita på appens anslutning.
 
-Navigera till ditt DocumentDB-konto i Azure Portal från steg 1.
+Navigera till ditt DocumentDB-konto i Azure Portal och klicka sedan på **Nycklar**.
 
-Klicka på **nyckelikonen** i stapeln **Essentials**.
-Kopiera URI och ersätt *<your endpoint URI>* med den kopierade URI-identifieraren i appen.
-Kopiera primärnyckeln och ersätt *<your key>* med den kopierade nyckeln i appen.
+Kopiera URI från portalen och klistra in den i `<your endpoint URI>` i filen program.cs. Kopiera sedan PRIMÄRNYCKELN från portalen och klistra in den i `<your key>`.
 
 ![Skärmdump av Azure Portal som används i självstudiekursen om NoSQL för att skapa en C#-konsolapp. Visar DocumentDB-konto med hubben AKTIV markerad, knappen NYCKLAR markerad i bladet DocumentDB-konto och värdena URI, PRIMÄRNYCKEL och SEKUNDÄRNYCKEL markerade i bladet Nycklar][keys]
 
@@ -200,13 +198,13 @@ Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under d
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDatabaseIfNotExists("FamilyDB");
+        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
 Kör appen genom att trycka på **F5**.
 
 Grattis! Du har skapat en DocumentDB-databas.  
 
-##<a id="CreateColl"></a>Steg 5: Skapa en samling  
+## <a id="CreateColl"></a>Steg 5: Skapa en samling  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync** skapar en ny samling med reserverat dataflöde, vilket får konsekvenser för priset. Mer information finns på vår [sida med priser](https://azure.microsoft.com/pricing/details/documentdb/).
 
@@ -236,7 +234,7 @@ Kopiera och klistra in metoden **CreateDocumentCollectionIfNotExists** under met
                 // Here we create a collection with 400 RU/s.
                 await this.client.CreateDocumentCollectionAsync(
                     UriFactory.CreateDatabaseUri(databaseName),
-                    new DocumentCollection { Id = collectionName },
+                    collectionInfo,
                     new RequestOptions { OfferThroughput = 400 });
 
                 this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
@@ -248,20 +246,20 @@ Kopiera och klistra in metoden **CreateDocumentCollectionIfNotExists** under met
         }
     }
 
-Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden som skapade databasen. Då skapas en dokumentsamling som heter *FamilyCollection*.
+Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden som skapade databasen. Då skapas en dokumentsamling som heter *FamilyCollection_oa*.
 
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-        await this.CreateDatabaseIfNotExists("FamilyDB");
+        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+        await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
 Kör appen genom att trycka på **F5**.
 
 Grattis! Du har skapat en DocumentDB-dokumentsamling.  
 
-##<a id="CreateDoc"></a>Steg 6: Skapa JSON-dokument
+## <a id="CreateDoc"></a>Steg 6: Skapa JSON-dokument
 Du kan skapa [dokument](documentdb-resources.md#documents) med metoden [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) för klassen **dokumentklient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda [datamigreringsverktyget](documentdb-import-data.md) för DocumentDB.
 
 Först måste vi skapa klassen **Familj** som ska representera objekt som lagras i DocumentDB i det här exemplet. Vi kommer även att skapa underklasserna **Förälder**, **Barn**, **Husdjur** och **Adress** som används inom **Familj**. Observera att dokument måste ha en **id**-egenskap serialiserad som **id** i JSON. Skapa dessa klasser genom att lägga till nedanstående interna undergrupper efter metoden **GetStartedDemo**.
@@ -346,9 +344,9 @@ Infoga också två dokument, ett för familjen Andersen och ett för familjen Wa
 
 Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden som skapade dokumentsamlingen.
 
-    await this.CreateDatabaseIfNotExists("FamilyDB");
+    await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
-    await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+    await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO YOUR CODE
     Family andersenFamily = new Family
@@ -377,7 +375,7 @@ Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under k
             IsRegistered = true
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
 
     Family wakefieldFamily = new Family
     {
@@ -414,7 +412,7 @@ Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under k
             IsRegistered = false
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
 Kör appen genom att trycka på **F5**.
 
@@ -449,7 +447,7 @@ Kopiera och klistra in metoden **ExecuteSimpleQuery** under metoden **CreateFami
             // Now execute the same query via direct SQL
             IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
                     UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-                    "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+                    "SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
                     queryOptions);
 
             Console.WriteLine("Running direct SQL query...");
@@ -464,10 +462,10 @@ Kopiera och klistra in metoden **ExecuteSimpleQuery** under metoden **CreateFami
 
 Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden som skapade det andra dokumentet.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
     // ADD THIS PART TO YOUR CODE
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Kör appen genom att trycka på **F5**.
 
@@ -477,7 +475,7 @@ Nedanstående diagram illustrerar hur DocumentDB SQL-frågesyntaxen anropas mot 
 
 ![Diagram som illustrerar omfånget och innebörden av frågan som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
-Nyckelordet [FRÅN](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FRÅN familjer f” kan bytas mot ”FRÅN rot r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
+Nyckelordet [FRÅN](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
 
 ##<a id="ReplaceDocument"></a>Steg 8: Ersätta JSON-dokument
 
@@ -488,30 +486,30 @@ Kopiera och klistra in metoden **ReplaceFamilyDocument** under metoden **Execute
     // ADD THIS PART TO YOUR CODE
     private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
     {
-            try
-            {
-                    await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-                    this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-            }
-            catch (DocumentClientException de)
-            {
-                    throw de;
-            }
+        try
+        {
+            await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+            this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
+        }
+        catch (DocumentClientException de)
+        {
+            throw;
+        }
     }
 
 Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under frågekörningskoden. När du ersätter dokumentet körs samma fråga igen för att visa det ändrade dokumentet.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO YOUR CODE
     // Update the Grade of the Andersen Family child
     andersenFamily.Children[0].Grade = 6;
 
-    await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Kör appen genom att trycka på **F5**.
 
@@ -526,25 +524,25 @@ Kopiera och klistra in metoden **DeleteFamilyDocument** under metoden **ReplaceF
     // ADD THIS PART TO YOUR CODE
     private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
     {
-            try
-            {
-                    await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-                    Console.WriteLine("Deleted Family {0}", documentName);
-            }
-            catch (DocumentClientException de)
-            {
-                            throw de;
-            }
+        try
+        {
+            await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+            Console.WriteLine("Deleted Family {0}", documentName);
+        }
+        catch (DocumentClientException de)
+        {
+            throw;
+        }
     }
 
 Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden för den andra frågekörningen.
 
-    await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO CODE
-    await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
 Kör appen genom att trycka på **F5**.
 
@@ -556,13 +554,13 @@ Om du tar bort databasen som skapats försvinner databasen och alla underordnade
 
 Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under dokumentborttagningskoden om du vill ta bort hela databasen och alla underordnade resurser.
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-    await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
     // ADD THIS PART TO CODE
     // Clean up/delete the database
-    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
+    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
 
 Kör appen genom att trycka på **F5**.
 
@@ -574,9 +572,9 @@ Tryck på F5 i Visual Studio för att bygga appen i felsökningsläge.
 
 Du bör se Get Started-appens utdata. Dessa utdata visar resultaten för de frågor som vi har lagt till och bör motsvara exempeltexten nedan.
 
-    Created FamilyDB
+    Created FamilyDB_oa
     Press any key to continue ...
-    Created FamilyCollection
+    Created FamilyCollection_oa
     Press any key to continue ...
     Created Family Andersen.1
     Press any key to continue ...
@@ -620,6 +618,6 @@ Om du vill återställa referenser till .NET DocumentDB SDK i Visual Studio hög
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

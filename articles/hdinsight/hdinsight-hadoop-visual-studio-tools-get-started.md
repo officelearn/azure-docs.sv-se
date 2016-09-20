@@ -1,7 +1,7 @@
 <properties
     pageTitle="Lär dig använda Visual Studio Hadoop-verktyg för HDInsight | Microsoft Azure"
     description="Få reda på hur du installerar och använder Visual Studio Hadoop-verktygen för HDInsight för att ansluta till ett Hadoop-kluster och köra en Hive-fråga."
-    keywords="hadoop tools,hive query,visual studio"
+    keywords="hadoop-verktyg, hive-fråga, visual studio"
     services="HDInsight"
     documentationCenter=""
     tags="azure-portal"
@@ -15,14 +15,14 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="05/25/2016"
+    ms.date="08/10/2016"
     ms.author="jgao"/>
 
 # Kom igång med Visual Studio Hadoop-verktygen för HDInsight för att köra en Hive-fråga
 
 Lär dig hur du använder HDInsight-verktyg för Visual Studio för att ansluta till HDInsight-kluster och skicka Hive-frågor. Mer information om hur du använder HDInsight finns i [Introduktion till HDInsight][hdinsight.introduction] och [Komma igång med HDInsight][hdinsight.get.started]. Mer information om hur du ansluter till ett Storm-kluster finns i[Utveckla C#-topologier för Apache Storm på HDInsight med Visual Studio][hdinsight.storm.visual.studio.tools].
 
-**Förutsättningar**
+**Krav**
 
 För att genomföra de här självstudierna och använda Hadoop-verktygen i Visual Studio behöver du följande:
 
@@ -86,6 +86,11 @@ När du har anslutit till din Azure-prenumeration kommer du att kunna göra föl
 Från Server Explorer kan du se standardkontot för lagring och eventuella länkade lagringskonton. Om du expanderar standardkontot för lagring kan du se behållarna på lagringskontot. Standardlagringskontot och standardbehållaren är markerade. Du kan också högerklicka på någon av behållarna för att visa innehållet.
 
 ![Klusterlista i Server Explorer för HDInsight-verktyg för Visual Studio][2]
+
+När du har öppnat en behållare kan du använda följande knappar för att överföra, ta bort och hämta blobar:
+
+![Bloboperationer i Server Explorer för HDInsight-verktyg för Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
+
 
 ## Köra en Hive-fråga
 [Apache Hive][apache.hive] är en datalagerinfrastruktur som bygger på Hadoop och som används för att tillhandahålla datasammanfattning, frågor och analys. HDInsight-verktyg för Visual Studio stöder körning av Hive-frågor från Visual Studio. Mer information om Hive finns i [Använda Hive med HDInsight][hdinsight.hive].
@@ -281,6 +286,6 @@ I den här artikeln har du lärt dig hur du ansluter till HDInsight-kluster frå
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

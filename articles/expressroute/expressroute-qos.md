@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # QoS-krav för ExpressRoute
@@ -21,7 +21,7 @@ Skype för företag har olika arbetsbelastningar som kräver särskild QoS-behan
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
->[AZURE.NOTE] QoS-kraven gäller endast för Microsoft-peering.
+>[AZURE.NOTE] QoS-kraven gäller endast för Microsoft-peering. De DSCP-värden i din nätverkstrafik som togs emot på Azures offentliga peering och Azure privata peering kommer att återställas till 0. 
 
 Följande tabell innehåller en lista över DSCP-markeringar som används av Skype för företag. Se [Hantera QoS för Skype för företag](https://technet.microsoft.com/library/gg405409.aspx) för mer information.
 
@@ -52,6 +52,6 @@ Följande tabell innehåller en lista över DSCP-markeringar som används av Sky
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

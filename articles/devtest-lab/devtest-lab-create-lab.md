@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/25/2016"
     ms.author="tarcher"/>
 
 # Skapa ett labb i Azure DevTest Labs
 
-## Förutsättningar
+## Krav
 
 Om du vill skapa ett labb behöver du följande:
 
@@ -46,6 +46,8 @@ Om du vill skapa ett labb behöver du följande:
 
     ![Skapa ett blad för labbet](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Nästa steg
 
 När du har skapat labbet kan du fundera på följande steg:
@@ -61,6 +63,6 @@ När du har skapat labbet kan du fundera på följande steg:
 - [Lägga till en virtuell dator med artefakter i ett labb](devtest-lab-add-vm-with-artifacts.md).
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,7 +1,7 @@
 <properties
-    pageTitle="Skapa ett enkelt experiment i Machine Learning Studio | Microsoft Azure"
-    description="En första självstudie om maskininlärning där vi skapar ett enkelt experiment som tränar och testar en linjär regressionsmodell i Azure Machine Learning Studio."
-    keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
+    pageTitle="Ett enkelt experiment i Machine Learning Studio | Microsoft Azure"
+    description="Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm."
+    keywords="experiment, linjär regression,machine learning algoritmer, machine learning självstudier, teknik för förutsägbar modellering, dataexperiment"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,23 +14,24 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="03/09/2016"
+    ms.date="07/14/2016"
     ms.author="garye"/>
 
-# Självstudie om maskininlärning: Skapa ditt första experiment i Azure Machine Learning Studio
+# Självstudie om Machine Learning: Skapa ditt första dataexperiment i Azure Machine Learning Studio
 
-I den här första självstudien om maskininlärning ska vi skapa en linjär regressionsmodell som beräknar priset på en bil utifrån olika variabler som märke och tekniska specifikationer. Vi ska göra detta genom att utveckla och iterera ett enkelt experiment med en förutsägelseanalys med hjälp av Azure Machine Learning Studio.
+Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer att skapa en linjär regressionsmodell som beräknar priset på en bil utifrån olika variabler som märke och tekniska specifikationer. Vi ska göra detta genom att utveckla och iterera ett enkelt experiment med en förutsägelseanalys med hjälp av Azure Machine Learning Studio.
+
+*Förutsägelseanalys* är en typ av datavetenskap som använder aktuella data för att förutsäga framtida resultat. Om du vill se ett mycket enkelt exempel på förutsägelseanalys ska du se på Data Science for Beginners video 4 (Datavetenskap för nybörjare, video 4): [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (Förutsäga ett svar med en enkel modell) (längd: 7:42).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Du skapar ett Machine Learning Studio-experiment genom att dra komponenter till en arbetsyta och sedan koppla dem för att *skapa en modell*, *träna modellen* och sedan *poängsätta och testa modellen*. Experimentet använder tekniker för förutsägelsemodellering i form av Machine Learning Studio-moduler som för in data, tränar en modell mot dem och tillämpar modellen på nya data. Du kan också lägga till modulerna för att bearbeta data i förväg och välja funktioner, dela in data i utbildnings- och testuppsättningar samt utvärdera eller kontrollera kvaliteten i din modell.  
+## Hur kan Machine Learning Studio hjälpa?
 
-Gå till Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net) och klicka på knappen **Kom igång**. Du kan välja gästbehörighet eller logga in med ditt Microsoft-konto.
+Machine Learning Studio gör det enkelt att konfigurera ett experiment med dra och släpp-moduler som har förprogrammerats med tekniker för förutsägbar modellering. Om du vill köra experimentet och förutsäga ett svar ska du använda Machine Learning Studio för att *skapa en modell*, *träna modellen* och *bedöma och testa modellen*.
 
-Mer allmän information om Machine Learning Studio finns i [Vad är Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+Gå till Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). Om du har loggat in Machine Learning Studio förut klickar du på **Logga in här**. Annars klickar du på **Registrera dig** och väljer mellan den kostnadsfria versionen och betalversionen.
 
->[AZURE.TIP] Information om hur du hämtar och skriver ut ett diagram som ger en översikt över funktionerna i Machine Learning Studio finns i [Översiktsdiagram över funktioner i Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
-
+Mer allmän information om Machine Learning Studio finns i [Vad är Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
 ## Fem steg för att skapa ett experiment
 
@@ -67,7 +68,11 @@ Den här datauppsättningen innehåller poster för ett antal olika bilar, inklu
 
     ![Datauppsättning][screen1]
 
-Om du vill se hur den här informationen ser ut klickar du på utdataporten längst ned i uppsättningen med bildata och väljer sedan **Visualisera**. Variablerna i datauppsättningen visas som kolumner och varje instans av en bil visas som en rad. Kolumnen längst till höger (kolumn 26 med rubriken ”price”) är en målvariabel som vi ska försöka förutsäga.
+Om du vill se hur den här informationen ser ut klickar du på utdataporten längst ned i uppsättningen med bildata och väljer sedan **Visualisera**.
+
+![Modulens utgående port][screen1c]
+
+Variablerna i datauppsättningen visas som kolumner och varje instans av en bil visas som en rad. Kolumnen längst till höger (kolumn 26 med rubriken ”price”) är en målvariabel som vi ska försöka förutsäga.
 
 ![Visualisering av datauppsättningar][screen1b]
 
@@ -85,8 +90,9 @@ Först ska vi ta bort kolumnen **normalized-losses** och sedan tar vi bort rader
 
 2. Välj modulen [Välj kolumner i datauppsättning][select-columns] och klicka på **Starta kolumnväljaren** i rutan **Egenskaper**.
 
-    - Kontrollera att **Alla kolumner** är valt i listrutan för filter **Börja med**. Detta uppmanar [Välj kolumner i datauppsättning][select-columns] att gå igenom alla kolumner (utom de som vi ska utesluta).
-    - På nästa rad väljer du **Exkludera** och **kolumnnamn** och klickar sedan i textrutan. En lista med kolumner visas. Välj **normalized-losses** så läggs den till i textrutan.
+    - Klicka på **Med regler** till vänster.
+    - Under **Börjar med** klickar du på **Alla kolumner**. Detta uppmanar [Välj kolumner i datauppsättning][select-columns] att gå igenom alla kolumner (utom de som vi ska utesluta).
+    - I listrutorna väljer du **Exkludera** och **kolumnnamn** och klickar sedan i textrutan. En lista med kolumner visas. Välj **normalized-losses** så läggs den till i textrutan.
     - Stäng kolumnväljaren genom att klicka på bockmarkeringen (OK).
 
     ![Välja kolumner][screen3]
@@ -113,21 +119,26 @@ Nu när vi har rensat bort data kan vi ange vilka funktioner som vi vill använd
 
 ## Steg 3: Definiera funktioner
 
-Inom maskininlärning är *funktioner* enskilda mätbara egenskaper av något du är intresserad av. I vår datauppsättning representerar varje rad en bil och varje kolumn är en funktion i den bilen. Det krävs en del experimenterande och kunskap om det problem som ska lösas för att hitta en bra uppsättning funktioner för att skapa en förutsägelsemodell. Vissa funktioner är bättre för att förutsäga målet än andra. Dessutom har vissa funktioner en stark korrelation med andra funktioner (till exempel city-mpg kontra highway-mpg), så de tillför inte mycket ny information till modellen och kan därför tas bort.
+Inom maskininlärning är *funktioner* enskilda mätbara egenskaper av något du är intresserad av. I vår datauppsättning representerar varje rad en bil och varje kolumn är en funktion i den bilen.
 
-Vi ska skapa en modell som använder en delmängd av funktionerna i vår datauppsättning. Du kan komma tillbaka och välja andra funktioner, köra experimentet igen och se om du får bättre resultat. Som en första gissning ska vi välja följande funktioner (kolumner) med modulen [Välj kolumner i datauppsättning][select-columns]. Observera att vi för att träna modellen måste ta med det *prisvärde* som vi ska förutsäga.
+Det krävs en del experimenterande och kunskap om det problem som ska lösas för att hitta en bra uppsättning funktioner för att skapa en förutsägelsemodell. Vissa funktioner är bättre för att förutsäga målet än andra. Dessutom har vissa funktioner en stark korrelation med andra funktioner (till exempel city-mpg kontra highway-mpg), så de tillför inte mycket ny information till modellen och kan därför tas bort.
+
+Vi ska skapa en modell som använder en delmängd av funktionerna i vår datauppsättning. Du kan komma tillbaka och välja andra funktioner, köra experimentet igen och se om du får bättre resultat. Men om du vill starta ska du prova följande funktioner:
 
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+
 
 1. Dra en modul av typen [Välj kolumner i datauppsättning][select-columns] till arbetsytan för experimentet och koppla den till den vänstra utdataporten för modulen [Rensa data som saknas][clean-missing-data]. Dubbelklicka på modulen och skriv ”Välj funktioner för förutsägelse”.
 
 2. Klicka på **Starta kolumnväljaren** i fönstret **Egenskaper**.
 
-3. I kolumnväljaren väljer du **Inga kolumner** för **Börja med** och väljer sedan **Inkludera** och **kolumnnamn** på filterraden. Ange vår lista med kolumnnamn. Detta uppmanar modulen att bara ta med de kolumner som vi anger.
+3. Klicka på **Med regler**.
 
-    > [AZURE.TIP] Eftersom vi har kört experimentet har kolumndefinitionerna för våra data körts från den ursprungliga datauppsättningen genom modulen [Rensa data som saknas][clean-missing-data]. När du kopplar [Välj kolumner i datauppsättning][select-columns] till [Rensa data som saknas][clean-missing-data] blir modulen [Välj kolumner i datauppsättning][select-columns] medveten om kolumndefinitionerna i våra data. När du klickar i rutan **kolumnnamn** visas en lista med kolumner och du kan välja de kolumner som du vill lägga till i listan.
+4. Under **Börja med** klickar du på **Inga kolumner** och väljer sedan **Inkludera** och **kolumnnamn** på filterraden. Ange vår lista med kolumnnamn. Detta uppmanar modulen att bara ta med de kolumner som vi anger.
 
-4. Klicka på bockmarkeringen (OK).
+    > [AZURE.TIP] Genom att köra experimentet har vi säkerställt att kolumndefinitionerna för våra data passerar från datauppsättningen genom modulen [Rensa data som saknas][clean-missing-data]. Det innebär att andra moduler som du ansluter också kommer att ha information från datauppsättningen.
+
+5. Klicka på bockmarkeringen (OK).
 
 ![Välja kolumner][screen6]
 
@@ -135,13 +146,13 @@ Nu genereras datauppsättningen som vi ska använda i inlärningsalgoritmen i n�
 
 ## Steg 4: Välja och tillämpa en inlärningsalgoritm
 
-Nu när våra data är klara är det dags att gå vidare och träna och testa vår förutsägelsemodell. Vi ska använda våra data för att träna modellen och sedan testa den för att se hur väl den kan förutsäga priser.
+Nu när våra data är klara är det dags att gå vidare och träna och testa vår förutsägelsemodell. Vi ska använda våra data för att träna modellen och sedan testa den för att se hur väl den kan förutsäga priser. För tillfället behöver du inte bry dig om varför vi behöver träna och testa en modell.
 
-*Klassificering* och *regression* är två typer av övervakade maskininlärningstekniker. Klassificering används för att göra en förutsägelse från en definierad uppsättning värden, till exempel en färg (röd, blå eller grön). Regression används för att göra en förutsägelse från en kontinuerlig uppsättning värden, till exempel en persons ålder.
+*Klassificering* och *regression* är två typer av övervakade maskininlärningstekniker. Klassificering förutsäger ett svar från en definierad uppsättning kategorier, till exempel en färg (röd, blå eller grön). Regression används för att förutsäga ett tal.
 
-Vi vill förutsäga priset på en bil, som kan vara vilket värde som helst, så vi använder en regressionsmodell. I det här exemplet ska vi träna en enkel *linjär regressionsmodell* och i nästa steg ska vi testa den.
+Eftersom vi vill förutsäga pris, vilket är ett tal, använder vi en regressionsmodell. I det här exemplet ska vi träna en enkel *linjär regressionsmodell* och i nästa steg ska vi testa den.
 
-1. Vi kan använda våra data både för träning och testning genom att dela in dem i separata tränings- och testningsuppsättningar. Markera och dra modulen [Dela data][split] till arbetsytan för experimentet och koppla den till utdataporten för den senaste modulen av typen [Välj kolumner i datauppsättning][select-columns]. Ange **Del av rader i den första utdatauppsättningen** till 0,75. På så sätt kan vi använda 75 procent av våra data för att träna modellen, och lämna 25 procent för testning.
+1. Vi använder våra data både för träning och testning genom att dela in dem i separata tränings- och testningsuppsättningar. Markera och dra modulen [Dela data][split] till arbetsytan för experimentet och koppla den till utdataporten för den senaste modulen av typen [Välj kolumner i datauppsättning][select-columns]. Ange **Del av rader i den första utdatauppsättningen** till 0,75. På så sätt kan vi använda 75 procent av våra data för att träna modellen, och lämna 25 procent för testning.
 
     > [AZURE.TIP] Genom att ändra parametern **Slumptal** kan du generera olika slumpmässiga prov för träning och testning. Den här parametern styr den pseudoslumpmässiga talgeneratorns startvärden (seeding).
 
@@ -213,6 +224,7 @@ En mer omfattande och detaljerad genomgång av tekniker för förutsägelsemodel
 [screen1]:./media/machine-learning-create-experiment/screen1.png
 [screen1a]:./media/machine-learning-create-experiment/screen1a.png
 [screen1b]:./media/machine-learning-create-experiment/screen1b.png
+[screen1c]: ./media/machine-learning-create-experiment/screen1c.png
 [screen2]:./media/machine-learning-create-experiment/screen2.png
 [screen3]:./media/machine-learning-create-experiment/screen3.png
 [screen4]:./media/machine-learning-create-experiment/screen4.png
@@ -237,6 +249,6 @@ En mer omfattande och detaljerad genomgång av tekniker för förutsägelsemodel
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

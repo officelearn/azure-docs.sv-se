@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
+    ms.date="07/23/2016"
     ms.author="tamram"/>
 
 
 # Komma igång med Azure Table Storage med hjälp av .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Översikt
 
@@ -41,6 +43,11 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 - Ett [Azure Storage-konto](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### Fler exempel
+
+Ytterligare exempel med Table Storage finns i [Komma igång med Azure Table Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Du kan ladda ned exempelprogrammet och köra det eller bläddra i koden på GitHub. 
+
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -442,6 +449,7 @@ Om du läser ett stort antal entiteter och du vill bearbeta/visa entiteter i tak
 
 Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar för att lära dig mer om komplexa lagringsuppgifter:
 
+- Du hittar fler Table Storage-exempel i [Komma igång med Azure Table Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 - Fullständig information om tillgängliga API:er finns i referensdokumentationen för tabelltjänsten:
     - [Referens för Azure Storage-klientbibliotek för .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Referens för REST-API](http://msdn.microsoft.com/library/azure/dd179355)
@@ -470,6 +478,6 @@ Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar f
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,7 +1,7 @@
 <properties
     pageTitle="Azure AD Connect: Integrera dina lokala identiteter med Azure Active Directory. | Microsoft Azure"
     description="Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du tillhandahålla en gemensam identitet för Office 365-, Azure- och SaaS-program som är integrerade med Azure AD."
-    keywords="introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory"
+    keywords="introduktion till Azure AD Connect, översikt över Azure AD Connect, vad är Azure AD Connect, installera Active Directory"
     services="active-directory"
     documentationCenter=""
     authors="andkjell"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/19/2016"
+    ms.date="07/14/2016"
     ms.author="andkjell;billmath"/>
 
 # Integrera dina lokala identiteter med Azure Active Directory
@@ -133,12 +133,13 @@ Deklarativ etablering | [Azure AD Connect-synkronisering: Förstå uttryck för 
 ## Konfigurera federationsfunktioner
 AD FS kan konfigureras att ge stöd för [flera domäner](active-directory-aadconnect-multiple-domains.md). Du kan till exempel ha flera toppdomäner som du behöver använda för federation.
 
-Om AD FS-servern inte har konfigurerats att automatiskt uppdatera certifikat från Azure AD eller om du använder en annan lösning än en ADFS-lösning så  meddelas du när du behöver [uppdatera certifikaten](active-directory-aadconnect-o365-certs.md).
+Om AD FS-servern inte har konfigurerats att automatiskt uppdatera certifikat från Azure AD eller om du använder en annan lösning än en ADFS-lösning så meddelas du när du behöver [uppdatera certifikaten](active-directory-aadconnect-o365-certs.md).
 
 ### Nästa steg för att konfigurera federationsfunktioner
 
 Avsnitt |  
 --------- | ---------
+Alla AD FS-artiklar | [Azure AD Connect och federation](active-directory-aadconnectfed-whatis.md)
 Konfigurera AD FS med underdomäner | [Stöd för flera domäner för federering med Azure AD](active-directory-aadconnect-multiple-domains.md)
 Hantera AD FS-servergrupp | [Hantering och anpassning av AD FS med Azure AD Connect](active-directory-aadconnect-federation-management.md)
 Uppdatera federationscertifikat manuellt | [Förnya federationscertifikat för Office 365 och Azure AD](active-directory-aadconnect-o365-certs.md)
@@ -164,6 +165,6 @@ Ignite 2015-presentation om hur du utökar dina lokala kataloger till molnet.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

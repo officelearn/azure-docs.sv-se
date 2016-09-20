@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/18/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
 # Skapa ett Azure Media Services-konto
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [Portalen](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
@@ -61,7 +61,7 @@ I den här artikeln förklaras hur du använder metoden Snabbregistrering för a
 
 4. Vid **LAGRINGSKONTO** väljer du ett Storage-konto för att tillhandahålla Blob Storage för medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett nytt lagringskonto. Ett nytt lagringskonto skapas i samma region.
 
-5. Om du har skapat ett nytt lagringskonto anger du ett namn för lagringskontot vid **NYTT LAGRINGSKONTONAMN**. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
+5. Om du har skapat ett nytt lagringskonto anger du ett namn för det i **NYTT LAGRINGSKONTONAMN**. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
 
 6. Klicka på **Snabbregistrering** längst ned i formuläret.
 
@@ -69,7 +69,7 @@ Du kan övervaka statusen för processen i meddelandeområdet längst ned i fön
 
 Statusen ändras till aktiv när kontot har skapats. **Media Services**-sidan öppnas och det nya kontot visas.
 
-Längst ned på sidan visas knappen **HANTERA NYCKLAR**. När du klickar på den här knappen, visas en sida med namnet på Media Services-kontot och de primära och sekundära nycklarna. Du behöver kontonamnet och den primära nyckelinformationen för att genom programmering få åtkomst till Media Services-kontot.
+Längst ned på sidan visas knappen **HANTERA NYCKLAR**. När du klickar på den här knappen, visas en sida med namnet på Media Services-kontot och de primära och sekundära nycklarna. Du behöver ha namnet på kontot och information om den primära nyckeln för att komma åt Media Services-kontot programmässigt.
 
 ![Media Services-sidan](./media/media-services-create-account/wams-mediaservices-page.png)
 
@@ -108,6 +108,6 @@ Du kan dessutom visa kod som använder Azure Media Services SDK för att utföra
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -3,17 +3,17 @@
    description="Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Den här artikeln beskriver hur du konfigurerar RBAC i Azure Automation."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn"
-   keywords="automation rbac, role based access control, azure rbac" />
+   keywords="automation rbac, rollbaserad åtkomstkontroll, azure rbac" />
 <tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="06/20/2016"
    ms.author="magoedte;sngun"/>
 
 # Rollbaserad åtkomstkontroll i Azure Automation
@@ -30,11 +30,101 @@ I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till
 |:--- |:---|
 | Ägare | Ägarrollen ger tillgång till alla resurser och åtgärder i ett Automation-konto, inklusive möjligheten att ge andra användare, grupper och program hanteringsåtkomst till Automation-kontot. |
 | Deltagare | Med deltagarrollen kan du hantera allt, men du kan inte ändra andra användares åtkomstbehörighet till ett Automation-konto. |
-| Läsare | Med läsarrollen kan du visa alla resurser i ett Automation-konto men inte göra några ändringar. |
-| Automation-operatör | Med rollen som Automation-operatör kan du utföra driftåtgärder, till exempel starta, stoppa, pausa, återuppta och schemalägga jobb. Den här rollen är användbar om du vill skydda dina Automation-kontoresurser, t.ex. autentiseringstillgångar och runbooks, så att de inte kan visas eller ändras men fortfarande vill att medlemmar i din organisation ska kunna köra dessa runbooks. [Automation-operatörsåtgärder](../active-directory/role-based-access-built-in-roles.md#automation-operator) visar de åtgärder som stöds av rollen Automation-operatör i Automation-kontot och dess resurser. |
+| Läsare | Med läsarrollen kan du visa alla resurser i ett Automation-konto men inte göra några ändringar.|
+| Automation-operatör | Med rollen som Automation-operatör kan du utföra driftåtgärder, till exempel starta, stoppa, pausa, återuppta och schemalägga jobb. Den här rollen är användbar om du vill skydda dina Automation-kontoresurser, t.ex. autentiseringstillgångar och runbooks, så att de inte kan visas eller ändras men fortfarande vill att medlemmar i din organisation ska kunna köra dessa runbooks. |
 | Administratör för användaråtkomst | Med rollen Administratör för användaråtkomst kan du hantera användaråtkomsten till Azure Automation-konton. |
 
-I den här artikeln beskriver vi steg för steg hur du konfigurerar RBAC i Azure Automation. 
+>[AZURE.NOTE] Du kan inte bevilja åtkomst till en eller flera specifika runbooks, endast för resurserna och åtgärderna på Automation-kontot.  
+
+I den här artikeln beskriver vi steg för steg hur du konfigurerar RBAC i Azure Automation. Men låt oss först ta en närmare titt på de enskilda behörigheter som beviljas deltagare, läsare, Automation-operatör och administratör för användaråtkomst så att vi får en god översikt innan vi beviljar någon behörighet till Automation-kontot.  Annars kan beviljandet
+resultera i oväntade eller oönskade konsekvenser.     
+
+## Deltagarbehörigheter
+
+I följande tabell visas vilka åtgärder som kan utföras av deltagarrollen i Automation.
+
+| **Resurstyp** | **Läsa** | **Skriva** | **Ta bort** | **Andra åtgärder** |
+|:--- |:---|:--- |:---|:--- |
+| Azure Automation – konto | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Automation – certifikattillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Automation – anslutningstillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Automation – anslutningstypstillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Automation – autentiseringstillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Automation – schematillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Automation – variabeltillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Automation – önskad tillståndskonfiguration | | | | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) |
+| Hybrid Runbook Worker – resurstyp | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Azure Automation – jobb | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | 
+| Automation – jobbström | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation – jobbschema | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Automation – modul | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Azure Automation – Runbook | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) |
+| Automation – Runbook-utkast | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) |
+| Automation – testjobb för Runbook-utkast | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | 
+| Automation – webhook | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) |
+
+## Behörighet för läsare
+
+I följande tabell visas vilka åtgärder som kan utföras av rollen Läsare i Automation.
+
+| **Resurstyp** | **Läsa** | **Skriva** | **Ta bort** | **Andra åtgärder** |
+|:--- |:---|:--- |:---|:--- |
+| Klassisk prenumerationsadministratör | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Hanteringslås | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Behörighet | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Leverantörsåtgärder | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Rolltilldelning | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Rolldefinition | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+
+## Behörigheter för Automation-operatör
+
+I följande tabell visas vilka åtgärder som kan utföras av rollen Automation-operatör i Automation.
+
+| **Resurstyp** | **Läsa** | **Skriva** | **Ta bort** | **Andra åtgärder** |
+|:--- |:---|:--- |:---|:--- |
+| Azure Automation – konto | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Automation – certifikattillgång | | | |
+| Automation – anslutningstillgång | | | |
+| Automation – anslutningstypstillgång | | | |
+| Automation – autentiseringstillgång | | | |
+| Automation – schematillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Automation – variabeltillgång | | | |
+| Automation – önskad tillståndskonfiguration | | | | |
+| Hybrid Runbook Worker – resurstyp | | | | | 
+| Azure Automation – jobb | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | 
+| Automation – jobbström | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | |  
+| Automation – jobbschema | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Automation – modul | | | |
+| Azure Automation – Runbook | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – Runbook-utkast | | | |
+| Automation – testjobb för Runbook-utkast | | | |  
+| Automation – webhook | | | |
+
+Mer information om de åtgärder som stöds av rollen Automation-operatör i Automation-kontot och dess resurser finns i [Automation-operatörsåtgärder](../active-directory/role-based-access-built-in-roles.md#automation-operator).
+
+## Behörigheter för Administratör för användaråtkomst
+
+I följande tabell visas vilka åtgärder som kan utföras av rollen Administratör för användaråtkomst i Automation.
+
+| **Resurstyp** | **Läsa** | **Skriva** | **Ta bort** | **Andra åtgärder** |
+|:--- |:---|:--- |:---|:--- |
+| Azure Automation – konto | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – certifikattillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – anslutningstillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – anslutningstypstillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – autentiseringstillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – schematillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – variabeltillgång | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – önskad tillståndskonfiguration | | | | |
+| Hybrid Runbook Worker – resurstyp | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Azure Automation – jobb | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation – jobbström | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation – jobbschema | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – modul | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Azure Automation – Runbook | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – Runbook-utkast | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation – testjobb för Runbook-utkast | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation – webhook | ![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | |
 
 ## Konfigurera RBAC för ditt Automation-konto med hjälp av Azure-portalen
 
@@ -44,7 +134,7 @@ I den här artikeln beskriver vi steg för steg hur du konfigurerar RBAC i Azure
 
     ![Knappen Åtkomst](media/automation-role-based-access-control/automation-01-access-button.png)  
 
->[AZURE.NOTE]  **Prenumerationsadministratörer** är redan konfigurerade som standardanvändaren. Prenumerationsadministratörernas Active Directory-grupp innehåller tjänstadministratörerna och medadministratörerna för din Azure-prenumeration. Tjänstadministratören är ägaren av din Azure-prenumeration och dess resurser och ärver även ägarrollen från Automation-kontona. Det innebär att **tjänstadministratörer och medadministratörer** för en prenumeration **ärver** åtkomsten och den **tilldelas** för alla andra användare. Klicka på **Prenumerationsadministratörer** om du vill visa mer information om deras behörigheter.  
+>[AZURE.NOTE] **Prenumerationsadministratörer** är redan konfigurerade som standardanvändaren. Prenumerationsadministratörernas Active Directory-grupp innehåller tjänstadministratörerna och medadministratörerna för din Azure-prenumeration. Tjänstadministratören är ägaren av din Azure-prenumeration och dess resurser och ärver även ägarrollen från Automation-kontona. Det innebär att **tjänstadministratörer och medadministratörer** för en prenumeration **ärver** åtkomsten och den **tilldelas** för alla andra användare. Klicka på **Prenumerationsadministratörer** om du vill visa mer information om deras behörigheter.  
 
 ### Lägga till en ny användare och tilldela en roll
 
@@ -60,19 +150,21 @@ I den här artikeln beskriver vi steg för steg hur du konfigurerar RBAC i Azure
 
     ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)  
  
-Nu bör du se användaren på bladet **Användare** med rollen **Läsare**.  
+    Nu bör du se användaren på bladet **Användare** med rollen **Läsare**.  
 
-![Visa användare](media/automation-role-based-access-control/automation-05-list-users.png)  
+    ![Visa användare](media/automation-role-based-access-control/automation-05-list-users.png)  
 
-Du kan också tilldela en roll till användaren från bladet **Roller**. Klicka på **Roller** från bladet Användare för att öppna bladet **Roller**. Från det här bladet kan du visa namnet på rollen och antalet användare och grupper som har tilldelats till rollen.
+    Du kan också tilldela en roll till användaren från bladet **Roller**. 
 
-![Tilldela en roll från bladet Användare](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
+1. Klicka på **Roller** från bladet Användare för att öppna bladet **Roller**. Från det här bladet kan du visa namnet på rollen och antalet användare och grupper som har tilldelats till rollen.
+
+    ![Tilldela en roll från bladet Användare](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
->[AZURE.NOTE] Rollbaserad åtkomstkontroll kan bara anges på Automation-kontonivån och inte för en resurs under Automation-kontot.
+    >[AZURE.NOTE] Rollbaserad åtkomstkontroll kan bara anges på Automation-kontonivån och inte för en resurs under Automation-kontot.
 
-Du kan tilldela mer än en roll för en användare, grupp eller ett program. Om vi till exempel lägger till rollen **Automation-operatör** tillsammans med **läsarrollen** för användaren så kan de visa alla Automation-resurser samt köra runbook-jobben. Du kan expandera listrutan om du vill visa en lista över roller som användaren har tilldelats.  
+    Du kan tilldela mer än en roll för en användare, grupp eller ett program. Om vi till exempel lägger till rollen **Automation-operatör** tillsammans med **läsarrollen** för användaren så kan de visa alla Automation-resurser samt köra runbook-jobben. Du kan expandera listrutan om du vill visa en lista över roller som användaren har tilldelats.  
 
-![Visa flera roller](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
+    ![Visa flera roller](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
  
 ### Ta bort en användare
 
@@ -114,11 +206,11 @@ Den här användaren kan inte heller visa webhooks som är associerade med en ru
 
 Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hjälp av följande [Azure PowerShell-cmdlets](../active-directory/role-based-access-control-manage-access-powershell.md).
 
-• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) visar alla roller som är tillgängliga med RBAC i Azure Active Directory. Du kan använda det här kommandot tillsammans med egenskapen **Namn** för att visa en lista med alla användare med en viss roll.  
+• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) visar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda det här kommandot tillsammans med egenskapen **Namn** för att visa en lista över alla de åtgärder som kan vidtas av en viss roll.  
     **Exempel:**  
     ![Hämta rolldefinition](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)  
 
-• [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) visar Azure RBAC-rolltilldelningar i det angivna omfånget. Utan parametrar returnerar detta kommando alla rolltilldelningar som skapats under prenumerationen. Använd parametern **ExpandPrincipalGroups** om du vill visa en lista med alla åtkomsttilldelningar för den angivna användaren och för de grupper som användaren är medlem i.  
+• [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) visar Azure AD RBAC-rolltilldelningar i det angivna omfånget. Utan parametrar returnerar detta kommando alla rolltilldelningar som skapats under prenumerationen. Använd parametern **ExpandPrincipalGroups** om du vill visa en lista med alla åtkomsttilldelningar för den angivna användaren och för de grupper som användaren är medlem i.  
     **Exempel:** Använd följande kommando om du vill visa alla användare och deras roller i ett Automation-konto.
 
     Get-AzureRMRoleAssignment -scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>” 
@@ -126,28 +218,28 @@ Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hj�
 ![Hämta rolltilldelning](media/automation-role-based-access-control/automation-15-get-azurerm-role-assignment.png)
 
 • [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) om du vill ge åtkomst till användare, grupper och program i ett visst omfång.  
-    **Exempel:** Använd följande kommando om du vill skapa en ny Automation-operatörsroll för en användare i Automation-kontoomfånget.
+    **Exempel:** Använd följande kommando om du vill tilldela rollen ”Automation-operatör” för en användare i Automation-kontoomfånget.
 
     New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName "Automation operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”  
 
 ![Ny rolltilldelning](media/automation-role-based-access-control/automation-16-new-azurerm-role-assignment.png)
 
-• Använd [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) om du vill ta bort åtkomsten till den angivna användaren, gruppen eller programmet i ett visst omfång.
-    **Exempel:** Använd följande kommando om du vill skapa en ny Automation-operatörsroll för en användare i Automation-kontoomfånget.
+• Använd [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) om du vill ta bort åtkomsten till den angivna användaren, gruppen eller programmet i ett visst omfång.  
+    **Exempel:** Använd följande kommando för att avlägsna användaren från rollen ”Automation-operatör” i Automation-kontoomfånget.
 
-    Remove-AzureRmRoleAssignment -SignInName "<sign-in Id of a user you wish to remove>" -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
+    Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
 
-I cmdletarna ovan ersätter du inloggningsnamn, prenumerations-ID, resursgruppsnamn och Automation-kontonamn med din kontoinformation. Välj **Ja** när du uppmanas att fortsätta att ta bort rolltilldelningen.   
+I cmdletarna ovan ersätter du **inloggnings-ID**, **prenumerations-ID**, **resursgruppsnamn** och **Automation-kontonamn** med din kontoinformation. Välj **Ja** när du uppmanas att bekräfta innan du fortsätter att ta bort rolltilldelningen för användaren.   
 
 
 ## Nästa steg
 -  Information om hur du kan konfigurera RBAC på olika sätt med Azure Automation finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
 - Mer information om hur du kan starta en runbook på olika sätt finns i [Starta en runbook](automation-starting-a-runbook.md)
-- Information om olika typer finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
+- Information om olika runbook-typer finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

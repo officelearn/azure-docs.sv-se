@@ -4,7 +4,7 @@
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
-    manager="mblythe"
+    manager="paulettm"
     editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="04/14/2016"
+    ms.date="08/08/2016"
     ms.author="heidist"/>
 
 # Indexerare i Azure Search
@@ -30,26 +30,55 @@ En **indexerare** i Azure Search är en crawler som extraherar sökbara data och
 
 Du kan använda en indexerare som enda metod för datapåfyllning eller använda en kombination av tekniker som inbegriper en indexerare för att läsa in bara några av fälten i ditt index.
 
-Indexerare kan köras på begäran eller enligt ett återkommande datauppdateringsschema som körs så ofta som var 15:e minut. Mer frekventa uppdateringar kräver en push-modell som uppdaterar data i Azure Search och i din externa datakälla samtidigt.
+Du kan köra indexerare på begäran eller enligt ett återkommande datauppdateringsschema som körs så ofta som var 15:e minut. Mer frekventa uppdateringar kräver en push-modell som uppdaterar data i Azure Search och i din externa datakälla samtidigt.
+
+## Metoder för att skapa och hantera indexerare
+
+För allmänt tillgängliga indexerare, som Azure SQL och DocumentDB, kan du skapa och hantera indexerare med hjälp av följande metoder:
+
+- [Portal > Guiden Importera Data ](search-get-started-portal.md)
+- [Tjänsten REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
+- [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
+
+Förhandsgranskning av indexerare, som Azure Blob eller Table Storage, kräver kod- och förhandsgransknings-API:er, som [Azure Search Preview REST API för indexerare](search-api-indexers-2015-02-28-preview.md). Portalverktygsuppsättningen är i normalfallet inte tillgänglig för förhandsgranskningsfunktioner.
+
+## Grundläggande konfigurationssteg
+
+Indexerare kan erbjuda funktioner som är unika för datakällan. I detta avseende varierar vissa aspekter av indexerarna och datakällskonfigurationen kan variera efter indexerartyp. Alla indexerare delar dock samma grundläggande sammansättning och krav. De steg som är gemensamma för alla indexerare beskrivs nedan.
+
+### Steg 1: Skapa ett index
+
+En indexerare automatiserar vissa uppgifter som rör datainhämtning, men att skapa ett index är inte en av dem. Som krav måste du ha ett fördefinierat index med fält som matchar de i din externa datakälla. Mer information om att strukturera ett index finns i [Skapa ett Index (REST-API för Azure Search)](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+
+### Steg 2: Skapa en datakälla
 
 En indexerare hämtar data från en **datakälla** som innehåller information som till exempel en anslutningssträng. För närvarande stöds följande datakällor:
 
-- [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) (eller SQL Server på en virtuell Azure-dator)
+- [Azure SQL Database (eller SQL Server på en virtuell Azure-dator)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
-- [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) (För närvarande endast tillgänglig som förhandsversion. Extraherar text från PDF, Office-dokument, HTML och  XML).
-- [Azure Table Storage](search-howto-indexing-azure-tables.md) (för närvarande endast tillgänglig som förhandsversion)
+- [Azure Blob Storage (förhandsversion)](search-howto-indexing-azure-blob-storage.md) används för att extrahera text från PDF, Office-dokument, HTML eller XML
+- [Azure Table Storage (förhandsversion)](search-howto-indexing-azure-tables.md)
 
 Datakällor konfigureras och hanteras oberoende av indexerarna som använder dem, vilket innebär att en datakälla kan användas av flera indexerare för att läsa in mer än ett index i taget. 
 
-Både [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx) och [REST-API:et för tjänsten](https://msdn.microsoft.com/library/azure/dn946891.aspx) stöder hanteringen av indexerare och datakällor. 
+### Steg 3: Skapa och schemalägg indexeraren
 
-Alternativt kan du också konfigurera en indexerare på portalen när du använder guiden **Importera data**. Gå till [Komma igång med Azure Search på portalen](search-get-started-portal) om du vill gå en snabb självstudiekurs som använder exempeldata och DocumentDB-indexeraren för att skapa och läsa in ett index med hjälp av guiden.
+Indexerardefinitionen är en konstruktion som specificerar index, datakälla och schema. En indexerare referera till en datakälla från en annan tjänst så länge som den datakällan är från samma prenumeration. Mer information om att strukturera en indexerare finns i [Skapa et indexerare (REST-API för Azure Search)](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+
+## Nästa steg
+
+Nu när du har lagt grunden är nästa steg att granska krav och uppgifter som är specifika för varje typ av datakälla.
+
+- [Azure SQL Database (eller SQL Server på en virtuell Azure-dator)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [DocumentDB](../documentdb/documentdb-search-indexer.md)
+- [Azure Blob Storage (förhandsversion)](search-howto-indexing-azure-blob-storage.md) används för att extrahera text från PDF, Office-dokument, HTML eller XML
+- [Azure Table Storage (förhandsversion)](search-howto-indexing-azure-tables.md)
+- [Indexera CSV-blobar med Azure Search Blob-indexeraren (förhandsversion)](search-howto-index-csv-blobs.md)
+- [Indexera JSON-blobar med Azure Search-blob-indexeraren (förhandsversion)](search-howto-index-json-blobs.md)
 
 
 
 
-
-
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

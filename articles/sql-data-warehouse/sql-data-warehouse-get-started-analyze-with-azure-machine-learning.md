@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analysera data med Azure Machine Learning | Microsoft Azure"
-   description="Självstudier för att använda Azure Machine Learning med Azure SQL Data Warehouse för utveckling av lösningar."
+   description="Använd Azure Machine Learning för att skapa en förutsägbar Machine Learning-modell som baseras på data lagrade i Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="shivaniguptamsft"
@@ -13,29 +13,29 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/16/2016"
    ms.author="shigu;barbkess;sonyama"/>
 
 # Analysera data med Azure Machine Learning
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-De här självstudierna visar hur du skapar en förutsägbar maskininlärningsmodell med Azure Machine Learning med hjälp av dina Azure SQL Data Warehouse-data. I de här självstudierna kommer vi att skapa en riktad marknadsföringskampanj för Adventure Works, en cykelbutik, genom att förutsäga om en kund troligtvis kommer att köpa en cykel eller inte.
+Denna självstudie använder Azure Machine Learning för att skapa en förutsägbar Machine Learning-modell som baseras på data lagrade i Azure SQL Data Warehouse. Mer specifikt skapar detta en riktad marknadsföringskampanj för Adventure Works, en cykelbutik, genom att förutsäga hur sannolikt det är att en kund kommer att köpa en cykel.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
 
-## Förutsättningar
-För att gå igenom de här självstudierna behöver du
 
-- SQL Data Warehouse med AdventureWorksDW som exempeldatabas.
+## Krav
+För att gå igenom de här självstudierna, behöver du:
 
-[Skapa ett SQL Data Warehouse][] visar hur du etablerar en databas med exempeldata. Om du redan har en databas i SQL Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt][]
+- Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta, se [Skapa ett SQL Data Warehouse][] och välj att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt][].
 
-
-## Steg 1: Hämta Data
-Vi kommer att läsa data från dbo.vTargetMail-vyn i AdventureWorksDW-databasen.
+## 1. Hämta data
+Aktuella data finns i dbo.vTargetMail-vyn i AdventureWorksDW-databasen. Så här läser du in dessa data:
 
 1. Logga in på [Azure Machine Learning-studio][] och klicka på mina experiment.
 2. Klicka på **+NY** och välj **Tomt experiment**.
@@ -72,8 +72,8 @@ När experimentet har körts, klicka på utdataporten längst ned i läsarmodule
 ![Visa data som importerats][3]
 
 
-## Steg 2: Rensa data
-Vi kommer att släppa vissa kolumner som inte är relevanta för modellen.
+## 2. Rensa data
+För att rensa data kommer vi att släppa vissa kolumner som inte är relevanta för modellen. Gör så här:
 
 1. Dra modulen **Projektkolumner** till arbetsytan.
 2. Klicka på **Starta kolumnväljaren** i fönstret Egenskaper för att ange vilka kolumner du vill ta bort.
@@ -83,7 +83,7 @@ Vi kommer att släppa vissa kolumner som inte är relevanta för modellen.
 ![Ta bort onödiga kolumner][5]
 
 
-## Steg 3: Skapa modell
+## 3. Skapa modellen
 Vi delar data 80–20: 80 % för att träna en maskininlärningsmodell och 20 % för att testa modellen. Vi använder ”Tvåklassalgoritmer” för detta binära klassificeringsproblem.
 
 1. Dra modulen **Dela** till arbetsytan.
@@ -98,7 +98,7 @@ Vi delar data 80–20: 80 % för att träna en maskininlärningsmodell och 20 % 
 ![Välj kolumn att förutsäga][8]
 
 
-## Steg 4: Poängmodell
+## 4. Poängsätt modellen
 Vi kommer nu att testa hur modellen presterar på testdata. Vi kommer att jämföra algoritmen vi valt med en annan algoritm för att se vilken som presterar bäst.
 
 1. Dra modulen **Poängmodell** till arbetsytan.
@@ -126,30 +126,28 @@ Genom att jämföra kolumnen BikeBuyer (faktiska) med Poängsatta etiketter (fö
 Mer information om hur du skapar förutsägbara maskininlärningsmodeller finns i [Introduktion till Machine Learning på Azure][].
 
 <!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
 <!--Article references-->
 [Azure Machine Learning-studio]:https://studio.azureml.net/
 [Introduktion till Machine Learning på Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[läsa in exempeldata manuellt]: sql-data-warehouse-get-started-manually-load-samples.md
+[läsa in exempeldata manuellt]: sql-data-warehouse-load-sample-databases.md
 [Skapa ett SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

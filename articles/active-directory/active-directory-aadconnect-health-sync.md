@@ -14,11 +14,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/08/2016"
     ms.author="billmath"/>
 
 # Använda Azure AD Connect Health för synkronisering
-Följande dokumentation är specifik för övervakning av Azure AD Connect-synkronisering med Azure AD Connect Health.  Information om övervakning av AD FS med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adfs.md).
+Följande dokumentation är specifik för övervakning av Azure AD Connect (Sync) med Azure AD Connect Health.  Information om övervakning av AD FS med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adfs.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).
 
 ![Azure AD Connect Health för synkronisering](./media/active-directory-aadconnect-health-sync/sync.png)
 
@@ -64,12 +64,13 @@ Den här funktion visar en grafisk trend över antalet ändringar som utvärdera
 * [Installation av Azure AD Connect Health Agent](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health-åtgärder](active-directory-aadconnect-health-operations.md)
 * [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adfs.md)
+* [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versionshistorik för Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

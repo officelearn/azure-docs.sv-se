@@ -2,9 +2,9 @@
     pageTitle="Anslut till SQL Database med en C#-fråga | Microsoft Azure"
     description="Skriv ett program i C# för att fråga och ansluta till SQL Database. Information om IP-adresser, anslutningssträngar, säker inloggning och kostnadsfri Visual Studio."
     services="sql-database"
-    keywords="c# database query, c# query, connect to database, SQL C#"
+    keywords="c# databasfråga, c#, ansluta till databasen, SQL C#"
     documentationCenter=""
-    authors="MightyPen"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
-    ms.author="annemill"/>
+    ms.date="08/17/2016"
+    ms.author="stevestein"/>
+
 
 
 # Anslut till SQL Database med Visual Studio
@@ -25,78 +26,62 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Lär dig hur man ansluter till en Azure SQL Database i Visual Studio. 
+Lär dig hur man ansluter till en Azure SQL-databas i Visual Studio. 
 
-## Förutsättningar
-
-
-För att ansluta till SQL Database med Visual Studio, behöver du: 
+## Krav
 
 
-- Ett Azure-konto och prenumeration. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
+För att ansluta till SQL-databas med Visual Studio behöver du följande: 
 
 
-- En **AdventureWorksLT**-demonstrationsdatabas på Azure SQL Database-tjänsten.
- - [Skapa demodatabasen](sql-database-get-started.md) på några minuter.
+- En SQL-databas att ansluta till. Den här artikeln använder exempeldatabasen **AdventureWorks**. Läs i [Skapa demodatabasen](sql-database-get-started.md) för att få tillgång till AdventureWorks-exempeldatabasen.
 
 
 - Visual Studio 2013 uppdatering 4 (eller senare). Microsoft erbjuder nu Visual Studio Community helt *kostnadsfritt*.
  - [Visual Studio Community, hämta](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Fler alternativ för kostnadsfri Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Eller låt [steget](#InstallVSForFree) lite längre fram i det här ämnet beskriva hur [Azure Portal](https://portal.azure.com/) hjälper dig att installera Visual Studio.
 
 
-<a name="InstallVSForFree" id="InstallVSForFree"></a>
-
-&nbsp;
-
-## Steg 1: Installera Visual Studio Community kostnadsfritt
 
 
-Om du behöver installera Visual Studio, kan du:
-
-- Installera Visual Studio Community kostnadsfritt genom att navigera din webbläsare till produktsidorna för Visual Studio, där du får en kostnadsfri nedladdning och andra alternativ, eller
-- Låt [Azure Portal](https://portal.azure.com/) guida dig till hämtningssidan, vilket beskrivs härnäst.
+## Öppna Visual Studio från Azure Portal
 
 
-### Visual Studio via Azure Portal
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+
+2. Klicka på **Fler tjänster** > **SQL-databaser**
+3. Öppna **AdventureWorks**-databasbladet genom att klicka på *AdventureWorks*-databasen.
+
+6. Klicka på knappen **Verktyg** längst upp på databasbladet:
+
+    ![Ny fråga. Anslut till SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
+
+7. Klicka på **Öppna i Visual Studio** (om du behöver Visual Studio kan du klicka på hämtningslänken):
+
+    ![Ny fråga. Anslut till SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
 
-1. Öppna och logga in på [Azure Portal](https://portal.azure.com/), http://portal.azure.com.
-
-2. Klicka på **BLÄDDRA* ALLA** > **SQL-databaser**. Det öppnas ett blad som söker efter databaser.
-
-3. I filter-textrutan högt uppe, skriver du in namnet på **AdventureWorksLT**-databasen.
-
-4. När du ser raden för databasen på din server, klickar du på den. Ett blad öppnas för din databas.
-
-5. Klicka på minimera-kontrollen på alla föregående blad, för bekvämlighetens skull.
-
-6. Klicka på knappen **Öppna i Visual Studio** längst upp på ditt databas-blad. Ett nytt blad om Visual Studio öppnas med länkar till installationsplatser för Visual Studio.
-
-    ![Öppna i Visual Studio-knappen][20-OpenInVisualStudioButton]
-
-7. Klicka på länken **Community (kostnadsfritt)**, eller någon liknande länk. En ny webbsida läggs till.
-
-8. Använd länkarna på den nya webbsidan för att installera Visual Studio.
-
-9. När Visual Studio är installerat, går du till **Öppna i Visual Studio**-bladet och klickar på knappen **Öppna i Visual Studio**. Visual Studio öppnas.
-
-10. På grund av sitt **SQL Server Object Explorer**-fönster, ber Visual Studio dig att fylla i anslutningssträng-fälten i en dialogruta.
- - Väl **SQL Server-autentisering** och inte **Windows-autentisering**.
- - Kom ihåg att ange din **AdventureWorksLT**-databas (**Alternativ** > **Anslutningsegenskaper** i dialogrutan).
-
-11. I **SQL Server Object Explorer**, expanderar du noden för din databas.
+8. Visual Studio öppnas med fönstret **Anslut till server** redan inställt för att ansluta till den server och databas som du valde i portalen.  (Klicka på **Alternativ** att kontrollera att anslutningen har ställts in på rätt databas.) Ange ditt serveradministratörslösenord och klicka på **Anslut**.
 
 
-## Steg 2: Kör exempelfrågor
+    ![Ny fråga. Anslut till SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
-Efter att du ansluter till din logiska server, kan du ansluta till en databas och köra en exempelfråga. 
 
-1. I **Object Explorer**, navigerar du till en databas på den server där du har behörighet, som exempeldatabasen **AdventureWorks**.
+8. Om du inte har skapat en brandväggsregel för datorns IP-adress visas meddelandet *Det går inte att ansluta*. Om du vill skapa en brandväggsregel kan du läsa [Konfigurera en brandväggsregel på servernivå för Azure SQL Database](sql-database-configure-firewall-settings.md).
+
+
+9. När du har anslutit öppnas fönstret **SQL Server Object Explorer** med en anslutning till databasen.
+
+    ![Ny fråga. Anslut till SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
+
+
+## Kör en exempelfråga
+
+Nu när vi har anslutit till databasen visar följande steg hur du kör en enkel fråga:
+
 2. Högerklicka på databasen och välj **Ny fråga**.
 
-    ![Ny fråga. Anslut till SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+    ![Ny fråga. Anslut till SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
 3. Kopiera och klistra in följande kod i frågefönstret.
 
@@ -108,22 +93,20 @@ Efter att du ansluter till din logiska server, kan du ansluta till en databas oc
         ,CompanyName
         FROM SalesLT.Customer;
 
-4. Klicka på **Kör**-knappen.  Följande skärmbild visar en lyckad fråga.
+4. Klicka på knappen **Kör** för att köra frågan:
 
-    ![Lyckades. Anslut till SQL Database-server: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
+    ![Lyckades. Anslut till SQL Database-server: SVisual Studio](./media/sql-database-connect-query/run-query.png)
 
 ## Nästa steg
 
-[Anslut till SQL Database med .NET (C#)](sql-database-develop-dotnet-simple.md) 
-
-
-<!-- Image references. -->
-
-[20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
+- Öppna SQL-databaser i Visual Studio med SQL Server Data Tools. Mer information finns i [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
+- Om du vill ansluta till en SQL-databas med hjälp av kod kan du läsa [Ansluta till SQL Database med hjälp av .NET (C#)](sql-database-develop-dotnet-simple.md).
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=sep16_HO1-->
 
 

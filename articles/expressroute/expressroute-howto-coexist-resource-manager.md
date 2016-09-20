@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="charleywen"/>
 
 # Konfigurera ExpressRoute och samexisterande plats-till-plats-anslutningar för distributionsmodellen i Resource Manager
@@ -196,6 +196,6 @@ Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRout
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

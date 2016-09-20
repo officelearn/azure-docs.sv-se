@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Domain Services *(förhandsversion)* – Aktivera Azure AD Domain Services
@@ -96,6 +96,6 @@ Nästa konfigurationsåtgärd är att [uppdatera DNS-inställningarna för det v
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

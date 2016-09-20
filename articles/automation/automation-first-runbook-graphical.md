@@ -6,14 +6,14 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="runbook, runbook template, runbook automation, azure runbook"/>
+    keywords="runbook, runbook-mall, runbook-automation, azure runbook"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
 # Min första grafiska runbook
@@ -135,7 +135,7 @@ Din runbook bör se ut ungefär så här nu: <br>![Konfiguration av runbook-aute
 Nu ska vi lägga till en **Start-AzureRmVM**-aktivitet för att starta en virtuell dator.  Du kan välja valfri virtuell dator i Azure-prenumerationen och vi ska hårdkoda namnet i cmdleten.
 
 1. Skriv **StartsAzureRm** i sökrutan för bibliotekskontrollen.
-2. Lägg till **Start-AzureRmVM** på arbetsytan och klicka på och dra det under **Ange prenumerations-ID**.
+2. Lägg till **Start-AzureRmVM** på arbetsytan och klicka på och dra det under **Anslut till Azure**.
 3. Hovra över **Ange prenumerations-ID** tills en cirkel visas längst ned i formen.  Klicka på cirkeln och dra pilen till **Start-AzureRmVM**. 
 4.  Välj **Start-AzureRmVM**.  Klicka på **Parametrar** och sedan på **Parameteruppsättning** för att visa uppsättningarna för **Start-AzureRmVM**.  Välj parameteruppsättningen **ResourceGroupNameParameterSetName**. Observera att **ResourceGroupName** och **Name** visas med utropstecken.  Det betyder att de är obligatoriska parametrar.  Observera också att båda förväntar strängvärden.
 5.  Välj **Name**.  Välj **PowerShell-uttryck** för **Datakälla** och skriv namnet på den virtuella datorn, omgivet av dubbla citattecken, som vi ska starta med den här runbooken.  Klicka på **OK**.<br>![Parametervärde för Name i Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -198,15 +198,15 @@ Nu ska vi ändra runbooken så att den endast försöker starta den virtuella da
 17. För **Villkorsuttryck** skriver du *$ActivityOutput['Hämta status'] -eq "Stoppad"*.  Nu körs **Start-AzureRmVM** bara om den virtuella datorn har stoppats.
 18. Expandera **Cmdlets** och sedan **Microsoft.PowerShell.Utility** i bibliotekskontrollen.
 19. Lägg till **Write-Output** på arbetsytan två gånger.<br> ![Runbook med Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
-20. I den första **Write-Output**-kontrollen ändrar du värdet för **Etikett** till *Meddela att den virtuella datorn har startat*.
+20. I den första **Write-Output**-kontrollen klickar du på **Parametrar** och ändrar värdet för **Etikett** till *Meddela att den virtuella datorn har startat*.
 21. För **InputObject** ändrar du **Datakälla** till **PowerShell-uttryck** och skriver uttrycket *"$VMName har startat."*.
-22. För den andra **Write-Output**-kontrollen ändrar du värdet för **Etikett** till *Meddela att det inte gick att starta den virtuella datorn*
+22. I den andra **Write-Output**-kontrollen klickar du på **Parametrar** och ändrar värdet för **Etikett** till *Meddela att det inte gick att starta den virtuella datorn*
 23. För **InputObject** ändrar du **Datakälla** till **PowerShell-uttryck** och skriver uttrycket *"Det gick inte att starta $VMName."*.
 24. Skapa en länk från **Start-AzureRmVM** till **Meddela att den virtuella datorn har startat** och **Meddela att det inte gick att starta den virtuella datorn**.
 25. Välj länken till **Meddela att den virtuella datorn har startat** och ändra **Använd villkor** till **Sant**.
 26. För **Villkorsuttryck** skriver du *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*.  Nu körs den här Write-Output-kontrollen bara om den virtuella datorn har startats.
 27. Välj länken till **Meddela att det inte gick att starta den virtuella datorn** och ändra **Använd villkor** till **Sant**.
-28. För **Villkorsuttryck** skriver du *$ActivityOutput ['Start-AzureRmVM']. IsSuccessStatusCode - ne $true*.  Nu körs den här Write-Output-kontrollen bara om den virtuella datorn inte har startats. 
+28. För **Villkorsuttryck** skriver du *$ActivityOutput ['Start-AzureRmVM']. IsSuccessStatusCode - ne $true*.  Nu körs den här Write-Output-kontrollen bara om den virtuella datorn inte har startats.
 29. Spara runbooken och öppna Testfönster.
 30. Starta runbooken när den virtuella datorn är stoppad så bör den starta.
 
@@ -218,6 +218,6 @@ Nu ska vi ändra runbooken så att den endast försöker starta den virtuella da
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

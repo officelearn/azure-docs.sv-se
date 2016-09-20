@@ -15,11 +15,13 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
+    ms.date="08/18/2016"
     ms.author="v-livech"
 />
 
 # Skapa en virtuell Linux-dator i Azure med hjälp av portalen
+
+> [AZURE.NOTE] Om du har en stund över kan du hjälpa oss att förbättra Azure Linux VM-dokumentationen genom att delta i denna [snabbundersökning](https://aka.ms/linuxdocsurvey) av dina upplevelser. Varje svar hjälper oss att hjälpa dig att få ditt arbete gjort.
 
 I den här artikeln lär du dig hur du använder [Azure Portal](https://portal.azure.com/) för att snabbt skapa en virtuell Linux-dator. De enda kraven är [ett Azure-konto](https://azure.microsoft.com/pricing/free-trial/) och [filer för offentliga och privata SSH-nycklar](virtual-machines-linux-mac-create-ssh-keys.md).
 
@@ -36,8 +38,8 @@ I den här artikeln lär du dig hur du använder [Azure Portal](https://portal.a
     - ett namn för den virtuella datorn
     - ett användarnamn för administratören
     - autentiseringstypen till **Offentlig SSH-nyckel**
-    - din offentliga SSH-nyckel som en sträng (som standard från `~/.ssh/`-katalogen)
-    - ett resursgruppsnamn (för att skapa en ny distributionsgrupp) eller väljer en befintlig grupp
+    - din offentliga SSH-nyckel som en sträng (från `~/.ssh/`-katalogen)
+    - ett resursgruppsnamn eller väljer en befintlig grupp
 
     och klickar på **OK** för att fortsätta och välja en storlek för den virtuella datorn. Det bör se ut ungefär så här:
 
@@ -71,16 +73,14 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 ## Nästa steg
 
-Nu har du snabbt skapat en virtuell Linux-dator för testnings- eller demonstrationsändamål. Om du vill skapa en virtuell Linux-dator som är anpassad efter din infrastruktur följer du anvisningarna i relevant artikel nedan.
+Nu har du snabbt skapat en virtuell Linux-dator för testnings- eller demonstrationsändamål. Om du vill skapa en virtuell Linux-dator som är anpassad efter din infrastruktur kan du följa vilken som helst av dessa artiklar.
 
 - [Skapa en virtuell Linux-dator i Azure med hjälp av mallar](virtual-machines-linux-cli-deploy-templates.md)
 - [Skapa en SSH-skyddad virtuell Linux-dator i Azure med hjälp av mallar](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Skapa en virtuell Linux-dator med hjälp av Azure CLI](virtual-machines-linux-create-cli-complete.md)
 
-Dessa artiklar hjälper dig att komma igång med att skapa en Azure-infrastruktur och valfritt antal distributions-, konfigurations- och hanteringsverktyg, såväl proprietära som med öppen källkod.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

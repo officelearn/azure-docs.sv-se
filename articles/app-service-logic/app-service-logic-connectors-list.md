@@ -1,30 +1,30 @@
 <properties
     pageTitle="Lista över tillgängliga kopplingar och API Apps | Microsoft Azure Apptjänst"
     description="Läs mer om kopplingar och API Apps i Azure Apptjänst"
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""
     authors="MandiOhlinger"
     manager="erikre"
     editor="cgronlun"/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="integration"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/11/2016"
+    ms.date="07/28/2016"
     ms.author="mandia"/>
 
 
 # Lista över kopplingar och API Apps att använda i dina Logic Apps
->[AZURE.NOTE] Den här versionen av artikeln gäller förhandsvisning av schemaversionen för Logic Apps 2014-12-01. För förhandsvisning av schemaversionen  2015-08-01 klickar du på [Lista över nya kopplingar](../connectors/apis-list.md).
+>[AZURE.NOTE] Den här versionen av artikeln gäller förhandsvisning av schemaversionen för Logic Apps 2014-12-01. Versionsinformation för Logic Apps General Availability (GA) finns i [Lista över anslutningsappar](../connectors/apis-list.md).
 
 Läs mer om alla tillgängliga kopplingar och API Apps som skapats av Microsoft för att inom dina Logic Apps.
 
 Prisinformation och en lista över vad som ingår i varje tjänstnivå finns i [Priser för Azure Apptjänst](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto går du till [Prova logikapp](https://tryappservice.azure.com/?appservice=logic). Du kan skapa en kortvarig startlogikapp omedelbart i Apptjänsten. Inga kreditkort krävs. Inga åtaganden.
+> [AZURE.NOTE] Om du vill komma igång med Logic Apps innan du registrerar dig för ett Azure-konto går du till [Prova logikapp](https://tryappservice.azure.com/?appservice=logic). Du kan skapa en kortvarig startlogikapp omedelbart i Apptjänsten. Inget kreditkort krävs, och du gör inga åtaganden.
 
 ## Core-kopplingar
 I följande tabell visas alla tillgängliga kopplingar och API Apps som skapats av Microsoft och som är tillgängliga som Core-kopplingar:
@@ -32,7 +32,7 @@ I följande tabell visas alla tillgängliga kopplingar och API Apps som skapats 
 Namn | Beskrivning
 --- | ---
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Kan skicka meddelanden från Service Bus-köer och -ämnen och ta emot meddelanden från Service Bus-köer och -prenumerationer.
-[Bing-översättare](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Använd Bing för att översätta text till ett annat språk.
+[Bing-översättare](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Använd Bing för att översätta text till ett annat språk.
 [HTTP](app-service-logic-connector-http.md) | HTTP-lyssnaren öppnar en slutpunkt som fungerar som en HTTP-server och lyssnar efter inkommande begäranden för HTTP eller HTTPS. HTTP-åtgärden kräver inte en API-app och stöds internt inom Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Office 365-kopplingen kan skicka och ta emot e-post, hantera din kalender och hantera kontakter med ditt Office 365-konto.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Du kan utföra olika aktiviteter, bland annat att skapa, uppdatera och fråga olika enheter från Intuit QuickBooks som kunder, artiklar, fakturor med mera.
@@ -86,6 +86,6 @@ Kopplingar kan också användas som åtgärder i din logikapp. Åtgärder är an
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

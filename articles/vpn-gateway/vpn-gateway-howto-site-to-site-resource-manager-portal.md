@@ -1,6 +1,6 @@
 <properties
    pageTitle="Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med Azure Resource Manager och Azure Portal | Microsoft Azure"
-   description="Den här artikeln visar hur du skapar ett VNet med hjälp av Resource Manager-modellen och ansluter det till ditt lokala nätverk via en S2S VPN Gateway-anslutning."
+   description="Hur du skapar ett VNet med hjälp av Resource Manager-distributionen och ansluter det till ditt lokala nätverk via en S2S VPN Gateway-anslutning."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Skapa ett VNet med en VPN-anslutning från plats till plats med Azure Portal och Azure Resource Manager
+# Skapa ett VNet med en anslutning från plats till plats med Azure Portal
 
 > [AZURE.SELECTOR]
 - [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -25,29 +25,25 @@
 - [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-anslutning från plats till plats till ditt lokala nätverk, med hjälp av Azure Resource Manager-distributionsmodellen och Azure-portalen. I stegen nedan ska du skapa ett VNet, lägga till ett gateway-undernät, en gateway, en lokal plats och en anslutning. Dessutom måste du konfigurera VPN-enheten. 
+Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-anslutning från plats till plats till ditt lokala nätverk, med hjälp av **Azure Resource Manager-distributionsmodellen** och Azure-portalen. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
+
+![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
 
 
-**Om Azures distributionsmodeller**
+### Distributionsmodeller och verktyg för plats-till-plats-anslutningar
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## Anslutningsdiagram
-
-![Plats-till-plats](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
-
-**Distributionsmodeller och verktyg för plats-till-plats-anslutningar**
-
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
-Om du vill koppla ihop VNets, men inte skapar någon anslutning till en lokal plats, kan du läsa mer i [Konfigurera en VNet-till-VNet-anslutning](vpn-gateway-vnet-vnet-rm-ps.md). Om du letar efter en annan typ av anslutningskonfiguration, kan du läsa mer i [Anslutningstopologier för VPN Gateway](vpn-gateway-topology.md).
+Om du vill koppla ihop VNets, men inte skapar någon anslutning till en lokal plats, kan du läsa mer i [Konfigurera en VNet-till-VNet-anslutning](vpn-gateway-vnet-vnet-rm-ps.md).
 
 ## Innan du börjar
 
 Kontrollera att du har följande innan du påbörjar konfigurationen:
 
-- En kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md). Om du inte vet hur man konfigurerar VPN-enheten eller inte känner till IP-adressintervallen i din lokala nätverkskonfiguration, måste du vända dig till någon som kan ge den informationen till dig.
+- En kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md). Om du inte vet hur man konfigurerar VPN-enheten eller inte känner till IP-adressintervallen i din lokala nätverkskonfiguration måste du vända dig till någon som kan ge den informationen till dig.
 
 - En extern offentlig IP-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
     
@@ -79,7 +75,7 @@ När du använder stegen som en övning kan du använda följande exempel på ko
 
 ## 1. Skapa ett virtuellt nätverk 
 
-Om du redan har skapat ett virtuellt nätverk, kontrollerar du att inställningarna är kompatibla med VPN Gateway-designen. Var särskilt uppmärksam på undernät som kan överlappa andra nätverk. Om du har överlappande undernät fungerar inte anslutningen. Om du har kontrollerat att ditt VNet är konfigurerat med de korrekta inställningarna, kan du börja med stegen i avsnittet [Ange en DNS-server](#dns).
+Om du redan har ett VNet, kontrollerar du att inställningarna är kompatibla med din VPN-gatewaydesign. Var särskilt noga med alla undernät som överlappar med andra nätverk. Om du har överlappande undernät fungerar inte anslutningen ordentligt. Om ditt VNet är konfigurerat med de korrekta inställningarna, kan du börja med stegen i avsnittet [Ange en DNS-server](#dns).
 
 ### Så här skapar du ett virtuellt nätverk
 
@@ -123,7 +119,7 @@ Om du skapar den här konfigurationen som en övning, ser du följande [värden]
 
 ## 6. Skapa en lokal nätverksgateway
 
-Den *lokala nätverksgatewayen* avser vanligtvis dina lokala plats. Du måste ge den lokala nätverksgatewayen ett namn som Azure kan referera till. 
+Den *lokala nätverksgatewayen* avser vanligtvis dina lokala plats. Ge den lokala nätverksgatewayen ett namn som Azure kan referera till. 
 
 Om du skapar den här konfigurationen som en övning, ser du följande [värden](#values) när du lägger till din lokala plats.
 
@@ -137,7 +133,7 @@ Om du skapar den här konfigurationen som en övning, ser du följande [värden]
 
 ## 8. Skapa en VPN-anslutning från plats till plats
 
-Därefter skapar du VPN-anslutningen från plats till plats mellan din virtuella nätverksgateway och din VPN-enhet. Glöm inte att byta ut värdena mot dina egna. Den delade nyckeln måste överensstämma med värdet som du använde vid din konfiguration av VPN-enheten. 
+Skapa VPN-anslutningen från plats till plats mellan din virtuella nätverksgateway och din VPN-enhet. Glöm inte att byta ut värdena mot dina egna. Den delade nyckeln måste överensstämma med värdet som du använde vid din konfiguration av VPN-enheten. 
 
 Kontrollera att din virtuella nätverksgateway och lokala nätverksgateway har skapats innan du påbörjar det här avsnittet. Om du skapar den här konfigurationen som en övning, ser du följande [värden](#values) när du skapar anslutningen.
 
@@ -160,6 +156,6 @@ Du kan verifiera VPN-anslutningen i portalen eller med hjälp av PowerShell.
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

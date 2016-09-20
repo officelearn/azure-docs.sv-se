@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="03/09/2016"
+    ms.date="07/21/2016"
     ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Komma igång med Mobile Services
@@ -61,7 +61,7 @@ Läs om hur du utför fler viktiga uppgifter i Mobile Services:
     <br/>Läs om hur du kan använda datasynkronisering offline för att ge appen kortare svarstid och göra den mer robust. 
 
 * [Lägga till autentisering i en befintlig app]
-    <br/>Läs om hur du autentiserar användare i appen med en identitetsprovider.
+    <br/>Läs om hur du autentiserar användare i appen med en identitetsleverantör.
 
 * [Lägga till push-meddelanden för en befintlig app]
     <br/>Läs om hur du skickar grundläggande push-meddelanden till appen.
@@ -98,6 +98,6 @@ Läs om hur du utför fler viktiga uppgifter i Mobile Services:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

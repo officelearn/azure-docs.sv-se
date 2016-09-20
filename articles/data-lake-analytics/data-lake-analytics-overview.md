@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Översikt över Microsoft Azure Data Lake Analytics
@@ -67,6 +67,7 @@ Azure Data Lake Analytics är en ny tjänst som skapats för att enkelt göra an
     - [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md)
     - [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
     - [Övervaka och felsök Azure Data Lake Analytics-jobb med hjälp av Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 
 - Självstudier för slutpunkt till slutpunkt
     - [Använd interaktiva Azure Data Lake Analytics-självstudier](data-lake-analytics-use-interactive-tutorials.md)
@@ -81,6 +82,6 @@ Azure Data Lake Analytics är en ny tjänst som skapats för att enkelt göra an
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

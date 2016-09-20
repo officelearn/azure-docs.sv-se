@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Skapa en Xamarin.Forms-app
@@ -26,11 +26,11 @@ I den här kursen får du lära dig hur du lägger till en molnbaserad serverdel
 
 Du måste slutföra den här kursen innan du börjar någon annan kurs om Mobilappar för Xamarin.Forms-appar.
 
-##Nödvändiga komponenter
+##Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/).
+* Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
 
@@ -53,21 +53,13 @@ Följ instruktionerna nedan för att ställa in om serverprojektet ska använda 
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-
-## (Valfritt) Testa serverdelsprojektet lokalt
-
-Om du väljer .NET-serverdelsalternativet ovan kan du, om du vill, testa serverdelen lokalt.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-
 ##Hämta och kör Xamarin.Forms-lösningen
 
 Här har du ett antal olika alternativ. Du kan ladda ned lösningen till en Mac och öppna den i Xamarin Studio eller så kan du ladda ned lösningen till en dator med Windows och öppna den i Visual Studio genom en nätverksansluten Mac och sedan bygga iOS-appen där. I avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) finns utförligare instruktioner för konfiguration av Xamarin.
 
 Då går vi vidare:
 
- 1. Öppna [Azure-portalen] i ett webbläsarfönster på Mac- eller Windowsdatorn.
+ 1. Öppna [Azure Portal] i ett webbläsarfönster på Mac- eller Windowsdatorn.
  2. På inställningsbladet för mobilappen klickar du på **Kom igång** (under Mobilt) > **Xamarin.Forms**. I steg 3 klickar du på **Skapa ny app** om det alternativet inte redan är förvalt.  Klicka sedan på **Hämta**.
 
     Ett projekt laddas ned med ett klientprogram som är kopplat till din mobilapp. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
@@ -102,7 +94,8 @@ Ange en beskrivande text i appen, till exempel  _Läs om Xamarin_, och klicka se
 
 En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobilappsserverdelen och data visas i listan.
 
->[AZURE.NOTE] Du hittar koden som ansluter till mobilappsserverdelen i C#-filen TodoItemManager.cs i det portabla klassbiblioteksprojektet i lösningen.
+>[AZURE.NOTE]
+> Du hittar koden som ansluter till mobilappsserverdelen i C#-filen TodoItemManager.cs i det portabla klassbiblioteksprojektet i lösningen.
 
 ##(Valfritt) Kör Androidprojektet
 
@@ -128,7 +121,8 @@ Ange en beskrivande text i appen, till exempel  _Läs om Xamarin_, och klicka se
 
 En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobilappsserverdelen och data visas i listan.
 
-> [AZURE.NOTE] Du hittar koden som ansluter till mobilappsserverdelen i C#-filen TodoItemManager.cs i det portabla klassbiblioteksprojektet i lösningen.
+> [AZURE.NOTE]
+> Du hittar koden som ansluter till mobilappsserverdelen i C#-filen TodoItemManager.cs i det portabla klassbiblioteksprojektet i lösningen.
 
 
 ##(Valfritt) Kör Windowsprojektet
@@ -152,15 +146,21 @@ En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. D
 
 ![][12]
 
-> [AZURE.NOTE] Du hittar koden som ansluter till mobilappsserverdelen i C#-filen TodoItemManager.cs i det portabla klassbiblioteksprojektet i lösningen.
+> [AZURE.NOTE]
+> Du hittar koden som ansluter till mobilappsserverdelen i C#-filen TodoItemManager.cs i det portabla klassbiblioteksprojektet i lösningen.
 
 ##Nästa steg
 
-* [Lägg till autentisering i appen ](app-service-mobile-xamarin-forms-get-started-users.md)  
+* [Lägg till autentisering i appen](app-service-mobile-xamarin-forms-get-started-users.md)  
 Läs om hur du autentiserar användare i appen med en identitetsleverantör.
-* [Lägg till push-meddelanden i Xamarin.Android-appen](app-service-mobile-xamarin-forms-get-started-push.md)  
-Läs om hur du lägger till push-meddelanden i appen.
-* [Så här använder du den hanterade klienten för Azure Mobilappar](app-service-mobile-dotnet-how-to-use-client-library.md)  
+
+* [Lägg till push-meddelanden i appen](app-service-mobile-xamarin-forms-get-started-push.md)  
+Läs om hur du lägger till stöd för push-meddelanden i appen och konfigurerar serverdelen för mobilappen så att Azure Notification Hubs används för att skicka push-meddelanden.
+
+* [Aktivera offlinesynkronisering av appen](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
+  Läs om hur du lägger till offlinestöd i appen genom en mobilappsserverdel. Med offlinesynkronisering kan slutanvändarna interagera med mobilappen och &mdash;se, lägga till och ändra data&mdash; även när det inte finns någon nätverksanslutning.
+
+* [Så här använder du den hanterade klienten för Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
 Läs om hur du arbetar med den hanterade klient-SDK:n i Xamarin-appen. 
 
 
@@ -182,11 +182,11 @@ Läs om hur du arbetar med den hanterade klient-SDK:n i Xamarin-appen.
 <!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobilapp-SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

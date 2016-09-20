@@ -6,14 +6,14 @@
    authors="mgoedtel"
    manager="jwhit"
    editor="tysonn"
-   keywords="aws authentication, configure aws"/>
+   keywords="aws-autentisering, konfigurera aws"/>
 <tags
    ms.service="automation"
    ms.workload="tbd"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/10/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte"/>
 
 # Autentisera runbooks med Amazon Web Services (AWS)
@@ -22,7 +22,7 @@ Du kan automatisera vanliga uppgifter med resurser i Amazon Web Services (AWS) m
 * En AWS-prenumeration och en uppsättning autentiseringsuppgifter.  Mer specifikt din åtkomstnyckel  och hemliga nyckel för AWS.  Mer information finns i artikeln [Använda AWS-autentiseringsuppgifter](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html).
 * En Azure-prenumeration och ett Automation-konto.  Mer information om hur du konfigurerar ett Azure Automation-konto finns i artikeln [Konfigurera ett ”Kör som”-konto i Azure](../automation/automation-sec-configure-azure-runas-account.md).  
 
-För att autentisera med AWS måste du ange en uppsättning AWS-autentiseringsuppgifter för autentisering av runbooks som körs från Azure Automation. Om du redan har skapat ett Automation-konto och du vill använda det för att autentisera med AWS kan du följa stegen i avsnittet nedan.  Om du vill använda ett särskilt konto för runbooks som körs mot AWS-resurser bör du först skapa ett nytt [”Kör som”-konto för Automation](../automation/automation-sec-configure-azure-runas-account) (hoppa över alternativet för att skapa ett tjänstobjekt) och sedan följa stegen nedan.
+För att autentisera med AWS måste du ange en uppsättning AWS-autentiseringsuppgifter för autentisering av runbooks som körs från Azure Automation. Om du redan har skapat ett Automation-konto och du vill använda det för att autentisera med AWS kan du följa stegen i avsnittet nedan.  Om du vill använda ett särskilt konto för runbooks som körs mot AWS-resurser bör du först skapa ett nytt [”Kör som”-konto för Automation](../automation/automation-sec-configure-azure-runas-account.md) (hoppa över alternativet för att skapa ett tjänstobjekt) och sedan följa stegen nedan.
 
 ## Konfigurera ett Automation-konto
 För att Azure Automation ska kunna kommunicera med AWS måste du först hämta dina AWS-autentiseringsuppgifter och lagra dem som tillgångar i Azure Automation.  Utför följande steg som finns dokumenterade i AWS-dokumentet [Hantera åtkomstnycklar för ditt AWS-konto](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) om du behöver skapa en åtkomstnyckel och kopiera sedan **åtkomstnyckelns ID** och **den hemliga åtkomstnyckeln** (om du vill kan du hämta nyckelfilen och lagra den på en säker plats).
@@ -38,6 +38,6 @@ När du har skapat och kopierat AWS-säkerhetsnycklarna måste du skapa en auten
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

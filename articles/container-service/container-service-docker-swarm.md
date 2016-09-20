@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, behållare, Micro-tjänster, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -30,7 +30,7 @@ Förutsättningar för att kunna göra övningarna i det här dokumentet:
 
 ## Distribuera en ny behållare
 
-Använd kommandot `docker run` för att skapa en ny behållare i Docker Swarm. I det här exemplet skapas en behållare från avbildningen `yeasy/simple-web`:
+För att skapa en ny behållare i Docker Swarm använder du `docker run`-kommandot (se till att du har öppnat en SSH-tunnel till huvudservrarna enligt kraven ovan). I det här exemplet skapas en behållare från avbildningen `yeasy/simple-web`:
 
 
 ```bash
@@ -54,9 +54,11 @@ Du kan nu komma åt programmet som körs i den här behållaren via det offentli
 
 ![Verklighetstrogna besöksresultat](media/real-visit.jpg)  
 
+Som standard har belastningsutjämnaren portarna 80, 8080 och 443 öppna. Om du vill ansluta till en annan port måste du öppna den porten på Azure Load Balancer för agentpoolen.
+
 ## Distribuera flera behållare
 
-Eftersom flera behållare har startats i Docker Swarm-klustret kan du använda kommandot `docker ps` för att se vilka värdar som behållarna körs på. I det här exemplet är tre behållare jämnt fördelade över de tre Swarm-agenterna:  
+När flera behållare startas, genom att köra i ”docker run” flera gånger, kan du använda kommandot `docker ps` för att se vilka värdar som behållarna körs på. I det här exemplet är tre behållare jämnt fördelade över de tre Swarm-agenterna:  
 
 
 ```bash
@@ -70,7 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Distribuera behållare med Docker Compose
 
-Du kan använda Docker Compose för att automatisera distribution och konfiguration av flera behållare. Om du vill göra det måste du kontrollera att en SSH-tunnel (Secure Shell) har skapats och att variabeln DOCKER_HOST har angetts.
+Du kan använda Docker Compose för att automatisera distribution och konfiguration av flera behållare. Om du vill göra det måste du kontrollera att en SSH-tunnel (Secure Shell) har skapats och att variabeln DOCKER_HOST har angetts (se kraven ovan).
 
 Skapa filen docker-compose.yml på ditt lokala system. Använd det här [exemplet](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml) för att göra det.
 
@@ -115,12 +117,14 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
+Naturligtvis kan du använda `docker-compose ps` för att bara undersöka de behållare som definieras i din `compose.yml`-fil.
+
 ## Nästa steg
 
 [Mer information om Docker Swarm](https://docs.docker.com/swarm/)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

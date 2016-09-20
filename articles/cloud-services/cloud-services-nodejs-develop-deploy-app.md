@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="nodejs"
     ms.topic="hero-article"
-    ms.date="05/03/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 # Skapa och distribuera en Node.js-app till en Azure-molntjänst
@@ -127,7 +127,8 @@ När publiceringen har lyckats ser du ett svar som liknar följande:
 
 ![Resultatet av kommandot Publish-AzureService][The output of the Publish-AzureService command]
 
-> [AZURE.NOTE] Det kan ta flera minuter för programmet att distribueras och bli tillgängligt när det publiceras för första gången.
+> [AZURE.NOTE]
+> Det kan ta flera minuter för programmet att distribueras och bli tillgängligt när det publiceras för första gången.
 
 När distributionen är klar öppnas ett webbläsarfönster som navigerar till molntjänsten.
 
@@ -188,17 +189,17 @@ Mer information finns i [Node.js Developer Center].
 
 <!-- IMG List -->
 
-[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[Resultatet av kommandot New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[Resultatet av kommandot Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
 [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[Resultatet av kommandot Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[Fullständigt statusresultat av kommandot Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
+[Ett webbläsarfönster som visar Hello World-sidan, URL:en anger att sidan värdhanteras på Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[Status för kommandot Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[Status för kommandot Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

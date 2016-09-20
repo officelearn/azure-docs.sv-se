@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Kom igång med Azure Data Lake Store med hjälp av .NET SDK
 
 > [AZURE.SELECTOR]
-- [Portal](data-lake-store-get-started-portal.md)
+- [Portalen](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -29,7 +29,7 @@
 
 Lär dig mer om att använda Azure Data Lake Store .NET SDK för att skapa ett Azure Data Lake-konto och utföra grundläggande åtgärder som att skapa mappar, ladda upp och hämta datafiler, ta bort ditt konto, osv. Mer information om Data Lake finns i [Azure Data Lake Store](data-lake-store-overview.md).
 
-## Förutsättningar
+## Krav
 
 * Visual Studio 2013 eller 2015 Anvisningarna nedan använder Visual Studio 2015.
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -528,6 +528,6 @@ Kontrollera slutligen att den lokala sökvägen och filnamnet som du anger här 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

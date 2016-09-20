@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Översikt över Azure CDN"
+    pageTitle="Översikt över Azure CDN | Microsoft Azure"
     description="Lär dig vad Azure CDN (Content Delivery Network) är och hur du använder det för att leverera innehåll med hög bandbredd genom att cachelagra blobbar och statiskt innehåll."
     services="cdn"
-    documentationCenter=".NET"
+    documentationCenter=""
     authors="camsoper"
     manager="erikre"
     editor=""/>
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="06/06/2016"
+    ms.date="08/09/2016"
     ms.author="casoper"/>
 
 # Översikt över Azure CDN (Content Delivery Network)
@@ -39,7 +39,7 @@ Här är några exempel på fördelarna med att använda CDN för att cachelagra
 
 3. Ursprunget returnerar filen till edge-servern, inklusive valfria HTTP-sidhuvuden som beskriver filens TTL (Time-To-Live).
 
-4. Edge-servern cachelagrar filen och returnerar den till användaren som ursprungligen begärde den (Alice).  Filen cachelagras på edge-servern tills TTL-perioden går ut.  Om ursprunget inte angav någon TTL är standardvärdet sju dagar.
+4. Edge-servern cachelagrar filen och returnerar den till användaren som ursprungligen begärde den (Alice).  Filen förblir cachelagrad på edge-servern tills TTL-perioden upphör.  Om ursprunget inte angav någon TTL är standardvärdet sju dagar.
 
 5. Fler användare (till exempel Bob) kan begära samma fil med samma URL och kan också dirigeras till samma POP.
 
@@ -57,32 +57,35 @@ Det finns tre Azure CDN-produkter:  **Azure CDN Standard från Akamai**, **Azure
 | Belastningsutjämning | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | DDOS-skydd | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Dual stack-IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Stöd för anpassade domännamn](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Cachelagring av frågesträngar](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Landsfiltrering](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
 | [Snabbrensning](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Inläsning av tillgångar i förväg](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
 | [Grundläggande analys](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| [Hantering via REST-API](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Hantering via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) eller [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Anpassningsbar, regelbaserad motor för innehållsleverans](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Avancerade HTTP-rapporter](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Realtidsstatistik](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Realtidsaviseringar](cdn-real-time-alerts.md) | | | **&#x2713;** |
 
+>[AZURE.TIP] Saknar du någon funktion i Azure CDN?  [Lämna feedback](https://feedback.azure.com/forums/169397-cdn)! 
 
 ## Nästa steg
 
 Information om hur du kommer igång med CDN finns i [Använda Azure CDN](./cdn-create-new-endpoint.md).
 
-Om du är en befintlig CDN-kund kan du nu hantera dina CDN-slutpunkter via [Microsoft Azure-portalen](https://portal.azure.com).
+Om du är en befintlig CDN-kund kan du nu hantera dina CDN-slutpunkter via [Microsoft Azure-portalen](https://portal.azure.com) eller med [PowerShell](cdn-manage-powershell.md).
 
 Om du vill se hur CDN fungerar i praktiken tittar du på [videon från vår Build 2016-session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
+Läs mer om hur man automatiserar Azure CDN med [.NET](./cdn-app-dev-net.md) eller [Node.js](./cdn-app-dev-node.md).
+
 Information om priser finns i avsnittet om [CDN-priser](https://azure.microsoft.com/pricing/details/cdn/).
 
-Saknar du någon funktion i Azure CDN?  [Lämna feedback](https://feedback.azure.com/forums/169397-cdn)! 
 
 
-
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

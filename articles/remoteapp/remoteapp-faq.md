@@ -4,7 +4,7 @@
     services="remoteapp" 
     documentationCenter="" 
     authors="lizap" 
-    manager="mbaldwin" 
+    manager="swadhwa" 
     editor=""/>
 
 <tags 
@@ -13,11 +13,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="04/08/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
 # Vanliga frågor och svar om Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+
 Vi har fått följande frågor om Azure RemoteApp. Har du andra frågor? Besök [RemoteApp-forumen](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) och ställ din fråga eller skriv en kommentar längre ned.
+
+## Hittar du inte det du letar efter? Har du en fråga vi inte har svarat på?
+Om du inte hittar den information som du behöver eller har ytterligare frågor som vi inte har svarat på här kan du gå till [Azure RemoteApp-forumet](http://aka.ms/araforum) och ställa din fråga. Vi kan alltid lägga till fler svar här.
 
 ## Vad är Azure RemoteApp? ##
 
@@ -33,7 +40,7 @@ Vi har fått följande frågor om Azure RemoteApp. Har du andra frågor? Besök 
 - **Vilka gränser har tjänsten?** Det finns mer info om standardinställningar och gränser i Azure RemoteApp i artikeln om [gränser, kvoter och begränsningar i prenumerationer och tjänster i Azure](../azure-subscription-service-limits.md). Kontakta oss om du har fler frågor.
 - **Hur många användare måste jag ha?** Du måste ha minst 20 användare. För tydlighetens skull – det LÄGSTA ANTALET är 20 användare. Du kommer att debiteras för 20 användare. 
 - **Hur mycket kostar RemoteApp?** Mer info finns på sidan med [Azure RemoteApp-prisinformation](https://azure.microsoft.com/pricing/details/remoteapp/).
-- **Kostar en typ av samling mer än en annan?** Ja, det kan den göra, beroende på dina samlingskrav. En hybridsamling kräver en anslutning från Azure RemoteApp till ditt lokala nätverk. Om du använder ett befintligt VNET/ExpressRoute tillkommer ingen ytterligare avgift. Men om du använder ett nytt Azure VNET och antingen en gateway eller ExpressRoute, debiteras du för [VPN-gatewayen](https://azure.microsoft.com/pricing/details/vpn-gateway) eller [ExpressRoute](../../../pricing/details/expressroute/). Den här avgiften (klicka på länkarna för mer info) läggs till den månatliga Azure RemoteApp-avgiften.
+- **Kostar en typ av samling mer än en annan?** Ja, det kan den göra, beroende på dina samlingskrav. En hybridsamling kräver en anslutning från Azure RemoteApp till ditt lokala nätverk. Om du använder ett befintligt VNET/ExpressRoute tillkommer ingen ytterligare avgift. Om du däremot använder ett nytt Azure VNET och antingen en gateway eller ExpressRoute debiteras du för [VPN-gatewayen](https://azure.microsoft.com/pricing/details/vpn-gateway) eller [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/). Den här avgiften (klicka på länkarna för mer info) läggs till den månatliga Azure RemoteApp-avgiften.
 
 ## Samlingar – vad stöds, vilka bör du använda och annan info
 - **Stöds anpassade LOB-program (Line-of-Business)?** Ja. Om du vill använda ett anpassat program i Azure RemoteApp, ska du skapa en [anpassad mallavbildning](remoteapp-create-custom-image.md) och sedan ladda upp den till RemoteApp-samlingen.
@@ -86,7 +93,7 @@ Datorer och surfplattor:
 
 - **Vilken Windows Server-version stöds för Värd för fjärrskrivbordssession?** Windows Server 2012 R2.
 
-##Support och feedback
+## Support och feedback
 
 
 - **Vad har RemoteApp för supportplan?** Support för fakturering och prenumerationer ges utan kostnad. Teknisk support är tillgänglig via [Azure-tjänstplaner](https://azure.microsoft.com/support/plans/). Du hittar även kostnadsfri communitysupport i [Azure-diskussionsforumet](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
@@ -117,6 +124,6 @@ Visste du att du förutom att betygsätta den här artikeln och skriva kommentar
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

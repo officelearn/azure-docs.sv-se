@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/25/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -25,7 +25,7 @@
 
 Den här vägledningen visar dig stegen för att implementera en grundläggande leveransapp för Video-on-Demand-innehåll (VoD) med hjälp av den klassiska Azure-portalen.
 
-> [AZURE.NOTE] Du behöver ett Azure-konto för att slutföra den här vägledningen. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> [AZURE.NOTE] Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 
 Vägledningen innehåller följande uppgifter:
@@ -50,7 +50,7 @@ Vägledningen innehåller följande uppgifter:
 
 4. Vid **LAGRINGSKONTO** väljer du ett Storage-konto för att tillhandahålla Blob Storage för medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett nytt lagringskonto. Ett nytt lagringskonto skapas i samma region.
 
-5. Om du har skapat ett nytt lagringskonto anger du ett namn för lagringskontot vid **NYTT LAGRINGSKONTONAMN**. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
+5. Om du har skapat ett nytt lagringskonto anger du ett namn för det i **NYTT LAGRINGSKONTONAMN**. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
 
 6. Klicka på **Snabbregistrering** längst ned i formuläret.
 
@@ -60,18 +60,18 @@ Vägledningen innehåller följande uppgifter:
 
     Längst ned på sidan visas knappen **HANTERA NYCKLAR**. När du klickar på den här knappen, visas en dialogruta med namnet på Media Services-kontot och de primära och sekundära nycklarna. Du behöver kontonamnet och den primära nyckelinformationen för att genom programmering få åtkomst till Media Services-kontot.
 
-    ![Media Services-sidan](./media/media-services-portal-get-started/wams-mediaservices-page.png)
+    ![Media Services-sida](./media/media-services-portal-get-started/wams-mediaservices-page.png)
 
-    När du dubbelklickar på kontonamnet visas sidan Snabbstart som standard. På den här sidan kan du utföra viss hantering som även är tillgänglig på andra sidor i portalen. Du kan till exempel ladda upp en videofil från den här sidan eller från sidan INNEHÅLL.
+    När du dubbelklickar på kontonamnet visas sidan Snabbstart som standard. På den här sidan kan du göra vissa hanteringsuppgifter som även finns tillgängliga på andra sidor i portalen. Du kan till exempel ladda upp en videofil från den här sidan eller från sidan INNEHÅLL.
 
 
 ## Konfigurera strömningsslutpunkter  med portalen
 
-När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Med strömning med anpassad bithastighet kan klienten växla till en  dataström med högre eller lägre bithastighet då videon visas baserat på den aktuella nätverksbandbredden, processoranvändningen och andra faktorer. Media Services stöder följande tekniker för strömning med anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenser).
+När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Med strömning med anpassad bithastighet kan klienten växla till en dataström med högre eller lägre bithastighet då videon visas baserat på den aktuella nätverksbandbredden, processoranvändningen och andra faktorer. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare).
 
-Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-innehåll med anpassad bithastighet eller ditt Smooth Streaming-kodade innehåll i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) utan att du behöver packa om till dessa strömningsformat.
+Media Services erbjuder dynamisk paketering som gör att du kan leverera ditt kodade innehåll (MP4 eller Smooth Streaming) med anpassningsbar bithastighet i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) utan att du behöver ompaketera till dessa strömningsformat.
 
-Om du vill använda dynamisk paketering, måste du göra följande:
+Om du vill använda dynamisk paketering ska du göra följande:
 
 - Koda din mezzaninfil (källa) till en uppsättning MP4-filer med anpassningsbar bithastighet eller Smooth Streaming-filer med anpassad bithastighet (kodningsstegen visas längre fram i den här vägledningen).  
 - Du behöver minst en enhet för strömning för den *strömningsslutpunkt* från vilken du planerar att leverera ditt innehåll.
@@ -86,13 +86,13 @@ Om du vill ändra antalet reserverade enheter för strömning gör du följande:
 
 3. För att specificera antalet strömningsenheter väljer du fliken **SKALNING** och flyttar på skjutreglaget för **reserverad kapacitet**.
 
-    ![Skalningssida](./media/media-services-portal-get-started/media-services-origin-scale.png)
+    ![Skala sida](./media/media-services-portal-get-started/media-services-origin-scale.png)
 
 4. Klicka på knappen **SPARA** för att spara ändringarna.
 
     Tilldelning av nya enheter tar cirka 20 minuter att slutföra.
 
-    >[AZURE.NOTE] Om man går från ett positivt värde för strömningsenheterna tillbaka till ingen, kan strömningen inaktiveras i upp till en timme.
+    >[AZURE.NOTE] Om man går från ett positivt värde för strömningsenheterna tillbaka till inget, kan strömningen inaktiveras i upp till en timme.
     >
     > Det högsta antalet enheter som har angetts för 24-timmarsperioden används för att beräkna kostnaden. Mer information om priser finns i [Prisuppgifter för Media Services](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -124,11 +124,11 @@ Om filstorleksvärdet inte kan uppdateras när överföringsprocessen stoppas, v
 
 För att kunna leverera digital video via internet måste du komprimera mediet. Media Services innehåller en mediekodare med vilken du kan ange hur innehållet ska kodas (till exempel vilka codec som ska användas, filformat, upplösning och bithastighet.)
 
-När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Med strömning med anpassad bithastighet kan klienten växla till en  dataström med högre eller lägre bithastighet då videon visas baserat på den aktuella nätverksbandbredden, processoranvändningen och andra faktorer. Media Services stöder följande tekniker för strömning med anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenser).
+När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Med strömning med anpassad bithastighet kan klienten växla till en dataström med högre eller lägre bithastighet då videon visas baserat på den aktuella nätverksbandbredden, processoranvändningen och andra faktorer. Media Services stöder följande tekniker för strömning med anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenser).
 
 Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4- eller Smooth Streaming-kodade innehåll med anpassad bithastighet i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming eller HDS) utan att du behöver packa om till dessa strömningsformat.
 
-Om du vill använda dynamisk paketering, måste du göra följande:
+Om du vill använda dynamisk paketering ska du göra följande:
 
 - Koda din mezzaninfil (källa) till en uppsättning MP4-filer med anpassningsbar bithastighet eller Smooth Streaming-filer med anpassad bithastighet (kodningsstegen visas längre fram i den här vägledningen).
 - Du behöver minst en enhet för strömning på begäran för den strömningsslutpunkt från vilken du planerar att leverera ditt innehåll. Mer information finns i [Skala reserverade enheter för strömning på begäran](media-services-manage-origins.md#scale_streaming_endpoints/).
@@ -164,7 +164,7 @@ I det här avsnittet beskrivs de steg som du kan vidta för att koda ditt inneh�
 
 ### Översikt
 
-För att ge din användare en URL som kan användas för att strömma eller hämta ditt innehåll måste du först ”publicera” din tillgång genom att skapa en lokaliserare. Lokaliserare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av lokaliserare: OnDemandOrigin-lokaliserare som används för strömning av media (till exempel MPEG DASH, HLS eller Smooth Streaming) och lokaliserare för åtkomstsignatur (SAS) som används för att hämta filer.
+För att ge din användare en URL som kan användas för att strömma eller hämta ditt innehåll måste du först ”publicera” din tillgång genom att skapa en lokaliserare. Positionerare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av lokaliserare: OnDemandOrigin-lokaliserare som används för strömning av media (till exempel MPEG DASH, HLS eller Smooth Streaming) och lokaliserare för åtkomstsignatur (SAS) som används för att hämta filer.
 
 När du använder den klassiska Azure-portalen för att publicera dina tillgångar, skapas lokaliserarna åt dig och du förses med en OnDemand-baserad URL (om din tillgång innehåller en .ism-fil) eller en SAS-URL.
 
@@ -256,6 +256,6 @@ Om det här ämnet inte innehöll det du förväntade dig, saknade något eller 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

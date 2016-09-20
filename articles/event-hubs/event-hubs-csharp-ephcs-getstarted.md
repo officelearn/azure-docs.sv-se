@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/13/2016"
+    ms.date="08/19/2016"
     ms.author="sethm"/>
 
 # Kom igång med händelsehubbar
@@ -28,14 +28,13 @@ I den här kursen får du lära dig att skapa en händelsehubb i den klassiska A
 
 För att kunna genomföra den här kursen behöver du följande:
 
-+ Microsoft Visual Studio 2013 eller senare, eller Microsoft Visual Studio Express för Windows. I exemplen i den här artikeln används Visual Studio 2015.
++ [Microsoft Visual Studio](http://visualstudio.com)
 
-+ Ett aktivt Azure-konto. <br/>Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="_blank").
++ Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
@@ -97,6 +96,6 @@ Nu när du har skapat ett fungerande program som skapar en händelsehubb och ski
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

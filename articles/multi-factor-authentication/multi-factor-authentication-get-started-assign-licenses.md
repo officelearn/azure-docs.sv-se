@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Tilldela en Azure MFA-, Azure AD Premium- eller Enterprise Mobility-licens till användare
@@ -38,6 +38,7 @@ Om du har köpt Azure MFA-, Azure AD Premium- eller Enterprise Mobility Suite-li
 ![Tilldela licenser](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
 
-<!--HONumber=jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

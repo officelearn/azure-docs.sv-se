@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/25/2016"
+    ms.date="07/22/2016"
     ms.author="tamram"/>
 
 
 # Komma igång med Azure Blob Storage med hjälp av .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Översikt
 
@@ -40,6 +42,11 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### Fler exempel
+
+Ytterligare exempel med Blob Storage finns i [Komma igång med Azure Blob Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Du kan ladda ned exempelprogrammet och köra det eller bläddra i koden på GitHub. 
+
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -373,6 +380,13 @@ Azure Storage har stöd för kryptering av blobbdata både på klienten och på 
 
 Nu när du har lärt dig grunderna om Blob Storage kan du följa dessa länkar om du vill veta mer.
 
+### Microsoft Azure Storage Explorer
+- [Microsoft Azure Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, OS X och Linux.
+
+### Exempel på Blob Storage (förhandsversion)
+
+- [Komma igång med Azure Blob Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+
 ### Referens för Blob Storage
 
 - [Referens för Azure Storage-klientbibliotek för .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
@@ -397,6 +411,6 @@ Nu när du har lärt dig grunderna om Blob Storage kan du följa dessa länkar o
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

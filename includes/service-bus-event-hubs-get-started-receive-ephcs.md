@@ -26,7 +26,7 @@ För att kunna använda [EventProcessorHost][] behöver du ett [Azure Storage-ko
 
     ![][13]
 
-    [NuGet-paketet EventProcessorHost för Azure Service Bus Event Hub ](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), med alla sina beroenden, hämtas och installeras, och en referens till det läggs till.
+    Visual Studio laddar ned, installerar och lägger till en referens till [Azure Service Bus Event Hub –EventProcessorHost NuGet-paket ](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), med alla sina beroenden.
 
 7. Högerklicka på **Mottagare**-projektet, klicka på **Lägg till** och klicka sedan på **Klass**. Kalla den nya klassen för **SimpleEventProcessor** och klicka sedan på **Lägg till** för att skapa klassen.
 
@@ -121,7 +121,7 @@ För att kunna använda [EventProcessorHost][] behöver du ett [Azure Storage-ko
 [Översikt över Event Hubs]: event-hubs-overview.md
 [Programmeringsguide för Event Hubs]: event-hubs-programming-guide.md
 [utskalad händelsebearbetning]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage-konto]: ../storage/storage-create-storage-account.md
+[Azure Storage-konto]: ../storage/storage-create-storage-account-classic-portal.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [klassiska Azure-portalen]: http://manage.windowsazure.com
 
@@ -136,6 +136,6 @@ För att kunna använda [EventProcessorHost][] behöver du ett [Azure Storage-ko
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

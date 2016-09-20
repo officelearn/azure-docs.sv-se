@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="05/31/2016"
+    ms.date="08/16/2016"
     ms.author="sdanie"/>
 
 # Så här använder du Azure Redis Cache med Python
@@ -70,6 +70,6 @@ Ersätt `<name>` med ditt cachenamn och `key` med din åtkomstnyckel.
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

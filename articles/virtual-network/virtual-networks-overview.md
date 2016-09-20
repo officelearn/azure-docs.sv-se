@@ -3,7 +3,7 @@
    description="Läs mer om virtuella nätverk (VNet) i Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Översikt över virtuella nätverk
 
@@ -97,6 +97,6 @@ Det finns inget extra kostnad för att använda Virtual Networks i Azure. De com
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

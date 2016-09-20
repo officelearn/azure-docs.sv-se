@@ -1,10 +1,10 @@
 <properties
     pageTitle="Använda rollbaserad åtkomstkontroll på Azure-portalen | Microsoft Azure"
-    description="Kom igång med åtkomsthantering med rollbaserad åtkomstkontroll på Azure Portal. Använd rolltilldelningar för att tilldela behörigheter i din katalog."
+    description="Kom igång med åtkomsthantering med rollbaserad åtkomstkontroll på Azure Portal. Använd rolltilldelningar för att tilldela behörigheter i dina resurser."
     services="active-directory"
     documentationCenter=""
     authors="kgremban"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="05/03/2016"
+    ms.date="07/21/2016"
     ms.author="kgremban"/>
 
-# Använda rolltilldelningar för att hantera åtkomsten till Azure Active Directory-resurser
+# Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser
 
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete. Den här artikeln hjälper dig att komma igång med RBAC på Azure-portalen. Mer information om hur RBAC kan hjälpa dig att hantera åtkomsten finns i [Vad är rollbaserad åtkomstkontroll?](role-based-access-control-what-is.md)
 
@@ -69,7 +69,7 @@ Du kan tilldela roller och hantera åtkomst med Azure RBAC-kommandon i andra ver
 
 - [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure-kommandoradsgränssnittet](role-based-access-control-manage-access-azure-cli.md)
-- [REST-API](role-based-access-control-manage-access-rest.md)
+- [REST API](role-based-access-control-manage-access-rest.md)
 
 ## Nästa steg
 - [Skapa en rapport över åtkomständringshistorik](role-based-access-control-access-change-history-report.md)
@@ -78,6 +78,6 @@ Du kan tilldela roller och hantera åtkomst med Azure RBAC-kommandon i andra ver
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

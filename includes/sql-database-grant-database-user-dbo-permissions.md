@@ -16,14 +16,15 @@ De här stegen förutsätter att du är ansluten till SQL Database i Object Expl
 
 3. I frågefönstret redigerar du och använder följande Transact-SQL-instruktion för att ge dbo-behörigheter till en specifik användare. 
 
-    '''ALTER ROLE db_owner ADD MEMBER user1;
+    ```ALTER ROLE db_owner ADD MEMBER user1;
+    ```
 
-     ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
-
-
-
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+
+
+<!--HONumber=sep16_HO1-->
 
 

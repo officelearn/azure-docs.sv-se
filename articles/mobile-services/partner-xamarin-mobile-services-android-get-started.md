@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
 # <a name="getting-started"></a>Komma igång med Mobile Services
@@ -41,7 +41,7 @@ Den här kursen kräver XCode och Xamarin Studio för OS X eller Visual Studio i
 
 Det nedladdade exempelprojektet innehåller Azure Mobile Services-komponenten för Xamarin.Android. Målversionen för det här projektet är Android 4.2 eller senare, men för Mobile Services SDK krävs bara Android 2.2 eller senare.
 
-> [AZURE.IMPORTANT] Du behöver ett Azure-konto för att genomföra kursen. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
+> [AZURE.IMPORTANT] Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
 
 ## <a name="create-new-service"> </a>Skapa en ny mobiltjänst
 
@@ -87,7 +87,8 @@ Det sista steget i den här kursen är att skapa och köra den nya appen.
 
     Därmed skickas en POST-begäran till den nya mobiltjänsten som finns på Azure. Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobiltjänsten och data visas i listan.
 
-    > [AZURE.NOTE] Du kan granska koden som ansluter till mobiltjänsten för att fråga efter och infoga data i C#-filen ToDoActivity.cs.
+    > [AZURE.NOTE]
+    > Du kan granska koden som ansluter till mobiltjänsten för att fråga efter och infoga data som finns i C#-filen ToDoActivity.cs.
 
 6. Gå till den [Klassisk Azure-portal], välj fliken **Data** och klicka sedan på tabellen **TodoItems**.
 
@@ -98,7 +99,7 @@ Det sista steget i den här kursen är att skapa och köra den nya appen.
     ![][12]
 
 ## <a name="next-steps"> </a>Nästa steg
-Nu när du har slutfört guiden kan du gå vidare och lära dig fler viktiga uppgifter i Mobile Services:
+Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur du utför fler viktiga uppgifter i Mobile Services:
 
 * [Komma igång med datasynkronisering offline] Läs om hur du kan använda datasynkronisering offline för att ge appen kortare svarstid och göra den mer robust. 
 
@@ -144,6 +145,6 @@ Nu när du har slutfört guiden kan du gå vidare och lära dig fler viktiga upp
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

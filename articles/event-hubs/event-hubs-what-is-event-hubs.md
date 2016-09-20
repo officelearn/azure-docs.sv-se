@@ -13,16 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/12/2016"
-    ms.author="sethm;nberdy"/>
+    ms.date="08/17/2016"
+    ms.author="sethm"/>
 
 # Vad är händelsehubbar i Azure?
 
-Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Händelsehubbar fungerar som ”ytterdörren” för en händelsepipeline, och när data har samlats in i en händelsehubb kan du omvandla och lagra dessa data med hjälp av valfri leverantör av realtidsanalys eller med adaptrar för batchbearbetning/lagring. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema.
+Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Händelsehubbar fungerar som ”ytterdörren” för en händelsepipeline, och när data har samlats in i en händelsehubb kan du omvandla och lagra dessa data med hjälp av valfri leverantör av realtidsanalys eller med adaptrar för batchbearbetning/lagring. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema. Mer information och tekniska uppgifter finns i [Översikt av händelsehubbar](event-hubs-overview.md).
 
 ## Funktioner i händelsehubbar
 
-Händelsehubbar är en tjänst för händelsebearbetning som ger händelse- och telemetriingång till molnet i massiv skala med kort svarstid och hög tillförlitlighet. Tjänsten är särskilt lämpad för:
+Händelsehubbar är en tjänst för händelsebearbetning som ger händelse- och telemetribearbetning i massiv skala med kort svarstid och hög tillförlitlighet. Tjänsten är särskilt lämpad för:
 
 - Programinstrumentering
 - Bearbetning av användarupplevelser och arbetsflöden
@@ -30,7 +30,7 @@ Händelsehubbar är en tjänst för händelsebearbetning som ger händelse- och 
 
 Andra viktiga funktioner i händelsehubbar är till exempel beteendespårning i mobilappar, trafikinformation från webbservergrupper, inspelning av spelhändelser i konsolspel eller telemetri som samlats in från industriella datorer eller anslutna fordon.
 
-Till skillnad från [Service Bus-köer och -ämnen](../service-bus/service-bus-messaging-overview.md) fokuserar händelsehubbar på att tillhandahålla hantering av meddelandeströmmar i större skala. Funktionerna i händelsehubbar skiljer sig från Service Bus-ämnen. De fokuserar till exempel på ett högt genomflöde och händelsebearbetningsscenarier. Därför implementerar händelsehubbar inte en del av de meddelandefunktioner som är tillgängliga för [ämnen](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Om du behöver de funktionerna är ämnen fortfarande att föredra.
+Till skillnad från [Service Bus-köer och -ämnen](../service-bus/service-bus-messaging-overview.md) fokuserar händelsehubbar på att tillhandahålla hantering av meddelandeströmmar i större skala. Funktionerna i händelsehubbar skiljer sig från Service Bus-ämnen. Händelsehubbar fokuserar till exempel på ett högt genomflöde och händelsebearbetningsscenarier. Därför implementerar händelsehubbar inte en del av de meddelandefunktioner som är tillgängliga för [ämnen](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Om du behöver de funktionerna är ämnen fortfarande att föredra.
 
 ## Nästa steg
 
@@ -46,6 +46,7 @@ Mer utförlig information om händelsehubbar finns i följande avsnitt.
 [exempelprogram som använder händelsehubbar]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

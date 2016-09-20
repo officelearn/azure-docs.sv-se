@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -38,7 +38,7 @@ Datainläsning är en stor del av arbetsbelastningen för informationslager. Fö
 
 - Processen för inläsning kallas vanligtvis för ETL (Extract, Transform, and Load). Data behöver vanligtvis omvandlas för att vara konsekvent med andra data i informationslagret. Förut använde företag sig av dedikerade ETL-servrar för att genomföra omvandlingarna. Nu med snabb, massivt parallell bearbetning, går det att först läsa in data i SQL Data Warehouse och sedan utföra omvandlingarna. Den här processen kallas för ELT (Extract, Load and Transform) och håller på att bli den nya standarden för arbetsbelastningar för informationslager.
 
-> [AZURE.NOTE] Med SQL Server CTP2 kan du nu utföra analyser i realtid på en OLTP-tabell. Det här ersätter inte behovet av ett informationslager för att lagra och analysera data, men det ger ett sätt att utföra analyser i realtid.
+> [AZURE.NOTE] Med SQL Server 2016 kan du nu utföra analyser i realtid på en OLTP-tabell. Det här ersätter inte behovet av ett informationslager för att lagra och analysera data, men det ger ett sätt att utföra analyser i realtid.
 
 ### Rapporterings- och analysfrågor
 Rapporterings- och analysfrågor indelas ofta i små, medel och stora baserat på ett antal kriterier, men vanligtvis baserat på tidsåtgång. I de flesta informationslager finns det blandade arbetsbelastningar med snabba kontra tidskrävande frågor. I varje fall är det viktigt att fastställa blandningen och fastställa frekvensen (varje timme, dagligen, månadsslut, kvartalsvis och så vidare). Det är viktigt att förstå att arbetsbelastningen med blandade frågor tillsammans med samtidighet, leder till korrekt kapacitetsplanering för ett informationslager.
@@ -59,15 +59,13 @@ Ett sätt att göra data tillgänglig för rapporter och analys är att skicka d
 - När det gäller analys, kan du antingen bygga en analyskub i informationslagret och köra analys mot det, eller så kan du förbearbeta data och exportera den till analysservern för ytterligare analys.
 
 ## Nästa steg
-För att komma igång med att utveckla ditt informationslager, se [utvecklingsöversikt][].
-
-## Böcker
-[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) av Karthik Ramachandran, Istvan Szededi och Richard L. Saltzer (Manning Publications). [Kapitel 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt [skapar ett SQL Data Warehouse][] och [läser in exempeldata][].
 
 <!--Image references-->
 
 <!--Article references-->
-[utvecklingsöversikt]: sql-data-warehouse-overview-develop.md
+[läser in exempeldata]: ./sql-data-warehouse-load-sample-databases.md
+[skapar ett SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -75,6 +73,6 @@ För att komma igång med att utveckla ditt informationslager, se [utvecklingsö
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

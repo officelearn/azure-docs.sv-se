@@ -1,4 +1,4 @@
-Cacheminnen kan kommas åt i [Azure Portal](https://portal.azure.com) med hjälp av **Bläddra**-bladet.
+Cacheminnen kan kommas åt i [Azure-portalen](https://portal.azure.com) med hjälp av **Bläddra**-bladet.
 
 ![Azure Redis-cache, Bläddra-bladet](media/redis-cache-browse/redis-cache-browse.png)
 
@@ -13,6 +13,6 @@ Klicka på **Inställningar** eller **Alla inställningar** om du vill visa och 
 ![Alla inställningar för Redis-cache](media/redis-cache-browse/redis-cache-blade.png)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

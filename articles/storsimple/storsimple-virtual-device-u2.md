@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/29/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Distribuera och hantera en virtuell StorSimple-enhet i Azure
@@ -250,7 +250,7 @@ När du tittar på hanteringskonsolen är den virtuella enhetens status **Körs*
 Om du vill börja om med din virtuella enhet ska du inaktivera och ta bort den och sedan skapa en ny. Precis som vid återställning av den fysiska enheten kommer inte den nya virtuella enheten ha några eventuella uppdateringar installerade. Kontrollera därför om det finns uppdateringar innan du använder den.
 
 
-## Växling till den virtuella enheten.
+## Växling till den virtuella enheten
 
 Katastrofåterställning är ett av de scenarier som den virtuella StorSimple-enheten har designats för. Under dessa scenarier kan det hända att den fysiska StorSimple-enheten eller hela datacentret inte tillgängliga. Som tur är kan du använda en virtuell enhet för återställa driften på en annan plats. Under katastrofåterställning byter volymbehållarna från källan ägarskap och överförs till den virtuella enheten. Kraven för katastrofåterställning är att den virtuella enheten har skapats och konfigurerats, att alla volymer i volymbehållaren är i offlineläge och att volymbehållaren är kopplad till en ögonblicksbild i molnet.
 
@@ -283,6 +283,6 @@ Om du tar bort eller stänger av den virtuella enheten visas den som **Offline**
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

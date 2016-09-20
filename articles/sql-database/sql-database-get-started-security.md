@@ -4,7 +4,7 @@
     keywords=""
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -15,17 +15,22 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/17/2016"
     ms.author="carlrab"/>
 
-# SQL Database-självstudier: Skapa användarkonton för en SQL-databas för att få åtkomst till och hantera databasen med Azure-portalen
+# SQL Database-självstudier: Skapa användarkonton för en SQL-databas för att få åtkomst till och hantera en databas
 
-I de här självstudierna kommer du att lära dig hur man använder Azure-portalen för att:
 
-- Ansluta till SQL Database med en huvudsaklig inloggning på servernivå
-- Skapa ett användarkonto för SQL Database
-- Ge dbo-behörigheter till ett användarkonto för SQL Database inom en användardatabas
-- Ansluta till en SQL-databas med ett användarkonto som inte är ett huvudsakligt användardkonto på servernivå. 
+> [AZURE.SELECTOR]
+- [Självstudier för att komma igång](sql-database-get-started-security.md)
+- [Bevilja åtkomst](sql-database-manage-logins.md)
+
+I de här självstudierna får du lära dig hur du använder SQL Server Management Studio (SSMS) för att:
+
+- Logga in till SQL Database med en huvudsaklig inloggning på servernivå.
+- Skapa ett användarkonto för SQL Database.
+- Ge den nya databasanvändaren [db_owner-behörigheter](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0).
+- Anslut till en SQL-databas med ett användarkonto som inte är ett huvudsakligt användardkonto på servernivå.
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
@@ -49,6 +54,6 @@ Nu när du har slutfört de här SQL Database-självstudierna och skapat ett anv
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

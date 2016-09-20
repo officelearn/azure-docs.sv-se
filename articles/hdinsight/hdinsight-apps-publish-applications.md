@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="06/01/2016"
+    ms.date="06/29/2016"
     ms.author="jgao"/>
 
 # Publicera HDInsight-program på Azure Marketplace
@@ -25,6 +25,7 @@ För HDInsight-program används modellen med *Bring Your Own License (BYOL)*. De
 
 Ytterligare artikel om HDInsight-program:
 
+- [Installera HDInsight-program](hdinsight-apps-install-applications.md): Läs mer om hur du installerar ett HDInsight-program till dina kluster.
 - [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): information om hur du installerar och testar anpassade HDInsight-program.
 
  
@@ -64,7 +65,7 @@ Skapa en zip-fil som innehåller alla filer som krävs för att installera dina 
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. Du hittar exempel i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
 
-    >[AZURE.IMPORTANT] Namnet på installationsskriptet för programmet måste vara unikt för ett visst kluster och ha nedanstående format. 
+    >[AZURE.IMPORTANT] Namnet på installationsskriptet för programmet måste vara unikt för ett visst kluster och ha nedanstående format. Dessutom ska alla installations- och avinstallationsskriptåtgärder vara idempotenta, vilket innebär att skripten kan anropas upprepade gånger och samtidigt producera samma resultat.
     
     >   name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
         
@@ -94,11 +95,12 @@ Följ stegen nedan om du vill publicera ett HDInsight-program:
 
 ## Nästa steg
 
+- [Installera HDInsight-program](hdinsight-apps-install-applications.md): Läs mer om hur du installerar ett HDInsight-program till dina kluster.
 - [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): information om hur du distribuerar ett opublicerat HDInsight-program till HDInsight.
 - [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md): information om hur du använder skriptåtgärd till att installera fler program.
-- [Skapa Linux-baserade Hadoop-kluster i HDInsight med hjälp av ARM-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md): information om hur du anropar ARM-mallar för att skapa HDInsight-kluster.
+- [Skapa Linux-baserade Hadoop-kluster i HDInsight med hjälp av Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Läs mer om hur du anropar Resource Manager-mallar för att skapa HDInsight-kluster.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

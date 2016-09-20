@@ -6,19 +6,19 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="azure powershell, powershell script tutorial, powershell automation"/>
+    keywords="azure powershell, självstudier i powershell-skript, powershell-automation"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/19/2016"
     ms.author="magoedte;sngun"/>
 
 # Min första PowerShell-runbook
 
-> [AZURE.SELECTOR] - [Grafiskt](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
+> [AZURE.SELECTOR] - [Grafiskt](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell-arbetsflöde](automation-first-runbook-textual.md)  
 
 Den här självstudien beskriver steg för steg hur du skapar en [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) i Azure Automation. Vi börjar med en enkel runbook som vi testar och publicerar medan vi förklarar hur du spårar statusen för runbook-jobbet. Sedan ändrar vi vår runbook så att den hanterar Azure-resurser, i vårt exempel ska den starta en virtuell dator i Azure. Sedan ska vi göra runbooken mer robust genom att lägga till runbook-parametrar.
 
@@ -106,7 +106,7 @@ Vi har testat och publicerat vår runbook, men hittills gör den egentligen inge
     ``` 
 <br>
 4.  Klicka på **Testfönster** så att vi kan testa runbooken.
-5.  Starta testet genom att klicka på **Starta**. När testet är klart visas utdata med grundläggande information från ditt konto. Detta bekräftar att autentiseringsuppgifterna är giltiga. <br> ![Autentisera](media/automation-first-runbook-textual-powershell/runbook-auth-results.png)
+5.  Starta testet genom att klicka på **Starta**. När testet är klart visas utdata som liknar de nedan, med grundläggande information från ditt konto. Detta bekräftar att autentiseringsuppgifterna är giltiga. <br> ![Autentisera](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## Steg 6 – Lägga till kod för att starta en virtuell dator
 
@@ -117,7 +117,7 @@ Nu när våra runbook autentiseras med vår Azure-prenumeration kan vi hantera r
     ```
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationID `$Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
+     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
      ```
 <br>
@@ -137,7 +137,7 @@ Vår runbook startar för närvarande den virtuella datorn som vi hårdkodade i 
     )
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationID `$Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
+     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
      ```
 <br> 
@@ -167,6 +167,6 @@ PowerShell-runbooks har samma livscykel, funktioner och hantering som PowerShell
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

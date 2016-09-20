@@ -58,9 +58,9 @@ Det första steget i att skapa din app är att skapa webbappen via [Azure Portal
 
 1. Logga in på Azure Portal och klicka på knappen **NY** i det nedre vänstra hörnet.
 3. Skriv "python" i sökrutan.
-4. I sökresultaten väljer du **Django** och klickar på **Skapa**.
+4. I sökresultaten väljer Välj **Django** (publicerat av PTVS) i sökresultatet och klicka sedan på **Skapa**.
 5. Konfigurera den nya Django-appen och skapa till exempel en ny App Service-plan och en ny resursgrupp för den. Klicka på **Skapa**.
-6. Konfigurera Git-publicering för den nya webbappen genom att följa anvisningarna i [Kontinuerlig distribution med GIT i Azure App Service](web-sites-publish-source-control.md).
+6. Konfigurera Git-publicering för den nya webbappen genom att följa anvisningarna i [Lokal Git-distribution till Azure App Service](app-service-deploy-local-git.md).
 
 ## Programöversikt
 
@@ -146,7 +146,7 @@ I följande tre avsnitt beskrivs hur du fortsätter med webbappsutvecklingen i t
 
 ### Klona lagringsplatsen
 
-Först klonar du lagringsplatsen med hjälp av webbadressen som tillhandahålls på Azure Portal. Mer information finns i [Kontinuerlig distribution med GIT i Azure App Service](web-sites-publish-source-control.md).
+Först klonar du lagringsplatsen med hjälp av webbadressen som tillhandahålls på Azure Portal. Mer information finns i [Lokal Git-distribution till Azure App Service](app-service-deploy-local-git.md).
 
 Öppna lösningsfilen (.sln) som finns i lagringsplatsens rot.
 
@@ -223,7 +223,7 @@ Visa ändringarna genom att gå till Azure-webbadressen.
 
 ### Klona lagringsplatsen
 
-Först klonar du lagringsplatsen med hjälp av webbadressen som tillhandahålls på Azure Portal. Lägg till Azure-lagringsplatsen som fjärransluten. Mer information finns i [Kontinuerlig distribution med GIT i Azure App Service](web-sites-publish-source-control.md).
+Först klonar du lagringsplatsen med hjälp av webbadressen som tillhandahålls på Azure Portal. Lägg till Azure-lagringsplatsen som fjärransluten. Mer information finns i [Lokal Git-distribution till Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -312,7 +312,7 @@ Visa ändringarna genom att gå till Azure-webbadressen.
 
 ### Klona lagringsplatsen
 
-Först klonar du lagringsplatsen med hjälp av webbadressen som tillhandahålls på Azure Portal. Lägg till Azure-lagringsplatsen som fjärransluten. Mer information finns i [Kontinuerlig distribution med GIT i Azure App Service](web-sites-publish-source-control.md).
+Först klonar du lagringsplatsen med hjälp av webbadressen som tillhandahålls på Azure Portal. Lägg till Azure-lagringsplatsen som fjärransluten. Mer information finns i [Lokal Git-distribution till Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -518,6 +518,6 @@ Mer information finns i [Python Developer Center](/develop/python/).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

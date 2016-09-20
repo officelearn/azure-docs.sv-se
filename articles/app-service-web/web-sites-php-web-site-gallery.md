@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="PHP"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Skapa en WordPress-webbapp i Azure App Service
@@ -65,7 +65,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
 
 5. Välj en **Resursgrupp** eller skapa en ny.
 
-    Mer information om resursgrupper finns i [Hantera Azure-resurser med hjälp av Azure Portal](../resource-group-portal.md).
+    Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../resource-group-overview.md).
 
 5. Välj en **App Service-plan/plats** eller skapa en ny.
 
@@ -73,9 +73,9 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
 
 7. Klicka på **Databas** och ange sedan i bladet **Ny MySQL-databas** de värden som krävs för att konfigurera MySQL-databasen.
 
-    a. Ange ett nytt namn eller lämna standardnamnet.
+    a. Ange ett nytt namn eller låt standardnamnet stå kvar.
 
-    b. Lämna **Databastyp** inställd på **Delad**.
+    b. Lämna **Databastyp** inställt på **Delad**.
 
     c. Välj samma plats som du valde för webbappen.
 
@@ -130,6 +130,6 @@ Du hittar mer information om hur du arbetar med App Service Web Apps via länkar
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

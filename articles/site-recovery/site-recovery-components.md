@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/27/2016"
+    ms.date="07/12/2016"
     ms.author="raynew"/>
 
 # Hur fungerar Azure Site Recovery?
@@ -25,184 +25,218 @@ Skriv dina kommentarer eller frågor längst ned i den här artikeln eller i [Az
 
 ## Översikt
 
-Organisationer behöver en BCDR-strategi för affärskontinuitet och haveriberedskap som definierar hur appar, arbetsbelastningar och data är tillgängliga under planerade och oplanerade avbrott och hur de kan återställas till normalt drifttillstånd så fort som möjligt.
+Organisationer behöver en BCDR-strategi som beskriver hur appar, arbetsbelastningar och data fungerar och är tillgängliga under planerade och oplanerade driftavbrott och som ser till att systemets normala drifttillstånd återställs så fort som möjligt. Avsikten med en BCDR-strategi är att skydda affärsdata och se till att de kan återställas samt att säkerställa att arbetsbelastningar förblir tillgängliga i händelse av allvarliga fel. 
 
-Site Recovery är en Azure-tjänst som stödjer din BCDR-strategi genom att samordna replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till en sekundär plats. Om det uppstår driftstopp på den primära platsen växlar du över till den sekundära platsen så att program och arbetsbelastningar fortsätter att vara tillgängliga. Du växlar tillbaka till den primära platsen när den återgår till normal drift.
+Site Recovery är en Azure-tjänst som stödjer din BCDR-strategi genom att dirigera replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till ett sekundärt datacenter. Vid driftstopp på den primära platsen växlar du över till den sekundära platsen så att program och arbetsbelastningar fortsätter att vara tillgängliga. Du växlar tillbaka till den primära platsen när den har återgått till normal drift. Mer information finns i [Vad är Site Recovery?](site-recovery-overview.md)
+
+## Site Recovery på Azure-portalen
+
+Azure har två olika [distributionsmodeller](../resource-manager-deployment-model.md) för att skapa och arbeta med resurser: Azure Resource Manager-modellen och den klassiska tjänsthanteringsmodellen. Azure har också två portaler – [den klassiska Azure-portalen](https://manage.windowsazure.com/) som stöder den klassiska distributionsmodellen och [Azure-portalen](https://portal.azure.com) som stöder båda distributionsmodellerna.
+
+Site Recovery är tillgängligt både på den klassiska portalen och på Azure-portalen. På den klassiska Azure-portalen kan du använda Site Recovery med den klassiska tjänsthanteringsmodellen. På Azure-portalen kan du använda den klassiska modellen eller Resource Manager-distributioner. [Läs mer](site-recovery-overview.md#site-recovery-in-the-azure-portal) om hur du distribuerar med Azure-portalen.
+
+Informationen i den här artikeln gäller både klassiska distributioner och distributioner via Azure-portalen. Eventuella skillnader beskrivs i förekommande fall.
+
+## Distributionsscenarier
 
 Site Recovery kan distribueras för att samordna replikeringen i ett antal scenarier:
 
-- **Replikera virtuella VMware-datorer **: Du kan replikera lokala virtuella VMware-datorer till [Azure](site-recovery-vmware-to-azure-classic.md) eller till ett [sekundärt datacenter](site-recovery-vmware-to-vmware.md).
-- **Replikera fysiska datorer**: Du kan replikera fysiska datorer som kör Windows eller Linux till [Azure](site-recovery-vmware-to-azure-classic.md) eller till ett [sekundärt datacenter](site-recovery-vmware-to-vmware.md).
-- **Replikera virtuella Hyper-V-datorer som hanteras i System Center VMM-moln**: Du kan replikera lokala virtuella Hyper-V-datorer i VMM-moln till [Azure](site-recovery-vmm-to-azure.md) eller till ett [sekundärt datacenter](site-recovery-vmm-to-vmm.md). 
-- **Replikera virtuella Hyper-V-datorer (utan VMM)**: Du kan replikera virtuella Hyper-V-datorer som inte hanteras av VMM till [Azure](site-recovery-hyper-v-site-to-azure.md).
+- **Replikera virtuella VMware-datorer**: Du kan replikera lokala virtuella VMware-datorer till Azure eller till ett sekundärt datacenter.
+- - **Replikera fysiska datorer**: Du kan replikera fysiska datorer som kör Windows eller Linux till Azure eller till ett sekundärt datacenter. Fysiska datorer replikeras på nästan samma sätt som virtuella VMware-datorer
+- **Replikera virtuella Hyper-V-datorer (utan VMM)**: Du kan replikera virtuella Hyper-V-datorer som inte hanteras av VMM till Azure.
+- **Replikera virtuella Hyper-V-datorer som hanteras i System Center VMM-moln**: Du kan replikera lokala virtuella Hyper-V-datorer som körs på Hyper-V-värdservrar i VMM-moln till Azure eller till ett sekundärt datacenter. Du kan replikera med Hyper-V-standardreplikering eller SAN-replikering.
 - **Migrera virtuella datorer**: Du kan använda Site Recovery för att [migrera virtuella IaaS-datorer i Azure](site-recovery-migrate-azure-to-azure.md) mellan regioner eller för att [migrera Windows-instanser i AWS](site-recovery-migrate-aws-to-azure.md) till virtuella IaaS-datorer i Azure. För närvarande stöds endast migrering vilket innebär att du kan redundansväxla dessa virtuella datorer, men inte växla tillbaka (återställa) dem.
 
 Site Recovery kan replikera de flesta appar som körs på dessa virtuella datorer och fysiska servrar. En fullständig sammanfattning av de appar som stöds finns i [Vilka arbetsbelastningar kan Azure Site Recovery skydda?](site-recovery-workload.md)
 
-## Replikera lokala virtuella VMware-datorer/fysiska VMware-servrar till Azure
 
-Det finns för närvarande två olika arkitekturer för replikering av virtuella VMware-datorer eller fysiska Windows-/Linux-baserade VMware-servrar till Azure:
+## Replikera till Azure: Virtuella VMware-datorer eller fysiska Windows-/Linux-servrar
 
-- [Äldre arkitektur](site-recovery-vmware-to-azure-classic-legacy.md): Den här arkitekturen bör inte användas för nya distributioner. 
-- [Förbättrad arkitektur](site-recovery-vmware-to-azure-classic.md): Det här är den senaste arkitekturen och bör användas för alla nya distributioner. Om du redan har distribuerat det här scenariot med den äldre arkitekturen rekommenderar vi att du [lär dig mer om migrering](site-recovery-vmware-to-azure-classic-legacy.md#migrate-to-the-enhanced-deployment) till den förbättrade distributionen.
+Du kan replikera virtuella VMware-datorer med Site Recovery på ett par olika sätt.
 
-I den utökade distributionen måste du konfigurera en lokal hanteringsserver med alla Site Recovery-komponenter. Du distribuerar mobilitetstjänsten automatiskt (eller installerar den manuellt) på varje dator som du vill skydda. Efter den första replikeringen skickar mobilitetstjänsten på datorn förändringsdata (delta) för replikeringen till processervern, som optimerar dem innan de skickas till Azure-lagring.
+- **Med hjälp av Azure-portalen**: När du distribuerar Site Recovery på Azure-portal kan du växla över virtuella datorer till klassisk tjänsthanteringslagring eller till Resource Manager. Replikeringen av virtuella VMware-datorer på Azure-portalen medför flera fördelar, däribland möjligheten att replikera både till klassisk lagring och Resource Manager-lagring i Azure. [Läs mer](site-recovery-vmware-to-azure.md).
+- **Med hjälp av den klassiska portalen**: Du kan distribuera Site Recovery på den klassiska portalen med en optimerad miljö. Detta rekommenderas för alla nya distributioner på den klassiska portalen. I den här typen av distribution kan du bara växla över virtuella datorer till klassisk lagring i Azure, inte till Resource Manager-lagring. [Läs mer](site-recovery-vmware-to-azure-classic.md). Det finns också en [äldre miljö](site-recovery-vmware-to-azure-classic-legacy.md) för att konfigurera VMware-replikering på den klassiska portalen. Den bör inte användas för nya distributioner.  Om du redan har distribuerat med den äldre miljön rekommenderar vi att du [lär dig hur du migrerar](site-recovery-vmware-to-azure-classic-legacy.md#migrate-to-the-enhanced-deployment) till den optimerade distributionen.
 
-![Förbättrad](./media/site-recovery-components/arch-enhanced.png)
-![Förbättrad](./media/site-recovery-components/arch-enhanced2.png)
 
-### Lokal
-Det här behöver du lokalt:
 
-- **Hanteringsserver**: Du behöver en Windows Server 2012 R2-dator som fungerar som hanteringsservern. På den här servern installerar du alla dessa Site Recovery-komponenter med en enda installationsfil:
+Kraven på arkitektur för Site Recovery-distributioner när du replikerar VM/fysiska VMware-servrar är i princip samma för Azure-portalen och den klassiska Azure-portalen (optimerad), med bara några få skillnader:
 
-    - **Konfigurationsserverkomponent**: Samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering och återställning.
-    - **Processerverkomponent**: Fungerar som en replikerings-gateway. Den tar emot replikeringsdata från skyddade källdatorer, optimerar dem med cachelagring, komprimering och kryptering och skickar data till Azure-lagring. Den hanterar också push-installationen av mobilitetstjänsten till skyddade datorer och utför automatisk identifiering av virtuella VMware-datorer. Allt eftersom distributionen växer kan du lägga till ytterligare separata dedikerade servrar för att hantera allt större mängder replikeringstrafik.
-    - **Huvudmålserverkomponent**: Hanterar replikeringsdata vid återställning från Azure. 
-- **ESX-/ESXi-värdar och vCenter-server för VMware**: Du behöver en eller flera ESX-/ESXi-värdservrar som kör virtuella VMware-datorer. Vi rekommenderar att du distribuerar en vCenter-server för att hantera dessa värdar. **Obs!** **Även om du replikerar fysiska servrar måste du växla tillbaka dem till VMware**. När du replikerar en fysisk server körs den som en virtuell Azure-dator när du redundansväxlar till Azure. Den växlar tillbaka lokalt som en lokal virtuell VMware-dator. 
-    
-- **Virtuella datorer/fysiska servrar**: Mobilitetstjänsten måste vara installerad på alla datorer som du vill replikera till Azure. Den här tjänsten samlar in dataskrivningar på datorn och vidarebefordrar dem till processervern. Den här komponenten kan installeras manuellt eller kan flyttas och installerats automatiskt av processervern när du aktiverar replikering för en dator.
+- Om du distribuerar på Azure-portalen kan du replikera till Resource Manager-baserad lagring och använda Resource Manager-nätverk för att ansluta till virtuella datorer i Azure efter en redundansväxling.
+- När du distribuerar på Azure-portalen stöds både LRS- och GRS-lagring. GRS krävs på den klassiska portalen.
+- Distributionen är enklare och mer användarvänlig på Azure-portalen.
 
-### Azure
 
-Det här behöver du i Azure-infrastrukturen:     - **Azure-konto**: Du behöver ett Microsoft Azure-konto.
-    - **Azure-lagring**: Du behöver ett Azure-lagringskonto för att lagra replikerade data. Replikerade data lagras i Azure och virtuella Azure-datorer skapas i samband med redundansväxlingen. 
-    - **Azure-nätverk**: Du behöver ett virtuellt Azure-nätverk som de virtuella Azure-datorer som skapas ska ansluta till efter redundansväxlingen. 
-    
-    
-### Återställning efter fel
+Du behöver det här:
 
-Återställning till det lokala systemet sker alltid till virtuella VMware-datorer, även om du redundansväxlade en fysisk server. Du behöver det här:
+- **Azure-konto**: Du behöver ett Microsoft Azure-konto.
+- **Azure-lagring**: Du behöver ett Azure-lagringskonto för att lagra replikerade data. Du kan använda ett klassiskt konto eller ett Resource Manager-lagringskonto. Kontot kan vara LRS eller GRS när du distribuerar på Azure-portalen. Replikerade data lagras i Azure och virtuella Azure-datorer skapas i samband med redundansväxlingen. 
+- **Azure-nätverk**: Du behöver ett virtuellt Azure-nätverk som virtuella Azure-datorer ska ansluta till när de skapas under en redundansväxling. På Azure-portalen kan de vara nätverk som skapats i den klassiska tjänsthanteringsmodellen eller i Resource Manager-modellen.
+- **Lokal konfigurationsserver**: Du behöver en lokal Windows Server 2012 R2-dator som kör konfigurationsservern och andra Site Recovery-komponenter. Om du replikerar virtuella VMware-datorer bör detta vara en virtuell VMware-dator med hög tillgänglighet. Om du vill replikera fysiska servrar kan datorn vara fysisk. Följande Site Recovery-komponenter installeras på datorn:
+    - **Konfigurationsserver**: Samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering och återställning.
+    - **Processerver**: Fungerar som en replikerings-gateway. Den tar emot replikeringsdata från skyddade källdatorer, optimerar dem med cachelagring, komprimering och kryptering och skickar data till Azure-lagring. Den hanterar också push-installationen av mobilitetstjänsten till skyddade datorer och utför automatisk identifiering av virtuella VMware-datorer. Allt eftersom distributionen växer kan du lägga till ytterligare separata dedikerade servrar för att hantera allt större mängder replikeringstrafik.
+    - **Huvudmålserver**: Hanterar replikeringsdata vid återställning från Azure. 
+- **Virtuella VMware-datorer eller fysiska servrar som ska replikeras**: Mobility-tjänstkomponenten måste vara installerad på alla datorer som du vill replikera till Azure. Den här tjänsten samlar in dataskrivningar på datorn och vidarebefordrar dem till processervern. Den här komponenten kan installeras manuellt eller kan flyttas och installerats automatiskt av processervern när du aktiverar replikering för en dator.
+- **vSphere-värdar/vCenter-server**: Du behöver en eller flera vSphere-värdservrar som kör virtuella VMware-datorer. Vi rekommenderar att du distribuerar en vCenter-server för att hantera dessa värdar.
+- **Redundans**: Det här behöver du:
+    - **Redundansväxling från fysisk-till-fysisk stöds inte**: Det betyder att om du växlar över fysiska servrar till Azure och sedan vill växla tillbaka dem så måste du växla tillbaka till en virtuell VMware-dator. Du kan inte växla tillbaka till en fysisk server. Du behöver en virtuell Azure-dator att växla över till, och om du inte distribuerade konfigurationsservern som en virtuell VMware-dator måste du konfigurera en separat huvudmålserver som en virtuell VMware-dator. Detta är nödvändigt eftersom huvudmålservern interagerar med och ansluter till VMware-lagring för att återställa diskarna till en virtuell VMware-dator.
+    - - **Tillfällig processerver i Azure**: Om du vill växla tillbaka från Azure efter en redundansväxling måste du konfigurera en Azure-dator som en processerver för att hantera replikering från Azure. Du kan ta bort den här virtuella datorn när återställningen är klar.
+    - **VPN-anslutning**: För återställning efter fel behöver du en VPN-anslutning (eller Azure ExpressRoute) från Azure-nätverket till den lokala platsen.
+    - **Separat lokal huvudmålserver**: Den lokala huvudmålservern hanterar återställning efter fel. Huvudmålservern installeras som standard på hanteringsservern, men om du växlar tillbaka större volymer trafik bör du konfigurera en separat lokal huvudmålserver för detta ändamål.
 
-- **Tillfällig processerver i Azure**: Om du vill växla tillbaka från Azure efter en redundansväxling måste du konfigurera en Azure-dator som en processerver för att hantera replikering från Azure. Du kan ta bort den här virtuella datorn när återställningen är klar.
-- **VPN-anslutning**: För återställning efter fel behöver du en VPN-anslutning (eller Azure ExpressRoute) från Azure-nätverket till den lokala platsen.
-- **Separat lokal huvudmålserver**: Den lokala huvudmålservern hanterar återställning efter fel. Huvudmålservern installeras som standard på hanteringsservern, men om du växlar tillbaka större volymer trafik bör du konfigurera en separat lokal huvudmålserver för detta ändamål. 
+**Allmän arkitektur**
+
+![Optimerad](./media/site-recovery-components/arch-enhanced.png)
+
+**Distributionskomponenter**
+
+![Optimerad](./media/site-recovery-components/arch-enhanced2.png)
+
+**Återställning efter fel**
 
 ![Förbättrad återställning efter fel](./media/site-recovery-components/enhanced-failback.png)
 
-[Läs mer](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) om kraven för förbättrad distribution.
-[Läs mer](site-recovery-failback-azure-to-vmware-classic.md) om återställning efter fel för en förbättrad distribution.
 
+- [Lär dig mer](site-recovery-vmware-to-azure.md#azure-prerequisites) om kraven för distributioner på Azure-portalen.
+- [Lär dig mer](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) om kraven för optimerad distribution på den klassiska portalen.
+- [Lär dig mer](site-recovery-failback-azure-to-vmware.md) om redundans på Auzre-portalen.
+- [Lär dig mer](site-recovery-failback-azure-to-vmware-clas- [Learn more](site-recovery-failback-azure-to-vmware-classic.md) about failback in the Auzre portal.sic.md) om redundans på den klassiska portalen.
 
+## Replikera till Azure: Virtuella Hyper-V-datorer som inte hanteras av VMM
 
+Du kan replikera virtuella Hyper-V-datorer som inte hanteras av System Center VMM till Azure med Site Recovery på följande sätt:
 
-## Replikera virtuella Hyper-V-datorer i VMM-moln till Azure
+- **Med hjälp av Azure-portalen**: När du distribuerar Site Recovery på Azure-portalen kan du växla över virtuella datorer till klassisk lagring eller till Resource Manager. [Läs mer](site-recovery-hyper-v-site-to-azure.md).
+- **Med hjälp av den klassiska portalen**: Du kan distribuera Site Recovery på den klassiska portalen. I den här typen av distribution kan du bara växla över virtuella datorer till klassisk lagring i Azure, inte till Resource Manager-lagring. [Läs mer](site-recovery-hyper-v-site-to-azure-classic.md).
 
-Om du vill distribuera det här scenariot installerar du Azure Site Recovery-providern på VMM-servern under distributionen av Site Recovery. Providern samordnar och styr replikeringen med Site Recovery-tjänsten via Internet. Azure Recovery Services-agenten installeras under distributionen av Site Recovery på Hyper-V-värdservern och data replikeras mellan agenten och Azure-lagring över HTTPS-port 443. Kommunikation från både providern och agenten är säker och krypterad. Replikerade data i Azure-lagring krypteras också.
+Arkitekturen för båda distributionerna påminner om varandra, förutom att:
 
-- Lokalt: 
-    - **VMM-server**: Minst en VMM-server med minst ett privat VMM-moln. Servern ska köras på System Center 2012 R2 och måste ha en Internetanslutning. Om du vill vara säker på att virtuella datorer i Azure ansluter till ett nätverk efter en redundansväxling måste du konfigurera nätverksmappning. Det gör du genom att ansluta dina virtuella källdatorer till ett virtuellt datornätverk för VMM. Det virtuella datornätverket bör vara kopplat till ett logiskt nätverk som är associerat med molnet.
-    - **Hyper-V-server**: Minst en Hyper-V-värdserver i VMM-molnet. Hyper-V-värdar måste köra Windows Server 2012 R2.
-    - **Skyddade datorer**: Hyper-V-källservern måste ha minst en virtuell dator som du vill skydda.
-    
-- Azure: 
-    - **Azure-konto**: Du behöver ett Microsoft Azure-konto.
-    - **Azure-lagring**: Du behöver ett Azure-lagringskonto för att lagra replikerade data. Replikerade data lagras i Azure och virtuella Azure-datorer skapas i samband med redundansväxlingen.
-    - **Azure-nätverk**: Om du vill konfigurera nätverksmappning så att virtuella datorer i Azure ansluter till nätverk efter en redundansväxling måste du konfigurera ett Azure-nätverk.
+- Om du distribuerar på Azure-portalen kan du replikera till Resource Manager-lagring och använda Resource Manager-nätverk för att ansluta till virtuella datorer i Azure efter en redundansväxling.
+- Distributionen är enklare och mer användarvänlig på Azure-portalen.
 
-    ![VMM till Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
+Du behöver det här:
 
-Mer information om exakta [distributionskrav](site-recovery-vmm-to-azure.md#before-you-start).
+- **Azure-konto**: Du behöver ett Microsoft Azure-konto.
+- **Azure-lagring**: Du behöver ett Azure-lagringskonto för att lagra replikerade data. På Azure-portalen kan du använda ett klassiskt konto eller ett Resource Manager-konto. På den klassiska portalen kan du bara använda ett klassiskt konto. Replikerade data lagras i Azure och virtuella Azure-datorer skapas när redundansväxlingen sker.
+- **Azure-nätverk**: Du behöver ett Azure-nätverk som virtuella Azure-datorer ska ansluta till när de skapas efter en redundansväxling. 
+- **Hyper-v-värd**: Du behöver en eller flera Windows Server 2012 R2 Hyper-V-värdservrar. Under Site Recovery-distributionen installerar du 
+- **Virtuella Hyper-V-datorer**: Du behöver en eller flera virtuella datorer på Hyper-V-värdservern. Azure Site Recovery-providern och Azure Recovery Services-agenten på Hyper-V-värden under Site Recovery-distributionen. Providern samordnar och styr replikeringen med Site Recovery-tjänsten via Internet. Agenten hanterar replikeringsdata över HTTPS-port 443. Kommunikation från både providern och agenten är säker och krypterad. Replikerade data i Azure-lagring krypteras också.
 
-## Replikera virtuella VMware-datorer eller fysiska VMware-servrar till en sekundär plats
-
-Om du vill replikera virtuella VMware-datorer eller Windows-/Linux-baserade fysiska VMware-servrar till en sekundär plats laddar du ned InMage Scout som ingår i Azure Site Recovery-prenumerationen. Du konfigurerar komponentservrarna på varje plats (konfiguration, process, huvudmålserver) och installerar Unified Agent på de datorer som du vill replikera. Efter den första replikeringen skickar agenten på varje dator replikeringsförändringar (delta) till processervern. Processervern optimerar data och överför dem till huvudmålservern på den sekundära platsen. Konfigurationsservern hanterar replikeringen.
-
-![VMware till VMware](./media/site-recovery-components/vmware-to-vmware.png)
-
-### Lokal primär plats
-
-- **Processerver**: Konfigurera processserverkomponenten på din primära plats så att den hanterar cachelagring, komprimering och dataoptimering. Den hanterar också push-installationen av Unified Agent till de datorer som du vill skydda. 
-- **VMware-baserad ESX/ESXi och vCenter-server**: Om du skyddar virtuella datorer i VMware behöver du en VMware-baserad EXS-/ESXi-hypervisor och eventuellt en VMware-baserad vCenter-server för att hantera hypervisorer.
-- **Virtuella datorer/fysiska servrar**: Unified Agent måste vara installerat på virtuella VMwares-datorer eller Windows-/Linux-baserade fysiska servrar som du vill skydda. Unified Agent installeras även på de datorer som fungerar som huvudmålservrar. Agenten fungerar som en kommunikationsprovider mellan alla komponenter. 
-    
-### Lokal sekundär plats
- 
-- **Konfigurationsserver**: Konfigurationsservern är den första komponenten som du installerar och installeras på den sekundära platsen för att hantera, konfigurera och övervaka distributionen, antingen med hjälp av hanteringswebbplatsen eller vContinuum-konsolen. Det finns bara en konfigurationsserver i en distribution och den måste installeras på en dator som kör Windows Server 2012 R2.
-- **vContinuum-server**: Den installeras på samma plats (den sekundära platsen) som konfigurationsservern. Den innehåller en konsol för att hantera och övervaka din skyddade miljö. I en standardinstallation är vContinuum-servern den första huvudmålservern och har Unified Agent installerad.
-- **Huvudmålserver**: Huvudmålservern innehåller replikerade data. Den tar emot data från processervern, skapar en replikdator på den sekundära platsen och innehåller datakvarhållningspunkterna. Hur många huvudmålservrar du behöver beror på hur många datorer du skyddar. Om du vill växla tillbaka till den primära platsen behöver du en huvudmålserver även där. 
-
-### Azure
-
-Du kan distribuera det här scenariot med InMage Scout. InMage Scout ingår i Azure-prenumerationer. När du har skapat ett Site Recovery-valv laddar du ned InMage Scout och installerar de senaste uppdateringarna för att konfigurera distributionen.
-
-
-## Replikera virtuella Hyper-V-datorer till Azure (utan VMM)
-
-Om du vill replikera virtuella Hyper-V-datorer som inte hanteras i VMM-moln till Azure kan du installera Azure Site Recovery-providern och Azure Recovery Services-agenten på Hyper-V-värden under distributionen av Site Recovery. Providern samordnar och styr replikeringen med Site Recovery-tjänsten via Internet. Agenten hanterar replikeringsdata över HTTPS-port 443. Kommunikation från både providern och agenten är säker och krypterad. Replikerade data i Azure-lagring krypteras också.
+**Allmän arkitektur**
 
 ![Hyper-V-plats till Azure](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
 
-### Lokal
 
-- **Hyper-V-server**: Minst en Hyper-V-värdservern. Hyper-V-värdar måste köra Windows Server 2012 R2.
-- **Skyddade datorer**: Hyper-V-källservern måste ha minst en virtuell dator som du vill skydda.
-    
-### Azure
+- [Lär dig mer](site-recovery-hyper-v-site-to-azure.md#azure-prerequisites) om kraven för distributioner på Azure-portalen.
+- [Lär dig mer](site-recovery-hyper-v-site-to-azure-classic.md#azure-prerequisites) om kraven för distributioner på den klassiska portalen.
+
+
+
+## Replikera till Azure: Virtuella Hyper-V-datorer som hanteras av VMM
+
+Du kan replikera virtuella Hyper-V-datorer i VMM-moln till Azure med Site Recovery på följande sätt:
+
+- **Med hjälp av Azure-portalen**: När du distribuerar Site Recovery på Azure-portalen kan du växla över virtuella datorer till klassisk lagring eller till Resource Manager. [Läs mer](site-recovery-vmm-to-azure.md).
+- **Med hjälp av den klassiska portalen**: Du kan distribuera Site Recovery på den klassiska portalen. I den här typen av distribution kan du bara växla över virtuella datorer till klassisk lagring i Azure, inte till Resource Manager-lagring. [Läs mer](site-recovery-vmm-to-azure-classic.md).
+
+Arkitekturen för båda distributionerna påminner om varandra, förutom att:
+
+- Om du distribuerar på Azure-portalen kan du replikera till Resource Manager-baserad lagring och använda Resource Manager-nätverk för att ansluta till virtuella datorer i Azure efter en redundansväxling.
+- Distributionen är enklare och mer användarvänlig på Azure-portalen.
+
+
+Du behöver det här:
 
 - **Azure-konto**: Du behöver ett Microsoft Azure-konto.
-- **Azure-lagring**: Du behöver ett Azure-lagringskonto för att lagra replikerade data. Replikerade data lagras i Azure och virtuella Azure-datorer skapas i samband med redundansväxlingen.
+- **Azure-lagring**: Du behöver ett Azure-lagringskonto för att lagra replikerade data. På Azure-portalen kan du använda ett klassiskt konto eller ett Resource Manager-konto. På den klassiska portalen kan du bara använda ett klassiskt konto. Replikerade data lagras i Azure och virtuella Azure-datorer skapas när redundansväxlingen sker.
+- **Azure-nätverk**: Du måste konfigurera nätverksmappning så att virtuella datorer i Azure ansluts till rätt nätverk när de skapas efter en redundansväxling. 
+- **VMM-server**: Du behöver en eller flera lokala VMM-servrar som körs på System Center 2012 R2 och som är konfigurerade med ett eller flera privata moln. Om du distribuerar på Azure-portalen behöver du logiska nätverk och nätverk för virtuella datorer så att du kan konfigurera nätverksmappning. På den klassiska portalen är detta valfritt.  Ett nätverk för virtuella datorer bör vara kopplat till ett logiskt nätverk som är associerat med molnet.
+- **Hyper-V-värd**: Du behöver en eller flera Windows Server 2012 R2 Hyper-V-värdservrar i VMM-molnet.
+- **Virtuella Hyper-V-datorer**: Du behöver en eller flera virtuella datorer på Hyper-V-värdservern.
 
-[Lär dig mer](site-recovery-hyper-v-site-to-azure.md#before-you-start) om distributionskraven.
-
-
-## Replikera virtuella Hyper-V-datorer i VMM-moln till Azure
-
-Du distribuerar det här scenariot genom att installera Azure Site Recovery-providern på VMM-servern och Azure Recovery Services-agenten på Hyper-V-värden under distributionen av Site Recovery. Providern samordnar och styr replikeringen med Site Recovery-tjänsten via Internet. Agenten hanterar replikeringsdata över HTTPS-port 443. Kommunikation från både providern och agenten är säker och krypterad. Replikerade data i Azure-lagring (vilande) är också krypterade.
+**Allmän arkitektur**
 
 ![VMM till Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
-### Lokal
+- [Lär dig mer](site-recovery-vmm-to-azure.md#azure-requirements) om kraven för distributioner på Azure-portalen.
+- [Lär dig mer](site-recovery-vmm-to-azure-classic.md#before-you-start) om kraven för distributioner på den klassiska portalen.
 
-- **VMM-server**: Minst en VMM-server med minst ett privat VMM-moln. Servern ska köras på System Center 2012 R2 och måste ha en Internetanslutning. Om du vill vara säker på att virtuella datorer i Azure ansluter till ett nätverk efter en redundansväxling måste du konfigurera nätverksmappning. Det gör du genom att ansluta virtuella källdatorer till ett VMM-baserat virtuellt datornätverk. Nätverket ska kopplas till ett logiskt nätverk som är associerat med molnet.
-- **Hyper-V-server**: Minst en Hyper-V-värdserver i VMM-molnet. Hyper-V-värdar måste köra Windows Server 2012 R2.
-- **Skyddade datorer**: Hyper-V-källservern måste ha minst en virtuell dator som du vill skydda.
-    
-### Azure
+
+
+
+## Replikera till en sekundär plats: Virtuella VMware-datorer eller fysiska servrar 
+
+Om du vill replikera virtuella VMware-datorer eller fysiska servrar till en sekundär plats laddar du ned InMage Scout som ingår i Azure Site Recovery-prenumerationen. Du kan ladda ned verktyget från Azure-portalen eller från den klassiska Azure-portalen. 
+
+Du konfigurerar komponentservrarna på varje plats (konfiguration, process, huvudmålserver) och installerar Unified Agent på de datorer som du vill replikera. Efter den första replikeringen skickar agenten på varje dator replikeringsförändringar (delta) till processervern. Processervern optimerar data och överför dem till huvudmålservern på den sekundära platsen. Konfigurationsservern hanterar replikeringen.
+
+Du behöver det här:
+
+**Azure-konto**: Du distribuerar det här scenariot med InMage Scout. InMage Scout ingår i Azure-prenumerationer. När du har skapat ett Site Recovery-valv laddar du ned InMage Scout och installerar de senaste uppdateringarna för att konfigurera distributionen.
+**Processerver (primär plats)**: Konfigurera processerverkomponenten på din primära plats för hantering av cachelagring, komprimering och dataoptimering. Den hanterar också push-installationen av Unified Agent till de datorer som du vill skydda. 
+**VMware-baserad ESX/ESXi och vCenter-server (primär plats)**: Om du skyddar virtuella datorer i VMware behöver du en VMware-baserad EXS-/ESXi-hypervisor och eventuellt en VMware-baserad vCenter-server för att hantera hypervisorer.
+- **Virtuella datorer/fysiska servrar (primär plats)**: Unified Agent måste vara installerat på de virtuella VMware-datorer eller Windows-/Linux-baserade fysiska servrar som du vill skydda. Unified Agent installeras även på de datorer som fungerar som huvudmålservrar. Agenten fungerar som en kommunikationsprovider mellan alla komponenter. 
+- - **Konfigurationsserver (sekundär plats)**: Konfigurationsservern är den första komponenten som du installerar. Den installeras på den sekundära platsen för att hantera, konfigurera och övervaka distributionen, antingen med hjälp av hanteringswebbplatsen eller vContinuum-konsolen. Det finns bara en konfigurationsserver i en distribution och den måste installeras på en dator som kör Windows Server 2012 R2.
+- **vContinuum-server (sekundär plats)**: Den installeras på samma plats (den sekundära platsen) som konfigurationsservern. Den innehåller en konsol för att hantera och övervaka din skyddade miljö. I en standardinstallation är vContinuum-servern den första huvudmålservern och har Unified Agent installerad.
+- **Huvudmålserver (sekundär plats)**: Huvudmålservern innehåller replikerade data. Den tar emot data från processervern, skapar en replikdator på den sekundära platsen och innehåller datakvarhållningspunkterna. Hur många huvudmålservrar du behöver beror på hur många datorer du skyddar. Om du vill växla tillbaka till den primära platsen behöver du en huvudmålserver även där. 
+
+**Allmän arkitektur**
+
+![VMware till VMware](./media/site-recovery-components/vmware-to-vmware.png)
+
+
+## Replikera till en sekundär plats: Virtuella Hyper-V- datorer som hanteras av VMM
+
+
+Du kan replikera virtuella Hyper-V-datorer som hanteras av System Center VMM till ett sekundärt datacenter med Site Recovery på följande sätt:
+
+- **Med hjälp av Azure-portalen**: När du distribuerar Site Recovery på Azure-portalen. [Läs mer](site-recovery-hyper-v-site-to-azure.md).
+- **Med hjälp av den klassiska portalen**: Du kan distribuera Site Recovery på den klassiska portalen. [Läs mer](site-recovery-hyper-v-site-to-azure-classic.md).
+
+Arkitekturen för båda distributionerna påminner om varandra, förutom att:
+
+- Om du distribuerar på Azure-portalen måste du konfigurera nätverksmappning. På den klassiska portalen är detta valfritt.
+- Distributionen är enklare och mer användarvänlig på Azure-portalen.
+- - Om du distribuerar på den klassiska Azure-portalen är [lagringsmappning](site-recovery-storage-mapping.md) tillgängligt.
+
+Du behöver det här:
 
 - **Azure-konto**: Du behöver ett Microsoft Azure-konto.
-- **Azure-lagring**: Du behöver ett Azure-lagringskonto för att lagra replikerade data. Replikerade data lagras i Azure och virtuella Azure-datorer skapas i samband med redundansväxlingen.
-- **Azure-nätverk**: Om du vill vara säker på att virtuella datorer i Azure ansluter till nätverk efter en redundansväxling måste du konfigurera nätverksmappning. För att åstadkomma detta behöver du ett Azure-nätverk.
+- **VMM-server**: Vi rekommenderar en VMM-server på den primära platsen och en på den sekundära platsen, som innehåller minst ett privat VMM-moln var. Servern måste köra minst System Center 2012 SP1 med de senaste uppdateringarna och vara ansluten till Internet. Moln ska vara konfigurerade med Hyper-V-kapacitetsprofilen. Du ska installera Azure Site Recovery-providern på VMM-servern. Providern samordnar och styr replikeringen med Site Recovery-tjänsten via Internet. Kommunikationen mellan providern och Azure är säker och krypterad.
+- **Hyper-V-server**: Hyper-V-värdservrar ska finnas i de primära och sekundära VMM-molnen. Värdservrarna ska köra minst Windows Server 2012 med de senaste uppdateringarna installerade och vara anslutna till Internet. Data replikeras mellan de primära och sekundära Hyper-V-värdservrarna via LAN eller VPN med hjälp av Kerberos eller certifikatautentisering.  
+- **Skyddade datorer**: Hyper-V-källservern måste ha minst en virtuell dator som du vill skydda.
 
-[Lär dig mer](site-recovery-vmm-to-azure.md#before-you-start) om distributionskraven.
-
-## Replikera virtuella Hyper-V-datorer till ett sekundärt datacenter
-
-Om du vill distribuera det här scenariot installerar du Azure Site Recovery-providern på VMM-servern under distributionen av Site Recovery. Providern samordnar och styr replikeringen med Site Recovery-tjänsten via Internet. Data replikeras mellan de primära och sekundära Hyper-V-värdservrarna via LAN eller VPN med hjälp av Kerberos eller certifikatautentisering. Kommunikationen både från providern och mellan Hyper-V-värdservrar är säker och krypterad. 
+**Allmän arkitektur**
 
 ![Lokal till lokal](./media/site-recovery-components/arch-onprem-onprem.png)
 
-### Lokal
 
-- **VMM-server**: Vi rekommenderar en VMM-server på den primära platsen och en på den sekundära platsen, som innehåller minst ett privat VMM-moln var. Servern måste köra minst System Center 2012 SP1 med de senaste uppdateringarna och vara ansluten till Internet. Moln ska vara konfigurerade med Hyper-V-kapacitetsprofilen.
-- **Hyper-V-server**: Hyper-V-värdservrar ska finnas i de primära och sekundära VMM-molnen. Värdservrarna ska köra minst Windows Server 2012 med de senaste uppdateringarna installerade och vara anslutna till Internet.
-- **Skyddade datorer**: Hyper-V-källservern måste ha minst en virtuell dator som du vill skydda.
-    
-### Azure
-
-Du behöver en Azure-prenumeration.
-
-[Lär dig mer](site-recovery-vmm-to-vmm.md#before-you-start) om distributionskraven.
+- [Lär dig mer](site-recovery-vmm-to-vmm.md#azure-prerequisites) om distributionskraven på Azure-portalen.
+- - [Lär dig mer](site-recovery-vmm-to-vmm-classic.md#before-you-start) om distributionskraven på den klassiska Azure-portalen.
 
 
-## Replikera virtuella Hyper-V-datorer till ett sekundärt datacenter med SAN-replikering
+
+
+## Replikera till en sekundär plats med SAN-replikering: Virtuella Hyper-V-datorer som hanteras av VMM
+
+Du kan replikera virtuella Hyper-V-datorer som hanteras i VMM-moln till en sekundär plats med hjälp av SAN-replikering på den klassiska Azure-portalen. Det här scenariot stöds inte för närvarande på den nya Azure-portalen. 
 
 I det här scenariot installerar du Azure Site Recovery-providern på VMM-servrarna under distributionen av Site Recovery. Providern samordnar och styr replikeringen med Site Recovery-tjänsten via Internet. Data replikeras mellan de primära och sekundära lagringsmatriserna med hjälp av synkron SAN-replikering.
 
-![SAN-replikering](./media/site-recovery-components/arch-onprem-onprem-san.png)
+Du behöver det här:
 
-### Lokal
-
+**Azure-konto**: Du behöver en Azure-prenumeration
 - **SAN-matris**: En [SAN-matris som stöds](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) som hanteras av den primära VMM-servern. SAN-nätverket delar en nätverksinfrastruktur med en annan SAN-matris på den sekundära platsen.
 - **VMM-server**: Vi rekommenderar en VMM-server på den primära platsen och en på den sekundära platsen, som innehåller minst ett privat VMM-moln var. Servern måste köra minst System Center 2012 SP1 med de senaste uppdateringarna och vara ansluten till Internet. Moln ska vara konfigurerade med Hyper-V-kapacitetsprofilen.
 - **Hyper-V-server**: Hyper-V-värdservrar som finns i de primära och sekundära VMM-molnen. Värdservrarna ska köra minst Windows Server 2012 med de senaste uppdateringarna installerade och vara anslutna till Internet.
 - **Skyddade datorer**: Hyper-V-källservern måste ha minst en virtuell dator som du vill skydda.
-    
-### Azure
 
-Du behöver en Azure-prenumeration.  
+**Arkitektur för SAN-replikering**
+
+![SAN-replikering](./media/site-recovery-components/arch-onprem-onprem-san.png)
 
 [Lär dig mer](site-recovery-vmm-san.md#before-you-start) om distributionskraven.
+### Lokal
+
 
 
 ## Livscykel för Hyper-V-skydd
@@ -226,6 +260,6 @@ Det här arbetsflödet visar processen för att skydda, replikera och redundansv
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Skydda virtuella datorer i Azure med Azure Backup | Microsoft Azure"
-    description="Skydda virtuella datorer i Azure med Azure Backup-tjänsten. Den här självstudiekursen beskriver hur du skapar valv, registrerar virtuella datorer, skapar principer och skyddar virtuella datorer i Azure."
+    pageTitle="En första titt: Skydda virtuella datorer i Azure med ett säkerhetskopieringsvalv | Microsoft Azure"
+    description="Skydda virtuella datorer i Azure med Backup-valv. Den här självstudiekursen beskriver hur du skapar valv, registrerar virtuella datorer, skapar principer och skyddar virtuella datorer i Azure."
     services="backup"
     documentationCenter=""
     authors="markgalioto"
-    manager="jwhit"
+    manager="cfreeman"
     editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/22/2016"
+    ms.date="07/29/2016"
     ms.author="markgal; jimpark"/>
 
 
 # En första titt: Säkerhetskopiera virtuella datorer i Azure
 
 > [AZURE.SELECTOR]
-- [Säkerhetskopiera virtuella datorer i ARM](backup-azure-vms-first-look-arm.md)
-- [Säkerhetskopiera virtuella datorer i klassiskt läge](backup-azure-vms-first-look.md)
+- [En första titt: Skydda virtuella datorer med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md)
+- [En första titt: Skydda virtuella datorer i Azure med ett säkerhetskopieringsvalv](backup-azure-vms-first-look.md)
 
-Den här självstudiekursen beskriver steg för steg hur du säkerhetskopierar en virtuell Azure-dator (VM) till Azure. Följande krav måste vara uppfyllda för att du ska kunna genomföra den här självstudien:
+de här självstudierna beskriver steg för steg hur du säkerhetskopierar en virtuell Azure-dator till Azure. Den här artikeln beskriver den klassiska modellen eller Service Manager-distributionsmodellen för att säkerhetskopiera virtuella datorer. Om du vill säkerhetskopiera en virtuell dator till ett Recovery Services-valv som hör till en resursgrupp, hittar du mer information i [En första titt: Skydda virtuella datorer i Azure med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md). Följande krav måste vara uppfyllda för att du ska kunna genomföra den här självstudien:
 
 - Du har skapat en virtuell dator i Azure-prenumerationen.
 - Den virtuella datorn kan ansluta till Azures offentliga IP-adresser. Mer information finns i [Nätverksanslutningar](./backup-azure-vms-prepare.md#network-connectivity).
@@ -38,7 +38,7 @@ När du säkerhetskopierar en virtuell dator utför du fem huvudsteg:
 
 ![En översikt över hur du säkerhetskopierar virtuella datorer](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure har två distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../resource-manager-deployment-model.md). Den här självstudiekursen handlar om virtuella datorer som kan skapas på den klassiska Azure-portalen. Azure Backup-tjänsten stöder Azure Resource Manager-baserade (ARM) virtuella datorer, så kallade virtuella IaaS V2-datorer. Mer information om hur du säkerhetskopierar ARM-baserade virtuella datorer finns i [En första titt: Säkerhetskopiera ARM-baserade virtuella datorer till ett Recovery Services-valv](backup-azure-vms-first-look-arm.md).
+>[AZURE.NOTE] Azure har två distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../resource-manager-deployment-model.md). Den här självstudiekursen handlar om virtuella datorer som kan skapas på den klassiska Azure-portalen. Azure Backup-tjänsten stödjer Resource Manager-baserade virtuella datorer. Mer information om hur du säkerhetskopierar virtuella datorer till ett Recovery Services-valv finns i [En första titt: Skydda virtuella datorer i Azure med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md).
 
 
 
@@ -145,7 +145,7 @@ Innan du registrerar den virtuella datorn med ett valv kör du identifieringspro
 
 ## Steg 3 – Installera VM-agenten på den virtuella datorn
 
-VM-agenten i Azure måste installeras på den virtuella Azure-datorn för att säkerhetskopieringstillägget ska fungera. Om den virtuella datorn skapades från Azure-galleriet finns VM-agenten redan på den virtuella datorn. Du kan gå vidare till [Skydda dina virtuella datorer](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
+VM-agenten i Azure måste installeras på den virtuella Azure-datorn för att säkerhetskopieringstillägget ska fungera. Om den virtuella datorn skapades från Azure-galleriet finns VM-agenten redan på den virtuella datorn. Du kan gå vidare till [Skydda dina virtuella datorer](backup-azure-vms-first-look.md#step-4-protect-azure-virtual-machines).
 
 Om en virtuell dator migreras från ett lokalt datacenter är VM-agenten antagligen inte installerad på den virtuella datorn. Du måste installera VM-agenten på den virtuella datorn innan du fortsätter att skydda den virtuella datorn. Detaljerade anvisningar om hur du installerar VM-agenten finns i [avsnittet om VM-agenten i artikeln om säkerhetskopiering av virtuella datorer](backup-azure-vms-prepare.md#vm-agent).
 
@@ -225,6 +225,6 @@ Om du har frågor eller om du saknar en funktion är du välkommen att [lämna f
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

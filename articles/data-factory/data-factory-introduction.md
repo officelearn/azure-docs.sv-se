@@ -1,6 +1,7 @@
 <properties 
-    pageTitle="Introduktion till Azure Data Factory" 
-    description="Lär dig hur du kan använda Azure Data Factory-tjänsten till att skapa databearbetning, datalagring och dataförflyttning, samt skapa pipelines som producerar betrodd information." 
+    pageTitle="Vad är Data Factory? Dataintegreringstjänst | Microsoft Azure" 
+    description="Detta är vad Azure Data Factory är: en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data." 
+    keywords="dataintegrering, molnbaserad dataintegrering, azure data factory"
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -13,17 +14,17 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="04/26/2016" 
+    ms.date="07/12/2016" 
     ms.author="spelluru"/>
 
-# Introduktion till Azure Data Factory-tjänsten
+# Introduktion till Azure Data Factory – en dataintegreringstjänst i molnet
 
-## Översikt
+## Vad är Azure Data Factory? 
 Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Precis som en fabrik som använder maskiner till att omvandla råmaterial till färdiga produkter, samordnar Data Factory befintliga tjänster som samlar in rådata och transformerar dem till information som är klar att använda. 
 
 Data Factory fungerar både lokalt samt med molndatakällor och SaaS för att mata in, förbereda, transformera, analysera och publicera dina data.  Använd Data Factory till att skapa tjänster till pipelines med hanterade dataflöden och omvandla data med hjälp av tjänster som [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) och [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) för stora databeräkningsbehov och med [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) för att använda analyslösningar.  Nöj dig inte med en övervakningsvy i tabellform, utan använd detaljerade visualiseringar av Data Factory till att snabbt visa härkomst och beroenden mellan dina datapipelines. Övervaka alla dina dataflödespipelines från en enda enhetlig vy för att enkelt hitta problem och konfigurera övervakningsaviseringar.
 
-![Översikt](./media/data-factory-introduction/data-factory-overview.png)
+![Diagram: Data Factory-översikt, en dataintegreringstjänst](./media/data-factory-introduction/what-is-azure-data-factory.png)
 
 **Figur 1.** Samla in data från flera olika lokala datakällor, mata in och förbered den, sortera och analysera den med olika transformeringar och publicera sedan data som är klar att använda.
 
@@ -35,7 +36,7 @@ Du kan använda Data Factory varje gång du behöver samla in data i olika forme
 
 Azure Data Factory har några viktiga entiteter som samverkar för att definiera indata och utdata, bearbeta händelser, samt de scheman och resurser som krävs för att köra det önskade dataflödet.
 
-![Viktiga begrepp](./media/data-factory-introduction/key-concepts.png)
+![Diagram: Data Factory, en molnbaserad dataintegreringstjänst – nyckelbegrepp](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 **Figur 2.** Relationer mellan datauppsättning, aktivitet, pipeline och länkad tjänst
 
@@ -68,10 +69,16 @@ Exempelvis kan vi anta att dina beräkningsmiljöer, som t.ex. Azure HDInsight-k
 
 Vi planerar att ha Azure Data Factory i varje geografisk region som stöds av Azure i framtiden.
   
+## Nästa steg
+Följ de stegvisa anvisningarna i följande självstudier om du vill lära dig hur man skapar datafabriker med datapipeliner. 
+
+Självstudier | Beskrivning
+-------- | -----------
+[Skapa en datapipeline som bearbetar data via ett Hadoop-kluster](data-factory-build-your-first-pipeline.md) | I den här självstudien får du skapa din första Azure Data Factory med en datapipeline som **bearbetar data** genom att köra Hive-skriptet på ett Azure HDInsight-kluster (Hadoop). |
+[Skapa en datapipeline som flyttar data mellan två molndatalager](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | I den här självstudien skapar du en datafabrik med en pipeline som **flyttar data** från Blob Storage till SQL Database.
+[Skapa en datapipeline som flyttar data mellan ett lokalt datalager och ett molndatalager med hjälp av Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |  I den här självstudien skapar du en datafabrik med en pipeline som **flyttar data** från en **lokal** SQL Server-databas till en Azure-blob. Som en del av den här genomgången kommer du att installera och konfigurera Data Management Gateway på din dator. 
 
 
-
-
-<!--HONumber=jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

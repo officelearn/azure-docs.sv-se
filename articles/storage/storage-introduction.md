@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/23/2016"
+    ms.date="07/21/2016"
     ms.author="tamram"/>
 
 # Introduktion till Microsoft Azure Storage
@@ -132,7 +132,11 @@ Mer information om signaturer för delad åtkomst finns i [Signaturer för delad
 
 ## Replikering för hållbarhet och hög tillgänglighet
 
-Data i ditt Microsoft Azure Storage-konto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet, och uppfyller [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage/) även i händelse av tillfälliga maskinvarufel. När du skapar ett lagringskonto måste du välja något av följande replikeringsalternativ:  
+Data i ditt Microsoft Azure Storage-konto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet, och uppfyller [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage/) även i händelse av tillfälliga maskinvarufel. 
+
+Mer information om vilka tjänster som är tillgängliga i varje region finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
+
+När du skapar ett lagringskonto måste du välja något av följande replikeringsalternativ:  
 
 - **Lokalt redundant lagring (LRS).** Med lokalt redundant lagring underhålls tre kopior av dina data. LRS replikeras tre gånger på en anläggning i en region. LRS skyddar dina data mot normala maskinvarufel, men inte mot fel på en enskild anläggning.  
   
@@ -147,10 +151,11 @@ Data i ditt Microsoft Azure Storage-konto replikeras alltid för att säkerstäl
     > 
     > När du har skapat ditt lagringskonto och valt ZRS kan du inte konvertera det för att använda en annan typ av replikering eller tvärtom. 
 
-- **Geo-redundant lagring (GRS)**. Geo-redundant lagring är aktiverat för ditt lagringskonto som standard när du skapar det. Med GRS underhålls sex kopior av dina data. Med GRS replikeras dina data tre gånger i den primära regionen och dessutom tre gånger i en sekundär region hundratals mil bort från den primära regionen, vilket ger den högsta nivån av hållbarhet. Om det uppstår ett fel i den primära regionen kommer Azure Storage att redundansväxla till den sekundära regionen. GRS garanterar att dina data skyddas i två olika områden.
+- **Geo-redundant lagring (GRS)**. Med GRS underhålls sex kopior av dina data. Med GRS replikeras dina data tre gånger i den primära regionen och dessutom tre gånger i en sekundär region hundratals mil bort från den primära regionen, vilket ger den högsta nivån av hållbarhet. Om det uppstår ett fel i den primära regionen kommer Azure Storage att redundansväxla till den sekundära regionen. GRS garanterar att dina data skyddas i två olika områden.
 
+    Information om primära och sekundära kopplingar efter region finns i [Azure-regioner](https://azure.microsoft.com/regions/).
 
-- **Geo-redundant lagring med läsbehörighet (RA-GRS)**. Geo-redundant lagring med läsbehörighet replikerar data till en sekundär geografisk plats och ger även läsåtkomst till dina data på den sekundära platsen. Med geo-redundant lagring med läsbehörighet kan du komma åt dina data från antingen den primära eller sekundära platsen om en av platserna skulle bli otillgänglig.
+- **Geo-redundant lagring med läsbehörighet (RA-GRS)**. Geo-redundant lagring med läsbehörighet är aktiverat för ditt lagringskonto som standard när du skapar det. Geo-redundant lagring med läsbehörighet replikerar data till en sekundär geografisk plats och ger även läsåtkomst till dina data på den sekundära platsen. Med geo-redundant lagring med läsbehörighet kan du komma åt dina data från antingen den primära eller sekundära platsen om en av platserna skulle bli otillgänglig.
 
     > [AZURE.IMPORTANT] Du kan ändra hur dina data replikeras när ditt lagringskonto har skapats, såvida du inte valde ZRS när du skapade kontot. Observera dock att det kan utgå ytterligare engångskostnader för dataöverföring om du växlar från LRS till GRS eller RA-GRS.
  
@@ -203,7 +208,9 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 
 ### Verktyg och hjälpmedel
 
-- [SDK:er och verktyg för Azure](https://azure.microsoft.com/downloads/)
+- [Azure Lagringsutforskaren](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+- [Azure Storage-klientverktyg](storage-explorers.md)
+- [SDK:er och verktyg för Azure](https://azure.microsoft.com/tools/)
 - [Azure Storage-emulator](http://www.microsoft.com/download/details.aspx?id=43709)
 - [Azure PowerShell](../powershell-install-configure.md)
 - [Kommandoradsverktyget AzCopy](http://aka.ms/downloadazcopy)
@@ -262,6 +269,6 @@ Utforska gärna dessa resurser om du vill veta mer om Azure Storage:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

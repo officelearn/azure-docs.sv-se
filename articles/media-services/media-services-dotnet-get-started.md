@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK"
+    pageTitle="Komma igång med att leverera innehåll på begäran med hjälp av .NET | Azure"
     description="Dessa självstudier vägleder dig genom stegen för implementera ett program med leverans av innehåll på begäran med Azure Media Services genom att använda .NET."
     services="media-services"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
+    ms.date="08/17/2016"
     ms.author="juliako"/>
 
 
@@ -48,11 +48,11 @@ Självstudierna visar hur du utför följande uppgifter:
 
 ## Krav
 
-Följande krävs för att utföra självstudierna.
+Följande krävs för att kunna genomföra självstudien.
 
-- Du behöver ett Azure-konto för att slutföra dessa självstudier. 
+- Du behöver ett Azure-konto för att slutföra den här självstudien. 
     
-    Om du inte har ett konto kan skapa du ett kostnadsfritt provkonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
+    Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
 - Operativsystem: Windows 8 eller senare, Windows 2008 R2, Windows 7.
 - .NET Framework 4.0 eller senare
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate eller Express) eller senare versioner.
@@ -72,9 +72,9 @@ Hämta och kör ett exempel [härifrån](https://azure.microsoft.com/documentati
 
 3. I **REGION** väljer du den geografiska region som ska användas för att lagra metadataposterna för Media Services-kontot. Endast de tillgängliga Media Services-regionerna visas i listrutan.
 
-4. Vid **LAGRINGSKONTO** väljer du ett Storage-konto för att tillhandahålla Blob Storage för medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska område som Media Services-kontot eller så kan du skapa ett nytt lagringskonto. Ett nytt lagringskonto skapas i samma region.
+4. Vid **LAGRINGSKONTO** väljer du ett Storage-konto för att tillhandahålla Blob Storage för medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett nytt lagringskonto. Ett nytt lagringskonto skapas i samma region.
 
-5. Om du har skapat ett nytt lagringskonto anger du ett namn för det i **NYTT LAGRINGSKONTONAMN**. Reglerna för namn på lagringskonton är samma som för Media Services-konton.
+5. Om du har skapat ett nytt lagringskonto anger du ett namn för det i **NYTT LAGRINGSKONTONAMN**. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
 
 6. Klicka på **Snabbregistrering** längst ned i formuläret.
 
@@ -90,7 +90,7 @@ När du dubbelklickar på kontonamnet visas sidan **Snabbstart** som standard. P
 
 ##Konfigurera strömmande slutpunkt med hjälp av portalen
 
-När du arbetar med Azure Media Services är ett av vanligaste scenarierna att du levererar strömning med anpassad bithastighet till dina klienter. När strömning med anpassad bithastighet används kan klienten växla till en högre eller lägre bithastighet när videon visas baserat på den aktuella nätverksbandbredden, processoranvändningen och andra faktorer. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare).
+När du arbetar med Azure Media Services är ett av vanligaste scenarierna att du levererar strömning med anpassad bithastighet till dina klienter. Med strömning med anpassad bithastighet kan klienten växla till en dataström med högre eller lägre bithastighet då videon visas baserat på den aktuella nätverksbandbredden, processoranvändningen och andra faktorer. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare).
 
 Media Services erbjuder dynamisk paketering som gör att du kan leverera ditt kodade innehåll (MP4 eller Smooth Streaming) med anpassningsbar bithastighet i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) utan att du behöver ompaketera till dessa strömningsformat.
 
@@ -453,10 +453,10 @@ Om det här avsnittet inte innehåller vad du förväntade dig, om något saknas
 
 <!-- URLs. -->
   [Installationsprogram för webbplattform]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Portal]: http://manage.windowsazure.com/
+  [Portalen]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

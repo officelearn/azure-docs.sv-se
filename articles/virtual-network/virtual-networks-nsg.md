@@ -3,7 +3,7 @@
    description="Läs mer om den distribuerade brandväggen i Azure med nätverkssäkerhetsgrupper (NSGs) och hur du använder NSG:er för att isolera och kontrollera trafikflödet inom dina virtuella nätverk (VNet)."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/11/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Vad är en nätverkssäkerhetsgrupp (NSG)?
 
@@ -115,7 +115,7 @@ Du kan koppla olika NSG:er till en VM (eller nätverkskort, beroende på distrib
        
            If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
 
-![NSG-ACL:er](./media/virtual-network-nsg-overview/figure2.png)
+    ![NSG-ACL:er](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Även om du kan bara koppla en enda NSG till ett undernät, VM eller NIC så kan du koppla samma NSG till hur många resurser du vill.
 
@@ -125,10 +125,10 @@ Du kan implementera NSG:er i den klassiska eller Resource Manager distributionsm
 |Distributionsverktyg|Klassisk|Resource Manager|
 |---|---|---|
 |Klassisk portal|![Nej][red]|![Nej][red]|
-|Azure-portalen|![Ja][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Ja][green]</a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Ja][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Ja][green]</a>|
-|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Ja][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Ja][green]</a>|
-|ARM-mall|![Nej][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Ja][green]</a>|
+|Azure-portalen|![Ja][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Ja][green]|
+|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Ja][green]|[](virtual-networks-create-nsg-arm-ps.md)![Ja][green]|
+|Azure CLI|[](virtual-networks-create-nsg-classic-cli.md)![Ja][green]|[](virtual-networks-create-nsg-arm-cli.md)![Ja][green]|
+|ARM-mall|![Nej][red]|[](virtual-networks-create-nsg-arm-template.md)![Ja][green]|
 
 |**Nyckel**|![Ja][green] Stöds. Klicka för artikeln.|![Nej][red] Stöds inte.|
 |---|---|---|
@@ -284,6 +284,6 @@ Eftersom vissa av de ovanstående NSG:erna måste kopplas till individuella nät
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

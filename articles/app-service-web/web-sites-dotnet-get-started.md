@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/22/2016"
-    ms.author="tdykstra"/>
+    ms.date="07/22/2016"
+    ms.author="rachelap"/>
 
 # Distribuera en ASP.NET-webbapp till Azure App Service med Visual Studio
 
@@ -26,7 +26,7 @@ I den här kursen får du veta hur du distribuerar en ASP.NET-webbapp till en [w
 
 Kursen riktar sig till dig som är ASP.NET-utvecklare och som inte har tidigare erfarenhet av att använda Azure. När du har gått igenom kursen har du en enkel webbapp som körs i molnet.
 
-Du får lära dig att:
+Du får lära dig:
 
 * skapa en ny webbapp för App Service när du skapar ett nytt webbprojekt i Visual Studio.
 * distribuera ett webbprojekt till en webbapp i App Service med hjälp av Visual Studio.
@@ -239,9 +239,12 @@ I den här kursen har du fått veta hur du skapar en enkel webbapp och distribue
 
 * Ta bort resursgruppen som innehåller webbappen och eventuella relaterade Azure-resurser när du är klar med dem.
 
-    Mer information om hur du arbetar med resursgrupper i Azure Portal finns i [Använda Azure Portal till att distribuera och hantera Azure-resurser](../resource-group-portal.md).   
+    Mer information om hur du arbetar med resursgrupper i Azure Portal finns i [Distribuera resurser med Resource Manager-mallar och Azure Portal](../resource-group-template-deploy-portal.md).   
+
+*   Fler exempel på hur du kan skapa en ASP.NET-webbapp i App Service finns i [Skapa och distribuera en ASP.NET-webbapp i Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) och [Skapa och distribuera en mobilapp i Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) i 2015 års [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz)-[anslutningsdemo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Fler snabbstartsguider från HealthClinic.biz-demonstrationen finns i [Snabbstartsguider för Azure Developer Tools](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=sep16_HO1-->
 
 

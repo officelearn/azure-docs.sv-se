@@ -2,65 +2,65 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
-This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
+Den här artikeln innehåller en detaljerad genomgång av [Hello World-exempelkod][lnk-helloworld-exempel] för att illustrera grundläggande komponenter i arkitekturen för [Azure IoT Gateway SDK][lnk-gateway-sdk]. Exemplet använder Gateway-SDK för att skapa en enkel gateway som loggar ett meddelande med "hello world" i en fil var femte sekund.
 
-This walkthrough covers:
+Den här genomgången omfattar:
 
-- **Concepts**: A conceptual overview of the components that compose any gateway you create with the Gateway SDK.  
-- **Hello World sample architecture**: Describes how the concepts apply to the Hello World sample and how the components fit together.
-- **How to build the sample**: The steps required to build the sample.
-- **How to run the sample**: The steps required to run the sample. 
-- **Typical output**: An example of the output to expect when you run the sample.
-- **Code snippets**: A collection of code snippets to show how the Hello World sample implements key gateway components.
+- **Koncept**: En översikt över de komponenter som ska utgöra en gateway som du skapar med Gateway-SDK.  
+- **Hello World-exempelarkitektur**: Beskriver hur begrepp gäller för Hello World-exempel och hur komponenterna fungerar ihop.
+- **Hur du skapar exemplet**: De steg som krävs för att skapa exemplet.
+- **Hur du kör exemplet**: De steg som krävs för att köra exemplet. 
+- **Vanliga utdata**: Ett exempel på utdata du kan förvänta dig när du kör exemplet.
+- **Kodfragment**: En samling av kodfragment för att visa hur Hello World-exemplet implementerar nyckelkomponenter för gatewayen.
 
-## Gateway SDK concepts
+## Gateway SDK-begrepp
 
-Before you examine the sample code or create your own field gateway using the Gateway SDK, you should understand the key concepts that underpin the architecture of the SDK.
+Innan du undersöker exempelkoden eller skapar en egen fält-gateway med Gateway-SDK, bör du förstå viktiga begrepp som ligger till grund för SDK-arkitektur.
 
-### Modules
+### Moduler
 
-You build a gateway with the Azure IoT Gateway SDK by creating and assembling *modules*. Modules use *messages* to exchange data with each other. A module receives a message, performs some action on it, optionally transforms it into a new message, and then publishes it for other modules to process. Some modules might only produce new messages and never process incoming messages. A chain of modules creates a data processing pipeline with each module performing a transformation on the data at one point in that pipeline.
+Du skapar en gateway med Azure IoT Gateway SDK genom att skapa och montera *moduler*. Moduler använder *meddelanden* för att utbyta data med varandra. En modul får ett meddelande, utför en åtgärd på det, omvandlar det eventuellt till ett nytt meddelande och publicerar det sedan för andra moduler att bearbeta. Vissa moduler kan bara generera nya meddelanden och bearbetar aldrig inkommande meddelanden. En kedja av moduler skapar en databearbetningspipeline med varje modul som utför en omvandling av data vid en punkt i denna pipeline.
 
 ![][1]
  
-The SDK contains the following:
+SDK innehåller följande:
 
-- Pre-written modules which perform common gateway functions.
-- The interfaces a developer can use to write custom modules.
-- The infrastructure necessary to deploy and run a set of modules.
+- Färdiga moduler som utför vanliga gateway-funktioner.
+- Gränssnitt som utvecklare kan använda för att skriva anpassade moduler.
+- Den infrastruktur som krävs för att distribuera och köra en uppsättning moduler.
 
-The SDK provides an abstraction layer that enables you to build gateways to run on a variety of operating systems and platforms.
+SDK innehåller ett abstraktionslager som gör att du kan skapa gatewayar som ska köras på en mängd olika operativsystem och plattformar.
 
 ![][2]
 
-### Messages
+### Meddelanden
 
-Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. Modules use a message bus to communicate with each other, they publish messages to the bus, and the bus broadcasts the messages to all the modules connected to the bus.
+Tänk på att även om moduler som skickar meddelanden till varandra är ett bekvämt sätt att få en överblick över hur en gateway fungerar, så återspeglar det inte korrekt vad som händer. Moduler använder en meddelandebuss för att kommunicera med varandra, de publicerar meddelanden till bussen och bussen skickar meddelanden till alla moduler som är anslutna till bussen.
 
-A module uses the **MessageBus_Publish** function to publish a message to the message bus. The message bus delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
+En modul använder funktionen **MessageBus_Publish** för att publicera ett meddelande med meddelandebussen. Meddelandebussen levererar meddelanden till en modul genom att aktivera en återanropsfunktion. Ett meddelande består av en uppsättning nyckel-/värdeegenskaper och innehåll som skickas som ett block med minne.
 
 ![][3]
 
-Each module is responsible for filtering the messages because the message bus uses a broadcast mechanism to deliver each message to every module connected to it. A module should only act on messages that are intended for it. The message filtering effectively creates the message pipeline. A module typically filters the messages it receives using the message properties to identify messages it should process.
+Varje modul ansvarar för att filtrera meddelanden eftersom meddelandebussen använder en sändningsmekanism för att leverera meddelandena till alla moduler som är anslutna till den. En modul bör endast tillämpas på meddelanden som är avsedda för den. Meddelandefiltreringen skapar effektivt en meddelandepipeline. En modul filtrerar vanligtvis meddelanden som tas emot med meddelandeegenskaper för att identifiera meddelanden som den ska bearbeta.
 
-## Hello World sample architecture
+## Arkitektur för Hello World-exempel
 
-The Hello World sample illustrates the concepts described in the previous section. The Hello World sample implements a gateway that has a pipeline made up of two modules:
+Hello World-exemplet illustrerar de begrepp som beskrivs i föregående avsnitt. Hello World-exemplet implementerar en gateway som har en pipeline som består av två moduler:
 
--	The *hello world* module creates a message every five seconds and passes it to the logger module.
--	The *logger* module writes the messages it receives to a file.
+-   Modulen *hello world* skapar ett meddelande var femte sekund och skickar det till loggningsmodulen.
+-   Modulen *loggning* skriver de meddelanden den tar emot till en fil.
 
 ![][4]
 
-As described in the previous section, the Hello World module does not pass messages directly to the logger module every five seconds. Instead, it publishes a message to the message bus every five seconds.
+Enligt beskrivningen i föregående avsnitt, skickar modulen Hello World inte meddelanden direkt till loggningsmodueln var femte sekund. I stället publicerar den ett meddelande med meddelandebusen var femte sekund.
 
-The logger module receives the message from the message bus and inspects its properties in a filter. If the logger module determines that it should process the message, it writes the contents of the message to a file.
+Loggningsmodulen tar emot meddelandet från meddelandebussen och kontrollerar dess egenskaper i ett filter. Om loggningsmodulen anger att den ska bearbeta meddelandet, skriver den innehållet i meddelandet till en fil.
 
-The logger module only consumes messages from the message bus, it never publishes new messages to the bus.
+Loggningsmodulen förbrukar endast meddelanden från meddelandebussen, den publicerar aldrig nya meddelanden till bussen.
 
 ![][5]
 
-The figure above shows the architecture of the Hello World sample and the relative paths to the source files that implement different portions of the sample in the [repository][lnk-gateway-sdk]. Explore the code on your own, or use the code snippets below as a guide.
+Bilden ovan illustrerar arkitekturen i Hello World-exemplet och de relativa sökvägarna till källfilerna som implementerar olika delar av exemplet på [lagringsplatsen][lnk-gateway-sdk]. Utforska koden på egen hand eller använd kodfragmenten nedan som vägledning.
 
 <!-- Images -->
 [1]: media/iot-hub-gateway-sdk-getstarted-selector/modules.png
@@ -70,5 +70,10 @@ The figure above shows the architecture of the Hello World sample and the relati
 [5]: media/iot-hub-gateway-sdk-getstarted-selector/detailed_architecture.png
 
 <!-- Links -->
-[lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
+[lnk-helloworld-exempel]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+
+
+<!--HONumber=sep16_HO1-->
+
+

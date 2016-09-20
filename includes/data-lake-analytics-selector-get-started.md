@@ -1,5 +1,5 @@
 > [AZURE.SELECTOR]
-- [Portal](../articles/data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Portalen](../articles/data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [PowerShell](../articles/data-lake-analytics/data-lake-analytics-get-started-powershell.md)
 - [.NET SDK](../articles/data-lake-analytics/data-lake-analytics-get-started-net-sdk.md)
 - [Java SDK](../articles/data-lake-analytics/data-lake-analytics-get-started-java-sdk.md)
@@ -7,6 +7,6 @@
 - [CLI](../articles/data-lake-analytics/data-lake-analytics-get-started-cli.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

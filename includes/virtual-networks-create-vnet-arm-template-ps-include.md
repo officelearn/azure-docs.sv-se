@@ -8,7 +8,7 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med PowerShel
 
         New-AzureRmResourceGroup -Name TestRG -Location centralus
         
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
 
         ResourceGroupName : TestRG
         Location          : centralus
@@ -25,7 +25,7 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med PowerShel
         New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
             -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
             
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
         
         DeploymentName    : TestVNetDeployment
         ResourceGroupName : TestRG
@@ -51,7 +51,7 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med PowerShel
 
         Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
         
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
         
         Name              : TestVNet
         ResourceGroupName : TestRG
@@ -93,6 +93,6 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med PowerShel
                             ]
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

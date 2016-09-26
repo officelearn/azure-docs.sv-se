@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Distribuera din första webbapp till Azure på fem minuter | Microsoft Azure" 
+    pageTitle="Distribuera din första Node.js-webbapp via Azure på fem minuter | Microsoft Azure" 
     description="Distribuera en exempelapp och se hur enkelt det är att köra webbappar i App Service. Börja snabbt utveckla på riktigt och se resultatet direkt." 
     services="app-service\web"
     documentationCenter=""
@@ -14,19 +14,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="09/09/2016" 
+    ms.date="09/16/2016" 
     ms.author="cephalin"
 />
     
-# Distribuera din första webbapp till Azure på fem minuter
+# Distribuera din första Node.js-webbapp via Azure på fem minuter
 
-I den här kursen lär du dig hur du distribuerar din första webbapp till [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+I den här kursen lär du dig hur du distribuerar din första webbapp med Node.js via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Du kan använda App Service för att skapa webbappar, [serverdelar för mobilappar](/documentation/learning-paths/appservice-mobileapps/) och [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 Du kommer att: 
 
 - Skapa en webbapp i Azure App Service.
-- Distribuera exempelkod (välj mellan ASP.NET, PHP, Node.js, Java och Python).
+- Distribuera Node.js-exempelkod.
 - Se hur din kod körs live i produktionen.
 - Uppdatera webbappen på samma sätt som du [skickar Git-skrivningar](https://git-scm.com/docs/git-push).
 
@@ -35,7 +35,7 @@ Du kommer att:
 - [Installera Git](http://www.git-scm.com/downloads). Kontrollera att installationen har utförts genom att köra `git --version` från en ny Windows-kommandotolk, PowerShell-fönster, Linux-gränssnittet eller OS X-terminal.
 - Skaffa ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] Du kan [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
+>[AZURE.NOTE] Du kan [prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
 
 <a name="create"></a>
 ## Skapa en webbapp
@@ -44,7 +44,7 @@ Du kommer att:
 
 2. I den vänstra menyn klickar du på **Ny** > **Webb + Mobilt** > **Webbapp**.
 
-    ![börja skapa din första webbapp i Azure](./media/app-service-web-get-started/create-web-app-portal.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
 
 3. Använd följande inställningar för din nya app i bladet där appen skapas:
 
@@ -54,58 +54,51 @@ Du kommer att:
 
     När du är klar bör bladet där du skapar din app se ut så här:
 
-    ![konfigurera din första webbapp i Azure](./media/app-service-web-get-started/create-web-app-settings.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
 
 3. Klicka på **Skapa** längst ned. Du kan klicka på ikonen **Meddelande** överst för att se förloppet.
 
-    ![meddelande om appskapande för din första webbapp i Azure](./media/app-service-web-get-started/create-web-app-started.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
 
 4. Du bör se detta meddelande när distributionen är klar. Klicka på meddelandet för att öppna bladet för din distribution.
 
-    ![meddelande om avslutad distribution för din första webbapp i Azure](./media/app-service-web-get-started/create-web-app-finished.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
 
 5. I bladet **Distributionen lyckades** klickar du på länken **Resurs** för att öppna bladet för din nya webbapp.
 
-    ![resurslänk för din första webbapp i Azure](./media/app-service-web-get-started/create-web-app-resource.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
 ## Distribuera kod till din webbapp
 
 Nu ska vi distribuera kod till Azure med Git.
 
-5. Rulla ner till **Distributionsalternativ** i webbappsbladet eller sök efter dem, och klicka sedan på dem. 
+5. Rulla ner till **Distributionsalternativ** i bladet webbapp eller sök efter dem, och klicka sedan på dem. 
 
-    ![distributionsalternativ för din första webbapp i Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
 6. Klicka på **Välj källa** > **Lokal Git-lagringsplats** > **OK**.
 
-7. Gå tillbaka till bladet webbapp och klicka på **Autentiseringsuppgifter för distribution**.
+7. Gå tillbaka till webbappsbladet och klicka på **Autentiseringsuppgifter för distribution**.
 
 8. Ange dina autentiseringsuppgifter för distribution och klicka på **Spara**.
 
-7. Gå tillbaka till webbappsbladet, rulla ner till **Egenskaper** eller sök efter dem och klicka sedan på dem. Klicka på knappen **Kopiera** bredvid **Git URL**.
+7. Gå tillbaka till bladet webbapp, rulla ner till **Egenskaper** eller sök efter dem och klicka sedan på dem. Klicka på knappen **Kopiera** bredvid **Git-URL**.
 
-    ![egenskapsblad för din första webbapp i Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
     Nu är du redo att distribuera din kod med Git.
 
 1. Ändra till en arbetskatalog i din kommandoradsterminal (`CD`) och klona exempelappen så här:
 
-        git clone <github_sample_url>
+        git clone https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git
 
-    ![Klona exempelkoden för din första webbapp i Azure](./media/app-service-web-get-started/html-git-clone.png)
+    ![Klona exempelkoden för din första webbapp i Azure](./media/app-service-web-get-started-languages/node-git-clone.png)
 
     För *&lt;github_sample_url>* använder du någon av följande webbadresser, beroende på vilket ramverk du föredrar:
 
-    - HTML+CSS+JS: [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git)
-    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
-    - PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
-    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
-    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
-    - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
-
 2. Ändra till lagringsplatsen för din exempelapp. Exempel: 
 
-        cd app-service-web-html-get-started
+        cd app-service-web-nodejs-get-started
 
 3. Konfigurera din fjärranslutna Git för din Azure-app med dess Git-URL som du kopierade från portalen några steg tidigare.
 
@@ -115,11 +108,11 @@ Nu ska vi distribuera kod till Azure med Git.
 
         git push azure master
 
-    ![Skicka koden till din första webbapp i Azure](./media/app-service-web-get-started/html-git-push.png)    
+    ![Skicka koden till din första webbapp i Azure](./media/app-service-web-get-started-languages/node-git-push.png)    
 
-    Om du använde något av språkramverken ser resultatet annorlunda ut. Detta beror på att `git push` inte bara placerar kod i Azure, men även utlöser distributionsuppgifter i distributionsmotorn. Om det finns en package.json- (Node.js) eller requirements.txt-fil (Python) i projektroten (lagerplatsen) eller om det finns en packages.config-fil i ASP.NET-projektet så återställer distributionsskriptet de nödvändiga paketen åt dig. Du kan också [aktivera tillägget Composer](web-sites-php-mysql-deploy-use-git.md#composer) om du vill att composer.json-filer i din PHP-app ska bearbetas automatiskt.
+    Om du använde något av språkramverken ser resultatet annorlunda ut. Detta beror på att `git push` inte bara placerar kod i Azure, men även utlöser distributionsuppgifter i distributionsmotorn. Om du har några package.json i projektroten (databasen) kommer distributionsskriptet att återställa alla nödvändiga paket åt dig. 
 
-Klart! Nu körs din kod live i Azure. Navigera till http://*&lt;appnamn >*.azurewebsites.net i din webbläsare för att se hur det fungerar. 
+Klart! Nu körs din kod live i Azure. Navigera till http://*&lt;appname >*.azurewebsites.net i din webbläsare för att se hur det fungerar. 
 
 ## Göra appuppdateringar
 
@@ -131,14 +124,13 @@ Nu kan du använda Git och skicka skrivningar från projektroten (databasen) nä
 
 ## Nästa steg
 
-Hitta de rekommenderade utvecklings- och distributionsanvisningarna för ditt språkramverk:
+[Skapa, konfigurera och distribuera en Node.js Express-webbapp via Azure](app-service-web-nodejs-get-started.md). Genom att genomgå den här självstudiekursen får du grundläggande kunskaper i hur du gör för att köra Node.js-webbappar i Azure, till exempel:
 
-> [AZURE.SELECTOR]
-- [.NET](web-sites-dotnet-get-started.md)
-- [PHP](app-service-web-php-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
-- [Java](web-sites-java-get-started.md)
+- Skapa och konfigurera appar i Azure från PowerShell/Bash.
+- Ange Node.js-version.
+- Använda en startfil som inte finns i rotkatalogen för programmet.
+- Automatisera med NPM.
+- Hämta fel- och utdataloggar.
 
 Eller gör mer med din första webbapp. Exempel:
 

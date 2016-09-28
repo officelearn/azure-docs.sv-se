@@ -1,5 +1,4 @@
-<egenskaper
-
+<properties
     pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
     description="How to create and manage groups to manage Azure users using Azure Active Directory."
     services="active-directory"

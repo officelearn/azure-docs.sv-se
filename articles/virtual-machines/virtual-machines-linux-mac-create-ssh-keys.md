@@ -17,6 +17,7 @@
     ms.date="08/08/2016"
     ms.author="v-livech"/>
 
+
 # Skapa SSH-nycklar för Linux och Mac för virtuella Linux-datorer i Azure
 
 Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering som standard, vilket gör att inga lösenord krävs för att logga in.  Det går att gissa sig fram till lösenord och dina virtuella datorer blir sårbara för råstyrkeattacker som försöker gissa ditt lösenord. Virtuella datorer som skapas med Azure-mallar eller `azure-cli` kan inkludera din offentliga SSH-nyckel som en del av distributionen, så att ingen distributionskonfiguration krävs i efterhand.  Om du ansluter till en virtuell Linux-dator från Windows läser du [det här dokumentet.](virtual-machines-linux-ssh-from-windows.md)
@@ -245,6 +246,6 @@ Nästa uppgift är att skapa virtuella Azure Linux-datorer med den nya offentlig
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

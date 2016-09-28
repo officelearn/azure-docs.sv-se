@@ -16,6 +16,7 @@
    ms.date="08/03/2016"
    ms.author="yurid"/>
 
+
 # Hantera säkerhetsincidenter i Azure Säkerhetscenter 
 Sortering och undersökning av säkerhetsaviseringar kan ta lång tid för även de mest skickliga säkerhetsanalytiker och för många är det svårt att ens veta var man ska börja. Med hjälp av [analys](security-center-detection-capabilities.md) för att ansluta informationen mellan olika [säkerhetsaviseringar](security-center-managing-and-responding-alerts.md), kan Security Center förse dig med en enda vy av en attackkampanj och alla relaterade aviseringar – du kan snabbt förstå vilka åtgärder angriparen vidtog och vilka resurser som har påverkats.
 
@@ -65,6 +66,6 @@ I det här dokumentet har du fått lära dig hur du använder säkerhetsincident
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

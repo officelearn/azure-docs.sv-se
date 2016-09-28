@@ -17,6 +17,7 @@
     ms.author="piyushjo"/>
 
 
+
 # Skapa en Azure Mobile Engagement-app
 
 I den här artikeln får du lära dig hur du använder metoden **Snabbregistrering** för att skapa en ny **Azure Mobile Engagement**-app. Artikeln beskriver också hur du navigerar till portalen för **Mobile Engagement** där du kan övervaka och hantera appar. 
@@ -50,6 +51,6 @@ När du befinner dig i portalen för Mobile Engagement kan du analysera, skapa o
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

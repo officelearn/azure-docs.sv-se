@@ -30,7 +30,6 @@ Om du vill skapa en postuppsättning med jokertecken, använder du postuppsättn
 CNAME-postuppsättningar kan inte samexistera med andra postuppsättningar med samma namn. Du kan till exempel inte skapa en CNAME-postuppsättning med det relativa namnet www och en A-post med det relativa namnet www på samma gång. Eftersom zonens apex (namn = @) alltid innehåller NS- och SOA-postuppsättningar som skapades när zonen skapades, du kan inte skapa en CNAME-postuppsättning på zonens apex. Den här begränsningarna kommer sig av DNS-standarderna och är inte begränsningar i Azure DNS.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

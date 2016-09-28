@@ -6,7 +6,6 @@
 |  | [Anropa ett webb-API från en .NET-webbapp](active-directory-b2c-devquickstarts-web-api-dotnet.md) |  |
 | | [Lägg till registrering och inloggning i en ASP.NET-Core-app](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | |
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

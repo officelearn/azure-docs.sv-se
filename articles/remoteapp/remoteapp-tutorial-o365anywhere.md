@@ -17,6 +17,7 @@
    ms.author="guscatal;elizapo"/>
 
 
+
 # Få samma Office 365-upplevelse på alla enheter med Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -72,6 +73,6 @@ När du klickar på någon av dessa bör programmet startas på den virtuella Az
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
    ms.date="06/16/2016"
    ms.author="yushwang"/>
 
+
 # Översikt över BGP med Azures VPN-gatewayer
 
 Den här artikeln innehåller en översikt över BGP-stöd (Border Gateway Protocol) i Azures VPN-gatewayer.
@@ -70,6 +71,6 @@ Se i [Komma igång med BGP på Azures VPN-gatewayer](./vpn-gateway-bgp-resource-
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

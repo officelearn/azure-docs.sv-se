@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # Köra en Windows-app på valfri enhet med Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -125,6 +126,6 @@ Nu när du har lärt dig att skapa en samling kan du försöka skapa en [samling
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

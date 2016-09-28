@@ -16,6 +16,7 @@
     ms.date="08/16/2016"
     ms.author="markusvi"/>
 
+
 # Vanliga frågor och svar om Azure Active Directory
 
 Azure Active Directory är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -207,6 +208,6 @@ Mer information finns i [Automatisera användaretablering och avetablering för 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

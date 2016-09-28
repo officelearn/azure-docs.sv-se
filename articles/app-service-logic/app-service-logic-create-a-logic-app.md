@@ -16,6 +16,7 @@
     ms.date="07/16/2016"
     ms.author="jehollan"/>
 
+
 # Skapa en ny logikapp genom att koppla SaaS-tjänster
 
 I det här avsnittet visas hur du på bara några minuter kan komma igång med [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). Vi går igenom ett enkelt arbetsflöde genom vilket du kan skicka intressanta tweets till din e-post.
@@ -68,6 +69,6 @@ På mindre än 5 minuter har du ställt in en enkel logikapp som körs i molnet.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

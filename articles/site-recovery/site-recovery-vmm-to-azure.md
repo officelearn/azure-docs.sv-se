@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/23/2016"
+    ms.date="09/16/2016"
     ms.author="raynew"/>
+
 
 # Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med hjälp av Azure Site Recovery via Azure-portalen | Microsoft Azure
 
@@ -574,6 +575,6 @@ När du har konfigurerat och fått igång distributionen kan du [läsa mer](site
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

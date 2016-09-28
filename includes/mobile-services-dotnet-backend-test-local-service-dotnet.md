@@ -19,7 +19,6 @@ I det här avsnittet testar du din nya app mot den mobiltjänst som körs lokalt
 
     Detta skickar en POST-begäran till den lokala mobiltjänsten. Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobiltjänsten. Data visas i den andra kolumnen i appen.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

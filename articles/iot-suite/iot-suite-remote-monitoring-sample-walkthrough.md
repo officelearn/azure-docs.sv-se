@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="dobett"/>
 
+
 # Genomgång av den förkonfigurerade lösningen för fjärrövervakning
 
 ## Introduktion
@@ -241,6 +242,6 @@ Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

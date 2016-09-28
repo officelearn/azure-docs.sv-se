@@ -6,7 +6,6 @@
 
 - Klicka på **Ta bort** och välj att ta bort alla virtuella diskar.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

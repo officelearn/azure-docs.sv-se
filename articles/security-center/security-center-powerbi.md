@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
+
 
 # Kunskap genom statistik från Azure Security Center med Power BI
 I [Power BI-instrumentpanelen](http://aka.ms/azure-security-center-power-bi) för Azure Security Center kan du se, analysera och filtrera rekommendationer och säkerhetsaviseringar var du än är, även på mobila enheter. I Power BI-instrumentpanelen kan du se trender och angreppsmönster, se säkerhetsaviseringar indelade efter resurs eller käll-IP-adress och oåtgärdade säkerhetsrisker indelade efter resurs och hur lång tid det gått sedan de påträffades. 
@@ -26,7 +27,7 @@ Du kan även öppna Power BI-rapporter från instrumentpanelen i Azure Security 
 
 1. Klicka på knappen **Utforska i Power BI** på instrumentpanelen i **Azure Security Center**.
 
-    ![Ansluta till Azure Security Center med Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new1.png) 
+    ![Ansluta till Azure Security Center med Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png) 
 
 2. Bladet **Utforska i Power BI** öppnas på höger sida som på bilden nedan:
 
@@ -117,6 +118,6 @@ I det här avsnittet har du fått lära dig hur du använder Power BI i Azure Se
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

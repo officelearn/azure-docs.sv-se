@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/21/2016"
-    ms.author="curtand;viviali"/>
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
+
 
 # Lägga till nya användare eller användare med Microsoft-konton i Azure Active Directory
 
@@ -88,6 +89,6 @@ Sedan kan du redigera alternativen för att kontrollera gästanvändarnas åtkom
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

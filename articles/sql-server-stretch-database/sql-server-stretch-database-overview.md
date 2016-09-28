@@ -16,6 +16,7 @@
     ms.date="06/27/2016"
     ms.author="douglasl"/>
 
+
 # Översikt över Stretch Database
 
 Stretch Database migrerar dina kalldata transparent och säkert till Microsoft Azure-molnet.
@@ -82,6 +83,6 @@ Använd Stretch Database Advisor, en funktion i SQL Server 2016 Upgrade Advisor,
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

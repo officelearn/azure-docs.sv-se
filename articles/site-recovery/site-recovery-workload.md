@@ -16,6 +16,7 @@
     ms.date="07/06/2016" 
     ms.author="raynew"/>
 
+
 # Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
 
 
@@ -152,6 +153,6 @@ Använd Site Recovery för att skydda din SAP-distribution på följande sätt:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

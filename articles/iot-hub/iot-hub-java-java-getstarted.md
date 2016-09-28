@@ -16,6 +16,7 @@
      ms.date="08/11/2016"
      ms.author="dobett"/>
 
+
 # Komma igång med Azure IoT Hub för Java
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -496,6 +497,6 @@ I självstudien [Behandla meddelanden från enheten till molnet][lnk-process-d2c
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

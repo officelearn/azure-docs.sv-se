@@ -16,6 +16,7 @@
     ms.date="07/21/2016"
     ms.author="wesmc"/>
 
+
 # Komma igång med Notification Hubs för Windows Universal-plattformsappar
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -276,6 +277,6 @@ Om du vill få mer allmän information om Notification Hubs kan du läsa [Riktli
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

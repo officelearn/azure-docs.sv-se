@@ -16,6 +16,7 @@
     ms.author="elizapo" />
 
 
+
 # Så här fungerar det med licensiering i Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -39,6 +40,6 @@ Observera att du inte kan använda en klientåtkomstlicens eller ett volymlicens
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

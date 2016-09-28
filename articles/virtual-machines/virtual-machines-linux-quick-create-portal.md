@@ -19,9 +19,9 @@
     ms.author="v-livech"
 />
 
+
 # Skapa en virtuell Linux-dator i Azure med hjälp av portalen
 
-> [AZURE.NOTE] Om du har en stund över kan du hjälpa oss att förbättra Azure Linux VM-dokumentationen genom att delta i denna [snabbundersökning](https://aka.ms/linuxdocsurvey) av dina upplevelser. Varje svar hjälper oss att hjälpa dig att få ditt arbete gjort.
 
 I den här artikeln lär du dig hur du använder [Azure Portal](https://portal.azure.com/) för att snabbt skapa en virtuell Linux-dator. De enda kraven är [ett Azure-konto](https://azure.microsoft.com/pricing/free-trial/) och [filer för offentliga och privata SSH-nycklar](virtual-machines-linux-mac-create-ssh-keys.md).
 
@@ -81,6 +81,6 @@ Nu har du snabbt skapat en virtuell Linux-dator för testnings- eller demonstrat
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

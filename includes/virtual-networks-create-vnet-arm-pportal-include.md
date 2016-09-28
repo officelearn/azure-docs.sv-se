@@ -36,7 +36,6 @@ Följ stegen nedan för att skapa ett VNet baserat på scenariot ovan med hjälp
     ![Lista med undernät i VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

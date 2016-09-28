@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Distribuera din lokala StorSimple-enhet (uppdatering 1)
 
 > [AZURE.SELECTOR]
@@ -149,7 +150,7 @@ En StorSimple Manager-tjänst kan hantera flera StorSimple-enheter. Utför följ
 > [AZURE.IMPORTANT] Om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst måste du skapa minst ett lagringskonto efter att du har skapat en tjänst. Det här lagringskontot används när du skapar en volymbehållare. 
 >
 > * Om du inte har skapat ett lagringskonto automatiskt går du till [Konfigurera ett nytt lagringskonto för tjänsten](#configure-a-new-storage-account-for-the-service) för detaljerade anvisningar. 
-> * Om du har aktiverat automatiskt skapande av lagringskonton går du till [steg 2: hämta nyckel för tjänstregistrering](#step-2-get-the-service-registration-key).
+> * Om du har aktiverat automatiskt skapande av ett lagringskonto går du till [steg 2: hämta nyckel för tjänstregistrering](#step-2-get-the-service-registration-key).
 
 ## Steg 2: Hämta nyckel för tjänstregistrering
 
@@ -292,6 +293,6 @@ Anvisningar för MPIO-installation på en StorSimple-enhet som är ansluten till
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

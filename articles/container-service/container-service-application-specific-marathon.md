@@ -18,6 +18,7 @@
    ms.date="04/12/2016"
    ms.author="rogardle"/>
 
+
 # Skapa en program- eller användarspecifik Marathon-tjänst
 
 Genom Azure Container Service tillhandahålls en uppsättning huvudservrar där Apache Mesos och Marathon förkonfigureras. Servrarna kan användas för att dirigera dina program i klustret, men det är bäst att inte använda huvudservrarna för det här ändamålet. Om du till exempel vill justera konfigurationen av Marathon måste du logga in på själva huvudservrarna och göra ändringar. Det leder lätt till att du får unika huvudservrar som skiljer sig lite från standarden, vilket betyder att de måste skötas och hanteras var för sig. Dessutom kanske konfigurationen som krävs av ett team inte är den bästa konfigurationen för ett annat team.
@@ -60,6 +61,6 @@ Du kan kontrollera vilken instans av Marathon som din CLI arbetar mot med `dcos 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

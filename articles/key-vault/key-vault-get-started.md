@@ -16,6 +16,7 @@
     ms.date="07/15/2016"
     ms.author="cabailey"/>
 
+
 # Komma igång med Azure Key Vault #
 Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -247,6 +248,6 @@ Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](key-vaul
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

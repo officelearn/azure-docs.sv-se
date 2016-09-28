@@ -1,26 +1,27 @@
-<properties 
-    pageTitle="Skydda molnresurser med Azure Multi-Factor Authentication och AD FS" 
-    description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och AD FS i molnet." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Skydda molnresurser med Azure Multi-Factor Authentication och AD FS"
+    description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och AD FS i molnet."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
 
 Om din organisation är federerad med Azure Active Directory och du har resurser som används av Azure AD kan du använda Azure Multi-Factor Authentication eller Active Directory Federation Services för att skydda dessa resurser. Skydda dina resurser i Azure Active Directory med Azure Multi-Factor Authentication eller Active Directory Federation Services genom att följa stegen nedan.
 
-## Om du vill skydda Azure AD gör med AD FS gör du så här: 
+## Om du vill skydda Azure AD gör med AD FS gör du så här:
 
 
 
@@ -71,7 +72,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Vi ska skapa t
 10. I guiden Lägg till anspråksregel för transformering väljer du Skicka anspråk med hjälp av en anpassad regel i listrutan och klickar sedan på Nästa.
 11. I rutan under Anspråksregelns namn skriver du Håll användarna inloggade.
 12. I rutan Anpassad regel anger du:
-        
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
 ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -100,12 +101,6 @@ Klart! I det här läget behöver federerade Office 365-användare endast  anvä
 
 
 
-
-
-
-
-
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

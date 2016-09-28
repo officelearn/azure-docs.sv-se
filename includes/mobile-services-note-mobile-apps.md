@@ -5,7 +5,6 @@
 > Kom igång med Azure Mobile Apps med hjälp av [dokumentationen om Azure Mobile Apps](https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/).
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

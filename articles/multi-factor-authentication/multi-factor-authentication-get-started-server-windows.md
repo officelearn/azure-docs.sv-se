@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Windows-autentisering och Azure Multi-Factor Authentication Server" 
-    description="Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera Windows-autentisering och Azure Multi-Factor Authentication Server." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Windows-autentisering och Azure Multi-Factor Authentication Server"
+    description="Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera Windows-autentisering och Azure Multi-Factor Authentication Server."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Windows-autentisering och Azure Multi-Factor Authentication Server
 
@@ -31,7 +32,7 @@ I avsnittet Windows-autentisering kan administratören aktivera och konfigurera 
 
 
 >[AZURE.NOTE]Den här funktionen stöds inte om du vill skydda Terminal Services i Windows Server 2012 R2.
- 
+
 
 
 
@@ -47,11 +48,11 @@ I avsnittet Windows-autentisering kan administratören aktivera och konfigurera 
 7. Klicka på knappen Lägg till.
 8. Välj Enkel IP om du vill hoppa över en enstaka IP-adress.
 9. Välj IP-intervall om du vill hoppa över ett helt IP-adressintervall. Exempel: 10.63.193.1-10.63.193.100.
-10. Välj Undernät om du vill ange ett intervall med IP-adresser med hjälp av undernätsnotation. Ange undernätets start-IP och välj lämplig nätmask i listrutan. 
+10. Välj Undernät om du vill ange ett intervall med IP-adresser med hjälp av undernätsnotation. Ange undernätets start-IP och välj lämplig nätmask i listrutan.
 11. Klicka på OK.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

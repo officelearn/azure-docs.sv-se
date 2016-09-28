@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="piotrci"/>
 
+
 # Publicera program till enskilda användare i en Azure RemoteApp-samling (förhandsgranskning)
 
 > [AZURE.IMPORTANT]
@@ -107,6 +108,6 @@ Om du ännu inte har deltagit i förhandsgranskningen använder du denna [unders
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

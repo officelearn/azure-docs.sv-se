@@ -35,7 +35,6 @@ För att skapa en DNS-etikett, väljer du först **Virtuella datorer** i portale
     ![ssms anslut](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

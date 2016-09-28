@@ -1,28 +1,29 @@
 <properties 
-    pageTitle="Distribuera användarportalen för Azure Multi-Factor Authentication Server" 
-    description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och användarportalen." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Distribuera användarportalen för Azure Multi-Factor Authentication Server"
+    description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och användarportalen."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Distribuera användarportalen för Azure Multi-Factor Authentication Server
 
-På användarportalen kan administratören installera och konfigurera Azure Multi-Factor Authentication-användarportalen. Användarportalen är en IIS-webbplats där användarna kan registrera sig i Azure Multi-Factor Authentication och hantera sina konton. Användarna kan ändra sina telefonnummer, ändra sina PIN-koder eller kringgå Azure Multi-Factor Authentication vid nästa inloggning. 
+På användarportalen kan administratören installera och konfigurera Azure Multi-Factor Authentication-användarportalen. Användarportalen är en IIS-webbplats där användarna kan registrera sig i Azure Multi-Factor Authentication och hantera sina konton. Användarna kan ändra sina telefonnummer, ändra sina PIN-koder eller kringgå Azure Multi-Factor Authentication vid nästa inloggning.
 
-Användarna kan logga in på användarportalen med sina vanliga användarnamn och lösenord och genomför antingen ett Azure Multi-Factor Authentication-samtal eller svarar på säkerhetsfrågor för att slutföra autentiseringen. Om användarregistrering tillåts konfigurerar användarna sina telefonnummer och sina PIN-koder första gången de loggar in på användarportalen. 
+Användarna kan logga in på användarportalen med sina vanliga användarnamn och lösenord och genomför antingen ett Azure Multi-Factor Authentication-samtal eller svarar på säkerhetsfrågor för att slutföra autentiseringen. Om användarregistrering tillåts konfigurerar användarna sina telefonnummer och sina PIN-koder första gången de loggar in på användarportalen.
 
-Administratörer av användarportalen kan konfigureras och beviljas behörighet att lägga till nya användare och uppdatera befintliga användare. 
+Administratörer av användarportalen kan konfigureras och beviljas behörighet att lägga till nya användare och uppdatera befintliga användare.
 
 <center>![Konfiguration](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
@@ -30,12 +31,12 @@ Administratörer av användarportalen kan konfigureras och beviljas behörighet 
 
 Följande krav måste vara uppfyllda för att du ska kunna installera användarportalen på samma server som Azure Multi-Factor Authentication-servern:
 
-- IIS måste vara installerat inklusive asp.net och IIS 6 Metabase-kompatibilitet (för IIS 7 eller senare) 
+- IIS måste vara installerat inklusive asp.net och IIS 6 Metabase-kompatibilitet (för IIS 7 eller senare)
 - Den inloggade användaren måste ha administratörsrättigheter för datorn och domänen om tillämpligt.  Detta beror på att kontot måste ha behörighet att skapa Active Directory-säkerhetsgrupper.
 
 ### Så här distribuerar du användarportalen för Azure Multi-Factor Authentication Server
 
-1. På Azure Multi-Factor Authentication-servern: Klicka på ikonen för användarportalen på den vänstra menyn och klicka på knappen Installera användarportal. 
+1. På Azure Multi-Factor Authentication-servern: Klicka på ikonen för användarportalen på den vänstra menyn och klicka på knappen Installera användarportal.
 1. Klicka på Nästa.
 1. Klicka på Nästa.
 1. Om datorn är ansluten till en domän och Active Directory-konfigurationen för att skydda kommunikationen mellan användarportalen och Azure Multi-Factor Authentication-tjänsten är ofullständig, visas Active Directory-steget. Klicka på Nästa för att slutföra konfigurationen automatiskt.
@@ -48,7 +49,7 @@ Följande krav måste vara uppfyllda för att du ska kunna installera användarp
 
 ## Distribuera Azure Multi-Factor Authentication Server-användarportalen på en separat server
 
-För att du ska kunna använda Azure Multi-Factor Authentication-appen krävs följande så att appen kan kommunicera med användarportalen: 
+För att du ska kunna använda Azure Multi-Factor Authentication-appen krävs följande så att appen kan kommunicera med användarportalen:
 
 Se avsnittet Maskin- och programvarukrav för maskin- och programvarukrav:
 
@@ -71,7 +72,7 @@ Om du installerar användarportalen på en annan server än Azure Multi-Factor A
 
 ### Installera webbtjänst-SDK
 
-Om Azure Multi-Factor Authentication webbtjänst-SDK inte redan är installerat på Azure Multi-Factor Authentication-servern går du till den servern och öppnar Azure Multi-Factor Authentication-servern. Klicka på ikonen för webbtjänst-SDK, klicka på Installera webbtjänst-SDK och följ instruktionerna. Webbtjänst-SDK måste skyddas med ett SSL-certifikat. Ett självsignerat certifikat kan användas för detta ändamål, men det måste importeras till arkivet ”Betrodda rotcertifikatutfärdare” för det lokala datorkontot på webbservern för användarportalen så att det litar på certifikatet när SSL-anslutningen initieras. 
+Om Azure Multi-Factor Authentication webbtjänst-SDK inte redan är installerat på Azure Multi-Factor Authentication-servern går du till den servern och öppnar Azure Multi-Factor Authentication-servern. Klicka på ikonen för webbtjänst-SDK, klicka på Installera webbtjänst-SDK och följ instruktionerna. Webbtjänst-SDK måste skyddas med ett SSL-certifikat. Ett självsignerat certifikat kan användas för detta ändamål, men det måste importeras till arkivet ”Betrodda rotcertifikatutfärdare” för det lokala datorkontot på webbservern för användarportalen så att det litar på certifikatet när SSL-anslutningen initieras.
 
 <center>![Konfiguration](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
 
@@ -101,7 +102,7 @@ Nu när portalen har installerats måste du konfigurera Azure Multi-Factor Authe
 Azure Multi-Factor Authentication-servern tillhandahåller flera alternativ för användarportalen.  Följande tabell innehåller en lista över dessa alternativ och en förklaring av hur de används.
 
 Inställningar för användarportalen|Beskrivning|
-:------------- | :------------- | 
+:------------- | :------------- |
 URL till användarportalen| Gör att du kan ange URL:en till den plats där portalen finns.
 Primär autentisering| Gör att du kan ange vilken typ av autentisering som ska användas för inloggning på portalen.  Du kan välja mellan Windows-, RADIUS- eller LDAP-autentisering.
 Tillåt användare att logga in|Gör att användaren kan ange ett användarnamn och lösenord på inloggningssidan för användarportalen.  Om den här inställningen inte är vald är rutorna nedtonade.
@@ -153,7 +154,7 @@ Gör att du kan konfigurera användarportalen så att den accepterar anspråk fr
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
 ## Tillförlitliga IP-adresser
-På den här fliken kan du ange antingen enstaka IP-adresser eller IP-adressintervall som kan läggas till så att multifaktorautentiseringen kringgås om en användare loggar in från någon av dessa IP-adresser. 
+På den här fliken kan du ange antingen enstaka IP-adresser eller IP-adressintervall som kan läggas till så att multifaktorautentiseringen kringgås om en användare loggar in från någon av dessa IP-adresser.
 
 ![Tillförlitliga IP-adresser för användarportalen](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
@@ -168,13 +169,13 @@ Om användaren väljer autentiseringsmetoden Röstsamtal eller om användaren ha
 
 Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon också att ange en PIN-kod.  När användaren har angett sitt telefonnummer och sin PIN-kod (om en sådan krävs) klickar han eller hon på Ring mig nu så att jag kan autentisera mig.  Azure Multi-Factor Authentication utför en autentisering via ett telefonsamtal till användarens primära telefonnummer.  Användaren måste besvara samtalet och ange sin PIN-kod (om en sådan krävs) och trycka på # för att gå vidare till nästa steg i självregistreringsprocessen.   
 
-Om användaren väljer autentiseringsmetoden för SMS-meddelanden eller om användaren har förkonfigurerats att använda den metoden uppmanas han eller hon att ange sitt mobiltelefonnummer.  Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon också att ange en PIN-kod.  När användaren har angett sitt telefonnummer och sin PIN-kod (om en sådan krävs) klickar han eller hon på Skicka ett textmeddelande till mig nu så att jag kan autentisera mig.  Azure Multi-Factor Authentication utför en SMS-autentisering till användarens mobiltelefon.  Användaren måste ta emot SMS-meddelandet som innehåller ett engångslösenord och svara på meddelandet med detta lösenord plus hans eller hennes PIN-kod (om en sådan krävs) för att gå vidare till nästa steg i självregistreringsprocessen. 
+Om användaren väljer autentiseringsmetoden för SMS-meddelanden eller om användaren har förkonfigurerats att använda den metoden uppmanas han eller hon att ange sitt mobiltelefonnummer.  Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon också att ange en PIN-kod.  När användaren har angett sitt telefonnummer och sin PIN-kod (om en sådan krävs) klickar han eller hon på Skicka ett textmeddelande till mig nu så att jag kan autentisera mig.  Azure Multi-Factor Authentication utför en SMS-autentisering till användarens mobiltelefon.  Användaren måste ta emot SMS-meddelandet som innehåller ett engångslösenord och svara på meddelandet med detta lösenord plus hans eller hennes PIN-kod (om en sådan krävs) för att gå vidare till nästa steg i självregistreringsprocessen.
 
 ![SMS på användarportalen](./media/multi-factor-authentication-get-started-portal/text.png)   
 
 Om användaren väljer autentiseringsmetoden Mobilapp eller om användaren har förkonfigurerats att använda den metoden uppmanas han eller hon att installera Azure Multi-Factor Authentication-appen på sin enhet och att generera en aktiveringskod.  När användaren har installerat Azure Multi-Factor Authentication-appen klickar han eller hon på knappen Generera aktiveringskod.    
 
->[AZURE.NOTE]Användaren måste aktivera push-meddelanden för sin enhet för att kunna använda Azure Multi-Factor Authentication-appen. 
+>[AZURE.NOTE]Användaren måste aktivera push-meddelanden för sin enhet för att kunna använda Azure Multi-Factor Authentication-appen.
 
 Nu visas en aktiveringskod, en URL och en streckkodsbild på sidan.  Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon också att ange en PIN-kod.  Användaren anger aktiveringskoden och URL:en i Azure Multi-Factor Authentication-appen eller använder streckkodsläsaren för att skanna streckkodsbilden och klickar sedan på knappen Aktivera.    
 
@@ -187,10 +188,8 @@ Om administratörerna har konfigurerat Azure Multi-Factor Authentication Server 
 
 Nu är självregistreringen klar och användaren loggas in på användarportalen.  Användare kan logga in på användarportalen igen när som helst för att ändra sina telefonnummer, PIN-koder, autentiseringsmetoder och säkerhetsfrågor om detta tillåts av administratören.
 
- 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -48,7 +48,6 @@
 7. Det nyligen skapade lagringskontot kommer att visas på sidan **Konfigurera**, under **Lagringskonton**. Klicka på **spara** för att spara det nya lagringskontot. Klicka på **OK** när du uppmanas att bekräfta.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/12/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
+
 
 
 # Ansluta till ett Azure Container Service-kluster
@@ -41,8 +42,6 @@ Det första du ska göra när du ska skapa en SSH-tunnel i Linux eller OS X är 
 **PATH_TO_PRIVATE_KEY** [VALFRITT] är den sökväg till den privata nyckeln som motsvarar den offentliga nyckeln som du angav när du skapade behållartjänstklustret. Använd det här alternativet med flaggan -i.
 
 ```bash
-# ssh sample
-
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 > SSH-anslutningsporten är 2200, inte standardporten 22.
@@ -52,8 +51,6 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 Om du vill öppna en tunnel till de DC/OS-relaterade slutpunkterna kör du ett kommando som liknar följande:
 
 ```bash
-# ssh sample
-
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -70,8 +67,6 @@ På samma sätt kan du nå REST API:erna för alla program via den här tunneln.
 Om du vill öppna en tunnel till Swarm-slutpunkten kör du ett kommando som liknar följande:
 
 ```bash
-# ssh sample
-
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -126,6 +121,6 @@ Distribuera och hantera behållare med DC/OS eller Swarm:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

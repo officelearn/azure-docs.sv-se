@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="RADIUS-autentisering och Azure Multi-Factor Authentication Server" 
-    description="Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera RADIUS-autentisering och Azure Multi-Factor Authentication Server." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="RADIUS-autentisering och Azure Multi-Factor Authentication Server"
+    description="Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera RADIUS-autentisering och Azure Multi-Factor Authentication Server."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 
 
@@ -32,7 +33,7 @@ I avsnittet RADIUS-autentisering kan du aktivera och konfigurera RADIUS-autentis
 
 ## Konfiguration av RADIUS-autentisering
 
-Om du vill konfigurera RADIUS-autentisering installerar du Azure Multi-Factor Authentication Server på en Windows-server. Om du har en Active Directory-miljö ansluter du servern till domänen i nätverket. Konfigurera Azure Multi-Factor Authentication Server genom att följa dessa steg: 
+Om du vill konfigurera RADIUS-autentisering installerar du Azure Multi-Factor Authentication Server på en Windows-server. Om du har en Active Directory-miljö ansluter du servern till domänen i nätverket. Konfigurera Azure Multi-Factor Authentication Server genom att följa dessa steg:
 
 1. Klicka på ikonen för RADIUS-autentisering på den vänstra menyn i Azure Multi-Factor Authentication Server.
 2. Markera kryssrutan Aktivera RADIUS-autentisering.
@@ -45,11 +46,11 @@ Om du vill konfigurera RADIUS-autentisering installerar du Azure Multi-Factor Au
 9. Du kan upprepa steg 4 till och med 8 om du vill lägga till fler RADIUS-klienter.
 10. Klicka på fliken Mål.
 11. Om Azure Multi-Factor Authentication Server är installerad på en domänansluten server i en Active Directory-miljö väljer du Windows-domän.
-12. Om användarna ska autentiseras mot en LDAP-katalog väljer du LDAP-bindning. När du använder LDAP-bindning måste du klicka på ikonen för Katalogintegrering och redigera LDAP-konfigurationen på fliken Inställningar så att servern kan bindas till katalogen. Anvisningar för hur du konfigurerar LDAP finns i LDAP-proxykonfigurationsguiden. 
+12. Om användarna ska autentiseras mot en LDAP-katalog väljer du LDAP-bindning. När du använder LDAP-bindning måste du klicka på ikonen för Katalogintegrering och redigera LDAP-konfigurationen på fliken Inställningar så att servern kan bindas till katalogen. Anvisningar för hur du konfigurerar LDAP finns i LDAP-proxykonfigurationsguiden.
 13. Om användarna ska verifieras mot en annan RADIUS-server väljer du RADIUS-server.
 14. Konfigurera servern som RADIUS-förfrågningarna ska skickas till genom att klicka på Lägg till.
 15. I dialogrutan Lägg till RADIUS-server anger du IP-adressen för RADIUS-servern och en delad hemlighet. Den delade hemligheten måste vara samma på både Azure Multi-Factor Authentication-servern och RADIUS-servern. Ändra autentiseringsporten och redovisningsporten om olika portar används av RADIUS-servern.
-16. Klicka på OK. 
+16. Klicka på OK.
 17. Du måste lägga till Azure Multi-Factor Authentication Server som en RADIUS-klient på den andra RADIUS-servern så att den bearbetar åtkomstförfrågningar som skickats till den från Azure Multi-Factor Authentication Server. Du måste använda samma delade hemlighet som konfigurerats i Azure Multi-Factor Authentication Server.
 18. Du kan upprepa det här steget om du vill lägga till fler RADIUS-servrar och konfigurera ordningen som servern ska anropa dem med knapparna Flytta upp och Flytta ned. Nu är Azure Multi-Factor Authentication Server-konfigurationen klar. Nu lyssnar servern på de konfigurerade portarna för RADIUS-åtkomstförfrågningar från de konfigurerade klienterna.   
 
@@ -58,13 +59,12 @@ Om du vill konfigurera RADIUS-autentisering installerar du Azure Multi-Factor Au
 
 Följ dessa riktlinjer när du konfigurerar RADIUS-klienten:
 
-- Konfigurera enheten/servern att autentisera via RADIUS till Azure Multi-Factor Authentication-serverns IP-adress, som fungerar som RADIUS-servern. 
-- Använd samma delade hemlighet som du konfigurerade ovan. 
+- Konfigurera enheten/servern att autentisera via RADIUS till Azure Multi-Factor Authentication-serverns IP-adress, som fungerar som RADIUS-servern.
+- Använd samma delade hemlighet som du konfigurerade ovan.
 - Konfigurera RADIUS-serverns timeout-värde till mellan 30 och 60 sekunder så att det finns tid att verifiera användarens autentiseringsuppgifter, utföra Multi-Factor Authentication och sedan svara på RADIUS-åtkomstbegäran.
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

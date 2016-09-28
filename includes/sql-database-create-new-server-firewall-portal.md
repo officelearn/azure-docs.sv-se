@@ -47,7 +47,6 @@ Använd följande steg i Azure Portal för att skapa en brandväggsregel på ser
     >[AZURE.IMPORTANT] IP-adress för klienten kan ändras, och det är möjligt att du inte får åtkomst till din server förrän du har skapat en ny brandväggsregel. Du kan kontrollera din IP-adress genom att använda [Bing](http://www.bing.com/search?q=my%20ip%20address). Lägg sedan till en IP-adress eller ett intervall med IP-adresser. Se [Hantera brandväggsinställningar](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) för mer information.
 
 
-
-<!--HONumber=sep12_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

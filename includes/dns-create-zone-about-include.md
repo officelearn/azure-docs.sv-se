@@ -11,7 +11,6 @@ Domänen "contoso.com" kan till exempel innehålla flera DNS-poster, till exempe
 
 - Då flera zoner delar samma namn, kommer varje instans att tilldelas olika adresser för namnservern och bara en instans kan delegeras från den överordnade domänen. Mer information finns i [Delegera en domän till Azure DNS](../articles/dns/dns-domain-delegation.md).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

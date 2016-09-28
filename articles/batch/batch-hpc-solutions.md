@@ -16,6 +16,7 @@
    ms.date="07/27/2016"
    ms.author="danlep"/>
 
+
 # Batch- och HPC-lösningar i Azure-molnet
 
 Azure erbjuder effektiva, skalbara molnlösningar för Batch och HCP (High Performance Computing – databehandling med höga prestanda), även kallat *Big Compute*. Lär dig mer om Big Compute-arbetsbelastningar och Azures tjänster som stöder dem, eller gå direkt till [lösningsscenarierna](#scenarios) längre fram i den här artikeln. Den här artikeln är främst avsedd för tekniska beslutsfattare, IT-chefer och oberoende programvaruleverantörer, men även andra IT-experter och utvecklare kan ha nytta av den för att bekanta sig med dessa lösningar.
@@ -159,6 +160,6 @@ Din Big Compute-lösning kan behöva andra Azure-tjänster för att ansluta till
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

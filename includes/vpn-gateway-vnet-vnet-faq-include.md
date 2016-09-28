@@ -20,7 +20,6 @@
 
 - VNet-till-VNet-trafik i samma region är kostnadsfri i båda riktningarna. VNet-till-VNets utgående trafik i flera regioner debiteras med priset på utgående dataöverföring mellan virtuella nätverk, baserat på källregionerna. Se [sidan med prissättning](https://azure.microsoft.com/pricing/details/vpn-gateway/) för mer information.
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

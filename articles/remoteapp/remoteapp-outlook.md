@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
+
 # Använda Microsoft Outlook i Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -36,6 +37,6 @@ I Outlook 2016 går det att lösa i cacheläge med hjälp av den nya söktjänst
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

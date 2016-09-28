@@ -16,6 +16,7 @@
    ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
+
 # Visualisera data med Power BI
 
 > [AZURE.SELECTOR]
@@ -123,6 +124,6 @@ Nu när du har värmt upp med exempeldata, kan du se mer information om att [utv
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

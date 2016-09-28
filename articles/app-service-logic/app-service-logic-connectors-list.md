@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/28/2016"
+    ms.date="09/01/2016"
     ms.author="mandia"/>
+
 
 
 # Lista över kopplingar och API Apps att använda i dina Logic Apps
@@ -35,9 +36,7 @@ Namn | Beskrivning
 [Bing-översättare](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Använd Bing för att översätta text till ett annat språk.
 [HTTP](app-service-logic-connector-http.md) | HTTP-lyssnaren öppnar en slutpunkt som fungerar som en HTTP-server och lyssnar efter inkommande begäranden för HTTP eller HTTPS. HTTP-åtgärden kräver inte en API-app och stöds internt inom Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Office 365-kopplingen kan skicka och ta emot e-post, hantera din kalender och hantera kontakter med ditt Office 365-konto.
-[QuickBooks](app-service-logic-connector-quickbooks.md) | Du kan utföra olika aktiviteter, bland annat att skapa, uppdatera och fråga olika enheter från Intuit QuickBooks som kunder, artiklar, fakturor med mera.
 [Slack](app-service-logic-connector-slack.md) | Anslut till Slack och skicka meddelanden till Slack-kanaler.
-[Vänta](app-service-logic-connector-wait.md) | Använd den här kopplingen för att fördröja körningen av din app. Du kan fördröja appen under en viss tid eller till en händelse vid en viss tidpunkt.
 
 
 ## Enterprise Integration-kopplingar
@@ -61,9 +60,6 @@ Namn  | Beskrivning
 [Informix](app-service-logic-connector-informix.md) | Ansluter till en IBM Informix-databas, lokalt och på en virtuell Azure-dator som kör ett Windows-operativsystem. Kan mappa Web API- och OData-API-åtgärder till Informix Structured Query Language-kommandon.<br/><br/>Inga utlösare. Åtgärderna är bland annat att markera, infoga, uppdatera, ta bort och anpassa tabelluttryck.<br/><br/>Vid lokal användning kan VPN eller Azure ExpressRoute  användas. Denna koppling inkluderar även en Microsoft Client för DRDA för att ansluta till en Informix-server i ett TCP/IP-nätverk.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Ansluter till en lokal SQLServer eller en Azure SQL-databas. Du kan skapa, uppdatera, hämta och ta bort poster i en SQL-databastabell.
 MQ | Ansluter till en IBM WebSphere MQ-server version 8, lokalt och på en virtuell Azure-dator som kör ett Windows-operativsystem. Vid lokal användning kan VPN eller Azure ExpressRoute  användas. Kopplingen inkluderar även Microsoft Client för MQ.<br/><br/>Inga utlösare. Inga åtgärder.<br/><br/>**Obs**! Kan för närvarande inte användas med Logic Apps.
-[Oracle-databas](app-service-logic-connector-oracle.md) | Ansluter till en lokal Oracle-databas och kan skapa, uppdatera, hämta och ta bort poster i en databastabell.
-[POP3](app-service-logic-connector-pop3.md) (Post Office Protocol)| Anslut till en POP3-server för att hämta e-postmeddelanden med bifogade filer.
-[SAP](app-service-logic-connector-sap.md) | Ansluter till en lokal SAP-server och anropar RFC:er, BAPI:er och tRFC:er och skickar IDOC:er.
 
 ## Kopplingar som utlösare
 Flera kopplingar skapar utlösare för Logic Apps. Dessa utlösare är av två typer:
@@ -86,6 +82,6 @@ Kopplingar kan också användas som åtgärder i din logikapp. Åtgärder är an
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

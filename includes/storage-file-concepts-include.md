@@ -39,7 +39,6 @@ Mer information om hur du namnger resurser, kataloger och filer finns i [namnge 
 
 [filkoncept]: ./media/storage-file-concepts-include/files-concepts.png
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

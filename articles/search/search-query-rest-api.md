@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Skicka frågor mot ditt Azure Search-index med hjälp av REST-API:et
 > [AZURE.SELECTOR]
 - [Översikt](search-query-overview.md)
@@ -161,6 +162,6 @@ Om du vill veta mer går du till avsnittet ”Svar” i [Söka efter dokument](h
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

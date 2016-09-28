@@ -17,6 +17,7 @@
    ms.date="03/15/2016"
    ms.author="jdial"/>
 
+
 # Skapa ett virtuellt nätverk med hjälp av Azure CLI
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
@@ -30,6 +31,6 @@
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-cli-include](../../includes/virtual-networks-create-vnet-arm-cli-include.md)]
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

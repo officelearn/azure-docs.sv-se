@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/19/2016"
    ms.author="nepeters"/>
+
 
 # Behållarhantering via webbgränssnittet
 
@@ -61,7 +62,7 @@ Protokoll        | TCP
 Om du vill mappa behållarporten statiskt till en port på agenten måste du använda JSON-läget. För att göra det växlar du guiden för nya program till **JSON-läge** med hjälp av växlingsknappen. Ange sedan följande under avsnittet `portMappings` i programmets definition. Det här exemplet binder behållarens port 80 till port 80 på DC/OS-agenten. När du har gjort den här ändringen kan du växla ur guiden ur JSON-läget.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![Nytt programgränssnitt – port 80-exempel](media/dcos/dcos13.png)
@@ -104,6 +105,6 @@ Ingående om Azure Container Service med Mesos
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

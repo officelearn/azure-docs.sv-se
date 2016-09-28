@@ -13,7 +13,6 @@ Här är ett exempel som visar hur du hämtar en anslutningssträng från en kon
 Du måste inte använda Azure Configuration Manager. Du kan också använda ett API som .NET Frameworks [ConfigurationManager-klass](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

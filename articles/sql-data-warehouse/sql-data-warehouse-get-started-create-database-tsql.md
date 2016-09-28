@@ -17,6 +17,7 @@
    ms.date="08/24/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Skapa en SQL Data Warehouse-databas med hjälp av Transact-SQL (TSQL)
 
 > [AZURE.SELECTOR]
@@ -85,6 +86,6 @@ När ditt SQL Data Warehouse är färdigetablerat, kan du [läsa in exempeldata]
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

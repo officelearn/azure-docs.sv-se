@@ -17,6 +17,7 @@
     ms.date="05/31/2016"
     ms.author="dendeli"/>
     
+
 # Push-meddelanden till geografiskt avgränsade områden med Azure Notification Hubs och Bing Spatial Data
  
  > [AZURE.NOTE] Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
@@ -384,6 +385,6 @@ För mer information om funktioner i Notification Hubs, se vår [dokumentationsp
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

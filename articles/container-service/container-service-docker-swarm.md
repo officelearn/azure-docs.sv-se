@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
+
 
 # Behållarhantering med Docker Swarm
 
@@ -125,6 +126,6 @@ Naturligtvis kan du använda `docker-compose ps` för att bara undersöka de beh
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

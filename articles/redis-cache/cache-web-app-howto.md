@@ -16,6 +16,7 @@
     ms.date="07/22/2016" 
     ms.author="sdanie"/>
 
+
 # Så här skapar du en webbapp med Redis Cache
 
 > [AZURE.SELECTOR]
@@ -852,6 +853,6 @@ När du har valt eller skapat cacheminnet du ska använda, bläddrar du till cac
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

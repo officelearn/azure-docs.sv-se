@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Distribuera och hantera en virtuell StorSimple-enhet i Azure
 
 
@@ -283,6 +284,6 @@ Om du tar bort eller stänger av den virtuella enheten visas den som **Offline**
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

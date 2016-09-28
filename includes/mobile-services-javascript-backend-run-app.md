@@ -19,7 +19,6 @@ Det sista steget i den här kursen är att skapa och köra den nya appen.
 
     ![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

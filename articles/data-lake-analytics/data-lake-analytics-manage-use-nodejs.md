@@ -4,7 +4,7 @@
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -15,6 +15,7 @@
    ms.workload="big-data"
    ms.date="05/16/2016"
    ms.author="edmaca"/>
+
 
 # Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Node.js
 
@@ -144,6 +145,7 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 - [Microsoft Azure SDK för Node.js – Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
 
-<!--HONumber=sep16_HO1-->
+
+<!--HONumber=Sep16_HO3-->
 
 

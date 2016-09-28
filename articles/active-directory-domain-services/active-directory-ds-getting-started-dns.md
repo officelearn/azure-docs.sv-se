@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="maheshu"/>
 
+
 # Azure AD Domain Services *(förhandsversion)* – Uppdatera DNS-inställningarna för det virtuella Azure-nätverket
 
 ## Uppgift 4 – Uppdatera DNS-inställningarna för det virtuella Azure-nätverket
@@ -53,6 +54,6 @@ Nästa konfigurationsåtgärd är att [aktivera lösenordssynkronisering till Az
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

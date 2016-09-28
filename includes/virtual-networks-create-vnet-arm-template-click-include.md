@@ -27,7 +27,6 @@ Du kan återanvända fördefinierade ARM-mallar som finns i en github-databas so
 
     ![Skapa VNet i preview-portalen](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

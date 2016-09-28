@@ -16,6 +16,7 @@
     ms.date="08/11/2016"
     ms.author="robmcm"/>
 
+
 # Skapa en WordPress-webbapp i Azure App Service
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -130,6 +131,6 @@ Du hittar mer information om hur du arbetar med App Service Web Apps via länkar
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

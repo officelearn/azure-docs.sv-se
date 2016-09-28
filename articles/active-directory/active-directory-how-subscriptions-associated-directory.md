@@ -16,6 +16,7 @@
     ms.date="08/15/2016"
     ms.author="curtand"/>
 
+
 # Hur Azure-prenumerationer är associerade med Azure Active Directory
 
 Det här avsnittet innehåller information om hur du loggar in i Microsoft Azure och relaterad information, till exempel relationen mellan en Azure-prenumeration och Azure AD (Active Directory Azure).
@@ -141,6 +142,6 @@ Följ stegen nedan för att hantera både kataloger på den klassiska Azure-port
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

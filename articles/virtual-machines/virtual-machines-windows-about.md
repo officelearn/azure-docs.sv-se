@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/15/2016"
+    ms.date="09/27/2016"
     ms.author="cynthn"/>
+
 
 #Om virtuella Windows-datorer i Azure
 
@@ -42,6 +43,6 @@ Eftersom den här självstudiekursen beskriver hur du skapar en virtuell dator s
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

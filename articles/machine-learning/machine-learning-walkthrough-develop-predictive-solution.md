@@ -5,7 +5,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/10/2016"
+    ms.date="09/16/2016"
     ms.author="garye"/>
+
 
 
 # Genomgång: Utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning
@@ -45,6 +46,6 @@ Den här genomgången är baserad på en förenklad version av exempelexperiment
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

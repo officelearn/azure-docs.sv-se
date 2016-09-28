@@ -90,7 +90,6 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
         info:    network vnet show command OK
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
+
 
 # Behållarhantering via REST API
 
@@ -74,8 +75,6 @@ Du kan distribuera Docker-formaterade behållare via Marathon genom att använda
 Distribuera en Docker-formaterad behållare genom att skapa en egen JSON-fil, eller använd exemplet som anges i [Azure Container Service-demon](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Lagra den på en tillgänglig plats. Kör följande kommando för att distribuera behållaren. Ange namnet på JSON-filen.
 
 ```
-# deploy container
-
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
@@ -104,8 +103,6 @@ Kör följande kommando för att skala ut programmet.
 >[AZURE.NOTE] URI:n blir http://localhost/marathon/v2/apps/ och sedan ID:t för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI:n http://localhost/marathon/v2/apps/nginx.
 
 ```json
-# scale container
-
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
@@ -149,8 +146,6 @@ Du kan distribuera Docker-formaterade behållare via Marathon genom att använda
 Skapa en egen JSON-fil eller använd exemplet som anges i [Azure Container Service-demon](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Lagra den på en tillgänglig plats. Kör följande kommando för att distribuera behållaren. Ange namnet på JSON-filen.
 
 ```powershell
-# deploy container
-
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
@@ -165,8 +160,6 @@ Kör följande kommando för att skala ut programmet.
 > [AZURE.NOTE] URI:n blir http://localhost/marathon/v2/apps/ och sedan ID:t för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI:n http://localhost/marathon/v2/apps/nginx.
 
 ```powershell
-# scale container
-
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
@@ -177,6 +170,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

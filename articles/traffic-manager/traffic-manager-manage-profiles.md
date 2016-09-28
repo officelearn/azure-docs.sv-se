@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Hantera en Azure Traffic Manager-profil
 
 Du använder en Traffic Manager-profil för att ange vilka slutpunkter för molntjänster eller webbplatser som ska övervakas av Traffic Manager och vilken trafikroutningsmetod som du vill använda för att distribuera anslutningar till dessa slutpunkter.
@@ -86,6 +87,6 @@ Du kan visa ändringshistoriken för din Traffic Manager-profil på den klassisk
 [Felsöka degraderat Traffic Manager-tillstånd](traffic-manager-troubleshooting-degraded.md)
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -40,7 +40,6 @@
 
 Klicka [här](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/) för att se en video som visar hur man slutför den minimala enhetsinstallationen.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="09/28/2015"
     ms.author="dastrock"/>
 
+
 # Skaffa en Azure Active Directory-klient
 
 I Azure Active Directory (Azure AD) representerar en [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) en organisation.  Det är en dedikerad instans av Azure AD-tjänsten som en organisation tilldelas och äger när den registrerar sig för en Microsoft-molntjänst som Azure, Microsoft Intune och Office 365.  Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter.  
@@ -67,6 +68,6 @@ Som en del av registreringen i Azure måste du ange kreditkortsinformation.  Oro
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

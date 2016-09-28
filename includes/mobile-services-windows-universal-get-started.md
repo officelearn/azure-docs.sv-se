@@ -9,7 +9,6 @@ Nedan visas skärmdumpar från den färdiga appen:
 
 Du måste slutföra den här guiden innan du genomför någon annan Mobile Services-guide för Windows Store- och Windows Phone Store-appar. 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

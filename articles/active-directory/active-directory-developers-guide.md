@@ -17,6 +17,7 @@
    ms.author="mbaldwin"/>
 
 
+
 # Utvecklarhandbok för Azure Active Directory
 
 ## Översikt
@@ -148,6 +149,6 @@ Dessa översiktliga presentationer om hur du utvecklar appar med Azure Active Di
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

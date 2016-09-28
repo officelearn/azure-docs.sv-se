@@ -24,7 +24,6 @@ De här stegen förutsätter att du är ansluten till SQL Database i Object Expl
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

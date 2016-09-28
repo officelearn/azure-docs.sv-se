@@ -3,8 +3,8 @@
     description="Den här artikeln beskriver hur du kommer igång med Azure Multi-Factor Authentication och AD FS i Windows Server 2012 R2."
     services="multi-factor-authentication"
     documentationCenter=""
-    authors="billmath"
-    manager="stevenpo"
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
 <tags
@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="08/04/2016"
-    ms.author="billmath"/>
+    ms.author="kgremban"/>
+
 
 
 # Skydda molnresurser och lokala resurser med Azure Multi-Factor Authentication Server med AD FS i Windows Server 2012 R2
@@ -88,6 +89,6 @@ Registrera adaptern genom att köra skriptet \Program Files\Multi-Factor Authent
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

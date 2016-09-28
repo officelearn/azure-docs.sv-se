@@ -16,6 +16,7 @@
    ms.date="08/11/2016"
    ms.author="yurid"/>
 
+
 # Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.
 
@@ -244,6 +245,6 @@ I det här dokumentet har du lärt dig hur du planerar integreringen av Security
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

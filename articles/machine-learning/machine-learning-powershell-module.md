@@ -5,7 +5,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="hning86"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -16,6 +16,7 @@
     ms.topic="hero-article"
     ms.date="08/05/2016"
     ms.author="garye;haining"/>
+
 
 # PowerShell-modul för Microsoft Azure Machine Learning
 
@@ -56,6 +57,7 @@ För att komma igång med Machine Learning PowerShell hämtar du [versionspakete
 PowerShell-modulen fortsätter att förbättras och expanderas under denna förhandsgranskningsperiod. Håll ett öga på [bloggen om Cortana Intelligence och Machine Learning](https://blogs.technet.microsoft.com/machinelearning/) för mer nyheter och information.
 
 
-<!--HONumber=sep16_HO1-->
+
+<!--HONumber=Sep16_HO3-->
 
 

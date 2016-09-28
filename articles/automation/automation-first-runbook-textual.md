@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="magoedte;bwren"/>
 
+
 # Min första PowerShell Workflow-runbook
 
 > [AZURE.SELECTOR] - [Grafiskt](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
@@ -165,6 +166,6 @@ Vår runbook startar för närvarande den virtuella datorn som vi hårdkodade i 
 -  Mer information om PowerShell-skriptstöd finns i [Inbyggt PowerShell-skriptstöd i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

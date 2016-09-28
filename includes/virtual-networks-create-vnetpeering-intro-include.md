@@ -7,7 +7,6 @@ VNet-peering är i offentlig förhandsvisning. För att kunna använda funktione
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
  
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

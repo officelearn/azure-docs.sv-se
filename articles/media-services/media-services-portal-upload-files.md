@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Överför filer till ett Media Services-konto med Azure-portalen 
 
 > [AZURE.SELECTOR]
@@ -61,6 +62,6 @@ Du kan nu koda överförda tillgångar. Mer information finns i [Koda tillgånga
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

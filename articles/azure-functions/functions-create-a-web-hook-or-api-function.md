@@ -15,9 +15,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/07/2016"
+   ms.date="08/30/2016"
    ms.author="glenga"/>
    
+
 # Skapa en webhook- eller en API-Azure-funktion
 
 Azure Functions är en händelsedriven beräkna-på-begäran-upplevelse med vilken du kan skapa schemalagda eller utlösta kodenheter som implementeras i ett flertal olika programmeringsspråk. Läs mer om Azure Functions i [Översikt över Azure Functions](functions-overview.md).
@@ -95,6 +96,6 @@ Beskriver tillgängliga serviceplaner för Azure Functions, inklusive den dynami
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

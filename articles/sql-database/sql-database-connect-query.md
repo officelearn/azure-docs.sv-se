@@ -19,6 +19,7 @@
 
 
 
+
 # Anslut till SQL Database med Visual Studio
 
 > [AZURE.SELECTOR]
@@ -107,6 +108,6 @@ Nu när vi har anslutit till databasen visar följande steg hur du kör en enkel
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

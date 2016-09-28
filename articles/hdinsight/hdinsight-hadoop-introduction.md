@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="cjgronlund"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -16,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/21/2016"
    ms.author="cgronlun"/>
+
 
 
 # Vad är Hadoop i molnet? En introduktion till Hadoop-ekosystem i HDInsight
@@ -271,6 +272,6 @@ Följande BI-verktyg kan vara till hjälp vid stordataanalys:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

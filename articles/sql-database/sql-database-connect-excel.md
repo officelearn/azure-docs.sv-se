@@ -19,6 +19,7 @@
     ms.author="joseidz"/>
 
 
+
 # SQL Database-självstudier: Anslut Excel till en Azure SQL-databas och skapa en rapport
 
 > [AZURE.SELECTOR]
@@ -86,6 +87,6 @@ Nu när du har etablerat anslutningen och skapat filen med data och anslutningsi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

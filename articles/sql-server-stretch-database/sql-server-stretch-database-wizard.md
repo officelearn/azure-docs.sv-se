@@ -16,6 +16,7 @@
     ms.date="08/05/2016"
     ms.author="douglasl"/>
 
+
 # Kom igång genom att köra guiden aktivera databas för Stretch
 
 Kör guiden Aktivera databas för Stretch för att konfigurera en Stretch Database.  Det här ämnet går igenom den information du behöver fylla i och de val du behöver göra i guiden.
@@ -52,7 +53,7 @@ Tabeller med många rader visas överst i den sorterade listan. Innan guiden vis
 |----------|---------------|
 |(ingen rubrik)|Markera kryssrutan i den här kolumnen om du vill aktivera Stretch för den markerade tabellen.|
 |**Namn**|Anger namn på kolumnen i tabellen.|
-|(ingen rubrik)|En symbol i den här kolumnen kan representera en varning som inte förhindrar att du aktiverar den valda tabellen för Stretch. Den kan också representera ett blockeringsproblem som hindrar dig från att aktivera den valda tabellen för Stretch, till exempel om tabellen använder en datatyp som inte stöds. Om du hovrar över symbolen så får du mer information i en knappbeskrivning. Mer information finns i [Begränsningar för Stretch Database](sql-server-stretch-database-limitations.md).|
+|(ingen rubrik)|En symbol i den här kolumnen kan representera en varning som inte\' förhindrar att du aktiverar den valda tabellen för Stretch. Den kan också representera ett blockeringsproblem som hindrar dig från att aktivera den valda tabellen för Stretch, till exempel om tabellen använder en datatyp som inte stöds. Om du hovrar över symbolen så får du mer information i en knappbeskrivning. Mer information finns i [Begränsningar för Stretch Database](sql-server-stretch-database-limitations.md).|
 |**Stretched**|Anger om tabellen redan har aktiverats för Stretch.|
 |**Migrera**|Du kan migrera en hel tabell (**Hela tabellen**) eller ange ett filter för en befintlig kolumn i tabellen. Om du vill använda en annan filterfunktion för att markera rader som ska migreras anger du filterfunktionen genom att köra ALTER TABLE-instruktionen när du har avslutat guiden. Mer information om filterfunktionen finns i [Välja rader som ska migreras med hjälp av en filterfunktion](sql-server-stretch-database-predicate-function.md). Mer information om hur du tillämpar funktionen finns i [Aktivera Stretch Database för en tabell](sql-server-stretch-database-enable-table.md) och [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**Rader**|Anger antalet rader i tabellen.|
@@ -196,6 +197,6 @@ Aktivera ytterligare tabeller för Stretch Database. Övervaka datamigrering och
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

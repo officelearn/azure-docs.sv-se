@@ -13,8 +13,9 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="08/17/2016"
+    ms.date="09/08/2016"
     ms.author="marsma"/>
+
 
 # Komma igång med Python-klienten för Azure Batch
 
@@ -23,8 +24,6 @@
 - [Python](batch-python-tutorial.md)
 
 Lär dig grunderna om [Azure Batch][azure_batch] och [Batch Python][py_azure_sdk]-klienten medan vi går igenom ett litet Batch-program skrivet i Python. Vi tittar på hur två exempelskript utnyttjar Batch-tjänsten för att bearbeta en parallell arbetsbelastning på Linux-datorer i molnet och hur de interagerar med [Azure Storage](./../storage/storage-introduction.md) för mellanlagring och hämtning av filer. Du får lära dig hur ett vanligt Batch-programarbetsflöde ser ut och får en grundläggande förståelse för de viktigaste komponenterna i Batch, t.ex. jobb, aktiviteter, pooler och beräkningsnoder.
-
-> [AZURE.NOTE] Stödet för Linux i Batch är en förhandsversion. Vissa aspekter av funktionen som beskrivs här kan ändras innan den är allmänt tillgänglig. [Programpaket](batch-application-packages.md) **stöds inte för närvarande** på Linux-beräkningsnoder.
 
 ![Arbetsflöde för Batch-lösning (grundläggande)][11]<br/>
 
@@ -40,7 +39,7 @@ Den här artikeln förutsätter att du har kunskaper om Python och att du är be
 
 ### Kodexempel
 
-[Kodexemplet] ][github_article_samples] i Python-självstudierna är ett av de många Batch-kodexemplen i [azure-batch-samples][github_samples]-databasen i GitHub. Du kan ladda ned alla exempel genom att klicka på **Klona eller ladda ned > Ladda ned ZIP** på startsidan för databasen eller genom att klicka på direktnedladdningslänken för [azure-batch-samples-master.zip][github_samples_zip]. När du har extraherat innehållet i ZIP-filen hittar du de två skripten för den här självstudiekursen i katalogen `article_samples`:
+[Kodexemplet] [github_article_samples] i Python-självstudierna är ett av de många Batch-kodexemplen i [azure-batch-samples][github_samples]-databasen i GitHub. Du kan ladda ned alla exempel genom att klicka på **Klona eller ladda ned > Ladda ned ZIP** på startsidan för databasen eller genom att klicka på direktnedladdningslänken för [azure-batch-samples-master.zip][github_samples_zip]. När du har extraherat innehållet i ZIP-filen hittar du de två skripten för den här självstudiekursen i katalogen `article_samples`:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
@@ -680,6 +679,6 @@ Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lös
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

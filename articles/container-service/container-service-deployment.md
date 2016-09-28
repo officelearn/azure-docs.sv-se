@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
+
 
 # Distribuera ett Azure Container Service-kluster
 
@@ -115,8 +116,6 @@ Skapa en Azure-resursgrupp och ett Container Service-kluster med följande komma
 > [AZURE.NOTE] När du kör det här kommandot uppmanar gränssnittet dig att ange parametervärden för distributionen.
 
 ```bash
-# sample deployment
-
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
@@ -125,18 +124,14 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 Med den här versionen av kommandot måste du interaktivt definiera parametrar. Om du vill ange parametrar, t.ex. en JSON-formaterad sträng, kan du göra det med växeln `-p`. Exempel:
 
  ```bash
- # sample deployment
-
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
- ```
+```
 
 Du kan även ange en JSON-formaterad parameterfil genom att använda växeln `-e`:
 
- ```bash
- # sample deployment
-
+```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
- ```
+```
 
 Om du vill se ett exempel på en parameterfil som heter `azuredeploy.parameters.json` kan du leta efter den med Azure Container Service-mallarna i GitHub.
 
@@ -170,10 +165,8 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 När du har skapat en resursgrupp kan du skapa klustret med nedanstående kommando. URI:n för den önskade mallen anges för parametern `-TemplateUri`. När du kör det här kommandot uppmanar PowerShell dig att ange parametervärden för distributionen.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
- ```
+```
 
 ### Ange mallparametrar
 
@@ -182,8 +175,6 @@ Om du är bekant med PowerShell vet du att du kan gå igenom tillgängliga param
 Nedan visas det fullständiga kommandot inklusive parametrar. Du kan ange egna värden för resursnamnen.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
@@ -197,6 +188,6 @@ Nu när du har ett fungerande kluster kan du visa dessa dokument för anslutning
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

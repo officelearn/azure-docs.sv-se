@@ -21,7 +21,6 @@
 
 För att se en video som visar hur du skapar en volymbehållare i din StorSimple-lösning, klickar du [här](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

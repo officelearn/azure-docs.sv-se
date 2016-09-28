@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/23/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="gusapost;tamram"/>
+
 
 
 # Komma igång med Azure Table Storage med hjälp av .NET
@@ -25,7 +26,7 @@
 
 ## Översikt
 
-Azure Table Storage är en tjänst som lagrar strukturerade NoSQL-data i molnet. Table Storage är en nyckel- och attributdatabas med en schemalös design. Eftersom Table Storage är schemalös är det enkelt att anpassa dina data i takt med att programmets behov förändras. Åtkomsten till data är snabb och kostnadseffektiv för alla typer av program. Kostnaden för Table Storage är normalt sett betydligt lägre än för motsvarande volymer med traditionell SQL. 
+Azure Table Storage är en tjänst som lagrar strukturerade NoSQL-data i molnet. Table Storage är en nyckel- och attributdatabas med en schemalös design. Eftersom Table Storage är schemalös är det enkelt att anpassa dina data i takt med att programmets behov förändras. Åtkomsten till data är snabb och kostnadseffektiv för alla typer av program. Kostnaden för Table Storage är normalt sett betydligt lägre än för motsvarande volymer med traditionell SQL.
 
 Du kan använda Table Storage för att lagra flexibla datauppsättningar, till exempel användardata för webbprogram, adressböcker, enhetsinformation och andra typer av metadata som din tjänst kräver. Du kan lagra valfritt antal enheter i en tabell, och ett lagringskonto kan innehålla valfritt antal tabeller, upp till lagringskontots kapacitetsgräns.
 
@@ -46,7 +47,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 ### Fler exempel
 
-Ytterligare exempel med Table Storage finns i [Komma igång med Azure Table Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Du kan ladda ned exempelprogrammet och köra det eller bläddra i koden på GitHub. 
+Ytterligare exempel med Table Storage finns i [Komma igång med Azure Table Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Du kan ladda ned exempelprogrammet och köra det eller bläddra i koden på GitHub.
 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -59,7 +60,7 @@ Ytterligare exempel med Table Storage finns i [Komma igång med Azure Table Stor
 
 Lägg till följande `using`-instruktioner överst i `program.cs`-filen:
 
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+    using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
@@ -83,13 +84,13 @@ Det här exemplet illustrerar hur du skapar en tabell om den inte redan finns:
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    
+
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
-        
+
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
@@ -478,6 +479,6 @@ Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar f
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

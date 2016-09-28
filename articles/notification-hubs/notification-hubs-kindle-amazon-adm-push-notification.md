@@ -16,6 +16,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Kom igång med Notification Hubs för Kindle-appar
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -284,6 +285,6 @@ Att skicka ett meddelande med hjälp av .NET:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

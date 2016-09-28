@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Katalogintegrering mellan Azure Multi-Factor Authentication och Active Directory" 
-    description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du integrerar Azure Multi-Factor Authentication Server med Active Directory så att du kan synkronisera katalogerna." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Katalogintegrering mellan Azure Multi-Factor Authentication och Active Directory"
+    description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du integrerar Azure Multi-Factor Authentication Server med Active Directory så att du kan synkronisera katalogerna."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Katalogintegrering mellan Azure MFA Server och Active Directory
 
-I avsnittet Katalogintegrering kan du konfigurera servern för integrering med Active Directory eller en annan LDAP-katalog.  På så sätt kan du konfigurera attribut för att matcha katalogschemat och ställa in automatisk synkronisering av användare. 
+I avsnittet Katalogintegrering kan du konfigurera servern för integrering med Active Directory eller en annan LDAP-katalog.  På så sätt kan du konfigurera attribut för att matcha katalogschemat och ställa in automatisk synkronisering av användare.
 
 ## Inställningar
 Som standard konfigureras Azure Multi-Factor Authentication Server att importera eller synkronisera användare från Active Directory.  På fliken kan du åsidosätta standardbeteendet och binda till en annan LDAP-katalog, en ADAM-katalog eller en särskild Active Directory-domänkontrollant.  Fliken innehåller också inställningar för användning av LDAP-autentisering via proxy eller för LDAP-bindning som ett RADIUS-mål, förautentisering för IIS-autentisering eller primär autentisering för användarportalen.  De enskilda inställningarna beskrivs i följande tabell.
@@ -126,7 +127,7 @@ Med knappen **Ta bort** kan administratören ta bort ett eller flera synkroniser
 
 >[AZURE.WARNING]När posten för ett synkroniseringsobjekt har tagits bort kan det inte återställas. Du måste lägga till posten för synkroniseringsobjektet igen om du tar bort det av misstag.
 
-Synkroniseringsobjektet eller synkroniseringsobjekten har tagits bort från Multi-Factor Auth Server.  Tjänsten Multi-Factor Auth Server kommer inte längre att bearbeta synkroniseringsobjekten. 
+Synkroniseringsobjektet eller synkroniseringsobjekten har tagits bort från Multi-Factor Auth Server.  Tjänsten Multi-Factor Auth Server kommer inte längre att bearbeta synkroniseringsobjekten.
 
 Med knapparna Flytta upp och Flytta ned kan administratören ändra ordning på synkroniseringsobjekten.  Ordningen är viktig eftersom samma användare kan vara medlem i mer än ett synkroniseringsobjekt (t.ex. en behållare och en säkerhetsgrupp).  Inställningarna som tillämpas på användaren under synkroniseringen kommer från det första synkroniseringsobjektet i listan som användaren är associerad med.  Därför bör synkroniseringsobjekten placeras i prioritetsordning.
 
@@ -139,6 +140,6 @@ Ytterligare Multi-Factor Auth-servrar kan konfigureras och fungera som ett reser
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

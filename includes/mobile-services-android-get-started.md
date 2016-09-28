@@ -40,7 +40,6 @@ Du kan köra appen med emulatorn eller med en faktisk enhet.
     ![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

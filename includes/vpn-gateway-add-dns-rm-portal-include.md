@@ -7,7 +7,6 @@ Den här inställningen låter dig ange vilken DNS-server du vill använda för 
 
     ![Anpassad DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

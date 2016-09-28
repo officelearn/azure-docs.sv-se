@@ -49,7 +49,6 @@ Om du har skapat din gatewayanslutning och vill lägga till eller ta bort IP-adr
         -RoutingWeight 10 -SharedKey 'abc123'
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

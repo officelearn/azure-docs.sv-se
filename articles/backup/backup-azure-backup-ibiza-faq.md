@@ -17,6 +17,7 @@
      ms.date="08/21/2016"
      ms.author="trinadhk; markgal; jimpark;"/>
 
+
 # Recovery Services-valv – vanliga frågor och svar
 
 > [AZURE.SELECTOR]
@@ -45,6 +46,6 @@ Säkerhetskopior av klassiska virtuella datorer i säkerhetskopieringsvalvet mig
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

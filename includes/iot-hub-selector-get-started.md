@@ -17,7 +17,6 @@ I den här självstudiekursen lär du dig att:
 - Skapa en enhetsidentitet i din IoT-hubb.
 - Skapa en simulerad enhet som skickar telemetri till serverdelen i molnet och som tar emot kommandon från serverdelen i molnet.
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

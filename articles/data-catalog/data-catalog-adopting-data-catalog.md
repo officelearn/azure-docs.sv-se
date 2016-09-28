@@ -16,6 +16,7 @@
     ms.date="07/25/2016"
     ms.author="spelluru"/>
 
+
 # Börja använda Azure Data Catalog
 Den här artikeln hjälper dig att komma igång med **Azure Data Catalog** i din organisation. Fokusera på följande tre huvudpunkter om du vill komma igång med **Azure Data Catalog** på ett smidigt sätt: fastställa en vision, identifiera viktiga användningsområden i organisationen och välja ett pilotprojekt.
 
@@ -175,6 +176,6 @@ Den här artikeln handlar om att komma igång med **Azure Data Catalog** i din o
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

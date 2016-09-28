@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
+
 # Vad finns i Azure RemoteApp-mallavbildningarna?
 
 > [AZURE.IMPORTANT]
@@ -109,6 +110,6 @@ Den här avbildningen är en utökning av den vanliga avbildningen, och innehål
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

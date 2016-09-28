@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="jroth"/>
 
+
 # Översikt över SQL Server i Azure Virtual Machines
 
 Det här ämnet beskriver dina alternativ för att köra SQL Server på virtuella Azure-datorer, tillsammans med [länkar till portalavbildningar](#option-1-deploy-a-sql-vm-per-minute-licensing) och en översikt över [vanliga uppgifter](#manage-your-sql-vm).
@@ -96,6 +97,6 @@ Har du fler frågor? Börja med att läsa [Vanliga frågor och svar om SQL Serve
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

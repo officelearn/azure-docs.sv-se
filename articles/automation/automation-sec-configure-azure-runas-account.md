@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="magoedte"/>
 
+
 # Autentisera runbooks med ett ”Kör som”-konto i Azure
 
 Det här avsnittet beskriver hur du konfigurerar ett Automation-konto från Azure-portalen med funktionen Kör som-konto för att autentisera runbooks som hanterar resurser i Azure Resource Manager eller Azure Service Management.
@@ -388,6 +389,6 @@ Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-run
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

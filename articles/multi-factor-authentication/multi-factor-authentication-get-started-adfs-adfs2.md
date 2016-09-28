@@ -1,20 +1,21 @@
-<properties 
-    pageTitle="Skydda molnet och lokala resurser med Azure Multi-Factor Authentication Server med AD FS 2.0" 
-    description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och AD FS 2.0." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Skydda molnet och lokala resurser med Azure Multi-Factor Authentication Server med AD FS 2.0"
+    description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och AD FS 2.0."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 # Skydda molnet och lokala resurser med Azure Multi-Factor Authentication Server med AD FS 2.0
 
 Om din organisation är federerad med Azure Active Directory och du har resurser som är lokala eller i molnet som du vill skydda, kan du göra det med hjälp av Azure Multi-Factor Authentication Server och konfigurera tjänsten för AD FS så att multifaktorautentisering används för värdefulla slutpunkter.
@@ -23,7 +24,7 @@ Den här dokumentationen beskriver hur du använder Azure Multi-Factor Authentic
 
 
 ## AD FS 2.0-proxyserver
-Om du vill skydda AD FS 2.0 med en proxy installerar du Azure Multi-Factor Authentication Server på ADFS-proxyservern och konfigurerar servern genom att följa stegen nedan. 
+Om du vill skydda AD FS 2.0 med en proxy installerar du Azure Multi-Factor Authentication Server på ADFS-proxyservern och konfigurerar servern genom att följa stegen nedan.
 
 ### Så här skyddar du AD FS 2.0 med en proxy
 
@@ -63,7 +64,7 @@ Om du vill skydda AD FS 2.0 med en proxy installerar du Azure Multi-Factor Authe
 
 ## AD FS 2.0 direkt utan någon proxy
 
-Om du vill skydda AD FS när AD FS-proxyn inte används installerar du Azure Multi-Factor Authentication Server på AD FS-servern och konfigurera servern genom att följa stegen nedan. 
+Om du vill skydda AD FS när AD FS-proxyn inte används installerar du Azure Multi-Factor Authentication Server på AD FS-servern och konfigurera servern genom att följa stegen nedan.
 
 ### Så här skyddar du AD FS 2.0 utan en proxy
 1. Klicka på ikonen för IIS-autentisering på den vänstra menyn i Azure Multi-Factor Authentication Server.
@@ -80,7 +81,7 @@ Om du vill skydda AD FS när AD FS-proxyn inte används installerar du Azure Mul
 
 
 ## Tillförlitliga IP-adresser
-Tillförlitliga IP-adresser låter användarna kringgå Azure Multi-Factor Authentication för webbplatsförfrågningar som kommer från specifika IP-adresser eller undernät. Du kanske till exempel vill undanta användare från Azure Multi-Factor Authentication när de loggar in från kontoret. För att göra det anger du kontorets undernät som en tillförlitlig IP-adress. 
+Tillförlitliga IP-adresser låter användarna kringgå Azure Multi-Factor Authentication för webbplatsförfrågningar som kommer från specifika IP-adresser eller undernät. Du kanske till exempel vill undanta användare från Azure Multi-Factor Authentication när de loggar in från kontoret. För att göra det anger du kontorets undernät som en tillförlitlig IP-adress.
 
 ### Så här konfigurerar du tillförlitliga IP-adresser
 
@@ -93,10 +94,8 @@ Tillförlitliga IP-adresser låter användarna kringgå Azure Multi-Factor Authe
 
 <center>![Konfiguration](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
- 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

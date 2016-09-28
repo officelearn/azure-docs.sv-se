@@ -52,7 +52,6 @@ Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push-meddelande 
 
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

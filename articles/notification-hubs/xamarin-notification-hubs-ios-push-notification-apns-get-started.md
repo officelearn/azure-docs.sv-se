@@ -17,6 +17,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # iOS-pushmeddelanden med Notification Hubs för Xamarin-appar
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -190,7 +191,7 @@ Du kan testa att ta emot push-meddelanden i appen genom att skicka meddelanden i
 
 Push-meddelanden skickas vanligtvis via en serverdelstjänst som Mobile Services eller ASP.NET med hjälp av ett kompatibelt bibliotek. Du kan också använda REST-API:er direkt för att skicka push-meddelanden om ett bibliotek inte är tillgängligt i ditt scenario. 
 
-I den här enkla självstudiekursen visas hur du testar klientappen genom att skicka meddelanden med .NET SDK för meddelandehubbar i en konsolapp i stället för med en serverdelstjänst. Vi rekommenderar att du går vidare med självstudierna [Använda Notification Hubs för att skicka push-meddelanden till användare](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) som nästa steg i att skicka meddelanden från en ASP.NET-serverdel. Följande åtgärder kan dock användas för att skicka meddelanden:
+I den här enkla självstudiekursen visas hur du testar klientappen genom att skicka meddelanden med .NET SDK för meddelandehubbar i en konsolapp i stället för med en serverdelstjänst. Vi rekommenderar att du går vidare med självstudiekursen [Använda Notification Hubs för att skicka push-meddelanden till användare](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) som nästa steg i att skicka meddelanden från en ASP.NET-serverdel. Följande åtgärder kan dock användas för att skicka meddelanden:
 
 * **REST-gränssnitt**: Du kan använda push-meddelanden på alla serverdelsplattformar med [REST-gränssnittet](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
@@ -331,6 +332,6 @@ I det här enkla exemplet skickade du push-meddelanden till alla dina iOS-enhete
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

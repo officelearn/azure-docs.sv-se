@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS" 
-    description="Det här är sidan om Azure Multi-Factor-autentisering som beskriver hur du distribuerar Fjärrskrivbordsgateway (RDG) och Azure Multi-Factor Authentication Server med RADIUS." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS"
+    description="Det här är sidan om Azure Multi-Factor-autentisering som beskriver hur du distribuerar Fjärrskrivbordsgateway (RDG) och Azure Multi-Factor Authentication Server med RADIUS."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS
 
@@ -55,12 +56,12 @@ Azure Multi-Factor Authentication Server är konfigurerat som en RADIUS-proxy me
 1. Öppna Azure Multi-Factor Authentication Server och klicka på ikonen för RADIUS-autentisering. Markera kryssrutan Aktivera RADIUS-autentisering.
 2. På fliken Klienter kontrollerar du att portarna matchar NPS-konfigurationen och klickar sedan på Lägg till. Lägg till RDG-serverns IP-adress, programnamnet (valfritt) och en delad hemlighet. Den delade hemligheten måste vara samma på både Azure Multi-Factor Authentication-servern och Fjärrskrivbordsgatway.
 3. Klicka på fliken Mål och välj alternativknappen för RADIUS-servern eller RADIUS-servrarna.
-4. Klicka på Lägg till. Ange IP-adressen, den delade hemligheten och portarna för NPS-servern. Om du använder en central NPS-server är RADIUS-klienten och RADIUS-målet samma. Den delade hemligheten måste matcha den som konfigurerats i avsnittet RADIUS-klient på NPS-servern. 
+4. Klicka på Lägg till. Ange IP-adressen, den delade hemligheten och portarna för NPS-servern. Om du använder en central NPS-server är RADIUS-klienten och RADIUS-målet samma. Den delade hemligheten måste matcha den som konfigurerats i avsnittet RADIUS-klient på NPS-servern.
 
 ![RADIUS-autentisering](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

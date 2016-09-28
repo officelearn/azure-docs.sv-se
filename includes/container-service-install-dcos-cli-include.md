@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Containers, Micro-services, DC/OS, Azure"/>
+   keywords="Behållare, Micro-tjänster, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -17,6 +17,7 @@
    ms.workload="na"
    ms.date="05/10/2016"
    ms.author="rogardle"/>
+
 
 >[AZURE.NOTE] Det här är för att arbeta med DC/OS-baserade ACS-kluster. Du behöver inte göra det här för Swarm-baserade ACS-kluster.
 
@@ -47,6 +48,6 @@ dcos --help
 ```
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

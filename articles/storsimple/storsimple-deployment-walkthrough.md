@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Distribuera din lokala StorSimple-enhet
 
 > [AZURE.SELECTOR]
@@ -296,6 +297,6 @@ Utför följande steg i den klassiska Azure-portalen för att på begäran kunna
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

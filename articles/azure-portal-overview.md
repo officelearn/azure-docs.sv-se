@@ -16,6 +16,7 @@
     ms.date="12/16/2015"
     ms.author="dwrede"/>
 
+
 # Översikt över Microsoft Azure Portal
 
 Microsoft Azure Portal är en central plats där du kan etablera och hantera dina Azure-resurser.  I den här kursen får du bekanta dig med portalen och lära dig hur du kan använda några av dessa viktiga funktioner:
@@ -100,6 +101,6 @@ Microsoft Azure Portal gör det betydligt enklare att bygga och hantera dina pro
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

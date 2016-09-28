@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="karavar"
-    manager="stevenpo"
+    manager="femila"
     editor="karavar"/>
 
 <tags
@@ -15,6 +15,7 @@
     ms.topic="get-started-article"
     ms.date="07/14/2016"
     ms.author="vakarand"/>
+
 
 # Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet
 
@@ -127,6 +128,6 @@ På Azure AD Connect Health-portalen kan du visa varningar, övervaka prestanda 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

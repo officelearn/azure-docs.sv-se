@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="09/26/2016"
    ms.author="chmatsk;tomfitz"/>
+
 
 # Arbeta med Azure Resource Manager-mallar i Visual Studio Code
 
@@ -138,6 +139,6 @@ När mallen är redo kan du distribuera de nya resurserna genom att följa anvis
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -32,7 +32,6 @@
 8. Anteckna **API-NYCKEL**-värdet. Du använder API-nyckelvärdet senare för att konfigurera i avsnittet ”Systemspecifik push-avisering”. Klicka på **Klar**.
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -76,7 +76,6 @@ När enheten har registrerats och inte är online, kan du köra `Test-HcsmConnec
 
 För att se på en video som visar hur du konfigurerar och registrerar din enhet via Windows PowerShell för StorSimple, klickar du [här](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

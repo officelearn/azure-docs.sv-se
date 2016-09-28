@@ -16,6 +16,7 @@
    ms.date="07/28/2016"
    ms.author="narayan" />
 
+
 # VNet-peering
 
 VNet-peering är en mekanism som ansluter två virtuella nätverk i samma region via Azures stamnätverk. När de två virtuella nätverken har peer-kopplats visas de som ett nätverk för alla anslutningsändamål. De hanteras fortfarande som separata resurser, men virtuella datorer i dessa virtuella nätverk kan kommunicera med varandra direkt med hjälp av privata IP-adresser.
@@ -90,6 +91,6 @@ VNet-peering är kostnadsfritt under granskningsperioden. När funktionen lanser
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

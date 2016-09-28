@@ -3,7 +3,7 @@
    description="Läs mer om vad PolyBase är och hur man använder det för informationslagerscenarier."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="happynicolle"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="nicw;barbkess;jrj;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
+
 
 
 # Läs in data med PolyBase i SQL Data Warehouse
@@ -287,6 +288,6 @@ Se [PolyBase-guiden][] för ytterligare information som du bör känna till när
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

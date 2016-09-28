@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Komma igång med att leverera innehåll på begäran med hjälp av Azure Portal
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -234,6 +235,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -22,7 +22,6 @@
 
 Titta på en video som visar hur du hämtar nyckeln för tjänstregistrering, genom att klicka [här](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

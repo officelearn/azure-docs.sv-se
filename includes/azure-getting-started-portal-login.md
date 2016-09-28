@@ -32,7 +32,6 @@ Använd din [befintliga prenumeration]( https://account.windowsazure.com/Home/In
    ![Logga in](./media/azure-getting-started-portal-login/login.png)
 
 
-
-<!--HONumber=sep12_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

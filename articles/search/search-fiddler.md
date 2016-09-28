@@ -13,8 +13,9 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="06/08/2016"
+    ms.date="08/08/2016"
     ms.author="heidist"/>
+
 
 # Utvärdera och testa REST-API:erna för Azure Search med hjälp av Fiddler
 > [AZURE.SELECTOR]
@@ -241,6 +242,6 @@ Avsnittet [Hantera din Search-tjänst i Azure](search-manage.md) innehåller inf
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

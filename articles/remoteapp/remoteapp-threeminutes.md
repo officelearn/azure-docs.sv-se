@@ -18,6 +18,7 @@
 
 
 
+
 # Testa Azure RemoteApp på din enhet i 3 minuter eller mindre
 
 > [AZURE.IMPORTANT]
@@ -40,6 +41,6 @@ Din åsikt är viktig. I slutet av varje session visas en dialogruta för din fe
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

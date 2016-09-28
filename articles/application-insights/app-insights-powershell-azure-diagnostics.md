@@ -15,6 +15,7 @@
     ms.date="11/17/2015"
     ms.author="awills"/>
 
+
 # Skicka Azure Diagnostics-data till Application Insights med hjälp av PowerShell
 
 [Microsoft Azure](https://azure.com) kan [konfigureras att skicka Azure Diagnostics-data](app-insights-azure-diagnostics.md) till [Visual Studio Application Insights](app-insights-overview.md). Diagnostiken gäller Azure Cloud Services och virtuella datorer i Azure. De kompletterar telemetrin som du skickar inifrån appen med hjälp av Application Insights SDK. Som en del av automatiseringen av processen för att skapa nya resurser i Azure kan du konfigurera diagnostik med hjälp av PowerShell.
@@ -120,6 +121,6 @@ Så här tar du bort diagnostiktillägget från varje enskild roll:
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

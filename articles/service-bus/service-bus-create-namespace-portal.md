@@ -16,6 +16,7 @@
     ms.date="08/22/2016"
     ms.author="jotaub"/>
 
+
 # Skapa ett Service Bus-namnområde med Azure Portal
 
 Ett namnområde är en gemensam behållare för alla dina meddelandekomponenter. Flera köer och ämnen kan finnas i ett enda namnområde och namnområden fungerar ofta som programbehållare. Det finns för närvarande två sätt att skapa ett Service Bus-namnområde.
@@ -34,10 +35,10 @@ Grattis! Du har nu skapat ett namnområde för meddelandetjänsten i Service Bus
 
 Kolla in våra [GitHub-databaser](https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples) med exempel som visar några av de mer avancerade funktionerna i meddelandetjänsten i Azure Service Bus.
 
-[create-namespace-using-arm]: ./service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

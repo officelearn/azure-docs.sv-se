@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Ladda upp data till Azure Search
 > [AZURE.SELECTOR]
 - [Översikt](search-what-is-data-import.md)
@@ -47,6 +48,6 @@ Indexerarfunktionen exponeras på [Azure Portal](search-import-data-portal.md) s
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

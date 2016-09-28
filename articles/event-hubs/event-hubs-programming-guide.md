@@ -15,6 +15,7 @@
     ms.date="08/16/2016"
     ms.author="sethm" />
 
+
 # Programmeringsguide för händelsehubbar
 
 Den här artikeln beskriver programmering med händelsehubbar i Azure med Azure .NET SDK. Den förutsätter att du har en grundläggande förståelse av händelsehubbar. En konceptuell översikt av händelsehubbar finns på [Översikt av händelsehubbar](event-hubs-overview.md).
@@ -187,6 +188,6 @@ Mer information om scenarier i händelsehubbar finns i följande länkar:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

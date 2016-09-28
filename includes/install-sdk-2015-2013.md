@@ -7,7 +7,6 @@ Om du inte har Visual Studio installerat, kan du använda länken för Visual St
 >[AZURE.NOTE] Beroende på hur många av SDK-beroendena du redan har på datorn kan det ta lång tid att installera SDK, från några minuter till drygt en halvtimme.
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

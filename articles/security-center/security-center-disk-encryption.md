@@ -16,6 +16,7 @@
    ms.date="05/27/2016"
    ms.author="tomsh"/>
 
+
 # Kryptera en virtuell Azure-dator
 Azure Security Center varnar dig om du har virtuella datorer som inte är krypterade. Dessa aviseringar visas med hög angelägenhetsgrad och rekommendationen är att kryptera dessa virtuella datorer.
 
@@ -114,7 +115,7 @@ Bekräfta att rätt resursgruppsnamn har angetts genom att skriva följande i ko
 
 **$resourceGroupName**
 
-Tryck på **RETUR**. Du bör se namnet på resursgruppen som de virtuella datorerna finns i. Till exempel:
+Tryck på **RETUR**. Du bör se namnet på resursgruppen som de virtuella datorerna finns i. Några exempel:
 
 ![PowerShell-utdata](./media/security-center-disk-encryption\security-center-disk-encryption-fig6.png)
 
@@ -130,7 +131,7 @@ Bekräfta att rätt namn har angetts för den virtuella datorn genom att skriva:
 
 **$vmName**
 
-Tryck på **RETUR**. Du bör se namnet på den virtuella datorn som du vill kryptera. Till exempel:
+Tryck på **RETUR**. Du bör se namnet på den virtuella datorn som du vill kryptera. Några exempel:
 
 ![PowerShell-utdata](./media/security-center-disk-encryption\security-center-disk-encryption-fig7.png)
 
@@ -171,11 +172,11 @@ I det här dokumentet beskrivs hur du krypterar en virtuell dator i Azure. I fö
 
 - [Säkerhetshälsoövervakning i Azure Security Center](security-center-monitoring.md)  – Här kan du läsa om hur du övervakar dina Azure-resursers hälsa
 - [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar
-- [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här finns vanliga frågor om tjänsten
-- [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+- [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om tjänsten.
+- [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

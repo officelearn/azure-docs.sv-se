@@ -15,6 +15,7 @@
  ms.date="08/18/2016"
  ms.author="krisragh"/>
 
+
 # Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler
 
 ## Entitetshierarki i Scheduler
@@ -220,6 +221,6 @@ Om du vill ange en återförsöksprincip kan du ange ytterligare två inställni
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

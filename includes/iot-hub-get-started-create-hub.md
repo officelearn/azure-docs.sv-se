@@ -44,7 +44,6 @@ Skapa en IoT-hubb som din simulerade enhet kan ansluta till. Följande steg visa
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

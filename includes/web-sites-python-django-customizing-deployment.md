@@ -34,7 +34,6 @@ Om de här filerna inte finns så skapar Azure ett tillfälligt distributionsskr
 [Azure-kommandoradsgränssnittet]: http://azure.microsoft.com/downloads/
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="07/22/2016"
     ms.author="wesmc"/>
 
+
 # Skicka push-meddelanden till Chrome-appar med Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -480,6 +481,6 @@ Om du vill dela in användarna efter intressegrupper, kan du gå till självstud
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

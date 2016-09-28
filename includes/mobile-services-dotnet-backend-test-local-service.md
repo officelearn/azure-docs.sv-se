@@ -7,7 +7,6 @@ Projektet för mobiltjänsten låter dig köra din nya mobiltjänst lokalt. Dett
 2. Tryck på **F5** för att omkompilera projektet och starta mobiltjänsten lokalt. En webbsida visas när mobiltjänsten startats.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

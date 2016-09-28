@@ -18,6 +18,7 @@
    ms.date="06/05/2016"
    ms.author="glenga"/>
    
+
 # Skapa en Azure-funktion för händelsebearbetning
 
 Azure Functions är en händelsedriven beräkna-på-begäran-upplevelse med vilken du kan skapa schemalagda eller utlösta kodenheter som implementeras i ett flertal olika programmeringsspråk. Läs mer om Azure Functions i [Översikt över Azure Functions](functions-overview.md).
@@ -86,6 +87,6 @@ Beskriver tillgängliga serviceplaner för Azure Functions, inklusive den dynami
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

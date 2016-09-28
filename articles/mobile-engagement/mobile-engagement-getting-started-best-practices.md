@@ -16,6 +16,7 @@
     ms.date="07/07/2016"
     ms.author="wesmc;ricksal"/>
 
+
 # Azure Mobile Engagement – Komma igång med bästa praxis
 
 ## Översikt
@@ -409,6 +410,6 @@ När du har fått en viss erfarenhet bör du överväga att lägga till följand
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

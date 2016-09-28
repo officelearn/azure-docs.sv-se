@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="kgremban"/>
 
+
 # Aktivera Application Proxy på Azure-portalen
 
 I den här artikeln beskrivs steg för steg hur du aktiverar Microsoft Azure AD Application Proxy för din molnkatalog i Azure AD.
@@ -92,6 +93,6 @@ Om du har program som finns på olika nätverk eller olika platser kan du använ
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

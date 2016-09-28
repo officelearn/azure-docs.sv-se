@@ -16,6 +16,7 @@
     ms.date="07/18/2016"
     ms.author="curtand;jeffsta"/>
 
+
 # Lägga till ett eget domännamn i Azure Active Directory
 
 Du kan konfigurera ett anpassat domännamn, t.ex contoso.com, så att användare i contoso.com kan använda federerad enkel inloggning från företagsnätverket. Om du redan har AD FS (Active Directory Federation Services) eller en annan federationsserver som körs i företagets nätverk kan du konfigurera Azure AD att använda ditt anpassade domännamn med verktyget Azure AD Connect. Du kan också använda Azure AD Connect för att distribuera en ny AD FS-miljö och konfigurera den för federerad enkel inloggning till Azure AD.
@@ -38,7 +39,7 @@ Kör verktyget Azure AD Connect för att hämta DNS-posten som Azure AD ska anv�
 
 ## Lägga till DNS-posten hos domännamnsregistratorn för domänen
 
-Nästa steg för att använda ditt anpassade domännamn med Azure AD är att uppdatera DNS-zonfilen för domänen. Detta gör att Azure AD kan kontrollera att din organisation äger det anpassade domännamnet.
+Nästa steg mot att kunna använda ditt anpassade domännamn med Azure AD är att du uppdaterar domänens DNS-zonfil. Detta gör att Azure AD kan kontrollera att din organisation äger det anpassade domännamnet.
 
 1. Logga in på webbplatsen för domännamnsregistratorn för ditt domännamn. Om du inte har nödvändig åtkomst ber du den person eller det team i din organisation som har den här åtkomsten att utföra steg 2 och att meddela dig när det är klart.
 
@@ -56,17 +57,17 @@ Fortsätt sedan med de återstående stegen i Azure AD Connect-guiden. I dessa s
 
 ## Felsökning
 
-Om du inte kan verifiera ett anpassat domännamn provar du följande. Vi börjar med de vanligaste och arbetar oss vidare till de minst vanliga.
+Om du inte kan verifiera ett anpassat domännamn så pröva med följande. Vi börjar med de vanligaste och arbetar oss vidare till de minst vanliga.
 
-1.  **Vänta en timme**. DNS-posterna måste distribueras innan Azure AD kan verifiera domänen. Detta kan ta en timme eller mer.
+1.  **Vänta en timma**. DNS-posterna måste spridas innan Azure AD kan verifiera domänen. Detta kan ta en timma eller mer.
 
-2.  **Kontrollera att DNS-posten har angetts och att den är korrekt**. Utför det här steget på webbplatsen för domännamnsregistratorn för domänen. Azure AD kan inte verifiera domännamnet om DNS-posten inte finns i DNS-zonfilen, eller om den inte är en exakt matchning med DNS-posten från Azure AD. Om du inte har behörighet att uppdatera DNS-poster för domänen hos domännamnsregistratorn delar du DNS-posten med den person eller det team i din organisation som har nödvändig åtkomst och ber dem att lägga till DNS-posten.
+2.  **Kontrollera att DNS-posten har angetts och att den är korrekt**. Utför det här steget på webbplatsen för domännamnsregistratorn för domänen. Azure AD kan inte verifiera domännamnet om DNS-posten inte finns i DNS-zonfilen, eller om den inte exakt matchar DNS-posten från Azure AD. Om du inte har den åtkomst som krävs för att uppdatera DNS-poster för domänen hos domännamnsregistratorn så dela DNS-posten med den person eller grupp i din organisation som har den åtkomst som krävs och be dem att lägga till DNS-posten.
 
-3.  **Ta bort domännamnet från en annan katalog i Azure AD**. Ett domännamn kan bara verifieras i en enskild katalog. Om ett domännamn tidigare verifierades i en annan katalog måste det tas bort där innan det kan verifieras i din nya katalog. Mer information om hur du tar bort domännamn finns i [Hantera anpassade domännamn](active-directory-add-manage-domain-names.md).
+3.  **Ta bort domännamnet från en annan katalog i Azure AD**. Ett domännamn kan bara verifieras i en enskild katalog. Om ett domännamn tidigare verifierades i en annan katalog måste du ta bort det därifrån innan du kan verifiera det i din nya katalog. Mer information om hur du tar bort domännamn finns i [Hantera anpassade domännamn](active-directory-add-manage-domain-names.md).
 
 ## Lägga till fler anpassade domännamn
 
-Om din organisation använder flera anpassade domännamn, till exempel ”contoso.com” och ”contosobank.com”, kan du lägga till dem. Du kan lägga till upp till 900 domännamn. Följ samma steg i den här artikeln för att lägga till vart och ett av dina domännamn.
+Om din organisation använder flera anpassade domännamn, t.ex. contoso.com och contosobank.com, kan du lägga till dem. Du kan lägga till upp till 900 domännamn. Lägg till vart och ett av dina domännamn genom att följa samma steg i den här artikeln.
 
 ## Nästa steg
 
@@ -77,6 +78,6 @@ Om din organisation använder flera anpassade domännamn, till exempel ”contos
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

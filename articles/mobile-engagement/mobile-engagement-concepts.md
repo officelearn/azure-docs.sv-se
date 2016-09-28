@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Koncept i Azure Mobile Engagement
 
 Mobile Engagement har definierat några koncept som är gemensamma för alla plattformar som stöds. I den här artikeln beskrivs koncepten kortfattat.
@@ -87,6 +88,6 @@ Hela trädet med nyckel-/värdepar lagras som ett JSON-objekt. Endast den först
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="01/04/2016"
     ms.author="piyushjo;matt-gibbs" />
 
+
 #Översikt över Azure Mobile Engagement
 
 Azure Mobile Engagement är en plattform som erbjuder programvara som en tjänst (Software-as-a-Service, SaaS). Den främjar interaktion med användare, tillhandahåller datadriven statistik för appanvändning, användarsegmentering i realtid, sammanhangskänsliga push-meddelanden och meddelanden i appen.
@@ -53,6 +54,6 @@ Microsoft bedriver ett långsiktigt sekretessarbete eftersom integritet utgör e
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

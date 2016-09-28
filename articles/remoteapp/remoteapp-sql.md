@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # SQL Azure med Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -56,6 +57,6 @@ Det kan finnas flera skäl till att det verkar gå långsamt att använda ett kl
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="08/31/2016" 
     ms.author="sethm"/>
 
+
 # Azure Service Bus
 
 Oavsett om en app eller tjänst körs i molnet eller lokalt, måste den ofta samverka med andra program eller tjänster. Microsoft Azure tillhandahåller Service Bus för att du ska kunna göra detta på ett fritt och praktiskt sätt. I den här artikeln tar vi en titt på denna teknik och beskriver vad den är och varför du kanske vill använda den.
@@ -122,6 +123,6 @@ Nu när du har lärt dig grunderna om Azure Service Bus, kan du följa dessa lä
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

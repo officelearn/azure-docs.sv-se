@@ -16,6 +16,7 @@
     ms.date="08/01/2016"
     ms.author="tomfitz"/>
 
+
 # Anpassa en exporterad Azure Resource Manager-mall.
 
 Den här artikeln visar hur du ändrar en exporterad mall så att du kan skicka in ytterligare värden som parametrar. Den bygger på stegen i artikeln [Exportera en Resource Manager-mall](resource-manager-export-template.md), men det är inget krav att du har gått igenom stegen i den artikeln först. Du hittar den nödvändiga mallen och skripten i den här artikeln.
@@ -236,6 +237,6 @@ Båda alternativen visas i den här artikeln.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

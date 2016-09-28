@@ -6,7 +6,6 @@ I det här scenariot skapar du en peering mellan två VNets med namnet **VNet1**
 
 VNet-peering tillåter fullständig anslutningen mellan hela adressutrymmet av peerkopplade virtuella nätverk.    
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

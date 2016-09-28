@@ -16,6 +16,7 @@
     ms.date="08/03/2016"
     ms.author="tomfitz"/>
 
+
 # Exportera en Azure Resource Manager-mall från befintliga resurser
 
 Med Resource Manager kan du exportera en Resource Manager-mall från befintliga resurser i din prenumeration. Du kan använda mallen som genereras för att lära dig mer om mallsyntaxen eller för att automatisera omdistributionen av din lösning om det behövs.
@@ -306,6 +307,6 @@ Grattis! Nu vet du hur du exporterar en mall från resurser som du har skapat p�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

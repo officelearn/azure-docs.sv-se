@@ -16,6 +16,7 @@
    ms.date="08/25/2016"
    ms.author="yurid"/>
 
+
 # Identifieringsfunktioner i Azure Security Center
 Det här dokumentet beskriver de avancerade identifieringsfunktionerna i Azure Security Center, som hjälper dig att identifiera aktiva hot mot dina Microsoft Azure-resurser och som ger dig de insikter som du behöver för att reagera snabbt.
 
@@ -90,6 +91,6 @@ I det här dokumentet har vi tittat på identifieringsfunktionerna i Azure Secur
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

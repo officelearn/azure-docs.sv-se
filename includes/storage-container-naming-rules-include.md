@@ -12,7 +12,6 @@ Ett behållarnamn måste vara ett giltigt DNS-namn som överensstämmer med föl
 
 > [AZURE.IMPORTANT] Observera att behållarnamn får innehålla endast gemener. Om du tar med en versal i ett behållarnamn, eller på annat sätt bryter mot namngivningsreglerna, kan du få ett 400-fel (felaktig begäran). 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,26 +1,27 @@
 <properties 
-    pageTitle="Komma igång med webbtjänsten MFA Server Mobile App" 
-    description="Azure Multi-Factor Authentication-appen erbjuder ett autentiseringsalternativ utanför IP-nätverket.  Med det här alternativet kan MFA-servern skicka push-meddelanden till användarna." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Komma igång med webbtjänsten MFA Server Mobile App"
+    description="Azure Multi-Factor Authentication-appen erbjuder ett autentiseringsalternativ utanför IP-nätverket.  Med det här alternativet kan MFA-servern skicka push-meddelanden till användarna."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Komma igång med webbtjänsten MFA Server Mobile App
 
-Azure Multi-Factor Authentication-appen erbjuder ett autentiseringsalternativ utanför IP-nätverket. I stället för ett automatiserat telefonsamtal eller SMS till användaren vid inloggningen skickar Azure Multi-Factor Authentication ett meddelande till Azure Multi-Factor Authentication-appen på användarens smartphone eller surfplatta. Användaren trycker bara på ”Autentisera” (eller anger en PIN-kod och trycker på ”Autentisera”) i appen för att logga in. 
+Azure Multi-Factor Authentication-appen erbjuder ett autentiseringsalternativ utanför IP-nätverket. I stället för ett automatiserat telefonsamtal eller SMS till användaren vid inloggningen skickar Azure Multi-Factor Authentication ett meddelande till Azure Multi-Factor Authentication-appen på användarens smartphone eller surfplatta. Användaren trycker bara på ”Autentisera” (eller anger en PIN-kod och trycker på ”Autentisera”) i appen för att logga in.
 
-För att du ska kunna använda Azure Multi-Factor Authentication-appen krävs följande så att appen kan kommunicera med Mobile App-webbtjänsten: 
+För att du ska kunna använda Azure Multi-Factor Authentication-appen krävs följande så att appen kan kommunicera med Mobile App-webbtjänsten:
 
 - Information om maskin- och programvarukraven finns i avsnittet Maskin- och programvarukrav.
 - Du måste använda v6.0 eller senare av Azure Multi-Factor Authentication Server.
@@ -44,25 +45,25 @@ Om du installerar användarportalen på en annan server än Azure Multi-Factor A
 
 ## Installera webbtjänst-SDK
 
-Om Azure Multi-Factor Authentication webbtjänst-SDK inte redan är installerat på Azure Multi-Factor Authentication-servern går du till den servern och öppnar Azure Multi-Factor Authentication-servern. Klicka på ikonen för webbtjänst-SDK, klicka på Installera webbtjänst-SDK och följ instruktionerna. Webbtjänst-SDK måste skyddas med ett SSL-certifikat. Ett självsignerat certifikat kan användas för detta ändamål, men det måste importeras till arkivet ”Betrodda rotcertifikatutfärdare” för det lokala datorkontot på webbservern för användarportalen så att det litar på certifikatet när SSL-anslutningen initieras. 
+Om Azure Multi-Factor Authentication webbtjänst-SDK inte redan är installerat på Azure Multi-Factor Authentication-servern går du till den servern och öppnar Azure Multi-Factor Authentication-servern. Klicka på ikonen för webbtjänst-SDK, klicka på Installera webbtjänst-SDK och följ instruktionerna. Webbtjänst-SDK måste skyddas med ett SSL-certifikat. Ett självsignerat certifikat kan användas för detta ändamål, men det måste importeras till arkivet ”Betrodda rotcertifikatutfärdare” för det lokala datorkontot på webbservern för användarportalen så att det litar på certifikatet när SSL-anslutningen initieras.
 
 <center>![Konfiguration](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)</center>
 
 ## Installera webbtjänsten Mobile App
 Tänk på följande innan du installerar Mobile App-webbtjänsten:
 
-- Om Azure Multi-Factor Authentication-användarportalen redan är installerad på den Internetuppkopplade servern kan användarnamnet, lösenordet och URL:en för webbtjänst-SDK kopieras från användarportalens web.config-fil. 
+- Om Azure Multi-Factor Authentication-användarportalen redan är installerad på den Internetuppkopplade servern kan användarnamnet, lösenordet och URL:en för webbtjänst-SDK kopieras från användarportalens web.config-fil.
 - Det kan vara bra att öppna en webbläsare på den Internetuppkopplade webbservern och gå till URL:en för webbtjänst-SDK som har angetts i web.config-filen. Om webbläsaren kan ansluta till webbtjänsten bör du uppmanas att ange dina autentiseringsuppgifter. Ange användarnamnet och lösenordet som har angetts i web.config-filen exakt som de visas i filen. Se till att inga certifikatvarningar eller fel visas.
-- Om det finns en omvänd proxy eller brandvägg framför webbservern för Mobile App-webbtjänsten som utför SSL-avlastning kan du redigera filen web.config för Mobile App-webbtjänsten och lägga till följande nyckel i avsnittet <appSettings> så att Mobile App-webbtjänsten kan använda http i stället för https. SSL krävs dock fortfarande från Mobile App till brandväggen/den omvända proxyn. <add key="SSL_REQUIRED" value="false"/> 
+- Om det finns en omvänd proxy eller brandvägg framför webbservern för Mobile App-webbtjänsten som utför SSL-avlastning kan du redigera filen web.config för Mobile App-webbtjänsten och lägga till följande nyckel i avsnittet <appSettings> så att Mobile App-webbtjänsten kan använda http i stället för https. SSL krävs dock fortfarande från Mobile App till brandväggen/den omvända proxyn. <add key="SSL_REQUIRED" value="false"/>
 
 ### Så här installerar du Mobile App-webbtjänsten
 
 <ol>
-<li>Öppna Utforskaren på Azure Multi-Factor Authentication-servern och navigera till mappen där Azure Multi-Factor Authentication Server är installerat (t.ex. C:\Program\Microsoft Files\Azure Multi-Factor Authentication). Välj 32- eller 64-bitarsversionen av Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup-installationsfilen beroende på vilken typ av server som Mobile App-webbtjänsten ska installeras på. Kopiera installationsfilen till den Internetuppkopplade servern.</li> 
+<li>Öppna Utforskaren på Azure Multi-Factor Authentication-servern och navigera till mappen där Azure Multi-Factor Authentication Server är installerat (t.ex. C:\Program\Microsoft Files\Azure Multi-Factor Authentication). Välj 32- eller 64-bitarsversionen av Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup-installationsfilen beroende på vilken typ av server som Mobile App-webbtjänsten ska installeras på. Kopiera installationsfilen till den Internetuppkopplade servern.</li>
 
 <li>Installationsfilen måste köras med administratörsbehörighet på den Internetuppkopplade webbservern. Det enklaste sättet att göra detta är att öppna en kommandotolk som administratör och navigera till den plats som installationsfilen kopierades till.</li>  
 
-<li>Kör Multi-Factor AuthenticationMobileAppWebServiceSetup-installationsfilen, ändra platsen om du vill och ändra namnet för den virtuella katalogen till ett kort namn som ”PA”. Vi rekommenderar att du använder ett kort namn för den virtuella katalogen eftersom användarna måste ange Mobile App-webbtjänstens URL på den mobila enheten under aktiveringen.</li> 
+<li>Kör Multi-Factor AuthenticationMobileAppWebServiceSetup-installationsfilen, ändra platsen om du vill och ändra namnet för den virtuella katalogen till ett kort namn som ”PA”. Vi rekommenderar att du använder ett kort namn för den virtuella katalogen eftersom användarna måste ange Mobile App-webbtjänstens URL på den mobila enheten under aktiveringen.</li>
 
 <li>När installationen av Azure Multi-Factor AuthenticationMobileAppWebServiceSetup är klar bläddrar du till C:\inetpub\wwwroot\PA (eller relevant katalog beroende på namnet på den virtuella katalogen) och redigerar filen Web.config.</li>  
 
@@ -72,7 +73,7 @@ Tänk på följande innan du installerar Mobile App-webbtjänsten:
 
 <li>Om webbplatsen som Mobile App-webbtjänsten installerades under (t.ex. Standardwebbplats) inte redan har bundits till ett offentligt signerat certifikat installerar du certifikatet på servern om det inte redan har installerats, öppnar IIS-hanteraren och binder certifikatet till webbplatsen.</li>  
 
-<li>Öppna en webbläsare från en dator och gå till URL:en där Mobile App-webbtjänsten installerades (t.ex. https://www.publicwebsite.com/PA). Se till att inga certifikatvarningar eller fel visas.</li> 
+<li>Öppna en webbläsare från en dator och gå till URL:en där Mobile App-webbtjänsten installerades (t.ex. https://www.publicwebsite.com/PA). Se till att inga certifikatvarningar eller fel visas.</li>
 
 ### Konfigurera Mobile App-inställningarna i Azure Multi-Factor Authentication Server
 Nu när Mobile App-webbtjänsten är installerad måste du konfigurera Azure Multi-Factor Authentication Server så att den fungerar med portalen.
@@ -83,15 +84,14 @@ Nu när Mobile App-webbtjänsten är installerad måste du konfigurera Azure Mul
 2. Markera kryssrutan Tillåt användare att aktivera mobilapp.
 3. Markera kryssrutan Tillåt användarregistrering.
 4. Klicka på ikonen för Mobilapp.
-5. Ange URL:en som används med den virtuella katalogen som skapades när Azure Multi-Factor AuthenticationMobileAppWebServiceSetup installerades. Du kan ange ett kontonamn i det angivna området. Det här företagsnamnet visas i mobilprogrammet. Om fältet lämnas tomt visas namnet på din Multi-Factor Auth-provider som skapades på Azure-hanteringsportalen. 
+5. Ange URL:en som används med den virtuella katalogen som skapades när Azure Multi-Factor AuthenticationMobileAppWebServiceSetup installerades. Du kan ange ett kontonamn i det angivna området. Det här företagsnamnet visas i mobilprogrammet. Om fältet lämnas tomt visas namnet på din Multi-Factor Auth-provider som skapades på Azure-hanteringsportalen.
 
 
 
 <center>![Konfiguration](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
- 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

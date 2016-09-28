@@ -17,6 +17,7 @@
     ms.date="02/10/2016" 
     ms.author="yochay"/>
 
+
 # Så här fungerar Apptjänst
 
 Azure App Service är en molntjänst som utformats för att lösa de praktiska problem som tekniker möter idag. Apptjänst är avsett att erbjuda överlägsen utvecklarproduktivitet utan att ge avkall på behovet att leverera program i molnskala. App Service innehåller också de funktioner och ramverk som behövs för att skapa anpassade affärsområdesprogram samtidigt som man förser utvecklarna med de populäraste utvecklingsspråken (.NET, Java, PHP, Node.JS och Python).
@@ -42,6 +43,6 @@ Tillsammans gör Apptjänst-funktionerna att utvecklare kan fokusera på koden o
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

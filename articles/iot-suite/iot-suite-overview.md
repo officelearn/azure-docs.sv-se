@@ -17,6 +17,7 @@
      ms.date="08/09/2016"
      ms.author="dobett"/>
 
+
 # Vad är Azure IoT Suite?
 
 Azures tjänster för Sakernas Internet (IoT, Internet of Things) tillhandahåller en rad intressanta funktioner. Med dessa tjänster i företagsklass kan du:
@@ -67,6 +68,6 @@ Nu när du har en översikt över vad IoT Suite kan göra och dess huvudkomponen
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

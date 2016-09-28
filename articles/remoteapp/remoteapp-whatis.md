@@ -16,6 +16,7 @@
     ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
+
 # Vad är Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
@@ -84,6 +85,6 @@ Sätt igång och prova! I de här artiklarna får du hjälp med att komma igång
 Visste du att du förutom att betygsätta den här artikeln och skriva kommentarer nedan även kan göra ändringar i själva artikeln? Saknar du något i artikeln? Är det något som är fel? Har jag skrivit något som helt enkelt bara är förvirrande? Då kan du gå tillbaka till början av sidan och klicka på **Edit on GitHub (Redigera på GitHub)** eller **Edit (Redigera)** och ändra i texten. Ändringarna skickas till oss och när vi har godkänt dem kan du se dina ändringar och förbättringar här.
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

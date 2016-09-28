@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="nitinme"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -16,6 +16,7 @@
     ms.topic="get-started-article"
     ms.date="07/25/2016"
     ms.author="nitinme"/>
+
 
 
 # Komma igång: Skapa ett Apache Spark-kluster i HDInsight Linux och köra interaktiva frågor med Spark SQL
@@ -216,6 +217,6 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

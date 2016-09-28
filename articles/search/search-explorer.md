@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"
 />
+
 # Skicka frågor mot ditt Azure Search-index med hjälp av Azure Portal
 > [AZURE.SELECTOR]
 - [Översikt](search-query-overview.md)
@@ -39,16 +40,16 @@ Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Sea
 ![](./media/search-explorer/search-explorer-tile.png)
 
 ## III. Starta sökningen
-1. Börja söka i Azure Search-indexet genom att skriva i fältet ”*Frågesträng*” och tryck på ”**Sök**”.
+1. Börja söka i Azure Search-indexet genom att skriva i fältet ” *Frågesträng* ” och tryck på ”**Sök**”.
  * När du använder Sökutforskaren kan du ange valfria [frågeparametrar](https://msdn.microsoft.com/library/dn798927.aspx)
 
-2. I avsnittet ”*Resultat*” visas frågans resultat i samma JSON-rådataformat som du får i en HTTP-svarstext när du skickar sökförfrågningar mot REST-API:et för Azure Search.
+2. I avsnittet ” *Resultat* ” visas frågans resultat i samma JSON-rådataformat som du får i en HTTP-svarstext när du skickar sökförfrågningar mot REST-API:et för Azure Search.
 3. Frågesträngen parsas automatiskt till rätt begärande-URL för att sedan skicka en HTTP-begäran mot REST-API:et för Azure Search.
 
 ![](./media/search-explorer/search-bar.png)
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

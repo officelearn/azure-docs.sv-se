@@ -16,6 +16,7 @@
    ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
+
 # Genomgång av en Resource Manager-mall
 
 En av de första frågorna du ställer dig när du ska skapa en mall är ”hur börjar jag?”. Du kan börja från en tom mall och följa den grundläggande strukturen som beskrivs i artikeln [Redigera en mall](resource-group-authoring-templates.md#template-format) och lägga till resurser, parametrar och variabler. Ett annat alternativ är att börja med att gå igenom [snabbstartsgalleriet](https://github.com/Azure/azure-quickstart-templates) och leta efter liknande scenarier som det som du vill skapa. Du kan slå samman flera mallar eller redigera en befintlig mall så att den passar ditt specifika scenario. 
@@ -583,6 +584,6 @@ Du kan omdistribuera mallen med hjälp av samma kommandon som du använde när d
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

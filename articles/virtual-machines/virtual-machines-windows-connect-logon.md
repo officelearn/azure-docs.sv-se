@@ -17,6 +17,7 @@
     ms.date="07/28/2016"
     ms.author="cynthn"/>
 
+
 # Ansluta till och logga in på en virtuell Azure-dator som kör Windows 
 
 
@@ -47,6 +48,6 @@ Om du får problem när du försöker ansluta läser du [Felsöka anslutningar t
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

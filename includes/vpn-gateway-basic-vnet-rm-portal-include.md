@@ -30,7 +30,6 @@ Följ stegen nedan för att skapa ett VNet med Azure-portalen. Observera att sk�
 
     ![Skapa en virtuell nätverksikon](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

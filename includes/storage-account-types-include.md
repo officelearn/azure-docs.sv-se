@@ -27,7 +27,6 @@ Innan du kan skapa ett lagringskonto, måste du ha en Azure-prenumeration, som �
 Se [Skapa ett lagringskonto](../articles/storage/storage-create-storage-account.md#create-a-storage-account) för mer information om hur du skapar ett lagringskonto. Du kan skapa upp till 100 unikt namngivna lagringskonton med en enda prenumeration. Se [Skalbarhets- och prestandamål för Azure Storage](../articles/storage/storage-scalability-targets.md) för information om begränsningar för lagringskonton.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

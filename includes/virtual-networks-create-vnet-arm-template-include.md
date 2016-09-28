@@ -58,7 +58,6 @@ Du kan hämta den befintliga ARM-mallen för att skapa ett VNet och två undern�
 11. Spara filen.
   
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

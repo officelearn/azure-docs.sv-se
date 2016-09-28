@@ -13,7 +13,6 @@
     
     Observera att data som sparats i föregående steg läses in från mobiltjänsten när appen startar.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

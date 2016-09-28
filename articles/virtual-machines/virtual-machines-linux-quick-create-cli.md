@@ -17,6 +17,7 @@
    ms.author="v-livech"/>
 
 
+
 # Skapa en virtuell Linux-dator i Azure med hjälp av CLI
 
 I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator (VM) i Azure med hjälp av kommandot `azure vm quick-create` i Azures kommandoradsgränssnitt (CLI). Kommandot `quick-create` distribuerar en virtuell dator inuti en grundläggande, säker infrastruktur som du kan använda som prototyp eller för att snabbt testa ett koncept. Artikeln kräver
@@ -207,6 +208,6 @@ Du kan också [använda `docker-machine` Azure-drivrutinen med olika kommandon f
 
 
 
-<!--HONumber=sep12_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/13/2016"
     ms.author="MarkVi"/>
 
+
 # Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag
 
 
@@ -222,6 +223,6 @@ Bakgrundsfärg på inloggningssidan | Bakgrundsfärgen på inloggningssidan anv�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

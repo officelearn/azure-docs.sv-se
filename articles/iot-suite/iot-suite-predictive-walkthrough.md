@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+
 # Genomgång av den förkonfigurerade lösningen för förebyggande underhåll
 
 ## Introduktion
@@ -135,6 +136,6 @@ Du kan även utforska några andra funktioner och möjligheter i de förkonfigur
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

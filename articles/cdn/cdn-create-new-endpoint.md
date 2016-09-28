@@ -15,6 +15,7 @@
      ms.date="07/28/2016" 
      ms.author="casoper"/>
 
+
 # Använda Azure CDN  
 
 Det här avsnittet beskriver steg för steg hur du aktiverar Azure CDN genom att skapa en ny profil och slutpunkt för CDN.
@@ -99,6 +100,6 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

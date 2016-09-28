@@ -3,7 +3,7 @@
     description="Följ den här kursen och kom igång med händelsehubbar i Azure med C# och EventProcessorHost."
     services="event-hubs"
     documentationCenter=""
-    authors="fsautomata"
+    authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/19/2016"
-    ms.author="sethm"/>
+    ms.date="09/02/2016"
+    ms.author="jotaub;sethm"/>
+
 
 # Kom igång med händelsehubbar
 
@@ -30,7 +31,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 + [Microsoft Visual Studio](http://visualstudio.com)
 
-+ Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
++ Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/free/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -96,6 +97,6 @@ Nu när du har skapat ett fungerande program som skapar en händelsehubb och ski
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

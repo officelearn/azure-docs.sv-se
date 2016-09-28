@@ -17,6 +17,7 @@
     ms.author="swkrish"/>
 
 
+
 # Azure Active Directory B2C: Registrera ditt program
 
 ## Krav
@@ -56,6 +57,6 @@ Nu när du har registrerat ett program med Azure AD B2C kan du gå en av våra s
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

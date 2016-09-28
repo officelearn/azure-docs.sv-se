@@ -17,6 +17,7 @@
     ms.date="06/07/2016"
     ms.author="davidmu"/>
 
+
 # Skapa en virtuell Windows-dator med hjälp av Resource Manager och PowerShell
 
 I den här artikeln lär du dig hur du snabbt kan skapa en virtuell Azure-dator som kör Windows Server, och om de resurser som den behöver, med hjälp av [Resource Manager](../resource-group-overview.md) och PowerShell. 
@@ -174,6 +175,6 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

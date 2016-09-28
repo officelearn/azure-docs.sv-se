@@ -17,6 +17,7 @@
     ms.date="07/12/2016"
     ms.author="asteen"/>
 
+
 # Komma igång med lösenordshantering
 
 > [AZURE.IMPORTANT] **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md).
@@ -361,6 +362,6 @@ Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställni
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

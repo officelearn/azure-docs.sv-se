@@ -21,7 +21,6 @@ Följ de här stegen om du vill skapa en ny mobiltjänst.
 Nu har du skapat en ny mobiltjänst som kan användas av dina mobilappar.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

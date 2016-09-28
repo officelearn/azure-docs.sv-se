@@ -16,6 +16,7 @@
     ms.date="05/06/2016"
     ms.author="raynew"/>
 
+
 #  Replikera virtuella Hyper-V-datorer i VMM-moln till Azure
 
 > [AZURE.SELECTOR]
@@ -385,6 +386,6 @@ Lär dig mer om hur du [konfigurerar återställningsplaner](site-recovery-creat
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

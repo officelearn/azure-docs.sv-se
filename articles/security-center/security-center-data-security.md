@@ -16,6 +16,7 @@
    ms.date="08/08/2016"
    ms.author="yurid"/>
 
+
 # Datasäkerhet i Azure Security Center
 Azure Security Center hjälper kunder att förhindra, upptäcka och svara på hot genom att samla in och bearbeta data om dina Azure-resurser, inklusive konfigurationsinformation, metadata, händelseloggar, kraschdumpfiler och mer. Vi arbetar hårt för att skydda sekretessen och säkerheten för dessa data. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst. 
 
@@ -64,6 +65,6 @@ I det här dokumentet har du lärt dig hur data hanteras och skyddas i Azure Sec
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

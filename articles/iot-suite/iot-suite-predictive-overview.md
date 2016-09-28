@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+
 # Översikt över förkonfigurerad lösning för förebyggande underhåll
 
 Den förkonfigurerade lösningen för *förebyggande underhåll* är en av de [förkonfigurerade lösningarna][lnk_preconfigured_solutions] som ingår i [Microsoft Azure IoT Suite][lnk_iot_suite]. Den här lösningen integrerar realtidsinsamling av enhetstelemetri med en förebyggande modell skapad med [Azure Machine Learning][lnk_machine_learning].
@@ -68,6 +69,6 @@ Du kan även utforska några andra funktioner och möjligheter i de förkonfigur
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -20,7 +20,6 @@
 
 7. Klicka på **Skapa**-knappen för att skapa den nya profilen. 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

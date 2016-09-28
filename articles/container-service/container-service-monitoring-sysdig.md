@@ -18,6 +18,7 @@
    ms.date="08/08/2016"
    ms.author="t-ribhat"/>
 
+
 # Övervaka ett Azure Container Service-kluster med Sysdig
 
 I den här artikeln ska vi distribuera Sysdig-agenter till alla agentnoder i ditt Azure Container Service-kluster. Du behöver ett konto hos Sysdig för den här konfigurationen. 
@@ -55,6 +56,6 @@ Nu anger du instanserna till 10000000 så när du har lagt till en ny nod i klus
 När du har installerat paketet navigerar du tillbaka till Sysdig-gränssnittet. Nu kan du utforska de olika användningsmätvärdena för behållarna i klustret. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

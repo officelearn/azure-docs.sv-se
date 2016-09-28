@@ -15,6 +15,7 @@
     ms.date="07/11/2016"
     ms.author="sethm" />
 
+
 # Service Bus-arkitektur
 
 I den här artikeln beskrivs arkitekturen för behandling av meddelanden och vidarebefordran i Azure Service Bus.
@@ -61,6 +62,6 @@ Nu när du har läst en översikt över arkitekturen i Service Bus kan du använ
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

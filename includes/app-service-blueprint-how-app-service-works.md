@@ -14,7 +14,6 @@
 
 * [Azure App Service-arkitektur](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

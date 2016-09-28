@@ -17,6 +17,7 @@
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
+
 # Läs in data från SQL Server till Azure SQL Data Warehouse (flat-filer)
 
 > [AZURE.SELECTOR]
@@ -204,6 +205,6 @@ Se [Tabellöversikt][] eller [CREATE TABLE-syntax][] för ytterligare informatio
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

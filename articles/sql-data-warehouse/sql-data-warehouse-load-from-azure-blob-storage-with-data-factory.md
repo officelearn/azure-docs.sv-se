@@ -16,6 +16,7 @@
    ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Läs in data från Azure blobblagring till Azure SQL Data Warehouse (Azure Data Factory)
 
 > [AZURE.SELECTOR]
@@ -240,6 +241,6 @@ De här ämnena ger detaljerad information om Azure Data Factory. De behandlar A
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

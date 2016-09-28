@@ -17,6 +17,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Skicka push-meddelanden till iOS med Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -508,6 +509,6 @@ Allmän information om Notification Hubs finns i [Riktlinjer om Notification Hub
 [Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -18,6 +18,7 @@
     ms.date="08/11/2016"
     ms.author="glenga"/>
 
+
 #Skapa en Apache Cordova-app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -80,13 +81,13 @@ Lär dig hur du använder SDK: er.
 [Lägg till autentisering]: app-service-mobile-cordova-get-started-users.md
 [Lägg till push-meddelanden]: app-service-mobile-cordova-get-started-push.md
 [Autentisering]: app-service-mobile-auth.md
-[Push-meddelanden]: ../notification-hubs/notification-hubs-overview.md
+[Push-meddelanden]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova-SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server-SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server-SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

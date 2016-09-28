@@ -16,6 +16,7 @@
     ms.date="02/29/2016"
     ms.author="cfowler"/>
 
+
 # Ansluta en webbapp i Azure App Service till Redis-cache via Memcache-protokollet
 
 I den här artikeln får du veta hur du ansluter en WordPress-webbapp i [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) till [Azure Redis-cache][12] med hjälp av protokollet [Memcache][13]. Om du har en befintlig webbapp som använder en Memcache-lagrad server till att cachelagra i minnet, kan du migrera den till Azure App Service och använda förstapartslösningen för cachelagring i Microsoft Azure med liten eller ingen ändring av programkoden. Du kan använda dina befintliga kunskaper om Memcache och skapa skalbara, distribuerade appar i Azure App Service med Azure Redis-cache för att cachelagra i minnet. Samtidigt kan du använda populära programramverk som .NET, PHP, Node.js, Java och Python.  
@@ -172,11 +173,11 @@ Ersätt **&lt;hostname-for-redis-cache&gt;** med det faktiska värdnamnet för x
 
 Kommandot för att lista nycklarna bör returnera ett värde. Annars kan du prova med att navigera till webbappen och försöka igen.
 
-## Sammanfattning
+## Slutsats
 
 Gratulerar! Nu har WordPress-appen en centraliserad minnescache som ger ökat genomflöde. Kom ihåg att Web Apps Memcache-shim kan användas med alla Memcache-klienter oavsett programmeringsspråk och programramverk. Om du vill ge feedback eller ställa frågor om Web Apps Memcache-shim kan du göra inlägg på [MSDN-forum][10] eller [Stackoverflow][11].
 
->[AZURE.NOTE] Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
+>[AZURE.NOTE] Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inget kreditkort krävs, och du gör inga åtaganden.
 
 ## Nyheter
 * En guide till övergången från Websites till App Service finns i: [Azure App Service och dess påverkan på befintliga Azure-tjänster](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -199,6 +200,6 @@ Gratulerar! Nu har WordPress-appen en centraliserad minnescache som ger ökat ge
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

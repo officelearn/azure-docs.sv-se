@@ -18,6 +18,7 @@
    ms.date="05/18/2016"
    ms.author="vybavar"/>
 
+
 # Kom igång med privata mallar på Azure Portal
 
 Mallen [Azure Resource Manager](../resource-group-authoring-templates.md) är en deklarativ mall som används för att definiera distributionen. Du kan definiera vilka resurser som ska distribueras för en lösning och ange parametrar och variabler som gör att du kan ange värden för olika miljöer. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution.
@@ -136,6 +137,6 @@ Klicka på **Välj** och **Ok**. Du kan nu se användare eller grupper som du la
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

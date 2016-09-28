@@ -16,6 +16,7 @@
     ms.date="08/16/2016"
     ms.author="markvi"/>
 
+
 # Komma igång med Azure Active Directory Premium
 
 
@@ -164,6 +165,6 @@ Tillgängligheten av tjänster och funktioner för en Microsoft-molntjänst vari
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

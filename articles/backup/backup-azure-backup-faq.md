@@ -17,6 +17,7 @@
      ms.date="08/29/2016"
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
+
 # Vanliga frågor och svar om tjänsten Azure Backup
 
 > [AZURE.SELECTOR]
@@ -262,6 +263,6 @@ Vi rekommenderar att du inte använder attributen ovan för cachelagringsmappen 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="08/23/2016"
    ms.author="curtand"/>
 
+
 # Hantera katalogen för din Office 365-prenumeration i Azure
 
 I den här artikeln beskrivs hur du hanterar en katalog som har skapats för en Office 365-prenumeration, med hjälp av den klassiska Azure-portalen. Du måste antingen vara tjänstadministratör eller en medadministratör för en Azure-prenumeration för att kunna logga in på den klassiska Azure-portalen. Om du ännu inte har någon Azure-prenumeration kan du registrera dig för en [kostnadsfria 30-dagars utvärderingsversion](https://azure.microsoft.com/trial/get-started-active-directory/) och redan idag distribuera din första molnlösning inom 5 minuter med hjälp av den här länken. Använd det arbets- eller skolkonto som du använder för att logga in till Office 365.
@@ -63,6 +64,6 @@ Mer information om relationen mellan prenumerationer och kataloger finns i [Hur 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="07/06/2016"
     ms.author="iainfou"/>
 
+
 # Olika sätt att skapa en virtuell Linux-dator med Resource Manager
 
 I Azure kan du skapa en virtuell dator på olika sätt med hjälp av Resource Manager-distributionsmodellen, som passar olika användare och syften. I den här artikeln sammanfattar vi skillnaderna och alternativen som du kan välja mellan när du skapar virtuella Linux-datorer.
@@ -123,6 +124,6 @@ Om du behöver specifika anpassningar kan du använda en avbildning baserat på 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

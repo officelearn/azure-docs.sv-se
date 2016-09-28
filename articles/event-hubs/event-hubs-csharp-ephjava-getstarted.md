@@ -3,7 +3,7 @@
     description="Följ de här självstudierna för att komma igång med händelsehubbar i Azure; skicka händelser i C# och ta emot dem i Java med EventProcessorHost."
     services="event-hubs"
     documentationCenter=""
-    authors="fsautomata"
+    authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="06/16/2016"
-    ms.author="jotaub"/>
+    ms.date="09/27/2016"
+    ms.author="jotaub;sethm"/>
+
 
 # Kom igång med händelsehubbar
 
@@ -73,6 +74,6 @@ Nu när du har skapat ett fungerande program som skapar en händelsehubb och ski
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

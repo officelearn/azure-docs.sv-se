@@ -18,6 +18,7 @@
     ms.date="08/17/2016"
     ms.author="sstein;carlrab" />
 
+
 # Anslut till SQL Database med SQL Server Management Studio och kör en exempelfråga i T-SQL
 
 > [AZURE.SELECTOR]
@@ -67,6 +68,6 @@ Mer information om SSMS finns i [Använda SQL Server Management Studio](https://
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

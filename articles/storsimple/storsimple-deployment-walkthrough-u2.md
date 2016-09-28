@@ -12,8 +12,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="08/16/2016"
    ms.author="alkohli" />
+
 
 # Distribuera din lokala StorSimple-enhet (Uppdatering 2)
 
@@ -29,20 +30,20 @@ Välkommen till distribution av Microsoft Azure StorSimple-enheten. Dessa själv
 Informationen i dessa självstudiekurser förutsätter att du har granskat säkerhetsåtgärder, packat upp, rackmonterat och kabelanslutit din StorSimple-enhet. Om du fortfarande behöver utföra dessa uppgifter ska du börja med att granska [säkerhetsåtgärderna](storsimple-safety.md). Följ de specifika instruktionerna för enheten för att packa upp, rackmontera och kabelansluta den.
 
 - [Packa upp, rackmontera och dra kabel till din 8100](storsimple-8100-hardware-installation.md)
-- [Packa upp, rackmontera och dra kabel till din 8600](storsimple-8600-hardware-installation.md)
+- [Packa upp, rackmontera och kabelanslut din 8600-enhet](storsimple-8600-hardware-installation.md)
 
-Du måste ha administratörsbehörighet för att slutföra installationen och konfigurationen. Vi rekommenderar att du läser checklistan för konfiguration  innan du börjar. Processen för distribution och konfiguration kan ta lite tid att slutföra.
+Du måste ha administratörsbehörighet för att slutföra installationen och konfigurationen. Vi rekommenderar att du läser checklistan för konfiguration innan du börjar. Processen för distribution och konfiguration kan ta lite tid att slutföra.
 
 > [AZURE.NOTE] Distributionsinformationen för StorSimple som publiceras på webbplatsen Microsoft Azure gäller endast StorSimple-enheter i 8000-serien. Fullständig information om enheterna i 7000-serien finns i: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Distributionsinformation för 7000-serien finns i [Snabbstartsguide för StorSimple-system](http://onlinehelp.storsimple.com/111_Appliance/).
 
 ## Distributionssteg
 
-Genomför dessa steg för att konfigurera din StorSimple-enhet och ansluta den till din StorSimple Manager-tjänst. Förutom de steg som krävs finns valfria steg och procedurer du kan behöva under distributionen. Steg för steg-instruktionerna för distribution anger när du bör utföra varje valfritt steg.
+Utför de här obligatoriska stegen för att konfigurera din StorSimple-enhet och ansluta den till din StorSimple Manager-tjänst. Förutom de obligatoriska stegen finns valfria steg och procedurer du kan behöva under distributionen. Steg för steg-instruktionerna för distribution anger när du ska utföra de olika valfria stegen.
 
 
 | Steg                                                                                   | Beskrivning                                                                                                                                                   |
 |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **KRAV**                                                                      | Dessa måste slutföras som del av förberedelserna inför den kommande distributionen.                                                                                        |
+| **FÖRUTSÄTTNINGAR**                                                                      | Dessa måste slutföras som del av förberedelserna inför den kommande distributionen.                                                                                        |
 | [Checklista för distributionskonfiguration](#deployment-configuration-checklist)                                                     | Använd den här checklistan för att samla in och registrera information före och under distributionen.                                                                       |
 | [Distributionskrav](#deployment-prerequisites)                                                               | Dessa verifierar att miljön är klar för distribution.                                                                                                     |
 |                                                                                        |                                                                                                                                                               |
@@ -72,11 +73,11 @@ Innan du distribuerar din enhet måste du samla in information för att konfigur
 
 ## Distributionskrav
 
-I följande avsnitt beskrivs kraven för konfiguration av din StorSimple Manager-tjänst och StorSimple-enheten.
+I följande avsnitt beskrivs förutsättningarna för konfiguration av din StorSimple Manager-tjänst och StorSimple-enheten.
 
 ### För StorSimple Manager-tjänsten
 
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
 - Du har ditt Microsoft-konto med autentiseringsuppgifter.
 
@@ -98,12 +99,12 @@ Innan enheten konfigureras ska du säkerställa att den är helt uppackad, rackm
 
 Innan du börjar ska du kontrollera att:
 
-- Portarna i ditt datacenters brandvägg är öppna för att möjliggöra iSCSI- och molntrafik som beskrivs i [Nätverkskrav för din StorSimple-enhet](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+- Portarna i ditt datacenters brandvägg är öppna för att möjliggöra iSCSI- och molntrafik enligt beskrivningen i [Nätverkskrav för din StorSimple-enhet](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
 
 ## Steg för steg-distribution
 
-Använd följande steg för steg-instruktioner för att distribuera StorSimple-enheten i datacentret.
+Utför nedanstående steg för steg-instruktioner för att distribuera StorSimple-enheten i datacentret.
 
 ## Steg 1: Skapa en ny tjänst
 
@@ -111,14 +112,14 @@ En StorSimple Manager-tjänst kan hantera flera StorSimple-enheter. Utför följ
 
 [AZURE.INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
-> [AZURE.IMPORTANT] Om du inte har aktiverat automatiskt skapande av ett lagringskonto med din tjänst, behöver du skapa minst ett lagringskonto efter att du har skapat en tjänst. Det här lagringskontot används när du skapar en volymbehållare. 
+> [AZURE.IMPORTANT] Om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst måste du skapa minst ett lagringskonto efter att du har skapat en tjänst. Det här lagringskontot används när du skapar en volymbehållare. 
 >
-> * Om du inte har skapat ett lagringskonto automatiskt, ska du gå till [Konfigurera ett nytt lagringskonto för tjänsten](#configure-a-new-storage-account-for-the-service) för detaljerade anvisningar. 
-> * Om du har aktiverat automatiskt skapande av ett lagringskonto, gå till [Steg 2: Hämta nyckel för tjänstregistrering](#step-2-get-the-service-registration-key).
+> * Om du inte har skapat ett lagringskonto automatiskt går du till [Konfigurera ett nytt lagringskonto för tjänsten](#configure-a-new-storage-account-for-the-service) för detaljerade anvisningar. 
+> * Om du har aktiverat automatiskt skapande av ett lagringskonto går du till [steg 2: hämta nyckel för tjänstregistrering](#step-2-get-the-service-registration-key).
 
 ## Steg 2: Hämta nyckel för tjänstregistrering
 
-När StorSimple Manager-tjänsten är igång kan behöver du hämta nyckeln för tjänstregistrering. Den här nyckeln används för att registrera och ansluta din StorSimple-enhet till tjänsten.
+När StorSimple Manager-tjänsten är igång hämtar du nyckeln för tjänstregistrering. Den här nyckeln används för att registrera och ansluta din StorSimple-enhet till tjänsten.
 
 Utför följande steg i hanteringsportalen.
 
@@ -127,7 +128,7 @@ Utför följande steg i hanteringsportalen.
 
 ## Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple
 
-Använd Windows PowerShell för StorSimple för att slutföra installationen av StorSimple-enheten som beskrivs i följande procedur. Du måste använda programvara för terminalemulering för att slutföra det här steget. Mer information finns i [Använda PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console).
+Använd Windows PowerShell för StorSimple för att slutföra den förberedande inställningen av StorSimple-enheten enligt nedanstående procedur. Du måste använda programvara för terminalemulering för att slutföra det här steget. Mer information finns i [Använda PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console).
 
 [AZURE.INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
@@ -135,8 +136,8 @@ Använd Windows PowerShell för StorSimple för att slutföra installationen av 
 
 Som minimikrav för konfigurationen av din StorSimple-enhet måste du: 
 
-- Gör inställningar för den sekundära DNS-servern.
-- Aktivera iSCSI för minst ett gränssnitt.
+- Ställa in den sekundära DNS-servern.
+- Aktivera iSCSI i minst ett nätverksgränssnitt.
 - Tilldela båda domänkontrollanterna statiska IP-adresser.
 
 Utför följande steg i hanteringsportalen för att uppfylla enhetens minimikrav för konfiguration.
@@ -168,17 +169,17 @@ Följande steg utförs på din Windows Server-värd.
 
 > - För att få hög tillgänglighet i StorSimple-lösningen rekommenderar vi att du konfigurerar MPIO på dina värdservrar (valfritt) innan du konfigurerar iSCSI. MPIO-konfiguration på värdservrar säkerställer att servrarna kan tolerera fel på en länk, ett nätverk eller gränssnitt.
 
-> - Anvisningar för MPIO och iSCSI-installation och konfiguration på Windows Server-värden finns i [Konfigurera MPIO för din StorSimple-enhet](storsimple-configure-mpio-windows-server.md). Dessa inkluderar även steg för att montera, initiera och formatera StorSimple-volymer.
+> - Anvisningar för installation och konfiguration av MPIO och iSCSI på Windows Server-värden finns i [Konfigurera MPIO för din StorSimple-enhet](storsimple-configure-mpio-windows-server.md). Här finns även steg för att montera, initiera och formatera StorSimple-volymer.
 
-> - Anvisningar för MPIO och iSCSI-installation och konfiguration på Linux-värden finns i [Konfigurera MPIO för din StorSimple Linux-värd](storsimple-configure-mpio-on-linux.md)
+> - Anvisningar för installation och konfiguration av MPIO och iSCSI på Linux-värdar finns i [Konfigurera MPIO för din StorSimple Linux-värd](storsimple-configure-mpio-on-linux.md)
 
-Utför följande steg för att montera, initiera och formatera dina StorSimple-volymer på en Windows Server-värd om du väljer att inte konfigurera MPIO.
+Utför nedanstående steg för att montera, initiera och formatera dina StorSimple-volymer på en Windows Server-värd om du väljer att inte konfigurera MPIO.
 
 [AZURE.INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
 ## Steg 8: Gör en säkerhetskopia
 
-Säkerhetskopieringar ger tidpunktsskydd för volymer och förbättrar återställningen samtidigt som återställningstiderna minimeras. Du kan utföra två typer av säkerhetskopiering på StorSimple-enheten: lokala ögonblicksbilder och molnögonblicksbilder. Båda av dessa säkerhetskopieringstyper kan vara **schemalagda** eller **manuella**. 
+Säkerhetskopieringar ger tidpunktsskydd för volymer och förbättrar återställningsmöjligheterna samtidigt som återställningstiderna minimeras. Du kan utföra två typer av säkerhetskopiering på StorSimple-enheten: lokala ögonblicksbilder och molnögonblicksbilder. Båda av dessa säkerhetskopieringstyper kan vara **schemalagda** eller **manuella**. 
 
 Utför följande steg i hanteringsportalen för att skapa en schemalagd säkerhetskopiering.
 
@@ -188,7 +189,7 @@ Du kan utföra en manuell säkerhetskopiering när som helst. Gå till [Skapa en
 
 ## Konfigurera ett nytt lagringskonto för tjänsten
 
-Det här är ett valfritt steg som du endast måste utföra om du inte har aktiverat automatiskt skapande av ett lagringskonto med din tjänst. Ett Microsoft Azure lagringskonto krävs för att skapa en behållare för StorSimple- volymer.
+Det här är ett valfritt steg som du endast måste utföra om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst. Ett Microsoft Azure-lagringskonto krävs för att skapa en behållare för StorSimple-volymer.
 
 Om du behöver skapa ett Azure lagringskonto i en annan region finns stegvisa instruktioner i [Om Azure lagringskonton](../storage/storage-create-storage-account.md).
 
@@ -199,21 +200,21 @@ Utför följande steg i hanteringsportalen på sidan för **StorSimple Manager-t
 
 ## Använd PuTTY för att ansluta till enhetens seriekonsol
 
-För att ansluta till Windows PowerShell för StorSimple behöver du använda en programvara för terminalemulering, till exempel PuTTY. Du kan använda PuTTY när åtkomst till enheten sker direkt via seriekonsolen eller genom att öppna en Telnet-session från en fjärrdator.
+För att ansluta till Windows PowerShell för StorSimple behövs en programvara för terminalemulering, till exempel PuTTY. Du kan använda PuTTY när åtkomst till enheten sker direkt via seriekonsolen eller genom att öppna en Telnet-session från en fjärrdator.
 
 [AZURE.INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 
 ## Söka efter och installera uppdateringar
 
-Det kan ta flera timmar att uppdatera din enhet. Utför följande steg för att söka efter och installera uppdateringar på din enhet.
+Det kan ta flera timmar att uppdatera din enhet. Utför stegen nedan för att söka efter och installera uppdateringar på din enhet.
 <!--can take 1-4 hours--> 
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### För att uppdatera din enhet
 
-1.  På enheten **Snabbstart** klickar du på **Enheter**. Välj den fysiska enheten, klicka på **Underhåll** och klicka sedan på **Sök efter uppdateringar**.  
+1.  På enhetens sida **Snabbstart** klickar du på **Enheter**. Välj den fysiska enheten, klicka på **Underhåll** och klicka sedan på **Sök efter uppdateringar**.  
 
 2.  Det skapas ett jobb för att söka efter uppdateringar. Om uppdateringar är tillgängliga ändras **Sök efter uppdateringar** till **Installera uppdateringar**. Klicka på **Installera uppdateringar**. 
 
@@ -221,13 +222,13 @@ Det kan ta flera timmar att uppdatera din enhet. Utför följande steg för att 
 
     > [AZURE.NOTE] När uppdateringsjobbet startar visas omedelbart statusen som 50 procent. Statusen ändras till 100 procent först när uppdateringsjobbet har slutförts. Det finns ingen realtidsstatus för uppdateringsprocessen.
 
-4.  När enheten har uppdaterats, ska du aktivera nätverksgränssnitten Data 2 och Data 3 om dessa inaktiverades.
+4.  När enheten har uppdaterats aktiverar du nätverksgränssnitten Data 2 och Data 3 om de inaktiverades.
 
 <!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
 ## Hämta IQN för en Windows Server-värd
 
-Utför följande steg för att få det kvalificerade iSCSI-namnet (IQN) för en Windows-värd som kör Windows Server® 2012.
+Utför stegen nedan för att få det kvalificerade iSCSI-namnet (IQN) för en Windows-värd som kör Windows Server® 2012.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-get-iqn.md)]
 
@@ -247,6 +248,6 @@ Utför följande steg i hanteringsportalen för att på begäran kunna skapa en 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

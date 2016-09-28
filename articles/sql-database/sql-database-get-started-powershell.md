@@ -17,6 +17,7 @@
     ms.date="08/19/2016"
     ms.author="sstein"/>
 
+
 # Skapa en SQL-databas och utföra vanliga aktiviteter för databasinstallation med PowerShell-cmdletar
 
 
@@ -142,6 +143,6 @@ När du har skapat SQL-databasen och utfört grundläggande installationsåtgär
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

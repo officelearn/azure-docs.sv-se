@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -16,6 +16,7 @@
    ms.workload="big-data"
    ms.date="08/16/2016"
    ms.author="larryfr"/>
+
 
 
 # Apache Storm-kurs: Komma igång med Storm Starter-exempel för analys av stordata i HDInsight
@@ -193,6 +194,7 @@ Om du redan är bekant med att utveckla Java-baserad topologier och vill distrib
 [preview-portal]: https://portal.azure.com/
 
 
-<!--HONumber=sep16_HO1-->
+
+<!--HONumber=Sep16_HO3-->
 
 

@@ -22,7 +22,6 @@ Det här är ett alternativ som drar nytta av det faktum att distributionsskript
 Om du har anpassat distributionsskriptet, kan du ändra koden i deploy.cmd för att tvinga den att ta bort env-mappen.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

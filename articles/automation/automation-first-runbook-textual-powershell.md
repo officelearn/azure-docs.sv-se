@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="magoedte;sngun"/>
 
+
 # Min första PowerShell-runbook
 
 > [AZURE.SELECTOR] - [Grafiskt](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell-arbetsflöde](automation-first-runbook-textual.md)  
@@ -167,6 +168,6 @@ PowerShell-runbooks har samma livscykel, funktioner och hantering som PowerShell
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

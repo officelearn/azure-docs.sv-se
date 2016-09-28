@@ -18,6 +18,7 @@
     ms.date="08/17/2016"
     ms.author="carlrab"/>
 
+
 # SQL Database-självstudier: Skapa användarkonton för en SQL-databas för att få åtkomst till och hantera en databas
 
 
@@ -54,6 +55,6 @@ Nu när du har slutfört de här SQL Database-självstudierna och skapat ett anv
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

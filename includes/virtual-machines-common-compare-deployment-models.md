@@ -90,7 +90,6 @@ All automatisering och skript som du skapat kommer att fortsätta fungera för b
 Du hittar en omfattande uppsättning startmallar på [Azure Resource Manager-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

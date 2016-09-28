@@ -17,6 +17,7 @@
     ms.date="08/17/2016"
     ms.author="v-livech"/>
 
+
 # Skapa en virtuell Linux-dator med hjälp av en Azure-mall
 
 I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator i Azure med hjälp av en Azure-mall.  Artikeln kräver ett Azure-konto ([skaffa en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/)) och att [Azure CLI](../xplat-cli-install.md) är inloggad (`azure login`) och i Resource Manager-läge (`azure config mode arm`).  Du kan också snabbt distribuera en virtuell Linux-dator med hjälp av [Azure Portal](virtual-machines-linux-quick-create-portal.md) eller [Azure CLI](virtual-machines-linux-quick-create-cli.md).
@@ -76,6 +77,6 @@ Sök i [mallgalleriet](https://azure.microsoft.com/documentation/templates/) fö
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

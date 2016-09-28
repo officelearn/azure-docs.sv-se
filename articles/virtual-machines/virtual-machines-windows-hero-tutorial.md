@@ -17,6 +17,7 @@
     ms.date="09/06/2016"
     ms.author="cynthn"/>
 
+
 # Skapa din första virtuella Windows-dator på Azure Portal
 
 I den här självstudiekursen ser du hur enkelt det är att skapa en virtuell Windows-dator (VM) på bara några minuter med hjälp av Azure Portal.  
@@ -119,6 +120,6 @@ Klicka på knappen **Starta** när du vill starta om den virtuella datorn och b�
 
 
 
-<!--HONumber=sep12_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

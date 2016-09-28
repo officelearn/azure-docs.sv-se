@@ -16,7 +16,12 @@
     ms.date="08/02/2016"
     ms.author="curtand"/>
 
+
 # Lägga till användare från andra kataloger eller partnerföretag i Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-create-users-external-azure-portal.md)
+- [Klassisk Azure-portal](active-directory-create-users-external.md)
 
 Den här artikeln förklarar hur du lägger till användare från andra kataloger i Azure Active Directory och hur du lägger till användare från partnerföretag. Information om hur du lägger till nya användare i din organisation och hur du lägger till användare som har Microsoft-konton finns i [Lägga till nya användare i Azure Active Directory](active-directory-create-users.md). Tillagda användare har inte administratörsbehörighet som standard, men du kan tilldela roller till dem när som helst.
 
@@ -86,6 +91,6 @@ Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

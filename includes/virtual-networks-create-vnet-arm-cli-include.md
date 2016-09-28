@@ -107,7 +107,6 @@ Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotol
         info:    network vnet show command OK
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

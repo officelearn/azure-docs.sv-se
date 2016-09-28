@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # OneDrive för företag med Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -26,6 +27,6 @@ Synkroniseringsagenten OneDrive för företag stöds inte av Azure RemoteApp.
 Du kan inkludera OneDrive för företag i en samling för användning med Office 365. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,8 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="07/14/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
+
 
 # Azure Automation-integreringsmoduler
 
@@ -208,6 +209,6 @@ Att integreringsmodulerna i stort sett är PowerShell-moduler betyder inte att d
 - Mer information om hur du skapar PowerShell-moduler finns i [Skriva en Windows PowerShell-modul](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

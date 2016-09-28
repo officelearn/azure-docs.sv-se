@@ -17,6 +17,7 @@
    ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
+
 # Vad är SQL Database? Introduktion till SQL Database
 
 SQL Database är en relationsdatabastjänst i molnet som är baserad på den marknadsledande Microsoft SQL Server-motorn med verksamhetskritiska funktioner. SQL Database levererar förutsägbar prestanda, skalbarhet utan avbrott, verksamhetskontinuitet och dataskydd. Allt detta med nästan obefintlig administration. Du kan fokusera på snabb apputveckling och att accelerera din tid till marknad, istället för att hantera virtuella datorer och infrastruktur. Eftersom den är baserad på [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx)-motorn, stöder SQL Database befintliga SQL Server-verktyg, bibliotek och API:er, vilket gör det lättare för dig att flytta och utöka till molnet.
@@ -61,6 +62,6 @@ Nu när du har läst en introduktion till SQL Database och besvarat frågan "Vad
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

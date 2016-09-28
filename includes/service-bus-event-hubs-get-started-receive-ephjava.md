@@ -26,12 +26,12 @@ Java-klientbibliotek för Event Hubs är tillgängligt för användning i Maven-
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>0.7.2</version>
+    <version>{VERSION}</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
-    <version>0.7.2</version>
+    <version>{VERSION}</version>
 </dependency>
 ```
  
@@ -195,12 +195,11 @@ För olika typer av versionsmiljöer kan du uttryckligen hämta de senast utgivn
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
+[11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
+[12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

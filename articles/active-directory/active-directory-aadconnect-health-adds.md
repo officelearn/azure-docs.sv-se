@@ -17,6 +17,7 @@
     ms.date="07/14/2016"
     ms.author="arluca"/>
 
+
 # Använda Azure AD Connect Health med AD DS
 Följande dokumentation är specifik för övervakning av Active Directory Domain Services med Azure AD Connect Health. Detta inkluderar AD DS installerat på Windows Server 2008 R2, Windows Server 2012 och Windows Server 2012 R2.
 
@@ -62,6 +63,6 @@ Som standard har vi förvalt fyra prestandaräknare. Du kan dock inkludera andra
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

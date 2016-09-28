@@ -5,7 +5,6 @@
 - [Java](../articles/media-services/media-services-java-how-to-use.md)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

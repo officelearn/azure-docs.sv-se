@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
+
 # Min första grafiska runbook
 
 > [AZURE.SELECTOR] - [Grafiskt](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
@@ -218,6 +219,6 @@ Nu ska vi ändra runbooken så att den endast försöker starta den virtuella da
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

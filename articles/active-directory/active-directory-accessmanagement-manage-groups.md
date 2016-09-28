@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Hantera grupper i Azure Active Directory | Microsoft Azure"
+    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
     description="How to create and manage groups to manage Azure users using Azure Active Directory."
     services="active-directory"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/22/2016"
     ms.author="curtand"/>
 
 
@@ -114,7 +114,6 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="07/21/2016"
     ms.author="jimpark; trinadhk"/>
 
+
 # Vad är Azure Backup?
 Azure Backup är den tjänst som du använder för att säkerhetskopiera och återställa data i Microsoft-molnet. Din befintliga lokala eller externa säkerhetskopieringslösning ersätts av en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Tjänsten skyddar också tillgångar som körs i molnet. Azure Backup tillhandahåller återställningstjänster som bygger på en förstklassiga infrastruktur som är skalbar och hållbar med hög tillgänglighet.
 
@@ -231,6 +232,6 @@ Eftersom dessa självstudiekurser är avsedda att snabbt hjälpa dig att komma i
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

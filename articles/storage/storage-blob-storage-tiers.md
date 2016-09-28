@@ -3,8 +3,8 @@
     description="Lagringsnivåerna för Azure Blob Storage erbjuder kostnadseffektiv lagring för objektdata baserat på åtkomstmönster. Den lågfrekventa lagringsnivån är optimerad för data som inte används så ofta."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
+    authors="michaelhauss"
+    manager="vamshik"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>
+
 
 
 # Azure Blob Storage: Frekvent och lågfrekvent lagringsnivå
@@ -137,7 +138,7 @@ I det här avsnittet visar vi hur du utför följande åtgärder på Azure-porta
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. På navmenyn väljer du **Nytt** > **Data + Lagring** > **Storage-konto**.
+2. På navmenyn väljer du **Nytt** > **Data + Storage** > **Storage-konto**.
 
 3. Ange ett namn för lagringskontot.
 
@@ -355,6 +356,6 @@ Mer information finns i [Get Started with Azure Blob storage](storage-dotnet-how
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

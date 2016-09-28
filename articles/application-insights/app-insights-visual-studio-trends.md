@@ -15,6 +15,7 @@
     ms.date="08/08/2016" 
     ms.author="daviste"/>
     
+
 # Analysera trender i Visual Studio
 
 Verktyget Application Insights Trends hjälper dig att visualisera hur programmets viktiga telemetrihändelser ändras med tiden, så att du snabbt kan identifiera problem och inkonsekvenser. Med länkar till mer detaljerad diagnostisk information kan Trends hjälpa dig att förbättra dina apprestanda, spåra orsakerna till undantag och avslöja insikter från anpassade händelser.
@@ -84,7 +85,7 @@ Om du vill ta bort dessa filter klickar du på knappen **Ta bort valda filter oc
 
 ![Flera filter](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)
 
-## Hitta avvikelser
+## Identifiera avvikelser
 
 Verktyget Trends kan markera bubblor med händelser som är avvikande jämfört med andra bubblor i samma tidsserie. Välj **Antal i tidsenhet (markera avvikelser** eller **Procent i tidsenhet (markera avvikelser)**. Röda bubblor representerar bubblor med avvikande händelser. Avvikelser definieras som bubblor med ett antal/procentvärde som överstiger 2,1 gånger standardavvikelsen för antalet/procentvärdet under de föregående två tidsperioderna (48 timmar om du visar de senaste 24 timmarna osv.).
 
@@ -102,6 +103,6 @@ Verktyget Trends kan markera bubblor med händelser som är avvikande jämfört 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

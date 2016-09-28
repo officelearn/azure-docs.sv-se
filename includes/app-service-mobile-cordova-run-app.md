@@ -17,7 +17,6 @@ Detta skickar en POST-begäran till den Azure-serverdel som du distribuerade tid
 [Azure Portal]: https://portal.azure.com/
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

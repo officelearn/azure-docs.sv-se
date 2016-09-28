@@ -16,7 +16,6 @@
     ![Undernätsinställningar](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

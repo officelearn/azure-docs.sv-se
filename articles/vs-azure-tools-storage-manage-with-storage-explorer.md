@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="tarcher" />
 
+
 # Komma igång med Lagringsutforskaren (förhandsversion)
 
 ## Översikt 
@@ -231,6 +232,6 @@ Om du vill rensa sökningen väljer du knappen **x** i sökrutan.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -47,7 +47,6 @@ Om det redan finns en gatewayanslutning, måste du först ta bort anslutningen. 
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

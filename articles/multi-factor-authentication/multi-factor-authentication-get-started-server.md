@@ -1,21 +1,22 @@
 <properties 
-    pageTitle="Komma igång med Azure Multi-Factor Authentication Server" 
-    description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA Server." 
+    pageTitle="Komma igång med Azure Multi-Factor Authentication Server"
+    description="Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA Server."
     services="multi-factor-authentication"
-    keywords="autentiseringsserver, azure multifaktor autentisering appaktiveringssida, hämtning autentiseringsserver" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    keywords="autentiseringsserver, azure multifaktor autentisering appaktiveringssida, hämtning autentiseringsserver"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Komma igång med Azure Multi-Factor Authentication Server
 
@@ -73,7 +74,7 @@ Nu när du har laddat ned servern kan du installera och konfigurera den.  Se til
 
 
 Krav för Azure Multi-Factor Authentication Server|Beskrivning|
-:------------- | :------------- | 
+:------------- | :------------- |
 Maskinvara|<li>200 MB ledigt hårddiskutrymme</li><li>x32- eller x64-processor</li><li>Minst 1 GB RAM-minne</li>
 Programvara|<li>Windows Server 2008 eller senare om värden är ett serveroperativsystem</li><li>Windows 7 eller senare om värden är ett klientoperativsystem</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li>
 
@@ -122,7 +123,7 @@ Stegen ovan demonstrerar en snabbinstallation med konfigurationsguiden.  Du kan 
 
 ##Importera användare från Active Directory
 
-Nu när servern har installerats och konfigurerats kan du snabbt importera användare till Azure MFA Server. 
+Nu när servern har installerats och konfigurerats kan du snabbt importera användare till Azure MFA Server.
 
 ### Så här importerar du användare från Active Directory
 --------------------------------------------------------------------------------
@@ -164,10 +165,10 @@ När du använder MFA Server (Multi-Factor Authentication) lokalt lagras en anv�
 - E-postadress – valfritt
 - Telefonnummer – vid autentisering via röstsamtal eller SMS
 - Enhetstoken – vid autentisering via mobilapp
-- Autentiseringsläge 
-- Autentiseringsresultat 
-- MFA Server-namn 
-- MFA Server-IP 
+- Autentiseringsläge
+- Autentiseringsresultat
+- MFA Server-namn
+- MFA Server-IP
 - Klientens IP – om det är tillgängligt
 
 
@@ -179,7 +180,7 @@ Förutom fälten ovan lagras även autentiseringsresultatet (lyckades/avvisades)
 Ytterligare information om avancerade inställningar och konfigurationsinformation finns i tabellen nedan.
 
 Metod|Beskrivning
-:------------- | :------------- | 
+:------------- | :------------- |
 [Användarportalen](multi-factor-authentication-get-started-portal.md)|  Information om hur du installerar och konfigurerar användarportalen, inklusive distribution och självbetjäning.
 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)|Information om hur du  konfigurerar Azure Multi-Factor Authentication med AD FS.
 [RADIUS-autentisering](multi-factor-authentication-get-started-server-radius.md)|  Information om hur du installerar och konfigurerar Azure MFA Server med RADIUS.
@@ -192,6 +193,6 @@ Metod|Beskrivning
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -18,6 +18,7 @@
    ms.date="03/09/2016"
    ms.author="yochayk@microsoft.com"/>
    
+
 # Skapa en Azure-funktion som binder till en Azure-tjänst
    
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
@@ -30,6 +31,6 @@ I den här korta videon får du lära dig hur du skapar en Azure-funktion som ly
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

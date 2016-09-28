@@ -17,6 +17,7 @@
      ms.date="08/16/2016"
      ms.author="dobett"/>
 
+
 # Självstudiekurs: Komma igång med förkonfigurerade lösningar
 
 ## Introduktion
@@ -251,6 +252,6 @@ Nu när du har distribuerat en fungerande förkonfigurerad lösning kan du forts
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

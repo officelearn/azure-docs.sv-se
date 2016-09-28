@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="maheshu"/>
 
+
 # Azure AD Domain Services *(förhandsversion)* – Aktivera Azure AD Domain Services
 
 ## Uppgift 3: Aktivera Azure AD Domain Services
@@ -96,6 +97,6 @@ Nästa konfigurationsåtgärd är att [uppdatera DNS-inställningarna för det v
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

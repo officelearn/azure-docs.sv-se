@@ -16,6 +16,7 @@
     ms.date="07/05/2016"
     ms.author="wesmc"/>
 
+
 # Skicka push-meddelanden till Android med Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -723,12 +724,12 @@ Om du vill få mer allmän information om Notification Hubs kan du läsa våra [
 [Referera till ett biblioteksprojekt]: http://go.microsoft.com/fwlink/?LinkId=389800
 [klassiska Azure-portalen]: https://manage.windowsazure.com/
 [Riktlinjer om Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[Använda Notification Hubs för att skicka push-meddelanden till användare]: notification-hubs-aspnet-backend-android-notify-users.md
-[Använda Notification Hubs för att skicka de senaste nyheterna]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Använda Notification Hubs för att skicka push-meddelanden till användare]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Använda Notification Hubs för att skicka de senaste nyheterna]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

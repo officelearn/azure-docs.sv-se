@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Peka företagets Internetdomän på en Azure Traffic Manager-domän
 
 Om du vill peka företagets domännamn på ett Traffic Manager-domännamn ändrar du DNS-resursposten på din Internet-DNS-server så att den använder CNAME-posttypen, som mappar företagets domännamn till domännamnet för din Traffic Manager-profil. Du kan se Traffic Manager-domännamnet i avsnittet **Allmänt** på konfigurationssidan för Traffic Manager-profilen.
@@ -37,6 +38,6 @@ Alla trafikförfrågningar till *www.contoso.com* kommer nu att dirigeras till *
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

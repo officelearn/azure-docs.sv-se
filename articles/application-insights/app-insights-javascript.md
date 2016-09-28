@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="awills"/>
 
+
 # Application Insights för webbsidor
 
 
@@ -253,6 +254,6 @@ Vill du veta vad användarna gör med din app?
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

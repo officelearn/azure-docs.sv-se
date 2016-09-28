@@ -7,7 +7,6 @@ Du kan också skapa ett Azure-lagringskonto med hjälp av [Azure PowerShell](../
 Om du föredrar att inte skapa ett lagringskonto just nu så kan du också använda Azure-lagringsemulatorn för att köra och testa din kod i en lokal miljö. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../articles/storage/storage-use-emulator.md).
  
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

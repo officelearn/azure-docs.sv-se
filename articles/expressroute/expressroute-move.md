@@ -15,6 +15,7 @@
    ms.date="06/20/2016"
    ms.author="ganesr"/>
 
+
 # Flytta ExpressRoute-kretsar från den klassiska till Resource Manager-distributionsmodellen
 
 Den här artikeln innehåller en översikt över vad det innebär att flytta en Azure ExpressRoute-krets från den klassiska till Azure Resource Manager-distributionsmodellen.
@@ -112,6 +113,6 @@ Följ anvisningarna som beskrivs i [Flytta en ExpressRoute-krets från den klass
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="08/23/2016"
     ms.author="deonhe"/>
 
+
 # Så här migrerar du logikappar till förhandsschemaversionen från 2015-08-01
 
 Flytta dina befintliga logikappar till det nya schemat genom att göra följande:  
@@ -51,6 +52,6 @@ Sidan Uppdatera schema visas och där finns en länk till ett dokument som inneh
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

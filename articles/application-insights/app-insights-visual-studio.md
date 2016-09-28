@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Arbeta med Application Insights i Visual Studio
 
 I Visual Studio (2015 och senare) kan du analysera prestanda och diagnostisera problem både när du felsöker och i produktion med hjälp av telemetri från [Visual Studio Application Insights](app-insights-overview.md).
@@ -112,6 +113,6 @@ För att hitta avvikelser i dina data väljer du ett av avvikelsealternativen i 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

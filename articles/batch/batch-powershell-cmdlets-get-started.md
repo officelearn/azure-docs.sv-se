@@ -16,6 +16,7 @@
    ms.date="07/28/2016"
    ms.author="danlep"/>
 
+
 # Komma igång med PowerShell för Azure Batch
 Med Azure Batch PowerShell-cmdletarna kan du genomföra och skriva många av de uppgifter som du utför med Batch-API:erna, Azure Portal och Azures kommandoradsgränssnitt (CLI). Det här är en snabb introduktion till de cmdletar som du kan använda för att hantera Batch-konton och arbeta med Batch-resurser, t.ex. pooler, jobb och uppgifter. Den här artikeln baseras på cmdletar i Azure PowerShell, version 1.6.0 eller senare.
 
@@ -169,6 +170,6 @@ Batch-cmdlets kan utnyttja PowerShell-pipelinen för att skicka data mellan cmdl
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

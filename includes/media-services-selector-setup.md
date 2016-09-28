@@ -3,7 +3,6 @@
 - [REST API](../articles/media-services/media-services-rest-how-to-use.md)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

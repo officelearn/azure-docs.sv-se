@@ -73,7 +73,6 @@ Bilden ovan illustrerar arkitekturen i Hello World-exemplet och de relativa sök
 [lnk-helloworld-exempel]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -4,7 +4,7 @@
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
-    manager="paulettm"
+    manager="jhubbard"
     editor=""
     tags="azure-portal"/>
 
@@ -16,6 +16,7 @@
     ms.tgt_pltfrm="na"
     ms.date="08/08/2016"
     ms.author="heidist"/>
+
 
 # Indexerare i Azure Search
 > [AZURE.SELECTOR]
@@ -79,6 +80,6 @@ Nu när du har lagt grunden är nästa steg att granska krav och uppgifter som �
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

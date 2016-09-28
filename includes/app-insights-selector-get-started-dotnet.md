@@ -16,7 +16,6 @@ Installera SDK:n och lägg sedan till övervakning för andra data:
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

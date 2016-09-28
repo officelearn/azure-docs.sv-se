@@ -70,7 +70,6 @@ För att använda lagringsemulatorn kan du använda ett kortkommando som mappar 
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

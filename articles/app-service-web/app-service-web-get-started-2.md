@@ -18,6 +18,7 @@
     ms.author="cephalin"
 />
 
+
 # Lägg in funktioner i din första webbapp
 
 I kursen om att [distribuera en webbapp till Azure på fem minuter](app-service-web-get-started.md) distribuerade du en exempelwebbapp till [Azure Apptjänst](../app-service/app-service-value-prop-what-is.md). I den här artikeln får du lära dig hur du lägger in några bra funktioner i din distribuerade webbapp. På några minuter gör du följande:
@@ -157,6 +158,6 @@ Det finns så mycket mer du kan göra med den distribuerade appen. Här är bara
 - [Lära dig hur Apptjänst fungerar](../app-service/app-service-how-works-readme.md) 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

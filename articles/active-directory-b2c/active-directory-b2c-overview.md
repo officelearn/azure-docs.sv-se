@@ -16,6 +16,7 @@
     ms.date="07/24/2016"
     ms.author="swkrish"/>
 
+
 # Azure Active Directory B2C: Registrera och logga in användare i dina program
 
 Azure Active Directory B2C är en heltäckande lösning för identitetshantering i molnet för konsumentinriktade webb- och mobilprogram. Det är en global tjänst med hög tillgänglighet som kan skalas till flera hundra miljoner konsumentidentiteter. Azure Active Directory B2C bygger på en säker plattform i företagsklass och ser till att dina program, ditt företag och dina användare är skyddade.
@@ -68,6 +69,6 @@ Vi rekommenderar att du aktiverar aviseringar om säkerhetsincidenter genom att 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

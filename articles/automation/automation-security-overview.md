@@ -16,6 +16,7 @@
    ms.date="07/29/2016"
    ms.author="magoedte" />
 
+
 # Säkerheten i Azure Automation
 Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders, till exempel Amazon Web Services (AWS).  För att en runbook ska kunna utföra sina åtgärder måste den ha behörighet att komma åt resurserna på ett säkert sätt med den minsta behörighet som krävs i prenumerationen.  
 Den här artikeln täcker de olika autentiseringsscenarier som stöds av Azure Automation och visar hur du kommer igång baserat på den eller de miljöer som du behöver hantera.  
@@ -55,6 +56,6 @@ AWS-autentiseringsuppgifter | Amazon Web Services | [Autentisera runbooks med Am
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="05/25/2016" 
     ms.author="omark"/>
 
+
 # Vad är Azure App Service?
 
 *Apptjänst* är en [plattform som en tjänst](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) som erbjuds med Microsoft Azure. Skapa webb- och mobilappar för alla plattformar och enheter. Integrera dina appar med SaaS-lösningar, anslut till lokala program och automatisera affärsprocesserna. Azure kör dina appar på helt hanterade virtuella datorer (VM) med de delade VM-resurser eller dedikerade VM:er som du väljer. 
@@ -82,6 +83,6 @@ Eller öppna ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

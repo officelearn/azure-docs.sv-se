@@ -18,6 +18,7 @@
     ms.author="markvi"/>
 
 
+
 # Felsökning: Du kan inte ta dig dit härifrån
 
 En ”nekad åtkomst”-sida visas när du försökte ansluta till ett program, t.ex. SharePoint Online.  
@@ -142,6 +143,6 @@ Kom tillbaka snart för anvisningar för Android-telefoner och Android-surfplatt
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

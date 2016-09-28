@@ -14,7 +14,6 @@ För att komma åt åtkomstnycklarna klickar du på **Åtkomstnycklar**.
 
 ![Åtkomstnycklar för Redis-cache](media/redis-cache-access-keys/redis-cache-access-keys.png)
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

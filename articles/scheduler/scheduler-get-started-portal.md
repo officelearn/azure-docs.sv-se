@@ -15,6 +15,7 @@
  ms.date="08/10/2016"
  ms.author="krisragh"/>
 
+
 # Komma igång med Azure Scheduler på Azure-portalen
 
 Det är enkelt att skapa schemalagda jobb i Azure Scheduler. I den här självstudiekursen lär du dig hur du skapar ett jobb. Du lär dig också om övervaknings- och hanteringsfunktionerna i Scheduler.
@@ -184,6 +185,6 @@ Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkoms
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

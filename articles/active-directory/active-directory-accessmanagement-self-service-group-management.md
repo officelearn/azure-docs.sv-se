@@ -17,6 +17,7 @@
     ms.date="08/10/2016"
     ms.author="curtand"/>
 
+
 # Konfigurera Azure Active Directory för grupphantering via självbetjäning
 
 Med självbetjäningsgrupphantering kan du skapa och hantera säkerhetsgrupper eller Office 365-grupper i Azure Active Directory (Azure AD). Användare kan även begära säkerhetsgruppsmedlemskap eller Office 365-gruppmedlemskap, och sedan kan gruppens ägare godkänna eller neka medlemskap. På så vis kan den dagliga kontrollen av gruppmedlemskap delegeras till dem som förstår medlemskapets affärskontext. Funktioner för grupphantering via självbetjäning är bara tillgängliga för säkerhetsgrupper och Office 365-grupper, men inte för e-postaktiverade säkerhetsgrupper eller distributionslistor.
@@ -59,6 +60,6 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="08/22/2016"
     ms.author="marsma"/>
 
+
 # Grunderna i Azure Batch
 
 Med Azure Batch kan du effektivt köra storskalig parallella program och HPC-program (databehandling med höga prestanda) i molnet. Det är en plattformstjänst som schemalägger beräkningsintensivt arbete för körning i en hanterad samling virtuella datorer. Tjänsten kan automatiskt skala beräkningsresurser efter jobbens behov.
@@ -163,6 +164,6 @@ Nu när du har en högnivåöversikt över Batch-tjänsten är det dags att gå 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

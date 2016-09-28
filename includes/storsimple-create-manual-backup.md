@@ -25,7 +25,6 @@
   Säkerhetskopian borde visas i listan över säkerhetskopieringsuppsättningar som visas i katalogen.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

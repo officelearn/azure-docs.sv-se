@@ -4,7 +4,6 @@
 2. Logga in med autentiseringsuppgifter för Azure och välj tjänsten från **Befintliga mobiltjänster**. Visual Studio hämtar dina publiceringsinställningar direkt från Azure. Klicka slutligen på **Publicera**.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

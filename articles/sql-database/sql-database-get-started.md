@@ -139,6 +139,6 @@ Nu när du har slutfört de här SQL Database-självstudierna och skapat en data
 
 
 
-<!--HONumber=sep12_HO2-->
+<!---HONumber=sep12_HO2-->
 
 

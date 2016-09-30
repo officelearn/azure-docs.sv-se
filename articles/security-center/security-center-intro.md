@@ -150,7 +150,7 @@ I det här dokumentet har du fått lära dig grunderna om Security Center, de vi
 - [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
 
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.PNG
+[1]: ./media/security-center-intro/security-tile.png
 [2]: ./media/security-center-intro/security-center.png
 [3]: ./media/security-center-intro/security-policy.png
 [4]: ./media/security-center-intro/security-policy-blade.png
@@ -163,5 +163,3 @@ I det här dokumentet har du fått lära dig grunderna om Security Center, de vi
 
 
 <!--HONumber=Jun16_HO2-->
-
-

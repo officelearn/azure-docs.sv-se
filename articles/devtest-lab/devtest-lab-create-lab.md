@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Skapa ett labb i DevTest Labs | Microsoft Azure"
-    description="Skapa ett nytt labb i DevTest Labs för virtuella datorer"
+    pageTitle="Skapa ett labb i Azure DevTest Labs | Microsoft Azure"
+    description="Skapa ett labb i Azure DevTest Labs för virtuella datorer"
     services="devtest-lab,virtual-machines"
     documentationCenter="na"
     authors="tomarcher"
@@ -13,25 +13,25 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/25/2016"
+    ms.date="09/12/2016"
     ms.author="tarcher"/>
+
 
 # Skapa ett labb i Azure DevTest Labs
 
 ## Krav
 
-Om du vill skapa ett labb behöver du följande:
+Du behöver följande om du vill skapa ett labb:
 
 - En Azure-prenumeration. Mer information om köpalternativ för Azure finns i [Så här köper du Azure](https://azure.microsoft.com/pricing/purchase-options/) eller [Kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/). För att kunna skapa labbet måste du vara prenumerationens ägare.
-- En Azure-resursgrupp för labbet. Mer information finns i [Översikt av Azure Resource Manager](../resource-group-overview.md) och [Rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-configure.md).
 
-## Skapa ett labb
+## Steg för att skapa ett labb i Azure DevTest Labs
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+Följande steg illustrerar hur du använder Azure-portalen för att skapa ett labb i Azure DevTest Labs. 
 
-1. Välj **Bläddra**.
+1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Välj **DevTest Labs** från listan.
+1. Välj **Fler tjänster** och välj sedan **DevTest Labs** från listan.
 
 1. På bladet **DevTest Labs** väljer du **Lägg till**.
 
@@ -40,8 +40,15 @@ Om du vill skapa ett labb behöver du följande:
 1. På bladet **Skapa ett DevTest-labb**:
 
     1. Ange **Labbnamn** för det nya labbet.
+    
     1. Välj den **prenumeration** som du vill koppla till labbet.
+    
     1. Välj en **plats** där du vill lagra labbet.
+    
+    1. Välj **Automatisk avstängning** för att ange om du vill aktivera, och definiera parametrar för, automatisk avstängning av alla labbets virtuella datorer.
+    
+    1. Välj **Lagringstyp** för att ange disklagringstypen för labbets virtuella datorer. 
+    
     1. Välj **Skapa**.
 
     ![Skapa ett blad för labbet](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
@@ -63,6 +70,6 @@ När du har skapat labbet kan du fundera på följande steg:
 - [Lägga till en virtuell dator med artefakter i ett labb](devtest-lab-add-vm-with-artifacts.md).
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

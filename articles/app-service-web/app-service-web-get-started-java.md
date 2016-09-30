@@ -18,9 +18,10 @@
     ms.author="cephalin"
 />
     
+
 # Distribuera din första Java-webbapp via Azure på fem minuter
 
-I den här kursen lär du dig hur du distribuerar en enkel webbapp med Java via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+I de här självstudierna lär du dig hur du distribuerar en enkel webbapp med Java via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Du kan använda App Service för att skapa webbappar, [serverdelar för mobilappar](/documentation/learning-paths/appservice-mobileapps/) och [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 Du kommer att: 
@@ -34,7 +35,7 @@ Du kommer att:
 - Hämta en FTP/FTPS-klient som t.ex. [FileZilla](https://filezilla-project.org/).
 - Skaffa ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] Du kan [prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
+>[AZURE.NOTE] Du kan [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
 
 <a name="create"></a>
 ## Skapa en webbapp
@@ -109,7 +110,7 @@ Nu ska vi distribuera en Java-app via Azure med FTPS.
 
     >[AZURE.NOTE] I enlighet med Tomcats standardbeteende kommer filnamn av typen **ROOT.war** i /site/wwwroot/webapps att generera en webbappsrot (http://*&lt;appname>*.azurewebsites.net), medan filnamn av typen ***&lt;anyname>*.war** genererar en namngiven webbapp (http://*&lt;appname>*.azurewebsites.net/*&lt;anyname>*).
 
-Klart! Nu körs din Java-app live i Azure. Navigera till http://*&lt;appname >*.azurewebsites.net i din webbläsare för att se hur det fungerar. 
+Klart! Nu körs din Java-app live i Azure. Navigera till http://*&lt;appnamn >*.azurewebsites.net i din webbläsare för att se hur det fungerar. 
 
 ## Göra appuppdateringar
 
@@ -129,6 +130,6 @@ Eller gör mer med din första webbapp. Exempel:
 
 
 
-<!----HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

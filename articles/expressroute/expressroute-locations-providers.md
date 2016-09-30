@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/20/2016"
    ms.author="cherylmc" />
+
 
 # ExpressRoute-partners och peeringplatser
 
@@ -31,7 +32,7 @@ Du har åtkomst till Azure-tjänster i alla regioner inom en geopolitisk region,
 |---|---|---|
 |**Nordamerika**|Östra USA, västra USA, östra USA 2, centrala USA, södra centrala USA, norra centrala USA, centrala Kanada, östra Kanada|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Sydamerika**|Södra Brasilien|Sao Paulo|
-|**Europa**|Norra Europa, västra Europa|Amsterdam, Dublin, London, Newport(Wales)+, Paris|
+|**Europa**|Norra Europa, Västra Europa, Västra Storbritannien, Södra Storbritannien|Amsterdam, Dublin, London, Newport(Wales)+, Paris|
 |**Asien**|Östra Asien, Sydostasien|Hongkong, Singapore|
 |**Japan**|Västra Japan, östra Japan|Osaka, Tokyo|
 |**Australien**|Sydöstra Australien, östra Australien|Melbourne, Sydney|
@@ -43,9 +44,9 @@ Tabellen nedan innehåller information om regioner och geopolitiska gränser fö
 
 |**Geopolitisk region**|**Azure-regioner**|**ExpressRoute-platser**|
 |---|---|---|---|
-|**U.S. Government-moln**|Iowa (USA-förvaltad region), Virginia (USA-förvaltad region)|Chicago, Dallas+, New York, Washington DC|
+|**U.S. Government-moln**|Iowa (USA-förvaltad region), Virginia (USA-förvaltad region)|Chicago, Dallas, New York, Washington DC|
 |**Kina**|Norra Kina, östra Kina|Beijing, Shanghai|
-|**Tyskland**|Centrala Tyskland, östra Tyskland|Berlin, Frankfurt|
+|**Tyskland**|Centrala Tyskland, östra Tyskland|Berlin+, Frankfurt|
 
 
 Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i ExpressRoute. Du måste aktivera ExpressRoutes premiumtillägg som stöder global anslutning. Anslutning till nationella molnmiljöer stöds inte. Kontakta din anslutningsleverantör om detta behov uppstår.
@@ -64,8 +65,8 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **Atlanta** | Equinix |
 | **Chennai** | Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **Dallas** | AT&T NetBond, Equinix, Level 3 Communications, Megaport |
-| **Dublin** | Colt |
+| **Dallas** | AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
+| **Dublin** | Colt, TeleCity Group |
 | **Hongkong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **London** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **Las Vegas** | Level 3 Communications+, Megaport
@@ -80,7 +81,7 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapore** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Telstra Corporation, Verizon |
+| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** | Cologix, Equinix, Zayo Group |
 | **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
@@ -94,7 +95,7 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **Plats**  |**Tjänsteleverantörer** |
 |---------------|--------------------|
 | **Chicago** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Dallas** |  Equinix+, Verizon+ |
+| **Dallas** |  Equinix, Verizon+ |
 | **New York** | Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
@@ -158,6 +159,6 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

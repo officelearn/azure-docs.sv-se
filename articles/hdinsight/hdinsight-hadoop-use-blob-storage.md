@@ -6,7 +6,7 @@
     documentationCenter=""
     tags="azure-portal"
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -15,8 +15,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/06/2016"
     ms.author="jgao"/>
+
 
 
 # Använd HDFS-kompatibla Azure Blob Storage med Hadoop i HDInsight
@@ -49,7 +50,7 @@ Dessutom ger HDInsight möjlighet att komma åt data som är lagrade i Azure Blo
 
 Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under processen med att skapa HDInsight utses ett Azure Storage-konto och en specifik Azure Blob Storage-behållare från detta konto till standardfilsystem.
 
-Förutom det här lagringskontot kan du lägga till ytterligare lagringskonton från samma Azure-prenumeration eller andra Azure-prenumerationer under skapandeprocessen. Mer information om hur du lägger till ytterligare lagringskonton finns i [Skapa HDInsight-kluster][hdinsight-creation].
+Förutom det här lagringskontot kan du lägga till ytterligare lagringskonton från samma Azure-prenumeration eller andra Azure-prenumerationer under skapandeprocessen eller efter att ett kluster har skapats. Mer information om hur du lägger till ytterligare lagringskonton finns i [Skapa HDInsight-kluster][hdinsight-creation].
 
 - **Behållare på de lagringskonton som är anslutna till ett kluster:** Eftersom kontonamnet och nyckeln associeras med klustret när det skapas har du full tillgång till blobarna i dessa behållare.
 
@@ -301,6 +302,6 @@ Mer information finns i:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

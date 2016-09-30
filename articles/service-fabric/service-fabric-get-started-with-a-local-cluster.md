@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
+
 
 # Komma igång med att distribuera och uppgradera program i det lokala klustret
 Azure Service Fabric SDK innehåller en fullständig lokal utvecklingsmiljö som du kan använda för att snabbt komma igång med att distribuera och hantera program i ett lokalt kluster. I den här artikeln skapar du ett lokalt kluster, distribuerar ett befintligt program till det och uppgraderar sedan programmet till en ny version, allt från Windows PowerShell.
@@ -193,7 +194,37 @@ Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är ve
 
 3. Om du vill stänga av klustret, men behålla programdata och spårningar, klickar du på **Stoppa lokalt kluster** i appen i systemfältet.
 
-4. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Observera att det här alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Ta bara bort det lokala klustret om du inte avser att använda det under en tid eller om du behöver frigöra resurser.
+4. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Ta bara bort det lokala klustret om du inte avser att använda det under en tid eller om du behöver frigöra resurser.
+
+## Klusterläge med 1 nod och 5 noder
+
+När du arbetar med det lokala klustret för att utveckla program kan det hända att du gör snabba iterationer när du skriver kod, vid felsökning, ändring av kod etc. För att optimera den här processen kan det lokala klustret köras i två lägen: 1 nod eller 5 noder. Båda klusterlägena har sina fördelar.
+I klustret med 5 noder kan du arbeta med ett verkligt kluster. Du kan testa redundansscenarier, samt arbeta med flera instanser och repliker av dina tjänster.
+Klusterläget med 1 nod är optimerat för snabb distribution och registrering av tjänster, vilket hjälper dig att snabbt verifiera kod med Service Fabric-körningen.
+
+Varken klusterläget med 1 nod och med 5 noder är ett emuleringsprogram eller en simulator. Det kör samma plattformskod som finns i kluster med flera datorer.
+
+> [AZURE.NOTE] Den här funktionen finns i SDK-version 5.2 och senare.
+
+För att ändra klusterläget till ett kluster med 1 nod använder du Local Cluster Manager i Service Fabric eller PowerShell på följande sätt:
+
+1. Starta ett nytt PowerShell-fönster som administratör.
+
+2. Kör installationsskriptet för klustret från SDK-mappen:
+
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+
+    Klusterinstallationen tar en stund. När installationen är klar bör skärmen visa något som liknar detta:
+    
+    ![Utdata efter klusterinstallationen][cluster-setup-success-1-node]
+
+Om du använder Local Cluster Manager i Service Fabric:
+
+![Växla klusterläge][switch-cluster-mode]
+
+> [AZURE.WARNING] När du ändrar klusterläge tas det aktuella klustret bort från datorn och ett nytt kluster skapas. Data som du har lagrat i klustret tas bort när du ändrar klusterläge.
 
 ## Nästa steg
 - Nu när du har distribuerat och uppgraderat vissa fördefinierade program kan du [skapa ett eget program i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
@@ -217,9 +248,11 @@ Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är ve
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

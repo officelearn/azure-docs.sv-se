@@ -1,7 +1,7 @@
 <properties
     pageTitle="Active Directory Federation Services i Azure | Microsoft Azure"
     description="I det här dokumentet lär du dig hur du distribuerar AD FS i Azure för hög tillgänglighet."
-    keywords="Introduktion till AD FS, Azure, översikt över Azure AD Connect, AD FS i Azure, iaas, ADFS"
+    keywords="distribuera AD FS i azure, distribuera azure adfs, azure adfs, azure ad fs, distribuera adfs, distribuera ad fs, adfs i azure, distribuera adfs i azure, distribuera AD FS i azure, adfs azure, introduktion till AD FS, Azure, AD FS i Azure, iaas, ADFS, flytta adfs till azure"
     services="active-directory"
     documentationCenter=""
     authors="anandyadavmsft"
@@ -16,6 +16,7 @@
     ms.topic="get-started-article"
     ms.date="07/13/2016"
     ms.author="anandy;billmath"/>
+
 
 # AD FS-distribution i Azure 
 
@@ -311,6 +312,7 @@ Om inloggningen lyckas visas ett meddelande som det nedan:
 
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
 * [Konfigurera och hantera AD FS med Azure AD Connect](active-directory-aadconnectfed-whatis.md)
+* [AD FS-distribution med hög tillgänglighet över geografiska områden i Azure med Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
 
 
@@ -318,7 +320,6 @@ Om inloggningen lyckas visas ett meddelande som det nedan:
 
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

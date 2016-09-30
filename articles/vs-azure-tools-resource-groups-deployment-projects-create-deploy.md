@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="09/20/2016"
    ms.author="tomfitz" />
+
 
 # Skapa och distribuera Azure-resursgrupper via Visual Studio
 
@@ -47,7 +48,7 @@ I den här proceduren ska du skapa ett projekt för en Azure-resursgrupp med en 
 
     ![visa noder](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
 
-    Eftersom vi valde mallen Webbapp + SQL för det här exemplet visas följande filer. 
+    Eftersom vi valde mallen Webbapp + SQL för det här exemplet visas följande filer: 
 
   	|Filnamn|Beskrivning|
   	|---|---|
@@ -75,7 +76,7 @@ Du kan lägga till en resurs genom att antingen välja knappen **Lägg till resu
 
 ![lägga till en resurs](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-I den här självstudiekursen väljer du **Lagringskonto** och ger det ett namn. Namnet på ett lagringskonto får endast innehålla siffror och gemener och får inte innehålla mer än 24 tecken. Projektet lägger till en unik 13 tecken lång sträng till det namn som du anger, så se till att namnet inte innehåller mer än 11 tecken.
+I den här självstudiekursen väljer du **Lagringskonto** och ger det ett namn. Ange ett namn som innehåller fler än 11 tecken och endast siffror och små bokstäver.
 
 ![lägga till ett lagringskonto](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
@@ -83,7 +84,7 @@ Observera att inte bara resursen lades till, utan även en parameter för typen 
 
 ![visa disposition](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-Parametern **storageType** är fördefinierad med tillåtna typer och en standardtyp. Du kan lämna dessa värden eller redigera dem för ditt scenario. Om du inte vill att någon ska distribuera ett **Premium_LRS**-lagringskonto med den här mallen tar du bara bort det från de tillåtna typerna. 
+Parametern **storageType** är fördefinierad med tillåtna typer och en standardtyp. Du kan lämna dessa värden eller redigera dem för ditt scenario. Om du inte vill att någon ska distribuera ett **Premium_LRS**-lagringskonto med den här mallen tar du bort det från de tillåtna typerna. 
 
     "storageType": {
       "type": "string",
@@ -127,30 +128,37 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
 
     ![Dialogrutan Skapa resursgrupp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
    
-1. Du kan redigera parametrarna för distributionen genom att välja knappen **Redigera parametrar**. Ange värden för parametrarna och välj knappen **Spara**.
+1. Redigera parametrarna för distributionen genom att välja knappen **Redigera parametrar**.
+
+    ![Redigera parametrar](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
+
+1. Ange värden för de tomma parametrarna och välj knappen **Spara**. De tomma parametrarna är **hostingPlanName**, **administratorLogin**, **administratorLoginPassword**, och **databaseName**.
+
+    **hostingPlanName** anger ett namn för [App Service plan](./app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) att skapa. 
+    
+    **administratorLogin** anger SQL Server-administratörens användarnamn. Använd inte vanliga admin-namn som **sa** eller **admin**. 
+    
+    **administratorLoginPassword** anger SQL Server-administratörens lösenord. Alternativet **Spara lösenord i klartext i parameterfilen** är inte säkert, välj därför inte detta alternativ. Eftersom lösenordet inte sparas som oformaterad text behöver du ange detta lösenord igen vid distributionen. 
+    
+    **databaseName** anger ett namn för databasen att skapa. 
 
     ![Dialogrutan Redigera parametrar](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    Alternativet **Spara lösenord i klartext i parameterfilen** är inte säkert.
-
-1. Distribuera projektet till Azure genom att välja knappen **Distribuera**. Du kan se distributionsförloppet i fönstret **Utdata**. Distributionen kan ta flera minuter beroende på din konfiguration. Ange databasadministratörens lösenord i PowerShell-konsolen när du uppmanas att göra det. Om distributionsförloppet har stoppats kan det bero på att processen väntar på att du ska ange lösenordet i PowerShell-konsolen.
+1. Distribuera projektet till Azure genom att välja knappen **Distribuera**. En PowerShell-konsol öppnas utanför Visual Studio-instansen. Ange SQL Server-administratörens lösenord i PowerShell-konsolen när du uppmanas att göra detta. **Din PowerShell-konsol kan vara dold bakom andra objekt eller minimerad i Aktivitetsfältet.** Leta reda på konsolen och välj den för att ange lösenordet.
 
     >[AZURE.NOTE] Visual Studio kan uppmana dig att installera Azure PowerShell-cmdlets. Du behöver Azure PowerShell-cmdlets för att distribuera resursgrupper. Installera dem om du uppmanas att göra det.
     
-1. När distributionen är klar bör du se ett meddelande liknande följande i fönstret **Utdata**:
+1. Distributionen kan ta några minuter. I fönstren **Utdata** kan du se status för distributionen. När distributionen är klar indikerar det sista meddelandet att distributionen är framgångsrik med något liknande:
 
-        ...
-        15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
-        15:19:19 - CorrelationId      : 6cb43be5-86b4-478f-9e2c-7e7ce86b26a2
-        15:19:19 - ResourceGroupName  : DemoSiteGroup
-        15:19:19 - ProvisioningState  : Succeeded
-        ...
+        ... 
+        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 
-1. Öppna [Azure Portal](https://portal.azure.com/) i en webbläsare och logga in på ditt konto. Du visar resursgruppen genom att välja **Resursgrupper** och den resursgrupp som du har distribuerat till.
+
+1. Öppna [Azure-portalen](https://portal.azure.com/) i en webbläsare och logga in på ditt konto. Du visar resursgruppen genom att välja **Resursgrupper** och den resursgrupp som du har distribuerat till.
 
     ![välja grupp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 
-1. Du ser alla distribuerade resurser.
+1. Du ser alla distribuerade resurser. Observera att namnet på lagringskontot inte är exakt vad du angav när du lade till resursen. Lagringskontot måste vara unikt. Mallen lägger automatiskt till en sträng med tecken i det namn du angav för att ge ett unikt namn. 
 
     ![visa resurser](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 
@@ -162,7 +170,11 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
 
 Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt kod som distribueras med projektet. Det här avsnittet beskriver hur du distribuerar en webbapp och SQL Database-tabeller under distributionen. Om du distribuerar en virtuell dator i stället för en webbapp vill du köra en del kod på datorn som en del av distributionen. Processen för att distribuera koden för en webbapp eller för att konfigurera en virtuell dator är nästan desamma.
 
-1. I din Visual Studio-lösning lägger du till en **ASP.NET-webbapp**. 
+1. Lägga till ett projekt i din Visual Studio-lösning. Högerklicka på lösningen och välj **Lägg till** > **nytt projekt**.
+
+    ![lägga till projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Lägga till en **ASP.NET webbapp**. 
 
     ![lägga till webbapp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
     
@@ -170,41 +182,59 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt 
 
     ![välja MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
     
-1. När Visual Studio har skapat din webbapp lägger du till en referens till webbappsprojektet i resursgruppsprojektet.
+1. Efter att Visual Studio skapat din webbapp visas båda projekten i lösningen.
+
+    ![visa projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. Nu måste du kontrollera att ditt resursgrupp-projekt är medvetet om det nya projektet. Gå tillbaka till ditt resursgrupp-projekt (AzureResourceGroup1). Högerklicka på **Referenser** och välj **Lägg till referens**.
+
+    ![lägga till referens](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Välj det webbapp-projekt som du har skapat.
 
     ![lägga till referens](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    Genom att lägga till en referens länkar du webbappsprojektet till resursgruppsprojektet och definierar automatiskt tre nyckelegenskaper.  
+    Genom att lägga till en referens länkar du webbappsprojektet till resursgruppsprojektet och definierar automatiskt tre nyckelegenskaper. Du ser dessa egenskaper i fönstret **Egenskaper** för referensen.
+
+      ![se referens](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
     
-    - **Ytterligare egenskaper** innehåller distributionspaketets mellanlagringsplats som skickas till Azure Storage. 
+    Egenskaperna är:
+
+    - **Ytterligare egenskaper** innehåller distributionspaketets mellanlagringsplats som skickas till Azure Storage. Observera mappen (ExampleApp) och filen (package.zip). Du kan ange dessa värden som parametrar när du distribuerar appen. 
     - **Ta med filsökväg** innehåller sökvägen där paketet skapas. **Ta med mål** innehåller det kommando som distributionen kör. 
     - Med standardvärdet **Build;Package** kan distributionen bygga och skapa ett webbdistributionspaket (package.zip).  
     
     Du behöver ingen publiceringsprofil eftersom distributionen hämtar nödvändig information från egenskaperna för att skapa paketet.
-    
-      ![se referens](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
-1. Lägg till en resurs i mallen och välj **Webbdistribution för Web Apps** den här gången. 
+1. Lägga till en resurs i mallen.
+
+    ![lägga till en resurs](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. Denna gång väljer du **Webbdistribution för webbappar**. 
 
     ![lägga till webbdistribution](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Distribuera resursgruppsprojektet till resursgruppen igen. Den här gången finns det några nya parametrar. Du behöver inte ange värden för **_artifactsLocation** eller **_artifactsLocationSasToken** eftersom Visual Studio genererar dessa värden automatiskt. Ange mappen och filnamnet till sökvägen som innehåller distributionspaketet.
+1. Distribuera resursgruppsprojektet till resursgruppen igen. Den här gången finns det några nya parametrar. Du behöver inte ange värden för **_artifactsLocation** eller **_artifactsLocationSasToken** eftersom Visual Studio genererar dessa värden automatiskt. Du kan dock att ställa in mapp- och filnamn på den sökväg som innehåller distributionspaketet (visas som **ExampleAppPackageFolder** och **ExampleAppPackageFileName** i följande bild). Ange de värden som du såg tidigare i referensegenskaperna (**ExampleApp** och **package.zip**).
 
     ![lägga till webbdistribution](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
-    För **Artefaktlagringskonto** kan du använda det som distribueras med den här resursgruppen.
+    Som **Artefaktlagringskonto** kan du välja det som distribuerades med den här resursgruppen.
     
-När distributionen är klar kan du bläddra till platsen och se att ASP.NET-standardappen har distribuerats.
+1. När distributionen är klar väljer du din webbapp i portalen. Välj webbadress för att gå till webbplatsen.
 
-![visa distribuerad app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+    ![bläddra på webbplats](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Observera att du nu har distribuerat standard-ASP.NET-appen.
+
+    ![visa distribuerad app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Nästa steg
 
-- Information om hur du hanterar dina resurser via portalen finns i [Hantera Azure-resurser med hjälp av Azure Portal](./azure-portal/resource-group-portal.md).
+- Information om hur du hanterar dina resurser via portalen finns i [Hantera Azure-resurser med hjälp av Azure-portalen](./azure-portal/resource-group-portal.md).
 - Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

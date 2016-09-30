@@ -12,8 +12,9 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/30/2016"
     ms.author="awills"/>
+
 
 
 # Övervaka din Node.js-app genom att lägga till Application Insights SDK
@@ -26,7 +27,7 @@ Med [Visual Studio Application Insights](app-insights-overview.md) kan du överv
 
 SDK tillhandahåller automatisk insamling av frekvens och svar för inkommande HTTP-förfrågningar, prestandaräknare (processor, minne, RPS) och ohanterade undantag. Du kan också lägga till anpassade anrop om du vill spåra beroenden, mätvärden och andra händelser.
 
-![Exempel på prestandaövervakningsdiagram](./media/app-insights-asp-net-manual/10-perf.png)
+![Exempel på prestandaövervakningsdiagram](./media/app-insights-windows-services/10-perf.png)
 
 
 #### Innan du börjar
@@ -40,7 +41,7 @@ Du behöver:
 
 Logga in på [Azure-portalen][portal] och skapa en ny Application Insights-resurs. En [resurs][roles] i Azure är en instans av en tjänst. Det är i den här resursen som telemetrin från din app analyseras och visas.
 
-![Klicka på Nytt, Application Insights](./media/app-insights-asp-net-manual/01-new-asp.png)
+![Klicka på Nytt, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
 Välj Annan som programtyp. Valet av programtyp anger standardinnehållet i resursbladen och egenskaperna som visas i [Metrics Explorer][metrics].
 
@@ -48,7 +49,7 @@ Välj Annan som programtyp. Valet av programtyp anger standardinnehållet i resu
 
 Nyckeln identifierar resursen och du ska snart installera den i SDK för att dirigera data till resursen.
 
-![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C](./media/app-insights-asp-net-manual/02-props-asp.png)
+![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C](./media/app-insights-windows-services/02-props-asp.png)
 
 
 ## <a name="sdk"></a> Installera SDK i ditt program
@@ -84,7 +85,7 @@ Gå tillbaka till [Azure-portalen](https://portal.azure.com) och bläddra till A
 
 Titta efter data på sidan Översikt. Först ser du bara en eller två punkter. Till exempel:
 
-![Klicka dig vidare till mer data](./media/app-insights-asp-net-manual/12-first-perf.png)
+![Klicka dig vidare till mer data](./media/app-insights-windows-services/12-first-perf.png)
 
 Klicka dig vidare i diagrammet om du vill visa mer detaljerade mätvärden. [Lär dig mer om mätvärden.][perf]
 
@@ -212,6 +213,10 @@ server.on("listening", () => {
 });
 ```
 
+## Nästa steg
+
+* [Övervaka din telemetri i portalen](app-insights-dashboards.md)
+* [Skriv Analytics-frågor via din telemetri](app-insights-analytics-tour.md)
 
 
 
@@ -226,6 +231,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,12 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Skapa ett VNet med en plats-till-plats-anslutning med hjälp av PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klassisk Azure-portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Klassisk – den klassiska portalen](vpn-gateway-site-to-site-create.md)
 
 Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-anslutning från plats till plats till ditt lokala nätverk via **Azure Resource Manager-distributionsmodellen**. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
 
@@ -148,7 +149,7 @@ Därefter begär du en offentlig IP-adress som ska allokeras till din Azure VNet
 
 Azure VPN-gatewayen för Resource Manager-distributionsmodellen stöder för närvarande endast offentliga IP-adresser med hjälp av dynamisk fördelning. Detta betyder dock inte IP-adressen kan ändras. Den enda gången Azure VPN-gatewayens IP-adress ändras är när gatewayen tas bort och återskapas. Gatewayens offentliga IP-adress ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din Azure VPN-gateway.
 
-Använd följande PowerShell-exempel.
+Använd följande PowerShell-exempel:
 
     $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
@@ -177,7 +178,7 @@ Ange följande värden:
 
 ## 7. Konfigurera din VPN-enhet
 
-I det här läget behöver du den offentliga IP-adressen för den virtuella nätverksgatewayen för att kunna konfigurera din lokala VPN-enhet. Be din enhetstillverkare om specifik konfigurationsinformation. Se även [VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information.
+I det här läget behöver du den offentliga IP-adressen för den virtuella nätverksgatewayen för att kunna konfigurera din lokala VPN-enhet. Be din enhetstillverkare om specifik konfigurationsinformation. Se [VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information.
 
 Använd följande exempel för att hitta den offentliga IP-adressen till din virtuella nätverksgateway:
 
@@ -225,6 +226,6 @@ Använd följande anvisningar om du behöver ändra prefixen för din lokala nä
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

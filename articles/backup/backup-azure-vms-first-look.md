@@ -13,15 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/29/2016"
+    ms.date="09/15/2016"
     ms.author="markgal; jimpark"/>
+
 
 
 # En första titt: Säkerhetskopiera virtuella datorer i Azure
 
 > [AZURE.SELECTOR]
-- [En första titt: Skydda virtuella datorer med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md)
-- [En första titt: Skydda virtuella datorer i Azure med ett säkerhetskopieringsvalv](backup-azure-vms-first-look.md)
+- [Skydda virtuella datorer med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md)
+- [Skydda virtuella datorer i Azure med ett Backup-valv.](backup-azure-vms-first-look.md)
 
 de här självstudierna beskriver steg för steg hur du säkerhetskopierar en virtuell Azure-dator till Azure. Den här artikeln beskriver den klassiska modellen eller Service Manager-distributionsmodellen för att säkerhetskopiera virtuella datorer. Om du vill säkerhetskopiera en virtuell dator till ett Recovery Services-valv som hör till en resursgrupp, hittar du mer information i [En första titt: Skydda virtuella datorer i Azure med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md). Följande krav måste vara uppfyllda för att du ska kunna genomföra den här självstudien:
 
@@ -225,6 +226,6 @@ Om du har frågor eller om du saknar en funktion är du välkommen att [lämna f
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

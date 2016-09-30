@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Konfigurera en VPN-anslutning från punkt till plats till ett virtuellt Azure-nätverk med hjälp av den klassiska portalen | Microsoft Azure"
-   description="Anslut säkert till ditt virtuella Azure-nätverk genom att skapa en VPN-anslutning från punkt till plats."
+   pageTitle="Konfigurera en VPN-gatewayanslutning från punkt till plats till Azure Virtual Network med hjälp av den klassiska portalen | Microsoft Azure"
+   description="Anslut säkert till Azure Virtual Network genom att skapa en VPN-gatewayanslutning från punkt till plats."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -17,15 +17,16 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Konfigurera en punkt-till-plats-anslutning till ett VNet med hjälp av den klassiska portalen
 
 > [AZURE.SELECTOR]
-- [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal – Klassisk](vpn-gateway-point-to-site-create.md)
+- [Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Klassisk – den klassiska portalen](vpn-gateway-point-to-site-create.md)
 
 Med en P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning från en enskild klientdator till ett virtuellt nätverk. En P2S-anslutning är användbar när du vill ansluta till ditt VNet från en annan plats, t.ex. hemifrån eller från en konferens, eller när du bara har ett fåtal klienter som behöver kunna ansluta till ett virtuellt nätverk.
 
-Den här artikeln beskriver steg för steg hur du skapar ett VNet med en punkt-till-plats-anslutning med **den klassiska distributionsmodellen** på den klassiska portalen. För närvarande kan du inte skapa den här slutpunkt-till-slutpunkt-konfigurationen på Azure-portalen för den klassiska distributionsmodellen.
+Den här artikeln beskriver steg för steg hur du skapar ett VNet med en punkt-till-plats-anslutning med **den klassiska distributionsmodellen** på den **klassiska portalen**. För närvarande kan du inte skapa den här slutpunkt-till-slutpunkt-konfigurationen på Azure-portalen för den klassiska distributionsmodellen. Du kan utföra vissa steg i Azure Portal, men PowerShell krävs ändå för nedladdning av VPN-klientkonfiguration.
 
 Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress för att fungera. VPN-anslutningen upprättas genom att du startar anslutningen från klientdatorn. Mer information om punkt-till-plats-anslutningar finns i [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md#point-to-site-connections) och [Planering och design](vpn-gateway-plan-design.md).
 
@@ -144,16 +145,30 @@ För att ansluta till det virtuella nätverket måste du också konfigurera en V
 
 3. När du skapar och hämtar VPN-klientpaketet från den klassiska Azure-portalen, kan du installera klientpaketet på den klientdator som du vill ansluta till ditt virtuella nätverk. Om du planerar att installera VPN-klientpaketet på flera klientdatorer, bör du kontrollera att de också har ett installerat klientcertifikat.
 
-### Del 2: Installera VPN-konfigurationspaketet på klienten och starta anslutningen
+### Del 2: Installera VPN-konfigurationspaketet på klienten
 
-1. Kopiera konfigurationsfilen lokalt till den dator som du vill ansluta till det virtuella nätverket och dubbelklicka på EXE-filen. När paketet har installerats kan du starta VPN-anslutningen. Konfigurationspaketet är inte signerat av Microsoft. Om du vill kan du signera paketet med hjälp av organisationens signeringstjänst, eller göra det själv med hjälp av [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). Du kan även använda paketet utan signering. Dock visas en varning när du installerar paketet om det inte är signerat.
-2. Gå till VPN-anslutningar på klientdatorn och leta upp VPN-anslutningen som du skapade. Den får samma namn som det virtuella nätverket. Klicka på **Anslut**.
-3. Ett popup-meddelande visas som används för att skapa ett självsignerat certifikat för gateway-slutpunkten. Klicka på **Fortsätt** för att använda utökade privilegier.
-4. På statussidan **Anslutning** klickar du på **Anslut** för att initiera anslutningen.
-5. Om du ser skärmen **Välj certifikat** kontrollerar du att klientcertifikatet som visas är det som du vill använda för att ansluta. Om det inte är det använder du pilen i listrutan för att välja rätt certifikat. Klicka sedan på **OK**.
-6. Du är nu ansluten till det virtuella nätverket och har full åtkomst till tjänsten och den virtuella dator som finns i det virtuella nätverket.
+1. Kopiera konfigurationsfilen lokalt till den dator som du vill ansluta till det virtuella nätverket och dubbelklicka på EXE-filen. 
 
-### Del 3: Verifiera VPN-anslutningen
+2. När paketet har installerats kan du starta VPN-anslutningen. Konfigurationspaketet är inte signerat av Microsoft. Om du vill kan du signera paketet med hjälp av organisationens signeringstjänst, eller göra det själv med hjälp av [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). Du kan även använda paketet utan signering. Dock visas en varning när du installerar paketet om det inte är signerat.
+
+3. På klientdatorn går du till **Nätverksinställningar** och klickar på **VPN**. Anslutningen visas i listan. Namnet på det virtuella nätverket som anslutningen kommer att upprättas till visas och ser ut ungefär så här: 
+
+    ![VPN-klient](./media/vpn-gateway-point-to-site-create/vpn.png "VPN client")
+
+
+### Del 3: Ansluta till Azure
+
+1. Anslut till ditt VNet genom att gå till VPN-anslutningarna på klientdatorn och leta upp den VPN-anslutning som du skapade. Den har samma namn som ditt virtuella nätverk. Klicka på **Anslut**. Ett popup-meddelande med information om certifikatanvändningen kanske visas. I så fall klickar du på **Fortsätt** för att använda utökade privilegier. 
+
+2. På statussidan **Anslutning** klickar du på **Anslut** för att initiera anslutningen. Om du ser skärmen **Välj certifikat** kontrollerar du att klientcertifikatet som visas är det som du vill använda för att ansluta. Om det inte är det använder du pilen i listrutan för att välja rätt certifikat. Klicka sedan på **OK**.
+
+    ![VPN-klient 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "VPN client connection")
+
+3. Nu bör anslutningen upprättas.
+
+    ![VPN-klient 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
+
+### Del 4: Verifiera VPN-anslutningen
 
 1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all*.
 2. Granska resultaten. Observera att den IP-adress som du har fått är en av adresserna inom adressintervallet för punkt-till-plats-anslutningen som du angav när du skapade ditt VNet. Resultaten bör likna följande:
@@ -181,6 +196,6 @@ Mer information om virtuella nätverk finns på sidan [Dokumentation för virtue
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

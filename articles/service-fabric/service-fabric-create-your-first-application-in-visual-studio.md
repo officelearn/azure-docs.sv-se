@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/26/2016"
    ms.author="ryanwi"/>
+
 
 # Skapa ditt första Azure Service Fabric-program i Visual Studio
 
@@ -110,6 +111,14 @@ Nu när du har ett program kan du prova att köra det.
 
     ![Loggboken Diagnostik efter en redundansväxling][diagnostic-events-viewer-detail-post-failover]
 
+## Växla klusterläge
+
+Som standard har det lokala utvecklingsklustret konfigurerats för att köras som ett kluster med fem noder, vilket är användbart för felsökning av tjänster som är distribuerade över flera noder. Det kan dock ta tid att distribuera ett program till utvecklingsklustret med fem noder. Om du vill iterera kodändringar snabbt, utan att köra ditt program på 5 noder, kan du växla utvecklingsklustret till ett läge med bara en nod. Om du vill köra din kod i ett kluster med en nod högerklickar du på den lokala klusterhanteraren i systemfältet och väljer **Växla klusterläge -> 1 nod**.  
+
+![Växla klusterläge][switch-cluster-mode]
+
+När du ändrar klusterläge återställs utvecklingsklustret och alla program som etablerats eller körs på klustret tas bort.
+
 ## Rensa
 
   Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. Om du stoppar felsökningen tar du bort din instans av programmet och avregistrerar programtypen. Klustret fortsätter dock att köras i bakgrunden. Du kan hantera klustret på flera sätt:
@@ -138,9 +147,10 @@ Nu när du har ett program kan du prova att köra det.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

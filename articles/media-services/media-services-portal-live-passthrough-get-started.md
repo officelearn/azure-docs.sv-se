@@ -13,14 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="08/30/2016" 
+    ms.date="09/05/2016" 
     ms.author="juliako"/>
+
 
 
 #Så här utför du direktsänd strömning med lokala kodare med hjälp av Azure-portalen
 
-Den här vägledningen visar dig stegen för att använda Azure-portalen för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
+> [AZURE.SELECTOR]
+- [Portalen]( media-services-portal-live-passthrough-get-started.md)
+- [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+Den här vägledningen visar dig stegen för att använda Azure-portalen för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
 
 ##Krav
 
@@ -73,12 +78,13 @@ Klicka på meddelandeikonen om du vill visa meddelanden och fel som genereras av
 
 ##Konfigurera strömningsslutpunkter 
 
-Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med multibithastighet  i följande strömningsformat: MPEG DASH, HLS, Smooth Streaming eller HDS utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
+Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med flera bithastigheter i följande strömningsformat: MPEG DASH, HLS, Smooth Streaming eller HDS utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
 
 Om du vill dra nytta av dynamisk paketering behöver du minst en enhet för strömning för den strömningsslutpunkt från vilken du planerar att leverera ditt innehåll.  
 
 Om du vill skapa och ändra antalet reserverade enheter för strömning gör du följande:
 
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. I fönstret **Inställningar** klickar du på **Strömningsslutpunkter**. 
 
 2. Klicka på den strömningsslutpunkt som är standard. 
@@ -87,7 +93,7 @@ Om du vill skapa och ändra antalet reserverade enheter för strömning gör du 
 
 3. Flytta på skjutreglaget **Strömningsenheter** för att ange antalet strömningsenheter.
 
-    ![Strömningsenheter](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+    ![Strömningsenheter](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Klicka på knappen **Spara** för att spara ändringarna.
 
@@ -132,9 +138,13 @@ Mer information om genomströmningskanaler finns i [Direktsänd strömning med l
 
     Detta skapar en genomströmningskanal med RTMP-infogningsprotokollet.
 
-    Kanalen lägger också till, startar och publicerar en direktsänd händelse eller ett direktsänt program av standardtyp. Den här händelsen är konfigurerad för ett arkivfönster på 8 timmar. 
+##Skapa händelser
 
-    Tryck på knappen **Direktsänd händelse** om du vill lägga till fler händelser.
+1. Välj en kanal till vilken du vill lägga till en händelse.
+2. Tryck på knappen **Direktsänd händelse**.
+
+![Händelse](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
 
 ##Hämta infognings-URL:er
 
@@ -142,7 +152,7 @@ När kanalen har skapats kan du få infognings-URL:er som du tillhandahåller ti
 
 ![Skapad](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##Titta på en händelse
+##Titta på händelsen
 
 För att titta på händelsen klickar du på **Titta på** i Azure-portalen eller kopierar strömnings-URL:en och använder en valfri spelare. 
  
@@ -165,7 +175,9 @@ För att hantera dina tillgångar väljer du **Inställning** och klickar på **
 
 ![Tillgångar](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Sökvägar för Media Services-utbildning
+##Nästa steg
+
+Granska sökvägarna för Media Services-utbildning.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -175,6 +187,6 @@ För att hantera dina tillgångar väljer du **Inställning** och klickar på **
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

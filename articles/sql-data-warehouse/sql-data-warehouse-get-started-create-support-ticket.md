@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.date="09/01/2016"
+   ms.author="sonyama;barbkess"/>
+
 
 # Så här skapar du ett supportärende för SQL Data Warehouse
  
@@ -38,7 +39,7 @@ Om du har problem med ditt SQL Data Warehouse, ber vi dig skapa ett supportären
 
     ![Typ av begäran](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  Varje SQL Server (t.ex. myserver.database.windows.net) har som standard en **DTU-kvot** på 45 000. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom att skapa en supportbiljett och välja *Kvot* som typ av begäran. Om du vill beräkna DTU-behoven behöver du veta att varje 100 [DWU][] SQL Data Warehouse förbrukar 750 DTU. Därför medför standardkvoten på 45 000 att du kan skapa upp till en DW6000 (45 000/750) eller flera mindre databaser med mindre DWU. Om du som exempel skulle vilja vara värd för två DW6000 på en SQL Server, bör du begära en DTU-kvot på 90 000.  Du kan visa din aktuella DTU-förbrukning från SQL Server-bladet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. 
+    >[AZURE.NOTE]  Varje SQL Server (t.ex. myserver.database.windows.net) har som standard en **DTU-kvot** på 45 000. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom att skapa en supportbiljett och välja *Kvot* som typ av begäran. Om du vill beräkna dina DTU-behov, multiplicera 7,5 med det totala antalet [DWU][] som behövs. Om du till exempel skulle vilja vara värd för två DW6000 på en SQL Server, bör du begära en DTU-kvot på 90 000.  Du kan visa din aktuella DTU-förbrukning från SQL Server-bladet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. 
 
 5. Välj den **prenumeration** som är värd för databasen som har problemen du ska rapportera.
 
@@ -105,6 +106,6 @@ Dessutom kan du ansluta till SQL Data Warehouse-communityn i [Stack Overflow][] 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

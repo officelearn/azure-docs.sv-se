@@ -6,15 +6,16 @@
    authors="MGoedtel"
    manager="jwhit"
    editor="tysonn"
-   keywords="azure active directory user, azure service management, azure ad user account" />
+   keywords="azure active directory-användare, azure service management, azure ad-användarkonto" />
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
+
 
 # Autentisera runbooks med Azure Service Management och Resource Manager
 
@@ -89,6 +90,6 @@ Upprepa dessa rader efter eventuella [kontrollpunkter](http://technet.microsoft.
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

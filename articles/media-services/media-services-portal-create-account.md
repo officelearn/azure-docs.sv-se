@@ -13,11 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/29/2016"
+    ms.date="09/07/2016"
     ms.author="juliako"/>
 
 
+
 # Skapa ett Azure Media Services-konto med Azure-portalen
+
+> [AZURE.SELECTOR]
+- [Portalen](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -36,7 +42,7 @@ Den här artikeln beskriver några vanliga begrepp och visar hur du skapar ett M
     AMS finns nu även i följande datacenter: södra Brasilien, västra Indien, södra Indien och centrala Indien. Nu kan du använda Azure-portalen för att skapa Media Service-konton och utföra olika uppgifter som beskrivs här. Dock är Live Encoding inte aktiverat i dessa datacenter. Dessutom finns inte alla typer av Encoding-reserverade enheter i dessa datacenter.
     
     - Södra Brasilien: Endast Encoding-reserverade enheter av grundläggande och standardtyp är tillgängliga.
-    - Västra Indien, södra Indien, för mediafiler, samt måste finnas i samma geografiska område som Media Services-kontot. När du skapar ett Media Services-konto kan du antingen välja ett befintligt lagringskonto i samma region eller skapa ett nytt lagringskonto i samma region. Om du tar bort ett Media Services-konto raderas inte blobbarna på ditt relaterade lagringskonto.
+    - Västra Indien, södra Indien: Tillhandahåll lagringsblobar för mediafiler; lagringskonton måste finnas i samma geografiska område som Media Services-kontot. När du skapar ett Media Services-konto kan du antingen välja ett befintligt lagringskonto i samma region eller skapa ett nytt lagringskonto i samma region. Om du tar bort ett Media Services-konto raderas inte blobbarna på ditt relaterade lagringskonto.
 
 ## Skapa ett AMS-konto
 
@@ -102,6 +108,6 @@ Du kan nu överföra filer till AMS-kontot. Mer information finns i [Överföra 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

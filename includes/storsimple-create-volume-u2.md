@@ -1,23 +1,23 @@
-<!--author=SharS last changed: 02/29/2016-->
+<!--author=alkohli last changed: 08/16/2016-->
 
 #### Skapa en volym
 
-1. På enhetens **snabbstart**-sida, klickar du på **lägg till en volym**. Det startar guiden lägg till en volym.
+1. På enhetens **Snabbstart**-sida klickar du på **Lägg till volym** för att starta guiden Lägg till volym.
 
 2. I guiden lägg till en volym, i **grundläggande inställningar**:
 
     4. Anger du ett **namn** för volymen.
     5. I listrutan väljer du **användningstyp** för volymen. För arbetsbelastningar som kräver lokala garantier, låg latens och hög prestanda, väljer du en **lokalt fäst** volym. För all övrig data, väljer du en **nivåindelad** volym. Om du använder volymen för arkiveringsdata, markerar du **Använd volymen för arkiveringsdata med låg åtkomstfrekvens**. 
     
-        En lokalt fäst volym etableras tjockt, vilket försäkrar att primärdata på volymen är lokalt belägen för enheten och inte läcker över till molnet.  Om du skapar en lokalt fäst volym, kommer enheten att leta efter ledigt utrymme på de lokala nivåerna för att etablera volymen med önskad storlek. Att skapa en lokalt fäst volym kan innebära att läcka befintlig data från enheten till molnet och volymen kan ta lång tid att skapa. Den totala tiden beror på den etablerade volymens storlek, tillgänglig nätverksbandbredd och den data som finns på din enhet. 
+        En lokalt fäst volym etableras tjockt, vilket försäkrar att primärdata på volymen är lokalt belägen för enheten och inte läcker över till molnet.  Om du skapar en lokalt fäst volym letar enheten efter ledigt utrymme på de lokala nivåerna för att etablera volymen med önskad storlek. Att skapa en lokalt fäst volym kan innebära att läcka befintlig data från enheten till molnet och volymen kan ta lång tid att skapa. Den totala tiden beror på den etablerade volymens storlek, tillgänglig nätverksbandbredd och den data som finns på din enhet. 
 
-        En nivåindelad volym är tunt etablerad och kan skapas väldigt snabbt. Om du använder den nivåindelade volymen för arkivdata och väljer **Använd volymen för arkiveringsdata med låg åtkomstfrekvens** så ändras segmentstorleken för deduplicering för din volym till 512 KB. Om fältet inte är markerat använder den motsvarande nivåindelade volymen en segmentstorlek på 64 kB. En större segmentstorlek för deduplicering låter enheten snabba på överföring av segmentstorleken tillåter enheten att påskynda överföringen av stora mängder arkiveringsdata till molnet.
+        En nivåindelad volym är tunt etablerad och kan skapas snabbt. Om du väljer **Använd volymen för arkiveringsdata med låg åtkomstfrekvens** för nivåindelad volym avsedd för arkivdata så ändras segmentstorleken för deduplicering för din volym till 512 KB. Om fältet inte är markerat använder den motsvarande nivåindelade volymen en segmentstorlek på 64 kB. En större segmentstorlek för deduplicering låter enheten snabba på överföring av segmentstorleken tillåter enheten att påskynda överföringen av stora mängder arkiveringsdata till molnet.
 
     3. Ange **etableringskapacitet** för volymen. Anteckna kapaciteten som finns tillgänglig baserat på den volymtyp som valts. Den angivna volymstorleken får inte överskrida det tillgängliga utrymmet.
 
-        Du kan etablera lokalt fästa volymer upp till 8 TB, eller nivåindelade volymer upp till 200 TB på 8100-enheten. På den större 8600-enheten, kan du etablera lokalt fästa volymer upp till 20 TB, eller nivåindelade volymer på upp till 500 TB. Eftersom det krävs lokalt utrymme på enheten för att hålla arbetsuppsättningen med nivåindelade volymer, kommer skapandet av fästa volymer att påverka mängden utrymme som finns tillgängligt för att etablera nivåindelade volymer. Om du skapar en lokalt fäst volym, kommer därmed utrymmet som finns tillgängligt för att skapa nivåindelade volymer att minska. Likaså om du skapar en nivåindelad volym, kommer tillgängligt utrymme för att skapa en lokalt fäst volym att minska. 
+        Du kan etablera lokalt fästa volymer upp till 8,5 TB, eller nivåindelade volymer upp till 200 TB på 8100-enheten. På den större 8600-enheten kan du etablera lokalt fästa volymer upp till 22,5 TB, eller nivåindelade volymer upp till 500 TB. Eftersom det krävs lokalt utrymme på enheten för att hålla arbetsuppsättningen med nivåindelade volymer påverkar skapandet av fästa volymer mängden utrymme som finns tillgängligt för att etablera nivåindelade volymer. Om du skapar en lokalt fäst volym, kommer därmed utrymmet som finns tillgängligt för att skapa nivåindelade volymer att minska. Likaså om du skapar en nivåindelad volym minskar det tillgängliga utrymmet för att skapa en lokalt fäst volym.
 
-        Om du etablerar en lokalt fast volym på 8 TB (största tillåtna storleken) på din 8100-enhet, kommer du att ha använt upp allt lokalt tillgängligt utrymme för enheten. Du kommer inte kunna skapa någon nivåindelad volym därefter, eftersom det inte finns något lokalt utrymme ledigt på enheten för att hålla arbetsuppsättningen för den nivåindelade volymen. Befintliga nivåindelade volymer påverkar också tillgängligt utrymme. Om du exempelvis har en 8100-enhet som redan har nivåindelade volymer på 100 TB, kommer det bara finnas 4 TB utrymme tillgängligt för lokalt fästa volymer.
+        Om du etablerar en lokalt fäst volym på 8,5 TB (största tillåtna storleken) på din 8100-enhet har du använt upp allt lokalt tillgängligt utrymme för enheten. Du kommer inte kunna skapa någon nivåindelad volym därefter, eftersom det inte finns något lokalt utrymme ledigt på enheten för att hålla arbetsuppsättningen för den nivåindelade volymen. Befintliga nivåindelade volymer påverkar också tillgängligt utrymme. Om du exempelvis har en 8100-enhet som redan har nivåindelade volymer på 106 TB finns det bara 4 TB utrymme tillgängligt för lokalt fästa volymer.
 
         Följande bild visar dialogrutan **Grundläggande inställningar** för en lokalt fäst volym.
 
@@ -34,9 +34,9 @@
 
     1. Ange ett **namn** för din ACR.
     2. Som **iSCSI-initierarnamn**, anger du det iSCSI-kvalificerade namnet (IQN) för din Windows-värd. Om du inte har en IQN, går du till [Hämta IQN för en Windows Server-värd](#get-the-iqn-of-a-windows-server-host).
-    3. Som **Standard säkerhetskopiering för den här volymen?**, markerar du kryssrutan **Aktivera**. Standard säkerhetskopieringen skapar en princip som körs klockan 22.30 varje dag (enhetens tid) och skapar en ögonblicksbild i molnet av den här volymen.
+    3. Som **Standard säkerhetskopiering för den här volymen?**, markerar du kryssrutan **Aktivera**. Standardsäkerhetskopieringen skapar en princip som körs klockan 22.30 varje dag (enhetens tid) och skapar en ögonblicksbild i molnet av den här volymen.
      
-     > [AZURE.NOTE] När säkerhetskopieringen har aktiverats här, kan den inte återställas. För att ändra inställningen, behöver du redigera volymen.
+     > [AZURE.NOTE] När säkerhetskopieringen har aktiverats här, kan den inte återställas. Du behöver redigera volymen för att ändra inställningen.
 
      ![Lägg till volym](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
@@ -45,7 +45,6 @@
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

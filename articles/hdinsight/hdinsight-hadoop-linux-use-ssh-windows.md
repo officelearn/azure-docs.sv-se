@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
     tags="azure-portal"/>
 
@@ -17,13 +17,14 @@
    ms.date="08/30/2016"
    ms.author="larryfr"/>
 
+
 #Använda SSH med Linux-baserat Hadoop i HDInsight från Windows
 
 > [AZURE.SELECTOR]
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 - [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-Med [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) kan du via fjärranslutning utföra åtgärder för dina Linux-baserade HDInsight-kluster med ett kommandoradsgränssnitt. Det här dokumentet innehåller information om hur du ansluter till HDInsight från Windows-baserade klienter med PuTTY SSH-klienten.
+[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) gör att du kan utföra åtgärder på Linux-baserade HDInsight-kluster med ett kommandoradsgränssnitt via fjärranslutning. Det här dokumentet innehåller information om hur du ansluter till HDInsight från Windows-baserade klienter med PuTTY SSH-klienten.
 
 > [AZURE.NOTE] Stegen i den här artikeln förutsätter att du använder en Windows-baserad klient. Om du använder en Linux-, Unix- eller OS X-klient hittar du mer information i [Använda SSH med Linux-baserat Hadoop i HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 >
@@ -141,7 +142,7 @@ Mer information om hur du använder det här kommandot finns i [Etablera Hadoop 
 
 6. Ange den användare som du angav när du skapade klustret när du uppmanas till detta. Om du har tillhandahållit ett lösenord för användaren uppmanas du att ange det också.
 
-> [AZURE.NOTE] Stegen ovan förutsätter att du använder port 22, som kommer att ansluta till huvudnod 0 i HDInsight-klustret. Om du använder port 23 ansluter du till huvudnod 1. Mer information om huvudnoderna finns i [Tillgänglighet och tillförlitlighet för Hadoop-kluster i HDInsight](hdinsight-high-availability-linux.md).
+> [AZURE.NOTE] Stegen ovan förutsätter att du använder port 22, som kommer att ansluta till primär huvudnod i HDInsight-klustret. Om du använder port 23 ansluter du till den sekundära. Mer information om huvudnoderna finns i [Tillgänglighet och tillförlitlighet för Hadoop-kluster i HDInsight](hdinsight-high-availability-linux.md).
 
 ###Ansluta till arbetsnoder
 
@@ -185,9 +186,9 @@ Om du har angett en SSH-nyckel när du skapade ditt användarkonto, måste du ut
 
     > [AZURE.NOTE] Om du använder ett lösenord för att autentisera SSH-sessionen uppmanas du att ange lösenordet igen. Om du använder en SSH-nyckel ska anslutningen slutföras utan några frågor.
 
-9. När sessionen har upprättats ändras tolken för din PuTTY-session från `username@hn0-clustername` till `username@wn0-clustername` för att indikera att du är ansluten till arbetsnoden. Alla kommandon som du kör nu kommer att köras på arbetsnoden.
+9. När sessionen har upprättats ändras tolken för din PuTTY-session från `username@hn#-clustername` till `username@wn#-clustername` för att indikera att du är ansluten till arbetsnoden. Alla kommandon som du kör nu kommer att köras på arbetsnoden.
 
-10. När du är klar med att utföra åtgärder på arbetsnoden använder du `exit`-kommandot för att stänga sessionen till arbetsnoden. Detta återför dig till `username@hn0-clustername`-tolken.
+10. När du är klar med att utföra åtgärder på arbetsnoden använder du `exit`-kommandot för att stänga sessionen till arbetsnoden. Detta återför dig till `username@hn#-clustername`-tolken.
 
 ##Lägga till fler konton
 
@@ -239,6 +240,6 @@ Nu när du vet hur du autentiserar genom att använda en SSH-nyckel kan du lära
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -18,6 +18,7 @@
     ms.author="cephalin"
 />
     
+
 # Distribuera din första webbapp till Azure på fem minuter
 
 I den här kursen lär du dig hur du distribuerar en enkel webbapp med HTML+CSS via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
@@ -35,7 +36,7 @@ Du kommer att:
 - [Installera Git](http://www.git-scm.com/downloads). Kontrollera att installationen har utförts genom att köra `git --version` från en ny Windows-kommandotolk, PowerShell-fönster, Linux-gränssnittet eller OS X-terminal.
 - Skaffa ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] Du kan [prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
+>[AZURE.NOTE] Du kan [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
 
 <a name="create"></a>
 ## Skapa en webbapp
@@ -72,17 +73,17 @@ Du kommer att:
 
 Nu ska vi distribuera innehåll till Azure med Git.
 
-5. Rulla ner till **Distributionsalternativ** i bladet webbapp eller sök efter dem, och klicka sedan på dem. 
+5. Rulla ner till **Distributionsalternativ** i bladet webbapp eller leta efter den, och klicka sedan på den. 
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
 6. Klicka på **Välj källa** > **Lokal Git-lagringsplats** > **OK**.
 
-7. Gå tillbaka till webbappsbladet och klicka på **Autentiseringsuppgifter för distribution**.
+7. Gå tillbaka till bladet webbapp och klicka på **Autentiseringsuppgifter för distribution**.
 
 8. Ange dina autentiseringsuppgifter för distribution och klicka på **Spara**.
 
-7. Gå tillbaka till bladet webbapp, rulla ner till **Egenskaper** eller sök efter dem och klicka sedan på dem. Klicka på knappen **Kopiera** bredvid **Git-URL**.
+7. Gå tillbaka till bladet webbapp, rulla ner till **Egenskaper** eller sök efter dem och klicka sedan på dem. Klicka på knappen **Kopiera** bredvid **Git URL**.
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
@@ -108,7 +109,7 @@ Nu ska vi distribuera innehåll till Azure med Git.
 
     ![Skicka koden till din första webbapp i Azure](./media/app-service-web-get-started-languages/html-git-push.png)    
 
-Klart! Nu körs din kod live i Azure. Navigera till http://*&lt;appname >*.azurewebsites.net i din webbläsare för att se hur det fungerar. 
+Klart! Nu körs din kod live i Azure. Navigera till http://*&lt;appnamn >*.azurewebsites.net i din webbläsare för att se hur det fungerar. 
 
 ## Göra appuppdateringar
 
@@ -137,6 +138,6 @@ Eller gör mer med din första webbapp. Exempel:
 
 
 
-<!----HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

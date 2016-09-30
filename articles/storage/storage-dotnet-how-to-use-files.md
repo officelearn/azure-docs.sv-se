@@ -13,7 +13,8 @@
     ms.devlang="dotnet"
     ms.topic="hero-article"
     ms.date="07/26/2016"
-    ms.author="minet" />
+    ms.author="minet;robinsh" />
+
 
 # Kom igång med Azure File Storage i Windows
 
@@ -27,7 +28,7 @@ Azure File Storage är en tjänst som erbjuder filresurser i molnet med hjälp a
 
 Eftersom en fillagringsresurs är en vanlig SMB-filresurs kan program som körs i Azure komma åt data i resursen via filsystemets I/O-API:er. Utvecklare kan därför utnyttja befintlig kod och erfarenhet för att migrera befintliga program. IT-proffs kan använda PowerShell-cmdlets för att skapa, montera och hantera fillagringsresurser som en del av administrationen av Azure-program.
 
-Du kan skapa Azure-filresurser med hjälp av [Azure Portal](https://portal.azure.com), PowerShell-cmdlets för Azure Storage, klientbiblioteken för Azure Storage eller Azure Storage REST-API:et. Och eftersom alla dessa filresurser är SMB-resurser kan du dessutom komma åt dem via vanliga och välbekanta filsystem-API:er. 
+Du kan skapa Azure-filresurser med hjälp av [Azure Portal](https://portal.azure.com), PowerShell-cmdlets för Azure Storage, klientbiblioteken för Azure Storage eller Azure Storage REST-API:et. Och eftersom alla dessa filresurser är SMB-resurser kan du dessutom komma åt dem via vanliga och välbekanta filsystem-API:er.
 
 Information om hur du använder File Storage med Linux finns i [Använda Azure File Storage med Linux](storage-how-to-use-files-linux.md).
 
@@ -67,7 +68,7 @@ Nu stöds fillagring för alla lagringskonton, så du kan antingen använda ett 
 - Ladda upp och ladda ned filer till och från filresursen
 - Övervaka den faktiska användningen av varje filresurs
 - Justera storlekskvoten för resurser
-- Hämta `net use`-kommandot för att sedan montera filresursen från en Windows-klient 
+- Hämta `net use`-kommandot för att sedan montera filresursen från en Windows-klient
 
 ### Skapa en filresurs
 
@@ -85,7 +86,7 @@ Nu stöds fillagring för alla lagringskonton, så du kan antingen använda ett 
 
     ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-dotnet-how-to-use-files/files-create-share-2.png)
 
-5. Klicka på ”Filresurser” och följ länken för att skapa din första filresurs. 
+5. Klicka på ”Filresurser” och följ länken för att skapa din första filresurs.
 
     ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-dotnet-how-to-use-files/files-create-share-3.png)
 
@@ -119,7 +120,7 @@ Nu stöds fillagring för alla lagringskonton, så du kan antingen använda ett 
 
     ![Skärmbild som visar hur du monterar filresursen](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
 
-    >[AZURE.TIP] Du hittar åtkomstnyckeln för lagringskontot genom att klicka på **Inställningar** i lagringskontot och sedan på **Åtkomstnycklar**. 
+    >[AZURE.TIP] Du hittar åtkomstnyckeln för lagringskontot genom att klicka på **Inställningar** i lagringskontot och sedan på **Åtkomstnycklar**.
 
     ![Skärmbild som visar hur du hittar åtkomstnyckeln för lagringskontot](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
 
@@ -191,18 +192,18 @@ Från och med version 0.9.7 av Azure PowerShell kan du kopiera en fil till en an
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Montera filresursen 
+## Montera filresursen
 
-Med stöd för SMB 3.0 stöder File Storage nu kryptering och beständiga referenser från SMB 3.0-klienter. Stöd för kryptering innebär att SMB 3.0-klienter kan montera en filresurs från var som helst, inklusive från: 
+Med stöd för SMB 3.0 stöder File Storage nu kryptering och beständiga referenser från SMB 3.0-klienter. Stöd för kryptering innebär att SMB 3.0-klienter kan montera en filresurs från var som helst, inklusive från:
 
 - En virtuell Azure-dator i samma region (stöds även av SMB 2.1)
 - En virtuell Azure-dator i en annan region (endast SMB 3.0)
-- Ett lokalt klientprogram (endast SMB 3.0) 
+- Ett lokalt klientprogram (endast SMB 3.0)
 
 Vilken SMB-version som används när en klient ansluter till File Storage beror på vilken SMB-version som stöds av operativsystemet. Tabellen nedan innehåller en sammanfattning av stödet för Windows-klienter. Besök den här bloggen om du vill ha mer information om [SMB-versioner](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
 | Windows-klient         | SMB-version som stöds |
-|------------------------|-----------------------|
+|:-----------------------|:----------------------|
 | Windows 7              | SMB 2.1               |
 | Windows Server 2008 R2 | SMB 2.1               |
 | Windows 8              | SMB 3.0               |
@@ -249,12 +250,12 @@ Nu kan du arbeta med File Storage-resursen från den virtuella datorn precis som
 
 Du kan också montera filresursen från en roll som körs i en Azure-molntjänst genom att fjärransluta till rollen.
 
-### Montera filresursen från en lokal klient som kör Windows 
+### Montera filresursen från en lokal klient som kör Windows
 
 Innan du monterar filresursen från en lokal klient måste du göra följande:
 
-- Installera en version av Windows som stöder SMB 3.0. Windows använder SMB 3.0-kryptering för att överföra data på ett säkert sätt mellan din lokala klient och Azure-filresursen i molnet. 
-- Öppna Internetåtkomst för port 445 (TCP utgående) i det lokala nätverket eftersom det krävs av SMB-protokollet. 
+- Installera en version av Windows som stöder SMB 3.0. Windows använder SMB 3.0-kryptering för att överföra data på ett säkert sätt mellan din lokala klient och Azure-filresursen i molnet.
+- Öppna Internetåtkomst för port 445 (TCP utgående) i det lokala nätverket eftersom det krävs av SMB-protokollet.
 
 > [AZURE.NOTE] Vissa Internetleverantörer kan blockera port 445. Hör efter med leverantören om det behövs.
 
@@ -270,7 +271,7 @@ Så här skapar du ett nytt konsolprogram i Visual Studio och installerar NuGet-
 2. Ange ett namn för konsolprogrammet och klicka på **OK**.
 3. När projektet har skapats högerklickar du på projekt i Solution Explorer och väljer **Hantera NuGet-paket**. Sök online efter ”WindowsAzure.Storage” och klicka på **Installera** för att installera Azure Storage-klientbiblioteket för .NET-paket och .NET-beroenden.
 
-I kodexemplen i den här artikeln används även [Microsoft Azure Configuration Manager-biblioteket](https://msdn.microsoft.com/library/azure/mt634646.aspx) för att hämta lagringsanslutningssträngen från en app.config-fil i konsolprogrammet. Med Azure Configuration Manager kan du hämta anslutningssträngen vid körningstillfället oavsett om programmet körs i Microsoft Azure eller från ett skrivbords-, mobil- eller webbprogram. 
+I kodexemplen i den här artikeln används även [Microsoft Azure Configuration Manager-biblioteket](https://msdn.microsoft.com/library/azure/mt634646.aspx) för att hämta lagringsanslutningssträngen från en app.config-fil i konsolprogrammet. Med Azure Configuration Manager kan du hämta anslutningssträngen vid körningstillfället oavsett om programmet körs i Microsoft Azure eller från ett skrivbords-, mobil- eller webbprogram.
 
 Du installerar Azure Configuration Manager-paketet genom att högerklicka på projektet i Solution Explorer och välja **Hantera NuGet-paket**. Sök online efter ”ConfigurationManager” och klicka på **Installera** för att installera paketet.
 
@@ -424,7 +425,7 @@ I följande exempel skapar vi en princip för delad åtkomst på en resurs och a
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Mer information om hur du skapar och använder signaturer för delad åtkomst finns i [Signaturer för delad åtkomst: Förstå SAS-modellen](storage-dotnet-shared-access-signature-part-1.md) och [Skapa och använda en SAS med bloblagring](storage-dotnet-shared-access-signature-part-2.md).
+Mer information om hur du skapar och använder signaturer för delad åtkomst finns i [Använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md) och [Skapa och använda en SAS med Blob Storage](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Kopiera filer
 
@@ -540,7 +541,7 @@ Lägg först till följande `using`-instruktioner i filen program.cs, förutom d
     using Microsoft.WindowsAzure.Storage.File.Protocol;
     using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 
-Observera att medan blobb-, tabell- och kölagringen använder den delade `ServiceProperties`-typen i namnrymden `Microsoft.WindowsAzure.Storage.Shared.Protocol` så använder File Storage sin egen typ, typen `FileServiceProperties` i namnrymden `Microsoft.WindowsAzure.Storage.File.Protocol`. Din kod måste dock referera till båda namnrymderna för att följande kod ska kompileras. 
+Observera att medan blobb-, tabell- och kölagringen använder den delade `ServiceProperties`-typen i namnrymden `Microsoft.WindowsAzure.Storage.Shared.Protocol` så använder File Storage sin egen typ, typen `FileServiceProperties` i namnrymden `Microsoft.WindowsAzure.Storage.File.Protocol`. Din kod måste dock referera till båda namnrymderna för att följande kod ska kompileras.
 
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -584,37 +585,37 @@ Observera att medan blobb-, tabell- och kölagringen använder den delade `Servi
 
 ## Vanliga frågor och svar om File Storage
 
-1. **Stöds Active Directory-baserad autentisering av File Storage?** 
+1. **Stöds Active Directory-baserad autentisering av File Storage?**
 
-    För närvarande stöds inte AD-baserad autentisering eller ACL:er, men vi har det i åtanke för framtida versioner. Nu används i stället Azure Storage-kontonycklar för att tillhandahålla autentisering till filresursen. Vi erbjuder dock en lösning som använder signaturer för delad åtkomst (SAS) via REST-API:et eller klientbiblioteken. Med SAS kan du generera token med särskilda behörigheter som är giltiga under ett angivet tidsintervall. Du kan till exempel generera en token med skrivskyddad åtkomst till en viss fil. Alla som har denna token under tiden då den är giltig har skrivskyddad åtkomst till filen. 
+    För närvarande stöds inte AD-baserad autentisering eller ACL:er, men vi har det i åtanke för framtida versioner. Nu används i stället Azure Storage-kontonycklar för att tillhandahålla autentisering till filresursen. Vi erbjuder dock en lösning som använder signaturer för delad åtkomst (SAS) via REST-API:et eller klientbiblioteken. Med SAS kan du generera token med särskilda behörigheter som är giltiga under ett angivet tidsintervall. Du kan till exempel generera en token med skrivskyddad åtkomst till en viss fil. Alla som har denna token under tiden då den är giltig har skrivskyddad åtkomst till filen.
 
     SAS stöds endast via REST-API:et eller klientbiblioteken. När du monterar filresursen via SMB-protokollet kan du inte använda en SAS för att delegera åtkomst till dess innehåll.
 
 2. **Är Azure-filresurser offentligt tillgängliga via Internet eller kan de endast nås från Azure?**
- 
+
     Om port 445 (TCP utgående) är öppen och klienten stöder SMB 3.0-protokollet (*t.ex.* Windows 8 eller Windows Server 2012) så är filresursen tillgänglig via Internet.  
 
-3. **Räknas nätverkstrafik mellan en virtuell Azure-dator och en filresurs som extern bandbredd som debiteras genom prenumerationen?** 
+3. **Räknas nätverkstrafik mellan en virtuell Azure-dator och en filresurs som extern bandbredd som debiteras genom prenumerationen?**
 
     Om filresursen och den virtuella datorn finns i olika områden debiteras trafiken mellan dem som extern bandbredd.
- 
-4. **Är nätverkstrafiken kostnadsfri om den sker mellan en virtuell dator och en filresurs i samma region?** 
+
+4. **Är nätverkstrafiken kostnadsfri om den sker mellan en virtuell dator och en filresurs i samma region?**
 
     Ja. Trafiken är kostnadsfri om den är i samma region.
 
-5. **Är anslutningen från lokala virtuella datorer till Azure File Storage beroende av Azure ExpressRoute?** 
+5. **Är anslutningen från lokala virtuella datorer till Azure File Storage beroende av Azure ExpressRoute?**
 
     Nej. Om du inte har ExpressRoute kan du fortfarande komma åt filresursen från lokala virtuella datorer under förutsättning att port 445 (TCP utgående) är öppen för Internetåtkomst. Men du kan använda ExpressRoute med File Storage om du vill.
 
 6. **Är ett ”filresursvittne” för ett redundanskluster ett av användningsscenarierna för Azure File Storage?**
 
     Detta stöds inte för närvarande.
- 
+
 7. **Fillagringen replikeras endast via LRS eller GRS för närvarande, eller hur?**  
 
     Vi planerar att implementera stöd för RA-GRS men tidsplanen är inte fastställd än.
 
-8. **När kan jag använda befintliga lagringskonton för Azure File Storage?** 
+8. **När kan jag använda befintliga lagringskonton för Azure File Storage?**
 
     Nu är Azure File Storage aktiverat för alla lagringskonton.
 
@@ -636,7 +637,7 @@ Observera att medan blobb-, tabell- och kölagringen använder den delade `Servi
 
 13. **Ny korrigering som åtgärdar problemet med låga prestanda med Azure-filer**
 
-    Windows-teamet släppte nyligen en korrigering som löser problemet med långsamma prestanda när kunden ansluter till Azure Storage från Windows 8.1 eller Windows Server 2012 R2. Mer information finns i KB-artikeln [Låga prestanda när du ansluter till Azure File Storage från Windows 8.1 eller Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025). 
+    Windows-teamet släppte nyligen en korrigering som löser problemet med långsamma prestanda när kunden ansluter till Azure Storage från Windows 8.1 eller Windows Server 2012 R2. Mer information finns i KB-artikeln [Låga prestanda när du ansluter till Azure File Storage från Windows 8.1 eller Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
 
 14. **Använda Azure File Storage med IBM MQ**
 
@@ -665,12 +666,12 @@ Mer information om Azure File Storage finns på följande länkar.
 ### Blogginlägg
 
 - [Nu är Azure File Storage allmänt tillgängligt](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-- [Inuti Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/) 
+- [Inuti Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Introduktion till Microsoft Azures filtjänst](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Spara anslutningar till Microsoft Azure-filer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

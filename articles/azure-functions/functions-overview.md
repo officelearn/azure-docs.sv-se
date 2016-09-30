@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+   keywords="azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur"/>
 
 <tags
    ms.service="functions"
@@ -15,10 +15,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/29/2016"
    ms.author="cfowler;mahender;glenga"/>
    
    
+
 # Översikt över Azure Functions
 
 Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Detta kan göra utvecklingen ännu mer produktiv och du kan använda det programmeringsspråk du föredrar, till exempel C#, Node.js, Python eller PHP. Betala endast för tiden koden körs och lita på att Azure skalar enligt behov.
@@ -29,7 +30,7 @@ Det här ämnet innehåller en översikt över Azure Functions. Om du vill komma
 
 Här följer några funktioner i Azure Functions:
     
-* **Val av språk** – Skriv funktioner med hjälp av C#, Node.js, Python, F #, PHP, batch, bash, Java eller körbara filer.  
+* **Val av språk** – Skriv funktioner med hjälp av C#, F#, Node.js, Python, PHP, batch, bash, Java eller andra körbara filer.
 * **Prismodell – Betala per användning** – Betala endast för tiden som använts för att köra koden. Se alternativet dynamisk apptjänstplan i [prissättningsavsnittet](#pricing) nedan.  
 * **Ta med dina egna beroenden** – Functions stöder NuGet och NPM, så du kan använda dina favoritbibliotek.  
 * **Integrerad säkerhet** – Skydda HTTP-utlösta funktioner med OAuth-providrar, till exempel Azure Active Directory, Facebook, Google, Twitter och Microsoft Account.  
@@ -75,7 +76,7 @@ Azure Functions har två typer av prissättningar, välj den som bäst passar di
 
 * **Dynamisk värdplan** – När din funktion körs, tillhandahåller Azure alla nödvändiga beräkningsresurser. Du behöver inte bry dig om resurshantering, och du betalar endast för den tid då din kod körs. Fullständig prisinformation är tillgänglig på sidan [Prissättning för Functions](/pricing/details/functions). 
 
-* **Apptjänstplan** – Kör dina funktioner precis som dina webb-, mobil- och API-appar. När du redan använder App Service för dina andra program, kan du köra dina funktioner på samma plan utan extra kostnad. Fullständig information finns på sidan [Prissättning för App Service](/pricing/details/app-service/).
+* **Apptjänstplan** – Kör dina funktioner precis som dina webb-, mobil- och API Apps. När du redan använder App Service för dina andra program, kan du köra dina funktioner på samma plan utan extra kostnad. Fullständig information finns på sidan [Prissättning för App Service](/pricing/details/app-service/).
 
 Mer information om att skala dina funktioner finns i [Så här skalar du Azure Functions](functions-scale.md).
 
@@ -93,6 +94,6 @@ Beskriver tillgängliga serviceplaner för Azure Functions, inklusive den dynami
 Azure Functions utnyttjar plattformen Azure App Service för grundläggande funktioner som distributioner, miljövariabler och diagnostik. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

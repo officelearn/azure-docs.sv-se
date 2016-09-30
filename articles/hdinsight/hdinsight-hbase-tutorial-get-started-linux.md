@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -16,6 +16,7 @@
     ms.topic="get-started-article"
     ms.date="07/25/2016"
     ms.author="jgao"/>
+
 
 
 
@@ -39,9 +40,9 @@ Innan du påbörjar den här HBase-självstudien måste du ha:
 
 ## Skapa HBase-kluster
 
-Följande procedur använder en Azure ARM-mall för att skapa ett HBase-kluster. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Klicka på följande bild för att öppna en ARM-mall i Azure-portalen. ARM-mallen finns i en offentlig blob-behållare. 
+1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i en offentlig blob-behållare. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -247,7 +248,7 @@ SSH kan även användas för lokala tunnelbegäranden, till exempel webbegärand
 4. Ange följande värden från skärmen Grundalternativ för din PuTTY-session:
 
     - **Värdnamn**: SSH-adressen för din HDInsight-server i fältet för värdnamnet (eller IP-adressen). SSH-adressen är ditt klusternamn, därefter **-ssh.azurehdinsight.net**. Till exempel *mycluster-ssh.azurehdinsight.net*.
-    - **Port**: 22. SSH-porten på huvudnoden 0 är 22.  
+    - **Port**: 22. Ssh-porten på den primära huvudnoden är 22.  
 5. Expandera **Anslutning** i avsnittet **Kategori** till vänster om dialogrutan, och sedan **SSH** och klicka därefter på **Tunnlar**.
 6. Ange följande information på formuläret för alternativ som styr SSH-portvidarebefordran :
 
@@ -327,6 +328,6 @@ Du kan läsa mer här:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

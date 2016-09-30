@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/22/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="jwillis;tamram"/>
+
 
 
 # Komma igång med Azure Blob Storage med hjälp av .NET
@@ -45,7 +46,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 ### Fler exempel
 
-Ytterligare exempel med Blob Storage finns i [Komma igång med Azure Blob Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Du kan ladda ned exempelprogrammet och köra det eller bläddra i koden på GitHub. 
+Ytterligare exempel med Blob Storage finns i [Komma igång med Azure Blob Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Du kan ladda ned exempelprogrammet och köra det eller bläddra i koden på GitHub.
 
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
@@ -367,14 +368,14 @@ Som standard skyddar Azure Storage dina data genom att begränsa åtkomsten till
 Som standard är blobbdata i ett lagringskonto endast tillgängliga för lagringskontoägaren. För autentisering av förfrågningar mot Blob Storage krävs åtkomstnyckeln för kontot som standard. Dock kanske du vill göra vissa blobbdata tillgängliga för andra användare. Du kan välja mellan två alternativ:
 
 - **Anonym åtkomst:** Du kan göra en behållare eller dess blobbar offentligt tillgängliga för anonym åtkomst. Mer information finns i [Hantera anonym läsbehörighet till behållare och blobbar](storage-manage-access-to-resources.md).
-- **Signaturer för delad åtkomst:** Du kan ge klienterna en signatur för delad åtkomst (SAS), som ger delegerad åtkomst till en resurs i ditt lagringskonto, med behörigheter som du anger och under den period som du anger. Mer information finns i [Signaturer för delad åtkomst: Förstå SAS-modellen](storage-dotnet-shared-access-signature-part-1.md).
+- **Signaturer för delad åtkomst:** Du kan ge klienterna en signatur för delad åtkomst (SAS), som ger delegerad åtkomst till en resurs i ditt lagringskonto, med behörigheter som du anger och under den period som du anger. Mer information finns i [Använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 ### Kryptera blobbdata
 
 Azure Storage har stöd för kryptering av blobbdata både på klienten och på servern:
 
 - **Kryptering på klientsidan:** Storage-klientbiblioteket för .NET har stöd för kryptering av data i klientprogram före överföringen till Azure Storage, och dekryptering av data under nedladdningen till klienten. Biblioteket stöder även integrering med Azure Key Vault för hantering av nycklar för lagringskonton. Mer information finns i [Kryptering på klientsidan med .NET för Microsoft Azure Storage](storage-client-side-encryption.md). Se även [Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med hjälp av Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
-- **Kryptering på serversidan**: Nu stöder Azure Storage kryptering på serversidan. Mer information finns i [Azure Storage Service-kryptering av vilande data (förhandsgranskning)](storage-service-encryption.md). 
+- **Kryptering på serversidan**: Nu stöder Azure Storage kryptering på serversidan. Mer information finns i [Azure Storage Service-kryptering av vilande data (förhandsgranskning)](storage-service-encryption.md).
 
 ## Nästa steg
 
@@ -411,6 +412,6 @@ Nu när du har lärt dig grunderna om Blob Storage kan du följa dessa länkar o
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

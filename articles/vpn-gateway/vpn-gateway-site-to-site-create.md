@@ -17,13 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Skapa ett VNet med en anslutning från plats till plats med den klassiska Azure-portalen
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klassisk Azure-portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
-
+- [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Klassisk – den klassiska portalen](vpn-gateway-site-to-site-create.md)
 
 Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-anslutning från plats till plats till ditt lokala nätverk med hjälp av den **klassiska distributionsmodellen** och den klassiska portalen. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer. För närvarande kan du inte skapa en konfiguration från plats till plats för den klassiska distributionsmodellen med hjälp av Azure Portal.
 
@@ -55,11 +55,11 @@ Kontrollera att du har följande innan du påbörjar konfigurationen.
 
 2. I det nedre vänstra hörnet på skärmen klickar du på **Nytt**. I navigeringsfönstret klickar du på **Nätverkstjänster** och sedan på **Virtuellt nätverk**. Klicka på **Skapa anpassade** för att starta konfigurationsguiden.
 
-3. Fyll i informationen på följande sidor för att skapa ditt VNet.
+3. Ange konfigurationsinställningarna på följande sidor för att skapa din VNet:
 
 ## Sidan Virtuell nätverksinformation
 
-Ange följande information.
+Ange följande information:
 
 - **Namn**: Ge ett namn till det virtuella nätverket. Till exempel *EastUSVNet*. Du använder det här virtuella nätverksnamnet när du distribuerar dina virtuella datorer och PaaS-instanser, så du bör inte göra namnet för komplicerat. 
 - **Plats**: Platsen är direkt relaterad till den fysiska platsen (region) där du vill att resurserna (VM) ska finnas. Om du exempelvis vill att de virtuella datorer som du distribuerar till det här virtuella nätverket ska finnas fysiskt i *östra USA*, väljer du den platsen. Du kan inte ändra den region som är associerad med det virtuella nätverket när du har skapat det.
@@ -68,7 +68,7 @@ Ange följande information.
 
 Ange följande information och klicka sedan på pilen Nästa nere till höger.
 
-- **DNS-servrar**: Ange DNS-servernamnet och IP-adressen, eller välj en tidigare registrerad DNS-server i snabbmenyn. Den här inställningen skapar inte någon DNS-server. Den låter dig ange vilken DNS-server du vill använda för namnmatchning för det här virtuella nätverket.
+- **DNS-servrar**: Ange DNS-servernamnet och IP-adressen, eller välj en tidigare registrerad DNS-server i snabbmenyn. Du skapar inte en DNS-server med den här inställningen. Den låter dig ange vilken DNS-server du vill använda för namnmatchning för det här virtuella nätverket.
 - **Konfigurera VPN för plats-till-plats**: Markera kryssrutan för **Konfigurera VPN för plats-till-plats**.
 - **Lokalt nätverk**: Ett lokalt nätverk representerar den fysiska lokala platsen. Du kan välja ett lokalt nätverk som du tidigare har skapat, eller skapa ett nytt lokalt nätverk. Men om du väljer att använda ett lokalt nätverk som du skapat tidigare ska du gå till konfigurationssidan **Lokala nätverk** och kontrollera att VPN-enhetens IP-adress (offentlig IPv4-adress) för VPN-enheten är korrekt.
 
@@ -109,6 +109,6 @@ När anslutningen är klar kan du lägga till virtuella datorer till dina virtue
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

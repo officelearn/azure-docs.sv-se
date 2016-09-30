@@ -13,22 +13,21 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/17/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av REST-API:et
 > [AZURE.SELECTOR]
-- [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Använda Data Factory-redigeraren](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Använda PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Använda Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Använda REST-API:et](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Använda .NET-API:et](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Använda guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
+- [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 
 Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabrik med hjälp av REST-API:et. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
-
-Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.   
 
 > [AZURE.NOTE] 
 > Den här artikeln beskriver inte hela REST-API:et för Data Factory. Omfattande dokumentation om Data Factory-cmdlets finns i [referensen för REST-API:et för Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx).
@@ -36,7 +35,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
 
 ## Krav
 
-- Gå igenom [kursöversikten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Gå igenom [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför de **nödvändiga** stegen.
 - Installera [Curl](https://curl.haxx.se/dlwiz/) på din dator. Du kan använda verktyget Curl med REST-kommandon för att skapa en datafabrik. 
 - Gör följande genom att följa anvisningarna i [den här artikeln](../resource-group-create-service-principal-portal.md): 
     1. Skapa en webbapp med namnet **ADFCopyTutorialApp** i Azure Active Directory.
@@ -136,7 +135,7 @@ Skapa följande JSON-filer i mappen som curl.exe finns i.
 
 JSON-definitionen definierar en datauppsättning med namnet **AzureBlobInput**, som representerar indata för en aktivitet i pipelinen. Dessutom anger den att indata finns i filen **emp.txt** som finns i blobbehållaren **adftutorial**. 
 
- Observera följande: 
+ Observera följande punkter: 
 
 - datauppsättningens **typ** anges till **AzureBlob**.
 - **linkedServiceName** anges till **AzureStorageLinkedService**. 
@@ -192,7 +191,7 @@ Ange **folderPath** och **fileName** dynamiskt utifrån **SliceStart**-tiden med
 
 JSON-definitionen definierar en datauppsättning med namnet **AzureSqlOutput**, som representerar utdata för en aktivitet i pipelinen. Dessutom anger den att resultaten lagras i tabellen: **emp** i databasen som representeras av AzureSqlLinkedService. Avsnittet **availability** anger att utdatauppsättningen genereras varje timme (frequency: hour och interval: 1).
 
-Observera följande: 
+Observera följande punkter: 
 
 - datauppsättningens **typ** anges till **AzureSQLTable**.
 - **linkedServiceName** anges till **AzureSqlLinkedService**.
@@ -245,7 +244,7 @@ Observera följande:
     }
 
 
-Observera följande:
+Observera följande punkter:
 
 - I avsnittet Aktiviteter finns det bara en aktivitet vars **typ** anges till **CopyActivity**.
 - Indata för aktiviteten är inställd på **AzureBlobInput** och utdata för aktiviteten är inställd på **AzureSqlOutput**.
@@ -300,9 +299,9 @@ I det här steget ska du skapa en Azure Data Factory med namnet **ADFCopyTutoria
 
         Write-Host $results
 
-Observera följande:
+Observera följande punkter:
  
-- Namnet på Azure Data Factory måste vara globalt unikt. Om felet **Datafabriksnamnet ”ADFCopyTutorialDF” är inte tillgängligt** returneras gör du följande:  
+- Namnet på Azure Data Factory måste vara globalt unikt. Om felet **Datafabriksnamnet ”ADFCopyTutorialDF” är inte tillgängligt** returneras går du igenom följande steg:  
     1. Ändra namnet (till exempel dittnamnADFCopyTutorialDF) i filen **datafactory.json**.
     2. I det första kommandot där variabeln **$cmd** tilldelas ett värde ersätter du ADFCopyTutorialDF med det nya namnet och kör kommandot. 
     3. Anropa REST-API:et genom att köra de följande två kommandona för att skapa datafabriken och skriva ut resultatet av åtgärden. 
@@ -316,7 +315,7 @@ Observera följande:
         
             Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     
-        Du kan köra följande kommando för att kontrollera att Data Factory-providern är registrerad. 
+        Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad. 
     
             Get-AzureRmResourceProvider
     - Logga in med Azure-prenumerationen i [Azure-portalen](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure-portalen. Med den här åtgärden registreras providern automatiskt.
@@ -471,7 +470,7 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
 | [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) | Den här artikeln innehåller detaljerad information om kopieringsaktiviteten som du använde i självstudien. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) | I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Pipelines](data-factory-create-pipelines.md) | I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
-| [Datauppsättningar](data-factory-create-datasets.md) | Den här artikeln förklarar hur datauppsättningar fungerar i Azure Data Factory.
+| [Datauppsättningar](data-factory-create-datasets.md) | I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory.
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) | Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. 
 
 
@@ -494,6 +493,6 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
  
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

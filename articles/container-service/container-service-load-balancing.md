@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Belastningsutjämna ett Azure Container Service-kluster | Microsoft Azure"
-   description="Belastningsutjämna ett Azure Container Service-kluster."
+   pageTitle="Belastningsutjämna behållare i ett Azure Container Service-kluster | Microsoft Azure"
+   description="Belastningsutjämna mellan flera behållare i ett Azure Container Service-kluster."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,9 +18,10 @@
    ms.date="07/11/2016"
    ms.author="rogardle"/>
 
-# Belastningsutjämna ett Azure Container Service-kluster
 
-I den här artikeln ska vi konfigurera en frontwebb för en DC/OS-hanterad Azure Container Service. Vi ska också konfigurera en Marathon-LB så att du kan skala upp programmet.
+# Belastningsutjämna behållare i ett Azure Container Service-kluster
+
+I den här artikeln visar vi hur du skapar en intern belastningsutjämnare i en DC/OS-hanterad Azure Container Service med Marathon-LB. Detta gör att du kan skala dina program vågrätt. Du kan också använda offentliga och privata agentkluster genom att placera en belastningsutjämnare på det offentliga klustret och dina programbehållare på det privata klustret.
 
 ## Krav
 
@@ -55,9 +56,11 @@ När du har installerat DC/OS CLI och bekräftat att du kan ansluta till klustre
 dcos package install marathon-lb
 ```
 
+Det här kommandot installerar automatiskt belastningsutjämnaren på det offentliga agentklustret.
+
 ## Distribuera en webbapp för belastningsutjämning
 
-Nu när vi har marathon-lb-paketet kan vi distribuera en enkel webbserver med följande konfiguration:
+Nu när vi har marathon-lb-paketet kan vi distribuera en programbehållare som vi vill belastningsutjämna. I det här exemplet distribuerar vi en enkel webbserver med följande konfiguration:
 
 ```json
 {
@@ -100,6 +103,8 @@ Nu när vi har marathon-lb-paketet kan vi distribuera en enkel webbserver med f�
   * Ange `hostPort` till 0. Detta gör att Marathon godtyckligt allokerar en tillgänglig port.
   * Ange `instances` till antalet instanser som du vill skapa. Du kan skala upp eller ned antalet senare.
 
+Det är värt att notera att standard-Marathon distribueras till det privata klustret. Det innebär att ovanstående distribution endast nås via en belastningsutjämnare, vilket vanligtvis är det beteende som vi vill ha.
+
 ### Distribuera med hjälp av webbgränssnittet för DC/OS
 
   1. Gå till Marathon-sidan på http://localhost/marathon (när du har konfigurerat [SSH-tunneln](container-service-connect.md)) och klicka på `Create Appliction`
@@ -141,6 +146,6 @@ Mer information om [marathon-lb](https://dcos.io/docs/1.7/usage/service-discover
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,33 +13,32 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Azure PowerShell
 > [AZURE.SELECTOR]
-- [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Använda Data Factory-redigeraren](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Använda PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Använda Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Använda REST-API:et](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Använda .NET-API:et](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Använda guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
+- [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 
-Självstudiekursen [Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) beskriver hur du skapar och övervakar en Azure-datafabrik med hjälp av [Azure-portalen][azure-portal]. I den här självstudiekursen ska du skapa och övervaka en Azure-datafabrik med hjälp av Azure PowerShell-cmdlets. Pipelinen i datafabriken som du skapar i den här självstudien använder en kopieringsaktivitet till att kopiera data från en Azure-blobb till en Azure SQL-databas.
+I den här självstudiekursen ska du skapa och övervaka en Azure-datafabrik med hjälp av Azure PowerShell-cmdlets. Pipelinen i datafabriken som du skapar i den här självstudien använder en kopieringsaktivitet till att kopiera data från en Azure-blobb till en Azure SQL-databas.
 
 Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.   
 
 > [AZURE.IMPORTANT] 
-> Gå igenom [kursöversikten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och kontrollera att du uppfyller kraven innan du går den här självstudiekursen.
+> Läs igenom artikeln [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför de **nödvändiga** stegen innan du fortsätter med självstudierna.
 >   
 > Den här artikeln beskriver inte alla Data Factory-cmdletar. Se [Cmdlet-referens för Data Factory](https://msdn.microsoft.com/library/dn820234.aspx) för omfattande dokumentation om Data Factory-cmdletar.
   
 
-##Förutsättningar
-Förutom de förutsättningar som anges i översiktsavsnittet för självstudien, måste du installera följande:
-
-- **Azure PowerShell**. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera Azure PowerShell på datorn.
+##Krav
+Förutom de förutsättningar som anges i översiktsavsnittet för självstudierna, måste du installera **Azure PowerShell**. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera Azure PowerShell på datorn.
 
 ##I den här självstudien
 Följande tabell innehåller de steg som du utför i självstudiekursen, med tillhörande beskrivningar. 
@@ -55,28 +54,28 @@ Steg | Beskrivning
 ## Skapa en datafabrik
 I det här steget använder du Azure PowerShell till att skapa en Azure-datafabrik med namnet **ADFTutorialDataFactoryPSH**.
 
-1. Starta **PowerShell** och kör följande kommando. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
-    1. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
+1. Starta **PowerShell**. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
+    1. Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in på Azure-portalen:
     
             Login-AzureRmAccount   
-    2. Kör följande kommando för att visa alla prenumerationer för det här kontot.
+    2. Kör följande kommando för att visa alla prenumerationer för det här kontot:
 
             Get-AzureRmSubscription 
-    3. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration. 
+    3. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration:
 
             Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 
-3. Skapa en Azure-resursgrupp med namnet: **ADFTutorialResourceGroup** genom att köra följande kommando.
+3. Skapa en Azure-resursgrupp med namnet: **ADFTutorialResourceGroup** genom att köra följande kommando:
    
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
     Vissa av stegen i den här självstudien förutsätter att du använder resursgruppen med namnet **ADFTutorialResourceGroup**. Om du använder en annan resursgrupp måste du använda den i stället för ADFTutorialResourceGroup i den här självstudiekursen. 
-4. Kör cmdleten **New-AzureRmDataFactory** för att skapa en datafabrik med namnet: **ADFTutorialDataFactoryPSH**.  
+4. Kör cmdleten **New-AzureRmDataFactory** för att skapa en datafabrik med namnet: **ADFTutorialDataFactoryPSH**:  
 
         New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
     
-Observera följande:
+Observera följande punkter:
  
 - Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande fel ändrar du namnet (till exempel dittnamnADFTutorialDataFactoryPSH). Använd det här namnet i stället för ADFTutorialFactoryPSH när du utför stegen i självstudien. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
     
@@ -85,11 +84,11 @@ Observera följande:
 - Namnet på datafabriken kan komma att registreras som ett DNS-namn i framtiden och blir då synligt offentligt.
 - Om du får felet: ”**Den här prenumerationen har inte registrerats för användning av namnområdet Microsoft.DataFactory**” gör du något av följande och försöker att publicera igen: 
 
-    - I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern. 
+    - I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern: 
         
             Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     
-        Du kan köra följande kommando för att kontrollera att Data Factory-providern är registrerad. 
+        Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad: 
     
             Get-AzureRmResourceProvider
     - Logga in med Azure-prenumerationen i [Azure-portalen](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure-portalen. Med den här åtgärden registreras providern automatiskt.
@@ -114,7 +113,7 @@ I det här steget ska du skapa två länkade tjänster: **StorageLinkedService**
 
     Ersätt **accountname** och **accountkey** med namnet och nyckeln för ditt Azure-lagringskonto.
 2.  Växla till mappen **ADFGetStartedPSH** i **Azure PowerShell**. 
-3.  Du kan använda cmdleten **New-AzureRmDataFactoryLinkedService** till att skapa en länkad tjänst. Med den här cmdleten och andra Data Factory-cmdlets som du använder i den här självstudien måste du ange värden för parametrarna **ResourceGroupName** och **DataFactoryName**. Du kan också använda **Get-AzureRmDataFactory** till att hämta ett DataFactory-objekt och skicka objektet utan att ange ResourceGroupName och DataFactoryName varje gång du kör en cmdlet. Kör följande kommando för att tilldela utdatan från cmdleten **Get-AzureRmDataFactory** till en variabel: **$df**. 
+3.  Du kan använda cmdleten **New-AzureRmDataFactoryLinkedService** till att skapa en länkad tjänst. Med den här cmdleten och andra Data Factory-cmdlets som du använder i den här självstudien måste du ange värden för parametrarna **ResourceGroupName** och **DataFactoryName**. Du kan också använda **Get-AzureRmDataFactory** till att hämta ett DataFactory-objekt och skicka objektet utan att ange ResourceGroupName och DataFactoryName varje gång du kör en cmdlet. Kör följande kommando för att tilldela utdatan från cmdleten **Get-AzureRmDataFactory** till en variabel: **$df**: 
 
         $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 
@@ -129,25 +128,25 @@ I det här steget ska du skapa två länkade tjänster: **StorageLinkedService**
     Om du stänger Azure PowerShell mitt i självstudiekursen måste du köra cmdleten Get-AzureRmDataFactory nästa gång du startar Azure PowerShell för att slutföra självstudien.
 
 ### Skapa en länkad tjänst för en Azure SQL Database
-1.  Skapa en JSON-fil med namnet AzureSqlLinkedService.json med följande innehåll.
+1.  Skapa en JSON-fil med namnet AzureSqlLinkedService.json med följande innehåll:
 
             {
                 "name": "AzureSqlLinkedService",
                 "properties": {
                     "type": "AzureSqlDatabase",
                     "typeProperties": {
-                        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=<user>@<server>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
                     }
                 }
             }
 
     Ersätt **servername**, **databasename**, **username@servername** och **password** med namnen på din Azure SQL-server, din databas, ditt användarkonto och ditt lösenord.
 
-2.  Kör följande kommando för att skapa en länkad tjänst. 
+2.  Kör följande kommando för att skapa en länkad tjänst: 
     
         New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
-    Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för Azure SQL-servern. Gör så här för att kontrollera och aktivera:
+    Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för Azure SQL-servern. Gör så här för att kontrollera och aktivera den:
 
     1. Klicka på hubben **BLÄDDRA** till vänster och klicka på **SQL-servrar**.
     2. Välj server och klicka på **INSTÄLLNINGAR** på bladet SQL SERVER.
@@ -165,7 +164,7 @@ En tabell är en rektangulär datauppsättning och är den enda typen av dataupp
 ### Förbereda Azure blobblagring och Azure SQL Database för självstudien
 Hoppa över det här steget om du har gått igenom självstudiekursen från [Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) artikel. 
 
-Du måste utföra följande steg för att förbereda Azure-blobblagringen och Azure SQL-databasen för den här självstudien. 
+Förbered Azure-blobblagringen och Azure SQL-databasen för den här självstudiekursen genom att utföra följande steg. 
  
 * Skapa en blobbehållare med namnet **adftutorial** i Azure blobb-lagringen som **StorageLinkedService** pekar på. 
 * Skapa och ladda upp en textfil, **emp.txt**, som en blobb till behållaren **adftutorial**. 
@@ -233,7 +232,7 @@ En tabell är en rektangulär datauppsättning med ett schema. I det här steget
               }
             }
     
-    Observera följande: 
+    Observera följande punkter: 
     
     - datauppsättningens **typ** anges till **AzureBlob**.
     - **linkedServiceName** anges till **StorageLinkedService**. 
@@ -241,13 +240,13 @@ En tabell är en rektangulär datauppsättning med ett schema. I det här steget
     - **fileName** anges till **emp.txt**. Eftersom du inte anger namnet på blobben, anses data från alla blobbar i behållaren vara indata.  
     - formatet **typ** anges till **TextFormat**
     - Det finns två fält i textfilen – **FirstName** och **LastName** – som avgränsas med ett kommatecken (**columnDelimiter**) 
-    - **availability** är inställt på **hourly** (**frequency** är inställt på **hour** och **interval** är inställt på **1**). Det betyder att Data Factory söker efter indata varje timme i rotmappen för den angivna blobbehållaren (**adftutorial**).
+    - **availability** är inställt på **hourly** (**frequency** är inställt på **hour** och **interval** är inställt på **1**). Det betyder att Data Factory söker efter indata varje timme i rotmappen för blobbehållaren (**adftutorial**).
 
     Om du inte anger något **fileName** för en **indata****tabell**, anses alla filer/blobbar från indatamappen (**folderPath**) vara indata. Om du anger ett fileName i JSON, anses endast den angivna filen/blobben vara indata. 
  
     Om du inte anger något **fileName** för en **utdatatabell**, genereras filerna i **folderPath** och namnges i följande format: Data.<Guid\>.txt (exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-    Ange **folderPath** och **fileName** dynamiskt utifrån **SliceStart**-tiden med hjälp av **partitionedBy**-egenskapen. I följande exempel använder folderPath Year, Month och Day från SliceStart (starttiden för den sektor som bearbetas) och fileName använder Hour från SliceStart. Om exempelvis en sektor produceras 2014-10-20T08:00:00, anges folderName till wikidatagateway/wikisampledataout/2014/10/20 och fileName anges till 08.csv. 
+    Ange **folderPath** och **fileName** dynamiskt utifrån **SliceStart**-tiden med hjälp av **partitionedBy**-egenskapen. I följande exempel använder folderPath Year, Month och Day från SliceStart (starttiden för den sektor som bearbetas) och fileName använder Hour från SliceStart. Om exempelvis en sektor produceras 2016-10-20T08:00:00, anges folderName till wikidatagateway/wikisampledataout/2016/10/20 och fileName anges till 08.csv. 
 
             "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
             "fileName": "{Hour}.csv",
@@ -268,7 +267,7 @@ En tabell är en rektangulär datauppsättning med ett schema. I det här steget
 ### Skapa datauppsättning för utdata
 I det här steget ska du skapa en utdatauppsättning med namnet **EmpSQLTable**. Den här datauppsättningen pekar på en SQL-tabell (**emp**) i Azure SQL-databasen som representeras av **AzureSqlLinkedService**. Pipelinen kopierar data från indatablobben till tabellen **emp**. 
 
-1.  Skapa en JSON-fil med namnet **EmpSQLTable.json** i mappen **C:\ADFGetStartedPSH** med följande innehåll.
+1.  Skapa en JSON-fil med namnet **EmpSQLTable.json** i mappen **C:\ADFGetStartedPSH** med följande innehåll:
         
             {
               "name": "EmpSQLTable",
@@ -295,7 +294,7 @@ I det här steget ska du skapa en utdatauppsättning med namnet **EmpSQLTable**.
               }
             }
 
-     Observera följande: 
+     Observera följande punkter: 
     
     * datauppsättningens **typ** anges till **AzureSqlTable**.
     * **linkedServiceName** anges till **AzureSqlLinkedService**.
@@ -355,13 +354,13 @@ I det här steget skapar du en pipeline med en **kopieringsaktivitet** som anvä
               }
             }
 
-    Observera följande:
+    Observera följande punkter:
 
     - I avsnittet Aktiviteter finns det bara en aktivitet vars **typ** anges till **Kopia**.
     - Indata för aktiviteten är inställd på **EmpTableFromBlob** och utdata för aktiviteten är inställd på **EmpSQLTable**.
     - I avsnittet för **transformering** har **BlobSource** angetts som källtyp och **SqlSink** har angetts som mottagartyp.
 
-    Ersätt värdet i **start**egenskapen med den aktuella dagen och **slut**värdet med nästa dag. Både start- och slutdatum måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen. 
+    Ersätt värdet i **start**egenskapen med den aktuella dagen och **slut**värdet med nästa dag. Både start- och slutdatum måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2016-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen. 
     
     Om du inte anger värdet för **slut**egenskapen, beräknas det som ”**start + 48 timmar**”. Om du vill köra pipelinen på obestämd tid, anger du **9/9/9999** som värde för **slut**egenskapen.
     
@@ -383,53 +382,41 @@ I det här steget ska du använda Azure PowerShell för att övervaka vad som h�
  
 2.  Kör **Get-AzureRmDataFactorySlice** att få information om alla sektorer av **EmpSQLTable**, vilket är utdatatabellen för pipelinen.  
 
-        Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
+        Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
 
     Ersätt år, månad och datum i parametern **StartDateTime** med aktuellt år, månad och datum. Den här inställningen måste matcha **Start**-värdet i pipelinens JSON. 
 
     Du bör se 24 sektorer, en för varje timme från kl. 12:00 den aktuella dagen till 12:00 nästa dag. 
     
-    **Första sektorn:**
+    **Exempel på utdata:**
 
         ResourceGroupName : ADFTutorialResourceGroup
         DataFactoryName   : ADFTutorialDataFactoryPSH
         TableName         : EmpSQLTable
-        Start             : 3/3/2015 12:00:00 AM
-        End               : 3/3/2015 1:00:00 AM
+        Start             : 8/9/2016 12:00:00 AM
+        End               : 8/9/2016 1:00:00 AM
         RetryCount        : 0
         Status            : Waiting
         LatencyStatus     :
         LongRetryCount    : 0
 
-    **Sista sektorn:**
+3.  Kör **Get-AzureRmDataFactoryRun** för att hämta information om aktiviteten som körs för en **viss** sektor. Ändra värdet för parametern **StartDateTime** så att det matchar **starttiden** för sektorn i utdata. Värdet för **StartDateTime** måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). 
 
-        ResourceGroupName : ADFTutorialResourceGroup
-        DataFactoryName   : ADFTutorialDataFactoryPSH
-        TableName         : EmpSQLTable
-        Start             : 3/4/2015 11:00:00 PM
-        End               : 3/4/2015 12:00:00 AM
-        RetryCount        : 0
-        Status            : Waiting
-        LatencyStatus     : 
-        LongRetryCount    : 0
+        Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
 
-3.  Kör **Get-AzureRmDataFactoryRun** för att hämta information om aktiviteten som körs för en **viss** sektor. Ändra värdet för parametern **StartDateTime** så att det matchar **starttiden** för sektorn i utdata. Värdet för **StartDateTime** måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-03-03T22:00:00Z.
-
-        Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
-
-    Du bör se utdata som liknar följande:
+    Du bör se utdata som liknar följande exempel:
 
         Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
         ResourceGroupName   : ADFTutorialResourceGroup
         DataFactoryName     : ADFTutorialDataFactoryPSH
         TableName           : EmpSQLTable
-        ProcessingStartTime : 3/3/2015 11:03:28 PM
-        ProcessingEndTime   : 3/3/2015 11:04:36 PM
+        ProcessingStartTime : 8/9/2016 11:03:28 PM
+        ProcessingEndTime   : 8/9/2016 11:04:36 PM
         PercentComplete     : 100
-        DataSliceStart      : 3/8/2015 10:00:00 PM
-        DataSliceEnd        : 3/8/2015 11:00:00 PM
+        DataSliceStart      : 8/9/2016 10:00:00 PM
+        DataSliceEnd        : 8/9/2016 11:00:00 PM
         Status              : Succeeded
-        Timestamp           : 3/8/2015 11:03:28 PM
+        Timestamp           : 8/9/2016 11:03:28 PM
         RetryAttempt        : 0
         Properties          : {}
         ErrorMessage        :
@@ -455,7 +442,7 @@ I den här självstudien har du skapat en Azure-datafabrik som kopierar data fr�
 | [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) | Den här artikeln innehåller detaljerad information om kopieringsaktiviteten som du använde i självstudien. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) | I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Pipelines](data-factory-create-pipelines.md) | Den här artikeln beskriver pipelines och aktiviteter i Azure Data Factory |
-| [Datauppsättningar](data-factory-create-datasets.md) | Den här artikeln förklarar hur datauppsättningar fungerar i Azure Data Factory.
+| [Datauppsättningar](data-factory-create-datasets.md) | I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory.
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) | Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. 
 
 
@@ -478,6 +465,6 @@ I den här självstudien har du skapat en Azure-datafabrik som kopierar data fr�
  
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

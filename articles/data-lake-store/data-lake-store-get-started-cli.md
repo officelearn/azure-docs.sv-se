@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
+
 
 # Kom igång med Azure Data Lake Store med Azure Command Line
 
@@ -37,7 +38,6 @@ Azure CLI är implementerat i Node.js. Det kan användas på alla plattformar so
 Innan du påbörjar den här artikeln måste du ha:
 
 - **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Aktivera din Azure-prenumeration** för en förhandsversion av Data Lake Store. Se [instruktioner](data-lake-store-get-started-portal.md#signup).
 - **Azure CLI** - Se [Installera och konfigurera Azure CLI](../xplat-cli-install.md) för information om installation och konfiguration. Se till att datorn startas om när du har installerat CLI.
 
 ##Logga in till din Azure-prenumeration
@@ -191,6 +191,6 @@ När du uppmanas, anger du **Y** för att ta bort kontot.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

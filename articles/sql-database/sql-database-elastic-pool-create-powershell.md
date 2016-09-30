@@ -16,10 +16,11 @@
     ms.date="05/27/2016"
     ms.author="srinia"/>
 
+
 # Skapa en ny elastisk databaspool med PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure-portalen](sql-database-elastic-pool-create-portal.md)
+- [Azure Portal](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
@@ -28,7 +29,7 @@ Lär dig hur du skapar en [elastisk databaspool](sql-database-elastic-pool.md) m
 
 Vanliga felkoder finns i [SQL-felkoder för SQL Database-klientprogram: anslutningsfel för databasen och andra problem](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] Elastiska databaspooler är för närvarande i förhandsvisning och finns bara för SQL Database V12-servrar. Om du har en SQL Database V11-server, kan du [använda PowerShell för att uppgradera till V12 och skapa en pool](sql-database-upgrade-server-portal.md) i ett enda steg.
+> [AZURE.NOTE] Elastiska pooler är allmänt tillgänglig (GA) i alla Azure-regioner utom Norra centrala USA och Västra Indien där de genomgår förhandsgranskning.  Allmän tillgänglighet för elastiska pooler i dessa regioner kommer att erbjudas så snart som möjligt. För närvarande stöder inte elastiska pooler databaser med [minnesintern OLTP eller minnesintern analys](sql-database-in-memory.md).
 
 
 Du måste köra Azure PowerShell 1.0 eller högre. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md).
@@ -83,6 +84,6 @@ Det här skriptet skapar en ny Azure-resursgrupp och en ny server. När du uppma
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

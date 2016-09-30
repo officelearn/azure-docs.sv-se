@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av Data Factory-redigeraren | Microsoft Azure" 
+    pageTitle="Självstudier: Skapa en pipeline med en kopieringsaktivitet med hjälp av Azure-portalen | Microsoft Azure" 
     description="I den här självstudien skapar du en Azure Data Factory-pipeline med en kopieringsaktivitet med hjälp av Data Factory-redigeraren på Azure-portalen." 
     services="data-factory" 
     documentationCenter="" 
@@ -13,32 +13,35 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
 
-# Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Data Factory-redigeraren
+
+# Självstudier: Skapa en pipeline med en kopieringsaktivitet med hjälp av Azure-portalen
 > [AZURE.SELECTOR]
-- [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Använda Data Factory-redigeraren](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Använda PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Använda Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Använda REST-API:et](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Använda .NET-API:et](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Använda guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
+- [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 
 
-Den här självstudien innehåller följande steg:
+De här självstudierna visar hur du skapar och övervakar en Azure-datafabrik med hjälp av Azure-portalen. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
+
+Här är de steg du utför som en del av de här självstudierna:
 
 Steg | Beskrivning
 -----| -----------
 [Skapa en Azure Data Factory](#create-data-factory) | I det här steget skapar du en Azure-datafabrik med namnet **ADFTutorialDataFactory**.  
 [Skapa länkade tjänster](#create-linked-services) | I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService** och **AzureSqlLinkedService**. AzureStorageLinkedService länkar Azure-lagringen och AzureSqlLinkedService länkar Azure SQL-databasen till ADFTutorialDataFactory. Indata för pipelinen finns i en blobbehållare i Azure Blob Storage och utdata lagras i en tabell i Azure SQL-databasen. Därför kan du lägga till dessa två datalager som länkade tjänster i datafabriken.      
-[Skapa datauppsättningar för indata och utdata ](#create-datasets) | I det föregående steget skapade du länkade tjänster som refererar till datalager som innehåller in- och utdata. I det här steget definierar du två datafabrikstabeller – **EmpTableFromBlob** och **EmpSQLTable** – som representerar de in- och utdata som lagras i datalagren. För EmpTableFromBlob anger du blobbehållaren som innehåller en blobb med källdata, och för EmpSQLTable anger du SQL-tabellen som lagrar utdata. Du kan också ange andra egenskaper som struktur, tillgänglighet och så vidare. 
+[Skapa datauppsättningar för indata och utdata ](#create-datasets) | I det föregående steget skapade du länkade tjänster som refererar till datalager som innehåller in- och utdata. I det här steget definierar du två datafabrikstabeller – **EmpTableFromBlob** och **EmpSQLTable** – som representerar de in- och utdata som lagras i datalagren. För EmpTableFromBlob anger du blobbehållaren som innehåller en blobb med källdata, och för EmpSQLTable anger du SQL-tabellen som lagrar utdata. Du kan också ange andra egenskaper som struktur, tillgänglighet och princip. 
 [Skapa en pipeline](#create-pipeline) | I det här steget skapar du en pipeline med namnet **ADFTutorialPipeline** i ADFTutorialDataFactory. Pipelinen ska ha en **kopieringsaktivitet** som kopierar indata från Azure-blobben till utdata i Azure SQL-tabellen. Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten. 
 [Övervaka pipeline](#monitor-pipeline) | I det här steget ska du övervaka sektorer från indata- och utdatatabeller med hjälp av Azure-portalen.
 
 > [AZURE.IMPORTANT] 
-> Gå igenom [kursöversikten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och se till att du uppfyller kraven innan du går den här självstudiekursen.
+> Läs igenom artikeln [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför de **nödvändiga** stegen innan du fortsätter med självstudierna.
 
 ## Skapa en datafabrik
 I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik med namnet **ADFTutorialDataFactory**.
@@ -72,7 +75,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
     > Om du vill skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen
 
 9. Klicka på hubben **MEDDELANDEN** till vänster och se om det finns några meddelanden från processen. Klicka på **X** för att stänga bladet **MEDDELANDEN** om det är öppet. 
-10. När datafabriken har skapats visas bladet **Datafabrik** (se nedan).
+10. När datafabriken har skapats visas bladet **DATAFABRIK** som på bilden.
 
     ![Datafabrikens startsida][image-data-factory-get-stated-factory-home-page]
 
@@ -151,7 +154,7 @@ En tabell är en rektangulär datauppsättning med ett schema. I det här steget
         }
 
         
-     Observera följande: 
+     Observera följande punkter: 
     
     - datauppsättningens **typ** anges till **AzureBlob**.
     - **linkedServiceName** anges till **AzureStorageLinkedService**. Du skapade den här länkade tjänsten i steg 2.
@@ -213,7 +216,7 @@ I den här delen av steget ska du skapa en utdatauppsättning med namnet **EmpSQ
         }
 
         
-     Observera följande: 
+     Observera följande punkter: 
     
     * datauppsättningens **typ** anges till **AzureSQLTable**.
     * **linkedServiceName** har angetts till **AzureSqlLinkedService** (du skapade den här länkade tjänsten i steg 2).
@@ -276,7 +279,7 @@ I det här steget skapar du en pipeline med en **kopieringsaktivitet** som anvä
           }
         } 
 
-    Observera följande:
+    Observera följande punkter:
 
     - I avsnittet Aktiviteter finns det bara en aktivitet vars **typ** anges till **CopyActivity**.
     - Indata för aktiviteten är inställd på **EmpTableFromBlob** och utdata för aktiviteten är inställd på **EmpSQLTable**.
@@ -303,7 +306,7 @@ I det här steget skapar du en pipeline med en **kopieringsaktivitet** som anvä
 
     ![Data Factory-bladet – Diagramikon][image-datafactoryblade-diagramtile]
 
-2. Du bör se ett diagram som liknar följande: 
+2. Du bör se ett diagram som liknar följande bild: 
 
     ![Diagramvy][image-data-factory-get-started-diagram-blade]
 
@@ -330,7 +333,7 @@ I det här steget ska du använda Azure-portalen för att övervaka vad som hän
     ![Datauppsättningar med EmpTableFromBlob är valt][image-data-factory-get-started-datasets-emptable-selected]   
 5. Observera att datasektorer upp till aktuell tid redan har skapats och är **klara** eftersom filen **emp.txt** alltid finns i blobbehållaren: **adftutorial\input**. Kontrollera att inga sektorer visas i avsnittet **Nyligen misslyckade sektorer** längst ned.
 
-    Båda listorna **Nyligen uppdaterade sektorer** och **Nyligen misslyckade sektorer** sorteras efter **SENASTE UPPDATERINGSTID**. Uppdateringstiden för en sektor ändras i följande situationer. 
+    Båda listorna **Nyligen uppdaterade sektorer** och **Nyligen misslyckade sektorer** sorteras efter **SENASTE UPPDATERINGSTID**. Uppdateringstiden för en sektor ändras i följande situationer: 
     
     Klicka på rubriken i listorna eller på **... (tre punkter)** om du vill visa en mer omfattande sektorlista. Klicka på **Filter** i verktygsfältet för att filtrera sektorerna.  
     
@@ -386,7 +389,7 @@ I den här självstudien har du skapat en Azure-datafabrik som kopierar data fr�
 | [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) | Den här artikeln innehåller detaljerad information om kopieringsaktiviteten som du använde i självstudien. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) | I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Pipelines](data-factory-create-pipelines.md) | Den här artikeln beskriver pipelines och aktiviteter i Azure Data Factory. |
-| [Datauppsättningar](data-factory-create-datasets.md) | Den här artikeln förklarar hur datauppsättningar fungerar i Azure Data Factory.
+| [Datauppsättningar](data-factory-create-datasets.md) | I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory.
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) | Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. 
 
 <!--Link references-->
@@ -462,6 +465,6 @@ I den här självstudien har du skapat en Azure-datafabrik som kopierar data fr�
  
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

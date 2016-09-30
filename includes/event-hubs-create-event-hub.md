@@ -1,33 +1,51 @@
 ## Skapa en händelsehubb
 
-1. Logga in på den [klassiska Azure-portalen][] och klicka på **NY** längst ned på skärmen.
+1. Logga in på [Azure Portal][] och klicka på **Ny** högst upp till vänster på skärmen.
 
-2. Klicka på **Apptjänster**, sedan **Service Bus**, sedan **Händelsehubb** och sedan **Snabbregistrering**.
+2. Klicka på **Data + Analytics** och därefter på **Händelsehubbar**.
 
-    ![][1]
+    ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 
-3. Ange ett namn för din händelsehubb, välj önskad region och klicka sedan på **Skapa en ny händelsehubb**.
+3. I bladet **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
 
-    ![][2]
+    ![](./media/event-hubs-create-event-hub/create-event-hub1.png)
 
-4. Om du inte uttryckligen väljer ett befintligt namnområde i en viss region, skapar portalen ett namnområde åt dig (vanligtvis ***namnet på händelsehubben*-ns**). Klicka på namnområdet (**eventhub-ns** i det här exemplet).
+4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic eller Standard). Välj även en Azure-prenumeration, resursgrupp och plats där du vill skapa resursen. 
 
-    ![][3]
+2. Klicka på **Skapa** för att skapa namnområdet.
 
-5. Längst ner på sidan klickar du på **Anslutningsinformation**. Klicka på kopieringsknappen (visas i följande bild) för att kopiera anslutningssträngen **RootManageSharedAccessKey** till Urklipp. Spara den här anslutningssträngen för användning senare guiden.
+6. I listan över händelsehubbarnas namnområden klickar du på det nyligen skapade namnområdet.      
 
-    ![][4]
+    ![](./media/event-hubs-create-event-hub/create-event-hub2.png)
+
+7. Klicka på namnområdesbladet och på **Händelsehubbar**.
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub3.png)
+
+8. Klicka på **Lägg till händelsehubb** överst på bladet.
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub4.png)
+
+3. Skriv ett namn för din händelsehubb och klicka sedan på **Skapa**.
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub5.png)
+
+4. I listan över händelsehubbar klickar du på den nyligen skapade Händelsehubben. 
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub6.png)
+
+5. Tillbaka i namnområdesbladet (inte i det specifika händelsehubbladet) klickar du på **Principer för delad åtkomst** och klickar därefter på **RootManageSharedAccessKey**.
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub7.png)
+
+5. Klicka på kopieringsknappen för att kopiera anslutningssträngen **RootManageSharedAccessKey** till Urklipp. Spara den här anslutningssträngen för användning senare guiden.
+
+    ![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
 Din händelsehubb har nu skapats och du har de anslutningssträngar som du behöver för att skicka och ta emot händelser.
 
-[1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
-[2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
-[3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
-[4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
+[Azure Portal]: https://portal.azure.com/
 
-[klassiska Azure-portalen]: https://manage.windowsazure.com/
-
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -18,6 +18,7 @@
     ms.author="cephalin"
 />
     
+
 # Distribuera din första webbapp till Azure på fem minuter
 
 I den här kursen lär du dig hur du distribuerar din första webbapp till [Azure App Service](../app-service/app-service-value-prop-what-is.md).
@@ -72,7 +73,7 @@ Du kommer att:
 
 Nu ska vi distribuera kod till Azure med Git.
 
-5. Rulla ner till **Distributionsalternativ** i webbappsbladet eller sök efter dem, och klicka sedan på dem. 
+5. Rulla ner till **Distributionsalternativ** i bladet webbapp eller leta efter den, och klicka sedan på den. 
 
     ![distributionsalternativ för din första webbapp i Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
 
@@ -82,7 +83,7 @@ Nu ska vi distribuera kod till Azure med Git.
 
 8. Ange dina autentiseringsuppgifter för distribution och klicka på **Spara**.
 
-7. Gå tillbaka till webbappsbladet, rulla ner till **Egenskaper** eller sök efter dem och klicka sedan på dem. Klicka på knappen **Kopiera** bredvid **Git URL**.
+7. Gå tillbaka till bladet webbapp, rulla ner till **Egenskaper** eller sök efter dem och klicka sedan på dem. Klicka på knappen **Kopiera** bredvid **Git URL**.
 
     ![egenskapsblad för din första webbapp i Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
 
@@ -148,6 +149,6 @@ Eller gör mer med din första webbapp. Exempel:
 
 
 
-<!-----HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

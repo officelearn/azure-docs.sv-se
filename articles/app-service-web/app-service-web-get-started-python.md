@@ -18,9 +18,10 @@
     ms.author="cephalin"
 />
     
+
 # Distribuera din första Python-webbapp via Azure på fem minuter
 
-I den här kursen lär du dig hur du distribuerar din första webbapp med Python via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+I de här självstudierna lär du dig hur du distribuerar din första webbapp med Python via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Du kan använda App Service för att skapa webbappar, [serverdelar för mobilappar](/documentation/learning-paths/appservice-mobileapps/) och [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 Du kommer att: 
@@ -35,7 +36,7 @@ Du kommer att:
 - [Installera Git](http://www.git-scm.com/downloads). Kontrollera att installationen har utförts genom att köra `git --version` från en ny Windows-kommandotolk, PowerShell-fönster, Linux-gränssnittet eller OS X-terminal.
 - Skaffa ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] Du kan [prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
+>[AZURE.NOTE] Du kan [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
 
 <a name="create"></a>
 ## Skapa en webbapp
@@ -72,7 +73,7 @@ Du kommer att:
 
 Nu ska vi distribuera kod till Azure med Git.
 
-5. Rulla ner till **Distributionsalternativ** i bladet webbapp eller sök efter dem, och klicka sedan på dem. 
+5. Rulla ner till **Distributionsalternativ** i bladet webbapp eller leta efter den, och klicka sedan på den. 
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
@@ -82,7 +83,7 @@ Nu ska vi distribuera kod till Azure med Git.
 
 8. Ange dina autentiseringsuppgifter för distribution och klicka på **Spara**.
 
-7. Gå tillbaka till bladet webbapp, rulla ner till **Egenskaper** eller sök efter dem och klicka sedan på dem. Klicka på knappen **Kopiera** bredvid **Git-URL**.
+7. Gå tillbaka till bladet webbapp, rulla ner till **Egenskaper** eller sök efter dem och klicka sedan på dem. Klicka på knappen **Kopiera** bredvid **Git URL**.
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
@@ -112,7 +113,7 @@ Nu ska vi distribuera kod till Azure med Git.
 
     Om du använde något av språkramverken ser resultatet annorlunda ut. Detta beror på att `git push` inte bara placerar kod i Azure, men även utlöser distributionsuppgifter i distributionsmotorn. Om du har några requirements.txt i projektroten (databasen) kommer distributionsskriptet att återställa alla nödvändiga paket åt dig. 
 
-Klart! Nu körs din kod live i Azure. Navigera till http://*&lt;appname >*.azurewebsites.net i din webbläsare för att se hur det fungerar. 
+Klart! Nu körs din kod live i Azure. Navigera till http://*&lt;appnamn >*.azurewebsites.net i din webbläsare för att se hur det fungerar. 
 
 ## Göra appuppdateringar
 
@@ -124,7 +125,7 @@ Nu kan du använda Git och skicka skrivningar från projektroten (databasen) nä
 
 ## Nästa steg
 
-[Skapa, konfigurera och distribuera en Django-webbapp via Azure i Visual Studio](web-sites-python-ptvs-django-mysql.md). Genom att genomgå den här självstudiekursen får du grundläggande kunskaper i hur du gör för att köra Python-webbappar i Azure, till exempel:
+[Skapa, konfigurera och distribuera en Django-webbapp via Azure i Visual Studio](web-sites-python-ptvs-django-mysql.md). I de här självstudierna får du grundläggande kunskaper i hur du kör Python-webbappar i Azure, till exempel:
 
 - Skapa och distribuera en Python-app med en mall.
 - Ange Python-version.
@@ -139,6 +140,6 @@ Eller gör mer med din första webbapp. Exempel:
 
 
 
-<!----HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

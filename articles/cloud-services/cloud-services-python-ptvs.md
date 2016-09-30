@@ -17,6 +17,7 @@
     ms.author="adegeo"/>
 
 
+
 # Webb- och arbetsroller för Python med Python Tools för Visual Studio
 
 Den här artikeln innehåller en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][]. Du får lära dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
@@ -242,6 +243,8 @@ if (-not $is_emulated){
 
 #### Ändra LaunchWorker.ps1
 
+>[AZURE.NOTE] Vid ett **arbetsroll**projekt krävs filen **LauncherWorker.ps1** för att köra startfilen. Vid ett **webbroll**projekt definieras startfilen istället i egenskaperna för projektet.
+
 **bin\LaunchWorker.ps1** skapades ursprungligen för att göra mycket förberedande arbete men det fungerar inte riktigt som tänkt. Ersätt innehållet i filen med följande skript.
 
 Det här skriptet anropar **worker.py**-filen från python-projektet. Om **PYTHON2**-miljövariabeln anges till **på**, används Python 2.7, annars används Python 3.5.
@@ -368,6 +371,6 @@ Mer information om hur du använder Azure-tjänster från dina webb- och arbetsr
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

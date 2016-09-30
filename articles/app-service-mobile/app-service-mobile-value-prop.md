@@ -4,7 +4,7 @@
     services="app-service\mobile"
     documentationCenter=""
     authors="adrianhall"
-    manager="dwrede"
+    manager="yochayk"
     editor=""/>
 
 <tags
@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="05/03/2016"
-    ms.author="krisagh"/>
+    ms.author="adrianha"/>
+
 
 # <a name="getting-started"> </a>Vad är Mobile Apps?
 
@@ -63,7 +64,7 @@ Följande plattformsfunktioner brukar vara användbara i produktionsmiljöer fö
 
   Läs mer om [distributionsalternativ].
 
-- **Virtuella nätverk** – Apptjänst kan ansluta till lokala resurser genom virtuella nätverk, ExpressRoute eller hybridanslutningar.
+- **Virtuella nätverk** – App Service kan ansluta till lokala resurser genom virtuella nätverk, ExpressRoute eller hybridanslutningar.
 
   Läs mer om [hybridanslutningar], [virtuella nätverk] och [ExpressRoute].
 
@@ -87,7 +88,7 @@ Mer information om Azure Apptjänst-plattformen finns på [Azure Apptjänst].
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [autentiseringsfunktioner]: ./app-service-mobile-auth.md
 [datafunktioner]: ./app-service-mobile-offline-data-sync.md
-[push-meddelandefunktioner]: ../notification-hubs/notification-hubs-overview.md
+[push-meddelandefunktioner]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
@@ -105,6 +106,6 @@ Mer information om Azure Apptjänst-plattformen finns på [Azure Apptjänst].
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

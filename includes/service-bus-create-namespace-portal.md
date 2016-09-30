@@ -14,19 +14,19 @@
 
     ![Skapa namnområde][create-namespace]
 
-6. Klicka på knappen **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
+6. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
  
 ### Hämta autentiseringsuppgifterna för hantering
 
 1. I listan över namnområden, klickar du på det nyligen skapade namnområdet.
  
-3. På bladet **Service Bus-namnområde** klickar du på **Principer för delad åtkomst**.
+3. På namnområdesbladet klickar du på **Principer för delad åtkomst**.
 
 4. På bladet **Principer för delad åtkomst** klickar du på **RootManageSharedAccessKey**.
 
     ![connection-info][connection-info]
 
-5. På bladet **Princip: RootManageSharedAccessKey** klickar du på kopieringsknappen bredvid **Anslutningssträng – Primärnyckel** för att kopiera anslutningssträngen till Urklipp för senare användning.
+5. På bladet **Princip: RootManageSharedAccessKey** klickar du på kopieringsknappen bredvid **Anslutningssträng – Primärnyckel** för att kopiera anslutningssträngen till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
 
     ![connection-string][connection-string]
 
@@ -39,7 +39,6 @@
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure Portal]: https://portal.azure.com
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/09/2016"
+    ms.date="09/01/2016"
     ms.author="casoper"/>
+
 
 # Översikt över Azure CDN (Content Delivery Network)
 
@@ -41,7 +42,7 @@ Här är några exempel på fördelarna med att använda CDN för att cachelagra
 
 4. Edge-servern cachelagrar filen och returnerar den till användaren som ursprungligen begärde den (Alice).  Filen förblir cachelagrad på edge-servern tills TTL-perioden upphör.  Om ursprunget inte angav någon TTL är standardvärdet sju dagar.
 
-5. Fler användare (till exempel Bob) kan begära samma fil med samma URL och kan också dirigeras till samma POP.
+5. Fler användare kan begära samma fil med samma URL och kan också dirigeras till samma POP.
 
 6. Om filens TTL inte har gått ut returnerar edge-servern filen från cachen.  Detta resulterar i en snabbare och mer responsiv användarupplevelse.
 
@@ -53,22 +54,25 @@ Det finns tre Azure CDN-produkter:  **Azure CDN Standard från Akamai**, **Azure
 |       | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
 | Enkel integrering med Azure-tjänster som [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) och [Media Services](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Hantering via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) eller [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | HTTPS-stöd | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Belastningsutjämning | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| DDOS-skydd | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)-skydd | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Dual stack-IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Stöd för anpassade domännamn](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Cachelagring av frågesträngar](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Landsfiltrering](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
 | [Snabbrensning](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Inläsning av tillgångar i förväg](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
 | [Grundläggande analys](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| Hantering via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) eller [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Anpassningsbar, regelbaserad motor för innehållsleverans](cdn-rules-engine.md) | | | **&#x2713;** |
+| [Stöd för HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Avancerade HTTP-rapporter](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Realtidsstatistik](cdn-real-time-stats.md) | | | **&#x2713;** |
 | [Realtidsaviseringar](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [Anpassningsbar, regelbaserad motor för innehållsleverans](cdn-rules-engine.md) | | | **&#x2713;** |
+| Inställningar för cache/huvud (med hjälp av [regelmotor](cdn-rules-engine.md))  | | | **&#x2713;** |
+| Omdirigering/omarbetning för URL (med hjälp av [regelmotor](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Regler för mobil enhet (med hjälp av [regelmotor](cdn-rules-engine.md))  | | | **&#x2713;** |
 
 >[AZURE.TIP] Saknar du någon funktion i Azure CDN?  [Lämna feedback](https://feedback.azure.com/forums/169397-cdn)! 
 
@@ -86,6 +90,6 @@ Information om priser finns i avsnittet om [CDN-priser](https://azure.microsoft.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

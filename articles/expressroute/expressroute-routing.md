@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
+   ms.date="09/16/2016"
    ms.author="ganesr"/>
+
 
 
 # ExpressRoute-routningskrav  
@@ -78,7 +79,7 @@ Routningsutbytet kommer att ske via EBGP-protokollet. EBGP-sessioner upprättas 
 
 ## Autonoma systemnummer
 
-Microsoft använder AS 12076 för Azures offentliga, Azures privata och Microsofts peering. Vi har reserverat ASN:er från 65515 till 65520 för intern användning. Både 16- och 32-bitars AS-nummer stöds. På peering-sidan (kund eller leverantör) kan AS vara en offentlig ASN om den kan verifieras som ägd av dig, eller ett privat ASN-nummer för privat peering och kräver en offentlig ASN för offentliga peerings och Microsoft-peerings. 
+Microsoft använder AS 12076 för Azures offentliga, Azures privata och Microsofts peering. Vi har reserverat ASN:er från 65515 till 65520 för intern användning. Både 16- och 32-bitars AS-nummer stöds. På peeringsidan (kund eller leverantör) kan AS vara en offentlig ASN om den kan verifieras till att ägas av dig, eller ett privat ASN-nummer.
 
 Det finns inga krav på dataöverföringssymmetri på de primära och sekundära sökvägarna i alla angivna kretsar. Sökvägar vid vidarebefordran och retur kan passera olika routerpar. Identiska vägar måste annonseras från antingen den primära eller den sekundära sidan över alla angivna kretspar som du äger. Vägmåtten behöver inte vara identiska.
 
@@ -179,6 +180,6 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

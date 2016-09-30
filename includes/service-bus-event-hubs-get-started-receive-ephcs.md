@@ -4,33 +4,37 @@
 
 För att kunna använda [EventProcessorHost][] behöver du ett [Azure Storage-konto][]:
 
-1. Logga in på den [klassiska Azure-portalen][] och klicka på **NY** längst ned på skärmen.
+1. Logga in på [Azure Portal][] och klicka på **Ny** högst upp till vänster på skärmen.
 
-2. Klicka på **Data Services**, sedan på **Storage**, sedan på **Snabbregistrering** och ange ett namn för ditt lagringskonto. Välj önskad region och klicka sedan på **Skapa lagringskonto**.
+2. Klicka på **Data + lagring** och klicka sedan på **Lagringskonto**.
 
-    ![][11]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
 
-3. Klicka på det nyligen skapade lagringskontot och klicka sedan på **Hantera åtkomstnycklar**:
+3. På bladet **Skapa lagringskonto** anger du ett namn för lagringskontot. Välj en Azure-prenumeration, resursgrupp och plats där du vill skapa resursen. Klicka sedan på **Skapa**.
 
-    ![][12]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png)
 
-    Kopiera den primära åtkomstnyckeln för senare användning i den här guiden.
+4. Klicka på det nyligen skapade lagringskontot i listan över lagringskonton.
+
+5. På bladet för lagringskontot klickar du på **Åtkomstnycklar**. Kopiera värdet för **nyckel1** och använd det senare i de här självstudierna.
+
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png)
 
 4. I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av projektmallen **Konsolprogram**. Namnge projektet **Mottagare**.
 
-    ![][14]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png)
 
 5. Högerklicka på lösningen i Solution Explorer och klicka sedan på **Hantera NuGet-paket för lösningen**.
 
 6. Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Kontrollera att projektnamnet (**Mottagare**) har angetts i rutan **Versioner**. Klicka på **Installera** och godkänn användningsvillkoren.
 
-    ![][13]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png)
 
     Visual Studio laddar ned, installerar och lägger till en referens till [Azure Service Bus Event Hub –EventProcessorHost NuGet-paket ](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), med alla sina beroenden.
 
 7. Högerklicka på **Mottagare**-projektet, klicka på **Lägg till** och klicka sedan på **Klass**. Kalla den nya klassen för **SimpleEventProcessor** och klicka sedan på **Lägg till** för att skapa klassen.
 
-    ![][15]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
 
 8. Lägg till följande uttryck överst i filen SimpleEventProcessor.cs:
 
@@ -121,21 +125,10 @@ För att kunna använda [EventProcessorHost][] behöver du ett [Azure Storage-ko
 [Översikt över Event Hubs]: event-hubs-overview.md
 [Programmeringsguide för Event Hubs]: event-hubs-programming-guide.md
 [utskalad händelsebearbetning]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage-konto]: ../storage/storage-create-storage-account-classic-portal.md
+[Azure Storage-konto]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[klassiska Azure-portalen]: http://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 
-<!-- Images -->
-
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
-
-
-
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

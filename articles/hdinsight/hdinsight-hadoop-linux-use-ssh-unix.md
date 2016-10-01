@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
+
 
 #Använda SSH med Linux-baserade Hadoop på HDInsight från Linux, Unix eller OS X
 
@@ -122,13 +123,13 @@ Använd SSH-kommandot från en terminalsession för att ansluta till klustrets h
 
 * **SSH-adress** – det finns två adresser som kan användas för att ansluta till ett kluster med SSH:
 
-    * **Ansluta till huvudnoden**: klustrets namn följt av **-ssh.azurehdinsight.net**. Till exempel **det här klustret-ssh.azurehdinsight.net**.
+    * **Ansluta till huvudnoden**: klustrets namn följt av **-ssh.azurehdinsight.net**. Till exempel **mycluster-ssh.azurehdinsight.net**.
     
     * **Ansluta till kantnoden**: om klustret är R-servern på HDInsight innehåller klustret även en kantnod som du kan nå genom att ange **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, där __CLUSTERNAME__ är namnet på klustret.
 
 * **Användarnamn** – SSH-användarnamnet du angav när du skapade klustret.
 
-Med följande exempel ansluter du till huvudnoden 0 av **det här klustret** som användaren **jag**:
+Med följande exempel ansluter du till den primära huvudnoden av **det här klustret** som användaren **jag**:
 
     ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -140,11 +141,11 @@ Om du har använt en SSH-nyckel som är skyddad med en lösenfras uppmanas du at
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Om ingen port anges när du ansluter med adressen för huvudnoden blir SSH som standard port 22. I dessa fall ansluter du till huvudnod 0 på HDInsight-klustret. Om du använder port 23 ansluter du till huvudnod 1. Mer information om huvudnoderna finns i [Tillgänglighet och tillförlitlighet för Hadoop-kluster i HDInsight](hdinsight-high-availability-linux.md).
+Om ingen port anges när du ansluter med adressen för huvudnoden blir SSH som standard port 22. I dessa fall ansluter du till den primära huvudnoden på HDInsight-klustret. Om du använder port 23 ansluter du till den sekundära. Mer information om huvudnoderna finns i [Tillgänglighet och tillförlitlighet för Hadoop-kluster i HDInsight](hdinsight-high-availability-linux.md).
 
 ###Ansluta till arbetsnoder
 
-Arbetsnoderna är inte direktåtkomliga från utanför Azure-datacentret men de kan nås från klustrets huvudnod via SSH.
+Arbetsnoderna är inte direkt åtkomliga från utanför Azure-datacentret men de kan nås från klustrets huvudnod via SSH.
 
 Om du använder en SSH-nyckel för att verifiera ditt användarkonto måste du utföra följande steg på klienten:
 
@@ -195,9 +196,9 @@ Använd följande steg för att ansluta till arbetsnoderna för klustret.
 
     > [AZURE.NOTE] Om du använder ett lösenord för att autentisera SSH-sessionen uppmanas du att ange lösenordet igen. Om du använder en SSH-nyckel bör anslutningen slutföras utan några uppmaningar.
 
-4. När sessionen har upprättats ändras uppmaningen från `username@hn0-clustername` till `username@wk0-clustername` för att indikera att du är ansluten till arbetsnoden. Alla kommandon som du kör nu kommer att köras på arbetsnoden.
+4. När sessionen har upprättats ändras uppmaningen från `username@hn#-clustername` till `username@wk#-clustername` för att indikera att du är ansluten till arbetsnoden. Alla kommandon som du kör nu kommer att köras på arbetsnoden.
 
-4. När du är klar med att utföra åtgärder på arbetsnoden använder du `exit`-kommandot för att stänga sessionen till arbetsnoden. Detta återför dig till `username@hn0-clustername`-tolken.
+4. När du är klar med att utföra åtgärder på arbetsnoden använder du `exit`-kommandot för att stänga sessionen till arbetsnoden. Detta återför dig till `username@hn#-clustername`-tolken.
 
 ##Lägga till fler konton
 
@@ -229,7 +230,7 @@ Använd följande steg för att ansluta till arbetsnoderna för klustret.
 
 ##<a id="tunnel"></a>SSH-tunnel
 
-SSH kan användas för lokala tunnelbegäranden, till exempel webbegäranden, till HDInsight-klustret. Begäran kommer sedan att dirigeras till den begärda resursen som om den hade sitt ursprung i HDInsight-klustrets huvudnod.
+SSH kan användas för lokala tunnelbegäranden, till exempel webbegäranden, till HDInsight-klustret. Begäran dirigeras sedan till den begärda resursen som om den hade sitt ursprung i HDInsight-klustrets huvudnod.
 
 > [AZURE.IMPORTANT] En SSH-tunnel är ett krav för att komma åt webbgränssnittet för vissa Hadoop-tjänster. Till exempel kan både jobbhistorikgränssnittet eller resurshanterargränssnittet bara användas med en SSH-tunnel.
 
@@ -249,6 +250,6 @@ Nu när du vet hur du autentiserar genom att använda en SSH-nyckel kan du lära
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

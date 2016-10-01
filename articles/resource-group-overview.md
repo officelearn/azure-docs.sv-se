@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2016"
+   ms.date="09/16/2016"
    ms.author="tomfitz"/>
+
 
 # Översikt över Azure Resource Manager
 
@@ -25,22 +26,22 @@ Infrastrukturen för ditt program består normalt av många komponenter – kans
 Om du inte har arbetat med Azure Resource Manager tidigare finns det några termer som kanske är nya för dig.
 
 - **resurs** – Ett hanterbart objekt som är tillgängligt via Azure. Exempel på vanliga resurser är virtuella datorer, lagringskonton, webbappar, databaser och virtuella nätverk, men det finns många fler.
-- **resursgrupp** – En behållare som innehåller relaterade resurser för ett program. Resursgruppen kan innehålla alla resurser för ett program eller endast de resurser som du väljer att gruppera. Du kan bestämma hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation. Mer information finns i [Resursgrupper](#resource-groups).
+- **resursgrupp** – En behållare som innehåller relaterade resurser för en Azure-lösning. Resursgruppen kan innehålla alla resurser för lösningen, eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation. Mer information finns i [Resursgrupper](#resource-groups).
 - **resursprovider** – En tjänst som tillhandahåller de resurser som du kan distribuera och hantera via Resource Manager. Varje resursprovider tillhandahåller åtgärder som hjälper dig att arbeta med de resurser du distribuerar. Några vanliga resursproviders är Microsoft.Compute som tillhandahåller resursen för virtuella datorer, Microsoft.Storage som tillhandahåller resursen för lagringskonton och Microsoft.Web som tillhandahåller resurser relaterade till webbappar. Mer information finns i [Resursproviders](#resource-providers).
 - **Resource Manager-mall** – En JSON-fil (JavaScript Object Notation) som definierar en eller flera resurser som ska distribueras till en resursgrupp. Den definierar även beroendena mellan de distribuerade resurserna. Mallen kan användas för att distribuera resurserna på ett konsekvent sätt och upprepade gånger. Mer information finns i [Malldistribution](#template-deployment).
-- **deklarativ syntax** –En syntax som låter dig ange vad du vill skapa utan att du behöver skriva sekvensen med programmeringskommandon för att skapa det. Resource Manager-mallen är ett exempel på deklarativ syntax. I filen definierar du egenskaperna för infrastrukturen som ska distribueras till Azure. 
+- **deklarativ syntax** – Syntax som låter dig ange vad du vill skapa utan att du behöver skriva sekvensen med programmeringskommandon för att skapa det. Resource Manager-mallen är ett exempel på deklarativ syntax. I filen definierar du egenskaperna för infrastrukturen som ska distribueras till Azure. 
 
 ## Fördelarna med att använda Resource Manager
 
 Resource Manager har flera fördelar:
 
-- Du kan distribuera, hantera och övervaka alla resurser i en lösning som en grupp i stället för att hantera resurserna separat.
+- Du kan distribuera, hantera och övervaka alla resurserna för din lösning som en grupp i stället för att hantera resurserna separat.
 - Du kan distribuera lösningen flera gånger genom utvecklingslivscykeln och vara säker på att dina resurser distribueras på ett enhetligt sätt.
 - Du kan hantera infrastrukturen med hjälp av deklarativa mallar i stället för skript.
 - Du kan definiera beroenden mellan resurser så att de distribueras i rätt ordning.
 - Du kan använda åtkomstkontroll för alla tjänster i resursgruppen eftersom rollbaserad åtkomstkontroll (RBAC) är inbyggt i hanteringsplattformen.
-- Du kan lägga till taggar för resurser och organisera dem logiskt i din prenumeration.
-- Du kan tydliggöra faktureringen för din organisation genom att visa den sammanlagda kostnaden för hela gruppen eller för en grupp med resurser som delar samma tagg.  
+- Du kan lägga till taggar för resurser och organisera alla logiskt i din prenumeration.
+- Du kan tydliggöra din organisations fakturering genom att visa kostnaderna för en grupp av resurser som delar samma tagg.  
 
 Resource Manager erbjuder ett nytt sätt att distribuera och hantera lösningar. Om du använde den tidigare distributionsmodellen och vill veta mer om ändringarna läser du [Förstå Resource Manager-distribution och klassisk distribution](resource-manager-deployment-model.md).
 
@@ -59,31 +60,33 @@ Fler rekommendationer finns i [Metodtips för att skapa Azure Resource Manager-m
 
 Det finns några viktiga faktorer att tänka på när du definierar en resursgrupp:
 
-1. Alla resurser i gruppen måste ha samma livscykel. Du distribuerar, uppdaterar och tar bort dem tillsammans. Om en resurs, till exempel en databasserver, behöver finnas i en annan distributionscykel ska den höra till en annan resursgrupp.
+1. Alla resurserna i din grupp måste ha samma livscykel. Du distribuerar, uppdaterar och tar bort dem tillsammans. Om en resurs, till exempel en databasserver, behöver finnas i en annan distributionscykel ska den höra till en annan resursgrupp.
 2. En enskild resurs kan bara finnas i en resursgrupp.
 3. Du kan lägga till eller ta bort en resurs i en resursgrupp när som helst.
 4. Du kan flytta en resurs från en resursgrupp till en annan grupp. Mer information finns i [Flytta resurser till en ny resursgrupp eller prenumeration](resource-group-move-resources.md).
 4. En resursgrupp kan innehålla resurser som finns i olika regioner.
 5. En resursgrupp kan användas för att definiera omfattningen av åtkomstkontrollen för administrativa åtgärder.
-6. En resurs kan interagera med en resurs i en annan resursgrupp om de två resurserna är relaterade men inte har samma livscykel (till exempel en webbapp som ansluter till en databas).
+6. En resurs kan interagera med resurser i andra resursgrupper. Denna interaktion är vanlig när de två resurserna är relaterade men inte delar samma livscykel (till exempel webbappar anslutna till en databas).
+
+När du skapar en resursgrupp måste du ange en plats för denna resursgrupp. Du kanske undrar, "varför behöver en resursgrupp en plats? Och om resurserna kan ha andra platser än resursgruppen, varför spelar platsen för gruppresursen alls någon roll?" Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du därför var metadatan ska lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att din data lagras inom en viss region.
 
 ## Resursproviders
 
-Varje resursprovider tillhandahåller en uppsättning resurser och åtgärder för arbete i det tekniska området. Om du till exempel vill lagra nycklar och hemligheter arbetar du med resursprovidern **Microsoft.KeyVault**. Den här resursprovidern erbjuder resurstypen **valv** som används för att skapa nyckelvalvet, och resurstypen **valv/hemligheter** som används för att skapa en hemlighet i nyckelvalvet. Den ger också tillgång till funktioner genom [REST API-åtgärder för Key Vault](https://msdn.microsoft.com/library/azure/dn903609.aspx). Du kan anropa REST-API:et direkt eller använda [PowerShell-cmdlets för Key Vault](https://msdn.microsoft.com/library/dn868052.aspx) och [Azure CLI för Key Vault](./key-vault/key-vault-manage-with-cli.md) för att hantera nyckelvalvet. Du kan också använda ett antal programmeringsspråk för att arbeta med de flesta resurser. Mer information finns i [SDK:er och exempel](#sdks-and-samples). 
+Varje resursprovider tillhandahåller en uppsättning resurser och åtgärder för arbete i det tekniska området. Om du till exempel vill lagra nycklar och hemligheter arbetar du med resursprovidern **Microsoft.KeyVault**. Den här resursprovidern erbjuder resurstypen **valv** som används för att skapa nyckelvalvet, och resurstypen **valv/hemligheter** som används för att skapa en hemlighet i nyckelvalvet. Den ger också tillgång till funktioner genom [REST API-åtgärder för Key Vault](https://msdn.microsoft.com/library/azure/dn903609.aspx). Du kan anropa REST-API:et direkt eller använda [PowerShell-cmdlets för Key Vault](https://msdn.microsoft.com/library/dn868052.aspx) och [Azure CLI för Key Vault](./key-vault/key-vault-manage-with-cli.md) för att hantera nyckelvalvet. Du kan också använda flera programmeringsspråk för att arbeta med de flesta resurser. Mer information finns i [SDK:er och exempel](#sdks-and-samples). 
 
-Innan du kan distribuera och hantera infrastrukturen måste du känna till en del information om resursprovidern, t.ex. vilka resurstyper den erbjuder, versionsnumren för åtgärderna i REST-API:et, vilka åtgärder som stöds och vilket schema du ska använda när du anger värdena för den resurstyp som du ska skapa. Mer information om vilka resursproviders som stöds finns i [providers, regioner, API-versioner och scheman för Resource Manager](resource-manager-supported-services.md).
+För att distribuera och hantera din infrastruktur behöver du information om resursprovidern. Du måste veta dess resurstyper, versionsnummer för REST API-åtgärder, åtgärder som stöds och vilket schema som ska använda för att skapa resurser. Mer information om vilka resursproviders som stöds finns i [providers, regioner, API-versioner och scheman för Resource Manager](resource-manager-supported-services.md).
 
 ## Malldistribution
 
-Med Resource Manager kan du skapa en enkel mall (i JSON-format) som definierar programmets distribution och konfiguration. Genom att använda en mall kan du distribuera ditt program flera gånger under applivscykeln och vara säker på att dina resurser distribueras konsekvent. Azure Resource Manager analyserar beroenden för att säkerställa att resurserna skapas i rätt ordning. Mer information finns i [Definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md).
+Med Resource Manager kan du skapa en mall (i JSON-format) som definierar programmets distribution och konfiguration. Genom att använda en mall kan du distribuera ditt program flera gånger under applivscykeln och vara säker på att dina resurser distribueras konsekvent. Azure Resource Manager analyserar beroenden för att säkerställa att resurserna skapas i rätt ordning. Mer information finns i [Definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md).
 
-När du skapar en lösning från portalen innehåller den automatiskt en distributionsmall. Du behöver inte skapa mallen från scratch. I stället kan du börja med mallen för din lösning och anpassa den efter dina specifika behov. Du kan hämta en mall för en befintlig resursgrupp antingen genom att exportera resursgruppens aktuella tillstånd till en mall eller genom att visa mallen som användes för en viss distribution. Att granska den exporterade mallen är ett bra sätt att lära sig mer om mallsyntaxen. Mer information om hur du arbetar med exporterade mallar finns i [Exportera en Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
+När du skapar en lösning från portalen innehåller den automatiskt en distributionsmall. Du behöver inte skapa mallen från scratch. I stället kan du börja med mallen för din lösning och anpassa den efter dina specifika behov. Du kan hämta en mall för en befintlig resursgrupp antingen genom att antingen exportera resursgruppens aktuella tillstånd eller genom att visa mallen som används för en viss distribution. Att granska den exporterade mallen är ett bra sätt att lära sig mer om mallsyntaxen. Mer information om hur du arbetar med exporterade mallar finns i [Exportera en Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
 
 Du behöver inte definiera hela infrastrukturen i samma mall. Ofta är det praktiskt att dela in dina distributionskrav i en uppsättning riktade mallar för specifika ändamål. Du kan enkelt återanvända dessa mallar för olika lösningar. Om du vill distribuera en viss lösning skapar du en huvudmall som länkar alla nödvändiga mallar. Mer information finns i [Använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
 
-Du kan också använda mallen för uppdateringar av infrastrukturen. Du kan till exempel lägga till en ny resurs till din app och lägga till konfigurationsregler för resurser som redan har distribuerats. Om mallen används för att skapa en ny resurs men resursen redan finns utför Azure Resource Manager en uppdatering i stället för att skapa en ny tillgång. Azure Resource Manager uppdaterar den befintliga tillgången till samma tillstånd som den skulle ha som ny. Du kan också ange att Resource Manager ska ta bort resurser som inte har angetts i mallen. Information om skillnaderna mellan distributionsalternativen finns i [Distribuera ett program med en Azure Resource Manager-mall](resource-group-template-deploy.md). 
+Du kan också använda mallen för uppdateringar av infrastrukturen. Du kan till exempel lägga till en resurs till din lösning och lägga till konfigurationsregler för resurser som redan har distribuerats. Om mallen används för att skapa en resurs men resursen redan finns utför Azure Resource Manager en uppdatering i stället för att skapa en ny tillgång. Azure Resource Manager uppdaterar den befintliga tillgången till samma tillstånd som den skulle ha som ny. Du kan också ange att Resource Manager ska ta bort resurser som inte har angetts i mallen. Information om skillnaderna mellan distributionsalternativen finns i [Distribuera ett program med en Azure Resource Manager-mall](resource-group-template-deploy.md). 
 
-Du kan ange parametrar i mallen som ger möjlighet till anpassning och flexibilitet i distributionen. Du kan till exempel ange parametervärden som anpassar distributionen för en testmiljö. Genom att ange parametrarna kan du använda samma mall för distribution till alla appens miljöer.
+Du kan ange parametrar i mallen som ger möjlighet till anpassning och flexibilitet i distributionen. Du kan till exempel ange parametervärden som anpassar distributionen för en testmiljö. Genom att ange parametrarna kan du använda samma mall för att distribuera din lösning till olika miljöer.
 
 Resource Manager tillhandahåller tillägg för scenarier då du behöver ytterligare åtgärder, t.ex. för att installera viss programvara som inte ingår i installationsprogrammet. Om du redan använder en konfigurationshanteringstjänst, t.ex. DSC, Chef eller Puppet, kan du fortsätta arbeta med den tjänsten genom att använda tillägg.
 
@@ -97,7 +100,7 @@ Information om hur du distribuerar lösningen till olika miljöer finns i [Utvec
 
 ## Taggar
 
-Resource Manager innehåller en taggningsfunktion som du kan använda för att kategorisera resurser utifrån dina hanterings- eller faktureringskrav. Det kan vara bra att använda taggar om du har en komplex samling resursgrupper och resurser och behöver visualisera dessa tillgångar på ett sätt som passar dig. Du kan till exempel tagga resurser som har en liknande roll i organisationen eller som tillhör samma avdelning. Utan taggar kan användare i din organisation skapa flera resurser som kan vara svåra att identifiera och hantera längre fram. Till exempel kanske du vill ta bort alla resurser för ett visst projekt, men om resurserna inte har taggats för projektet måste du hittar dem manuellt. Taggning kan vara ett bra sätt att minska onödiga kostnader i din prenumeration. 
+Resource Manager innehåller en taggningsfunktion som du kan använda för att kategorisera resurser utifrån dina hanterings- eller faktureringskrav. Använd taggar om du har en komplex samling resursgrupper och resurser och behöver visualisera dessa tillgångar på ett sätt som passar dig. Du kan till exempel tagga resurser som har en liknande roll i organisationen eller som tillhör samma avdelning. Utan taggar kan användare i din organisation skapa flera resurser som kan vara svåra att identifiera och hantera längre fram. Du kan till exempel vilja ta bort alla resurser för ett visst projekt. Om de här resurserna inte är taggade för projektet måste du hitta dem manuellt. Taggning kan vara ett bra sätt att minska onödiga kostnader i din prenumeration. 
 
 Resurser behöver inte finnas i samma resursgrupp för att dela en tagg. Du kan skapa din egen taggtaxonomi för att försäkra dig om att alla användare i organisationen använder samma taggar och att de inte av misstag använder varianter (till exempel ”avd” i stället för ”avdelning”).
 
@@ -117,11 +120,11 @@ Rekommendationer och bästa praxis finns i [Säkerhetsaspekter för Azure Resour
 
 ## Hantera resurser med anpassade principer
 
-Med Resource Manager kan du hantera resurser genom att skapa anpassade principer. Du kan skapa principer för vitt skilda scenarier, t.ex. för att tillämpa namngivningskonventioner på resurser, begränsa vilka typer och instanser av resurser som kan distribueras, begränsa vilka regioner som kan vara värdar för en viss typ av resurs eller för att ordna faktureringen efter avdelning genom att kräva ett taggvärde för resurser. Du skapar principer för att minska kostnaderna och upprätthålla konsekvensen i din prenumeration. Mer information finns i [Hantera resurser och kontrollera åtkomsten med hjälp av principer](resource-manager-policy.md).
+Med Resource Manager kan du hantera resurser genom att skapa anpassade principer. De typer av principer som du skapar kan inkludera olika scenarier. Du kan tillämpa en namngivningskonvention på resurser, begränsa vilka typer och instanser av resurser som kan distribueras eller begränsa vilka regioner som kan vara värd för en viss typ av resurs. Du kan kräva ett taggvärde på resurser för att organisera faktureringen efter avdelningar. Du skapar principer för att minska kostnaderna och upprätthålla konsekvensen i din prenumeration. Mer information finns i [Hantera resurser och kontrollera åtkomsten med hjälp av principer](resource-manager-policy.md).
 
 ## Enhetligt hanteringslager
 
-Resource Manager tillhandahåller helt kompatibla åtgärder via Azure PowerShell, Azure CLI för Mac, Linux och Windows, Azure Portal eller REST-API:et. Du kan använda det gränssnitt som passar dig bäst och du kan snabbt och enkelt växla mellan gränssnitten. På portalen visas även meddelanden för åtgärder som vidtas utanför portalen.
+Resource Manager tillhandahåller kompatibla åtgärder via Azure PowerShell, Azure CLI för Mac, Linux och Windows, Azure-portalen eller REST-API:et. Du kan använda det gränssnitt som passar dig bäst och du kan snabbt och enkelt växla mellan gränssnitten.
 
 Information om PowerShell finns i [Använda Azure PowerShell med Resource Manager](powershell-azure-resource-manager.md) och [Cmdlets för Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
@@ -197,6 +200,6 @@ Här är en videodemonstration av den här översikten:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

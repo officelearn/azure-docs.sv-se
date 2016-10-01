@@ -13,43 +13,42 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/06/2016"
+    ms.date="09/20/2016"
     ms.author="maheshu"/>
 
-# Azure AD Domain Services *(förhandsversion)* – Aktivera lösenordssynkronisering till Azure AD DS
 
-## Uppgift 5: Aktivera lösenordssynkronisering till AAD Domain Services för en synkroniserad Azure AD-klient
-När du har aktiverat Azure AD Domain Services för din Azure AD-katalog är nästa uppgift att aktivera synkronisering av lösenord till Azure AD Domain Services. Detta gör det möjligt för användare att logga in i domänen med deras företagsuppgifter.
+# Aktivera lösenordssynkronisering till Azure AD Domain Services
+I de föregående uppgifterna aktiverade du Azure AD Domain Services för din Azure AD-klient. Nästa uppgift är att aktivera synkronisering av lösenord till Azure AD Domain Services. När synkroniseringen av autentiseringsuppgifter har konfigurerats kan användarna logga in till den hanterade domänen med sina företagsuppgifter.
 
-Stegen skiljer sig beroende på om din organisation bara har en molnbaserad Azure AD-katalog eller om du synkroniserar med din lokala katalog med hjälp av Azure AD Connect.
+Stegen skiljer sig beroende på om din organisation har en helt molnbaserad Azure AD-klient eller om du synkroniserar med din lokala katalog med hjälp av Azure AD Connect.
 
 <br>
 
 > [AZURE.SELECTOR]
-- [Endast molnbaserad Azure AD-katalog](active-directory-ds-getting-started-password-sync.md)
-- [Synkroniserad Azure AD-katalog](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Endast molnbaserad Azure AD-klient](active-directory-ds-getting-started-password-sync.md)
+- [Synkroniserad Azure AD-klient](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
-### Synkroniserade klienter – Aktivera synkroniseringen av NTLM- och Kerberos-autentiseringshasher till Azure AD
-Om Azure AD-klienten för din organisation är inställd att synkronisera med din lokala katalog med hjälp av Azure AD Connect måste du konfigurera Azure AD Connect att synkronisera autentiseringshasher som krävs för NTLM- och Kerberos-autentisering. Dessa värden synkroniseras inte med Azure AD som standard. Genom att följa stegen nedan kan du aktivera synkroniseringen av hashvärdena till Azure AD-klienten.
 
-#### Installera eller uppdatera Azure AD Connect
+## Uppgift 5: Aktivera lösenordssynkronisering till AAD Domain Services för en synkroniserad Azure AD-klient
+En synkroniserad Azure AD-klient konfigureras att synkronisera med din organisations lokal katalog med hjälp av Azure AD Connect. Azure AD Connect synkroniserar inte som standard NTLM- och Kerberos-autentiseringshasher till Azure AD. Om du vill använda Azure AD Domain Services måste du konfigurera Azure AD Connect att synkronisera autentiseringshasher som krävs för NTLM- och Kerberos-autentisering. Följande steg aktiverar synkronisering av nödvändiga autentiseringshasher till din Azure AD-klient.
 
-Du måste installera den senaste rekommenderade versionen av Azure AD Connect på en domänansluten dator. Om du har en befintlig instans av Azure AD Connect-installationsprogrammet måste du uppdatera den för att använda Azure AD Connect GA-versionen. Kontrollera att du använder den senaste versionen av Azure AD Connect för att undvika kända problem/buggar som kanske redan har åtgärdats.
+
+### Installera eller uppdatera Azure AD Connect
+Installera den senaste rekommenderade versionen av Azure AD Connect på en domänansluten dator. Om du har en befintlig instans av installationsprogrammet för Azure AD Connect måste du uppdatera den så att den använder den senaste versionen av Azure AD Connect. Kontrollera att du använder den senaste versionen av Azure AD Connect för att undvika kända problem/buggar som kanske redan har åtgärdats.
 
 **[Ladda ned Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Rekommenderad version: **1.1.189.0** – publicerades 3 juni 2016.
+Rekommenderad version: **1.1.281.0** – publicerad den 7 september 2016.
 
-  > [AZURE.WARNING] Du MÅSTE installera den senaste rekommenderade versionen av Azure AD Connect för att äldre lösenordsinformation (som krävs för NTLM- och Kerberos-autentisering) ska kunna synkroniseras till din Azure AD-klient. Den här funktionen är inte tillgänglig i tidigare versioner av Azure AD Connect eller med det äldre DirSync-verktyget.
+  > [AZURE.WARNING] Du MÅSTE installera den senaste rekommenderade versionen av Azure AD Connect för att den äldre lösenordsinformationen (som krävs för NTLM- och Kerberos-autentisering) ska kunna synkroniseras till din Azure AD-klient. Den här funktionen är inte tillgänglig i tidigare versioner av Azure AD Connect eller med det äldre DirSync-verktyget.
 
 Installationsinstruktioner för Azure AD Connect finns i följande artikel – [Komma igång med Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
 
-#### Framtvinga fullständig lösenordssynkronisering till Azure AD
-
-Kör följande PowerShell-skript i varje AD-skog för att framtvinga fullständig lösenordssynkronisering och aktivera alla lokala användares lösenordshasher (inklusive autentiseringshasherna som krävs för NTLM/Kerberos-autentisering).
+### Aktivera synkroniseringen av NTLM- och Kerberos-autentiseringshasher till Azure AD
+Kör följande PowerShell-skript i varje AD-skog för att framtvinga fullständig lösenordssynkronisering och aktivera alla lokala användares autentiseringshasher för synkronisering till din AD-klient. Det här skriptet gör att autentiseringshasherna som krävs för NTLM- och Kerberos-autentisering kan synkroniseras till din Azure AD-klient.
 
 ```
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
@@ -65,7 +64,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true  
 ```
 
-Beroende på storleken på din katalog (antal användare, grupper osv.) kan synkroniseringen av autentiseringsuppgifterna till Azure AD ta relativt lång tid. Lösenorden kan användas på den Azure AD DS-hanterade domänen strax efter att hashvärdena för autentiseringsuppgifterna har synkroniserats till Azure AD.
+Beroende på storleken på din katalog (antal användare, grupper osv.) kan synkroniseringen av autentiseringshasherna till Azure AD ta ett tag. Lösenorden kan användas på den Azure AD DS-hanterade domänen strax efter att hashvärdena för autentiseringsuppgifterna har synkroniserats till Azure AD.
 
 
 <br>
@@ -82,6 +81,6 @@ Beroende på storleken på din katalog (antal användare, grupper osv.) kan synk
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

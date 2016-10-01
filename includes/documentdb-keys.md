@@ -1,9 +1,8 @@
-       Now navigate to the DocumentDB account blade, and click **Keys**, as we will use these values in the web application we create next.
+  Gå nu till bladet DocumentDB-konto och klicka på **Nycklar**, eftersom vi kommer att använda dessa värden i webbprogrammet vi ska skapa nu.
 
-       ![Screen shot of the Azure portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
+![Skärmdump av Azure-portalen som visar DocumentDB-konto med knappen Nycklar markerad i bladet DocumentDB-konto och värdena URI, PRIMÄRNYCKEL och SEKUNDÄRNYCKEL markerade i bladet Nycklar](./media/documentdb-keys/keys.png)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

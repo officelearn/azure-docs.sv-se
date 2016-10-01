@@ -17,6 +17,7 @@
     ms.author="kgremban"/>
 
 
+
 # Publicera program med Azure AD Application Proxy
 
 Azure AD-programproxyn hjälper dig att stödja fjärranvändare genom att publicera lokala program som kan nås via Internet. I det här läget bör du redan ha [aktiverat programproxyn i den klassiska Azure-portalen](active-directory-application-proxy-enable.md). Den här artikeln beskriver hur du publicerar program som körs i nätverket och hur du tillhandahåller säker fjärråtkomst utanför nätverket. När du är klar med den här artikeln kan du konfigurera programmet med personlig information eller säkerhetskrav.
@@ -103,6 +104,6 @@ Läs mer om de senaste nyheterna och uppdateringarna i [bloggen om Application P
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

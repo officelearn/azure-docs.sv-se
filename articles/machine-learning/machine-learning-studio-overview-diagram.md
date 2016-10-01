@@ -1,11 +1,11 @@
 <properties
     pageTitle="Översiktsdiagram över funktioner i Machine Learning Studio | Microsoft Azure"
     description="Ett utskrivbart diagram över funktionerna i Azure Machine Learning Studio som visar hur Studio kan användas för att utveckla ett experiment med en förutsägelseanalys och använda det i Azure-molnet."
-    keywords="machine learning studio,overview diagram,download"
+    keywords="machine learning studio, översiktsdiagram, ladda ner"
     services="machine-learning"
     documentationCenter=""
     authors="hning86"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/22/2016"
+    ms.date="09/21/2016"
     ms.author="haining;garye" />
+
 
 
 # Översiktsdiagram över funktioner i Machine Learning Studio
@@ -50,6 +51,6 @@ Ladda ned diagrammet **Översikt över funktioner i Microsoft Azure Machine Lear
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

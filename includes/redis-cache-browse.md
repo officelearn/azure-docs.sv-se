@@ -2,7 +2,7 @@ Cacheminnen kan kommas åt i [Azure-portalen](https://portal.azure.com) med hjä
 
 ![Azure Redis-cache, Bläddra-bladet](media/redis-cache-browse/redis-cache-browse.png)
 
-Klicka på **Bläddra > Redis-cache** om du vill se dina cacheminnen. Om du nyligen har bläddrat till ett Redis-cache, kan du klicka på **Redis-cache** direkt från listan utan att klicka på **Bläddra**.
+Om du vill visa dina cacheminnen klickar du på **Fler tjänster > Redis-cacher**. Om du nyligen har bläddrat till ett Redis-cache kan du klicka på **Redis-cacher** direkt från listan utan att klicka på **Fler tjänster**.
 
 Välj önskat cacheminne om du vill granska egenskaperna för det.
 
@@ -12,7 +12,6 @@ Klicka på **Inställningar** eller **Alla inställningar** om du vill visa och 
 
 ![Alla inställningar för Redis-cache](media/redis-cache-browse/redis-cache-blade.png)
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

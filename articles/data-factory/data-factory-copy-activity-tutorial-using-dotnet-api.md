@@ -13,18 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/19/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av .NET-API:et
 > [AZURE.SELECTOR]
-- [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Använda Data Factory-redigeraren](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Använda PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Använda Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Använda REST-API:et](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Använda .NET-API:et](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Använda guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
+- [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 
 Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabrik med hjälp av .NET-API:et. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
 
@@ -34,7 +35,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
 > Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Mer information om Data Factory .NET SDK finns i [referensen för .NET-API:et för Data Factory](https://msdn.microsoft.com/library/mt415893.aspx). 
 
 ## Krav
-- Gå igenom [kursöversikten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och se till att du uppfyller alla kraven. 
+- Gå igenom [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för att få en översikt av självstudierna och slutför de **nödvändiga** stegen. 
 - Visual Studio 2012, 2013 eller 2015
 - Ladda ned och installera [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 - Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.
@@ -460,6 +461,6 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

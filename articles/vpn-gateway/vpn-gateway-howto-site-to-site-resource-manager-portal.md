@@ -17,12 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Skapa ett VNet med en anslutning från plats till plats med Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klassisk Azure-portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Klassisk – den klassiska portalen](vpn-gateway-site-to-site-create.md)
 
 
 Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-anslutning från plats till plats till ditt lokala nätverk, med hjälp av **Azure Resource Manager-distributionsmodellen** och Azure-portalen. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
@@ -156,6 +157,6 @@ Du kan verifiera VPN-anslutningen i portalen eller med hjälp av PowerShell.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

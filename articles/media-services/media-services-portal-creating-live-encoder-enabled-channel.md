@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med den klassiska Azure-portalen" 
-    description="Den här självstudien visar dig stegen för att skapa en kanal som tar emot en direktsänd dataström med enkel bithastighet och kodar den till en dataström med multibithastighet med hjälp av den klassiska Azure-portalen." 
+    pageTitle="Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med hjälp av Azure-portalen | Microsoft Azure" 
+    description="De här självstudierna visar dig stegen för att skapa en kanal som tar emot en direktsänd dataström med enkel bithastighet och kodar den till en dataström med flera bithastigheter med hjälp av Azure-portalen." 
     services="media-services" 
     documentationCenter="" 
-    authors="juliako,anilmur" 
+    authors="anilmur" 
     manager="erikre" 
     editor=""/>
 
@@ -13,11 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
-    ms.author="juliako"/>
+    ms.date="09/06/2016"
+    ms.author="juliako;juliako"/>
 
 
-#Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med den klassiska Azure-portalen
+
+#Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med hjälp av Azure-portalen
 
 > [AZURE.SELECTOR]
 - [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -47,23 +48,23 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 
     Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
 
-3. Skapa ett program (som också kommer att skapa en tillgång). 
-1. Publicera programmet (som skapar en OnDemand-positionerare för den associerade tillgången).  
+3. Skapa en händelse/ett program (som också kommer att skapa en tillgång). 
+1. Publicera händelsen (som skapar en OnDemand-positionerare för den associerade tillgången).  
 
     Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
-1. Starta programmet när du är redo att påbörja strömning och arkivering.
-2. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
-1. Stoppa programmet när du vill stoppa strömningen och arkiveringen av händelsen.
-1. Ta bort programmet (och ta eventuellt bort tillgången).   
+1. Starta händelsen när du är redo att påbörja strömning och arkivering.
+2. Som alternativ kan den direktsända kodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
+1. Stoppa händelsen när du vill stoppa strömningen och arkiveringen av händelsen.
+1. Ta bort händelsen (och ta eventuellt bort tillgången).   
 
 ##I den här självstudien
 
-I den här självstudien används den klassiska Azure-portalen för att utföra följande uppgifter: 
+I de här självstudierna används Azure-portalen för att utföra följande uppgifter: 
 
 2.  Konfigurera strömningsslutpunkter.
 3.  Skapa en kanal som är aktiverad för att utföra Live Encoding.
 1.  Hämta infognings-URL:en i syfte att tillhandahålla den till livekodaren. Live Encoding använder denna URL för att infoga dataströmmen i kanalen. .
-1.  Skapa ett program (och en tillgång)
+1.  Skapa en händelse/ett program (och en tillgång)
 1.  Publicera tillgången och hämta strömnings-URL:er  
 1.  Spela upp ditt innehåll 
 2.  Rensa
@@ -75,78 +76,69 @@ Följande krävs för att kunna genomföra självstudien.
 - Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-create-account.md).
 - En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
 
-##Konfigurera strömningsslutpunkter med portalen
+##Konfigurera strömningsslutpunkter 
 
-När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Med strömning med anpassad bithastighet kan klienten växla till en dataström med högre eller lägre bithastighet då videon visas baserat på den aktuella nätverksbandbredden, processoranvändningen och andra faktorer. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare). 
+Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med multibithastighet  i följande strömningsformat: MPEG DASH, HLS, Smooth Streaming eller HDS utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
 
-När du arbetar med direktsänd strömning infogar en lokal livekodare (i vårt fall Wirecast) en direktsänd dataström i multibithastighet i din kanal. När dataströmmen har begärts av en användare, använder Media Services dynamisk paketering för att packa om källströmmen till den begärda anpassade bithastighetsströmmen (HLS, DASH eller Smooth). 
+Om du vill dra nytta av dynamisk paketering behöver du minst en enhet för strömning för den strömningsslutpunkt från vilken du planerar att leverera ditt innehåll.  
 
-Om du vill dra nytta av dynamisk paketering behöver du minst en enhet för strömning för den **strömningsslutpunkt** från vilken du planerar att leverera ditt innehåll.
+Om du vill skapa och ändra antalet reserverade enheter för strömning gör du följande:
 
-Om du vill ändra antalet enheter som är reserverade för strömning gör du följande:
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. I fönstret **Inställningar** klickar du på **Strömningsslutpunkter**. 
 
-1. På den [klassiska Azure-portalen](https://manage.windowsazure.com/) klickar du på **Media Services**. Klicka därefter på namnet på medietjänsten.
+2. Klicka på den strömningsslutpunkt som är standard. 
 
-2. Välj sidan STRÖMMANDE SLUTPUNKTER. Klicka därefter på den strömningsslutpunkt som du vill ändra.
+    Fönstret **INFORMATION OM DEN STRÖMNINGSSLUTPUNKT SOM ÄR STANDARD** visas.
 
-3. För att specificera antalet strömningsenheter väljer du fliken SKALA och flyttar på skjutreglaget för **reserverad kapacitet**.
+3. Flytta på skjutreglaget **Strömningsenheter** för att ange antalet strömningsenheter.
 
-    ![Skalningssida](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-origin-scale.png)
+    ![Strömningsenheter](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
 
-4. Tryck på knappen SPARA för att spara ändringarna.
+4. Klicka på knappen **Spara** för att spara ändringarna.
 
-    Tilldelning av nya enheter tar cirka 20 minuter att slutföra. 
+    >[AZURE.NOTE]Tilldelning av nya enheter kan ta cirka 20 minuter att slutföra.
 
-     
-    >[AZURE.NOTE] Om man går från ett positivt värde för strömningsenheterna tillbaka till inget, kan strömningen inaktiveras i upp till en timme.
-    >
-    > Det högsta antalet enheter som har angetts för 24-timmarsperioden används för att beräkna kostnaden. Mer information om priser finns i [Prisuppgifter för Media Services](http://go.microsoft.com/fwlink/?LinkId=275107).
-
- 
 ##Skapa en KANAL
 
-1.  I den [klassiska Azure-portalen](http://manage.windowsazure.com/) klickar du på Media Services och sedan på namnet på Media Services-kontot.
-2.  Välj KANAL-sidan.
-3.  Välj Lägg till + för att lägga till en ny kanal.
+1. I [Azure-portalen](https://portal.azure.com/) klickar du på Media Services och sedan på namnet på Media Services-kontot.
+2. Välj **Liveuppspelning**.
+3. Välj **Skapa anpassad**. Det här alternativet gör att du kan skapa en kanal som är aktiverad för Live Encoding.
 
-Välj **Standard** för kodningstyper. Den här typen anger att du vill skapa en kanal som är aktiverad för Live Encoding. Det innebär att den inkommande dataströmmen i enkel bithastighet skickas till kanalen och kodas till en dataström med multibithastighet med hjälp av livekodarens angivna inställningar. Mer information finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
+    ![Skapa en kanal](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
+    
+4. Klicka på **Inställningar**.
+    
+    1.  Välj kanaltypen **Live Encoding**. Den här typen anger att du vill skapa en kanal som är aktiverad för Live Encoding. Det innebär att den inkommande dataströmmen i enkel bithastighet skickas till kanalen och kodas till en dataström med multibithastighet med hjälp av livekodarens angivna inställningar. Mer information finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md). Klicka på OK.
+    2. Ange ett kanalnamn.
+    3. Klicka på OK längst ned på sidan.
+    
+5. Välj fliken **Mata in**.
 
-![standard0][standard0]
+    1. På den här sidan kan du välja ett strömningsprotokoll. För kanaltypen **Live Encoding** är de giltiga protokollalternativen:
+        
+        - Fragmenterad MP4 med enkel bithastighet (Smooth Streaming)
+        - RTMP med enkel bithastighet
+        - RTP (MPEG-TS): MPEG-2-transportström över RTP.
+        
+        Mer detaljerad information om varje protokoll finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
+    
+        Du kan inte ändra protokollalternativ när kanalen eller dess associerade händelse/program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje strömningsprotokoll.  
 
-För kodningstypen **Standard** är de giltiga infogningsprotokollsalternativen:
+    2. Du kan använda IP-begränsning på inmatningen. 
+    
+        Du kan definiera de IP-adresser som får mata in en video på den här kanalen. Tillåtna IP-adresser kan anges som antingen en enskild IP-adress (t.ex. ”10.0.0.1”), ett IP-intervall med en IP-adress och en CIDR-undernätsmask (t.ex. ”10.0.0.1/22”) eller ett IP-intervall med en IP-adress och en CIDR-undernätsmask med punktavgränsad decimalform (t.ex. '10.0.0.1(255.255.252.0)').
 
-- Fragmenterad MP4 med enkel bithastighet (Smooth Streaming)
-- RTMP med enkel bithastighet
-- RTP (MPEG-TS): MPEG-2-transportström över RTP.
+        Om inga IP-adresser har angetts och det saknas regeldefinitioner kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 
-Mer detaljerad information om varje protokoll finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
+6. På fliken **Förhandsvisning** appliceras IP-begränsning på förhandsgranskningen.
+7. På fliken **Kodning** anges den förinställda kodningen. 
 
-![standard1][standard1]
-
-Du kan inte ändra indataprotokollet när kanalen eller dess associerade program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje indataprotokoll.  
-
-På sidan **Annonseringskonfiguration** kan du ange källan för annonsmarkörssignaler. Du kan bara välja API när du använder portalen, vilket betyder att livekodaren i kanalen bör lyssna på en asynkron annonsmarkörs-API. Du kan bara välja API när du använder portalen.
-
-Mer information finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
-
-![standard2][standard2]
-
-På sidan **Encoding förinställt** kan du välja förinställda systeminställningar. För närvarande är den enda förinställda systeminställningen som du kan välja **Default 720p**.
-
-![standard3][standard3]
-
-På sidan **Skapa en kanal** kan du definiera de IP-adresser som får publicera video i den här kanalen. Tillåtna IP-adresser kan anges som antingen en enskild IP-adress (t.ex. ”10.0.0.1”), ett IP-intervall med en IP-adress och en CIDR-undernätsmask (t.ex. ”10.0.0.1/22”) eller ett IP-intervall med en IP-adress och en CIDR-undernätsmask med punktavgränsad decimalform (t.ex. ”10.0.0.1(255.255.252.0)”).
-
-Om inga IP-adresser har angetts och det saknas regeldefinitioner kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
-
-
-![standard4][standard4]
+    För närvarande är den enda förinställda systeminställningen som du kan välja **Default 720p**. Öppna ett Microsoft supportärende om du vill ange en förinställd anpassning. Ange därefter namnet på den förinställning som skapats för dig. 
 
 >[AZURE.NOTE] För närvarande kan kanalstarten ta upp till 30 minuter. Kanalåterställning kan ta upp till 5 minuter.
 
-När du har skapat kanalen kan du välja fliken **KODARE** där du kan visa dina kanalkonfigurationer. Du kan också hantera annonser och pekdatorer. 
-
-![standard5][standard5]
+När du har skapat kanalen kan du klicka på kanalen och välja **Inställningar** där du kan visa dina kanalkonfigurationer. 
 
 Mer information finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
 
@@ -155,94 +147,65 @@ Mer information finns i [Direktsänd strömning med Azure Media Services för at
 
 När kanalen har skapats kan du få infognings-URL:er som du tillhandahåller till livekodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
 
-![readychannel](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ready-channel.png)
-
-
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 
-##Skapa och hantera ett program
+##Skapa och hantera händelser
 
 ###Översikt
 
-En kanal är associerad till program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.
+En kanal är associerad med händelser och program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar händelser/program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.
 
-Du kan ange det antal timmar som du vill behålla inspelat innehåll för programmet genom att ställa in längden för **Arkivfönster**. Det här värdet kan anges från minst 5 minuter till högst 25 timmar. Även arkivfönstrets längd påverkar den maximala tid som klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
+Du kan ange det antal timmar som du vill behålla inspelat innehåll för händelsen genom att ställa in längden för **Arkivfönster**. Det här värdet kan anges från minst 5 minuter till högst 25 timmar. Även arkivfönstrets längd påverkar den maximala tid som klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Händelser kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
 
-Varje program är associerat med en tillgång. Om du vill publicera programmet måste du skapa en OnDemand-positionerare för den associerade tillgången. Med den här positioneraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
+Varje händelse är associerad till en tillgång. För att publicera händelsen måste du skapa en OnDemand-lokaliserare för den associerade tillgången. Med den här lokaliseraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
 
-En kanal har stöd för upp till tre program som körs samtidigt så du kan skapa flera arkiv för samma inkommande dataström. På så sätt kan du publicera och arkivera olika delar av en händelse efter behov. Ditt verksamhetsbehov kan till exempel vara att arkivera 6 timmar av ett program, men bara sända 10 minuter. För att åstadkomma detta måste du skapa två program som körs samtidigt. Ett program ställs in för att arkivera 6 timmar av händelsen, men programmet publiceras inte. Det andra programmet ställs in för att arkivera i 10 minuter och det här programmet publiceras.
+En kanal har stöd för upp till tre händelser som körs samtidigt så du kan skapa flera arkiv för samma inkommande dataström. På så sätt kan du publicera och arkivera olika delar av en händelse efter behov. Ditt verksamhetsbehov kan till exempel vara att arkivera 6 timmar av en händelse, men bara sända 10 minuter. För att åstadkomma detta måste du skapa två händelser som körs samtidigt. En händelse ställs in för att arkivera 6 timmar av händelsen, men programmet publiceras inte. Den andra händelsen ställs in för att arkivera i 10 minuter och det här programmet publiceras.
 
 Du bör inte återanvända befintliga program för nya händelser. Skapa och starta istället ett nytt program för varje händelse.
 
-Starta programmet när du är redo att påbörja strömning och arkivering. Stoppa programmet när du vill stoppa strömningen och arkiveringen av händelsen. 
+Starta en händelse eller ett program när du är redo att påbörja strömning och arkivering. Stoppa händelsen när du vill stoppa strömningen och arkiveringen av händelsen. 
 
-Om du vill ta bort arkiverat innehåll, stoppar du och tar bort programmet och tar sedan bort den associerade tillgången. En tillgång kan inte tas bort om den används av ett program. Programmet måste tas bort först. 
+Om du vill ta bort arkiverat innehåll, stoppar du och tar bort händelsen och tar sedan bort associerade tillgången. En tillgång kan inte tas bort om den används av händelsen. Händelsen måste tas bort först. 
 
-Även efter att du har stoppat och tagit bort programmet skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge som du inte tar bort tillgången.
+Även efter att du stoppat och tagit bort händelsen skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort tillgången.
 
-Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillgängligt för strömning, tar du bort strömningspositioneraren.
+Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillgängligt för strömning, tar du bort strömningslokaliseraren.
 
-###Skapa/Starta/Stoppa program
+###Skapa/Starta/Stoppa händelser
 
 När dataströmmen väl flödar till kanalen kan du påbörja strömningshändelsen genom att skapa en tillgång, ett program och en strömningspositionerare. Detta arkiverar dataströmmen och gör den tillgänglig för visning via strömningsslutpunkten. 
 
 Det finns två sätt att starta en händelse: 
 
-1. På **KANAL**-sidan trycker du på **Lägg till** för att lägga till ett nytt program.
+1. På **Kanal**-sidan trycker du på **Live-händelse** för att lägga till en ny händelse.
 
-    Ange: programnamn, tillgångsnamn, arkivfönster och krypteringsalternativ.
+    Ange: händelsens namn, tillgångsnamn, arkivfönster och krypteringsalternativ.
     
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
     
-    Om du markerat **Publicera det här programmet nu** skapas programmet PUBLICERINGS-URL:ER.
+    Om du markerat **Publicera denna live-händelse nu** skapas händelsens PUBLICERINGS-URL:ER.
     
-    Du kan trycka på **START** när du är redo att börja strömma programmet.
+    Du kan trycka på **Start** när du är redo att strömma händelsen.
 
-    Du kan trycka på SPELA UPP för att spela upp innehållet när programmet startas.
+    När du startat händelsen kan du trycka på **Titta på** för att börja spela upp innehållet.
 
+2. Du kan också använda en genväg och trycka på knappen **Go Live** på **Kanal**-sidan. Detta skapar en standardtillgång, ett program och en strömningspositionerare.
 
-    ![createdprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-created-program.png)
+    Händelsen heter **standard** och arkivfönstret har angetts till 8 timmar.
 
-2. Du kan också använda en genväg och trycka på knappen **STARTA STRÖMNING** på **KANAL**-sidan. Detta skapar en tillgång, ett program och en strömningspositionerare.
+Du kan titta på den publicerade händelsen från sidan **Live-händelse**. 
 
-    Programmet heter DefaultProgram och arkivfönstret har angetts till 1 timme.
-
-    Du kan spela upp ett publicerat program från KANAL-sidan. 
-
-    ![channelpublish](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-channel-play.png)
+Om du klickar på **Off Air**, stoppas alla live-händelser. 
 
 
-Om du klickar på **STOPPA STRÖMNING** på **KANAL**-sidan  stoppas standardprogrammet och tas bort. Tillgången är fortfarande där och du kan publicera eller avpublicera den från **INNEHÅLL**-sidan.
+##Titta på händelsen
 
-Om du växlar till **INNEHÅLL**-sidan visas de tillgångar som har skapats för dina program.
+För att titta på händelsen klickar du på **Titta på** i Azure-portalen eller kopierar strömnings-URL:en och använder en valfri spelare. 
+ 
+![Skapad](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
-![contentasset](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-content-assets.png)
-
-
-##Spela upp innehåll
-
-För att ge din användare en URL som kan användas för att strömma ditt innehåll, måste du först ”publicera” din tillgång (som det beskrivs i föregående avsnitt) genom att skapa en positionerare (när du publicerar en tillgång med portalen skapas positionerare åt dig). Positionerare ger åtkomst till filer som finns i tillgången. 
-
-Beroende på vilket strömningsprotokoll som du vill använda för att spela upp ditt innehåll, kan du behöva ändra den URL som du får från kanal-/programlänken **PUBLICERA URL**.
-
-Dynamisk paketering tar hand om paketeringen av den direktsända dataströmmen till det angivna protokollet. 
-
-Som standard har en strömnings-URL följande format och du kan använda den för att spela Smooth Streaming-tillgångar:
-
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
-
-Lägg till (format = m3u8 aapl) till URL:en för att skapa en HLS-strömnings-URL.
-
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-
-Lägg till (format=mpd-time-csf) till URL:en för att skapa en MPEG DASH-strömnings-URL.
-
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
-
-Mer information om att leverera innehåll finns i [Leverera innehåll](media-services-deliver-content-overview.md).
-
-Du kan spela upp Smooth Stream med hjälp av [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) eller använda iOS och Android-enheter för att spela upp HLS version 3.
+Live-händelser konverterar automatiskt händelser till innehåll-på-begäran när de stoppas.
 
 ##Rensa
 
@@ -252,6 +215,13 @@ Följ stegen nedan om du är klar med strömningen av händelser och vill rensa 
 - Stoppa kanalen. När kanalen har stoppats medför den inga avgifter. När du vill starta den igen har den samma infognings-URL så att du inte behöver konfigurera om din kodare.
 - Du kan avbryta din strömningsslutpunkt om du inte vill fortsätta att tillhandahålla arkivet för din direktsända händelse som en strömning på begäran. När kanalen har stoppats medför den inga avgifter.
   
+##Visa arkiverat innehåll
+
+Även efter att du stoppat och tagit bort händelsen skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort tillgången. En tillgång kan inte tas bort om den används av en händelse. Händelsen måste tas bort först. 
+
+För att hantera dina tillgångar väljer du **Inställning** och klickar på **Tillgångar**.
+
+![Tillgångar](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ##Överväganden
 
@@ -259,7 +229,9 @@ Följ stegen nedan om du är klar med strömningen av händelser och vill rensa 
 - Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
 
 
-##Sökvägar för Media Services-utbildning
+##Nästa steg
+
+Granska sökvägarna för Media Services-utbildning.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -267,16 +239,10 @@ Följ stegen nedan om du är klar med strömningen av händelser och vill rensa 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+ 
 
 
-[standard0]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard0.png
-[standard1]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard1.png
-[standard2]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard2.png
-[standard3]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard3.png
-[standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
-[standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

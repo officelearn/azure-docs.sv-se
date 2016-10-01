@@ -6,7 +6,7 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="what is automation, azure automation, azure automation examples"/>
+    keywords="vad är automation, azure automation, azure automation-exempel"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
@@ -15,6 +15,7 @@
     ms.topic="get-started-article" 
     ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
+
 
 # Översikt över Azure Automation
 
@@ -104,6 +105,6 @@ Det finns många resurser där du kan lära dig mer om Azure Automation och hur 
 
 
 
-<!--HONumber=jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

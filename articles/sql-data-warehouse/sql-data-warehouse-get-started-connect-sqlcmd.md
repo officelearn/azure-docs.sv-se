@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
+
 
 # Fråga Azure SQL Data Warehouse (sqlcmd)
 
@@ -32,9 +33,12 @@ Du kommer igång med [sqlcmd][] genom att öppna kommandotolken och ange **sqlcm
 
 + **Server (-S):** Server i formatet `<`servernamn`>`. database.windows.net
 + **Databas (-d):** Databasens namn.
++ **Aktivera identifierare inom citattecken (-I):** Identifierare inom citattecken måste vara aktiverat för att kunna ansluta till en instans av SQL Data Warehouse.
+
+Om du vill använda SQL Server-autentisering måste du lägga till användarnamn/lösenordsparametrar:
+
 + **Användare (-U):** Serveranvändare i formatet `<`Användare`>`
 + **Lösenord (-P):** Lösenord som är associerat med användaren.
-+ **Aktivera identifierare inom citattecken (-I):** Identifierare inom citattecken måste vara aktiverat för att kunna ansluta till en instans av SQL Data Warehouse.
 
 Anslutningssträngen kan se ut ungefär så här:
 
@@ -42,7 +46,17 @@ Anslutningssträngen kan se ut ungefär så här:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] Alternativet -I, som aktiverar angivna identifierare, krävs för närvarande för att ansluta till SQL Data Warehouse.
+Om du vill använda Azure Active Directory-integrerad autentisering måste du lägga till Azure Active Directory-parametrar:
+
++ **Azure Active Directory-autentisering (-G):** använder Azure Active Directory för autentisering
+
+Anslutningssträngen kan se ut ungefär så här:
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] Du måste [aktivera Azure Active Directory-autentisering](sql-data-warehouse-authentication.md) för att kunna autentisera med Active Directory.
 
 ## 2. Fråga
 
@@ -81,6 +95,6 @@ Se [sqlcmd-dokumentationen][sqlcmd] för mer information om tillgängliga altern
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

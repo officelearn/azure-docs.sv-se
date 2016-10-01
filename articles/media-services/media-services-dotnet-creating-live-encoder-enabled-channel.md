@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET" 
+    pageTitle="Så här utför du en liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med .NET  | Microsoft Azure" 
     description="Den här självstudien visar dig stegen för att skapa en kanal som tar emot en direktsänd dataström med enkel bithastighet och kodar den till en dataström med multibithastighet med hjälp av .NET SDK." 
     services="media-services" 
     documentationCenter="" 
-    authors="juliako,anilmur" 
+    authors="anilmur" 
     manager="erikre" 
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
-    ms.author="juliako"/>
+    ms.date="09/15/2016"
+    ms.author="juliako;anilmur"/>
+
 
 
 #Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET
@@ -518,7 +519,9 @@ Lägg till avsnittet appSettings i filen app.config och ange Media Services-kont
     }   
 
 
-##Nästa steg: Utbildningsvägar för Media Services
+##Nästa steg
+
+Granska sökvägarna för Media Services-utbildning.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -532,6 +535,6 @@ Om inte det här ämnet innehåller det som du väntade dig, saknar något eller
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Läs in data från CSV-filen till Azure SQL Database (bcp) | Microsoft Azure"
    description="För mindre datastorlekar används bcp för att importera data till Azure SQL Database."
-   services="sql-data-warehouse"
+   services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
    manager="jhubbard"
@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
+
 
 
 # Läs in data från CSV till Azure SQL Data Warehouse (flat-filer)
@@ -37,12 +38,9 @@ Du kan hämta verktygen bcp och sqlcmd från [Microsoft Download Center][].
 
 Om du använder egna data i självstudierna, måste de använda sig av ASCII- eller UTF-16-kodning eftersom bcp inte stöder UTF-8. 
 
-PolyBase stöder UTF-8 men har inte än stöd för UTF-16. Observera att om du vill kombinera bcp med PolyBase, behöver du transformera dina data till UTF-8 efter att de exporterats från SQL Server. 
-
-
 ## 1. Skapa en måltabell
 
-Definiera en tabell i SQL Data Warehouse som kommer att vara måltabell för inläsningen. Kolumnerna i tabellen måste motsvara data i varje rad i din datafil.
+Definiera en tabell i SQL Database som måltabellen. Kolumnerna i tabellen måste motsvara data i varje rad i din datafil.
 
 För att skapa en tabell, öppnar du en kommandotolk och använder sqlcmd.exe för att köra följande kommando:
 
@@ -129,6 +127,6 @@ Om du vill migrera en SQL Server-databas hittar du mer information i [SQL Server
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

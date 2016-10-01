@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/26/2016"
+    ms.date="09/21/2016"
     ms.author="marsma"/>
+
 
 # Skapa ett Azure Batch-konto med hjälp av Azure-portalen
 
@@ -28,7 +29,7 @@ Lär dig hur du skapar ett Azure Batch-konto på [Azure-portalen][azure_portal] 
 
 1. Logga in på [Azure-portalen][azure_portal].
 
-2. Klicka på **Nytt** > **Virtuella datorer** > **Batch-tjänst**.
+2. Klicka på **Ny** > **Beräkna** > **Batch-tjänst**.
 
     ![Batch på Marketplace][marketplace_portal]
 
@@ -127,6 +128,6 @@ Förutom att använda Azure-portalen kan du också skapa och hantera Batch-konto
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

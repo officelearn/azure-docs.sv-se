@@ -15,6 +15,7 @@
    ms.date="02/11/2016"
    ms.author="jdial" />
 
+
 # Vad är en nätverkssäkerhetsgrupp (NSG)?
 
 Nätverkssäkerhetsgruppen (NSG) innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till dina VM-instanser i ett virtuellt nätverk. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet. Dessutom kan trafik till en enskild VM begränsas ytterligare genom att koppla en NSG direkt till den VM:en.
@@ -42,8 +43,8 @@ NSG-regler har följande egenskaper.
 |**Protokoll**|Protokoll att matcha för regeln|TCP, UDP eller \*|Att använda \* som ett protokoll inkluderar ICMP (enbart Öst-Väst-trafik), samt UDP och TCP och kan minska antalet regler du behöver<br/>Att använda \* kan samtidigt vara en för bred lösning så se till att bara använda det när det verkligen behövs|
 |**Källportintervall**|Källportintervall att matcha för regeln|Enskilda portnummer mellan 1 och 65535, portintervall (1-65635) eller \* (för alla portar)|Källportar kan vara tillfälliga. Om inte klientprogrammet använder en viss port, bör du använda ”*” i de flesta fall.<br/>Försök att använda portintervall i så stor utsträckning som möjligt för att undvika att använda flera regler<br/>Flera portar eller portintervall kan inte grupperas med kommatecken
 |**Målportintervall**|Målportintervall att matcha för regeln|Enskilda portnummer mellan 1 och 65535, portintervall (1-65535) eller \* (för alla portar)|Försök att använda portintervall i så stor utsträckning som möjligt för att undvika att använda flera regler<br/>Flera portar eller portintervall kan inte grupperas med kommatecken
-|**Källadress-prefix**|Källadress-prefix eller tagg att matcha för regeln|Enskild IP-adress (till exempel 10.10.10.10), IP-undernät (till exempel 192.168.1.0/24), [standardtagg](#Default-Tags) eller * (för alla adresser)|Överväg att använda intervall, standardtaggar och * för att minska antalet regler|
-|**Måladress-prefix**|Måladress-prefix eller tagg att matcha för regeln|enskild IP-adress (till exempel 10.10.10.10), IP-undernät (till exempel 192.168.1.0/24), [standardtagg](#Default-Tags) eller * (för alla adresser)|Överväg att använda intervall, standardtaggar och * för att minska antalet regler|
+|**Källadress-prefix**|Källadress-prefix eller tagg att matcha för regeln|Enskild IP-adress (till exempel 10.10.10.10), IP-undernät (till exempel 192.168.1.0/24), [standardtagg](#default-tags) eller * (för alla adresser)|Överväg att använda intervall, standardtaggar och * för att minska antalet regler|
+|**Måladress-prefix**|Måladress-prefix eller tagg att matcha för regeln|enskild IP-adress (till exempel 10.10.10.10), IP-undernät (till exempel 192.168.1.0/24), [standardtagg](#default-tags) eller * (för alla adresser)|Överväg att använda intervall, standardtaggar och * för att minska antalet regler|
 |**Riktning**|Trafikriktning att matcha för regeln|inkommande eller utgående|Regler för inkommande och utgående bearbetas separat, baserat på riktning|
 |**Prioritet**|Reglerna kontrolleras i prioritsordning, när en regel väl matchats så testas inga fler regler|Tal mellan 100 och 4096|Överväg att skapa regler som hoppar i prioritet med 100 för varje regel för att på så sätt skapa utrymme för nya regler mellan de befintliga reglerna|
 |**Åtkomst**|Typ av åtkomst som ska tillämpas om regeln matchar|tillåt eller neka|Tänk på att om en regel för tillåt inte hittas för ett paket, släpps paketet|
@@ -124,13 +125,13 @@ Du kan implementera NSG:er i den klassiska eller Resource Manager distributionsm
 
 |Distributionsverktyg|Klassisk|Resource Manager|
 |---|---|---|
-|Klassisk portal|![Nej][red]|![Nej][red]|
-|Azure-portalen|![Ja][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Ja][green]|
-|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Ja][green]|[](virtual-networks-create-nsg-arm-ps.md)![Ja][green]|
-|Azure CLI|[](virtual-networks-create-nsg-classic-cli.md)![Ja][green]|[](virtual-networks-create-nsg-arm-cli.md)![Ja][green]|
-|ARM-mall|![Nej][red]|[](virtual-networks-create-nsg-arm-template.md)![Ja][green]|
+|Klassisk portal|![Nej](./media/virtual-network-nsg-overview/red.png)|![Nej](./media/virtual-network-nsg-overview/red.png)|
+|Azure Portal|![Ja](./media/virtual-network-nsg-overview/green.png)|[![Ja][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Ja][green]](virtual-networks-create-nsg-classic-ps.md)|[![Ja][green]](virtual-networks-create-nsg-arm-ps.md)|
+|Azure CLI|[![Ja][green]](virtual-networks-create-nsg-classic-cli.md)|[![Ja][green]](virtual-networks-create-nsg-arm-cli.md)|
+|ARM-mall|![Nej](./media/virtual-network-nsg-overview/red.png)|[![Ja][green]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Nyckel**|![Ja][green] Stöds. Klicka för artikeln.|![Nej][red] Stöds inte.|
+|**Nyckel**|![Ja](./media/virtual-network-nsg-overview/green.png) Stöds.|![Nej](./media/virtual-network-nsg-overview/red.png) Stöds inte.|
 |---|---|---|
 
 ## Planering
@@ -284,6 +285,6 @@ Eftersom vissa av de ovanstående NSG:erna måste kopplas till individuella nät
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

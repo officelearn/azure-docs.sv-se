@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure AD Domain Services: Skapa eller välja ett virtuellt nätverk | Microsoft Azure"
-    description="Komma igång med Azure Active Directory Domain Services (förhandsversion)"
+    description="Komma igång med Azure Active Directory Domain Services"
     services="active-directory-ds"
     documentationCenter=""
     authors="mahesh-unnikrishnan"
@@ -13,25 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/06/2016"
+    ms.date="09/20/2016"
     ms.author="maheshu"/>
 
-# Azure AD Domain Services *(förhandsversion)* – Skapa eller välja ett virtuellt nätverk
+
+# Skapa eller välja ett virtuellt nätverk för Azure AD Domain Services
 
 ## Riktlinjer för att välja ett virtuellt Azure-nätverk
-Ha följande riktlinjer i åtanke när du väljer ett virtuellt nätverk som ska användas med Azure AD Domain Services:
-
-- Var noga med att välja ett virtuellt nätverk i en region som stöds av Azure AD Domain Services. På sidan [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services/) ser du i vilka Azure-regioner som Azure AD Domain Services är tillgängligt.
-
-- Om du planerar att använda ett befintligt virtuellt nätverk ser du till att det är ett regionalt virtuellt nätverk. Virtuella nätverk som använder mekanismen för äldre tillhörighetsgrupper kan inte användas med Azure AD Domain Services. Du måste [migrera äldre virtuella nätverk till regionala virtuella nätverk](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
-- Om du planerar att använda ett befintligt virtuellt nätverk kontrollerar du att det inte finns några anpassade DNS-servrar konfigurerade för det virtuella nätverket. Azure AD Domain Services stöder inte DNS-servrar som är anpassade/BYO (Bring Your Own).
-
-- Om du planerar att använda ett befintligt virtuellt nätverk kontrollerar du att det inte finns någon befintlig domän med samma domännamn i det virtuella nätverket. Anta exempelvis att det redan finns en domän som heter ”contoso.com” i det valda virtuella nätverket. Anta vidare att du försöker aktivera en Azure AD Domain Services-hanterad domän med samma domännamn (t.ex. contoso.com) i det virtuella nätverket. I det här scenariot returneras ett fel när du försöker aktivera Azure AD Domain Services. Det beror på namnkonflikter för domännamnet i det virtuella nätverket. I den här situationen måste du använda ett annat namn för att ställa in din Azure AD Domain Services-hanterade domän. Du kan också avetablera den befintliga domänen och sedan aktivera Azure AD Domain Services.
-
-- Välj det virtuella nätverk som för närvarande är eller ska vara värd för virtuella datorer som behöver åtkomst till Azure AD Domain Services. Du kan inte flytta Domain Services till ett annat virtuellt nätverk när du har aktiverat tjänsten.
-
-- Azure AD Domain Services stöds inte med virtuella nätverk som skapats med Azure Resource Manager. Du kan [ansluta ett klassiskt virtuellt nätverk till ett ARM-baserat virtuellt nätverk](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) för att använda Azure AD Domain Services i ett virtuellt nätverk som har skapats med Azure Resource Manager.
+> [AZURE.NOTE] **Innan du börjar**: Läs [Nätverksrelaterade aspekter att tänka på med Azure AD Domain Services](active-directory-ds-networking.md).
 
 
 ## Uppgift 2: Skapa ett virtuellt Azure-nätverk
@@ -53,13 +42,13 @@ Utför följande konfigurationssteg för att skapa ett virtuellt Azure-nätverk 
 
 4. Välj **Virtuellt nätverk** i noden **Nätverkstjänster**.
 
-5. Skapa ett virtuellt nätverk genom att klicka på **Snabbregistrering**.
+5. Klicka på **Snabbregistrering** för att skapa ett virtuellt nätverk.
 
     ![Virtuellt nätverk – snabbregistrering](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
 
 6. Ange ett **namn** för det virtuella nätverket. Du kan också välja att konfigurera **adressutrymmet** eller **maximalt antal virtuella datorer** för det här nätverket. Du kan lämna inställningen Inget för DNS-servern tills vidare. Den här inställningen uppdateras när du har aktiverat Azure AD Domain Services.
 
-7. Var noga med att välja en Azure-region som stöds i listrutan **Plats**. På sidan [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services/) ser du i vilka Azure-regioner som Azure AD Domain Services är tillgängligt. Det här är ett viktigt steg. Om du väljer ett virtuellt nätverk i en Azure-region som inte stöds av Azure AD Domain Services kan du inte aktivera tjänsten i det virtuella nätverket.
+7. Var noga med att välja en Azure-region som stöds i listrutan **Plats**. På sidan [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services/) ser du i vilka Azure-regioner som Azure AD Domain Services är tillgängligt.
 
 8. Skapa det virtuella nätverket genom att klicka på **Skapa ett virtuellt nätverk**.
 
@@ -72,6 +61,6 @@ Nästa konfigurationsåtgärd är att [aktivera Azure AD Domain Services](active
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

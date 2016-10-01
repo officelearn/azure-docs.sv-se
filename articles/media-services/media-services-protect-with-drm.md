@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Använda PlayReady och/eller Widevine Dynamic Common Encryption"
+    pageTitle="Använda PlayReady och/eller Widevine Dynamic Common Encryption | Microsoft Azure"
     description="Med Microsoft Azure Media Services kan du leverera MPEG-DASH-, Smooth Streaming- och Http-Live-Streaming-dataströmmar som skyddas med Microsoft PlayReady DRM. Du kan också leverera DASH krypterat med Widevine DRM. I det här avsnittet beskrivs hur du krypterar dynamiskt med PlayReady och Widevine DRM."
     services="media-services"
     documentationCenter=""
-    authors="Juliako,Mingfeiy"
+    authors="juliako"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article" 
-    ms.date="06/22/2016"
+    ms.date="09/27/2016"
     ms.author="juliako"/>
+
 
 
 #Använda PlayReady och/eller Widevine Dynamic Common Encryption
@@ -37,7 +38,7 @@ För att dra fördel av dynamisk kryptering behöver du en tillgång som innehå
 
 Det här avsnittet kan vara användbart för utvecklare som arbetar på appar som levererar media som skyddas av flera DRM:er, som PlayReady och Widevine. Avsnittet visar hur du konfigurerar  PlayReadys licensleveranstjänst med auktoriseringsprinciper så att endast auktoriserade klienter kan få PlayReady- eller Widevine-licenser. Det visar även hur du använder dynamiska kryptering med PlayReady eller Widevine DRM över DASH.
 
->[AZURE.NOTE]Om du vill börja använda dynamisk kryptering, måste du först skaffa minst en skalningsenhet (även kallat strömningsenhet). Mer information finns i [Hur du skalar en medietjänst](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Om du vill börja använda dynamisk kryptering, måste du först skaffa minst en skalningsenhet (även kallat strömningsenhet). Mer information finns i [Hur du skalar en medietjänst](media-services-portal-manage-streaming-endpoints.md).
 
 
 ##Hämta exempel
@@ -48,15 +49,15 @@ Du kan hämta det exempel som beskrivs i artikeln [här](https://github.com/Azur
 
 Nedan följer allmänna steg som du behöver utföra när du skyddar dina tillgångar med PlayReady med hjälp av Media Services licensleveranstjänst och även använder dynamisk kryptering.
 
-1. Skapa en tillgång och överför filer till tillgången. 
+1. Skapa en tillgång och överför filer till tillgången.
 1. Koda den tillgång som innehåller filen för MP4-uppsättningen med anpassad bithastighet.
-1. Skapa en innehållsnyckel och associera den med den kodade tillgången. I Media Services innehåller innehållsnyckeln tillgångens krypteringsnyckel. 
+1. Skapa en innehållsnyckel och associera den med den kodade tillgången. I Media Services innehåller innehållsnyckeln tillgångens krypteringsnyckel.
 1. Konfigurera innehållsnyckelns auktoriseringsprincip. Innehållsnyckelns auktoriseringsprincip måste konfigureras av dig och uppfyllas av klienten för att innehållsnyckeln ska kunna levereras till klienten.
 
-    När du skapar innehållsnyckelns auktoriseringsprincip behöver du specificera följande: leveransmetod (PlayReady eller Widevine), begränsningar (öppen eller token) och information som är specifik för nyckelleveranstypen och som definierar hur nyckeln levereras till klienten ([PlayReady](media-services-playready-license-template-overview.md)- eller [Widevine](media-services-widevine-license-template-overview.md)-licensmall). 
-1. Konfigurera leveransprincipen för en tillgång. Konfigurationen för leveransprincipen omfattar: leveransprotokoll (till exempel MPEG DASH, HLS, HDS, Smooth Streaming eller alla), typen av dynamisk kryptering (till exempel Common Encryption) och URL för anskaffning av PlayReady- eller Widevine-licens. 
- 
-    Du kan använda olika principer för varje protokoll för samma tillgång. Du kan till exempel tillämpa PlayReady-kryptering för Smooth/DASH och AES Envelope för HLS. Alla protokoll som inte har definierats i en leveransprincip (exempelvis kan du lägga till en enskild princip som endast anger HLS som protokoll) kommer att blockeras från strömning. Ett undantag till detta är om du inte har definierat någon tillgångsleveransprincip alls. Därefter tillåts alla protokoll fritt.
+När du skapar innehållsnyckelns auktoriseringsprincip behöver du specificera följande: leveransmetod (PlayReady eller Widevine), begränsningar (öppen eller token) och information som är specifik för nyckelleveranstypen och som definierar hur nyckeln levereras till klienten ([PlayReady](media-services-playready-license-template-overview.md)- eller [Widevine](media-services-widevine-license-template-overview.md)-licensmall).
+1. Konfigurera leveransprincipen för en tillgång. Konfigurationen för leveransprincipen omfattar: leveransprotokoll (till exempel MPEG DASH, HLS, HDS, Smooth Streaming eller alla), typen av dynamisk kryptering (till exempel Common Encryption) och URL för anskaffning av PlayReady- eller Widevine-licens.
+
+Du kan använda olika principer för varje protokoll för samma tillgång. Du kan till exempel tillämpa PlayReady-kryptering för Smooth/DASH och AES Envelope för HLS. Alla protokoll som inte har definierats i en leveransprincip (exempelvis kan du lägga till en enskild princip som endast anger HLS som protokoll) kommer att blockeras från strömning. Ett undantag till detta är om du inte har definierat någon tillgångsleveransprincip alls. Därefter tillåts alla protokoll fritt.
 1. Skapa en OnDemand-lokaliserare för att få en strömnings-URL.
 
 Du hittar ett komplett .NET-exempel i slutet av avsnittet.
@@ -65,17 +66,17 @@ Följande bild visar arbetsflödet som beskrivs ovan. Här används aktuellt tok
 
 ![Skydda med PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-Resten av det här avsnittet innehåller detaljerade förklaringar, kodexempel och länkar till ämnen som visar hur du utför de uppgifter som beskrivs ovan. 
+Resten av det här avsnittet innehåller detaljerade förklaringar, kodexempel och länkar till ämnen som visar hur du utför de uppgifter som beskrivs ovan.
 
 ##Aktuella begränsningar
 
 Om du lägger till eller uppdaterar en tillgångsleveransprincip måste du ta bort den associerade lokaliseraren (om sådan finns) och skapa en ny.
 
-Begränsning vid kryptering med Widevine med Azure Media Services: för närvarande stöds inte nycklar för multiinnehåll. 
+Begränsning vid kryptering med Widevine med Azure Media Services: för närvarande stöds inte nycklar för multiinnehåll.
 
 ##Skapa en tillgång och överföra filer till tillgången
 
-För att hantera, koda och strömma videor måste du först överföra innehållet till Microsoft Azure Media Services. När du har överfört innehållet lagras det på ett säkert sätt i molnet för vidare bearbetning och strömning. 
+För att hantera, koda och strömma videor måste du först överföra innehållet till Microsoft Azure Media Services. När du har överfört innehållet lagras det på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
 Utförlig information finns i [Överföra filer till ett Media Services-konto](media-services-dotnet-upload-files.md).
 
@@ -84,7 +85,7 @@ Utförlig information finns i [Överföra filer till ett Media Services-konto](m
 Med dynamisk kryptering behöver du bara skapa en tillgång som innehåller en uppsättning MP4-filer eller Smooth Streaming-källfiler i multibithastighet. Därefter, baserat på det format som anges i manifestet och i fragmentbegäran, kommer servern för strömning på begäran att säkerställa att du får den dataström i protokollet som du har valt. Detta innebär att du bara behöver lagra och betala för filerna i ett enda lagringsformat, och Media Services-tjänsten skapar och ger lämplig respons baserat på begäranden från en klient. Mer information finns i ämnet [Översikt över dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
 Mer information om att koda finns i [Koda en tillgång med Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
-    
+
 
 ##<a id="create_contentkey"></a>Skapa en innehållsnyckel och associera den med den kodade tillgången
 
@@ -329,7 +330,7 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
         
                 static public IContentKey CreateCommonTypeContentKey(IAsset asset)
                 {
-                    // Create envelope encryption content key
+                    
                     Guid keyId = Guid.NewGuid();
                     byte[] contentKey = GetRandomBuffer(16);
         
@@ -544,6 +545,8 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
         
                         };
         
+                    // In this case we only specify Dash streaming protocol in the delivery policy,
+                    // All other protocols will be blocked from streaming.
                     var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
                             "AssetDeliveryPolicy",
                         AssetDeliveryPolicyType.DynamicCommonEncryption,
@@ -609,7 +612,9 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
         }
 
 
-##Sökvägar för Media Services-utbildning
+## Nästa steg
+
+Granska sökvägarna för Media Services-utbildning.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -628,6 +633,6 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

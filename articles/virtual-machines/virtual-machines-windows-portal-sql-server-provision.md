@@ -13,8 +13,9 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="06/21/2016"
+    ms.date="09/20/2016"
     ms.author="jroth" />
+
 
 # Etablera en virtuell dator med SQL Server på Azure Portal
 
@@ -125,6 +126,7 @@ I bladet **SQL Server-inställningar** konfigurerar du specifika inställningar 
 | [Automatisk korrigering](#automated-patching) |
 | [Automatisk säkerhetskopiering](#automated-backup)             |
 | [Azure Key Vault-integrering](#azure-key-vault-integration)             |
+| [R-tjänster](#r-services) |
 
 ### Anslutning
 Under **SQL-anslutning** anger du vilken typ av åtkomst du vill ha till SQL Server-instansen på den här virtuella datorn. I den här kursen väljer du **Offentlig (Internet)** för att tillåta anslutningar till SQL Server från datorer eller tjänster på Internet. När det här alternativet är valt konfigurerar Azure automatiskt brandväggen och nätverkssäkerhetsgruppen så att trafik tillåts på port 1433.  
@@ -141,6 +143,8 @@ Om du föredrar att inte aktivera anslutningar till databasmotorn via Internet v
 - **Privat (inom Virtual Network)** om du vill tillåta anslutningar till SQL Server från datorer eller tjänster i samma virtuella nätverk.
 
 I allmänhet kan du förbättra säkerheten genom att välja den mest restriktiva anslutningen som ditt scenario medger. Men alla alternativ kan skyddas med regler för nätverkssäkerhetsgrupper och SQL/Windows-autentisering.
+
+>[AZURE.NOTE] Virtuella datoravbildningar för SQL Server Express- eller Developer-versioner aktiverar inte TCP/IP-protokollet automatiskt. Detta förhindrar att fjärranslutningar även om du har valt Offentlig eller Privat i portalen. För Express- och Developer-versioner måste du använda SQL Server Configuration Manager för att [manuellt aktivera TCP/IP-protokollet](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) när du har skapat den virtuella datorn.
 
 Standardinställningen för **Port** är 1433. Du kan ange ett annat portnummer.
 Mer information finns i [Ansluta till en virtuell dator med SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
@@ -178,7 +182,7 @@ Som standard optimerar Azure lagringen för 5 000 IOPs, 200 MB och 1 TB lagri
 
 ![Automatisk SQL-uppdatering](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
-Mer information finns i [Automatisk uppdatering av SQL Server i Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md).
+Mer information finns i [Automatisk uppdatering av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
 
 ### Automatisk säkerhetskopiering
 Aktivera automatiska säkerhetskopieringar för alla databaser under **Automatisk säkerhetskopiering**. Automatisk säkerhetskopiering är inaktiverat som standard.
@@ -193,7 +197,7 @@ Om du vill kryptera säkerhetskopian klickar du på **Aktivera**. Ange sedan **l
 
 ![Automatisk SQL-säkerhetskopiering](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- Mer information finns i [Automatisk säkerhetskopiering av SQL Server i Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md).
+ Mer information finns i [Automatisk säkerhetskopiering av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 ### Azure Key Vault-integrering
 Om du vill lagra säkerhetshemligheter i Azure för kryptering klickar du på **Azure Key Vault-integrering** och klickar sedan på **Aktivera**.
@@ -209,9 +213,16 @@ Följande tabell innehåller de parametrar som krävs för att konfigurera Azure
 | **Huvudhemlighet**|Azure Active Directory-tjänstens huvudhemlighet. Den här hemligheten kallas även för klienthemligheten. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Namn på autentiseringsuppgifter**|**Namn på autentiseringsuppgifter**: AKV-integreringen skapar autentiseringsuppgifter på SQL-servern som gör att den virtuella datorn kan komma åt nyckelvalvet. Välj ett namn för autentiseringsuppgifterna.| mycred1|
 
-Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-keyvault.md).
+Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines](virtual-machines-windows-ps-sql-keyvault.md).
 
 När du har konfigurerat inställningarna för SQL Server klickar du på **OK**.
+
+### R-tjänster
+I SQL Server 2016 Enterprise edition har du möjlighet att aktivera [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). Det ger dig möjlighet att använda avancerad analys med SQL Server 2016. Klicka på **Aktivera** på bladet **SQL Server-inställningar**.
+
+![Aktivera SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+
+>[AZURE.NOTE] För SQL Server-avbildningar som inte är 2016 Enterprise edition är möjligheten att aktivera R Services inaktiverad.
 
 ## 5. Granska sammanfattningen
 I bladet **Sammanfattning** granskar du sammanfattningen och klickar på **OK** för att skapa SQL Server, resursgruppen och resurserna som angetts för den här virtuella datorn.
@@ -257,6 +268,6 @@ Om du vill titta på en videoöversikt över SQL Server på Azure Virtual Machin
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/01/2016"
     ms.author="cephalin"/>
 
+
 # Kom igång med Node.js-webbappar i Azure Apptjänst
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -58,8 +59,9 @@ I den här kursen får du lära dig hur du skapar ett enkelt [Node.js][NODEJS]-p
 
     Gå till <http://localhost:3000> i webbläsaren och kontrollera att du kan se Express-startsidan. När du har bekräftat att appen körs korrekt kan du använda `Ctrl-C` för att stoppa den.
     
-1. Logga in på Azure på följande sätt ([Azure CLI](#prereq) krävs):
+1. Ändra till ASM-läge och logga in på Azure (du behöver [Azure CLI](#prereq) för detta):
 
+        azure config mode asm
         azure login
 
     Följ anvisningarna för att fortsätta inloggningen i en webbläsare med ett Microsoft-konto som innehåller din Azure-prenumeration.
@@ -245,6 +247,6 @@ Följ de här stegen om du vill aktivera Node-Inspector:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Konfigurera en punkt-till-plats-VPN-anslutning till ett virtuellt nätverk med hjälp av Resource Manager-distributionsmodellen | Microsoft Azure"
-   description="Anslut säkert till ditt virtuella Azure-nätverk genom att skapa en VPN-anslutning från punkt till plats."
+   pageTitle="Konfigurera en punkt-till-plats VPN-gateway-anslutning till ett virtuellt nätverk med hjälp av Resource Manager-distributionsmodellen | Microsoft Azure"
+   description="Anslut säkert till ditt virtuella Azure-nätverk genom att skapa en VPN-gateway-anslutning från punkt till plats."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -16,11 +16,12 @@
    ms.date="08/31/2016"
    ms.author="cherylmc" />
 
+
 # Konfigurera en punkt-till-plats-anslutning till ett VNet med hjälp av PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal – Klassisk](vpn-gateway-point-to-site-create.md)
+- [Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Klassisk – den klassiska portalen](vpn-gateway-point-to-site-create.md)
 
 Med en P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning från en enskild klientdator till ett virtuellt nätverk. En P2S-anslutning är användbar när du vill ansluta till ditt VNet från en annan plats, t.ex. hemifrån eller från en konferens, eller när du bara har ett fåtal klienter som behöver kunna ansluta till ett virtuellt nätverk. 
 
@@ -65,7 +66,7 @@ Vi använder följande värden för den här konfigurationen. Vi anger variabler
 
 - Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
     
-- Installera PowerShell-cmdlets för Azure Resource Manager (1.0.2 eller senare). Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md).
+- Installera PowerShell-cmdlets för Azure Resource Manager (1.0.2 eller senare). Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md). När du arbetar med PowerShell i den här konfigurationen ska du kontrollera att du kör som administratör. 
 
 ## <a name="declare"></a>Del 1 – Logga in och ange variabler
 
@@ -111,7 +112,7 @@ I det här avsnittet ska du logga in och deklarera värdena som används i den h
 
         New-AzureRmResourceGroup -Name $RG -Location $Location
 
-2. Skapa undernätskonfigurationerna för det virtuella nätverket och ge dem namnen *FrontEnd*, *BackEnd* och *GatewaySubnet*. Dessa prefix måste vara en del av VNet-adressutrymmet som deklarerades ovan.
+2. Skapa undernätskonfigurationerna för det virtuella nätverket och ge dem namnen *FrontEnd*, *BackEnd* och *GatewaySubnet*. Dessa prefix måste vara en del av VNet-adressutrymmet som du deklarerade.
 
         $fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
         $besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -172,19 +173,28 @@ Klienter som ansluter till Azure via P2S måste ha både ett klientcertifikat oc
 
 3. Kopiera och klistra in länken som returneras i en webbläsaren för att ladda ned paketet. Installera sedan paketet på klientdatorn.
 
-4. På klientdatorn går du till **Nätverksinställningar** och klickar på **VPN**. Anslutningen visas i listan. Namnet på det virtuella nätverket som anslutningen kommer att upprättas till visas och ser ut ungefär så här: 
+4. På klientdatorn går du till **Nätverksinställningar** och klickar på **VPN**. Anslutningen visas i listan. Namnet på det virtuella nätverket som anslutningen kommer att upprättas till visas och ser ut ungefär som detta exempel: 
 
     ![VPN-klient](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="cc"></a>Del 6 – Installera klientcertifikatet
-    
-Generera och installera klientcertifikaten (*.pfx) som skapas från rotcertifikatet på klientdatorerna. Du kan använda valfri installationsmetod.
+## <a name="cc"></a>Del 6 – Generera klientcertifikatet
 
-Om du använder ett självsignerat rotcertifikat och är osäker på hur du skapar ett klientcertifikat kan du läsa [den här artikeln](vpn-gateway-certificates-point-to-site.md). Om du arbetar med en företagslösning utfärdar du klientcertifikaten med det vanliga namnvärdeformatet 'namn@dindomän.com' i stället för med NetBIOS-formatet 'domännamn\användarnamn'.
+Nu ska du generera klientcertifikaten. Du kan antingen generera ett unikt certifikat för varje klient som ska ansluta eller använda samma certifikat på flera klienter. Fördelen med att generera unika klientcertifikat är möjligheten att återkalla ett enskilt certifikat om det behövs. Om alla i stället använder samma klientcertifikat och du upptäcker att du behöver återkalla certifikatet för en klient så måste du generera och installera nya certifikat för alla klienter som använder certifikatet för att autentisera.
 
-Du kan installera ett klientcertifikat direkt på en dator genom att dubbelklicka på PFX-filen.
+- Om du använder en företagscertifikatlösning genererar du ett klientcertifikat med det vanliga namnvärdeformatet 'namn@dindomän.com' i stället för med NetBIOS-formatet 'DOMÄN\användarnamn'. 
 
-## Del 7 – Ansluta till Azure
+- Information om hur du genererar ett klientcertifikat om du använder ett självsignerat certifikat finns i [Arbeta med självsignerade rotcertifikat för punkt-till-plats-konfigurationer](vpn-gateway-certificates-point-to-site.md).
+
+## Del 7 – Installera klientcertifikatet
+
+Installera ett klientcertifikat på varje dator som du vill ansluta till det virtuella nätverket. Ett klientcertifikat krävs för autentisering. Du kan automatisera installationen av klientcertifikatet eller installera manuellt. Följande steg beskriver hur du exporterar och installerar klientcertifikatet manuellt.
+
+1. Du kan exportera ett klientcertifikat med hjälp av *certmgr.msc*. Högerklicka på det klientcertifikat som du vill exportera, klicka på **alla aktiviteter** och sedan på **exportera**.
+2. Exportera klientcertifikatet med den privata nyckeln. Det här är en *PFX*-fil. Var noga med att skriva ner eller komma ihåg lösenordet (nyckeln) som du anger för det här certifikatet.
+3. Kopiera *.pfx*-filen till klientdatorn. Installera *PFX*-filen genom att dubbelklicka på den på klientdatorn. Ange lösenordet när det efterfrågas. Ändra inte installationsplatsen.
+
+
+## Del 8 – Ansluta till Azure
 
 1. Anslut till ditt VNet genom att gå till VPN-anslutningarna på klientdatorn och leta upp den VPN-anslutning som du skapade. Den har samma namn som ditt virtuella nätverk. Klicka på **Anslut**. Ett popup-meddelande med information om certifikatanvändningen kanske visas. I så fall klickar du på **Fortsätt** för att använda utökade privilegier. 
 
@@ -196,7 +206,7 @@ Du kan installera ett klientcertifikat direkt på en dator genom att dubbelklick
 
     ![VPN-klient 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "VPN client connection 2")
 
-## Del 8 – Verifiera anslutningen
+## Del 9 – Verifiera anslutningen
 
 1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all*.
 
@@ -217,7 +227,7 @@ Du kan installera ett klientcertifikat direkt på en dator genom att dubbelklick
 
 Certifikat används för att autentisera VPN-klienter för punkt-till-plats-VPN. Följande steg beskriver hur du lägger till och tar bort rotcertifikat. När du lägger till en Base64-kodad X.509-fil (.cer) till Azure uppmanar du Azure att lita på rotcertifikatet som filen representerar. 
 
-Du kan lägga till eller ta bort betrodda rotcertifikat med hjälp av PowerShell eller på Azure-portalen. Om du vill använda Azure-portalen går du till **din VNet-gateway > Inställningar > Punkt-till-plats-konfiguration > Rotcertifikat**. Stegen nedan beskriver hur du utför dessa åtgärder med hjälp av PowerShell. 
+Du kan lägga till eller ta bort betrodda rotcertifikat med hjälp av PowerShell eller på Azure-portalen. Om du vill använda Azure-portalen går du till **din VNet-gateway > Inställningar > Punkt-till-plats-konfiguration > Rotcertifikat**. Följande steg beskriver hur du utför dessa åtgärder med hjälp av PowerShell. 
 
 ### Lägga till ett betrott rotcertifikat
 
@@ -225,11 +235,11 @@ Du kan lägga till upp till 20 betrodda CER-filer för rotcertifikat i Azure. Du
 
 1. Skapa och förbered det nya rotcertifikatet som du ska lägga till i Azure. Exportera den offentliga nyckeln som en Base64-kodad X.509-fil (.CER) och öppna den i en textredigerare. Kopiera bara avsnittet som visas nedan. 
  
-    Kopiera värdena, som du ser i följande exempel.
+    Kopiera värdena, som du ser i följande exempel:
 
     ![certifikat](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "certificate")
     
-2. I exemplet nedan anger du certifikatnamnet och viktig information som en variabel. Ersätt informationen med din egen information.
+2. Ange certifikatnamnet och viktig information som en variabel. Ersätt informationen med din egen enligt följande exempel:
 
         $P2SRootCertName2 = "ARMP2SRootCert2.cer"
         $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
@@ -306,6 +316,6 @@ Du kan lägga till en virtuell dator i ditt virtuella nätverk. Se [Skapa en vir
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

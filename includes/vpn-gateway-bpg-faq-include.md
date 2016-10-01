@@ -37,7 +37,7 @@ Inte just nu.
 
 #### Kan jag annonsera exakta prefix som mina virtuella nätverksprefix?
 
-Nej, annonsering av samma prefix som något av dina virtuella nätverks adressprefix kommer att blockeras eller filtreras av Azure-plattformen.
+Nej, annonsering av samma prefix som något av dina virtuella nätverks adressprefix kommer att blockeras eller filtreras av Azure-plattformen. Du kan dock annonsera ett prefix som är en överordnad uppsättning av det du har i det virtuella nätverket. Till exempel kan ditt virtuella nätverk använda adressutrymmet 10.10.0.0/16 och du kan annonsera 10.0.0.0/8.
 
 ### Kan jag använda BGP med mina VNet-till-VNet-anslutningar?
 
@@ -80,7 +80,6 @@ Azure-lokal nätverksgateway anger de första adressprefixen för det lokala nä
 Du bör lägga till en värdrutt för Azure BGP-peer-IP-adressen på din VPN-enhet som pekar på IPsec S2S VPN-tunneln. Om Azure VPN-peer-IP-adressen är "10.12.255.30", bör du till exempel lägga till en värdrutt för "10.12.255.30" med ett nexthop-gränssnitt för det matchande IPSec-tunnelgränssnittet på din VPN-enheten.
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

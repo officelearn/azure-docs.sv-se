@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Komma igång med Azure Mobile Engagement för iOS i Objective C"
+    pageTitle="Komma igång med Azure Mobile Engagement för iOS i Objective C | Microsoft Azure"
     description="Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för iOS-appar."
     services="mobile-engagement"
-    documentationCenter="ios"
+    documentationCenter="mobile"
     authors="piyushjo"
-    manager="dwrede"
+    manager="erikre"
     editor="" />
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="09/14/2016"
     ms.author="piyushjo" />
+
 
 # Komma igång med Azure Mobile Engagement för iOS-appar i Objective C
 
@@ -23,14 +24,14 @@
 I det här avsnittet beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i ett iOS-program.
 I den här självstudiekursen skapar du en tom iOS-app som samlar in grundläggande data och tar emot push-meddelanden via Apple Push Notification System (APNS).
 
-Följande krävs för den här kursen:
+Följande krävs för den här självstudiekursen:
 
-+ XCode 6 eller XCode 7, som du kan installera från Mac App Store
++ XCode 8, som du kan installera från Mac App Store
 + [Mobile Engagement iOS SDK]
 
 Du måste slutföra den här självstudiekursen innan du påbörjar någon annan kurs om Mobile Engagement och iOS-appar.
 
-> [AZURE.NOTE] Du måste ha ett aktivt Azure-konto för att slutföra den här självstudiekursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started).
+> [AZURE.NOTE] Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer info om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started).
 
 ##<a id="setup-azme"></a>Konfigurera Mobile Engagement för din iOS-app
 
@@ -38,7 +39,7 @@ Du måste slutföra den här självstudiekursen innan du påbörjar någon annan
 
 ##<a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 
-I den här självstudien anges en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. Den fullständiga integrationsdokumentationen finns i [Mobile Engagement iOS SDK-integration](mobile-engagement-ios-sdk-overview.md)
+I den här kursen behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. Den fullständiga integrationsdokumentationen finns i [Mobile Engagement iOS SDK-integration](mobile-engagement-ios-sdk-overview.md)
 
 Vi skapar en grundläggande app i XCode för att demonstrera integrationen.
 
@@ -46,7 +47,7 @@ Vi skapar en grundläggande app i XCode för att demonstrera integrationen.
 
 [AZURE.INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-###Anslut appen till Mobile Engagement-serverdelen
+###Ansluta appen till Mobile Engagement-serverdelen
 
 1. Ladda ned [Mobile Engagement iOS SDK].
 2. Extrahera .tar.gz-filen till en mapp på datorn.
@@ -87,7 +88,7 @@ Vi skapar en grundläggande app i XCode för att demonstrera integrationen.
 
 ##<a id="monitor"></a>Aktivera realtidsövervakning
 
-Du måste skicka minst en skärm (aktivitet) till Mobile Engagement-serverdelen för att kunna börja skicka data och se till att användarna aktiveras.
+För att kunna börja skicka data och försäkra dig om att användarna är aktiva måste du skicka minst en skärm (aktivitet) till Mobile Engagement-serverdelen.
 
 1. Öppna filen **ViewController.h** och importera **EngagementViewController.h**:
 
@@ -103,7 +104,7 @@ Du måste skicka minst en skärm (aktivitet) till Mobile Engagement-serverdelen 
 
 ##<a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 
-Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH i Mobile Engagement-portalen.
+Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
 I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 ### Konfigurera appen för att ta emot tysta push-meddelanden
@@ -135,7 +136,7 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 ###Konfigurera appen för att ta emot push-meddelanden med APNS
 
-1. Lägg till följande i metoden `application:didFinishLaunchingWithOptions`:
+1. Lägg till följande rad i metoden `application:didFinishLaunchingWithOptions`:
 
         if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
             [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
@@ -183,6 +184,6 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

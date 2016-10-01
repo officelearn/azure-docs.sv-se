@@ -15,6 +15,7 @@ authors="ashmaka"
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Skapa ett Azure Search-index
 > [AZURE.SELECTOR]
 - [Översikt](search-what-is-an-index.md)
@@ -72,6 +73,6 @@ Om datalagringsbehovet ändras med tiden kan du öka eller minska kapaciteten ge
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

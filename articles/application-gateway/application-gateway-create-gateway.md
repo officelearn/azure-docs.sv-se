@@ -12,8 +12,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/02/2016"
    ms.author="gwallace"/>
+
 
 # Skapa, starta eller ta bort en programgateway
 
@@ -26,10 +27,7 @@ Azure Application Gateway är en Layer 7-belastningsutjämnare. Den tillhandahå
 - [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
 - [Azure CLI](application-gateway-create-gateway-cli.md)
 
-<BR>
-
 Den här artikeln beskriver steg för steg hur du skapar, konfigurerar, startar och tar bort en programgateway.
-
 
 ## Innan du börjar
 
@@ -40,9 +38,7 @@ Den här artikeln beskriver steg för steg hur du skapar, konfigurerar, startar 
 
 ## Vad krävs för att skapa en programgateway?
 
-
 När du använder kommandot **New-AzureApplicationGateway** för att skapa programgatewayen görs ingen konfiguration vid denna tidpunkt och den nyligen skapade resursen konfigureras antingen med hjälp av XML eller med ett konfigurationsobjekt.
-
 
 Värdena är:
 
@@ -51,7 +47,6 @@ Värdena är:
 - **Frontend-port:** Den här porten är den offentliga porten som är öppen på programgatewayen. Trafiken kommer till den här porten och omdirigeras till en av backend-servrarna.
 - **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning).
 - **Regel:** Regeln binder lyssnaren och backend-serverpoolen och definierar vilken backend-serverpool som trafiken ska dirigeras till när den når en viss lyssnare.
-
 
 ## Skapa en programgateway
 
@@ -63,12 +58,11 @@ Så här skapar du en programgateway:
 
 >[AZURE.NOTE] Om du behöver konfigurera en anpassad avsökning för din programgateway läser du [Skapa en programgateway med anpassade avsökningar med hjälp av PowerShell](application-gateway-create-probe-classic-ps.md). Mer information finns i [Anpassade avsökningar och hälsoövervakning](application-gateway-probe-overview.md).
 
-
 ### Skapa en resurs för en programgateway
 
 När du skapar en gateway använder du cmdleten **New-AzureApplicationGateway** och ersätter värdena med dina egna. Faktureringen för gatewayen startar inte i det här läget. Faktureringen börjar i ett senare skede när gatewayen har startats.
 
-I följande exempel skapar vi en ny programgateway genom att använda ett virtuellt nätverk med namnet ”testvnet1” och undernätet ”subnet-1”.
+I följande exempel skapar vi en programgateway genom att använda ett virtuellt nätverk med namnet ”testvnet1” och undernätet ”subnet-1”.
 
 
     New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -82,11 +76,7 @@ I följande exempel skapar vi en ny programgateway genom att använda ett virtue
 
  *Description*, *InstanceCount* och *GatewaySize* är valfria parametrar.
 
-
 Du kan kontrollera att gatewayen har skapats med cmdleten **Get-AzureApplicationGateway**.
-
-
-
 
     Get-AzureApplicationGateway AppGwTest
     Name          : AppGwTest
@@ -101,8 +91,7 @@ Du kan kontrollera att gatewayen har skapats med cmdleten **Get-AzureApplication
 
 >[AZURE.NOTE]  Standardvärdet för *InstanceCount* är 2, och det högsta värdet är 10. Standardvärdet för *GatewaySize* är Medium. Du kan välja mellan Small, Medium eller Large.
 
-
- *VirtualIPs* och *DnsName* är tomma eftersom gatewayen inte har startat än. De skapas när gatewayen är i körläge.
+*VirtualIPs* och *DnsName* är tomma eftersom gatewayen inte har startat än. De skapas när gatewayen är i körläge.
 
 ## Konfigurera progamgatewayen
 
@@ -234,57 +223,57 @@ Skapa alla enskilda konfigurationsobjekt.
 
 Skapa frontend-IP-adressen (se exemplet nedan).
 
-    PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
-    PS C:\> $fip.Name = "fip1"
-    PS C:\> $fip.Type = "Private"
-    PS C:\> $fip.StaticIPAddress = "10.0.0.5"
+    $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
+    $fip.Name = "fip1"
+    $fip.Type = "Private"
+    $fip.StaticIPAddress = "10.0.0.5"
 
 Skapa frontend-porten (se exemplet nedan).
 
-    PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
-    PS C:\> $fep.Name = "fep1"
-    PS C:\> $fep.Port = 80
+    $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
+    $fep.Name = "fep1"
+    $fep.Port = 80
 
 Skapa backend-serverpoolen.
 
  Definiera de IP-adresser som läggs till i backend-serverpoolen så som visas i nästa exempel.
 
 
-    PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
-    PS C:\> $servers.Add("10.0.0.1")
-    PS C:\> $servers.Add("10.0.0.2")
+    $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
+    $servers.Add("10.0.0.1")
+    $servers.Add("10.0.0.2")
 
  Använd $server-objektet för att lägga till värdena i backend-poolobjektet ($pool).
 
-    PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
-    PS C:\> $pool.BackendServers = $servers
-    PS C:\> $pool.Name = "pool1"
+    $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
+    $pool.BackendServers = $servers
+    $pool.Name = "pool1"
 
 Skapa inställningen för backend-serverpoolen.
 
-    PS C:\> $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
-    PS C:\> $setting.Name = "setting1"
-    PS C:\> $setting.CookieBasedAffinity = "enabled"
-    PS C:\> $setting.Port = 80
-    PS C:\> $setting.Protocol = "http"
+    $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
+    $setting.Name = "setting1"
+    $setting.CookieBasedAffinity = "enabled"
+    $setting.Port = 80
+    $setting.Protocol = "http"
 
 Skapa lyssnaren.
 
-    PS C:\> $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
-    PS C:\> $listener.Name = "listener1"
-    PS C:\> $listener.FrontendPort = "fep1"
-    PS C:\> $listener.FrontendIP = "fip1"
-    PS C:\> $listener.Protocol = "http"
-    PS C:\> $listener.SslCert = ""
+    $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
+    $listener.Name = "listener1"
+    $listener.FrontendPort = "fep1"
+    $listener.FrontendIP = "fip1"
+    $listener.Protocol = "http"
+    $listener.SslCert = ""
 
 Skapa regeln.
 
-    PS C:\> $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
-    PS C:\> $rule.Name = "rule1"
-    PS C:\> $rule.Type = "basic"
-    PS C:\> $rule.BackendHttpSettings = "setting1"
-    PS C:\> $rule.Listener = "listener1"
-    PS C:\> $rule.BackendAddressPool = "pool1"
+    $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
+    $rule.Name = "rule1"
+    $rule.Type = "basic"
+    $rule.BackendHttpSettings = "setting1"
+    $rule.Listener = "listener1"
+    $rule.BackendAddressPool = "pool1"
 
 ### Steg 2
 
@@ -292,34 +281,34 @@ Tilldela alla konfigurationsobjekt till konfigurationsobjektet för programgatew
 
 Lägg till frontend-IP-adressen till konfigurationen.
 
-    PS C:\> $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
-    PS C:\> $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
-    PS C:\> $appgwconfig.FrontendIPConfigurations.Add($fip)
+    $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
+    $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
+    $appgwconfig.FrontendIPConfigurations.Add($fip)
 
 Lägg till frontend-IP-porten till konfigurationen.
 
-    PS C:\> $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
-    PS C:\> $appgwconfig.FrontendPorts.Add($fep)
+    $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
+    $appgwconfig.FrontendPorts.Add($fep)
 
 Lägg till backend-serverpoolen till konfigurationen.
 
-    PS C:\> $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
-    PS C:\> $appgwconfig.BackendAddressPools.Add($pool)  
+    $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
+    $appgwconfig.BackendAddressPools.Add($pool)  
 
 Lägg till backend-poolinställningen till konfigurationen.
 
-    PS C:\> $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
-    PS C:\> $appgwconfig.BackendHttpSettingsList.Add($setting)
+    $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
+    $appgwconfig.BackendHttpSettingsList.Add($setting)
 
 Lägg till lyssnaren till konfigurationen.
 
-    PS C:\> $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
-    PS C:\> $appgwconfig.HttpListeners.Add($listener)
+    $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
+    $appgwconfig.HttpListeners.Add($listener)
 
 Lägga till regeln till konfigurationen.
 
-    PS C:\> $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
-    PS C:\> $appgwconfig.HttpLoadBalancingRules.Add($rule)
+    $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
+    $appgwconfig.HttpLoadBalancingRules.Add($rule)
 
 ### Steg 3
 
@@ -331,10 +320,7 @@ Tillämpa konfigurationsobjektet på programgatewayresursen med hjälp av cmdlet
 
 När gatewayen har konfigurerats använder du cmdleten **Start-AzureApplicationGateway** för att starta gatewayen. Faktureringen för en programgateway börjar när gatewayen har startats.
 
-
 > [AZURE.NOTE] Cmdleten **Start-AzureApplicationGateway** kan ta mellan 15 och 20 minuter.
-
-
 
     Start-AzureApplicationGateway AppGwTest
 
@@ -417,6 +403,6 @@ Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet l
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

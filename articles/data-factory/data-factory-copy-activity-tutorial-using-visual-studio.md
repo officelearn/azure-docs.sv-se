@@ -16,28 +16,29 @@
     ms.date="08/01/2016" 
     ms.author="spelluru"/>
 
+
 # Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Visual Studio
 > [AZURE.SELECTOR]
-- [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Använda Data Factory-redigeraren](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Använda PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Använda Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Använda REST-API:et](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Använda .NET-API:et](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Använda guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
+- [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 
-I de här självstudierna gör du följande med hjälp av Visual Studio 2013:
+De här självstudierna visar hur du skapar och övervakar en Azure-datafabrik med hjälp av Visual Studio. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
+
+Här är de steg du utför som en del av de här självstudierna:
 
 1. Skapa två länkade tjänster: **AzureStorageLinkedService1** och **AzureSqlLinkedService1**. AzureStorageLinkedService1 länkar en Azure-lagring och AzureSqlLinkedService1 länkar en Azure SQL-databas till datafabriken: **ADFTutorialDataFactoryVS**. Indatan för pipelinen finns i en blob-behållare i Azure blob-lagring och utdata lagras i en tabell i Azure SQL-databasen. Därför kan du lägga till dessa två datalager som länkade tjänster i datafabriken.
-2. Skapa två datafabrikstabeller: **EmpTableFromBlob** och **EmpSQLTable**, som visar de in- och utdata som lagras i datalagren. För EmpTableFromBlob anger du den blob-behållare som innehåller en blob med källdata. För EmpSQLTable anger du den SQL-tabell som lagrar utdata. Du kan också ange andra egenskaper som struktur, tillgänglighet och så vidare.
+2. Skapa två datafabrikstabeller: **EmpTableFromBlob** och **EmpSQLTable**, som visar de in- och utdata som lagras i datalagren. För EmpTableFromBlob anger du den blob-behållare som innehåller en blob med källdata. För EmpSQLTable anger du den SQL-tabell som lagrar utdata. Du kan också ange andra egenskaper som struktur, tillgänglighet och princip.
 3. Skapa en pipeline med namnet **ADFTutorialPipeline** i ADFTutorialDataFactoryVS. Pipelinen ska ha en **kopieringsaktivitet** som kopierar indata från Azure-bloben till utdata i Azure SQL-tabellen. Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten. 
 4. Skapa en datafabrik och distribuera länkade tjänster, tabeller och pipelinen.    
 
 ## Krav
 
-1. Läs igenom [I de här självstudieöversikten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-    
-    > [AZURE.IMPORTANT] Slutför de nödvändiga förutsättningarna innan du fortsätter. 
+1. Läs igenom artikeln [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför de **nödvändiga** stegen. 
 2. Du måste vara **administratör för Azure-prenumerationen** för att kunna publicera Data Factory-enheter i Azure Data Factory.  
 3. Du måste ha följande installerat på datorn: 
     - Visual Studio 2013 eller Visual Studio 2015
@@ -212,7 +213,7 @@ Du har skapat länkade in-/utdatatjänster och tabeller hittills. Nu skapar du e
 
     ![Dialogrutan Publicera](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png)
 
-21. På sidan Konfigurera datafabrik gör du följande: 
+21. På sidan Konfigurera datafabrik går du igenom följande steg: 
     1. välj alternativet **Skapa ny Data Factory**.
     2. Ange **VSTutorialFactory** som **namn**.  
     
@@ -227,7 +228,7 @@ Du har skapat länkade in-/utdatatjänster och tabeller hittills. Nu skapar du e
 24. Granska sammanfattningen och klicka på **Nästa** för att starta distributionsprocessen och visa **Distributionsstatus**.
 25. På sidan **Distributionsstatus** bör du se statusen för distributionen. Klicka på Slutför när distributionen är klar. 
 
-Observera följande: 
+Observera följande punkter: 
 
 - Om du får felet: ”**Den här prenumerationen har inte registrerats för användning av namnområdet Microsoft.DataFactory**” gör du något av följande och försöker att publicera igen: 
 
@@ -262,7 +263,7 @@ I den här självstudien har du skapat en Azure-datafabrik som kopierar data fr�
     ![Exportera datafabrik till ett VS-projekt](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
 ## Uppdatera Data Factory-verktyg för Visual Studio
-Om du vill uppdatera Azure Data Factory-verktyg för Visual Studio gör du följande:
+Om du vill uppdatera Azure Data Factory-verktyg för Visual Studio går du igenom följande steg:
 
 1. Klicka på **Verktyg** i menyn och välj **Tillägg och uppdateringar**. 
 2. Välj **Uppdateringar** i den vänstra rutan och välj sedan **Visual Studio-galleriet**.
@@ -281,6 +282,6 @@ Se [Övervaka datauppsättningar och pipeline](data-factory-copy-activity-tutori
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

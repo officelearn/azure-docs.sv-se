@@ -5,11 +5,11 @@ I det här scenariot finns det två VNet i en prenumeration, HubVNet och VNet1, 
 
 ![NVA-överföring](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-Obs! För enkelheten skull förutsätter vi här att alla VNet finns i samma prenumeration. Men det fungerar också mellan olika prenumerationer. 
+> [AZURE.NOTE] För enkelheten skull förutsätter vi här att alla VNet finns i samma prenumeration. Men det fungerar också mellan olika prenumerationer.
 
 Nyckelegenskapen för att aktivera överföringsroutning är parametern "Tillåt vidarebefordrad trafik". Detta gör att trafik kan accepteras och skickas från/till NVA i den peerkopplade VNet:en.  
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

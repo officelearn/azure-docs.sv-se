@@ -10,24 +10,26 @@
 <tags 
     ms.service="data-factory" 
     ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
+    ms.tgt_pltfrm="na" **
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Guiden Data Factory-kopia
 > [AZURE.SELECTOR]
-- [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Använda Data Factory-redigeraren](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Använda PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Använda Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Använda REST-API:et](data-factory-copy-activity-tutorial-using-rest-api.md) 
-- [Använda guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
+- [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 
-I de här självstudierna använder du guiden Data Factory-kopia till att skapa en pipeline med en kopieringsaktivitet i en datafabrik. Först måste du skapa en datafabrik med hjälp av Azure Portal och sedan använda guiden Kopiera för att skapa Data Factory-länkade tjänster, datauppsättningar och en pipeline med en kopieringsaktivitet som kopierar data från en Azure-blob-lagring till en Azure SQL-databas.
+I de här självstudierna använder du guiden Data Factory-kopia till att skapa en pipeline med en kopieringsaktivitet i en datafabrik. Först skapar du en datafabrik med hjälp av Azure-portalen. Sedan använder du guiden Kopiera för att skapa Data Factory-länkade tjänster, datauppsättningar och en pipeline med en kopieringsaktivitet som kopierar data från en Azure Blob Storage till en Azure SQL-databas. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten. 
 
-> [AZURE.IMPORTANT] Läs igenom artikeln [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför nödvändiga steg innan du fortsätter med självstudien.
+> [AZURE.IMPORTANT] Läs igenom artikeln [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför de **nödvändiga** stegen innan du fortsätter med självstudierna.
 
 ## Skapa en datafabrik
 I det här steget använder du Azure Portal för att skapa en Azure-datafabrik med namnet **ADFTutorialDataFactory**.
@@ -57,7 +59,7 @@ I det här steget använder du Azure Portal för att skapa en Azure-datafabrik m
     > [AZURE.NOTE] Namnet på datafabriken kan komma att registreras som ett DNS-namn i framtiden och blir då synligt offentligt.  
 
 9. Klicka på hubben **MEDDELANDEN** till vänster och se om det finns några meddelanden från processen. Klicka på **X** för att stänga bladet **MEDDELANDEN** om det är öppet. 
-10. När datafabriken har skapats visas bladet **DATAFABRIK** (se nedan).
+10. När datafabriken har skapats visas bladet **DATAFABRIK** enligt nedanstående bild:
 
     ![Datafabrikens startsida](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -88,7 +90,10 @@ I det här steget använder du Azure Portal för att skapa en Azure-datafabrik m
     3. Klicka på **Nästa**. 
 
     ![Verktyget Kopiera – Välj indatafil eller mapp](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. På sidan **Filformatinställningar** väljer du **standard**värden och klickar på **Nästa**.
+7. På sidan **Välj indatafil eller mapp** klickar du på **Nästa**. Välj inte **Binär kopia**. 
+
+    ![Verktyget Kopiera – Välj indatafil eller mapp](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+8. På sidan **Filformatinställningar** väljer du **standard**värden och klickar på **Nästa**.
 
     ![Verktyget Kopiera – Filformatinställningar](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. På sidan Måldatalager klickar du på ikonen **Azure SQL Database** och sedan på **Nästa**.
@@ -102,11 +107,12 @@ I det här steget använder du Azure Portal för att skapa en Azure-datafabrik m
 
     ![Verktyget Kopiera – Tabellmappning](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. På sidan **Schemamappning** klickar du på **Nästa**.
-11. Granska informationen på sidan **Sammanfattning** och klicka på **Slutför**. Detta skapar två länkade tjänster, två datauppsättningar (indata och utdata) och en pipeline i datafabriken (från den plats där du startade guiden Kopiera). 
-12. På sidan **Distributionen är klar** klickar du på **Klicka här för att övervaka kopiering av pipeline**.
+11. På sidan **Prestandainställningar** klickar du på **Nästa**. 
+11. Granska informationen på sidan **Sammanfattning** och klicka på **Slutför**. Guiden skapar två länkade tjänster, två datauppsättningar (indata och utdata) och en pipeline i datafabriken (från den plats där du startade guiden Kopiera). 
+12. På sidan **Distributionen är klar** klickar du på länken: **Klicka här för att övervaka kopiering av pipeline**.
 
     ![Verktyget Kopiera – Distributionen är klar](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-13. Använd anvisningarna i [Övervaka och hantera pipeline med övervakningsappen](data-factory-monitor-manage-app.md) för att få mer information om hur du övervakar den pipeline som du nyss skapade.
+13. Använd anvisningarna i [Övervaka och hantera pipeline med övervakningsappen](data-factory-monitor-manage-app.md) för att få mer information om hur du övervakar den pipeline som du skapade. Klicka på ikonen **Uppdatera** i listan **AKTIVITETSFÖNSTER** för att se sektorn. 
 
     ![Övervakningsapp](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
  
@@ -116,11 +122,11 @@ I det här steget använder du Azure Portal för att skapa en Azure-datafabrik m
 | :---- | :---- |
 | [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) | Den här artikeln innehåller detaljerad information om kopieringsaktiviteten som du använde i självstudien. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) | I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
-| [Pipelines](data-factory-create-pipelines.md) | Den här artikeln hjälper dig förstå pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
+| [Pipelines](data-factory-create-pipelines.md) | I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
 | [Datauppsättningar](data-factory-create-datasets.md) | I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory.
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) | Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

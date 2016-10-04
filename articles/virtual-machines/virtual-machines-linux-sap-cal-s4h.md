@@ -51,7 +51,7 @@ further down how to get it. Afterwards an Azure management certificate needs to 
 In the new Azure portal one finds the item "Subscriptions" on the left side. Click it to show all
 active subscriptions for your user.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.jpg)
+![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.JPG)
 
 Selecting one of the subscriptions and then choosing "Management Certificates" explains that there is
 a new concept using "service principals" for the new Azure Resource Manager model.

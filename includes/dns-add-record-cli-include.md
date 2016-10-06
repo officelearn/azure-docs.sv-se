@@ -39,6 +39,11 @@ I det här exemplet använder vi postuppsättningsnamnet "@" för att skapa MX-p
 
     azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+#### Skapa en PTR-postuppsättning med en post  
+I det här fallet står ”my-arpa-zone.com” för ARPA-zonen som representerar ditt IP-adressintervall.  Varje PTR-post som har angetts i den här zonen motsvarar en IP-adress i IP-intervallet.    
+
+    azure network dns record-set add-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"   
+
 #### Skapa en SRV-postuppsättning med en post
 
 Om du skapar en SRV-post i zonens rot så kan du ange "_service" och "_protocol" i postnamnet. @ behöver inte inkluderas i postnamnet.
@@ -55,6 +60,6 @@ Om du skapar en SRV-post i zonens rot så kan du ange "_service" och "_protocol"
     azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

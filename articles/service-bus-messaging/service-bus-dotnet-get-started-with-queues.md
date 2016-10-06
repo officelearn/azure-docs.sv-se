@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Get started with Service Bus queues | Microsoft Azure"
-    description="How to write a C# console application for Service Bus messaging"
+    pageTitle="Komma igång med Service Bus-köer | Microsoft Azure"
+    description="Så här skriver du ett C#-konsolprogram för meddelandetjänsten i Service Bus"
     services="service-bus-messaging"
     documentationCenter=".net"
     authors="jtaubensee"
@@ -16,67 +16,68 @@
     ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
-# Get started with Service Bus Queues
+
+# Komma igång med Service Bus-köer
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-## What will be accomplished
+## Detta kommer att utföras
 
-In this tutorial, we will complete the following:
+I de här självstudierna kommer vi att gå igenom följande:
 
-1. Create a Service Bus namespace, using the Azure portal.
+1. Skapa ett Service Bus-namnområde med Azure Portal.
 
-2. Create a Service Bus Messaging queue, using the Azure portal.
+2. Skapa en Service Bus-meddelandekö med Azure Portal.
 
-3. Write a console application to send a message.
+3. Skriv ett konsolprogram för att skicka ett meddelande.
 
-4. Write a console application to receive messages.
+4. Skriv ett konsolprogram för att ta emot meddelanden.
 
-## Prerequisites
+## Krav
 
-1. [Visual Studio 2013 or Visual Studio 2015](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
+1. [Visual Studio 2013 eller Visual Studio 2015](http://www.visualstudio.com). Exemplen i de här självstudierna använder Visual Studio 2015.
 
-2. An Azure subscription.
+2. En Azure-prenumeration.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Create a namespace using the Azure portal
+## 1. Skapa ett namnområde med Azure Portal
 
-If you already have a Service Bus namespace created, jump to the [Create a queue using the Azure portal](#2-create-a-queue-using-the-azure-portal) section.
+Om du redan har skapat ett Service Bus-namnområde går du vidare till avsnittet [Skapa en kö med hjälp av Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2. Create a queue using the Azure portal
+## 2. Skapa en kö med hjälp av Azure Portal
 
-If you already have a Service Bus queue created, jump to the [Send messages to the queue](#3-send-messages-to-the-queue) section.
+Om du redan har skapat en Service Bus-kö går du vidare till avsnittet [Skicka meddelanden till kön](#3-send-messages-to-the-queue).
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## 3. Send messages to the queue
+## 3. Skicka meddelanden till kön
 
-To send messages to the queue, we will write a C# console application using Visual Studio.
+Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visual Studio.
 
-### Create a console application
+### Skapa ett konsolprogram
 
-1. Launch Visual Studio and create a new Console application.
+1. Starta Visual Studio och skapa ett konsolprogram.
 
-### Add the Service Bus NuGet package
+### Lägga till Service Bus-NuGet-paketet
 
-1. Right-click the newly created project and select **Manage NuGet Packages**.
+1. Högerklicka på det nyskapade projektet och välj **Hantera Nuget-paket**.
 
-2. Click the **Browse** tab, then search for “Microsoft Azure Service Bus” and select the **Microsoft Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog box.
+2. Klicka på fliken **Bläddra** och sök sedan efter ”Microsoft Azure Service Bus” och markera posten **Microsoft Azure Service Bus**. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
 
-    ![Select a NuGet package][nuget-pkg]
+    ![Välj ett NuGet-paket][nuget-pkg]
 
-### Write some code to send a message to the queue
+### Skriva kod för att skicka ett meddelande till kön
 
-1. Add the following using statement to the top of the Program.cs file.
+1. Lägg till följande användningsinstruktion högst upp i filen Program.cs.
 
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
     
-2. Add the following code to the `Main` method, set the **connectionString** variable as the connection string that was obtained when creating the namespace, and set **queueName** as the queue name that used when creating the queue.
+2. Lägg till följande kod till `Main`-metoden, ange **connectionString**-variabeln som den anslutningssträng som erhölls när namnområdet skapades och ange **queueName** som det könamn som användes när kön skapades.
 
     ```
     var connectionString = "<Your connection string>";
@@ -87,7 +88,7 @@ To send messages to the queue, we will write a C# console application using Visu
     client.Send(message);
     ```
 
-    Here is what your Program.cs should look like.
+    Så här bör din Program.cs se ut.
 
     ```
     using System;
@@ -111,21 +112,21 @@ To send messages to the queue, we will write a C# console application using Visu
     }
     ```
   
-3. Run the program, and check the Azure portal. Click the name of your queue in the namespace **Overview** blade. Notice that the **Active message count** value should now be 1.
+3. Kör programmet och kontrollera Azure Portal. Klicka på namnet på din kö i namnområdet på bladet **Översikt**. Observera att värdet för **Antal aktiva meddelanden** nu bör vara 1.
     
-      ![Message count][queue-message]
+      ![Antal meddelanden][queue-message]
     
-## 4. Receive messages from the queue
+## 4. Ta emot meddelanden från kön
 
-1. Create a new console application and add a reference to the Service Bus NuGet package, similar to the previous sending application.
+1. Skapa ett nytt konsolprogram och lägg till en referens till Service Bus NuGet-paketet, liknande det tidigare sändningsprogrammet.
 
-2. Add the following `using` statement to the top of the Program.cs file.
+2. Lägg till följande `using`-instruktion högst upp i filen Program.cs.
   
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
   
-3. Add the following code to the `Main` method, set the **connectionString** variable as the connection string that was obtained when creating the namespace, and set **queueName** as the queue name that you used when creating the queue.
+3. Lägg till följande kod till `Main`-metoden, ange **connectionString**-variabeln som den anslutningssträng som erhölls när namnområdet skapades och ange **queueName** som det könamn som användes när kön skapades.
 
     ```
     var connectionString = "";
@@ -142,7 +143,7 @@ To send messages to the queue, we will write a C# console application using Visu
     Console.ReadLine();
     ```
 
-	Here is what your Program.cs file should look like:
+    Så här bör din Program.cs-fil se ut:
 
     ```
     using System;
@@ -171,15 +172,15 @@ To send messages to the queue, we will write a C# console application using Visu
     }
     ```
   
-4. Run the program, and check the portal. Notice that the **Queue Length** value should now be 0.
+4. Kör programmet och kontrollera portalen. Observera att värdet för **Kölängd** nu bör vara 0.
 
-    ![Queue length][queue-message-receive]
+    ![Kölängd][queue-message-receive]
   
-Congratulations! You have now created a queue, sent a message, and received a message.
+Grattis! Nu har du skapat en kö, skickat ett meddelande och tagit emot ett meddelande.
 
-## Next steps
+## Nästa steg
 
-Check out our [GitHub repository with samples](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) that demonstrate some of the more advanced features of Azure Service Bus messaging.
+Kolla in våra [GitHub-databaser med exempel](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) som visar några av de mer avancerade funktionerna i meddelandetjänsten i Azure Service Bus.
 
 <!--Image references-->
 
@@ -191,3 +192,8 @@ Check out our [GitHub repository with samples](https://github.com/Azure-Samples/
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+
+
+<!--HONumber=Sep16_HO4-->
+
+

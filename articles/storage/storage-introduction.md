@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/21/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="vamshik;tamram"/>
+
 
 # Introduktion till Microsoft Azure Storage
 
@@ -128,18 +129,18 @@ En konto-SAS delegerar åtkomst till resurser i en eller flera av lagringstjäns
 
 Slutligen kan du även ange att en behållare och dess blobbar, eller en specifik blobb, ska vara offentligt tillgängliga. När du anger att en behållare eller blobb är offentlig kan alla läsa den anonymt; ingen autentisering krävs.  Offentliga behållare och blobbar är användbara för att exponera resurser, till exempel media och dokument som finns på webbplatser.  Du kan minska nätverksfördröjningen för en global publik genom att cachelagra blobbdata som används av webbplatser med hjälp av Azure CDN.
 
-Mer information om signaturer för delad åtkomst finns i [Signaturer för delade åtkomst: Förstå SAS-modellen](storage-dotnet-shared-access-signature-part-1.md). Mer information om säker åtkomst till ditt lagringskonto finns i [Hantera anonym läsbehörighet till behållare och blobbar](storage-manage-access-to-resources.md) och [Autentisering för Azure Storage-tjänster](https://msdn.microsoft.com/library/azure/dd179428.aspx).
+Mer information om signaturer för delad åtkomst finns i [Använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md). Mer information om säker åtkomst till ditt lagringskonto finns i [Hantera anonym läsbehörighet till behållare och blobbar](storage-manage-access-to-resources.md) och [Autentisering för Azure Storage-tjänster](https://msdn.microsoft.com/library/azure/dd179428.aspx).
 
 ## Replikering för hållbarhet och hög tillgänglighet
 
-Data i ditt Microsoft Azure Storage-konto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet, och uppfyller [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage/) även i händelse av tillfälliga maskinvarufel. 
+Data i ditt Microsoft Azure Storage-konto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet, och uppfyller [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage/) även i händelse av tillfälliga maskinvarufel.
 
 Mer information om vilka tjänster som är tillgängliga i varje region finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
 När du skapar ett lagringskonto måste du välja något av följande replikeringsalternativ:  
 
 - **Lokalt redundant lagring (LRS).** Med lokalt redundant lagring underhålls tre kopior av dina data. LRS replikeras tre gånger på en anläggning i en region. LRS skyddar dina data mot normala maskinvarufel, men inte mot fel på en enskild anläggning.  
-  
+
     LRS erbjuds med rabatt. För maximal hållbarhet rekommenderar vi att du använder geo-redundant lagring, som beskrivs nedan.
 
 
@@ -148,8 +149,8 @@ När du skapar ett lagringskonto måste du välja något av följande replikerin
     ZRS ger en högre nivå av hållbarhet än LRS. För maximal hållbarhet rekommenderar vi dock att du använder geo-redundant lagring, som beskrivs nedan.  
 
     > [AZURE.NOTE] ZRS är för närvarande endast tillgängligt för blockblobbar, och stöds endast för version 2014-02-14 och senare.
-    > 
-    > När du har skapat ditt lagringskonto och valt ZRS kan du inte konvertera det för att använda en annan typ av replikering eller tvärtom. 
+    >
+    > När du har skapat ditt lagringskonto och valt ZRS kan du inte konvertera det för att använda en annan typ av replikering eller tvärtom.
 
 - **Geo-redundant lagring (GRS)**. Med GRS underhålls sex kopior av dina data. Med GRS replikeras dina data tre gånger i den primära regionen och dessutom tre gånger i en sekundär region hundratals mil bort från den primära regionen, vilket ger den högsta nivån av hållbarhet. Om det uppstår ett fel i den primära regionen kommer Azure Storage att redundansväxla till den sekundära regionen. GRS garanterar att dina data skyddas i två olika områden.
 
@@ -158,7 +159,7 @@ När du skapar ett lagringskonto måste du välja något av följande replikerin
 - **Geo-redundant lagring med läsbehörighet (RA-GRS)**. Geo-redundant lagring med läsbehörighet är aktiverat för ditt lagringskonto som standard när du skapar det. Geo-redundant lagring med läsbehörighet replikerar data till en sekundär geografisk plats och ger även läsåtkomst till dina data på den sekundära platsen. Med geo-redundant lagring med läsbehörighet kan du komma åt dina data från antingen den primära eller sekundära platsen om en av platserna skulle bli otillgänglig.
 
     > [AZURE.IMPORTANT] Du kan ändra hur dina data replikeras när ditt lagringskonto har skapats, såvida du inte valde ZRS när du skapade kontot. Observera dock att det kan utgå ytterligare engångskostnader för dataöverföring om du växlar från LRS till GRS eller RA-GRS.
- 
+
 Mer information om lagringsreplikeringsalternativ finns i [Azure Storage-replikering](storage-redundancy.md).
 
 Information om priser för replikering av lagringskonton finns i [Priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
@@ -269,6 +270,6 @@ Utforska gärna dessa resurser om du vill veta mer om Azure Storage:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

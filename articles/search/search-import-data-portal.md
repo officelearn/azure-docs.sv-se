@@ -35,7 +35,7 @@ Du kan testa det här arbetsflödet med exempeldata i DocumentDB. Om du behöver
 
 ## Datakällor som stöds av guiden Importera data
 
-Indexering av automation och verktyg är tillgängligt för följande datakällor: 
+Guiden Importera Data stöder följande datakällor: 
 
 - Azure SQL Database
 - SQL Server-relationsdata på en virtuell Azure-dator
@@ -123,6 +123,6 @@ Använd dessa länkar om du vill veta mer om indexerare:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

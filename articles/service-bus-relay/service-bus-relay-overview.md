@@ -1,39 +1,45 @@
 <properties
-	pageTitle="Service Bus relay overview | Microsoft Azure"
-	description="Overview of Service Bus relay."
-	services="service-bus-relay"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Översikt över Service Bus Relay | Microsoft Azure"
+    description="Översikt över Service Bus-vidarebefordran"
+    services="service-bus-relay"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-relay"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.date="09/01/2016"
-	ms.author="sethm"/>
+    ms.service="service-bus-relay"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.date="09/01/2016"
+    ms.author="sethm"/>
 
 
-# Overview of Service Bus relay
 
-A major component of Service Bus is a centralized (but highly load-balanced) *relay* service that enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment.  The Service Bus relay supports a variety of different transport protocols and web services standards. This includes SOAP, WS-*, and even REST. The relay service facilitates your hybrid applications by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure. 
+# Översikt över Service Bus Relay
 
-![Relay Concepts](./media/service-bus-relay-overview/sb-relay-01.png)
+En central komponent i Service Bus är en centraliserad (men med hög belastningsutjämning) tjänst för *vidarebefordran* som gör att du kan skapa hybridprogram som körs i både ett Azure-datacenter och i din egen lokala företagsmiljö.  Service Bus Relay stöder en mängd olika transportprotokoll och webbtjänststandarder. Detta inkluderar SOAP, WS-*, och även REST. Tjänsten underlättar för dina hybridprogram genom att på ett säkert sätt exponera tjänster för Windows Communication Foundation (WCF) i ett företagsnätverk mot det offentliga molnet, utan att behöva öppna en brandväggsanslutning eller kräva störande ändringar i företagets nätverksinfrastruktur. 
 
-The relay service supports traditional one-way messaging, request/response messaging, and peer-to-peer messaging. It also supports event distribution at internet-scope to enable publish/subscribe scenarios and bi-directional socket communication for increased point-to-point efficiency. 
+![Relay-begrepp](./media/service-bus-relay-overview/sb-relay-01.png)
 
-In the relayed messaging pattern, an on-premises service connects to the relay service through an outbound port and creates a bi-directional socket for communication tied to a particular rendezvous address. The client can then communicate with the on-premises service by sending messages to the relay service targeting the rendezvous address. The relay service will then "relay" messages to the on-premises service through the bi-directional socket already in place. The client does not need a direct connection to the on-premises service, it is not required to know where the service resides, and the on-premises service does not need any inbound ports open on the firewall.
+Den vidarebefordrande tjänsten stöder traditionella envägsmeddelanden, fråga-och-svar-meddelanden och peer-to-peer-meddelanden. Den stöder även händelsedistribution på Internet-skala för att möjliggöra publicerings- och prenumerationsscenarier och dubbelriktad socketkommunikation för ökad effektivitet punkt till punkt. 
 
-You initiate the connection between your on-premise service and the relay service using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud. 
+I mönstret vidarebefordrande meddelandetjänster ansluter en lokal tjänst till den vidarebefordrande tjänsten via en utgående port och skapar en dubbelriktad socket för kommunikation som är kopplad till en viss rendezvous-adress. Klienten kan sedan kommunicera med den lokala tjänsten genom att skicka meddelanden till den vidarebefordrande tjänsten med rendezvous-adressen som mål. Den vidarebefordrande tjänsten kommer sedan att ”vidarebefordra” meddelanden till den lokala tjänsten via den dubbelriktade socketen som redan är upprättad. Klienten behöver ingen direkt anslutning till den lokala tjänsten och behöver inte heller veta var den finns. Den lokala tjänsten behöver inte ha några öppna ingående portar i brandväggen.
 
-## Next steps
+Du upprättar anslutningen mellan din lokala tjänst och den vidarebefordrande tjänsten med hjälp av en uppsättning ”vidarebefordrande” WCF-bindningar. I bakgrunden mappas vidarebefordringsbindningarna till nya transportbindningselement som är utformade för att skapa WCF-kanalkomponenter som integreras med Service Bus i molnet. 
 
-For details about the Service Bus relay, see the following topics.
+## Nästa steg
 
-- [Azure Service Bus Architectural Overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [How to use the Service Bus Relay service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+Mer information om Service Bus-vidarebefordran finns i följande avsnitt.
+
+- [Översikt över arkitekturen i Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Så här använder du tjänsten Service Bus Relay](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 
  
+
+
+<!--HONumber=Sep16_HO4-->
+
+

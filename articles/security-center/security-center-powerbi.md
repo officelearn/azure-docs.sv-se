@@ -118,6 +118,6 @@ I det här avsnittet har du fått lära dig hur du använder Power BI i Azure Se
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

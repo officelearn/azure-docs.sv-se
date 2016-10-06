@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Skapa en plan i Azure Stack | Microsoft Azure"
-    description="Som tjänstadministratör skapar du en plan som låter prenumeranter etablera virtuella datorer."
+    pageTitle="Create a plan in Azure Stack | Microsoft Azure"
+    description="As a service administrator, create a plan that lets subscribers provision virtual machines."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,68 +13,74 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Skapa en plan i Azure Stack
+# Create a plan in Azure Stack
 
-[Planer](azure-stack-key-features.md#services-plans-offers-and-subscriptions) är grupperingar av en eller flera tjänster. Som provider kan du skapa planer som du erbjuder dina klienter. Dina klienter prenumererar i sin tur på dina erbjudanden för att använda de planer och tjänster som ingår i dem. I det här exemplet ska du skapa en plan som innehåller beräknings-, nätverks- och lagringsresursproviders. Genom att göra det ger du dina prenumeranter möjlighet att etablera virtuella datorer.
+[Plans](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
 
-1.  Gå till https://portal.azurestack.local i en webbläsare.
+1.  In an internet browser, navigate to https://portal.azurestack.local.
 
-2.  [Logga in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) på Azure Stack-portalen som tjänstadministratör och ange dina autentiseringsuppgifter för tjänsten (det här är det konto som du skapade i steg 5 i avsnittet [Köra PowerShell-skriptet](azure-stack-run-powershell-script.md)) och klicka sedan på **Logga in**.
+2.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the Azure Stack Portal as a service administrator and enter your service administrator credentials (the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section), and then click **Sign in**.
 
-    Tjänstadministratörer kan skapa erbjudanden och planer och hantera användare.
+    Service administrators can create offers and plans, and manage users.
 
-3.  Om du vill skapa en plan och ett erbjudande som klienter kan prenumerera på börjar du med att klicka på **Nytt**.
+3.  To create a plan and offer that tenants can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
 
-    ![](media/azure-stack-create-plan/image1.png)
+    ![](media/azure-stack-create-plan/image01.png)
 
-4.  Klicka på **Tenant Offers and Plans** (Erbjudanden och planer för klienter) på bladet Skapa och klicka sedan på **Plan**.
+4.  In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that tenants see. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
 
-    ![](media/azure-stack-create-plan/image2.png)
+    ![](media/azure-stack-create-plan/image02.png)
 
-5.  Fyll i **Visningsnamn** och **Resursnamn**. Visningsnamnet är det egna namnet för planen. Endast administratören kan se resursnamnet. Det är det namn som administratörer använder för att arbeta med planen som en Azure Resource Manager-resurs.
+5.  Create a new **Resource Group**, or select an existing one, as a container for the plan (e.g. "OffersAndPlans")
 
-    ![](media/azure-stack-create-plan/image3.png)
+    ![](media/azure-stack-create-plan/image02a.png)
 
-6.  Välj eller skapa en ny **resursgrupp** som en behållare för planen. Som standard läggs alla planer och erbjudanden till i en resursgrupp med namnet OffersAndPlans.
+6.  Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
 
-7.  Klicka på **Tjänster som erbjuds**, använd Skift-tangenten om du vill markera alla tre providers (**beräkningsprovidern**, **lagringsprovidern** och **nätverksprovidern**) och klicka sedan på **Välj**.
+    ![](media/azure-stack-create-plan/image03.png)
 
-    ![](media/azure-stack-create-plan/image4.png)
+7.  Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-8.  Klicka på **Microsoft.Compute** och sedan på **Needs Configuration** (Kräver konfiguration).
+    ![](media/azure-stack-create-plan/image04.png)
 
-    ![](media/azure-stack-create-plan/image5.png)
+8.  Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
-9.  På bladet **Set Quotas** (Ange kvoter) godkänner du standardvärdena, klickar på **OK** och sedan på **OK** igen.
+    ![](media/azure-stack-create-plan/image06.png)
 
-    ![](media/azure-stack-create-plan/image6.png)
+9. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-10. Klicka på **Microsoft.Network** och sedan på **Needs Configuration** (Kräver konfiguration).
+    ![](media/azure-stack-create-plan/image07.png)
 
-    ![](media/azure-stack-create-plan/image7.png)
+10. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
-11. Markera alla kryssrutor på bladet **Set Quotas** (Ange kvoter), klicka på **OK** och sedan på **OK** igen.
+    ![](media/azure-stack-create-plan/image08.png)
 
-    ![](media/azure-stack-create-plan/image8.png)
+11. Click **Microsoft.Compute (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-12. Klicka på **Microsoft.Storage**, klicka på **Needs Configuration** (Kräver konfiguration), acceptera standardvärdena på bladet **Set Quotas** (Ange kvoter), klicka på **OK**, klicka på **OK** igen och klicka sedan på **Create** (Skapa) för att skapa planen.
+    ![](media/azure-stack-create-plan/image09.png)
 
-    ![](media/azure-stack-create-plan/image9.png)
-
-13. Nu kan planen tas med i ett erbjudande. Visa aviseringar genom att klicka på klockan längst upp till höger.
+12.  Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
     ![](media/azure-stack-create-plan/image10.png)
 
-## Nästa steg
+13. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
 
-[Skapa ett erbjudande](azure-stack-create-offer.md)
+    ![](media/azure-stack-create-plan/image11.png)
+
+14. To see your new plan, click **All resources**, then search for the plan and click its name.
+
+    ![](media/azure-stack-create-plan/image12.png)
+
+## Next steps
+
+[Create an offer](azure-stack-create-offer.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -57,6 +57,6 @@ Välj .NET eller REST API för att genom programmering ansluta till Azure Media 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

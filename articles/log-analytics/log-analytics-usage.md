@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Analysera dataanvändning i Log Analytics| Microsoft Azure"
-    description="Du kan använda Användningssidan i Log Analytics för att se hur mycket data som skickas till OMS-tjänsten."
+    pageTitle="Analyze data usage in Log Analytics | Microsoft Azure"
+    description="You can use the Usage page in Log Analytics to view how much data is being sent to the OMS service."
     services="log-analytics"
     documentationCenter=""
     authors="bandersmsft"
@@ -17,54 +17,54 @@
     ms.author="banders"/>
 
 
-# Analysera dataanvändning i Log Analytics
+# Analyze data usage in Log Analytics
 
-Log Analytics i Operations Management Suite (OMS) samlar in data och skickar det regelbundet till OMS-tjänsten.  Du kan använda sidan **Användning** för att se hur mycket data som skickas till OMS-tjänsten. Sidan **Användning** visar även hur mycket data som skickas varje dag av lösningar och hur ofta dina servrarna skickar data.
+Log Analytics in the Operations Management Suite (OMS) collects data and sends it to the OMS service periodically.  You can use the **Usage** page to view how much data is being sent to the OMS service. The **Usage** page also shows you how much data is being sent daily by solutions and how often your servers are sending data.
 
->[AZURE.NOTE] Om du har ett kostnadsfritt konto som har skapats med [OMS-webbplatsen](http://www.microsoft.com/oms) är du begränsad till att skicka 500 MB data till OMS-tjänsten dagligen. Om du når den dagliga begränsningen stoppar dataanalysen och återupptas i början av nästa dag. Du måste också skicka alla data som inte godkänns eller bearbetas av OMS.
+>[AZURE.NOTE] If you have a free account created using the [OMS website](http://www.microsoft.com/oms), you're limited to sending 500 MB of data to the OMS service daily. If you reach the daily limit, data analysis will stop and resume at the start of the next day. You'll also need to resend any data that wasn't accepted or processed by OMS.
 
-Du kan visa din användning med hjälp av ikonen **Användning** på instrumentpanelen **Översikt** i OMS.
+You can view your usage by using the **Usage** tile on the **Overview** dashboard in OMS.
 
-![användningsikon](./media/log-analytics-usage/usage-tile.png)
+![usage tile](./media/log-analytics-usage/usage-tile.png)
 
-Om du har överskridit den dagliga användningsbegränsningen eller om du ligger nära gränsen kan du ta bort en lösning för att reducera den mängd data som du skickar till OMS-tjänsten. Mer information om att ta bort lösningar finns i [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+If you have exceeded your daily usage limit, or if you are near your limit, you can optionally remove a solution to reduce the amount of data that you send to the OMS service. For more information about removing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
-![instrumentpanelen användning](./media/log-analytics-usage/usage-dashboard.png)
+![usage dashboard](./media/log-analytics-usage/usage-dashboard.png)
 
-På sidan **Användning** visas följande information:
+The **Usage** page displays the following information:
 
-- Genomsnittlig användning per dag
-- Dataanvändning för varje lösningen under de senaste 30 dagarna
-- Hur mycket dataservrarna i din miljö har skickat till OMS-tjänsten under de senaste 30 dagarna
-- Dina dataplans prisnivå och uppskattade kostnad
-- Information om dina servicenivåavtal (SLA), inklusive hur lång tid det tar för OMS att bearbeta dina data
+- Average usage per day
+- Data usage for each solution over the last 30 days
+- How much data the servers in your environment are sending to the OMS service over the last 30 days
+- Your data plan pricing tier and estimated cost
+- Information about your service level agreement (SLA), including how long it takes OMS to process your data
 
-## Att arbeta med användningsdata
+## To work with usage data
 
-1. På sidan **Översikt** klickar du på ikonen **Användning**.
-2. På sidan **Användning** visas användningskategorier som visar områden du bryr dig om.
-3. Om du har en lösning som förbrukar alltför mycket av din dagliga överföringskvot kan du ta bort lösningen.
+1. On the **Overview** page, click the **Usage** tile.
+2. On the **Usage** page, view the usage categories that show areas you’re concerned about.
+3. If you have a solution that is consuming too much of your daily upload quota, you might consider removing that solution.
 
-## Visa dina beräknade kostnad och faktureringsinformation
-1. På sidan **Översikt** klickar du på ikonen **Användning**.
-2. På sidan **Användning** under **Användning** klickar du på sparren (**>**) bredvid **Uppskattad kostnad**.
-3. I den utökade informationen**Din dataplan** kan du se din uppskattade månadskostnad.  
-    ![Din dataplan](./media/log-analytics-usage/usage-data-plan.png)
-4. Om du vill se din faktureringsinformation klickar du på **Visa min faktura** för att visa prenumerationsinformation.
-    - På prenumerationssidan klickar du på din prenumeration för att visa information och en radartikellista över användning.  
-        ![prenumeration](./media/log-analytics-usage/usage-sub01.png)
-    - På sidan Sammanfattning för din prenumeration kan du utföra en mängd åtgärder för att hantera och visa mer information om ditt abonnemang.  
-        ![prenumerationsinformation](./media/log-analytics-usage/usage-sub02.png)
+## To view your estimated cost and billing information
+1. On the **Overview** page, click the **Usage** tile.
+2. On the **Usage** page under **Usage**, click the chevron (**>**) next to **Estimated cost**.
+3. In the expanded **Your data plan** details, you can see your estimated monthly cost.  
+    ![Your data plan](./media/log-analytics-usage/usage-data-plan.png)
+4. If you want to view your billing information, click **View my bill** to view your subscription information.
+    - On the subscriptions page, click your subscription to view details and a line-item list of usage.  
+        ![subscription](./media/log-analytics-usage/usage-sub01.png)
+    - On the Summary page for your subscription, you can perform a variety of tasks to manage and view more details about your subscription.  
+        ![subscription details](./media/log-analytics-usage/usage-sub02.png)
 
-## Visa databatchar för ditt SLA
-1. På sidan **Översikt** klickar du på ikonen **Användning**.
-2. Under **Servicenivåavtal** klickar du på **Hämta SLA-information**.
-3. En Excel-XLSX-fil hämtas för granskning.  
-    ![SLA-information](./media/log-analytics-usage/usage-sla-details.png)
+## To view data batches for your SLA
+1. On the **Overview** page, click the **Usage** tile.
+2. Under **Service Level Agreement**, click **Download SLA details**.
+3. An Excel XLSX file is downloaded for you to review.  
+    ![SLA details](./media/log-analytics-usage/usage-sla-details.png)
 
-## Nästa steg
+## Next steps
 
-- Bekanta dig med [Loggsökningar i Log Analytics](log-analytics-log-searches.md) för att visa detaljerad information som samlas in av olika lösningar.
+- See [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed information gathered by solutions.
 
 
 

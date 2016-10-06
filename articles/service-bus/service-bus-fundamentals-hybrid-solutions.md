@@ -111,9 +111,9 @@ Att ansluta program har alltid varit en del av arbetet när man skapar kompletta
 
 Nu när du har lärt dig grunderna om Azure Service Bus, kan du följa dessa länkar om du vill veta mer.
 
-- Använda [Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
-- Använda [Service Bus-ämnen](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- Använda [Service Bus-reläer](service-bus-dotnet-how-to-use-relay.md)
+- Använda [Service Bus-köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+- Använda [Service Bus-ämnen](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Använda [Service Bus-reläer](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 - [Service Bus-exempel](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -123,6 +123,6 @@ Nu när du har lärt dig grunderna om Azure Service Bus, kan du följa dessa lä
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

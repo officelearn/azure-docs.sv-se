@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="09/27/2016"
    ms.author="cherylmc"/>
 
 
@@ -26,12 +26,12 @@
 
 Med en P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning från en enskild klientdator till ett virtuellt nätverk. En P2S-anslutning är användbar när du vill ansluta till ditt VNet från en annan plats, t.ex. hemifrån eller från en konferens, eller när du bara har ett fåtal klienter som behöver kunna ansluta till ett virtuellt nätverk.
 
-Den här artikeln beskriver steg för steg hur du skapar ett VNet med en punkt-till-plats-anslutning med **den klassiska distributionsmodellen** på den **klassiska portalen**. För närvarande kan du inte skapa den här slutpunkt-till-slutpunkt-konfigurationen på Azure-portalen för den klassiska distributionsmodellen. Du kan utföra vissa steg i Azure Portal, men PowerShell krävs ändå för nedladdning av VPN-klientkonfiguration.
+Den här artikeln beskriver steg för steg hur du skapar ett VNet med en punkt-till-plats-anslutning med **den klassiska distributionsmodellen** på den **klassiska portalen**.
 
 Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress för att fungera. VPN-anslutningen upprättas genom att du startar anslutningen från klientdatorn. Mer information om punkt-till-plats-anslutningar finns i [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md#point-to-site-connections) och [Planering och design](vpn-gateway-plan-design.md).
 
 
-**Distributionsmodeller och verktyg för punkt-till-plats-anslutningar**
+### Distributionsmodeller och metoder för P2S-anslutningar
 
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
@@ -196,6 +196,6 @@ Mer information om virtuella nätverk finns på sidan [Dokumentation för virtue
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

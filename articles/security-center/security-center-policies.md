@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 
@@ -65,7 +65,7 @@ Det går att ställa in särskilda säkerhetsprinciper för varje prenumeration 
 
 9. På bladet **Säkerhetsprincip** klickar du på **På** för de säkerhetsrekommendationer du vill aktivera för aktuell prenumeration. Klicka på **Skyddsprincip** för att se alternativ som de som finns i följande skärmbild:
 
-    ![Val av säkerhetsprinciper](./media/security-center-policies/security-center-policies-fig4-ga.png)
+    ![Val av säkerhetsprinciper](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 Använd följande tabell som referens för vad de olika alternativen innebär:
 
@@ -78,8 +78,9 @@ Använd följande tabell som referens för vad de olika alternativen innebär:
 | Nätverkssäkerhetsgrupper | Rekommenderar att [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) ska konfigureras för kontroll av inkommande och utgående trafik till virtuella datorer med offentliga slutpunkter. Nätverkssäkerhetsgrupper som konfigureras för ett undernät ärvs av alla virtuella datorers nätverksgränssnitt om inget annat anges. Den här principen innebär, förutom kontroll av om nätverkssäkerhetsgrupp har konfigurerats, även att inkommande säkerhetsregler kontrolleras för att se om det finns några regler som tillåter inkommande trafik. |
 | Brandvägg för webbaserade program | Rekommenderar att en brandvägg för webbaserade program etableras på virtuella datorer när något av följande stämmer:</br></br>[Offentlig IP på instansnivå](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) används och de inkommande säkerhetsreglerna för den associerade nätverkssäkerhetsgruppen är konfigurerad för att tillåta åtkomst till port 80/443.</br></br>Belastningsutjämnad IP-adress används och associerad nätverksbelastning och inkommande NAT-regler (Network Address Translation) är konfigurerade för att tillåta åtkomst till port 80/443. (Mer information finns i [Azure Resource Manager-stöd för Load Balancer](../load-balancer/load-balancer-arm.md). |
 | Nästa generations brandvägg | Nätverksskyddet utökas utöver nätverkssäkerhetsgrupperna, som är inbyggda i Azure. Distributioner som nästa generations brandvägg rekommenderas för upptäcks av Security Center och du kan göra en virtuell installation. |
-| SQL-granskning | Rekommenderar att granskning av åtkomst till Azures Database aktiveras för lag- och regelefterlevnad, avancerad identifiering och undersökning. |
+| SQL-granskning och hotidentifiering | Rekommenderar att granskning av åtkomst till Azure-databasen aktiveras för lag- och regelefterlevnad, avancerad hotidentifiering och undersökning. |
 | SQL transparent datakryptering | Rekommenderar att kryptering i vila ska aktiveras för Azure SQL Database, tillhörande säkerhetskopior och transaktionsloggfiler. Även om intrång i datan sker, går den inte att läsa. |
+| Sårbarhetsbedömning | Rekommenderar att du installerar en lösning för sårbarhetsbedömning på den virtuella datorn. |
 
 När du har ställt in alla alternativ klickar du på **OK** i bladet **Säkerhetsprincip** med rekommendationerna och sedan på **Spara** i bladet **Säkerhetsprincip** med grundinställningarna.
 
@@ -109,6 +110,6 @@ I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i A
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

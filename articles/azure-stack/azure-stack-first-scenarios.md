@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Viktiga uppgifter i Azure Stack POC | Microsoft Azure"
-    description="Lär dig hur du skapar en plan och ett erbjudande. Prenumerera sedan på erbjudandet och använd de erbjudna tjänsterna för att skapa en virtuell dator."
+    pageTitle="Azure Stack POC key tasks | Microsoft Azure"
+    description="Learn how to create a plan and offer and then subscribe to that offer and use the services provided to create a virtual machine."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -17,30 +17,20 @@
     ms.author="erikje"/>
 
 
-# De första uppgifterna i Azure Stack POC
+# Azure Stack POC first tasks
 
-De primära objekten i Azure Stack – [planer, erbjudanden och prenumerationer](azure-stack-key-features.md#services-plans-offers-and-subscriptions) – tillhandahåller IaaS-tjänster som virtuella datorer och webbplatser till  klienter. Det är dessa tjänster som ger klienterna värde.
+Now that you've [deployed](azure-stack-deploy.md) and [logged in](azure-stack-connect-azure-stack.md) to Azure Stack POC, you can create some resources.
 
-Nu när du har [distribuerat](azure-stack-deploy.md) och [loggat in](azure-stack-connect-azure-stack.md) på Azure Stack POC ska du utföra följande steg.
+1.  [Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md).
 
-Logga [först in som tjänstadministratör](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) och:
+2.  [Create a storage account](azure-stack-provision-storage-account.md).
 
-1.  [Skapa en plan](azure-stack-create-plan.md) för att tillhandahålla tjänster för beräkning, nätverk och lagring.
+## Next steps
 
-2.  [Skapa ett erbjudande](azure-stack-create-offer.md) som innehåller planen.
-
-Sedan [loggar du in som klient](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) och:
-
-1.  [Prenumererar på erbjudandet](azure-stack-subscribe-plan-provision-vm.md) och får åtkomst till erbjudandets planer.
-
-2.  [Använder tjänsterna](azure-stack-provision-vm.md) som tillhandahålls av erbjudandets plan för att skapa en virtuell dator.
-
-## Nästa steg
-
-[Skapa en plan](azure-stack-create-plan.md)
+[Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

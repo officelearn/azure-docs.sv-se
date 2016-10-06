@@ -32,7 +32,7 @@ Krav och viktiga aspekter relaterade till VNet-peering:
 - De två peer-kopplade virtuella nätverken måste finnas i samma Azure-region.
 - De peer-kopplade virtuella nätverken får inte ha IP-adressintervall som överlappar varandra.
 - VNet-peering sker mellan två virtuella nätverk, och det finns ingen härledd transitiv relation. Om det virtuella nätverket A exempelvis peer-kopplas med det virtuella nätverket B, och om det virtuella nätverket B peer-kopplas med det virtuella nätverket C, så leder inte detta till att det virtuella nätverket A peer-kopplas till det virtuella nätverket C.
-- Peering kan upprättas mellan virtuella nätverk i två olika prenumerationer så länge en privilegierad användare av båda prenumerationerna tillåter peer-kopplingen.
+- Peering kan upprättas mellan virtuella nätverk i två olika prenumerationer så länge en privilegierad användare av båda prenumerationerna tillåter peer-kopplingen, och prenumerationerna är kopplade till samma Active Directory-klient. 
 - Ett virtuellt nätverk som använder Resource Manager-distributionsmodellen kan peer-kopplas med ett annat virtuellt nätverk som använder den här modellen eller med ett virtuellt nätverk som använder den klassiska distributionsmodellen. Virtuella nätverk som använder den klassiska distributionsmodellen kan dock inte peer-kopplas till varandra.
 - Kommunikationen mellan virtuella datorer i peer-kopplade virtuella nätverk har inga ytterligare bandbreddsbegränsningar. Bandbreddsbegränsningen baseras fortfarande på den virtuella datorns storlek.
 
@@ -91,6 +91,6 @@ VNet-peering är kostnadsfritt under granskningsperioden. När funktionen lanser
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -14,7 +14,8 @@
     ms.devlang="dotnet"
     ms.topic="hero-article"
     ms.date="07/26/2016"
-    ms.author="gusapost"/>
+    ms.author="cbrooks;robinsh"/>
+
 
 # Komma igång med Azure Queue Storage med hjälp av .NET
 
@@ -52,7 +53,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 Lägg till följande `using`-instruktioner överst i `program.cs`-filen:
 
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+    using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
@@ -280,6 +281,6 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar f
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

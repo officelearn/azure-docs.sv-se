@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Prenumerera på ett erbjudande och etablera sedan en virtuell dator i Azure Stack (klient) | Microsoft Azure"
-    description="Lär dig hur du prenumererar på ett erbjudande och sedan etablerar en virtuell dator i Azure Stack som en klient."
+    pageTitle="Provision a VM in Azure Stack (tenant) | Microsoft Azure"
+    description="As a tenant, learn how to provision a VM in Azure Stack."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,40 +13,38 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/01/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Etablera en virtuell dator
+# Provision a virtual machine
 
-Nu när du har skapat en prenumeration testar du att klienterna kan etablera en virtuell dator.
+Now that you've [created a subscription](azure-stack-subscribe-plan-provision-vm.md), test that your tenants can provision a virtual machine.
 
-1.  Klicka på **Nytt**, klicka på **Beräkna** och klicka sedan på **Windows Server-2012 R2-Datacenter**.  
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [an admin](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator), and then click **New** > **Virtual machines** > **WindowsServer-2012-R2-Datacenter**.  
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image5.png)
+    ![](media/azure-stack-provision-vm/image01.png)
 
-2.  På bladet **Grundläggande inställningar** anger du ett **namn**, **användarnamn**, **lösenord** och en **resursgrupp** och klickar sedan på **OK**.  
+2.  In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, chose **HDD**. Choose a **Subscription**. Create a new **Resource group**, or select an existing one, and then click **OK**.  
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image6.png)
+3.  In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
 
-3.  På bladet **Välj en storlek** klickar du på **A1 Basic** (A1, standard) och klickar sedan på **Välj**.  
+4.  In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults and click **OK**. In the **Settings** blade, click **OK** to create the virtual machine.
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image7.png)
+    ![](media/azure-stack-provision-vm/image04.png)
 
-4.  Acceptera alla standardvärden på bladet **Inställningar** och klicka på **OK**.  
+5.  In the **Summary** blade, click **OK** to create the virtual machine.  
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image8.png)
+6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
 
-5.  Klicka **OK** på bladet **Sammanfattning** för att skapa den virtuella datorn.  
+    ![](media/azure-stack-provision-vm/image06.png)
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image9.png)
+## Next steps
 
-## Nästa steg
-
-[Lagringskonton](azure-stack-provision-storage-account.md)
+[Storage accounts](azure-stack-provision-storage-account.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

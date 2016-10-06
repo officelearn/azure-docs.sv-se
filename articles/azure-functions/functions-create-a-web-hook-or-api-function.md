@@ -43,7 +43,7 @@ En funktionsapp är värd för körningen av dina funktioner i Azure. Innan du k
 
     ![Skapa en ny webhook-funktion för GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
 
-4. På fliken **Utveckla** kan du se exempelfunktionen express.js i fönstret **Kod**. Den här funktionen tar emot en GitHub-begäran från en ärendekommentar-webhook, loggar ärendetexten och skickar ett svar till webhooken som `New GitHub comment: <Your issue comment text>`.
+4. På **Utveckla** kan du se exempelfunktionen express.js i fönstret **Kod**. Den här funktionen tar emot en GitHub-begäran från en ärendekommentar-webhook, loggar ärendetexten och skickar ett svar till webhooken som `New GitHub comment: <Your issue comment text>`.
 
 
     ![Skapa en ny webhook-funktion för GitHub](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 
@@ -96,6 +96,6 @@ Beskriver tillgängliga serviceplaner för Azure Functions, inklusive den dynami
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

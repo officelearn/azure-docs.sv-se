@@ -30,7 +30,7 @@ Följ stegen nedan för att skapa en VNet-peering med PowerShell:
 
 1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
 
-        > [AZURE.NOTE] PowerShell-cmdleten för att hantera VNet-peering medföljer [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+> [AZURE.NOTE] PowerShell-cmdleten för att hantera VNet-peering medföljer [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. Läsa virtuella nätverksobjekt:
 
@@ -48,7 +48,8 @@ Följ stegen nedan för att skapa en VNet-peering med PowerShell:
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
-        ProvisioningState       : Succeeded
+        PeeringState        : Initiated
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -70,7 +71,8 @@ Följ stegen nedan för att skapa en VNet-peering med PowerShell:
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet2
-        ProvisioningState       : Succeeded
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
                                         }
@@ -92,7 +94,8 @@ Följ stegen nedan för att skapa en VNet-peering med PowerShell:
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
-        ProvisioningState       : Succeeded
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                              "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -125,6 +128,7 @@ Följ stegen nedan för att skapa en VNet-peering med PowerShell:
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
+        PeeringState        : Connected
         ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
@@ -146,7 +150,7 @@ Följ stegen nedan för att skapa VNet-peering inom prenumerationerna med PowerS
 
         New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet5
 
-    Detta är inget krav, peering kan upprättas även om användarna skickar peering-begäranden individuellt för sina respektive virtuella nätverk, så länge begärandena matchar. Om du lägger en privilegierad användare av det andra virtuella nätverket som användare i det lokala virtuella nätverket blir det lättare att konfigurera inställningen.
+    Detta är inget krav, peering kan upprättas även om användarna individuellt skickar peering-begäranden för sina respektive virtuella nätverk så länge begärandena matchar. Om du lägger en privilegierad användare av det andra virtuella nätverket som användare i det lokala virtuella nätverket blir det lättare att konfigurera inställningen.
 
 2. Logga in till Azure med privilegierad användare B:s konto för prenumeration B och kör följande cmdlet:
 
@@ -237,6 +241,6 @@ Följ stegen nedan om du vill skapa en VNet-peering mellan ett klassiskt virtuel
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

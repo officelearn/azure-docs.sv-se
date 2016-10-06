@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 
@@ -27,7 +27,7 @@ Det finns två huvudområden för rapportering:
 
 - **Inloggningsaktiviteter** – Information om användningen av hanterade program och användares inloggningsaktiviteter
 
-- **Systemaktiviteter** – Granska information om användare och grupphantering, dina hanterade program och katalogaktiviteter
+- **Granskningsloggar** – Granska information om systemaktivitet för användare och grupphantering, dina hanterade program och katalogaktiviteter
 
 Beroende på omfånget för de data som du söker har du åtkomst till dessa rapporter antingen genom att klicka på **Användare och grupper** eller **Företagsprogram** i listan över tjänster i [Azure-portalen](https://portal.azure.com).
 
@@ -120,7 +120,7 @@ Sökmetoden gör att du kan definiera omfattningen av din inloggningar runt spec
 
 ![Rapportering](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Systemaktiviteter
+## Granskningsloggar
 
 Granskningsloggarna i Azure Active Directory ger dokumentation över systemaktiviteter för kontroll av överensstämmelse.
 
@@ -220,6 +220,6 @@ Se guiden [Azure Active Directory Reporting Guide](active-directory-reporting-gu
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

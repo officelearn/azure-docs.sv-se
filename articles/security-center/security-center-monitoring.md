@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
+
 
 #Övervakning av säkerhetshälsa i Azure Security Center
 I det här dokumentet berättar vi hur du använder övervakningsfunktionerna i Azure Security Center för att övervaka att fastställda principer efterlevs.
@@ -29,7 +30,7 @@ Mer information om hur du utför rekommendationerna finns i artikeln om att [utf
 
 I rutan **Resources security health (Resurssäkerhetshälsa)** kan du övervaka dina resursers säkerhetstillstånd. I exemplet nedan kan du se att det finns ett antal problem med hög eller medelhög allvarlighetsgrad som behöver åtgärdas. Vilka säkerhetsprinciper som är aktiverade påverkar vad det är som övervakas.
 
-![Resursernas hälsa](./media/security-center-monitoring/security-center-monitoring-fig1-ga.png)
+![Resursernas hälsa](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
 Om en säkerhetsrisk som måste åtgärdas upptäcks, till exempel en virtuell dator där det saknas säkerhetsuppdateringar eller ett undernät som inte har någon [nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md), ser du det här.
 
@@ -51,7 +52,7 @@ I den här delen visas hur många virtuella datorer som initierats för datainsa
 
 
 ####Rekommendationer för virtuella datorer
-I den här delen finns ett antal rekommendationer för de virtuella datorer som övervakas via Azure Security Center. I första kolumnen visas rekommendationerna, i den andra antalet virtuella datorer som påverkas av aktuell rekommendation, och i den tredje visas problemets allvarlighetsgrad som på bilden nedan.
+I den här delen finns ett antal [rekommendationer för de virtuella datorer](security-center-virtual-machine-recommendations.md) som övervakas via Azure Security Center. I första kolumnen visas rekommendationerna, i den andra antalet virtuella datorer som påverkas av aktuell rekommendation, och i den tredje visas problemets allvarlighetsgrad som på bilden nedan.
 
 ![Rekommendationer för virtuella datorer](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
 
@@ -116,7 +117,7 @@ Om du klickar på **Networking (Nätverk)** i rutan **Resources security health 
 
 Liksom med resurshälsoinformationen för virtuella datorer visas på det här bladet en sammanfattande lista längst upp och en lista med övervakade nätverk längst ned.
 
-I listan med detaljerad status för nätverk visas potentiella säkerhetsproblem och rekommendationer. Följande säkerhetsproblem kan visas:
+I listan med detaljerad status för nätverk visas potentiella säkerhetsproblem och [rekommendationer](security-center-network-recommendations.md). Följande säkerhetsproblem kan visas:
 
 - Nästa generations brandvägg inte installerad
 - Nätverkssäkerhetsgrupper i undernät inte aktiverade
@@ -154,14 +155,14 @@ Tabellen är sorterad (virtuella datorer och undernät) enligt allvarlighetsgrad
 - Orange: medelhög prioritet och bör åtgärdas så snart som möjligt
 - Grön (längst ned): god status
 
-I den här topologiska vyn har du [virtuella nätverk](../virtual-network/virtual-networks-overview.md), [virtuella nätverksgatewayer](../vpn-gateway/vpn-gateway-site-to-site-create.md) och [virtuella nätverk (klassiska)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) på översta nivån. På andra nivån hittar du undernät och på den tredje de virtuella datorer som finns på de undernäten. I den högra kolumnen visas aktuell status för resursernas nätverkssäkerhetsgrupper (NSG), som i följande exempel:
+I den här topologiska vyn har du [virtuella nätverk](../virtual-network/virtual-networks-overview.md), [virtuella nätverksgateways](../vpn-gateway/vpn-gateway-site-to-site-create.md) och [virtuella nätverk (klassiska)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) på översta nivån. På andra nivån hittar du undernät och på den tredje de virtuella datorer som finns på de undernäten. I den högra kolumnen visas aktuell status för resursernas nätverkssäkerhetsgrupper (NSG), som i följande exempel:
 
 ![Nätverksträd](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 Längst ned på bladet hittar du rekommendationerna för den här virtuella datorn, som ser ut ungefär så som beskrivits ovan. Om du klickar på en av rekommendationerna får du mer information och kan utföra den säkerhetskontroll eller säkerhetskonfiguration som behövs.
 
-###Övervakning av SQL-resurser
-Om du klickar på **SQL** i rutan **Resources security health (Resurssäkerhetshälsa)** öppnas bladet SQL med rekommendationer för problem med sådant som att funktionerna för granskning och transparent datakryptering inte är aktiverade. Här finns även rekommendationer gällande databasens allmänna hälsoläge.
+###Övervaka data
+Om du klickar på **Data** i rutan **Resources security health (Resurssäkerhetshälsa)** öppnas bladet **SQL** med rekommendationer för problem med sådant som att funktionerna för granskning och transparent datakryptering inte är aktiverade. Här finns även [rekommendationer](security-center-sql-service-recommendations.md) gällande databasens allmänna hälsoläge.
 
 ![SQL-resurshälsa](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
 
@@ -202,12 +203,12 @@ I det här avsnittet har du fått lära dig hur du använder övervakningsfunkti
 
 - [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Här får du lära dig hur du ställer in säkerhetsprinciper i Azure Security Center.
 - [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-- [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
-- [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här finns vanliga frågor om tjänsten.
+- [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
+- [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten
 - [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

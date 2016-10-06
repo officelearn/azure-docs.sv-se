@@ -1,57 +1,64 @@
 <properties
-	pageTitle="Service Bus messaging overview | Microsoft Azure"
-	description="Service Bus Messaging: flexible data delivery in the cloud"
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Översikt över Service Bus-meddelanden | Microsoft Azure"
+    description="Service Bus-meddelanden: flexibel dataöverföring i molnet"
+    services="service-bus-messaging"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.date="09/27/2016"
-	ms.author="sethm"/>
+    ms.service="service-bus-messaging"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.date="09/27/2016"
+    ms.author="sethm"/>
 
 
-# Service Bus messaging: flexible data delivery in the cloud
 
-Microsoft Azure Service Bus is a reliable information delivery service. The purpose of this service is to make communication easier. When two or more parties want to exchange information, they need a communication mechanism. Service Bus is a brokered, or third-party communication mechanism. This is similar to a postal service in the physical world. Postal services make it very easy to send different kinds of letters and packages with a variety of delivery guarantees, anywhere in the world.
+# Service Bus-meddelanden: flexibel dataöverföring i molnet
 
-Similar to the postal service delivering letters, Service Bus is flexible information delivery from both the sender and the recipient. The messaging service ensures that the information is delivered even if the two parties are never both online at the same time, or if they aren't available at the exact same time. In this way, messaging is similar to sending a letter, while non-brokered communication is similar to placing a phone call (or how a phone call used to be - before call waiting and caller ID, which are much more like brokered messaging).
+Microsoft Azure Service Bus är en tillförlitlig tjänst för informationsleverans. Syftet med den här tjänsten är att underlätta kommunikation. När två eller flera parter vill utbyta information behöver de en kommunikationsmekanism. Service Bus är en asynkron kommunikationsmekanism, det vill säga via en tredje part. Den liknar posttjänster i den fysiska världen. Med posttjänster är det mycket enkelt att skicka olika typer av brev och paket med en rad olika leveransgarantier vart som helst i världen.
 
-The message sender can also require a variety of delivery characteristics including transactions, duplicate detection, time-based expiration, and batching. These patterns have postal analogies as well: repeat delivery, required signature, address change, or recall.
+På ett liknande sätt som posttjänster levererar brev ger Service Bus en flexibel informationsleverans från både avsändaren och mottagaren. Meddelandetjänsten säkerställer att informationen levereras även om båda parterna aldrig är online samtidigt, eller om de inte är tillgängliga i exakt samma ögonblick. På så vis liknar meddelanden brev, medan icke asynkron kommunikation liknar att ringa ett telefonsamtal (eller hur telefonsamtal brukade vara innan vi hade väntande samtal och nummerpresentatörer, som är mycket mer likt asynkrona meddelanden).
 
-Service Bus supports two distinct messaging patterns: *Relay* and *brokered messaging*.
+Avsändaren kan även kräva olika egenskaper för leveransen, inklusive transaktioner, identifiering av dubbletter, tidsbegränsad giltighet och batchbearbetning. Dessa mönster kan också jämföras med posttjänster: upprepad leverans, krav på signatur, adressändring eller återkallning.
+
+Service Bus stöder två distinkta meddelandemönster: *vidarebefordran* och *asynkron meddelandetjänst*.
 
 ## Service Bus Relay
 
-The [Relay](../service-bus-relay/service-bus-relay-overview.md) component of Service Bus is a centralized (but highly load-balanced) service that supports a variety of different transport protocols and Web services standards. This includes SOAP, WS-*, and even REST. The [relay service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) provides a variety of different relay connectivity options and can help negotiate direct peer-to-peer connections when it is possible. Service Bus is optimized for .NET developers who use the Windows Communication Foundation (WCF), both with regard to performance and usability, and provides full access to its relay service through SOAP and REST interfaces. This makes it possible for any SOAP or REST programming environment to integrate with Service Bus.
+Den [vidarebefordrande](../service-bus-relay/service-bus-relay-overview.md) komponenten i Service Bus är en centraliserad tjänst (men med hög utjämning av nätverksbelastning) som stöder en mängd olika transportprotokoll och webbtjänststandarder. Detta inkluderar SOAP, WS-*, och även REST. Den [vidarebefordrande tjänsten](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) innehåller en mängd olika anslutningsalternativ för vidarebefordran och kan hjälpa dig att förhandla direkta peer-to-peer-anslutningar när det är möjligt. Service Bus är optimerad för .NET-utvecklare som använder Windows Communication Foundation (WCF) både vad gäller prestanda och användbarhet, och ger fullständig åtkomst till dess vidarebefordringstjänst via SOAP- och REST-gränssnitt. Detta gör det möjligt för SOAP- och REST-programmeringsmiljöer att integrera med Service Bus.
 
-The relay service supports traditional one-way messaging, request/response messaging, and peer-to-peer messaging. It also supports event distribution at Internet-scope to enable publish-subscribe scenarios and bi-directional socket communication for increased point-to-point efficiency. In the relayed messaging pattern, an on-premises service connects to the relay service through an outbound port and creates a bi-directional socket for communication tied to a particular rendezvous address. The client can then communicate with the on-premises service by sending messages to the relay service targeting the rendezvous address. The relay service will then "relay" messages to the on-premises service through the bi-directional socket already in place. The client does not need a direct connection to the on-premises service, nor is it required to know where the service resides, and the on-premises service does not need any inbound ports open on the firewall.
+Den vidarebefordrande tjänsten stöder traditionella envägsmeddelanden, fråga-och-svar-meddelanden och peer-to-peer-meddelanden. Den stöder även händelsedistribution på Internet-skala för att möjliggöra publicerings- och prenumerationsscenarier och dubbelriktad socketkommunikation för ökad effektivitet punkt till punkt. I mönstret vidarebefordrande meddelandetjänster ansluter en lokal tjänst till den vidarebefordrande tjänsten via en utgående port och skapar en dubbelriktad socket för kommunikation som är kopplad till en viss rendezvous-adress. Klienten kan sedan kommunicera med den lokala tjänsten genom att skicka meddelanden till den vidarebefordrande tjänsten med rendezvous-adressen som mål. Den vidarebefordrande tjänsten kommer sedan att ”vidarebefordra” meddelanden till den lokala tjänsten via den dubbelriktade socketen som redan är upprättad. Klienten behöver ingen direkt anslutning till den lokala tjänsten och behöver inte heller veta var den finns. Den lokala tjänsten behöver inte ha några öppna ingående portar i brandväggen.
 
-You initiate the connection between your on-premises service and the relay service, using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud.
+Du upprättar anslutningen mellan din lokala tjänst och den vidarebefordrande tjänsten med hjälp av en uppsättning ”vidarebefordrande” WCF-bindningar. I bakgrunden mappas vidarebefordringsbindningarna till transportbindningselement som är utformade för att skapa WCF-kanalkomponenter som integreras med Service Bus i molnet.
 
-Service Bus Relay provides many benefits, but requires the server and client to both be online at the same time in order to send and receive messages. This is not optimal for HTTP-style communication, in which the requests may not be typically long-lived, nor for clients that connect only occasionally, such as browsers, mobile applications, and so on. Brokered messaging supports decoupled communication, and has its own advantages; clients and servers can connect when needed and perform their operations in an asynchronous manner.
+Service Bus Relay ger många fördelar men kräver att både servern och klienten är online på samma gång för att kunna skicka och ta emot meddelanden. Det är inte optimalt för kommunikation med HTTP-format, där frågorna kanske vanligtvis inte är långlivade, eller för klienter som ansluter bara ibland, till exempel webbläsare, mobila program, och så vidare. Asynkrona meddelandetjänster stöder frikopplad kommunikation och har sina fördelar. Klienter och servrar kan ansluta vid behov och utföra sina åtgärder på ett asynkront sätt.
 
-## Brokered messaging
+## Asynkron meddelandetjänst
 
-In contrast to the relay scheme, [brokered messaging](service-bus-queues-topics-subscriptions.md) can be thought of as asynchronous, or "temporally decoupled." Producers (senders) and consumers (receivers) do not have to be online at the same time. The messaging infrastructure reliably stores messages in a "broker" (such as a queue) until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the entire system. Furthermore, the receiving application may only have to come online during certain times of the day, such as an inventory management system that only is required to run at the end of the business day.
+Till skillnad från det vidarebefordrande schemat kan [asynkrona meddelandetjänster](service-bus-queues-topics-subscriptions.md) betraktas som icke-synkroniserade, eller ”tillfälligt frånkopplade”. Producenter (avsändare) och konsumenter (mottagare) behöver inte vara online samtidigt. Meddelandeinfrastrukturen lagrar meddelanden på ett tillförlitligt sätt hos en ”mellanhand” (till exempel en kö) tills konsumentparten är redo att ta emot dem. Detta gör att komponenterna i den distribuerade appen kan frikopplas, antingen frivilligt, till exempel för underhåll, eller på grund av en komponentkrasch, utan att detta påverkar hela systemet. Dessutom behöver det mottagande programmet bara vara anslutet vid vissa tidpunkter på dagen, till exempel ett lagersystem som endast behöver köras i slutet av arbetsdagen.
 
-The core components of the Service Bus brokered messaging infrastructure are queues, topics, and subscriptions.  The primary difference is that topics support publish/subscribe capabilities that can be used for sophisticated content-based routing and delivery logic, including sending to multiple recipients. These components enable new asynchronous messaging scenarios, such as temporal decoupling, publish/subscribe, and load balancing. For more information about these messaging entities, see [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
+Kärnkomponenterna i infrastrukturen för den asynkrona meddelandetjänsten i Service Bus är köer, ämnen och prenumerationer.  Den viktigaste skillnaden är att avsnitt stöder funktioner för publicering/prenumereration som kan användas för avancerad innehållsbaserad routning och leveranslogik, inklusive sändning till flera mottagare. De här komponenterna möjliggör nya asynkrona meddelandescenarier, till exempel temporär frikoppling, publicera/prenumerera och belastningsutjämning. Mer information om dessa meddelandeenheter finns på [Service Bus-köer, -ämnen och -prenumerationer](service-bus-queues-topics-subscriptions.md).
 
-As with the Relay infrastructure, the brokered messaging capability is provided for WCF and .NET Framework programmers, and also via REST.
+Som med infrastrukturen för vidarebefordrande har den asynkrona meddelandetjänsten funktioner för WCF- och .NET Framework-programmerare och även via REST.
 
-## Next steps
+## Nästa steg
 
-To learn more about Service Bus messaging, see the following topics.
+I följande ämnen kan du lära dig mer om Service Bus-meddelanden.
 
-- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- [Service Bus architecture](../service-bus/service-bus-architecture.md)
-- [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-- [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Grunderna i Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus-köer, -ämnen och -prenumerationer](service-bus-queues-topics-subscriptions.md)
+- [Service Bus-arkitektur](../service-bus/service-bus-architecture.md)
+- [Använda Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
+- [Använda Service Bus-ämnen och -prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

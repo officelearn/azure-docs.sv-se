@@ -14,16 +14,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/23/2016"
-    ms.author="femila"/>
+    ms.date="09/27/2016"
+    ms.author="Markvi"/>
+
 
 # Komma igång med Azure Active Directory Device Registration
 
 Azure Active Directory Device Registration är grunden för scenarier med enhetsbaserad villkorlig åtkomst. När en enhet registreras tilldelar Azure Active Directory Device Registration en identitet till enheten som används för att autentisera enheten när användaren loggar in. Den autentiserade enheten och attributen för enheten kan sedan användas för att genomdriva principer för villkorlig åtkomst för program som finns i molnet och lokalt.
 
-När de kombineras med en MDM-lösning för hantering av mobila enheter, t.ex. Intune, uppdateras enhetsattributen i Azure Active Directory med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som säkerställer att åtkomsten från enheter uppfyller dina säkerhets- och efterlevnadskrav.
-
-Azure Active Directory Device Registration är tillgängligt i Azure Active Directory. Tjänsten stöder Windows-, iOS- och Android-enheter. De enskilda scenarierna som använder Azure Active Directory Device Registration kan ha mer specifika krav och plattformsstöd.
+När de kombineras med en MDM-lösning för hantering av mobila enheter, t.ex. Microsoft Intune, uppdateras enhetsattributen i Azure Active Directory med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som säkerställer att åtkomsten från enheter uppfyller dina säkerhets- och efterlevnadskrav. Mer information om hur du registrerar enheter i Microsoft Intune finns i [Registrera enheter för hantering i Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).
 
 ## Scenarier som använder Azure Active Directory Device Registration
 
@@ -31,12 +30,15 @@ Azure Active Directory Device Registration stöder iOS-, Android- och Windows-en
 
 - **Villkorlig åtkomst till program som finns lokalt**: Du kan använda registrerade enheter med åtkomstprinciper för program som är konfigurerade att använda AD FS i Windows Server 2012 R2. Mer information om hur du konfigurerar lokal villkorlig åtkomst finns i [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](active-directory-conditional-access-on-premises-setup.md).
 
-- **Villkorlig åtkomst för Office 365-program med Microsoft Intune**: IT-administratörer kan etablera enhetsprinciper för villkorlig åtkomst för att skydda företagsresurser och samtidigt ge informationsarbetare på kompatibla enheter åtkomst till tjänsterna. Mer information finns i Enhetsprinciper för villkorlig åtkomst för Office 365-tjänster.
+- **Villkorlig åtkomst för Office 365-program med Microsoft Intune**: IT-administratörer kan etablera enhetsprinciper för villkorlig åtkomst för att skydda företagsresurser och samtidigt ge informationsarbetare på kompatibla enheter åtkomst till tjänsterna. Mer information finns i [Enhetsprinciper för villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md).
 
 ##Konfigurera Azure Active Directory Device Registration
 
 Du måste aktivera Azure Active Directory Device Registration på Azure Portal så att mobila enheter kan identifiera tjänsten genom att söka efter välkända DNS-poster. Du måste konfigurera företagets DNS så att Windows 10-, Windows 8.1-, Windows 7-, Android- och iOS-enheter kan identifiera och använda tjänsten.
 Du kan visa och aktivera/inaktivera registrerade enheter med hjälp av administratörsportalen i Azure Active Directory.
+
+>[AZURE.NOTE]
+ De senaste instruktionerna för hur du konfigurerar automatisk enhetsregistrering finns i [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md) (Så här konfigurerar du automatisk registrering av domänanslutna Windows-enheter med Azure Active Directory).
 
 ### Aktivera tjänsten Azure Active Directory Device Registration
 
@@ -90,6 +92,6 @@ Du kan registrera dina Windows 7- och Windows 8.1-domänanslutna enheter med Azu
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -76,6 +76,8 @@ Vi kommer att beskriva uppgifter som de genomförs på den klassiska Azure-porta
 
 I Azure AD kan du enkelt skapa en enkel regel för att avgöra vilka användare som ska vara medlemmar i gruppen. En enkel regel är en regel som bara gör en jämförelse. Om ett SaaS-program t.ex. har tilldelats en grupp, kan du konfigurera en regel som lägger till användare som har befattningen Försäljare. Den här regeln beviljar sedan åtkomst till det här SaaS-programmet för alla användare med denna befattning i katalogen.
 
+När ett attribut för en användare ändras utvärderar systemet alla dynamiska gruppregler i en katalog för att se om attributändringen ska utlösa grupptillägg eller gruppborttagningar. Om användaren uppfyller en regel i en grupp läggs användaren till som medlem i gruppen. Om användaren inte längre uppfyller regeln i en grupp som han eller hon är medlem i tas användaren bort som medlem i gruppen.
+
 > [AZURE.NOTE] Du kan skapa en regel för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper. Kapslade gruppmedlemskap stöds för närvarande inte för gruppbaserad tilldelning till program.
 >
 > Dynamiskt medlemskap för grupper kräver en Azure AD Premium-licens som tilldelas till
@@ -114,6 +116,6 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

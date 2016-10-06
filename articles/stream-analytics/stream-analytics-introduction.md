@@ -59,6 +59,6 @@ Du har fått en introduktion till Stream Analytics, en hanteringstjänst för an
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

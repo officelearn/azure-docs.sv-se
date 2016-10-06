@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Ansluta till Microsoft Azure Stack POC | Microsoft Azure"
-    description="Lär dig hur du ansluter till Azure Stack POC-portalen som en tjänstadministratör eller klient."
+    pageTitle="Connect to Microsoft Azure Stack POC | Microsoft Azure"
+    description="Learn how to connect to the Azure Stack POC portal as a service administrator or tenant."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,63 +13,55 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/01/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Logga in på den virtuella datorn i Azure Stack POC
+# Log in to the Azure Stack POC virtual machine
 
-Du kan logga in till den virtuella datorn i Azure Stack POC som en
+You can log in to the Azure Stack POC virtual machine as a
 
-- [**tjänstadministratör**](#log-in-as-a-service-administrator) om du vill hantera resursproviders, klienterbjudanden, planer, tjänster, kvoter och priser.
+- [**service administrator**](#log-in-as-a-service-administrator) to manage resource providers, tenant offers, plans, services, quotas, and pricing.
 
-eller
+or
 
-- [**klient**](#log-in-as-a-tenant) om du vill etablera, övervaka och hantera tjänster som du prenumererar på, t.ex. Web Apps, lagring och virtuella datorer.
+- [**tenant**](#log-in-as-a-tenant) to provision, monitor, and manage services that you're subscribe to, like Web Apps, storage, and virtual machines.
 
-## Logga in som en tjänstadministratör
+## Log in as a service administrator
 
-1.  Logga in på den fysiska Azure Stack POC-datorn.
+1.  Log in to the Azure Stack POC physical machine.
 
-2.  Öppna en fjärrskrivbordsanslutning till den virtuella klientdatorn genom att dubbelklicka på skrivbordsikonen för **ClientVM.AzureStack.local.rdp**.
- 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
-    
-    När du gör det används automatiskt AzureStack\\AzureStackUser-kontot som skapades med distributionsskriptet. Använd administratörslösenordet som du angav i steg 5 i skriptprocessen när du uppmanas att **ange lösenordet för det inbyggda administratörskontot**.
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-3.  Öppna [portalen](azure-stack-key-features.md#portal)genom att dubbelklicka på ikonen för **Microsoft Azure Stack POC-portalen** på ClientVM.AzureStack.local-datorn (https://portal.azurestack.local/).
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
-4.  Logga in med tjänstadministratörskontot.
+4.  Log in using the service administrator account.
 
-## Logga in som en klient
+## Log in as a tenant
 
-En tjänstadministratör kan logga in som en klient för att testa de planer, erbjudanden och prenumerationer som deras klientorganisationer använder.
-Om du inte redan har ett klientkonto [skapar du ett](azure-stack-add-new-user-aad.md) innan du loggar in.
+A service administrator can log in as a tenant to test the plans, offers, and subscriptions that their tenants might use.
+If you don’t already have one, [Create a tenant account](azure-stack-add-new-user-aad.md) before you log in.
 
-1.  Logga in på den fysiska Azure Stack-datorn.
+1.  Log in to the Azure Stack physical machine.
 
-2.  Öppna en fjärrskrivbordsanslutning till den virtuella klientdatorn genom att dubbelklicka på skrivbordsikonen för **ClientVM.AzureStack.local.rdp**. 
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    När du gör det används automatiskt AzureStack\\AzureStackUser-kontot som skapades med distributionsskriptet. Använd administratörslösenordet som du angav i steg 5 i skriptprocessen när du uppmanas att **ange lösenordet för det inbyggda administratörskontot**.
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
-3.  Öppna [portalen](azure-stack-key-features.md#portal)genom att dubbelklicka på ikonen för **Microsoft Azure Stack POC-portalen** på ClientVM.AzureStack.local-datorn (https://portal.azurestack.local/).
+4.  Log in using a tenant account.
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+RDP may restrict how many users can access the physical Microsoft Azure POC host.
 
-4.  Logga in med ett klientkonto.
+## Next steps
 
-RDP kan begränsa hur många användare som kan komma åt den fysiska Microsoft Azure POC-värden. Om du vill aktivera flera användare läser du [Aktivera flera samtidiga användaranslutningar](azure-stack-enable-multiple-concurrent-users.md).
-
-## Nästa steg
-
-[De första uppgifterna](azure-stack-first-scenarios.md)
+[First tasks](azure-stack-first-scenarios.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

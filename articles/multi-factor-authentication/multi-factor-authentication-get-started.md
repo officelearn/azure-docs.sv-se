@@ -90,6 +90,6 @@ Nu när vi har fastställt om Multi-Factor Authentication i molnet eller lokala 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

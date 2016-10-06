@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Skydda molnresurser och lokala resurser med Azure Multi-Factor Authentication Server med Windows Server 2012 R2 AD FS | Microsoft Azure"
+    pageTitle="MFA Server med Windows Server 2012 R2 AD FS | Microsoft Azure"
     description="Den här artikeln beskriver hur du kommer igång med Azure Multi-Factor Authentication och AD FS i Windows Server 2012 R2."
     services="multi-factor-authentication"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/04/2016"
+    ms.date="09/22/2016"
     ms.author="kgremban"/>
 
 
@@ -75,20 +75,61 @@ Nu är Multi-Factor Authentication-servern konfigurerad som ytterligare en auten
 3. Kör installationsfilen MultiFactorAuthenticationAdfsAdapterSetup64.msi.
 4. Slutför installationen genom att klicka på **Nästa** i installationsprogrammet för Multi-Factor Authentication AD FS-adaptern.
 5. Klicka på **Stäng** när installationen är klar.
-6. Redigera filen MultiFactorAuthenticationAdfsAdapter.config genom att göra följande:
 
-|MultiFactorAuthenticationAdfsAdapter.config-steget| Delsteg|
-|:------------- | :------------- |
-|Ange noden **UseWebServiceSdk** till **sant**.||
-|Ange värdet för **WebServiceSdkUrl** till URL:en för webbtjänst-SDK för Multi-Factor Authentication.</br></br>Exempel: **https://contoso.com/&lt;certifikatnamn&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx**</br></br>Där ”certifikatnamn” är namnet på certifikatet. ||
-|Konfigurera webbtjänst-SDK.<br><br>*Alternativ 1*: Genom att använda ett användarnamn och lösenord|<ol type="a"><li>Ange värdet för **WebServiceSdkUsername** till ett konto som är medlem i säkerhetsgruppen PhoneFactor Admins. Använd formatet &lt;domän&gt;&#92;&lt;användarnamn&gt;.<li>Ange värdet för **WebServiceSdkPassword** till lämpligt kontolösenord.</li></ol>
-|Konfigurera webbtjänst-SDK, *forts.*<br><br>*Alternativ 2*: Genom att använda ett klientcertifikat|<ol type="a"><li>Skaffa ett klientcertifikat från en certifikatutfärdare för servern som kör webbtjänst-SDK. Lär dig hur du [skaffar klientcertifikat](https://technet.microsoft.com/library/cc770328.aspx).</li><li>Importera klientcertifikatet till den lokala datorns personliga certifikatarkiv på servern som kör webbtjänst-SDK. Obs! Kontrollera att certifikatutfärdarens offentliga certifikat finns i certifikatarkivet för betrodda rotcertifikat.</li><li>Exportera de offentliga och privata nycklarna för klientcertifikatet till en PFX-fil.</li><li>Exportera den offentliga nyckeln i Base64-format till en CER-fil.</li><li>I Serverhanteraren kontrollerar du att funktionen Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication är installerad. Om den inte är installerad väljer du **Lägg till roller och funktioner** för att lägga till funktionen.</li><li>I IIS-hanteraren dubbelklickar du på **Konfigurationsredigeraren** i webbplatsen som innehåller den virtuella katalogen för webbtjänst-SDK. Obs! Det är viktigt att du gör detta på webbplatsnivå och inte på nivån för den virtuella katalogen.</li><li>Gå till avsnittet **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.</li><li>Ange **enabled** till **true**.</li><li>Ange **oneToOneCertificateMappingsEnabled** till **true**.</li><li>Klicka på knappen **...** bredvid **oneToOneMappings** och klicka sedan på länken **Lägg till**.</li><li>Öppna CER-filen med Base64-format som du exporterade tidigare. Ta bort *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* och eventuella radbrytningar. Kopiera den resulterande strängen.</li><li>Ange **certificate** till strängen som du kopierade i föregående steg.</li><li>Ange **enabled** till **true**.</li><li>Ange **userName** till ett konto som är medlem i säkerhetsgruppen PhoneFactor Admins. Använd formatet &lt;domän&gt;&#92;&lt;användarnamn&gt;.</li><li>Ange lösenordet till lämpligt kontolösenord och stäng Konfigurationsredigeraren.</li><li>Klicka på länken **Använd**.</li><li>I den virtuella katalogen för webbtjänst-SDK dubbelklickar du på **Autentisering**.</li><li>Kontrollera att **ASP.NET-personifiering** och **Grundläggande autentisering** är **aktiverat** och att alla andra objekt är **inaktiverade**.</li><li>Dubbelklicka på **SSL-inställningar** i den virtuella katalogen för webbtjänst-SDK.</li><li>Ange **Klientcertifikat** till **Acceptera** och klicka på **Använd**.</li><li>Kopiera PFX-filen som du exporterade tidigare till servern som kör AD FS-adaptern.</li><li>Importera PFX-filen till den lokala datorns personliga certifikatarkiv.</li><li>Högerklicka och välj **Hantera privata nycklar** och ge sedan läsbehörighet till kontot som du använde för att logga in till AD FS-tjänsten.</li><li>Öppna klientcertifikatet och kopiera tumavtrycket från fliken **Information**.</li><li>I filen MultiFactorAuthenticationAdfsAdapter.config anger du **WebServiceSdkCertificateThumbprint** till strängen som du kopierade i föregående steg.</li></ol>
-| Redigera skriptet Register-MultiFactorAuthenticationAdfsAdapter.ps1 genom att lägga till *-ConfigurationFilePath &lt;sökväg&gt;* i slutet av kommandot `Register-AdfsAuthenticationProvider`, där *&lt;sökväg&gt;* är den fullständiga sökvägen till filen MultiFactorAuthenticationAdfsAdapter.config.||
+## Redigera filen MultiFactorAuthenticationAdfsAdapter.config
+
+Redigera filen MultiFactorAuthenticationAdfsAdapter.config genom att följa stegen nedan:
+
+1. Ange noden **UseWebServiceSdk** till **sant**.  
+2. Ange värdet för **WebServiceSdkUrl** till URL:en för webbtjänst-SDK för Multi-Factor Authentication. Exempel:  **https://contoso.com/&lt;certifikatnamn&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx** där ”certifikatnamn” är namnet på certifikatet.  
+3. Redigera skriptet Register-MultiFactorAuthenticationAdfsAdapter.ps1 genom att lägga till *-ConfigurationFilePath &lt;sökväg&gt;* i slutet av kommandot `Register-AdfsAuthenticationProvider`, där *&lt;sökväg&gt;* är den fullständiga sökvägen till filen MultiFactorAuthenticationAdfsAdapter.config.
+
+### Konfigurera webbtjänst-SDK med ett användarnamn och lösenord
+
+Det finns två alternativ för att konfigurera webbtjänst-SDK. Det första alternativet är att använda ett användarnamn och lösenord, det andra är att använda ett klientcertifikat. Följ dessa steg för det första alternativet eller hoppa framåt till det andra.  
+
+1. Ange värdet för **WebServiceSdkUsername** till ett konto som är medlem i säkerhetsgruppen PhoneFactor Admins. Använd formatet &lt;domän&gt;&#92;&lt;användarnamn&gt;.  
+2. Ange värdet för **WebServiceSdkPassword** till lämpligt kontolösenord.
+
+### Konfigurera webbtjänst-SDK med ett klientcertifikat
+
+Följ dessa steg om du vill konfigurera webbtjänst-SDK med ett klientcertifikat om du inte vill använda ett användarnamn och lösenord.
+
+1. Skaffa ett klientcertifikat från en certifikatutfärdare för servern som kör webbtjänst-SDK. Lär dig hur du [skaffar klientcertifikat](https://technet.microsoft.com/library/cc770328.aspx).  
+2. Importera klientcertifikatet till den lokala datorns personliga certifikatarkiv på servern som kör webbtjänst-SDK. Obs! Kontrollera att certifikatutfärdarens offentliga certifikat finns i certifikatarkivet för betrodda rotcertifikat.  
+3. Exportera de offentliga och privata nycklarna för klientcertifikatet till en PFX-fil.  
+4. Exportera den offentliga nyckeln i Base64-format till en CER-fil.  
+5. I Serverhanteraren kontrollerar du att funktionen Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication är installerad. Om den inte är installerad väljer du **Lägg till roller och funktioner** för att lägga till funktionen.  
+6. I IIS-hanteraren dubbelklickar du på **Konfigurationsredigeraren** i webbplatsen som innehåller den virtuella katalogen för webbtjänst-SDK. Obs! Det är viktigt att du gör detta på webbplatsnivå och inte på nivån för den virtuella katalogen.  
+7. Gå till avsnittet **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.  
+8. Ange **enabled** till **true**.  
+9. Ange **oneToOneCertificateMappingsEnabled** till **true**.  
+10. Klicka på knappen **...** bredvid **oneToOneMappings** och klicka sedan på länken **Lägg till**.  
+11. Öppna CER-filen med Base64-format som du exporterade tidigare. Ta bort *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* och eventuella radbrytningar. Kopiera den resulterande strängen.  
+12. Ange **certificate** till strängen som du kopierade i föregående steg.  
+13. Ange **enabled** till **true**.  
+14. Ange **userName** till ett konto som är medlem i säkerhetsgruppen PhoneFactor Admins. Använd formatet &lt;domän&gt;&#92;&lt;användarnamn&gt;.  
+15. Ange lösenordet till lämpligt kontolösenord och stäng Konfigurationsredigeraren.  
+16. Klicka på länken **Använd**.  
+17. I den virtuella katalogen för webbtjänst-SDK dubbelklickar du på **Autentisering**.  
+18. Kontrollera att **ASP.NET-personifiering** och **Grundläggande autentisering** är **aktiverat** och att alla andra objekt är **inaktiverade**.  
+19. Dubbelklicka på **SSL-inställningar** i den virtuella katalogen för webbtjänst-SDK.  
+20. Ange **Klientcertifikat** till **Acceptera** och klicka på **Använd**.  
+21. Kopiera PFX-filen som du exporterade tidigare till servern som kör AD FS-adaptern.  
+22. Importera PFX-filen till den lokala datorns personliga certifikatarkiv.  
+23. Högerklicka och välj **Hantera privata nycklar** och ge sedan läsbehörighet till kontot som du använde för att logga in till AD FS-tjänsten.  
+24. Öppna klientcertifikatet och kopiera tumavtrycket från fliken **Information**.  
+25. I filen MultiFactorAuthenticationAdfsAdapter.config anger du **WebServiceSdkCertificateThumbprint** till strängen som du kopierade i föregående steg.  
+
 
 Registrera adaptern genom att köra skriptet \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 i PowerShell. Adaptern registreras som WindowsAzureMultiFactorAuthentication. Du måste starta om AD FS-tjänsten för att registreringen ska börja gälla.
 
+## Relaterade ämnen
+
+Hjälp med felsökning finns i [Azure Multi-Factor Authentication FAQs (Vanliga frågor och svar om Azure Multi-Factor Authentication)](multi-factor-authentication-faq.md)
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Sep16_HO4-->
 
 

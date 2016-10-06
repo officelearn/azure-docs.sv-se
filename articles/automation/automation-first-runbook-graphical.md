@@ -136,7 +136,7 @@ Din runbook bör se ut ungefär så här nu: <br>![Konfiguration av runbook-aute
 Nu ska vi lägga till en **Start-AzureRmVM**-aktivitet för att starta en virtuell dator.  Du kan välja valfri virtuell dator i Azure-prenumerationen och vi ska hårdkoda namnet i cmdleten.
 
 1. Skriv **StartsAzureRm** i sökrutan för bibliotekskontrollen.
-2. Lägg till **Start-AzureRmVM** på arbetsytan och klicka på och dra det under **Anslut till Azure**.
+2. Lägg till **Start-AzureRmVM** på arbetsytan och klicka på och dra det under **Ange prenumerations-ID**.
 3. Hovra över **Ange prenumerations-ID** tills en cirkel visas längst ned i formen.  Klicka på cirkeln och dra pilen till **Start-AzureRmVM**. 
 4.  Välj **Start-AzureRmVM**.  Klicka på **Parametrar** och sedan på **Parameteruppsättning** för att visa uppsättningarna för **Start-AzureRmVM**.  Välj parameteruppsättningen **ResourceGroupNameParameterSetName**. Observera att **ResourceGroupName** och **Name** visas med utropstecken.  Det betyder att de är obligatoriska parametrar.  Observera också att båda förväntar strängvärden.
 5.  Välj **Name**.  Välj **PowerShell-uttryck** för **Datakälla** och skriv namnet på den virtuella datorn, omgivet av dubbla citattecken, som vi ska starta med den här runbooken.  Klicka på **OK**.<br>![Parametervärde för Name i Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -219,6 +219,6 @@ Nu ska vi ändra runbooken så att den endast försöker starta den virtuella da
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

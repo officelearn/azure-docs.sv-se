@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 
@@ -132,13 +132,15 @@ Kontrollera att du har följande information innan du börjar:
 
 Innan du genomför de här procedurerna ska du säkerställa att du har uppfyllt [kraven för den virtuella enheten](#prerequisites-for-the-virtual-device). 
 
-När du har skapat ett virtuellt nätverk, konfigurerat en StorSimple Manager-tjänst och registrerat din fysiska StorSimple-enhet med tjänsten, kan du använda följande steg för att skapa och konfigurera en virtuell StorSimple-enhet.
+När du har skapat ett virtuellt nätverk, konfigurerat en StorSimple Manager-tjänst och registrerat din fysiska StorSimple-enhet med tjänsten, kan du använda följande steg för att skapa och konfigurera en virtuell StorSimple-enhet. 
 
 ### Steg 1: Skapa en virtuell enhet
 
 Utför följande steg för att skapa den virtuella StorSimple-enheten.
 
 [AZURE.INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
+
+Om det inte går att skapa den virtuella enheten i det här steget kan det bero på att du saknar uppkoppling till Internet. Gå till [Felsöka problem med Internetanslutning](#troubleshoot-internet-connectivity-errors) om du behöver mer information när du skapar en virtuell enhet.
 
 
 ### Steg 2: Konfigurera och registrera den virtuella enheten
@@ -274,6 +276,19 @@ Om du tar bort eller stänger av den virtuella enheten visas den som **Offline**
 [AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
 
    
+## Felsöka problem med Internetanslutning 
+
+Om du inte har någon anslutning till Internet när du skapar en virtuell enhet kommer det inte att fungera. Du kan kontrollera om problemet orsakas av Internetanslutningen genom att utföra följande steg i den klassiska Azure-portalen:
+
+1. Skapa en virtuell dator med Windows Server 2012 i Azure. Den virtuella datorn ska ha samma lagringskonto, VNet och undernät som används av din virtuella enhet. Om du redan har en befintlig Windows Server-värd i Azure som använder samma lagringskonto, VNET och undernät, kan du även använda den för att felsöka Internetanslutningen.
+2. Logga in via fjärrinloggning på den virtuella datorn som skapades i föregående steg. 
+3. Öppna ett kommandofönster i den virtuella datorn (Win + R och skriv sedan `cmd`).
+4. Kör följande cmd i prompten.
+
+    `nslookup windows.net`
+
+5. Om `nslookup` misslyckas hindrar problemet med Internetanslutningen den virtuella enheten från att registrera sig för StorSimple Manager-tjänsten. 
+6. Gör nödvändiga ändringar i ditt virtuella nätverk så att den virtuella enheten kan komma åt Azure-webbplatser, till exempel windows.net.
 
 ## Nästa steg
 
@@ -284,6 +299,6 @@ Om du tar bort eller stänger av den virtuella enheten visas den som **Offline**
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

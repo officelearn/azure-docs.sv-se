@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/15/2016"
+    ms.date="09/27/2016"
     ms.author="cabailey"/>
 
 
@@ -37,8 +37,8 @@ Använd följande tabell för att bättre förstå hur Key Vault kan hjälpa utv
 
 | Roll        | Problembeskrivning           | Åtgärdas av Azure Key Vault  |
 | ------------- |-------------|-----|
-| Azure-programutvecklare      | ”Jag vill skriva ett program för Azure som använder nycklar för signering och kryptering, men jag vill att de ska vara externa från mitt program så att lösningen passar ett geografiskt distribuerat program. <br/><br/>Jag vill också att dessa nycklar och hemligheter ska skyddas, utan att behöva skriva koden själv, och jag vill att det ska vara enkelt för mig att använda dem från mina program, med optimala prestanda.” | √ Nycklar lagras i ett valv och anropas av en URI vid behov.<br/><br/> √ Nycklar skyddas av Azure med branschstandardalgoritmer, nyckellängder och maskinvarusäkerhetsmoduler (HSM).<br/><br/> √ Nycklar bearbetas i HSM som finns i samma Azure-datacenter som programmen, vilket ger bättre tillförlitlighet och kortare svarstider än om nycklarna finns på en separat plats, till exempel lokalt.|
-| Utvecklare av programvara som en tjänst (SaaS)      |”Jag vill inte ha ansvaret för mina kunders klientnycklar och hemligheter. <br/><br/>Jag vill att kunderna ska äga och hantera sina nycklar så att jag kan koncentrera mig på att göra vad jag gör bäst, dvs. att erbjuda grundläggande funktioner.” | √ Kunder kan importera sina egna nycklar till Azure och hantera dem. När ett SaaS-program behöver utföra kryptografiska åtgärder med hjälp av sina kunders nycklar, gör Key Vault detta åt programmet. Programmet kan inte se kundernas nycklar.|
+| Azure-programutvecklare      | ”Jag vill skriva ett program för Azure som använder nycklar för signering och kryptering, men jag vill att de ska vara externa från mitt program så att lösningen passar ett geografiskt distribuerat program. <br/><br/>Jag vill dessa nycklar och hemligheter ska skyddas utan att behöva skriva koden själv. Jag vill också att nycklarna och hemligheterna ska vara lätta för mig att använda från mina program med optimala prestanda." | √ Nycklar lagras i ett valv och anropas av en URI vid behov.<br/><br/> √ Nycklar skyddas av Azure med branschstandardalgoritmer, nyckellängder och maskinvarusäkerhetsmoduler (HSM).<br/><br/> √ Nycklar bearbetas i HSM-modulerna som finns i samma Azure-datacenter som programmen. Det ger bättre tillförlitlighet och kortare svarstid än om nycklarna finns på en annan plats, till exempel lokalt.|
+| Utvecklare av programvara som en tjänst (SaaS)      |”Jag vill inte ha ansvaret för mina kunders klientnycklar och hemligheter. <br/><br/>Jag vill att kunderna ska äga och hantera sina nycklar så att jag kan koncentrera mig på att göra vad jag gör bäst, dvs. att erbjuda grundläggande funktioner.” | √ Kunder kan importera sina egna nycklar till Azure och hantera dem. När ett SaaS-program behöver utföra kryptografiska åtgärder med hjälp av sina kunders nycklar gör Key Vault detta åt programmet. Programmet kan inte se kundernas nycklar.|
 | Säkerhetschef | ”Jag vill vara säker på att våra program uppfyller kraven för HSM-moduler med FIPS 140-2 Level 2 för säker nyckelhantering. <br/><br/>Jag vill vara säker på att min organisation har kontrollen över nycklarnas livscykel och att vi kan övervaka nyckelanvändningen. <br/><br/>Och även om vi använder flera Azure-tjänster och Azure-resurser vill jag hantera nycklarna från en enda plats i Azure.”     |√ HSM-modulerna är FIPS 140-2 Level 2-verifierade.<br/><br/>√ Key Vault är utformat så att Microsoft inte kan se eller extrahera dina nycklar.<br/><br/>√ Loggningen av nyckelanvändningen sker praktiskt taget i realtid.<br/><br/>√ Valvet tillhandahåller ett enda gränssnitt, oavsett hur många valv du har i Azure, vilka regioner de stöder och vilka program använder dem. |
 
 
@@ -62,7 +62,7 @@ En Komma igång-självstudiekurs för administratörer finns i [Komma igång med
 
 Mer information om av användningsloggning för Key Vault finns i avsnittet om [Azure Key Vault-loggning](key-vault-logging.md).
 
-Mer information om hur du använder nycklar och hemligheter med Azure Key Vault finns i [Om nycklar och hemligheter](https://msdn.microsoft.com/library/azure/dn903623.aspx).
+Mer information om hur du använder nycklar och hemligheter med Azure Key Vault finns i [About Keys, Secrets, and Certificates](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx) (Om nycklar, hemligheter och certifikat).
 
 
 <!--Image references-->
@@ -70,6 +70,6 @@ Mer information om hur du använder nycklar och hemligheter med Azure Key Vault 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

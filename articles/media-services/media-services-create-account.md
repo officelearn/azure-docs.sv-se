@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
+    ms.date="09/26/2016"
     ms.author="juliako"/>
+
 
 
 # Skapa ett Azure Media Services-konto
@@ -108,6 +109,6 @@ Du kan dessutom visa kod som använder Azure Media Services SDK för att utföra
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

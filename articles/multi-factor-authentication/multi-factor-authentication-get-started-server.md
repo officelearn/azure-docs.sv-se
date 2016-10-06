@@ -112,8 +112,7 @@ IP-undernät|Nätmask|IP-intervall
 2. Kontrollera att mappen på skärmen Välj installationsmapp stämmer och klicka på Nästa.
 3. När installationen har slutförts klickar du på Slutför.  Nu startar konfigurationsguiden.
 4. Markera **Hoppa över autentiseringskonfigurationsguiden** på välkomstskärmen i konfigurationsguiden och klicka på **Nästa**.  Nu stängs guiden och servern startar.
-![Molnet](./media/multi-factor-authentication-get-started-server/skip2.png)
-
+    ![Molnet](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Tillbaka på sidan som vi laddade ned servern från klickar du på **Skapa autentiseringsuppgifter för aktivering**.  Kopiera den här informationen till Azure MFA Server i de tillgängliga rutorna och klicka på **Aktivera**.
 
 
@@ -193,6 +192,6 @@ Metod|Beskrivning
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

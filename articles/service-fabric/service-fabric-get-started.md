@@ -18,6 +18,12 @@
 
 
 # Förbereda utvecklingsmiljön
+
+> [AZURE.SELECTOR]
+-[ Windows](service-fabric-get-started.md)
+- [Linux](service-fabric-get-started-linux.md)
+- [OSX](service-fabric-get-started-mac.md)
+
  För att kunna skapa och köra [Azure Service Fabric-program][1] på en utvecklingsdator ska du installera runtime, SDK och verktyg. Du måste även aktivera körning av Windows PowerShell-skript som ingår i SDK.
 
 ## Krav
@@ -65,6 +71,6 @@ Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra pro
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

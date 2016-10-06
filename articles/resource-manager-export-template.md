@@ -106,6 +106,8 @@ Det är oftast en bra idé att arbeta med en mall som distribuerar hela infrastr
 
 Även om varje distribution endast visar de ändringar som du har gjort i resursgruppen kan du när som helst exportera en mall för att visa attributen för hela resursgruppen.  
 
+> [AZURE.NOTE] Du kan inte exportera en mall för en resursgrupp som har fler än 200 resurser.
+
 1. Du visar mallen för en resursgrupp genom att välja **Automationsskript**.
 
       ![Exportera resursgrupp](./media/resource-manager-export-template/export-resource-group.png)
@@ -307,6 +309,6 @@ Grattis! Nu vet du hur du exporterar en mall från resurser som du har skapat p�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

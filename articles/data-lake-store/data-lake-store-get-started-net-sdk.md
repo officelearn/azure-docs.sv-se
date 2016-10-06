@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2016"
+   ms.date="09/26/2016"
    ms.author="nitinme"/>
 
 
@@ -38,13 +38,7 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://msdn.micro
 
 * **Azure Data Lake Store-konto**. Mer information om hur du skapar ett konto finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
-* **Skapa ett Azure Active Directory-program** om du vill att ditt program automatiskt ska autentisera med Azure Active Directory.
-
-    * **För icke-interaktiv tjänstobjektautentisering** – Du måste skapa en **Webbapp** i Azure Active Directory. När du har skapat programmet, hämtar du följande värden som är relaterade till programmet.
-        - Hämta **klient-ID** och **klienthemlighet** för programmet
-        - Tilldela Azure Active Directory-programmet till en roll. Rollen kan vara för den nivå av omfång för vilken du vill ge behörighet till Azure Active Directory-programmet. Du kan till exempel tilldela programmet på prenumerationsnivån eller på en resursgruppsnivå. 
-
-    Se [Skapa Active Directory-program och tjänstens huvudnamn med hjälp av portalen](../resource-group-create-service-principal-portal.md) för anvisningar om hur du hämtar dessa värden, anger behörigheter och tilldelar roller.
+* **Skapa ett program i Azure Active Directory**. Du kan använda Azure AD-program för att autentisera Data Lake Store-program med Azure AD. Det finns olika sätt att autentisera med Azure AD: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Autentisera med Data Lake Store med Azure Active Directory (Authenticate with Data Lake Store using Azure Active Directory)](data-lake-store-authenticate-using-active-directory.md).
 
 ## Skapa ett .NET-program
 
@@ -97,12 +91,15 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://msdn.micro
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
+                private static string _subId;
+
                 
                 private static void Main(string[] args)
                 {
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
                     _location = "East US 2";
+                    _subId = "<SUBSCRIPTION-ID>";
                     
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
@@ -116,31 +113,41 @@ I de återstående avsnitten i artikeln kan du se hur du använder tillgängliga
 
 ## Autentisering
 
-Följande fragment kan användas för en interaktiv inloggning.
+### Om du använder autentisering för slutanvändare
+
+Använd det här med ett befintligt ”internt Azure AD-klientprogram”. Ett sådant anges nedan.
 
     // User login via interactive popup
-    //    Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD "Native Client" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"))
+    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-Du kan även använda följande fragment för att autentisera ditt program icke-interaktivt, med hjälp av klienthemlighet/nyckel för ett program/tjänstobjekt.
+I fragmentet ovan använder vi en Azure AD-domän och ett klient-ID som är tillgängligt som standard för alla Azure-prenumerationer. Om du vill använda en egen Azure AD-domän och programklient-ID måste du skapa ett internt Azure AD-program. I [Create an Active Directory Application (Skapa ett program i Active Directory)](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) finns instruktioner.
+
+>[AZURE.NOTE] Anvisningarna i länkarna ovan är för ett Azure AD-webbprogram. Stegen är dock exakt samma även om du väljer att skapa ett internt klientprogram i stället. 
+
+### Om du använder serviceautentisering med klienthemlighet 
+
+Du kan använda följande fragment för att autentisera ditt program icke-interaktivt, med hjälp av klienthemlighet/nyckel för ett program/tjänstobjekt. Använd det här med ett befintligt [Azure AD-"webbapp"-program](../resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
-    var clientSecret = "<AAD-application-clientid>";
+    var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-Ett tredje alternativ är att använda följande fragment för att autentisera ditt program icke-interaktivt, med hjälp av certifikatet för ett program/tjänstobjekt.
+### Om du använder serviceautentisering med certifikat
+
+Ett tredje alternativ är att använda följande fragment för att autentisera ditt program icke-interaktivt, med hjälp av certifikatet för ett program/tjänstobjekt. Använd det här med ett befintligt [Azure AD-"webbapp"-program](../resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -152,8 +159,11 @@ Ett tredje alternativ är att använda följande fragment för att autentisera d
 
 Följande fragment skapar Data Lake Store-kontot och filsystemklientobjekten, som används för att skicka begäranden till tjänsten.
 
-    // Create client objects
-    var fileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    // Create client objects and set the subscription ID
+    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+
+    _adlsClient.SubscriptionId = _subId;
 
 ## Lista över alla Data Lake Store-konton inom en prenumeration
 
@@ -162,7 +172,7 @@ Följande fragment visar en lista över alla Data Lake Store-konton inom en viss
     // List all ADLS accounts within the subscription
     public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
     {
-        var response = _adlsClient.Account.List(_adlsAccountName);
+        var response = _adlsClient.Account.List();
         var accounts = new List<DataLakeStoreAccount>(response);
         
         while (response.NextPageLink != null)
@@ -197,7 +207,7 @@ I följande fragment visas en `UploadFile`-metod som du kan använda för att la
         uploader.Execute();
     }
 
-DataLakeStoreUploader har stöd för rekursiv överföring och hämtning mellan en lokal filsökväg (eller mappsökväg) till Data Lake Store.    
+`DataLakeStoreUploader` har stöd för rekursiv överföring och hämtning mellan en lokal filsökväg och en Data Lake Store-sökväg.    
 
 ## Hämta fil- eller kataloginformation
 
@@ -266,6 +276,6 @@ I följande fragment visas en `DownloadFile`-metod som du kan använda för att 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

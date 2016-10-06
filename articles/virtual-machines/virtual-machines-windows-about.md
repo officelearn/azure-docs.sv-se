@@ -43,6 +43,6 @@ Eftersom den här självstudiekursen beskriver hur du skapar en virtuell dator s
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

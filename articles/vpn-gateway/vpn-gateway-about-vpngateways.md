@@ -13,21 +13,33 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 
 # Om VPN Gateway
 
 
-En virtuell nätverksgateway används för att skicka nätverkstrafik mellan virtuella Azure-nätverk och lokala platser, samt mellan virtuella nätverk i Azure (VNet till VNet). Om du vill skapa en anslutning lägger du till en gateway för virtuella nätverk (VNet-gateway) till ett VNet med ytterligare resurser och deras inställningar. 
+En virtuell nätverksgateway används för att skicka nätverkstrafik mellan virtuella Azure-nätverk och lokala platser, samt mellan virtuella nätverk i Azure (VNet till VNet). När du konfigurerar en VPN-gateway måste du skapa och konfigurera en gateway för virtuellt nätverk och en gateway för virtuell nätverksanslutning.
 
-När du skapar en resurs för gatewayen för virtuella nätverk anger du flera inställningar. En av inställningarna som krävs är ”-GatewayType”. Gateway-typen anger hur gatewayen ska anslutas. Det finns två typer av virtuella nätverksgatewayer: Vpn och ExpressRoute. När nätverkstrafik skickas på en dedikerad privat anslutning använder du gatewaytypen ”ExpressRoute”. Det kallas även för en ExpressRoute-gateway. När nätverkstrafik skickas krypterat via en offentlig anslutning använder du gateway-typen ”Vpn”. Detta kallas för en VPN-gateway. Plats-till-plats-, punkt-till-plats- och VNet-VNet-anslutningar använder allihop en VPN-gateway.
+När du skapar en resurs för gatewayen för virtuella nätverk i distributionsmodellen för Resource Manager anger du flera inställningar. En av inställningarna som krävs är ”-GatewayType”. Det finns två typer av virtuella nätverksgatewayer: Vpn och ExpressRoute. 
 
-Varje virtuellt nätverk kan bara ha en VNet-gateway per gateway-typ. Du kan exempelvis ha en VNet-gateway som använder -GatewayType Vpn och en som använder -GatewayType ExpressRoute. Den här artikeln fokuserar huvudsakligen på VPN-gatewayar. Mer information om ExpressRoute finns i [Teknisk översikt över ExpressRoute](../expressroute/expressroute-introduction.md).
+När nätverkstrafik skickas på en dedikerad privat anslutning använder du gatewaytypen ”ExpressRoute”. Det kallas även för en ExpressRoute-gateway. När nätverkstrafik skickas krypterat via en offentlig anslutning använder du gateway-typen ”Vpn”. Detta kallas för en VPN-gateway. Plats-till-plats-, punkt-till-plats- och VNet-VNet-anslutningar använder allihop en VPN-gateway.
 
-Information om gateway-kraven finns i [Krav för gateways](vpn-gateway-about-vpn-gateway-settings.md#requirements). Information om uppskattat datagenomflöde finns i [Om VPN Gateway-inställningar](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). Prisinformation finns i [Priser för VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway). Information om prenumerationer och tjänstbegränsningar finns i [Nätverksgränser](../articles/azure-subscription-service-limits.md#networking-limits).
+Varje virtuellt nätverk kan bara ha en VNet-gateway per gateway-typ. Du kan exempelvis ha en VNet-gateway som använder -GatewayType ExpressRoute och en som använder -GatewayType Vpn. Den här artikeln fokuserar huvudsakligen på VPN-gatewayar. Mer information om ExpressRoute finns i [Teknisk översikt över ExpressRoute](../expressroute/expressroute-introduction.md).
 
+## Priser
+
+[AZURE.INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)] 
+
+
+## Gateway-SKU:er
+
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] 
+
+Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
 ## Konfigurera en VPN-gateway
 
@@ -35,7 +47,7 @@ När du konfigurerar en VPN-gateway varierar instruktionerna som du följer bero
 
 En anslutning för VPN-gateway är beroende av flera resurser som är konfigurerade med specifika inställningar. De flesta resurserna kan konfigureras separat, även om de måste konfigureras i en viss ordning i vissa fall. Du kan börja skapa och konfigurera resurser med hjälp av ett konfigurationsverktyg, till exempel Azure Portal. Du kan senare bestämma dig för att växla till ett annat verktyg, som PowerShell, för att konfigurera ytterligare resurser eller ändra befintliga resurser i tillämpliga fall. För närvarande går det inte att konfigurera alla resurser och resursinställningar på Azure Portal. Anvisningarna i artiklarna för varje anslutningstopologi anger om ett specifikt konfigurationsverktyg behövs. Information om enskilda resurser och inställningar för VPN-gateway finns [Om inställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
-Avsnitten nedan innehåller tabeller med följande:
+Följande avsnitt innehåller tabeller med följande:
 
 - tillgänglig distributionsmodell
 - tillgängliga konfigurationsverktyg
@@ -82,7 +94,7 @@ Azure har för närvarande två distributionsmodeller: klassisk och Resource Man
 
 #### VNet-peering
 
-Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt virtuella nätverk uppfyller vissa krav. Ingen VNet-gateway används för VNet-peering. [VNet-peering](../virtual-network/virtual-network-peering-overview.md) finns endast som förhandsversion för närvarande.
+Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt virtuella nätverk uppfyller vissa krav. Ingen VNet-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
 
 
 ### Distributionsmodeller och metoder för VNet-till-VNet
@@ -139,6 +151,6 @@ Planera konfigurationen av din VPN-gateway. Se [VPN Gateway Planning and Design]
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

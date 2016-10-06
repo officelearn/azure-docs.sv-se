@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="09/27/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
+
 
 
 # Vad är Azure SQL Data Warehouse?
@@ -49,7 +50,7 @@ Följande diagram illustrerar arkitekturen i detalj.
 
 **Beräkningsnoder:** Beräkningsnoderna utgör kraften bakom SQL Data Warehouse. De är SQL-databaser som lagrar dina data och bearbetar din fråga. När du lägger till data distribuerar SQL Data Warehouse raderna till beräkningsnoderna. Beräkningsnoderna ansvarar också för att köra parallella frågor mot dina data. Efter bearbetning, skickar de resultaten tillbaka till Control-noden. För att slutföra frågan, aggregerar Control-noden resultaten och returnerar slutresultatet.
 
-**Lagring:** Dina data lagras i Azure Blob Storage. När Compute-noder interagerar med dina data, skriver de och läser direkt till och från blobblagring. Eftersom Azure-lagring expanderar helt transparent och utan begränsningar, kan SQL Data Warehouse också göra det. Eftersom beräkning och lagring sker oberoende av varandra, kan SQL Data Warehouse automatiskt skala lagring separat från beräkning och vice versa. Azure Blob Storage är också helt feltolerant och effektiviserar säkerhetskopierings- och återställningsprocessen.
+**Lagring:** Dina data lagras i Azure Blob Storage. När Compute-noder interagerar med dina data, skriver de och läser direkt till och från blobblagring. Eftersom Azure Storage expanderar helt transparent och i stor omfattning, kan SQL Data Warehouse också göra det. Eftersom beräkning och lagring sker oberoende av varandra, kan SQL Data Warehouse automatiskt skala lagring separat från beräkning och vice versa. Azure Blob Storage är också helt feltolerant och effektiviserar säkerhetskopierings- och återställningsprocessen.
 
 **DMS (Data Movement Service):** DMS-tjänsten flyttar data mellan noderna. DMS ger Compute-noderna åtkomst till de data de behöver för kopplingar och aggregeringar. DMS är inte en Azure-tjänst. Det är en Windows-tjänst som körs samtidigt som SQL Database på alla noderna. Eftersom DMS körs i bakgrunden, kommer du inte direkt att interagera med det. När du tittar på frågeplaner kommer du dock att se att de innehåller vissa DMS-åtgärder eftersom det är nödvändigt att flytta data för att köra varje fråga parallellt.
 
@@ -142,16 +143,17 @@ Med PolyBase kan du utnyttja data från olika källor med hjälp av välbekanta 
 
 - Polybase är integreringsneutralt. Det visar samma funktioner och egenskaper för alla källor som det stöder. Data läses av Polybase kan vara i en rad olika format, inklusive avgränsade eller ORC-filer.
 
-- PolyBase kan användas för att få åtkomst till blobblagring som också används som lagringsplats för ett HD Insight-kluster. På så sätt kan du komma åt samma data med verktyg för både relationella och icke-relationella data.
+- PolyBase kan användas för att få åtkomst till Blob Storage som också används som lagringsplats för ett HDInsight-kluster. På så sätt kan du komma åt samma data med verktyg för både relationella och icke-relationella data.
 
 ## Nästa steg
 
 Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt [skapar ett SQL Data Warehouse][] och [läsa in exempeldata][]. Om du inte har erfarenhet av Azure kan [Azure-ordlistan][] vara till hjälp eftersom du kan stöta på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
 
+- [Kundernas framgångsberättelser]
 - [Bloggar]
 - [Funktionsbegäranden]
 - [Videoklipp]
-- [CAT-teambloggar]
+- [Customer Advisory Team-bloggar]
 - [Skapa ett supportärende]
 - [MSDN-forum]
 - [Stack Overflow-forum]
@@ -162,20 +164,21 @@ Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Skapa ett supportärende]: sql-data-warehouse-get-started-create-support-ticket.md
-[läsa in exempeldata]: sql-data-warehouse-load-sample-databases.md
-[skapar ett SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[migreringsdokumentationen]: sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse-samarbetspartner]: sql-data-warehouse-partner-business-intelligence.md
-[Översikt över integrerade verktyg]: sql-data-warehouse-overview-integrate.md
-[Översikt över säkerhetskopiering och återställning]: sql-data-warehouse-restore-database-overview.md
+[Skapa ett supportärende]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[läsa in exempeldata]: ./sql-data-warehouse-load-sample-databases.md
+[skapar ett SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[migreringsdokumentationen]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse-samarbetspartner]: ./sql-data-warehouse-partner-business-intelligence.md
+[Översikt över integrerade verktyg]: ./sql-data-warehouse-overview-integrate.md
+[Översikt över säkerhetskopiering och återställning]: ./sql-data-warehouse-restore-database-overview.md
 [Azure-ordlistan]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+[Kundernas framgångsberättelser]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
 [Bloggar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[CAT-teambloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Customer Advisory Team-bloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Funktionsbegäranden]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN-forum]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
@@ -184,6 +187,6 @@ Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

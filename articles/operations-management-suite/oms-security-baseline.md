@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utvärdering av säkerhetsbaslinjen i säkerhets- och granskningslösningen i Operations Management | Microsoft Azure"
-   description="Det här dokumentet beskriver hur du använder säkerhets- och granskningslösningen i OMS för att, i efterlevnads- och säkerhetssyfte, göra en utvärdering av säkerhetsbaslinjen för alla övervakade datorer."
+   pageTitle="Operations Management Suite Security and Audit Solution Baseline | Microsoft Azure"
+   description="This document explains how to use OMS Security and Audit solution to perform a baseline assessment of all monitored computers for compliance and security purpose."
    services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
@@ -17,70 +17,70 @@
    ms.author="yurid"/>
 
 
-# Utvärdering av säkerhetsbaslinjen i säkerhets- och granskningslösningen i Operations Management Suite
+# Baseline Assessment in Operations Management Suite Security and Audit Solution
 
-Det här dokumentet beskriver hur du använder funktionerna för utvärdering av säkerhetsbaslinjen i [säkerhets- och granskningslösningen i Operations Management Suite (OMS)](operations-management-suite-overview.md) för att utvärdera de övervakade resursernas säkerhetsstatus.
+This document helps you to use [Operations Management Suite (OMS) Security and Audit Solution](operations-management-suite-overview.md) baseline assessment capabilities to access the secure state of your monitored resources.
 
-## Vad är en utvärdering av säkerhetsbaslinjen?
+## What is Baseline Assessment?
 
-Microsoft definierar, i samarbete med branschspecifika och offentliga organisationer i hela världen, en Windows-konfiguration för mycket säkra serverinstallationer. Den här konfigurationen består av en uppsättning registernycklar, granskningsprincipinställningar och säkerhetsprincipinställningar tillsammans med Microsofts rekommenderade värden för dessa inställningar. Den här uppsättningen regler kallas för en säkerhetsbaslinje. Med funktionen Utvärdering av säkerhetsbaslinje i säkerhets- och granskningslösningen i OMS kan du smidigt söka igenom alla dina datorer och kontrollera att efterlevnaden upprätthålls. 
+Microsoft, together with industry and government organizations worldwide, defines a Windows configuration that represents highly secure server deployments. This configuration is a set of registry keys, audit policy settings, and security policy settings along with Microsoft’s recommended values for these settings. This set of rules is known as Security baseline. OMS Security and Audit baseline assessment capability can seamlessly scan all your computers for compliance. 
 
-Det finns tre typer av regler:
+There are three types of rules:
 
-- **Registerregler**: Kontrollerar att registernycklarna är korrekt angivna.
-- **Granskningsprincipregler**: Regler relaterade till granskningsprinciper.
-- **Säkerhetsprincipregler**: Regler relaterade till användarens behörigheter på datorn.
+- **Registry rules**: check that registry keys are set correctly.
+- **Audit policy rules**: rules regarding your audit policy.
+- **Security policy rules**: rules regarding the user’s permissions on the machine.
 
-> [AZURE.NOTE] En kort översikt över den här funktionen finns i [Utvärdera säkerhetskonfigurationsbaslinjen med hjälp av säkerhetslösningen i OMS](https://blogs.technet.microsoft.com/msoms/2016/08/12/use-oms-security-to-assess-the-security-configuration-baseline/).
+> [AZURE.NOTE] Read [Use OMS Security to assess the Security Configuration Baseline](https://blogs.technet.microsoft.com/msoms/2016/08/12/use-oms-security-to-assess-the-security-configuration-baseline/) for a brief overview of this feature.
 
-## Utvärdering av säkerhetsbaslinje
+## Security Baseline Assessment
 
-Du kan granska din aktuella utvärdering av säkerhetsbaslinjen för alla datorer som övervakas av säkerhets- och granskningslösningen i OMS från instrumentpanelen.  Du kommer till instrumentpanelen för utvärdering av säkerhetsbaslinjen genom att följa dessa steg:
+You can review your current security baseline assessment for all computers that are monitored by OMS Security and Audit using the dashboard.  Execute the following steps to access the security baseline assessment dashboard:
 
-1. Klicka på panelen **Säkerhet och granskning** på huvudinstrumentpanelen för **Microsoft Operations Management Suite**.
-2. Klicka på **Utvärdering av säkerhetsbaslinje** under **Säkerhetsdomäner** på instrumentpanelen för **Säkerhet och granskning**. Instrumentpanelen för **Utvärdering av säkerhetsbaslinje** visas, som du ser i följande bild:
+1. In the **Microsoft Operations Management Suite** main dashboard, click **Security and Audit** tile.
+2. In the **Security and Audit** dashboard, click **Baseline Assessment** under **Security Domains**. The **Security Baseline Assessment** dashboard appears as shown in the following image:
     
-    ![Utvärdering av säkerhetsbaslinjen i säkerhets- och granskningslösningen i OMS](./media/oms-security-baseline/oms-security-baseline-fig1.png)
+    ![OMS Security and Audit Baseline Assessment](./media/oms-security-baseline/oms-security-baseline-fig1.png)
 
-Den här instrumentpanelen är uppdelat i tre huvudområden:
+This dashboard is divided in three major areas:
 
-- **Datorer jämfört med baslinjen**: Det här avsnittet innehåller en sammanfattning av antalet datorer som kontrollerades och hur många datorer i procent som klarade utvärderingen. Översikten visar också de översta tio datorerna och utvärderingsresultatet i procent.
-- **Status för obligatoriska regler**: Avsikten med det här avsnittet är att göra dig uppmärksam på regler som inte efterlevts baserat på allvarlighetsgrad och typ. Genom att titta på det första diagrammet kan du snabbt se om de flesta misslyckade regler är kritiska eller inte. Diagrammet visar också en lista över de översta tio misslyckade reglerna och deras allvarlighetsgrad. Det andra diagrammet visar vilken typ av regel som misslyckades under utvärderingen. 
-- **Datorer som saknar basutvärdering**: Det här avsnittet innehåller en lista över de datorer som inte kontrollerades på grund av inkompatibilitet med eller fel relaterade till operativsystemet. 
+- **Computers compared to baseline**: this section gives a summary of the number of computers that were accessed and the percentage of computers that passed the assessment. It also gives the top 10 computers and the percentage result for the assessment.
+- **Required Rules Status**: this section has the intent to bring awareness of the failed rules by severity and failed rules by type. By looking to the first graph you can quickly identify if most the failed rules are critical, or not. It also gives a list of the top 10 failed rules and their severity. The second graph shows the type of rule that failed during the assessment. 
+- **Computers missing baseline assessment**: this section list the computers that were not accessed due to operating system incompatibility or failures. 
 
-### Kontrollera datorer jämfört med baslinje
+### Accessing computers compared to baseline
 
-I bästa fall är alla dina datorer kompatibla vid utvärderingen av säkerhetsbaslinjen. I vissa fall kan det dock hända att så inte är fallet. Som en del av säkerhetshanteringsprocessen är det viktigt att granska datorer som inte klarade alla säkerhetsutvärderingstester. Ett snabbt sätt att se detta är genom att välja alternativet **Dator som öppnats** i avsnittet **Datorer jämfört med baslinje**. Du bör se listan med datorer i resultatet från loggsökningen, som du ser här:
+Ideally all your computers are be compliant with the security baseline assessment. However it is expected that in some circumstances this doesn't happen. As part of the security management process, it is important to include reviewing the computers that failed to pass all security assessment tests. A quick way to visualize that is by selecting the option **Computers accessed** located in the **Computers compared to baseline** section. You should see the log search result showing the list of computers as shows in the following screen:
 
-![Resultat från Dator som öppnats](./media/oms-security-baseline/oms-security-baseline-fig2.png)
+![Computer accessed results](./media/oms-security-baseline/oms-security-baseline-fig2.png)
 
-Sökresultatet visas i tabellformat, där den första kolumnen innehåller namnet på datorn och den andra kolumnen visar hur många regler som misslyckades. Du kan hämta information om vilken typ av regel som misslyckades genom att klicka på antalet misslyckade regler bredvid datornamnet. Du bör se ett resultat liknande det i följande bild:
+The search result is shown in a table format, where the first column has the computer name and the second color has the number of rules that failed. To retrieve the information regarding the type of rule that failed, click in the number of failed rules besides the computer name. You should see a result similar to the one shown in the following image:
 
-![Resultatdetaljer från Dator som öppnats](./media/oms-security-baseline/oms-security-baseline-fig3.png)
+![Computer accessed results details](./media/oms-security-baseline/oms-security-baseline-fig3.png)
 
-I det här sökresultatet kan du se totalt antal regler som kontrollerades, antalet kritiska regler som misslyckades, samt varningsregler och informationsregler som misslyckades.
+In this search result, you have the total of accessed rules, the number of critical rules that failed, the warning rules and the information failed rules.
 
-### Kontrollera statusen för obligatoriska regler
+### Accessing required rules status
 
-När du har fått information om antalet datorer (i procent) som klarade utvärderingen kanske du vill visa mer information om vilka regler som misslyckas utifrån deras allvarlighetsgrad. Den här visualiseringen hjälper dig att prioritera vilka datorer du bör fokusera på först så att de klarar nästa utvärdering. Hovra över Kritiskt i diagrammet på panelen **Regler som inte tillämpats per allvarlighetsgrad** under **Status för obligatoriska regler** och klicka. Du bör se ett resultat liknande följande skärm:
+After obtaining the information regarding the percentage number of computers that passed the assessment, you may want to obtain more information about which rules are failing according to the criticality. This visualization helps you to prioritize which computers should be addressed first to ensure they will be compliant in the next assessment. Hover over the Critical part of the graph located in the **Failed rules by severity** tile, under **Required rules status** and click it. You should see a result similar to the following screen:
 
-![Misslyckade regler efter allvarlighetsgrad](./media/oms-security-baseline/oms-security-baseline-fig4.png) 
+![Failed rules by severity details](./media/oms-security-baseline/oms-security-baseline-fig4.png) 
 
-I det här loggresultatet ser du vilken typ av baslinjeregel som misslyckades, beskrivningen av regeln och säkerhetsregelns CCE-ID (Common Configuration Enumeration). Dessa attribut bör räcka för att utföra en korrigerande åtgärd som åtgärdar problemet på måldatorn.
+In this log result you see the type of baseline rule that failed, the description of this rule, and the Common Configuration Enumeration (CCE) ID of this security rule. These attributes should be enough to perform a corrective action to fix this problem in the target computer.
 
-> [AZURE.NOTE] Mer information om CCE finns i [NVD-databasen (National Vulnerability Database)](https://nvd.nist.gov/cce/index.cfm).
+> [AZURE.NOTE] For more information about CCE, access the [National Vulnerability Database](https://nvd.nist.gov/cce/index.cfm).
 
-### Kontrollera datorer utan utvärdering av säkerhetsbaslinje
+### Accessing computers missing baseline assessment
 
-OMS stöder baslinjeprofilen för domänmedlemmar i Windows Server 2008 R2 upp till Windows Server 2012 R2. Baslinjen för Windows Server 2016 är inte klar än och läggs till så fort den publiceras. Alla andra operativsystem som genomsöks med Utvärdering av säkerhetsbaslinje i säkerhets- och granskningslösningen i OMS visas i avsnittet **Datorer utan utvärdering av säkerhetsbaslinje**.
+OMS supports the domain member baseline profile on Windows Server 2008 R2 up to Windows Server 2012 R2. Windows Server 2016 baseline isn’t final yet and will be added as soon as it is published. All other operating systems scanned via OMS Security and Audit baseline assessment appears under the **Computers missing baseline assessment** section.
 
-## Se även
+## See also
 
-I det här dokumentet har du lärt dig om Utvärdering av säkerhetsbaslinje i säkerhets- och granskningslösningen i OMS. Mer information om säkerheten i OMS finns i följande artiklar:
+In this document, you learned about OMS Security and Audit baseline assessment. To learn more about OMS Security, see the following articles:
 
-- [Översikt över Operations Management Suite (OMS)](operations-management-suite-overview.md)
-- [Övervaka och svara på säkerhetsaviseringar i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-responding-alerts.md)
-- [Övervaka resurser i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-monitoring-resources.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
 
 
 

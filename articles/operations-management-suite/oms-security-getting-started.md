@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Komma igång med säkerhets- och granskningslösningen i Operations Management Suite | Microsoft Azure"
-   description="Det här dokumentet beskriver hur du kommer igång med funktionerna i säkerhets- och granskningslösningen i Operations Management Suite för att övervaka ditt hybridmoln."
+   pageTitle="Getting started with Operations Management Suite Security and Audit Solution | Microsoft Azure"
+   description="This document helps you to get started with Operations Management Suite Security and Audit solution capabilities to monitor your hybrid cloud."
    services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
@@ -17,156 +17,156 @@
    ms.author="yurid"/>
  
 
-# Komma igång med säkerhets- och granskningslösningen i Operations Management Suite
-Det här dokumentet hjälper dig att snabbt komma igång med funktionerna i säkerhets- och granskningslösningen i Operations Management Suite (OMS) genom att vägleda dig igenom de olika alternativen.
+# Getting started with Operations Management Suite Security and Audit Solution
+This document helps you get started quickly with Operations Management Suite (OMS) Security and Audit solution capabilities by guiding you through each option.
 
-## Vad är OMS?
-Microsoft Operations Management Suite (OMS) är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda din lokala och molnbaserade infrastruktur. Mer information om OMS finns i artikeln [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+## What is OMS?
+Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
-## Instrumentpanelen för Säkerhet och granskning i OMS
+## OMS Security and Audit dashboard
 
-Säkerhets- och granskningslösningen i OMS ger en heltäckande översikt över din organisations IT-säkerhetsstatus med inbyggda sökfrågor för viktiga problem som kräver din uppmärksamhet. Instrumentpanelen för **Säkerhet och granskning** är startsidan för allt som rör säkerheten i OMS. Den innehåller en översikt över säkerhetsstatusen för dina datorer. Här kan du också visa alla händelser från de senaste 24 timmarna, sju dagarna eller ett annat anpassat tidsintervall. Du öppnar instrumentpanelen för **Säkerhet och granskning** genom att följa dessa steg:
+The OMS Security and Audit solution provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The **Security and Audit** dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame. To access the **Security and Audit** dashboard, follow these steps:
 
-1. Klicka på panelen **Inställningar** till vänster på huvudinstrumentpanelen för **Microsoft Operations Management Suite**.
-2. Klicka på alternativet **Säkerhet och granskning** under **Lösningar** på bladet **Inställningar**.
-3. Instrumentpanelen för **Säkerhet och granskning** visas:
+1. In the **Microsoft Operations Management Suite** main dashboard click **Settings** tile in the left.
+2. In the **Settings** blade, under **Solutions** click **Security and Audit** option.
+3. The **Security and Audit** dashboard will appear:
 
-    ![Instrumentpanelen för Säkerhet och granskning i OMS](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
+    ![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
-Om du använder den här instrumentpanelen för första gången och du inte har några enheter som övervakas av OMS så är inte panelerna ifyllda med data som hämtas från agenten. När du har installerat agenten kan det ta lite tid innan panelerna fylls i och det kan därför se ut som vissa data saknas eftersom de fortfarande laddas upp till molnet.  I detta fall är det normalt att vissa paneler visas utan någon användbar information. Läs [Ansluta Windows-datorer direkt till OMS](https://technet.microsoft.com/library/mt484108.aspx) om du vill ha mer information om hur du installerar OMS-agenten på en Windows-dator och [Ansluta Linux-datorer till OMS](https://technet.microsoft.com/library/mt622052.aspx) om du vill ha mer information om hur du gör på en Linux-dator.
+If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case, it is normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
 
-> [AZURE.NOTE] Agenten samlar in information baserat på de aktuella händelser som är aktiverade, till exempel datornamn, IP-adress och användarnamn. Inga dokument/filer, databasnamn eller privata data samlas dock in.   
+> [AZURE.NOTE] The agent will collect the information based on the current events that are enabled, for instance computer name, IP address and user name. However no document/files, database name or private data are collected.   
 
-Lösningar är en samling logik, visualisering och datahämtningsregler som hjälper till att hantera viktiga kundutmaningar. Säkerhet och granskning är en lösning, andra kan läggas till separat. Artikeln [Lägga till lösningar](https://technet.microsoft.com/library/mt674635.aspx) innehåller mer information om hur du lägger till en ny lösning.
+Solutions are a collection of logic, visualization and data acquisition rules that address key customer challenges. Security and Audit is one solution, others can be added separately. Read the article [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) for more information on how to add a new solution.
 
-Instrumentpanelen för Säkerhet och granskning i OMS är ordnad i fyra huvudkategorier:
+The OMS Security and Audit dashboard is organized in four major categories:
 
-- **Säkerhetsdomäner**: I det här området kan du fortsätta att utforska säkerhetsposter över tid, komma åt utvärderingar av program mot skadlig kod, kontrollera uppdateringar, nätverkssäkerhet, identitets- och åtkomstinformation, datorer med säkerhetshändelser och snabbt komma åt instrumentpanelen för Azure Security Center.
-- **Anmärkningsvärda problem**: Med det här alternativet kan du snabbt identifiera antalet aktiva problem och problemens allvarlighetsgrad.
-- **Identifieringar (förhandsversion)**: Med det här alternativet kan du identifiera angreppsmönster genom att visualisera säkerhetsvarningar som skapas för dina resurser.
-- **Hotinformation**: Med det här alternativet kan du identifiera angreppsmönster genom att visualisera det totala antalet servrar med utgående skadlig IP-trafik, typen av hot och en karta som visar var dessa IP-adresser kommer från. 
-- **Vanliga säkerhetsfrågor**: Det här alternativet visar en lista över de vanligaste säkerhetsfrågorna som du kan använda för att övervaka din miljö. När du klickar på någon av dessa frågor öppnas bladet **Sök** med resultatet från frågan.
+- **Security Domains**: in this area you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
+- **Notable Issues**: this option will allow you to quickly identify the number of active issues and the severity of these issues.
+- **Detections (Preview)**: enables you to identify attack patterns by visualizing security alerts as they take place against your resources.
+- **Threat Intelligence**: enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. 
+- **Common security queries**: this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the **Search** blade with the results for that query.
 
-> [AZURE.NOTE] Mer information om hur OMS skyddar dina data finns i Så här skyddas dina data med OMS.
+> [AZURE.NOTE] for more information on how OMS keeps your data secure, read How OMS secures your data.
 
-## Säkerhetsdomäner
+## Security domains
 
-När du övervakar resurser är det viktigt att snabbt kunna komma åt miljöns aktuella tillstånd. Det är också viktigt att kunna spåra händelser som har inträffat tidigare och som kan göra det lättare att förstå vad som händer i miljön vid en viss tidpunkt. 
+When monitoring resources, it is important to be able to quickly access the current state of your environment. However it is also important to be able to track back events that occurred in the past that can lead to a better understanding of what’s happening in your environment at certain point in time. 
 
-> [AZURE.NOTE] Datakvarhållningen baseras på OMS-prisplanen. Mer information finns på prissidan för [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx).
+> [AZURE.NOTE] data retention is according to the OMS pricing plan. For more information visit the [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx) pricing page.
 
-Incidenthanterings- och datautredningsscenarier kan dra nytta av resultaten som är tillgängliga på panelen **Säkerhetsposter över tid**.
+Incident response and forensics investigation scenarios will directly benefit from the results available in the **Security Records over Time** tile.
 
-![Säkerhetsposter över tid](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
+![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
-När du klickar på den här panelen öppnas bladet **Sök** och visar ett frågeresultat för **Säkerhetshändelser** (Type=SecurityEvents) med data baserat på de senaste sju dagarna, som du ser här:
+When you click on this tile, the **Search** blade will open, showing a query result for **Security Events** (Type=SecurityEvents) with data based on the last seven days, as shown below:
 
-![Säkerhetsposter över tid](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
+![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
-Sökresultatet är uppdelat på två paneler: den vänstra panelen innehåller en detaljerad analys av antalet säkerhetshändelser som hittades, de datorer som händelserna hittades på, antalet konton som identifierades på datorerna samt typen av aktivitet. Den högra panelen innehåller det sammanlagda resultatet och en kronologisk vy över säkerhetshändelserna med datorns namn och händelseaktivitet. Du kan också klicka på **Visa mer** om du vill visa mer information om händelsen, till exempel händelsedata, händelse-ID och händelsekälla.
+The search result is divided in two panes: the left pane gives you a breakdown of the number of security events that were found, the computers in which these events were found, the number of accounts that were discovered in these computers and the types of activities. The right pane provides you the total results and a chronological view of the security events with the computer’s name and event activity. You can also click **Show More** to view more details about this event, such as the event data, the event ID and the event source.
 
-> [AZURE.NOTE] Mer information om OMS-sökfrågor finns i [sökreferensen för OMS](https://technet.microsoft.com/library/mt450427.aspx).
+> [AZURE.NOTE] for more information about OMS search query, read [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx).
 
-### Utvärdering av program mot skadlig kod
+### Antimalware assessment
 
-Med det här alternativet kan du snabbt identifiera datorer med otillräckligt skydd och datorer som har komprometterats av skadlig kod. Statusen för en utvärdering av skadlig kod och identifierade hot på de övervakade servrarna läses och informationen skickas till OMS-tjänsten i molnet för bearbetning. Servrar med identifierade hot och servrar med otillräckligt skydd visas på instrumentpanelen för utredning av skadlig kod, som du kommer till när du klickar på panelen **Utvärdering av program mot skadlig kod**. 
+This option enables you to quickly identify computers with insufficient protection and computers that are compromised by a piece of malware. Malware assessment status and detected threats on the monitored servers are read, and then the data is sent to the OMS service in the cloud for processing. Servers with detected threats and servers with insufficient protection are shown in the malware assessment dashboard, which is accessible after you click in the **Antimalware Assessment** tile. 
 
-![utvärdering av skadlig kod](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
+![malware assessment](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
 
-Precis som med alla andra levande paneler på OMS-instrumentpanelen öppnas bladet **Sök** med frågeresultatet när du klickar på panelen. Om du klickar på **Rapporterar inte** under **Skyddsstatus** för det här alternativet visas frågeresultatet som innehåller den här enstaka posten med datorns namn och dess rankning, som du ser här:
+Just like any other live tile available in OMS Dashboard, when you click on it, the **Search** blade will open with the query result. For this option, if you click in the **Not Reporting** option under **Protection Status**, you will have the query result that shows this single entry that contains the computer’s name and its rank, as shown below:
 
-![sökresultat](./media/oms-security-getting-started/oms-getting-started-fig5.png)
+![search result](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
-> [AZURE.NOTE] *Rankning* är en grad som tilldelas för att återspegla skyddets status (på, av, uppdaterat osv.) och hot som hittats. Med det här numret blir det lättare att göra aggregeringar.
+> [AZURE.NOTE] *rank* is a grade giving to reflect the status of the protection (on, off, updated, etc) and threats that are found. Having that as a number helps to make aggregations.
 
-Om du klickar på datorns namn visas den kronologiska vyn över skyddsstatusen för datorn. Detta är väldigt användbart för scenarier då du behöver veta om programmet mot skadlig kod har tagits bort sedan det installerades.   
+If you click in the computer’s name, you will have the chronological view of the protection status for this computer. This is very useful for scenarios in which you need to understand if the antimalware was once installed and at some point it was removed.   
 
-### Kontroll av uppdateringar 
+### Update assessment 
 
-Med det här alternativet kan du snabbt bedöma exponeringen för potentiella säkerhetsproblem, och se om och i så fall hur viktiga dessa uppdateringar är för din miljö. Säkerhets- och granskningslösningen i OMS visar bara visualiseringen av dessa uppdateringar. Den verkliga informationen kommer från [Systemuppdateringar](https://technet.microsoft.com/library/mt484096.aspx), som är en annan modul i OMS. Här ett exempel på uppdateringarna:
+This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provide the visualization of these updates, the real data comes from [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx), which is a different module within OMS. Here an example of the updates:
 
-![systemuppdateringar](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![system updates](./media/oms-security-getting-started/oms-getting-started-fig6.png)
 
-> [AZURE.NOTE] Mer information om uppdateringslösningen finns i [Uppdatera servrar med systemuppdateringslösningen](https://technet.microsoft.com/library/mt484096.aspx).
+> [AZURE.NOTE] for more information about Updates solution, read [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx).
 
-### Identitet och åtkomst
+### Identity and Access
 
-Identiteten bör vara kontrollplanet för ditt företag, och din högsta prioritet bör vara att skydda din identitet. Tidigare fanns det gränser runt organisationerna och dessa utgjorde ett av de viktigaste skydden. I dag, då alltmer data och fler appar migreras till molnet, är identiteten dess nya motsvarighet. 
+Identity should be the control plane for your enterprise, protecting your identity should be your top priority. While in the past there were perimeters around organizations and those perimeters were one of the primary defensive boundaries, nowadays with more data and more apps moving to the cloud the identity becomes the new perimeter. 
 
-> [AZURE.NOTE] För närvarande baseras informationen endast på inloggningsdata för säkerhetshändelser (händelse-ID 4624). Längre fram kommer även Office365-inloggningar och Azure AD-data att ingå.
+> [AZURE.NOTE] currently the data is based only on Security Events login data (event ID 4624) in the future Office365 logins and Azure AD data will also be included.
 
-Genom att övervaka identitetsaktiviteter kan du vidta proaktiva åtgärder innan en incident inträffar eller reaktiva åtgärder för att stoppa ett angreppsförsök. Instrumentpanelen för **Identitet och åtkomst** innehåller en översikt över din identitetsstatus, inklusive antalet misslyckade inloggningsförsök, det användarkonto som användes vid dessa försök, konton som har låsts, konton med ändrade eller återställda lösenord och antalet konton som är inloggade för tillfället. 
+By monitoring your identity activities you will be able to take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The **Identity and Access** dashboard provides you an overview of your identity state, including the number of failed attempts to log on, the user’s account that were used during those attempts, accounts that were locked out, accounts with changed or reset password and currently number of accounts that are logged in. 
 
-När du klickar på panelen **Identitet och åtkomst** visas följande instrumentpanel:
+When you click in the **Identity and Access** tile you will see the following dashboard:
 
-![identitet och åtkomst](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
+![identity and access](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
 
-Med informationen på den här instrumentpanelen kan du snabbt identifiera en potentiell misstänkt aktivitet. Anta till exempel att 338 inloggningsförsök som **administratör** har gjorts och att samtliga av dessa försök misslyckades. Detta kan bero på en råstyrkeattack mot kontot. Om du klickar på det här kontot visas mer information som kan hjälpa dig att fastställa målresursen för det potentiella angreppet:
+The information available in this dashboard can immediately assist you to identify a potential suspicious activity. For example, there are 338 attempts to log on as **Administrator** and 100% of these attempts failed. This can be caused by a brute force attack against this account. If you click on this account you will obtain more information that can assist you to determine the target resource for this potential attack:
 
-![sökresultat](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
+![search results](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
 
-Den detaljerade rapporten innehåller viktig information om den här händelsen, bland annat: måldatorn, typen av inloggning (i det här fallet nätverksinloggning), aktiviteten (i det här fallet händelse 4625) samt en detaljerad tidslinje för varje försök. 
+The detailed report provides important information about this event, including: the target computer, the type of logon (in this case Network logon), the activity (in this case event 4625) and a comprehensive timeline of each attempt. 
 
-### Datorer
+### Computers
 
-Den här panelen kan användas för att få åtkomst till alla datorer som aktivt har säkerhetshändelser. När du klickar på den här panelen visas en lista över datorer med säkerhetshändelser och antalet händelser på varje dator:
+This tile can be used to access all computers that actively have security events. When you click in this tile you will see the list of computers with security events and the number of events on each computer:
 
-![Datorer](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
+![Computers](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
-Du kan fortsätta din undersökning genom att klicka på varje dator och granska säkerhetshändelserna som flaggats.
+You can continue your investigation by clicking on each computer and review the security events that were flagged.
 
 ### Azure Security Center
 
-Den här panelen är i grunden en genväg till instrumentpanelen för Azure Security Center. Mer information om den här lösningen finns i [Komma igång med Azure Security Center](../security-center/security-center-get-started.md).
+This tile is basically a shortcut to access Azure Security Center dashboard. Read [Getting started with Azure Security Center](../security-center/security-center-get-started.md) for more information about this solution.
 
-## Anmärkningsvärda problem
+## Notable issues
 
-Det huvudsakliga syftet med den här gruppen alternativ är att ge en snabb överblick över problemen i din miljö genom att dela in dem i kategorierna Kritiskt, Varning och Information. Panelen Aktiva problemtyper är en visualisering av dessa problem, men ger dig inte möjlighet att utforskar mer information om dem. För att göra det måste du använda den nedre delen av den här panelen som visar namnet på problemet (NAMN), hur många objekt som haft problemet (ANTAL) och hur kritiskt det är (ALLVARLIGHETSGRAD).
+The main intent of this group of options is to provide a quick view of the issues that you have in your environment, by categorizing them in Critical, Warning and Informational. The Active issue type tile it’s a visualization of these issues, but it doesn’t allow you to explore more details about them, for that you need to use the lower part of this tile that has the name of the issue (NAME), how many objects had this happen (COUNT) and how critical it is (SEVERITY).
 
-![Anmärkningsvärda problem](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
+![Notable issues](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
-Du kan se att de här problemen redan finns med i olika områden i gruppen **Säkerhetsdomäner**, vilket är i linje med syftet med den här vyn: att visualisera de viktigaste problemen i miljön från en enda plats.
+You can see that these issues were already covered in different areas of the **Security Domains** group, which reinforces the intent of this view: visualize the most important issues in your environment from a single place.
 
-## Identifieringar (förhandsversion)
+## Detections (Preview)
 
-Det huvudsakliga syftet med det här alternativet är att IT-personalen snabbt ska kunna identifiera potentiella hot i miljön utifrån hotets allvarlighetsgrad.
+The main intent of this option is to allow IT to quickly identify potential threats to their environment via and the severity of this threat.
 
-![Hotinformation](./media/oms-security-getting-started/oms-getting-started-fig12.png)
+![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Det här alternativet kan också användas vid en incidenthanteringsundersökning för att utvärdera och få mer information om attacken.
+This option can also be used during an incident response investigation to perform the assessment and obtain more information about the attack.
 
-> [AZURE.NOTE] Mer information om hur du använder OMS för incidenthantering finns i [Utnyttja Azure Security Center och Microsoft Operations Management Suite för incidenthantering](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
+> [AZURE.NOTE] For more information on how to use OMS for Incident Response, watch [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 
-## Hotinformation
+## Threat Intelligence
 
-Det nya hotinformationsavsnittet i säkerhets- och granskningslösningen visualiserar möjliga attackmönster på flera sätt: det totala antalet servrar med utgående skadlig IP-trafik, typen av skadligt hot samt en karta som visar var dessa IP-adresser kommer från. Du kan interagera med kartan och klicka på IP-adresser om du vill ha mer information.
+The new threat intelligence section of the Security and Audit solution visualizes the possible attack patterns in several ways: the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. You can interact with the map and click on the IPs for more information.
 
-Gula kartnålar på kartan anger inkommande trafik från skadliga IP-adresser. Det är inte ovanligt att servrar som exponeras för Internet får skadlig inkommande trafik, men vi rekommenderar att du granskar dessa försök för att kontrollera att inget av dem lyckades. Dessa indikatorer baseras på IIS-loggar, WireData och loggar för Windows-brandväggen.  
+Yellow pushpins on the map indicate incoming traffic from malicious IPs. It is not uncommon for servers that are exposed to the internet to see incoming malicious traffic, but we recommend reviewing these attempts to make sure none of them was successful. These indicators are based on IIS logs, WireData and Windows Firewall logs.  
 
-![Hotinformation](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
+![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
 
-## Vanliga säkerhetsfrågor
+## Common security queries
 
-Du kan använda listan över vanliga säkerhetsfrågor för att snabbt komma åt resursens information och anpassa den baserat på kraven i din miljö. Dessa vanliga frågor är:
+The list of common security queries available can be useful for you to rapidly access resource’s information and customize it based on your environment’s needs. These common queries are:
 
-- Alla säkerhetsaktiviteter
-- Säkerhetsaktiviteter på datorn ”computer01.contoso.com” (ersätt namnet med ditt datornamn)
-- Säkerhetsaktiviteter på datorn ”computer01.contoso.com” för kontot ”Administratör” (ersätt namnen med dina dator- och kontonamn)
-- Inloggningsaktivitet per dator
-- Konton som avslutat Microsoft-program mot skadlig kod på en dator
-- Datorer där processer för Microsoft-program mot skadlig kod har avslutats
-- Datorer där ”hash.exe” har körts (ersätt namnet med processnamnet)
-- Alla processnamn som körts
-- Inloggningsaktivitet per konto
-- Konton som har loggat in på datorn ”computer01.contoso.com” via en fjärranslutning (ersätt namnet med ditt datornamn)
+- All Security Activities
+- Security Activities on the computer "computer01.contoso.com" (replace with your own computer name)
+- Security Activities on the computer "computer01.contoso.com" for account "Administrator" (replace with your own computer and account names)
+- Log on Activity by Computer
+- Accounts who terminated Microsoft antimalware on any computer
+- Computers where the Microsoft antimalware process was terminated
+- Computers where "hash.exe" was executed (replace with different process name)
+- All Process names that were executed
+- Log on Activity by Account
+- Accounts who remotely logged on the computer "computer01.contoso.com" (replace with your own computer name)
 
-## Se även
+## See also
 
-I det här dokumentet introducerades säkerhets- och granskningslösningen i OMS. Mer information om säkerheten i OMS finns i följande artiklar:
+In this document, you were introduced to OMS Security and Audit solution. To learn more about OMS Security, see the following articles:
 
-- [Översikt över Operations Management Suite (OMS)](operations-management-suite-overview.md)
-- [Övervaka och svara på säkerhetsaviseringar i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-responding-alerts.md)
-- [Övervaka resurser i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-monitoring-resources.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
 
 
 

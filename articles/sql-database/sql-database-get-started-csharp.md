@@ -26,7 +26,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Lär dig hur du använder C# för att skapa en Azure SQL-databas med [Azure SQL Database-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Den här artikeln beskriver hur du skapar en enkel databas med SQL och C#. För att skapa elastiska databaspooler, se [Skapa en elastisk databaspool](sql-database-elastic-pool-create-portal.md).
+Lär dig hur du använder C# för att skapa en Azure SQL-databas med [Azure SQL Database-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Den här artikeln beskriver hur du skapar en enkel databas med SQL och C#. För att skapa elastiska databaspooler, se [Skapa en elastisk databaspool](sql-database-elastic-pool-create-csharp.md).
 
 Azure SQL Database-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -294,6 +294,6 @@ När du nu har testat SQL Database och ställt in en databas med C#, är du redo
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

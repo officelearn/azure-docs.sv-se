@@ -14,49 +14,53 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="09/08/2016" 
+    ms.date="09/22/2016" 
     ms.author="spelluru"/>
 
 
 # Introduktion till Azure Data Factory – en dataintegreringstjänst i molnet
 
 ## Vad är Azure Data Factory? 
-Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Precis som en fabrik som använder maskiner till att omvandla råmaterial till färdiga produkter, samordnar Data Factory befintliga tjänster som samlar in rådata och transformerar dem till information som är klar att använda. 
+Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar **förflyttning** och **transformering** av data. Du kan skapa dataintegrationslösningar med hjälp av tjänsten Data Factory som kan föra in data från olika datakällor, transformera/bearbeta data och publicera resultatdata till datalager. 
 
-Data Factory fungerar både lokalt samt med molndatakällor och SaaS för att mata in, förbereda, transformera, analysera och publicera dina data. Använd Data Factory till att skapa tjänster till pipelines med hanterade dataflöden och omvandla data med hjälp av tjänster som [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) och [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) för stora databeräkningsbehov och med [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) för att använda analyslösningar. Nöj dig inte med en övervakningsvy i tabellform, utan använd detaljerade visualiseringar av Data Factory till att snabbt visa härkomst och beroenden mellan dina datapipelines. Övervaka alla dina dataflödespipelines från en enda enhetlig vy för att enkelt hitta problem och konfigurera övervakningsaviseringar.
+Med Data Factory-tjänsten kan du skapa datapipelines som flyttar och transformerar data och kör pipelines enligt ett angivet schema (varje timme, varje dag, varje vecka osv.). Den innehåller också omfattande visualiseringar för att visa härkomst och beroenden mellan dina datapipelines och övervaka alla datapipelines från en enda enhetlig vy för att enkelt hitta problem och konfigurera övervakningsaviseringar.
 
 ![Diagram: Data Factory-översikt, en dataintegreringstjänst](./media/data-factory-introduction/what-is-azure-data-factory.png)
+**Figur 1.** För in data från olika datakällor, förbered, transformera och analysera data, och publicera sedan data som färdiga att använda.
 
-**Figur 1.** Samla in data från flera olika lokala datakällor, för in, förbered, transformera och analysera data, och publicera sedan data som färdiga att använda.
+## Pipelines och aktiviteter
+I en Data Factory-lösning skapar du en eller flera data**pipelines**. En pipeline är en logisk gruppering av aktiviteter. De används för att gruppera aktiviteter till en enhet som tillsammans utför en aktivitet. 
 
-Du kan använda Data Factory varje gång du behöver samla in data i olika former och storlekar, transformera den och publicera den för att få djupgående information – allt med ett tillförlitligt schema. Data Factory används för att skapa dataflödespipelines med hög tillgänglighet för många scenarier i olika branscher som behöver analyspipelines. Onlineåterförsäljare använder det för att skapa anpassade [produktrekommendationer](data-factory-product-reco-usecase.md) baserat på kundens webbeteende. Speltillverkare använder det för att se hur [effektiva deras marknadsförings](data-factory-customer-profiling-usecase.md)kampanjer är. Lär dig direkt från våra kunder hur och varför de använder Data Factory genom att läsa våra [fallstudier](data-factory-customer-case-studies.md). 
+**Aktiviteter** definierar de åtgärder som ska utföras på dina data. Du kan till exempel använda en kopieringsaktivitet för att kopiera data från ett datalager till ett annat. På samma sätt kan du använda en Hive-aktivitet som kör en Hive-fråga på ett Azure HDInsight-kluster för att transformera eller analysera dina data. Data Factory stöder två typer av aktiviteter: aktiviteter för dataförflyttning och datatransformering. 
+  
+## Dataförflyttningsaktiviteter 
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-> [AZURE.VIDEO azure-data-factory-overview]
+Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information. 
 
-## Viktiga begrepp
+## Datatransformeringsaktiviteter
+[AZURE.INCLUDE [data-factory-transformation-activities](../../includes/data-factory-transformation-activities.md)]
 
+Se artikeln [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) för mer information.
+
+Om du behöver flytta data till/från ett datalager som Kopiera aktivitet inte stöder, eller transformera data med egen logik, kan du skapa en **anpassad .NET-aktivitet**. Mer information om att skapa och använda en anpassad aktivitet finns i [Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)](data-factory-use-custom-activities.md).
+
+## Länkade tjänster
+Länkade tjänster definierar den information som behövs för att Data Factory ska kunna ansluta till externa resurser (exempel: Azure Storage, lokal SQL Server, Azure HDInsight). Länkade tjänster används för två syften i Data Factory:
+
+- Att representera ett **datalager** inklusive, men inte begränsat till, en lokal SQL Server, Oracle-databas, filresurs eller ett Azure Blob Storage-konto. I avsnittet [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) finns en lista över datalager som stöds. 
+- Så här visar du en **beräkningsresurs** som kan vara värd för körningen av en aktivitet. HDInsightHive-aktiviteten körs till exempel på ett HDInsight Hadoop-kluster. I [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) finns en lista över de beräkningsmiljöer som stöds. 
+
+## Datauppsättningar 
+Länkade tjänster länkar datalager till en Azure-datafabrik. Datauppsättningar representerar datastrukturer i datalager. Till exempel innehåller en länkad Azure Storage-tjänst anslutningsinformation för Data Factory för att ansluta till ett Azure Storage-konto. En Azure Blob-datauppsättning anger blobbehållaren och -mappen i Azure Blob Storage som pipelinen ska läsa data från. På samma sätt anger en länkad Azure SQL-tjänst anslutningsinformation för en Azure SQL Database och en Azure SQL-datauppsättning anger tabellen som innehåller data.   
+
+## Förhållande mellan Data Factory-enheter
 Data Factory har några viktiga entiteter som samverkar för att definiera indata och utdata, bearbeta händelser, samt de scheman och resurser som krävs för att köra det önskade dataflödet.
 
 ![Diagram: Data Factory, en molnbaserad dataintegreringstjänst – nyckelbegrepp](./media/data-factory-introduction/data-integration-service-key-concepts.png)
-
 **Figur 2.** Relationer mellan datauppsättning, aktivitet, pipeline och länkad tjänst
 
-### Pipelines
-[Pipelines](data-factory-create-pipelines.md) är en logisk gruppering av aktiviteter. De används för att gruppera aktiviteter till en enhet som tillsammans utför en aktivitet. Till exempel kan en sekvens med flera transformeringsaktiviteter behövas när man ska rensa loggfildata. Den här sekvensen kan ha ett komplext schema och beroenden som måste samordnas och automatiseras. Alla dessa aktiviteter kan grupperas i en enda pipeline med namnet ”CleanLogFiles”. ”CleanLogFiles” kan sedan distribueras, schemaläggas eller tas bort som en enskild enhet i stället för att hantera varje enskild aktivitet separat.
-
-### Aktiviteter
-Aktiviteter definierar de åtgärder som ska utföras på dina data. Varje aktivitet har noll eller flera [datauppsättningar](data-factory-create-datasets.md) som indata och skapar en eller flera datauppsättningar som utdata. En aktivitet är en samordningsenhet i Azure Data Factory. Du kan till exempel använda en [kopieringsaktivitet](data-factory-data-movement-activities.md) till att samordna kopiering av data från en datauppsättning till en annan. På samma sätt kan du använda en [Hive-aktivitet](data-factory-data-transformation-activities.md) som kör en Hive-fråga på ett Azure HDInsight-kluster för att transformera eller analysera dina data. Azure Data Factory innehåller en mängd olika datatransformerings-, analys- och dataförflyttningsaktiviteter. 
-
-### Datauppsättningar
-[Datauppsättningar](data-factory-create-datasets.md) är namngivna referenser/pekare för de data som du vill använda som in- eller utdata för en aktivitet. Datauppsättningar identifierar datastrukturer inom olika datalager, inklusive tabeller, filer, mappar och dokument.
-
-### Länkad tjänst
-Länkade tjänster definierar den information som behövs för att Data Factory ska kunna ansluta till externa resurser. Länkade tjänster används för två syften i Data Factory:
-
-- Att representera ett datalager inklusive, men inte begränsat till, en lokal SQL Server, Oracle DB, filresurs eller ett Azure-blobblagringskonto. Som nämnt tidigare visar datauppsättningar strukturer i de datalager som är anslutna till Data Factory via en länkad tjänst.
-- Så här visar du en beräkningsresurs som kan vara värd för körningen av en aktivitet. ”HDInsightHive-aktiviteten” körs till exempel på ett HDInsight Hadoop-kluster.
-
-Med de fyra enkla datauppsättningarna, aktiviteterna, pipelines och länkade tjänster är du redo att sätta igång! Du kan [skapa din första pipeline](data-factory-build-your-first-pipeline.md) eller distribuera ett färdigt exempel genom att följa instruktionerna i artikeln [Data Factory-exempel](data-factory-samples.md). 
+Med de fyra enkla länkade tjänsterna, datauppsättningarna, aktiviteterna och pipelines är du redo att sätta igång! Du kan [skapa din första pipeline](data-factory-build-your-first-pipeline.md). 
 
 ## Regioner som stöds
 För närvarande kan du skapa datafabriker i regionerna **västra USA**, **östra USA** och **Norra Europa**. Dock kan en datafabrik ha åtkomst till datalager och beräkna tjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster. 
@@ -79,6 +83,6 @@ Självstudier | Beskrivning
 [Skapa en datapipeline som flyttar data mellan ett lokalt datalager och ett molndatalager med hjälp av Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) | I de här självstudierna skapar du en datafabrik med en pipeline som **flyttar data** från en **lokal** SQL Server-databas till en Azure-blob. Som en del av den här genomgången kommer du att installera och konfigurera Data Management Gateway på din dator. 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

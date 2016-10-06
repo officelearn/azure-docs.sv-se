@@ -63,28 +63,24 @@ Vi skapar en grundläggande app i XCode för att demonstrera integrationen.
 
     ![][3]
 
-6. För **XCode 7** – lägg till `libxml2.tbd` istället för `libxml2.dylib`.
-
-7. Gå tillbaka till Azure-portalen via appsidan **Anslutningsinformation** och kopiera anslutningssträngen.
+6. Gå tillbaka till Azure-portalen via appsidan **Anslutningsinformation** och kopiera anslutningssträngen.
 
     ![][4]
 
-8. Lägg till följande rad med kod i filen **AppDelegate.m**.
+7. Lägg till följande rad med kod i filen **AppDelegate.m**.
 
         #import "EngagementAgent.h"
 
-9. Klistra in anslutningssträngen i delegaten `didFinishLaunchingWithOptions`.
+8. Klistra in anslutningssträngen i delegaten `didFinishLaunchingWithOptions`.
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
-            [...]
-            //[EngagementAgent setTestLogEnabled:YES];
-   
+            [...]   
             [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
             [...]
         }
 
-10. `setTestLogEnabled` är ett valfritt uttryck som aktiverar SDK-loggar som sedan kan användas till att identifiera problem. 
+9. `setTestLogEnabled` är ett valfritt uttryck som aktiverar SDK-loggar som sedan kan användas till att identifiera problem. 
 
 ##<a id="monitor"></a>Aktivera realtidsövervakning
 
@@ -124,6 +120,7 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 1. I filen **AppDeletegate.m** importerar du räckviddsmodulen för Engagement.
 
         #import "AEReachModule.h"
+        #import <UserNotifications/UserNotifications.h>
 
 2. Inifrån metoden `application:didFinishLaunchingWithOptions` skapar du en räckviddsmodul och skickar den till din befintliga initieringsrad för Engagement:
 
@@ -138,12 +135,19 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 1. Lägg till följande rad i metoden `application:didFinishLaunchingWithOptions`:
 
-        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-            [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+        if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+        {
+            if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+            {
+                [UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+            }else
+            {
+                [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+            }
             [application registerForRemoteNotifications];
         }
-        else {
-
+        else
+        {
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
@@ -184,6 +188,6 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

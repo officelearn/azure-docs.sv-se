@@ -3,7 +3,7 @@
     description="Lär dig hur du anpassar inloggningssidan och åtkomstpanelsidan i Azure till ditt företag"
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="curtand"
     manager="femila"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/13/2016"
-    ms.author="MarkVi"/>
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
 
 
 # Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag
@@ -30,7 +30,7 @@ I det här avsnittet lär du dig hur du kan anpassa inloggningssidan och åtkoms
 
 > [AZURE.NOTE]
 >
-- Funktionen för företagsanpassning är en funktion som bara är tillgänglig om du har uppgraderat till Premium- eller Basic-versionen av Azure Active Directory. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
+- Funktionen för företagsanpassning är en funktion som bara är tillgänglig om du har uppgraderat till Premium- eller Basic-versionen av Azure Active Directory, eller om du använder Office 365. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
 - Azure Active Directory Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure Active Directory Premium och Basic stöds inte för närvarande i Microsoft Azure-tjänsten som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
@@ -223,6 +223,6 @@ Bakgrundsfärg på inloggningssidan | Bakgrundsfärgen på inloggningssidan anv�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

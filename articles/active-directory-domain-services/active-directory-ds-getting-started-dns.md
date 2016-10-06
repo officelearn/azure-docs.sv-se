@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure AD DS: Uppdatera DNS-inställningarna för det virtuella Azure-nätverket | Microsoft Azure"
-    description="Komma igång med Azure Active Directory Domain Services (förhandsversion)"
+    description="Komma igång med Azure Active Directory Domain Services"
     services="active-directory-ds"
     documentationCenter=""
     authors="mahesh-unnikrishnan"
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/06/2016"
+    ms.date="09/21/2016"
     ms.author="maheshu"/>
 
 
-# Azure AD Domain Services *(förhandsversion)* – Uppdatera DNS-inställningarna för det virtuella Azure-nätverket
+# Azure AD Domain Services – Uppdatera DNS-inställningarna för det virtuella Azure-nätverket
 
 ## Uppgift 4 – Uppdatera DNS-inställningarna för det virtuella Azure-nätverket
-Nu när du har aktiverat Azure AD Domain Services för din katalog är nästa uppgift att säkerställa att datorerna i det virtuella nätverket kan ansluta och använda dessa tjänster. För att kunna göra detta måste du uppdatera DNS-serverinställningarna för det virtuella nätverket så att de pekar på IP-adresserna där Azure AD Domain Services är tillgängligt i det virtuella nätverket.
+I de tidigare konfigurationsuppgifterna har du aktiverat Azure AD Domain Services för katalogen. Härnäst ska du se till att datorerna i det virtuella nätverket kan ansluta och använda tjänsterna. Uppdatera DNS-serverinställningarna för det virtuella nätverket så att de pekar på de bägge IP-adresserna där Azure AD Domain Services är tillgängliga i det virtuella nätverket.
 
 > [AZURE.NOTE] Skriv ner IP-adresserna för Azure AD Domain Services som visas på fliken **Konfigurera** för din katalog när du har aktiverat Azure AD Domain Services för katalogen.
 
@@ -46,7 +46,7 @@ Utför följande konfigurationssteg för att uppdatera DNS-serverinställningen 
 
    ![Uppdatera DNS-serverinställningarna för det virtuella nätverket.](./media/active-directory-domain-services-getting-started/update-dns.png)
 
-> [AZURE.NOTE] När du har uppdaterat DNS-serverinställningarna för det virtuella nätverket kan det ta en stund innan de virtuella datorerna i nätverket får den uppdaterade DNS-konfigurationen. Om en virtuell dator inte kan ansluta till domänen kan du tömma DNS-cacheminnet (t.ex. ”ipconfig/flushdns”) på den virtuella datorn för att framtvinga en uppdatering av DNS-inställningarna på den virtuella datorn.
+> [AZURE.NOTE] När du har uppdaterat DNS-serverinställningarna för det virtuella nätverket kan det ta en stund innan de virtuella datorerna i nätverket får den uppdaterade DNS-konfigurationen. Om en virtuell dator inte kan ansluta till domänen kan du tömma DNS-cacheminnet (t.ex. "ipconfig/flushdns") på den virtuella datorn. Detta kommando tvingar fram en uppdatering av DNS-inställningarna på den virtuella datorn.
 
 
 ## Uppgift 5 – Aktivera lösenordssynkronisering till Azure AD Domain Services
@@ -54,6 +54,6 @@ Nästa konfigurationsåtgärd är att [aktivera lösenordssynkronisering till Az
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

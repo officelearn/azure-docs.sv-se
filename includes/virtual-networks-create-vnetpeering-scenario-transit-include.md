@@ -10,6 +10,6 @@ I det här scenariot finns det två VNet i en prenumeration, HubVNet och VNet1, 
 Nyckelegenskapen för att aktivera överföringsroutning är parametern "Tillåt vidarebefordrad trafik". Detta gör att trafik kan accepteras och skickas från/till NVA i den peerkopplade VNet:en.  
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

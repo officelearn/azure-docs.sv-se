@@ -29,19 +29,21 @@ SDK innehåller följande:
 - Gränssnitt som utvecklare kan använda för att skriva anpassade moduler.
 - Den infrastruktur som krävs för att distribuera och köra en uppsättning moduler.
 
-SDK innehåller ett abstraktionslager som gör att du kan skapa gatewayar som ska köras på en mängd olika operativsystem och plattformar.
+SDK innehåller ett abstraktionslager som gör att du kan skapa gateways som ska köras på en mängd olika operativsystem och plattformar.
 
 ![][2]
 
 ### Meddelanden
 
-Tänk på att även om moduler som skickar meddelanden till varandra är ett bekvämt sätt att få en överblick över hur en gateway fungerar, så återspeglar det inte korrekt vad som händer. Moduler använder en meddelandebuss för att kommunicera med varandra, de publicerar meddelanden till bussen och bussen skickar meddelanden till alla moduler som är anslutna till bussen.
+Tänk på att även om moduler som skickar meddelanden till varandra är ett bekvämt sätt att få en överblick över hur en gateway fungerar, så återspeglar det inte korrekt vad som händer. Modulerna använder en asynkron meddelandekö för att kommunicera med varandra. De publicerar meddelanden till meddelandekön (bus, pubsub eller andra meddelandemönster) och låter sedan meddelandekön dirigera meddelandet till de moduler som är anslutna till den.
 
-En modul använder funktionen **MessageBus_Publish** för att publicera ett meddelande med meddelandebussen. Meddelandebussen levererar meddelanden till en modul genom att aktivera en återanropsfunktion. Ett meddelande består av en uppsättning nyckel-/värdeegenskaper och innehåll som skickas som ett block med minne.
+Modulerna använder funktionen **Broker_Publish** för att publicera ett meddelande till meddelandekön. Den asynkrona meddelandekön levererar meddelanden till en modul genom att anropa en återanropsfunktion. Ett meddelande består av en uppsättning nyckel-/värdeegenskaper och innehåll som skickas som ett block med minne.
 
 ![][3]
 
-Varje modul ansvarar för att filtrera meddelanden eftersom meddelandebussen använder en sändningsmekanism för att leverera meddelandena till alla moduler som är anslutna till den. En modul bör endast tillämpas på meddelanden som är avsedda för den. Meddelandefiltreringen skapar effektivt en meddelandepipeline. En modul filtrerar vanligtvis meddelanden som tas emot med meddelandeegenskaper för att identifiera meddelanden som den ska bearbeta.
+### Meddelandedirigering och filtrering
+
+Det finns två sätt att dirigera meddelanden till rätt moduler. En uppsättning länkar kan skickas till den asynkrona meddelandekön så att meddelandekön känner till källan och mottagaren för varje modul, eller så kan modulen filtrera på meddelandets egenskaper. En modul ska bara agera på ett meddelande om meddelandet är avsett för modulen. Länkarna och meddelandefiltreringen skapar en effektiv meddelandepipeline.
 
 ## Arkitektur för Hello World-exempel
 
@@ -52,11 +54,11 @@ Hello World-exemplet illustrerar de begrepp som beskrivs i föregående avsnitt.
 
 ![][4]
 
-Enligt beskrivningen i föregående avsnitt, skickar modulen Hello World inte meddelanden direkt till loggningsmodueln var femte sekund. I stället publicerar den ett meddelande med meddelandebusen var femte sekund.
+Enligt beskrivningen i föregående avsnitt, skickar modulen Hello World inte meddelanden direkt till loggningsmodueln var femte sekund. I stället publicerar den ett meddelande till den asynkrona meddelandekön var femte sekund.
 
-Loggningsmodulen tar emot meddelandet från meddelandebussen och kontrollerar dess egenskaper i ett filter. Om loggningsmodulen anger att den ska bearbeta meddelandet, skriver den innehållet i meddelandet till en fil.
+Loggningsmodulen får meddelandet från den asynkrona meddelandekön och agerar på meddelandet genom att skriva meddelandets innehåll till en fil.
 
-Loggningsmodulen förbrukar endast meddelanden från meddelandebussen, den publicerar aldrig nya meddelanden till bussen.
+Loggningsmodulen förbrukar endast meddelanden från den asynkrona meddelandekön, den publicerar aldrig nya meddelanden till den asynkrona meddelandekön.
 
 ![][5]
 
@@ -73,6 +75,6 @@ Bilden ovan illustrerar arkitekturen i Hello World-exemplet och de relativa sök
 [lnk-helloworld-exempel]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Lagringskonton i Azure Stack | Microsoft Azure"
-    description="Lär dig hur ett Azure Stack-lagringskonto ger dig åtkomst till Blob och tabelltjänster."
+    pageTitle="Storage accounts in Azure Stack | Microsoft Azure"
+    description="Learn how to create an Azure Stack storage account."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,36 +13,36 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Lagringskonton i Azure Stack
+# Storage accounts in Azure Stack
 
-Lagringskonton omfattar Blob- och tabelltjänster och det unika namnområdet för dina lagrade dataobjekt. Som standard är data i ditt konto endast tillgängliga för dig, kontoägaren.
+Storage accounts include Blob and Table services, and the unique namespace for your storage data objects. By default, the data in your account is available only to you, the storage account owner.
 
-1.  Klicka på **Ny**, därefter på **Data + lagring** klicka på **Lagringskonto**.
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [an admin](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator), and then click **New** > **Data + Storage** > **Storage account**.
 
-  **Viktigt**: Skriv inte ett namn innan du väljer prenumeration och resursgrupp. Om du gjort det, stäng bladet och upprepa det här steget.
+    ![](media/azure-stack-provision-storage-account/image01.png)
 
-3.  Om du har mer än en prenumeration visas fältet **Prenumeration**. Välj prenumeration för det nya lagringskontot.
+2.  In the **Create storage account** blade, type a name for your storage account. Create a new **Resource Group**, or select an existing one, then click **Create** to create the storage account.
 
-4.  Ange en ny resursgrupp eller välj en befintlig.
+    ![](media/azure-stack-provision-storage-account/image02.png)
 
-5.  Skriv ett namn för lagringskontot.
+3. To see your new storage account, click **All resources**, then search for the storage account and click its name.
 
-6.  Klicka på **Skapa**.
+    ![](media/azure-stack-provision-storage-account/image03.png)
+    
+## Next steps
 
-## Nästa steg
+[Use Azure Resource Manager templates](azure-stack-arm-templates.md)
 
-[Använda Azure Resource Manager-mallar](azure-stack-arm-templates.md)
+[Learn about Azure storage accounts](../storage/storage-create-storage-account.md)
 
-[Lär dig mer om Azure-lagringskonton](../storage/storage-create-storage-account.md)
-
-[Hämta guide för Azure Stack Azure-konsekvent lagringsvalidering](http://aka.ms/azurestacktp1doc)
+[Download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

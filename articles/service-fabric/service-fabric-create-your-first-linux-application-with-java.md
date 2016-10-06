@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create your first Service Fabric application on Linux using Java | Microsoft Azure"
-   description="Create and deploy a Service Fabric application using Java"
+   pageTitle="Skapa ditt första Service Fabric-program i Linux med Java | Microsoft Azure"
+   description="Skapa och distribuera ett Service Fabric-program med Java"
    services="service-fabric"
    documentationCenter="java"
    authors="seanmck"
@@ -13,115 +13,117 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/28/2016"
+   ms.date="09/25/2016"
    ms.author="seanmck"/>
 
 
-# Create your first Azure Service Fabric application
+# Skapa ditt första Azure Service Fabric-program i Linux med Java
 
-> [AZURE.SELECTOR]
-- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET Core och Java. I den här självstudiekursen visar vi hur du skapar ett program för Linux och skapar en tjänst med hjälp av Java.
 
-Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we will look at how to create an application for Linux and build a service using Java.
+## Krav
 
-## Prerequisites
+Du måste [konfigurera Linux-utvecklingsmiljön](service-fabric-get-started-linux.md) innan du börjar. Om du använder Mac OS X kan du [konfigurera en Linux-miljö på en virtuell dator med hjälp av Vagrant](service-fabric-get-started-mac.md).
 
-Before you get started, make sure that you have [set up your Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
+## Skapa programmet
 
-## Create the application
+Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. I Service Fabric SDK för Linux finns en [Yeoman](http://yeoman.io/)-generator som gör det enkelt att skapa din första tjänst och lägga till fler senare. Lås oss använda Yeoman för att skapa ett nytt program med en enskild tjänst.
 
-A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later. Let's use Yeoman to create a new application with a single service.
+1. Skriv **yo azuresfjava** i en terminal.
 
-1. In a terminal, type **yo azuresfjava**.
+2. Namnge ditt program.
 
-2. Name your application.
+3. Välj vilken typ din första tjänst ska ha och namnge den. I den här självstudiekursen väljer vi en Reliable Actor-tjänst.
 
-3. Choose the type of your first service and name it. For the purposes of this tutorial, we will choose a Reliable Actor Service.
+  ![Service Fabric Yeoman-generator för Java][sf-yeoman]
 
-  ![Service Fabric Yeoman generator for Java][sf-yeoman]
+>[AZURE.NOTE] Mer information om alternativen finns i [Översikt över Service Fabric-programmeringsmodell](service-fabric-choose-framework.md).
 
->[AZURE.NOTE] For more information about the options, see [Service Fabric programming model overview](service-fabric-choose-framework.md).
+## Skapa programmet
 
-## Build the application
-
-The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the app from the terminal.
+I Service Fabric Yeoman-mallarna ingår ett byggskript för [Gradle](https://gradle.org/), som du kan använda för att skapa appen från terminalen.
 
   ```bash
   gradle
   ```
 
-## Deploy the application
+## Distribuera programmet
 
-Once the application is built, you can deploy it to the local cluster using the Azure CLI.
+När du har skapat programmet kan du distribuera det till det lokala klustret med Azure CLI.
 
-1. Connect to the local Service Fabric cluster.
+1. Anslut till det lokala Service Fabric-klustret.
 
     ```bash
     azuresfcli servicefabric cluster connect
     ```
 
-2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+2. Använd installationsskriptet som medföljer mallen för att kopiera programpaketet till klustrets avbildningsarkiv, registrera programtypen och skapa en instans av programmet.
 
     ```bash
     cd myapp
     ./install.sh
     ```
 
-3. Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X).
+3. Öppna en webbläsare och gå till Service Fabric Explorer på http://localhost:19080/Explorer (ersätt localhost med den virtuella datorns privata IP om du använder Vagrant på Mac OS X).
 
-4. Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
+4. Expandera programnoden och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
-## Start the test client and perform a failover
+## Starta testklienten och utför en redundansväxling
 
-Actor projects do not do anything on their own. They require another service or client to send them messages. The actor template includes a simple test script that you can use to interact with the actor service.
+Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller klient för att skicka meddelanden till dem. Aktörsmallen innehåller ett enkelt testskript som du kan använda för att interagera med aktörstjänsten.
 
-1. Run the script using the watch utility to see the output of the actor service.
+1. Kör skriptet med övervakningsverktyget för att se resultatet av aktörstjänsten.
 
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 
-2. In Service Fabric Explorer, locate node hosting the primary replica for the actor service. In the screenshot below, it is node 3.
+2. I Service Fabric Explorer letar du reda på noden där den primära repliken för aktörstjänsten finns. På skärmbilden nedan är det nod 3.
 
-    ![Finding the primary replica in Service Fabric Explorer][sfx-primary]
+    ![Hitta den primära repliken i Service Fabric Explorer][sfx-primary]
 
-3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This will restart one of the five nodes in your local cluster and force a failover to one of the secondary replicas running on another node. As you do this, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
+3. Klicka på noden du hittade i föregående steg och välj sedan **Deactivate (restart)** (Inaktivera (omstart)) på menyn Actions (Åtgärder). Därmed startas en av de fem noderna om i ditt lokala kluster och påtvingar en redundansväxling till en av de sekundära replikerna på en annan nod. Titta på resultatet från testklienten när du gör detta och observera att räknaren fortsätter att räkna upp trots redundansväxlingen.
 
-## Build and deploy an application with the Eclipse Neon plugin
+## Skapa och distribuera ett program med plugin-programmet Eclipse Neon
 
-If you installed the Service Plugin for Eclipse Neon, you can use it to create, build, and deploy Service Fabric applications built with Java.
+Om du har installerat plugin-programmet för Eclipse Neon kan du använda det till att skapa och distribuera Service Fabric-program som skapats med Java.
 
-### Create the application
+### Skapa programmet
 
-The Service Fabric plugin is available through Eclipse extensibility.
+Service Fabric-plugin-programmet är tillgängligt via utökningsfunktionen i Eclipse.
 
-1. In Eclipse, choose **File > Other > Service Fabric**. You see a set of options, including Actors and Containers.
+1. Välj **File > Other > Service Fabric** (Arkiv > Annat > Service Fabric) i Eclipse. Olika alternativ visas, bland annat aktörer och behållare.
 
-    ![Service Fabric templates in Eclipse][sf-eclipse-templates]
+    ![Service Fabric-mallar i Eclipse][sf-eclipse-templates]
 
-2. In this case, choose Stateless Service.
+2. I det här fallet väljer du Stateless Service (Tillståndslös tjänst).
 
-3. You are asked to confirm the use of the Service Fabric perspective, which optimizes Eclipse for use with Service Fabric projects. Choose 'Yes'.
+3. Du får bekräfta att du vill använda Service Fabric-perspektivet, vilket optimerar Eclipse för användning med Service Fabric-projekt. Välj Yes (Ja).
 
-### Deploy the application
+### Distribuera programmet
 
-The Service Fabric templates include a set of Gradle tasks for building and deploying applications, which you can trigger through Eclipse.
+I Service Fabric-mallarna ingår en uppsättning Gradle-aktiviteter för att skapa och distribuera program, som du kan köra via Eclipse.
 
-1. Choose **Run > Run Configurations**.
+1. Välj **Run > Run Configurations** (Kör > Kör konfigurationer).
 
-2. Expand **Gradle Project** and choose **ServiceFabricDeployer**.
+2. Expandera **Gradle Project** (Gradle-projekt) och välj **ServiceFabricDeployer**.
 
-3. Click **Run**.
+3. Klicka på **Run** (Kör).
 
-Your app will build and deploy within a few moments. You can monitor its status from Service Fabric Explorer.
+Din app skapas och distribueras på ett par minuter. Du kan övervaka dess status från Service Fabric Explorer.
 
-## Next steps
+## Nästa steg
 
-- [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
+- [Läs mer om Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

@@ -21,16 +21,17 @@
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-I den här kursen får du lära dig hur du skapar ett enkelt [Node.js][NODEJS]-program och distribuerar det till en [webbapp] i [Azure Apptjänst] från en kommandoradsmiljö, t.ex. cmd.exe eller bash. Anvisningarna i den här kursen kan användas för alla operativsystem som kan köra Node.js.
+I den här kursen får du lära dig hur du skapar ett enkelt [Node.js]-program och distribuerar det till [Azure App Service] från en kommandoradmiljö, t.ex. cmd.exe eller bash. Anvisningarna i den här kursen kan användas för alla operativsystem som kan köra Node.js.
+
 
 <a name="prereq"></a>
 ## Krav
 
-- **Node.js** ([Klicka här för att installera][NODEJS])
-- **Bower** ([Klicka här för att installera][BOWER])
-- **Yeoman** ([Klicka här för att installera][YEOMAN])
-- **Git** ([Klicka här för att installera][GIT])
-- **Azure CLI** ([Klicka här för att installera][Azure CLI])
+- [Node.js]
+- [Bower]
+- [Yeoman]
+- [Git]
+- [Azure CLI]
 - Ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion] eller [aktivera Visual Studio-prenumerantförmåner].
 
 ## Skapa och distribuera en enkel Node.js-webbapp
@@ -59,20 +60,20 @@ I den här kursen får du lära dig hur du skapar ett enkelt [Node.js][NODEJS]-p
 
     Gå till <http://localhost:3000> i webbläsaren och kontrollera att du kan se Express-startsidan. När du har bekräftat att appen körs korrekt kan du använda `Ctrl-C` för att stoppa den.
     
-1. Ändra till ASM-läge och logga in på Azure (du behöver [Azure CLI](#prereq) för detta):
+1. Ändra till ASM-läge och logga in på Azure (du behöver [Azure CLI](#prereq)):
 
         azure config mode asm
         azure login
 
     Följ anvisningarna för att fortsätta inloggningen i en webbläsare med ett Microsoft-konto som innehåller din Azure-prenumeration.
 
-2. Kontrollera att du fortfarande är i appens rotkatalog, och skapa sedan Apptjänst-appresursen i Azure med ett unikt appnamn med nästa kommando, t.ex. http://{appname}.azurewebsites.net.
+2. Kontrollera att du fortfarande är i appens rotkatalog, och skapa sedan App Service-appresursen i Azure med ett unikt appnamn med nästa kommando. Till exempel: http://{appname}.azurewebsites.net
 
         azure site create --git {appname}
 
     Följ anvisningarna för att välja en Azure-region för distribution. Om du aldrig har konfigurerat autentiseringsuppgifter för Git/FTP-distribution i din Azure-prenumeration uppmanas du även att skapa sådana.
 
-3. Öppna filen ./config/config.js från roten för ditt program och ändra produktionsporten till `process.env.port`; din `production`-egenskap i `config`-objektet ska se ut som i följande exempel.
+3. Öppna filen ./config/config.js från roten för ditt program och ändra produktionsporten till `process.env.port`; din `production`-egenskap i `config`-objektet ska se ut som i följande exempel:
 
         production: {
             root: rootPath,
@@ -84,6 +85,12 @@ I den här kursen får du lära dig hur du skapar ett enkelt [Node.js][NODEJS]-p
 
     Då kan din Node.js-app svara på webbförfrågningar på den standardport där iisnode lyssnar.
     
+4. Öppna ./package.json och lägg till egenskapen `engines` för att [ange önskad Node.js-version](#version).
+
+        "engines": {
+            "node": "6.6.0"
+        }, 
+
 4. Spara ändringarna och använd sedan git för att distribuera din app till Azure:
 
         git add .
@@ -117,7 +124,7 @@ Azure Apptjänst använder [iisnode] för att köra Node.js-appar. Azure CLI och
     
 ## Använda ett Node.js-ramverk
 
-Om du använder ett populärt Node.js-ramverk, t.ex. [Sails.js][SAILSJS] eller [MEAN.js][MEANJS], för att utveckla appar kan du distribuera dessa till Apptjänst. Populära Node.js-ramverk har specifika egenskaper, och deras paketberoenden uppdateras hela tiden. Men Apptjänst tillgängliggör stdout- och stderr-loggarna så att du kan veta exakt vad som händer med din app och göra ändringar därefter. Mer information finns i [Hämta stdout- och stderr-loggar från iisnode](#iisnodelog).
+Om du använder ett populärt Node.js-ramverk, t.ex. [Sails.js][SAILSJS] eller [MEAN.js][MEANJS], för att utveckla appar kan du distribuera dessa till Apptjänst. Populära Node.js-ramverk har specifika egenskaper, och deras paketberoenden uppdateras hela tiden. Men App Service tillgängliggör stdout- och stderr-loggarna så att du kan veta exakt vad som händer med din app och göra ändringar därefter. Mer information finns i [Hämta stdout- och stderr-loggar från iisnode](#iisnodelog).
 
 Följande kurser visar hur du arbetar med ett specifikt ramverk i Apptjänst:
 
@@ -125,13 +132,14 @@ Följande kurser visar hur du arbetar med ett specifikt ramverk i Apptjänst:
 - [Skapa ett Node.js-chattprogram med Socket.IO i Azure Apptjänst]
 - [Använda io.js med Webbappar i Azure Apptjänst]
 
+<a name="version"></a>
 ## Använda en specifik Node.js-motor
 
-I ditt vanliga arbetsflöde kan du ange att Apptjänst ska använda en specifik Node.js-motor som du vanligtvis använder i package.json.
-Exempel:
+I ditt vanliga arbetsflöde kan du ange att App Service ska använda en specifik Node.js-motor som du vanligtvis använder i package.json.
+Några exempel:
 
     "engines": {
-        "node": "5.5.0"
+        "node": "6.6.0"
     }, 
 
 Kudu-distributionsmotorn avgör vilken Node.js-motor som ska användas i följande ordning:
@@ -140,10 +148,12 @@ Kudu-distributionsmotorn avgör vilken Node.js-motor som ska användas i följan
 - Kontrollera sedan i package.json om `"node": "..."` har angetts i objektet `engines`. Om det har angetts kan du använda det.
 - Välj en Node.js-standardversion som standard.
 
+>[AZURE.NOTE] Vi rekommenderar att du explicit definierar den Node.js-motor du önskar. Node.js-standardversionen kan ändras, och du kan stöta på fel i Azure-webbappen eftersom Node.js-standardversionen inte är lämplig för din app.
+
 <a name="iisnodelog"></a>
 ## Hämta stdout- och stderr-loggar från iisnode
 
-Använd följande steg om du vill läsa iisnode-loggar.
+Utför dessa steg om du vill läsa iisnode-loggar.
 
 > [AZURE.NOTE] När du har slutfört de här stegen finns eventuellt inte några loggfiler förrän ett fel inträffar.
 
@@ -162,13 +172,13 @@ Använd följande steg om du vill läsa iisnode-loggar.
         git commit -m "{your commit message}"
         git push azure master
    
-   iisnode har nu konfigurerats. Nästa steg visar hur du kommer åt de här loggarna.
+    iisnode har nu konfigurerats. Nästa steg visar hur du kommer åt de här loggarna.
      
 4. Gå till webbläsaren och öppna Kudu-felsökningskonsolen för din app som finns här:
 
         https://{appname}.scm.azurewebsites.net/DebugConsole 
 
-    Observera att den här URL:en skiljer sig från webbappens URL eftersom *.scm.* har lagts till i DNS-namnet. Om du inte tar med tillägget i URL:en får du ett 404-fel.
+    Den här URL:en skiljer sig från webbappens URL eftersom *.scm.* har lagts till i DNS-namnet. Om du inte tar med tillägget i URL:en får du ett 404-fel.
 
 5. Gå till D:\home\site\wwwroot\iisnode.
 
@@ -221,22 +231,22 @@ Följ de här stegen om du vill aktivera Node-Inspector:
 <!-- URL List -->
 
 [Azure CLI]: ../xplat-cli-install.md
-[Azure Apptjänst]: ../app-service/app-service-value-prop-what-is.md
+[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [aktivera Visual Studio-prenumerantförmåner]: http://go.microsoft.com/fwlink/?LinkId=623901
-[BOWER]: http://bower.io/
+[Bower]: http://bower.io/
 [Skapa ett Node.js-chattprogram med Socket.IO i Azure Apptjänst]: ./web-sites-nodejs-chat-app-socketio.md
 [Distribuera en Sails.js-webbapp till Azure Apptjänst]: ./app-service-web-nodejs-sails.md
 [Utforska superhemliga Kudu-felsökningskonsolen]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [Express generator for Yeoman]: https://github.com/petecoop/generator-express
-[GIT]: http://www.git-scm.com/downloads
+[Git]: http://www.git-scm.com/downloads
 [Använda io.js med Webbappar i Azure Apptjänst]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[NODEJS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [registrera dig för en kostnadsfri utvärderingsversion]: http://go.microsoft.com/fwlink/?LinkId=623901
 [webbapp]: ./app-service-web-overview.md
-[YEOMAN]: http://yeoman.io/
+[Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
 
@@ -247,6 +257,6 @@ Följ de här stegen om du vill aktivera Node-Inspector:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

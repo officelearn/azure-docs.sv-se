@@ -1,59 +1,66 @@
 <properties
-	pageTitle="Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Azure"
-	description="Service Bus Premium and Standard Messaging"
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="djrosanova"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Översikt över prisnivåer för Service Bus Premium- och Standard-meddelanden | Microsoft Azure"
+    description="Service Bus Premium- och Standard-meddelanden"
+    services="service-bus-messaging"
+    documentationCenter=".net"
+    authors="djrosanova"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/02/2016"
-	ms.author="darosa;sethm"/>
+    ms.service="service-bus-messaging"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/02/2016"
+    ms.author="darosa;sethm"/>
 
-# Service Bus Premium and Standard messaging tiers 
 
-Service Bus messaging, which includes messaging entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus messaging is used as the communication backbone for many sophisticated cloud solutions.
+# Service Bus Premium- och Standard-meddelandenivåer 
 
-The *Premium* tier of Service Bus messaging addresses common customer requests around scale, performance, and availability for mission-critical applications. Although the feature sets are nearly identical, these two tiers of Service Bus messaging are designed to serve different use cases.
+Service Bus-meddelandetjänster, inklusive meddelandeenheter som köer och ämnen, kombinerar meddelandefunktioner för företag med utförlig publicerings-/prenumerationssemantik i molnskala. Service Bus-meddelandetjänster används som kommunikationsryggrad i många avancerade molnlösningar.
 
-Some high-level differences are highlighted in the table below.
+*Premium*-nivån av Service Bus-meddelanden är ett svar på vanliga kundönskemål gällande skala, prestanda och tillgänglighet för verksamhetskritiska program. Även om funktionsuppsättningarna är snudd på identiska är dessa två nivåer av Service Bus-meddelanden utformade för att passa olika användningsfall.
+
+En del övergripande skillnader visas i tabellen nedan.
 
 | Premium                               | Standard                       |
 |---------------------------------------|--------------------------------|
-| High throughput                       | Variable throughput            |
-| Predictable performance               | Variable latency               |
-| Predictable pricing                   | Pay as you go variable pricing |
-| Ability to scale up and down workload | N/A                            |
-| Message size > 256KB                  | Message size is 256KB          |
+| Högt genomflöde                       | Variabelt genomflöde            |
+| Förutsägbar prestanda               | Variabel svarstid               |
+| Förutsägbara priser                   | Variabla priser – betala per användning |
+| Möjlighet att skala arbetsbelastningen uppåt och nedåt | Saknas                            |
+| Meddelandestorlek > 256 kB                  | Meddelandestorlek är 256 kB          |
 
-**Service Bus Premium Messaging** provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution.
+**Service Bus Premium-meddelanden** ger resursisolering på processor- och minnesnivån så att varje kunds arbetsbelastning körs i isolering. Den här resursbehållaren kallas för en *meddelandefunktionsenhet*. Varje Premium-namnområde allokeras minst en meddelandefunktionsenhet. Du kan köpa 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnområde. En enda arbetsbelastning eller enhet kan spänna över flera meddelandefunktionsenheter, och antalet meddelandefunktionsenheter kan ändras när du vill, även om faktureringen är per 24 timmar eller daglig taxa. Resultatet är förutsägbara och repeterbara prestanda för Service Bus-lösningen.
 
-Not only is this performance more predictable and available, but it is also faster. Service Bus Premium messaging builds on the storage engine introduced in [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). With Premium messaging, peak performance is much faster than with the Standard tier.
+Prestanda är inte bara mer förutsägbara och tillgängliga, utan de är snabbare också. Service Bus Premium-meddelanden bygger på lagringsmotorn som infördes i [Azure Händelsehubbar](https://azure.microsoft.com/services/event-hubs/). Med Premium-meddelanden är topprestanda mycket snabbare än med standardnivån.
 
-## Premium Messaging technical differences
+## Premium-meddelanden – tekniska skillnader
 
-The following are a few differences between Premium and Standard messaging tiers.
+Nedan följer några skillnader mellan Premium- och Standard-meddelandenivåerna.
 
-### Partitioned queues and topics
+### Partitionerade köer och ämnen
 
-Partitioned queues and topics are supported in Premium messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary. Additionally, the partition count has been changed from 16 partitions in Standard messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
+Det finns stöd för partitionerade köer och ämnen i Premium-meddelanden, men de fungerar inte på samma sätt som på Standard- och Basic-nivåerna av Service Bus-meddelanden. Premium-meddelanden använder inte SQL som ett datalager och har inte längre den konkurrens om resurser som förknippas med en delad plattform. Därför är partitionering inte nödvändigt. Dessutom har antalet partitioner ändrats från 16 partitioner i Standard-meddelanden till två partitioner i Premium. Med två partitioner garanteras tillgänglighet och är ett mer passande antal för Premium-körningsmiljön. Mer information om partitionering finns i [Partitionerade köer och ämnen](service-bus-partitioning.md).
 
-### Express entities
+### Expressenheter
 
-Because Premium Messaging runs in a completely isolated runtime environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) property.
+Eftersom Premium-meddelanden körs i en helt isolerad körningsmiljö, stöds inte längre expressenheter i Premium-namnområden. Mer information om expressfunktionen finns på egenskapen [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
 
-## Next steps
+## Nästa steg
 
-To learn more about Service Bus messaging, see the following topics.
+I följande ämnen kan du lära dig mer om Service Bus-meddelanden.
 
-- [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-- [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-- [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus architectural overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+- [Introduktion till Azure Service Bus Premium-meddelanden (blogginlägg)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Introduktion till Azure Service Bus Premium-meddelanden (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+- [Översikt över meddelandetjänsten i Service Bus](service-bus-messaging-overview.md)
+- [Översikt över arkitekturen i Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Använda Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

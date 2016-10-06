@@ -1,7 +1,7 @@
 <properties
    pageTitle="Skapa en funktion för händelsebearbetning | Microsoft Azure"
    description="Använd Azure Functions och skapa en C#-funktion som körs baserat på en händelsetimer."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
    
 
@@ -45,7 +45,7 @@ En funktionsapp är värd för körningen av dina funktioner i Azure. Innan du k
 
     ![Skapa en ny timerutlöst funktion](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-5. I **Azure Storage-köutdata** klickar du på **Välj** och sedan på **Lagringskontoanslutning** och väljer det befintliga lagringskontot eller skapar ett nytt och klickar sedan på **Spara**. 
+5. I **Azure Storage-köutdata** väljer du en befintlig **Lagringskontoanslutning** eller skapar en ny och klickar sedan på **Spara**. 
 
     ![Skapa en ny timerutlöst funktion](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
@@ -87,6 +87,6 @@ Beskriver tillgängliga serviceplaner för Azure Functions, inklusive den dynami
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

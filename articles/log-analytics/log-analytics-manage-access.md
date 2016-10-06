@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Hantera åtkomst till Log Analytics | Microsoft Azure"
-    description="Hantera åtkomst till Log Analytics med hjälp av olika administrativa uppgifter för användare, konton, OMS-arbetsytor och Azure-konton."
+    pageTitle="Manage access to Log Analytics | Microsoft Azure"
+    description="Manage access to Log Analytics using a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts."
     services="log-analytics"
     documentationCenter=""
     authors="bandersmsft"
@@ -17,291 +17,291 @@
     ms.author="banders"/>
 
 
-# Hantera åtkomst till Log Analytics
+# Manage access to Log Analytics
 
-För att hantera åtkomst till Log Analytics använder du administrativa åtgärder för användare, konton, OMS-arbetsytor och Azure-konton. Om du vill skapa en ny arbetsyta i Operations Management Suite (OMS), väljer du ett namn på arbetsytan, associerar det med ditt konto och du väljer en geografisk plats. En arbetsyta är i grunden en behållare som innehåller kontoinformation och enkel konfigurationsinformation för kontot. Du eller andra medlemmar i din organisation kan använda flera OMS-arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
+To manage access to Log Analytics, you'll use a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts. To create a new workspace in the Operations Management Suite (OMS), you choose a workspace name, associate it with your account, and you choose a geographical location. A workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple OMS workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
 
-Artikeln [Kom igång med Log Analytics](log-analytics-get-started.md) visar hur du snabbt kommer igång och resten av den här artikeln beskriver i detalj några av de åtgärder som du behöver för att hantera åtkomst till OMS.
+The [Get started with Log Analytics](log-analytics-get-started.md) article shows you how to quickly get up and running and the rest of this article describes in more detail some of the actions you'll need to manage access to OMS.
 
-Även om du inte behöver utföra alla hanteringsaktiviteter, går vi igenom alla vanliga uppgifter som du kan komma använda i följande avsnitt:
+Although you might not need to perform every management task at first, we'll cover all the commonly used tasks that you might use in the following sections:
 
-- Bestämma antalet arbetsytor du behöver
-- Hantera konton och användare
-- Lägga till en grupp till en befintlig arbetsyta
-- Länka en befintlig arbetsyta till en Azure-prenumeration
-- Uppgradera en arbetsyta till en betald dataplan
-- Ändra en dataplanstyp
-- Lägga till en Azure Active Directory-organisation till en befintlig arbetsyta
-- Stänga OMS-arbetsytan
+- Determine the number of workspaces you need
+- Manage accounts and users
+- Add a group to an existing workspace
+- Link an existing workspace to an Azure subscription
+- Upgrade a workspace to a paid data plan
+- Change a data plan type
+- Add an Azure Active Directory Organization to an existing workspace
+- Close your OMS workspace
 
-## Bestämma antalet arbetsytor du behöver
+## Determine the number of workspaces you need
 
-En arbetsyta är en Azure-resurs och är en behållare där data samlas in, aggregeras, analyseras och presenteras i OMS-portalen.
+A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the OMS portal.
 
-Det är möjligt att skapa flera arbetsytor för OMS Log Analytics och för användare att ha tillgång till en eller flera arbetsytor. I allmänhet vill du minimera antalet arbetsytor eftersom detta gör att du kan fråga och korrelera över de flesta data. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
+It is possible to create multiple OMS Log Analytics workspaces and for users to have access to one or more workspaces. In general you want to minimize the number of workspaces as this will allow you to query and correlate across the most data. This section describes when it can be helpful to create more than one workspace.
 
-Idag är innehåller en Log Analytics-arbetsyta:
+Today, a Log Analytics workspace provides:
 
-- En geografisk plats för lagring av data
-- Precision för fakturering
-- Dataisolering
+- A geographic location for data storage
+- Granularity for billing
+- Data isolation
 
-Baserat på ovanstående egenskaper kan du behöva skapa flera arbetsytor om:
+Based on the above characteristics, you may want to create multiple workspaces if:
 
-- Du är ett globalt företag och data behöver lagras i vissa områden för datasuveränitet eller kompatibilitetsskäl.
-- Du använder Azure och du vill undvika kostnader för överföring av utgående data genom att ha en Log Analytics-arbetsyta i samma region som de Azure-resurser den hanterar.
-- Du vill fördela tillägg till olika avdelningar eller affärsgrupper baserat på deras användning. När du skapar en arbetsyta för varje avdelning eller affärsgrupp, visar Azure-fakturan och användningsutdraget avgifterna för varje arbetsyta separat.
-- Du är en leverantör av hanterade tjänster och behöver logganalysdata för varje kund du hanterar isolerade från andra kunders data.
-- Du hanterar flera kunder och du vill att varje kund, avdelning eller affärsgrupp ska se sina egna data, men inte data för andra kunder, avdelningar eller affärsgrupper.
+- You are a global company and you need data stored in specific regions for data sovereignty or compliance reasons.
+- You are using Azure and you want to avoid outbound data transfer charges by having a Log Analytics workspace in the same region as the Azure resources it manages.
+- You want to allocate charges to different departments or business groups based on their usage. When you create a workspace for each department or business group, your Azure bill and usage statement shows the charges for each workspace separately.
+- You are a managed service provider and need to keep the log analytics data for each customer you manage isolated from other customer’s data.
+- You manage multiple customers and you want each customer or department or business group to see their own data but not the data for other customers or departments or business groups.
 
-När du använder agenter för att samla in data kan du konfigurera att varje agent rapporterar till krävd arbetsyta.
+When using agents to collect data, you can configure each agent to report to the required workspace.
 
-Om du använder System Center Operations Manager kan varje hanteringsgrupp för Operations Manager endast anslutas till en arbetsyta. Du kan installera Microsoft Monitoring Agent på datorer som hanteras av Operations Manager och låta agenten rapporten till både Operations Manager och en annan Log Analytics-arbetsyta.
+If you are using System Center Operations manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
-### Arbetsyteinformation
+### Workspace information
 
-I OMS-portalen kan du visa informationen om arbetsytan och välja om du vill få information från Microsoft.
+In the OMS portal, you can view your workspace information and choose whether you want to receive information from Microsoft.
 
-#### Visa arbetsyteinformation
+#### View workspace information
 
-1. I OMS, klickar du på ikonen **Inställningar**.
-2. Klicka på fliken **Konton**.
-3. Klicka på fliken **Arbetsyteinformation**.  
-  ![Arbetsyteinformation](./media/log-analytics-manage-access/workspace-information.png)
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab.
+3. Click the **Workspace Information** tab.  
+  ![Workspace Information](./media/log-analytics-manage-access/workspace-information.png)
 
-## Hantera konton och användare
+## Manage accounts and users
 
-Varje arbetsyta kan ha flera användarkonton kopplade till sig, och varje användarkonto (Microsoft-konto eller organisationskonto) kan ha åtkomst till flera OMS-arbetsytor.
+Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple OMS workspaces.
 
-Som standard blir det Microsoft-konto eller organisationskonto som använts för att skapa arbetsytan administratör för arbetsytan. Administratören kan sedan bjuda in ytterligare Microsoft-konton eller välja användare från Azure Active Directory.
+By default, the Microsoft account or Organizational account used to create the workspace becomes the Administrator of the workspace. The administrator can then invite additional Microsoft accounts or pick users from Azure Active Directory.
 
-Att ge åtkomst till OMS-arbetsytan styrs på 2 platser:
+Giving people access to the OMS workspace is controlled in 2 places:
 
-- I Azure kan du använda rollbaserad åtkomstkontroll för att ge åtkomst till Azure-prenumerationen och tillhörande Azure-resurser. Det används också för PowerShell- och REST API-åtkomst.
-- Endast åtkomst till OMS-portalen, inte tillhörande Azure-prenumeration.
+- In Azure, you can use role-based access control to provide access to the Azure subscription and the associated Azure resources. This is also used for PowerShell and REST API access.
+- In the OMS portal, access to only the OMS portal - not the associated Azure subscription.
 
-Om du ger användare åtkomst till OMS-portalen men inte Azure-prenumerationen som den är länkad till, visas inte panelerna Automation, Backup och Site Recovery någon information till användare när de loggar in på OMS-portalen.
+If you give people access to the OMS portal but not to the Azure subscription that it is linked to, then the Automation, Backup, and Site Recovery solution tiles do not show any data to users when they sign-in the OMS portal.
 
-Om du vill tillåta alla användare att se data i dessa lösningar, se till att de har minst **läs**-åtkomst för Automation-konto, Backup-valvet och Site Recovery-valvet som är länkat till OMS-arbetsytan.   
+To allow all users to see the data in these solutions, ensure they have at least **reader** access for the Automation Account, Backup Vault, and Site Recovery vault that is linked to the OMS workspace.   
 
-### Hantera åtkomst till Log Analytics i Azure-portalen
+### Managing access to Log Analytics using the Azure portal
 
-Om du ger användare åtkomst till arbetsytan Log Analytics med Azure-behörigheter, i Azure-portalen t.ex., kan samma användare sedan använda Log Analytics-portalen. Om användare är i Azure-portalen kan de navigera till OMS-portalen genom att klicka på åtgärden **OMS-portal** när de ser Log Analytics-arbetsytan.
+If you give people access to the Log Analytics workspace using Azure permissions, in the Azure portal for example, then the same users can access the Log Analytics portal. If users are in the Azure portal, they can navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace resource.
 
-Vissa saker att tänka på vad gäller Azure-portalen:
+Some points to keep in mind about the Azure portal:
 
-- Detta är inte *Rollbaserad åtkomstkontroll*. Om du har *Läs*-åtkomstbehörigheter i Azure-portalen för Log Analytics-arbetsytan kan du göra ändringar i OMS-portalen. OMS-portalen har ett koncept med administratör, deltagare och skrivskyddad användare. Om det konto du är inloggat med är i det Azure Active Directory som är länkat till arbetsytan blir du administratör i OMS-portalen, annars blir du deltagare.
+- This is not *Role-Based Access Control*. If you have *Reader* access permissions in the Azure portal for the Log Analytics workspace, then you can make changes using the OMS portal. The OMS portal has a concept of Administrator, Contributor, and ReadOnly User. If the account you are signed-in with is in the Azure Active Directory linked to the workspace you will be an Administrator in the OMS portal, otherwise you will be a Contributor.
 
-- När du loggar in på OMS-portalen med hjälp av http://mms.microsoft.com, visas som standard listan **Välj en arbetsyta**. Den innehåller endast arbetsytor som har lagts till med hjälp av OMS-portalen. Om du vill se arbetsytorna du har åtkomst till med Azure-prenumerationer, måste du ange en klient som en del av URL:en. Några exempel:
+- When you sign-in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, then you need to specify a tenant as part of the URL. For example:
 
-  `mms.microsoft.com/?tenant=contoso.com` Klient-ID är ofta den sista delen av e-postadressen som du loggar in med.
+  `mms.microsoft.com/?tenant=contoso.com` The tenant identifier is often that last part of the e-mail address that you sign-in with.
 
-- Om det konto du loggar in med är ett konto i klient-Azure Active Directory, vilket är ofta fallet om du inte loggar in som en kryptografiprovider, kommer du att bli *Administratör* i OMS-portalen. Om ditt konto inte är i klient-Azure Active Directory så kommer du att bli *Användare* i OMS-portalen.
+- If the account you sign-in with is an account in the tenant Azure Active Directory, which is usually the case unless you’re signing-in as a CSP, then you will be an *Administrator* in the OMS portal. If your account is not in the tenant Azure Active Directory, then you will be a *User* in the OMS portal.
 
-- Om du vill gå direkt till en portal som du har åtkomst till genom att använda Azure-behörigheter måste du ange resursen som en del av URL:en. Det är möjligt att hämta den här URL:en med hjälp av PowerShell.
+- If you want to navigate directly to a portal that you have access to using Azure permissions, then you need to specify the resource as part of the URL. It is possible to get this URL using PowerShell.
 
-  Till exempel `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
+  For example,  `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
-  URL-adressen ser ut som:
+  The URL will look like:
 `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
 
-### Hantera användare i OMS-portalen
+### Managing users in the OMS portal
 
-Du kan hantera användare och grupp på fliken **Hantera användare** under fliken **Konton** på sidan Inställningar. Där kan du utföra uppgifter i följande avsnitt.  
+You manage users and group on the **Manage Users** tab under the **Accounts** tab in the Settings page. There, you can perform the tasks in the following sections.  
 
-![hantera användare](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+![manage users](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
 
-#### Lägga till en användare till en befintlig arbetsyta
+#### Add a user to an existing workspace
 
-Använd följande steg för att lägga till en användare eller grupp i en OMS-arbetsyta. Användaren eller gruppen kommer att kunna se och arbeta med alla aviseringar som är associerade med den här arbetsytan.
+Use the following steps to add a user or group to an OMS workspace. The user or group will be able to view and act on all alerts that are associated with this workspace.
 
->[AZURE.NOTE] Om du vill lägga till en användare eller grupp från din organisations Azure Active Directory-konto måste du först se till att du har associerat OMS-kontot med Active Directory-domänen. Se [Lägga till en Azure Active Directory-organisation till en befintlig arbetsyta](#add-an-azure-active-directory-organization-to-an-existing-workspace).
+>[AZURE.NOTE] If you want to add a user or group from your Azure Active Directory organizational account, you must first ensure that you have associated your OMS account with your Active Directory domain. See [Add an Azure Active Directory Organization to an existing workspace](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
-1. I OMS, klickar du på ikonen **Inställningar**.
-2. Klicka på fliken **Konton** och klicka sedan på fliken **Hantera användare**.
-3. I avsnittet **Hantera användare** väljer du kontotyp för att lägga till: **Organisationskonto**, **Microsoft-konto**, **Microsoft Support**.
-    - Om du väljer Microsoft-konto, skriver du e-postadressen för den användare som är associerad med Microsoft-kontot.
-    - Om du väljer organisationskonto, kan du ange en del av användarens eller gruppens namn eller e-postalias så visas en lista över användare och grupper. Välj en användare eller grupp.
-    - Använd Microsoft Support för att ge en Microsoft-supporttekniker tillfällig åtkomst till ditt arbetsområde för felsökning.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. In the **Manage Users** section, choose the account type to add: **Organizational Account**, **Microsoft Account**, **Microsoft Support**.
+    - If you choose Microsoft Account, type the email address of the user associated with the Microsoft Account.
+    - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of users and groups will appear. Select a user or group.
+    - Use Microsoft Support to give a Microsoft Support engineer temporary access to your workspace to help with troubleshooting.
 
-    >[AZURE.NOTE] Begränsa av prestandaskäl antalet Active Directory-grupper som är kopplade till ett enda OMS-konto till tre – en för administratörer, en för deltagare och en för skrivskyddade användare. Att använda flera grupper kan påverka prestandan hos Log Analytics.
+    >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
 
-5. Välj typ av användare eller grupp att lägga till: **Administratör**, **Deltagare** eller **skrivskyddad användare** .  
-6. Klicka på **Lägg till**.
+5. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User** .  
+6. Click **Add**.
 
-  Om du lägger till ett Microsoft-konto skickas en inbjudan att ansluta till arbetsytan till den e-postadress som du angav. När användaren följer instruktionerna i inbjudan att ansluta till OMS, kan användaren se aviseringar och kontoinformation för det här OMS-kontot och du kommer att kunna se användarinformation på fliken **Konton** på sidan **Inställningar**.
-  Om du lägger till ett organisationskonto kommer användaren att kunna komma åt Log Analytics omedelbart.  
-  ![e-postinbjudan](./media/log-analytics-manage-access/setup-workspace-invitation-email.png)
+  If you are adding a Microsoft account, an invitation to join the workspace is sent to the email you provided. After the user follows the instructions in the invitation to join OMS, the user can view the alerts and account information for this OMS account, and you will be able to view the user information on the **Accounts**  tab of the **Settings** page.
+  If you are adding an organizational account, the user will be able to access Log Analytics immediately.  
+  ![invitation email](./media/log-analytics-manage-access/setup-workspace-invitation-email.png)
 
-#### Redigera en befintlig användartyp
+#### Edit an existing user type
 
-Du kan ändra kontorollen för en användare som är associerad med OMS-kontot. Du har följande rollalternativ:
+You can change the account role for a user associated with your OMS account. You have the following role options:
 
- - *Administratör*: Kan hantera användare, visa och arbeta med alla aviseringar och lägga till och ta bort servrar
+ - *Administrator*: Can manage users, view and act on all alerts, and add and remove servers
 
- - *Deltagare*: Kan visa och vidta åtgärder för alla aviseringar och lägga till och ta bort servrar
+ - *Contributor*: Can view and act on all alerts, and add and remove servers
 
- - *Skrivskyddad användare*: Användare som har markerats som skrivskyddade kommer inte att kunna:
-   1. Lägg till/ta bort lösningar. Lösningsgalleriet är dolt.
-   2. Lägg till/ändra/ta bort ikoner på **Min instrumentpanel**.
-   3. Visa sidorna **Inställningar**. Sidorna är dolda.
-   4. I sökvyn är aktiviteterna, PowerBI-konfiguration, sparade sökningar och aviseringar dolda.
+ - *ReadOnly User*: Users marked as read-only will not be able to:
+   1. Add/remove solutions. The solution gallery is hidden.
+   2. Add/modify/remove tiles on **My Dashboard**.
+   3. View the **Settings** pages. The pages are hidden.
+   4. In the Search view, PowerBI configuration, Saved Searches, and Alerts tasks are hidden.
 
 
-#### Så här redigerar du ett konto
+#### To edit an account
 
-1. I OMS, klickar du på ikonen **Inställningar**.
-2. Klicka på fliken **Konton** och klicka sedan på fliken **Hantera användare**.
-3. Välj rollen för den användare som du vill ändra.
-2. I bekräftelsedialogrutan klickar du **Ja**.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. Select the role for the user that you want to change.
+2. In the confirmation dialog box, click **Yes**.
 
-### Ta bort en användare från en OMS-arbetsyta
+### Remove a user from a OMS workspace
 
-Använd följande steg för att ta bort en användare från en OMS-arbetsyta. Observera att detta inte stänger användarens arbetsyta. I stället tas associationen mellan användaren och arbetsytan bort. Om en användare är associerad med flera arbetsytor, kommer användaren fortfarande att kunna logga in på OMS och se andra arbetsytor som finns.
+Use the following steps to remove a user from an OMS workspace. Note that this does not close the user’s workspace. Instead, it removes the association between that user and the workspace. If a user is associated with multiple workspaces, that user will still be able to sign in to OMS and see the other workspaces.
 
-1. I OMS, klickar du på ikonen **Inställningar**.
-2. Klicka på fliken **Konton** och klicka sedan på fliken **Hantera användare**.
-3. Klicka på **Ta bort** bredvid det användarnamn som du vill ta bort.
-4. I bekräftelsedialogrutan klickar du **Ja**.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. Click **Remove** next to the user name that you want to remove.
+4. In the confirmation dialog box, click **Yes**.
 
 
-### Lägga till en grupp till en befintlig arbetsyta
+### Add a group to an existing workspace
 
-1.  Följ steg 1 -4 i "Om du vill lägga till en användare till en befintlig arbetsyta" ovan.
-2.  Under **Välj användare/grupp**, väljer du **Grupp**.
-    ![lägga till en grupp till en befintlig arbetsyta](./media/log-analytics-manage-access/add-group.png)
-3.  Ange ett visningsnamn eller en e-postadress för gruppen som du vill lägga till.
-4.  Markera gruppen i listresultaten och klicka sedan på **Lägg till**.
+1.  Follow steps 1 -4 in “To add a user to an existing workspace”, above.
+2.  Under **Choose User/Group**, select **Group**.
+    ![add a group to an existing workspace](./media/log-analytics-manage-access/add-group.png)
+3.  Enter the Display Name or Email address for the group you’d like to add.
+4.  Select the group in the list results and then click **Add**.
 
-## Länka en befintlig arbetsyta till en Azure-prenumeration
+## Link an existing workspace to an Azure subscription
 
-Det är möjligt att skapa en arbetsyta från webbplatsen [microsoft.com/oms](https://microsoft.com/oms).  Men det finns vissa begränsningar för dessa arbetsytor, den mest anmärkningsvärda är högst 500MB per dag för överföring av data om du använder ett kostnadsfritt konto. För att göra ändringar i den här arbetsytan behöver du *Länka din befintliga arbetsyta till en Azure-prenumeration*.
+It is possible to create a workspace from the [microsoft.com/oms](https://microsoft.com/oms) website.  However, certain limits exist for these workspaces, the most notable being a limit of 500MB/day of data uploads if you're using a free account. To make changes to this workspace you will need to *link your existing workspace to an Azure subscription*.
 
->[AZURE.IMPORTANT] För att länka en arbetsyta måste Azure-kontot redan ha åtkomst till arbetsytan som du vill länka.  Med andra ord måste kontot du använder för att få åtkomst till Azure-portalen vara **samma** som det konto som används för att komma åt OMS-arbetsytan. Om detta inte är fallet, se [Lägga till en användare till en befintlig arbetsyta](#add-a-user-to-an-existing-workspace).
+>[AZURE.IMPORTANT] In order to link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access your OMS workspace. If this is not the case, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
-### Om du vill länka en arbetsyta till en Azure-prenumeration i OMS-portalen
+### To link a workspace to an Azure subscription in the OMS portal
 
-För att länka en arbetsyta till en Azure-prenumeration i OMS-portalen, måste den inloggade användaren redan ha ett betalt Azure-konto. Arbetsytan som du använder aktivt blir länkad till Azure-kontot.
+In order to link a workspace to an Azure subscription in the OMS portal, the signed-in user must already have a paid Azure account. The workspace that you're actively using gets linked to the Azure account.
 
-1. I OMS, klickar du på ikonen **Inställningar**.
-2. Klicka på fliken **Konton** och klicka sedan på fliken **Azure-prenumeration och dataplan**.
-3. Klicka på den plan som du vill använda.
-4. Klicka på **Spara**.  
-  ![prenumeration och dataplaner](./media/log-analytics-manage-access/subscription-tab.png)
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
+3. Click the data plan that you want use.
+4. Click **Save**.  
+  ![subscription and data plans](./media/log-analytics-manage-access/subscription-tab.png)
 
-Den nya dataplanen visas på menyfliken i OMS-portalen längst upp på webbsidan.
+Your new data plan is displayed in the OMS portal ribbon at the top of your web page.
 
-![OMS-menyflikar](./media/log-analytics-manage-access/data-plan-changed.png)
+![OMS ribbon](./media/log-analytics-manage-access/data-plan-changed.png)
 
-### Om du vill länka en arbetsyta till en Azure-prenumeration i Azure-portalen
+### To link a workspace to an Azure subscription in the Azure portal
 
-1.  Logga in på [Azure-portalen](http://portal.azure.com).
-2.  Bläddra efter **Log Analytics (OMS)** och markerar den.
-3.  Du ser listan över befintliga arbetsytor. Klicka på **Lägg till**.  
-    ![lista över arbetsytor](./media/log-analytics-manage-access/manage-access-link-azure01.png)
-4.  Under **OMS-arbetsytan**, klicka på **eller länka befintliga**.  
-    ![länka befintliga](./media/log-analytics-manage-access/manage-access-link-azure02.png)
-5.  Klicka på **Konfigurera nödvändiga inställningar**.  
-    ![konfigurera nödvändiga inställningar](./media/log-analytics-manage-access/manage-access-link-azure03.png)
-6.  Du ser listan över arbetsytor som ännu inte har länkats till ditt Azure-konto. Välj en arbetsyta.  
-    ![välj arbetsytor](./media/log-analytics-manage-access/manage-access-link-azure04.png)
-7.  Om det behövs, kan du ändra värdena för följande objekt:
-    - Prenumeration
-    - Resursgrupp
-    - Plats
-    - Prisnivå  
-        ![ändra värden](./media/log-analytics-manage-access/manage-access-link-azure05.png)
-8.  Klicka på **Skapa**. Arbetsytan är nu länkad till ditt Azure-konto.
+1.  Sign into the [Azure portal](http://portal.azure.com).
+2.  Browse for **Log Analytics (OMS)** and then select it.
+3.  You’ll see your list of existing workspaces. Click **Add**.  
+    ![list of workspaces](./media/log-analytics-manage-access/manage-access-link-azure01.png)
+4.  Under **OMS Workspace**, click **Or link existing**.  
+    ![link existing](./media/log-analytics-manage-access/manage-access-link-azure02.png)
+5.  Click **Configure required settings**.  
+    ![configure required settings](./media/log-analytics-manage-access/manage-access-link-azure03.png)
+6.  You’ll see the list of workspaces that are not yet linked to your Azure account. Select a workspace.  
+    ![select workspaces](./media/log-analytics-manage-access/manage-access-link-azure04.png)
+7.  If needed, you can change values for the following items:
+    - Subscription
+    - Resource group
+    - Location
+    - Pricing tier  
+        ![change values](./media/log-analytics-manage-access/manage-access-link-azure05.png)
+8.  Click **Create**. The workspace is now linked to your Azure account.
 
->[AZURE.NOTE] Om du inte ser arbetsytan som du vill länka så saknar din Azure-prenumeration åtkomst till OMS-arbetsytan som du skapade med OMS-webbplatsen.  Du måste bevilja åtkomst till det här kontot inifrån OMS-arbetsytan via OMS-webbplatsen. Du hittar information om att göra detta i [Lägga till en användare till en befintlig arbetsyta](#add-a-user-to-an-existing-workspace).
+>[AZURE.NOTE] If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the OMS workspace that you created using the OMS website.  You will need to grant access to this account from inside your OMS workspace using the OMS website. To do so, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
 
 
-## Uppgradera en arbetsyta till en betald dataplan
+## Upgrade a workspace to a paid data plan
 
-Det finns tre typer av dataplaner för arbetsytor i OMS: **Gratis**, **Standard** och **Premium**.  Om du har en *Gratis* plan kan du ha uppnått datakapaciteten på 500 MB.  Du måste uppgradera arbetsytan till en plan som ***betalar per användning*** för att samla in data utöver den här gränsen. Du kan konvertera din plantyp när som helst.  Mer information om OMS-priser finns i [Prisinformation](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
+There are three workspace data plan types for OMS: **Free**, **Standard**, and **Premium**.  If you are on a *Free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a ***pay-as-you-go plan*** in order to collect data beyond this limit. At any time you can convert your plan type.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
->[AZURE.IMPORTANT] Arbetsytans planer kan bara ändras om de är *länkade* till en Azure-prenumeration.  Om du har skapat din arbetsyta i Azure eller om du *redan* har länkat arbetsytan, kan du ignorera det här meddelandet.  Om du har skapat ditt arbetsområde med [OMS-webbplatsen](http://www.microsoft.com/oms), måste du följa stegen i [Länka en befintlig arbetsyta till en Azure-prenumeration](#link-an-existing-workspace-to-an-azure-subscription).
+>[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace with the [OMS website](http://www.microsoft.com/oms), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#link-an-existing-workspace-to-an-azure-subscription).
 
-### Använda rättigheter från OMS-tillägg för System Center 
+### Using entitlements from the OMS Add-On for System Center
 
-OMS-tillägget för System Center innehåller ett berättigande för premiumplan för OMS Log Analytics, som beskrivs i [OMS-priser](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
+The OMS Add-On for System Center provides an entitlement for the Premium plan of OMS Log Analytics, described at [OMS Pricing](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
-När du köper OMS-tillägget för System Center läggs OMS-tillägget till som ett berättigande i ditt System Center-avtal. Alla Azure-prenumerationer som har skapats under det här avtalet kan använda berättigandet. Detta gör att du till exempel kan ha flera OMS-arbetsytor med berättigandet från OMS-tillägget.
+When you purchase the OMS add-on for System Center, the OMS add-on is added as an entitlement on your System Center agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS add-on.
 
-För att säkerställa att användningen av en OMS-arbetsyta tillämpas till dina berättiganden från OMS-tillägget, måste du:
+To ensure that usage of an OMS workspace is applied to your entitlements from the OMS add-on, you'll need to:
 
-1. Länka OMS-arbetsytan till en Azure-prenumeration som är en del av ett Enterprise-avtal som innehåller både OMS-tilläggsinköp och Azure-prenumerationsanvändning
-2. Välj premiumplan för arbetsytan
+1. Link your OMS workspace to an Azure subscription that is part of the Enterprise Agreement that includes both the OMS add-on purchase and Azure subscription usage
+2. Select the Premium plan for the workspace
 
-När du granskar din användning i Azure eller OMS-portalen, ser du inte OMS-tilläggsberättigandena. Du kan dock se berättigandena i Enterprise Portal.  
+When you review your usage in the Azure or OMS portal, you won’t see the OMS add-on entitlements. However, you can see entitlements in the Enterprise Portal.  
 
-Om du behöver ändra Azure-prenumerationen som OMS-arbetsytan är länkad till kan du använda cmdlet:en för Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+If you need to change the Azure subscription that your OMS workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
 
-### Använda Azure-åtagande från ett Enterprise-avtal
+### Using Azure Commitment from an Enterprise Agreement
 
-Om du väljer att använda fristående priser för OMS-komponenter betalar du för varje komponent i OMS separat och användningen visas på Azure-fakturan.
+If you choose to use standalone pricing for OMS components, you will pay for each component of OMS separately and the usage will appear on your Azure bill.
 
-Om du har ett Azure-betalningsåtagande på företagsregistreringen som är kopplad till dina Azure-prenumerationer, kommer all användning av Log Analytics automatiskt att debiteras mot eventuella återstående betalningsåtaganden.
+If you have an Azure monetary commit on the enterprise enrollment to which your Azure subscriptions are linked, any usage of Log Analytics will automatically debit against any remaining monetary commit.
 
-Om du behöver ändra Azure-prenumerationen som OMS-arbetsytan är länkad till kan du använda cmdlet:en för Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).  
+If you need to change the Azure subscription that the OMS workspace is linked to you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
 
 
 
-### Ändra en arbetsyta till en betald dataplan
+### To change a workspace to a paid data plan
 
-1.  Logga in på [Azure-portalen](http://portal.azure.com).
-2.  Bläddra efter **Log Analytics (OMS)** och markerar den.
-3.  Du ser listan över befintliga arbetsytor. Välj en arbetsyta.  
-    ![lista över arbetsytor](./media/log-analytics-manage-access/manage-access-change-plan01.png)
-4.  Under **Inställningar**, klicka på **Prisnivå**.  
-    ![prisnivå](./media/log-analytics-manage-access/manage-access-change-plan02.png)
-5.  Under **Prisnivå**, välj en dataplan och klicka på **Välj**.  
-    ![välj plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6.  När du har uppdaterat vyn i Azure-portalen visas **Prisnivå** uppdaterad med den plan som du har valt.  
-    ![uppdatera prisnivå](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+1.  Sign into the [Azure portal](http://portal.azure.com).
+2.  Browse for **Log Analytics (OMS)** and then select it.
+3.  You’ll see your list of existing workspaces. Select a workspace.  
+    ![list of workspaces](./media/log-analytics-manage-access/manage-access-change-plan01.png)
+4.  Under **Settings**, click **Pricing tier**.  
+    ![pricing tier](./media/log-analytics-manage-access/manage-access-change-plan02.png)
+5.  Under **Pricing tier**, select a data plan and then click **Select**.  
+    ![select plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
+6.  When you refresh your view in the Azure portal, you’ll see **Pricing tier** updated for the plan you selected.  
+    ![update pricing tier](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
-Nu kan du samla in data utanför datakapaciteten "gratis".
+Now you can collect data beyond the "free" data cap.
 
 
-## Lägga till en Azure Active Directory-organisation till en befintlig arbetsyta
+## Add an Azure Active Directory Organization to an existing workspace
 
-Du kan associera arbetsytan för Log Analytics (OMS) med en Azure Active Directory-domän. På så sätt kan du lägga till användare från Active Directory direkt till OMS-arbetsytan utan att ett separat Microsoft-konto.
+You can associate your Log Analytics (OMS) workspace with an Azure Active Directory domain. This enables you to add users from Active Directory directly to your OMS workspace without requiring a separate Microsoft account.
 
-När du skapar arbetsytan från Azure-portalen eller länkar arbetsytan till en Azure-prenumeration länkas Azure Active Directory som ditt organisationskonto.
+When you create the workspace from the Azure portal, or link your workspace to an Azure subscription your Azure Active Directory will be linked as your organizational account.
 
-När du skapar arbetsytan från OMS-portalen uppmanas du att länka till en Azure-prenumeration och ett organisationskonto.
+When you create the workspace from the OMS portal you will be prompted to link to an Azure subscription and an organizational account.
 
-### Så här lägger du till en Azure Active Directory-organisation till en befintlig arbetsyta
+### To add an Azure Active Directory Organization to an existing workspace
 
-1. På sidan Inställningar i OMS klickar du på **Konton** och klickar sedan på fliken **Arbetsyteinformation**.  
-2. Granska informationen om organisationskonton och klicka sedan på **Lägga till organisation**.  
-    ![lägg till organisation](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
-3. Ange ID-information för en administratör i Azure Active Directory-domänen. Därefter visas en bekräftelse om att din arbetsyta är kopplad till Azure Active Directory-domänen.
-    ![bekräftelse av länkad arbetsyta](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
+1. On the Settings page in OMS, click **Accounts** and then click the **Workspace Information** tab.  
+2. Review the information about organizational accounts, and then click **Add Organization**.  
+    ![add organization](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
+3. Enter the identity information for the administrator of your Azure Active Directory domain. Afterward, you'll see an acknowledgment stating that your workspace is linked to your Azure Active Directory domain.
+    ![linked workspace acknowledgment](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
->[AZURE.NOTE] När ditt konto är länkat till ett organisationskonto kan länkningen inte tas bort eller ändras.
+>[AZURE.NOTE] Once your account is linked to an Organizational Account, linking cannot be removed or changed.
 
-## Stänga OMS-arbetsytan
+## Close your OMS workspace
 
-När du stänger en OMS-arbetsyta raderas alla data som är relaterade till arbetsytan från OMS-tjänsten inom 30 dagar från det att arbetsytan stängts.
+When you close an OMS workspace, all data related to your workspace is deleted from the OMS service within 30 days of closing the workspace.
 
-Om du är administratör och det finns flera användare som är kopplade till arbetsytan bryts kopplingen mellan användare och arbetsytan. Om användarna är associerade med andra arbetsytor, kan de fortsätta använda OMS med de andra arbetsytorna. Men om de inte är associerade med andra arbetsytor behöver de skapa en ny arbetsyta för att använda OMS.
+If you are an administrator and there are multiple users associated with the workspace, the association between those users and the workspace is broken. If the users are associated with other workspaces, then they can continue using OMS with those other workspaces. However, if they are not associated with other workspaces then they will need to create a new workspace to use OMS.
 
-### Om du vill stänga en OMS-arbetsyta
+### To close an OMS workspace
 
-1. I OMS, klickar du på ikonen **Inställningar**.
-2. Klicka på fliken **Konton** och klicka sedan på fliken **Arbetsyteinformation**.
-3. Klicka på **Stäng arbetsytan**.
-4. Välj en av följande orsaker för att stänga ditt arbetsområde eller ange en annan orsak i textrutan.
-5. Klicka på **Stäng arbetsytan**.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Workspace Information** tab.
+3. Click **Close Workspace**.
+4. Select one of the reasons for closing your workspace, or enter a different reason in the text box.
+5. Click **Close workspace**.
 
-## Nästa steg
+## Next steps
 
-- Se [Ansluta Windows-datorer till Log Analytics](log-analytics-windows-agents.md) för att lägga till agenter och samla in data.
-- [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md) för att lägga till funktioner och samla in data.
-- [Konfigurera inställningar för proxyserver och brandvägg i Log Analytics](log-analytics-proxy-firewall.md) om din organisation använder en proxyserver eller brandvägg så att agenterna kan kommunicera med Log Analytics-tjänsten.
+- See [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) to add agents and gather data.
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) if your organization uses a proxy server or firewall so that agents can communicate with the Log Analytics service.
 
 
 

@@ -32,7 +32,7 @@ Ett Service Bus-namnområde är mappat till en skalningsenhet. Skalningsenheten 
 
 - **Ett gateway-arkiv.** Gateway-arkivet innehåller data för varje entitet som definieras i den här skalningsenheten. Gateway-arkivet implementeras ovanpå en SQL Azure-databas.
 
-- **Flera meddelandearkiv.** I meddelandearkiven lagras meddelanden från alla köer, ämnen och prenumerationer som definieras i den här skalningsenheten. De innehåller även alla data för prenumerationen. Om inte [partitionerade meddelandeentiteter](service-bus-partitioning.md) är aktiverat mappas en kö eller ett ämne till ett meddelandearkiv. Prenumerationer lagras i samma meddelandearkiv som det överordnade ämnet. Förutom för Service Bus [Premium Messaging](service-bus-premium-messaging.md) implementeras meddelandearkiven ovanpå SQL Azure-databaser.
+- **Flera meddelandearkiv.** I meddelandearkiven lagras meddelanden från alla köer, ämnen och prenumerationer som definieras i den här skalningsenheten. De innehåller även alla data för prenumerationen. Om inte [partitionerade meddelandeentiteter](../service-bus-messaging/service-bus-partitioning.md) är aktiverat mappas en kö eller ett ämne till ett meddelandearkiv. Prenumerationer lagras i samma meddelandearkiv som det överordnade ämnet. Förutom för Service Bus [Premium Messaging](../service-bus-messaging/service-bus-premium-messaging.md) implementeras meddelandearkiven ovanpå SQL Azure-databaser.
 
 ## Behållare
 
@@ -56,12 +56,12 @@ Klienterna kan utbyta meddelanden via gateway-noden som används för rendezvous
 
 Nu när du har läst en översikt över arkitekturen i Service Bus kan du använda följande länkar för att komma igång:
 
-- [Översikt över meddelandetjänsten i Service Bus](service-bus-messaging-overview.md)
+- [Översikt över meddelandetjänsten i Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Grunderna om Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [En lösning för köade meddelanden som använder Service Bus-köer.](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [En lösning för köade meddelanden som använder Service Bus-köer.](../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

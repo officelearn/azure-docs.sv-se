@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/16/2016"
+   ms.date="09/21/2016"
    ms.author="edmaca"/>
+
 
 # Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av Azure PowerShell
 
@@ -23,8 +24,6 @@
 Lär dig att skapa Azure Data Lake Analytics-konton med hjälp av Azure PowerShell, definiera Data Lake Analytics-jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md) och skicka jobb till Data Lake Analytics-konton. Mer information om Data Lake Analytics finns i [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 I de här självstudierna utvecklar du ett jobb som läser en fil med tabbavgränsade värden (TVS) och konverterar den till en fil med kommaavgränsade värden (CSV). Klicka på flikarna överst i det här avsnittet om du vill gå igenom samma självstudier med andra verktyg.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Krav
 
@@ -125,7 +124,8 @@ Följande PowerShell-skript visar hur du hämtar Data Lake Store-standardnamnet 
 
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeAccount
+    echo $dataLakeStoreName
 
 >[AZURE.NOTE] Azure Portal tillhandahåller ett användargränssnitt för att kopiera exempeldatafilerna till Data Lake Store-standardkontot. Instruktioner finns i [Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
@@ -177,13 +177,10 @@ Data Lake Analytics-jobb skrivs på U-SQL-språket. Läs mer om U-SQL i [Kom ig�
         $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
         $usqlScript = "c:\tutorials\data-lake-analytics\copyFile.usql"
         
-        Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
-                        
-        While (($t = Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId).State -ne "Ended"){
-            Write-Host "Job status: "$t.State"..."
-            Start-Sleep -seconds 5
-        }
-        
+        $job = Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
+
+        Wait-AdlJob -Account $dataLakeAnalyticsName -JobId $job.JobId
+
         Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
     U-SQL-skriptfilen lagras i skriptet på c:\tutorials\data-lake-analytics\copyFile.usql. Uppdatera sökvägen till filen på samma sätt.
@@ -212,6 +209,6 @@ När jobbet har slutförts kan du använda följande cmdletar för att visa och 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

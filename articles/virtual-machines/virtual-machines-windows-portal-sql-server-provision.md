@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="09/20/2016"
+    ms.date="09/21/2016"
     ms.author="jroth" />
 
 
@@ -142,9 +142,9 @@ Om du föredrar att inte aktivera anslutningar till databasmotorn via Internet v
 - **Lokalt (endast inuti VM)** om du bara vill tillåta anslutningar till SQL Server inifrån den virtuella datorn.
 - **Privat (inom Virtual Network)** om du vill tillåta anslutningar till SQL Server från datorer eller tjänster i samma virtuella nätverk.
 
-I allmänhet kan du förbättra säkerheten genom att välja den mest restriktiva anslutningen som ditt scenario medger. Men alla alternativ kan skyddas med regler för nätverkssäkerhetsgrupper och SQL/Windows-autentisering.
+>[AZURE.NOTE] Virtuella datoravbildningar för SQL Server Express-versioner aktiverar inte TCP/IP-protokollet automatiskt. Detta gäller även för offentliga och privata anslutningsalternativ. För Express-versioner måste du använda SQL Server Configuration Manager för att [manuellt aktivera TCP/IP-protokollet](#configure-sql-server-to-listen-on-the-tcp-protocol) när du har skapat den virtuella datorn.
 
->[AZURE.NOTE] Virtuella datoravbildningar för SQL Server Express- eller Developer-versioner aktiverar inte TCP/IP-protokollet automatiskt. Detta förhindrar att fjärranslutningar även om du har valt Offentlig eller Privat i portalen. För Express- och Developer-versioner måste du använda SQL Server Configuration Manager för att [manuellt aktivera TCP/IP-protokollet](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) när du har skapat den virtuella datorn.
+I allmänhet kan du förbättra säkerheten genom att välja den mest restriktiva anslutningen som ditt scenario medger. Men alla alternativ kan skyddas med regler för nätverkssäkerhetsgrupper och SQL/Windows-autentisering.
 
 Standardinställningen för **Port** är 1433. Du kan ange ett annat portnummer.
 Mer information finns i [Ansluta till en virtuell dator med SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).

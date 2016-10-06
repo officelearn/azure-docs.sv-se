@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/02/2016"
+    ms.date="09/22/2016"
     ms.author="curtand"/>
 
 
 # Lägga till användare från andra kataloger eller partnerföretag i Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [Azure Portal](active-directory-create-users-external-azure-portal.md)
+- [Azure Portal](active-directory-users-create-external-azure-portal.md)
 - [Klassisk Azure-portal](active-directory-create-users-external.md)
 
 Den här artikeln förklarar hur du lägger till användare från andra kataloger i Azure Active Directory och hur du lägger till användare från partnerföretag. Information om hur du lägger till nya användare i din organisation och hur du lägger till användare som har Microsoft-konton finns i [Lägga till nya användare i Azure Active Directory](active-directory-create-users.md). Tillagda användare har inte administratörsbehörighet som standard, men du kan tilldela roller till dem när som helst.
@@ -71,7 +71,7 @@ Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt 
 - **Den klassiska Azure-portalen**: Om en extern användare är administratör för flera kataloger kan han eller hon hantera alla dessa kataloger här.
 - **SharePoint Online**: Om extern delning är aktiverat kan en extern användare komma åt tillåtna resurser i SharePoint Online.
 - **Dynamics CRM**: Om användaren är licensierad via PowerShell kan en extern användare komma åt tillåtna resurser i Dynamics CRM.
-- **Dynamics AX**: Om användaren är licensierad via PowerShell kan en extern användare komma åt tillåtna resurser i Dynamics CRM. Begränsningarna för [externa Azure AD-användare](#known-limitations-of-azure-ad-external-users) och [gästanvändare](#guest-user-management-and-limitations) gäller även externa användare i Dynamics AX.
+- **Dynamics AX**: Om användaren är licensierad via PowerShell kan en extern användare komma åt tillåtna resurser i Dynamics CRM. Begränsningarna för [externa Azure AD-användare](#known-limitations-of-azure-ad-external-users) gäller även för externa användare i Dynamics AX.
 
 ### Kända begränsningar för externa Azure AD-användare
 
@@ -91,6 +91,6 @@ Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

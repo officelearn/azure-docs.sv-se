@@ -128,6 +128,6 @@ På Azure AD Connect Health-portalen kan du visa varningar, övervaka prestanda 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

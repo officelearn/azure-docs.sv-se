@@ -189,7 +189,7 @@ För olika typer av versionsmiljöer kan du uttryckligen hämta de senast utgivn
 > [AZURE.NOTE] Den här guiden använder en enda instans av EventProcessorHost. Om du vill öka genomflödet rekommenderas att du kör flera instanser av EventProcessorHost. I de fallen koordineras de olika instanserna automatiskt sinsemellan för att kunna belastningsutjämna de mottagna händelserna. Om du vill att flera mottagare bearbetar *alla* händelser, måste du använda konceptet **ConsumerGroup**. När du tar emot händelser från olika datorer, kan det vara praktiskt att ange namn för EventProcessorHost-instanser baserat på de datorer (eller roller) som de har distribuerats i.
 
 <!-- Links -->
-[Översikt över Event Hubs]: event-hubs-overview.md
+[Översikt av händelsehubbar]: event-hubs-overview.md
 [Azure Storage-konto]: ../storage/storage-create-storage-account.md
 [klassiska Azure-portalen]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
@@ -200,6 +200,6 @@ För olika typer av versionsmiljöer kan du uttryckligen hämta de senast utgivn
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

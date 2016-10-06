@@ -36,7 +36,7 @@ Det här avsnittet beskriver viktiga delar av koden i Hello World-exemplet.
 
 ### Skapa en gateway
 
-Utvecklaren måste skriva *gateway-processen*. Det här programmet skapar den interna infrastrukturen (meddelandebussen), läser in moduler och ställer in så att allt ska fungera korrekt. SDK innehåller funktionen **Gateway_Create_From_JSON** för att du ska kunna starta en gateway från en JSON-fil. För att använda funktionen **Gateway_Create_From_JSON** måste du ange sökvägen till en JSON-fil som anger vilka moduler som ska läsas in. 
+Utvecklaren måste skriva *gateway-processen*. Det här programmet skapar den interna infrastrukturen (asynkron meddelandekö), läser in moduler och ställer in så att allt ska fungera korrekt. SDK innehåller funktionen **Gateway_Create_From_JSON** för att du ska kunna starta en gateway från en JSON-fil. För att använda funktionen **Gateway_Create_From_JSON** måste du ange sökvägen till en JSON-fil som anger vilka moduler som ska läsas in. 
 
 Du hittar koden för gateway-processen i Hello World-exemplet i filen [main.c][lnk-main-c]. För att göra det enklare, visas fragmentet nedan som en förkortad version av gateway-processkoden. Det här programmet skapar en gateway och väntar sedan på att användaren ska trycka på tangenten **RETUR** innan den monterar ned gatewayen. 
 
@@ -65,21 +65,34 @@ JSON-inställningsfilen innehåller en lista med moduler att läsa in. Varje mod
 - **module_path**: sökvägen till biblioteket som innehåller modulen. För Linux är detta en SO-fil, i Windows är detta en DLL-fil.
 - **args**: all konfigurationsinformation modulen behöver.
 
-I följande exempel visas JSON-inställningsfilen som används för att konfigurera Hello World-exemplet på Linux. Om en modul kräver ett argument eller inte är beroende av modulens design. I det här exemplet kräver loggningsmodulen ett argument som är sökväg till utdatafilen och Hello World-modulen kräver inte några argument:
+JSON-filen innehåller också länkar mellan moduler som kommer att skickas till den asynkrona meddelandekön. En länk har två egenskaper:
+- **källa**: ett modulnamn från avsnittet `modules` eller ”\*”.
+- **mottagare**: ett modulnamn från avsnittet `modules`
+
+Varje länk definierar en meddelandeväg och -riktning. Meddelanden från modul `source` ska levereras till modul `sink`. `source` kan anges till ”\*”, som anger att meddelanden från alla moduler tas emot av `sink`.
+
+I följande exempel visas JSON-inställningsfilen som används för att konfigurera Hello World-exemplet på Linux. Alla meddelanden som genereras av modul `hello_world` används av modul `logger`. Om en modul kräver ett argument eller inte är beroende av modulens design. I det här exemplet kräver loggningsmodulen ett argument som är sökväg till utdatafilen och Hello World-modulen kräver inte några argument:
 
 ```
 {
     "modules" :
     [ 
         {
-            "module name" : "logger_hl",
+            "module name" : "logger",
             "module path" : "./modules/logger/liblogger_hl.so",
             "args" : {"filename":"log.txt"}
         },
         {
-            "module name" : "helloworld",
+            "module name" : "hello_world",
             "module path" : "./modules/hello_world/libhello_world_hl.so",
             "args" : null
+        }
+    ],
+    "links" :
+    [
+        {
+            "source" : "hello_world",
+            "sink" : "logger"
         }
     ]
 }
@@ -92,24 +105,24 @@ Du kan hitta koden som används av modulen "hello world" för att publicera medd
 ```
 int helloWorldThread(void *param)
 {
-    // Create data structures used in function.
+    // create data structures used in function.
     HELLOWORLD_HANDLE_DATA* handleData = param;
     MESSAGE_CONFIG msgConfig;
     MAP_HANDLE propertiesMap = Map_Create(NULL);
     
-    // Add a property named "helloWorld" with a value of "from Azure IoT
+    // add a property named "helloWorld" with a value of "from Azure IoT
     // Gateway SDK simple sample!" to a set of message properties that
     // will be appended to the message before publishing it. 
     Map_AddOrUpdate(propertiesMap, "helloWorld", "from Azure IoT Gateway SDK simple sample!")
 
-    // Set the content for the message
+    // set the content for the message
     msgConfig.size = strlen(HELLOWORLD_MESSAGE);
     msgConfig.source = HELLOWORLD_MESSAGE;
 
-    // Set the properties for the message
+    // set the properties for the message
     msgConfig.sourceProperties = propertiesMap;
     
-    // Create a message based on the msgConfig structure
+    // create a message based on the msgConfig structure
     MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
 
     while (1)
@@ -121,8 +134,8 @@ int helloWorldThread(void *param)
         }
         else
         {
-            // Publish the message to the bus
-            (void)MessageBus_Publish(handleData->busHandle, helloWorldMessage);
+            // publish the message to the broker
+            (void)Broker_Publish(handleData->brokerHandle, helloWorldMessage);
             (void)Unlock(handleData->lockHandle);
         }
 
@@ -137,7 +150,7 @@ int helloWorldThread(void *param)
 
 ### Meddelandebearbetning från Hello World-modulen
 
-Modulen Hello World måste aldrig bearbeta några meddelanden som andra moduler publicerar till meddelandebussen. Detta gör implementeringen av meddelandets återanrop i modulen Hello World till en icke-alternativ funktion.
+Modulen Hello World måste aldrig bearbeta några meddelanden som andra moduler publicerar till den asynkrona meddelandekön. Detta gör implementeringen av meddelandets återanrop i modulen Hello World till en icke-alternativ funktion.
 
 ```
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -148,9 +161,9 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 
 ### Loggningsmodulens meddelandepublicering och bearbetning
 
-Loggningsmodulen tar emot meddelanden från meddelandebussen och skriver dem till en fil. Den publicerar aldrig meddelanden till meddelandebussen. Därför anropar koden för loggningsmodulen aldrig funktionen **MessageBus_Publish**.
+Loggningsmodulen tar emot meddelanden från den asynkrona meddelandekön och skriver dem till en fil. Den publicerar aldrig meddelanden. Därför anropar koden för loggningsmodulen aldrig funktionen **Broker_Publish**.
 
-Funktionen **Logger_Recieve** i filen [logger.c][lnk-logger-c] är det återanrop som meddelandebussen anropar för att skicka meddelanden till loggningsmodulen. Fragmentet nedan visar en ändrad version med ytterligare kommentarer och viss felhanteringskod tas bort för att förenkla:
+Funktionen **Logger_Recieve** i filen [logger.c][lnk-logger-c] är det återanrop som den asynkrona meddelandekön anropar för att skicka meddelanden till loggningsmodulen. Fragmentet nedan visar en ändrad version med ytterligare kommentarer och viss felhanteringskod tas bort för att förenkla:
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -205,6 +218,6 @@ Mer information om hur du använder Gateway-SDK finns i följande:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

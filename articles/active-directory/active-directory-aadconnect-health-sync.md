@@ -72,6 +72,6 @@ Den här funktion visar en grafisk trend över antalet ändringar som utvärdera
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

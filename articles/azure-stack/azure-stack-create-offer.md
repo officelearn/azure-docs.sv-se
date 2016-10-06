@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Skapa ett erbjudande i Azure Stack | Microsoft Azure"
-    description="Lär dig hur du som tjänstadministratör skapar ett erbjudande för dina klienter i Azure Stack."
+    pageTitle="Create an offer in Azure Stack | Microsoft Azure"
+    description="As a service administrator, learn how to create an offer for your tenants in Azure Stack."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,55 +13,50 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Skapa ett erbjudande i Azure Stack
+# Create an offer in Azure Stack
 
-[Erbjudanden](azure-stack-key-features.md#services-plans-offers-and-subscriptions) är grupper med en eller flera planer som leverantörer presenterar för klienterna att köpa (prenumerera på). I det här exemplet skapar du ett erbjudande som innehåller den [plan som du skapade](azure-stack-create-plan.md) i det senaste steget. Genom att ge erbjudandets prenumeranter möjligheten att etablera virtuella datorer.
+[Offers](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groups of one or more plans that providers present to tenants to purchase or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
 
-1.  [Logga in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) på portalen som en tjänstadministratör.
-    ![](media/azure-stack-create-offer/image1.png)
+1.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the portal as a service administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
+    ![](media/azure-stack-create-offer/image01.png)
 
-2.  Klicka på **Ny**.
+2.  In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the admin can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
-3.  Klicka på **Klienterbjudanden och planer**, klicka därefter på **Erbjudande**.
-    ![](media/azure-stack-create-offer/image2.png)
+    ![](media/azure-stack-create-offer/image01a.png)
 
-4.  Fyll i följande i bladet **Nytt erbjudande**:
+3.  Click **Base plans** and, in the **Plan** blade, select the plans you want to include in the offer, and then click **Select**. Click **Create** to create the offer.
 
-    1.  Fyll i **Visningsnamn** och **Resursnamn**. Visningsnamnet är erbjudandets egna namn. Endast administratören kan se resursnamnet. Det är det namn som administratörer använder för att arbeta med erbjudandet som en Azure Resource Manager-resurs.
+    ![](media/azure-stack-create-offer/image02.png)
+    
+4. Click **Offers** and then click the offer you just created.
 
-    2.  Välj en ny eller befintlig **Resursgrupp**.
+    ![](media/azure-stack-create-offer/image03.png)
 
-        ![](media/azure-stack-create-offer/image3.png)
 
-5.  Klicka på **Basplaner**, i bladet **Plan** välj du de planer som du vill inkludera i erbjudandet och klickar därefter på **Välj**. Klicka på **Skapa** för att skapa erbjudandet.
+5.  Click **Change State**, and then click **Public**.
+  
+    ![](media/azure-stack-create-offer/image04.png)
 
-    ![](media/azure-stack-create-offer/image4.png)
+Offers must be made public for tenants to get the full view when subscribing. Offers can be:
 
-6.  Klicka på **Ändra status** och klicka därefter på **Offentlig**.
-Planer och erbjudanden måste offentliggöras för att klienterna ska få en fullständig vy när de prenumererar. Om en plan är privat och erbjudandet är offentligt kan klienterna få erbjudandet men kommer inte att kunna se information om planen. Planer och erbjudanden kan vara:
+- **Public**: Visible to tenants.
 
-    -   **Offentliga**: Synliga för klienter.
+- **Private**: Only visible to the service administrators. Useful while drafting the plan or offer, or if the service administrator wants to approve every subscription.
 
-    -   **Privata**: Endast synliga för tjänstadministratörer. Användbart vid utformningen av planen eller erbjudandet, eller om tjänstadministratören vill godkänna varje prenumeration.
+- **Decommissioned**: Closed to new subscribers. The service administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
 
-    -   **Inaktiverad**: Stängda för nya prenumeranter. Administratören kan använda ”inaktiverad” för att förhindra framtida prenumerationer, men inte röra befintliga prenumeranter.
+Changes to the offer are not immediately visible to the tenant. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
 
-    ![](media/azure-stack-create-offer/image6.png)
+## Next steps
 
-Förändringar i planen eller erbjudandet är inte omedelbart synliga för klienten. För att kunna se ändringarna måste prenumerationens status vara InSync, och klienten måste därefter uppdatera portalen eller logga in/logga ut.
-
-Även när en ytterligare prenumeration har skapats och är InSync måste du kanske logga ut/logga in för att se den nya prenumerationen i ”prenumerationsväljaren” när nya resurser/resursgrupper skapas.
-
-## Nästa steg
-
-[Prenumerera på ett erbjudande och etablera en VM](azure-stack-subscribe-plan-provision-vm.md)
+[Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

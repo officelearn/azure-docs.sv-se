@@ -30,7 +30,7 @@ Den här artikeln visar hur du skapar en skalbar [elastisk databaspool](sql-data
 
 Du kan lägga till flera pooler till en server, men du kan inte lägga till databaser från olika servrar i samma pool. För att skapa en pool, behöver du minst en databas på en V12-server. Om du inte har någon, kan du [Skapa din första Azure SQL-databas](sql-database-get-started.md). Du kan skapa en pool med bara en databas, men pooler är bara kostnadseffektiva med flera databaser. Se [pris- och prestandaöverväganden för en elastisk databaspool](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] Elastiska pooler är allmänt tillgänglig (GA) i alla Azure-regioner utom Norra centrala USA och Västra Indien där de genomgår förhandsgranskning.  Allmän tillgänglighet för elastiska pooler i dessa regioner kommer att erbjudas så snart som möjligt. För närvarande stöder inte elastiska pooler databaser med [minnesintern OLTP eller minnesintern analys](sql-database-in-memory.md).
+> [AZURE.NOTE] Elastiska pooler är allmänt tillgängliga (GA) i alla Azure-regioner utom Västra Indien där de genomgår förhandsgranskning.  GA för elastiska pooler i den här regionen inträffar så snart som möjligt. För närvarande stöder inte elastiska pooler databaser med [minnesintern OLTP eller minnesintern analys](sql-database-in-memory.md).
 
 ## Steg 1: Skapa en ny pool
 
@@ -118,6 +118,6 @@ Efter att databaserna lagts till i poolen, kommer rekommendationer att genereras
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="06/13/2016"
+    ms.date="09/14/2016"
     ms.author="jgao"/>
+
 
 # Hadoop-vägledning: Komma igång med Linux-baserat Hadoop i HDInsight
 
@@ -27,23 +28,27 @@ Lär dig att skapa Linux-baserade [Hadoop](http://hadoop.apache.org/)-kluster i 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-### Krav
+## Krav
 
 Innan du börjar den här vägledningen måste du ha:
 
 - **Azure-prenumeration**: Gå till  [azure.microsoft.com/free](https://azure.microsoft.com/free) för att skapa ett kostnadsfritt provkonto för en månad.
 
+### Åtkomstkontrollkrav
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
 ## Skapa kluster
 
-De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och tar sedan bort klustret. I det här avsnittet skapar du ett Linux-baserat Hadoop-kluster i HDInsight med [Azure ARM-mallen](../resource-group-template-deploy.md). ARM-mallen är helt anpassningsbar, vilket gör det enkelt att skapa Azure-resurser som HDInsight. Erfarenhet av Azure ARM-mallen krävs inte för att kunna följa de här självstudierna. Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Den ARM-mall som används i de här självstudierna finns i den offentliga blob-behållaren [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
+De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och tar sedan bort klustret. I det här avsnittet skapar du ett Linux-baserat Hadoop-kluster i HDInsight med [Azure-resurshanterarmallen](../resource-group-template-deploy.md). Resurshanterarmallen är helt anpassningsbar, vilket gör det enkelt att skapa Azure-resurser som HDInsight. Erfarenhet av Azure-resurshanterarmallen krävs inte för att kunna följa de här självstudierna. Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Den resurshanterarmall som används i de här självstudierna finns i den offentliga blob-behållaren [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
-1. Klicka på följande bild för att logga in till Azure och öppna ARM-mallen i Azure-portalen. 
+1. Klicka på följande bild för att logga in på Azure och öppna Resource Manager-mallen i Azure Portal. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. Skriv följande i bladet **Parametrar**:
+2. Skriv följande på bladet **Parametrar**:
 
-    ![HDInsight Linux komma igång ARM-mall i portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
+    ![HDInsight Linux komma igång med resurshanterarmall i portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
 
     - **Klusternamn**: Ange ett namn för det Hadoop-kluster som du vill skapa.
     - **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard **admin**.
@@ -71,7 +76,7 @@ De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och 
 2. Ange det Hadoop-användarnamn och -lösenord som du angav i föregående avsnitt. Standardanvändarnamnet är **admin**.
 3. Öppna **Hive-vy** så som det visas på följande skärmbild:
 
-    ![Välja ambari-vyer](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
+    ![Välja Ambari-vyer](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 4. I avsnittet __Frågeredigeraren__ på sidan klistrar du in följande HiveQL-instruktioner i kalkylbladet:
 
         SHOW TABLES;
@@ -108,7 +113,7 @@ När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsig
 
 ## Nästa steg
 
-I den här vägledningen har du fått veta hur du skapar ett Linux-baserat HDInsight-kluster med en ARM-mall och hur du utför grundläggande Hive-frågor.
+I den här självstudien har du fått veta hur du skapar ett Linux-baserat HDInsight-kluster med en resurshanterarmall och hur du utför grundläggande Hive-frågor.
 
 Mer information om att analysera data med HDInsight finns här:
 
@@ -163,6 +168,6 @@ Mer information om att skapa eller hantera HDInsight-kluster hittar du här:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO5-->
 
 

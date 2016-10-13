@@ -20,12 +20,13 @@
 # Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Azure PowerShell
 > [AZURE.SELECTOR]
 - [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 - [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
+
 
 I den här självstudiekursen ska du skapa och övervaka en Azure-datafabrik med hjälp av Azure PowerShell-cmdlets. Pipelinen i datafabriken som du skapar i den här självstudien använder en kopieringsaktivitet till att kopiera data från en Azure-blobb till en Azure SQL-databas.
 
@@ -465,6 +466,6 @@ I den här självstudien har du skapat en Azure-datafabrik som kopierar data fr�
  
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

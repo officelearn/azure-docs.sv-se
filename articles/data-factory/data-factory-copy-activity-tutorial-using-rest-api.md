@@ -20,12 +20,13 @@
 # Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av REST-API:et
 > [AZURE.SELECTOR]
 - [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 - [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
+
 
 Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabrik med hjälp av REST-API:et. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
 
@@ -493,6 +494,6 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
  
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

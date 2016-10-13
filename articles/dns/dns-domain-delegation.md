@@ -3,7 +3,7 @@
    description="Lär dig hur du ändrar domändelegering och använder Azure DNS-namnservrar för att tillhandahålla domänvärdtjänster."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/30/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 
 # Delegera en domän till Azure DNS
@@ -53,7 +54,7 @@ Det finns två typer av DNS-servrar:
 
 DNS-klienter på datorer eller mobila enheter anropar vanligtvis en rekursiv DNS-server för att utföra DNS-frågor som klientprogrammen behöver.
 
-När en rekursiv DNS-server tar emot en fråga om en DNS-post, till exempel ”www.contoso.com”, måste den först hitta namnservern som är värd för zonen för ”contoso.com”-domänen. För att göra det startar den vid rotnamnservrarna och letar därifrån upp namnservrarna som är värdar för ”com”-zonen. Därefter beordrar den ”com”-namnservrarna att hitta namnservrarna som är värdar för zonen ”contoso.com”.  Slutligen kan den fråga dessa namnservrar efter ”www.contoso.com”.  
+När en rekursiv DNS-server tar emot en fråga om en DNS-post, till exempel ”www.contoso.com”, måste den först hitta namnservern som är värd för zonen för ”contoso.com”-domänen. För att göra det startar den vid rotnamnservrarna och letar därifrån upp namnservrarna som är värdar för ”com”-zonen. Därefter beordrar den ”com”-namnservrarna att hitta namnservrarna som är värdar för zonen ”contoso.com”.  Slutligen kan den fråga dessa namnservrar efter ”www.contoso.com”.
 
 Detta kallas för att DNS-namnet matchas. Strikt sett omfattar DNS-matchningen ytterligare steg, till exempel att följa CNAME-poster, men detta är inte viktigt för att förstå hur DNS-delegering fungerar.
 
@@ -83,7 +84,7 @@ Det enklaste sättet att se namnservrarna som tilldelats din zon är via Azure-p
 
 Azure DNS skapar automatiskt auktoritativa NS-poster i din zon som innehåller de tilldelade namnservrarna.  Om du vill se namnservernamnen via Azure PowerShell eller Azure CLI behöver du bara hämta dessa poster.
 
-Med Azure PowerShell kan auktoritativa NS-poster hämtas på följande sätt. Observera att postnamnet ”@” används för att referera till poster överst i zonen. 
+Med Azure PowerShell kan auktoritativa NS-poster hämtas på följande sätt. Observera att postnamnet ”@” används för att referera till poster överst i zonen.
 
     PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
     PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -146,7 +147,7 @@ Observera att du inte behöver ange Azure DNS-namnservrarna eftersom den normala
 
 ## Delegera underdomäner i Azure DNS
 
-Om du vill konfigurera en separat underordnad zon kan du delegera en underdomän i Azure DNS. Anta till exempel att du har konfigurerat och delegerat ”contoso.com” i Azure DNS och att du vill konfigurera en separat underordnad zon, ”partners.contoso.com”. 
+Om du vill konfigurera en separat underordnad zon kan du delegera en underdomän i Azure DNS. Anta till exempel att du har konfigurerat och delegerat ”contoso.com” i Azure DNS och att du vill konfigurera en separat underordnad zon, ”partners.contoso.com”.
 
 Konfigurationen av en underdomän följer i princip samma process som en normal delegering. Den enda skillnaden är att i steg 3 så måste NS-posterna skapas i den överordnade zonen ”contoso.com” i Azure DNS i stället för att konfigureras via en domänregistrator.
 
@@ -169,7 +170,7 @@ Först ska vi skapa de överordnade och underordnade zonerna. Dessa kan finnas i
 
 #### Steg 2. Hämta NS-poster
 
-Nu ska vi hämta de auktoritativa NS-posterna från den underordnade zonen som du ser i nästa exempel.  Detta innehåller namnservrarna som tilldelats den underordnade zonen. 
+Nu ska vi hämta de auktoritativa NS-posterna från den underordnade zonen som du ser i nästa exempel.  Detta innehåller namnservrarna som tilldelats den underordnade zonen.
 
     $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -208,6 +209,6 @@ Du kan kontrollera att allt är korrekt konfigurerat genom att leta upp SOA-post
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

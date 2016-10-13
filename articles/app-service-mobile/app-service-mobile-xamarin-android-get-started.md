@@ -3,7 +3,7 @@
     description="I den här kursen får du hjälp att komma igång med Azure Mobile Apps för Xamarin Android-utveckling"
     services="app-service\mobile"
     documentationCenter="xamarin"
-    authors="ggailey777"
+    authors="adrianhall"
     manager="erikre"
     editor="" />
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga" />
+    ms.date="10/01/2016"
+    ms.author="adrianha" />
+
 
 #Skapa en Xamarin.Android-app
 
@@ -91,6 +92,6 @@ Läs om hur du arbetar med den hanterade klient-SDK:n i Xamarin-appen.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

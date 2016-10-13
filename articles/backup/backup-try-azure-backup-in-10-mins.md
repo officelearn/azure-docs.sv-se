@@ -3,8 +3,8 @@
    description="Lär dig hur du säkerhetskopierar Windows Server-data genom att skapa ett valv, installera Recovery Services-agenten och säkerhetskopiera dina filer och mappar till Azure."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="markgalioto"
+   manager="cfreeman"
    editor=""
    keywords="så här säkerhetskopierar du, säkerhetskopiera så här"/>
 
@@ -14,8 +14,9 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="06/27/2016"
-   ms.author="jimpark;"/>
+   ms.date="09/27/2016"
+   ms.author="markgal;"/>
+
 
 # En första titt: Säkerhetskopiera filer och mappar med Azure Backup och med hjälp av Resource Manager-distributionsmodellen
 
@@ -209,6 +210,6 @@ Om du har frågor eller om du saknar en funktion är du välkommen att [lämna f
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

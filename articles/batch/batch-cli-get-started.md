@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 
@@ -21,7 +21,7 @@
 
 Med det plattformsoberoende Azure-kommandoradsgränssnittet (Azure CLI) kan du hantera Batch-konton och resurser, till exempel pooler, jobb och aktiviteter i Linux-, Mac- och Windows-kommandogränssnitt. Med Azure CLI kan du genomföra och skriva många av de uppgifter som du utför med Batch-API:erna, Azure-portalen och Batch PowerShell-cmdletarna.
 
-Den här artikeln är baserad på Azure CLI version 0.10.3.
+Den här artikeln är baserad på Azure CLI version 0.10.5.
 
 ## Krav
 
@@ -216,19 +216,39 @@ Så här skapar du ett nytt program och lägger till en paketversion:
 
 **Aktivera** paketet:
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+Ange **standardversionen** för programmet:
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Distribuera ett programpaket
 
 Du kan ange ett eller flera programpaket för distribution när du skapar en ny pool. När du anger ett paket när poolen skapas distribueras den till varje nod när noden ansluter till poolen. Paket distribueras också när en nod startas om eller när en avbildning återställs.
 
-Detta kommando anger ett paket när en pool skapas och distribueras när varje nod ansluter till den nya poolen:
+Ange alternativet `--app-package-ref` när du skapar en pool för att distribuera ett programpaket till poolen noder efterhand som de ansluts till poolen. Alternativet `--app-package-ref` accepterar en semikolonavgränsad lista med program-ID för distribution till datornoder.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-För tillfället kan du inte ange vilken paketversion som ska distribueras med hjälp av kommandoradsalternativen. Du måste först ange en standardversion för programmet på Azure-portalen innan du kan tilldela den till en pool. Mer information om att ange en standardversion finns i [Programdistribution med Azure Batch-programpaket](batch-application-packages.md). Du kan dock ange en standardversion om du använder en [JSON-fil](#json-files) i stället för kommandoradsalternativ när du skapar en pool.
+När du skapar en pool med hjälp av kommandoradsalternativen kan du för närvarande inte ange *vilken* version av programpaketet som ska distribueras till datornoder, till exempel ”1.10-beta3”. Därför måste du ange en standardversion för program med `azure batch application set [options] --default-version <version-id>` innan du skapar poolen (se ovan). Du kan dock ange versioner för poolen om du använder en [JSON-fil](#json-files) i stället för kommandoradsalternativ när du skapar poolen.
+
+Du hittar mer information om programpaket i [programdistribution med Azure Batch-programpaket](batch-application-packages.md).
 
 >[AZURE.IMPORTANT] Du måste [koppla ett Azure Storage-konto](#linked-storage-account-autostorage) till Batch-kontot för att använda programpaket.
+
+### Uppdatera programpaket för en pool
+
+Om du vill uppdatera program som är tilldelade till en befintlig pool använder du kommandot `azure batch pool set` med alternativet `--app-package-ref`:
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+Du måste starta om eller återavbilda noderna för att distribuera nya programpaket för datornoder som redan befinner sig i en befintlig pool:
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] Du kan hämta en lista över noder i poolen tillsammans med deras nod-ID med `azure batch node list`.
+
+Tänk på att du måste ha konfigurerat programmet med en standardversion innan den distribueras (`azure batch application set [options] --default-version <version-id>`).
 
 ## Felsökningstips
 
@@ -256,6 +276,6 @@ I det här avsnittet finns resurser som du kan använda när du felsöker proble
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

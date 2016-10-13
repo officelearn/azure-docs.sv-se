@@ -16,6 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+
 # Skapa och distribuera en Node.js-app till en Azure-molntjänst
 
 > [AZURE.SELECTOR]
@@ -169,7 +170,7 @@ När du har distribuerat programmet vill du kanske inaktivera det för att undvi
 
     ![Status för kommandot Remove-AzureService][The status of the Remove-AzureService command]
 
-    > [AZURE.NOTE] Om du tar bort tjänsten tar det inte bort lagringskontot som skapades när tjänsten inledningsvis publicerades, och du debiteras även i fortsättningen för det lagringsutrymme som används. Mer information om att ta bort ett lagringskonto finns i [Ta bort ett lagringskonto från en Azure-prenumeration].
+    > [AZURE.NOTE] Om du tar bort tjänsten tar det inte bort lagringskontot som skapades när tjänsten inledningsvis publicerades, och du debiteras även i fortsättningen för det lagringsutrymme som används. Om lagringen inte används kan det vara lämpligt att ta bort den.
 
 ## Nästa steg
 
@@ -183,7 +184,6 @@ Mer information finns i [Node.js Developer Center].
 [Azure SDK för .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Anslut PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[Ta bort ett lagringskonto från en Azure-prenumeration]: ../storage/how-to-manage-a-storage-account.md
 [Översikt över att skapa en värdbaserad tjänst för Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
 
@@ -193,13 +193,12 @@ Mer information finns i [Node.js Developer Center].
 [Resultatet av kommandot Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
 [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
 [Resultatet av kommandot Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Fullständigt statusresultat av kommandot Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
 [Ett webbläsarfönster som visar Hello World-sidan, URL:en anger att sidan värdhanteras på Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [Status för kommandot Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [Status för kommandot Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

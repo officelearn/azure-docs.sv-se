@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -38,36 +38,40 @@ Azure CLI är implementerat i Node.js. Det kan användas på alla plattformar so
 Innan du påbörjar den här artikeln måste du ha:
 
 - **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 - **Azure CLI** - Se [Installera och konfigurera Azure CLI](../xplat-cli-install.md) för information om installation och konfiguration. Se till att datorn startas om när du har installerat CLI.
+
+## Autentisering
+
+Den här artikeln använder en enklare metod för autentisering med Data Lake Store där du loggar in som en användare av slutanvändaren. Åtkomstnivå till Data Lake Store-kontot och filsystemet styrs av åtkomstnivån för den inloggade användaren. Det finns dock olika sätt att autentisera med Data Lake Store: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Autentisera med Data Lake Store med Azure Active Directory (Authenticate with Data Lake Store using Azure Active Directory)](data-lake-store-authenticate-using-active-directory.md).
 
 ##Logga in till din Azure-prenumeration
 
-Följ stegen i [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet (Azure CLI)](../xplat-cli-connect.md) och anslut till din prenumeration med hjälp av metoden __inloggning__.
+1. Följ stegen i [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet (Azure CLI)](../xplat-cli-connect.md) och anslut till din prenumeration med hjälp av metoden `azure login`.
+
+2. Lista över prenumerationer som är kopplade till ditt konto med hjälp av kommandot `azure account list`.
+
+        info:    Executing command account list
+        data:    Name              Id                                    Current
+        data:    ----------------  ------------------------------------  -------
+        data:    Azure-sub-1       ####################################  true
+        data:    Azure-sub-2       ####################################  false
+
+    Från ovanstående utdata kan utläsas att **Azure-sub-1** är aktiverad och den andra prenumerationen är **Azure-sub-2**. 
+
+3. Välj vilken prenumeration som du vill arbeta med. Om du vill arbeta under Azure-sub-2-prenumerationen, använder du kommandot `azure account set`.
+
+        azure account set Azure-sub-2
 
 
 ## Skapa ett Azure Data Lake Store-konto
 
 Öppna en kommandotolk, gränssnitt, eller en terminalsession och kör följande kommandon.
 
-1. Logga in till din Azure-prenumeration:
-
-        azure login
-
-    Du uppmanas att öppna en webbsida och ange en autentiseringskod. Följ anvisningarna på sidan för att logga in på Azure-prenumerationen.
-
 2. Växla till läget Azure Resource Manager, med följande kommando:
 
         azure config mode arm
 
-
-3. Visa en lista med Azure-prenumerationer för ditt konto.
-
-        azure account list
-
-
-4. Om du har flera Azure-prenumerationer, använder du följande kommando för att ange den prenumeration som Azure CLI-kommandona ska använda:
-
-        azure account set <subscriptionname>
 
 5. Skapa en ny resursgrupp. I följande kommando, anger du de parametervärden som du vill använda.
 
@@ -191,6 +195,6 @@ När du uppmanas, anger du **Y** för att ta bort kontot.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

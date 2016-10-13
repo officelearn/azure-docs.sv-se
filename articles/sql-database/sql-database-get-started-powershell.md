@@ -133,7 +133,7 @@ Följande PowerShell-skript skapar en SQL-databas och alla beroende resurser. Er
 ## Nästa steg
 När du har skapat SQL-databasen och utfört grundläggande installationsåtgärder på databasen är du redo för följande:
 
-- [Hantera SQL Database med PowerShell](sql-database-command-line-tools.md)
+- [Hantera SQL Database med PowerShell](sql-database-manage-powershell.md)
 - [Anslut till SQL Database med SQL Server Management Studio och kör en exempelfråga i T-SQL](sql-database-connect-query-ssms.md)
 
 
@@ -143,6 +143,6 @@ När du har skapat SQL-databasen och utfört grundläggande installationsåtgär
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

@@ -24,11 +24,11 @@
 - [Vanliga frågor och svar om säkerhetskopiering i klassiskt läge](backup-azure-backup-faq.md)
 - [Vanliga frågor och svar om säkerhetskopiering i Resource Manager-läge](backup-azure-backup-ibiza-faq.md)
 
-Den här artikeln innehåller information om Recovery Services-valv och är ett komplement till [Vanliga frågor och svar om Azure Backup](backup-azure-backup-faq). Vanliga frågor och svar om Azure Backup är en fullständig uppsättning frågor och svar om Azure Backup-tjänsten.  
+Den här artikeln innehåller information om Recovery Services-valv och är ett komplement till [Vanliga frågor och svar om Azure Backup](backup-azure-backup-faq.md). Vanliga frågor och svar om Azure Backup är en fullständig uppsättning frågor och svar om Azure Backup-tjänsten.  
 
 Du kan ställa frågor om Azure Backup i Disqus-rutan i den här eller en relaterad artikel. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Stöds fortfarande Backup-valv (klassiskt läge) om Recovery Services-valven är Resource Manager-baserade? <br/>
+## Recovery Services-valv är baserade på resurshanteraren. Stöds säkerhetskopieringsvalv (klassiskt läge) fortfarande? <br/>
 Ja, Backup-valv stöds fortfarande. Skapa Backup-valv på den [klassiska portalen](https://manage.windowsazure.com). Skapa Recovery Services-valv på [Azure Portal](https://portal.azure.com). Vi rekommenderar dock att du skapar Recovery Services-valv eftersom alla framtida förbättringar endast blir tillgängliga i Recovery Services-valv. 
 
 ## Kan jag migrera ett Backup-valv till ett Recovery Services-valv? <br/>
@@ -46,6 +46,6 @@ Säkerhetskopior av klassiska virtuella datorer i säkerhetskopieringsvalvet mig
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

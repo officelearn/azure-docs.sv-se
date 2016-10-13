@@ -12,6 +12,7 @@
     ms.date="07/26/2016"
     ms.author="brandwe"/>
 
+
 # Azure AD B2C: Anropa ett webb-API från en iOS-app med hjälp av ett bibliotek från en tredje part
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -151,7 +152,7 @@ Nu ska vi titta närmare på dem.
 
 Som du ser måste du fylla i ditt klientnamn för `authURL`, `loginURL`, `bhh` och `tokenURL`. Det här är klientnamnet för B2C-klienten som du har tilldelats. Till exempel `kidventusb2c.onmicrosoft.com`. Om du använder våra Microsoft Azure Identity-bibliotek för öppen källkod hämtar vi dessa data åt dig mig hjälp av vår metadataslutpunkt. Du slipper extrahera värdena själv. Vi gör det åt dig.
 
-Mer information om B2C-klientnamn finns här: [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 `keychain`-värdet är den behållare som NXOAuth2Client-biblioteket använder för att skapa en nyckelring som lagrar dina token. Om du vill använda enkel inloggning (SSO) i flera appar kan du ange samma nyckelring i alla program och begära att nyckelringen ska användas i dina XCode-berättiganden. Detta beskrivs närmare i Apples dokumentation.
 
@@ -648,6 +649,6 @@ Du kan nu gå vidare till mer avancerade B2C-ämnen. Du kan prova följande:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

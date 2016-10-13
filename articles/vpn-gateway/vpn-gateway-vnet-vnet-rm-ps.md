@@ -17,11 +17,12 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Konfigurera en VNet-till-VNet-anslutning för Resource Manager med hjälp av PowerShell
 
 > [AZURE.SELECTOR]
-- [Klassisk Azure-portal](virtual-networks-configure-vnet-to-vnet-connection.md)
-- [PowerShell – Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Resource Manager – PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Klassisk – den klassiska portalen](virtual-networks-configure-vnet-to-vnet-connection.md)
 
 Den här artikeln beskriver steg för steg hur du skapar en anslutning mellan virtuella nätverk (VNet) med Resource Manager-distributionsmodellen med hjälp av VPN Gateway. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer.
 
@@ -29,24 +30,23 @@ Den här artikeln beskriver steg för steg hur du skapar en anslutning mellan vi
 ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 
-### Distributionsmodeller och verktyg för VNet-till-VNet
+### Distributionsmodeller och metoder för VNet-till-VNet
 
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-En VNet-till-VNet-anslutning kan konfigureras i båda distributionsmodellerna och med hjälp av flera olika verktyg. Mer information finns i tabellen nedan. Vi uppdaterar tabellen när nya artiklar, nya distributionsmodeller och fler verktyg blir tillgängliga för den här konfigurationen. När det finns en artikel länkar vi till den direkt från tabellen.
+En VNet-till-VNet-anslutning kan konfigureras i båda distributionsmodellerna och med hjälp av flera olika verktyg. Vi kommer att uppdatera följande tabell efter hand som nya artiklar och verktyg blir tillgängliga för den här konfigurationen. När det finns en artikel länkar vi till den direkt från tabellen.<br><br>
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
-
 #### VNet-peering
 
-Du kan använda VNet-peering för att skapa anslutningen, förutsatt att VNet-konfigurationen uppfyller vissa krav. Ingen VNet-gateway används för VNet-peering. [VNet-peering](../virtual-network/virtual-network-peering-overview.md) finns endast som förhandsversion för närvarande.
+[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 ## Om VNet-till-VNet-anslutningar
 
-Du ansluter ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-till-VNet) på nästan samma sätt som du ansluter ett VNet till en lokal plats. Båda typerna av anslutning använder Azures VPN-gateway för att få en säker tunnel med IPsec/IKE. De VNets du ansluter till kan finnas i olika regioner. Eller i olika prenumerationer. Du kan till och med kombinera VNet-till-VNet-kommunikation med konfigurationer för flera platser. Det innebär att du kan etablera nätverkstopologier som kombinerar anslutningen för flera platser med en anslutning mellan virtuella nätverk, enligt diagrammet nedan.
+Du ansluter ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-till-VNet) på nästan samma sätt som du ansluter ett VNet till en lokal plats. Båda typerna av anslutning använder Azures VPN-gateway för att få en säker tunnel med IPsec/IKE. De VNets du ansluter till kan finnas i olika regioner. Eller i olika prenumerationer. Du kan till och med kombinera VNet-till-VNet-kommunikation med konfigurationer för flera platser. Därmed kan du etablera nätverkstopologier som kombinerar anslutningar mellan olika anläggningar med virtuell nätverksanslutning enligt följande diagram:
 
 
 ![Om anslutningar](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
@@ -453,7 +453,7 @@ I det här exemplet där gatewayerna finns i olika prenumerationer, har vi delat
 
 3. **[Prenumeration 1]** Skapa TestVNet1-till-TestVNet5-anslutningen
 
-    I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet5. Skillnaden här är att $vnet5gw inte kan hämtas direkt, eftersom den finns i en annan prenumeration. Du måste skapa ett nytt PowerShell-objekt med värdena från Prenumeration 1 i stegen ovan. Ersätt namnet, ID:t och den delade nyckeln med dina värden. Det är viktigt att den delade nyckeln matchar båda anslutningarna. Att skapa en anslutning kan ta en stund att slutföra.
+    I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet5. Skillnaden här är att $vnet5gw inte kan hämtas direkt, eftersom den finns i en annan prenumeration. Du måste skapa ett nytt PowerShell-objekt med värdena från Prenumeration 1 i stegen ovan. Använd exemplet nedan. Ersätt namnet, ID:t och den delade nyckeln med dina värden. Det är viktigt att den delade nyckeln matchar båda anslutningarna. Att skapa en anslutning kan ta en stund att slutföra.
 
     Kontrollera att du ansluter till Prenumeration 1. 
     
@@ -487,6 +487,6 @@ I det här exemplet där gatewayerna finns i olika prenumerationer, har vi delat
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

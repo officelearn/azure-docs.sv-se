@@ -118,7 +118,7 @@ När du behöver göra en uppdatering överför du den nya WAR-filen till samma 
 
 ## Nästa steg
 
-[Skapa en Java-webbapp från en mall i Azure Marketplace](app-service-web-java-get-started.md#marketplace). Du kan hämta en egen helt anpassningsbar Tomcat-behållare och det välbekanta Manager-användargränssnittet. 
+[Skapa en Java-webbapp från en mall i Azure Marketplace](web-sites-java-get-started.md#marketplace). Du kan hämta en egen helt anpassningsbar Tomcat-behållare och det välbekanta Manager-användargränssnittet. 
 
 Felsök din Azure-webbapp direkt i [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) eller [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
@@ -130,6 +130,6 @@ Eller gör mer med din första webbapp. Exempel:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

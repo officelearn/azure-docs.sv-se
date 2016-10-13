@@ -15,9 +15,10 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
+
 # Översikt över virtuella nätverk
 
-Ett Azure-virtuellt nätverk (VNet) är en representation av ditt eget nätverk i molnet.  Det är en logisk isolering av Azure-molnet dedikerad till din prenumeration. Du kan helt styra IP-adressblocken, DNS-inställningarna, säkerhetsprinciperna och routingtabellerna inom det här nätverket. Du kan dessutom ytterligare segmentera ditt VNet i undernät och köra Azure IaaS-virtuella datorer (VM:ar) och/eller [Molntjänst (PaaS rollinstanser)](../cloud-services/cloud-services-choose-me.md). Du kan dessutom ansluta det virtuella nätverket till ditt lokala nätverk med ett av [anslutningsalternativen](../vpn-gateway/vpn-gateway-cross-premises-options.md) som finns i Azure. I princip kan du expandera ditt nätverk till Azure, med fullständig kontroll över IP-adressblock och de fördelar som Azure på företagsnivå erbjuder.
+Ett Azure-virtuellt nätverk (VNet) är en representation av ditt eget nätverk i molnet.  Det är en logisk isolering av Azure-molnet dedikerad till din prenumeration. Du kan helt styra IP-adressblocken, DNS-inställningarna, säkerhetsprinciperna och routingtabellerna inom det här nätverket. Du kan dessutom ytterligare segmentera ditt VNet i undernät och köra Azure IaaS-virtuella datorer (VM:ar) och/eller [Molntjänst (PaaS rollinstanser)](../cloud-services/cloud-services-choose-me.md). Du kan dessutom ansluta det virtuella nätverket till ditt lokala nätverk med ett av [anslutningsalternativen](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) som finns i Azure. I princip kan du expandera ditt nätverk till Azure, med fullständig kontroll över IP-adressblock och de fördelar som Azure på företagsnivå erbjuder.
 
 För att förstå VNet bättre, kolla på bilden nedan som visar ett förenklat lokalt nätverk.
 
@@ -97,6 +98,6 @@ Det finns inget extra kostnad för att använda Virtual Networks i Azure. De com
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

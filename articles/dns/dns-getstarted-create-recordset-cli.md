@@ -3,7 +3,7 @@
    description="Skapa värdposter för Azure DNS genom att konfigurera postuppsättningar och poster med CLI"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 # Skapa DNS-postuppsättningar och poster med hjälp av CLI
 
@@ -68,6 +69,6 @@ Mer information om Azure DNS finns i [Översikt över Azure DNS](dns-overview.md
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

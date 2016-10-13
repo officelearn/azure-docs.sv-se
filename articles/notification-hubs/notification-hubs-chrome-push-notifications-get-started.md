@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-chrome"
     ms.devlang="JavaScript"
     ms.topic="hero-article"
-    ms.date="07/22/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -476,11 +476,11 @@ Om du vill dela in användarna efter intressegrupper, kan du gå till självstud
 [biblioteket crypto-js]: http://code.google.com/p/crypto-js/
 [GCM med Chrome-appar]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging för Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Meddela användare via Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[De senaste nyheterna via Azure Notification Hubs]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Meddela användare via Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[De senaste nyheterna via Azure Notification Hubs]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

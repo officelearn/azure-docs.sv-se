@@ -3,7 +3,7 @@
     description="I den här kursen får du hjälp att komma igång med Mobile Apps för Xamarin.iOS-utveckling."
     services="app-service\mobile"
     documentationCenter="xamarin"
-    authors="wesmc7777"
+    authors="adrianhall"
     manager="dwrede"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/04/2016"
-    ms.author="normesta"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 
 #Skapa en Xamarin.iOS-app
@@ -103,6 +104,6 @@ Följ instruktionerna nedan för att ställa in om serverprojektet ska använda 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Komma igång med Azure Search | Microsoft Azure | Komma igång med Azure Search | DocumentDB | Söktjänst i molnet" 
-    description="Skapa din första Azure Search-lösning med hjälp av den här självstudiekursen. Se hur du kan skapa ett Azure Search-index med DocumentDB-data. Det här är en portalbaserad övning utan kod som använder guiden Importera data." 
+    pageTitle="Kom igång med Azure Search | Microsoft Azure | DocumentDB | Molnsöktjänst" 
+    description="Lär dig skapa ditt första Azure-sökindex med den här guiden och exempeldata för DocumentDB. Den här portalbaserade kodfria övningen använder guiden Importera data." 
     services="search" 
     documentationCenter="" 
     authors="HeidiSteen" 
@@ -14,7 +14,7 @@
     ms.workload="search" 
     ms.topic="hero-article" 
     ms.tgt_pltfrm="na" 
-    ms.date="08/29/2016" 
+    ms.date="10/03/2016" 
     ms.author="heidist"/>
 
 
@@ -24,27 +24,27 @@ Den här introduktionen utan kod hjälper dig att komma igång med Microsoft Azu
 
 I självstudiekursen används en [Azure DocumentDB-exempeldatabas](#apdx-sampledata), som du enkelt kan skapa med våra data och instruktioner, men du kan också anpassa stegen till dina befintliga data i en DocumentDB- eller SQL-databas.
 
-> [AZURE.NOTE] Den här introduktionskursen kräver en [Azure-prenumeration](../../includes/free-trial-note.md) och en [Azure Search-tjänst](search-create-service-portal.md). 
+> [AZURE.NOTE] Den här introduktionskursen kräver en [Azure-prenumeration](/pricing/free-trial/?WT.mc_id=A261C142F) och en [Azure Search-tjänst](search-create-service-portal.md). 
  
 ## Hitta din tjänst
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Öppna instrumentpanelen för Azure Search-tjänsten. Här är några sätt som du kan hitta instrumentpanelen på.
-    - Klicka på **Söktjänster** i snabbåtkomstfältet. Alla etablerade tjänster i din prenumeration visas i snabbåtkomstfältet. Om en söktjänst har definierats visas **Söktjänster** i listan.
+    - Klicka på **Söktjänster** i snabbåtkomstfältet. Alla etablerade tjänster i din prenumeration visas i snabbåtkomstfältet. Om en söktjänst har definierats kan du se **Söktjänster** i listan.
     - Klicka på **Bläddra** i snabbåtkomstfältet och skriv ”search” i sökrutan för att visa en lista med alla söktjänster som skapats i dina prenumerationer.
 
 ## Kontrollera utrymmet
 
-Många kunder börjar med den kostnadsfria tjänsten. Den här versionen är begränsad till tre index, tre datakällor och tre indexerare. Kontrollera att du har plats för extra objekt innan du börjar. I den här genomgången ska vi skapa ett objekt av varje typ.
+Många kunder börjar med den kostnadsfria tjänsten. Den här versionen är begränsad till tre index, tre datakällor och tre indexerare. Kontrollera att du har plats för extra objekt innan du börjar. Den här guiden skapar ett av varje sorts ibjekt.
 
 ## Skapa ett index och läsa in data
 
-Sökfrågor iterera över ett *index* med sökbara data, metadata och konstruktioner som används för att optimera vissa sökbeteenden. Som ett första steg ska du definiera och fylla ett index.
+Sökfrågor iterera över ett *index* med sökbara data, metadata och konstruktioner som används för att optimera vissa sökbeteenden. Det första steget är att definiera och fyll i ett index.
 
 Du kan skapa ett index på flera sätt. Om dina data finns i ett datalager som Azure Search kan crawla – till exempel Azure SQL Database, SQL Server på en virtuell Azure-dator eller DocumentDB – kan du enkelt skapa och fylla ett index med hjälp av en *indexerare*.
 
-För att den här uppgiften ska fortsätta vara portalbaserad använder vi data från DocumentDB som kan crawlas med en indexerare via guiden **Importera data**. 
+För att den här uppgiften ska förbli portalbaserad använder vi data från DocumentDB som kan crawlas med en indexerare via guiden **Importera data**. 
 
 Innan du fortsätter måste du skapa en [DocumentDB-exempeldatabas](#apdx-sampledata) som du kan använda med den här självstudiekursen. När du är klar kommer du tillbaka till det här avsnittet och följer stegen nedan.
 
@@ -53,13 +53,13 @@ Innan du fortsätter måste du skapa en [DocumentDB-exempeldatabas](#apdx-sample
 
 1. Klicka på **Importera data** i kommandofältet på instrumentpanelen för Azure Search-tjänsten för att starta en guide som hjälper dig att skapa och fylla ett index.
 
-  ![][7]
+    ![][7]
 
 2. I guiden klickar du på **Datakälla** > **DocumentDB** > **Namn** och skriver ett namn för datakällan. En datakälla är ett anslutningsobjekt i Azure Search som kan användas med andra indexerare. När du har skapat det blir det tillgängligt som en ”befintlig datakälla” i din tjänst.
 
-3. Välj ditt befintliga DocumentDB-konto, databasen och samlingen. Om du använder våra exempeldata ser definitionen för din datakälla ut så här:
+3. Välj ditt befintliga DocumentDB-konto, databasen och samlingen. Om du använder exempeldata som vi tillhandahåller kommer definitionen av din datakälla att se ut så här:
 
-  ![][2]
+    ![][2]
 
 Observera att vi hoppar över frågan. Det beror på att vi inte implementerar för ändringsspårning i vår datamängd den här gången. Om datamängden innehåller ett fält som håller reda på när en post uppdateras kan du konfigurera en Azure Search-indexerare att använda ändringsspårning för selektiva uppdateringar av ditt index.
 
@@ -142,7 +142,7 @@ Mer information om andra funktioner som anges i den här artikeln finns på dess
 
 Du kan prova med samma arbetsflöde och använda guiden Importera data för andra datakällor som Azure SQL Database eller SQL Server på virtuella datorer i Azure.
 
-> [AZURE.NOTE] En ny funktion är indexeringsstöd för crawling i Azure Blob Storage. Funktionen är dock fortfarande i förhandsgranskningsfasen och är inte tillgänglig på portalen än. Om du vill prova den här indexeraren måste du skriva kod. Mer information finns i [Indexera Azure Blob Storage i Azure Search](search-howto-indexing-azure-blob-storage.md).
+> [AZURE.NOTE] En ny funktion är indexeringsstöd för crawling i Azure Blob Storage. Funktionen är dock fortfarande i förhandsgranskningsfasen och är inte tillgänglig på portalen än. Om du vill försöka att använda indexeraren måste du skriva kod. Mer information finns i [Indexera Azure Blob Storage i Azure Search](search-howto-indexing-azure-blob-storage.md).
 <a id="apdx-sampledata"></a>
 
 
@@ -150,7 +150,7 @@ Du kan prova med samma arbetsflöde och använda guiden Importera data för andr
 
 Det här avsnittet beskriver hur du skapar en liten databas i DocumentDB som kan användas för att utföra åtgärderna i den här självstudiekursen.
 
-Följande anvisningar ger allmänna riktlinjer, men är inte en fullständig beskrivning. Om du behöver mer hjälp med portalnavigering eller uppgifter i DocumentDB kan du läsa DocumentDB-dokumentationen, men de flesta av de kommandon som du behöver finns i kommandofältet för tjänsten överst på instrumentpanelen eller i databasbladet. 
+Följande anvisningar ger allmänna riktlinjer, men är inte en fullständig beskrivning. Om du behöver mer hjälp med navigera eller använda DocumentDB portal kan du läsa DocumentDB-dokumentationen, men de flesta kommandon som du behöver finns i tjänstkommandofältet överst i instrumentpanelen eller i databasbladet. 
 
   ![][1]
 
@@ -158,7 +158,7 @@ Följande anvisningar ger allmänna riktlinjer, men är inte en fullständig bes
 
 1. [Klicka här](https://github.com/HeidiSteen/azure-search-get-started-sample-data) för att ladda ned en ZIP-fil som innehåller JSON-datafilerna för musikarkivet. Vi tillhandahåller 246 JSON-dokument för den här datauppsättningen.
 2. Lägg till DocumentDB i din prenumeration och öppna instrumentpanelen för tjänsten.
-2. Klicka på **Lägg till databas** för att skapa en ny databas med ID:t `musicstoredb`. Den visas på databaspanelen längre ned på sidan när den har skapats.
+2. Klicka på **Lägg till databas** för att skapa en ny databas med ID:t `musicstoredb`. Den visas i databaspanelen längre ned på sidan efter att den har skapats.
 2. Klicka på namnet på databasen för att öppna databasbladet.
 3. Klicka på **Lägg till samling** för att skapa en samling med ID:t `musicstorecoll`.
 3. Klicka på **Dokumentutforskaren**.
@@ -171,7 +171,7 @@ Följande anvisningar ger allmänna riktlinjer, men är inte en fullständig bes
 6. Upprepa samma steg för att hämta nästa batch med filer tills du har laddat upp den sista, 669.json.
 7. Klicka på **Frågeutforskaren** för att bekräfta att data har laddats upp och uppfyller överföringskraven för Dokumentutforskaren.
 
-Ett enkelt sätt att göra detta är att använda standardfrågan, men du kan också ändra standardfrågan så att den väljer de första 300 (det finns färre än 300 objekt i den här datauppsättningen).
+Ett enkelt sätt att göra detta är att använda standardfrågan, men du kan också ändra standardfrågan så att den filtrerar upp 300 (det finns färre än 300 objekt i den här datauppsättningen).
 
 Du bör få tillbaka JSON-utdata, som börjar med dokument 386 och slutar med 669. När data har lästs in kan du [gå tillbaka till stegen i den här genomgången](#defineDS) för att skapa ett index med hjälp av **guiden Importera data**.
 
@@ -187,6 +187,6 @@ Du bör få tillbaka JSON-utdata, som börjar med dokument 386 och slutar med 66
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

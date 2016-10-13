@@ -152,6 +152,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 Du kan även skapa ämnesprenumerationer med hjälp av klassen [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Prenumerationer är namngivna och kan ha ett valfritt filter som begränsar den uppsättning av meddelanden som skickas till prenumerationens virtuella kö.
 
+> [AZURE.IMPORTANT] Du måste skapa den prenumerationen innan du skickar meddelanden till avsnittet för meddelanden ska kunna tas emot av en prenumeration. Om det inte finns någon prenumeration för ett avsnitt ignorerar avsnittet dessa meddelanden.
+
 ### Skapa en prenumeration med standardfiltret (MatchAll)
 
 **MatchAll**-filtret är det standardfilter som används om inget filter anges när en ny prenumeration skapas. När du använder **MatchAll**-filtret kommer alla meddelanden som publiceras till ämnet att placeras i prenumerationens virtuella kö. I följande exempel skapas en prenumeration med namnet "AllMessages" och vi använder standardfiltret **MatchAll**.
@@ -330,6 +332,6 @@ Nu när du har lärt dig grunderna om Service Bus-ämnen och -prenumerationer, k
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

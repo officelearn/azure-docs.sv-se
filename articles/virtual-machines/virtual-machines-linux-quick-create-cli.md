@@ -20,19 +20,19 @@
 
 # Skapa en virtuell Linux-dator i Azure med hjälp av CLI
 
-I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator (VM) i Azure med hjälp av kommandot `azure vm quick-create` i Azures kommandoradsgränssnitt (CLI). Kommandot `quick-create` distribuerar en virtuell dator inuti en grundläggande, säker infrastruktur som du kan använda som prototyp eller för att snabbt testa ett koncept. Artikeln kräver
+I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator (VM) i Azure med hjälp av kommandot `azure vm quick-create` i Azures kommandoradsgränssnitt (CLI). Kommandot `quick-create` distribuerar en virtuell dator inuti en grundläggande, säker infrastruktur som du kan använda som prototyp eller för att snabbt testa ett koncept. Artikeln kräver:
 
-- ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/))
+- ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/)).
 
-- [Azure CLI](../xplat-cli-install.md) inloggad med `azure login`.
+- [Azure CLI](../xplat-cli-install.md) inloggad med `azure login`
 
-- Azure CLI _måste vara i_ Azure Resource Manager-läge `azure config mode arm`.  
+- Azure CLI _måste vara i_ Azure Resource Manager-läge `azure config mode arm`
 
 Du kan också snabbt distribuera en virtuell Linux-dator med hjälp av [Azure Portal](virtual-machines-linux-quick-create-portal.md).
 
 ## Snabbkommandon
 
-I följande exempel visas hur du distribuerar en CoreOS VM och kopplar din SSH(Secure Shell)-nyckel (dina argument kan vara annorlunda).
+I följande exempel visas hur du distribuerar en CoreOS VM och kopplar din SSH(Secure Shell)-nyckel (dina argument kan vara annorlunda):
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
@@ -57,15 +57,15 @@ I de följande avsnitten används `UbuntuLTS` alias för **ImageURN**-alternativ
 
 ## Detaljerad genomgång
 
-Det tidigare `quick-create` exemplet anropade bara `-M` flaggan för att identifiera den offentliga SSH-nyckeln att överföra vid inaktivering av SSH-lösenord, så uppmanas du ange
+Det tidigare `quick-create` exemplet anropade bara `-M` flaggan för att identifiera den offentliga SSH-nyckeln att överföra vid inaktivering av SSH-lösenord, så uppmanas du ange följande argument:
 
 - resursgruppens namn (valfri sträng är vanligtvis bra för din första Azure-resursgrupp)
 - VM-namn
-- plats (westus eller westeurope är bra standardvärden)
+- plats (`westus` eller `westeurope` är lämpliga standardvärden)
 - linux (så att Azure vet vilka operativsystem du vill ha)
 - användarnamn
 
-Följande anger alla värden så att ingen ytterligare uppmaning krävs. Så länge som du har en `~/.ssh/id_rsa.pub` som offentlig nyckelfil i ssh-rsaformat, fungerar det.
+Följande exempel anger alla värden så att ingen ytterligare uppmaning krävs. Så länge som du har en `~/.ssh/id_rsa.pub` som offentlig nyckelfil i ssh-rsaformat, fungerar det.
 
 ```bash
 azure vm quick-create \
@@ -78,7 +78,7 @@ azure vm quick-create \
 -Q UbuntuLTS
 ```
 
-Resultatet bör likna följande utdata.
+Resultatet bör likna följande utdata:
 
 ```bash
 info:    Executing command vm quick-create
@@ -156,13 +156,13 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Logga in på din virtuella dator med den offentliga IP-adressen listad i utdata. Du kan också använda det fullständigt kvalificerade domännamnet (FQDN) som är listat.
+Logga in på din virtuella dator med den offentliga IP-adressen listad i utdata. Du kan också använda det fullständigt kvalificerade domännamnet (FQDN) som är listat:
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
 
-Inloggningen bör se ut ungefär så här:
+Inloggningsprocessen bör se ut ungefär så här:
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
@@ -208,6 +208,6 @@ Du kan också [använda `docker-machine` Azure-drivrutinen med olika kommandon f
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

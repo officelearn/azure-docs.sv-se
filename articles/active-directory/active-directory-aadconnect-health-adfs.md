@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/14/2016"
+    ms.date="09/30/2016"
     ms.author="vakarand"/>
 
 
@@ -22,37 +22,37 @@
 Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Mer information om övervakning av Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md). 
 
 ## AD FS-aviseringar
-Avsnittet om Azure AD Connect Health-aviseringar innehåller en lista över aktiva aviseringar. För varje avisering finns relevant information, lösningssteg och länkar till relaterad dokumentation. Om du väljer en aktiv eller åtgärdad avisering visas ett nytt blad med ytterligare information, samt de steg som du kan utföra för att åtgärda aviseringen liksom länkar till ytterligare dokumentation. Du kan också visa historiska data för tidigare åtgärdade aviseringar.
+Avsnittet om Azure AD Connect Health-aviseringar innehåller en lista över aktiva aviseringar. För varje avisering finns relevant information, lösningssteg och länkar till relaterad dokumentation. 
 
-Om du väljer en avisering visas ytterligare information samt de steg som du kan utföra för att åtgärda aviseringen liksom länkar till ytterligare dokumentation.
+Om du dubbelklickar en aktiv eller åtgärdad avisering visas ett nytt blad med ytterligare information, samt de steg som du kan utföra för att åtgärda aviseringen liksom länkar till relevant dokumentation. Du kan också visa historiska data för tidigare åtgärdade aviseringar.
 
 ![Azure AD Connect Health-portalen](./media/active-directory-aadconnect-health/alert2.png)
 
 
 
 ## Användningsanalys för AD FS
-Azure AD Connect Health-användningsanalys analyserar autentiseringstrafiken på dina federationsservrar. Om du markerar kryssrutan för användningsanalys öppnas bladet för användningsanalys, som visar mått och grupperingar.
+Azure AD Connect Health-användningsanalys analyserar autentiseringstrafiken på dina federationsservrar. Om du dubbelklickar på kryssrutan för användningsanalys öppnas bladet för användningsanalys, som visar flera mått och grupperingar.
 
 >[AZURE.NOTE] Om du ska kunna använda användningsanalys med AD FS måste AD FS-granskning vara aktiverat. Mer information finns i [Aktivera granskning för AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 
 ![Azure AD Connect Health-portalen](./media/active-directory-aadconnect-health/report1.png)
 
-Om du vill välja fler mått, ange ett tidsintervall eller ändra grupperingen högerklickar du bara på diagrammet med användningsanalysen och väljer Redigera diagram. Sedan kan du ange tidsintervallet, ändra eller välja mått och ändra grupperingen. Du kan visa autentiseringstrafikens fördelning baserat på olika ”mått” och gruppera varje mått med relevanta ”gruppera efter”-parametrar som beskrivs nedan.
+Om du vill välja fler mått, ange ett tidsintervall eller ändra grupperingen högerklickar du på diagrammet med användningsanalysen och väljer Redigera diagram. Sedan kan du ange tidsintervallet, välja ett annat mått och ändra grupperingen. Du kan visa autentiseringstrafikens fördelning baserat på olika ”mått” och gruppera varje mått med relevanta ”gruppera efter”-parametrar som beskrivs i följande tabell:
 
 | Mått | Gruppera efter | Vad grupperingen betyder och varför den är användbar? |
 | ------ | -------- | -------------------------------------------- |
 | Totalt antal förfrågningar: Totalt antal förfrågningar som bearbetas av federationstjänsten | Alla | Med det här alternativet visas antalet förfrågningar utan gruppering. |
-|  | Program | Med det här alternativet grupperas antalet förfrågningar baserat på den förlitande parten i fråga. Den här grupperingen är användbar för att förstå vilket program som tar emot en viss procentandel av den totala trafiken. |
-|  | Server | Med det här alternativet grupperas antalet förfrågningar baserat på servern som bearbetade förfrågan. Den här grupperingen är användbar för att förstå belastningsfördelningen av den totala trafiken. |
-|  | Anslut till arbetsplats | Med det här alternativet grupperas antalet förfrågningar baserat på om förfrågningarna kommer från arbetsplatsanslutna enheter (kända). Den här grupperingen är användbar för att förstå om dina resurser används med enheter som är okända för identitetsinfrastrukturen. |
-|  | Autentiseringsmetod | Med det här alternativet grupperas förfrågningarna baserat på den autentiseringsmetod som används för autentisering. Den här grupperingen är användbar för att förstå den gemensamma autentiseringsmetoden som används för autentisering. Följande är möjliga autentiseringsmetoder <ol> <li>Windows-integrerad autentisering (Windows)</li> <li>Formulärbaserad autentisering (formulär)</li> <li>Enkel inloggning (SSO, Single Sign On)</li> <li>X509-certifikatautentisering (certifikat)</li> <br>Observera att en begäran räknas som en enkel inloggning (SSO) om federationsservrarna tar emot förfrågan med en SSO-cookie. I så fall, om cookien är giltig, uppmanas inte användaren att ange autentiseringsuppgifter och får sömlös åtkomst till programmet. Detta är vanligt om du har flera förlitande parter som skyddas av federationsservrar. |
-|  | Nätverksplats | Med det här alternativet grupperas förfrågningarna baserat på användarens nätverksplats. Platsen kan vara antingen intranät eller extranät. Den här grupperingen är användbar för att vet vilken procentandel av trafiken som kommer från intranätet och extranätet. |
-| Totalt antal misslyckade begäranden: Totalt antal misslyckade förfrågningar som bearbetas av federationstjänsten. <br> (Det här måttet är bara tillgängligt på AD FS för Windows Server 2012 R2)| Feltyp | Med det här alternativet visas antalet fel baserat på fördefinierade feltyper. Den här grupperingen är användbar för att förstå de vanliga typerna av fel. <ul><li>Felaktigt användarnamn eller lösenord: Fel som beror på ett felaktigt användarnamn eller lösenord.</li> <li>”Utelåsning från extranät”: Fel som beror på att förfrågningarna togs emot från en användare som var utelåst från extranätet </li><li> ”Lösenordet har upphört att gälla”: Fel som beror på att användaren loggar in med ett lösenord som upphört att gälla.</li><li>”Inaktiverat konto”: Fel som beror på att användaren loggar in med ett inaktiverat konto.</li><li>”Enhetsautentisering”: Fel som beror på att användaren inte kan autentiseras med enhetsautentisering.</li><li>”Autentisering med användarcertifikat”: Fel som beror på att användaren inte kan autentiseras på grund av ett ogiltigt certifikat.</li><li>”MFA”: Fel som beror på att användaren inte kan autentiseras med hjälp av Multi-Factor Authentication.</li><li>”Andra autentiseringsuppgifter”: ”Utfärdandeauktorisering”: Fel som beror på auktoriseringsproblem.</li><li>”Utfärdandedelegering”: Fel som beror på utfärdandedelegeringsproblem.</li><li>”Tokengodkännande”: Fel som beror på att ADFS avvisar token från en tredjeparts identitetsprovider.</li><li>”Protokoll”: Fel som beror på protokollproblem.</li><li>”Okänt”: Samla in allt. Andra fel som inte passar i de angivna kategorierna.</li> |
-|  | Server | Grupperar felen baserat på servern. Detta är användbart för att förstå felfördelningen mellan servrar. En ojämn fördelning kan vara ett tecken på att en server har felaktigt tillstånd. |
-|  | Nätverksplats | Grupperar felen baserat på förfrågningarnas nätverksplats (intranät eller extranät). Detta är användbart för att förstå vilken typ av förfrågningar som misslyckas. |
-|  | Program | Grupperar felen baserat på målprogrammet (förlitande part). Detta är användbart för att förstå vilket program som har flest antal fel. |
-| Antal användare: Genomsnittligt antal unika användare som är aktiva i systemet | Alla | Visar genomsnittligt antal användare som använder federationstjänsten under det valda tidsintervallet. Användarna grupperas inte. <br>Det genomsnittliga antalet beror på det valda tidsintervallet. |
-|  | Program | Grupperar det genomsnittliga antalet användare baserat på målprogrammet (förlitande part). Detta är användbart för att förstå hur många användare som använder olika program. |
+|  | Program | Grupperar antalet förfrågningar baserat på den förlitande parten i fråga. Den här grupperingen är användbar för att förstå vilket program som tar emot en viss procentandel av den totala trafiken. |
+|  | Server | Grupperar antalet förfrågningar baserat på servern som bearbetade förfrågan. Den här grupperingen är användbar för att förstå belastningsfördelningen av den totala trafiken. |
+|  | Anslut till arbetsplats | Grupperar antalet förfrågningar baserat på om förfrågningarna kommer från arbetsplatsanslutna enheter (kända). Den här grupperingen är användbar för att förstå om dina resurser används med enheter som är okända för identitetsinfrastrukturen. |
+|  | Autentiseringsmetod | Grupperar förfrågningarna baserat på den autentiseringsmetod som används för autentisering. Den här grupperingen är användbar för att förstå den gemensamma autentiseringsmetoden som används för autentisering. Följande är möjliga autentiseringsmetoder <ol> <li>Windows-integrerad autentisering (Windows)</li> <li>Formulärbaserad autentisering (formulär)</li> <li>Enkel inloggning (SSO, Single Sign On)</li> <li>X509-certifikatautentisering (certifikat)</li> <br>Observera att en begäran räknas som en enkel inloggning (SSO) om federationsservrarna tar emot förfrågan med en SSO-cookie. I så fall, om cookien är giltig, uppmanas inte användaren att ange autentiseringsuppgifter och får sömlös åtkomst till programmet. Detta är vanligt om du har flera förlitande parter som skyddas av federationsservrar. |
+|  | Nätverksplats | Grupperar förfrågningarna baserat på användarens nätverksplats. Platsen kan vara antingen intranät eller extranät. Den här grupperingen är användbar för att vet vilken procentandel av trafiken som kommer från intranätet och extranätet. |
+| Totalt antal misslyckade begäranden: Totalt antal misslyckade förfrågningar som bearbetas av federationstjänsten. <br> (Det här måttet är bara tillgängligt på AD FS för Windows Server 2012 R2)| Feltyp | Visar antalet fel baserat på fördefinierade feltyper. Den här grupperingen är användbar för att förstå de vanliga typerna av fel. <ul><li>Felaktigt användarnamn eller lösenord: Fel som beror på ett felaktigt användarnamn eller lösenord.</li> <li>”Utelåsning från extranät”: Fel som beror på att förfrågningarna togs emot från en användare som var utelåst från extranätet </li><li> ”Lösenordet har upphört att gälla”: Fel som beror på att användaren loggar in med ett lösenord som upphört att gälla.</li><li>”Inaktiverat konto”: Fel som beror på att användaren loggar in med ett inaktiverat konto.</li><li>”Enhetsautentisering”: Fel som beror på att användaren inte kan autentiseras med enhetsautentisering.</li><li>”Autentisering med användarcertifikat”: Fel som beror på att användaren inte kan autentiseras på grund av ett ogiltigt certifikat.</li><li>”MFA”: Fel som beror på att användaren inte kan autentiseras med hjälp av Multi-Factor Authentication.</li><li>”Andra autentiseringsuppgifter”: ”Utfärdandeauktorisering”: Fel som beror på auktoriseringsproblem.</li><li>”Utfärdandedelegering”: Fel som beror på utfärdandedelegeringsproblem.</li><li>”Tokengodkännande”: Fel som beror på att ADFS avvisar token från en tredjeparts identitetsprovider.</li><li>”Protokoll”: Fel som beror på protokollproblem.</li><li>”Okänt”: Samla in allt. Andra fel som inte passar i de angivna kategorierna.</li> |
+|  | Server | Grupperar felen baserat på servern. Denna gruppering är användbar för att förstå felfördelningen mellan servrar. En ojämn fördelning kan vara ett tecken på att en server har felaktigt tillstånd. |
+|  | Nätverksplats | Grupperar felen baserat på förfrågningarnas nätverksplats (intranät eller extranät). Denna gruppering är användbar för att förstå vilken typ av förfrågningar som misslyckas. |
+|  | Program | Grupperar felen baserat på målprogrammet (förlitande part). Denna gruppering är användbar för att förstå vilket program som har flest antal fel. |
+| Antal användare: Genomsnittligt antal unika användare som är aktiva i systemet | Alla | Detta mått visar genomsnittligt antal användare som använder federationstjänsten under det valda tidsintervallet. Användarna grupperas inte. <br>Det genomsnittliga antalet beror på det valda tidsintervallet. |
+|  | Program | Grupperar det genomsnittliga antalet användare baserat på målprogrammet (förlitande part). Denna gruppering är användbar för att förstå hur många användare som använder olika program. |
 
 
 ## Prestandaövervakning för AD FS
@@ -62,18 +62,18 @@ Azure AD Connect Health-prestandaövervakning tillhandahåller övervakningsinfo
 ![Azure AD Connect Health-portalen](./media/active-directory-aadconnect-health/perf1.png)
 
 
-Om du väljer filteralternativet längst upp i bladet kan du filtrera efter server och visa måtten för enskilda servrar. Om du vill ändra måtten högerklickar du bara i övervakningsdiagrammet under övervakningsbladet och väljer Redigera diagram. Från det nya bladet som öppnas kan du sedan välja ytterligare mått i listrutan och ange ett tidsintervall som du vill visa prestandadata för.
+Om du väljer filteralternativet längst upp i bladet kan du filtrera efter server och visa måtten för enskilda servrar. Om du vill ändra måtten högerklickar du i övervakningsdiagrammet under övervakningsbladet och väljer Redigera diagram. Från det nya bladet som öppnas kan du sedan välja ytterligare mått i listrutan och ange ett tidsintervall som du vill visa prestandadata för.
 
 ## Rapporter för AD FS
 Azure AD Connect Health tillhandahåller rapporter om aktivitet och prestanda för AD FS. Dessa rapporter hjälper administratörer att få insyn i aktiviteter på deras AD FS-servrar.
 
 ### De 50 användarna med flest misslyckade inloggningar med användarnamn/lösenord
 
-Ett av de vanligaste skälen till en misslyckad autentiseringsbegäran på en AD FS-server är en begäran med ogiltiga autentiseringsuppgifter, dvs. ett felaktigt användarnamn eller lösenord. Detta inträffar vanligtvis på grund av komplexa lösenord, bortglömda lösenord eller skrivfel.
+Ett av de vanligaste skälen till en misslyckad autentiseringsbegäran på en AD FS-server är en begäran med ogiltiga autentiseringsuppgifter, dvs. ett felaktigt användarnamn eller lösenord. Påverkar vanligtvis användare på grund av komplexa lösenord, glömt lösenord eller skrivfel.
 
-Men det finns andra orsaker som kan resultera i att ett oväntat antal förfrågningar av den här typen hanteras av AD FS-servrarna. Exempel på detta är om ett program cachelagrar autentiseringsuppgifter för användare och autentiseringsuppgifterna upphör att gälla eller om en obehörig användare försöker logga in på en användares konto med en serie välkända lösenord.
+Men det finns andra skäl till ett oväntat antal begäranden som hanteras av AD FS-servrar, exempelvis: ett program som lagrar användarens autentiseringsuppgifter i cacheminnet och autentiseringsuppgifterna upphör att gälla eller en obehörig användare som försöker logga in på ett konto med ett antal välkända lösenord. Dessa två exempel är giltiga skäl som kan leda till en ökning i begäranden.
 
-Azure AD Connect Health för AD FS tillhandahåller en rapport över de 50 användarna med flest misslyckade inloggningsförsök på grund av ett ogiltigt användarnamn eller lösenord. Tjänsten gör detta genom att bearbeta granskningshändelserna som genereras av alla AD FS-servrar i servergrupperna
+Azure AD Connect Health för AD FS tillhandahåller en rapport över de 50 användarna med flest misslyckade inloggningsförsök på grund av ett ogiltigt användarnamn eller lösenord. Rapporten skapas genom att bearbeta granskningshändelserna som genereras av alla AD FS-servrar i servergrupperna
 
 ![Azure AD Connect Health-portalen](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
@@ -82,7 +82,7 @@ I den här rapporten kan du enkelt få tillgång till följande typer av informa
 - Totalt antal misslyckade begäranden med fel användarnamn/lösenord de senaste 30 dagarna
 - Genomsnittligt antal användare som misslyckades med inloggningen på grund av ett felaktigt användarnamn/lösenord varje dag.
 
-Om du klickar på den här delen kommer du till huvudbladet för rapporter som innehåller ytterligare information. Bladet innehåller till exempel ett diagram med information som hjälper dig att skapa en baslinje för begäranden med felaktiga användarnamn eller lösenord och listan över de 50 användarna med flest misslyckade försök.
+Om du klickar på den här delen kommer du till huvudbladet för rapporter som innehåller ytterligare information. Det här bladet innehåller ett diagram med trendinformation för att skapa en baslinje om begäranden med felaktigt användarnamn eller lösenord. Dessutom skapar den en lista med över upp 50 användare med antalet misslyckade försök.
 
 Diagrammet innehåller följande information:
 
@@ -91,17 +91,17 @@ Diagrammet innehåller följande information:
 
 ![Azure AD Connect Health-portalen](./media/active-directory-aadconnect-health-adfs/report2a.png)
 
-Rapporten innehåller följande:
+Rapporten innehåller följande information:
 
 | Rapportobjekt | Beskrivning
 | ------ | -------- |
-|Användar-ID| Visar användar-ID:t som användes. Observera att värdet är vad användaren skrev och i vissa fall ser du även det felaktiga användar-ID:t som användes.|
-|Misslyckade försök|Visar totalt antal misslyckade försök för det specifika användar-ID:t. Tabellen sorteras med flest antal misslyckade försök i fallande ordning.|
-|Senaste fel|Visar tidsstämpeln då det senaste felet uppstod.
+|Användar-ID| Visar användar-ID:t som användes. Det här värdet är vad användaren har angett, vilket i vissa fall är fel användar-ID.|
+|Misslyckade försök| Visar totalt antal misslyckade försök för det specifika användar-ID:t. Tabellen sorteras med flest antal misslyckade försök i fallande ordning.|
+|Senaste fel| Visar tidsstämpeln då det senaste felet uppstod.
 
 
 
->[AZURE.NOTE] Den här rapporten uppdateras automatiskt varannan timme med den nya informationen som samlats in inom den tidsperioden. Därför kanske inloggningsförsök under de senaste två timmarna inte finns med i rapporten.
+>[AZURE.NOTE] Den här rapporten uppdateras automatiskt varannan timme med den nya informationen som samlats in inom den tidsperioden. Därför finns inloggningsförsök under de senaste två timmarna eventuellt inte med i rapporten.
 
 
 
@@ -117,6 +117,6 @@ Rapporten innehåller följande:
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

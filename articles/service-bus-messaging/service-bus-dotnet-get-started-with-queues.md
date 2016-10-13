@@ -194,6 +194,6 @@ Kolla in våra [GitHub-databaser med exempel](https://github.com/Azure-Samples/a
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

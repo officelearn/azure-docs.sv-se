@@ -1,9 +1,9 @@
 <properties
  pageTitle="Översikt över enhetshantering | Microsoft Azure"
- description="Översikt över enhetshantering i Azure IoT Hub: enhetstvillingar, enhetsfrågor, enhetsjobb"
+ description="Översikt över enhetshantering i Azure IoT Hub"
  services="iot-hub"
  documentationCenter=""
- authors="juanjperez"
+ authors="bzurcher"
  manager="timlt"
  editor=""/>
 
@@ -13,117 +13,111 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
- ms.author="juanpere"/>
+ ms.date="09/16/2016"
+ ms.author="bzurcher"/>
+
+
+
 
 # Översikt över enhetshantering i Azure IoT Hub (förhandsversion)
 
-Enhetshanteringen i Azure IoT Hub tillhandahåller standardbaserad IoT-enhetshantering som hjälper dig att hantera, konfigurera och uppdatera dina enheter via en fjärranslutning.
+## Enhetshanteringsmetod, Azure IoT
 
-Det finns tre viktiga begrepp relaterade till enhetshanteringen i Azure IoT:
+Enhetshanteringen Azure IoT Hub innehåller funktioner och utökningsmodeller för enheter och servrar. Detta drar nytta av IoT-enhetshanteringen för olika enheter och IoT-protokoll.  Enheter i IoT varierar från mycket begränsade sensorer och mikrostyrenheter med en funktion till kraftfulla gatewayer som aktiverar andra enheter och protokoll.  IoT-lösningar varierar även avsevärt i lodräta domäner och program med unika användningsfall för operatörer i varje domän.  IoT-lösningar kan använda enhetshanteringsfunktioner, mönster och kodbibliotek från IoT Hub, vilket gör det möjligt att hantera en mångfald av enheter och användare.  
 
-1.  **Enhetstvilling**: En representation av den fysiska enheten i IoT Hub.
+## Introduktion
 
-2.  **Enhetsfrågor**: Används för att hitta enhetstvillingar och för att få en bild över flera enhetstvillingar. Du kan till exempel köra en fråga för att hitta alla enhetstvillingar med version 1.0 av den inbyggda programvaran.
+En viktig del av att skapa en lyckad IoT-lösning är att tillhandahålla en strategi för hur operatörer kontinuerligt hanterar sin enhetsflotta. IoT-operatörer behöver verktyg och program som är både enkla och tillförlitliga och som låter dem fokusera på mer strategiska aspekter av sina arbetsuppgifter. Azure IoT Hub ger förutsättningarna för att skapa IoT-program som underlättar de viktigaste enhetshanteringsmönstren.
 
-3.  **Enhetsjobb**: En åtgärd som utförs på en eller flera fysiska enheter, till exempel uppdatering av den inbyggda programvaran, omstart och fabriksåterställning.
+Enheter anses vara hanterade av IoT Hub när de kör ett enkelt program (en s.k. enhetshanteringsagent) som ansluter enheten på ett säkert sätt till molnet. Agentkoden låter operatören på programsidan bekräfta enhetsstatusen och utföra hanteringsåtgärder, till exempel att tillämpa nätverkskonfigurationsändringar eller distribuera programvara.
 
-## Enhetstvilling
+## Principer för IoT-enhetshantering
 
-Enhetstvillingen är en representation av en fysisk enhet i Azure IoT. Objektet **Microsoft.Azure.Devices.Device** används för att representera enhetstvillingen.
+IoT medför en unik uppsättning utmaningar och en lösning måste ta hänsyn till följande principer för IoT-enhetshantering:
 
-![][img-twin]
+![][img-dm_principles]
 
-Enhetstvillingen har följande komponenter:
+- **Skala och automatisering**: IoT kräver enkla verktyg som kan automatisera rutiner och som låter en mycket liten personalstyrka hantera miljontals enheter. I det dagliga arbetet förväntas operatörer fjärrhantera enhetsåtgärder gruppvis och endast få aviseringar när problem som kräver direkta åtgärder uppstår.
 
-1.  **Enhetsfält:** Enhetsfält är fördefinierade egenskaper som används för både meddelande- och enhetshantering i IoT Hub. Dessa hjälper IoT Hub att identifiera och ansluta med fysiska enheter. Enhetsfält synkroniseras inte till enheten och lagras endast i enhetstvillingen. Enhetsfält innehåller enhets-ID:t och autentiseringsinformation.
+- **Insyn och kompatibilitet**: IoT-enhetsmiljön är ovanligt mångfaldig. Hanteringsverktygen måste skräddarsys för att hantera en mängd olika enhetsklasser, plattformar och protokoll. Operatörer måste ha stöd för alla enheter, från de mest begränsade inbäddade enkelprocesschippen till kraftfulla och helt funktionella datorer.
 
-2.  **Enhetsegenskaper:** Enhetsegenskaper är en fördefinierad ordlista med egenskaper som beskriver den fysiska enheten. Den fysiska enheten är huvudobjektet för varje enhetsegenskap och är den auktoritära lagringsplatsen för alla tillhörande värden. En konsekvent representation av dessa egenskaper lagras slutligen i enhetstvillingen i molnet. Konsekvens och uppdateringar hanteras med synkroniseringsinställningar, som beskrivs i [Självstudiekurs: Använda enhetstvillingen][lnk-tutorial-twin]. Några exempel på enhetsegenskaper är versionen av den inbyggda programvaran, batterinivå och tillverkarens namn.
+- **Kontextmedvetenhet**: IoT-miljöer är dynamiska och föränderliga. Tjänstens tillförlitlighet är avgörande. Enhetshanteringsåtgärder ta SLA-underhållsfönster, nätverks- och krafttillstånd, användningsförutsättningar och enhetens plats i åtanke så att driftavbrotten inte påverkar viktiga företagsrutiner eller skapar farliga förutsättningar.
 
-3.  **Tjänstegenskaper:** Tjänstegenskaper är **&lt;nyckel/värde-par&gt;** som utvecklaren lägger till i tjänstens egenskapsordlista. Dessa egenskaper utökar datamodellen för enhetstvillingen, så att du bättre kan beskriva enheten. Tjänstegenskaperna synkroniseras inte till enheten och lagras endast i enhetstvillingen i molnet. Ett exempel på en tjänstegenskap är **&lt;NextServiceDate, 11/12/2017&gt;**, som kan användas för att hitta enheter baserat på deras nästa underhållsdatum.
+- **Stöd för många roller**: stöd för IoT-åtgärdernas unika arbetsflöden och processer är avgörande. Operatörerna måste dessutom kunna samverka med de interna IT-avdelningarnas begränsningar och lyfta viktig information om enhetsåtgärder till chefer och ledning.
 
-4.  **Taggar:** Taggar är en deluppsättning av tjänstegenskaperna som är godtyckliga strängar i stället för ordlisteegenskaper. De kan användas för att kommentera enhetstvillingar eller för att ordna enheter i grupper. Taggar synkroniseras inte till enheten och lagras endast i enhetstvillingen. Om din enhetstvilling till exempel representerar en fysisk lastbil kan du lägga till en tagg för varje typ av last som lastbilen transporterar – **äpplen**, **apelsiner** och **bananer**.
+## Livscykel för IoT-enhet 
 
-## Enhetsfrågor
+Även om IoT-projekt skiljer sig från varandra avsevärt finns det vissa gemensamma mönster för enhetshantering. Dessa mönster identifieras i Azure IoT genom IoT-enhetens livscykel som består av fem olika faser:
 
-I det förra avsnittet lärde du dig om enhetstvillingens olika komponenter. Nu ska vi förklara hur du hittar enhetstvillingar i IoT Hub-enhetsregistret baserat på enhetsegenskaper, tjänstegenskaper eller taggar. Ett exempel på när du kan använda en fråga är för att hitta enheter som behöver uppdateras. Du kan fråga efter alla enheter med en angiven version av den inbyggda programvaran och skicka resultatet till en specifik åtgärd (i IoT Hub kallat ett enhetsjobb, vilket förklaras i nästa avsnitt).
+![][img-device_lifecycle]
 
-Du kan skicka frågor med hjälp av taggar och egenskaper:
+1. **Planera**: Operatörer kan skapa ett schema med enhetens egenskaper. Schemat kan användas till att snabbt och korrekt skicka frågor till eller fokusera på en enhetsgrupp för massåtgärder.
 
--   Om du vill fråga efter enhetstvillingar med taggar skickar du en matris med strängar så returnerar frågan alla enheter som är taggade med alla dessa strängar.
+    *Relaterade komponenter*: [komma igång med enhetstvillingar][lnk-twins-getstarted], [Så här hanterar du tvillingegenskaper][lnk-twin-properties]
 
--   Om du vill fråga efter enhetstvillingar med hjälp av tjänstegenskaper eller enhetsegenskaper kan du använda ett JSON-frågeuttryck. Exemplet nedan visar hur du kan fråga efter alla enheter med enhetsegenskapen med nyckeln **FirmwareVersion** och värdet **1.0**. Du kan se att **type** för egenskapen är **device**, vilket innebär att vi frågar baserat på enhetsegenskaper, inte tjänstegenskaper:
+2. **Etablera**: nya enheter autentiseras säkert i IoT Hub där operatörerna kan se enhetens funktioner och aktuella tillstånd direkt.
 
-  ```
-  {                           
-      "filter": {                  
-        "property": {                
-          "name": "FirmwareVersion",   
-          "type": "device"             
-        },                           
-        "value": "1.0",              
-        "comparisonOperator": "eq",  
-        "type": "comparison"         
-      },                           
-      "project": null,             
-      "aggregate": null,           
-      "sort": null                 
-  }
-  ```
+    *Relaterade komponenter*: [komma igång med IoT Hub][lnk-hub-getstarted], [Så här hanterar du tvillingegenskaper][lnk-twin-properties]
 
-## Enhetsjobb
+3. **Konfigurera**: underlätta massinläsning av konfigurationsändringar och uppdaterad enhetsprogramvara utan att förlora funktion eller säkerhet.
 
-Nästa begrepp inom enhetshantering är enhetsjobb, som gör det möjligt att samordna flera hanteringssteg på flera enheter.
+    *Relaterade byggblock*: [så här använder du tvillingegenskaper][lnk-twin-properties], [C2D-metoder][lnk-c2d-methods], [schema-/sändningsuppgifter][lnk-jobs]
 
-För närvarande kan du välja mellan sex typer av enhetsjobb när du hanterar enheter i Azure IoT Hub (vi lägger till fler jobb allt eftersom våra kunder begär dem):
+4. **Övervaka**: enhetsflottas allmänna funktion samt statusen för pågående distributioner av uppdateringar kan övervakas så att operatörerna blir medvetna om problem som kräver åtgärder.
 
-- **Uppdatering av inbyggd programvara**: Uppdaterar den inbyggda programvaran (eller operativsystemavbildningen) på den fysiska enheten.
-- **Starta om**: Startar om den fysiska enheten.
-- **Fabriksåterställning**: Återställer den inbyggda programvaran (eller operativsystemavbildningen) för den fysiska enheten till en säkerhetskopia med fabriksinställningarna som lagras på enheten.
-- **Konfigurationsuppdatering**: Konfigurerar IoT Hub-klientagenten som körs på den fysiska enheten.
-- **Läs enhetsegenskap**: Hämtar det senaste värdet för en enhetsegenskap på den fysiska enheten.
-- **Skriv enhetsegenskap:** Ändrar en enhetsegenskap på den fysiska enheten.
+    *Relaterade komponenter*: [Så här använder du tvillingegenskaper][lnk-twin-properties]
 
-Mer information om hur du använder respektive jobb finns i [API-dokumentationen för C\# och node.js][lnk-apidocs].
+5. **Inaktivera**: ersätta eller inaktivera enheter efter ett fel, uppgraderingscykel eller efter enhetens funktionstid har löpt ut.
 
-Ett jobb kan köras på flera enheter. När du startar ett jobb skapas ett tillhörande underordnat jobb för var och en av dessa enheter. Ett underordnat jobb körs på en enskild enhet. Varje underordnat jobb har en pekare till dess överordnade jobb. Det överordnade jobbet är bara en behållare för det underordnade jobbet. Det implementerar inte någon logik för att skilja mellan olika typer av enheter (t.ex uppdateringen av en Intel Edison till skillnad mot uppdateringen av en Raspberry Pi). Följande diagram illustrerar förhållandet mellan ett överordnat jobb, dess underordnade jobb och den associerade fysiska enheten.
+    *Relaterade komponenter*:
+    
+## Enhetshanteringsmönster för IoT Hub
 
-![][img-jobs]
+IoT Hub använder följande uppsättning (ursprungliga) enhetshanteringsmönster.  [Guiden][lnk-get-started] visar hur du kan utöka dessa mönster så att de passar just dina scenarier och utforma nya mönster för andra scenarier som bygger på dessa kärnmönster.
 
-Du kan skicka frågor mot jobbhistoriken om du vill se statusen för jobb som du har startat. Du hittar några exempelfrågor i [vårt frågebibliotek][lnk-query-samples].
+1. **Starta om** -Serverdelprogrammet informerar enheten via en D2C-metod att en omstart har påbörjats.  Enheten använder enhetstvillingens egenskaper för att uppdatera enhetens omstartsstatus. 
 
-## Enhetsimplementering
+    ![][img-reboot_pattern]
 
-Nu när vi har gått igenom begreppen på tjänstsidan ska vi gå vidare och se hur du skapar en hanterad fysisk enhet. Azure IoT Hub DM-klientbiblioteket hjälper dig att hantera dina IoT-enheter med Azure IoT Hub. ”Hanteringen” inbegriper åtgärder som omstart, fabriksåterställning och uppdatering av den inbyggda programvaran.  I nuläge tillhandahåller vi ett plattformsoberoende C-bibliotek, men stöd för andra språk kommer snart.  
+2. **Fabriksåterställning** -Serverdelprogrammet informerar enheten via en D2C-metod att en fabriksåterställning har påbörjats.  Enheten använder enhetstvillingens egenskaper för att uppdatera statusen för fabriksåterställningen.
 
-DM-klientbiblioteket har två huvudsakliga uppgifter inom enhetshantering:
+    ![][img-facreset_pattern]
 
-- Synkronisera egenskaper på den fysiska enheten med dess enhetstvilling i IoT Hub.
-- Samordna enhetsjobb som skickas av IoT Hub till enheten.
+3. **Konfiguration** - Serverdelprogrammet använder enhetstvillingens egenskaper för att konfigurera programvaran som körs på enheten.  Enheten använder enhetstvillingens rapporterade egenskaper för att uppdatera enhetens konfigurationsstatus. 
 
-Mer information om dessa uppgifter och om implementeringen på den fysiska enheten finns i [Introduktion till klientbiblioteket för C för enhetshantering i Azure IoT Hub][lnk-library-c].
+    ![][img-config_pattern]
+
+4. **Uppdatering av enhetens programvara** -Serverdelprogrammet informerar enheten via en D2C-metod att en uppdatering av enhetens programvara har påbörjats.  Enheten initierar en process i flera steg för att ladda ned inbyggd programvara, tillämpa den och därefter återkoppla till IoT Hub-tjänsten.  Enheten använder enhetstvillingens egenskaper under hela flerstegsprocessen för att uppdatera enhetens förlopp och status. 
+
+    ![][img-fwupdate_pattern]
+
+5. **Rapportering av förlopp och status** -Serverdelprogrammet kör frågor på enhetstvillingpar över en uppsättning enheter för att ge information om pågående åtgärders status och förlopp.
+
+    ![][img-report_progress_pattern]
 
 ## Nästa steg
 
-Om du vill implementera klientprogram på många olika enhetsspecifika maskinvaruplattformar och operativsystem kan du använda enhets-SDK:er för IoT. Enhets-SDK:erna för IoT innehåller bibliotek som gör det lätt att skicka telemetri till en IoT-hubb och att ta emot kommandon från molnet till enheten. När du använder SDK:erna kan du välja mellan ett antal olika nätverksprotokoll för att kommunicera med IoT Hub. Mer information finns i [Information om enhets-SDK:er][lnk-device-sdks].
+Med byggblock från Azure IoT Hub kan utvecklare skapa IoT-program som uppfyller de unika IoT-operatörskraven för varje steg i enhetens livscykel.
 
 Om du vill lära dig mer om enhetshanteringsfunktionerna i Azure IoT Hub går du självstudiekursen [Komma igång med enhetshantering i Azure IoT Hub][lnk-get-started].
 
 <!-- Images and links -->
-[img-twin]: media/iot-hub-device-management-overview/image1.png
-[img-jobs]: media/iot-hub-device-management-overview/image2.png
-[img-client]: media/iot-hub-device-management-overview/image3.png
+[img-dm_principles]: media/iot-hub-device-management-overview/image4.png
+[img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
+[img-config_pattern]: media/iot-hub-device-management-overview/configuration-pattern.png
+[img-facreset_pattern]: media/iot-hub-device-management-overview/facreset-pattern.png
+[img-fwupdate_pattern]: media/iot-hub-device-management-overview/fwupdate-pattern.png
+[img-reboot_pattern]: media/iot-hub-device-management-overview/reboot-pattern.png
+[img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
-[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
-[lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
-[lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
+[lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-jobs]: iot-hub-schedule-jobs.md
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

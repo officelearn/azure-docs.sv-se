@@ -15,6 +15,7 @@
    ms.date="03/10/2016"
    ms.author="yushwang" />
 
+
 # Vanliga frågor och svar om VPN Gateway
 
 ## Ansluta till virtuella nätverk
@@ -72,7 +73,7 @@ Om inte din enhet anges som en känd kompatibel VPN-enhet och du vill använda d
 
 ### Varför stängs min principbaserade VPN-tunnel när trafiken är inaktiv?
 
-Detta är ett förväntat beteende för principbaserade VPN-gatewayer (även kallat statisk routning). När trafiken i tunneln varit inaktiv i mer än 5 minuter kommer tunneln att stängas. När trafik börjar flöda i båda riktningarna, upprättas tunneln på nytt omedelbart. Om du har en routningsbaserad VPN-gateway (även kallad dynamisk), kommer det här problemet inte att uppstå.
+Detta är ett förväntat beteende för principbaserade VPN-gatewayer (även kallat statisk routning). När trafiken i tunneln varit inaktiv i mer än 5 minuter kommer tunneln att stängas. När trafik börjar flöda i båda riktningarna, upprättas tunneln på nytt omedelbart.
 
 ### Kan jag använda programvaru-VPN:er för att ansluta till Azure?
 
@@ -281,6 +282,6 @@ Du kan se mer information om virtuella nätverk i [Vanliga frågor och svar om V
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO5-->
 
 

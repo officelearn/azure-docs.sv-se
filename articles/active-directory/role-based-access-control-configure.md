@@ -13,10 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="07/21/2016"
+    ms.date="09/30/2016"
     ms.author="kgremban"/>
 
+
 # Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser
+
+> [AZURE.SELECTOR]
+- [Azure Portal](role-based-access-control-azure-portal.md)
+- [Klassisk Azure-portal](role-based-access-control-configure.md)
 
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete. Den här artikeln hjälper dig att komma igång med RBAC på Azure-portalen. Mer information om hur RBAC kan hjälpa dig att hantera åtkomsten finns i [Vad är rollbaserad åtkomstkontroll?](role-based-access-control-what-is.md)
 
@@ -78,6 +83,6 @@ Du kan tilldela roller och hantera åtkomst med Azure RBAC-kommandon i andra ver
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

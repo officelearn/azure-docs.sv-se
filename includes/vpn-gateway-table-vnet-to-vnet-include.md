@@ -1,15 +1,15 @@
-|  | **Klassisk distribution** | **Resource Manager-distribution** | **Klassisk till Resource Manager distributioner** |
-|----------------------------------------|-------------|----------------------|---------------------------------|
-| **Klassisk portal** | [Artikel](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)  |  Stöds inte |  [Artikel*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |
-| **Azure Portal** |  Stöds inte | Stöds+ |  Stöds inte |
-| **PowerShell** | Stöds | [Artikel](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Artikel](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+| **Distribueringsmodell/-metod** | **Azure Portal** | **Klassisk portal** | **PowerShell** |
+|---|---|---|---|
+|**Klassisk** | Stöds inte | [Artikel](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Stöds |
+|**Resource Manager** | Stöds inte |Stöds+ | [Artikel](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)|
+|**Anslutningar mellan olika distribueringsmodeller** | [Artikel*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) | [Artikel*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |[Artikel](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)|
 
 (+) anger att distributionsmetoden bara finns tillgänglig för VNets i samma prenumeration.<br>
-(*) anger partiell support.
+(*) anger att den här distribueringsmodellen dessutom behöver PowerShell.
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

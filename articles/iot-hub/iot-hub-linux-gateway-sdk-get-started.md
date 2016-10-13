@@ -1,6 +1,6 @@
 <properties
     pageTitle="Komma igång med IoT Hub Gateway SDK | Microsoft Azure"
-    description="Genomgång av Azure IoT Hub Gateway SDK med Linux för att illustrera viktiga begrepp som du bör känna till när du använder Azure IoT Hub Gateway SDK."
+    description="Den här genomgången av Azure IoT Hub Gateway SDK använder Linux för att illustrera viktiga begrepp som du bör känna till när du använder Azure IoT Hub Gateway SDK."
     services="iot-hub"
     documentationCenter=""
     authors="chipalost"
@@ -86,6 +86,6 @@ Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

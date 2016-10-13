@@ -255,7 +255,7 @@ Följande BI-verktyg kan vara till hjälp vid stordataanalys:
 
 * [Ansluta Excel till Hadoop med Power Query](hdinsight-connect-excel-power-query.md): Information om hur du ansluter Excel till det Azure Storage-konto som lagrar data som är associerade med ditt HDInsight-kluster med hjälp av Microsoft Power Query för Excel. En Windows-arbetsstation krävs. Fungerar med Windows- eller Linux-baserat kluster.
 
-* [Ansluta Excel till Hadoop med ODBC-drivrutinen för Microsoft Hive](hdinsight-connect-excel-hive-ODBC-driver.md): Information om hur du importerar data från HDInsight med hjälp av ODBC-drivrutinen för Microsoft Hive. En Windows-arbetsstation krävs. Fungerar med Windows- eller Linux-baserat kluster.
+* [Ansluta Excel till Hadoop med ODBC-drivrutinen för Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md): Information om hur du importerar data från HDInsight med hjälp av ODBC-drivrutinen för Microsoft Hive. En Windows-arbetsstation krävs. Fungerar med Windows- eller Linux-baserat kluster.
 
 * [Microsoft Cloud-plattformen](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Information om Power BI för Office 365 samt om hur du hämtar utvärderingsversionen för SQL Server och konfigurerar SharePoint Server 2013 och SQL Server BI.
 
@@ -272,6 +272,6 @@ Följande BI-verktyg kan vara till hjälp vid stordataanalys:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

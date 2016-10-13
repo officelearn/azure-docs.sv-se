@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/07/2016"
+    ms.date="09/27/2016"
     ms.author="davidmu"/>
 
 
@@ -22,11 +22,11 @@
 
 I den här artikeln lär du dig hur du snabbt kan skapa en virtuell Azure-dator som kör Windows Server, och om de resurser som den behöver, med hjälp av [Resource Manager](../resource-group-overview.md) och PowerShell. 
 
-Alla stegen i den här artikeln krävs för att skapa en virtuell dator. Det bör ta runt 30 minuter att utföra stegen.
+Alla steg i den här artikeln behövs för att skapa en virtuell maskin och det tar cirka 30 minuter att utföra stegen.
 
 ## Steg 1: Installera Azure PowerShell
 
-Information om hur du installerar den senaste versionen av Azure PowerShell, hur du väljer prenumeration och hur du loggar in på ditt Azure-konto finns i [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md)
+Se [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
         
 ## Steg 2: Skapa en resursgrupp
 
@@ -36,7 +36,7 @@ Först måste du skapa en resursgrupp.
 
         Get-AzureRmLocation | sort Location | Select Location
         
-    Du bör se något liknande följande:
+    Du bör se något som liknar det här exemplet:
     
         Location
         --------
@@ -99,7 +99,7 @@ Alla virtuella datorer ingår i ett [virtuellt nätverk](../virtual-network/virt
         $vnetName = "myvnet1"
         $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
         
-    Använd värden som passar ditt program och din miljö.
+    Använd lämpliga värden för din applikation och miljö.
         
 ## Steg 5: Skapa en offentlig IP-adress och ett nätverksgränssnitt
 
@@ -123,7 +123,7 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Lösenordet måste bestå av mellan 8 och 123 tecken och uppfylla tre av fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Läs mer om [krav för användarnamn och lösenord](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+    Lösenordet måste vara 12-123 tecken långt och innehålla minst en gemen, en versal, en siffra och ett specialtecken. 
         
 2. Ersätt värdet för **$vmName** med ett namn för den virtuella datorn. Skapa variabeln och konfigurationen av den virtuella datorn.
 
@@ -141,13 +141,13 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
 
         $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         
-    Mer information om hur du väljer de avbildningar finns i [Navigera och välja avbildningar för virtuella Windows-datorer i Azure med PowerShell eller CLI](virtual-machines-windows-cli-ps-findimage.md).
+    Se [Navigera och välja virtuella Windows-avbildningar i Azure med PowerShell eller CLI](virtual-machines-windows-cli-ps-findimage.md) för mer information hur du väljer vilken avbildning som ska användas.
         
 5. Lägg till nätverksgränssnittet som du skapade i konfigurationen.
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. Ersätt värdet för **$blobPath** med en sökväg och ett filnamn i lagringssystemet som den virtuella hårddisken ska använda. Den virtuella hårddisken lagras vanligtvis i en behållare, till exempel **vhds/WindowsVMosDisk.vhd**. Skapa variablerna.
+6. Ersätt värdet **$blobPath** med en sökväg och ett filnamn i den virtuella hårddiskens namn. Den virtuella hårddisken lagras vanligtvis i en behållare, till exempel **vhds/WindowsVMosDisk.vhd**. Skapa variablerna.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
@@ -169,12 +169,12 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
                                   
 ## Nästa steg
 
-- Om det uppstod problem med distributionen läser du [Felsöka distributionen av resursgrupper med Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
-- Lär dig hur du hanterar den virtuella dator som du nyss har skapat genom att läsa [Hantera virtuella datorer med hjälp av Azure Resource Manager och PowerShell](virtual-machines-windows-ps-manage.md).
+- Om det var problem med distributionen, är nästa steg att titta på [Felsöka resursgruppdistribueringar med Azure-portalen](../resource-manager-troubleshoot-deployments-portal.md)
+- Läs [Hantera virtuella datorer med Azure Resource Manager och PowerShell](virtual-machines-windows-ps-manage.md) för att lära dig mer om hur du hanterar din virtuella dator.
 - Utnyttja fördelarna med att använda en mall för att skapa en virtuell dator. Mer information finns i [Skapa en virtuell Windows-dator med en Resource Manager-mall](virtual-machines-windows-ps-template.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

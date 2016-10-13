@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="06/29/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -502,13 +502,13 @@ Allmän information om Notification Hubs finns i [Riktlinjer om Notification Hub
 [Etableringsportal för iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Komma igång med push-meddelanden i Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Meddela användare för iOS med .NET-serverdel i Azure Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Använda Notification Hubs för att skicka de senaste nyheterna]: notification-hubs-ios-send-breaking-news.md
+[Meddela användare för iOS med .NET-serverdel i Azure Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Använda Notification Hubs för att skicka de senaste nyheterna]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Programmeringsguide för lokala meddelanden och push-meddelanden]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -25,7 +25,7 @@ Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkni
 
 > [AZURE.NOTE] Anvisningarna i den här artikeln gäller för att skapa ett Linux-baserat HDInsight-kluster. Anvisningar om hur du skapar Windows-baserade Storm i HDInsight-kluster finns i [Apache Storm-kurs: Komma igång med Storm Starter-exempel med hjälp av dataanalys i HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Innan du börjar
+## Krav
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -38,6 +38,10 @@ För den här kursen om Apache Storm krävs:
     - **Linux, Unix eller OS X-klienter**: Läs [Använda SSH med Linux-baserade Hadoop på HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     - **Windows-klienter**: Läs [Använda SSH med Linux-baserat Hadoop i HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+
+### Åtkomstkontrollkrav
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Skapa ett Storm-kluster
 
@@ -195,6 +199,6 @@ Om du redan är bekant med att utveckla Java-baserad topologier och vill distrib
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

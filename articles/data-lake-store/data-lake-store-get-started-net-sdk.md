@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -113,9 +113,9 @@ I de återstående avsnitten i artikeln kan du se hur du använder tillgängliga
 
 ## Autentisering
 
-### Om du använder autentisering för slutanvändare
+### Om du använder autentisering för slutanvändare (rekommenderas för den här kursen)
 
-Använd det här med ett befintligt ”internt Azure AD-klientprogram”. Ett sådant anges nedan.
+Använd det här med ett befintligt ”internt Azure AD-klientprogram”. Ett sådant anges nedan. Om du vill få hjälp att slutföra den här kursen snabbare, rekommenderar vi att du använder den här metoden.
 
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
@@ -125,7 +125,10 @@ Använd det här med ett befintligt ”internt Azure AD-klientprogram”. Ett s�
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-I fragmentet ovan använder vi en Azure AD-domän och ett klient-ID som är tillgängligt som standard för alla Azure-prenumerationer. Om du vill använda en egen Azure AD-domän och programklient-ID måste du skapa ett internt Azure AD-program. I [Create an Active Directory Application (Skapa ett program i Active Directory)](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) finns instruktioner.
+Några saker att känna till om följande utdrag.
+
+* För att hjälpa dig att slutföra kursen snabbare använder utdraget en Azure AD-domän och ett klient-ID som är tillgängligt som standard för alla Azure-prenumerationer. Så kan du **använder detta utdrag i befintligt skick i ditt program**.
+* Men om du vill använda en egen Azure AD-domän och program klient-ID måste du skapa ett enhetligt Azure AD-program och sedan använda Azure AD-domänen, klient-ID och omdirigerings-URI för det program som du skapade. I [Create an Active Directory Application (Skapa ett program i Active Directory)](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) finns instruktioner.
 
 >[AZURE.NOTE] Anvisningarna i länkarna ovan är för ett Azure AD-webbprogram. Stegen är dock exakt samma även om du väljer att skapa ett internt klientprogram i stället. 
 
@@ -276,6 +279,6 @@ I följande fragment visas en `DownloadFile`-metod som du kan använda för att 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

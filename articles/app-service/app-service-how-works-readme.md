@@ -18,7 +18,7 @@
     ms.author="yochay"/>
 
 
-# Så här fungerar Apptjänst
+# <a name="how-app-service-works"></a>Så här fungerar Apptjänst
 
 Azure App Service är en molntjänst som utformats för att lösa de praktiska problem som tekniker möter idag. Apptjänst är avsett att erbjuda överlägsen utvecklarproduktivitet utan att ge avkall på behovet att leverera program i molnskala. App Service innehåller också de funktioner och ramverk som behövs för att skapa anpassade affärsområdesprogram samtidigt som man förser utvecklarna med de populäraste utvecklingsspråken (.NET, Java, PHP, Node.JS och Python).
 Med Apptjänst kan utvecklare göra följande:
@@ -27,6 +27,8 @@ Med Apptjänst kan utvecklare göra följande:
 * Snabbt bygga Mobile App-servrar med en uppsättning lättanvända mobila funktioner, till exempel dataservrar, användarautentisering och push-meddelanden med Mobile Apps. 
 * Implementera, distribuera och publicera API:er med API Apps.
 * Koppla samman affärsappar i arbetsflöden och transformera data med Logic Apps.
+
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 Alla apptyper baseras på den skalbara och flexibla webbapp-plattformen som ger utvecklare en optimerad upplevelse av hela livscykeln från appdesign till appunderhåll. Livscykelfunktionerna ger möjlighet att göra följande:
 
@@ -43,6 +45,6 @@ Tillsammans gör Apptjänst-funktionerna att utvecklare kan fokusera på koden o
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

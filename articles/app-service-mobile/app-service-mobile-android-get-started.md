@@ -3,7 +3,7 @@
     description="Följ den här kursen och kom igång med att använda mobilappserverdelar i Azure för Android-utveckling"
     services="app-service\mobile"
     documentationCenter="android"
-    authors="RickSaling"
+    authors="yuaxu"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="08/17/2016"
-    ms.author="ricksal"/>
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
+
 
 #Skapa en Android-app
 
@@ -55,6 +56,6 @@ För att kunna genomföra den här kursen behöver du följande:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

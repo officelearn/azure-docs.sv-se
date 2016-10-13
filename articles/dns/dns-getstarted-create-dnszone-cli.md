@@ -3,7 +3,7 @@
    description="Lär dig hur du skapar DNS-zoner för Azure DNS steg för steg för att lagra din DNS-domän med hjälp av CLI"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 # Skapa en Azure DNS-zon med CLI
 
@@ -25,9 +26,9 @@
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 
-Den här artikeln beskriver steg för steg hur du skapar en DNS-zon med hjälp av CLI. Du kan också skapa en DNS-zon med hjälp av PowerShell- eller Azure-portalen. 
+Den här artikeln beskriver steg för steg hur du skapar en DNS-zon med hjälp av CLI. Du kan också skapa en DNS-zon med hjälp av PowerShell- eller Azure-portalen.
 
-[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 
 ## Innan du börjar
@@ -42,56 +43,56 @@ Du kan installera Azure CLI för Windows, Linux eller Mac. Du måste utföra fö
 
 Du kan hitta alla nätverksproviderkommandon i CLI med följande kommando:
 
-    Azure network
+    azure network
 
 ### 2. Växla CLI-läge
 
 Azure DNS använder Azure Resource Manager. Se till att du byter CLI-läge så att du kan använda ARM-kommandon.
 
-    Azure config mode arm
+    azure config mode arm
 
 ### 3. Logga in på ditt Azure-konto
 
 Du uppmanas att autentisera dig med dina autentiseringsuppgifter. Tänk på att du bara kan använda ORGID-konton.
 
-    Azure login -u "username"
+    azure login -u "username"
 
 ### 4. Välja prenumerationen
 
 Välj vilka av dina Azure-prenumerationer som du vill använda.
 
-    Azure account set "subscription name"
+    azure account set "subscription name"
 
 ### 5. Skapa en resursgrupp
 
 Azure Resource Manager kräver att alla resursgrupper anger en plats. Detta används som standardplatsen för resurser i resursgruppen. Men eftersom alla DNS-resurser är globala, inte regionala, så påverkar inte valet av resursgruppens plats Azure DNS.
 
-Du kan hoppa över det här steget om du använder en befintlig resursgrupp. 
+Du kan hoppa över det här steget om du använder en befintlig resursgrupp.
 
-    Azure group create -n myresourcegroup --location "West US"
+    azure group create -n myresourcegroup --location "West US"
 
 
 ### 6. Registrera dig
 
 Azure DNS-tjänsten hanteras av Microsoft.Network-resursprovidern. Din Azure-prenumeration måste vara registrerad att använda den här resursprovidern innan du kan använda Azure DNS. Det här är en engångsåtgärd för varje prenumeration.
 
-    Azure provider register --namespace Microsoft.Network
+    azure provider register --namespace Microsoft.Network
 
 
 ## Steg 2 – Skapa en DNS-zon
 
-En DNS-zon skapas med hjälp av kommandot `azure network dns zone create`. Om du vill kan du också skapa en DNS-zon tillsammans med taggar. Taggar är en lista över namn/värde-par och används av Azure Resource Manager för att märka resurser för fakturerings- eller grupperingsändamål. Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](../resource-group-using-tags.md). 
+En DNS-zon skapas med hjälp av kommandot `azure network dns zone create`. Om du vill kan du också skapa en DNS-zon tillsammans med taggar. Taggar är en lista över namn/värde-par och används av Azure Resource Manager för att märka resurser för fakturerings- eller grupperingsändamål. Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](../resource-group-using-tags.md).
 
 I Azure DNS ska zonnamn anges utan avslutande **”.”**. Till exempel ”**contoso.com**” i stället för ”**contoso.com.**”.
 
 
 ### Så här skapar du en DNS-zon
 
-Exemplet nedan skapar en DNS-zon med namnet *contoso.com* i resursgruppen med namnet *MyResourceGroup*. 
+Exemplet nedan skapar en DNS-zon med namnet *contoso.com* i resursgruppen med namnet *MyResourceGroup*.
 
 Använd exemplet för att skapa DNS-zonen och ersätt värdena med dina egna.
 
-    Azure network dns zone create myresourcegroup contoso.com
+    azure network dns zone create myresourcegroup contoso.com
 
 ### Så här skapar du en DNS-zon och taggar
 
@@ -99,7 +100,7 @@ Azure DNS CLI stöder taggar för DNS-zoner som angetts med hjälp av den valfri
 
 Använd exemplet nedan för att skapa en DNS-zon och taggar och ersätt värdena med dina egna.
 
-    Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+    azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Visa poster
 
@@ -189,6 +190,6 @@ När du har skapat en DNS-zon skapar du [postuppsättningar och poster](dns-gets
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

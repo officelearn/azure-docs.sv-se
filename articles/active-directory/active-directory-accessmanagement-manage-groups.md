@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
-    description="How to create and manage groups to manage Azure users using Azure Active Directory."
+    pageTitle="Hantera grupper i Azure Active Directory | Microsoft Azure"
+    description="Så här skapar och hanterar du grupper för att hantera Azure med Azure Active Directory-användare."
     services="active-directory"
     documentationCenter=""
     authors="curtand"
@@ -13,11 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="09/29/2016"
     ms.author="curtand"/>
 
 
+
 # Hantera grupper i Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-groups-create-azure-portal.md)
+- [Klassisk Azure-portal](active-directory-accessmanagement-manage-groups.md)
+- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+
 
 En av användarhanteringsfunktionerna i Azure Active Directory (AD Azure) är möjligheten att skapa grupper av användare. Du kan använda en grupp för att utföra hanteringsuppgifter som att tilldela licenser eller behörigheter till flera användare på en gång. Du kan också använda grupper för att ge behörighet till
 
@@ -116,6 +123,7 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
 
 
-<!--HONumber=Sep16_HO4-->
+
+<!--HONumber=Oct16_HO1-->
 
 

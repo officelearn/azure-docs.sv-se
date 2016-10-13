@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -55,23 +55,22 @@ Kontrollera att du har följande innan du påbörjar konfigurationen:
 
 När du använder stegen som en övning kan du använda följande exempel på konfigurationsvärden:
 
-- VNet-namn: TestVNet1
-- Adressutrymme: 10.11.0.0/16 och 10.12.0.0/16
-- Undernät: 
+- **VNet-namn:** TestVNet1
+- **Adressutrymme:** 10.11.0.0/16 och 10.12.0.0/16
+- **Undernät:**
     - FrontEnd: 10.11.0.0/24
     - BackEnd: 10.12.0.0/24
     - GatewaySubnet: 10.12.255.0/27
-- Resursgrupp: TestRG1
-- Plats: Östra USA
-- DNS-server: 8.8.8.8
-- Gateway-namn: VNet1GW
-- Offentlig IP: VNet1GWIP
-- VPN-typ: Routningsbaserad
-- Anslutningstyp: Plats-till-plats (IPsec)
-- Gateway-typ: VPN
-- Gateway-namn på lokalt nätverk: Site2
-- Anslutningsnamn: VNet1toSite2
-
+- **Resursgrupp:** TestRG1
+- **Plats:** Östra USA
+- **DNS-server:** 8.8.8.8
+- **Gateway-namn:** VNet1GW
+- **Offentlig IP:** VNet1GWIP
+- **VPN-typ:** Routningsbaserad
+- **Anslutningstyp:** Plats-till-plats (IPsec)
+- **Gateway-typ:** VPN
+- **Gateway-namn på lokalt nätverk:** Site2
+- **Anslutningsnamn:** VNet1toSite2
 
 
 ## 1. Skapa ett virtuellt nätverk 
@@ -90,29 +89,24 @@ Du kan lägga till ytterligare adressutrymme och undernät till ditt VNet när d
 
 ## <a name="dns"></a>3. Ange en DNS-server
 
-Om du skapar den här konfigurationen som en övning, ser du följande [värden](#values) när du anger DNS-servern.
-
 ### Så här anger du en DNS-server
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4. Skapa ett gateway-undernät
 
-Innan du ansluter det virtuella nätverket till en gateway, måste du skapa gateway-undernätet för det virtuella nätverk som du vill ansluta till. Gateway-undernätet som du skapar måste ha namnet *GatewaySubnet* för att fungera korrekt. 
-
-Gateway-undernätsprefixet för vissa konfigurationer kräver ett undernät på /28 eller större för att få plats med det antal IP-adresser som behövs i poolen. Det innebär att gatewayens undernätsprefix måste vara /28, /27, /26 osv. Du kanske vill skapa ett större undernät för att få plats med eventuella framtida konfigurationstillägg.
+Innan du ansluter det virtuella nätverket till en gateway, måste du skapa gateway-undernätet för det virtuella nätverk som du vill ansluta till. Om möjligt är det bäst att skapa ett gateway-undernät med CIDR-block av /28 eller /27 för att tillhandahålla tillräckligt med IP-adresser för att hantera ytterligare framtida konfigurationskrav.
 
 Om du skapar den här konfigurationen som en övning, ser du följande [värden](#values) när du skapar gateway-undernätet.
 
 ### Så här skapar du ett gateway-undernät
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5. Skapa en virtuell nätverksgateway
 
-Om du skapar den här konfigurationen som en övning, ser du följande [värden](#values) när du skapar gatewayen.
+Om du skapar den här konfigurationen som en övning, ser du följande [exempelvärden för konfiguration](#values).
 
 ### Så här skapar du en virtuell nätverksgateway
 
@@ -120,9 +114,9 @@ Om du skapar den här konfigurationen som en övning, ser du följande [värden]
 
 ## 6. Skapa en lokal nätverksgateway
 
-Den *lokala nätverksgatewayen* avser vanligtvis dina lokala plats. Ge den lokala nätverksgatewayen ett namn som Azure kan referera till. 
+Den ”lokala nätverksgatewayen” avser vanligtvis din lokala plats. Ge den lokala nätverksgatewayen ett namn som Azure kan referera till. 
 
-Om du skapar den här konfigurationen som en övning, ser du följande [värden](#values) när du lägger till din lokala plats.
+Om du skapar den här konfigurationen som en övning, ser du följande [exempelvärden för konfiguration](#values).
 
 ### Så här skapar du en lokal nätverksgateway
 
@@ -157,6 +151,6 @@ Du kan verifiera VPN-anslutningen i portalen eller med hjälp av PowerShell.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

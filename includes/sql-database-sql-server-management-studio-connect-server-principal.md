@@ -41,10 +41,12 @@ Du kan också uttryckligen ange protokoll och portnummer med servernamnet enligt
 
 Problem med nätverksanslutningen kan även orsaka anslutningsfel och timeout. Att försöka ansluta igen (när du vet att servernamnet, autentiseringsuppgifterna och brandväggsregler är korrekta) kan leda till att det lyckas.
 
+Mer information om anslutningsproblem finns i [Felsök, diagnostisera och förebygg SQL-anslutningsfel och tillfälliga fel i SQL-databasen](../articles/sql-database/sql-database-connectivity-issues.md).
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Oct16_HO1-->
 
 

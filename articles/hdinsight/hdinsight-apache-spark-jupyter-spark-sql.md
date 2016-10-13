@@ -27,7 +27,7 @@ Lär dig hur du skapar ett Apache Spark-kluster i HDInsight och sedan använder 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-**Krav:**
+## Krav
 
 - **En Azure-prenumeration**. Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -39,20 +39,23 @@ Lär dig hur du skapar ett Apache Spark-kluster i HDInsight och sedan använder 
     
     -  Från en Windows-dator – [Använd SSH med Linux-baserat HDInsight (Hadoop) från Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
->[AZURE.NOTE]  Den här artikeln använder en ARM-mall för att skapa ett Spark-kluster som använder [Azure Storage-blobar som klusterlagring](hdinsight-hadoop-use-blob-storage.md). Du kan också skapa ett Spark-kluster som använder [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) som ett ytterligare lagringsutrymme, utöver Azure Storage-blobar som standardlagring. Instruktioner finns i [Skapa ett HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+>[AZURE.NOTE] Den här artikeln använder en mall för Azure-resurshanteraren för att skapa ett Spark-kluster som använder [Azure Storage-blob som klusterlagring](hdinsight-hadoop-use-blob-storage.md). Du kan också skapa ett Spark-kluster som använder [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) som ett ytterligare lagringsutrymme, utöver Azure Storage-blobar som standardlagring. Instruktioner finns i [Skapa ett HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
+### Åtkomstkontrollkrav
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Skapa Spark-kluster
 
-I det här avsnittet skapar du ett HDInsight-kluster av version 3.4 (Spark-version 1.6.1) med hjälp av en Azure ARM-mall. Information om HDInsight-versioner och deras serviceavtal finns i [Versionshantering för HDInsight-komponenter](hdinsight-component-versioning.md). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
+I det här avsnittet skapar du ett HDInsight-version 3.4 kluster (Sparkversion 1.6.1) med hjälp av en mall för Azure-resurshanteraren. Information om HDInsight-versioner och deras serviceavtal finns i [Versionshantering för HDInsight-komponenter](hdinsight-component-versioning.md). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Klicka på följande bild för att öppna en ARM-mall i Azure Portal.         
+1. Klicka på följande bild för att öppna mallen i Azure Portal.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    ARM-mallen finns i den offentlig blob-behållaren *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*. 
+    Mallen finns i en offentlig blob-behållare *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*. 
    
-2. Skriv följande på bladet Parametrar:
+2. Skriv följande i bladet Parametrar:
 
     - **Klusternamn**: Ange ett namn för det Hadoop-kluster du vill skapa.
     - **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard ”admin”.
@@ -217,6 +220,6 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

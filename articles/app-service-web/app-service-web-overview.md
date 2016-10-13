@@ -16,6 +16,7 @@
     ms.date="08/26/2016"
     ms.author="rachelap"/>
 
+
 # Översikt över Web Apps
 
 *App Service Web Apps* är en helt hanterad beräkningsplattform som är optimerad för hantering av webbplatser och webbappar. Det här PaaS-erbjudandet [(platform as a service)](https://en.wikipedia.org/wiki/Platform_as_a_service) från Microsoft Azure gör att du fokusera på affärslogiken medan Azure tar hand om infrastrukturen för att köra och skala appar.
@@ -23,6 +24,8 @@
 I följande 5 minuter långa video får du en introduktion till App Service Web Apps.
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
+
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 ## Vad är en webbapp i App Service för något?
 
@@ -64,6 +67,6 @@ Om du vill komma igång med Azure App Service innan du registrerar dig för ett 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

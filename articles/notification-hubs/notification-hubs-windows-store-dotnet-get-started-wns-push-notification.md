@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/21/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -268,8 +268,8 @@ Om du vill få mer allmän information om Notification Hubs kan du läsa [Riktli
 
 <!-- URLs. -->
 
-[Använda Notification Hubs för att skicka push-meddelanden till användare]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Använda Notification Hubs för att skicka de senaste nyheterna]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Använda Notification Hubs för att skicka push-meddelanden till användare]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Använda Notification Hubs för att skicka de senaste nyheterna]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
@@ -277,6 +277,6 @@ Om du vill få mer allmän information om Notification Hubs kan du läsa [Riktli
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

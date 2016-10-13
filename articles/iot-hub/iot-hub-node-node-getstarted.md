@@ -263,7 +263,7 @@ Nu är det dags att köra programmen.
     node ReadDeviceToCloudMessages.js 
     ```
 
-    ![][7]
+    ![Node.js IoT Hub-tjänstens klientprogram för att övervaka meddelanden från enheten till molnet][7]
 
 2. Kör följande kommando i Kommandotolken i mappen **simulateddevice** för att börja skicka telemetridata till din IoT-hubb:
 
@@ -271,11 +271,11 @@ Nu är det dags att köra programmen.
     node SimulatedDevice.js
     ```
 
-    ![][8]
+    ![Node.js IoT Hub-tjänstens klientprogram för att skicka meddelanden från enheten till molnet][8]
 
 3. På panelen **Användning** på [Azure-portalen][lnk-portal] kan du se hur många meddelanden som skickats till hubben:
 
-    ![][43]
+    ![Azure-portal Användningspanel som visar antalet meddelanden som har skickats till IoT Hub][43]
 
 ## Nästa steg
 
@@ -290,7 +290,6 @@ För att fortsätta komma igång med IoT-hubb och utforska andra IoT-scenarier, 
 I självstudien [Behandla meddelanden från enheten till molnet][lnk-process-d2c-tutorial] lär du dig hur du utökar din IoT-lösning och behandlar ”enhet till molnet”-meddelanden i hög skala.
 
 <!-- Images. -->
-[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
 [8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
@@ -299,13 +298,13 @@ I självstudien [Behandla meddelanden från enheten till molnet][lnk-process-d2c
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -315,6 +314,6 @@ I självstudien [Behandla meddelanden från enheten till molnet][lnk-process-d2c
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

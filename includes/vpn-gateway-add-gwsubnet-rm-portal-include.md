@@ -2,18 +2,18 @@
 
 2. I avsnittet **Inställningar** i VNet-bladet klickar du på **Undernät** för att expandera bladet undernät.
 
-3. På bladet **Undernät** klickar du på **+Gateway-undernätet** längst upp. Då öppnas bladet **Lägg till undernät**. **Namn** på undernätet fylls automatiskt i med värdet GatewaySubnet. Det här värdet krävs för att Azure ska kunna identifiera undernätet som gateway-undernätet.
+3. På bladet **Undernät** klickar du på **+Gateway-undernätet** längst upp. Då öppnas bladet **Lägg till undernät**. 
 
-    ![Lägg till gateway-undernätet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet250.png)
+    ![Lägg till gateway-undernätet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Add the gateway subnet")
 
-4. Du kan ändra CIDR-block för adressintervallet om det behövs. Kontrollera de specifika kraven för konfigurationen för att bekräfta det rekommenderade CIDR-blocket.
+4. **Namn** på undernätet fylls automatiskt i med värdet GatewaySubnet. Det här värdet krävs för att Azure ska kunna identifiera undernätet som gateway-undernätet. Justera de automatiskt ifyllda värdena för **adressintervall** så att de motsvarar dina konfigurationskrav.
 
-5. Klicka på **OK** längst ned på bladet för att skapa undernätet.
+    ![Lägga till ett undernät](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
+
+6. Klicka på **OK** längst ned på bladet för att skapa undernätet.
 
 
 
-
-
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -56,7 +56,7 @@ I det här avsnittet ska du utföra följande steg för att skapa ett nytt Azure
 2. Välj **Automation-konton**.
 3. Klicka på **Lägg till** på bladet Automation-konton.<br>![Lägga till ett Automation-konto](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
 
-    >[AZURE.NOTE] Om du ser följande varning på bladet **Lägg till Automation-konto** beror det på att ditt konto inte är medlem i rollen Prenumerationsadministratörer och inte är medadministratör för prenumerationen.<br>![Varningsmeddelande för Lägg till Automation-konto](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
+    >[AZURE.NOTE] Om du ser i följande varning i bladet **Lägga till ett Automation-konto** beror det på att ditt konto inte är medlem i rollerna administratör eller medadministratör för prenumerationen.<br>![Varningsmeddelande för Lägg till Automation-konto](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
 
 4. På bladet **Lägg till Automation-konto** skriver du namnet på det nya Automation-kontot i rutan **Namn**.
 5. Om du har mer än en prenumeration anger du den prenumeration som du vill använda för det nya kontot, samt en ny eller befintlig **resursgrupp** och en **plats** för Azure-datacentret.
@@ -389,6 +389,6 @@ Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-run
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

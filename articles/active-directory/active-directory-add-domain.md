@@ -13,11 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/18/2016"
+    ms.date="09/30/2016"
     ms.author="curtand;jeffsta"/>
 
 
 # Lägga till ett anpassat domännamn i Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-domains-add-qzure-portal.md)
+- [Klassisk Azure-portal](active-directory-add-domain.md)
 
 Din organisation använder ett eller flera domännamn för att göra affärer och dina användare loggar in i företagsnätverket med företagets domännamn. Nu när du använder Azure Active Directory (AD Azure) kan du även lägga till företagets domännamn i Azure AD. På så sätt kan du tilldela användarnamn i katalogen som dina användare känner igen, t.ex. ”alice@contoso.com”. Processen är enkel:
 
@@ -94,6 +98,6 @@ Om din organisation använder flera anpassade domännamn, t.ex. contoso.com och 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -30,13 +30,17 @@ Informationen i det här dokumentet är specifik för Linux-baserade HDInsight-k
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-###Krav
+##Krav
 
 Innan du påbörjar den här HBase-självstudien måste du ha:
 
 - **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Secure Shell (SSU)](hdinsight-hadoop-linux-use-ssh-unix.md). 
+- [Secure Shell(SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 - [curl](http://curl.haxx.se/download.html).
+
+### Åtkomstkontrollkrav
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Skapa HBase-kluster
 
@@ -328,6 +332,6 @@ Du kan läsa mer här:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

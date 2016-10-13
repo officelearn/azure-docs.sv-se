@@ -3,8 +3,8 @@
  description="Begrepp, terminologi och entitetshierarki, inklusive jobb och jobbsamlingar, relaterade till Azure Scheduler.  Innehåller ett omfattande exempel på ett schemalagt jobb."
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="get-started-article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 
 # Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler
@@ -221,6 +221,6 @@ Om du vill ange en återförsöksprincip kan du ange ytterligare två inställni
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

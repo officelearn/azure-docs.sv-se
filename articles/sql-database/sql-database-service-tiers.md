@@ -20,7 +20,7 @@
 
 # SQL Database-alternativ och prestanda: Förstå vad varje tjänstnivå erbjuder
 
-[Azure SQL Database](sql-database-technical-overview.md) erbjuder tre tjänstnivåer med flera prestandanivåer för hantering av olika arbetsbelastningar. Ju högre prestandanivå, desto större uppsättning resurser för ett högre genomflöde. Du kan hantera varje databas på dess egen [tjänstnivå](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels), på dess egen prestandanivå. Du kan också hantera flera databaser i en [elastisk pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) med en delad uppsättning resurser. Resurserna som är tillgängliga för fristående databaser uttrycks som databastransaktionsenheter (DTU, Database Transaction Unit) och för elastiska pooler som elastiska DTU:er eller eDTU:er. Mer information om DTU:er och eDTU:er finns i [Vad är en DTU?](sql-database-what-is-a-DTU.md) 
+[Azure SQL Database](sql-database-technical-overview.md) erbjuder tre tjänstnivåer med flera prestandanivåer för hantering av olika arbetsbelastningar. Ju högre prestandanivå, desto större uppsättning resurser för ett högre genomflöde. Du kan hantera varje databas på dess egen [tjänstnivå](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels), på dess egen prestandanivå. Du kan också hantera flera databaser i en [elastisk pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) med en delad uppsättning resurser. Resurserna som är tillgängliga för fristående databaser uttrycks som databastransaktionsenheter (DTU, Database Transaction Unit) och för elastiska pooler som elastiska DTU:er eller eDTU:er. Mer information om DTU:er och eDTU:er finns i [Vad är en DTU?](sql-database-what-is-a-dtu.md) 
 
 I båda fallen kan du välja mellan tjänstnivåerna **Basic**, **Standard** och **Premium**. Databasalternativen på de här nivåerna är liknande för fristående databaser och elastiska pooler, men det finns fler saker att tänka på om du använder elastiska pooler. Den här artikeln innehåller information om tjänstnivåer för fristående databaser och elastiska pooler.
 
@@ -91,6 +91,6 @@ Information om vanliga mönster för dataarkitekturen i SaaS-databasprogram (Sof
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

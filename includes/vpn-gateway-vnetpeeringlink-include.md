@@ -1,1 +1,5 @@
->[AZURE.NOTE] If your VNets are in the same region, you may want to consider connecting them by using VNet peering. For more information, see the [VNet peering](../articles/virtual-network/virtual-network-peering-overview.md) article.
+Det är också möjligt att ansluta VNets utan att använda en VPN-gateway. Om dina VNets finns i samma region kan det vara bättre att ansluta dem med hjälp av VNet peering. Mer information finns i artikeln om [VNet peering](../articles/virtual-network/virtual-network-peering-overview.md).
+
+<!--HONumber=Oct16_HO1-->
+
+

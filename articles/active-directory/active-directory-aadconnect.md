@@ -4,7 +4,7 @@
     keywords="introduktion till Azure AD Connect, översikt över Azure AD Connect, vad är Azure AD Connect, installera Active Directory"
     services="active-directory"
     documentationCenter=""
-    authors="andkjell"
+    authors="billmath"
     manager="femila"
     editor=""/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/30/2016"
-    ms.author="andkjell;billmath"/>
+    ms.date="10/04/2016"
+    ms.author="billmath"/>
 
 
 # Integrera dina lokala identiteter med Azure Active Directory
@@ -24,7 +24,7 @@ Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. P�
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [Azure AD Connect är det bästa sättet att ansluta din lokala katalog till Azure AD och Office 365. Det är en bra tidpunkt för att uppgradera till Azure AD Connect från Windows Azure Active Directory Sync (DirSync) eller Azure AD Sync eftersom dessa verktyg nu är föråldrade och supporten för dem upphör den 13 april 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect är det bästa sättet att ansluta din lokala katalog till Azure AD och Office 365. Det är en bra tidpunkt för att uppgradera till Azure AD Connect från Windows Azure Active Directory Sync (DirSync) eller Azure AD Sync eftersom dessa verktyg nu är föråldrade och supporten för dem upphör den 13 april 2017.]active-directory-aadconnect-dirsync-deprecated.md)
 
 ![Vad är Azure AD Connect?](./media/active-directory-aadconnect/arch.png)
 
@@ -56,9 +56,9 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](http://go.mi
 Lösning | Scenario
 ----- | ----- |
 Innan du börjar – [Maskinvara och krav](active-directory-aadconnect-prerequisites.md) | <li>Steg som du måste utföra innan du börjar installera Azure AD Connect.</li>
-[Standardinställningar](active-directory-aadconnect-get-started-express.md) | <li>Om du har en AD med enda skog är detta det rekommenderade alternativet.</li> <li>Användaren loggar in med samma lösenord med hjälp av lösenordssynkronisering.</li>
-[Anpassade inställningar](active-directory-aadconnect-get-started-custom.md) | <li>Används när du har flera skogar. Har stöd för många lokala [topologier](active-directory-aadconnect-topologies.md).</li> <li>Anpassa ditt inloggningsalternativ, t.ex. AD FS för federation eller använd en identitetsprovider från en tredje part.</li> <li>Anpassa synkroniseringsfunktioner, t.ex. filtrering och tillbakaskrivning.</li>
-[Uppgradera från DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Används när du har en befintlig DirSync-server som redan körs.</li>
+[Standardinställningar](./aad-connect/active-directory-aadconnect-get-started-express.md) | <li>Om du har en AD med enda skog är detta det rekommenderade alternativet.</li> <li>Användaren loggar in med samma lösenord med hjälp av lösenordssynkronisering.</li>
+[Anpassade inställningar](./aad-connect/active-directory-aadconnect-get-started-custom.md) | <li>Används när du har flera skogar. Har stöd för många lokala [topologier](active-directory-aadconnect-topologies.md).</li> <li>Anpassa ditt inloggningsalternativ, t.ex. AD FS för federation eller använd en identitetsprovider från en tredje part.</li> <li>Anpassa synkroniseringsfunktioner, t.ex. filtrering och tillbakaskrivning.</li>
+[Uppgradera från DirSync](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Används när du har en befintlig DirSync-server som redan körs.</li>
 [Uppgradera från Azure AD Sync eller Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md)| <li>Det finns flera olika metoder beroende på dina preferenser.</li>
 
 
@@ -69,9 +69,9 @@ Innan du börjar – [Maskinvara och krav](active-directory-aadconnect-prerequis
 Avsnitt |  
 --------- | ---------
 Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
-Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](active-directory-aadconnect-get-started-express.md)
-Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-Uppgradera från DirSync | [Uppgradera från Azure AD-synkroniseringsverktyget (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-express.md)
+Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md)
+Uppgradera från DirSync | [Uppgradera från Azure AD-synkroniseringsverktyget (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Efter installationen | [Verifiera installationen och tilldela licenser ](active-directory-aadconnect-whats-next.md)
 
 ### Mer information om installationen av Azure AD Connect
@@ -82,7 +82,7 @@ Avsnitt |
 --------- | ---------
 Topologier som stöds | [Topologier för Azure AD Connect](active-directory-aadconnect-topologies.md)
 Designbegrepp | [Designbegrepp för Azure AD Connect](active-directory-aadconnect-design-concepts.md)
-Konton som används för installation | [Mer information om Azure AD Connect-autentiseringsuppgifter och -behörigheter](active-directory-aadconnect-accounts-permissions.md)
+Konton som används för installation | [Mer information om Azure AD Connect-autentiseringsuppgifter och -behörigheter](./aad-connect/active-directory-aadconnect-accounts-permissions.md)
 Driftplanering | [Azure AD Connect-synkronisering: Driftåtgärder och saker att tänka på](active-directory-aadconnectsync-operations.md)
 Alternativ för användarinloggning | [Alternativ för användarinloggning i Azure AD Connect](active-directory-aadconnect-user-signin.md)
 
@@ -167,6 +167,6 @@ Ignite 2015-presentation om hur du utökar dina lokala kataloger till molnet.
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="09/30/2016"
     ms.author="curtand"/>
 
 
@@ -87,14 +87,33 @@ Du kan anpassa följande element på inloggningssidan:
 
 ![][5]
 
- Sidelement  | Plats på sidan
-    ------------- | -------------
-Banderollslogotyp | Visas längst upp till höger på sidan. Ersätter logotypen som visas på målwebbplatsen som du loggar in på (till exempel Office 365 eller Azure).
-Stor bild/bakgrundsfärg | Visas till vänster på sidan. Ersätter bilden som visas på målwebbplatsen som du loggar in på. Bakgrundsfärgen kanske visas i stället för den stora bilden vid anslutningar med låg bandbredd eller på smala skärmar.
-Text på inloggningssidan | Visas ovanför sidfoten och kan förmedla praktisk information till användare innan de loggar in med ett arbets- eller skolkonto. Du kanske vill lägga till telefonnumret till supportavdelningen eller ett juridiskt meddelande.
+
+
+| Sidelement  | Plats på sidan |
+|:--            | ---                  |
+|Banderollslogotyp    | Visas längst upp till höger på sidan. Ersätter logotypen som visas på målwebbplatsen som du loggar in på (till exempel Office 365 eller Azure).|
+|Stor bild/bakgrundsfärg | Visas till vänster på sidan. Ersätter bilden som visas på målwebbplatsen som du loggar in på. Bakgrundsfärgen kanske visas i stället för den stora bilden vid anslutningar med låg bandbredd eller på smala skärmar.|
+|Håll mig inloggad | Visas under textrutan lösenord. |
+|Text på inloggningssidan | Visas ovanför sidfoten och kan förmedla praktisk information till användare innan de loggar in med ett arbets- eller skolkonto. Du kanske vill lägga till telefonnumret till supportavdelningen eller ett juridiskt meddelande.|
+
 
 > [AZURE.NOTE]
 Alla element är valfria. Om du till exempel lägger till en banderollslogotyp men ingen stor bild så visas din logotyp och målwebbplatsens bild (dvs. bilden på en motorväg i Kalifornien för Office 365).
+
+
+På inloggningssidan gör kryssrutan **Håll mig inloggad** att användaren kan förbli inloggad när de stänger och öppnar webblösaren. Den påverkar inte sessionens längd. Du kan dölja kryssrutan på inloggningssidan för Azure Active Directory.
+
+Inställningen för **Dölj KMSI** avgör om kryssrutan visas.
+
+![][9]
+
+
+Konfigurera den här inställningen om du vill dölja kryssrutan **dold**. 
+
+> [AZURE.NOTE] För vissa funktioner i SharePoint Online och Office 2010 måste användarna kunna markera den här kryssrutan. Om du konfigurerar den här inställningen som dold kan eventuellt ytterligare och oväntade uppmaningar att logga in visas för dina användare.
+
+
+
 
 Du kan också lokalisera alla element på den här sidan. När du har konfigurerat en standarduppsättning med anpassningselement kan du konfigurera fler versioner för olika språk. Du kan också blanda och matcha olika element. Du kan till exempel:
 
@@ -220,9 +239,10 @@ Bakgrundsfärg på inloggningssidan | Bakgrundsfärgen på inloggningssidan anv�
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

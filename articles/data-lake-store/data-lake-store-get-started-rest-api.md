@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -35,17 +35,8 @@ I den här artikeln får du lära dig hur du använder WebHDFS REST API:er och D
 ## Krav
 
 - **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Skapa ett program i Azure Active Directory**. Det finns två sätt att autentisera med Azure Active Directory – **interaktivt** och **icke-interaktivt**. Det finns olika förutsättningar baserat på hur du vill autentisera.
-    * **För interaktiv autentisering** (används i den här artikeln) – Du måste skapa ett **Native Client-program** i Azure Active Directory. När du har skapat programmet, hämtar du följande värden som är relaterade till programmet.
-        - Hämta **klient-ID** och **omdirigerings-URI** för programmet
-        - Ange delegerade behörigheter
 
-    * **För icke-interaktiv autentisering** – Du måste skapa en **Webbapp** i Azure Active Directory . När du har skapat programmet, hämtar du följande värden som är relaterade till programmet.
-        - Hämta **klient-ID**, **klienthemlighet** och **omdirigerings-URI** för programmet
-        - Ange delegerade behörigheter
-        - Tilldela Azure Active Directory-programmet till en roll. Rollen kan vara för den nivå av omfång för vilken du vill ge behörighet till Azure Active Directory-programmet. Du kan till exempel tilldela programmet på prenumerationsnivån eller på en resursgruppsnivå. Instruktioner finns i [Tilldela program till en roll](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
-
-    Se [Skapa Active Directory-program och tjänstens huvudnamn med hjälp av portalen](../resource-group-create-service-principal-portal.md) för anvisningar om hur du hämtar dessa värden, anger behörigheter och tilldelar roller.
+- **Skapa ett program i Azure Active Directory**. Du kan använda Azure AD-program för att autentisera Data Lake Store-program med Azure AD. Det finns olika sätt att autentisera med Azure AD: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Autentisera med Data Lake Store med Azure Active Directory (Authenticate with Data Lake Store using Azure Active Directory)](data-lake-store-authenticate-using-active-directory.md).
 
 - [cURL](http://curl.haxx.se/). Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Store-konto.
 
@@ -53,7 +44,7 @@ I den här artikeln får du lära dig hur du använder WebHDFS REST API:er och D
 
 Du kan använda två sätt för att autentisera med Azure Active Directory.
 
-### Interaktivt (användarautentisering)
+### Slutanvändarautentisering (interaktiv)
 
 I det här scenariot uppmanar programmet användaren att logga in och alla åtgärder utförs i kontexten för användaren. Utför följande steg för interaktiv autentisering.
 
@@ -61,7 +52,7 @@ I det här scenariot uppmanar programmet användaren att logga in och alla åtg�
 
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-    >[AZURE.NOTE] \<REDIRECT-URI> måste kodas för användning i en URL. Så, https://localhost, använd `https%3A%2F%2Flocalhost`)
+    >[AZURE.NOTE] \<REDIRECT-URI> måste kodas för användning i en URL. Alltså ska `https%3A%2F%2Flocalhost` användas för https://localhost)
 
     För självstudierna kan du ersätta platshållarvärdena i URL-adressen ovan och klistra in den i webbläsarens adressfält. Du omdirigeras för att autentisera med Azure-autentiseringsuppgifter. När du har loggat in visas svaret i webbläsarens adressfält. Svaret ska ha följande format:
         
@@ -92,7 +83,7 @@ I det här scenariot uppmanar programmet användaren att logga in och alla åtg�
  
 Mer information om interaktiv användarautentisering finns i [Flöde beviljat med auktoriseringskod](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### Icke-interaktivt
+### Tjänst-till-tjänst-autentisering (icke-interaktivt)
 
 I det här scenariot ger programmet sina egna autentiseringsuppgifter för att utföra åtgärder. För detta måste du skicka en POST-begäran såsom visas nedan. 
 
@@ -278,6 +269,6 @@ Du bör se utdata som liknar följande:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

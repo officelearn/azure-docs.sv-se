@@ -3,8 +3,8 @@
     description="Följ den här kursen och kom igång med att använda mobilappserverdelar i Azure för iOS-utveckling i Objective-C eller Swift"
     services="app-service\mobile"
     documentationCenter="ios"
-    authors="krisragh"
-    manager="dwrede"
+    authors="yuaxu"
+    manager="yochayk"
     editor=""/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="08/17/2016"
-    ms.author="krisragh"/>
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
+
 
 #Skapa en iOS-app
 
@@ -49,6 +50,6 @@ Du behöver [ett Azure-konto](https://azure.microsoft.com/pricing/free-trial/) o
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -16,6 +16,7 @@
     ms.date="08/31/2016"
     ms.author="rachelap"/>
 
+
 # Skapa och distribuera en Java API-app i Azure Apptjänst
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
@@ -24,7 +25,7 @@ I de här självstudierna får du veta hur du skapar en Java-applikation och dis
 
 ## Krav
 
-1. [Java Developer Kit 8] (eller senare)
+1. [Java Developer's Kit 8] \(eller senare)
 1. [Maven] installerat på utvecklingsdatorn
 1. [Git] installerat på utvecklingsdatorn
 1. En betald eller [kostnadsfri prov]prenumeration på [Microsoft Azure]
@@ -309,7 +310,7 @@ Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter
 [kostnadsfri prov]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
 [Java-utvecklingscenter]: /develop/java/
-[Java Developer Kit 8 (eller senare)]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[Java Developer's Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
@@ -340,6 +341,6 @@ Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

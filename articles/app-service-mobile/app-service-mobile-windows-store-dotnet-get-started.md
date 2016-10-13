@@ -3,7 +3,7 @@
     description="Följ den här kursen och kom igång med att använda serverdelar för mobilappar i Azure för utveckling av appar med den universella Windowsplattformen (UWP) i C#, Visual Basic eller JavaScript."
     services="app-service\mobile"
     documentationCenter="windows"
-    authors="ggailey777"
+    authors="adrianhall"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 #Skapa en Windows-app
 
@@ -98,6 +99,6 @@ När du har konfigurerat serverdelen för mobilappen kan du antingen skapa en ny
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

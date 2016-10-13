@@ -17,10 +17,11 @@
     ms.date="09/12/2016"
     ms.author="mimig"/>
 
+
 # Så här skapar du ett DocumentDB NoSQL-konto med Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documntdb-create-account.md)
+- [Azure Portal](documentdb-create-account.md)
 - [Azure CLI och Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 
 Om du vill skapa en databas med Microsoft Azure DocumentDB måste du:
@@ -95,6 +96,6 @@ Mer information om DocumentDB finns i följande resurser:
 
 
 
-<!---HONumber=sep12_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

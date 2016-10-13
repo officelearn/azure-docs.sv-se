@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="mobile-multiple"
     ms.workload="mobile" 
-    ms.date="07/07/2016"
+    ms.date="10/04/2016"
     ms.author="wesmc;ricksal"/>
 
 
@@ -357,7 +357,7 @@ Testa alla typer av meddelandebeteenden som finns inbäddade i appen
 
 #### Konfiguration
 
-Det är mycket enkelt att konfigurera Azure Mobile Engagement. All dokumentation som rör användargränssnittet finns på webbplatsen för Azure Mobile Engagement i avsnittet [How to navigate the user interface](mobile-engagement-user-interface.md).
+Det är mycket enkelt att konfigurera Azure Mobile Engagement. All dokumentation som rör användargränssnittet finns på webbplatsen för Azure Mobile Engagement i avsnittet [How to navigate the user interface](mobile-engagement-user-interface-home.md).
 
 Vi rekommenderar att du börjar med att konfigurera rätt roller och rollmedlemskap för användarna i ditt projekt. Detta hjälper dig att hantera åtkomst till plattformen för alla användare. Rollerna kan vara:
 
@@ -410,6 +410,6 @@ När du har fått en viss erfarenhet bör du överväga att lägga till följand
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

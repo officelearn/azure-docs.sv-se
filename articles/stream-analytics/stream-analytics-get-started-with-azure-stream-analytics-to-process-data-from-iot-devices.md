@@ -1,127 +1,128 @@
 <properties
-    pageTitle="Komma igång med Azure Stream Analytics för bearbetning av data från IoT-enheter. | Stream Analytics"
-    description="IoT-sensortaggar och dataströmmar med dataströmsanalys och realtidsbearbetning av data"
-    keywords="iot-lösning, komma igång med iot"
+    pageTitle="Get started with Azure Stream Analytics to process data from IoT devices. | Microsoft Azure"
+    description="IoT sensor tags and data streams with stream analytics and real-time data processing"
+    keywords="iot solution, get started with iot"
     services="stream-analytics"
     documentationCenter=""
     authors="jeffstokes72"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
 />
 
-<tags 
-    ms.service="stream-analytics" 
-    ms.devlang="na" 
-    ms.topic="hero-article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="data-services" 
-    ms.date="08/11/2016"
+<tags
+    ms.service="stream-analytics"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-services"
+    ms.date="09/26/2016"
     ms.author="jeffstok"
 />
 
-# Komma igång med Azure Stream Analytics för bearbetning av data från IoT-enheter
 
-I den här självstudiekursen lär du dig hur du skapar logiken för bearbetning av dataströmmar för datainsamling från IoT-enheter (Internet of Things). Vi använder verkliga IoT-användningsfall (Internet of Things) för att demonstrera hur du snabbt och billigt kan skapa din lösning.
+# <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Get started with Azure Stream Analytics to process data from IoT devices
 
-## Krav
+In this tutorial, you will learn how to create stream-processing logic to gather data from Internet of Things (IoT) devices. We will use a real-world, Internet of Things (IoT) use case to demonstrate how to build your solution quickly and economically.
 
--   [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/)
--   Du kan ladda ned exempel på frågefiler och datafiler från [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
+## <a name="prerequisites"></a>Prerequisites
 
-## Scenario
+-   [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
+-   Sample query and data files downloadable from [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
-Contoso är ett företag inom industriell automation och har helt automatiserat sin produktionsprocess. Maskinerna på den här anläggningen har sensorer som sänder dataströmmar i realtid. I detta scenario vill en av företagets fabrikschefer få realtidsinsikter från dessa sensordata för att identifiera mönster och vidta lämpliga åtgärder utifrån resultatet. Vi ska använda Stream Analytics Query Language (SAQL) mot sensorinformationen för att identifiera intressanta mönster i den inkommande dataströmmen.
+## <a name="scenario"></a>Scenario
 
-Här genereras data från en Texas Instruments Sensor Tag-enhet.
+Contoso, which is a company in the industrial automation space, has completely automated its manufacturing process. The machinery in this plant has sensors that are capable of emitting streams of data in real time. In this scenario, a production floor manager wants to have real-time insights from the sensor data to look for patterns and take actions on them. We will use the Stream Analytics Query Language (SAQL) over the sensor data to find interesting patterns from the incoming stream of data.
 
-![Texas Instruments Sensor Tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
+Here data is being generated from a Texas Instruments sensor tag device.
 
-Nyttolasten för dessa data är i JSON-format och ser ut ungefär så här:
+![Texas Instruments sensor tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
 
-    
+The payload of the data is in JSON format and looks like the following:
+
+
     {
         "time": "2016-01-26T20:47:53.0000000",  
         "dspl": "sensorE",  
         "temp": 123,  
         "hmdt": 34  
     }  
-    
-I ett verkligt scenario har du flera hundra av dessa sensorer som genererar händelser som en dataström. I en idealisk situation skulle det finnas en gateway-enhet som körde kod för att skicka dessa händelser till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) eller [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/). Ditt Stream Analytics-jobb skulle mata in de här händelserna från Event Hubs och köra analysfrågor i realtid mot dataströmmarna. Sedan kunde du skicka resultaten till någon av de [utdatatyper som stöds](stream-analytics-define-outputs.md).
 
-I den här Komma igång-guiden tillhandahåller vi för enkelhetens skull en exempeldatafil som hämtats från verkliga SensorTag-enheter och som du kan köra olika frågor och visa resultaten på. I efterföljande självstudiekurser lär du dig hur du kopplar jobbet till in- och utdataenheter och hur du distribuerar det till Azure-tjänsten.
+In a real-world scenario, you could have hundreds of these sensors generating events as a stream. Ideally, a gateway device would run code to push these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) or [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/). Your Stream Analytics job would ingest these events from Event Hubs and run real-time analytics queries against the streams. Then, you could send the results to one of the [supported outputs](stream-analytics-define-outputs.md).
 
-## Skapa Stream Analytics-jobbet
+For ease of use, this getting started guide provides a sample data file, which was captured from real sensor tag devices. You can run queries on the sample data and see results. In subsequent tutorials, you will learn how to connect your job to inputs and outputs and deploy them to the Azure service.
 
-I [Azure Portal](http://manage.windowsazure.com) öppnar du Stream Analytics och klickar på **Nytt** i det nedre vänstra hörnet på sidan för att skapa ett nytt analysjobb.
+## <a name="create-a-stream-analytics-job"></a>Create a Stream Analytics job
 
-![Skapa ett nytt Stream Analytics-jobb](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
+1. In the [Azure portal](http://manage.windowsazure.com), click **STREAM ANALYTICS**, and then click **NEW** in the lower-left corner of the page to create a new analytics job.
 
-Klicka på **Snabbregistrering**.
+    ![Create a new Stream Analytics job](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 
-För inställningen **Lagringskonto för regional övervakning** väljer du **Skapa nytt lagringskonto** och ger kontot ett unikt namn. Azure Stream Analytics använder det här kontot för att lagra övervakningsinformation för alla framtida jobb.
+2. Click **QUICK CREATE**.
 
-> [AZURE.NOTE] Du bör endast skapa det här lagringskontot en gång per region. Lagringen delas mellan alla Stream Analytics-jobb som skapats i den regionen.
+3. For the **REGIONAL MONITORING STORAGE ACCOUNT** setting, click **CREATE NEW STORAGE ACCOUNT**, and give it a unique name. Azure Stream Analytics will use this account to store monitoring information for all your future jobs.
 
-Klicka på **Skapa Stream Analytics-jobb** längst ned på sidan.
+    > [AZURE.NOTE] You should create this storage account only once per region. This storage will be shared across all Stream Analytics jobs that are created in that region.
 
-![Konfiguration av lagringskonto](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.jpg)
+4. Click **CREATE STREAM ANALYTICS JOB** at the bottom of the page.
 
-## Azure Stream Analytics-fråga
+    ![Storage account configuration](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.jpg)
 
-Öppna Frågeredigeraren genom att klicka på fliken Fråga. Fliken Fråga innehåller en SQL-fråga som utför transformationen av inkommande data.
+## <a name="azure-stream-analytics-query"></a>Azure Stream Analytics query
 
-## Arkivera dina rådata
+Click the **QUERY** tab to go to the Query Editor. The **QUERY** tab contains a T-SQL query that performs the transformation over the incoming event data.
 
-Den enklaste formen av frågan är en anslutningsfråga som arkiverar alla indata till dess angivna utdataenheter.
+## <a name="archive-your-raw-data"></a>Archive your raw data
 
-![Arkivera jobbfråga](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+The simplest form of query is a pass-through query that archives all input data to its designated output.
 
-Fortsätt och ladda ned exempeldatafilen från [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) till en plats på datorn. Kopiera och klistra in frågan från filen **PassThrough.txt**. Klicka på knappen Testa nedan och välj datafilen med namnet **HelloWorldASA-InputStream.json** från platsen som du laddade ned filen till.
+![Archive job query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
-![Testknappen i Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+Now, download the sample data file from [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) to a location on your computer. Paste the query from the PassThrough.txt file. Click the **Test** button, and then select the HelloWorldASA-InputStream.json data file from your downloaded location.
 
-![Testa indataströmmen](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+![Test button in Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
-Du kan se resultaten av frågan i webbläsaren, som visas nedan.
+![Test input stream](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
 
-![Testresultat](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+You can see the results of the query in the browser as shown in the following screenshot.
 
-## Filtrera data baserat på ett villkor
+![Test results](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
-Nu ska vi prova att filtrera resultatet baserat på ett villkor. Vi vill bara visa resultat för de händelser som kommer från ”SensorA”. Frågan finns i **Filtering.txt**-filen.
+## <a name="filter-the-data-based-on-a-condition"></a>Filter the data based on a condition
 
-![filtrera en dataström](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
+Let’s try to filter the results based on a condition. We would like to show results for only those events that come from “sensorA.” The query is in the Filtering.txt file.
 
-Observera att vi här jämför ett strängvärde och att det är skiftlägeskänsligt. Klicka på knappen **Kör om** för att köra frågan. Frågan bör endast returnera 389 rader från 1 860 händelser.
+![Filtering a data stream](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 
-![Andra utdataresultat från frågetest](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
+Note that the case-sensitive query compares a string value. Click the **Rerun** button to execute the query. The query should return 389 rows out of 1860 events.
 
-## Varna för att utlösa företagsarbetsflöde
+![Second output results from query test](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
-Nu gör vi vår fråga mer detaljerad. Om vi vill övervaka genomsnittstemperaturen per 30-sekundersfönster och visa resultat bara om genomsnittet överstiger 100 grader, skriver vi frågan nedan för varje sensortyp och klickar på **Kör om** för att se resultaten. Frågan finns i filen **ThresholdAlerting.txt**.
+## <a name="alert-to-trigger-a-business-workflow"></a>Alert to trigger a business workflow
 
-![30 sekunders-filterfråga](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+Let's make our query more detailed. For every type of sensor, we want to monitor average temperature per 30-second window and display results only if the average temperature is above 100 degrees. We will write the following query and then click **Rerun** to see the results. The query is in the ThresholdAlerting.txt file.
 
-Som du ser innehåller resultatet bara 245 rader med de sensorer där medeltemperaturen är högre än 100. I den här frågan har vi grupperat händelseströmmen efter **dspl**, som är sensornamnet och under ett **Rullande fönster** på 30 sekunder. När vi kör den här typen av temporala frågor är det viktigt att ange hur vi vill behandla tiden för att gå framåt. Med hjälp av **TIMESTAMP BY**-satsen har vi angett ”time”-kolumnen som ett sätt att behandla tiden för alla temporala beräkningar. Mer detaljerad information finns i MSDN-ämnena om [tidshantering](https://msdn.microsoft.com/library/azure/mt582045.aspx) och [fönsterfunktioner](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+![30-second filter query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-![Temp över 100](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
+You should now see results that contain only 245 rows and names of sensors where the average temperate is greater than 100. This query groups the stream of events by **dspl**, which is the sensor name, over a **Tumbling Window** of 30 seconds. Temporal queries must state how we want time to progress. By using the **TIMESTAMP BY** clause, we have specified the **OUTPUTTIME** column to associate times with all temporal calculations. For detailed information, read the MSDN articles about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing functions](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
-## Identifiera avsaknad av händelser
+![Temp over 100](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-Hur kan vi skriva en fråga för att hitta brist på inmatningshändelser? Det är rätt enkelt att göra det. Vi kan till exempel ta reda på den sista gången en sensor skickade data men sedan inte skickade några händelser under den följande minuten. Frågan finns i filen **AbsenseOfEvent.txt**.
+## <a name="detect-absence-of-events"></a>Detect absence of events
 
-![Identifiera avsaknad av händelser](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-12.png)
+How can we write a query to find a lack of input events? Let’s find the last time that a sensor sent data and then did not send events for the next minute. The query is in the AbsenseOfEvent.txt file.
 
-Här använder vi en **LEFT OUTER JOIN**-koppling (vänster yttre) för samma dataström (självkoppling). För en inre koppling returneras resultatet bara om en matchning hittas.  Men om en händelse från vänster sida i kopplingen är omatchad i en **LEFT OUTER**-koppling (vänster yttre) returneras en rad med Null för alla kolumner i den högra raden. Den här tekniken är väldigt användbar för att hitta frånvaro av händelser. Mer information om [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx) finns i MSDN-dokumentationen.
+![Detect absence of events](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-12.png)
 
-![kopplingsresultatet](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-13.png)
+Here we use a **LEFT OUTER** join to the same data stream (self-join). For an **INNER** join, a result is returned only when a match is found.  For a **LEFT OUTER** join, if an event from the left side of the join is unmatched, a row that has NULL for all the columns of the right side is returned. This technique is very useful to find an absence of events. See our MSDN documentation for more information about [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx).
 
-## Slutsats
+![Join results](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-13.png)
 
-Syftet med de här självstudierna är att demonstrera hur du skriver olika Stream Analytics-frågespråkfrågor och visar resultatet i webbläsaren. Men det här är bara början. Det finns så mycket mer som du kan göra med Stream Analytics. Stream Analytics stöder olika typer av indata och utdata och kan även dra nytta av funktioner i Azure Machine Learning, vilket gör det till ett stabilt verktyg för att analysera dataströmmar. Fortsätt gärna att utforska Stream Analytics med hjälp av vår [utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/), och om du vill lära dig mer om hur du skriver frågor rekommenderar vi artikeln om [vanliga frågemönster](./stream-analytics-stream-analytics-query-patterns.md).
+## <a name="conclusion"></a>Conclusion
+
+The purpose of this tutorial is to demonstrate how to write different Stream Analytics Query Language queries and see results in the browser. However, this is just getting started. You can do so much more with Stream Analytics. Stream Analytics supports a variety of inputs and outputs and can even use functions in Azure Machine Learning to make it a robust tool for analyzing data streams. You can start to explore more about Stream Analytics by using our [learning map](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). For more information about how to write queries, read the article about [common query patterns](./stream-analytics-stream-analytics-query-patterns.md).
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

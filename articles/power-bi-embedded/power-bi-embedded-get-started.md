@@ -3,8 +3,8 @@
    description="Power BI Embedded lägger till interaktiva Power BI-rapporter i dina Business Intelligence-appar"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
-   ms.author="mblythe"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
 
 # Komma igång med Microsoft Power BI Embedded
@@ -104,6 +104,6 @@ I de föregående stegen skapade du en arbetsytesamling, din första rapport och
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

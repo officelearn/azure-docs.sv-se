@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="07/22/2016" 
+    ms.date="10/11/2016" 
     ms.author="sdanie"/>
 
 
@@ -34,7 +34,7 @@ Du får lära dig:
 -   Hur du kommer åt data från en databas med Entity Framework.
 -   Hur du förbättrar dataflödet och minskar databasbelastningen genom att lagra och hämta data med Azure Redis Cache.
 -   Hur du använder en Redis-sorterad uppsättning till att hämta de översta 5 teamen.
--   Hur du etablerar Azure-resurser för programmet med en ARM-mall.
+-   Så här etablerar du Azure-resurserna för programmet med en Resource Manager-mall.
 -   Hur du publicerar programmet till Azure med Visual Studio.
 
 ## Förutsättningar
@@ -853,6 +853,6 @@ När du har valt eller skapat cacheminnet du ska använda, bläddrar du till cac
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

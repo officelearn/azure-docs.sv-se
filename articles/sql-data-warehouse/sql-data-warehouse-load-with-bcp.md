@@ -3,7 +3,7 @@
    description="Läs mer om vad bcp är och hur man använder det för informationslager-scenarier."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,15 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="10/10/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
-# Läs in data med bcp
+
+# <a name="load-data-with-bcp"></a>Läsa in data med bcp
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 
@@ -41,7 +43,7 @@ De här självstudierna visar hur du:
 
 >[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
 
-## Krav
+## <a name="prerequisites"></a>Krav
 
 För att gå igenom de här självstudierna, behöver du:
 
@@ -51,11 +53,11 @@ För att gå igenom de här självstudierna, behöver du:
 
 >[AZURE.NOTE] Du kan hämta verktygen bcp och sqlcmd från [Microsoft Download Center][].
 
-## Importera data till SQL Data Warehouse
+## <a name="import-data-into-sql-data-warehouse"></a>Importera data till SQL Data Warehouse
 
 I de här självstudierna kommer du att skapa en tabell i Azure SQL Data Warehouse och importera data till tabellen.
 
-### Steg 1: Skapa en tabell i Azure SQL Data Warehouse
+### <a name="step-1:-create-a-table-in-azure-sql-data-warehouse"></a>Steg 1: Skapa en tabell i Azure SQL Data Warehouse
 
 Använd sqlcmd från en kommandotolk för att köra följande fråga och skapa en tabell på din instans:
 
@@ -77,7 +79,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 >[AZURE.NOTE] Se [Tabellöversikt][] eller [CREATE TABLE-syntax][] för ytterligare information om hur man skapar en tabell i SQL Data Warehouse och alternativen som finns i WITH-satsen.
 
-### Steg 2: Skapa en källdatafil
+### <a name="step-2:-create-a-source-data-file"></a>Steg 2: Skapa en källdatafil
 
 Öppna Anteckningar och kopiera följande datarader till en ny textfil. Spara sedan filen till din lokala temp-katalog, C:\Temp\DimDate2.txt.
 
@@ -98,7 +100,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 > [AZURE.NOTE] Det är viktigt att komma ihåg att bcp.exe inte har stöd för UTF-8 filkodning. Använd ASCII-filer eller UTF-16-kodade filer när du använder bcp.exe.
 
-### Steg 3: Anslut och importera data
+### <a name="step-3:-connect-and-import-the-data"></a>Steg 3: Anslut och importera data
 Med bcp kan du ansluta och importera data med hjälp av följande kommando, där du ersätter värdena med lämpliga sådana:
 
 ```sql
@@ -128,7 +130,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### Steg 4: Skapa statistik på dina nyinlästa data
+### <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Steg 4: Skapa statistik på dina nyinlästa data
 
 SQL Data Warehouse stöder inte än automatiskt skapande eller uppdatering av statistik. För att få bästa möjliga prestanda från dina frågor, är det viktigt att statistik skapas på alla kolumner i alla tabeller efter den första inläsningen eller vid betydande dataändringar. En detaljerad förklaring av statistik finns i ämnet [Statistik][] i ämnesgruppen Utveckla. Nedan följer ett enkelt exempel på hur du skapar statistik på tabellerna som lästs in i det här exemplet
 
@@ -142,10 +144,10 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## Exportera data från SQL Data Warehouse
+## <a name="export-data-from-sql-data-warehouse"></a>Exportera data från SQL Data Warehouse
 I de här självstudierna kommer du att skapa en datafil från en tabell i SQL Data Warehouse. Vi kommer att exportera de data vi skapade ovan till en ny datafil som heter DimDate2_export.txt.
 
-### Steg 1: Exportera data
+### <a name="step-1:-export-the-data"></a>Steg 1: Exportera data
 
 Med bcp-verktyget kan du ansluta och exportera data med hjälp av följande kommando, där du ersätter värdena med lämpliga sådana:
 
@@ -171,7 +173,7 @@ Du kan verifiera att data exporterats korrekt genom att öppna den nya filen. De
 
 >[AZURE.NOTE] På grund av hur distribuerade system fungerar, är det möjligt att dataordningen inte är samma i alla SQL Data Warehouse-databaser. Ett annat alternativ är att använda **queryout**-funktionen i bcp för att skriva ett fråge-extrakt istället för att exportera hela tabellen.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Se [Läs in data till SQL Data Warehouse][] för en översikt över inläsning.
 För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][].
 
@@ -179,8 +181,8 @@ För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][].
 
 <!--Article references-->
 
-[Läs in data till SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[Översikt över SQL Data Warehouse-utveckling]: ./sql-data-warehouse-overview-develop.md
+[Läs in data i SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse-utvecklingsöversikt]: ./sql-data-warehouse-overview-develop.md
 [Tabellöversikt]: ./sql-data-warehouse-tables-overview.md
 [Statistik]: ./sql-data-warehouse-tables-statistics.md
 
@@ -193,6 +195,6 @@ För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][].
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

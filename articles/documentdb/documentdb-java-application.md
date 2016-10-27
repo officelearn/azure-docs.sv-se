@@ -4,7 +4,7 @@
     keywords="Programutveckling, självstudier för databas, java-program, självstudier för java-webbprogram, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="java"
-    authors="AndrewHoh"
+    authors="dennyglee"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -15,9 +15,10 @@
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
     ms.date="08/24/2016"
-    ms.author="anhoh"/>
+    ms.author="denlee"/>
 
-# Skapa en webbapp i Java med DocumentDB
+
+# <a name="build-a-java-web-application-using-documentdb"></a>Skapa en webbapp i Java med DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -36,17 +37,17 @@ I den här självstudien om Java visar vi hur du skapar en webbaserad aktivitets
 
 > [AZURE.TIP] Den här självstudien om apputveckling förutsätter att du har tidigare erfarenhet av Java. Om du inte har använt Java eller [verktygen som krävs](#Prerequisites) tidigare, rekommenderar vi att du hämtar det fullständiga [todo](https://github.com/Azure-Samples/documentdb-java-todo-app)-projektet från GitHub och skapar det enligt [anvisningarna i slutet av artikeln](#GetProject). När du har skapat det kan du läsa den här artikeln för information om koden i projektets sammanhang.  
 
-##<a id="Prerequisites"></a>Förutsättningar för självstudien om Java-webbappen
+##<a name="<a-id="prerequisites"></a>prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Förhandskrav för den här självstudien för Java-webbprogram
 Innan du påbörjar den här självstudien om apputveckling måste du ha följande:
 
 - Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Eclipse IDE för Java EE-utvecklare.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [En Azure-webbplats med Java Runtime Environment (t.ex. Tomcat eller Jetty) aktiverat.](../app-service-web/web-sites-java-get-started.md)
+- [An Azure Website med en aktiverad Java runtime-miljö (t.ex. Tomcat eller Jetty).](../app-service-web/web-sites-java-get-started.md)
 
 Om du installerar verktygen för första gången finns det en beskrivning av installationsprocessen på coreservlets.com avsnittet Quick Start i artikeln [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
-##<a id="CreateDB"></a>Steg 1: Skapa ett DocumentDB-databaskonto
+##<a name="<a-id="createdb"></a>step-1:-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Steg 1: Skapa ett DocumentDB-databaskonto
 
 Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå vidare till [Steg 2: Skapa Java JSP-appen](#CreateJSP).
 
@@ -54,7 +55,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå 
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-##<a id="CreateJSP"></a>Steg 2: Skapa JSP Java-appen
+##<a name="<a-id="createjsp"></a>step-2:-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Steg 2: Skapa Java JSP-programmet
 
 Så här skapar du JSP-appen:
 
@@ -81,7 +82,7 @@ Så här skapar du JSP-appen:
 
     ![Hello World – självstudie om Java-app](./media/documentdb-java-application/image12.png)
 
-##<a id="InstallSDK"></a>Steg 3: Installera DocumentDB Java SDK ##
+##<a name="<a-id="installsdk"></a>step-3:-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>Steg 3: Installera DocumentDB Java SDK:n ##
 
 Det enklaste sättet att dra in DocumentDB Java SDK och dess beroenden är via [Apache Maven](http://maven.apache.org/).
 
@@ -109,7 +110,7 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
 5. Klicka på **Ok**, så installerar Maven DocumentDB-SDK:et för Java-app
 6. Spara filen pom.xml.
 
-##<a id="UseService"></a>Steg 4: Använda DocumentDB-tjänsten i en Java-app
+##<a name="<a-id="useservice"></a>step-4:-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>Steg 4: Använd DocumentDB-tjänsten i ett Java-program
 
 1. Först måste du definiera objektet TodoItem:
 
@@ -359,7 +360,7 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
         }
 
 
-##<a id="Wire"></a>Steg 5: Sammankoppla resten av Java-apputvecklingsprojektet
+##<a name="<a-id="wire"></a>step-5:-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Steg 5: Koppla samman resten av Java-programmets utvecklingsprojekt
 
 Nu har vi gjort alla roliga delar, och allt som återstår är att skapa ett snabbt användargränssnitt och ansluta det till vår DAO.
 
@@ -736,7 +737,7 @@ Nu har vi gjort alla roliga delar, och allt som återstår är att skapa ett sna
 
 6. När objektet visas kan du uppdatera om aktiviteten är slutförd eller inte genom att använda kryssrutan och sedan klicka på **Uppdatera aktiviteter**.
 
-##<a id="Deploy"></a>Steg 6: Distribuera Java-appen till Azure Websites
+##<a name="<a-id="deploy"></a>step-6:-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>Steg 6: Distribuera ditt Java-program till Azure Websites
 
 Med Azure Websites är det enkelt att distribuera Java-appar. Allt du behöver göra är exportera appen som en WAR-fil och antingen ladda upp den via källkontrollen (t.ex. GIT) eller FTP.
 
@@ -751,7 +752,7 @@ Med Azure Websites är det enkelt att distribuera Java-appar. Allt du behöver g
     När WAR-filen har laddats upp till katalogen Webbappar identifierar körningsmiljön att du har lagt till den och läser in den automatiskt.
 4. Du kan visa din färdiga produkt genom att besöka http://NAMNET PÅ DIN\_WEBBPLATS\_.azurewebsites.net/azure-documentdb-java-sample/ och börja lägga till aktiviteter!
 
-##<a id="GetProject"></a>Hämta projektet från GitHub
+##<a name="<a-id="getproject"></a>get-the-project-from-github"></a><a id="GetProject"></a>Hämta projektet från GitHub
 
 Alla exempel i den här självstudien finns i projektet [Todo](https://github.com/Azure-Samples/documentdb-java-todo-app) på GitHub. Om du vill importera Todo-projektet till Eclipse ska du se till att du har de program och resurser som anges i avsnittet [Förutsättningar](#Prerequisites) och sedan göra följande:
 
@@ -782,6 +783,6 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

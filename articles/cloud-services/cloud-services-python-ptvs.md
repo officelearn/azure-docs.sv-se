@@ -18,11 +18,11 @@
 
 
 
-# Webb- och arbetsroller för Python med Python Tools för Visual Studio
+# <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
 
 Den här artikeln innehåller en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][]. Du får lära dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 
  - Visual Studio 2013 eller 2015
  - [Python Tools för Visual Studio][] (PTVS)
@@ -31,7 +31,7 @@ Den här artikeln innehåller en översikt över hur du använder webb- och arbe
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## Vad är webb- och arbetsroller för Python?
+## <a name="what-are-python-web-and-worker-roles?"></a>Vad är webb- och arbetsroller för Python?
 
 Azure tillhandahåller tre beräkningsmodeller för program som körs: [funktionen Web Apps i Azure App Service][körningsmodell för webbplatser], [Azure Virtual Machines][körningsmodell för virtuella datorer] och [Azure Cloud Services][körningsmodell för molntjänster]. Alla tre modeller stöder Python. Cloud Services, där webb- och arbetsroller ingår, tillhandahåller *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad IIS-webbserver (Internet Information Services) som fungerar som värd för frontend-webbprogram, medan en arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
 
@@ -42,7 +42,7 @@ Om ditt scenario bara är en enkel webbplats bör du överväga att använda den
 <br />
 
 
-## Skapa projekt
+## <a name="project-creation"></a>Skapa projekt
 
 I Visual Studio kan du välja **Azure Cloud Service** i dialogrutan **Nytt projekt** under **Python**.
 
@@ -62,7 +62,7 @@ Du kan lägga till webb- eller arbetsroller till en befintlig molntjänst när s
 
 Din molntjänst kan innehålla roller som implementeras på olika språk.  Exempelvis kan en Python-webbroll implementeras med hjälp av Django, med Python, eller med C#-arbetsroller.  Du kan enkelt kommunicera mellan dina roller med hjälp av Service Bus-köer eller lagringsköer.
 
-## Installera Python i molntjänsten
+## <a name="install-python-on-the-cloud-service"></a>Installera Python i molntjänsten
 
 >[AZURE.WARNING] Installationsskripten som installeras med Visual Studio (när den här artikeln uppdaterades senast) fungerar inte. Det här avsnittet beskriver en lösning.
 
@@ -113,7 +113,7 @@ Variablerna **PYTHON2** och **PYPATH** måste läggas till arbetsstartsaktivitet
 </Runtime>
 ```
 
-#### Exempel ServiceDefinition.csdef
+#### <a name="sample-servicedefinition.csdef"></a>Exempel ServiceDefinition.csdef
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,7 +165,7 @@ Variablerna **PYTHON2** och **PYPATH** måste läggas till arbetsstartsaktivitet
 
 Skapa sedan filerna **PrepPython.ps1** och **PipInstaller.ps1** i din rolls **. / bin**-mapp.
 
-#### PrepPython.ps1
+#### <a name="preppython.ps1"></a>PrepPython.ps1
 
 Det här skriptet installerar Python. Om **PYTHON2**-miljövariabeln anges till **på**, installeras Python 2.7, annars installeras Python 3.5.
 
@@ -212,7 +212,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### PipInstaller.ps1
+#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
 
 Det här skriptet ringer upp pip och installerar alla beroenden i **requirements.txt**-filen. Om **PYTHON2**-miljövariabeln anges till **på**, används Python 2.7, annars används Python 3.5.
 
@@ -241,7 +241,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### Ändra LaunchWorker.ps1
+#### <a name="modify-launchworker.ps1"></a>Ändra LaunchWorker.ps1
 
 >[AZURE.NOTE] Vid ett **arbetsroll**projekt krävs filen **LauncherWorker.ps1** för att köra startfilen. Vid ett **webbroll**projekt definieras startfilen istället i egenskaperna för projektet.
 
@@ -284,7 +284,7 @@ else
 }
 ```
 
-#### ps.cmd
+#### <a name="ps.cmd"></a>ps.cmd
 
 Visual Studio-mallarna ska ha skapat en **ps.cmd**-fil i **. / bin**-mappen. Detta gränssnittsskript anropar PowerShell-omslutningsskripten ovan och tillhandahåller loggning baserat på namnet på den anropade PowerShell-omslutningen. Detta är vad som bör finnas i den, om filen inte skapades. 
 
@@ -299,7 +299,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 
-## Lokal körning
+## <a name="run-locally"></a>Lokal körning
 
 Om du definierar ditt molntjänstprojekt som startprojektet och trycker på F5 körs molntjänsten i den lokala Azure-emulatorn.
 
@@ -309,7 +309,7 @@ Om du vill felsöka dina webb- och arbetsroller kan du konfigurera rollprojektet
 
 ![Egenskaper för lösningens startprojekt](./media/cloud-services-python-ptvs/startup.png)
 
-## Publicera till Azure
+## <a name="publish-to-azure"></a>Publicera till Azure
 
 När du vill publicera högerklickar du på molntjänstprojektet i lösningen och väljer **Publicera**.
 
@@ -325,11 +325,11 @@ Förloppet visas i utdatafönstret. Därefter visas fönstret med Microsoft Azur
 
 Distributionen tar flera minuter. När den är klar körs dina webb- och/eller arbetsroller i Azure!
 
-### Undersöka loggar
+### <a name="investigate-logs"></a>Undersöka loggar
 
 När den virtuella molntjänstdatorn startar och installerar Python, kan du titta på loggarna för att hitta eventuella felmeddelanden. Dessa loggar finns i mappen **C:\Resources\Directory\{roll} \LogFiles**. **PrepPython.err.txt** har minst ett fel från när skriptet försöker identifiera om Python är installerat och **PipInstaller.err.txt** kan klaga över en inaktuell version av pip.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Mer detaljerad information om hur du arbetar med webb- och arbetsroller i Python Tools för Visual Studio finns i dokumentationen till PTVS:
 
@@ -341,36 +341,36 @@ Mer information om hur du använder Azure-tjänster från dina webb- och arbetsr
 - [Tabelltjänst][]
 - [Kötjänst][]
 - [Service Bus-köer][]
-- [Avsnitt om Service Bus][]
+- [Service Bus-ämnen][]
 
 
 <!--Link references-->
 
 [Vad är en molntjänst?]: cloud-services-choose-me.md
-[körningsmodell för webbplatser]: ../app-service-web/app-service-web-overview.md
-[körningsmodell för virtuella datorer]: ../virtual-machines/virtual-machines-windows-about.md
-[körningsmodell för molntjänster]: cloud-services-choose-me.md
+[webbplatser av körningsmodell]: ../app-service-web/app-service-web-overview.md
+[vm:ar av körningsmodell]: ../virtual-machines/virtual-machines-windows-about.md
+[molntjänster av körningsmodell]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
 [Blob-tjänst]: ../storage/storage-python-how-to-use-blob-storage.md
 [Kötjänst]: ../storage/storage-python-how-to-use-queue-storage.md
 [Tabelltjänst]: ../storage/storage-python-how-to-use-table-storage.md
-[Service Bus-köer]: ../service-bus/service-bus-python-how-to-use-queues.md
-[Avsnitt om Service Bus]: ../service-bus/service-bus-python-how-to-use-topics-subscriptions.md
+[Service Bus-köer]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus-ämnen]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
 [Python Tools för Visual Studio]: http://aka.ms/ptvs
-[Dokumentation om Python Tools för Visual Studio]: http://aka.ms/ptvsdocs
+[Dokumentation för Python Tools för Visual Studio]: http://aka.ms/ptvsdocs
 [Molntjänstprojekt]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure SDK-verktyg för VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK-verktyg för VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32-bitars]: https://www.python.org/downloads/
-[Python 3.5 32-bitars]: https://www.python.org/downloads/
+[Azure SDK Tools för VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK Tools för VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Python 2.7 32-bit]: https://www.python.org/downloads/
+[Python 3.5 32-bit]: https://www.python.org/downloads/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

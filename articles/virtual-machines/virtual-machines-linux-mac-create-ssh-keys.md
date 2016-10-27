@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/08/2016"
+    ms.date="10/06/2016"
     ms.author="v-livech"/>
 
 
@@ -24,7 +24,7 @@ Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-n
 
 ## Snabb kommandolista
 
-I följande kommandoexempel ersätter du värdena mellan &lt; och &gt; med värden från din egen miljö.
+I följande kommandoexempel ersätter du värdena mellan &lt; och &gt; med värden från din egen miljö.  Börja med att ändra katalog, `cd ~/.ssh/` så att alla dina ssh-nycklar skapas i den katalogen.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
@@ -79,7 +79,7 @@ Azure kräver offentliga och privata nycklar med minst 2048 bitar i ssh-rsa-form
 
 ## Använda ssh-keygen
 
-Med det här kommandot skapas ett lösenordsskyddat (krypterat) SSH-nyckelpar med 2048 bitars RSA. Kommentarer har lagts till som gör det lättare att identifiera det.
+Med det här kommandot skapas ett lösenordsskyddat (krypterat) SSH-nyckelpar med 2048 bitars RSA. Kommentarer har lagts till som gör det lättare att identifiera det.  Börja med att ändra katalog, `cd ~/.ssh/` så att alla dina ssh-nycklar skapas i den katalogen.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -102,12 +102,12 @@ Om du använder den klassiska distributionsmodellen (den klassisk Azure-portalen
 Så här skapar du en PEM-formaterad nyckel från en befintlig offentlig SSH-nyckel:
 
 ```bash
-ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pem
+ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ```
 
 ## Genomgång av ssh-keygen
 
-Varje steg förklarat i detalj.  Börja genom att köra `ssh-keygen`.
+Varje steg förklarat i detalj.  Starta genom att ändra till katalogen `~/.ssh` och kör sedan `ssh-keygen`.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -246,6 +246,6 @@ Nästa uppgift är att skapa virtuella Azure Linux-datorer med den nya offentlig
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

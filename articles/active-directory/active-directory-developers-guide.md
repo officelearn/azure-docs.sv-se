@@ -3,7 +3,7 @@
    description="Den här artikeln innehåller en heltäckande handbok om utvecklarorienterade resurser för Azure Active Directory."
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/01/2016"
+   ms.date="10/11/2016"
    ms.author="mbaldwin"/>
 
 
 
-# Utvecklarhandbok för Azure Active Directory
+# <a name="azure-active-directory-developer's-guide"></a>Utvecklarhandbok för Azure Active Directory
 
-## Översikt
+## <a name="overview"></a>Översikt
 Som en IDMaaS-plattform (IDentity Management as a Service) erbjuder Azure Active Directory (AD) en effektiv lösning med vilken utvecklarna kan integrera identitetshantering i sina program. Följande artiklar innehåller översikter över implementeringen och viktiga funktioner i Azure AD. Vi rekommenderar att du läser dem i ordning eller att du går till [Komma igång](#getting-started) om du är redo att sätta igång.
 
 
@@ -35,73 +35,73 @@ Som en IDMaaS-plattform (IDentity Management as a Service) erbjuder Azure Active
 1. [Azure AD-autentiseringsbibliotek](active-directory-authentication-libraries.md): Autentisera enkelt användare för att erhålla åtkomsttoken med hjälp av Azure AD-autentiseringsbibliotek för .NET, JavaScript, Objective-C och Android och andra.
 
 
-## Komma igång
+## <a name="getting-started"></a>Komma igång
 
 Dessa självstudiekurser är skräddarsydda för flera plattformar och hjälper dig att snabbt börja utveckla med Azure Active Directory. Innan du börjar måste du [skaffa en Azure Active Directory-klient](active-directory-howto-tenant.md).
 
-### Snabbstartsguider för mobil- och datorprogram
+### <a name="mobile-and-pc-application-quick-start-guides"></a>Snabbstartsguider för mobil- och datorprogram
 
 |[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)|[![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Universal](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)|[Integrera direkt med OAuth 2.0](active-directory-protocols-oauth-code.md)|
 
-### Snabbstartsguider för webbappar
+### <a name="web-application-quick-start-guides"></a>Snabbstartsguider för webbappar
 
 |[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|
 |[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[AngularJS](active-directory-devquickstarts-angular.md)|[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)|[Integrera direkt med OpenID Connect](active-directory-protocols-openid-connect-code.md)|
 
-### Snabbstartsguider för webb-API:er
+### <a name="web-api-quick-start-guides"></a>Snabbstartsguider för webb-API:er
 
 |[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
 |:--:|:--:|
 |[.NET](active-directory-devquickstarts-webapi-dotnet.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
-### Snabbstartsguide för katalogfrågor
+### <a name="querying-the-directory-quickstart-guide"></a>Snabbstartsguide för katalogfrågor
 
 | [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)|
 |:--:|
 |[Graph API](active-directory-graph-api-quickstart.md)|
 
-## Instruktioner
+## <a name="how-tos"></a>Instruktioner
 
 Dessa artiklar beskriver hur du utför specifika aktiviteter med hjälp av Azure Active Directory:
 
-- [Hämta en Azure AD-klient](active-directory-howto-tenant.md)
-- [Logga in valfri Azure AD-användare med hjälp av programmönster för flera användare](active-directory-devhowto-multi-tenant-overview.md) 
+- [Hämta en Azure AD-klientorganisation](active-directory-howto-tenant.md)
+- [Logga in för valfri Azure AD-användare med programmönstret för flera klienter](active-directory-devhowto-multi-tenant-overview.md) 
 - Aktivera enkel inloggning mellan appar med hjälp av ADAL på [Android](active-directory-sso-android.md)- och [iOS](active-directory-sso-ios.md)-enheter
-- [Gör ditt program AppSource-certifierat för Azure AD](active-directory-devhowto-appsource-certified.md)
+- [AppSource-certifiera ditt program för Azure AD](active-directory-devhowto-appsource-certified.md)
 - [Lista ditt program i Azure AD-programgalleriet](active-directory-app-gallery-listing.md)
-- [Skicka webbappar för Office 365 till instrumentpanelen för försäljning](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- [Förstå Azure Active Directory-programmanifestet](active-directory-application-manifest.md)
-- [Förstå anpassningsriktlinjerna för inloggnings- och programanskaffningsknapparna i klientprogrammet](active-directory-branding-guidelines.md)
-- [Förhandstitt: Skapa appar som loggar in användare med både personliga konton och arbets- eller skolkonton](active-directory-appmodel-v2-overview.md)
-- [Förhandstitt: Skapa appar som registrerar och loggar in användare](../active-directory-b2c/active-directory-b2c-overview.md)
+- [Skicka in webbappar för Office 365 till Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Förstå programmanifestet för Azure Active Directory](active-directory-application-manifest.md)
+- [Förstå märkningsriktlinjerna för inloggnings- och programanskaffningsknapparna i ditt klientprogram](active-directory-branding-guidelines.md)
+- [Förhandsvisning: Skapa program som loggar in användare med både personliga och arbets- eller skolkonton](active-directory-appmodel-v2-overview.md)
+- [Förhandsvisning: Skapa appar som registrerar och loggar in konsumenter](../active-directory-b2c/active-directory-b2c-overview.md)
+- [Förhandsvisning: Konfigurera livstid för tokens i AzureAD](active-directory-configurable-token-lifetimes.md) med PowerShell. Se [Principåtgärder](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) och [Principentiteten](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) för information om konfiguration via Azure AD Graph-API:n.
 
-
-## Referens
+## <a name="reference"></a>Referens
 
 Dessa artiklar fungerar som en grundläggande referens för REST-API:er och API:er för autentiseringsbibliotek, protokoll, fel, kodexempel och slutpunkter.  
 
-###  Support
+###  <a name="support"></a>Support
 - [Taggade frågor](http://stackoverflow.com/questions/tagged/azure-active-directory): Hitta Azure Active Directory-lösningar på Stack Overflow genom att söka efter taggarna [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) och [adal](http://stackoverflow.com/questions/tagged/adal).
 - Definitioner av några av de vanligast förekommande termerna avseende programutveckling och integrering finns i [Ordlista för Azure AD-utvecklare](active-directory-dev-glossary.md).
 
-### Kod
+### <a name="code"></a>Kod
 
 - [Azure Active Directory-bibliotek med öppen källkod](http://github.com/AzureAD): Det enklaste sättet att hitta ett biblioteks källa är att använda vår [bibliotekslista](active-directory-authentication-libraries.md).
 
 - [Azure Active Directory-exempel](https://github.com/azure-samples?query=active-directory): Det enklaste sättet att navigera i listan med exempel är att använda [indexet över kodexempel](active-directory-code-samples.md).
 
-- [ADAL för .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): Dokumentation för .NET-autentiseringsbiblioteket.
+- [Active Directory Authentication Library (ADAL) för .NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) –referensdokumentation finns tillgänglig för både [senaste huvudversion](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory) och [tidigare huvudversion](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory).
 
-### Graph API
+### <a name="graph-api"></a>Graph API
 
 - [Referens för Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx): REST-referens för Azure Active Directory Graph API. [Visa den interaktiva miljön för Graph API-referensen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 - [Behörighetsomfattning för Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): Behörighetsomfattningen för OAuth 2.0 som används för att styra åtkomsten som en app har till katalogdata i en klientorganisation.
 
-### Protokoll för autentisering och auktorisering
+### <a name="authentication-and-authorization-protocols"></a>Protokoll för autentisering och auktorisering
 
 - [Signeringsnyckelförnyelse i Azure AD](active-directory-signing-key-rollover.md): Läs mer om Azure AD:s signeringsnyckelförnyelsekadens och om hur du uppdaterar nyckeln för de vanligaste programscenarierna.
 
@@ -119,25 +119,25 @@ Dessa artiklar fungerar som en grundläggande referens för REST-API:er och API:
 
 - [Typer av token och anspråk som stöds](active-directory-token-and-claims.md): Den här guiden hjälper dig att förstå och utvärdera anspråk i SAML 2.0- och JWT-token (JSON Web).
 
-## Videoklipp
+## <a name="videos"></a>Videoklipp
 
-### Utveckla
+### <a name="build"></a>Utveckla
 
 Dessa översiktliga presentationer om hur du utvecklar appar med Azure Active Directory ges av talare som arbetar direkt i det tekniska teamet. Presentationerna täcker grundläggande information, inklusive IDMaaS, autentisering, identitetsfederation och enkel inloggning.
 
-- [Microsoft Identity: State of the Union and Future Direction](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/)
-- [Azure Active Directory: Identity management as a service for modern applications](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
-- [Develop modern web applications with Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory/)
-- [Develop modern native applications with Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
+- [Microsoft Identity: State of the Union och framtida riktning](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/)
+- [Azure Active Directory: Identitetshantering som en tjänst för moderna program](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
+- [Utveckla moderna webbprogram med Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory/)
+- [Utveckla moderna interna program med Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
 
-### Azure Friday
+### <a name="azure-friday"></a>Azure Friday
 [Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/) är en återkommande videoserie som varje fredag erbjuder en kort (10–15 minuter) intervju med experter inom olika Azure-ämnen.  Använd funktionen för tjänstfilter på sidan om du vill visa alla videoklipp om Azure Active Directory.
 
 - [Azure Identity 101](https://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Azure Identity 102](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
 - [Azure Identity 103](https://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
 
-## Sociala medier
+## <a name="social"></a>Sociala medier
 
 - [Active Directory-teamets blogg](http://blogs.technet.com/b/ad/): Den senaste utvecklingen inom Azure Active Directory.
 
@@ -149,6 +149,6 @@ Dessa översiktliga presentationer om hur du utvecklar appar med Azure Active Di
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

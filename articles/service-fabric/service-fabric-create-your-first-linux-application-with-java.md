@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/28/2016"
+   ms.date="10/04/2016"
    ms.author="seanmck"/>
 
 
@@ -21,8 +21,9 @@
 # Skapa ditt första Azure Service Fabric-program
 
 > [AZURE.SELECTOR]
-- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# – Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET Core och Java. I den här självstudiekursen visar vi hur du skapar ett program för Linux och skapar en tjänst med hjälp av Java.
 
@@ -49,6 +50,7 @@ Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och 
 I Service Fabric Yeoman-mallarna ingår ett byggskript för [Gradle](https://gradle.org/), som du kan använda för att skapa appen från terminalen.
 
   ```bash
+  cd myapp
   gradle
   ```
 
@@ -59,13 +61,12 @@ När du har skapat programmet kan du distribuera det till det lokala klustret me
 1. Anslut till det lokala Service Fabric-klustret.
 
     ```bash
-    azuresfcli servicefabric cluster connect
+    azure servicefabric cluster connect
     ```
 
 2. Använd installationsskriptet som medföljer mallen för att kopiera programpaketet till klustrets avbildningsarkiv, registrera programtypen och skapa en instans av programmet.
 
     ```bash
-    cd myapp
     ./install.sh
     ```
 
@@ -92,7 +93,7 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
 
 ## Skapa och distribuera ett program med plugin-programmet Eclipse Neon
 
-Om du har installerat plugin-programmet för Eclipse Neon kan du använda det till att skapa och distribuera Service Fabric-program som skapats med Java.
+Om du har installerat plugin-programmet för Eclipse Neon kan du använda det till att skapa och distribuera Service Fabric-program som skapats med Java.  Välj **Eclipse IDE för Java-utvecklare**, när du installerar Eclipse.
 
 ### Skapa programmet
 
@@ -121,6 +122,7 @@ Din app skapas och distribueras på ett par minuter. Du kan övervaka dess statu
 ## Nästa steg
 
 - [Läs mer om Reliable Actors](service-fabric-reliable-actors-introduction.md)
+- [Interagera med Service Fabric-kluster med Azure CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
@@ -129,6 +131,6 @@ Din app skapas och distribueras på ett par minuter. Du kan övervaka dess statu
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

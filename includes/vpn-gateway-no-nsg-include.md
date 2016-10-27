@@ -1,8 +1,8 @@
- >[AZURE.WARNING] Om du kopplar en nätverkssäkerhetsgrupp (NSG) till *GatewaySubnet* så kommer din VPN-gateway att sluta fungera som förväntat. KOPPLA INTE ihop NSG:er med gateway-undernät.
+>[AZURE.IMPORTANT] När du arbetar med gateway-undernät, bör du undvika att associera en nätverkssäkerhetsgrupp (NSG) till gateway-undernätet. Om du kopplar en nätverkssäkerhetsgrupp (NSG) till det här undernätet så kan din VPN-gateway sluta fungera som förväntat. Mer information om nätverkssäkerhetsgrupper finns i [Vad är en nätverkssäkerhetsgrupp?](../articles/virtual-network/virtual-networks-nsg.md)
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

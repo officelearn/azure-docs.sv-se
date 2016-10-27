@@ -18,31 +18,31 @@
 
 
 
-#Så här utför du direktsänd strömning med lokala kodare med hjälp av Azure-portalen
+#<a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Så här utför du direktsänd strömning med lokala kodare med hjälp av Azure-portalen
 
 > [AZURE.SELECTOR]
-- [Portalen]( media-services-portal-live-passthrough-get-started.md)
+- [Portal]( media-services-portal-live-passthrough-get-started.md)
 - [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
 - [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 Den här vägledningen visar dig stegen för att använda Azure-portalen för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
 
-##Krav
+##<a name="prerequisites"></a>Krav
 
 Följande krävs för att kunna genomföra vägledningen:
 
 - Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
-- Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-create-account.md).
+- Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 - En webbkamera. Till exempel [Telestream Wirecast-kodaren](http://www.telestream.net/wirecast/overview.htm).
 
 Vi rekommenderar att du tittar närmare på följande artiklar:
 
-- [Support och direktsända kodare för Azure Media Services RTMP](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
-- [Översikt över direktsänd strömning med Azure Media Services](media-services-manage-channels-overview.md)
-- [Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md)
+- [Azure Media Services RTMP-support och live-kodare](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+- [Översikt över liveuppspelning med Azure Media Services](media-services-manage-channels-overview.md)
+- [Liveuppspelning med lokala kodare som skapar strömmar med flera bithastigheter](media-services-live-streaming-with-onprem-encoders.md)
 
 
-##<a id="scenario"></a>Vanligt scenario för direktsänd strömning
+##<a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Vanligt scenario för liveuppspelning
 
 Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för direktsänd strömning som använder kanaler som har konfigurerats för genomströmningsleverans. Den här vägledningen visar hur du skapar och hanterar en genomströmningskanal och direktsända händelser.
 
@@ -70,13 +70,13 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för dir
 
 >[AZURE.IMPORTANT] Titta närmare på [Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md) för att lära dig mer om koncept och överväganden som rör direktsänd strömning med lokala kodare och genomströmningskanaler.
 
-##Visa meddelanden och fel
+##<a name="to-view-notifications-and-errors"></a>Visa meddelanden och fel
 
 Klicka på meddelandeikonen om du vill visa meddelanden och fel som genereras av Azure-portalen.
 
 ![Meddelanden](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
-##Konfigurera strömningsslutpunkter 
+##<a name="configure-streaming-endpoints"></a>Konfigurera strömningsslutpunkter 
 
 Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med flera bithastigheter i följande strömningsformat: MPEG DASH, HLS, Smooth Streaming eller HDS utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
 
@@ -99,7 +99,7 @@ Om du vill skapa och ändra antalet reserverade enheter för strömning gör du 
 
     >[AZURE.NOTE]Tilldelning av nya enheter kan ta cirka 20 minuter att slutföra.
     
-##Skapa och starta genomströmningskanaler och händelser
+##<a name="create-and-start-pass-through-channels-and-events"></a>Skapa och starta genomströmningskanaler och händelser
 
 En kanal är associerad med händelser och program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar händelser. 
     
@@ -119,7 +119,7 @@ Om du vill ta bort arkiverat innehåll, stoppar du och tar bort händelsen och t
 
 Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillgängligt för strömning, tar du bort strömningslokaliseraren.
 
-###Använda portalen för att skapa en kanal 
+###<a name="to-use-the-portal-to-create-a-channel"></a>Använda portalen för att skapa en kanal 
 
 Detta avsnitt visar hur du använder alternativet **Snabbregistrering** för att skapa en genomströmningskanal.
 
@@ -138,7 +138,7 @@ Mer information om genomströmningskanaler finns i [Direktsänd strömning med l
 
     Detta skapar en genomströmningskanal med RTMP-infogningsprotokollet.
 
-##Skapa händelser
+##<a name="create-events"></a>Skapa händelser
 
 1. Välj en kanal till vilken du vill lägga till en händelse.
 2. Tryck på knappen **Direktsänd händelse**.
@@ -146,13 +146,13 @@ Mer information om genomströmningskanaler finns i [Direktsänd strömning med l
 ![Händelse](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 
-##Hämta infognings-URL:er
+##<a name="get-ingest-urls"></a>Hämta infognings-URL:er
 
 När kanalen har skapats kan du få infognings-URL:er som du tillhandahåller till livekodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
 
 ![Skapad](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##Titta på händelsen
+##<a name="watch-the-event"></a>Titta på händelsen
 
 För att titta på händelsen klickar du på **Titta på** i Azure-portalen eller kopierar strömnings-URL:en och använder en valfri spelare. 
  
@@ -160,14 +160,14 @@ För att titta på händelsen klickar du på **Titta på** i Azure-portalen elle
 
 Direktsända händelser konverteras automatiskt till innehåll på begäran när de stoppas.
 
-##Rensa
+##<a name="clean-up"></a>Rensa
 
 Mer information om genomströmningskanaler finns i [Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md).
 
 - En kanal kan stoppas endast när alla händelser eller program i kanalen har stoppats.  När kanalen har stoppats medför den inga avgifter. När du vill starta den igen har den samma infognings-URL så att du inte behöver konfigurera om din kodare.
 - En kanal kan bara tas bort när alla direktsända händelser i kanalen har tagits bort.
 
-##Visa arkiverat innehåll
+##<a name="view-archived-content"></a>Visa arkiverat innehåll
 
 Även efter att du stoppat och tagit bort händelsen skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort tillgången. En tillgång kan inte tas bort om den används av en händelse. Händelsen måste tas bort först. 
 
@@ -175,18 +175,18 @@ För att hantera dina tillgångar väljer du **Inställning** och klickar på **
 
 ![Tillgångar](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Nästa steg
+##<a name="next-step"></a>Nästa steg
 
 Granska sökvägarna för Media Services-utbildning.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Ge feedback
+##<a name="provide-feedback"></a>Ge feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

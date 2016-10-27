@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/19/2016"  
+    ms.date="10/10/2016"  
     ms.author="piyushjo"/>
 
 
@@ -28,15 +28,13 @@ Observera att du måste lägga till en minimiuppsättning för ”grundläggande
 
 ##Konfigurera Mobile Engagement för din mobilapp i Azure
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##Gå till portalen för Mobile Engagement
 
-Klicka på **starta**-knappen längst ned om du vill gå till portalen Mobile Engagement och börja övervaka och hantera dina program.
+För att börja övervaka och hantera ditt program, navigerar du till din Mobile Engagement-portal genom att klicka på knappen **Engagement-portal** i den övre panelen.
 
-![](../../includes/media/mobile-engagement-connect-app-with-monitor/engage-button.png)
-
-När du befinner dig i portalen för Mobile Engagement kan du analysera, skapa och hantera segment, nå ut till användarna o.s.v.    
+När du befinner dig i Mobile Engagement-portalen, kan du analysera, skapa och hantera segment, nå användare och så vidare:    
 
 - [Övervaka realtidsdata för appen ](mobile-engagement-user-interface-monitor.md)
 - [Analysera historiska data för appen](mobile-engagement-user-interface-analytics.md)
@@ -51,6 +49,6 @@ När du befinner dig i portalen för Mobile Engagement kan du analysera, skapa o
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

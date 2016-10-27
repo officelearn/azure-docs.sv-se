@@ -6,6 +6,13 @@ VPN-gateway kan använda följande SKU:er:
 - Standard
 - HighPerformance
 
-<!--HONumber=Sep16_HO4-->
+När du väljer en SKU, bör du överväga följande begränsningar:
+
+- Om du vill använda en PolicyBased VPN-typ måste du använda Basic gateway-SKU:n. PolicyBased VPN (tidigare kallade statisk routning) stöds inte på andra SKU:er.
+- BGP stöds inte på Basic-SKU:n.
+- ExpressRoute VPN-Gateway samexisterande konfigurationer stöds inte på Basic-SKU:n.
+
+
+<!--HONumber=Oct16_HO3-->
 
 

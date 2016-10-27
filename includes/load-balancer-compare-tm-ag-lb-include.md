@@ -1,31 +1,35 @@
-## Load Balancer differences
+## <a name="load-balancer-differences"></a>Skillnader i belastningsutjämnare
 
-There are different options to distribute network traffic using Microsoft Azure. These options work differently from each other, having a different feature set and support different scenarios. They can each be used in isolation, or combining them.
+Det finns olika alternativ för att distribuera nätverkstrafik med Microsoft Azure. De här alternativen fungerar på olika sätt, har olika funktionsuppsättningar och stöder olika scenarier. De kan användas var för sig eller i kombination med varandra.
 
-- **Azure Load Balancer** works at the transport layer (Layer 4 in the OSI network reference stack). It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+- **Azure Load Balancer** fungerar på transportlagret (Layer 4 i OSI-nätverksreferensstacken). Den ger trafikdistribuering på nätverksnivå över programinstanser som körs på samma Azure-datacenter.
 
-- **Application Gateway** works at the application layer (Layer 7 in the OSI network reference stack). It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
+- **Application Gateway** fungerar på programlagret (Layer 7 i OSI-nätverksreferensstacken). Den fungerar som en omvänd proxy-tjänst och avslutar klientanslutningen och vidarebefordrar begäranden till slutpunkter i serverdelen.
 
-- **Traffic Manager** works at the DNS level.  It uses DNS responses to direct end-user traffic to globally distributed endpoints. Clients then connect to those endpoints directly.
+- **Traffic Manager** fungerar på DNS-nivå.  Den använder sig av DNS-svar för att dirigera slutanvändartrafik till globalt distribuerade slutpunkter. Klienterna ansluter därefter till dessa slutpunkter direkt.
 
-The following table summarizes the features offered by each service:
+Följande tabell sammanfattar de funktioner som erbjuds av varje tjänst:
 
-| Service | Azure Load Balancer | Application Gateway | Traffic Manager |
+| Tjänst | Azure Load Balancer | Application Gateway | Traffic Manager |
 |---|---|---|---|
-|Technology| Transport level (Layer 4) | Application level (Layer 7) | DNS level |
-| Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP endpoint is required for endpoint monitoring) |
-| Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps, and external endpoints |
-| Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |
-Endpoint Monitoring | Supported via probes | Supported via probes | Supported via HTTP/HTTPS GET | 
+|Teknologi| Transportnivå (Layer 4) | Programnivå (Layer 7) | DNS-nivå |
+| Programprotokoll som stöds | Alla | HTTP och HTTPS |  Alla (en HTTP-slutpunkt krävs för slutpunktsövervakning) |
+| Slutpunkter | Azure VM:ar och Cloud Services-rollinstanser | Alla interna Azure-IP-adresser eller offentliga Internet-IP-adresser | Azure VM:ar, Cloud Services, Azure Web Apps och externa slutpunkter |
+| Vnet-stöd | Kan användas för både Internetriktade och interna (Vnet)-program | Kan användas för både Internetriktade och interna (Vnet)-program |    Stöder enbart Internetriktade program |
+Slutpunktsövervakning | Stöds via avsökningar | Stöds via avsökningar | Stöds via HTTP/HTTPS GET | 
 
-Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The following table helps understanding the difference between the two load balancers:
+Azure Load Balancer och Application Gateway styr nätverkstrafiken till slutpunkter, men de har olika användningsscenarier avseende vilken trafik de hanterar. Tabellen nedan hjälper dig att förstå skillnaden mellan de två belastningsutjämnarna:
 
-| Type | Azure Load Balancer | Application Gateway |
+| Typ | Azure Load Balancer | Application Gateway |
 |---|---|---|
-| Protocols | UDP/TCP | HTTP/ HTTPS |
-| IP reservation | Supported | Not supported | 
-| Load balancing mode | 5-tuple(source IP, source port, destination IP, destination port, protocol type) | Round Robin<br>Routing based on URL | 
-| Load balancing mode (source IP /sticky sessions) |  2-tuple (source IP and destination IP), 3-tuple (source IP, destination IP, and port). Can scale up or down based on the number of virtual machines | Cookie-based affinity<br>Routing based on URL |
-| Health probes | Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user-defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user-defined probes | 
-| SSL offloading | Not supported | Supported | 
+| Protokoll | UDP/TCP | HTTP/HTTPS |
+| IP-reservation | Stöds | Stöds inte | 
+| Belastningsutjämningsläge | 5-tuppel(käll-IP, källport, mål-IP, målport, protokolltyp) | Resursallokering<br>Routning baserat på URL | 
+| Belastningsutjämningsläge(käll-IP/fästa sessioner) |  2-tuppel (käll-IP och mål-IP), 3-tuppel (käll-IP, mål-IP och port). Kan skala upp eller ned baserat på antalet virtuella datorer | Cookie-baserad tillhörighet<br>Routning baserat på URL |
+| Hälsotillståndsavsökningar | Standardvärde: avsökningsintervall - 15 sekunder. Tagen ur rotation: 2 kontinuerlig fel. Stöder användardefinierade avsökningar | Vilande avsökningsintervall 30 sekunder. Tas ut efter 5 efterföljande trafikfel live eller ett enda avsökningsfel i vilande läge. Stöder användardefinierade avsökningar | 
+| SSL-avlastning | Stöds inte | Stöds | 
   
+
+<!--HONumber=Oct16_HO3-->
+
+

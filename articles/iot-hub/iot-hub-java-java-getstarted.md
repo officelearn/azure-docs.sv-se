@@ -497,6 +497,6 @@ I självstudien [Behandla meddelanden från enheten till molnet][lnk-process-d2c
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

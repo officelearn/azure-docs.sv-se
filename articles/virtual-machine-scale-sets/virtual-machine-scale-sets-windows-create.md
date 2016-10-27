@@ -1,45 +1,46 @@
 <properties
-	pageTitle="Create a Virtual Machine Scale Set | Microsoft Azure"
-	description="Create a Virtual Machine Scale Set using PowerShell"
-	services="virtual-machine-scale-sets"
+    pageTitle="Skapa en skaluppsättning för virtuella datorer med PowerShell | Microsoft Azure"
+    description="Skapa en skaluppsättning för virtuella datorer med PowerShell"
+    services="virtual-machine-scale-sets"
     documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/25/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/10/2016"
+    ms.author="davidmu"/>
 
-# Create a Windows Virtual Machine Scale Set using Azure PowerShell
 
-These steps follow a fill-in-the-blanks approach for creating an Azure Virtual Machine Scale Set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
+# <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Skapa en Windows-skaluppsättning för virtuella datorer med Azure PowerShell
 
-It should take about 30 minutes to do the steps in this article.
+Här följer en ”fyll i tomrummen-strategi” för hur du skapar en skaluppsättning för virtuella datorer i Azure. I [översikten över skaluppsättningar för virtuella datorer](virtual-machine-scale-sets-overview.md) kan du läsa mer om skaluppsättningar.
 
-## Step 1: Install Azure PowerShell
+Det bör ta cirka 30 minuter att slutföra stegen i den här artikeln.
 
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
+## <a name="step-1:-install-azure-powershell"></a>Steg 1: Installera Azure PowerShell
 
-## Step 2: Create resources
+Se [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
 
-Create the resources that are needed for your new virtual machine scale set.
+## <a name="step-2:-create-resources"></a>Steg 2: Skapa resurser
 
-### Resource group
+Skapa de resurser som krävs för den nya skaluppsättningen.
 
-A virtual machine scale set must be contained in a resource group.
+### <a name="resource-group"></a>Resursgrupp
 
-1.  Get a list of available locations and the services that are supported:
+En skaluppsättning för virtuella datorer måste ingå i en resursgrupp.
+
+1. Hämta en lista över tillgängliga platser och tjänster som stöds:
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
-    You should see something like this
+    Du bör se något som liknar det här exemplet:
 
         Name                AvailableServices
         ----                -----------------
@@ -62,19 +63,19 @@ A virtual machine scale set must be contained in a resource group.
         West India          {Compute, Storage, PersistentVMRole, HighMemory}
         West US             {Compute, Storage, PersistentVMRole, HighMemory}
 
-2. Pick a location that works best for you, replace the value of **$locName** with that location name, and then create the variable:
+2. Välj en plats som passar dig bäst och ersätt värdet **$locName** med platsens namn och skapa sedan variabeln:
 
         $locName = "location name from the list, such as Central US"
 
-3. Replace the value of **$rgName** with the name that you want to use for the new resource group and then create the variable: 
+3. Ersätt värdet **$rgName** med namnet som du vill använda för den nya resursgruppen och skapa sedan variabeln: 
 
         $rgName = "resource group name"
         
-4. Create the resource group:
+4. Skapa resursgruppen:
     
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
-    You should see something like this:
+    Du bör se något som liknar det här exemplet:
 
         ResourceGroupName : myrg1
         Location          : centralus
@@ -82,36 +83,33 @@ A virtual machine scale set must be contained in a resource group.
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
-### Storage account
+### <a name="storage-account"></a>Lagringskonto
 
-A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. It is a best practice to have one storage account for every 20 virtual machines created in a scale set. Since scale sets are designed to be easy to scale out, create as many storage accounts as you need for the maximum number of virtual machines you plan your scale set to grow to. The example in this article shows 3 storage accounts being created, allowing the scale set to grow comfortably to 60 virtual machines.
+Ett lagringskonto används av en virtuell dator för att lagra operativsystemsdisken och diagnostikdata som används för skalning. När så är möjligt är det bäst att ha ett lagringskonto för varje virtuell dator som skapats i en skaluppsättning. Om det inte går bör du inte planera för fler än 20 VM per lagringskonto. I exemplet i den här artikeln skapas tre lagringskonton för tre virtuella datorer.
 
-1. Replace the value of **saName** with the name that you want to use for the storage account and then create the variable: 
+1. Ersätt värdet för **$saName** med ett namn för lagringskontot. Testa namnet för att se om det är unikt. 
 
         $saName = "storage account name"
-        
-2. Test whether the name that you selected is unique:
-    
-        Test-AzureName -Storage $saName
+        Get-AzureRmStorageAccountNameAvailability $saName
 
-    If the answer is **False**, your proposed name is unique.
+    Om svaret är **Sant** är det föreslagna namnet unikt.
 
-3. Replace the value of **$saType** with the type of the storage account and then create the variable:  
+3. Ersätt värdet **$saType** med lagringskontots typ och skapa sedan variabeln:  
 
         $saType = "storage account type"
         
-    Possible values are: Standard_LRS, Standard_GRS, Standard_RAGRS, or Premium_LRS.
+    Möjliga värden är: Standard_LRS, Standard_GRS, Standard_RAGRS och Premium_LRS.
         
-4. Create the account:
+4. Skapa kontot:
     
         New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
 
-    You should see something like this:
+    Du bör se något som liknar det här exemplet:
 
         ResourceGroupName   : myrg1
         StorageAccountName  : myst1
         Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-	                    	.Storage/storageAccounts/myst1
+                              .Storage/storageAccounts/myst1
         Location            : centralus
         AccountType         : StandardLRS
         CreationTime        : 3/15/2016 4:51:52 PM
@@ -127,93 +125,93 @@ A storage account is used by a virtual machine to store the operating system dis
         Tags                : {}
         Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
-5. Repeat steps 1 through 4 to create 3 storage accounts, for example myst1, myst2, and myst3.
+5. Upprepa steg 1 till 4 för att skapa tre lagringskonton, till exempel myst1, myst2 och myst3.
 
-### Virtual network
+### <a name="virtual-network"></a>Virtuellt nätverk
 
-A virtual network is required for the virtual machines in the scale set.
+Ett virtuellt nätverk krävs för de virtuella datorerna i skaluppsättningen.
 
-1. Replace the value of **$subName** with the name that you want to use for the subnet in the virtual network and then create the variable: 
+1. Ersätt värdet **$subnetName** med namnet som du vill använda för undernätet i det virtuella nätverket och skapa sedan variabeln: 
 
-        $subName = "subnet name"
+        $subnetName = "subnet name"
         
-2. Create the subnet configuration:
+2. Skapa undernätskonfigurationen:
     
-        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subName -AddressPrefix 10.0.0.0/24
+        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
         
-    The address prefix may be different in your virtual network.
+    Adressprefixet kan skilja sig från adressprefixet i det virtuella nätverket.
 
-3. Replace the value of **$netName** with the name that you want to use for the virtual network and then create the variable: 
+3. Ersätt värdet för **$netName** med namnet som du vill använda för det virtuella nätverket och skapa sedan variabeln: 
 
         $netName = "virtual network name"
         
-4. Create the virtual network:
+4. Skapa det virtuella nätverket:
     
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-### Public IP address
+### <a name="public-ip-address"></a>Offentlig IP-adress
 
-Before a network interface can be created, you need to create a public IP address.
+Innan du kan skapa ett nätverksgränssnitt måste du skapa en offentlig IP-adress.
 
-1. Replace the value of **$domName** with the domain name label that you want to use with your public IP address and then create the variable:  
+1. Ersätt värdet för **$domName** med domännamnsetiketten som du vill använda med din offentliga IP-adress och skapa sedan variabeln:  
 
         $domName = "domain name label"
         
-    The label can contain only letters, numbers, and hyphens, and the last character must be a letter or number.
+    Etiketten får endast innehålla bokstäver, siffror och bindestreck, och det sista tecknet måste vara en bokstav eller en siffra.
     
-2. Test whether the name is unique:
+2. Testa om namnet är unikt:
     
         Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
 
-    If the answer is **True**, your proposed name is unique.
+    Om svaret är **Sant** är det föreslagna namnet unikt.
 
-3. Replace the value of **$pipName** with the name that you want to use for the public IP address and then create the variable. 
+3. Ersätt värdet för **$pipName** med namnet som du vill använda för den offentliga IP-adressen och skapa sedan variabeln. 
 
         $pipName = "public ip address name"
         
-4. Create the public IP address:
+4. Skapa den offentliga IP-adressen:
     
         $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
 
-### Network interface
+### <a name="network-interface"></a>Nätverksgränssnitt
 
-Now that you have the public IP address, you can create the network interface.
+När du nu har den offentliga IP-adressen kan du skapa nätverksgränssnittet.
 
-1. Replace the value of **$nicName** with the name that you want to use for the network interface and then create the variable: 
+1. Ersätt värdet för **$nicName** med namnet som du vill använda för nätverksgränssnittet och skapa sedan variabeln: 
 
         $nicName = "network interface name"
         
-2. Create the network interface:
+2. Skapa nätverksgränssnittet:
     
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
-### Configuration of the scale set
+### <a name="configuration-of-the-scale-set"></a>Konfiguration av skaluppsättningen
 
-You have all the resources that you need for the scale set configuration, so let's create it.  
+Du har alla resurser som du behöver för konfigurationen av skaluppsättningen, så nu skapar vi den.  
 
-1. Replace the value of **$ipName** with the name that you want to use for the IP configuration and then create the variable: 
+1. Ersätt värdet för **$ipName** med namnet som du vill använda för IP-konfigurationen. Skapa sedan variabeln: 
 
         $ipName = "IP configuration name"
         
-2. Create the IP configuration:
+2. Skapa IP-konfigurationen:
 
         $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-2. Replace the value of **$vmssConfig** with the name that you want to use for the scale set configuration and then create the variable:   
+2. Ersätt värdet för **$vmssConfig** med namnet som du vill använda för konfigurationen för skaluppsättningen och skapa sedan variabeln:   
 
         $vmssConfig = "Scale set configuration name"
         
-3. Create the configuration for the scale set:
+3. Skapa konfigurationen för skaluppsättningen:
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    This example shows a scale set being created with 3 virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md) to find a size that meets your needs.
+    I det här exemplet visas en skaluppsättning som skapas med tre virtuella datorer. I [översikten över skaluppsättningar för virtuella datorer](virtual-machine-scale-sets-overview.md) finns mer information om kapaciteten för olika skaluppsättningar. Det här steget omfattar också storleken (kallas SkuName) för de virtuella datorerna i uppsättningen. Om du vill hitta en storlek som motsvarar dina behov kan du titta i [Storlekar för virtuella datorer](../virtual-machines/virtual-machines-windows-sizes.md).
     
-4. Add the network interface configuration to the scale set configuration:
+4. Lägg till konfigurationen av nätverksgränssnittet i konfigurationen för skaluppsättningen:
         
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
         
-    You should see something like this:
+    Du bör se något som liknar det här exemplet:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -226,59 +224,59 @@ You have all the resources that you need for the scale set configuration, so let
         Location              : Central US
         Tags                  :
 
-#### Operating system  profile
+#### <a name="operating-system-profile"></a>Operativsystemprofil
 
-1. Replace the value of **$computerName** with the computer name prefix that you want to use and then create the variable: 
+1. Ersätt värdet **$computerName** med prefixet för datornamnet som du vill använda och skapa sedan variabeln: 
 
         $computerName = "computer name prefix"
         
-2. Replace the value of **$adminName** the name of the administrator account on the virtual machines and then create the variable:
+2. Ersätt värdet för **$adminName**-namnet för administratörskontot på de virtuella datorerna och skapa sedan variabeln:
 
         $adminName = "administrator account name"
         
-3. Replace the value of **$adminPassword** with the account password and then create the variable:
+3. Ersätt värdet **$adminPassword** med kontolösenordet och skapa sedan variabeln:
 
         $adminPassword = "password for administrator accounts"
         
-4. Create the operating system profile:
+4. Skapa operativsystemprofilen:
 
         Set-AzureRmVmssOsProfile -VirtualMachineScaleSet $vmss -ComputerNamePrefix $computerName -AdminUsername $adminName -AdminPassword $adminPassword
 
-#### Storage profile
+#### <a name="storage-profile"></a>Lagringsprofil
 
-1. Replace the value of **$storageProfile** with the name that you want to use for the storage profile and then create the variable:  
+1. Ersätt värdet för **$storageProfile** med namnet som du vill använda för lagringsprofilen och skapa sedan variabeln:  
 
         $storageProfile = "storage profile name"
         
-2. Create the variables that define the image to use:  
+2. Skapa variablerna som definierar den avbildning som du ska använda:  
       
         $imagePublisher = "MicrosoftWindowsServer"
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
+    Om du vill ha information om andra avbildningar du kan använda ska du titta i [Hitta och välj avbildningar av virtuella datorer i Azure med Windows PowerShell och Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
         
-3. Replace the value of **$vhdContainers** with a list that contains the paths where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
+3. Ersätt värdet för **$vhdContainers** med en lista som innehåller sökvägar till platser där de virtuella hårddiskarna lagras, till exempel https://mystorage.blob.core.windows.net/vhds, och skapa sedan variabeln:
        
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
         
-4. Create the storage profile:
+4. Skapa lagringsprofilen:
 
         Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
-### Virtual machine scale set
+### <a name="virtual-machine-scale-set"></a>Skaluppsättning för virtuella datorer
 
-Finally, you can create the scale set.
+Slutligen kan du skapa skaluppsättningen.
 
-1. Replace the value of **$vmssName** with the name of the virtual machine scale set and then create the variable:
+1. Ersätt värdet för **$vmssName** med namnet på skaluppsättningen för den virtuella datorn och skapa sedan variabeln:
 
         $vmssName = "scale set name"
         
-2. Create the scale set:
+2. Skapa skaluppsättningen:
 
         New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSet $vmss
 
-    You should see something like this that shows you the deployment succeeded:
+    Det bör se ut ungefär som i det här exemplet där du kan se en slutförd distribution:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -286,19 +284,19 @@ Finally, you can create the scale set.
         ProvisioningState     : Updating
         OverProvision         :
         Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
-                               ft.Compute/virtualMachineScaleSets/myvmss1
+                                ft.Compute/virtualMachineScaleSets/myvmss1
         Name                  : myvmss1
         Type                  : Microsoft.Compute/virtualMachineScaleSets
         Location              : centralus
         Tags                  :
 
-## Step 3: Explore resources
+## <a name="step-3:-explore-resources"></a>Steg 3: Utforska resurser
 
-Use these resources to explore the virtual machine scale set that you just created:
+Använd dessa resurser för att utforska den skaluppsättning för virtuella datorer som du skapade:
 
-- Azure portal - A limited amount of information is available using the portal.
-- [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool for exploring the current state of your scale set.
-- Azure PowerShell - Use this command to get information:
+- Azure Portal – En begränsad mängd information är tillgänglig genom portalen.
+- [Resursutforskaren i Azure](https://resources.azure.com/) – Det här verktyget är bäst när du vill utforska det aktuella tillståndet för skaluppsättningen.
+- Azure PowerShell – Använd det här kommandot för att hämta information:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
@@ -307,8 +305,14 @@ Use these resources to explore the virtual machine scale set that you just creat
         Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-- Manage the scale set that you just created using the information in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md)
-- Consider setting up automatic scaling of your scale set by using information in [Automatic scaling and virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md)
-- Learn more about vertical scaling by reviewing [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Hantera skaluppsättningen som du skapade med hjälp av informationen i [Hantera virtuella datorer i en skaluppsättning för virtuella datorer](virtual-machine-scale-sets-windows-manage.md)
+- Överväg att konfigurera automatisk skalning av skaluppsättningen med hjälp av informationen i [Automatisk skalning och skaluppsättningar för virtuella datorer](virtual-machine-scale-sets-autoscale-overview.md)
+- Läs mer om vertikal skalning i [Vertikal automatisk skalning med skaluppsättningar för virtuella datorer](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

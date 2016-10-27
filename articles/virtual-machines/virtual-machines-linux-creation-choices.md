@@ -36,7 +36,7 @@ Azure CLI är tillgänglig på plattformar via ett npm-paket, paket tillhandahå
     ```
 
 - [Skapa en säker virtuell Linux-dator med hjälp av en Azure-mall](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-    - I följande exempel skapas en virtuell dator med hjälp av en mall som lagras på GitHub:
+    - Följande exempel skapar en VM med en mall som lagrats i GitHub:
 
     ```bash
     azure group create --name TestRG --location WestUS 
@@ -133,6 +133,6 @@ Om du behöver specifika anpassningar kan du använda en avbildning baserad på 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

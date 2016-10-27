@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
+
 
 # QoS-krav för ExpressRoute
 
@@ -30,7 +31,6 @@ Följande tabell innehåller en lista över DSCP-markeringar som används av Sky
 | **Röst** | EF (46) | Skype-/Lync-röst |
 | **Interaktiv** | AF41 (34) | Video |
 |   | AF21 (18) | Appdelning | 
-|   | CS3 (24) | SIP-signalering |
 | **Standard** | AF11 (10) | Filöverföring|
 |   | CS0 (0) | Annat| 
 
@@ -52,6 +52,6 @@ Följande tabell innehåller en lista över DSCP-markeringar som används av Sky
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

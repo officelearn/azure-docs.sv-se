@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Komma igång med Azure Mobile Engagement för Cordova/Phonegap
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -24,7 +25,7 @@ I det här avsnittet beskrivs hur du använder Azure Mobile Engagement för att 
 
 I den här självstudiekursen skapar vi en tom Cordova-app med Mac och integrerar sedan Mobile Engagement SDK. Den samlar in grundläggande analysdata och tar emot push-meddelanden via Apple Push Notification System (APNS) för iOS och Google Cloud Messaging (GCM) för Android. Vi distribuerar sedan appen till en iOS- eller Android-enhet och testar den. 
 
-> [AZURE.NOTE] Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
+> [AZURE.NOTE] Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
 
 För den här kursen behöver du följande:
 
@@ -38,7 +39,7 @@ För den här kursen behöver du följande:
 
 ##<a id="setup-azme"></a>Konfigurera Mobile Engagement för din Cordova-app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 
@@ -241,6 +242,6 @@ Nu skapar vi en enkel kampanj med push-meddelanden till den app som körs på en
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

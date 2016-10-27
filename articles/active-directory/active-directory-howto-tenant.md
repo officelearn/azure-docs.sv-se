@@ -33,41 +33,40 @@ Så, hur skaffar du en Azure AD-klient?  Hur processen ser ut beror delvis på o
 - [du inte har något av ovanstående och vill börja från början.](#start-from-scratch)
 
 ## Använda en befintlig Office 365-prenumeration
-Om du har en befintlig prenumeration på Office 365, men inte har någon Azure-prenumeration (och inte kan logga in på [Azure-hanteringsportalen](https://manage.windowsazure.com)) följer du [dessa anvisningar](https://technet.microsoft.com/library/dn832618.aspx) för att få tillgång till din Azure AD-klient.
+Om du har en befintlig prenumeration på Office 365 kan har du redan en Azure AD-klientorganisation! Du kan logga in på [Azure Portal](https://portal.azure.com) med ditt O365-konto och börja använda Azure AD.
 
 ## Använda en MSA Azure-prenumeration
-Om du redan har registrerat dig för en Azure-prenumeration med ditt individuella Microsoft-konto har du redan en klient!  På [Azure-hanteringsportalen](https://manage.windowsazure.com) letar du upp en klient med namnet ”Standardinnehavare” eller ”Standardklient” som visas under ”Alla objekt” och ”Active Directory”.  Du kan använda den här innehavaren om det är lämpligt, men du kanske vill skapa ett administratörskonto för din organisation.
+Om du redan har registrerat dig för en Azure-prenumeration med ditt individuella Microsoft-konto har du redan en klient!  När du loggar in på [Azure Portal](https://portal.azure.com), kommer du automatiskt att loggas in till din standard-klientorganisation. Du kan använda den här innehavaren om det är lämpligt, men du kanske vill skapa ett administratörskonto för din organisation.
 
 I så fall följer du dessa steg.  Alternativt kanske du vill skapa en ny klient och skapa en administratör i den klienten med hjälp av en liknande process.
 
-1.  Logga in på [Azure-hanteringsportalen](https://manage.windowsazure.com) med ditt individuella konto
-2.  Gå till avsnittet ”Active Directory” på portalen (i det vänstra navigeringsfältet)
-3.  Välj posten ”Standardkatalog” i listan över tillgängliga kataloger
-4.  Klicka på länken Användare överst på sidan.  Du ser en enstaka användare i listan med värdet ”Microsoft-konto” i kolumnen Ursprung
-5.  Klicka på ”Lägg till användare” längst ned på sidan
-6.  Ange följande information i formuläret Lägg till användare:
-    - Typ av användare: Ny användare i din organisation
+1.  Logga in på [Azure Portal](https://portal.azure.com) med ditt individuella konto
+2.  Navigera till “Azure Active Directory”-avsnittet i portalen (finns i vänster navigationsfält, under **Fler tjänster**)
+3.  Du borde automatiskt vara inloggade på ”Standardkatalogen”, annars kan du växla kataloger genom att klicka på ditt kontonamn i det övre högra hörnet.
+4.  Från avsnittet **Snabbuppgifter**, väljer du **lägg till en användare**.
+5.  I formuläret Lägg till en användare, anger du följande information:
+
+    - Namn: (välj ett lämpligt värde)
     - Användarnamn: (välj ett användarnamn för den här administratören)
-    - Förnamn/Efternamn/Visningsnamn: (välj lämpliga värden)
+    - Profil: (Fyll i lämpliga värden för förnamn, efternamn, jobbtitel och avdelning)
     - Roll: Global administratör
-    - Alternativ e-postadress: (ange lämpliga värden)
-    - Valfritt: Aktivera Multi-Factor Authentication
-    - Avsluta med att klicka på den gröna knappen ”Skapa” för att slutföra användargenereringen (och visa det tillfälliga lösenordet).
-7.  När du har fyllt i formuläret Lägg till användare och fått det tillfälliga lösenordet för den nya administrativa användaren är det viktigt att du kommer ihåg lösenordet eftersom du måste logga in med den nya användaren för att kunna ändra lösenordet. Du kan också skicka lösenordet direkt till användaren med hjälp av en alternativ e-postadress.
-8.  Om du vill ändra det tillfälliga lösenordet loggar du in på https://login.microsoftonline.com med det nya användarkontot och ändrar lösenordet när du uppmanas att göra det.
+
+6.  När du har fyllt i formuläret Lägg till användare och fått det tillfälliga lösenordet för den nya administrativa användaren är det viktigt att du kommer ihåg lösenordet eftersom du måste logga in med den nya användaren för att kunna ändra lösenordet. Du kan också skicka lösenordet direkt till användaren med hjälp av en alternativ e-postadress.
+7.  Klicka på **Skapa** för att skapa den nya användaren.
+8.  För att ändra det tillfälliga lösenordet, loggar du in på [https://login.microsoftonline.com](https://login.microsoftonline.com) med det här nya användarkontot och ändrar lösenordet när du tillfrågas.
 
 
 ## Använda en Azure-prenumeration för en organisation
-Om du redan har registrerat dig för en Azure-prenumeration med ditt organisationskonto har du redan en klient.  På [Azure-hanteringsportalen](https://manage.windowsazure.com) bör du hitta en klient under ”Alla objekt” och ”Active Directory”.  Du kan använda den här klienten om du vill.  Du kan också skapa en ny klient med hjälp av knappen ”Ny” i det nedre vänstra hörnet på portalen.
+Om du redan har registrerat dig för en Azure-prenumeration med ditt organisationskonto har du redan en klient.  I [Azure Portal](https://portal.azure.com), borde du hitta en klientorganisation när du navigerar till "Fler tjänster" och "Azure Active Directory".  Du kan använda den här klienten om du vill. 
 
 
 ## Börja från början
-Oroa dig inte om inget av alternativen ovan passar dig.  Gå bara till [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) och registrera dig för Azure med en ny organisation.  När du har slutfört processen har du din egen Azure AD-klient med det domännamn som du valde när du registrerade dig.  På [Azure-hanteringsportalen](https://manage.windowsazure.com) hittar du din klient genom att navigera till ”Active Directory” i det vänstra navigeringsfältet.
+Oroa dig inte om inget av alternativen ovan passar dig.  Gå bara till [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) och registrera dig för Azure med en ny organisation.  När du har slutfört processen har du din egen Azure AD-klient med det domännamn som du valde när du registrerade dig.  I [Azure Portal](https://portal.azure.com), hittar du din klientorganisation genom att navigera till ”Azure Active Directory” i det vänstra navigeringsfältet.
 
 Som en del av registreringen i Azure måste du ange kreditkortsinformation.  Oroa dig inte: du debiteras inte när du publicerar program i Azure AD eller skapar nya klienter.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

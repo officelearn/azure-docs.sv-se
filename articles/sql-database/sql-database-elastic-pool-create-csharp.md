@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="09/14/2016"
+    ms.date="10/04/2016"
     ms.author="sstein"/>
 
 
@@ -29,9 +29,7 @@ Den här artikeln beskriver hur du använder C# för att skapa en elastisk datab
 
 Azure SQL Database-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
-
-> [AZURE.NOTE] SQL Database-biblioteket för .NET är i förhandsvisning för tillfället.
-
+>[AZURE.NOTE] Flera nya funktioner i SQL Database stöds bara när du använder [distributionsmodellen Azure Resource Manager](../resource-group-overview.md) så du bör alltid använda det senaste **Azure SQL Database Management-biblioteket för .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De äldre [klassiska distributionsmodellbaserade biblioteken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) stöds enbart för bakåtkompatibilitet så det rekommenderas att du använder de nyare Resource Manager-baserade biblioteken.
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
@@ -318,6 +316,6 @@ Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänsto
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

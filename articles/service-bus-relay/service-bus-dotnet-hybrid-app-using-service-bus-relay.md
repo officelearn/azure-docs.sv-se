@@ -1,14 +1,14 @@
 <properties
     pageTitle="Hybridprogram lokalt/i molnet (.NET) | Microsoft Azure"
     description="Lär dig hur du skapar ett .NET-hybridprogram lokalt/i molnet genom att använda Azure Service Bus Relay."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -17,9 +17,9 @@
     ms.author="sethm"/>
 
 
-# .NET-hybridprogram lokalt/i molnet med hjälp av Azure Service Bus Relay
+# <a name=".net-on-premises/cloud-hybrid-application-using-azure-service-bus-relay"></a>.NET-hybridprogram lokalt/i molnet med hjälp av Azure Service Bus Relay
 
-## Introduktion
+## <a name="introduction"></a>Introduktion
 
 I den här artikeln beskriver vi hur du skapar ett hybridprogram i molnet med Microsoft Azure och Visual Studio. Den här självstudiekursen förutsätter att du inte har några tidigare erfarenheter av att använda Azure. På mindre än 30 minuter kommer du att ha ett program färdigt i molnet som använder en rad Azure-resurser.
 
@@ -30,15 +30,15 @@ Du kommer att lära dig:
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## Så här hjälper Service Bus Relay till med hybridlösningar
+## <a name="how-the-service-bus-relay-helps-with-hybrid-solutions"></a>Så här hjälper Service Bus Relay till med hybridlösningar
 
 Företagslösningar består normalt av en kombination av anpassad kod – som skrivs för att ta itu med nya och unika verksamhetskrav – och befintliga funktioner som kommer från lösningar och system som redan finns på plats.
 
 Lösningsarkitekter har börjat använda molnet för enklare hantering av skalkrav och lägre driftskostnader. När de gör detta upptäcker de att de befintliga tjänstetillgångarna, som de vill utnyttja som byggblock för sina lösningar, ligger innanför företagets brandvägg och därför är svåra att nå för de lösningar som ligger i molnet. Många interna tjänster är inte skapade eller värdbaserade på ett sätt som gör att de enkelt kan exponeras vid företagets nätverksgräns.
 
-Service Bus Relay är avsett för användningsfall där man tar befintliga WCF-webbtjänster (Windows Communication Foundation) och gör dessa tjänster helt tillgängliga för lösningar som finns utanför företagets perimeter, utan att behöva utföra störande ändringar i företagets nätverksinfrastruktur. Sådana Service Bus Relay-tjänster är fortfarande inhysta i sin befintliga miljö men de delegerar lyssnandet efter inkommande sessioner och förfrågningar till den Service Bus som är molnbaserad. Denna Service Bus skyddar även tjänsterna från obehörig åtkomst med hjälp av [SAS-autentisering](../service-bus/service-bus-sas-overview.md) (signatur för delad åtkomst).
+Service Bus Relay är avsett för användningsfall där man tar befintliga WCF-webbtjänster (Windows Communication Foundation) och gör dessa tjänster helt tillgängliga för lösningar som finns utanför företagets perimeter, utan att behöva utföra störande ändringar i företagets nätverksinfrastruktur. Sådana Service Bus Relay-tjänster är fortfarande inhysta i sin befintliga miljö men de delegerar lyssnandet efter inkommande sessioner och förfrågningar till den Service Bus som är molnbaserad. Denna Service Bus skyddar även tjänsterna från obehörig åtkomst med hjälp av [SAS-autentisering](../service-bus-messaging/service-bus-sas-overview.md) (signatur för delad åtkomst).
 
-## Lösningsscenario
+## <a name="solution-scenario"></a>Lösningsscenario
 
 I den här självstudiekursen kommer du att skapa en ASP.NET-webbplats som gör att du kan se en lista över produkter på sidan för inventarieförteckningar.
 
@@ -50,7 +50,7 @@ Följande är en skärmbild av startsidan i det färdiga webbprogrammet.
 
 ![][1]
 
-## Konfigurera utvecklingsmiljön
+## <a name="set-up-the-development-environment"></a>Konfigurera utvecklingsmiljön
 
 Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som krävs och ställa in din utvecklingsmiljö.
 
@@ -64,19 +64,19 @@ Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som kräv
 
 6.  När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt. Om du inte har Visual Studio installerat på din dator kommer SDK även att installera den kostnadsfria versionen Visual Studio Express.
 
-## Skapa ett namnområde
+## <a name="create-a-namespace"></a>Skapa ett namnområde
 
 För att komma igång med Service Bus-funktionerna i Azure måste du först skapa ett namnområde för tjänsten. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Skapa en lokal server
+## <a name="create-an-on-premises-server"></a>Skapa en lokal server
 
 Först ska du skapa ett lokalt produktkatalogsystem (ett fingerat sådant). Det kan vara ett ganska enkel system. Du kan se detta som en representation av ett faktiskt, lokalt produktkatalogsystem med en fullständig serviceyta som vi försöker integrera.
 
 Det här projektet är ett konsolprogram för Visual Studio som använder [Azure Service Bus NuGet-paketet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) för att inkludera Service Bus-bibliotek och -konfigurationsinställningar.
 
-### Skapa projektet
+### <a name="create-the-project"></a>Skapa projektet
 
 1.  Starta Microsoft Visual Studio med administratörsbehörighet. Du startar Visual Studio med administratörsbehörighet genom att högerklicka på programikonen för **Visual Studio** och sedan klicka på **Kör som administratör**.
 
@@ -229,11 +229,11 @@ Det här projektet är ett konsolprogram för Visual Studio som använder [Azure
 
 14. Tryck på **Ctrl+Shift+B**, eller på **Skapa lösning** från menyn **Skapa**, för att skapa programmet och kontrollera att allt du gjort hittills är korrekt.
 
-## Skapa ett ASP.NET-program
+## <a name="create-an-asp.net-application"></a>Skapa ett ASP.NET-program
 
 I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hämtats från din produkttjänst.
 
-### Skapa projektet
+### <a name="create-the-project"></a>Skapa projektet
 
 1.  Se till att Visual Studio körs med administratörsbehörighet.
 
@@ -265,7 +265,7 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
 
     ![][17]
 
-### Göra ändringar i webbappen
+### <a name="modify-the-web-application"></a>Göra ändringar i webbappen
 
 1.  Ersätt den befintliga definitionen för namnområdet med följande kod i filen Product.cs i Visual Studio.
 
@@ -354,7 +354,7 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
 9.  För att kontrollera om det arbete du gjort hittills är korrekt trycker du på **Ctrl + Skift + B** att skapa projektet.
 
 
-### Köra appen lokalt
+### <a name="run-the-app-locally"></a>Köra appen lokalt
 
 Kör programmet för att kontrollera att det fungerar.
 
@@ -364,7 +364,7 @@ Kör programmet för att kontrollera att det fungerar.
 
     ![][21]
 
-## Knyta ihop säcken
+## <a name="put-the-pieces-together"></a>Knyta ihop säcken
 
 Nästa steg är att koppla samman den lokala produktservern med ASP.NET-programmet.
 
@@ -442,7 +442,7 @@ Nästa steg är att koppla samman den lokala produktservern med ASP.NET-programm
 
 15. Klicka på **OK** i dialogrutan **Egenskapssidor**.
 
-## Köra projektet lokalt
+## <a name="run-the-project-locally"></a>Köra projektet lokalt
 
 Tryck på **F5** i Visual Studio för att testa programmet lokalt. Den lokala servern (**ProductsServer**) bör starta först och sedan ska programmet **ProductsPortal** starta i ett webbläsarfönster. Den här gången ser du att data för produktinventarielistorna hämtats från det lokala systemet för produkttjänster.
 
@@ -452,7 +452,7 @@ Tryck på **Uppdatera** på sidan **ProductsPortal**. Varje gång du uppdaterar 
 
 Stäng båda programmen innan du fortsätter till nästa steg.
 
-## Distribuera ProductsPortal-projektet till en Azure-webbapp
+## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Distribuera ProductsPortal-projektet till en Azure-webbapp
 
 Nästa steg är att omvandla klientdelen för **ProductsPortal** till en Azure-app. Först av allt ska du distribuera projektet **ProductsPortal**. Följ alla steg i avsnittet [Distribuera webbprojektet till Azure-webbappen](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). När distributionen är klar går du tillbaka till den här självstudien och fortsätter med nästa steg.
 
@@ -462,7 +462,7 @@ Kopiera den distribuerade webbappens URL eftersom du kommer att behöva URL-adre
 
 ![][9] 
 
-### Ställa in ProductsPortal som en webbapp
+### <a name="set-productsportal-as-web-app"></a>Ställa in ProductsPortal som en webbapp
 
 Innan du kör programmet i molnet måste du se till att **ProductsPortal** startas från Visual Studio som en webbapp.
 
@@ -478,7 +478,7 @@ Innan du kör programmet i molnet måste du se till att **ProductsPortal** start
 
 7. Klicka på **Återskapa lösning** från menyn Skapa i Visual Studio.
 
-## Köra programmet
+## <a name="run-the-application"></a>Köra programmet
 
 2.  Tryck på F5 för att skapa och köra programmet. Den lokala servern (konsolprogrammet **ProductsServer**) bör starta först och sedan ska programmet **ProductsPortal** starta i ett webbläsarfönster, som visas på följande skärmdump. Återigen ser du att data för produktinventarielistorna hämtats från det lokala systemet för produkttjänster. Dessa data visas sedan i webbappen. Kontrollera URL:en för att se till att **ProductsPortal** körs i molnet, som en Azure-webbapp. 
 
@@ -492,7 +492,7 @@ Innan du kör programmet i molnet måste du se till att **ProductsPortal** start
 
     ![][38]
 
-## Nästa steg  
+## <a name="next-steps"></a>Nästa steg  
 
 Om du vill lära dig mer om Service Bus kan du använda följande resurser:  
 
@@ -534,6 +534,6 @@ Om du vill lära dig mer om Service Bus kan du använda följande resurser:
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

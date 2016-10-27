@@ -13,17 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="10/04/2016"
+    ms.date="10/07/2016"
     ms.author="magoedte"/>
 
 
 # Starta/stoppa virtuella datorer vid låg belastning på nätverket [förhandsgranskning] Lösning i Automation
 
-Lösningen Starta/stoppa virtuella datorer vid låg belastning på nätverket (förhandsgranskning) startar och stoppar Azure-resurshanterarens virtuella datorer i ett användardefinierat schema och ger insyn i lyckade Automation-jobb som startar och stoppar virtuella datorer med OMS Log Analytics.  
+Lösningen starta/stoppa VM:ar vid låg belastning [förhandsversion], startar och stoppar dina Azure Resource Manager virtuella datorer enligt ett användardefinierat schema och ger insikt i hur väl Automation-jobben är som startar och stoppar dina virtuella datorer med OMS Log Analytics.  
 
 ## Krav
 
-- Runbooks använder ett [”Kör som”-konto i Azure](automation-sec-configure-azure-runas-account.md).  Kör som-kontot är den lämpligaste autentiseringsmetoden eftersom den använder certifikatautentisering istället för ett lösenord som kan upphöra att gälla eller ändras ofta.  
+- Runbooks använder ett [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).  Kör som-kontot är den lämpligaste autentiseringsmetoden eftersom den använder certifikatautentisering istället för ett lösenord som kan upphöra att gälla eller ändras ofta.  
 
 - Den här lösningen kan endast hantera virtuella datorer som finns i samma prenumeration och resursgrupp som Automation-kontot.  
 
@@ -76,8 +76,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Anger den prenumeration so
 
 Schema | Beskrivning|
 ---------|------------|
-StartByResourceGroup-schema-MS-Mgmt | Schema för StartByResourceGroup runbook.|
-StopByResourceGroup-schema-MS-Mgmt | Schema för StopByResourceGroup runbook.|
+StartByResourceGroup-schema-MS-Mgmt | Schema för StartByResourceGroup runbooken som startar VM:ar som hanteras av den här lösningen.|
+StopByResourceGroup-schema-MS-Mgmt | Schema för StopByResourceGroup runbooken som stänger ner VM:ar som hanteras av den här lösningen.|
 
 ### Autentiseringsuppgifter
 
@@ -93,7 +93,7 @@ Utför följande steg för att lägga till lösningen Starta/Stoppa virtuella da
 2. Skriv **Starta VM** i sökrutan i bladet Marketplace och välj sedan lösningen **Starta/Stoppa VM under kontorstid [förhandsgranskning]** från sökresultaten.  
 3. I bladet **Starta/Stoppa VM under kontorstid [förhandsgranskning]** för den valda lösningen läser du sammanfattningsinformationen och klickar sedan på **Skapa**.  
 4. Bladet **Lägga till lösning** visas där du uppmanas att konfigurera lösningen innan du kan importera den till din Automation-prenumeration.<br><br> ![Bladet VM-hantering, Lägga till lösning](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
-5.  På bladet **Lägga till lösning** väljer du **Arbetsyta**. Här kan du välja en OMS arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot eller skapa en ny OMS-arbetsyta.  Om du inte har en OMS workspace kan du välja **Skapa ny arbetsyta** och utföra följande på bladet **OMS-arbetsyta **: 
+5.  På bladet **Lägga till lösning** väljer du **Arbetsyta**. Här kan du välja en OMS arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot eller skapa en ny OMS-arbetsyta.  Om du inte har en OMS-arbetsyta kan du välja **Skapa ny arbetsyta** och utföra följande på bladet **OMS-arbetsyta**: 
    - Ange ett namn för den nya **OMS-arbetsytan**.
    - Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
    - Du kan skapa en ny **resursgrupp** eller välja en befintlig resursgrupp.  
@@ -101,7 +101,7 @@ Utför följande steg för att lägga till lösningen Starta/Stoppa virtuella da
    - Välj en **Prisnivå**.  Lösningen erbjuds i två nivåer: kostnadsfri eller betald med OMS.  Den kostnadsfria nivån har en gräns för mängden information som samlas in varje dag, kvarhållningsperioden och körtid för runbook-jobb.  Betalningsnivån har ingen daglig gräns för insamlad data.  
 
         > [AZURE.NOTE]
-        > Medan betald med Stadalone visas som alternativ är detta inte tillgängligt.  Om du väljer den och fortsätter att försöka skapa den här lösningen i din prenumeration kommer detta att misslyckas.  Detta åtgärdas när den här lösningen släpps officiellt.<br>Om du använder den här lösningen, kommer den endast använda automation-jobbminuter och logga inmatning.  Lösningen lägger inte till ytterligare OMS-noder i miljön.  
+        > Även om den fristående betalda nivån visas som ett alternativ så är den inte tillämplig.  Om du väljer den och fortsätter att försöka skapa den här lösningen i din prenumeration kommer detta att misslyckas.  Detta åtgärdas när den här lösningen släpps officiellt.<br>Om du använder den här lösningen, kommer den endast använda automation-jobbminuter och logga inmatning.  Lösningen lägger inte till ytterligare OMS-noder i miljön.  
 
 6. När du har angett informationen som krävs på bladet **OMS arbetsyta**, klickar du på **Skapa**.  När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn.  Du kommer tillbaka till bladet **Lägg till lösning**.  
 7. På bladet **Lägga till lösning** väljer du **Automation-konto**.  Om du skapar en ny OMS arbetsyta, kommer du dessutom att behöva skapa tt ny Automation-konto som ska associeras med den nya OMS-arbetsytan, inklusivedin Azure-prenumeration, resursgrupp och region.  Du kan välja **Skapa ett Automation-konto** och ange följande på bladet **Lägga till Automation-konto**: 
@@ -113,7 +113,7 @@ Utför följande steg för att lägga till lösningen Starta/Stoppa virtuella da
 
 8. Välj slutligen **Konfiguration** på bladet **Lägga till lösning**. Bladet **Parametrar** visas.  På bladet **Parametrar** uppmanas du att:  
    - Ange **målresursnamn**, vilket är ett resursgruppsnamn som innehåller virtuella datorer som hanteras av den här lösningen.  Du kan ange flera namn och skilja dem åt med ett semikolon (värden är skiftlägeskänsliga).  Användning av jokertecken stöds om du vill inkludera virtuella datorer i alla resursgrupper i prenumerationen.
-   - Välj ett **Schema** som är ett återkommande datum och tid för att starta och stoppa virtuella datorer i målresursgrupperna.
+   - Välj ett **Schema** som är ett återkommande datum och tid för att starta och stoppa virtuella datorer i målresursgrupperna.  
 
 10. När du har slutfört konfigurationen av de ursprungliga inställningarna som krävs för lösningen väljer du **Skapa**.  Alla inställningar kommer att valideras och sedan kommer lösningen att distribueras i din prenumeration.  Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **Meddelanden** på menyn. 
 
@@ -128,6 +128,9 @@ När du lägger till hanteringslösningen för virtuella datorer i OMS-arbetsyta
 I Automation-kontot kan du komma åt och hantera lösningen genom att välja panelen **lösningar**. Välj lösningen **Start stoppa VM [Workspace]** från listan i bladet **lösningar**.<br><br> ![Lista över Automation-lösningar](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
 Om lösningen markeras visas lösningsbladet **Starta-stoppa VM [Workspace]**där du kan granska viktig information, till exempel panelen **StartStopVM** som i din OMS arbetsyta som visar antal och grafisk representation av runbooksjobb för lösningen som har startat och har slutförts.<br><br> ![Lösningsblad i Automation VM](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+
+Härifrån kan du också öppna din OMS-arbetsyta och utföra ytterligare analys av jobbposterna.  Klicka bara på **Alla inställningar** och i bladet **Inställningar**, väljer du **Snabbstart** och sedan i bladet **Snabbstart**, väljer du **OMS Portal**.   Det öppnar en ny flik eller en ny webbläsarsession och visar dig OMS-arbetsytan som är kopplad till ditt Automation-konto och prenumeration.  
+
 
 ### Konfigurera e-postaviseringar
 
@@ -150,6 +153,10 @@ Utför följande steg för att konfigurera de variabler som markerats tidigare:
 2. På bladet **Inställningar** under avsnittet **Automation-resurser** väljer du **Tillgångar**. 
 3. På bladet **Tillgångar** väljer du panelen **variabler** panelen. Från bladet **Variabler** väljer du variabeln från listan och modifierar dess värde enligt dess beskrivning i avsnittet [Variabel](##variables) ovan.  
 4. Klicka på **Spara** för att ändringarna hos variabeln.   
+
+### Ändra schemat för start och avstängning
+
+Hantera schemat för start och avstängning i den här lösningen genom att följa samma steg som beskrivs i [Schemalägg en runbook i Azure Automation](automation-scheduling-a-runbook.md).  Kom ihåg att du inte kan ändra schemakonfigurationen.  Du måste inaktivera det befintliga schemat och skapa ett nytt som du länkar till runbooken **StartByResourceGroup-MS-Mgmt-VM** eller **StopByResourceGroup-MS-Mgmt-VM** som du vill att schemat ska gälla för.   
 
 ## Log Analytics-poster
 
@@ -224,6 +231,6 @@ Visa jobbstatus med tiden för runbookarna StartVM och StopVM | Category=JobLogs
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

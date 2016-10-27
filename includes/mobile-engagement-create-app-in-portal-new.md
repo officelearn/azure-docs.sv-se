@@ -1,3 +1,4 @@
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Klicka på **Nya**, sedan **Webb + Mobil**, och sedan **Mobile Engagement**.
@@ -38,6 +39,6 @@
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

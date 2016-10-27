@@ -1,6 +1,6 @@
 <properties
-   pageTitle="URL-based content routing overview | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule ."
+   pageTitle="Översikt över URL-baserad innehållsroutning | Microsoft Azure"
+   description="Den här sidan ger en översikt över den Application Gateway URL-baserade innehållsroutningen, UrlPathMap-konfigurationen och PathBasedRouting-regeln."
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
@@ -9,27 +9,28 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/16/2016"
    ms.author="gwallace"/>
 
-# URL Path Based Routing overview
 
-URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. One of the scenarios is to route requests for different content types to different backend server pools.
-In the following example, Application Gateway is serving traffic for contoso.com from three back-end server pools for example: VideoServerPool, ImageServerPool, and DefaultServerPool.
+# <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
+
+URL-sökvägsbaserad routning låter dig routa trafik till serverdels-serverpooler baserat på URL-sökvägen till begäranden. Ett av scenarierna är att dirigerar begäranden för olika innehållstyper till olika serverdels-serverpooler.
+I följande exempel servar Application Gateway trafik åt contoso.com från tre serverdels-serverpooler, till exempel: VideoServerPool, ImageServerPool och DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Requests for http://contoso.com/video* are routed to VideoServerPool, and http://contoso.com/images* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
+Begäranden för http://contoso.com/video* dirigeras till VideoServerPool och http://contoso.com/images* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
 
-## UrlPathMap configuration element
+## <a name="urlpathmap-configuration-element"></a>UrlPathMap-konfigurationselementet
 
-UrlPathMap element is used to specify Path patterns to back-end server pool mappings. The following code example is the snippet of urlPathMap element from template file.
+UrlPathMap-elementet används för att ange sökvägsmönster till mappningar för serverdels-serverpoolen. Följande kodexempel är utdrag av urlPathMap-element från mallfilen.
 
-	"urlPathMaps": [
-	{
+    "urlPathMaps": [
+    {
     "name": "<urlPathMapName>",
     "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>",
     "properties": {
@@ -56,20 +57,20 @@ UrlPathMap element is used to specify Path patterns to back-end server pool mapp
         ],
 
     }
-	}
-	
+    }
+    
 
->[AZURE.NOTE] PathPattern: This setting is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/". The string fed to the path matcher does not include any text after the first? or #, and those chars are not allowed here. 
+>[AZURE.NOTE] PathPattern: Den här inställningen är en lista över sökvägsmönster att matcha. Varje måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som skickats till sökvägsmatcharen saknar text efter det första? eller # och de tecknen tillåts inte här. 
 
-You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) for more information.
+Du kan kolla en [Resource Manager-mall med URL-baserad routning](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) för mer information.
 
-## PathBasedRouting rule
+## <a name="pathbasedrouting-rule"></a>PathBasedRouting-regeln
 
-RequestRoutingRule of type PathBasedRouting is used to bind a listener to a urlPathMap. All requests that are received for this listener are routed based on policy specified in urlPathMap.
-Snippet of PathBasedRouting rule:
+RequestRoutingRule av typen PathBasedRouting används för att binda en lyssnare till en urlPathMap. Alla begäranden som tas emot för den här lyssnaren dirigeras baserat på principen som anges i urlPathMap.
+Utdrag från PathBasedRouting-regeln:
 
-	"requestRoutingRules": [
-  	{
+    "requestRoutingRules": [
+    {
 
     "name": "<ruleName>",
     "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/requestRoutingRules/<ruleName>",
@@ -83,7 +84,13 @@ Snippet of PathBasedRouting rule:
         },
 
     }
-	
-## Next steps
+    
+## <a name="next-steps"></a>Nästa steg
 
-After learning about URL-based content routing, go to [create an application gateway using URL-based routing](application-gateway-create-url-route-portal.md) to create an application gateway with URL routing rules.
+När du läst om URL-baserad innehållsroutning, kan du gå till [skapa en Application Gateway med URL-baserad routing](application-gateway-create-url-route-portal.md) för att skapa en Application Gateway med regler för URL-routning.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

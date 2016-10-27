@@ -13,16 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="10/10/2016"
    ms.author="cakarst;barbkess;sonyama"/>
 
 
 
-# Läs in data med PolyBase i SQL Data Warehouse
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Läs in data med PolyBase i SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 De här självstudierna visar hur du läser in data i SQL Data Warehouse med hjälp av AzCopy och PolyBase. När du är klar, kommer du att veta hur man:
@@ -33,7 +34,7 @@ De här självstudierna visar hur du läser in data i SQL Data Warehouse med hj�
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
 
-## Förutsättningar
+## <a name="prerequisites"></a>Förutsättningar
 
 För att gå igenom de här självstudierna behöver du
 
@@ -44,11 +45,11 @@ För att gå igenom de här självstudierna behöver du
     ![Azure Storage-verktyg](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## Steg 1: Lägg till exempeldata i Azure blobblagret
+## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Steg 1: Lägg till exempeldata i Azure blobblagret
 
 För att kunna läsa in data, behöver vi lägga exempeldata i ett Azure-blobblager. I det här steget fyller vi en Azure Storage-blob med exempeldata. Senare kommer vi att använda PolyBase för att läsa in exempeldatan till din SQL Data Warehouse-databas.
 
-### A. Förbered en exempeltextfil
+### <a name="a.-prepare-a-sample-text-file"></a>A. Förbered en exempeltextfil
 
 Förbered en exempeltextfil:
 
@@ -69,7 +70,7 @@ Förbered en exempeltextfil:
 20150101,1,3
 ```
 
-### B. Hitta blobbtjänstens slutpunkt
+### <a name="b.-find-your-blob-service-endpoint"></a>B. Hitta blobbtjänstens slutpunkt
 
 Så här hittar du blobbtjänstens slutpunkt:
 
@@ -83,7 +84,7 @@ Så här hittar du blobbtjänstens slutpunkt:
 
     ![Blob-tjänstens slutpunkt](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### C. Hitta din Azure-lagringsnyckel
+### <a name="c.-find-your-azure-storage-key"></a>C. Hitta din Azure-lagringsnyckel
 
 Hitta din Azure-lagringsnyckel:
 
@@ -94,7 +95,7 @@ Hitta din Azure-lagringsnyckel:
 
     ![Kopiera Azure-lagringsnyckel](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### D. Kopiera exempelfilen till Azure-blobblagring
+### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Kopiera exempelfilen till Azure-blobblagring
 
 Kopiera dina data till Azure-blobblagring:
 
@@ -112,7 +113,7 @@ Kopiera dina data till Azure-blobblagring:
 
 Mer information finns i [Kom igång med kommandoradsverktyget AzCopy][].
 
-### E. Utforska din blobblagringsbehållare
+### <a name="e.-explore-your-blob-storage-container"></a>E. Utforska din blobblagringsbehållare
 
 Om du vill se filen du laddade upp till blobblagring:
 
@@ -125,7 +126,7 @@ Om du vill se filen du laddade upp till blobblagring:
     ![Visa Azure-lagringsblobb](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## Steg 2: Skapa en extern tabell för exempeldata
+## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Steg 2: Skapa en extern tabell för exempeldata
 
 I det här avsnittet ska vi skapa en extern tabell som definierar exempeldata.
 
@@ -215,7 +216,7 @@ I SQL Server Object Explorer i Visual Studio, kan du se det externa filformatet,
 
 ![Visa extern tabell](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## Steg 3: Läs in data till SQL Data Warehouse
+## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Steg 3: Läs in data till SQL Data Warehouse
 
 När den externa tabellen har skapats kan du antingen läsa in dina data till en ny tabell eller infoga dem i en befintlig tabell.
 
@@ -235,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## Steg 4: Skapa statistik på dina nyinlästa data
+## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Steg 4: Skapa statistik på dina nyinlästa data
 
 SQL Data Warehouse skapar och uppdaterar inte statistik automatiskt. För att få en hög frågeprestanda är det därför viktigt att skapa statistik för varje kolumn av varje tabell efter den första inläsningen. Det är också viktigt att uppdatera statistiken efter att det har skett betydande förändringar.
 
@@ -250,24 +251,24 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 För mer information, se [Statistik][].  
 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Se [PolyBase-guiden][] för ytterligare information som du bör känna till när du utvecklar en PolyBase-baserad lösning.
 
 <!--Image references-->
 
 
 <!--Article references-->
-[Självstudier för PolyBase i SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Läs in data med bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Självstudie för PolyBase i SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Läs in data med BCP]: ./sql-data-warehouse-load-with-bcp.md
 [Statistik]: ./sql-data-warehouse-tables-statistics.md
-[PolyBase-guiden]: ./sql-data-warehouse-load-polybase-guide.md
+[PolyBase-guide]: ./sql-data-warehouse-load-polybase-guide.md
 [Kom igång med kommandoradsverktyget AzCopy]: ../storage/storage-use-azcopy.md
 [senaste versionen av AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[källor/mottagare som stöds]: https://msdn.microsoft.com/library/dn894007.aspx
+[källa/mottagare som stöds]: https://msdn.microsoft.com/library/dn894007.aspx
 [kopieringsaktivitet]: https://msdn.microsoft.com/library/dn835035.aspx
-[SQL Server-målnätverkskort]: https://msdn.microsoft.com/library/ms141095.aspx
+[Måladapter för SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
@@ -275,19 +276,19 @@ Se [PolyBase-guiden][] för ytterligare information som du bör känna till när
 [Skapa externt filformat (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
 [Skapa extern tabell (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
+[Släpp extern datakälla (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
+[Släpp externt filformat (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
+[Släpp extern tabell (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
 
-[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
-[INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
+[Skapa tabell som val (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
+[Infoga ... välj(Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
 [Skapa huvudnyckel (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
-[Skapa databasomfattande autentisering (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
-[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
+[Skapa autentiseringsuppgift (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
+[Skapa databasomfattande autentiseringsuppgift (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
+[Släpp autentiseringsuppgift (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

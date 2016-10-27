@@ -70,7 +70,7 @@ Ange den prenumeration som du vill använda.
 
 ## 2. Skapa ett virtuellt nätverk och ett gateway-undernät.
 
-I exemplen används ett gateway-undernät på /28. Även om det går att skapa ett gateway-undernät som är så litet som /29 rekommenderas det inte. Vi rekommenderar att du skapar ett gateway-undernät på /27 eller större (/26, /25 osv.) för att kunna hantera framtida funktionskrav. 
+I exemplen används ett gateway-undernät på /28. Även om det är möjligt att skapa ett gateway-subnät som är så litet som /29 så rekommenderar vi att du skapar ett större subnät som inkluderar fler adresser genom att välja minst /28 eller /27. Det tillåter tillräckligt med adresser för att rymma möjliga övriga konfigurationer som du kan behöva i framtiden.
 
 Om du redan har ett virtuellt nätverk med ett gateway-undernät som är /29 eller större, kan du gå vidare till [Lägg till din lokala nätverksgateway](#localnet).
 
@@ -226,6 +226,6 @@ Använd följande anvisningar om du behöver ändra prefixen för din lokala nä
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

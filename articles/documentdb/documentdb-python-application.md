@@ -4,7 +4,7 @@
     keywords="Programutveckling, självstudier för databas, python flask, python webbprogram, python webbutveckling, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="AndrewHoh"
+    authors="syamkmsft"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -15,9 +15,10 @@
     ms.devlang="python"
     ms.topic="hero-article"
     ms.date="08/25/2016"
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
 
-# Utveckling av webbappar i Python Flask med DocumentDB
+
+# <a name="python-flask-web-application-development-with-documentdb"></a>Utveckling av webbappar i Python Flask med DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -39,7 +40,7 @@ Genom att följa den här självstudien skapar du en enkel röstningsapp där du
 ![Skärmdump av den webbapp med att göra-lista som skapats i denna självstudie om databaser](./media/documentdb-python-application/image1.png)
 
 
-## Förutsättningar för självstudien om databaser
+## <a name="database-tutorial-prerequisites"></a>Förutsättningar för självstudien om databaser
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande installerat:
 
@@ -55,7 +56,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 
 - Microsoft Visual C++ Compiler for Python 2.7 från [Microsoft Download Center][3].
 
-## Steg 1: Skapa ett DocumentDB-databaskonto
+## <a name="step-1:-create-a-documentdb-database-account"></a>Steg 1: Skapa ett DocumentDB-databaskonto
 
 Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå vidare till [Steg 2: Skapa en ny webbapp i Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
@@ -64,7 +65,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå 
 <br/>
 Nu kommer vi att gå igenom hur du skapar en ny Python Flask-webbapp från grunden.
 
-## Steg 2: Skapa en ny webbapp i Python Flask
+## <a name="step-2:-create-a-new-python-flask-web-application"></a>Steg 2: Skapa en ny webbapp i Python Flask
 
 1. I Visual Studio klickar du på menyn **Arkiv**, pekar på **Nytt** och klickar sedan på **Projekt**.
 
@@ -88,9 +89,9 @@ Nu kommer vi att gå igenom hur du skapar en ny Python Flask-webbapp från grund
 
     Utdatafönstret visar `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` när miljön har installerats.
 
-## Steg 3: Ändra Python Flask-webbappen
+## <a name="step-3:-modify-the-python-flask-web-application"></a>Steg 3: Ändra Python Flask-webbappen
 
-### Lägga till Python Flask-paket i ditt projekt
+### <a name="add-the-python-flask-packages-to-your-project"></a>Lägga till Python Flask-paket i ditt projekt
 
 När projektet har konfigurerats måste du lägga till nödvändiga Flask-paket till ditt projekt, inklusive pydocumentdb, Python-paketet för DocumentDB.
 
@@ -119,7 +120,7 @@ När projektet har konfigurerats måste du lägga till nödvändiga Flask-paket 
 
     > [AZURE.NOTE] I sällsynta fall kan det visas ett fel i utdatafönstret. Om det händer kan du kontrollera om felet är relaterat till rensning. Rensningen misslyckas ibland, men installationen slutförs ändå (rulla uppåt i utdatafönstret för att kontrollera). Du kan kontrollera installationen genom att [verifiera den virtuella miljön](#verify-the-virtual-environment). Om installationen misslyckades men verifieringen lyckas kan du fortsätta.
 
-### Verifiera den virtuella miljön
+### <a name="verify-the-virtual-environment"></a>Verifiera den virtuella miljön
 
 Nu ska vi kontrollera att allt är korrekt installerat.
 
@@ -130,7 +131,7 @@ Nu ska vi kontrollera att allt är korrekt installerat.
 
 3. Stoppa felsökningen av webbplatsen genom att trycka på **SKIFT**+**F5** i Visual Studio.
 
-### Skapa databas, samling och dokumentdefinitioner
+### <a name="create-database,-collection,-and-document-definitions"></a>Skapa databas, samling och dokumentdefinitioner
 
 Nu skapar vi röstningsappen genom att lägga till nya filer och uppdatera andra.
 
@@ -149,7 +150,7 @@ class VoteForm(Form):
 ```
 
 
-### Lägg till nödvändiga importer i views.py
+### <a name="add-the-required-imports-to-views.py"></a>Lägg till nödvändiga importer i views.py
 
 1. Expandera mappen **tutorial** i Solution Explorer och öppna filen **views.py**. 
 2. Lägg till nedanstående importuttryck överst i filen **views.py** och spara sedan filen. De importerar DocumentDB:s PythonSDK och Flask-paketen.
@@ -161,7 +162,7 @@ class VoteForm(Form):
     ```
 
 
-### Skapa databas, samling och dokument
+### <a name="create-database,-collection,-and-document"></a>Skapa databas, samling och dokument
 
 - Lägg till nedanstående kod i slutet av filen, fortfarande i **views.py**. Med den skapas databasen som formuläret använder. Ta inte bort den befintliga koden i **views.py**. Lägg bara till det här i slutet.
 
@@ -203,7 +204,7 @@ def create():
 > [AZURE.TIP] Metoden **CreateCollection** tar en valfri **RequestOptions** som tredje parameter. Det kan användas för att ange erbjudandetyp för samlingen. Om inget värde anges för offerType skapas samlingen med standardtypen för erbjudande. Mer information om erbjudandetyper i DocumentDB finns i [Prestandanivåer för DocumentDB](documentdb-performance-levels.md)
 
 
-### Läsa databas, samling och dokument samt skicka formulär
+### <a name="read-database,-collection,-document,-and-submit-form"></a>Läsa databas, samling och dokument samt skicka formulär
 
 - Lägg till nedanstående kod i slutet av filen, fortfarande i **views.py**. Med den kan formuläret konfigureras samt databas, samling och dokument läsas. Ta inte bort den befintliga koden i **views.py**. Lägg bara till det här i slutet.
 
@@ -255,7 +256,7 @@ def vote():
 ```
 
 
-### Skapa HTML-filerna
+### <a name="create-the-html-files"></a>Skapa HTML-filerna
 
 1. I Solution Explorer, i mappen **tutorial**, högerklickar du på mappen **templates**, klickar på **Lägg till** och klickar sedan på **Nytt objekt**. 
 2. Välj **HTML-sida** och skriv **create.html** i namnrutan. 
@@ -323,7 +324,7 @@ def vote():
     {% endblock %}
     ```
 
-### Lägg till en konfigurationsfil och ändra \_\_init\_\_.py
+### <a name="add-a-configuration-file-and-change-the-\_\_init\_\_.py"></a>Lägg till en konfigurationsfil och ändra \_\_init\_\_.py
 
 1. Högerklicka på projektet **tutorial** i Solution Explorer. Klicka på **Lägg till** och **Nytt objekt**, välj **Tom Python-fil** och namnge filen **config.py**. Den här konfigurationsfilen krävs av formulär i Flask. Du kan även använda den för att tillhandahålla en hemlig nyckel. Nyckeln behövs inte i den här självstudien.
 
@@ -343,7 +344,7 @@ def vote():
 
 3. I [Azure Portal](https://portal.azure.com/) navigerar du till bladet **Nycklar** genom att klicka på **Bläddra** och **DocumentDB-konton**. Dubbelklicka på namnet på det konto som ska användas och klicka sedan på knappen **Nycklar** i området **Essentials**. I bladet **Nycklar** kopierar du **URI**-värdet och klistrar in det i filen **config.py** som värdet för egenskapen **DOCUMENTDB\_HOST**. 
 4. Tillbaka i Azure Portal, i bladet **Nycklar**, kopierar du värdet för **primärnyckel** eller **sekundärnyckel** och klistrar in det i filen **config.py** som värdet för egenskapen **DOCUMENTDB\_KEY**.
-5. Lägg till nedanstående rad i filen **\_\_init\_\_.py**. 
+5. I **\_\_init\_\_.py**-filen, lägger du till följande rad. 
 
         app.config.from_object('config')
 
@@ -361,7 +362,7 @@ def vote():
     ![Skärmdump av Visual Studio Solution Explorer-fönstret](./media/documentdb-python-application/image15.png)
 
 
-## Steg 4: Kör webbappen lokalt
+## <a name="step-4:-run-your-web-application-locally"></a>Steg 4: Kör webbappen lokalt
 
 1. Bygg lösningen genom att trycka på **Ctrl**+**Skift**+**B**.
 2. När den har byggts startar du webbplatsen genom att trycka på **F5**. Du bör se nedanstående på skärmen.
@@ -382,7 +383,7 @@ def vote():
 
 6. Stoppa felsökningen av projektet genom att trycka på SKIFT + F5.
 
-## Steg 5: Distribuera webbappen till Azure Websites
+## <a name="step-5:-deploy-the-web-application-to-azure-websites"></a>Steg 5: Distribuera webbappen till Azure Websites
 
 När hela appen fungerar som den ska mot DocumentDB är det dags att distribuera den till Azure Websites.
 
@@ -408,15 +409,15 @@ När hela appen fungerar som den ska mot DocumentDB är det dags att distribuera
 
 3. Efter några sekunder har Visual Studio publicerat din webbapp och öppnar en webbläsare där du kan se ditt arbete köras i Azure!
 
-## Felsökning
+## <a name="troubleshooting"></a>Felsökning
 
 Om det här är den första Python-appen du kör på datorn kontrollerar du att följande mappar (eller motsvarande installationsplatser) ingår i PATH-variabeln:
 
     C:\Python27\site-packages;C:\Python27\;C:\Python27\Scripts;
 
-Om du får ett felmeddelande på röstningssidan och du gav ditt projekt något annat namn än **tutorial** kontrollerar du att **\_\_init\_\_.py** refererar till rätt projektnamn på denna rad: `import tutorial.view`.
+Om du får ett felmeddelande på din röstningssida och du har gett ditt projekt ett annat namn än **tutorial**, kontrollerar du att **\_\_init\_\_.py** refererar rätt projektnamn i raden: `import tutorial.view`.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Grattis! Du har precis skapat din första Python-webbapp med Azure DocumentDB och publicerat den på Azure Websites.
 
@@ -431,11 +432,11 @@ Ytterligare självstudier om Python Flask finns i [Ingående självstudie om Fla
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [2]: https://www.python.org/downloads/windows/
   [3]: https://www.microsoft.com/download/details.aspx?id=44266
-  [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-  [Azure-portalen]: http://portal.azure.com
+  [Installationsprogram för Microsoft-webbplattformen]: http://www.microsoft.com/web/downloads/platform.aspx
+  [Azure Portal]: http://portal.azure.com
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

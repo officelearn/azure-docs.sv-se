@@ -5,7 +5,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -16,6 +16,7 @@
     ms.topic="get-started-article"
     ms.date="08/17/2016"
     ms.author="cgronlun;tedway;olgali"/>
+
 
 
 # Introduktion till maskininlärning i molnet
@@ -68,7 +69,7 @@ I [Machine Learning Studio](machine-learning-what-is-ml-studio.md) kan du snabbt
     * [Distribuera webbtjänster](machine-learning-publish-a-machine-learning-web-service.md)
     * [Träna och träna om modeller via API:er](machine-learning-retrain-models-programmatically.md)
     * [Hantera slutpunkter för webbtjänster](machine-learning-create-endpoint.md)
-    * [Skala webbtjänster](machine-learning-scaling-endpoints.md)
+    * [Skala en webbtjänst](machine-learning-scaling-webservice.md)
     * [Konsumera webbtjänster](machine-learning-consume-web-services.md)
 
 ## Viktiga termer och begrepp inom maskininlärning
@@ -127,6 +128,6 @@ Du kan lära dig grunderna i förutsägelseanalyser och maskininlärning genom a
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO2-->
 
 

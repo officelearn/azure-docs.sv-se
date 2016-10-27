@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Självstudier: Skapa en pipeline med hjälp av guiden Kopiera" 
+    pageTitle="Självstudie: Skapa en pipeline med Copy Wizard | Microsoft Azure" 
     description="I de här självstudierna skapar du en Azure Data Factory-pipeline med en kopieringsaktivitet, med hjälp av guiden Kopiera som stöds av Data Factory" 
     services="data-factory" 
     documentationCenter="" 
@@ -10,7 +10,7 @@
 <tags 
     ms.service="data-factory" 
     ms.workload="data-services" 
-    ms.tgt_pltfrm="na" **
+    ms.tgt_pltfrm="na"
     ms.devlang="na" 
     ms.topic="get-started-article" 
     ms.date="09/16/2016" 
@@ -24,6 +24,7 @@
 - [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -120,7 +121,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
     ![Verktyget Kopiera - prestandainställningar](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## Starta övervakning och hantera program 
-12. På sidan **Distribution** klickar du på länken: **Klicka här för att övervaka kopiering av pipeline**.
+12. På **Distribution**-sidan, klickar du på länken: `Click here to monitor copy pipeline`.
 
     ![Verktyget Kopiera – Distributionen är klar](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
 13. Använd anvisningarna i [Övervaka och hantera pipeline med övervakningsappen](data-factory-monitor-manage-app.md) för att få mer information om hur du övervakar den pipeline som du skapade. Klicka på ikonen **Uppdatera** i listan **AKTIVITETSFÖNSTER** för att se sektorn. 
@@ -139,6 +140,6 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) | Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

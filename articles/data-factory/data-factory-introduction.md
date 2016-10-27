@@ -49,7 +49,7 @@ Om du behöver flytta data till/från ett datalager som Kopiera aktivitet inte s
 Länkade tjänster definierar den information som behövs för att Data Factory ska kunna ansluta till externa resurser (exempel: Azure Storage, lokal SQL Server, Azure HDInsight). Länkade tjänster används för två syften i Data Factory:
 
 - Att representera ett **datalager** inklusive, men inte begränsat till, en lokal SQL Server, Oracle-databas, filresurs eller ett Azure Blob Storage-konto. I avsnittet [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) finns en lista över datalager som stöds. 
-- Så här visar du en **beräkningsresurs** som kan vara värd för körningen av en aktivitet. HDInsightHive-aktiviteten körs till exempel på ett HDInsight Hadoop-kluster. I [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) finns en lista över de beräkningsmiljöer som stöds. 
+- Så här visar du en **beräkningsresurs** som kan vara värd för körningen av en aktivitet. HDInsightHive-aktiviteten körs till exempel på ett HDInsight Hadoop-kluster. Se avsnittet [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md), för en lista över compute-miljöer som stöds. 
 
 ## Datauppsättningar 
 Länkade tjänster länkar datalager till en Azure-datafabrik. Datauppsättningar representerar datastrukturer i datalager. Till exempel innehåller en länkad Azure Storage-tjänst anslutningsinformation för Data Factory för att ansluta till ett Azure Storage-konto. En Azure Blob-datauppsättning anger blobbehållaren och -mappen i Azure Blob Storage som pipelinen ska läsa data från. På samma sätt anger en länkad Azure SQL-tjänst anslutningsinformation för en Azure SQL Database och en Azure SQL-datauppsättning anger tabellen som innehåller data.   
@@ -83,6 +83,7 @@ Självstudier | Beskrivning
 [Skapa en datapipeline som flyttar data mellan ett lokalt datalager och ett molndatalager med hjälp av Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) | I de här självstudierna skapar du en datafabrik med en pipeline som **flyttar data** från en **lokal** SQL Server-databas till en Azure-blob. Som en del av den här genomgången kommer du att installera och konfigurera Data Management Gateway på din dator. 
 
 
-<!--HONumber=Sep16_HO4-->
+
+<!--HONumber=Oct16_HO3-->
 
 

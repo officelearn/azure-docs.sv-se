@@ -14,37 +14,60 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="09/21/2016"
+    ms.date="10/11/2016"
     ms.author="jroth"/>
 
 
-# Översikt över SQL Server i Azure Virtual Machines
+# <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Översikt över SQL Server i Azure Virtual Machines
 
-Det här ämnet beskriver dina alternativ för att köra SQL Server på virtuella Azure-datorer, tillsammans med [länkar till portalavbildningar](#option-1-deploy-a-sql-vm-per-minute-licensing) och en översikt över [vanliga uppgifter](#manage-your-sql-vm).
+Det här ämnet beskriver dina alternativ när du kör en SQL Server på virtuella Azure-datorer (VM:ar), tillsammans med [länkar till portalavbildningar](#option-1-create-a-sql-vm-with-per-minute-licensing) samt en översikt över [vanliga uppgifter](#manage-your-sql-vm).
 
->[AZURE.NOTE] Om du redan är bekant med SQL Server och bara vill se hur man distribuerar en virtuell dator med SQL Server, hittar du mer information i [Etablera en virtuell dator med SQL Server på Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+>[AZURE.NOTE] Om du redan är bekant med SQL Server och bara vill se hur man distribuerar en SQL Server-VM, hittar du mer information i [Etablera en virtuell dator med SQL Server i Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
-## Översikt
-Kanske är du en databasadministratör som vill flytta dina lokala SQL Server-arbetsbelastningar till molnet. Eller kanske är du en utvecklare som överväger att använda relationsdatabasfunktionerna i SQL Server i ditt Azure-program. Vad är fördelen med att köra SQL Server-arbetsbelastningar på virtuella Azure-datorer? I följande översiktsvideo diskuteras de olika fördelarna. Klippet innehåller även en teknisk översikt.
+## <a name="overview"></a>Översikt
+Om du är en databasadministratör eller en utvecklare, kan Azure VM:ar ge dig ett sätt att flytta dina lokala SQL Server-arbetsbelastningar och program till molnet. Följande videoklipp ger en teknisk översikt över Azure VM:ar med SQL Server.
 
 > [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
 
-## Utvärdera fördelarna
+Videoklippet går igenom följande områden:
 
-Innan du börjar bör du utvärdera vad du tjänar på att använda SQL Server på virtuella Azure-datorer.
+|Tid|Område|
+|---|---|
+| 00:21 | Vad är Azure VM:ar? |
+| 01:45 | Säkerhet |
+| 02:50 | Anslutning |
+| 03:30 | Lagringstillförlitlighet och prestanda |
+| 05:20 | VM-storlekar |
+| 05:54 | Hög tillgänglighet och SLA |
+| 07:30 | Konfigurationssupport |
+| 08:00 | Övervakning |
+| 08:32 | Demo: Skapa en SQL Server 2016 VM |
 
-Om du flyttar andra arbetsbelastningar till Azure, till exempel ett företagsprogram, kan det vara bra att även flytta beroende SQL Server-databaser till Azure för bättre prestanda. Men att låta virtuella datorer i Azure vara värdar för SQL Server har andra fördelar. Exempelvis har du automatiskt åtkomst till flera datacenter för global närvaro och haveriberedskap. En fullständig lista över scenarier och fördelar finns på [produktsidan för SQL Server på Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+>[AZURE.NOTE] Videoklippet fokuserar på SQL Server 2016 men Azure erbjuder VM-avbildningar för flera versioner av SQL Server inklusive 2008, 2012, 2014 och 2016. 
 
-> [AZURE.NOTE] När du utvärderar SQL Server på Azure Virtual Machines kan du också titta igenom andra lagrings- och SQL-alternativ i Azure, t.ex. [SQL Database](../sql-database/sql-database-technical-overview.md), [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) och [SQL Server Stretch Database](../sql     -server-stretch-database/sql-server-stretch-database-overview.md). En detaljerad jämförelse finns i [Välja ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure Virtual Machines (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+## <a name="understand-your-options"></a>Förstå dina alternativ
+Det finns flera skäl att välja att ha sin data i Azure. Om ditt program flyttar till Azure, ger det bättre prestanda om man även flyttar dess data. Men det finns fler fördelar. Du får automatiskt tillgång till flera datacenter för en global närvaro och haveriberedskap. Din data är också mycket säker och beständig.
 
-När du har bestämt dig för att köra SQL Server på Azure Virtual Machines är ett av dina första beslut om du vill använda en VM-avbildning som inkluderar SQL Server-licensieringskostnaderna. Ett annat alternativ är att använda din egen licens (BYOL, Bring Your Own License) och endast betala för den virtuella datorn. Dessa alternativ beskrivs i följande två avsnitt.
+SQL Server som kör på Azure VM:ar är ett alternativ för att lagra din relationsdata i Azure. Följande tabell ger en snabb sammanfattning av de SQL-erbjudanden som finns på Azure.
 
-## Skapa en ny virtuell SQL-dator
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| SQL-erbjudande | Beskrivning |
+|---:|---|---|
+|![SQL Server på Azure Virtual Machines](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)|[SQL Server på Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Kör SQL Server på Azure Virtual Machines (fokus för det här avsnittet). Hantera den virtuella datorn direkt och kör din databas på en retail-version av SQL Server. |
+|![SQL Database](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)|[SQL Database](https://azure.microsoft.com/services/sql-database/)|Använd SQL Database-tjänsten för att komma åt och skala din databas utan att behöva hantera underliggande infrastruktur.|
+|![SQL Data Warehouse](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[SQL Data Warehouse](https://azure.microsoft.com/en-us/services/sql-data-warehouse/)|Använd Azure SQL Data Warehouse för att bearbeta stora mängder relationell och icke-relationell data. Erbjuder skalbara informationslagerfunktioner som en tjänst.|
+|![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/)|Sträck ut lokal transaktionell data dynamiskt från Microsoft SQL Server 2016 till Azure.|
+
+Med de här olika alternativen, är SQL Server på Azure VM:ar ett bra val för flera olika scenarier. Du kanske till exempel vill konfigurera din Azure VM så att den är så lik en lokal SQL Server-dator som möjligt. Eller så kanske du vill köra ytterligare program och tjänster på samma databasserver. Det finns två resurser som hjälper dig att tänka igenom fler beslutsfaktorer:
+
+ - [SQL Server på virtuella Azure-datorer](https://azure.microsoft.com/services/virtual-machines/sql-server/) ger en översikt över de bästa scenarierna för att använda SQL Server på virtuella Azure-datorer. 
+ - [Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure VM:ar (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) ger dig en detaljerad jämförelse mellan SQL Database och SQL Server som körs på en VM.
+
+## <a name="create-a-new-sql-vm"></a>Skapa en ny virtuell SQL-dator
 Följande avsnitt innehåller direktlänkar till Azure-portalen för galleriavbildningarna för virtuella datorer med SQL Server. Beroende på vilken avbildning du väljer kan du antingen betala för SQL Server-licensen per minut eller använda din egen licens (Bring your own license, BYOL).
 
-Stegvisa anvisningar finns i självstudiekursen [Etablera en virtuell dator med SQL Server på Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Läs också [Prestandarelaterade metodtips för virtuella datorer med SQL Server](virtual-machines-windows-sql-performance.md), som förklarar hur du väljer lämplig datorstorlek och andra funktioner som är tillgängliga vid etablering.
+Du hittar stegvisa anvisningar för den här processen i självstudien [Etablera en virtuell SQL Server-dator på Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Läs också [Prestandarelaterade metodtips för virtuella datorer med SQL Server](virtual-machines-windows-sql-performance.md), som förklarar hur du väljer lämplig datorstorlek och andra funktioner som är tillgängliga vid etablering.
 
-## Alternativ 1: Skapa en virtuell SQL-dator med licensiering per minut
+## <a name="option-1:-create-a-sql-vm-with-per-minute-licensing"></a>Alternativ 1: Skapa en virtuell SQL-dator med licensiering per minut
 Följande tabell innehåller en matris med tillgängliga SQL Server-avbildningar i galleriet för virtuella datorer. Klicka på en länk om du vill skapa en ny virtuell dator med SQL med den version, den utgåva och det operativsystem du angett.
 
 |Version|Operativsystem|Utgåva|
@@ -58,7 +81,7 @@ Följande tabell innehåller en matris med tillgängliga SQL Server-avbildningar
 |**SQL 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2)|
 |**SQL 2008 R2 SP3**|Windows Server 2012|[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012)|
 
-## Alternativ 2: Skapa en virtuell SQL-dator med en befintlig licens
+## <a name="option-2:-create-a-sql-vm-with-an-existing-license"></a>Alternativ 2: Skapa en virtuell SQL-dator med en befintlig licens
 Du kan även använda din egen licens (Bring your own license, BYOL). I det här scenariot betalar du bara för den virtuella datorn utan ytterligare avgifter för SQL Server-licensiering. Om du vill använda din egen licens använder du matrisen med de versioner, utgåvor och operativsystem för SQL Server som anges nedan. Namnen på avbildningarna föregås av **{BYOL}** i portalen.
 
 |Version|Operativsystem|Utgåva|
@@ -69,35 +92,38 @@ Du kan även använda din egen licens (Bring your own license, BYOL). I det här
 
 > [AZURE.IMPORTANT] För att kunna använda VM-avbildningar med BYOL måste du ha ett Enterprise-avtal med [licensmobilitet via Software Assurance i Azure](https://azure.microsoft.com/pricing/license-mobility/). Du måste också ha en giltig licens för den version/utgåva av SQL Server som du vill använda. Du måste [förse Microsoft med nödvändig BYOL-information](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) inom **tio** dagar från etableringen av den virtuella datorn.
 
-## Hantera den virtuella SQL-datorn
+## <a name="manage-your-sql-vm"></a>Hantera den virtuella SQL-datorn
 Det finns flera valfria hanteringsuppgifter som du kan utföra när du har etablerat din virtuella SQL Server-dator. Till stor del konfigurerar du och hanterar SQL Server på exakt samma sätt som när du administrerar en lokal SQL Server-instans. Men vissa uppgifter är specifika för Azure. I följande avsnitt beskrivs några av dessa områden med länkar till mer information.
 
-### Migrera dina data
+### <a name="connect-to-the-vm"></a>Anslut till VM:en
+Ett av de mest grundläggande hanteringsstegen är att ansluta till din SQL Server-VM med hjälp av verktyg, som SQL Server Management Studio (SSMS). För instruktioner om hur du ansluter till din nya SQL Server-VM, kan du läsa [Anslut till en virtuell SQL Server-dator i Azure](virtual-machines-windows-sql-connect.md).
 
+### <a name="migrate-your-data"></a>Migrera dina data
 Om du har en befintlig databas vill du antagligen flytta den till den nyetablerade virtuella SQL-datorn. En lista över migreringsalternativ och anvisningar finns i [Migrera en databas till SQL Server på en virtuell dator i Azure](virtual-machines-windows-migrate-sql.md).
 
-### Konfigurera hög tillgänglighet
-
+### <a name="configure-high-availability"></a>Konfigurera hög tillgänglighet
 Om du behöver hög tillgänglighet bör du överväga att konfigurera SQL Server-tillgänglighetsgrupper. Detta betyder att det finns flera virtuella Azure-datorer i ett virtuellt nätverk. På Azure Portal finns det en mall som ställer in den här konfigurationen åt dig. Mer information finns i [Konfigurera en AlwaysOn-tillgänglighetsgrupp för virtuella datorer i Azure Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). Om du vill konfigurera tillgänglighetsgruppen och associerade lyssnare manuellt läser du [Konfigurera AlwaysOn-tillgänglighetsgrupper för virtuella datorer i Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 Mer information om hög tillgänglighet finns i [Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
-### Säkerhetskopiera data
+### <a name="back-up-your-data"></a>Säkerhetskopiera data
 Virtuella Azure-datorer kan dra nytta av [automatisk säkerhetskopiering](virtual-machines-windows-sql-automated-backup.md), som regelbundet skapar säkerhetskopior av databasen till blob-lagring. Du kan också använda den här tekniken manuellt. Mer information finns i [Använda Azure Storage för säkerhetskopiering och återställning av SQL Server](virtual-machines-windows-use-storage-sql-server-backup-restore.md). En översikt över alla alternativ för säkerhetskopiering och återställning finns i [Säkerhetskopiering och återställning av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
-### Automatisera uppdateringar
+### <a name="automate-updates"></a>Automatisera uppdateringar
 Virtuella Azure-datorer kan använda [automatisk korrigering](virtual-machines-windows-sql-automated-patching.md) för att schemalägga en underhållsperiod för automatisk installation av viktiga Windows- och SQL Server-uppdateringar.
 
-### CEIP (Customer Experience Improvement Program)
-CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det här är inte en hanteringsaktivitet såvida du inte vill inaktivera CEIP efter etableringen. Du kan anpassa eller inaktivera CEIP genom att ansluta till den virtuella datorn med Fjärrskrivbord. Kör sedan verktyget **Fel- och användningsrapportering för SQL Server**. Inaktivera rapporteringen genom att följa anvisningarna.
+### <a name="customer-experience-improvement-program-(ceip)"></a>CEIP (Customer Experience Improvement Program)
+CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det skickar periodvisa rapporter till Microsoft för att hjälpa att förbättra SQL Server. Det krävs inga hanteringsaktiviteter för CEIP om du inte vill inaktivera den efter etablering. Du kan anpassa eller inaktivera CEIP genom att ansluta till den virtuella datorn med Fjärrskrivbord. Kör sedan verktyget **Fel- och användningsrapportering för SQL Server**. Inaktivera rapporteringen genom att följa anvisningarna. 
 
-## Nästa steg
+Mer information finns i CEIP-avsnittet för ämnet [Acceptera licensvillkoren](https://msdn.microsoft.com/library/ms143343.aspx). 
+
+## <a name="next-steps"></a>Nästa steg
 [Utforska utbildningsvägen](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) för SQL Server på virtuella datorer i Azure.
 
 Har du fler frågor? Börja med att läsa [Vanliga frågor och svar om SQL Server på Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md). Du kan också lägga till dina frågor eller kommentarer längst ned i något av avsnitten om virtuella datorer med SQL och interagera med Microsoft och communityn.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

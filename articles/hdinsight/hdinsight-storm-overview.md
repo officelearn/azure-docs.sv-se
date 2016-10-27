@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/27/2016"
+   ms.date="10/11/2016"
    ms.author="larryfr"/>
+
 
 #Introduktion till Apache Storm på HDInsight: analys i realtid för Hadoop
 
@@ -227,6 +228,6 @@ Läs mer om lösningarna för realtidsanalys med Apache Storm i HDInsight:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -13,50 +13,50 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/26/2016"
+    ms.date="10/12/2016"
     ms.author="juliako"/>
 
 
-# Konfigurera din miljö
+# <a name="set-up-your-environment"></a>Konfigurera din miljö
 
 > [AZURE.SELECTOR]
-- [Portalen](media-services-create-account.md)
+- [Portal](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
 
 Följande steg beskriver de krav som ställs vid utveckling med Azure Media Services.
 
-## Skapa ett Media Services-konto
+## <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
 
-Använd den klassiska Azure-portalen, .NET SDK eller REST API för att skapa ett Azure Media Services-konto.
+Använd Azure Portal, .NET SDK eller REST API för att skapa ett Azure Media Services-konto.
 
 <a id="setup_dev_env"></a>
-## Konfigurera utvecklingsmiljön  
+## <a name="set-up-the-development-environment"></a>Konfigurera utvecklingsmiljön  
 
 Välj .NET eller REST API för din utvecklingsmiljö.
 
 [AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 <a id="connect"></a>
-## Ansluta genom programmering
+## <a name="connect-programmatically"></a>Ansluta genom programmering
 
 Välj .NET eller REST API för att genom programmering ansluta till Azure Media Services.
 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
 
-##Nästa steg: Utbildningsvägar för Azure Media Services
+##<a name="next-steps:-azure-media-services-learning-paths"></a>Nästa steg: Utbildningsvägar för Azure Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Ge feedback
+##<a name="provide-feedback"></a>Ge feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

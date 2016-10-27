@@ -175,7 +175,7 @@ Vi använder följande värden i exemplen:
 
     I det här exemplet skapas ett virtuellt nätverk med namnet TestVNet1 och tre undernät – GatewaySubnet, FrontEnd och BackEnd. När du ersätter värden är det viktigt att du alltid namnger gateway-undernätet specifikt till GatewaySubnet. Om du ger det något annat namn går det inte att skapa gatewayen. 
 
-    I följande exempel används variablerna som du angav tidigare. I det här exemplet använder gateway-undernätet en /27. Du kan skapa ett gateway-undernät med ett undernät så litet som en /29, men vi rekommenderar att du inte gör det. Vi rekommenderar att du använder något större, till exempel en /27 eller /26. På så sätt kan du utnyttja befintliga eller framtida konfigurationer som kan kräva ett större gateway-undernät. 
+    I följande exempel används variablerna som du angav tidigare. I det här exemplet använder gateway-undernätet en /27. Även om det är möjligt att skapa ett gateway-subnät som är så litet som /29 så rekommenderar vi att du skapar ett större subnät som inkluderar fler adresser genom att välja minst /28 eller /27. Det tillåter tillräckligt med adresser för att rymma möjliga övriga konfigurationer som du kan behöva i framtiden. 
 
         $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
         $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
@@ -476,6 +476,9 @@ I det här exemplet där gatewayerna finns i olika prenumerationer, har vi delat
 
 ## <a name="verify"></a>Så här verifierar du en anslutning
 
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 
@@ -487,6 +490,6 @@ I det här exemplet där gatewayerna finns i olika prenumerationer, har vi delat
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

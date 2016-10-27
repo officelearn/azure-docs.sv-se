@@ -18,10 +18,10 @@
 
 
 
-#Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med hjälp av Azure-portalen
+#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med hjälp av Azure-portalen
 
 > [AZURE.SELECTOR]
-- [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
@@ -29,7 +29,7 @@ Den här självstudien visar dig stegen för att skapa en **kanal** som tar emot
 
 >[AZURE.NOTE]Mer konceptinformation relaterad till kanaler som är aktiverade för Live Encoding finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
 
-##Vanligt scenario för direktsänd strömning
+##<a name="common-live-streaming-scenario"></a>Vanligt scenario för direktsänd strömning
 
 Följande steg är allmänna steg som ingår i att skapa vanliga program för direktsänd strömning.
 
@@ -57,7 +57,7 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 1. Stoppa händelsen när du vill stoppa strömningen och arkiveringen av händelsen.
 1. Ta bort händelsen (och ta eventuellt bort tillgången).   
 
-##I den här självstudien
+##<a name="in-this-tutorial"></a>I den här självstudien
 
 I de här självstudierna används Azure-portalen för att utföra följande uppgifter: 
 
@@ -69,14 +69,14 @@ I de här självstudierna används Azure-portalen för att utföra följande upp
 1.  Spela upp ditt innehåll 
 2.  Rensa
 
-##Krav
+##<a name="prerequisites"></a>Krav
 Följande krävs för att kunna genomföra självstudien.
 
-- Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
-- Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-create-account.md).
+- Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-portal-create-account.md).
 - En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
 
-##Konfigurera strömningsslutpunkter 
+##<a name="configure-streaming-endpoints"></a>Konfigurera strömningsslutpunkter 
 
 Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med multibithastighet  i följande strömningsformat: MPEG DASH, HLS, Smooth Streaming eller HDS utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
 
@@ -99,7 +99,7 @@ Om du vill skapa och ändra antalet reserverade enheter för strömning gör du 
 
     >[AZURE.NOTE]Tilldelning av nya enheter kan ta cirka 20 minuter att slutföra.
 
-##Skapa en KANAL
+##<a name="create-a-channel"></a>Skapa en KANAL
 
 1. I [Azure-portalen](https://portal.azure.com/) klickar du på Media Services och sedan på namnet på Media Services-kontot.
 2. Välj **Liveuppspelning**.
@@ -143,16 +143,16 @@ När du har skapat kanalen kan du klicka på kanalen och välja **Inställningar
 Mer information finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##Hämta infognings-URL:er
+##<a name="get-ingest-urls"></a>Hämta infognings-URL:er
 
 När kanalen har skapats kan du få infognings-URL:er som du tillhandahåller till livekodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
 
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 
-##Skapa och hantera händelser
+##<a name="create-and-manage-events"></a>Skapa och hantera händelser
 
-###Översikt
+###<a name="overview"></a>Översikt
 
 En kanal är associerad med händelser och program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar händelser/program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.
 
@@ -172,7 +172,7 @@ Om du vill ta bort arkiverat innehåll, stoppar du och tar bort händelsen och t
 
 Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillgängligt för strömning, tar du bort strömningslokaliseraren.
 
-###Skapa/Starta/Stoppa händelser
+###<a name="create/start/stop-events"></a>Skapa/Starta/Stoppa händelser
 
 När dataströmmen väl flödar till kanalen kan du påbörja strömningshändelsen genom att skapa en tillgång, ett program och en strömningspositionerare. Detta arkiverar dataströmmen och gör den tillgänglig för visning via strömningsslutpunkten. 
 
@@ -199,7 +199,7 @@ Du kan titta på den publicerade händelsen från sidan **Live-händelse**.
 Om du klickar på **Off Air**, stoppas alla live-händelser. 
 
 
-##Titta på händelsen
+##<a name="watch-the-event"></a>Titta på händelsen
 
 För att titta på händelsen klickar du på **Titta på** i Azure-portalen eller kopierar strömnings-URL:en och använder en valfri spelare. 
  
@@ -207,7 +207,7 @@ För att titta på händelsen klickar du på **Titta på** i Azure-portalen elle
 
 Live-händelser konverterar automatiskt händelser till innehåll-på-begäran när de stoppas.
 
-##Rensa
+##<a name="clean-up"></a>Rensa
 
 Följ stegen nedan om du är klar med strömningen av händelser och vill rensa de resurser som etablerades tidigare.
 
@@ -215,7 +215,7 @@ Följ stegen nedan om du är klar med strömningen av händelser och vill rensa 
 - Stoppa kanalen. När kanalen har stoppats medför den inga avgifter. När du vill starta den igen har den samma infognings-URL så att du inte behöver konfigurera om din kodare.
 - Du kan avbryta din strömningsslutpunkt om du inte vill fortsätta att tillhandahålla arkivet för din direktsända händelse som en strömning på begäran. När kanalen har stoppats medför den inga avgifter.
   
-##Visa arkiverat innehåll
+##<a name="view-archived-content"></a>Visa arkiverat innehåll
 
 Även efter att du stoppat och tagit bort händelsen skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort tillgången. En tillgång kan inte tas bort om den används av en händelse. Händelsen måste tas bort först. 
 
@@ -223,19 +223,19 @@ För att hantera dina tillgångar väljer du **Inställning** och klickar på **
 
 ![Tillgångar](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
-##Överväganden
+##<a name="considerations"></a>Överväganden
 
 - Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under längre tidsperioder.
 - Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
 
 
-##Nästa steg
+##<a name="next-step"></a>Nästa steg
 
 Granska sökvägarna för Media Services-utbildning.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Ge feedback
+##<a name="provide-feedback"></a>Ge feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -243,6 +243,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

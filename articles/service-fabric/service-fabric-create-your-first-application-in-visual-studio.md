@@ -21,8 +21,9 @@
 # Skapa ditt första Azure Service Fabric-program
 
 > [AZURE.SELECTOR]
-- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# – Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 Service Fabric SDK innehåller ett tillägg för Visual Studio som tillhandahåller mallar och verktyg som hjälper dig att skapa, distribuera och felsöka Service Fabric-program. Den här artikeln beskriver steg för steg hur du skapar ditt första program i Visual Studio.
 
@@ -156,6 +157,6 @@ När du ändrar klusterläge återställs utvecklingsklustret och alla program s
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

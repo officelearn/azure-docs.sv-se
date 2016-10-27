@@ -1,14 +1,14 @@
 <properties
     pageTitle="Översikt över prisnivåer för Service Bus Premium- och Standard-meddelanden | Microsoft Azure"
     description="Service Bus Premium- och Standard-meddelanden"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="djrosanova"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
@@ -17,7 +17,7 @@
     ms.author="darosa;sethm"/>
 
 
-# Service Bus Premium- och Standard-meddelandenivåer 
+# <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium- och Standard-meddelandenivåer 
 
 Service Bus-meddelandetjänster, inklusive meddelandeenheter som köer och ämnen, kombinerar meddelandefunktioner för företag med utförlig publicerings-/prenumerationssemantik i molnskala. Service Bus-meddelandetjänster används som kommunikationsryggrad i många avancerade molnlösningar.
 
@@ -37,30 +37,29 @@ En del övergripande skillnader visas i tabellen nedan.
 
 Prestanda är inte bara mer förutsägbara och tillgängliga, utan de är snabbare också. Service Bus Premium-meddelanden bygger på lagringsmotorn som infördes i [Azure Händelsehubbar](https://azure.microsoft.com/services/event-hubs/). Med Premium-meddelanden är topprestanda mycket snabbare än med standardnivån.
 
-## Premium-meddelanden – tekniska skillnader
+## <a name="premium-messaging-technical-differences"></a>Premium-meddelanden – tekniska skillnader
 
 Nedan följer några skillnader mellan Premium- och Standard-meddelandenivåerna.
 
-### Partitionerade köer och ämnen
+### <a name="partitioned-queues-and-topics"></a>Partitionerade köer och ämnen
 
 Det finns stöd för partitionerade köer och ämnen i Premium-meddelanden, men de fungerar inte på samma sätt som på Standard- och Basic-nivåerna av Service Bus-meddelanden. Premium-meddelanden använder inte SQL som ett datalager och har inte längre den konkurrens om resurser som förknippas med en delad plattform. Därför är partitionering inte nödvändigt. Dessutom har antalet partitioner ändrats från 16 partitioner i Standard-meddelanden till två partitioner i Premium. Med två partitioner garanteras tillgänglighet och är ett mer passande antal för Premium-körningsmiljön. Mer information om partitionering finns i [Partitionerade köer och ämnen](service-bus-partitioning.md).
 
-### Expressenheter
+### <a name="express-entities"></a>Expressenheter
 
 Eftersom Premium-meddelanden körs i en helt isolerad körningsmiljö, stöds inte längre expressenheter i Premium-namnområden. Mer information om expressfunktionen finns på egenskapen [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 I följande ämnen kan du lära dig mer om Service Bus-meddelanden.
 
-- [Introduktion till Azure Service Bus Premium-meddelanden (blogginlägg)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-- [Introduktion till Azure Service Bus Premium-meddelanden (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-- [Översikt över meddelandetjänsten i Service Bus](service-bus-messaging-overview.md)
-- [Översikt över arkitekturen i Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Använda Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
+- [Introduktion till Azure Service Premium-meddelandefunktion (blogginlägg)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Introduktion till Azure Service Bus Premium-meddelandefunktion (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+- [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
+- [Använd Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

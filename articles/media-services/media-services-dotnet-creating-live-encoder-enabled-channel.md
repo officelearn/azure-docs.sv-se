@@ -13,29 +13,29 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="09/15/2016"
+    ms.date="10/12/2016"
     ms.author="juliako;anilmur"/>
 
 
 
-#Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET
+#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-.net"></a>Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET
 
 > [AZURE.SELECTOR]
-- [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST-API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> För den här kursen behöver du ett Azure-konto. Mer information finns i [kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-##Översikt
+##<a name="overview"></a>Översikt
 
 Den här självstudien visar dig stegen för att skapa en **kanal** som tar emot en  direktsänd dataström med enkel bithastighet och kodar den till en dataström med multibithastighet.
 
 Mer konceptinformation relaterad till kanaler som är aktiverade för Live Encoding finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##Vanligt scenario för direktsänd strömning
+##<a name="common-live-streaming-scenario"></a>Vanligt scenario för direktsänd strömning
 
 Följande steg beskriver uppgifter som ingår i att skapa vanliga program för direktsänd strömning.
 
@@ -43,17 +43,17 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga program för d
 
 1. Anslut en videokamera till en dator. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP, Smooth Streaming eller RTP (MPEG TS). Mer information finns i [Support och livekodare för Azure Media Services RTMP](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-    Det här steget kan också utföras när du har skapat din kanal.
+Det här steget kan också utföras när du har skapat din kanal.
 
 1. Skapa och starta en kanal.
 
 1. Hämta kanalens infognings-URL.
 
-    Infognings-URL:en används av livekodaren för att skicka dataströmmen till kanalen.
+Infognings-URL:en används av livekodaren för att skicka dataströmmen till kanalen.
 
 1. Hämta kanalens förhandsgransknings-URL.
 
-    Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
+Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
 
 2. Skapa en tillgång.
 3. Om du vill att tillgången ska vara dynamiskt krypterad under uppspelningen gör du följande:
@@ -63,14 +63,14 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga program för d
 3. Skapa ett program och ange att den tillgång som du skapade ska användas.
 1. Publicera tillgången som är associerad till programmet genom att skapa en OnDemand-positionerare.
 
-    Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
+Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
 
 1. Starta programmet när du är redo att påbörja strömning och arkivering.
 2. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
 1. Stoppa programmet när du vill stoppa strömningen och arkiveringen av händelsen.
 1. Ta bort programmet (och ta eventuellt bort tillgången).
 
-## Detta får du får lära dig
+## <a name="what-you'll-learn"></a>Detta får du får lära dig
 
 I det här avsnittet visas hur du utför olika åtgärder i kanaler och program med hjälp av Media Services .NET SDK. Eftersom många åtgärder är långvariga används .NET-API:er som hanterar långvariga åtgärder.
 
@@ -86,37 +86,37 @@ I avsnittet visas hur du gör följande:
 1. Rensa din kanal och alla associerade resurser.
 
 
-##Krav
+##<a name="prerequisites"></a>Krav
 
 Följande krävs för att kunna genomföra självstudien.
 
-- Du behöver ett Azure-konto för att slutföra den här självstudien. 
-    
-    Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
-- Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-create-account.md).
+- Du behöver ett Azure-konto för att slutföra den här självstudien.
+
+Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
+- Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-portal-create-account.md).
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate eller Express) eller senare versioner.
 - Du måste använda Media Services .NET SDK version 3.2.0.0 eller senare.
 - En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
 
-##Överväganden
+##<a name="considerations"></a>Överväganden
 
 - Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under längre tidsperioder.
 - Se till att ha minst en reserverad enhet för strömning på den strömningsslutpunkt från vilken du vill strömma innehåll.
 
-##Hämta exempel
+##<a name="download-sample"></a>Hämta exempel
 
 Hämta och kör ett exempel [här](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 
-##Konfigurera för utveckling med Media Services SDK för .NET
+##<a name="set-up-for-development-with-media-services-sdk-for-.net"></a>Konfigurera för utveckling med Media Services SDK för .NET
 
 1. Skapa en konsoltillämpning med Visual Studio.
 1. Lägga till Media Services SDK för .NET i konsoltillämpning med Media Services NuGet-paketet.
 
-##Ansluta till Media Services
+##<a name="connect-to-media-services"></a>Ansluta till Media Services
 Bästa praxis är att använda en app.config-fil för att lagra Media Services-namnet och kontonyckeln.
 
->[AZURE.NOTE]Gå till den klassiska Azure-portalen för att söka efter namn och nyckel, välj Media Service-konto och klicka på ikonen ”HANTERA NYCKLAR” längst ned i portalfönstret. Klicka på ikonen bredvid varje textruta för att kopiera värdet till Urklipp.
+>[AZURE.NOTE]För att hitta namn- och nyckelvärden, går du till Azure Portal och väljer ditt konto. Fönstret Inställningar visas på höger sida. I fönstret Inställningar, väljer du Nycklar. Klicka på ikonen bredvid varje textruta för att kopiera värdet till Urklipp.
 
 Lägg till avsnittet appSettings i filen app.config och ange Media Services-kontots namn och kontonyckel.
 
@@ -130,7 +130,7 @@ Lägg till avsnittet appSettings i filen app.config och ange Media Services-kont
     </configuration>
      
     
-##Kodexempel
+##<a name="code-example"></a>Kodexempel
 
     using System;
     using System.Collections.Generic;
@@ -519,22 +519,22 @@ Lägg till avsnittet appSettings i filen app.config och ange Media Services-kont
     }   
 
 
-##Nästa steg
+##<a name="next-step"></a>Nästa steg
 
 Granska sökvägarna för Media Services-utbildning.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Ge feedback
+##<a name="provide-feedback"></a>Ge feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Letar du efter något annat?
+### <a name="looking-for-something-else?"></a>Letar du efter något annat?
 
 Om inte det här ämnet innehåller det som du väntade dig, saknar något eller på något annat sätt inte motsvarade dina behov, får du gärna ge oss feedback i Disqus-tråden nedan.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -1,13 +1,13 @@
 <properties 
     pageTitle="REST-självstudiekurs om asynkrona meddelanden i Service Bus | Microsoft Azure"
     description="REST-självstudiekurs om asynkrona meddelanden."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
@@ -16,23 +16,25 @@
     ms.author="sethm" />
 
 
-# REST-självstudiekurs om asynkrona meddelanden i Service Bus
+# <a name="service-bus-brokered-messaging-rest-tutorial"></a>REST-självstudiekurs om asynkrona meddelanden i Service Bus
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Den här kursen visar hur du skapar en grundläggande REST-baserad Azure Service Bus-kö och -ämne/-prenumeration.
 
-## Skapa ett namnområde
+## <a name="create-a-namespace"></a>Skapa ett namnområde
 
-Det första steget är att skapa ett namnområde för tjänsten och hämta en nyckel till [signatur för delad åtkomst](../service-bus/service-bus-sas-overview.md) (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet för tjänsten och SAS-nyckeln ger en referens för Service Bus som används för att tillåta åtkomst till ett program.
+Det första steget är att skapa ett namnområde för tjänsten och hämta en nyckel till [signatur för delad åtkomst](service-bus-sas-overview.md) (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet för tjänsten och SAS-nyckeln ger en referens för Service Bus som används för att tillåta åtkomst till ett program.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Skapa en konsolklient
+## <a name="create-a-console-client"></a>Skapa en konsolklient
 
 Service Bus-köer gör att du kan lagra meddelanden i en kö av typen först in, först ut. Med ämnen och prenumerationer implementeras ett publicera-/prenumereramönster. Du skapar ett ämne och sedan en eller flera prenumerationer som är kopplade till detta ämne. När meddelanden skickas ut till ämnet, skickas de omedelbart ut till detta ämnes prenumeranter.
 
 Koden i den här självstudiekursen gör följande.
 
-- Den använder namnområdet och [SAS-nyckeln](../service-bus/service-bus-sas-overview.md) (signatur för delad åtkomst) för att ge åtkomst till dina namnområdesresurser för Service Bus.
+- Den använder namnområdet och [SAS-nyckeln](service-bus-sas-overview.md) (signatur för delad åtkomst) för att ge åtkomst till dina namnområdesresurser för Service Bus.
 
 - Den skapar en kö, skickar ett meddelande till den och läser meddelandet från den.
 
@@ -46,7 +48,7 @@ Eftersom tjänsten är en webbtjänst i REST-format, ingår det inga särskilda 
 
 När du har fått namnområdet och autentiseringsuppgifterna i det första steget ska du sedan gå vidare med att skapa ett grundläggande konsolprogram i Visual Studio.
 
-### Skapa ett konsolprogram
+### <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
 1. Starta Visual Studio som administratör genom att högerklicka på programmet i **Start**-menyn och sedan klicka på **Kör som administratör**.
 
@@ -147,11 +149,11 @@ När du har fått namnområdet och autentiseringsuppgifterna i det första stege
     Console.ReadLine();
     ```
 
-## Skapa autentiseringsuppgifter för hantering
+## <a name="create-management-credentials"></a>Skapa autentiseringsuppgifter för hantering
 
 Nästa steg är att skriva en metod som bearbetar det namnområde och den SAS-nyckel som du angav i föregående steg och som returnerar en SAS-token. I det här exemplet skapas en SAS-token som är giltig i en timme.
 
-### Skapa en GetSASToken()-metod
+### <a name="create-a-getsastoken()-method"></a>Skapa en GetSASToken()-metod
 
 Klistra in följande kod efter `Main()`-metoden i `Program`-klassen:
 
@@ -169,7 +171,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
   return sasToken;
 }
 ```
-## Skapa kön
+## <a name="create-the-queue"></a>Skapa kön
 
 Nästa steg är att skriva en metod som använder kommandot HTTP PUT i REST-format för att skapa en kö.
 
@@ -198,7 +200,7 @@ private static string CreateQueue(string queueName, string token)
 }
 ```
 
-## Skicka ett meddelande till kön
+## <a name="send-a-message-to-the-queue"></a>Skicka ett meddelande till kön
 
 I det här steget kan du lägga till en metod som använder kommandot HTTP POST i REST-format för att skicka ett meddelande till den kö som du skapade i det förra steget.
 
@@ -235,7 +237,7 @@ I det här steget kan du lägga till en metod som använder kommandot HTTP POST 
     webClient.Headers.Add("Customer", "12345");
     ```
 
-## Ta emot och ta bort ett meddelande från kön
+## <a name="receive-and-delete-a-message-from-the-queue"></a>Ta emot och ta bort ett meddelande från kön
 
 Nästa steg är att lägga till en metod som använder kommandot HTTP DELETE i REST-format för att ta emot och ta bort ett meddelande från kön.
 
@@ -259,11 +261,11 @@ private static string ReceiveAndDeleteMessage(string resourceName)
 }
 ```
 
-## Skapa ett ämne och en prenumeration
+## <a name="create-a-topic-and-subscription"></a>Skapa ett ämne och en prenumeration
 
 Nästa steg är att skriva en metod som använder kommandot HTTP PUT i REST-format för att skapa ett ämne. Sedan kan du skriva en metod som skapar en prenumeration för detta ämne.
 
-### Skapa ett ämne
+### <a name="create-a-topic"></a>Skapa ett ämne
 
 Klistra in följande kod direkt efter den `ReceiveAndDeleteMessage()`-kod som du lade till i det förra steget:
 
@@ -289,7 +291,7 @@ private static string CreateTopic(string topicName)
 }
 ```
 
-### Skapa en prenumeration
+### <a name="create-a-subscription"></a>Skapa en prenumeration
 
 Följande kod skapar en prenumeration på det ämne som du skapade i det förra steget. Lägg till följande kod direkt efter definitionen `CreateTopic()`:
 
@@ -314,11 +316,11 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 }
 ```
 
-## Hämta meddelanderesurser
+## <a name="retrieve-message-resources"></a>Hämta meddelanderesurser
 
 I det här steget lägger du till kod som hämtar meddelandeegenskaperna och sedan tar bort de meddelanderesurser som du skapade i det förra steget.
 
-### Hämta ett Atom-flöde med de angivna resurserna
+### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Hämta ett Atom-flöde med de angivna resurserna
 
 Lägg till följande kod direkt efter den `CreateSubscription()`-metod som du lade till i det förra steget:
 
@@ -333,7 +335,7 @@ private static string GetResources(string resourceAddress)
 }
 ```
 
-### Ta bort meddelandeentiteter
+### <a name="delete-messaging-entities"></a>Ta bort meddelandeentiteter
 
 Lägg till följande kod direkt efter den kod som du lade till i det förra steget:
 
@@ -350,7 +352,7 @@ private static string DeleteResource(string resourceName)
 }
 ```
 
-### Formatera Atom-flödet
+### <a name="format-the-atom-feed"></a>Formatera Atom-flödet
 
 `GetResources()`-metoden innehåller ett anrop till en `FormatXml()`-metod som formaterar om det hämtade Atom-flödet så att det blir lättare att läsa. Följande är definitionen av `FormatXml()`. Lägg till den här koden direkt efter den `DeleteResource()`-kod som du lade till i det förra avsnittet:
 
@@ -372,15 +374,15 @@ private static string FormatXml(string inputXml)
 }
 ```
 
-## Skapa och kör appen
+## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
 Du kan nu skapa och köra appen. På menyn **Skapa** i Visual Studio klickar du på **Skapa lösning** eller trycker på **CTRL+SKIFT+B**.
 
-### Köra programmet
+### <a name="run-the-application"></a>Köra programmet
 
 Om det inte finns några fel, trycker du på F5 för att köra programmet. Du anger namnområdet, SAS-nyckelnamnet och SAS-nyckelvärdet som du fick i det första steget när du uppmanas att göra det.
 
-### Exempel
+### <a name="example"></a>Exempel
 
 Följande exempel är den fullständiga koden, som den bör visas när du har följt alla steg i den här självstudiekursen.
 
@@ -618,17 +620,17 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Läs följande artiklar om du vill lära dig mer:
 
-- [Översikt över meddelandetjänsten i Service Bus](service-bus-messaging-overview.md)
-- [Grunderna i Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Självstudiekurs i Service Bus Relay REST](../service-bus-relay/service-bus-relay-rest-tutorial.md)
+- [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
+- [Grunderna i Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Självstudie för Service Bus-relä REST](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

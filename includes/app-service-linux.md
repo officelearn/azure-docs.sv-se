@@ -1,1 +1,6 @@
-> [AZURE.NOTE] You can now try Azure App Service on Linux. For more information, see [getting started guide](../articles/app-service/app-service-linux-readme.md).
+> [AZURE.NOTE] Nu kan du prova Azure App Service i Linux. Mer information finns i [kom igång guiden](../articles/app-service/app-service-linux-readme.md).
+
+
+<!--HONumber=Oct16_HO3-->
+
+

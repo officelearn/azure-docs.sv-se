@@ -1,14 +1,14 @@
 <properties
     pageTitle="Komma igång med Service Bus-köer | Microsoft Azure"
     description="Så här skriver du ett C#-konsolprogram för meddelandetjänsten i Service Bus"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="hero-article"
     ms.tgt_pltfrm="dotnet"
@@ -17,11 +17,11 @@
     ms.author="jotaub;sethm"/>
 
 
-# Komma igång med Service Bus-köer
+# <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-## Detta kommer att utföras
+## <a name="what-will-be-accomplished"></a>Detta kommer att utföras
 
 I de här självstudierna kommer vi att gå igenom följande:
 
@@ -33,7 +33,7 @@ I de här självstudierna kommer vi att gå igenom följande:
 
 4. Skriv ett konsolprogram för att ta emot meddelanden.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 
 1. [Visual Studio 2013 eller Visual Studio 2015](http://www.visualstudio.com). Exemplen i de här självstudierna använder Visual Studio 2015.
 
@@ -41,27 +41,27 @@ I de här självstudierna kommer vi att gå igenom följande:
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Skapa ett namnområde med Azure Portal
+## <a name="1.-create-a-namespace-using-the-azure-portal"></a>1. Skapa ett namnområde med Azure Portal
 
 Om du redan har skapat ett Service Bus-namnområde går du vidare till avsnittet [Skapa en kö med hjälp av Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2. Skapa en kö med hjälp av Azure Portal
+## <a name="2.-create-a-queue-using-the-azure-portal"></a>2. Skapa en kö med hjälp av Azure Portal
 
 Om du redan har skapat en Service Bus-kö går du vidare till avsnittet [Skicka meddelanden till kön](#3-send-messages-to-the-queue).
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## 3. Skicka meddelanden till kön
+## <a name="3.-send-messages-to-the-queue"></a>3. Skicka meddelanden till kön
 
 Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visual Studio.
 
-### Skapa ett konsolprogram
+### <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
 1. Starta Visual Studio och skapa ett konsolprogram.
 
-### Lägga till Service Bus-NuGet-paketet
+### <a name="add-the-service-bus-nuget-package"></a>Lägga till Service Bus-NuGet-paketet
 
 1. Högerklicka på det nyskapade projektet och välj **Hantera Nuget-paket**.
 
@@ -69,7 +69,7 @@ Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visu
 
     ![Välj ett NuGet-paket][nuget-pkg]
 
-### Skriva kod för att skicka ett meddelande till kön
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Skriva kod för att skicka ett meddelande till kön
 
 1. Lägg till följande användningsinstruktion högst upp i filen Program.cs.
 
@@ -116,7 +116,7 @@ Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visu
     
       ![Antal meddelanden][queue-message]
     
-## 4. Ta emot meddelanden från kön
+## <a name="4.-receive-messages-from-the-queue"></a>4. Ta emot meddelanden från kön
 
 1. Skapa ett nytt konsolprogram och lägg till en referens till Service Bus NuGet-paketet, liknande det tidigare sändningsprogrammet.
 
@@ -178,7 +178,7 @@ Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visu
   
 Grattis! Nu har du skapat en kö, skickat ett meddelande och tagit emot ett meddelande.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Kolla in våra [GitHub-databaser med exempel](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) som visar några av de mer avancerade funktionerna i meddelandetjänsten i Azure Service Bus.
 
@@ -191,9 +191,9 @@ Kolla in våra [GitHub-databaser med exempel](https://github.com/Azure-Samples/a
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+[github-exempel]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

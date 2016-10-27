@@ -1,14 +1,14 @@
 <properties
     pageTitle="Översikt över Service Bus-meddelanden | Microsoft Azure"
     description="Service Bus-meddelanden: flexibel dataöverföring i molnet"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
@@ -18,7 +18,7 @@
 
 
 
-# Service Bus-meddelanden: flexibel dataöverföring i molnet
+# <a name="service-bus-messaging:-flexible-data-delivery-in-the-cloud"></a>Service Bus-meddelanden: flexibel dataöverföring i molnet
 
 Microsoft Azure Service Bus är en tillförlitlig tjänst för informationsleverans. Syftet med den här tjänsten är att underlätta kommunikation. När två eller flera parter vill utbyta information behöver de en kommunikationsmekanism. Service Bus är en asynkron kommunikationsmekanism, det vill säga via en tredje part. Den liknar posttjänster i den fysiska världen. Med posttjänster är det mycket enkelt att skicka olika typer av brev och paket med en rad olika leveransgarantier vart som helst i världen.
 
@@ -28,7 +28,7 @@ Avsändaren kan även kräva olika egenskaper för leveransen, inklusive transak
 
 Service Bus stöder två distinkta meddelandemönster: *vidarebefordran* och *asynkron meddelandetjänst*.
 
-## Service Bus Relay
+## <a name="service-bus-relay"></a>Service Bus Relay
 
 Den [vidarebefordrande](../service-bus-relay/service-bus-relay-overview.md) komponenten i Service Bus är en centraliserad tjänst (men med hög utjämning av nätverksbelastning) som stöder en mängd olika transportprotokoll och webbtjänststandarder. Detta inkluderar SOAP, WS-*, och även REST. Den [vidarebefordrande tjänsten](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) innehåller en mängd olika anslutningsalternativ för vidarebefordran och kan hjälpa dig att förhandla direkta peer-to-peer-anslutningar när det är möjligt. Service Bus är optimerad för .NET-utvecklare som använder Windows Communication Foundation (WCF) både vad gäller prestanda och användbarhet, och ger fullständig åtkomst till dess vidarebefordringstjänst via SOAP- och REST-gränssnitt. Detta gör det möjligt för SOAP- och REST-programmeringsmiljöer att integrera med Service Bus.
 
@@ -38,7 +38,7 @@ Du upprättar anslutningen mellan din lokala tjänst och den vidarebefordrande t
 
 Service Bus Relay ger många fördelar men kräver att både servern och klienten är online på samma gång för att kunna skicka och ta emot meddelanden. Det är inte optimalt för kommunikation med HTTP-format, där frågorna kanske vanligtvis inte är långlivade, eller för klienter som ansluter bara ibland, till exempel webbläsare, mobila program, och så vidare. Asynkrona meddelandetjänster stöder frikopplad kommunikation och har sina fördelar. Klienter och servrar kan ansluta vid behov och utföra sina åtgärder på ett asynkront sätt.
 
-## Asynkron meddelandetjänst
+## <a name="brokered-messaging"></a>Asynkron meddelandetjänst
 
 Till skillnad från det vidarebefordrande schemat kan [asynkrona meddelandetjänster](service-bus-queues-topics-subscriptions.md) betraktas som icke-synkroniserade, eller ”tillfälligt frånkopplade”. Producenter (avsändare) och konsumenter (mottagare) behöver inte vara online samtidigt. Meddelandeinfrastrukturen lagrar meddelanden på ett tillförlitligt sätt hos en ”mellanhand” (till exempel en kö) tills konsumentparten är redo att ta emot dem. Detta gör att komponenterna i den distribuerade appen kan frikopplas, antingen frivilligt, till exempel för underhåll, eller på grund av en komponentkrasch, utan att detta påverkar hela systemet. Dessutom behöver det mottagande programmet bara vara anslutet vid vissa tidpunkter på dagen, till exempel ett lagersystem som endast behöver köras i slutet av arbetsdagen.
 
@@ -46,19 +46,18 @@ Kärnkomponenterna i infrastrukturen för den asynkrona meddelandetjänsten i Se
 
 Som med infrastrukturen för vidarebefordrande har den asynkrona meddelandetjänsten funktioner för WCF- och .NET Framework-programmerare och även via REST.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 I följande ämnen kan du lära dig mer om Service Bus-meddelanden.
 
-- [Grunderna i Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus-köer, -ämnen och -prenumerationer](service-bus-queues-topics-subscriptions.md)
-- [Service Bus-arkitektur](../service-bus/service-bus-architecture.md)
-- [Använda Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
-- [Använda Service Bus-ämnen och -prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
+- [Använd Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
+- [Använd Service Bus ämnen och prenumerationer](./service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

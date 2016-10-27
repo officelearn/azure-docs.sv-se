@@ -16,6 +16,7 @@
     ms.date="08/12/2016"
     ms.author="piyushjo;ricksal" />
 
+
 # Kom igång med Azure Mobile Engagement för universella Windows-appar
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -30,7 +31,7 @@ I den här kursen går vi igenom ett enkelt scenario för sändning med Mobile E
 
 ## Konfigurera Mobile Engagement för din universella Windows-app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Ansluta appen till Mobile Engagement-serverdelen
 
@@ -209,6 +210,6 @@ Om du ser en avisering via app men inte något popup-meddelande och du kör appe
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

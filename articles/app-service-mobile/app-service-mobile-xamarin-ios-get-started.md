@@ -18,19 +18,19 @@
 
 
 
-#Skapa en Xamarin.iOS-app
+#<a name="create-a-xamarin.ios-app"></a>Skapa en Xamarin.iOS-app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##Översikt
+##<a name="overview"></a>Översikt
 
-I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Xamarin.iOS-mobilapp med hjälp av en mobilappsserverdel i Azure.  Du skapar både en ny mobilappsserverdel och en enkel _Todo list_ Xamarin.iOS-app där appdata lagras hos Azure.
+I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Xamarin.iOS-mobilapp med hjälp av en mobilappsserverdel i Azure.  Du skapar både en ny mobilapp-serverdel och en enkel _Att göra-lista_ Xamarin.iOS-app som lagrar app-data i Azure.
 
 Du måste slutföra den här kursen innan du påbörjar någon annan Xamarin.iOS-kurs om att använda funktionen Mobile Apps i Azure Apptjänst.
 
-##Nödvändiga komponenter
+##<a name="prerequisites"></a>Krav
 
-För att kunna genomföra den här kursen behöver du följande:
+För att slutföra den här självstudien, finns följande förhandskrav:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -38,29 +38,29 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * En Mac med Xcode v7.0 eller senare och Xamarin Studio Community installerat. Se avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) och om [konfiguration, installation och verifieringar för Mac-användare](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
->[AZURE.NOTE] Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://tryappservice.azure.com/?appServiceName=mobile). Där kan du direkt skapa en tillfällig startmobilapp i Apptjänst. Inget kreditkort behövs och du gör inga åtaganden.
+>[AZURE.NOTE] Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto, kan du gå till [Testa App Service](https://tryappservice.azure.com/?appServiceName=mobile). Där kan du direkt skapa en tillfällig startmobilapp i App Service. Det krävs inget kreditkort och du gör inga åtaganden.
 
-## Skapa en ny mobilappsserverdel i Azure
+## <a name="create-an-azure-mobile-app-backend"></a>Skapa en mobilapp-serverdel i Azure
 
-Skapa en ny mobilappsserverdel genom att följa instruktionerna nedan.
+Följ de här stegen för att skapa en mobilapp-serverdel.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Konfigurera serverprojektet
+## <a name="configure-the-server-project"></a>Konfigurera serverprojektet
 
-Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilklientprogram. I nästa steg får du ladda ned ett serverprojekt för en enkel todo-list-serverdel och publicera den på Azure.
+Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilklientprogram. Därefter, hämtar du ett serverprojekt för en enkel ”att göra lista”-serverdel och publicerar den till Azure.
 
-Följ instruktionerna nedan för att ställa in om serverprojektet ska använda en Node.js- eller .NET-serverdel.
+Följ följande steg för att konfigurera serverprojektet att använda sig av antingen Node.js- eller .NET-serverdelen.
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Hämta och kör Xamarin.iOS-appen
+## <a name="download-and-run-the-xamarin.ios-app"></a>Hämta och kör Xamarin.iOS-appen
 
 1. Öppna [Azure-portalen] i ett webbläsarfönster.
 
-2. På inställningsbladet för mobilappen klickar du på **Kom igång** > **Xamarin.iOS**. I steg 3 klickar du på **Skapa ny app** om det alternativet inte redan är förvalt.  Klicka sedan på **Hämta**.
+2. På inställningsbladet för mobilappen klickar du på **Kom igång** > **Xamarin.iOS**. Vid steg 3, klickar du på **Skapa en ny app** om det inte redan är valt.  Klicka sedan på **Hämta**.
 
-    Ett projekt laddas ned med ett klientprogram som är kopplat till din mobilapp. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
+    Ett klientprogram som ansluter till din mobila serverdel hämtas. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
 
 3. Extrahera projektet som du laddade ned och öppna det i Xamarin Studio (eller Visual Studio).
 
@@ -74,24 +74,21 @@ Följ instruktionerna nedan för att ställa in om serverprojektet ska använda 
 
     ![][10]
 
-    En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobilappsserverdelen och data visas i listan.
+    Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobilappsserverdelen och data visas i listan.
 
 >[AZURE.NOTE]Du kan se koden som ansluter till mobilappsserverdelen för att fråga efter och infoga data i C#-filen QSTodoService.cs.
 
-##Nästa steg
+##<a name="next-steps"></a>Nästa steg
 
-* [Lägg till autentisering i appen ](app-service-mobile-xamarin-ios-get-started-users.md)
-  <br/>Läs om hur du autentiserar användare i appen genom en identitetsleverantör.
-
-* [Lägg till push-meddelanden i appen](app-service-mobile-xamarin-ios-get-started-push.md)
-  <br/>Läs om hur du skickar väldigt enkla push-meddelanden till appen.
+* [Lägg till offlinesynkronisering till din app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
+* [Lägg till autentisering till din app ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Lägg till push-meddelanden till din Xamarin.Android-app](app-service-mobile-xamarin-ios-get-started-push.md)
+* [Så här använder du den hanterade klienten för Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
-[Komma igång med mobilappsserverdelar]:#getting-started
-[Skapa en ny mobilappsserverdel]:#create-new-service
+[Kom igång med mobilapp-serverdelar]:#getting-started
+[Skapa en ny mobilapp-serverdel]:#create-new-service
 [Nästa steg]:#next-steps
-
-
 
 <!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
@@ -100,10 +97,10 @@ Följ instruktionerna nedan för att ställa in om serverprojektet ska använda 
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

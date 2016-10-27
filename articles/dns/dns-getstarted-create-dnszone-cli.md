@@ -190,6 +190,6 @@ När du har skapat en DNS-zon skapar du [postuppsättningar och poster](dns-gets
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

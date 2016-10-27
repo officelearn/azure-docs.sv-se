@@ -31,7 +31,7 @@ I slutet av de här självstudierna har du tre Node.js-konsolprogram:
 
 För att kunna genomföra den här kursen behöver du följande:
 
-+ Node.js version 0.12.x eller senare. <br/> [Förbereda utvecklingsmiljön][lnk-dev-setup] beskriver hur du installerar Node.js för den här självstudiekursen i Windows eller Linux.
++ Node.js version 0.10.x eller senare.
 
 + Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure][lnk-free-trial].)
 
@@ -314,6 +314,6 @@ I självstudien [Behandla meddelanden från enheten till molnet][lnk-process-d2c
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

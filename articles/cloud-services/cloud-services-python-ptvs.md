@@ -33,7 +33,7 @@ Den här artikeln innehåller en översikt över hur du använder webb- och arbe
 
 ## <a name="what-are-python-web-and-worker-roles?"></a>Vad är webb- och arbetsroller för Python?
 
-Azure tillhandahåller tre beräkningsmodeller för program som körs: [funktionen Web Apps i Azure App Service][körningsmodell för webbplatser], [Azure Virtual Machines][körningsmodell för virtuella datorer] och [Azure Cloud Services][körningsmodell för molntjänster]. Alla tre modeller stöder Python. Cloud Services, där webb- och arbetsroller ingår, tillhandahåller *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad IIS-webbserver (Internet Information Services) som fungerar som värd för frontend-webbprogram, medan en arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
+Azure tillhandahåller tre beräkningsmodeller för program som körs: [funktionen Web Apps i Azure App Service](../app-service-web/app-service-web-overview.md), [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-about.md) och [Azure Cloud Services](cloud-services-choose-me.md). Alla tre modeller stöder Python. Cloud Services, där webb- och arbetsroller ingår, tillhandahåller *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad IIS-webbserver (Internet Information Services) som fungerar som värd för frontend-webbprogram, medan en arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
 
 Mer information finns i [Vad är en molntjänst?].
 

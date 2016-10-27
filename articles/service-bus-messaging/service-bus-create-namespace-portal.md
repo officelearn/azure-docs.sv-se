@@ -23,7 +23,7 @@ Ett namnområde är en gemensam behållare för alla dina meddelandekomponenter.
 
 1.  Azure Portal (den här artikeln)
 
-2.  [Resource Manager-mallar][create-namespace-using-arm]
+2.  [Resource Manager-mallar](service-bus-resource-manager-overview.md)
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Skapa ett namnområde i Azure Portal
 

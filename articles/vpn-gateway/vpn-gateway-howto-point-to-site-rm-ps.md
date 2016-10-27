@@ -69,7 +69,7 @@ Vi använder följande värden för den här konfigurationen. Vi anger variabler
     
 - Installera PowerShell-cmdlets för Azure Resource Manager (1.0.2 eller senare). Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md). När du arbetar med PowerShell i den här konfigurationen ska du kontrollera att du kör som administratör. 
 
-## <a name="<a-name="declare"></a>part-1---log-in-and-set-variables"></a><a name="declare"></a>Del 1 – Logga in och ställ in variabler
+## <a name="declare"></a>Del 1 – Logga in och ställ in variabler
 
 I det här avsnittet ska du logga in och deklarera värdena som används i den här konfigurationen. De deklarerade värdena används i exempelskripten. Om du vill ändrar du värdena så att de återspeglar din egen miljö. Eller så använder du de deklarerade värdena och går igenom stegen som en övning.
 
@@ -178,7 +178,7 @@ Klienter som ansluter till Azure via P2S måste ha både ett klientcertifikat oc
 
     ![VPN-klient](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="<a-name="cc"></a>part-6---generate-the-client-certificate"></a><a name="cc"></a>Del 6 – Generera klientcertifikatet
+## <a name="cc"></a>Del 6 – Generera klientcertifikatet
 
 Nu ska du generera klientcertifikaten. Du kan antingen generera ett unikt certifikat för varje klient som ska ansluta eller använda samma certifikat på flera klienter. Fördelen med att generera unika klientcertifikat är möjligheten att återkalla ett enskilt certifikat om det behövs. Om alla i stället använder samma klientcertifikat och du upptäcker att du behöver återkalla certifikatet för en klient så måste du generera och installera nya certifikat för alla klienter som använder certifikatet för att autentisera.
 

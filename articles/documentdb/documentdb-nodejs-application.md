@@ -18,7 +18,7 @@
     ms.author="syamk"/>
 
 
-# <a name="<a-name="_toc395783175"></a>build-a-node.js-web-application-using-documentdb"></a><a name="_Toc395783175"></a>Skapa ett Node.js webbprogram med DocumentDB
+# <a name="_Toc395783175"></a>Skapa ett Node.js webbprogram med DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -43,7 +43,7 @@ Genom att följa stegen i den här självstudien om databaser kommer du att skap
 
 Har du inte tid att gå igenom självstudien, men vill ha hela lösningen? Inga problem, du kan hämta den fullständiga exempellösningen från [GitHub][].
 
-## <a name="<a-name="_toc395783176"></a>prerequisites"></a><a name="_Toc395783176"></a>Förhandskrav
+## <a name="_Toc395783176"></a>Förhandskrav
 
 > [AZURE.TIP] Den här Node.js-självstudien förutsätter att du har tidigare erfarenhet av Node.js och Azure Websites.
 
@@ -54,7 +54,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 - [Express generator](http://www.expressjs.com/starter/generator.html) (kan installeras via `npm install express-generator -g`)
 - [Git][].
 
-## <a name="<a-name="_toc395637761"></a>step-1:-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Steg 1: Skapa ett DocumentDB-databaskonto
+## <a name="_Toc395637761"></a>Steg 1: Skapa ett DocumentDB-databaskonto
 
 Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå vidare till [Steg 2: Skapa ett nytt Node.js-program](#_Toc395783178).
 
@@ -62,7 +62,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå 
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="<a-name="_toc395783178"></a>step-2:-learn-to-create-a-new-node.js-application"></a><a name="_Toc395783178"></a>Steg 2: Läs hur man skapar ett nytt Node.js-program
+## <a name="_Toc395783178"></a>Steg 2: Läs hur man skapar ett nytt Node.js-program
 
 Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med [Express](http://expressjs.com/)-ramverket.
 
@@ -85,7 +85,7 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med [Express](htt
 
     ![Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster](./media/documentdb-nodejs-application/image12.png)
 
-## <a name="<a-name="_toc395783179"></a>step-3:-install-additional-modules"></a><a name="_Toc395783179"></a>Steg 3: Installera ytterligare moduler
+## <a name="_Toc395783179"></a>Steg 3: Installera ytterligare moduler
 
 Filen **package.json** är en av filerna som skapas i projektets rot. Den här filen innehåller en lista över ytterligare moduler som krävs för Node.js-programmet. Senare, när du distribuerar programmet till Azure Websites, används den här filen för att avgöra vilka moduler som behöver installeras på Azure som stöd för ditt program. Vi behöver installera två paket till för den här självstudien.
 
@@ -103,7 +103,7 @@ Filen **package.json** är en av filerna som skapas i projektets rot. Den här f
 
     Det här visar för Node (och senare Azure) att ditt program är beroende av de här ytterligare modulerna.
 
-## <a name="<a-name="_toc395783180"></a>step-4:-using-the-documentdb-service-in-a-node-application"></a><a name="_Toc395783180"></a>Steg 4: Använd DocumentDB-tjänsten i ett nod-program
+## <a name="_Toc395783180"></a>Steg 4: Använd DocumentDB-tjänsten i ett nod-program
 
 När vi har slutfört den första installationen och konfigurationen är det dags att ta itu med vårt verkliga syfte: att skriva kod med Azure DocumentDB.
 
@@ -434,7 +434,7 @@ När vi har slutfört den första installationen och konfigurationen är det dag
 
 7. Avsluta med att spara och stänga filen **app.js**. Vi är nästan klara.
  
-## <a name="<a-name="_toc395783181"></a>step-5:-build-a-user-interface"></a><a name="_Toc395783181"></a>Steg 5: Skapa ett användargränssnitt
+## <a name="_Toc395783181"></a>Steg 5: Skapa ett användargränssnitt
 
 Nu är det dags att skapa användargränssnittet, så att användaren faktiskt kan samverka med vår app. Express-appen som vi skapade använder **Jade** som visningsmotor. Mer information om Jade finns på [http://jade-lang.com/](http://jade-lang.com/).
 
@@ -530,7 +530,7 @@ Nu är det dags att skapa användargränssnittet, så att användaren faktiskt k
 
     Spara och stäng filen **style.css**.
 
-## <a name="<a-name="_toc395783181"></a>step-6:-run-your-application-locally"></a><a name="_Toc395783181"></a>Steg 6: Kör ditt program lokalt
+## <a name="_Toc395783181"></a>Steg 6: Kör ditt program lokalt
 
 1. Testa programmet på din lokala dator genom att köra `npm start` i en terminal för att starta programmet och starta en webbläsare med en sida som ser ut som på bilden nedan:
 
@@ -545,7 +545,7 @@ Nu är det dags att skapa användargränssnittet, så att användaren faktiskt k
 
 4. Du slutför en aktivitet genom att markera kryssrutan i kolumnen Complete och sedan klicka på **Update tasks**.
 
-## <a name="<a-name="_toc395783182"></a>step-7:-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>Steg 7: Distribuera ditt programutvecklingsprojekt till Azure Websites
+## <a name="_Toc395783182"></a>Steg 7: Distribuera ditt programutvecklingsprojekt till Azure Websites
 
 1. Om du inte redan gjort det aktiverar du en git-databas för Azure-webbplatsen. Information om hur du gör det finns i artikeln [Lokal Git-distribuering på Azure App Service](../app-service-web/app-service-deploy-local-git.md).
 
@@ -559,7 +559,7 @@ Nu är det dags att skapa användargränssnittet, så att användaren faktiskt k
 
 4. Efter några sekunder har git publicerat din webbapp och öppnar en webbläsare där du kan se ditt arbete köras i Azure!
 
-## <a name="<a-name="_toc395637775"></a>next-steps"></a><a name="_Toc395637775"></a>Nästa steg
+## <a name="_Toc395637775"></a>Nästa steg
 
 Grattis! Du har precis skapat din första Node.js Express-webbapp med Azure DocumentDB och publicerat den på Azure Websites.
 

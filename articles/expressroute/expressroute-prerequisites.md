@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/13/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
+
 
 
 # ExpressRoute-krav och checklista  
@@ -68,6 +69,6 @@ Om du planerar att aktivera CRM Online på ExpressRoute, läser du följande dok
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

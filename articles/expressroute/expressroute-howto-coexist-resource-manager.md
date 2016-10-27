@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="charleywen"/>
 
 
-# Konfigurera ExpressRoute och samexisterande plats-till-plats-anslutningar för distributionsmodellen i Resource Manager
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-resource-manager-deployment-model"></a>Konfigurera ExpressRoute och samexisterande plats-till-plats-anslutningar för distributionsmodellen i Resource Manager
 
 > [AZURE.SELECTOR]
 - [PowerShell – Resource Manager](expressroute-howto-coexist-resource-manager.md)
@@ -26,31 +26,30 @@
 Att kunna konfigurera VPN för plats till plats och ExpressRoute har flera fördelar. Du kan konfigurera VPN för plats till plats som en säker redundanssökväg för ExpressRoute, eller använda VPN för plats till plats för att ansluta till platser som inte är anslutna via ExpressRoute. Vi beskriver stegen för att konfigurera båda scenarierna i den här artikeln. Den här artikeln gäller distributionsmodellen i Resource Manager. Den här konfigurationen är inte tillgänglig i Azure-portalen.
 
 
-**Om Azures distributionsmodeller**
+**Om distributionsmodeller för Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 >[AZURE.IMPORTANT] ExpressRoute-kretsarna måste förkonfigureras innan du följer anvisningarna nedan. Kontrollera att du har följt riktlinjerna för att [skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och [konfigurera routning](expressroute-howto-routing-arm.md) innan du följer stegen nedan.
 
-## Gränser och begränsningar
+## <a name="limits-and-limitations"></a>Gränser och begränsningar
 
-- **Överföringsroutning stöds inte:** Du kan inte skicka (via Azure) mellan ditt lokala nätverk som är anslutet via VPN för plats till plats och ditt lokala nätverk som är anslutet via ExpressRoute.
-- **Tvingad tunneltrafik kan inte aktiveras för en VPN-gateway för plats till plats:** Du kan bara ”tvinga” all Internetbunden trafik till det lokala nätverket via ExpressRoute. 
-- **Endast gateways med standardmässig eller hög prestanda:** Du måste använda en gateway med standardmässig eller hög prestanda för både ExpressRoute-gatewayen och VPN-gatewayen för plats till plats. Se [Gateway-SKU:er](../vpn-gateway/vpn-gateway-about-vpngateways.md) för information om gateway-SKU:er.
-- **Endast routningsbaserad VPN-gateway:** Du måste använda en routningsbaserad VPN-gateway. Se [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) för information om routningsbaserad VPN-gateway.
-- **Statiskt routningskrav:** Om nätverket är anslutet till både ExpressRoute och en VPN för plats till plats, måste du ha en statisk routning som konfigurerats i det lokala nätverket för att kunna dirigera din VPN-anslutning för plats till plats till Internet.
-- **ExpressRoute-gateway måste konfigureras först:** Du måste skapa ExpressRoute-gatewayen först innan du lägger till en VPN-gateway för plats till plats.
+- **Transit-routing stöds inte.** Du kan inte routa (via Azure) mellan ditt lokala nätverk som ansluter via plats-till-plats-VPN och ditt lokala nätverk som ansluter via ExpressRoute.
+- **Basic-SKU-gatewayen stöds inte.** Du måste använda en icke-Basic SKU-gateway för både [ExpressRoute-gatewayen](expressroute-about-virtual-network-gateways.md) och [VPN-gatewayen](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- **Enbart routebaserad VPN-gateway stöds.** Du måste använda en routebaserad [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- **Statiska vägar ska konfigureras för din VPN-gateway.** Om ditt lokala nätverk är anslutet både till ExpressRoute och en plats-till-plats-VPN så måste du ha konfigurerat en statisk väg i ditt lokala nätverk för att routa plats-till-plats-VPN-anslutningen till det offentliga Internet.
+- **ExpressRoute-gatewayen måste konfigureras först.** Du måste skapa ExpressRoute-gatewayen först innan du lägger till en plats-till-plats-VPN-gateway för plats till plats.
 
 
-## Konfigurationsdesign
+## <a name="configuration-designs"></a>Konfigurationsdesign
 
-### Konfigurera en VPN för plats till plats som en redundanssökväg för ExpressRoute
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Konfigurera en VPN för plats till plats som en redundanssökväg för ExpressRoute
 
 Du kan konfigurera en VPN-anslutning för plats till plats som en säkerhetskopia av ExpressRoute. Detta gäller endast virtuella nätverk som är länkade till Azures privata peering-sökväg. Det finns ingen VPN-baserad redundanslösning för tjänster som är tillgängliga via Azures offentliga och Microsofts peerings. ExpressRoute-kretsen är alltid den primära länken. Data flödar endast via VPN-sökvägen för plats till plats om ExpressRoute-kretsen misslyckas. 
 
 ![Samexistera](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
-### Konfigurera en VPN för plats till plats för att ansluta till platser som inte är anslutna via ExpressRoute
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Konfigurera en VPN för plats till plats för att ansluta till platser som inte är anslutna via ExpressRoute
 
 Du kan konfigurera nätverket där vissa platser ansluter direkt till Azure via VPN för plats till plats och vissa platser ansluter via ExpressRoute. 
 
@@ -58,7 +57,7 @@ Du kan konfigurera nätverket där vissa platser ansluter direkt till Azure via 
 
 >[AZURE.NOTE] Det går inte att konfigurera ett virtuellt nätverk som en överföringsrouter.
 
-## Välj vilka steg du ska använda
+## <a name="selecting-the-steps-to-use"></a>Välj vilka steg du ska använda
 
 Det finns två uppsättningar procedurer att välja mellan för att konfigurera anslutningar som kan existera tillsammans. Vilken konfigurationsprocedur du väljer beror på om du har ett befintligt virtuellt nätverk som du vill ansluta till, eller om du vill skapa ett nytt virtuellt nätverk.
 
@@ -74,7 +73,7 @@ Det finns två uppsättningar procedurer att välja mellan för att konfigurera 
     I den här proceduren skapar du anslutningar som kan samexistera, vilket kräver att du tar bort din gateway och sedan konfigurerar nya gateways. Detta innebär att du har stilleståndstid för anslutningar på flera platser när du tar bort och återskapar din gateway och dina anslutningar, men du behöver inte migrera några virtuella datorer eller tjänster till ett nytt virtuellt nätverk. Dina virtuella datorer och tjänster kommer fortfarande att kunna kommunicera ut via belastningsutjämnaren när du konfigurerar din gateway, om de är konfigurerade för att göra det.
 
 
-## <a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samtidiga anslutningar
+## <a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar
 
 Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats- och ExpressRoute-anslutningar som ska finnas samtidigt.
     
@@ -104,7 +103,7 @@ Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats
 
         $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-4. <a name="gw"></a>Skapa en ExpressRoute-gateway. Mer information om konfiguration av ExpressRoute-gateways finns i [Konfiguration av ExpressRoute-gateway](expressroute-howto-add-gateway-resource-manager.md). GatewaySKU måste vara *Standard* eller *HighPerformance*.
+4. <a name="gw"></a>Skapa en ExpressRoute-gateway. Mer information om konfiguration av ExpressRoute-gateways finns i [Konfiguration av ExpressRoute-gateway](expressroute-howto-add-gateway-resource-manager.md). GatewaySKU:n måste vara *Standard*, *HighPerformance*, eller *UltraPerformance*.
 
         $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
         $gwIP = New-AzureRmPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
@@ -116,17 +115,33 @@ Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats
         $ckt = Get-AzureRmExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
         New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
 
-6. <a name="vpngw"></a>Skapa sedan din VPN-gateway för plats till plats. Mer information om konfigurationen av VPN-gateway finns i [Konfigurera en VNet till VNet-anslutning](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md). GatewaySKU måste vara *Standard* eller *HighPerformance*. VpnType måste vara *RouteBased*.
+6. <a name="vpngw"></a>Därefter skapar du din plats-till-plats-VPN-gateway. Mer information om konfigurationen av VPN-gatewayen finns i [Konfigurera ett VNet med en plats-till-plats-anslutning](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md). GatewaySKU:n måste vara *Standard*, *HighPerformance*, eller *UltraPerformance*. VpnType måste vara *RouteBased*.
 
         $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
         $gwIP = New-AzureRmPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
         $gwConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "VPNGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
         New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard"
 
-7. Skapa en lokal plats för VPN-gatewayen. Det här kommandot konfigurerar inte din lokala VPN-gateway. I stället kan du ange lokala gateway-inställningar, som t.ex. offentlig IP-adress och lokalt adressutrymme, så att Azure VPN-gatewayen kan ansluta till den. 
-    >[AZURE.NOTE] Om det lokala nätverket har flera routningar kan du ange dem i en matris.  $MyLocalNetworkAddress = @("10.100.0.0/16","10.101.0.0/16","10.102.0.0/16")  
+    Azure VPN-gateway stöder BGP. Du kan ange -EnableBgp i följande kommando.
 
-        $localVpn = New-AzureRmLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix '10.100.0.0/16'
+        $azureVpn = New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard" -EnableBgp $true
+
+    Du hittar BGP peering-IP och AS-numret som Azure använder för VPN-gatewayen i $azureVpn.BgpSettings.BgpPeeringAddress och $azureVpn.BgpSettings.Asn. Mer information finns i [Konfigurera BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md) för Azure VPN-gateway.
+
+7. Skapa en lokal plats för VPN-gatewayen. Det här kommandot konfigurerar inte din lokala VPN-gateway. I stället kan du ange lokala gateway-inställningar, som t.ex. offentlig IP-adress och lokalt adressutrymme, så att Azure VPN-gatewayen kan ansluta till den.
+
+    Om din lokala VPN-enhet bara stöder statisk routning, kan du konfigurera de statiska vägarna på följande sätt.
+
+        $MyLocalNetworkAddress = @("10.100.0.0/16","10.101.0.0/16","10.102.0.0/16")
+        $localVpn = New-AzureRmLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix $MyLocalNetworkAddress
+
+    Om din lokala VPN-enhet stöder BGP och du vill aktivera dynamisk routning, måste du veta BGP peering IP och AS-numret som din lokala VPN-enhet använder.
+
+        $localVPNPublicIP = "<Public IP>"
+        $localBGPPeeringIP = "<Private IP for the BGP session>"
+        $localBGPASN = "<ASN>"
+        $localAddressPrefix = $localBGPPeeringIP + "/32"
+        $localVpn = New-AzureRmLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress $localVPNPublicIP -AddressPrefix $localAddressPrefix -BgpPeeringAddress $localBGPPeeringIP -Asn $localBGPASN
 
 8. Konfigurera din lokala VPN-enhet till att ansluta till en ny Azure VPN-gateway. Mer information om VPN-enhetskonfiguration finns i [VPN-enhetskonfiguration](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
@@ -167,7 +182,7 @@ Om gateway-undernätet är /27 eller större och det virtuella nätverket är an
 
 5. Just nu har du ett VNet utan gateways. Om du vill slutföra dina anslutningar och skapa nya gateways kan du fortsätta med [Steg 4 – Skapa en ExpressRoute-gateway](#gw), som finns i den föregående uppsättningen med steg.
 
-## Så här lägger du till punkt-till-plats-konfiguration till VPN-gateway
+## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Så här lägger du till punkt-till-plats-konfiguration till VPN-gateway
 Du kan följa stegen nedan om du vill lägga till punkt-till-plats-konfiguration för VPN-gateway i en samexisterande inställning.
 
 1. Lägga till VPN-klientadresspoolen. 
@@ -191,12 +206,12 @@ Du kan följa stegen nedan om du vill lägga till punkt-till-plats-konfiguration
 
 Mer information om punkt-till-plats-VPN finns i [Konfigurera en punkt-till-plats-anslutning](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -19,28 +19,28 @@
    ms.author="rogardle"/>
 
 
-# Belastningsutjämna behållare i ett Azure Container Service-kluster
+# <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Belastningsutjämna behållare i ett Azure Container Service-kluster
 
 I den här artikeln visar vi hur du skapar en intern belastningsutjämnare i en DC/OS-hanterad Azure Container Service med Marathon-LB. Detta gör att du kan skala dina program vågrätt. Du kan också använda offentliga och privata agentkluster genom att placera en belastningsutjämnare på det offentliga klustret och dina programbehållare på det privata klustret.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 
 [Distribuera en instans av Azure Container Service](container-service-deployment.md) med Orchestrator-typen DC/OS och [kontrollera att klienten kan ansluta till klustret](container-service-connect.md). 
 
-## Belastningsutjämning
+## <a name="load-balancing"></a>Belastningsutjämning
 
 Det finns två belastningsutjämningslager i Container Service-klustret som vi ska skapa: 
 
   1. Azure Load Balancer tillhandahåller offentliga startpunkter (de som slutanvändarna kommer till). Detta tillhandahålls automatiskt av Azure Container Service och konfigureras som standard att exponera port 80, 443 och 8080.
   2. Marathon Load Balancer (marathon-lb) dirigerar inkommande begäranden till behållarinstanser som hanterar dessa begäranden. När vi skalar behållarna som tillhandahåller vår webbtjänst anpassas marathon-lb dynamiskt. Den här belastningsutjämnaren tillhandahålls inte som standard i Container Service, men är mycket enkel att installera.
 
-## Marathon Load Balancer
+## <a name="marathon-load-balancer"></a>Marathon Load Balancer
 
 Marathon Load Balancer konfigurerar om sig själv dynamiskt baserat på de behållare som du har distribuerat. Den kan även återhämta sig automatiskt vid en eventuell förlust av en behållare eller agent. Om detta inträffar startar Apache Mesos bara om behållaren någon annanstans och marathon-lb anpassas automatiskt.
 
 Du kan installera Marathon Load Balancer antingen via DC/OS-webbgränssnittet eller från kommandoraden.
 
-### Installera Marathon-LB med hjälp av DC/OS-webbgränssnittet
+### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Installera Marathon-LB med hjälp av DC/OS-webbgränssnittet
 
   1. Klicka på ”Universe”.
   2. Sök efter ”Marathon LB”.
@@ -48,7 +48,7 @@ Du kan installera Marathon Load Balancer antingen via DC/OS-webbgränssnittet el
 
 ![Installera marathon-lb via webbgränssnittet för DC/OS](./media/dcos/marathon-lb-install.png)
 
-### Installera Marathon-LB via kommandoradsgränssnittet för DC/OS
+### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Installera Marathon-LB via kommandoradsgränssnittet för DC/OS
 
 När du har installerat DC/OS CLI och bekräftat att du kan ansluta till klustret kör du följande kommando från klientdatorn:
 
@@ -58,7 +58,7 @@ dcos package install marathon-lb
 
 Det här kommandot installerar automatiskt belastningsutjämnaren på det offentliga agentklustret.
 
-## Distribuera en webbapp för belastningsutjämning
+## <a name="deploy-a-load-balanced-web-application"></a>Distribuera en webbapp för belastningsutjämning
 
 Nu när vi har marathon-lb-paketet kan vi distribuera en programbehållare som vi vill belastningsutjämna. I det här exemplet distribuerar vi en enkel webbserver med följande konfiguration:
 
@@ -105,14 +105,14 @@ Nu när vi har marathon-lb-paketet kan vi distribuera en programbehållare som v
 
 Det är värt att notera att standard-Marathon distribueras till det privata klustret. Det innebär att ovanstående distribution endast nås via en belastningsutjämnare, vilket vanligtvis är det beteende som vi vill ha.
 
-### Distribuera med hjälp av webbgränssnittet för DC/OS
+### <a name="deploy-using-the-dc/os-web-ui"></a>Distribuera med hjälp av webbgränssnittet för DC/OS
 
-  1. Gå till Marathon-sidan på http://localhost/marathon (när du har konfigurerat [SSH-tunneln](container-service-connect.md)) och klicka på `Create Appliction`
+  1. Gå till Marathon-sidan på http://localhost/marathon (efter att du konfigurerat din [SSH-tunnel](container-service-connect.md) och klicka på `Create Appliction`
   2. Klicka på `JSON Mode` längst upp till höger i dialogrutan `New Application`
   3. Klistra in ovanstående JSON i redigeraren
   4. Klicka på `Create Appliction`
 
-### Distribuera via kommandoradsgränssnittet för DC/OS
+### <a name="deploy-using-the-dc/os-cli"></a>Distribuera via kommandoradsgränssnittet för DC/OS
 
 Om du vill distribuera det här programmet med kommandoradsgränssnittet för DC/OS kopierar du bara ovanstående JSON till en fil med namnet `hello-web.json` och kör:
 
@@ -120,12 +120,12 @@ Om du vill distribuera det här programmet med kommandoradsgränssnittet för DC
 dcos marathon app add hello-web.json
 ```
 
-## Azure Load Balancer
+## <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Som standard exponerar Azure Load Balancer portarna 80, 8080 och 443. Om du använder en av dessa tre portar (som vi gör i ovanstående exempel) behöver du inte göra något. Du bör kunna nå belastningsutjämnarens FQDN för din agent – och varje gång du uppdaterar når du en av de tre webbservrarna baserat på en resursallokeringsmodell (round-robin). Om du använder en annan port måste du dock lägga till en resursallokeringsregel och en avsökning i belastningsutjämnaren för den port som du använde. Du kan göra detta från [Azure CLI](../xplat-cli-azure-resource-manager.md), med kommandona `azure lb rule create` och `azure lb probe create`. Du kan också göra detta i Azure Portal.
+Som standard exponerar Azure Load Balancer portarna 80, 8080 och 443. Om du använder en av dessa tre portar (som vi gör i ovanstående exempel) behöver du inte göra något. Du bör kunna nå belastningsutjämnarens FQDN för din agent – och varje gång du uppdaterar når du en av de tre webbservrarna baserat på en resursallokeringsmodell (round-robin). Om du använder en annan port måste du dock lägga till en resursallokeringsregel och en avsökning i belastningsutjämnaren för den port som du använde. Du kan göra detta från [Azure CLI](../xplat-cli-azure-resource-manager.md), med kommandona `azure network lb rule create` och `azure network lb probe create`. Du kan också göra detta i Azure Portal.
 
 
-## Fler scenarier
+## <a name="additional-scenarios"></a>Fler scenarier
 
 Du kan ha ett scenario där du använder olika domäner för att exponera olika tjänster. Exempel:
 
@@ -140,12 +140,12 @@ Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423
 Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/) finns i DC/OS-dokumentationen.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

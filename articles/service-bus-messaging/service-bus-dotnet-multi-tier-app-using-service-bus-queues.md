@@ -1,14 +1,14 @@
 <properties
     pageTitle=".NET-flernivåapp | Microsoft Azure"
     description="En .NET-självstudiekurs som hjälper dig att utveckla en flernivåapp i Azure som använder Service Bus-köer för att kommunicera mellan nivåerna."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -17,9 +17,9 @@
     ms.author="sethm"/>
 
 
-# .NET-flernivåapp med hjälp av Azure Service Bus-köer
+# <a name=".net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
 
-## Introduktion
+## <a name="introduction"></a>Introduktion
 
 Att utveckla för Microsoft Azure är enkelt tack vare Visual Studio och det kostnadsfria utvecklingsverktyget Azure SDK för .NET. Den här självstudiekursen vägleder dig igenom stegen för att skapa en app som använder flera Azure-resurser som körs i din lokala miljö. Anvisningarna förutsätter att du inte har några tidigare erfarenheter av att använda Azure.
 
@@ -38,7 +38,7 @@ Följande skärmdump visar den färdiga appen.
 
 ![][0]
 
-## Scenarioöversikt: kommunikation mellan roller
+## <a name="scenario-overview:-inter-role-communication"></a>Scenarioöversikt: kommunikation mellan roller
 
 Om du vill skicka in en order för bearbetning måste klientdelens UI-komponent, som kör webbrollen, interagera med den mellannivålogik som kör arbetsrollen. I det här exemplet används en asynkron meddelandetjänst via Service Bus för kommunikation mellan nivåerna.
 
@@ -54,13 +54,13 @@ Denna kommunikationsmekanism har flera fördelar jämfört med funktioner för d
 
 -   **Belastningsutjämning.** I många program varierar systembelastningen beroende på tidpunkten, medan den bearbetningstid som krävs för varje arbetsenhet vanligtvis är konstant. Medlingen mellan meddelandeproducenter och -konsumenter med hjälp av en kö innebär att den konsumerande appen (arbetaren) endast måste konfigureras för att kunna hantera en genomsnittlig belastning i stället för mycket hög belastning vid vissa tider. Köns djup växer och dras samman allt eftersom den inkommande belastningen varierar. Detta sparar direkt pengar eftersom den mängd infrastruktur som krävs för att underhålla programbelastningen blir mindre.
 
--   **Belastningsbalansering.** Allt eftersom belastningen ökar kan fler arbetsprocesser läggas till för att läsa från kön. Varje meddelande bearbetas bara av en av arbetsprocesserna. Dessutom gör den här pull-baserade belastningsbalanseringen att du får en optimal användning av arbetsdatorerna. Detta gäller även om arbetsdatorerna har olika processorkraft: de kommer att hämta meddelanden med den hastighet som var och en av dem klarar av. Det här mönstret kallas ofta för ett *konkurrerande konsument*-mönster.
+-   **Belastningsutjämning.** Allt eftersom belastningen ökar kan fler arbetsprocesser läggas till för att läsa från kön. Varje meddelande bearbetas bara av en av arbetsprocesserna. Dessutom gör den här pull-baserade belastningsbalanseringen att du får en optimal användning av arbetsdatorerna. Detta gäller även om arbetsdatorerna har olika processorkraft: de kommer att hämta meddelanden med den hastighet som var och en av dem klarar av. Det här mönstret kallas ofta för ett *konkurrerande konsument*-mönster.
 
     ![][2]
 
 I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 
-## Konfigurera utvecklingsmiljön
+## <a name="set-up-the-development-environment"></a>Konfigurera utvecklingsmiljön
 
 Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som krävs och ställa in din utvecklingsmiljö.
 
@@ -74,18 +74,18 @@ Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som kräv
 
 6.  När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt. Om du inte har Visual Studio installerat på din dator kommer SDK även att installera den kostnadsfria versionen Visual Studio Express.
 
-## Skapa ett namnområde
+## <a name="create-a-namespace"></a>Skapa ett namnområde
 
 Nästa steg är att skapa ett namnområde för tjänsten och få en nyckel till signatur för delad åtkomst (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnområdet och SAS-nyckeln ger referensen för Service Bus som används för att tillåta åtkomst till ett program.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Skapa en webbroll
+## <a name="create-a-web-role"></a>Skapa en webbroll
 
 I det här avsnittet ska du skapa klientdelen för din app. Först skapar du de sidor som din app visar.
 Efter det lägger du till kod som skickar objekt till en Service Bus-kö och visar statusinformation om denna kö.
 
-### Skapa projektet
+### <a name="create-the-project"></a>Skapa projektet
 
 1.  Starta Microsoft Visual Studio med administratörsbehörighet. Du startar Visual Studio med administratörsbehörighet genom att högerklicka på programikonen för **Visual Studio** och sedan klicka på **Kör som administratör**. Azure Compute Emulator, som diskuteras senare i den här artikel, kräver att Visual Studio startas med administratörsbehörighet.
 
@@ -123,7 +123,7 @@ Efter det lägger du till kod som skickar objekt till en Service Bus-kö och vis
 
 9.  I **Solution Explorer** högerklickar du på **Modeller**. Klicka sedan på **Lägg till** och på **Klass**. I rutan **Namn** anger du namnet **OnlineOrder.cs**. Klicka sedan på **Lägg till**.
 
-### Skriva koden för webbrollen
+### <a name="write-the-code-for-your-web-role"></a>Skriva koden för webbrollen
 
 I detta avsnitt ska du skapa de olika sidor som din app visar.
 
@@ -231,7 +231,7 @@ I detta avsnitt ska du skapa de olika sidor som din app visar.
 
     ![][17]
 
-### Skriva koden för att skicka objekt till en Service Bus-kö
+### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Skriva koden för att skicka objekt till en Service Bus-kö
 
 Nu ska du lägga till kod för att skicka objekt till en kö. Först måste du skapa en klass som innehåller anslutningsinformation för Service Bus-kön. Sedan initierar du anslutningen från Global.aspx.cs. Slutligen uppdaterar du den överföringskod som du skapade tidigare i HomeController.cs för att den faktiskt ska skicka objekt till en Service Bus-kö.
 
@@ -353,7 +353,7 @@ Nu ska du lägga till kod för att skicka objekt till en kö. Först måste du s
 
     ![][18]
 
-## Skapa arbetsrollen
+## <a name="create-the-worker-role"></a>Skapa arbetsrollen
 
 Du ska nu skapa den arbetsroll som behandlar orderöverföringen. I det här exemplet använder vi den projektmall för Visual Studio som heter **Arbetsroll med Service Bus-kö**. Du har redan fått de autentiseringsuppgifter som krävs från portalen.
 
@@ -412,7 +412,7 @@ Du ska nu skapa den arbetsroll som behandlar orderöverföringen. I det här exe
 
     ![][20]
 
-## Nästa steg  
+## <a name="next-steps"></a>Nästa steg  
 
 Om du vill lära dig mer om Service Bus kan du använda följande resurser:  
 
@@ -432,7 +432,7 @@ Mer information om flernivåscenarier finns i:
 
   [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
   [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-  [NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+  [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
 
@@ -465,6 +465,6 @@ Mer information om flernivåscenarier finns i:
   
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -18,11 +18,11 @@
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 
-# Vanliga frågor och svar om tjänsten Azure Backup
+# <a name="azure-backup-service--faq"></a>Vanliga frågor och svar om tjänsten Azure Backup
 
 > [AZURE.SELECTOR]
-- [Vanliga frågor och svar om säkerhetskopiering i klassiskt läge](backup-azure-backup-faq.md)
-- [Vanliga frågor och svar om säkerhetskopiering i Resource Manager-läge](backup-azure-backup-ibiza-faq.md)
+- [Vanliga frågor om säkerhetskopiering för klassiskt läge](backup-azure-backup-faq.md)
+- [Vanliga frågor om säkerhetskopiering för Resource Manager-läge](backup-azure-backup-ibiza-faq.md)
 
 Den här artikeln innehåller en lista över vanliga frågor och svar om Azure Backup-tjänsten. Vår community svarar snabbt, och vanliga frågor publiceras i den här artikeln. Svaren på frågorna innehåller ofta referens- eller supportinformation. Du kan ställa frågor om Azure Backup i Disqus-rutan i den här eller en relaterad artikel. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
@@ -59,7 +59,7 @@ Vi rekommenderar att du installerar den [senaste](http://aka.ms/azurebackup_agen
 Ja, valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Om filen går ut loggar du in på Azure-portalen och laddar ned filerna med valvautentiseringsuppgifterna från ditt valv. 
 
 ## Finns det någon gräns för antalet valv som kan skapas i varje Azure-prenumeration? <br/>
-Ja. Från och med augusti 2016 kan du skapa 25 valv (vart och ett för säkerhetskopieringsvalv och Recovery Services-valv) per prenumeration. Om du behöver flera valv skapar du en ny prenumeration.
+Ja. Från september 2016 så kan du skapa 25 säkerhetskopieringsvalv per prenumeration. Du kan skapa upp till 25 Recovery Services-valv för varje Azure Backup-region som stöds per prenumeration. Om du behöver flera valv skapar du en ny prenumeration.
 
 ## Finns det några begränsningar för hur många servrar/datorer som kan registreras mot varje valv? <br/>
 Ja, du kan registrera upp till 50 datorer per valv. För virtuella Azure IaaS-datorer är gränsen 200 virtuella datorer per valv. Om du behöver registrera fler datorer skapar du ett nytt valv.
@@ -124,7 +124,7 @@ För sömlöst skydd av ”lokala till Azure”-data och ”arbetsbelastning til
 - \*.microsoftonline.com
 - \*.windows.net
 
-##Kan jag installera Azure Backup-agenten på en virtuell dator i Azure som redan har säkerhetskopierats av Azure Backup-tjänsten med hjälp av VM-tillägget? <br/>
+## Kan jag installera Azure Backup-agenten på en virtuell dator i Azure som redan har säkerhetskopierats av Azure Backup-tjänsten med hjälp av VM-tillägget? <br/>
 Absolut. Azure Backup stöder säkerhetskopiering på VM-nivå för virtuella datorer i Azure med hjälp av VM-tillägget. Du kan installera Azure Backup-agenten i ett Windows-gästoperativsystem för att skydda filer och mappar i gästoperativsystemet.
 
 ## Kan jag installera Azure Backup-agenten på en virtuell dator i Azure om jag vill säkerhetskopiera filer och mappar med tillfällig lagring på den virtuella Azure-datorn? <br/>
@@ -181,7 +181,7 @@ Ja, bevarandestrukturen i Azure Backup är mycket flexibel och du kan definiera 
 ## Kan jag ”schemalägga en säkerhetskopiering” kl. 18:00 och ange ”bevarandeprinciper” vid en annan tidpunkt?<br/>
 Nej. Bevarandeprinciper kan bara användas med säkerhetskopieringspunkter. I följande bild har bevarandeprincipen angetts för säkerhetskopieringar som körs kl. 12:00 och 18:00. <br/>
 
-![Schemalägga säkerhetskopiering och kvarhållning](./media/backup-azure-backup-faq/Schedule.png)
+![Schemalägg säkerhetskopiering och kvarhållning](./media/backup-azure-backup-faq/Schedule.png)
 <br/>
 
 ## Överförs en inkrementell kopia för de schemalagda bevarandeprinciperna? <br/>
@@ -235,8 +235,8 @@ Nyckeln som används för att kryptera säkerhetskopierade data finns bara hos k
 
 |Sökväg i registret | Registernyckel | Värde |
 | ------ | ------- | ------|
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Ny plats för cachelagringsmappen* |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Ny plats för cachelagringsmappen* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Ny plats för cachemappen* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Ny plats för cachemappen* |
 
 - Starta om Backup-motorn genom att köra följande kommando från en upphöjd kommandotolk:
 
@@ -263,6 +263,6 @@ Vi rekommenderar att du inte använder attributen ovan för cachelagringsmappen 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

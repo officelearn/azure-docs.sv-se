@@ -4,7 +4,7 @@
     keywords="Programutveckling, självstudier för databas, läs om node.js, självstudier för node.js, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="AndrewHoh" 
+    authors="syamkmsft" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -15,9 +15,10 @@
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
     ms.date="08/25/2016" 
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
 
-# <a name="_Toc395783175"></a>Skapa en Node.js-webbapp med DocumentDB
+
+# <a name="_Toc395783175"></a>Skapa ett Node.js webbprogram med DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -42,7 +43,7 @@ Genom att följa stegen i den här självstudien om databaser kommer du att skap
 
 Har du inte tid att gå igenom självstudien, men vill ha hela lösningen? Inga problem, du kan hämta den fullständiga exempellösningen från [GitHub][].
 
-## <a name="_Toc395783176"></a>Krav
+## <a name="_Toc395783176"></a>Förhandskrav
 
 > [AZURE.TIP] Den här Node.js-självstudien förutsätter att du har tidigare erfarenhet av Node.js och Azure Websites.
 
@@ -61,7 +62,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå 
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>Steg 2: Skapa ett nytt Node.js-program
+## <a name="_Toc395783178"></a>Steg 2: Läs hur man skapar ett nytt Node.js-program
 
 Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med [Express](http://expressjs.com/)-ramverket.
 
@@ -100,13 +101,13 @@ Filen **package.json** är en av filerna som skapas i projektets rot. Den här f
 
     ![Skärmdump av fliken package.json](./media/documentdb-nodejs-application/image17.png)
 
-       This tells Node (and Azure later) that your application depends on these additional modules.
+    Det här visar för Node (och senare Azure) att ditt program är beroende av de här ytterligare modulerna.
 
-## <a name="_Toc395783180"></a>Steg 4: Använda DocumentDB-tjänsten i en Node-app
+## <a name="_Toc395783180"></a>Steg 4: Använd DocumentDB-tjänsten i ett nod-program
 
 När vi har slutfört den första installationen och konfigurationen är det dags att ta itu med vårt verkliga syfte: att skriva kod med Azure DocumentDB.
 
-### Skapa modellen
+### <a name="create-the-model"></a>Skapa modellen
 
 1. Skapa en ny katalog med namnet **models** i projektkatalogen.
 2. I katalogen **models** skapar du en ny fil med namnet **taskDao.js**. Den här filen innehåller modellen för de aktiviteter som skapats av vårt program.
@@ -301,7 +302,7 @@ När vi har slutfört den första installationen och konfigurationen är det dag
 
 6. Spara och stäng filen **taskDao.js**. 
 
-### Skapa styrningen
+### <a name="create-the-controller"></a>Skapa styrningen
 
 1. I projektets **routes**-katalog skapar du en ny fil med namnet **tasklist.js**. 
 2. Lägg till följande kod i **tasklist.js**. Den läser in DocumentDBClient och async-moduler som används av **tasklist.js**. Detta definieras även i funktionen **TaskList**, som mottar en instans av **Task**-objektet som vi definierade tidigare:
@@ -379,7 +380,7 @@ När vi har slutfört den första installationen och konfigurationen är det dag
 
 4. Spara och stäng filen **tasklist.js**.
  
-### Lägg till config.js
+### <a name="add-config.js"></a>Lägg till config.js
 
 1. Skapa en ny fil med namnet **config.js** i projektkatalogen.
 2. Lägg till följande i **config.js**. Det definierar konfigurationsinställningar och värden som behövs i appen.
@@ -397,7 +398,7 @@ När vi har slutfört den första installationen och konfigurationen är det dag
 
 4. Spara och stäng filen **config.js**.
  
-### Ändra app.js
+### <a name="modify-app.js"></a>Ändra app.js
 
 1. Öppna filen **app.js** i projektkatalogen. Den här filen skapades tidigare när Express-webbappen skapades.
 2. Lägg till följande kod högst upp i **app.js**
@@ -529,7 +530,7 @@ Nu är det dags att skapa användargränssnittet, så att användaren faktiskt k
 
     Spara och stäng filen **style.css**.
 
-## <a name="_Toc395783181"></a>Steg 6: Kör programmet lokalt
+## <a name="_Toc395783181"></a>Steg 6: Kör ditt program lokalt
 
 1. Testa programmet på din lokala dator genom att köra `npm start` i en terminal för att starta programmet och starta en webbläsare med en sida som ser ut som på bilden nedan:
 
@@ -568,11 +569,11 @@ Mer information finns i [Node.js Developer Center](https://azure.microsoft.com/d
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

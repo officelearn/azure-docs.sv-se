@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc" />
 
 
@@ -36,6 +36,7 @@ Varje virtuellt nätverk kan bara ha en VNet-gateway per gateway-typ. Du kan exe
 ## Gateway-SKU:er
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+PolicyBased-VPN:er kan bara skapas för gatewayer med den grundläggande SKU:n.
 Se [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er.
 
 Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen.
@@ -152,6 +153,6 @@ Planera konfigurationen av din VPN-gateway. Se [VPN Gateway Planning and Design]
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

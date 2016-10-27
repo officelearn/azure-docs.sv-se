@@ -1,12 +1,11 @@
-|  | **Klassisk distribution**  |  **Resource Manager-distribution**  |
-|----------------------------------------|--------------|------------------------|
-| **Klassisk portal** | [Artikel](../articles/vpn-gateway/vpn-gateway-point-to-site-create.md) | Stöds inte |
-| **Azure Portal** |  Stöds  |  Stöds inte  |
-| **PowerShell** | Stöds | [Artikel](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+|**Distribueringsmodell/-metod**|**Azure Portal**| **Klassisk portal** | **PowerShell**|
+|-------------------------------------|-----------------|---------------------|---------------|
+|**Klassisk** |  [Artikel](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)| [Artikel](../articles/vpn-gateway/point-to-site-create.md)  | Stöds |
+|**Resource Manager** |Stöds inte| Stöds inte   | [Artikel](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)  |
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

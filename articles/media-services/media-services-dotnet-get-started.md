@@ -13,32 +13,31 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/17/2016"
+    ms.date="10/11/2016"
     ms.author="juliako"/>
 
 
-# Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK
 
+# <a name="get-started-with-delivering-content-on-demand-using-.net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
 
 >[AZURE.NOTE]
 > Du behöver ett Azure-konto för att slutföra dessa självstudier. Mer information finns i [kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
  
-##Översikt 
+##<a name="overview"></a>Översikt 
 
 Den här självstudiekursen vägleder dig genom stegen för att implementera ett program för leverans av Video-on-Demand (VoD) med Azure Media Services (AMS) SDK för .NET.
 
 
 Självstudierna innehåller det grundläggande Media Services-arbetsflödet och de vanligaste programmeringsobjekt och -uppgifter som krävs för utveckling av Media Services. I slutet av självstudierna kommer du att kunna strömma eller progressivt hämta en exempelmediefil som du har överfört, kodat och hämtat.
 
-## Det här lär du dig
+## <a name="what-you'll-learn"></a>Detta får du får lära dig
 
-Självstudierna visar hur du utför följande uppgifter:
+Självstudien visar hur du utför följande uppgifter:
 
-1.  Skapar ett Media Services-konto (med den klassiska Azure-portalen).
-2.  Konfigurerar den strömmande slutpunkten (via portalen).
+1.  Skapar ett Media Services-konto (med Azure-portalen).
+2.  Konfigurerar direktuppspelande slutpunkter (med Azure-portalen).
 3.  Skapar och konfigurerar ett Visual Studio-projekt.
 5.  Ansluter till Media Services-kontot.
 6.  Skapar en ny tillgång och överför en videofil.
@@ -46,82 +45,86 @@ Självstudierna visar hur du utför följande uppgifter:
 8.  Publicerar tillgången och får URL:er för strömmande och progressiv hämtning.
 9.  Testar genom att spela upp ditt innehåll.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att kunna genomföra självstudien.
 
 - Du behöver ett Azure-konto för att slutföra den här självstudien. 
     
-    Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
+    Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
 - Operativsystem: Windows 8 eller senare, Windows 2008 R2, Windows 7.
 - .NET Framework 4.0 eller senare
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate eller Express) eller senare versioner.
 
 
-##Ladda ned exempel
+##<a name="download-sample"></a>Ladda ned exempel
 
-Hämta och kör ett exempel [härifrån](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Hämta och kör ett exempel [här](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-##Skapa ett Media Services-konto i portalen
+## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Skapa ett Media Services-konto med Azure-portalen
 
-1. I den klassiska Azure-portalen klickar du på **Nytt**. Klicka sedan på **Media Service** och därefter på **Snabbregistrering**.
+Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
 
-    ![Snabbregistrering i Media Services](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Klicka på **+New** > **Media + CDN** > **Media Services**.
 
-2. I **NAMN** anger du namnet på det nya kontot. Namnet på ett Media Services-konto innehåller bara gemena bokstäver eller siffror utan blanksteg och är 3 till 24 tecken långt.
+    ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
-3. I **REGION** väljer du den geografiska region som ska användas för att lagra metadataposterna för Media Services-kontot. Endast de tillgängliga Media Services-regionerna visas i listrutan.
+3. Ange de erfordrade värdena i **SKAPA MEDIA SERVICES-KONTO**.
 
-4. Vid **LAGRINGSKONTO** väljer du ett Storage-konto för att tillhandahålla Blob Storage för medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett nytt lagringskonto. Ett nytt lagringskonto skapas i samma region.
+    ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    
+    1. Ange namnet på det nya AMS-kontot vid **Kontonamn**. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.
+    2. Vid Prenumeration väljer du mellan de olika Azure-prenumerationer som du har åtkomst till.
+    
+    2. I **Resursgrupp** väljer du ny eller befintlig resurs.  En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Lär dig mer [här](resource-group-overview.md#resource-groups).
+    3. För **Plats** väljer du den geografiska region som ska användas för att lagra media och metadataposter för ditt Media Services-konto. Den här regionen används för att bearbeta och strömma dina media. Endast de tillgängliga Media Services-regionerna visas i listrutan. 
+    
+    3. Vid **Storage-konto** väljer du ett lagringskonto för att tillhandahålla Blob Storage av medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett lagringskonto. Ett nytt lagringskonto skapas i samma region. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
 
-5. Om du har skapat ett nytt lagringskonto anger du ett namn för det i **NYTT LAGRINGSKONTONAMN**. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
+        Mer information om lagring finns [här](storage-introduction.md).
 
-6. Klicka på **Snabbregistrering** längst ned i formuläret.
+    4. Välj **PIN-kod för instrumentpanelen** för att se förloppet för kontodistributionen.
+    
+7. Klicka på **Skapa** längst ned i formuläret.
 
-Du kan övervaka statusen för processen i meddelandeområdet längst ned i fönstret.
+    Statusen ändras till **Körs** när kontot har skapats. 
 
-När du har skapat kontot ändras statusen till **Aktiv**.
+    ![Media Services-inställningar](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
-Längst ned på sidan visas knappen **HANTERA NYCKLAR**. När du klickar på den här knappen visas en dialogruta med namnet på Media Services-kontot och de primära och sekundära nycklarna. Du behöver ha namnet på kontot och information om den primära nyckeln för att komma åt Media Services-kontot programmässigt.
+    För att hantera AMS-kontot (till exempel överföra videor, koda tillgångar och övervaka jobbförlopp) använder du fönstret **Inställningar**.
 
-![Media Services-sida](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
+## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Konfigurera direktuppspelande slutpunkter med Azure-portalen
 
-När du dubbelklickar på kontonamnet visas sidan **Snabbstart** som standard. På den här sidan kan du göra vissa hanteringsuppgifter som även finns tillgängliga på andra sidor i portalen. Du kan till exempel överföra en videofil från den här sidan eller göra det från sidan INNEHÅLL.
+När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera video via strömning med anpassad bithastighet till dina klienter. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare).
 
-##Konfigurera strömmande slutpunkt med hjälp av portalen
-
-När du arbetar med Azure Media Services är ett av vanligaste scenarierna att du levererar strömning med anpassad bithastighet till dina klienter. Med strömning med anpassad bithastighet kan klienten växla till en dataström med högre eller lägre bithastighet då videon visas baserat på den aktuella nätverksbandbredden, processoranvändningen och andra faktorer. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare).
-
-Media Services erbjuder dynamisk paketering som gör att du kan leverera ditt kodade innehåll (MP4 eller Smooth Streaming) med anpassningsbar bithastighet i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) utan att du behöver ompaketera till dessa strömningsformat.
+Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-kodade innehåll med anpassad bithastighet i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) direkt när du så önskar, utan att du behöver lagra på förhand packade versioner av vart och ett av dessa strömningsformat.
 
 Om du vill använda dynamisk paketering ska du göra följande:
 
-- Koda eller omkoda din mezzaninfil (källan) till en uppsättning MP4-filer med anpassningsbar bithastighet eller Smooth Streaming-filer med anpassningsbar bithastighet (kodningsstegen beskrivs senare i den här självstudiekursen)
-- Hämta minst en strömmande enhet för den **strömmande slutpunkten** från vilken du planerar att leverera ditt innehåll.
+- Koda din mezzaninfil (källa) till en uppsättning MP4-filer med anpassningsbar bithastighet (kodningsstegen visas längre fram i den här vägledningen).  
+- Skapa minst en enhet för strömning för den *strömningsslutpunkt* från vilken du planerar att leverera ditt innehåll. Stegen nedan visar hur du kan ändra antalet strömningsenheter.
 
-Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat och Media Services bygger och servar rätt svar baserat på förfrågningar från en klient.
+Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
 
-Om du vill ändra antalet enheter som är reserverade för strömning gör du följande:
-
-1. I [portalen](https://manage.windowsazure.com/) klickar du på **Media Services**. Klicka sedan på mediatjänstens namn.
-
-2. Välj sidan STRÖMMANDE SLUTPUNKTER. Klicka sedan på den strömmande slutpunkt som du vill ändra.
-
-3. Ange antalet strömmande enheter genom att klicka på fliken SKALA och flytta skjutreglaget **reserverad kapacitet**.
-
-    ![Skala sida](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
-
-4. Tryck på **SPARA** för att spara ändringarna.
-
-Det tar cirka 20 minuter att slutföra allokeringen.
-
->[AZURE.NOTE] För närvarande kan strömningen inaktiveras i upp till en timme när du går från ett positivt värde för strömmande enheter tillbaka till inga.
->
-> Det högsta antalet enheter som har angetts för 24-timmarsperioden används för att beräkna kostnaden. Information om priser finns i [prisuppgifter för Media Services](http://go.microsoft.com/fwlink/?LinkId=275107).
+Om du vill skapa och ändra antalet reserverade enheter för strömning gör du följande:
 
 
+1. I fönstret **Inställningar** klickar du på **Strömningsslutpunkter**. 
 
-##Skapa och konfigurera ett Visual Studio-projekt
+2. Klicka på den strömningsslutpunkt som är standard. 
+
+    Fönstret **INFORMATION OM DEN STRÖMNINGSSLUTPUNKT SOM ÄR STANDARD** visas.
+
+3. Flytta på skjutreglaget **Strömningsenheter** för att ange antalet strömningsenheter.
+
+    ![Strömningsenheter](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+
+4. Klicka på knappen **Spara** för att spara ändringarna.
+
+    >[AZURE.NOTE]Tilldelning av nya enheter kan ta cirka 20 minuter att slutföra.
+
+##<a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
 1. Skapa ett nytt C#-konsolprogram i Visual Studio 2013, Visual Studio 2012 eller Visual Studio 2010 SP1. Ange **namn**, **plats** och **lösningsnamn**. Klicka sedan på **OK**.
 
@@ -155,7 +158,7 @@ Det tar cirka 20 minuter att slutföra allokeringen.
 
 6. Skapa en ny mapp under projektkatalogen och kopiera en .mp4- eller .wmv-fil som du vill koda och strömma eller hämta progressivt. I det här exemplet används sökvägen ”C:\VideoFiles”.
 
-##Anslut till Media Services-kontot
+##<a name="connect-to-the-media-services-account"></a>Anslut till Media Services-kontot
 
 När du använder Media Services med .NET ska du använda klassen **CloudMediaContext** för de flesta Media Services-programmeringsuppgifter. Det gäller till exempel att ansluta till Media Services-kontot, skapa, uppdatera, komma åt och ta bort följande objekt: tillgångar, tillgångsfiler, jobb, åtkomstprinciper, positionerare o.s.v.
 
@@ -210,7 +213,7 @@ Funktionen **Main** anropar metoder som definieras ytterligare i det här avsnit
             }
         }
 
-##Skapa en ny tillgång och ladda upp en videofil
+##<a name="create-a-new-asset-and-upload-a-video-file"></a>Skapa en ny tillgång och ladda upp en videofil
 
 I Media Services överför du (eller för in) dina digitala filer till en tillgång. Enheten **Tillgång** kan innehålla video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning (samt metadata om dessa filer.)  När filerna har överförts lagras innehållet på ett säkert sätt i molnet för ytterligare bearbetning och strömning. Filerna i tillgången kallas **Tillgångsfiler**.
 
@@ -246,9 +249,9 @@ Lägg till följande metod i programklassen.
     }
 
 
-##Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet 
+##<a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet 
 
-När du har fört in tillgångar i Media Services kan media kodas, användas med transmux, förses med vattenstämpel och så vidare innan de skickas till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. Aktiviteterna kallas Jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i tillgångsfilen.
+När du har fört in tillgångar i Media Services kan media kodas, användas med transmux, förses med vattenstämpel och så vidare innan de skickas till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. De här aktiviteterna kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i tillgångsfilen.
 
 Som tidigare nämnts är ett mycket vanligt scenario när du arbetar med Azure Media Services att du levererar strömning med anpassningsbar bithastighet till klienterna. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime/Acess-licenstagare).
 
@@ -298,7 +301,7 @@ Lägg till följande metod i programklassen.
         return outputAsset;
     }
 
-##Publicera tillgången och få URL:er för strömning och progressiv hämtning
+##<a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publicera tillgången och få URL:er för strömning och progressiv hämtning
 
 Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Positionerare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler.
 
@@ -392,7 +395,7 @@ Lägg till följande metod i programklassen.
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-##Testa genom att spela upp ditt innehåll  
+##<a name="test-by-playing-your-content"></a>Testa genom att spela upp ditt innehåll  
 
 När du kör programmet som definieras i föregående avsnitt visas URL:er som liknar dessa i konsolfönstret.
 
@@ -434,29 +437,29 @@ Strömma videon med hjälp av [Azure Media Services Player](http://amsplayer.azu
 Testa den progressiva nedladdningen genom att klistra in en URL i en webbläsare (till exempel Internet Explorer, Chrome eller Safari).
 
 
-##Nästa steg: sökvägar för Media Services-utbildning
+##<a name="next-steps:-media-services-learning-paths"></a>Nästa steg: sökvägar för Media Services-utbildning
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Ge feedback
+##<a name="provide-feedback"></a>Ge feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-### Letar du efter något annat?
+### <a name="looking-for-something-else?"></a>Letar du efter något annat?
 
-Om det här avsnittet inte innehåller vad du förväntade dig, om något saknas eller om det av något annat skäl inte uppfyller dina behov vill vi gärna att du ger oss feedback med Disqus-tråden nedan.
+Om det här ämnet inte innehöll vad du förväntades dig, om det saknar något, eller om det på annat sätt inte uppfyllde dina behov, kan du ge oss feedback i Disqus-tråden nedan.
 
 
 <!-- Anchors. -->
 
 
 <!-- URLs. -->
-  [Installationsprogram för webbplattform]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Portalen]: http://manage.windowsazure.com/
+  [Installationsprogram för webbplattformen]: http://go.microsoft.com/fwlink/?linkid=255386
+  [Portal]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

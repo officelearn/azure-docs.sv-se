@@ -13,30 +13,30 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="09/20/2016"
-    ms.author="gusapost;tamram"/>
+    ms.date="10/18/2016"
+    ms.author="tamram"/>
 
 
 
-# Komma igång med Azure Table Storage med hjälp av .NET
+# <a name="get-started-with-azure-table-storage-using-.net"></a>Komma igång med Azure Table Storage med hjälp av .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## Översikt
+## <a name="overview"></a>Översikt
 
 Azure Table Storage är en tjänst som lagrar strukturerade NoSQL-data i molnet. Table Storage är en nyckel- och attributdatabas med en schemalös design. Eftersom Table Storage är schemalös är det enkelt att anpassa dina data i takt med att programmets behov förändras. Åtkomsten till data är snabb och kostnadseffektiv för alla typer av program. Kostnaden för Table Storage är normalt sett betydligt lägre än för motsvarande volymer med traditionell SQL.
 
 Du kan använda Table Storage för att lagra flexibla datauppsättningar, till exempel användardata för webbprogram, adressböcker, enhetsinformation och andra typer av metadata som din tjänst kräver. Du kan lagra valfritt antal enheter i en tabell, och ett lagringskonto kan innehålla valfritt antal tabeller, upp till lagringskontots kapacitetsgräns.
 
-### Om den här självstudiekursen
+### <a name="about-this-tutorial"></a>Om den här självstudiekursen
 
 I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenarier med hjälp av Azure Table Storage. Du lär dig bland annat hur du skapar och tar bort en tabell och hur du infogar, uppdaterar, tar bort och frågar tabelldata.
 
-**Uppskattad tidsåtgång:** 45 minuter
+**Uppskattad tidsåtgång:** 45 minuter
 
-**Krav:**
+**Förhandskrav:**
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 - [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -45,7 +45,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
-### Fler exempel
+### <a name="more-samples"></a>Fler exempel
 
 Ytterligare exempel med Table Storage finns i [Komma igång med Azure Table Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Du kan ladda ned exempelprogrammet och köra det eller bläddra i koden på GitHub.
 
@@ -56,7 +56,7 @@ Ytterligare exempel med Table Storage finns i [Komma igång med Azure Table Stor
 
 [AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### Lägga till namnrymdsdeklarationer
+### <a name="add-namespace-declarations"></a>Lägga till namnrymdsdeklarationer
 
 Lägg till följande `using`-instruktioner överst i `program.cs`-filen:
 
@@ -64,11 +64,11 @@ Lägg till följande `using`-instruktioner överst i `program.cs`-filen:
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
-### Parsa anslutningssträngen
+### <a name="parse-the-connection-string"></a>Parsa anslutningssträngen
 
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### Skapa tabelltjänstens klient
+### <a name="create-the-table-service-client"></a>Skapa tabelltjänstens klient
 
 Med klassen **CloudTableClient** kan du hämta tabeller och de entiteter som lagras i Table Storage. Här är ett sätt att skapa tjänstklienten:
 
@@ -77,7 +77,7 @@ Med klassen **CloudTableClient** kan du hämta tabeller och de entiteter som lag
 
 Nu är det dags att skriva kod som läser data från och skriver data till Table Storage.
 
-## Skapa en tabell
+## <a name="create-a-table"></a>Skapa en tabell
 
 Det här exemplet illustrerar hur du skapar en tabell om den inte redan finns:
 
@@ -94,7 +94,7 @@ Det här exemplet illustrerar hur du skapar en tabell om den inte redan finns:
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
-## Lägga till en entitet i en tabell
+## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
 
 Entiteter mappar till C\#-objekt med hjälp av en anpassad klass som härleds från **TableEntity**. Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för entiteten. Följande kod definierar en entitetsklass som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Det går snabbare att fråga entiteter med samma partitionsnyckel än entiteter som har olika partitionsnycklar, men skalbarheten och möjligheten att utföra parallella åtgärder är större med olika partitionsnycklar.  För egenskaper som ska lagras i tabelltjänsten måste egenskapen vara en offentlig egenskap för en typ som stöds och som exponerar både `get` och `set`.
 Dessutom *måste* entitetstypen exponera en parameterlös konstruktor.
@@ -137,7 +137,7 @@ Tabellåtgärder som rör entiteter utförs via **CloudTable**-objektet som du s
     // Execute the insert operation.
     table.Execute(insertOperation);
 
-## Infoga en batch med entiteter
+## <a name="insert-a-batch-of-entities"></a>Infoga en batch med entiteter
 
 Du kan infoga en batch med entiteter i en tabell i samma skrivåtgärd. Några anmärkningar om batchåtgärder:
 
@@ -179,7 +179,7 @@ Följande kod skapar två entitetsobjekt och lägger till vart och ett i **Table
     // Execute the batch operation.
     table.ExecuteBatch(batchOperation);
 
-## Hämta alla entiteter i en partition
+## <a name="retrieve-all-entities-in-a-partition"></a>Hämta alla entiteter i en partition
 
 Om du vill fråga en tabell efter alla entiteter i en partition använder du ett **TableQuery**-objekt.
 I följande kodexempel anges ett filter för entiteter där partitionsnyckeln är ”Smith”. Det här exemplet skriver ut fälten för varje entitet i frågeresultatet till konsolen.
@@ -204,7 +204,7 @@ I följande kodexempel anges ett filter för entiteter där partitionsnyckeln ä
             entity.Email, entity.PhoneNumber);
     }
 
-## Hämta ett intervall med enheter i en partition
+## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Hämta ett intervall med enheter i en partition
 
 Om du inte vill fråga efter alla entiteter i en partition kan du ange ett intervall genom att kombinera partitionsnyckelfiltret med ett radnyckelfilter. I följande kodexempel används två filter för att hämta alla entiteter i partitionen ”Smith” där radnyckeln (förnamn) börjar med en bokstav som kommer före ”E” i alfabetet, varefter frågeresultatet skrivs ut.
 
@@ -232,7 +232,7 @@ Om du inte vill fråga efter alla entiteter i en partition kan du ange ett inter
             entity.Email, entity.PhoneNumber);
     }
 
-## Hämta en enda entitet
+## <a name="retrieve-a-single-entity"></a>Hämta en enda entitet
 
 Du kan skriva en fråga för att hämta en enda, specifik entitet. I följande kod används **TableOperation** för att ange kunden ”Ben Smith”.
 Den här metoden returnerar endast en entitet i stället för en samling, och värdet som returneras i **TableResult.Result** är ett **CustomerEntity**-objekt.
@@ -260,7 +260,7 @@ Det snabbaste sättet att hämta en enskild entitet från tabelltjänsten är at
     else
        Console.WriteLine("The phone number could not be retrieved.");
 
-## Ersätta en entitet
+## <a name="replace-an-entity"></a>Ersätta en entitet
 
 Om du vill uppdatera en entitet hämtar du den från tabelltjänsten, ändrar entitetsobjektet och sparar sedan ändringarna till tabelltjänsten igen. Följande kod ändrar en befintlig kunds telefonnummer. I stället för att anropa **Insert** använder den här koden **Replace**. Detta leder till att entiteten ersätts helt på servern, såvida inte entiteten på servern har ändrats sedan den hämtades. I så fall misslyckas åtgärden.  Det här felet är avsett att förhindra att ditt program oavsiktligt skriver över ändringar mellan hämtningen och uppdateringen av en annan komponent i ditt program.  Du hanterar det här felet genom att hämta entiteten igen, göra dina ändringar (om de fortfarande behövs) och sedan köra en **Replace**-åtgärd igen.  I nästa avsnitt visar vi hur du kan åsidosätta detta beteende.
 
@@ -300,7 +300,7 @@ Om du vill uppdatera en entitet hämtar du den från tabelltjänsten, ändrar en
     else
        Console.WriteLine("Entity could not be retrieved.");
 
-## Infoga eller ersätta en entitet
+## <a name="insert-or-replace-an-entity"></a>Infoga eller ersätta en entitet
 
 **Replace**-åtgärder misslyckas om entiteten har ändrats sedan den hämtades från servern.  Dessutom måste du hämta entiteten från servern först för att **Replace**-åtgärden ska lyckas.
 Ibland vet du dock inte om entiteten finns på servern, och vilka värden som för närvarande lagras i den är irrelevanta. Dina uppdateringar ska skriva över alla.  För att åstadkomma detta använder du en **InsertOrReplace**-åtgärd.  Den här åtgärden infogar entiteten om den inte finns, eller ersätter den om den finns, oavsett när den senaste uppdateringen gjordes.  I följande kodexempel hämtas fortfarande kundentiteten för Ben Still, men den sparas sedan tillbaka till servern via **InsertOrReplace**.  Uppdateringar som görs i entiteten mellan hämtnings- och uppdateringsåtgärderna skrivs över.
@@ -341,7 +341,7 @@ Ibland vet du dock inte om entiteten finns på servern, och vilka värden som f�
     else
        Console.WriteLine("Entity could not be retrieved.");
 
-## Fråga en deluppsättning entitetsegenskaper
+## <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
 
 En tabellfråga kan hämta bara några få egenskaper från en entitet i stället för alla entitetsegenskaper. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod returnerar bara e-postadresserna för entiteter i tabellen. Detta görs med hjälp av en fråga med **DynamicTableEntity** och **EntityResolver**. Du kan lära dig mer om projektion i blogginlägget [Introducing Upsert and Query Projection][]. Observera att projektion inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs när du använder ett konto i tabelltjänsten.
 
@@ -366,7 +366,7 @@ En tabellfråga kan hämta bara några få egenskaper från en entitet i ställe
         Console.WriteLine(projectedEmail);
     }
 
-## Ta bort en entitet
+## <a name="delete-an-entity"></a>Ta bort en entitet
 
 Du kan enkelt ta bort en enhet när du har hämtat den genom att använda samma mönster som när du uppdaterar en entitet.  Följande kod hämtar och tar bort en kundentitet.
 
@@ -403,7 +403,7 @@ Du kan enkelt ta bort en enhet när du har hämtat den genom att använda samma 
     else
        Console.WriteLine("Could not retrieve the entity.");
 
-## Ta bort en tabell
+## <a name="delete-a-table"></a>Ta bort en tabell
 
 I det sista kodexemplet tas en tabell bort från ett lagringskonto. En tabell som har tagits bort kan inte återskapas under en viss tid efter borttagningen.
 
@@ -420,7 +420,7 @@ I det sista kodexemplet tas en tabell bort från ett lagringskonto. En tabell so
     // Delete the table it if exists.
     table.DeleteIfExists();
 
-## Hämta entiteter på sidor asynkront
+## <a name="retrieve-entities-in-pages-asynchronously"></a>Hämta entiteter på sidor asynkront
 
 Om du läser ett stort antal entiteter och du vill bearbeta/visa entiteter i takt med att de hämtas i stället för att vänta på att alla ska returneras kan du hämta entiteter med hjälp av en segmenterad fråga. Det här exemplet visar hur du returnerar resultat på sidor med mönstret Async-Await så att körningen inte blockeras medan du väntar på att ett stort antal resultat ska returneras. Mer information om hur du använder mönstret Async-Await i .NET finns i [Asynkron programmering med Async och Await (C# och Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
@@ -446,20 +446,20 @@ Om du läser ett stort antal entiteter och du vill bearbeta/visa entiteter i tak
     // Loop until a null continuation token is received, indicating the end of the table.
     } while(continuationToken != null);
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar för att lära dig mer om komplexa lagringsuppgifter:
 
 - Du hittar fler Table Storage-exempel i [Komma igång med Azure Table Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 - Fullständig information om tillgängliga API:er finns i referensdokumentationen för tabelltjänsten:
-    - [Referens för Azure Storage-klientbibliotek för .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-    - [Referens för REST-API](http://msdn.microsoft.com/library/azure/dd179355)
+    - [Storage-klientbibliotek för .NET-referens](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [REST API-referens](http://msdn.microsoft.com/library/azure/dd179355)
 - Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 - Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
     - [Kom igång med Azure Blob Storage med hjälp av .NET](storage-dotnet-how-to-use-blobs.md) om du vill lagra ostrukturerade data.
-    - [Använd Azure SQL Database i .NET-program](sql-database-dotnet-how-to-use.md) om du vill lagra relationsdata.
+    - [Anslut till SQL Database med hjälp av .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) för att lagra relationsdata.
 
-  [Ladda ned och installera Azure SDK för .NET]: /develop/net/
+  [Hämta och installera Azure SDK för .NET]: /develop/net/
   [Skapa ett Azure-projekt i Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
   [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
@@ -468,17 +468,17 @@ Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar f
   [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-  [Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [Referens för .NET-klientbibliotek]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Azure Storage-teamets blogg]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Konfigurera Azure Storage-anslutningssträngar]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+  [Introduktion av Upsert och frågeprojicering, blogginlägg]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+  [.NET-klientbiblioteksreferens]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [Azure Storage Teamblogg]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Konfigurera anslutningssträngar för Azure Storage]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-  [EDM]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-  [Så här gör du: Komma åt Table Storage via programmering]: #tablestorage
+  [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
+  [Rumslig]: http://nuget.org/packages/System.Spatial/5.0.2
+  [Programmässig åtkomst till Table Storage]: #tablestorage
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

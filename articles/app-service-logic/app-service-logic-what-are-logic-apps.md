@@ -13,10 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article" 
-    ms.date="07/12/2016"
+    ms.date="10/12/2016"
     ms.author="klam"/>
 
-#Vad är Logic Apps?
+
+# <a name="what-are-logic-apps?"></a>Vad är Logic Apps?
 
 Logic Apps är ett sätt att förenkla och implementera skalbara integreringar och arbetsflöden i molnet. Tjänsten tillhandahåller ett visuellt designverktyg för modellering och automatisering av processer som en serie steg kallade ett arbetsflöde.  Det finns [många anslutningsappar](../connectors/apis-list.md) för molnet och lokala infrastrukturer för snabb integrering mellan tjänster och protokoll.  En logikapp börjar med en utlösare (t.ex. ”när ett konto läggs till i Dynamics CRM”) och kan när den utlösts starta många kombinationer av åtgärder, konverteringar och villkorslogik.
 
@@ -41,7 +42,7 @@ Som vi redan nämnt kan du automatisera affärsprocesser med Logic Apps. Här f�
 
 Alla scenarier av den här typen kan konfigureras från den visuella designern utan att du behöver skriva en enda rad kod. Kom igång med att [skapa din logikapp nu][skapa].  När den har skrivits kan en logikapp [snabbt distribueras och konfigureras om](app-service-logic-create-deploy-template.md) i flera miljöer och områden.
 
-## Vad är Logic Apps till för?
+## <a name="why-logic-apps?"></a>Vad är Logic Apps till för?
 
 Logic Apps levererar hastighet och skalbarhet för företagsintegreringar.  Det användarvänliga designverktyget, de många tillgängliga utlösarna och åtgärderna och de kraftfulla hanteringsverktygen gör det enklare än någonsin att centralisera dina API:er.  Företag som rör sig mot digitalisering kan använda Logic Apps för att koppla ihop äldre och moderna system.
 
@@ -57,7 +58,7 @@ Med vårt [Enterprise-integrationskonto][biztalk] kan du dessutom skala till mog
 
 - **Verklig integrationskraft** – Starta enkelt och utöka i takt med dina behov. Logic Apps kan enkelt utnyttja kraften i BizTalk, Microsofts branschledande integrationslösning, och gör det möjligt för integrationstekniker att skapa de lösningar de behöver. Lär dig mer om [Enterprise-integrationspaketet](./app-service-logic-enterprise-integration-overview.md).
 
-## Logikappkoncept
+## <a name="logic-app-concepts"></a>Logikappkoncept
 
 Följande är några av de viktiga punkter som ingår i logikappupplevelsen. 
 
@@ -67,12 +68,12 @@ Följande är några av de viktiga punkter som ingår i logikappupplevelsen.
 -  **Åtgärder** – Alla steg efter utlösaren i ett arbetsflöde kallas för åtgärder. En åtgärd mappar vanligtvis till en åtgärd i dina hanterade anslutningsappar eller anpassade API-appar.
 - **Enterprise-integrationspaket** – Logic Apps innehåller funktioner från BizTalk för mer avancerade integrationsscenarier. BizTalk är Microsofts branschledande integrationsplattform. Med anslutningsapparna för Enterprise-integrationspaketet kan du enkelt integrera verifiering, transformering och mer i dina Logic Apps-arbetsflöden.
 
-## Komma igång  
+## <a name="getting-started"></a>Komma igång  
 
 - Kom igång med Logic Apps genom att följa kursen [skapa en logikapp][skapa].  
 - [Visa vanliga exempel och scenarier](app-service-logic-examples-and-scenarios.md)
-- [Du kan automatisera affärsprocesser med hjälp av Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
-- [Lär dig hur du integrerar dina system med Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
+- [Du kan automatisera verksamhetsprocesser med Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
+- [Läs hur du integrerar dina system med Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: app-service-logic-enterprise-integration-accounts.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
@@ -84,6 +85,6 @@ Följande är några av de viktiga punkter som ingår i logikappupplevelsen.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

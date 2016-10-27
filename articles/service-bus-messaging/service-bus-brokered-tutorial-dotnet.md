@@ -1,13 +1,13 @@
 <properties 
     pageTitle=".Net-självstudiekurs om asynkrona meddelanden i Service Bus | Microsoft Azure"
     description=".Net-självstudiekurs om asynkrona meddelanden"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
@@ -16,7 +16,7 @@
     ms.author="sethm" />
 
 
-# .Net-självstudiekurs om asynkrona meddelanden i Service Bus
+# <a name="service-bus-brokered-messaging-.net-tutorial"></a>.Net-självstudiekurs om asynkrona meddelanden i Service Bus
 
 Med Azure Service Bus får du två omfattande meddelandelösningar. I en av dem används en centraliserad tjänst för vidarebefordran som körs i molnet och har stöd för olika transportprotokoll och webbtjänststandarder, däribland SOAP WS-* och REST. Klienten behöver ingen direkt anslutning till den lokala tjänsten och behöver inte heller veta var den finns. Den lokala tjänsten behöver inte ha några öppna ingående portar i brandväggen.
 
@@ -24,21 +24,21 @@ Den andra meddelandelösningen har funktioner för asynkrona meddelanden. Dessa 
 
 Den här självstudiekursen är avsedd att ge dig en översikt och praktisk erfarenhet av köer, som är en av huvudkomponenterna av asynkrona meddelanden i Service Bus. När du har gått igenom de olika avsnitten i självstudiekursen har du en app som fyller på en lista med meddelanden, skapar en kö och skickar meddelanden till den kön. Slutligen tar appen emot och visar meddelanden från kön och rensar sedan dess resurser och avslutas. Mer information om hur du skapar en app som använder Service Bus finns i [självstudiekursen för den vidarebefordrande meddelandetjänsten i Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
-## Introduktion och nödvändiga komponenter
+## <a name="introduction-and-prerequisites"></a>Introduktion och nödvändiga komponenter
 
 Köer erbjuder FIFO-leverans (”first in, first out”) av meddelanden till en eller flera konkurrerande konsumenter. FIFO betyder att meddelanden vanligtvis förväntas tas emot och bearbetas av mottagarna i den ordning som de lagts till i kön, och varje meddelande tas bara emot och bearbetas av en meddelandekonsument. En stor fördel med köer är *temporal frikoppling* av appkomponenter. Producenter och konsumenter behöver med andra ord inte skicka och ta emot meddelanden på samma gång, eftersom meddelanden lagras varaktigt i kön. En relaterad fördel är *belastningsutjämning*, vilket gör att producenter och konsumenter kan skicka och ta emot meddelanden med olika hastigheter.
 
 Nedan följer några administrativa och nödvändiga steg som du bör följa innan du påbörjar självstudiekursen. Det första steget är att skapa ett namnområde för tjänsten samt hämta en nyckel till signatur för delad åtkomst (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet för tjänsten och SAS-nyckeln ger en referens som Service Bus använder för att tillåta åtkomst till en app.
 
-### Skapa ett namnområde för tjänsten och få en SAS-nyckel
+### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Skapa ett namnområde för tjänsten och få en SAS-nyckel
 
-Det första steget är att skapa ett namnområde för tjänsten och hämta en nyckel till [signatur för delad åtkomst](../service-bus/service-bus-sas-overview.md) (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet för tjänsten och SAS-nyckeln ger en referens för Service Bus som används för att tillåta åtkomst till ett program.
+Det första steget är att skapa ett namnområde för tjänsten och hämta en nyckel till [signatur för delad åtkomst](service-bus-sas-overview.md) (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet för tjänsten och SAS-nyckeln ger en referens för Service Bus som används för att tillåta åtkomst till ett program.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunktioner som läser in en kommaavgränsad lista med meddelanden i ett starkt typbestämt .NET-[listobjekt](https://msdn.microsoft.com/library/6sh2ey19.aspx) i [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .
 
-### Skapa ett Visual Studio-projekt
+### <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
 1. Öppna Visual Studio som administratör genom att högerklicka på programmet i Start-menyn och klicka på **Kör som administratör**.
 
@@ -95,7 +95,7 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
 
 1. Bläddra till filen Data.csv som du skapade i steg 6. Klicka på filen och sedan på **Lägg till**. Se till att **Alla filer (*.*)** har valts i listan över filtyper.
 
-### Skapa en metod som parsar en lista med meddelanden
+### <a name="create-a-method-that-parses-a-list-of-messages"></a>Skapa en metod som parsar en lista med meddelanden
 
 1. I `Program`-klassen före `Main()`-metoden deklarerar du två variabler: en av typen **DataTable**, som ska innehålla listan över meddelanden i Data.csv. Den andra ska vara av typen listobjekt, starkt typbestämd till [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Den senare är listan över asynkrona meddelanden som används i följande steg i självstudiekursen.
 
@@ -158,7 +158,7 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
     }
     ```
 
-### Skapa en metod som läser in listan med meddelanden
+### <a name="create-a-method-that-loads-the-list-of-messages"></a>Skapa en metod som läser in listan med meddelanden
 
 1. Utanför `Main()` definierar du en `GenerateMessages()`-metod som tar det **DataTable**-objekt som returnerades av `ParseCSVFile()` och läser in tabellen i en starkt typbestämd lista över asynkrona meddelanden. Metoden returnerar sedan **listobjektet** som i följande exempel. 
 
@@ -194,7 +194,7 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
     }
     ```
 
-### Skaffa autentiseringsuppgifter för användare
+### <a name="obtain-user-credentials"></a>Skaffa autentiseringsuppgifter för användare
 
 1. Skapa först tre globala strängvariabler som ska innehålla värdena. Deklarera variablerna direkt efter de tidigare variabeldeklarationerna. Exempel:
 
@@ -244,11 +244,11 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
     }
     ```
 
-### Skapa lösningen
+### <a name="build-the-solution"></a>Skapa lösningen
 
 Från menyn **Skapa** i Visual Studio klickar du på **Skapa lösning** eller trycker på **Ctrl + Skift + B** för att bekräfta att det arbete du gjort hittills är korrekt.
 
-## Skapa autentiseringsuppgifter för hantering
+## <a name="create-management-credentials"></a>Skapa autentiseringsuppgifter för hantering
 
 I det här steget definierar du vilka hanteringsåtgärder du ska använda för att skapa autentiseringsuppgifter för signatur för delad åtkomst (SAS) med vilka appen auktoriseras.
 
@@ -280,7 +280,7 @@ I det här steget definierar du vilka hanteringsåtgärder du ska använda för 
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 
-### Exempel
+### <a name="example"></a>Exempel
 
 Nu bör koden se ut ungefär som följer:
 
@@ -388,11 +388,11 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Skicka meddelanden till kön
+## <a name="send-messages-to-the-queue"></a>Skicka meddelanden till kön
 
 I det här steget skapar du en kö och skickar meddelandena som finns i listan över asynkrona meddelanden till kön.
 
-### Skapa en kö och skicka meddelanden till den
+### <a name="create-queue-and-send-messages-to-the-queue"></a>Skapa en kö och skicka meddelanden till den
 
 1. Skapa först kön. Kalla den till exempel `myQueue` och deklarera den direkt efter hanteringsåtgärderna som du lade till i `Queue()`-metoden i det senaste steget:
 
@@ -433,11 +433,11 @@ I det här steget skapar du en kö och skickar meddelandena som finns i listan �
     }
     ```
 
-## Ta emot meddelanden från kön
+## <a name="receive-messages-from-the-queue"></a>Ta emot meddelanden från kön
 
 I det här steget hämtar du listan över meddelanden från kön som du skapade i det förra steget.
 
-### Skapa en mottagare och ta emot meddelanden från kön
+### <a name="create-a-receiver-and-receive-messages-from-the-queue"></a>Skapa en mottagare och ta emot meddelanden från kön
 
 I `Queue()`-metoden itererar du igenom kön och tar emot meddelanden med [QueueClient.ReceiveAsync](https://msdn.microsoft.com/library/azure/dn130423.aspx)-metoden, som skriver ut alla meddelanden till konsolen. Lägg till följande kod direkt efter den du lade till i det förra steget:
 
@@ -456,7 +456,7 @@ while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minute
 
 Observera att `Thread.Sleep` bara används för att simulera bearbetningen av meddelandet. Du behöver förmodligen inte den i en riktig meddelandeapp.
 
-### Avsluta kömetoden och rensa resurser
+### <a name="end-the-queue-method-and-clean-up-resources"></a>Avsluta kömetoden och rensa resurser
 
 Lägg till följande kod direkt efter den förra för att rensa meddelandefabriken och köresurserna:
 
@@ -466,7 +466,7 @@ myQueueClient.Close();
 namespaceClient.DeleteQueue("IssueTrackingQueue");
 ```
 
-### Anropa kömetoden
+### <a name="call-the-queue-method"></a>Anropa kömetoden
 
 Det sista steget är att lägga till en instruktion som anropar  `Queue()`-metoden från `Main()`. Lägg till följande markerade kodrad i slutet av Main():
     
@@ -485,7 +485,7 @@ public static void Main(string[] args)
 }
 ```
 
-### Exempel
+### <a name="example"></a>Exempel
 
 Följande kod innehåller hela **QueueSample**-appen.
 
@@ -636,27 +636,27 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Skapa och kör QueueSample-appen
+## <a name="build-and-run-the-queuesample-application"></a>Skapa och kör QueueSample-appen
 
 Nu när du har slutfört ovanstående steg kan du skapa och köra **QueueSample**-appen.
 
-### Skapa QueueSample-appen
+### <a name="build-the-queuesample-application"></a>Skapa QueueSample-appen
 
 I menyn **Skapa** i Visual Studio klickar du på **Skapa lösning** eller trycker på **CTRL+SKIFT+B**. Om det uppstår fel kontrollerar du att koden är korrekt baserad på det fullständiga exemplet som visas i slutet av det förra steget.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen visades hur du skapar en klientapp och en tjänst för Service Bus med funktioner för asynkrona meddelanden i Service Bus. Information om [Service Bus Relay](service-bus-messaging-overview.md#Relayed-messaging) finns i [självstudiekursen för den vidarebefordrande meddelandetjänsten i Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 I följande avsnitt kan du lära dig mer om [Service Bus](https://azure.microsoft.com/services/service-bus/).
 
-- [Översikt över meddelandetjänsten i Service Bus](service-bus-messaging-overview.md)
-- [Grunderna i Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus-arkitektur](../service-bus/service-bus-architecture.md)
+- [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
+- [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus-arkitektur](service-bus-architecture.md)
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

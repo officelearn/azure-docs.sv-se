@@ -1,5 +1,5 @@
 
-###Uppdatera manifestfilen om du vill aktivera meddelanden
+###<a name="update-manifest-file-to-enable-notifications"></a>Uppdatera manifestfilen om du vill aktivera meddelanden
 
 Kopiera resurserna för aviseringar via app nedan och klistra in dem i din Manifest.xml-fil mellan taggarna `<application>` och `</application>`.
 
@@ -45,7 +45,7 @@ Kopiera resurserna för aviseringar via app nedan och klistra in dem i din Manif
             </intent-filter>
         </receiver>
 
-###Ange en ikon för meddelanden
+###<a name="specify-an-icon-for-notifications"></a>Ange en ikon för meddelanden
 
 Klistra in följande XML-kodstycke i din Manifest.xml-fil mellan taggarna `<application>` och `</application>`.
 
@@ -62,9 +62,9 @@ För riktiga appar kan du använda en ikon som passar för aviseringar enligt [d
 >[AZURE.TIP] För att vara säker på att du använder rätt ikonupplösning, kan du kolla på [de här exemplen](https://www.google.com/design/icons).
 Bläddra ned till **Notification**-avsnittet, klicka på en ikon och klicka sedan på `PNGS` för att hämta drawable-ikonuppsättningen. Du kan se vilka drawable-mappar med vilken upplösning som ska användas för varje version av ikonen.
 
-###Konfigurera appen för att ta emot push-meddelanden med GCM
+###<a name="enable-your-app-to-receive-gcm-push-notifications"></a>Konfigurera appen för att ta emot push-meddelanden med GCM
 
-1. Klistra in följande i din Manifest.xml-fil mellan taggarna `<application>` och `</application>` när du har ersatt `project number` som hämtats från din Google Play-konsol. Markeringen ”\n” är avsiktlig, så se till att du avslutar projektnumret med det.
+1. Klistra in följande i din Manifest.xml mellan taggarna `<application>` och `</application>` efter att du ersatt **Avsändar-ID** som du fick från din Firebase-projektkonsol. Markeringen ”\n” är avsiktlig, så se till att du avslutar projektnumret med det.
 
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -96,6 +96,6 @@ Bläddra ned till **Notification**-avsnittet, klicka på en ikon och klicka seda
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

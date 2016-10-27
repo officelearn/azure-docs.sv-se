@@ -1,4 +1,4 @@
-### Så här verifierar du din anslutning med PowerShell
+### <a name="to-verify-your-connection-by-using-powershell"></a>Så här verifierar du din anslutning med PowerShell
 
 Du kan kontrollera att anslutningen har utförts genom att använda `Get-AzureRmVirtualNetworkGatewayConnection`-cmdlet:en, med eller utan `-Debug`. 
 
@@ -34,18 +34,16 @@ Du kan kontrollera att anslutningen har utförts genom att använda `Get-AzureRm
             "egressBytesTransferred": 4142431
           }
 
-### Så här verifierar du din anslutning med Azure-portalen
+### <a name="to-verify-your-connection-by-using-the-azure-portal"></a>Så här verifierar du din anslutning med Azure-portalen
 
-Du kan visa anslutningsstatus i Azure-portalen genom att navigera till anslutningen. Det finns flera sätt att göra detta på. Nedan är ett sätt att navigera till anslutningen.
+Du kan visa anslutningsstatus i Azure-portalen genom att navigera till anslutningen. Det finns flera sätt att göra detta på. Följande steg visar ett sätt att navigera till din anslutning och verifiera.
 
-1. I [Azure-portalen](http://portal.azure.com), navigera till **Virtuell nätverksgateway**. Klicka på ditt gatewaynamn.
-2. I rutan, under **Inställningar**, klicka på **Anslutningar**. Du kan se status för varje anslutning.
-3. Klicka på anslutningens namn för mer information om anslutningen. På sidan Essentials för anslutningen, observera **Anslutningsstatus**. Status kommer att vara Lyckades och Ansluten när en anslutning har upprättats. Du kan kontrollera de data som flödar genom att titta på **Data in** och **Data u**.
+1. I [Azure Portal](http://portal.azure.com), klickar du på **Alla resurser** och går till din virtuella nätverksgateway .
+2. På bladet för den virtuella nätverksgatewayen, klickar du på **Anslutningar**. Du kan se status för varje anslutning.
+3. Klicka på namnet på den anslutning du vill verifiera för att öppna **Essentials**. I Essentials, kan du visa mer information om din anslutning. **Statusen** är Lyckades och Ansluten, när du har skapat en lyckad anslutning.
 
-    I exemplet nedan, är **Anslutningsstatus** Inte ansluten. 
+    ![Verifiera anslutning](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
-    ![Verifiera anslutning](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
-
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

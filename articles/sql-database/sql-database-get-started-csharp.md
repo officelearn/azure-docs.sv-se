@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="09/14/2016"
+   ms.date="10/04/2016"
    ms.author="sstein"/>
 
 
@@ -26,18 +26,19 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Lär dig hur du använder C# för att skapa en Azure SQL-databas med [Azure SQL Database-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Den här artikeln beskriver hur du skapar en enkel databas med SQL och C#. För att skapa elastiska databaspooler, se [Skapa en elastisk databaspool](sql-database-elastic-pool-create-csharp.md).
+Läs om hur man använder C# för att skapa en Azure SQL-databas med [Microsoft Azure SQL Management-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Den här artikeln beskriver hur du skapar en enkel databas med SQL och C#. För att skapa elastiska databaspooler, se [Skapa en elastisk databaspool](sql-database-elastic-pool-create-csharp.md).
 
-Azure SQL Database-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+Azure SQL Database Management-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
-
-> [AZURE.NOTE] SQL Database-biblioteket för .NET är i förhandsvisning för tillfället.
-
+>[AZURE.NOTE] Flera nya funktioner i SQL Database stöds bara när du använder [distributionsmodellen Azure Resource Manager](../resource-group-overview.md) så du bör alltid använda det senaste **Azure SQL Database Management-biblioteket för .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De äldre [klassiska distributionsmodellbaserade biblioteken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) stöds enbart för bakåtkompatibilitet så det rekommenderas att du använder de nyare Resource Manager-baserade biblioteken.
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 - En Azure-prenumeration. Om du behöver en Azure-prenumeration klickar du bara på **KOSTNADSFRITT KONTO** överst på sidan och går tillbaka till den här artikeln efteråt.
 - Visual Studio. För en kostnadsfri version av Visual Studio, kan du gå till sidan [Visual Studio-hämtningar](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+
+>[AZURE.NOTE] Den här artikeln skapar en ny, tom SQL-databas. Ändra metoden *CreateOrUpdateDatabase(...)* i följande exempel för att kopiera databaser, skala databaser, skapa en databas i en pool och så vidare. Mer information finns i kurserna [DatabaseCreateMode](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreatemode.aspx) och [DatabaseProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databaseproperties.aspx).
+
 
 
 ## Skapa en konsolapp och installera nödvändiga bibliotek
@@ -50,7 +51,7 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 Skapa en SQL-databas med C# genom att läsa in nödvändiga hanteringsbibliotek (med hjälp av [Package Manager-konsolen](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Klicka på **Verktyg** > **NuGet Package Manager** > **Package Manager Console**.
-2. Installera [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) genom att skriva `Install-Package Microsoft.Azure.Management.Sql –Pre`.
+2. Skriv in `Install-Package Microsoft.Azure.Management.Sql –Pre` för att installera det senaste [Microsoft Azure SQL Management-biblioteket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 3. Installera [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) genom att skriva `Install-Package Microsoft.Azure.Management.ResourceManager –Pre`.
 4. Installera [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication) genom att skriva `Install-Package Microsoft.Azure.Common.Authentication –Pre`. 
 
@@ -294,6 +295,6 @@ När du nu har testat SQL Database och ställt in en databas med C#, är du redo
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

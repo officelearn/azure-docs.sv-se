@@ -13,15 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/30/2016"
+    ms.date="10/10/2016"
     ms.author="kgremban"/>
 
 
 # Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser
 
 > [AZURE.SELECTOR]
-- [Azure Portal](role-based-access-control-azure-portal.md)
-- [Klassisk Azure-portal](role-based-access-control-configure.md)
+- [Hantera åtkomst efter användare eller grupp](role-based-access-control-manage-assignments.md)
+- [Hantera åtkomst efter resurs](role-based-access-control-configure.md)
 
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete. Den här artikeln hjälper dig att komma igång med RBAC på Azure-portalen. Mer information om hur RBAC kan hjälpa dig att hantera åtkomsten finns i [Vad är rollbaserad åtkomstkontroll?](role-based-access-control-what-is.md)
 
@@ -31,9 +31,8 @@ Du kan se vem som har åtkomst till en resurs, resursgrupp eller prenumeration f
 1. Välj **Resursgrupper** i navigeringsfältet till vänster.  
     ![Resursgrupper – ikon](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. Välj namnet på resursgruppen från bladet **Resursgrupper**.
-3. Välj **Användare** längst upp till höger i bladet för resursgruppen.  
-    ![Användare – ikon](./media/role-based-access-control-configure/users_icon.png)
-4. Bladet **Användare** visar alla användare, grupper och program som har beviljats åtkomst till resursgruppen.  
+3. Välj **Åtkomstkontroll (IAM)** från den vänstra menyn.  
+4. Åtkomstkontroll-bladet listar alla användare, grupper och program som har getts åtkomst till resursgruppen.  
 
     ![Skärmbild av bladet Användare – ärvd eller tilldelad åtkomst](./media/role-based-access-control-configure/view-access.png)
 
@@ -45,8 +44,7 @@ Observera att vissa användare har **tilldelats** åtkomst medan andra har **är
 ## Lägga till åtkomst
 Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som rolltilldelningen omfattar.
 
-1. Välj **Lägg till** på bladet **Användare**.  
-    ![Lägg till – ikon](./media/role-based-access-control-configure/add_icon.png)  
+1. Välj **Lägg till** på åtkomstkontroll-bladet.  
 2. Välj den roll som du vill tilldela från bladet **Välj en roll**.
 3. Välj den användare, den grupp eller det program i katalogen som du vill bevilja åtkomst till. Du kan söka i katalogen med visningsnamn, e-postadresser och objektidentifierare.  
 
@@ -59,9 +57,8 @@ När du har lagt till en rolltilldelning visas den på bladet **Användare**.
 
 ## Ta bort åtkomst
 
-1. Välj rolltilldelningen på bladet **Användare**.
+1. Välj rolltilldelning på Åtkomstkontroll-bladet.
 2. Välj **Ta bort** på bladet Tilldelningsinformation.  
-    ![Ta bort – ikon](./media/role-based-access-control-configure/remove_icon.png)
 3. Bekräfta borttagningen genom att välja **Ja**.  
     ![Skärmbild av bladet Användare – ta bort från roll](./media/role-based-access-control-configure/remove-access1.png)
 
@@ -83,6 +80,6 @@ Du kan tilldela roller och hantera åtkomst med Azure RBAC-kommandon i andra ver
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

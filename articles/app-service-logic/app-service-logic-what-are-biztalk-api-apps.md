@@ -38,9 +38,6 @@ Det finns olika tillgängliga servicenivåer. Alla nivåer omfattar alla kopplin
 ## Hybridkopplingar 
 Hybridanslutningarna utökar räckvidden i företaget och ger anslutningsbarhet till [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) och WebSphere MQ. 
 
-## EAI- och EDI-tjänster
-Att skapa affärskritiska appar kräver mer än bara anslutningsbarhet. BizTalk API Appsna bygger på grunden i Microsofts branschledande integrationsplattform, BizTalk Server, och ger avancerade integrationsmöjligheter som lätt kan överföras till dina webb-, mobil- och Logic Apps. Några av integrationsmöjligheterna är [validering](app-service-logic-xml-validator.md), [extrahering](app-service-logic-xpath-extract.md), [transformering](app-service-logic-transform-xml-documents.md), [kodare](app-service-logic-connector-jsonencoder.md), [hantering av handelspartners](app-service-logic-connector-tpm.md) och stöd för EDI-format såsom [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) och [AS2](app-service-logic-connector-as2.md).
-
 Ytterligare resurser: [B2B-kopplingar (business-to-business) och API Apps](app-service-logic-b2b-connectors.md)  
 [Skapa en B2B-process](app-service-logic-create-a-b2b-process.md)  
 [Skapa ett handelspartneravtal](app-service-logic-create-a-trading-partner-agreement.md)  
@@ -56,6 +53,6 @@ Se [listan över kopplingar och API Apps](app-service-logic-connectors-list.md) 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -17,7 +17,7 @@
     ms.author="rachelap"/>
 
 
-# Översikt över Web Apps
+# <a name="web-apps-overview"></a>Översikt över Web Apps
 
 *App Service Web Apps* är en helt hanterad beräkningsplattform som är optimerad för hantering av webbplatser och webbappar. Det här PaaS-erbjudandet [(platform as a service)](https://en.wikipedia.org/wiki/Platform_as_a_service) från Microsoft Azure gör att du fokusera på affärslogiken medan Azure tar hand om infrastrukturen för att köra och skala appar.
 
@@ -27,7 +27,7 @@ I följande 5 minuter långa video får du en introduktion till App Service Web 
 
 >[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
-## Vad är en webbapp i App Service för något?
+## <a name="what-is-a-web-app-in-app-service?"></a>Vad är en webbapp i App Service för något?
 
 I App Service är en *webbapp* de beräkningsresurser som Azure tillhandahåller för hantering av en webbplats eller webbapp.  
 
@@ -37,7 +37,7 @@ Koden kan vara i valfritt språk eller ramverk som hanteras av [Azure App Servic
 
 Exempel på vanliga programscenarier som du kan använda Web Apps för finns i avsnitten [Webbapp-scenarier](https://azure.microsoft.com/documentation/scenarios/web-app/) och **Scenarier och rekommendationer** i [Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services](choose-web-site-cloud-service-vm.md#scenarios).
 
-## Fördelar med att använda Web Apps
+## <a name="why-use-web-apps?"></a>Fördelar med att använda Web Apps
 
 Här följer några funktioner i App Service som gäller för Web Apps:
 
@@ -59,7 +59,7 @@ Dessutom kan en webbapp dra nytta av funktioner i [API Apps](../app-service-api/
 
 Förutom Web Apps i App Service erbjuder Azure andra tjänster som kan användas till att hantera webbplatser och webbappar. I de flesta fall är Web Apps det bästa alternativet.  För arkitektur för mikrotjänster kan du använda [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), och om du behöver större kontroll över de virtuella datorer koden körs på kan du använda [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Mer information om hur du väljer mellan dessa Azure-tjänster hittar du i [Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services.](choose-web-site-cloud-service-vm.md).
 
-## Komma igång
+## <a name="getting-started"></a>Komma igång
 
 Kom igång med att distribuera exempelkod för en ny webbapp i App Service genom att följa anvisningarna i kursen [Distribuera din första webbapp i Azure på 5 minuter](app-service-web-get-started.md). Du behöver ett kostnadsfritt Azure-konto.
 
@@ -67,6 +67,6 @@ Om du vill komma igång med Azure App Service innan du registrerar dig för ett 
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

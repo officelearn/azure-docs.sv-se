@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Komma igång: Lösenordshantering i Azure AD | Microsoft Azure"
-    description="Hantera lokala lösenord i Active Directory: konfigurera systemet så att användarna kan återställa sina lösenord, identifiera kraven för lösenordsåterställning och aktivera tillbakaskrivning av lösenord."
+    pageTitle="Kom igång: Azure AD-lösenordshantering | Microsoft Azure"
+    description="Låt användare återställa sina egna lösenord, identifiera kraven för lösenordsåterställning och aktivera tillbakaskrivning av lösenord i Active Directory."
     services="active-directory"
     keywords="Active Directory-lösenordshantering, lösenordshantering, återställa Azure AD-lösenord"
     documentationCenter=""
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/12/2016"
+    ms.date="10/05/2016"
     ms.author="asteen"/>
 
 
@@ -62,8 +62,8 @@ Innan du kan aktivera och använda lösenordsåterställning via självbetjänin
 ### Steg 1: Konfigurera en princip för återställning av lösenord
 Konfigurera en princip för lösenordsåterställning för användare genom att följa dessa steg:
 
-1.  Öppna valfri webbläsare och gå till [Azure-hanteringsportalen](https://manage.windowsazure.com).
-2.  På [Azure-hanteringsportalen](https://manage.windowsazure.com) letar du upp **Active Directory-tillägget** i navigeringsfältet till vänster.
+1.  Öppna valfri webbläsare och gå till den [klassiska Azure-portalen](https://manage.windowsazure.com).
+2.  I den [klassiska Azure-portalen](https://manage.windowsazure.com), letar du upp **Active Directory-tillägget** i navigeringsfältet till vänster.
 
     ![Lösenordshantering i Azure AD][001]
 
@@ -94,7 +94,7 @@ Konfigurera en princip för lösenordsåterställning för användare genom att 
 ### Steg 2: Lägga till kontaktdata för testanvändaren
 Du kan välja mellan flera alternativ när du ska lägga till data för användare i organisationen som ska användas för lösenordsåterställning.
 
--   Redigera användare på [Azure-hanteringsportalen](https://manage.windowsazure.com) eller [Office 365-administrationsportalen](https://portal.microsoftonline.com).
+-   Redigera användare i den [klassiska Azure-portalen](https://manage.windowsazure.com) eller [Office 365-administrationsportalen](https://portal.microsoftonline.com)
 -   Använd AAD Connect för att synkronisera användaregenskaper till Azure AD från en lokal Active Directory-domän.
 -   Redigera användaregenskaper med hjälp av Windows PowerShell.
 -   Tillåt att användare registrerar sina egna data genom att uppmana dem att gå till registreringsportalen på [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
@@ -210,9 +210,9 @@ Tillbakaskrivning av lösenord är tillgängligt i versioner av Azure AD Connect
 
     ![][021]
 
-Om det här versionsnumret är större än eller lika med **1.0.0419.0911**, eller om du installerar Azure AD Connect, kan du gå vidare till [Steg 2: Aktivera tillbakaskrivning av lösenord i Azure AD Connect via användargränssnittet eller PowerShell och verifiera](#step-2-enable-password-writeback-in-azure-ad-connect).
+Om det här numret är större än eller lika med **1.0.0419.0911**, eller om du installerar Azure AD Connect så kan du gå vidare till [Steg 2: Aktivera tillbakaskrivning av lösenord i Azure AD Connect via användargränssnittet eller PowerShell och verifiera](#step-2-enable-password-writeback-in-azure-ad-connect).
 
- > [AZURE.NOTE] Om det här är första gången som du installerar verktyget Azure AD Connect rekommenderar vi att du följer några metodtips för att förbereda din miljö för katalogsynkronisering.  Innan du installerar Azure AD Connect måste du aktivera katalogsynkronisering på [Office 365-administrationsportalen](https://portal.microsoftonline.com) eller [Azure-hanteringsportalen](https://manage.windowsazure.com).  Mer information finns i [Hantera Azure AD Connect](active-directory-aadconnect-whats-next.md).
+ > [AZURE.NOTE] Om det här är första gången som du installerar verktyget Azure AD Connect rekommenderar vi att du följer några metodtips för att förbereda din miljö för katalogsynkronisering.  Innan du installerar Azure AD Connect-verktyget så måste du aktivera katalogsynkronisering antingen i [Office 365-administrationsportalen](https://portal.microsoftonline.com) eller den [klassiska Azure-portalen](https://manage.windowsazure.com).  Mer information finns i [Hantera Azure AD Connect](active-directory-aadconnect-whats-next.md).
 
 
 ### Steg 2: Aktivera tillbakaskrivning av lösenord i Azure AD Connect
@@ -227,17 +227,17 @@ Nu när du har laddat ned verktyget Azure AD Connect kan du aktivera tillbakaskr
 
 4.  Slutför guiden. På den sista sidan sammanfattas ändringarna, inklusive konfigurationsändringen för tillbakaskrivning av lösenord.
 
-> [AZURE.NOTE] Du kan inaktivera tillbakaskrivning av lösenord när som helst genom att antingen köra guiden igen och avmarkera funktionen eller genom att ändra inställningen **Skriv tillbaka lösenord till lokal katalog** till **Nej** i avsnittet **Princip för lösenordsåterställning för användare** på fliken **Konfigurera** för din katalog på [Azure-hanteringsportalen](https://manage.windowsazure.com).  Mer information om hur du anpassar lösenordsåterställningsmiljön finns i [Anpassa: Lösenordshantering i Azure AD](active-directory-passwords-customize.md).
+> [AZURE.NOTE] Du kan inaktivera tillbakaskrivning av lösenord när som helst genom att antingen köra guiden igen och avmarkera funktionen eller genom att ändra inställningen **Skriv tillbaka lösenord till lokal katalog** till **Nej** i avsnittet **Princip för lösenordsåterställning för användare** på fliken **Konfigurera** för din katalog på den [klassiska Azure-portalen](https://manage.windowsazure.com).  Mer information om hur du anpassar lösenordsåterställningsmiljön finns i [Anpassa: Lösenordshantering i Azure AD](active-directory-passwords-customize.md).
 
 #### Så här aktiverar du tillbakaskrivning av lösenord med Windows PowerShell
 1.  Öppna ett nytt **upphöjt Windows PowerShell-fönster** på **datorn för katalogsynkronisering**.
-2.  Om modulen inte redan har lästs in skriver du `Import-Module ADSync`-kommandot för att läsa in modulen med Azure AD Connect-cmdlets i den aktuella sessionen.
-3.  Hämta listan med AAD-kopplingar i systemet genom att köra `Get-ADSyncConnector`-cmdleten och spara resultatet i `$aadConnectorName`
-4.  Hämta tillbakaskrivningsstatusen för den aktuella anslutningen genom att köra följande cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
-5.  Aktivera tillbakaskrivning av lösenord genom att köra cmdleten: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
+2.  Om modulen inte redan har lästs in skriver du `import-module ADSync`-kommandot för att läsa in modulen med Azure AD Connect-cmdlets i den aktuella sessionen.
+3.  Hämta listan med Azure AD-anslutningsappar i systemet genom att köra `Get-ADSyncConnector`-cmdleten och spara resultaten i `$aadConnectorName`, som `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+4.  Hämta tillbakaskrivningsstatusen för den aktuella anslutningen genom att köra följande cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
+5.  Aktivera tillbakaskrivning av lösenord genom att köra cmdleten: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
 > [AZURE.NOTE] Om du uppmanas att ange autentiseringsuppgifter ser du till att administratörskontot som du anger för AzureADCredential är ett **molnadministratörskonto (som skapats i Azure AD)**, inte ett federerat konto (som skapats i lokala AD och som synkroniseras med Azure AD).
-> [AZURE.NOTE] Du kan inaktivera tillbakaskrivning av lösenord via PowerShell genom att upprepa samma instruktioner som ovan men i stället skicka `$false` eller genom att ändra inställningen **Skriv tillbaka lösenord till lokal katalog** till **Nej** i avsnittet **Princip för lösenordsåterställning för användare** på fliken **Konfigurera** för din katalog på [Azure-hanteringsportalen](https://manage.windowsazure.com).
+> [AZURE.NOTE] Du kan inaktivera tillbakaskrivning av lösenord via PowerShell genom att upprepa samma instruktioner som ovan men i stället skicka `$false` i steget eller genom att ändra inställningen **Skriv tillbaka lösenord till lokal katalog** till **Nej** i avsnittet **Princip för lösenordsåterställning för användare** på fliken **Konfigurera** för din katalog på den [klassiska Azure-portalen](https://manage.windowsazure.com).
 
 #### Kontrollera att konfigurationen lyckades
 Om konfigurationen lyckades visas ett meddelande i Windows PowerShell-fönstret eller i konfigurationsgränssnittet som anger att tillbakaskrivning av lösenord har aktiverats eller att åtgärden lyckades.
@@ -362,6 +362,6 @@ Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställni
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

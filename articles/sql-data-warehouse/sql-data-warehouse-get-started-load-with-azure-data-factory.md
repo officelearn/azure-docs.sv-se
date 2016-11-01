@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags="azure-sql-data-warehouse"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -44,13 +44,13 @@ Innan du påbörjar den här självstudien behöver du följande resurser:
 
    + **Azure Storage Blob**: självstudierna använder Azure Storage Blob som datakälla för Azure Data Factory-pipelinen. Du behöver därmed ha en tillgänglig för att lagra exempeldata. Om du inte har ett redan, kan du lära dig hur du [skapar ett lagringskonto][].
 
-   + **SQL Data Warehouse**: i självstudierna flyttas data från Azure Storage Blob till SQL Data Warehouse och du behöver därmed ha ett Data Warehouse online där du har läst in AdventureWorksDW-exempeldata. Om du inte redan har ett Data Warehouse, kan du lära dig hur du [etablerar ett][Skapa ett SQL Data Warehouse]. Om du har ett Data Warehouse men inte har etablerat det med exempeldata, kan du [läsa in det manuellt](sql-data-warehouse-load-sample-databases.md).
+   + **SQL Data Warehouse**: i självstudierna flyttas data från Azure Storage Blob till SQL Data Warehouse och du behöver därmed ha ett Data Warehouse online där du har läst in AdventureWorksDW-exempeldata. Om du inte redan har ett Data Warehouse, kan du lära dig hur du [etablerar ett][Skapa ett SQL Data Warehouse]. Om du har ett Data Warehouse men inte har etablerat det med exempeldata, kan du [läsa in det manuellt][läs in exempeldata i SQL Data Warehouse].
 
    + **Azure Data Factory**: Azure Data Factory slutför den faktiska belastningen så du behöver ha en som du kan använda för att skapa dataflödespipelinen. Om du inte redan har en, kan du läsa hur man skapar en i steg 1 av [Kom igång med Azure Data Factory (Data Factory-redigeraren)][].
 
    + **AZCopy**: du behöver AZCopy för att kopiera exempeldata från din lokala klient till din Azure Storage Blob. För installationsanvisningar kan du se [AZCopy-dokumentationen][].
 
-## <a name="step-1:-copy-sample-data-to-azure-storage-blob"></a>Steg 1: Kopiera exempeldata till Azure Storage Blob.
+## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Steg 1: Kopiera exempeldata till Azure Storage Blob.
 
 När du väl har alla bitar på plats så är du redo att kopiera exempeldata till din Azure Storage-Blob.
 
@@ -63,13 +63,13 @@ När du väl har alla bitar på plats så är du redo att kopiera exempeldata ti
     ````
 
 
-## <a name="step-2:-connect-resources-to-azure-data-factory"></a>Steg 2: Anslut resurser till Azure Data Factory.
+## <a name="step-2-connect-resources-to-azure-data-factory"></a>Steg 2: Anslut resurser till Azure Data Factory.
 
 Nu när du har dina data på plats, kan vi skapa Azure Data Factory-pipelinen för att flytta data från Azure Blob-lagring till SQL Data Warehouse.
 
 Kom igång genom att öppna [Azure-portalen][] och välj din Data Factory i den vänstra menyn.
 
-### <a name="step-2.1:-create-linked-service"></a>Steg 2.1: Skapa länkad tjänst
+### <a name="step-21-create-linked-service"></a>Steg 2.1: Skapa länkad tjänst
 
 Länka ditt Azure-lagringskonto och SQL Data Warehouse till din Data Factory.  
 
@@ -90,7 +90,7 @@ Länka ditt Azure-lagringskonto och SQL Data Warehouse till din Data Factory.
     }
     ```
 
-### <a name="step-2.2:-define-the-dataset"></a>Steg 2.2: Definiera datauppsättningen
+### <a name="step-22-define-the-dataset"></a>Steg 2.2: Definiera datauppsättningen
 
 När du har skapat de länkade tjänsterna, behöver vi definiera datauppsättningarna.  I det här fallet innebär det att definiera strukturen på de data som flyttas från ditt lager till ditt Data Warehouse.  Läsa mer om hur du skapar
 
@@ -148,7 +148,7 @@ När du har skapat de länkade tjänsterna, behöver vi definiera datauppsättni
     }
     ```
 
-## <a name="step-3:-create-and-run-your-pipeline"></a>Steg 3: Skapa och kör din pipeline
+## <a name="step-3-create-and-run-your-pipeline"></a>Steg 3: Skapa och kör din pipeline
 
 Slutligen ska vi ställa in och köra pipelinen i Azure Data Factory.  Det här är åtgärden som kommer att slutföra den faktiska dataflytten.  Du hittar en fullständig överblick över åtgärderna som du kan utföra med SQL Data Warehouse och Azure Data Factory [här][Flytta data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory].
 

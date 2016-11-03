@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -41,17 +41,17 @@ Innan du sätter igång med den här självstudien behöver du följande:
 
 > [AZURE.NOTE] Prestandan blir högre om lagringskontot och informationslagret skapas i samma region.
 
-## <a name="step-1:-sign-in-to-data-platform-studio-with-your-azure-account"></a>Steg 1: Logga in på Data Platform Studio med ditt Azure-konto
+## <a name="step-1-sign-in-to-data-platform-studio-with-your-azure-account"></a>Steg 1: Logga in på Data Platform Studio med ditt Azure-konto
 Öppna webbläsaren och navigera till webbplatsen [Data Platform Studio](https://www.dataplatformstudio.com/). Logga in med samma Azure-konto som du använde för att skapa lagringskontot och informationslagret. Om din e-postadress är associerad med både ett arbets- eller skolkonto och ett Microsoft-konto måste du välja det konto som har åtkomst till resurserna.
 
 > [AZURE.NOTE] Om det här är första gången du använder Data Platform Studio uppmanas du att bevilja programmet behörighet för att hantera dina Azure-resurser.
 
-## <a name="step-2:-start-the-import-wizard"></a>Steg 2: Starta guiden Importera
+## <a name="step-2-start-the-import-wizard"></a>Steg 2: Starta guiden Importera
 Från DPS-huvudskärmen väljer du länken för att importera till Azure SQL Data Warehouse för att starta importguiden.
 
 ![][1]
 
-## <a name="step-3:-install-the-data-platform-studio-gateway"></a>Steg 3: Installera Data Platform Studio-gatewayen
+## <a name="step-3-install-the-data-platform-studio-gateway"></a>Steg 3: Installera Data Platform Studio-gatewayen
 För att kunna ansluta den lokala SQL Server-databasen behöver du installera DPS-gatewayen. Gatewayen är en klientagent som ger åtkomst till din lokala miljö. Den extraherar data och överför dem till ditt lagringskonto. Dina data passerar aldrig Redgates servrar. Så här installerar du gatewayen:
 
 1.  Klicka på länken **Skapa gateway**
@@ -63,28 +63,28 @@ För att kunna ansluta den lokala SQL Server-databasen behöver du installera DP
 
 När du har installerat gatewayen ändras dess status till Ansluten och du kan välja Nästa.
 
-## <a name="step-4:-identify-the-source-database"></a>Steg 4: Identifiera källdatabasen
+## <a name="step-4-identify-the-source-database"></a>Steg 4: Identifiera källdatabasen
 I textrutan *Ange servernamn* anger du namnet på den server som är värd för databasen och väljer **Nästa**. Välj sedan databasen som du vill importera data från på den nedrullningsbara menyn.
 
 ![][3]
 
 DPS söker igenom den valda databasen efter tabeller att importera. Som standard importerar DPS alla tabeller i databasen. Du kan markera eller avmarkera tabeller genom att expandera länken Alla tabeller. Välj knappen Nästa för att gå vidare.
 
-## <a name="step-5:-choose-a-storage-account-to-stage-the-data"></a>Steg 5: Välj ett lagringskonto för att mellanlagra data
+## <a name="step-5-choose-a-storage-account-to-stage-the-data"></a>Steg 5: Välj ett lagringskonto för att mellanlagra data
 DPS uppmanar dig att ange en plats där datan ska mellanlagras. Välj ett befintligt lagringskonto från din prenumeration och välj **Nästa**.
 
 > [AZURE.NOTE] DPS skapar en ny blob-behållare i det valda lagringskontot och använder en specifik mapp för varje import.
 
 ![][4]
 
-## <a name="step-6:-select-a-data-warehouse"></a>Steg 6: Välj ett informationslager
+## <a name="step-6-select-a-data-warehouse"></a>Steg 6: Välj ett informationslager
 Välj sedan en [Azure SQL Data Warehouse](http://aka.ms/sqldw)-onlinedatabas som du importerar datan till. När du har valt databasen måste du ange autentiseringsuppgifterna för att ansluta till databasen. Välj sedan **Nästa**.
 
 ![][5]
 
 > [AZURE.NOTE] DPS slår samman källdatatabellerna med informationslagret. DPS varnar dig om tabellnamnet kräver att de befintliga tabellerna i informationslagret skrivs över. Om du vill kan du ta bort eventuella befintliga objekt i informationslagret genom att markera alternativet för att ta bort alla befintliga objekt före import.
 
-## <a name="step-7:-import-the-data"></a>Steg 7: Importera data
+## <a name="step-7-import-the-data"></a>Steg 7: Importera data
 DPS bekräftar att du vill importera datan. Klicka bara på knappen Starta import för att påbörja dataimporten.
 
 ![][6]

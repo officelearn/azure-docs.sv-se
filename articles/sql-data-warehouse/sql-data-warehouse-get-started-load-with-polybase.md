@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
 
@@ -45,11 +45,11 @@ För att gå igenom de här självstudierna behöver du
     ![Azure Storage-verktyg](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Steg 1: Lägg till exempeldata i Azure blobblagret
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Steg 1: Lägg till exempeldata i Azure blobblagret
 
 För att kunna läsa in data, behöver vi lägga exempeldata i ett Azure-blobblager. I det här steget fyller vi en Azure Storage-blob med exempeldata. Senare kommer vi att använda PolyBase för att läsa in exempeldatan till din SQL Data Warehouse-databas.
 
-### <a name="a.-prepare-a-sample-text-file"></a>A. Förbered en exempeltextfil
+### <a name="a-prepare-a-sample-text-file"></a>A. Förbered en exempeltextfil
 
 Förbered en exempeltextfil:
 
@@ -70,7 +70,7 @@ Förbered en exempeltextfil:
 20150101,1,3
 ```
 
-### <a name="b.-find-your-blob-service-endpoint"></a>B. Hitta blobbtjänstens slutpunkt
+### <a name="b-find-your-blob-service-endpoint"></a>B. Hitta blobbtjänstens slutpunkt
 
 Så här hittar du blobbtjänstens slutpunkt:
 
@@ -84,7 +84,7 @@ Så här hittar du blobbtjänstens slutpunkt:
 
     ![Blob-tjänstens slutpunkt](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### <a name="c.-find-your-azure-storage-key"></a>C. Hitta din Azure-lagringsnyckel
+### <a name="c-find-your-azure-storage-key"></a>C. Hitta din Azure-lagringsnyckel
 
 Hitta din Azure-lagringsnyckel:
 
@@ -95,7 +95,7 @@ Hitta din Azure-lagringsnyckel:
 
     ![Kopiera Azure-lagringsnyckel](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Kopiera exempelfilen till Azure-blobblagring
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Kopiera exempelfilen till Azure-blobblagring
 
 Kopiera dina data till Azure-blobblagring:
 
@@ -113,7 +113,7 @@ Kopiera dina data till Azure-blobblagring:
 
 Mer information finns i [Kom igång med kommandoradsverktyget AzCopy][].
 
-### <a name="e.-explore-your-blob-storage-container"></a>E. Utforska din blobblagringsbehållare
+### <a name="e-explore-your-blob-storage-container"></a>E. Utforska din blobblagringsbehållare
 
 Om du vill se filen du laddade upp till blobblagring:
 
@@ -126,7 +126,7 @@ Om du vill se filen du laddade upp till blobblagring:
     ![Visa Azure-lagringsblobb](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Steg 2: Skapa en extern tabell för exempeldata
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Steg 2: Skapa en extern tabell för exempeldata
 
 I det här avsnittet ska vi skapa en extern tabell som definierar exempeldata.
 
@@ -216,7 +216,7 @@ I SQL Server Object Explorer i Visual Studio, kan du se det externa filformatet,
 
 ![Visa extern tabell](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Steg 3: Läs in data till SQL Data Warehouse
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Steg 3: Läs in data till SQL Data Warehouse
 
 När den externa tabellen har skapats kan du antingen läsa in dina data till en ny tabell eller infoga dem i en befintlig tabell.
 
@@ -236,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Steg 4: Skapa statistik på dina nyinlästa data
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Steg 4: Skapa statistik på dina nyinlästa data
 
 SQL Data Warehouse skapar och uppdaterar inte statistik automatiskt. För att få en hög frågeprestanda är det därför viktigt att skapa statistik för varje kolumn av varje tabell efter den första inläsningen. Det är också viktigt att uppdatera statistiken efter att det har skett betydande förändringar.
 

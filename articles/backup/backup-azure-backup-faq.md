@@ -1,53 +1,52 @@
-<properties
-   pageTitle="Vanliga frågor och svar om Azure Backup | Microsoft Azure"
-   description="Svar på vanliga frågor om säkerhetskopieringstjänsten, säkerhetskopieringsagenten, säkerhetskopiering och kvarhållning, återställning, säkerhet och andra vanliga frågor om säkerhetskopiering och haveriberedskap."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="säkerhetskopiering och katastrofåterställning, säkerhetskopieringstjänst"/>
+---
+title: Vanliga frågor och svar om Azure Backup | Microsoft Docs
+description: Svar på vanliga frågor om säkerhetskopieringstjänsten, säkerhetskopieringsagenten, säkerhetskopiering och kvarhållning, återställning, säkerhet och andra vanliga frågor om säkerhetskopiering och haveriberedskap.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: säkerhetskopiering och katastrofåterställning, säkerhetskopieringstjänst
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="08/29/2016"
-     ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/29/2016
+ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 
-
+---
 # <a name="azure-backup-service--faq"></a>Vanliga frågor och svar om tjänsten Azure Backup
-
-> [AZURE.SELECTOR]
-- [Vanliga frågor om säkerhetskopiering för klassiskt läge](backup-azure-backup-faq.md)
-- [Vanliga frågor om säkerhetskopiering för Resource Manager-läge](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Vanliga frågor om säkerhetskopiering för klassiskt läge](backup-azure-backup-faq.md)
+> * [Vanliga frågor om säkerhetskopiering för Resource Manager-läge](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Den här artikeln innehåller en lista över vanliga frågor och svar om Azure Backup-tjänsten. Vår community svarar snabbt, och vanliga frågor publiceras i den här artikeln. Svaren på frågorna innehåller ofta referens- eller supportinformation. Du kan ställa frågor om Azure Backup i Disqus-rutan i den här eller en relaterad artikel. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
-
 
 ## Från vilka operativsystem kan jag säkerhetskopiera till Azure med hjälp av Azure Backup? <br/>
 Azure Backup stöder operativsystemen i följande lista för säkerhetskopiering av filer, mappar och program med hjälp av Azure Backup Server och SCDPM. 
 
-| Operativsystem        | Plattform           | SKU  |
-| :------------- |-------------| :-----|
-| Windows 8 och senaste Service Pack      | 64-bitars | Enterprise, Pro |
-| Windows 7 och senaste Service Pack      | 64-bitars | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
-| Windows 8.1 och senaste Service Pack | 64-bitars      |    Enterprise, Pro |
-| Windows 10      | 64-bitars | Enterprise, Pro, Home |
-|Windows Server 2012 R2 och senaste Service Pack| 64-bitars| Standard, Datacenter, Foundation|
-|Windows Server 2012 och senaste Service Pack|    64-bitars| Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 och senaste Service Pack  |64-bitars|    Standard, Workgroup|
-|Windows Storage Server 2012 och senaste Service Pack |64-bitars |Standard, Workgroup
-|Windows Server 2012 R2 och senaste Service Pack  |64-bitars|    Essential|
-|Windows Server 2008 R2 SP1 |64-bitars|    Standard, Enterprise, Datacenter, Foundation|
-|Windows Server 2008 SP2    |64-bitars|    Standard, Enterprise, Datacenter, Foundation|
+| Operativsystem | Plattform | SKU |
+|:--- | --- |:--- |
+| Windows 8 och senaste Service Pack |64-bitars |Enterprise, Pro |
+| Windows 7 och senaste Service Pack |64-bitars |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
+| Windows 8.1 och senaste Service Pack |64-bitars |Enterprise, Pro |
+| Windows 10 |64-bitars |Enterprise, Pro, Home |
+| Windows Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Datacenter, Foundation |
+| Windows Server 2012 och senaste Service Pack |64-bitars |Datacenter, Foundation, Standard |
+| Windows Storage Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Workgroup |
+| Windows Storage Server 2012 och senaste Service Pack |64-bitars |Standard, Workgroup |
+| Windows Server 2012 R2 och senaste Service Pack |64-bitars |Essential |
+| Windows Server 2008 R2 SP1 |64-bitars |Standard, Enterprise, Datacenter, Foundation |
+| Windows Server 2008 SP2 |64-bitars |Standard, Enterprise, Datacenter, Foundation |
 
 Säkerhetskopiering av virtuell Azure-dator:
 
-- **Linux**: Azure Backup stöder [en lista över distributioner som godkänts av Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) med undantag för Core OS Linux.  Andra Bring-Your-Own-Linux-distributioner kan också fungera så länge som den virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns.
-- **Windows Server**: versioner som är äldre än Windows Server 2008 R2 stöds inte.
+* **Linux**: Azure Backup stöder [en lista över distributioner som godkänts av Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) med undantag för Core OS Linux.  Andra Bring-Your-Own-Linux-distributioner kan också fungera så länge som den virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns.
+* **Windows Server**: versioner som är äldre än Windows Server 2008 R2 stöds inte.
 
 ## Var kan jag hämta den senaste Azure Backup-agenten? <br/>
 Du kan hämta den senaste agenten för säkerhetskopiering av Windows Server, System Center DPM eller Windows-klienten [här](http://aka.ms/azurebackup_agent). Om du vill säkerhetskopiera en virtuell dator använder du VM-agenten (som automatiskt installerar rätt tillägg). VM-agenten finns redan på virtuella datorer som skapats från Azure-galleriet.
@@ -74,29 +73,29 @@ Du måste registrera det nya namnet på servern med Backup-valvet. När du skapa
 ## Från vilka typer av enheter kan jag säkerhetskopiera filer och mappar? <br/>
 Följande uppsättning enheter/volymer kan inte säkerhetskopieras:
 
-- Flyttbart medium: Enheten måste rapporteras som fast för att kunna användas som källa för säkerhetskopior.
-- Skrivskyddade volymer: Volymen måste vara skrivbar för att VSS-tjänsten (Volume Shadow Copy) ska fungera.
-- Offlinevolymer: Volymen måste vara online för att VSS ska fungera.
-- Nätverksresurs: Volymen måste vara lokal på servern för att kunna säkerhetskopieras med onlinesäkerhetskopiering.
-- BitLocker-skyddade volymer: Volymen måste vara upplåst innan säkerhetskopieringen kan utföras.
-- Filsystemidentifiering: NTFS är det enda filsystemet som stöds för den här versionen av onlinesäkerhetskopieringstjänsten.
+* Flyttbart medium: Enheten måste rapporteras som fast för att kunna användas som källa för säkerhetskopior.
+* Skrivskyddade volymer: Volymen måste vara skrivbar för att VSS-tjänsten (Volume Shadow Copy) ska fungera.
+* Offlinevolymer: Volymen måste vara online för att VSS ska fungera.
+* Nätverksresurs: Volymen måste vara lokal på servern för att kunna säkerhetskopieras med onlinesäkerhetskopiering.
+* BitLocker-skyddade volymer: Volymen måste vara upplåst innan säkerhetskopieringen kan utföras.
+* Filsystemidentifiering: NTFS är det enda filsystemet som stöds för den här versionen av onlinesäkerhetskopieringstjänsten.
 
 ## Vilka typer av filer och mappar kan jag säkerhetskopiera från servern?<br/>
 Följande typer stöds:
 
-- Krypterade
-- Komprimerade
-- Utspridda
-- Komprimerade + utspridda
-- Hårda länkar: Stöds inte, hoppas över
-- Referenspunkt: Stöds inte, hoppas över
-- Krypterade + komprimerade: Stöds inte, hoppas över
-- Krypterade + utspridda: Stöds inte, hoppas över
-- Komprimerad dataström: Stöds inte, hoppas över
-- Utspridd dataström: Stöds inte, hoppas över
+* Krypterade
+* Komprimerade
+* Utspridda
+* Komprimerade + utspridda
+* Hårda länkar: Stöds inte, hoppas över
+* Referenspunkt: Stöds inte, hoppas över
+* Krypterade + komprimerade: Stöds inte, hoppas över
+* Krypterade + utspridda: Stöds inte, hoppas över
+* Komprimerad dataström: Stöds inte, hoppas över
+* Utspridd dataström: Stöds inte, hoppas över
 
 ## Vilken är den minsta nödvändiga storleken på cachelagringsmappen? <br/>
-Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras. Cachelagringsmappens storlek bör vara 5 % av det utrymme som krävs för att lagra data.
+Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras. Cachelagringsmappens storlek bör vara 5 % av det utrymme som krävs för att lagra data.
 
 ## Min organisation har ett valv. Hur kan jag isolera en servers data från en annan server när jag återställer data?<br/>
 Alla servrar som är registrerade för samma valv kan återställa data som säkerhetskopierats av andra servrar *som använder samma lösenfras*. Om du vill isolera säkerhetskopierade data på en server från andra servrar i organisationen kan du använda en annan lösenfras för dessa servrar. HR-servrarna kan till exempel använda en krypteringslösenfras, redovisningsservrarna en annan och lagringsservrar en tredje.
@@ -118,11 +117,11 @@ Den här varningen visas om inställningarna för säkerhetskopieringsschemat p�
 ## Vilka brandväggsregler ska jag konfigurera för Azure Backup? <br/>
 För sömlöst skydd av ”lokala till Azure”-data och ”arbetsbelastning till Azure”-data rekommenderar vi att du tillåter att brandväggen kommunicerar med följande URL:er:
 
-- www.msftncsi.com
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* www.msftncsi.com
+* \*.Microsoft.com
+* \*.WindowsAzure.com
+* \*.microsoftonline.com
+* \*.windows.net
 
 ## Kan jag installera Azure Backup-agenten på en virtuell dator i Azure som redan har säkerhetskopierats av Azure Backup-tjänsten med hjälp av VM-tillägget? <br/>
 Absolut. Azure Backup stöder säkerhetskopiering på VM-nivå för virtuella datorer i Azure med hjälp av VM-tillägget. Du kan installera Azure Backup-agenten i ett Windows-gästoperativsystem för att skydda filer och mappar i gästoperativsystemet.
@@ -133,10 +132,10 @@ Du kan installera Azure Backup-agenten i Windows-gästoperativsystemet och säke
 ## Jag har installerat Azure Backup-agenten för att skydda mina filer och mappar. Kan jag nu installera SCDPM för användning med Azure Backup-agenten om jag vill skydda lokala program/VM-arbetsbelastningar i Azure? <br/>
 Om du vill använda Azure Backup med SCDPM rekommenderar vi att du installerar SCDPM först och sedan installerar Azure Backup-agenten. Detta säkerställer en smidig integrering av Azure Backup-agenten med SCDPM och gör att du kan skydda filer/mappar, program och arbetsbelastningar och virtuella datorer i Azure direkt från SCDPM-hanteringskonsolen. Installera inte SCDPM efter det att du har installerat Azure Backup-agenten för ovan nämnda ändamål. Detta varken rekommenderas eller stöds.
 
-## Vilken längd på filsökvägar stöds i Azure Backup-principen när Azure Backup-agenten används? <br/>  
+## Vilken längd på filsökvägar stöds i Azure Backup-principen när Azure Backup-agenten används? <br/>
 Azure Backup-agenten använder NTFS. [Specifikationen för filsökvägarnas längd begränsas av Windows-API:et](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Om du behöver säkerhetskopiera filer med sökvägar som är längre än vad som tillåts av Windows-API:et kan du välja att säkerhetskopiera den överordnade mappen eller diskenheten där filerna finns.  
 
-## Vilka tecken tillåts i filsökvägar i Azure Backup-principen när Azure Backup-agenten används? <br>  
+## Vilka tecken tillåts i filsökvägar i Azure Backup-principen när Azure Backup-agenten används? <br>
  Azure Backup-agenten använder NTFS. [Tecken som stöds av NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) stöds enligt filspecifikationen.  
 
 ## Kan jag använda Azure Backup Server för att skapa en BMR-säkerhetskopia (Bare Metal Recovery) för en fysisk server? <br/>
@@ -148,23 +147,23 @@ Ja, Backup-tjänsten har flera händelsebaserade aviseringar som du kan använda
 ## Finns det någon storleksgräns för en datakälla som säkerhetskopieras? <br/>
 Även om det på valvnivå inte finns någon gräns för den mängd data som du kan säkerhetskopiera, så tillämpar Azure Backup en begränsning när det gäller datakällans maximala storlek (men för alla praktiska syften har gränsen satts mycket högt). Från och med augusti 2015 är den största storleken på datakällor för operativsystem som stöds:
 
-|Nr | Operativsystem |  Största storlek på datakälla |
-| :-------------: |:-------------| :-----|
-|1| Windows Server 2012 eller senare| 54 400 GB|
-|2| Windows 8 eller senare| 54 400 GB|
-|3| Windows Server 2008, Windows Server 2008 R2 | 1 700 GB|
-|4| Windows 7 | 1 700 GB|
+| Nr | Operativsystem | Största storlek på datakälla |
+|:---:|:--- |:--- |
+| 1 |Windows Server 2012 eller senare |54 400 GB |
+| 2 |Windows 8 eller senare |54 400 GB |
+| 3 |Windows Server 2008, Windows Server 2008 R2 |1 700 GB |
+| 4 |Windows 7 |1 700 GB |
 
 Följande tabell beskriver hur datakällans storlek bestäms.
 
-|   Datakälla  |   Detaljer |
-| :-------------: |:-------------|
-|Volym |Mängden data som säkerhetskopieras från en enskild volym på en server eller klientdator|
-|Virtuell Hyper-V-dator | Summan av data på alla virtuella hårddiskar på den virtuella datorn som säkerhetskopieras|
-|Microsoft SQL Server-databas | Storleken på en enskild SQL-databas som säkerhetskopieras |
-|Microsoft SharePoint |Summan av innehållet och konfigurationsdatabaserna i en SharePoint-servergrupp som säkerhetskopieras|
-|Microsoft Exchange |Summan av alla Exchange-databaser på en Exchange-server som säkerhetskopieras|
-|BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på datorn som säkerhetskopieras|
+| Datakälla | Detaljer |
+|:---:|:--- |
+| Volym |Mängden data som säkerhetskopieras från en enskild volym på en server eller klientdator |
+| Virtuell Hyper-V-dator |Summan av data på alla virtuella hårddiskar på den virtuella datorn som säkerhetskopieras |
+| Microsoft SQL Server-databas |Storleken på en enskild SQL-databas som säkerhetskopieras |
+| Microsoft SharePoint |Summan av innehållet och konfigurationsdatabaserna i en SharePoint-servergrupp som säkerhetskopieras |
+| Microsoft Exchange |Summan av alla Exchange-databaser på en Exchange-server som säkerhetskopieras |
+| BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på datorn som säkerhetskopieras |
 
 ## Finns det någon gräns för hur många gånger ett säkerhetskopieringsjobb kan schemaläggas per dag?<br/>
 Ja, du kan köra säkerhetskopieringsjobb på Windows Server eller Windows-klienten upp till tre gånger per dag. Du kan köra säkerhetskopieringsjobb i System Center DPM upp till två gånger om dagen. Du kan köra ett säkerhetskopieringsjobb för virtuella IaaS-datorer en gång om dagen.
@@ -197,10 +196,10 @@ Typiska produkter för långsiktiga kvarhållningspunkter lagrar säkerhetskopie
 Nej. Vi har tagit bort gränserna för återställningspunkter. Du kan skapa så många återställningspunkter du vill.
 
 ## Varför är mängden data som överförs under en säkerhetskopiering inte samma som mängden säkerhetskopierade data?<br/>
- Alla de data som säkerhetskopieras från Azure Backup Agent, SCDPM eller Azure Backup Server komprimeras och krypteras innan de överförs. När komprimering och kryptering tillämpats är storleken på data i säkerhetskopieringsvalvet 30–40 % mindre.
+ Alla de data som säkerhetskopieras från Azure Backup Agent, SCDPM eller Azure Backup Server komprimeras och krypteras innan de överförs. När komprimering och kryptering tillämpats är storleken på data i säkerhetskopieringsvalvet 30–40 % mindre.
 
 ## Kan jag justera mängden bandbredd som används av Backup-tjänsten?<br/>
- Ja, använd alternativet **Ändra egenskaper** i Backup-agenten om du vill justera bandbredden. Justera mängden bandbredd och tiderna då du använder den bandbredden. Mer information finns i [Nätverksbegränsning](../backup-configure-vault.md#enable-network-throttling).
+ Ja, använd alternativet **Ändra egenskaper** i Backup-agenten om du vill justera bandbredden. Justera mängden bandbredd och tiderna då du använder den bandbredden. Mer information finns i [Nätverksbegränsning](backup-configure-vault.md#enable-network-throttling).
 
 ## Min Internetbandbredd är begränsad för den mängd data som jag behöver säkerhetskopiera. Kan jag flytta data till en plats med en stor nätverkspipeline och skicka dessa data till Azure? <br/>
 Du kan säkerhetskopiera data till Azure via standardprocessen för säkerhetskopiering online eller använda tjänsten Azure Import/Export för att överföra data till Blob Storage i Azure. Det finns inga andra sätt att skicka säkerhetskopierade data till Azure-lagring. Information om hur du använder tjänsten Azure Import/Export med Azure Backup finns i artikeln [Arbetsflöde för säkerhetskopiering offline](backup-azure-backup-import-export.md).
@@ -225,43 +224,40 @@ Nyckeln som används för att kryptera säkerhetskopierade data finns bara hos k
 
 ## Hur ändrar jag cachelagringsplatsen för Azure Backup-agenten?<br/>
  Gå igenom punktlistan nedan en punkt i taget om du vill ändra plats för cachelagringen.
-- Stoppa Backup-motorn genom att köra följande kommando från en upphöjd kommandotolk:
 
+* Stoppa Backup-motorn genom att köra följande kommando från en upphöjd kommandotolk:
+  
   ```PS C:\> Net stop obengine```
+* Flytta inte filerna. Kopiera i stället cachelagringsmappen till en annan enhet med tillräckligt med utrymme. Du kan ta bort det ursprungliga cachelagringsutrymmet när du har bekräftat att säkerhetskopieringarna fungerar med den nya cachelagringsplatsen.
+* Uppdatera följande registerposter med sökvägen till den nya cachelagringsmappen.<br/>
 
-- Flytta inte filerna. Kopiera i stället cachelagringsmappen till en annan enhet med tillräckligt med utrymme. Du kan ta bort det ursprungliga cachelagringsutrymmet när du har bekräftat att säkerhetskopieringarna fungerar med den nya cachelagringsplatsen.
+| Sökväg i registret | Registernyckel | Värde |
+| --- | --- | --- |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Ny plats för cachemappen* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Ny plats för cachemappen* |
 
-- Uppdatera följande registerposter med sökvägen till den nya cachelagringsmappen.<br/>
-
-|Sökväg i registret | Registernyckel | Värde |
-| ------ | ------- | ------|
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Ny plats för cachemappen* |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Ny plats för cachemappen* |
-
-- Starta om Backup-motorn genom att köra följande kommando från en upphöjd kommandotolk:
-
+* Starta om Backup-motorn genom att köra följande kommando från en upphöjd kommandotolk:
+  
   ```PS C:\> Net start obengine```
-
+  
   När säkerhetskopian har skapats på den nya cachelagringsplatsen kan du ta bort den ursprungliga cachelagringsmappen.
 
 ## Var kan jag placera cachelagringsmappen så att Azure Backup Agent fungerar korrekt?<br/>
 Följande platser rekommenderas inte för cachelagringsmappen:
 
-- Nätverksresurs eller flyttbart medium: Cachelagringsmappen måste vara lokal på servern som ska säkerhetskopieras med onlinesäkerhetskopiering. Nätverksplatser eller flyttbara medier som USB-enheter stöds inte.
-- Offlinevolymer: Cachelagringsmappen måste vara online för säkerhetskopiering med Azure Backup Agent.
+* Nätverksresurs eller flyttbart medium: Cachelagringsmappen måste vara lokal på servern som ska säkerhetskopieras med onlinesäkerhetskopiering. Nätverksplatser eller flyttbara medier som USB-enheter stöds inte.
+* Offlinevolymer: Cachelagringsmappen måste vara online för säkerhetskopiering med Azure Backup Agent.
 
 ## Finns det några attribut för cachelagringsmappen som inte stöds?<br/>
  Följande attribut eller deras kombinationer stöds inte för cachelagringsmappen:
 
-- Krypterade
-- Deduplicerade
-- Komprimerade
-- Utspridda
-- Referenspunkt
+* Krypterade
+* Deduplicerade
+* Komprimerade
+* Utspridda
+* Referenspunkt
 
 Vi rekommenderar att du inte använder attributen ovan för cachelagringsmappen eller för den virtuella hårddisken med metadata för att Azure Backup-agenten ska fungera korrekt.
-
-
 
 <!--HONumber=Oct16_HO3-->
 

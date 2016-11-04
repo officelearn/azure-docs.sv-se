@@ -1,34 +1,32 @@
-<properties
-   pageTitle="Få samma Office 365-upplevelse på alla enheter med Azure RemoteApp | Microsoft Azure"
-   description="Lär dig att dela en Office 365-app med dina användare genom att använda Azure RemoteApp."
-   services="remoteapp"
-   documentationCenter=""
-   authors="guscatalano"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Få samma Office 365-upplevelse på alla enheter med Azure RemoteApp | Microsoft Docs
+description: Lär dig att dela en Office 365-app med dina användare genom att använda Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: guscatalano
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/15/2016"
-   ms.author="guscatal;elizapo"/>
+ms.service: remoteapp
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: compute
+ms.date: 08/15/2016
+ms.author: guscatal;elizapo
 
-
-
+---
 # Få samma Office 365-upplevelse på alla enheter med Azure RemoteApp
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> 
+> 
 
 Den här artikeln beskriver hur du distribuerar Office 365 på alla enheter i företaget. Användarna kan få samma funktioner och användargränssnitt på Android, Apple och Windows.
 
 Vi gör det genom att använda Azure RemoteApp och låta Office 365 vara värd för skalningsbara virtuella datorer i Azure som användarna kan ansluta till. Den här uppsättningen av virtuella datorer kallar vi ”molnsamlingen”.
 
 ## Skapa en molnsamling
-
 Först när du har skapat ett Azure-konto navigerar du till **RemoteApp** genom att klicka på länken till vänster.
 ![Visa Azure RemoteApp på Azure-portalen](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
@@ -50,7 +48,6 @@ Vid det här laget kan du också lägga till fler användare som har åtkomst ti
 Nu ska vi prova att ansluta till Office 365!
 
 ## Ansluta till Office 365
-
 Vi ska gå till [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/), rulla ned och klicka på **Ladda ned klienter** och installera Azure RemoteApp-klienten på den enheten du använder. Skärmbilderna nedan gäller för Windows.
 
 När programmet startas blir du ombedd att logga in med ditt Microsoft-konto (kallades förut ”Live ID”). Använd samma som ditt Azure-konto för tillfället. När du är inloggad bör du se ett meddelande om nya inbjudningar. Om du klickar på det ska du se en lista som liknar den nedan. Acceptera den inbjudan som matchar din mejl som Azure-kontoägare.
@@ -70,8 +67,6 @@ När du klickar på någon av dessa bör programmet startas på den virtuella Az
 ![startar](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 
 ![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
-
-
 
 <!--HONumber=Sep16_HO3-->
 

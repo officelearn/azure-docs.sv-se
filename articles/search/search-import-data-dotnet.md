@@ -1,27 +1,29 @@
-<properties
-    pageTitle="Dataöverföring i Azure Search med hjälp av .NET SDK | Microsoft Azure | Värdbaserad söktjänst i molnet"
-    description="Lär dig hur du laddar upp data till ett index i Azure Search med .NET SDK."
-    services="search"
-    documentationCenter=""
-    authors="brjohnstmsft"
-    manager=""
-    editor=""
-    tags=""/>
+---
+title: Dataöverföring i Azure Search med hjälp av .NET SDK | Microsoft Docs
+description: Lär dig hur du laddar upp data till ett index i Azure Search med .NET SDK.
+services: search
+documentationcenter: ''
+author: brjohnstmsft
+manager: ''
+editor: ''
+tags: ''
 
-<tags
-    ms.service="search"
-    ms.devlang="dotnet"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="brjohnst"/>
+ms.service: search
+ms.devlang: dotnet
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: brjohnst
 
+---
 # Ladda upp data till Azure Search med hjälp av .NET SDK
-> [AZURE.SELECTOR]
-- [Översikt](search-what-is-data-import.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST](search-import-data-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Översikt](search-what-is-data-import.md)
+> * [.NET](search-import-data-dotnet.md)
+> * [REST](search-import-data-rest-api.md)
+> 
+> 
 
 Den här artikeln visar hur du använder [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) för att importera data till ett Azure Search-index.
 
@@ -31,9 +33,9 @@ Observera att all exempelkod i den här artikeln är skriven i C#. Du hittar den
 
 För att kunna skicka dokument till ditt index med .NET SDK måste du:
 
-  1. Skapa ett `SearchIndexClient`-objekt för att ansluta till ditt sökindex.
-  2. Skapa en `IndexBatch` som innehåller dokumenten som ska läggas till, ändras eller tas bort.
-  3. Anropa `Documents.Index`-metoden för din `SearchIndexClient` för att skicka `IndexBatch` till sökindexet.
+1. Skapa ett `SearchIndexClient`-objekt för att ansluta till ditt sökindex.
+2. Skapa en `IndexBatch` som innehåller dokumenten som ska läggas till, ändras eller tas bort.
+3. Anropa `Documents.Index`-metoden för din `SearchIndexClient` för att skicka `IndexBatch` till sökindexet.
 
 ## I. Skapa en instans av klassen SearchIndexClient
 För att importera data till ditt index med Azure Search .NET SDK måste du skapa en instans av klassen `SearchIndexClient`. Du kan skapa den här instansen själv, men det är enklare om du redan har en `SearchServiceClient`-instans och kan anropa dess `Indexes.GetClient`-metod. Här är ett exempel på hur du hämtar en `SearchIndexClient` för indexet med namnet ”hotels” från en `SearchServiceClient` med namnet `serviceClient`:
@@ -42,19 +44,22 @@ För att importera data till ditt index med Azure Search .NET SDK måste du skap
 SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
-> [AZURE.NOTE] I ett typiskt sökprogram hanteras indexhanteringen och ifyllningen av en separat komponent från sökfrågorna. `Indexes.GetClient` är praktiskt för att fylla ett index eftersom du inte behöver ange en till `SearchCredentials`. Den gör det genom att skicka administratörsnyckeln som du använde för att skapa `SearchServiceClient` till den nya `SearchIndexClient`. Men i den del av ditt program som kör frågor är det bättre att skapa `SearchIndexClient` direkt så att du kan skicka en frågenyckel i stället för en administratörsnyckel. Den här riktlinjen följer [principen om lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege) och hjälper till att göra programmet säkrare. Mer information om administratörsnycklar och frågenycklar finns i [REST API-referensen för Azure Search på MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+> [!NOTE]
+> I ett typiskt sökprogram hanteras indexhanteringen och ifyllningen av en separat komponent från sökfrågorna. `Indexes.GetClient` är praktiskt för att fylla ett index eftersom du inte behöver ange en till `SearchCredentials`. Den gör det genom att skicka administratörsnyckeln som du använde för att skapa `SearchServiceClient` till den nya `SearchIndexClient`. Men i den del av ditt program som kör frågor är det bättre att skapa `SearchIndexClient` direkt så att du kan skicka en frågenyckel i stället för en administratörsnyckel. Den här riktlinjen följer [principen om lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege) och hjälper till att göra programmet säkrare. Mer information om administratörsnycklar och frågenycklar finns i [REST API-referensen för Azure Search på MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+> 
+> 
 
 `SearchIndexClient` har en `Documents`-egenskap. Den här egenskapen tillhandahåller alla metoder som du behöver för att lägga till, ändra, ta bort eller fråga dokument i ditt index.
 
 ## II. Bestäm vilken indexeringsåtgärd som du vill använda
 För att importera data med .NET SDK måste du paketera dessa data i ett `IndexBatch`-objekt. En `IndexBatch` kapslar in en samling `IndexAction`-objekt, som vart och ett innehåller ett dokument och en egenskap som meddelar Azure Search vilken åtgärd som ska utföras för dokumentet (ladda upp, sammanfoga, ta bort osv.). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
 
-Åtgärd | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar
---- | --- | --- | ---
-`Upload` | En `Upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. | nyckel plus eventuella andra fält som du vill definiera | När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null.
-`Merge` | Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. | nyckel plus eventuella andra fält som du vill definiera | Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. Detta gäller även fält av typen `DataType.Collection(DataType.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags` `["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`.
-`MergeOrUpload` | Den här åtgärden fungerar som `Merge` om ett dokument med den angivna nyckeln redan finns i indexet. Om dokumentet inte finns fungerar den som `Upload` med ett nytt dokument. | nyckel plus eventuella andra fält som du vill definiera | -
-`Delete` | Tar bort det angivna dokumentet från indexet. | endast nyckel | Andra fält som du anger än nyckelfältet ignoreras. Om du vill ta bort ett enstaka fält från ett dokument använder du `Merge` i stället och anger bara fältet till null.
+| Åtgärd | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar |
+| --- | --- | --- | --- |
+| `Upload` |En `Upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. |nyckel plus eventuella andra fält som du vill definiera |När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null. |
+| `Merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. Detta gäller även fält av typen `DataType.Collection(DataType.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags` `["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |
+| `MergeOrUpload` |Den här åtgärden fungerar som `Merge` om ett dokument med den angivna nyckeln redan finns i indexet. Om dokumentet inte finns fungerar den som `Upload` med ett nytt dokument. |nyckel plus eventuella andra fält som du vill definiera |- |
+| `Delete` |Tar bort det angivna dokumentet från indexet. |endast nyckel |Andra fält som du anger än nyckelfältet ignoreras. Om du vill ta bort ett enstaka fält från ett dokument använder du `Merge` i stället och anger bara fältet till null. |
 
 Du kan ange vilken åtgärd du vill använda med de olika statiska metoderna för `IndexBatch`- och `IndexAction`-klasserna, som du ser i nästa avsnitt.
 
@@ -114,9 +119,12 @@ I detta fall använder vi `Upload`, `MergeOrUpload` och `Delete` som våra sök�
 
 Anta att exempelindexet ”hotels” redan fyllts med ett antal dokument. Observera att vi inte behövde ange alla tillgängliga dokumentfält när vi använde `MergeOrUpload` och att vi bara angav dokumentnyckeln (`HotelId`) när vi använde `Delete`.
 
-Observera också att du bara kan ta med upp till 1 000 dokument i samma indexeringsbegäran.
+Observera också att du bara kan ta med upp till 1 000 dokument i samma indexeringsbegäran.
 
-> [AZURE.NOTE] I det här exemplet använder vi åtgärder för olika dokument. Om du vill utföra samma åtgärder i alla dokument i batchen, i stället för att anropa `IndexBatch.New`, kan du använda de andra statiska metoderna för `IndexBatch`. Du kan till exempel skapa batchar genom att anropa `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` eller `IndexBatch.Delete`. Dessa metoder använder en samling dokument (objekt av typen `Hotel` i det här exemplet) i stället för `IndexAction`-objekt.
+> [!NOTE]
+> I det här exemplet använder vi åtgärder för olika dokument. Om du vill utföra samma åtgärder i alla dokument i batchen, i stället för att anropa `IndexBatch.New`, kan du använda de andra statiska metoderna för `IndexBatch`. Du kan till exempel skapa batchar genom att anropa `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` eller `IndexBatch.Delete`. Dessa metoder använder en samling dokument (objekt av typen `Hotel` i det här exemplet) i stället för `IndexAction`-objekt.
+> 
+> 
 
 ## IV. Importera data till indexet
 Nu när du har ett initierat `IndexBatch`-objekt kan du skicka det till indexet genom att anropa `Documents.Index` för ditt `SearchIndexClient`-objekt. Följande exempel visar hur du anropar `Index`, samt några extra steg som du måste utföra:
@@ -145,8 +153,8 @@ Observera `try`/`catch` som omger anropet till `Index`-metoden. Catch-blocket ha
 Koden i exemplet ovan skapar en fördröjning på två sekunder. Indexeringen sker asynkront i Azure Search-tjänsten, så exempelprogrammet måste vänta en kort stund för att kontrollera att dokumenten är tillgängliga för sökning. Fördröjningar som den här är normalt endast nödvändiga i demonstrationer, tester och exempelprogram.
 
 <a name="HotelClass"></a>
-### Hur .NET SDK hanterar dokument
 
+### Hur .NET SDK hanterar dokument
 Du kanske undrar hur Azure Search .NET SDK kan ladda upp instanser av en användardefinierad klass som `Hotel` till indexet. För att besvara frågan ska vi titta på klassen `Hotel`, som mappar till indexeringsschemat som definieras i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md#DefineIndex):
 
 ```csharp
@@ -184,13 +192,19 @@ public partial class Hotel
 
 Det första som du bör lägga märke till är att varje offentlig egenskap för `Hotel` motsvarar ett fält i indexdefinitionen, men med en viktig skillnad: namnet på fälten börjar med gemen (”kamelnotation”), men namnet på offentliga egenskaper för `Hotel` börjar med versal (”Pascalnotation”). Det här är ett vanligt scenario i .NET-program som utför databindning där målschemat ligger utanför programutvecklarens kontroll. I stället för att behöva bryta mot riktlinjerna för .NET-namngivning genom att göra egenskapsnamnen gemena kan du uppmana SDK att mappa egenskapsnamnen till kamelnotation automatiskt med attributet `[SerializePropertyNamesAsCamelCase]`.
 
-> [AZURE.NOTE] Azure Search .NET SDK använder [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm)-biblioteket för att serialisera och deserialisera anpassade modellobjekt till och från JSON. Du kan anpassa den här serialiseringen om det behövs. Mer information finns i [Uppgradera till Azure Search .NET SDK version 1.1](search-dotnet-sdk-migration.md#WhatsNew). Ett exempel på detta är användningen av `[JsonProperty]`-attributet för `DescriptionFr`-egenskapen i exempelkoden ovan.
+> [!NOTE]
+> Azure Search .NET SDK använder [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm)-biblioteket för att serialisera och deserialisera anpassade modellobjekt till och från JSON. Du kan anpassa den här serialiseringen om det behövs. Mer information finns i [Uppgradera till Azure Search .NET SDK version 1.1](search-dotnet-sdk-migration.md#WhatsNew). Ett exempel på detta är användningen av `[JsonProperty]`-attributet för `DescriptionFr`-egenskapen i exempelkoden ovan.
+> 
+> 
 
 Den andra viktiga saken om klassen `Hotel` är datatyperna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `DataType.String`. Det finns liknande typmappningar mellan `bool?` och `DataType.Boolean`, `DateTimeOffset?` och `DataType.DateTimeOffset` osv. De specifika reglerna för typmappningen finns dokumenterade med `Documents.Get`-metoden på [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
 
 Den här möjligheten att använda egna klasser som dokument fungerar i båda riktningar. Du kan också hämta sökresultat och låta SDK deserialisera dem automatiskt till valfri typ, som du ser i [nästa artikel](search-query-dotnet.md).
 
-> [AZURE.NOTE] Azure Search .NET SDK stöder också dynamiskt typifierade dokument med hjälp av klassen `Document`, som är en nyckel/värde-mappning av fältnamn till fältvärden. Detta är användbart i scenarier då du inte känner till indexeringsschemat redan i designfasen, eller då det skulle vara opraktiskt att binda till specifika modellklasser. Alla metoder i SDK som hanterar dokument har överlagringar som fungerar med klassen `Document`, samt starkt typifierade överlagringar som använder en parameter av generisk typ. Endast de senare används i exempelkoden i den här artikeln. Du hittar mer information om klassen `Document` [på MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
+> [!NOTE]
+> Azure Search .NET SDK stöder också dynamiskt typifierade dokument med hjälp av klassen `Document`, som är en nyckel/värde-mappning av fältnamn till fältvärden. Detta är användbart i scenarier då du inte känner till indexeringsschemat redan i designfasen, eller då det skulle vara opraktiskt att binda till specifika modellklasser. Alla metoder i SDK som hanterar dokument har överlagringar som fungerar med klassen `Document`, samt starkt typifierade överlagringar som använder en parameter av generisk typ. Endast de senare används i exempelkoden i den här artikeln. Du hittar mer information om klassen `Document` [på MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
+> 
+> 
 
 **Viktigt om datatyper**
 
@@ -204,8 +218,6 @@ Av den anledningen rekommenderar vi att du använder nullbara typer i dina model
 
 ## Nästa
 När du har fyllt Azure Search-indexet kan du börja skicka frågor för att söka efter dokument. Mer information finns i [Fråga ditt Azure Search-index](search-query-overview.md).
-
-
 
 <!--HONumber=sep16_HO1-->
 

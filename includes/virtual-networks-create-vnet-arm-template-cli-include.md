@@ -1,22 +1,20 @@
 ## Distribuera ARM-mallen med Azure CLI
-
 Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI.
 
 1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../articles/xplat-cli-install.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
 2. Kör kommandot **`azure config mode`** för att byta till Resource Manager-läge enligt nedan.
-
+   
         azure config mode arm
-
+   
     Följande utdata förväntas från kommandot ovan:
-
+   
         info:    New mode is arm
-
 3. Vid behov kan du köra **`azure group create`** för att skapa en ny resursgrupp, enligt nedan. Notera kommandots utdata. Listan som visas efter alla utdata förklarar parametrarna som använts. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md).
-
+   
         azure group create -n TestRG -l centralus
-
+   
     Följande utdata förväntas från kommandot ovan:
-
+   
         info:    Executing command group create
         + Getting resource group TestRG
         + Creating resource group TestRG
@@ -28,16 +26,15 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
         data:    Tags: null
         data:
         info:    group create command OK
-
-    - **-n (eller --name)**. Namn för den nya resursgruppen. I vårt exempel, *TestRG*.
-    - **-l (eller --location)**. Azure-region där den nya resursgruppen kommer att skapas. I vårt scenario, *centralus*.
-
+   
+   * **-n (eller --name)**. Namn för den nya resursgruppen. I vårt exempel, *TestRG*.
+   * **-l (eller --location)**. Azure-region där den nya resursgruppen kommer att skapas. I vårt scenario, *centralus*.
 4. Kör cmdleten **`azure group deployment create`** för att distribuera det nya VNet med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter utdatan beskriver de parametrar som används.
-
+   
         azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-
+   
     Följande utdata förväntas från kommandot ovan:
-
+   
         info:    Executing command group deployment create
         + Initializing template configurations and parameters
         + Creating a deployment
@@ -60,17 +57,16 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
         data:    subnet2Prefix  String  192.168.2.0/24
         data:    subnet2Name    String  BackEnd
         info:    group deployment create command OK
-
-    - **-g (eller --resource-group)**. Namnet på resursgruppen där det nya VNet kommer att skapas.
-    - **-f (eller --template-file)**. Sökväg till din ARM-mallfil.
-    - **-e (eller --parameters-file)**. Sökväg till din ARM-parameterfil.
-
+   
+   * **-g (eller --resource-group)**. Namnet på resursgruppen där det nya VNet kommer att skapas.
+   * **-f (eller --template-file)**. Sökväg till din ARM-mallfil.
+   * **-e (eller --parameters-file)**. Sökväg till din ARM-parameterfil.
 5. Kör kommandot **`azure network vnet show`** för att visa egenskaperna för det nya vnet, enligt nedan.
-
+   
         azure network vnet show -g TestRG -n TestVNet
-
+   
     Följande utdata förväntas från kommandot ovan:
-
+   
         info:    Executing command network vnet show
         + Looking up virtual network "TestVNet"
         data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
@@ -88,7 +84,6 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
 
 <!--HONumber=Sep16_HO3-->
 

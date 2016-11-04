@@ -1,29 +1,26 @@
-<properties
-    pageTitle="Hantera ditt första API i Azure API Management | Microsoft Azure"
-    description="Lär dig hur du skapar API:er, lägger till åtgärder och kommer igång med API Management."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: Hantera ditt första API i Azure API Management | Microsoft Docs
+description: Lär dig hur du skapar API:er, lägger till åtgärder och kommer igång med API Management.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Hantera ditt första API i Azure API Management
-
 ## <a name="overview"> </a>Översikt
-
 Den här guiden hjälper dig att snabbt komma igång med Azure API Management och att göra ditt första API-anrop.
 
 ## <a name="concepts"> </a>Vad är Azure API Management?
-
 Med Azure API Management kan du välja valfri serverdel och köra ett fullvärdigt API-program baserat på den.
 
 Här följer exempel på några vanliga scenarier:
@@ -32,36 +29,37 @@ Här följer exempel på några vanliga scenarier:
 * **Aktivera ISV-partnerekosystem** genom att erbjuda snabb partnerintegrering via utvecklarportalen och genom att bygga en API-fasad som är åtskild från interna implementeringar som inte är redo för partneranvändning än.
 * **Kör ett internt API-program** genom att erbjuda en central plats för organisationen där man kan kommunicera kring tillgänglighet och de senaste ändringarna i API:er samt hantera åtkomsten baserat på organisationskonton – allt via en säker kanal mellan API-gatewayen och serverdelen.
 
-
 Systemet består av följande komponenter:
 
 * **API-gatewayen** är slutpunkten som:
+  
   * Accepterar API-anrop och dirigerar dem till serverdelen.
   * Verifierar API-nycklar, JWT-token, certifikat och andra autentiseringsuppgifter.
   * Tillämpar användningskvoter och hastighetsbegränsningar.
   * Transformerar ditt API direkt utan kodändringar.
   * Cachelagrar backend-svar om detta konfigurerats.
   * Loggar metadata i anrop för analysändamål.
-
 * **Utgivarportalen** är det administrativa gränssnittet där du konfigurerar ditt API-program. Använd portalen om du vill:
-    * Definiera eller importera API-schemat.
-    * Paketera API:er till produkter.
-    * Konfigurera principer som kvoter eller transformationer i API:erna.
-    * Få insikter från analyser.
-    * Hantera användare.
-
+  
+  * Definiera eller importera API-schemat.
+  * Paketera API:er till produkter.
+  * Konfigurera principer som kvoter eller transformationer i API:erna.
+  * Få insikter från analyser.
+  * Hantera användare.
 * **Utvecklarportalen** är en fundamental webbportal för utvecklare, där de kan:
-    * Få tillgång till API-dokumentation.
-    * Testa ett API via den interaktiva konsolen.
-    * Skapa ett konto och börja prenumerera på API-nycklar.
-    * Komma åt analyser om deras egen användning.
-
+  
+  * Få tillgång till API-dokumentation.
+  * Testa ett API via den interaktiva konsolen.
+  * Skapa ett konto och börja prenumerera på API-nycklar.
+  * Komma åt analyser om deras egen användning.
 
 ## <a name="create-service-instance"> </a>Skapa en API Management-instans
+> [!NOTE]
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan du skapa ett kostnadsfritt konto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure][kostnadsfria utvärderingsversionen av Azure].
+> 
+> 
 
->[AZURE.NOTE] Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan du skapa ett kostnadsfritt konto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure][].
-
-Det första steget när du arbetar med API Management är att skapa en tjänstinstans. Logga in på [Klassisk Azure-portal][] och klicka på **Nytt**, **Apptjänster**, **API Management**, **Skapa**.
+Det första steget när du arbetar med API Management är att skapa en tjänstinstans. Logga in på [Klassisk Azure-portal][Klassisk Azure-portal] och klicka på **Nytt**, **Apptjänster**, **API Management**, **Skapa**.
 
 ![Ny API Management-instans][api-management-create-instance-menu]
 
@@ -73,13 +71,19 @@ Välj önskad **prenumeration** och **region** för din tjänstinstans. När du 
 
 Ange **Contoso Ltd.** som **organisationsnamn** och ange din e-postadress i fältet **Administratörens e-postadress**.
 
->[AZURE.NOTE] Den här e-postadressen används för meddelanden från API Management-systemet. Mer information finns i [Konfigurera meddelanden och e-postmallar i Azure API Management][].
+> [!NOTE]
+> Den här e-postadressen används för meddelanden från API Management-systemet. Mer information finns i [Konfigurera meddelanden och e-postmallar i Azure API Management][Konfigurera meddelanden och e-postmallar i Azure API Management].
+> 
+> 
 
 ![Ny API Management-tjänst][api-management-create-instance-step2]
 
 API Management-tjänstinstanser är tillgängliga på tre nivåer: Developer, Standard och Premium. Som standard skapas nya API Management-tjänstinstanser på Developer-nivån. Om du vill välja Standard- eller Premium-nivån markerar du kryssrutan **Avancerade inställningar** och väljer önskad nivå på skärmen som visas.
 
->[AZURE.NOTE] Developer-nivån är avsedd för utveckling, testning och pilotprojekt av API-program där hög tillgänglighet inte är något problem. På Standard- och Premium-nivåerna kan du skala det reserverade antalet enheter och hantera mer trafik. API Management-tjänsten har mest processorkraft och prestanda på Standard- och Premium-nivåerna. Du kan genomföra den här självstudiekursen med valfri nivå. Mer information om API Management-nivåer finns i avsnittet om [API Management-priser][].
+> [!NOTE]
+> Developer-nivån är avsedd för utveckling, testning och pilotprojekt av API-program där hög tillgänglighet inte är något problem. På Standard- och Premium-nivåerna kan du skala det reserverade antalet enheter och hantera mer trafik. API Management-tjänsten har mest processorkraft och prestanda på Standard- och Premium-nivåerna. Du kan genomföra den här självstudiekursen med valfri nivå. Mer information om API Management-nivåer finns i avsnittet om [API Management-priser][API Management-priser].
+> 
+> 
 
 Markera kryssrutan om du vill skapa en tjänstinstans.
 
@@ -88,12 +92,14 @@ Markera kryssrutan om du vill skapa en tjänstinstans.
 När tjänstinstansen har skapats är nästa steg att skapa eller importera ett API.
 
 ## <a name="create-api"> </a>Importera ett API
-
 Ett API består av en uppsättning åtgärder som kan anropas från ett klientprogram. API-åtgärder körs via en proxy till befintliga webbtjänster.
 
 API:er kan skapas (och åtgärder kan läggas till) manuellt eller importeras. I den här självstudien ska vi importera API:et för ett exempel på en webbaserad kalkylatortjänst som tillhandahålls av Microsoft och som finns i Azure.
 
->[AZURE.NOTE] Anvisningar för hur du skapar ett API och lägger till åtgärder manuellt finns i [Skapa API:er](api-management-howto-create-apis.md) och [Lägga till åtgärder till ett API](api-management-howto-add-operations.md).
+> [!NOTE]
+> Anvisningar för hur du skapar ett API och lägger till åtgärder manuellt finns i [Skapa API:er](api-management-howto-create-apis.md) och [Lägga till åtgärder till ett API](api-management-howto-add-operations.md).
+> 
+> 
 
 API:er konfigureras från utgivarportalen, som du kommer åt via den klassiska Azure-portalen. Du kommer åt utgivarportalen genom att klicka på **Hantera** på den klassiska Azure-portalen för API Management-tjänsten.
 
@@ -112,7 +118,10 @@ Konfigurera kalkylator-API:et genom att följa stegen nedan.
 
 ![Lägga till ett nytt API][api-management-import-new-api]
 
->[AZURE.NOTE] **API Management** stöder för närvarande både 1.2- och 2.0-versionen av Swagger-dokument för importändamål. Egenskaperna `host`, `basePath` och `schemes` är valfria enligt [Swagger 2.0-specifikationen](http://swagger.io/specification), men ditt Swagger 2.0-dokument **MÅSTE** innehålla dessa egenskaper för att importeras. 
+> [!NOTE]
+> **API Management** stöder för närvarande både 1.2- och 2.0-versionen av Swagger-dokument för importändamål. Egenskaperna `host`, `basePath` och `schemes` är valfria enligt [Swagger 2.0-specifikationen](http://swagger.io/specification), men ditt Swagger 2.0-dokument **MÅSTE** innehålla dessa egenskaper för att importeras. 
+> 
+> 
 
 När du har importerat API:et visas sammanfattningssidan för API:et på utgivarportalen.
 
@@ -122,15 +131,14 @@ API-avsnittet innehåller flera flikar. Fliken **Sammanfattning** innehåller gr
 
 Som standard medföljer två exempelprodukter varje API Management-instans:
 
--   **Starter**
--   **Unlimited**
+* **Starter**
+* **Unlimited**
 
 I den här självstudien lades Basic Calculator-API:et till i Starter-produkten när API:et importerades.
 
 Innan utvecklare kan göra anrop till ett API måste de prenumerera på en produkt som ger dem åtkomst till API:et. Utvecklare kan prenumerera på produkter via utvecklarportalen, eller så kan en administratör registrera utvecklare för produktprenumerationer från utgivarportalen. Du är administratör eftersom du skapade API Management-instansen i föregående steg i den här självstudiekursen, och som administratör prenumererar du redan på alla produkter som standard.
 
 ## <a name="call-operation"> </a>Anropa en åtgärd från utvecklarportalen
-
 Du kan anropa åtgärder direkt från utvecklarportalen, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API. I det här steget i självstudiekursen ska du anropa åtgärden **Lägg till två heltal** i Basic Calculator-API:et. Klicka på **Utvecklarportal** på menyn längst upp till höger på utgivarportalen.
 
 ![Utvecklarportalen][api-management-developer-portal-menu]
@@ -154,7 +162,6 @@ När en åtgärd har anropats visas **svarsstatus**, **svarshuvuden** och eventu
 ![Svar][api-management-invoke-get-response]
 
 ## <a name="view-analytics"> </a>Visa analys
-
 Om du vill visa analysinformation för Basic Calculator går du tillbaka till utgivarportalen genom att välja **Hantera** på menyn längst upp till höger på utvecklarportalen.
 
 ![Hantera][api-management-manage-menu]
@@ -165,7 +172,10 @@ Standardvyn för utgivarportalen är **Instrumentpanel**, som innehåller en öv
 
 Hovra med musen över diagrammet för **Basic Calculator** så ser du de specifika mätvärdena relaterade till användningen av API:et under en viss tidsperiod.
 
->[AZURE.NOTE] Om du inte ser några rader i diagrammet växlar du tillbaka till utvecklarportalen gör några anrop till API:et, väntar en stund och går sedan tillbaka till instrumentpanelen.
+> [!NOTE]
+> Om du inte ser några rader i diagrammet växlar du tillbaka till utvecklarportalen gör några anrop till API:et, väntar en stund och går sedan tillbaka till instrumentpanelen.
+> 
+> 
 
 Klicka på **Visa detaljer** om du vill visa sammanfattningssidan för API:et, inklusive en mer omfattande version av mätvärdena som visas.
 
@@ -179,14 +189,13 @@ Om du vill visa detaljerade mätvärden och rapporter klickar du på **Analys** 
 
 Avsnittet **Analys** innehåller följande fyra flikar:
 
--   **Översikt** innehåller mätvärden om användning och hälsotillstånd, samt de vanligaste utvecklarna, produkterna, API:erna och åtgärderna.
--   **Användning** innehåller detaljerad information om API-anrop och bandbredd, inklusive en geografisk representation.
--   **Hälsa** fokuserar på statuskoder, lyckade cachelagringsåtgärder, svarstider och API- och tjänstsvarstider.
--   **Aktivitet** innehåller rapporter som visar information om den specifika aktiviteten efter utvecklare, produkt, API och åtgärd.
+* **Översikt** innehåller mätvärden om användning och hälsotillstånd, samt de vanligaste utvecklarna, produkterna, API:erna och åtgärderna.
+* **Användning** innehåller detaljerad information om API-anrop och bandbredd, inklusive en geografisk representation.
+* **Hälsa** fokuserar på statuskoder, lyckade cachelagringsåtgärder, svarstider och API- och tjänstsvarstider.
+* **Aktivitet** innehåller rapporter som visar information om den specifika aktiviteten efter utvecklare, produkt, API och åtgärd.
 
 ## <a name="next-steps"> </a>Nästa steg
-
-- Läs mer om hur du [skyddar ditt API med hastighetsbegränsningar](api-management-howto-product-with-rules.md).
+* Läs mer om hur du [skyddar ditt API med hastighetsbegränsningar](api-management-howto-product-with-rules.md).
 
 [kostnadsfria utvärderingsversionen av Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 

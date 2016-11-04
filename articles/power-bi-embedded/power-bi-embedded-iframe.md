@@ -1,21 +1,22 @@
-<properties
-   pageTitle="Microsoft Power BI Embedded Preview – Bädda in en Power BI-rapport med en IFrame"
-   description="Microsoft Power BI Embedded Preview – Viktig kod för att integrera en rapport i din app, hur man autentiserar med en Power BI-inbäddad apptoken och hur man genererar rapporter"
-   services="power-bi-embedded"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="power-bi-embedded"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+---
+title: Microsoft Power BI Embedded Preview – Bädda in en Power BI-rapport med en IFrame
+description: Microsoft Power BI Embedded Preview – Viktig kod för att integrera en rapport i din app, hur man autentiserar med en Power BI-inbäddad apptoken och hur man genererar rapporter
+services: power-bi-embedded
+documentationcenter: ''
+author: dvana
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 05/16/2016
+ms.author: derrickv
+
+---
 # Bädda in en Power BI-rapport med  IFrame
 I den här artikeln redovisas viktig kod för att använda **Power BI Embedded** REST-API, apptoken, en IFrame och vissa JavaScript för att integrera eller bädda in en rapport i din app.
 
@@ -27,20 +28,20 @@ Vi börjar med att beskriva hur du integrerar en **Power BI Embedded**-rapport i
 
 Nedan följer stegen för att integrera en rapport.
 
-- Steg 1: [Hämta en rapport från en arbetsyta](#GetReport). I det här steget använder du ett apptokenflöde för att få en åtkomsttoken att anropa REST-åtgärden [Hämta rapporter](https://msdn.microsoft.com/library/mt711510.aspx). När du har hämtat en rapport från listan **Hämta rapporter** bäddar du in rapporten i en app med ett **IFrame**-element.
-- Steg 2: [Bädda in en rapport i en app](#EmbedReport). I det här steget du använder en inbäddningstoken för en rapport, några JavaScript och en IFrame för att integrera, eller bädda in, en rapport till ett webbprogram.
+* Steg 1: [Hämta en rapport från en arbetsyta](#GetReport). I det här steget använder du ett apptokenflöde för att få en åtkomsttoken att anropa REST-åtgärden [Hämta rapporter](https://msdn.microsoft.com/library/mt711510.aspx). När du har hämtat en rapport från listan **Hämta rapporter** bäddar du in rapporten i en app med ett **IFrame**-element.
+* Steg 2: [Bädda in en rapport i en app](#EmbedReport). I det här steget du använder en inbäddningstoken för en rapport, några JavaScript och en IFrame för att integrera, eller bädda in, en rapport till ett webbprogram.
 
 Om du vill köra exemplet för att se hur du integrerar en rapport kan du hämta exemplet [Integrera en rapport med en IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) på GitHub och konfigurera tre Web.Config-inställningar:
 
-- **AccessKey**: En **AccessKey** används för att generera en JSON-webbtoken (JWT) som används för att hämta rapporter och bädda in en rapport. Mer information om hur du får en **AccessKey** finns i [Komma igång med Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
-- **WorkspaceName**: Mer information om hur du får ett **WorkspaceName** finns i [Komma igång med Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
-- **WorkspaceId**: Mer information om hur du får tillgång till ett **WorkspaceId** finns i [Komma igång med Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+* **AccessKey**: En **AccessKey** används för att generera en JSON-webbtoken (JWT) som används för att hämta rapporter och bädda in en rapport. Mer information om hur du får en **AccessKey** finns i [Komma igång med Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+* **WorkspaceName**: Mer information om hur du får ett **WorkspaceName** finns i [Komma igång med Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+* **WorkspaceId**: Mer information om hur du får tillgång till ett **WorkspaceId** finns i [Komma igång med Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
 
 I nästa avsnitt visas den kod som du behöver integrera i en rapport.
 
 <a name="GetReport"/>
-## Hämta en rapport från en arbetsyta
 
+## Hämta en rapport från en arbetsyta
 Om du vill integrera en rapport i en app, behöver du **ID** och **embedUrl** för rapporten. För att hämta **ID** och **embedUrl** för rapporten anropar du REST-åtgärden [Hämta rapporter](https://msdn.microsoft.com/library/mt711510.aspx) och väljer en rapport i JSON-listan. I [Bädda in en rapport i en app](#EmbedReport) använder du ett **ID** och **embedUrl** för rapporten för att bädda in den i din app.
 
 ### Hämta JSON-svar för rapporter
@@ -109,13 +110,13 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 ```
 
 <a name="EmbedReport"/>
-## Bädda in en rapport i en app
 
+## Bädda in en rapport i en app
 Innan du kan bädda in en rapport i din app behöver du en inbäddningstoken för rapporter. Denna token liknar en apptoken som används för att anropa REST-åtgärder för **Power BI-Embedded** men genereras för en rapportresurs snarare än en REST-resurs. Nedan följer den kod som krävs för att hämta en apptoken för en rapport. Mer information om att använda rapportapptoken finns i [Bädda in rapporten i din app](#EmbedReportJS).
 
 <a name="EmbedReportToken"/>
-### Hämta en apptoken för en rapport
 
+### Hämta en apptoken för en rapport
 ```
 protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 {
@@ -133,12 +134,11 @@ protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 ```
 
 <a name="EmbedReportJS"/>
-### Bädda in rapporten i din app
 
+### Bädda in rapporten i din app
 För att bädda in en **Power BI**-rapport i din app måste du använda en IFrame och JavaScript-kod. Följande är ett exempel med IFrame och JavaScript-kod för att bädda in en rapport. Mer information om att visa all exempelkod för inbäddning av en rapport finns i exemplet [Integrera en rapport med en IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) på GitHub.
 
-![Iframe](media\power-bi-embedded-integrate-report\Iframe.png)
-
+![Iframe](media\\power-bi-embedded-integrate-report\\Iframe.png)
 
 ```
 window.onload = function () {
@@ -183,9 +183,7 @@ function postActionLoadReport() {
 När du har en rapport som är inbäddad i din app kan du filtrera rapporten. I nästa avsnitt visas hur du filtrerar en rapport med en URL-syntax.
 
 ## Filtrera en rapport
-
 Du kan filtrera en inbäddad rapport med en URL-syntax. Om du vill göra detta måste du lägga till en frågesträngsparameter till din iFrame-src-URL med filtret angivet. Du kan välja **Filtrera efter ett värde** eller **Dölj filterfönstret**.
-
 
 **Filtrera efter ett värde**
 
@@ -203,7 +201,10 @@ Du kan till exempel filtrera på butikskedjan ”Lindseys”. URL:ens filterdel 
 $filter=Store/Chain%20eq%20'Lindseys'
 ```
 
-> [AZURE.NOTE] {tableName/fieldName} får inte innehålla blanksteg eller specialtecken. {fieldValue} accepterar ett enskilt kategoriskt värde.
+> [!NOTE]
+> {tableName/fieldName} får inte innehålla blanksteg eller specialtecken. {fieldValue} accepterar ett enskilt kategoriskt värde.
+> 
+> 
 
 **Dölj filterfönstret**
 
@@ -214,21 +215,18 @@ För att dölja **filterfönstret** lägger du till **filterPaneEnabled** i rapp
 ```
 
 ## Sammanfattning
-
 I den här artikeln har du fått lära dig mer om koden för att integrera en **Power BI**-rapport i din app. Hämta de här exemplen på GitHub för att komma igång snabbt med att integrera en rapport i en app:
 
-- [Integrera en rapport med ett IFrame-exempel](https://github.com/Azure-Samples/power-bi-embedded-iframe)
-- [Exempel på instrumentpanel för webbapp](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Integrera en rapport med ett IFrame-exempel](https://github.com/Azure-Samples/power-bi-embedded-iframe)
+* [Exempel på instrumentpanel för webbapp](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## Se även
-- [Komma igång med Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
-- [Komma igång med exemplet](power-bi-embedded-get-started-sample.md)
-- [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [Hämta rapporter](https://msdn.microsoft.com/library/mt711510.aspx)
-
-
+* [Komma igång med Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
+* [Komma igång med exemplet](power-bi-embedded-get-started-sample.md)
+* [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+* [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
+* [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+* [Hämta rapporter](https://msdn.microsoft.com/library/mt711510.aspx)
 
 <!--HONumber=Jun16_HO2-->
 

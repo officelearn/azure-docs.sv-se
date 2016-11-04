@@ -1,26 +1,26 @@
-<properties 
-    pageTitle="Vad är Azure RemoteApp? | Microsoft Azure" 
-    description="Här får du lära dig hur du kan dela appar och resurser mellan olika enheter med Azure RemoteApp." 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" 
-    editor=""/>
+---
+title: Vad är Azure RemoteApp? | Microsoft Docs
+description: Här får du lära dig hur du kan dela appar och resurser mellan olika enheter med Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
+editor: ''
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo"/>
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Vad är Azure RemoteApp?
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> 
+> 
 
 Med Azure RemoteApp får du genom fjärrskrivbordstjänster samma funktioner i Azure som du får med ett lokalt Microsoft RemoteApp-program. Med Azure RemoteApp kan användarna få säker fjärråtkomst till program från olika typer av enheter. På Azure RemoteApp körs tillfälliga terminalserversessioner i molnet, och du kan använda dem och dela dem med användarna.
 
@@ -37,23 +37,20 @@ Azure RemoteApp är en del av [Microsofts infrastruktur för virtuella skrivbord
 ## Azure RemoteApp-samlingar
 Det finns två typer av [Azure RemoteApp](remoteapp-collections.md)-samlingar: moln- och hybridsamlingar.
 
-
-- Med en **molnsamling** ligger programmen i molnet och alla data för programmen lagras i molnet. Användarna kan öppna programmen genom att logga in på sitt Microsoftkonto eller med sina inloggningsuppgifter till företaget, synkroniserat eller federerat med Azure Active Directory.
-
+* Med en **molnsamling** ligger programmen i molnet och alla data för programmen lagras i molnet. Användarna kan öppna programmen genom att logga in på sitt Microsoftkonto eller med sina inloggningsuppgifter till företaget, synkroniserat eller federerat med Azure Active Directory.
+  
     Du bör välja molnsamling om det inte behövs någon anslutning till en resurs i företagets privata nät, (till exempel via en VPN-enhet) för att använda programmet som du vill dela. Om det behövs resurser på Internet, OneDrive eller Azure för att använda programmet fungerar det bra med molnsamling. En sådan samling går även snabbast att skapa.
-
-- Med en **hybridsamling** ligger och lagras data i Azuremolnet, men användarna har även åtkomst till data och resurser i ert lokala nät. Användarna kan öppna programmen genom att logga in med sina inloggningsuppgifter till företaget , synkroniserat eller federerat med Azure Active Directory.
-
+* Med en **hybridsamling** ligger och lagras data i Azuremolnet, men användarna har även åtkomst till data och resurser i ert lokala nät. Användarna kan öppna programmen genom att logga in med sina inloggningsuppgifter till företaget , synkroniserat eller federerat med Azure Active Directory.
+  
     Du bör välja hybridsamling om det behövs anslutning till resurser i företagets privata nät, till exempel om det behövs åtkomst till något av följande för att kunna använda programmet:
-
-    - filservrar som finns i ert intranät
-    - Quicken
-    - databaser bakom en brandvägg
-
+  
+  * filservrar som finns i ert intranät
+  * Quicken
+  * databaser bakom en brandvägg
+    
     Den här lösningen passar bättre för stora företag med mycket resurser i sitt privata nät som inte kan flyttas till molnet.
 
 Det är olika alternativ för de olika samlingarna, till exempel nätverk, så fundera på [vilken samling](remoteapp-collections.md) som passar bäst för ditt företag. 
-
 
 ### Uppdatera samlingen
 En av de största skillnaderna mellan hybrid- och molnsamlingar är hur programuppdateringar hanteras. Om du använder en molnsamling med den förinstallerade Office 365 ProPlus- eller Office 2013-avbildningen behöver du inte bekymra dig om uppdateringar. Underhåll sker automatiskt och både program och operativsystemet uppdateras regelbundet.
@@ -72,18 +69,16 @@ Se artikeln om att [öppna program i Azure RemoteApp](remoteapp-clients.md) för
 ## Nästa steg
 Sätt igång och prova! I de här artiklarna får du hjälp med att komma igång med Azure RemoteApp:
 
-- [Vilken typ av samling behöver du för Azure RemoteApp?](remoteapp-collections.md)
-- [Skapa en Azure RemoteApp-avbildning](remoteapp-imageoptions.md)
-- [Så här skapar du en molnsamling av Azure RemoteApp](remoteapp-create-cloud-deployment.md)
-- [Så här skapar du en hybridsamling av Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
-- [Så här fungerar det med licensiering i Azure RemoteApp](remoteapp-licensing.md)
-- [Tips på hur du arbetar med Azure RemoteApp](remoteapp-bestpractices.md)
-- [Vanliga frågor och svar om Azure RemoteApp](remoteapp-faq.md)
- 
+* [Vilken typ av samling behöver du för Azure RemoteApp?](remoteapp-collections.md)
+* [Skapa en Azure RemoteApp-avbildning](remoteapp-imageoptions.md)
+* [Så här skapar du en molnsamling av Azure RemoteApp](remoteapp-create-cloud-deployment.md)
+* [Så här skapar du en hybridsamling av Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
+* [Så här fungerar det med licensiering i Azure RemoteApp](remoteapp-licensing.md)
+* [Tips på hur du arbetar med Azure RemoteApp](remoteapp-bestpractices.md)
+* [Vanliga frågor och svar om Azure RemoteApp](remoteapp-faq.md)
 
-### Hjälp oss att hjälpa 
+### Hjälp oss att hjälpa
 Visste du att du förutom att betygsätta den här artikeln och skriva kommentarer nedan även kan göra ändringar i själva artikeln? Saknar du något i artikeln? Är det något som är fel? Har jag skrivit något som helt enkelt bara är förvirrande? Då kan du gå tillbaka till början av sidan och klicka på **Edit on GitHub (Redigera på GitHub)** eller **Edit (Redigera)** och ändra i texten. Ändringarna skickas till oss och när vi har godkänt dem kan du se dina ändringar och förbättringar här.
-
 
 <!--HONumber=Sep16_HO3-->
 

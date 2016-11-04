@@ -1,37 +1,39 @@
-<properties 
-    pageTitle="Application Insights Telemetry i Visual Studio CodeLens | Microsoft Azure" 
-    description="Kom snabbt åt din Application Insights-begäran och undantagstelemetri med CodeLens i Visual Studio." 
-    services="application-insights" 
-    documentationCenter=".net"
-    authors="numberbycolors" 
-    manager="douge"/>
+---
+title: Application Insights Telemetry i Visual Studio CodeLens | Microsoft Docs
+description: Kom snabbt åt din Application Insights-begäran och undantagstelemetri med CodeLens i Visual Studio.
+services: application-insights
+documentationcenter: .net
+author: numberbycolors
+manager: douge
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/30/2016" 
-    ms.author="daviste"/>
-    
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/30/2016
+ms.author: daviste
 
+---
 # Application Insights Telemetry i Visual Studio CodeLens
-
 Metoderna i din webbapps kod kan kommenteras med telemetri om körtidsundantag och förfrågningssvarstider. Om du installerar [Visual Studio Application Insights](app-insights-overview.md) i ditt program visas i telemetrin i Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) - anteckningar längst upp i varje funktion där du är van att se användbar information som antalet platser funktionen refereras till, eller den person som senast redigerade den.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
 
-> [AZURE.NOTE] Application Insights i CodeLens är tillgängligt i Visual Studio 2015 Update 3 och senare, eller med den senaste versionen av tillägget [Developer Analytics Tools](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a). CodeLens är tillgänglig i Visual Studio Enterprise- och Professional-versionerna.
+> [!NOTE]
+> Application Insights i CodeLens är tillgängligt i Visual Studio 2015 Update 3 och senare, eller med den senaste versionen av tillägget [Developer Analytics Tools](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a). CodeLens är tillgänglig i Visual Studio Enterprise- och Professional-versionerna.
+> 
+> 
 
 ## Var du hittar Application Insights-data
-
 Leta efter Application Insights Telemetry i CodeLens-indikatorer för offentliga metodbegäranden av din webbapp. CodeLens-indikatorer visas ovanför metod och andra deklarationer i C#- och Visual Basic-kod. Om Application Insights-data finns tillgängliga för en metod, kommer du att se indikatorer för begäranden och undantag, till exempel "100 begäranden, 1 % misslyckades" eller "10 undantag." Klicka på en CodeLens-indikator för mer information. 
 
-> [AZURE.TIP] Application Insights-begäran och undantags-indikatorer kan ta några extra sekunder att läsa in när andra CodeLens-indikatorer visas.
+> [!TIP]
+> Application Insights-begäran och undantags-indikatorer kan ta några extra sekunder att läsa in när andra CodeLens-indikatorer visas.
+> 
+> 
 
 ## Undantag i CodeLens
-
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
 Indikatorn CodeLens-undantag visar antalet undantag som har inträffat under de senaste 24 timmarna från de 15 oftast inträffade undantagen i din app under denna period, vid bearbetning av den begäran som hanteras av metoden.
@@ -45,12 +47,15 @@ Om du vill se mer information klickar du på indikatorn CodeLens-undantag:
 * Välj **Visa alla undantag i denna app** för att fråga efter alla undantag som har inträffat under de senaste 24 timmarna
 * Välj **Utforska undantagstrender** för att se en visualiseringstrend för alla undantag som har inträffat under de senaste 24 timmarna. 
 
-> [AZURE.TIP] Om du ser "0 undantag" i CodeLens men vet att det ska finnas undantag, kontrollera att rätt Application Insights-resurs är markerad i CodeLens. Om du vill välja en annan resurs högerklickar du på ditt projekt i Solution Explorer och väljer **Application Insights > Välj telemetrikälla**. CodeLens visas bara för de 15 mest förekommande undantagen i din app under de senaste 24 timmarna, så om ett undantag är det 16:e oftast förekommande eller mindre, ser du "0 undantag." Undantag från ASP.NET-vyer kanske inte visas på de kontrollantmetoder som genererade dessa vyer.
-
-> [AZURE.TIP] Om du ser "? undantag" i CodeLens måste du koppla ditt Azure-konto med Visual Studio, eller så har dina autentiseringsuppgifter för Azure-kontot kanske gått ut. I bägge fallen klickar du på "? undantag" och väljer **Lägg till ett konto...** för att ange dina autentiseringsuppgifter.
+> [!TIP]
+> Om du ser "0 undantag" i CodeLens men vet att det ska finnas undantag, kontrollera att rätt Application Insights-resurs är markerad i CodeLens. Om du vill välja en annan resurs högerklickar du på ditt projekt i Solution Explorer och väljer **Application Insights > Välj telemetrikälla**. CodeLens visas bara för de 15 mest förekommande undantagen i din app under de senaste 24 timmarna, så om ett undantag är det 16:e oftast förekommande eller mindre, ser du "0 undantag." Undantag från ASP.NET-vyer kanske inte visas på de kontrollantmetoder som genererade dessa vyer.
+> 
+> [!TIP]
+> Om du ser "? undantag" i CodeLens måste du koppla ditt Azure-konto med Visual Studio, eller så har dina autentiseringsuppgifter för Azure-kontot kanske gått ut. I bägge fallen klickar du på "? undantag" och väljer **Lägg till ett konto...** för att ange dina autentiseringsuppgifter.
+> 
+> 
 
 ## Begäranden i CodeLens
-
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-requests.png)
 
 Indikatorn CodeLens-begäran visar antalet HTTP-begäranden som har hanterats av en metod under de senaste 24 timmarna, plus den procent av dessa begäranden som misslyckats.
@@ -64,14 +69,11 @@ Om du vill se mer information klickar du på indikatorn CodeLens-begäran:
 * Välj namnet på Application Insights-resursen i det övre vänstra hörnet i CodeLens-informationsvyn för att ändra den resurs som är källa för CodeLens-datan.
 
 ## <a name="next"></a>Nästa steg
-
-||
-|---|---
-|**[Arbeta med Application Insights i Visual Studio](app-insights-visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/app-insights-visual-studio-trends/34.png)
-|**[Lägga till mer information](app-insights-asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. | ![Visual Studio](./media/app-insights-visual-studio-trends/64.png)
-|**[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png)
-
-
+|  |  |
+| --- | --- |
+| **[Arbeta med Application Insights i Visual Studio](app-insights-visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/app-insights-visual-studio-trends/34.png) |
+| **[Lägga till mer information](app-insights-asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/app-insights-visual-studio-trends/64.png) |
+| **[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png) |
 
 <!--HONumber=Sep16_HO3-->
 

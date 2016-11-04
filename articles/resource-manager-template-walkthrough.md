@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Genomgång av en Resource Manager-mall | Microsoft Azure"
-   description="En stegvis genomgång av en Resource Manager-mall som etablerar en grundläggande Azure IaaS-arkitektur."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="navalev"
-   manager=""
-   editor=""/>
+---
+title: Genomgång av en Resource Manager-mall | Microsoft Docs
+description: En stegvis genomgång av en Resource Manager-mall som etablerar en grundläggande Azure IaaS-arkitektur.
+services: azure-resource-manager
+documentationcenter: na
+author: navalev
+manager: ''
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/04/2016"
-   ms.author="navale;tomfitz"/>
-   
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/04/2016
+ms.author: navale;tomfitz
 
+---
 # Genomgång av en Resource Manager-mall
-
 En av de första frågorna du ställer dig när du ska skapa en mall är ”hur börjar jag?”. Du kan börja från en tom mall och följa den grundläggande strukturen som beskrivs i artikeln [Redigera en mall](resource-group-authoring-templates.md#template-format) och lägga till resurser, parametrar och variabler. Ett annat alternativ är att börja med att gå igenom [snabbstartsgalleriet](https://github.com/Azure/azure-quickstart-templates) och leta efter liknande scenarier som det som du vill skapa. Du kan slå samman flera mallar eller redigera en befintlig mall så att den passar ditt specifika scenario. 
 
 Låt oss ta en titt på en vanlig infrastruktur:
@@ -33,10 +31,12 @@ Den här artikeln beskriver steg för steg hur du skapar en Resource Manager-mal
 
 Det är mycket att bygga på en gång. Vi börjar med att skapa och sedan distribuera ett lagringskonto. När du har skapat lagringskontot lägger du till de andra resurserna och distribuerar mallen igen för att göra klart infrastrukturen.
 
->[AZURE.NOTE] Du kan använda valfri typ av redigerare när du skapar mallen. Visual Studio innehåller verktyg som gör det lättare att skapa mallar, men du måste inte ha Visual Studio för att slutföra den här kursen. En självstudiekurs om hur du skapar en distribution för en webbapp och SQL Database med hjälp av Visual Studio finns i [Skapa och distribuera Azure-resursgrupper via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> [!NOTE]
+> Du kan använda valfri typ av redigerare när du skapar mallen. Visual Studio innehåller verktyg som gör det lättare att skapa mallar, men du måste inte ha Visual Studio för att slutföra den här kursen. En självstudiekurs om hur du skapar en distribution för en webbapp och SQL Database med hjälp av Visual Studio finns i [Skapa och distribuera Azure-resursgrupper via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> 
+> 
 
 ## Skapa Resource Manager-mallen
-
 Mallen är en JSON-fil som definierar alla resurser som ska distribueras. Du kan också definiera parametrar som anges under distributionen, variabler som skapas från andra värden och uttryck samt utdata från distributionen. 
 
 Låt oss börja med den enklaste mallen:
@@ -162,14 +162,15 @@ Värdet som du anger för **type** innehåller både resursprovidern och resurst
 ```
 
 Eller, om du använder Azure CLI, kan du köra följande kommando:
+
 ```
     azure provider list
 ```
 Med utgångspunkt i detta använder du följande när du arbetar med lagringskonton, virtuella datorer och virtuella nätverk i det här avsnittet:
 
-- Microsoft.Storage
-- Microsoft.Compute
-- Microsoft.Network
+* Microsoft.Storage
+* Microsoft.Compute
+* Microsoft.Network
 
 Om du vill visa resurstyperna för en viss provider kör du följande PowerShell-kommando:
 
@@ -387,7 +388,7 @@ Du hittar alla egenskaperna i [REST-API:et för nätverksgränssnitt](https://ms
 Du ska skapa två virtuella datorer med hjälp av funktionen copyIndex() som du gjorde när du skapade [nätverksgränssnitten](#network-interface).
 Genereringen av den virtuella datorn är beroende av lagringskontot, nätverksgränssnittet och tillgänglighetsuppsättningen. Den här virtuella datorn skapas från en avbildning från Marketplace och anges i egenskapen `storageProfile` – `imageReference` används för att definiera avbildningens utgivare, erbjudande, SKU och version. Slutligen konfigureras en diagnostikprofil som aktiverar diagnostik för den virtuella datorn. 
 
-Du hittar relevanta egenskaper för en Marketplace-avbildning genom att följa anvisningarna i artikeln [Välja avbildning för en virtuell Linux-dator](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) eller [Välja avbildning för en virtuell Windows-dator](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+Du hittar relevanta egenskaper för en Marketplace-avbildning genom att följa anvisningarna i artikeln [Välja avbildning för en virtuell Linux-dator](virtual-machines/virtual-machines-linux-cli-ps-findimage.md) eller [Välja avbildning för en virtuell Windows-dator](virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
 
 ```json
 {
@@ -448,12 +449,14 @@ Du hittar relevanta egenskaper för en Marketplace-avbildning genom att följa a
 }
 ```
 
->[AZURE.NOTE] För avbildningar publicerade av **tredjepartsleverantörer** måste du ange en till egenskap: `plan`. Du hittar ett exempel i [den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) från snabbstartsgalleriet. 
+> [!NOTE]
+> För avbildningar publicerade av **tredjepartsleverantörer** måste du ange en till egenskap: `plan`. Du hittar ett exempel i [den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) från snabbstartsgalleriet. 
+> 
+> 
 
 Nu har du definierat resurser för din mall.
 
 ## Parametrar
-
 I avsnittet parameters definierar du de värden som kan anges när mallen distribueras. Definiera bara parametrar för värden som du tror kan variera under distributionen. Du kan ange ett standardvärde för en parameter som används om inget anges under distributionen. Du kan också definiera de tillåtna värdena som du ser för **imageSKU**-parametern.
 
 ```json
@@ -554,7 +557,6 @@ I avsnittet parameters definierar du de värden som kan anges när mallen distri
 ```
 
 ## Variabler
-
 I avsnittet variables kan du definiera värden som används på mer än en plats i mallen, eller värden som skapas från andra uttryck eller variabler. Variabler används ofta för att förenkla mallens syntax.
 
 ```json
@@ -577,12 +579,9 @@ Du är klar med mallen! Du kan jämföra mallen med den fullständig mallen i [s
 Du kan omdistribuera mallen med hjälp av samma kommandon som du använde när du distribuerade lagringskontot. Du behöver inte ta bort lagringskontot innan du distribuerar om mallen eftersom Resource Manager inte återskapar resurser som redan finns och som inte har ändrats.
 
 ## Nästa steg
-
-- [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) är ett bra verktyg för att visualisera ARM-mallar eftersom de kan bli för stora för att förstå bara genom att läsa JSON-filen.
-- Mer information om strukturen i en mall finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
-- Information om hur du distribuerar en mall finns i [Distribuera en resursgrupp med en Azure Resource Manager-mall](resource-group-template-deploy.md)
-
-
+* [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) är ett bra verktyg för att visualisera ARM-mallar eftersom de kan bli för stora för att förstå bara genom att läsa JSON-filen.
+* Mer information om strukturen i en mall finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
+* Information om hur du distribuerar en mall finns i [Distribuera en resursgrupp med en Azure Resource Manager-mall](resource-group-template-deploy.md)
 
 <!--HONumber=Sep16_HO3-->
 

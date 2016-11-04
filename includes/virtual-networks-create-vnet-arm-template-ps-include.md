@@ -1,15 +1,13 @@
 ## Distribuera ARM-mallen med PowerShell
-
 Följ stegen nedan för att distribuera ARM-mallen som du hämtade med PowerShell.
 
 1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](../articles/powershell-install-configure.md) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
-
-3. Vid behov kan du köra cmdleten **`New-AzureRmResourceGroup`** för att skapa en ny resursgrupp. Kommandot nedan skapar en resursgrupp med namnet *TestRG* i Azure-regionen *USA, centrala*. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md).
-
+2. Vid behov kan du köra cmdleten **`New-AzureRmResourceGroup`** för att skapa en ny resursgrupp. Kommandot nedan skapar en resursgrupp med namnet *TestRG* i Azure-regionen *USA, centrala*. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md).
+   
         New-AzureRmResourceGroup -Name TestRG -Location centralus
-        
+   
     Följande utdata förväntas från kommandot ovan:
-
+   
         ResourceGroupName : TestRG
         Location          : centralus
         ProvisioningState : Succeeded
@@ -19,14 +17,13 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med PowerShel
                             =======  ==========
                             *
         ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
-
-4. Kör cmdleten **`New-AzureRmResourceGroupDeployment`** för att distribuera det nya VNet med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan.
-
+3. Kör cmdleten **`New-AzureRmResourceGroupDeployment`** för att distribuera det nya VNet med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan.
+   
         New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
             -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-            
+   
     Följande utdata förväntas från kommandot ovan:
-        
+   
         DeploymentName    : TestVNetDeployment
         ResourceGroupName : TestRG
         ProvisioningState : Succeeded
@@ -43,16 +40,14 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med PowerShel
                             subnet1Name      String                     FrontEnd
                             subnet2Prefix    String                     192.168.2.0/24
                             subnet2Name      String                     BackEnd
-        
+   
         Outputs           :
-
-5. Kör cmdleten **`Get-AzureRmVirtualNetwork`** för att visa egenskaperna för det nya VNet, enligt nedan.
-
+4. Kör cmdleten **`Get-AzureRmVirtualNetwork`** för att visa egenskaperna för det nya VNet, enligt nedan.
 
         Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-        
+
     Följande utdata förväntas från kommandot ovan:
-        
+
         Name              : TestVNet
         ResourceGroupName : TestRG
         Location          : centralus

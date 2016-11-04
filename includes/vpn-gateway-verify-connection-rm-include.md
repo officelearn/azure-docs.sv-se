@@ -1,13 +1,11 @@
 ### <a name="to-verify-your-connection-by-using-powershell"></a>Så här verifierar du din anslutning med PowerShell
-
 Du kan kontrollera att anslutningen har utförts genom att använda `Get-AzureRmVirtualNetworkGatewayConnection`-cmdlet:en, med eller utan `-Debug`. 
 
 1. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Välj A om du uppmanas, för att köra Alla. Exemplet `-Name` refererar till namnet på den anslutning som du skapade och vill testa.
-
+   
         Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
-
 2. Visa värdena när cmdlet:en har slutförts. I exemplet nedan visas anslutningsstatusen som Ansluten och du kan se ingående och utgående byte.
-
+   
         Body:
         {
           "name": "MyGWConnection",
@@ -35,13 +33,12 @@ Du kan kontrollera att anslutningen har utförts genom att använda `Get-AzureRm
           }
 
 ### <a name="to-verify-your-connection-by-using-the-azure-portal"></a>Så här verifierar du din anslutning med Azure-portalen
-
 Du kan visa anslutningsstatus i Azure-portalen genom att navigera till anslutningen. Det finns flera sätt att göra detta på. Följande steg visar ett sätt att navigera till din anslutning och verifiera.
 
 1. I [Azure Portal](http://portal.azure.com), klickar du på **Alla resurser** och går till din virtuella nätverksgateway .
 2. På bladet för den virtuella nätverksgatewayen, klickar du på **Anslutningar**. Du kan se status för varje anslutning.
 3. Klicka på namnet på den anslutning du vill verifiera för att öppna **Essentials**. I Essentials, kan du visa mer information om din anslutning. **Statusen** är Lyckades och Ansluten, när du har skapat en lyckad anslutning.
-
+   
     ![Verifiera anslutning](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
 <!--HONumber=Oct16_HO3-->

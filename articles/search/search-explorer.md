@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Skicka frågor mot ditt Azure Search-index med hjälp av Azure Portal | Microsoft Azure | Värdbaserad söktjänst i molnet"
-    description="Skicka en sökfråga i Sökutforskaren på Azure Portal."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-/>
+---
+title: Skicka frågor mot ditt Azure Search-index med hjälp av Azure Portal | Microsoft Docs
+description: Skicka en sökfråga i Sökutforskaren på Azure Portal.
+services: search
+documentationcenter: ''
+author: ashmaka
 
-<tags
-    ms.service="search"
-    ms.devlang="NA"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"
-/>
+ms.service: search
+ms.devlang: NA
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
+---
 # Skicka frågor mot ditt Azure Search-index med hjälp av Azure Portal
-> [AZURE.SELECTOR]
-- [Översikt](search-query-overview.md)
-- [Portalen](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Översikt](search-query-overview.md)
+> * [Portalen](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 Den här guiden beskriver hur du skickar frågor mot ditt Azure Search-index på Azure Portal.
 
@@ -41,14 +41,12 @@ Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Sea
 
 ## III. Starta sökningen
 1. Börja söka i Azure Search-indexet genom att skriva i fältet ” *Frågesträng* ” och tryck på ”**Sök**”.
- * När du använder Sökutforskaren kan du ange valfria [frågeparametrar](https://msdn.microsoft.com/library/dn798927.aspx)
-
+   
+   * När du använder Sökutforskaren kan du ange valfria [frågeparametrar](https://msdn.microsoft.com/library/dn798927.aspx)
 2. I avsnittet ” *Resultat* ” visas frågans resultat i samma JSON-rådataformat som du får i en HTTP-svarstext när du skickar sökförfrågningar mot REST-API:et för Azure Search.
 3. Frågesträngen parsas automatiskt till rätt begärande-URL för att sedan skicka en HTTP-begäran mot REST-API:et för Azure Search.
 
 ![](./media/search-explorer/search-bar.png)
-
-
 
 <!--HONumber=Sep16_HO3-->
 

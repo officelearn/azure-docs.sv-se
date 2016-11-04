@@ -1,41 +1,39 @@
 
-<properties
-   pageTitle="Peer-koppling i virtuella nätverk i Azure | Microsoft Azure"
-   description="Läs mer om VNet-peering (virtuella nätverk) i Azure."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="NarayanAnnamalai"
-   manager="jefco"
-   editor="tysonn" />
-<tags
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
-   ms.author="narayan" />
+---
+title: Peer-koppling i virtuella nätverk i Azure | Microsoft Docs
+description: Läs mer om VNet-peering (virtuella nätverk) i Azure.
+services: virtual-network
+documentationcenter: na
+author: NarayanAnnamalai
+manager: jefco
+editor: tysonn
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/28/2016
+ms.author: narayan
 
+---
 # VNet-peering
-
 VNet-peering är en mekanism som ansluter två virtuella nätverk i samma region via Azures stamnätverk. När de två virtuella nätverken har peer-kopplats visas de som ett nätverk för alla anslutningsändamål. De hanteras fortfarande som separata resurser, men virtuella datorer i dessa virtuella nätverk kan kommunicera med varandra direkt med hjälp av privata IP-adresser.
 
 Trafiken mellan virtuella datorer i peer-kopplade virtuella nätverk dirigeras via Azure-infrastrukturen på nästan samma sätt som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk. Några av fördelarna med att använda VNet-peering är:
 
-- En anslutning med korta svarstider och hög bandbredd mellan resurser i olika virtuella nätverk.
-- Möjlighet att använda resurser, till exempel nätverksinstallationer och VPN-gateways som överföringspunkter i ett peer-kopplat VNet.
-- Möjligheten att ansluta ett virtuellt nätverk som använder Azure Resource Manager-modellen till ett virtuellt nätverk som använder den klassiska distributionsmodellen och aktivera fullständiga anslutningar mellan resurser i dessa virtuella nätverk.
+* En anslutning med korta svarstider och hög bandbredd mellan resurser i olika virtuella nätverk.
+* Möjlighet att använda resurser, till exempel nätverksinstallationer och VPN-gateways som överföringspunkter i ett peer-kopplat VNet.
+* Möjligheten att ansluta ett virtuellt nätverk som använder Azure Resource Manager-modellen till ett virtuellt nätverk som använder den klassiska distributionsmodellen och aktivera fullständiga anslutningar mellan resurser i dessa virtuella nätverk.
 
 Krav och viktiga aspekter relaterade till VNet-peering:
 
-- De två peer-kopplade virtuella nätverken måste finnas i samma Azure-region.
-- De peer-kopplade virtuella nätverken får inte ha IP-adressintervall som överlappar varandra.
-- VNet-peering sker mellan två virtuella nätverk, och det finns ingen härledd transitiv relation. Om det virtuella nätverket A exempelvis peer-kopplas med det virtuella nätverket B, och om det virtuella nätverket B peer-kopplas med det virtuella nätverket C, så leder inte detta till att det virtuella nätverket A peer-kopplas till det virtuella nätverket C.
-- Peering kan upprättas mellan virtuella nätverk i två olika prenumerationer så länge en privilegierad användare av båda prenumerationerna tillåter peer-kopplingen, och prenumerationerna är kopplade till samma Active Directory-klient. 
-- Ett virtuellt nätverk som använder Resource Manager-distributionsmodellen kan peer-kopplas med ett annat virtuellt nätverk som använder den här modellen eller med ett virtuellt nätverk som använder den klassiska distributionsmodellen. Virtuella nätverk som använder den klassiska distributionsmodellen kan dock inte peer-kopplas till varandra.
-- Kommunikationen mellan virtuella datorer i peer-kopplade virtuella nätverk har inga ytterligare bandbreddsbegränsningar. Bandbreddsbegränsningen baseras fortfarande på den virtuella datorns storlek.
-
+* De två peer-kopplade virtuella nätverken måste finnas i samma Azure-region.
+* De peer-kopplade virtuella nätverken får inte ha IP-adressintervall som överlappar varandra.
+* VNet-peering sker mellan två virtuella nätverk, och det finns ingen härledd transitiv relation. Om det virtuella nätverket A exempelvis peer-kopplas med det virtuella nätverket B, och om det virtuella nätverket B peer-kopplas med det virtuella nätverket C, så leder inte detta till att det virtuella nätverket A peer-kopplas till det virtuella nätverket C.
+* Peering kan upprättas mellan virtuella nätverk i två olika prenumerationer så länge en privilegierad användare av båda prenumerationerna tillåter peer-kopplingen, och prenumerationerna är kopplade till samma Active Directory-klient. 
+* Ett virtuellt nätverk som använder Resource Manager-distributionsmodellen kan peer-kopplas med ett annat virtuellt nätverk som använder den här modellen eller med ett virtuellt nätverk som använder den klassiska distributionsmodellen. Virtuella nätverk som använder den klassiska distributionsmodellen kan dock inte peer-kopplas till varandra.
+* Kommunikationen mellan virtuella datorer i peer-kopplade virtuella nätverk har inga ytterligare bandbreddsbegränsningar. Bandbreddsbegränsningen baseras fortfarande på den virtuella datorns storlek.
 
 ![Grundläggande VNet-peering](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -83,13 +81,10 @@ Det finns begränsningar för antalet peering-sessioner som tillåts för ett en
 ## Priser
 VNet-peering är kostnadsfritt under granskningsperioden. När funktionen lanseras utgår en nominell kostnad för in- och utgående trafik som använder peering. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/virtual-network).
 
-
 ## Nästa steg
-- [Konfigurera peering mellan virtuella nätverk](virtual-networks-create-vnetpeering-arm-portal.md).
-- Läs mer om [NSG:er](virtual-networks-nsg.md).
-- Läs mer om [användardefinierade vägar och IP-vidarebefordring](virtual-networks-udr-overview.md).
-
-
+* [Konfigurera peering mellan virtuella nätverk](virtual-networks-create-vnetpeering-arm-portal.md).
+* Läs mer om [NSG:er](virtual-networks-nsg.md).
+* Läs mer om [användardefinierade vägar och IP-vidarebefordring](virtual-networks-udr-overview.md).
 
 <!--HONumber=Sep16_HO4-->
 

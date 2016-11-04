@@ -11,7 +11,6 @@
 * [Azure App Service-stöd för utvecklingsstackar](/blog/windows-azure-websites-development-stacks-support/)
 
 ## Videoklipp
-
 * [Azure App Service-arkitektur](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
 <!--HONumber=Sep16_HO3-->

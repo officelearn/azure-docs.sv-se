@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Skicka frågor mot ditt Azure Search-index med REST-API:et | Microsoft Azure | Värdbaserad söktjänst i molnet"
-    description="Skapa en sökfråga i Azure Search och använd sökparametrar för att filtrera och sortera sökresultat."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-/>
+---
+title: Skicka frågor mot ditt Azure Search-index med REST-API:et | Microsoft Docs
+description: Skapa en sökfråga i Azure Search och använd sökparametrar för att filtrera och sortera sökresultat.
+services: search
+documentationcenter: ''
+author: ashmaka
 
-<tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Skicka frågor mot ditt Azure Search-index med hjälp av REST-API:et
-> [AZURE.SELECTOR]
-- [Översikt](search-query-overview.md)
-- [Portalen](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Översikt](search-query-overview.md)
+> * [Portalen](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 Den här artikeln beskriver hur du skickar frågor mot ett index med hjälp av [REST-API:et för Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -36,8 +36,8 @@ En viktig del av varje sökåtgärd mot REST-API:et för Azure Search är *API-n
 
 Tjänsten har *administratörsnycklar* och *frågenycklar*.
 
- - Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
- - Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
+* Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
+* Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
 
 Du kan använda en av din frågenycklar för att skicka frågor till ett index. Administratörsnycklarna kan även användas för frågor, men du bör använda en frågenyckel i programkoden eftersom detta bättre överensstämmer med [principen om lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
@@ -50,10 +50,7 @@ För både POST och GET måste du ange *tjänstnamnet*, *indexnamnet* och *API-v
 
 Formatet för POST är samma, men med endast ”api-version” i frågesträngsparametrarna.
 
-
-
 #### Exempelfrågor
-
 Här är några exempelfrågor för ett index med namnet ”hotels”. Frågorna visas i både GET- och POST-format.
 
 Sök igenom hela indexet efter termen ”budget” och returnera bara `hotelName`-fältet:
@@ -68,7 +65,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Använd ett filter för indexet för att hitta hotell som är billigare än 150 USD per natt och returnera `hotelId` och `description`:
+Använd ett filter för indexet för att hitta hotell som är billigare än 150 USD per natt och returnera `hotelId` och `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
@@ -100,6 +97,7 @@ Nu när du har formulerat frågan som en del av HTTP-begärans URL (för GET) el
 
 #### Begäran och begärandehuvuden
 Du måste definiera två begärandehuvuden för GET, eller tre för POST:
+
 1. `api-key`-huvudet måste anges till frågenyckeln som du identifierade i steg I ovan. Observera att du även kan använda en administratörsnyckel som `api-key`-huvud, men vi rekommenderar att du använder en frågenyckel eftersom den ger exklusiv läsbehörighet till index och dokument.
 2. `Accept`-huvudet måste anges till `application/json`.
 3. För POST måste `Content-Type`-huvudet också anges till `application/json`.
@@ -159,8 +157,6 @@ Ett lyckat frågeresultat returnerar statuskoden `200 OK` och sökresultaten ret
 ```
 
 Om du vill veta mer går du till avsnittet ”Svar” i [Söka efter dokument](https://msdn.microsoft.com/library/azure/dn798927.aspx). Mer information om andra HTTP-statuskoder som kan returneras om det uppstår fel finns i [HTTP-statuskoder (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
-
-
 
 <!--HONumber=Sep16_HO3-->
 

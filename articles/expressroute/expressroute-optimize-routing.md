@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Optimera ExpressRoute-routning | Microsoft Azure"
-   description="Den här sidan innehåller information om hur du optimerar routning när en kund har mer än en ExpressRoute-krets som ansluter mellan Microsoft och kundens företagsnätverk."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: Optimera ExpressRoute-routning | Microsoft Docs
+description: Den här sidan innehåller information om hur du optimerar routning när en kund har mer än en ExpressRoute-krets som ansluter mellan Microsoft och kundens företagsnätverk.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
 
+---
 # <a name="optimize-expressroute-routing"></a>Optimera ExpressRoute-routning
 När du har flera ExpressRoute-kretsar måste ha du mer än en sökväg för att ansluta till Microsoft. Därför kan en icke-optimal routning inträffa - vilket innebär att din trafik får en längre sökväg till Microsoft, och Microsoft till nätverket. Ju längre nätverkssökvägen är, desto längre svarstid. Svarstiden har direkt inverkan på programmens prestanda och användarupplevelse. Den här artikeln beskriver problemet och förklarar hur du optimerar routning med standardroutningstekniker.
 
@@ -35,17 +35,21 @@ Här är ett annat exempel där anslutningar från Microsoft tar en längre sök
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
 ### <a name="solution:-use-as-path-prepending"></a>Lösning: Använd AS PATH
-Det finns två lösningar på problemet. Den första är att du bara annonserar ditt lokala prefix för LA-kontoret, 177.2.0.0/31, på ExpressRoute-kretsen i västra USA och ditt lokala prefix för kontoret i New York, 177.2.0.2/31, på ExpressRoute-kretsen i östra USA. Det innebär att det bara finns en enda sökväg för Microsofts anslutning till dina olika kontor. Det finns inga tveksamheter och routningen optimeras. Du måste tänka på din redundansstrategi med den här designen. Du måste se till att Exchange Online fortfarande kan ansluta till dina lokala servrar i händelse av att sökvägen till Microsoft via ExpressRoute bryts. 
+Det finns två lösningar på problemet. Den första är att du bara annonserar ditt lokala prefix för LA-kontoret, 177.2.0.0/31, på ExpressRoute-kretsen i västra USA och ditt lokala prefix för kontoret i New York, 177.2.0.2/31, på ExpressRoute-kretsen i östra USA. Det innebär att det bara finns en enda sökväg för Microsofts anslutning till dina olika kontor. Det finns inga tveksamheter och routningen optimeras. Du måste tänka på din redundansstrategi med den här designen. Du måste se till att Exchange Online fortfarande kan ansluta till dina lokala servrar i händelse av att sökvägen till Microsoft via ExpressRoute bryts. 
 
 Den andra lösningen är att du fortsätter att annonsera båda prefixen för båda ExpressRoute-kretsarna, men dessutom ger du oss en ledtråd för vilka prefix som ligger nära dina kontor. Du kan konfigurera AS PATH för ditt prefix om du vill påverka routningen eftersom vi stöder BGP. I det här exemplet kan du förlänga AS PATH för 172.2.0.0/31 i östra USA så att vi prioriterar ExpressRoute-kretsen i västra USA för trafik till det prefixet (vårt nätverk kommer att tro att sökvägen till prefixet är kortare i väst). På samma sätt kan du förlänga AS PATH för 172.2.0.2/31 i västra USA så att vi prioriterar ExpressRoute-kretsen i östra USA. Routning är optimerat för båda kontoren. Med den här designen kan Exchange Online fortfarande nå dig via en annan ExpressRoute-krets och ditt WAN om en ExpressRoute-krets bryts. 
 
->[AZURE.IMPORTANT] Vi tar bort privata AS-nummer i AS PATH för de prefix som togs emot med Microsoft-peering. Du måste lägga till offentliga AS-nummer i AS PATH som påverkar routningen för Microsoft-peering.
+> [!IMPORTANT]
+> Vi tar bort privata AS-nummer i AS PATH för de prefix som togs emot med Microsoft-peering. Du måste lägga till offentliga AS-nummer i AS PATH som påverkar routningen för Microsoft-peering.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] Även om exemplen här är för Microsoft och offentliga peerings, stöder vi samma funktioner för privat peering. Dessutom fungerar AS Path-prepending inom en enda ExpressRoute-krets för att påverka valet av primära och sekundära sökvägar.
-
-
+> [!IMPORTANT]
+> Även om exemplen här är för Microsoft och offentliga peerings, stöder vi samma funktioner för privat peering. Dessutom fungerar AS Path-prepending inom en enda ExpressRoute-krets för att påverka valet av primära och sekundära sökvägar.
+> 
+> 
 
 <!--HONumber=Oct16_HO3-->
 

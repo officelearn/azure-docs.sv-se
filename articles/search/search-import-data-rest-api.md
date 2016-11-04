@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Dataöverföring i Azure Search med hjälp av REST-API:et | Microsoft Azure | Värdbaserad söktjänst i molnet"
-    description="Lär dig hur du laddar upp data till ett index i Azure Search med hjälp av REST-API:et."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-    manager=""
-    editor=""
-    tags=""/>
+---
+title: Dataöverföring i Azure Search med hjälp av REST-API:et | Microsoft Docs
+description: Lär dig hur du laddar upp data till ett index i Azure Search med hjälp av REST-API:et.
+services: search
+documentationcenter: ''
+author: ashmaka
+manager: ''
+editor: ''
+tags: ''
 
-<tags
-    ms.service="search"
-    ms.devlang="rest-api"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Ladda upp data till Azure Search med hjälp av REST-API:et
-> [AZURE.SELECTOR]
-- [Översikt](search-what-is-data-import.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST](search-import-data-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Översikt](search-what-is-data-import.md)
+> * [.NET](search-import-data-dotnet.md)
+> * [REST](search-import-data-rest-api.md)
+> 
+> 
 
 Den här artikeln beskriver hur du använder [REST-API:et för Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) för att importera data till ett Azure Search-index.
 
@@ -39,8 +40,8 @@ När HTTP-begäranden skickas mot din tjänst med hjälp av REST-API:et måste *
 
 Tjänsten har *administratörsnycklar* och *frågenycklar*.
 
-  - Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
-  - Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
+* Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
+* Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
 
 För att importera data till ett index kan du antingen använda din primära eller sekundära administratörsnyckel.
 
@@ -49,12 +50,12 @@ När du använder REST-API:et skickar du HTTP POST-begäranden med JSON-begäran
 
 Varje JSON-objekt i ”value”-matrisen representerar ett dokument som ska indexeras. Vart och ett av dessa objekt innehåller dokumentets nyckel och anger önskad indexeringsåtgärd (ladda upp, sammanfoga, ta bort osv.). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
 
-@search.action | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar
---- | --- | --- | ---
-`upload` | En `upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. | nyckel plus eventuella andra fält som du vill definiera | När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null.
-`merge` | Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. | nyckel plus eventuella andra fält som du vill definiera | Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. Detta gäller även fält av typen `Collection(Edm.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags` `["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`.
-`mergeOrUpload` | Den här åtgärden fungerar som `merge` om ett dokument med den angivna nyckeln redan finns i indexet. Om dokumentet inte finns fungerar den som `upload` med ett nytt dokument. | nyckel plus eventuella andra fält som du vill definiera | -
-`delete` | Tar bort det angivna dokumentet från indexet. | endast nyckel | Andra fält som du anger än nyckelfältet ignoreras. Om du vill ta bort ett enstaka fält från ett dokument använder du `merge` i stället och anger bara fältet till null.
+| @search.action | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar |
+| --- | --- | --- | --- |
+| `upload` |En `upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. |nyckel plus eventuella andra fält som du vill definiera |När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null. |
+| `merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. Detta gäller även fält av typen `Collection(Edm.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags` `["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |Den här åtgärden fungerar som `merge` om ett dokument med den angivna nyckeln redan finns i indexet. Om dokumentet inte finns fungerar den som `upload` med ett nytt dokument. |nyckel plus eventuella andra fält som du vill definiera |- |
+| `delete` |Tar bort det angivna dokumentet från indexet. |endast nyckel |Andra fält som du anger än nyckelfältet ignoreras. Om du vill ta bort ett enstaka fält från ett dokument använder du `merge` i stället och anger bara fältet till null. |
 
 ## III. Skapa HTTP-begäran och begärandetexten
 Nu när du har samlat in nödvändiga fältvärden för dina indexåtgärder är det dags att skapa själva HTTP-begärandena och JSON-begärandetexten för att importera dina data.
@@ -67,7 +68,6 @@ I URL:en måste du ange tjänstnamnet, indexnamnet (”hotels” i detta fall) s
     api-key: [admin key]
 
 #### Begärandetext
-
 ```JSON
 {
     "value": [
@@ -119,7 +119,7 @@ I detta fall använder vi `upload`, `mergeOrUpload` och `delete` som våra sök�
 
 Anta att exempelindexet ”hotels” redan fyllts med ett antal dokument. Observera att vi inte behövde ange alla tillgängliga dokumentfält när vi använde `mergeOrUpload` och att vi bara angav dokumentnyckeln (`hotelId`) när vi använde `delete`.
 
-Observera också att du bara kan ta med upp till 1 000 dokument (eller 16 MB) i samma indexeringsbegäran.
+Observera också att du bara kan ta med upp till 1 000 dokument (eller 16 MB) i samma indexeringsbegäran.
 
 ## IV. Förstå HTTP-svarskoden
 #### 200
@@ -154,7 +154,10 @@ Statuskoden `207` returneras om minst ett objekt inte indexerades. JSON-texten i
 }
 ```
 
-> [AZURE.NOTE] Detta innebär ofta att belastningen på din söktjänst når en punkt där indexeringsbegäranden börjar returnera `503`-svar. I detta fall rekommenderar vi starkt att klientkoden stannar upp och väntar innan ett nytt försök görs. På så sätt får systemet tid på sig att återställas, vilket ökar sannolikheten för att framtida begäranden lyckas. Snabba återförsök kommer endast att förlänga situationen.
+> [!NOTE]
+> Detta innebär ofta att belastningen på din söktjänst når en punkt där indexeringsbegäranden börjar returnera `503`-svar. I detta fall rekommenderar vi starkt att klientkoden stannar upp och väntar innan ett nytt försök görs. På så sätt får systemet tid på sig att återställas, vilket ökar sannolikheten för att framtida begäranden lyckas. Snabba återförsök kommer endast att förlänga situationen.
+> 
+> 
 
 #### 429
 Statuskoden `429` returneras om du överskrider kvoten för antal dokument per index.
@@ -162,14 +165,15 @@ Statuskoden `429` returneras om du överskrider kvoten för antal dokument per i
 #### 503
 Statuskoden `503` returneras om inget av objekten i begäran indexerades. Detta fel innebär att systemet är hårt belastat och att det inte går att bearbeta din begäran just nu.
 
-> [AZURE.NOTE] I detta fall rekommenderar vi starkt att klientkoden stannar upp och väntar innan ett nytt försök görs. På så sätt får systemet tid på sig att återställas, vilket ökar sannolikheten för att framtida begäranden lyckas. Snabba återförsök kommer endast att förlänga situationen.
+> [!NOTE]
+> I detta fall rekommenderar vi starkt att klientkoden stannar upp och väntar innan ett nytt försök görs. På så sätt får systemet tid på sig att återställas, vilket ökar sannolikheten för att framtida begäranden lyckas. Snabba återförsök kommer endast att förlänga situationen.
+> 
+> 
 
 Mer information om dokumentåtgärder och svar om lyckade/misslyckade åtgärder finns i [Lägga till, uppdatera eller ta bort dokument](https://msdn.microsoft.com/library/azure/dn798930.aspx). Mer information om andra HTTP-statuskoder som kan returneras om det uppstår fel finns i [HTTP-statuskoder (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 ## Nästa
 När du har fyllt Azure Search-indexet kan du börja skicka frågor för att söka efter dokument. Mer information finns i [Fråga ditt Azure Search-index](search-query-overview.md).
-
-
 
 <!--HONumber=Sep16_HO3-->
 

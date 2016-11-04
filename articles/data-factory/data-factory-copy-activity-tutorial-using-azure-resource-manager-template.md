@@ -1,53 +1,51 @@
-<properties
-    pageTitle="Självstudie: Skapa en pipeline med en Resource Manager-mall | Microsoft Azure"
-    description="I den här självstudien skapar du en Azure Data Factory-pipeline med en kopieringsaktivitet genom att använda en Azure Resource Manager-mall."
-    services="data-factory"
-    documentationCenter=""
-    authors="spelluru"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: 'Självstudie: Skapa en pipeline med en Resource Manager-mall | Microsoft Docs'
+description: I den här självstudien skapar du en Azure Data Factory-pipeline med en kopieringsaktivitet genom att använda en Azure Resource Manager-mall.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="data-factory"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="10/10/2016"
-    ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/10/2016
+ms.author: spelluru
 
-
+---
 # <a name="tutorial:-create-a-pipeline-with-copy-activity-using-azure-resource-manager-template"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av en Azure Resource Manager-mall
-> [AZURE.SELECTOR]
-- [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
-- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-- [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-
+> [!div class="op_single_selector"]
+> * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> 
+> 
 
 I den här självstudien får du se hur du skapar och övervakar en Azure Data Factory med en Azure Resource Manager-mall. Pipelinen i den här datafabriken kopierar data från Azure Blob Storage till Azure SQL Database.
 
 ## <a name="prerequisites"></a>Krav
-- Gå igenom [Självstudier – Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför **förutsättningsstegen**.
-- Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera den senaste versionen av Azure PowerShell på datorn. I den här självstudien använder du PowerShell för att distribuera Data Factory-enheter. 
-- (valfritt) Se [Redigera Azure Resource Manager-mallar](../resource-group-authoring-templates.md) om du vill lära dig mer om Azure Resource Manager-mallar.
-
+* Gå igenom [Självstudier – Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför **förutsättningsstegen**.
+* Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera den senaste versionen av Azure PowerShell på datorn. I den här självstudien använder du PowerShell för att distribuera Data Factory-enheter. 
+* (valfritt) Se [Redigera Azure Resource Manager-mallar](../resource-group-authoring-templates.md) om du vill lära dig mer om Azure Resource Manager-mallar.
 
 ## <a name="in-this-tutorial"></a>I den här självstudien
-
 I den här självstudien får skapa du en datafabrik med följande Data Factory-enheter:
 
-Entitet | Beskrivning  
------- | ----------- 
-Länkad Azure-lagringstjänst | Länkar ditt Azure Storage-konto till datafabriken. Azure Storage är källdatalagret och Azure SQL-databasen är det mottagande datalagret för kopieringsaktiviteten i självstudien. Det anger lagringskontot som innehåller indatan för kopieringsaktiviteten. 
-Länkad Azure SQL Database-tjänst| Länkar din Azure SQL-databas till datafabriken. Det anger Azure SQL-databasen som innehåller utdatan för kopieringsaktiviteten. 
-Indatauppsättning för Azure-blob | Hänvisar till den länkade Azure Storage-tjänsten. Den länkade tjänsten hänvisar till ett Azure Storage-konto och datauppsättningen för Azure-bloben anger behållaren, mappen och filnamnet i lagringsutrymmet som innehåller indatan. 
-Utdatauppsättning för Azure SQL | Hänvisar till den länkade Azure SQL-tjänsten. Den länkade Azure SQL-tjänsten refererar till en Azure SQL-server och SQL Azure-datauppsättningen anger namnet på den tabell som innehåller utdatan. 
-Datapipeline | Pipelinen har en aktivitet av typen Kopiera som använder Azure-blobdatauppsättningen som indata och Azure SQL-datauppsättningen som utdata. Kopieringsaktiviteten kopierar data från en Azure-blob till en tabell i Azure SQL-databasen.  
+| Entitet | Beskrivning |
+| --- | --- |
+| Länkad Azure-lagringstjänst |Länkar ditt Azure Storage-konto till datafabriken. Azure Storage är källdatalagret och Azure SQL-databasen är det mottagande datalagret för kopieringsaktiviteten i självstudien. Det anger lagringskontot som innehåller indatan för kopieringsaktiviteten. |
+| Länkad Azure SQL Database-tjänst |Länkar din Azure SQL-databas till datafabriken. Det anger Azure SQL-databasen som innehåller utdatan för kopieringsaktiviteten. |
+| Indatauppsättning för Azure-blob |Hänvisar till den länkade Azure Storage-tjänsten. Den länkade tjänsten hänvisar till ett Azure Storage-konto och datauppsättningen för Azure-bloben anger behållaren, mappen och filnamnet i lagringsutrymmet som innehåller indatan. |
+| Utdatauppsättning för Azure SQL |Hänvisar till den länkade Azure SQL-tjänsten. Den länkade Azure SQL-tjänsten refererar till en Azure SQL-server och SQL Azure-datauppsättningen anger namnet på den tabell som innehåller utdatan. |
+| Datapipeline |Pipelinen har en aktivitet av typen Kopiera som använder Azure-blobdatauppsättningen som indata och Azure SQL-datauppsättningen som utdata. Kopieringsaktiviteten kopierar data från en Azure-blob till en tabell i Azure SQL-databasen. |
 
 En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Det finns två typer av aktiviteter: [dataflyttningsaktiviteter](data-factory-data-movement-activities.md) och [datatransformeringsaktiviteter](data-factory-data-transformation-activities.md). I den här självstudien får du skapa en pipeline i en aktivitet (kopieringsaktivitet).
 
@@ -82,7 +80,6 @@ Resource Manager-mallen på den högsta nivån för att definiera en datafabrik 
     }
 
 Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFGetStarted** med följande innehåll:
-
 
     {
         "contentVersion": "1.0.0.0",
@@ -267,10 +264,13 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFGetStarted
         ]
       }
 
-## <a name="parameters-json"></a>JSON-parametrar 
+## <a name="parameters-json"></a>JSON-parametrar
 Skapa en JSON-fil med namnet **ADFCopyTutorialARM-Parameters.json** som innehåller parametrar för Azure Resource Manager-mallen. 
 
-> [AZURE.IMPORTANT] Ange namn och nyckel för Azure Storage-kontot och parametrarna **storageAccountName** och **storageAccountKey**.  
+> [!IMPORTANT]
+> Ange namn och nyckel för Azure Storage-kontot och parametrarna **storageAccountName** och **storageAccountKey**.  
+> 
+> 
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -290,33 +290,36 @@ Skapa en JSON-fil med namnet **ADFCopyTutorialARM-Parameters.json** som innehål
         }
     }
 
-> [AZURE.IMPORTANT] Du kan ha separata JSON-filer med parametrar för utveckling, testning och produktionsmiljöer som du kan använda med samma Data Factory JSON-mall. Genom att använda ett Power Shell-skript kan du automatisera distributionen av Data Factory-entiteter i dessa miljöer.  
+> [!IMPORTANT]
+> Du kan ha separata JSON-filer med parametrar för utveckling, testning och produktionsmiljöer som du kan använda med samma Data Factory JSON-mall. Genom att använda ett Power Shell-skript kan du automatisera distributionen av Data Factory-entiteter i dessa miljöer.  
+> 
+> 
 
 ## <a name="create-data-factory"></a>Skapa en datafabrik
 1. Starta **Azure PowerShell** och kör följande kommando:
-    - Kör `Login-AzureRmAccount` och ange det användarnamn och lösenord som du använder för att logga in på Azure-portalen.  
-    - Kör `Get-AzureRmSubscription` för att visa alla prenumerationer för det här kontot.
-    - Kör `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` för att välja den prenumeration som du vill arbeta med. 
+   * Kör `Login-AzureRmAccount` och ange det användarnamn och lösenord som du använder för att logga in på Azure-portalen.  
+   * Kör `Get-AzureRmSubscription` för att visa alla prenumerationer för det här kontot.
+   * Kör `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` för att välja den prenumeration som du vill arbeta med. 
 2. Kör följande kommando för att distribuera Data Factory-entiteter med hjälp av Resource Manager-mallen som du skapade i steg 1.
-
+   
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
 
 ## <a name="monitor-pipeline"></a>Övervaka pipeline
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 2. Klicka på **Datafabriker** på den vänstra menyn (eller) klicka på **Fler tjänster** och klicka på **Datafabriker** under kategorin **INFORMATION + ANALYS**.
-
+   
     ![Menyn Datafabriker](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. På sidan **Datafabriker** kan du söka efter och hitta din datafabrik. 
-
+   
     ![Sök efter datafabrik](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
 4. Klicka på din Azure-datafabrik. Du kan se startsidan för datafabriken.
-
+   
     ![Datafabrikens startsida](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
 5. Klicka på ikonen **Diagram** för att visa diagrammet över din datafabrik.
-
+   
     ![Diagramvy över datafabriken](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-diagram-view.png)
 6. I diagramvyn dubbelklickar du på datauppsättningen **SQLOutputDataset**. Du kan se statusen för sektorn. När kopieringen är klar anger du statusen till **Klar**.
-
+   
     ![Utdatasektor med statusen Klar](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/output-slice-ready.png)
 7. När sektorn har statusen **Klar** verifierar du att data har kopierats till tabellen **tom** i Azure SQL-databasen.
 
@@ -324,9 +327,7 @@ Se [Övervaka datauppsättningar och pipeline](data-factory-monitor-manage-pipel
 
 Du kan också använda appen Övervaka och hantera till att övervaka dina datapipelines. Se [Övervaka och hantera Azure Data Factory-pipelines med övervakningsappen](data-factory-monitor-manage-app.md) för mer information om att använda programmet.
 
-
 ## <a name="data-factory-entities-in-the-template"></a>Data Factory-entiteter i mallen
-
 ### <a name="define-data-factory"></a>Definiera en datafabrik
 Du definierar en datafabrik i Resource Manager-mallen enligt följande exempel:  
 
@@ -339,7 +340,7 @@ Du definierar en datafabrik i Resource Manager-mallen enligt följande exempel:
     }
 
 DataFactoryName definieras som: 
-      
+
     "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
 
 Det är en unik sträng som baseras på resursgruppens ID.  
@@ -373,7 +374,7 @@ Du anger namnet och nyckeln för Azure Storage-kontot i det här avsnittet. Se [
     }
 
 connectionString använder parametrarna storageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variabler: azureStorageLinkedService och dataFactoryName definieras i mallen. 
-    
+
 #### <a name="azure-sql-database-linked-service"></a>Länkad Azure SQL Database-tjänst
 Du anger Azure SQL-servernamnet, databasnamnet, användarnamnet och lösenordet i det här avsnittet. Se [Länkad Azure SQL-tjänst](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure SQL-tjänst.  
 
@@ -397,7 +398,6 @@ connectionString använder parametrarna sqlservernamn, databaseName, sqlServerUs
 
 #### <a name="azure-blob-dataset"></a>Azure-blobdatauppsättning
 Du anger namnen på blob-behållare, mappar och filer som innehåller indatan. Se [Egenskaper för Azure-blobdatauppsättning](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobdatauppsättning. 
-
 
     {
         "type": "datasets",
@@ -526,7 +526,7 @@ Du definierar en pipeline som kopierar data från Azure-blobdatauppsättningen t
         }
     }
 
-## <a name="reuse-the-template"></a>Återanvända mallen 
+## <a name="reuse-the-template"></a>Återanvända mallen
 I självstudien skapade du en mall för att definiera Data Factory-entiteter och en mall för att skicka värden för parametrar. Pipeline kopierar data från ett Azure Storage-konto till en Azure SQL-databas som har angetts via parametrar. Om du vill använda samma mall för att distribuera Data Factory-entiteter till olika miljöer skapar du en parameterfil för varje miljö och använder den när du distribuerar till den miljön.     
 
 Exempel:  
@@ -540,9 +540,6 @@ Exempel:
 Observera att det första kommandot använder parameterfilen för utvecklingsmiljön, det andra för testmiljön och det tredje för produktionsmiljön.  
 
 Du kan även återanvända mallen för att göra upprepade uppgifter. Du behöver till exempel skapa många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage och Azure SQL Database. I det här scenariot använder du samma mall i samma miljö (dev-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.   
-
-
-
 
 <!--HONumber=Oct16_HO3-->
 

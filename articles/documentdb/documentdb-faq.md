@@ -1,35 +1,32 @@
-<properties 
-    pageTitle="Frågor om DocumentDB-databasen – Vanliga frågor och svar | Microsoft Azure" 
-    description="Svar på vanliga frågor om Azure DocumentDB, en NoSQL-dokumentdatabastjänst för JSON. Svar på databasfrågor som rör kapacitet, prestandanivåer och skalning." 
-    keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
-    services="documentdb" 
-    authors="mimig1" 
-    manager="jhubbard" 
-    editor="monicar" 
-    documentationCenter=""/>
+---
+title: Frågor om DocumentDB-databasen – Vanliga frågor och svar | Microsoft Docs
+description: Svar på vanliga frågor om Azure DocumentDB, en NoSQL-dokumentdatabastjänst för JSON. Svar på databasfrågor som rör kapacitet, prestandanivåer och skalning.
+keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
+services: documentdb
+author: mimig1
+manager: jhubbard
+editor: monicar
+documentationcenter: ''
 
-<tags 
-    ms.service="documentdb" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="03/30/2016" 
-    ms.author="mimig"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 03/30/2016
+ms.author: mimig
 
-
-#Vanliga frågor om DocumentDB
-
+---
+# Vanliga frågor om DocumentDB
 ## Databasfrågor om grunderna i Microsoft Azure DocumentDB
-
-### Vad är Microsoft Azure DocumentDB? 
+### Vad är Microsoft Azure DocumentDB?
 Microsoft Azure DocumentDB är en mycket skalbar NoSQL-databastjänst för dokument, som erbjuder många frågealternativ över schemafria data, hjälper till att leverera konfigurerbar och tillförlitlig prestanda och möjliggör snabb utveckling. Allt detta via en hanterad plattform med kraften och räckvidden hos Microsoft Azure. DocumentDB är lösningen för webb-, mobil-, spel- och IoT-appar där förutsägbara dataflöden, låg svarstid och en schemafri datamodell är viktiga krav. DocumentDB ger schemaflexibilitet och omfattande indexering via en inbyggd JSON-datamodell och innehåller transaktionellt stöd för flera dokument med integrerat JavaScript.  
-  
+
 Fler frågor, svar och instruktioner om distribution och användning av tjänsten finns i [dokumentationssidan för DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 ### Vilken typ av databas är DocumentDB?
 DocumentDB är en dokumentorienterad NoSQL-databas som lagrar data i JSON-format.  DocumentDB stöder kapslade, oberoende datastrukturer där förfrågningar kan skickas via en omfattande DocumentDB [SQL-frågegrammatik](documentdb-sql-query.md). DocumentDB ger transaktionell bearbetning med hög prestanda av JavaScript på serversidan via [lagrade procedurer, utlösare och användardefinierade funktioner](documentdb-programming.md). Databasen stöder också utvecklarjusterade konsekvensnivåer med associerade [prestandanivåer](documentdb-performance-levels.md).
- 
+
 ### Har DocumentDB-databaser tabeller som relationsdatabaser (RDBMS)?
 Nej, DocumentDB lagrar data i samlingar av JSON-dokument.  Information om DocumentDB-resurser finns i [Modell och koncept för DocumentDB-resurser](documentdb-resources.md). 
 
@@ -39,7 +36,7 @@ Ja, DocumentDB tillåter att appar lagrar godtyckliga JSON-dokument utan schemad
 ### Stöder DocumentDB ACID-transaktioner?
 Ja, DocumentDB stöder transaktioner mellan dokument uttryckta som JavaScript-lagrade procedurer och utlösare. Transaktioner begränsas till en enskild partition inom varje samling och utförs med ACID-semantik som allt eller inget isolerat från annan kod och andra användarförfrågningar som körs samtidigt.  Om undantag utlöses via serversidans körning av JavaScript-appkoden återställs hela transaktionen. 
 
-### Vad är vanliga användningsområden för DocumentDB?  
+### Vad är vanliga användningsområden för DocumentDB?
 DocumentDB är ett bra alternativ för nya webb-, mobil-, spel- och IoT-appar där automatisk skalning, förutsägbar prestanda, snabba beställningar med svarstider på millisekunder och möjlighet till frågor i schemafria data är viktigt. DocumentDB lämpar sig för snabb utveckling och stöder kontinuerlig iteration av appens datamodeller. Appar som hanterar användargenererat innehåll och data är [vanliga användningsområden för DocumentDB](documentdb-use-cases.md).  
 
 ### Hur erbjuder DocumentDB förutsägbar prestanda?
@@ -50,11 +47,11 @@ Varje DocumentDB-samling kan reserveras med etablerat dataflöde räknat som dat
 ### Är DocumentDB HIPAA-kompatibelt?
 Ja, DocumentDB är HIPAA-kompatibelt. HIPAA fastställer kraven för användning, redovisning, och skydd av individuellt identifierbar hälsoinformation. Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
-### Vilka lagringsgränser har DocumentDB? 
+### Vilka lagringsgränser har DocumentDB?
 Det finns ingen teoretisk gräns för den totala mängden data som en samling kan lagra i DocumentDB. Om du vill lagra över 250 GB data i en enda samling ska du [kontakta kundtjänst](documentdb-increase-limits.md) för att öka din kontokvot. 
 
-### Vilka dataflödesgränser har DocumentDB? 
-Det finns ingen teoretisk gräns för totala dataflödet som en samling kan stödja i DocumentDB om din arbetsbelastning kan fördelas någorlunda jämnt mellan ett tillräckligt stort antal partitionsnycklar. Om du vill överskrida 250 000 frågeenheter/sekund per samling eller kontakt ska du [kontakta kundtjänst](documentdb-increase-limits.md) för att öka din kontokvot. 
+### Vilka dataflödesgränser har DocumentDB?
+Det finns ingen teoretisk gräns för totala dataflödet som en samling kan stödja i DocumentDB om din arbetsbelastning kan fördelas någorlunda jämnt mellan ett tillräckligt stort antal partitionsnycklar. Om du vill överskrida 250 000 frågeenheter/sekund per samling eller kontakt ska du [kontakta kundtjänst](documentdb-increase-limits.md) för att öka din kontokvot. 
 
 ### Hur mycket kostar Microsoft Azure DocumentDB?
 Mer information finns på sidan [Priser för DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Avgifterna för användning av DocumentDB bestäms av antalet samlingar som används, antalet timmar samlingarna varit online samt förbrukad lagring och etablerat dataflöde för varje samling. 
@@ -66,7 +63,6 @@ Om du inte har använts Azure tidigare kan du registrera dig för ett [kostnadsf
 Om du behöver hjälp med något kan du nå oss via [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb) eller [Azure DocumentDB MSDN-utvecklingsforumen](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), eller boka en [enskild chatt med teknikteamet för DocumentDB](http://www.askdocdb.com/). Om du vill veta det senaste om nyheter och funktioner i DocumentDB ska du följa oss på [Twitter](https://twitter.com/DocumentDB).
 
 ## Konfigurera Microsoft Azure DocumentDB
-
 ### Hur registrerar jag mig för Microsoft Azure DocumentDB?
 Microsoft Azure DocumentDB är tillgängligt i [Azure Portal][azure-portal].  Först måste du registrera dig för en Microsoft Azure-prenumeration.  När du registrerar dig för en Microsoft Azure-prenumeration kan du lägga till DocumentDB-konto till din Azure-prenumeration. Anvisningar för hur du lägger till ett DocumentDB-konto finns i [Skapa ett databaskonto i DocumentDB](documentdb-create-account.md).   
 
@@ -85,7 +81,6 @@ Samlingar är också faktureringsenheterna för DocumentDB. Varje samling faktur
 Du kan skapa användare och behörigheter via ett [DocumentDB-SDK](documentdb-sdk-dotnet.md) eller via [REST-API:er](https://msdn.microsoft.com/library/azure/dn781481.aspx).   
 
 ## Databasfrågor om utveckling mot Microsoft Azure DocumentDB
-
 ### Hur börjar jag utveckla mot DocumentDB?
 [SDK:er](documentdb-sdk-dotnet.md) är tillgängliga för .NET, Python, Node.js, JavaScript och Java.  Utvecklare kan även utnyttja [RESTful HTTP-API:er](https://msdn.microsoft.com/library/azure/dn781481.aspx) för att samverka med DocumentDB-resurser från flera olika plattformar och språk. 
 
@@ -103,22 +98,19 @@ DocumentDB stöder optimistisk samtidighetskontroll (OCC) via HTTP-entitetstagga
 ### Hur gör jag transaktioner i DocumentDB?
 DocumentDB stöder språkintegrerade transaktioner via JavaScript-lagrade procedurer och utlösare. Alla databasåtgärder i skript körs under ögonblicksbildisolering begränsad till samlingen om det är en samling med en enskild partition, eller dokument med samma partitionsnyckelvärde inom en samling om samlingen är partitionerad. En ögonblicksbild av dokumentversionerna (ETags) tas i början av transaktionen och verkställs endast om skriptet lyckas. Om JavaScript genererar ett fel återställs transaktionen. Mer information finns i [Programmering av serversidan i DocumentDB](documentdb-programming.md).
 
-### Hur massinfogar jag dokument i DocumentDB? 
+### Hur massinfogar jag dokument i DocumentDB?
 Det finns tre sätt att massinfoga dokument i DocumentDB:
 
-- Med datamigreringsverktyget som beskrivs i [Importera data till DocumentDB](documentdb-import-data.md).
-- Med dokumentutforskaren i Azure Portal som beskrivs i [Massinfoga dokument med dokumentutforskaren](documentdb-view-json-document-explorer.md#BulkAdd).
-- Med lagrade procedurer enligt beskrivningen i [Programmering av serversidan i DocumentDB](documentdb-programming.md).
+* Med datamigreringsverktyget som beskrivs i [Importera data till DocumentDB](documentdb-import-data.md).
+* Med dokumentutforskaren i Azure Portal som beskrivs i [Massinfoga dokument med dokumentutforskaren](documentdb-view-json-document-explorer.md#BulkAdd).
+* Med lagrade procedurer enligt beskrivningen i [Programmering av serversidan i DocumentDB](documentdb-programming.md).
 
 ### Stöder DocumentDB cachelagring av resurslänkar?
 Ja, eftersom DocumentDB är en RESTful-tjänst ändras resurslänkar inte och kan cachelagras. DocumentDB-klienter kan ange en ”om-ingen-träff”-rubrik för läsning mot valfri resurs som dokument eller samlingar och uppdatera sina lokala kopior först när serverversionen har ändrats. 
 
-
-
-
 [azure-portal]: https://portal.azure.com
 [DocumentDB]: documentdb-sql-query.md
- 
+
 
 
 <!----HONumber=Jun16_HO2-->

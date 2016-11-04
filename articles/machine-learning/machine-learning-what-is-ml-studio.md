@@ -1,75 +1,72 @@
-<properties 
-    pageTitle="Vad är Azure Machine Learning Studio? | Microsoft Azure"
-    description="Översikt av Azure ML Studio, ett drag-och-släpp-verktyg för att snabbt skapa modeller från bibliotek med algoritmer och moduler som redan är helt färdiga att använda."
-    keywords="azure machine learning,azure ml, ml studio"
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="paulettm"
-    editor="cgronlun"/>
+---
+title: Vad är Azure Machine Learning Studio? | Microsoft Docs
+description: Översikt av Azure ML Studio, ett drag-och-släpp-verktyg för att snabbt skapa modeller från bibliotek med algoritmer och moduler som redan är helt färdiga att använda.
+keywords: azure machine learning,azure ml, ml studio
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: paulettm
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="06/10/2016"
-    ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 06/10/2016
+ms.author: garye
 
+---
 # Vad är Azure Machine Learning Studio?
-
 Microsoft Azure Machine Learning Studio är ett drag-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Tjänsten Machine Learning Studio publicerar modeller som webbtjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
 
 Machine Learning Studio är platsen där datavetenskap, prediktiva analyser, molnresurser och dina data sammanstrålar.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Den interaktiva arbetsytan i tjänsten Machine Learning Studio
-
 För att skapa en prediktiv analysmodell använder du normalt data från eller flera källor, omvandlar och analyserar dessa data genom att utföra en serie datamodifieringar och statistiska funktioner och sedan genererar du en uppsättning resultat. Att utveckla en modell som den här är en process som är baserad på upprepningar (iteration). När du ändrar olika funktionerna och deras parametrar kommer resultaten att konvergera tills du är nöjd och säker på att du har en tränad, effektiv modell.
 
 **Azure Machine Learning Studio** ger dig en interaktiv, visuell arbetsyta där du kan bygga, testa och utföra iterationer på en prediktiv analysmodell. Du drar och släpper ***datauppsättningar*** och ***analysmoduler*** till en interaktiv ***arbetsyta***, kopplar samman dem för att skapa ett ***experiment*** och sedan ***kör*** du dessa i Machine Learning Studio. Om du vill köra en iteration med modelldesignen, ***redigerar*** du experimentet, ***sparar*** en kopia om du så önskar och sedan kör du försöket igen. När du är klar kan du konvertera ditt ***träningsexperiment*** till ett ***prediktivt experiment***, och sedan ***publicera*** det som en ***webbtjänst*** så att din modell kan användas av andra.
 
->[AZURE.TIP] Om du vill hämta och skriva ut ett diagram som ger en översikt över funktionerna i Machine Learning Studio, se [Översiktsdiagram över funktioner i Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+> [!TIP]
+> Om du vill hämta och skriva ut ett diagram som ger en översikt över funktionerna i Machine Learning Studio, se [Översiktsdiagram över funktioner i Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+> 
+> 
 
 Ingen programmering krävs. Det enda du behöver göra är att koppla samman datauppsättningar och moduler visuellt för att skapa en prediktiv analysmodell.
 
 ![Diagram för Azure ML Studio: Skapa experiment, läs in data från flera källor, skriv in bedömda data, skriv modeller.][ml-studio-overview]
 
 ## Kom igång med Machine Learning Studio
-
 När du startar [Machine Learning Studio](https://studio.azureml.net) kommer du att se **startsidan**. Härifrån kan du titta på dokumentation, videor, webbseminarier och hitta andra användbara resurser.
 
 Det finns tre flikar högst upp på sidan: **Start** (dit du kommer först), **Studio** och **Galleri**.
 
 ### Studio
-
 Klicka på fliken **Studio** och du uppmanas att logga in med ditt Microsoft-konto eller ditt arbets- eller skolkonto. När du har loggat in visas följande flikar till vänster:
 
-- **PROJEKT** – Samlingar med experiment, datauppsättningar, anteckningsböcker och andra resurser som representerar ett enskilt projekt
-- **EXPERIMENT** – Experiment som har skapats, körts och sparats som utkast
-- **WEBBTJÄNSTER** – Webbtjänster som du har distribuerat från dina experiment
-- **NOTEBOOKS** – Jupyter-anteckningsböcker som du har skapat
-- **DATAUPPSÄTTNINGAR** – Datauppsättningar som du har överfört till Studio
-- **TRÄNADE MODELLER** – Modeller som du har tränat i experiment och sparat i Studio
-- **INSTÄLLNINGAR** – En uppsättning av inställningar som du kan använda för att konfigurera ditt konto och resurserna.
+* **PROJEKT** – Samlingar med experiment, datauppsättningar, anteckningsböcker och andra resurser som representerar ett enskilt projekt
+* **EXPERIMENT** – Experiment som har skapats, körts och sparats som utkast
+* **WEBBTJÄNSTER** – Webbtjänster som du har distribuerat från dina experiment
+* **NOTEBOOKS** – Jupyter-anteckningsböcker som du har skapat
+* **DATAUPPSÄTTNINGAR** – Datauppsättningar som du har överfört till Studio
+* **TRÄNADE MODELLER** – Modeller som du har tränat i experiment och sparat i Studio
+* **INSTÄLLNINGAR** – En uppsättning av inställningar som du kan använda för att konfigurera ditt konto och resurserna.
 
 ### Galleri
-
 Klicka på fliken **Galleri** och du kommer till Cortana Intelligence Gallery. Galleriet är en plats där grupper med dataanalytiker och utvecklare kan dela lösningar som skapats med hjälp av komponenter i Cortana Intelligence Suite.
 
 Mer information om galleriet finns i [Dela och upptäck lösningar i Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 ## Komponenter i ett experiment
-
 Ett experiment består av datauppsättningar som förser de analytiska modulerna med data. Du kopplar sedan samman dessa moduler för att skapa en prediktiv analysmodell. Mer konkret uttryckt så har ett giltigt experiment följande egenskaper:
 
-- Experimentet har minst en datauppsättning och en modul
-- Datauppsättningar kan bara anslutas till moduler
-- Moduler kan anslutas antingen till datauppsättningar eller till andra moduler
-- Alla indataportar för moduler måste ha någon typ av koppling till dataflödet
-- Alla nödvändiga parametrar måste anges för varje modul
+* Experimentet har minst en datauppsättning och en modul
+* Datauppsättningar kan bara anslutas till moduler
+* Moduler kan anslutas antingen till datauppsättningar eller till andra moduler
+* Alla indataportar för moduler måste ha någon typ av koppling till dataflödet
+* Alla nödvändiga parametrar måste anges för varje modul
 
 Du kan skapa ett experiment från grunden eller så kan du använda ett befintligt exempelexperiment som mall. Mer information finns i [Använda exempelexperiment för att skapa nya experiment](machine-learning-sample-experiments.md).
 
@@ -78,25 +75,23 @@ Om du vill se ett exempel på hur du kan skapa ett enkelt experiment kan du gå 
 Om du vill få en fullständig genomgång av att skapa en prediktiv analyslösning kan du gå till [Utveckla en prediktiv lösning med Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
 ### Datauppsättningar
-
 En datauppsättning är data som har överförts till Machine Learning Studio så att de kan användas i modelleringsprocessen. Ett antal provdatauppsättningar ingår i Machine Learning Studio för att du ska kunna experimentera med dem. Och du kan föra över fler datauppsättningar efter behov. Här följer några exempel på datauppsättningar som ingår:
 
-- **MPG-data för olika bilar** – MPG-värden (Miles Per Gallon, USA:s motsvarighet till liter per 100 km) för bilar beräknat utifrån antalet cylindrar, hästkrafter o.s.v.
-- **Bröstcancerdata** – Data för bröstcancerdiagnoser.
-- **Data om skogsbränder** – Storleken på skogsbränder i nordöstra Portugal.
+* **MPG-data för olika bilar** – MPG-värden (Miles Per Gallon, USA:s motsvarighet till liter per 100 km) för bilar beräknat utifrån antalet cylindrar, hästkrafter o.s.v.
+* **Bröstcancerdata** – Data för bröstcancerdiagnoser.
+* **Data om skogsbränder** – Storleken på skogsbränder i nordöstra Portugal.
 
 Medan du skapar ett experiment kan välja bland alternativ från listan över tillgängliga datauppsättningar på arbetsytans vänstra sida.
 
 Om du vill se en lista över provdatauppsättningar som ingår i Machine Learning Studio, kan du gå till [Använda provdatauppsättningar i Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
 
 ### Moduler
-
 En modul är en algoritm som du kan tillämpa på dina data. Machine Learning Studio har ett antal moduler, med allt från dataåtkomstfunktioner och träning till bedömning och processer för verifiering. Här följer några exempel på moduler som ingår:
 
-- [Konvertera till ARFF][convert-to-arff] – Konverterar en .NET-serialiserad datauppsättning till formatet ARFF (Attribute-Relation File Format).
-- [Beräkna elementära statistik][elementary-statistics] – Beräknar elementär statistik, som medelvärde, standardavvikelse o.s.v.
-- [Linjär regression][linear-regression] -– Skapar en linjär regressionsmodell baserad på brantaste lutningsmetoden online.
-- [Bedömningsmodell][score-model] – Bedömer en tränad klassificerings- eller regressionsmodell.
+* [Konvertera till ARFF][convert-to-arff] – Konverterar en .NET-serialiserad datauppsättning till formatet ARFF (Attribute-Relation File Format).
+* [Beräkna elementära statistik][elementary-statistics] – Beräknar elementär statistik, som medelvärde, standardavvikelse o.s.v.
+* [Linjär regression][linear-regression] -– Skapar en linjär regressionsmodell baserad på brantaste lutningsmetoden online.
+* [Bedömningsmodell][score-model] – Bedömer en tränad klassificerings- eller regressionsmodell.
 
 Medan du skapar ett experiment kan välja bland alternativ från listan över tillgängliga moduler på arbetsytans vänstra sida.  
 
@@ -105,7 +100,6 @@ En modul kan ha en uppsättning parametrar som du kan använda för att konfigur
 Om du vill få hjälp med att navigera genom det stora biblioteket med tillgängliga maskininlärningsalgoritmer kan du gå till [Så här väljer du algoritmer för Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 ## Distribuera en prediktiv analysmodell som webbtjänst
-
 När din prediktiva analysmodell är färdig kan du distribuera den som en webbtjänst direkt från Machine Learning Studio. Mer information om den här processen finns i [Distribuera en webbtjänst via Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg

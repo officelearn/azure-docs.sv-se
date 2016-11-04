@@ -1,90 +1,68 @@
-<properties
- pageTitle="Komma igång med Azure Scheduler på Azure-portalen | Microsoft Azure"
- description="Komma igång med Azure Scheduler på Azure-portalen"
- services="scheduler"
- documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="hero-article"
- ms.date="08/10/2016"
- ms.author="deli"/>
+---
+title: Komma igång med Azure Scheduler på Azure-portalen | Microsoft Docs
+description: Komma igång med Azure Scheduler på Azure-portalen
+services: scheduler
+documentationcenter: .NET
+author: derek1ee
+manager: kevinlam1
+editor: ''
 
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 08/10/2016
+ms.author: deli
 
+---
 # Komma igång med Azure Scheduler på Azure-portalen
-
 Det är enkelt att skapa schemalagda jobb i Azure Scheduler. I den här självstudiekursen lär du dig hur du skapar ett jobb. Du lär dig också om övervaknings- och hanteringsfunktionerna i Scheduler.
 
 ## Skapa ett jobb
-
-1.  Logga in på [Azure-portalen](https://portal.azure.com/).  
-
-2.  Klicka på **+Nytt** > skriv _Scheduler_ i sökrutan >  välj **Scheduler** i resultatet > klicka på **Skapa**.
-
-     ![][marketplace-create]
-
-3.  Vi ska skapa ett jobb som bara skickar en GET-begäran mot http://www.microsoft.com/. Ange följande information på skärmen **Scheduler-jobb**:
-
-    1.  **Namn:** `getmicrosoft`  
-
-    2.  **Prenumeration:** Din Azure-prenumeration   
-
-    3.  **Jobbsamling:** Markera en befintlig jobbsamling eller klicka på **Skapa ny** > ange ett namn.
-
-4.  Nu ska du definiera följande värden i **Åtgärdsinställningar**:
-
-    1.  **Åtgärdstyp:** ` HTTP`  
-
-    2.  **Metod:** `GET`  
-
-    3.  **URL:** ` http://www.microsoft.com`  
-
+1. Logga in på [Azure-portalen](https://portal.azure.com/).  
+2. Klicka på **+Nytt** > skriv *Scheduler* i sökrutan >  välj **Scheduler** i resultatet > klicka på **Skapa**.
+   
+    ![][marketplace-create]
+3. Vi ska skapa ett jobb som bara skickar en GET-begäran mot http://www.microsoft.com/. Ange följande information på skärmen **Scheduler-jobb**:
+   
+   1. **Namn:** `getmicrosoft`  
+   2. **Prenumeration:** Din Azure-prenumeration   
+   3. **Jobbsamling:** Markera en befintlig jobbsamling eller klicka på **Skapa ny** > ange ett namn.
+4. Nu ska du definiera följande värden i **Åtgärdsinställningar**:
+   
+   1. **Åtgärdstyp:** ` HTTP`  
+   2. **Metod:** `GET`  
+   3. **URL:** ` http://www.microsoft.com`  
+      
       ![][action-settings]
-
-5.  Till sist ska vi definiera ett schema. Jobbet kan definieras som ett engångsjobb, men vi väljer ett upprepningsschema:
-
-    1. **Upprepning**: `Recurring`
-
-    2. **Start**: Dagens datum
-
-    3. **Utför varje**: `12 Hours`
-
-    4. **Sluta**: Två dagar från dagens datum  
-
+5. Till sist ska vi definiera ett schema. Jobbet kan definieras som ett engångsjobb, men vi väljer ett upprepningsschema:
+   
+   1. **Upprepning**: `Recurring`
+   2. **Start**: Dagens datum
+   3. **Utför varje**: `12 Hours`
+   4. **Sluta**: Två dagar från dagens datum  
+      
       ![][recurrence-schedule]
-
-6.  Klicka på **Skapa**
+6. Klicka på **Skapa**
 
 ## Hantera och övervaka jobb
-
 När ett jobb har skapats visas det på den primära Azure-instrumentpanelen. Klicka på jobbet så öppnas ett nytt fönster med följande flikar:
 
-1.  Egenskaper  
-
-2.  Åtgärdsinställningar  
-
-3.  Schema  
-
-4.  Historik
-
-5.  Användare
-
-    ![][job-overview]
+1. Egenskaper  
+2. Åtgärdsinställningar  
+3. Schema  
+4. Historik
+5. Användare
+   
+   ![][job-overview]
 
 ### Egenskaper
-
 Dessa skrivskyddade egenskaper beskriver hanteringsmetadata för Scheduler-jobbet.
 
    ![][job-properties]
 
-
 ### Åtgärdsinställningar
-
 Om du klickar på ett jobb på skärmen **Jobb** kan du konfigurera jobbet. Du kan konfigurera avancerade inställningar om du inte konfigurerade dem i snabbregistreringsguiden.
 
 För alla åtgärdstyper kan du ändra återförsöksprincipen och felåtgärden.
@@ -98,7 +76,6 @@ För Service Bus-åtgärdstyper kan du ändra namnrymden, ämnes-/kösökvägen,
    ![][job-action-settings]
 
 ### Schema
-
 Här kan du konfigurera om schemat om du vill ändra schemat som du skapade i snabbregistreringsguiden.
 
 Här har du möjlighet att skapa [komplexa scheman och avancerad upprepning för jobbet](scheduler-advanced-complexity.md)
@@ -107,23 +84,16 @@ Du kan ändra startdatum och starttid, upprepningsschemat och slutdatumet och sl
 
    ![][job-schedule]
 
-
 ### Historik
-
 Fliken **Historik** innehåller utvalda mätvärden för varje jobbkörning i systemet för det valda jobbet. Dessa mätvärden är realtidsvärden som beskriver följande hälsoindikatorer i Scheduler:
 
-1.  Status  
-
-2.  Detaljer  
-
-3.  Antal återförsök
-
-4.  Förekomst: första, andra, tredje osv.
-
-5.  Starttid för körning  
-
-6.  Sluttid för körning
-
+1. Status  
+2. Detaljer  
+3. Antal återförsök
+4. Förekomst: första, andra, tredje osv.
+5. Starttid för körning  
+6. Sluttid för körning
+   
    ![][job-history]
 
 Du kan klicka på en körning om du vill visa  dess **historikinformation**, inklusive hela svaret för varje körning. I den här dialogrutan kan du också kopiera svaret till Urklipp.
@@ -131,12 +101,9 @@ Du kan klicka på en körning om du vill visa  dess **historikinformation**, ink
    ![][job-history-details]
 
 ### Användare
-
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure Scheduler. Information om hur du använder fliken Användare finns i [Rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-configure.md)
 
-
 ## Se även
-
  [Vad är Scheduler?](scheduler-intro.md)
 
  [Begrepp, terminologi och entitetshierarki relaterade till Scheduler](scheduler-concepts-terms.md)
@@ -154,7 +121,6 @@ Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkoms
  [Gränser, standardinställningar och felkoder i Scheduler](scheduler-limits-defaults-errors.md)
 
  [Utgående autentisering i Scheduler](scheduler-outbound-authentication.md)
-
 
 [marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
 [action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png

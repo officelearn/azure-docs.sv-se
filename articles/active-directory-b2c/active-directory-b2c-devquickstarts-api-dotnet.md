@@ -1,57 +1,51 @@
-<properties
-    pageTitle="Azure AD B2C | Microsoft Azure"
-    description="Hur du skapar ett .NET-webb-API med Azure Active Directory B2C som skyddas med hjälp av OAuth 2.0-åtkomsttoken för autentisering."
-    services="active-directory-b2c"
-    documentationCenter=".net"
-    authors="dstrockis"
-    manager="msmbaldwin"
-    editor=""/>
+---
+title: Azure AD B2C | Microsoft Docs
+description: Hur du skapar ett .NET-webb-API med Azure Active Directory B2C som skyddas med hjälp av OAuth 2.0-åtkomsttoken för autentisering.
+services: active-directory-b2c
+documentationcenter: .net
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="07/22/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 07/22/2016
+ms.author: dastrock
 
-
+---
 # Azure Active Directory B2C: Skapa ett .NET-webb-API
-
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Med Azure Active Directory (Active AD) B2C kan du skydda ett webb-API med hjälp av OAuth 2.0-åtkomsttoken. Med hjälp av dessa token kan dina klientappar som använder Azure AD B2C autentisera mot API:et. Den här artikeln visar hur du skapar ett .NET Model-View-Controller (MVC) API med "att göra-lista" som tillåter användare att utföra CRUD-uppgifter. Webb-API:t skyddas med hjälp av Azure AD B2C och tillåter endast autentiserade användare att hantera sina att göra-listor.
 
 ## Skapa en Azure AD B2C-katalog
-
 Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en behållare för alla användare, appar, grupper och mer. Om du inte redan har en B2C-katalog [skapar du en](active-directory-b2c-get-started.md) innan du fortsätter den här guiden.
 
 ## Skapa ett program
-
 Nu måste du skapa en app i B2C-katalogen. Det ger Azure AD den information som tjänsten behöver för att kommunicera säkert med din app. Du skapar en app genom att följa [dessa anvisningar](active-directory-b2c-app-registration.md). Se till att:
 
-- Lägga till en **webbapp** eller ett **webb-API** i programmet.
-- Använda **omdirigerings-URI:n** `https://localhost:44316/` för webbappen. Det här är standardplatsen för klienten för webbappen i det här kodexemplet.
-- Kopiera **program-ID:t** som har tilldelats din app. Du behöver det senare.
-
- [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+* Lägga till en **webbapp** eller ett **webb-API** i programmet.
+* Använda **omdirigerings-URI:n** `https://localhost:44316/` för webbappen. Det här är standardplatsen för klienten för webbappen i det här kodexemplet.
+* Kopiera **program-ID:t** som har tilldelats din app. Du behöver det senare.
+  
+  [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Skapa dina principer
-
 I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Klienten i det här kodexemplet innehåller tre identitetsmiljöer: registrering, inloggning och profilredigering. Du måste skapa en princip för varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Tänk på följande när du skapar dina tre principer:
 
-- Välj antingen **Registrering med användar-ID** eller **Registrering med e-postadress** i bladet för identitetsproviders.
-- Välj **Visningsnamn** och andra registreringsattribut i registreringsprincipen.
-- Välj **Visningsnamn** och **Objekt-ID** som programanspråk för varje princip. Du kan också välja andra anspråk.
-- Kopiera **namnet** på varje princip när du har skapat dem. Du behöver principnamnen senare.
+* Välj antingen **Registrering med användar-ID** eller **Registrering med e-postadress** i bladet för identitetsproviders.
+* Välj **Visningsnamn** och andra registreringsattribut i registreringsprincipen.
+* Välj **Visningsnamn** och **Objekt-ID** som programanspråk för varje princip. Du kan också välja andra anspråk.
+* Kopiera **namnet** på varje princip när du har skapat dem. Du behöver principnamnen senare.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 När du har skapat de tre principerna är du redo att bygga din app.
 
 ## Ladda ned koden
-
 Koden för den här självstudiekursen [finns på GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Om du vill bygga exemplet allteftersom kan du [ladda ned stommen av ett projekt som en ZIP-fil](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Du kan också klona stommen:
 
 ```
@@ -63,7 +57,6 @@ Den färdiga appen finns också [som en ZIP-fil](https://github.com/AzureADQuick
 När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Lösningsfilen innehåller två projekt: `TaskWebApp` och `TaskService`. `TaskWebApp` är en MVC-webbapp som användaren interagerar med. `TaskService` är appens backend-webb-API som lagrar varje användares att göra-lista.
 
 ## Konfigurera webbappen för att göra-listan
-
 När en användare interagerar med `TaskWebApp` skickar klienten förfrågningar till Azure AD och hämtar tillbaka token som kan användas för att anropa `TaskService`-webb-API:et. För att logga in användaren och hämta token måste du ge `TaskWebApp` en del information om din app. I `TaskWebApp`-projektet öppnar du `web.config`-filen i roten av projektet och ersätter värdena i `<appSettings>`-avsnittet.  Du kan lämna värdena `AadInstance`, `RedirectUri` och `TaskServiceUrl` som de är.
 
 ```
@@ -86,7 +79,6 @@ När en användare interagerar med `TaskWebApp` skickar klienten förfrågningar
 Den här artikeln tar inte upp hur man bygger `TaskWebApp`-klienten.  Om du vill veta hur du skapar en webbapp med Azure AD B2C finns [våra webbappsjälvstudier för .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Skydda API:et
-
 När en klient anropar API:et för användarnas räkning kan du skydda `TaskService` genom att använda OAuth 2.0-ägartoken. API:et kan acceptera och validera token med hjälp av Microsofts OWIN-bibliotek (Open Web Interface för .NET).
 
 ### Installera OWIN
@@ -118,7 +110,6 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 
 ### Lägga till en OWIN-startklass
 Lägg till en OWIN-startklass i `TaskService`-projektet med namnet `Startup.cs`.  Högerklicka på projektet, välj **Lägg till** och **Nytt objekt** och sök sedan efter OWIN.
-
 
 ```C#
 // Startup.cs
@@ -203,11 +194,9 @@ public IEnumerable<Models.Task> Get()
 ```
 
 ## Kör exempelappen
-
 Slutligen bygger du och kör både `TaskWebApp` och `TaskService`. Registrera dig för appen med en e-postadress eller ett användarnamn. Skapa några uppgifter i användarens att göra-lista och notera hur de finns kvar i API:et även om du stoppar och startar om klienten.
 
 ## Redigera dina principer
-
 När du har skyddat ett API med hjälp av Azure AD B2C kan du experimentera med appens principer och se effekterna (eller avsaknaden av dem) på API:et. Du kan manipulera programanspråken i principerna och ändra användarinformationen som är tillgänglig i webb-API:et. Eventuella anspråk som du lägger till är tillgängliga för det .NET MVC-baserade webb-API:et i `ClaimsPrincipal`-objektet på det sätt som beskrivits tidigare i den här artikeln.
 
 <!--

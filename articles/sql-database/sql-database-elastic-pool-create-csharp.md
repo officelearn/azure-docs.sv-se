@@ -1,48 +1,47 @@
-<properties
-    pageTitle="Skapa en elastisk databaspool med C# | Microsoft Azure"
-    description="Använd utvecklingstekniker för C#-databaser, för att skapa en skalbar elastisk databaspool i Azure SQL Database så att du kan dela resurser över flera databaser."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: Skapa en elastisk databaspool med C# | Microsoft Docs
+description: Använd utvecklingstekniker för C#-databaser, för att skapa en skalbar elastisk databaspool i Azure SQL Database så att du kan dela resurser över flera databaser.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="csharp"
-    ms.workload="data-management"
-    ms.date="10/04/2016"
-    ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: csharp
+ms.workload: data-management
+ms.date: 10/04/2016
+ms.author: sstein
 
-
+---
 # Skapa en elastisk databaspool med C&#x23;
-
-> [AZURE.SELECTOR]
-- [Azure Portal](sql-database-elastic-pool-create-portal.md)
-- [PowerShell](sql-database-elastic-pool-create-powershell.md)
-- [C#](sql-database-elastic-pool-create-csharp.md)
-
+> [!div class="op_single_selector"]
+> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
+> * [PowerShell](sql-database-elastic-pool-create-powershell.md)
+> * [C#](sql-database-elastic-pool-create-csharp.md)
+> 
+> 
 
 Den här artikeln beskriver hur du använder C# för att skapa en elastisk databaspool i Azure SQL med [Azure SQL Database-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Om du vill skapa en fristående SQL-databas läser du [Använda C# för att skapa en SQL-databas med SQL Database-biblioteket för .NET](sql-database-get-started-csharp.md).
 
 Azure SQL Database-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
->[AZURE.NOTE] Flera nya funktioner i SQL Database stöds bara när du använder [distributionsmodellen Azure Resource Manager](../resource-group-overview.md) så du bör alltid använda det senaste **Azure SQL Database Management-biblioteket för .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De äldre [klassiska distributionsmodellbaserade biblioteken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) stöds enbart för bakåtkompatibilitet så det rekommenderas att du använder de nyare Resource Manager-baserade biblioteken.
+> [!NOTE]
+> Flera nya funktioner i SQL Database stöds bara när du använder [distributionsmodellen Azure Resource Manager](../resource-group-overview.md) så du bör alltid använda det senaste **Azure SQL Database Management-biblioteket för .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De äldre [klassiska distributionsmodellbaserade biblioteken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) stöds enbart för bakåtkompatibilitet så det rekommenderas att du använder de nyare Resource Manager-baserade biblioteken.
+> 
+> 
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-- En Azure-prenumeration. Om du behöver en Azure-prenumeration klickar du bara på **KOSTNADSFRITT KONTO** överst på sidan och går tillbaka till den här artikeln efteråt.
-- Visual Studio. För en kostnadsfri version av Visual Studio, kan du gå till sidan [Visual Studio-hämtningar](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-
+* En Azure-prenumeration. Om du behöver en Azure-prenumeration klickar du bara på **KOSTNADSFRITT KONTO** överst på sidan och går tillbaka till den här artikeln efteråt.
+* Visual Studio. För en kostnadsfri version av Visual Studio, kan du gå till sidan [Visual Studio-hämtningar](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Skapa en konsolapp och installera nödvändiga bibliotek
-
 1. Starta Visual Studio.
 2. Klicka på **Arkiv** > **Nytt** > **Projekt**.
 3. Skapa ett C#-baserat **konsolprogram** och ge det namnet *SqlElasticPoolConsoleApp*
-
 
 Skapa en SQL-databas med C# genom att läsa in nödvändiga hanteringsbibliotek (med hjälp av [Package Manager-konsolen](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
@@ -51,17 +50,15 @@ Skapa en SQL-databas med C# genom att läsa in nödvändiga hanteringsbibliotek 
 3. Installera [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) genom att skriva `Install-Package Microsoft.Azure.Management.ResourceManager –Pre`.
 4. Installera [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication) genom att skriva `Install-Package Microsoft.Azure.Common.Authentication –Pre`. 
 
-
-
-> [AZURE.NOTE] Exemplen i den här artikeln använder en synkron form av varje API-begäran och blockerar tills REST-anropet på den underliggande tjänsten har slutförts. Det finns asynkrona metoder tillgängliga.
-
+> [!NOTE]
+> Exemplen i den här artikeln använder en synkron form av varje API-begäran och blockerar tills REST-anropet på den underliggande tjänsten har slutförts. Det finns asynkrona metoder tillgängliga.
+> 
+> 
 
 ## Skapa en elastisk SQL-databaspool – C#-baserat exempel
-
 I följande exempel skapas en resursgrupp, server, brandväggsregel, elastisk pool och sedan en SQL-databas i poolen. Information om hur du hämtar `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`-variablerna finns i [Skapa ett tjänstobjekt för att komma åt resurser](#create-a-service-principal-to-access-resources).
 
 Ersätt innehållet i **Program.cs** med följande och uppdatera `{variables}` med dina appvärden (utelämna `{}`).
-
 
 ```
 using Microsoft.Azure;
@@ -258,63 +255,57 @@ namespace SqlElasticPoolConsoleApp
 
 
 ## Skapa ett tjänstobjekt för att komma åt resurser
-
 Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänstobjektet som vi behöver för att autentisera vår C#-app. Skriptet matar ut värden som vi behöver för det föregående C#-exemplet. Detaljerad information finns i [Skapa ett tjänstobjekt med Azure PowerShell för att komma åt resurser](../resource-group-authenticate-service-principal.md).
 
-   
     # Sign in to Azure.
     Add-AzureRmAccount
-    
+
     # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
     #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
     #Set-AzureRmContext -SubscriptionId $subscriptionId
-    
+
     # Provide these values for your new AAD app.
     # $appName is the display name for your app, must be unique in your directory.
     # $uri does not need to be a real uri.
     # $secret is a password you create.
-    
+
     $appName = "{app-name}"
     $uri = "http://{app-name}"
     $secret = "{app-password}"
-    
+
     # Create a AAD app
     $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
-    
+
     # Create a Service Principal for the app
     $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-    
+
     # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
     Start-Sleep -s 15
-    
+
     # If you still get a PrincipalNotFound error, then rerun the following until successful. 
     $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-    
-    
+
+
     # Output the values we need for our C# application to successfully authenticate
-    
+
     Write-Output "Copy these values into the C# sample app"
-    
+
     Write-Output "_subscriptionId:" (Get-AzureRmContext).Subscription.SubscriptionId
     Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
     Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
     Write-Output "_applicationSecret:" $secret
 
 
-  
+
 
 ## Nästa steg
-
-- [Hantera din pool](sql-database-elastic-pool-manage-csharp.md)
-- [Skapa elastiska jobb](sql-database-elastic-jobs-overview.md): Elastiska jobb låter dig köra T-SQL-skript mot valfritt antal databaser i en pool.
-- [Skala ut med Azure SQL Database](sql-database-elastic-scale-introduction.md): Använd elastisk databasverktyg för att skala ut.
+* [Hantera din pool](sql-database-elastic-pool-manage-csharp.md)
+* [Skapa elastiska jobb](sql-database-elastic-jobs-overview.md): Elastiska jobb låter dig köra T-SQL-skript mot valfritt antal databaser i en pool.
+* [Skala ut med Azure SQL Database](sql-database-elastic-scale-introduction.md): Använd elastisk databasverktyg för att skala ut.
 
 ## Ytterligare resurser
-
-- [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Azure Resource Manager API:er](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-
+* [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+* [Azure Resource Manager API:er](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 <!--HONumber=Oct16_HO3-->
 

@@ -1,37 +1,36 @@
-<properties
-    pageTitle="Skapa ett Azure Search-index med REST-API:et | Microsoft Azure | Värdbaserad söktjänst i molnet"
-    description="Skapa ett index med kod med hjälp av HTTP REST-API:et för Azure Search."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-    manager=""
-    editor=""
-    tags="azure-portal"/>
+---
+title: Skapa ett Azure Search-index med REST-API:et | Microsoft Docs
+description: Skapa ett index med kod med hjälp av HTTP REST-API:et för Azure Search.
+services: search
+documentationcenter: ''
+author: ashmaka
+manager: ''
+editor: ''
+tags: azure-portal
 
-<tags
-    ms.service="search"
-    ms.devlang="rest-api"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Skapa ett Azure Search-index med hjälp av REST-API:et
-> [AZURE.SELECTOR]
-- [Översikt](search-what-is-an-index.md)
-- [Portalen](search-create-index-portal.md)
-- [.NET](search-create-index-dotnet.md)
-- [REST](search-create-index-rest-api.md)
-
+> [!div class="op_single_selector"]
+> * [Översikt](search-what-is-an-index.md)
+> * [Portalen](search-create-index-portal.md)
+> * [.NET](search-create-index-dotnet.md)
+> * [REST](search-create-index-rest-api.md)
+> 
+> 
 
 Den här artikeln beskriver steg för steg hur du skapar ett Azure Search-[index](https://msdn.microsoft.com/library/azure/dn798941.aspx) med hjälp av REST-API:et för Azure Search.
 
 Innan du följer den här guiden och skapar ett index bör du redan ha [skapat en Azure Search-tjänst](search-create-service-portal.md).
 
 Om du vill skapa ett Azure Search-index med hjälp av REST-API:et skickar du en enkel HTTP POST-begäran till slutpunkten i Azure Search-tjänstens URL. Din indexdefinition finns i begärandetexten i form av välstrukturerat JSON-innehåll.
-
 
 ## I. Identifiera Azure Search-tjänstens API-administratörsnyckel
 Nu när du har etablerat en Azure Search-tjänst kan du skicka HTTP-förfrågningar mot din tjänsts URL-slutpunkt med hjälp av REST-API:et. *Alla* API-förfrågningar måste dock innehålla API-nyckeln som genererades för Search-tjänsten som du etablerade. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
@@ -42,8 +41,8 @@ Nu när du har etablerat en Azure Search-tjänst kan du skicka HTTP-förfrågnin
 
 Tjänsten har *administratörsnycklar* och *frågenycklar*.
 
- - Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
- - Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
+* Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
+* Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
 
 Du kan använda antingen en primär eller sekundär administrationsnyckel när du skapar ett index.
 
@@ -87,9 +86,7 @@ Indexdefinitionen ovan använder ett anpassat språkanalysverktyg för fältet `
 1. Använd indexdefinitionen som begärandetext och skicka en HTTP POST-begäran till URL:en för Azure Search-tjänstens slutpunkt. I URL:en använder du tjänstnamnet som värdnamn och placerar rätt `api-version` som en frågesträngsparameter (den aktuella API-versionen är `2015-02-28` vid tidpunkten för publiceringen av det här dokumentet).
 2. I huvudena för begäran anger du `Content-Type` som `application/json`. Du måste också ange tjänstens administratörsnyckel som du identifierade i steg I i `api-key`-huvudet.
 
-
 Du måste ange ditt eget tjänstnamn och din egen API-nyckel för att skicka begäran nedan:
-
 
     POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
     Content-Type: application/json
@@ -106,8 +103,6 @@ När du är klar med ett index och vill ta bort det skickar du bara en HTTP DELE
 
 ## Nästa
 När du har skapat ett Azure Search-index är det dags att [ladda upp innehållet till indexet](search-what-is-data-import.md) så att du kan börja söka efter data.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

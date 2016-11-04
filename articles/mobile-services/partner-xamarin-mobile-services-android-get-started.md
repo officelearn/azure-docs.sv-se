@@ -1,29 +1,32 @@
-<properties
-    pageTitle="Komma igång med Mobile Services för Xamarin.Android | Microsoft Azure"
-    writer="craigd"
-    description="Läs om hur du använder Azure Mobile Services med din Xamarin.Android app-app."
-    documentationCenter="xamarin"
-    authors="lindydonna"
-    manager="dwrede"
-    editor=""
-    services="mobile-services"/>
+---
+title: Komma igång med Mobile Services för Xamarin.Android | Microsoft Docs
+writer: craigd
+description: Läs om hur du använder Azure Mobile Services med din Xamarin.Android app-app.
+documentationcenter: xamarin
+author: lindydonna
+manager: dwrede
+editor: ''
+services: mobile-services
 
-<tags
-    ms.service="mobile-services"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-xamarin-android"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="07/21/2016"
-    ms.author="donnam"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-xamarin-android
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 07/21/2016
+ms.author: donnam
 
+---
 # <a name="getting-started"></a>Komma igång med Mobile Services
+[!INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Motsvarande avsnitt för Mobile Apps finns i [Skapa en Xamarin.Android-app](../app-service-mobile/app-service-mobile-xamarin-android-get-started.md).
+> 
+> 
 
 Den här kursen visar hur du lägger till en molnbaserad serverdelstjänst för en Xamarin.Android-app med Azure Mobile Services. I kursen får du skapa både en ny mobiltjänst och en enkel *To do list*-app (att göra-lista) som lagrar appdata i den nya mobiltjänsten.
 
@@ -31,7 +34,9 @@ Om du vill kan du titta på videoklippet i stället. Det visar samma steg som ku
 
 Video: "Getting Started with Xamarin and Azure Mobile Services" med Craig Dunn, developer evangelist för Xamarin  (varaktighet: 10:05 min)
 
-> [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services/player]
+> 
+> 
 
 En skärmbild från den färdiga appen:
 
@@ -41,75 +46,69 @@ Den här kursen kräver XCode och Xamarin Studio för OS X eller Visual Studio i
 
 Det nedladdade exempelprojektet innehåller Azure Mobile Services-komponenten för Xamarin.Android. Målversionen för det här projektet är Android 4.2 eller senare, men för Mobile Services SDK krävs bara Android 2.2 eller senare.
 
-> [AZURE.IMPORTANT] Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
+> [!IMPORTANT]
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till 10 mobiltjänster utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
+> 
+> 
 
 ## <a name="create-new-service"> </a>Skapa en ny mobiltjänst
-
-[AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
+[!INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
 ## Skapa en ny Xamarin.Android-app
-
 När du har skapat din mobiltjänst finns en snabbstartsguide i den klassiska Azure Portal om hur du skapar en ny app eller ändrar en befintlig app som är ansluten till mobiltjänsten.
 
 I det här avsnittet skapar du en ny Xamarin.Android-app som är ansluten till din mobiltjänst.
 
-1.  Gå till den [Klassisk Azure-portal], klicka på **Mobile Services** och sedan på den mobiltjänst som du nyss skapade.
-
+1. Gå till den [Klassisk Azure-portal], klicka på **Mobile Services** och sedan på den mobiltjänst som du nyss skapade.
 2. Välj snabbstartsfliken, klicka på **Xamarin.Android** under **Choose platform** (Välj plattform) och expandera **Create a new Android app** (Skapa ny Android-app).
-
+   
     ![][6]
-
+   
     Därmed visas tre enkla steg för att skapa en Xamarin.Android-app som är ansluten till din mobiltjänst.
-
+   
     ![][7]
-
 3. Klicka på **Create TodoItem table** (Skapa ToDoItem-tabell) för att skapa en tabell för lagring av appdata.
-
 4. Klicka på **Download** (Ladda ned) under **Download and run app** (Ladda ned och kör app).
-
-    Projektet för _To do list_-appen som är ansluten till din mobiltjänst laddas ned. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
+   
+    Projektet för *To do list*-appen som är ansluten till din mobiltjänst laddas ned. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
 
 ## Köra Android-appen
-
 Det sista steget i den här kursen är att skapa och köra den nya appen.
 
 1. Bläddra till den plats där du sparade de komprimerade projektfilerna och expandera filerna på datorn.
-
 2. Klicka på **File** (Fil) i Xamarin Studio eller Visual Studio och sedan på **Open** (Öppna), navigera till de okomprimerade exempelfilerna och välj **XamarinTodoQuickStart.Android.sln** för att öppna filen.
-
 3. Tryck på **Run** (Kör) för att skapa projektet och starta appen. Du blir ombedd att välja en emulator eller en ansluten USB-enhet.
-
-    > [AZURE.NOTE] För att kunna köra projektet i Android-emulatorn måste du definiera minst en Android Virtual Device (AVD). Du kan skapa och hantera dessa enheter med AVD Manager.
-
-4. Ange en beskrivande text i appen, till exempel om att _slutföra kursen_, och klicka sedan på **Add** (Lägg till).
-
+   
+   > [!NOTE]
+   > För att kunna köra projektet i Android-emulatorn måste du definiera minst en Android Virtual Device (AVD). Du kan skapa och hantera dessa enheter med AVD Manager.
+   > 
+   > 
+4. Ange en beskrivande text i appen, till exempel om att *slutföra kursen*, och klicka sedan på **Add** (Lägg till).
+   
     ![][10]
-
+   
     Därmed skickas en POST-begäran till den nya mobiltjänsten som finns på Azure. Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobiltjänsten och data visas i listan.
-
-    > [AZURE.NOTE]
-    > Du kan granska koden som ansluter till mobiltjänsten för att fråga efter och infoga data som finns i C#-filen ToDoActivity.cs.
-
-6. Gå till den [Klassisk Azure-portal], välj fliken **Data** och klicka sedan på tabellen **TodoItems**.
-
+   
+   > [!NOTE]
+   > Du kan granska koden som ansluter till mobiltjänsten för att fråga efter och infoga data som finns i C#-filen ToDoActivity.cs.
+   > 
+   > 
+5. Gå till den [Klassisk Azure-portal], välj fliken **Data** och klicka sedan på tabellen **TodoItems**.
+   
     ![][11]
-
+   
     Nu kan du bläddra bland de data som infogats i tabellen via appen.
-
+   
     ![][12]
 
 ## <a name="next-steps"> </a>Nästa steg
 Nu när du har slutfört snabbstartskursen kan du gå vidare och lära dig hur du utför fler viktiga uppgifter i Mobile Services:
 
 * [Komma igång med datasynkronisering offline] Läs om hur du kan använda datasynkronisering offline för att ge appen kortare svarstid och göra den mer robust. 
-
 * [Komma igång med autentisering] Läs om hur du autentiserar användare i appen med en identitetsprovider.
-
 * [Komma igång med push-meddelanden] Läs om hur du skickar grundläggande push-meddelanden till appen.
 
-
-
-[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+[!INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Komma igång med Mobile Services]:#getting-started

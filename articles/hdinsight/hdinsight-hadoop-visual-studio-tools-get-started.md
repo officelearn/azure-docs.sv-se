@@ -1,88 +1,92 @@
-<properties
-    pageTitle="Lär dig använda Visual Studio Hadoop-verktyg för HDInsight | Microsoft Azure"
-    description="Få reda på hur du installerar och använder Visual Studio Hadoop-verktygen för HDInsight för att ansluta till ett Hadoop-kluster och köra en Hive-fråga."
-    keywords="hadoop-verktyg, hive-fråga, visual studio"
-    services="HDInsight"
-    documentationCenter=""
-    tags="azure-portal"
-    authors="mumian"
-    manager="paulettm"
-    editor="cgronlun"/>
+---
+title: Lär dig använda Visual Studio Hadoop-verktyg för HDInsight | Microsoft Docs
+description: Få reda på hur du installerar och använder Visual Studio Hadoop-verktygen för HDInsight för att ansluta till ett Hadoop-kluster och köra en Hive-fråga.
+keywords: hadoop-verktyg, hive-fråga, visual studio
+services: HDInsight
+documentationcenter: ''
+tags: azure-portal
+author: mumian
+manager: paulettm
+editor: cgronlun
 
-<tags
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="08/10/2016"
-    ms.author="jgao"/>
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 08/10/2016
+ms.author: jgao
 
+---
 # Kom igång med Visual Studio Hadoop-verktygen för HDInsight för att köra en Hive-fråga
-
 Lär dig hur du använder HDInsight-verktyg för Visual Studio för att ansluta till HDInsight-kluster och skicka Hive-frågor. Mer information om hur du använder HDInsight finns i [Introduktion till HDInsight][hdinsight.introduction] och [Komma igång med HDInsight][hdinsight.get.started]. Mer information om hur du ansluter till ett Storm-kluster finns i[Utveckla C#-topologier för Apache Storm på HDInsight med Visual Studio][hdinsight.storm.visual.studio.tools].
 
 **Krav**
 
 För att genomföra de här självstudierna och använda Hadoop-verktygen i Visual Studio behöver du följande:
 
-- Ett Azure HDInsight-kluster: Anvisningarna i det här dokumentet fungerar för både Linux- och Windows-baserade kluster. Läs om hur du skapar ett kluster i någon av följande artiklar:
-
-    - [Komma igång med att använda Linux-baserat HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
-    - [Komma igång med att använda Windows-baserat HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)
-
-- En arbetsstation med följande programvara:
-
-    - Windows 8.1, Windows 8 eller Windows 7
-    - Visual Studio (någon av följande versioner):
-        - Visual Studio Community 2013/Professional/Premium/Ultimate med [uppdatering 4](https://www.microsoft.com/download/details.aspx?id=44921)
-        - Visual Studio 2015 (Community/Enterprise)
-
-    >[AZURE.NOTE] HDInsight-verktyget för Visual Studio medföljer för närvarande endast i den engelska versionen.
-
+* Ett Azure HDInsight-kluster: Anvisningarna i det här dokumentet fungerar för både Linux- och Windows-baserade kluster. Läs om hur du skapar ett kluster i någon av följande artiklar:
+  
+  * [Komma igång med att använda Linux-baserat HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+  * [Komma igång med att använda Windows-baserat HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)
+* En arbetsstation med följande programvara:
+  
+  * Windows 8.1, Windows 8 eller Windows 7
+  * Visual Studio (någon av följande versioner):
+    
+    * Visual Studio Community 2013/Professional/Premium/Ultimate med [uppdatering 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    * Visual Studio 2015 (Community/Enterprise)
+    
+    > [!NOTE]
+    > HDInsight-verktyget för Visual Studio medföljer för närvarande endast i den engelska versionen.
+    > 
+    > 
 
 ## Installera HDInsight-verktyg för Visual Studio
-
 HDInsight-verktygen för Visual Studio och Microsoft Hive ODBC-drivrutinen är paketerade med Microsoft Azure SDK för .NET-version 2.5.1 eller senare. Du kan installera dem med hjälp av [installationsprogrammet för webbplattformen](http://go.microsoft.com/fwlink/?LinkId=255386). Du måste välja det alternativ som matchar din version av Visual Studio. Om du inte har Visual Studio installerat kan du installera de senaste versionerna av Visual Studio Community och Azure SDK med hjälp av [installationsprogrammet för webbplattformen](http://go.microsoft.com/fwlink/?LinkId=255386) eller via följande länkar:
 
-- [Visual Studio Community 2015 med Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids)
-- [Visual Studio Community 2013 med Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids)
-- [Microsoft Azure SDK för .NET (VS 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids)
-- [Microsoft Azure SDK för .NET (VS 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids)
+* [Visual Studio Community 2015 med Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids)
+* [Visual Studio Community 2013 med Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids)
+* [Microsoft Azure SDK för .NET (VS 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids)
+* [Microsoft Azure SDK för .NET (VS 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids)
 
 ![Hadoop-verktyg: HDInsight-verktyg för installationsprogrammet för Visual Studio-webbplattformen.][1]
 
 ## Ansluta till Azure-prenumerationer
 Med HDInsight-verktyg för Visual Studio kan du ansluta till dina HDInsight-kluster, utföra vissa grundläggande hanteringsåtgärder och köra Hive-frågor.
 
->[AZURE.NOTE] Information om hur du ansluter till ett allmänt Hadoop-kluster finns i [Skriva och skicka Hive-frågor med Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
-
+> [!NOTE]
+> Information om hur du ansluter till ett allmänt Hadoop-kluster finns i [Skriva och skicka Hive-frågor med Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+> 
+> 
 
 **Så här ansluter du till din Azure-prenumeration**
 
-1.  Öppna Visual Studio.
-2.  Klicka på **Server Explorer** på menyn **Visa** för att öppna Server Explorer-fönstret.
-3.  Expandera **Azure** och expandera därefter **HDInsight**.
-
-    >[AZURE.NOTE]Notera att fönstret **Uppgiftslista för HDInsight** ska vara öppet. Om du inte ser det klickar du på **Andra fönster** på menyn **Visa** och klickar sedan på **Fönster för uppgiftslista för HDInsight**.  
-4.  Ange autentiseringsuppgifterna för din Azure-prenumeration och klicka sedan på **Logga In**. Detta behöver du endast göra om du aldrig har anslutit till Azure-prenumerationen från Visual Studio på den här arbetsstationen.
-5.  I Server Explorer kan du se en lista över befintliga HDInsight-kluster. Om du inte har några kluster kan du etablera ett med hjälp av Azure-portalen, Azure PowerShell eller HDInsight SDK. Mer information finns i [Etablera HDInsight-kluster][hdinsight-provision].
-
-    ![Hadoop-verktyg: HDInsight-verktyg för Server Explorer-klusterlista i Visual Studio][5]
-6.  Expandera ett HDInsight-kluster. Du kommer att se **Hive-databaser**, ett standardkonto för lagring, länkade lagringskonton och **loggen för Hadoop-tjänsten**. Du kan expandera entiteterna ytterligare.
+1. Öppna Visual Studio.
+2. Klicka på **Server Explorer** på menyn **Visa** för att öppna Server Explorer-fönstret.
+3. Expandera **Azure** och expandera därefter **HDInsight**.
+   
+   > [!NOTE]
+   > Notera att fönstret **Uppgiftslista för HDInsight** ska vara öppet. Om du inte ser det klickar du på **Andra fönster** på menyn **Visa** och klickar sedan på **Fönster för uppgiftslista för HDInsight**.  
+   > 
+   > 
+4. Ange autentiseringsuppgifterna för din Azure-prenumeration och klicka sedan på **Logga In**. Detta behöver du endast göra om du aldrig har anslutit till Azure-prenumerationen från Visual Studio på den här arbetsstationen.
+5. I Server Explorer kan du se en lista över befintliga HDInsight-kluster. Om du inte har några kluster kan du etablera ett med hjälp av Azure-portalen, Azure PowerShell eller HDInsight SDK. Mer information finns i [Etablera HDInsight-kluster][hdinsight-provision].
+   
+   ![Hadoop-verktyg: HDInsight-verktyg för Server Explorer-klusterlista i Visual Studio][5]
+6. Expandera ett HDInsight-kluster. Du kommer att se **Hive-databaser**, ett standardkonto för lagring, länkade lagringskonton och **loggen för Hadoop-tjänsten**. Du kan expandera entiteterna ytterligare.
 
 När du har anslutit till din Azure-prenumeration kommer du att kunna göra följande:
 
 **Så här ansluter du till Azure-portalen från Visual Studio**
 
-- I Server Explorer expanderar du **Azure** > **HDInsight**, högerklickar på ett HDInsight-kluster och klickar sedan på **Hantera kluster i Azure-portalen**.
+* I Server Explorer expanderar du **Azure** > **HDInsight**, högerklickar på ett HDInsight-kluster och klickar sedan på **Hantera kluster i Azure-portalen**.
 
 **Så här ställer du frågor och ger feedback från Visual Studio**
 
-- Klicka på **HDInsight** på menyn **Verktyg** och klicka sedan på **MSDN-forum** för att ställa frågor, eller klicka på **Ge feedback**.
+* Klicka på **HDInsight** på menyn **Verktyg** och klicka sedan på **MSDN-forum** för att ställa frågor, eller klicka på **Ge feedback**.
 
 ## Navigera till de länkade resurserna
-
 Från Server Explorer kan du se standardkontot för lagring och eventuella länkade lagringskonton. Om du expanderar standardkontot för lagring kan du se behållarna på lagringskontot. Standardlagringskontot och standardbehållaren är markerade. Du kan också högerklicka på någon av behållarna för att visa innehållet.
 
 ![Klusterlista i Server Explorer för HDInsight-verktyg för Visual Studio][2]
@@ -90,7 +94,6 @@ Från Server Explorer kan du se standardkontot för lagring och eventuella länk
 När du har öppnat en behållare kan du använda följande knappar för att överföra, ta bort och hämta blobar:
 
 ![Bloboperationer i Server Explorer för HDInsight-verktyg för Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
-
 
 ## Köra en Hive-fråga
 [Apache Hive][apache.hive] är en datalagerinfrastruktur som bygger på Hadoop och som används för att tillhandahålla datasammanfattning, frågor och analys. HDInsight-verktyg för Visual Studio stöder körning av Hive-frågor från Visual Studio. Mer information om Hive finns i [Använda Hive med HDInsight][hdinsight.hive].
@@ -102,21 +105,18 @@ Med HDInsight-verktyg för Visual Studio kan användarna också se vad som finns
 ### Visa **hivesampletable**
 Alla HDInsight-kluster har en Hive-exempeltabell med namnet *hivesampletable*. Vi använder denna tabell för att visa dig hur du listar Hive-tabeller, visar tabellscheman och listar raderna i Hive-tabellen.
 
-
-
 **Så här listar du Hive-tabeller och visar ett Hive-tabellschema**
 
-1.  Om du vill visa tabellschemat går du till **Server Explorer** och expanderar **Azure** > **HDInsight** > valfritt kluster > **Hive-databaser** > **Standard** > **hivesampletable**.
-4.  Högerklicka på **hivesampletable** och klicka sedan på **Visa de 100 översta raderna** för att lista raderna. Det motsvarar att köra följande Hive-fråga med hjälp av ODBC-drivrutinen:
-
-        SELECT * FROM hivesampletable LIMIT 100
-
-    Du kan anpassa antalet rader.
-
-    ![Hadoop-verktyg: HDInsight Hive Visual Studio-schemafråga][6]
+1. Om du vill visa tabellschemat går du till **Server Explorer** och expanderar **Azure** > **HDInsight** > valfritt kluster > **Hive-databaser** > **Standard** > **hivesampletable**.
+2. Högerklicka på **hivesampletable** och klicka sedan på **Visa de 100 översta raderna** för att lista raderna. Det motsvarar att köra följande Hive-fråga med hjälp av ODBC-drivrutinen:
+   
+       SELECT * FROM hivesampletable LIMIT 100
+   
+   Du kan anpassa antalet rader.
+   
+   ![Hadoop-verktyg: HDInsight Hive Visual Studio-schemafråga][6]
 
 ### Skapa Hive-tabeller
-
 Du kan använda det grafiska användargränssnittet för att skapa en Hive-tabell eller använda Hive-frågor. Information om hur du använder Hive-frågor finns i [Köra Hive-frågor](#run.queries).
 
 **Så här skapar du en Hive-tabell**
@@ -124,51 +124,50 @@ Du kan använda det grafiska användargränssnittet för att skapa en Hive-tabel
 1. Gå till **Server Explorer** och expandera **Azure** > **HDInsight-kluster** ett HDInsight-kluster > **Hive-databaser** och högerklicka sedan på **Standard** och klicka på **Skapa tabell**.
 2. Konfigurera tabellen.
 3. Klicka på **Skapa tabell** för att skicka jobbet som skapar den nya Hive-tabellen.
-
+   
     ![Hadoop-verktyg: hdinsight visual studio tools, skapa Hive-tabell][7]
 
 ### <a name="run.queries"></a>Validera och köra Hive-frågor
 Det finns två sätt att skapa och köra Hive-frågor:
 
-- Skapa ad hoc-frågor
-- Skapa ett Hive-program
+* Skapa ad hoc-frågor
+* Skapa ett Hive-program
 
 **Så här skapar, validerar och kör du ad hoc-frågor**
 
 1. Gå till **Server Explorer**, expandera **Azure** och expandera sedan **HDInsight-kluster**.
 2. Högerklicka på det kluster där du vill köra frågan och klicka sedan på **Skriv en Hive-fråga**.
 3. Ange Hive-frågorna. Notera att Hive-redigeraren stöder IntelliSense. HDInsight-verktyg för Visual Studio stöder inläsning av fjärrmetadata när du redigerar ditt Hive-skript. Om du till exempel skriver "SELECT * FROM" visar IntelliSense en lista över alla föreslagna tabellnamn. När du anger ett tabellnamn visar IntelliSense en lista över kolumnnamnen. Verktyget stöder nästan alla Hive DML-instruktioner, underfrågor och inbyggda UDF.
-
+   
     ![Hadoop-verktyg: HDInsight Visual Studio Tools IntelliSense][13]
-
+   
     ![Hadoop-verktyg: HDInsight Visual Studio Tools IntelliSense][14]
-
-    > [AZURE.NOTE] Endast metadata för kluster som valts i verktygsfältet för HDInsight föreslås.
+   
+   > [!NOTE]
+   > Endast metadata för kluster som valts i verktygsfältet för HDInsight föreslås.
+   > 
+   > 
 4. (Valfritt): Klicka på **Validera skriptet** för att kontrollera om det finns syntaxfel i skriptet.
-
+   
     ![Hadoop-verktyg: hdinsight-verktyg för lokal Visual Studio-validering][10]
-
-4. Klicka på **Skicka** eller **Skicka (avancerat)**. Med det avancerade alternativet för att skicka konfigurerar du **Jobbnamn**, **Argument**, **Ytterligare konfigurationer** och **Statuskatalog** för skriptet:
-
+5. Klicka på **Skicka** eller **Skicka (avancerat)**. Med det avancerade alternativet för att skicka konfigurerar du **Jobbnamn**, **Argument**, **Ytterligare konfigurationer** och **Statuskatalog** för skriptet:
+   
     ![hdinsight hadoop hive-fråga][9]
-
+   
     När du har skickat jobbet visas fönstret **Hive-jobbsammanfattning**.
-
+   
     ![Sammanfattning av en HDInsight Hadoop Hive-fråga][8]
-5. Du kan använda knappen **Uppdatera** för att uppdatera statusen tills jobbets status har ändrats till **Slutfört**.
-6. Klicka på länkarna längst ned om du vill visa följande: **Jobbfråga**, **Jobbutdata**, **Jobblogg** eller **Yarn-logg**.
-
-
+6. Du kan använda knappen **Uppdatera** för att uppdatera statusen tills jobbets status har ändrats till **Slutfört**.
+7. Klicka på länkarna längst ned om du vill visa följande: **Jobbfråga**, **Jobbutdata**, **Jobblogg** eller **Yarn-logg**.
 
 **Så här skapar och kör du en Hive-lösning**
 
 1. Klicka på **Nytt** på menyn **ARKIV** och klicka sedan på **Projekt**.
 2. Välj **HDInsight** i den vänstra rutan, välj **Hive-program** i mittenrutan och klicka sedan på **OK**.
-
+   
     ![Hadoop-verktyg: hdinsight visual studio tools, nytt Hive-projekt][11]
 3. Gå till **Solution Explorer** och dubbelklicka på **Script.hql** för att öppna det.
 4. För att validera Hive-skriptet kan du klicka på knappen **Validera skriptet** eller högerklicka på skriptet i Hive-redigeraren och sedan klicka på **Validera skriptet** på snabbmenyn.
-
 
 ### Visa Hive-jobb
 Du kan visa jobbfrågor, jobbutdata, jobbloggar och Yarn-loggar för Hive-jobb. Mer information finns på föregående skärmbild.
@@ -180,12 +179,14 @@ Med den senaste versionen av verktyget kan du se vad som finns i dina Hive-jobb 
 1. Gå till **Server Explorer**, expandera **Azure** och expandera sedan **HDInsight**.
 2. Högerklicka på ett HDInsight-kluster och klicka sedan på **Visa jobb**. En lista visas över de Hive-jobb som körts på klustret.
 3. Välj ett jobb i jobblistan genom att klicka på det och använd sedan fönstret **Hive-jobbsammanfattning** för att öppna **Jobbfråga**, **Jobbutdata**, **Jobblogg** eller **Yarn-logg**.
-
+   
     ![Hadoop-verktyg: HDInsight Visual Studio Tools, visa Hive-jobb][12]
 
 ### Snabbare Hive-sökvägsexekvering via HiveServer2
-
->[AZURE.NOTE] Den här funktionen fungerar bara på HDInsight-kluster av version 3.2 eller senare.
+> [!NOTE]
+> Den här funktionen fungerar bara på HDInsight-kluster av version 3.2 eller senare.
+> 
+> 
 
 HDInsight-verktyg som används för att skicka Hive-jobb via [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (även kallat Templeton). Det tog lång tid att returnera jobbdetaljer och felinformation.
 För att lösa det här prestandaproblemet kör HDInsight-verktygen Hive-jobb direkt i klustret via HiveServer2 och kringgår RDP/SSH.
@@ -203,52 +204,47 @@ Dessutom kan du se loggar strömmas tillbaka i realtid och visa jobbdiagram om H
 
 Även om det finns många fördelar med att köra frågor via HiveServer2 finns det också flera begränsningar. Vissa begränsningar lämpar sig inte för användning i produktion. Följande tabell visar skillnaderna:
 
-| |Köra via HiveServer2 |Skicka via WebHCat|
-|---|---|---|
-|Köra frågor|Eliminerar pålägget i WebHCat (som startar ett MapReduce-jobb med namnet "TempletonControllerJob").|Så länge en fråga körs via WebHCat startar WebHCat MapReduce-jobbet, vilket medför en ytterligare fördröjning.|
-|Dataströmmen loggas tillbaka|I nära realtid.|Körningsloggar för jobbet är bara tillgängliga när jobbet har slutförts.|
-|Visa jobbhistorik|Om en fråga körs via HiveServer2 bevaras inte dess jobbhistorik (jobblogg, jobbutdata). Programmet kan visas i YARN-användargränssnittet med begränsad information.|Om en fråga körs via WebHCat bevaras dess jobbhistorik (jobblogg, jobbutdata) och kan visas med hjälp av Visual Studio/HDInsight SDK/PowerShell. |
-|Stäng fönster|  Att köra via HiveServer2 är en "synkron" metod, så  du måste hålla fönstren öppna. Om fönstren stängs avbryts körningen av frågan.|Att skicka via WebHCat är en "asynkron" metod, så du kan skicka frågan via WebHCat och stänga Visual Studio. Du kan gå tillbaka och se resultaten när som helst.|
-
+|  | Köra via HiveServer2 | Skicka via WebHCat |
+| --- | --- | --- |
+| Köra frågor |Eliminerar pålägget i WebHCat (som startar ett MapReduce-jobb med namnet "TempletonControllerJob"). |Så länge en fråga körs via WebHCat startar WebHCat MapReduce-jobbet, vilket medför en ytterligare fördröjning. |
+| Dataströmmen loggas tillbaka |I nära realtid. |Körningsloggar för jobbet är bara tillgängliga när jobbet har slutförts. |
+| Visa jobbhistorik |Om en fråga körs via HiveServer2 bevaras inte dess jobbhistorik (jobblogg, jobbutdata). Programmet kan visas i YARN-användargränssnittet med begränsad information. |Om en fråga körs via WebHCat bevaras dess jobbhistorik (jobblogg, jobbutdata) och kan visas med hjälp av Visual Studio/HDInsight SDK/PowerShell. |
+| Stäng fönster |Att köra via HiveServer2 är en "synkron" metod, så  du måste hålla fönstren öppna. Om fönstren stängs avbryts körningen av frågan. |Att skicka via WebHCat är en "asynkron" metod, så du kan skicka frågan via WebHCat och stänga Visual Studio. Du kan gå tillbaka och se resultaten när som helst. |
 
 ### Tez-diagram över Hive-jobbprestanda
-
 HDInsight Visual Studio Tools stöder visning av prestandadiagram för Hive-jobb som körts av Tez-körningsmotor. Information om hur du aktiverar Tez finns i [Använda Hive i HDInsight][hdinsight.hive]. När du skickat ett Hive-jobb i Visual Studio, visar Visual Studio diagrammet när jobbet har slutförts.  Du kan behöva klicka på knappen **Uppdatera** för att den senaste jobbstatusen ska visas.
 
-> [AZURE.NOTE] Den här funktionen är endast tillgänglig för HDInsight-kluster av senare version än 3.2.4.593 och fungerar bara för slutförda jobb (om du skickat jobbet via WebHCat visas det här diagrammet när du kör frågan via HiveServer2). Detta fungerar både i Windows- och Linux-baserade kluster.
+> [!NOTE]
+> Den här funktionen är endast tillgänglig för HDInsight-kluster av senare version än 3.2.4.593 och fungerar bara för slutförda jobb (om du skickat jobbet via WebHCat visas det här diagrammet när du kör frågan via HiveServer2). Detta fungerar både i Windows- och Linux-baserade kluster.
+> 
+> 
 
 ![hadoop hive tez-prestandadiagram](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
 För att du ska förstå Hive-frågan bättre lägger verktyget till Hive Operator-vyn i den här versionen. Du behöver bara dubbelklicka på formhörnen i jobbdiagrammet så visas alla operatorer innanför hörnet. Du kan även hovra över en viss operator för att visa mer information om denna.
 
 ### Vy för uppgiftskörning för Hive-jobb på Tez
-
 Vyn för uppgiftskörning för Hive-jobb på Tez kan användas för att hämta strukturerad och visualiserad information för Hive-jobb och få mer jobbinformation. Om det uppstår prestandaproblem kan du använda vyn för att få mer information. Du kan till exempel se hur varje uppgift fungerar och få detaljerad information om varje uppgift (data lästa/skrivna, schema/starttid/sluttid o.s.v.), så att du kan finjustera jobbkonfigurationer eller systemarkitektur baserat på den visualiserade informationen.
 
 ![hdinsight visual studio tools, vy för uppgiftskörning](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png)
 
 ## Köra Pig-skript
-
 HDInsight-verktyg för Visual Studio har stöd för att skapa och skicka Pig-skript till HDInsight-kluster. Användare kan skapa ett Pig-projekt från en mall och skicka skript till HDInsight-kluster.
 
 ## Feedback och kända problem
-
-- För närvarande visas resultaten från HiveServer2 med endast text, vilket inte är idealiskt. Vi arbetar på att åtgärda detta.
-
-- Om resultaten startats från NULL-värden visas de inte för närvarande. Vi har löst detta och om du blockeras på grund av detta problem kan du skicka ett e-postmeddelande till oss eller kontakta supportteamet.
-
-- Det HQL-skript som skapas av Visual Studio kodas beroende på användarens lokala regioninställning. Skriptet kanske inte kan köras korrekt om användaren överför det till klustret i binärt format.
+* För närvarande visas resultaten från HiveServer2 med endast text, vilket inte är idealiskt. Vi arbetar på att åtgärda detta.
+* Om resultaten startats från NULL-värden visas de inte för närvarande. Vi har löst detta och om du blockeras på grund av detta problem kan du skicka ett e-postmeddelande till oss eller kontakta supportteamet.
+* Det HQL-skript som skapas av Visual Studio kodas beroende på användarens lokala regioninställning. Skriptet kanske inte kan köras korrekt om användaren överför det till klustret i binärt format.
 
 Om du har förslag eller feedback eller har problem med att använda det här verktyget får du gärna skicka ett e-postmeddelande till hdivstool på microsoft.com.
 
 ## Nästa steg
 I den här artikeln har du lärt dig hur du ansluter till HDInsight-kluster från Visual Studio med hjälp av Hadoop-verktygspaketet och hur du kör en Hive-fråga. Mer information finns i:
 
-- [Använda Hadoop Hive i HDInsight][hdinsight.hive]
-- [Komma igång med Hadoop i HDInsight][hdinsight.get.started]
-- [Skicka Hadoop-jobb i HDInsight][hdinsight.submit.jobs]
-- [Analysera Twitter-data med Hadoop i HDInsight][hdinsight.analyze.twitter.data]
-
+* [Använda Hadoop Hive i HDInsight][hdinsight.hive]
+* [Komma igång med Hadoop i HDInsight][hdinsight.get.started]
+* [Skicka Hadoop-jobb i HDInsight][hdinsight.submit.jobs]
+* [Analysera Twitter-data med Hadoop i HDInsight][hdinsight.analyze.twitter.data]
 
 <!--Anchors-->
 [Installation]: #installation

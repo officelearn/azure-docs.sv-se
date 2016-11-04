@@ -1,32 +1,33 @@
 
-<properties
-   pageTitle="Skapa en programgateway med hjälp av Azure Resource Manager-mallar | Microsoft Azure"
-   description="Den här sidan innehåller anvisningar för hur du skapar en programgateway i Azure med hjälp av Azure Resource Manager-mallen"
-   documentationCenter="na"
-   services="application-gateway"
-   authors="georgewallace"
-   manager="jdial"
-   editor="tysonn"/>
-<tags
-   ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
-   ms.author="gwallace"/>
+---
+title: Skapa en programgateway med hjälp av Azure Resource Manager-mallar | Microsoft Docs
+description: Den här sidan innehåller anvisningar för hur du skapar en programgateway i Azure med hjälp av Azure Resource Manager-mallen
+documentationcenter: na
+services: application-gateway
+author: georgewallace
+manager: jdial
+editor: tysonn
 
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/09/2016
+ms.author: gwallace
 
+---
 # Skapa en programgateway med hjälp av Azure Resource Manager-mallen
-
 Azure Application Gateway är en Layer 7-belastningsutjämnare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Application Gateway tillhandahåller följande funktioner för programleverans: HTTP-belastningsutjämning, cookiebaserad sessionstillhörighet och SSL-avlastning (Secure Sockets Layer).
 
-> [AZURE.SELECTOR]
-- [Azure-portalen](application-gateway-create-gateway-portal.md)
-- [PowerShell och Azure Resource Manager](application-gateway-create-gateway-arm.md)
-- [PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
-- [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
-- [Azure CLI](application-gateway-create-gateway-cli.md)
+> [!div class="op_single_selector"]
+> * [Azure-portalen](application-gateway-create-gateway-portal.md)
+> * [PowerShell och Azure Resource Manager](application-gateway-create-gateway-arm.md)
+> * [PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
+> * [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
+> * [Azure CLI](application-gateway-create-gateway-cli.md)
+> 
+> 
 
 <BR>
 
@@ -34,26 +35,22 @@ Du lär dig hur du hämtar och ändrar en befintlig Azure Resource Manager-mall 
 
 Om du bara distribuerar Azure Resource Manager-mallen direkt från GitHub utan ändringar kan du gå vidare och distribuera en mall från GitHub.
 
-
 ## Scenario
-
 I det här scenariot ska du:
 
-- Skapa en programgateway med två instanser.
-- Skapa ett virtuellt nätverk med namnet VirtualNetwork1 med det reserverade CIDR-blocket 10.0.0.0/16.
-- Skapa undernätet Appgatewaysubnet som använder 10.0.0.0/28 som dess CIDR-block.
-- Konfigurera två redan definierade backend-IP-adresser för webbservrar vars trafik du vill belastningsutjämna. I det här mallexemplet är backend-IP-adresserna 10.0.1.10 och 10.0.1.11.
+* Skapa en programgateway med två instanser.
+* Skapa ett virtuellt nätverk med namnet VirtualNetwork1 med det reserverade CIDR-blocket 10.0.0.0/16.
+* Skapa undernätet Appgatewaysubnet som använder 10.0.0.0/28 som dess CIDR-block.
+* Konfigurera två redan definierade backend-IP-adresser för webbservrar vars trafik du vill belastningsutjämna. I det här mallexemplet är backend-IP-adresserna 10.0.1.10 och 10.0.1.11.
 
->[AZURE.NOTE] De inställningarna är parametrarna för den här mallen. Du kan anpassa mallen genom att ändra regler, lyssnaren och SSL som öppnar azuredeploy.json.
-
-
+> [!NOTE]
+> De inställningarna är parametrarna för den här mallen. Du kan anpassa mallen genom att ändra regler, lyssnaren och SSL som öppnar azuredeploy.json.
+> 
+> 
 
 ![Scenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
 
-
-
 ## Hämta och förstå Azure Resource Manager-mallen
-
 Du kan hämta den befintliga Azure Resource Manager-mallen för att skapa ett virtuellt nätverk och två undernät från GitHub, göra önskade ändringar och sedan återanvända den. Följ bara stegen nedan.
 
 1. Gå till [Skapa programgateway](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create).
@@ -61,73 +58,67 @@ Du kan hämta den befintliga Azure Resource Manager-mallen för att skapa ett vi
 3. Spara filen i en lokal mapp på datorn.
 4. Om du är bekant med Azure Resource Manager-mallar går du vidare till steg 7.
 5. Öppna filen som du sparade och titta på innehållet under **parameters** på rad 5. Azure Resource Manager-mallens parametrar fungerar som platshållare för värden som kan anges under distributionen.
-
-  	| Parameter | Beskrivning |
-  	|---|---|
-  	| **location** | Azure-regionen där programgatewayen skapas |
-  	| **VirtualNetwork1** | Namnet på det nya virtuella nätverket |
-  	| **addressPrefix** | Adressutrymme för det virtuella nätverket i CIDR-format |
-  	| **ApplicationGatewaysubnet** | Namnet på programgatewayens undernät |
-  	| **subnetPrefix** | CIDR-blocket för programgatewayens undernät |
-  	| **skuname** | SKU-instansens storlek |
-  	| **capacity** | Antal instanser |
-  	| **backendaddress1** | IP-adressen för den första webbservern |
-  	| **backendaddress2** | IP-adressen för den andra webbservern |
-
+   
+   | Parameter | Beskrivning |
+   | --- | --- |
+   | **location** |Azure-regionen där programgatewayen skapas |
+   | **VirtualNetwork1** |Namnet på det nya virtuella nätverket |
+   | **addressPrefix** |Adressutrymme för det virtuella nätverket i CIDR-format |
+   | **ApplicationGatewaysubnet** |Namnet på programgatewayens undernät |
+   | **subnetPrefix** |CIDR-blocket för programgatewayens undernät |
+   | **skuname** |SKU-instansens storlek |
+   | **capacity** |Antal instanser |
+   | **backendaddress1** |IP-adressen för den första webbservern |
+   | **backendaddress2** |IP-adressen för den andra webbservern |
 
     >[AZURE.IMPORTANT] Azure Resource Manager-mallar som finns på GitHub kan ändras med tiden. Var noga med att granska mallen innan du använder den.
 
-6. Granska innehållet under **resources** och notera följande:
-
-    - **type**. Typ av resurs som skapas av mallen. I detta fall är typen **Microsoft.Network/applicationGateways**, som representerar en programgateway.
-    - **name**. Resursens namn. Observera användningen av **[parameters('applicationGatewayName')]**, som innebär att namnet anges som indata av dig eller av en parameterfil under distributionen.
-    - **properties**. Lista över egenskaper för resursen. Den här mallen använder det virtuella nätverket och den offentliga IP-adressen när programgatewayen skapas.
-
-7. Gå tillbaka till [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
-8. Klicka på **azuredeploy-parameters.json** och sedan på **RAW**.
-9. Spara filen i en lokal mapp på datorn.
-10. Öppna filen som du sparade och ändra parametrarnas värden. Använd följande värden för att distribuera programgatewayen från vårt scenario.
-
-        {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        {
-        "location" : {
-        "value" : "West US"
-        },
-        "addressPrefix": {
-        "value": "10.0.0.0/16"
-        },
-        "subnetPrefix": {
-        "value": "10.0.0.0/24"
-        },
-        "skuName": {
-        "value": "Standard_Small"
-        },
-        "capacity": {
-        "value": 2
-        },
-        "backendIpAddress1": {
-        "value": "10.0.1.10"
-        },
-        "backendIpAddress2": {
-        "value": "10.0.1.11"
-        }
-        }
-
-11. Spara filen. Du kan testa JSON-mallen och parametermallen med hjälp av webbaserade JSON-verifieringsverktyg som [JSlint.com](http://www.jslint.com/).
+1. Granska innehållet under **resources** och notera följande:
+   
+   * **type**. Typ av resurs som skapas av mallen. I detta fall är typen **Microsoft.Network/applicationGateways**, som representerar en programgateway.
+   * **name**. Resursens namn. Observera användningen av **[parameters('applicationGatewayName')]**, som innebär att namnet anges som indata av dig eller av en parameterfil under distributionen.
+   * **properties**. Lista över egenskaper för resursen. Den här mallen använder det virtuella nätverket och den offentliga IP-adressen när programgatewayen skapas.
+2. Gå tillbaka till [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
+3. Klicka på **azuredeploy-parameters.json** och sedan på **RAW**.
+4. Spara filen i en lokal mapp på datorn.
+5. Öppna filen som du sparade och ändra parametrarnas värden. Använd följande värden för att distribuera programgatewayen från vårt scenario.
+   
+       {
+         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       {
+       "location" : {
+       "value" : "West US"
+       },
+       "addressPrefix": {
+       "value": "10.0.0.0/16"
+       },
+       "subnetPrefix": {
+       "value": "10.0.0.0/24"
+       },
+       "skuName": {
+       "value": "Standard_Small"
+       },
+       "capacity": {
+       "value": 2
+       },
+       "backendIpAddress1": {
+       "value": "10.0.1.10"
+       },
+       "backendIpAddress2": {
+       "value": "10.0.1.11"
+       }
+       }
+6. Spara filen. Du kan testa JSON-mallen och parametermallen med hjälp av webbaserade JSON-verifieringsverktyg som [JSlint.com](http://www.jslint.com/).
 
 ## Distribuera Azure Resource Manager-mallen med hjälp av PowerShell
-
 Om du aldrig använt Azure PowerShell tidigare ska du läsa [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md) och följa instruktionerna för att logga in på Azure och välja din prenumeration.
 
 ### Steg 1
-
     Login-AzureRmAccount
 
 
 
 ### Steg 2
-
 Kontrollera prenumerationerna för kontot.
 
     Get-AzureRmSubscription
@@ -135,16 +126,12 @@ Kontrollera prenumerationerna för kontot.
 Du ombeds att autentisera dig med dina autentiseringsuppgifter.<BR>
 
 ### Steg 3
-
 Välj vilka av dina Azure-prenumerationer som du vill använda. <BR>
-
 
     Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Steg 4
-
-
 Om det behövs skapar du en resursgrupp med hjälp av cmdleten **New-AzureResourceGroup**. I exemplet nedan skapar du en ny resursgrupp kallad AppgatewayRG med platsen i östra USA.
 
     New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
@@ -188,14 +175,12 @@ Följande utdata genereras av kommandoraden:
 
 
 ## Distribuera Azure Resource Manager-mallen med hjälp av Azure CLI
-
 Distribuera Azure Resource Manager-mallen som du hämtade med hjälp av Azure CLI genom att följa stegen nedan:
 
 ### Steg 1
-
 Om du aldrig har använt Azure CLI läser du [Installera och konfigurera Azure CLI](../xplat-cli-install.md) och följer anvisningarna fram till det steg då du väljer ditt Azure-konto och din Azure-prenumeration.
-### Steg 2
 
+### Steg 2
 Växla till Resource Manager-läge genom att köra kommandot **azure config mode** (se nedan).
 
     azure config mode arm
@@ -205,7 +190,6 @@ Följande utdata förväntas från kommandot ovan:
     info:   New mode is arm
 
 ### Steg 3
-
 Om det behövs skapar du en ny resursgrupp genom att köra **azure group create** (se nedan). Observera kommandots utdata. Listan som visas efter alla utdata förklarar parametrarna som använts. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../resource-group-overview.md).
 
     azure group create -n appgatewayRG -l eastus
@@ -215,7 +199,6 @@ Om det behövs skapar du en ny resursgrupp genom att köra **azure group create*
 **-l (eller --location)**. Azure-region där den nya resursgruppen skapas. I vårt scenario är det *eastus*.
 
 ### Steg 4
-
 Kör cmdleten **azure group deployment create** för att distribuera det nya virtuella nätverket med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter alla utdata förklarar parametrarna som använts.
 
     azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
@@ -251,48 +234,36 @@ Följande utdata förväntas från kommandot ovan:
 **-e (eller --parameters-file)**. Sökvägen till Azure Resource Manager-parameterfilen.
 
 ## Distribuera Azure Resource Manager-mallen med hjälp av ”klicka för att distribuera”
-
 ”Klicka för att distribuera” är ett annat sätt att använda Azure Resource Manager-mallar. Det är ett enkelt sätt att använda mallar med Azure-portalen.
-
 
 ### Steg 1
 Gå till [Skapa en programgateway med en offentlig IP-adress](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/).
 
-
 ### Steg 2
-
 Klicka på **Distribuera till Azure**.
 
 ![Distribuera till Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
 
 ### Steg 3
-
 Fyll i parametrarna för distributionsmallen på portalen och klicka på **OK**.
 
 ![Parametrar](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
 ### Steg 4
-
 Välj **Juridiska villkor** och klicka på **Köp**.
 
 ### Steg 5
-
 Klicka på **Skapa** på bladet Anpassad distribution.
 
-
-
 ## Nästa steg
-
 Om du vill konfigurera SSL-avlastning läser du [Konfigurera en programgateway för SSL-avlastning](application-gateway-ssl.md).
 
 Om du vill konfigurera en programgateway för användning med en intern belastningsutjämnare läser du [Skapa en programgateway med en intern belastningsutjämnare (ILB)](application-gateway-ilb.md).
 
 Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet läser du:
 
-- [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-- [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
+* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 <!--HONumber=sep16_HO1-->
 

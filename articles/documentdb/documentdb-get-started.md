@@ -1,41 +1,42 @@
-<properties
-    pageTitle="Självstudiekurs om NoSQL: DocumentDB .NET SDK | Microsoft Azure"
-    description="En självstudiekurs om NoSQL som skapar en onlinedatabas och en C#-konsolapp med .NET DocumentDB SDK. DocumentDB är en NoSQL-databas för JSON."
-    keywords="självstudier för nosql, onlinedatabas, c#-konsolprogram"
-    services="documentdb"
-    documentationCenter=".net"
-    authors="AndrewHoh"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: 'Självstudiekurs om NoSQL: DocumentDB .NET SDK | Microsoft Docs'
+description: En självstudiekurs om NoSQL som skapar en onlinedatabas och en C#-konsolapp med .NET DocumentDB SDK. DocumentDB är en NoSQL-databas för JSON.
+keywords: självstudier för nosql, onlinedatabas, c#-konsolprogram
+services: documentdb
+documentationcenter: .net
+author: AndrewHoh
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="08/29/2016"
-    ms.author="anhoh"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 08/29/2016
+ms.author: anhoh
 
+---
 # Självstudiekurs om NoSQL: skapa en DocumentDB C#-konsolapp
-
-> [AZURE.SELECTOR]
-- [.NET](documentdb-get-started.md)
-- [Node.js](documentdb-nodejs-get-started.md)
+> [!div class="op_single_selector"]
+> * [.NET](documentdb-get-started.md)
+> * [Node.js](documentdb-nodejs-get-started.md)
+> 
+> 
 
 Välkommen till NoSQL-självstudier för Azure DocumentDB .NET SDK! När du har genomfört den här självstudiekursen har du en konsolapp som skapar och skickar frågor till DocumentDB-resurser.
 
 Vi tar upp följande:
 
-- Skapa och ansluta till ett DocumentDB-konto
-- Konfigurera en Visual Studio-lösning
-- Skapa en onlinedatabas
-- Skapa en samling
-- Skapa JSON-dokument
-- Skicka frågor till samlingen
-- Ersätta ett dokument
-- Ta bort ett dokument
-- Ta bort databasen
+* Skapa och ansluta till ett DocumentDB-konto
+* Konfigurera en Visual Studio-lösning
+* Skapa en onlinedatabas
+* Skapa en samling
+* Skapa JSON-dokument
+* Skicka frågor till samlingen
+* Ersätta ett dokument
+* Ta bort ett dokument
+* Ta bort databasen
 
 Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). En snabbguide finns i avsnittet [Hämta den kompletta lösningen](#GetSolution).
 
@@ -44,37 +45,33 @@ Ge oss sedan feedback med röstningsknapparna högst uppe och nere på den här 
 Nu sätter vi igång!
 
 ## Krav
-
 Kontrollera att du har följande:
 
-- Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
-- [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
-- .NET Framework 4.6
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
+* [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
+* .NET Framework 4.6
 
 ## Steg 1: Skapa ett DocumentDB-konto
-
 Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [Konfigurera en lösning i Visual Studio](#SetupVS).
 
-[AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>Steg 2: Konfigurera en lösning i Visual Studio
-
 1. Öppna **Visual Studio 2015** på datorn.
 2. I menyn **Arkiv** väljer du **Nytt** och sedan **Projekt**.
 3. I dialogen **Nytt projekt** väljer du **Mallar** / **Visual C#** / **Konsolapp**. Namnge projektet och klicka sedan på **OK**.
-![Skärmdump som visar fönstret Nytt projekt](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Skärmdump som visar fönstret Nytt projekt](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. I **Solution Explorer** högerklickar du på den nya konsolappen, som finns under din Visual Studio-lösning.
-5. Utan att lämna menyn klickar du på **Hantera NuGet-paket ...**
-![Skärmdump som visar högerklicksmenyn för projektet](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+5. Utan att lämna menyn klickar du på **Hantera NuGet-paket ...**
+   ![Skärmdump som visar högerklicksmenyn för projektet](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. På fliken **Nuget** klickar du på **Bläddra** och skriver **azure documentdb** i sökrutan.
 7. Leta reda på **Microsoft.Azure.DocumentDB** i resultatet och klicka på **Installera**.
-Paket-ID för klientbiblioteket i DocumentDB är [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
-![Skärmdump som visar Nuget-menyn som används för att hitta DocumentDB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   Paket-ID för klientbiblioteket i DocumentDB är [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
+   ![Skärmdump som visar Nuget-menyn som används för att hitta DocumentDB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Det finns ett färdigt kodprojekt för den här självstudiekursen i [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
 ## <a id="Connect"></a>Steg 3: Anslut till ett DocumentDB-konto
-
 Lägg först till dessa referenser till början av C#-appen, i filen Program.cs:
 
     using System;
@@ -87,7 +84,10 @@ Lägg först till dessa referenser till början av C#-appen, i filen Program.cs:
     using Microsoft.Azure.Documents.Client;
     using Newtonsoft.Json;
 
-> [AZURE.IMPORTANT] Var noga med att lägga till ovanstående beroenden så att du kan slutföra den här självstudiekursen om NoSQL.
+> [!IMPORTANT]
+> Var noga med att lägga till ovanstående beroenden så att du kan slutföra den här självstudiekursen om NoSQL.
+> 
+> 
 
 Lägg till nedanstående två konstanter och *klientvariabeln* under den offentliga klassen *Program*.
 
@@ -204,9 +204,11 @@ Kör appen genom att trycka på **F5**.
 
 Grattis! Du har skapat en DocumentDB-databas.  
 
-## <a id="CreateColl"></a>Steg 5: Skapa en samling  
-
-> [AZURE.WARNING] **CreateDocumentCollectionAsync** skapar en ny samling med reserverat dataflöde, vilket får konsekvenser för priset. Mer information finns på vår [sida med priser](https://azure.microsoft.com/pricing/details/documentdb/).
+## <a id="CreateColl"></a>Steg 5: Skapa en samling
+> [!WARNING]
+> **CreateDocumentCollectionAsync** skapar en ny samling med reserverat dataflöde, vilket får konsekvenser för priset. Mer information finns på vår [sida med priser](https://azure.microsoft.com/pricing/details/documentdb/).
+> 
+> 
 
 Du kan skapa en [samling](documentdb-resources.md#collections) med metoden [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) för klassen **DocumentClient**. En samling är en behållare för JSON-dokument och associerad JavaScript-applogik.
 
@@ -420,8 +422,7 @@ Grattis! Du har skapat två DocumentDB-dokument.
 
 ![Diagram som illustrerar den hierarkiska relationen mellan kontot, onlinedatabasen, samlingen och dokumenten som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-##<a id="Query"></a>Steg 7: Frågor till DocumentDB-resurser
-
+## <a id="Query"></a>Steg 7: Frågor till DocumentDB-resurser
 DocumentDB stöder omfattande [frågor](documentdb-sql-query.md) mot JSON-dokument som lagras i varje samling.  Nedanstående exempelkod visar olika frågor – med både DocumentDB SQL-syntax och LINQ – som du kan köra mot dokumenten som infogades i föregående steg.
 
 Kopiera och klistra in metoden **ExecuteSimpleQuery** under metoden **CreateFamilyDocumentIfNotExists**.
@@ -477,8 +478,7 @@ Nedanstående diagram illustrerar hur DocumentDB SQL-frågesyntaxen anropas mot 
 
 Nyckelordet [FRÅN](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
 
-##<a id="ReplaceDocument"></a>Steg 8: Ersätta JSON-dokument
-
+## <a id="ReplaceDocument"></a>Steg 8: Ersätta JSON-dokument
 DocumentDB har stöd för att ersätta JSON-dokument.  
 
 Kopiera och klistra in metoden **ReplaceFamilyDocument** under metoden **ExecuteSimpleQuery**.
@@ -515,8 +515,7 @@ Kör appen genom att trycka på **F5**.
 
 Grattis! Du har ersatt ett DocumentDB-dokument.
 
-##<a id="DeleteDocument"></a>Steg 9: Ta bort JSON-dokument
-
+## <a id="DeleteDocument"></a>Steg 9: Ta bort JSON-dokument
 DocumentDB har stöd för att ta bort JSON-dokument.  
 
 Kopiera och klistra in metoden **DeleteFamilyDocument** under metoden **ReplaceFamilyDocument**.
@@ -548,8 +547,7 @@ Kör appen genom att trycka på **F5**.
 
 Grattis! Du har tagit bort ett DocumentDB-dokument.
 
-##<a id="DeleteDatabase"></a>Steg 10: Ta bort databasen
-
+## <a id="DeleteDatabase"></a>Steg 10: Ta bort databasen
 Om du tar bort databasen som skapats försvinner databasen och alla underordnade resurser (t.ex. samlingar och dokument).
 
 Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under dokumentborttagningskoden om du vill ta bort hela databasen och alla underordnade resurser.
@@ -566,8 +564,7 @@ Kör appen genom att trycka på **F5**.
 
 Grattis! Du har tagit bort en DocumentDB-databas.
 
-##<a id="Run"></a>Steg 11: Kör C#-konsolappen i sin helhet!
-
+## <a id="Run"></a>Steg 11: Kör C#-konsolappen i sin helhet!
 Tryck på F5 i Visual Studio för att bygga appen i felsökningsläge.
 
 Du bör se Get Started-appens utdata. Dessa utdata visar resultaten för de frågor som vi har lagt till och bör motsvara exempeltexten nedan.
@@ -595,22 +592,21 @@ Du bör se Get Started-appens utdata. Dessa utdata visar resultaten för de frå
 
 Grattis! Du har slutfört den här självstudiekursen om NoSQL och har en fungerande C#-konsolapp!
 
-##<a id="GetSolution"></a> Hämta den fullständiga lösningen till NoSQL-självstudiekursen
+## <a id="GetSolution"></a> Hämta den fullständiga lösningen till NoSQL-självstudiekursen
 För att bygga GetStarted-lösningen med alla exempel i den här artikeln behöver du följande:
 
-- Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
--   Ett [DocumentDB-konto][documentdb-create-account].
--   [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)-lösningen som finns på GitHub.
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
+* Ett [DocumentDB-konto][documentdb-create-account].
+* [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)-lösningen som finns på GitHub.
 
 Om du vill återställa referenser till .NET DocumentDB SDK i Visual Studio högerklickar du på **GetStarted**-lösningen i Solution Explorer och klickar sedan på **Aktivera NuGet-paketåterställning**. I filen App.config uppdaterar du sedan värdena EndpointUrl och AuthorizationKey enligt beskrivningen i [Ansluta till ett DocumentDB-konto](#Connect).
 
 ## Nästa steg
-
-- Vill du ha en mer komplicerad självstudiekurs om ASP.NET MVC NoSQL? Se [Skapa en webbapp med ASP.NET MVC via DocumentDB](documentdb-dotnet-application.md).
-- Vill du utföra skalnings- och prestandatester med DocumentDB? Se [Prestanda- och skalningstester med Azure DocumentDB](documentdb-performance-testing.md)
--   Mer information om hur du [övervakar ett DocumentDB-konto](documentdb-monitor-accounts.md).
--   Kör frågor mot vår exempeldatauppsättning i [Query Playground](https://www.documentdb.com/sql/demo).
--   Mer information om programmeringsmiljön finns i avsnittet Utveckla på [dokumentationssidan för DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Vill du ha en mer komplicerad självstudiekurs om ASP.NET MVC NoSQL? Se [Skapa en webbapp med ASP.NET MVC via DocumentDB](documentdb-dotnet-application.md).
+* Vill du utföra skalnings- och prestandatester med DocumentDB? Se [Prestanda- och skalningstester med Azure DocumentDB](documentdb-performance-testing.md)
+* Mer information om hur du [övervakar ett DocumentDB-konto](documentdb-monitor-accounts.md).
+* Kör frågor mot vår exempeldatauppsättning i [Query Playground](https://www.documentdb.com/sql/demo).
+* Mer information om programmeringsmiljön finns i avsnittet Utveckla på [dokumentationssidan för DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md

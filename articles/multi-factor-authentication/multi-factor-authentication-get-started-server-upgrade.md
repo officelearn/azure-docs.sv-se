@@ -1,24 +1,22 @@
-<properties 
-    pageTitle="Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server"
-    description="Det här dokumentet beskriver hur du kommer igång med Azure MFA Server och hur du uppgraderar från den äldre PhoneFactor-agenten."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtland"/>
+---
+title: Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server
+description: Det här dokumentet beskriver hur du kommer igång med Azure MFA Server och hur du uppgraderar från den äldre PhoneFactor-agenten.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
-
+---
 # Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server
-
 Uppgraderingen från PhoneFactor Agent v5.x eller äldre till Azure Multi-Factor Authentication Server kräver att PhoneFactor-agenten och tillhörande komponenter avinstalleras innan Multi-Factor Authentication Server och associerade komponenter kan installeras.
 
 ## Så här uppgraderar du PhoneFactor Agent till Azure Multi-Factor Authentication Server
@@ -40,6 +38,7 @@ Uppgraderingen från PhoneFactor Agent v5.x eller äldre till Azure Multi-Factor
 
 
 <li>Om Mobile Apps-webbtjänsten är installerad:
+
 <ol>
 <li>Gå till installationsmappen och säkerhetskopiera filen web.config. Standardinstallationsplatsen är C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.</li>
 <li>Avinstallera Mobile App-webbtjänsten via Program och funktioner i Windows.</li></ol>
@@ -57,6 +56,7 @@ Uppgraderingen från PhoneFactor Agent v5.x eller äldre till Azure Multi-Factor
 <li>Om användarportalen var installerad tidigare på PhoneFactor Agent-servern installerar du den nya Multi-Factor Authentication-användarportalen via Multi-Factor Authentication Server-användargränssnittet. Observera att standardnamnet för den virtuella katalogen nu är ”MultiFactorAuth” i stället för ”PhoneFactor”. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder det nya standardnamnet, klickar du på ikonen för användarportalen i Multi-Factor Authentication Server och uppdaterar URL:en för användarportalen på fliken Inställningar.
 
 <li>Om användarportalen och/eller webbtjänsten Mobile Apps tidigare var installerade på en annan server än PhoneFactor-agenten:
+
 <ol>
 <li>Gå till installationsplatsen (t.ex. C:\Program\Microsoft Files\PhoneFactor) och kopiera relevanta installationsprogram till den andra servern. Det finns 32- och 64-bitars installationsprogram för både användarportalen och webbtjänsten Mobile Apps. De heter MultiFactorAuthenticationUserPortalSetupXX.msi respektive MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.</li>
 <li>Installera användarportalen på webbservern genom att öppna en kommandotolk som administratör och köra MultiFactorAuthenticationUserPortalSetupXX.msi. Observera att standardnamnet för den virtuella katalogen nu är ”MultiFactorAuth” i stället för ”PhoneFactor”. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder det nya standardnamnet, klickar du på ikonen för användarportalen i Multi-Factor Authentication Server och uppdaterar URL:en för användarportalen på fliken Inställningar. Befintliga användare måste informeras om den nya URL:en.</li>

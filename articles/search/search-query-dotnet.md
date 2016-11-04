@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Skicka frågor mot ditt Azure Search-index med .NET SDK | Microsoft Azure | Värdbaserad söktjänst i molnet"
-    description="Skapa en sökfråga i Azure Search och använd sökparametrar för att filtrera och sortera sökresultat."
-    services="search"
-    documentationCenter=""
-    authors="brjohnstmsft"
-/>
+---
+title: Skicka frågor mot ditt Azure Search-index med .NET SDK | Microsoft Docs
+description: Skapa en sökfråga i Azure Search och använd sökparametrar för att filtrera och sortera sökresultat.
+services: search
+documentationcenter: ''
+author: brjohnstmsft
 
-<tags
-    ms.service="search"
-    ms.devlang="dotnet"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="brjohnst"/>
+ms.service: search
+ms.devlang: dotnet
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: brjohnst
 
-
+---
 # Skicka frågor till ditt Azure Search-index med hjälp av .NET-SDK
-> [AZURE.SELECTOR]
-- [Översikt](search-query-overview.md)
-- [Portalen](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Översikt](search-query-overview.md)
+> * [Portalen](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 Den här artikeln beskriver hur du skickar frågor mot ett index med hjälp av [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
@@ -38,8 +38,8 @@ Nu när du har skapat ett Azure Search-index är du nästan redo att skicka frå
 
 Tjänsten har *administratörsnycklar* och *frågenycklar*.
 
-  - Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
-  - Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
+* Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
+* Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
 
 Du kan använda en av din frågenycklar för att skicka frågor till ett index. Administratörsnycklarna kan även användas för frågor, men du bör använda en frågenyckel i programkoden eftersom detta bättre överensstämmer med [principen om lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
@@ -61,12 +61,11 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 Det är enkelt att söka med .NET SDK. Du anropar bara `Documents.Search`-metoden för din `SearchIndexClient`. Den här metoden stöder några parametrar, inklusive söktexten, tillsammans med ett `SearchParameters`-objekt som kan användas för att ytterligare förfina frågan.
 
 #### Typer av frågor
-De två viktigaste [frågetyperna](search-query-overview.md#types-of-queries) som du använder är `search` och `filter`. En `search`-fråga söker efter en eller flera termer i alla _sökbara_ fält i ditt index. En `filter`-fråga utvärderar ett booleskt uttryck i alla _filtrerbara_ fält i ett index.
+De två viktigaste [frågetyperna](search-query-overview.md#types-of-queries) som du använder är `search` och `filter`. En `search`-fråga söker efter en eller flera termer i alla *sökbara* fält i ditt index. En `filter`-fråga utvärderar ett booleskt uttryck i alla *filtrerbara* fält i ett index.
 
 Både sökningar och filtreringar utförs med hjälp av metoden `Documents.Search`. En sökfråga kan skickas i parametern `searchText`, medan ett filteruttryck kan skickas i `Filter`-egenskapen för klassen `SearchParameters`. Om du vill filtrera utan sökning skickar du bara `"*"` för `searchText`-parametern. Om du vill söka utan filtrering lämnar du bara `Filter`-egenskapen odefinierad eller väljer att inte skicka den i en `SearchParameters`-instans över huvud taget.
 
 #### Exempelfrågor
-
 Följande exempelkod visar hur du kan skicka frågor mot ”hotels”-indexet som beskrivs i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md#DefineIndex) på några olika sätt. Observera att dokumenten som returneras med sökresultaten är instanser av `Hotel`-klassen som definierades i [Dataimport i Azure Search med .NET SDK](search-import-data-dotnet.md#HotelClass). Exempelkoden utnyttjar en `WriteDocuments`-metod för att mata ut sökresultaten till konsolen. Den här metoden beskrivs i nästa avsnitt.
 
 ```csharp
@@ -162,8 +161,6 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 ```
 
 Exempelkoden ovan använder konsolen för att mata ut sökresultat. Du behöver också visa sökresultat i ditt eget program. Ett exempel på hur du kan visa sökresultat i en ASP.NET MVC-baserad webbapp finns i [det här exemplet på GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).
-
-
 
 <!--HONumber=Sep16_HO3-->
 

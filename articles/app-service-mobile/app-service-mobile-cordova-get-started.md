@@ -1,37 +1,32 @@
-<properties
-    pageTitle="Skapa en Cordova-app i Azure Apptjänst Mobile Apps | Microsoft Azure"
-    description="Följ den här kursen och kom igång med att använda mobilappserverdelar i Azure för Apache Cordova-utveckling"
-    services="app-service\mobile"
-    documentationCenter="javascript"
-    authors="adrianhall"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="cordova, javascript, mobil, klient" />
+---
+title: Skapa en Cordova-app i Azure Apptjänst Mobile Apps | Microsoft Docs
+description: Följ den här kursen och kom igång med att använda mobilappserverdelar i Azure för Apache Cordova-utveckling
+services: app-service\mobile
+documentationcenter: javascript
+author: adrianhall
+manager: erikre
+editor: ''
+tags: ''
+keywords: cordova, javascript, mobil, klient
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="na"
-    ms.tgt_pltfrm="mobile-html"
-    ms.devlang="javascript"
-    ms.topic="hero-article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: na
+ms.tgt_pltfrm: mobile-html
+ms.devlang: javascript
+ms.topic: hero-article
+ms.date: 10/01/2016
+ms.author: adrianha
 
-
-#Skapa en Apache Cordova-app
-
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+---
+# Skapa en Apache Cordova-app
+[!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## Översikt
-
-
-I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Apache Cordova-mobilapp med hjälp av en mobilappserverdel i Azure.  Du skapar både en ny mobilappserverdel och en enkel  Apache Cordova-app med en _att göra-lista_ som lagrar appdata i Azure.
+I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Apache Cordova-mobilapp med hjälp av en mobilappserverdel i Azure.  Du skapar både en ny mobilappserverdel och en enkel  Apache Cordova-app med en *att göra-lista* som lagrar appdata i Azure.
 
 Du måste slutföra den här kursen innan du påbörjar någon annan Apache Cordova-kurs om att använda funktionen Mobile Apps i Azure Apptjänst.
 
 ## Krav
-
 För att kunna genomföra den här kursen behöver du följande:
 
 * En PC-dator med [Visual Studio Community 2015] eller senare.
@@ -41,21 +36,17 @@ För att kunna genomföra den här kursen behöver du följande:
 Du kan också kringgå Visual Studio och direkt använda kommandoraden i Apache Cordova.  Det är till nytta när du går igenom kursen på en Mac-dator.  I den här kursen ingår inte att kompilera klientprogram i Apache Cordova med hjälp av kommandoraden.
 
 ## Skapa en ny mobilappserverdel i Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+[!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Titta på en video som visar liknande steg](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
 
 ## Konfigurera serverprojektet
-
-[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
+[!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## Hämta och köra Apache Cordova-appen
-
-[AZURE.INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
+[!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
 ## Nästa steg
-
 Nu när du har slutfört den här snabbstartskursen går du vidare till en av följande kurser:
 
 * [Lägg till autentisering] i din Apache Cordova-app.

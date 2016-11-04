@@ -1,55 +1,52 @@
-<properties
-   pageTitle="Läs in data från SQL Server till Azure SQL Data Warehouse (PolyBase) | Microsoft Azure"
-   description="Använder sig av bcp för att exportera data från SQL Server till flat-filer, AZCopy för att importera data till Azure blobblagring och PolyBase för att mata in data i Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="ckarst"
-   manager="barbkess"
-   editor=""/>
+---
+title: Läs in data från SQL Server till Azure SQL Data Warehouse (PolyBase) | Microsoft Docs
+description: Använder sig av bcp för att exportera data från SQL Server till flat-filer, AZCopy för att importera data till Azure blobblagring och PolyBase för att mata in data i Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: ckarst
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/30/2016
+ms.author: cakarst;barbkess;sonyama
 
-
-
+---
 # Läs in data med PolyBase i SQL Data Warehouse
-
-> [AZURE.SELECTOR]
-- [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-- [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-- [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> [!div class="op_single_selector"]
+> * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+> * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+> * [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+> 
+> 
 
 De här självstudierna visar hur du läser in data i SQL Data Warehouse med hjälp av AzCopy och PolyBase. När du är klar, kommer du att veta hur man:
 
-- Använder AzCopy för att kopiera data till Azure-blobblagring
-- Skapar databasobjekt för att definiera data
-- Kör en T-SQL-fråga för att läsa in data
+* Använder AzCopy för att kopiera data till Azure-blobblagring
+* Skapar databasobjekt för att definiera data
+* Kör en T-SQL-fråga för att läsa in data
 
->[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> 
+> 
 
 ## Förutsättningar
-
 För att gå igenom de här självstudierna behöver du
 
-- En SQL Data Warehouse-databas.
-- Ett Azure-lagringskonto av typen standard lokalt redundant lagring (Standard-LRS), standard geo-redundant lagring (Standard-GRS) eller standard geo-redundant lagring med läsbehörighet (Standard-RAGRS).
-- Kommandoradsverktyget AzCopy. Hämta och installera den [senaste versionen av AzCopy][] som installeras med Microsoft Azure Storage-verktyg.
-
+* En SQL Data Warehouse-databas.
+* Ett Azure-lagringskonto av typen standard lokalt redundant lagring (Standard-LRS), standard geo-redundant lagring (Standard-GRS) eller standard geo-redundant lagring med läsbehörighet (Standard-RAGRS).
+* Kommandoradsverktyget AzCopy. Hämta och installera den [senaste versionen av AzCopy][senaste versionen av AzCopy] som installeras med Microsoft Azure Storage-verktyg.
+  
     ![Azure Storage-verktyg](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
-
 ## Steg 1: Lägg till exempeldata i Azure blobblagret
-
 För att kunna läsa in data, behöver vi lägga exempeldata i ett Azure-blobblager. I det här steget fyller vi en Azure Storage-blob med exempeldata. Senare kommer vi att använda PolyBase för att läsa in exempeldatan till din SQL Data Warehouse-databas.
 
 ### A. Förbered en exempeltextfil
-
 Förbered en exempeltextfil:
 
 1. Öppna anteckningar och kopiera följande datarader i en ny fil. Spara den på din lokala temp-katalog som %temp%\DimDate2.txt.
@@ -70,42 +67,37 @@ Förbered en exempeltextfil:
 ```
 
 ### B. Hitta blobbtjänstens slutpunkt
-
 Så här hittar du blobbtjänstens slutpunkt:
 
 1. I Azure Portal väljer du **Bläddra** > **Lagringskonton**.
 2. Klicka på det lagringskonto som du vill använda.
 3. I bladet Storage-konton klickar du på Blobbar
-
+   
     ![Klicka på Blobbar](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
-
-1. Spara URL:en för blobbtjänstens slutpunkt för senare.
-
+4. Spara URL:en för blobbtjänstens slutpunkt för senare.
+   
     ![Blob-tjänstens slutpunkt](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
 ### C. Hitta din Azure-lagringsnyckel
-
 Hitta din Azure-lagringsnyckel:
 
 1. I Azure Portal väljer du **Bläddra** > **Lagringskonton**.
 2. Klicka på det lagringskonto som du vill använda.
 3. Välj **Alla inställningar** > **Åtkomstnycklar**.
 4. Klicka på kopiera-rutan för att kopiera en av dina åtkomstnycklar till urklipp.
-
+   
     ![Kopiera Azure-lagringsnyckel](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
 ### D. Kopiera exempelfilen till Azure-blobblagring
-
 Kopiera dina data till Azure-blobblagring:
 
 1. Öppna en kommandotolk och ändra katalog till installationskatalogen för AzCopy. Det här kommandot ändrar till standard-installationskatalogen på en 64-bitars Windows-klient.
-
+   
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
-
-1. Kör följande kommando för att ladda upp filen. Ange URL:en för blobbtjänstens slutpunkt för <blob service endpoint URL> och nyckeln för Azure-lagringskontot för <azure_storage_account_key>.
-
+2. Kör följande kommando för att ladda upp filen. Ange URL:en för blobbtjänstens slutpunkt för <blob service endpoint URL> och nyckeln för Azure-lagringskontot för <azure_storage_account_key>.
+   
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
@@ -113,7 +105,6 @@ Kopiera dina data till Azure-blobblagring:
 Mer information finns i [Komma igång med kommandoradsverktyget][senaste versionen av AzCopy].
 
 ### E. Utforska din blobblagringsbehållare
-
 Om du vill se filen du laddade upp till blobblagring:
 
 1. Gå tillbaka till bladet Blob-tjänst.
@@ -121,26 +112,23 @@ Om du vill se filen du laddade upp till blobblagring:
 3. Om du vill följa sökvägen till dina data, klickar du på mappen **datedimension** för att se filen **DimDate2.txt** som du laddat upp.
 4. Om du vill visa egenskaper, klickar du på **DimDate2.txt**.
 5. Observera att bladet för Blob-egenskaper låter dig hämta eller ta bort filen.
-
+   
     ![Visa Azure-lagringsblobb](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
-
 ## Steg 2: Skapa en extern tabell för exempeldata
-
 I det här avsnittet ska vi skapa en extern tabell som definierar exempeldata.
 
 PolyBase använder sig av externa tabeller för att komma åt data i Azure-blobblagring. Eftersom data inte lagras inom SQL Data Warehouse, hanterar PolyBase autentisering till externa data med hjälp av en databas-omfattande autentisering.
 
 Exemplet i det här steget använder de här Transact-SQL-uttrycken för att skapa en extern tabell.
 
-- [Skapa huvudnyckel (Transact-SQL)][] för att kryptera hemligheten för din databas-omfattande autentisering.
-- [Skapa databasomfattande autentisering (Transact-SQL)][] för att ange autentiseringsinformation för ditt Azure-lagringskonto.
-- [Skapa extern datakälla (Transact-SQL)][] för att ange platsen för din Azure-blobblagring.
-- [Skapa externt filformat (Transact-SQL)][] för att ange formatet för dina data.
-- [Skapa extern tabell (Transact-SQL)][] för att ange tabelldefinitionen och platsen för datan.
+* [Skapa huvudnyckel (Transact-SQL)][Skapa huvudnyckel (Transact-SQL)] för att kryptera hemligheten för din databas-omfattande autentisering.
+* [Skapa databasomfattande autentisering (Transact-SQL)][Skapa databasomfattande autentisering (Transact-SQL)] för att ange autentiseringsinformation för ditt Azure-lagringskonto.
+* [Skapa extern datakälla (Transact-SQL)][Skapa extern datakälla (Transact-SQL)] för att ange platsen för din Azure-blobblagring.
+* [Skapa externt filformat (Transact-SQL)][Skapa externt filformat (Transact-SQL)] för att ange formatet för dina data.
+* [Skapa extern tabell (Transact-SQL)][Skapa extern tabell (Transact-SQL)] för att ange tabelldefinitionen och platsen för datan.
 
 Kör den här frågan mot din SQL Data Warehouse-databas. Det skapar en extern tabell som heter DimDate2External i dbo-schemat, som pekar på exempeldatan DimDate2.txt i Azure-blobblagret.
-
 
 ```sql
 -- A: Create a master key.
@@ -216,11 +204,10 @@ I SQL Server Object Explorer i Visual Studio, kan du se det externa filformatet,
 ![Visa extern tabell](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
 ## Steg 3: Läs in data till SQL Data Warehouse
-
 När den externa tabellen har skapats kan du antingen läsa in dina data till en ny tabell eller infoga dem i en befintlig tabell.
 
-- För att läsa in data till en ny tabell, kör du uttrycket [CREATE TABLE AS SELECT (Transact-SQL)][]. Den nya tabellen kommer att ha kolumnerna som namnges i frågan. Datatyperna för kolumnerna kommer att matcha datatyperna i den externa tabelldefinitionen.
-- För att läsa in data i en befintlig tabell, använder du uttrycket [INSERT...SELECT (Transact-SQL)][].
+* För att läsa in data till en ny tabell, kör du uttrycket [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Den nya tabellen kommer att ha kolumnerna som namnges i frågan. Datatyperna för kolumnerna kommer att matcha datatyperna i den externa tabelldefinitionen.
+* För att läsa in data i en befintlig tabell, använder du uttrycket [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -236,7 +223,6 @@ SELECT * FROM [dbo].[DimDate2External];
 ```
 
 ## Steg 4: Skapa statistik på dina nyinlästa data
-
 SQL Data Warehouse skapar och uppdaterar inte statistik automatiskt. För att få en hög frågeprestanda är det därför viktigt att skapa statistik för varje kolumn av varje tabell efter den första inläsningen. Det är också viktigt att uppdatera statistiken efter att det har skett betydande förändringar.
 
 Det här exemplet skapar enkolumns-statistik för den nya DimDate2-tabellen.
@@ -247,11 +233,10 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-För mer information, se [Statistik][].  
-
+För mer information, se [Statistik][Statistik].  
 
 ## Nästa steg
-Se [PolyBase-guiden][] för ytterligare information som du bör känna till när du utvecklar en PolyBase-baserad lösning.
+Se [PolyBase-guiden][PolyBase-guiden] för ytterligare information som du bör känna till när du utvecklar en PolyBase-baserad lösning.
 
 <!--Image references-->
 

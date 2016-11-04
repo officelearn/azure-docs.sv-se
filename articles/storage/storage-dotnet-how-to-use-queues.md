@@ -1,56 +1,50 @@
-<properties
-    pageTitle="Komma igång med Azure Queue Storage med hjälp av .NET | Microsoft Azure"
-    description="Azure Queues ger tillförlitliga, asynkrona meddelandefunktioner mellan programkomponenter. Med hjälp av molnmeddelanden kan programkomponenter skalas separat."
-    services="storage"
-    documentationCenter=".net"
-    authors="robinsh"
-    manager="carmonm"
-    editor="tysonn"/>
+---
+title: Komma igång med Azure Queue Storage med hjälp av .NET | Microsoft Docs
+description: Azure Queues ger tillförlitliga, asynkrona meddelandefunktioner mellan programkomponenter. Med hjälp av molnmeddelanden kan programkomponenter skalas separat.
+services: storage
+documentationcenter: .net
+author: robinsh
+manager: carmonm
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="10/12/2016"
-    ms.author="robinsh"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 10/12/2016
+ms.author: robinsh
 
-
+---
 # <a name="get-started-with-azure-queue-storage-using-.net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
+[!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Översikt
-
 Azure Queue Storage innehåller molnmeddelandehantering mellan programkomponenter. När program utformas för skalning är programkomponenterna ofta fristående, så att de kan skalas oberoende av varandra. Queue Storage är en asynkron meddelandelösning för kommunikation mellan programkomponenter, oavsett om de körs i molnet, på skrivbordet, på en lokal server eller på en mobil enhet. Queue Storage har också stöd för hantering av asynkrona åtgärder och utveckling av processarbetsflöden.
 
 ### <a name="about-this-tutorial"></a>Om den här självstudiekursen
-
 I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenarier med hjälp av Azure Queue Storage. Du lär dig bland annat hur du skapar och tar bort köer och hur du lägger till, läser och tar bort kömeddelanden.
 
 **Uppskattad tidsåtgång:** 45 minuter
 
 **Förhandskrav:**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
-- [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure Configuration Manager för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- Ett [Azure Storage-konto](storage-create-storage-account.md#create-a-storage-account)
+* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Configuration Manager för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+* Ett [Azure Storage-konto](storage-create-storage-account.md#create-a-storage-account)
 
+[!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
-[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+[!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
-
-[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
+[!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
 ### <a name="add-namespace-declarations"></a>Lägga till namnrymdsdeklarationer
-
 Lägg till följande `using`-instruktioner överst i `program.cs`-filen:
 
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -58,11 +52,9 @@ Lägg till följande `using`-instruktioner överst i `program.cs`-filen:
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
 ### <a name="parse-the-connection-string"></a>Parsa anslutningssträngen
-
-[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
+[!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-queue-service-client"></a>Skapa Queue-tjänstklienten
-
 Med hjälp av **CloudQueueClient**-klassen kan du hämta köer som lagras i Queue Storage. Här är ett sätt att skapa tjänstklienten:
 
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -70,7 +62,6 @@ Med hjälp av **CloudQueueClient**-klassen kan du hämta köer som lagras i Queu
 Nu är det dags att skriva kod som läser data från och skriver data till Queue Storage.
 
 ## <a name="create-a-queue"></a>Skapa en kö
-
 Det här exemplet illustrerar hur du skapar en kö om den inte redan finns:
 
     // Retrieve storage account from connection string.
@@ -87,7 +78,6 @@ Det här exemplet illustrerar hur du skapar en kö om den inte redan finns:
     queue.CreateIfNotExists();
 
 ## <a name="insert-a-message-into-a-queue"></a>Infoga ett meddelande i en kö
-
 Om du vill infoga ett meddelande i en befintlig kö börjar du med att skapa ett nytt **CloudQueueMessage**. Därefter anropar du **AddMessage**-metoden. Du kan skapa ett **CloudQueueMessage** antingen från en sträng (i UTF-8-format) eller från en **byte**-matris. Här är kod som skapar en kö (om den inte finns) och som infogar meddelandet ”Hello World”:
 
     // Retrieve storage account from connection string.
@@ -108,7 +98,6 @@ Om du vill infoga ett meddelande i en befintlig kö börjar du med att skapa ett
     queue.AddMessage(message);
 
 ## <a name="peek-at-the-next-message"></a>En titt på nästa meddelande
-
 Du kan kika på meddelandet först i en kö utan att ta bort det från kön genom att anropa metoden **PeekMessage**.
 
     // Retrieve storage account from connection string
@@ -128,7 +117,6 @@ Du kan kika på meddelandet först i en kö utan att ta bort det från kön geno
     Console.WriteLine(peekedMessage.AsString);
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Ändra innehållet i ett meddelande i kön
-
 Du kan ändra innehållet i ett meddelande direkt i kön. Om meddelandet representerar en arbetsuppgift kan du använda den här funktionen för att uppdatera arbetsuppgiftens status. Följande kod uppdaterar kömeddelandet med nytt innehåll och utökar tidsgränsen för visning med ytterligare 60 sekunder. Koden sparar statusen för arbetsuppgiften som associeras med meddelandet och ger klienten ytterligare en minut att fortsätta arbeta med meddelandet. Du kan använda den här tekniken för att spåra arbetsflöden med flera steg i kömeddelanden, utan att behöva börja om från början om ett bearbetningssteg misslyckas på grund av maskin- eller programvarufel. Normalt räknar du även antalet omförsök och tar bort meddelandet om fler än *n* försök misslyckas. Detta skyddar mot meddelanden som utlöser ett programfel varje gång de bearbetas.
 
     // Retrieve storage account from connection string.
@@ -149,8 +137,7 @@ Du kan ändra innehållet i ett meddelande direkt i kön. Om meddelandet represe
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
 ## <a name="de-queue-the-next-message"></a>Ta bort nästa meddelande från kön
-
-Koden tar bort ett meddelande från en kö i två steg. När du anropar **GetMessage** hämtas nästa meddelande i en kö. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. För att slutföra borttagningen av meddelandet från kön måste du även anropa **DeleteMessage**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Koden anropar **DeleteMessage** direkt efter att meddelandet har bearbetats.
+Koden tar bort ett meddelande från en kö i två steg. När du anropar **GetMessage** hämtas nästa meddelande i en kö. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. För att slutföra borttagningen av meddelandet från kön måste du även anropa **DeleteMessage**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Koden anropar **DeleteMessage** direkt efter att meddelandet har bearbetats.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -169,7 +156,6 @@ Koden tar bort ett meddelande från en kö i två steg. När du anropar **GetMes
     queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Använda Async-Await-mönstret med vanliga Queue Storage-API:er
-
 Det här exemplet illustrerar hur du använder Async-Await-mönstret med vanliga Queue Storage-API:er. Exemplet anropar den asynkrona versionen av var och en av de angivna metoderna, vilket du ser på *Async*-suffixet för varje metod. När en async-metod används pausar async-await-mönstret den lokala körningen tills anropet har slutförts. Detta gör att den aktuella tråden kan arbeta med annat, vilket innebär att flaskhalsar kan undvikas samtidigt som programmets svarstider förbättras. Mer information om hur du använder Async-Await-mönstret i .NET finns i [Async och Await (C# och Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Create the queue if it doesn't already exist
@@ -198,9 +184,8 @@ Det här exemplet illustrerar hur du använder Async-Await-mönstret med vanliga
     Console.WriteLine("Deleted message");
 
 ## <a name="leverage-additional-options-for-de-queuing-messages"></a>Använda fler alternativ för att hämta meddelanden ur kön
-
 Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö.
-För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kodexempel används metoden **GetMessage** för att hämta 20 meddelanden i ett anrop. Sedan bearbetas varje meddelande med hjälp av en **foreach**-loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att de fem minuterna startar för alla meddelanden samtidigt, vilket betyder att när det här har gått fem minuter sedan anropet till **GetMessage** så blir alla meddelanden som inte har tagits bort synliga igen.
+För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kodexempel används metoden **GetMessage** för att hämta 20 meddelanden i ett anrop. Sedan bearbetas varje meddelande med hjälp av en **foreach**-loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att de fem minuterna startar för alla meddelanden samtidigt, vilket betyder att när det här har gått fem minuter sedan anropet till **GetMessage** så blir alla meddelanden som inte har tagits bort synliga igen.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -219,7 +204,6 @@ För det första kan du hämta en grupp med meddelanden (upp till 32). För det 
     }
 
 ## <a name="get-the-queue-length"></a>Hämta kölängden
-
 Du kan hämta en uppskattning av antalet meddelanden i en kö. **FetchAttributes**-metoden ber kötjänsten att hämta köattributen, inklusive antalet meddelanden. Egenskapen **ApproximateMessageCount** returnerar det sista värdet som hämtas av **FetchAttributes**-metoden, utan att kötjänsten anropas.
 
     // Retrieve storage account from connection string.
@@ -242,7 +226,6 @@ Du kan hämta en uppskattning av antalet meddelanden i en kö. **FetchAttributes
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="delete-a-queue"></a>Ta bort en kö
-
 Om du vill ta bort en kö och alla meddelanden i den anropar du **Delete**-metoden för köobjektet.
 
     // Retrieve storage account from connection string.
@@ -259,25 +242,24 @@ Om du vill ta bort en kö och alla meddelanden i den anropar du **Delete**-metod
     queue.Delete();
 
 ## <a name="next-steps"></a>Nästa steg
-
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagringsuppgifter.
 
-- Fullständig information om tillgängliga API:er finns i referensdokumentationen för kötjänsten:
-    - [Storage-klientbibliotek för .NET-referens](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-    - [REST API-referens](http://msdn.microsoft.com/library/azure/dd179355)
-- Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
-- Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
-    - [Kom igång med Azure Table Storage med hjälp av .NET](storage-dotnet-how-to-use-tables.md) om du vill lagra strukturerade data.
-    - [Kom igång med Azure Blob Storage med hjälp av .NET](storage-dotnet-how-to-use-blobs.md) om du vill lagra ostrukturerade data.
-    - [Anslut till SQL Database med hjälp av .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) för att lagra relationsdata.
+* Fullständig information om tillgängliga API:er finns i referensdokumentationen för kötjänsten:
+  * [Storage-klientbibliotek för .NET-referens](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  * [REST API-referens](http://msdn.microsoft.com/library/azure/dd179355)
+* Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
+* Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
+  * [Kom igång med Azure Table Storage med hjälp av .NET](storage-dotnet-how-to-use-tables.md) om du vill lagra strukturerade data.
+  * [Kom igång med Azure Blob Storage med hjälp av .NET](storage-dotnet-how-to-use-blobs.md) om du vill lagra ostrukturerade data.
+  * [Anslut till SQL Database med hjälp av .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) för att lagra relationsdata.
 
-  [Hämta och installera Azure SDK för .NET]: /develop/net/
-  [.NET-klientbiblioteksreferens]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Skapa ett Azure-projekt i Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-  [Azure Storage Teamblogg]: http://blogs.msdn.com/b/windowsazurestorage/
-  [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-  [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Rumslig]: http://nuget.org/packages/System.Spatial/5.0.2
+[Hämta och installera Azure SDK för .NET]: /develop/net/
+[.NET-klientbiblioteksreferens]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Skapa ett Azure-projekt i Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
+[Azure Storage Teamblogg]: http://blogs.msdn.com/b/windowsazurestorage/
+[OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
+[Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
+[Rumslig]: http://nuget.org/packages/System.Spatial/5.0.2
 
 
 

@@ -1,81 +1,74 @@
-<properties
-   pageTitle="Anslut till Azure SQL Data Warehouse | Microsoft Azure"
-   description="Så här hittar du servernamnet och anslutningssträngen för Azure SQL Data Warehouse"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Anslut till Azure SQL Data Warehouse | Microsoft Docs
+description: Så här hittar du servernamnet och anslutningssträngen för Azure SQL Data Warehouse
+services: sql-data-warehouse
+documentationcenter: NA
+author: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="09/26/2016"
-   ms.author="sonyama;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 09/26/2016
+ms.author: sonyama;barbkess
 
-
+---
 # Anslut till Azure SQL Data Warehouse
-
 Artikeln visar hur du ansluter till SQL Data Warehouse för första gången.
 
 ## Hitta servernamnet
-
 Det första steget när du ska ansluta till SQL Data Warehouse är att ta reda på servernamnet.  I följande exempel är servernamnet sample.database.windows.net. För att hitta det fullständigt kvalificerade servernamnet:
 
-1. Gå till [Azure-portalen][].
+1. Gå till [Azure-portalen][Azure-portalen].
 2. Klicka på **SQL-databaser** 
 3. Klicka på den databas som du vill ansluta till.
 4. Leta upp det fullständiga servernamnet.
-
+   
     ![Fullständigt servernamn][1]
 
 ## Drivrutiner och anslutningssträngar som stöds
+Azure SQL Data Warehouse stöder [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] och [JDBC][JDBC]. Klicka på någon av drivrutinerna ovan för att hitta den senaste versionen och dokumentation. Om du vill generera anslutningssträngen för den drivrutin som du använder från Azure-portalen, kan du klicka på **Visa databasanslutningssträngar** från föregående exempel.  Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
 
-Azure SQL Data Warehouse stöder [ADO.NET][], [ODBC][], [PHP][] och [JDBC][]. Klicka på någon av drivrutinerna ovan för att hitta den senaste versionen och dokumentation. Om du vill generera anslutningssträngen för den drivrutin som du använder från Azure-portalen, kan du klicka på **Visa databasanslutningssträngar** från föregående exempel.  Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
-
-> [AZURE.NOTE] Det kan vara bra att ange en tidsgräns på 300 sekunder för anslutningen så att den inte bryts vid korta perioder av inaktivitet.
+> [!NOTE]
+> Det kan vara bra att ange en tidsgräns på 300 sekunder för anslutningen så att den inte bryts vid korta perioder av inaktivitet.
+> 
+> 
 
 ### Exempel på ADO.NET-anslutningssträng
-
 ```C#
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### Exempel på ODBC-anslutningssträng
-
 ```C#
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
 ### Exempel på PHP-anslutningssträng
-
 ```PHP
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
 ### Exempel på JDBC-anslutningssträng
-
 ```Java
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
 ## Inställningar för anslutning
-
 SQL Data Warehouse standardiserar några inställningar under anslutning och objektskapande. Dessa inställningar kan inte åsidosättas. Det gäller exempelvis:
 
-| Databasinställning       | Värde                        |
-| :--------------------- | :--------------------------- |
-| [ANSI_NULLS][]         | ON                           |
-| [QUOTED_IDENTIFIERS][] | ON                           |
-| [DATEFORMAT][]         | mdy                          |
-| [DATEFIRST][]          | 7                            |
+| Databasinställning | Värde |
+|:--- |:--- |
+| [ANSI_NULLS][ANSI_NULLS] |ON |
+| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ON |
+| [DATEFORMAT][DATEFORMAT] |mdy |
+| [DATEFIRST][DATEFIRST] |7 |
 
 ## Nästa steg
-
-Information om hur du ansluter och ställer frågor med Visual Studio finns i [Fråga med Visual Studio][]. Läs mer om autentiseringsalternativ i [Autentisera till Azure SQL Data Warehouse][].
+Information om hur du ansluter och ställer frågor med Visual Studio finns i [Fråga med Visual Studio][Fråga med Visual Studio]. Läs mer om autentiseringsalternativ i [Autentisera till Azure SQL Data Warehouse][Autentisera till Azure SQL Data Warehouse].
 
 <!--Articles-->
 [Fråga med Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

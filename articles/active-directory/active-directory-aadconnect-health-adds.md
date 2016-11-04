@@ -1,23 +1,22 @@
 
-<properties
-    pageTitle="Använda Azure AD Connect Health med AD DS | Microsoft Azure"
-    description="Den här sidan om Azure AD Connect Health innehåller information om hur du övervakar AD DS."
-    services="active-directory"
-    documentationCenter=""
-    authors="arluca"
-    manager="samueld"
-    editor="curtand"/>
+---
+title: Använda Azure AD Connect Health med AD DS | Microsoft Docs
+description: Den här sidan om Azure AD Connect Health innehåller information om hur du övervakar AD DS.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/30/2016"
-    ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
-
+---
 # Använda Azure AD Connect Health med AD DS
 Följande dokumentation är specifik för övervakning av Active Directory Domain Services med Azure AD Connect Health. Versioner av AD DS som stöds är: Windows Server 2008 R2, Windows Server 2012 och Windows Server 2012 R2.
 
@@ -52,7 +51,6 @@ Den här funktionen visar grafiska trender hos olika prestandaräknare som samla
 Som standard har vi förvalt fyra prestandaräknare. Du kan dock inkludera andra genom att klicka på filterkommandot och markera eller avmarkera alla önskade prestandaräknare. Dessutom kan du dubbelklicka på ett diagram för en prestandaräknare för att öppna ett nytt blad som innehåller datapunkter för alla övervakade domänkontrollanter.
 
 ## Relaterade länkar
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Installation av Azure AD Connect Health Agent](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health-åtgärder](active-directory-aadconnect-health-operations.md)
@@ -60,8 +58,6 @@ Som standard har vi förvalt fyra prestandaräknare. Du kan dock inkludera andra
 * [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versionshistorik för Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
 
 <!--HONumber=Oct16_HO1-->
 

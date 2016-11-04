@@ -1,22 +1,22 @@
-<properties
-    pageTitle="Börja använda Azure Data Catalog | Microsoft Azure"
-    description="I den här artikeln beskriver vi en metod och process för organisationer som funderar på att börja använda Azure Data Catalog. Den omfattar bland annat hur du fastställer en vision, identifierar viktiga användningsområden och väljer ett pilotprojekt."
-    services="data-catalog"
-    documentationCenter=""
-    authors="steelanddata"
-    manager="NA"
-    editor=""
-    tags=""/>
-<tags
-    ms.service="data-catalog"
-    ms.devlang="NA"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-catalog"
-    ms.date="10/11/2016"
-    ms.author="maroche"/>
+---
+title: Börja använda Azure Data Catalog | Microsoft Docs
+description: I den här artikeln beskriver vi en metod och process för organisationer som funderar på att börja använda Azure Data Catalog. Den omfattar bland annat hur du fastställer en vision, identifierar viktiga användningsområden och väljer ett pilotprojekt.
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 10/11/2016
+ms.author: maroche
 
+---
 # Börja använda Azure Data Catalog
 Den här artikeln hjälper dig att komma igång med **Azure Data Catalog** i din organisation. Fokusera på följande tre huvudpunkter för att komma igång med **Azure Data Catalog** på ett smidigt sätt: fastställ din vision, identifiera viktiga användningsområden inom organisationen och välj ett pilotprojekt.
 
@@ -35,10 +35,10 @@ En effektiv implementeringsplan får medarbetarna att se potentialen i Data Cata
 
 En implementeringsplan hjälper dig att berätta vad som är viktigt för att användarna ska lyckas och nå sina mål. En typisk plan beskriver hur Data Catalog gör användarnas liv enklare. Den består av följande delar:
 
--   **Vision** – En vision hjälper dig att diskutera implementeringsplanen med användare och intressenter på ett kort och koncist sätt. Visionen är ditt snabba försäljningsargument.
--   **Pilotteam och påverkare** – Genom att inhämta information från ett pilotteam och påverkare kan du presentera Data Catalog för team och användare på ett bättre sätt. Påverkare kan hjälpa till att vägleda andra användare. Det hjälper dig också att se vad som hindrar och vad som främjar implementeringen.
--   **Informations- och marknadsföringsplan** – Planen hjälper användarna att förstå hur Data Catalog kan hjälpa dem och underlättar en organisk implementering i de  olika teamen och i slutänden hela organisationen.
--   **Utbildningsplan** – Omfattande utbildning ger vanligtvis en framgångsrik implementering och goda resultat.
+* **Vision** – En vision hjälper dig att diskutera implementeringsplanen med användare och intressenter på ett kort och koncist sätt. Visionen är ditt snabba försäljningsargument.
+* **Pilotteam och påverkare** – Genom att inhämta information från ett pilotteam och påverkare kan du presentera Data Catalog för team och användare på ett bättre sätt. Påverkare kan hjälpa till att vägleda andra användare. Det hjälper dig också att se vad som hindrar och vad som främjar implementeringen.
+* **Informations- och marknadsföringsplan** – Planen hjälper användarna att förstå hur Data Catalog kan hjälpa dem och underlättar en organisk implementering i de  olika teamen och i slutänden hela organisationen.
+* **Utbildningsplan** – Omfattande utbildning ger vanligtvis en framgångsrik implementering och goda resultat.
 
 Här kommer några tips på hur du formulerar en implementeringsplan för **Azure Data Catalog**.
 
@@ -47,13 +47,10 @@ Det första steget i att skapa en implementeringsplan för **Azure Data Catalog*
 
 Här följer några tips om hur du skapar en vision:
 
--   **Hitta den viktigaste motiveringen till implementering** – Fundera på de specifika behov som rör datakällor i företaget som Data Catalog kan hantera. Det hjälper dig också att formulera de största fördelarna med att använda Data Catalog. Det kan till exempel finnas gemensamma datakällor som alla nya medarbetare behöver känna till och använda, eller viktiga och komplicerade datakällor som bara några få nyckelpersoner verkligen förstår. **Azure Data Catalog** kan göra det enkelt att identifiera dessa datakällor och förstå hur de kan användas, så att sådana vanliga svårigheter kan hanteras direkt och tidigt under implementeringsprocessen.
-
--   **Var klar och tydlig** – En tydlig vision ger hela organisationen samma uppfattning om värdet av Data Catalog för organisationen och om hur visionen stöder organisationens mål.
-
--   **Inspirera medarbetarna att vilja använda Data Catalog** – Din vision och din kommunikationsplan ska fungera som inspiration så att medarbetarna inser att Data Catalog kan hjälpa dem att hitta och ansluta till datakällor och därmed få bättre resultat av dataanvändningen.
-
--   **Ange specifika mål och tidsfrister** – Det säkerställer att implementeringsplanen har specifika och realistiska mål. Med tidsfrister behåller du fokus och kan ha milstolpar där framgångarna mäts.
+* **Hitta den viktigaste motiveringen till implementering** – Fundera på de specifika behov som rör datakällor i företaget som Data Catalog kan hantera. Det hjälper dig också att formulera de största fördelarna med att använda Data Catalog. Det kan till exempel finnas gemensamma datakällor som alla nya medarbetare behöver känna till och använda, eller viktiga och komplicerade datakällor som bara några få nyckelpersoner verkligen förstår. **Azure Data Catalog** kan göra det enkelt att identifiera dessa datakällor och förstå hur de kan användas, så att sådana vanliga svårigheter kan hanteras direkt och tidigt under implementeringsprocessen.
+* **Var klar och tydlig** – En tydlig vision ger hela organisationen samma uppfattning om värdet av Data Catalog för organisationen och om hur visionen stöder organisationens mål.
+* **Inspirera medarbetarna att vilja använda Data Catalog** – Din vision och din kommunikationsplan ska fungera som inspiration så att medarbetarna inser att Data Catalog kan hjälpa dem att hitta och ansluta till datakällor och därmed få bättre resultat av dataanvändningen.
+* **Ange specifika mål och tidsfrister** – Det säkerställer att implementeringsplanen har specifika och realistiska mål. Med tidsfrister behåller du fokus och kan ha milstolpar där framgångarna mäts.
 
 Här följer en exempelvision i en implementeringsplan för Data Catalog för det fiktiva företaget Adventure Works.
 
@@ -68,23 +65,17 @@ Det är bäst att välja användningsområden där du lätt kan nå goda resulta
 
 Här följer några tips på hur du identifierar användningsområden:
 
--   **Definiera teamets mål** – Hur uppnår teamet sina mål? Fokusera inte på Data Catalog ännu, eftersom du vill vara objektiv i det här skedet. Kom ihåg att det handlar om verksamhetsresultat, inte om tekniken.
-
--   **Definiera problem i verksamheten** – Vilka problem har teamet med att hitta och få information om datatillgångar? Till exempel finns kanske informationen om viktiga datakällor i Excel-arbetsböcker i en nätverksmapp, och teamet tillbringar mycket tid med att hitta arbetsböckerna.
-
--   **Förstå hur förändringskulturen ser ut i teamet** – Många problem i samband med förändring gäller motstånd mot förändring snarare än motstånd mot att använda ett nytt verktyg. Hur ett team reagerar på förändringar är viktigt när du identifierar användningsområden. Befintliga processer kanske finns ”för att vi alltid har gjort så” eller på grund av tanken ”varför ändra på något som fungerar”? Det är alltid lättast att implementera nya verktyg eller processer när de medarbetare som påverkas förstår värdet av förändringen liksom vikten av problemen som behöver lösas.
-
--   **Behåll fokus på datatillgångar** – När du ska diskutera verksamhetsproblem som ett team står inför måste du fokusera på vad som är relevant för att utnyttja företagets datatillgångar på ett effektivare sätt och lämna allt övrigt åt sidan.
+* **Definiera teamets mål** – Hur uppnår teamet sina mål? Fokusera inte på Data Catalog ännu, eftersom du vill vara objektiv i det här skedet. Kom ihåg att det handlar om verksamhetsresultat, inte om tekniken.
+* **Definiera problem i verksamheten** – Vilka problem har teamet med att hitta och få information om datatillgångar? Till exempel finns kanske informationen om viktiga datakällor i Excel-arbetsböcker i en nätverksmapp, och teamet tillbringar mycket tid med att hitta arbetsböckerna.
+* **Förstå hur förändringskulturen ser ut i teamet** – Många problem i samband med förändring gäller motstånd mot förändring snarare än motstånd mot att använda ett nytt verktyg. Hur ett team reagerar på förändringar är viktigt när du identifierar användningsområden. Befintliga processer kanske finns ”för att vi alltid har gjort så” eller på grund av tanken ”varför ändra på något som fungerar”? Det är alltid lättast att implementera nya verktyg eller processer när de medarbetare som påverkas förstår värdet av förändringen liksom vikten av problemen som behöver lösas.
+* **Behåll fokus på datatillgångar** – När du ska diskutera verksamhetsproblem som ett team står inför måste du fokusera på vad som är relevant för att utnyttja företagets datatillgångar på ett effektivare sätt och lämna allt övrigt åt sidan.
 
 Här är några exempel på användningsområden för Data Catalog:
 
 ### Exempel på användningsområden
-
--   **Registrera centrala värdefulla datakällor** – IT-avdelningen hanterar datakällor som används i organisationen. IT-avdelningen kan vara först med Data Catalog genom att registrera och kommentera företagets gemensamma datakällor.
-
--   **Registrera teambaserade datakällor** – De olika teamen har användbara verksamhetsspecifika datakällor. Kom igång med **Azure Data Catalog** genom att identifiera och registrera viktiga datakällor som används av många olika team och få med teamens specifika kunskaper genom kommentarer i **Azure Data Catalog**.
-
--   **Affärsinformation med självbetjäning** – Teamen lägger mycket tid på att kombinera data från flera källor. Registrera och kommentera datakällor på en central plats för att inte behöva söka manuellt efter datakällor.
+* **Registrera centrala värdefulla datakällor** – IT-avdelningen hanterar datakällor som används i organisationen. IT-avdelningen kan vara först med Data Catalog genom att registrera och kommentera företagets gemensamma datakällor.
+* **Registrera teambaserade datakällor** – De olika teamen har användbara verksamhetsspecifika datakällor. Kom igång med **Azure Data Catalog** genom att identifiera och registrera viktiga datakällor som används av många olika team och få med teamens specifika kunskaper genom kommentarer i **Azure Data Catalog**.
+* **Affärsinformation med självbetjäning** – Teamen lägger mycket tid på att kombinera data från flera källor. Registrera och kommentera datakällor på en central plats för att inte behöva söka manuellt efter datakällor.
 
 Det var bara några användningsområden för **Azure Data Catalog**. Mer information om scenarier för Data Catalog finns i [vanliga scenarier för Azure Data Catalog](data-catalog-common-scenarios.md).
 
@@ -107,9 +98,8 @@ Ditt första pilotprojekt bör innehålla några personer som skapar data och n�
 
 Ett av de verksamhetsproblem som **Azure Data Catalog** löser är sammankoppling av**dataproducenter** och **datakonsumenter**. Katalogen fungerar som ett centrallager för information om företagets datakällor. David registrerar Adventure Works- och SQL Server-datakällor i Data Catalog. Eftersom alla användare kan bidra, kan alla användare som identifierar datakällan dela med sig av sina åsikter om den och hur den kan användas. Till exempel identifierar Nancy datakällor genom att söka i katalogen och delar med sig av sina specialkunskaper om dem.  Nu kan andra i organisationen dra nytta av kunskapen hon delat med sig av genom att bara söka i datakatalogen.
 
--   Mer information om hur du registrerar datakällor finns i [Registrera datakällor](data-catalog-get-started.md#exercise-2-registering-data-sources).
-
--   Mer information om hur du identifierar datakällor finns i [Söka efter datakällor](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Mer information om hur du registrerar datakällor finns i [Registrera datakällor](data-catalog-get-started.md#exercise-2-registering-data-sources).
+* Mer information om hur du identifierar datakällor finns i [Söka efter datakällor](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
 
 ### Börja litet och fokuserat
 För de flesta pilotprojekt i företag bör du fylla katalogen med värdefulla datakällor så att användare i verksamheten snabbt kan se värdet av Data Catalog. IT-avdelningen är en bra plats att börja identifiera gemensamma datakällor som kan vara av intresse för pilotteamet. Vi rekommenderar att du använder registreringsverktyget för datakällor i **Azure Data Catalog** för de datakällor som stöds, till exempel SQL Server. Med registreringsverktyget för datakällor kan du registrera många olika typer av datakällor, till exempel SQL Server- och Oracle-databaser samt rapporter i SQL Server Reporting Services. En fullständig lista över aktuella datakällor finns i [Datakällor som stöds i Azure Data Catalog](data-catalog-dsr.md).
@@ -127,7 +117,10 @@ Mer information om registreringsverktyget för datakällor finns i [Kom igång m
 
 Som en del i pilotprojektet använder Nancys team även datakällor som beskrivs i den Excel-arbetsbok som David och hans kollegor upprätthåller. Eftersom andra team i företaget också använder Excel-arbetsböcker för att beskriva datakällor beslutar IT-teamet att skapa ett verktyg för att migrera Excel-arbetsboken till Data Catalog. Genom att importera befintliga kommentarer med hjälp av Data Catalog-REST-API:et kan pilotprojektteamet få en komplett datakatalog med metadata som extraherats från datakällorna med registreringsverktyget för datakällor. Katalogen kompletteras med information som tidigare dokumenterats av dataproducenter och konsumenter utan att något behöver matas in manuellt. När företagets datakatalog växer kan organisationen använda registreringsverktyget för datakällor för gemensamma datakällor, till exempel Data Catalog-API:et för anpassade källor och ovanliga scenarier.
 
-> [AZURE.NOTE] Vi har skrivit ett exempelverktyg där API:et för **Azure Data Catalog** används för att migrera en Excel-arbetsbok till Data Catalog. Mer information om Data Catalog-API:et och exempelverktyget finns i [Ladda ned kodexempel för ad hoc-arbetsbok](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) och i dokumentationen för [Azure Data Catalog-REST-API:et](https://msdn.microsoft.com/library/azure/mt267593.aspx).
+> [!NOTE]
+> Vi har skrivit ett exempelverktyg där API:et för **Azure Data Catalog** används för att migrera en Excel-arbetsbok till Data Catalog. Mer information om Data Catalog-API:et och exempelverktyget finns i [Ladda ned kodexempel för ad hoc-arbetsbok](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) och i dokumentationen för [Azure Data Catalog-REST-API:et](https://msdn.microsoft.com/library/azure/mt267593.aspx).
+> 
+> 
 
 När pilotprojektet är slutfört är det dags att genomföra implementeringsplanen.
 
@@ -136,15 +129,11 @@ Nu har du identifierat användningsområden för Data Catalog liksom ditt först
 
 Här följer några tips för att komma igång:
 
--   **Se till att användarna är entusiastiska** – Användare i verksamheten kommer att vara entusiastiska om de är övertygade om att **Azure Data Catalog** kommer att göra deras liv enklare. Försök att hålla diskussionerna kring lösningen och fördelarna, inte tekniken.
-
--   **Underlätta förändringen** – Börja litet och beskriv planen för användare i verksamheten. För att lyckas är det viktigt att användarna är engagerade från början, så att de kan påverka resultatet och känna sig delaktiga i lösningen.
-
--   **Leta rätt på tidiga brukare** – Tidiga brukare är användare i verksamheten som arbetar med stor passion och gärna berättar för kollegorna om fördelarna med **Azure Data Catalog**.
-
--   **Riktad utbildning** – Användare i verksamheten behöver inte veta allt om Data Catalog, så rikta utbildningen så att teamens specifika mål tas upp. Fokusera på vad användarna kommer att göra och hur deras arbetsuppgifter kan komma att ändras när de införlivar **Azure Data Catalog** i sina dagliga rutiner.
-
--   **Var beredd att misslyckas** – Om pilotprojektet inte går som planerat är det dags att omvärdera och identifiera förbättringsområden. Rätta till problem i pilotprojektet innan du fortsätter till ett större område.
+* **Se till att användarna är entusiastiska** – Användare i verksamheten kommer att vara entusiastiska om de är övertygade om att **Azure Data Catalog** kommer att göra deras liv enklare. Försök att hålla diskussionerna kring lösningen och fördelarna, inte tekniken.
+* **Underlätta förändringen** – Börja litet och beskriv planen för användare i verksamheten. För att lyckas är det viktigt att användarna är engagerade från början, så att de kan påverka resultatet och känna sig delaktiga i lösningen.
+* **Leta rätt på tidiga brukare** – Tidiga brukare är användare i verksamheten som arbetar med stor passion och gärna berättar för kollegorna om fördelarna med **Azure Data Catalog**.
+* **Riktad utbildning** – Användare i verksamheten behöver inte veta allt om Data Catalog, så rikta utbildningen så att teamens specifika mål tas upp. Fokusera på vad användarna kommer att göra och hur deras arbetsuppgifter kan komma att ändras när de införlivar **Azure Data Catalog** i sina dagliga rutiner.
+* **Var beredd att misslyckas** – Om pilotprojektet inte går som planerat är det dags att omvärdera och identifiera förbättringsområden. Rätta till problem i pilotprojektet innan du fortsätter till ett större område.
 
 Boka in ett inledande möte för att diskutera förväntningar på pilotprojektet och ge grundläggande utbildning innan pilotteamet börjar använda Data Catalog.
 
@@ -166,15 +155,13 @@ Tidiga brukare som har deltagit i pilotprojektet kan vara till stor nytta när d
 Den här artikeln handlar om att komma igång med **Azure Data Catalog** i din organisation. Vi hoppas att du kunde starta ett pilotprojekt i Data Catalog och utvidga Data Catalog till hela organisationen.
 
 ## Mer information om Azure Data Catalog
--   [Produktsida för Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/)
--   [Dokumentation för Azure Data Catalog](https://azure.microsoft.com/documentation/services/data-catalog/)
--   [Vanliga scenarier för Azure Data Catalog](data-catalog-common-scenarios.md)
--   [Registrera datakällor](data-catalog-get-started.md#exercise-2-registering-data-sources)
--   [Söka efter datakällor](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
--   [Kommentera datakällor](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-- [Gemensamt skapade metadata](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
-
+* [Produktsida för Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/)
+* [Dokumentation för Azure Data Catalog](https://azure.microsoft.com/documentation/services/data-catalog/)
+* [Vanliga scenarier för Azure Data Catalog](data-catalog-common-scenarios.md)
+* [Registrera datakällor](data-catalog-get-started.md#exercise-2-registering-data-sources)
+* [Söka efter datakällor](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
+* [Kommentera datakällor](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
+* [Gemensamt skapade metadata](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
 <!--HONumber=Oct16_HO3-->
 

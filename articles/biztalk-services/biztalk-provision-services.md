@@ -1,41 +1,39 @@
-<properties
-    pageTitle="Skapa Azure BizTalk Services i Azure-portalen | Microsoft Azure"
-    description="Lär dig hur du etablerar eller skapar Azure BizTalk Services i Azure-portalen; MABS, WABS"
-    services="biztalk-services"
-    documentationCenter=""
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""/>
+---
+title: Skapa Azure BizTalk Services i Azure-portalen | Microsoft Docs
+description: Lär dig hur du etablerar eller skapar Azure BizTalk Services i Azure-portalen; MABS, WABS
+services: biztalk-services
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="biztalk-services"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/15/2016"
-    ms.author="mandia"/>
+ms.service: biztalk-services
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/15/2016
+ms.author: mandia
 
-
-
+---
 # Skapa BizTalk Services med Azure-portalen
-
 Skapa Azure BizTalk Services i Azure-portalen.
 
-> [AZURE.TIP] Om du vill logga in på Azure-portalen behöver du ett Azure-konto och en Azure-prenumeration. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se [Kostnadsfri utvärderingsversion av Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> [!TIP]
+> Om du vill logga in på Azure-portalen behöver du ett Azure-konto och en Azure-prenumeration. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se [Kostnadsfri utvärderingsversion av Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> 
+> 
 
 ## Skapa en BizTalk-tjänst
 Beroende på vilken utgåva du har är det inte säkert att alla BizTalk Services-inställningar finns tillgängliga.
 
 1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. I den nedre navigeringsrutan väljer du **NYTT**:  
-![Klicka på knappen Nytt][NEWButton]
-
+   ![Klicka på knappen Nytt][NEWButton]
 3. Välj **APPTJÄNSTER** > **BIZTALK-TJÄNST** > **SKAPA ANPASSAD**:  
-![Välj BizTalk-tjänst och välj Skapa anpassad][NewBizTalkService]
-
+   ![Välj BizTalk-tjänst och välj Skapa anpassad][NewBizTalkService]
 4. Ange BizTalk-tjänstinställningarna:
-
+   
     <table border="1">
     <tr>
     <td><strong>BizTalk-tjänstens namn</strong></td>
@@ -64,10 +62,9 @@ Beroende på vilken utgåva du har är det inte säkert att alla BizTalk Service
     </td>
     </tr>
     </table>
-Välj pilen NÄSTA.
-
+   Välj pilen NÄSTA.
 5. Ange inställningar för lagring och databas:
-
+   
     <table border="1">
     <tr>
     <td><strong>Övervaka/arkivera lagringskontot</strong></td>
@@ -78,10 +75,9 @@ Välj pilen NÄSTA.
     <td>Om du använder en befintlig Azure SQL Database kan den inte användas av en annan BizTalk-tjänst. Du måste ha det inloggningsnamn och lösenord som angavs när Azure SQL Database-servern skapades.<br/><br/><strong>Tips</strong> Skapa spårning av databasen och övervakning/arkivering av lagringskontot i samma region som BizTalk-tjänsten.</td>
     </tr>
     </table>
-Välj pilen NÄSTA.
-
+   Välj pilen NÄSTA.
 6. Ange inställningar för databasen:
-
+   
     <table border="1">
     <tr>
     <td><strong>Namn</strong></td>
@@ -116,12 +112,10 @@ När du är klar har Azure BizTalk-tjänsten skapats och är redo för dina prog
 
 Det finns vissa åtgärder som inte går att slutföra beroende på status för BizTalk-tjänsten. En lista över dessa åtgärder finns i [Statusdiagram för BizTalk Services](biztalk-service-state-chart.md).
 
-
 ## Steg efter etableringen
-
--  [Installera certifikatet på en lokal dator](#InstallCert)
--  [Lägg till ett produktionsklart certifikat](#AddCert)
--  [Hämta namnområdet Access Control](#ACS)
+* [Installera certifikatet på en lokal dator](#InstallCert)
+* [Lägg till ett produktionsklart certifikat](#AddCert)
+* [Hämta namnområdet Access Control](#ACS)
 
 #### <a name="InstallCert"></a>Installera certifikatet på en lokal dator
 Som en del av etableringen av BizTalk-tjänsten skapas ett självsignerat certifikat som associeras med prenumerationen på BizTalk-tjänsten. Du måste hämta certifikatet och installera det på de datorer som du antingen distribuerar BizTalk-tjänstprogram eller skickar meddelanden till en BizTalk-tjänstslutpunkt ifrån.
@@ -130,7 +124,7 @@ Som en del av etableringen av BizTalk-tjänsten skapas ett självsignerat certif
 2. Välj **BIZTALK SERVICES** i den vänstra navigeringsrutan och sedan din BizTalk-tjänstprenumeration.
 3. Välj fliken **Instrumentpanel**.
 4. Välj **Hämta SSL-certifikat**:  
-![Ändra SSL-certifikat][QuickGlance]
+   ![Ändra SSL-certifikat][QuickGlance]
 5. Dubbelklicka på certifikatet och använd guiden för att installera det. Kontrollera att du installerar certifikatet under arkivet **Betrodda rotcertifikatutfärdare**.
 
 #### <a name="AddCert"></a>Lägg till ett produktionsklart certifikat
@@ -140,12 +134,10 @@ Det självsignerade certifikat som skapas automatiskt när du skapar BizTalk Ser
 2. Bläddra till ditt privata SSL-certifikat (*CertificateName*.pfx) som innehåller namnet på din BizTalk-tjänst, ange lösenordet och klicka sedan på bockmarkeringen.
 
 #### <a name="ACS"></a>Hämta namnområdet Access Control
-
 1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Välj **BIZTALK SERVICES** i den vänstra navigeringsrutan och sedan din BizTalk-tjänst.
 3. I aktivitetsfältet väljer du **Anslutningsinformation**:  
-![Välj Anslutningsinformation][ACSConnectInfo]
-
+   ![Välj Anslutningsinformation][ACSConnectInfo]
 4. Kopiera Access Control-värdena.
 
 När du distribuerar ett BizTalk-tjänstprojekt från Visual Studio anger du detta Access Control-namnområde. Access Control-namnområdet skapas automatiskt för din BizTalk-tjänst.
@@ -157,13 +149,16 @@ Klicka på **Hantera** för att öppna Access Control-hanteringsportalen. I Acce
 
 Tjänstidentiteten för Access Control är en uppsättning autentiseringsuppgifter som tillåter att program eller klienter autentiserar direkt med Access Control och tar emot en token.
 
-> [AZURE.IMPORTANT] BizTalk-tjänsten använder **Ägare** som standardtjänstens identitet och värdet **Lösenord**. Om du använder det symmetriska nyckelvärdet i stället för lösenordet kan följande fel uppstå.<br/><br/>*Det gick inte att ansluta till hanteringstjänstkontot för Access Control med de angivna autentiseringsuppgifterna*
+> [!IMPORTANT]
+> BizTalk-tjänsten använder **Ägare** som standardtjänstens identitet och värdet **Lösenord**. Om du använder det symmetriska nyckelvärdet i stället för lösenordet kan följande fel uppstå.<br/><br/>*Det gick inte att ansluta till hanteringstjänstkontot för Access Control med de angivna autentiseringsuppgifterna*
+> 
+> 
 
 I [Hantera ditt ACS-namnområde](https://msdn.microsoft.com/library/azure/hh674478.aspx) visas några riktlinjer och rekommendationer.
 
 ## Kraven beskrivs
-
 Dessa krav gäller inte för Free-utgåvan.
+
 <table border="1">
 <tr bgcolor="FAF9F9">
         <td><strong>Vad du behöver</strong></td>
@@ -246,7 +241,6 @@ Ett nytt eller annat certifikat kan läggas till när BizTalk-tjänsten har skap
 
 
 ## Hybridanslutningar
-
 När du skapar en Azure BizTalk-tjänst är fliken **Hybridanslutningar** tillgänglig:
 
 ![Fliken Hybridanslutningar][HybridConnectionTab]
@@ -255,19 +249,17 @@ Hybridanslutningar används för att ansluta en Azure-webbplats eller mobil Azur
 
  Se [Hybridanslutningar](integration-hybrid-connection-overview.md) för mer information, inklusive att skapa och hantera hybridanslutningar.
 
-
 ## Nästa steg
-
 Nu när en BizTalk-tjänst har skapats kan du bekanta dig med [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md). Din BizTalk-tjänst är redo för dina program. Om du vill börja skapa program går du till [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Se även
-- [BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md)<br/>
-- [BizTalk Services: Statusdiagram](biztalk-service-state-chart.md)<br/>
-- [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md)<br/>
-- [BizTalk Services: Begränsning](biztalk-throttling-thresholds.md)<br/>
-- [BizTalk Services: Utfärdarens namn och nyckel](biztalk-issuer-name-issuer-key.md)<br/>
-- [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-- [Hybridanslutningar](integration-hybrid-connection-overview.md)
+* [BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: Statusdiagram](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Begränsning](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk Services: Utfärdarens namn och nyckel](biztalk-issuer-name-issuer-key.md)<br/>
+* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Hybridanslutningar](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

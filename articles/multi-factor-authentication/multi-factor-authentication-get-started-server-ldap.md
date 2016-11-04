@@ -1,36 +1,27 @@
-<properties 
-    pageTitle="LDAP-autentisering och Azure Multi-Factor Authentication Server"
-    description="Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera LDAP-autentisering och Azure Multi-Factor Authentication Server."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+---
+title: LDAP-autentisering och Azure Multi-Factor Authentication Server
+description: Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera LDAP-autentisering och Azure Multi-Factor Authentication Server.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
-
+---
 # LDAP-autentisering och Azure Multi-Factor Authentication Server
-
-
 Som standard konfigureras Azure Multi-Factor Authentication Server att importera eller synkronisera användare från Active Directory. Tjänsten kan dock konfigureras att binda till olika LDAP-kataloger, till exempel en ADAM-katalog, eller en särskild Active Directory-domänkontrollant. När den konfigureras att ansluta till en katalog via LDAP kan Azure Multi-Factor Authentication Server konfigureras att fungera som en LDAP-proxy för att utföra autentiseringar. Den stöder också användningen av LDAP-bindningar som ett RADIUS-mål, förautentisering av användare när IIS-autentisering används eller primär autentisering på Azure Multi-Factor Authentication-användarportalen.
 
 När du använder Azure Multi-Factor Authentication som en LDAP-proxy placeras Azure Multi-Factor Authentication Server mellan LDAP-klienten (t.ex. en VPN-enhet eller ett program) och LDAP-katalogservern för att lägga till multifaktorautentisering. För att Azure Multi-Factor Authentication ska fungera måste Multi-Factor Authentication Server konfigureras att kommunicera med både klientservrarna och LDAP-katalogen. I den här konfigurationen accepterar Azure Multi-Factor Authentication Server LDAP-förfrågningar från klientservrar och klientprogram och vidarebefordrar dem till mål-LDAP-katalogservern för verifiering av de primära autentiseringsuppgifterna. Om svaret från LDAP-katalogen visar att de primära autentiseringsuppgifterna är giltiga utför Azure Multi-Factor Authentication en autentisering med en andra faktor och skickar tillbaka ett svar till LDAP-klienten. Autentiseringen lyckas bara om både autentiseringen till LDAP-servern och multifaktorautentiseringen lyckas.
 
-
-
-
-
 ## Konfiguration av LDAP-autentisering
-
-
 Om du vill konfigurera LDAP-autentisering installerar du Azure Multi-Factor Authentication-servern på en Windows-server. Följ dessa steg:
 
 1. Klicka på ikonen för LDAP-autentisering på den vänstra menyn i Azure Multi-Factor Authentication Server.
@@ -56,16 +47,12 @@ Om du vill konfigurera LDAP-autentisering installerar du Azure Multi-Factor Auth
 21. Klicka på ikonen Företagsinställningar och välj fliken Matcha användarnamn.
 22. Om du ansluter till Active Directory från en domänansluten server bör du kunna lämna alternativknappen Matcha användarnamn med Windows säkerhetsidentifierare (SID) markerad. Annars väljer du alternativknappen Matcha användarnamn med unikt identifierarattribut för LDAP. Om det här alternativet är valt försöker Azure Multi-Factor Authentication Server matcha varje användarnamn med en unik identifierare i LDAP-katalogen. En LDAP-sökning utförs i attributen för användarnamn som definierats under Katalogintegrering > fliken Attribut. När en användare autentiseras matchas användarnamnet med den unika identifieraren i LDAP-katalogen och den unika identifieraren används för att matcha användaren i Azure Multi-Factor Authentication-datafilen. Detta ger stöd för skiftlägeskänsliga jämförelser, samt långa och korta format för användarnamn. Det här är det sista steget i Azure Multi-Factor Authentication Server-konfigurationen. Nu lyssnar servern på de konfigurerade portarna efter LDAP-åtkomstförfrågningar från de konfigurerade klienterna och är konfigurerad att skicka dessa förfrågningar via en proxyanslutning till LDAP-katalogen för autentisering.
 
-
 ## LDAP-klientkonfiguration
-
 Följ dessa riktlinjer när du konfigurerar LDAP-klienten:
 
-- Konfigurera enheten, servern eller programmet att autentisera via LDAP till Azure Multi-Factor Authentication-servern som om det vore din LDAP-katalog. Använd samma inställningar som du använder normalt för att ansluta direkt till LDAP-katalogen, förutom servernamnet eller IP-adressen som är de som används för Azure Multi-Factor Authentication Server.
-- Konfigurera timeout-gränsen för LDAP till 30 till 60 sekunder så att det finns tillräckligt med tid att validera användarens autentiseringsuppgifter med LDAP-katalogen, utföra en autentisering med en andra faktor, ta emot svaret och sedan svara på LDAP-åtkomstförfrågan.
-- Om du använder LDAPS måste enheten eller servern som kör LDAP-frågorna lita på SSL-certifikatet som är installerat på Azure Multi-Factor Authentication-servern.
-
-
+* Konfigurera enheten, servern eller programmet att autentisera via LDAP till Azure Multi-Factor Authentication-servern som om det vore din LDAP-katalog. Använd samma inställningar som du använder normalt för att ansluta direkt till LDAP-katalogen, förutom servernamnet eller IP-adressen som är de som används för Azure Multi-Factor Authentication Server.
+* Konfigurera timeout-gränsen för LDAP till 30 till 60 sekunder så att det finns tillräckligt med tid att validera användarens autentiseringsuppgifter med LDAP-katalogen, utföra en autentisering med en andra faktor, ta emot svaret och sedan svara på LDAP-åtkomstförfrågan.
+* Om du använder LDAPS måste enheten eller servern som kör LDAP-frågorna lita på SSL-certifikatet som är installerat på Azure Multi-Factor Authentication-servern.
 
 <!--HONumber=Sep16_HO3-->
 

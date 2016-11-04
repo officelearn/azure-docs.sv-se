@@ -3,22 +3,20 @@ En del paket kanske inte installeras med pip när det körs på Azure.  Det kan 
 I det här avsnittet kommer vi att titta på olika sätt att åtgärda problemet.
 
 ### Begär hjul
-
 Om installationen kräver en kompilator, bör du kontakta paketets ägare för att begära att hjul görs tillgängliga för paketet.
 
-När [Microsoft Visual C++-kompilatorn för Python 2.7][] nyligen blivit tillgänglig, är det nu enklare att skapa paket som har inbyggd kod för Python 2.7.
+När [Microsoft Visual C++-kompilatorn för Python 2.7][Microsoft Visual C++-kompilatorn för Python 2.7] nyligen blivit tillgänglig, är det nu enklare att skapa paket som har inbyggd kod för Python 2.7.
 
 ### Skapa hjul (kräver Windows)
-
 Obs: När du använder det här alternativet, se till att kompilera paketet med en Python-miljö som matchar den plattform/arkitektur/version som används i webbappen i Azure App Service (Windows/32-bitars/2.7 eller 3.4).
 
 Om paketet inte installeras eftersom det kräver en kompilator, kan du installera kompilatorn på den lokala datorn och skapa ett hjul för paketet, som du sedan inkluderar i ditt centrallager.
 
-Mac-/Linux-användare: Om du inte har åtkomst till en Windows-dator, se [Skapa en virtuell dator som kör Windows][] för instruktioner om hur du skapar en VM på Azure.  Du kan använda den för att bygga hjul, lägga till dem i centrallagret och sedan ta bort VM:en om du vill. 
+Mac-/Linux-användare: Om du inte har åtkomst till en Windows-dator, se [Skapa en virtuell dator som kör Windows][Skapa en virtuell dator som kör Windows] för instruktioner om hur du skapar en VM på Azure.  Du kan använda den för att bygga hjul, lägga till dem i centrallagret och sedan ta bort VM:en om du vill. 
 
-För Python 2.7, kan du installera [Microsoft Visual C++-kompilatorn för Python 2.7][].
+För Python 2.7, kan du installera [Microsoft Visual C++-kompilatorn för Python 2.7][Microsoft Visual C++-kompilatorn för Python 2.7].
 
-För Python 3.4, kan du installera [Microsoft Visual C++ 2010 Express][].
+För Python 3.4, kan du installera [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
 För att skapa hjul, behöver du hjulpaketet:
 
@@ -40,7 +38,6 @@ Om du vill inkludera alla dina beroenden i mappen \wheelhouse och inte använda 
     --no-index
 
 ### Anpassa installationen
-
 Du kan anpassa distributionsskriptet för att installera ett paket i den virtuella miljön med hjälp av ett alternativt installationsprogram som easy\_install.  Se deploy.cmd för ett exempel som har kommenterats bort.  Se till att de paketen inte listats i requirements.txt för att förhindra att pip installerar dem.
 
 Lägg till det här i distributionsskriptet:
@@ -54,7 +51,6 @@ Lägg till det här i distributionsskriptet:
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
 ### Inkludera den virtuella miljön i centrallagret (kräver Windows)
-
 Obs: När du använder det här alternativet, se till att använda en virtuell miljö som matchar den plattform/arkitektur/version som används i webbappen i Azure App Service (Windows/32-bitars/2.7 eller 3.4).
 
 Om du inkluderar den virtuella miljön i centrallagret, kan du förhindra att distributionsskriptet utför virtuell miljöhantering i Azure genom att skapa en tom fil:
@@ -62,7 +58,6 @@ Om du inkluderar den virtuella miljön i centrallagret, kan du förhindra att di
     .skipPythonDeployment
 
 Vi rekommenderar att du tar bort den befintliga virtuella miljön i appen, för att undvika överblivna filer från när den virtuella miljön hanterades automatiskt.
-
 
 [Skapa en virtuell dator som kör Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++-kompilatorn för Python 2.7]: http://aka.ms/vcpython27

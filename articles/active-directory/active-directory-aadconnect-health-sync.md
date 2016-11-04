@@ -1,23 +1,22 @@
 
-<properties
-    pageTitle="Använda Azure AD Connect Health med synkronisering | Microsoft Azure"
-    description="Den här sidan om Azure AD Connect Health innehåller information om hur du övervakar Azure AD Connect-synkronisering."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+---
+title: Använda Azure AD Connect Health med synkronisering | Microsoft Docs
+description: Den här sidan om Azure AD Connect Health innehåller information om hur du övervakar Azure AD Connect-synkronisering.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/08/2016
+ms.author: billmath
 
-
+---
 # Använda Azure AD Connect Health för synkronisering
 Följande dokumentation är specifik för övervakning av Azure AD Connect (Sync) med Azure AD Connect Health.  Information om övervakning av AD FS med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adfs.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).
 
@@ -44,8 +43,8 @@ Du kan ändra detta genom att klicka på Inställningar och låta Azure AD Conne
 ## Synkronisera Insight
 Med den senaste versionen av Azure AD Connect Health för synkronisering har följande nya funktioner lagts till:
 
-- Svarstiden för synkroniseringsåtgärder
-- Objektändringstrend
+* Svarstiden för synkroniseringsåtgärder
+* Objektändringstrend
 
 ### Synkronisera svarstider
 Den här funktionen visar en grafisk trend över svarstiderna för synkroniseringsåtgärder (import, export osv.) för anslutningsappar.  Detta är ett snabbt och enkelt sätt att förstå inte bara svarstiderna för dina åtgärder (vilket är bra om många ändringar äger rum), men är också ett sätt att identifiera avvikelser i svarstiderna som kan kräva ytterligare utredning.
@@ -60,7 +59,6 @@ Den här funktion visar en grafisk trend över antalet ändringar som utvärdera
 ![Synkronisera svarstider](./media/active-directory-aadconnect-health-sync/syncobjectchanges.png)
 
 ## Relaterade länkar
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Installation av Azure AD Connect Health Agent](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health-åtgärder](active-directory-aadconnect-health-operations.md)
@@ -68,9 +66,6 @@ Den här funktion visar en grafisk trend över antalet ändringar som utvärdera
 * [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versionshistorik för Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-
 
 <!--HONumber=Sep16_HO4-->
 

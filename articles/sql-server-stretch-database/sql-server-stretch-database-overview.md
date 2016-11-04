@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Översikt över Stretch Database | Microsoft Azure"
-    description="Läs om hur Stretch Database migrerar dina kalldata transparent och säkert till Microsoft Azure-molnet."
-    services="sql-server-stretch-database"
-    documentationCenter=""
-    authors="douglaslMS"
-    manager=""
-    editor=""/>
+---
+title: Översikt över Stretch Database | Microsoft Docs
+description: Läs om hur Stretch Database migrerar dina kalldata transparent och säkert till Microsoft Azure-molnet.
+services: sql-server-stretch-database
+documentationcenter: ''
+author: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="06/27/2016"
-    ms.author="douglasl"/>
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 06/27/2016
+ms.author: douglasl
 
-
+---
 # Översikt över Stretch Database
-
 Stretch Database migrerar dina kalldata transparent och säkert till Microsoft Azure-molnet.
 
 Om du vill komma igång med Stretch Database direkt, se [Kom igång genom att köra guiden aktivera databas för Stretch](sql-server-stretch-database-wizard.md).
@@ -33,7 +31,7 @@ Sträck ut varma eller kalla transaktionsdata dynamiskt från SQL Server till Mi
 Ha åtkomst till din SQL Serverdata sömlöst oavsett om den är lokal eller utsträckt till molnet.\-  Du anger den princip som bestämmer var data lagras och SQL Server hanterar dataflytten i bakgrunden. Hela tabellen finns alltid online och redo för frågor. Stretch Database kräver inga förändringar av befintliga frågor eller program. Dataplatsen är fullständigt transparent för programmet.
 
 ### Strömlinjeformar lokalt dataunderhåll\-
-Minska lokalt underhåll och lagring för dina data.\- Säkerhetskopieringar för dina \-lokala data körs snabbare och slutförs inom underhållsfönstret. Säkerhetskopiering av molndelen av dina data körs automatiskt. Dina \-lokala lagringsbehov minskar drastiskt. Azure-lagring kan vara 80 % billigare än att lägga till \-lokala SSD-diskar.
+Minska lokalt underhåll och lagring för dina data.\- Säkerhetskopieringar för dina \-lokala data körs snabbare och slutförs inom underhållsfönstret. Säkerhetskopiering av molndelen av dina data körs automatiskt. Dina \-lokala lagringsbehov minskar drastiskt. Azure-lagring kan vara 80 % billigare än att lägga till \-lokala SSD-diskar.
 
 ### Skyddar dina data även under migrering
 Få sinnesro genom att på ett säkert sträcka ut dina viktigaste program till molnet. SQL Servers Always Encrypted ger dig kryptering för dina data i rörelse. Säkerhet på radnivå (RLS) och andra avancerade SQL Server-säkerhetsfunktioner, fungerar också med Stretch Database för att skydda din data.
@@ -41,9 +39,8 @@ Få sinnesro genom att på ett säkert sträcka ut dina viktigaste program till 
 ## Vad gör Stretch Database?
 Efter att du aktiverat Stretch Database för en SQL Server-instans, en databas och minst en tabell, börjar Stretch Database att tyst migrera dina kalldata till Azure.
 
--   Om du sparar kalldata i separata tabeller, kan du migrera hela tabellen.
-
--   Om din tabell innehåller både varm- och kalldata, kan du ange en filterfunktion för att markera vilka rader som ska migreras.
+* Om du sparar kalldata i separata tabeller, kan du migrera hela tabellen.
+* Om din tabell innehåller både varm- och kalldata, kan du ange en filterfunktion för att markera vilka rader som ska migreras.
 
 **Du behöver inte ändra befintliga frågor eller klientprogram.** Du kan fortsätta att ha sömlös åtkomst till både lokal och fjärransluten data även under migreringen. Det kan finnas en viss svarsfördröjning för fjärrfrågor, men de uppstår bara när du frågar kalldata.
 
@@ -56,12 +53,12 @@ Efter att du aktiverat Stretch Database för en SQL Server-instans, en databas o
 ## Är Stretch Database för dig?
 Om följande stämmer på dig, kan Stretch Database hjälpa dig att möta dina krav och lösa dina problem.
 
-|Om du är en beslutsfattare|Om du är en DBA|
-|------------------------------|-------------------|
-|Jag behöver ha kvar transaktionsdata länge.|Mina tabeller håller på att växa sig alldeles för stora.|
-|Jag behöver ibland fråga kalldata.|Mina användare säger att de vill ha åtkomst till kalldata, men de använder dem bara sällan.|
-|Jag har appar, inklusive äldre appar, som jag inte vill uppdatera.|Jag måste hela tiden hålla på och köpa och lägga till mer lagringsutrymme.|
-|Jag vill hitta ett sätt att spara pengar på lagringsutrymme.|Jag kan inte säkerhetskopiera eller återställa så stora tabeller inom SLA:n.|
+| Om du är en beslutsfattare | Om du är en DBA |
+| --- | --- |
+| Jag behöver ha kvar transaktionsdata länge. |Mina tabeller håller på att växa sig alldeles för stora. |
+| Jag behöver ibland fråga kalldata. |Mina användare säger att de vill ha åtkomst till kalldata, men de använder dem bara sällan. |
+| Jag har appar, inklusive äldre appar, som jag inte vill uppdatera. |Jag måste hela tiden hålla på och köpa och lägga till mer lagringsutrymme. |
+| Jag vill hitta ett sätt att spara pengar på lagringsutrymme. |Jag kan inte säkerhetskopiera eller återställa så stora tabeller inom SLA:n. |
 
 ## Vilka typer av databaser och tabeller är lämpliga kandidater för Stretch Database?
 Stretch Database riktar sig mot transaktionella databaser med stora mängder kalldata, som vanligtvis lagrats i ett litet antal tabeller. De här tabellerna kan ha över en miljard rader.

@@ -4,9 +4,9 @@ Du betalar för två saker: beräkningskostnaderna per timme för den virtuella 
 
 **Kostnader för överföring av data**<br>Kostnaderna för överföring av data beräknas baserat på utgående trafik från den virtuella nätverksgatewayen (källan).
 
-- Om du skickar trafik till din lokala VPN-enhet debiteras du priset för utgående dataöverföring via Internet.
-- Om du skickar trafik mellan virtuella nätverk i olika regioner baseras priset på region.
-- Om du skickar trafik endast mellan virtuella nätverk i samma region tillkommer inga kostnader för data. Trafik mellan VNets i samma region är kostnadsfri.
+* Om du skickar trafik till din lokala VPN-enhet debiteras du priset för utgående dataöverföring via Internet.
+* Om du skickar trafik mellan virtuella nätverk i olika regioner baseras priset på region.
+* Om du skickar trafik endast mellan virtuella nätverk i samma region tillkommer inga kostnader för data. Trafik mellan VNets i samma region är kostnadsfri.
 
 <!--HONumber=Sep16_HO3-->
 

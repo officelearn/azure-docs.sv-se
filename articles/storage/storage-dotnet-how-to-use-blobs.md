@@ -1,62 +1,53 @@
-<properties
-    pageTitle="Komma igång med Azure Blob Storage (objektlagring) med hjälp av .NET | Microsoft Azure"
-    description="Lagra ostrukturerade data i molnet med Azure Blob Storage (objektlagring)."
-    services="storage"
-    documentationCenter=".net"
-    authors="tamram"
-    manager="carmonm"
-    editor="tysonn"/>
+---
+title: Komma igång med Azure Blob Storage (objektlagring) med hjälp av .NET | Microsoft Docs
+description: Lagra ostrukturerade data i molnet med Azure Blob Storage (objektlagring).
+services: storage
+documentationcenter: .net
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="09/20/2016"
-    ms.author="jwillis;tamram"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 09/20/2016
+ms.author: jwillis;tamram
 
-
-
+---
 # Komma igång med Azure Blob Storage med hjälp av .NET
+[!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Översikt
-
 Azure Blob Storage är en tjänst som lagrar ostrukturerade data i molnet som objekt/blobbar. Blob Storage kan lagra alla slags textdata eller binära data, till exempel ett dokument, en mediefil eller ett installationsprogram. Blob Storage kallas även för objektlagring.
 
 ### Om den här självstudiekursen
-
 I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenarier med hjälp av Azure Blob Storage. I kursen beskrivs scenarier där du laddar upp, visar en lista över, laddar ned och tar bort blobbar.
 
 **Uppskattad tidsåtgång:** 45 minuter
 
 **Krav:**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
-- [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure Configuration Manager för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- Ett [Azure Storage-konto](storage-create-storage-account.md#create-a-storage-account)
+* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Configuration Manager för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+* Ett [Azure Storage-konto](storage-create-storage-account.md#create-a-storage-account)
 
-
-[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+[!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 ### Fler exempel
-
 Ytterligare exempel med Blob Storage finns i [Komma igång med Azure Blob Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Du kan ladda ned exempelprogrammet och köra det eller bläddra i koden på GitHub.
 
+[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
-
-[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
+[!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
 ### Lägga till namnrymdsdeklarationer
-
 Lägg till följande `using`-instruktioner överst i `program.cs`-filen:
 
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -64,11 +55,9 @@ Lägg till följande `using`-instruktioner överst i `program.cs`-filen:
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
 ### Parsa anslutningssträngen
-
-[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
+[!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Skapa klient för Blob-tjänst
-
 Med **CloudBlobClient** kan du hämta behållare och blobbar som lagras i Blob Storage. Här är ett sätt att skapa tjänstklienten:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -76,8 +65,7 @@ Med **CloudBlobClient** kan du hämta behållare och blobbar som lagras i Blob S
 Nu är det dags att skriva kod som läser data från och skriver data till Blob Storage.
 
 ## Skapa en behållare
-
-[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+[!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 Det här exemplet visas hur du skapar en behållare om den inte redan finns:
 
@@ -102,7 +90,6 @@ Som standard är den nya behållaren privat, vilket innebär att du måste ange 
 Alla på Internet kan se blobbar i en offentlig behållare, men du kan bara ändra eller ta bort dem om du har rätt  åtkomstnyckel för kontot eller en signatur för delad åtkomst.
 
 ## Ladda upp en blobb till en behållare
-
 Azure Blob Storage stöder blockblobbar och sidblobbar.  I de flesta fall är blockblobbar den rekommenderade typen.
 
 Om du vill ladda upp en fil till en blockblobb hämtar du en referens för behållaren och använder den för att hämta en referens för blockblobben. När du har en blobbreferens kan du ladda upp en dataström till den genom att anropa metoden **UploadFromStream**. Med den här åtgärden skapas blobben om den inte fanns tidigare, eller skrivs över om den redan fanns.
@@ -129,7 +116,6 @@ Följande exempel visar hur du laddar upp en blobb till en behållare och förut
     }
 
 ## Visa en lista över blobbarna i en behållare
-
 Om du vill visa blobbar i en behållare börjar du med att hämta en referens för behållaren. Sedan kan du använda behållarens **ListBlobs**-metod för att hämta blobbarna och/eller katalogerna i den. För att komma åt den omfattande uppsättningen med egenskaper och metoder för en returnerad **IListBlobItem**-metod måste du skicka den till ett **CloudBlockBlob**-, **CloudPageBlob**- eller **CloudBlobDirectory**-objekt.  Om typen är okänd kan du använda en typkontroll för att avgöra till vilket objekt den ska skickas.  Följande kod visar hur du hämtar och returnerar URI:n för varje objekt i `photos`-behållaren:
 
     // Retrieve storage account from connection string.
@@ -208,7 +194,6 @@ och resultatet ser ut så här:
 
 
 ## Ladda ned blobbar
-
 Om du vill ladda ned blobbar börjar du med att hämta en blobbreferens och anropar sedan **DownloadToStream**-metoden. I följande exempel används metoden **DownloadToStream** för att överföra blobbinnehållet till ett dataströmsobjekt som du sedan kan spara till en lokal fil.
 
     // Retrieve storage account from connection string.
@@ -253,7 +238,6 @@ Du kan också använda metoden **DownloadToStream** för att ladda ned innehåll
     }
 
 ## Ta bort blobbar
-
 Om du vill ta bort en blobb börjar du med att hämta en blobbreferens och anropar sedan metoden **Delete** för den.
 
     // Retrieve storage account from connection string.
@@ -274,7 +258,6 @@ Om du vill ta bort en blobb börjar du med att hämta en blobbreferens och anrop
 
 
 ## Visa en lista över blobbar på sidor asynkront
-
 Om du visar ett stort antal blobbar, eller om du vill styra hur många resultat som returneras i samma åtgärd, kan du visa blobbar på resultatsidor. Det här exemplet illustrerar hur du returnerar resultat på sidor asynkront, så att körningen inte blockeras när ett stort antal resultat väntar på att returneras.
 
 I det här exemplet returneras en platt blobblista, men du kan också visa en hierarkiskt ordnad lista genom att ange `useFlatBlobListing`-parametern för **ListBlobsSegmentedAsync**-metoden till `false`.
@@ -311,10 +294,9 @@ Eftersom exempelmetoden anropar en asynkron metod måste den föregås av nyckel
     }
 
 ## Skriva till en tilläggsblobb
-
 En tilläggsblobb är en ny typ av blobb som introducerades i version 5.x av Azure Storage-klientbiblioteket för .NET. En tilläggsblobb är optimerad för tilläggsåtgärder, t.ex loggning. Precis som en blockblobb består en tilläggsblobb av block, men när du lägger till ett nytt block till en tilläggsblobb läggs det alltid till sist i blobben. Du kan inte uppdatera eller ta bort ett befintligt block i en tilläggsblobb. En tilläggsblobbs block-ID:n exponeras inte som de gör för en blockblobb.
 
-Blocken i en tilläggsblobb kan ha olika storlek, upp till högst 4 MB, och en tilläggsblobb kan innehålla högst 50 000 block. Den största storleken på en tilläggsblobb är alltså strax över 195 GB (4 MB × 50 000 block).
+Blocken i en tilläggsblobb kan ha olika storlek, upp till högst 4 MB, och en tilläggsblobb kan innehålla högst 50 000 block. Den största storleken på en tilläggsblobb är alltså strax över 195 GB (4 MB × 50 000 block).
 
 I exemplet nedan skapar vi en ny tilläggsblobb och lägger till vissa data i den för att simulera en enkel loggningsåtgärd.
 
@@ -358,57 +340,50 @@ I exemplet nedan skapar vi en ny tilläggsblobb och lägger till vissa data i de
 Mer information om skillnaderna mellan de tre typerna av blobbar finns i [Förstå blockblobbar, sidblobbar och tilläggsblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ## Hantera säkerheten för blobbar
-
 Som standard skyddar Azure Storage dina data genom att begränsa åtkomsten till endast kontoägaren, som har tillgång till åtkomstnycklarna för kontot. När du behöver dela blobbdata i ditt lagringskonto är det viktigt att du gör det utan att äventyra åtkomstnycklarnas säkerhet. Du kan också kryptera blobbdata så att de är skyddade under kabelöverföringar och i Azure Storage.
 
-[AZURE.INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
+[!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
 ### Kontrollera åtkomsten till blobbdata
-
 Som standard är blobbdata i ett lagringskonto endast tillgängliga för lagringskontoägaren. För autentisering av förfrågningar mot Blob Storage krävs åtkomstnyckeln för kontot som standard. Dock kanske du vill göra vissa blobbdata tillgängliga för andra användare. Du kan välja mellan två alternativ:
 
-- **Anonym åtkomst:** Du kan göra en behållare eller dess blobbar offentligt tillgängliga för anonym åtkomst. Mer information finns i [Hantera anonym läsbehörighet till behållare och blobbar](storage-manage-access-to-resources.md).
-- **Signaturer för delad åtkomst:** Du kan ge klienterna en signatur för delad åtkomst (SAS), som ger delegerad åtkomst till en resurs i ditt lagringskonto, med behörigheter som du anger och under den period som du anger. Mer information finns i [Använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+* **Anonym åtkomst:** Du kan göra en behållare eller dess blobbar offentligt tillgängliga för anonym åtkomst. Mer information finns i [Hantera anonym läsbehörighet till behållare och blobbar](storage-manage-access-to-resources.md).
+* **Signaturer för delad åtkomst:** Du kan ge klienterna en signatur för delad åtkomst (SAS), som ger delegerad åtkomst till en resurs i ditt lagringskonto, med behörigheter som du anger och under den period som du anger. Mer information finns i [Använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 ### Kryptera blobbdata
-
 Azure Storage har stöd för kryptering av blobbdata både på klienten och på servern:
 
-- **Kryptering på klientsidan:** Storage-klientbiblioteket för .NET har stöd för kryptering av data i klientprogram före överföringen till Azure Storage, och dekryptering av data under nedladdningen till klienten. Biblioteket stöder även integrering med Azure Key Vault för hantering av nycklar för lagringskonton. Mer information finns i [Kryptering på klientsidan med .NET för Microsoft Azure Storage](storage-client-side-encryption.md). Se även [Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med hjälp av Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
-- **Kryptering på serversidan**: Nu stöder Azure Storage kryptering på serversidan. Mer information finns i [Azure Storage Service-kryptering av vilande data (förhandsgranskning)](storage-service-encryption.md).
+* **Kryptering på klientsidan:** Storage-klientbiblioteket för .NET har stöd för kryptering av data i klientprogram före överföringen till Azure Storage, och dekryptering av data under nedladdningen till klienten. Biblioteket stöder även integrering med Azure Key Vault för hantering av nycklar för lagringskonton. Mer information finns i [Kryptering på klientsidan med .NET för Microsoft Azure Storage](storage-client-side-encryption.md). Se även [Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med hjälp av Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
+* **Kryptering på serversidan**: Nu stöder Azure Storage kryptering på serversidan. Mer information finns i [Azure Storage Service-kryptering av vilande data (förhandsgranskning)](storage-service-encryption.md).
 
 ## Nästa steg
-
 Nu när du har lärt dig grunderna om Blob Storage kan du följa dessa länkar om du vill veta mer.
 
 ### Microsoft Azure Storage Explorer
-- [Microsoft Azure Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, OS X och Linux.
+* [Microsoft Azure Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, OS X och Linux.
 
 ### Exempel på Blob Storage (förhandsversion)
-
-- [Komma igång med Azure Blob Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+* [Komma igång med Azure Blob Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### Referens för Blob Storage
-
-- [Referens för Azure Storage-klientbibliotek för .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-- [Referens för REST-API](http://msdn.microsoft.com/library/azure/dd179355)
+* [Referens för Azure Storage-klientbibliotek för .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+* [Referens för REST-API](http://msdn.microsoft.com/library/azure/dd179355)
 
 ### Begreppsorienterade guider
+* [Överföra data med kommandoradsverktyget AzCopy](storage-use-azcopy.md)
+* [Komma igång med File Storage för .NET](storage-dotnet-how-to-use-files.md)
+* [Använda Azure Blob Storage med WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
-- [Överföra data med kommandoradsverktyget AzCopy](storage-use-azcopy.md)
-- [Komma igång med File Storage för .NET](storage-dotnet-how-to-use-files.md)
-- [Använda Azure Blob Storage med WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+[Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
+[Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
+[Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
+[Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
+[Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
-  [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
-  [Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
-  [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
-  [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
-
-  [Azure Storage-teamets blogg]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Konfigurera anslutningssträngar]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-  [Referens för .NET-klientbibliotek]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Referens för REST-API]: http://msdn.microsoft.com/library/azure/dd179355
+[Azure Storage-teamets blogg]: http://blogs.msdn.com/b/windowsazurestorage/
+[Konfigurera anslutningssträngar]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+[Referens för .NET-klientbibliotek]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Referens för REST-API]: http://msdn.microsoft.com/library/azure/dd179355
 
 
 

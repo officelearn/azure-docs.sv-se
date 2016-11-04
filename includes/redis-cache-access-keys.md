@@ -3,13 +3,11 @@ För att ansluta till en Azure Redis-Cache-instans behöver cacheklienter värdn
 ![Inställningar för Redis-cache](media/redis-cache-access-keys/redis-cache-settings.png)
 
 ### Värdnamn och portar
-
 För att komma åt värdnamn och portar klickar du på **Egenskaper**.
 
 ![Egenskaper för Redis-cache](media/redis-cache-access-keys/redis-cache-properties.png)
 
 ### Åtkomstnycklar
-
 För att komma åt åtkomstnycklarna klickar du på **Åtkomstnycklar**.
 
 ![Åtkomstnycklar för Redis-cache](media/redis-cache-access-keys/redis-cache-access-keys.png)

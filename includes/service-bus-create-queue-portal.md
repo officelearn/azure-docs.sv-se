@@ -1,22 +1,17 @@
 Se till att du redan har skapat ett Service Bus-namnområde så som det visas [här][namespace-how-to].
 
 1. Logga in på [Azure Portal][azure-portal].
-
 2. I portalens vänstra navigationsfält klickar du på **Service Bus**.
-
 3. Välj det namnområde som du vill skapa kön i. I det här fallet är det **nstest1**.
-
+   
     ![Skapa en kö][createqueue1]
-
 4. På bladet **Service Bus-namnområde** väljer du **Köer** och klickar sedan på **Lägg till kö**.
-
+   
     ![Välj köer][createqueue2]
-
 5. Ange **Könamn** och lämna de andra värdena med standardvärdena.
-
+   
     ![Välj ny][createqueue3]
-
-7. Klicka på **Skapa** längst ned på bladet.
+6. Klicka på **Skapa** längst ned på bladet.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png

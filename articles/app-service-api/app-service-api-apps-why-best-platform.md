@@ -1,23 +1,22 @@
-<properties 
-    pageTitle="Introduktion till API Apps | Microsoft Azure" 
-    description="Lär dig hur Azure Apptjänst hjälper dig att utveckla, hantera och använda RESTful-API:er." 
-    services="app-service\api" 
-    documentationCenter=".net" 
-    authors="tdykstra" 
-    manager="wpickett" 
-    editor=""/>
+---
+title: Introduktion till API Apps | Microsoft Docs
+description: Lär dig hur Azure Apptjänst hjälper dig att utveckla, hantera och använda RESTful-API:er.
+services: app-service\api
+documentationcenter: .net
+author: tdykstra
+manager: wpickett
+editor: ''
 
-<tags 
-    ms.service="app-service-api" 
-    ms.workload="web" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/23/2016" 
-    ms.author="rachelap"/>
+ms.service: app-service-api
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/23/2016
+ms.author: rachelap
 
+---
 # Översikt över API Apps
-
 API Apps i Azure Apptjänst innehåller funktioner som gör det enklare att utveckla, hantera och använda API:er i molnet och lokalt. Med API Apps får du säkerhet i företagsklass, enkel åtkomstkontroll, hybridanslutning, automatisk SDK-generering och smidig integrering med [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 [Azure Apptjänst](../app-service/app-service-value-prop-what-is.md) är en helt hanterad plattform för webb-, mobil- och integreringsscenarier. API Apps är en av fyra apptyper som erbjuds av [Azure Apptjänst](../app-service/app-service-value-prop-what-is.md).
@@ -25,23 +24,17 @@ API Apps i Azure Apptjänst innehåller funktioner som gör det enklare att utve
 ![Apptyper i Azure Apptjänst](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
 ## Varför använda API Apps?
-
 Här följer några viktiga funktioner i API Apps:
 
-- **Ta din befintliga API som den är** – du behöver inte ändra kod i dina befintliga API:er för att dra nytta av API Apps, distribuera bara din kod i en API-app. Din API kan använda alla språk eller ramverk som stöds av Apptjänst, bland annat ASP.NET och C#, Java, PHP, Node.js och Python.
-
-- **Enkel användning** – inbyggt stöd för [Swagger API-metadata](http://swagger.io/) gör dina API:er lätta att använda för många olika klienter.  Generera automatiskt klientkod för dina API:er på flera olika språk, bland annat C#, Java och Javascript. Konfigurera enkelt [CORS](app-service-api-cors-consume-javascript.md) utan att ändra din kod. Mer information finns i [Metadata om API Apps i Apptjänst för API-identifiering och kodgenerering](app-service-api-metadata.md) och [Använda en API-app från JavaScript med CORS](app-service-api-cors-consume-javascript.md). 
-
-- **Enkel åtkomstkontroll** – skydda en API-app från obehörig åtkomst utan att ändra koden. Inbyggda autentiseringstjänster skyddar API:erna mot åtkomst från andra tjänster eller från klienter som representerar användare. Identitetsleverantörer som stöds är bland annat Azure Active Directory, Facebook, Twitter, Google och Microsoft Account. Klienter kan använda Active Directory Authentication Library (ADAL) eller Mobile Apps-SDK. Mer information finns i [Autentisering och auktorisering för API Apps i Azure Apptjänst](app-service-api-authentication.md).
-
-- **Visual Studio-integration** – dedikerade verktyg i Visual Studio effektiviserar arbetet med att skapa, distribuera, använda, felsöka och hantera API Apps. Mer information finns i [Meddelande om Azure SDK 2.8.1 för .NET](/blog/announcing-azure-sdk-2-8-1-for-net/).
-
-- **Integrering med Logic Apps** – API Apps som du skapar kan användas av [Logic Apps i Apptjänst](../app-service-logic/app-service-logic-what-are-logic-apps.md).  Mer information finns i [Använda anpassat API som finns på Apptjänst med Logic Apps](../app-service-logic/app-service-logic-custom-hosted-api.md) och [Ny schemaversion 2015-08-01 –  förhandsgranskning](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+* **Ta din befintliga API som den är** – du behöver inte ändra kod i dina befintliga API:er för att dra nytta av API Apps, distribuera bara din kod i en API-app. Din API kan använda alla språk eller ramverk som stöds av Apptjänst, bland annat ASP.NET och C#, Java, PHP, Node.js och Python.
+* **Enkel användning** – inbyggt stöd för [Swagger API-metadata](http://swagger.io/) gör dina API:er lätta att använda för många olika klienter.  Generera automatiskt klientkod för dina API:er på flera olika språk, bland annat C#, Java och Javascript. Konfigurera enkelt [CORS](app-service-api-cors-consume-javascript.md) utan att ändra din kod. Mer information finns i [Metadata om API Apps i Apptjänst för API-identifiering och kodgenerering](app-service-api-metadata.md) och [Använda en API-app från JavaScript med CORS](app-service-api-cors-consume-javascript.md). 
+* **Enkel åtkomstkontroll** – skydda en API-app från obehörig åtkomst utan att ändra koden. Inbyggda autentiseringstjänster skyddar API:erna mot åtkomst från andra tjänster eller från klienter som representerar användare. Identitetsleverantörer som stöds är bland annat Azure Active Directory, Facebook, Twitter, Google och Microsoft Account. Klienter kan använda Active Directory Authentication Library (ADAL) eller Mobile Apps-SDK. Mer information finns i [Autentisering och auktorisering för API Apps i Azure Apptjänst](app-service-api-authentication.md).
+* **Visual Studio-integration** – dedikerade verktyg i Visual Studio effektiviserar arbetet med att skapa, distribuera, använda, felsöka och hantera API Apps. Mer information finns i [Meddelande om Azure SDK 2.8.1 för .NET](/blog/announcing-azure-sdk-2-8-1-for-net/).
+* **Integrering med Logic Apps** – API Apps som du skapar kan användas av [Logic Apps i Apptjänst](../app-service-logic/app-service-logic-what-are-logic-apps.md).  Mer information finns i [Använda anpassat API som finns på Apptjänst med Logic Apps](../app-service-logic/app-service-logic-custom-hosted-api.md) och [Ny schemaversion 2015-08-01 –  förhandsgranskning](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 Dessutom kan en API-app dra nytta av funktioner som erbjuds av [webbappar](../app-service-web/app-service-web-overview.md) och [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md). Det gäller även omvänt: om du använder en webbapp eller mobilapp som värd för en API kan den dra nytta av funktioner för API Apps, till exempel Swagger-metadata för klientkodsgenerering och CORS för åtkomst mellan domänwebbläsare. Den enda skillnaden mellan de tre apptyperna (API, webb, mobil) är namnet och ikonen som används för dem i Azure-portalen.
 
 ## Vad är skillnaden mellan API Apps och Azure API Management?
-
 API Apps och [Azure API Management](../api-management/api-management-key-concepts.md) är kompletterande tjänster:
 
 * API Management handlar om att hantera API:er. Du sätter en API Management-klientdel på en API för att övervaka och begränsa användningen, ändra indata och utdata, konsolidera flera API:er till en slutpunkt och så vidare. API:er som hanteras kan finnas var som helst.
@@ -54,7 +47,6 @@ Här är ett diagram som visar hur API Management används för API:er som finns
 Vissa funktioner i API Management och API Apps liknar varandra.  Exempelvis kan båda automatisera CORS-support. När du använder de två tjänsterna tillsammans använder du Management för CORS eftersom den fungerar som klientdel till API Apps. 
 
 ## Komma igång
-
 Kom igång med API Apps genom att distribuera exempelkod till en, se självstudierna för det ramverk som du föredrar:
 
 * [ASP.NET](app-service-api-dotnet-get-started.md) 
@@ -62,8 +54,6 @@ Kom igång med API Apps genom att distribuera exempelkod till en, se självstudi
 * [Java](app-service-api-java-api-app.md) 
 
 Starta en tråd [forumet för API Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps) om du vill ställa frågor om API Apps. 
-
-
 
 <!--HONumber=sep16_HO1-->
 

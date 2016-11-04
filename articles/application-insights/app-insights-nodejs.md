@@ -1,44 +1,36 @@
-<properties
-    pageTitle="Övervaka din Node.js-app genom att lägga till Application Insights SDK | Microsoft Azure"
-    description="Analysera användningen, tillgängligheten och prestanda i din lokala program eller Microsoft Azure-webbapp med Application Insights."
-    services="application-insights"
-    documentationCenter=""
-    authors="alancameronwills"
-    manager="douge"/>
+---
+title: Övervaka din Node.js-app genom att lägga till Application Insights SDK | Microsoft Docs
+description: Analysera användningen, tillgängligheten och prestanda i din lokala program eller Microsoft Azure-webbapp med Application Insights.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/30/2016"
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/30/2016
+ms.author: awills
 
-
-
+---
 # Övervaka din Node.js-app genom att lägga till Application Insights SDK
-
 *Application Insights finns endast som förhandsversion.*
 
 Med [Visual Studio Application Insights](app-insights-overview.md) kan du övervaka ditt liveprogram och [identifiera och diagnostisera prestandaproblem och undantag](app-insights-detect-triage-diagnose.md) och [se hur din app används](app-insights-overview-usage.md). Tjänsten kan användas med appar som finns på dina lokala IIS-servrar eller på virtuella datorer i Azure, samt för Azure-webbappar.
-
-
 
 SDK tillhandahåller automatisk insamling av frekvens och svar för inkommande HTTP-förfrågningar, prestandaräknare (processor, minne, RPS) och ohanterade undantag. Du kan också lägga till anpassade anrop om du vill spåra beroenden, mätvärden och andra händelser.
 
 ![Exempel på prestandaövervakningsdiagram](./media/app-insights-windows-services/10-perf.png)
 
-
 #### Innan du börjar
-
 Du behöver:
 
 * Visual Studio 2013 eller senare. Senare versioner är att föredra.
 * En prenumeration på [Microsoft Azure](http://azure.com). Om ditt team eller din organisation har en Azure-prenumeration kan ägaren lägga till dig med hjälp av ditt [Microsoft-konto](http://live.com).
 
 ## <a name="add"></a>Skapa en Application Insights-resurs
-
 Logga in på [Azure-portalen][portal] och skapa en ny Application Insights-resurs. En [resurs][roles] i Azure är en instans av en tjänst. Det är i den här resursen som telemetrin från din app analyseras och visas.
 
 ![Klicka på Nytt, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,20 +38,16 @@ Logga in på [Azure-portalen][portal] och skapa en ny Application Insights-resur
 Välj Annan som programtyp. Valet av programtyp anger standardinnehållet i resursbladen och egenskaperna som visas i [Metrics Explorer][metrics].
 
 #### Kopiera instrumenteringsnyckeln
-
 Nyckeln identifierar resursen och du ska snart installera den i SDK för att dirigera data till resursen.
 
 ![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C](./media/app-insights-windows-services/02-props-asp.png)
 
-
 ## <a name="sdk"></a> Installera SDK i ditt program
-
 ```
 npm install applicationinsights --save
 ```
 
 ## Användning
-
 Med SDK kan du övervaka förfrågningar, spåra ohanterade undantag och övervaka systemets prestanda (processor/minne/RPS).
 
 ```javascript
@@ -72,16 +60,11 @@ Instrumenteringsnyckeln kan också anges i miljövariabeln APPINSIGHTS_INSTRUMEN
 
 Du kan prova SDK utan att skicka telemetri: ange instrumenteringsnyckeln till en sträng som inte är tom.
 
-
 ## <a name="run"></a> Köra projektet
-
 Kör ditt program och prova det: öppna olika sidor för att generera telemetri.
 
-
 ## <a name="monitor"></a> Visa telemetrin
-
 Gå tillbaka till [Azure-portalen](https://portal.azure.com) och bläddra till Application Insights-resursen.
-
 
 Titta efter data på sidan Översikt. Först ser du bara en eller två punkter. Till exempel:
 
@@ -90,35 +73,25 @@ Titta efter data på sidan Översikt. Först ser du bara en eller två punkter. 
 Klicka dig vidare i diagrammet om du vill visa mer detaljerade mätvärden. [Lär dig mer om mätvärden.][perf]
 
 #### Ser du inga data?
-
 * Använd programmet och öppna olika sidor så att det genererar telemetri.
 * Öppna panelen [Sök](app-insights-diagnostic-search.md) om du vill visa enskilda händelser. Ibland tar det lite längre tid för händelser att passera genom pipelinen för mätvärden.
 * Vänta några sekunder och klicka på **Uppdatera**. Diagrammen uppdateras automatiskt med jämna mellanrum, men du kan uppdatera dem manuellt om du väntar på att vissa data ska visas.
 * Mer information finns i [Felsökning][qna].
 
 ## Publicera appen
-
 Distribuera ditt program till IIS eller Azure och se hur data ackumuleras.
 
-
 #### Visas inga data efter att du har publicerat till servern?
-
 Öppna dessa portar för utgående trafik i serverns brandvägg:
 
-+ `dc.services.visualstudio.com:443`
-+ `f5.services.visualstudio.com:443`
-
+* `dc.services.visualstudio.com:443`
+* `f5.services.visualstudio.com:443`
 
 #### Har du problem på build-servern?
-
 Mer information finns i [det här felsökningsavsnittet](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
-
-
-## Anpassad användning 
-
+## Anpassad användning
 ### Inaktivera automatisk insamling
-
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -130,7 +103,6 @@ appInsights.setup("<instrumentation_key>")
 ```
 
 ### Anpassad övervakning
-
 ```javascript
 import appInsights = require("applicationinsights");
 var client = appInsights.getClient();
@@ -144,7 +116,6 @@ client.trackTrace("trace message");
 [Mer information om telemetri-API:et](app-insights-api-custom-events-metrics.md).
 
 ### Använda flera instrumenteringsnycklar
-
 ```javascript
 import appInsights = require("applicationinsights");
 
@@ -157,9 +128,7 @@ otherClient.trackEvent("custom event");
 ```
 
 ## Exempel
-
 ### Spåra beroende
-
 ```javascript
 import appInsights = require("applicationinsights");
 var client = appInsights.getClient();
@@ -176,7 +145,6 @@ client.trackDependency("dependency name", "command name", elapsedTime, success);
 
 
 ### Manuell förfrågningsspårning av alla ”GET”-begäranden
-
 ```javascript
 var http = require("http");
 var appInsights = require("applicationinsights");
@@ -214,11 +182,8 @@ server.on("listening", () => {
 ```
 
 ## Nästa steg
-
 * [Övervaka din telemetri i portalen](app-insights-dashboards.md)
 * [Skriv Analytics-frågor via din telemetri](app-insights-analytics-tour.md)
-
-
 
 <!--Link references-->
 

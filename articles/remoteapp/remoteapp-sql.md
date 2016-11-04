@@ -1,42 +1,41 @@
-<properties
-   pageTitle="SQL Azure med Azure RemoteApp | Microsoft Azure"
-   description="Lär dig att använda SQL Azure med Azure RemoteApp."
-   services="remoteapp"
-   documentationCenter=""
-   authors="ericorman"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: SQL Azure med Azure RemoteApp | Microsoft Docs
+description: Lär dig att använda SQL Azure med Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: ericorman
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/15/2016"
-   ms.author="elizapo"/>
+ms.service: remoteapp
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: compute
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # SQL Azure med Azure RemoteApp
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> 
+> 
 
 Ofta när kunder väljer att lagra sina Windows-program i molnet med Azure RemoteApp vill de också migrera data, till exempel SQL-servrar, till molnet för en hel molndistribution. Det gör att hela den molnbaserade lösningen kan användas när och var som helst av alla enheter, med Azure RemoteApp. Nedan visas länkar och referenser tillsammans med riktlinjer som hjälper dig med den här processen.  
 
 ## Migrera dina SQL-data
-
 Börja med [Migrera en SQL Server-databas till Azure SQL Database](../sql-database/sql-database-cloud-migrate.md). 
 
 ## Konfigurera Azure RemoteApp
 Använd Azure RemoteApp som värd för Windows-programmet. Nedan finns steg för steg-anvisningar på hög nivå:
 
-1.     Skapa [VM-mallen för Azure RemoteApp](remoteapp-imageoptions.md). 
-2.     Installera det program som krävs på den virtuella datorn (VM).
-3.     Konfigurera programmet så att det ansluter till SQL DB och bekräfta att det fungerar.
-4.     Kör en sysprep och stäng av den virtuella datorn. Samla in det som en avbildning för användning med Azure. **Obs!** Du måste kontrollera att programmet kan behålla DB-anslutningsinformationen under sysprep-processen. Om programmet inte kan behålla DB-anslutningsinformationen kan det vara bra att be programleverantören att kontrollera hur vi kan ange anslutningssträngen.
-5.     Importera den anpassade avbildningen till Azure RemoteApp-biblioteket genom att välja den geografiska plats där din SQL Azure-distribution finns. 
-6.     Distribuera en RemoteApp-samling i samma datacenter som din SQL Azure-distribution. Använd mallen ovan och publicera programmet. Genom att distribuera Azure RemoteApp i samma datacenter som SQL Azure får du de snabbaste anslutningshastigheterna och minskade svarstider. 
+1. Skapa [VM-mallen för Azure RemoteApp](remoteapp-imageoptions.md). 
+2. Installera det program som krävs på den virtuella datorn (VM).
+3. Konfigurera programmet så att det ansluter till SQL DB och bekräfta att det fungerar.
+4. Kör en sysprep och stäng av den virtuella datorn. Samla in det som en avbildning för användning med Azure. **Obs!** Du måste kontrollera att programmet kan behålla DB-anslutningsinformationen under sysprep-processen. Om programmet inte kan behålla DB-anslutningsinformationen kan det vara bra att be programleverantören att kontrollera hur vi kan ange anslutningssträngen.
+5. Importera den anpassade avbildningen till Azure RemoteApp-biblioteket genom att välja den geografiska plats där din SQL Azure-distribution finns. 
+6. Distribuera en RemoteApp-samling i samma datacenter som din SQL Azure-distribution. Använd mallen ovan och publicera programmet. Genom att distribuera Azure RemoteApp i samma datacenter som SQL Azure får du de snabbaste anslutningshastigheterna och minskade svarstider. 
 
 ## Tänk på följande när du konfigurerar appen och SQL:
 Det finns några saker att tänka på när du använder Azure SQL med RemoteApp:
@@ -50,12 +49,9 @@ Följ steg för steg-instruktionerna i [Gör så här: Konfigurera brandväggsin
 ## Felsökning
 Det kan finnas flera skäl till att det verkar gå långsamt att använda ett klientprogram i Azure RemoteApp som ansluter till en SQL-databas som finns i Azure eller lokalt.  
 
-- Nätverksfördröjningen från enheten till Azure är hög. Flytta till den bästa och snabbaste nätverksanslutningen du kan för bästa prestanda. Använd [azurespeed.com](http://azurespeed.com/) som ett allmänt verktyg för att testa enheternas fördröjning till Azure-datacenter.  
-- Klientappen som finns i Azure RemoteApp är överbelastad. Öka prestandan genom att välja en annan faktureringsplan, till exempel Premiumfakturering. Ett annat tips är att övervaka de resurser som programmet förbrukar: Utför tangentsekvensen ctrl + alt + end under en aktiv session. Då öppnas SAS-skärmen där du väljer Aktivitetshanteraren och kan se resursanvändningen för din app.
-- SQL-servern är överbelastad eller har inte optimerats. Följ SQL-riktlinjerna för felsökning. 
-
-
-
+* Nätverksfördröjningen från enheten till Azure är hög. Flytta till den bästa och snabbaste nätverksanslutningen du kan för bästa prestanda. Använd [azurespeed.com](http://azurespeed.com/) som ett allmänt verktyg för att testa enheternas fördröjning till Azure-datacenter.  
+* Klientappen som finns i Azure RemoteApp är överbelastad. Öka prestandan genom att välja en annan faktureringsplan, till exempel Premiumfakturering. Ett annat tips är att övervaka de resurser som programmet förbrukar: Utför tangentsekvensen ctrl + alt + end under en aktiv session. Då öppnas SAS-skärmen där du väljer Aktivitetshanteraren och kan se resursanvändningen för din app.
+* SQL-servern är överbelastad eller har inte optimerats. Följ SQL-riktlinjerna för felsökning. 
 
 <!--HONumber=Sep16_HO3-->
 

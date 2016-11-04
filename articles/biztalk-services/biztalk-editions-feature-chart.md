@@ -1,29 +1,25 @@
-<properties
-    pageTitle="Läs mer om funktioner i BizTalk Services-utgåvorna | Microsoft Azure"
-    description="Jämför funktionerna i BizTalk Services-utgåvorna: Free, Developer, Basic, Standard och Premium. MABS, WABS."
-    services="biztalk-services"
-    documentationCenter=""
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""/>
+---
+title: Läs mer om funktioner i BizTalk Services-utgåvorna | Microsoft Docs
+description: 'Jämför funktionerna i BizTalk Services-utgåvorna: Free, Developer, Basic, Standard och Premium. MABS, WABS.'
+services: biztalk-services
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="biztalk-services"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="mandia"/>
+ms.service: biztalk-services
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: mandia
 
-
+---
 # BizTalk Services: Diagram över utgåvor
-
 Azure BizTalk Services erbjuder flera olika utgåvor. Läs den här artikeln för att se vilken utgåva som passar dina scenario- och affärsbehov bäst.
 
-
 ## Jämför utgåvorna
-
 **Kostnadsfri (förhandsversion)**
 
 Kan skapa och hantera hybridanslutningar. En hybridanslutning är ett enkelt sätt att ansluta en Azure-webbplats till ett lokalt system, t.ex. SQL Server.
@@ -43,7 +39,6 @@ Innehåller alla Basic-funktionerna med utökade hybridanslutningar, EAI-bryggor
 **Premium**
 
 Innehåller alla Standard-funktionerna med utökade hybridanslutningar, EAI-bryggor, EDI-avtal och BizTalk Adapter Pack-anslutningar. Innehåller också arkivering, hög tillgänglighet samt alternativ för skalning med ett serviceavtal (SLA).
-
 
 ## Diagram över utgåvor
 I nedanstående tabell visas skillnaderna.
@@ -201,20 +196,21 @@ Innehåller NRR (Non-Repudiation of Receipt) och hämtning av spårade meddeland
 </tr>
 </table>
 
-> [AZURE.NOTE] För återhämtning vid maskinvarufel innebär hög tillgänglighet att ha flera virtuella datorer i en enda BizTalk-enhet.
-
+> [!NOTE]
+> För återhämtning vid maskinvarufel innebär hög tillgänglighet att ha flera virtuella datorer i en enda BizTalk-enhet.
+> 
+> 
 
 ## Vanliga frågor och svar
-
 #### Vad är en BizTalk-enhet?
 En ”enhet” är den atomiska nivån i en distribution av Azure BizTalk Services. Varje utgåva levereras med en enhet som har annan beräkningskapacitet och minne. Till exempel har en Basic-enhet mer databearbetning än Developer, och Standard har mer databearbetning än Basic och så vidare. En BizTalk-tjänst skalas i enheter.
 
 #### Vad är skillnaden mellan BizTalk Services och virtuella Azure BizTalk-datorer?
 BizTalk Services innehåller en verklig ”plattform som en tjänst”-arkitektur (PaaS) som kan skapa integrationslösningar i molnet. Med PaaS-modellen kan du helt fokusera på programlogiken och lämna all infrastrukturhantering till Microsoft, inklusive:
 
-- Inget behov av att hantera eller korrigera virtuella datorer.
-- Microsoft garanterar tillgängligheten.
-- Du kan styra skalningen på begäran genom att helt enkelt begära mer eller mindre kapacitet via Azure-portalen.
+* Inget behov av att hantera eller korrigera virtuella datorer.
+* Microsoft garanterar tillgängligheten.
+* Du kan styra skalningen på begäran genom att helt enkelt begära mer eller mindre kapacitet via Azure-portalen.
 
 BizTalk Server i Azure Virtual Machines ger en ”infrastruktur som en tjänst”-arkitektur (IaaS). Du skapar virtuella datorer och konfigurerar dem likadant som din lokala miljö, vilket gör det lättare att köra befintliga program i molnet utan kodändringar. Med IaaS är du fortfarande ansvarig för att konfigurera virtuella datorer, hantera virtuella datorer (till exempel installera programvara och korrigeringsfiler för operativsystem), samt för att anpassa programmet för hög tillgänglighet.
 
@@ -224,42 +220,33 @@ Om du funderar på att skapa nya integrationslösningar som minimerar din infras
 BizTalk Adapter-tjänsten används av en Azure BizTalk-tjänst. BizTalk Adapter-tjänsten använder BizTalk Adapter Pack för att ansluta till ett lokalt LOB-system (Line of Business). En hybridanslutning är ett enkelt och praktiskt sätt att ansluta Azure-program, som t.ex. Web Apps-funktionen i Azure Apptjänst och Azure Mobile Services, till en lokal resurs.
 
 #### Vad innebär ”Hybridanslutningens dataöverföring (GB) per enhet”? Är detta per minut/timme/dag/vecka/månad? Vad händer när gränsen har nåtts?
-
 Hybridanslutningens kostnad per enhet beror på vilken BizTalk Services-utgåva du har. Kostnaderna beror helt enkelt på hur mycket data du överför. Att exempelvis överföra 10 GB data per dag kostar mindre än att överföra 100 GB per dag. Använd [Priskalkylatorn](https://azure.microsoft.com/pricing/calculator/?scenario=full) för BizTalk Services när du fastställer kostnader. Vanligtvis tillämpas gränserna per dag. Om du överskrider gränsen debiteras eventuell överanvändning med $1 per GB.
 
 #### Varför går antalet bryggor upp med två i stället för bara en när jag skapar ett avtal i BizTalk Services?
-
 Varje avtal består av två olika bryggor: en kommunikationsbrygga på sändningssidan och en kommunikationsbrygga på mottagningssidan.
 
-####  Vad händer när jag uppnår kvotgränsen för antalet bryggor eller avtal?
-
+#### Vad händer när jag uppnår kvotgränsen för antalet bryggor eller avtal?
 Du kommer inte att kunna distribuera några nya bryggor eller skapa några nya avtal. Om du vill distribuera flera måste du skala upp till fler enheter av BizTalk-tjänsten, eller uppgradera till en högre utgåva.
 
 #### Hur migrerar jag från en nivå av BizTalk Services till en annan?
-
 Free-utgåvan kan inte migreras eller ”skalas upp” till en annan nivå och kan inte heller säkerhetskopieras och återställas till en annan nivå. Om du behöver en annan nivå skapar du en ny BizTalk-tjänst med den nya nivån. Alla artefakter som skapats med Free-utgåvan, inklusive hybridanslutningar, måste återskapas i den nya BizTalk-tjänsten. 
 
 För de återstående utgåvorna använder du säkerhetskopiering och återställning för att migrera artefakterna från en nivå till en annan. Du kan till exempel säkerhetskopiera dina artefakter på Standard-nivån och återställa dem till Premium-nivån. [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md) beskriver de migreringsvägar som stöds och visar en lista över vilka artefakter som säkerhetskopieras. Observera att hybridanslutningar inte säkerhetskopieras. När du har säkerhetskopierat och återställt till en ny nivå återskapar du sedan hybridanslutningarna.  
 
-
 #### Ingår BizTalk Adapter i tjänsten? Hur får jag programvaran?
-
 Ja, BizTalk Adapter-tjänsten med BizTalk Adapter Pack ingår i Azure BizTalk Services SDK-[hämtning](http://www.microsoft.com/download/details.aspx?id=39087).
 
 ## Nästa steg
-
 Om du vill skapa Azure BizTalk Services i Azure-portalen går du till [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md). Om du vill börja skapa program går du till [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Ytterligare resurser
-- [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md)<br/>
-- [BizTalk Services: Etablering av statusdiagram](biztalk-service-state-chart.md)<br/>
-- [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md)<br/>
-- [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md)<br/>
-- [BizTalk Services: Begränsning](biztalk-throttling-thresholds.md)<br/>
-- [BizTalk Services: Utfärdarens namn och nyckel](biztalk-issuer-name-issuer-key.md)<br/>
-- [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
-
+* [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md)<br/>
+* [BizTalk Services: Etablering av statusdiagram](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+* [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Begränsning](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk Services: Utfärdarens namn och nyckel](biztalk-issuer-name-issuer-key.md)<br/>
+* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
 <!--HONumber=sep16_HO1-->
 

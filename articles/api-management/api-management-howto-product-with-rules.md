@@ -1,40 +1,43 @@
-<properties
-    pageTitle="Skydda ditt API med Azure API Management | Microsoft Azure"
-    description="Lär dig hur du skyddar ditt API med kvoter och begränsningsprinciper (frekvensbegränsning)."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: Skydda ditt API med Azure API Management | Microsoft Docs
+description: Lär dig hur du skyddar ditt API med kvoter och begränsningsprinciper (frekvensbegränsning).
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Skydda ditt API med frekvensbegränsningar med hjälp av Azure API Management
-
 Den här guiden beskriver hur du enkelt kan skydda ditt backend-API genom att konfigurera principer för kvoter och frekvensbegränsningar med Azure API Management.
 
-I den här självstudiekursen ska du skapa en API-produkt av typen ”kostnadsfri utvärdering” som gör att utvecklare kan göra upp till 10 anrop per minut och upp till högst 200 anrop per vecka till ditt API. För att åstadkomma detta ska du använda principerna [Begränsa anropsfrekvensen per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) och [Ange användningskvot per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). När du är klar ska du publicera API:et och testa frekvensbegränsningsprincipen.
+I den här självstudiekursen ska du skapa en API-produkt av typen ”kostnadsfri utvärdering” som gör att utvecklare kan göra upp till 10 anrop per minut och upp till högst 200 anrop per vecka till ditt API. För att åstadkomma detta ska du använda principerna [Begränsa anropsfrekvensen per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) och [Ange användningskvot per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). När du är klar ska du publicera API:et och testa frekvensbegränsningsprincipen.
 
 Mer avancerade begränsningsscenarier med principerna [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) och [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) finns i [Avancerad begränsning av förfrågningar med Azure API Management](api-management-sample-flexible-throttling.md).
 
 ## <a name="create-product"> </a>Så här skapar du en produkt
-
 I det här steget ska du skapa en produkt för en kostnadsfri utvärdering som inte kräver prenumerationsgodkännande.
 
->[AZURE.NOTE] Om du redan har en konfigurerad produkt och vill använda den i den här självstudiekursen går du till [Konfigurera principer för begränsning av anropsfrekvens och kvoter][] och följer självstudien därifrån med hjälp av din produkt i stället för produkten för en kostnadsfri utvärdering.
+> [!NOTE]
+> Om du redan har en konfigurerad produkt och vill använda den i den här självstudiekursen går du till [Konfigurera principer för begränsning av anropsfrekvens och kvoter][Konfigurera principer för begränsning av anropsfrekvens och kvoter] och följer självstudien därifrån med hjälp av din produkt i stället för produkten för en kostnadsfri utvärdering.
+> 
+> 
 
 Börja genom att klicka på **Hantera** på den klassiska Azure-portalen för API Management-tjänsten. När du gör det kommer du till utgivarportalen för API Management.
 
 ![Utgivarportalen][api-management-management-console]
 
->Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][] i självstudiekursen [Hantera ditt första API i Azure API Management][].
+> Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][Skapa en API Management-tjänstinstans] i självstudiekursen [Hantera ditt första API i Azure API Management][Hantera ditt första API i Azure API Management].
+> 
+> 
 
 Klicka på **Produkter** på **API Management**-menyn till vänster för att visa sidan **Produkter**.
 
@@ -46,7 +49,7 @@ Klicka på **Lägg till produkt**. Dialogrutan **Lägg till ny produkt** öppnas
 
 I rutan **Rubrik** skriver du **Kostnadsfri utvärdering**.
 
-I rutan **Beskrivning** skriver du följande text:  **Prenumeranter kan köra 10 anrop per minut upp till högst 200 anrop per vecka, varefter åtkomsten nekas.**
+I rutan **Beskrivning** skriver du följande text:  **Prenumeranter kan köra 10 anrop per minut upp till högst 200 anrop per vecka, varefter åtkomsten nekas.**
 
 Produkter i API Management kan skyddas eller vara öppna. Skyddade produkter kräver en prenumeration innan de kan användas. Öppna produkter kan användas utan en prenumeration. Se till att **Kräv prenumeration** har valts om du vill skapa en skyddad produkt som kräver en prenumeration. Det här är standardinställningen.
 
@@ -60,17 +63,20 @@ När alla värden har angetts klickar du på **Spara** för att skapa produkten.
 
 Som standard visas nya produkter för användare i gruppen **Administratörer**. Vi ska lägga till gruppen **Utvecklare**. Klicka på **Kostnadsfri utvärdering** och sedan på fliken **Synlighet**.
 
->I API Management används grupper för att hantera hur produkter visas för utvecklare. Produkter beviljar synlighet till grupper, och utvecklare kan visa och prenumerera på de produkter som är synliga för grupper som de är medlemmar i. Mer information finns i [Skapa och använda grupper i Azure API Management][].
+> I API Management används grupper för att hantera hur produkter visas för utvecklare. Produkter beviljar synlighet till grupper, och utvecklare kan visa och prenumerera på de produkter som är synliga för grupper som de är medlemmar i. Mer information finns i [Skapa och använda grupper i Azure API Management][Skapa och använda grupper i Azure API Management].
+> 
+> 
 
 ![Lägga till en utvecklargrupp][api-management-add-developers-group]
 
 Markera kryssrutan **Utvecklare** och klicka sedan på **Spara**.
 
 ## <a name="add-api"> </a>Så här lägger du till ett API till produkten
-
 I det här steget i självstudiekursen ska vi lägga till Echo API till den nya produkten ”Kostnadsfri utvärdering”.
 
->Varje API Management-tjänstinstans är förkonfigurerad med ett Echo-API som du kan använda för att experimentera och lära dig mer om API Management. Mer information finns i [Hantera ditt första API i Azure API Management][].
+> Varje API Management-tjänstinstans är förkonfigurerad med ett Echo-API som du kan använda för att experimentera och lära dig mer om API Management. Mer information finns i [Hantera ditt första API i Azure API Management][Hantera ditt första API i Azure API Management].
+> 
+> 
 
 Klicka på **Produkter** på **API Management**-menyn till vänster och klicka sedan på **Kostnadsfri utvärdering** för att konfigurera produkten.
 
@@ -85,7 +91,6 @@ Välj **Echo API** och klicka på **Spara**.
 ![Lägg till Echo API][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Så här konfigurerar du principer för begränsning av anropsfrekvens och kvoter
-
 Frekvensbegränsningar och kvoter konfigureras i principredigeraren. Klicka på **Principer** under **API Management**-menyn till vänster. Klicka på **Kostnadsfri utvärdering** i listan **Produkt**.
 
 ![Princip för produkt][api-management-product-policy]
@@ -138,12 +143,14 @@ Kvoter kan baseras på antalet anrop per intervall, på bandbredden eller båda.
     <quota calls="number" renewal-period="seconds">
     </quota>
 
-I produkten ”Kostnadsfri utvärdering” är kvoten 200 anrop per vecka. Ange **200** som värde för attributet **calls** och ange sedan **604800** som värde för attributet **renewal-period**.
+I produkten ”Kostnadsfri utvärdering” är kvoten 200 anrop per vecka. Ange **200** som värde för attributet **calls** och ange sedan **604800** som värde för attributet **renewal-period**.
 
     <quota calls="200" renewal-period="604800">
     </quota>
 
->Principintervall anges i sekunder. Om du vill beräkna intervallet för en vecka kan du multiplicera antalet dagar (7) med antalet timmar under en dag (24) med antalet minuter på en timme (60) med antalet sekunder på en minut (60): 7 * 24 * 60 * 60 = 604800.
+> Principintervall anges i sekunder. Om du vill beräkna intervallet för en vecka kan du multiplicera antalet dagar (7) med antalet timmar under en dag (24) med antalet minuter på en timme (60) med antalet sekunder på en minut (60): 7 * 24 * 60 * 60 = 604800.
+> 
+> 
 
 När du har konfigurerat principen bör den se ut som i följande exempel.
 
@@ -168,7 +175,6 @@ När de önskade principerna har konfigurerats klickar du på **Spara**.
 ![Spara en princip][api-management-policy-save]
 
 ## <a name="publish-product"> </a> Så här publicerar du produkten
-
 Nu när API:erna läggs till och principerna konfigureras måste produkten publiceras så att den kan användas av utvecklare. Klicka på **Produkter** på **API Management**-menyn till vänster och klicka sedan på **Kostnadsfri utvärdering** för att konfigurera produkten.
 
 ![Konfigurera produkten][api-management-configure-product]
@@ -178,10 +184,11 @@ Klicka på **Publicera** och sedan på **Ja, publicera den** för att bekräfta.
 ![Publicera produkten][api-management-publish-product]
 
 ## <a name="subscribe-account"> </a>Så här prenumererar du på ett utvecklarkonto för produkten
-
 Nu när produkten har publicerats kan utvecklare prenumerera på den och använda den.
 
->Administratörer av en API Management-instans har automatiskt en prenumeration på alla produkter. I det här steget i självstudien ska vi prenumerera på produkten ”Kostnadsfri utvärdering” med ett av utvecklarkontona som inte är kopplat till en administratör. Om ditt utvecklarkonto är en del av rollen Administratörer kan du följa med i det här steget, även om du redan har en prenumeration.
+> Administratörer av en API Management-instans har automatiskt en prenumeration på alla produkter. I det här steget i självstudien ska vi prenumerera på produkten ”Kostnadsfri utvärdering” med ett av utvecklarkontona som inte är kopplat till en administratör. Om ditt utvecklarkonto är en del av rollen Administratörer kan du följa med i det här steget, även om du redan har en prenumeration.
+> 
+> 
 
 Klicka på **Användare** på **API Management**-menyn till vänster och klicka sedan på namnet på utvecklarkontot. I det här exemplet använder vi utvecklarkontot för **Clayton Gragg**.
 
@@ -195,7 +202,10 @@ Välj **Kostnadsfri utvärdering** och klicka sedan på **Prenumerera**.
 
 ![Lägg till en prenumeration][api-management-add-subscription]
 
->[AZURE.NOTE] I den här självstudien är flera samtidiga prenumerationer inte aktiverat för produkten ”Kostnadsfri utvärdering”. I så fall skulle du uppmanas att namnge prenumerationen, som du ser i följande exempel.
+> [!NOTE]
+> I den här självstudien är flera samtidiga prenumerationer inte aktiverat för produkten ”Kostnadsfri utvärdering”. I så fall skulle du uppmanas att namnge prenumerationen, som du ser i följande exempel.
+> 
+> 
 
 ![Lägg till en prenumeration][api-management-add-subscription-multiple]
 
@@ -204,7 +214,6 @@ När du klickar på **Prenumerera** visas produkten i listan **Prenumeration** f
 ![Prenumerationen har lagts till][api-management-subscription-added]
 
 ## <a name="test-rate-limit"> </a>Så här anropar du en åtgärd och testar frekvensbegränsningen
-
 Nu när produkten ”Kostnadsfri utvärdering” har konfigurerats och publicerats kan vi anropa vissa åtgärder och testa frekvensbegränsningsprincipen.
 Växla till utvecklarportalen genom att klicka på **Utvecklarportal** på menyn längst upp till höger.
 
@@ -222,7 +231,10 @@ Behåll standardparametervärdena och välj sedan din prenumerationsnyckel för 
 
 ![Prenumerationsnyckel][api-management-select-key]
 
->[AZURE.NOTE] Om du har flera prenumerationer är du noga med att välja nyckeln för **Kostnadsfri utvärdering**. Annars tillämpas inte principerna som konfigurerades i föregående steg.
+> [!NOTE]
+> Om du har flera prenumerationer är du noga med att välja nyckeln för **Kostnadsfri utvärdering**. Annars tillämpas inte principerna som konfigurerades i föregående steg.
+> 
+> 
 
 Klicka på **Skicka** och visa svaret. Observera **svarsstatusen** **200 OK**.
 
@@ -234,14 +246,14 @@ Klicka på **Skicka** med en frekvens som är högre än de 10 anropen per minut
 
 **Svarsinnehållet** anger det återstående intervallet innan omförsök kommer att lyckas.
 
-När frekvensbegränsningsprincipen som begränsar antalet anrop till 10 per minut tillämpas misslyckas efterföljande anrop tills 60 sekunder har förflutit från det första av de 10 lyckade anropen till produkten innan frekvensgränsen överskreds. I det här exemplet är det återstående intervallet 54 sekunder.
+När frekvensbegränsningsprincipen som begränsar antalet anrop till 10 per minut tillämpas misslyckas efterföljande anrop tills 60 sekunder har förflutit från det första av de 10 lyckade anropen till produkten innan frekvensgränsen överskreds. I det här exemplet är det återstående intervallet 54 sekunder.
 
 ## <a name="next-steps"> </a>Nästa steg
+* Titta på en demonstration om hur du ställer in frekvensbegränsningar och kvoter i följande videoklipp.
 
--   Titta på en demonstration om hur du ställer in frekvensbegränsningar och kvoter i följande videoklipp.
-
-> [AZURE.VIDEO rate-limits-and-quotas]
-
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
+> 
+> 
 
 [api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
 [api-management-add-product]: ./media/api-management-howto-product-with-rules/api-management-add-product.png

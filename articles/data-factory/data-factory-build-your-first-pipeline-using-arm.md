@@ -1,46 +1,47 @@
-<properties
-    pageTitle="Skapa din första datafabrik (Resource Manager-mall) | Microsoft Azure"
-    description="I de här självstudierna skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en Azure Resource Manager-mall."
-    services="data-factory"
-    documentationCenter=""
-    authors="spelluru"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: Skapa din första datafabrik (Resource Manager-mall) | Microsoft Docs
+description: I de här självstudierna skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en Azure Resource Manager-mall.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="data-factory"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="10/12/2016"
-    ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 10/12/2016
+ms.author: spelluru
 
-
+---
 # <a name="tutorial:-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa din första Azure-datafabrik med hjälp av en Azure Resource Manager-mall
-> [AZURE.SELECTOR]
-- [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
-- [Azure-portal](data-factory-build-your-first-pipeline-using-editor.md)
-- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
+> * [Azure-portal](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+> * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+> * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> 
+> 
 
 I den här artikeln får du lära dig hur du använder en Azure Resource Manager-mall för att skapa din första Azure-datafabrik.
 
 ## <a name="prerequisites"></a>Krav
-- Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen.
-- Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera den senaste versionen av Azure PowerShell på datorn.
-- Se [Redigera Azure Resource Manager-mallar](../resource-group-authoring-templates.md) om du vill lära dig mer om mallar i Azure Resource Manager. 
+* Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen.
+* Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera den senaste versionen av Azure PowerShell på datorn.
+* Se [Redigera Azure Resource Manager-mallar](../resource-group-authoring-templates.md) om du vill lära dig mer om mallar i Azure Resource Manager. 
 
 ## <a name="in-this-tutorial"></a>I den här självstudien
-Entitet | Beskrivning  
------- | ----------- 
-Länkad Azure-lagringstjänst | Länkar på begäran ditt Azure Storage-konto till datafabriken. In- och utdata för pipelinen i det här exemplet lagras i Azure Storage-kontot. 
-HDInsight on-demand linked service (Länkad tjänst för HDInsight på begäran)| Länkar på begäran HDInsight-klustret till datafabriken. Klustret skapas automatiskt för att bearbeta data och raderas när bearbetningen är klar.
-Indatauppsättning för Azure-blobb | Hänvisar till den länkade Azure Storage-tjänsten. Den länkade tjänsten hänvisar till ett Azure Storage-konto och datauppsättningen för Azure-blobben anger behållaren, mappen och filnamnet i lagringsutrymmet som innehåller indata. 
-Utdatauppsättning för Azure-blobb | Hänvisar till den länkade Azure Storage-tjänsten. Den länkade tjänsten hänvisar till ett Azure Storage-konto och datauppsättningen för Azure-blobben anger behållaren, mappen och filnamnet i lagringsutrymmet som innehåller utdata. 
-Datapipeline | Pipelinen har en aktivitet av typen HDInsightHive som använder indatauppsättningen och skapar utdatauppsättningen.   
+| Entitet | Beskrivning |
+| --- | --- |
+| Länkad Azure-lagringstjänst |Länkar på begäran ditt Azure Storage-konto till datafabriken. In- och utdata för pipelinen i det här exemplet lagras i Azure Storage-kontot. |
+| HDInsight on-demand linked service (Länkad tjänst för HDInsight på begäran) |Länkar på begäran HDInsight-klustret till datafabriken. Klustret skapas automatiskt för att bearbeta data och raderas när bearbetningen är klar. |
+| Indatauppsättning för Azure-blobb |Hänvisar till den länkade Azure Storage-tjänsten. Den länkade tjänsten hänvisar till ett Azure Storage-konto och datauppsättningen för Azure-blobben anger behållaren, mappen och filnamnet i lagringsutrymmet som innehåller indata. |
+| Utdatauppsättning för Azure-blobb |Hänvisar till den länkade Azure Storage-tjänsten. Den länkade tjänsten hänvisar till ett Azure Storage-konto och datauppsättningen för Azure-blobben anger behållaren, mappen och filnamnet i lagringsutrymmet som innehåller utdata. |
+| Datapipeline |Pipelinen har en aktivitet av typen HDInsightHive som använder indatauppsättningen och skapar utdatauppsättningen. |
 
 En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Det finns två typer av aktiviteter: [dataflyttningsaktiviteter](data-factory-data-movement-activities.md) och [datatransformeringsaktiviteter](data-factory-data-transformation-activities.md). I den här självstudien får du skapa en pipeline i en aktivitet (kopieringsaktivitet).
 
@@ -242,12 +243,18 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFGetStarted
         ]
     }
 
-> [AZURE.NOTE] Du hittar ytterligare ett exempel på en Resource Manager-mall för att skapa en Azure-datafabrik i [Självstudier: skapa en pipeline med kopieringsaktivitet via en Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
+> [!NOTE]
+> Du hittar ytterligare ett exempel på en Resource Manager-mall för att skapa en Azure-datafabrik i [Självstudier: skapa en pipeline med kopieringsaktivitet via en Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
+> 
+> 
 
-## <a name="parameters-json"></a>JSON-parametrar 
+## <a name="parameters-json"></a>JSON-parametrar
 Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller parametrar för Azure Resource Manager-mallen.  
 
-> [AZURE.IMPORTANT] Ange namn och nyckel för Azure Storage-kontot och parametrarna **storageAccountName** och **storageAccountKey** i den här parameterfilen. 
+> [!IMPORTANT]
+> Ange namn och nyckel för Azure Storage-kontot och parametrarna **storageAccountName** och **storageAccountKey** i den här parameterfilen. 
+> 
+> 
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -280,41 +287,45 @@ Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller 
         }
     }
 
-> [AZURE.IMPORTANT] Du kan ha separata JSON-filer med parametrar för utveckling, testning och produktionsmiljöer som du kan använda med samma Data Factory JSON-mall. Genom att använda ett Power Shell-skript kan du automatisera distributionen av Data Factory-entiteter i dessa miljöer. 
+> [!IMPORTANT]
+> Du kan ha separata JSON-filer med parametrar för utveckling, testning och produktionsmiljöer som du kan använda med samma Data Factory JSON-mall. Genom att använda ett Power Shell-skript kan du automatisera distributionen av Data Factory-entiteter i dessa miljöer. 
+> 
+> 
 
 ## <a name="create-data-factory"></a>Skapa en datafabrik
-
 1. Starta **Azure PowerShell** och kör följande kommando: 
-    - Kör `Login-AzureRmAccount` och ange det användarnamn och lösenord som du använder för att logga in på Azure-portalen.  
-    - Kör `Get-AzureRmSubscription` för att visa alla prenumerationer för det här kontot.
-    - Kör `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` för att välja den prenumeration som du vill arbeta med. Den här prenumerationen ska vara samma som den du använde i Azure-portalen.
-1. Kör följande kommando för att distribuera Data Factory-entiteter med hjälp av Resource Manager-mallen som du skapade i steg 1. 
-
+   * Kör `Login-AzureRmAccount` och ange det användarnamn och lösenord som du använder för att logga in på Azure-portalen.  
+   * Kör `Get-AzureRmSubscription` för att visa alla prenumerationer för det här kontot.
+   * Kör `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` för att välja den prenumeration som du vill arbeta med. Den här prenumerationen ska vara samma som den du använde i Azure-portalen.
+2. Kör följande kommando för att distribuera Data Factory-entiteter med hjälp av Resource Manager-mallen som du skapade i steg 1. 
+   
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
 
 ## <a name="monitor-pipeline"></a>Övervaka pipeline
- 
-1.  När du har loggat in på [Azure-portalen](https://portal.azure.com/) klickar du på **Bläddra** och väljer **Datafabriker**.
-        ![Bläddra igenom datafabrikerna](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
-2.  På bladet **Datafabriker** klickar du på datafabriken (**TutorialFactoryARM**) som du skapade.   
-2.  På bladet **Data Factory** för din datafabrik klickar du på **Diagram**.
-        ![Ikonen Diagram](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4.  I **diagramvyn** visas en översikt över pipelines och datauppsättningar som används i den här självstudien.
-    
-    ![Diagramvy](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-8. Dubbelklicka på datauppsättningen **AzureBlobOutput** i diagramvyn. Den sektor som för närvarande bearbetas visas.
-
+1. När du har loggat in på [Azure-portalen](https://portal.azure.com/) klickar du på **Bläddra** och väljer **Datafabriker**.
+       ![Bläddra igenom datafabrikerna](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+2. På bladet **Datafabriker** klickar du på datafabriken (**TutorialFactoryARM**) som du skapade.   
+3. På bladet **Data Factory** för din datafabrik klickar du på **Diagram**.
+       ![Ikonen Diagram](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+4. I **diagramvyn** visas en översikt över pipelines och datauppsättningar som används i den här självstudien.
+   
+   ![Diagramvy](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
+5. Dubbelklicka på datauppsättningen **AzureBlobOutput** i diagramvyn. Den sektor som för närvarande bearbetas visas.
+   
     ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. När bearbetningen är klar visas sektorn med statusen **Klar**. Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att det tar **cirka 30 minuter** för pipelinen att bearbeta sektorn.
-
+6. När bearbetningen är klar visas sektorn med statusen **Klar**. Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att det tar **cirka 30 minuter** för pipelinen att bearbeta sektorn.
+   
     ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
-10. När sektorn har statusen **Klar**, kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i blobblagringen för utdata.  
+7. När sektorn har statusen **Klar**, kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i blobblagringen för utdata.  
 
 Se [Övervaka datauppsättningar och pipeline](data-factory-monitor-manage-pipelines.md) för instruktioner om hur du använder Azures portalblad till att övervaka pipelinen och datauppsättningar som du har skapat i den här självstudien.
 
 Du kan också använda appen Övervaka och hantera till att övervaka dina datapipelines. Se [Övervaka och hantera Azure Data Factory-pipelines med övervakningsappen](data-factory-monitor-manage-app.md) för mer information om att använda programmet. 
 
-> [AZURE.IMPORTANT] Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen överför du därför indatafilen (input.log) till indatamappen i behållaren adfgetstarted.
+> [!IMPORTANT]
+> Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen överför du därför indatafilen (input.log) till indatamappen i behållaren adfgetstarted.
+> 
+> 
 
 ## <a name="data-factory-entities-in-the-template"></a>Data Factory-entiteter i mallen
 ### <a name="define-data-factory"></a>Definiera en datafabrik
@@ -329,7 +340,7 @@ Du definierar en datafabrik i Resource Manager-mallen enligt följande exempel:
     }
 
 DataFactoryName definieras som: 
-      
+
       "dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
 
 Det är en unik sträng som baseras på resursgruppens ID.  
@@ -337,11 +348,11 @@ Det är en unik sträng som baseras på resursgruppens ID.
 ### <a name="defining-data-factory-entities"></a>Definiera Data Factory-entiteter
 Följande Data Factory-entiteter har definierats i JSON-mallen: 
 
-- [Länkad Azure Storage-tjänst](#azure-storage-linked-service)
-- [Länkad tjänst för HDInsight på begäran](#hdinsight-on-demand-linked-service)
-- [Indatauppsättning för Azure-blobb](#azure-blob-input-dataset)
-- [Utdatauppsättning för Azure-blobb](#azure-blob-output-dataset)
-- [Datapipeline med en kopieringsaktivitet](#data-pipeline)
+* [Länkad Azure Storage-tjänst](#azure-storage-linked-service)
+* [Länkad tjänst för HDInsight på begäran](#hdinsight-on-demand-linked-service)
+* [Indatauppsättning för Azure-blobb](#azure-blob-input-dataset)
+* [Utdatauppsättning för Azure-blobb](#azure-blob-output-dataset)
+* [Datapipeline med en kopieringsaktivitet](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Länkad Azure-lagringstjänst
 Du anger namnet och nyckeln för Azure Storage-kontot i det här avsnittet. Se [Länkad Azure Storage-tjänst](data-factory-azure-blob-connector.md#azure-storage-linked-service) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure Storage-tjänst. 
@@ -363,7 +374,7 @@ Du anger namnet och nyckeln för Azure Storage-kontot i det här avsnittet. Se [
       }
 
 **connectionString** använder parametrarna storageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variablerna azureStorageLinkedService och dataFactoryName, som definieras i mallen. 
-    
+
 #### <a name="hdinsight-on-demand-linked-service"></a>HDInsight on-demand linked service (Länkad tjänst för HDInsight på begäran)
 Läs mer i artikeln [Beräkna länkade tjänster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) om JSON-egenskaper som används för att definiera en länkad tjänst för HDInsight på begäran.  
 
@@ -388,15 +399,13 @@ Läs mer i artikeln [Beräkna länkade tjänster](data-factory-compute-linked-se
 
 Observera följande punkter: 
 
-- Data Factory skapar ett **Windows-baserat** HDInsight-kluster med ovanstående JSON. Du hade också kunnat skapa ett **Linux-baserat** HDInsight-kluster. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information. 
-- Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
-- HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar.
-
+* Data Factory skapar ett **Windows-baserat** HDInsight-kluster med ovanstående JSON. Du hade också kunnat skapa ett **Linux-baserat** HDInsight-kluster. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information. 
+* Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
+* HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar.
+  
     Allteftersom fler sektorer bearbetas kan du se många behållare i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här behållarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort behållare i din Azure blobblagring.
 
 Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
-
-
 
 #### <a name="azure-blob-input-dataset"></a>Indatauppsättning för Azure-blobb
 Du anger namnen på en blobbehållare, mapp och fil som innehåller dina indata. Se [Egenskaper för Azure-blobbdatauppsättning](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning. 
@@ -515,7 +524,7 @@ Du definierar en pipeline som transformerar data genom att köra ett registrerin
         }
       }
 
-## <a name="reuse-the-template"></a>Återanvända mallen 
+## <a name="reuse-the-template"></a>Återanvända mallen
 I självstudien skapade du en mall för att definiera Data Factory-entiteter och en mall för att skicka värden för parametrar. Om du vill använda samma mall för att distribuera Data Factory-entiteter till olika miljöer skapar du en parameterfil för varje miljö och använder den när du distribuerar till den miljön.     
 
 Exempel:  
@@ -568,17 +577,12 @@ Den här mallen skapar en datafabrik som heter GatewayUsingArmDF med en gateway 
 
 ## <a name="see-also"></a>Se även
 | Avsnitt | Beskrivning |
-| :---- | :---- |
-| [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) | Den här artikeln innehåller en lista med de datatransformeringsaktiviteter (till exempel HDInsight Hive-transformeringen som du använde i självstudien) som stöds av Azure Data Factory. |
-| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) | I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
-| [Pipelines](data-factory-create-pipelines.md) | I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller företag. |
-| [Datauppsättningar](data-factory-create-datasets.md) | I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory.
-| [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) | Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. 
-
-  
-
-
-
+|:--- |:--- |
+| [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) |Den här artikeln innehåller en lista med de datatransformeringsaktiviteter (till exempel HDInsight Hive-transformeringen som du använde i självstudien) som stöds av Azure Data Factory. |
+| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
+| [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller företag. |
+| [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
+| [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
 
 <!--HONumber=Oct16_HO3-->
 

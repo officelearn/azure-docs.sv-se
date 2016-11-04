@@ -1,31 +1,27 @@
-<properties
-   pageTitle="Komma igång med Azure AD Privileged Identity Management | Microsoft Azure"
-   description="Lär dig hur du hanterar privilegierade identiteter med programmet Azure Active Directory Privileged Identity Management på Azure-portalen."
-   services="active-directory"
-   documentationCenter=""
-   authors="kgremban"
-   manager="femila"
-   editor=""/>
+---
+title: Komma igång med Azure AD Privileged Identity Management | Microsoft Docs
+description: Lär dig hur du hanterar privilegierade identiteter med programmet Azure Active Directory Privileged Identity Management på Azure-portalen.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/16/2016"
-   ms.author="kgremban"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/16/2016
+ms.author: kgremban
 
-
+---
 # Komma igång med Azure Privileged Identity Management
-
-
 Med Azure Active Directory (AD) Privileged Identity Management kan du hantera, kontrollera och övervaka åtkomst inom din organisation. Detta inkluderar åtkomst till resurser i Azure AD och andra Microsoft online-tjänster som Office 365 eller Microsoft Intune.
 
 Den här artikeln visar hur du lägger till appen Azure AD PIM på instrumentpanelen på Azure-portalen.
 
 ## Lägga till programmet Privileged Identity Management
-
 Innan du använder Azure AD Privileged Identity Management måste du lägga till programmet på instrumentpanelen på Azure-portalen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som global administratör för din katalog.
@@ -33,28 +29,22 @@ Innan du använder Azure AD Privileged Identity Management måste du lägga till
 3. Välj **Fler tjänster** och använd textrutan Filter för att söka efter **Azure AD Privileged Identity Management**.
 4. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Privileged Identity Management-programmet öppnas.
 
-
 Om du är den första som använder Azure AD Privileged Identity Management i din katalog kommer [säkerhetsguiden](active-directory-privileged-identity-management-security-wizard.md) att vägleda dig genom den första tilldelningen. Därefter blir du automatiskt katalogens första **säkerhetsadministratör** och **privilegierade rolladministratör**. Endast en administratör av privilegierade roller kan komma åt det här programmet för att hantera åtkomsten för andra administratörer.  
 
 ## Gå till dina uppgifter
-
 När Azure AD Privileged Identity Management har ställts in ser du alltid navigeringsbladet när du öppnar programmet. Använd det här bladet för att utföra dina identitetshanteringsaktiviteter.
 
 ![Toppnivåaktiviteter för PIM - skärmbild](./media/active-directory-privileged-identity-management-getting-started/pim_tasks.png)
 
-- **Aktivera min roller** tar dig till listan över roller som har tilldelats dig. Det är här du ska aktivera alla roller som du är berättigad till.
-
-- **Hantera privilegierade roller** är instrumentpanel för privilegierade rolladministratörer, för att hantera rolltilldelningar, ändra rollaktiveringsinställningar starta åtkomstgranskningar och mycket mer. Alternativen i den här instrumentpanelen är inaktiverade för alla som inte är en privilegierad rolladministratör.
-
-- **Granska privilegierad åtkomst** tar dig till alla väntande åtkomstgranskningar som du måste slutföra, oavsett om du granskar åtkomst åt dig själv eller någon annan. 
-
+* **Aktivera min roller** tar dig till listan över roller som har tilldelats dig. Det är här du ska aktivera alla roller som du är berättigad till.
+* **Hantera privilegierade roller** är instrumentpanel för privilegierade rolladministratörer, för att hantera rolltilldelningar, ändra rollaktiveringsinställningar starta åtkomstgranskningar och mycket mer. Alternativen i den här instrumentpanelen är inaktiverade för alla som inte är en privilegierad rolladministratör.
+* **Granska privilegierad åtkomst** tar dig till alla väntande åtkomstgranskningar som du måste slutföra, oavsett om du granskar åtkomst åt dig själv eller någon annan. 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Nästa steg
-
 [Azure AD Privileged Identity Management-översikt](active-directory-privileged-identity-management-configure.md) innehåller mer information om hur du kan hantera administrativ åtkomst i din organisation.
 
-[AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
+[!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->
 

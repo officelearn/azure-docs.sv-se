@@ -1,27 +1,24 @@
-<properties
-    pageTitle="Skicka Azure Diagnostics-data till Application Insights med hjälp av PowerShell | Microsoft Azure"
-    description="Automatisera överföringen av Azure Diagnostics-data till Application Insights."
-    services="application-insights"
-    documentationCenter=".net"
-    authors="sbtron"
-    manager="douge"/>
+---
+title: Skicka Azure Diagnostics-data till Application Insights med hjälp av PowerShell | Microsoft Docs
+description: Automatisera överföringen av Azure Diagnostics-data till Application Insights.
+services: application-insights
+documentationcenter: .net
+author: sbtron
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="11/17/2015"
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 11/17/2015
+ms.author: awills
 
-
+---
 # Skicka Azure Diagnostics-data till Application Insights med hjälp av PowerShell
-
 [Microsoft Azure](https://azure.com) kan [konfigureras att skicka Azure Diagnostics-data](app-insights-azure-diagnostics.md) till [Visual Studio Application Insights](app-insights-overview.md). Diagnostiken gäller Azure Cloud Services och virtuella datorer i Azure. De kompletterar telemetrin som du skickar inifrån appen med hjälp av Application Insights SDK. Som en del av automatiseringen av processen för att skapa nya resurser i Azure kan du konfigurera diagnostik med hjälp av PowerShell.
 
 ## Aktivera diagnostiktillägget som en del av distributionen av en molntjänst
-
 `New-AzureDeployment`-cmdleten har en parameter, `ExtensionConfiguration`, som stöder en rad diagnostikkonfigurationer. Dessa kan skapas med hjälp av cmdleten `New-AzureServiceDiagnosticsExtensionConfig`. Till exempel:
 
 ```ps
@@ -58,11 +55,10 @@
 ``` 
 
 ## Aktivera diagnostiktillägg i en befintlig molntjänst
-
 I en befintlig tjänst använder du `Set-AzureServiceDiagnosticsExtension`.
 
 ```ps
- 
+
     $service_name = "MyService"
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
@@ -88,7 +84,6 @@ I en befintlig tjänst använder du `Set-AzureServiceDiagnosticsExtension`.
 ```
 
 ## Hämta den aktuella konfigurationen för diagnostiktillägg
-
 ```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -96,7 +91,6 @@ I en befintlig tjänst använder du `Set-AzureServiceDiagnosticsExtension`.
 
 
 ## Ta bort diagnostiktillägg
-
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -113,13 +107,9 @@ Så här tar du bort diagnostiktillägget från varje enskild roll:
 
 
 ## Se även
-
 * [Övervaka Azure Cloud Services-appar med Application Insights](app-insights-cloudservices.md)
 * [Skicka Azure Diagnostics-data till Application Insights](app-insights-azure-diagnostics.md)
 * [Automatisera konfigurationen av aviseringar](app-insights-powershell-alerts.md)
-
-
-
 
 <!--HONumber=Sep16_HO3-->
 

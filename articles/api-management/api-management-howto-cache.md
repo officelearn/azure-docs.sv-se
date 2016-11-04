@@ -1,38 +1,41 @@
-<properties
-    pageTitle="Förbättra prestanda i Azure API Management med cachelagring | Microsoft Azure"
-    description="Lär dig hur du förbättrar svarstider, bandbreddsanvändning och webbtjänstbelastning i API Management-tjänstanrop."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: Förbättra prestanda i Azure API Management med cachelagring | Microsoft Docs
+description: Lär dig hur du förbättrar svarstider, bandbreddsanvändning och webbtjänstbelastning i API Management-tjänstanrop.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Förbättra prestanda i Azure API Management med cachelagring
-
 Du kan konfigurera åtgärder i API Management för cachelagring av svar. Cachelagring av svar kan avsevärt minska API:ets svarstider, bandbreddsanvändning och webbtjänstbelastning när data inte ändras så ofta.
 
 Den här guiden beskriver hur du lägger till cachelagring av svar till ditt API och hur du konfigurerar principer för Echo API-exempelåtgärderna. När du är klar kan du bekräfta att cachelagringen fungerar genom att anropa åtgärden från utvecklarportalen.
 
->[AZURE.NOTE] Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).
+> [!NOTE]
+> Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).
+> 
+> 
 
 ## Krav
-
-Innan du följer stegen i den här guiden måste du ha en API Management-tjänstinstans med ett API och en konfigurerad produkt. Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][] i självstudiekursen [Komma igång med Azure API Management][].
+Innan du följer stegen i den här guiden måste du ha en API Management-tjänstinstans med ett API och en konfigurerad produkt. Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][Skapa en API Management-tjänstinstans] i självstudiekursen [Komma igång med Azure API Management][Komma igång med Azure API Management].
 
 ## <a name="configure-caching"> </a>Konfigurera en åtgärd för cachelagring
-
 I det här steget ska du granska cachelagringsinställningarna för åtgärden **GET Resource (cached)** i Echo API-exemplet.
 
->[AZURE.NOTE] Varje API Management-tjänstinstans är förkonfigurerad med ett Echo-API som du kan använda för att experimentera och lära dig mer om API Management. Mer information finns i [Komma igång med Azure API Management][].
+> [!NOTE]
+> Varje API Management-tjänstinstans är förkonfigurerad med ett Echo-API som du kan använda för att experimentera och lära dig mer om API Management. Mer information finns i [Komma igång med Azure API Management][Komma igång med Azure API Management].
+> 
+> 
 
 Börja genom att klicka på **Hantera** på den klassiska Azure-portalen för API Management-tjänsten. När du gör det kommer du till utgivarportalen för API Management.
 
@@ -59,7 +62,6 @@ Varje åtgärdssvar registreras, baserat på värdena i fälten **Variera med fr
 Med cachelagringskonfigurationen i det här exemplet returnerar den första begäran till **GET Resource (cached)** ett svar från backend-tjänsten. Svaret cachelagras och registreras av de angivna sidhuvudena och frågesträngsparametrarna. För efterföljande anrop till åtgärden, med matchande parametrar, returneras det cachelagrade svaret till cachlagringsintervallets slut.
 
 ## <a name="caching-policies"> </a>Granska cachelagringsprinciperna
-
 I det här steget ska du granska cachelagringsinställningarna för åtgärden **GET Resource (cached)** i Echo API-exemplet.
 
 När cachelagringsinställningarna har konfigurerats för en åtgärd på fliken **Cachelagring** läggs cachelagringsprinciper till för åtgärden. Dessa principer kan visas och redigeras i principredigeraren.
@@ -89,10 +91,12 @@ Principdefinitionen för den här åtgärden innehåller principerna som definie
         </outbound>
     </policies>
 
->[AZURE.NOTE] Ändringar som görs i cachelagringsprinciperna i principredigeraren visas på fliken **Cachelagring** för en åtgärd, och tvärtom.
+> [!NOTE]
+> Ändringar som görs i cachelagringsprinciperna i principredigeraren visas på fliken **Cachelagring** för en åtgärd, och tvärtom.
+> 
+> 
 
 ## <a name="test-operation"> </a>Anropa en åtgärd och testa cachelagringen
-
 Om du vill se hur cachelagringen fungerar i praktiken kan du anropa åtgärden från utvecklarportalen. Klicka på **Utvecklarportal** på menyn längst upp till höger.
 
 ![Utvecklarportalen][api-management-developer-portal-menu]
@@ -101,7 +105,9 @@ Klicka på **API:er** på den översta menyn och välj **Echo API**.
 
 ![Echo API][api-management-apis-echo-api]
 
->Om du bara har ett API som är konfigurerat eller som visas för ditt konto och du klickar på API:er så kommer du direkt till åtgärderna för det API:et.
+> Om du bara har ett API som är konfigurerat eller som visas för ditt konto och du klickar på API:er så kommer du direkt till åtgärderna för det API:et.
+> 
+> 
 
 Välj åtgärden **GET Resource (cached)** och klicka på **Öppna konsol**.
 
@@ -128,9 +134,8 @@ Ange **25** i fältet **param2** och klicka sedan på **HTTP Get**.
 Observera att värdet för **sampleheader** i svaret nu är **value2**. Eftersom åtgärdsresultatet registreras av frågesträngen returnerades inte det föregående cachelagrade svaret.
 
 ## <a name="next-steps"> </a>Nästa steg
-
--   Mer information om cachelagringsprinciper finns i [Cachelagringsprinciper][] i [Principreferens för API Management][].
--   Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).
+* Mer information om cachelagringsprinciper finns i [Cachelagringsprinciper][Cachelagringsprinciper] i [Principreferens för API Management][Principreferens för API Management].
+* Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

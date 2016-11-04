@@ -1,37 +1,31 @@
-<properties
-   pageTitle="Skapa en virtuell Linux-dator i Azure med hjälp av CLI | Microsoft Azure"
-   description="Skapa en virtuell Linux-dator i Azure med hjälp av CLI."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="vlivech"
-   manager="timlt"
-   editor=""/>
+---
+title: Skapa en virtuell Linux-dator i Azure med hjälp av CLI | Microsoft Docs
+description: Skapa en virtuell Linux-dator i Azure med hjälp av CLI.
+services: virtual-machines-linux
+documentationcenter: ''
+author: vlivech
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="09/08/2016"
-   ms.author="v-livech"/>
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 09/08/2016
+ms.author: v-livech
 
-
-
+---
 # Skapa en virtuell Linux-dator i Azure med hjälp av CLI
-
 I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator (VM) i Azure med hjälp av kommandot `azure vm quick-create` i Azures kommandoradsgränssnitt (CLI). Kommandot `quick-create` distribuerar en virtuell dator inuti en grundläggande, säker infrastruktur som du kan använda som prototyp eller för att snabbt testa ett koncept. Artikeln kräver:
 
-- ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/)).
-
-- [Azure CLI](../xplat-cli-install.md) inloggad med `azure login`
-
-- Azure CLI _måste vara i_ Azure Resource Manager-läge `azure config mode arm`
+* ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/)).
+* [Azure CLI](../xplat-cli-install.md) inloggad med `azure login`
+* Azure CLI *måste vara i* Azure Resource Manager-läge `azure config mode arm`
 
 Du kan också snabbt distribuera en virtuell Linux-dator med hjälp av [Azure Portal](virtual-machines-linux-quick-create-portal.md).
 
 ## Snabbkommandon
-
 I följande exempel visas hur du distribuerar en CoreOS VM och kopplar din SSH(Secure Shell)-nyckel (dina argument kan vara annorlunda):
 
 ```bash
@@ -41,29 +35,27 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 I följande avsnitt beskrivs kommandot och dess krav med Ubuntu Server 14.04 LTS som Linux-distribution.  
 
 ## VM-snabbregistrering av alias
-
 Ett snabbt sätt att välja en distribution är att använda Azure CLI-alias som mappas till de vanligaste OS-distributionerna. I följande tabell visas tillgängliga alias (från och med Azure CLI version 0.10). Alla distributioner som använder `quick-create` virtuella datorer som backas upp av lagring på solid state-hårddisk (SSD), som ger snabbare etablering och högpresterande åtkomst till disken som standard. (Dessa alias representerar en bråkdel av de tillgängliga distributionerna i Azure. Du kan hitta fler bilder på Azure Marketplace genom att [söka efter en bild](virtual-machines-linux-cli-ps-findimage.md), eller [ladda upp en egen anpassad bild](virtual-machines-linux-create-upload-generic.md).)
 
-| Alias     | Utgivare | Erbjudande        | SKU         | Version |
-|:----------|:----------|:-------------|:------------|:--------|
-| CentOS    | OpenLogic | CentOS       | 7.2         | senaste  |
-| CoreOS    | CoreOS    | CoreOS       | Stable      | senaste  |
-| Debian    | credativ  | Debian       | 8           | senaste  |
-| openSUSE  | SUSE      | openSUSE     | 13.2        | senaste  |
-| RHEL      | Red Hat    | RHEL         | 7.2         | senaste  |
-| UbuntuLTS | Canonical | Ubuntu Server | 14.04.4-LTS | senaste  |
+| Alias | Utgivare | Erbjudande | SKU | Version |
+|:--- |:--- |:--- |:--- |:--- |
+| CentOS |OpenLogic |CentOS |7.2 |senaste |
+| CoreOS |CoreOS |CoreOS |Stable |senaste |
+| Debian |credativ |Debian |8 |senaste |
+| openSUSE |SUSE |openSUSE |13.2 |senaste |
+| RHEL |Red Hat |RHEL |7.2 |senaste |
+| UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |senaste |
 
 I de följande avsnitten används `UbuntuLTS` alias för **ImageURN**-alternativet (`-Q`) för att distribuera en Ubuntu 14.04.4 LTS Server.
 
 ## Detaljerad genomgång
-
 Det tidigare `quick-create` exemplet anropade bara `-M` flaggan för att identifiera den offentliga SSH-nyckeln att överföra vid inaktivering av SSH-lösenord, så uppmanas du ange följande argument:
 
-- resursgruppens namn (valfri sträng är vanligtvis bra för din första Azure-resursgrupp)
-- VM-namn
-- plats (`westus` eller `westeurope` är lämpliga standardvärden)
-- linux (så att Azure vet vilka operativsystem du vill ha)
-- användarnamn
+* resursgruppens namn (valfri sträng är vanligtvis bra för din första Azure-resursgrupp)
+* VM-namn
+* plats (`westus` eller `westeurope` är lämpliga standardvärden)
+* linux (så att Azure vet vilka operativsystem du vill ha)
+* användarnamn
 
 Följande exempel anger alla värden så att ingen ytterligare uppmaning krävs. Så länge som du har en `~/.ssh/id_rsa.pub` som offentlig nyckelfil i ssh-rsaformat, fungerar det.
 
@@ -197,16 +189,13 @@ exampleAdminUser@exampleVMName:~$
 ```
 
 ## Nästa steg
-
 `azure vm quick-create`-kommandot är ett sätt att snabbt distribuera en virtuell dator så att du kan logga in i ett bash-gränssnitt och komma igång med ditt arbete. Men att använda `vm quick-create` ger dig inte omfattande kontroll eller gör det möjligt för dig att skapa en mer komplex miljö.  Om du vill distribuera en virtuell Linux-dator som är anpassad efter din infrastruktur kan du följa vilken som helst av dessa artiklar:
 
-- [Skapa en specifik distribution med hjälp av en Azure Resource Manager-mall](virtual-machines-linux-cli-deploy-templates.md)
-- [Skapa en egen anpassad miljö för en virtuell Linux-dator med hjälp av Azure CLI-kommandon](virtual-machines-linux-create-cli-complete.md)
-- [Skapa en SSH-skyddad virtuell Linux-dator i Azure med hjälp av mallar](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Skapa en specifik distribution med hjälp av en Azure Resource Manager-mall](virtual-machines-linux-cli-deploy-templates.md)
+* [Skapa en egen anpassad miljö för en virtuell Linux-dator med hjälp av Azure CLI-kommandon](virtual-machines-linux-create-cli-complete.md)
+* [Skapa en SSH-skyddad virtuell Linux-dator i Azure med hjälp av mallar](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
 Du kan också [använda `docker-machine` Azure-drivrutinen med olika kommandon för att snabbt skapa en virtuell Linux-dator som Docker-värd](virtual-machines-linux-docker-machine.md).
-
-
 
 <!--HONumber=Sep16_HO5-->
 

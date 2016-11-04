@@ -1,98 +1,89 @@
-<properties 
-    pageTitle="Så här skapar du en webbapp med Redis Cache | Microsoft Azure" 
-    description="Lär dig hur du skapar en webbapp med Redis Cache" 
-    services="redis-cache" 
-    documentationCenter="" 
-    authors="steved0x" 
-    manager="douge" 
-    editor=""/>
+---
+title: Så här skapar du en webbapp med Redis Cache | Microsoft Docs
+description: Lär dig hur du skapar en webbapp med Redis Cache
+services: redis-cache
+documentationcenter: ''
+author: steved0x
+manager: douge
+editor: ''
 
-<tags 
-    ms.service="cache" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="cache-redis" 
-    ms.devlang="na" 
-    ms.topic="hero-article" 
-    ms.date="10/11/2016" 
-    ms.author="sdanie"/>
+ms.service: cache
+ms.workload: tbd
+ms.tgt_pltfrm: cache-redis
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 10/11/2016
+ms.author: sdanie
 
-
+---
 # Så här skapar du en webbapp med Redis Cache
-
-> [AZURE.SELECTOR]
-- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-- [ASP.NET](cache-web-app-howto.md)
-- [Node.js](cache-nodejs-get-started.md)
-- [Java](cache-java-get-started.md)
-- [Python](cache-python-get-started.md)
+> [!div class="op_single_selector"]
+> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+> * [ASP.NET](cache-web-app-howto.md)
+> * [Node.js](cache-nodejs-get-started.md)
+> * [Java](cache-java-get-started.md)
+> * [Python](cache-python-get-started.md)
+> 
+> 
 
 I den här självstudien får du veta hur du skapar och distribuerar en ASP.NET-webbapp till en webbapp i Azure Apptjänst med hjälp av Visual Studio 2015. Exempelprogrammet som visar en lista med teamstatistik från en databas och olika sätt att använda Azure Redis Cache för att lagra och hämta data från cacheminnet. När du slutför självstudien har du en webbapp som läser och skriver till en databas, samt som är optimerad med Azure Redis Cache och värdbaserad i Azure.
 
 Du får lära dig:
 
--   Hur du skapar en webbapp med ASP.NET MVC 5 i Visual Studio.
--   Hur du kommer åt data från en databas med Entity Framework.
--   Hur du förbättrar dataflödet och minskar databasbelastningen genom att lagra och hämta data med Azure Redis Cache.
--   Hur du använder en Redis-sorterad uppsättning till att hämta de översta 5 teamen.
--   Så här etablerar du Azure-resurserna för programmet med en Resource Manager-mall.
--   Hur du publicerar programmet till Azure med Visual Studio.
+* Hur du skapar en webbapp med ASP.NET MVC 5 i Visual Studio.
+* Hur du kommer åt data från en databas med Entity Framework.
+* Hur du förbättrar dataflödet och minskar databasbelastningen genom att lagra och hämta data med Azure Redis Cache.
+* Hur du använder en Redis-sorterad uppsättning till att hämta de översta 5 teamen.
+* Så här etablerar du Azure-resurserna för programmet med en Resource Manager-mall.
+* Hur du publicerar programmet till Azure med Visual Studio.
 
 ## Förutsättningar
-
 För att kunna slutföra den här självstudien behöver du följande.
 
--   [Azure-konto](#azure-account)
--   [Visual Studio 2015 med Azure SDK för .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
+* [Azure-konto](#azure-account)
+* [Visual Studio 2015 med Azure SDK för .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
 
 ### Azure-konto
-
 Du behöver ett Azure-konto för att kunna slutföra den här självstudien. Du kan:
 
 * [Öppna ett Azure-konto gratis](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Du får kredit som kan användas för att prova Azure-tjänster som normalt sett inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner.
 * [Aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Din MSDN-prenumeration ger dig krediter varje månad som kan användas för Azure-betaltjänster.
 
 ### Visual Studio 2015 med Azure SDK för .NET
-
 Självstudien gäller för Visual Studio 2015 med [Azure SDK för .NET](../dotnet-sdk.md) 2.8.2 eller senare. [Ladda ned den senaste Azure-SDK:n för Visual Studio 2015 här](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio installeras automatiskt med SDK:n om du inte redan har det.
 
 Om du har Visual Studio 2013 kan du [ladda ned den senaste Azure-SDK:n för Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Vissa av skärmarna kan se annorlunda ut än i självstudien.
 
->[AZURE.NOTE] Beroende på hur många av SDK-beroendena du redan har på datorn kan det ta lång tid att installera SDK, från några minuter till drygt en halvtimme.
+> [!NOTE]
+> Beroende på hur många av SDK-beroendena du redan har på datorn kan det ta lång tid att installera SDK, från några minuter till drygt en halvtimme.
+> 
+> 
 
 ## Skapa Visual Studio-projektet
-
 1. Öppna Visual Studio och klicka på **Arkiv**, **Nytt**, **Projekt**.
-
 2. Expandera noden **Visual C#** i listan **Mallar**, välj **Moln** och klicka på **ASP.NET-webbapp**. Kontrollera att **.NET Framework 4.5.2** har valts.  Skriv **ContosoTeamStats** i textrutan **Namn** och klicka på **OK**.
- 
+   
     ![Skapa projekt][cache-create-project]
-
 3. Välj **MVC** som projekttyp. Avmarkera kryssrutan **Värd i molnet**. Du kommer att [etablera Azure-resurserna](#provision-the-azure-resources) och [publicera programmet till Azure](#publish-the-application-to-azure) i efterföljande steg i självstudien. Ett exempel på att etablera en Apptjänst-webbapp från Visual Studio genom att låta **Värd i molnet** vara markerad finns i [Kom igång med webbappar i Azure Apptjänst med ASP.NET och Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
-
+   
     ![Välj projektmall][cache-select-template]
-
 4. Klicka på **OK** för att skapa projektet.
 
 ## Skapa MVC-appen i ASP.NET
-
 I det här avsnittet av självstudierna ska du skapa det grundläggande program som läser och visar teamstatistik från en databas.
 
--   [Lägg till modellen](#add-the-model)
--   [Lägg till kontrollanten](#add-the-controller)
--   [Konfigurera vyerna](#configure-the-views)
+* [Lägg till modellen](#add-the-model)
+* [Lägg till kontrollanten](#add-the-controller)
+* [Konfigurera vyerna](#configure-the-views)
 
 ### Lägg till modellen
-
 1. Högerklicka på **Modeller** i **Solution Explorer** och välj **Lägg till**, **Klass**. 
-
+   
     ![Lägg till modell][cache-model-add-class]
-
 2. Ange `Team` som klassnamn och klicka på **Lägg till**.
-
+   
     ![Lägg till modellklass][cache-model-add-class-dialog]
-
 3. Ersätt `using`-satserna överst i `Team.cs`-filen med följande using-satser.
-
 
         using System;
         using System.Collections.Generic;
@@ -100,8 +91,7 @@ I det här avsnittet av självstudierna ska du skapa det grundläggande program 
         using System.Data.Entity.SqlServer;
 
 
-4. Ersätt definitionen av `Team`-klassen med följande kodfragment som innehåller en uppdaterad `Team`-klassdefinition samt vissa andra Entity Framework-hjälpklasser. Mer information om den första kodmetoden för Entity Framework som används i den här självstudien finns i [Kod först till en ny databas](https://msdn.microsoft.com/data/jj193542).
-
+1. Ersätt definitionen av `Team`-klassen med följande kodfragment som innehåller en uppdaterad `Team`-klassdefinition samt vissa andra Entity Framework-hjälpklasser. Mer information om den första kodmetoden för Entity Framework som används i den här självstudien finns i [Kod först till en ny databas](https://msdn.microsoft.com/data/jj193542).
 
         public class Team
         {
@@ -110,12 +100,12 @@ I det här avsnittet av självstudierna ska du skapa det grundläggande program 
             public int Wins { get; set; }
             public int Losses { get; set; }
             public int Ties { get; set; }
-        
+
             static public void PlayGames(IEnumerable<Team> teams)
             {
                 // Simple random generation of statistics.
                 Random r = new Random();
-        
+
                 foreach (var t in teams)
                 {
                     t.Wins = r.Next(33);
@@ -124,17 +114,17 @@ I det här avsnittet av självstudierna ska du skapa det grundläggande program 
                 }
             }
         }
-        
+
         public class TeamContext : DbContext
         {
             public TeamContext()
                 : base("TeamContext")
             {
             }
-        
+
             public DbSet<Team> Teams { get; set; }
         }
-        
+
         public class TeamInitializer : CreateDatabaseIfNotExists<TeamContext>
         {
             protected override void Seed(TeamContext context)
@@ -154,14 +144,14 @@ I det här avsnittet av självstudierna ska du skapa det grundläggande program 
                     new Team{Name="Graphic Design Institute"},
                     new Team{Name="Nod Publishers"}
                 };
-        
+
                 Team.PlayGames(teams);
-        
+
                 teams.ForEach(t => context.Teams.Add(t));
                 context.SaveChanges();
             }
         }
-        
+
         public class TeamConfiguration : DbConfiguration
         {
             public TeamConfiguration()
@@ -171,14 +161,12 @@ I det här avsnittet av självstudierna ska du skapa det grundläggande program 
         }
 
 
-2. Gå till **Solution Explorer** och dubbelklicka på **web.config** för att öppna det.
-
+1. Gå till **Solution Explorer** och dubbelklicka på **web.config** för att öppna det.
+   
     ![Web.config][cache-web-config]
-
-3.  Lägg till följande anslutningssträng till `connectionStrings`-avsnittet. Namnet på anslutningssträngen måste matcha namnet på klassen för Entity Framework-databasens kontext som är `TeamContext`.
-
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
-
+2. Lägg till följande anslutningssträng till `connectionStrings`-avsnittet. Namnet på anslutningssträngen måste matcha namnet på klassen för Entity Framework-databasens kontext som är `TeamContext`.
+   
+       <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
 
     När du lagt till detta ska `connectionStrings`-avsnittet se ut som i följande exempel.
 
@@ -190,43 +178,34 @@ I det här avsnittet av självstudierna ska du skapa det grundläggande program 
         </connectionStrings>
 
 ### Lägg till kontrollanten
-
 1. Tryck på **F6** för att skapa projektet. 
 2. I **Solution Explorer** högerklickar du på mappen **Kontrollanter**. Klicka sedan på **Lägg till** och på **Kontrollant**.
-
+   
     ![Lägga till en kontrollant][cache-add-controller]
-
 3. Välj **MVC 5-kontrollant med vyer, med hjälp av Entity Framework** och klicka på **Lägg till**. Om du får ett fel när du klickar på **Lägg till**, kontrollerar du att du har skapat projektet först.
-
+   
     ![Lägga till en kontrollantklass][cache-add-controller-class]
-
-5. Välj **Team (ContosoTeamStats.Models)** från listrutan **Modellklass**. Välj **TeamContext (ContosoTeamStats.Models)** från listrutan **Datakontextklass**. Skriv `TeamsController` i textrutan **Kontrollant** (om den inte automatiskt har fyllts i). Klicka på **Lägg till** för att skapa kontrollantklassen och lägga till standardvyerna.
-
+4. Välj **Team (ContosoTeamStats.Models)** från listrutan **Modellklass**. Välj **TeamContext (ContosoTeamStats.Models)** från listrutan **Datakontextklass**. Skriv `TeamsController` i textrutan **Kontrollant** (om den inte automatiskt har fyllts i). Klicka på **Lägg till** för att skapa kontrollantklassen och lägga till standardvyerna.
+   
     ![Konfigurera kontrollanten][cache-configure-controller]
-
-4. I **Solution Explorer** expanderar du **Global.asax** och dubbelklickar på **Global.asax.cs** för att öppna den.
-
+5. I **Solution Explorer** expanderar du **Global.asax** och dubbelklickar på **Global.asax.cs** för att öppna den.
+   
     ![Global.asax.cs][cache-global-asax]
-
-5. Lägg till följande två using-satser längst upp i filen under de andra using-satserna.
-
+6. Lägg till följande två using-satser längst upp i filen under de andra using-satserna.
 
         using System.Data.Entity;
         using ContosoTeamStats.Models;
 
 
-6. Lägg till följande kodrad i slutet av `Application_Start`-metoden.
-
+1. Lägg till följande kodrad i slutet av `Application_Start`-metoden.
 
         Database.SetInitializer<TeamContext>(new TeamInitializer());
 
 
-7. I **Solution Explorer** expanderar du `App_Start` och dubbelklickar på `RouteConfig.cs`.
-
+1. I **Solution Explorer** expanderar du `App_Start` och dubbelklickar på `RouteConfig.cs`.
+   
     ![RouteConfig.cs][cache-RouteConfig-cs]
-
-8. Ersätt `controller = "Home"` i följande kod i `RegisterRoutes`-metoden med `controller = "Teams"` som visas i följande exempel.
-
+2. Ersätt `controller = "Home"` i följande kod i `RegisterRoutes`-metoden med `controller = "Teams"` som visas i följande exempel.
 
         routes.MapRoute(
             name: "Default",
@@ -236,67 +215,57 @@ I det här avsnittet av självstudierna ska du skapa det grundläggande program 
 
 
 ### Konfigurera vyerna
-
 1. I **Solution Explorer** expanderar du mappen **Vyer** och sedan mappen **Delad**. Dubbelklicka på **_Layout.cshtml**. 
-
+   
     ![_Layout.cshtml][cache-layout-cshtml]
-
 2. Ändra innehållet i `title`-elementet och ersätt `My ASP.NET Application` med `Contoso Team Stats` som visas i följande exempel.
-
 
         <title>@ViewBag.Title - Contoso Team Stats</title>
 
 
-3. I avsnittet `body` uppdaterar du den första `Html.ActionLink`-satsen samt ersätter `Application name` med `Contoso Team Stats` och `Home` med `Teams`.
-    -   Innan: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
-    -   Efter: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
-
-    ![Kodändringar][cache-layout-cshtml-code]
-
-4. Tryck på **Ctrl+F5** för att skapa och köra programmet. Den här versionen av programmet läser resultaten direkt från databasen. Observera att åtgärderna **Skapa nytt**, **Redigera**, **Information** och **Ta bort** har lagts till automatiskt till programmet av **MVC 5-kontrollanten med vyer, med hjälp av Entity Framework**-autogenerering. I nästa avsnitt i självstudien lägger du till Redis Cache för att optimera dataåtkomst och ange ytterligare funktioner i programmet.
+1. I avsnittet `body` uppdaterar du den första `Html.ActionLink`-satsen samt ersätter `Application name` med `Contoso Team Stats` och `Home` med `Teams`.
+   
+   * Innan: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
+   * Efter: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
+     
+     ![Kodändringar][cache-layout-cshtml-code]
+2. Tryck på **Ctrl+F5** för att skapa och köra programmet. Den här versionen av programmet läser resultaten direkt från databasen. Observera att åtgärderna **Skapa nytt**, **Redigera**, **Information** och **Ta bort** har lagts till automatiskt till programmet av **MVC 5-kontrollanten med vyer, med hjälp av Entity Framework**-autogenerering. I nästa avsnitt i självstudien lägger du till Redis Cache för att optimera dataåtkomst och ange ytterligare funktioner i programmet.
 
 ![Startprogram][cache-starter-application]
 
 ## Konfigurera programmet till att använda Redis Cache
-
 I det här avsnittet av självstudierna konfigurerar du exempelprogrammet till att lagra och hämta Contoso-teamets statistik från en Azure Redis Cache-instans med hjälp av [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)-cacheklienten.
 
--   [Konfigurera programmet till att använda StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
--   [Uppdatera TeamsController-klassen till att returnera resultat från cachen eller databasen](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
--   [Uppdatera metoderna Skapa, Redigera och Ta bort till att arbeta med cacheminnet](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
--   [Uppdatera vyn Teamindex till att arbeta med cacheminnet](#update-the-teams-index-view-to-work-with-the-cache)
-
+* [Konfigurera programmet till att använda StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
+* [Uppdatera TeamsController-klassen till att returnera resultat från cachen eller databasen](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
+* [Uppdatera metoderna Skapa, Redigera och Ta bort till att arbeta med cacheminnet](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
+* [Uppdatera vyn Teamindex till att arbeta med cacheminnet](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### Konfigurera programmet till att använda StackExchange.Redis
-
 1. Om du vill konfigurera ett klientprogram i Visual Studio med hjälp av NuGet-paketet för StackExchange.Redis, högerklickar du på projektet i **Solution Explorer** och väljer **Hantera NuGet-paket**. 
-
+   
     ![Hantera NuGet-paket][redis-cache-manage-nuget-menu]
-
 2. Skriv **StackExchange.Redis** i sökrutan, markera den önskade versionen i resultaten och klicka på **Installera**.
-
+   
     ![NuGet-paket för StackExchange.Redis][redis-cache-stack-exchange-nuget]
-
+   
     NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferenserna för klientprogrammet för att få åtkomst till Azure Redis Cache med cacheklienten StackExchange.Redis. Om du vill använda en starkt krypterad version av klientbiblioteket **StackExchange.Redis** väljer du **StackExchange.Redis.StrongName**, annars väljer du **StackExchange.Redis**.
-
 3. I **Solution Explorer** expanderar du mappen **Kontrollanter** och sedan dubbelklickar du på filen **TeamController.cs** för att öppna den.
-
+   
     ![Teamkontrollant][cache-teamscontroller]
-
 4. Lägg till följande två using-satser i **TeamsController.cs**.
-
+   
         using System.Configuration;
         using StackExchange.Redis;
-
 5. Lägg till följande två egenskaper i `TeamsController`-klassen.
-
+   
         // Redis Connection string info
         private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
         {
             string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
             return ConnectionMultiplexer.Connect(cacheConnection);
         });
-    
+   
         public static ConnectionMultiplexer Connection
         {
             get
@@ -304,101 +273,95 @@ I det här avsnittet av självstudierna konfigurerar du exempelprogrammet till a
                 return lazyConnection.Value;
             }
         }
-  
-1. Skapa en fil på datorn med namnet `WebAppPlusCacheAppSecrets.config` och placera den på en plats som inte checkas in med källkoden för exempelprogrammet, om du väljer att checka in den någon annanstans. I det här exemplet finns `AppSettingsSecrets.config`-filen i `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
-
+6. Skapa en fil på datorn med namnet `WebAppPlusCacheAppSecrets.config` och placera den på en plats som inte checkas in med källkoden för exempelprogrammet, om du väljer att checka in den någon annanstans. I det här exemplet finns `AppSettingsSecrets.config`-filen i `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
+   
     Redigera `WebAppPlusCacheAppSecrets.config`-filen och lägg till följande innehåll. Om du kör programmet lokalt används den här informationen till att ansluta till din Azure Redis Cache-instans. Senare i självstudien etablerar du en Azure Redis Cache-instans och uppdaterar cachens namn och lösenord. Om du inte tänker köra exempelprogrammet lokalt kan du hoppa över skapandet av den här filen och efterföljande steg som refererar till filen, eftersom när du distribuerar till Azure hämtar programmet cacheanslutningsinformation från appinställningen för webbappen och inte från den här filen. Eftersom `WebAppPlusCacheAppSecrets.config` inte har distribuerats till Azure med ditt program, behöver du inte det, såvida du inte tänker köra programmet lokalt.
-
 
         <appSettings>
           <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
         </appSettings>
 
 
-2. Gå till **Solution Explorer** och dubbelklicka på **web.config** för att öppna det.
-
+1. Gå till **Solution Explorer** och dubbelklicka på **web.config** för att öppna det.
+   
     ![Web.config][cache-web-config]
-
-3. Lägg till följande `file`-attribut i `appSettings`-elementet. Om du använder ett annat namn eller en annan plats, byter du ut dessa värden mot de som visas i exemplet.
-    -   Innan: `<appSettings>`
-    -   Efter: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
-
-    ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeringen i `<appSettings>`-elementet. Körningen ignorerar filattributet om det inte går att hitta den angivna filen. Din hemliga information (anslutningssträngen till cachen) ingår inte i källkoden för programmet. När du distribuerar din webbapp till Azure kommer `WebAppPlusCacheAppSecrests.config`-filen inte att distribueras (om det är det du vill). Det finns flera sätt att ange dessa hemligheter i Azure, och i den här självstudien konfigureras de automatiskt åt dig när du [etablerar Azure-resurserna](#provision-the-azure-resources) i ett senare skede av självstudierna. Mer information om hur du arbetar med hemligheter i Azure finns i [Metodtips för att distribuera lösenord och andra känsliga data till ASP.NET och Azure Apptjänst](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
-
+2. Lägg till följande `file`-attribut i `appSettings`-elementet. Om du använder ett annat namn eller en annan plats, byter du ut dessa värden mot de som visas i exemplet.
+   
+   * Innan: `<appSettings>`
+   * Efter: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
+     
+     ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeringen i `<appSettings>`-elementet. Körningen ignorerar filattributet om det inte går att hitta den angivna filen. Din hemliga information (anslutningssträngen till cachen) ingår inte i källkoden för programmet. När du distribuerar din webbapp till Azure kommer `WebAppPlusCacheAppSecrests.config`-filen inte att distribueras (om det är det du vill). Det finns flera sätt att ange dessa hemligheter i Azure, och i den här självstudien konfigureras de automatiskt åt dig när du [etablerar Azure-resurserna](#provision-the-azure-resources) i ett senare skede av självstudierna. Mer information om hur du arbetar med hemligheter i Azure finns i [Metodtips för att distribuera lösenord och andra känsliga data till ASP.NET och Azure Apptjänst](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 ### Uppdatera TeamsController-klassen till att returnera resultat från cachen eller databasen
-
 I det här exemplet kan teamstatistik hämtas från databasen eller från cachen. Teamstatistik lagras i cacheminnet som en serialiserad `List<Team>` och även som en sorterad uppsättning med Redis-datatyper. När du hämtar objekt från en sorterad uppsättning hämtar du vissa, alla eller frågar efter vissa objekt. I det här exemplet får du fråga i den sorterade uppsättningen efter de översta 5 team som rangordnas efter antalet WINS.
 
->[AZURE.NOTE] Du behöver inte spara teamstatistiken i olika format i cacheminnet för att kunna använda Azure Redis Cache. Den här självstudien använder flera olika format för att visa några av de olika sätt och olika datatyper som du kan använda för att cachelagra data.
-
-
+> [!NOTE]
+> Du behöver inte spara teamstatistiken i olika format i cacheminnet för att kunna använda Azure Redis Cache. Den här självstudien använder flera olika format för att visa några av de olika sätt och olika datatyper som du kan använda för att cachelagra data.
+> 
+> 
 
 1. Lägg till följande två using-satser längst upp i `TeamsController.cs`-filen tillsammans med de andra using-satserna.
-
+   
         using System.Diagnostics;
         using Newtonsoft.Json;
-
 2. Ersätt aktuell `public ActionResult Index()`-metod med följande implementering.
-
 
         // GET: Teams
         public ActionResult Index(string actionType, string resultType)
         {
             List<Team> teams = null;
-        
+
             switch(actionType)
             {
                 case "playGames": // Play a new season of games.
                     PlayGames();
                     break;
-        
+
                 case "clearCache": // Clear the results from the cache.
                     ClearCachedTeams();
                     break;
-        
+
                 case "rebuildDB": // Rebuild the database with sample data.
                     RebuildDB();
                     break;
             }
-        
+
             // Measure the time it takes to retrieve the results.
             Stopwatch sw = Stopwatch.StartNew();
-        
+
             switch(resultType)
             {
                 case "teamsSortedSet": // Retrieve teams from sorted set.
                     teams = GetFromSortedSet();
                     break;
-        
+
                 case "teamsSortedSetTop5": // Retrieve the top 5 teams from the sorted set.
                     teams = GetFromSortedSetTop5();
                     break;
-        
+
                 case "teamsList": // Retrieve teams from the cached List<Team>.
                     teams = GetFromList();
                     break;
-        
+
                 case "fromDB": // Retrieve results from the database.
                 default:
                     teams = GetFromDB();
                     break;
             }
-        
+
             sw.Stop();
             double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
 
             // Add the elapsed time of the operation to the ViewBag.msg.
             ViewBag.msg += " MS: " + ms.ToString();
-        
+
             return View(teams);
         }
 
 
-3. Lägg till följande tre metoder till `TeamsController`-klassen för att implementera åtgärdstyperna `playGames`, `clearCache` och `rebuildDB` från switch-satsen som lades till i föregående kodfragment.
-
+1. Lägg till följande tre metoder till `TeamsController`-klassen för att implementera åtgärdstyperna `playGames`, `clearCache` och `rebuildDB` från switch-satsen som lades till i föregående kodfragment.
+   
     `PlayGames`-metoden uppdaterar teamstatistiken genom att simulera en spelsäsong, spara resultaten i databasen och rensa inaktuella data från cachen.
-
 
         void PlayGames()
         {
@@ -406,18 +369,18 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
             // Play a "season" of games.
             var teams = from t in db.Teams
                         select t;
-    
+
             Team.PlayGames(teams);
-    
+
             db.SaveChanges();
-    
+
             // Clear any cached results
             ClearCachedTeams();
         }
 
 
     `RebuildDB`-metoden återinitierar databasen med en standarduppsättning av team, genererar statistik för dem och rensar inaktuella data från cachen.
-    
+
         void RebuildDB()
         {
             ViewBag.msg += "Rebuilding DB. ";
@@ -432,7 +395,7 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
 
     `ClearCachedTeams`-metoden tar bort cachelagrad teamstatistik från cachen.
 
-    
+
         void ClearCachedTeams()
         {
             IDatabase cache = Connection.GetDatabase();
@@ -442,20 +405,19 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
         } 
 
 
-4. Lägg till följande fyra metoder till `TeamsController`-klassen för att implementera olika sätt att hämta teamstatistik från cacheminnet och databasen. Var och en av dessa metoder returnerar en `List<Team>` som visas i vyn.
-
+1. Lägg till följande fyra metoder till `TeamsController`-klassen för att implementera olika sätt att hämta teamstatistik från cacheminnet och databasen. Var och en av dessa metoder returnerar en `List<Team>` som visas i vyn.
+   
     `GetFromDB`-metoden läser teamstatistiken från databasen.
-
+   
         List<Team> GetFromDB()
         {
             ViewBag.msg += "Results read from DB. ";
             var results = from t in db.Teams
                 orderby t.Wins descending
                 select t; 
-    
+   
             return results.ToList<Team>();
         }
-
 
     `GetFromList`-metoden läser teamstatistiken från cachen som en serialiserad `List<Team>`. Om det finns en cachemiss, läses teamstatistiken från databasen och lagras sedan i cacheminnet till nästa gång. I det här exemplet använder vi JSON.NET-serialisering för att serialisera .NET-objekt till och från cacheminnet. Mer information finns i [Så här arbetar du med .NET-objekt i Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
@@ -506,10 +468,10 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
             else
             {
                 ViewBag.msg += "Teams sorted set cache miss. ";
-    
+
                 // Read from DB
                 teams = GetFromDB();
-    
+
                 ViewBag.msg += "Storing results to cache. ";
                 foreach (var t in teams)
                 {
@@ -552,11 +514,9 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
 
 
 ### Uppdatera metoderna Skapa, Redigera och Ta bort till att arbeta med cacheminnet
-
 Den autogenererade kod som skapats som en del av det här exemplet innehåller metoder för att lägga till, redigera och ta bort team. Varje gång ett team läggs till, redigeras eller tas bort, blir data i cacheminnet inaktuell. I det här avsnittet ska du ändra dessa tre metoder för att rensa cachelagrade team så att cachen inte är synkroniserad med databasen.
 
 1. Bläddra till `Create(Team team)`-metoden i `TeamsController`-klassen. Lägg till ett anrop till `ClearCachedTeams`-metoden enligt följande exempel.
-
 
         // POST: Teams/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -574,13 +534,12 @@ Den autogenererade kod som skapats som en del av det här exemplet innehåller m
                 ClearCachedTeams();
                 return RedirectToAction("Index");
             }
-    
+
             return View(team);
         }
 
 
-2. Bläddra till `Edit(Team team)`-metoden i `TeamsController`-klassen. Lägg till ett anrop till `ClearCachedTeams`-metoden enligt följande exempel.
-
+1. Bläddra till `Edit(Team team)`-metoden i `TeamsController`-klassen. Lägg till ett anrop till `ClearCachedTeams`-metoden enligt följande exempel.
 
         // POST: Teams/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -602,8 +561,7 @@ Den autogenererade kod som skapats som en del av det här exemplet innehåller m
         }
 
 
-3. Bläddra till `DeleteConfirmed(int id)`-metoden i `TeamsController`-klassen. Lägg till ett anrop till `ClearCachedTeams`-metoden enligt följande exempel.
-
+1. Bläddra till `DeleteConfirmed(int id)`-metoden i `TeamsController`-klassen. Lägg till ett anrop till `ClearCachedTeams`-metoden enligt följande exempel.
 
         // POST: Teams/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -621,17 +579,14 @@ Den autogenererade kod som skapats som en del av det här exemplet innehåller m
 
 
 ### Uppdatera vyn Teamindex till att arbeta med cacheminnet
-
 1. I **Solution Explorer** expanderar du mappen **Vyer** och sedan mappen **Team**. Dubbelklicka på **Index.cshtml**.
-
+   
     ![Index.cshtml][cache-views-teams-index-cshtml]
-
 2. Leta efter följande paragrafelement i den övre delen av filen.
-
+   
     ![Åtgärdstabell][cache-teams-index-table]
-
+   
     Detta är länken för att skapa ett nytt team. Ersätt paragrafelementet med följande tabell. Den här tabellen innehåller åtgärdslänkar för att skapa ett nytt team, spela en ny spelsäsong, rensa cacheminnet, hämta teamen från cachen i olika format, hämta teamen från databasen och återskapa databasen med ny exempeldata.
-
 
         <table class="table">
             <tr>
@@ -663,23 +618,21 @@ Den autogenererade kod som skapats som en del av det här exemplet innehåller m
         </table>
 
 
-3. Bläddra till slutet av filen **Index.cshtml** och lägg till följande `tr`-element så att det blir den sista raden i den sista tabellen i filen.
-
+1. Bläddra till slutet av filen **Index.cshtml** och lägg till följande `tr`-element så att det blir den sista raden i den sista tabellen i filen.
+   
         <tr><td colspan="5">@ViewBag.Msg</td></tr>
-
+   
     Den här raden visar värdet för `ViewBag.Msg` som innehåller en statusrapport om den aktuella åtgärd som anges när du klickar på någon av åtgärdslänkarna i föregående steg.   
-
+   
     ![Statusmeddelande][cache-status-message]
-
-4. Tryck på **F6** för att skapa projektet.
+2. Tryck på **F6** för att skapa projektet.
 
 ## Etablera Azure-resurserna
-
 För att vara värd för programmet i Azure, måste du först etablera Azure-tjänster som programmet behöver. Exempelprogrammet i den här självstudien använder följande Azure-tjänster.
 
--   Azure Redis Cache
--   App Service-webbapp
--   SQL Database
+* Azure Redis Cache
+* App Service-webbapp
+* SQL Database
 
 Om du vill distribuera dessa tjänster till en ny eller befintlig resursgrupp klickar du på knappen **Distribuera till Azure**.
 
@@ -687,7 +640,10 @@ Om du vill distribuera dessa tjänster till en ny eller befintlig resursgrupp kl
 
 Knappen **Distribuera till Azure** använder mallen [Skapa en webbapp plus Redis Cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) [Azure Quickstart](https://github.com/Azure/azure-quickstart-templates) för att etablera dessa tjänster samt ange anslutningssträngen för SQL Database och programinställningen för anslutningssträngen i Azure Redis Cache.
 
->[AZURE.NOTE] Om du inte har något Azure-konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) på bara några minuter.
+> [!NOTE]
+> Om du inte har något Azure-konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) på bara några minuter.
+> 
+> 
 
 När du klickar på knappen **Distribuera till Azure** går du till Azure-portalen och initierar processen att skapa de resurser som beskrivs i mallen.
 
@@ -696,7 +652,6 @@ När du klickar på knappen **Distribuera till Azure** går du till Azure-portal
 1. På bladet **Anpassad distribution** väljer du vilken Azure-prenumerationen som ska användas. Välj också en befintlig resursgrupp eller skapa en ny och ange plats för resursgruppen.
 2. På bladet **Parametrar** anger du ett administratörkontonamn (**ADMINISTRATORLOGIN** - använd inte **admin**), ett administratörslösenord för inloggning (**ADMINISTRATORLOGINPASSWORD**) och databasnamnet (**DATABASENAME**). Andra parametrar har konfigurerats för en kostnadsfri apptjänst som är värd för planen och lägre kostnadsalternativ för SQL Database och Azure Redis Cache, vilka saknar en kostnadsfri nivå.
 3. Ändra andra inställningar om du vill, eller behåll standardinställningarna och klicka på **OK**.
-
 
 ![Distribuera till Azure][cache-deploy-to-azure-step-2]
 
@@ -714,108 +669,104 @@ Du kan visa statusen för din distribution på bladet **Microsoft.Template**.
 
 När etableringen har slutförts kan du publicera programmet till Azure från Visual Studio.
 
->[AZURE.NOTE] Eventuella fel som kan uppstå under etableringen visas på bladet **Microsoft.Template**. Vanliga fel är för många SQL-servrar eller för många värdplaner för den kostnadsfria apptjänsten per prenumeration. Lös eventuella fel och starta om processen genom att klicka på **Distribuera om** på bladet **Microsoft.Template** eller knappen **Distribuera till Azure** i den här självstudien.
+> [!NOTE]
+> Eventuella fel som kan uppstå under etableringen visas på bladet **Microsoft.Template**. Vanliga fel är för många SQL-servrar eller för många värdplaner för den kostnadsfria apptjänsten per prenumeration. Lös eventuella fel och starta om processen genom att klicka på **Distribuera om** på bladet **Microsoft.Template** eller knappen **Distribuera till Azure** i den här självstudien.
+> 
+> 
 
 ## Publicera programmet till Azure
-
 I det här steget i självstudien publicerar du programmet till Azure och kör det i molnet.
 
 1. Högerklicka på projektet **ContosoTeamStats** i Visual Studio och välj **Publicera**.
-
+   
     ![Publicera][cache-publish-app]
-
 2. Klicka på **Microsoft Azure Apptjänst**.
-
+   
     ![Publicera][cache-publish-to-app-service]
-
 3. Välj den prenumeration som användes när du skapade Azure-resurserna och expandera resursgruppen som innehåller resurserna. Välj önskad webbapp och klicka på **OK**. Om du använde knappen **Distribuera till Azure** börjar webbappnamnet med **webSite** följt av vissa ytterligare tecken.
-
+   
     ![Välj webbapp][cache-select-web-app]
-
 4. Klicka på **Validera anslutningen** för att kontrollera inställningarna och sedan på **Publicera**.
-
+   
     ![Publicera][cache-publish]
-
+   
     Efter en liten stund slutförs publiceringsprocessen och en webbläsare startas med det exempelprogram som körs. Om du får ett DNS-fel vid validering eller publicering och etableringen för Azure-resurser för programmet nyligen har slutförts, väntar du en stund och försöker igen.
-
+   
     ![Cachen har lagts till][cache-added-to-application]
 
 I följande tabell beskrivs varje åtgärdslänk från exempelprogrammet.
 
-| Åtgärd                  | Beskrivning                                                                                                                                                      |
-|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Skapa ny              | Skapa ett nytt team.                                                                                                                                               |
-| Spela säsong             | Spela en spelsäsong, uppdatera teamstatistiken och avmarkera inaktuell teamdata från cachen.                                                                          |
-| Rensa cacheminne             | Rensa teamstatistik från cachen.                                                                                                                             |
-| Lista från cache         | Hämta teamstatistik från cachen. Om det finns en cachemiss läser du in statistiken från databasen och sparar den till cachen till nästa gång.                                        |
-| Sorterad uppsättning från cachen   | Hämtar teamstatistiken från cachen med en sorterad uppsättning. Om det finns en cachemiss läser du in statistiken från databasen och sparar den till cachen med en sorterad uppsättning.  |
-| Översta 5 teamen från cachen  | Hämtar de översta fem teamen från cachen med en sorterad uppsättning. Om det finns en cachemiss läser du in statistiken från databasen och sparar den till cachen med en sorterad uppsättning. |
-| Läsa in från databas            | Hämtar teamstatistiken från databasen.                                                                                                                       |
-| Återskapa databas              | Återskapa databasen och öppna den igen med exempelteamdata.                                                                                                        |
-| Redigera/Information/Ta bort | Redigera ett team, visa information om ett team, ta bort ett team.                                                                                                             |
-
+| Åtgärd | Beskrivning |
+| --- | --- |
+| Skapa ny |Skapa ett nytt team. |
+| Spela säsong |Spela en spelsäsong, uppdatera teamstatistiken och avmarkera inaktuell teamdata från cachen. |
+| Rensa cacheminne |Rensa teamstatistik från cachen. |
+| Lista från cache |Hämta teamstatistik från cachen. Om det finns en cachemiss läser du in statistiken från databasen och sparar den till cachen till nästa gång. |
+| Sorterad uppsättning från cachen |Hämtar teamstatistiken från cachen med en sorterad uppsättning. Om det finns en cachemiss läser du in statistiken från databasen och sparar den till cachen med en sorterad uppsättning. |
+| Översta 5 teamen från cachen |Hämtar de översta fem teamen från cachen med en sorterad uppsättning. Om det finns en cachemiss läser du in statistiken från databasen och sparar den till cachen med en sorterad uppsättning. |
+| Läsa in från databas |Hämtar teamstatistiken från databasen. |
+| Återskapa databas |Återskapa databasen och öppna den igen med exempelteamdata. |
+| Redigera/Information/Ta bort |Redigera ett team, visa information om ett team, ta bort ett team. |
 
 Klicka på några åtgärder och experimentera med att hämta data från olika källor. Observera skillnaderna mellan den tid det tar för att slutföra de olika sätten att hämta data från databasen och cachen.
 
 ## Ta bort resurserna när du är klar med programmet
-
 När du är klar med självstudiens exempelprogram kan du ta bort Azure-resurserna som användes för att spara kostnad och resurser. Om du använde knappen **Distribuera till Azure** i avsnittet [Etablera Azure-resurserna](#provision-the-azure-resources) och alla resurser finns i samma resursgrupp, kan du ta bort dem tillsammans i en enda åtgärd genom att ta bort resursgruppen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) och klicka på **Resursgrupper**.
 2. Skriv namnet på din resursgrupp i textrutan **Filtrera objekt...**.
 3. Klicka på **...** till höger om din resursgrupp.
 4. Klicka på **Ta bort**.
-
+   
     ![Ta bort][cache-delete-resource-group]
-
 5. Skriv namnet på din resursgrupp och klicka på **Ta bort**.
-
+   
     ![Bekräfta borttagning][cache-delete-confirm]
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
->[AZURE.IMPORTANT] Observera att det inte går att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp kan du ta bort varje resurs separat från deras respektive blad.
+> [!IMPORTANT]
+> Observera att det inte går att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp kan du ta bort varje resurs separat från deras respektive blad.
+> 
+> 
 
 ## Kör exempelprogrammet på den lokala datorn
-
 För att kunna köra programmet lokalt på datorn måste du ha en Azure Redis Cache-instans där du kan cachelagra data. 
 
--   Om du har publicerat ditt program till Azure, enligt beskrivningen i föregående avsnitt, kan du använda Azure Redis Cache-instansen som etablerades under det steget.
--   Om du har en annan befintlig Azure Redis Cache-instans kan du använda den till att köra det här exemplet lokalt.
--   Om du behöver skapa en Azure Redis Cache-instans kan du följa stegen i [Skapa en cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+* Om du har publicerat ditt program till Azure, enligt beskrivningen i föregående avsnitt, kan du använda Azure Redis Cache-instansen som etablerades under det steget.
+* Om du har en annan befintlig Azure Redis Cache-instans kan du använda den till att köra det här exemplet lokalt.
+* Om du behöver skapa en Azure Redis Cache-instans kan du följa stegen i [Skapa en cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
 När du har valt eller skapat cacheminnet du ska använda, bläddrar du till cachen i Azure-portalen och hämtar [värdnamnet](cache-configure.md#properties) samt [åtkomstnycklar](cache-configure.md#access-keys) för cacheminnet. Instruktioner finns i [Konfigurera Redis-cacheinställningarna](cache-configure.md#configure-redis-cache-settings).
 
 1. Öppna den `WebAppPlusCacheAppSecrets.config`-fil som du skapade under steget [Konfigurera programmet till att använda Redis Cache](#configure-the-application-to-use-redis-cache) i den här självstudien med valfri redigerare.
-
 2. Redigera `value`-attributet och ersätt `MyCache.redis.cache.windows.net` med [värdnamnet](cache-configure.md#properties) för cachen. Ange antingen den [primära eller sekundära nyckeln](cache-configure.md#access-keys) i cacheminnet som lösenord.
-
 
         <appSettings>
           <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
         </appSettings>
 
 
-3. Tryck på **Ctrl+F5** för att köra programmet.
+1. Tryck på **Ctrl+F5** för att köra programmet.
 
->[AZURE.NOTE] Observera att eftersom programmet och databasen körs lokalt och Redis Cache finns i Azure, kan cacheminnet verka underprestera i databasen. För bästa prestanda bör klientprogrammet och Azure Redis Cache-instansen finnas på samma plats. 
+> [!NOTE]
+> Observera att eftersom programmet och databasen körs lokalt och Redis Cache finns i Azure, kan cacheminnet verka underprestera i databasen. För bästa prestanda bör klientprogrammet och Azure Redis Cache-instansen finnas på samma plats. 
+> 
+> 
 
 ## Nästa steg
-
--   Lär dig mer om [Komma igång med ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) på [ASP.NET](http://asp.net/)-webbplatsen.
--   Fler exempel på hur du skapar en ASP.NET-webbapp i App Service finns i [Skapa och distribuera en ASP.NET-webbapp i Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) i [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz), 2015 års [anslutningsdemo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
-    -   Fler snabbstartsguider från HealthClinic.biz-demonstrationen finns i [Snabbstartsguider för Azure Developer Tools](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
--   Läs mer om [Kod först till en ny databas](https://msdn.microsoft.com/data/jj193542) för Entity Framework som används i den här självstudien.
--   Läs mer om [webbappar i Azure Apptjänst](../app-service-web/app-service-web-overview.md).
--   Lär dig hur du [övervakar](cache-how-to-monitor.md) cacheminnet i Azure-portalen.
-
--   Utforska Azure Redis Caches premiumfunktioner
-    -   [Så här konfigurerar du persistence för Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
-    -   [Så här konfigurerar du klustring för Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
-    -   [Så här konfigurerar du Virtual Network-stöd för Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
-    -   Se [Vanliga frågor och svar om Azure Redis Cache](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) för mer information om storlek, dataflöde och bandbredd med premium-cacheminnen.
-
-
+* Lär dig mer om [Komma igång med ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) på [ASP.NET](http://asp.net/)-webbplatsen.
+* Fler exempel på hur du skapar en ASP.NET-webbapp i App Service finns i [Skapa och distribuera en ASP.NET-webbapp i Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) i [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz), 2015 års [anslutningsdemo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
+  * Fler snabbstartsguider från HealthClinic.biz-demonstrationen finns i [Snabbstartsguider för Azure Developer Tools](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+* Läs mer om [Kod först till en ny databas](https://msdn.microsoft.com/data/jj193542) för Entity Framework som används i den här självstudien.
+* Läs mer om [webbappar i Azure Apptjänst](../app-service-web/app-service-web-overview.md).
+* Lär dig hur du [övervakar](cache-how-to-monitor.md) cacheminnet i Azure-portalen.
+* Utforska Azure Redis Caches premiumfunktioner
+  
+  * [Så här konfigurerar du persistence för Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
+  * [Så här konfigurerar du klustring för Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
+  * [Så här konfigurerar du Virtual Network-stöd för Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
+  * Se [Vanliga frågor och svar om Azure Redis Cache](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) för mer information om storlek, dataflöde och bandbredd med premium-cacheminnen.
 
 <!-- IMAGES -->
 [cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png

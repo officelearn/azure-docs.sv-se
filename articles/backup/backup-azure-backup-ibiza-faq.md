@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Vanliga frågor och svar om Recovery Services-valv | Microsoft Azure"
-   description="Den här versionen av Vanliga frågor och svar gäller den offentliga förhandsversionen av tjänsten Azure Backup. Svar på vanliga frågor om säkerhetskopieringsagenten, säkerhetskopiering och kvarhållning, återställning, säkerhet och andra vanliga frågor om Azure Backup-lösningen."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="lösning för säkerhetskopiering; säkerhetskopieringstjänst"/>
+---
+title: Vanliga frågor och svar om Recovery Services-valv | Microsoft Docs
+description: Den här versionen av Vanliga frågor och svar gäller den offentliga förhandsversionen av tjänsten Azure Backup. Svar på vanliga frågor om säkerhetskopieringsagenten, säkerhetskopiering och kvarhållning, återställning, säkerhet och andra vanliga frågor om Azure Backup-lösningen.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: lösning för säkerhetskopiering; säkerhetskopieringstjänst
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="08/21/2016"
-     ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
-
+---
 # Recovery Services-valv – vanliga frågor och svar
-
-> [AZURE.SELECTOR]
-- [Vanliga frågor och svar om säkerhetskopiering i klassiskt läge](backup-azure-backup-faq.md)
-- [Vanliga frågor och svar om säkerhetskopiering i Resource Manager-läge](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Vanliga frågor och svar om säkerhetskopiering i klassiskt läge](backup-azure-backup-faq.md)
+> * [Vanliga frågor och svar om säkerhetskopiering i Resource Manager-läge](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Den här artikeln innehåller information om Recovery Services-valv och är ett komplement till [Vanliga frågor och svar om Azure Backup](backup-azure-backup-faq.md). Vanliga frågor och svar om Azure Backup är en fullständig uppsättning frågor och svar om Azure Backup-tjänsten.  
 
@@ -43,8 +43,6 @@ Säkerhetskopior av klassiska virtuella datorer i säkerhetskopieringsvalvet mig
 1. I säkerhetskopieringsvalvet går du till fliken **Skyddade objekt** och väljer den virtuella datorn. Klicka på [Stoppa skydd](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Lämna alternativet *Ta bort associerade säkerhetskopieringsdata* **avmarkerat**. 
 2. Migrera den virtuella datorn från klassiskt läge till Resource Manager-läge. Kontrollera att lagring och nätverk för virtuell dator också migreras till Resource Manager-läge. 
 3. Skapa ett Recovery Services-valv och konfigurera säkerhetskopiering på den migrerade virtuella datorn med åtgärden **Backup** på valvets instrumentpanel. Läs mer om hur du [aktiverar säkerhetskopiering i Recovery Services-valv](backup-azure-vms-first-look-arm.md).
-
-
 
 <!--HONumber=Sep16_HO5-->
 

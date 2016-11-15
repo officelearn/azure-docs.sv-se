@@ -1,25 +1,29 @@
 ---
 title: Skapa ett SQL Data Warehouse med TSQL | Microsoft Docs
-description: Lär dig hur du skapar ett Azure SQL Data Warehouse med TSQL
+description: "Lär dig hur du skapar ett Azure SQL Data Warehouse med TSQL"
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
+author: barbkess
+manager: jhubbard
+editor: 
 tags: azure-sql-data-warehouse
-
+ms.assetid: a4e2e68e-aa9c-4dd3-abb0-f7df997d237a
 ms.service: sql-data-warehouse
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/24/2016
-ms.author: lodipalm;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 443e74834a7181560e812ce31db460ef2c4ff911
+
 
 ---
-# Skapa en SQL Data Warehouse-databas med hjälp av Transact-SQL (TSQL)
+# <a name="create-a-sql-data-warehouse-database-by-using-transactsql-tsql"></a>Skapa en SQL Data Warehouse-databas med hjälp av Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
+> * [Azure-portalen](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 > 
@@ -27,27 +31,27 @@ ms.author: lodipalm;barbkess;sonyama
 
 I den här artikeln visas hur du skapar ett SQL Data Warehouse med T-SQL.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Du behöver följande för att komma igång: 
 
 * **Azure-konto**: Gå till [Kostnadsfri utvärderingsversion av Azure][Kostnadsfri utvärderingsversion av Azure] eller [MSDN Azure-krediter][MSDN Azure-krediter] för att skapa ett konto.
-* **Azure SQL Server**: Se [Skapa en logisk Azure SQL Database-server med Azure Portal][Skapa en logisk Azure SQL Database-server med Azure Portal] eller [Skapa en logisk Azure SQL Database-server med PowerShell][Skapa en logisk Azure SQL Database-server med PowerShell] för mer information.
+* **Azure SQL-server**: Du hittar mer information i [Skapa en logisk Azure SQL Database-server med Azure-portalen][Skapa en logisk Azure SQL Database-server med Azure-portalen] eller [Skapa en logisk Azure SQL Database-server med PowerShell][Skapa en logisk Azure SQL Database-server med PowerShell].
 * **Resursgrupp**: Använd antingen samma resursgrupp som din Azure SQL-server eller se [hur du kan skapa en resursgrupp][hur du kan skapa en resursgrupp].
-* **Miljö för att köra T-SQL**: Du kan använda [Visual Studio][Installera Visual Studio och SSDT], [sqlcmd][sqlcmd], eller [SSMS][SSMS] för att köra T-SQL.
+* **Miljö för att köra T-SQL**: Du kan använda [Visual Studio][Installera Visual Studio och SSDT], [sqlcmd][sqlcmd] eller [SSMS][SSMS] för att köra T-SQL.
 
 > [!NOTE]
 > Att skapa ett SQL Data Warehouse kan resultera i en ny fakturerbar tjänst.  Se [Priser för SQL Data Warehouse][Priser för SQL Data Warehouse] för mer information om priser.
 > 
 > 
 
-## Skapa en databas med Visual Studio
-Om du precis kommit igång med Visual Studio, kan du se artikeln [Fråga SQL Data Warehouse (Visual Studio)][Fråga SQL Data Warehouse (Visual Studio)].  För att starta, öppnar du SQL Server Object Explorer i Visual Studio och ansluter till servern där din SQL Data Warehouse-databas kommer ligga.  När du väl är ansluten, kan du skapa ett SQL Data Warehouse genom att köra följande SQL-kommando mot **huvud**-databasen.  Det här kommandot skapar databasen MySqlDwDb med tjänstmålet DW400 och låter databasen växa till en maximal storlek på 10 TB.
+## <a name="create-a-database-with-visual-studio"></a>Skapa en databas med Visual Studio
+Om du är nybörjare till Visual Studio finns i artikeln [Fråga Azure SQL Data Warehouse (Visual Studio)][Fråga Azure SQL Data Warehouse (Visual Studio)].  För att starta, öppnar du SQL Server Object Explorer i Visual Studio och ansluter till servern där din SQL Data Warehouse-databas kommer ligga.  När du väl är ansluten, kan du skapa ett SQL Data Warehouse genom att köra följande SQL-kommando mot **huvud**-databasen.  Det här kommandot skapar databasen MySqlDwDb med tjänstmålet DW400 och låter databasen växa till en maximal storlek på 10 TB.
 
 ```sql
 CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB);
 ```
 
-## Skapa en databas med sqlcmd
+## <a name="create-a-database-with-sqlcmd"></a>Skapa en databas med sqlcmd
 Alternativt kan du köra samma kommando med sqlcmd genom att köra följande i kommandotolken.
 
 ```sql
@@ -56,8 +60,8 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 
 Standardsortering om inte ANNAT anges är COLLATE SQL_Latin1_General_CP1_CI_AS.  `MAXSIZE` kan vara mellan 250 GB och 240 TB.  `SERVICE_OBJECTIVE` kan vara mellan DW100 och DW2000 [DWU][DWU].  En lista över alla giltiga värden finns i MSDN-dokumentationen för [SKAPA DATABAS][SKAPA DATABAS].  Både MAXSIZE och SERVICE_OBJECTIVE kan ändras med T-SQL-kommandot [ALTER DATABASE][ALTER DATABASE].  Sorteringen för en databas kan inte ändras efter skapandet.   Var försiktig när du ändrar SERVICE_OBJECTIVE eftersom det orsakar en omstart av tjänster som avbryter alla pågående frågor.  En ändring av MAXSIZE startar inte om tjänsterna eftersom det bara är en enkel metadata-åtgärd.
 
-## Nästa steg
-När ditt SQL Data Warehouse är färdigetablerat, kan du [läsa in exempeldata][läsa in exempeldata] eller kolla hur man [utvecklar][utvecklar], [läser in][läser in], eller [migrerar][migrerar].
+## <a name="next-steps"></a>Nästa steg
+När ditt SQL Data Warehouse är färdigetablerat, kan du [läsa in exempeldata][läsa in exempeldata] eller kolla hur man [utvecklar][utvecklar], [läser in][läser in] eller [migrerar][migrerar].
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
@@ -85,6 +89,6 @@ När ditt SQL Data Warehouse är färdigetablerat, kan du [läsa in exempeldata]
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,12 @@
 1. Logga in på [Azure-portalen][Azure-portalen].
-2. I det vänstra navigationsfältet i portalen klickar du på **Nytt**, på **Enterprise Integration** och sedan på **Service Bus**.
+2. I det vänstra navigationsfältet i portalen klickar du på **Nytt**, på **Enterprise Integration** och sedan på **Relay**.
 3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic, Standard eller Premium).
-5. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
-6. I fältet **Resursgrupp** väljer du en befintlig resursgrupp där namnområdet ska finnas eller skapar en ny.      
-7. I **Plats** väljer du land eller region där namnområdet ska finnas.
+4. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
+5. I fältet **[Resursgrupp](../articles/azure-portal/resource-group-portal.md)** väljer du en befintlig resursgrupp där namnområdet ska finnas eller skapar en ny.      
+6. I **Plats** väljer du land eller region där namnområdet ska finnas.
    
     ![Skapa namnområde][create-namespace]
-8. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
+7. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
 
 ### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
 1. I listan över namnområden, klickar du på det nyligen skapade namnområdet.
@@ -21,12 +20,13 @@
 
 <!--Image references-->
 
-[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
-[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
-[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
+[create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/relay-create-namespace-portal/connection-info.png
+[connection-string]: ./media/relay-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure Portal]: https://portal.azure.com
+
 
 <!--HONumber=Nov16_HO2-->
 

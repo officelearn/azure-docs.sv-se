@@ -1,22 +1,26 @@
 ---
-title: Hantera ditt första API i Azure API Management | Microsoft Docs
-description: Lär dig hur du skapar API:er, lägger till åtgärder och kommer igång med API Management.
+title: "Hantera ditt första API i Azure API Management | Microsoft Docs"
+description: "Lär dig hur du skapar API:er, lägger till åtgärder och kommer igång med API Management."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 51b7df8b-1c43-43c6-90c9-0aa24f48206b
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+
 
 ---
-# Hantera ditt första API i Azure API Management
+# <a name="manage-your-first-api-in-azure-api-management"></a>Hantera ditt första API i Azure API Management
 ## <a name="overview"> </a>Översikt
 Den här guiden hjälper dig att snabbt komma igång med Azure API Management och att göra ditt första API-anrop.
 
@@ -46,7 +50,7 @@ Systemet består av följande komponenter:
   * Konfigurera principer som kvoter eller transformationer i API:erna.
   * Få insikter från analyser.
   * Hantera användare.
-* **Utvecklarportalen** är en fundamental webbportal för utvecklare, där de kan:
+* **utvecklarportalen** är en fundamental webbportal för utvecklare, där de kan:
   
   * Få tillgång till API-dokumentation.
   * Testa ett API via den interaktiva konsolen.
@@ -59,33 +63,31 @@ Systemet består av följande komponenter:
 > 
 > 
 
-Det första steget när du arbetar med API Management är att skapa en tjänstinstans. Logga in på [Klassisk Azure-portal][Klassisk Azure-portal] och klicka på **Nytt**, **Apptjänster**, **API Management**, **Skapa**.
+Det första steget när du arbetar med API Management är att skapa en tjänstinstans. Logga in på [Azure-portalen][Azure-portalen] och klicka på **nytt**, **Web + Mobile**, **API Management**.
 
 ![Ny API Management-instans][api-management-create-instance-menu]
 
-För **URL** anger du ett unikt underdomännamn som ska användas för tjänst-URL:en.
+För **Namn** anger du ett unikt underdomännamn som ska användas för tjänst-URL:en.
 
-Välj önskad **prenumeration** och **region** för din tjänstinstans. När du har gjort dina val klickar du på knappen **Nästa**.
-
-![Ny API Management-tjänst][api-management-create-instance-step1]
+Välj önskad **prenumeration**, **resursgrupp** och **plats** för din tjänstinstans.
 
 Ange **Contoso Ltd.** som **organisationsnamn** och ange din e-postadress i fältet **Administratörens e-postadress**.
 
 > [!NOTE]
-> Den här e-postadressen används för meddelanden från API Management-systemet. Mer information finns i [Konfigurera meddelanden och e-postmallar i Azure API Management][Konfigurera meddelanden och e-postmallar i Azure API Management].
+> Den här e-postadressen används för meddelanden från API Management-systemet. Mer information finns i [Så här konfigurerar du meddelanden och e-mallar i Azure API Management][Så här konfigurerar du meddelanden och e-mallar i Azure API Management].
 > 
 > 
 
-![Ny API Management-tjänst][api-management-create-instance-step2]
+![Ny API Management-tjänst][api-management-create-instance-step1]
 
-API Management-tjänstinstanser är tillgängliga på tre nivåer: Developer, Standard och Premium. Som standard skapas nya API Management-tjänstinstanser på Developer-nivån. Om du vill välja Standard- eller Premium-nivån markerar du kryssrutan **Avancerade inställningar** och väljer önskad nivå på skärmen som visas.
+API Management-tjänstinstanser är tillgängliga på tre nivåer: Developer, Standard och Premium.
 
 > [!NOTE]
 > Developer-nivån är avsedd för utveckling, testning och pilotprojekt av API-program där hög tillgänglighet inte är något problem. På Standard- och Premium-nivåerna kan du skala det reserverade antalet enheter och hantera mer trafik. API Management-tjänsten har mest processorkraft och prestanda på Standard- och Premium-nivåerna. Du kan genomföra den här självstudiekursen med valfri nivå. Mer information om API Management-nivåer finns i avsnittet om [API Management-priser][API Management-priser].
 > 
 > 
 
-Markera kryssrutan om du vill skapa en tjänstinstans.
+Klicka på **skapa** för att börja etablera din serviceinstance.
 
 ![Ny API Management-tjänst][api-management-instance-created]
 
@@ -101,7 +103,7 @@ API:er kan skapas (och åtgärder kan läggas till) manuellt eller importeras. I
 > 
 > 
 
-API:er konfigureras från utgivarportalen, som du kommer åt via den klassiska Azure-portalen. Du kommer åt utgivarportalen genom att klicka på **Hantera** på den klassiska Azure-portalen för API Management-tjänsten.
+API: er konfigureras från utgivarportalen. För att nå den, klickar du på **utgivarportalen** i serviceverktygsfältet.
 
 ![Utgivarportalen][api-management-management-console]
 
@@ -132,14 +134,14 @@ API-avsnittet innehåller flera flikar. Fliken **Sammanfattning** innehåller gr
 Som standard medföljer två exempelprodukter varje API Management-instans:
 
 * **Starter**
-* **Unlimited**
+* **Obegränsat**
 
 I den här självstudien lades Basic Calculator-API:et till i Starter-produkten när API:et importerades.
 
 Innan utvecklare kan göra anrop till ett API måste de prenumerera på en produkt som ger dem åtkomst till API:et. Utvecklare kan prenumerera på produkter via utvecklarportalen, eller så kan en administratör registrera utvecklare för produktprenumerationer från utgivarportalen. Du är administratör eftersom du skapade API Management-instansen i föregående steg i den här självstudiekursen, och som administratör prenumererar du redan på alla produkter som standard.
 
 ## <a name="call-operation"> </a>Anropa en åtgärd från utvecklarportalen
-Du kan anropa åtgärder direkt från utvecklarportalen, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API. I det här steget i självstudiekursen ska du anropa åtgärden **Lägg till två heltal** i Basic Calculator-API:et. Klicka på **Utvecklarportal** på menyn längst upp till höger på utgivarportalen.
+Du kan anropa åtgärder direkt från utvecklarportalen, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API. I det här steget i självstudiekursen ska du anropa åtgärden **Lägg till två heltal** i Basic Calculator-API:et. Klicka på **utvecklarportalen** på menyn längst upp till höger på utgivarportalen.
 
 ![Utvecklarportalen][api-management-developer-portal-menu]
 
@@ -197,7 +199,7 @@ Avsnittet **Analys** innehåller följande fyra flikar:
 ## <a name="next-steps"> </a>Nästa steg
 * Läs mer om hur du [skyddar ditt API med hastighetsbegränsningar](api-management-howto-product-with-rules.md).
 
-[kostnadsfria utvärderingsversionen av Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Kostnadsfri utvärderingsversion av Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
 [Skapa en API Management-instans]: #create-service-instance
 [Skapa ett API]: #create-api
@@ -216,7 +218,7 @@ Avsnittet **Analys** innehåller följande fyra flikar:
 [Skapa och publicera en produkt]: api-management-howto-add-products.md
 [API Management-priser]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Klassisk Azure-portal]: https://manage.windowsazure.com/
+[Azure-portalen]: https://portal.azure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -255,6 +257,6 @@ Avsnittet **Analys** innehåller följande fyra flikar:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

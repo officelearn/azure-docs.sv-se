@@ -1,12 +1,12 @@
 ---
-title: Django och MySQL på Azure med Python Tools 2.2 för Visual Studio
-description: Läs om hur du använder Python Tools för Visual Studio till att skapa en Django-webbapp som lagrar data i en MySQL-databasinstans och distribuera den till webbappar i Azure App Service Web Apps.
+title: "Django och MySQL på Azure med Python Tools 2.2 för Visual Studio"
+description: "Läs om hur du använder Python Tools för Visual Studio till att skapa en Django-webbapp som lagrar data i en MySQL-databasinstans och distribuera den till webbappar i Azure App Service Web Apps."
 services: app-service\web
 documentationcenter: python
 author: huguesv
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: c60a50b5-8b5e-4818-a442-16362273dabb
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+
 
 ---
-# Django och MySQL på Azure med Python Tools 2.2 för Visual Studio
+# <a name="django-and-mysql-on-azure-with-python-tools-22-for-visual-studio"></a>Django och MySQL på Azure med Python Tools 2.2 för Visual Studio
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-I den här kursen ska du använda [Python Tools för Visual Studio](PTVS.md) för att skapa en enkel webbapp för omröstning med någon av exempelmallarna i PTVS. Du får lära dig hur du använder en MySQL-tjänst som finns i Azure, hur du konfigurerar webbappen att använda MySQL och hur du publicerar webbappen till [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+I den här kursen ska du använda [Python Tools för Visual Studio](https://www.visualstudio.com/vs/python) för att skapa en enkel webbapp för omröstning med någon av exempelmallarna i PTVS. Du får lära dig hur du använder en MySQL-tjänst som finns i Azure, hur du konfigurerar webbappen att använda MySQL och hur du publicerar webbappen till [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 > [!NOTE]
 > Informationen i den här kursen finns också i följande video:
@@ -30,12 +34,12 @@ I den här kursen ska du använda [Python Tools för Visual Studio](PTVS.md) fö
 
 I [Python Developer Center] finns flera artiklar om att utveckla appar i Azure App Service Web Apps med PTVS med hjälp av webbramverken Bottle, Flask och Django med tjänsterna Azure Table Storage, MySQL och SQL Database. Den här artikeln fokuserar på App Service, men stegen är ungefär desamma för att utveckla [Azure Cloud Services].
 
-## Krav
+## <a name="prerequisites"></a>Krav
 * Visual Studio 2015
 * [Python 2.7 32-bitars] eller [Python 3.4 32-bitars]
 * [Python Tools 2.2 för Visual Studio]
 * [Python Tools 2.2 för Visual Studio Samples VSIX]
-* [Azure SDK-verktyg för VS 2015]
+* [Azure SDK Tools för VS 2015]
 * Django 1.9 eller senare
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -47,7 +51,7 @@ I [Python Developer Center] finns flera artiklar om att utveckla appar i Azure A
 > 
 > 
 
-## Skapa projektet
+## <a name="create-the-project"></a>Skapa projektet
 I det här avsnittet får du skapa ett Visual Studio-projekt utifrån en exempelmall. Du får skapa en virtuell miljö och installera nödvändiga paket. Du får skapa en lokal databas med hjälp av sqlite. Sedan får du köra programmet lokalt.
 
 1. I Visual Studio väljer du **Arkiv**, **Nytt projekt**.
@@ -76,7 +80,7 @@ I det här avsnittet får du skapa ett Visual Studio-projekt utifrån en exempel
     
      ![Rösta i exempelomröstningar](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSqliteBrowser.png)
 
-## Skapa en MySQL-databas
+## <a name="create-a-mysql-database"></a>Skapa en MySQL-databas
 Som databas skapar du en ClearDB MySQL-baserad databas i Azure.
 
 Du kan också välja att skapa din egen virtuella dator som körs i Azure och sedan installera och administrera MySQL själv.
@@ -84,12 +88,12 @@ Du kan också välja att skapa din egen virtuella dator som körs i Azure och se
 Du kan skapa en databas med en kostnadsfri plan genom att följa dessa steg.
 
 1. Logga in på [Azure Portal].
-2. Överst i navigeringsfönstret klickar du på **Nytt**, **Data + Storage** och sedan på **MySQL-databas**. 
+2. Överst i navigeringsfönstret klickar du på **Nytt**, **Data + Storage** och sedan på **MySQL-databas**.
 3. Konfigurera den nya MySQL-databasen genom att skapa en ny resursgrupp och välja en lämplig plats för den.
 4. När MySQL-databasen har skapats klickar du på **Egenskaper** i databasbladet.
 5. Använd kopieringsknappen till att ange värdet för **CONNECTION STRING** (anslutningssträng) i Urklipp.
 
-## Konfigurera projektet
+## <a name="configure-the-project"></a>Konfigurera projektet
 I det här avsnittet får du konfigurera webbappen till att använda MySQL-databasen du nyss skapade. Du måste också installera ytterligare Python-paket som krävs för att använda MySQL-databaser med Django. Sedan kör du webbappen lokalt.
 
 1. I Visual Studio öppnar du **settings.py** i mappen *Projektnamn*. Klistra in anslutningssträngen i redigeringsprogrammet. Anslutningssträngen har det här formatet:
@@ -117,7 +121,7 @@ I det här avsnittet får du konfigurera webbappen till att använda MySQL-datab
     När du gör det skapas tabellerna för MySQL-databasen du skapade i det föregående steget. Följ anvisningarna för att skapa en användare som inte behöver matcha användaren i sqlite-databasen som skapades i den första delen av den här artikeln.
 5. Kör programmet med `F5`. Omröstningar som skapas med **Create Sample Polls** (Skapa exempelomröstningar) och de data som skickats vid röstning serialiseras i MySQL-databasen.
 
-## Publicera webbappen i Azure App Service
+## <a name="publish-the-web-app-to-azure-app-service"></a>Publicera webbappen i Azure App Service
 Med Azure .NET SDK kan du enkelt distribuera webbappen till Azure App Service.
 
 1. I **Solution Explorer** högerklickar du på projektnoden och väljer **Publicera**.
@@ -139,10 +143,10 @@ Med Azure .NET SDK kan du enkelt distribuera webbappen till Azure App Service.
    
     Grattis! Du har publicerat din MySQL-baserade webbapp i Azure.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Via de här länkarna hittar du mer information om Python Tools för Visual Studio, Django och MySQL:
 
-* [Dokumentationen om Python Tools för Visual Studio]
+* [Dokumentation för Python Tools för Visual Studio]
   * [Webbprojekt]
   * [Molntjänstprojekt]
   * [Fjärrfelsökning i Microsoft Azure]
@@ -154,18 +158,18 @@ Mer information finns i [Python Developer Center](/develop/python/).
 <!--Link references-->
 
 [Python Developer Center]: /develop/python/
-[Azure Cloud Services]: ../cloud-services-python-ptvs.md
+[Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
 
-[Azure Portal]: https://portal.azure.com
-[Python Tools för Visual Studio]: http://aka.ms/ptvs
+[Azure-portalen]: https://portal.azure.com
+[Python Tools för Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 för Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 för Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Azure SDK-verktyg för VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32-bitars]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Azure SDK Tools för VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Python 2.7 32-bitars]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32-bitars]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Dokumentationen om Python Tools för Visual Studio]: http://aka.ms/ptvsdocs
+[Dokumentation för Python Tools för Visual Studio]: http://aka.ms/ptvsdocs
 [Fjärrfelsökning i Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Webbprojekt]: http://go.microsoft.com/fwlink/?LinkId=624027
 [Molntjänstprojekt]: http://go.microsoft.com/fwlink/?LinkId=624028
@@ -175,6 +179,6 @@ Mer information finns i [Python Developer Center](/develop/python/).
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

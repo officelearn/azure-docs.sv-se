@@ -1,12 +1,12 @@
 ---
-title: Webb- och arbetsroller för Visual Studio | Microsoft Docs
-description: Översikt över hur du använder Python Tools för Visual Studio för att skapa Azure-molntjänster, inklusive webb- och arbetsroller.
+title: "Webb- och arbetsroller för Visual Studio | Microsoft Docs"
+description: "Översikt över hur du använder Python Tools för Visual Studio för att skapa Azure-molntjänster, inklusive webb- och arbetsroller."
 services: cloud-services
 documentationcenter: python
 author: thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/03/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
@@ -22,13 +26,13 @@ Den här artikeln innehåller en översikt över hur du använder webb- och arbe
 ## <a name="prerequisites"></a>Krav
 * Visual Studio 2013 eller 2015
 * [Python Tools för Visual Studio][Python Tools för Visual Studio] (PTVS)
-* [Azure SDK-verktyg för VS 2013][] eller [Azure SDK-verktyg för VS 2015][]
-* [Python 2.7 32-bitars][] eller [Python 3.5 32-bitars][]
+* [Azure SDK-verktyg för VS 2013][Azure SDK-verktyg för VS 2013] eller [Azure SDK-verktyg för VS 2015][Azure SDK-verktyg för VS 2015]
+* [Python 2.7 32-bitars][Python 2.7 32-bitars] eller [Python 3.5 32-bitars][Python 3.5 32-bitars]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## <a name="what-are-python-web-and-worker-roles?"></a>Vad är webb- och arbetsroller för Python?
-Azure tillhandahåller tre beräkningsmodeller för program som körs: [funktionen Web Apps i Azure App Service](../app-service-web/app-service-web-overview.md), [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-about.md) och [Azure Cloud Services](cloud-services-choose-me.md). Alla tre modeller stöder Python. Cloud Services, där webb- och arbetsroller ingår, tillhandahåller *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad IIS-webbserver (Internet Information Services) som fungerar som värd för frontend-webbprogram, medan en arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
+## <a name="what-are-python-web-and-worker-roles"></a>Vad är webb- och arbetsroller för Python?
+Azure tillhandahåller tre beräkningsmodeller för program som körs: [funktionen Web Apps i Azure App Service][körningsmodell för webbplatser], [Azure Virtual Machines][körningsmodell för virtuella datorer] och [Azure Cloud Services][körningsmodell för molntjänster]. Alla tre modeller stöder Python. Cloud Services, där webb- och arbetsroller ingår, tillhandahåller *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad IIS-webbserver (Internet Information Services) som fungerar som värd för frontend-webbprogram, medan en arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
 
 Mer information finns i [Vad är en molntjänst?].
 
@@ -110,7 +114,7 @@ Variablerna **PYTHON2** och **PYPATH** måste läggas till arbetsstartsaktivitet
 </Runtime>
 ```
 
-#### <a name="sample-servicedefinition.csdef"></a>Exempel ServiceDefinition.csdef
+#### <a name="sample-servicedefinitioncsdef"></a>Exempel ServiceDefinition.csdef
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="AzureCloudServicePython" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -161,7 +165,7 @@ Variablerna **PYTHON2** och **PYPATH** måste läggas till arbetsstartsaktivitet
 
 Skapa sedan filerna **PrepPython.ps1** och **PipInstaller.ps1** i din rolls **. / bin**-mapp.
 
-#### <a name="preppython.ps1"></a>PrepPython.ps1
+#### <a name="preppythonps1"></a>PrepPython.ps1
 Det här skriptet installerar Python. Om **PYTHON2**-miljövariabeln anges till **på**, installeras Python 2.7, annars installeras Python 3.5.
 
 ```powershell
@@ -207,7 +211,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
+#### <a name="pipinstallerps1"></a>PipInstaller.ps1
 Det här skriptet ringer upp pip och installerar alla beroenden i **requirements.txt**-filen. Om **PYTHON2**-miljövariabeln anges till **på**, används Python 2.7, annars används Python 3.5.
 
 ```powershell
@@ -235,7 +239,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="modify-launchworker.ps1"></a>Ändra LaunchWorker.ps1
+#### <a name="modify-launchworkerps1"></a>Ändra LaunchWorker.ps1
 > [!NOTE]
 > Vid ett **arbetsroll**projekt krävs filen **LauncherWorker.ps1** för att köra startfilen. Vid ett **webbroll**projekt definieras startfilen istället i egenskaperna för projektet.
 > 
@@ -280,7 +284,7 @@ else
 }
 ```
 
-#### <a name="ps.cmd"></a>ps.cmd
+#### <a name="pscmd"></a>ps.cmd
 Visual Studio-mallarna ska ha skapat en **ps.cmd**-fil i **. / bin**-mappen. Detta gränssnittsskript anropar PowerShell-omslutningsskripten ovan och tillhandahåller loggning baserat på namnet på den anropade PowerShell-omslutningen. Detta är vad som bör finnas i den, om filen inte skapades. 
 
 ```bat
@@ -319,7 +323,7 @@ Förloppet visas i utdatafönstret. Därefter visas fönstret med Microsoft Azur
 Distributionen tar flera minuter. När den är klar körs dina webb- och/eller arbetsroller i Azure!
 
 ### <a name="investigate-logs"></a>Undersöka loggar
-När den virtuella molntjänstdatorn startar och installerar Python, kan du titta på loggarna för att hitta eventuella felmeddelanden. Dessa loggar finns i mappen **C:\Resources\Directory\{roll} \LogFiles**. **PrepPython.err.txt** har minst ett fel från när skriptet försöker identifiera om Python är installerat och **PipInstaller.err.txt** kan klaga över en inaktuell version av pip.
+När den virtuella molntjänstdatorn startar och installerar Python, kan du titta på loggarna för att hitta eventuella felmeddelanden. Dessa loggar finns i mappen **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** har minst ett fel från när skriptet försöker identifiera om Python är installerat och **PipInstaller.err.txt** kan klaga över en inaktuell version av pip.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer detaljerad information om hur du arbetar med webb- och arbetsroller i Python Tools för Visual Studio finns i dokumentationen till PTVS:
@@ -328,18 +332,18 @@ Mer detaljerad information om hur du arbetar med webb- och arbetsroller i Python
 
 Mer information om hur du använder Azure-tjänster från dina webb- och arbetsroller, t.ex. Azure Storage eller Azure Service Bus, finns i följande artiklar.
 
-* [Blob-tjänst][Blob-tjänst]
+* [Blob-tjänsten][Blob-tjänst]
 * [Tabelltjänst][Tabelltjänst]
 * [Kötjänst][Kötjänst]
 * [Service Bus-köer][Service Bus-köer]
-* [Service Bus-ämnen][Service Bus-ämnen]
+* [Service Bus-avsnitt][Service Bus-avsnitt]
 
 <!--Link references-->
 
 [Vad är en molntjänst?]: cloud-services-choose-me.md
-[webbplatser av körningsmodell]: ../app-service-web/app-service-web-overview.md
-[vm:ar av körningsmodell]: ../virtual-machines/virtual-machines-windows-about.md
-[molntjänster av körningsmodell]: cloud-services-choose-me.md
+[körningsmodell för webbplatser]: ../app-service-web/app-service-web-overview.md
+[körningsmodell för virtuella datorer]: ../virtual-machines/virtual-machines-windows-about.md
+[körningsmodell för molntjänster]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
 [Blob-tjänst]: ../storage/storage-python-how-to-use-blob-storage.md
@@ -356,11 +360,11 @@ Mer information om hur du använder Azure-tjänster från dina webb- och arbetsr
 [Molntjänstprojekt]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure SDK Tools för VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools för VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32-bit]: https://www.python.org/downloads/
-[Python 3.5 32-bit]: https://www.python.org/downloads/
+[Python 2.7 32-bitars]: https://www.python.org/downloads/
+[Python 3.5 32-bitars]: https://www.python.org/downloads/
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Så här använder du Azure Redis Cache | Microsoft Docs
-description: Lär dig att förbättra prestandan för Azure-program med Azure Redis Cache
+title: "Så här använder du Azure Redis Cache | Microsoft Docs"
+description: "Lär dig att förbättra prestandan för Azure-program med Azure Redis Cache"
 services: redis-cache,app-service
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: c502f74c-44de-4087-8303-1b1f43da12d5
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
+
 
 ---
-# Så här använder du Azure Redis Cache
+# <a name="how-to-use-azure-redis-cache"></a>Så här använder du Azure Redis Cache
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -40,32 +44,32 @@ Den här guiden visar hur du använder klienten [StackExchange.Redis][StackExcha
 
 <a name="getting-started-cache-service"></a>
 
-## Kom igång med Azure Redis Cache
+## <a name="get-started-with-azure-redis-cache"></a>Kom igång med Azure Redis Cache
 Att komma igång med Azure Redis Cache är enkelt. Kom igång genom att etablera och konfigurera en cache. Därefter konfigurerar du cacheklienterna så att de får åtkomst till cacheminnet. När cacheklienterna är konfigurerade kan du börja använda dem.
 
 * [Skapa cachen][Skapa cachen]
-* [Konfigurera cacheklienterna][Konfigurera cacheklienterna]
+* [Konfigurera cacheklienter][Konfigurera cacheklienter]
 
 <a name="create-cache"></a>
 
-## Skapa en cache
+## <a name="create-a-cache"></a>Skapa en cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-### Så här får du åtkomst till din cache när den har skapats
+### <a name="to-access-your-cache-after-its-created"></a>Så här får du åtkomst till din cache när den har skapats
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
 Mer information om hur du konfigurerar din cache finns i [Så här konfigurerar du Azure Redis Cache](cache-configure.md).
 
 <a name="NuGet"></a>
 
-## Konfigurera cacheklienterna
+## <a name="configure-the-cache-clients"></a>Konfigurera cacheklienterna
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 När klientprojektet är konfigurerat för cachelagring kan du använda de metoder som beskrivs i följande avsnitt för att arbeta med din cache.
 
 <a name="working-with-caches"></a>
 
-## Arbeta med cacheminnen
+## <a name="working-with-caches"></a>Arbeta med cacheminnen
 Stegen i det här avsnittet beskriver hur du utför vanliga uppgifter med cachen.
 
 * [Ansluta till cachen][Ansluta till cachen]
@@ -74,7 +78,7 @@ Stegen i det här avsnittet beskriver hur du utför vanliga uppgifter med cachen
 
 <a name="connect-to-cache"></a>
 
-## Ansluta till cachen
+## <a name="connect-to-the-cache"></a>Ansluta till cachen
 För att kunna arbeta programmässigt med en cache måste du ha en referens till cachen. Lägg till följande överst i den fil där du vill använda StackExchange.Redis-klienten för att få åtkomst till en Azure Redis Cache.
 
     using StackExchange.Redis;
@@ -140,7 +144,7 @@ Nu när du vet hur du ansluter till en Azure Redis Cache-instans och returnerar 
 
 <a name="add-object"></a>
 
-## Lägg till och hämta objekt från cachen
+## <a name="add-and-retrieve-objects-from-the-cache"></a>Lägg till och hämta objekt från cachen
 Objekt kan lagras i och hämtas från ett cacheminne med hjälp av `StringSet`- och `StringGet`-metoderna.
 
     // If key1 exists, it is overwritten.
@@ -166,7 +170,7 @@ Ange förfallodatum för ett objekt i cacheminnet med hjälp av `TimeSpan`-param
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-## Arbeta med .NET-objekt i cachen
+## <a name="work-with-net-objects-in-the-cache"></a>Arbeta med .NET-objekt i cachen
 Azure Redis Cache kan cachelagra både .NET-objekt och basdatatyper, men .NET-objekt måste serialiseras innan de kan cachelagras. Detta är programutvecklarens ansvar och ger utvecklaren flexibilitet i valet av serialiserare.
 
 Ett enkelt sätt att serialisera objekt är att använda `JsonConvert`-serialiseringsmetoderna i [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) och serialisera till och från JSON. I följande exempel visas en hämtning och en inställning med hjälp av en `Employee`-objektinstans.
@@ -191,19 +195,19 @@ Ett enkelt sätt att serialisera objekt är att använda `JsonConvert`-serialise
 
 <a name="next-steps"></a>
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna kan du följa dessa länkar för att lära dig mer om Azure Redis Cache.
 
 * Lär dig mer om ASP.NET-providers för Azure Redis Cache.
-  * [Sessionstillståndsprovider för Azure Redis ](cache-aspnet-session-state-provider.md)
+  * [Sessionstillståndsprovider för Azure Redis](cache-aspnet-session-state-provider.md)
   * [Utdatacacheprovider för Azure Redis Cache ASP.NET](cache-aspnet-output-cache-provider.md)
 * [Aktivera cachediagnostik](cache-how-to-monitor.md#enable-cache-diagnostics) så att du kan [övervaka](cache-how-to-monitor.md) hälsotillståndet för cacheminnet. Du kan visa värdena i Azure Portal och du kan också [ladda ned och granska](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) dem med hjälp av de verktyg du väljer.
-* Lär dig mer om [Cacheklientdokumentation för StackExchange.Redis][Cacheklientdokumentation för StackExchange.Redis].
+* Läs [cacheklientdokumentationen för StackExchange.Redis][cacheklientdokumentationen för StackExchange.Redis].
   * Azure Redis Cache kan nås från många Redis-klienter och programmeringsspråk. Mer information finns i [http://redis.io/clients][http://redis.io/clients].
 * Azure Redis Cache kan också användas med tjänster och verktyg från tredje part som Redsmin och Redis Desktop Manager.
   * Mer information om Redsmin finns i [Så här hämtar du en anslutningssträng för Azure Redis och använder den med Redsmin][Så här hämtar du en anslutningssträng för Azure Redis och använder den med Redsmin].
   * Komma åt och granska dina data i Azure Redis Cache med ett grafiskt användargränssnitt med hjälp av [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
-* Se [Redis][Redis]-dokumentationen, läs om [Redis-datatyper][Redis-datatyper] och få [en 15 minuters introduktion till Redis-datatyper][en 15 minuters introduktion till Redis-datatyper].
+* Se [Redis][Redis]-dokumentationen, läs om [Redis-datatyper][Redis-datatyper] och få en [15 minuters introduktion till Redis-datatyper][15 minuters introduktion till Redis-datatyper].
 
 <!-- INTRA-TOPIC LINKS -->
 [Nästa steg]: #next-steps
@@ -251,7 +255,7 @@ Nu när du har lärt dig grunderna kan du följa dessa länkar för att lära di
 [http://redis.io/clients]: http://redis.io/clients
 [Utveckla på andra språk för Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
 [Så här hämtar du en anslutningssträng för Azure Redis och använder den med Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Sessionstillståndsprovider för Azure Redis ]: http://go.microsoft.com/fwlink/?LinkId=398249
+[Sessionstillståndsprovider för Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Så här gör du: Konfigurera en cacheklient programmässigt]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Sessionstillståndsprovider för Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric-cache: Cachelagra sessionstillstånd]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -280,7 +284,7 @@ Nu när du har lärt dig grunderna kan du följa dessa länkar för att lära di
 
 [Migrera till Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Exempel på Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Hantera dina Azure-resurser med hjälp av resursgrupper]: http://azure.microsoft.com/documentation/articles/resource-group-overview/
+[Hantera Azure-resurser med hjälp av resursgrupper]: ../azure-resource-manager/resource-group-overview.md
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [Cacheklientdokumentation för StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
@@ -295,6 +299,6 @@ Nu när du har lärt dig grunderna kan du följa dessa länkar för att lära di
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

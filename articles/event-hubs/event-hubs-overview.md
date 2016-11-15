@@ -1,12 +1,12 @@
 ---
-title: Översikt av händelsehubbar i Azure | Microsoft Docs
-description: Introduktion och översikt av  händelsehubbar i Azure.
+title: "Översikt av händelsehubbar i Azure | Microsoft Docs"
+description: "Introduktion och översikt av  händelsehubbar i Azure."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f0e0dd20-f745-49c7-bfca-30ea1c46e873
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: df9897894a2a2a09735b0947fd335959e81a46cd
+
 
 ---
 # <a name="azure-event-hubs-overview"></a>Översikt av händelsehubbar i Azure
@@ -25,7 +29,7 @@ Händelsehubbar i Azure är en tjänst för händelsebearbetning som ger händel
 
 En händelsehubb skapas på namnområdesnivån i för händelsehubben, ungefär som köer och ämnen i Service Bus. Händelsehubbar använder AMQP och HTTP som sina primära API-gränssnitt. Följande diagram visar relationen mellan händelsehubbar och Service Bus.
 
-![Händelsehubbar](./media/event-hubs-overview/IC741188.png)
+![Händelsehubbar](./media/event-hubs-overview/ehoverview2.png)
 
 ## <a name="conceptual-overview"></a>Konceptuell översikt
 Händelsehubbar ger meddelandeströmmar via ett konsumentmönster indelat i partitioner. Köer och ämnen använder en [konkurrerande konsument](https://msdn.microsoft.com/library/dn568101.aspx)-modell där varje konsument försöker läsa från samma kö eller resurs. Denna konkurrens om resurser ledar i slutändan till komplexitet och skalningsgränser för program som bearbetar strömmar. Händelsehubbar använder ett partitionerat konsumentmönster där varje konsument bara läser en viss delmängd, eller partition, av meddelandeströmmen. Det här mönstret gör det möjligt att skala horisontellt för händelsebearbetning och tillhandahåller andra strömfokuserade funktioner som inte är tillgängliga i köer och ämnen.
@@ -48,13 +52,13 @@ När man pratar om händelsehubbar kallar man meddelanden *händelsedata*. Händ
 ## <a name="event-publisher"></a>Händelseutfärdare
 En enhet som skickar händelser eller data till en händelsehubb är en *händelseutfärdare*. Händelseutfärdare kan utfärda händelser med hjälp av HTTPS  eller AMQP 1.0. Händelseutfärdare använder en signatur för delad åtkomst-token (SAS) för att identifiera sig på en händelsehubb, och kan ha en unik identitet, eller använda en vanlig SAS-token, beroende på kraven för scenariot.
 
-Mer information om hur du arbetar med SAS finns i [autentisering med signatur för delad åtkomst med Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md).
+Mer information om hur du arbetar med SAS finns i [autentisering med signatur för delad åtkomst med Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 ### <a name="common-publisher-tasks"></a>Vanliga utfärdaruppgifter
 I det här avsnittet beskrivs några  vanliga uppgifter för händelseutfärdare.
 
 #### <a name="acquire-a-sas-token"></a>Hämta en SAS-token
-Signatur för delad åtkomst (SAS) är autentiseringsmekanismen för händelsehubbar. Service Bus innehåller SAS-principer på namnområdes- och händelsehubbnivån. En SAS-token genereras från en SAS-nyckel och är en SHA-hash för en URL som kodats i ett specifikt format. Med hjälp av namnet på nyckeln (principen) och token kan Service Bus regenerera hash-värdet och därmed autentisera avsändaren. SAS-token för händelseutfärdare skapas vanligtvis med enbart behörighet för att **skicka** i en specifik händelsehubb. Den här URL-mekanismen med SAS-token är den grund för utfärdaridentifiering som presenterades i principen för utfärdare. Mer information om hur du arbetar med SAS finns i [autentisering med signatur för delad åtkomst med Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md).
+Signatur för delad åtkomst (SAS) är autentiseringsmekanismen för händelsehubbar. Service Bus innehåller SAS-principer på namnområdes- och händelsehubbnivån. En SAS-token genereras från en SAS-nyckel och är en SHA-hash för en URL som kodats i ett specifikt format. Med hjälp av namnet på nyckeln (principen) och token kan Service Bus regenerera hash-värdet och därmed autentisera avsändaren. SAS-token för händelseutfärdare skapas vanligtvis med enbart behörighet för att **skicka** i en specifik händelsehubb. Den här URL-mekanismen med SAS-token är den grund för utfärdaridentifiering som presenterades i principen för utfärdare. Mer information om hur du arbetar med SAS finns i [autentisering med signatur för delad åtkomst med Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 #### <a name="publishing-an-event"></a>Publicera en händelse
 Du kan publicera en händelse via AMQP 1.0 eller HTTPS. Service Bus innehåller en [EventHubClient](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.aspx)-klass för att publicera händelser på en händelsehubb från .NET-klienter. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](http://qpid.apache.org/). Du kan publicera händelser individuellt eller i batchar. En enstaka publikation (en instans av händelsedata ) har en begränsning på 256 KB, oavsett om det är en enskild händelse eller en batch. Att utfärda händelser som överstiger den gränsen resulterar i ett fel. Bästa metoden för en utfärdare är att vara ovetande om partitioner i händelsehubben och att bara ange en *partitionsnyckel* (presenteras i nästa avsnitt) eller sin identitet via sin SAS-token.
@@ -112,10 +116,10 @@ Händelsehubbar är en mycket skalbar parallell arkitektur för ingång av datas
 ### <a name="throughput-units"></a>Genomflödesenheter
 Genomflödeskapaciteten i händelsehubbar styrs av genomflödesenheter. Genomflödesenheter är färdiga kapacitetsenheter. En genomflödesenhet omfattar följande:
 
-* Ingång: Upp till 1 MB per sekund eller 1 000 händelser per sekund.
+* Ingång: Upp till 1 MB per sekund eller 1 000 händelser per sekund.
 * Utgång: Upp till 2 MB per sekund.
 
-Ingången begränsas till storleken på den kapacitet som antalet inköpta genomflödesenheter ger. Om du skickar data som överskrider den mängden resulterar det i felmeddelandet ”kvoten har överskridits”. Den här mängden är antingen 1 MB per sekund eller 1 000 händelser per sekund, beroende på vilket som kommer först. Utgången skapar inte begränsningsfel, men är begränsad till den mängd av dataöverföring som genomflödesenheterna ger: 2 MB per sekund per genomflödesenhet. Om du får felmeddelanden om publiceringsfrekvensen eller förväntar dig större utgång måste du kontrollera hur många genomflödesenheter du har köpt för det namnområde där händelsehubben skapades. För att skaffa fler genomflödesenheter kan du justera inställningen på sidan **namnområden** på fliken **Skala** i den [klassiska Azure-portalen][klassiska Azure-portalen]. Du kan också ändra den här inställningen med hjälp av Azure-API:erna.
+Ingången begränsas till storleken på den kapacitet som antalet inköpta genomflödesenheter ger. Om du skickar data som överskrider den mängden resulterar det i felmeddelandet ”kvoten har överskridits”. Den här mängden är antingen 1 MB per sekund eller 1 000 händelser per sekund, beroende på vilket som kommer först. Utgången skapar inte begränsningsfel, men är begränsad till den mängd av dataöverföring som genomflödesenheterna ger: 2 MB per sekund per genomflödesenhet. Om du får felmeddelanden om publiceringsfrekvensen eller förväntar dig större utgång måste du kontrollera hur många genomflödesenheter du har köpt för det namnområde där händelsehubben skapades. För att skaffa fler genomflödesenheter kan du justera inställningen på sidan **namnområden** på fliken **Skala** i den [klassiska Azure-portalen]. Du kan också ändra den här inställningen med hjälp av Azure-API:erna.
 
 Partitioner är ett koncept för organisering av data men genomflödesenheter är helt och hållet ett koncept för kapacitet. Genomflödesenheter debiteras per timme och köps i förväg. När de väl har köpts debiteras de för minst en timme. Upp till 20 genomflödesenheter kan köpas för ett händelsehubb-namnområde och det finns en gräns för ett Azure-konto på högst 20 genomflödesenheter. Genomflödesenheterna är gemensamma för alla händelsehubbar i ett visst namnområde.
 
@@ -130,7 +134,7 @@ Med händelsehubbar får du granulär kontroll över utgivare via *utgivarprinci
 
     //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
-Du behöver inte skapa utgivarnamnen i förväg, men de måste matcha SAS-token som används när du publicerar en händelse för att garantera oberoende utgivaridentiteter. Mer information om SAS finns i [autentisering med signatur för delad åtkomst med Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md). När du använder utgivarprinciper ställs **PartitionKey**-värdet in på utgivarens namn. Dessa värden måste matcha för att fungera korrekt.
+Du behöver inte skapa utgivarnamnen i förväg, men de måste matcha SAS-token som används när du publicerar en händelse för att garantera oberoende utgivaridentiteter. Mer information om SAS finns i [autentisering med signatur för delad åtkomst med Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md). När du använder utgivarprinciper ställs **PartitionKey**-värdet in på utgivarens namn. Dessa värden måste matcha för att fungera korrekt.
 
 ## <a name="summary"></a>Sammanfattning
 Händelsehubbar i Azure tillhandahåller en tjänst för händelse- och telemetribearbetning i hyperskala som kan användas för vanlig övervakning av program- och användararbetsflöden i alla skalor. Händelsehubbar har funktioner för att publicera och prenumerera med kort svarstid och i massiv skala och tjänar därmed som inkörsvägen för stordata. De här funktionerna har utgivarbaserade listor över identitet och återkallande och har utökats till vanliga scenarier inom sakernas internet. Mer information om att utveckla program i händelsehubbar finns i [Programmeringsguide för händelsehubbar](event-hubs-programming-guide.md).
@@ -147,6 +151,6 @@ Nu när du har lärt känna en del koncept inom händelsehubbar kan du gå vidar
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

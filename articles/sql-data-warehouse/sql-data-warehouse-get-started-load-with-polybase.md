@@ -1,12 +1,12 @@
 ---
-title: Självstudier för PolyBase i SQL Data Warehouse | Microsoft Docs
-description: Läs mer om vad PolyBase är och hur man använder det för informationslagerscenarier.
+title: "Självstudier för PolyBase i SQL Data Warehouse | Microsoft Docs"
+description: "Läs mer om vad PolyBase är och hur man använder det för informationslagerscenarier."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
+
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Läs in data med PolyBase i SQL Data Warehouse
@@ -35,7 +39,7 @@ De här självstudierna visar hur du läser in data i SQL Data Warehouse med hj�
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att gå igenom de här självstudierna behöver du
 
 * En SQL Data Warehouse-databas.
@@ -103,7 +107,7 @@ Kopiera dina data till Azure-blobblagring:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Mer information finns i [Kom igång med kommandoradsverktyget AzCopy][Kom igång med kommandoradsverktyget AzCopy].
+Se även [Komma igång med kommandoradsverktyget AzCopy][Komma igång med kommandoradsverktyget AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Utforska din blobblagringsbehållare
 Om du vill se filen du laddade upp till blobblagring:
@@ -124,10 +128,10 @@ PolyBase använder sig av externa tabeller för att komma åt data i Azure-blobb
 Exemplet i det här steget använder de här Transact-SQL-uttrycken för att skapa en extern tabell.
 
 * [Skapa huvudnyckel (Transact-SQL)][Skapa huvudnyckel (Transact-SQL)] för att kryptera hemligheten för din databas-omfattande autentisering.
-* [Skapa databasomfattande autentisering (Transact-SQL)][] för att ange autentiseringsinformation för ditt Azure-lagringskonto.
-* [Skapa extern datakälla (Transact-SQL)][Skapa extern datakälla (Transact-SQL)] för att ange platsen för din Azure-blobblagring.
+* [Skapa databasomfattande autentisering (Transact-SQL)][Skapa databasomfattande autentisering (Transact-SQL)] för att ange autentiseringsinformation för ditt Azure-lagringskonto.
+* [Skapa extern datakälla (Transact-SQL)][Skapa extern datakälla (Transact-SQL)] för att ange platsen för din Azure Blob Storage.
 * [Skapa externt filformat (Transact-SQL)][Skapa externt filformat (Transact-SQL)] för att ange formatet för dina data.
-* [Skapa extern tabell (Transact-SQL)][Skapa extern tabell (Transact-SQL)] för att ange tabelldefinitionen och platsen för datan.
+* [Skapa extern tabell (Transact-SQL)][Skapa extern tabell (Transact-SQL)] för att ange tabelldefinitionen och platsen för dina data.
 
 Kör den här frågan mot din SQL Data Warehouse-databas. Det skapar en extern tabell som heter DimDate2External i dbo-schemat, som pekar på exempeldatan DimDate2.txt i Azure-blobblagret.
 
@@ -207,8 +211,8 @@ I SQL Server Object Explorer i Visual Studio, kan du se det externa filformatet,
 ## <a name="step-3-load-data-into-sql-data-warehouse"></a>Steg 3: Läs in data till SQL Data Warehouse
 När den externa tabellen har skapats kan du antingen läsa in dina data till en ny tabell eller infoga dem i en befintlig tabell.
 
-* För att läsa in data till en ny tabell, kör du uttrycket [CREATE TABLE AS SELECT (Transact-SQL)][]. Den nya tabellen kommer att ha kolumnerna som namnges i frågan. Datatyperna för kolumnerna kommer att matcha datatyperna i den externa tabelldefinitionen.
-* För att läsa in data i en befintlig tabell, använder du uttrycket [INSERT...SELECT (Transact-SQL)][].
+* För att läsa in data till en ny tabell, kör du uttrycket [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Den nya tabellen kommer att ha kolumnerna som namnges i frågan. Datatyperna för kolumnerna kommer att matcha datatyperna i den externa tabelldefinitionen.
+* För att läsa in data i en befintlig tabell, använder du uttrycket [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -237,7 +241,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 För mer information, se [Statistik][Statistik].  
 
 ## <a name="next-steps"></a>Nästa steg
-Se [PolyBase-guiden][] för ytterligare information som du bör känna till när du utvecklar en PolyBase-baserad lösning.
+Se [PolyBase-guiden][PolyBase-guiden] för ytterligare information som du bör känna till när du utvecklar en PolyBase-baserad lösning.
 
 <!--Image references-->
 
@@ -274,6 +278,6 @@ Se [PolyBase-guiden][] för ytterligare information som du bör känna till när
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

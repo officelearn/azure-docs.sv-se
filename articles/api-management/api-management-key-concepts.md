@@ -1,27 +1,31 @@
 ---
 title: Viktiga API Management-relaterade begrepp
-description: Läs mer om API:er, produkter, roller, grupper och andra viktiga API Management-relaterade begrepp.
+description: "Läs mer om API:er, produkter, roller, grupper och andra viktiga API Management-relaterade begrepp."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e71da405-835a-48f3-956f-45c1a85698d7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dcff834c9d4aff82e8319e6c23a74c2e49902a8c
+
 
 ---
-# Vad är API Management?
+# <a name="what-is-api-management"></a>Vad är API Management?
 API Management hjälper organisationer att publicera API:er till externa partner och interna utvecklare så att de kan frigöra potentialen i sina data och tjänster. Företag överallt vill utöka sin närvaro som digital plattform, skapa nya kanaler, hitta nya kunder och fördjupa relationerna med befintliga kunder. API Management lägger grunden till ett effektivt API-program genom engagerade utvecklare, affärsinsikter, analyser, hög säkerhet och skydd.
 
 Följande videoklipp innehåller en översikt över Azure API Management och demonstrerar hur du använder API Management för att lägga till många funktioner i ditt API, inklusive åtkomstkontroll, frekvensbegränsning, övervakning, händelseloggning och cachelagring av svar med minimalt arbete från din sida.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-API-Management-Overview/player]
+> [! VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-API-Management-Overview/player]
 > 
 > 
 
@@ -68,7 +72,7 @@ Grupper används för att hantera hur produkterna visas för utvecklare. API Man
 
 Utöver dessa systemgrupper kan administratörer skapa anpassade grupper eller [använda externa grupper i tillhörande Azure Active Directory-klienter](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Anpassade och externa grupper kan användas tillsammans med systemgrupper för att välja vilka utvecklare som kan se och komma åt API-produkter. Du kan till exempel skapa en anpassad grupp för utvecklare som hör till en specifik partnerorganisation och ge dem åtkomst till API:erna från en produkt som endast innehåller relevanta API:er. En användare kan tillhöra mer än en grupp.
 
-Mer information finns i [Skapa och använda grupper][Skapa och använda grupper].
+Mer information finns i [Skapa och använda grupper i Azure API Management][Skapa och använda grupper i Azure API Management].
 
 ## <a name="developers"> </a> Utvecklare
 Utvecklare representerar användarkontona i en API Management-tjänstinstans. Utvecklare kan skapas eller bjudas in av administratörer eller registrera sig på [utvecklarportalen][utvecklarportalen]. Varje utvecklare är medlem i en eller flera grupper och kan prenumerera på de produkter som visas för dessa grupper.
@@ -88,19 +92,19 @@ Principuttryck kan användas som attributvärden eller textvärden i API Managem
 
 En fullständig lista över API Management-principer finns i [Principreferens][Principreferens]. Mer information om hur du använder och konfigurerar principer finns i [API Management-principer][API Management-principer]. En självstudiekurs om hur du skapar en produkt med principer för frekvensbegränsning och kvoter finns i [Skapa och konfigurera avancerade produktinställningar][Skapa och konfigurera avancerade produktinställningar]. Om du vill se en demonstration tittar du på följande videoklipp.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
+> [! VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
 > 
 
-## <a name="developer-portal"> </a> utvecklarportalen
+## <a name="developer-portal"> </a> Utvecklarportalen
 På utvecklarportalen kan utvecklare lära sig mer om dina API:er, visa och anropa åtgärder och prenumerera på produkter. Potentiella kunder kan besöka utvecklarportalen, visa API:er och åtgärder och registrera sig. URL:en för din utvecklarportal finns på instrumentpanelen på den klassiska Azure-portalen för din API Management-tjänstinstans.
 
 Du kan anpassa utvecklingsportalen genom att lägga till eget innehåll, anpassa format eller lägga till varumärkesanpassad design.
 
-## Ekonomin bakom API Management och API:er
+## <a name="api-management-and-the-api-economy"></a>Ekonomin bakom API Management och API:er
 Om du vill veta mer om API Management tittar du på följande presentation från Microsoft Ignite 2015-konferensen.
 
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3708/player]
+> [! VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3708/player]
 > 
 > 
 
@@ -128,6 +132,6 @@ Om du vill veta mer om API Management tittar du på följande presentation från
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Översikt över Azure Media Services och vanliga scenarier | Microsoft Docs
-description: Det här avsnittet ger en översikt över Azure Media Services
+title: "Översikt över Azure Media Services och vanliga scenarier | Microsoft Docs"
+description: "Det här avsnittet ger en översikt över Azure Media Services"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2a4395385ab0e6e71e5139883a544add0a081cf2
+
 
 ---
 # <a name="azure-media-services-overview-and-common-scenarios"></a>Översikt över Azure Media Services och vanliga scenarier
@@ -58,12 +62,12 @@ Azure Media Services-koncepten finns i [Koncept](media-services-concepts.md).
 
 En instruktionsserie som ger en introduktion till huvudkomponenterna i Azure Media Services finns i [Azure Media Services stegvisa självstudier](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Den här serien ger en bra översikt över koncepten och använder verktyget AMSE för att demonstrera AMS-uppgifter. Observera att AMSE-verktyget är ett verktyg i Windows. Det här verktyget stöder de flesta av de uppgifter som du kan göra programmässigt med [AMS SDK för .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java) eller  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="<a-id="vod_scenarios"></a>delivering-media-on-demand-with-azure-media-services:-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Leverera media på begäran med Azure Media Services: vanliga scenarier och uppgifter
+## <a name="a-idvodscenariosadelivering-media-ondemand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Leverera media på begäran med Azure Media Services: vanliga scenarier och uppgifter
 Det här avsnittet beskriver vanliga scenarier och innehåller länkar till relevanta avsnitt. I följande diagram visas de huvudsakliga delarna i plattformen Media Services som är inblandade i att leverera innehåll på begäran. 
 
 ![VoD-arbetsflöde](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
-### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-(non-encrypted)"></a>Skydda lagrat innehåll och leverera strömmande medier i klartext (okrypterat)
+### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-nonencrypted"></a>Skydda lagrat innehåll och leverera strömmande medier i klartext (okrypterat)
 1. Överför en mezzaninfil av hög kvalitet till en tillgång.
    
     Vi rekommenderar att du använder ett krypterat lagringsalternativ för tillgången så att du skyddar innehållet under överföringen och i vila i lagring.
@@ -78,7 +82,7 @@ Det här avsnittet beskriver vanliga scenarier och innehåller länkar till rele
     Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
 5. Strömma publicerat innehåll.
 
-### <a name="protect-content-in-storage,-deliver-dynamically-encrypted-streaming-media"></a>Skydda lagrat innehåll, leverera dynamiskt krypterade strömmande medier
+### <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Skydda lagrat innehåll, leverera dynamiskt krypterade strömmande medier
 Om du vill kunna använda dynamisk kryptering ska du först ha minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma krypterat innehåll från.
 
 1. Överför en mezzaninfil av hög kvalitet till en tillgång. Använd krypterat lagringsalternativ för tillgången.
@@ -112,7 +116,7 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
     Om du använder en SAS-positionerare hämtas innehåll från Azure Blob Storage. I så fall behöver du inte ha enheter som är reserverade för strömning.
 4. Progressivt hämtat innehåll
 
-## <a name="<a-id="live_scenarios"></a>delivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Leverera direktuppspelningshändelser live med Azure Media Services
+## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Leverera direktuppspelningshändelser live med Azure Media Services
 När du arbetar med liveströmning ingår oftast följande komponenter:
 
 * En kamera som används för att sända en händelse.
@@ -144,7 +148,7 @@ En **kanal** representerar en pipeline för bearbetning av liveströmmat innehå
 
 * En lokal livekodare skickar en ström med en enda bithastighet till den kanal som är aktiverad för att utföra Live Encoding med Media Services i något av följande format: RTP (MPEG-TS) RTMP eller Smooth Streaming (fragmenterad MP4). Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
-### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-(pass-through)"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
+### <a name="working-with-channels-that-receive-multibitrate-live-stream-from-onpremises-encoders-passthrough"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
 I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet **Genomströmning**.
 
 ![Live-arbetsflöde][live-overview2]
@@ -179,7 +183,7 @@ Du kan även skala ditt Media Services-konto genom att lägga till lagringskonto
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="service-level-agreement-(sla)"></a>Servicenivåavtal (SLA)
+## <a name="service-level-agreement-sla"></a>Servicenivåavtal (SLA)
 * Vi garanterar 99,9 % tillgänglighet för REST API-transaktioner för Media Services Encoding.
 * För Streaming svarar vi på serviceförfrågningar med 99,9 % tillgänglighet för befintligt medieinnehåll när minst en strömningsenhet har köpts.
 * För live-kanaler garanterar vi att kanaler som körs ska ha extern anslutning minst 99,9 % av tiden.
@@ -197,6 +201,6 @@ Mer information finns i [Microsoft Azure SLA](https://azure.microsoft.com/suppor
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,7 +1,7 @@
 <!--author=alkohli last changed:01/14/2016-->
 
 
-#### Skapa en ny tjänst
+#### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 1. Logga in på den klassiska Azure-portalen med dina Microsoft-kontouppgifter på den här URL:en: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 2. I den klassiska Azure-portalen klickar du på **Ny** > **Data Services** > **StorSimple Manager** > **Snabbregistrering**.
 3. I formuläret som visas gör du följande:
@@ -25,6 +25,8 @@
 
 Om du vill se en video som visar hur du skapar en ny StorSimple Manager-tjänst klickar du [här](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Kom igång med Azure Search | Microsoft Docs
-description: Lär dig skapa ditt första Azure-sökindex med den här guiden och exempeldata för DocumentDB. Den här portalbaserade kodfria övningen använder guiden Importera data.
+title: "Komma igång med Azure Search| Microsoft Docs"
+description: "Lär dig skapa ditt första Azure-sökindex med den här guiden och exempeldata för DocumentDB. Den här portalbaserade kodfria övningen använder guiden Importera data."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+
 
 ---
-# Komma igång med Azure Search på portalen
+# <a name="get-started-with-azure-search-in-the-portal"></a>Komma igång med Azure Search på portalen
 Den här introduktionen utan kod hjälper dig att komma igång med Microsoft Azure Search med funktioner som är inbyggda i portalen. 
 
 I självstudiekursen används en [Azure DocumentDB-exempeldatabas](#apdx-sampledata), som du enkelt kan skapa med våra data och instruktioner, men du kan också anpassa stegen till dina befintliga data i en DocumentDB- eller SQL-databas.
@@ -27,17 +31,17 @@ I självstudiekursen används en [Azure DocumentDB-exempeldatabas](#apdx-sampled
 > 
 > 
 
-## Hitta din tjänst
+## <a name="find-your-service"></a>Hitta din tjänst
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Öppna instrumentpanelen för Azure Search-tjänsten. Här är några sätt som du kan hitta instrumentpanelen på.
    
    * Klicka på **Söktjänster** i snabbåtkomstfältet. Alla etablerade tjänster i din prenumeration visas i snabbåtkomstfältet. Om en söktjänst har definierats kan du se **Söktjänster** i listan.
    * Klicka på **Bläddra** i snabbåtkomstfältet och skriv ”search” i sökrutan för att visa en lista med alla söktjänster som skapats i dina prenumerationer.
 
-## Kontrollera utrymmet
+## <a name="check-for-space"></a>Kontrollera utrymmet
 Många kunder börjar med den kostnadsfria tjänsten. Den här versionen är begränsad till tre index, tre datakällor och tre indexerare. Kontrollera att du har plats för extra objekt innan du börjar. Den här guiden skapar ett av varje sorts ibjekt.
 
-## Skapa ett index och läsa in data
+## <a name="create-an-index-and-load-data"></a>Skapa ett index och läsa in data
 Sökfrågor iterera över ett *index* med sökbara data, metadata och konstruktioner som används för att optimera vissa sökbeteenden. Det första steget är att definiera och fyll i ett index.
 
 Du kan skapa ett index på flera sätt. Om dina data finns i ett datalager som Azure Search kan crawla – till exempel Azure SQL Database, SQL Server på en virtuell Azure-dator eller DocumentDB – kan du enkelt skapa och fylla ett index med hjälp av en *indexerare*.
@@ -48,7 +52,7 @@ Innan du fortsätter måste du skapa en [DocumentDB-exempeldatabas](#apdx-sample
 
 <a id="defineDS"></a>
 
-#### Steg 1: Definiera datakällan
+#### <a name="step-1-define-the-data-source"></a>Steg 1: Definiera datakällan
 1. Klicka på **Importera data** i kommandofältet på instrumentpanelen för Azure Search-tjänsten för att starta en guide som hjälper dig att skapa och fylla ett index.
    
     ![][7]
@@ -61,7 +65,7 @@ Observera att vi hoppar över frågan. Det beror på att vi inte implementerar f
 
 Slutför det här steget i guiden genom att klicka på **OK**.
 
-#### Steg 2: Definiera indexet
+#### <a name="step-2-define-the-index"></a>Steg 2: Definiera indexet
 Klicka på **Index** i guiden och ta en titt på designytan som används för att skapa ett Azure Search-index. Ett index kräver minst ett namn och en samling fält, där ett fält är markerat som dokumentnyckeln. Eftersom vi använder en DocumentDB-datamängd identifieras fälten automatiskt av guiden och indexet har redan inlästa fält och datatypstilldelningar. 
 
   ![][3]
@@ -96,7 +100,7 @@ Som en jämförelse är följande skärmbild en illustration av ett index som sk
 
 Slutför det här steget i guiden genom att klicka på **OK**.
 
-#### Steg 3: Definiera indexeraren
+#### <a name="step-3-define-the-indexer"></a>Steg 3: Definiera indexeraren
 Klicka på **Indexer** > **Namn** i guiden **Importera data**, skriv ett namn för indexeraren och använd standardinställningarna för alla andra värden. Det här objektet definierar en körbar process. När du har skapat det kan du lägga till det i ett återkommande schema, men för stunden ska du använda standardalternativet och köra indexeraren en gång direkt när du klickar på **OK**. 
 
 Dina importerade dataposter bör alla vara ifyllda och klara att användas.
@@ -105,12 +109,12 @@ Dina importerade dataposter bör alla vara ifyllda och klara att användas.
 
 Kör guiden genom att klicka på **OK** för att starta importen och stänga guiden.
 
-## Kontrollera förloppet
+## <a name="check-progress"></a>Kontrollera förloppet
 Kontrollera förloppet genom att gå tillbaka till instrumentpanelen för tjänsten, rulla nedåt och dubbelklicka på panelen **Indexerare** för att öppna listan med indexerare. Du bör se de indexerare som du nyss skapade i listan och du bör se statusen ”pågående” eller ”lyckades”, tillsammans med antalet dokument som indexerats i Azure Search.
 
   ![][6]
 
-## Skicka frågor mot indexet
+## <a name="query-the-index"></a>Skicka frågor mot indexet
 Nu har du ett sökindex som du kan börja skicka frågor mot. 
 
 **Sökutforskaren** är ett frågeverktyg som är inbyggt i portalen. Det innehåller en kryssruta så att du kan bekräfta att en sökning returnerar de data som du förväntar dig. 
@@ -121,7 +125,7 @@ Nu har du ett sökindex som du kan börja skicka frågor mot.
 4. Ange några textsökningsfrågor. Du kan granska resultatet från sökningen med jokertecken för att få en uppfattning om de artister, album och genrer som du kan skicka frågor mot.
 5. Prova med andra frågesyntaxer med hjälp av [exemplen i slutet av den här artikeln](https://msdn.microsoft.com/library/azure/dn798927.aspx) om du vill ha idéer om hur du kan ändra en fråga så att den använder söksträngar som kan hittas i indexet.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 När du har kört guiden en gång kan du gå tillbaka och visa eller ändra enskilda komponenter: index, indexerare eller datakälla. Vissa ändringar, till exempel ändring av ett fälts datatyp, är inte tillåtet i indexet, men de flesta egenskaper och inställningar kan ändras. Du kan visa enskilda komponenter genom att klicka på panelerna **Index**, **Indexerare** eller **Datakällor** på instrumentpanelen för att visa en lista med befintliga objekt.
 
 Mer information om andra funktioner som anges i den här artikeln finns på dessa länkar:
@@ -139,14 +143,14 @@ Du kan prova med samma arbetsflöde och använda guiden Importera data för andr
 > 
 > 
 
-## Tillägg: Skapa exempeldata i DocumentDB
+## <a name="appendix-create-sample-data-in-documentdb"></a>Tillägg: Skapa exempeldata i DocumentDB
 Det här avsnittet beskriver hur du skapar en liten databas i DocumentDB som kan användas för att utföra åtgärderna i den här självstudiekursen.
 
 Följande anvisningar ger allmänna riktlinjer, men är inte en fullständig beskrivning. Om du behöver mer hjälp med navigera eller använda DocumentDB portal kan du läsa DocumentDB-dokumentationen, men de flesta kommandon som du behöver finns i tjänstkommandofältet överst i instrumentpanelen eller i databasbladet. 
 
   ![][1]
 
-### Skapa musicstoredb för den här självstudiekursen
+### <a name="create-musicstoredb-for-this-tutorial"></a>Skapa musicstoredb för den här självstudiekursen
 1. [Klicka här](https://github.com/HeidiSteen/azure-search-get-started-sample-data) för att ladda ned en ZIP-fil som innehåller JSON-datafilerna för musikarkivet. Vi tillhandahåller 246 JSON-dokument för den här datauppsättningen.
 2. Lägg till DocumentDB i din prenumeration och öppna instrumentpanelen för tjänsten.
 3. Klicka på **Lägg till databas** för att skapa en ny databas med ID:t `musicstoredb`. Den visas i databaspanelen längre ned på sidan efter att den har skapats.
@@ -177,6 +181,6 @@ Du bör få tillbaka JSON-utdata, som börjar med dokument 386 och slutar med 66
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

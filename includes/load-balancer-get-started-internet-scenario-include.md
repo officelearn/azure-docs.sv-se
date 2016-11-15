@@ -1,8 +1,12 @@
-The following tasks will be done in this scenario:
+Följande uppgifter utförs i det här scenariot:
 
-* Create a load balancer that receives network traffic on port 80 and send load-balanced traffic to virtual machines "web1" and "web2"
-* Create NAT rules for remote desktop access/SSH for virtual machines behind the load balancer
-* Create health probes
+* Skapa en belastningsutjämnare som tar emot nätverkstrafik på port 80 och skickar belastningsutjämnad trafik till virtuella datorerna "web1" och "web2"
+* Skapa NAT-regler för åtkomt till fjärrskrivbord/SSH för virtuella datorer bakom belastningsutjämnaren
+* Skapa hälsotillståndsavsökningar
 
-![Load balancer scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+![Belastningsutjämningsscenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+
+
+<!--HONumber=Nov16_HO2-->
+
 

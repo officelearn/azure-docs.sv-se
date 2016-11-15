@@ -1,13 +1,13 @@
 ---
-title: Dataöverföring i Azure Search med hjälp av .NET SDK | Microsoft Docs
-description: Lär dig hur du laddar upp data till ett index i Azure Search med .NET SDK.
+title: "Överföra data med Azure Search-index med hjälp av .NET SDK | Microsoft Docs"
+description: "Lär dig hur du laddar upp data till ett index i Azure Search med .NET SDK."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: brjohnstmsft
-manager: ''
-editor: ''
-tags: ''
-
+manager: jhubbard
+editor: 
+tags: 
+ms.assetid: 0e0e7e7b-7178-4c26-95c6-2fd1e8015aca
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -15,12 +15,16 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a63d71de584b526972ff86ba8cb47664e66e22da
+
 
 ---
-# Ladda upp data till Azure Search med hjälp av .NET SDK
+# <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Ladda upp data till Azure Search med hjälp av .NET SDK
 > [!div class="op_single_selector"]
 > * [Översikt](search-what-is-data-import.md)
-> * [.NET](search-import-data-dotnet.md)
+> * [NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
 > 
 > 
@@ -37,7 +41,7 @@ För att kunna skicka dokument till ditt index med .NET SDK måste du:
 2. Skapa en `IndexBatch` som innehåller dokumenten som ska läggas till, ändras eller tas bort.
 3. Anropa `Documents.Index`-metoden för din `SearchIndexClient` för att skicka `IndexBatch` till sökindexet.
 
-## I. Skapa en instans av klassen SearchIndexClient
+## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. Skapa en instans av klassen SearchIndexClient
 För att importera data till ditt index med Azure Search .NET SDK måste du skapa en instans av klassen `SearchIndexClient`. Du kan skapa den här instansen själv, men det är enklare om du redan har en `SearchServiceClient`-instans och kan anropa dess `Indexes.GetClient`-metod. Här är ett exempel på hur du hämtar en `SearchIndexClient` för indexet med namnet ”hotels” från en `SearchServiceClient` med namnet `serviceClient`:
 
 ```csharp
@@ -51,7 +55,7 @@ SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient` har en `Documents`-egenskap. Den här egenskapen tillhandahåller alla metoder som du behöver för att lägga till, ändra, ta bort eller fråga dokument i ditt index.
 
-## II. Bestäm vilken indexeringsåtgärd som du vill använda
+## <a name="ii-decide-which-indexing-action-to-use"></a>II. Bestäm vilken indexeringsåtgärd som du vill använda
 För att importera data med .NET SDK måste du paketera dessa data i ett `IndexBatch`-objekt. En `IndexBatch` kapslar in en samling `IndexAction`-objekt, som vart och ett innehåller ett dokument och en egenskap som meddelar Azure Search vilken åtgärd som ska utföras för dokumentet (ladda upp, sammanfoga, ta bort osv.). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
 
 | Åtgärd | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar |
@@ -63,7 +67,7 @@ För att importera data med .NET SDK måste du paketera dessa data i ett `IndexB
 
 Du kan ange vilken åtgärd du vill använda med de olika statiska metoderna för `IndexBatch`- och `IndexAction`-klasserna, som du ser i nästa avsnitt.
 
-## III. Skapa IndexBatch
+## <a name="iii-construct-your-indexbatch"></a>III. Skapa IndexBatch
 Nu när du vet vilka åtgärder som ska utföras på dina dokument är det dags att skapa `IndexBatch`. Exemplet nedan visar hur du skapar en batch med några olika åtgärder. Observera att vi i vårt exempel använder den anpassade klassen `Hotel` som mappar till ett dokument i indexet ”hotels”.
 
 ```csharp
@@ -119,14 +123,14 @@ I detta fall använder vi `Upload`, `MergeOrUpload` och `Delete` som våra sök�
 
 Anta att exempelindexet ”hotels” redan fyllts med ett antal dokument. Observera att vi inte behövde ange alla tillgängliga dokumentfält när vi använde `MergeOrUpload` och att vi bara angav dokumentnyckeln (`HotelId`) när vi använde `Delete`.
 
-Observera också att du bara kan ta med upp till 1 000 dokument i samma indexeringsbegäran.
+Observera också att du bara kan ta med upp till 1 000 dokument i samma indexeringsbegäran.
 
 > [!NOTE]
 > I det här exemplet använder vi åtgärder för olika dokument. Om du vill utföra samma åtgärder i alla dokument i batchen, i stället för att anropa `IndexBatch.New`, kan du använda de andra statiska metoderna för `IndexBatch`. Du kan till exempel skapa batchar genom att anropa `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` eller `IndexBatch.Delete`. Dessa metoder använder en samling dokument (objekt av typen `Hotel` i det här exemplet) i stället för `IndexAction`-objekt.
 > 
 > 
 
-## IV. Importera data till indexet
+## <a name="iv-import-data-to-the-index"></a>IV. Importera data till indexet
 Nu när du har ett initierat `IndexBatch`-objekt kan du skicka det till indexet genom att anropa `Documents.Index` för ditt `SearchIndexClient`-objekt. Följande exempel visar hur du anropar `Index`, samt några extra steg som du måste utföra:
 
 ```csharp
@@ -148,13 +152,13 @@ Console.WriteLine("Waiting for documents to be indexed...\n");
 Thread.Sleep(2000);
 ```
 
-Observera `try`/`catch` som omger anropet till `Index`-metoden. Catch-blocket hanterar en viktig felsituation som kan uppstå i samband med indexering. Om Azure Search-tjänsten inte kan indexera vissa av dokumenten i batchen skickas ett `IndexBatchException` av `Documents.Index`. Detta kan inträffa om du indexerar dokument när tjänsten är hårt belastad. **Vi rekommenderar starkt att du uttryckligen hanterar den här situationen i din kod.** Du kan fördröja och sedan försöka indexera dokumentet som misslyckades igen eller så kan du logga och fortsätta som i exemplet, eller göra något annat beroende på programmets krav på datakonsekvens.
+Observera den `try`/`catch` som omger anropet till `Index`-metoden. Catch-blocket hanterar en viktig felsituation som kan uppstå i samband med indexering. Om Azure Search-tjänsten inte kan indexera vissa av dokumenten i batchen skickas ett `IndexBatchException` av `Documents.Index`. Detta kan inträffa om du indexerar dokument när tjänsten är hårt belastad. **Vi rekommenderar starkt att du uttryckligen hanterar den här situationen i din kod.** Du kan fördröja och sedan försöka indexera dokumentet som misslyckades igen eller så kan du logga och fortsätta som i exemplet, eller göra något annat beroende på programmets krav på datakonsekvens.
 
 Koden i exemplet ovan skapar en fördröjning på två sekunder. Indexeringen sker asynkront i Azure Search-tjänsten, så exempelprogrammet måste vänta en kort stund för att kontrollera att dokumenten är tillgängliga för sökning. Fördröjningar som den här är normalt endast nödvändiga i demonstrationer, tester och exempelprogram.
 
 <a name="HotelClass"></a>
 
-### Hur .NET SDK hanterar dokument
+### <a name="how-the-net-sdk-handles-documents"></a>Hur .NET SDK hanterar dokument
 Du kanske undrar hur Azure Search .NET SDK kan ladda upp instanser av en användardefinierad klass som `Hotel` till indexet. För att besvara frågan ska vi titta på klassen `Hotel`, som mappar till indexeringsschemat som definieras i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md#DefineIndex):
 
 ```csharp
@@ -216,9 +220,12 @@ Detta är inte bara ett hypotetiskt problem. Tänk dig ett scenario där du läg
 
 Av den anledningen rekommenderar vi att du använder nullbara typer i dina modellklasser som bästa praxis.
 
-## Nästa
+## <a name="next"></a>Nästa
 När du har fyllt Azure Search-indexet kan du börja skicka frågor för att söka efter dokument. Mer information finns i [Fråga ditt Azure Search-index](search-query-overview.md).
 
-<!--HONumber=sep16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

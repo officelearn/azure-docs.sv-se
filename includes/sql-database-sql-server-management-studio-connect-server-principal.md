@@ -1,6 +1,6 @@
 
 
-## Anslut till Azure SQL-databasen med SQL Server-autentisering
+## <a name="connect-to-azure-sql-database-using-sql-server-authentication"></a>Anslut till Azure SQL-databasen med SQL Server-autentisering
 Följande steg visar hur du ansluter till en Azure SQL-server och -databas med SSMS. Om du inte har en server och databas, se [Skapa en SQL-databas på bara några minuter](../articles/sql-database/sql-database-get-started.md) för att skapa en.
 
 1. Starta SSMS genom att skriva **Microsoft SQL Server Management Studio** i Windows-sökrutan och klicka sedan på skrivbordsappen.
@@ -12,7 +12,7 @@ Följande steg visar hur du ansluter till en Azure SQL-server och -databas med S
    * **Användarnamn**: Ange namnet på en användare med åtkomst till en databas på servern (till exempel den *serveradministratör* du ställer in när du skapar servern). 
    * **Lösenord**: Ange lösenordet för den angivna användaren (till exempel det *lösenord* du ställer in när du skapar servern).
      
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
+       ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
 3. Klicka på **Anslut**.
 4. Som standard har nya servrar inga definierade [brandväggsregler](../articles/sql-database/sql-database-firewall-configure.md) så att klienter blockeras ursprungligen från att ansluta. Om servern ännu inte har en brandväggsregel som tillåter din specifika IP-adress att ansluta uppmanas SSMS att skapa en brandväggsregel på servernivå för dig.
    
@@ -23,7 +23,7 @@ Följande steg visar hur du ansluter till en Azure SQL-server och -databas med S
    
      ![ny brandvägg på servernivå](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
 
-## Felsök anslutningsfel
+## <a name="troubleshoot-connection-failures"></a>Felsök anslutningsfel
 De vanligaste orsakerna till anslutningsfel är fel i servernamnet och problem med nätverksanslutningen. Kom ihåg att <*servernamn*> är namnet på servern, inte på databasen, och du måste ange det fullständigt kvalificerade servernamnet: `<servername>.database.windows.net`
 
 Kontrollera att användarnamn och lösenord inte innehåller några skrivfel eller extra blanksteg (användarnamn är inte skiftlägeskänsliga, men lösenord). 
@@ -34,6 +34,8 @@ Problem med nätverksanslutningen kan även orsaka anslutningsfel och timeout. A
 
 Mer information om anslutningsproblem finns i [Felsök, diagnostisera och förebygg SQL-anslutningsfel och tillfälliga fel i SQL-databasen](../articles/sql-database/sql-database-connectivity-issues.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

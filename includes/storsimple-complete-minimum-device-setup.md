@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### Slutför den minimala StorSimple-enhetsinställningen
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Slutför den minimala StorSimple-enhetsinställningen
 1. På sidan **Enheter**, väljer du enheten, klicka på pilen mot enhetsnamnet för att gå till den specifika enhetens sida. 
    
     ![Enhetssida med enhet online](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
@@ -19,8 +19,7 @@
 4. Klicka på pilikonen. ![StorSimple-pilikonen](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 5. På sidan **Nätverksgränssnitt**, anger du den fasta IP-adressen för Styrenhet 0 och 1. Om DATA 0-gränssnittet har konfigurerats för IPv4, måste de fasta IP-adresserna anges i IPv4-format. Om du angav ett prefix för IPv6-konfigurationen, fylls de fasta IP-adresserna automatiskt in i fälten.
 
-    > [AZURE.NOTE] 
-    > 
+    > [!NOTE] 
     > - De styrenhets-fästa IP-adresserna måste vara fria IP-adresser i undernätet som är åtkomliga från enhetens IP-adress.
     > - De fasta IP-adresserna för styrenheten används för att underhålla uppdateringarna till enheten och därför måste de vara dirigerbara och kunna ansluta till Internet.
 
@@ -38,6 +37,8 @@
 
 Klicka [här](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/) för att se en video som visar hur man slutför den minimala enhetsinstallationen.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

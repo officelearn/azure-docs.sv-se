@@ -1,12 +1,12 @@
 ---
 title: Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server
-description: Det här dokumentet beskriver hur du kommer igång med Azure MFA Server och hur du uppgraderar från den äldre PhoneFactor-agenten.
+description: "Det här dokumentet beskriver hur du kommer igång med Azure MFA Server och hur du uppgraderar från den äldre PhoneFactor-agenten."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtland
-
+ms.assetid: 42838ff7-bdf2-4d06-bacc-b3839a00cd76
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1cd92121b150461698674b8acd4369d09c9b9920
+
 
 ---
-# Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server
+# <a name="upgrading-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server
 Uppgraderingen från PhoneFactor Agent v5.x eller äldre till Azure Multi-Factor Authentication Server kräver att PhoneFactor-agenten och tillhörande komponenter avinstalleras innan Multi-Factor Authentication Server och associerade komponenter kan installeras.
 
-## Så här uppgraderar du PhoneFactor Agent till Azure Multi-Factor Authentication Server
+## <a name="to-upgrade-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>Så här uppgraderar du PhoneFactor Agent till Azure Multi-Factor Authentication Server
 <ol>
 <li>Börja med att säkerhetskopiera PhoneFactor-datafilen. Standardinstallationsplatsen är C:\Program\PhoneFactor\Data\Phonefactor.pfdata.
 
@@ -66,6 +70,6 @@ Uppgraderingen från PhoneFactor Agent v5.x eller äldre till Azure Multi-Factor
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

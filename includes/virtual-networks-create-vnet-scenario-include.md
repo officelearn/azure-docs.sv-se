@@ -1,4 +1,4 @@
-## Scenario
+## <a name="scenario"></a>Scenario
 För att ge en bättre illustrering av hur man skapa VNet och undernät, använder det här dokumentet sig av scenariot nedan.
 
 ![VNet-scenario](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
@@ -8,6 +8,8 @@ I det här scenariot skapar du ett VNet med namnet **TestVNet** med det reserver
 * **FrontEnd**, som använder **192.168.1.0/24** som sitt CIDR-block.
 * **BackEnd**, som använder **192.168.2.0/24** som sitt CIDR-block.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

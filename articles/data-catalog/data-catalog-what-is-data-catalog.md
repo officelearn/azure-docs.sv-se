@@ -1,13 +1,13 @@
 ---
-title: Vad är Azure Data Catalog? | Microsoft Docs
-description: Den här artikeln innehåller en översikt över Microsoft Azure Data Catalog, inklusive funktioner och vilka problem den är tänkt att lösa. Data Catalog innehåller funktioner som gör att alla användare – från analytiker till datavetare och utvecklare – kan registrera, identifiera, förstå och använda datakällor.
+title: "Vad är Azure Data Catalog? | Microsoft Docs"
+description: "Den här artikeln innehåller en översikt över Microsoft Azure Data Catalog, inklusive funktioner och vilka problem den är tänkt att lösa. Data Catalog innehåller funktioner som gör att alla användare – från analytiker till datavetare och utvecklare – kan registrera, identifiera, förstå och använda datakällor."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: cc733907-17ec-4153-9f0c-5b3754b2db19
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/21/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97482bc365395e3d9218688bf38ded4a54bb556a
+
 
 ---
-# Vad är Azure Data Catalog?
+# <a name="what-is-azure-data-catalog"></a>Vad är Azure Data Catalog?
 Azure Data Catalog är en helt hanterad molntjänst som hjälper användarna att identifiera de datakällor de behöver och förstå datakällorna de identifierar, samtidigt som organisationerna får ut mer av sina befintliga investeringar. Data Catalog innehåller funktioner som gör att alla användare – från analytiker till datavetare och utvecklare – kan identifiera, förstå och använda datakällor. Data Catalog innehåller en gemensam modell för metadata och kommentarer så att alla användare kan bidra med sina kunskaper för att skapa en databaserad gemenskap och kultur.
 
-## Det är svårt för datakonsumenterna att hitta rätt
+## <a name="discovery-challenges-for-data-consumers"></a>Det är svårt för datakonsumenterna att hitta rätt
 Traditionellt har man identifierat företagets datakällor genom en organisk process baserad på gruppens kunskaper. Detta medför stora utmaningar för företag som vill få ut största möjliga värde av sina informationstillgångar.
 
 * Användarna känner inte till att datakällorna finns om de inte stöter på dem som en del i en annan process. Det finns ingen central plats där datakällorna registreras.
@@ -29,7 +33,7 @@ Traditionellt har man identifierat företagets datakällor genom en organisk pro
 * Om en användare har frågor om en informationstillgång måste han eller hon leta rätt på experten eller teamet som ansvarar för den och kontakta dem öga mot öga. Det finns ingen uttrycklig koppling mellan data och personer med expertkunskaper om hur de används.
 * Om en användare inte känner till hur man begär åtkomst till datakällan, kan användaren inte komma åt de data som behövs trots att han eller hon har identifierat datakällan och dess dokumentation.
 
-## Det är svårt för dataproducenterna att hitta rätt
+## <a name="discovery-challenges-for-data-producers"></a>Det är svårt för dataproducenterna att hitta rätt
 Datakonsumenterna står inför vissa svårigheter, medan användarna som ansvarar för att producera och upprätthålla informationstillgångar står inför andra svårigheter.
 
 * Det är ofta en onödig ansträngning att kommentera datakällor med beskrivande metadata, eftersom klientprogram vanligen ignorerar beskrivningar som lagrats i datakällan.
@@ -40,7 +44,7 @@ Det är komplicerat och tidskrävande att skapa och upprätthålla dokumentation
 
 I kombination utgör dessa svårigheter ett stort hinder för företag som vill uppmuntra och främja användning och förståelse av företagsdata.
 
-## Azure Data Catalog kan hjälpa dig
+## <a name="azure-data-catalog-can-help"></a>Azure Data Catalog kan hjälpa dig
 Data Catalog är utformad för att åtgärda dessa problem och hjälpa företagen att få ut så mycket som möjligt av sina befintliga informationstillgångar. Data Catalog underlättar genom att göra det enkelt för användare som behöver data att identifiera och förstå datakällorna.
 
 Data Catalog är en molnbaserad tjänst där du kan registrera datakällor. Dina data blir kvar där du har dem, men en kopia av deras metadata läggs till i Data Catalog tillsammans med en referens till platsen där datakällan finns. Dessa metadata indexeras också för att det ska bli enkelt att identifiera alla datakällor och för att användare som identifierar dem ska förstå dem.
@@ -51,24 +55,27 @@ Huvudsyftet med registrering av källorna är att identifiera och förstå datak
 
 ![Funktioner i Data Catalog](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-## Kom igång med Data Catalog
+## <a name="get-started-with-data-catalog"></a>Kom igång med Data Catalog
 Kom igång med Data Catalog idag genom att besöka [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
 En kom igång-guide finns [här](data-catalog-get-started.md).
 
-## Mer information om Data Catalog
+## <a name="learn-more-about-data-catalog"></a>Mer information om Data Catalog
 Här finns mer information om funktionerna i Data Catalog:
 
 * [Så här registrerar du datakällor](data-catalog-how-to-register.md)
-* [Så här identifierar du datakällor](data-catalog-how-to-discover.md)
-* [Så här kommenterar du datakällor](data-catalog-how-to-annotate.md)
+* [Så här upptäcker du datakällor](data-catalog-how-to-discover.md)
+* [Så här skapar du anteckningar om datakällor](data-catalog-how-to-annotate.md)
 * [Så här dokumenterar du datakällor](data-catalog-how-to-documentation.md)
-* [Så här ansluter du till datakällor](data-catalog-how-to-connect.md)
+* [Så här skapar ansluter du till datakällor](data-catalog-how-to-connect.md)
 * [Så här arbetar du med stordata](data-catalog-how-to-big-data.md)
-* [Så här hanterar du datatillgångar](data-catalog-how-to-manage.md)
+* [Hantera datatillgångar](data-catalog-how-to-manage.md)
 * [Så här konfigurerar du företagsordlistan](data-catalog-how-to-business-glossary.md)
 * [Vanliga frågor och svar](data-catalog-frequently-asked-questions.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

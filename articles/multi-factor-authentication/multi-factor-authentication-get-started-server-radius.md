@@ -1,12 +1,12 @@
 ---
 title: RADIUS-autentisering och Azure Multi-Factor Authentication Server
-description: Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera RADIUS-autentisering och Azure Multi-Factor Authentication Server.
+description: "Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera RADIUS-autentisering och Azure Multi-Factor Authentication Server."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: f4ba0fb2-2be9-477e-9bea-04c7340c8bce
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e031f196e2f86b887c24ba300eac7ab8a8902036
+
 
 ---
-# RADIUS-autentisering och Azure Multi-Factor Authentication Server
+# <a name="radius-authentication-and-azure-multifactor-authentication-server"></a>RADIUS-autentisering och Azure Multi-Factor Authentication Server
 I avsnittet RADIUS-autentisering kan du aktivera och konfigurera RADIUS-autentisering för Azure Multi-Factor Authentication Server. RADIUS är ett standardprotokoll för att acceptera autentiseringsförfrågningar och för att bearbeta dessa. Azure Multi-Factor Authentication Server fungerar som en RADIUS-server och placeras mellan RADIUS-klienten (t.ex. VPN-enhet) och autentiseringsmålet, som kan vara Active Directory (AD), en LDAP-katalog eller en annan RADIUS-server, för att lägga till Azure Multi-Factor Authentication. För att Azure Multi-Factor Authentication ska fungera måste du konfigurera Azure Multi-Factor Authentication Server så att den kan kommunicera med både klientservrarna och autentiseringsmålet. Azure Multi-Factor Authentication Server tar emot förfrågningar från en RADIUS-klient, validerar autentiseringsuppgifter mot autentiseringsmålet, lägger till Azure Multi-Factor Authentication och skickar tillbaka ett svar till RADIUS-klienten. Hela autentiseringen lyckas bara om både den primär autentiseringen och Azure Multi-Factor Authentication lyckas.
 
 > [!NOTE]
@@ -28,7 +32,7 @@ I avsnittet RADIUS-autentisering kan du aktivera och konfigurera RADIUS-autentis
 
 ![RADIUS-autentisering](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-## Konfiguration av RADIUS-autentisering
+## <a name="radius-authentication-configuration"></a>Konfiguration av RADIUS-autentisering
 Om du vill konfigurera RADIUS-autentisering installerar du Azure Multi-Factor Authentication Server på en Windows-server. Om du har en Active Directory-miljö ansluter du servern till domänen i nätverket. Konfigurera Azure Multi-Factor Authentication Server genom att följa dessa steg:
 
 1. Klicka på ikonen för RADIUS-autentisering på den vänstra menyn i Azure Multi-Factor Authentication Server.
@@ -50,13 +54,16 @@ Om du vill konfigurera RADIUS-autentisering installerar du Azure Multi-Factor Au
 17. Du måste lägga till Azure Multi-Factor Authentication Server som en RADIUS-klient på den andra RADIUS-servern så att den bearbetar åtkomstförfrågningar som skickats till den från Azure Multi-Factor Authentication Server. Du måste använda samma delade hemlighet som konfigurerats i Azure Multi-Factor Authentication Server.
 18. Du kan upprepa det här steget om du vill lägga till fler RADIUS-servrar och konfigurera ordningen som servern ska anropa dem med knapparna Flytta upp och Flytta ned. Nu är Azure Multi-Factor Authentication Server-konfigurationen klar. Nu lyssnar servern på de konfigurerade portarna för RADIUS-åtkomstförfrågningar från de konfigurerade klienterna.   
 
-## RADIUS-klientkonfiguration
+## <a name="radius-client-configuration"></a>RADIUS-klientkonfiguration
 Följ dessa riktlinjer när du konfigurerar RADIUS-klienten:
 
 * Konfigurera enheten/servern att autentisera via RADIUS till Azure Multi-Factor Authentication-serverns IP-adress, som fungerar som RADIUS-servern.
 * Använd samma delade hemlighet som du konfigurerade ovan.
 * Konfigurera RADIUS-serverns timeout-värde till mellan 30 och 60 sekunder så att det finns tid att verifiera användarens autentiseringsuppgifter, utföra Multi-Factor Authentication och sedan svara på RADIUS-åtkomstbegäran.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

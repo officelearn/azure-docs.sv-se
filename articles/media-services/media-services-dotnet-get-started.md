@@ -1,22 +1,26 @@
 ---
-title: Komma igång med att leverera innehåll på begäran med hjälp av .NET | Microsoft Docs
-description: Dessa självstudier vägleder dig genom stegen för implementera ett program med leverans av innehåll på begäran med Azure Media Services genom att använda .NET.
+title: "Kom igång med att leverera innehåll på begäran med hjälp av .NET | Microsoft Docs"
+description: "Dessa självstudier vägleder dig genom stegen för implementera ett program med leverans av innehåll på begäran med Azure Media Services genom att använda .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/11/2016
+ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
+
 
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-.net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK
+# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
@@ -29,7 +33,7 @@ Den här självstudiekursen vägleder dig genom stegen för att implementera ett
 
 Självstudierna innehåller det grundläggande Media Services-arbetsflödet och de vanligaste programmeringsobjekt och -uppgifter som krävs för utveckling av Media Services. I slutet av självstudierna kommer du att kunna strömma eller progressivt hämta en exempelmediefil som du har överfört, kodat och hämtat.
 
-## <a name="what-you'll-learn"></a>Detta får du får lära dig
+## <a name="what-youll-learn"></a>Detta får du får lära dig
 Självstudien visar hur du utför följande uppgifter:
 
 1. Skapar ett Media Services-konto (med Azure-portalen).
@@ -67,7 +71,7 @@ Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
    
    1. Ange namnet på det nya AMS-kontot vid **Kontonamn**. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.
    2. Vid Prenumeration väljer du mellan de olika Azure-prenumerationer som du har åtkomst till.
-   3. I **Resursgrupp** väljer du ny eller befintlig resurs.  En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Lär dig mer [här](../resource-group-overview.md#resource-groups).
+   3. I **Resursgrupp** väljer du ny eller befintlig resurs.  En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Lär dig mer [här](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. För **Plats** väljer du den geografiska region som ska användas för att lagra media och metadataposter för ditt Media Services-konto. Den här regionen används för att bearbeta och strömma dina media. Endast de tillgängliga Media Services-regionerna visas i listrutan. 
    5. Vid **Storage-konto** väljer du ett lagringskonto för att tillhandahålla Blob Storage av medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett lagringskonto. Ett nytt lagringskonto skapas i samma region. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
       
@@ -113,7 +117,7 @@ Om du vill skapa och ändra antalet reserverade enheter för strömning gör du 
 1. Skapa ett nytt C#-konsolprogram i Visual Studio 2013, Visual Studio 2012 eller Visual Studio 2010 SP1. Ange **namn**, **plats** och **lösningsnamn**. Klicka sedan på **OK**.
 2. Använd NuGet-paketet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) för att installera **Azure Media Services .NET SDK-tilläggen**.  Media Services .NET SDK-tilläggen är en uppsättning tilläggsmetoder och hjälpfunktioner som förenklar koden och gör det enklare att utveckla med Media Services. När du installerar det här paketet installeras även **Media Services .NET SDK** och lägger till alla andra nödvändiga beroenden.
 3. Lägg till en referens i sammansättningen System.Configuration. Den här sammansättningen innehåller klassen **System.Configuration.ConfigurationManager** som används för att komma åt konfigurationsfiler, till exempel App.config.
-4. Öppna filen App.config (lägg till filen i projektet om den inte har lagts till som standard) och lägg till ett *appSettings*-avsnitt i den. Ange värden för kontonamnet och kontonyckeln i Azure Media Services, vilket visas i följande exempel. Hämta kontonamnet och viktig information genom att öppna den klassiska Azure-portalen. Välj Media Services-kontot och klicka på knappen **HANTERA NYCKLAR**.
+4. Öppna filen App.config (lägg till filen i projektet om den inte har lagts till som standard) och lägg till ett *appSettings*-avsnitt i den. Ange värden för kontonamnet och kontonyckeln i Azure Media Services, vilket visas i följande exempel. Hämta kontonamn och viktig information genom att gå till [Azure-portalen](https://portal.azure.com/) och välja AMS-kontot. Välj sedan **Inställningar** > **Nycklar**. I fönstret Hantera nycklar visas kontonamnet och de primära och sekundära nycklarna.
    
         <configuration>
         ...
@@ -225,7 +229,7 @@ Lägg till följande metod i programklassen.
     }
 
 
-## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet
+## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet 
 När du har fört in tillgångar i Media Services kan media kodas, användas med transmux, förses med vattenstämpel och så vidare innan de skickas till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. De här aktiviteterna kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i tillgångsfilen.
 
 Som tidigare nämnts är ett mycket vanligt scenario när du arbetar med Azure Media Services att du levererar strömning med anpassningsbar bithastighet till klienterna. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime/Acess-licenstagare).
@@ -408,13 +412,13 @@ Strömma videon med hjälp av [Azure Media Services Player](http://amsplayer.azu
 
 Testa den progressiva nedladdningen genom att klistra in en URL i en webbläsare (till exempel Internet Explorer, Chrome eller Safari).
 
-## <a name="next-steps:-media-services-learning-paths"></a>Nästa steg: sökvägar för Media Services-utbildning
+## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else?"></a>Letar du efter något annat?
+### <a name="looking-for-something-else"></a>Letar du efter något annat?
 Om det här ämnet inte innehöll vad du förväntades dig, om det saknar något, eller om det på annat sätt inte uppfyllde dina behov, kan du ge oss feedback i Disqus-tråden nedan.
 
 <!-- Anchors. -->
@@ -426,6 +430,6 @@ Om det här ämnet inte innehöll vad du förväntades dig, om det saknar något
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

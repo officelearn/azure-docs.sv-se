@@ -1,6 +1,6 @@
 
 
-## Ge den nya databasanvändaren db_owner-behörigheter
+## <a name="grant-new-database-user-dbowner-permissions"></a>Ge den nya databasanvändaren db_owner-behörigheter
 Använd följande steg för att ge en befintlig databasanvändare db_owner-behörigheter
 
 De här stegen förutsätter att du är ansluten till SQL Database i Object Explorer i SSMS och är ansluten till din logiska SQL Database-server som en huvudsaklig administratör på servernivå eller med ett användarkonto med behörigheter att ge användarbehörigheter. 
@@ -18,6 +18,8 @@ De här stegen förutsätter att du är ansluten till SQL Database i Object Expl
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Lista över Microsoft-hanterade anslutningsappar för användning i logikappar i Microsoft Azure | Microsoft Docs
-description: Hämta en fullständig lista över de Microsoft-hanterade anslutningar som du kan använda för att skapa logikappar i Azure Apptjänst
+title: "Lista över Microsoft-hanterade anslutningar för användning i logikappar i Microsoft Azure | Microsoft Docs"
+description: "Hämta en fullständig lista över de Microsoft-hanterade anslutningar som du kan använda för att skapa logikappar i Azure Apptjänst"
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MSFTMAN
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -15,16 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
+
 
 ---
-# Lista över anslutningsappar
+# <a name="list-of-connectors"></a>Lista över anslutningsappar
 Markera en anslutningsapp för att lära dig hur du skapar arbetsflöden snabbt.
 
-## Anslutningsappar av standardtyp
+## <a name="standard-connectors"></a>Anslutningsappar av standardtyp
 | Anslutningar |  |  |  |
 | --- | --- | --- | --- |
 | [![API Icon][API/Web-Appicon]<br/>**API/Web App**][API/Web-Appdoc] |[![API Icon][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc] |[![API Icon][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc] |[![API Icon][Boxicon]<br/>**Box**][Boxdoc] |
-| [! [API ikonen][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc] |[![API Icon][DB2icon]<br/>**DB2**][db2doc] |[![API Icon][Delayicon]<br/>**Delay**][Delaydoc] |[![API Icon][Dropboxicon]<br/>**Dropbox**][Dropboxdoc] |
+| [! [API ikonen] [CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc] |[![API Icon][DB2icon]<br/>**DB2**][db2doc] |[![API Icon][Delayicon]<br/>**Delay**][Delaydoc] |[![API Icon][Dropboxicon]<br/>**Dropbox**][Dropboxdoc] |
 | [![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc] |[![API Icon][FTPicon]<br/>**FTP**][FTPdoc] |[![API Icon][GitHubicon]<br/>**GitHub**][GitHubdoc] |[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc] |
 | ![API-ikon][Google-Sheetsicon]<br/>**Google-blad** |![API-ikon][Google-Tasksicon]<br/>**Google-uppgifter** |![API-ikon][Google~Calendaricon]<br/>**Google<br/>-kalender** |[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc] |
 | [![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc] |[![API Icon][HTTP~Requesticon]<br/>**HTTP<br/>Request**][HTTP~Requestdoc] |[![API Icon][HTTP~Responseicon]<br/>**HTTP<br/>Response**][HTTP~Responsedoc] |[![API Icon][Informixicon]<br/>**Informix**][informixdoc] |
@@ -42,7 +46,7 @@ Markera en anslutningsapp för att lära dig hur du skapar arbetsflöden snabbt.
 > 
 > 
 
-## Enterprise-integrationspaket-anslutningsappar (EIP)
+## <a name="enterprise-integration-pack-eip-connectors"></a>Enterprise-integrationspaket-anslutningsappar (EIP)
 Använd EIP-anslutningsappar för att skapa logikappar för B2B-scenarier som inkluderar EAI och EDI.  
 
 | EIP-anslutningsappar |  |  |  |
@@ -52,7 +56,7 @@ Använd EIP-anslutningsappar för att skapa logikappar för B2B-scenarier som in
 | [![API Icon][x12icon]<br/>**EDIFACT</br>decode**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br>encode**][EDIFACTencode] | | |
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
-### Anslutningar kan vara utlösare
+### <a name="connectors-can-be-triggers"></a>Anslutningar kan vara utlösare
 Flera anslutningar innehåller utlösare som kan meddela din app när specifika händelser äger rum. FTP-anslutningen innehåller till exempel utlösaren OnUpdatedFile . Du kan skapa antingen en logikapp, en PowerApp eller ett flöde som lyssnar av utlösaren och vidtar en åtgärd när utlösaren aktiveras.
 
 Det finns två typer av utlösare:  
@@ -60,10 +64,10 @@ Det finns två typer av utlösare:
 * Sökningsutlösare: Dessa utlösare avsöker din tjänst med en frekvens som är angiven för att söka efter nya data. När det finns nya data körs en ny instans av din app med dessa data som indata. För att förhindra att samma data används flera gånger kan utlösaren rensa data som har lästs in och skickats till appen.
 * Push-utlösare: de här utlösarna lyssnar efter data på en slutpunkt eller efter att en händelse ska inträffa och utlöser därefter en ny instans av din app. Twitter-anslutningen är ett exempel på en sådan.
 
-### Anslutningar kan vara åtgärder
+### <a name="connectors-can-be-actions"></a>Anslutningar kan vara åtgärder
 Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är användbara för att söka efter data som sedan kan användas då appen körs. Du kan till exempel behöva söka efter kunddata från en SQL-databas vid bearbetningen av en order. Eller så kan du behöva skriva, uppdatera eller ta bort data i en destinationstabell. Du kan göra detta med de åtgärder som tillhandahålls av anslutningarna. Åtgärder mappar till åtgärder som har definierats i Swagger-metadata.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Skapa en logikapp redan nu](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 * [Skapa en anpassad anslutningsapp](../app-service-logic/app-service-logic-create-api-app.md)
 * [Övervaka dina logikappar](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
@@ -102,7 +106,6 @@ Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är an
 [twitterdoc]: ./connectors-create-api-twitter.md "Ansluter till Twitter och hämtar tidslinjer, skickar tweets och mycket annat."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Synkronisera din vardag."
 a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka meddelanden och hämta nya meddelanden."
-
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Läs mer om företagsintegrering, AS2"
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Läs mer om företagsintegrering, X12"
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Läs mer om företagsintegrering, flat fil"
@@ -197,6 +200,6 @@ a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka m
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

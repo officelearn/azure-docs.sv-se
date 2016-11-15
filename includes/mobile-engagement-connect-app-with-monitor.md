@@ -9,6 +9,8 @@ Det här avsnittet visar hur du ansluter din app till Mobile Engagement-serverde
    
      ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!--HONumber=sep16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

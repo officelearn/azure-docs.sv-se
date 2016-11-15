@@ -1,14 +1,14 @@
 ---
-title: Belastningsutjämna behållare i ett Azure Container Service-kluster | Microsoft Docs
-description: Belastningsutjämna mellan flera behållare i ett Azure Container Service-kluster.
+title: "Belastningsutjämna behållare i ett Azure Container Service-kluster | Microsoft Docs"
+description: "Belastningsutjämna mellan flera behållare i ett Azure Container Service-kluster."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Behållare, Micro-tjänster, DC/OS, Azure
-
+keywords: "Behållare, Micro-tjänster, DC/OS, Azure"
+ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Belastningsutjämna behållare i ett Azure Container Service-kluster
@@ -35,14 +39,14 @@ Marathon Load Balancer konfigurerar om sig själv dynamiskt baserat på de behå
 
 Du kan installera Marathon Load Balancer antingen via DC/OS-webbgränssnittet eller från kommandoraden.
 
-### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Installera Marathon-LB med hjälp av DC/OS-webbgränssnittet
+### <a name="install-marathonlb-using-dcos-web-ui"></a>Installera Marathon-LB med hjälp av DC/OS-webbgränssnittet
 1. Klicka på ”Universe”.
 2. Sök efter ”Marathon LB”.
 3. Klicka på ”Installera”.
 
 ![Installera marathon-lb via webbgränssnittet för DC/OS](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Installera Marathon-LB via kommandoradsgränssnittet för DC/OS
+### <a name="install-marathonlb-using-the-dcos-cli"></a>Installera Marathon-LB via kommandoradsgränssnittet för DC/OS
 När du har installerat DC/OS CLI och bekräftat att du kan ansluta till klustret kör du följande kommando från klientdatorn:
 
 ```bash
@@ -97,13 +101,13 @@ Nu när vi har marathon-lb-paketet kan vi distribuera en programbehållare som v
 
 Det är värt att notera att standard-Marathon distribueras till det privata klustret. Det innebär att ovanstående distribution endast nås via en belastningsutjämnare, vilket vanligtvis är det beteende som vi vill ha.
 
-### <a name="deploy-using-the-dc/os-web-ui"></a>Distribuera med hjälp av webbgränssnittet för DC/OS
+### <a name="deploy-using-the-dcos-web-ui"></a>Distribuera med hjälp av webbgränssnittet för DC/OS
 1. Gå till Marathon-sidan på http://localhost/marathon (efter att du konfigurerat din [SSH-tunnel](container-service-connect.md) och klicka på `Create Appliction`
 2. Klicka på `JSON Mode` längst upp till höger i dialogrutan `New Application`
 3. Klistra in ovanstående JSON i redigeraren
 4. Klicka på `Create Appliction`
 
-### <a name="deploy-using-the-dc/os-cli"></a>Distribuera via kommandoradsgränssnittet för DC/OS
+### <a name="deploy-using-the-dcos-cli"></a>Distribuera via kommandoradsgränssnittet för DC/OS
 Om du vill distribuera det här programmet med kommandoradsgränssnittet för DC/OS kopierar du bara ovanstående JSON till en fil med namnet `hello-web.json` och kör:
 
 ```bash
@@ -129,6 +133,9 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 ## <a name="next-steps"></a>Nästa steg
 Mer information om [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/) finns i DC/OS-dokumentationen.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

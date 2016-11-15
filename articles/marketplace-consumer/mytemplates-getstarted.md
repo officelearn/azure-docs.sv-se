@@ -1,14 +1,14 @@
 ---
-title: Kom igång med privata mallar | Microsoft Docs
-description: Lägg till, hantera och dela dina privata mallar med hjälp av Azure-portalen, Azure CLI eller PowerShell.
+title: "Kom igång med privata mallar | Microsoft Docs"
+description: "Lägg till, hantera och dela dina privata mallar med hjälp av Azure-portalen, Azure CLI eller PowerShell."
 services: marketplace-customer
-documentationcenter: ''
+documentationcenter: 
 author: VybavaRamadoss
 manager: asimm
-editor: ''
+editor: 
 tags: marketplace, azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: 6ec20778-b578-4885-acb5-104b0e51ea1a
 ms.service: marketplace
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,16 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cada217a967597ecb44d84c469367157c7bc785e
+
 
 ---
-# Kom igång med privata mallar på Azure Portal
+# <a name="get-started-with-private-templates-on-the-azure-portal"></a>Kom igång med privata mallar på Azure Portal
 Mallen [Azure Resource Manager](../resource-group-authoring-templates.md) är en deklarativ mall som används för att definiera distributionen. Du kan definiera vilka resurser som ska distribueras för en lösning och ange parametrar och variabler som gör att du kan ange värden för olika miljöer. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution.
 
 Du kan använda den nya funktionen **Mallar** i [Azure Portal](https://portal.azure.com) tillsammans med resursprovidern **Microsoft.Gallery** som ett tillägg för [Azure Marketplace](https://azure.microsoft.com/marketplace/) för att låta användare skapa, hantera och distribuera privata mallar från personliga bibliotek.
 
 Det här dokumentet vägleder dig genom att lägga till, hantera och dela en privat **Mall** med hjälp av Azure Portal.
 
-## Riktlinjer
+## <a name="guidance"></a>Riktlinjer
 Följande rekommendationer hjälper dig att dra full nytta av **Mallar** när du arbetar med dina lösningar.
 
 * En **Mall** är en inkapslande resurs som innehåller en Resource Manager-mall och ytterligare metadata. Den fungerar väldigt likt ett objekt i Marketplace. Den viktigaste skillnaden är att det är ett privat objektet i stället för de offentliga Marketplace-objekten.
@@ -35,10 +39,10 @@ Följande rekommendationer hjälper dig att dra full nytta av **Mallar** när du
 * **Mallar** är knutna till den användare som publicerar dem. Utgivarens namn är synligt för alla som har läsbehörighet till den.
 * **Mallar** är Resource Manager-resurser och det går inte att byta namn på dem efter att de publicerats.
 
-## Lägg till en mallresurs
+## <a name="add-a-template-resource"></a>Lägg till en mallresurs
 Det finns två sätt att skapa en **Mall**-resurs i Azure-portalen.
 
-### Metod 1: Skapa en ny mallresurs från en resursgrupp som körs
+### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>Metod 1: Skapa en ny mallresurs från en resursgrupp som körs
 1. Navigera till en befintlig resursgrupp i Azure-portalen. Välj **Exportera mall** i **Inställningar**.
 2. När Resource Manager-mallen för filserverresurser exporteras, kan du använda **Spara mall** för att spara den till **Mallar**-lagringsplatsen. Hitta komplett information för att Exportera mall [här](../resource-manager-export-template.md).
    <br /><br />
@@ -58,7 +62,7 @@ Det finns två sätt att skapa en **Mall**-resurs i Azure-portalen.
    > 
    > 
 
-### B. Metod 2: Lägg till en ny Mall-resurs från bläddra
+### <a name="b-method-2-add-a-new-template-resource-from-browse"></a>B. Metod 2: Lägg till en ny Mall-resurs från bläddra
 Du kan också lägga till en ny **Mall** direkt genom att använda kommandoknappen +Lägg till i **Bläddra > Mallar**. Du måste ange ett namn, en beskrivning och Resource Manager-mallens JSON.
 
 ![Lägg till mall](media/add-template-portal1.PNG)  <br />
@@ -68,7 +72,7 @@ Du kan också lägga till en ny **Mall** direkt genom att använda kommandoknapp
 > 
 > 
 
-## Visa mallresurser
+## <a name="view-template-resources"></a>Visa mallresurser
 Alla tillgängliga **mallar** syns under **Bläddra > Mallar**. Detta omfattar de **mallar** du har skapat samt de som har delats med dig med olika behörighetsnivåer. Mer information finns i avsnittet [åtkomstkontroll](#access-control-for-a-tenant-resource-provider) nedan.
 
 ![Visa mall](media/view-template-portal1.PNG)  <br />
@@ -77,7 +81,7 @@ Du kan visa information om en **mall** genom att klicka på ett objekt i listan.
 
 ![Visa mall](media/view-template-portal2c.png)  <br />
 
-## Redigera en mallresurs
+## <a name="edit-a-template-resource"></a>Redigera en mallresurs
 Du kan börja att redigera flödet för en **mall** genom att högerklicka på objektet i listan eller genom att välja kommandoknappen Redigera.
 
 ![Redigera mall](media/edit-template-portal1a.PNG)  <br />
@@ -90,15 +94,15 @@ Då **mallen** sparats visas ett meddelande om bekräftelse.
 
 ![Redigera mall](media/edit-template-portal3b.png)  <br />
 
-## Distribuera en mallresurs
+## <a name="deploy-a-template-resource"></a>Distribuera en mallresurs
 Du kan distribuera alla **mallar** som du har **läs**behörigheter på. Distributionsflödet startar standard-Azure-mallens distributionsblad. Fyll i värden för Resource Manager-mallens parametrar för att fortsätta med distributionen.
 
 ![Distribuera mallen](media/deploy-template-portal1b.png)  <br />
 
-## Dela en mallresurs
+## <a name="share-a-template-resource"></a>Dela en mallresurs
 En **mall**resurs kan delas med kollegor. Delning fungerar på samma sätt som [rolltilldelning för en resurs på Azure](../active-directory/role-based-access-control-configure.md). Ägaren till **mallen** ger behörigheter till andra användare som kan interagera med en mallresurs. Personen eller gruppen av människor som du delar **mallen** med kommer att kunna se Resource Manager-mallen och dess egenskaper.
 
-### Åtkomstkontroll för Microsoft.Gallery-resurser
+### <a name="access-control-for-the-microsoftgallery-resources"></a>Åtkomstkontroll för Microsoft.Gallery-resurser
 | Roll | Behörigheter |
 | --- | --- |
 | Ägare |Tillåter fullständig behörighet för mallresursen inklusive delning |
@@ -124,11 +128,14 @@ Klicka på **Välj** och **Ok**. Du kan nu se användare eller grupper som du la
 > 
 > 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Läs om hur du skapar Resource Manager-mallar i [Webbsidemallar](../resource-group-authoring-templates.md)
 * Information om de funktioner som du kan använda i en Resource Manager-mall finns i [Mallfunktioner](../resource-group-template-functions.md)
 * Anvisningar om hur du skapar mallar finns [Metodtips för att utforma Azure Resource Manager-mallar](../best-practices-resource-manager-design-templates.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

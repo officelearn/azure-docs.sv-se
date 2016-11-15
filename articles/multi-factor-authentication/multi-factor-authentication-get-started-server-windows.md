@@ -1,12 +1,12 @@
 ---
 title: Windows-autentisering och Azure Multi-Factor Authentication Server
-description: Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera Windows-autentisering och Azure Multi-Factor Authentication Server.
+description: "Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera Windows-autentisering och Azure Multi-Factor Authentication Server."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1952e103c574f83c2c6285e32c59144816749348
+
 
 ---
-# Windows-autentisering och Azure Multi-Factor Authentication Server
+# <a name="windows-authentication-and-azure-multifactor-authentication-server"></a>Windows-autentisering och Azure Multi-Factor Authentication Server
 I avsnittet Windows-autentisering kan administratören aktivera och konfigurera Windows-autentisering för ett eller flera program.  Listan nedan innehåller saker som du bör tänka på innan du konfigurerar Windows-autentisering.
 
 * En omstart krävs innan Azure Multi-Factor Authentication för Terminal Services börjar gälla.
@@ -28,7 +32,7 @@ I avsnittet Windows-autentisering kan administratören aktivera och konfigurera 
 > 
 > 
 
-## Följ stegen nedan om du vill skydda ett program med Windows-autentisering.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Följ stegen nedan om du vill skydda ett program med Windows-autentisering.
 1. Klicka på ikonen för Windows-autentisering i Azure Multi-Factor Authentication Server.
    ![Windows-autentisering](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Markera kryssrutan Aktivera Windows-autentisering. Den här rutan är avmarkerad som standard.
@@ -42,6 +46,9 @@ I avsnittet Windows-autentisering kan administratören aktivera och konfigurera 
 10. Välj Undernät om du vill ange ett intervall med IP-adresser med hjälp av undernätsnotation. Ange undernätets start-IP och välj lämplig nätmask i listrutan.
 11. Klicka på OK.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

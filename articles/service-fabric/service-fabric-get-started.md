@@ -1,22 +1,26 @@
 ---
-title: Konfigurera utvecklingsmiljön | Microsoft Docs
-description: Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program.
+title: "Konfigurera utvecklingsmiljön | Microsoft Docs"
+description: "Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/13/2016
+ms.date: 10/26/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ae0fcc689d51479a92c506ea48ab8af2003acfe
+
 
 ---
-# Förbereda utvecklingsmiljön
+# <a name="prepare-your-development-environment"></a>Förbereda utvecklingsmiljön
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,8 +31,8 @@ ms.author: ryanwi
 
  För att kunna skapa och köra [Azure Service Fabric-program][1] på en utvecklingsdator ska du installera runtime, SDK och verktyg. Du måste även aktivera körning av Windows PowerShell-skript som ingår i SDK.
 
-## Krav
-### Operativsystemversioner som stöds
+## <a name="prerequisites"></a>Krav
+### <a name="supported-operating-system-versions"></a>Operativsystemversioner som stöds
 Följande operativsystemversioner stöds för utveckling:
 
 * Windows 7
@@ -41,20 +45,20 @@ Följande operativsystemversioner stöds för utveckling:
 > 
 > 
 
-## Installera runtime, SDK och verktyg
+## <a name="install-the-runtime-sdk-and-tools"></a>Installera runtime, SDK och verktyg
 Web Platform Installer tillhandahåller två konfigurationer för Service Fabric-utveckling:
 
 * [Installera runtime och SDK för Service Fabric samt verktyg för Visual Studio 2015 (kräver Visual Studio 2015 Uppdatering 2 eller senare)][full-bundle-vs2015]
 * [Installera endast runtime och SDK för Service Fabric (inga Visual Studio-verktyg)][core-sdk]
 
-## Aktivera körning av PowerShell-skript
+## <a name="enable-powershell-script-execution"></a>Aktivera körning av PowerShell-skript
 Service Fabric använder Windows PowerShell-skript för att skapa ett lokalt utvecklingskluster och för att distribuera program från Visual Studio. Som standard blockerar Windows dessa skript så att de inte kan köras. För att aktivera dem måste du ändra PowerShell-körningsprincipen. Öppna PowerShell som administratör och ange följande kommando:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra program.
 
 * [Skapa ditt första Service Fabric-program i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -73,6 +77,6 @@ Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra pro
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

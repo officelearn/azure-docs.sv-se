@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Anslut via seriekonsolen
+#### <a name="to-connect-through-the-serial-console"></a>Anslut via seriekonsolen
 1. Ansluta din seriekabel till enheten (direkt eller via en USB-serieadapter).
 2. Öppna **Kontrollpanelen** och öppna sedan **Enhetshanteraren**.
 3. Identifiera COM-portarna som det visas i följande bild.
@@ -26,6 +26,8 @@
      > 
 7. Klicka på **Öppna**, för att starta en seriesession.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

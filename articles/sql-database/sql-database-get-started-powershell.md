@@ -1,13 +1,13 @@
 ---
 title: Ny SQL Database-installation med PowerShell | Microsoft Docs
-description: Lär dig att skapa en SQL-databas med PowerShell. Vanliga aktiviteter för databasinstallationen kan hanteras via PowerShell-cmdletar.
-keywords: skapa ny sql-databas, databasinställningar
+description: "Lär dig att skapa en SQL-databas med PowerShell. Vanliga aktiviteter för databasinstallationen kan hanteras via PowerShell-cmdletar."
+keywords: "skapa ny sql-databas, databasinställningar"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7d99869b-cec5-4583-8c1c-4c663f4afd4d
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 08/19/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 87e52fe29f659577d7dc0c9661ebde2c1c475cfc
+
 
 ---
-# Skapa en SQL-databas och utföra vanliga aktiviteter för databasinstallation med PowerShell-cmdletar
+# <a name="create-a-sql-database-and-perform-common-database-setup-tasks-with-powershell-cmdlets"></a>Skapa en SQL-databas och utföra vanliga aktiviteter för databasinstallation med PowerShell-cmdletar
 > [!div class="op_single_selector"]
-> * [Azure-portalen](sql-database-get-started.md)
+> * [Azure-portal](sql-database-get-started.md)
 > * [PowerShell](sql-database-get-started-powershell.md)
 > * [C#](sql-database-get-started-csharp.md)
 > 
@@ -29,7 +33,7 @@ Lär dig hur du skapar en SQL-databas genom att använda PowerShell-cmdletar. (F
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-## Databasinstallation: Skapa en resursgrupp, server och brandväggsregel
+## <a name="database-setup-create-a-resource-group-server-and-firewall-rule"></a>Databasinstallation: Skapa en resursgrupp, server och brandväggsregel
 När du har möjlighet att köra cmdletar mot din valda Azure-prenumeration är nästa steg att etablera den resursgrupp som innehåller servern där databasen ska skapas. Du kan redigera nästa kommando så det använder valfri giltig plats. Kör **(Get-AzureRmLocation | Where-Object {$_.Providers -eq "Microsoft.Sql"}).Location** för att hämta en lista över giltiga platser.
 
 Kör följande kommando för att skapa en resursgrupp:
@@ -37,8 +41,8 @@ Kör följande kommando för att skapa en resursgrupp:
     New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "westus"
 
 
-### Skapa en server
-SQL-databaser skapas inuti Azure SQL Database-servrar. Kör **New-AzureRmSqlServer** för att skapa en server. Namnet på servern måste vara unikt för alla Azure SQL Database-servrar. Om servernamnet redan används får du ett felmeddelande. Det är också värt att nämna att det här kommandot kan ta flera minuter att slutföra. Du kan redigera kommandot för att använda valfri giltig plats, men du bör använda samma plats som du använde för resursgruppen som skapades i föregående steg.
+### <a name="create-a-server"></a>Skapa en server
+SQL-databaser skapas inuti Azure SQL Database-servrar. Kör [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx) för att skapa en server. Namnet på servern måste vara unikt för alla Azure SQL Database-servrar. Om servernamnet redan används får du ett felmeddelande. Det är också värt att nämna att det här kommandot kan ta flera minuter att slutföra. Du kan redigera kommandot för att använda valfri giltig plats, men du bör använda samma plats som du använde för resursgruppen som skapades i föregående steg.
 
     New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
 
@@ -46,8 +50,8 @@ När du kör det här kommandot uppmanas du att ange användarnamn och lösenord
 
 Serverinformationen visas när servern har skapats.
 
-### Konfigurera en brandväggsregel för servern som tillåter åtkomst
-För att få åtkomst till servern måste du skapa en brandväggsregel. Kör följande kommando och ersätt start- och slut-IP-adresserna med giltiga värden för din dator.
+### <a name="configure-a-server-firewall-rule-to-allow-access-to-the-server"></a>Konfigurera en brandväggsregel för servern som tillåter åtkomst
+För att få åtkomst till servern måste du skapa en brandväggsregel. Kör kommandot [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx) och ersätt start- och slut-IP-adresserna med giltiga värden för din dator.
 
     New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
@@ -57,17 +61,17 @@ Lägg till en brandväggsregel och ställ in både StartIpAddress och EndIpAddre
 
 Mer information finns i [Azure SQL Database-brandvägg](sql-database-firewall-configure.md).
 
-## Skapa en SQL-databas
+## <a name="create-a-sql-database"></a>Skapa en SQL-databas
 Nu har du en resursgrupp, en server och en brandväggsregel som har konfigurerats så att du har åtkomst till servern.
 
-Följande kommando skapar en (tom) SQL-databas på standard-tjänstnivå och på S1-prestandanivå:
+Följande kommando [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) skapar en (tom) SQL-databas på standard-tjänstnivå och på S1-prestandanivå:
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
 
 
 Databasinformationen visas efter att databasen har skapats.
 
-## Skapa ett PowerShell-skript för SQL-databasen
+## <a name="create-a-sql-database-powershell-script"></a>Skapa ett PowerShell-skript för SQL-databasen
 Följande PowerShell-skript skapar en SQL-databas och alla beroende resurser. Ersätt alla `{variables}` med värden som är specifika för din prenumeration och dina resurser (ta bort **{}** när du anger värden).
 
     # Sign in to Azure and set the subscription to work with
@@ -119,15 +123,19 @@ Följande PowerShell-skript skapar en SQL-databas och alla beroende resurser. Er
 
 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 När du har skapat SQL-databasen och utfört grundläggande installationsåtgärder på databasen är du redo för följande:
 
 * [Hantera SQL Database med PowerShell](sql-database-manage-powershell.md)
 * [Anslut till SQL Database med SQL Server Management Studio och kör en exempelfråga i T-SQL](sql-database-connect-query-ssms.md)
 
-## Ytterligare resurser
+## <a name="additional-resources"></a>Ytterligare resurser
+* [Cmdlet:ar för Azure SQL-databas](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx)
 * [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

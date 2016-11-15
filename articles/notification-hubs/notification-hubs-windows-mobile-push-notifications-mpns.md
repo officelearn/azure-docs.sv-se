@@ -1,28 +1,32 @@
 ---
-title: Skicka push-meddelanden med Azure Notification Hubs på Windows Phone | Microsoft Docs
-description: I den här självstudiekursen kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Silverlight-app på Windows Phone 8 eller Windows Phone 8.1.
+title: "Skicka push-meddelanden med Azure Notification Hubs på Windows Phone | Microsoft Docs"
+description: "I den här självstudiekursen kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Silverlight-app på Windows Phone 8 eller Windows Phone 8.1."
 services: notification-hubs
 documentationcenter: windows
-keywords: push-meddelande, pushmeddelande, push för windows phone
-author: wesmc7777
+keywords: "push-meddelande, pushmeddelande, push för windows phone"
+author: ysxu
 manager: erikre
 editor: erikre
-
+ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
+
 
 ---
-# Skicka push-meddelanden med Azure Notification Hubs på Windows Phone
+# <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Skicka push-meddelanden med Azure Notification Hubs på Windows Phone
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Översikt
+## <a name="overview"></a>Översikt
 > [!NOTE]
-> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
+> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
 > 
 > 
 
@@ -36,14 +40,14 @@ I denna självstudiekurs skapar du en tom Windows Phone 8-app som tar emot push-
 
 I den här självstudiekursen visas ett enkelt scenario för sändning med Notification Hubs.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 För den här kursen behöver du följande:
 
 * [Visual Studio 2012 Express för Windows Phone], eller en senare version.
 
 Du måste slutföra den här självstudiekursen innan du påbörjar någon annan kurs om Notification Hubs för Windows Phone 8-appar.
 
-## Skapa din meddelandehubb
+## <a name="create-your-notification-hub"></a>Skapa din meddelandehubb
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
@@ -60,10 +64,10 @@ Hubben har nu skapats och konfigurerats för att skicka ej autentiserade meddela
 > 
 > 
 
-## Ansluta appen till meddelandehubben
+## <a name="connecting-your-app-to-the-notification-hub"></a>Ansluta appen till meddelandehubben
 1. Skapa en ny Windows Phone 8-app i Visual Studio.
    
-    ![Visual Studio – Nytt projekt – Windows Phone-App][13]
+       ![Visual Studio - New Project - Windows Phone App][13]
    
     I Visual Studio 2013 Update 2 eller senare kan du istället skapa en Silverlight-app för Windows Phone.
    
@@ -115,9 +119,9 @@ Hubben har nu skapats och konfigurerats för att skicka ej autentiserade meddela
    > 
 6. I Solution Explorer expanderar du **Egenskaper**, öppnar `WMAppManifest.xml`-filen, klickar på fliken **Funktioner** och kontrollerar att funktionen **ID_CAP_PUSH_NOTIFICATION** är markerad.
    
-    ![Visual Studio – Funktioner för Windows Phone-appar][14]
+       ![Visual Studio - Windows Phone App Capabilities][14]
    
-    Det här garanterar att din app kan ta emot push-meddelanden. Utan detta kommer alla försök att skicka ett push-meddelande till appen att misslyckas.
+       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
 7. Kör appen genom att trycka på tangenten `F5`.
    
     Ett registreringsmeddelande visas i appen.
@@ -128,7 +132,7 @@ Hubben har nu skapats och konfigurerats för att skicka ej autentiserade meddela
    > 
    > 
 
-## Skicka push-meddelanden från serverdelen
+## <a name="send-push-notifications-from-your-backend"></a>Skicka push-meddelanden från serverdelen
 Du kan skicka push-meddelanden med hjälp av Notification Hubs från vilken serverdel som helst via det offentliga <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST-gränssnittet</a>. I den här självstudiekursen kommer du att skicka push-meddelanden via ett .NET-konsolprogram. 
 
 Om du vill se ett exempel på hur du skickar push-meddelanden från en ASP.NET-WebAPI-serverdel som är integrerad med Notification Hubs, kan du gå till [Meddela användare via en .NET-serverdel i Azure Notification Hubs](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md).  
@@ -137,7 +141,7 @@ Om du vill se ett exempel på hur du kan skicka push-meddelanden med hjälp av [
 
 1. Högerklicka på lösningen, välj **Lägg till** och **Nytt projekt...** och klicka sedan på **Windows** och **Konsolprogram** under **Visual C#**. Slutligen klickar du på **OK**.
    
-    ![Visual Studio – Nytt projekt – Konsolprogram][6]
+       ![Visual Studio - New Project - Console Application][6]
    
     Detta lägger till ett nytt konsolprogram för Visual C# i lösningen. Du kan också göra detta i en separat lösning.
 2. Klicka på **Verktyg**, **Library Package Manager** och slutligen **Package Manager-konsolen**.
@@ -180,9 +184,9 @@ Om du vill se ett exempel på hur du kan skicka push-meddelanden med hjälp av [
    
     Du får ett push-meddelandensom popup. Appen läses in när du knackar på popup-banderollen.
 
-Du hittar alla möjliga nyttolaster under ämnena [toast catalog](katalog över popup-meddelanden.md) och [tile catalog](katalog över paneler.md) på MSDN.
+Du hittar alla möjliga nyttolaster under ämnena [toast catalog] (katalog över popup-meddelanden) och [tile catalog] (katalog över paneler) på MSDN.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 I det här enkla exemplet skickade du push-meddelanden till alla dina Windows Phone 8-enheter. 
 
 Mer information om hur du riktar in dig på specifika användare finns i självstudiekursen [Använda Notification Hubs för att skicka push-meddelanden till användare]. 
@@ -223,6 +227,6 @@ Mer information om hur du använder Notification Hubs finns i [Riktlinjer om Not
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

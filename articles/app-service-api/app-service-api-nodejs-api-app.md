@@ -1,12 +1,12 @@
 ---
-title: Node.js API-app i Azure Apptjänst | Microsoft Docs
-description: Lär dig hur du skapar en Node.js RESTful-API och distribuera det till en API-app i Azure Apptjänst.
+title: "Node.js API-app i Azure Apptjänst | Microsoft Docs"
+description: "Lär dig hur du skapar en Node.js RESTful-API och distribuera det till en API-app i Azure Apptjänst."
 services: app-service\api
 documentationcenter: node
 author: bradygaster
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: node
 ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+
 
 ---
-# Skapa en Node.js RESTful-API och distribuera den till en API-app i Azure
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Skapa en Node.js RESTful-API och distribuera den till en API-app i Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 I den här kursen får du veta hur du skapar ett enkelt [Node.js](http://nodejs.org)-API och distribuerar det till en [API-app](app-service-api-apps-why-best-platform.md) i [Azure Apptjänst](../app-service/app-service-value-prop-what-is.md) med hjälp av [Git](http://git-scm.com). Du kan använda alla operativsystem som kan köra Node.js och du  gör allt arbete med hjälp av kommandoradsverktyg, till exempel cmd.exe eller bash.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 1. Microsoft Azure-konto ([öppna ett kostnadsfritt konto här](https://azure.microsoft.com/pricing/free-trial/))
 2. [Node.js](http://nodejs.org) installerat (det här exemplet förutsätter att du har Node.js version 4.2.2)
 3. [Git](https://git-scm.com/) installerat
@@ -29,7 +33,7 @@ I den här kursen får du veta hur du skapar ett enkelt [Node.js](http://nodejs.
 
 Med Apptjänst kan du distribuera din kod till en API-app på många olika sätt men den här kursen visar Git-metoden och förutsätter att du har grundläggande kunskaper om att arbeta med Git. Information om andra distributionsmetoder finns i [Distribuera din app till Azure Apptjänst](../app-service-web/web-sites-deploy.md).
 
-## Hämta exempelkoden
+## <a name="get-the-sample-code"></a>Hämta exempelkoden
 1. Öppna ett kommandoradsgränssnitt som kan köra Node.js- och Git-kommandon.
 2. Navigera till en mapp som du kan använda för en lokal Git-lagringsplats och klona den [GitHub-lagringsplats som innehåller exempelkoden](https://github.com/Azure-Samples/app-service-api-node-contact-list).
    
@@ -37,7 +41,7 @@ Med Apptjänst kan du distribuera din kod till en API-app på många olika sätt
    
     Exempel-API:n ger två slutpunkter: en Hämta-begäran till `/contacts` returnerar en lista med namn och e-postadresser i JSON-format, medan `/contacts/{id}` bara returnerar den valda kontakten.
 
-## Autogenererad Node.js-kod baserat på Swagger-metadata
+## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Autogenererad Node.js-kod baserat på Swagger-metadata
 [Swagger](http://swagger.io/) är ett filformat för metadata som beskriver ett RESTful-API. Azure Apptjänst har [inbyggt stöd för Swagger-metadata](app-service-api-metadata.md). Det här avsnittet av kursen visar ett arbetsflöde för API-utveckling där du först skapar Swagger-metadata och använder dem för att autogenerera en serverkod för API:et. 
 
 > [!NOTE]
@@ -45,14 +49,14 @@ Med Apptjänst kan du distribuera din kod till en API-app på många olika sätt
 > 
 > 
 
-### Installera och köra Swaggerize
+### <a name="install-and-execute-swaggerize"></a>Installera och köra Swaggerize
 1. Kör följande kommandon för att installera NPM-modulerna **yo** och **generator-swaggerize** globalt.
    
         npm install -g yo
         npm install -g generator-swaggerize
    
     Swaggerize är ett verktyg som genererar serverkod för ett API som beskrivs av en Swagger-metadatafil. Swagger-filen som du ska använda heter *api.json* och finns i mappen *Starta* för den lagringsplats du har klonat.
-2. Navigera till mappen *Starta* och kör `yo swaggerize`-kommandot. Swaggerize ställer ett antal frågor.  För **vad projektet ska heta** anger du "kontaktlista". För **sökväg till swagger-dokument** anger du "api.json" och för **Express, Hapi eller Restify** anger du "express".
+2. Navigera till mappen *Starta* och kör `yo swaggerize`-kommandot. Swaggerize ställer ett antal frågor.  För **vad projektet ska heta** anger du "Kontaktlista". För **sökväg till swagger-dokument** anger du "api.json" och för **Express, Hapi eller Restify** anger du "express".
    
         yo swaggerize
    
@@ -63,8 +67,8 @@ Med Apptjänst kan du distribuera din kod till en API-app på många olika sätt
     Swaggerize skapar en mapp för programmet, autogenererar hanterare och konfigurationsfiler och genererar en **package.json**-fil. Expressvisningsmotorn används för att generera hjälpsidan för Swagger.  
 3. Om `swaggerize`-kommandot misslyckas med ett fel för "oväntad token" eller "ogiltig avbrottssekvens" åtgärdar du orsaken till felet genom att redigera den genererade *package.json*-filen. I `regenerate`-raden under `scripts` ändrar du det omvända snedstreck som föregår *api.json* till snedstreck så att raden ser ut som i följande exempel:
    
-        "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
-4. Navigera till mappen som innehåller den autogenererade koden (i det här fallet undermappen *Kontaktlista*).
+         "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
+4. Navigera till mappen som innehåller den autogenererade koden (i det här fallet undermappen */start/Kontaktlista*).
 5. Kör `npm install`.
    
         npm install
@@ -79,7 +83,7 @@ Med Apptjänst kan du distribuera din kod till en API-app på många olika sätt
    
     ![Swaggerize Ui-installation](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
-### Anpassa den autogenererade koden
+### <a name="customize-the-scaffolded-code"></a>Anpassa den autogenererade koden
 1. Kopiera mappen **lib** från mappen **Starta** till mappen **Kontaktlista** som skapats av autogeneratorn. 
 2. Ersätt koden i filen **handlers/contacts.js** med följande kod. 
    
@@ -140,7 +144,7 @@ Med Apptjänst kan du distribuera din kod till en API-app på många olika sätt
         server.listen(port, function () { // fifth and final change
         });
 
-### Testa med API som körs lokalt
+### <a name="test-with-the-api-running-locally"></a>Testa med API som körs lokalt
 1. Aktivera servern med den körbara filen för Node.js-kommandoraden. 
    
         node server.js
@@ -157,7 +161,7 @@ Med Apptjänst kan du distribuera din kod till en API-app på många olika sätt
    
     ![Användargränssnittet för Swagger](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a id="createapiapp"></a> Skapa en ny API-app
+## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a>Skapa en ny API-app
 I det här avsnittet använder du Azure-portalen för att skapa en ny API-app i Azure. Den här API-appen representerar de beräkningsresurser som Azure tillhandahåller för att köra din kod. Du kommer att distribuera din kod till den nya API-appen i senare avsnitt.
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com/). 
@@ -171,7 +175,7 @@ I det här avsnittet använder du Azure-portalen för att skapa en ny API-app i 
     Om du anger ett namn som någon annan redan har använt visas ett rött utropstecken till höger.
 4. I listrutan **Resursgrupp** klickar du på **Ny**. I **Namn på ny resursgrupp** anger du sedan "NodejsAPIAppGroup" eller ett annat namn. 
    
-    En [resursgrupp](../resource-group-overview.md) är en samling Azure-resurser, t.ex. API-appar, databaser och virtuella datorer. För denna kurs är det bäst att skapa en ny resursgrupp eftersom det gör att du med bara ett steg enkelt kan ta bort alla Azure-resurser som du skapar under kursen.
+    En [resursgrupp](../azure-resource-manager/resource-group-overview.md) är en samling Azure-resurser, t.ex. API-appar, databaser och virtuella datorer. För denna kurs är det bäst att skapa en ny resursgrupp eftersom det gör att du med bara ett steg enkelt kan ta bort alla Azure-resurser som du skapar under kursen.
 5. Klicka på **Apptjänstplan/plats** och klicka sedan på **Skapa ny**
    
     ![Skapa apptjänstplan](./media/app-service-api-nodejs-api-app/newappserviceplan.png)
@@ -180,17 +184,17 @@ I det här avsnittet använder du Azure-portalen för att skapa en ny API-app i 
 6. I bladet **Apptjänstplan** anger du "NodejsAPIAppPlan" eller ett annat namn om du föredrar det.
 7. I listrutan **Plats** väljer du den plats som är närmast dig.
 
+   
     Den här inställningen anger vilket Azure-datacenter appen ska köras i. I den här kursen kan du välja en region utan att det gör någon märkbar skillnad. Men för en produktionsapp är det bra om servern finns så nära klienterna som använder den som möjligt för att minimera [fördröjningen](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
-
-1. Klicka på **Prisnivå > Visa alla > F1 kostnadsfri**.
+8. Klicka på **Prisnivå > Visa alla > F1 kostnadsfri**.
    
     För den här kursens syfte räcker det att välja den kostnadsfria prisnivån.
    
     ![Välj den kostnadsfria prisnivån](./media/app-service-api-nodejs-api-app/selectfreetier.png)
-2. I bladet **Apptjänstplan** klickar du på **OK**.
-3. I bladet **API-app** klickar du på **Skapa**.
+9. I bladet **Apptjänstplan** klickar du på **OK**.
+10. I bladet **API-app** klickar du på **Skapa**.
 
-## Ställ in din nya API-app för Git-distribution
+## <a name="set-up-your-new-api-app-for-git-deployment"></a>Ställ in din nya API-app för Git-distribution
 Du kommer att distribuera din kod till API-appen genom att skicka incheckningar till en Git-lagringsplats i Azure Apptjänst. I det här avsnittet av kursen skapar du de autentiseringsuppgifter och den Git-lagringsplats i Azure som du kommer använda för distribution.  
 
 1. När du har skapat din API-app klickar du på **Apptjänster > {din API app}** från portalens startsida. 
@@ -218,7 +222,7 @@ Du kommer att distribuera din kod till API-appen genom att skicka incheckningar 
 
 Nu när du har en API-app med en Git-lagringsplats som den kan säkerhetskopieras till kan du skicka kod till lagringsplatsen för att distribuera koden till API-appen. 
 
-## Distribuera din API-kod till Azure
+## <a name="deploy-your-api-code-to-azure"></a>Distribuera din API-kod till Azure
 I det här avsnittet skapar du en lokal Git-lagringsplats som innehåller din serverkod för API:et. Därefter skickar du koden från den lagringsplatsen till lagringsplatsen i Azure som du skapade tidigare.
 
 1. Kopiera `ContactList`-mappen till en plats som du kan använda för en ny lokal Git-lagringsplats. Om du har gjort den första delen av kursen kopierar du `ContactList` från  `start`-mappen. Annars kopierar du `ContactList` från `end`-mappen.
@@ -253,11 +257,11 @@ I det här avsnittet skapar du en lokal Git-lagringsplats som innehåller din se
    
     När distributionen är klar är återspeglar bladet **Distributioner** att kodändringarna i API-appen hat distribuerats. 
 
-## Testa med det API som körs i Azure
+## <a name="test-with-the-api-running-in-azure"></a>Testa med det API som körs i Azure
 1. Kopiera den **URL** som finns i avsnittet **Essentials** i bladet för din API-app. 
    
     ![Distributionen har slutförts](media/app-service-api-nodejs-api-app/deployment-completed.png)
-2. Använd en REST API-klient, till exempel Postman eller Fiddler (eller webbläsaren), och ange URL:en till API-anropet för dina kontakter, vilket är `/contacts`-slutpunkten för API-appen. URL:en ska vara `https://{your API app name}.azurewebsites.net/contacts`
+2. Använd en REST API-klient, till exempel Postman eller Fiddler (eller webbläsaren), och ange URL:en till API-anropet för dina kontakter, vilket är `/contacts`-slutpunkten för API-appen. URL:en blir `https://{your API app name}.azurewebsites.net/contacts`
    
     När du skickar en GET-begäran till den här slutpunkten får du JSON-utdata för API-appen.
    
@@ -266,9 +270,12 @@ I det här avsnittet skapar du en lokal Git-lagringsplats som innehåller din se
 
 Nu när du har kontinuerlig leverans kan du göra kodändringar och distribuera dem till Azure genom att bara skicka incheckningar till Azure Git-lagringsplatsen.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Vid det här laget har du skapat en API-app och distribuerat Node.js API-kod till den. Nästa självstudiekurs visar hur du [använder API Apps från JavaScript-klienter med hjälp av CORS](app-service-api-cors-consume-javascript.md).
 
-<!--HONumber=sep16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

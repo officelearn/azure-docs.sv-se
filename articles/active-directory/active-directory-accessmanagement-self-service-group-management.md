@@ -1,22 +1,26 @@
 ---
-title: Konfigurera Azure Active Directory för hantering av programåtkomst via självbetjäning| Microsoft Docs
-description: Med grupphantering via självbetjäning kan användarna skapa och hantera säkerhetsgrupper eller Office 365-grupper i Azure Active Directory och begära medlemskap i säkerhetsgrupper eller Office 365-grupper
+title: "Konfigurera Azure Active Directory för hantering av programåtkomst via självbetjäning| Microsoft Docs"
+description: "Med grupphantering via självbetjäning kan användarna skapa och hantera säkerhetsgrupper eller Office 365-grupper i Azure Active Directory och begära medlemskap i säkerhetsgrupper eller Office 365-grupper"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 904d5c70-c34a-46c4-a9a7-d1efecf4821c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
+
 
 ---
-# Konfigurera Azure Active Directory för grupphantering via självbetjäning
+# <a name="setting-up-azure-active-directory-for-selfservice-group-management"></a>Konfigurera Azure Active Directory för grupphantering via självbetjäning
 Med självbetjäningsgrupphantering kan du skapa och hantera säkerhetsgrupper eller Office 365-grupper i Azure Active Directory (Azure AD). Användare kan även begära säkerhetsgruppsmedlemskap eller Office 365-gruppmedlemskap, och sedan kan gruppens ägare godkänna eller neka medlemskap. På så vis kan den dagliga kontrollen av gruppmedlemskap delegeras till dem som förstår medlemskapets affärskontext. Funktioner för grupphantering via självbetjäning är bara tillgängliga för säkerhetsgrupper och Office 365-grupper, men inte för e-postaktiverade säkerhetsgrupper eller distributionslistor.
 
 Grupphantering via självbetjäning består för närvarande av två viktiga scenarier: delegerad grupphantering och grupphantering via självbetjäning.
@@ -26,7 +30,7 @@ Grupphantering via självbetjäning består för närvarande av två viktiga sce
 * **Grupphantering via självbetjäning**
    Ett exempel på det här scenariot är två användare som båda har SharePoint Online-platser som de har konfigurerat oberoende av varandra. De vill ge varandras grupper åtkomst till sina respektive webbplatser. De kan åstadkomma detta genom att först skapa en grupp i Azure AD och därefter var och en välja samma grupp i SharePoint Online, vilket ger dem åtkomst till varandras webbplatser. När någon vill ha åtkomst begär de det från åtkomstpanelen och efter godkännande får de automatiskt åtkomst till båda SharePoint Online-platserna. Senare beslutar den ena av dem att alla användare som har åtkomst till webbplatsen även ska få åtkomst till ett visst SaaS-program. SaaS-programmets administratör kan lägga till åtkomstbehörighet för programmet till SharePoint Online-webbplatsen. När det är gjort kommer alla förfrågningar som han godkänner att ge åtkomst till de två SharePoint Online-webbplatserna och även till SaaS-programmet.
 
-## Göra en grupp tillgänglig för självbetjäning av slutanvändare
+## <a name="making-a-group-available-for-end-user-selfservice"></a>Göra en grupp tillgänglig för självbetjäning av slutanvändare
 1. Öppna din Azure AD-katalog i den [klassiska Azure-portalen](https://manage.windowsazure.com).
 2. Gå till fliken **Konfigurera** och ställ in **Delegerad grupphantering** på Aktiverad.
 3. Ställ in **Användare kan skapa säkerhetsgrupper** eller **Användare kan skapa Office-grupper** på Aktiverad.
@@ -37,7 +41,7 @@ Genom **Användare som kan använda självbetjäning för säkerhetsgrupper** ka
 
 Du kan också använda rutan **Grupp som kan använda självbetjäning för säkerhetsgrupper** om du vill ange ett eget namn för en grupp vars medlemmar kan använda självbetjäning.
 
-## Ytterligare information
+## <a name="additional-information"></a>Ytterligare information
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md)
@@ -46,6 +50,9 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 * [Vad är Azure Active Directory?](active-directory-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

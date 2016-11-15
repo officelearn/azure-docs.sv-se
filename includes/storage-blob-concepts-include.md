@@ -1,4 +1,4 @@
-## Vad är Blob Storage?
+## <a name="what-is-blob-storage"></a>Vad är Blob Storage?
 Azure Blob Storage är en tjänst för att lagra stora mängder ostrukturerad objektdata, exempelvis text eller binär data som kan nås från var som helst i världen via HTTP eller HTTPS. Du kan använda Blob-lagring för att exponera data offentligt eller för privat lagring av programdata.
 
 Vanliga användningsområden för Blob-lagring är:
@@ -9,7 +9,7 @@ Vanliga användningsområden för Blob-lagring är:
 * Lagra data för säkerhetskopiering och återställning, haveriberedskap och arkivering
 * Lagra data för analys av en tjänst som kan vara lokal eller Azure-baserad
 
-## Blob-tjänstkoncept
+## <a name="blob-service-concepts"></a>Blob-tjänstkoncept
 Blob-tjänsten innehåller följande komponenter:
 
 ![Blob1][Blob1]
@@ -27,7 +27,6 @@ Blob-tjänsten innehåller följande komponenter:
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

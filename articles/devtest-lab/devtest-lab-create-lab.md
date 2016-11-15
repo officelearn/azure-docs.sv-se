@@ -1,12 +1,12 @@
 ---
 title: Skapa ett labb i Azure DevTest Labs | Microsoft Docs
-description: Skapa ett labb i Azure DevTest Labs för virtuella datorer
+description: "Skapa ett labb i Azure DevTest Labs för virtuella datorer"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 8b6d3e70-6528-42a4-a2ef-449575d0f928
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f2e607924f17b42bba73672a2d24257e672e1134
+
 
 ---
-# Skapa ett labb i Azure DevTest Labs
-## Krav
+# <a name="create-a-lab-in-azure-devtest-labs"></a>Skapa ett labb i Azure DevTest Labs
+## <a name="prerequisites"></a>Krav
 Du behöver följande om du vill skapa ett labb:
 
 * En Azure-prenumeration. Mer information om köpalternativ för Azure finns i [Så här köper du Azure](https://azure.microsoft.com/pricing/purchase-options/) eller [Kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/). För att kunna skapa labbet måste du vara prenumerationens ägare.
 
-## Steg för att skapa ett labb i Azure DevTest Labs
+## <a name="steps-to-create-a-lab-in-azure-devtest-labs"></a>Steg för att skapa ett labb i Azure DevTest Labs
 Följande steg illustrerar hur du använder Azure-portalen för att skapa ett labb i Azure DevTest Labs. 
 
 1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -43,7 +47,7 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 När du har skapat labbet kan du fundera på följande steg:
 
 * [Säker åtkomst till ett labb](devtest-lab-add-devtest-user.md).
@@ -52,6 +56,9 @@ När du har skapat labbet kan du fundera på följande steg:
 * [Skapa anpassade artefakter för dina virtuella datorer](devtest-lab-artifact-author.md).
 * [Lägga till en virtuell dator med artefakter i ett labb](devtest-lab-add-vm-with-artifacts.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

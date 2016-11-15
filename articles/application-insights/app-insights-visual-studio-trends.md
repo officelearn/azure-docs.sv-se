@@ -5,17 +5,21 @@ services: application-insights
 documentationcenter: .net
 author: numberbycolors
 manager: douge
-
+ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2016
+ms.date: 10/25/2016
 ms.author: daviste
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 00c697b47ef17c9c575378c7d433b9bf19602749
+
 
 ---
-# Analysera trender i Visual Studio
+# <a name="analyzing-trends-in-visual-studio"></a>Analysera trender i Visual Studio
 Verktyget Application Insights Trends hjälper dig att visualisera hur programmets viktiga telemetrihändelser ändras med tiden, så att du snabbt kan identifiera problem och inkonsekvenser. Med länkar till mer detaljerad diagnostisk information kan Trends hjälpa dig att förbättra dina apprestanda, spåra orsakerna till undantag och avslöja insikter från anpassade händelser.
 
 ![Exempel på fönster i Trends](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
@@ -25,7 +29,7 @@ Verktyget Application Insights Trends hjälper dig att visualisera hur programme
 > 
 > 
 
-## Öppna Application Insights Trends
+## <a name="open-application-insights-trends"></a>Öppna Application Insights Trends
 Öppna fönstret Application Insights Trends:
 
 * Från verktygsfältsknappen Application Insights väljer du **Utforska telemetritrender** eller
@@ -34,10 +38,10 @@ Verktyget Application Insights Trends hjälper dig att visualisera hur programme
 
 Du kan uppmanas att välja en resurs. Klicka på **Välj en resurs**, logga in med en Azure-prenumeration och välj sedan en Application Insights-resurs i listan som du vill analysera telemetritrender för.
 
-## Välj en trendanalys
+## <a name="choose-a-trend-analysis"></a>Välj en trendanalys
 ![Meny över vanliga typer av trendanalyser](./media/app-insights-visual-studio-trends/app-insights-trends-1-750.png)
 
-Kom igång genom att välja någon av fem vanliga trendanalyser, som var och en analyserar data från de senaste 24 timmarna:
+Kom igång genom att välja någon av fem vanliga trendanalyser, som var och en analyserar data från de senaste 24 timmarna:
 
 * **Undersöka prestandaproblem med dina serverbegäranden** – Begäranden som görs till din tjänst, grupperade efter svarstider
 * **Analysera fel i dina serverbegäranden** – Begäranden som görs till din tjänst, grupperade efter HTTP-svarskod
@@ -47,7 +51,7 @@ Kom igång genom att välja någon av fem vanliga trendanalyser, som var och en 
 
 Dessa fördefinierade analyser är tillgängliga senare från knappen **Visa vanliga typer av telemetrianalyser** i det övre vänstra hörnet i Trends-fönstret.
 
-## Visualisera trender i ditt program
+## <a name="visualize-trends-in-your-application"></a>Visualisera trender i ditt program
 Application Insights Trends skapar en tidsserievisualisering från din apps telemetri. Varje tidsserievisualisering visar en typ av telemetri, grupperad efter en egenskap för den telemetrin, över en viss tidsperiod. Du kanske till exempel vill visa serverbegäranden grupperade efter det land som de kommer från, under de senaste 24 timmarna. I det här exemplet representerar varje bubbla i visualiseringen ett antal serverbegäranden för ett visst land/en viss region under en timme.
 
 Använd kontrollerna längst upp i fönstret för att justera vilka typer av telemetri som visas. Börja med att välja de typer av telemetri som du är intresserad av:
@@ -69,7 +73,7 @@ Så här navigerar du mellan bubblor i visualiseringen:
 > 
 > 
 
-## Filter
+## <a name="filter"></a>Filter
 Identifiera mer specifika trender med filterkontrollerna längst ned i fönstret. Om du vill använda ett filter klickar du på filtrets namn. Du kan snabbt växla mellan olika filter för att identifiera trender som kan vara dolda i en viss dimension av telemetrin. Om du använder ett filter i en dimension, som Undantagstyp, går det fortfarande att klicka på filter i andra dimensioner även om de ser ut som de är nedtonade. Om du vill ta bort ett filter klickar du på det igen. Tryck på Ctrl och klicka för att markera flera filter i samma dimension.
 
 ![Filter för trender](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)
@@ -85,7 +89,7 @@ Om du vill ta bort dessa filter klickar du på knappen **Ta bort valda filter oc
 
 ![Flera filter](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)
 
-## Identifiera avvikelser
+## <a name="find-anomalies"></a>Identifiera avvikelser
 Verktyget Trends kan markera bubblor med händelser som är avvikande jämfört med andra bubblor i samma tidsserie. Välj **Antal i tidsenhet (markera avvikelser** eller **Procent i tidsenhet (markera avvikelser)**. Röda bubblor representerar bubblor med avvikande händelser. Avvikelser definieras som bubblor med ett antal/procentvärde som överstiger 2,1 gånger standardavvikelsen för antalet/procentvärdet under de föregående två tidsperioderna (48 timmar om du visar de senaste 24 timmarna osv.).
 
 ![Färgade punkter representerar avvikelser](./media/app-insights-visual-studio-trends/TrendsAnomalies-750.png)
@@ -95,13 +99,16 @@ Verktyget Trends kan markera bubblor med händelser som är avvikande jämfört 
 > 
 > 
 
-## <a name="next"></a>Nästa steg
+## <a name="a-namenextanext-steps"></a><a name="next"></a>Nästa steg
 |  |  |
 | --- | --- |
 | **[Arbeta med Application Insights i Visual Studio](app-insights-visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/app-insights-visual-studio-trends/34.png) |
 | **[Lägga till mer information](app-insights-asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/app-insights-visual-studio-trends/64.png) |
 | **[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

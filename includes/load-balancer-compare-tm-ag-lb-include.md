@@ -1,4 +1,5 @@
 ## <a name="load-balancer-differences"></a>Skillnader i belastningsutjämnare
+
 Det finns olika alternativ för att distribuera nätverkstrafik med Microsoft Azure. De här alternativen fungerar på olika sätt, har olika funktionsuppsättningar och stöder olika scenarier. De kan användas var för sig eller i kombination med varandra.
 
 * **Azure Load Balancer** fungerar på transportlagret (Layer 4 i OSI-nätverksreferensstacken). Den ger trafikdistribuering på nätverksnivå över programinstanser som körs på samma Azure-datacenter.
@@ -26,6 +27,7 @@ Azure Load Balancer och Application Gateway styr nätverkstrafiken till slutpunk
 | Hälsotillståndsavsökningar |Standardvärde: avsökningsintervall - 15 sekunder. Tagen ur rotation: 2 kontinuerlig fel. Stöder användardefinierade avsökningar |Vilande avsökningsintervall 30 sekunder. Tas ut efter 5 efterföljande trafikfel live eller ett enda avsökningsfel i vilande läge. Stöder användardefinierade avsökningar |
 | SSL-avlastning |Stöds inte |Stöds |
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

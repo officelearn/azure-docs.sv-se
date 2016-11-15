@@ -1,12 +1,12 @@
 ---
-title: Skapa ditt första Service Fabric-program i Linux med Java | Microsoft Docs
+title: "Skapa ditt första Service Fabric-program i Linux med Java | Microsoft Docs"
 description: Skapa och distribuera ett Service Fabric-program med Java
 services: service-fabric
 documentationcenter: java
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+
 
 ---
-# Skapa ditt första Azure Service Fabric-program
+# <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
 > [!div class="op_single_selector"]
 > * [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -26,10 +30,10 @@ ms.author: seanmck
 
 Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET Core och Java. I den här självstudiekursen visar vi hur du skapar ett program för Linux och skapar en tjänst med hjälp av Java.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Du måste [konfigurera Linux-utvecklingsmiljön](service-fabric-get-started-linux.md) innan du börjar. Om du använder Mac OS X kan du [konfigurera en Linux-miljö på en virtuell dator med hjälp av Vagrant](service-fabric-get-started-mac.md).
 
-## Skapa programmet
+## <a name="create-the-application"></a>Skapa programmet
 Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. I Service Fabric SDK för Linux finns en [Yeoman](http://yeoman.io/)-generator som gör det enkelt att skapa din första tjänst och lägga till fler senare. Lås oss använda Yeoman för att skapa ett nytt program med en enskild tjänst.
 
 1. Skriv **yo azuresfjava** i en terminal.
@@ -43,7 +47,7 @@ Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och 
 > 
 > 
 
-## Skapa programmet
+## <a name="build-the-application"></a>Skapa programmet
 I Service Fabric Yeoman-mallarna ingår ett byggskript för [Gradle](https://gradle.org/), som du kan använda för att skapa appen från terminalen.
 
   ```bash
@@ -51,7 +55,7 @@ I Service Fabric Yeoman-mallarna ingår ett byggskript för [Gradle](https://gra
   gradle
   ```
 
-## Distribuera programmet
+## <a name="deploy-the-application"></a>Distribuera programmet
 När du har skapat programmet kan du distribuera det till det lokala klustret med Azure CLI.
 
 1. Anslut till det lokala Service Fabric-klustret.
@@ -67,7 +71,7 @@ När du har skapat programmet kan du distribuera det till det lokala klustret me
 3. Öppna en webbläsare och gå till Service Fabric Explorer på http://localhost:19080/Explorer (ersätt localhost med den virtuella datorns privata IP om du använder Vagrant på Mac OS X).
 4. Expandera programnoden och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
-## Starta testklienten och utför en redundansväxling
+## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling
 Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller klient för att skicka meddelanden till dem. Aktörsmallen innehåller ett enkelt testskript som du kan använda för att interagera med aktörstjänsten.
 
 1. Kör skriptet med övervakningsverktyget för att se resultatet av aktörstjänsten.
@@ -81,10 +85,10 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
     ![Hitta den primära repliken i Service Fabric Explorer][sfx-primary]
 3. Klicka på noden du hittade i föregående steg och välj sedan **Deactivate (restart)** (Inaktivera (omstart)) på menyn Actions (Åtgärder). Därmed startas en av de fem noderna om i ditt lokala kluster och påtvingar en redundansväxling till en av de sekundära replikerna på en annan nod. Titta på resultatet från testklienten när du gör detta och observera att räknaren fortsätter att räkna upp trots redundansväxlingen.
 
-## Skapa och distribuera ett program med plugin-programmet Eclipse Neon
+## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Skapa och distribuera ett program med plugin-programmet Eclipse Neon
 Om du har installerat plugin-programmet för Eclipse Neon kan du använda det till att skapa och distribuera Service Fabric-program som skapats med Java.  Välj **Eclipse IDE för Java-utvecklare**, när du installerar Eclipse.
 
-### Skapa programmet
+### <a name="create-the-application"></a>Skapa programmet
 Service Fabric-plugin-programmet är tillgängligt via utökningsfunktionen i Eclipse.
 
 1. Välj **File > Other > Service Fabric** (Arkiv > Annat > Service Fabric) i Eclipse. Olika alternativ visas, bland annat aktörer och behållare.
@@ -93,7 +97,7 @@ Service Fabric-plugin-programmet är tillgängligt via utökningsfunktionen i Ec
 2. I det här fallet väljer du Stateless Service (Tillståndslös tjänst).
 3. Du får bekräfta att du vill använda Service Fabric-perspektivet, vilket optimerar Eclipse för användning med Service Fabric-projekt. Välj Yes (Ja).
 
-### Distribuera programmet
+### <a name="deploy-the-application"></a>Distribuera programmet
 I Service Fabric-mallarna ingår en uppsättning Gradle-aktiviteter för att skapa och distribuera program, som du kan köra via Eclipse.
 
 1. Välj **Run > Run Configurations** (Kör > Kör konfigurationer).
@@ -102,7 +106,7 @@ I Service Fabric-mallarna ingår en uppsättning Gradle-aktiviteter för att ska
 
 Din app skapas och distribueras på ett par minuter. Du kan övervaka dess status från Service Fabric Explorer.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Läs mer om Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interagera med Service Fabric-kluster med Azure CLI](service-fabric-azure-cli.md)
 
@@ -113,6 +117,6 @@ Din app skapas och distribueras på ett par minuter. Du kan övervaka dess statu
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

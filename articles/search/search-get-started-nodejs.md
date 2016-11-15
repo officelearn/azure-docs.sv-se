@@ -1,12 +1,12 @@
 ---
-title: Komma igång med Azure Search i NodeJS| Microsoft Docs
-description: Se hur du bygger ett sökprogram på en värd- och molnbaserad söktjänst i Azure med NodeJS som programmeringsspråk.
+title: "Komma igång med Azure Search i NodeJS | Microsoft Docs"
+description: "Se hur du bygger ett sökprogram på en värd- och molnbaserad söktjänst i Azure med NodeJS som programmeringsspråk."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: EvanBoyle
 manager: pablocas
 editor: v-lincan
-
+ms.assetid: 0625dc1b-9db6-40d5-ba9a-4738b75cbe19
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -14,12 +14,16 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8a66c8f6079671b16c1c60467e6d458ed54be5af
+
 
 ---
-# Komma igång med Azure Search i NodeJS
+# <a name="get-started-with-azure-search-in-nodejs"></a>Komma igång med Azure Search i NodeJS
 > [!div class="op_single_selector"]
-> * [Portalen](search-get-started-portal.md)
-> * [.NET](search-howto-dotnet-sdk.md)
+> * [Portal](search-get-started-portal.md)
+> * [NET](search-howto-dotnet-sdk.md)
 > 
 > 
 
@@ -29,19 +33,19 @@ Vi använde [NodeJS](https://nodejs.org) och NPM, [Sublime Text 3](http://www.su
 
 Om du vill köra det här exemplet måste du ha en Azure Search-tjänst, som du kan registrera dig för på [Azure Portal](https://portal.azure.com). Stegvisa instruktioner finns i [Skapa en Azure Search-tjänst på portalen](search-create-service-portal.md).
 
-## Om de data som används
+## <a name="about-the-data"></a>Om de data som används
 Det här exempelprogrammet använder data från [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), som har filtrerats på delstaten Rhode Island för att minska datauppsättningens storlek. Vi ska använda dessa data för att skapa ett sökprogram som returnerar viktiga byggnader som sjukhus och skolor, samt geologiska element som vattendrag, sjöar och bergstoppar.
 
 I det här programmet bygger och läser programmet **DataIndexer** in indexet med hjälp av en [indexeringskonstruktion](https://msdn.microsoft.com/library/azure/dn798918.aspx) och hämtar den filtrerade USGS-datauppsättningen från en offentlig Azure SQL-databas. Autentiseringsuppgifter och anslutningsinformation för onlinedatakällan finns i programkoden. Ingen ytterligare konfiguration krävs.
 
 > [!NOTE]
-> Vi har använt ett filter för den här datauppsättningen för att hålla oss under gränsen på 10 000 dokument för den kostnadsfria prisnivån. Den här begränsningen gäller inte om du använder standardnivån. Mer information om kapaciteten för varje prisnivå finns i [Tjänstbegränsningar för Search](search-limits-quotas-capacity.md).
+> Vi har använt ett filter för den här datauppsättningen för att hålla oss under gränsen på 10 000 dokument för den kostnadsfria prisnivån. Den här begränsningen gäller inte om du använder standardnivån. Mer information om kapaciteten för varje prisnivå finns i [Tjänstbegränsningar för Search](search-limits-quotas-capacity.md).
 > 
 > 
 
 <a id="sub-2"></a>
 
-## Leta upp tjänstnamnet och API-nyckeln för Azure Search-tjänsten
+## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Leta upp tjänstnamnet och API-nyckeln för Azure Search-tjänsten
 När du har skapat tjänsten går du tillbaka till portalen för att hämta URL:en eller `api-key`. Anslutningar till Search-tjänsten kräver att du har båda URL:en och en `api-key` för att autentisera anropet.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -49,10 +53,10 @@ När du har skapat tjänsten går du tillbaka till portalen för att hämta URL:
 3. Markera den tjänst som du vill använda.
 4. Instrumentpanelen för tjänsten innehåller paneler med viktig information samt en nyckelikon för åtkomst till administatörsnycklarna.
    
-    ![][3]
+      ![][3]
 5. Kopiera tjänstens URL, en administratörsnyckel och en frågenyckel. Du behöver alla tre senare när du lägger till dem i filen config.js.
 
-## Ladda ned exempelfilerna
+## <a name="download-the-sample-files"></a>Ladda ned exempelfilerna
 Använd någon av följande metoder för att hämta exemplet.
 
 1. Gå till [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
@@ -60,7 +64,7 @@ Använd någon av följande metoder för att hämta exemplet.
 
 Alla efterföljande filändringar och körningsinstruktioner görs mot filer i den här mappen.
 
-## Uppdatera config.js. med Search-tjänstens URL och API-nyckel
+## <a name="update-the-configjs-with-your-search-service-url-and-apikey"></a>Uppdatera config.js. med Search-tjänstens URL och API-nyckel
 Använd URL:en och API-nyckeln som du kopierade tidigare, ange URL:en, administratörsnyckeln och frågenyckeln i konfigurationsfilen.
 
 Administratörsnycklar beviljar fullständig kontroll över tjänståtgärder, inklusive att skapa eller ta bort ett index och inläsning av dokument. Frågenycklar är däremot avsedda för skrivskyddade åtgärder, som vanligtvis används av klientprogram som ansluter till Azure Search.
@@ -71,7 +75,7 @@ Följande skärmbild visar **config.js** i en textredigerare, med relevanta post
 
 ![][5]
 
-## Värd för en körningsmiljö för exemplet
+## <a name="host-a-runtime-environment-for-the-sample"></a>Värd för en körningsmiljö för exemplet
 Exempelfilen kräver en HTTP-server, som du kan installera globalt med npm.
 
 Använd ett PowerShell-fönster för följande kommandon.
@@ -80,13 +84,13 @@ Använd ett PowerShell-fönster för följande kommandon.
 2. Skriv `npm install`.
 3. Skriv `npm install -g http-server`.
 
-## Skapa indexet och kör programmet
+## <a name="build-the-index-and-run-the-application"></a>Skapa indexet och kör programmet
 1. Skriv `npm run indexDocuments`.
 2. Skriv `npm run build`.
 3. Skriv `npm run start_server`.
 4. Dirigera webbläsaren till `http://localhost:8080/index.html`
 
-## Söka i USGS-data
+## <a name="search-on-usgs-data"></a>Söka i USGS-data
 USGS-datauppsättningen innehåller poster som är relevanta för delstaten Rhode Island. Om du klickar på **Search** i en tom sökrutan returneras 50 poster, vilket är standard.
 
 Om du skriver en sökterm ger du sökmotorn något att gå på. Prova att skriva namnet på någon från regionen. ”Roger Williams” var Rhode Islands första guvernör. Många parker, byggnader och skolor bär hans namn.
@@ -99,7 +103,7 @@ Du kan också prova någon av dessa söktermer:
 * Pembroke
 * goose +cape
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Det här är den första Azure Search-självstudiekursen som baseras på NodeJS och USGS-datauppsättningen. Med tiden kommer vi att utöka den här självstudiekursen och demonstrera ytterligare sökfunktioner som du kanske vill använda i dina anpassade lösningar.
 
 Om du redan har viss erfarenhet av Azure Search kan du använda det här exemplet som utgångspunkt för att prova förslagsställare (frågeifyllningsförslag eller Komplettera automatiskt), filter och aspektbaserad navigering. Du kan även förbättra sidan med sökresultat genom att lägga till antal och batchbearbeta dokument så att användarna kan bläddra igenom resultaten.
@@ -115,6 +119,6 @@ Har du inte provat Azure Search än? Vi rekommenderar att du går andra självst
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

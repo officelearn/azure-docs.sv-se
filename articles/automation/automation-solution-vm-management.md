@@ -1,12 +1,12 @@
 ---
-title: Starta/stoppa virtuella datorer vid låg belastning på nätverket [förhandsgranskning] Lösning | Microsoft Docs
-description: VM-hanteringslösningar startar och stoppar Azure-resurshanteraren för virtuella datorer i ett schema och övervakar proaktivt från Log Analytics.
+title: "Starta/stoppa virtuella datorer vid låg belastning på nätverket [förhandsgranskning] Lösning | Microsoft Docs"
+description: "VM-hanteringslösningar startar och stoppar Azure-resurshanteraren för virtuella datorer i ett schema och övervakar proaktivt från Log Analytics."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# Starta/stoppa virtuella datorer vid låg belastning på nätverket [förhandsgranskning] Lösning i Automation
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket [förhandsgranskning] Lösning i Automation
 Lösningen starta/stoppa VM:ar vid låg belastning [förhandsversion], startar och stoppar dina Azure Resource Manager virtuella datorer enligt ett användardefinierat schema och ger insikt i hur väl Automation-jobben är som startar och stoppar dina virtuella datorer med OMS Log Analytics.  
 
-## Krav
+## <a name="prerequisites"></a>Krav
 * Runbooks använder ett [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).  Kör som-kontot är den lämpligaste autentiseringsmetoden eftersom den använder certifikatautentisering istället för ett lösenord som kan upphöra att gälla eller ändras ofta.  
 * Den här lösningen kan endast hantera virtuella datorer som finns i samma prenumeration och resursgrupp som Automation-kontot.  
 * Den här lösningen endast distribueras till följande Azure-regioner - sydöstra Australien, östra USA, Sydostasien och Västeuropa.  Runbooks som hanterar VM-schemat kan riktas in på virtuella datorer i valfri region.  
 * Om du vill skicka e-postaviseringar när starta och stoppa virtuella runbooks har slutförts, krävs en företagsprenumeration på Office 365.  
 
-## Lösningskomponenter
+## <a name="solution-components"></a>Lösningskomponenter
 Den här lösningen består av följande resurser som ska importeras och läggas till i Automation-kontot.
 
-### Runbooks
+### <a name="runbooks"></a>Runbooks
 | Runbook | Beskrivning |
 | --- | --- |
 | CleanSolution-MS-Mgmt-VM |Denna runbook tar bort alla inkluderade resurser och scheman för när du vill ta bort lösningen från prenumerationen. |
@@ -38,7 +42,7 @@ Den här lösningen består av följande resurser som ska importeras och läggas
 
 <br>
 
-### Variabler
+### <a name="variables"></a>Variabler
 | Variabel | Beskrivning |
 | --- | --- |
 | **SendMailO365-MS-Mgmt** Runbook | |
@@ -65,24 +69,24 @@ Den här lösningen består av följande resurser som ska importeras och läggas
 
 <br>
 
-### Scheman
+### <a name="schedules"></a>Scheman
 | Schema | Beskrivning |
 | --- | --- |
 | StartByResourceGroup-schema-MS-Mgmt |Schema för StartByResourceGroup runbooken som startar VM:ar som hanteras av den här lösningen. |
 | StopByResourceGroup-schema-MS-Mgmt |Schema för StopByResourceGroup runbooken som stänger ner VM:ar som hanteras av den här lösningen. |
 
-### Autentiseringsuppgifter
+### <a name="credentials"></a>Autentiseringsuppgifter
 | Autentiseringsuppgift | Beskrivning |
 | --- | --- |
 | O365-Autentiseringsuppgift |Anger ett giltigt Office 365-konto för att skicka e-post.  Krävs endast om variabeln SendMailO365-IsSendEmail-MS-Mgmt är inställd på **Sant**. |
 
-## Konfiguration
+## <a name="configuration"></a>Konfiguration
 Utför följande steg för att lägga till lösningen Starta/Stoppa virtuella datorer vid låg belastning på nätverket [förhandsgranskning] i Automation-konto och konfigurera variabler för att anpassa lösningen.
 
 1. Välj hemskärmen i Azure-portalen på panelen **Marketplace** .  Om panelen är inte längre fäst på hemskärmen ska du välja **Ny** i den vänstra navigationspanelen.  
 2. Skriv **Starta VM** i sökrutan i bladet Marketplace och välj sedan lösningen **Starta/Stoppa VM under kontorstid [förhandsgranskning]** från sökresultaten.  
 3. I bladet **Starta/Stoppa VM under kontorstid [förhandsgranskning]** för den valda lösningen läser du sammanfattningsinformationen och klickar sedan på **Skapa**.  
-4. Bladet **Lägga till lösning** visas där du uppmanas att konfigurera lösningen innan du kan importera den till din Automation-prenumeration.<br><br> ![Bladet VM-hantering, Lägga till lösning](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
+4. Bladet **Lägga till lösning** visas där du uppmanas att konfigurera lösningen innan du kan importera den till din Automation-prenumeration.<br><br> ![Bladet VM-hantering, lägga till lösning](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
 5. På bladet **Lägga till lösning** väljer du **Arbetsyta**. Här kan du välja en OMS arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot eller skapa en ny OMS-arbetsyta.  Om du inte har en OMS-arbetsyta kan du välja **Skapa ny arbetsyta** och utföra följande på bladet **OMS-arbetsyta**: 
    
    * Ange ett namn för den nya **OMS-arbetsytan**.
@@ -109,10 +113,10 @@ Utför följande steg för att lägga till lösningen Starta/Stoppa virtuella da
    * Välj ett **Schema** som är ett återkommande datum och tid för att starta och stoppa virtuella datorer i målresursgrupperna.  
 9. När du har slutfört konfigurationen av de ursprungliga inställningarna som krävs för lösningen väljer du **Skapa**.  Alla inställningar kommer att valideras och sedan kommer lösningen att distribueras i din prenumeration.  Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **Meddelanden** på menyn. 
 
-## Insamlingsfrekvens
+## <a name="collection-frequency"></a>Insamlingsfrekvens
 Automation-jobbloggen och arbetsflödesdata matas in i OMS-databasen var femte minut.  
 
-## Använda lösningen
+## <a name="using-the-solution"></a>Använda lösningen
 När du lägger till hanteringslösningen för virtuella datorer i OMS-arbetsytan läggs panelen **StartStopVM-vy** till på OMS-instrumentpanelen.  Den här panelen visar ett antal och en grafisk representation av runbooksjobben för lösningen som har startat och har slutförts.<br><br> ![Panelen VM-hantering, StartStopVM-vy](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
 I Automation-kontot kan du komma åt och hantera lösningen genom att välja panelen **lösningar**. Välj lösningen **Start stoppa VM [Workspace]** från listan i bladet **lösningar**.<br><br> ![Lista över Automation-lösningar](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
@@ -121,7 +125,7 @@ Om lösningen markeras visas lösningsbladet **Starta-stoppa VM [Workspace]**dä
 
 Härifrån kan du också öppna din OMS-arbetsyta och utföra ytterligare analys av jobbposterna.  Klicka bara på **Alla inställningar** och i bladet **Inställningar**, väljer du **Snabbstart** och sedan i bladet **Snabbstart**, väljer du **OMS Portal**.   Det öppnar en ny flik eller en ny webbläsarsession och visar dig OMS-arbetsytan som är kopplad till ditt Automation-konto och prenumeration.  
 
-### Konfigurera e-postaviseringar
+### <a name="configuring-email-notifications"></a>Konfigurera e-postaviseringar
 Om du vill aktivera e-postmeddelanden när runbooken starta och stoppa VM har slutförts behöver du ändra autentiseringsuppgifterna för **O365Credential** och minst följande variabler:
 
 * SendMailO365-IsSendEmail-MS-Mgmt
@@ -142,13 +146,13 @@ Utför följande steg för att konfigurera de variabler som markerats tidigare:
 3. På bladet **Tillgångar** väljer du panelen **variabler** panelen. Från bladet **Variabler** väljer du variabeln från listan och modifierar dess värde enligt dess beskrivning i avsnittet [Variabel](##variables) ovan.  
 4. Klicka på **Spara** för att ändringarna hos variabeln.   
 
-### Ändra schemat för start och avstängning
+### <a name="modifying-the-startup-and-shutdown-schedule"></a>Ändra schemat för start och avstängning
 Hantera schemat för start och avstängning i den här lösningen genom att följa samma steg som beskrivs i [Schemalägg en runbook i Azure Automation](automation-scheduling-a-runbook.md).  Kom ihåg att du inte kan ändra schemakonfigurationen.  Du måste inaktivera det befintliga schemat och skapa ett nytt som du länkar till runbooken **StartByResourceGroup-MS-Mgmt-VM** eller **StopByResourceGroup-MS-Mgmt-VM** som du vill att schemat ska gälla för.   
 
-## Log Analytics-poster
+## <a name="log-analytics-records"></a>Log Analytics-poster
 Automation skapar två typer av poster i OMS-databasen.
 
-### Jobbloggar
+### <a name="job-logs"></a>Jobbloggar
 | Egenskap | Beskrivning |
 | --- | --- |
 | Anropare |Den som initierade åtgärden.  Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb. |
@@ -168,7 +172,7 @@ Automation skapar två typer av poster i OMS-databasen.
 | SubscriptionId |Anger prenumerations-ID för jobbet. |
 | Tid |Datum och tid då runbook-jobbet körs. |
 
-### Arbetsflöden
+### <a name="job-streams"></a>Arbetsflöden
 | Egenskap | Beskrivning |
 | --- | --- |
 | Anropare |Den som initierade åtgärden.  Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb. |
@@ -188,7 +192,7 @@ Automation skapar två typer av poster i OMS-databasen.
 
 När du utför alla loggsökningar som returnerar poster för **JobLogs** eller **JobStreams**, kan du välja vyn **JobLogs** eller **JobStreams** som visar en uppsättning paneler som sammanfattar de uppdateringar som returneras av sökningen.
 
-## Exempel på loggsökningar
+## <a name="sample-log-searches"></a>Exempel på loggsökningar
 Följande tabell innehåller exempel på sökningar i loggen för jobbposter som har samlats in av den här lösningen. 
 
 | Fråga | Beskrivning |
@@ -197,11 +201,14 @@ Följande tabell innehåller exempel på sökningar i loggen för jobbposter som
 | Hitta jobb för runbook StopVM som har slutförts |Kategori = JobLogs RunbookName_s = "StartByResourceGroup-MS-Mgmt-VM" ResultType = lyckades &#124; mätning av antal () efter JobId_g |
 | Visa jobbstatus med tiden för runbookarna StartVM och StopVM |Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ELLER "StopByResourceGroup-MS-Mgmt-VM" INTE(ResultType="started") |
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Läs mer om hur du konstruerar olika sökfrågor och granskar jobbloggarna i Automation med Log Analytics i [Logga sökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md)
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra runbook-jobb](automation-runbook-execution.md)
 * Läs mer om OMS Log Analytics och datakällsamling i [Samla in data om Azure-lagring i Log Analytics-översikten](../log-analytics/log-analytics-azure-storage.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

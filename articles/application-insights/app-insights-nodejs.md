@@ -1,11 +1,11 @@
 ---
-title: Övervaka din Node.js-app genom att lägga till Application Insights SDK | Microsoft Docs
-description: Analysera användningen, tillgängligheten och prestanda i din lokala program eller Microsoft Azure-webbapp med Application Insights.
+title: "Övervaka din Node.js-app genom att lägga till Application Insights SDK | Microsoft Docs"
+description: "Analysera användningen, tillgängligheten och prestanda i din lokala program eller Microsoft Azure-webbapp med Application Insights."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,41 +13,45 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fb80168b38be88ab18952569e6b6f9bcb53d473a
+
 
 ---
-# Övervaka din Node.js-app genom att lägga till Application Insights SDK
+# <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Övervaka din Node.js-app genom att lägga till Application Insights SDK
 *Application Insights finns endast som förhandsversion.*
 
 Med [Visual Studio Application Insights](app-insights-overview.md) kan du övervaka ditt liveprogram och [identifiera och diagnostisera prestandaproblem och undantag](app-insights-detect-triage-diagnose.md) och [se hur din app används](app-insights-overview-usage.md). Tjänsten kan användas med appar som finns på dina lokala IIS-servrar eller på virtuella datorer i Azure, samt för Azure-webbappar.
 
 SDK tillhandahåller automatisk insamling av frekvens och svar för inkommande HTTP-förfrågningar, prestandaräknare (processor, minne, RPS) och ohanterade undantag. Du kan också lägga till anpassade anrop om du vill spåra beroenden, mätvärden och andra händelser.
 
-![Exempel på prestandaövervakningsdiagram](./media/app-insights-windows-services/10-perf.png)
+![Exempel på prestandaövervakningsdiagram](./media/app-insights-nodejs/10-perf.png)
 
-#### Innan du börjar
+#### <a name="before-you-start"></a>Innan du börjar
 Du behöver:
 
 * Visual Studio 2013 eller senare. Senare versioner är att föredra.
 * En prenumeration på [Microsoft Azure](http://azure.com). Om ditt team eller din organisation har en Azure-prenumeration kan ägaren lägga till dig med hjälp av ditt [Microsoft-konto](http://live.com).
 
-## <a name="add"></a>Skapa en Application Insights-resurs
+## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Skapa en Application Insights-resurs
 Logga in på [Azure-portalen][portal] och skapa en ny Application Insights-resurs. En [resurs][roles] i Azure är en instans av en tjänst. Det är i den här resursen som telemetrin från din app analyseras och visas.
 
-![Klicka på Nytt, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
+![Klicka på Nytt, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
 Välj Annan som programtyp. Valet av programtyp anger standardinnehållet i resursbladen och egenskaperna som visas i [Metrics Explorer][metrics].
 
-#### Kopiera instrumenteringsnyckeln
+#### <a name="copy-the-instrumentation-key"></a>Kopiera instrumenteringsnyckeln
 Nyckeln identifierar resursen och du ska snart installera den i SDK för att dirigera data till resursen.
 
-![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C](./media/app-insights-windows-services/02-props-asp.png)
+![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C.](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="sdk"></a> Installera SDK i ditt program
+## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Installera SDK i ditt program
 ```
 npm install applicationinsights --save
 ```
 
-## Användning
+## <a name="usage"></a>Användning
 Med SDK kan du övervaka förfrågningar, spåra ohanterade undantag och övervaka systemets prestanda (processor/minne/RPS).
 
 ```javascript
@@ -60,38 +64,38 @@ Instrumenteringsnyckeln kan också anges i miljövariabeln APPINSIGHTS_INSTRUMEN
 
 Du kan prova SDK utan att skicka telemetri: ange instrumenteringsnyckeln till en sträng som inte är tom.
 
-## <a name="run"></a> Köra projektet
+## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Köra projektet
 Kör ditt program och prova det: öppna olika sidor för att generera telemetri.
 
-## <a name="monitor"></a> Visa telemetrin
+## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Visa telemetrin
 Gå tillbaka till [Azure-portalen](https://portal.azure.com) och bläddra till Application Insights-resursen.
 
 Titta efter data på sidan Översikt. Först ser du bara en eller två punkter. Till exempel:
 
-![Klicka dig vidare till mer data](./media/app-insights-windows-services/12-first-perf.png)
+![Klicka dig vidare till mer data](./media/app-insights-nodejs/12-first-perf.png)
 
 Klicka dig vidare i diagrammet om du vill visa mer detaljerade mätvärden. [Lär dig mer om mätvärden.][perf]
 
-#### Ser du inga data?
+#### <a name="no-data"></a>Ser du inga data?
 * Använd programmet och öppna olika sidor så att det genererar telemetri.
 * Öppna panelen [Sök](app-insights-diagnostic-search.md) om du vill visa enskilda händelser. Ibland tar det lite längre tid för händelser att passera genom pipelinen för mätvärden.
 * Vänta några sekunder och klicka på **Uppdatera**. Diagrammen uppdateras automatiskt med jämna mellanrum, men du kan uppdatera dem manuellt om du väntar på att vissa data ska visas.
 * Mer information finns i [Felsökning][qna].
 
-## Publicera appen
+## <a name="publish-your-app"></a>Publicera appen
 Distribuera ditt program till IIS eller Azure och se hur data ackumuleras.
 
-#### Visas inga data efter att du har publicerat till servern?
+#### <a name="no-data-after-you-publish-to-your-server"></a>Visas inga data efter att du har publicerat till servern?
 Öppna dessa portar för utgående trafik i serverns brandvägg:
 
 * `dc.services.visualstudio.com:443`
 * `f5.services.visualstudio.com:443`
 
-#### Har du problem på build-servern?
+#### <a name="trouble-on-your-build-server"></a>Har du problem på build-servern?
 Mer information finns i [det här felsökningsavsnittet](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
-## Anpassad användning
-### Inaktivera automatisk insamling
+## <a name="customized-usage"></a>Anpassad användning
+### <a name="disabling-autocollection"></a>Inaktivera automatisk insamling
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -102,7 +106,7 @@ appInsights.setup("<instrumentation_key>")
     .start();
 ```
 
-### Anpassad övervakning
+### <a name="custom-monitoring"></a>Anpassad övervakning
 ```javascript
 import appInsights = require("applicationinsights");
 var client = appInsights.getClient();
@@ -115,7 +119,7 @@ client.trackTrace("trace message");
 
 [Mer information om telemetri-API:et](app-insights-api-custom-events-metrics.md).
 
-### Använda flera instrumenteringsnycklar
+### <a name="using-multiple-instrumentation-keys"></a>Använda flera instrumenteringsnycklar
 ```javascript
 import appInsights = require("applicationinsights");
 
@@ -127,8 +131,8 @@ var otherClient = appInsights.getClient("<other_instrumentation_key>");
 otherClient.trackEvent("custom event");
 ```
 
-## Exempel
-### Spåra beroende
+## <a name="examples"></a>Exempel
+### <a name="tracking-dependency"></a>Spåra beroende
 ```javascript
 import appInsights = require("applicationinsights");
 var client = appInsights.getClient();
@@ -144,7 +148,7 @@ client.trackDependency("dependency name", "command name", elapsedTime, success);
 
 
 
-### Manuell förfrågningsspårning av alla ”GET”-begäranden
+### <a name="manual-request-tracking-of-all-get-requests"></a>Manuell förfrågningsspårning av alla ”GET”-begäranden
 ```javascript
 var http = require("http");
 var appInsights = require("applicationinsights");
@@ -181,7 +185,7 @@ server.on("listening", () => {
 });
 ```
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Övervaka din telemetri i portalen](app-insights-dashboards.md)
 * [Skriv Analytics-frågor via din telemetri](app-insights-analytics-tour.md)
 
@@ -196,6 +200,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

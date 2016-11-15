@@ -15,6 +15,8 @@ Giltiga värden för innehållet i
 
 Om mikroversion (tredje siffran) har angetts, ignoreras den.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

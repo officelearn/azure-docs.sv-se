@@ -1,13 +1,13 @@
 ---
-title: Skapa VNet-peering med hjälp av Azure-portalen | Microsoft Docs
-description: Lär dig hur du skapar ett virtuellt nätverk med Azure-portalen i Resource Manager.
+title: "Skapa VNet-peering med hjälp av Azure-portalen | Microsoft Docs"
+description: "Lär dig hur du skapar ett virtuellt nätverk med Azure-portalen i Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: NarayanAnnamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 026bca75-2946-4c03-b4f6-9f3c5809c69a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 688fed72b32767f33010b9e8f17921b16320072d
+
 
 ---
-# Skapa VNet-peering med hjälp av Azure-portalen
+# <a name="create-a-virtual-network-peering-using-the-azure-portal"></a>Skapa VNet-peering med hjälp av Azure-portalen
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -62,7 +66,7 @@ Det finns några egenskaper som kan konfigureras för varje länk:
 | Alternativ | Beskrivning | Standard |
 |:--- |:--- |:--- |
 | AllowVirtualNetworkAccess |Om adressrymden för peer-VNet som ska tas med som en del av taggen Virtual_network |Ja |
-| AllowForwardedTraffic |Tillåter att trafik som inte kommer från ett peer-kopplat VNet godkänns eller utelämnas |Nej |
+| AllowForwardedTraffic |Oavsett om trafik som inte kommer från ett peer-kopplat VNet godkänns eller tas bort |Nej |
 | AllowGatewayTransit |Tillåter att ett peer VNet använder din VNet-gateway |Nej |
 | UseRemoteGateways |Använd din peers VNet-gateway. En gateway måste konfigureras för det peer-kopplade virtuella nätverket och AllowGatewayTransit måste väljas. Du kan inte använda det här alternativet om du har en konfigurerad gateway |Nej |
 
@@ -90,7 +94,7 @@ Varje länk i VNet-peering har en uppsättning av egenskaperna ovan. Från porta
    > 
 6. Logga in på portalen som UserA, gå till bladet VNET3, klicka på Peering, markera kryssrutan ”Jag känner till mitt resurs-ID” och skriv resurs-ID:t för VNET5 i formatet nedan.
    
-    /subscriptions/<prenumerations-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
+    /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Network/VirtualNetwork/{VNETname}
    
     ![Resurs-ID](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 7. Logga in på portalen som UserB och följ steget ovan för att skapa en peering-länk från VNET5 till VNet3.
@@ -121,7 +125,7 @@ Varje länk i VNet-peering har en uppsättning av egenskaperna ovan. Från porta
    
     ![Kontrollera peering-anslutning](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
 
-## Ta bort VNet-peering
+## <a name="remove-vnet-peering"></a>Ta bort VNet-peering
 1. Från en webbläsare, navigerar du till http://portal.azure.com och loggar, vid behov, in med ditt Azure-konto.
 2. Gå till bladet för virtuella nätverk, klicka på Peering-sessioner, klicka på den länk du vill ta bort och sedan på knappen Ta bort.
    
@@ -131,6 +135,9 @@ Varje länk i VNet-peering har en uppsättning av egenskaperna ovan. Från porta
     ![Delete2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. I det här tillståndet kan du inte återskapa länken förrän peer-länkens status ändras till Initierad. Vi rekommenderar att du tar bort båda länkarna innan du återskapar en VNET-peering.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

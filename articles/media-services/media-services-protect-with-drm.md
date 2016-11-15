@@ -1,12 +1,12 @@
 ---
-title: Använda PlayReady och/eller Widevine Dynamic Common Encryption | Microsoft Docs
-description: Med Microsoft Azure Media Services kan du leverera MPEG-DASH-, Smooth Streaming- och Http-Live-Streaming-dataströmmar som skyddas med Microsoft PlayReady DRM. Du kan också leverera DASH krypterat med Widevine DRM. I det här avsnittet beskrivs hur du krypterar dynamiskt med PlayReady och Widevine DRM.
+title: "Använda PlayReady och/eller Widevine Dynamic Common Encryption | Microsoft Docs"
+description: "Med Microsoft Azure Media Services kan du leverera MPEG-DASH-, Smooth Streaming- och Http-Live-Streaming-dataströmmar som skyddas med Microsoft PlayReady DRM. Du kan också leverera DASH krypterat med Widevine DRM. I det här avsnittet beskrivs hur du krypterar dynamiskt med PlayReady och Widevine DRM."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 59c0b46015b3d112d17dd79a2a4bfd3b3165dfba
+
 
 ---
-# Använda PlayReady och/eller Widevine Dynamic Common Encryption
+# <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Använda PlayReady och/eller Widevine Dynamic Common Encryption
 > [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-drm.md)
+> * [NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
@@ -41,10 +45,10 @@ Det här avsnittet kan vara användbart för utvecklare som arbetar på appar so
 > 
 > 
 
-## Hämta exempel
+## <a name="download-sample"></a>Hämta exempel
 Du kan hämta det exempel som beskrivs i artikeln [här](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
-## Konfigurera Dynamic Common Encryption och DRM-licensleveranstjänster
+## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Konfigurera Dynamic Common Encryption och DRM-licensleveranstjänster 
 Nedan följer allmänna steg som du behöver utföra när du skyddar dina tillgångar med PlayReady med hjälp av Media Services licensleveranstjänst och även använder dynamisk kryptering.
 
 1. Skapa en tillgång och överför filer till tillgången.
@@ -68,32 +72,32 @@ Följande bild visar arbetsflödet som beskrivs ovan. Här används aktuellt tok
 
 Resten av det här avsnittet innehåller detaljerade förklaringar, kodexempel och länkar till ämnen som visar hur du utför de uppgifter som beskrivs ovan.
 
-## Aktuella begränsningar
+## <a name="current-limitations"></a>Aktuella begränsningar
 Om du lägger till eller uppdaterar en tillgångsleveransprincip måste du ta bort den associerade lokaliseraren (om sådan finns) och skapa en ny.
 
 Begränsning vid kryptering med Widevine med Azure Media Services: för närvarande stöds inte nycklar för multiinnehåll.
 
-## Skapa en tillgång och överföra filer till tillgången
+## <a name="create-an-asset-and-upload-files-into-the-asset"></a>Skapa en tillgång och överföra filer till tillgången
 För att hantera, koda och strömma videor måste du först överföra innehållet till Microsoft Azure Media Services. När du har överfört innehållet lagras det på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
 Utförlig information finns i [Överföra filer till ett Media Services-konto](media-services-dotnet-upload-files.md).
 
-## Koda den tillgång som innehåller filen för MP4-uppsättningen med anpassad bithastighet
+## <a name="encode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a>Koda den tillgång som innehåller filen för MP4-uppsättningen med anpassad bithastighet
 Med dynamisk kryptering behöver du bara skapa en tillgång som innehåller en uppsättning MP4-filer eller Smooth Streaming-källfiler i multibithastighet. Därefter, baserat på det format som anges i manifestet och i fragmentbegäran, kommer servern för strömning på begäran att säkerställa att du får den dataström i protokollet som du har valt. Detta innebär att du bara behöver lagra och betala för filerna i ett enda lagringsformat, och Media Services-tjänsten skapar och ger lämplig respons baserat på begäranden från en klient. Mer information finns i ämnet [Översikt över dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
 Mer information om att koda finns i [Koda en tillgång med Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Skapa en innehållsnyckel och associera den med den kodade tillgången
+## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Skapa en innehållsnyckel och associera den med den kodade tillgången
 I Media Services innehåller innehållsnyckeln den nyckel som du vill kryptera en tillgång med.
 
 Utförlig information finns i [Skapa en innehållsnyckel](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Konfigurera innehållsnyckelns auktoriseringsprincip
+## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Konfigurera en auktoriseringsprincip för innehållsnyckeln
 Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Innehållsnyckelns auktoriseringsprincip måste konfigureras av dig och uppfyllas av klienten (spelaren) för att nyckeln ska kunna levereras till klienten. Auktoriseringsprincipen för innehållsnyckeln kan ha en eller flera auktoriseringsbegränsningar: öppen eller tokenbegränsning.
 
 Mer information finns i [Konfigurera  innehållsnyckelns auktoriseringsprincip](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a id="configure_asset_delivery_policy"></a>Konfigurera tillgångsleveransprincip
+## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Konfigurera tillgångsleveransprincip
 Konfigurera leveransprincipen för din tillgång. Tillgångsleveransprincipen innehåller bland annat följande:
 
 * URL för anskaffning av DRM-licens. 
@@ -102,7 +106,7 @@ Konfigurera leveransprincipen för din tillgång. Tillgångsleveransprincipen in
 
 Detaljerad information finns i [Konfigurera tillgångsleveransprincip ](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Skapa en lokaliserare för OnDemand-strömning för att få en strömnings-URL
+## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Skapa en lokaliserare för OnDemand-strömning för att få en strömnings-URL
 Du måste förse din användare med strömnings-URL:en för Smooth, DASH eller HLS.
 
 > [!NOTE]
@@ -112,7 +116,7 @@ Du måste förse din användare med strömnings-URL:en för Smooth, DASH eller H
 
 Anvisningar för hur du publicerar en tillgång och skapar en strömnings-URL finns i [Skapa en strömnings-URL](media-services-deliver-streaming-content.md).
 
-## Hämta en testtoken
+## <a name="get-a-test-token"></a>Hämta en testtoken
 Hämta en testtoken baserat på de tokenbegränsningar som användes för nyckelauktoriseringsprincipen.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -129,7 +133,7 @@ Hämta en testtoken baserat på de tokenbegränsningar som användes för nyckel
 
 Du kan använda [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) för att testa din dataström.
 
-## <a id="example"></a>Exempel
+## <a name="a-idexampleaexample"></a><a id="example"></a>Exempel
 I följande exempel visas de funktioner som introducerades i Azure Media Services SDK för .Net -Version 3.5.2 (särskilt möjligheten att definiera en Widevine-licensmall och begära en Widevine-licens från Azure Media Services). Följande Nuget-paketkommando användes för att installera paketet:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
@@ -306,7 +310,7 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
 
                     ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
                     encodeTask.InputAssets.Add(inputAsset);
-                    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),    AssetCreationOptions.StorageEncrypted);
+                    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),     AssetCreationOptions.StorageEncrypted);
 
                     job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
                     job.Submit();
@@ -600,21 +604,24 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
         }
 
 
-## Nästa steg
+## <a name="next-step"></a>Nästa steg
 Granska sökvägarna för Media Services-utbildning.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Ge feedback
+## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Se även
+## <a name="see-also"></a>Se även
 [CENC med Multi-DRM och Access Control](media-services-cenc-with-multidrm-access-control.md)
 
 [Konfigurera Widevine-paketering med AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
 [Vi ber att få presentera Google Widevines licensleveranstjänster i Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

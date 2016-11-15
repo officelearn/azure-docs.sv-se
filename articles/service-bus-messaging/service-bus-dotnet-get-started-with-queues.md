@@ -1,12 +1,12 @@
 ---
-title: Komma igång med Service Bus-köer | Microsoft Docs
-description: Så här skriver du ett C#-konsolprogram för meddelandetjänsten i Service Bus
+title: "Komma igång med Service Bus-köer | Microsoft Docs"
+description: "Så här skriver du ett C#-konsolprogram för meddelandetjänsten i Service Bus"
 services: service-bus
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/23/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c6405a6353cfcc56c79a6f842c6b150d10db75ee
+
 
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
@@ -33,17 +37,17 @@ I de här självstudierna kommer vi att gå igenom följande:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1.-create-a-namespace-using-the-azure-portal"></a>1. Skapa ett namnområde med Azure Portal
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Skapa ett namnområde med Azure Portal
 Om du redan har skapat ett Service Bus-namnområde går du vidare till avsnittet [Skapa en kö med hjälp av Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2.-create-a-queue-using-the-azure-portal"></a>2. Skapa en kö med hjälp av Azure Portal
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Skapa en kö med hjälp av Azure Portal
 Om du redan har skapat en Service Bus-kö går du vidare till avsnittet [Skicka meddelanden till kön](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3.-send-messages-to-the-queue"></a>3. Skicka meddelanden till kön
+## <a name="3-send-messages-to-the-queue"></a>3. Skicka meddelanden till kön
 Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visual Studio.
 
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
@@ -99,7 +103,7 @@ Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visu
    
       ![Antal meddelanden][queue-message]
 
-## <a name="4.-receive-messages-from-the-queue"></a>4. Ta emot meddelanden från kön
+## <a name="4-receive-messages-from-the-queue"></a>4. Ta emot meddelanden från kön
 1. Skapa ett nytt konsolprogram och lägg till en referens till Service Bus NuGet-paketet, liknande det tidigare sändningsprogrammet.
 2. Lägg till följande `using`-instruktion högst upp i filen Program.cs.
    
@@ -172,6 +176,7 @@ Kolla in våra [GitHub-databaser med exempel](https://github.com/Azure-Samples/a
 [github-exempel]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

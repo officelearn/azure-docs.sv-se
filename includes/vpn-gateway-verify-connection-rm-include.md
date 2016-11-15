@@ -41,6 +41,8 @@ Du kan visa anslutningsstatus i Azure-portalen genom att navigera till anslutnin
    
     ![Verifiera anslutning](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -9,22 +9,22 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Skapa en ny brandvägg på Azure SQL-servernivå
+## <a name="create-a-new-azure-sql-serverlevel-firewall"></a>Skapa en ny brandvägg på Azure SQL-servernivå
 Använd följande steg i Azure Portal för att skapa en brandväggsregel på servernivå som tillåter anslutningar från en enskild IP-adress (din klientdator) eller ett helt IP-adressintervall till en logisk SQL Database-server.
 
 1. Om du inte är ansluten ansluter du till [Azure Portal](http://portal.azure.com).
 2. I standardbladet klickar du på **SQL-servrar**.
    
-    ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
+      ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 3. I **SQL server**-bladet klickar du på servern där du vill skapa brandväggsregeln.
    
-    ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
+     ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
 4. Granska egenskaperna för servern.
    
-    ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
+     ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
 5. I bladet **Inställningar** klickar du på **Brandvägg**.
    
-    ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
+     ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
    
    > [!NOTE]
    > Du kan även använda servernivån i bladet **brandväggsinställningar** från **databas**-bladets verktygsfält.
@@ -45,6 +45,8 @@ Använd följande steg i Azure Portal för att skapa en brandväggsregel på ser
    > 
    > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

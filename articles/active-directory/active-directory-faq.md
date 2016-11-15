@@ -1,27 +1,31 @@
 ---
-title: Vanliga frågor och svar om Azure Active Directory | Microsoft Docs
-description: I det här avsnittet med vanliga frågor och svar om Azure Active Directory får du svar på frågor om åtkomsten till Azure och Azure Active Directory, om lösenordshantering samt om åtkomsten till program.
+title: "Vanliga frågor och svar om Azure Active Directory | Microsoft Docs"
+description: "I det här avsnittet med vanliga frågor och svar om Azure Active Directory får du svar på frågor om åtkomsten till Azure och Azure Active Directory, om lösenordshantering samt om åtkomsten till program."
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2016
+ms.date: 10/31/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0f7070d9d691e2471978a2986025ebfdafbeaa7c
+
 
 ---
-# Vanliga frågor och svar om Azure Active Directory
+# <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
 
 Mer information finns i [Vad är Azure Active Directory?](active-directory-whatis.md).
 
-## Komma åt Azure och Azure Active Directory
+## <a name="accessing-azure-and-azure-active-directory"></a>Komma åt Azure och Azure Active Directory
 **F: Varför visas ett meddelande om att inga prenumerationer hittades när jag försöker komma åt Azure AD på den klassiska Azure-portalen (https://manage.windowsazure.com)?**
 
 **S:** För att komma åt den klassiska Azure-portalen måste varje användare ha behörighet för en Azure-prenumeration. Om du har en betald Office 365- eller Azure AD-prenumeration går du till  [http://aka.ms/accessAAD](http://aka.ms/accessAAD) och följer steget för engångsaktiveringen. Annars måste du aktivera en fullständig [utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration. 
@@ -41,7 +45,7 @@ Alla användare som du har aktiverat för Microsofts onlinetjänster definieras 
 Dessutom kompletterar Azure AD-betaltjänsterna (t.ex. Azure AD Basic, Premium, EMS osv.) andra onlinetjänster som Office 365 och Microsoft Azure med heltäckande hanterings- och säkerhetslösningar i företagsklass.
 
 - - -
-## Komma igång med en Azure AD-hybridlösning
+## <a name="getting-started-with-hybrid-azure-ad"></a>Komma igång med en Azure AD-hybridlösning
 **F: Hur kan jag ansluta min lokala katalog till Azure AD?**
 
 **S:** Du kan ansluta din lokala katalog till Azure AD med hjälp av **Azure AD Connect**. 
@@ -72,7 +76,7 @@ Mer information finns i [Introduktion till åtkomstpanelen](active-directory-saa
 Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet](active-directory-aadconnect-health.md).  
 
 - - -
-## Lösenordshantering
+## <a name="password-management"></a>Lösenordshantering
 **F: Kan jag använda tillbakaskrivning av lösenord i Azure AD utan lösenordssynkronisering? (Jag skulle vilja använda Azure AD SSPR med tillbakaskrivning av lösenord men jag vill inte att mina lösenord ska lagras i molnet.)**
 
 **S:** Du behöver inte synkronisera dina AD-lösenord till Azure AD för att använda tillbakaskrivning. I en federerad miljö använder SSO (enkel inloggning) i Azure AD den lokala katalogen för att autentisera användaren. I det här scenariot måste inte det lokala lösenordet spåras i Azure AD.
@@ -92,10 +96,10 @@ Mer information finns i [Komma igång med lösenordshantering](active-directory-
 Fler svar på lösenordsrelaterade frågor finns i [Vanliga frågor och svar om lösenordshantering](active-directory-passwords-faq.md).
 
 - - -
-## Programåtkomst
+## <a name="application-access"></a>Programåtkomst
 **F: Var kan jag hitta en lista över program som redan är integrerade i Azure AD och deras funktioner?**
 
-**S:** Azure AD har över 2 600 redan integrerade program från Microsoft, programtjänstproviders och partner. Alla redan integrerade program stöder enkel inloggning (SSO). Med enkel inloggning kan du använda din organisations autentiseringsuppgifter för att komma åt dina appar. Vissa program stöder även automatisk etablering och avetablering
+**S:** Azure AD har över 2 600 redan integrerade program från Microsoft, programtjänstproviders och partner. Alla redan integrerade program stöder enkel inloggning (SSO). Med enkel inloggning kan du använda din organisations autentiseringsuppgifter för att komma åt dina appar. Vissa program stöder även automatisk etablering och avetablering
 
 En fullständig lista över redan integrerade program finns på [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
@@ -154,6 +158,9 @@ Mer information finns i [Skydda åtkomsten till Office 365 och andra appar som �
 Mer information finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md)
 
 - - -
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

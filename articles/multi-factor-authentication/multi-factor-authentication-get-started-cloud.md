@@ -1,23 +1,27 @@
 ---
-title: Komma igång med Microsoft Azure Multi-Factor Authentication i molnet
-description: Det här är sidan om Microsoft Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA i molnet.
+title: "Kom igång Azure MFA i molnet | Microsoft Docs"
+description: "Det här är sidan om Microsoft Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA i molnet."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtand
-
+editor: yossib
+ms.assetid: 6b2e6549-1a26-4666-9c4a-cbe5d64c4e66
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 10/17/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+
 
 ---
-# Komma igång med Azure Multi-Factor Authentication i molnet
-I följande artikel lär du dig hur du kommer igång med Azure Multi-Factor Authentication i molnet.
+# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>Komma igång med Azure Multi-Factor Authentication i molnet
+I den här artikeln beskrivs hur du kommer igång med Azure Multi-Factor Authentication i molnet.
 
 > [!NOTE]
 > Följande dokumentation innehåller information om hur du aktiverar användare med hjälp av **den klassiska Azure-portalen**. Information om hur du konfigurerar Azure Multi-Factor Authentication för O365-användare finns i [Konfigurera Multi-Factor Authentication för Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
@@ -26,32 +30,31 @@ I följande artikel lär du dig hur du kommer igång med Azure Multi-Factor Auth
 
 ![MFA i molnet](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Följande krav måste vara uppfyllda innan du kan aktivera Azure Multi-Factor Authentication för användarna.
 
-* [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/) – Om du inte redan har en Azure-prenumeration måste du registrera dig för en. Om du precis börjat använda Azure MFA kan du använda en utvärderingsprenumeration.
-* [Skapa en Multi-Factor Auth-provider](multi-factor-authentication-get-started-auth-provider.md) och tilldela den till din katalog eller [tilldela licenser till användare](multi-factor-authentication-get-started-assign-licenses.md)
+1. [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/) – Om du inte redan har en Azure-prenumeration måste du registrera dig för en. Om du precis börjat använda Azure MFA kan du använda en utvärderingsprenumeration.
+2. [Skapa en Multi-Factor Auth-provider](multi-factor-authentication-get-started-auth-provider.md) och tilldela den till din katalog eller [tilldela licenser till användare](multi-factor-authentication-get-started-assign-licenses.md)
 
 > [!NOTE]
 > Licenser är tillgängliga för användare som har Azure MFA, Azure AD Premium eller Enterprise Mobility Suite (EMS).  MFA ingår i Azure AD Premium och EMS. Om du har tillräckligt med licenser behöver du inte skapa en autentiseringsprovider.
 > 
 > 
 
-## Så här aktiverar du Multi-Factor Authentication för användare
-Om du vill aktivera Multi-Factor Authentication för en användare ändrar du bara användarens status från inaktiv till aktiv.  Mer information om användarstatus finns i [Användarstatus i Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
+## <a name="turn-on-twostep-verification-for-users"></a>Aktivera tvåstegsverifiering för användare
+För att börja kräva tvåstegsverifiering för en användare ändrar du användarens tillstånd från inaktiverat aktiverat.  Mer information om användarstatus finns i [Användarstatus i Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
 Följ stegen nedan om du vill aktivera MFA för dina användare.
 
-### Så här aktiverar du Multi-Factor Authentication
-- - -
-1. Logga in på **den klassiska Azure-portalen** som administratör.
+### <a name="to-turn-on-multifactor-authentication"></a>Så här aktiverar du Multi-Factor Authentication
+1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör.
 2. Klicka på **Active Directory** till vänster.
-3. Under **Katalog** klickar du på katalogen för den användare som du vill aktivera.
+3. Under Katalog väljer du katalogen för den användare som du vill aktivera.
    ![Klicka på Katalog](./media/multi-factor-authentication-get-started-cloud/directory1.png)
 4. Klicka på **Användare** överst på sidan.
-5. Klicka på **Hantera Multi-Factor Auth** längst ned på sidan.
+5. Klicka på **Hantera Multi-Factor Auth** längst ned på sidan. En ny webbläsarflik öppnas.
    ![Klicka på Katalog](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6. En ny webbläsarflik öppnas.  Leta upp den användare som du vill aktivera för Multi-Factor Authentication. Du kan behöva ändra vyn överst på sidan. Kontrollera att statusen är **inaktiverad.**
+6. Hitta den användare som du vill aktivera för tvåstegsverifiering. Du kan behöva ändra vyn överst på sidan. Kontrollera att statusen är **inaktiverad.**
    ![Aktivera användare](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 7. Markera **rutan** bredvid användarens namn.
 8. Klicka på **Aktivera** till höger.
@@ -60,9 +63,10 @@ Följ stegen nedan om du vill aktivera MFA för dina användare.
    ![Aktivera användare](./media/multi-factor-authentication-get-started-cloud/enable2.png)
 10. Nu ändras användarens status från **inaktiverad** till **aktiverad**.
     ![Aktivera användare](./media/multi-factor-authentication-get-started-cloud/user.png)
-11. När du har aktiverat användarna rekommenderar vi att du meddelar dem om detta via e-post.  Informera dem också om hur de kan använda sina icke-webbläsarbaserade appar för att undvika att bli utelåsta.
 
-## Automatisera aktiveringen av Multi-Factor Authentication med PowerShell
+När du har aktiverat användarna bör du meddela dem via e-post. Nästa gång de försöker logga in, ombeds de att registrera sina konton för tvåstegsverifiering. Då de börjar använda tvåstegsverifiering, ska de också ställa in applösenord för att undvika att låsas ute från icke-webbläsarbaserade appar.
+
+## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>Använd PowerShell för att aktivera tvåstegsverifiering
 Du kan ändra [status](multi-factor-authentication-whats-next.md) med [Azure AD PowerShell](../powershell-install-configure.md) genom att använda följande.  Du kan ändra `$st.State` till någon av följande statusar:
 
 * Enabled
@@ -70,34 +74,39 @@ Du kan ändra [status](multi-factor-authentication-whats-next.md) med [Azure AD 
 * Disabled  
 
 > [!IMPORTANT]
-> Tänk på att om du går direkt från statusen Disable till Enforced så slutar äldre autentiseringsklienter att fungera eftersom användaren inte har gått igenom MFA-registreringen och erhållit ett [applösenord](multi-factor-authentication-whats-next.md#app-passwords).  Om du har äldre autentiseringsklienter och kräver applösenord rekommenderar vi att du går från statusen Disabled till Enabled.  På så sätt kan användarna registrera sig och erhålla sina lösenord.   
+> Vi avråder från att flytta användare direkt från inaktiverat tillstånd till tvingat tillstånd. Icke-webbläsarbaserade appar slutar fungera eftersom användaren inte har genomgått MFA-registrering och hämtat ett [applösenord](multi-factor-authentication-whats-next.md#app-passwords). Om du har icke-webbläsarbaserade appar och kräver lösenord, rekommenderar vi att du går från ett inaktiverat tillstånd till ett aktiverat. På så sätt kan användarna registrera sig och erhålla sina applösenord. Sedan kan flytta du dem till tvingat tillstånd.
 > 
 > 
 
+PowerShell är ett alternativ om du vill aktivera många användare samtidigt. För närvarande finns det inget alternativ för massaktivering på Azure-portalen och du måste markera varje användare separat. Detta kan vara ganska tidskrävande om du har många användare. Genom att skapa ett PowerShell-skript med följande kod kan du loopa igenom listan med användare och aktivera dem.
+
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
+        $st.RelyingParty = "\*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-PowerShell är ett alternativ om du vill aktivera många användare samtidigt.  För närvarande finns det inget alternativ för massaktivering på Azure-portalen och du måste markera varje användare separat.  Detta kan vara ganska tidskrävande om du har många användare.  Genom att skapa ett PowerShell-skript med ovanstående kod kan du loopa igenom listan med användare och aktivera dem.  Här är ett exempel:
+Här är ett exempel:
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
+        $st.RelyingParty = "\*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
 
 
-Mer information om användarstatus finns i [Användarstatus i Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
+Mer information finns i [Användarstatus i Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
-## Nästa steg
-Nu när du har konfigurerat Multi-Factor Authentication i molnet kan du konfigurera din distribution.  Se [Konfigurera Azure Multi-Factor Authentication.]
+## <a name="next-steps"></a>Nästa steg
+Nu när du har konfigurerat Multi-Factor Authentication i molnet kan du konfigurera din distribution. Se [Konfigurera Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md) för mer information.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

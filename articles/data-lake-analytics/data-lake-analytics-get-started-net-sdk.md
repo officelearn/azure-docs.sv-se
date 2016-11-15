@@ -1,39 +1,81 @@
 ---
-title: Kom igång med Azure Data Lake Analytics med hjälp av .NET SDK | Microsoft Docs
-description: 'Lär dig hur du använder .NET SDK för att skapa Data Lake Store-konton, skapa Data Lake Analytics-jobb och skicka jobb som skrivits i U-SQL. '
+title: "Kom igång med Azure Data Lake Analytics med hjälp av .NET SDK | Azure Docs"
+description: "Lär dig hur du använder .NET SDK för att skapa Data Lake Store-konton, skapa Data Lake Analytics-jobb och skicka jobb som skrivits i U-SQL. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1dfcbc3d-235d-4074-bc2a-e96def8298b6
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/23/2016
+ms.date: 10/26/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+
 
 ---
-# Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av .NET SDK
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-net-sdk"></a>Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av .NET SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Lär dig mer om hur du använder Azure .NET SDK för att skicka jobb som skrivits i [U SQL](data-lake-analytics-u-sql-get-started.md) till Data Lake Analytics. Mer information om Data Lake Analytics finns i [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 I de här självstudierna utvecklar du ett C#-konsolprogram som skickar U-SQL-jobb som läser en fil med tabbavgränsade värden (TVS) och konverterar den till en fil med kommaavgränsade värden (CSV). Klicka på flikarna överst i den här artikeln om du vill gå igenom samma självstudier med andra verktyg.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **Visual Studio 2015, Visual Studio 2013 uppdatering 4 eller Visual Studio 2012 med Visual C++ installerat**.
 * **Microsoft Azure SDK för .NET version 2.5 eller högre**.  Installera den med hjälp av [installationsprogrammet för webbplattformen](http://www.microsoft.com/web/downloads/platform.aspx).
 * **Ett Azure Data Lake Analytics-konto**. Se [Hantera Data Lake Analytics med hjälp av Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md).
 
-## Skapa konsolprogram
-I självstudierna bearbetas vissa sökloggar.  Sökloggen kan lagras i Data Lake Store eller Azure Blob-lagring. 
+## <a name="create-console-application"></a>Skapa konsolprogram
+I den här självstudien bearbetar du vissa sökloggar.  Sökloggen kan lagras i Data Lake Store eller Azure Blob-lagring. 
 
 Ett exempel på söklogg finns i en offentlig Azure Blob-behållare. I programmet kan du ladda ner filen till din arbetsstation och sedan ladda upp filen till Data Lake Store-standardkontot för Data Lake Analytics-kontot.
+
+**Skapa ett U-SQL-skript**
+
+Data Lake Analytics-jobb skrivs på U-SQL-språket. Läs mer om U-SQL i [Kom igång med U-SQL-språket](data-lake-analytics-u-sql-get-started.md) och [Referens för U-SQL-språket](http://go.microsoft.com/fwlink/?LinkId=691348).
+
+Skapa en **SampleUSQLScript.txt**-fil med följande U-SQL-skript och placera filen i sökvägen **C:\temp\**.  Sökvägen är hårdkodad i det .NET-program som du skapar i nästa procedur.  
+
+    @searchlog =
+        EXTRACT UserId          int,
+                Start           DateTime,
+                Region          string,
+                Query           string,
+                Duration        int?,
+                Urls            string,
+                ClickedUrls     string
+        FROM "/Samples/Data/SearchLog.tsv"
+        USING Extractors.Tsv();
+
+    OUTPUT @searchlog   
+        TO "/Output/SearchLog-from-Data-Lake.csv"
+    USING Outputters.Csv();
+
+U-SQL-skriptet läser källdatafilen med hjälp av **Extractors.Tsv()** och skapar sedan en CSV-fil med hjälp av **Outputters.Csv()**. 
+
+I C#-programmet måste du förbereda filen **/Samples/Data/SearchLog.tsv** och mappen **/Output/**.    
+
+Det är enklare att använda relativa sökvägar för filer lagrade i Data Lake-standardkonton. Du kan också använda absoluta sökvägar.  Exempel 
+
+    adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+
+Du måste använda absoluta sökvägar för att få åtkomst till filer i länkade Storage-konton.  Syntaxen för filer som lagras i det länkade Azure Storage-kontot är:
+
+    wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+
+> [!NOTE]
+> Det finns ett känt problem med tjänsten Azure Data Lake.  Om exempelprogrammet avbryts eller påträffar ett fel kan du behöva manuellt ta bort de Data Lake Store- och Data Lake Analytics-konton som skriptet skapar.  Om du inte känner till Azure-portalen kan du komma igång med hjälp av guiden [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md).       
+> 
+> 
 
 **Skapa ett program**
 
@@ -46,40 +88,7 @@ Ett exempel på söklogg finns i en offentlig Azure Blob-behållare. I programme
         Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
-4. Lägg till en ny fil i projektet som kallas **SampleUSQLScript.txt**, och klistra in följande U-SQL-skript. Data Lake Analytics-jobb skrivs på U-SQL-språket. Läs mer om U-SQL i [Kom igång med U-SQL-språket](data-lake-analytics-u-sql-get-started.md) och [Referens för U-SQL-språket](http://go.microsoft.com/fwlink/?LinkId=691348).
-   
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-   
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
-   
-    U-SQL-skriptet läser källdatafilen med hjälp av **Extractors.Tsv()** och skapar sedan en CSV-fil med hjälp av **Outputters.Csv()**. 
-   
-    I C#-programmet måste du förbereda filen **/Samples/Data/SearchLog.tsv** och mappen **/Output/**.    
-   
-    Det är enklare att använda relativa sökvägar för filer lagrade i Data Lake-standardkonton. Du kan också använda absoluta sökvägar.  Exempel 
-   
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-   
-    Du måste använda absoluta sökvägar för att få åtkomst till filer i länkade Storage-konton.  Syntaxen för filer som lagras i ett länkat Azure Storage-konto är:
-   
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-   
-   > [!NOTE]
-   > Det finns ett känt problem med tjänsten Azure Data Lake.  Om exempelprogrammet avbryts eller påträffar ett fel kan du behöva manuellt ta bort de Data Lake Store- och Data Lake Analytics-konton som skriptet skapar.  Om du inte känner till portalen kan du komma igång med hjälp av guiden [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md).       
-   > 
-   > 
-5. I Program.cs, klistra in följande kod:
+4. I Program.cs, klistra in följande kod:
    
         using System;
         using System.IO;
@@ -134,7 +143,7 @@ Ett exempel på söklogg finns i en offentlig Azure Blob-behållare. I programme
                 // Download job output
                 DownloadFile(@"/Output/SearchLog-from-Data-Lake.csv", localFolderPath + "SearchLog-from-Data-Lake.csv");
 
-                WaitForNewline("Job output downloaded. You can now exit.");
+                  WaitForNewline("Job output downloaded. You can now exit.");
             }
 
             public static ServiceClientCredentials AuthenticateAzure(
@@ -237,7 +246,7 @@ Ett exempel på söklogg finns i en offentlig Azure Blob-behållare. I programme
     ![Azure Data Lake Analytics job U-SQL .NET SDK output](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
 2. Kontrollera utdatafilen.  Standardsökvägen och -filnamnet är c:\Temp\SearchLog-from-Data-Lake.csv.
 
-## Se även
+## <a name="see-also"></a>Se även
 * Klicka på flikväljarna överst på sidan om du vill se samma självstudier med andra verktyg.
 * Om du vill se en mer komplex fråga, se [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Information om att utveckla U-SQL-program finns i [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
@@ -245,6 +254,9 @@ Ett exempel på söklogg finns i en offentlig Azure Blob-behållare. I programme
 * Information om hanteringsuppgifter finns i [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md).
 * Om du vill få en översikt över Data Lake Analytics, se [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

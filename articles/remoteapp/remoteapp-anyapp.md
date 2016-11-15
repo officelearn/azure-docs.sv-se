@@ -1,12 +1,12 @@
 ---
-title: Köra en Windows-app på valfri enhet med Azure RemoteApp | Microsoft Docs
-description: Lär dig hur du delar en Windows-app med dina användare via Azure RemoteApp.
+title: "Köra en Windows-app på valfri enhet med Azure RemoteApp | Microsoft Docs"
+description: "Lär dig hur du delar en Windows-app med dina användare via Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 961d40ca-9673-4977-aa54-d6b22fc61ce1
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d46e4de6f8e1491671d4d5dfb73bacecefa2b118
+
 
 ---
-# Köra en Windows-app på valfri enhet med Azure RemoteApp
+# <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Köra en Windows-app på valfri enhet med Azure RemoteApp
 > [!IMPORTANT]
 > Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
@@ -40,7 +44,7 @@ Observera att eftersom Access är en databas, och vi vill att databasen ska vara
 > 
 > 
 
-## Skapa en samling i RemoteApp
+## <a name="create-a-collection-in-remoteapp"></a>Skapa en samling i RemoteApp
 Börja med att skapa en samling. Samlingen fungerar som en behållare för dina appar och användare. Varje samling är baserad på en avbildning – du kan skapa en egen eller använda en som ingår i din prenumeration. I den här kursen använder vi Office 2013-utvärderingsavbildningen. Den innehåller den app som vi vill dela.
 
 1. Rulla nedåt i det vänstra navigeringsträdet i Azure Portal tills du ser RemoteApp. Öppna sidan.
@@ -57,7 +61,7 @@ Den här åtgärden börjar skapa samlingen, men det kan ta upp till en timme.
 
 Sedan kan du lägga till användare.
 
-## Dela appen med användare
+## <a name="share-the-app-with-users"></a>Dela appen med användare
 När din samling har skapats, är det dags att publicera Access till användarna och lägga till de användare som ska ha åtkomst till den.
 
 Om du har navigerat bort från Azure RemoteApp-noden medan samlingen skapades, börjar du med att gå tillbaka till den från Azure-startsidan.
@@ -75,7 +79,7 @@ Om du har navigerat bort från Azure RemoteApp-noden medan samlingen skapades, b
 1. Nu är det dags att informera användarna om de nya apparna och hur de kommer åt dem. Gör det genom att skicka ett mejl till dem och hänvisa dem till fjärrskrivbordsklientens nedladdnings-URL.
    ![Klientens nedladdnings-URL för RemoteApp](./media/remoteapp-anyapp/ra-anyappurl.png)
 
-## Konfigurera åtkomst till Access
+## <a name="configure-access-to-access"></a>Konfigurera åtkomst till Access
 Vissa appar behöver ytterligare konfiguration efter att du har distribuerat dem via RemoteApp. I synnerhet för Access ska vi skapa en filresurs på Azure som alla användare kan komma åt. (Om du inte vill göra det kan du skapa en [hybridsamling](remoteapp-create-hybrid-deployment.md) [i stället för molnsamlingen] som låter användarna komma åt filer och information på det lokala nätverket.) Sedan måste du säga åt användarna att de ska mappa en lokal enhet på sin dator till Azure-filsystemet.
 
 Det första gör du i egenskap av administratör. Sedan har vi några steg för användarna.
@@ -113,7 +117,7 @@ Nu är det användarens tur. Uppmana först användarna att installera en [Remot
 Nu kan du använda Access på valfri enhet där en RemoteApp-klient finns installerad.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig att skapa en samling kan du försöka skapa en [samling som använder Office 365](remoteapp-tutorial-o365anywhere.md). Du kan även skapa en [hybridsamling](remoteapp-create-hybrid-deployment.md) som kan komma åt ditt lokala nätverk.
 
 <!--Image references-->
@@ -121,6 +125,6 @@ Nu när du har lärt dig att skapa en samling kan du försöka skapa en [samling
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

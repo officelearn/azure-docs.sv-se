@@ -2,13 +2,13 @@
 title: Distribuera ett Azure Container Service-kluster | Microsoft Docs
 description: Distribuera ett Azure Container Service-kluster via Azure Portal, Azure CLI eller PowerShell.
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, behållare, Micro-tjänster, Mesos, Azure
-
+keywords: "Docker, behållare, Micro-tjänster, Mesos, Azure"
+ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,14 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c8c06906a5f99890295ff2b2433ff6f7e02dece5
+
 
 ---
-# Distribuera ett Azure Container Service-kluster
+# <a name="deploy-an-azure-container-service-cluster"></a>Distribuera ett Azure Container Service-kluster
 Azure Container Service ger snabb distribution av populär behållarklustring med öppen källkod och orchestration-lösningar. Med Azure Container Service kan du distribuera DC/OS- och Docker Swarm-kluster med Azure Resource Manager-mallar eller Azure Portal. Du kan distribuera de här klusten med Azure Virtual Machine-skalningsuppsättningar, och klustren drar nytta av Azures nätverks- och -lagringserbjudanden. Du behöver en Azure-prenumeration för att kunna använda Azure Container Service. Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Det här dokumentet innehåller anvisningar för att distribuera ett Azure Container Service-kluster med hjälp av [Azure Portal](#creating-a-service-using-the-azure-portal), [Azure-kommandoradsgränssnittet (CLI)](#creating-a-service-using-the-azure-cli) och [Azure PowerShell-modulen](#creating-a-service-using-powershell).  
 
-## Skapa en tjänst med Azure Portal
+## <a name="create-a-service-by-using-the-azure-portal"></a>Skapa en tjänst med Azure Portal
 Logga in på Azure Portal, välj **Ny** och sök på Azure Marketplace efter **Azure Container Service**.
 
 ![Skapa distribution 1](media/acs-portal1.png)  <br />
@@ -38,7 +42,7 @@ Ange följande information:
 * **Prenumeration**: Välj en Azure-prenumeration.
 * **Resursgrupp**: Välj en befintlig resursgrupp eller skapa en ny.
 * **Plats**: Välj en Azure-region för Azure Container Service-distributionen.
-* **Offentlig SSH-nyckel**: Lägg till den offentliga nyckel som ska användas för autentisering mot Azure Container Service Virtual Machines. Det är viktigt att den här nyckeln inte innehåller några radbrytningar och att den innehåller prefixet ”ssh-rsa” och postfixet ”username@domain”. Det bör likna följande: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Anvisningar om hur du skapar Secure Shell-nycklar finns i [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/)- och [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/)-artiklarna.
+* **Offentlig SSH-nyckel**: Lägg till den offentliga nyckel som ska användas för autentisering mot Azure Container Service Virtual Machines. Det är viktigt att den här nyckeln inte innehåller några radbrytningar och att den innehåller prefixet ”ssh-rsa” och postfixet 'username@domain'. Det bör likna följande: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Anvisningar om hur du skapar Secure Shell-nycklar finns i [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/)- och [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/)-artiklarna.
 
 Klicka på **OK** när du är redo att gå vidare.
 
@@ -78,12 +82,12 @@ Om du har valt att fästa distributionen på Azure Portal, visas distributionsst
 
 När distributionen är klar kan Azure Container Service-klustret användas.
 
-## Skapa en tjänst med Azure CLI
+## <a name="create-a-service-by-using-the-azure-cli"></a>Skapa en tjänst med Azure CLI
 Du måste ha en Azure-prenumeration för att kunna skapa en instans av Azure Container Service med kommandoraden. Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Du måste också ha [installerat](../xplat-cli-install.md) och [konfigurerat](../xplat-cli-connect.md) Azure CLI.
 
 Om du vill distribuera ett DC/OS- eller Docker Swarm-kluster väljer du en av nedanstående mallar från GitHub. Observera att båda de här mallarna är likadana, med undantag för standardvalet av orchestrator.
 
-* [DC/OS-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [DC/OS-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Kontrollera därefter att Azure CLI har anslutits till en Azure-prenumeration. Det kan du göra med hjälp av följande kommando:
@@ -118,7 +122,7 @@ Skapa en Azure-resursgrupp och ett Container Service-kluster med följande komma
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
-### Ange mallparametrar
+### <a name="provide-template-parameters"></a>Ange mallparametrar
 Med den här versionen av kommandot måste du interaktivt definiera parametrar. Om du vill ange parametrar, t.ex. en JSON-formaterad sträng, kan du göra det med växeln `-p`. Exempel:
 
  ```bash
@@ -133,12 +137,12 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 
 Om du vill se ett exempel på en parameterfil som heter `azuredeploy.parameters.json` kan du leta efter den med Azure Container Service-mallarna i GitHub.
 
-## Skapa en tjänst med PowerShell
+## <a name="create-a-service-by-using-powershell"></a>Skapa en tjänst med PowerShell
 Du kan även distribuera ett Azure Container Service-kluster med PowerShell. Det här dokumentet utgår från version 1.0 av [Azure PowerShell-modulen](https://azure.microsoft.com/blog/azps-1-0/).
 
 Om du vill distribuera ett DC/OS- eller Docker Swarm-kluster väljer du en av nedanstående mallar. Observera att båda de här mallarna är likadana, med undantag för standardvalet av orchestrator.
 
-* [DC/OS-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [DC/OS-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Innan du skapar ett kluster i din Azure-prenumeration måste du kontrollera att PowerShell-sessionen har loggats in på Azure. Det kan du göra med kommandot `Get-AzureRMSubscription`:
@@ -165,7 +169,7 @@ När du har skapat en resursgrupp kan du skapa klustret med nedanstående komman
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
 ```
 
-### Ange mallparametrar
+### <a name="provide-template-parameters"></a>Ange mallparametrar
 Om du är bekant med PowerShell vet du att du kan gå igenom tillgängliga parametrar för en cmdlet genom att skriva ett minustecken (-) och sedan trycka på TABB-tangenten. Den här metoden går även att använda med parametrar som du anger i mallen. När du anger mallnamnet hämtar cmdleten mallen, parsar parametrarna och lägger dynamiskt till mallparametrarna i kommandot. På så sätt är det mycket enkelt att ange parametervärden för mallen. Och om du glömmer ett nödvändigt parametervärde efterfrågar PowerShell värdet.
 
 Nedan visas det fullständiga kommandot inklusive parametrar. Du kan ange egna värden för resursnamnen.
@@ -174,13 +178,16 @@ Nedan visas det fullständiga kommandot inklusive parametrar. Du kan ange egna v
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när du har ett fungerande kluster kan du visa dessa dokument för anslutnings- och hanteringsinformation:
 
 * [Ansluta till ett Azure Container Service-kluster](container-service-connect.md)
 * [Arbeta med Azure Container Service och DC/OS](container-service-mesos-marathon-rest.md)
 * [Arbeta med Azure Container Service och Docker Swarm](container-service-docker-swarm.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

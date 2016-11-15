@@ -8,6 +8,8 @@
     ![Lägga till ett undernät](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
 5. Klicka på **OK** längst ned på bladet för att skapa undernätet.
 
-<!--HONumber=Oct16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

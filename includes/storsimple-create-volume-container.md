@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Skapa en volymbehållare
+#### <a name="to-create-a-volume-container"></a>Skapa en volymbehållare
 1. På enhetens **Snabbstart**-sida klickar du på **Lägg till volymbehållare**. Dialogrutan **Skapa volymbehållare** visas.
    
     ![Skapa volymbehållare](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
@@ -20,6 +20,8 @@
 
 För att se en video som visar hur du skapar en volymbehållare i din StorSimple-lösning, klickar du [här](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

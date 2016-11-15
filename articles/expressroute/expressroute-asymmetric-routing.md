@@ -1,12 +1,12 @@
 ---
 title: Asymmetrisk routning | Microsoft Docs
-description: Den här artikeln beskriver problem som kan uppstå i samband med asymmetrisk routning i en kunds nätverk som har flera länkar till ett mål.
+description: "Den här artikeln beskriver problem som kan uppstå i samband med asymmetrisk routning i en kunds nätverk som har flera länkar till ett mål."
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+
 
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Asymmetrisk routning med flera nätverksvägar
@@ -60,7 +64,7 @@ Se till att dina offentliga IP-adresser annonseras till relevanta WAN-länkar. O
 
 Om du vill använda ExpressRoute för autentisering måste du annonsera offentliga IP-adresser för ADFS via ExpressRoute utan NAT. På det här sättet går trafik som kommer från Microsoft och går till lokal AD FS-servern över ExpressRoute. Returtrafik från kund till Microsoft använder ExpressRoute eftersom det är den prioriterade vägen via Internet.
 
-### <a name="source-based-nat"></a>Källbaserad NAT
+### <a name="sourcebased-nat"></a>Källbaserad NAT
 Ett annat sätt att lösa problem med asymmetrisk routning är att använda SNAT. Exempelvis har du inte annonserat den offentliga IP-adressen för en lokal SMTP-server över ExpressRoute eftersom du planerar att använda Internet för den här typen av kommunikation. En begäran som har sitt ursprung hos Microsoft och sedan går till den lokala SMTP-servern passerar via Internet. Du använder SNAT för att skicka den inkommande begäran till en intern IP-adress. Omvänd trafik från SMTP-servern går till gränsbrandväggen (som du använder för NAT) i stället för via ExpressRoute. Returtrafiken går tillbaka via Internet.
 
 ![Nätverkskonfiguration för källbaserad NAT](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -68,6 +72,9 @@ Ett annat sätt att lösa problem med asymmetrisk routning är att använda SNAT
 ## <a name="asymmetric-routing-detection"></a>Identifiering av asymmetrisk routning
 Traceroute är det bästa sättet att kontrollera att nätverkstrafik skickas via rätt väg. Om du förväntar dig att trafik från din lokala SMTP-server till Microsoft ska ta Internetvägen så är förväntad traceroute från SMTP-servern till Office 365. Resultatet bekräftar att trafiken verkligen lämnar ditt nätverk mot Internet och inte mot ExpressRoute.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

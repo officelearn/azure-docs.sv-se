@@ -1,8 +1,8 @@
-## Distribuera ARM-mallen med PowerShell
+## <a name="deploy-the-arm-template-by-using-powershell"></a>Distribuera ARM-mallen med PowerShell
 Följ stegen nedan för att distribuera ARM-mallen som du hämtade med PowerShell.
 
 1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](../articles/powershell-install-configure.md) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
-2. Vid behov kan du köra cmdleten **`New-AzureRmResourceGroup`** för att skapa en ny resursgrupp. Kommandot nedan skapar en resursgrupp med namnet *TestRG* i Azure-regionen *USA, centrala*. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md).
+2. Vid behov kan du köra cmdleten **`New-AzureRmResourceGroup`** för att skapa en ny resursgrupp. Kommandot nedan skapar en resursgrupp med namnet *TestRG* i Azure-regionen *USA, centrala*. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
    
@@ -87,7 +87,6 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med PowerShel
                               }
                             ]
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

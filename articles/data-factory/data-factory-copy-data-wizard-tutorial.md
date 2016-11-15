@@ -1,12 +1,12 @@
 ---
-title: 'Självstudie: Skapa en pipeline med Copy Wizard | Microsoft Docs'
-description: I de här självstudierna skapar du en Azure Data Factory-pipeline med en kopieringsaktivitet, med hjälp av guiden Kopiera som stöds av Data Factory
+title: "Självstudie: Skapa en pipeline med Copy Wizard | Microsoft Docs"
+description: "I de här självstudierna skapar du en Azure Data Factory-pipeline med en kopieringsaktivitet, med hjälp av guiden Kopiera som stöds av Data Factory"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+
 
 ---
-# Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Guiden Data Factory-kopia
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Guiden Data Factory-kopia
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
@@ -24,7 +28,7 @@ ms.author: spelluru
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
@@ -36,7 +40,7 @@ Med **Guiden Kopiera** i Azure Data Factory kan du snabbt och enkelt skapa en pi
 > 
 > 
 
-## Skapa en datafabrik
+## <a name="create-data-factory"></a>Skapa en datafabrik
 I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik med namnet **ADFTutorialDataFactory**.
 
 1. När du har loggat in på [Azure-portalen](https://portal.azure.com) klickar du på **+ NY** i det övre vänstra hörnet. Klicka sedan på **Information + analys** och **Datafabrik**. 
@@ -53,21 +57,23 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
       > Namnet på datafabriken kan komma att registreras som ett DNS-namn i framtiden och blir då synligt offentligt.
       > 
       > 
-3. Välj din Azure-**prenumeration**.
-4. För resursgruppen utför du något av följande steg: 1. Välj **Använd befintlig** och välj en befintlig resursgrupp.
-5. Välj **Skapa nytt** och ange ett namn för en resursgrupp.
-   
-            Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).
-   1. Välj **plats** för datafabriken.
-   2. Välj kryssrutan **PIN-kod för instrumentpanelen** längst ned på bladet.  
-   3. Klicka på **Skapa**.
+   2. Välj din Azure-**prenumeration**.
+   3. För resursgruppen utför du något av följande steg: 
       
-       ![Bladet Ny datafabrik](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)          
-6. När datafabriken har skapats visas bladet **Datafabrik** enligt nedanstående bild:
+      1. Välj **Använd befintlig** och välj en befintlig resursgrupp.
+      2. Välj **Skapa nytt** och ange ett namn för en resursgrupp.
+         
+          Vissa av stegen i den här självstudien förutsätter att du använder namnet: **ADFTutorialResourceGroup** på resursgruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
+   4. Välj **plats** för datafabriken.
+   5. Välj kryssrutan **PIN-kod för instrumentpanelen** längst ned på bladet.  
+   6. Klicka på **Skapa**.
+      
+       ![Bladet Ny datafabrik](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
+3. När datafabriken har skapats visas bladet **Datafabrik** enligt nedanstående bild:
    
    ![Datafabrikens startsida](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Starta och använda guiden Kopiera
+## <a name="launch-copy-wizard"></a>Använda guiden Kopiera
 1. På startsidan Datafabrik klickar du på ikonen **Kopiera data** för att starta **guiden Kopiera**. 
    
    > [!NOTE]
@@ -132,7 +138,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
     
     ![Verktyget Kopiera - prestandainställningar](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-## Starta övervakning och hantera program
+## <a name="launch-monitor-and-manage-application"></a>Starta övervakning och hantera program
 1. På **Distribution**-sidan, klickar du på länken: `Click here to monitor copy pipeline`.
    
    ![Verktyget Kopiera – Distributionen är klar](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
@@ -145,7 +151,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
    > 
    > 
 
-## Se även
+## <a name="see-also"></a>Se även
 | Avsnitt | Beskrivning |
 |:--- |:--- |
 | [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) |Den här artikeln innehåller detaljerad information om kopieringsaktiviteten som du använde i självstudien. |
@@ -154,6 +160,9 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

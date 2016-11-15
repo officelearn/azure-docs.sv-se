@@ -1,13 +1,13 @@
 ---
-title: Skapa ett Azure Search-index med .NET SDK | Microsoft Docs
-description: Skapa ett index i kod med hjälp av .NET SDK för Azure Search.
+title: "Skapa ett Azure Search-index med hjälp av .NET SDK | Microsoft Docs"
+description: "Skapa ett index i kod med hjälp av .NET SDK för Azure Search."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: brjohnstmsft
-manager: ''
-editor: ''
+manager: jhubbard
+editor: 
 tags: azure-portal
-
+ms.assetid: 3a851647-fc7b-4fb6-8506-6aaa519e77cd
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -15,13 +15,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 87757a16f1fa31be97f6f8a0e39c6adbf2513828
+
 
 ---
-# Skapa ett Azure Search-index med hjälp av .NET SDK
+# <a name="create-an-azure-search-index-using-the-net-sdk"></a>Skapa ett Azure Search-index med hjälp av .NET SDK
 > [!div class="op_single_selector"]
 > * [Översikt](search-what-is-an-index.md)
 > * [Portalen](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
+> * [NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
 > 
 > 
@@ -32,7 +36,7 @@ Innan du följer den här guiden och skapar ett index bör du redan ha [skapat e
 
 Observera att all exempelkod i den här artikeln är skriven i C#. Du hittar den fullständiga källkoden [på GitHub](http://aka.ms/search-dotnet-howto).
 
-## I. Identifiera Azure Search-tjänstens API-administratörsnyckel
+## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identifiera Azure Search-tjänstens API-administratörsnyckel
 Nu när du har etablerat en Azure Search-tjänst är du nästan klar att skicka förfrågningar mot tjänstens slutpunkt med hjälp av .NET SDK. Först måste du skaffa en av API-administratörsnycklarna som genererades för söktjänsten som du etablerade. .NET SDK skickar den här API-nyckeln vid varje begäran till tjänsten. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
@@ -48,7 +52,7 @@ Du kan använda antingen en primär eller sekundär administrationsnyckel när d
 
 <a name="CreateSearchServiceClient"></a>
 
-## II. Skapa en instans av SearchServiceClient-klassen
+## <a name="ii-create-an-instance-of-the-searchserviceclient-class"></a>II. Skapa en instans av SearchServiceClient-klassen
 Innan du kan börja använda .NET SDK Azure Search måste du skapa en instans av klassen `SearchServiceClient`. Den här klassen har flera konstruktorer. Den som du vill använda har namnet på din söktjänst och ett `SearchCredentials`-objekt som parametrar. `SearchCredentials` omsluter din API-nyckel.
 
 Koden nedan skapar en ny `SearchServiceClient` med värden för söktjänstens namn och API-nyckel som lagras i programmets konfigurationsfil (`app.config` eller `web.config`):
@@ -69,7 +73,7 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## III. Definiera ditt Azure Search-index med hjälp av `Index`-klassen
+## <a name="iii-define-your-azure-search-index-using-the-index-class"></a>III. Definiera ditt Azure Search-index med hjälp av `Index`-klassen
 Ditt index skapas med ett enda anrop till `Indexes.Create`-metoden. Den här metoden tar som en parameter ett `Index`-objekt som definierar ditt Azure Search-index. Du måste skapa ett `Index`-objekt och initiera det så här:
 
 1. Ange `Name`-egenskapen för `Index`-objektet till namnet på ditt index.
@@ -112,7 +116,7 @@ Indexdefinitionen ovan använder ett anpassat språkanalysverktyg för fältet `
 > 
 > 
 
-## IV. Skapa indexet
+## <a name="iv-create-the-index"></a>IV. Skapa indexet
 Nu när du har ett initierat `Index`-objekt kan du skapa indexet genom att bara anropa `Indexes.Create` för ditt `SearchServiceClient`-objekt:
 
 ```csharp
@@ -132,9 +136,12 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## Nästa
+## <a name="next"></a>Nästa
 När du har skapat ett Azure Search-index är det dags att [ladda upp innehållet till indexet](search-what-is-data-import.md) så att du kan börja söka efter data.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

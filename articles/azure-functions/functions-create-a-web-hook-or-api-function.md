@@ -1,13 +1,13 @@
 ---
 title: Skapa en webhook- eller API Azure-funktion | Microsoft Docs
-description: Använd Azure-funktioner för att skapa en funktion som startas av ett WebHook- eller API-anrop.
+description: "Använd Azure-funktioner för att skapa en funktion som startas av ett WebHook- eller API-anrop."
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -15,20 +15,25 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/30/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9484a637a1876f2cae644e43986bd5ef3201da1e
+
 
 ---
-# Skapa en webhook- eller en API-Azure-funktion
+# <a name="create-a-webhook-or-api-azure-function"></a>Skapa en webhook- eller en API-Azure-funktion
 Azure Functions är en händelsedriven beräkna-på-begäran-upplevelse med vilken du kan skapa schemalagda eller utlösta kodenheter som implementeras i ett flertal olika programmeringsspråk. Läs mer om Azure Functions i [Översikt över Azure Functions](functions-overview.md).
 
 I det här ämnet visas hur du skapar en ny Node.js-funktion som anropas av en GitHub-webhook. Den nya funktionen skapas baserat på en fördefinierad mall i Azure Functions-portalen. Du kan också titta på en kort video om du vill se hur dessa steg utförs i portalen.
 
-## Titta på videon
+## <a name="watch-the-video"></a>Titta på videon
 Följande videoklipp visar hur du utför de grundläggande stegen i de här självstudierna. 
 
-[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
+>[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
+>
+>
 
-
-## Skapa en webhook-utlöst funktion från mallen
+## <a name="create-a-webhooktriggered-function-from-the-template"></a>Skapa en webhook-utlöst funktion från mallen
 En funktionsapp är värd för körningen av dina funktioner i Azure. Innan du kan skapa en funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto, [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/). 
 
 1. Gå till [Azure Functions-portalen](https://functions.azure.com/signin) och logga in med ditt Azure-konto.
@@ -47,7 +52,7 @@ En funktionsapp är värd för körningen av dina funktioner i Azure. Innan du k
 
 Därefter skapar du den faktiska webhooken i GitHub-databasen.
 
-## Konfigurera webhooken
+## <a name="configure-the-webhook"></a>Konfigurera webhooken
 1. I GitHub går du till en av dina databaser; detta inkluderar alla databaser som du har förgrenat.
 2. Klicka på **Inställningar** > **Webhooks och tjänster** > **Lägg till webhook**.
    
@@ -59,12 +64,12 @@ Därefter skapar du den faktiska webhooken i GitHub-databasen.
 Nu har GitHub-webhooken konfigurerats för att utlösa din funktion när en ny ärendekommentar läggs till.  
 Nu är det dags att testa processen.
 
-## Testa funktionen
+## <a name="test-the-function"></a>Testa funktionen
 1. I GitHub-databasen öppnar du fliken **Ärenden** i ett nytt webbläsarfönster, klickar på **Nytt ärende**, skriver in ett namn och klickar sedan på **Skicka nytt ärende**. Du kan även öppna ett befintligt ärende.
 2. Skriv en kommentar i ärendet och klicka på **Kommentar**. Nu kan du gå tillbaka till din nya webhook i GitHub och under **Senaste leveranser** visa att en webhook-begäran har skickats och att brödtexten i svaret är `New GitHub comment: <Your issue comment text>`.
 3. Tillbaka i Functions-portalen rullar du ned till loggarna och ser att funktionen har utlösts och att värdet `New GitHub comment: <Your issue comment text>` skrivs till direktuppspelningsloggarna.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Functions finns i dessa ämnen.
 
 * [Azure Functions, info för utvecklare](functions-reference.md)  
@@ -76,6 +81,9 @@ Mer information om Azure Functions finns i dessa ämnen.
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

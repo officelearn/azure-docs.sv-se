@@ -1,12 +1,12 @@
 ---
-title: Komma igång med Azure Scheduler på Azure-portalen | Microsoft Docs
-description: Komma igång med Azure Scheduler på Azure-portalen
+title: "Komma igång med Azure Scheduler på Azure-portalen | Microsoft-dokument"
+description: "Komma igång med Azure Scheduler på Azure-portalen"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 85e0f59bdaae76f6feb03e66a7bbf96c29b45dec
+
 
 ---
-# Komma igång med Azure Scheduler på Azure-portalen
+# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Komma igång med Azure Scheduler på Azure-portalen
 Det är enkelt att skapa schemalagda jobb i Azure Scheduler. I den här självstudiekursen lär du dig hur du skapar ett jobb. Du lär dig också om övervaknings- och hanteringsfunktionerna i Scheduler.
 
-## Skapa ett jobb
+## <a name="create-a-job"></a>Skapa ett jobb
 1. Logga in på [Azure-portalen](https://portal.azure.com/).  
 2. Klicka på **+Nytt** > skriv *Scheduler* i sökrutan >  välj **Scheduler** i resultatet > klicka på **Skapa**.
    
@@ -38,15 +42,15 @@ Det är enkelt att skapa schemalagda jobb i Azure Scheduler. I den här självst
       ![][action-settings]
 5. Till sist ska vi definiera ett schema. Jobbet kan definieras som ett engångsjobb, men vi väljer ett upprepningsschema:
    
-   1. **Upprepning**: `Recurring`
+   1. **Återkommande**: `Recurring`
    2. **Start**: Dagens datum
-   3. **Utför varje**: `12 Hours`
+   3. **Detta ska upprepas varje**: `12 Hours`
    4. **Sluta**: Två dagar från dagens datum  
       
       ![][recurrence-schedule]
 6. Klicka på **Skapa**
 
-## Hantera och övervaka jobb
+## <a name="manage-and-monitor-jobs"></a>Hantera och övervaka jobb
 När ett jobb har skapats visas det på den primära Azure-instrumentpanelen. Klicka på jobbet så öppnas ett nytt fönster med följande flikar:
 
 1. Egenskaper  
@@ -57,12 +61,12 @@ När ett jobb har skapats visas det på den primära Azure-instrumentpanelen. Kl
    
    ![][job-overview]
 
-### Egenskaper
+### <a name="properties"></a>Egenskaper
 Dessa skrivskyddade egenskaper beskriver hanteringsmetadata för Scheduler-jobbet.
 
    ![][job-properties]
 
-### Åtgärdsinställningar
+### <a name="action-settings"></a>Åtgärdsinställningar
 Om du klickar på ett jobb på skärmen **Jobb** kan du konfigurera jobbet. Du kan konfigurera avancerade inställningar om du inte konfigurerade dem i snabbregistreringsguiden.
 
 För alla åtgärdstyper kan du ändra återförsöksprincipen och felåtgärden.
@@ -75,7 +79,7 @@ För Service Bus-åtgärdstyper kan du ändra namnrymden, ämnes-/kösökvägen,
 
    ![][job-action-settings]
 
-### Schema
+### <a name="schedule"></a>Schema
 Här kan du konfigurera om schemat om du vill ändra schemat som du skapade i snabbregistreringsguiden.
 
 Här har du möjlighet att skapa [komplexa scheman och avancerad upprepning för jobbet](scheduler-advanced-complexity.md)
@@ -84,7 +88,7 @@ Du kan ändra startdatum och starttid, upprepningsschemat och slutdatumet och sl
 
    ![][job-schedule]
 
-### Historik
+### <a name="history"></a>Historik
 Fliken **Historik** innehåller utvalda mätvärden för varje jobbkörning i systemet för det valda jobbet. Dessa mätvärden är realtidsvärden som beskriver följande hälsoindikatorer i Scheduler:
 
 1. Status  
@@ -100,10 +104,10 @@ Du kan klicka på en körning om du vill visa  dess **historikinformation**, ink
 
    ![][job-history-details]
 
-### Användare
+### <a name="users"></a>Användare
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure Scheduler. Information om hur du använder fliken Användare finns i [Rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-configure.md)
 
-## Se även
+## <a name="see-also"></a>Se även
  [Vad är Scheduler?](scheduler-intro.md)
 
  [Begrepp, terminologi och entitetshierarki relaterade till Scheduler](scheduler-concepts-terms.md)
@@ -112,7 +116,7 @@ Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkoms
 
  [Skapa komplexa scheman och avancerad upprepning med Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Referens för REST-API:et för Scheduler](https://msdn.microsoft.com/library/mt629143)
+ [REST API-referens för Scheduler](https://msdn.microsoft.com/library/mt629143)
 
  [Referens för PowerShell-cmdlets för Scheduler](scheduler-powershell-reference.md)
 
@@ -151,6 +155,6 @@ Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkoms
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

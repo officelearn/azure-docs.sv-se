@@ -1,13 +1,13 @@
 ---
-title: Om VPN-enheter för VPN Gateway-anslutningar från plats till plats i virtuella Azure-nätverk | Microsoft Docs
-description: Den här artikeln diskuterar VPN-enheter och IPSec-parametrar för S2S VPN-Gateway-anslutningar och innehåller länkar till konfigurationsinstruktioner och exempel.
+title: "Om VPN-enheter för VPN Gateway-anslutningar från plats till plats i virtuella Azure-nätverk | Microsoft Docs"
+description: "Den här artikeln diskuterar VPN-enheter och IPSec-parametrar för S2S VPN-Gateway-anslutningar och innehåller länkar till konfigurationsinstruktioner och exempel."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
+editor: 
 tags: azure-resource-manager, azure-service-management
-
+ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: yushwang;cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 019395d76a1e2d8e75b4ac1474abe45ce1b8aeb1
+
 
 ---
-# Om VPN-enheter för VPN Gateway-anslutningar från plats till plats
+# <a name="about-vpn-devices-for-sitetosite-vpn-gateway-connections"></a>Om VPN-enheter för VPN Gateway-anslutningar från plats till plats
 En VPN-enhet krävs för att konfigurera en plats-till-plats-anslutning (S2S) i VPN. Plats-till-plats-anslutningar kan användas för att skapa en hybridlösning, eller när du vill skapa en säker anslutning mellan ditt lokala nätverk och ditt virtuella nätverk. I den här artikeln beskrivs kompatibla VPN-enheter och konfigurationsparametrar. 
 
 > [!NOTE]
@@ -34,7 +38,7 @@ Om enheten inte finns med i tabellen med [verifierade VPN-enheter](#devicetable)
   * Dynamisk routning = Routningsbaserad
 * Specifikationerna för en VPN-gateway med hög kapacitet och en routningsbaserad VPN-gateway är samma, om inget annat anges. Till exempel är verifierade VPN-enheter som är kompatibla med routningsbaserade VPN-gatewayer också kompatibla med Azure VPN-gatewayen med hög kapacitet. 
 
-## <a name="devicetable"></a>Verifierade VPN-enheter
+## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Verifierade VPN-enheter
 Vi har verifierat en uppsättning VPN-standardenheter tillsammans med våra enhetsleverantörer. Alla enheter i enhetsfamiljerna som finns i följande lista ska fungera med Azures VPN-gatewayer. I [Om VPN-gatewayer](vpn-gateway-about-vpngateways.md) kan du kontrollera vilken typ av gateway som du måste skapa för den lösning som du vill konfigurera. 
 
 Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig enhetsfamilj. Kontakta enhetstillverkaren för att se vilket stöd som finns för VPN-enheter.
@@ -66,10 +70,10 @@ Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig
 
 (*) ISR 7200 serie routrar stöder endast principbaserade VPN.
 
-## <a name="additionaldevices"></a>Icke-verifierade VPN-enheter
+## <a name="a-nameadditionaldevicesanonvalidated-vpn-devices"></a><a name="additionaldevices"></a>Icke-verifierade VPN-enheter
 Om du inte hittar din enhet i tabellen med verifierade VPN-enheter kan den ändå fungera med en plats-till-plats-anslutning. Kontrollera att VPN-enheten uppfyller de minimikrav som beskrivs i avsnittet Gateway-krav i artikeln [Om VPN Gateway](vpn-gateway-about-vpngateways.md#gateway-requirements). Enheter som uppfyller minimikraven bör också fungera bra med VPN-gatewayer. Kontakta enhetstillverkaren för ytterligare information om support och konfiguration.
 
-## Redigera enhetens konfigurationsexempel
+## <a name="editing-device-configuration-samples"></a>Redigera enhetens konfigurationsexempel
 När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du byta ut vissa värden så att de motsvarar inställningarna för din miljö. 
 
 **Så här redigerar du ett exempel:**
@@ -91,13 +95,13 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 | &lt;SP_AzureGatewayIpAddress&gt; |Den här informationen är specifik för ditt virtuella nätverk och finns i hanteringsportalen som **IP-adress för gateway**. |
 | &lt;SP_PresharedKey&gt; |Den här informationen är specifik för ditt virtuella nätverk och finns i hanteringsportalen som Hantera nyckel. |
 
-## IPsec-parametrar
+## <a name="ipsec-parameters"></a>IPsec-parametrar
 > [!NOTE]
 > Även om de värden som anges i följande tabell stöds av Azure VPN Gateway går det för närvarande inte att ange eller välja en specifik kombination från Azure VPN Gateway. Du måste ange eventuella begränsningar från den lokala VPN-enheten. Du måste dessutom foga ihop MSS vid 1350.
 > 
 > 
 
-### Installation av IKE, fas 1
+### <a name="ike-phase-1-setup"></a>Installation av IKE, fas 1
 | **Egenskap** | **Principbaserad** | **Routningsbaserad och standard eller VPN-gateway med hög kapacitet** |
 | --- | --- | --- |
 | IKE-version |IKEv1 |IKEv2 |
@@ -107,20 +111,20 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 | Hash-algoritm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Fas 1, Security Association (SA), livslängd (tid) |28 800 sekunder |10 800 sekunder |
 
-### Installation av IKE, fas 2
+### <a name="ike-phase-2-setup"></a>Installation av IKE, fas 2
 | **Egenskap** | **Principbaserad** | **Routningsbaserad och standard eller VPN-gateway med hög kapacitet** |
 | --- | --- | --- |
 | IKE-version |IKEv1 |IKEv2 |
 | Hash-algoritm |SHA1(SHA128) |SHA1(SHA128) |
 | Fas 2, Security Association (SA), livslängd (tid) |3 600 sekunder |3 600 sekunder |
-| Fas 2, Security Association (SA), livslängd (dataflöde) |102 400 000 kB |- |
+| Fas 2, Security Association (SA), livslängd (dataflöde) |102 400 000 kB |- |
 | IPSec-kryptering för SA och autentisering (i prioritetsordning) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Saknas |Se *Routningsbaserad gateway-IPsec, Security Association (SA), erbjudanden* (nedan) |
 | PFS (Perfect Forward Secrecy) |Nej |Nej (*) |
 | Utebliven peer-identifiering |Stöds inte |Stöds |
 
 (*) Azure Gateway som IKE-svarare kan acceptera PFS DH grupp 1, 2, 5, 14, 24.
 
-### Routningsbaserad gateway-IPsec, Security Association (SA), erbjudanden
+### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>Routningsbaserad gateway-IPsec, Security Association (SA), erbjudanden
 Följande tabellen visar IPsec, SA-kryptering och autentiseringserbjudanden. Erbjudandena visas i prioritetsordning efter när erbjudandet visats eller godkänts.
 
 | **IPsec, SA-kryptering och autentiseringserbjudanden** | **Azure Gateway som initierare** | **Azure Gateway som svarare** |
@@ -147,6 +151,9 @@ Följande tabellen visar IPsec, SA-kryptering och autentiseringserbjudanden. Erb
 * Du kan ange IPsec ESP NULL-kryptering med VPN-gatewayer som är routningsbaserade och har hög kapacitet. Null-baserad kryptering ger inget skydd av data under överföringen och bör endast användas när maximalt dataflöde och lägsta svarstid krävs.  Klienter kan välja att använda detta i scenarier med VNet-till-VNet-kommunikation eller när kryptering används någon annanstans i lösningen.
 * Vid Internetanslutning på flera platser bör du använda standardinställningarna för Azure VPN Gateway med kryptering och de hash-algoritmer som anges i tabellen ovan, för att garantera säkerheten för din kritiska kommunikation.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

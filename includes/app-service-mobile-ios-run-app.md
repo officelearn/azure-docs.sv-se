@@ -3,12 +3,11 @@
 2. Klicka på **Kör**-knappen för att skapa projektet och starta appen i iOS-simulatorn.
 3. Ange en beskrivande text i appen, till exempel *Slutföra kursen*, och klicka sedan på plustecknet (**+**). Detta skickar en POST-begäran till den Azure-serverdel som du distribuerade tidigare. Serverdelen infogar data från begäran i TodoItem-SQL-tabellen och returnerar information om det nyligen lagrade objektet tillbaka till mobilappen. Mobilappen visar dessa data i listan. 
    
-    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+       ![](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
 [Azure Portal]: https://portal.azure.com/
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

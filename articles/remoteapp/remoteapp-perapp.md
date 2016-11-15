@@ -1,12 +1,12 @@
 ---
-title: Publicera program till enskilda användare i en Azure RemoteApp-samling (förhandsgranskning) | Microsoft Docs
-description: Lär dig hur du kan publicera appar till enskilda användare, i stället för att vara beroende av grupper i Azure RemoteApp.
+title: "Publicera program till enskilda användare i en Azure RemoteApp-samling (förhandsgranskning) | Microsoft Docs"
+description: "Lär dig hur du kan publicera appar till enskilda användare, i stället för att vara beroende av grupper i Azure RemoteApp."
 services: remoteapp-preview
-documentationcenter: ''
+documentationcenter: 
 author: piotrci
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 1fd0539d-fa65-4ea5-a98e-0be0cf580690
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: piotrci
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+
 
 ---
-# Publicera program till enskilda användare i en Azure RemoteApp-samling (förhandsgranskning)
+# <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Publicera program till enskilda användare i en Azure RemoteApp-samling (förhandsgranskning)
 > [!IMPORTANT]
 > Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
@@ -42,7 +46,7 @@ Det är nu möjligt att göra i Azure RemoteApp – för tillfället är det en 
    * Den här funktionen ger inte en säker låsning av program, den begränsar bara synligheten i denna program-feed.
    * Om du behöver isolera användare från program måste du använda separata samlingar för det.
 
-## Hur du hämtar Azure RemoteApp PowerShell-cmdlets
+## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Hur du hämtar Azure RemoteApp PowerShell-cmdlets
 Om du vill prova den nya funktionen för förhandsgranskning behöver du använda Azure PowerShell-cmdlets. För tillfället går det inte att aktivera det nya läget för programpublicering via Azure-hanteringsportalen.
 
 Kontrollera först att du har [Azure PowerShell-modulen](../powershell-install-configure.md) installerad.
@@ -53,7 +57,7 @@ Starta sedan PowerShell-konsolen i administratörsläge och kör följande cmdle
 
 Du uppmanas att ange användarnamn och lösenord för Azure. När du har loggat in kommer du att kunna köra Azure RemoteApp-cmdlets mot dina Azure-prenumerationer.
 
-## Kontrollera vilket läge en samling är i
+## <a name="how-to-check-which-mode-a-collection-is-in"></a>Kontrollera vilket läge en samling är i
 Kör följande cmdlet:
 
         Get-AzureRemoteAppCollection <collectionName>
@@ -65,14 +69,14 @@ AclLevel-egenskapen kan ha följande värden:
 * Samling: det ursprungliga publiceringsläget. Alla användare ser alla publicerade appar.
 * Program: det nya publiceringsläget. Användarna ser bara de appar som publiceras direkt till dem.
 
-## Växla till läget för programpublicering
+## <a name="how-to-switch-to-application-publishing-mode"></a>Växla till läget för programpublicering
 Kör följande cmdlet:
 
         Set-AzureRemoteAppCollection -CollectionName -AclLevel Application
 
 Programmets publiceringstillstånd bevaras: Till en början ser alla användare alla appar som ursprungligen har publicerats.
 
-## Visa en lista över användare som kan se ett visst program
+## <a name="how-to-list-users-who-can-see-a-specific-application"></a>Visa en lista över användare som kan se ett visst program
 Kör följande cmdlet:
 
         Get-AzureRemoteAppUser -CollectionName <collectionName> -Alias <appAlias>
@@ -81,24 +85,27 @@ Detta visar alla användare som kan se programmet.
 
 Obs! Du kan visa programalias (kallas ”app-alias” i ovanstående syntax) genom att köra Get-AzureRemoteAppProgram – Samlingsnamn <collectionName>.
 
-## Tilldela ett program till en användare
+## <a name="how-to-assign-an-application-to-a-user"></a>Tilldela ett program till en användare
 Kör följande cmdlet:
 
         Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
 Användaren ser nu programmet i Azure RemoteApp-klienten och kan ansluta till det.
 
-## Ta bort ett program från en användare
+## <a name="how-to-remove-an-application-from-a-user"></a>Ta bort ett program från en användare
 Kör följande cmdlet:
 
         Remove-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-## Skicka feedback
+## <a name="providing-feedback"></a>Skicka feedback
 Vi uppskattar din feedback och dina förslag om den här funktionen för förhandsgranskning. Fyll i vår [undersökning](http://www.instant.ly/s/FDdrb) och berätta vad du tycker.
 
-## Har inte haft möjlighet att prova förhandsgranskningen?
+## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Har inte haft möjlighet att prova förhandsgranskningen?
 Om du ännu inte har deltagit i förhandsgranskningen använder du denna [undersökning](http://www.instant.ly/s/AY83p) om du vill begära åtkomst.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

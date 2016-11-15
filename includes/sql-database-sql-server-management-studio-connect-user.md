@@ -1,4 +1,4 @@
-## Anslut till SQL Database som en användare
+## <a name="connect-to-azure-sql-database-as-a-user"></a>Anslut till SQL Database som en användare
 Använd följande steg för att ansluta till Azure SQL Database med SSMS som en användare.
 
 1. Skriv ”Microsoft SQL Server Management Studio” i Windows-sökrutan och klicka sedan på skrivbordsappen för att starta SSMS.
@@ -11,7 +11,7 @@ Använd följande steg för att ansluta till Azure SQL Database med SSMS som en 
   * **Användarnamn**: om du antingen valt SQL-autentisering eller Active Directory-lösenordsautentisering, anger du namnet på en användare med åtkomst till en databas på servern.
   * **Lösenord**: om du valt antingen SQL-autentisering eller Active Directory-lösenordsautentisering, anger du lösenordet för den angivna användaren.
     
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
+       ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
 1. Klicka på **Alternativ** för att ange vilken databas du vill ansluta till.
    
@@ -27,9 +27,11 @@ Använd följande steg för att ansluta till Azure SQL Database med SSMS som en 
    
       ![SQL Server Management Studio: Anslut till en SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
 
-## Felsök anslutningsfel
+## <a name="troubleshoot-connection-failures"></a>Felsök anslutningsfel
 Den vanligaste orsaken för anslutningsfel är fel i servernamnet (kom ihåg att <*servernamn*> är namnet på den logiska servern, inte databasen), användarnamnet eller lösenordet, eller att servern inte tillåter anslutningar av säkerhetsskäl. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

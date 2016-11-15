@@ -1,5 +1,5 @@
 > [!div class="op_single_selector"]
-> * [.NET](../articles/storage/storage-dotnet-how-to-use-queues.md)
+> * [NET](../articles/storage/storage-dotnet-how-to-use-queues.md)
 > * [Node.js](../articles/storage/storage-nodejs-how-to-use-queues.md)
 > * [Java](../articles/storage/storage-java-how-to-use-queue-storage.md)
 > * [C++](../articles/storage/storage-c-plus-plus-how-to-use-queues.md)
@@ -9,6 +9,8 @@
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

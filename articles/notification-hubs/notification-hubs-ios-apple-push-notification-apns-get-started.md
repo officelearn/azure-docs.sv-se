@@ -1,28 +1,32 @@
 ---
 title: Skicka push-meddelanden till iOS med Azure Notification Hubs | Microsoft Docs
-description: I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en iOS-app.
+description: "I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en iOS-app."
 services: notification-hubs
 documentationcenter: ios
 keywords: push-meddelande, push-meddelanden, push-meddelanden i ios
-author: wesmc7777
+author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
+
 
 ---
-# Skicka push-meddelanden till iOS med Azure Notification Hubs
+# <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Skicka push-meddelanden till iOS med Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Översikt
+## <a name="overview"></a>Översikt
 > [!NOTE]
-> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 > 
 > 
 
@@ -30,13 +34,13 @@ I den här självstudiekursen kommer du att få lära dig hur du använder Azure
 
 När du är klar kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör appen.
 
-## Innan du börjar
+## <a name="before-you-begin"></a>Innan du börjar
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
 Den slutförda koden för den här självstudiekursen hittar du [på GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
 
-## Krav
-För den här kursen behöver du följande:
+## <a name="prerequisites"></a>Krav
+Följande krävs för den här självstudiekursen:
 
 * [Mobile Services iOS SDK version 1.2.4]
 * Den senaste versionen av [Xcode]
@@ -52,7 +56,7 @@ Du måste slutföra den här självstudiekursen innan du börjar någon annan ku
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## Konfigurera din Notification Hub för att skicka push-meddelanden till iOS
+## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Konfigurera din Notification Hub för att skicka push-meddelanden till iOS
 I det här avsnittet går vi igenom hur du skapar en ny meddelandehubb och konfigurerar autentisering med APNS genom att använda **.p12**-pushcertifikatet som du skapade. Om du vill använda en meddelandehubb som du redan har skapat går du vidare till steg 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -72,10 +76,10 @@ I det här avsnittet går vi igenom hur du skapar en ny meddelandehubb och konfi
 
 Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har anslutningssträngar för att registrera din app och skicka push-meddelanden.
 
-## Anslut iOS-appen till Notification Hubs
+## <a name="connect-your-ios-app-to-notification-hubs"></a>Anslut iOS-appen till Notification Hubs
 1. Skapa ett nytt iOS-projekt i Xcode och välj mallen **Program enkel vy**.
    
-    ![Xcode – Program enkel vy][8]
+       ![Xcode - Single View Application][8]
 2. När du anger alternativ för ditt nya projekt, ska du använda samma **produktnamn** och **organisations-ID** som du använde när du tidigare gjorde inställningarna för ID:t för programpaket på Apple Developer-portalen.
    
     ![Xcode – projektalternativ][11]
@@ -83,7 +87,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
    
     Om du inte ser den nya etableringsprofil som du skapade i Xcode, kan du försöka uppdatera profilerna för din signeringsidentitet. Klicka på **Xcode** på menyraden, sedan på **Inställningar** och på fliken **Konto**. Därefter klickar du på knappen **Visa detaljer** och sedan på din signeringsidentitet. Slutligen klickar du på uppdateringsknappen i det nedre högra hörnet.
    
-    ![Xcode – etableringsprofil][9]
+       ![Xcode - provisioning profile][9]
 4. Hämta [Mobile Services iOS SDK version 1.2.4] och packa upp filen. Högerklicka på ditt projekt i Xcode och klicka sedan på alternativet **Lägg till filer i** för att lägga till mappen **WindowsAzureMessaging.framework** till ditt Xcode-projekt. Välj **Kopiera objekt vid behov** och klicka sedan på **Lägg till**.
    
    > [!NOTE]
@@ -91,7 +95,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
    > 
    > 
    
-    ![Packa upp Azure SDK][10]
+       ![Unzip Azure SDK][10]
 5. Lägg till en ny rubrikfil i projektet med namnet `HubInfo.h`. Den här filen ska innehålla konstanterna för din meddelandehubb.  Lägg till följande definitioner och ersätt platshållarnas textsträngar med ditt *hubbnamn* och den *DefaultListenSharedAccessSignature* som du skrivit ned tidigare.
    
         #ifndef HubInfo_h
@@ -109,7 +113,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
    
     För iOS 8:
    
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
+         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
                                                 UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
    
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
@@ -149,14 +153,14 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
 
 1. Skapa och kör appen på din enhet för att kontrollera att det inte finns några fel.
 
-## Skicka test-push-meddelanden
+## <a name="send-test-push-notifications"></a>Skicka test-push-meddelanden
 Du kan testa att ta emot meddelanden i appen genom att skicka push-meddelanden i [Azure Portal]. Du går via avsnittet **Felsökning** i hubbladet (använd alternativet *Prova att skicka*).
 
 ![Azure Portal – Prova att skicka][30]
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-## (Valfritt) Skicka push-meddelanden från appen
+## <a name="optional-send-push-notifications-from-the-app"></a>(Valfritt) Skicka push-meddelanden från appen
 > [!IMPORTANT]
 > Det här exemplet för att skicka meddelanden från klientappen tillhandahålls endast i studiesyfte. Eftersom detta kräver att `DefaultFullSharedAccessSignature` ska finnas i klientappen, utsätter den din meddelandehubb för risken att en användare kan komma åt den och skicka obehöriga meddelanden från den till klienterna.
 > 
@@ -360,7 +364,7 @@ Om du vill skicka push-meddelanden från en app, hittar du ett exempel på hur d
                 {
                     xmlParser = [[NSXMLParser alloc] initWithData:data];
                     [xmlParser setDelegate:self];
-                    [xmlParser parse];
+                       [xmlParser parse];
                 }
             }];
             [dataTask resume];
@@ -419,7 +423,7 @@ Om du vill skicka push-meddelanden från en app, hittar du ett exempel på hur d
 
 Du hittar alla möjliga nyttolaster för meddelanden i Apples [Programmeringsguide för lokala meddelanden och push-meddelanden].
 
-## Kontrollera om din app kan ta emot push-meddelanden
+## <a name="checking-if-your-app-can-receive-push-notifications"></a>Kontrollera om din app kan ta emot push-meddelanden
 Om du vill testa push-meddelanden på iOS måste du distribuera appen till en fysisk iOS-enhet. Du kan inte skicka push-meddelanden för Apple genom att använda iOS-simulatorn.
 
 1. Kör appen och verifiera att registreringen kan genomföras. Tryck sedan på **OK**.
@@ -432,7 +436,7 @@ Om du vill testa push-meddelanden på iOS måste du distribuera appen till en fy
    
     ![Test av att ta emot push-meddelanden i iOS-appar][35]
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 I det här enkla exemplet skickade du push-meddelanden till alla dina registrerade iOS-enheter. Vi rekommenderar att du som ett nästa steg i din utbildning går vidare till självstudiekursen [Meddela användare för iOS med .NET-serverdel i Azure Notification Hubs]. Den kursen vägleder dig genom proceduren för att skapa en serverdel och skicka push-meddelanden med taggar. 
 
 Om du vill dela in användarna efter intressegrupper, kan du även gå vidare till självstudiekursen [Använda Notification Hubs för att skicka de senaste nyheterna]. 
@@ -478,6 +482,7 @@ Allmän information om Notification Hubs finns i [Riktlinjer om Notification Hub
 [Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=Oct16_HO1-->
+
+<!--HONumber=Nov16_HO2-->
 
 

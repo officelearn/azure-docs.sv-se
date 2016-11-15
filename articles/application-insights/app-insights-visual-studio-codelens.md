@@ -1,21 +1,25 @@
 ---
 title: Application Insights Telemetry i Visual Studio CodeLens | Microsoft Docs
-description: Kom snabbt åt din Application Insights-begäran och undantagstelemetri med CodeLens i Visual Studio.
+description: "Kom snabbt åt din Application Insights-begäran och undantagstelemetri med CodeLens i Visual Studio."
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
 manager: douge
-
+ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 11/14/2016
 ms.author: daviste
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a42d55df223c25a26111bbcc05628ff7f4ff7204
+
 
 ---
-# Application Insights Telemetry i Visual Studio CodeLens
+# <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights Telemetry i Visual Studio CodeLens
 Metoderna i din webbapps kod kan kommenteras med telemetri om körtidsundantag och förfrågningssvarstider. Om du installerar [Visual Studio Application Insights](app-insights-overview.md) i ditt program visas i telemetrin i Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) - anteckningar längst upp i varje funktion där du är van att se användbar information som antalet platser funktionen refereras till, eller den person som senast redigerade den.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
@@ -25,7 +29,7 @@ Metoderna i din webbapps kod kan kommenteras med telemetri om körtidsundantag o
 > 
 > 
 
-## Var du hittar Application Insights-data
+## <a name="where-to-find-application-insights-data"></a>Var du hittar Application Insights-data
 Leta efter Application Insights Telemetry i CodeLens-indikatorer för offentliga metodbegäranden av din webbapp. CodeLens-indikatorer visas ovanför metod och andra deklarationer i C#- och Visual Basic-kod. Om Application Insights-data finns tillgängliga för en metod, kommer du att se indikatorer för begäranden och undantag, till exempel "100 begäranden, 1 % misslyckades" eller "10 undantag." Klicka på en CodeLens-indikator för mer information. 
 
 > [!TIP]
@@ -33,7 +37,7 @@ Leta efter Application Insights Telemetry i CodeLens-indikatorer för offentliga
 > 
 > 
 
-## Undantag i CodeLens
+## <a name="exceptions-in-codelens"></a>Undantag i CodeLens
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
 Indikatorn CodeLens-undantag visar antalet undantag som har inträffat under de senaste 24 timmarna från de 15 oftast inträffade undantagen i din app under denna period, vid bearbetning av den begäran som hanteras av metoden.
@@ -55,7 +59,7 @@ Om du vill se mer information klickar du på indikatorn CodeLens-undantag:
 > 
 > 
 
-## Begäranden i CodeLens
+## <a name="requests-in-codelens"></a>Begäranden i CodeLens
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-requests.png)
 
 Indikatorn CodeLens-begäran visar antalet HTTP-begäranden som har hanterats av en metod under de senaste 24 timmarna, plus den procent av dessa begäranden som misslyckats.
@@ -68,13 +72,16 @@ Om du vill se mer information klickar du på indikatorn CodeLens-begäran:
 * Välj **Trend** för att se en trendvisualisering för begäranden, misslyckade begäranden eller genomsnittliga svarstider för de senaste 24 timmarna.
 * Välj namnet på Application Insights-resursen i det övre vänstra hörnet i CodeLens-informationsvyn för att ändra den resurs som är källa för CodeLens-datan.
 
-## <a name="next"></a>Nästa steg
+## <a name="a-namenextanext-steps"></a><a name="next"></a>Nästa steg
 |  |  |
 | --- | --- |
-| **[Arbeta med Application Insights i Visual Studio](app-insights-visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/app-insights-visual-studio-trends/34.png) |
-| **[Lägga till mer information](app-insights-asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/app-insights-visual-studio-trends/64.png) |
-| **[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png) |
+| **[Arbeta med Application Insights i Visual Studio](app-insights-visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/app-insights-visual-studio-codelens/34.png) |
+| **[Lägga till mer information](app-insights-asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
+| **[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

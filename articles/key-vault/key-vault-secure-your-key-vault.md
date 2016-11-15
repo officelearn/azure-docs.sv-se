@@ -1,12 +1,12 @@
 ---
-title: Säkra ditt nyckelvalv | Microsoft Docs
-description: Hantera åtkomstbehörigheter för nyckelvalv för att hantera valv och nycklar och hemligheter. Autentiserings- och auktoriseringsmodell för nyckelvalvet och hur du säkrar ditt nyckelvalv
+title: "Säkra ditt nyckelvalv | Microsoft Docs"
+description: "Hantera åtkomstbehörigheter för nyckelvalv för att hantera valv och nycklar och hemligheter. Autentiserings- och auktoriseringsmodell för nyckelvalvet och hur du säkrar ditt nyckelvalv"
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+
 
 ---
-# Säkra ditt nyckelvalv
+# <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
 Azure Key Vault är en molntjänst som skyddar krypteringsnycklar och hemligheter (som certifikat, anslutningssträngar, lösenord) för dina molnprogram. Eftersom dessa data är känsliga och verksamhetskritiska, behöver du säkra åtkomsten till dina nyckelvalv så att enbart auktoriserade program och användare har åtkomst. Den här artikeln ger en översikt över åtkomstmodellen för nyckelvalvet, förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomst till nyckelvalvet för dina molnprogram med ett exempel.
 
-## Översikt
+## <a name="overview"></a>Översikt
 Åtkomst till ett nyckelvalv styrs via två separata gränssnitt: hanteringplanet och dataplanet. För båda planen krävs korrekt autentisering och auktorisering innan en anropare (en användare eller ett program) kan få åtkomst till nyckelvalvet. Autentisering etablerar identiteten hos anroparen, medan auktorisering avgör vilka åtgärder som anroparen får utföra.
 
 Både hanteringsplanet och dataplanet använder sig av Azure Active Directory för autentisering. För auktorisering använder sig hanteringsplanet av rollbaserad åtkomstkontroll (RBAC) medan dataplanet använder sig av nyckelvalvets åtkomstprincip.
@@ -36,7 +40,7 @@ Här är en kort översikt över de ämnen som täcks:
 
 [Exempel](#example) – Det här exemplet beskriver hur du ställer in åtkomstkontroll för dina nyckelvalv för att låta tre olika team (säkerhetsteamet, utvecklare/operatörer och granskare) utföra specifika uppgifter för att utveckla, hantera och övervaka ett program i Azure.
 
-## Autentisering med Azure Active Directory
+## <a name="authentication-using-azure-active-directory"></a>Autentisering med Azure Active Directory
 När du skapar ett nyckelvalv i en Azure-prenumeration, knyts det automatiskt till prenumerationens Azure Active Directory-klientorganisation. Alla anropare (användare och program) måste registreras på den här klientorganisationen för att ha åtkomst till nyckelvalvet. Ett program eller en användare måste autentisera sig med Azure Active Directory för att få åtkomst till nyckelvalvet. Det gäller både för åtkomst till hanteringsplanet och dataplanet. I bägge fallen, kan ett program få åtkomst till nyckelvalvet på två sätt:
 
 * **användare+appåtkomst** – vanligtvis är det här för program som har åtkomst till nyckelvalvet åt en inloggad användare. Azure PowerShell, Azure Portal är exempel på den här typen av åtkomst. Det finns två sätt att ge åtkomst till användare: ett sätt är att ge åtkomst till användare så att de kan komma åt nyckelvalvet från valfritt program och det andra är att enbart ge en användare åtkomst till nyckelvalvet när de använder ett visst program (kallas sammansatt identitet). 
@@ -52,7 +56,7 @@ Att ha en enda mekanism för autentisering för både hanterings- och dataplanet
 * Om en användare lämnar förlorar de omedelbart åtkomst till alla nyckelvalv i organisationen
 * Organisationer kan anpassa autentisering via alternativen i Azure Active Directory (till exempel aktivera multifaktorautentisering för extra säkerhet)
 
-## Hanteringsplanet och dataplanet
+## <a name="management-plane-and-data-plane"></a>Hanteringsplanet och dataplanet
 Azure Key Vault är en Azure-tjänst som finns tillgänglig via distributionsmodellen Azure Resouce Manager. När du skapar ett nyckelvalv, får du en virtuell behållare i vilken du kan skapa andra objekt som nycklar, hemligheter och certifikat. Du kan sedan använda ditt nyckelvalv med hanteringsplanet och dataplanet för att utföra specifika åtgärder. Gränssnittet för hanteringsplanet används för att hantera dina nyckelvärden som att skapa, ta bort, uppdatera nyckelvärdesattribut och ställa in åtkomstprinciper för dataplanet. Gränssnittet för dataplanet används för att lägga till, ta bort, ändra och använda nycklarna, hemligheterna och certifikaten som lagras i ditt nyckelvalv.
 
 Gränssnitten för hanteringplanet och dataplanet kan nås via olika slutpunkter (se tabell). Den andra kolumnen i tabellen beskriver DNS-namn för de här slutpunkterna i olika Azure-miljöer. Den tredje kolumnen beskriver de åtgärder du kan utföra från varje åtkomstplan. Varje åtkomstplan har sin egen åtkomstkontroll: för hanteringsplanet är åtkomstkontrollen inställd med Azure Resource Manager rollbaserad åtkomstkontroll (RBAC), medan dataplanets åtkomstkontroll är inställd via nyckelvalvets åtkomstprinciper.
@@ -64,10 +68,10 @@ Gränssnitten för hanteringplanet och dataplanet kan nås via olika slutpunkter
 
 Hanteringsplanets och dataplanets åtkomstkontroller fungerar oberoende av varandra. Om du exempelvis vill ge ett program åtkomst för att använda nycklar i ett nyckelvalv, behöver du bara ge dataplansåtkomstbehörigheter med nyckelvalvets åtkomstprinciper och ingen hanteringsplansåtkomst behövs för programmet. Om du vill att en användare ska kunna läsa valvegenskaper och taggar, men inte ha åtkomst till nycklar, hemligheter eller certifikat så kan du bevilja den här användaren läsbehörighet med RBAC och ingen åtkomst till dataplanet krävs.
 
-## Åtkomstkontroll för hanteringsplanet
+## <a name="management-plane-access-control"></a>Åtkomstkontroll för hanteringsplanet
 Hanteringsplanet består av åtgärder som påverkar själva nyckelvalvet. Du kan till exempel skapa eller ta bort ett nyckelvalv. Du kan hämta en lista över valv i en prenumeration. Du kan hämta nyckelvalvsegenskaper (till exempel SKU-taggar) och ange nyckelvalvsprinciper som styr vilka användare och program som har åtkomst till nycklar och hemligheter i nyckelvalvet. Åtkomstkontroll för hanteringsplanet använder sig av RBAC. Se den fullständiga listan med nyckelvalvsåtgärder som kan utföras, via hanteringsplanet i tabellen i det föregående avsnittet. 
 
-### Rollbaserad åtkomstkontroll (RBAC)
+### <a name="rolebased-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
 Varje Azure-prenumerationen har en Azure Active Directory. Användare, grupper och program från den här katalogen kan beviljas åtkomst för att hantera resurser i Azure-prenumerationen som använder Azure Resource Manager-distributionsmodellen. Den här typen av åtkomstkontroll kallas rollbaserad åtkomstkontroll (RBAC). För att hantera den här åtkomsten, kan du använda [Azure Portal](https://portal.azure.com/), [Azure CLI-verktygen](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) eller [Azure Resource Manager REST API:er](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Med Azure Resource Manager-modellen, skapar du nyckelvalv i en resursgrupp och kontrollerar åtkomst till hanteringsplanet för det här nyckelvalvet med Azure Active Directory. Du kan till exempel ge användare eller en grupp möjlighet att hantera nyckelvalv i en specifik resursgrupp.
@@ -79,12 +83,12 @@ Du kan ge åtkomst till användare, grupper och program i en specifik omfattning
 > 
 > 
 
-## Åtkomstkontroll för dataplanet
+## <a name="data-plane-access-control"></a>Åtkomstkontroll för dataplanet
 Nyckelvalvets dataplan består av åtgärder som påverkar objekten i ett nyckelvalv, till exempel nycklar, hemligheter och certifikat.  Det omfattar nyckelåtgärder som att skapa, importera, uppdatera, lista, säkerhetskopiera och återställa nycklar, kryptografiska åtgärder som att signera, verifiera, kryptera, avkryptera, wrappa och unwrappa samt ställa in taggar och andra attribut för nycklar. För hemligheter inkluderar det att hämta, ställa in, lista och ta bort.
 
 Åtkomst till dataplanet ges genom att ställa in åtkomstprinciper för ett nyckelvalv. En användare, grupp eller ett program måste ha bidragsgivarbehörighet (RBAC) för hanteringsplanet för ett nyckelvalv för att kunna ställa in åtkomstprinciper för det nyckelvalvet. En användare, grupp eller ett program kan beviljas åtkomst för att utföra specifika åtgärder för nycklar eller hemligheter i nyckelvalvet. nyckelvalv stöder upp till 16 åtkomstprinciper för ett nyckelvalv. Skapa en säkerhetsgrupp i Azure Active Directory och lägg till användare i den gruppen för att tilldela dataplansåtkomst till ett nyckelvalv för flera användare.
 
-### Åtkomstprinciper för nyckelvalvet
+### <a name="key-vault-access-policies"></a>Åtkomstprinciper för nyckelvalvet
 åtkomstprinciper till nyckelvalvet ger separata behörigheter till nycklar, hemligheter och certifikat. Du kan till exempel ge en användare åtkomst till bara nycklar, men inte hemligheter. Behörighet att komma åt nycklar eller hemligheter eller certifikat är dock valvnivå. Med andra ord stöder inte åtkomstprinciper för nyckelvalvet behörigheter på objektsnivå. Du kan använda [Azure Portal](https://portal.azure.com/), [Azure CLI verktyg](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), eller [REST API:er för nyckelvalvshantering](https://msdn.microsoft.com/library/azure/mt620024.aspx) för att ställa in åtkomstprinciper för ett nyckelvalv.
 
 > [!IMPORTANT]
@@ -92,7 +96,7 @@ Nyckelvalvets dataplan består av åtgärder som påverkar objekten i ett nyckel
 > 
 > 
 
-## Exempel
+## <a name="example"></a>Exempel
 Anta att du utvecklar ett program som använder ett certifikat för SSL, Azure Storage för att lagra data och använder sig av en RSA 2048-bitars nyckel för signeringsåtgärder. Anta att det här programmet körs i en VM (eller en VM-skaluppsättning). Du kan använda ett nyckelvalv för att lagra alla programmets hemligheter och använda nyckelvalvet för att lagra bootstrap-certifikatet som används av programmet för att autentisera med Azure Active Directory.
 
 Så här är en sammanfattning av alla nycklar och hemligheter ska lagras i ett nyckelvalv.
@@ -199,7 +203,7 @@ Det här exemplet visar ett enkelt scenario. Scenarier i verkliga livet är vanl
 > 
 > 
 
-## Resurser
+## <a name="resources"></a>Resurser
 * [Azure Active Directory rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md)
   
   Den här artikeln förklarar Azure Active Directorys rollbaserade åtkomstkontroll och hur den fungerar.
@@ -237,7 +241,7 @@ Det här exemplet visar ett enkelt scenario. Scenarier i verkliga livet är vanl
   
   Länkar till referensdokumentation för PowerShell-cmdletar för att hantera åtkomstprinciper för nyckelvalvet.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 För en komma igång-självstudie för administratörer, kan du se [Kom igång med Azure Key Vault](key-vault-get-started.md).
 
 Mer information om av användningsloggning för Key Vault finns i avsnittet om [Azure Key Vault-loggning](key-vault-logging.md).
@@ -246,6 +250,9 @@ Mer information om hur du använder nycklar och hemligheter med Azure Key Vault 
 
 Om du har några frågor om Nyckelvalv ska du gå till [Azure Key Vault-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

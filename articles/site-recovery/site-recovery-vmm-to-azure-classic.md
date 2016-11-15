@@ -1,46 +1,50 @@
 ---
 title: Replikera virtuella Hyper-V-datorer i VMM-moln till Azure | Microsoft Docs
-description: Den här artikeln beskriver hur du replikerar virtuella Hyper-V-datorer på Hyper-V-värdar som finns i System Center VMM-moln till Azure.
+description: "Den här artikeln beskriver hur du replikerar virtuella Hyper-V-datorer på Hyper-V-värdar som finns i System Center VMM-moln till Azure."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 9d526a1f-0d8e-46ec-83eb-7ea762271db5
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/06/2016
+ms.date: 11/01/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4743f1335856bcfc7a44d76841d3be83693ad063
+
 
 ---
-# Replikera virtuella Hyper-V-datorer i VMM-moln till Azure
+# <a name="replicate-hyperv-virtual-machines-in-vmm-clouds-to-azure"></a>Replikera virtuella Hyper-V-datorer i VMM-moln till Azure
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
-> * [PowerShell – ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+> * [PowerShell – Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Klassisk portal](site-recovery-vmm-to-azure-classic.md)
-> * [Klassiska PowerShell](site-recovery-deploy-with-powershell.md)
+> * [PowerShell – Klassisk](site-recovery-deploy-with-powershell.md)
 > 
 > 
 
 Azure Site Recovery-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att samordna replikering, redundans och återställning av virtuella datorer och fysiska servrar. Datorer kan replikeras till Azure eller till ett sekundärt lokalt datacenter. En snabb översikt finns i [Vad är Azure Site Recovery?](site-recovery-overview.md).
 
-## Översikt
+## <a name="overview"></a>Översikt
 Den här artikeln beskriver hur du distribuerar Site Recovery för att replikera virtuella Hyper-V-datorer på Hyper-V-värdservrar som finns i privata VMM-moln till Azure.
 
 Artikeln innehåller kraven för scenariot och visar hur du konfigurerar ett Site Recovery-valv, skaffar Azure Site Recovery-providern som installeras på VMM-servern, registrerar servern i valvet, lägger till ett Azure-lagringskonto, installerar Azure Recovery Services-agenten på Hyper-V-värdservrar, konfigurerar skyddsinställningar för VMM-moln som tillämpas på alla skyddade virtuella datorer och hur du sedan aktiverar skydd för dessa virtuella datorer. Avsluta med att testa redundansen för att se till att allt fungerar som förväntat.
 
 Skriv dina kommentarer eller frågor längst ned i den här artikeln eller i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Arkitektur
+## <a name="architecture"></a>Arkitektur
 ![Arkitektur](./media/site-recovery-vmm-to-azure-classic/topology.png)
 
 * Azure Site Recovery-providern installeras på VMM under distributionen av Site Recovery och VMM-servern registreras i Site Recovery-valvet. Providern kommunicerar med Site Recovery för att samordna replikeringen.
 * Azure Recovery Services-agenten installeras på Hyper-V-värdservrar under distributionen av Site Recovery. Den hanterar datareplikeringen till Azure-lagring.
 
-## Krav för Azure
+## <a name="azure-prerequisites"></a>Krav för Azure
 Det här behöver du i Azure.
 
 | **Krav** | **Detaljer** |
@@ -49,16 +53,16 @@ Det här behöver du i Azure.
 | **Azure Storage** |Du behöver ett Azure-lagringskonto för att lagra replikerade data. Replikerade data lagras i Azure och virtuella Azure-datorer skapas i samband med redundansväxlingen. <br/><br/>Du behöver ett [geo-redundant standardlagringskonto](../storage/storage-redundancy.md#geo-redundant-storage). Kontot måste finnas i samma region som Site Recovery-tjänsten och vara associerat med samma prenumeration. Observera att replikeringen till Premium-lagringskonton inte stöds för närvarande och därför inte bör användas.<br/><br/>[Läs om](../storage/storage-introduction.md) Azure-lagring. |
 | **Azure-nätverk** |Du behöver ett virtuellt Azure-nätverk som virtuella Azure-datorer ansluter till vid en redundansväxling. Det virtuella Azure-nätverket måste finnas i samma region som Site Recovery-valvet. |
 
-## Krav för det lokala systemet
+## <a name="onpremises-prerequisites"></a>Krav för det lokala systemet
 Det här behöver du lokalt.
 
 | **Krav** | **Detaljer** |
 | --- | --- |
 | **VMM** |Du behöver minst en VMM-server som distribuerats som en fristående fysisk eller virtuell server eller som ett virtuellt kluster. <br/><br/>VMM-servern måste köra System Center 2012 R2 med de senaste kumulativa uppdateringarna.<br/><br/>Du behöver minst ett moln som konfigurerats på VMM-servern.<br/><br/>Källmolnet som du vill skydda måste innehålla en eller flera VMM-värdgrupper.<br/><br/>Läs mer om hur du konfigurerar VMM-moln i [Genomgång: Skapa privata moln med System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) i Keith Mayers blogg. |
-| **Hyper-V** |Du behöver en eller flera Hyper-V-värdservrar eller Hyper-V-kluster i VMM-molnet. Värdservern bör ha en eller flera virtuella datorer. <br/><br/>Hyper-V-servern måste minst köra Windows Server 2012 R2 med Hyper-V-rollen och ha de senaste uppdateringarna installerade.<br/><br/>Hyper-V-servrar som innehåller virtuella datorer som du vill skydda måste finnas i ett VMM-moln.<br/><br/>Om du kör Hyper-V i ett kluster bör du vara medveten om att klusterutjämning inte skapas automatiskt om du har ett statiskt IP-adressbaserat kluster. Du måste konfigurera klusterutjämningen manuellt. [Lär dig mer](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) i Aidan Finns blogginlägg. |
+| **Hyper-V** |Du behöver en eller flera Hyper-V-värdservrar eller Hyper-V-kluster i VMM-molnet. Värdservern bör ha en eller flera virtuella datorer. <br/><br/>Hyper-V-servrar måste köras på minst **Windows Server 2012 R2** med Hyper-V-rollen eller **Microsoft Hyper-V Server 2012 R2** och ha de senaste uppdateringarna installerade.<br/><br/>Hyper-V-servrar som innehåller virtuella datorer som du vill skydda måste finnas i ett VMM-moln.<br/><br/>Om du kör Hyper-V i ett kluster bör du vara medveten om att klusterutjämning inte skapas automatiskt om du har ett statiskt IP-adressbaserat kluster. Du måste konfigurera klusterutjämningen manuellt. [Lär dig mer](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) i Aidan Finns blogginlägg. |
 | **Skyddade datorer** |Virtuella datorer som du vill skydda måste uppfylla [kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). |
 
-## Krav för nätverksmappning
+## <a name="network-mapping-prerequisites"></a>Krav för nätverksmappning
 När du skyddar virtuella datorer i Azure mappar nätverksmappningen mellan virtuella datornätverk på VMM-källservern och Azure-målnätverken för att följande ska vara möjligt:
 
 * Alla datorer som redundansväxlar i samma nätverk kan ansluta till varandra, oavsett vilken återställningsplan de finns i.
@@ -78,7 +82,7 @@ Så här förbereder du nätverksmappningen:
    * [Konfigurera logiska nätverk](https://technet.microsoft.com/library/jj721568.aspx).
    * [Konfigurera virtuella datornätverk](https://technet.microsoft.com/library/jj721575.aspx).
 
-## Steg 1: Skapa ett Site Recovery-valv
+## <a name="step-1-create-a-site-recovery-vault"></a>Steg 1: Skapa ett Site Recovery-valv
 1. Logga in på [hanteringsportalen](https://portal.azure.com) från den VMM-server som du vill registrera.
 2. Klicka på **Datatjänster** > **Återställningstjänster** > **Site Recovery-valv**.
 3. Klicka på **Skapa nytt** > **Snabbregistrering**.
@@ -90,7 +94,7 @@ Så här förbereder du nätverksmappningen:
 
 Kontrollera att valvet har skapats genom att titta i statusfältet. Valvet visas som **Aktivt** på Recovery Services-huvudsidan.
 
-## Steg 2: Skapa en valvregistreringsnyckel
+## <a name="step-2-generate-a-vault-registration-key"></a>Steg 2: Skapa en valvregistreringsnyckel
 Generera en registreringsnyckel i valvet. När du har laddat ned Azure Site Recovery-providern och installerat den på VMM-servern använder du den här nyckeln för att registrera VMM-servern i valvet.
 
 1. På sidan **Recovery Services** klickar du på valvet för att öppna sidan Snabbstart. Du kan också öppna Snabbstart när du vill med hjälp av ikonen.
@@ -101,7 +105,7 @@ Generera en registreringsnyckel i valvet. När du har laddat ned Azure Site Reco
    
     ![Registreringsnyckel](./media/site-recovery-vmm-to-azure-classic/register-key.png)
 
-## Steg 3: Installera Azure Site Recovery-providern
+## <a name="step-3-install-the-azure-site-recovery-provider"></a>Steg 3: Installera Azure Site Recovery-providern
 1. I **Snabbstart** > **Förbered VMM-servrar** klickar du på **Ladda ned Microsoft Azure Site Recovery-providern för installation på VMM-servrar** för att ladda ned den senaste versionen av providerinstallationsfilen.
 2. Kör den här filen på VMM-källservern.
    
@@ -146,7 +150,7 @@ Generera en registreringsnyckel i valvet. När du har laddat ned Azure Site Reco
 
 Efter registreringen hämtas metadata från VMM-servern av Azure Site Recovery. Servern visas på fliken **VMM-servrar** på sidan **Servrar** i valvet.
 
-### Kommandoradsinstallation
+### <a name="command-line-installation"></a>Kommandoradsinstallation
 Azure Site Recovery-providern kan även installeras med följande kommandorad. Den här metoden kan användas för att installera providern på Server Core för Windows Server 2012 R2.
 
 1. Ladda ned installationsfilen och registreringsnyckeln för providern till en mapp. Till exempel C:\ASR.
@@ -173,7 +177,7 @@ Med följande parametrar:
 * **/proxyUsername**: Valfri parameter som anger proxyserverns användarnamn.
 * **/proxyPassword**: Valfri parameter som anger lösenordet för proxyservern.  
 
-## Steg 4: Skapa ett Azure-lagringskonto
+## <a name="step-4-create-an-azure-storage-account"></a>Steg 4: Skapa ett Azure-lagringskonto
 1. Om du inte har något Azure-konto skapar du ett genom att klicka på **Lägg till ett Azure Storage-konto**.
 2. Skapa ett konto med geo-replikering aktiverat. Kontot måste finnas i samma region som Azure Site Recovery-tjänsten och vara associerat med samma prenumeration.
    
@@ -184,7 +188,7 @@ Med följande parametrar:
 > 
 > 
 
-## Steg 5: Installera Azure Recovery Services-agenten
+## <a name="step-5-install-the-azure-recovery-services-agent"></a>Steg 5: Installera Azure Recovery Services-agenten
 Installera Azure Recovery Services-agenten på varje Hyper-V-värdserver i VMM-molnet.
 
 1. Klicka på **Snabbstart** > **Ladda ned Azure Site Recovery Services-agenten och installera på värdar** för att hämta den senaste versionen av agentinstallationsfilen.
@@ -199,12 +203,12 @@ Installera Azure Recovery Services-agenten på varje Hyper-V-värdserver i VMM-m
    
     ![Registrera MARS-agenten](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
-### Kommandoradsinstallation
+### <a name="command-line-installation"></a>Kommandoradsinstallation
 Du kan även installera Microsoft Azure Recovery Services-agenten från kommandoraden genom att köra följande kommando:
 
     marsagentinstaller.exe /q /nu
 
-## Steg 6: Konfigurera skyddsinställningar för molnet
+## <a name="step-6-configure-cloud-protection-settings"></a>Steg 6: Konfigurera skyddsinställningar för molnet
 När VMM-servern har registrerats kan du konfigurera skyddsinställningar för molnet. Eftersom du aktiverade alternativet **Synkronisera molndata med valvet** när du installerade providern visas alla moln på VMM-servern på fliken <b>Skyddade objekt</b> i valvet.
 
 ![Publicerat moln](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)
@@ -225,7 +229,7 @@ När du har sparat inställningarna skapas ett jobb som kan övervakas på flike
 
 När du har sparat kan molninställningarna ändras på fliken **Konfigurera**. Om du vill ändra målplatsen eller mållagringskontot måste du ta bort molnkonfigurationen och sedan konfigurera om molnet. Observera att om du ändrar lagringskontot så tillämpas ändringarna endast för virtuella datorer som du aktiverar skydd för efter ändringen av lagringskontot. Befintliga virtuella datorer migreras inte till det nya lagringskontot.
 
-## Steg 7: Konfigurera nätverksmappning
+## <a name="step-7-configure-network-mapping"></a>Steg 7: Konfigurera nätverksmappning
 Innan du börjar använda nätverksmappning kontrollerar du att de virtuella datorerna på VMM-källservern är anslutna till ett virtuellt datornätverk. Skapa också ett eller flera virtuella Azure-nätverk. Observera att flera virtuella datornätverk kan mappas till ett enda Azure-nätverk.
 
 1. Klicka på **Mappa nätverk** på sidan Snabbstart.
@@ -246,7 +250,7 @@ Observera att om målnätverket har flera undernät och ett av dessa undernät h
 > 
 > 
 
-## Steg 8: Aktivera skydd för virtuella datorer
+## <a name="step-8-enable-protection-for-virtual-machines"></a>Steg 8: Aktivera skydd för virtuella datorer
 När du har konfigurerar servrar, moln och nätverk kan du aktivera skydd för virtuella datorer i molnet. Observera följande:
 
 * Virtuella datorer måste uppfylla [kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
@@ -274,7 +278,7 @@ När du har konfigurerar servrar, moln och nätverk kan du aktivera skydd för v
   
   * Om antalet nätverkskort på källdatorn är mindre än eller lika med antalet nätverkskort som tillåts för måldatorns storlek så kommer målet att ha samma antal kort som källan.
   * Om antalet nätverkskort för den virtuella källdatorn överskrider det tillåtna antalet för målstorleken så används den högsta målstorleken.
-  * Om en källdator exempelvis har två nätverkskort och måldatorn stöder fyra så kommer måldatorn att ha två kort. Om källdatorn har två nätverkskort men målstorleken endast stöder ett så kommer måldatorn bara att ha ett kort.    
+  * Om en källdator exempelvis har två nätverkskort och måldatorn stöder fyra så kommer måldatorn att ha två kort. Om källdatorn har två nätverkskort men målstorleken endast stöder ett så kommer måldatorn bara att ha ett kort.     
 * **Nätverk för den virtuella måldatorn** – Vilket nätverk som den virtuella datorn ansluter till beror på nätverksmappningen för den virtuella källdatorns nätverk. Om den virtuella källdatorn har mer än ett nätverkskort och källnätverken mappas till olika nätverk på målet så måste du välja ett av målnätverken.
 * **Undernät för varje nätverkskort** –För varje nätverkskort kan du välja det undernät som den redundansväxlade virtuella datorn ska ansluta till.
 * **Mål-IP-adress** – Om nätverkskortet på den virtuella källdatorn är konfigurerat att använda en statisk IP-adress kan du ange IP-adressen för den virtuella måldatorn. Med den här funktionen behålls IP-adressen för en virtuell källdator efter en redundansväxling. Om ingen IP-adress anges tilldelas en tillgänglig IP-adress till nätverkskortet i samband med redundansväxlingen. Om mål-IP-adressen har angetts men redan används av en annan virtuell dator som körs i Azure så misslyckas redundansväxlingen.  
@@ -286,7 +290,7 @@ När du har konfigurerar servrar, moln och nätverk kan du aktivera skydd för v
 > 
 > 
 
-## Testa distributionen
+## <a name="test-the-deployment"></a>Testa distributionen
 Om du vill testa distributionen kan du köra ett redundanstest för en enskild virtuell dator eller skapa en återställningsplan med flera virtuella datorer och köra ett redundanstest för planen.  
 
 Ett redundanstest simulerar redundans- och återställningsmekanismen i ett isolerat nätverk. Tänk på följande:
@@ -299,7 +303,7 @@ Ett redundanstest simulerar redundans- och återställningsmekanismen i ett isol
 > 
 > 
 
-### Skapa en återställningsplan
+### <a name="create-a-recovery-plan"></a>Skapa en återställningsplan
 1. Lägg till en ny plan på fliken **Återställningsplaner**. Ange ett namn, **VMM** i **Källtyp** och VMM-källservern i **Källa**. Målet är Azure.
    
     ![Skapa en återställningsplan](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
@@ -312,7 +316,7 @@ Ett redundanstest simulerar redundans- och återställningsmekanismen i ett isol
 
 När en återställningsplan har skapats visas den på fliken **Återställningsplaner**. Du kan också lägga till [Azure Automation Runbook-rutiner](site-recovery-runbook-automation.md) till återställningsplanen om du vill automatisera åtgärder under en redundansväxling.
 
-### Köra ett redundanstest
+### <a name="run-a-test-failover"></a>Köra ett redundanstest
 Du kan köra ett redundanstest mot Azure på två sätt.
 
 * **Testa redundans utan ett Azure-nätverk** – Den här typen av redundanstest kontrollerar att den virtuella datorn visas korrekt i Azure. Den virtuella datorn ansluts inte till något Azure-nätverk efter redundansväxlingen.
@@ -343,9 +347,12 @@ Gör följande om du vill köra ett redundanstest:
 
 >
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Lär dig mer om hur du [konfigurerar återställningsplaner](site-recovery-create-recovery-plans.md) och [redundans](site-recovery-failover.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

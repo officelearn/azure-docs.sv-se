@@ -1,62 +1,68 @@
 ---
-title: Azure Apptjänst för webbappar och mobila appar | Microsoft Docs
-description: Lär dig hur Azure Apptjänst hjälper dig att utveckla, distribuera och hantera webb- och mobilappar.
-keywords: apptjänst, azure apptjänst, apptjänstkostnad, skala, skalbar, appdistribution, azure appdistribution, paas, plattform som en tjänst
+title: "Azure App Service för API-, webb- och mobilappar | Microsoft Docs"
+description: "Lär dig hur Azure Apptjänst hjälper dig att utveckla, distribuera och hantera webb- och mobilappar."
+keywords: app service, azure app service, app service cost, scale, scalable, app deployment, azure app deployment, paas, platform-as-a-service, website, web site, web, azure mobile
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: omarkmsft
-manager: dwrede
-editor: jimbe
-
+manager: erikre
+editor: cephalin
+ms.assetid: 979cafa8-eeb6-4d3b-87cf-764a821c3e4f
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2016
+ms.date: 10/26/2016
 ms.author: omark
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 042da7ac46fd20bd0e9af33f449f8ea4a6a42089
+
 
 ---
-# Vad är Azure App Service?
-*Apptjänst* är en [plattform som en tjänst](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) som erbjuds med Microsoft Azure. Skapa webb- och mobilappar för alla plattformar och enheter. Integrera dina appar med SaaS-lösningar, anslut till lokala program och automatisera affärsprocesserna. Azure kör dina appar på helt hanterade virtuella datorer (VM) med de delade VM-resurser eller dedikerade VM:er som du väljer. 
+# <a name="what-is-azure-app-service"></a>Vad är Azure App Service?
+*Apptjänst* är en [plattform som en tjänst](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) som erbjuds med Microsoft Azure. Skapa webb- och mobilappar för alla plattformar och enheter. Integrera dina appar med SaaS-lösningar, anslut till lokala program och automatisera affärsprocesserna. Azure kör dina appar på helt hanterade virtuella datorer (VM) med de delade VM-resurser eller dedikerade VM:er som du väljer.
 
-Apptjänst innehåller webb- och mobilfunktioner som vi tidigare levererat separat som Azure-webbplatser och Azure Mobile Services.  Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. Som en enda integrerad tjänst gör Apptjänst att du kan sätta ihop olika komponenter – webbplatser, mobilapp-servrar, RESTful-API:er och affärsprocesser – i en enda lösning.
+Apptjänst innehåller webb- och mobilfunktioner som vi tidigare levererat separat som Azure-webbplatser och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. Som en enda integrerad tjänst gör Apptjänst att du kan sätta ihop olika komponenter – webbplatser, mobilapp-servrar, RESTful-API:er och affärsprocesser – i en enda lösning.
 
 Följande 4-minuters videoklipp innehåller en kort beskrivning av hur Apptjänst relaterar till tidigare Azure-erbjudanden och vad som är nytt i den.
 
-+[AZURE.VIDEO app-service-history-lesson] 
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/app-service-history-lesson/player]
+> 
+> 
 
-## Varför använda Azure Apptjänst?
-Här följer några viktiga funktioner och funktioner i Apptjänst: 
+## <a name="why-use-app-service"></a>Varför använda Azure Apptjänst?
+Här följer några viktiga funktioner och funktioner i Apptjänst:
 
 * **Flera språk och ramverk** – Apptjänst har förstklassigt stöd för ASP.NET, Node.js, Java, PHP och Python. Du kan också köra [Windows PowerShell och andra skript och körbara filer](../app-service-web/web-sites-create-web-jobs.md) på Apptjänstens virtuella datorer.
 * **DevOps-optimering** – Konfigurera [kontinuerlig integrering och distribution](../app-service-web/app-service-continuous-deployment.md) med Visual Studio Team Services, GitHub eller BitBucket. Flytta upp uppdateringar via [test- och mellanlagringsmiljöer](../app-service-web/web-sites-staged-publishing.md). Utför [A/B-test](../app-service-web/app-service-web-test-in-production-get-start.md). Hantera dina appar i App Service med [Azure PowerShell](../powershell-install-configure.md) eller det [plattformsoberoende kommandoradsgränssnittet (CLI)](../xplat-cli-install.md).
-* **Global skala med hög tillgänglighet** – skala [upp](../app-service-web/web-sites-scale.md) och [ned](../azure-portal/insights-how-to-scale.md) manuellt och automatiskt. Hantera appar var som helst i Microsofts globala datacenterinfrastruktur med hög tillgänglighet tack vare [serviceavtalet](https://azure.microsoft.com/support/legal/sla/app-service/) för App Service.
+* **Global skala med hög tillgänglighet** – skala [upp](../app-service-web/web-sites-scale.md) och [ned](../monitoring-and-diagnostics/insights-how-to-scale.md) manuellt och automatiskt. Hantera appar var som helst i Microsofts globala datacenterinfrastruktur med hög tillgänglighet tack vare [serviceavtalet](https://azure.microsoft.com/support/legal/sla/app-service/) för App Service.
 * **Anslutningar till SaaS-plattformar och lokala data ** – välj bland fler än 50 [anslutningsappar](../connectors/apis-list.md) för företagssystem (till exempel SAP, Siebel och Oracle), SaaS-tjänster (till exempel Salesforce och Office 365) och internettjänster (till exempel Facebook och Twitter). Åtkomst till lokala data via [hybridanslutningar ](../biztalk-services/integration-hybrid-connection-overview.md) och [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
 * **Säkerhet och efterlevnad** – App Service [uppfyller ISO, SOC och PCI](https://www.microsoft.com/TrustCenter/).
 * **Programmallar** – välj från en omfattande lista med programmallar i [Azure Marketplace](https://azure.microsoft.com/marketplace/) där du kan använda en guide till att installera populära program med öppen källkod som WordPress, Joomla och Drupal.
 * **Visual Studio-integration** – dedikerade verktyg i Visual Studio effektiviserar arbetet med att skapa, distribuera och felsöka.
 
-## Apptyper i Apptjänst
-Apptjänst erbjuder flera *apptyper* och alla är avsedda att hantera en viss typ av arbetsbelastning:
+## <a name="app-types-in-app-service"></a>Apptyper i Apptjänst
+App Service tillhandahåller flera *apptyper*, som var och en är avsedd att hantera en viss typ av arbetsbelastning:
 
 * [**Webbappar**](../app-service-web/app-service-web-overview.md) – för att hantera webbplatser och webbprogram.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) – för att hantera mobilappservrar.
-* [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) – för att hantera moln-API:er. 
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) – för att automatisera åtkomst till och användning av data mellan moln utan att skriva kod.
+* [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) – För att hantera RESTful-API:er.
+* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) – För att automatisera affärsprocesser och integrera system och data mellan moln utan att skriva kod.
 
-Ordet *app* här refererar till de värdresurser som är dedikerade för att köra en arbetsbelastning. Med ”webbapp” som exempel är du antagligen van vid att tänka på en webbapp som både beräkningsresurser och programkod som tillsammans ger funktioner till en webbläsare. I Apptjänst är en *webbapp* dock de beräkningsresurser som Azure tillhandahåller för hantering av programkoden. Om ditt program består av en webbklientdel och en RESTful-API-serverdel kan du distribuera båda till en webbapp eller distribuera klientdelkoden till en webbapp och serverdelkoden till en API-app. Programmet kan bestå av flera Apptjänst-appar av olika typer.
+Ordet *app* här refererar till de värdresurser som är dedikerade för att köra en arbetsbelastning. Med ”webbapp” som exempel är du antagligen van vid att tänka på en webbapp som både beräkningsresurser och programkod som tillsammans ger funktioner till en webbläsare. I Apptjänst är en *webbapp* dock de beräkningsresurser som Azure tillhandahåller för hantering av programkoden. Om ditt program består av en webbklientdel och en RESTful-API-serverdel kan du distribuera till en webbapp eller distribuera klientdelskoden till en webbapp och serverdelskoden till en API-app. Programmet kan bestå av flera Apptjänst-appar av olika typer.
 
-## Apptjänstplaner
-[Apptjänstplaner](azure-web-sites-web-hosting-plans-in-depth-overview.md) anger vilken typ av beräkningsresurser som apparna körs på. Om du förväntar dig lätta trafikbelastningar kan du använda delade virtuella datorer (VM). Du kan välja bland flera storlekar på dedikerade VM för högre belastning. Flera Apptjänst-appar kan dela samma plan och skala upp eller ned tillsammans med planen.
+## <a name="app-service-plans"></a>Apptjänstplaner
+[Apptjänstplaner](azure-web-sites-web-hosting-plans-in-depth-overview.md) anger vilken typ av beräkningsresurser som apparna körs på. Om du förväntar dig lägre trafikbelastningar kan du använda delade virtuella datorer (på prisnivåerna **Kostnadsfri** och **Delad**). För högre belastningar kan du välja mellan flera storlekar för dedikerade virtuella datorer (nivåerna **Basic**, **Standard** och **Premium**). Flera App Services-appar kan dela samma abonnemang och skalar i så fall upp och ned prisnivåerna tillsammans i abonnemanget.
 
-Om du behöver mer skalbarhet och nätverksisolering kan du köra dina appar i en [Apptjänstmiljö](../app-service-web/app-service-app-service-environment-intro.md). 
+Om du behöver mer skalbarhet och nätverksisolering kan du köra dina appar i en [Apptjänstmiljö](../app-service-web/app-service-app-service-environment-intro.md).
 
-## Priser
-Information om hur mycket Apptjänst kostar finns i [Priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/). 
+## <a name="pricing"></a>Priser
+Information om hur mycket Apptjänst kostar finns i [Priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/).
 
-## Kom igång med Apptjänst
-[Skapa en tillfällig webbapp, mobilapp eller logikapp](http://go.microsoft.com/fwlink/?LinkId=523751) omedelbart utan kostnad, utan kreditkort, utan åtaganden och utan problem.
+## <a name="testdrive-app-service"></a>Testköra App Service
+[Skapa en exempelwebbapp, exempelmobilapp eller exempellogikapp](http://go.microsoft.com/fwlink/?LinkId=523751) och testa appen i en timme – inget kreditkort behövs, inga åtaganden, inget krångel.
 
 Eller öppna ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/) och prova en av våra självstudier för att komma igång:
 
@@ -65,6 +71,9 @@ Eller öppna ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing
 * [Självstudier: Skapa en API-app](../app-service-api/app-service-api-dotnet-get-started.md)
 * [Självstudier: Skapa en logikapp](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

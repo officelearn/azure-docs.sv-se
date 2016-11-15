@@ -1,4 +1,4 @@
-## <a name="setupdevenv"></a>Konfigurera utvecklingsmiljön
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Konfigurera utvecklingsmiljön
 För att komma igång så ställer du in din utvecklingsmiljö genom att installera [Azure SDK för Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) eller [Azure SDK för Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322).
 
 Om du inte har Visual Studio installerat, kan du använda länken för Visual Studio 2015 och installera Visual Studio tillsammans med SDK:n.
@@ -8,6 +8,8 @@ Om du inte har Visual Studio installerat, kan du använda länken för Visual St
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

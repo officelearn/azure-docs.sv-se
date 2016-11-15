@@ -1,5 +1,5 @@
 > [!div class="op_single_selector"]
-> * [Portalen](../articles/data-lake-analytics/data-lake-analytics-manage-use-portal.md)
+> * [Portal](../articles/data-lake-analytics/data-lake-analytics-manage-use-portal.md)
 > * [CLI](../articles/data-lake-analytics/data-lake-analytics-manage-use-cli.md)
 > * [PowerShell](../articles/data-lake-analytics/data-lake-analytics-manage-use-powershell.md)
 > * [.NET SDK](../articles/data-lake-analytics/data-lake-analytics-manage-use-dotnet-sdk.md)
@@ -7,6 +7,8 @@
 > 
 > 
 
-<!--HONumber=Sep16_HO4-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

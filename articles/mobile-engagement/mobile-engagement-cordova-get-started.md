@@ -1,12 +1,12 @@
 ---
-title: Komma igång med Azure Mobile Engagement för Cordova/Phonegap
-description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Cordova/Phonegap-appar.
+title: "Komma igång med Azure Mobile Engagement för Cordova/Phonegap"
+description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Cordova/Phonegap-appar."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-phonegap
@@ -14,9 +14,13 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 86e6597340867ffd620eac38a55de9113f571880
+
 
 ---
-# Komma igång med Azure Mobile Engagement för Cordova/Phonegap
+# <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Komma igång med Azure Mobile Engagement för Cordova/Phonegap
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 I det här avsnittet beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i en mobilapp utvecklad med Cordova.
@@ -41,15 +45,15 @@ För den här kursen behöver du följande:
 > 
 > 
 
-## <a id="setup-azme"></a>Konfigurera Mobile Engagement för din Cordova-app
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Konfigurera Mobile Engagement för din Cordova-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
-I den här självstudien anges en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. 
+## <a name="a-idconnectingappaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
+I den här kursen behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. 
 
 Vi skapar en grundläggande app i Cordova för att demonstrera integrationen:
 
-### Skapa ett nytt Cordova-projekt
+### <a name="create-a-new-cordova-project"></a>Skapa ett nytt Cordova-projekt
 1. Starta fönstret *Terminal* på Mac-datorn och skriv in följande för att skapa ett nytt Cordova-projekt utifrån standardmallen. Kontrollera att publiceringsprofilen som du använder för att distribuera iOS-appen med använder ”com.mycompany.myapp” som app-ID. 
    
         $ cordova create azme-cordova com.mycompany.myapp
@@ -64,13 +68,13 @@ Vi skapar en grundläggande app i Cordova för att demonstrera integrationen:
         $ cordova run android
 4. Lägg till pluginprogrammet Cordova Console. 
    
-       $ cordova plugin add cordova-plugin-console 
+    $ cordova plugin add cordova-plugin-console 
 
-### Anslut appen till Mobile Engagement-serverdelen
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Ansluta appen till Mobile Engagement-serverdelen
 1. Installera pluginprogrammet Cordova Console för Azure Mobile Engagement och ange följande variabler vid konfigurationen:
    
         cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
-            --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
+             --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
             --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
             --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
             --variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
@@ -83,7 +87,7 @@ Vi skapar en grundläggande app i Cordova för att demonstrera integrationen:
 
 *Reach-ikon för iOS*: Måste utgöras av namnet på resursen med filtillägg (exempel: mynotificationicon.png). Ikonfilen måste läggas till i ditt iOS-projekt med XCode (använd menyn Add Files [Lägg till filer]).
 
-## <a id="monitor"></a>Aktivera realtidsövervakning
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Aktivera realtidsövervakning
 1. Redigera **www/js/index.js** i Cordova-projektet och lägg till ett anrop till Mobile Engagement som deklarerar en ny aktivitet efter att händelsen *deviceReady* har tagits emot.
    
          onDeviceReady: function() {
@@ -110,14 +114,14 @@ Vi skapar en grundläggande app i Cordova för att demonstrera integrationen:
         [Engagement] Connection: Sent: startSession
         [Engagement] Connection: Sent: activity name='myPage'
 
-## <a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används till detta heter REACH i Mobile Engagement-portalen.
 I följande avsnitt konfigurerar du appen för att ta emot dem.
 
-### Konfigurera push-autentiseringsuppgifter för Mobile Engagement
+### <a name="configure-push-credentials-for-mobile-engagement"></a>Konfigurera push-autentiseringsuppgifter för Mobile Engagement
 Om du vill låta Mobile Engagement skicka push-meddelanden från dig så behöver du ge det åtkomst till ditt Apple iOS-certifikat eller GCM-serverns API-nyckel. 
 
 1. Gå till portalen för Mobile Engagement. Kontrollera att du befinner dig i appen som vi använder för det här projektet och klicka sedan på **starta**-knappen längst ned:
@@ -140,19 +144,19 @@ Om du vill låta Mobile Engagement skicka push-meddelanden från dig så behöve
    
     ![][4]
 
-### Aktivera push-meddelanden i Cordova-appen
+### <a name="enable-push-notifications-in-the-cordova-app"></a>Aktivera push-meddelanden i Cordova-appen
 Redigera **www/js/index.js** för att lägga till anropet till Mobile Engagement som begär push-meddelanden och deklarerar en hanterare:
 
      onDeviceReady: function() {
            Engagement.initializeReach(  
-                // on OpenUrl  
-                function(_url) {   
-                alert(_url);   
-                });  
+                 // on OpenUrl  
+                 function(_url) {   
+                 alert(_url);   
+                 });  
             Engagement.startActivity("myPage",{});  
         }
 
-### Kör appen
+### <a name="run-the-app"></a>Kör appen
 **[iOS]**
 
 1. Vi använder XCode för att skapa appen, distribuera den och testa push-meddelanden på enheten eftersom iOS endast tillåter push-avisering till en fysisk enhet. Gå till platsen där Cordova-projektet skapats och navigera till **...\platforms\ios**. Öppna filen .xcodeproj i XCode. 
@@ -165,7 +169,7 @@ Du behöver bara använda emulatorn för att köra Android-appen eftersom GCM-me
 
     cordova run android
 
-## <a id="send"></a>Skicka ett meddelande till din app
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Skicka ett meddelande till din app
 Nu skapar vi en enkel kampanj med push-meddelanden till den app som körs på enheten:
 
 1. Gå till fliken **Räckvidd** i Mobile Engagement-portalen
@@ -199,7 +203,7 @@ Nu skapar vi en enkel kampanj med push-meddelanden till den app som körs på en
     ![][10]
 9. Du bör nu se ett push-meddelande på enheten eller i emulatorn som en del av den här kampanjen. 
 
-## <a id="next-steps"></a>Nästa steg
+## <a name="a-idnextstepsanext-steps"></a><a id="next-steps"></a>Nästa steg
 [Översikt över alla metoder som är tillgängliga med Cordova Mobile Engagement SDK](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 <!-- Images. -->
@@ -217,6 +221,6 @@ Nu skapar vi en enkel kampanj med push-meddelanden till den app som körs på en
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

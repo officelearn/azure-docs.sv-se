@@ -1,12 +1,12 @@
 ---
-title: Konfigurera en utvecklingsmiljö i Linux | Microsoft Docs
-description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När du har slutfört den här installationen är du redo att börja bygga program.
+title: "Konfigurera en utvecklingsmiljö i Linux | Microsoft Docs"
+description: "Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När du har slutfört den här installationen är du redo att börja bygga program."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 567a998102558626df73878865b317b830ba1faa
+
 
 ---
-# Förbereda utvecklingsmiljön i Linux
+# <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
  För att kunna skapa och köra [Azure Service Fabric-program](service-fabric-application-model.md) på en Linux-utvecklingsdator måste du installera runtime och SDK. Du kan även installera SDK:er för Java och .NET Core.
 
-## Krav
-### Operativsystemversioner som stöds
+## <a name="prerequisites"></a>Krav
+### <a name="supported-operating-system-versions"></a>Operativsystemversioner som stöds
 Följande operativsystemversioner stöds för utveckling:
 
 * Ubuntu 16.04 (Xenial Xerus)
 
-## Uppdatera dina APT-källor
+## <a name="update-your-apt-sources"></a>Uppdatera dina APT-källor
 Om du vill installera SDK och tillhörande runtime-paket via apt-get måste du först uppdatera dina APT-källor.
 
 1. Öppna en terminal.
@@ -53,7 +57,7 @@ Om du vill installera SDK och tillhörande runtime-paket via apt-get måste du f
     sudo apt-get update
     ```
 
-## Installera och konfigurera SDK
+## <a name="install-and-set-up-the-sdk"></a>Installera och konfigurera SDK
 När källorna har uppdaterats kan du installera SDK.
 
 1. Installera Service Fabric SDK-paketet. Du får bekräfta installationen och godkänna ett licensavtal.
@@ -67,7 +71,7 @@ När källorna har uppdaterats kan du installera SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-## Konfigurera Azures plattformsoberoende CLI
+## <a name="set-up-the-azure-crossplatform-cli"></a>Konfigurera Azures plattformsoberoende CLI
 [Azures plattformsoberoende CLI][azure-xplat-cli-github] innehåller kommandon för att interagera med Service Fabric-entiteter, t.ex. kluster och program. Det är baserat på Node.js. Det innebär att du måste [installera Node][install-node] innan du fortsätter med instruktionerna nedan.
 
 1. Klona github-repon till din utvecklingsdator.
@@ -94,7 +98,7 @@ När källorna har uppdaterats kan du installera SDK.
     source ~/azure.completion.sh
     ```
 
-## Konfigurera ett lokalt kluster
+## <a name="set-up-a-local-cluster"></a>Konfigurera ett lokalt kluster
 Om allt har installerats korrekt kan du starta ett lokalt kluster.
 
 1. Kör klusterinstallationsskriptet.
@@ -108,7 +112,7 @@ Om allt har installerats korrekt kan du starta ett lokalt kluster.
 
 Nu kan du distribuera fördefinierade Service Fabric-programpaket eller nya paket baserat på gästbehållare eller körbara gästprogram. Om du vill skapa nya tjänster med SDK för Java eller .NET Core följer du installationsanvisningarna nedan.
 
-## Installera Java SDK och Eclipse Neon-plugin-programmet (valfritt)
+## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>Installera Java SDK och Eclipse Neon-plugin-programmet (valfritt)
 Java SDK tillhandahåller de bibliotek och mallar som krävs för att skapa Service Fabric-tjänster med Java.
 
 1. Installera Java SDK-paketet.
@@ -133,7 +137,7 @@ Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse Neon I
 5. Välj Service Fabric-plugin-programmet och klicka på Next (Nästa).
 6. Fortsätt med installationen och acceptera licensvillkoren.
 
-## Installera .NET Core SDK (valfritt)
+## <a name="install-the-net-core-sdk-optional"></a>Installera .NET Core SDK (valfritt)
 .NET Core SDK innehåller de bibliotek och mallar som krävs för att skapa Service Fabric-tjänster med plattformsoberoende .NET Core.
 
 1. Installera .NET Core SDK-paketet.
@@ -147,7 +151,7 @@ Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse Neon I
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Skapa ditt första Java-program i Linux](service-fabric-create-your-first-linux-application-with-java.md)
 * [Förbereda utvecklingsmiljön i OSX](service-fabric-get-started-mac.md)
 
@@ -164,6 +168,6 @@ Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse Neon I
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

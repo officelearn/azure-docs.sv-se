@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Hur man lägger till eller tar bort prefix – ingen gatewayanslutning
+### <a name="a-namenoconnectionahow-to-add-or-remove-prefixes-no-gateway-connection"></a><a name="noconnection"></a>Hur man lägger till eller tar bort prefix – ingen gatewayanslutning
 * **Om du vill lägga till** ytterligare adressprefix till en lokal nätverksgateway som du har skapat, men som inte har en gatewayanslutning än, använder du exemplet nedan. Se till att ändra värdena till dina egna.
   
         $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
@@ -10,7 +10,7 @@
         Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
         -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### <a name="withconnection"></a>Hur man lägger till eller tar bort prefix – existerande gatewayanslutning
+### <a name="a-namewithconnectionahow-to-add-or-remove-prefixes-existing-gateway-connection"></a><a name="withconnection"></a>Hur man lägger till eller tar bort prefix – existerande gatewayanslutning
 Om du har skapat din gatewayanslutning och vill lägga till eller ta bort IP-adressprefixet som ingår i din lokala nätverksgateway, behöver du genomföra följande steg i turordning. Det kommer leda till en del avbrott för din VPN-anslutning. När du uppdaterar dina prefix, måste du först ta bort anslutningen, ändra prefix och sedan skapa en ny anslutning. Se till att ändra värdena till dina egna i exemplen nedan.
 
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ Om du har skapat din gatewayanslutning och vill lägga till eller ta bort IP-adr
         -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 3. Skapa anslutningen. I det här exemplet konfigurerar vi en IPSec-anslutningstyp. När du återskapar anslutningen kan du använda den anslutningstyp som har angetts för din konfiguration. Ytterligare anslutningar finns på sidan [PowerShell-cmdlet](https://msdn.microsoft.com/library/mt603611.aspx).
    
-    Ställ in variabeln för VirtualNetworkGateway.
+     Ställ in variabeln för VirtualNetworkGateway.
    
         $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
    
@@ -46,6 +46,6 @@ Om du har skapat din gatewayanslutning och vill lägga till eller ta bort IP-adr
         -RoutingWeight 10 -SharedKey 'abc123'
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

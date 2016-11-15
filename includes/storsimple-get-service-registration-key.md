@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### Hämta StorSimple-nyckel för tjänstregistrering
+#### <a name="to-get-the-storsimple-service-registration-key"></a>Hämta StorSimple-nyckel för tjänstregistrering
 1. På sidan **StorSimple Manager-tjänst**, klickar du på tjänsten som du skapade. Då kommer du till **Snabbstart**-sidan. (Du kan när som helst klicka på snabbstartsikonen ![StorSimple-snabbstartsikon ](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) för att få åtkomst till **Snabbstart**-sidan.)
    
      ![StorSimple-snabbstartsida](./media/storsimple-get-service-registration-key/HCS_ServiceQuickStart-include.png)
@@ -20,6 +20,8 @@
 
 Titta på en video som visar hur du hämtar nyckeln för tjänstregistrering, genom att klicka [här](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

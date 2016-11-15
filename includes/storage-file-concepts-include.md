@@ -1,4 +1,4 @@
-## Vad är Azure File Storage?
+## <a name="what-is-azure-file-storage"></a>Vad är Azure File Storage?
 File Storage erbjuder delad lagring för program som använder standardprotokollen SMB 2.1 eller SMB 3.0. Virtuella Microsoft Azure-datorer och Azure-molntjänster kan dela fildata över programkomponenter via monterade resurser, och lokala program kan ha åtkomst till fildata i en resurs via File Storage-API:n.
 
 Program som körs på virtuella Azure-datorer eller Azure-molntjänster kan montera en File Storage-resurs för åtkomst till fildata, på samma sätt som ett skrivbordsprogram monterar en vanlig SMB-resurs. Ett obegränsat antal virtuella Azure-datorer eller roller kan montera och ha åtkomst till File Storage-resursen samtidigt.
@@ -12,7 +12,7 @@ Vanliga användningsområden för File Storage är:
 * Lagring av diagnostiska data, exempelvis loggar, mått och kraschdumpar på en delad plats 
 * Lagring av verktyg och hjälpmedel som behövs för att utveckla och administrera virtuella Azure-datorer eller Azure-molntjänster
 
-## File Storage-koncept
+## <a name="file-storage-concepts"></a>File Storage-koncept
 File Storage består av följande komponenter:
 
 ![filkoncept][files-concepts]
@@ -33,6 +33,6 @@ Mer information om hur du namnger resurser, kataloger och filer finns i [namnge 
 
 [filkoncept]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

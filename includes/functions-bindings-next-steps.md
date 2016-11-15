@@ -1,2 +1,7 @@
-For information about other bindings and triggers for Azure Functions, see [Azure Functions triggers and bindings developer reference](../articles/azure-functions/functions-triggers-bindings.md)
+Information om andra bindningar och utlösare för Azure Functions finns i [Information för utvecklare om Azure Functions-utlösare och bindningar](../articles/azure-functions/functions-triggers-bindings.md)
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

@@ -1,8 +1,8 @@
-## Skapa ett VNet med PowerShell
+## <a name="how-to-create-a-vnet-using-powershell"></a>Skapa ett VNet med PowerShell
 Följ stegen nedan för att skapa ett VNet med PowerShell.
 
 1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](../articles/powershell-install-configure.md) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
-2. Vid behov kan du skapa en ny resursgrupp som visas nedan. För vårt scenario, skapar du en resursgrupp med namnet *TestRG*. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md).
+2. Vid behov kan du skapa en ny resursgrupp som visas nedan. För vårt scenario, skapar du en resursgrupp med namnet *TestRG*. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
    
@@ -12,29 +12,29 @@ Följ stegen nedan för att skapa ett VNet med PowerShell.
         Location          : centralus
         ProvisioningState : Succeeded
         Tags              :
-        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG   
+        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG    
 3. Skapa en ny VNet med namnet *TestVNet*, enligt nedan.
    
         New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
-            -AddressPrefix 192.168.0.0/16 -Location centralus   
+            -AddressPrefix 192.168.0.0/16 -Location centralus    
    
     Förväntad utdata:
    
-        Name                : TestVNet
-        ResourceGroupName   : TestRG
-        Location            : centralus
-        Id                  : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ProvisioningState       : Succeeded
-        Tags                    : 
-        AddressSpace            : {
+        Name                  : TestVNet
+        ResourceGroupName     : TestRG
+        Location              : centralus
+        Id                    : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        Etag                   : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ProvisioningState          : Succeeded
+        Tags                       : 
+        AddressSpace               : {
                                    "AddressPrefixes": [
                                      "192.168.0.0/16"
                                    ]
-                                 }
-        DhcpOptions             : {}
-        Subnets                 : []
-        VirtualNetworkPeerings  : []
+                                  }
+        DhcpOptions                : {}
+        Subnets                    : []
+        VirtualNetworkPeerings     : []
 4. Lagra det virtuella nätverksobjektet i en variabel enligt nedan.
    
         $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
@@ -50,52 +50,52 @@ Följ stegen nedan för att skapa ett VNet med PowerShell.
    
     Förväntad utdata:
    
-        Name                : TestVNet
-        ResourceGroupName   : TestRG
-        Location            : centralus
-        Id                  : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ProvisioningState   : Succeeded
-        Tags                :
-        AddressSpace        : {
+        Name                  : TestVNet
+        ResourceGroupName     : TestRG
+        Location              : centralus
+        Id                    : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        Etag                  : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ProvisioningState     : Succeeded
+        Tags                  :
+        AddressSpace          : {
                                   "AddressPrefixes": [
                                     "192.168.0.0/16"
                                   ]
                                 }
-        DhcpOptions         : {}
+        DhcpOptions           : {}
         Subnets             : [
                                   {
                                     "Name": "FrontEnd",
                                     "AddressPrefix": "192.168.1.0/24"
                                   }
                                 ]
-        VirtualNetworkPeerings  : []
+        VirtualNetworkPeerings     : []
 6. Upprepa steg 5 för varje undernät som du vill skapa. Kommandot nedan skapar undernätet *BackEnd* för vårt scenario.
    
         Add-AzureRmVirtualNetworkSubnetConfig -Name BackEnd `
             -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
 7. Även om du skapar undernät, så finns de för tillfället bara i den lokala variabeln som används för att hämta det VNet som du skapar i steg 4 ovan. För att spara ändringarna i Azure, kör cmdleten **Set-AzureRmVirtualNetwork** enligt nedan.
    
-        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet 
+        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet    
    
     Förväntad utdata:
    
-        Name                : TestVNet
-        ResourceGroupName   : TestRG
-        Location            : centralus
-        Id                  : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ProvisioningState   : Succeeded
-        Tags                :
-        AddressSpace        : {
+        Name                  : TestVNet
+        ResourceGroupName     : TestRG
+        Location              : centralus
+        Id                    : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        Etag                  : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ProvisioningState     : Succeeded
+        Tags                  :
+        AddressSpace          : {
                                   "AddressPrefixes": [
                                     "192.168.0.0/16"
                                   ]
                                 }
-        DhcpOptions         : {
+        DhcpOptions           : {
                                   "DnsServers": []
                                 }
-        Subnets             : [
+        Subnets               : [
                                   {
                                     "Name": "FrontEnd",
                                     "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
@@ -115,6 +115,8 @@ Följ stegen nedan för att skapa ett VNet med PowerShell.
                                 ]
         VirtualNetworkPeerings : []
 
-<!--HONumber=sep16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

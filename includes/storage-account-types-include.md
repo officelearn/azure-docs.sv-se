@@ -1,13 +1,13 @@
 Det finns två typer av lagringskonton:
 
-### Allmänna lagringskonton
+### <a name="generalpurpose-storage-accounts"></a>Allmänna lagringskonton
 Ett allmänt lagringskonto ger dig åtkomst till Azure Storage-tjänster som tabeller, köer, filer, blobbar och virtuella Azure-datordiskar, allt med ett enda konto. Den här typen av lagringskonto har två prestandanivåer:
 
 * Standardnivå för lagringsprestanda som låter dig lagra tabeller, köer, filer, blobbar och virtuella Azure-datordiskar.
 * Premiumnivån för lagringsprestanda som för närvarande bara stöder virtuella Azure-datordiskar. En detaljerad översikt över Premium-lagring finns i [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../articles/storage/storage-premium-storage.md).
 
-### Blob Storage-konton
-Ett Blob-lagringskonto är ett specialiserat lagringskonto för lagring av ostrukturerad data som blobbar (objekt) i Azure Storage. Blob-lagringskonton liknar dina befintliga allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton.
+### <a name="blob-storage-accounts"></a>Blob Storage-konton
+Ett Blob-lagringskonto är ett specialiserat lagringskonto för lagring av ostrukturerad data som blobbar (objekt) i Azure Storage. Blob-lagringskonton liknar dina befintliga allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton.
 
 > [!NOTE]
 > Blob Storage-konton stöder endast block- och tilläggsblobar, inte sidblobar.
@@ -27,6 +27,8 @@ Innan du kan skapa ett lagringskonto, måste du ha en Azure-prenumeration, som �
 
 Se [Skapa ett lagringskonto](../articles/storage/storage-create-storage-account.md#create-a-storage-account) för mer information om hur du skapar ett lagringskonto. Du kan skapa upp till 100 unikt namngivna lagringskonton med en enda prenumeration. Se [Skalbarhets- och prestandamål för Azure Storage](../articles/storage/storage-scalability-targets.md) för information om begränsningar för lagringskonton.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

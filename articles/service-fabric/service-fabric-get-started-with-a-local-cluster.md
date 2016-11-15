@@ -1,12 +1,12 @@
 ---
-title: Komma igång med att distribuera och uppgradera appar i det lokala klustret | Microsoft Docs
+title: "Komma igång med att distribuera och uppgradera appar i det lokala klustret | Microsoft Docs"
 description: Konfigurera ett lokalt Service Fabric-kluster, distribuera ett befintligt program till det och uppgradera sedan programmet.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2016
 ms.author: ryanwi;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+
 
 ---
-# Komma igång med att distribuera och uppgradera program i det lokala klustret
+# <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Komma igång med att distribuera och uppgradera program i det lokala klustret
 Azure Service Fabric SDK innehåller en fullständig lokal utvecklingsmiljö som du kan använda för att snabbt komma igång med att distribuera och hantera program i ett lokalt kluster. I den här artikeln skapar du ett lokalt kluster, distribuerar ett befintligt program till det och uppgraderar sedan programmet till en ny version, allt från Windows PowerShell.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ Azure Service Fabric SDK innehåller en fullständig lokal utvecklingsmiljö som
 > 
 > 
 
-## Skapa ett lokalt kluster
+## <a name="create-a-local-cluster"></a>Skapa ett lokalt kluster
 Ett Service Fabric-kluster representerar en uppsättning maskinvaruresurser som du kan distribuera program till. Vanligtvis består ett kluster av allt från fem till flera tusen datorer. Service Fabric SDK innehåller dock en klusterkonfiguration som kan köras på en enskild dator.
 
 Det är viktigt att förstå att det lokala Service Fabric-klustret inte är en emulator eller simulator. Det kör samma plattformskod som finns i kluster med flera datorer. Den enda skillnaden är att det kör plattformsprocesserna som normalt är fördelade mellan fem datorer på en enda dator.
@@ -49,7 +53,7 @@ Med SDK kan du konfigurera ett lokalt kluster på två sätt: Windows PowerShell
    
     Nu kan du prova att distribuera ett program i klustret.
 
-## Distribuera ett program
+## <a name="deploy-an-application"></a>Distribuera ett program
 Service Fabric SDK har en omfattande uppsättning ramverk och utvecklingsverktyg som hjälper dig att skapa program. Om du vill lära dig hur du skapar program i Visual Studio läser du [Skapa ditt första Service Fabric-program i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
 I den här självstudiekursen använder vi ett befintligt exempelprogram (kallat WordCount) så att vi kan fokusera på hanteringsaspekterna för plattformen, t.ex. distribution, övervakning och uppgradering.
@@ -89,7 +93,7 @@ I den här självstudiekursen använder vi ett befintligt exempelprogram (kallat
    
     Programmet som vi distribuerade innehåller fyra partitioner. Så ord som börjar med A till och med G lagras i den första partitionen, ord som börjar med H till och med N lagras i den andra partitionen och så vidare.
 
-## Visa programinformation och programstatus
+## <a name="view-application-details-and-status"></a>Visa programinformation och programstatus
 Nu när vi har distribuerat programmet ska vi titta på några appdetaljer i PowerShell.
 
 1. Fråga alla distribuerade program i klustret:
@@ -129,7 +133,7 @@ Nu när vi har distribuerat programmet ska vi titta på några appdetaljer i Pow
    > 
    > 
 
-## Uppgradera ett program
+## <a name="upgrade-an-application"></a>Uppgradera ett program
 Service Fabric tillhandahåller uppgraderingar utan någon nedtid genom att övervaka programmets hälsa medan det distribueras i klustret. Vi ska utföra en enkel uppgradering av WordCount-programmet.
 
 Den nya versionen av programmet räknar bara ord som börjar med en vokal. När uppgraderingen distribueras ser vi två ändringar i programmets beteende. För det första bör antalet växa långsammare eftersom färre ord räknas. För det andra bör den första partitionen så småningom gå om de andra eftersom den har två vokaler (A och E) medan alla andra partitioner endast innehåller en var.
@@ -162,7 +166,7 @@ Den nya versionen av programmet räknar bara ord som börjar med en vokal. När 
    
     ![Visa den nya versionen av programmet i webbläsaren][deployed-app-ui-v2]
 
-## Rensa
+## <a name="cleaning-up"></a>Rensa
 Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. Programmen fortsätter att köras i bakgrunden tills du tar bort dem.  Beroende på typen av program kan ett program som körs ta betydande resurser i anspråk på datorn. Du kan hantera program och klustret på flera sätt:
 
 1. Ta bort ett enskilt program och dess data genom att köra följande:
@@ -185,7 +189,7 @@ Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är ve
 3. Om du vill stänga av klustret, men behålla programdata och spårningar, klickar du på **Stoppa lokalt kluster** i appen i systemfältet.
 4. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Ta bara bort det lokala klustret om du inte avser att använda det under en tid eller om du behöver frigöra resurser.
 
-## Klusterläge med 1 nod och 5 noder
+## <a name="1-node-and-5-node-cluster-mode"></a>Klusterläge med 1 nod och 5 noder
 När du arbetar med det lokala klustret för att utveckla program kan det hända att du gör snabba iterationer när du skriver kod, vid felsökning, ändring av kod etc. För att optimera den här processen kan det lokala klustret köras i två lägen: 1 nod eller 5 noder. Båda klusterlägena har sina fördelar.
 I klustret med 5 noder kan du arbeta med ett verkligt kluster. Du kan testa redundansscenarier, samt arbeta med flera instanser och repliker av dina tjänster.
 Klusterläget med 1 nod är optimerat för snabb distribution och registrering av tjänster, vilket hjälper dig att snabbt verifiera kod med Service Fabric-körningen.
@@ -219,7 +223,7 @@ Om du använder Local Cluster Manager i Service Fabric:
 > 
 > 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Nu när du har distribuerat och uppgraderat vissa fördefinierade program kan du [skapa ett eget program i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 * Alla åtgärder som utförts i det lokala klustret i den här artikeln kan även utföras i ett [Azure-kluster](service-fabric-cluster-creation-via-portal.md).
 * Uppgraderingen som vi utförde i den här artikeln var grundläggande. Mer information om kraften och flexibiliteten i Service Fabric-uppgraderingar finns i [uppgraderingsdokumentationen](service-fabric-application-upgrade.md).
@@ -246,6 +250,6 @@ Om du använder Local Cluster Manager i Service Fabric:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

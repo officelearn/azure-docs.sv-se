@@ -1,22 +1,26 @@
 ---
-title: Distribuera din första Java-webbapp via Azure på fem minuter | Microsoft Docs
-description: Distribuera en exempelapp och se hur enkelt det är att köra webbappar i App Service. Börja snabbt utveckla på riktigt och se resultatet direkt.
+title: "Distribuera din första Java-webbapp via Azure på fem minuter | Microsoft Docs"
+description: "Distribuera en exempelapp och se hur enkelt det är att köra webbappar i App Service. Börja snabbt utveckla på riktigt och se resultatet direkt."
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 10/13/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+
 
 ---
-# Distribuera din första Java-webbapp via Azure på fem minuter
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Distribuera din första Java-webbapp via Azure på fem minuter
 I de här självstudierna lär du dig hur du distribuerar en enkel webbapp med Java via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Du kan använda App Service för att skapa webbappar, [serverdelar för mobilappar](/documentation/learning-paths/appservice-mobileapps/) och [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -26,7 +30,7 @@ Du kommer att:
 * Distribuera en Java-exempelapp.
 * Se hur din kod körs live i produktionen.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 * Hämta en FTP/FTPS-klient som t.ex. [FileZilla](https://filezilla-project.org/).
 * Skaffa ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
@@ -37,7 +41,7 @@ Du kommer att:
 
 <a name="create"></a>
 
-## Skapa en webbapp
+## <a name="create-a-web-app"></a>Skapa en webbapp
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 2. I den vänstra menyn klickar du på **Ny** > **Webb + Mobilt** > **Webbapp**.
    
@@ -61,7 +65,7 @@ Du kommer att:
    
     ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## Distribuera en Java-app via din webbapp
+## <a name="deploy-a-java-app-to-your-web-app"></a>Distribuera en Java-app via din webbapp
 Nu ska vi distribuera en Java-app via Azure med FTPS.
 
 1. Gå till webbappsbladet, rulla ned till **Programinställningar** eller sök och klicka på dem. 
@@ -71,7 +75,7 @@ Nu ska vi distribuera en Java-app via Azure med FTPS.
    
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
    
-    När meddelandet **     Webbappinställningarna har uppdaterats** visas går du till http://*&lt;appname>*.azurewebsites.net för att se JSP-standardservleten i aktion.
+    När meddelandet **Webbappinställningarna har uppdaterats** visas navigerar du till http://*&lt;appname>*.azurewebsites.net för att se JSP-standardservleten i arbete.
 3. Gå tillbaka till webbappsbladet, rulla ned till **Autentiseringsuppgifter för distribution** eller sök och klicka på dem.
 4. Ange dina autentiseringsuppgifter för distribution och klicka på **Spara**.
 5. I webbappsbladet klickar du på **Översikt**. Bredvid **Användarnamn för FTP/distribution** och **FTPS-värdnamn** klickar du på knappen **Kopiera** för att kopiera dessa värden.
@@ -100,19 +104,22 @@ Nu ska vi distribuera en Java-app via Azure med FTPS.
 
 Klart! Nu körs din Java-app live i Azure. Navigera till http://*&lt;appnamn >*.azurewebsites.net i din webbläsare för att se hur det fungerar. 
 
-## Göra appuppdateringar
+## <a name="make-updates-to-your-app"></a>Göra appuppdateringar
 När du behöver göra en uppdatering överför du den nya WAR-filen till samma fjärrkatalog med FTP/FTPS-klienten.
 
-## Nästa steg
-[Skapa en Java-webbapp från en mall i Azure Marketplace](web-sites-java-get-started.md#marketplace). Du kan hämta en egen helt anpassningsbar Tomcat-behållare och det välbekanta Manager-användargränssnittet. 
+## <a name="next-steps"></a>Nästa steg
+[Skapa en Java-webbapp från en mall i Azure Marketplace](web-sites-java-get-started.md#marketplace). Du kan hämta en egen, helt anpassningsbar Tomcat-behållare och det välbekanta Manager-användargränssnittet. 
 
 Felsök din Azure-webbapp direkt i [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) eller [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
 Eller gör mer med din första webbapp. Exempel:
 
-* Prova [andra sätt att distribuera din kod till Azure](web-sites-deploy.md). Markera till exempel **GitHub** istället för **Lokal Git-lagringsplats** i **Distributionsalternativ** för att distribuera från någon av dina GitHub-lagringsplatser.
+* Prova [andra sätt att distribuera din kod till Azure](web-sites-deploy.md). 
 * Ta din Azure-app till nästa nivå. Autentisera användarna. Skala den på begäran. Konfigurera prestandavarningar. Allt med några få klickningar. Mer information finns i [Lägga till funktioner till din första webbapp](app-service-web-get-started-2.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: .Net-självstudiekurs om asynkrona meddelanden i Service Bus | Microsoft Docs
-description: .Net-självstudiekurs om asynkrona meddelanden
+title: ".Net-självstudiekurs om asynkrona meddelanden i Service Bus | Microsoft Docs"
+description: ".Net-självstudiekurs om asynkrona meddelanden"
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+
 
 ---
-# <a name="service-bus-brokered-messaging-.net-tutorial"></a>.Net-självstudiekurs om asynkrona meddelanden i Service Bus
+# <a name="service-bus-brokered-messaging-net-tutorial"></a>.Net-självstudiekurs om asynkrona meddelanden i Service Bus
 Med Azure Service Bus får du två omfattande meddelandelösningar. I en av dem används en centraliserad tjänst för vidarebefordran som körs i molnet och har stöd för olika transportprotokoll och webbtjänststandarder, däribland SOAP WS-* och REST. Klienten behöver ingen direkt anslutning till den lokala tjänsten och behöver inte heller veta var den finns. Den lokala tjänsten behöver inte ha några öppna ingående portar i brandväggen.
 
 Den andra meddelandelösningen har funktioner för asynkrona meddelanden. Dessa kan betraktas som asynkrona eller frikopplade meddelandefunktioner som har stöd för publicering och prenumeration, temporal frikoppling och scenarier för belastningsutjämning med hjälp av meddelandeinfrastruktur för Service Bus. Frikopplad kommunikation har många fördelar: klienter och servrar kan till exempel ansluta efter behov och utföra åtgärder på ett asynkront sätt.
 
-Den här självstudiekursen är avsedd att ge dig en översikt och praktisk erfarenhet av köer, som är en av huvudkomponenterna av asynkrona meddelanden i Service Bus. När du har gått igenom de olika avsnitten i självstudiekursen har du en app som fyller på en lista med meddelanden, skapar en kö och skickar meddelanden till den kön. Slutligen tar appen emot och visar meddelanden från kön och rensar sedan dess resurser och avslutas. Mer information om hur du skapar en app som använder Service Bus finns i [självstudiekursen för den vidarebefordrande meddelandetjänsten i Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+Den här självstudiekursen är avsedd att ge dig en översikt och praktisk erfarenhet av köer, som är en av huvudkomponenterna av asynkrona meddelanden i Service Bus. När du har gått igenom de olika avsnitten i självstudiekursen har du en app som fyller på en lista med meddelanden, skapar en kö och skickar meddelanden till den kön. Slutligen tar appen emot och visar meddelanden från kön och rensar sedan dess resurser och avslutas. Mer information om hur du skapar en app som använder Service Bus finns i [självstudiekursen för den vidarebefordrande WCF-meddelandetjänsten i Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 ## <a name="introduction-and-prerequisites"></a>Introduktion och nödvändiga komponenter
 Köer erbjuder FIFO-leverans (”first in, first out”) av meddelanden till en eller flera konkurrerande konsumenter. FIFO betyder att meddelanden vanligtvis förväntas tas emot och bearbetas av mottagarna i den ordning som de lagts till i kön, och varje meddelande tas bara emot och bearbetas av en meddelandekonsument. En stor fördel med köer är *temporal frikoppling* av appkomponenter. Producenter och konsumenter behöver med andra ord inte skicka och ta emot meddelanden på samma gång, eftersom meddelanden lagras varaktigt i kön. En relaterad fördel är *belastningsutjämning*, vilket gör att producenter och konsumenter kan skicka och ta emot meddelanden med olika hastigheter.
@@ -29,7 +33,7 @@ Köer erbjuder FIFO-leverans (”first in, first out”) av meddelanden till en 
 Nedan följer några administrativa och nödvändiga steg som du bör följa innan du påbörjar självstudiekursen. Det första steget är att skapa ett namnområde för tjänsten samt hämta en nyckel till signatur för delad åtkomst (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet för tjänsten och SAS-nyckeln ger en referens som Service Bus använder för att tillåta åtkomst till en app.
 
 ### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Skapa ett namnområde för tjänsten och få en SAS-nyckel
-Det första steget är att skapa ett namnområde för tjänsten och hämta en nyckel till [signatur för delad åtkomst](../service-bus/service-bus-sas-overview.md) (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet för tjänsten och SAS-nyckeln ger en referens för Service Bus som används för att tillåta åtkomst till ett program.
+Det första steget är att skapa ett namnområde för tjänsten och hämta en nyckel till [signatur för delad åtkomst](service-bus-sas-overview.md) (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet för tjänsten och SAS-nyckeln ger en referens för Service Bus som används för att tillåta åtkomst till ett program.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -611,14 +615,17 @@ Nu när du har slutfört ovanstående steg kan du skapa och köra **QueueSample*
 I menyn **Skapa** i Visual Studio klickar du på **Skapa lösning** eller trycker på **CTRL+SKIFT+B**. Om det uppstår fel kontrollerar du att koden är korrekt baserad på det fullständiga exemplet som visas i slutet av det förra steget.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen visades hur du skapar en klientapp och en tjänst för Service Bus med funktioner för asynkrona meddelanden i Service Bus. Information om [Service Bus Relay](service-bus-messaging-overview.md#Relayed-messaging) finns i [självstudiekursen för den vidarebefordrande meddelandetjänsten i Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+I den här självstudiekursen visades hur du skapar en klientapp och en tjänst för Service Bus med funktioner för asynkrona meddelanden i Service Bus. Information om [Service Bus WCF Relay](service-bus-messaging-overview.md#Relayed-messaging) finns i [självstudiekursen för den vidarebefordrande meddelandetjänsten i Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 I följande avsnitt kan du lära dig mer om [Service Bus](https://azure.microsoft.com/services/service-bus/).
 
 * [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
-* [Service Bus-grunder](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Service Bus-arkitektur](../service-bus/service-bus-architecture.md)
+* [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus-arkitektur](service-bus-architecture.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

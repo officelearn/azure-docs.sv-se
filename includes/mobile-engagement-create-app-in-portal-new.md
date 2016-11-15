@@ -10,7 +10,7 @@
    * **Namn på**: namnet på din *programsamling* 
    * **Plattformar**: Välj målplattformar för din app på bladet Plattformar som öppnas. T.ex. Om du vill använda en app för både iOS och Android, markera båda plattformarna så får du två appar som har skapats under den här appsamlingen. 
      
-     ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
+      ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
    * **Prenumeration**: Välj Azure-prenumerationen. 
    * **Resursgrupp**: Välj Azure-resursgruppen där du vill använda den här Azure-resursen (Mobile Engagement App-samling). Du kan välja att skapa en ny.  
    * **Plats**: Region där data om den här appsamlingen och appen kommer att lagras.
@@ -30,6 +30,8 @@
    
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

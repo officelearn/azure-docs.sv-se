@@ -1,13 +1,13 @@
 ---
-title: Skapa din första Azure-funktion | Microsoft Docs
-description: Skapa din första Azure-funktion, ett program utan server, på mindre än två minuter.
+title: "Skapa din första Azure-funktion | Microsoft Docs"
+description: "Skapa din första Azure-funktion, ett program utan server, på mindre än två minuter."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 4a1669e7-233e-4ea2-9b83-b8624f2dbe59
 ms.service: functions
 ms.devlang: multiple
 ms.topic: hero-article
@@ -15,21 +15,26 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e446766c0f3d19a8cce585d708e8e7a809593408
+
 
 ---
-# Skapa din första Azure-funktion
-## Översikt
+# <a name="create-your-first-azure-function"></a>Skapa din första Azure-funktion
+## <a name="overview"></a>Översikt
 Azure Functions är en händelsedriven beräkna-på-begäran-upplevelse som utökar den befintliga Azure-programplattformen med funktioner för att implementera kod som utlöses av händelser i andra Azure-tjänster, SaaS-produkter och lokala system. Med Azure Functions skalas dina program baserat på efterfrågan och du betalar bara för de resurser som du använder. Med Azure Functions kan du skapa schemalagda eller utlösta kodenheter som implementerats med många olika programmeringsspråk. Läs mer om Azure Functions i [Översikt över Azure Functions](functions-overview.md).
 
 Det här ämnet visar hur du använder Azure Functions-snabbstart i portalen för att skapa en enkel "hello world" Node.js-funktion som anropas av en HTTP-utlösare. Du kan också titta på en kort video om du vill se hur dessa steg utförs i portalen.
 
-## Titta på videon
+## <a name="watch-the-video"></a>Titta på videon
 Följande videoklipp visar hur du utför de grundläggande stegen i de här självstudierna. 
 
-[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-your-first-Azure-Function-simple/player]
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-your-first-Azure-Function-simple/player]
+> 
+> 
 
-
-## Skapa en funktion från snabbstarten
+## <a name="create-a-function-from-the-quickstart"></a>Skapa en funktion från snabbstarten
 En funktionsapp är värd för körningen av dina funktioner i Azure. Följ dessa steg om du vill skapa en ny funktionsapp samt den nya funktionen. Den nya funktionsappen skapas med en standardkonfiguration. Ett exempel på hur du uttryckligen skapar funktionsappen finns i [Snabbstartsguide för de andra Azure-funktionerna](functions-create-first-azure-function-azure-portal.md).
 
 Innan du kan skapa din första funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto, [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/).
@@ -39,9 +44,9 @@ Innan du kan skapa din första funktion måste du ha ett aktivt Azure-konto. Om 
 3. På fliken **Snabbstart** klickar du på **WebHook + API**och**JavaScript**, klicka sedan på **Skapa en funktion**. En ny fördefinierad Node.js-funktion skapas. 
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
-4. (Valfritt) I det här läget i Snabbstart kan du välja att få en snabb genomgång av funktionerna i Azure Functions i portalen.   När du har slutfört eller hoppat över genomgången kan du testa den nya funktionen med hjälp av HTTP-utlösaren.
+4. (Valfritt) I det här läget i Snabbstart kan du välja att få en snabb genomgång av funktionerna i Azure Functions i portalen.    När du har slutfört eller hoppat över genomgången kan du testa den nya funktionen med hjälp av HTTP-utlösaren.
 
-## Testa funktionen
+## <a name="test-the-function"></a>Testa funktionen
 Eftersom Azure Functions-snabbstart innehåller funktionell kod kan du testa den nya funktionen omedelbart.
 
 1. I fliken **Utveckla** kan du granska fönstret **Kod** och se att den här Node.js-koden förväntar sig en HTTP-begäran med ett *namn*-värde skickat antingen i meddelandetexten eller i en frågesträng. När funktionen körs returneras värdet i svarsmeddelandet.
@@ -50,7 +55,7 @@ Eftersom Azure Functions-snabbstart innehåller funktionell kod kan du testa den
 2. Rulla ned till textrutan **Begärandetext**, ändra värdet för egenskapen *Namn* till ditt namn och klicka på **Kör**. Du kommer att se att utförandet utlöses av en HTTP-testbegäran, informationen skrivs till direktuppspelningsloggarna och svaret "hello" visas i **Utdata**. 
 3. Om du vill starta körningen av samma funktion i ett annat fönster eller i en annan flik i webbläsaren kopierar du värdet **Funktions-URL** från fliken **Utveckla**, klistrar in det i webbläsarens adressfält, lägger sedan till frågesträngsvärdet `&name=yourname` och trycker på retur. Samma information skrivs till loggarna och webbläsaren visar svaret "hello" som innan.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Den här snabbstarten visar en väldigt enkel körning av en grundläggande funktion som utlöses av HTTP. I följande ämne finns mer information om att utnyttja kraften i Azure Functions i dina appar.
 
 * [Azure Functions, info för utvecklare](functions-reference.md)  
@@ -64,6 +69,9 @@ Den här snabbstarten visar en väldigt enkel körning av en grundläggande funk
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

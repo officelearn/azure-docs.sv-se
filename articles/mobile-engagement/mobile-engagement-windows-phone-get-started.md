@@ -1,12 +1,12 @@
 ---
-title: Kom igång med Azure Mobile Engagement för Windows Phone Silverlight-appar
-description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Windows Phone Silverlight-appar.
+title: "Kom igång med Azure Mobile Engagement för Windows Phone Silverlight-appar"
+description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Windows Phone Silverlight-appar."
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: aa34692f-87f7-47c6-a20c-a1972750bc25
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fc6f97db04ae9dc547beb5a1fa3ee0c8c61885a6
+
 
 ---
-# Kom igång med Azure Mobile Engagement för Windows Phone Silverlight-appar
+# <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Kom igång med Azure Mobile Engagement för Windows Phone Silverlight-appar
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 I den här artikeln beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i ett Windows Phone Silverlight-program.
@@ -33,19 +37,19 @@ För den här kursen behöver du följande:
 * [MicrosoftAzure.MobileEngagement] NuGet-paket
 
 > [!NOTE]
-> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer info om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-phone-get-started).
+> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-phone-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Konfigurera Mobile Engagement för din Windows Phone-app
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-windows-phone-app"></a><a id="setup-azme"></a>Konfigurera Mobile Engagement för din Windows Phone-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Ansluta appen till Mobile Engagement-serverdelen
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 I den här kursen behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. Den fullständiga integrationsdokumentationen finns i [Mobile Engagement Windows Phone SDK integration](mobile-engagement-windows-phone-sdk-overview.md)
 
 Vi skapar en grundläggande app i Visual Studio för att demonstrera integrationen.
 
-### Skapa ett nytt Windows Phone Silverlight-projekt
+### <a name="create-a-new-windows-phone-silverlight-project"></a>Skapa ett nytt Windows Phone Silverlight-projekt
 I följande steg används Visual Studio 2015, men stegen är ganska lika i tidigare versioner av Visual Studio. 
 
 1. Starta Visual Studio och välj **New Project** (Nytt projekt) på **startskärmen**.
@@ -56,7 +60,7 @@ I följande steg används Visual Studio 2015, men stegen är ganska lika i tidig
 
 Nu har du skapat en ny Windows Phone Silverlight-app där Azure Mobile Engagement SDK kan integreras.
 
-### Ansluta appen till Mobile Engagement-serverdelen
+### <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Ansluta appen till Mobile Engagement-serverdelen
 1. Installera NuGet-paketet [MicrosoftAzure.MobileEngagement] i projektet.
 2. Öppna `WMAppManifest.xml` (under egenskapsmappen) och kontrollera att följande har angetts (lägg till dem om de saknas) i taggen `<Capabilities />`:
    
@@ -87,7 +91,7 @@ Nu har du skapat en ny Windows Phone Silverlight-app där Azure Mobile Engagemen
                EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a id="monitor"></a>Aktivera realtidsövervakning
+## <a name="a-idmonitoraenable-realtime-monitoring"></a><a id="monitor"></a>Aktivera realtidsövervakning
 För att kunna börja skicka data och försäkra dig om att användarna är aktiva måste du skicka minst en skärm (aktivitet) till Mobile Engagement-serverdelen.
 
 1. Lägg till instruktionen `using` i MainPage.xaml.cs:
@@ -100,18 +104,18 @@ För att kunna börja skicka data och försäkra dig om att användarna är akti
    
     a. Lägg till följande i namnområdesdeklarationerna:
    
-         xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+            xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
    
     b. Ersätt `phone:PhoneApplicationPage` i XML-taggnamnet med `engagement:EngagementPage`.
 
-## <a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
 I följande avsnitt konfigurerar du appen för att ta emot dem.
 
-### Konfigurera appen för att ta emot push-meddelanden med MPNS
+### <a name="enable-your-app-to-receive-mpns-push-notifications"></a>Konfigurera appen för att ta emot push-meddelanden med MPNS
 Lägg till nya funktioner i filen `WMAppManifest.xml`:
 
         ID_CAP_PUSH_NOTIFICATION
@@ -119,7 +123,7 @@ Lägg till nya funktioner i filen `WMAppManifest.xml`:
 
    ![][5]
 
-### Initiera REACH SDK
+### <a name="initialize-the-reach-sdk"></a>Initiera REACH SDK
 1. I `App.xaml.cs` anropar du `EngagementReach.Instance.Init();` i funktionen **Application_Launching**, direkt efter agentinitieringen:
    
         private void Application_Launching(object sender, LaunchingEventArgs e)
@@ -137,7 +141,7 @@ Lägg till nya funktioner i filen `WMAppManifest.xml`:
 
 Då var allt klart. Nu är det dags att kontrollera att den grundläggande integrationen har genomförts.
 
-## <a id="send"></a>Skicka ett meddelande till din app
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Skicka ett meddelande till din app
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 Du bör nu se ett meddelande på enheten som visas som en avisering via app om appen är öppen, annars visas det i form av ett popup-meddelande som liknar följande: 
@@ -157,6 +161,6 @@ Du bör nu se ett meddelande på enheten som visas som en avisering via app om a
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

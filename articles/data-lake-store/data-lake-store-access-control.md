@@ -1,12 +1,12 @@
 ---
-title: Översikt över åtkomstkontroll i Data Lake Store | Microsoft Docs
-description: Förstå åtkomstkontroll i Azure Data Lake Store
+title: "Översikt över åtkomstkontroll i Data Lake Store | Microsoft Docs"
+description: "Förstå åtkomstkontroll i Azure Data Lake Store"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
+
 
 ---
-# Åtkomstkontroll i Azure Data Lake Store
+# <a name="access-control-in-azure-data-lake-store"></a>Åtkomstkontroll i Azure Data Lake Store
 Data Lake Store implementerar en modell för åtkomstkontroll som härrör från HDFS och i sin tur från POSIX-modellen för åtkomstkontroll. Den här artikeln sammanfattar grunderna i modellen för åtkomstkontroll för Data Lake Store. Läs mer om HDFS-modellen för åtkomstkontroll i [Guide för HDFS-behörigheter](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
-## Åtkomstkontrollistor för filer och mappar
+## <a name="access-control-lists-on-files-and-folders"></a>Åtkomstkontrollistor för filer och mappar
 Det finns två typer av åtkomstkontrollistor (ACL:er),  **Åtkomst-ACL** och **Standard-ACL**.
 
 * **Åtkomst-ACL** – Dessa kontrollerar åtkomsten till ett objekt. Både filer och mappar har åtkomst-ACL:er.
@@ -36,7 +40,7 @@ Både åtkomst-ACL:er och standard-ACL:er har samma struktur.
 > 
 > 
 
-## Användare och identiteter
+## <a name="users-and-identities"></a>Användare och identiteter
 Alla filer och mappar har olika behörigheter för dessa identiteter:
 
 * Ägande användare av filen
@@ -47,7 +51,7 @@ Alla filer och mappar har olika behörigheter för dessa identiteter:
 
 Identiteten för användare och grupper är Azure Active Directory (AAD)-identiteter, så om inget annat anges kan en "användare", i samband med Data Lake Store, antingen innebära en AAD-användare eller en AAD-säkerhetsgrupp.
 
-## Behörigheter
+## <a name="permissions"></a>Behörigheter
 Behörigheter för ett objekt i filsystemet är **Läsa**, **Skriva** och **Köra** och kan användas för filer och mappar som visas i tabellen nedan.
 
 |  | Fil | Mapp |
@@ -56,7 +60,7 @@ Behörigheter för ett objekt i filsystemet är **Läsa**, **Skriva** och **Kör
 | **Skriva (W)** |Kan skriva eller lägg till i en fil |Kräver **Skriva och köra** för att skapa underordnade objekt i en mapp. |
 | **Köra (X)** |Innebär inte något i samband med Data Lake Store |Krävs för att bläddra bland de underordnade objekten i en mapp. |
 
-### Kortformat för behörigheter
+### <a name="short-forms-for-permissions"></a>Kortformat för behörigheter
 **RWX**används för att ange **läsa + skriva + köra**. Ett numeriskt mer komprimerat format finns där **Läsa = 4**, **skriva = 2** och **Köra = 1** och deras summa representerar behörigheterna. Här följer några exempel:
 
 | Numeriskt format | Kortformat | Vad det innebär |
@@ -66,25 +70,25 @@ Behörigheter för ett objekt i filsystemet är **Läsa**, **Skriva** och **Kör
 | 4 |R-- |Läsa |
 | 0 |--- |Inga behörigheter |
 
-### Behörigheter ärvs inte
+### <a name="permissions-do-not-inherit"></a>Behörigheter ärvs inte
 I POSIX-modellen som används av Data Lake Store, förvaras behörigheter för ett objekt i själva objektet. Behörigheter för ett objekt kan med andra ord inte ärvas från de överordnade objekten.
 
-## Vanliga scenarier som rör behörigheter
+## <a name="common-scenarios-related-to-permissions"></a>Vanliga scenarier som rör behörigheter
 Här följer några vanliga scenarier för att förstå vilka behörigheter som krävs för att utföra vissa åtgärder på ett Data Lake Store-konto.
 
-### Behörigheter som krävs för att läsa en fil
+### <a name="permissions-needed-to-read-a-file"></a>Behörigheter som krävs för att läsa en fil
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
 
 * För den fil som ska läsas behöver anroparen **Läs**-behörigheter
 * För alla mapparna i mappstrukturen som innehåller filen behöver anroparen **Kör**-behörigheter
 
-### Behörigheter som krävs för att lägga till i en fil
+### <a name="permissions-needed-to-append-to-a-file"></a>Behörigheter som krävs för att lägga till i en fil
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
 
 * För filen som ska läggas till i behöver anroparen **Skriv**-behörigheter
 * För alla mappar som innehåller filen behöver anroparen **Kör**-behörigheter
 
-### Behörigheter för att ta bort en fil
+### <a name="permissions-needed-to-delete-a-file"></a>Behörigheter för att ta bort en fil
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
 
 * För den överordnade mappen behöver anroparen **Skriv + kör**-behörigheter
@@ -95,13 +99,13 @@ Här följer några vanliga scenarier för att förstå vilka behörigheter som 
 > 
 > 
 
-### Behörigheter som krävs för att iterera en mapp
+### <a name="permissions-needed-to-enumerate-a-folder"></a>Behörigheter som krävs för att iterera en mapp
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
 
 * För att mappen ska iterera behöver anroparen **Läs + kör**-behörigheter
 * För alla överordnade mappar behöver anroparen **Kör**-behörigheter
 
-## Visa behörigheter i Azure-portalen
+## <a name="viewing-permissions-in-the-azure-portal"></a>Visa behörigheter i Azure-portalen
 Från bladet **Data Explorer** i Data Lake Store, klicka på **Åtkomst** för att se ACL:er för en fil eller mapp. På skärmbilden nedan klickar du på åtkomst om du vill se ACL:er för mappen **Katalog** under kontot **mydatastore**.
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
@@ -114,7 +118,7 @@ Klicka på **Avancerad vy** för att visa den mer avancerade vyn.
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
-## Superanvändare
+## <a name="the-super-user"></a>Superanvändare
 En superanvändare har mest behörighet av alla användare i Data Lake Store. En superanvändare:
 
 * har RWX-behörigheter till **alla** filer och mappar
@@ -130,7 +134,7 @@ I Azure har ett Data Lake Store-konto flera Azure-roller:
 
 Alla i rollen **Ägare** för ett Data Lake Store-konto är automatiskt en superanvändare för det kontot. Läs mer om Azures rollbaserade åtkomstkontroll (RBAC) i [Rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md).
 
-## Ägande användare
+## <a name="the-owning-user"></a>Ägande användare
 Användaren som skapade objektet är automatiskt ägande användare för objektet. En ägande användare kan:
 
 * Ändra behörigheterna för en fil som ägs
@@ -141,7 +145,7 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 > 
 > 
 
-## Ägande grupp
+## <a name="the-owning-group"></a>Ägande grupp
 I POSIX-ACL:er är varje användare associerad med en "primär grupp". Användaren "Alice" kan t.ex. tillhöra gruppen "Ekonomi". Alice kan höra till flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi".
 
 När ett nytt filsystemsobjekt skapats, tilldelar Data Lake Store ett värde till den ägande gruppen. 
@@ -154,12 +158,12 @@ Den ägande gruppen kan ändras av:
 * Alla superanvändare
 * Den ägande användaren, om den ägande användaren också är medlem i målgruppen.
 
-## Algoritm för åtkomstkontroll
+## <a name="access-check-algorithm"></a>Algoritm för åtkomstkontroll
 Följande bild visar algoritmen för åtkomstkontroll för Data Lake Store-konton.
 
 ![ALC-algoritmer för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
 
-## Mask och "gällande behörigheter"
+## <a name="the-mask-and-effective-permissions"></a>Mask och "gällande behörigheter"
 **Mask** är ett RWX-värde som används för att begränsa åtkomsten för **namngivna användare**, **ägande grupp** och **namngivna grupper** när du utför algoritmen för åtkomstkontroll. Här följer nyckelbegreppen för masken. 
 
 * Masken skapar "gällande behörigheter", d.v.s. den modifierar behörigheterna vid tidpunkten för åtkomstkontroll.
@@ -183,28 +187,28 @@ Som referens är det här masken för en fil eller mapp visas i Azure Portal.
 > 
 > 
 
-## Behörigheter för nya filer och mappar
+## <a name="permissions-on-new-files-and-folders"></a>Behörigheter för nya filer och mappar
 När en ny fil eller mapp skapas under en befintlig mapp, anger standard-ACL:en på den överordnade mappen:
 
 * En underordnad mapps standard-ACL och åtkomst-ACL
 * En underordnad fils åtkomst-ACL (filer har inte en standard-ACL)
 
-### En underordnad fils eller mapps åtkomst-ACL
+### <a name="a-child-file-or-folders-access-acl"></a>En underordnad fils eller mapps åtkomst-ACL
 När en underordnad fil eller mapp skapas kopieras den överordnade filens standard-ACL till den underordnade filens eller mappens åtkomst-ACL. Även om **andra** användare har RWX-behörigheter i det överordnade objektets standard-ACL, tas det helt bort från det underordnade objektets åtkomst-ACL.
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
 
 I de flesta fall är ovanstående information allt du behöver känna till om hur ett underordnat objekts åtkomst-ACL bestäms. Om du är bekant med POSIX-system och vill förstå mer djupgående hur transformationen uppnås finns information i avsnittet [Umasks roll vid skapandet av åtkomst-ACL för nya filer och mappar](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) senare i den här artikeln.
 
-### En underordnad mapps standard-ACL
+### <a name="a-child-folders-default-acl"></a>En underordnad mapps standard-ACL
 När en underordnad mapp skapas under en överordnad mapp, kopieras den överordnade mappens standard-ACL över, som den är, till den underordnade mappens standard-ALC.
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
 
-## Avancerad information för att förstå ACL:er i Data Lake Store
+## <a name="advanced-topics-for-understanding-acls-in-data-lake-store"></a>Avancerad information för att förstå ACL:er i Data Lake Store
 Följande är viss avancerad information som hjälper dig att förstå hur ACL:ER bestäms för Data Lake Store-filer eller -mappar.
 
-### Umasks roll är att skapa åtkomst-ACL för nya filer och mappar
+### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>Umasks roll är att skapa åtkomst-ACL för nya filer och mappar
 I ett POSIX-kompatibelt system är allmänna begrepp som umask ett 9-bitars värde för den överordnade mappen som används för att omvandla behörigheten för **ägande användare**, **ägande grupp** och **andra** på en ny underordnad fils eller mapps åtkomst-ACL. En umasks bitar identifierar vilka bitar som ska inaktiveras i det underordnade objektets åtkomst-ACL. Den används därför selektivt för att förhindra spridning av behörigheter för ägande användare, ägande grupp och andra.
 
 I ett HDFS-system är umask vanligtvis ett konfigurationsalternativ för hela platsen som styrs av administratörer. Data Lake Store använder en **umask för konto** som inte kan ändras. I följande tabell visas Data Lake Stores umask.
@@ -219,7 +223,7 @@ Följande bild visar denna umask när den är aktiv. Nettoeffekten är att ta bo
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-umask.png) 
 
-### Sticky bit
+### <a name="the-sticky-bit"></a>Sticky bit
 Sticky bit är en mer avancerad funktion i ett POSIX-filsystem. Det är inte troligt att sticky bit kommer att krävas i kontexten för Data Lake Store.
 
 Tabellen nedan visar hur sticky bit fungerar i Data Lake Store.
@@ -231,30 +235,30 @@ Tabellen nedan visar hur sticky bit fungerar i Data Lake Store.
 
 Sticky bit visas inte i Azure Portal.
 
-## Vanliga frågor för ACL:er i Data Lake Store
+## <a name="common-questions-for-acls-in-data-lake-store"></a>Vanliga frågor för ACL:er i Data Lake Store
 Här är några frågor som ofta kommer upp rörande ACL:er i Data Lake Store.
 
-### Måste jag aktivera stöd för ACL:er?
+### <a name="do-i-have-to-enable-support-for-acls"></a>Måste jag aktivera stöd för ACL:er?
 Nej. Åtkomstkontroll via ACL:er är alltid aktiverat för ett Data Lake Store-konto.
 
-### Vilka behörigheter krävs för att rekursivt ta bort en mapp och dess innehåll?
+### <a name="what-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Vilka behörigheter krävs för att rekursivt ta bort en mapp och dess innehåll?
 * Den överordnade mappen måste ha **skriva + köra**.
 * Mappen som ska tas bort och alla mappar inom den, behöver **läsa + skriva + köra**.
   >[AZURE.NOTE] Att ta bort filer i mappar kräver inte behörigheten Skriva på filerna. Dessutom kan rotmappen "/" **aldrig** tas bort.
 
-### Vem anges som ägare till en fil eller mapp?
+### <a name="who-is-set-as-the-owner-of-a-file-or-folder"></a>Vem anges som ägare till en fil eller mapp?
 Skaparen av en fil eller mapp blir ägaren.
 
-### Vem anges som den ägande gruppen i en fil eller mapp vid skapandet?
+### <a name="who-is-set-as-the-owning-group-of-a-file-or-folder-at-creation"></a>Vem anges som den ägande gruppen i en fil eller mapp vid skapandet?
 Det kopieras från den ägande gruppen i den överordnade mappen under vilken den nya filen eller mappen skapas.
 
-### Jag är ägande användare av en fil, men jag har inte den RWX-behörighet jag behöver. Vad gör jag nu?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Jag är ägande användare av en fil, men jag har inte den RWX-behörighet jag behöver. Vad gör jag nu?
 Ägande användare kan lätt ändra behörigheterna för filen för att ge sig själva de RWX-behörigheter de behöver.
 
-### Stöds arv av ACL:er i Data Lake Store?
+### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Stöds arv av ACL:er i Data Lake Store?
 Nej.
 
-### Vad är skillnaden mellan mask och umask?
+### <a name="what-is-the-difference-between-mask-and-umask"></a>Vad är skillnaden mellan mask och umask?
 | mask | umask |
 | --- | --- |
 | Egenskapen **mask** är tillgänglig på varje fil och mapp. |**Umask** är en egenskap för Data Lake Store-kontot. Så det finns bara en enda umask i Data Lake Store. |
@@ -262,7 +266,7 @@ Nej.
 | Maskegenskapen används under algoritmen för åtkomstkontroll vid körning för att avgöra om en användare har behörighet att utför åtgärden på en fil eller mapp. Maskrollen är att skapa "gällande behörigheter" vid tidpunkten för åtkomstkontroll. |Umask används inte vid åtkomstkontroll alls. Umask används för att bestämma åtkomst-ACL för de nya underordnade objekten i en mapp. |
 | Masken är ett 3-bitars RWX-värde som gäller för namngiven användare, namngiven grupp och ägande användare vid tidpunkten för åtkomstkontroll. |Umask är ett 9-bitars värde som gäller för ägande användare, ägande grupp och andra för en ny underordnad. |
 
-### Var hittar jag mer information om POSIX-modellen för åtkomstkontroll?
+### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Var hittar jag mer information om POSIX-modellen för åtkomstkontroll?
 * [http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
 * [Guide för HDFS-behörighet](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) 
 * [Vanliga frågor och svar om POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
@@ -271,10 +275,13 @@ Nej.
 * [POSIX ACL på Linux](http://users.suse.com/~agruen/acl/linux-acls/online/)
 * [ACL med åtkomstkontrollistor på Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## Se även
+## <a name="see-also"></a>Se även
 * [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
 * [Kom igång med Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

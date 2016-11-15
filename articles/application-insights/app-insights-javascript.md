@@ -1,35 +1,37 @@
 ---
-title: Application Insights för JavaScript-webbappar | Microsoft Docs
-description: Hämta sidvisnings- och sessionsantal, webbklientdata och spåra användningsmönster. Identifiera undantag och prestandaproblem på JavaScript-baserade webbsidor.
+title: "Application Insights för JavaScript-webbappar | Microsoft Docs"
+description: "Hämta sidvisnings- och sessionsantal, webbklientdata och spåra användningsmönster. Identifiera undantag och prestandaproblem på JavaScript-baserade webbsidor."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 11/01/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+
 
 ---
-# Application Insights för webbsidor
-[!INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+# <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
+Visa prestanda och användning för webbsidor eller appar. Om du lägger till [Application Insights](app-insights-overview.md) i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan ställa in varningar för antal fel eller långsam sidinläsning. Och genom att infoga spårning av anrop i JavaScript-kod kan du spåra hur olika funktioner i ditt webbsideprogram används.
 
-Visa prestanda och användning för webbsidor eller appar. Om du lägger till Visual Studio Application Insights i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan också ställa in varningar för antal fel eller långsam sidinläsning.
+Application Insights kan användas med alla webbsidor – du lägger bara till ett stycke JavaScript-kod. Om webbtjänsten är [Java](app-insights-java-get-started.md) eller [ASP.NET](app-insights-asp-net.md) kan du integrera telemetri från dina servrar och klienter.
 
-Du kan använda Application Insights med valfria webbsidor – du lägger bara till ett stycke JavaScript-kod. Om webbtjänsten är [Java](app-insights-java-get-started.md) eller [ASP.NET](app-insights-asp-net.md) kan du integrera telemetri från dina servrar och klienter.
+![Öppna appens resurs på portal.azure.com och klicka på Webbläsare](./media/app-insights-javascript/03.png)
 
-Du behöver en prenumeration på [Microsoft Azure](https://azure.com). Om ditt team har en organisationsprenumeration ber du ägaren att lägga till ditt Microsoft-Account till den. Det finns en kostnadsfri prisnivå, så utveckling och småskalig användning kostar inget.
+Du behöver en prenumeration på [Microsoft Azure](https://azure.com). Om ditt team har en organisationsprenumeration ber du ägaren att lägga till ditt Microsoft-Account till den. Utveckling och småskalig användning kostar inget.
 
-## Konfigurera Application Insights för din webbsida
-Till att börja med, behöver du lägga till Application Insights till dina webbsidor? Du kanske redan har gjort det. Om du valde att lägga till Application Insights till din webbapp i dialogrutan Nytt projekt i Visual Studio, så lades skriptet till då. Om så är fallet behöver du inte göra något mer.
+## <a name="set-up-application-insights-for-your-web-page"></a>Konfigurera Application Insights för din webbsida
+Lägg till inläsningen av kodfragmentet i dina webbsidor enligt följande.
 
-Om inte måste du lägga till ett kodfragment till dina webbsidor genom att följa anvisningarna nedan.
-
-### Öppna en Application Insights-resurs
+### <a name="open-or-create-application-insights-resource"></a>Öppna eller skapa en Application Insights-resurs
 Application Insights-resursen är den plats där data om sidans prestanda och användning visas. 
 
 Logga in på [Azure-portalen](https://portal.azure.com).
@@ -44,12 +46,12 @@ Om du inte redan har en resurs skapar du en:
 
 *Har du redan frågor?* [Mer information om hur du skapar en resurs](app-insights-create-new-resource.md).
 
-### Lägga till SDK-skriptet till appen eller webbsidorna
+### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Lägga till SDK-skriptet till appen eller webbsidorna
 Hämta skriptet för webbsidor i Snabbstart:
 
 ![På översiktsbladet för appen väljer du Snabbstart, Hämta kod för att övervaka webbplatser. Kopiera skriptet.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Infoga skriptet precis före `</head>`-taggen för alla sidor som du vill spåra. Om din webbplats har en huvudsida kan du placera skriptet där. Till exempel:
+Infoga skriptet precis före `</head>`-taggen för alla sidor som du vill spåra. Om din webbplats har en huvudsida kan du placera skriptet där. Exempel:
 
 * I ett ASP.NET MVC-projekt lägger du till det i `View\Shared\_Layout.cshtml`
 * På en SharePoint-plats öppnar du [Webbplatsinställningar/Huvudsida](app-insights-sharepoint.md) på kontrollpanelen.
@@ -58,9 +60,9 @@ Skriptet innehåller instrumenteringsnyckeln som dirigerar data till din Applica
 
 ([Mer detaljerad förklaring av skriptet.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
-*(Om du använder ett välkänt ramverk för webbsidor letar du efter adaptrar till Application Insights. Ett exempel är en [AngularJS-modul](http://ngmodules.org/modules/angular-appinsights).)*
+*(Om du använder ett välkänt ramverk för webbsidor letar du efter adaptrar till Application Insights. Det finns till exempel [en AngularJS-modul](http://ngmodules.org/modules/angular-appinsights).)*
 
-## Detaljerad konfiguration
+## <a name="detailed-configuration"></a>Detaljerad konfiguration
 Det finns flera [Parametrar](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) som du kan ange, men i de flesta fall behöver du inte göra det. Du kan t.ex. inaktivera eller begränsa antalet Ajax-anrop som rapporteras per sidvy (om du vill minska trafiken). Eller så kan du ställa in felsökningsläge så att telemetrin rör sig snabbt genom pipelinen utan att batchhanteras.
 
 Du anger dessa parametrar genom att leta upp den här raden i kodfragmentet och lägga till fler kommaavgränsade poster efter den:
@@ -95,12 +97,12 @@ Exempel på [tillgängliga parametrar](https://github.com/Microsoft/ApplicationI
 
 
 
-## <a name="run"></a>Köra appen
+## <a name="a-namerunarun-your-app"></a><a name="run"></a>Kör din app
 Kör webbappen, använd den en stund för att generera telemetri och vänta några sekunder. Du kan antingen köra den genom att trycka på **F5** på utvecklingsdatorn, eller publicera den och låta användarna använda den.
 
 Om du vill kontrollera telemetrin som en webbapp skickar till Application Insights använder du webbläsarens felsökningsverktyg (**F12** i många webbläsare). Informationen skickas till dc.services.visualstudio.com.
 
-## Granska informationen om webbläsarens prestanda
+## <a name="explore-your-browser-performance-data"></a>Granska informationen om webbläsarens prestanda
 Öppna bladet Webbläsare om du vill visa aggregerade data från användarnas webbläsare.
 
 ![Öppna appens resurs på portal.azure.com och klicka på Inställningar, Webbläsare.](./media/app-insights-javascript/03.png)
@@ -109,7 +111,7 @@ Om du vill kontrollera telemetrin som en webbapp skickar till Application Insigh
 
 Bladet Webbläsare är ett [Metrics Explorer-blad](app-insights-metrics-explorer.md) med förinställda filter och diagraminställningar. Du kan redigera tidsintervallet, filtren och diagramkonfigurationen om du vill och spara resultatet som en favorit. Klicka på **Återställ standardvärden** för att återgå till det ursprungliga konfigurationsbladet.
 
-## Sidinläsningsprestanda
+## <a name="page-load-performance"></a>Sidinläsningsprestanda
 Längst upp på sidan finns ett segmenterat diagram över sidinläsningstider. Diagrammets totala höjd representerar den genomsnittliga tid det tar att läsa in och visa sidor från appen i användarnas webbläsare. Tiden mäts från tidpunkten då webbläsaren skickar den första HTTP-begäran tills alla synkrona belastningshändelser har bearbetats, inklusive layout och skriptkörning. De omfattar inte asynkrona åtgärder, till exempel inläsning av webbdelar från AJAX-anrop.
 
 I diagrammet delas den totala sidinläsningstiden upp baserat på [standardtiderna som definierats av W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
@@ -118,7 +120,7 @@ I diagrammet delas den totala sidinläsningstiden upp baserat på [standardtider
 
 Observera att *nätverksanslutningstiden* ofta är lägre än förväntat eftersom det är ett medelvärde över alla förfrågningar från webbläsaren till servern. Många enskilda förfrågningar har anslutningstiden 0 eftersom det redan finns en aktiv anslutning till servern.
 
-### Är inläsningen långsam?
+### <a name="slow-loading"></a>Är inläsningen långsam?
 Långsamma sidinläsningar är ytterst frustrerande för användarna. Om diagrammet visar på långsamma sidinläsningar är det enkelt att undersöka varför.
 
 Diagrammet visar medelvärdet av alla sidinläsningar i appen. Om du vill se om problemet är begränsat till specifika sidor går du längre ned i bladet, där du ser ett rutnät uppdelat efter sid-URL:
@@ -141,7 +143,7 @@ Klicka på `...` om du vill visa en fullständig lista över egenskaper för hä
 
 ![](./media/app-insights-javascript/21.png)
 
-## AJAX-prestanda
+## <a name="ajax-performance"></a>AJAX-prestanda
 Kontrollera att alla AJAX-anrop på dina webbsidor fungerar som de ska. De används ofta för att fylla delar av sidan asynkront. Även om den övergripande sidan kan läsas in snabbt kan användarna bli frustrerade om de öppnar nya webbdelar och måste vänta på att data ska visas i dem.
 
 AJAX-anrop som görs från din webbsida visas på bladet Webbläsare som beroenden.
@@ -167,17 +169,17 @@ Klicka på en rad om du vill visa specifik information.
 
 Klicka på `...` om du vill visa fullständig telemetri om ett Ajax-anrop.
 
-### Rapporteras inga Ajax-anrop?
+### <a name="no-ajax-calls-reported"></a>Rapporteras inga Ajax-anrop?
 AJAX-anrop omfattar alla HTTP-anrop som görs från skriptet på din webbsida. Om de inte har rapporterats kontrollerar du att kodfragmentet inte innehåller parametern `disableAjaxTracking` eller `maxAjaxCallsPerView`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
-## Webbläsarundantag
+## <a name="browser-exceptions"></a>Webbläsarundantag
 Bladet Webbläsare innehåller ett sammanfattningsdiagram över undantag och ett rutnät med undantagstyper längre ned.
 
 ![](./media/app-insights-javascript/39.png)
 
 Om du inte ser webbläsarundantag kontrollerar du att kodfragmentet inte innehåller parametern `disableExceptionTracking`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
-## Granska enskilda sidvisningshändelser
+## <a name="inspect-individual-page-view-events"></a>Granska enskilda sidvisningshändelser
 Vanligtvis analyseras telemetri för sidvisningar av Application Insights och du ser endast kumulativa rapporter, som ett genomsnitt av alla användare. Men för felsökningsändamål kan du även titta på enskilda sidvisningshändelser.
 
 Ställ in Filter till Sidvy på bladet Diagnostiksökning.
@@ -193,14 +195,14 @@ Välj en händelse om du vill visa mer information. Klicka på ”...” på det
 
 Du kan också använda de kraftfulla [Analytics-frågespråket](app-insights-analytics-tour.md) när du söker efter sidvyer.
 
-### Egenskaper för sidvisning
+### <a name="page-view-properties"></a>Egenskaper för sidvisning
 * **Sidvisningens varaktighet** 
   
   * Som standard den tid det tar att läsa in sidan, från klientbegäran till full inläsning (inklusive extra filer men exklusive asynkrona åtgärder som Ajax-anrop). 
   * Intervallet mellan klientbegäran till körningen av den första `trackPageView` om du anger `overridePageViewDuration` i [sidkonfigurationen](#detailed-configuration). Om du har flyttat trackPageView från dess normala position efter initieringen av skriptet visas ett annat värde.
   * Om du har angett `overridePageViewDuration` och ett varaktighetsargument anges i `trackPageView()`-anropet, så används argumentvärdet istället. 
 
-## Anpassade sidräkningar
+## <a name="custom-page-counts"></a>Anpassade sidräkningar
 Som standard ökar sidräkningen varje gång en ny sida läses in i webbläsaren.  Men du kanske vill räkna fler slags sidvisningar. En sida kan till exempel visa innehåll på flikar, och du kanske vill att en sida ska räknas när användaren byter flik. Eller så kanske JavaScript-kod på sidan läser in nytt innehåll utan att webbläsarens URL ändras.
 
 Infoga ett JavaScript-anrop som det här på lämpligt ställe i klientkoden:
@@ -209,22 +211,25 @@ Infoga ett JavaScript-anrop som det här på lämpligt ställe i klientkoden:
 
 Sidans namn kan innehålla samma tecken som en URL, men allt efter ”#” eller ”?” ignoreras.
 
-## Användningsspårning
+## <a name="usage-tracking"></a>Användningsspårning
 Vill du veta vad användarna gör med din app?
 
 * [Lär dig mer om användningsspårning](app-insights-web-track-usage.md)
 * [Lär dig mer om API:er för mätvärden och anpassade händelser](app-insights-api-custom-events-metrics.md).
 
-#### <a name="video"></a> Video: Spåra användning
+#### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a>Video: Spåra användning
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
 > 
 > 
 
-## <a name="next"></a> Nästa steg
+## <a name="a-namenexta-next-steps"></a><a name="next"></a>Nästa steg
 * [Spåra användning](app-insights-web-track-usage.md)
 * [Anpassade händelser och mätvärden](app-insights-api-custom-events-metrics.md)
 * [Skapa – mät – lär](app-insights-overview-usage.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

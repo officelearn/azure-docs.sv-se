@@ -1,14 +1,14 @@
 ---
-title: Skapa din första virtuella Windows-dator | Microsoft Docs
-description: Lär dig hur du skapar din första virtuella Windows-dator med hjälp av Azure Portal.
+title: "Skapa din första virtuella Windows-dator | Microsoft Docs"
+description: "Lär dig hur du skapar din första virtuella Windows-dator med hjälp av Azure Portal."
 keywords: Virtuell Windows-dator, skapa en virtuell dator, virtuell dator, konfigurera en virtuell dator
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 785e17eb-4a13-4f06-b70f-4bd496d0ec5d
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,14 +16,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/06/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
+
 
 ---
-# Skapa din första virtuella Windows-dator på Azure Portal
+# <a name="create-your-first-windows-virtual-machine-in-the-azure-portal"></a>Skapa din första virtuella Windows-dator på Azure Portal
 I den här självstudiekursen ser du hur enkelt det är att skapa en virtuell Windows-dator (VM) på bara några minuter med hjälp av Azure Portal.  
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## Välja VM-avbildning från Marketplace
+## <a name="choose-the-vm-image-from-the-marketplace"></a>Välja VM-avbildning från Marketplace
 Vi använder en Windows Server 2012 R2 Datacenter-avbildning som exempel, men det är bara en av de många avbildningar som är tillgängliga i Azure. Vilka avbildningsalternativ som är tillgängliga beror på din prenumeration. Exempelvis kan vissa skrivbordsavbildningar vara tillgängliga för [MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
@@ -34,14 +38,14 @@ Vi använder en Windows Server 2012 R2 Datacenter-avbildning som exempel, men de
    
     ![Skärmbild som visar distributionsmodellen som ska användas för den virtuella datorn](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
-## Skapa den virtuella Windows-datorn
+## <a name="create-the-windows-virtual-machine"></a>Skapa den virtuella Windows-datorn
 När du har valt avbildningen kan du använda standardinställningarna och snabbt skapa den virtuella datorn.
 
 1. På bladet **Grundläggande inställningar** anger du ett **namn** för den virtuella datorn. Namnet måste vara mellan 1 och 15 tecken långt och får inte innehålla specialtecken.
 2. Ange ett **användarnamn** och ett starkt **lösenord** som ska användas för att skapa ett lokalt konto på den virtuella datorn. Det lokala kontot används för att logga in på och hantera den virtuella datorn. 
    
     Lösenordet måste innehålla mellan 8 och 123 tecken och uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Läs mer om [krav för användarnamn och lösenord](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
-3. Välj en befintlig [resursgrupp](../resource-group-overview.md#resource-groups) eller skriv namnet på en ny. Ange **platsen** för ett Azure-datacenter, t.ex. **USA, västra**. 
+3. Välj en befintlig [resursgrupp](../azure-resource-manager/resource-group-overview.md#resource-groups) eller skriv namnet på en ny. Ange **platsen** för ett Azure-datacenter, t.ex. **USA, västra**. 
 4. När du är klar klickar du på **OK** för att fortsätta till nästa avsnitt. 
    
     ![Skärmbild som visar bladet Grundläggande inställningar där du kan konfigurera en virtuell Azure-dator](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
@@ -56,7 +60,7 @@ När du har valt avbildningen kan du använda standardinställningarna och snabb
     ![Skärmbild av sidan Sammanfattning som visar de valda konfigurationsalternativen för den virtuella Azure-datorn](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 8. Medan Azure skapar den virtuella datorn kan du följa förloppet i **Virtual Machines** på navmenyn. 
 
-## Ansluta till den virtuella datorn och logga in
+## <a name="connect-to-the-virtual-machine-and-sign-on"></a>Ansluta till den virtuella datorn och logga in
 1. Klicka på **Virtual Machines** på navmenyn.
 2. Välj den virtuella datorn i listan.
 3. Klicka på **Anslut** i bladet för den virtuella datorn. När du gör det skapas och hämtas en RDP-fil (Remote Desktop Protocol) som fungerar som en genväg för att ansluta till din dator. Du kan spara filen på skrivbordet för enkel åtkomst. **Öppna** den här filen när du vill ansluta till den virtuella datorn.
@@ -76,18 +80,21 @@ Om du får problem när du försöker ansluta läser du [Felsöka anslutningar t
 
 Nu kan du arbeta med den virtuella datorn som med andra servrar.
 
-## Valfritt: Stoppa den virtuella datorn
+## <a name="optional-stop-the-vm"></a>Valfritt: Stoppa den virtuella datorn
 Det är en bra idé att stoppa den virtuella datorn så att du inte debiteras när du inte använder den. Klicka på **Stoppa** och klicka sedan på **Ja**.
 
 ![Skärmbild som visar knappen för att stoppa en virtuell dator](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
 
 Klicka på knappen **Starta** när du vill starta om den virtuella datorn och börja använda den igen.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Installera IIS](virtual-machines-windows-hero-role.md) för att experimentera med din nya VM. Den här kursen visar också hur du öppnar port 80 för inkommande webbtrafik med en nätverkssäkerhetsgrupp (NSG). 
 * Du kan också [skapa en virtuell Windows-dator med hjälp av PowerShell](virtual-machines-windows-ps-create.md) eller [skapa en virtuell Linux-dator](virtual-machines-linux-quick-create-cli.md) med Azure CLI.
 * Om du är intresserad av att automatisera distributioner kan du läsa [Skapa en virtuell Windows-dator med hjälp av en Resource Manager-mall](virtual-machines-windows-ps-template.md).
 
-<!---HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

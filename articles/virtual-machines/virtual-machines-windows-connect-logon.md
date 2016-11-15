@@ -1,13 +1,13 @@
 ---
 title: Ansluta till en virtuell Windows Server-dator | Microsoft Docs
-description: Lär dig hur du ansluter till och loggar in på en virtuell Windows-dator med hjälp av Azure Portal och Resource Manager-distributionsmodellen.
+description: "Lär dig hur du ansluter till och loggar in på en virtuell Windows-dator med hjälp av Azure Portal och Resource Manager-distributionsmodellen."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: ef62b02e-bf35-468d-b4c3-71b63fe7f409
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db417fb72442ea8a5cd4ef882eb657b08bebaa0a
+
 
 ---
-# Ansluta till och logga in på en virtuell Azure-dator som kör Windows
+# <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Ansluta till och logga in på en virtuell Azure-dator som kör Windows
 Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP). Du börjar med att ansluta till den virtuella datorn och loggar sedan in.
 
-## Ansluta till den virtuella datorn
+## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **Virtual Machines** på navmenyn.
 3. Välj den virtuella datorn i listan.
@@ -33,12 +37,15 @@ Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivb
    > 
    > 
 
-## Logga in på den virtuella datorn
+## <a name="log-on-to-the-virtual-machine"></a>Logga in på den virtuella datorn
 [!INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Om du får problem när du försöker ansluta läser du [Felsöka anslutningar till fjärrskrivbord](virtual-machines-windows-troubleshoot-rdp-connection.md). Den här artikeln beskriver hur du diagnostiserar och löser vanliga problem.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

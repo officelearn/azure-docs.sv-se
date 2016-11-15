@@ -1,23 +1,27 @@
 ---
-title: 'Självstudier för HBase: Komma igång med Linux-baserade HBase-kluster i Hadoop | Microsoft Docs'
-description: Följ denna HBase-självstudie för att komma igång med Apache HBase med Hadoop i HDInsight. Skapa tabeller från HBase-gränssnittet och ställ frågor för dem med Hive.
-keywords: apache hbase, hbase, hbase shell, självstudier för hbase
+title: "Självstudier för HBase: Komma igång med Linux-baserade HBase-kluster i Hadoop | Microsoft Docs"
+description: "Följ denna HBase-självstudie för att komma igång med Apache HBase med Hadoop i HDInsight. Skapa tabeller från HBase-gränssnittet och ställ frågor för dem med Hive."
+keywords: "apache hbase, hbase, hbase shell, självstudier för hbase"
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/25/2016
+ms.date: 10/19/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ecac06a51bee157d88634a13c5749dc16f4b505a
+
 
 ---
-# Självstudier för HBase: Komma igång med Apache HBase med Linux-baserade Hadoop i HDInsight
+# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linuxbased-hadoop-in-hdinsight"></a>Självstudier för HBase: Komma igång med Apache HBase med Linux-baserade Hadoop i HDInsight
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Lär dig skapa ett HBase-kluster i HDInsight, skapa HBase-tabeller och frågetabeller med Hive. Allmän HBase-information finns i [Översikt över HDInsight HBase][hdinsight-hbase-overview].
@@ -26,24 +30,27 @@ Informationen i det här dokumentet är specifik för Linux-baserade HDInsight-k
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Innan du påbörjar den här HBase-självstudien måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell(SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
-### Åtkomstkontrollkrav
+### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Skapa HBase-kluster
-Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+## <a name="create-hbase-cluster"></a>Skapa HBase-kluster
+Följande procedur använder en Azure Resource Manager-mall för att skapa ett version 3.4 Linux-baserat HBase-kluster och det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i en offentlig blob-behållare. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Skriv följande på bladet **Parametrar**:
+2. Från bladet **Anpassad distribution**, anger du följande:
    
+   * **Prenumeration**: Välj den Azure-prenumeration som kommer användas för att skapa klustret.
+   * **Resursgrupp**: Skapa en ny Azure Resource Management-grupp eller använd en befintlig.
+   * **Plats**: Ange platsen för resursgruppen. 
    * **Klusternamn**: Ange ett namn för det HBase-kluster som du vill skapa.
    * **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard **admin**.
    * **SSH-användarnamn och lösenord**: Standardanvändarnamnet är **sshuser**.  Du kan byta namn.
@@ -51,30 +58,27 @@ Följande procedur använder en Azure Resource Manager-mall för att skapa ett H
      Andra parametrar är valfria.  
      
      Varje kluster är beroende av ett Azure Blob Storage-konto. När du tar bort ett kluster stannar aktuella data kvar på lagringskontot. Klustrets lagringskonto av standardtyp har det klusternamn som omfattar tillägget ”store”. Det är hårdkodat i avsnittet för mallvariabler.
-3. Spara parametrarna genom att klicka på **OK**.
-4. På bladet **Anpassad distribution** klickar du på listrutan **Resursgrupp** och sedan på **Ny** för att skapa en ny resursgrupp.  Resursgruppen är en behållare som grupperar klustret, det beroende lagringskontot och andra länkade resurser.
-5. Klicka på **Juridiska villkor** och sedan på **Skapa**.
-6. Klicka på **Skapa**. Det tar cirka 20 minuter att skapa ett kluster.
+3. Välj **Jag godkänner villkoren som anges ovan** och klicka sedan på **Köp**. Det tar cirka 20 minuter att skapa ett kluster.
 
 > [!NOTE]
 > När ett HBase-kluster har tagits bort kan du skapa ett annat HBase-kluster med hjälp av samma standard-blob-behållare. Det nya klustret hämtar de HBase-tabeller som du skapade i det ursprungliga klustret. Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret.
 > 
 > 
 
-## Skapa tabeller och infoga data
-Du kan använda SSH för att ansluta till HBase-kluster och använda HBase Shell för att skapa HBase-tabeller, infoga data och fråga efter data. Information om hur du använder SSH från Linux, Unix, OS X och Windows finns i [Använda SSH med Linux-baserade Hadoop i Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md) och [Använda SSH med Linux-baserat Hadoop i HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+## <a name="create-tables-and-insert-data"></a>Skapa tabeller och infoga data
+Du kan använda SSH för att ansluta till HBase-kluster och sedan använda HBase Shell för att skapa HBase-tabeller, infoga data och ställa frågor till data. För information om hur man använder SSH, kan du se [Använd SSH med Linux-baserad Hadoop på HDInsight från Linux, Unix eller OSX](hdinsight-hadoop-linux-use-ssh-unix.md) och [Använd SSH med Linux-baserad Hadoop i HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 För de flesta visas data i tabellformat:
 
-![hdinsight hbase tabular data][img-hbase-sample-data-tabular]
+![HDInsight HBase-tabelldata][img-hbase-sample-data-tabular]
 
 I HBase, som är en implementering av BigTable, ser samma data ut så här:
 
-![hdinsight hbase bigtable data][img-hbase-sample-data-bigtable]
+![HDInsight HBase BigTable-data][img-hbase-sample-data-bigtable]
 
 Det kommer att klarna mer efter att du har avslutat nästa procedur.  
 
-**Använda HBase-gränssnittet**
+**Använd HBase Shell**
 
 1. Från SSH kör du följande kommando:
    
@@ -103,22 +107,22 @@ Det kommer att klarna mer efter att du har avslutat nästa procedur.
    
         exit
 
-**Masskopiera data till HBase-tabellen för kontakter**
+**För att läsa in data i bulk i HBase-tabellen kontakter**
 
 HBase innehåller flera metoder för att läsa in data i tabeller.  Mer information finns i [Massinläsning](http://hbase.apache.org/book.html#arch.bulk.load).
 
-En exempeldatafil har överförts till den offentliga blob-behållaren, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Innehållet i datafilen är:
+En exempeldatafil har överförts till en offentlig blobbehållaren *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Innehållet i datafilen är:
 
-    8396    Calvin Raji     230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600   Karen Wu        646-555-0113    230-555-0192    9265 La Paz
+    8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
     4324    Karl Xie        508-555-0163    230-555-0193    4912 La Vuelta
-    16891   Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
-    3273    Miguel Miller   397-555-0155    230-555-0195    6696 Anchor Drive
+    16891    Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
+    3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
     3588    Osa Agbonile    592-555-0152    230-555-0196    1873 Lion Circle
-    10272   Julia Lee       870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes      599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander 670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443   Terry Chander   998-555-0171    230-555-0200    771 Northridge Drive
+    10272    Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes        599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
 Du kan skapa en textfil och överföra filen till ditt eget lagringskonto om du vill. Anvisningarna finns i [Överföra data för Hadoop-jobb i HDInsight][hdinsight-upload-data].
 
@@ -129,13 +133,13 @@ Du kan skapa en textfil och överföra filen till ditt eget lagringskonto om du 
 
 1. Kör följande kommando från SSH för att omvandla datafilen till StoreFiles och lagra vid en relativ sökväg som anges av Dimporttsv.bulk.output:.  Om du är i HBase Shell använder du avslutningskommandot för att avsluta.
    
-        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 2. Kör följande kommando för att överföra data från /example/data/storeDataFileOutput till  HBase-tabellen:
    
         hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 3. Du kan öppna HBase-gränssnittet och använda skanningskommandot för att lista tabellinnehållet.
 
-## Använd Hive för att ställa frågor till HBase
+## <a name="use-hive-to-query-hbase"></a>Använd Hive för att ställa frågor till HBase
 Du kan fråga efter data i HBase-tabeller med hjälp av Hive. I det här avsnittet skapas en Hive-tabell som mappar till HBase-tabellen och använder den för att fråga efter data i din HBase-tabell.
 
 1. Öppna **PuTTY** och anslut till klustret.  Se anvisningarna i föregående procedur.
@@ -148,11 +152,11 @@ Du kan fråga efter data i HBase-tabeller med hjälp av Hive. I det här avsnitt
         STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
         WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
-4. Kör följande HiveQL-skript. Hive-frågan frågar efter data i HBase-tabellen:
+4. Kör följande HiveQL-skript för att fråga data i HBase-tabellen:
    
-        SELECT count(*) FROM hbasecontacts;
+         SELECT count(*) FROM hbasecontacts;
 
-## Använd HBase REST API:er med Curl
+## <a name="use-hbase-rest-apis-using-curl"></a>Använd HBase REST API:er med Curl
 > [!NOTE]
 > När du använder Curl eller annan REST-kommunikation med WebHCat, måste du autentisera begärandena genom att ange användarnamn och lösenord för HDInsight-klustrets administratör. Du måste också använda klustrets namn som en del av den URI (Uniform Resource Identifier) som används för att skicka begäranden till servern.
 > 
@@ -214,12 +218,12 @@ Du kan fråga efter data i HBase-tabeller med hjälp av Hive. I det här avsnitt
 
 Mer information om HBase Rest finns i [Referensguiden för Apache HBase](https://hbase.apache.org/book.html#_rest).
 
-## Kontrollera klusterstatus
+## <a name="check-cluster-status"></a>Kontrollera klusterstatus
 HBase i HDInsight levereras med ett webbgränssnitt för övervakning av kluster. Du kan använda webbgränssnittet för att begära statistik eller information om regioner.
 
 SSH kan även användas för lokala tunnelbegäranden, till exempel webbegäranden, till HDInsight-klustret. Begäran dirigeras sedan till den begärda resursen som om den hade sitt ursprung i HDInsight-klustrets huvudnod. Mer information finns i [Använda SSH med Linux-baserade Hadoop i HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
 
-**Upprätta en SSH-tunnelsession**
+**Etablera en SSH-tunnelsession**
 
 1. Öppna **PuTTY**.  
 2. Om du angav en SSH-nyckel när du skapade ditt användarkonto, ska du under skapandeprocessen utföra följande steg för att välja den privata nyckel som ska användas vid autentisering för klustret:
@@ -239,7 +243,7 @@ SSH kan även användas för lokala tunnelbegäranden, till exempel webbegärand
 8. Klicka på **Öppna** längst ned i dialogrutan för att öppna en SSH-anslutning.
 9. Logga in på servern med ett SSH-konto när du uppmanas till detta. Detta upprättar en SSH-session och aktiverar tunneln.
 
-**Hitta fullständigt kvalificerat domännamn (FQDN) för zookeepers med Ambari**
+**Hitta FQDN för zookeepers med Ambari**
 
 1. Bläddra till https://<ClusterName>.azurehdinsight.net/.
 2. Ange autentiseringsuppgifterna för ditt klusteranvändarkonto två gånger.
@@ -257,7 +261,7 @@ SSH kan även användas för lokala tunnelbegäranden, till exempel webbegärand
 6. Ange följande värden:
    
    * **Socks-värd**: localhost
-   * **Port**: Använd samma port som du konfigurerade för Putty SSH-tunneltrafiken.  Till exempel 9876.
+   * **Port**: Använd samma port som du konfigurerade för Putty SSH-tunneln.  Till exempel 9876.
    * **SOCKS v5**: (valt)
    * **Fjärr-DNS**: (valt)
 7. Spara ändringarna genom att klicka på **OK**.
@@ -265,13 +269,13 @@ SSH kan även användas för lokala tunnelbegäranden, till exempel webbegärand
 
 I ett kluster med hög tillgänglighet hittar du en länk till den aktuella aktiva överordnade HBase-nod som är värd för webbgränssnittet.
 
-## Ta bort klustret
+## <a name="delete-the-cluster"></a>Ta bort klustret
 Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Nästa steg
-I den här HBase-självstudien för HDInsight har du fått lära dig att skapa ett HBase-kluster och hur du skapar tabeller och visar data i dessa tabeller från HBase-gränssnittet. Du har också fått lära dig hur du använder en Hive-fråga på data i HBase-tabeller och hur du använder HBase C# REST-API:er för att skapa en HBase-tabell och hämta data från tabellen.
+## <a name="next-steps"></a>Nästa steg
+I den här HBase-självstudien för HDInsight har du fått lära dig att skapa ett HBase-kluster och hur du skapar tabeller och visar data i dessa tabeller från HBase-gränssnittet. Du har också fått lära dig hur man använder en Hive-fråga på data i HBase-tabeller och hur man använder HBase C# REST-API:er för att skapa en HBase-tabell och hämta data från tabellen.
 
 Du kan läsa mer här:
 
@@ -306,6 +310,6 @@ Du kan läsa mer här:
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

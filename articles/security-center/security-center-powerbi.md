@@ -1,12 +1,12 @@
 ---
-title: Kunskap genom statistik från Azure Security Center med Power BI| Microsoft Docs
-description: Med innehållspaketet Azure Security Center Power BI är det lätt att hitta säkerhetsaviseringar, rekommendationer, angripna resurser och trender utifrån en datamängd som är särskilt anpassad efter dina rapporteringsbehov.
+title: "Kunskap genom statistik från Azure Security Center med Power BI| Microsoft Docs"
+description: "Med innehållspaketet Azure Security Center Power BI är det lätt att hitta säkerhetsaviseringar, rekommendationer, angripna resurser och trender utifrån en datamängd som är särskilt anpassad efter dina rapporteringsbehov."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f085631264439062f6fccff4cdae535d7f80bbe3
+
 
 ---
-# Kunskap genom statistik från Azure Security Center med Power BI
+# <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Kunskap genom statistik från Azure Security Center med Power BI
 I [Power BI-instrumentpanelen](http://aka.ms/azure-security-center-power-bi) för Azure Security Center kan du se, analysera och filtrera rekommendationer och säkerhetsaviseringar var du än är, även på mobila enheter. I Power BI-instrumentpanelen kan du se trender och angreppsmönster, se säkerhetsaviseringar indelade efter resurs eller käll-IP-adress och oåtgärdade säkerhetsrisker indelade efter resurs och hur lång tid det gått sedan de påträffades. 
 
 Du kan också kombinera Security Centers rekommendationer och säkerhetsaviseringar med andra data på intressanta sätt, till exempel använda data från [Azure-granskningsloggarna](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) och [Azure SQL Database Auditing](https://powerbi.microsoft.com/blog/monitor-your-azure-sql-database-auditing-activity-with-power-bi/). Båda innehåller Power BI-instrumentpaneler och du kan också exportera dessa data till Excel för enkel rapportering av säkerhetstillståndet för dina molnresurser.
 
-## Öppna Power BI från Azure Security Centers instrumentpanel
+## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Öppna Power BI från Azure Security Centers instrumentpanel
 Du kan även öppna Power BI-rapporter från instrumentpanelen i Azure Security Center. Följ stegen: 
 
 1. Klicka på knappen **Utforska i Power BI** på instrumentpanelen i **Azure Security Center**.
@@ -80,7 +84,7 @@ Härifrån kan du även spara en kopia av rapporten, skriva ut den eller publice
 
 ![Arkivmenyn](./media/security-center-powerbi/security-center-powerbi-fig8.png)
 
-## Utforska dina data i Azure Security Center med Power BI-tjänsterna
+## <a name="exploring-your-azure-security-center-data-with-power-bi-services"></a>Utforska dina data i Azure Security Center med Power BI-tjänsterna
 Anslut till [tjänsterna i innehållspaketet för Power BI](https://msit.powerbi.com/groups/me/getdata/services) i Power BI och genomför följande steg:
 
 1. I fönstret **Content Pack for Power BI (Innehållspaket för Power BI)** ser du de två alternativen som visas nedan.
@@ -107,7 +111,7 @@ Anslut till [tjänsterna i innehållspaketet för Power BI](https://msit.powerbi
    
     ![Instrumentpanelen för principhantering](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## Se även
+## <a name="see-also"></a>Se även
 I det här avsnittet har du fått lära dig hur du använder Power BI i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md) – Här får du lära dig hur du kan börja använda Azure Security Center.
@@ -116,6 +120,9 @@ I det här avsnittet har du fått lära dig hur du använder Power BI i Azure Se
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här finns vanliga frågor om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

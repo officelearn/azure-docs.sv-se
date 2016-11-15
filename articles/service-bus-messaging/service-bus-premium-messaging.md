@@ -1,12 +1,12 @@
 ---
-title: Översikt över prisnivåer för Service Bus Premium- och Standard-meddelanden | Microsoft Docs
+title: "Översikt över prisnivåer för Service Bus Premium- och Standard-meddelanden | Microsoft Docs"
 description: Service Bus Premium- och Standard-meddelanden
 services: service-bus
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/02/2016
 ms.author: darosa;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5f4fccdafd9b47794bf625ac51dc650b6e8752f1
+
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium- och Standard-meddelandenivåer
@@ -29,9 +33,9 @@ En del övergripande skillnader visas i tabellen nedan.
 | Förutsägbar prestanda |Variabel svarstid |
 | Förutsägbara priser |Variabla priser – betala per användning |
 | Möjlighet att skala arbetsbelastningen uppåt och nedåt |Saknas |
-| Meddelandestorlek > 256 kB |Meddelandestorlek är 256 kB |
+| Meddelandestorlek > 256 kB |Meddelandestorlek är 256 kB |
 
-**Service Bus Premium-meddelanden** ger resursisolering på processor- och minnesnivån så att varje kunds arbetsbelastning körs i isolering. Den här resursbehållaren kallas för en *meddelandefunktionsenhet*. Varje Premium-namnområde allokeras minst en meddelandefunktionsenhet. Du kan köpa 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnområde. En enda arbetsbelastning eller enhet kan spänna över flera meddelandefunktionsenheter, och antalet meddelandefunktionsenheter kan ändras när du vill, även om faktureringen är per 24 timmar eller daglig taxa. Resultatet är förutsägbara och repeterbara prestanda för Service Bus-lösningen.
+**Service Bus Premium-meddelanden** ger resursisolering på processor- och minnesnivån så att varje kunds arbetsbelastning körs i isolering. Den här resursbehållaren kallas för en *meddelandefunktionsenhet*. Varje Premium-namnområde allokeras minst en meddelandefunktionsenhet. Du kan köpa 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnområde. En enda arbetsbelastning eller enhet kan spänna över flera meddelandefunktionsenheter, och antalet meddelandefunktionsenheter kan ändras när du vill, även om faktureringen är per 24 timmar eller daglig taxa. Resultatet är förutsägbara och repeterbara prestanda för Service Bus-lösningen.
 
 Prestanda är inte bara mer förutsägbara och tillgängliga, utan de är snabbare också. Service Bus Premium-meddelanden bygger på lagringsmotorn som infördes i [Azure Händelsehubbar](https://azure.microsoft.com/services/event-hubs/). Med Premium-meddelanden är topprestanda mycket snabbare än med standardnivån.
 
@@ -52,6 +56,9 @@ I följande ämnen kan du lära dig mer om Service Bus-meddelanden.
 * [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
 * [Använd Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

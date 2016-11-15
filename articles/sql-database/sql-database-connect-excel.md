@@ -1,13 +1,13 @@
 ---
 title: Anslut Excel till SQL Database | Microsoft Docs
-description: Lär dig hur man ansluter Microsoft Excel till en Azure SQL-databas i molnet. Importera data till Excel för rapportering och dataundersökning.
+description: "Lär dig hur man ansluter Microsoft Excel till en Azure SQL-databas i molnet. Importera data till Excel för rapportering och dataundersökning."
 services: sql-database
 keywords: ansluta excel till sql, importera data till excel
-documentationcenter: ''
+documentationcenter: 
 author: joseidz
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2016
 ms.author: joseidz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3a0f9501760ba3ea97341d30cd706c971c826430
+
 
 ---
-# SQL Database-självstudier: Anslut Excel till en Azure SQL-databas och skapa en rapport
+# <a name="sql-database-tutorial-connect-excel-to-an-azure-sql-database-and-create-a-report"></a>SQL Database-självstudier: Anslut Excel till en Azure SQL-databas och skapa en rapport
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-database-connect-query.md)
 > * [SSMS](sql-database-connect-query-ssms.md)
@@ -31,7 +35,7 @@ Du behöver en SQL-databas i Azure innan du börjar. Om du inte har någon, kan 
 
 Du kommer också behöva en kopia av Excel. Den här artikeln använder [Microsoft Excel 2016](https://products.office.com/en-US/).
 
-## Anslut Excel till en SQL-databas och skapa en odc-fil
+## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>Anslut Excel till en SQL-databas och skapa en odc-fil
 1. För att ansluta Excel till SQL-databasen, öppnar du Excel och skapar en ny arbetsbok, eller öppnar en befintlig Excel-arbetsbok.
 2. I menyraden överst på sidan, klickar du på **Data**, klickar på **Från andra källor** och klickar sedan på **Från SQL Server**.
    
@@ -58,7 +62,7 @@ Du kommer också behöva en kopia av Excel. Den här artikeln använder [Microso
    
     Dialogrutan **Importera data** visas.
 
-## Importera data till Excel och skapa ett pivotdiagram
+## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Importera data till Excel och skapa ett pivotdiagram
 Nu när du har etablerat anslutningen och skapat filen med data och anslutningsinformation, är du redo att börja importera data.
 
 1. I dialogen **Importera data**, klickar du på alternativet som du vill ha för att presentera dina data i kalkylbladet och klickar sedan på **OK**. Vi valde **PivotChart**. Du kan också välja att skapa ett **Nytt kalkylblad** eller **Lägg till den här datan i en Datamodell**. Mer information om datamodeller finns i [Skapa en datamodell i Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). Klicka på **Egenskaper** för att utforska information om odc-filen som du skapade i föregående steg och för att välja alternativ för datauppdatering.
@@ -76,11 +80,14 @@ Nu när du har etablerat anslutningen och skapat filen med data och anslutningsi
 > 
 > 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [Ansluter till SQL Database med SQL Server Management Studio](sql-database-connect-query-ssms.md) för avancerade frågor och analys.
 * Lär dig mer om fördelarna med [elastiska pooler](sql-database-elastic-pool.md).
 * Lär dig hur du [skapar en webbapp som ansluter till SQL Database på serverdelen](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

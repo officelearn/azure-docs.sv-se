@@ -1,12 +1,12 @@
 ---
-title: Kom igång med Azure Mobile Engagement för Xamarin.Android
-description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Xamarin.Android-appar.
+title: "Kom igång med Azure Mobile Engagement för Xamarin.Android"
+description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Xamarin.Android-appar."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: fb68cf98-08a2-41b5-8e59-757469de3fe7
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3580bf0712d704e46e785aa95ef0ab6b54f0ba10
+
 
 ---
-# Kom igång med Azure Mobile Engagement för Xamarin.Android-appar
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Kom igång med Azure Mobile Engagement för Xamarin.Android-appar
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 I den här artikeln beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i ett Xamarin.Android-program.
@@ -28,19 +32,19 @@ För den här kursen behöver du följande:
 * [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [!NOTE]
-> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer info om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
+> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Konfigurera Mobile Engagement för din Android-app
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Konfigurera Mobile Engagement för din Android-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Ansluta appen till Mobile Engagement-serverdelen
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 I den här kursen behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. 
 
 Vi kommer att skapa en grundläggande app i Xamarin Studio för att demonstrera integrationen.
 
-### Skapa ett nytt Xamarin.Android-projekt
+### <a name="create-a-new-xamarinandroid-project"></a>Skapa ett nytt Xamarin.Android-projekt
 1. Öppna **Xamarin Studio** och gå till **File** -> **New** -> **Solution** (Arkiv -> Ny -> Lösning). 
    
     ![][1]
@@ -56,7 +60,7 @@ Vi kommer att skapa en grundläggande app i Xamarin Studio för att demonstrera 
 
 Xamarin Studio skapar appen där Mobile Engagement ska integreras. 
 
-### Ansluta appen till Mobile Engagement-serverdelen
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Ansluta appen till Mobile Engagement-serverdelen
 1. Högerklicka på mappen **Packages** (Paket) i lösningsfönstret och välj **Add Packages** (Lägg till paket).
    
     ![][5]
@@ -73,7 +77,7 @@ Xamarin Studio skapar appen där Mobile Engagement ska integreras.
         engagementConfiguration.ConnectionString = "YourConnectionStringFromAzurePortal";
         EngagementAgent.Init(engagementConfiguration);
 
-### Lägga till behörigheter och en tjänstedeklaration
+### <a name="add-permissions-and-a-service-declaration"></a>Lägga till behörigheter och en tjänstedeklaration
 1. Öppna filen **Manifest.xml** under egenskapsmappen. Välj fliken Source (Källa) så att du uppdaterar XML-källan direkt.
 2. Lägg till följande behörigheter i Manifest.xml (som finns under mappen **Properties** [Egenskaper]) i ditt projekt omedelbart före eller efter taggen `<application>`:
    
@@ -86,13 +90,13 @@ Xamarin Studio skapar appen där Mobile Engagement ska integreras.
 3. Lägg till följande mellan taggarna `<application>` och `</application>` för att deklarera agenttjänsten:
    
         <service
-            android:name="com.microsoft.azure.engagement.service.EngagementService"
-            android:exported="false"
-            android:label="<Your application name>"
-            android:process=":Engagement"/>
+             android:name="com.microsoft.azure.engagement.service.EngagementService"
+             android:exported="false"
+             android:label="<Your application name>"
+             android:process=":Engagement"/>
 4. Ersätt `"<Your application name>"` i etiketten i den kod som du precis klistrade in. Detta visas på **inställningsmenyn** där användarna kan se vilka tjänster som körs på enheten. Du kan till exempel lägga till ordet ”Service” eller ”Tjänst” i etiketten.
 
-### Skicka en skärm till Mobile Engagement
+### <a name="send-a-screen-to-mobile-engagement"></a>Skicka en skärm till Mobile Engagement
 För att kunna börja skicka data och försäkra dig om att användarna är aktiva måste du skicka minst en skärm till Mobile Engagement-serverdelen. Kontrollera att `MainActivity` ärver från `EngagementActivity` istället för från `Activity` för att göra detta.
 
     public class MainActivity : EngagementActivity
@@ -111,10 +115,10 @@ Som alternativ, om du inte kan ärva från `EngagementActivity`, måste du lägg
                 base.OnPause();            
             }
 
-## <a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 Med Mobile Engagement kan du samverka med användarna, nå ut till dem och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
 I följande avsnitt konfigurerar du appen för att ta emot dem.
 
@@ -134,6 +138,6 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

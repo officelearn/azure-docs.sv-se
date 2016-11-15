@@ -1,12 +1,12 @@
 ---
 title: Kryptera en virtuell Azure-dator | Microsoft Docs
-description: Det här dokumentet hjälper dig att kryptera en virtuell Azure-dator när du har fått en avisering från Azure Security Center.
+description: "Det här dokumentet hjälper dig att kryptera en virtuell Azure-dator när du har fått en avisering från Azure Security Center."
 services: security, security-center
 documentationcenter: na
 author: TomShinder
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
 ms.service: security
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+
 
 ---
-# Kryptera en virtuell Azure-dator
+# <a name="encrypt-an-azure-virtual-machine"></a>Kryptera en virtuell Azure-dator
 Azure Security Center varnar dig om du har virtuella datorer som inte är krypterade. Dessa aviseringar visas med hög angelägenhetsgrad och rekommendationen är att kryptera dessa virtuella datorer.
 
 ![Rekommendation för kryptering av disk](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
@@ -42,10 +46,10 @@ Det finns flera metoder som kan användas för att konfigurera de nödvändiga k
 > 
 > 
 
-## Installera och konfigurera Azure PowerShell
+## <a name="install-and-configure-azure-powershell"></a>Installera och konfigurera Azure PowerShell
 Du behöver ha Azure PowerShell version 1.2.1 eller senare installerat på datorn. Artikeln [Så installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) beskriver alla steg du behöver för att ställa in datorn så att den fungerar med Azure PowerShell. Den enklaste metoden är att använda metoden för Web PI-installation som beskrivs i den artikeln. Även om du redan har installerat Azure PowerShell bör du installera det igen med Web PI-metoden så att du har den senaste versionen av Azure PowerShell.
 
-## Hämta och kör det konfigurationsskript som krävs för Azure Disk Encryption
+## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Hämta och kör det konfigurationsskript som krävs för Azure Disk Encryption
 Med det nödvändiga konfigurationsskriptet för Azure Disk Encryption ställs alla förutsättningar som krävs för kryptering av dina virtuella Azure-datorer in.
 
 1. Gå till den GitHub-sida som innehåller det [nödvändiga installationsskriptet för Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
@@ -70,7 +74,7 @@ Du bör nu se något som liknar bilden nedan.
 
 Det översta fönstret kallas ”skriptfönster” och det längst ned kallas ”konsolen”. Vi använder dessa termer senare i den här artikeln.
 
-## Kör de PowerShell-kommandon som krävs för Azure Disk Encryption
+## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Kör de PowerShell-kommandon som krävs för Azure Disk Encryption
 Skriptet med kraven för Azure Disk Encryption ber dig om följande information när du har startat skriptet:
 
 * **Resursgruppens namn** – namnet på den resursgrupp som du vill placera nyckelvalvet i.  Om det inte redan finns en med samma namn skapas en ny resursgrupp med det namn som du anger. Om du redan har en resursgrupp som du vill använda i den här prenumerationen anger du namnet på den.
@@ -108,10 +112,10 @@ Skriptets utdata ska se ut ungefär som skärmen nedan:
 
 ![PowerShell-utdata](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
 
-## Kryptera den virtuella Azure-datorn
+## <a name="encrypt-the-azure-virtual-machine"></a>Kryptera den virtuella Azure-datorn
 Du är nu redo att kryptera din virtuella dator. Om den virtuella datorn finns i samma resursgrupp som ditt nyckelvalv kan du gå vidare till avsnittet med krypteringsstegen. Men om den virtuella datorn inte är i samma resursgrupp som ditt nyckelvalv måste du ange följande i konsolen i PowerShell ISE:
 
-**$resourceGroupName = < Virtual_Machine_RG >**
+**$resourceGroupName = <’Virtual_Machine_RG’>**
 
 Ersätt **< Virtual_Machine_RG >** med namnet på resursgruppen där de virtuella datorerna finns. Det ska omges av enkla citattecken. Tryck sedan på **RETUR**.
 Bekräfta att rätt resursgruppsnamn har angetts genom att skriva följande i konsolen PowerShell ISE:
@@ -122,10 +126,10 @@ Tryck på **RETUR**. Du bör se namnet på resursgruppen som de virtuella datore
 
 ![PowerShell-utdata](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
 
-### Krypteringssteg
+### <a name="encryption-steps"></a>Krypteringssteg
 Först måste du ange namnet på den virtuella datorn som du vill kryptera för PowerShell. Skriv följande i konsolen:
 
-**$vmName = < your_vm_name >**
+**$vmName = <’your_vm_name’>**
 
 Ersätt **< your_vm_name >** med namnet på den virtuella datorn (kontrollera att namnet omges av enkla citattecken) och tryck sedan på **RETUR**.
 
@@ -167,7 +171,7 @@ I bladet **Diskar** kan du se att **Kryptering** är **aktiverat**.
 
 ![Diskegenskaper](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 I det här dokumentet beskrivs hur du krypterar en virtuell dator i Azure. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
 * [Säkerhetshälsoövervakning i Azure Security Center](security-center-monitoring.md)  – Här kan du läsa om hur du övervakar dina Azure-resursers hälsa
@@ -175,6 +179,9 @@ I det här dokumentet beskrivs hur du krypterar en virtuell dator i Azure. I fö
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

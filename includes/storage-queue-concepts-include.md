@@ -1,4 +1,4 @@
-## Vad är Queue Storage?
+## <a name="what-is-queue-storage"></a>Vad är Queue Storage?
 Azure Queue Storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via autentiserade anrop med HTTP eller HTTPS. Ett enda kömeddelande kan vara upp till 64 KB stort och en kö kan innehålla miljontals meddelanden, upp till den totala kapacitetsgränsen för ett lagringskonto.
 
 Vanliga användningsområden för Queue Storage är:
@@ -6,7 +6,7 @@ Vanliga användningsområden för Queue Storage är:
 * Skapa en lista med kvarvarande uppgifter att bearbeta asynkront
 * Skicka meddelanden från en Azure-webbroll till en Azure-arbetsroll
 
-## Kötjänst-koncept
+## <a name="queue-service-concepts"></a>Kötjänst-koncept
 Kötjänsten består av följande komponenter:
 
 ![Kö1](./media/storage-queue-concepts-include/queue1.png)
@@ -21,6 +21,8 @@ Kötjänsten består av följande komponenter:
 * **Kö:** en kö innehåller en uppsättning meddelanden. Alla meddelanden måste vara i en kö. Observera att könamnet måste vara helt i gemener. Mer information om namngivning av köer finns i [namngivning av köer och metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 * **Meddelande:** ett meddelande i valfritt format, som är upp till 64 KB. Den maximala tid som ett meddelande kan finnas i kön är 7 dagar.
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

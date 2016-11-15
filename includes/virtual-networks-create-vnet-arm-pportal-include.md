@@ -1,4 +1,4 @@
-## Skapa ett VNet i Azure-portalen
+## <a name="how-to-create-a-vnet-in-the-azure-portal"></a>Skapa ett VNet i Azure-portalen
 Följ stegen nedan för att skapa ett VNet baserat på scenariot ovan med hjälp av Azure Preview Portal.
 
 1. Från en webbläsare, navigerar du till http://portal.azure.com och loggar, vid behov, in med ditt Azure-konto.
@@ -8,7 +8,7 @@ Följ stegen nedan för att skapa ett VNet baserat på scenariot ovan med hjälp
 3. På bladet **Skapa virtuellt nätverk**, konfigurerar du VNet-inställningarna som det visas i bilden nedan.
    
     ![Skapa ett virtuellt nätverksblad](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
-4. Klicka på **Resursgrupp** och välj en resursgrupp att lägga till VNet till, eller klicka på **Skapa ny** för att lägga till VNet till en ny resursgrupp. Bilden nedan visar resursgruppsinställningarna för en ny resursgrupp med namnet **TestRG**. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md#resource-groups).
+4. Klicka på **Resursgrupp** och välj en resursgrupp att lägga till VNet till, eller klicka på **Skapa ny** för att lägga till VNet till en ny resursgrupp. Bilden nedan visar resursgruppsinställningarna för en ny resursgrupp med namnet **TestRG**. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
    
     ![Resursgrupp](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 5. Ändra vid behov inställningarna för **Prenumeration** och **Plats** för din VNet. 
@@ -26,6 +26,8 @@ Följ stegen nedan för att skapa ett VNet baserat på scenariot ovan med hjälp
     
     ![Lista med undernät i VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

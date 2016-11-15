@@ -1,4 +1,4 @@
-## Hämta och förstå ARM-mallen
+## <a name="download-and-understand-the-arm-template"></a>Hämta och förstå ARM-mallen
 Du kan hämta den befintliga ARM-mallen för att skapa ett VNet och två undernät från github, göra de ändringar du vill och återanvända den. Följ stegen nedan för att göra det.
 
 1. Gå till [exempelmallsidan](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
@@ -9,7 +9,7 @@ Du kan hämta den befintliga ARM-mallen för att skapa ett VNet och två undern�
    
    | Parameter | Beskrivning |
    | --- | --- |
-   | **location** |Azure-region där VNet kommer att skapas |
+   | **Plats** |Azure-region där VNet kommer att skapas |
    | **vnetName** |Namn för det nya VNet |
    | **addressPrefix** |Adressutrymmet för VNet, i CIDR-format |
    | **subnet1Name** |Namn för det första VNet |
@@ -56,6 +56,8 @@ Du kan hämta den befintliga ARM-mallen för att skapa ett VNet och två undern�
         }
 11. Spara filen.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

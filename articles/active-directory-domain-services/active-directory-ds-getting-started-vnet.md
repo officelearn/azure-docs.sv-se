@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Domain Services: Skapa eller välja ett virtuellt nätverk | Microsoft Docs'
-description: Komma igång med Azure Active Directory Domain Services
+title: "Azure AD Domain Services: Skapa eller välja ett virtuellt nätverk | Microsoft Docs"
+description: "Komma igång med Azure Active Directory Domain Services"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 13ab1608-e3d8-40de-9f7b-9b5b42199af4
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0617dbff2ba281091ba5775e7969edfead4d80c8
+
 
 ---
-# Skapa eller välja ett virtuellt nätverk för Azure AD Domain Services
-## Riktlinjer för att välja ett virtuellt Azure-nätverk
+# <a name="create-or-select-a-virtual-network-for-azure-ad-domain-services"></a>Skapa eller välja ett virtuellt nätverk för Azure AD Domain Services
+## <a name="guidelines-to-select-an-azure-virtual-network"></a>Riktlinjer för att välja ett virtuellt Azure-nätverk
 > [!NOTE]
 > **Innan du börjar**: Läs [Nätverksrelaterade aspekter att tänka på med Azure AD Domain Services](active-directory-ds-networking.md).
 > 
 > 
 
-## Uppgift 2: Skapa ett virtuellt Azure-nätverk
+## <a name="task-2-create-an-azure-virtual-network"></a>Uppgift 2: Skapa ett virtuellt Azure-nätverk
 Nästa konfigurationsåtgärd är att skapa ett virtuellt nätverk för Azure och ett undernät i nätverket. Du aktiverar Azure AD Domain Services i detta undernät inom ditt virtuella nätverk. Du kan hoppa över det här steget om du redan har ett befintligt virtuellt nätverk som du vill använda.
 
 > [!NOTE]
@@ -60,9 +64,12 @@ Utför följande konfigurationssteg för att skapa ett virtuellt Azure-nätverk 
 
 <br>
 
-## Uppgift 3: Aktivera Azure AD Domain Services
+## <a name="task-3-enable-azure-ad-domain-services"></a>Uppgift 3: Aktivera Azure AD Domain Services
 Nästa konfigurationsåtgärd är att [aktivera Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

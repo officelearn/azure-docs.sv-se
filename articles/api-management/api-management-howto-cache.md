@@ -1,22 +1,26 @@
 ---
-title: Förbättra prestanda i Azure API Management med cachelagring | Microsoft Docs
-description: Lär dig hur du förbättrar svarstider, bandbreddsanvändning och webbtjänstbelastning i API Management-tjänstanrop.
+title: "Förbättra prestanda i Azure API Management med cachelagring | Microsoft Docs"
+description: "Lär dig hur du förbättrar svarstider, bandbreddsanvändning och webbtjänstbelastning i API Management-tjänstanrop."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+
 
 ---
-# Förbättra prestanda i Azure API Management med cachelagring
+# <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Förbättra prestanda i Azure API Management med cachelagring
 Du kan konfigurera åtgärder i API Management för cachelagring av svar. Cachelagring av svar kan avsevärt minska API:ets svarstider, bandbreddsanvändning och webbtjänstbelastning när data inte ändras så ofta.
 
 Den här guiden beskriver hur du lägger till cachelagring av svar till ditt API och hur du konfigurerar principer för Echo API-exempelåtgärderna. När du är klar kan du bekräfta att cachelagringen fungerar genom att anropa åtgärden från utvecklarportalen.
@@ -26,7 +30,7 @@ Den här guiden beskriver hur du lägger till cachelagring av svar till ditt API
 > 
 > 
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Innan du följer stegen i den här guiden måste du ha en API Management-tjänstinstans med ett API och en konfigurerad produkt. Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][Skapa en API Management-tjänstinstans] i självstudiekursen [Komma igång med Azure API Management][Komma igång med Azure API Management].
 
 ## <a name="configure-caching"> </a>Konfigurera en åtgärd för cachelagring
@@ -37,7 +41,7 @@ I det här steget ska du granska cachelagringsinställningarna för åtgärden *
 > 
 > 
 
-Börja genom att klicka på **Hantera** på den klassiska Azure-portalen för API Management-tjänsten. När du gör det kommer du till utgivarportalen för API Management.
+Börja genom att klicka på **Publisher-portal** på Azure-portalen för API Management-tjänsten. När du gör det kommer du till utgivarportalen för API Management.
 
 ![Utgivarportalen][api-management-management-console]
 
@@ -149,7 +153,7 @@ Observera att värdet för **sampleheader** i svaret nu är **value2**. Eftersom
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[Lägga till åtgärder i ett API]: api-management-howto-add-operations.md
+[Lägga till åtgärder till ett API]: api-management-howto-add-operations.md
 [Lägga till och publicera en produkt]: api-management-howto-add-products.md
 [Övervakning och analys]: api-management-monitoring.md
 [Lägga till API:er till en produkt]: api-management-howto-add-products.md#add-apis
@@ -168,6 +172,6 @@ Observera att värdet för **sampleheader** i svaret nu är **value2**. Eftersom
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

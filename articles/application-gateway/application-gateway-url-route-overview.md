@@ -1,19 +1,23 @@
 ---
-title: Översikt över URL-baserad innehållsroutning | Microsoft Docs
-description: Den här sidan ger en översikt över den Application Gateway URL-baserade innehållsroutningen, UrlPathMap-konfigurationen och PathBasedRouting-regeln.
+title: "Översikt över URL-baserad innehållsroutning | Microsoft Docs"
+description: "Den här sidan ger en översikt över den Application Gateway URL-baserade innehållsroutningen, UrlPathMap-konfigurationen och PathBasedRouting-regeln."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2016
+ms.date: 10/25/2016
 ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ea30057b62bdf926d6e39c170c4ad32afb202aef
+
 
 ---
 # <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
@@ -27,36 +31,38 @@ Begäranden för http://contoso.com/video* dirigeras till VideoServerPool och ht
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap-konfigurationselementet
 UrlPathMap-elementet används för att ange sökvägsmönster till mappningar för serverdels-serverpoolen. Följande kodexempel är utdrag av urlPathMap-element från mallfilen.
 
-    "urlPathMaps": [
-    {
-    "name": "<urlPathMapName>",
-    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>",
-    "properties": {
-        "defaultBackendAddressPool": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName>"
-        },
-        "defaultBackendHttpSettings": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpSettingsList/<settingsName>"
-        },
-        "pathRules": [
-            {
-                "paths": [
-                    <pathPattern>
-                ],
-                "backendAddressPool": {
-                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName2>"
-                },
-                "backendHttpsettings": {
-                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpsettingsList/<settingsName2>"
-                },
-
+```json
+"urlPathMaps": [
+{
+"name": "<urlPathMapName>",
+"id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>",
+"properties": {
+    "defaultBackendAddressPool": {
+        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName>"
+    },
+    "defaultBackendHttpSettings": {
+        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpSettingsList/<settingsName>"
+    },
+    "pathRules": [
+        {
+            "paths": [
+                <pathPattern>
+            ],
+            "backendAddressPool": {
+                "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName2>"
+            },
+            "backendHttpsettings": {
+                "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpsettingsList/<settingsName2>"
             },
 
-        ],
+        },
 
-    }
-    }
+    ],
 
+}
+}
+]
+```
 
 > [!NOTE]
 > PathPattern: Den här inställningen är en lista över sökvägsmönster att matcha. Varje måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som skickats till sökvägsmatcharen saknar text efter det första? eller # och de tecknen tillåts inte här. 
@@ -69,25 +75,32 @@ Du kan kolla en [Resource Manager-mall med URL-baserad routning](https://azure.m
 RequestRoutingRule av typen PathBasedRouting används för att binda en lyssnare till en urlPathMap. Alla begäranden som tas emot för den här lyssnaren dirigeras baserat på principen som anges i urlPathMap.
 Utdrag från PathBasedRouting-regeln:
 
-    "requestRoutingRules": [
+```json
+"requestRoutingRules": [
     {
 
-    "name": "<ruleName>",
-    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/requestRoutingRules/<ruleName>",
-    "properties": {
-        "ruleType": "PathBasedRouting",
-        "httpListener": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/httpListeners/<listenerName>"
-        },
-        "urlPathMap": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>"
-        },
+"name": "<ruleName>",
+"id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/requestRoutingRules/<ruleName>",
+"properties": {
+    "ruleType": "PathBasedRouting",
+    "httpListener": {
+        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/httpListeners/<listenerName>"
+    },
+    "urlPathMap": {
+        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>"
+    },
 
+}
     }
+]
+```
 
 ## <a name="next-steps"></a>Nästa steg
 När du läst om URL-baserad innehållsroutning, kan du gå till [skapa en Application Gateway med URL-baserad routing](application-gateway-create-url-route-portal.md) för att skapa en Application Gateway med regler för URL-routning.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

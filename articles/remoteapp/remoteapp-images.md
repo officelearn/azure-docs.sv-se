@@ -1,11 +1,11 @@
 ---
 title: Vad finns i Azure RemoteApp-mallavbildningarna? | Microsoft Docs
-description: Läs mer om mallavbildningarna som ingår i Azure RemoteApp.
+description: "Läs mer om mallavbildningarna som ingår i Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: 7f8442b2-81da-421e-a453-aa53ba2066b7
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b589fb3b1cdbf1f14ece6adf43e1eb0313ff09df
+
 
 ---
-# Vad finns i Azure RemoteApp-mallavbildningarna?
+# <a name="what-is-in-the-azure-remoteapp-template-images"></a>Vad finns i Azure RemoteApp-mallavbildningarna?
 > [!IMPORTANT]
 > Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
@@ -36,7 +40,7 @@ Din Azure RemoteApp-prenumeration innehåller tre mallavbildningar:
 
 I nedanstående avsnitt finns information om vad varje avbildning innehåller.
 
-## Windows Server 2012 R2 (den vanliga avbildningen)
+## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 (den vanliga avbildningen)
 Den här avbildningen baseras på operativsystemet Microsoft Windows Server 2012 R2 Datacenter och har följande installerade roller och funktioner för att uppfylla kraven för Azure RemoteApp-mallavbildningar:
 
 * .NET Framework 4.5, 3.5.1, 3.5
@@ -55,7 +59,7 @@ Den här avbildningen innehåller även följande program:
 * Microsoft System Center 2012 Endpoint Protection
 * Microsoft Windows Media Player
 
-## Microsoft Office 365 ProPlus (prenumeration krävs)
+## <a name="microsoft-office-365-proplus-subscription-required"></a>Microsoft Office 365 ProPlus (prenumeration krävs)
 Office 365 är det mest efterfrågade programmet så vi har skapat en ”anpassad” avbildning som du kan använda.
 
 Den här avbildningen är en utökning av den vanliga avbildningen, och innehåller följande komponenter från Microsoft Office 365 ProPlus utöver de komponenter som beskrivs i Windows Server 2012 R2-avbildningen:
@@ -86,7 +90,7 @@ Alla funktioner i Office 365 ProPlus-apparna är bara tillgängliga för använd
 
 Observera att du måste licensiera Office 365 ProPlus, Visio Pro och Project Pro separat – alla har en egen licens.
 
-## Microsoft Office 2013 Professional Plus (endast utvärderingsversion)
+## <a name="microsoft-office-2013-professional-plus-trial-only"></a>Microsoft Office 2013 Professional Plus (endast utvärderingsversion)
 Du kan prova på tjänsten med Office 2013-avbildningen under den kostnadsfria utvärderingsperioden.
 
 Den här avbildningen är en utökning av den vanliga avbildningen, och innehåller följande komponenter från Microsoft Office 2013 Professional Plus utöver de komponenter som beskrivs i Windows Server 2012 R2-avbildningen:
@@ -108,6 +112,9 @@ Den här avbildningen är en utökning av den vanliga avbildningen, och innehål
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

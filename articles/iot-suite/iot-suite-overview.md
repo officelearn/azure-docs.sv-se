@@ -1,13 +1,13 @@
 ---
-title: Översikt över Microsoft Azure IoT Suite | Microsoft Docs
-description: Översikt över hur Azure IoT Suite levererar förkonfigurerade IoT-lösningar för att samla in, analysera och lagra data, skapa visualiseringar och integrera med andra system.
-services: ''
+title: "Översikt över Microsoft Azure IoT Suite | Microsoft Docs"
+description: "Översikt över hur Azure IoT Suite levererar förkonfigurerade IoT-lösningar för att samla in, analysera och lagra data, skapa visualiseringar och integrera med andra system."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7b0df1fc79e82a99ea65296a4e09bdb48fde9451
+
 
 ---
-# Vad är Azure IoT Suite?
+# <a name="what-is-azure-iot-suite"></a>Vad är Azure IoT Suite?
 Azures tjänster för Sakernas Internet (IoT, Internet of Things) tillhandahåller en rad intressanta funktioner. Med dessa tjänster i företagsklass kan du:
 
 * Samla in data från enheter
@@ -34,7 +38,7 @@ Följande videoklipp innehåller en introduktion till Azure IoT Suite:
 > 
 > 
 
-## Azure IoT-tjänster i Azure IoT Suite
+## <a name="azure-iot-services-in-azure-iot-suite"></a>Azure IoT-tjänster i Azure IoT Suite
 De förkonfigurerade lösningarna använder vanligtvis följande tjänster:
 
 * Kärnan i Azure IoT Suite är [Azure IoT Hub][lnk-iot-hub] Den här tjänsten tillhandahåller funktioner för meddelandehantering från ”enhet till moln” och från ”moln till enhet” och fungerar som en gateway till molnet och andra viktiga IoT Suite-tjänster. Tjänsten gör att du kan ta emot meddelanden från dina enheter i hög skala och skicka kommandon till dina enheter.
@@ -44,10 +48,10 @@ De förkonfigurerade lösningarna använder vanligtvis följande tjänster:
 
 En översikt över arkitekturen i en typisk IoT-lösning finns i [Microsoft Azure och Sakernas Internet (IoT)][iot-suite-what-is-azure-iot].
 
-## Förkonfigurerade lösningar
+## <a name="preconfigured-solutions"></a>Förkonfigurerade lösningar
 IoT Suite erbjuder förkonfigurerade lösningar som hjälper dig att snabbt komma igång med och utforska vanliga IoT-scenarier som *Fjärrövervakning* och *Förebyggande underhåll*, som blir möjliga med Azure IoT Suite. Du kan distribuera lösningarna till din Azure-prenumeration och sedan köra ett komplett IoT-scenario från slutpunkt till slutpunkt.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när du har en översikt över vad IoT Suite kan göra och dess huvudkomponenter kan du lära dig mer om de förinställda lösningarna i IoT Suite genom att läsa [Vad är förkonfigurerade lösningar i Azure IoT?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
@@ -62,6 +66,6 @@ Nu när du har en översikt över vad IoT Suite kan göra och dess huvudkomponen
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

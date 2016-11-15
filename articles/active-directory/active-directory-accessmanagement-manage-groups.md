@@ -1,12 +1,12 @@
 ---
 title: Hantera grupper i Azure Active Directory | Microsoft Docs
-description: Så här skapar och hanterar du grupper för att hantera Azure med Azure Active Directory-användare.
+description: "Så här skapar och hanterar du grupper för att hantera Azure med Azure Active Directory-användare."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d1f5451c-3807-423c-8bac-2822d27b893f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+
 
 ---
-# Hantera grupper i Azure Active Directory
+# <a name="managing-groups-in-azure-active-directory"></a>Hantera grupper i Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-groups-create-azure-portal.md)
+> * [Azure-portal](active-directory-groups-create-azure-portal.md)
 > * [Klassisk Azure-portal](active-directory-accessmanagement-manage-groups.md)
-> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 > 
 > 
 
@@ -31,7 +35,7 @@ En av användarhanteringsfunktionerna i Azure Active Directory (AD Azure) är m�
 
 En resursägare kan dessutom ge en Azure AD-grupp som ägs av någon annan åtkomst till en resurs. Denna tilldelning ger medlemmarna i den aktuella gruppen åtkomst till resursen. Gruppens ägare hanterar sedan medlemskap i gruppen. I själva verket delegerar resursägaren behörighet till gruppens ägare att tilldela användare till resursen.
 
-## Hur skapar jag en grupp?
+## <a name="how-do-i-create-a-group"></a>Hur skapar jag en grupp?
 Beroende på vilka tjänster som din organisation prenumererar på, kan du skapa en grupp med något av följande:
 
 * den klassiska Azure-portalen
@@ -45,7 +49,7 @@ Vi kommer att beskriva uppgifter som de genomförs på den klassiska Azure-porta
 3. Välj **Lägg till grupp**.
 4. I fönstret **Lägg till grupp** anger du namnet och beskrivningen för en grupp.
 
-## Hur lägger jag till eller tar bort enskilda användare i en säkerhetsgrupp?
+## <a name="how-do-i-add-or-remove-individual-users-in-a-security-group"></a>Hur lägger jag till eller tar bort enskilda användare i en säkerhetsgrupp?
 **Så här lägger du till en enskild användare till en grupp**
 
 1. På [den klassiska Azure-portalen](https://manage.windowsazure.com) väljer du först **Active Directory** och sedan namnet på din organisations katalog.
@@ -62,7 +66,7 @@ Vi kommer att beskriva uppgifter som de genomförs på den klassiska Azure-porta
 4. Välj fliken **Medlemmar**, välj namnet på medlemmen som du vill ta bort från den här gruppen och klicka sedan på **Ta bort**.
 5. Bekräfta att du vill ta bort medlemmen från gruppen när du uppmanas att göra det.
 
-## Hur kan jag hantera medlemskapet för en grupp dynamiskt?
+## <a name="how-can-i-manage-the-membership-of-a-group-dynamically"></a>Hur kan jag hantera medlemskapet för en grupp dynamiskt?
 I Azure AD kan du enkelt skapa en enkel regel för att avgöra vilka användare som ska vara medlemmar i gruppen. En enkel regel är en regel som bara gör en jämförelse. Om ett SaaS-program t.ex. har tilldelats en grupp, kan du konfigurera en regel som lägger till användare som har befattningen Försäljare. Den här regeln beviljar sedan åtkomst till det här SaaS-programmet för alla användare med denna befattning i katalogen.
 
 När ett attribut för en användare ändras utvärderar systemet alla dynamiska gruppregler i en katalog för att se om attributändringen ska utlösa grupptillägg eller gruppborttagningar. Om användaren uppfyller en regel i en grupp läggs användaren till som medlem i gruppen. Om användaren inte längre uppfyller regeln i en grupp som han eller hon är medlem i tas användaren bort som medlem i gruppen.
@@ -88,7 +92,7 @@ När ett attribut för en användare ändras utvärderar systemet alla dynamiska
 
 Mer information om hur du skapar *avancerade* regler (regler som kan innehålla flera jämförelser) för dynamiska gruppmedlemskap finns i [Använda attribut för att skapa avancerade regler](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
-## Ytterligare information
+## <a name="additional-information"></a>Ytterligare information
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md)
@@ -97,6 +101,9 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 * [Vad är Azure Active Directory?](active-directory-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

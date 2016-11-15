@@ -1,13 +1,13 @@
 ---
 title: Etablera en virtuell dator med SQL Server | Microsoft Docs
-description: Skapa och ansluta till en virtuell dator med SQL Server i Azure via portalen. I den här kursen används Resource Manager-läget.
+description: "Skapa och ansluta till en virtuell dator med SQL Server i Azure via portalen. I den här kursen används Resource Manager-läget."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-editor: ''
+editor: 
 manager: jhubbard
 tags: azure-resource-manager
-
+ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: jroth
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 842b6e0b69661a91ebb997346b34da00576378c2
+
 
 ---
-# Etablera en virtuell dator med SQL Server på Azure Portal
+# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Etablera en virtuell dator med SQL Server på Azure Portal
 > [!div class="op_single_selector"]
 > * [Portalen](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
@@ -35,7 +39,7 @@ I den här kursen ska du:
 * [Öppna den virtuella datorn med Fjärrskrivbord](#open-the-vm-with-remote-desktop)
 * [Fjärransluta till SQL Server](#connect-to-sql-server-remotely)
 
-## Välja en VM-avbildning med SQL från galleriet
+## <a name="select-a-sql-vm-image-from-the-gallery"></a>Välja en VM-avbildning med SQL från galleriet
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
    
    > [!NOTE]
@@ -60,7 +64,7 @@ I den här kursen ska du:
    
     ![Skapa den virtuella SQL-datorn med Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## Konfigurera den virtuella datorn
+## <a name="configure-the-vm"></a>Konfigurera den virtuella datorn
 Det finns fem tillgängliga blad för att konfigurera en virtuell dator med SQL Server.
 
 | Steg | Beskrivning |
@@ -71,7 +75,7 @@ Det finns fem tillgängliga blad för att konfigurera en virtuell dator med SQL 
 | **SQL Server-inställningar** |[Konfigurera SQL Server-inställningar](#4-configure-sql-server-settings) |
 | **Sammanfattning** |[Granska sammanfattningen](#5-review-the-summary) |
 
-## 1. Konfigurera grundläggande inställningar
+## <a name="1-configure-basic-settings"></a>1. Konfigurera grundläggande inställningar
 Ange följande information i bladet **Grundläggande inställningar**:
 
 * Ange ett unikt **namn** för den virtuella datorn.
@@ -81,7 +85,7 @@ Ange följande information i bladet **Grundläggande inställningar**:
 * I rutan **Resursgrupp** skriver du ett namn för en ny resursgrupp. Du kan också använda en befintlig resursgrupp genom att klicka på **Välj befintlig**. En resursgrupp är en samling relaterade resurser i Azure (virtuella datorer, lagringskonton, virtuella nätverk osv.).
   
   > [!NOTE]
-  > En ny resursgrupp är praktiskt om du bara testar eller lär dig om SQL Server-distributioner i Azure. När du är klar med testet tar du bort resursgruppen. När du gör det tas den virtuella datorn och alla resurser som associeras med resursgruppen bort automatiskt. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../resource-group-overview.md).
+  > En ny resursgrupp är praktiskt om du bara testar eller lär dig om SQL Server-distributioner i Azure. När du är klar med testet tar du bort resursgruppen. När du gör det tas den virtuella datorn och alla resurser som associeras med resursgruppen bort automatiskt. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
   > 
   > 
 * Välj en **plats** för den här distributionen.
@@ -89,7 +93,7 @@ Ange följande information i bladet **Grundläggande inställningar**:
   
     ![Grundläggande SQL-inställningar](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
-## 2. Välj den virtuella datorns storlek
+## <a name="2-choose-virtual-machine-size"></a>2. Välj den virtuella datorns storlek
 I steget **Storlek** väljer du en storlek för den virtuella dator i bladet **Välj en storlek**. Bladet visar rekommenderade datorstorlekar baserat på den mall du valt. Du ser också den uppskattade månadskostnaden för att köra den virtuella datorn.
 
 ![Storleksalternativ för en virtuell dator med SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
@@ -103,7 +107,7 @@ För produktionsarbetsbelastningar rekommenderar vi att du väljer en storlek p�
 
 Välj din datorstorlek och klicka på **Välj**.
 
-## 3. Konfigurera valfria funktioner
+## <a name="3-configure-optional-features"></a>3. Konfigurera valfria funktioner
 I bladet **Inställningar** konfigurerar du lagring, nätverk och övervakning för den virtuella datorn.
 
 * Under **Storage** anger du en **disktyp**, antingen Standard eller Premium (SSD). Premium Storage rekommenderas för produktionsarbetsbelastningar.
@@ -120,7 +124,7 @@ I bladet **Inställningar** konfigurerar du lagring, nätverk och övervakning f
 
 När du har konfigurerat dessa inställningar klickar du på **OK**.
 
-## 4. Konfigurera SQL Server-inställningar
+## <a name="4-configure-sql-server-settings"></a>4. Konfigurera SQL Server-inställningar
 I bladet **SQL Server-inställningar** konfigurerar du specifika inställningar och optimeringar för SQL Server. Du kan bland annat konfigurera följande inställningar för SQL Server.
 
 | Inställning |
@@ -128,12 +132,12 @@ I bladet **SQL Server-inställningar** konfigurerar du specifika inställningar 
 | [Anslutning](#connectivity) |
 | [Autentisering](#authentication) |
 | [Storage-konfiguration](#storage-configuration) |
-| [Automatisk korrigering](#automated-patching) |
+| [Automatisk uppdatering](#automated-patching) |
 | [Automatisk säkerhetskopiering](#automated-backup) |
 | [Azure Key Vault-integrering](#azure-key-vault-integration) |
 | [R-tjänster](#r-services) |
 
-### Anslutning
+### <a name="connectivity"></a>Anslutning
 Under **SQL-anslutning** anger du vilken typ av åtkomst du vill ha till SQL Server-instansen på den här virtuella datorn. I den här kursen väljer du **Offentlig (Internet)** för att tillåta anslutningar till SQL Server från datorer eller tjänster på Internet. När det här alternativet är valt konfigurerar Azure automatiskt brandväggen och nätverkssäkerhetsgruppen så att trafik tillåts på port 1433.  
 
 ![SQL-anslutningsalternativ](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
@@ -160,7 +164,7 @@ I allmänhet kan du förbättra säkerheten genom att välja den mest restriktiv
 Standardinställningen för **Port** är 1433. Du kan ange ett annat portnummer.
 Mer information finns i [Ansluta till en virtuell dator med SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
-### Autentisering
+### <a name="authentication"></a>Autentisering
 Om du kräver SQL Server-autentisering klickar du på **Aktivera** under **SQL-autentisering**.
 
 ![SQL Server-autentisering](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
@@ -174,7 +178,7 @@ Om du aktiverar SQL Server-autentisering anger du ett **inloggningsnamn** och **
 
 Om du inte aktiverar SQL Server-autentisering kan du använda det lokala administratörskontot på den virtuella datorn för att ansluta till SQL Server-instansen.
 
-### Storage-konfiguration
+### <a name="storage-configuration"></a>Storage-konfiguration
 Klicka på **Storage-konfiguration** för att ange lagringskraven.
 
 ![SQL Storage-konfiguration](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
@@ -186,7 +190,7 @@ Klicka på **Storage-konfiguration** för att ange lagringskraven.
 
 Du kan ange krav som I/O-åtgärder per sekund (IOPs), genomflöde i MB/s och totalt lagringsutrymme. Konfigurera dessa värden med hjälp av reglagen. Portalen beräknar automatiskt antalet diskar baserat på dessa krav.
 
-Som standard optimerar Azure lagringen för 5 000 IOPs, 200 MB och 1 TB lagringsutrymme. Du kan ändra dessa lagringsinställningar baserat på arbetsbelastningen. Under **Storage optimerat för** väljer du något av följande alternativ:
+Som standard optimerar Azure lagringen för 5 000 IOPs, 200 MB och 1 TB lagringsutrymme. Du kan ändra dessa lagringsinställningar baserat på arbetsbelastningen. Under **Storage optimerat för** väljer du något av följande alternativ:
 
 * **Allmänt** är standardinställningen och har stöd för de flesta arbetsbelastningar.
 * **Transaktionell** bearbetning optimerar lagringen för traditionella OLTP-arbetsbelastningar för databaser.
@@ -197,14 +201,14 @@ Som standard optimerar Azure lagringen för 5 000 IOPs, 200 MB och 1 TB lagrings
 > 
 > 
 
-### Automatisk uppdatering
+### <a name="automated-patching"></a>Automatisk uppdatering
 **Automatisk uppdatering** är aktiverat som standard. Med inställningen Automatisk uppdatering kan Azure korrigera SQL Server och operativsystemet automatiskt. Ange en dag i veckan, en tid och längden på en underhållsperiod. Azure utför uppdateringar under den här underhållsperioden. Den virtuella datorns lokala tid används för underhållsperiodens schema. Om du inte vill att Azure ska uppdatera SQL Server och operativsystemet automatiskt klickar du på **Inaktivera**.  
 
 ![Automatisk SQL-uppdatering](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
 Mer information finns i [Automatisk uppdatering av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
 
-### Automatisk säkerhetskopiering
+### <a name="automated-backup"></a>Automatisk säkerhetskopiering
 Aktivera automatiska säkerhetskopieringar för alla databaser under **Automatisk säkerhetskopiering**. Automatisk säkerhetskopiering är inaktiverat som standard.
 
 När du aktiverar automatisk SQL-säkerhetskopiering kan du konfigurera följande:
@@ -219,7 +223,7 @@ Om du vill kryptera säkerhetskopian klickar du på **Aktivera**. Ange sedan **l
 
  Mer information finns i [Automatisk säkerhetskopiering av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
-### Azure Key Vault-integrering
+### <a name="azure-key-vault-integration"></a>Azure Key Vault-integrering
 Om du vill lagra säkerhetshemligheter i Azure för kryptering klickar du på **Azure Key Vault-integrering** och klickar sedan på **Aktivera**.
 
 ![SQL Azure Key Vault-integrering](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
@@ -237,7 +241,7 @@ Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server
 
 När du har konfigurerat inställningarna för SQL Server klickar du på **OK**.
 
-### R-tjänster
+### <a name="r-services"></a>R-tjänster
 I SQL Server 2016 Enterprise edition har du möjlighet att aktivera [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). Det ger dig möjlighet att använda avancerad analys med SQL Server 2016. Klicka på **Aktivera** på bladet **SQL Server-inställningar**.
 
 ![Aktivera SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
@@ -247,7 +251,7 @@ I SQL Server 2016 Enterprise edition har du möjlighet att aktivera [SQL Server 
 > 
 > 
 
-## 5. Granska sammanfattningen
+## <a name="5-review-the-summary"></a>5. Granska sammanfattningen
 I bladet **Sammanfattning** granskar du sammanfattningen och klickar på **OK** för att skapa SQL Server, resursgruppen och resurserna som angetts för den här virtuella datorn.
 
 Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** längst upp på skärmen visar grundläggande status för distributionen.
@@ -257,7 +261,7 @@ Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** län
 > 
 > 
 
-## Öppna den virtuella datorn med Fjärrskrivbord
+## <a name="open-the-vm-with-remote-desktop"></a>Öppna den virtuella datorn med Fjärrskrivbord
 Använd följande steg för att ansluta till den virtuella datorn med Fjärrskrivbord:
 
 1. När den virtuella Azure-datorn har skapats visas ikonen för den virtuella datorn på instrumentpanelen i Azure. Du kan också hitta den genom att bläddra bland dina befintliga virtuella datorer. Klicka på den nya virtuella SQL-datorn. Bladet **Virtuell dator** visar information om din virtuella dator.
@@ -274,7 +278,7 @@ När du ansluter till den virtuella SQL Server-datorn kan du starta SQL Server M
 
 När du har anslutit till datorn kan du direkt ändra inställningarna för datorn och SQL Server efter behov. Du kan till exempel konfigurera brandväggsinställningarna eller ändra konfigurationsinställningarna för SQL Server.
 
-## Fjärransluta till SQL Server
+## <a name="connect-to-sql-server-remotely"></a>Fjärransluta till SQL Server
 I den här självstudiekursen valde vi **offentlig** åtkomst för den virtuella datorn och **SQL Server-autentisering**. Dessa inställningar konfigurerade automatiskt den virtuella datorn så att SQL Server-anslutningar tillåts från alla klienter över Internet (förutsatt att de har rätt SQL-inloggningsuppgifter).
 
 > [!NOTE]
@@ -288,13 +292,16 @@ Följande avsnitt visar hur du ansluter till SQL Server-instansen på den virtue
 > 
 > 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Mer information om hur du använder SQL Server i Azure finns i [SQL Server på Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) och [Vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Om du vill titta på en videoöversikt över SQL Server på Azure Virtual Machines tittar du på [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Azure VM är den bästa plattformen för SQL Server 2016).
 
 [Utforska utbildningsvägen](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) för SQL Server på virtuella datorer i Azure.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

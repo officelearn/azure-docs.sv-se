@@ -1,23 +1,27 @@
 ---
 title: 'Azure AD Domain Services: Aktivera Azure AD Domain Services | Microsoft Docs'
-description: Komma igång med Azure Active Directory Domain Services
+description: "Komma igång med Azure Active Directory Domain Services"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: c659da59-f4b5-4edd-b702-1727a8ccb36f
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/21/2016
+ms.date: 10/19/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 553b93c2c379b961e793033ab2b5c76b107cda10
+
 
 ---
-# Aktivera Azure AD Domain Services
-## Uppgift 3: Aktivera Azure AD Domain Services
+# <a name="enable-azure-ad-domain-services"></a>Aktivera Azure AD Domain Services
+## <a name="task-3-enable-azure-ad-domain-services"></a>Uppgift 3: Aktivera Azure AD Domain Services
 I det här steget aktiverar du Azure AD Domain Services för din katalog. Aktivera Azure AD Domain Services för din katalog genom att utföra följande konfigurationssteg.
 
 1. Gå till **den klassiska Azure-portalen** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
@@ -43,23 +47,23 @@ I det här steget aktiverar du Azure AD Domain Services för din katalog. Aktive
    
    * Standarddomännamnet för katalogen (som slutar med domänsuffixet **.onmicrosoft.com**) väljs som standard.
    * Listan innehåller alla domäner som har konfigurerats för din Azure AD-katalog – inklusive verifierade och overifierade domäner som du konfigurerar på fliken Domäner.
-   * Du kan också lägga till ett anpassat domännamn i den här listan genom att skriva det. I det här exemplet har vi angett ett anpassat domännamn: ”contoso100.com”
+   * Dessutom kan du även skriva ett eget domännamn. I det här exemplet har vi angett ett anpassat domännamn: ”contoso100.com”.
      
      > [!WARNING]
      > Kontrollera att domänprefixet för det domännamn som du anger (t.ex. ”contoso100” i domännamnet ”contoso100.com”) är högst 15 tecken långt. Du kan inte skapa en Azure AD Domain Services-domän med ett domänprefix som är längre än 15 tecken.
      > 
      > 
-8. Nästa steg är att välja ett virtuellt nätverk där du vill att Azure AD Domain Services ska vara tillgängligt. Välj det virtuella nätverk som du skapade i listrutan **Anslut domäntjänster till det här virtuella nätverket**.
-   
-   * Se till att det virtuella nätverket som du har angett hör till en Azure-region som stöds av Azure AD Domain Services.
-   * På sidan [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services/) kan du se i vilka Azure-regioner som Azure AD Domain Services är tillgängligt.
-   * Virtuella nätverk som hör till en region där Azure AD Domain Services inte stöds visas inte i listrutan.
-   * Virtuella nätverk som har skapats med Azure Resource Manager visas inte heller i listrutan. Resource Manager-baserade virtuella nätverk stöds för närvarande inte av Azure AD Domain Services.
-9. Kontrollera att DNS-domännamnet som du har valt för den hanterade domänen inte redan finns i det virtuella nätverket. Kontrollera särskilt om:
+8. Kontrollera att DNS-domännamnet som du har valt för den hanterade domänen inte redan finns i det virtuella nätverket. Kontrollera särskilt om:
    
    * du redan har en domän med samma DNS-domännamn i det virtuella nätverket
    * det virtuella nätverket som du har valt har en VPN-anslutning med det lokala nätverket och du har en domän med samma DNS-domännamn i det lokala nätverket
    * du har en befintlig molntjänst med det namnet i det virtuella nätverket.
+9. Nästa steg är att välja ett virtuellt nätverk där du vill att Azure AD Domain Services ska vara tillgängligt. Välj det virtuella nätverk och dedikerade undernät som du skapade i listrutan **Anslut domäntjänster till det här virtuella nätverket**.
+   
+   * Se till att det virtuella nätverket som du har angett hör till en Azure-region som stöds av Azure AD Domain Services. På sidan [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services/) kan du se i vilka Azure-regioner som Azure AD Domain Services är tillgängligt.
+   * Virtuella nätverk som hör till en region där Azure AD Domain Services inte stöds visas inte i listrutan.
+   * Använd ett dedikerat undernät i det virtuella nätverket för Azure AD Domain Services. Se till att du inte väljer gateway-undernätet. Se [Nätverksöverväganden](active-directory-ds-networking.md). 
+   * Virtuella nätverk som har skapats med Azure Resource Manager visas inte heller i listrutan. Resource Manager-baserade virtuella nätverk stöds för närvarande inte av Azure AD Domain Services.
 10. Klicka på **Spara** i åtgärdsfönstret längst ned på sidan för att aktivera Azure AD Domain Services.
 11. Sidan visar statusen ”Väntar...” medan Azure AD Domain Services aktiveras för katalogen.
     
@@ -72,20 +76,23 @@ I det här steget aktiverar du Azure AD Domain Services för din katalog. Aktive
 12. Efter 20–30 minuter visas den första IP-adressen som Domain Services är tillgängligt för i det virtuella nätverket i fältet **IP-adress** på sidan **Konfigurera**.
     
     ![Domain Services aktiverat – den första IP-adressen har etablerats](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
-13. När hög tillgänglighet är tillgängligt i din domän visas två IP-adresser på sidan. Det här är de IP-adresser som Azure AD Domain Services är tillgängligt på i ditt valda virtuella nätverk. Anteckna IP-adresserna så att du kan uppdatera DNS-inställningarna för ditt virtuella nätverk. Det här steget gör att virtuella datorer i det virtuella nätverket kan ansluta till domänen för olika åtgärder, till exempel för en domänanslutning.
+13. När hög tillgänglighet är tillgängligt i din domän visas två IP-adresser på sidan. Den hanterade domänen är tillgänglig i ditt valda virtuella nätverk på dessa två IP-adresser. Anteckna IP-adresserna så att du kan uppdatera DNS-inställningarna för ditt virtuella nätverk. Det här steget gör att virtuella datorer i det virtuella nätverket kan ansluta till domänen för olika åtgärder, till exempel för en domänanslutning.
     
     ![Domain Services aktiverat – båda IP-adresserna har etablerats](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
 > [!NOTE]
-> Beroende på storleken på din Azure AD-klient (antal användare, grupper m.m.) kan det ta en stund innan innehållet i klienten är tillgängligt i Azure AD Domain Services. Den här synkroniseringsprocessen sker i bakgrunden. För stora klienter med tiotusentals objekt kan det ta en eller ett par dagar innan alla användare, gruppmedlemskap och autentiseringsuppgifter finns tillgängliga i Azure AD Domain Services.
+> Beroende på storleken på Azure AD-innehavaren (antal användare, grupper osv.) kan synkroniseringen av den hanterade domänen ta ett tag. Den här synkroniseringsprocessen sker i bakgrunden. För stora klienter med tiotusentals objekt kan det ta en eller ett par dagar innan alla användare, gruppmedlemskap och autentiseringsuppgifter synkroniseras.
 > 
 > 
 
 <br>
 
-## Uppgift 4 – Uppdatera DNS-inställningar för det virtuella Azure-nätverket
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Uppgift 4 – Uppdatera DNS-inställningar för det virtuella Azure-nätverket
 Nästa konfigurationsåtgärd är att [uppdatera DNS-inställningarna för det virtuella Azure-nätverket](active-directory-ds-getting-started-dns.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

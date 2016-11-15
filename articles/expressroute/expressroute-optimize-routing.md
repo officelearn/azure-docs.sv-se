@@ -1,12 +1,12 @@
 ---
 title: Optimera ExpressRoute-routning | Microsoft Docs
-description: Den här sidan innehåller information om hur du optimerar routning när en kund har mer än en ExpressRoute-krets som ansluter mellan Microsoft och kundens företagsnätverk.
+description: "Den här sidan innehåller information om hur du optimerar routning när en kund har mer än en ExpressRoute-krets som ansluter mellan Microsoft och kundens företagsnätverk."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
+
 
 ---
 # <a name="optimize-expressroute-routing"></a>Optimera ExpressRoute-routning
@@ -24,7 +28,7 @@ Låt oss titta närmare på routningsproblemet med ett exempel. Anta att du har 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
-### <a name="solution:-use-bgp-communities"></a>Lösning: Använd BGP-communities
+### <a name="solution-use-bgp-communities"></a>Lösning: Använd BGP-communities
 För att optimera routningen för båda kontoren måste du veta vilket prefix som är från Azure i västra USA och vilket som är från Azure i östra USA. Vi kodar informationen genom att använda [BGP Community-värden](expressroute-routing.md). Vi har tilldelat ett unikt BGP Community-värde för varje Azure-region, t.ex. ”12076:51004” för östra USA och ”12076:51006” för västra USA. Nu när du vet vilket prefix är från vilken Azure-region, kan du konfigurera de ExpressRoute-kretsar som ska användas. Eftersom vi använder BGP till att utbyta routningsinformation kan du använda BGP:s lokala inställningar för att påverka routningen. I vårt exempel kan du tilldela ett högre lokalt inställningsvärde för 13.100.0.0/16 i västra USA än i östra USA, och på samma sätt ett högre lokalt inställningsvärde för 23.100.0.0/16 i östra USA än i västra USA. Den här konfigurationen ser till att, när båda sökvägarna till Microsoft är tillgängliga, användarna i Los Angeles kan använda ExpressRoute-kretsen i västra USA för att ansluta till Azure där, medan dina användare i New York tar ExpressRoute i östra USA till Azure där. Routning är optimerad på båda sidorna. 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
@@ -34,8 +38,8 @@ Här är ett annat exempel där anslutningar från Microsoft tar en längre sök
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
-### <a name="solution:-use-as-path-prepending"></a>Lösning: Använd AS PATH
-Det finns två lösningar på problemet. Den första är att du bara annonserar ditt lokala prefix för LA-kontoret, 177.2.0.0/31, på ExpressRoute-kretsen i västra USA och ditt lokala prefix för kontoret i New York, 177.2.0.2/31, på ExpressRoute-kretsen i östra USA. Det innebär att det bara finns en enda sökväg för Microsofts anslutning till dina olika kontor. Det finns inga tveksamheter och routningen optimeras. Du måste tänka på din redundansstrategi med den här designen. Du måste se till att Exchange Online fortfarande kan ansluta till dina lokala servrar i händelse av att sökvägen till Microsoft via ExpressRoute bryts. 
+### <a name="solution-use-as-path-prepending"></a>Lösning: Använd AS PATH
+Det finns två lösningar på problemet. Den första är att du bara annonserar ditt lokala prefix för LA-kontoret, 177.2.0.0/31, på ExpressRoute-kretsen i västra USA och ditt lokala prefix för kontoret i New York, 177.2.0.2/31, på ExpressRoute-kretsen i östra USA. Det innebär att det bara finns en enda sökväg för Microsofts anslutning till dina olika kontor. Det finns inga tveksamheter och routningen optimeras. Du måste tänka på din redundansstrategi med den här designen. Du måste se till att Exchange Online fortfarande kan ansluta till dina lokala servrar i händelse av att sökvägen till Microsoft via ExpressRoute bryts. 
 
 Den andra lösningen är att du fortsätter att annonsera båda prefixen för båda ExpressRoute-kretsarna, men dessutom ger du oss en ledtråd för vilka prefix som ligger nära dina kontor. Du kan konfigurera AS PATH för ditt prefix om du vill påverka routningen eftersom vi stöder BGP. I det här exemplet kan du förlänga AS PATH för 172.2.0.0/31 i östra USA så att vi prioriterar ExpressRoute-kretsen i västra USA för trafik till det prefixet (vårt nätverk kommer att tro att sökvägen till prefixet är kortare i väst). På samma sätt kan du förlänga AS PATH för 172.2.0.2/31 i västra USA så att vi prioriterar ExpressRoute-kretsen i östra USA. Routning är optimerat för båda kontoren. Med den här designen kan Exchange Online fortfarande nå dig via en annan ExpressRoute-krets och ditt WAN om en ExpressRoute-krets bryts. 
 
@@ -51,6 +55,9 @@ Den andra lösningen är att du fortsätter att annonsera båda prefixen för b�
 > 
 > 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

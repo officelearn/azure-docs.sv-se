@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Domain Services: Aktivera lösenordssynkronisering | Microsoft Docs'
-description: Komma igång med Azure Active Directory Domain Services
+title: "Azure AD Domain Services: Aktivera lösenordssynkronisering | Microsoft Docs"
+description: "Komma igång med Azure Active Directory Domain Services"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c625fdf679c282bb62fdcbc864cd5b65d1014231
+
 
 ---
-# Aktivera lösenordssynkronisering till Azure AD Domain Services
+# <a name="enable-password-synchronization-to-azure-ad-domain-services"></a>Aktivera lösenordssynkronisering till Azure AD Domain Services
 I de föregående uppgifterna aktiverade du Azure AD Domain Services för din Azure AD-klient. Nästa uppgift är att aktivera autentiseringshasher som krävs för att NTLM- och Kerberos-autentisering ska kunna synkronisera till Azure AD Domain Services. När synkroniseringen av autentiseringsuppgifter har konfigurerats kan användarna logga in till den hanterade domänen med sina företagsuppgifter.
 
 Stegen skiljer sig beroende på om din organisation har en helt molnbaserad Azure AD-klient eller om du synkroniserar med din lokala katalog med hjälp av Azure AD Connect.
@@ -31,7 +35,7 @@ Stegen skiljer sig beroende på om din organisation har en helt molnbaserad Azur
 
 <br>
 
-## Uppgift 5: Aktivera lösenordssynkronisering till AAD Domain Services för en molnbaserad Azure AD-klient
+## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-cloudonly-azure-ad-tenant"></a>Uppgift 5: Aktivera lösenordssynkronisering till AAD Domain Services för en molnbaserad Azure AD-klient
 Azure AD Domain Services behöver autentiseringshasher i ett format som passar för NTLM- och Kerberos-autentisering för att autentisera användare i den hanterade domänen. Om du aktiverar AAD Domain Services för din klient så varken genererar eller lagrar Azure AD autentiseringshasher i det format som krävs för NTLM- eller Kerberos-autentisering. Av självklara säkerhetsskäl lagrar Azure AD inte heller autentiseringsuppgifter i klartext. Detta betyder att Azure AD inte kan skapa dessa NTLM- eller Kerberos-autentiseringshasher utifrån användarnas befintliga autentiseringsuppgifter.
 
 > [!NOTE]
@@ -41,7 +45,7 @@ Azure AD Domain Services behöver autentiseringshasher i ett format som passar f
 
 Den här lösenordsändringsprocessen gör att autentiseringshasherna som krävs av Azure AD Domain Services för Kerberos- och NTLM-autentisering genereras i Azure AD. Du kan antingen ange att lösenorden för alla användare i klienten som behöver använda Azure AD Domain Services ska förfalla eller uppmana dessa användare att ändra sina lösenord.
 
-### Aktivera genereringen av hashvärden för NTLM- och Kerberos-autentisering för en helt molnbaserad Azure AD-klient
+### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloudonly-azure-ad-tenant"></a>Aktivera genereringen av hashvärden för NTLM- och Kerberos-autentisering för en helt molnbaserad Azure AD-klient
 Här är de instruktioner som du måste ge slutanvändarna så att de kan ändra sina lösenord:
 
 1. Gå till sidan för Azure AD-åtkomstpanelen för din organisation på [http://myapps.microsoft.com](http://myapps.microsoft.com).
@@ -62,7 +66,7 @@ När du har ändrat ditt lösenord kan det nya lösenordet användas i Azure AD 
 
 <br>
 
-## Relaterat innehåll
+## <a name="related-content"></a>Relaterat innehåll
 * [Uppdatera ditt eget lösenord](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Komma igång med lösenordshantering i Azure AD](../active-directory/active-directory-passwords-getting-started.md).
 * [Aktivera lösenordssynkronisering till AAD Domain Services för en synkroniserad Azure AD-klient](active-directory-ds-getting-started-password-sync-synced-tenant.md)
@@ -70,6 +74,9 @@ När du har ändrat ditt lösenord kan det nya lösenordet användas i Azure AD 
 * [Ansluta en virtuell Windows-dator till en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Ansluta en virtuell Linux-dator med Red Hat Enterprise till en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

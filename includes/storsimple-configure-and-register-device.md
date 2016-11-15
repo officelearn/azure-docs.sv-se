@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 12/01/15-->
 
 
-#### Konfigurera och registrera enheten
+#### <a name="to-configure-and-register-the-device"></a>Konfigurera och registrera enheten
 1. Gå in i Windows PowerShell-gränssnittet på din StorSimple-enhets seriekonsol. Mer instruktioner finns i [Använd PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console). **Se till att följa proceduren exakt för att du ska få åtkomst till konsolen.**
 2. I sessionen som öppnas, trycker du på Retur en gång för att få fram en kommandotolk. 
 3. Du kommer att uppmanas att välja det språk som du vill ställa in för din enhet. Ange språk och tryck på Retur. 
@@ -30,7 +30,8 @@
      > 
 8. (Valfritt) konfigurera din webbproxyserver. Även om webbproxykonfigurationen är valfri, **var medveten om att om du använder en webbproxy så kan du bara konfigurera den här**. Mer information finns i [Konfigurera en webbproxy för din enhet](../articles/storsimple/storsimple-configure-web-proxy.md). Om du stöter på problem med det här steget, finns felsökningsanvisningar i [Fel under webbproxykonfigurationen](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
 
-      > [AZURE.NOTE] Du kan trycka på Ctrl + C när som helst för att avsluta installationsguiden. Alla inställningar som du applicerade innan du anger kommandot kommer att sparas.
+     > [!NOTE]
+     > Du kan trycka på Ctrl + C när som helst för att avsluta installationsguiden. Alla inställningar som du applicerade innan du anger kommandot kommer att sparas.
 
 1. Av säkerhetsskäl upphör enhetens administratörslösenord att gälla efter den första sessionen. Du måste ändra lösenordet för efterföljande sessioner. Ange ett administratörslösenord för enheten när du ombes göra det. Ett giltigt enhetsadministratörslösenord för enheten måste vara mellan 8 och 15 tecken. Lösenordet måste innehålla en kombination av gemener, versaler, siffror och specialtecken.
 2. Lösenordet för StorSimple Snapshot Manager ställs också in här. Du använder det här lösenordet när du autentiserar en enhet med din Windowsbaserade dator som kör StorSimple Snapshot Manager. När du uppmanas, ange ett lösenord på mellan 14 och 15 tecken. Lösenordet måste innehålla en kombination av tre av följande: gemener, versaler, siffror och specialtecken. 
@@ -73,6 +74,8 @@ När enheten har registrerats och inte är online, kan du köra `Test-HcsmConnec
 
 För att se på en video som visar hur du konfigurerar och registrerar din enhet via Windows PowerShell för StorSimple, klickar du [här](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Push-meddelanden till geografiskt avgränsade områden med Azure Notification Hubs och Bing Spatial Data | Microsoft Docs
-description: I den här självstudiekurskursen får lära du dig att leverera platsbaserade push-meddelanden med Azure Notification Hub och Bing Spatial Data.
+title: "Push-meddelanden till geografiskt avgränsade områden med Azure Notification Hubs och Bing Spatial Data | Microsoft Docs"
+description: "I den här självstudiekurskursen får lära du dig att leverera platsbaserade push-meddelanden med Azure Notification Hub och Bing Spatial Data."
 services: notification-hubs
 documentationcenter: windows
 keywords: push-meddelande, pushmeddelande
 author: dend
 manager: yuaxu
 editor: dend
-
+ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -15,24 +15,28 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/31/2016
 ms.author: dendeli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc946619fa3134594d3891ffdf78417d054293e3
+
 
 ---
-# Push-meddelanden till geografiskt avgränsade områden med Azure Notification Hubs och Bing Spatial Data
+# <a name="geofenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Push-meddelanden till geografiskt avgränsade områden med Azure Notification Hubs och Bing Spatial Data
 > [!NOTE]
-> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
 > 
 > 
 
 I den här självstudiekursen får lära du dig att leverera platsbaserade push-meddelanden med Azure Notification Hub och Bing Spatial Data. Användningen underlättas av att allt genomförs från en UWP-app (Universal Windows Platform).
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Först och främst måste du se till att du har alla program och att alla grundläggande krav uppfylls: 
 
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) eller senare ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) går också bra). 
 * Senaste versionen av [Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Konto på Bing Maps Dev Center](https://www.bingmapsportal.com/) (du kan skapa ett gratis och associera det med ditt Microsoft-konto). 
 
-## Komma igång
+## <a name="getting-started"></a>Komma igång
 Låt oss börja med att skapa projektet. Starta ett nytt projekt av typen **tom app (Universal Windows)** i Visual Studio.
 
 ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
@@ -49,7 +53,7 @@ Du måste ange följande parametrar för att detta ska fungera:
 
 Låt oss göra en djupdykning i inställningarna för vart och ett av elementen ovan.
 
-## Ställa in datakällan
+## <a name="setting-up-the-data-source"></a>Ställa in datakällan
 Du kan göra detta i Bing Maps Dev Center. Klicka på **Datakällor** i det övre navigeringsfältet och välj **Hantera datakällor**.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
@@ -103,7 +107,7 @@ Du får bara tillbaka detta svar när punkten verkligen ligger inom de angivna g
 
 ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-## Konfigurera UWP-appen
+## <a name="setting-up-the-uwp-application"></a>Konfigurera UWP-appen
 Nu när datakällan är redo kan vi börja jobba med UWP-appen som vi startade om tidigare.
 
 Först och främst måste vi aktivera platstjänster för vår app. För att göra detta dubbelklickar du på filen `Package.appxmanifest` i **Solution Explorer**.
@@ -200,7 +204,7 @@ Implementeringen visar platskoordinaterna i fönstret **Utmatning**:
         });
     }
 
-## Ställa in serverdelen
+## <a name="setting-up-the-backend"></a>Ställa in serverdelen
 Hämta [Exempel för .NET-serverdel från GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). När hämtningen är klar, öppnar du mappen `NotifyUsers` och därefter filen `NotifyUsers.sln`.
 
 Ange projektet `AppBackend` som **startprojektet** och starta det.
@@ -306,7 +310,7 @@ När du har återgått till `NotificationsController.cs` skapar du en markering 
 
 Om du gör detta kommer meddelandet endast att skickas när punkten befinner sig inom gränserna.
 
-## Testa push-meddelanden i UWP-appen
+## <a name="testing-push-notifications-in-the-uwp-app"></a>Testa push-meddelanden i UWP-appen
 När vi går tillbaka till UWP-appen, bör vi nu kunna testa meddelandefunktionen. Skapa en ny funktion – `SendLocationToBackend` –  i klassen `LocationHelper`.
 
     public static async Task SendLocationToBackend(string pns, string userTag, string message, string latitude, string longitude)
@@ -376,7 +380,7 @@ Eftersom vi inte skickar de faktiska koordinaterna (som kanske inte ligger inom 
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## Nästa steg
+## <a name="whats-next"></a>Nästa steg
 Det finns några steg som du kan behöva följa, förutom det som nämns ovan, för att försäkra dig om att lösningen är klar för produktion.
 
 Först och främst kan du behöva se till att geofence-områdena är dynamiska. Detta kräver lite extraarbete med Bing-API:iet för att kunna ladda upp nya gränser inom den befintliga datakällan. Läs [API-dokumentationen för Bing Spatial Data Services](https://msdn.microsoft.com/library/ff701734.aspx) för mer information om ämnet.
@@ -387,6 +391,9 @@ Lösningen ovan beskriver ett scenario där du kan ha en stor mängd olika målp
 
 För mer information om funktioner i Notification Hubs, se vår [dokumentationsportal](https://azure.microsoft.com/documentation/services/notification-hubs/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

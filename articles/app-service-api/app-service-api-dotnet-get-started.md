@@ -1,12 +1,12 @@
 ---
-title: Kom igång med API Apps och ASP.NET i Apptjänst | Microsoft Docs
-description: Lär dig att skapa, distribuera och använda en ASP.NET API-app i Azure Apptjänst med hjälp av Visual Studio 2015.
+title: "Kom igång med API Apps och ASP.NET i Apptjänst | Microsoft Docs"
+description: "Lär dig att skapa, distribuera och använda en ASP.NET API-app i Azure Apptjänst med hjälp av Visual Studio 2015."
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
 ms.workload: na
 ms.tgt_pltfrm: dotnet
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+
 
 ---
-# Kom igång med API Apps, ASP.NET och Swagger i Azure Apptjänst
+# <a name="get-started-with-api-apps-aspnet-and-swagger-in-azure-app-service"></a>Kom igång med API Apps, ASP.NET och Swagger i Azure Apptjänst
 [!INCLUDE [selector](../../includes/app-service-api-get-started-selector.md)]
 
 Det här är den första i en serie kurser som visar hur du använder funktioner i Azure Apptjänst som är till hjälp för att utveckla och vara värd för RESTful-API:er.  I den här kursen ingår stöd för API-metadata i Swagger-format.
@@ -27,7 +31,7 @@ Du får lära dig:
 * Automatisera API-identifiering med paketet Swashbuckle NuGet för att dynamiskt generera Swagger API-metadata.
 * Använda Swagger API-metadata för att automatiskt generera klientkod till en API-app.
 
-## Översikt över exempelprogrammet
+## <a name="sample-application-overview"></a>Översikt över exempelprogrammet
 I den här kursen får du arbeta med ett enkelt exempelprogram med en att göra-lista. Programmet har en SPA-klientdel (Single-page Application), en ASP.NET Web API-mellannivå och en ASP.NET Web API-datanivå.
 
 ![Diagram över exempelprogram i API Apps](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
@@ -50,7 +54,7 @@ När du har slutfört den här kursen fungerar de två Web API-projekten i molne
 
 I nästa kurs i serien får du distribuera SPA-klientdelen i molnet.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 * ASP.NET Web API – Instruktionerna i kursen förutsätter att du har grundläggande kunskaper i att arbeta med ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) i Visual Studio.
 * Azure-konto – Du kan [öppna ett kostnadsfritt Azure-konto](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
@@ -66,19 +70,19 @@ I nästa kurs i serien får du distribuera SPA-klientdelen i molnet.
     > 
     > 
 
-## Hämta exempelprogrammet
+## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 1. Hämta databasen [Azure-Samples/app-service-api-dotnet-to-do-list](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list).
    
     Du kan klicka på knappen **Hämta ZIP** eller klona databasen på din lokala dator.
 2. Öppna ToDoList-lösningen i Visual Studio 2015 eller 2013.
    
    1. Du måste kunna lita på varje lösning.
-        ![Säkerhetsvarning](./media/app-service-api-dotnet-get-started/securitywarning.png)
+         ![Säkerhetsvarning](./media/app-service-api-dotnet-get-started/securitywarning.png)
 3. Skapa lösningen (CTRL + SHIFT + B) om du vill återställa NuGet-paketen.
    
     Om du vill se hur programmet fungerar innan du distribuerar det, kan du köra det lokalt. Säkerställ att ToDoListDataAPI är ditt startprojekt och kör lösningen. Du bör förväntar dig att se ett HTTP 403-fel i webbläsaren.
 
-## Använd Swagger API-metadata och -användargränssnitt
+## <a name="use-swagger-api-metadata-and-ui"></a>Använd Swagger API-metadata och -användargränssnitt
 Stöd för [Swagger](http://swagger.io/) 2.0 API-metadata är inbyggt i Azure Apptjänst. Varje API-app kan ange en URL-slutpunkt som returnerar metadata för API:n i Swagger JSON-format. De metadata som returneras från slutpunkten kan användas för att generera klientkod.
 
 Ett ASP.NET Web API-projekt kan dynamiskt generera Swagger-metadata med hjälp av [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet-paketet. Swashbuckle NuGet-paketet är redan installerat i de ToDoListDataAPI- och ToDoListAPI-projekt som du har hämtat.
@@ -194,7 +198,7 @@ Swashbuckle fungerar med alla ASP.NET Web API-projekt. Om du vill lägga till ge
 > 
 > 
 
-## <a id="createapiapp"></a> Skapa en API-app i Azure och distribuera kod till den
+## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Skapa en API-app i Azure och distribuera kod till den
 I det här avsnittet använder du Azure-verktyg som är inbyggda i Visual Studio-guiden **Publicera webbplats** för att skapa en ny API-app i Azure. Sedan distribuerar du ToDoListDataAPI-projektet till den nya API-appen och anropar API:n genom att köra Swagger-användargränssnittet.
 
 1. I **Solution Explorer** högerklickar du på ToDoListDataAPI-projektet och sedan på **Publicera**.
@@ -220,9 +224,9 @@ I det här avsnittet använder du Azure-verktyg som är inbyggda i Visual Studio
     URL:en för API-appen blir `{API app name}.azurewebsites.net`.
 6. I listrutan **Resursgrupp** klickar du på **Ny** och anger sedan "ToDoListGroup" eller ett annat namn om du föredrar det.
    
-    En resursgrupp är en samling Azure-resurser, till exempel API Apps, databaser eller virtuella datorer. När du jobbar med den här kursen är det bäst att skapa en ny resursgrupp eftersom du då i bara ett steg kan ta bort alla Azure-resurser som du skapar för kursen.
+    En resursgrupp är en samling Azure-resurser, till exempel API Apps, databaser eller virtuella datorer.    När du jobbar med den här kursen är det bäst att skapa en ny resursgrupp eftersom du då i bara ett steg kan ta bort alla Azure-resurser som du skapar för kursen.
    
-    I den här rutan kan du välja en befintlig [resursgrupp](../resource-group-overview.md) eller skapa en ny genom att skriva in ett namn som skiljer sig från befintliga resursgrupper i din prenumeration.
+    I den här rutan kan du välja en befintlig [resursgrupp](../azure-resource-manager/resource-group-overview.md) eller skapa en ny genom att skriva in ett namn som skiljer sig från befintliga resursgrupper i din prenumeration.
 7. Klicka på knappen **Ny** bredvid listrutan **Apptjänstplan**.
    
     Skärmbilden visar exempelvärden för **API-appnamn**, **Prenumeration** och **Resursgrupp** – dina värden skiljer sig från dessa.
@@ -233,63 +237,63 @@ I det här avsnittet använder du Azure-verktyg som är inbyggda i Visual Studio
 8. I dialogrutan **Konfigurera Apptjänstplan** anger du "ToDoListPlan" eller ett annat namn om du föredrar det.
 9. I listrutan **Plats** väljer du den plats som är närmast dig.
 
+   
     Den här inställningen anger vilket Azure-datacenter appen ska köras i. Välj en plats i närheten av dig för att minimera [svarstiden](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
-
-1. I listrutan **Nivå** klickar du på **Kostnadsfri**.
-   
-   För den här kursens syfte räcker det att välja den kostnadsfria prisnivån.
-2. I dialogrutan **Konfigurera Apptjänstplan** klickar du på **OK**.
-   
-   ![Klicka på OK i Konfigurera Apptjänstplan](./media/app-service-api-dotnet-get-started/configasp.png)
-3. I dialogrutan **Skapa Apptjänst** klickar du på **Skapa**.
-   
-   ![Klicka på Skapa i dialogrutan Skapa Apptjänst](./media/app-service-api-dotnet-get-started/clickcreate.png)
-   
-   Visual Studio skapar API-appen och en publiceringsprofil som innehåller alla de nödvändiga inställningarna för API-appen. Sedan öppnas guiden **Publicera webbplats** som du använder för att distribuera projektet.
-   
-   Guiden **Publicera webbplats** öppnas på tabben **Anslutning** (se nedan).
-   
-   På fliken **Anslutning** pekar inställningarna för **servern** och **webbplatsnamnet** på din API-app. **Användarnamn** och **lösenord** är autentiseringsuppgifter för distribution som Azure skapar åt dig. Efter distributionen öppnar Visual Studio en webbläsare på **mål-URL:en** (som är det enda syftet för **mål-URL:er**).  
-4. Klicka på **Nästa**.
-   
-   ![Klicka på Nästa på fliken Anslutning i Publicera webbplats](./media/app-service-api-dotnet-get-started/connnext.png)
-   
-   Nästa flik är fliken **Inställningar** (se nedan). Här kan du ändra fliken för versionskonfiguration så att den distribuerar en felsökningsversion för [fjärrfelsökning](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). På fliken finns också flera **Alternativ för filpublicering**:
-   
-   * Ta bort extra filer från destinationen
-   * Förkompilera vid publicering
-   * Undanta filer från mappen App_Data
-   
-   Under den här kursen behöver du ingen av dem. Utförliga förklaringar av vad de gör finns i [Så här distribuerar du ett webbprojekt med Publicera med ett klick i Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
-5. Klicka på **Next**.
-   
-   ![Klicka på Nästa på fliken Inställningar i Publicera webbplats](./media/app-service-api-dotnet-get-started/settingsnext.png)
-   
-   Nästa är fliken **Förhandsgranskning** (se nedan), som ger dig en möjlighet att se vilka filer som ska kopieras från ditt projekt till API-appen. När du distribuerar ett projekt till en API-app som du redan har distribuerat till tidigare, kopieras bara ändrade filer. Om du vill se en lista över det som ska kopieras klickar du på knappen **Starta förhandsgranskning**.
-6. Klicka på **Publicera**.
-   
-   ![Klicka på Publicera på fliken Förhandsgranska i Publicera webbplats](./media/app-service-api-dotnet-get-started/clickpublish.png)
-   
-   Visual Studio distribuerar ToDoListDataAPI-projektet till den nya API-appen. Fönstret **Utdata** loggar slutförd distribution och en "har skapats"-sida visas i ett webbläsarfönster som öppnas med API-appens URL.
-   
-   ![Utdatafönster visar slutförd distribution](./media/app-service-api-dotnet-get-started/deploymentoutput.png)
-   
-   ![Sida som visar att en ny API-app har skapats](./media/app-service-api-dotnet-get-started/appcreated.png)
-7. Lägg till "swagger" till URL:en i webbläsarens adressfält och tryck på Retur. (URL:en är `http://{apiappname}.azurewebsites.net/swagger`.)
-   
-   Webbläsaren visar samma Swagger-användargränssnitt som du såg tidigare, men nu körs det i molnet. Prova Hämta-metoden och du ser att du är tillbaka till standardlistan med 2 att göra-objekt. De ändringar du gjort tidigare har sparats i minnet på den lokala datorn.
-8. Öppna [Azure-portalen](https://portal.azure.com/).
-   
-   Azure-portalen är ett webbgränssnitt för att hantera Azure-resurser, till exempel API Apps.
-9. Klicka på **Fler tjänster > Apptjänster**.
-   
-   ![Bläddra i Apptjänster](./media/app-service-api-dotnet-get-started/browseas.png)
-10. Sök efter och klicka på din nya API-app på bladet **Apptjänster**. (I Azure-portalen kallas fönster som öppnas till höger *blad*.)
+10. I listrutan **Nivå** klickar du på **Kostnadsfri**.
+    
+    För den här kursens syfte räcker det att välja den kostnadsfria prisnivån.
+11. I dialogrutan **Konfigurera Apptjänstplan** klickar du på **OK**.
+    
+    ![Klicka på OK i Konfigurera Apptjänstplan](./media/app-service-api-dotnet-get-started/configasp.png)
+12. I dialogrutan **Skapa Apptjänst** klickar du på **Skapa**.
+    
+    ![Klicka på Skapa i dialogrutan Skapa Apptjänst](./media/app-service-api-dotnet-get-started/clickcreate.png)
+    
+    Visual Studio skapar API-appen och en publiceringsprofil som innehåller alla de nödvändiga inställningarna för API-appen. Sedan öppnas guiden **Publicera webbplats** som du använder för att distribuera projektet.
+    
+    Guiden **Publicera webbplats** öppnas på tabben **Anslutning** (se nedan).
+    
+    På fliken **Anslutning** pekar inställningarna för **servern** och **webbplatsnamnet** på din API-app. **Användarnamn** och **lösenord** är autentiseringsuppgifter för distribution som Azure skapar åt dig. Efter distributionen öppnar Visual Studio en webbläsare på **mål-URL:en** (som är det enda syftet för **mål-URL:er**).  
+13. Klicka på **Nästa**.
+    
+    ![Klicka på Nästa på fliken Anslutning i Publicera webbplats](./media/app-service-api-dotnet-get-started/connnext.png)
+    
+    Nästa flik är fliken **Inställningar** (se nedan). Här kan du ändra fliken för versionskonfiguration så att den distribuerar en felsökningsversion för [fjärrfelsökning](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). På fliken finns också flera **Alternativ för filpublicering**:
+    
+    * Ta bort extra filer från destinationen
+    * Förkompilera vid publicering
+    * Undanta filer från mappen App_Data
+    
+    Under den här kursen behöver du ingen av dem. Utförliga förklaringar av vad de gör finns i [Så här distribuerar du ett webbprojekt med Publicera med ett klick i Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+14. Klicka på **Next**.
+    
+    ![Klicka på Nästa på fliken Inställningar i Publicera webbplats](./media/app-service-api-dotnet-get-started/settingsnext.png)
+    
+    Nästa är fliken **Förhandsgranskning** (se nedan), som ger dig en möjlighet att se vilka filer som ska kopieras från ditt projekt till API-appen. När du distribuerar ett projekt till en API-app som du redan har distribuerat till tidigare, kopieras bara ändrade filer. Om du vill se en lista över det som ska kopieras klickar du på knappen **Starta förhandsgranskning**.
+15. Klicka på **Publicera**.
+    
+    ![Klicka på Publicera på fliken Förhandsgranska i Publicera webbplats](./media/app-service-api-dotnet-get-started/clickpublish.png)
+    
+    Visual Studio distribuerar ToDoListDataAPI-projektet till den nya API-appen. Fönstret **Utdata** loggar slutförd distribution och en "har skapats"-sida visas i ett webbläsarfönster som öppnas med API-appens URL.
+    
+    ![Utdatafönster visar slutförd distribution](./media/app-service-api-dotnet-get-started/deploymentoutput.png)
+    
+    ![Sida som visar att en ny API-app har skapats](./media/app-service-api-dotnet-get-started/appcreated.png)
+16. Lägg till "swagger" till URL:en i webbläsarens adressfält och tryck på Retur. (URL:en är `http://{apiappname}.azurewebsites.net/swagger`.)
+    
+    Webbläsaren visar samma Swagger-användargränssnitt som du såg tidigare, men nu körs det i molnet. Prova Hämta-metoden och du ser att du är tillbaka till standardlistan med 2 att göra-objekt. De ändringar du gjort tidigare har sparats i minnet på den lokala datorn.
+17. Öppna [Azure-portalen](https://portal.azure.com/).
+    
+    Azure-portalen är ett webbgränssnitt för att hantera Azure-resurser, till exempel API Apps.
+18. Klicka på **Fler tjänster > Apptjänster**.
+    
+    ![Bläddra i Apptjänster](./media/app-service-api-dotnet-get-started/browseas.png)
+19. Sök efter och klicka på din nya API-app på bladet **Apptjänster**. (I Azure-portalen kallas fönster som öppnas till höger *blad*.)
     
     ![Apptjänstblad](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
     
     Två blad öppna. Det ena bladet visar en översikt över API-appen och det andra en lång lista över inställningar som du kan visa och ändra.
-11. På bladet **Inställningar** letar du rätt på**API**-avsnittet och klickar på **API-definition**.
+20. På bladet **Inställningar** letar du rätt på**API**-avsnittet och klickar på **API-definition**.
     
     ![API-definition på bladet Inställningar](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
     
@@ -299,7 +303,7 @@ I det här avsnittet använder du Azure-verktyg som är inbyggda i Visual Studio
     
     När du väljer en API-app för att generera klientkod till den hämtar Visual Studio metadata från denna URL.
 
-## <a id="codegen"></a> Generera klientkod för datanivån
+## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Generera klientkod för datanivån
 En av fördelarna med att integrera Swagger i Azure API Apps är automatisk kodgenerering. Genererade klientklasser gör det enklare att skriva kod som anropar en API-app.
 
 ToDoListAPI-projektet har redan genererat klientkoden, men i följande steg ska du ta bort den och återskapa den för att se hur du utför kodgenereringen.
@@ -370,7 +374,7 @@ till denna:
             var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
-## Skapa en API-app som är värd för mellannivån
+## <a name="create-an-api-app-to-host-the-middle-tier"></a>Skapa en API-app som är värd för mellannivån
 Tidigare [skapade du datanivå-API-appen och distribuerade kod till den](#createapiapp).  Nu gör du på samma sätt med mellannivå-API-appen.
 
 1. I**Solution Explorer** högerklickar du på ToDoListAPI-projektet på mellannivå (inte ToDoListDataAPI på datanivå) och klickar sedan på **Publicera**.
@@ -389,7 +393,7 @@ Tidigare [skapade du datanivå-API-appen och distribuerade kod till den](#create
    
    Visual Studio distribuerar ToDoListAPI-projektet till den nya API-appen och öppnar en webbläsare på API-appens URL. Sidan "har skapats" visas.
 
-## Konfigurera mellannivån så att den anropar datanivån
+## <a name="configure-the-middle-tier-to-call-the-data-tier"></a>Konfigurera mellannivån så att den anropar datanivån
 Om du nu anropade mellannivå-API-appen skulle den försöka anropa datanivån med den localhost-URL som finns kvar i Web.config-filen. I det här avsnittet anger du datanivå-API-appens URL i en miljöinställning i API-appen på mellannivå. När koden i mellannivå-API-appen hämtar inställningen för datanivå-URL åsidosätter miljöinställningen det som ingår i  Web.config-filen.
 
 1. Gå till [Azure-portalen](https://portal.azure.com/) och navigera sedan till bladet **API-app** för den API-app som du skapade för att vara värd för TodoListAPI-projektet (mellannivån).
@@ -406,7 +410,7 @@ Om du nu anropade mellannivå-API-appen skulle den försöka anropa datanivån m
    
     När koden körs i Azure åsidosätter det här värdet URL:en för den lokala värden som finns i filen Web.config.
 
-## Testa
+## <a name="test"></a>Testa
 1. I ett webbläsarfönster bläddrar du till URL:en för den nya API-appen på mellannivå som du nyss skapade för ToDoListAPI. Du kommer dit genom att klicka på URL:en på API-appens huvudblad i portalen.
 2. Lägg till "swagger" till URL:en i webbläsarens adressfält och tryck på Retur. (URL:en är `http://{apiappname}.azurewebsites.net/swagger`.)
    
@@ -415,7 +419,7 @@ Om du nu anropade mellannivå-API-appen skulle den försöka anropa datanivån m
    
     ![Hämta-metoden i Swaggers användargränssnitt](./media/app-service-api-dotnet-get-started/midtierget.png)
 
-## Felsökning
+## <a name="troubleshooting"></a>Felsökning
 Om du stöter på problem när du går igenom den här kursen får du några felsökningsidéer här:
 
 * Säkerställ att du använder den senaste versionen av [Azure SDK för .NET](http://go.microsoft.com/fwlink/?linkid=518003).
@@ -425,7 +429,7 @@ Om du stöter på problem när du går igenom den här kursen får du några fel
 
 När din ASP.NET API-app körs i Azure Apptjänst vill du kanske veta mer om Visual Studio-funktioner som förenklar felsökningen. Information om bland annat loggning och fjärrfelsökning finns i [Felsöka Azure Apptjänst-appar i Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Du har lärt dig hur du distribuerar befintliga Web API-projekt till API Apps, genererar klientkod till API Apps och använder API Apps från .NET-klienter. I nästa kurs i den här serien får du lära dig att [använda API Apps från JavaScript-klienter med hjälp av CORS](app-service-api-cors-consume-javascript.md).
 
 Mer information om klientkodgenerering finns i databasen [Azure/AutoRest](https://github.com/azure/autorest) på GitHub.com. Om du behöver hjälp med att använda den genererade klienten öppnar du ett [problem i databasen AutoRest](https://github.com/azure/autorest/issues).
@@ -436,6 +440,9 @@ Om du vill skapa nya API-app-projekt från grunden ska du använda mallen för *
 
 Projektmallen för **Azure API Apps** motsvarar att välja den **tomma** ASP.NET 4.5.2-mallen, markera kryssrutan för att lägga till stöd för Web API och installera Swashbuckle NuGet-paketet. Mallen lägger dessutom till en del Swashbuckle-konfigurationskod som är skapad för att förhindra att duplicerade Swagger-åtgärds-ID skapas. När du har skapat ett API-app-projekt kan du distribuera det till en API-app på samma sätt som du lärt dig i den här kursen.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

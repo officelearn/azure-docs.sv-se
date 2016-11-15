@@ -1,13 +1,13 @@
 ---
-title: Förkonfigurerade lösningar i Azure IoT | Microsoft Docs
-description: En beskrivning av de förkonfigurerade lösningarna i Azure IoT och deras arkitektur med länkar till ytterligare resurser.
-services: ''
+title: "Förkonfigurerade lösningar i Azure IoT | Microsoft Docs"
+description: "En beskrivning av de förkonfigurerade lösningarna i Azure IoT och deras arkitektur med länkar till ytterligare resurser."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+
 
 ---
-# Vad är förkonfigurerade lösningar i Azure IoT Suite?
+# <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Vad är förkonfigurerade lösningar i Azure IoT Suite?
 De förkonfigurerade lösningarna i Azure IoT Suite är implementeringar av vanliga IoT-lösningsmönster som du kan distribuera till Azure via din prenumeration. Du kan använda de förkonfigurerade lösningarna:
 
 * Som en startpunkt för dina egna IoT-lösningar.
@@ -45,14 +49,14 @@ Följande tabell visar hur lösningarna mappar till specifika IoT-funktioner:
 * *Regler och åtgärder*: Lösningens serverdel använder regler för att agera på specifika data från enheten till molnet.
 * *Förutsägelseanalys*: Lösningens serverdel analyserar data från enheten till molnet för att förutsäga när specifika åtgärder ska äga rum. Lösningen kan till exempel analysera telemetri från en flygplansmotor för att fastställa när motorunderhåll krävs.
 
-## Översikt över den förkonfigurerade lösningen för fjärrövervakning
+## <a name="remote-monitoring-preconfigured-solution-overview"></a>Översikt över den förkonfigurerade lösningen för fjärrövervakning
 Vi har valt att diskutera den förkonfigurerade lösningen för fjärrövervakning i den här artikeln eftersom den illustrerar många vanliga designelement som finns i de andra lösningarna.
 
 Följande diagram illustrerar de viktigaste elementen i fjärrövervakningslösningen. Avsnitten nedan innehåller mer information om dessa element.
 
 ![Arkitekturen i den förkonfigurerade lösningen för fjärrövervakning][img-remote-monitoring-arch]
 
-## Enheter
+## <a name="devices"></a>Enheter
 När du distribuerar den förkonfigurerade fjärrövervakningslösningen har fyra simulerade enheter som simulerar en kylningsenhet redan konfigurerats i lösningen. Dessa simulerade enheter har en inbyggd temperatur- och fuktighetsmodell som genererar telemetri. De simulerade enheterna är med för att illustrera dataflödet från slutpunkt till slutpunkt via lösningen och för att ge tillgång till en bra telemetrikälla och ett mål för kommandon om du är en backend-utvecklare som använder lösningen som utgångspunkt för en anpassad implementering.
 
 Första gången en enhet ansluter till IoT Hub i den förkonfigurerade fjärrövervakningslösningen innehåller meddelandet med enhetsinformation som skickas till IoT-hubben en lista med alla kommandon som enheten kan svara på. I den förkonfigurerade fjärrövervakningslösningen används följande kommandon: 
@@ -66,14 +70,14 @@ Första gången en enhet ansluter till IoT Hub i den förkonfigurerade fjärröv
 
 Du kan lägga till fler simulerad enheter i lösningen som skickar samma telemetri och som svarar på samma kommandon. 
 
-## IoT Hub
+## <a name="iot-hub"></a>IoT Hub
 I den här förkonfigurerade lösningen motsvarar IoT Hub-instansen *molngatewayen* i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
 En IoT-hubb tar emot telemetri från enheterna på en enda slutpunkt. En IoT-hubb har också enhetsspecifika slutpunkter där varje enhet kan ta emot de kommandon som skickas till den.
 
 IoT-hubben ser till att den mottagna telemetrin är tillgänglig via den telemetriavlästa slutpunkten på tjänstsidan.
 
-## Azure Stream Analytics
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Den förkonfigurerade lösningen använder tre [Azure Stream Analytics][lnk-asa]-jobb (ASA) för att filtrera telemetriströmmen från enheterna:
 
 * Jobbet *Enhetsinformation* – matar ut data till en händelsehubb som dirigerar enhetsregistreringsspecifika meddelanden, som skickas när en enhet först ansluter till eller svarar på ett kommando av typen **Ändra enhetsstatus**, till lösningens enhetsregister (en DocumentDB-databas). 
@@ -82,19 +86,19 @@ Den förkonfigurerade lösningen använder tre [Azure Stream Analytics][lnk-asa]
 
 I den här förkonfigurerade lösningen är ASA-jobben en del av **IoT-lösningens serverdel** i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
-## Händelseprocessor
+## <a name="event-processor"></a>Händelseprocessor
 I den här förkonfigurerade lösningen är händelseprocessorn en del av **IoT-lösningens serverdel** i en typisk [IoT arkitektur][lnk-what-is-azure-iot].
 
 ASA-jobben **DeviceInfo** och **Regler** skickar sina utdata till Event Hubs för leverans till andra backend-tjänster. Lösningen använder en [EventPocessorHost][lnk-event-processor]-instans som körs i ett [Webbjobb][lnk-web-job] för att läsa meddelandena från dessa Event Hubs. **EventProcessorHost** använder data från **Enhetsinformation** för att uppdatera enhetsdata i DocumentDB-databasen och använder data från **Regler** för att anropa logikappen och uppdatera aviseringsvyn på lösningsportalen.
 
-## Enhetsidentitetsregistret och DocumentDB
+## <a name="device-identity-registry-and-documentdb"></a>Enhetsidentitetsregistret och DocumentDB
 Varje IoT-hubb innehåller ett [enhetsidentitetsregister][lnk-identity-registry] som lagrar enhetsnycklar. IoT Hub använder den här informationen för att autentisera enheter – en enhet måste vara registrerad och ha en giltig nyckel innan den kan ansluta till hubben.
 
 Den här lösningen lagrar ytterligare information om enheter, t.ex. deras tillstånd, de kommandon som de stöder och andra metadata. Lösningen använder en DocumentDB-databas för att lagra dessa lösningsspecifika enhetsdata och lösningsportalen hämtar data från den här DocumentDB-databasen för visning och redigering.
 
 Lösningen måste också spara informationen i enhetsidentitetsregistret som synkroniseras med innehållet i DocumentDB-databasen. **EventProcessorHost** använder data från Stream Analytics-jobbet **Enhetsinformation** för att hantera synkroniseringen.
 
-## Lösningsportal
+## <a name="solution-portal"></a>Lösningsportal
 ![Instrumentpanel för lösningen][img-dashboard]
 
 Lösningsportalen är ett webbaserat gränssnitt som distribueras till molnet som en del av den förkonfigurerade lösningen. Här kan du:
@@ -107,7 +111,7 @@ Lösningsportalen är ett webbaserat gränssnitt som distribueras till molnet so
 
 I den här förkonfigurerade lösningen är lösningsportalen en del av **IoT-lösningens serverdel** och en del av **bearbetnings- och affärsanslutningarna** i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Mer information om IoT-lösningsarkitekturer finns i [Microsoft Azure IoT-tjänster: referensarkitektur][lnk-refarch].
 
 Nu vet du vad en förkonfigurerad lösning är och kan komma igång genom att distribuera den förkonfigurerade lösningen för *fjärrövervakning*: [Komma igång med förkonfigurerade lösningar][lnk-getstarted-preconfigured].
@@ -125,6 +129,7 @@ Nu vet du vad en förkonfigurerad lösning är och kan komma igång genom att di
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!--HONumber=Oct16_HO1-->
+
+<!--HONumber=Nov16_HO2-->
 
 

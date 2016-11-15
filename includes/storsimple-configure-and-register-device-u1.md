@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 02/22/2016-->
 
 
-### Konfigurera och registrera enheten
+### <a name="to-configure-and-register-the-device"></a>Konfigurera och registrera enheten
 1. Gå in i Windows PowerShell-gränssnittet på din StorSimple-enhets seriekonsol. Mer instruktioner finns i [Använd PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console). **Se till att följa proceduren exakt för att du ska få åtkomst till konsolen.**
 2. I sessionen som öppnas, trycker du på Retur en gång för att få fram en kommandotolk. 
 3. Du kommer att uppmanas att välja det språk som du vill ställa in för din enhet. Ange språk och tryck på Retur. 
@@ -63,6 +63,8 @@
        
         Kontrollera att port 9354 är öppen för utgående kommunikation eftersom den används av service bus för StorSimple Manager-tjänsten för kommunikation till enheten.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: 'Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av .NET-API:et | Microsoft Docs'
-description: I den här självstudiekursen ska du skapa en Azure Data Factory-pipeline med en kopieringsaktivitet med hjälp av .NET-API:et.
+title: "Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av .NET-API:et | Microsoft Docs"
+description: "I den här självstudiekursen ska du skapa en Azure Data Factory-pipeline med en kopieringsaktivitet med hjälp av .NET-API:et."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 10/27/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 629ff68b11df0d17629ca101e5a80a396cfd0fb9
+
 
 ---
-# Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av .NET-API:et
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av .NET-API:et
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
@@ -24,7 +28,7 @@ ms.author: spelluru
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
@@ -38,13 +42,13 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
 > 
 > 
 
-## Krav
+## <a name="prerequisites"></a>Krav
 * Gå igenom [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för att få en översikt av självstudierna och slutför de **nödvändiga** stegen. 
 * Visual Studio 2012, 2013 eller 2015
 * Ladda ned och installera [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 * Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.
 
-### Skapa ett program i Azure Active Directory
+### <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
 Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för programmet och tilldela det rollen som **Data Factory-deltagare**.  
 
 1. Starta **PowerShell**. 
@@ -95,7 +99,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 * Program-ID:t 
 * Lösenord (anges i det första kommandot)   
 
-## Genomgång
+## <a name="walkthrough"></a>Genomgång
 1. Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2012/2013/2015.
    1. Starta **Visual Studio** 2012/2013/2015.
    2. Klicka på **Arkiv**, peka på **Nytt** och klicka på **Projekt**.
@@ -105,25 +109,29 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
    6. Välj **C:\ADFGetStarted** som plats.
    7. Klicka på **OK** för att skapa projektet.
 2. Klicka på **Verktyg**, peka på **Nuget Package Manager** och klicka på **Package Manager Console**.
-3. Kör följande kommandon ett i taget i **Package Manager Console**. 
-   
-       Install-Package Microsoft.Azure.Management.DataFactories
-       Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+3. I **Package Manager Console** gör du följande steg: 
+   1. Kör följande kommando för att installera Data Factory-paketet: `Install-Package Microsoft.Azure.Management.DataFactories`        
+   2. Kör följande kommando för att installera Azure Active Directory-paketet (du använder Active Directory-API i koden): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Lägg till följande **appSetttings**-avsnitt i filen **App.config**. De här inställningarna används av helper-metoden: **GetAuthorizationHeader**. 
    
     Ersätt värdena för **&lt;Program-ID&gt;**, **&lt;Lösenord&gt;**, **&lt;Prenumerations-ID&gt;** och **&lt;Klient-ID&gt;** med dina egna värden. 
    
-        <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+        <?xml version="1.0" encoding="utf-8" ?>
+        <configuration>
+            <startup> 
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+            </startup>
+            <appSettings>
+                <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+                <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+                <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
    
-            <!-- Replace the following values with your own -->
-            <add key="ApplicationId" value="<Application ID>" />
-            <add key="Password" value="<Password>" />    
-            <add key="SubscriptionId" value= "Subscription ID" />
-            <add key="ActiveDirectoryTenantId" value="tenant ID" />
-        </appSettings>
+                <add key="ApplicationId" value="your application ID" />
+                <add key="Password" value="Password you used while creating the AAD application" />
+                <add key="SubscriptionId" value= "Subscription ID" />
+                <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+            </appSettings>
+        </configuration>
 5. Lägg till följande **genom att använda** instruktioner till källfilen (Program.cs) i projektet.
    
         using System.Threading;
@@ -345,7 +353,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
                            },
                        }
                    }
-               }); 
+               });    
 2. Lägg till följande kod till **Main**-metoden för att hämta statusen för en datasektor i utdatauppsättningen. Endast en sektor förväntas i det här exemplet.   
    
            // Pulling status within a timeout threshold
@@ -453,12 +461,15 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
    * Länkad tjänst: **LinkedService_AzureStorage** 
    * Datauppsättning: **DatasetBlobSource** och **DatasetBlobDestination**.
    * Pipeline: **PipelineBlobSample** 
-10. Kontrollera att en utdatafil har skapats i mappen ”**apifactoryoutput**” i **adftutorial**-behållaren.
+10. Kontrollera att de två medarbetarposterna skapas i den "**tomma**" tabellen i den angivna Azure SQL-databasen.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Mer detaljerad information om kopieringsaktiviteten som du använde i den här självstudiekursen finns i artikeln om [dataflödesaktiviteter](data-factory-data-movement-activities.md).
 * Mer information om Data Factory .NET SDK finns i [referensen för .NET-API:et för Data Factory](https://msdn.microsoft.com/library/mt415893.aspx). Den här artikeln beskriver inte hela .NET-API:et för Data Factory. 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,25 +1,29 @@
 ---
-title: Så här skapar du ett DocumentDB-konto | Microsoft Docs
-description: Bygg en NoSQL-databas med Azure DocumentDB. Skapa ett DocumentDB-konto genom att följa instruktionerna och börja utveckla din blixtsnabba, globala NoSQL-databas.
+title: "Så här skapar du ett DocumentDB-konto | Microsoft Docs"
+description: "Bygg en NoSQL-databas med Azure DocumentDB. Skapa ett DocumentDB-konto genom att följa instruktionerna och börja utveckla din blixtsnabba, globala NoSQL-databas."
 keywords: skapa en databas
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 0e7f8488-7bb7-463e-b6fd-3ae91a02c03a
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 10/17/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b512a8d3f9b02ec2ec079486e04951ce02ba48c1
+
 
 ---
-# Så här skapar du ett DocumentDB NoSQL-konto med Azure Portal
+# <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>Så här skapar du ett DocumentDB NoSQL-konto med Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](documentdb-create-account.md)
+> * [Azure-portalen](documentdb-create-account.md)
 > * [Azure CLI och Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 > 
 > 
@@ -34,7 +38,7 @@ Du kan skapa ett DocumentDB-konto via Azure Portal, Azure Resource Manager-malla
 Har du inte använt DocumentDB förut? Titta på [den här](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) fyra minuter långa videon av Scott Hanselman, så får du se hur du utför de vanligaste uppgifterna i onlineportalen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. I Jumpbar klickar du på **Ny**, **Data + lagring** och sedan på **DocumentDB (NoSQL)**.
+2. I Jumpbar klickar du på **Ny**, **Databaser** och sedan på **DocumentDB (NoSQL)**. 
    
    ![Skärmbild av Azure Portal, med fokus på Fler tjänster och DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. På **Nytt konto**-bladet anger du önskad konfiguration för DocumentDB-kontot.
@@ -65,26 +69,29 @@ Har du inte använt DocumentDB förut? Titta på [den här](https://azure.micros
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-## Nästa steg
-Nu när du har ett DocumentDB-konto är nästa steg att skapa en DocumentDB-databas. 
+## <a name="next-steps"></a>Nästa steg
+Nu när du har ett DocumentDB-konto är nästa steg att skapa en DocumentDB-samling och -databas. 
 
-Du kan skapa en ny databas genom att använda något av följande:
+Du kan skapa en ny samling och databas genom att använda något av följande:
 
-* Azure Portal, enligt beskrivningen i [Skapa en DocumentDB-databas med Azure Portal](documentdb-create-database.md).
+* Azure Portal, enligt beskrivningen i [Skapa en DocumentDB-samling med Azure Portal](documentdb-create-collection.md).
 * Omfattande självstudier, inklusive exempeldata: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md), eller [Python](documentdb-python-application.md).
 * Exempelkoden för [.NET](documentdb-dotnet-samples.md#database-examples), [Node.js](documentdb-nodejs-samples.md#database-examples) eller [Python](documentdb-python-samples.md#database-examples) som är tillgänglig i GitHub.
 * SDK:er för [.NET](documentdb-sdk-dotnet.md), [Node.js](documentdb-sdk-node.md), [Java](documentdb-sdk-java.md), [Python](documentdb-sdk-python.md) och [REST](https://msdn.microsoft.com/library/azure/mt489072.aspx).
 
-När du har skapat databasen behöver du [lägga till en eller flera samlingar](documentdb-create-collection.md) i databasen och sedan [lägga till dokument](documentdb-view-json-document-explorer.md) i samlingarna.
+När du har skapat databasen och samlingen behöver du [lägga till dokument ](documentdb-view-json-document-explorer.md) i samlingarna.
 
 När du har dokument i en samling kan du använda [DocumentDB SQL](documentdb-sql-query.md) för att [köra frågor](documentdb-sql-query.md#executing-queries) mot dokumenten. Du kan köra frågor genom att använda [Frågeutforskaren](documentdb-query-collections-query-explorer.md) i portalen, [REST API:t](https://msdn.microsoft.com/library/azure/dn781481.aspx) eller en av [SDK:erna](documentdb-sdk-dotnet.md).
 
-### Läs mer
+### <a name="learn-more"></a>Läs mer
 Mer information om DocumentDB finns i följande resurser:
 
 * [Utbildningsväg för DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 * [Hierarkisk resursmodell och begrepp i DocumentDB](documentdb-resources.md)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,4 @@
-## Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 Skapa en IoT-hubb som din simulerade enhet kan ansluta till. Följande steg visar hur du kan slutföra den här åtgärden med hjälp av Azure-portalen.
 
 1. Logga in på [Azure-portalen][lnk-portal].
@@ -16,7 +16,7 @@ Skapa en IoT-hubb som din simulerade enhet kan ansluta till. Följande steg visa
 4. När du har valt dina konfigurationsalternativ för IoT-hubben, klickar du på **Skapa**.  Det kan ta några minuter för Azure för att skapa din IoT-hubb. Du kan kontrollera statusen genom att övervaka förloppet på Startsidan eller i Meddelandepanelen.
    
     ![Status för ny IoT-hubb][3]
-5. När IoT-hubben har skapats, klickar du på den nya ikonen för din IoT-hubb i portalen för att öppna bladet för den. Anteckna **värdnamnet** och klicka sedan på **Principer för delad åtkomst**.
+5. När IoT-hubben har skapats klickar du på den nya ikonen för din IoT-hubb i Azure-portalen för att öppna bladet för den. Anteckna **värdnamnet** och klicka sedan på **Principer för delad åtkomst**.
    
     ![Ny IoT-hubb-blad][4]
 6. I bladet **Principer för delad åtkomst** klickar du på **iothubowner**-principen och kopierar samt antecknar anslutningssträngen i **iothubowner**-bladet. Mer information finns i [Åtkomstkontroll][lnk-access-control] i "Utvecklarguide för Azure IoT Hub."
@@ -37,6 +37,6 @@ Skapa en IoT-hubb som din simulerade enhet kan ansluta till. Följande steg visa
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

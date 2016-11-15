@@ -1,12 +1,12 @@
 ---
-title: Skapa din första datafabrik (Visual Studio) | Microsoft Docs
-description: I den här självstudien skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av Visual Studio.
+title: "Skapa din första datafabrik (Visual Studio) | Microsoft Docs"
+description: "I den här självstudien skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av Visual Studio."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/17/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc46837a2be9047e5bcbd920c2e0119f2c5a5ea6
+
 
 ---
-# <a name="tutorial:-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Självstudier: Skapa din första Azure-datafabrik med Microsoft Visual Studio
+# <a name="tutorial-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Självstudier: Skapa din första Azure-datafabrik med Microsoft Visual Studio
 > [!div class="op_single_selector"]
-> * [Översikt och förhandskrav](data-factory-build-your-first-pipeline.md)
+> * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
@@ -236,7 +240,7 @@ I det här steget skapar du din första pipeline med en **HDInsightHive**-aktivi
             }
         }
    
-    I JSON-kodfragmentet skapar du en pipeline med en enda aktivitet, som använder Hive till att bearbeta data i ett HDInsight-kluster.
+     I JSON-kodfragmentet skapar du en pipeline med en enda aktivitet, som använder Hive till att bearbeta data i ett HDInsight-kluster.
    
     I JSON-kodfragmentet skapar du en pipeline med en enda aktivitet, som använder Hive till att bearbeta data i ett HDInsight-kluster.
    
@@ -254,13 +258,13 @@ I det här steget skapar du din första pipeline med en **HDInsightHive**-aktivi
    > 
 4. Spara filen **HiveActivity1.json**.
 
-### <a name="add-partitionweblogs.hql-and-input.log-as-a-dependency"></a>Lägg till partitionweblogs.hql och input.log som ett beroende
+### <a name="add-partitionweblogshql-and-inputlog-as-a-dependency"></a>Lägg till partitionweblogs.hql och input.log som ett beroende
 1. Högerklicka på **Beroenden** i fönstret **Solution Explorer**, peka på **Lägg till** och klicka på **Befintligt objekt**.  
 2. Gå till **C:\ADFGettingStarted** och markera filerna **partitionweblogs.hql**, **input.log**. Klicka på **Lägg till**. Du har skapat dessa två filer som en del av förutsättningarna från [Självstudier – översikt](data-factory-build-your-first-pipeline.md).
 
 När du publicerar lösningen i nästa steg laddas filen **partitionweblogs.hql** upp till skriptmappen i blobbehållaren **adfgetstarted**.   
 
-### <a name="publish/deploy-data-factory-entities"></a>Publicera/distribuera Data Factory-entiteter
+### <a name="publishdeploy-data-factory-entities"></a>Publicera/distribuera Data Factory-entiteter
 1. I Solution Explorer högerklickar du på projektet och klickar sedan på **Publicera**. 
 2. Om du ser dialogrutan **Logga in på ditt Microsoft-konto**, anger du dina autentiseringsuppgifter för det konto som har Azure-prenumerationen. Klicka sedan på **Logga in**.
 3. Du bör se följande dialogruta:
@@ -272,7 +276,8 @@ När du publicerar lösningen i nästa steg laddas filen **partitionweblogs.hql*
    2. Ange ett unikt **namn** för datafabriken. Exempel: **FirstDataFactoryUsingVS09152016**. Namnet måste vara globalt unikt.  
 
         > [AZURE.IMPORTANT] Om du får felet **Datafabriksnamnet ”FirstDataFactoryUsingVS” är inte tillgängligt** när du publicerar, ändrar du namnet (till exempel yournameFirstDataFactoryUsingVS). Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
-1. Välj rätt prenumeration i fältet **Prenumeration**.
+3. Välj rätt prenumeration i fältet **Prenumeration**.
+
 
         > [AZURE.IMPORTANT] Om du inte ser någon prenumeration kontrollerar du att du har loggat in med ett konto som är en administratör eller en medadministratör för prenumerationen.  
 
@@ -333,7 +338,7 @@ Viktiga saker att observera:
    > 
    > 
    
-    ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png) 
+    ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
 10. När sektorn har statusen **Klar**, kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i blobblagringen för utdatan.  
     
     ![utdata](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
@@ -341,19 +346,19 @@ Viktiga saker att observera:
     
     ![Information om datasektorn](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
 12. Klicka på en aktivitet som körs i **Lista med aktivitetskörningar** för att se information om en aktivitetskörning (Hive-aktivitet i vårt exempel) i ett fönster med **Aktivitetskörningsinformation**.   
-    ![Aktivitetskörningsinformation](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)  
+    ![Aktivitetskörningsinformation](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
     
     Du kan se Hive-frågan som kördes och statusinformation i loggfilerna. Dessa loggar är användbara vid felsökning av eventuella problem.  
 
 Se [Övervaka datauppsättningar och pipeline](data-factory-monitor-manage-pipelines.md) för instruktioner om hur du använder Azure Portal till att övervaka pipeline och datauppsättningar som du har skapat i den här självstudien.
 
-### <a name="monitor-pipeline-using-monitor-&-manage-app"></a>Övervaka pipeline med övervaknings- och hanteringsappen
+### <a name="monitor-pipeline-using-monitor-manage-app"></a>Övervaka pipeline med övervaknings- och hanteringsappen
 Du kan också använda övervaknings- och hanteringsprogrammet till att övervaka dina pipelines. Se [Övervaka och hantera Azure Data Factory-pipelines med övervaknings- och hanteringsappen](data-factory-monitor-manage-app.md) för mer information om att använda programmet.
 
 1. Klicka på ikonen Övervaka och hantera.
    
     ![Ikonen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png) 
-2. Du bör se programmet Övervaka och hantera. Ändra **Starttid** och **Sluttid** till att matcha starttid (04-01-2016 12:00:00) och sluttid (04-02-2016 12:00:00) i pipelinen. Klicka sedan på **Tillämpa**.
+2. Du bör se programmet Övervaka och hantera. Ändra **Starttid** och **Sluttid** till att matcha starttid (04-01-2016 12:00:00) och sluttid (04-02-2016 12:00:00) i pipelinen. Klicka sedan på **Tillämpa**.
    
     ![Appen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png) 
 3. Välj ett aktivitetsfönster i listan Aktivitetsfönster om du vill se information om det. 
@@ -426,11 +431,11 @@ Lägg till en konfigurationsfil för varje miljö genom att utföra följande st
     Om JSON har en egenskap med en värdematris enligt följande kod:  
    
         "structure": [
-            {
-                "name": "FirstName",
+              {
+                  "name": "FirstName",
                 "type": "String"
-            },
-            {
+              },
+              {
                 "name": "LastName",
                 "type": "String"
             }
@@ -502,6 +507,9 @@ I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (H
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

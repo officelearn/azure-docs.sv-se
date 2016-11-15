@@ -1,12 +1,12 @@
 ---
-title: Översikt över Microsoft Azure Portal
-description: Lär dig hur du använder Microsoft Azure Portal.
-services: ''
-documentationcenter: ''
+title: "Översikt över Microsoft Azure Portal"
+description: "Lär dig hur du använder Microsoft Azure Portal."
+services: 
+documentationcenter: 
 author: davidwrede
 manager: dwrede
 editor: jimbe
-
+ms.assetid: 53cb9df1-c96a-4f4e-b022-18336cd3d697
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31bea465db1afb5efc22b2280d83d3b50bced329
+
 
 ---
-# Översikt över Microsoft Azure Portal
+# <a name="microsoft-azure-portal-overview"></a>Översikt över Microsoft Azure Portal
 Microsoft Azure Portal är en central plats där du kan etablera och hantera dina Azure-resurser.  I den här kursen får du bekanta dig med portalen och lära dig hur du kan använda några av dessa viktiga funktioner:
 
 * En **omfattande marknadsplats** där du kan bläddra igenom tusentals objekt från Microsoft och andra leverantörer som du kan köpa eller etablera.
@@ -26,10 +30,10 @@ Microsoft Azure Portal är en central plats där du kan etablera och hantera din
   
   ![Hitta rätt i användargränssnittet på Azure Portal][UIOrientation]
 
-## Innan du börjar
+## <a name="before-you-get-started"></a>Innan du börjar
 Du behöver ett giltig Azure-prenumeration för att kunna följa med i den här kursen.  Om du inte har någon kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).  När du har skaffat en prenumeration kan du få åtkomst till portalen på [https://portal.azure.com].
 
-## Skapa en resurs
+## <a name="how-to-create-a-resource"></a>Skapa en resurs
 Azure har en marknadsplats med tusentals objekt som du kan skapa från en och samma plats.  Anta att du vill skapa en ny virtuell dator med Windows Server 2012.  +NYTT-navet är ingången till en granskad uppsättning kategorier från marknadsplatsen.  Varje kategori har en liten uppsättning objekt samt en länk till den fullständiga marknadsplatsen där du hittar alla kategorier och en sökfunktion. Så här skapar du den nya virtuella datorn med Windows Server 2012:  
 
 1. Windows Server 2012 visas på en utmärkande plats och du hittar det snabbt i kategorin Compute.  
@@ -40,12 +44,12 @@ Meddelandenavet meddelar dig när resursen har skapats och ett hanteringsblad ö
 
 ![Portalkategorier][PortalCategories]
 
-## Söka efter resurser
+## <a name="how-to-find-your-resources"></a>Söka efter resurser
 Du kan fästa resurser som du ofta använder på startsidan, men ibland kanske du behöver bläddra till något som du inte använder så ofta.  Du kan komma åt alla dina resurser via bläddringsnavet nedan.  Du kan filtrera efter prenumeration, välja/ändra storlek på kolumner och gå till hanteringsbladen genom att klicka på enskilda objekt.
 
 ![Bläddringsnavet][BrowseHub]
 
-## Hantera och delegera åtkomst till en resurs
+## <a name="how-to-manage-and-delegate-access-to-a-resource"></a>Hantera och delegera åtkomst till en resurs
 Från det här bladet kan du ansluta till de virtuella datorerna via Fjärrskrivbord, övervaka prestandarelaterade nyckeltal, kontrollera åtkomsten till den virtuella datorn med hjälp av rollbaserad åtkomst, konfigurera den virtuella datorn och utföra andra viktiga hanteringsåtgärder.  Det är fundamentalt att kunna delegera åtkomst baserat på roller vid hantering i större skala.  Klicka [här](active-directory/role-based-access-control-configure.md) om du vill veta mer. Så här delegerar du åtkomst till en resurs:
 
 1. Bläddra till resursen.
@@ -56,7 +60,7 @@ Från det här bladet kan du ansluta till de virtuella datorerna via Fjärrskriv
 
 ![Hantera en resurs][ManageResource]
 
-## Anpassa ett resursblad
+## <a name="how-to-customize-a-resource-blade"></a>Anpassa ett resursblad
 Azure förkonfigurerar bladen för dina resurser, men du konfigurerar panelerna på dem.  Du kan enkelt växla till anpassningsläge och lägga till, ta bort, ändra storlek på eller flytta panelerna. Så här anpassar du ett blad:
 
 1. Bläddra till resursen.
@@ -66,12 +70,12 @@ Azure förkonfigurerar bladen för dina resurser, men du konfigurerar panelerna 
 
 ![Anpassa blad][CustomizeBlades]
 
-## Få hjälp
+## <a name="how-to-get-help"></a>Få hjälp
 Om du får problem finns vi här!  Portalen innehåller en hjälp- och supportsida där du kan få hjälp.  Beroende på din [supportplan](https://azure.microsoft.com/support/plans/) kan du också skapa supportärenden direkt på portalen.  När du har skapat ett supportärende kan du hantera ärendets livscykel på portalen. Du kommer till hjälp- och supportsidan genom att gå till Bläddra -> Hjälp + support.  
 
 ![Hjälp och support][HelpSupport]
 
-## Sammanfattning
+## <a name="summary"></a>Sammanfattning
 Nu ska vi se vad du lärt dig i den här självstudiekursen:
 
 * Du har lärt dig hur du registrerar dig, skaffar en prenumeration och bläddrar till portalen
@@ -93,6 +97,6 @@ Microsoft Azure Portal gör det betydligt enklare att bygga och hantera dina pro
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

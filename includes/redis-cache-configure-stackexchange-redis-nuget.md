@@ -25,6 +25,8 @@ NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferense
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
-description: Azure Site Recovery skyddar dina arbetsbelastningar och program genom att samordna replikering, redundans och återställning av lokala virtuella datorer och fysiska servrar till Azure eller till en sekundär lokal plats
+description: "Azure Site Recovery skyddar dina arbetsbelastningar och program genom att samordna replikering, redundans och återställning av lokala virtuella datorer och fysiska servrar till Azure eller till en sekundär lokal plats"
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: cfreeman
-editor: ''
-
+editor: 
+ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/10/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ddeadcf741eb099f7c14a554dd4f31561a408aa1
+
 
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery?"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
+# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
 Den här artikeln beskriver arbetsbelastningar och program som kan replikeras med Azure Site Recovery-tjänsten.
 
 Skriv dina kommentarer eller frågor längst ned i den här artikeln eller i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -28,7 +32,7 @@ Site Recovery är en Azure-tjänst som bidrar till din BCDR-strategi. Med Site R
 
 Site Recovery integrerar med Microsoft-program som SharePoint, Exchange, Dynamics, SQL Server och Active Directory. Microsoft är även i nära samarbete med ledande leverantörer som Oracle, SAP, IBM och Red Hat. Du kan anpassa replikeringslösningar på appbasis.
 
-## <a name="why-use-site-recovery-for-application-replication?"></a>Varför ska man använda Site Recovery för programreplikering?
+## <a name="why-use-site-recovery-for-application-replication"></a>Varför ska man använda Site Recovery för programreplikering?
 Site Recovery erbjuder skydd och återställning på programnivå enligt följande:
 
 * App-oberoende replikering för alla arbetsbelastningar som körs på en dator som stöds.
@@ -129,6 +133,9 @@ Använd Site Recovery för att skydda din SAP-distribution på följande sätt:
 ## <a name="next-steps"></a>Nästa steg
 [Förbered för distribution av Site Recovery](site-recovery-best-practices.md) 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

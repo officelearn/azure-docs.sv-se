@@ -1,5 +1,5 @@
 
-### Gränser för grundläggande elastisk pool
+### <a name="basic-elastic-pool-limits"></a>Gränser för grundläggande elastisk pool
 |  |  |
 | --- |:---:|
 | Maximalt antal eDTU:er per pool |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -20,7 +20,7 @@
 
 ** Elastisk databas delar lagringsutrymme för pool, så databaslagring är begränsad till det mindre av återstående lagringsutrymme för pool eller maximalt lagringsutrymme per databas
 
-### Standardgränser för elastisk pool
+### <a name="standard-elastic-pool-limits"></a>Standardgränser för elastisk pool
 |  |  |
 | --- |:---:|
 | Maximalt antal eDTU:er per pool |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -41,7 +41,7 @@
 
 ** Elastisk databas delar lagringsutrymme för pool, så databaslagring är begränsad till det mindre av återstående lagringsutrymme för pool eller maximalt lagringsutrymme per databas
 
-### Gränser för Premium elastisk pool
+### <a name="premium-elastic-pool-limits"></a>Gränser för Premium elastisk pool
 |  |  |
 | --- |:---:|
 | Maximalt antal eDTU:er per pool |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
@@ -62,6 +62,8 @@
 
 ** Elastisk databas delar lagringsutrymme för pool, så databaslagring är begränsad till det mindre av återstående lagringsutrymme för pool eller maximalt lagringsutrymme per databas
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

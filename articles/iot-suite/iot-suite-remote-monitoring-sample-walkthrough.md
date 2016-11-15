@@ -1,13 +1,13 @@
 ---
-title: Genomgång av den förkonfigurerade lösningen för fjärrövervakning | Microsoft Docs
-description: En beskrivning av den förkonfigurerade fjärrövervakningslösningen i Azure IoT och dess arkitektur.
-services: ''
+title: "Genomgång av den förkonfigurerade lösningen för fjärrövervakning | Microsoft Docs"
+description: "En beskrivning av den förkonfigurerade fjärrövervakningslösningen i Azure IoT och dess arkitektur."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6338750446b33269614c404ecaad8f8192bf1ab2
+
 
 ---
-# Genomgång av den förkonfigurerade lösningen för fjärrövervakning
-## Introduktion
+# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen för fjärrövervakning
+## <a name="introduction"></a>Introduktion
 Den [förkonfigurerade fjärrövervakningslösningen][lnk-preconfigured-solutions] i IoT Suite är en implementering av en övervakningslösning från slutpunkt till slutpunkt för flera datorer som körs på fjärrplatser. Lösningen kombinerar viktiga Azure-tjänster och erbjuder en allmän implementering av affärsscenariot. Du kan använda lösningen som utgångspunkt för en egen implementering. Du kan [anpassa][lnk-customize] lösningen efter dina specifika affärsbehov.
 
 Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakningslösningen så att du förstår hur den fungerar. Med den här kunskapen kan du sedan:
@@ -27,12 +31,12 @@ Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakni
 * Planera hur lösningen kan anpassas för att uppfylla dina behov. 
 * Utforma en egen IoT-lösning som använder Azure-tjänster.
 
-## Logisk arkitektur
+## <a name="logical-architecture"></a>Logisk arkitektur
 Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade lösningen:
 
 ![Logisk arkitektur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## Simulerade enheter
+## <a name="simulated-devices"></a>Simulerade enheter
 I den förkonfigurerade lösningen representerar den simulerade enheten en kylningsenhet (till exempel en ventilations- eller luftkonditioneringsapparat i en byggnad eller lokal). När du distribuerar den förkonfigurerade lösningen etablerar du också automatiskt fyra simulerade enheter som kör i ett [Azure-webbjobb][lnk-webjobs]. De simulerade enheterna gör det enkelt att utforska lösningens beteende utan att du behöver distribuera några fysiska enheter. Om du vill distribuera en riktig fysisk enhet går du självstudiekursen [Ansluta enheten till den förkonfigurerade fjärrövervakningslösningen][lnk-connect-rm].
 
 Varje simulerad enhet kan skicka följande typer av meddelanden till IoT Hub:
@@ -76,10 +80,10 @@ De simulerade enheterna kan hantera följande kommandon som skickas från instru
 
 Bekräftelser av enhetskommandon till lösningens backend-komponenter sker genom IoT Hub.
 
-## IoT Hub
+## <a name="iot-hub"></a>IoT Hub
 [IoT-hubben][lnk-iothub] matar in data som skickas från enheten till molnet och gör dem tillgängliga för ASA-jobben (Azure Stream Analytics). IoT Hub skickar också kommandon till dina enheter för enhetsportalens räkning. Varje ASA-jobb använder en separat IoT Hub-konsumentgrupp för att läsa strömmen av meddelanden från dina enheter.
 
-## Azure Stream Analytics
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 I fjärrövervakningslösningen skickar [Azure Stream Analytics][lnk-asa] (ASA) meddelanden som tas emot av IoT-hubben till andra backend-komponenter för bearbetning eller lagring. Olika ASA-jobb utför specifika funktioner baserat på innehållet i meddelandena.
 
 **Jobb 1: Enhetsinformation** filtrerar meddelandena med enhetsinformation från den inkommande meddelandeströmmen och skickar dem till slutpunkten för en händelsehubb. En enhet skickar meddelanden med enhetsinformation vid starten och som svar på ett **SendDeviceInfo**-kommando. Det här jobbet använder följande frågedefinition för att identifiera **device-info**-meddelanden:
@@ -176,26 +180,26 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-## Händelsehubbar
+## <a name="event-hubs"></a>Händelsehubbar
 ASA-jobben för **enhetsinformation** och **regler** skickar sina data till Event Hubs för bearbetning i **händelseprocessorn** som körs i webbjobbet.
 
-## Azure Storage
+## <a name="azure-storage"></a>Azure Storage
 Lösningen använder Azure-blobblagring för att bevara alla rådata och sammanfattade telemetridata från enheterna i lösningen. Instrumentpanelen läser telemetriinformationen från blobblagring och fyller i diagrammen. För att visa aviseringar läser instrumentpanelen data från blobblagring som registrerar när telemetrivärden överskrider de konfigurerade tröskelvärdena. Lösningen använder också blobblagring för att registrera de tröskelvärden som du anger på instrumentpanelen.
 
-## Webbjobb
+## <a name="webjobs"></a>Webbjobb
 Förutom att fungera som värdar för enhetssimulatorerna är webbjobben i lösningen även värdar för **händelseprocessorn** som körs i ett Azure-webbjobb som hanterar enhetsinformationsmeddelanden och kommandosvar. Den använder:
 
 * Enhetsinformationsmeddelanden för att uppdatera enhetsregistret (lagras i DocumentDB-databasen) med den aktuella enhetsinformationen.
 * Kommandosvarsmeddelanden för att uppdatera kommandohistoriken för enheten (lagras i DocumentDB-databasen).
 
-## DocumentDB
+## <a name="documentdb"></a>DocumentDB
 Lösningen använder en DocumentDB-databas för att lagra information om de enheter som är anslutna till lösningen. Informationen omfattar enhetsmetadata och historiken för kommandon som skickas till enheter från instrumentpanelen.
 
-## Webbappar
-### Instrumentpanelen för fjärrövervakning
+## <a name="web-apps"></a>Webbappar
+### <a name="remote-monitoring-dashboard"></a>Instrumentpanelen för fjärrövervakning
 Den här sidan i webbappen använder javascript-baserade PowerBI-kontroller (se [PowerBI-visuals-databas](https://www.github.com/Microsoft/PowerBI-visuals)) för att visualisera telemetridata från enheterna. Lösningen använder ASA-telemetrijobbet för att skriva telemetridata till blobblagring.
 
-### Portalen för enhetsadministration
+### <a name="device-administration-portal"></a>Portalen för enhetsadministration
 Med den här webbappen kan du:
 
 * Etablera en ny enhet. Den här åtgärden anger det unika enhets-ID:t och genererar autentiseringsnyckeln. Den skriver information om enheten till både IoT Hub-identitetsregistret och den lösningsspecifika DocumentDB-databasen.
@@ -204,7 +208,7 @@ Med den här webbappen kan du:
 * Visa kommandohistoriken för en enhet.
 * Aktivera och inaktivera enheter.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Följande blogginlägg på TechNet innehåller mer information om den förkonfigurerade lösningen för fjärrövervakning:
 
 * [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
@@ -224,6 +228,7 @@ Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

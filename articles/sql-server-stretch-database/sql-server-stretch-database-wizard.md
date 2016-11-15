@@ -1,12 +1,12 @@
 ---
-title: Kom igång genom att köra guiden aktivera databas för Stretch | Microsoft Docs
-description: Lär dig hur du konfigurerar en databas för Stretch Database genom att köra guiden aktivera databas för Stretch.
+title: "Kom igång genom att köra guiden aktivera databas för Stretch | Microsoft Docs"
+description: "Lär dig hur du konfigurerar en databas för Stretch Database genom att köra guiden aktivera databas för Stretch."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: douglaslMS
-manager: ''
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 1189ab95-ba84-459c-bfb1-57cdf36ee111
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/05/2016
 ms.author: douglasl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0c171da72bbdbfc8c15c6e39fcc8d5000f6be087
+
 
 ---
-# Kom igång genom att köra guiden aktivera databas för Stretch
+# <a name="get-started-by-running-the-enable-database-for-stretch-wizard"></a>Kom igång genom att köra guiden aktivera databas för Stretch
 Kör guiden Aktivera databas för Stretch för att konfigurera en Stretch Database.  Det här ämnet går igenom den information du behöver fylla i och de val du behöver göra i guiden.
 
 Läs mer om Stretch Database i [Stretch Database](sql-server-stretch-database-overview.md).
@@ -26,11 +30,11 @@ Läs mer om Stretch Database i [Stretch Database](sql-server-stretch-database-ov
 > 
 > 
 
-## Starta guiden
+## <a name="launch-the-wizard"></a>Starta guiden
 1. I SQL Server Management Studio, i Object Explorer, väljer du databaserna som du vill aktivera Stretch på.
 2. Höger\-klicka och välj **Åtgärder** och välj sedan **Stretch** och sedan **Aktivera** för att starta guiden.
 
-## <a name="Intro"></a>Introduktion
+## <a name="a-nameintroaintroduction"></a><a name="Intro"></a>Introduktion
 Kolla igenom syftet med guiden och förutsättningarna.
 
 De viktigaste kraven är som följer:
@@ -41,7 +45,7 @@ De viktigaste kraven är som följer:
 
 ![Introduktionssida för Stretch Database-guiden][StretchWizardImage1]
 
-## <a name="Tables"></a>Välj tabeller
+## <a name="a-nametablesaselect-tables"></a><a name="Tables"></a>Välj tabeller
 Markera de tabeller som du vill aktivera för Stretch.
 
 Tabeller med många rader visas överst i den sorterade listan. Innan guiden visar listan över tabeller genomsöks den efter datatyper som inte stöds av Stretch Database.
@@ -53,12 +57,12 @@ Tabeller med många rader visas överst i den sorterade listan. Innan guiden vis
 | (ingen rubrik) |Markera kryssrutan i den här kolumnen om du vill aktivera Stretch för den markerade tabellen. |
 | **Namn** |Anger namn på kolumnen i tabellen. |
 | (ingen rubrik) |En symbol i den här kolumnen kan representera en varning som inte\' förhindrar att du aktiverar den valda tabellen för Stretch. Den kan också representera ett blockeringsproblem som hindrar dig från att aktivera den valda tabellen för Stretch, till exempel om tabellen använder en datatyp som inte stöds. Om du hovrar över symbolen så får du mer information i en knappbeskrivning. Mer information finns i [Begränsningar för Stretch Database](sql-server-stretch-database-limitations.md). |
-| **Stretched** |Anger om tabellen redan har aktiverats för Stretch. |
+| **Sträckt** |Anger om tabellen redan har aktiverats för Stretch. |
 | **Migrera** |Du kan migrera en hel tabell (**Hela tabellen**) eller ange ett filter för en befintlig kolumn i tabellen. Om du vill använda en annan filterfunktion för att markera rader som ska migreras anger du filterfunktionen genom att köra ALTER TABLE-instruktionen när du har avslutat guiden. Mer information om filterfunktionen finns i [Välja rader som ska migreras med hjälp av en filterfunktion](sql-server-stretch-database-predicate-function.md). Mer information om hur du tillämpar funktionen finns i [Aktivera Stretch Database för en tabell](sql-server-stretch-database-enable-table.md) och [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx). |
 | **Rader** |Anger antalet rader i tabellen. |
 | **Storlek (KB)** |Anger storleken på tabellen i KB. |
 
-## <a name="Filter"></a>Du kan också lägga till ett radfilter
+## <a name="a-namefilteraoptionally-provide-a-row-filter"></a><a name="Filter"></a>Du kan även lägga till ett radfilter
 Om du vill lägga till en filterfunktion för att välja de rader som ska migreras gör du följande på sidan **Välj tabeller**.
 
 1. I listan **Välj de tabeller som du vill stretcha**, klickar du på **Hela tabellen** i tabellens rad. Dialogrutan **Välj rader att stretcha** öppnas.
@@ -84,7 +88,7 @@ Om du vill använda en annan typ av filterfunktion för att välja rader som ska
 * Avsluta guiden och kör ALTER TABLE-instruktionen för att aktivera Stretch för tabellen och för att ange en filterfunktion. Mer information finns i [Aktivera Stretch Database för en tabell](sql-server-stretch-database-enable-table.md).  
 * Kör ALTER TABLE-instruktionen för att ange en filterfunktion när du har avslutat guiden. Information om de steg du följer finns i [Lägga till en filterfunktion när du har kört guiden](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
-## <a name="Configure"></a>Konfigurera Azure-distribution
+## <a name="a-nameconfigureaconfigure-azure-deployment"></a><a name="Configure"></a>Konfigurera Azure-distribution
 1. Logga in på Microsoft Azure med ett Microsoft-konto.
    
    ![Logga in på Azure – Stretch Database-guiden][StretchWizardImage3]
@@ -115,7 +119,7 @@ Om du vill använda en annan typ av filterfunktion för att välja rader som ska
      
      ![Välj en befintlig Azure-server – Stretch Database-guiden][StretchWizardImage5]
 
-## <a name="Credentials"></a>Säkra autentiseringsuppgifter
+## <a name="a-namecredentialsasecure-credentials"></a><a name="Credentials"></a>Säkra autentiseringsuppgifter
 Du måste ha en huvudnyckel för databasen för att skydda autentiseringsuppgifterna som Stretch Database använder för att ansluta till fjärrdatabasen.  
 
 Om det redan finns en huvudnyckel för databasen anger du lösenordet för den.  
@@ -128,30 +132,30 @@ Om databasen inte redan har en huvudnyckel anger du ett starkt lösenord för at
 
 Mer information om huvudnyckeln för databasen finns i [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) och [Skapa en huvudnyckel för en databas](https://msdn.microsoft.com/library/aa337551.aspx). Mer information om autentiseringsuppgifterna som skapas av guiden finns i [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
 
-## <a name="Network"></a>Välj IP-adress
+## <a name="a-namenetworkaselect-ip-address"></a><a name="Network"></a>Välj IP-adress
 Använd undernätets IP-adressintervall (rekommenderas) eller den offentliga IP-adressen för din SQL-server och skapa en brandväggsregel för Azure som låter SQL Server kommunicera med Azure-fjärrservern.
 
 IP-adressen eller adresserna som du anger på den här sidan, säger till Azure-server att låta inkommande data, frågor och hanteringsåtgärder som initierats av SQL Server att passera genom Azure-brandväggen. Guiden ändrar inte någonting i brandväggsinställningarna på SQL Server.
 
 ![Sidan välj IP-adress i Stretch Database-guiden][StretchWizardImage7]
 
-## <a name="Summary"></a>Sammanfattning
+## <a name="a-namesummaryasummary"></a><a name="Summary"></a>Sammanfattning
 Gå igenom de värden som du har angett, de alternativ som du valde i guiden och de uppskattade kostnaderna i Azure. Välj sedan **Slutför** för att aktivera Stretch.
 
 ![Sammanfattningssida för Stretch Database-guiden][StretchWizardImage8]
 
-## <a name="Results"></a>Resultat
+## <a name="a-nameresultsaresults"></a><a name="Results"></a>Resultat
 Granska resultaten.
 
 Information om hur du övervakar datamigreringens status finns i [Övervaka och felsöka datamigrering (Stretch Database)](sql-server-stretch-database-monitor.md).
 
 ![Resultatsida i Stretch Database-guiden][StretchWizardImage9]
 
-## <a name="KnownIssues"></a>Felsökning av guiden
+## <a name="a-nameknownissuesatroubleshooting-the-wizard"></a><a name="KnownIssues"></a>Felsökning av guiden
 **Stretch Database-guiden misslyckades.**
 Om Stretch Database inte ännu har aktiverats på servernivå och du kör guiden utan systemadministratörs-behörighet, kommer guiden att misslyckas. Be systemadministratören att aktivera Stretch Database på den lokala serverinstansen och kör sedan guiden igen. Mer information finns i [Förutsättningar: Behörighet att aktivera Stretch Database på servern](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Aktivera ytterligare tabeller för Stretch Database. Övervaka datamigrering och hantera Stretch\-aktiverade databaser och tabeller.
 
 * [Aktivera Stretch Database för en tabell](sql-server-stretch-database-enable-table.md) för att aktivera ytterligare tabeller.
@@ -160,7 +164,7 @@ Aktivera ytterligare tabeller för Stretch Database. Övervaka datamigrering och
 * [Hantera och felsök Stretch Database](sql-server-stretch-database-manage.md)
 * [Säkerhetskopiera Stretch-aktiverade databaser](sql-server-stretch-database-backup.md)
 
-## Se även
+## <a name="see-also"></a>Se även
 [Aktivera Stretch Database för en databas](sql-server-stretch-database-enable-database.md)
 
 [Aktivera Stretch Database för en tabell](sql-server-stretch-database-enable-table.md)
@@ -180,6 +184,6 @@ Aktivera ytterligare tabeller för Stretch Database. Övervaka datamigrering och
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

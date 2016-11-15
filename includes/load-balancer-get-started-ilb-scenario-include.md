@@ -1,11 +1,16 @@
-## Scenario
-You are creating an internal load balancer according to the following scenario
+## <a name="scenario"></a>Scenario
 
-![IMAGE DESCRIPTION](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+Du skapar en intern belastningsutjämnare enligt följande scenario
 
-An internal load balancer is configured in a virtual network  
+![BESKRIVNING AV AVBILDNING](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-* 2 virtual machines called DB1 and DB2<BR>
-* Endpoints <BR>
-* Internal load balancer<BR>
+En intern belastningsutjämnare konfigureras i ett virtuellt nätverk
+
+* 2 virtuella datorer som kallas DB1 och DB2
+* Slutpunkter
+* Intern belastningsutjämnare
+
+
+<!--HONumber=Nov16_HO2-->
+
 

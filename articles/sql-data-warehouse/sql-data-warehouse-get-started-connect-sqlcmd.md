@@ -1,33 +1,38 @@
 ---
-title: Fråga Azure SQL Data Warehouse (sqlcmd)| Microsoft Docs
-description: Fråga Azure SQL Data Warehouse med kommandoradsverktyget sqlcmd.
+title: "Fråga Azure SQL Data Warehouse (sqlcmd)| Microsoft Docs"
+description: "Fråga Azure SQL Data Warehouse med kommandoradsverktyget sqlcmd."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/06/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+
 
 ---
-# Fråga Azure SQL Data Warehouse (sqlcmd)
+# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Fråga Azure SQL Data Warehouse (sqlcmd)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
 Den här genomgången använder kommandoradsverktyget [sqlcmd][sqlcmd] för att fråga en Azure SQL Data Warehouse.  
 
-## 1. Anslut
+## <a name="1-connect"></a>1. Anslut
 Du kommer igång med [sqlcmd][sqlcmd] genom att öppna kommandotolken och ange **sqlcmd** följt av anslutningssträngen för din SQL Data Warehouse-databas. Anslutningssträngen kräver följande parametrar:
 
 * **Server (-S):** Server i formatet `<`servernamn`>`. database.windows.net
@@ -60,7 +65,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## 2. Fråga
+## <a name="2-query"></a>2. Fråga
 Du kan utfärda alla Transact-SQL-uttryck som stöds mot instansen efter anslutning.  I det här exemplet skickas frågor i interaktivt läge.
 
 ```sql
@@ -80,7 +85,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Se [sqlcmd-dokumentationen][sqlcmd] för mer information om tillgängliga alternativ i sqlcmd.
 
 <!--Image references-->
@@ -89,12 +94,12 @@ Se [sqlcmd-dokumentationen][sqlcmd] för mer information om tillgängliga altern
 
 <!--MSDN references--> 
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

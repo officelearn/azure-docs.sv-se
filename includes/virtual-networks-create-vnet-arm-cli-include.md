@@ -1,4 +1,4 @@
-## Skapa ett VNet med Azure CLI
+## <a name="how-to-create-a-vnet-using-the-azure-cli"></a>Skapa ett VNet med Azure CLI
 Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotolken från valfri dator som kör Windows, Linux eller OSX. Följ stegen nedan för att skapa ett VNet med hjälp av Azure CLI.
 
 1. Om du aldrig har använt Azure CLI, se [Installera och konfigurera Azure CLI](../articles/xplat-cli-install.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
@@ -9,7 +9,7 @@ Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotol
     Här är den utdata som förväntas för det ovanstående kommandot:
    
         info:    New mode is arm
-3. Kör vid behov **azure group create** för att skapa en ny resursgrupp som det visas nedan. Observera kommandots utdata. Listan som visas efter alla utdata förklarar parametrarna som använts. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md#resource-groups).
+3. Kör vid behov **azure group create** för att skapa en ny resursgrupp som det visas nedan. Observera kommandots utdata. Listan som visas efter alla utdata förklarar parametrarna som använts. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
    
         azure group create -n TestRG -l centralus
    
@@ -100,6 +100,8 @@ Du kan använda Azure CLI för att hantera dina Azure-resurser från kommandotol
         data:
         info:    network vnet show command OK
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

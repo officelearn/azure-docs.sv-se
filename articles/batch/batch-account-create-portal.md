@@ -1,12 +1,12 @@
 ---
 title: Skapa ett Azure Batch-konto | Microsoft Docs
-description: Lär dig hur du skapar ett Azure Batch-konto på Azure-portalen för att köra storskaliga parallella arbetsbelastningar i molnet
+description: "Lär dig hur du skapar ett Azure Batch-konto på Azure-portalen för att köra storskaliga parallella arbetsbelastningar i molnet"
 services: batch
-documentationcenter: ''
+documentationcenter: 
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/21/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
+
 
 ---
-# Skapa ett Azure Batch-konto med hjälp av Azure-portalen
+# <a name="create-an-azure-batch-account-using-the-azure-portal"></a>Skapa ett Azure Batch-konto med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
-> * [Azure-portalen](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
 > 
 > 
 
 Lär dig hur du skapar ett Azure Batch-konto på [Azure-portalen][azure_portal] och var du hittar viktiga kontoegenskaper som åtkomstnycklar och konto-URL:er. Vi diskuterar också Batch-priser och hur du länkar ett Azure Storage-konto till ditt Batch-konto så att du kan använda [programpaket](batch-application-packages.md) och [spara utdata från jobb och aktiviteter](batch-task-output.md).
 
-## Skapa ett Batch-konto
+## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
 1. Logga in på [Azure-portalen][azure_portal].
 2. Klicka på **Ny** > **Beräkna** > **Batch-tjänst**.
    
@@ -47,7 +51,7 @@ Lär dig hur du skapar ett Azure Batch-konto på [Azure-portalen][azure_portal] 
    
    Portalen meddelar att kontot **distribueras**. När åtgärden är klar visas meddelandet **Distributionen är klar** i *Meddelanden*.
 
-## Visa egenskaper för ett Batch-konto
+## <a name="view-batch-account-properties"></a>Visa egenskaper för ett Batch-konto
 När kontot har skapats kan du öppna bladet för **Batch-kontot** och komma åt kontots inställningar och egenskaper. Du kan komma åt alla kontoinställningar och kontoegenskaper från den vänstra menyn på bladet för Batch-kontot.
 
 ![Bladet för Batch-kontot på Azure-portalen][account_blade]
@@ -62,10 +66,10 @@ När kontot har skapats kan du öppna bladet för **Batch-kontot** och komma åt
   
     ![Batch-kontonycklar på Azure-portalen][account_keys]
 
-## Priser
+## <a name="pricing"></a>Priser
 Batch-konton tillhandahålls endast på kostnadsfri nivå, vilket innebär att du inte debiteras för själva Batch-kontot. Du debiteras för de underliggande Azure-beräkningsresurser som dina Batch-lösningar använder och för de resurser som används av andra tjänster när dina arbetsbelastningar körs. Du debiteras till exempel för beräkningsnoderna i dina pooler och för data som du lagrar i Azure Storage som in- eller utdata för dina aktiviteter. På liknande sätt debiteras du för Azure Storage-resurser som används för att lagra dina programpaket om du använder funktionen för [programpaket](batch-application-packages.md) i Batch. Mer information finns i avsnittet med [priser för Batch][batch_pricing].
 
-## Länkat Azure Storage-konto
+## <a name="linked-azure-storage-account"></a>Länkat Azure Storage-konto
 Som vi nämnde tidigare kan du (om du vill) länka ett **allmänt** lagringskonto till ditt Batch-konto. [Programpaketfunktionen](batch-application-packages.md) i Batch använder blobblagring i ett länkat allmänt Storage-konto, precis som [.NET-biblioteket för filkonventioner i Batch](batch-task-output.md). Med dessa valfria funktioner kan du distribuera de program som körs av Batch-aktiviteterna och spara de data som de genererar.
 
 Batch stöder för närvarande *endast* den **allmänna** lagringskontotypen, vilket förklaras i steg 5, [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account), i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md). När du länkar ett Azure Storage-konto till ditt Batch-konto är det viktigt att du länkar *ett* **allmänt** lagringskonto.
@@ -81,7 +85,7 @@ Vi rekommenderar att du skapar ett lagringskonto för exklusiv användning av Ba
 
   ![Återskapa lagringskontonycklar][4]
 
-## Kvoter och begränsningar för Batch-tjänsten
+## <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 Tänk på att, precis som din Azure-prenumeration och andra Azure-tjänster, så har Batch-konton vissa [kvoter och begränsningar](batch-quota-limit.md). De aktuella kvoterna för ett Batch-konto visas på portalen i **kontoegenskaperna**.
 
 ![Kvoter för Batch-konto på Azure-portalen][quotas]
@@ -92,14 +96,14 @@ Observera också att du inte är begränsad till ett enda Batch-konto för din A
 
 Du kan öka många av dessa kvoter genom att bara skicka en kostnadsfri begäran om produktsupport på Azure-portalen. Information om hur du gör den här typen av begäran finns i [Kvoter och begränsningar för Azure Batch-tjänsten](batch-quota-limit.md).
 
-## Andra alternativ för Batch-kontohantering
+## <a name="other-batch-account-management-options"></a>Andra alternativ för Batch-kontohantering
 Förutom att använda Azure-portalen kan du också skapa och hantera Batch-konton med följande:
 
 * [PowerShell-cmdlets för Batch](batch-powershell-cmdlets-get-started.md)
 * [Azure CLI](../xplat-cli-install.md)
 * [Batch Management .NET](batch-management-dotnet.md)
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Mer information om begrepp och funktioner relaterade till Batch-tjänsten finns i [funktionsöversikten för Azure Batch](batch-api-basics.md). Artikeln beskriver de viktigaste Batch-resurserna, t.ex. pooler, beräkningsnoder, jobb och aktiviteter, och innehåller en översikt över funktioner i tjänsten som stöder storskaliga arbetsbelastningar.
 * Lär dig hur du utvecklar ett enkelt Batch-aktiverat program med hjälp av [Batch .NET-klientbiblioteket](batch-dotnet-get-started.md). [Introduktionsartikeln](batch-dotnet-get-started.md) beskriver steg för steg ett program som använder Batch-tjänsten för att köra en arbetsbelastning på flera beräkningsnoder och förklarar hur du använder Azure Storage för mellanlagring och hämtning av filer i arbetsbelastningar.
 
@@ -120,6 +124,6 @@ Förutom att använda Azure-portalen kan du också skapa och hantera Batch-konto
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

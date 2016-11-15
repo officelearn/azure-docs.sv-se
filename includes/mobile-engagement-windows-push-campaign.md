@@ -23,6 +23,8 @@ Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push-meddelande 
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

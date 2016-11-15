@@ -1,4 +1,4 @@
-### Konfigurera en DNS-etikett för den offentliga IP-adressen
+### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Konfigurera en DNS-etikett för den offentliga IP-adressen
 För att ansluta till SQL Server Database Engine från Internet, behöver du först konfigurera en DNS-etikett för din offentliga IP-adress.
 
 > [!NOTE]
@@ -17,7 +17,7 @@ För att skapa en DNS-etikett, väljer du först **Virtuella datorer** i portale
    
     ![dns-etikett](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### Anslut till databasmotorn från en annan dator
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Anslut till databasmotorn från en annan dator
 1. Öppna SQL Server Management Studio (SSMS) från en dator som är ansluten till Internet.
 2. I dialogrutan **Anslut till server** eller **Anslut till databasmotor**, redigerar du värdet för **Servernamn**. Ange det fullständiga DNS-namnet för den virtuella datorn (bestäms i föregående åtgärd).
 3. I rutan **Autentisering**, markerar du **SQL Server-autentisering**.
@@ -27,6 +27,8 @@ För att skapa en DNS-etikett, väljer du först **Virtuella datorer** i portale
    
     ![ssms anslut](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

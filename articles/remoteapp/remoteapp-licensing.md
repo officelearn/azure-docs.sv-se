@@ -1,11 +1,11 @@
 ---
 title: Azure RemoteApp-licensiering | Microsoft Docs
-description: Läs om hur det fungerar med licensiering i Azure RemoteApp.
+description: "Läs om hur det fungerar med licensiering i Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: ff8ebd20-61a1-4f10-87a6-234a170534c9
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f4429461139a41644f87185bbb06b1f6a8011345
+
 
 ---
-# Så här fungerar det med licensiering i Azure RemoteApp
+# <a name="how-does-licensing-work-in-azure-remoteapp"></a>Så här fungerar det med licensiering i Azure RemoteApp
 > [!IMPORTANT]
 > Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
@@ -37,6 +41,9 @@ Det låter väl logiskt, eller hur? Du kan publicera alla appar som du har rätt
 
 Observera att du inte kan använda en klientåtkomstlicens eller ett volymlicensavtal i en molnsamling. Du *kan* använda ett volymlicensavtal för att aktivera program i hybridsamlingen (utom Office). Du behöver bara installera dem på mallavbildningen från volymlicensmediet. Följ informationen från programleverantören för att installera licenser i en fjärrskrivbordsmiljö.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

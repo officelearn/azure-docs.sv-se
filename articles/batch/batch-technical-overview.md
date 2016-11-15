@@ -1,12 +1,12 @@
 ---
-title: Azure Batch-tjänstens grunder | Microsoft Docs
-description: Lär dig mer om hur du använder Azure Batch-tjänsten för storskaliga parallella arbetsbelastningar och HPC-arbetsbelastningar
+title: "Azure Batch-tjänstens grunder | Microsoft Docs"
+description: "Lär dig mer om hur du använder Azure Batch-tjänsten för storskaliga parallella arbetsbelastningar och HPC-arbetsbelastningar"
 services: batch
-documentationcenter: ''
+documentationcenter: 
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2559aae752f319805c2c9f87a2e2a81d9b37e4b2
+
 
 ---
-# Grunderna i Azure Batch
+# <a name="basics-of-azure-batch"></a>Grunderna i Azure Batch
 Med Azure Batch kan du effektivt köra storskalig parallella program och HPC-program (databehandling med höga prestanda) i molnet. Det är en plattformstjänst som schemalägger beräkningsintensivt arbete för körning i en hanterad samling virtuella datorer. Tjänsten kan automatiskt skala beräkningsresurser efter jobbens behov.
 
 Med Batch-tjänsten definierar du Azure-beräkningsresurser att köra dina program parallellt och i stor skala. Du kan schemalägga jobb eller köra dem på begäran, och du behöver inte manuellt skapa, konfigurera och hantera ett HPC-kluster, enskilda virtuella datorer, virtuella nätverk eller en komplex infrastruktur för jobb- och aktivitetsschemaläggning.
 
-## Användningsfall för Batch
+## <a name="use-cases-for-batch"></a>Användningsfall för Batch
 Batch är en hanterad Azure-tjänst som används för *batchbearbetning* eller *batchbehandling* – dvs. körning av ett stort antal liknande uppgifter för att uppnå ett visst önskat resultat. Batchbehandling används framför allt av organisationer som regelbundet bearbetar, omvandlar och analyserar stora mängder data.
 
 Batch fungerar bra med parallella program och arbetsbelastningar. Parallella arbetsbelastningar delas lätt in i flera aktiviteter som utför arbete samtidigt på flera datorer.
@@ -42,7 +46,7 @@ Batch kan också utföra parallella beräkningar med ett reduceringssteg i slute
 
 En jämförelse mellan Batch och andra HPC-lösningsalternativ i Azure finns i [Batch- och HPC-lösningar](batch-hpc-solutions.md).
 
-## Utveckla med Batch
+## <a name="developing-with-batch"></a>Utveckla med Batch
 Bearbetning av parallella arbetsbelastningar med Batch normalt görs programmässigt med någon av [Batch-API:erna](#batch-development-apis). Med Batch-API:erna skapar du och hanterar pooler för beräkningsnoder (virtuella datorer) och schemalägger jobb och aktiviteter som ska köras på dessa noder. Ett klientprogram eller en tjänst som du skapar använder Batch-API:erna för att kommunicera med Batch-tjänsten.
 
 Du kan effektivt bearbeta storskaliga arbetsbelastningar för din organisation eller tillhandahålla en tjänstportal för dina kunder så att de kan köra jobb och aktiviteter (på begäran eller enligt ett schema) på en eller flera hundra tusen noder. Du kan också använda Batch som en del av ett större arbetsflöde, med verktyg som [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
@@ -52,14 +56,14 @@ Du kan effektivt bearbeta storskaliga arbetsbelastningar för din organisation e
 > 
 > 
 
-### Azure-konton som du behöver
+### <a name="azure-accounts-youll-need"></a>Azure-konton som du behöver
 När du utvecklar Batch-lösningar använder du följande konton i Microsoft Azure.
 
 * **Azure-konto och Azure-prenumeration** – Om du inte redan har en Azure-prenumeration kan du aktivera din [MSDN-prenumerantförmån][msdn_benefits] eller registrera dig för ett [kostnadsfritt Azure-konto][free_account]. När du skapar ett konto skapas en standardprenumeration åt dig.
 * **Batch-konto** – När dina program interagerar med Batch-tjänsten används kontonamnet, URL:en för kontot och åtkomstnyckeln som autentiseringsuppgifter. Alla dina Batch-resurser, som pooler, beräkningsnoder, jobb och aktiviteter, är associerade med ett Batch-konto. Du kan [skapa ett Batch-konto](batch-account-create-portal.md) i Azure Portal.
 * **Storage-konto** – Batch innehåller inbyggt stöd för att arbeta med filer i [Azure Storage][azure_storage]. Nästan alla Batch-scenarier använder Azure Storage, dels för att mellanlagra programmen som dina aktiviteter kör och de data som de bearbetar, dels för att lagra de utdata som de genererar. Om du vill skapa ett Storage-konto läser du [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
 
-### API:er för Batch-utveckling
+### <a name="batch-development-apis"></a>API:er för Batch-utveckling
 Dina program och tjänster kan skicka direkta REST-API-anrop, använda ett eller flera av följande klientbibliotek eller en kombination av båda för att hantera beräkningsresurser och köra parallella arbetsbelastningar i stor skala med Batch-tjänsten.
 
 | API | API-referens | Ladda ned | Kodexempel |
@@ -67,24 +71,24 @@ Dina program och tjänster kan skicka direkta REST-API-anrop, använda ett eller
 | **REST för Batch** |[MSDN][batch_rest] |Saknas |[MSDN][batch_rest] |
 | **.NET för Batch** |[MSDN][api_net] |[NuGet ][api_net_nuget] |[GitHub][api_sample_net] |
 | **Python för Batch** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Node.js för Batch** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |
+| **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |
 | **Java för Batch** (förhandsversion) |[github.IO][api_java] |[Maven][api_java_jar] |[GitHub][api_sample_java] |
 
-### Resurshantering med Batch
+### <a name="batch-resource-management"></a>Resurshantering med Batch
 Förutom att använda klient-API:erna kan du även hantera resurser i ditt Batch-konto med hjälp av följande.
 
 * [PowerShell-cmdlets för Batch ][batch_ps]: Du kan använda Azure Batch-cmdlets i [Azure PowerShell](../powershell-install-configure.md)-modulen om du vill hantera Batch-resurser med PowerShell.
 * [Azure CLI](../xplat-cli-install.md): Azure-kommandoradsgränssnittet (Azure CLI) är en plattformsoberoende verktygsuppsättning som tillhandahåller shell-kommandon för interaktion med många Azure-tjänster, inklusive Batch.
 * [Batch Management .NET](batch-management-dotnet.md)-klientbiblioteket: Även tillgängligt via [NuGet][api_net_mgmt_nuget] och kan användas för att hantera konton, kvoter och programpaket i Batch via programmering. En referens för hanteringsbiblioteket finns på [MSDN][api_net_mgmt].
 
-### Batch-verktyg
+### <a name="batch-tools"></a>Batch-verktyg
 Du måste inte skapa lösningar med hjälp av Batch, men det finns några värdefulla verktyg du kan använda när du utvecklar och felsöker Batch-baserade program och tjänster.
 
 * [Azure Portal][portal]: Du kan skapa, övervaka och ta bort Batch-pooler, jobb och aktiviteter på Batch-bladet i Azure Portal. Du kan visa statusinformation för dessa och andra resurser när du kör dina jobb, och även ladda ned filer från beräkningsnoderna i din pooler (t.ex. ladda ned en misslyckad uppgifts `stderr.txt` vid felsökning). Du kan också hämta fjärrskrivbordsfiler (RDP) som du kan använda för att logga in till beräkningsnoder.
 * [Azure Batch Explorer][batch_explorer]: Batch Explorer tillhandahåller Batch-resurshanteringsfunktioner som liknar dem som Azure-portalen tillhandahåller, men i ett fristående WPF-klientprogram (Windows Presentation Foundation). Ett av de Batch .NET-exempelprogram som är tillgängliga på [GitHub][github_samples] kan du skapa med Visual Studio 2015 eller senare och använda för att söka efter och hantera resurserna i ditt Batch-konto när du utvecklar och felsöker dina Batch-lösningar. Visa information om jobb, pooler och uppgifter från beräkningsnoder, och fjärranslut till noder med fjärrskrivbordsfiler (RDP) som du kan ladda ned med Batch Explorer.
 * [Microsoft Azure Storage Explorer][storage_explorer]: Även om det strikt sett inte är ett Azure Batch-verktyg är Storage Explorer ett annat värdefullt verktyg som du kan använda när du utvecklar och felsöker dina Batch-lösningar.
 
-## Scenario: Skala ut en parallell arbetsbelastning
+## <a name="scenario-scale-out-a-parallel-workload"></a>Scenario: Skala ut en parallell arbetsbelastning
 En vanlig lösning som använder Batch-API:erna för att interagera med Batch-tjänsten är att skala ut parallellt arbete – till exempel renderingen av bilder i 3D-scener – i en pool med beräkningsnoder. Den här poolen med beräkningsnoder kan vara din ”renderingsservergrupp” som till exempel tillhandahåller flera hundratals eller flera tusen kärnor till ditt återgivningsjobb.
 
 Följande diagram illustrerar ett vanligt Batch-arbetsflöde med ett klientprogram eller en värdbaserad tjänst som använder Batch för att köra en parallell arbetsbelastning.
@@ -105,7 +109,7 @@ I det här vanliga scenariot bearbetar programmet eller tjänsten en beräknings
 
 Tänk på att det här bara är ett av många sätt att använda Batch på, och att det här scenariot bara beskriver några få av alla de tillgängliga funktionerna. Du kan till exempel köra [flera aktiviteter parallellt](batch-parallel-node-tasks.md) på varje beräkningsnod och du kan [köra särskilda aktiviteter](batch-job-prep-release.md) som förbereder noderna för jobben och som rensar upp när allt är klart.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när du har en högnivåöversikt över Batch-tjänsten är det dags att gå vidare och se hur du kan använda den för att bearbeta dina beräkningsintensiva parallella arbetsbelastningar.
 
 * Läs [Översikt över Batch-funktioner för utvecklare](batch-api-basics.md). Här finns viktig information för alla som tänker använda Batch. Artikeln innehåller mer detaljerad information om Batch-tjänstresurser som pooler, noder, jobb och uppgifter, och de många API-funktioner som du kan använda när du skapar ett Batch-program.
@@ -142,6 +146,6 @@ Nu när du har en högnivåöversikt över Batch-tjänsten är det dags att gå 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: 'Kom igång: Azure AD-lösenordshantering | Microsoft Docs'
-description: Låt användare återställa sina egna lösenord, identifiera kraven för lösenordsåterställning och aktivera tillbakaskrivning av lösenord i Active Directory.
+title: "Kom igång: Azure AD-lösenordshantering | Microsoft Docs"
+description: "Låt användare återställa sina egna lösenord, identifiera kraven för lösenordsåterställning och aktivera tillbakaskrivning av lösenord i Active Directory."
 services: active-directory
-keywords: Active Directory-lösenordshantering, lösenordshantering, återställa Azure AD-lösenord
-documentationcenter: ''
+keywords: "Active Directory-lösenordshantering, lösenordshantering, återställa Azure AD-lösenord"
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+
 
 ---
-# Komma igång med lösenordshantering
+# <a name="getting-started-with-password-management"></a>Komma igång med lösenordshantering
 > [!IMPORTANT]
 > **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md).
 > 
@@ -38,7 +42,7 @@ Konfigurera systemet i några få enkla steg så att användarna kan hantera sin
   * [Steg 4: Konfigurera lämpliga behörigheter](#step-4-set-up-the-appropriate-active-directory-permissions)
   * [Steg 5: Återställa ditt AD-lösenord som en användare och verifiera](#step-5-reset-your-ad-password-as-a-user)
 
-## Konfigurera systemet så att användarna kan återställa sina Azure AD-lösenord
+## <a name="enable-users-to-reset-their-azure-ad-passwords"></a>Konfigurera systemet så att användarna kan återställa sina Azure AD-lösenord
 Det här avsnittet beskriver hur du aktiverar lösenordsåterställning via självbetjäning för din AAD-molnkatalog, hur du registrerar användare för lösenordsåterställning via självbetjäning och hur du testar en lösenordsåterställning via självbetjäning som en användare.
 
 * [Krav för lösenordsåterställning via självbetjäning](#prerequisites)
@@ -46,7 +50,7 @@ Det här avsnittet beskriver hur du aktiverar lösenordsåterställning via sjä
 * [Steg 2: Lägga till kontaktdata för testanvändaren](#step-2-add-contact-data-for-your-test-user)
 * [Steg 3: Återställa ditt lösenord som en användare](#step-3-reset-your-azure-ad-password-as-a-user)
 
-### Krav
+### <a name="prerequisites"></a>Krav
 Innan du kan aktivera och använda lösenordsåterställning via självbetjäning måste du uppfylla följande krav:
 
 * Skapa en AAD-klient. Mer information finns i [Komma igång med Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
@@ -61,7 +65,7 @@ Innan du kan aktivera och använda lösenordsåterställning via självbetjänin
 * Skapa minst ett administratörskonto och ett användarkonto i AAD-katalogen.
 * Tilldela en licens för AAD Premium eller Basic eller en O365-betallicens till administratörs- och användarkontot som du skapat.
 
-### Steg 1: Konfigurera en princip för återställning av lösenord
+### <a name="step-1-configure-password-reset-policy"></a>Steg 1: Konfigurera en princip för återställning av lösenord
 Konfigurera en princip för lösenordsåterställning för användare genom att följa dessa steg:
 
 1. Öppna valfri webbläsare och gå till den [klassiska Azure-portalen](https://manage.windowsazure.com).
@@ -94,7 +98,7 @@ Konfigurera en princip för lösenordsåterställning för användare genom att 
    
    ![][006]
 
-### Steg 2: Lägga till kontaktdata för testanvändaren
+### <a name="step-2-add-contact-data-for-your-test-user"></a>Steg 2: Lägga till kontaktdata för testanvändaren
 Du kan välja mellan flera alternativ när du ska lägga till data för användare i organisationen som ska användas för lösenordsåterställning.
 
 * Redigera användare i den [klassiska Azure-portalen](https://manage.windowsazure.com) eller [Office 365-administrationsportalen](https://portal.microsoftonline.com)
@@ -105,7 +109,7 @@ Du kan välja mellan flera alternativ när du ska lägga till data för använda
 
 Om du vill lära dig mer om vilka data som används för lösenordsåterställning, och eventuella formateringskrav för dessa data, läser du [Vilka data används av lösenordsåterställning?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
-#### Så här lägger du till kontaktdata för användare via användarregistreringsportalen
+#### <a name="to-add-user-contact-data-via-the-user-registration-portal"></a>Så här lägger du till kontaktdata för användare via användarregistreringsportalen
 1. Om användarna i din organisation ska kunna använda registreringsportalen för lösenordsåterställning måste du ge dem en länk till den här sidan ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)) eller aktivera alternativet som kräver att användarna registrerar sig.  När användarna klickar på den här länken uppmanas de att logga in med organisationskontot.  När de har gjort det visas följande sida:
    
    ![][007]
@@ -119,10 +123,10 @@ Om du vill lära dig mer om vilka data som används för lösenordsåterställni
    
    ![][010]
 
-### Steg 3: Återställa ditt Azure AD-lösenord som en användare
+### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Steg 3: Återställa ditt Azure AD-lösenord som en användare
 Nu när du har konfigurerat en återställningsprincip för användare och angett kontaktuppgifterna för användaren kan användaren utföra en lösenordsåterställning via självbetjäning.
 
-#### Så här utför du en lösenordsåterställning via självbetjäning
+#### <a name="to-perform-a-selfservice-password-reset"></a>Så här utför du en lösenordsåterställning via självbetjäning
 1. Om du går till en webbplats som [**portal.microsoftonline.com**](http://portal.microsoftonline.com) visas en inloggningsskärm som den nedan.  Klicka på länken **Kan du inte komma åt ditt konto?** för att testa användargränssnittet för lösenordsåterställning.
    
    ![][011]
@@ -154,7 +158,7 @@ Nu när du har konfigurerat en återställningsprincip för användare och anget
     
     ![][020]
 
-## Konfigurera systemet så att användarna kan återställa eller ändra sina AD-lösenord
+## <a name="enable-users-to-reset-or-change-their-ad-passwords"></a>Konfigurera systemet så att användarna kan återställa eller ändra sina AD-lösenord
 Det här avsnittet beskriver hur du konfigurerar lösenordsåterställning för tillbakaskrivning av lösenord till en lokal Active Directory.
 
 * [Krav för tillbakaskrivning av lösenord](#writeback-prerequisites)
@@ -164,7 +168,7 @@ Det här avsnittet beskriver hur du konfigurerar lösenordsåterställning för 
 * [Steg 4: Konfigurera lämpliga behörigheter](#step-4-set-up-the-appropriate-active-directory-permissions)
 * [Steg 5: Återställa ditt AD-lösenord som en användare och verifiera](#step-5-reset-your-ad-password-as-a-user)
 
-### Krav för tillbakaskrivning
+### <a name="writeback-prerequisites"></a>Krav för tillbakaskrivning
 Innan du kan aktivera och använda tillbakaskrivning av lösenord måste du kontrollera att du uppfyller följande krav:
 
 * Du har en Azure AD-klient med Azure AD Premium aktiverat.  Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
@@ -194,10 +198,10 @@ Innan du kan aktivera och använda tillbakaskrivning av lösenord måste du kont
   > 
   > 
 
-### Steg 1: Ladda ned den senaste versionen av Azure AD Connect
+### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Steg 1: Ladda ned den senaste versionen av Azure AD Connect
 Tillbakaskrivning av lösenord är tillgängligt i versioner av Azure AD Connect eller i Azure AD Sync med versionsnummer **1.0.0419.0911** eller högre.  Tillbakaskrivning av lösenord med automatisk kontoupplåsning är tillgängligt i versioner av Azure AD Connect eller i Azure AD Sync med versionsnummer **1.0.0485.0222** eller högre. Om du kör en äldre version uppgraderar du till minst den här versionen innan du fortsätter. [Klicka här om du vill ladda ned den senaste versionen av Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
 
-#### Så här kontrollerar du versionen av Azure AD Sync
+#### <a name="to-check-the-version-of-azure-ad-sync"></a>Så här kontrollerar du versionen av Azure AD Sync
 1. Gå till **%ProgramFiles%\Azure Active Directory Sync\**.
 2. Leta upp den körbara filen **ConfigWizard.exe**.
 3. Högerklicka på den körbara filen och välj alternativet **Egenskaper** på snabbmenyn.
@@ -213,10 +217,10 @@ Om det här numret är större än eller lika med **1.0.0419.0911**, eller om du
 > 
 > 
 
-### Steg 2: Aktivera tillbakaskrivning av lösenord i Azure AD Connect
+### <a name="step-2-enable-password-writeback-in-azure-ad-connect"></a>Steg 2: Aktivera tillbakaskrivning av lösenord i Azure AD Connect
 Nu när du har laddat ned verktyget Azure AD Connect kan du aktivera tillbakaskrivning av lösenord.  Du kan göra det på två sätt.  Du kan antingen aktivera tillbakaskrivning av lösenord på skärmen för valfria funktioner i Azure AD Connect-konfigurationsguiden eller via Windows PowerShell.
 
-#### Så här aktivera du tillbakaskrivning av lösenord i konfigurationsguiden
+#### <a name="to-enable-password-writeback-in-the-configuration-wizard"></a>Så här aktivera du tillbakaskrivning av lösenord i konfigurationsguiden
 1. Öppna konfigurationsguiden för **Azure AD Connect** på **datorn för katalogsynkronisering**.
 2. Klicka dig igenom stegen tills du kommer till konfigurationsskärmen för **valfria funktioner**.
 3. Markera alternativet **Tillbakaskrivning av lösenord**.
@@ -229,12 +233,12 @@ Nu när du har laddat ned verktyget Azure AD Connect kan du aktivera tillbakaskr
 > 
 > 
 
-#### Så här aktiverar du tillbakaskrivning av lösenord med Windows PowerShell
+#### <a name="to-enable-password-writeback-using-windows-powershell"></a>Så här aktiverar du tillbakaskrivning av lösenord med Windows PowerShell
 1. Öppna ett nytt **upphöjt Windows PowerShell-fönster** på **datorn för katalogsynkronisering**.
 2. Om modulen inte redan har lästs in skriver du `import-module ADSync`-kommandot för att läsa in modulen med Azure AD Connect-cmdlets i den aktuella sessionen.
 3. Hämta listan med Azure AD-anslutningsappar i systemet genom att köra `Get-ADSyncConnector`-cmdleten och spara resultaten i `$aadConnectorName`, som `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
-4. Hämta tillbakaskrivningsstatusen för den aktuella anslutningen genom att köra följande cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
-5. Aktivera tillbakaskrivning av lösenord genom att köra cmdleten: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
+4. Hämta tillbakaskrivningsstatusen för den aktuella anslutningen genom att köra följande cmdlet:`Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
+5. Aktivera tillbakaskrivning av lösenord genom att köra cmdleten:`Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
 > [!NOTE]
 > Om du uppmanas att ange autentiseringsuppgifter ser du till att administratörskontot som du anger för AzureADCredential är ett **molnadministratörskonto (som skapats i Azure AD)**, inte ett federerat konto (som skapats i lokala AD och som synkroniseras med Azure AD).
@@ -244,14 +248,14 @@ Nu när du har laddat ned verktyget Azure AD Connect kan du aktivera tillbakaskr
 > 
 > 
 
-#### Kontrollera att konfigurationen lyckades
+#### <a name="verify-that-the-configuration-was-successful"></a>Kontrollera att konfigurationen lyckades
 Om konfigurationen lyckades visas ett meddelande i Windows PowerShell-fönstret eller i konfigurationsgränssnittet som anger att tillbakaskrivning av lösenord har aktiverats eller att åtgärden lyckades.
 
 Du kan också kontrollera att tjänsten har installerats korrekt genom att öppna Loggboken, navigera till programmets händelselogg och leta upp händelsen **31005 – OnboardingEventSuccess** från källan **PasswordResetService**.
 
   ![][023]
 
-### Steg 3: Konfigurera brandväggen
+### <a name="step-3-configure-your-firewall"></a>Steg 3: Konfigurera brandväggen
 När du har aktiverat tillbakaskrivning av lösenord i Azure AD Connect måste du kontrollera att tjänsten kan ansluta till molnet.
 
 1. Om du blockerar okända utgående anslutningar i miljön måste du också lägga till följande regler i brandväggen när installationen är klar. Du måste starta om AAD Connect-datorn när du har gjort dessa ändringar:
@@ -259,7 +263,7 @@ När du har aktiverat tillbakaskrivning av lösenord i Azure AD Connect måste d
    * Tillåt utgående anslutningar till https://ssprsbprodncu-sb.accesscontrol.windows.net/.
    * Tillåt utgående anslutningar via TCP-port 9350–9354 och TCP-port 5671 när en proxy används eller vid allmänna anslutningsproblem.
 
-### Steg 4: Konfigurera Active Directory-behörigheter
+### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Steg 4: Konfigurera Active Directory-behörigheter
 För varje skog som innehåller användare vars lösenord ska återställas, om X är det konto som angavs för skogen i konfigurationsguiden (vid den ursprungliga konfigurationen), så måste X tilldelas följande utökade behörigheter för rotobjektet i varje domän i skogen: **Återställ lösenord**, **Ändra lösenord**, **Skrivbehörighet** för `lockoutTime` och **Skrivbehörighet** för `pwdLastSet`. Rättigheten måste konfigureras att ärvas av alla användarobjekt.  
 
 Om du inte är säker på vilket konto som avses ovan öppnar du konfigurationsgränssnittet för Azure Active Directory Connect och klickar på alternativet **Granska din lösning**.  Det konto som du ska lägga till behörigheter till är understruket i rött i skärmbilden nedan.
@@ -275,7 +279,7 @@ Om du inte är säker på vilket konto som avses ovan öppnar du konfigurationsg
 > 
 > 
 
-#### Så här konfigurerar du rätt behörigheter för att tillbakaskrivningen ska fungera korrekt
+#### <a name="to-set-up-the-right-permissions-for-writeback-to-occur"></a>Så här konfigurerar du rätt behörigheter för att tillbakaskrivningen ska fungera korrekt
 1. Öppna **Active Directory -- användare och datorer** med ett konto som har nödvändig behörighet för domänadministration.
 2. Kontrollera att **Avancerade funktioner** är aktiverat i alternativet på **Visa-menyn**.
 3. Högerklicka på objektet som representerar roten för domänen i den vänstra rutan.
@@ -295,10 +299,10 @@ Om du inte är säker på vilket konto som avses ovan öppnar du konfigurationsg
    ![][028]
 10. Klicka på **Använd/OK** i alla öppna dialogrutor.
 
-### Steg 5: Återställa ditt AD-lösenord som en användare
+### <a name="step-5-reset-your-ad-password-as-a-user"></a>Steg 5: Återställa ditt AD-lösenord som en användare
 Nu när tillbakaskrivning av lösenord har aktiverats kan du testa att det fungerar genom att återställa lösenordet för en användare vars konto har synkroniserats med din molnklient.
 
-#### Så här kontrollerar du att tillbakaskrivning av lösenord fungerar korrekt
+#### <a name="to-verify-password-writeback-is-working-properly"></a>Så här kontrollerar du att tillbakaskrivning av lösenord fungerar korrekt
 1. Gå till [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com) eller gå till valfri inloggningssida som kräver ditt organisations-ID och klicka på länken **Kan du inte komma åt ditt konto?**.
    
    ![][029]
@@ -314,7 +318,7 @@ Nu när tillbakaskrivning av lösenord har aktiverats kan du testa att det funge
 <br/>
 <br/>
 
-## Länkar till dokumentation om lösenordsåterställning
+## <a name="links-to-password-reset-documentation"></a>Länkar till dokumentation om lösenordsåterställning
 Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställning i Azure AD:
 
 * **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md).
@@ -361,6 +365,6 @@ Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställni
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

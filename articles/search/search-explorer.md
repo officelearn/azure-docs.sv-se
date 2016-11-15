@@ -1,10 +1,11 @@
 ---
-title: Skicka frågor mot ditt Azure Search-index med hjälp av Azure Portal | Microsoft Docs
-description: Skicka en sökfråga i Sökutforskaren på Azure Portal.
+title: "Skicka frågor mot ditt Azure Search-index med hjälp av Azure-portalen | Microsoft Docs"
+description: "Skicka en sökfråga i Sökutforskaren på Azure Portal."
 services: search
-documentationcenter: ''
+manager: jhubbard
+documentationcenter: 
 author: ashmaka
-
+ms.assetid: 8e524188-73a7-44db-9e64-ae8bf66b05d3
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -12,13 +13,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
+
 
 ---
-# Skicka frågor mot ditt Azure Search-index med hjälp av Azure Portal
+# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Skicka frågor mot ditt Azure Search-index med hjälp av Azure Portal
 > [!div class="op_single_selector"]
 > * [Översikt](search-query-overview.md)
 > * [Portalen](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
+> * [NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
 > 
 > 
@@ -27,19 +32,19 @@ Den här guiden beskriver hur du skickar frågor mot ditt Azure Search-index på
 
 Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Search-index](search-what-is-an-index.md) och [fyllt det med data](search-what-is-data-import.md).
 
-## I. Gå till ditt Azure Search-blad
+## <a name="i-go-to-your-azure-search-blade"></a>I. Gå till ditt Azure Search-blad
 1. Klicka på ”Alla resurser” på menyn på vänster sida av [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 2. Välj din Azure Search-tjänst.
 
-## II. Välj det index som du vill söka i
+## <a name="ii-select-the-index-you-would-like-to-search"></a>II. Välj det index som du vill söka i
 1. Välj det index som du vill söka i från indexpanelen.
 
 ![](./media/search-explorer/pick-index.png)
 
-## III. Klicka på panelen ”Sökutforskaren”
+## <a name="iii-click-on-the-search-explorer-tile"></a>III. Klicka på panelen ”Sökutforskaren”
 ![](./media/search-explorer/search-explorer-tile.png)
 
-## III. Starta sökningen
+## <a name="iii-start-searching"></a>III. Starta sökningen
 1. Börja söka i Azure Search-indexet genom att skriva i fältet ” *Frågesträng* ” och tryck på ”**Sök**”.
    
    * När du använder Sökutforskaren kan du ange valfria [frågeparametrar](https://msdn.microsoft.com/library/dn798927.aspx)
@@ -48,6 +53,9 @@ Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Sea
 
 ![](./media/search-explorer/search-bar.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

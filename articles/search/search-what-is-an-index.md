@@ -1,10 +1,10 @@
 ---
-title: Skapa ett Azure Search-index | Microsoft Docs
-description: Vad är ett index i Azure Search och hur används det?
+title: "Skapa ett Azure Search-index | Microsoft Azure | Värdbaserad söktjänst i molnet"
+description: "Vad är ett index i Azure Search och hur används det?"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: ashmaka
-
+ms.assetid: a395e166-bf2e-4fca-8bfc-116a46c5f7b1
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -12,26 +12,30 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
+
 
 ---
-# Skapa ett Azure Search-index
+# <a name="create-an-azure-search-index"></a>Skapa ett Azure Search-index
 > [!div class="op_single_selector"]
 > * [Översikt](search-what-is-an-index.md)
 > * [Portalen](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
+> * [NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
 > 
 > 
 
-## Vad är ett index?
+## <a name="what-is-an-index"></a>Vad är ett index?
 Ett *index* är ett  beständigt arkiv med *dokument* och andra konstruktioner som används av en Azure Search-tjänst. Ett dokument är en enskild enhet med sökbara data i ditt index. En återförsäljare som sysslar med e-handel kan till exempel ha ett dokument för varje artikel som företaget säljer, och en nyhetsorganisation kan ha ett dokument för varje nyhetsartikel osv. Om vi matchar dessa koncept till vanliga motsvarigheter i databasvärlden så kan ett *index* begreppsmässigt liknas vid en *tabell* och *dokument* kan grovt jämföras med *rader* i en tabell.
 
 När du lägger till/laddar upp dokument och skickar sökfrågor till Azure Search skickar du dina förfrågningar till ett specifikt index i din söktjänst.
 
-## Fälttyper och fältattribut i ett Azure Search-index
+## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Fälttyper och fältattribut i ett Azure Search-index
 När du definierar ett schema måste du ange namnet, typen och attributet för varje fält i ditt index. Fälttypen klassificerar de data som lagras i fältet. Attribut anges för enskilda fält och definierar hur fältet används. Följande tabeller innehåller de typer och attribut som du kan ange.
 
-### Fälttyper
+### <a name="field-types"></a>Fälttyper
 | Typ | Beskrivning |
 | --- | --- |
 | *Edm.String* |Text som kan tokeniseras för textsökning (radbrytning, ordstamsigenkänning osv). |
@@ -45,7 +49,7 @@ När du definierar ett schema måste du ange namnet, typen och attributet för v
 
 Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns på MSDN](https://msdn.microsoft.com/library/azure/dn798938.aspx).
 
-### Fältattribut
+### <a name="field-attributes"></a>Fältattribut
 | Attribut | Beskrivning |
 | --- | --- |
 | *Nyckel* |En sträng som innehåller det unika ID:t för varje dokument och som används för att leta upp dokument. Alla index måste ha en nyckel. Endast ett fält kan vara nyckeln och dess typ måste anges till Edm.String. |
@@ -57,11 +61,14 @@ Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns p
 
 Mer detaljerad information om [indexattributen i Azure Search finns på MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-## Riktlinjer för att definiera ett indexschema
+## <a name="guidance-for-defining-an-index-schema"></a>Riktlinjer för att definiera ett indexschema
 När du skapar ditt index bör du ta dig tid i planeringsfasen och tänka igenom varje beslut. Det är viktigt att du har användarupplevelsen och dina affärsbehov i åtanke när du utformar ditt index eftersom varje fält måste tilldelas [rätt egenskaper](https://msdn.microsoft.com/library/azure/dn798941.aspx). Om du behöver ändra ett index som har distribuerats måste du återskapa och läsa in dina data igen.
 
 Om datalagringsbehovet ändras med tiden kan du öka eller minska kapaciteten genom att lägga till eller ta bort partitioner. Mer information finns i [Hantera din söktjänst i Azure](search-manage.md) och [Tjänstgränser](search-limits-quotas-capacity.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### Gör en säkerhetskopia
+### <a name="to-take-a-backup"></a>Gör en säkerhetskopia
 1. På enhetens **Snabbstart**-sida, klickar du på **Lägg till en princip för säkerhetskopiering**. Det startar guiden lägg till princip för säkerhetskopiering. 
 2. På sidan **Definiera din princip för säkerhetskopiering**:
    
@@ -28,6 +28,8 @@ Du har slutfört enhetskonfigurationen.
 
 Om du vill se en video som visar hur du tar en StorSimple-säkerhetskopia, klickar du [här](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

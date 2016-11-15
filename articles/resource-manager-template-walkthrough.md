@@ -1,12 +1,12 @@
 ---
-title: Genomgång av en Resource Manager-mall | Microsoft Docs
-description: En stegvis genomgång av en Resource Manager-mall som etablerar en grundläggande Azure IaaS-arkitektur.
+title: "Genomgång av en Resource Manager-mall | Microsoft Docs"
+description: "En stegvis genomgång av en Resource Manager-mall som etablerar en grundläggande Azure IaaS-arkitektur."
 services: azure-resource-manager
 documentationcenter: na
 author: navalev
-manager: ''
-editor: ''
-
+manager: timlt
+editor: 
+ms.assetid: f1cfd704-f6e1-47d5-8094-b439c279c13f
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2016
 ms.author: navale;tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8dcfe27b87cd76ea7b8f75c3c36f0115131eb6ae
+
 
 ---
-# Genomgång av en Resource Manager-mall
+# <a name="resource-manager-template-walkthrough"></a>Genomgång av en Resource Manager-mall
 En av de första frågorna du ställer dig när du ska skapa en mall är ”hur börjar jag?”. Du kan börja från en tom mall och följa den grundläggande strukturen som beskrivs i artikeln [Redigera en mall](resource-group-authoring-templates.md#template-format) och lägga till resurser, parametrar och variabler. Ett annat alternativ är att börja med att gå igenom [snabbstartsgalleriet](https://github.com/Azure/azure-quickstart-templates) och leta efter liknande scenarier som det som du vill skapa. Du kan slå samman flera mallar eller redigera en befintlig mall så att den passar ditt specifika scenario. 
 
 Låt oss ta en titt på en vanlig infrastruktur:
@@ -36,7 +40,7 @@ Det är mycket att bygga på en gång. Vi börjar med att skapa och sedan distri
 > 
 > 
 
-## Skapa Resource Manager-mallen
+## <a name="create-the-resource-manager-template"></a>Skapa Resource Manager-mallen
 Mallen är en JSON-fil som definierar alla resurser som ska distribueras. Du kan också definiera parametrar som anges under distributionen, variabler som skapas från andra värden och uttryck samt utdata från distributionen. 
 
 Låt oss börja med den enklaste mallen:
@@ -54,7 +58,7 @@ Låt oss börja med den enklaste mallen:
 
 Spara den här filen som **azuredeploy.json**. (Mallen kan ha vilket namn som helst, men det måste vara en JSON-fil).
 
-## skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 I avsnittet **resources** lägger du till ett objekt som definierar lagringskontot, som du ser nedan. 
 
 ```json
@@ -89,7 +93,7 @@ Nu ska vi gå tillbaka till avsnittet **parameters** och se hur du definierar na
 ```
 Här definierade du en parameter av typen sträng som innehåller namnet på lagringskontot. Värdet för den här parametern anges när mallen distribueras.
 
-## Distribuera mallen
+## <a name="deploying-the-template"></a>Distribuera mallen
 Vi har en fullständig mall för att skapa ett nytt lagringskonto. Som du vet sparades mallen i filen **azuredeploy.json**:
 
 ```json
@@ -125,12 +129,13 @@ Du kan distribuera en mall på ganska många sätt, som du ser i [artikeln Resur
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
 
 # deploy the template to the resource group
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile azuredeploy.json
 ```
 
 Eller, om du vill distribuera mallen med hjälp av Azure CLI, använder du:
 
-```
+```azurecli
 azure group create -n ExampleResourceGroup -l "West Europe"
 
 azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
@@ -140,7 +145,7 @@ Du är nu den stolte ägaren av ett lagringskonto!
 
 Nästa steg är att lägga till alla resurser som krävs för att distribuera arkitekturen som beskrivs i början av den här kursen. Du ska lägga till dessa resurser i samma mall som du har arbetat med.
 
-## Tillgänglighetsuppsättning
+## <a name="availability-set"></a>Tillgänglighetsuppsättning
 När du har definierat lagringskontot lägger du till en tillgänglighetsuppsättning för de virtuella datorerna. I det här fallet finns det inga ytterligare egenskaper som krävs, så dess definition är ganska enkel. Om du vill definiera värdet för antalet uppdateringsdomäner och feldomäner hittar du det fullständiga egenskapsavsnittet i [REST-API:et för att skapa en tillgänglighetsuppsättning](https://msdn.microsoft.com/library/azure/mt163607.aspx).
 
 ```json
@@ -163,7 +168,7 @@ Värdet som du anger för **type** innehåller både resursprovidern och resurst
 
 Eller, om du använder Azure CLI, kan du köra följande kommando:
 
-```
+```azurecli
     azure provider list
 ```
 Med utgångspunkt i detta använder du följande när du arbetar med lagringskonton, virtuella datorer och virtuella nätverk i det här avsnittet:
@@ -180,13 +185,13 @@ Om du vill visa resurstyperna för en viss provider kör du följande PowerShell
 
 Eller, för Azure CLI, så returnerar följande kommando de tillgängliga typerna i JSON-format och sparar dem till en fil.
 
-```
+```azurecli
     azure provider show Microsoft.Compute --json > c:\temp.json
 ```
 
 Du bör se **availabilitySets** som en av typerna i **Microsoft.Compute**. Det fullständiga namnet på typen är **Microsoft.Compute/availabilitySets**. Du kan ange resurstypens namn för resurser i mallen.
 
-## Offentlig IP-adress
+## <a name="public-ip"></a>Offentlig IP-adress
 Definiera en offentlig IP-adress. Som tidigare hittar du alla egenskaper som du kan konfigurera i [REST-API:et för offentliga IP-adresser](https://msdn.microsoft.com/library/azure/mt163590.aspx).
 
 ```json
@@ -221,7 +226,7 @@ Om du vill visa API-versionerna med Azure CLI kör du samma **azure provider sho
 
 Välj den senaste API-versionen när du skapar en ny mall.
 
-## Virtuellt nätverk och undernät
+## <a name="virtual-network-and-subnet"></a>Virtuellt nätverk och undernät
 Skapa ett virtuellt nätverk med ett undernät. Du hittar alla egenskaper som du kan ange i [REST-API:et för virtuella nätverk](https://msdn.microsoft.com/library/azure/mt163661.aspx).
 
 ```json
@@ -248,7 +253,7 @@ Skapa ett virtuellt nätverk med ett undernät. Du hittar alla egenskaper som du
 }
 ```
 
-## Belastningsutjämnare
+## <a name="load-balancer"></a>Belastningsutjämnare
 Nu ska du skapa en externt riktad belastningsutjämnare. Eftersom den här belastningsutjämnaren använder den offentliga IP-adressen måste du deklarera ett beroende för den offentliga IP-adressen i avsnittet **dependsOn**. Det innebär att belastningsutjämnaren inte distribueras förrän den offentliga IP-adressens distribution har slutförts. Om du inte definierar det här sambandet får du ett felmeddelande eftersom Resource Manager försöker distribuera resurserna parallellt och försöker ange belastningsutjämnaren till en offentlig IP-adress som inte finns än. 
 
 Du ska också skapa en backend-adresspool, ett par ingående NAT-regler till RDP till de virtuella datorerna och en belastningsutjämningsregel med en TCP-avsökning på port 80 i den här resursdefinitionen. Du hittar alla egenskaperna i [REST-API:et för belastningsutjämnaren](https://msdn.microsoft.com/library/azure/mt163574.aspx).
@@ -340,7 +345,7 @@ Du ska också skapa en backend-adresspool, ett par ingående NAT-regler till RDP
 }
 ```
 
-## Nätverksgränssnitt
+## <a name="network-interface"></a>Nätverksgränssnitt
 Du ska skapa två nätverksgränssnitt, ett för varje virtuell dator. I stället för att lägga till dubblettposter för nätverksgränssnitten kan du använda [funktionen copyIndex()](resource-group-create-multiple.md) för att iterera i kopieringsloopen (kallas nicLoop) och skapa antalet nätverksgränssnitt som anges i `numberOfInstances`-variablerna. Nätverksgränssnittet är beroende av genereringen av det virtuella nätverket och belastningsutjämnaren. Det använder undernätet som definierades när det virtuella nätverket skapades och belastningsutjämnarens ID för att konfigurera belastningsutjämnarens adresspool och de ingående NAT-reglerna.
 Du hittar alla egenskaperna i [REST-API:et för nätverksgränssnitt](https://msdn.microsoft.com/library/azure/mt163668.aspx).
 
@@ -384,7 +389,7 @@ Du hittar alla egenskaperna i [REST-API:et för nätverksgränssnitt](https://ms
 }
 ```
 
-## Virtuell dator
+## <a name="virtual-machine"></a>Virtuell dator
 Du ska skapa två virtuella datorer med hjälp av funktionen copyIndex() som du gjorde när du skapade [nätverksgränssnitten](#network-interface).
 Genereringen av den virtuella datorn är beroende av lagringskontot, nätverksgränssnittet och tillgänglighetsuppsättningen. Den här virtuella datorn skapas från en avbildning från Marketplace och anges i egenskapen `storageProfile` – `imageReference` används för att definiera avbildningens utgivare, erbjudande, SKU och version. Slutligen konfigureras en diagnostikprofil som aktiverar diagnostik för den virtuella datorn. 
 
@@ -456,7 +461,7 @@ Du hittar relevanta egenskaper för en Marketplace-avbildning genom att följa a
 
 Nu har du definierat resurser för din mall.
 
-## Parametrar
+## <a name="parameters"></a>Parametrar
 I avsnittet parameters definierar du de värden som kan anges när mallen distribueras. Definiera bara parametrar för värden som du tror kan variera under distributionen. Du kan ange ett standardvärde för en parameter som används om inget anges under distributionen. Du kan också definiera de tillåtna värdena som du ser för **imageSKU**-parametern.
 
 ```json
@@ -556,7 +561,7 @@ I avsnittet parameters definierar du de värden som kan anges när mallen distri
   }
 ```
 
-## Variabler
+## <a name="variables"></a>Variabler
 I avsnittet variables kan du definiera värden som används på mer än en plats i mallen, eller värden som skapas från andra uttryck eller variabler. Variabler används ofta för att förenkla mallens syntax.
 
 ```json
@@ -578,11 +583,15 @@ Du är klar med mallen! Du kan jämföra mallen med den fullständig mallen i [s
 
 Du kan omdistribuera mallen med hjälp av samma kommandon som du använde när du distribuerade lagringskontot. Du behöver inte ta bort lagringskontot innan du distribuerar om mallen eftersom Resource Manager inte återskapar resurser som redan finns och som inte har ändrats.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) är ett bra verktyg för att visualisera ARM-mallar eftersom de kan bli för stora för att förstå bara genom att läsa JSON-filen.
 * Mer information om strukturen i en mall finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 * Information om hur du distribuerar en mall finns i [Distribuera en resursgrupp med en Azure Resource Manager-mall](resource-group-template-deploy.md)
+* En serie i fyra delar om att automatisera distributionen finns i [Automatisera programdistributioner till virtuella datorer i Azure](virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md). Den här serien täcker programarkitektur, åtkomst och säkerhet, tillgänglighet och skala samt programdistribution.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

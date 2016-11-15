@@ -1,13 +1,13 @@
 ---
 title: Utveckling av webbappar i Python Flask med DocumentDB | Microsoft Docs
-description: Det här är en självstudie om databaser och användning av DocumentDB för lagring av och åtkomst till data från en Python Flask-webbapp på Azure. Hitta apputvecklingslösningar.
-keywords: Programutveckling, självstudier för databas, python flask, python webbprogram, python webbutveckling, documentdb, azure, Microsoft azure
+description: "Det här är en självstudie om databaser och användning av DocumentDB för lagring av och åtkomst till data från en Python Flask-webbapp på Azure. Hitta apputvecklingslösningar."
+keywords: "Programutveckling, självstudier för databas, python flask, python webbprogram, python webbutveckling, documentdb, azure, Microsoft azure"
 services: documentdb
 documentationcenter: python
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: documentdb
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: syamk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+
 
 ---
 # <a name="python-flask-web-application-development-with-documentdb"></a>Utveckling av webbappar i Python Flask med DocumentDB
@@ -57,7 +61,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 
 * Microsoft Visual C++ Compiler for Python 2.7 från [Microsoft Download Center][3].
 
-## <a name="step-1:-create-a-documentdb-database-account"></a>Steg 1: Skapa ett DocumentDB-databaskonto
+## <a name="step-1-create-a-documentdb-database-account"></a>Steg 1: Skapa ett DocumentDB-databaskonto
 Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå vidare till [Steg 2: Skapa en ny webbapp i Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
@@ -65,7 +69,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå 
 <br/>
 Nu kommer vi att gå igenom hur du skapar en ny Python Flask-webbapp från grunden.
 
-## <a name="step-2:-create-a-new-python-flask-web-application"></a>Steg 2: Skapa en ny webbapp i Python Flask
+## <a name="step-2-create-a-new-python-flask-web-application"></a>Steg 2: Skapa en ny webbapp i Python Flask
 1. I Visual Studio klickar du på menyn **Arkiv**, pekar på **Nytt** och klickar sedan på **Projekt**.
    
     Dialogrutan **Nytt projekt** visas.
@@ -84,7 +88,7 @@ Nu kommer vi att gå igenom hur du skapar en ny Python Flask-webbapp från grund
    
     Utdatafönstret visar `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` när miljön har installerats.
 
-## <a name="step-3:-modify-the-python-flask-web-application"></a>Steg 3: Ändra Python Flask-webbappen
+## <a name="step-3-modify-the-python-flask-web-application"></a>Steg 3: Ändra Python Flask-webbappen
 ### <a name="add-the-python-flask-packages-to-your-project"></a>Lägga till Python Flask-paket i ditt projekt
 När projektet har konfigurerats måste du lägga till nödvändiga Flask-paket till ditt projekt, inklusive pydocumentdb, Python-paketet för DocumentDB.
 
@@ -124,7 +128,7 @@ Nu ska vi kontrollera att allt är korrekt installerat.
     ![Det tomma Python Flask-webbutvecklingsprojektet visas i en webbläsare](./media/documentdb-python-application/image12.png)
 3. Stoppa felsökningen av webbplatsen genom att trycka på **SKIFT**+**F5** i Visual Studio.
 
-### <a name="create-database,-collection,-and-document-definitions"></a>Skapa databas, samling och dokumentdefinitioner
+### <a name="create-database-collection-and-document-definitions"></a>Skapa databas, samling och dokumentdefinitioner
 Nu skapar vi röstningsappen genom att lägga till nya filer och uppdatera andra.
 
 1. Högerklicka på projektet **tutorial** i Solution Explorer. Klicka på **Lägg till** och sedan på **Nytt objekt**. Välj **Tom Python-fil** och namnge filen **forms.py**.  
@@ -142,7 +146,7 @@ class VoteForm(Form):
 ```
 
 
-### <a name="add-the-required-imports-to-views.py"></a>Lägg till nödvändiga importer i views.py
+### <a name="add-the-required-imports-to-viewspy"></a>Lägg till nödvändiga importer i views.py
 1. Expandera mappen **tutorial** i Solution Explorer och öppna filen **views.py**. 
 2. Lägg till nedanstående importuttryck överst i filen **views.py** och spara sedan filen. De importerar DocumentDB:s PythonSDK och Flask-paketen.
    
@@ -152,7 +156,7 @@ class VoteForm(Form):
     import pydocumentdb.document_client as document_client
     ```
 
-### <a name="create-database,-collection,-and-document"></a>Skapa databas, samling och dokument
+### <a name="create-database-collection-and-document"></a>Skapa databas, samling och dokument
 * Lägg till nedanstående kod i slutet av filen, fortfarande i **views.py**. Med den skapas databasen som formuläret använder. Ta inte bort den befintliga koden i **views.py**. Lägg bara till det här i slutet.
 
 ```python
@@ -195,7 +199,7 @@ def create():
 > 
 > 
 
-### <a name="read-database,-collection,-document,-and-submit-form"></a>Läsa databas, samling och dokument samt skicka formulär
+### <a name="read-database-collection-document-and-submit-form"></a>Läsa databas, samling och dokument samt skicka formulär
 * Lägg till nedanstående kod i slutet av filen, fortfarande i **views.py**. Med den kan formuläret konfigureras samt databas, samling och dokument läsas. Ta inte bort den befintliga koden i **views.py**. Lägg bara till det här i slutet.
 
 ```python
@@ -310,7 +314,7 @@ def vote():
     {% endblock %}
     ```
 
-### <a name="add-a-configuration-file-and-change-the-\_\_init\_\_.py"></a>Lägg till en konfigurationsfil och ändra \_\_init\_\_.py
+### <a name="add-a-configuration-file-and-change-the-initpy"></a>Lägg till en konfigurationsfil och ändra \_\_init\_\_.py
 1. Högerklicka på projektet **tutorial** i Solution Explorer. Klicka på **Lägg till** och **Nytt objekt**, välj **Tom Python-fil** och namnge filen **config.py**. Den här konfigurationsfilen krävs av formulär i Flask. Du kan även använda den för att tillhandahålla en hemlig nyckel. Nyckeln behövs inte i den här självstudien.
 2. Lägg till nedanstående kod i config.py. I nästa steg behöver du ändra värden för **DOCUMENTDB\_HOST** och **DOCUMENTDB\_KEY**.
    
@@ -343,7 +347,7 @@ def vote():
    
     ![Skärmdump av Visual Studio Solution Explorer-fönstret](./media/documentdb-python-application/image15.png)
 
-## <a name="step-4:-run-your-web-application-locally"></a>Steg 4: Kör webbappen lokalt
+## <a name="step-4-run-your-web-application-locally"></a>Steg 4: Kör webbappen lokalt
 1. Bygg lösningen genom att trycka på **Ctrl**+**Skift**+**B**.
 2. När den har byggts startar du webbplatsen genom att trycka på **F5**. Du bör se nedanstående på skärmen.
    
@@ -359,12 +363,12 @@ def vote():
     ![Skärmdump som visar sidan Röstningsresultat](./media/documentdb-python-application/image19.png)
 6. Stoppa felsökningen av projektet genom att trycka på SKIFT + F5.
 
-## <a name="step-5:-deploy-the-web-application-to-azure-websites"></a>Steg 5: Distribuera webbappen till Azure Websites
+## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>Steg 5: Distribuera webbappen till Azure Websites
 När hela appen fungerar som den ska mot DocumentDB är det dags att distribuera den till Azure Websites.
 
 1. Högerklicka på projektet i Solution Explorer (kontrollera att det inte fortfarande körs lokalt) och välj **Publicera**.  
    
-    ![Skärmdump som visar tutorial markerad i Solution Explorer med alternativet Publicera markerat](./media/documentdb-python-application/image20.png)
+     ![Skärmdump som visar tutorial markerad i Solution Explorer med alternativet Publicera markerat](./media/documentdb-python-application/image20.png)
 2. I fönstret **Publicera till webben** väljer du **Microsoft Azure-webbappar** och klickar sedan på **Nästa**.
    
     ![Skärmdump som visar fönstret Publicera till webben med Microsoft Azure-webbappar markerat](./media/documentdb-python-application/image21.png)
@@ -405,6 +409,6 @@ Ytterligare självstudier om Python Flask finns i [Ingående självstudie om Fla
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

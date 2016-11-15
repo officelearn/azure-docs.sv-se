@@ -1,13 +1,13 @@
 ---
-title: Installera Hadoop-program på HDInsight | Microsoft Docs
-description: Ta reda på hur du installerar HDInsight-program på HDInsight-appar.
+title: "Installera Hadoop-program på HDInsight | Microsoft Docs"
+description: "Ta reda på hur du installerar HDInsight-program på HDInsight-appar."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 02fbf7609ca2f2fac5105e347fcfc9aa5b794eb2
+
 
 ---
-# Installera anpassade HDInsight-program
+# <a name="install-custom-hdinsight-applications"></a>Installera anpassade HDInsight-program
 Ett HDInsight-program är ett program som användarna kan installera på ett Linux-baserat HDInsight-kluster.  Dessa program kan utvecklas av Microsoft, oberoende programvaruleverantörer och av dig själv. I den här artikeln får du lära dig hur du installerar ett HDInsight-program som inte har publicerats till Azure Portal på HDInsight. Du ska installera programmet [Hue](http://gethue.com/). 
 
 Andra relaterade artiklar:
@@ -26,10 +30,10 @@ Andra relaterade artiklar:
 * [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
 * [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): information om hur du definierar HDInsight-program.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Om du vill installera HDInsight-program i ett befintligt HDInsight-kluster måste du ha ett HDInsight-kluster. Om du vill skapa ett läser du [Skapa kluster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). Du kan även installera HDInsight-program när du skapar ett HDInsight-kluster.
 
-## Installera HDInsight-program
+## <a name="install-hdinsight-applications"></a>Installera HDInsight-program
 HDInsight-program kan installeras när du skapar ett kluster eller i ett befintligt HDInsight-kluster. Information om hur du definierar Azure Resource Manager-mallar finns i [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx).
 
 Filer som behövs för att distribuera programmet (Hue):
@@ -66,7 +70,7 @@ Filer som behövs för att distribuera programmet (Hue):
 
 Utöver Azure Portal kan du också använda [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) och [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-azure-cli) för att anropa Resource Manager-mallar.
 
-## Verifiera installationen
+## <a name="validate-the-installation"></a>Verifiera installationen
 Du kan validera programinstallationen genom att kontrollera statusen för programmet på Azure Portal. Dessutom kan du verifiera att alla HTTP-slutpunkter visats som förväntat och webbsidan om det finns en:
 
 **Öppna Hue-portalen**
@@ -78,7 +82,7 @@ Du kan validera programinstallationen genom att kontrollera statusen för progra
 5. Klicka på **hue** i listan om du vill visa egenskaperna.  
 6. Klicka på webbsidelänken och verifiera webbplatsen. Öppna http-slutpunkten i en webbläsare och validera Hue-webbgränssnittet. Öppna SSH-slutpunkten med [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) eller andra [SSH-klienter](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Felsöka installationen
+## <a name="troubleshoot-the-installation"></a>Felsöka installationen
 Du kan kontrollera programmets installationsstatus i portalmeddelandet (klicka på klockikonen överst i portalen). 
 
 Om en programinstallation misslyckas kan du se felmeddelanden visas och felsökningsinformation på tre ställen:
@@ -97,10 +101,10 @@ Om en programinstallation misslyckas kan du se felmeddelanden visas och felsökn
   
     Mer information finns i [Felsökning](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
-## Ta bort HDInsight-program
+## <a name="remove-hdinsight-applications"></a>Ta bort HDInsight-program
 Det finns flera sätt att ta bort HDInsight-program på.
 
-### Använda portalen
+### <a name="use-portal"></a>Använda portalen
 **Ta bort ett program via portalen**
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
@@ -112,13 +116,13 @@ Det finns flera sätt att ta bort HDInsight-program på.
 
 Via portalen kan du också ta bort klustret eller resursgruppen som innehåller programmet.
 
-### Använda Azure PowerShell
+### <a name="use-azure-powershell"></a>Använda Azure PowerShell
 Med Azure PowerShell kan du ta bort klustret eller resursgruppen. Se [Ta bort kluster med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### Använda Azure CLI
+### <a name="use-azure-cli"></a>Använda Azure CLI
 Med Azure CLI kan du ta bort klustret eller resursgruppen. Se [Ta bort kluster med hjälp av Azure CLI](hdinsight-administer-use-command-line.md#delete-clusters).
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): Läs mer om hur du utvecklar Resource Manager-mallar för distribution av HDInsight-program.
 * [Installera HDInsight-program](hdinsight-apps-install-applications.md): Läs mer om hur du installerar ett HDInsight-program till dina kluster.
 * [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
@@ -126,6 +130,9 @@ Med Azure CLI kan du ta bort klustret eller resursgruppen. Se [Ta bort kluster m
 * [Skapa Linux-baserade Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Lär dig hur du anropar Resource Manager-mallar för att skapa HDInsight-kluster.
 * [Använda tomma edge-noder i HDInsight](hdinsight-apps-use-edge-node.md): Information om hur du använder en tom edge-nod för att få åtkomst till HDInsight-kluster, testa HDInsight-program och vara värd för HDInsight-program.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

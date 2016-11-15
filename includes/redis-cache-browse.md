@@ -12,6 +12,8 @@ Klicka på **Inställningar** eller **Alla inställningar** om du vill visa och 
 
 ![Alla inställningar för Redis-cache](media/redis-cache-browse/redis-cache-blade.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 
